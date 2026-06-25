@@ -1,0 +1,4360 @@
+1
+00:00:00,400 --> 00:00:07,520
+Hello everyone, welcome to another
+
+2
+00:00:03,679 --> 00:00:11,280
+another episode of talk show. We are
+
+3
+00:00:07,520 --> 00:00:14,799
+going to code emac this today as again
+
+4
+00:00:11,280 --> 00:00:18,320
+and eag this and wam language. So we're
+
+5
+00:00:14,799 --> 00:00:21,600
+going to continue yesterday uh fantastic
+
+6
+00:00:18,320 --> 00:00:24,480
+emac this yesterday uh we started to
+
+7
+00:00:21,600 --> 00:00:28,000
+write a JSON tutorial.
+
+8
+00:00:24,480 --> 00:00:30,960
+So I did a my last live stream two or
+
+9
+00:00:28,000 --> 00:00:33,600
+three live stream ago. We started to do
+
+10
+00:00:30,960 --> 00:00:36,320
+this and we talked about something else
+
+11
+00:00:33,600 --> 00:00:40,879
+which is quite interesting. If you go to
+
+12
+00:00:36,320 --> 00:00:42,640
+S talk show uh uh EMAC this Jason
+
+13
+00:00:40,879 --> 00:00:46,239
+serialization
+
+14
+00:00:42,640 --> 00:00:49,760
+idiocy and crimes of Google Chrome and
+
+15
+00:00:46,239 --> 00:00:52,559
+Microsoft Edge. So that was yesterday.
+
+16
+00:00:49,760 --> 00:00:56,320
+Fantastic. Uh but so today we're gonna
+
+17
+00:00:52,559 --> 00:00:58,160
+continue right my tutorial. I I like
+
+18
+00:00:56,320 --> 00:01:01,680
+finished most of it. I'm just going to
+
+19
+00:00:58,160 --> 00:01:05,519
+explain and we are going to uh start to
+
+20
+00:01:01,680 --> 00:01:07,920
+do wra so you can see the
+
+21
+00:01:05,519 --> 00:01:13,439
+comparative linguistics
+
+22
+00:01:07,920 --> 00:01:15,520
+of emac lisp and wuam language. Okay,
+
+23
+00:01:13,439 --> 00:01:17,600
+fascinating subject. So I'm just going
+
+24
+00:01:15,520 --> 00:01:24,000
+to work on it. I think nobody nobody's
+
+25
+00:01:17,600 --> 00:01:26,080
+here. Oh hello Tomid. How hello. So if
+
+26
+00:01:24,000 --> 00:01:29,360
+you are watching this offline, play at
+
+27
+00:01:26,080 --> 00:01:31,920
+1.5 speed because I ramble. If you are
+
+28
+00:01:29,360 --> 00:01:33,360
+watching it here, say hi. Love to see
+
+29
+00:01:31,920 --> 00:01:38,159
+your comments. Okay, let's begin
+
+30
+00:01:33,360 --> 00:01:41,680
+quickly. So Jason emac this Jason so
+
+31
+00:01:38,159 --> 00:01:45,119
+let's start to write it. So uh so JSON
+
+32
+00:01:41,680 --> 00:01:48,479
+pass string so let me tell you
+
+33
+00:01:45,119 --> 00:01:52,399
+uh so if you are a EMAC list coder there
+
+34
+00:01:48,479 --> 00:01:56,640
+is uh four new functions now it's native
+
+35
+00:01:52,399 --> 00:01:59,840
+in Emacs it's written in C
+
+36
+00:01:56,640 --> 00:02:01,439
+uh so they began so you scroll down you
+
+37
+00:01:59,840 --> 00:02:04,240
+know you scroll down you can see a
+
+38
+00:02:01,439 --> 00:02:07,280
+history page history so these four
+
+39
+00:02:04,240 --> 00:02:10,959
+functions JSON par string and JSON
+
+40
+00:02:07,280 --> 00:02:16,720
+serialize and JSON pass buffer and JSON
+
+41
+00:02:10,959 --> 00:02:20,560
+insert they um they begin in 2020 Emacs
+
+42
+00:02:16,720 --> 00:02:25,840
+27 but however they require the C
+
+43
+00:02:20,560 --> 00:02:27,440
+library JSON okay then in EMAC version
+
+44
+00:02:25,840 --> 00:02:29,760
+30
+
+45
+00:02:27,440 --> 00:02:32,640
+uh the lip JSON library is no longer
+
+46
+00:02:29,760 --> 00:02:34,560
+necessary so it became native uh
+
+47
+00:02:32,640 --> 00:02:37,680
+building function and they are written
+
+48
+00:02:34,560 --> 00:02:39,840
+in lisp I mean they are uh I'm sorry
+
+49
+00:02:37,680 --> 00:02:41,599
+they are written in D. Okay. So,
+
+50
+00:02:39,840 --> 00:02:44,959
+actually there's something uh I need to
+
+51
+00:02:41,599 --> 00:02:48,879
+change. So, JSON pass string which is
+
+52
+00:02:44,959 --> 00:02:51,360
+reading a JSON file or JSON string. Um
+
+53
+00:02:48,879 --> 00:02:56,800
+so, JSON serialize
+
+54
+00:02:51,360 --> 00:02:58,319
+is is exporting to JSON. So serialize is
+
+55
+00:02:56,800 --> 00:03:03,200
+eaglist
+
+56
+00:02:58,319 --> 00:03:06,319
+object to JSON such as EMAC list hasht
+
+57
+00:03:03,200 --> 00:03:08,640
+uh list association list and JSON insert
+
+58
+00:03:06,319 --> 00:03:11,360
+is
+
+59
+00:03:08,640 --> 00:03:15,120
+uh so wait pass string pass buffer
+
+60
+00:03:11,360 --> 00:03:20,720
+anyway so that's we what we going to do
+
+61
+00:03:15,120 --> 00:03:23,360
+okay so so they are part of Emacs
+
+62
+00:03:20,720 --> 00:03:26,480
+fantastic however there's old JSON
+
+63
+00:03:23,360 --> 00:03:29,040
+library since 200 2016
+
+64
+00:03:26,480 --> 00:03:32,000
+and uh you know they are just written in
+
+65
+00:03:29,040 --> 00:03:35,200
+lisp someone wrote it. So this is kind
+
+66
+00:03:32,000 --> 00:03:37,519
+of old. So if you are eager you should
+
+67
+00:03:35,200 --> 00:03:40,720
+use a new one. They should be like five
+
+68
+00:03:37,519 --> 00:03:43,599
+or 10 times faster. But the old library
+
+69
+00:03:40,720 --> 00:03:47,040
+uh seems to be still useful because they
+
+70
+00:03:43,599 --> 00:03:49,200
+have some pretty print functions
+
+71
+00:03:47,040 --> 00:03:51,120
+allows you to format JSON. But actually
+
+72
+00:03:49,200 --> 00:03:55,040
+you don't need that because for JSON you
+
+73
+00:03:51,120 --> 00:03:57,439
+can format by uh using Deno like I
+
+74
+00:03:55,040 --> 00:04:00,319
+previous talk show last week also we
+
+75
+00:03:57,439 --> 00:04:05,200
+talked about formatting JavaScript,
+
+76
+00:04:00,319 --> 00:04:09,040
+Python, HTML, CSS uh and that the demo
+
+77
+00:04:05,200 --> 00:04:12,159
+will also format JSON files also HTML.
+
+78
+00:04:09,040 --> 00:04:14,080
+Hello Hank Chuk Chung. Thank you Hank. I
+
+79
+00:04:12,159 --> 00:04:17,199
+see you are working hard. I'm between
+
+80
+00:04:14,080 --> 00:04:19,440
+split shifts.
+
+81
+00:04:17,199 --> 00:04:23,199
+Are you still working at that place?
+
+82
+00:04:19,440 --> 00:04:28,320
+Split shifts. I just read about
+
+83
+00:04:23,199 --> 00:04:30,720
+composers and it sounds like a squash of
+
+84
+00:04:28,320 --> 00:04:33,199
+I have no idea what though those are,
+
+85
+00:04:30,720 --> 00:04:37,280
+but I know you read a lot uh kind of
+
+86
+00:04:33,199 --> 00:04:39,919
+like mathematics actually. So uh my
+
+87
+00:04:37,280 --> 00:04:43,120
+disco friend. So you you know I have a
+
+88
+00:04:39,919 --> 00:04:46,479
+discord discord discord. You can find my
+
+89
+00:04:43,120 --> 00:04:51,120
+discord on my website. So let me quickly
+
+90
+00:04:46,479 --> 00:04:55,600
+look up what what what is uh compos of.
+
+91
+00:04:51,120 --> 00:04:59,040
+So let's search for the web
+
+92
+00:04:55,600 --> 00:05:02,000
+compos of state of the union Alexander
+
+93
+00:04:59,040 --> 00:05:05,280
+Gnome. some Gnome [ __ ] like you know
+
+94
+00:05:02,000 --> 00:05:08,479
+Gnome the organization is entirely
+
+95
+00:05:05,280 --> 00:05:10,639
+corrupted deep state thing today since
+
+96
+00:05:08,479 --> 00:05:13,199
+about you know I don't know since about
+
+97
+00:05:10,639 --> 00:05:15,520
+how many years ago that's from you know
+
+98
+00:05:13,199 --> 00:05:17,600
+that's for you Linux people so Gnome is
+
+99
+00:05:15,520 --> 00:05:20,880
+a desktop they they are like now
+
+100
+00:05:17,600 --> 00:05:23,759
+foundation you know the like um anyway
+
+101
+00:05:20,880 --> 00:05:26,320
+they are very very corrupt
+
+102
+00:05:23,759 --> 00:05:28,639
+like they you know any anyway so I can't
+
+103
+00:05:26,320 --> 00:05:31,440
+believe it's more than a year since
+
+104
+00:05:28,639 --> 00:05:34,080
+composer block. So much has changed.
+
+105
+00:05:31,440 --> 00:05:36,320
+Finally things starting. So yeah, I
+
+106
+00:05:34,080 --> 00:05:38,560
+don't know what the [ __ ] that is. So
+
+107
+00:05:36,320 --> 00:05:42,199
+that's a Windows composition. Is that
+
+108
+00:05:38,560 --> 00:05:42,199
+what what that is?
+
+109
+00:05:42,639 --> 00:05:50,320
+The reliability of disk images. The
+
+110
+00:05:45,680 --> 00:05:53,919
+flexibility of files. Oh,
+
+111
+00:05:50,320 --> 00:05:57,680
+the reliability of disk images. The
+
+112
+00:05:53,919 --> 00:06:00,320
+flexibility of files. So let me explain
+
+113
+00:05:57,680 --> 00:06:02,639
+this one. You know if you are young you
+
+114
+00:06:00,320 --> 00:06:05,280
+may not know. So you have this thing
+
+115
+00:06:02,639 --> 00:06:07,120
+called disk images.
+
+116
+00:06:05,280 --> 00:06:08,639
+So like when you have a file or
+
+117
+00:06:07,120 --> 00:06:10,240
+directory
+
+118
+00:06:08,639 --> 00:06:12,000
+you can you know like right now there's
+
+119
+00:06:10,240 --> 00:06:15,680
+a directory lots of files. You can
+
+120
+00:06:12,000 --> 00:06:18,080
+actually save them as like disk images.
+
+121
+00:06:15,680 --> 00:06:21,280
+For example this is my Emacs directory.
+
+122
+00:06:18,080 --> 00:06:24,560
+There are like a thousand files. Okay.
+
+123
+00:06:21,280 --> 00:06:27,680
+So you can save them as disk images. So
+
+124
+00:06:24,560 --> 00:06:32,479
+when you do that they the the they they
+
+125
+00:06:27,680 --> 00:06:36,000
+are saved into a binary format very uh
+
+126
+00:06:32,479 --> 00:06:38,800
+uh uh they they are saved into a blob.
+
+127
+00:06:36,000 --> 00:06:42,479
+So I'm not sure it's more compressed or
+
+128
+00:06:38,800 --> 00:06:46,960
+not but anyway it's uh so the advantage
+
+129
+00:06:42,479 --> 00:06:49,840
+is that it provides a 100% replica of
+
+130
+00:06:46,960 --> 00:06:53,520
+the folder. actually it's not even a
+
+131
+00:06:49,840 --> 00:06:56,800
+folder but anyway so that that's kind of
+
+132
+00:06:53,520 --> 00:06:58,800
+what it means disk image um then
+
+133
+00:06:56,800 --> 00:07:03,199
+flexibility of files you know you know
+
+134
+00:06:58,800 --> 00:07:05,120
+what is a file right so so so composer
+
+135
+00:07:03,199 --> 00:07:06,960
+is supposed to be the combination the
+
+136
+00:07:05,120 --> 00:07:10,080
+composer project combines several
+
+137
+00:07:06,960 --> 00:07:12,880
+underlying Linux features to provide a
+
+138
+00:07:10,080 --> 00:07:17,120
+very flexible mechanism to support read
+
+139
+00:07:12,880 --> 00:07:20,639
+only read only mountable file system
+
+140
+00:07:17,120 --> 00:07:24,560
+tree Okay. Stacking on top of an
+
+141
+00:07:20,639 --> 00:07:28,880
+underlying lower Linux file system.
+
+142
+00:07:24,560 --> 00:07:31,440
+Okay. Some esoteric Linux tech geeking
+
+143
+00:07:28,880 --> 00:07:33,840
+[ __ ]
+
+144
+00:07:31,440 --> 00:07:35,280
+That's technically that's what it is.
+
+145
+00:07:33,840 --> 00:07:39,520
+Okay. What do you got? What about
+
+146
+00:07:35,280 --> 00:07:42,960
+scratch? Uh oh, wait. Compose FS. That
+
+147
+00:07:39,520 --> 00:07:46,479
+means compose file system kind of. Uh,
+
+148
+00:07:42,960 --> 00:07:49,039
+okay. So, scratch FS. Uh, let's see.
+
+149
+00:07:46,479 --> 00:07:52,080
+Squash FS
+
+150
+00:07:49,039 --> 00:07:54,800
+is a compressed readonly file system.
+
+151
+00:07:52,080 --> 00:07:57,520
+Okay. Yeah, I don't care about those.
+
+152
+00:07:54,800 --> 00:08:01,039
+Uh, good for you.
+
+153
+00:07:57,520 --> 00:08:04,479
+Sounds like a worst scratch file system.
+
+154
+00:08:01,039 --> 00:08:08,319
+Oh, okay. So, you think that compose FS
+
+155
+00:08:04,479 --> 00:08:11,840
+is worse than file uh scratch FS? Okay.
+
+156
+00:08:08,319 --> 00:08:15,599
+Yeah, I I don't know anything about it.
+
+157
+00:08:11,840 --> 00:08:18,400
+uh you know I yeah I don't know anything
+
+158
+00:08:15,599 --> 00:08:21,199
+about those but okay so let's uh
+
+159
+00:08:18,400 --> 00:08:23,840
+continue let's this is the thing we
+
+160
+00:08:21,199 --> 00:08:28,160
+talked about let's just write it there
+
+161
+00:08:23,840 --> 00:08:30,240
+okay so let's continue to uh JSON okay
+
+162
+00:08:28,160 --> 00:08:33,039
+JSON
+
+163
+00:08:30,240 --> 00:08:35,440
+uh yeah so so we're going to do this uh
+
+164
+00:08:33,039 --> 00:08:40,159
+let's try to do this okay so let me just
+
+165
+00:08:35,440 --> 00:08:42,959
+show you uh import JSON okay so
+
+166
+00:08:40,159 --> 00:08:46,800
+so import JSON JSON uh if you don't know
+
+167
+00:08:42,959 --> 00:08:50,720
+what is a JSON JSON is JavaScript
+
+168
+00:08:46,800 --> 00:08:53,360
+based format okay what what is it uh the
+
+169
+00:08:50,720 --> 00:08:57,440
+full name JSON JavaScript
+
+170
+00:08:53,360 --> 00:09:00,880
+object notation that's what it stand for
+
+171
+00:08:57,440 --> 00:09:03,839
+or originally JavaScript object notation
+
+172
+00:09:00,880 --> 00:09:06,880
+so essentially what it is is just a
+
+173
+00:09:03,839 --> 00:09:08,880
+JavaScript syntax so in JavaScript you
+
+174
+00:09:06,880 --> 00:09:13,120
+have something called object which is
+
+175
+00:09:08,880 --> 00:09:16,959
+like a Python diction dictionary or Java
+
+176
+00:09:13,120 --> 00:09:18,720
+map or it's like emac this hasht pearls
+
+177
+00:09:16,959 --> 00:09:20,800
+hasht
+
+178
+00:09:18,720 --> 00:09:23,760
+you know it's a basically a collection
+
+179
+00:09:20,800 --> 00:09:26,080
+of pairs okay and in JavaScript you also
+
+180
+00:09:23,760 --> 00:09:28,880
+have array which is basically a sequence
+
+181
+00:09:26,080 --> 00:09:31,440
+of items so you can nest them
+
+182
+00:09:28,880 --> 00:09:34,320
+arbitrarily you know you can have array
+
+183
+00:09:31,440 --> 00:09:37,920
+and each item is a number string or it
+
+184
+00:09:34,320 --> 00:09:40,480
+can be array again or each item can be a
+
+185
+00:09:37,920 --> 00:09:42,399
+a dictionary you know what Python would
+
+186
+00:09:40,480 --> 00:09:45,519
+called dictionary or you can have a
+
+187
+00:09:42,399 --> 00:09:49,519
+dictionary then so dictionary is a list
+
+188
+00:09:45,519 --> 00:09:52,560
+of key and values. So so each key are
+
+189
+00:09:49,519 --> 00:09:54,720
+always a string and the value can be a
+
+190
+00:09:52,560 --> 00:09:56,240
+array or another dictionary. So things
+
+191
+00:09:54,720 --> 00:09:59,040
+like that. So you can nest them
+
+192
+00:09:56,240 --> 00:10:02,959
+arbitrarily that is effective
+
+193
+00:09:59,040 --> 00:10:05,200
+effectively what JSON JavaScript object
+
+194
+00:10:02,959 --> 00:10:08,640
+notation is
+
+195
+00:10:05,200 --> 00:10:10,800
+uh in in JavaScript syntax. Okay. So
+
+196
+00:10:08,640 --> 00:10:14,880
+it's a data structure representing
+
+197
+00:10:10,800 --> 00:10:19,120
+nested list or nested uh hash hash table
+
+198
+00:10:14,880 --> 00:10:22,640
+or dictionary mixed in any way in
+
+199
+00:10:19,120 --> 00:10:26,000
+JavaScript syntax that that is what JSON
+
+200
+00:10:22,640 --> 00:10:28,480
+is. But however, however there's slight
+
+201
+00:10:26,000 --> 00:10:30,480
+differences you see if you are a
+
+202
+00:10:28,480 --> 00:10:32,560
+beginner you you might think that but
+
+203
+00:10:30,480 --> 00:10:36,240
+but actually if you know the detail if
+
+204
+00:10:32,560 --> 00:10:38,320
+you work with a JSON there's some
+
+205
+00:10:36,240 --> 00:10:41,200
+warning you know you need you need to
+
+206
+00:10:38,320 --> 00:10:44,320
+know because in JavaScript
+
+207
+00:10:41,200 --> 00:10:46,959
+you don't have to quote the key you know
+
+208
+00:10:44,320 --> 00:10:50,399
+like for example here is the syntax for
+
+209
+00:10:46,959 --> 00:10:54,800
+hash table of one key and one value the
+
+210
+00:10:50,399 --> 00:10:56,399
+key is the string H
+
+211
+00:10:54,800 --> 00:10:59,839
+but in JavaScript you don't have to
+
+212
+00:10:56,399 --> 00:11:03,600
+quote that but however in JSON you have
+
+213
+00:10:59,839 --> 00:11:06,320
+to okay so and also the only allowed
+
+214
+00:11:03,600 --> 00:11:09,040
+quotation mark is the quotation mark not
+
+215
+00:11:06,320 --> 00:11:12,320
+apostrophe in JavaScript you can use
+
+216
+00:11:09,040 --> 00:11:14,640
+apostrophe but not in JSON so that's one
+
+217
+00:11:12,320 --> 00:11:16,959
+difference another diff difference is
+
+218
+00:11:14,640 --> 00:11:21,920
+that in JavaScript you can have trailing
+
+219
+00:11:16,959 --> 00:11:24,000
+commas but not in JSON okay so JSON
+
+220
+00:11:21,920 --> 00:11:25,760
+basically basically cleaned up made it
+
+221
+00:11:24,000 --> 00:11:28,560
+more strict
+
+222
+00:11:25,760 --> 00:11:32,160
+and in JavaScript you can have uh what
+
+223
+00:11:28,560 --> 00:11:34,240
+is this uh semicolon you know semicolon
+
+224
+00:11:32,160 --> 00:11:37,120
+this kind of actually necessary
+
+225
+00:11:34,240 --> 00:11:40,480
+sometimes you need a semicolon at the
+
+226
+00:11:37,120 --> 00:11:43,279
+end of the hash table the object value
+
+227
+00:11:40,480 --> 00:11:47,200
+or the array value but in JSON not
+
+228
+00:11:43,279 --> 00:11:51,279
+allowed okay and also in JavaScript you
+
+229
+00:11:47,200 --> 00:11:54,160
+have this this type called undefined
+
+230
+00:11:51,279 --> 00:11:57,920
+and But in JSON that's not allowed.
+
+231
+00:11:54,160 --> 00:12:01,519
+Okay. But in but in JavaScript you also
+
+232
+00:11:57,920 --> 00:12:05,120
+have this new data data type and that's
+
+233
+00:12:01,519 --> 00:12:07,040
+allowed in JSON. Okay. And JSON in
+
+234
+00:12:05,120 --> 00:12:09,360
+JavaScript you can comment things out
+
+235
+00:12:07,040 --> 00:12:11,920
+you know. So if you have array in
+
+236
+00:12:09,360 --> 00:12:14,959
+multiple lines you can comment you know
+
+237
+00:12:11,920 --> 00:12:17,839
+slash slash some elements out. But in
+
+238
+00:12:14,959 --> 00:12:22,959
+JSON that's not allowed. Okay, that's a
+
+239
+00:12:17,839 --> 00:12:26,399
+major uh like a major crack,
+
+240
+00:12:22,959 --> 00:12:30,240
+you know, major um what's the word?
+
+241
+00:12:26,399 --> 00:12:33,040
+Major traps you might uh need to think,
+
+242
+00:12:30,240 --> 00:12:34,959
+you know, need to know if if you came
+
+243
+00:12:33,040 --> 00:12:38,000
+from JavaScript, you know, if you are a
+
+244
+00:12:34,959 --> 00:12:42,320
+master of JavaScript. So JSON is, you
+
+245
+00:12:38,000 --> 00:12:45,680
+know, so so why JSON? JSON, you know, so
+
+246
+00:12:42,320 --> 00:12:48,480
+essentially it's a string. It's a text
+
+247
+00:12:45,680 --> 00:12:53,120
+textual representation of a data
+
+248
+00:12:48,480 --> 00:12:55,040
+structure. Okay. And uh it is used today
+
+249
+00:12:53,120 --> 00:12:57,040
+is you know very it's the number one
+
+250
+00:12:55,040 --> 00:12:59,440
+most popular. It's used for data
+
+251
+00:12:57,040 --> 00:13:02,000
+exchange between different programming
+
+252
+00:12:59,440 --> 00:13:04,320
+languages or between different programs.
+
+253
+00:13:02,000 --> 00:13:08,480
+So if you code Python you might export
+
+254
+00:13:04,320 --> 00:13:10,639
+to JSON. Uh then then the server or the
+
+255
+00:13:08,480 --> 00:13:13,440
+client or the JavaScript or the browser
+
+256
+00:13:10,639 --> 00:13:15,680
+may may read the JSON you know.
+
+257
+00:13:13,440 --> 00:13:18,560
+Similarly, the browser JavaScript can
+
+258
+00:13:15,680 --> 00:13:20,880
+output JSON then your server written in
+
+259
+00:13:18,560 --> 00:13:24,959
+Python, Golan or whatever wam language
+
+260
+00:13:20,880 --> 00:13:27,440
+you can read it. So it's it serves as a
+
+261
+00:13:24,959 --> 00:13:32,480
+interchange format.
+
+262
+00:13:27,440 --> 00:13:36,480
+Okay, that which which uh which
+
+263
+00:13:32,480 --> 00:13:38,880
+supplanted the previous vision of XML.
+
+264
+00:13:36,480 --> 00:13:42,160
+So before JSON that the vision for
+
+265
+00:13:38,880 --> 00:13:45,440
+interchange format is XML the universal
+
+266
+00:13:42,160 --> 00:13:48,240
+extensible markup language but but that
+
+267
+00:13:45,440 --> 00:13:51,760
+kind of failed. So Jason JSON is created
+
+268
+00:13:48,240 --> 00:13:53,760
+by this guy. Um okay I'm digressing
+
+269
+00:13:51,760 --> 00:13:56,800
+again. At this rate I'll never
+
+270
+00:13:53,760 --> 00:13:59,519
+demonstrate this.
+
+271
+00:13:56,800 --> 00:14:01,519
+So you guys tell me your opinions what
+
+272
+00:13:59,519 --> 00:14:04,320
+you want to hear. Okay. You want me to
+
+273
+00:14:01,519 --> 00:14:06,560
+like focus technicality?
+
+274
+00:14:04,320 --> 00:14:08,880
+you know the the the the master of
+
+275
+00:14:06,560 --> 00:14:11,199
+JavaScript and the master of uh whatever
+
+276
+00:14:08,880 --> 00:14:13,360
+what what is the language emac this you
+
+277
+00:14:11,199 --> 00:14:17,199
+know you want to learn about that or you
+
+278
+00:14:13,360 --> 00:14:19,760
+want me to tell you stories like your
+
+279
+00:14:17,199 --> 00:14:23,680
+grandfather would
+
+280
+00:14:19,760 --> 00:14:26,320
+so anyway before JSON is XML is is is
+
+281
+00:14:23,680 --> 00:14:32,600
+the interchange format but JSON turn
+
+282
+00:14:26,320 --> 00:14:32,600
+won't JSON was created by this uh qual
+
+283
+00:14:32,800 --> 00:14:38,000
+Uh
+
+284
+00:14:34,480 --> 00:14:45,240
+uh Kali info search uh
+
+285
+00:14:38,000 --> 00:14:45,240
+uh c wait uh JavaScript the good parts.
+
+286
+00:14:46,399 --> 00:14:51,519
+What
+
+287
+00:14:47,920 --> 00:14:58,600
+what uh oh god I'm about as good as
+
+288
+00:14:51,519 --> 00:14:58,600
+dead. That that was 2012. Okay. Uh,
+
+289
+00:14:59,360 --> 00:15:06,639
+Crawford CR A W.
+
+290
+00:15:03,760 --> 00:15:10,000
+Okay. Well, JavaScript books. Let's just
+
+291
+00:15:06,639 --> 00:15:14,760
+search that. Wait, what happened to my
+
+292
+00:15:10,000 --> 00:15:14,760
+something wrong with my um
+
+293
+00:15:15,360 --> 00:15:21,279
+what? Why is JavaScript
+
+294
+00:15:19,760 --> 00:15:23,519
+book?
+
+295
+00:15:21,279 --> 00:15:28,199
+No, I have several pages about
+
+296
+00:15:23,519 --> 00:15:28,199
+JavaScript book. What happened to my
+
+297
+00:15:29,600 --> 00:15:35,040
+info search? Am I searching the right
+
+298
+00:15:32,160 --> 00:15:37,040
+right place
+
+299
+00:15:35,040 --> 00:15:39,920
+review
+
+300
+00:15:37,040 --> 00:15:43,600
+pattern of software 1996? Richard
+
+301
+00:15:39,920 --> 00:15:47,600
+Gabriel which is one of the founder uh
+
+302
+00:15:43,600 --> 00:15:51,839
+he's the founder of Lucid which is the
+
+303
+00:15:47,600 --> 00:15:55,839
+creator of XEMAC which became XEMAX.
+
+304
+00:15:51,839 --> 00:15:58,720
+Richard P. Gabriel is one of the uh top
+
+305
+00:15:55,839 --> 00:16:00,959
+expert of lisp.
+
+306
+00:15:58,720 --> 00:16:03,920
+Okay. Okay. There it is. Okay.
+
+307
+00:16:00,959 --> 00:16:07,519
+JavaScript books books review. There
+
+308
+00:16:03,920 --> 00:16:10,519
+they are. So why so when I search for
+
+309
+00:16:07,519 --> 00:16:10,519
+book?
+
+310
+00:16:11,759 --> 00:16:19,759
+Okay. Because I typed JS. JS [ __ ] it
+
+311
+00:16:15,199 --> 00:16:24,320
+up. Okay. It should be JavaScript. Yeah.
+
+312
+00:16:19,759 --> 00:16:28,720
+So anyway, the the guy
+
+313
+00:16:24,320 --> 00:16:31,279
+um JavaScript definitive guide 2020,
+
+314
+00:16:28,720 --> 00:16:35,600
+there's a new version. Okay. The cost of
+
+315
+00:16:31,279 --> 00:16:40,720
+complex languages. Uh Rand Ryan D, the
+
+316
+00:16:35,600 --> 00:16:43,519
+creator of Deno and N.JS there. And uh
+
+317
+00:16:40,720 --> 00:16:47,680
+what I need to find the book JavaScript
+
+318
+00:16:43,519 --> 00:16:51,199
+book review 2023. Okay. I read these two
+
+319
+00:16:47,680 --> 00:16:54,199
+books. JavaScript the good parts that is
+
+320
+00:16:51,199 --> 00:16:54,199
+by
+
+321
+00:16:54,880 --> 00:17:02,560
+this guy. Okay. Quarkford. Oh, okay.
+
+322
+00:16:59,120 --> 00:17:05,120
+Douglas Quarkford, right? He's the top
+
+323
+00:17:02,560 --> 00:17:08,480
+expert of Java JavaScript. I talked
+
+324
+00:17:05,120 --> 00:17:11,760
+about him several times. So he's famous
+
+325
+00:17:08,480 --> 00:17:15,039
+for he's famous for making making
+
+326
+00:17:11,760 --> 00:17:18,160
+JavaScript popular as a as a good
+
+327
+00:17:15,039 --> 00:17:21,280
+functional programming language in the
+
+328
+00:17:18,160 --> 00:17:24,000
+year 2000s. Okay. He created he wrote
+
+329
+00:17:21,280 --> 00:17:27,760
+the book JavaScript the good parts which
+
+330
+00:17:24,000 --> 00:17:30,400
+introduced JavaScript to the masses
+
+331
+00:17:27,760 --> 00:17:33,360
+about the good parts about how it is a
+
+332
+00:17:30,400 --> 00:17:36,080
+functional programming language.
+
+333
+00:17:33,360 --> 00:17:38,960
+Okay. So, Douglas Quford,
+
+334
+00:17:36,080 --> 00:17:43,200
+I I've seen quite a lot of his videos.
+
+335
+00:17:38,960 --> 00:17:46,559
+Very I highly respect that guy. Okay.
+
+336
+00:17:43,200 --> 00:17:50,640
+So, Douglas Quford, he created Jason.
+
+337
+00:17:46,559 --> 00:17:52,400
+Okay. Jason is his product.
+
+338
+00:17:50,640 --> 00:17:55,760
+Okay. We are far away. So, what do you
+
+339
+00:17:52,400 --> 00:17:58,720
+guys want? Uh,
+
+340
+00:17:55,760 --> 00:18:00,960
+stories are fun. Okay. But technical is
+
+341
+00:17:58,720 --> 00:18:05,200
+probably still useful for some people.
+
+342
+00:18:00,960 --> 00:18:07,440
+Okay. That's ambivalent vote.
+
+343
+00:18:05,200 --> 00:18:10,679
+When you vote, you need to like vote on
+
+344
+00:18:07,440 --> 00:18:10,679
+one thing
+
+345
+00:18:18,880 --> 00:18:25,120
+GPS. Good morning, good evening, GPS.
+
+346
+00:18:22,240 --> 00:18:29,280
+Okay, let's let's do this JSON. So So
+
+347
+00:18:25,120 --> 00:18:31,840
+here's the JSON. This is emacisp. So you
+
+348
+00:18:29,280 --> 00:18:35,760
+run it and put the output here. So you
+
+349
+00:18:31,840 --> 00:18:38,000
+see this is uh emac this array. So out
+
+350
+00:18:35,760 --> 00:18:40,640
+output is that
+
+351
+00:18:38,000 --> 00:18:42,880
+uh wait
+
+352
+00:18:40,640 --> 00:18:45,919
+I took it take it back. So JSON pass
+
+353
+00:18:42,880 --> 00:18:48,480
+string this is reading a JSON. So this
+
+354
+00:18:45,919 --> 00:18:50,799
+this thing this is a JavaScript array.
+
+355
+00:18:48,480 --> 00:18:54,000
+So that's JSON. Now it's a string. So
+
+356
+00:18:50,799 --> 00:18:57,840
+when you run it and put output here that
+
+357
+00:18:54,000 --> 00:19:02,160
+becomes a list I mean list vector. Okay.
+
+358
+00:18:57,840 --> 00:19:04,080
+This is emac this vector. Okay. Now if
+
+359
+00:19:02,160 --> 00:19:08,160
+you read this thing, this is a
+
+360
+00:19:04,080 --> 00:19:12,559
+JavaScript object which is a dictionary
+
+361
+00:19:08,160 --> 00:19:16,640
+uh collection of uh pairs. Okay, key
+
+362
+00:19:12,559 --> 00:19:19,919
+value key value. Okay, that's JSON. Now
+
+363
+00:19:16,640 --> 00:19:23,440
+you say JSON pass string turn it into a
+
+364
+00:19:19,919 --> 00:19:26,400
+eag object. Okay,
+
+365
+00:19:23,440 --> 00:19:28,640
+run it. So what you get is this. Now
+
+366
+00:19:26,400 --> 00:19:31,600
+what is this? This is a hash table.
+
+367
+00:19:28,640 --> 00:19:36,080
+Okay, this is emac this hash table. In
+
+368
+00:19:31,600 --> 00:19:38,080
+this syntax, this syntax is the uh read
+
+369
+00:19:36,080 --> 00:19:40,960
+syntax for hash table. In other words,
+
+370
+00:19:38,080 --> 00:19:45,039
+it's called literal expression for hash
+
+371
+00:19:40,960 --> 00:19:51,360
+table. So effectively, it reads a string
+
+372
+00:19:45,039 --> 00:19:55,600
+of JSON and uh and let's see.
+
+373
+00:19:51,360 --> 00:19:58,799
+Okay, so it well anyway. So it so here
+
+374
+00:19:55,600 --> 00:20:02,559
+this is a JSON and now it becomes a hash
+
+375
+00:19:58,799 --> 00:20:06,000
+table. Okay. Uh for example I can demo.
+
+376
+00:20:02,559 --> 00:20:09,280
+So for example set this to xx. Okay. So
+
+377
+00:20:06,000 --> 00:20:12,160
+let's set the output there. Okay. Now
+
+378
+00:20:09,280 --> 00:20:14,720
+run it. Success. You can see my commands
+
+379
+00:20:12,160 --> 00:20:18,799
+on the ping window.
+
+380
+00:20:14,720 --> 00:20:22,880
+Now you want to say xx. So let's say get
+
+381
+00:20:18,799 --> 00:20:26,559
+hash. Okay. Get hash. That's a syntax in
+
+382
+00:20:22,880 --> 00:20:30,559
+eac list to get a key from hash table.
+
+383
+00:20:26,559 --> 00:20:34,640
+Okay. Uh key. What key do you want?
+
+384
+00:20:30,559 --> 00:20:36,880
+Let's say name. Okay. Key is a string.
+
+385
+00:20:34,640 --> 00:20:40,799
+So I want the name and table. What what
+
+386
+00:20:36,880 --> 00:20:42,720
+what table? XX optional. What if the key
+
+387
+00:20:40,799 --> 00:20:45,039
+cannot be found? What do you want the
+
+388
+00:20:42,720 --> 00:20:50,120
+default value? We don't care. Just use
+
+389
+00:20:45,039 --> 00:20:50,120
+Neo. Okay. So if you run this,
+
+390
+00:20:50,320 --> 00:20:56,480
+oh so the key the value for the key name
+
+391
+00:20:53,360 --> 00:20:58,640
+in this hash table is Mary. You can see
+
+392
+00:20:56,480 --> 00:21:00,799
+so it verifies.
+
+393
+00:20:58,640 --> 00:21:04,799
+So it proves
+
+394
+00:21:00,799 --> 00:21:08,400
+that this read pass JSON is correct.
+
+395
+00:21:04,799 --> 00:21:12,240
+Okay. Now continue. Uh so that's you
+
+396
+00:21:08,400 --> 00:21:15,760
+know demo of other you know examples.
+
+397
+00:21:12,240 --> 00:21:18,480
+It's a tricky part. Now you see in JSON
+
+398
+00:21:15,760 --> 00:21:21,679
+you got this true you know any of the
+
+399
+00:21:18,480 --> 00:21:23,520
+item the so-called atoms
+
+400
+00:21:21,679 --> 00:21:27,840
+atoms in the expression. Do you guys
+
+401
+00:21:23,520 --> 00:21:30,159
+know what's an atom in uh expression?
+
+402
+00:21:27,840 --> 00:21:32,720
+Atoms means like you know if you have a
+
+403
+00:21:30,159 --> 00:21:35,360
+list or array or hash table you know the
+
+404
+00:21:32,720 --> 00:21:38,559
+like numbers are atoms strings are
+
+405
+00:21:35,360 --> 00:21:41,039
+atoms. So atoms in general means the
+
+406
+00:21:38,559 --> 00:21:44,720
+smallest expression in a programming
+
+407
+00:21:41,039 --> 00:21:48,240
+language typically inside a string array
+
+408
+00:21:44,720 --> 00:21:51,360
+collection uh map dictionary hash table
+
+409
+00:21:48,240 --> 00:21:55,440
+that kind of thing atom the concept of
+
+410
+00:21:51,360 --> 00:21:58,159
+atom is particularly defined in lisp
+
+411
+00:21:55,440 --> 00:22:02,080
+programming languages including wam
+
+412
+00:21:58,159 --> 00:22:06,559
+language you know so I can show you lisp
+
+413
+00:22:02,080 --> 00:22:10,400
+manual okay search manual atom
+
+414
+00:22:06,559 --> 00:22:12,880
+Okay, it says predicates unleash. Now,
+
+415
+00:22:10,400 --> 00:22:17,200
+now, now let's highlight the word atom.
+
+416
+00:22:12,880 --> 00:22:18,960
+Okay. Bam. Bam. Bam. Atom. Yellow. Yes.
+
+417
+00:22:17,200 --> 00:22:21,440
+No. You see? So, the following
+
+418
+00:22:18,960 --> 00:22:24,720
+predicates test whether a list object is
+
+419
+00:22:21,440 --> 00:22:27,280
+an atom, whether it is a conale or is or
+
+420
+00:22:24,720 --> 00:22:29,039
+something something function atom
+
+421
+00:22:27,280 --> 00:22:31,679
+objects, you know, something something.
+
+422
+00:22:29,039 --> 00:22:34,000
+So you see the atom the word atom is
+
+423
+00:22:31,679 --> 00:22:36,480
+defined here and and talked about show
+
+424
+00:22:34,000 --> 00:22:40,480
+in browser you know I have a fantastic
+
+425
+00:22:36,480 --> 00:22:42,880
+command to view uh info documentation in
+
+426
+00:22:40,480 --> 00:22:46,799
+browser in my own website this is
+
+427
+00:22:42,880 --> 00:22:50,320
+kali.info info emac so you can see atom
+
+428
+00:22:46,799 --> 00:22:54,400
+you know so there's this atom function
+
+429
+00:22:50,320 --> 00:22:58,480
+so that is about showing you how atom
+
+430
+00:22:54,400 --> 00:23:02,880
+the concept is defined in lisp and
+
+431
+00:22:58,480 --> 00:23:05,280
+similarly it is defined in wuam language
+
+432
+00:23:02,880 --> 00:23:08,320
+okay so
+
+433
+00:23:05,280 --> 00:23:10,960
+so for example let's start a new and uh
+
+434
+00:23:08,320 --> 00:23:13,760
+switch to kasaw wufam mod you can see at
+
+435
+00:23:10,960 --> 00:23:18,400
+the bottom kasawa wuam mod now I I want
+
+436
+00:23:13,760 --> 00:23:21,200
+to type atom Q. Okay. Completion there.
+
+437
+00:23:18,400 --> 00:23:25,200
+Okay. So, atom Q. Let's say three. Uh,
+
+438
+00:23:21,200 --> 00:23:27,760
+wait. Three. Run it. And paste the
+
+439
+00:23:25,200 --> 00:23:31,840
+result here. Uh, wait. Not that. Okay.
+
+440
+00:23:27,760 --> 00:23:34,799
+So, I press the wrong key. Press press.
+
+441
+00:23:31,840 --> 00:23:39,280
+Okay. It'll take two seconds for it to
+
+442
+00:23:34,799 --> 00:23:41,840
+start wam language. True. You see what?
+
+443
+00:23:39,280 --> 00:23:44,240
+So, this function in Wuam language. But
+
+444
+00:23:41,840 --> 00:23:47,559
+let's look up the documentation. Okay.
+
+445
+00:23:44,240 --> 00:23:47,559
+Press press
+
+446
+00:23:49,280 --> 00:23:55,520
+turn on JavaScript. It's already on and
+
+447
+00:23:52,480 --> 00:23:58,320
+magnify to 1,000°.
+
+448
+00:23:55,520 --> 00:24:01,600
+Okay. So you see atom a function
+
+449
+00:23:58,320 --> 00:24:03,840
+expression argument yields true if
+
+450
+00:24:01,600 --> 00:24:06,960
+expression is an expression which cannot
+
+451
+00:24:03,840 --> 00:24:09,280
+be divided into sub expressions and
+
+452
+00:24:06,960 --> 00:24:12,960
+yields false otherwise. So in other
+
+453
+00:24:09,280 --> 00:24:16,640
+words, this function atom Q test if an
+
+454
+00:24:12,960 --> 00:24:20,720
+expression is the is an atomic thing.
+
+455
+00:24:16,640 --> 00:24:23,360
+Okay. So atom includes numbers, strings
+
+456
+00:24:20,720 --> 00:24:25,440
+uh or symbols symbols such as atom
+
+457
+00:24:23,360 --> 00:24:28,400
+itself you know symbol. So woofam
+
+458
+00:24:25,440 --> 00:24:31,200
+language is you know in you know it's a
+
+459
+00:24:28,400 --> 00:24:34,080
+it's a lisp
+
+460
+00:24:31,200 --> 00:24:36,080
+and this atom Q by the way what Q stand
+
+461
+00:24:34,080 --> 00:24:39,200
+for? Q stand for question that's a
+
+462
+00:24:36,080 --> 00:24:42,240
+convention in wam language it means any
+
+463
+00:24:39,200 --> 00:24:45,440
+function that ends in capital Q always
+
+464
+00:24:42,240 --> 00:24:47,520
+either return true or false not any
+
+465
+00:24:45,440 --> 00:24:51,840
+other value so always return true or
+
+466
+00:24:47,520 --> 00:24:54,799
+false okay it's called predicate in list
+
+467
+00:24:51,840 --> 00:24:57,360
+languages or in functional languages it
+
+468
+00:24:54,799 --> 00:24:59,120
+was called predicate but today's zuma
+
+469
+00:24:57,360 --> 00:25:02,559
+generation know nothing you know today
+
+470
+00:24:59,120 --> 00:25:04,400
+they don't know but classically they are
+
+471
+00:25:02,559 --> 00:25:06,400
+called predicate functions
+
+472
+00:25:04,400 --> 00:25:08,480
+What's a predicate? Functions means a
+
+473
+00:25:06,400 --> 00:25:10,960
+function either always return true or
+
+474
+00:25:08,480 --> 00:25:14,520
+false return a boolean type. Okay,
+
+475
+00:25:10,960 --> 00:25:14,520
+that's called predicate.
+
+476
+00:25:15,760 --> 00:25:21,440
+So uh so in lisp you have this atom
+
+477
+00:25:19,440 --> 00:25:24,919
+function does exactly the same thing.
+
+478
+00:25:21,440 --> 00:25:24,919
+Okay, atom.
+
+479
+00:25:25,120 --> 00:25:29,120
+Okay, that's kind of a little
+
+480
+00:25:26,960 --> 00:25:34,000
+digression. We were talking about this.
+
+481
+00:25:29,120 --> 00:25:37,120
+Um, okay. So, uh, so let's cut that and
+
+482
+00:25:34,000 --> 00:25:39,520
+go to talk show. Let's put that to here.
+
+483
+00:25:37,120 --> 00:25:44,000
+So, that means we talked about that
+
+484
+00:25:39,520 --> 00:25:46,400
+thing. Okay. So, wra language code.
+
+485
+00:25:44,000 --> 00:25:49,919
+Paste it there. Syntax code show in
+
+486
+00:25:46,400 --> 00:25:53,440
+browser. There it is. And now go back to
+
+487
+00:25:49,919 --> 00:25:55,520
+uh, close that. Go back to this. So, we
+
+488
+00:25:53,440 --> 00:26:00,080
+so we were talking about this. So in
+
+489
+00:25:55,520 --> 00:26:02,880
+JSON in JavaScript the language
+
+490
+00:26:00,080 --> 00:26:06,640
+specifically in a subset of JavaScript
+
+491
+00:26:02,880 --> 00:26:09,760
+called JSON you have the the special
+
+492
+00:26:06,640 --> 00:26:12,880
+value of true false and no these are
+
+493
+00:26:09,760 --> 00:26:16,640
+atoms okay special atoms
+
+494
+00:26:12,880 --> 00:26:18,559
+so there's a issue when you import JSON
+
+495
+00:26:16,640 --> 00:26:22,720
+you know doesn't matter you are using
+
+496
+00:26:18,559 --> 00:26:25,360
+Python or JavaScript or I mean
+
+497
+00:26:22,720 --> 00:26:29,440
+language or any or Please you know when
+
+498
+00:26:25,360 --> 00:26:31,200
+you import this true false no from JSON
+
+499
+00:26:29,440 --> 00:26:33,440
+what do you want them to become because
+
+500
+00:26:31,200 --> 00:26:37,760
+your language may not have this concept
+
+501
+00:26:33,440 --> 00:26:41,360
+of true or no you know that's the case
+
+502
+00:26:37,760 --> 00:26:45,480
+with emac this and this in general
+
+503
+00:26:41,360 --> 00:26:45,480
+including common dispo
+
+504
+00:26:52,000 --> 00:26:56,559
+is supposed to mean force anything
+
+505
+00:26:54,240 --> 00:27:01,039
+otherwise is supposed to be tr mean
+
+506
+00:26:56,559 --> 00:27:03,360
+true. So you need to specify how when
+
+507
+00:27:01,039 --> 00:27:05,520
+you encounter these true false or new
+
+508
+00:27:03,360 --> 00:27:09,600
+how do you want them to be translated
+
+509
+00:27:05,520 --> 00:27:12,880
+into um emacisp your language or python
+
+510
+00:27:09,600 --> 00:27:16,559
+or wuam language whatever or goland okay
+
+511
+00:27:12,880 --> 00:27:20,080
+so by default true just become t okay
+
+512
+00:27:16,559 --> 00:27:22,880
+let's run this okay run it you see by
+
+513
+00:27:20,080 --> 00:27:27,360
+default true the atom true becomes just
+
+514
+00:27:22,880 --> 00:27:30,320
+t in this false became this special you
+
+515
+00:27:27,360 --> 00:27:34,080
+know Now this this this special thing uh
+
+516
+00:27:30,320 --> 00:27:36,000
+not well known in this. So force becomes
+
+517
+00:27:34,080 --> 00:27:38,240
+a symbol. This actually this is a
+
+518
+00:27:36,000 --> 00:27:41,600
+symbol. Whenever you have a symbol that
+
+519
+00:27:38,240 --> 00:27:44,080
+became with two dot that means a symbol
+
+520
+00:27:41,600 --> 00:27:48,320
+and that means kind of like a temporary
+
+521
+00:27:44,080 --> 00:27:52,080
+temporary symbol. Okay. And then new
+
+522
+00:27:48,320 --> 00:27:55,200
+JavaScript JSON new becomes eag symbol
+
+523
+00:27:52,080 --> 00:27:58,640
+new. So, Emac this by default they don't
+
+524
+00:27:55,200 --> 00:28:01,120
+have this thing but you know they just
+
+525
+00:27:58,640 --> 00:28:04,880
+create that those symbols for for for
+
+526
+00:28:01,120 --> 00:28:09,440
+JSON. Okay. So, this is important
+
+527
+00:28:04,880 --> 00:28:12,880
+when you import JSON to lisp. So put the
+
+528
+00:28:09,440 --> 00:28:16,480
+code back syntax code showing browser
+
+529
+00:28:12,880 --> 00:28:20,640
+back to our JSON uh emac list tutorial
+
+530
+00:28:16,480 --> 00:28:24,159
+that's about reading JSON
+
+531
+00:28:20,640 --> 00:28:26,480
+and uh so
+
+532
+00:28:24,159 --> 00:28:28,960
+so for example you can add so if you are
+
+533
+00:28:26,480 --> 00:28:32,799
+doing in Python oh I have an article on
+
+534
+00:28:28,960 --> 00:28:36,480
+that so scroll down so JSON
+
+535
+00:28:32,799 --> 00:28:39,279
+uh JSON Python read write JSON so this
+
+536
+00:28:36,480 --> 00:28:42,240
+is Python's version
+
+537
+00:28:39,279 --> 00:28:44,399
+you know so in Python you encount
+
+538
+00:28:42,240 --> 00:28:48,000
+encounter new what does Python you know
+
+539
+00:28:44,399 --> 00:28:52,000
+Python in Python it became
+
+540
+00:28:48,000 --> 00:28:54,000
+uh JSON to Python object it became none
+
+541
+00:28:52,000 --> 00:28:58,320
+okay Python doesn't have no new but
+
+542
+00:28:54,000 --> 00:29:01,120
+Python has this special none okay
+
+543
+00:28:58,320 --> 00:29:03,840
+this
+
+544
+00:29:01,120 --> 00:29:06,399
+special things okay
+
+545
+00:29:03,840 --> 00:29:09,360
+and in wam language you have the similar
+
+546
+00:29:06,399 --> 00:29:12,559
+issue when you import JSON. Okay. So
+
+547
+00:29:09,360 --> 00:29:14,880
+anyway, are you guys is this is is this
+
+548
+00:29:12,559 --> 00:29:19,600
+interesting? I already talked for 30
+
+549
+00:29:14,880 --> 00:29:22,640
+minutes. Okay. So, so we we barely begin
+
+550
+00:29:19,600 --> 00:29:24,880
+to cover this emac this. So, we we you
+
+551
+00:29:22,640 --> 00:29:28,559
+know we kind of covered reading import
+
+552
+00:29:24,880 --> 00:29:31,679
+JSON and oh then then there's more
+
+553
+00:29:28,559 --> 00:29:35,039
+complexity. So, this is for those of you
+
+554
+00:29:31,679 --> 00:29:37,919
+who are eag coders.
+
+555
+00:29:35,039 --> 00:29:39,520
+uh some you know uh technical detail
+
+556
+00:29:37,919 --> 00:29:43,279
+because
+
+557
+00:29:39,520 --> 00:29:46,880
+remember JSON is a data structure of
+
+558
+00:29:43,279 --> 00:29:50,159
+JavaScript syntax. Okay. So what what is
+
+559
+00:29:46,880 --> 00:29:53,919
+a data structure? Well, it's a nested uh
+
+560
+00:29:50,159 --> 00:29:57,679
+nested array or nested dictionary in
+
+561
+00:29:53,919 --> 00:29:59,760
+JavaScript. Okay. Can be mixed nested in
+
+562
+00:29:57,679 --> 00:30:03,760
+any way.
+
+563
+00:29:59,760 --> 00:30:07,440
+So but in in lisp in eac lisp when you
+
+564
+00:30:03,760 --> 00:30:09,919
+want to represent a sequence of key
+
+565
+00:30:07,440 --> 00:30:12,399
+value pairs you actually have three
+
+566
+00:30:09,919 --> 00:30:15,600
+choices.
+
+567
+00:30:12,399 --> 00:30:18,240
+Those choices are
+
+568
+00:30:15,600 --> 00:30:22,640
+association list
+
+569
+00:30:18,240 --> 00:30:25,840
+property list let's open and hash table
+
+570
+00:30:22,640 --> 00:30:29,360
+hash table. So actually you have three
+
+571
+00:30:25,840 --> 00:30:32,880
+different data structures to represent
+
+572
+00:30:29,360 --> 00:30:35,440
+key value pairs. Okay. So here's a hash
+
+573
+00:30:32,880 --> 00:30:38,320
+table in EMAC list. Here's association
+
+574
+00:30:35,440 --> 00:30:40,159
+list in EMAC list. Here's property list
+
+575
+00:30:38,320 --> 00:30:42,480
+in EMAC list. They have different
+
+576
+00:30:40,159 --> 00:30:44,000
+syntax. They have different behaviors.
+
+577
+00:30:42,480 --> 00:30:47,039
+Okay.
+
+578
+00:30:44,000 --> 00:30:50,799
+So question when you import JavaScript
+
+579
+00:30:47,039 --> 00:30:52,960
+hasht you know the the JavaScript JSON
+
+580
+00:30:50,799 --> 00:30:55,120
+um
+
+581
+00:30:52,960 --> 00:30:59,919
+like this name Mary uh you know like
+
+582
+00:30:55,120 --> 00:31:01,919
+like this name marry age 24 what in you
+
+583
+00:30:59,919 --> 00:31:05,840
+know when you import that should should
+
+584
+00:31:01,919 --> 00:31:07,440
+it become hash table or should it become
+
+585
+00:31:05,840 --> 00:31:09,440
+uh
+
+586
+00:31:07,440 --> 00:31:12,640
+you know association list or property
+
+587
+00:31:09,440 --> 00:31:15,200
+list you know so
+
+588
+00:31:12,640 --> 00:31:18,320
+the most fitting Main choice is actually
+
+589
+00:31:15,200 --> 00:31:20,960
+hasht. So by default it they become hash
+
+590
+00:31:18,320 --> 00:31:24,320
+table. But if you want it to become
+
+591
+00:31:20,960 --> 00:31:27,200
+association list or property list you
+
+592
+00:31:24,320 --> 00:31:30,960
+can you just have to specify you know
+
+593
+00:31:27,200 --> 00:31:34,000
+this you know. So here's the example. So
+
+594
+00:31:30,960 --> 00:31:38,799
+by default array becomes array but you
+
+595
+00:31:34,000 --> 00:31:41,519
+can also say array becomes a list. Uh
+
+596
+00:31:38,799 --> 00:31:44,080
+and what is the hash table example here?
+
+597
+00:31:41,519 --> 00:31:47,440
+So hash table. So here is a hash table
+
+598
+00:31:44,080 --> 00:31:50,720
+very simple one a dictionary. So you can
+
+599
+00:31:47,440 --> 00:31:54,880
+say by default you you know you u by
+
+600
+00:31:50,720 --> 00:31:58,159
+default they become hasht okay like that
+
+601
+00:31:54,880 --> 00:32:01,279
+but you can say you want it to become
+
+602
+00:31:58,159 --> 00:32:05,679
+association list like that or you can
+
+603
+00:32:01,279 --> 00:32:08,480
+specify here to become a property list.
+
+604
+00:32:05,679 --> 00:32:12,240
+Okay. So that is kind of you know the
+
+605
+00:32:08,480 --> 00:32:15,440
+technical detail for Emac beast.
+
+606
+00:32:12,240 --> 00:32:18,000
+So far so good. So so far so good.
+
+607
+00:32:15,440 --> 00:32:20,159
+Matlab should open source as well. It
+
+608
+00:32:18,000 --> 00:32:23,200
+would be cool if we found open source.
+
+609
+00:32:20,159 --> 00:32:26,399
+Uh well that is frequently asked
+
+610
+00:32:23,200 --> 00:32:31,120
+question. You know there's a quandere
+
+611
+00:32:26,399 --> 00:32:33,039
+you see if you you know wam language you
+
+612
+00:32:31,120 --> 00:32:35,919
+know it's fantastic. You know it cost
+
+613
+00:32:33,039 --> 00:32:38,240
+you few thousand dollars. Um you know
+
+614
+00:32:35,919 --> 00:32:42,559
+you can you can get a you know right now
+
+615
+00:32:38,240 --> 00:32:45,440
+it's free uh for personal use.
+
+616
+00:32:42,559 --> 00:32:48,720
+So let me let me let me well let yeah
+
+617
+00:32:45,440 --> 00:32:52,240
+well why don't I you know wam language
+
+618
+00:32:48,720 --> 00:32:56,159
+wuam they donate to me. Okay so let me
+
+619
+00:32:52,240 --> 00:33:00,320
+tell you how good they are you know I've
+
+620
+00:32:56,159 --> 00:33:03,840
+been coding them wam language since 1990
+
+621
+00:33:00,320 --> 00:33:05,519
+uh 19 1993.
+
+622
+00:33:03,840 --> 00:33:07,600
+Okay. So, Wuham language, you know, you
+
+623
+00:33:05,519 --> 00:33:10,559
+can download it for free. They became
+
+624
+00:33:07,600 --> 00:33:12,640
+free like free to use for personal use
+
+625
+00:33:10,559 --> 00:33:15,519
+since about seven years ago. Okay.
+
+626
+00:33:12,640 --> 00:33:19,919
+Download it. But you can also pay for a
+
+627
+00:33:15,519 --> 00:33:23,039
+student version like uh $200 something a
+
+628
+00:33:19,919 --> 00:33:26,720
+year, $300 a year stu student version.
+
+629
+00:33:23,039 --> 00:33:30,240
+It's I mean if you are a student then
+
+630
+00:33:26,720 --> 00:33:32,960
+you can do that but the version is just
+
+631
+00:33:30,240 --> 00:33:36,240
+the full. So, wuam doesn't have crippled
+
+632
+00:33:32,960 --> 00:33:40,080
+version like the every wam you know does
+
+633
+00:33:36,240 --> 00:33:41,840
+it's the same okay so you pay like 250
+
+634
+00:33:40,080 --> 00:33:44,720
+something you know check their website
+
+635
+00:33:41,840 --> 00:33:47,200
+you know a year then you get you know
+
+636
+00:33:44,720 --> 00:33:51,039
+wam desktop or Android version or
+
+637
+00:33:47,200 --> 00:33:53,600
+whatever they have you know so many
+
+638
+00:33:51,039 --> 00:33:56,480
+uh but the it's always the full version
+
+639
+00:33:53,600 --> 00:33:58,559
+it's never like some like it used to be
+
+640
+00:33:56,480 --> 00:34:01,679
+you know before some software you have
+
+641
+00:33:58,559 --> 00:34:04,799
+this concept of crypaware here like like
+
+642
+00:34:01,679 --> 00:34:06,799
+some student version would don't have
+
+643
+00:34:04,799 --> 00:34:09,760
+this feature that or or something like
+
+644
+00:34:06,799 --> 00:34:12,399
+that that does not happen with Wuam
+
+645
+00:34:09,760 --> 00:34:17,040
+language okay Mathematica
+
+646
+00:34:12,399 --> 00:34:21,359
+I bought it when I was a student in 1992
+
+647
+00:34:17,040 --> 00:34:23,520
+or 1993 I bought it I spent few hundred
+
+648
+00:34:21,359 --> 00:34:26,639
+uh you know I I bought the student
+
+649
+00:34:23,520 --> 00:34:29,119
+version I still have the disc CD you
+
+650
+00:34:26,639 --> 00:34:32,159
+know
+
+651
+00:34:29,119 --> 00:34:34,879
+actually I I you know it be at that time
+
+652
+00:34:32,159 --> 00:34:37,839
+it's not CD CD is not out yet. You got
+
+653
+00:34:34,879 --> 00:34:41,320
+these floppy discs you know five or 10
+
+654
+00:34:37,839 --> 00:34:41,320
+floppy discs.
+
+655
+00:34:45,520 --> 00:34:50,399
+Okay. It's a wuam language you know it
+
+656
+00:34:47,520 --> 00:34:53,760
+began since 1987
+
+657
+00:34:50,399 --> 00:34:56,480
+199 1988
+
+658
+00:34:53,760 --> 00:35:00,079
+and before that Stephan wuam is another
+
+659
+00:34:56,480 --> 00:35:02,960
+software which became wam ma mathematica
+
+660
+00:35:00,079 --> 00:35:05,920
+okay but the the thing is you know so
+
+661
+00:35:02,960 --> 00:35:07,839
+today people want you know why don't you
+
+662
+00:35:05,920 --> 00:35:10,720
+you know they want open source right
+
+663
+00:35:07,839 --> 00:35:12,800
+because open source became
+
+664
+00:35:10,720 --> 00:35:15,040
+long story you know I'm not going to you
+
+665
+00:35:12,800 --> 00:35:17,520
+know I I talked so much about open
+
+666
+00:35:15,040 --> 00:35:20,400
+source But the question is people want u
+
+667
+00:35:17,520 --> 00:35:22,160
+language to become open source. You got
+
+668
+00:35:20,400 --> 00:35:26,480
+a problem
+
+669
+00:35:22,160 --> 00:35:29,839
+because once you it became open source
+
+670
+00:35:26,480 --> 00:35:33,440
+nobody pays and it became just become
+
+671
+00:35:29,839 --> 00:35:37,119
+[ __ ] It become [ __ ] within one year or
+
+672
+00:35:33,440 --> 00:35:42,160
+two just like the Gnome Foundation you
+
+673
+00:35:37,119 --> 00:35:45,040
+know they it became deep state [ __ ] It
+
+674
+00:35:42,160 --> 00:35:47,680
+it gets into your pants, you know. It it
+
+675
+00:35:45,040 --> 00:35:49,599
+it check what you're doing and send it
+
+676
+00:35:47,680 --> 00:35:52,800
+to CIA,
+
+677
+00:35:49,599 --> 00:35:56,079
+send to the it and you want to do this
+
+678
+00:35:52,800 --> 00:35:58,960
+it oh [ __ ] crashed. Oh, go let's go to
+
+679
+00:35:56,079 --> 00:36:01,119
+Stack Overflow, you know. Let's Why do I
+
+680
+00:35:58,960 --> 00:36:05,520
+crash when I'm I'm doing this? You know,
+
+681
+00:36:01,119 --> 00:36:07,680
+it became [ __ ] just like Linux.
+
+682
+00:36:05,520 --> 00:36:09,359
+But you'll love it. You'll love it. You
+
+683
+00:36:07,680 --> 00:36:11,599
+You'll love it. you every day you'll
+
+684
+00:36:09,359 --> 00:36:13,760
+spend, you know, one hour to check, you
+
+685
+00:36:11,599 --> 00:36:15,839
+know, how to how to fix this thing.
+
+686
+00:36:13,760 --> 00:36:18,720
+Tomorrow you spend another hour to fix
+
+687
+00:36:15,839 --> 00:36:22,079
+that thing, how to fix fix that thing.
+
+688
+00:36:18,720 --> 00:36:27,000
+Nothing works out of the box
+
+689
+00:36:22,079 --> 00:36:27,000
+open source, but it's open source.
+
+690
+00:36:28,720 --> 00:36:33,119
+So that's a question, you know, that's
+
+691
+00:36:30,640 --> 00:36:35,760
+people being demanded, you know, I know
+
+692
+00:36:33,119 --> 00:36:39,680
+that's what you think.
+
+693
+00:36:35,760 --> 00:36:43,760
+and Matlab that's another sad story okay
+
+694
+00:36:39,680 --> 00:36:48,640
+mat lab is also a victim of open source
+
+695
+00:36:43,760 --> 00:36:51,839
+you see I know mat lab since like 1990s
+
+696
+00:36:48,640 --> 00:36:54,640
+okay uh they they got the same problem
+
+697
+00:36:51,839 --> 00:36:56,720
+because the open-source invasion you
+
+698
+00:36:54,640 --> 00:36:59,440
+know the open source fanatics they
+
+699
+00:36:56,720 --> 00:37:01,680
+demand you know they they demand you you
+
+700
+00:36:59,440 --> 00:37:04,079
+should be open source you know I'm not
+
+701
+00:37:01,680 --> 00:37:08,000
+going to pay [ __ ]
+
+702
+00:37:04,079 --> 00:37:14,160
+so open source has collapsed many prop
+
+703
+00:37:08,000 --> 00:37:15,760
+proprietary uh uh companies including
+
+704
+00:37:14,160 --> 00:37:18,880
+many
+
+705
+00:37:15,760 --> 00:37:23,040
+companies that creates lisp you know
+
+706
+00:37:18,880 --> 00:37:25,680
+France Lisp mini okay France uh this is
+
+707
+00:37:23,040 --> 00:37:29,359
+old history you know starting around
+
+708
+00:37:25,680 --> 00:37:32,320
+year 2000 you know all these companies
+
+709
+00:37:29,359 --> 00:37:34,640
+become basically bankrupt because nobody
+
+710
+00:37:32,320 --> 00:37:37,200
+is going to buy anymore because commonly
+
+711
+00:37:34,640 --> 00:37:39,359
+Oh, we got you know we got several
+
+712
+00:37:37,200 --> 00:37:42,960
+version of open source they by these
+
+713
+00:37:39,359 --> 00:37:47,359
+open source fanatics.
+
+714
+00:37:42,960 --> 00:37:49,520
+So and the B O B operating system you
+
+715
+00:37:47,359 --> 00:37:51,440
+know you guys know B operating system
+
+716
+00:37:49,520 --> 00:37:55,839
+you know many of you don't but you know
+
+717
+00:37:51,440 --> 00:37:57,599
+so basically it just killed a lot um
+
+718
+00:37:55,839 --> 00:38:00,320
+small
+
+719
+00:37:57,599 --> 00:38:02,880
+software companies. Okay because no you
+
+720
+00:38:00,320 --> 00:38:07,680
+know these [ __ ] demand things to be
+
+721
+00:38:02,880 --> 00:38:09,920
+free. They say they demand morality you
+
+722
+00:38:07,680 --> 00:38:12,320
+know because they want you know moral on
+
+723
+00:38:09,920 --> 00:38:14,640
+based on moral principles. They don't
+
+724
+00:38:12,320 --> 00:38:16,720
+you know and also we need to we need the
+
+725
+00:38:14,640 --> 00:38:18,880
+source code because how do I know you
+
+726
+00:38:16,720 --> 00:38:21,359
+are not like looking into my pens
+
+727
+00:38:18,880 --> 00:38:25,440
+looking into my files so therefore I
+
+728
+00:38:21,359 --> 00:38:28,000
+demand source code but actually they
+
+729
+00:38:25,440 --> 00:38:31,359
+just want things free
+
+730
+00:38:28,000 --> 00:38:34,880
+these student young [ __ ]
+
+731
+00:38:31,359 --> 00:38:38,320
+just just like communism just like
+
+732
+00:38:34,880 --> 00:38:41,760
+exactly the the reason communism the
+
+733
+00:38:38,320 --> 00:38:44,400
+idea spread let's share you know if you
+
+734
+00:38:41,760 --> 00:38:46,960
+don't share you are evil
+
+735
+00:38:44,400 --> 00:38:49,040
+that's what open source are you know the
+
+736
+00:38:46,960 --> 00:38:51,400
+essence okay
+
+737
+00:38:49,040 --> 00:38:53,119
+so um
+
+738
+00:38:51,400 --> 00:38:55,680
+[Music]
+
+739
+00:38:53,119 --> 00:38:58,160
+so it seems but but it became a huge
+
+740
+00:38:55,680 --> 00:39:00,000
+movement just like communism you know so
+
+741
+00:38:58,160 --> 00:39:02,480
+year 2000 they became you know they
+
+742
+00:39:00,000 --> 00:39:04,720
+demand so a lot so you know so what does
+
+743
+00:39:02,480 --> 00:39:07,760
+the corporation do you know what what
+
+744
+00:39:04,720 --> 00:39:10,480
+did Google do Google is Google uh open
+
+745
+00:39:07,760 --> 00:39:13,280
+source well not really you know like is
+
+746
+00:39:10,480 --> 00:39:15,520
+Google Chrome browser open source? No.
+
+747
+00:39:13,280 --> 00:39:18,400
+Well, your part of it is, but the
+
+748
+00:39:15,520 --> 00:39:21,359
+important part, no. Is Google, you know,
+
+749
+00:39:18,400 --> 00:39:24,000
+search open source? No.
+
+750
+00:39:21,359 --> 00:39:26,320
+Is Microsoft Windows open source? No.
+
+751
+00:39:24,000 --> 00:39:28,800
+Although this they sponsor open source
+
+752
+00:39:26,320 --> 00:39:31,520
+today, you know, the thenet is all open
+
+753
+00:39:28,800 --> 00:39:34,960
+source. But why is Windows not open
+
+754
+00:39:31,520 --> 00:39:38,240
+source? You see, is is Amazon open
+
+755
+00:39:34,960 --> 00:39:40,160
+source? No. Is Facebook open source? No.
+
+756
+00:39:38,240 --> 00:39:42,240
+But they are known for open source you
+
+757
+00:39:40,160 --> 00:39:44,960
+know they they are the donors of open
+
+758
+00:39:42,240 --> 00:39:50,320
+source they they support they are the
+
+759
+00:39:44,960 --> 00:39:52,880
+heartbeat actually today of open source.
+
+760
+00:39:50,320 --> 00:39:55,599
+So they are not but they are not exactly
+
+761
+00:39:52,880 --> 00:39:58,640
+open source. So what they do you know oh
+
+762
+00:39:55,599 --> 00:40:01,359
+so you demand open source. Oh so you
+
+763
+00:39:58,640 --> 00:40:04,720
+demand open source. You are so loud and
+
+764
+00:40:01,359 --> 00:40:07,440
+so so so powerful. So many of you. Oh,
+
+765
+00:40:04,720 --> 00:40:10,079
+what am I going to do? If I go open
+
+766
+00:40:07,440 --> 00:40:12,640
+source, you know, then then anyone can
+
+767
+00:40:10,079 --> 00:40:16,560
+sell my software, then I'm going to be I
+
+768
+00:40:12,640 --> 00:40:19,520
+going to be dead, right? Hm. We must
+
+769
+00:40:16,560 --> 00:40:21,040
+think of some something. All right,
+
+770
+00:40:19,520 --> 00:40:23,440
+cloud.
+
+771
+00:40:21,040 --> 00:40:25,680
+Let's go to the cloud and let's make it
+
+772
+00:40:23,440 --> 00:40:28,079
+a service.
+
+773
+00:40:25,680 --> 00:40:30,400
+So, we are Google. We actually do search
+
+774
+00:40:28,079 --> 00:40:32,240
+engine as a service. No, we don't we
+
+775
+00:40:30,400 --> 00:40:35,200
+don't we don't write software. We we
+
+776
+00:40:32,240 --> 00:40:37,119
+just have the service you are paying for
+
+777
+00:40:35,200 --> 00:40:40,320
+the service
+
+778
+00:40:37,119 --> 00:40:43,040
+cloud you know we we will you know make
+
+779
+00:40:40,320 --> 00:40:45,520
+it convenient so you can doesn't matter
+
+780
+00:40:43,040 --> 00:40:48,720
+what device you are will store it on the
+
+781
+00:40:45,520 --> 00:40:51,839
+cloud you know this is adv advanced
+
+782
+00:40:48,720 --> 00:40:54,720
+computing cutting edge computation it's
+
+783
+00:40:51,839 --> 00:40:57,520
+called cloud computing
+
+784
+00:40:54,720 --> 00:41:00,079
+you know so store your you know photo
+
+785
+00:40:57,520 --> 00:41:03,040
+your bedroom photos where you are you
+
+786
+00:41:00,079 --> 00:41:06,960
+know where you go we all store it on our
+
+787
+00:41:03,040 --> 00:41:09,119
+computer, you know. So that's
+
+788
+00:41:06,960 --> 00:41:11,920
+that's that's that's what the [ __ ]
+
+789
+00:41:09,119 --> 00:41:14,720
+open source [ __ ] did. Okay.
+
+790
+00:41:11,920 --> 00:41:16,880
+Everything become becomes cloud. There's
+
+791
+00:41:14,720 --> 00:41:19,680
+nothing you can do because you open
+
+792
+00:41:16,880 --> 00:41:22,880
+source [ __ ] You demand things to
+
+793
+00:41:19,680 --> 00:41:24,720
+be free for selfish reasons. Okay? You
+
+794
+00:41:22,880 --> 00:41:27,280
+don't actually care about morality.
+
+795
+00:41:24,720 --> 00:41:30,800
+Nothing. You just [ __ ] pretend you
+
+796
+00:41:27,280 --> 00:41:35,440
+do. You just want things to be free.
+
+797
+00:41:30,800 --> 00:41:38,480
+So you know you when you punch someone's
+
+798
+00:41:35,440 --> 00:41:40,560
+going to punch back. So when you demand
+
+799
+00:41:38,480 --> 00:41:42,480
+this you know these people the masses
+
+800
+00:41:40,560 --> 00:41:44,560
+the mob you know making demand this you
+
+801
+00:41:42,480 --> 00:41:47,760
+know Google you should be this or that.
+
+802
+00:41:44,560 --> 00:41:50,480
+Okay they created the cloud computation.
+
+803
+00:41:47,760 --> 00:41:52,400
+Now everything you ever have is like
+
+804
+00:41:50,480 --> 00:41:54,720
+stored in their computer. It be and
+
+805
+00:41:52,400 --> 00:41:59,240
+became normal.
+
+806
+00:41:54,720 --> 00:41:59,240
+That's what opensource did.
+
+807
+00:41:59,680 --> 00:42:07,680
+Okay. So, uh that became a rant. Okay.
+
+808
+00:42:03,440 --> 00:42:10,480
+So, uh the [ __ ] open source,
+
+809
+00:42:07,680 --> 00:42:13,680
+you know, I was actually I was a big
+
+810
+00:42:10,480 --> 00:42:16,319
+supporter of Richard Stman for like 10
+
+811
+00:42:13,680 --> 00:42:19,920
+years, you know. I was like I I was, you
+
+812
+00:42:16,319 --> 00:42:22,640
+know, I was a young guy just like you
+
+813
+00:42:19,920 --> 00:42:24,880
+guys. I was a big
+
+814
+00:42:22,640 --> 00:42:27,359
+fanatic
+
+815
+00:42:24,880 --> 00:42:30,720
+supporter of Richard Stoman's Free
+
+816
+00:42:27,359 --> 00:42:34,680
+Software Foundation.
+
+817
+00:42:30,720 --> 00:42:34,680
+Uh, that's too bad.
+
+818
+00:42:42,240 --> 00:42:48,079
+Okay. So, what else you guys um probably
+
+819
+00:42:46,079 --> 00:42:50,560
+been asked many time, how did you get
+
+820
+00:42:48,079 --> 00:42:52,560
+your Windows cursor to look like that?
+
+821
+00:42:50,560 --> 00:42:54,960
+Yes, that has been answered. So, all you
+
+822
+00:42:52,560 --> 00:42:56,960
+have to do is you
+
+823
+00:42:54,960 --> 00:43:00,480
+go to control panel. Oh, let me show
+
+824
+00:42:56,960 --> 00:43:04,240
+you. Okay, just go to um Windows
+
+825
+00:43:00,480 --> 00:43:08,240
+preferences, go to devices, then go to
+
+826
+00:43:04,240 --> 00:43:11,680
+mouse, then go to adjust mouse and
+
+827
+00:43:08,240 --> 00:43:14,400
+cursor size there. Okay, there you can
+
+828
+00:43:11,680 --> 00:43:17,680
+make it huge.
+
+829
+00:43:14,400 --> 00:43:21,520
+You can make jingle bell huge, mega
+
+830
+00:43:17,680 --> 00:43:23,760
+mouse cruiser. Okay, and you want to
+
+831
+00:43:21,520 --> 00:43:26,800
+trail. Okay, then you click on
+
+832
+00:43:23,760 --> 00:43:29,920
+additional mouse settings. Click. Then
+
+833
+00:43:26,800 --> 00:43:33,359
+you then very complex. Then you go to
+
+834
+00:43:29,920 --> 00:43:37,280
+adjust mouse additional mouse options.
+
+835
+00:43:33,359 --> 00:43:41,520
+Okay. Click. Then you got this ancient
+
+836
+00:43:37,280 --> 00:43:44,480
+20 years [ __ ] old mouse properties.
+
+837
+00:43:41,520 --> 00:43:47,119
+Okay. Then use, you know, tiny. You
+
+838
+00:43:44,480 --> 00:43:49,760
+cannot see the font, you know, tiny
+
+839
+00:43:47,119 --> 00:43:53,440
+[ __ ] Windows. [ __ ] Windows. Windows
+
+840
+00:43:49,760 --> 00:43:56,480
+10, Windows 11. [ __ ] You know they
+
+841
+00:43:53,440 --> 00:43:59,200
+supposed Oh, we we we we created Windows
+
+842
+00:43:56,480 --> 00:44:03,040
+10 a revolution. No, we created Windows
+
+843
+00:43:59,200 --> 00:44:05,200
+11 advanced technology.
+
+844
+00:44:03,040 --> 00:44:09,119
+Yeah. But got you got you you got this,
+
+845
+00:44:05,200 --> 00:44:11,599
+you know, tiny font impossible to read
+
+846
+00:44:09,119 --> 00:44:14,800
+and this claustrophobic window, you
+
+847
+00:44:11,599 --> 00:44:17,599
+know, you like my window now the screen
+
+848
+00:44:14,800 --> 00:44:21,440
+is, you know, 30 inches, but you know
+
+849
+00:44:17,599 --> 00:44:23,920
+this unlargeable [ __ ] So you got this.
+
+850
+00:44:21,440 --> 00:44:26,880
+Then you go to pointer options. Okay.
+
+851
+00:44:23,920 --> 00:44:29,839
+Then you you say uh display pointer
+
+852
+00:44:26,880 --> 00:44:32,960
+trails not load trails. Okay. Uh pointer
+
+853
+00:44:29,839 --> 00:44:35,680
+trails not trails. Okay. So that's how
+
+854
+00:44:32,960 --> 00:44:39,240
+you do it.
+
+855
+00:44:35,680 --> 00:44:39,240
+Okay. Uh
+
+856
+00:44:42,640 --> 00:44:48,430
+IMS is still based even is uh even if
+
+857
+00:44:46,960 --> 00:44:49,599
+he's wrong.
+
+858
+00:44:48,430 --> 00:44:51,599
+[Music]
+
+859
+00:44:49,599 --> 00:44:54,800
+Well, what do you mean by based? You
+
+860
+00:44:51,599 --> 00:44:57,920
+mean he says things freely? Yeah, that
+
+861
+00:44:54,800 --> 00:45:00,640
+is that would be true. Uh so the you
+
+862
+00:44:57,920 --> 00:45:03,760
+know
+
+863
+00:45:00,640 --> 00:45:08,000
+you know in the past 10 years USA became
+
+864
+00:45:03,760 --> 00:45:10,800
+so bad because of the deep state uh and
+
+865
+00:45:08,000 --> 00:45:12,880
+you know then you got code of conduct
+
+866
+00:45:10,800 --> 00:45:14,960
+you know
+
+867
+00:45:12,880 --> 00:45:18,560
+you know kind of like the offshoot from
+
+868
+00:45:14,960 --> 00:45:22,880
+the open source [ __ ]
+
+869
+00:45:18,560 --> 00:45:25,680
+you know uh and then
+
+870
+00:45:22,880 --> 00:45:27,920
+extremely evil. Okay, this code of
+
+871
+00:45:25,680 --> 00:45:32,160
+conduct.
+
+872
+00:45:27,920 --> 00:45:34,400
+So Richard Sman is like against that. So
+
+873
+00:45:32,160 --> 00:45:36,400
+he, you know, he's still good for that
+
+874
+00:45:34,400 --> 00:45:39,599
+in that sense.
+
+875
+00:45:36,400 --> 00:45:41,920
+Anyway, so
+
+876
+00:45:39,599 --> 00:45:44,319
+okay. So I didn't want to go into a
+
+877
+00:45:41,920 --> 00:45:47,359
+rant. So let's go back to this. Uh I
+
+878
+00:45:44,319 --> 00:45:50,480
+think that's it for today. We just
+
+879
+00:45:47,359 --> 00:45:55,200
+So we didn't did we get to the code wam
+
+880
+00:45:50,480 --> 00:45:57,040
+language, you know. Not not yet. Let me
+
+881
+00:45:55,200 --> 00:46:03,160
+demo a little bit. Okay, let's go to
+
+882
+00:45:57,040 --> 00:46:03,160
+Wufam language. Okay, so um
+
+883
+00:46:06,000 --> 00:46:11,200
+you know importing and exporting JSON is
+
+884
+00:46:09,200 --> 00:46:13,280
+not really interesting. Now this this
+
+885
+00:46:11,200 --> 00:46:17,680
+mouse is too big. Okay, let's put it
+
+886
+00:46:13,280 --> 00:46:19,760
+back. So um
+
+887
+00:46:17,680 --> 00:46:21,520
+system settings
+
+888
+00:46:19,760 --> 00:46:23,760
+devices
+
+889
+00:46:21,520 --> 00:46:26,720
+mouse
+
+890
+00:46:23,760 --> 00:46:31,599
+additional mouse options
+
+891
+00:46:26,720 --> 00:46:35,839
+then you pointer options then oh wait
+
+892
+00:46:31,599 --> 00:46:39,040
+the size okay so the size cruiser speed
+
+893
+00:46:35,839 --> 00:46:45,160
+wait what
+
+894
+00:46:39,040 --> 00:46:45,160
+uh just mouse and cruiser size okay So
+
+895
+00:46:45,760 --> 00:46:50,520
+okay let's leave it like that
+
+896
+00:46:50,880 --> 00:46:57,440
+uh you know import export JSON is not
+
+897
+00:46:54,400 --> 00:46:59,040
+really interesting so let's skip it you
+
+898
+00:46:57,440 --> 00:47:02,880
+know because it's kind of boring you
+
+899
+00:46:59,040 --> 00:47:06,240
+know you just import data so
+
+900
+00:47:02,880 --> 00:47:09,200
+okay so hello AOP
+
+901
+00:47:06,240 --> 00:47:11,680
+are you Greek because looks like you are
+
+902
+00:47:09,200 --> 00:47:14,800
+using Greek no is that Greek or is that
+
+903
+00:47:11,680 --> 00:47:18,480
+Not. It looks like Greek. No, it's like
+
+904
+00:47:14,800 --> 00:47:20,480
+like kind of mixed. Heroki, sorry for
+
+905
+00:47:18,480 --> 00:47:23,359
+asking this. I know you've talked about
+
+906
+00:47:20,480 --> 00:47:26,560
+Oh, but why windows? Jesus, I talked
+
+907
+00:47:23,359 --> 00:47:28,960
+about a thousand times. So, just look
+
+908
+00:47:26,560 --> 00:47:32,880
+at, you know, Yeah, you know, I
+
+909
+00:47:28,960 --> 00:47:35,280
+literally talked about it for like five
+
+910
+00:47:32,880 --> 00:47:39,920
+more than five times. Okay. So, you go
+
+911
+00:47:35,280 --> 00:47:41,520
+to talk show, just go to search. Okay.
+
+912
+00:47:39,920 --> 00:47:46,079
+Windows
+
+913
+00:47:41,520 --> 00:47:51,200
+Okay, then let's say you know so you got
+
+914
+00:47:46,079 --> 00:47:55,359
+we got 156 results. Let's also type Mac.
+
+915
+00:47:51,200 --> 00:47:59,440
+Uh then you got uh so let's say type
+
+916
+00:47:55,359 --> 00:48:02,640
+Linux, Windows and Linux.
+
+917
+00:47:59,440 --> 00:48:06,480
+Uh okay. So
+
+918
+00:48:02,640 --> 00:48:10,839
+let's say talk show. Okay. So let's say
+
+919
+00:48:06,480 --> 00:48:10,839
+talk show Windows
+
+920
+00:48:11,200 --> 00:48:17,440
+most efficient way to switch Windows app
+
+921
+00:48:14,319 --> 00:48:20,880
+on Linux Mac Windows uh knob keyboard
+
+922
+00:48:17,440 --> 00:48:23,040
+joystick uh bash probies something
+
+923
+00:48:20,880 --> 00:48:25,839
+something efficiency Richard Storman
+
+924
+00:48:23,040 --> 00:48:28,559
+resign free software foundation
+
+925
+00:48:25,839 --> 00:48:31,440
+something something 2019
+
+926
+00:48:28,559 --> 00:48:34,400
+uh UI pip show window that that's what
+
+927
+00:48:31,440 --> 00:48:36,800
+we just demonstrated astron astronomy me
+
+928
+00:48:34,400 --> 00:48:40,800
+the palades.
+
+929
+00:48:36,800 --> 00:48:43,200
+Why tech sucks? Rage comics Pepe talk
+
+930
+00:48:40,800 --> 00:48:46,559
+show window tiling white tiling window
+
+931
+00:48:43,200 --> 00:48:48,079
+manager sucks window key setup free soft
+
+932
+00:48:46,559 --> 00:48:50,079
+for your foundation you know one thing
+
+933
+00:48:48,079 --> 00:48:54,640
+annoying about windows is that
+
+934
+00:48:50,079 --> 00:48:57,640
+everything you know it's a common word
+
+935
+00:48:54,640 --> 00:48:57,640
+so
+
+936
+00:48:59,200 --> 00:49:07,040
+there it is talk show 2023 February 6
+
+937
+00:49:04,240 --> 00:49:10,079
+China YouTube
+
+938
+00:49:07,040 --> 00:49:13,920
+windows versus Mac versus Linux. Okay,
+
+939
+00:49:10,079 --> 00:49:16,800
+that's one of the time I address that
+
+940
+00:49:13,920 --> 00:49:18,480
+but I addressed that many times. Okay,
+
+941
+00:49:16,800 --> 00:49:20,400
+for example, this article why I'm
+
+942
+00:49:18,480 --> 00:49:24,160
+switching from Mac to Windows. Actually,
+
+943
+00:49:20,400 --> 00:49:26,480
+I just talked about it this week.
+
+944
+00:49:24,160 --> 00:49:31,079
+Okay, so I'm not going to talk about,
+
+945
+00:49:26,480 --> 00:49:31,079
+you know, this week I talked about it.
+
+946
+00:49:32,240 --> 00:49:37,920
+uh you've been thinking about dropping
+
+947
+00:49:34,160 --> 00:49:41,200
+Linux and maybe going back to Windows,
+
+948
+00:49:37,920 --> 00:49:44,079
+I wouldn't recommend that. Okay, Windows
+
+949
+00:49:41,200 --> 00:49:48,000
+sucks very bad. So, if you are already
+
+950
+00:49:44,079 --> 00:49:50,960
+on Linux, I would say stay with it. You
+
+951
+00:49:48,000 --> 00:49:53,440
+know, Windows very bad, very bad in deep
+
+952
+00:49:50,960 --> 00:49:56,880
+state. Okay, if you already familiar
+
+953
+00:49:53,440 --> 00:50:00,960
+with Linux, stay with it. If you really
+
+954
+00:49:56,880 --> 00:50:05,559
+want to switch, switch to Mac. Okay. Mac
+
+955
+00:50:00,960 --> 00:50:05,559
+OS. That's my recommendation.
+
+956
+00:50:07,599 --> 00:50:13,280
+A Mexican. Okay. Why do you want to drop
+
+957
+00:50:10,880 --> 00:50:16,000
+Linux? Okay.
+
+958
+00:50:13,280 --> 00:50:18,319
+I don't know. Okay. I think that's it.
+
+959
+00:50:16,000 --> 00:50:21,119
+Should that that that should that be it?
+
+960
+00:50:18,319 --> 00:50:24,079
+I think that's it.
+
+961
+00:50:21,119 --> 00:50:27,040
+Okay. So, we we did did we talk about uh
+
+962
+00:50:24,079 --> 00:50:33,599
+JSON? Yes, we did talk something about
+
+963
+00:50:27,040 --> 00:50:37,760
+JSON move language close. Uh so my check
+
+964
+00:50:33,599 --> 00:50:41,040
+out you know my eac list tutorial
+
+965
+00:50:37,760 --> 00:50:44,079
+in JSON is almost complete. Not not
+
+966
+00:50:41,040 --> 00:50:48,000
+exactly though because when you import
+
+967
+00:50:44,079 --> 00:50:52,720
+JSON wait
+
+968
+00:50:48,000 --> 00:50:55,119
+yeah when you export to JSON uh
+
+969
+00:50:52,720 --> 00:50:59,119
+there is something I still need to work
+
+970
+00:50:55,119 --> 00:51:03,359
+out you know. So and also the old JSON
+
+971
+00:50:59,119 --> 00:51:04,880
+library I need to like write a full like
+
+972
+00:51:03,359 --> 00:51:08,720
+coverage.
+
+973
+00:51:04,880 --> 00:51:11,599
+Okay. So anyway but this but you know
+
+974
+00:51:08,720 --> 00:51:14,079
+there it is. So,
+
+975
+00:51:11,599 --> 00:51:16,559
+so and there is JavaScript, you know,
+
+976
+00:51:14,079 --> 00:51:18,559
+JavaScript JSON object, you know, how do
+
+977
+00:51:16,559 --> 00:51:20,800
+you do that?
+
+978
+00:51:18,559 --> 00:51:23,599
+Import JSON or export JSON in
+
+979
+00:51:20,800 --> 00:51:25,359
+JavaScript. It's all here.
+
+980
+00:51:23,599 --> 00:51:27,280
+Okay, that's it for today. Thank you
+
+981
+00:51:25,359 --> 00:51:32,240
+guys for watching. Donate to me. Okay,
+
+982
+00:51:27,280 --> 00:51:34,640
+so just go to you can buy my tutorial.
+
+983
+00:51:32,240 --> 00:51:39,359
+You can buy my Emacs tutorial. You know,
+
+984
+00:51:34,640 --> 00:51:42,880
+there's a big button there. by pay me,
+
+985
+00:51:39,359 --> 00:51:44,960
+you know, PayPal
+
+986
+00:51:42,880 --> 00:51:46,640
+$100,
+
+987
+00:51:44,960 --> 00:51:48,800
+you know, it's that's that's like a
+
+988
+00:51:46,640 --> 00:51:52,319
+donation. Okay, just donate to me
+
+989
+00:51:48,800 --> 00:51:56,319
+because the the or you know or you can
+
+990
+00:51:52,319 --> 00:51:59,200
+Amazon gift card me $100. Why $100?
+
+991
+00:51:56,319 --> 00:52:01,680
+Because the entire thing is on the web.
+
+992
+00:51:59,200 --> 00:52:03,359
+You know, today people don't like like
+
+993
+00:52:01,680 --> 00:52:06,400
+download the zip file. You know, you
+
+994
+00:52:03,359 --> 00:52:09,040
+have internet 24 hours at all times
+
+995
+00:52:06,400 --> 00:52:11,359
+anywhere on the phone on, you know, so
+
+996
+00:52:09,040 --> 00:52:15,359
+the entire content
+
+997
+00:52:11,359 --> 00:52:19,920
+of my EMAC list is on the web
+
+998
+00:52:15,359 --> 00:52:22,800
+since like since like 2006. Okay?
+
+999
+00:52:19,920 --> 00:52:26,800
+You know, when I ask for donation, you
+
+1000
+00:52:22,800 --> 00:52:29,440
+get like for example, you get maybe $100
+
+1001
+00:52:26,800 --> 00:52:32,000
+at most a month.
+
+1002
+00:52:29,440 --> 00:52:34,720
+Okay? It's very sad situation of the
+
+1003
+00:52:32,000 --> 00:52:37,119
+open source [ __ ]
+
+1004
+00:52:34,720 --> 00:52:40,000
+when you ask donation like I used to you
+
+1005
+00:52:37,119 --> 00:52:43,520
+know it's been you know my Emac tutorial
+
+1006
+00:52:40,000 --> 00:52:45,680
+on the web it's been 20 years so I've
+
+1007
+00:52:43,520 --> 00:52:49,760
+tried many things for 20 years
+
+1008
+00:52:45,680 --> 00:52:52,240
+experience I know how things are so you
+
+1009
+00:52:49,760 --> 00:52:55,280
+know for many years I have a link about
+
+1010
+00:52:52,240 --> 00:52:57,520
+donate on every page something
+
+1011
+00:52:55,280 --> 00:52:59,119
+so if you ask for donation you get at
+
+1012
+00:52:57,520 --> 00:53:03,839
+most
+
+1013
+00:52:59,119 --> 00:53:07,119
+$100 $100 a month. Okay, basically. But
+
+1014
+00:53:03,839 --> 00:53:09,359
+if you put ads like you you you know for
+
+1015
+00:53:07,119 --> 00:53:12,480
+for many years I have Google ads. You
+
+1016
+00:53:09,359 --> 00:53:14,880
+get 300 a month.
+
+1017
+00:53:12,480 --> 00:53:17,520
+Okay, that's the difference. You don't
+
+1018
+00:53:14,880 --> 00:53:19,040
+have to beg. You don't have to beg. Oh,
+
+1019
+00:53:17,520 --> 00:53:22,720
+please donate whatever. You just put
+
+1020
+00:53:19,040 --> 00:53:26,160
+ads. $300 month. And typically when you
+
+1021
+00:53:22,720 --> 00:53:28,400
+ask for donation, 100 is maximum. You
+
+1022
+00:53:26,160 --> 00:53:34,800
+know, maybe you got lucky in one month,
+
+1023
+00:53:28,400 --> 00:53:38,079
+but usually it's like $30 a month,
+
+1024
+00:53:34,800 --> 00:53:41,359
+you know, $50 a month if you are lucky
+
+1025
+00:53:38,079 --> 00:53:43,200
+in that month. Okay.
+
+1026
+00:53:41,359 --> 00:53:46,960
+If you ask for donation, you know, all
+
+1027
+00:53:43,200 --> 00:53:49,280
+the all these by now what what 600
+
+1028
+00:53:46,960 --> 00:53:52,000
+pages, you know,
+
+1029
+00:53:49,280 --> 00:53:55,200
+my most popular, you know, for Emac this
+
+1030
+00:53:52,000 --> 00:53:59,440
+my my tutorial tutorial is most popular.
+
+1031
+00:53:55,200 --> 00:54:02,400
+you get $30 a month, $50 a month if you
+
+1032
+00:53:59,440 --> 00:54:04,880
+are lucky that month. But if you put
+
+1033
+00:54:02,400 --> 00:54:07,920
+Google ads, very annoying, nasty. You
+
+1034
+00:54:04,880 --> 00:54:10,960
+know, Google, they they they
+
+1035
+00:54:07,920 --> 00:54:12,720
+plaster ads all over and and and over
+
+1036
+00:54:10,960 --> 00:54:14,480
+the years to the degree you cannot
+
+1037
+00:54:12,720 --> 00:54:18,079
+control. You say minimum, they still
+
+1038
+00:54:14,480 --> 00:54:21,119
+plaster all over. Very annoying. So they
+
+1039
+00:54:18,079 --> 00:54:23,440
+become deep state very much. So that
+
+1040
+00:54:21,119 --> 00:54:26,960
+that's why I removed all of that. But
+
+1041
+00:54:23,440 --> 00:54:30,960
+anyway, so if I have Google ads, it be,
+
+1042
+00:54:26,960 --> 00:54:33,119
+you know, $300 a month.
+
+1043
+00:54:30,960 --> 00:54:36,400
+So that's a sad thing. You know, these
+
+1044
+00:54:33,119 --> 00:54:40,480
+opensource [ __ ] Opensource
+
+1045
+00:54:36,400 --> 00:54:43,680
+[ __ ] They they being abused
+
+1046
+00:54:40,480 --> 00:54:45,839
+by these deep state Google, you know,
+
+1047
+00:54:43,680 --> 00:54:49,119
+who is promoting open source? Is it
+
+1048
+00:54:45,839 --> 00:54:51,599
+Richard Storman? No, it's by Google and
+
+1049
+00:54:49,119 --> 00:54:53,760
+Facebook and uh all these big
+
+1050
+00:54:51,599 --> 00:54:57,359
+corporations.
+
+1051
+00:54:53,760 --> 00:54:59,920
+So, so that if you are a programmer,
+
+1052
+00:54:57,359 --> 00:55:03,200
+they made sure
+
+1053
+00:54:59,920 --> 00:55:05,440
+that you can never be interdependent.
+
+1054
+00:55:03,200 --> 00:55:07,680
+The only way you make money is to work
+
+1055
+00:55:05,440 --> 00:55:11,200
+for them.
+
+1056
+00:55:07,680 --> 00:55:13,359
+If you dare to say, you know, men, oh, I
+
+1057
+00:55:11,200 --> 00:55:18,000
+think men are and women are not the
+
+1058
+00:55:13,359 --> 00:55:21,440
+same. Goodbye. You are cancelled. Okay?
+
+1059
+00:55:18,000 --> 00:55:23,520
+You won't be making money anywhere.
+
+1060
+00:55:21,440 --> 00:55:26,800
+doesn't matter you know if if you are a
+
+1061
+00:55:23,520 --> 00:55:29,839
+great software writer you know you
+
+1062
+00:55:26,800 --> 00:55:33,200
+that's why that's Google Google Facebook
+
+1063
+00:55:29,839 --> 00:55:36,880
+you know and and now Microsoft in the
+
+1064
+00:55:33,200 --> 00:55:38,880
+past 10 years they became
+
+1065
+00:55:36,880 --> 00:55:42,800
+and Linux you know they they they are
+
+1066
+00:55:38,880 --> 00:55:44,720
+the sponsor of the open source you know
+
+1067
+00:55:42,800 --> 00:55:46,880
+they made sure you if you are a coder
+
+1068
+00:55:44,720 --> 00:55:49,599
+you can make money any by any other way
+
+1069
+00:55:46,880 --> 00:55:54,160
+just except you listen you became a
+
+1070
+00:55:49,599 --> 00:55:55,760
+cockwhe a pong on under them. Okay,
+
+1071
+00:55:54,160 --> 00:55:59,079
+that's what they are. That's what open
+
+1072
+00:55:55,760 --> 00:55:59,079
+source is.
+
+1073
+00:56:03,839 --> 00:56:10,000
+H it's very sad to talk about is this
+
+1074
+00:56:06,799 --> 00:56:11,520
+you know so so but you know like in the
+
+1075
+00:56:10,000 --> 00:56:14,720
+past month I've been asking for
+
+1076
+00:56:11,520 --> 00:56:18,720
+donation. Do I get donation? No. Do you
+
+1077
+00:56:14,720 --> 00:56:23,200
+guys want to know how much I get?
+
+1078
+00:56:18,720 --> 00:56:28,000
+$10 a month. Maybe not something. Well,
+
+1079
+00:56:23,200 --> 00:56:30,160
+thanks to um actually Hank,
+
+1080
+00:56:28,000 --> 00:56:34,640
+he's donating me every time I do a
+
+1081
+00:56:30,160 --> 00:56:36,799
+video. So 50 $50 a month, something like
+
+1082
+00:56:34,640 --> 00:56:38,720
+that.
+
+1083
+00:56:36,799 --> 00:56:40,960
+Except there are few good people, you
+
+1084
+00:56:38,720 --> 00:56:43,520
+know, there are a couple of people, two
+
+1085
+00:56:40,960 --> 00:56:47,880
+or three who donated
+
+1086
+00:56:43,520 --> 00:56:47,880
+a big amount to me. Okay.
+
+1087
+00:56:48,079 --> 00:56:54,760
+Uh, that's it. Okay. It's [ __ ] sad to
+
+1088
+00:56:51,359 --> 00:56:54,760
+talk about this.
+
+1089
+00:56:55,599 --> 00:56:59,000
+Bye, guys.
+
+1090
+00:57:11,359 --> 00:57:14,839
+Thank you, Nastia.
+

@@ -1,0 +1,5614 @@
+1
+00:00:02,560 --> 00:00:09,599
+Good morning, good morning, good evening
+
+2
+00:00:05,600 --> 00:00:12,800
+everyone. Welcome to another episode of
+
+3
+00:00:09,599 --> 00:00:17,039
+Kasan Talk Show. We are going to do
+
+4
+00:00:12,800 --> 00:00:22,720
+advant of code 2025
+
+5
+00:00:17,039 --> 00:00:27,039
+day four part two take two. So yesterday
+
+6
+00:00:22,720 --> 00:00:30,480
+we began to do it then we got distracted
+
+7
+00:00:27,039 --> 00:00:34,160
+into talking about a demonstration of
+
+8
+00:00:30,480 --> 00:00:36,160
+what is wufam language Mathematica. So
+
+9
+00:00:34,160 --> 00:00:39,440
+you can watch yesterday a great
+
+10
+00:00:36,160 --> 00:00:42,960
+introduction to Wuam language. Hello
+
+11
+00:00:39,440 --> 00:00:45,440
+that beast. So so this is yesterday's
+
+12
+00:00:42,960 --> 00:00:48,239
+talk show uh wam language. Let me check
+
+13
+00:00:45,440 --> 00:00:51,680
+audio check video check. Okay. So, wuam
+
+14
+00:00:48,239 --> 00:00:57,840
+language you know symbolic algebra
+
+15
+00:00:51,680 --> 00:01:01,600
+graphic system Julia set animations
+
+16
+00:00:57,840 --> 00:01:05,360
+uh and and generating sound synthesize
+
+17
+00:01:01,600 --> 00:01:09,200
+sound and play it and uh 3D graphics
+
+18
+00:01:05,360 --> 00:01:11,840
+interactive and geography
+
+19
+00:01:09,200 --> 00:01:14,479
+uh and graph theory. So, wan language
+
+20
+00:01:11,840 --> 00:01:16,080
+can do lots of things. So that was
+
+21
+00:01:14,479 --> 00:01:20,400
+yesterday.
+
+22
+00:01:16,080 --> 00:01:25,439
+Uh and so today we're going to continue
+
+23
+00:01:20,400 --> 00:01:29,119
+this advent of code 2025 day 4 part two.
+
+24
+00:01:25,439 --> 00:01:33,439
+Uh I'm going to try just to code it. So
+
+25
+00:01:29,119 --> 00:01:36,000
+in previous weeks I talk a lot. I talk
+
+26
+00:01:33,439 --> 00:01:38,320
+as I code and I give analysis or
+
+27
+00:01:36,000 --> 00:01:40,479
+opinions about different things. Uh
+
+28
+00:01:38,320 --> 00:01:42,960
+today let's try something different. So
+
+29
+00:01:40,479 --> 00:01:46,399
+I'll just try to code it without much
+
+30
+00:01:42,960 --> 00:01:49,360
+talking but I'm going to explain what is
+
+31
+00:01:46,399 --> 00:01:51,520
+the problem first. Okay.
+
+32
+00:01:49,360 --> 00:01:55,439
+So if you are watching this offline play
+
+33
+00:01:51,520 --> 00:01:58,320
+at 1.5 speed or two
+
+34
+00:01:55,439 --> 00:02:01,759
+times as fast. Uh if you are here say
+
+35
+00:01:58,320 --> 00:02:03,840
+hi. Okay. So the problem is that event
+
+36
+00:02:01,759 --> 00:02:07,200
+of code 2025
+
+37
+00:02:03,840 --> 00:02:09,679
+day four part two is that you are given
+
+38
+00:02:07,200 --> 00:02:11,280
+can you see it? Yes. So you are given
+
+39
+00:02:09,679 --> 00:02:16,480
+this
+
+40
+00:02:11,280 --> 00:02:19,680
+text file a grid each at sign.
+
+41
+00:02:16,480 --> 00:02:23,360
+So you have many ad signs and some dots.
+
+42
+00:02:19,680 --> 00:02:28,400
+Okay. Now for each position of the ad
+
+43
+00:02:23,360 --> 00:02:31,440
+sign you want to find the neighbors. So
+
+44
+00:02:28,400 --> 00:02:34,640
+you have uh neighbors including upper
+
+45
+00:02:31,440 --> 00:02:36,560
+right including diagonal neighbors. If
+
+46
+00:02:34,640 --> 00:02:38,879
+it has
+
+47
+00:02:36,560 --> 00:02:41,120
+less than four neighbors that are at
+
+48
+00:02:38,879 --> 00:02:43,760
+sign. So you want to count at signs
+
+49
+00:02:41,120 --> 00:02:47,040
+around its neighbor. So it has less than
+
+50
+00:02:43,760 --> 00:02:50,560
+four then you consider that at sign
+
+51
+00:02:47,040 --> 00:02:53,760
+special. So you go through each ad sign
+
+52
+00:02:50,560 --> 00:02:57,440
+look at its neighbors. If it has less
+
+53
+00:02:53,760 --> 00:02:59,360
+than four at sign around it then you
+
+54
+00:02:57,440 --> 00:03:03,120
+consider that particular ad sign
+
+55
+00:02:59,360 --> 00:03:07,040
+special. Okay. So you go through that.
+
+56
+00:03:03,120 --> 00:03:10,720
+Then the problem part one is that you
+
+57
+00:03:07,040 --> 00:03:16,239
+want to determine how many special o add
+
+58
+00:03:10,720 --> 00:03:20,400
+signs are there. So uh problem part one
+
+59
+00:03:16,239 --> 00:03:24,560
+uh the solution is 13. Okay, I mean the
+
+60
+00:03:20,400 --> 00:03:28,720
+toy solution is 13. Uh this is 13 right
+
+61
+00:03:24,560 --> 00:03:32,640
+here. Okay, my personal answer is 1527.
+
+62
+00:03:28,720 --> 00:03:35,599
+Okay. So part one find how many ass
+
+63
+00:03:32,640 --> 00:03:38,000
+signs that has
+
+64
+00:03:35,599 --> 00:03:40,879
+assigned neighbors that are less than
+
+65
+00:03:38,000 --> 00:03:43,200
+four of them. Okay. Now the second
+
+66
+00:03:40,879 --> 00:03:46,560
+problem part two which I'm going to do
+
+67
+00:03:43,200 --> 00:03:51,280
+now is that
+
+68
+00:03:46,560 --> 00:03:54,799
+for each ad sign you find
+
+69
+00:03:51,280 --> 00:03:57,360
+the special ones that has less than four
+
+70
+00:03:54,799 --> 00:04:01,599
+add signs around it. Okay. Once you
+
+71
+00:03:57,360 --> 00:04:04,319
+found it, you remove that ad sign.
+
+72
+00:04:01,599 --> 00:04:06,799
+Okay? Then you repeat this process. You
+
+73
+00:04:04,319 --> 00:04:09,680
+do it again. You found the ad sign that
+
+74
+00:04:06,799 --> 00:04:13,120
+has less than four four ad signs around
+
+75
+00:04:09,680 --> 00:04:16,400
+it. You remove that. Then you repeat,
+
+76
+00:04:13,120 --> 00:04:18,479
+repeat, repeat until there are no ad
+
+77
+00:04:16,400 --> 00:04:21,280
+sign that can be removed. In other
+
+78
+00:04:18,479 --> 00:04:25,520
+words, you end up with this picture
+
+79
+00:04:21,280 --> 00:04:28,800
+where each ad sign has at least four ad
+
+80
+00:04:25,520 --> 00:04:30,960
+signs around it. Okay, so the problem
+
+81
+00:04:28,800 --> 00:04:32,479
+asks
+
+82
+00:04:30,960 --> 00:04:35,120
+um
+
+83
+00:04:32,479 --> 00:04:38,800
+in the whole process how many total ass
+
+84
+00:04:35,120 --> 00:04:42,160
+signs you removed. Okay, so that is a
+
+85
+00:04:38,800 --> 00:04:44,800
+problem and I'm going to code it uh
+
+86
+00:04:42,160 --> 00:04:48,320
+without much talking.
+
+87
+00:04:44,800 --> 00:04:51,520
+a MacBook still top tier for programming
+
+88
+00:04:48,320 --> 00:04:55,040
+and uh software
+
+89
+00:04:51,520 --> 00:04:58,960
+s I don't know what is SWE software
+
+90
+00:04:55,040 --> 00:05:00,560
+something but MacBooks so if you use a
+
+91
+00:04:58,960 --> 00:05:03,759
+computer
+
+92
+00:05:00,560 --> 00:05:06,639
+mostly for the purpose of coding like I
+
+93
+00:05:03,759 --> 00:05:10,400
+do but actually I use also lots of
+
+94
+00:05:06,639 --> 00:05:12,639
+things I use it for um well watching
+
+95
+00:05:10,400 --> 00:05:15,520
+videos but mostly coding okay so if you
+
+96
+00:05:12,639 --> 00:05:18,720
+use computer for mostly coding
+
+97
+00:05:15,520 --> 00:05:21,680
+your great choices are Mac. Mac is a
+
+98
+00:05:18,720 --> 00:05:25,039
+great choice in general and uh also
+
+99
+00:05:21,680 --> 00:05:28,320
+Linux. Okay. But if you also play video
+
+100
+00:05:25,039 --> 00:05:30,000
+games or if you explore uh virtual
+
+101
+00:05:28,320 --> 00:05:33,360
+reality
+
+102
+00:05:30,000 --> 00:05:36,800
+uh or you uh or explore lots of other
+
+103
+00:05:33,360 --> 00:05:40,919
+programs then Windows is uh you know is
+
+104
+00:05:36,800 --> 00:05:40,919
+is common choice.
+
+105
+00:05:40,960 --> 00:05:46,000
+Okay. So let's just let me start to
+
+106
+00:05:43,280 --> 00:05:48,560
+code. Okay, without much talking. Let's
+
+107
+00:05:46,000 --> 00:05:53,880
+see. Let's see if I can f finish it
+
+108
+00:05:48,560 --> 00:05:53,880
+fast. Uh may maybe in 20 minutes.
+
+109
+00:05:55,919 --> 00:06:04,240
+Today's drink is tea. Black tea hot.
+
+110
+00:06:01,840 --> 00:06:09,880
+So we just I'm just going to go relaxed.
+
+111
+00:06:04,240 --> 00:06:09,880
+Okay. So play at 1.5 speed or two.
+
+112
+00:06:13,039 --> 00:06:17,360
+Okay, let's start to code show in
+
+113
+00:06:15,199 --> 00:06:21,280
+browser. So that's today's talk show
+
+114
+00:06:17,360 --> 00:06:24,560
+notepad notes. Okay, so uh section go to
+
+115
+00:06:21,280 --> 00:06:26,720
+go to let's start to code uh wam
+
+116
+00:06:24,560 --> 00:06:30,240
+language I introduced so much I don't
+
+117
+00:06:26,720 --> 00:06:33,840
+need to. Okay, let's just start to code.
+
+118
+00:06:30,240 --> 00:06:36,960
+So let's go to I'm I'm still going to
+
+119
+00:06:33,840 --> 00:06:39,039
+talk a little bit but but uh I'm mostly
+
+120
+00:06:36,960 --> 00:06:45,600
+just going to focus on coding. Okay. So,
+
+121
+00:06:39,039 --> 00:06:50,160
+we need to copy the uh the previous code
+
+122
+00:06:45,600 --> 00:06:52,880
+uh clear neighbors. Okay. Copy that. Is
+
+123
+00:06:50,160 --> 00:06:56,880
+this the right code? Yes. Okay. Paste it
+
+124
+00:06:52,880 --> 00:07:00,000
+there. And also we need
+
+125
+00:06:56,880 --> 00:07:03,000
+we need this solution. Okay. I mean the
+
+126
+00:07:00,000 --> 00:07:03,000
+previous
+
+127
+00:07:03,919 --> 00:07:06,919
+input
+
+128
+00:07:09,440 --> 00:07:12,440
+uh
+
+129
+00:07:18,960 --> 00:07:22,639
+PhD based not Linux.
+
+130
+00:07:35,520 --> 00:07:42,800
+hardcore tech geek BSD. Congratulations.
+
+131
+00:07:40,080 --> 00:07:45,440
+Um, okay. Code, code, code code. So, I
+
+132
+00:07:42,800 --> 00:07:48,000
+need to code. So, turn it into a matrix
+
+133
+00:07:45,440 --> 00:07:51,280
+of zero and ones. And we got this get
+
+134
+00:07:48,000 --> 00:07:53,759
+neighbors. Uh and and we got these
+
+135
+00:07:51,280 --> 00:07:58,960
+dimensions. We do we need dimensions?
+
+136
+00:07:53,759 --> 00:08:04,240
+No. No. Okay. So, uh
+
+137
+00:07:58,960 --> 00:08:07,680
+Okay. So, dimensions. Let's see.
+
+138
+00:08:04,240 --> 00:08:09,840
+Okay. Okay. Delete that. Delete that.
+
+139
+00:08:07,680 --> 00:08:11,919
+Delete that.
+
+140
+00:08:09,840 --> 00:08:17,520
+Okay. That's what we need. Matrix one,
+
+141
+00:08:11,919 --> 00:08:19,039
+two, uh index num positions. And uh then
+
+142
+00:08:17,520 --> 00:08:22,960
+neighbors.
+
+143
+00:08:19,039 --> 00:08:26,599
+Okay. Neighbors we delete delete delete
+
+144
+00:08:22,960 --> 00:08:26,599
+because we
+
+145
+00:08:34,000 --> 00:08:39,360
+Okay, that's our code. So input. So
+
+146
+00:08:36,800 --> 00:08:41,760
+here's the input. Turn it into a matrix
+
+147
+00:08:39,360 --> 00:08:45,680
+of zero and ones. And here's the gate
+
+148
+00:08:41,760 --> 00:08:51,211
+neighbors. And then here is the main or
+
+149
+00:08:45,680 --> 00:08:52,160
+index is where cell is a paper row. Okay
+
+150
+00:08:51,211 --> 00:08:55,800
+[clears throat]
+
+151
+00:08:52,160 --> 00:08:55,800
+index of
+
+152
+00:09:02,080 --> 00:09:06,320
+next of paper row. So you get the
+
+153
+00:09:03,680 --> 00:09:09,600
+position. So each round. So you get the
+
+154
+00:09:06,320 --> 00:09:11,920
+position then you
+
+155
+00:09:09,600 --> 00:09:14,959
+you need to count you need to tally. So
+
+156
+00:09:11,920 --> 00:09:18,959
+this so you get a bunch of positions
+
+157
+00:09:14,959 --> 00:09:23,240
+then you apply total right. So you apply
+
+158
+00:09:18,959 --> 00:09:23,240
+this function um
+
+159
+00:09:26,720 --> 00:09:34,000
+you apply this function so you need to
+
+160
+00:09:29,519 --> 00:09:38,040
+replace that variable um get neighbors.
+
+161
+00:09:34,000 --> 00:09:38,040
+Okay. So
+
+162
+00:09:39,279 --> 00:09:44,320
+okay so each time you do this you need
+
+163
+00:09:41,760 --> 00:09:46,959
+to remove those cell remove it and you
+
+164
+00:09:44,320 --> 00:09:50,640
+need to repeat. So
+
+165
+00:09:46,959 --> 00:09:54,040
+each time uh I need to write it down. Uh
+
+166
+00:09:50,640 --> 00:09:54,040
+each time
+
+167
+00:09:56,959 --> 00:10:01,080
+input is a matrix.
+
+168
+00:10:03,279 --> 00:10:10,120
+Go through the matrix.
+
+169
+00:10:06,080 --> 00:10:10,120
+Remove some cells.
+
+170
+00:10:12,000 --> 00:10:15,920
+Repeat
+
+171
+00:10:13,519 --> 00:10:20,279
+until no
+
+172
+00:10:15,920 --> 00:10:20,279
+cell can be removed.
+
+173
+00:10:24,560 --> 00:10:30,120
+Count number of cells removed.
+
+174
+00:10:30,480 --> 00:10:41,160
+Get total number of cells removed. Okay,
+
+175
+00:10:35,600 --> 00:10:41,160
+that is the essence of the algorithm.
+
+176
+00:10:51,360 --> 00:10:58,480
+So you write a function that takes a
+
+177
+00:10:54,560 --> 00:11:01,880
+matrix then it returns a matrix. Okay,
+
+178
+00:10:58,480 --> 00:11:01,880
+let's plan
+
+179
+00:11:05,760 --> 00:11:16,480
+write a function ff,
+
+180
+00:11:10,160 --> 00:11:20,399
+it takes a matrix and return a matrix.
+
+181
+00:11:16,480 --> 00:11:22,320
+Okay, but no but uh but every time it
+
+182
+00:11:20,399 --> 00:11:24,800
+does we going to do this in pure
+
+183
+00:11:22,320 --> 00:11:30,000
+functional way. So every time this does
+
+184
+00:11:24,800 --> 00:11:32,640
+so it takes a matrix it takes uh so
+
+185
+00:11:30,000 --> 00:11:36,600
+so it the function will be have a
+
+186
+00:11:32,640 --> 00:11:36,600
+signature like this
+
+187
+00:11:48,800 --> 00:11:56,320
+and count of removed sales. Okay.
+
+188
+00:11:53,680 --> 00:11:58,640
+So the function will do take a input
+
+189
+00:11:56,320 --> 00:12:00,720
+matrix
+
+190
+00:11:58,640 --> 00:12:03,839
+current count of remove cells beginning
+
+191
+00:12:00,720 --> 00:12:08,200
+with zero.
+
+192
+00:12:03,839 --> 00:12:08,200
+It will return
+
+193
+00:12:08,399 --> 00:12:11,399
+a
+
+194
+00:12:11,920 --> 00:12:18,320
+a new matrix
+
+195
+00:12:14,880 --> 00:12:24,360
+and it will return a
+
+196
+00:12:18,320 --> 00:12:24,360
+list and the list is going to be
+
+197
+00:12:24,399 --> 00:12:29,360
+new matrix
+
+198
+00:12:26,880 --> 00:12:32,360
+and uh
+
+199
+00:12:29,360 --> 00:12:32,360
+new
+
+200
+00:12:32,399 --> 00:12:39,800
+total removed sales count.
+
+201
+00:12:36,800 --> 00:12:39,800
+Okay.
+
+202
+00:12:45,040 --> 00:12:49,279
+Then
+
+203
+00:12:46,800 --> 00:12:51,839
+so the function takes a matrix current
+
+204
+00:12:49,279 --> 00:12:54,839
+count of remove sales and return a new
+
+205
+00:12:51,839 --> 00:12:54,839
+list.
+
+206
+00:12:56,000 --> 00:12:59,240
+New matrix
+
+207
+00:12:59,600 --> 00:13:04,000
+total remove sales. Okay.
+
+208
+00:13:04,160 --> 00:13:09,600
+And let's make this into one single
+
+209
+00:13:07,839 --> 00:13:14,519
+input
+
+210
+00:13:09,600 --> 00:13:14,519
+so that it can recurs by itself.
+
+211
+00:13:15,200 --> 00:13:21,079
+Then use
+
+212
+00:13:18,079 --> 00:13:21,079
+nest
+
+213
+00:13:21,120 --> 00:13:25,320
+uh uh fixed point.
+
+214
+00:13:30,240 --> 00:13:39,680
+Then the solution is fixed point FF.
+
+215
+00:13:36,399 --> 00:13:43,040
+That's right. Fixed point will recurse a
+
+216
+00:13:39,680 --> 00:13:44,639
+given function until result no longer
+
+217
+00:13:43,040 --> 00:13:46,560
+changes.
+
+218
+00:13:44,639 --> 00:13:49,360
+That's right. Look up the documentation.
+
+219
+00:13:46,560 --> 00:13:51,600
+Fix point f expression. Okay. You need
+
+220
+00:13:49,360 --> 00:13:56,680
+the initial expression.
+
+221
+00:13:51,600 --> 00:13:56,680
+Uh yeah. So fixed point then
+
+222
+00:13:58,560 --> 00:14:04,800
+input matrix zero.
+
+223
+00:14:02,079 --> 00:14:09,040
+Okay
+
+224
+00:14:04,800 --> 00:14:14,360
+that is the plan our aos step. Okay now
+
+225
+00:14:09,040 --> 00:14:14,360
+we just going to write this function. So
+
+226
+00:14:23,360 --> 00:14:28,959
+the function we'll take will have this
+
+227
+00:14:26,079 --> 00:14:32,639
+form.
+
+228
+00:14:28,959 --> 00:14:38,639
+Okay. Input matrix current count of
+
+229
+00:14:32,639 --> 00:14:43,440
+removed cells. Okay. Then it will
+
+230
+00:14:38,639 --> 00:14:46,480
+do whatever we're going to do. So block
+
+231
+00:14:43,440 --> 00:14:49,680
+is a local variable.
+
+232
+00:14:46,480 --> 00:14:55,480
+Okay, basically group the whole body of
+
+233
+00:14:49,680 --> 00:14:55,480
+the function like lisps p r o gn.
+
+234
+00:14:56,880 --> 00:15:03,320
+Okay, then input matrix. So
+
+235
+00:15:03,600 --> 00:15:09,519
+so we need we kind of need this part.
+
+236
+00:15:06,639 --> 00:15:11,680
+Okay. So let's let's move that somewhere
+
+237
+00:15:09,519 --> 00:15:15,720
+here. Okay.
+
+238
+00:15:11,680 --> 00:15:15,720
+So this function
+
+239
+00:15:16,560 --> 00:15:23,360
+this function we define like that. Um
+
+240
+00:15:21,040 --> 00:15:28,320
+and uh
+
+241
+00:15:23,360 --> 00:15:31,040
+so so so you each step you need to um
+
+242
+00:15:28,320 --> 00:15:35,760
+total. So
+
+243
+00:15:31,040 --> 00:15:39,279
+so this gets a total. Okay. So this code
+
+244
+00:15:35,760 --> 00:15:43,120
+this code just gets a total of special
+
+245
+00:15:39,279 --> 00:15:45,920
+cells that is also known as removed
+
+246
+00:15:43,120 --> 00:15:48,639
+cells going to be removed.
+
+247
+00:15:45,920 --> 00:15:53,720
+Meanwhile you need to return the matrix.
+
+248
+00:15:48,639 --> 00:15:53,720
+So you can see you can you can say
+
+249
+00:15:55,680 --> 00:16:05,600
+cells to be removed. Okay, that's one
+
+250
+00:16:00,480 --> 00:16:08,320
+variable and the result matrix that's
+
+251
+00:16:05,600 --> 00:16:10,320
+another variable and in fact you reverse
+
+252
+00:16:08,320 --> 00:16:13,519
+the order.
+
+253
+00:16:10,320 --> 00:16:16,720
+Okay, two local variables.
+
+254
+00:16:13,519 --> 00:16:19,680
+Okay. And what you do so and and uh and
+
+255
+00:16:16,720 --> 00:16:22,800
+oh becomes simple and simple. So this
+
+256
+00:16:19,680 --> 00:16:26,759
+part is the cells to be removed. Okay.
+
+257
+00:16:22,800 --> 00:16:26,759
+Then it just return
+
+258
+00:16:27,440 --> 00:16:36,800
+that. Okay. Now this part sales to be
+
+259
+00:16:32,079 --> 00:16:40,880
+removed is already done computed there.
+
+260
+00:16:36,800 --> 00:16:43,920
+Now the new return matrix. How do you do
+
+261
+00:16:40,880 --> 00:16:46,920
+that? Well
+
+262
+00:16:43,920 --> 00:16:46,920
+um
+
+263
+00:17:03,360 --> 00:17:12,079
+Given a matrix certain positions in it
+
+264
+00:17:10,000 --> 00:17:16,280
+needs to be removed. You need to know
+
+265
+00:17:12,079 --> 00:17:16,280
+those positions. Okay?
+
+266
+00:17:16,640 --> 00:17:20,600
+So you need a variable
+
+267
+00:17:25,919 --> 00:17:32,000
+positions list. Okay.
+
+268
+00:17:29,280 --> 00:17:36,200
+Um
+
+269
+00:17:32,000 --> 00:17:36,200
+to remove
+
+270
+00:17:37,679 --> 00:17:45,039
+position list. Okay. We make our
+
+271
+00:17:39,760 --> 00:17:47,120
+variable long so it's like readable so
+
+272
+00:17:45,039 --> 00:17:50,080
+people can understand it. Okay. So we
+
+273
+00:17:47,120 --> 00:17:56,240
+make our variable very long. This is in
+
+274
+00:17:50,080 --> 00:17:58,880
+contrast to C and C++ idiots style.
+
+275
+00:17:56,240 --> 00:18:02,400
+Wuang language typically have long
+
+276
+00:17:58,880 --> 00:18:04,799
+descriptive names
+
+277
+00:18:02,400 --> 00:18:08,880
+you know all the building function like
+
+278
+00:18:04,799 --> 00:18:12,400
+um that is the tradition basically from
+
+279
+00:18:08,880 --> 00:18:15,200
+lisp that's a lisp tradition names are
+
+280
+00:18:12,400 --> 00:18:17,600
+usually very long descriptive
+
+281
+00:18:15,200 --> 00:18:20,160
+okay so this is critical to remove
+
+282
+00:18:17,600 --> 00:18:22,240
+positions list
+
+283
+00:18:20,160 --> 00:18:25,280
+how do you get that once you know that
+
+284
+00:18:22,240 --> 00:18:28,000
+list you can easily delete it delete
+
+285
+00:18:25,280 --> 00:18:31,240
+those positions by
+
+286
+00:18:28,000 --> 00:18:31,240
+uh by
+
+287
+00:18:33,280 --> 00:18:43,039
+let's uh how do you do that? So uh
+
+288
+00:18:36,000 --> 00:18:46,559
+result matrix let's color it. Okay. Uh
+
+289
+00:18:43,039 --> 00:18:52,600
+result matrix equals to something. Okay.
+
+290
+00:18:46,559 --> 00:18:52,600
+Yeah. result matrix equals to delete.
+
+291
+00:18:55,600 --> 00:19:01,720
+Uh well,
+
+292
+00:18:58,160 --> 00:19:01,720
+it's going to be
+
+293
+00:19:10,960 --> 00:19:13,960
+map.
+
+294
+00:19:14,320 --> 00:19:23,840
+delete to this to remove positions
+
+295
+00:19:20,640 --> 00:19:26,720
+then that will return a new matrix
+
+296
+00:19:23,840 --> 00:19:29,200
+assigned to the result there. Okay, then
+
+297
+00:19:26,720 --> 00:19:32,480
+you just return that. Fantastic and
+
+298
+00:19:29,200 --> 00:19:35,039
+beautiful. So now the job is to define
+
+299
+00:19:32,480 --> 00:19:37,600
+this to remove position. Okay, but first
+
+300
+00:19:35,039 --> 00:19:41,559
+of all, let let's uh look up the
+
+301
+00:19:37,600 --> 00:19:41,559
+documentation for delete.
+
+302
+00:20:03,039 --> 00:20:06,039
+Right.
+
+303
+00:20:08,960 --> 00:20:11,960
+Okay.
+
+304
+00:20:16,640 --> 00:20:22,000
+Now,
+
+305
+00:20:19,440 --> 00:20:25,360
+let's um
+
+306
+00:20:22,000 --> 00:20:30,039
+do a test case just just to be sure we
+
+307
+00:20:25,360 --> 00:20:30,039
+got this right. Okay. So,
+
+308
+00:20:31,679 --> 00:20:41,320
+delete in this matrix and uh you want to
+
+309
+00:20:36,960 --> 00:20:41,320
+delete position 2 two.
+
+310
+00:20:46,559 --> 00:20:54,840
+It'll return 1 2 3 then 4 5 then 7 8 9
+
+311
+00:20:51,840 --> 00:20:54,840
+it
+
+312
+00:21:02,240 --> 00:21:07,280
+annoying when you start with language.
+
+313
+00:21:04,240 --> 00:21:10,280
+You see? Perfect.
+
+314
+00:21:07,280 --> 00:21:10,280
+Perfect.
+
+315
+00:21:34,240 --> 00:21:38,960
+Three. Shift enter
+
+316
+00:21:36,720 --> 00:21:44,799
+to start it.
+
+317
+00:21:38,960 --> 00:21:46,960
+Magnify 150. Enlarge. Okay.
+
+318
+00:21:44,799 --> 00:21:51,120
+Copy that.
+
+319
+00:21:46,960 --> 00:21:55,480
+Paste it. Shift enter. Fantastic. And
+
+320
+00:21:51,120 --> 00:21:55,480
+beautiful. That's how it works.
+
+321
+00:21:59,039 --> 00:22:05,679
+Now the question is how do you
+
+322
+00:22:02,799 --> 00:22:08,240
+get this to be removed position list?
+
+323
+00:22:05,679 --> 00:22:11,280
+Okay,
+
+324
+00:22:08,240 --> 00:22:15,039
+well that part the code is similar here.
+
+325
+00:22:11,280 --> 00:22:17,200
+So um so you need to actually hold on a
+
+326
+00:22:15,039 --> 00:22:20,960
+second.
+
+327
+00:22:17,200 --> 00:22:24,320
+This list will equals to
+
+328
+00:22:20,960 --> 00:22:29,280
+something like that. Okay, now forget
+
+329
+00:22:24,320 --> 00:22:34,039
+about total. Now let's see. Um,
+
+330
+00:22:29,280 --> 00:22:34,039
+let's make it more legible. So,
+
+331
+00:22:34,559 --> 00:22:40,200
+okay, I know what to do. So you
+
+332
+00:22:50,880 --> 00:22:54,120
+let's see
+
+333
+00:22:55,120 --> 00:22:59,280
+position. Let's look at the
+
+334
+00:22:56,799 --> 00:23:03,360
+documentation. Position return elements
+
+335
+00:22:59,280 --> 00:23:06,960
+position via a pattern.
+
+336
+00:23:03,360 --> 00:23:10,799
+position, expression and pattern. Given
+
+337
+00:23:06,960 --> 00:23:13,600
+an expression, if a pattern matches any
+
+338
+00:23:10,799 --> 00:23:16,880
+part of the expression, it will return a
+
+339
+00:23:13,600 --> 00:23:20,000
+list of all those positions of that
+
+340
+00:23:16,880 --> 00:23:23,000
+matched expression. Okay, so this is
+
+341
+00:23:20,000 --> 00:23:23,000
+effectively
+
+342
+00:23:23,280 --> 00:23:29,200
+given a list could be a tree nested
+
+343
+00:23:26,480 --> 00:23:32,720
+list. You want to get all the positions
+
+344
+00:23:29,200 --> 00:23:36,559
+such that the element matches this
+
+345
+00:23:32,720 --> 00:23:39,280
+pattern. Okay, that is what is this is
+
+346
+00:23:36,559 --> 00:23:42,799
+doing. Okay, so
+
+347
+00:23:39,280 --> 00:23:47,360
+the matrix is our input.
+
+348
+00:23:42,799 --> 00:23:50,360
+So input matrix. Okay, now what are the
+
+349
+00:23:47,360 --> 00:23:50,360
+patterns?
+
+350
+00:23:50,559 --> 00:23:56,240
+How do you match a pattern? The pattern
+
+351
+00:23:53,280 --> 00:23:58,640
+needs to be such that you know it has
+
+352
+00:23:56,240 --> 00:24:00,159
+less than four neighbors.
+
+353
+00:23:58,640 --> 00:24:03,120
+Well,
+
+354
+00:24:00,159 --> 00:24:05,600
+this function will tell you this get
+
+355
+00:24:03,120 --> 00:24:08,931
+neighbors and and less than four. So
+
+356
+00:24:05,600 --> 00:24:08,931
+this [clears throat]
+
+357
+00:24:09,200 --> 00:24:12,840
+um so
+
+358
+00:24:17,600 --> 00:24:22,520
+okay so this needs some work. Okay.
+
+359
+00:24:23,360 --> 00:24:29,360
+Now, where where is this index of paper
+
+360
+00:24:26,480 --> 00:24:32,240
+rows? Uh oh, that's not defined. Is it
+
+361
+00:24:29,360 --> 00:24:35,039
+defined? Oh, it is. Okay.
+
+362
+00:24:32,240 --> 00:24:36,640
+All index is where the cell is a paper
+
+363
+00:24:35,039 --> 00:24:39,120
+row.
+
+364
+00:24:36,640 --> 00:24:44,000
+Oh, so every time you need to do this
+
+365
+00:24:39,120 --> 00:24:49,400
+again. So, this needs to be moved inside
+
+366
+00:24:44,000 --> 00:24:49,400
+the function. Okay. So,
+
+367
+00:24:51,120 --> 00:24:55,840
+So okay. So now let's we need now it's
+
+368
+00:24:53,919 --> 00:24:58,640
+getting a bit complex. We need to clean
+
+369
+00:24:55,840 --> 00:25:01,679
+up a little bit all indexes where the
+
+370
+00:24:58,640 --> 00:25:05,400
+cell is a paper row. Okay. So first of
+
+371
+00:25:01,679 --> 00:25:05,400
+all copy that
+
+372
+00:25:10,240 --> 00:25:17,440
+and uh move this here.
+
+373
+00:25:14,720 --> 00:25:20,440
+Okay. So we got now four local
+
+374
+00:25:17,440 --> 00:25:20,440
+variables.
+
+375
+00:25:33,200 --> 00:25:38,120
+This this should be count. Okay.
+
+376
+00:25:53,520 --> 00:26:00,480
+Okay, it's getting closer and closer.
+
+377
+00:25:56,720 --> 00:26:03,520
+Save it. Make a backup. Close it.
+
+378
+00:26:00,480 --> 00:26:07,440
+Reopen. So, we got a fret. We remove the
+
+379
+00:26:03,520 --> 00:26:10,840
+highlight. Okay. So, again,
+
+380
+00:26:07,440 --> 00:26:10,840
+this function
+
+381
+00:26:12,000 --> 00:26:18,320
+This function
+
+382
+00:26:14,000 --> 00:26:21,320
+local variables index a paper
+
+383
+00:26:18,320 --> 00:26:21,320
+rows.
+
+384
+00:26:27,679 --> 00:26:32,440
+Okay. Actually, let's rename it
+
+385
+00:26:45,760 --> 00:26:53,799
+Rename hell. Let's stop stop that. Okay.
+
+386
+00:26:49,679 --> 00:26:53,799
+Position of paper rows.
+
+387
+00:27:01,760 --> 00:27:08,279
+Now this is inconsistent naming bad.
+
+388
+00:27:43,039 --> 00:27:53,640
+Assign position list better name.
+
+389
+00:27:47,840 --> 00:27:53,640
+Now this to remove position list.
+
+390
+00:28:12,960 --> 00:28:17,760
+Okay, now it's more consistent name and
+
+391
+00:28:16,240 --> 00:28:21,520
+even shorter.
+
+392
+00:28:17,760 --> 00:28:25,360
+assign positions list of positions to
+
+393
+00:28:21,520 --> 00:28:30,200
+remove positions list result matrix to
+
+394
+00:28:25,360 --> 00:28:30,200
+be removed count now it's better
+
+395
+00:28:35,919 --> 00:28:42,320
+now highlight them okay let's begin our
+
+396
+00:28:39,919 --> 00:28:44,960
+journey of coding so assign position
+
+397
+00:28:42,320 --> 00:28:50,240
+list that gives you all lists all
+
+398
+00:28:44,960 --> 00:28:54,559
+indexes all Let's uh
+
+399
+00:28:50,240 --> 00:28:59,159
+positions where the cell is a paper row.
+
+400
+00:28:54,559 --> 00:28:59,159
+Back the paper roll as sign.
+
+401
+00:29:15,600 --> 00:29:19,919
+This is very inefficient but we don't
+
+402
+00:29:18,000 --> 00:29:22,399
+care because advent of code they don't
+
+403
+00:29:19,919 --> 00:29:25,440
+appreciate efficient codes they just
+
+404
+00:29:22,399 --> 00:29:27,279
+care about an answer this is inefficient
+
+405
+00:29:25,440 --> 00:29:31,000
+but
+
+406
+00:29:27,279 --> 00:29:31,000
+don't care okay
+
+407
+00:29:31,200 --> 00:29:37,200
+assign position list okay you got that
+
+408
+00:29:34,240 --> 00:29:39,520
+to be removed to remove position list
+
+409
+00:29:37,200 --> 00:29:42,080
+this we don't know yet but first of all
+
+410
+00:29:39,520 --> 00:29:44,640
+we need the
+
+411
+00:29:42,080 --> 00:29:48,640
+Um
+
+412
+00:29:44,640 --> 00:29:53,559
+so let so this is to be removed count.
+
+413
+00:29:48,640 --> 00:29:53,559
+Let's we can move that there. Okay.
+
+414
+00:29:54,799 --> 00:29:57,799
+Uh
+
+415
+00:29:59,279 --> 00:30:08,679
+okay. So that and to remove position
+
+416
+00:30:02,880 --> 00:30:08,679
+list. So how do you do this? So you
+
+417
+00:30:13,120 --> 00:30:18,600
+you map this function wait
+
+418
+00:30:22,000 --> 00:30:25,880
+to this basically
+
+419
+00:30:26,799 --> 00:30:32,600
+map
+
+420
+00:30:28,480 --> 00:30:32,600
+index. Okay.
+
+421
+00:31:00,480 --> 00:31:03,880
+So actually
+
+422
+00:31:11,120 --> 00:31:18,320
+now let's experiment a little bit. Okay,
+
+423
+00:31:14,000 --> 00:31:23,559
+I need I needed to have like some test.
+
+424
+00:31:18,320 --> 00:31:23,559
+So the matrix is that
+
+425
+00:31:35,200 --> 00:31:44,679
+put it back.
+
+426
+00:31:38,240 --> 00:31:44,679
+Create a new wam code and uh
+
+427
+00:31:47,200 --> 00:31:53,720
+you need to do some testing. Okay. Uh
+
+428
+00:31:50,720 --> 00:31:53,720
+what?
+
+429
+00:31:54,240 --> 00:31:57,240
+Yeah.
+
+430
+00:32:06,480 --> 00:32:10,440
+Okay. Concentrate.
+
+431
+00:32:27,279 --> 00:32:33,039
+Map a function get neighbors. Map a
+
+432
+00:32:30,640 --> 00:32:39,559
+function get neighbors. So it returns.
+
+433
+00:32:33,039 --> 00:32:39,559
+So map assign position list. So you map
+
+434
+00:32:43,279 --> 00:32:52,679
+position, right? So
+
+435
+00:32:46,960 --> 00:32:52,679
+you map that to a list of positions
+
+436
+00:32:53,600 --> 00:33:02,559
+and uh each become
+
+437
+00:32:57,519 --> 00:33:06,399
+okay. So hold on a second.
+
+438
+00:33:02,559 --> 00:33:10,480
+So let's modify this. So let me show you
+
+439
+00:33:06,399 --> 00:33:14,320
+what we going to do. You map a function
+
+440
+00:33:10,480 --> 00:33:16,559
+to assign position list. And what
+
+441
+00:33:14,320 --> 00:33:19,679
+function you're going to map? Here is
+
+442
+00:33:16,559 --> 00:33:21,440
+the trick. Okay, here is the function
+
+443
+00:33:19,679 --> 00:33:26,320
+you're going to map. But hold on a
+
+444
+00:33:21,440 --> 00:33:29,600
+second. Let me uh clear it for Okay,
+
+445
+00:33:26,320 --> 00:33:33,000
+you're going to map a function
+
+446
+00:33:29,600 --> 00:33:33,000
+such that
+
+447
+00:33:34,080 --> 00:33:39,840
+okay here, focus on here. Okay, here
+
+448
+00:33:37,840 --> 00:33:41,919
+we're going to write this function one
+
+449
+00:33:39,840 --> 00:33:44,320
+shot. We don't need these two lines.
+
+450
+00:33:41,919 --> 00:33:48,279
+You're going to map a function through
+
+451
+00:33:44,320 --> 00:33:48,279
+this list of positions.
+
+452
+00:33:48,640 --> 00:33:54,399
+Okay. Wait, what?
+
+453
+00:33:51,519 --> 00:33:56,640
+Hey, how did that get there? Okay, hold
+
+454
+00:33:54,399 --> 00:33:58,640
+on a second. Okay,
+
+455
+00:33:56,640 --> 00:34:01,039
+remove that.
+
+456
+00:33:58,640 --> 00:34:03,623
+Remove that. Okay,
+
+457
+00:34:01,039 --> 00:34:05,643
+you're going to map a function
+
+458
+00:34:03,623 --> 00:34:05,643
+[clears throat]
+
+459
+00:34:28,159 --> 00:34:33,599
+that is a function. Okay, map a
+
+460
+00:34:30,720 --> 00:34:35,520
+function. The argument is x. Now what
+
+461
+00:34:33,599 --> 00:34:40,480
+does the function do? It's a if
+
+462
+00:34:35,520 --> 00:34:44,240
+statement, if expression. Okay, if get
+
+463
+00:34:40,480 --> 00:34:47,200
+neighbors returns a list
+
+464
+00:34:44,240 --> 00:34:50,320
+and total them,
+
+465
+00:34:47,200 --> 00:34:53,359
+if it's less than four,
+
+466
+00:34:50,320 --> 00:34:55,359
+you return,
+
+467
+00:34:53,359 --> 00:34:59,720
+you don't return one, you return the
+
+468
+00:34:55,359 --> 00:34:59,720
+position which is x.
+
+469
+00:35:03,520 --> 00:35:08,400
+Okay.
+
+470
+00:35:06,320 --> 00:35:12,440
+Otherwise
+
+471
+00:35:08,400 --> 00:35:12,440
+what do you return? Nothing.
+
+472
+00:35:12,960 --> 00:35:21,359
+This is the tricky part. Okay. Nothing
+
+473
+00:35:15,680 --> 00:35:24,160
+in wam language is like no or no.
+
+474
+00:35:21,359 --> 00:35:27,599
+Basically when you have nothing in a
+
+475
+00:35:24,160 --> 00:35:32,560
+list this nothing automatically
+
+476
+00:35:27,599 --> 00:35:34,560
+disappears. Okay. It's like new or
+
+477
+00:35:32,560 --> 00:35:38,079
+undefined. You know in programming
+
+478
+00:35:34,560 --> 00:35:40,240
+language you have this 1 billion
+
+479
+00:35:38,079 --> 00:35:43,680
+mistake.
+
+480
+00:35:40,240 --> 00:35:46,400
+Nothing represents an element of a list
+
+481
+00:35:43,680 --> 00:35:50,640
+that will automatically be removed.
+
+482
+00:35:46,400 --> 00:35:53,760
+Okay, this is new in uh when is it 2015
+
+483
+00:35:50,640 --> 00:35:56,800
+10 years ago when I was coding heavily
+
+484
+00:35:53,760 --> 00:36:02,079
+in Wuam language I don't have this but
+
+485
+00:35:56,800 --> 00:36:04,640
+now you can have this. Okay. So if
+
+486
+00:36:02,079 --> 00:36:08,960
+let's make sure this is correct. Okay.
+
+487
+00:36:04,640 --> 00:36:12,000
+You map a function that function
+
+488
+00:36:08,960 --> 00:36:16,160
+to to
+
+489
+00:36:12,000 --> 00:36:20,800
+all the positions of the at least. Okay.
+
+490
+00:36:16,160 --> 00:36:22,400
+If the total you sum it up of all the
+
+491
+00:36:20,800 --> 00:36:26,960
+neighbors
+
+492
+00:36:22,400 --> 00:36:29,440
+is less than four, you return x which is
+
+493
+00:36:26,960 --> 00:36:32,480
+a position. you return that position
+
+494
+00:36:29,440 --> 00:36:35,440
+otherwise nothing in uh okay another way
+
+495
+00:36:32,480 --> 00:36:37,599
+to do it okay now we remove this part so
+
+496
+00:36:35,440 --> 00:36:40,640
+we don't doesn't get confusing we are
+
+497
+00:36:37,599 --> 00:36:42,960
+coding this part to remove position list
+
+498
+00:36:40,640 --> 00:36:45,119
+we want a list of positions we want to
+
+499
+00:36:42,960 --> 00:36:47,375
+remove okay
+
+500
+00:36:45,119 --> 00:36:49,395
+in fact
+
+501
+00:36:47,375 --> 00:36:49,395
+[clears throat]
+
+502
+00:36:49,839 --> 00:36:57,000
+in fact we don't need to do this map in
+
+503
+00:36:53,119 --> 00:36:57,000
+fact we can do
+
+504
+00:36:58,480 --> 00:37:04,160
+Let me let me hold on a second. Let me
+
+505
+00:37:00,240 --> 00:37:06,480
+think. This will work. But um but there
+
+506
+00:37:04,160 --> 00:37:09,839
+are better way. But hold on a second.
+
+507
+00:37:06,480 --> 00:37:12,079
+Let's not get distracted like oh but
+
+508
+00:37:09,839 --> 00:37:14,160
+there's a new way. Let's try that. But
+
+509
+00:37:12,079 --> 00:37:17,200
+then there's another way. Let's try that
+
+510
+00:37:14,160 --> 00:37:21,200
+instead. Then then you never finish. So
+
+511
+00:37:17,200 --> 00:37:23,920
+let let's just stick with um Okay. So to
+
+512
+00:37:21,200 --> 00:37:27,200
+remove position list,
+
+513
+00:37:23,920 --> 00:37:27,200
+that should work.
+
+514
+00:37:35,760 --> 00:37:40,000
+But actually there is a better way.
+
+515
+00:37:37,920 --> 00:37:42,720
+Okay.
+
+516
+00:37:40,000 --> 00:37:44,880
+You just say
+
+517
+00:37:42,720 --> 00:37:47,760
+don't don't map. Okay. Don't map this.
+
+518
+00:37:44,880 --> 00:37:51,760
+Okay. You want basically you want to
+
+519
+00:37:47,760 --> 00:37:54,480
+filter this assign position list.
+
+520
+00:37:51,760 --> 00:37:56,720
+You see it's a list of positions. you
+
+521
+00:37:54,480 --> 00:37:59,520
+just want to reduce them. For each
+
+522
+00:37:56,720 --> 00:38:01,440
+position that needs to be removed, you
+
+523
+00:37:59,520 --> 00:38:03,920
+remove that position. Okay? So you
+
+524
+00:38:01,440 --> 00:38:08,440
+reduce this assign position list. In
+
+525
+00:38:03,920 --> 00:38:08,440
+that case, you can use cases
+
+526
+00:38:08,560 --> 00:38:13,880
+uh or or select. Okay? So
+
+527
+00:38:14,640 --> 00:38:21,839
+select is like filter. Okay. Data and
+
+528
+00:38:17,520 --> 00:38:27,040
+criteria. Okay. Let's do that. Select.
+
+529
+00:38:21,839 --> 00:38:30,560
+It's make it simpler. Okay. Select
+
+530
+00:38:27,040 --> 00:38:33,119
+filter. Okay. Select from this list.
+
+531
+00:38:30,560 --> 00:38:36,160
+What is the criteria? Well, the criteria
+
+532
+00:38:33,119 --> 00:38:40,160
+is this function basically. Okay.
+
+533
+00:38:36,160 --> 00:38:44,520
+This function if total something
+
+534
+00:38:40,160 --> 00:38:44,520
+something is
+
+535
+00:38:46,400 --> 00:38:52,560
+greater or equals to four
+
+536
+00:38:49,920 --> 00:38:54,079
+then
+
+537
+00:38:52,560 --> 00:38:57,119
+true
+
+538
+00:38:54,079 --> 00:39:01,359
+else false.
+
+539
+00:38:57,119 --> 00:39:05,440
+Okay. Is this simpler? Yes. You see
+
+540
+00:39:01,359 --> 00:39:10,240
+select two arguments data and criteria.
+
+541
+00:39:05,440 --> 00:39:13,040
+The criteria is a function. Okay.
+
+542
+00:39:10,240 --> 00:39:15,520
+So that
+
+543
+00:39:13,040 --> 00:39:21,119
+so you see uh hold on a second. So you
+
+544
+00:39:15,520 --> 00:39:23,680
+see we have two implementations of this
+
+545
+00:39:21,119 --> 00:39:27,200
+um
+
+546
+00:39:23,680 --> 00:39:30,520
+of this generate the list of positions
+
+547
+00:39:27,200 --> 00:39:30,520
+to remove.
+
+548
+00:39:33,200 --> 00:39:38,720
+Yeah, I'm pretty sure it work. Okay, so
+
+549
+00:39:36,160 --> 00:39:42,240
+let let's let's get on let's finish the
+
+550
+00:39:38,720 --> 00:39:44,000
+problem. Okay, this function so far so
+
+551
+00:39:42,240 --> 00:39:47,720
+good.
+
+552
+00:39:44,000 --> 00:39:47,720
+you guys watching.
+
+553
+00:39:48,000 --> 00:39:53,200
+It is superb functional programming.
+
+554
+00:39:50,320 --> 00:39:56,720
+Superb. There's no variable mutation.
+
+555
+00:39:53,200 --> 00:39:58,720
+There's no for loop. There's no plus+
+
+556
+00:39:56,720 --> 00:40:00,720
+like the C++
+
+557
+00:39:58,720 --> 00:40:03,920
+
+558
+00:40:00,720 --> 00:40:06,240
+There's no objects. There's no
+
+559
+00:40:03,920 --> 00:40:09,680
+iterator. There's no accessor. There's
+
+560
+00:40:06,240 --> 00:40:12,240
+no constructor. All those All
+
+561
+00:40:09,680 --> 00:40:15,440
+these are pure function.
+
+562
+00:40:12,240 --> 00:40:18,400
+Position a necessary concept when you
+
+563
+00:40:15,440 --> 00:40:20,880
+have a list or indexes, position,
+
+564
+00:40:18,400 --> 00:40:24,079
+matrix, you know, all the all these
+
+565
+00:40:20,880 --> 00:40:27,040
+concepts are fundamental and necessary
+
+566
+00:40:24,079 --> 00:40:29,760
+because they came from mathematics.
+
+567
+00:40:27,040 --> 00:40:31,440
+None of the accessor, iterator,
+
+568
+00:40:29,760 --> 00:40:36,640
+generator
+
+569
+00:40:31,440 --> 00:40:39,040
+um you know the object oriented stuff.
+
+570
+00:40:36,640 --> 00:40:43,000
+Okay. So
+
+571
+00:40:39,040 --> 00:40:43,000
+assign position list
+
+572
+00:40:47,200 --> 00:40:53,119
+then
+
+573
+00:40:49,680 --> 00:40:57,200
+to remove position list
+
+574
+00:40:53,119 --> 00:40:59,760
+then then actually to be removed count
+
+575
+00:40:57,200 --> 00:41:02,880
+you don't need um
+
+576
+00:40:59,760 --> 00:41:05,599
+actually uh you can uh just to remove
+
+577
+00:41:02,880 --> 00:41:09,440
+pos you just count the length of the uh
+
+578
+00:41:05,599 --> 00:41:14,359
+that and So you see we improved so much.
+
+579
+00:41:09,440 --> 00:41:14,359
+Let me do alternative code here.
+
+580
+00:41:22,400 --> 00:41:28,400
+You see now the to be removed count is
+
+581
+00:41:24,880 --> 00:41:30,960
+just that you don't need this anymore.
+
+582
+00:41:28,400 --> 00:41:33,920
+Is that right?
+
+583
+00:41:30,960 --> 00:41:38,400
+Uh we need to think about it to be sure.
+
+584
+00:41:33,920 --> 00:41:40,880
+Okay. Oh, so one more last check.
+
+585
+00:41:38,400 --> 00:41:43,880
+Assign position list.
+
+586
+00:41:40,880 --> 00:41:43,880
+Then
+
+587
+00:41:46,000 --> 00:41:49,000
+select
+
+588
+00:41:49,200 --> 00:41:52,839
+with this criteria.
+
+589
+00:42:04,000 --> 00:42:08,880
+So this should be less than four not
+
+590
+00:42:06,640 --> 00:42:13,119
+greater than equals to four. Neighbors
+
+591
+00:42:08,880 --> 00:42:17,480
+less than four. That is to yeah we got
+
+592
+00:42:13,119 --> 00:42:17,480
+to make sure that is right. Yeah
+
+593
+00:42:17,760 --> 00:42:22,599
+to be removed position list.
+
+594
+00:42:24,400 --> 00:42:29,920
+Then
+
+595
+00:42:26,960 --> 00:42:33,040
+then the count is just
+
+596
+00:42:29,920 --> 00:42:37,280
+length of that.
+
+597
+00:42:33,040 --> 00:42:40,000
+Okay. Then the result matrix is you map
+
+598
+00:42:37,280 --> 00:42:42,400
+delete to this list.
+
+599
+00:42:40,000 --> 00:42:45,040
+Actually you don't map you you just uh
+
+600
+00:42:42,400 --> 00:42:49,280
+let me show you. Okay. You don't you
+
+601
+00:42:45,040 --> 00:42:52,280
+don't map. Okay. You simply delete.
+
+602
+00:42:49,280 --> 00:42:52,280
+Delete.
+
+603
+00:42:53,599 --> 00:43:02,480
+Yeah. This this is incorrect. Delete the
+
+604
+00:42:58,160 --> 00:43:06,800
+input matrix by this to be removed list.
+
+605
+00:43:02,480 --> 00:43:11,839
+Okay, all those positions delet them.
+
+606
+00:43:06,800 --> 00:43:15,319
+Then return result matrix and uh
+
+607
+00:43:11,839 --> 00:43:15,319
+remove count.
+
+608
+00:43:18,720 --> 00:43:25,040
+Now let's rename again. This is not to
+
+609
+00:43:21,280 --> 00:43:27,680
+be removed, you know. Ban the word to be
+
+610
+00:43:25,040 --> 00:43:31,079
+very complicated.
+
+611
+00:43:27,680 --> 00:43:31,079
+Rename it.
+
+612
+00:43:31,760 --> 00:43:39,280
+Just remove count.
+
+613
+00:43:34,960 --> 00:43:41,520
+Very critical naming of things. Okay, I
+
+614
+00:43:39,280 --> 00:43:44,319
+think we done. So, let's compact the
+
+615
+00:43:41,520 --> 00:43:46,800
+code. So, so the code is just that.
+
+616
+00:43:44,319 --> 00:43:50,800
+Okay. Uh,
+
+617
+00:43:46,800 --> 00:43:54,400
+it's probably unreadable to you.
+
+618
+00:43:50,800 --> 00:43:57,520
+So let me just remove these comments.
+
+619
+00:43:54,400 --> 00:44:03,160
+Let's uh put the comments
+
+620
+00:43:57,520 --> 00:44:03,160
+to there. So just in case we need them.
+
+621
+00:44:03,280 --> 00:44:09,280
+Okay. So now the function is simpler.
+
+622
+00:44:06,240 --> 00:44:13,359
+Can you see it?
+
+623
+00:44:09,280 --> 00:44:17,160
+This function input matrix current count
+
+624
+00:44:13,359 --> 00:44:17,160
+of remove cells.
+
+625
+00:44:21,359 --> 00:44:28,319
+Oh, you need to add them. So, the remove
+
+626
+00:44:25,200 --> 00:44:30,160
+count needs to add
+
+627
+00:44:28,319 --> 00:44:33,599
+uh plus
+
+628
+00:44:30,160 --> 00:44:36,000
+current count of remove sales plus new
+
+629
+00:44:33,599 --> 00:44:38,800
+remove count. That's right. Because they
+
+630
+00:44:36,000 --> 00:44:40,800
+need to accumulate. Okay. So, this is a
+
+631
+00:44:38,800 --> 00:44:42,720
+return value. When you have a bunch of
+
+632
+00:44:40,800 --> 00:44:45,599
+expressions, it returns the last
+
+633
+00:44:42,720 --> 00:44:48,560
+expression return value.
+
+634
+00:44:45,599 --> 00:44:51,280
+Fantastic.
+
+635
+00:44:48,560 --> 00:44:53,920
+Now the final solution just call this
+
+636
+00:44:51,280 --> 00:44:59,079
+okay let's see final solution fixed
+
+637
+00:44:53,920 --> 00:44:59,079
+point FF input matrix zero
+
+638
+00:45:00,880 --> 00:45:06,000
+then it will return
+
+639
+00:45:04,160 --> 00:45:08,800
+this list
+
+640
+00:45:06,000 --> 00:45:12,640
+the first part is the matrix the second
+
+641
+00:45:08,800 --> 00:45:15,839
+part is just just a number
+
+642
+00:45:12,640 --> 00:45:18,400
+and if we run this one shot you know
+
+643
+00:45:15,839 --> 00:45:22,079
+this is like one short coding there's no
+
+644
+00:45:18,400 --> 00:45:24,000
+trial and error I I wrote this in my
+
+645
+00:45:22,079 --> 00:45:27,839
+head
+
+646
+00:45:24,000 --> 00:45:32,720
+we run this will it give us the solution
+
+647
+00:45:27,839 --> 00:45:37,440
+okay let's let's check one last time
+
+648
+00:45:32,720 --> 00:45:40,400
+um compact the code
+
+649
+00:45:37,440 --> 00:45:43,359
+we don't need this um
+
+650
+00:45:40,400 --> 00:45:49,200
+comment redundant because now the naming
+
+651
+00:45:43,359 --> 00:45:52,160
+is clarity at sign position list.
+
+652
+00:45:49,200 --> 00:45:55,560
+So let's check one more time
+
+653
+00:45:52,160 --> 00:45:55,560
+this function
+
+654
+00:45:55,680 --> 00:46:04,000
+and uh since now each variable is used
+
+655
+00:45:59,839 --> 00:46:08,960
+once we can actually replace the block
+
+656
+00:46:04,000 --> 00:46:13,119
+local variable dynamic scope by a width
+
+657
+00:46:08,960 --> 00:46:15,920
+which is constant local constant.
+
+658
+00:46:13,119 --> 00:46:18,560
+We can do that just you need just need
+
+659
+00:46:15,920 --> 00:46:22,720
+to make sure that they are not used they
+
+660
+00:46:18,560 --> 00:46:26,240
+are not mutated they are not but however
+
+661
+00:46:22,720 --> 00:46:28,400
+the this variable uses the value of
+
+662
+00:46:26,240 --> 00:46:30,160
+previous variable so you actually need
+
+663
+00:46:28,400 --> 00:46:33,040
+nested
+
+664
+00:46:30,160 --> 00:46:37,440
+with local constant that's not good
+
+665
+00:46:33,040 --> 00:46:40,079
+let's just leave it like this okay
+
+666
+00:46:37,440 --> 00:46:43,440
+assign position list remove position
+
+667
+00:46:40,079 --> 00:46:46,480
+list result matrix x remove pound. Okay.
+
+668
+00:46:43,440 --> 00:46:50,440
+Input matrix. Now, where is input matrix
+
+669
+00:46:46,480 --> 00:46:50,440
+used? Let's see.
+
+670
+00:46:51,599 --> 00:46:56,480
+Input matrix.
+
+671
+00:46:54,160 --> 00:46:59,040
+Where is the input matrix used? That's
+
+672
+00:46:56,480 --> 00:47:04,119
+not good. Oh, yeah. So, you forgot it
+
+673
+00:46:59,040 --> 00:47:04,119
+should be here. Not X matrix.
+
+674
+00:47:05,119 --> 00:47:10,560
+Oh, you got to be careful. Okay. Not X
+
+675
+00:47:07,920 --> 00:47:16,839
+matrix, my friend. That's input matrix.
+
+676
+00:47:10,560 --> 00:47:16,839
+Okay. And you got X matrix here.
+
+677
+00:47:17,280 --> 00:47:23,400
+Yeah, that also needs to be input
+
+678
+00:47:19,520 --> 00:47:23,400
+matrix, I think.
+
+679
+00:47:26,240 --> 00:47:33,040
+And what what is this? Delete X inputs.
+
+680
+00:47:29,599 --> 00:47:36,920
+Oh god, you be careful. You don't want
+
+681
+00:47:33,040 --> 00:47:36,920
+to up. Okay.
+
+682
+00:47:40,240 --> 00:47:49,040
+So you see input matrix. Okay. Save it.
+
+683
+00:47:44,640 --> 00:47:50,800
+Close it. Uh back up. Close it. Reopen.
+
+684
+00:47:49,040 --> 00:47:56,520
+Refresh.
+
+685
+00:47:50,800 --> 00:47:56,520
+Now input matrix is a thing.
+
+686
+00:48:02,079 --> 00:48:06,280
+this rename that variable.
+
+687
+00:48:11,119 --> 00:48:16,498
+Let's just say count of remove cell.
+
+688
+00:48:13,359 --> 00:48:16,498
+Okay. [clears throat]
+
+689
+00:48:18,000 --> 00:48:22,359
+Uh let's too long.
+
+690
+00:48:27,920 --> 00:48:36,440
+Remove count. Okay.
+
+691
+00:48:31,839 --> 00:48:36,440
+Input matrix remove count.
+
+692
+00:48:43,280 --> 00:48:46,920
+Okay. Color level.
+
+693
+00:48:47,883 --> 00:48:49,903
+[sighs]
+
+694
+00:49:11,520 --> 00:49:17,280
+And in fact you don't need remove count
+
+695
+00:49:14,400 --> 00:49:19,599
+because remove count is this expression
+
+696
+00:49:17,280 --> 00:49:24,599
+and you just replace it there. You don't
+
+697
+00:49:19,599 --> 00:49:24,599
+need it that variable.
+
+698
+00:49:26,880 --> 00:49:35,359
+Result matrix delete
+
+699
+00:49:30,880 --> 00:49:39,200
+to remove position list. Okay.
+
+700
+00:49:35,359 --> 00:49:41,119
+So far so good. So far so very good. I
+
+701
+00:49:39,200 --> 00:49:44,720
+think
+
+702
+00:49:41,119 --> 00:49:48,319
+now let's copy that
+
+703
+00:49:44,720 --> 00:49:51,280
+is mature enough to put into wam
+
+704
+00:49:48,319 --> 00:49:53,280
+language uh wam notebook so we can see
+
+705
+00:49:51,280 --> 00:49:55,599
+how it formats
+
+706
+00:49:53,280 --> 00:49:58,559
+you know actually we can run it is there
+
+707
+00:49:55,599 --> 00:50:02,559
+a syntax error no you see the wam
+
+708
+00:49:58,559 --> 00:50:05,280
+language formatted on the fly well
+
+709
+00:50:02,559 --> 00:50:08,960
+with all the indent indentations created
+
+710
+00:50:05,280 --> 00:50:13,839
+on the fly as part of the rendering not
+
+711
+00:50:08,960 --> 00:50:19,440
+hardcoded space or return or tab like
+
+712
+00:50:13,839 --> 00:50:22,204
+the Python C C++ Java idiots industrial
+
+713
+00:50:19,440 --> 00:50:23,200
+coders
+
+714
+00:50:22,204 --> 00:50:25,839
+[clears throat]
+
+715
+00:50:23,200 --> 00:50:28,079
+it's like a long form essay you know
+
+716
+00:50:25,839 --> 00:50:30,400
+what one what you know one thing let let
+
+717
+00:50:28,079 --> 00:50:32,640
+me digress again okay one thing about
+
+718
+00:50:30,400 --> 00:50:35,440
+wuam language is everything you can make
+
+719
+00:50:32,640 --> 00:50:38,319
+it into one line that's still valid
+
+720
+00:50:35,440 --> 00:50:41,680
+expression okay I I'm so used to is like
+
+721
+00:50:38,319 --> 00:50:44,960
+I can I can make my whole program one
+
+722
+00:50:41,680 --> 00:50:49,760
+line. Well, except uh when you have text
+
+723
+00:50:44,960 --> 00:50:52,800
+uh string but but but other than string
+
+724
+00:50:49,760 --> 00:50:55,280
+which is kind of hardcoded syntax within
+
+725
+00:50:52,800 --> 00:50:58,319
+a programming language.
+
+726
+00:50:55,280 --> 00:51:00,559
+Uh but otherwise the like wam language
+
+727
+00:50:58,319 --> 00:51:03,200
+you can make everything one line. Okay,
+
+728
+00:51:00,559 --> 00:51:07,920
+that's still valid
+
+729
+00:51:03,200 --> 00:51:10,640
+which is true too for lisp except the
+
+730
+00:51:07,920 --> 00:51:14,720
+stupid lisp comment.
+
+731
+00:51:10,640 --> 00:51:18,160
+uh the you know like I can show you
+
+732
+00:51:14,720 --> 00:51:21,920
+stuff like keys go to my emac this code
+
+733
+00:51:18,160 --> 00:51:26,400
+you know except this can do that too
+
+734
+00:51:21,920 --> 00:51:29,280
+except for example for example this uh
+
+735
+00:51:26,400 --> 00:51:31,680
+wait go to previous buffer that's what
+
+736
+00:51:29,280 --> 00:51:35,040
+this this key do you know go to previous
+
+737
+00:51:31,680 --> 00:51:40,240
+buffer or go to next buffer back next
+
+738
+00:51:35,040 --> 00:51:42,640
+back next back back back
+
+739
+00:51:40,240 --> 00:51:45,359
+okay that's what this function does okay
+
+740
+00:51:42,640 --> 00:51:49,520
+now I can make it
+
+741
+00:51:45,359 --> 00:51:54,319
+one line still works okay this also has
+
+742
+00:51:49,520 --> 00:51:57,520
+this property except except this this
+
+743
+00:51:54,319 --> 00:52:00,640
+idiocy this comment when you have this
+
+744
+00:51:57,520 --> 00:52:04,400
+comment you make it one line it's
+
+745
+00:52:00,640 --> 00:52:08,000
+up it no longer valid this code because
+
+746
+00:52:04,400 --> 00:52:11,760
+the common syntax has a
+
+747
+00:52:08,000 --> 00:52:15,400
+uh stop the show floor. That is it
+
+748
+00:52:11,760 --> 00:52:15,400
+relies on
+
+749
+00:52:15,680 --> 00:52:23,440
+a new line, a line break, a hardcoded
+
+750
+00:52:18,720 --> 00:52:27,119
+formatting character to work. It serves
+
+751
+00:52:23,440 --> 00:52:30,880
+as the delimiter for the end of common.
+
+752
+00:52:27,119 --> 00:52:32,960
+See common syntax
+
+753
+00:52:30,880 --> 00:52:37,280
+uh lisp
+
+754
+00:52:32,960 --> 00:52:40,400
+fatal idiocy because of this
+
+755
+00:52:37,280 --> 00:52:44,400
+the lisp syntax perfect nesting can no
+
+756
+00:52:40,400 --> 00:52:46,319
+longer be free for you know
+
+757
+00:52:44,400 --> 00:52:48,720
+but if you don't have this comment this
+
+758
+00:52:46,319 --> 00:52:51,440
+still works okay but then if you have
+
+759
+00:52:48,720 --> 00:52:53,440
+this com this this comment then you make
+
+760
+00:52:51,440 --> 00:52:56,240
+it one line it stops working so very
+
+761
+00:52:53,440 --> 00:52:58,000
+annoying so the a remedy I've been
+
+762
+00:52:56,240 --> 00:53:00,319
+thinking is that just make all your
+
+763
+00:52:58,000 --> 00:53:02,559
+comment a string.
+
+764
+00:53:00,319 --> 00:53:05,599
+But but that's inefficient because
+
+765
+00:53:02,559 --> 00:53:08,720
+string it will evaluate
+
+766
+00:53:05,599 --> 00:53:10,800
+but but when you have like um well you
+
+767
+00:53:08,720 --> 00:53:13,359
+you you can't actually put a string
+
+768
+00:53:10,800 --> 00:53:15,200
+here. Yeah. So you got some issues.
+
+769
+00:53:13,359 --> 00:53:18,079
+Okay.
+
+770
+00:53:15,200 --> 00:53:20,720
+So that's a lisp problem that basically
+
+771
+00:53:18,079 --> 00:53:24,000
+you cannot fix like in eac list you
+
+772
+00:53:20,720 --> 00:53:26,160
+cannot like create a new function. So to
+
+773
+00:53:24,000 --> 00:53:29,920
+fix this, no, it's part of the like
+
+774
+00:53:26,160 --> 00:53:34,720
+fundamental syntax. This common syntax,
+
+775
+00:53:29,920 --> 00:53:37,280
+a f fatal flaw of this.
+
+776
+00:53:34,720 --> 00:53:39,280
+Okay. Anyway,
+
+777
+00:53:37,280 --> 00:53:41,520
+make sure I didn't change anything in
+
+778
+00:53:39,280 --> 00:53:44,160
+Sly Keys. Close it. Okay, close it.
+
+779
+00:53:41,520 --> 00:53:47,119
+That's a digression. Let's uh previous
+
+780
+00:53:44,160 --> 00:53:50,000
+buffer. Okay, let's go back here. Uh
+
+781
+00:53:47,119 --> 00:53:52,559
+yeah.
+
+782
+00:53:50,000 --> 00:53:55,119
+So, are we ready? just copy the whole
+
+783
+00:53:52,559 --> 00:53:58,640
+thing and run it. Uh, okay. Let's let's
+
+784
+00:53:55,119 --> 00:54:02,559
+remove this. Um,
+
+785
+00:53:58,640 --> 00:54:04,800
+I I think so. Okay, let's see. Will I
+
+786
+00:54:02,559 --> 00:54:06,640
+fail? Maybe.
+
+787
+00:54:04,800 --> 00:54:09,440
+You know,
+
+788
+00:54:06,640 --> 00:54:12,640
+if you bet me $100, then I going to
+
+789
+00:54:09,440 --> 00:54:15,520
+check one more time. Okay. But since
+
+790
+00:54:12,640 --> 00:54:19,359
+nobody is betting, does anyone want to
+
+791
+00:54:15,520 --> 00:54:22,640
+bet $100? Like I run this one shot, it's
+
+792
+00:54:19,359 --> 00:54:27,520
+going to work. Okay. So begin by the
+
+793
+00:54:22,640 --> 00:54:31,040
+input a string block of text. We turn
+
+794
+00:54:27,520 --> 00:54:34,960
+this by this fantastic expression. We
+
+795
+00:54:31,040 --> 00:54:39,440
+turn it in into a matrix of zeros and
+
+796
+00:54:34,960 --> 00:54:42,000
+ones. Okay. Then we define this get
+
+797
+00:54:39,440 --> 00:54:44,960
+neighbors function we defined in
+
+798
+00:54:42,000 --> 00:54:46,559
+previous days. This can be much improved
+
+799
+00:54:44,960 --> 00:54:50,400
+anyway.
+
+800
+00:54:46,559 --> 00:54:53,040
+Then we describe today part two's
+
+801
+00:54:50,400 --> 00:54:56,079
+algorithm. You know each loop you need
+
+802
+00:54:53,040 --> 00:54:58,400
+to remove certain
+
+803
+00:54:56,079 --> 00:55:03,119
+member of the
+
+804
+00:54:58,400 --> 00:55:07,520
+matrix. Okay. Then we defined so the
+
+805
+00:55:03,119 --> 00:55:11,920
+essence lies a new function this f FF
+
+806
+00:55:07,520 --> 00:55:13,520
+you know in functional programming
+
+807
+00:55:11,920 --> 00:55:16,400
+you know it would be better if you give
+
+808
+00:55:13,520 --> 00:55:20,960
+it a proper proper name like remove you
+
+809
+00:55:16,400 --> 00:55:25,280
+know let's name it remove cells
+
+810
+00:55:20,960 --> 00:55:28,079
+but you see in mathematics
+
+811
+00:55:25,280 --> 00:55:31,599
+you know in mathematics if you read for
+
+812
+00:55:28,079 --> 00:55:34,640
+example mathematics medical journals,
+
+813
+00:55:31,599 --> 00:55:37,040
+topology, graph theory, uh you know,
+
+814
+00:55:34,640 --> 00:55:39,520
+usually they have gam gamma, alpha,
+
+815
+00:55:37,040 --> 00:55:42,319
+alpha, something you know like summation
+
+816
+00:55:39,520 --> 00:55:46,000
+or integral, you know, you don't see you
+
+817
+00:55:42,319 --> 00:55:48,960
+don't see a name like uh like this is a
+
+818
+00:55:46,000 --> 00:55:51,119
+cell like current cell or to remove
+
+819
+00:55:48,960 --> 00:55:54,960
+list. You don't see that every symbol is
+
+820
+00:55:51,119 --> 00:55:59,760
+just usually a single character
+
+821
+00:55:54,960 --> 00:56:05,040
+alpha gamma beta zeta zeta function you
+
+822
+00:55:59,760 --> 00:56:08,240
+know so so I I'm I I I can I'm very used
+
+823
+00:56:05,040 --> 00:56:12,319
+to a function just ff
+
+824
+00:56:08,240 --> 00:56:15,760
+okay so anyway this function ff takes
+
+825
+00:56:12,319 --> 00:56:19,520
+two a list of two things and return a
+
+826
+00:56:15,760 --> 00:56:23,280
+list of two things then at the and you
+
+827
+00:56:19,520 --> 00:56:26,559
+just fix. Let's just run it. Okay, I
+
+828
+00:56:23,280 --> 00:56:29,200
+started to talk too much now. Let's
+
+829
+00:56:26,559 --> 00:56:31,760
+uh yeah, this is one single cell. Let's
+
+830
+00:56:29,200 --> 00:56:34,760
+run it. Let's see. Please no error,
+
+831
+00:56:31,760 --> 00:56:34,760
+please.
+
+832
+00:56:36,240 --> 00:56:43,440
+Okay, it is wrong because there is no
+
+833
+00:56:39,760 --> 00:56:47,440
+such thing as input matrix.
+
+834
+00:56:43,440 --> 00:56:52,400
+God. Okay. So let's let's write
+
+835
+00:56:47,440 --> 00:56:56,880
+X matrix. You got X matrix but
+
+836
+00:56:52,400 --> 00:57:00,400
+uh okay. So yeah this is wrong. This is
+
+837
+00:56:56,880 --> 00:57:03,400
+uh this is X. It should be X matrix.
+
+838
+00:57:00,400 --> 00:57:03,400
+Okay.
+
+839
+00:57:06,400 --> 00:57:11,559
+Okay. Let's just do that. Let's just do
+
+840
+00:57:12,240 --> 00:57:16,319
+copy this line actually just copy it
+
+841
+00:57:14,799 --> 00:57:20,079
+here
+
+842
+00:57:16,319 --> 00:57:22,559
+and back to from language and
+
+843
+00:57:20,079 --> 00:57:26,319
+oh this function
+
+844
+00:57:22,559 --> 00:57:29,040
+shift enter please. Uh
+
+845
+00:57:26,319 --> 00:57:32,040
+why is X matrix not defined or
+
+846
+00:57:29,040 --> 00:57:32,040
+something?
+
+847
+00:57:34,480 --> 00:57:37,960
+X matrix.
+
+848
+00:57:42,000 --> 00:57:48,960
+Oh, wait. X matrix. H capitalization.
+
+849
+00:57:45,760 --> 00:57:50,720
+ When where where did I just got so
+
+850
+00:57:48,960 --> 00:57:56,160
+ with this? All this
+
+851
+00:57:50,720 --> 00:58:00,200
+capitalization. Why did did uh
+
+852
+00:57:56,160 --> 00:58:00,200
+Yeah, I shouldn't be capitalized.
+
+853
+00:58:01,440 --> 00:58:08,640
+Okay, let's fix this.
+
+854
+00:58:04,160 --> 00:58:12,079
+No capitalization, please.
+
+855
+00:58:08,640 --> 00:58:15,079
+Now run it, please.
+
+856
+00:58:12,079 --> 00:58:15,079
+
+857
+00:58:17,040 --> 00:58:22,160
+specification.
+
+858
+00:58:18,880 --> 00:58:25,920
+I got this. I got this wrong. Now, where
+
+859
+00:58:22,160 --> 00:58:29,359
+does it come from? Oh god.
+
+860
+00:58:25,920 --> 00:58:32,319
+Longer than depth. Okay.
+
+861
+00:58:29,359 --> 00:58:36,640
+Okay. So, what what what what does all
+
+862
+00:58:32,319 --> 00:58:38,880
+this color? Okay, put it back.
+
+863
+00:58:36,640 --> 00:58:43,280
+Make a backup. Scene task color showing
+
+864
+00:58:38,880 --> 00:58:48,079
+browser. Okay, one shot incorrect.
+
+865
+00:58:43,280 --> 00:58:53,839
+So now let's do it again.
+
+866
+00:58:48,079 --> 00:58:56,720
+Okay, so it says something about
+
+867
+00:58:53,839 --> 00:58:59,720
+part specification. Fixed point part
+
+868
+00:58:56,720 --> 00:58:59,720
+specification
+
+869
+00:59:02,319 --> 00:59:06,119
+longer than depth.
+
+870
+00:59:06,240 --> 00:59:09,240
+Okay.
+
+871
+00:59:11,839 --> 00:59:21,119
+Okay. Now, well, you need to debug.
+
+872
+00:59:17,119 --> 00:59:27,520
+You know, we we we did this like without
+
+873
+00:59:21,119 --> 00:59:30,480
+trial and error at all, but it's not,
+
+874
+00:59:27,520 --> 00:59:32,400
+you know, wam language is not pleased
+
+875
+00:59:30,480 --> 00:59:34,880
+with my
+
+876
+00:59:32,400 --> 00:59:38,760
+one shot. Something is wrong. So, where
+
+877
+00:59:34,880 --> 00:59:38,760
+is this input matrix?
+
+878
+00:59:42,236 --> 00:59:44,256
+[cough]
+
+879
+00:59:49,280 --> 00:59:55,119
+like this. This will work, right? So,
+
+880
+00:59:51,440 --> 00:59:57,599
+okay, we need to debug. Uh, okay.
+
+881
+00:59:55,119 --> 01:00:01,920
+This this returns
+
+882
+00:59:57,599 --> 01:00:06,920
+at sign position list. Yes. Yes. Okay.
+
+883
+01:00:01,920 --> 01:00:06,920
+Then this returns um
+
+884
+01:00:12,799 --> 01:00:21,280
+to be removed list. Wait, did did didn't
+
+885
+01:00:16,559 --> 01:00:25,839
+we change them to be to remove list
+
+886
+01:00:21,280 --> 01:00:30,400
+position list? Okay. Okay, let's try it.
+
+887
+01:00:25,839 --> 01:00:32,480
+Do it. Okay, that's the problem.
+
+888
+01:00:30,400 --> 01:00:36,160
+Okay,
+
+889
+01:00:32,480 --> 01:00:40,880
+a problem. Select criteria.
+
+890
+01:00:36,160 --> 01:00:46,280
+Select event Q. Okay, we select it and
+
+891
+01:00:40,880 --> 01:00:46,280
+uh uh pick out all elements ei.
+
+892
+01:00:47,599 --> 01:00:51,440
+Okay,
+
+893
+01:00:49,839 --> 01:00:54,960
+so
+
+894
+01:00:51,440 --> 01:01:00,520
+select is our function. The first
+
+895
+01:00:54,960 --> 01:01:00,520
+argument is assign position list.
+
+896
+01:01:01,440 --> 01:01:08,880
+Oh, wait. Obviously, no. You use the
+
+897
+01:01:04,960 --> 01:01:12,000
+wrong list. This must this should be the
+
+898
+01:01:08,880 --> 01:01:16,200
+input list.
+
+899
+01:01:12,000 --> 01:01:16,200
+Wait. Uh, wait.
+
+900
+01:01:16,400 --> 01:01:22,319
+Oh, yeah. So, I I know what's going on.
+
+901
+01:01:18,559 --> 01:01:26,079
+So, you wrote you basically you you use
+
+902
+01:01:22,319 --> 01:01:28,880
+the wrong list. Okay. So, select assign
+
+903
+01:01:26,079 --> 01:01:32,000
+position list by this function. So,
+
+904
+01:01:28,880 --> 01:01:37,240
+let's let's fix it. You see by this
+
+905
+01:01:32,000 --> 01:01:37,240
+function. And this function needs to be
+
+906
+01:01:37,280 --> 01:01:40,280
+what?
+
+907
+01:01:42,000 --> 01:01:50,319
+So did we do we have a like
+
+908
+01:01:47,280 --> 01:01:54,760
+okay precedence we got it correct. Get
+
+909
+01:01:50,319 --> 01:01:54,760
+neighbors input matrix.
+
+910
+01:01:54,799 --> 01:02:05,280
+Oh wait this this is X matrix. Okay.
+
+911
+01:02:01,520 --> 01:02:08,680
+Yeah then. Yeah, that works.
+
+912
+01:02:05,280 --> 01:02:08,680
+That works.
+
+913
+01:02:15,200 --> 01:02:19,520
+Uh,
+
+914
+01:02:16,960 --> 01:02:25,480
+confusing name. So, let's let's check
+
+915
+01:02:19,520 --> 01:02:25,480
+let's check um let's rename them.
+
+916
+01:02:35,760 --> 01:02:45,160
+Okay, let's not rename them. Well, the
+
+917
+01:02:39,040 --> 01:02:45,160
+this input matrix. So, let's just say
+
+918
+01:02:50,640 --> 01:02:55,160
+so that it is more
+
+919
+01:02:57,760 --> 01:03:03,760
+So it worked right? Yeah. Once you get
+
+920
+01:03:01,680 --> 01:03:07,200
+the matrix
+
+921
+01:03:03,760 --> 01:03:09,599
+assign position list for this position
+
+922
+01:03:07,200 --> 01:03:13,200
+list you want to remove some of them.
+
+923
+01:03:09,599 --> 01:03:16,720
+Wait to remove list right? So the one
+
+924
+01:03:13,200 --> 01:03:21,440
+you want to remove is get neighbors
+
+925
+01:03:16,720 --> 01:03:24,799
+of the X matrix the input matrix and X
+
+926
+01:03:21,440 --> 01:03:27,359
+is the position because it applies to
+
+927
+01:03:24,799 --> 01:03:29,839
+each element in the position list. So X
+
+928
+01:03:27,359 --> 01:03:33,280
+is the position.
+
+929
+01:03:29,839 --> 01:03:36,559
+So get neighbors of this matrix at that
+
+930
+01:03:33,280 --> 01:03:39,280
+position and if the total is less than
+
+931
+01:03:36,559 --> 01:03:41,039
+four then true
+
+932
+01:03:39,280 --> 01:03:43,119
+means
+
+933
+01:03:41,039 --> 01:03:46,880
+means
+
+934
+01:03:43,119 --> 01:03:48,960
+Oh, it means keep that. Okay, so you you
+
+935
+01:03:46,880 --> 01:03:52,480
+want this you got it. You got this
+
+936
+01:03:48,960 --> 01:03:54,319
+wrong. So it must be greater than equals
+
+937
+01:03:52,480 --> 01:03:57,760
+to four,
+
+938
+01:03:54,319 --> 01:04:02,280
+right? That means to keep all uh reverse
+
+939
+01:03:57,760 --> 01:04:02,280
+the true and false here. Okay.
+
+940
+01:04:02,640 --> 01:04:10,160
+So if it's less than to remove list,
+
+941
+01:04:07,839 --> 01:04:13,039
+wait, let's see.
+
+942
+01:04:10,160 --> 01:04:16,079
+You got list of positions to remove. So
+
+943
+01:04:13,039 --> 01:04:20,839
+it's less than four.
+
+944
+01:04:16,079 --> 01:04:20,839
+True. Wait. Okay. So
+
+945
+01:04:29,784 --> 01:04:31,804
+[clears throat]
+
+946
+01:04:38,319 --> 01:04:42,359
+to remove. So,
+
+947
+01:04:43,520 --> 01:04:47,799
+so what is 13?
+
+948
+01:04:51,680 --> 01:04:57,480
+One, three. So, this this add sign.
+
+949
+01:05:00,319 --> 01:05:09,680
+No, that shouldn't really be removed.
+
+950
+01:05:04,960 --> 01:05:13,680
+1 3 1 4 1 6 1 3
+
+951
+01:05:09,680 --> 01:05:17,359
+1 14 Wait, did did we get the logic
+
+952
+01:05:13,680 --> 01:05:20,359
+wrong? So if less than
+
+953
+01:05:17,359 --> 01:05:20,359
+four.
+
+954
+01:05:29,599 --> 01:05:38,880
+So 1 13 is a add sign 14 is a add sign
+
+955
+01:05:33,680 --> 01:05:43,599
+and six is a add sign. Check.
+
+956
+01:05:38,880 --> 01:05:47,039
+And uh to remove list. So it says 13
+
+957
+01:05:43,599 --> 01:05:50,480
+should be removed because it has one two
+
+958
+01:05:47,039 --> 01:05:54,240
+three neighbors. Check.
+
+959
+01:05:50,480 --> 01:05:58,720
+Then one four should be removed because
+
+960
+01:05:54,240 --> 01:06:01,839
+it has one two three neighbors. Check.
+
+961
+01:05:58,720 --> 01:06:04,000
+Then it says six should be removed
+
+962
+01:06:01,839 --> 01:06:06,640
+because it has one, two, three
+
+963
+01:06:04,000 --> 01:06:10,400
+neighbors. Check.
+
+964
+01:06:06,640 --> 01:06:12,720
+Then it says 17 needs to be removed.
+
+965
+01:06:10,400 --> 01:06:16,480
+What?
+
+966
+01:06:12,720 --> 01:06:20,720
+1 7 because it has three neighbors. Then
+
+967
+01:06:16,480 --> 01:06:25,599
+also 18 and one nine.
+
+968
+01:06:20,720 --> 01:06:28,480
+They all needs to be removed. And 21.
+
+969
+01:06:25,599 --> 01:06:31,839
+Then second column. First one. Yes.
+
+970
+01:06:28,480 --> 01:06:34,160
+Needs to be removed. But not 22 two
+
+971
+01:06:31,839 --> 01:06:36,720
+because 22 has got one two three four
+
+972
+01:06:34,160 --> 01:06:39,200
+five neighbors.
+
+973
+01:06:36,720 --> 01:06:45,440
+You see not 22
+
+974
+01:06:39,200 --> 01:06:49,319
+and not 2 three. Correct. And not not 25
+
+975
+01:06:45,440 --> 01:06:49,319
+neither. Wait.
+
+976
+01:06:49,520 --> 01:06:55,039
+One two three four five. 25
+
+977
+01:06:53,440 --> 01:06:56,880
+has
+
+978
+01:06:55,039 --> 01:06:59,920
+No, not two five because it has
+
+979
+01:06:56,880 --> 01:07:02,559
+neighbors. One, two, three, four. Yeah.
+
+980
+01:06:59,920 --> 01:07:05,599
+So, the next one you want to remove is
+
+981
+01:07:02,559 --> 01:07:12,160
+37. So, let's check.
+
+982
+01:07:05,599 --> 01:07:15,200
+Stay. Stay. Stay. Three. 1 2 3 4 5 6 7.
+
+983
+01:07:12,160 --> 01:07:18,799
+So, this one needs to remove. That is
+
+984
+01:07:15,200 --> 01:07:22,640
+correct. So,
+
+985
+01:07:18,799 --> 01:07:25,359
+our to remove position list seems to be
+
+986
+01:07:22,640 --> 01:07:29,280
+correct. Okay.
+
+987
+01:07:25,359 --> 01:07:33,079
+Now, put this back. So it don't
+
+988
+01:07:29,280 --> 01:07:33,079
+uh wait what
+
+989
+01:07:34,559 --> 01:07:42,599
+okay so so what so what else is wrong so
+
+990
+01:07:38,160 --> 01:07:42,599
+to remove position list
+
+991
+01:07:49,599 --> 01:07:56,319
+is so far so good. Yes.
+
+992
+01:07:53,359 --> 01:07:59,880
+Uh to remove position this so far so
+
+993
+01:07:56,319 --> 01:07:59,880
+good. Yes.
+
+994
+01:08:03,920 --> 01:08:08,599
+And then you have remove count.
+
+995
+01:08:08,799 --> 01:08:14,039
+Could it be wrong? I don't think so.
+
+996
+01:08:17,839 --> 01:08:23,279
+Shift enter. 13. Yeah, that's right.
+
+997
+01:08:21,920 --> 01:08:25,759
+That's right.
+
+998
+01:08:23,279 --> 01:08:28,207
+Then
+
+999
+01:08:25,759 --> 01:08:30,227
+then you return this
+
+1000
+01:08:28,207 --> 01:08:30,227
+[cough and clears throat]
+
+1001
+01:08:32,319 --> 01:08:38,799
+uh then what? Wait then then result
+
+1002
+01:08:36,239 --> 01:08:43,560
+matrix right then you need to compute
+
+1003
+01:08:38,799 --> 01:08:43,560
+the result matrix. Okay.
+
+1004
+01:08:43,927 --> 01:08:45,947
+[clears throat]
+
+1005
+01:08:49,199 --> 01:08:57,120
+Oh you don't delete my friend. You don't
+
+1006
+01:08:51,839 --> 01:08:59,120
+delete them. You replace it with a um
+
+1007
+01:08:57,120 --> 01:09:01,759
+you don't simply delete them because
+
+1008
+01:08:59,120 --> 01:09:05,520
+when you if you just delete them in this
+
+1009
+01:09:01,759 --> 01:09:08,400
+matrix, the matrix shape collapse, you
+
+1010
+01:09:05,520 --> 01:09:12,560
+know, some row will have less columns.
+
+1011
+01:09:08,400 --> 01:09:15,120
+So, so it's no longer a matrix.
+
+1012
+01:09:12,560 --> 01:09:18,000
+So, we found the bug. So, you don't
+
+1013
+01:09:15,120 --> 01:09:21,120
+delete them. This is
+
+1014
+01:09:18,000 --> 01:09:24,600
+incorrect. you want to replace it by
+
+1015
+01:09:21,120 --> 01:09:24,600
+zero instead.
+
+1016
+01:09:26,400 --> 01:09:31,199
+Okay.
+
+1017
+01:09:27,920 --> 01:09:34,480
+So, what is a way to replace? Well, I
+
+1018
+01:09:31,199 --> 01:09:37,120
+forgot. So, let's showcase my wam
+
+1019
+01:09:34,480 --> 01:09:40,560
+language tutorial. Search for it
+
+1020
+01:09:37,120 --> 01:09:46,080
+language tutorial. You'll find it. Uh,
+
+1021
+01:09:40,560 --> 01:09:49,120
+so you go to numbers booing list. Then
+
+1022
+01:09:46,080 --> 01:09:51,920
+you go down length vector is a list
+
+1023
+01:09:49,120 --> 01:09:54,719
+introduction to vector array matrix
+
+1024
+01:09:51,920 --> 01:10:00,800
+tree. They are all represented by this
+
+1025
+01:09:54,719 --> 01:10:02,800
+single syntax list. Okay. Then you go to
+
+1026
+01:10:00,800 --> 01:10:06,239
+list operations.
+
+1027
+01:10:02,800 --> 01:10:10,320
+You want to change parts. Add elements.
+
+1028
+01:10:06,239 --> 01:10:14,239
+Delete elements. Change elements. Okay.
+
+1029
+01:10:10,320 --> 01:10:18,920
+Replace part by position. Okay. That's
+
+1030
+01:10:14,239 --> 01:10:18,920
+what you want to do. So,
+
+1031
+01:10:31,120 --> 01:10:37,239
+this is interesting. So, I need to have
+
+1032
+01:10:33,679 --> 01:10:37,239
+some more tea.
+
+1033
+01:10:41,280 --> 01:10:45,040
+We are almost done.
+
+1034
+01:11:04,800 --> 01:11:11,760
+Almost done. We've been going on for 90
+
+1035
+01:11:09,040 --> 01:11:14,579
+minutes. Jesus
+
+1036
+01:11:11,760 --> 01:11:16,599
+coding takes a lot of time.
+
+1037
+01:11:14,579 --> 01:11:16,599
+[clears throat]
+
+1038
+01:11:17,040 --> 01:11:23,600
+So, hold on a second. You want to now we
+
+1039
+01:11:20,080 --> 01:11:26,600
+want to replace parts.
+
+1040
+01:11:23,600 --> 01:11:26,600
+Uh
+
+1041
+01:11:28,640 --> 01:11:34,800
+right. So if you give a single number
+
+1042
+01:11:32,239 --> 01:11:38,159
+then that's the index.
+
+1043
+01:11:34,800 --> 01:11:41,560
+So but if you give a list then that's
+
+1044
+01:11:38,159 --> 01:11:41,560
+the position
+
+1045
+01:11:41,600 --> 01:11:49,320
+right? So you got to have you get you
+
+1046
+01:11:44,159 --> 01:11:49,320
+get these the positions then. Okay.
+
+1047
+01:11:49,840 --> 01:11:55,120
+So instead of that
+
+1048
+01:11:52,400 --> 01:11:59,159
+now let's let's code it here so that we
+
+1049
+01:11:55,120 --> 01:11:59,159
+can actually um
+
+1050
+01:12:00,719 --> 01:12:04,400
+wait
+
+1051
+01:12:02,239 --> 01:12:09,280
+result matrix is the part you want to
+
+1052
+01:12:04,400 --> 01:12:13,760
+fix. Okay not that. Okay. So let's code
+
+1053
+01:12:09,280 --> 01:12:17,920
+it here. Copy it. Not delete. So instead
+
+1054
+01:12:13,760 --> 01:12:19,840
+you want to replace
+
+1055
+01:12:17,920 --> 01:12:24,480
+part
+
+1056
+01:12:19,840 --> 01:12:29,159
+that's right replace part of the matrix
+
+1057
+01:12:24,480 --> 01:12:29,159
+x matrix and uh
+
+1058
+01:12:29,920 --> 01:12:38,800
+and uh okay well so what so what you do
+
+1059
+01:12:34,960 --> 01:12:41,800
+is you well you you wouldn't understand
+
+1060
+01:12:38,800 --> 01:12:41,800
+but
+
+1061
+01:12:42,400 --> 01:12:48,040
+But I let me just code it. Okay.
+
+1062
+01:12:56,760 --> 01:12:58,780
+[clears throat]
+
+1063
+01:13:04,080 --> 01:13:11,000
+Replace it by zero. Okay. So this is
+
+1064
+01:13:07,199 --> 01:13:11,000
+what you're going to do.
+
+1065
+01:13:13,679 --> 01:13:17,000
+Try it.
+
+1066
+01:13:25,679 --> 01:13:33,280
+Okay. Now you see the first row is
+
+1067
+01:13:29,840 --> 01:13:36,080
+almost all zero. Now
+
+1068
+01:13:33,280 --> 01:13:39,760
+uh let's check the first row is you see
+
+1069
+01:13:36,080 --> 01:13:41,760
+all zero except the the third from the
+
+1070
+01:13:39,760 --> 01:13:44,880
+right you see let's go back to our
+
+1071
+01:13:41,760 --> 01:13:48,239
+matrix you see those one one are gone
+
+1072
+01:13:44,880 --> 01:13:50,239
+except that one this one is also gone
+
+1073
+01:13:48,239 --> 01:13:52,560
+because it's got three neighbors this
+
+1074
+01:13:50,239 --> 01:13:57,120
+one you see this one got one two three
+
+1075
+01:13:52,560 --> 01:14:00,880
+four so that one stayed you see so 0 0
+
+1076
+01:13:57,120 --> 01:14:03,600
+and zero and one zero zero
+
+1077
+01:14:00,880 --> 01:14:07,600
+So go back here. That is correct. So
+
+1078
+01:14:03,600 --> 01:14:10,000
+this is the code correct code. Okay. So
+
+1079
+01:14:07,600 --> 01:14:13,760
+result matrix this is wrong. This is
+
+1080
+01:14:10,000 --> 01:14:15,440
+correct. Now go go back to previous
+
+1081
+01:14:13,760 --> 01:14:19,520
+occurrence.
+
+1082
+01:14:15,440 --> 01:14:21,679
+This correct code. Now remove the
+
+1083
+01:14:19,520 --> 01:14:23,876
+incorrect code.
+
+1084
+01:14:21,679 --> 01:14:25,520
+I think that's it. [cough]
+
+1085
+01:14:23,876 --> 01:14:28,880
+[clears throat] Then you just return
+
+1086
+01:14:25,520 --> 01:14:31,679
+result matrix and whatever. Okay. So now
+
+1087
+01:14:28,880 --> 01:14:34,679
+let's copy the whole thing and run it
+
+1088
+01:14:31,679 --> 01:14:34,679
+again.
+
+1089
+01:14:35,679 --> 01:14:45,760
+Select all paste. Just run it.
+
+1090
+01:14:41,280 --> 01:14:48,000
+43 my friend. It says 43.
+
+1091
+01:14:45,760 --> 01:14:50,480
+Does it check?
+
+1092
+01:14:48,000 --> 01:14:54,560
+43. [laughter]
+
+1093
+01:14:50,480 --> 01:14:56,880
+Fantastic. And beautiful.
+
+1094
+01:14:54,560 --> 01:15:00,960
+One shot coding. Well, it's like
+
+1095
+01:14:56,880 --> 01:15:06,080
+threeshot coding. Okay, now we delete
+
+1096
+01:15:00,960 --> 01:15:08,880
+all these experimental like pad
+
+1097
+01:15:06,080 --> 01:15:12,000
+debugging part. Okay, we we got it
+
+1098
+01:15:08,880 --> 01:15:15,920
+correct. Okay, actually we got our code
+
+1099
+01:15:12,000 --> 01:15:19,040
+and this part this we don't need e
+
+1100
+01:15:15,920 --> 01:15:24,800
+either. This we got it correct. So this
+
+1101
+01:15:19,040 --> 01:15:27,679
+part take it out put it back just for
+
+1102
+01:15:24,800 --> 01:15:31,679
+example sake
+
+1103
+01:15:27,679 --> 01:15:34,320
+we show how to use that delete and now
+
+1104
+01:15:31,679 --> 01:15:37,360
+here
+
+1105
+01:15:34,320 --> 01:15:40,320
+now this is clean code. So that's the
+
+1106
+01:15:37,360 --> 01:15:43,760
+here that's the input turn it into a
+
+1107
+01:15:40,320 --> 01:15:46,320
+matrix defy define our gate neighbors
+
+1108
+01:15:43,760 --> 01:15:49,040
+function
+
+1109
+01:15:46,320 --> 01:15:52,640
+and for today's part two problem
+
+1110
+01:15:49,040 --> 01:15:57,199
+description algorithm description
+
+1111
+01:15:52,640 --> 01:16:00,320
+and uh wait why why does it not
+
+1112
+01:15:57,199 --> 01:16:03,199
+and Microsoft flag keys is behaving
+
+1113
+01:16:00,320 --> 01:16:07,120
+incorrectly or something
+
+1114
+01:16:03,199 --> 01:16:11,760
+anyway so algorithm description and the
+
+1115
+01:16:07,120 --> 01:16:14,000
+plan to how to implement this algorithm
+
+1116
+01:16:11,760 --> 01:16:18,719
+plan in wolf language write a function
+
+1117
+01:16:14,000 --> 01:16:22,320
+ff FF will have this input form that's
+
+1118
+01:16:18,719 --> 01:16:25,360
+in Java they call it signature which is
+
+1119
+01:16:22,320 --> 01:16:28,800
+idiotic okay in mathematics a function
+
+1120
+01:16:25,360 --> 01:16:33,760
+you don't call a signature well
+
+1121
+01:16:28,800 --> 01:16:35,520
+you don't anyway so f function ff has
+
+1122
+01:16:33,760 --> 01:16:37,679
+this input form
+
+1123
+01:16:35,520 --> 01:16:41,199
+one single argument of a list of two
+
+1124
+01:16:37,679 --> 01:16:43,840
+things. Okay, it will return a list new
+
+1125
+01:16:41,199 --> 01:16:47,920
+matrix and total remove sales count.
+
+1126
+01:16:43,840 --> 01:16:51,280
+Okay, then we just fixed point. This is
+
+1127
+01:16:47,920 --> 01:16:54,239
+recursion. This is supreme fixed point
+
+1128
+01:16:51,280 --> 01:16:58,400
+even more supreme than Hascal. You know
+
+1129
+01:16:54,239 --> 01:17:01,440
+Hascal and schem scheme racket schem
+
+1130
+01:16:58,400 --> 01:17:04,480
+they they are into recursions but wen
+
+1131
+01:17:01,440 --> 01:17:07,760
+language fix point more supreme. Okay.
+
+1132
+01:17:04,480 --> 01:17:10,000
+So we define this function FF. This
+
+1133
+01:17:07,760 --> 01:17:12,719
+looks complicated. So you can go to
+
+1134
+01:17:10,000 --> 01:17:19,280
+Wufam language and copy the formatted
+
+1135
+01:17:12,719 --> 01:17:22,280
+code. So click click click click
+
+1136
+01:17:19,280 --> 01:17:22,280
+copy
+
+1137
+01:17:26,000 --> 01:17:31,760
+and uh paste it here. So it's like
+
+1138
+01:17:29,040 --> 01:17:34,560
+formatted code better. Okay. Remove
+
+1139
+01:17:31,760 --> 01:17:37,840
+that.
+
+1140
+01:17:34,560 --> 01:17:41,040
+And then you run that and the result is
+
+1141
+01:17:37,840 --> 01:17:45,040
+what? 43. There it is. Okay, we need to
+
+1142
+01:17:41,040 --> 01:17:48,239
+copy the whole thing and it shows
+
+1143
+01:17:45,040 --> 01:17:51,239
+uh it shows the
+
+1144
+01:17:48,239 --> 01:17:51,239
+output.
+
+1145
+01:17:52,159 --> 01:17:59,920
+Fantastic and beautiful. So, put it
+
+1146
+01:17:54,960 --> 01:18:02,960
+back. Cut. Paste. Paste again. syntax
+
+1147
+01:17:59,920 --> 01:18:06,159
+color the whole thing and pop it out
+
+1148
+01:18:02,960 --> 01:18:09,360
+again. This time we're going to do our
+
+1149
+01:18:06,159 --> 01:18:11,679
+personal input
+
+1150
+01:18:09,360 --> 01:18:16,679
+and uh
+
+1151
+01:18:11,679 --> 01:18:16,679
+so what is my personal input?
+
+1152
+01:18:18,080 --> 01:18:24,800
+Okay, you need to go to search for txt
+
+1153
+01:18:23,280 --> 01:18:29,679
+there.
+
+1154
+01:18:24,800 --> 01:18:35,199
+So this copy close back to code. Okay.
+
+1155
+01:18:29,679 --> 01:18:37,440
+So you need to uh Okay. string paste
+
+1156
+01:18:35,199 --> 01:18:39,199
+remove the last
+
+1157
+01:18:37,440 --> 01:18:42,000
+character.
+
+1158
+01:18:39,199 --> 01:18:46,320
+Okay. Go to the top. Is that right?
+
+1159
+01:18:42,000 --> 01:18:48,880
+Yeah. Go to the top. Yeah. Input. So
+
+1160
+01:18:46,320 --> 01:18:52,880
+this this this is copy the whole thing.
+
+1161
+01:18:48,880 --> 01:18:57,880
+Go to wra language. Select all. Paste.
+
+1162
+01:18:52,880 --> 01:18:57,880
+Shift enter. Shift enter.
+
+1163
+01:18:59,840 --> 01:19:04,880
+Okay. Inefficient code. Who cares?
+
+1164
+01:19:03,040 --> 01:19:07,880
+Because at the end of code, they don't
+
+1165
+01:19:04,880 --> 01:19:07,880
+care.
+
+1166
+01:19:12,400 --> 01:19:18,719
+Wait, how how inefficient is this? You
+
+1167
+01:19:15,120 --> 01:19:21,040
+see, let's see. Every time you call this
+
+1168
+01:19:18,719 --> 01:19:24,000
+get neighbors, it recreates the entire
+
+1169
+01:19:21,040 --> 01:19:25,920
+matrix. That's how inefficient it is.
+
+1170
+01:19:24,000 --> 01:19:28,239
+But also
+
+1171
+01:19:25,920 --> 01:19:30,880
+this get neighbors actually needs to get
+
+1172
+01:19:28,239 --> 01:19:32,640
+improved a lot because this get
+
+1173
+01:19:30,880 --> 01:19:36,159
+neighbors
+
+1174
+01:19:32,640 --> 01:19:38,400
+you know it creates array pad every time
+
+1175
+01:19:36,159 --> 01:19:41,040
+you call it it recreates the whole
+
+1176
+01:19:38,400 --> 01:19:44,719
+entire matrix. Okay.
+
+1177
+01:19:41,040 --> 01:19:47,520
+So to fix that instead of creating array
+
+1178
+01:19:44,719 --> 01:19:51,040
+pad here you should just array pad the
+
+1179
+01:19:47,520 --> 01:19:53,840
+input then this function just work on
+
+1180
+01:19:51,040 --> 01:19:56,239
+the padded array. So,
+
+1181
+01:19:53,840 --> 01:19:58,400
+so every time this function is called,
+
+1182
+01:19:56,239 --> 01:20:01,520
+it doesn't regenerate a new padded
+
+1183
+01:19:58,400 --> 01:20:03,760
+array. It just use a global variable of
+
+1184
+01:20:01,520 --> 01:20:07,040
+the padded array. So, that's that will
+
+1185
+01:20:03,760 --> 01:20:09,440
+significantly make it faster.
+
+1186
+01:20:07,040 --> 01:20:11,520
+Okay, this is not still not returning.
+
+1187
+01:20:09,440 --> 01:20:13,920
+No, that's problematic. It's like too
+
+1188
+01:20:11,520 --> 01:20:16,400
+slow. Okay,
+
+1189
+01:20:13,920 --> 01:20:18,560
+so anyway, so that's one problem. But
+
+1190
+01:20:16,400 --> 01:20:21,760
+there's also other inefficiencies
+
+1191
+01:20:18,560 --> 01:20:24,785
+because here you are deleting cases. You
+
+1192
+01:20:21,760 --> 01:20:26,805
+are deleting
+
+1193
+01:20:24,785 --> 01:20:26,805
+[clears throat]
+
+1194
+01:20:29,040 --> 01:20:34,520
+uh what is this? Uh delete cases.
+
+1195
+01:20:43,120 --> 01:20:49,440
+Oh yeah. So it's um this this part is
+
+1196
+01:20:46,000 --> 01:20:53,440
+actually just deletes the um
+
+1197
+01:20:49,440 --> 01:20:56,640
+the the the cell itself except the
+
+1198
+01:20:53,440 --> 01:20:58,400
+neighbors. I mean so it it it wants to
+
+1199
+01:20:56,640 --> 01:21:01,679
+return the neighbors but you want to
+
+1200
+01:20:58,400 --> 01:21:04,560
+delete the the cell itself. So it has to
+
+1201
+01:21:01,679 --> 01:21:06,640
+look through all the neighbors
+
+1202
+01:21:04,560 --> 01:21:09,120
+then delete the part. That's no good. So
+
+1203
+01:21:06,640 --> 01:21:11,840
+you should you should instead of using
+
+1204
+01:21:09,120 --> 01:21:14,800
+delete cases you just should say delete
+
+1205
+01:21:11,840 --> 01:21:14,800
+nth
+
+1206
+01:21:15,120 --> 01:21:22,239
+But if you code it that way then this
+
+1207
+01:21:17,920 --> 01:21:25,520
+function will have difficulty in general
+
+1208
+01:21:22,239 --> 01:21:28,640
+generalizing into n dimensional matrix
+
+1209
+01:21:25,520 --> 01:21:31,840
+because right now you see this function
+
+1210
+01:21:28,640 --> 01:21:33,920
+can be trivially generalized into n
+
+1211
+01:21:31,840 --> 01:21:36,640
+dimensional matrix. So it's no longer
+
+1212
+01:21:33,920 --> 01:21:38,400
+just like get the neighbors of a
+
+1213
+01:21:36,640 --> 01:21:39,760
+two-dimensional matrix. We can have
+
+1214
+01:21:38,400 --> 01:21:41,920
+three-dimensional matrix or
+
+1215
+01:21:39,760 --> 01:21:45,760
+fourdimensional. This function get
+
+1216
+01:21:41,920 --> 01:21:48,159
+neighbors of a given cell can work on
+
+1217
+01:21:45,760 --> 01:21:50,800
+arbitrary dimension matrix. That's
+
+1218
+01:21:48,159 --> 01:21:53,679
+that's that's like the power of the wam
+
+1219
+01:21:50,800 --> 01:21:57,440
+language.
+
+1220
+01:21:53,679 --> 01:22:00,239
+But but but this is inefficient. So so
+
+1221
+01:21:57,440 --> 01:22:02,239
+the higher dimension is still no good.
+
+1222
+01:22:00,239 --> 01:22:04,320
+You you you basically you look through
+
+1223
+01:22:02,239 --> 01:22:08,000
+all the neighbors. So if you have like
+
+1224
+01:22:04,320 --> 01:22:10,480
+100 dimensional matrix then for given
+
+1225
+01:22:08,000 --> 01:22:12,639
+cell it has like 100 or whatever
+
+1226
+01:22:10,480 --> 01:22:16,159
+neighbors you know that's another
+
+1227
+01:22:12,639 --> 01:22:20,560
+interesting question given a matrix of n
+
+1228
+01:22:16,159 --> 01:22:23,440
+dimension how many then then then g then
+
+1229
+01:22:20,560 --> 01:22:25,520
+then given a a a cell in the middle of
+
+1230
+01:22:23,440 --> 01:22:28,239
+the matrix how many neighbor does it
+
+1231
+01:22:25,520 --> 01:22:31,520
+have that's a mathematical question
+
+1232
+01:22:28,239 --> 01:22:33,440
+could be a advant of code question but I
+
+1233
+01:22:31,520 --> 01:22:37,040
+don't think the the guy ever going to
+
+1234
+01:22:33,440 --> 01:22:40,239
+have a question like that. You see given
+
+1235
+01:22:37,040 --> 01:22:44,080
+a two-dimensional matrix
+
+1236
+01:22:40,239 --> 01:22:47,840
+how many neighbor of a middle cell have
+
+1237
+01:22:44,080 --> 01:22:51,360
+this is easy I mean if also we include
+
+1238
+01:22:47,840 --> 01:22:53,520
+how u we include diagonal neighbors okay
+
+1239
+01:22:51,360 --> 01:22:57,120
+but given three dimensional matrix how
+
+1240
+01:22:53,520 --> 01:22:59,120
+many u neighbor it has including
+
+1241
+01:22:57,120 --> 01:23:05,600
+diagonal that can be easy found out
+
+1242
+01:22:59,120 --> 01:23:09,920
+let's say 1 2 3 4 5 6 7 8 at top eight
+
+1243
+01:23:05,600 --> 01:23:12,719
+at bottom. Then then then you got then
+
+1244
+01:23:09,920 --> 01:23:17,000
+you're going to have one two three four
+
+1245
+01:23:12,719 --> 01:23:17,000
+five six seven eight.
+
+1246
+01:23:17,040 --> 01:23:27,440
+Okay. 1 2 3 4 5 6 7 8 9 top 98 bottom
+
+1247
+01:23:21,840 --> 01:23:31,320
+eight in the middle slice. So 998
+
+1248
+01:23:27,440 --> 01:23:31,320
+8 * 3
+
+1249
+01:23:31,840 --> 01:23:39,719
+that's 24 24 + 4 2 you got 20 uh six.
+
+1250
+01:23:40,480 --> 01:23:46,320
+So you have 26 neighbors in
+
+1251
+01:23:43,520 --> 01:23:48,560
+three-dimensional cell. What about four
+
+1252
+01:23:46,320 --> 01:23:51,920
+dimensional? Then you you need to work
+
+1253
+01:23:48,560 --> 01:23:53,760
+out okay then you can you you then you
+
+1254
+01:23:51,920 --> 01:23:56,159
+see a pattern you can generalize through
+
+1255
+01:23:53,760 --> 01:24:00,840
+n how many neighbor so let's write that
+
+1256
+01:23:56,159 --> 01:24:00,840
+out because it's an interesting problem
+
+1257
+01:24:01,120 --> 01:24:05,800
+question how many
+
+1258
+01:24:15,600 --> 01:24:26,040
+dimensional how many neighbors. A middle
+
+1259
+01:24:18,480 --> 01:24:26,040
+cell of an N dimensional matrix has
+
+1260
+01:24:28,480 --> 01:24:32,360
+counting diagonals.
+
+1261
+01:24:32,719 --> 01:24:37,760
+Okay,
+
+1262
+01:24:34,400 --> 01:24:40,639
+this is in resting
+
+1263
+01:24:37,760 --> 01:24:45,360
+math question
+
+1264
+01:24:40,639 --> 01:24:47,440
+can be a coding problem.
+
+1265
+01:24:45,360 --> 01:24:50,080
+Well, it's not exactly a coding problem,
+
+1266
+01:24:47,440 --> 01:24:52,320
+but it can be. Then in that case, you
+
+1267
+01:24:50,080 --> 01:24:55,440
+have to
+
+1268
+01:24:52,320 --> 01:24:57,199
+like you know, you try to code for a
+
+1269
+01:24:55,440 --> 01:24:59,120
+threedimensional matrix and fourth
+
+1270
+01:24:57,199 --> 01:25:03,040
+dimensional then you see a pattern then
+
+1271
+01:24:59,120 --> 01:25:07,679
+you can write the function you know
+
+1272
+01:25:03,040 --> 01:25:10,159
+but so it is interesting. Okay.
+
+1273
+01:25:07,679 --> 01:25:12,880
+Okay. So but where are we? Did we get
+
+1274
+01:25:10,159 --> 01:25:18,159
+the final answer? We did. So it returned
+
+1275
+01:25:12,880 --> 01:25:21,280
+the answer yes 43 because uh wait
+
+1276
+01:25:18,159 --> 01:25:23,760
+you know this so this one got sizing
+
+1277
+01:25:21,280 --> 01:25:25,520
+memory 479
+
+1278
+01:25:23,760 --> 01:25:28,560
+kilobytes
+
+1279
+01:25:25,520 --> 01:25:32,320
+that's small that's trivial
+
+1280
+01:25:28,560 --> 01:25:34,960
+you know Google chrome is like sucking 2
+
+1281
+01:25:32,320 --> 01:25:39,600
+gigabytes we are only talking about one
+
+1282
+01:25:34,960 --> 01:25:46,120
+megabyte so the answer is 8690
+
+1283
+01:25:39,600 --> 01:25:46,120
+okay 869 90. So, show more.
+
+1284
+01:25:46,480 --> 01:25:50,960
+Wait, show more.
+
+1285
+01:25:49,040 --> 01:25:56,120
+Yeah. 8690.
+
+1286
+01:25:50,960 --> 01:25:56,120
+Can Can you just get that? Oh, God.
+
+1287
+01:25:58,000 --> 01:26:04,960
+You know, so we can [clears throat]
+
+1288
+01:26:01,520 --> 01:26:08,239
+actually the last output. Wait, wait,
+
+1289
+01:26:04,960 --> 01:26:09,760
+where did we type it? Okay. So you just
+
+1290
+01:26:08,239 --> 01:26:14,320
+say
+
+1291
+01:26:09,760 --> 01:26:16,960
+the last output the last output and uh
+
+1292
+01:26:14,320 --> 01:26:18,960
+apply the function last that will give
+
+1293
+01:26:16,960 --> 01:26:20,800
+you that number
+
+1294
+01:26:18,960 --> 01:26:25,120
+8690.
+
+1295
+01:26:20,800 --> 01:26:28,400
+Please make it work. Are you sure? Yes.
+
+1296
+01:26:25,120 --> 01:26:33,040
+Submit. Submit.
+
+1297
+01:26:28,400 --> 01:26:34,639
+That's the right answer. Yes, of course.
+
+1298
+01:26:33,040 --> 01:26:37,520
+Fantastic.
+
+1299
+01:26:34,639 --> 01:26:40,239
+Okay. Nobody's here. That's uh well
+
+1300
+01:26:37,520 --> 01:26:44,239
+that's sad. Okay. Someone should
+
+1301
+01:26:40,239 --> 01:26:47,199
+congratulate congratulate me. Okay. Some
+
+1302
+01:26:44,239 --> 01:26:52,800
+somewhat you guys.
+
+1303
+01:26:47,199 --> 01:26:55,199
+Okay. Let's put the answer here.
+
+1304
+01:26:52,800 --> 01:26:57,840
+Okay.
+
+1305
+01:26:55,199 --> 01:27:01,360
+Okay. So, we solved it. Put it back.
+
+1306
+01:26:57,840 --> 01:27:04,159
+Syntax cutter the entire code in the
+
+1307
+01:27:01,360 --> 01:27:07,840
+HTML page in showing browser. And let's
+
+1308
+01:27:04,159 --> 01:27:11,920
+summarize what we did today. And that's
+
+1309
+01:27:07,840 --> 01:27:15,199
+it. So we took about 2 hours
+
+1310
+01:27:11,920 --> 01:27:18,400
+actually. Uh when did we start? So we
+
+1311
+01:27:15,199 --> 01:27:22,159
+did uh 1 hour and 30 minutes. Oh, okay.
+
+1312
+01:27:18,400 --> 01:27:27,199
+Not too bad. 90 minutes. Congrats. Thank
+
+1313
+01:27:22,159 --> 01:27:29,600
+you. The beast. That beast. Thank you.
+
+1314
+01:27:27,199 --> 01:27:34,159
+So summarize
+
+1315
+01:27:29,600 --> 01:27:35,840
+today's talk show episode 732.
+
+1316
+01:27:34,159 --> 01:27:40,320
+Uh
+
+1317
+01:27:35,840 --> 01:27:42,960
+not too bad, pretty smooth. The input we
+
+1318
+01:27:40,320 --> 01:27:45,280
+show the delete whatever is input. So
+
+1319
+01:27:42,960 --> 01:27:48,320
+the input we turn it to a matrix of one
+
+1320
+01:27:45,280 --> 01:27:51,199
+and zeros. We write we use the get
+
+1321
+01:27:48,320 --> 01:27:54,400
+neighbors function we wrote before. Then
+
+1322
+01:27:51,199 --> 01:27:57,440
+we figure out the algorithm steps the
+
+1323
+01:27:54,400 --> 01:28:00,239
+and the plan to implement the algorithm
+
+1324
+01:27:57,440 --> 01:28:03,199
+which essentially relies on writing this
+
+1325
+01:28:00,239 --> 01:28:06,560
+function one single function and we use
+
+1326
+01:28:03,199 --> 01:28:10,000
+recursion of fixed point. Fixed point
+
+1327
+01:28:06,560 --> 01:28:13,760
+means apply the function to itself
+
+1328
+01:28:10,000 --> 01:28:17,280
+until the result no longer changes.
+
+1329
+01:28:13,760 --> 01:28:20,080
+Okay. Then it returns this you know the
+
+1330
+01:28:17,280 --> 01:28:23,280
+result matrix and a number. The number
+
+1331
+01:28:20,080 --> 01:28:26,480
+is the total of total count of the sales
+
+1332
+01:28:23,280 --> 01:28:29,920
+that has been removed.
+
+1333
+01:28:26,480 --> 01:28:32,880
+Okay. Then we use the personal input and
+
+1334
+01:28:29,920 --> 01:28:36,400
+it takes a while. I don't know how long
+
+1335
+01:28:32,880 --> 01:28:38,719
+uh but but advent of code because
+
+1336
+01:28:36,400 --> 01:28:40,719
+if you pay attention you work five hours
+
+1337
+01:28:38,719 --> 01:28:43,199
+to make it efficient. They don't care
+
+1338
+01:28:40,719 --> 01:28:45,199
+like nobody would know your code
+
+1339
+01:28:43,199 --> 01:28:47,360
+actually is very different from all the
+
+1340
+01:28:45,199 --> 01:28:49,520
+other people who does it fast because
+
+1341
+01:28:47,360 --> 01:28:51,920
+their code they don't you know they
+
+1342
+01:28:49,520 --> 01:28:55,199
+don't care care about efficiency. So
+
+1343
+01:28:51,920 --> 01:28:57,040
+when you spend time on efficiency, you
+
+1344
+01:28:55,199 --> 01:28:59,600
+get punished.
+
+1345
+01:28:57,040 --> 01:29:03,760
+That is often the case with the Unix
+
+1346
+01:28:59,600 --> 01:29:06,000
+stuff. Unix and C those type of people
+
+1347
+01:29:03,760 --> 01:29:08,080
+because they don't care about extension.
+
+1348
+01:29:06,000 --> 01:29:11,199
+They don't care about design. They don't
+
+1349
+01:29:08,080 --> 01:29:14,400
+care about they don't they just care
+
+1350
+01:29:11,199 --> 01:29:17,360
+they do care about fast though, but they
+
+1351
+01:29:14,400 --> 01:29:20,000
+don't care if they don't care about the
+
+1352
+01:29:17,360 --> 01:29:21,199
+algorithmic efficiency like the older
+
+1353
+01:29:20,000 --> 01:29:24,080
+like
+
+1354
+01:29:21,199 --> 01:29:27,040
+So for example for example a given
+
+1355
+01:29:24,080 --> 01:29:30,560
+problem let's say you have your input is
+
+1356
+01:29:27,040 --> 01:29:34,080
+less than 100 okay like the typical
+
+1357
+01:29:30,560 --> 01:29:37,520
+input so the C and Unix type of people
+
+1358
+01:29:34,080 --> 01:29:40,239
+and including C++ and pretty much the
+
+1359
+01:29:37,520 --> 01:29:43,360
+industrial coders including Java okay
+
+1360
+01:29:40,239 --> 01:29:46,560
+but mostly C and C++ okay what they care
+
+1361
+01:29:43,360 --> 01:29:50,000
+is that on average all these inputs
+
+1362
+01:29:46,560 --> 01:29:52,400
+their program is the fastest okay their
+
+1363
+01:29:50,000 --> 01:29:56,320
+program is just beats everything. We are
+
+1364
+01:29:52,400 --> 01:29:59,920
+fast the Coders. Okay.
+
+1365
+01:29:56,320 --> 01:30:02,880
+But if the input becomes 1,000 like
+
+1366
+01:29:59,920 --> 01:30:06,880
+beyond expected input,
+
+1367
+01:30:02,880 --> 01:30:09,760
+their program may crash or takes a day
+
+1368
+01:30:06,880 --> 01:30:12,000
+to finish. But they don't care like
+
+1369
+01:30:09,760 --> 01:30:14,080
+nobody's ever going to have the special
+
+1370
+01:30:12,000 --> 01:30:16,320
+like art input. Who who is going to do
+
+1371
+01:30:14,080 --> 01:30:22,239
+that, you know? They they don't care.
+
+1372
+01:30:16,320 --> 01:30:24,639
+It's a C and C++ and the Unix
+
+1373
+01:30:22,239 --> 01:30:28,400
+They created a computing industry like
+
+1374
+01:30:24,639 --> 01:30:31,040
+that. Okay. So, so it's like bug new
+
+1375
+01:30:28,400 --> 01:30:33,199
+version patch bug new programming
+
+1376
+01:30:31,040 --> 01:30:36,560
+language based on C because we need to
+
+1377
+01:30:33,199 --> 01:30:39,040
+fix the some problem in C and then C++
+
+1378
+01:30:36,560 --> 01:30:42,159
+and oh but Java we need to create Java
+
+1379
+01:30:39,040 --> 01:30:44,400
+because C++ got got this problem. Oh but
+
+1380
+01:30:42,159 --> 01:30:48,080
+well actually Java got all this problem.
+
+1381
+01:30:44,400 --> 01:30:52,639
+we we we need to create C sharp that's
+
+1382
+01:30:48,080 --> 01:30:56,159
+or C the daddy of all the problems C and
+
+1383
+01:30:52,639 --> 01:30:59,840
+Unix okay that is like my
+
+1384
+01:30:56,159 --> 01:31:02,719
+uh very biased point of view but it is a
+
+1385
+01:30:59,840 --> 01:31:08,000
+point of view that has some merits okay
+
+1386
+01:31:02,719 --> 01:31:11,520
+you can think about C and C C and C++
+
+1387
+01:31:08,000 --> 01:31:15,280
+and Unix the origin of the order damage
+
+1388
+01:31:11,520 --> 01:31:19,199
+in computing kind of
+
+1389
+01:31:15,280 --> 01:31:21,840
+Okay, that's it. Bye, guys.
+
+1390
+01:31:19,199 --> 01:31:25,639
+If you like my stuff, okay, pay me. Go
+
+1391
+01:31:21,840 --> 01:31:25,639
+to my website, kasadi.info.info.
+
+1392
+01:31:27,040 --> 01:31:30,280
+x ahinfo.
+
+1393
+01:31:31,440 --> 01:31:38,000
+Okay.
+
+1394
+01:31:33,280 --> 01:31:41,520
+http no s not secure because I'm not
+
+1395
+01:31:38,000 --> 01:31:44,159
+asking for your credit card. So, you go
+
+1396
+01:31:41,520 --> 01:31:48,080
+to.info info. Then scroll down the
+
+1397
+01:31:44,159 --> 01:31:50,400
+bottom. Then you go to Patreon website,
+
+1398
+01:31:48,080 --> 01:31:53,440
+Amazon gift card website, you or PayPal.
+
+1399
+01:31:50,400 --> 01:31:56,000
+You go to their website. Their website.
+
+1400
+01:31:53,440 --> 01:32:00,159
+Click
+
+1401
+01:31:56,000 --> 01:32:04,560
+click their website is secure. So you
+
+1402
+01:32:00,159 --> 01:32:09,520
+can put credit card to it and pay me.
+
+1403
+01:32:04,560 --> 01:32:12,840
+Okay. Thank you for your support.
+
+1404
+01:32:09,520 --> 01:32:12,840
+Bye guys.
+

@@ -1,0 +1,5392 @@
+1
+00:00:07,680 --> 00:00:13,860
+hello guys welcome to another episode of
+
+2
+00:00:10,320 --> 00:00:17,520
+satoshop Star Talk Show so we are going
+
+3
+00:00:13,860 --> 00:00:20,699
+to do emac Beast coding today emac lisp
+
+4
+00:00:17,520 --> 00:00:23,220
+so uh video check audio check okay we
+
+5
+00:00:20,699 --> 00:00:25,380
+are good to go so emac please let me
+
+6
+00:00:23,220 --> 00:00:28,260
+show you what we are going to do okay so
+
+7
+00:00:25,380 --> 00:00:30,900
+we are just going to code emac list live
+
+8
+00:00:28,260 --> 00:00:34,620
+and as I do it I'm going to explain
+
+9
+00:00:30,900 --> 00:00:37,980
+maybe some tutorial and maybe a little
+
+10
+00:00:34,620 --> 00:00:41,040
+bit randomish because today's topic is
+
+11
+00:00:37,980 --> 00:00:44,100
+kind of esoteric okay so it's just
+
+12
+00:00:41,040 --> 00:00:47,579
+mostly for me I need to code some emac
+
+13
+00:00:44,100 --> 00:00:51,239
+this so I just made it a live stream so
+
+14
+00:00:47,579 --> 00:00:53,940
+it's it's a little bit more advanced
+
+15
+00:00:51,239 --> 00:00:57,379
+emac bits so if you don't know emac this
+
+16
+00:00:53,940 --> 00:00:57,379
+you know you you never had
+
+17
+00:00:57,980 --> 00:01:05,580
+beginners tutorial you might check out
+
+18
+00:01:00,960 --> 00:01:09,000
+my emac this tutorial so I have a video
+
+19
+00:01:05,580 --> 00:01:12,060
+before so you go to emac this Basics
+
+20
+00:01:09,000 --> 00:01:15,540
+just search for it and you'll find I did
+
+21
+00:01:12,060 --> 00:01:18,060
+a introduction emac this for beginners
+
+22
+00:01:15,540 --> 00:01:20,939
+so you watch that one but today it's
+
+23
+00:01:18,060 --> 00:01:22,740
+gonna be more complicated okay so let's
+
+24
+00:01:20,939 --> 00:01:25,500
+begin
+
+25
+00:01:22,740 --> 00:01:27,360
+so we are going to and I love to see
+
+26
+00:01:25,500 --> 00:01:31,380
+your comments okay comments and
+
+27
+00:01:27,360 --> 00:01:35,040
+questions posted there hey or flamio
+
+28
+00:01:31,380 --> 00:01:37,380
+so okay so emac these so we gonna do so
+
+29
+00:01:35,040 --> 00:01:42,600
+what we're going to do is that I'm going
+
+30
+00:01:37,380 --> 00:01:46,400
+to work write a command write a e-lisp
+
+31
+00:01:42,600 --> 00:01:46,400
+Elis command
+
+32
+00:01:46,619 --> 00:01:52,619
+uh function actually
+
+33
+00:01:49,079 --> 00:01:55,399
+function uh function
+
+34
+00:01:52,619 --> 00:01:55,399
+that
+
+35
+00:01:55,439 --> 00:02:00,899
+given
+
+36
+00:01:58,100 --> 00:02:03,780
+let's let's let's start to write the
+
+37
+00:02:00,899 --> 00:02:06,659
+documentation okay so meanwhile so we
+
+38
+00:02:03,780 --> 00:02:09,780
+can write the documentation and
+
+39
+00:02:06,659 --> 00:02:12,480
+uh so let's begin emac this coding so
+
+40
+00:02:09,780 --> 00:02:15,420
+different Define a function let me tell
+
+41
+00:02:12,480 --> 00:02:20,520
+you what we are writing so this command
+
+42
+00:02:15,420 --> 00:02:23,940
+will be called HTML uh let's say fix
+
+43
+00:02:20,520 --> 00:02:25,620
+links okay let's just call it that in
+
+44
+00:02:23,940 --> 00:02:27,180
+the dark stream so here is what we're
+
+45
+00:02:25,620 --> 00:02:29,760
+gonna do
+
+46
+00:02:27,180 --> 00:02:30,660
+well here is what the command is going
+
+47
+00:02:29,760 --> 00:02:34,920
+to do
+
+48
+00:02:30,660 --> 00:02:37,319
+given a text block so we need some three
+
+49
+00:02:34,920 --> 00:02:39,720
+variables
+
+50
+00:02:37,319 --> 00:02:42,599
+text okay
+
+51
+00:02:39,720 --> 00:02:47,459
+the first variable is text which is just
+
+52
+00:02:42,599 --> 00:02:51,239
+a block of text a string and
+
+53
+00:02:47,459 --> 00:02:53,940
+current path okay then current path is a
+
+54
+00:02:51,239 --> 00:02:56,879
+current file path where this
+
+55
+00:02:53,940 --> 00:02:58,560
+block of text came from okay
+
+56
+00:02:56,879 --> 00:03:00,540
+then
+
+57
+00:02:58,560 --> 00:03:01,680
+Target
+
+58
+00:03:00,540 --> 00:03:04,620
+path
+
+59
+00:03:01,680 --> 00:03:07,560
+okay this target path is where you're
+
+60
+00:03:04,620 --> 00:03:08,819
+gonna move this block of text to so
+
+61
+00:03:07,560 --> 00:03:11,400
+there's a
+
+62
+00:03:08,819 --> 00:03:15,239
+from N2
+
+63
+00:03:11,400 --> 00:03:18,540
+um source and destination okay so you're
+
+64
+00:03:15,239 --> 00:03:21,239
+gonna copy a text block from one file
+
+65
+00:03:18,540 --> 00:03:24,000
+basically to another file and when you
+
+66
+00:03:21,239 --> 00:03:26,760
+do that all your local links may not
+
+67
+00:03:24,000 --> 00:03:29,879
+work anymore so
+
+68
+00:03:26,760 --> 00:03:34,700
+so in this command
+
+69
+00:03:29,879 --> 00:03:34,700
+given text block change or
+
+70
+00:03:34,739 --> 00:03:39,680
+links or local links
+
+71
+00:03:39,840 --> 00:03:42,620
+uh
+
+72
+00:03:42,720 --> 00:03:49,019
+fix our local links so that they
+
+73
+00:03:46,620 --> 00:03:53,780
+are correct
+
+74
+00:03:49,019 --> 00:03:53,780
+in the Target path okay
+
+75
+00:03:56,580 --> 00:04:02,760
+that is what this command is going to do
+
+76
+00:03:59,879 --> 00:04:06,599
+now let me show you a demonstration of
+
+77
+00:04:02,760 --> 00:04:09,540
+how why do we need that okay so let's go
+
+78
+00:04:06,599 --> 00:04:13,260
+to my programming blog
+
+79
+00:04:09,540 --> 00:04:16,380
+so I broke I you know I walked Non-Stop
+
+80
+00:04:13,260 --> 00:04:18,239
+on my programming blogs you know update
+
+81
+00:04:16,380 --> 00:04:20,579
+uh
+
+82
+00:04:18,239 --> 00:04:24,300
+check them check them out check them out
+
+83
+00:04:20,579 --> 00:04:26,280
+okay so there's CSS tutorial I keep
+
+84
+00:04:24,300 --> 00:04:27,840
+working on them lots of things so
+
+85
+00:04:26,280 --> 00:04:30,240
+there's also
+
+86
+00:04:27,840 --> 00:04:33,180
+three columns layout
+
+87
+00:04:30,240 --> 00:04:36,240
+um there's a let me show you these three
+
+88
+00:04:33,180 --> 00:04:38,699
+columns layout CSS it's actually a new
+
+89
+00:04:36,240 --> 00:04:42,180
+feature so this is like a newspaper
+
+90
+00:04:38,699 --> 00:04:45,660
+column layout so this feature became
+
+91
+00:04:42,180 --> 00:04:48,419
+available a few years ago okay
+
+92
+00:04:45,660 --> 00:04:51,600
+uh so you know I keep updating my
+
+93
+00:04:48,419 --> 00:04:55,020
+website then there is Javascript how to
+
+94
+00:04:51,600 --> 00:04:58,740
+iterate Loop a HTML elements you know
+
+95
+00:04:55,020 --> 00:05:01,979
+when you get them from get elements
+
+96
+00:04:58,740 --> 00:05:04,560
+so this is Storm get Elements by ID by
+
+97
+00:05:01,979 --> 00:05:06,360
+name by tag Name by class attribute and
+
+98
+00:05:04,560 --> 00:05:08,759
+so on so once you get a bunch of them
+
+99
+00:05:06,360 --> 00:05:11,400
+how do you look through them uh fairly
+
+100
+00:05:08,759 --> 00:05:12,660
+complex because changes over the past 10
+
+101
+00:05:11,400 --> 00:05:16,080
+years
+
+102
+00:05:12,660 --> 00:05:19,080
+because there is not list and there is
+
+103
+00:05:16,080 --> 00:05:21,660
+not live object or non-live object then
+
+104
+00:05:19,080 --> 00:05:23,759
+there is not list versus HTML collection
+
+105
+00:05:21,660 --> 00:05:26,940
+you know so if you are a JavaScript
+
+106
+00:05:23,759 --> 00:05:30,600
+coder if you are a web dev
+
+107
+00:05:26,940 --> 00:05:34,080
+check out my JavaScript tutorial in
+
+108
+00:05:30,600 --> 00:05:37,680
+depth okay so as I was saying I was you
+
+109
+00:05:34,080 --> 00:05:40,979
+know working on my blog all the time uh
+
+110
+00:05:37,680 --> 00:05:44,039
+technical topics you know Unix so you
+
+111
+00:05:40,979 --> 00:05:46,740
+have some ecosystem Solaris this is
+
+112
+00:05:44,039 --> 00:05:49,919
+Asian this is around the year 2000 I
+
+113
+00:05:46,740 --> 00:05:53,060
+wrote this so right now so in the past
+
+114
+00:05:49,919 --> 00:05:53,060
+days I just um
+
+115
+00:05:53,100 --> 00:05:57,840
+we work them rework them you know move
+
+116
+00:05:55,680 --> 00:06:01,380
+some parts into a new page so it's
+
+117
+00:05:57,840 --> 00:06:04,199
+easier to search uh so you have some
+
+118
+00:06:01,380 --> 00:06:07,919
+ecosystem Solaris or sun OS then you
+
+119
+00:06:04,199 --> 00:06:10,919
+have HP ux then came around Linux you
+
+120
+00:06:07,919 --> 00:06:14,039
+know around year 2000 becomes becomes
+
+121
+00:06:10,919 --> 00:06:16,380
+popular it began 1993 also
+
+122
+00:06:14,039 --> 00:06:20,580
+so in the beginning you have Debian the
+
+123
+00:06:16,380 --> 00:06:25,919
+most popular is uh Debian yellow yellow
+
+124
+00:06:20,580 --> 00:06:27,900
+dog Linux Debian red hat and suse or
+
+125
+00:06:25,919 --> 00:06:30,479
+Susie however you pronounce that you
+
+126
+00:06:27,900 --> 00:06:33,419
+know these are the most popular
+
+127
+00:06:30,479 --> 00:06:35,340
+20 years ago then of course you have
+
+128
+00:06:33,419 --> 00:06:37,860
+free BSD
+
+129
+00:06:35,340 --> 00:06:40,340
+very interesting history so you can see
+
+130
+00:06:37,860 --> 00:06:43,319
+a TNT there and you can see dos there
+
+131
+00:06:40,340 --> 00:06:46,440
+and then you have next computer it's
+
+132
+00:06:43,319 --> 00:06:48,240
+which is the Revenge of Steve Jobs you
+
+133
+00:06:46,440 --> 00:06:51,740
+know he got kicked out
+
+134
+00:06:48,240 --> 00:06:56,580
+from the company Apple he started
+
+135
+00:06:51,740 --> 00:07:00,479
+so he started next and the next failed
+
+136
+00:06:56,580 --> 00:07:02,180
+you know then there's POS which Apple
+
+137
+00:07:00,479 --> 00:07:06,120
+you know
+
+138
+00:07:02,180 --> 00:07:09,300
+sabotaged them essentially POS you know
+
+139
+00:07:06,120 --> 00:07:12,180
+all the corporate corporate backstabbing
+
+140
+00:07:09,300 --> 00:07:14,639
+and so on and what you know the Unix
+
+141
+00:07:12,180 --> 00:07:16,560
+Linux idiots they don't know it
+
+142
+00:07:14,639 --> 00:07:19,800
+they just think open source is great
+
+143
+00:07:16,560 --> 00:07:23,280
+anyway so this apple
+
+144
+00:07:19,800 --> 00:07:25,680
+so um so I did a lot so let me get back
+
+145
+00:07:23,280 --> 00:07:27,840
+to the emac this so what am I doing let
+
+146
+00:07:25,680 --> 00:07:30,479
+me tell you okay what am I doing
+
+147
+00:07:27,840 --> 00:07:34,259
+why are we on and there's kids you know
+
+148
+00:07:30,479 --> 00:07:38,400
+recently I updated a lot uh git tutorial
+
+149
+00:07:34,259 --> 00:07:41,759
+so you know check them out
+
+150
+00:07:38,400 --> 00:07:44,699
+uh and why python sucks and geometric
+
+151
+00:07:41,759 --> 00:07:46,880
+inversion that's my favorite thing uh
+
+152
+00:07:44,699 --> 00:07:49,740
+geometry
+
+153
+00:07:46,880 --> 00:07:52,199
+and uh okay so let me let me show you
+
+154
+00:07:49,740 --> 00:07:55,860
+what what what is it I need I need to
+
+155
+00:07:52,199 --> 00:07:58,139
+code this okay Crazy Frog hello I think
+
+156
+00:07:55,860 --> 00:08:00,479
+long time no see
+
+157
+00:07:58,139 --> 00:08:03,000
+thoughts on the new three-seater
+
+158
+00:08:00,479 --> 00:08:04,740
+integration for passing what is that I
+
+159
+00:08:03,000 --> 00:08:08,240
+don't know what is that is that the Emax
+
+160
+00:08:04,740 --> 00:08:08,240
+thing explain okay
+
+161
+00:08:12,060 --> 00:08:17,940
+explain I don't know what that is
+
+162
+00:08:15,479 --> 00:08:20,400
+so we're gonna code emac this first then
+
+163
+00:08:17,940 --> 00:08:22,800
+we're gonna um so anyway let me wait any
+
+164
+00:08:20,400 --> 00:08:25,319
+anyway let me show you what what is it
+
+165
+00:08:22,800 --> 00:08:28,139
+we're gonna we need to do okay so for
+
+166
+00:08:25,319 --> 00:08:31,139
+example I have a lot you know so so you
+
+167
+00:08:28,139 --> 00:08:33,740
+are looking at my sorry dot info and go
+
+168
+00:08:31,139 --> 00:08:36,479
+up one directory you can see
+
+169
+00:08:33,740 --> 00:08:39,779
+sally.infolded and there is huge amount
+
+170
+00:08:36,479 --> 00:08:41,940
+of you know about seven thousand files
+
+171
+00:08:39,779 --> 00:08:44,820
+among my
+
+172
+00:08:41,940 --> 00:08:47,580
+among my domains okay because art you
+
+173
+00:08:44,820 --> 00:08:50,580
+know those domains are all good now it's
+
+174
+00:08:47,580 --> 00:08:53,399
+just slightly info and study org I moved
+
+175
+00:08:50,580 --> 00:08:55,740
+everything else into Sally info and
+
+176
+00:08:53,399 --> 00:09:00,480
+Sally org
+
+177
+00:08:55,740 --> 00:09:03,959
+so Sally info is mostly uh programming
+
+178
+00:09:00,480 --> 00:09:09,060
+and math okay technical topics and Sally
+
+179
+00:09:03,959 --> 00:09:11,339
+org dot org is other things random lots
+
+180
+00:09:09,060 --> 00:09:13,800
+of other things arts and literature and
+
+181
+00:09:11,339 --> 00:09:16,260
+writing and politics and so on
+
+182
+00:09:13,800 --> 00:09:18,120
+and also music it's all moved into
+
+183
+00:09:16,260 --> 00:09:20,040
+xavi.org
+
+184
+00:09:18,120 --> 00:09:23,300
+[Music]
+
+185
+00:09:20,040 --> 00:09:23,300
+okay let me show you
+
+186
+00:09:26,279 --> 00:09:33,720
+so here is sally.org
+
+187
+00:09:30,360 --> 00:09:35,820
+and then you have studied that info then
+
+188
+00:09:33,720 --> 00:09:40,800
+you have several other sections English
+
+189
+00:09:35,820 --> 00:09:44,700
+and art and music songs Human animals
+
+190
+00:09:40,800 --> 00:09:48,779
+and their songs an analysis look at the
+
+191
+00:09:44,700 --> 00:09:51,060
+human history or culture via what
+
+192
+00:09:48,779 --> 00:09:53,459
+they've seen you know you look at what
+
+193
+00:09:51,060 --> 00:09:56,940
+you know there's lots of tons of songs
+
+194
+00:09:53,459 --> 00:09:58,800
+on love on all kinds of things and you
+
+195
+00:09:56,940 --> 00:10:02,760
+re you know you check out their music
+
+196
+00:09:58,800 --> 00:10:04,860
+and lyrics and you look at you do
+
+197
+00:10:02,760 --> 00:10:06,420
+analysis on what are they saying
+
+198
+00:10:04,860 --> 00:10:08,760
+different culture they say different
+
+199
+00:10:06,420 --> 00:10:11,820
+things different type of songs rock and
+
+200
+00:10:08,760 --> 00:10:14,519
+roll heavy metal you know country music
+
+201
+00:10:11,820 --> 00:10:16,380
+love songs and love songs Lots you know
+
+202
+00:10:14,519 --> 00:10:19,440
+you have love songs among all these
+
+203
+00:10:16,380 --> 00:10:20,180
+almost all of them except maybe heavy
+
+204
+00:10:19,440 --> 00:10:23,640
+metal
+
+205
+00:10:20,180 --> 00:10:26,640
+you know so you can see certain topics
+
+206
+00:10:23,640 --> 00:10:29,160
+goes with certain songs then you have
+
+207
+00:10:26,640 --> 00:10:30,959
+Chinese songs which is entirely
+
+208
+00:10:29,160 --> 00:10:33,720
+different culture
+
+209
+00:10:30,959 --> 00:10:35,399
+and you have wrap of course rap is
+
+210
+00:10:33,720 --> 00:10:38,640
+mostly you know
+
+211
+00:10:35,399 --> 00:10:41,519
+and hatred you know anti-cops you know
+
+212
+00:10:38,640 --> 00:10:44,399
+this uh kind of thing
+
+213
+00:10:41,519 --> 00:10:46,680
+uh against uh you know against the rap
+
+214
+00:10:44,399 --> 00:10:48,120
+rap and and so on
+
+215
+00:10:46,680 --> 00:10:50,820
+so anyway so
+
+216
+00:10:48,120 --> 00:10:53,060
+so that's Sally and you have odds of
+
+217
+00:10:50,820 --> 00:10:55,980
+course uh that's
+
+218
+00:10:53,060 --> 00:10:59,220
+saudi.org okay and there is also second
+
+219
+00:10:55,980 --> 00:11:03,120
+life which is exploration of the virtual
+
+220
+00:10:59,220 --> 00:11:06,540
+reality The Meta Universe you know today
+
+221
+00:11:03,120 --> 00:11:08,160
+it's called meta you know but 20 15
+
+222
+00:11:06,540 --> 00:11:11,519
+years ago it's
+
+223
+00:11:08,160 --> 00:11:14,880
+this is a emerging technology virtual
+
+224
+00:11:11,519 --> 00:11:17,000
+Life Second Life okay I spend about four
+
+225
+00:11:14,880 --> 00:11:19,800
+years every day in it
+
+226
+00:11:17,000 --> 00:11:22,079
+exploring the technology you know the
+
+227
+00:11:19,800 --> 00:11:24,600
+future reason you know what are we going
+
+228
+00:11:22,079 --> 00:11:27,000
+to be in the future what what is society
+
+229
+00:11:24,600 --> 00:11:29,700
+going to be like you know so
+
+230
+00:11:27,000 --> 00:11:31,980
+you know so so I I write a lot of things
+
+231
+00:11:29,700 --> 00:11:34,440
+and there's also a section on politics
+
+232
+00:11:31,980 --> 00:11:37,680
+which I do not link here so I don't want
+
+233
+00:11:34,440 --> 00:11:41,160
+I want to avoid the drivers you know the
+
+234
+00:11:37,680 --> 00:11:43,980
+drama oh you know this political parties
+
+235
+00:11:41,160 --> 00:11:46,500
+doing what all these hateful and so on
+
+236
+00:11:43,980 --> 00:11:49,920
+so I don't think here
+
+237
+00:11:46,500 --> 00:11:52,200
+so that's sally.org so
+
+238
+00:11:49,920 --> 00:11:55,079
+we digressed a lot so anyway let's go
+
+239
+00:11:52,200 --> 00:11:59,579
+back to Sally dot info
+
+240
+00:11:55,079 --> 00:12:01,560
+so here is technical stuff
+
+241
+00:11:59,579 --> 00:12:04,940
+computer programming
+
+242
+00:12:01,560 --> 00:12:09,540
+in mathematics so there's wufam language
+
+243
+00:12:04,940 --> 00:12:12,000
+and Mathematics and there's keyboard and
+
+244
+00:12:09,540 --> 00:12:15,360
+you know efficiency and programming
+
+245
+00:12:12,000 --> 00:12:17,339
+languages python Pro Ruby Haskell Java
+
+246
+00:12:15,360 --> 00:12:20,040
+crochet you know JavaScript you know I
+
+247
+00:12:17,339 --> 00:12:22,200
+tell you all about it
+
+248
+00:12:20,040 --> 00:12:25,260
+so that's the introduction to my website
+
+249
+00:12:22,200 --> 00:12:28,800
+so you know so but what are we doing so
+
+250
+00:12:25,260 --> 00:12:30,899
+what what is it that I need to do today
+
+251
+00:12:28,800 --> 00:12:33,360
+so let's go back so let me show you okay
+
+252
+00:12:30,899 --> 00:12:35,160
+so you can see here is my directory
+
+253
+00:12:33,360 --> 00:12:41,519
+structure you know there are so many
+
+254
+00:12:35,160 --> 00:12:43,139
+things 7 000 HTML files basically and uh
+
+255
+00:12:41,519 --> 00:12:44,519
+and now
+
+256
+00:12:43,139 --> 00:12:47,579
+but now
+
+257
+00:12:44,519 --> 00:12:50,940
+common questions okay post it there but
+
+258
+00:12:47,579 --> 00:12:52,760
+now I have a problem the problem is okay
+
+259
+00:12:50,940 --> 00:12:56,579
+so let's go to
+
+260
+00:12:52,760 --> 00:12:59,639
+sally.info.com okay so that is
+
+261
+00:12:56,579 --> 00:13:00,420
+that is my programming blog you know I
+
+262
+00:12:59,639 --> 00:13:02,899
+have
+
+263
+00:13:00,420 --> 00:13:06,240
+if you go back to
+
+264
+00:13:02,899 --> 00:13:08,579
+saudi.infox.code you have
+
+265
+00:13:06,240 --> 00:13:10,139
+I have several blocks you know some talk
+
+266
+00:13:08,579 --> 00:13:12,360
+show
+
+267
+00:13:10,139 --> 00:13:15,060
+which is what we are doing today in
+
+268
+00:13:12,360 --> 00:13:15,800
+keyboard blog you know lots of tons you
+
+269
+00:13:15,060 --> 00:13:18,480
+know
+
+270
+00:13:15,800 --> 00:13:20,940
+1000 Pages there
+
+271
+00:13:18,480 --> 00:13:23,700
+then you have programming blog
+
+272
+00:13:20,940 --> 00:13:26,459
+uh then you have math blog you know math
+
+273
+00:13:23,700 --> 00:13:30,480
+blog I haven't been so active because
+
+274
+00:13:26,459 --> 00:13:33,240
+math is uh you know difficult
+
+275
+00:13:30,480 --> 00:13:36,260
+and recently I learned periodic numbers
+
+276
+00:13:33,240 --> 00:13:41,639
+you know it's very Advanced fantastic
+
+277
+00:13:36,260 --> 00:13:44,940
+periodic numbers Advanced number Theory
+
+278
+00:13:41,639 --> 00:13:48,000
+um and you know so there it is my math
+
+279
+00:13:44,940 --> 00:13:50,720
+blog and a lot of it
+
+280
+00:13:48,000 --> 00:13:53,399
+focus on the
+
+281
+00:13:50,720 --> 00:13:54,420
+decorative things in mathematics you
+
+282
+00:13:53,399 --> 00:14:00,180
+know
+
+283
+00:13:54,420 --> 00:14:02,820
+uh you know algorithmic mathematical art
+
+284
+00:14:00,180 --> 00:14:05,639
+I need to do a full video on this one
+
+285
+00:14:02,820 --> 00:14:07,740
+day I did one before but not so good I
+
+286
+00:14:05,639 --> 00:14:10,579
+need to do a full video one day on what
+
+287
+00:14:07,740 --> 00:14:14,639
+on defining what is mathematical
+
+288
+00:14:10,579 --> 00:14:17,760
+algorithmic mathematical art so it needs
+
+289
+00:14:14,639 --> 00:14:19,680
+to be mathematical but it also needs to
+
+290
+00:14:17,760 --> 00:14:23,639
+be algorithmic
+
+291
+00:14:19,680 --> 00:14:26,100
+and there are certain requirements
+
+292
+00:14:23,639 --> 00:14:28,380
+in the definition you know it's not just
+
+293
+00:14:26,100 --> 00:14:31,500
+you know for example a lot of you
+
+294
+00:14:28,380 --> 00:14:33,899
+Zoomers in Malaysian idiots
+
+295
+00:14:31,500 --> 00:14:37,560
+you know you would be interested in
+
+296
+00:14:33,899 --> 00:14:41,040
+general genetic art generic uh no what's
+
+297
+00:14:37,560 --> 00:14:44,100
+it called let's okay let's digress a
+
+298
+00:14:41,040 --> 00:14:47,660
+little bit let's search
+
+299
+00:14:44,100 --> 00:14:47,660
+generative art okay
+
+300
+00:14:48,060 --> 00:14:54,600
+that's the worst that's the most
+
+301
+00:14:50,279 --> 00:14:59,579
+worthless [ __ ] this generated generative
+
+302
+00:14:54,600 --> 00:15:04,019
+art okay this is the most worthless was
+
+303
+00:14:59,579 --> 00:15:06,180
+less [ __ ] what this is generative art is
+
+304
+00:15:04,019 --> 00:15:10,220
+just doodling you know what is doodling
+
+305
+00:15:06,180 --> 00:15:10,220
+let me show you what he's doodling
+
+306
+00:15:11,880 --> 00:15:17,180
+okay so let's go to
+
+307
+00:15:14,279 --> 00:15:17,180
+uh
+
+308
+00:15:18,959 --> 00:15:24,839
+okay so let's open that one we need to
+
+309
+00:15:21,660 --> 00:15:26,519
+open it in snip and sketch okay so you
+
+310
+00:15:24,839 --> 00:15:28,980
+know sometimes
+
+311
+00:15:26,519 --> 00:15:32,040
+sometimes we just doodle you know when
+
+312
+00:15:28,980 --> 00:15:32,880
+we talk on the phone and we you know we
+
+313
+00:15:32,040 --> 00:15:33,600
+just
+
+314
+00:15:32,880 --> 00:15:36,240
+um
+
+315
+00:15:33,600 --> 00:15:38,459
+like without concentration we just draw
+
+316
+00:15:36,240 --> 00:15:40,440
+something
+
+317
+00:15:38,459 --> 00:15:41,840
+you know doodle you know this is
+
+318
+00:15:40,440 --> 00:15:44,160
+doodling you know
+
+319
+00:15:41,840 --> 00:15:47,399
+[Laughter]
+
+320
+00:15:44,160 --> 00:15:51,540
+this is manual doodling you know
+
+321
+00:15:47,399 --> 00:15:54,060
+that is what genetic art uh generative
+
+322
+00:15:51,540 --> 00:15:58,139
+art is okay that's doodling with
+
+323
+00:15:54,060 --> 00:16:01,440
+computer the most idiotic [ __ ]
+
+324
+00:15:58,139 --> 00:16:04,680
+so you know if you are a programmer a
+
+325
+00:16:01,440 --> 00:16:08,160
+lot of you are and you you know emacs
+
+326
+00:16:04,680 --> 00:16:10,440
+list emacs users you know and you might
+
+327
+00:16:08,160 --> 00:16:13,320
+be interested in creating you know
+
+328
+00:16:10,440 --> 00:16:15,839
+algorithmic uh joint you know don't
+
+329
+00:16:13,320 --> 00:16:18,300
+don't do don't
+
+330
+00:16:15,839 --> 00:16:20,839
+you know have some brain don't don't
+
+331
+00:16:18,300 --> 00:16:23,639
+fall into this you know generated
+
+332
+00:16:20,839 --> 00:16:25,920
+generative art crap okay there are
+
+333
+00:16:23,639 --> 00:16:28,680
+several languages dedicated to
+
+334
+00:16:25,920 --> 00:16:32,040
+generative art those are crap and this
+
+335
+00:16:28,680 --> 00:16:34,740
+generative art is usually sponsored you
+
+336
+00:16:32,040 --> 00:16:37,259
+know it rose up with the Malayan Jin and
+
+337
+00:16:34,740 --> 00:16:39,240
+Zuma crowd they don't know they don't
+
+338
+00:16:37,259 --> 00:16:40,800
+know things okay so you don't want
+
+339
+00:16:39,240 --> 00:16:43,800
+generative ad
+
+340
+00:16:40,800 --> 00:16:46,440
+and you don't want Ray tracing Ray
+
+341
+00:16:43,800 --> 00:16:49,500
+tracing is a classic hacker you know
+
+342
+00:16:46,440 --> 00:16:52,440
+programmer especially of the C C plus
+
+343
+00:16:49,500 --> 00:16:55,259
+plus or the rust type of people when
+
+344
+00:16:52,440 --> 00:16:57,300
+they hear a ray tracing they get excited
+
+345
+00:16:55,259 --> 00:17:00,240
+already chasing they're gonna you know
+
+346
+00:16:57,300 --> 00:17:03,120
+they think that's math no that's not
+
+347
+00:17:00,240 --> 00:17:06,419
+math okay this generative art is [ __ ]
+
+348
+00:17:03,120 --> 00:17:08,640
+it's not math and no is it art not math
+
+349
+00:17:06,419 --> 00:17:12,720
+and not art
+
+350
+00:17:08,640 --> 00:17:15,299
+generative art not math and not art
+
+351
+00:17:12,720 --> 00:17:17,939
+Ray tracing let me show you Ray tracing
+
+352
+00:17:15,299 --> 00:17:19,559
+okay actually I have an article you know
+
+353
+00:17:17,939 --> 00:17:22,140
+recently
+
+354
+00:17:19,559 --> 00:17:25,079
+so let's open my blog let me show you
+
+355
+00:17:22,140 --> 00:17:27,000
+this article okay
+
+356
+00:17:25,079 --> 00:17:30,600
+uh
+
+357
+00:17:27,000 --> 00:17:31,620
+why Ray tracing is not math okay this is
+
+358
+00:17:30,600 --> 00:17:35,460
+a
+
+359
+00:17:31,620 --> 00:17:37,500
+rent turned into a essay from Sally
+
+360
+00:17:35,460 --> 00:17:40,160
+Discord you know if you haven't already
+
+361
+00:17:37,500 --> 00:17:44,220
+joined the sorry it is Discord
+
+362
+00:17:40,160 --> 00:17:47,640
+interesting people and we have arguments
+
+363
+00:17:44,220 --> 00:17:49,799
+you know cloudy Discord uh also the
+
+364
+00:17:47,640 --> 00:17:52,919
+topics so
+
+365
+00:17:49,799 --> 00:17:54,840
+so math so you know Ray tracing let me
+
+366
+00:17:52,919 --> 00:17:56,280
+show you first of all Ray tracing you
+
+367
+00:17:54,840 --> 00:17:59,160
+know look at look at that you know
+
+368
+00:17:56,280 --> 00:18:02,160
+programmers get excited about this
+
+369
+00:17:59,160 --> 00:18:04,380
+oh oh mathematics oh linear linear
+
+370
+00:18:02,160 --> 00:18:06,840
+algebra oh God Matrix this is so
+
+371
+00:18:04,380 --> 00:18:10,320
+difficult I need to Master Ray tracing
+
+372
+00:18:06,840 --> 00:18:12,480
+the most idiotic [ __ ] programmers this
+
+373
+00:18:10,320 --> 00:18:14,220
+is not math okay
+
+374
+00:18:12,480 --> 00:18:18,780
+what is math
+
+375
+00:18:14,220 --> 00:18:21,960
+what is math oriented art or math
+
+376
+00:18:18,780 --> 00:18:24,960
+mathematical art that is a piece of
+
+377
+00:18:21,960 --> 00:18:29,179
+drawing or visualization or artwork that
+
+378
+00:18:24,960 --> 00:18:33,840
+embodies mathematics okay so Azure it's
+
+379
+00:18:29,179 --> 00:18:36,360
+Asia's math work artwork would would cut
+
+380
+00:18:33,840 --> 00:18:38,520
+you know sketches you know or your pen
+
+381
+00:18:36,360 --> 00:18:40,679
+or whatever
+
+382
+00:18:38,520 --> 00:18:43,559
+they they are not even done by computer
+
+383
+00:18:40,679 --> 00:18:46,080
+okay they are done manually by artists
+
+384
+00:18:43,559 --> 00:18:48,660
+okay but those those are mathematical
+
+385
+00:18:46,080 --> 00:18:51,480
+art okay
+
+386
+00:18:48,660 --> 00:18:55,320
+you know this for example this is Asia's
+
+387
+00:18:51,480 --> 00:18:58,380
+artwork woodcut okay wood engraving you
+
+388
+00:18:55,320 --> 00:19:01,080
+know it's actually using you know uh
+
+389
+00:18:58,380 --> 00:19:03,840
+some sort of carving wood okay to create
+
+390
+00:19:01,080 --> 00:19:06,299
+this artwork and here is more than one
+
+391
+00:19:03,840 --> 00:19:09,539
+done in Second Life you know we talked
+
+392
+00:19:06,299 --> 00:19:12,299
+about second life virtual reality so uh
+
+393
+00:19:09,539 --> 00:19:15,360
+a friend who is a guy know it you know
+
+394
+00:19:12,299 --> 00:19:18,539
+he created a emulation of the Asia's
+
+395
+00:19:15,360 --> 00:19:20,820
+artwork in Second Life so this is 3D you
+
+396
+00:19:18,539 --> 00:19:23,880
+can walk around you know you can as a
+
+397
+00:19:20,820 --> 00:19:24,900
+human you can like this is a 3D object
+
+398
+00:19:23,880 --> 00:19:27,480
+you can
+
+399
+00:19:24,900 --> 00:19:30,000
+stand on this thing
+
+400
+00:19:27,480 --> 00:19:33,600
+you know so it's a three-dimensional so
+
+401
+00:19:30,000 --> 00:19:37,380
+and he she also created I don't know if
+
+402
+00:19:33,600 --> 00:19:40,679
+it's he or she but he's but she's a a
+
+403
+00:19:37,380 --> 00:19:43,260
+Malaysian so you can see
+
+404
+00:19:40,679 --> 00:19:44,640
+this amazing thing you see you standing
+
+405
+00:19:43,260 --> 00:19:47,820
+in this
+
+406
+00:19:44,640 --> 00:19:50,220
+I forgot what it what what structure it
+
+407
+00:19:47,820 --> 00:19:53,340
+is E8 or something the higher
+
+408
+00:19:50,220 --> 00:19:55,559
+dimensional polytops
+
+409
+00:19:53,340 --> 00:19:59,220
+Okay so
+
+410
+00:19:55,559 --> 00:20:02,179
+so those so what is mathematical art so
+
+411
+00:19:59,220 --> 00:20:05,780
+what is mathematical art
+
+412
+00:20:02,179 --> 00:20:08,340
+mathematical art is an artwork that
+
+413
+00:20:05,780 --> 00:20:11,940
+captures mathematics
+
+414
+00:20:08,340 --> 00:20:14,160
+that embodies mathematics that the
+
+415
+00:20:11,940 --> 00:20:15,720
+essence of this artwork is mathematics
+
+416
+00:20:14,160 --> 00:20:18,780
+okay
+
+417
+00:20:15,720 --> 00:20:20,820
+that is the definition of mathematical
+
+418
+00:20:18,780 --> 00:20:22,500
+artwork
+
+419
+00:20:20,820 --> 00:20:24,720
+okay
+
+420
+00:20:22,500 --> 00:20:29,100
+now as opposed to
+
+421
+00:20:24,720 --> 00:20:29,100
+as opposed to uh
+
+422
+00:20:29,340 --> 00:20:36,179
+as opposed to this crap oh glasses oh
+
+423
+00:20:32,940 --> 00:20:38,100
+wine glasses do you think that you know
+
+424
+00:20:36,179 --> 00:20:40,620
+when you look at this picture is there a
+
+425
+00:20:38,100 --> 00:20:43,260
+mathematics in it no
+
+426
+00:20:40,620 --> 00:20:45,240
+but why is it Ray tracing why why do
+
+427
+00:20:43,260 --> 00:20:48,440
+programmers think Ray tracing is math
+
+428
+00:20:45,240 --> 00:20:52,200
+because they think you know the the the
+
+429
+00:20:48,440 --> 00:20:53,580
+methodology to create this that's math
+
+430
+00:20:52,200 --> 00:20:56,700
+of course
+
+431
+00:20:53,580 --> 00:20:59,100
+but a car is also mathematics do you
+
+432
+00:20:56,700 --> 00:21:02,220
+when you see a car you do you say oh oh
+
+433
+00:20:59,100 --> 00:21:05,460
+my God I'm seeing mathematics no but if
+
+434
+00:21:02,220 --> 00:21:07,020
+you build a car engine combustion engine
+
+435
+00:21:05,460 --> 00:21:10,679
+that's all math
+
+436
+00:21:07,020 --> 00:21:13,440
+my microphone YouTube stream that's all
+
+437
+00:21:10,679 --> 00:21:16,620
+mathematics okay
+
+438
+00:21:13,440 --> 00:21:18,960
+so Ray tracing is not math
+
+439
+00:21:16,620 --> 00:21:21,419
+so as a programmer let me give you some
+
+440
+00:21:18,960 --> 00:21:25,200
+something positive okay for you
+
+441
+00:21:21,419 --> 00:21:28,440
+programmers or uh 10 technical computer
+
+442
+00:21:25,200 --> 00:21:32,100
+users or whatever you do Gamers or you
+
+443
+00:21:28,440 --> 00:21:34,559
+know image editing video creation audio
+
+444
+00:21:32,100 --> 00:21:37,559
+expert or whatever
+
+445
+00:21:34,559 --> 00:21:40,620
+many of you are so
+
+446
+00:21:37,559 --> 00:21:43,380
+so let's say you know when if you are
+
+447
+00:21:40,620 --> 00:21:45,419
+young many of you are you want to you
+
+448
+00:21:43,380 --> 00:21:47,240
+might be thinking mathematics as a
+
+449
+00:21:45,419 --> 00:21:49,860
+career or programming
+
+450
+00:21:47,240 --> 00:21:52,020
+uh remember they are different nature
+
+451
+00:21:49,860 --> 00:21:54,960
+okay they are not the same thing they
+
+452
+00:21:52,020 --> 00:21:58,200
+are different nature okay let's let's go
+
+453
+00:21:54,960 --> 00:22:00,539
+back to emac this because I want to code
+
+454
+00:21:58,200 --> 00:22:03,960
+so okay let me show you what what I need
+
+455
+00:22:00,539 --> 00:22:06,480
+to do okay let's start actually focus on
+
+456
+00:22:03,960 --> 00:22:09,059
+the emac basic coding now
+
+457
+00:22:06,480 --> 00:22:10,440
+so we already spent like 20 minutes on
+
+458
+00:22:09,059 --> 00:22:12,600
+this
+
+459
+00:22:10,440 --> 00:22:16,039
+chatting random which is good we haven't
+
+460
+00:22:12,600 --> 00:22:16,039
+done that for a long time
+
+461
+00:22:19,380 --> 00:22:27,059
+so what are you try uh guys saying so
+
+462
+00:22:23,400 --> 00:22:29,340
+do we have emacs users serious emacs
+
+463
+00:22:27,059 --> 00:22:31,679
+users you know I get usually I get
+
+464
+00:22:29,340 --> 00:22:34,559
+excited when I see comments that's
+
+465
+00:22:31,679 --> 00:22:38,900
+relevant and people are you know more
+
+466
+00:22:34,559 --> 00:22:38,900
+serious about whatever I'm talking about
+
+467
+00:22:39,840 --> 00:22:45,140
+yeah you cannot paste links in chat
+
+468
+00:22:42,120 --> 00:22:45,140
+that's YouTube
+
+469
+00:22:56,220 --> 00:22:58,760
+coffee
+
+470
+00:22:59,059 --> 00:23:03,740
+so of flamio says I want to listen to
+
+471
+00:23:02,340 --> 00:23:07,679
+you Bash
+
+472
+00:23:03,740 --> 00:23:11,100
+mbti that's Maya's brick thing I have an
+
+473
+00:23:07,679 --> 00:23:13,260
+article on that okay I have a I have an
+
+474
+00:23:11,100 --> 00:23:17,159
+article on that
+
+475
+00:23:13,260 --> 00:23:20,159
+you I think you can just search it sadly
+
+476
+00:23:17,159 --> 00:23:20,159
+Myers
+
+477
+00:23:21,900 --> 00:23:28,919
+minus brick you know this personal so
+
+478
+00:23:25,020 --> 00:23:32,100
+there it is okay that's on sally.org
+
+479
+00:23:28,919 --> 00:23:35,520
+this personality test you know Myers
+
+480
+00:23:32,100 --> 00:23:38,039
+break the personality test in that
+
+481
+00:23:35,520 --> 00:23:41,400
+calmed the world that's true that's the
+
+482
+00:23:38,039 --> 00:23:44,360
+history that's what it is Kong
+
+483
+00:23:41,400 --> 00:23:48,960
+you know cheating it's a kind of a scam
+
+484
+00:23:44,360 --> 00:23:51,780
+it's a okay if I'm gonna talk this about
+
+485
+00:23:48,960 --> 00:23:55,260
+this it's gonna be full one hour okay so
+
+486
+00:23:51,780 --> 00:23:57,419
+because it relates to psychology you
+
+487
+00:23:55,260 --> 00:23:59,900
+know there's a lot about it in
+
+488
+00:23:57,419 --> 00:23:59,900
+psychology
+
+489
+00:24:00,360 --> 00:24:04,919
+you know so let me just quickly let me
+
+490
+00:24:03,240 --> 00:24:08,940
+talk about this in for three minutes
+
+491
+00:24:04,919 --> 00:24:11,400
+okay so in so my ass break you know you
+
+492
+00:24:08,940 --> 00:24:14,400
+are probably familiar you know it
+
+493
+00:24:11,400 --> 00:24:17,220
+there's a lot of Internet websites that
+
+494
+00:24:14,400 --> 00:24:20,100
+test that gives you the test of your
+
+495
+00:24:17,220 --> 00:24:23,760
+personality it summarizes four letter
+
+496
+00:24:20,100 --> 00:24:26,039
+you know code you know I I
+
+497
+00:24:23,760 --> 00:24:30,240
+um for example I am
+
+498
+00:24:26,039 --> 00:24:33,179
+I am i n t p okay
+
+499
+00:24:30,240 --> 00:24:37,740
+so yeah there it is I and you know
+
+500
+00:24:33,179 --> 00:24:42,840
+there's infp four letters okay ESTJ
+
+501
+00:24:37,740 --> 00:24:45,780
+I more or less int P I think or a little
+
+502
+00:24:42,840 --> 00:24:48,659
+bit e and t p okay INTP so so anyway
+
+503
+00:24:45,780 --> 00:24:50,220
+it's a psychology that's a personality
+
+504
+00:24:48,659 --> 00:24:52,740
+test okay
+
+505
+00:24:50,220 --> 00:24:55,440
+Maya speaks there are several variations
+
+506
+00:24:52,740 --> 00:24:56,880
+actually over the past 20 years there's
+
+507
+00:24:55,440 --> 00:24:59,580
+there's
+
+508
+00:24:56,880 --> 00:25:02,460
+you know anyway that's a psychology
+
+509
+00:24:59,580 --> 00:25:05,700
+personality test okay it gives you a
+
+510
+00:25:02,460 --> 00:25:08,460
+code that that signify what kind of
+
+511
+00:25:05,700 --> 00:25:11,220
+person you are and then
+
+512
+00:25:08,460 --> 00:25:13,140
+maybe some theories about what type of
+
+513
+00:25:11,220 --> 00:25:17,419
+person works with other type of person
+
+514
+00:25:13,140 --> 00:25:21,659
+or flamio I you know says I'm intj okay
+
+515
+00:25:17,419 --> 00:25:24,720
+J is judgmental yeah you know so I'm I'm
+
+516
+00:25:21,659 --> 00:25:26,580
+actually between J and P
+
+517
+00:25:24,720 --> 00:25:29,100
+you know so anyway it's it's a rough
+
+518
+00:25:26,580 --> 00:25:33,059
+test okay it so
+
+519
+00:25:29,100 --> 00:25:36,480
+so this test became hugely popular in
+
+520
+00:25:33,059 --> 00:25:38,760
+1990s even okay now many of you Zoomers
+
+521
+00:25:36,480 --> 00:25:41,640
+think you know you just saw this you
+
+522
+00:25:38,760 --> 00:25:44,279
+think it's new uh in fact in the night
+
+523
+00:25:41,640 --> 00:25:46,200
+in year 2000s this is the first one
+
+524
+00:25:44,279 --> 00:25:49,080
+that's on internet all over the place
+
+525
+00:25:46,200 --> 00:25:51,900
+actually psychology tests personality
+
+526
+00:25:49,080 --> 00:25:54,419
+test is one of the things that becomes
+
+527
+00:25:51,900 --> 00:25:57,240
+popular all the time all the time so
+
+528
+00:25:54,419 --> 00:25:59,820
+depending on depending on what year you
+
+529
+00:25:57,240 --> 00:26:02,340
+know this particular test that becomes
+
+530
+00:25:59,820 --> 00:26:05,880
+crazy you know today's you call it
+
+531
+00:26:02,340 --> 00:26:09,140
+become a meme become a you know anyway
+
+532
+00:26:05,880 --> 00:26:13,279
+it's super popular so anyway in back in
+
+533
+00:26:09,140 --> 00:26:15,299
+1990s 1997 or I even went to the library
+
+534
+00:26:13,279 --> 00:26:17,760
+and I
+
+535
+00:26:15,299 --> 00:26:19,500
+I read the book I borrowed several books
+
+536
+00:26:17,760 --> 00:26:21,360
+related to this so I read about it
+
+537
+00:26:19,500 --> 00:26:23,640
+because when you are younger when I was
+
+538
+00:26:21,360 --> 00:26:25,860
+younger you know we are
+
+539
+00:26:23,640 --> 00:26:28,260
+thought about you know we have problems
+
+540
+00:26:25,860 --> 00:26:30,600
+you know I have problems depression what
+
+541
+00:26:28,260 --> 00:26:33,179
+what exactly is my problem you know you
+
+542
+00:26:30,600 --> 00:26:34,559
+read a lot of books so I read uh tons of
+
+543
+00:26:33,179 --> 00:26:36,720
+them anyway
+
+544
+00:26:34,559 --> 00:26:39,480
+let me just
+
+545
+00:26:36,720 --> 00:26:42,179
+stop talking about this in two more
+
+546
+00:26:39,480 --> 00:26:46,140
+minutes then let's go back to emac this
+
+547
+00:26:42,179 --> 00:26:48,480
+okay so it's a personality test
+
+548
+00:26:46,140 --> 00:26:51,539
+and uh
+
+549
+00:26:48,480 --> 00:26:54,539
+you know all these personality tests the
+
+550
+00:26:51,539 --> 00:26:57,840
+psychology itself you know psychology is
+
+551
+00:26:54,539 --> 00:27:01,020
+a academic topic psychology is an
+
+552
+00:26:57,840 --> 00:27:04,620
+academic topic and it's partially
+
+553
+00:27:01,020 --> 00:27:06,900
+science it's not a hard science you know
+
+554
+00:27:04,620 --> 00:27:11,220
+you would classify it
+
+555
+00:27:06,900 --> 00:27:13,320
+it as social science okay so in social
+
+556
+00:27:11,220 --> 00:27:16,500
+science social science is not hot
+
+557
+00:27:13,320 --> 00:27:18,539
+science it's not like math physics
+
+558
+00:27:16,500 --> 00:27:21,900
+engineering if you get something
+
+559
+00:27:18,539 --> 00:27:23,279
+incorrect people die okay
+
+560
+00:27:21,900 --> 00:27:26,159
+now
+
+561
+00:27:23,279 --> 00:27:28,620
+um but on psychology and others other
+
+562
+00:27:26,159 --> 00:27:31,140
+social sciences political science you
+
+563
+00:27:28,620 --> 00:27:33,779
+know social Communications journalism
+
+564
+00:27:31,140 --> 00:27:36,980
+those are you know those are not science
+
+565
+00:27:33,779 --> 00:27:40,440
+okay those are just
+
+566
+00:27:36,980 --> 00:27:42,659
+trying to be science so psychology is
+
+567
+00:27:40,440 --> 00:27:46,559
+you know you might call a soft science
+
+568
+00:27:42,659 --> 00:27:49,020
+you know you it's not completely
+
+569
+00:27:46,559 --> 00:27:51,480
+art you know you might say oh it's just
+
+570
+00:27:49,020 --> 00:27:54,059
+you know it's not arbitrary but it's you
+
+571
+00:27:51,480 --> 00:27:56,340
+know they use scientific methods to try
+
+572
+00:27:54,059 --> 00:28:00,000
+to find
+
+573
+00:27:56,340 --> 00:28:02,700
+um the nature the quality the
+
+574
+00:28:00,000 --> 00:28:04,500
+characteristics of human animals whether
+
+575
+00:28:02,700 --> 00:28:07,679
+you can classify them for example
+
+576
+00:28:04,500 --> 00:28:10,740
+personality is a thing and there's also
+
+577
+00:28:07,679 --> 00:28:12,480
+mental illness you know many of us are
+
+578
+00:28:10,740 --> 00:28:16,860
+afflicted with
+
+579
+00:28:12,480 --> 00:28:19,940
+you know in Malaysian Zuma idiots jargon
+
+580
+00:28:16,860 --> 00:28:22,820
+we would say otist autistic
+
+581
+00:28:19,940 --> 00:28:27,539
+you are watching me because I'm autistic
+
+582
+00:28:22,820 --> 00:28:30,900
+idiots these humans so psychology is a
+
+583
+00:28:27,539 --> 00:28:34,500
+soft science that means it's not too you
+
+584
+00:28:30,900 --> 00:28:37,440
+know it's not 100 correct and and as a
+
+585
+00:28:34,500 --> 00:28:38,940
+soft science in particular psychology is
+
+586
+00:28:37,440 --> 00:28:45,059
+filled with
+
+587
+00:28:38,940 --> 00:28:47,220
+scams you know and this my aspect is one
+
+588
+00:28:45,059 --> 00:28:49,260
+search scan
+
+589
+00:28:47,220 --> 00:28:52,500
+you know so
+
+590
+00:28:49,260 --> 00:28:55,200
+so it gives you you know it gives you it
+
+591
+00:28:52,500 --> 00:28:58,200
+tests your personality it gives you you
+
+592
+00:28:55,200 --> 00:29:00,779
+know a score of your personality so you
+
+593
+00:28:58,200 --> 00:29:02,820
+might say so so the ultimate question is
+
+594
+00:29:00,779 --> 00:29:06,320
+how correct it is
+
+595
+00:29:02,820 --> 00:29:09,659
+you know it classify Human animals
+
+596
+00:29:06,320 --> 00:29:13,980
+personality into these 16 categories
+
+597
+00:29:09,659 --> 00:29:17,220
+right so you might ask is it correct is
+
+598
+00:29:13,980 --> 00:29:19,919
+it is it good is it is it is is does it
+
+599
+00:29:17,220 --> 00:29:22,740
+work does it work to classify human
+
+600
+00:29:19,919 --> 00:29:24,480
+personalities into these 16 categories
+
+601
+00:29:22,740 --> 00:29:28,740
+you know there are different type of
+
+602
+00:29:24,480 --> 00:29:31,200
+personality tests which classify using
+
+603
+00:29:28,740 --> 00:29:34,140
+other schemes for example there's one
+
+604
+00:29:31,200 --> 00:29:36,720
+called Big Five which Jordan Peterson is
+
+605
+00:29:34,140 --> 00:29:41,520
+very fond of you know Big Five that that
+
+606
+00:29:36,720 --> 00:29:45,659
+tests your uh your uh explorativeness
+
+607
+00:29:41,520 --> 00:29:47,779
+you know they they use their own jargons
+
+608
+00:29:45,659 --> 00:29:47,779
+um
+
+609
+00:29:48,299 --> 00:29:53,039
+but anyway so
+
+610
+00:29:50,640 --> 00:29:55,919
+so the question you want to ask is is
+
+611
+00:29:53,039 --> 00:29:58,500
+this test correct does it work
+
+612
+00:29:55,919 --> 00:30:01,440
+you know is it test for ex and you need
+
+613
+00:29:58,500 --> 00:30:04,159
+to do this comparatively is this test
+
+614
+00:30:01,440 --> 00:30:07,080
+you know how how they classify human
+
+615
+00:30:04,159 --> 00:30:09,260
+personality into this 16 category is
+
+616
+00:30:07,080 --> 00:30:09,260
+this
+
+617
+00:30:09,480 --> 00:30:15,299
+does it has predictive value does it
+
+618
+00:30:12,840 --> 00:30:17,700
+work you know in other words like
+
+619
+00:30:15,299 --> 00:30:20,640
+like what what is the effect you know
+
+620
+00:30:17,700 --> 00:30:22,559
+once you know okay okay fine so you you
+
+621
+00:30:20,640 --> 00:30:25,020
+can classify all human animals into
+
+622
+00:30:22,559 --> 00:30:27,360
+these categories what what does it do
+
+623
+00:30:25,020 --> 00:30:29,700
+you know what does what does it do what
+
+624
+00:30:27,360 --> 00:30:32,580
+what good does it do does it suddenly it
+
+625
+00:30:29,700 --> 00:30:35,159
+can tell you oh you are a bad guy you
+
+626
+00:30:32,580 --> 00:30:37,440
+are a good guy or this guy is good for
+
+627
+00:30:35,159 --> 00:30:40,080
+programming that guy is good for being a
+
+628
+00:30:37,440 --> 00:30:43,159
+lawyer what does it do the power you
+
+629
+00:30:40,080 --> 00:30:43,159
+know the power of the test
+
+630
+00:30:43,200 --> 00:30:47,700
+uh and you have to do this comparatively
+
+631
+00:30:45,899 --> 00:30:51,140
+you have to compare two other you know
+
+632
+00:30:47,700 --> 00:30:54,960
+other uh psychology tests but ultimately
+
+633
+00:30:51,140 --> 00:30:58,679
+like I said psychology is a soft science
+
+634
+00:30:54,960 --> 00:30:59,940
+so in fact it's it's pretty hard to
+
+635
+00:30:58,679 --> 00:31:02,880
+assess
+
+636
+00:30:59,940 --> 00:31:05,820
+just how good it is okay there are many
+
+637
+00:31:02,880 --> 00:31:08,940
+psychology personality tests it's hard
+
+638
+00:31:05,820 --> 00:31:10,679
+to actually say this test is better than
+
+639
+00:31:08,940 --> 00:31:13,620
+that one okay
+
+640
+00:31:10,679 --> 00:31:17,340
+somewhat similar to IQ tests there's all
+
+641
+00:31:13,620 --> 00:31:19,679
+sort of tests there's uh you know
+
+642
+00:31:17,340 --> 00:31:22,620
+but but okay but
+
+643
+00:31:19,679 --> 00:31:25,559
+that's one thing okay first of all we we
+
+644
+00:31:22,620 --> 00:31:28,200
+can be sure we cannot say for sure this
+
+645
+00:31:25,559 --> 00:31:30,539
+is a good test or not
+
+646
+00:31:28,200 --> 00:31:33,120
+that's one thing
+
+647
+00:31:30,539 --> 00:31:36,419
+the other thing I want to say why this
+
+648
+00:31:33,120 --> 00:31:40,140
+is bad is that it turns you know many of
+
+649
+00:31:36,419 --> 00:31:44,700
+these popular personality tests they
+
+650
+00:31:40,140 --> 00:31:48,480
+originated from essentially a scan okay
+
+651
+00:31:44,700 --> 00:31:51,620
+and lots of psychology
+
+652
+00:31:48,480 --> 00:31:54,480
+or psychology
+
+653
+00:31:51,620 --> 00:31:58,080
+popularity something about some for
+
+654
+00:31:54,480 --> 00:32:00,840
+example fluid Freud one of the
+
+655
+00:31:58,080 --> 00:32:03,200
+Main
+
+656
+00:32:00,840 --> 00:32:05,520
+uh School of
+
+657
+00:32:03,200 --> 00:32:09,539
+psychoanalysis you know psychoanalysis
+
+658
+00:32:05,520 --> 00:32:12,480
+from Sigma fluid you know how how you
+
+659
+00:32:09,539 --> 00:32:15,240
+pronounce it he is one of the main
+
+660
+00:32:12,480 --> 00:32:16,740
+school of thought in psychology you know
+
+661
+00:32:15,240 --> 00:32:20,240
+psychology they also have different
+
+662
+00:32:16,740 --> 00:32:20,240
+theories so
+
+663
+00:32:21,059 --> 00:32:24,740
+uh how do you pronounce it
+
+664
+00:32:25,020 --> 00:32:27,620
+uh
+
+665
+00:32:28,020 --> 00:32:35,159
+Freud okay something uh
+
+666
+00:32:31,500 --> 00:32:36,779
+let's let's get the pronunciation fruit
+
+667
+00:32:35,159 --> 00:32:39,059
+okay I don't know how do you pronounce
+
+668
+00:32:36,779 --> 00:32:43,320
+it but anyway he's the one of the
+
+669
+00:32:39,059 --> 00:32:46,559
+mainstream okay Freud Sigmund Freud okay
+
+670
+00:32:43,320 --> 00:32:48,679
+he's a one of the mainstream
+
+671
+00:32:46,559 --> 00:32:51,600
+main school of thought in psychology
+
+672
+00:32:48,679 --> 00:32:54,240
+there's also behaviorism you know his
+
+673
+00:32:51,600 --> 00:32:57,600
+school is called psychoanalysis you know
+
+674
+00:32:54,240 --> 00:33:01,679
+so it's typified by how you see a photo
+
+675
+00:32:57,600 --> 00:33:05,000
+of a client lying on a big chair or
+
+676
+00:33:01,679 --> 00:33:07,440
+comfortable sofa and then a psychologist
+
+677
+00:33:05,000 --> 00:33:08,580
+asks questions and take notes you know
+
+678
+00:33:07,440 --> 00:33:11,100
+that's
+
+679
+00:33:08,580 --> 00:33:13,200
+you know and his theory is saying it
+
+680
+00:33:11,100 --> 00:33:16,559
+ties everything to
+
+681
+00:33:13,200 --> 00:33:17,399
+uh sexuality and mother okay lots of
+
+682
+00:33:16,559 --> 00:33:20,399
+that
+
+683
+00:33:17,399 --> 00:33:22,679
+then there's also anyway so we're
+
+684
+00:33:20,399 --> 00:33:25,580
+getting into psychology so let's go back
+
+685
+00:33:22,679 --> 00:33:25,580
+to this test okay
+
+686
+00:33:26,039 --> 00:33:31,260
+so I was saying first of all this test
+
+687
+00:33:28,320 --> 00:33:34,620
+you cannot be sure there's no sure way
+
+688
+00:33:31,260 --> 00:33:39,179
+there's no sure way to assess whether
+
+689
+00:33:34,620 --> 00:33:41,519
+this personality test is good or not or
+
+690
+00:33:39,179 --> 00:33:43,500
+whether it is better than another okay
+
+691
+00:33:41,519 --> 00:33:45,539
+there are quite a few
+
+692
+00:33:43,500 --> 00:33:47,880
+so we don't know we don't really know
+
+693
+00:33:45,539 --> 00:33:50,640
+it's you know all basically all
+
+694
+00:33:47,880 --> 00:33:53,220
+psychology tests they come out seems
+
+695
+00:33:50,640 --> 00:33:55,980
+reasonable because first of all you know
+
+696
+00:33:53,220 --> 00:33:57,480
+I if I'm going to tell you oh you are
+
+697
+00:33:55,980 --> 00:33:59,940
+you are the type of guy who are
+
+698
+00:33:57,480 --> 00:34:01,799
+interested in computers what does it do
+
+699
+00:33:59,940 --> 00:34:03,659
+you know of course yeah of course you
+
+700
+00:34:01,799 --> 00:34:06,659
+are because otherwise you wouldn't watch
+
+701
+00:34:03,659 --> 00:34:10,139
+this video then some people you know but
+
+702
+00:34:06,659 --> 00:34:12,359
+it's kind of fussy okay for example let
+
+703
+00:34:10,139 --> 00:34:15,780
+me give you an example color test you
+
+704
+00:34:12,359 --> 00:34:20,339
+know one of the most simple psychology
+
+705
+00:34:15,780 --> 00:34:22,139
+tests is which color do you like okay so
+
+706
+00:34:20,339 --> 00:34:23,639
+you have a test you know red blue cut
+
+707
+00:34:22,139 --> 00:34:25,200
+you know which color do you what what's
+
+708
+00:34:23,639 --> 00:34:26,099
+your favorite color
+
+709
+00:34:25,200 --> 00:34:29,399
+foreign
+
+710
+00:34:26,099 --> 00:34:31,020
+that is the most simplest personality
+
+711
+00:34:29,399 --> 00:34:34,280
+test
+
+712
+00:34:31,020 --> 00:34:37,200
+okay then given that test we can ask
+
+713
+00:34:34,280 --> 00:34:40,379
+what good does it do does it actually
+
+714
+00:34:37,200 --> 00:34:42,720
+work well it does work in some way for
+
+715
+00:34:40,379 --> 00:34:45,419
+example if you like red if you like the
+
+716
+00:34:42,720 --> 00:34:48,720
+color red that probably means you are
+
+717
+00:34:45,419 --> 00:34:51,720
+more flashy you are more uh you know
+
+718
+00:34:48,720 --> 00:34:53,359
+maybe extrovert you you know you are you
+
+719
+00:34:51,720 --> 00:34:56,280
+you want to you know
+
+720
+00:34:53,359 --> 00:34:59,640
+somewhat okay if you like the color
+
+721
+00:34:56,280 --> 00:35:03,900
+black then maybe it means you are more
+
+722
+00:34:59,640 --> 00:35:06,780
+kind of a secretive person or maybe you
+
+723
+00:35:03,900 --> 00:35:08,580
+perceive you know you are afraid you
+
+724
+00:35:06,780 --> 00:35:10,980
+don't you know you are maybe anti-social
+
+725
+00:35:08,580 --> 00:35:13,160
+maybe you are like the Batman character
+
+726
+00:35:10,980 --> 00:35:17,040
+you know the Batman
+
+727
+00:35:13,160 --> 00:35:18,780
+you know you you you know you you are
+
+728
+00:35:17,040 --> 00:35:21,480
+kind of
+
+729
+00:35:18,780 --> 00:35:23,220
+dark you know because colors associate
+
+730
+00:35:21,480 --> 00:35:25,560
+with uh
+
+731
+00:35:23,220 --> 00:35:29,280
+history and you know associate with
+
+732
+00:35:25,560 --> 00:35:31,800
+culture and if you like white and maybe
+
+733
+00:35:29,280 --> 00:35:34,320
+you are a purist you are a pure you like
+
+734
+00:35:31,800 --> 00:35:38,099
+everything clean maybe maybe you like
+
+735
+00:35:34,320 --> 00:35:39,720
+things clean cut you you like things uh
+
+736
+00:35:38,099 --> 00:35:41,880
+you don't you don't you know you like
+
+737
+00:35:39,720 --> 00:35:45,660
+things
+
+738
+00:35:41,880 --> 00:35:49,680
+innocent for example which is opposite
+
+739
+00:35:45,660 --> 00:35:53,579
+to Black which is often you know has the
+
+740
+00:35:49,680 --> 00:35:53,579
+connotation of Darkness
+
+741
+00:35:53,880 --> 00:35:59,880
+so color color test you know
+
+742
+00:35:57,540 --> 00:36:01,920
+so it does
+
+743
+00:35:59,880 --> 00:36:04,800
+at least a little bit shows your
+
+744
+00:36:01,920 --> 00:36:07,200
+personality okay so you could say yeah
+
+745
+00:36:04,800 --> 00:36:09,599
+oh yeah oh that's a fantastic that's a
+
+746
+00:36:07,200 --> 00:36:12,180
+valid color test you know
+
+747
+00:36:09,599 --> 00:36:13,800
+yeah but it's fussy that's the thing
+
+748
+00:36:12,180 --> 00:36:16,740
+so first of all
+
+749
+00:36:13,800 --> 00:36:19,079
+nobody nobody can really say it's valid
+
+750
+00:36:16,740 --> 00:36:21,540
+test or not that's one thing
+
+751
+00:36:19,079 --> 00:36:25,619
+now the second thing is that a lot of
+
+752
+00:36:21,540 --> 00:36:29,220
+these psychology tests they stem from
+
+753
+00:36:25,619 --> 00:36:32,520
+a scam basically somebody someone wanted
+
+754
+00:36:29,220 --> 00:36:35,880
+to become rich okay then they promote
+
+755
+00:36:32,520 --> 00:36:38,880
+their Theory now Maya's break is one
+
+756
+00:36:35,880 --> 00:36:40,800
+such example and this girl these women
+
+757
+00:36:38,880 --> 00:36:44,040
+who wrote This Book
+
+758
+00:36:40,800 --> 00:36:47,579
+her name is Merv Emma
+
+759
+00:36:44,040 --> 00:36:50,339
+Emery something like that move Emery So
+
+760
+00:36:47,579 --> 00:36:53,220
+she wrote this book and she apparently
+
+761
+00:36:50,339 --> 00:36:56,180
+she dug into the she's on Twitter by the
+
+762
+00:36:53,220 --> 00:36:59,220
+way she dug into the history of the
+
+763
+00:36:56,180 --> 00:37:00,599
+myers-brigg you know saying you can you
+
+764
+00:36:59,220 --> 00:37:03,180
+started to see
+
+765
+00:37:00,599 --> 00:37:05,940
+it's a little bit of a code you know the
+
+766
+00:37:03,180 --> 00:37:09,180
+history basically created by two women
+
+767
+00:37:05,940 --> 00:37:10,740
+two sisters or mother and daughter I
+
+768
+00:37:09,180 --> 00:37:13,800
+forgot
+
+769
+00:37:10,740 --> 00:37:15,720
+then they made the test you know they
+
+770
+00:37:13,800 --> 00:37:17,820
+are not psychologists you know they are
+
+771
+00:37:15,720 --> 00:37:21,660
+not psychologists they just made a test
+
+772
+00:37:17,820 --> 00:37:22,560
+and became popular because it it it
+
+773
+00:37:21,660 --> 00:37:25,140
+um
+
+774
+00:37:22,560 --> 00:37:27,780
+just like today you know today you have
+
+775
+00:37:25,140 --> 00:37:30,900
+memes you have social justice you have
+
+776
+00:37:27,780 --> 00:37:34,020
+genders that's current thinking the
+
+777
+00:37:30,900 --> 00:37:36,480
+current thinking you know 20 years every
+
+778
+00:37:34,020 --> 00:37:38,640
+every 10 years every 20 years you have
+
+779
+00:37:36,480 --> 00:37:41,220
+certain current thinking you know other
+
+780
+00:37:38,640 --> 00:37:42,119
+people especially young people believes
+
+781
+00:37:41,220 --> 00:37:44,780
+it
+
+782
+00:37:42,119 --> 00:37:44,780
+so
+
+783
+00:37:45,660 --> 00:37:49,740
+and especially things like psychology
+
+784
+00:37:47,820 --> 00:37:51,780
+personality you know you don't you don't
+
+785
+00:37:49,740 --> 00:37:54,420
+need to know mathematics to understand
+
+786
+00:37:51,780 --> 00:37:56,280
+it you don't need several years of
+
+787
+00:37:54,420 --> 00:37:59,520
+training in programming and Engineering
+
+788
+00:37:56,280 --> 00:38:01,619
+to appreciate it when when things are
+
+789
+00:37:59,520 --> 00:38:04,140
+about psychology everyone is like have
+
+790
+00:38:01,619 --> 00:38:06,300
+opinion about you know
+
+791
+00:38:04,140 --> 00:38:08,760
+so that's why they became popular so
+
+792
+00:38:06,300 --> 00:38:12,000
+they they started a company or something
+
+793
+00:38:08,760 --> 00:38:15,000
+they become bigger and bigger money they
+
+794
+00:38:12,000 --> 00:38:16,859
+make money that is a point okay they
+
+795
+00:38:15,000 --> 00:38:18,780
+promote their tests because they make a
+
+796
+00:38:16,859 --> 00:38:20,940
+lot of money so they become bigger and
+
+797
+00:38:18,780 --> 00:38:24,300
+bigger and bigger and they you know
+
+798
+00:38:20,940 --> 00:38:27,140
+there's a cooperation it's in copyright
+
+799
+00:38:24,300 --> 00:38:27,140
+and of course
+
+800
+00:38:27,660 --> 00:38:33,060
+so anyway that is my criticism of the
+
+801
+00:38:30,900 --> 00:38:35,700
+myers-brigg okay
+
+802
+00:38:33,060 --> 00:38:37,680
+and you know when I begin you know when
+
+803
+00:38:35,700 --> 00:38:42,300
+I first learned that I did my test you
+
+804
+00:38:37,680 --> 00:38:44,460
+know INTP I was also very enthusiastic I
+
+805
+00:38:42,300 --> 00:38:46,560
+I was thinking this is correct you know
+
+806
+00:38:44,460 --> 00:38:49,140
+I'm the architecture type you know
+
+807
+00:38:46,560 --> 00:38:50,940
+according to the analysis of the types
+
+808
+00:38:49,140 --> 00:38:55,020
+INTP
+
+809
+00:38:50,940 --> 00:38:58,200
+or a little bit entp or intj you know
+
+810
+00:38:55,020 --> 00:38:59,460
+for each letter you have a degree you
+
+811
+00:38:58,200 --> 00:39:01,140
+know they give you a number something
+
+812
+00:38:59,460 --> 00:39:04,680
+like that
+
+813
+00:39:01,140 --> 00:39:07,560
+so when I first did this in the 19 late
+
+814
+00:39:04,680 --> 00:39:10,020
+1990s I thought this is you know then
+
+815
+00:39:07,560 --> 00:39:14,119
+then I would put in my blog just like
+
+816
+00:39:10,020 --> 00:39:14,119
+today you'll see people on Twitter
+
+817
+00:39:14,160 --> 00:39:19,020
+is not fantastic okay so so you will see
+
+818
+00:39:17,640 --> 00:39:22,560
+a lot of people put on Twitter you know
+
+819
+00:39:19,020 --> 00:39:26,000
+I am especially INTP types like you and
+
+820
+00:39:22,560 --> 00:39:29,160
+me or flame you and many many of us on
+
+821
+00:39:26,000 --> 00:39:32,640
+on the saw Discord because like-minded
+
+822
+00:39:29,160 --> 00:39:34,440
+people we are many half of us are
+
+823
+00:39:32,640 --> 00:39:37,740
+programmers right
+
+824
+00:39:34,440 --> 00:39:39,540
+so we are you know excited about this
+
+825
+00:39:37,740 --> 00:39:41,640
+you know correctness you know about this
+
+826
+00:39:39,540 --> 00:39:43,500
+finding about ourselves
+
+827
+00:39:41,640 --> 00:39:45,900
+you know one one of the thing about
+
+828
+00:39:43,500 --> 00:39:48,839
+psychology is that
+
+829
+00:39:45,900 --> 00:39:51,359
+most human animals almost all of us we
+
+830
+00:39:48,839 --> 00:39:52,320
+just focus on us okay I just care about
+
+831
+00:39:51,359 --> 00:39:54,920
+me
+
+832
+00:39:52,320 --> 00:39:54,920
+so
+
+833
+00:39:54,960 --> 00:40:00,300
+and so so you know so when I learned
+
+834
+00:39:57,300 --> 00:40:02,820
+that oh yeah I'm INTP and and because
+
+835
+00:40:00,300 --> 00:40:05,700
+you know therefore you know because that
+
+836
+00:40:02,820 --> 00:40:08,400
+means I'm the I'm best I'm I'm good at
+
+837
+00:40:05,700 --> 00:40:11,520
+engineering I'm good mathematician you
+
+838
+00:40:08,400 --> 00:40:13,500
+know and and then you look at some other
+
+839
+00:40:11,520 --> 00:40:15,839
+opposite you know he is something
+
+840
+00:40:13,500 --> 00:40:18,300
+something oh yeah those are lawyers
+
+841
+00:40:15,839 --> 00:40:22,040
+those are the Social Butterflies those
+
+842
+00:40:18,300 --> 00:40:22,040
+are idiots something like that
+
+843
+00:40:22,380 --> 00:40:28,500
+okay that's about the Maya Spriggs test
+
+844
+00:40:26,099 --> 00:40:31,400
+okay are we still going to do emac this
+
+845
+00:40:28,500 --> 00:40:31,400
+yeah I want to
+
+846
+00:40:32,460 --> 00:40:35,420
+uh
+
+847
+00:40:35,460 --> 00:40:44,820
+Tyler my maze says saw an interview with
+
+848
+00:40:40,140 --> 00:40:49,440
+a former CI CIA agent on Lex Friedman he
+
+849
+00:40:44,820 --> 00:40:52,200
+explained that mbti is a useful tool for
+
+850
+00:40:49,440 --> 00:40:54,720
+quickly categorizing people while
+
+851
+00:40:52,200 --> 00:40:57,020
+working undercover to try to get a
+
+852
+00:40:54,720 --> 00:41:01,680
+predictive line on them
+
+853
+00:40:57,020 --> 00:41:02,880
+it so happens we on the onsar Discord we
+
+854
+00:41:01,680 --> 00:41:05,880
+discussed
+
+855
+00:41:02,880 --> 00:41:08,339
+that video I watched that video the
+
+856
+00:41:05,880 --> 00:41:09,960
+whole video we discussed that about two
+
+857
+00:41:08,339 --> 00:41:13,260
+months ago with George
+
+858
+00:41:09,960 --> 00:41:16,260
+so in fact I have a Blog on that on that
+
+859
+00:41:13,260 --> 00:41:19,560
+guy on that CIA operative I think that
+
+860
+00:41:16,260 --> 00:41:22,140
+guy is super smart Okay meanwhile Lex
+
+861
+00:41:19,560 --> 00:41:24,359
+Friedman is the most idiotic [ __ ]
+
+862
+00:41:22,140 --> 00:41:27,000
+possible
+
+863
+00:41:24,359 --> 00:41:29,040
+uh should I show my blog because there's
+
+864
+00:41:27,000 --> 00:41:30,060
+a lot of politics you know I rather not
+
+865
+00:41:29,040 --> 00:41:33,060
+show it
+
+866
+00:41:30,060 --> 00:41:34,920
+video you know those of you who are
+
+867
+00:41:33,060 --> 00:41:37,560
+really interested you can find my stuff
+
+868
+00:41:34,920 --> 00:41:41,339
+you know just search for Sally
+
+869
+00:41:37,560 --> 00:41:44,400
+Lex Friedman okay Lex Friedman is Lex
+
+870
+00:41:41,339 --> 00:41:46,560
+Friedman is one of the lowest IQ he
+
+871
+00:41:44,400 --> 00:41:49,320
+don't he doesn't know nothing in fact I
+
+872
+00:41:46,560 --> 00:41:51,660
+doubt his capabilities you know he is
+
+873
+00:41:49,320 --> 00:41:54,599
+supposedly to be this assistant
+
+874
+00:41:51,660 --> 00:41:57,240
+professor doing AI artificial
+
+875
+00:41:54,599 --> 00:41:59,040
+intelligence but I find him you know I
+
+876
+00:41:57,240 --> 00:41:59,940
+watch quite a few you know not not too
+
+877
+00:41:59,040 --> 00:42:04,320
+many
+
+878
+00:41:59,940 --> 00:42:07,800
+I watched about by now maybe at least
+
+879
+00:42:04,320 --> 00:42:10,079
+five of his video interviews he he does
+
+880
+00:42:07,800 --> 00:42:12,660
+things he does a lot of them tons of it
+
+881
+00:42:10,079 --> 00:42:15,060
+you know interview famous people see
+
+882
+00:42:12,660 --> 00:42:18,000
+Creator you know other language creators
+
+883
+00:42:15,060 --> 00:42:21,420
+famous Pro programmers and language
+
+884
+00:42:18,000 --> 00:42:24,599
+creators and scientists Stefan woofam to
+
+885
+00:42:21,420 --> 00:42:27,180
+you know and AI big shots
+
+886
+00:42:24,599 --> 00:42:32,000
+he he interviewed a lot of people okay
+
+887
+00:42:27,180 --> 00:42:32,000
+but Lex Friedman is like Joe Rogan
+
+888
+00:42:32,099 --> 00:42:36,720
+okay next treatment is like Joe Rogan
+
+889
+00:42:34,680 --> 00:42:39,300
+the Babbling monkey he doesn't know
+
+890
+00:42:36,720 --> 00:42:41,940
+nothing he's the most idiotic offensive
+
+891
+00:42:39,300 --> 00:42:44,040
+[ __ ] because every time because he
+
+892
+00:42:41,940 --> 00:42:46,680
+interviewed a lot of people you know and
+
+893
+00:42:44,040 --> 00:42:48,720
+I'm interested in those topics how the
+
+894
+00:42:46,680 --> 00:42:50,820
+visual intelligence in programming so
+
+895
+00:42:48,720 --> 00:42:53,700
+and also I'm interested in particular in
+
+896
+00:42:50,820 --> 00:42:57,240
+those people he interviewed okay so so
+
+897
+00:42:53,700 --> 00:42:58,920
+for example recently he interviewed this
+
+898
+00:42:57,240 --> 00:43:01,859
+guy
+
+899
+00:42:58,920 --> 00:43:04,260
+because well cuz well very famous I
+
+900
+00:43:01,859 --> 00:43:06,300
+think he's sort of crackpot but I'm not
+
+901
+00:43:04,260 --> 00:43:10,079
+sure yet I always have an impression
+
+902
+00:43:06,300 --> 00:43:12,660
+because well he's some kind of crackpot
+
+903
+00:43:10,079 --> 00:43:17,220
+by now he's pretty old like like 80
+
+904
+00:43:12,660 --> 00:43:19,140
+around 80 or something so so anyway so
+
+905
+00:43:17,220 --> 00:43:21,839
+I watched so many of the people in
+
+906
+00:43:19,140 --> 00:43:24,660
+interview I'm very interested whenever
+
+907
+00:43:21,839 --> 00:43:26,400
+that guy talk about the universe or
+
+908
+00:43:24,660 --> 00:43:29,220
+programming something very interesting
+
+909
+00:43:26,400 --> 00:43:31,319
+The Lex Friedman always [ __ ] it up you
+
+910
+00:43:29,220 --> 00:43:33,900
+know he just Babble something idiotic
+
+911
+00:43:31,319 --> 00:43:37,619
+you know he think he's making comedy or
+
+912
+00:43:33,900 --> 00:43:40,680
+he's thinking you know smooth interview
+
+913
+00:43:37,619 --> 00:43:43,440
+you know whenever that's someone he
+
+914
+00:43:40,680 --> 00:43:46,380
+interviews he's making very interesting
+
+915
+00:43:43,440 --> 00:43:48,660
+statement or opinion about something big
+
+916
+00:43:46,380 --> 00:43:51,800
+in in big science or whatever the less
+
+917
+00:43:48,660 --> 00:43:51,800
+treatment idiot
+
+918
+00:43:52,579 --> 00:43:58,440
+often just something to destroy it then
+
+919
+00:43:56,520 --> 00:44:00,900
+it becomes you know it becomes something
+
+920
+00:43:58,440 --> 00:44:02,339
+else misleading the conversation becomes
+
+921
+00:44:00,900 --> 00:44:04,920
+something else
+
+922
+00:44:02,339 --> 00:44:05,640
+[ __ ] Lex Friedman idiot and I don't
+
+923
+00:44:04,920 --> 00:44:08,880
+think
+
+924
+00:44:05,640 --> 00:44:10,740
+you know so my opinion of he he's him is
+
+925
+00:44:08,880 --> 00:44:14,940
+very low okay
+
+926
+00:44:10,740 --> 00:44:20,339
+and in particular in that video where he
+
+927
+00:44:14,940 --> 00:44:22,440
+interviews this CIA xcia agent this CIA
+
+928
+00:44:20,339 --> 00:44:24,720
+I forgot the name but you know he's on
+
+929
+00:44:22,440 --> 00:44:28,319
+my blog this CIA agent is very
+
+930
+00:44:24,720 --> 00:44:32,520
+intelligent okay I highly value what he
+
+931
+00:44:28,319 --> 00:44:36,660
+says okay this CIA agent however
+
+932
+00:44:32,520 --> 00:44:38,819
+he indeed mentioned that mbti is very
+
+933
+00:44:36,660 --> 00:44:41,280
+useful he you know in the interview he
+
+934
+00:44:38,819 --> 00:44:45,480
+says you know the in the myers-brick is
+
+935
+00:44:41,280 --> 00:44:48,119
+one of the best psychology tests
+
+936
+00:44:45,480 --> 00:44:50,099
+okay so that's uh that's a good point
+
+937
+00:44:48,119 --> 00:44:52,280
+you know that's a good opinion you know
+
+938
+00:44:50,099 --> 00:44:54,839
+you listen to other people you know it's
+
+939
+00:44:52,280 --> 00:44:56,460
+you know follow smart people okay that's
+
+940
+00:44:54,839 --> 00:45:00,839
+one of the thing you want to do
+
+941
+00:44:56,460 --> 00:45:04,560
+associate with high IQ people
+
+942
+00:45:00,839 --> 00:45:05,880
+okay you listen to what they they say
+
+943
+00:45:04,560 --> 00:45:08,700
+um so
+
+944
+00:45:05,880 --> 00:45:12,180
+I very much in my opinion in my judgment
+
+945
+00:45:08,700 --> 00:45:13,859
+I very much I in my opinion that guy is
+
+946
+00:45:12,180 --> 00:45:16,859
+very smart Okay so
+
+947
+00:45:13,859 --> 00:45:19,619
+but then he has an opinion that the
+
+948
+00:45:16,859 --> 00:45:22,140
+myers-brick test is a good one so okay
+
+949
+00:45:19,619 --> 00:45:25,380
+that's interesting so you know
+
+950
+00:45:22,140 --> 00:45:27,720
+you know it's not like oh yeah then you
+
+951
+00:45:25,380 --> 00:45:30,599
+know he if he says that he's you know
+
+952
+00:45:27,720 --> 00:45:33,000
+then he's stupid no but you know you as
+
+953
+00:45:30,599 --> 00:45:35,819
+absorb different people you know there's
+
+954
+00:45:33,000 --> 00:45:38,900
+all diverse different kind of people so
+
+955
+00:45:35,819 --> 00:45:42,960
+if he says that okay you know that
+
+956
+00:45:38,900 --> 00:45:45,900
+registers in my mind okay that opinion
+
+957
+00:45:42,960 --> 00:45:49,319
+but again like I said you know
+
+958
+00:45:45,900 --> 00:45:51,900
+like I said you know you you in general
+
+959
+00:45:49,319 --> 00:45:54,180
+you want to look at things broadly okay
+
+960
+00:45:51,900 --> 00:45:56,700
+everything you do I try you know at
+
+961
+00:45:54,180 --> 00:46:00,240
+least that's my mentality everything I
+
+962
+00:45:56,700 --> 00:46:03,960
+do maybe programming or social things
+
+963
+00:46:00,240 --> 00:46:08,460
+whatever thing I try to put it in the
+
+964
+00:46:03,960 --> 00:46:10,740
+context of humanity okay the history of
+
+965
+00:46:08,460 --> 00:46:12,540
+human animals so you look at so for
+
+966
+00:46:10,740 --> 00:46:14,760
+example
+
+967
+00:46:12,540 --> 00:46:17,520
+you know for example if we are talking
+
+968
+00:46:14,760 --> 00:46:20,040
+about psychology tests for example if we
+
+969
+00:46:17,520 --> 00:46:23,220
+are talking about the Maya speak first
+
+970
+00:46:20,040 --> 00:46:25,560
+of all you want okay so what is it okay
+
+971
+00:46:23,220 --> 00:46:27,660
+it's a personality test okay what is
+
+972
+00:46:25,560 --> 00:46:30,240
+personality test okay it's part of the
+
+973
+00:46:27,660 --> 00:46:32,280
+part of psychology okay what is
+
+974
+00:46:30,240 --> 00:46:34,099
+psychology okay psychology is part of
+
+975
+00:46:32,280 --> 00:46:37,619
+the broad
+
+976
+00:46:34,099 --> 00:46:40,740
+academic study you know you want to look
+
+977
+00:46:37,619 --> 00:46:44,099
+at the context you want to put things
+
+978
+00:46:40,740 --> 00:46:47,640
+into the context of human animals
+
+979
+00:46:44,099 --> 00:46:51,300
+history you know three thousand years of
+
+980
+00:46:47,640 --> 00:46:53,460
+recorded history or or a million or more
+
+981
+00:46:51,300 --> 00:46:56,280
+years of you know you so you want to
+
+982
+00:46:53,460 --> 00:46:59,099
+look at what what's the importance of
+
+983
+00:46:56,280 --> 00:47:01,980
+this thing in terms of human history
+
+984
+00:46:59,099 --> 00:47:04,020
+same thing I value in the same way when
+
+985
+00:47:01,980 --> 00:47:07,680
+you look at programming languages emac
+
+986
+00:47:04,020 --> 00:47:10,319
+this or python you want to I try to at
+
+987
+00:47:07,680 --> 00:47:13,740
+least that's my mindset I try to
+
+988
+00:47:10,319 --> 00:47:15,900
+put them into some kind of broad
+
+989
+00:47:13,740 --> 00:47:17,880
+relevance
+
+990
+00:47:15,900 --> 00:47:22,319
+in the context of
+
+991
+00:47:17,880 --> 00:47:24,540
+the entire human Endeavors okay then I
+
+992
+00:47:22,319 --> 00:47:26,760
+make I make whatever judgment you know
+
+993
+00:47:24,540 --> 00:47:28,440
+whatever thing may be it may be coding
+
+994
+00:47:26,760 --> 00:47:31,260
+style for example if you are a
+
+995
+00:47:28,440 --> 00:47:34,140
+programmer you your debate about coding
+
+996
+00:47:31,260 --> 00:47:36,839
+style or or memory management management
+
+997
+00:47:34,140 --> 00:47:39,599
+of the rust you know the rust language
+
+998
+00:47:36,839 --> 00:47:43,020
+was or
+
+999
+00:47:39,599 --> 00:47:47,640
+so that's that's how I tried to um
+
+1000
+00:47:43,020 --> 00:47:49,859
+judge things okay so this so so this
+
+1001
+00:47:47,640 --> 00:47:51,660
+this you know this video are we still
+
+1002
+00:47:49,859 --> 00:47:55,579
+trying to uh are we still going to do
+
+1003
+00:47:51,660 --> 00:47:55,579
+emac this then maybe not
+
+1004
+00:47:56,940 --> 00:48:02,640
+uh it's you know we haven't had a long
+
+1005
+00:47:59,880 --> 00:48:04,980
+you know random chat for a long time you
+
+1006
+00:48:02,640 --> 00:48:07,680
+know because in the past in the past
+
+1007
+00:48:04,980 --> 00:48:09,540
+half a year I've been trying to more be
+
+1008
+00:48:07,680 --> 00:48:13,020
+more focused on
+
+1009
+00:48:09,540 --> 00:48:15,300
+uh you know focused video on programming
+
+1010
+00:48:13,020 --> 00:48:19,079
+tutorials and
+
+1011
+00:48:15,300 --> 00:48:22,200
+and wolfam language and you know
+
+1012
+00:48:19,079 --> 00:48:25,200
+um so we haven't done this kind of
+
+1013
+00:48:22,200 --> 00:48:26,940
+random chat which is which is very fun
+
+1014
+00:48:25,200 --> 00:48:30,079
+though
+
+1015
+00:48:26,940 --> 00:48:33,619
+uh so let's
+
+1016
+00:48:30,079 --> 00:48:33,619
+so hmm
+
+1017
+00:48:34,560 --> 00:48:40,980
+um Okay so
+
+1018
+00:48:38,000 --> 00:48:44,040
+so I'm thinking yeah maybe we should
+
+1019
+00:48:40,980 --> 00:48:46,099
+stop because then the video is gonna be
+
+1020
+00:48:44,040 --> 00:48:48,599
+more than one hour
+
+1021
+00:48:46,099 --> 00:48:51,599
+uh so
+
+1022
+00:48:48,599 --> 00:48:54,119
+yeah so if we stop now
+
+1023
+00:48:51,599 --> 00:48:56,640
+then today's topic is you know this
+
+1024
+00:48:54,119 --> 00:49:00,200
+video is just going to be something
+
+1025
+00:48:56,640 --> 00:49:00,200
+about psychology you know
+
+1026
+00:49:01,140 --> 00:49:07,200
+okay so let's see what what are the do I
+
+1027
+00:49:04,740 --> 00:49:10,700
+have viewers how many
+
+1028
+00:49:07,200 --> 00:49:10,700
+four oh God
+
+1029
+00:49:10,800 --> 00:49:14,720
+the positive my viewers
+
+1030
+00:49:41,040 --> 00:49:43,579
+foreign
+
+1031
+00:49:55,140 --> 00:50:00,599
+for interviewing smart people and well I
+
+1032
+00:49:57,780 --> 00:50:03,900
+don't I don't know you know so today the
+
+1033
+00:50:00,599 --> 00:50:06,839
+two biggest is Joe Rogan of course Joe
+
+1034
+00:50:03,900 --> 00:50:10,859
+Rogan and Lex Friedman
+
+1035
+00:50:06,839 --> 00:50:14,760
+but both of them are idiots you know
+
+1036
+00:50:10,859 --> 00:50:17,160
+uh and that kind of makes sense because
+
+1037
+00:50:14,760 --> 00:50:19,099
+only those type of people
+
+1038
+00:50:17,160 --> 00:50:20,819
+who try you know
+
+1039
+00:50:19,099 --> 00:50:25,619
+interviewing
+
+1040
+00:50:20,819 --> 00:50:29,160
+famous people is one of the sure way to
+
+1041
+00:50:25,619 --> 00:50:31,200
+get yourself to to to make you to make
+
+1042
+00:50:29,160 --> 00:50:33,839
+yourself super popular
+
+1043
+00:50:31,200 --> 00:50:35,280
+because the all the famous people you
+
+1044
+00:50:33,839 --> 00:50:38,640
+know famous people
+
+1045
+00:50:35,280 --> 00:50:40,440
+famous people celebrities especially in
+
+1046
+00:50:38,640 --> 00:50:43,319
+technology
+
+1047
+00:50:40,440 --> 00:50:45,780
+uh or in politics you know that's by
+
+1048
+00:50:43,319 --> 00:50:48,180
+them for me that by definition famous
+
+1049
+00:50:45,780 --> 00:50:51,180
+people
+
+1050
+00:50:48,180 --> 00:50:53,220
+but definition most people know them so
+
+1051
+00:50:51,180 --> 00:50:56,040
+they want to you know listen to what
+
+1052
+00:50:53,220 --> 00:50:59,099
+they say so if you are doing a YouTube
+
+1053
+00:50:56,040 --> 00:51:01,859
+Just interview these famous people
+
+1054
+00:50:59,099 --> 00:51:03,240
+that's one of the sure way to become
+
+1055
+00:51:01,859 --> 00:51:05,940
+very popular
+
+1056
+00:51:03,240 --> 00:51:08,460
+that's basically that's essentially the
+
+1057
+00:51:05,940 --> 00:51:12,359
+story of Joe Rogan Joe Rogan is one of
+
+1058
+00:51:08,460 --> 00:51:15,119
+the most idiot idiot one most you know
+
+1059
+00:51:12,359 --> 00:51:17,040
+idiotic
+
+1060
+00:51:15,119 --> 00:51:20,240
+guy
+
+1061
+00:51:17,040 --> 00:51:20,240
+so um
+
+1062
+00:51:21,900 --> 00:51:26,400
+but if you are um
+
+1063
+00:51:24,660 --> 00:51:29,300
+you know that's what they do you know
+
+1064
+00:51:26,400 --> 00:51:29,300
+it's you know
+
+1065
+00:51:41,040 --> 00:51:48,180
+so there's a question have you read
+
+1066
+00:51:43,280 --> 00:51:51,500
+systems Thinking by Donald by Donella
+
+1067
+00:51:48,180 --> 00:51:51,500
+Meadows no
+
+1068
+00:51:51,780 --> 00:51:56,180
+let's look at what that is
+
+1069
+00:52:01,140 --> 00:52:03,619
+okay
+
+1070
+00:52:06,480 --> 00:52:13,099
+yeah this is German
+
+1071
+00:52:09,300 --> 00:52:13,099
+now let's go to English
+
+1072
+00:52:13,440 --> 00:52:19,200
+systems thinking is a way of making
+
+1073
+00:52:15,960 --> 00:52:22,500
+sense of the complexity of the World by
+
+1074
+00:52:19,200 --> 00:52:25,619
+looking at it in terms of horse and
+
+1075
+00:52:22,500 --> 00:52:28,619
+relationships rather than by splitting
+
+1076
+00:52:25,619 --> 00:52:31,859
+it down into its parts okay
+
+1077
+00:52:28,619 --> 00:52:35,099
+it has been used as a way of exploring
+
+1078
+00:52:31,859 --> 00:52:38,180
+and developing effective action in
+
+1079
+00:52:35,099 --> 00:52:38,180
+complex context
+
+1080
+00:52:38,400 --> 00:52:44,339
+systems thinking draws on and
+
+1081
+00:52:40,920 --> 00:52:47,480
+contributes to systems theory and system
+
+1082
+00:52:44,339 --> 00:52:47,480
+Sciences okay
+
+1083
+00:52:48,660 --> 00:52:56,640
+uh no I have not heard of it but this
+
+1084
+00:52:54,059 --> 00:52:59,280
+kind of description the first sentence
+
+1085
+00:52:56,640 --> 00:53:01,619
+is okay you know looking looking at the
+
+1086
+00:52:59,280 --> 00:53:03,500
+things from the whole but then it
+
+1087
+00:53:01,619 --> 00:53:07,800
+started to talk about
+
+1088
+00:53:03,500 --> 00:53:11,579
+systems theory and system Sciences I
+
+1089
+00:53:07,800 --> 00:53:16,319
+think those are starting to get into
+
+1090
+00:53:11,579 --> 00:53:18,380
+you know a crackpot and uh stuff you
+
+1091
+00:53:16,319 --> 00:53:21,480
+know these cybernetics
+
+1092
+00:53:18,380 --> 00:53:25,160
+Systems Science you know those are kind
+
+1093
+00:53:21,480 --> 00:53:29,579
+of wishy-washy crack Parts interdiscent
+
+1094
+00:53:25,160 --> 00:53:33,319
+interdisciplinary yeah usually those are
+
+1095
+00:53:29,579 --> 00:53:36,810
+so System Theory is the inter-dism inter
+
+1096
+00:53:33,319 --> 00:53:38,760
+this plenary interdisciplinary
+
+1097
+00:53:36,810 --> 00:53:42,900
+[Music]
+
+1098
+00:53:38,760 --> 00:53:45,359
+study of systems that is cohesive groups
+
+1099
+00:53:42,900 --> 00:53:48,480
+of interrelated interdependent
+
+1100
+00:53:45,359 --> 00:53:50,780
+components that can be natural or human
+
+1101
+00:53:48,480 --> 00:53:50,780
+made
+
+1102
+00:53:53,160 --> 00:53:57,660
+uh
+
+1103
+00:53:54,540 --> 00:54:00,599
+uh every system has casual causal
+
+1104
+00:53:57,660 --> 00:54:02,300
+boundaries is influenced by its context
+
+1105
+00:54:00,599 --> 00:54:05,760
+defined by function
+
+1106
+00:54:02,300 --> 00:54:07,380
+you know this kind of crap okay I would
+
+1107
+00:54:05,760 --> 00:54:09,420
+say just crap
+
+1108
+00:54:07,380 --> 00:54:12,859
+you know this system
+
+1109
+00:54:09,420 --> 00:54:18,559
+boundaries homeostasis adaptation
+
+1110
+00:54:12,859 --> 00:54:22,079
+feedback group reciprocode transactions
+
+1111
+00:54:18,559 --> 00:54:27,359
+Microsystems to crap okay
+
+1112
+00:54:22,079 --> 00:54:30,660
+System Theory is it's crackpot
+
+1113
+00:54:27,359 --> 00:54:31,920
+system science ah crap
+
+1114
+00:54:30,660 --> 00:54:32,760
+so
+
+1115
+00:54:31,920 --> 00:54:35,099
+um
+
+1116
+00:54:32,760 --> 00:54:38,280
+yeah so maybe I'm thinking in terms of
+
+1117
+00:54:35,099 --> 00:54:38,940
+the whole but I wouldn't I wouldn't you
+
+1118
+00:54:38,280 --> 00:54:41,640
+know
+
+1119
+00:54:38,940 --> 00:54:46,020
+go with systems thinking whatever that
+
+1120
+00:54:41,640 --> 00:54:50,180
+is that that that itself is is a fad
+
+1121
+00:54:46,020 --> 00:54:50,180
+it's kind of you know that's how they
+
+1122
+00:54:52,079 --> 00:54:57,240
+you know then there is critical system
+
+1123
+00:54:54,240 --> 00:55:00,720
+thinking that we're getting into
+
+1124
+00:54:57,240 --> 00:55:03,619
+critical theory now
+
+1125
+00:55:00,720 --> 00:55:03,619
+crap
+
+1126
+00:55:05,280 --> 00:55:11,099
+yeah Stephen Wolfram interviews people
+
+1127
+00:55:07,619 --> 00:55:13,520
+but Stephen wolfram's you know so I
+
+1128
+00:55:11,099 --> 00:55:16,380
+highly recommend Stefan wolfam's stuff
+
+1129
+00:55:13,520 --> 00:55:18,960
+uh although he tends to be repetitive
+
+1130
+00:55:16,380 --> 00:55:21,300
+you know because Stefan Wolfram
+
+1131
+00:55:18,960 --> 00:55:22,859
+you know he's using Wolfram language you
+
+1132
+00:55:21,300 --> 00:55:24,119
+know I've been talking about wolfam
+
+1133
+00:55:22,859 --> 00:55:26,940
+language all the time my favorite
+
+1134
+00:55:24,119 --> 00:55:31,319
+language by far I've been coding it for
+
+1135
+00:55:26,940 --> 00:55:33,240
+since 1990s so and I met you know I work
+
+1136
+00:55:31,319 --> 00:55:35,940
+at wolfam research and you know I know
+
+1137
+00:55:33,240 --> 00:55:41,059
+Stefan will fam a little bit we we met
+
+1138
+00:55:35,940 --> 00:55:41,059
+in 1995. so uh and uh
+
+1139
+00:55:42,000 --> 00:55:49,500
+I highly I like that guy his view of
+
+1140
+00:55:45,720 --> 00:55:53,280
+things I highly respect him both you
+
+1141
+00:55:49,500 --> 00:55:55,200
+know he's one of the rare who is uh you
+
+1142
+00:55:53,280 --> 00:55:57,059
+know one of the top programmers he wrote
+
+1143
+00:55:55,200 --> 00:55:59,640
+Mathematica he created the mathematical
+
+1144
+00:55:57,059 --> 00:56:02,280
+language but he's also so he's a top
+
+1145
+00:55:59,640 --> 00:56:05,220
+programmer he is also one of the top
+
+1146
+00:56:02,280 --> 00:56:07,920
+physicists you know he's and he's also a
+
+1147
+00:56:05,220 --> 00:56:12,000
+genius certified genius because when he
+
+1148
+00:56:07,920 --> 00:56:15,020
+was 17 or so 17 or so he was an author
+
+1149
+00:56:12,000 --> 00:56:18,000
+Awards with a million dollar
+
+1150
+00:56:15,020 --> 00:56:20,579
+uh funding you know something like that
+
+1151
+00:56:18,000 --> 00:56:22,200
+so anyway so he's a
+
+1152
+00:56:20,579 --> 00:56:24,780
+top programmer
+
+1153
+00:56:22,200 --> 00:56:27,420
+type physicist he'd been publishing his
+
+1154
+00:56:24,780 --> 00:56:33,180
+he was a team you know in publishing in
+
+1155
+00:56:27,420 --> 00:56:37,380
+physics physics journals and he then he
+
+1156
+00:56:33,180 --> 00:56:39,960
+and then he and he uh you know left
+
+1157
+00:56:37,380 --> 00:56:43,200
+Academia he to create Wolfram research
+
+1158
+00:56:39,960 --> 00:56:46,740
+which became a successful and private
+
+1159
+00:56:43,200 --> 00:56:50,220
+owned company you know that's so he's
+
+1160
+00:56:46,740 --> 00:56:53,579
+also a one of the top entrepreneur
+
+1161
+00:56:50,220 --> 00:56:55,800
+top businessmen top innovate you know I
+
+1162
+00:56:53,579 --> 00:56:56,819
+hate the word entrepreneur how to
+
+1163
+00:56:55,800 --> 00:57:00,859
+pronounce
+
+1164
+00:56:56,819 --> 00:57:03,839
+a mouthful you know I rather would say
+
+1165
+00:57:00,859 --> 00:57:06,420
+Innovative businessman okay Innovative
+
+1166
+00:57:03,839 --> 00:57:09,240
+businessman so anyway Stefan Wolfram is
+
+1167
+00:57:06,420 --> 00:57:10,980
+multi-talented you know accomplished
+
+1168
+00:57:09,240 --> 00:57:13,559
+that's the way to put it you know
+
+1169
+00:57:10,980 --> 00:57:16,319
+because you look at what he has done
+
+1170
+00:57:13,559 --> 00:57:19,920
+successfully so he has been
+
+1171
+00:57:16,319 --> 00:57:23,160
+the best successful programmer by his
+
+1172
+00:57:19,920 --> 00:57:25,140
+product you know actual you know so
+
+1173
+00:57:23,160 --> 00:57:27,180
+you know I demonstrated woven language
+
+1174
+00:57:25,140 --> 00:57:30,900
+in lots of my videos so with my language
+
+1175
+00:57:27,180 --> 00:57:34,380
+top programmer top businessman and top
+
+1176
+00:57:30,900 --> 00:57:37,319
+uh physicist okay but that's not all and
+
+1177
+00:57:34,380 --> 00:57:41,220
+he went you know I mean I mean
+
+1178
+00:57:37,319 --> 00:57:43,559
+I mean he also started to create his
+
+1179
+00:57:41,220 --> 00:57:44,220
+kind of philosophy about
+
+1180
+00:57:43,559 --> 00:57:47,400
+um
+
+1181
+00:57:44,220 --> 00:57:51,300
+computational Universe you know cellular
+
+1182
+00:57:47,400 --> 00:57:52,680
+automata is his thing so he he so in
+
+1183
+00:57:51,300 --> 00:57:55,740
+other words you know say we will talk
+
+1184
+00:57:52,680 --> 00:57:57,720
+you know his theory about computation is
+
+1185
+00:57:55,740 --> 00:58:00,920
+a bit controversial you know it's not
+
+1186
+00:57:57,720 --> 00:58:04,319
+used it's not Universal universally
+
+1187
+00:58:00,920 --> 00:58:06,780
+accepted you know but however he
+
+1188
+00:58:04,319 --> 00:58:10,800
+but the topic of cellular cellular
+
+1189
+00:58:06,780 --> 00:58:13,500
+automata is hot science okay it's hard
+
+1190
+00:58:10,800 --> 00:58:17,339
+science part of
+
+1191
+00:58:13,500 --> 00:58:20,400
+you know he's a founder of the cellular
+
+1192
+00:58:17,339 --> 00:58:23,940
+automatic the science of uh Cellular
+
+1193
+00:58:20,400 --> 00:58:25,380
+automata in which he would call
+
+1194
+00:58:23,940 --> 00:58:27,680
+you know the
+
+1195
+00:58:25,380 --> 00:58:30,359
+computer Universal computational
+
+1196
+00:58:27,680 --> 00:58:34,460
+equivalence Theory okay that's his
+
+1197
+00:58:30,359 --> 00:58:34,460
+theory let's let me show you okay
+
+1198
+00:58:35,700 --> 00:58:41,400
+let's see uh computational equivalence
+
+1199
+00:58:41,520 --> 00:58:46,680
+okay that's one of the his principles
+
+1200
+00:58:44,280 --> 00:58:50,040
+principle of computational equivalence
+
+1201
+00:58:46,680 --> 00:58:52,740
+okay there is a so so he's got tons of
+
+1202
+00:58:50,040 --> 00:58:55,740
+articles but there's a wolf there is a
+
+1203
+00:58:52,740 --> 00:58:59,180
+Wikipedia so let's go
+
+1204
+00:58:55,740 --> 00:58:59,180
+let's go to Wikipedia
+
+1205
+00:59:00,240 --> 00:59:04,579
+theory of computation
+
+1206
+00:59:02,520 --> 00:59:04,579
+um
+
+1207
+00:59:06,660 --> 00:59:11,040
+uh not here uh
+
+1208
+00:59:13,920 --> 00:59:21,380
+and yeah there is a uh article on
+
+1209
+00:59:18,240 --> 00:59:21,380
+Wikipedia of that
+
+1210
+00:59:21,900 --> 00:59:24,140
+foreign
+
+1211
+00:59:48,380 --> 00:59:56,540
+not general relativity there is a
+
+1212
+00:59:52,020 --> 00:59:56,540
+Wikipedia article but uh
+
+1213
+01:00:00,240 --> 01:00:05,960
+but you have to find it
+
+1214
+01:00:02,940 --> 01:00:08,880
+uh there wait
+
+1215
+01:00:05,960 --> 01:00:11,220
+equivalence principle no
+
+1216
+01:00:08,880 --> 01:00:13,079
+okay so that's his book
+
+1217
+01:00:11,220 --> 01:00:15,900
+I have
+
+1218
+01:00:13,079 --> 01:00:21,440
+on my on my website I have you know I
+
+1219
+01:00:15,900 --> 01:00:21,440
+wrote a annotated version of this book
+
+1220
+01:00:21,480 --> 01:00:26,119
+uh so we want to search for
+
+1221
+01:00:26,160 --> 01:00:30,660
+equivalence okay principles of
+
+1222
+01:00:28,380 --> 01:00:33,299
+computational equivalence
+
+1223
+01:00:30,660 --> 01:00:37,339
+I remember there used to be a
+
+1224
+01:00:33,299 --> 01:00:37,339
+independent article about it
+
+1225
+01:00:37,500 --> 01:00:42,540
+but anyway anyway so Stephen Wolfram is
+
+1226
+01:00:40,980 --> 01:00:46,500
+accomplished
+
+1227
+01:00:42,540 --> 01:00:50,819
+men super talent in several fields in
+
+1228
+01:00:46,500 --> 01:00:54,299
+programming in physics in
+
+1229
+01:00:50,819 --> 01:00:59,040
+business you know in in business but he
+
+1230
+01:00:54,299 --> 01:01:02,099
+also he created this field of automata
+
+1231
+01:00:59,040 --> 01:01:04,619
+cellular automata okay and he believed
+
+1232
+01:01:02,099 --> 01:01:07,020
+in a theory of
+
+1233
+01:01:04,619 --> 01:01:12,299
+computational equivalence
+
+1234
+01:01:07,020 --> 01:01:17,000
+which is which is his theory not not uh
+
+1235
+01:01:12,299 --> 01:01:17,000
+universally accepted Okay so
+
+1236
+01:01:17,220 --> 01:01:23,760
+so I very much like his ideas and I very
+
+1237
+01:01:20,760 --> 01:01:25,980
+much like his views so you can go you
+
+1238
+01:01:23,760 --> 01:01:29,160
+know he also does videos every every
+
+1239
+01:01:25,980 --> 01:01:32,180
+week several videos YouTube on YouTube
+
+1240
+01:01:29,160 --> 01:01:34,920
+so you can watch him but he also wrote
+
+1241
+01:01:32,180 --> 01:01:37,440
+blogs you know each one of his blog is
+
+1242
+01:01:34,920 --> 01:01:41,220
+several thousands words takes several
+
+1243
+01:01:37,440 --> 01:01:44,460
+hours to finish so I read a lot of them
+
+1244
+01:01:41,220 --> 01:01:46,980
+almost half of them so in in fact Stefan
+
+1245
+01:01:44,460 --> 01:01:50,579
+Wolfram is one of the person I follow
+
+1246
+01:01:46,980 --> 01:01:54,119
+personally because since 1990s you know
+
+1247
+01:01:50,579 --> 01:01:56,460
+let's say up to 2005 I have read
+
+1248
+01:01:54,119 --> 01:01:58,680
+everything
+
+1249
+01:01:56,460 --> 01:02:01,619
+basically everything written by Stefan
+
+1250
+01:01:58,680 --> 01:02:03,960
+Wolfram you know back then there's not
+
+1251
+01:02:01,619 --> 01:02:07,079
+you know internet is not like today so
+
+1252
+01:02:03,960 --> 01:02:09,960
+you also read books and you know so I I
+
+1253
+01:02:07,079 --> 01:02:13,440
+almost read everything
+
+1254
+01:02:09,960 --> 01:02:15,900
+that's available online by Stefan woofer
+
+1255
+01:02:13,440 --> 01:02:19,040
+so I studied this guy very much and I I
+
+1256
+01:02:15,900 --> 01:02:19,040
+like his views a lot
+
+1257
+01:02:19,380 --> 01:02:24,960
+uh do you stand him what do you mean
+
+1258
+01:02:23,400 --> 01:02:28,079
+so
+
+1259
+01:02:24,960 --> 01:02:31,079
+so um so I highly recommend you know you
+
+1260
+01:02:28,079 --> 01:02:33,420
+you can read his blog or watch his
+
+1261
+01:02:31,079 --> 01:02:36,599
+videos but he tends to be repetitive
+
+1262
+01:02:33,420 --> 01:02:40,380
+because he you know in the past 10 years
+
+1263
+01:02:36,599 --> 01:02:42,960
+he often just focused on his
+
+1264
+01:02:40,380 --> 01:02:44,760
+idea the new kind of science cellular
+
+1265
+01:02:42,960 --> 01:02:46,980
+automata you're gonna talk about it
+
+1266
+01:02:44,760 --> 01:02:49,559
+Non-Stop
+
+1267
+01:02:46,980 --> 01:02:51,540
+like you you would hear if you watch a
+
+1268
+01:02:49,559 --> 01:02:54,960
+lot of tons of his things you then
+
+1269
+01:02:51,540 --> 01:02:57,299
+you'll hear the same thing uh often but
+
+1270
+01:02:54,960 --> 01:03:00,359
+anyway he also have great you know yeah
+
+1271
+01:02:57,299 --> 01:03:03,839
+so I would say I highly recommend him
+
+1272
+01:03:00,359 --> 01:03:05,040
+because I I still read him uh you know I
+
+1273
+01:03:03,839 --> 01:03:06,599
+still read him
+
+1274
+01:03:05,040 --> 01:03:10,859
+today
+
+1275
+01:03:06,599 --> 01:03:12,299
+lots of uh you know and um lots of
+
+1276
+01:03:10,859 --> 01:03:15,720
+things
+
+1277
+01:03:12,299 --> 01:03:19,440
+so yeah I recommend it
+
+1278
+01:03:15,720 --> 01:03:22,200
+uh and but yeah but he so back to the
+
+1279
+01:03:19,440 --> 01:03:25,500
+thing we were talking about so he he
+
+1280
+01:03:22,200 --> 01:03:27,359
+sometimes does interview of other you
+
+1281
+01:03:25,500 --> 01:03:30,299
+know Fame you know accomplished
+
+1282
+01:03:27,359 --> 01:03:33,720
+mathematicians or physicists usually old
+
+1283
+01:03:30,299 --> 01:03:34,440
+you know like 70 years old or 80 years
+
+1284
+01:03:33,720 --> 01:03:37,680
+old
+
+1285
+01:03:34,440 --> 01:03:41,940
+so but but his interview is not very
+
+1286
+01:03:37,680 --> 01:03:45,839
+it's usually very dry and boring so
+
+1287
+01:03:41,940 --> 01:03:48,119
+uh because Stefan wolfam is not
+
+1288
+01:03:45,839 --> 01:03:51,599
+you know he's he you know if you watch
+
+1289
+01:03:48,119 --> 01:03:54,240
+let me give you my view of his
+
+1290
+01:03:51,599 --> 01:03:56,700
+character okay online so when you watch
+
+1291
+01:03:54,240 --> 01:03:59,579
+him you know video you watch him talk
+
+1292
+01:03:56,700 --> 01:04:03,540
+you know you you see this nerd you know
+
+1293
+01:03:59,579 --> 01:04:06,359
+he's kind of nerd kind of guy he
+
+1294
+01:04:03,540 --> 01:04:10,200
+you know it's it's not like some it's
+
+1295
+01:04:06,359 --> 01:04:12,299
+it's not someone with uh High Charisma I
+
+1296
+01:04:10,200 --> 01:04:14,960
+would say you know he's more like a nerd
+
+1297
+01:04:12,299 --> 01:04:14,960
+he he
+
+1298
+01:04:16,559 --> 01:04:23,099
+so you you you you may not find it um
+
+1299
+01:04:20,640 --> 01:04:27,140
+on a Surface very attractive anyway
+
+1300
+01:04:23,099 --> 01:04:27,140
+that's it that's it for today I think
+
+1301
+01:04:35,760 --> 01:04:42,240
+okay bye guys now now like my if you
+
+1302
+01:04:40,799 --> 01:04:45,480
+like my video
+
+1303
+01:04:42,240 --> 01:04:48,059
+post it okay post it to your Twitter
+
+1304
+01:04:45,480 --> 01:04:49,859
+you know get the tank you know if you
+
+1305
+01:04:48,059 --> 01:04:52,260
+are watching this offline
+
+1306
+01:04:49,859 --> 01:04:53,940
+you know get you know some parts you
+
+1307
+01:04:52,260 --> 01:04:57,660
+find interesting
+
+1308
+01:04:53,940 --> 01:05:01,260
+get a URL with a timestamp post it
+
+1309
+01:04:57,660 --> 01:05:05,579
+comments or post to your Twitter to your
+
+1310
+01:05:01,260 --> 01:05:07,619
+blog or tell your friends okay do that
+
+1311
+01:05:05,579 --> 01:05:10,440
+do that for me
+
+1312
+01:05:07,619 --> 01:05:12,299
+or you can donate of course you know you
+
+1313
+01:05:10,440 --> 01:05:15,119
+go to my website there's you can see
+
+1314
+01:05:12,299 --> 01:05:17,400
+donation button
+
+1315
+01:05:15,119 --> 01:05:21,260
+thank you guys for that
+
+1316
+01:05:17,400 --> 01:05:21,260
+that's it bye
+
+1317
+01:05:25,260 --> 01:05:29,359
+shutdown in in one minute
+
+1318
+01:05:30,359 --> 01:05:35,760
+yeah so we didn't do emac list today
+
+1319
+01:05:33,240 --> 01:05:38,700
+that's okay because I did tons of you
+
+1320
+01:05:35,760 --> 01:05:40,380
+know emac business code in turns
+
+1321
+01:05:38,700 --> 01:05:42,900
+um in the past
+
+1322
+01:05:40,380 --> 01:05:45,599
+and uh so I'm just going to do it
+
+1323
+01:05:42,900 --> 01:05:48,960
+offline you know like
+
+1324
+01:05:45,599 --> 01:05:51,319
+I have a lot to code you know every day
+
+1325
+01:05:48,960 --> 01:05:54,299
+I have so many tons of things to code
+
+1326
+01:05:51,319 --> 01:05:57,359
+and oftentimes I think of you know doing
+
+1327
+01:05:54,299 --> 01:05:59,700
+a live stream of it but I've done so
+
+1328
+01:05:57,359 --> 01:06:02,819
+many so many you know
+
+1329
+01:05:59,700 --> 01:06:06,359
+like for emac basic coding I've done
+
+1330
+01:06:02,819 --> 01:06:08,400
+more than 50 in the past year or two
+
+1331
+01:06:06,359 --> 01:06:12,299
+um
+
+1332
+01:06:08,400 --> 01:06:15,480
+yeah more than 30 at least so
+
+1333
+01:06:12,299 --> 01:06:17,220
+so if you want to actual actually watch
+
+1334
+01:06:15,480 --> 01:06:19,680
+emac this
+
+1335
+01:06:17,220 --> 01:06:21,720
+you know just go through Sally emac this
+
+1336
+01:06:19,680 --> 01:06:23,040
+okay
+
+1337
+01:06:21,720 --> 01:06:26,819
+sorry
+
+1338
+01:06:23,040 --> 01:06:28,559
+dot info then scroll down
+
+1339
+01:06:26,819 --> 01:06:31,380
+emac lisp
+
+1340
+01:06:28,559 --> 01:06:33,780
+then you have a introduction
+
+1341
+01:06:31,380 --> 01:06:36,839
+and then you have more than that then
+
+1342
+01:06:33,780 --> 01:06:40,380
+you have practical iMac this there's a
+
+1343
+01:06:36,839 --> 01:06:42,900
+video of that then you go to emac Beast
+
+1344
+01:06:40,380 --> 01:06:43,980
+writing a major mod this video on that
+
+1345
+01:06:42,900 --> 01:06:45,839
+as well
+
+1346
+01:06:43,980 --> 01:06:50,180
+so those are
+
+1347
+01:06:45,839 --> 01:06:50,180
+fundamental you should watch those okay
+
+1348
+01:06:51,000 --> 01:06:54,020
+okay bye guys
+

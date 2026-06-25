@@ -1,0 +1,4304 @@
+1
+00:00:03,500 --> 00:00:12,469
+good morning everyone welcome to another
+
+2
+00:00:06,839 --> 00:00:18,510
+episode of saw talk show today it's 2020
+
+3
+00:00:12,469 --> 00:00:21,359
+June 16th Tuesday 8 o clock in the
+
+4
+00:00:18,510 --> 00:00:23,279
+afternoon San Francisco time and today
+
+5
+00:00:21,359 --> 00:00:29,910
+we are going to do Emacs
+
+6
+00:00:23,279 --> 00:00:33,329
+and Emacs demo and Emacs Lisp coding so
+
+7
+00:00:29,910 --> 00:00:36,260
+let's go to San talk show page and show
+
+8
+00:00:33,329 --> 00:00:39,840
+today's content so this is basically
+
+9
+00:00:36,260 --> 00:00:45,600
+what how we are going to do today Emacs
+
+10
+00:00:39,840 --> 00:00:49,200
+and he emag list coding and I'm going to
+
+11
+00:00:45,600 --> 00:00:53,430
+show you some demonstration of me
+
+12
+00:00:49,200 --> 00:00:56,039
+walking on my website HTML so first of
+
+13
+00:00:53,430 --> 00:00:59,760
+all let me show you this fantastic local
+
+14
+00:00:56,039 --> 00:01:04,860
+ok this is the background picture today
+
+15
+00:00:59,760 --> 00:01:09,360
+this is Lisp sticker actually someone
+
+16
+00:01:04,860 --> 00:01:13,680
+sent me this sticker someone from Duncan
+
+17
+00:01:09,360 --> 00:01:15,509
+home he's from Scandinavia I forgot
+
+18
+00:01:13,680 --> 00:01:20,900
+which country exactly but I think his
+
+19
+00:01:15,509 --> 00:01:20,900
+Scandinavia so he few years ago 2007
+
+20
+00:01:21,200 --> 00:01:26,380
+2007 or something
+
+21
+00:01:23,950 --> 00:01:29,590
+I think it's later than that he sent me
+
+22
+00:01:26,380 --> 00:01:31,810
+you know I made this list logo and he
+
+23
+00:01:29,590 --> 00:01:34,960
+sent me a sticker so he actually went
+
+24
+00:01:31,810 --> 00:01:38,979
+out and printed the stickers so that is
+
+25
+00:01:34,960 --> 00:01:42,820
+today's background and we are going to
+
+26
+00:01:38,979 --> 00:01:48,250
+do so let's start to code he Magnus
+
+27
+00:01:42,820 --> 00:01:50,259
+let's see what we are going to code okay
+
+28
+00:01:48,250 --> 00:01:53,310
+we are going to begin and if you have
+
+29
+00:01:50,259 --> 00:01:58,149
+any questions I love comments ok if you
+
+30
+00:01:53,310 --> 00:01:59,560
+type comments in in the chat box any
+
+31
+00:01:58,149 --> 00:02:03,850
+questions and comments
+
+32
+00:01:59,560 --> 00:02:06,910
+good evening Cortez my good humans
+
+33
+00:02:03,850 --> 00:02:11,530
+indeed so what are we going to do let me
+
+34
+00:02:06,910 --> 00:02:15,190
+show you this etymology of tablet you
+
+35
+00:02:11,530 --> 00:02:19,209
+see I have a collection of etymology you
+
+36
+00:02:15,190 --> 00:02:21,670
+can see etymology a pet of history you
+
+37
+00:02:19,209 --> 00:02:24,640
+know when you look at Adam ology
+
+38
+00:02:21,670 --> 00:02:27,430
+etymology meaning meaning the history of
+
+39
+00:02:24,640 --> 00:02:30,970
+a world the origin of the world so I
+
+40
+00:02:27,430 --> 00:02:35,320
+have compiled several etymologies and
+
+41
+00:02:30,970 --> 00:02:37,269
+these are words usually used in blogging
+
+42
+00:02:35,320 --> 00:02:41,140
+technique you know when you write about
+
+43
+00:02:37,269 --> 00:02:44,230
+programming for example compilation we
+
+44
+00:02:41,140 --> 00:02:48,100
+talked about compilation actually the
+
+45
+00:02:44,230 --> 00:02:50,680
+word came from pillage you know pillage
+
+46
+00:02:48,100 --> 00:02:52,720
+robbing stuff that that is the
+
+47
+00:02:50,680 --> 00:02:55,420
+compilation that's the etymology of
+
+48
+00:02:52,720 --> 00:02:57,820
+compilation so when you are compiled a
+
+49
+00:02:55,420 --> 00:03:01,600
+program a C program was the prosperous
+
+50
+00:02:57,820 --> 00:03:03,850
+that was language you are actually doing
+
+51
+00:03:01,600 --> 00:03:08,980
+pillaging that's the original meaning
+
+52
+00:03:03,850 --> 00:03:12,190
+and you have etymology of tablet you
+
+53
+00:03:08,980 --> 00:03:14,360
+know so I mean I have a Microsoft
+
+54
+00:03:12,190 --> 00:03:16,460
+Surface tablet and
+
+55
+00:03:14,360 --> 00:03:19,160
+every time I write about you know I'm
+
+56
+00:03:16,460 --> 00:03:21,350
+using a tablet I find a word annoying
+
+57
+00:03:19,160 --> 00:03:25,220
+you know like why would you call it
+
+58
+00:03:21,350 --> 00:03:28,040
+tablet you know it's you know I thought
+
+59
+00:03:25,220 --> 00:03:33,280
+it came from table so why not say slab
+
+60
+00:03:28,040 --> 00:03:35,990
+you know digital slab computer slab I
+
+61
+00:03:33,280 --> 00:03:38,570
+thought that word is more fitting
+
+62
+00:03:35,990 --> 00:03:42,110
+turns out the word tablet is actually
+
+63
+00:03:38,570 --> 00:03:44,420
+the oldest and the most fitting so
+
+64
+00:03:42,110 --> 00:03:47,930
+anyway I have a collection of etymology
+
+65
+00:03:44,420 --> 00:03:49,940
+stuff you know tablet analyze screenshot
+
+66
+00:03:47,930 --> 00:03:52,760
+you know where does the word screenshot
+
+67
+00:03:49,940 --> 00:03:55,490
+came from you know it's it's kind of not
+
+68
+00:03:52,760 --> 00:03:58,280
+intuitive you know screen that is
+
+69
+00:03:55,490 --> 00:04:00,830
+intuitive but shot like what the hell
+
+70
+00:03:58,280 --> 00:04:03,110
+like what well I understand it's a
+
+71
+00:04:00,830 --> 00:04:04,070
+camera you know you take a shot but why
+
+72
+00:04:03,110 --> 00:04:07,150
+is it a shot
+
+73
+00:04:04,070 --> 00:04:10,580
+so you have several at Amala g's and
+
+74
+00:04:07,150 --> 00:04:13,310
+underscore you know we program us we use
+
+75
+00:04:10,580 --> 00:04:15,800
+the underscore all the time so we want
+
+76
+00:04:13,310 --> 00:04:17,630
+to know why would you call it underscore
+
+77
+00:04:15,800 --> 00:04:20,120
+why don't you just go it low line
+
+78
+00:04:17,630 --> 00:04:21,769
+because that's what it is so it turns
+
+79
+00:04:20,120 --> 00:04:26,090
+out this you know there's interesting
+
+80
+00:04:21,769 --> 00:04:32,000
+histories so etymology is a plate of
+
+81
+00:04:26,090 --> 00:04:36,590
+history that is my my sound byte very
+
+82
+00:04:32,000 --> 00:04:40,310
+interesting you via etymology you have a
+
+83
+00:04:36,590 --> 00:04:41,630
+glimpse of history indeed because when
+
+84
+00:04:40,310 --> 00:04:45,020
+you for example when you look at the
+
+85
+00:04:41,630 --> 00:04:48,050
+word underscore you can see it's began
+
+86
+00:04:45,020 --> 00:04:50,840
+from counting from making some marks on
+
+87
+00:04:48,050 --> 00:04:53,450
+a wooden stick you know each score is
+
+88
+00:04:50,840 --> 00:04:56,810
+means 20 it's counting
+
+89
+00:04:53,450 --> 00:04:59,720
+so underscore then execute this word I
+
+90
+00:04:56,810 --> 00:05:01,910
+hate the most you know when you talk
+
+91
+00:04:59,720 --> 00:05:04,640
+about programming you want to say
+
+92
+00:05:01,910 --> 00:05:07,070
+execute this program or execute when the
+
+93
+00:05:04,640 --> 00:05:10,040
+function executes that's very annoying
+
+94
+00:05:07,070 --> 00:05:14,900
+word why would you want to use the word
+
+95
+00:05:10,040 --> 00:05:17,390
+execute and its associated with you know
+
+96
+00:05:14,900 --> 00:05:19,370
+you know I don't want to say that was
+
+97
+00:05:17,390 --> 00:05:23,450
+because Google censorship you know
+
+98
+00:05:19,370 --> 00:05:25,670
+Google is going to say my video is not
+
+99
+00:05:23,450 --> 00:05:27,860
+good for advertisements so but anyway
+
+100
+00:05:25,670 --> 00:05:29,870
+you have the word execute a very
+
+101
+00:05:27,860 --> 00:05:36,290
+annoying word so I wanted to find out
+
+102
+00:05:29,870 --> 00:05:39,800
+why you know the etymology of execute so
+
+103
+00:05:36,290 --> 00:05:42,560
+so that's about etymology so what what
+
+104
+00:05:39,800 --> 00:05:46,250
+have all these have to do with Emacs
+
+105
+00:05:42,560 --> 00:05:50,210
+well let me show you okay so I'm going
+
+106
+00:05:46,250 --> 00:05:52,910
+to work on okay etymology so you see
+
+107
+00:05:50,210 --> 00:05:56,090
+when I click a word let's see
+
+108
+00:05:52,910 --> 00:05:59,390
+etymology of tablet you know so this
+
+109
+00:05:56,090 --> 00:06:02,680
+this page is actually from this source
+
+110
+00:05:59,390 --> 00:06:08,330
+there's a great guy who created
+
+111
+00:06:02,680 --> 00:06:10,430
+etymology online this website as a hobby
+
+112
+00:06:08,330 --> 00:06:14,930
+you know he's a hobbyist so it and you
+
+113
+00:06:10,430 --> 00:06:18,440
+know he made this etymology from various
+
+114
+00:06:14,930 --> 00:06:20,390
+sources this website existed for more
+
+115
+00:06:18,440 --> 00:06:23,120
+than more than 10 years so I've been
+
+116
+00:06:20,390 --> 00:06:27,020
+using this suicide so I link to this
+
+117
+00:06:23,120 --> 00:06:30,950
+website but what I want is okay let me
+
+118
+00:06:27,020 --> 00:06:33,650
+start to do a demo let me show you show
+
+119
+00:06:30,950 --> 00:06:37,120
+me and I'm going to show you what am I
+
+120
+00:06:33,650 --> 00:06:41,930
+going to do okay hello attach - I
+
+121
+00:06:37,120 --> 00:06:46,570
+remember you before a long time ago in
+
+122
+00:06:41,930 --> 00:06:46,570
+hello Chhagan low -
+
+123
+00:06:46,840 --> 00:06:53,720
+so - is a JavaScript library for
+
+124
+00:06:51,440 --> 00:06:58,190
+functional programming do you actually
+
+125
+00:06:53,720 --> 00:07:01,120
+use it you know with JavaScript es2015
+
+126
+00:06:58,190 --> 00:07:03,110
+you don't need it anymore
+
+127
+00:07:01,120 --> 00:07:05,990
+sticker looks awesome
+
+128
+00:07:03,110 --> 00:07:09,260
+yeah you want one and I could send you
+
+129
+00:07:05,990 --> 00:07:11,410
+one but I don't have a car so it takes
+
+130
+00:07:09,260 --> 00:07:15,350
+some trouble to mail it
+
+131
+00:07:11,410 --> 00:07:17,770
+he sent me like a few like three or five
+
+132
+00:07:15,350 --> 00:07:19,490
+so I don't know we can talk offline
+
+133
+00:07:17,770 --> 00:07:23,450
+hello
+
+134
+00:07:19,490 --> 00:07:26,120
+Altaria meet miss key so anyway let's go
+
+135
+00:07:23,450 --> 00:07:29,270
+back to Emacs okay so what are we going
+
+136
+00:07:26,120 --> 00:07:31,760
+to do so if you look at my a technology
+
+137
+00:07:29,270 --> 00:07:36,140
+page I have this link you click on that
+
+138
+00:07:31,760 --> 00:07:39,410
+he will go to the link okay wait wait I
+
+139
+00:07:36,140 --> 00:07:44,390
+mean let me try it again so go to
+
+140
+00:07:39,410 --> 00:07:46,640
+etymology then click the link you see
+
+141
+00:07:44,390 --> 00:07:49,370
+but what I want you just go to that page
+
+142
+00:07:46,640 --> 00:07:51,740
+and you can go back and return to
+
+143
+00:07:49,370 --> 00:07:53,960
+previous page I want to open the link in
+
+144
+00:07:51,740 --> 00:07:56,930
+a new page but let me show you the
+
+145
+00:07:53,960 --> 00:08:00,080
+command name okay let's say we want to
+
+146
+00:07:56,930 --> 00:08:04,250
+know the the etymology of the word
+
+147
+00:08:00,080 --> 00:08:08,450
+command okay that would be interesting
+
+148
+00:08:04,250 --> 00:08:11,000
+because command is a common you know
+
+149
+00:08:08,450 --> 00:08:13,340
+it's frequently used in programming by
+
+150
+00:08:11,000 --> 00:08:15,740
+the way on the right hand side this pink
+
+151
+00:08:13,340 --> 00:08:18,020
+window you will see all the commands I
+
+152
+00:08:15,740 --> 00:08:19,520
+call in Emacs so if you find something
+
+153
+00:08:18,020 --> 00:08:22,190
+you don't know what I'm doing you can
+
+154
+00:08:19,520 --> 00:08:25,550
+just look up the commands these shows
+
+155
+00:08:22,190 --> 00:08:27,530
+the commands in the key I used for that
+
+156
+00:08:25,550 --> 00:08:30,260
+command I'm using soft like keys and
+
+157
+00:08:27,530 --> 00:08:32,810
+black keyboard layout okay
+
+158
+00:08:30,260 --> 00:08:35,780
+so type command we want to know the
+
+159
+00:08:32,810 --> 00:08:37,990
+etymology of command okay so I can type
+
+160
+00:08:35,780 --> 00:08:41,380
+core command
+
+161
+00:08:37,990 --> 00:08:44,770
+some item ology okay
+
+162
+00:08:41,380 --> 00:08:47,950
+The Fool common name is Awards awards
+
+163
+00:08:44,770 --> 00:08:52,960
+word etymology link of I enter you see
+
+164
+00:08:47,950 --> 00:08:56,830
+it becomes it becomes that and add a
+
+165
+00:08:52,960 --> 00:09:01,420
+paragraph showing browser there it is
+
+166
+00:08:56,830 --> 00:09:05,490
+you see here but what I want to do so so
+
+167
+00:09:01,420 --> 00:09:09,750
+that is the command that is the saw
+
+168
+00:09:05,490 --> 00:09:13,090
+etymology link of I know it's not
+
+169
+00:09:09,750 --> 00:09:19,060
+okay when you call MX command who does
+
+170
+00:09:13,090 --> 00:09:24,280
+not show in this window but let's show
+
+171
+00:09:19,060 --> 00:09:28,240
+that so here is a command ok saw words
+
+172
+00:09:24,280 --> 00:09:31,300
+etymology link of I and so that's that's
+
+173
+00:09:28,240 --> 00:09:34,990
+the command and you can go to the source
+
+174
+00:09:31,300 --> 00:09:37,740
+code go to the source code so here is
+
+175
+00:09:34,990 --> 00:09:37,740
+the source code
+
+176
+00:09:38,930 --> 00:09:46,129
+okay so here is the source Awards
+
+177
+00:09:42,319 --> 00:09:52,730
+etymology lingo file and you can find
+
+178
+00:09:46,129 --> 00:09:58,699
+this command at okay this command is in
+
+179
+00:09:52,730 --> 00:10:00,230
+my Emacs in it hunk it hook yeah if you
+
+180
+00:09:58,699 --> 00:10:03,499
+want you to use this command you can
+
+181
+00:10:00,230 --> 00:10:06,949
+find it on my github Emacs sorry max in
+
+182
+00:10:03,499 --> 00:10:09,920
+it just search for that so we have the
+
+183
+00:10:06,949 --> 00:10:12,559
+command that makes a link to the
+
+184
+00:10:09,920 --> 00:10:18,740
+etymology on a second let me show you
+
+185
+00:10:12,559 --> 00:10:21,499
+okay so so so that now there are two
+
+186
+00:10:18,740 --> 00:10:24,860
+things I want to modify this command so
+
+187
+00:10:21,499 --> 00:10:26,809
+that he will add when I quickly will go
+
+188
+00:10:24,860 --> 00:10:29,420
+to open a new page how do you do that
+
+189
+00:10:26,809 --> 00:10:34,429
+let me show you so now we are going to
+
+190
+00:10:29,420 --> 00:10:36,800
+talk about HTML okay I don't have a I
+
+191
+00:10:34,429 --> 00:10:39,889
+don't have a tutorial for that but let
+
+192
+00:10:36,800 --> 00:10:43,429
+me show you how it is done so here is
+
+193
+00:10:39,889 --> 00:10:46,399
+the original and let's magnify okay here
+
+194
+00:10:43,429 --> 00:10:57,699
+is original what we want is we want to
+
+195
+00:10:46,399 --> 00:10:57,699
+add target equals to target equals two
+
+196
+00:10:58,170 --> 00:11:08,470
+underscore blank so copy that we want to
+
+197
+00:11:02,830 --> 00:11:10,980
+add it to here you see target underscore
+
+198
+00:11:08,470 --> 00:11:14,710
+he goes through blank that's how you do
+
+199
+00:11:10,980 --> 00:11:17,800
+link that opens to in another window so
+
+200
+00:11:14,710 --> 00:11:20,170
+showing browser so you can see we have
+
+201
+00:11:17,800 --> 00:11:22,060
+two of these etymology of commands so
+
+202
+00:11:20,170 --> 00:11:26,650
+the second one we are open in a new
+
+203
+00:11:22,060 --> 00:11:28,030
+window you see close that you see you
+
+204
+00:11:26,650 --> 00:11:29,980
+see that's how it works so it's
+
+205
+00:11:28,030 --> 00:11:32,200
+fantastic so that's what we want to do
+
+206
+00:11:29,980 --> 00:11:35,830
+so there are two things I want to do one
+
+207
+00:11:32,200 --> 00:11:38,860
+is to modify my Emacs command so that
+
+208
+00:11:35,830 --> 00:11:44,650
+you will order automatically at that the
+
+209
+00:11:38,860 --> 00:11:47,620
+other thing is I want to I want to
+
+210
+00:11:44,650 --> 00:11:50,560
+change all my existing links on my
+
+211
+00:11:47,620 --> 00:11:52,690
+website to you know so that they have a
+
+212
+00:11:50,560 --> 00:11:53,560
+blank they add a blank let me show you
+
+213
+00:11:52,690 --> 00:11:58,780
+how to do that
+
+214
+00:11:53,560 --> 00:12:04,630
+okay to two jobs okay am i doing good
+
+215
+00:11:58,780 --> 00:12:06,460
+any questions so far let's see okay
+
+216
+00:12:04,630 --> 00:12:09,220
+comment so they keep the comments going
+
+217
+00:12:06,460 --> 00:12:12,720
+and let's see if I'm still doing talking
+
+218
+00:12:09,220 --> 00:12:12,720
+anything broken
+
+219
+00:12:13,900 --> 00:12:17,680
+okay good let me know okay so let's do
+
+220
+00:12:17,350 --> 00:12:21,430
+it
+
+221
+00:12:17,680 --> 00:12:24,810
+so which one to do first let's let's
+
+222
+00:12:21,430 --> 00:12:28,690
+modify the command first
+
+223
+00:12:24,810 --> 00:12:32,190
+okay so let's modify the command so the
+
+224
+00:12:28,690 --> 00:12:37,540
+command is Star Wars etymology link of I
+
+225
+00:12:32,190 --> 00:12:39,990
+okay describe function copy it describe
+
+226
+00:12:37,540 --> 00:12:44,200
+function and let me show the window okay
+
+227
+00:12:39,990 --> 00:12:49,210
+describe function okay then go to the
+
+228
+00:12:44,200 --> 00:12:53,440
+source code open magnify okay and we are
+
+229
+00:12:49,210 --> 00:12:57,190
+going to modify this code first of all
+
+230
+00:12:53,440 --> 00:13:00,510
+make a backup copy in case we made a
+
+231
+00:12:57,190 --> 00:13:04,420
+mistake then let's go previous buffer
+
+232
+00:13:00,510 --> 00:13:06,940
+what we want is add this target equals
+
+233
+00:13:04,420 --> 00:13:08,339
+to blank thing okay go back to the next
+
+234
+00:13:06,940 --> 00:13:12,040
+to the code
+
+235
+00:13:08,339 --> 00:13:16,240
+so here the code we want to add it
+
+236
+00:13:12,040 --> 00:13:19,120
+somewhere here okay so here actually
+
+237
+00:13:16,240 --> 00:13:27,190
+it's very easy
+
+238
+00:13:19,120 --> 00:13:29,800
+just had it there and backslash in Emacs
+
+239
+00:13:27,190 --> 00:13:32,650
+string you need to backslash to escape
+
+240
+00:13:29,800 --> 00:13:38,550
+double quotes so there it is we just
+
+241
+00:13:32,650 --> 00:13:41,050
+added that target equals to bank now
+
+242
+00:13:38,550 --> 00:13:45,910
+modify the version date
+
+243
+00:13:41,050 --> 00:13:50,170
+so today's you know so today's 2020 July
+
+244
+00:13:45,910 --> 00:13:51,760
+June 16th so the new version date make
+
+245
+00:13:50,170 --> 00:13:54,730
+the current word into an etymology
+
+246
+00:13:51,760 --> 00:13:59,290
+reference link that's right now evaluate
+
+247
+00:13:54,730 --> 00:14:03,430
+this code ok evaluate this code it's
+
+248
+00:13:59,290 --> 00:14:09,640
+done now save it ok actually copy the
+
+249
+00:14:03,430 --> 00:14:13,410
+code close it go back here make a eMac
+
+250
+00:14:09,640 --> 00:14:16,810
+based code template paste it here
+
+251
+00:14:13,410 --> 00:14:20,410
+showing browser there it is our new code
+
+252
+00:14:16,810 --> 00:14:23,589
+now press the button ok I'm going to
+
+253
+00:14:20,410 --> 00:14:26,550
+call this command which is HTML redo
+
+254
+00:14:23,589 --> 00:14:29,610
+syntax color buffer
+
+255
+00:14:26,550 --> 00:14:39,580
+actually the command should be this one
+
+256
+00:14:29,610 --> 00:14:43,090
+cuz I'd wait wait okay okay let's
+
+257
+00:14:39,580 --> 00:14:45,490
+just do this okay we do saw HTML
+
+258
+00:14:43,090 --> 00:14:48,880
+reducing tax cut above so showing
+
+259
+00:14:45,490 --> 00:14:51,400
+browser now you can see I have seen tax
+
+260
+00:14:48,880 --> 00:14:53,140
+coloring so this command you can you
+
+261
+00:14:51,400 --> 00:14:56,110
+know if you do web search you'll find
+
+262
+00:14:53,140 --> 00:14:58,570
+all these commands if you like to use
+
+263
+00:14:56,110 --> 00:15:01,950
+them so here is our command now let's
+
+264
+00:14:58,570 --> 00:15:05,080
+try it out okay close this list below go
+
+265
+00:15:01,950 --> 00:15:09,490
+close nice etymology go back showing
+
+266
+00:15:05,080 --> 00:15:15,790
+browser okay go back now let's try this
+
+267
+00:15:09,490 --> 00:15:19,510
+out okay so let's type command okay
+
+268
+00:15:15,790 --> 00:15:22,960
+now call the command somewhat etymology
+
+269
+00:15:19,510 --> 00:15:25,570
+link off' i okay it's done now you can
+
+270
+00:15:22,960 --> 00:15:28,000
+see there is the target equals to bank
+
+271
+00:15:25,570 --> 00:15:30,640
+so we are done successful now showing
+
+272
+00:15:28,000 --> 00:15:34,920
+browser you see this is a third one
+
+273
+00:15:30,640 --> 00:15:39,490
+click on that it opens a new tab
+
+274
+00:15:34,920 --> 00:15:43,960
+fantastic job done okay job done now
+
+275
+00:15:39,490 --> 00:15:45,880
+that's one task that the next thing we
+
+276
+00:15:43,960 --> 00:15:50,010
+want to do is to change your existing
+
+277
+00:15:45,880 --> 00:15:52,990
+HTML links on my website they are about
+
+278
+00:15:50,010 --> 00:15:59,050
+maybe 50 of them
+
+279
+00:15:52,990 --> 00:16:01,990
+so far so good okay any questions okay
+
+280
+00:15:59,050 --> 00:16:07,899
+so should should I explain how the
+
+281
+00:16:01,990 --> 00:16:09,580
+command works before we it's this the
+
+282
+00:16:07,899 --> 00:16:11,830
+the command is pretty simple
+
+283
+00:16:09,580 --> 00:16:19,209
+okay let me explain just a little bit
+
+284
+00:16:11,830 --> 00:16:24,250
+what this command do so okay so here is
+
+285
+00:16:19,209 --> 00:16:28,390
+this code so we define a function then
+
+286
+00:16:24,250 --> 00:16:31,660
+we say let okay and let there are few
+
+287
+00:16:28,390 --> 00:16:36,580
+variables we define few variables local
+
+288
+00:16:31,660 --> 00:16:41,529
+variables P 1 P 2 which is position
+
+289
+00:16:36,580 --> 00:16:43,990
+position 1 & 2 / 4 positions in the word
+
+290
+00:16:41,529 --> 00:16:47,589
+the current word you want to grab the
+
+291
+00:16:43,990 --> 00:16:51,100
+word in a buffer and look up for the
+
+292
+00:16:47,589 --> 00:16:54,670
+etymology then you want the URL for the
+
+293
+00:16:51,100 --> 00:16:56,320
+etymology reference website so that's a
+
+294
+00:16:54,670 --> 00:16:58,720
+local variables by the way I have a
+
+295
+00:16:56,320 --> 00:17:01,300
+dollar sign in front that is just my
+
+296
+00:16:58,720 --> 00:17:03,700
+personal convention you don't have to
+
+297
+00:17:01,300 --> 00:17:07,390
+have that it has no meaning
+
+298
+00:17:03,700 --> 00:17:09,370
+it's just a naming convention I use when
+
+299
+00:17:07,390 --> 00:17:12,069
+I use that you can see the color you
+
+300
+00:17:09,370 --> 00:17:15,059
+know the word the you can see all the
+
+301
+00:17:12,069 --> 00:17:20,020
+local variables become screen because
+
+302
+00:17:15,059 --> 00:17:23,140
+I'm using say Emacs Lisp sorry least mod
+
+303
+00:17:20,020 --> 00:17:26,860
+so he will color any words that start
+
+304
+00:17:23,140 --> 00:17:29,110
+with a dollar sign to be green it's just
+
+305
+00:17:26,860 --> 00:17:30,280
+my personal preference okay so hold on a
+
+306
+00:17:29,110 --> 00:17:33,730
+second
+
+307
+00:17:30,280 --> 00:17:38,980
+okay so so we declared several variables
+
+308
+00:17:33,730 --> 00:17:41,710
+then we then we say if use region that
+
+309
+00:17:38,980 --> 00:17:48,580
+means if there's a region highlighted
+
+310
+00:17:41,710 --> 00:17:50,950
+then set P 1 and P 2 and set P 1 and P 2
+
+311
+00:17:48,580 --> 00:17:54,790
+to be the region beginning and region
+
+312
+00:17:50,950 --> 00:17:59,590
+end now if there is no region
+
+313
+00:17:54,790 --> 00:18:03,190
+you know selection then we want to set P
+
+314
+00:17:59,590 --> 00:18:05,230
+1 and P 2 to be the beginning of line
+
+315
+00:18:03,190 --> 00:18:07,780
+and end of line
+
+316
+00:18:05,230 --> 00:18:11,770
+why is that because let me show you okay
+
+317
+00:18:07,780 --> 00:18:15,760
+so for example if you want to work look
+
+318
+00:18:11,770 --> 00:18:20,230
+up the word command okay let's say yeah
+
+319
+00:18:15,760 --> 00:18:23,680
+command so if you normally you know you
+
+320
+00:18:20,230 --> 00:18:25,630
+have to select it then call the command
+
+321
+00:18:23,680 --> 00:18:29,560
+then it knows you know what's the word
+
+322
+00:18:25,630 --> 00:18:35,380
+you want to look for but it's convenient
+
+323
+00:18:29,560 --> 00:18:39,820
+to not have to not need to you select it
+
+324
+00:18:35,380 --> 00:18:43,720
+you know because you can automatically
+
+325
+00:18:39,820 --> 00:18:46,710
+grab the word under kusa but however
+
+326
+00:18:43,720 --> 00:18:50,770
+sometimes you have two words let's say
+
+327
+00:18:46,710 --> 00:18:55,740
+let's say you know you want to look up
+
+328
+00:18:50,770 --> 00:18:55,740
+etymology of a phrase
+
+329
+00:18:58,240 --> 00:19:08,360
+why do you say word that is consisting
+
+330
+00:19:01,970 --> 00:19:11,030
+of towards let's say caught point okay
+
+331
+00:19:08,360 --> 00:19:17,030
+cool point is a common technical word
+
+332
+00:19:11,030 --> 00:19:20,810
+that is that means the hexadecimal of a
+
+333
+00:19:17,030 --> 00:19:23,570
+Unicode character so so anyway you want
+
+334
+00:19:20,810 --> 00:19:26,450
+to know the a Tamala G of code point in
+
+335
+00:19:23,570 --> 00:19:29,330
+this case it's not just one word so you
+
+336
+00:19:26,450 --> 00:19:33,850
+want to make a selection so in this case
+
+337
+00:19:29,330 --> 00:19:37,250
+you can do that okay so now you have
+
+338
+00:19:33,850 --> 00:19:40,330
+etymology of the phrase code point I
+
+339
+00:19:37,250 --> 00:19:44,320
+don't I don't think it will work because
+
+340
+00:19:40,330 --> 00:19:47,450
+anyway that that's that's the reason I
+
+341
+00:19:44,320 --> 00:19:50,120
+have this use region it's convenient
+
+342
+00:19:47,450 --> 00:19:52,550
+then once you have the beginning point
+
+343
+00:19:50,120 --> 00:19:54,800
+and end point of the word you want then
+
+344
+00:19:52,550 --> 00:19:58,610
+it's easy to grab the word you just say
+
+345
+00:19:54,800 --> 00:20:02,990
+buffer substring on properties and give
+
+346
+00:19:58,610 --> 00:20:08,210
+two points buffer positions then it will
+
+347
+00:20:02,990 --> 00:20:10,670
+return you know the word between those
+
+348
+00:20:08,210 --> 00:20:14,700
+two positions then once you have the
+
+349
+00:20:10,670 --> 00:20:17,369
+word you want delete that region
+
+350
+00:20:14,700 --> 00:20:19,440
+delete that region then all you have to
+
+351
+00:20:17,369 --> 00:20:23,190
+do is just insert the link so we say
+
+352
+00:20:19,440 --> 00:20:24,869
+insert then format in etymology of
+
+353
+00:20:23,190 --> 00:20:31,110
+something you know
+
+354
+00:20:24,869 --> 00:20:38,549
+then the word the URL the word URL in
+
+355
+00:20:31,110 --> 00:20:41,119
+word which which let me show you okay on
+
+356
+00:20:38,549 --> 00:20:41,119
+a second
+
+357
+00:20:45,669 --> 00:20:53,109
+which shows you this line okay that's
+
+358
+00:20:50,379 --> 00:20:56,950
+how the command works now let's do the
+
+359
+00:20:53,109 --> 00:21:00,940
+second task task of changing or existing
+
+360
+00:20:56,950 --> 00:21:05,139
+things to have to have the target equals
+
+361
+00:21:00,940 --> 00:21:08,409
+to blank okay so to do that let's go to
+
+362
+00:21:05,139 --> 00:21:09,879
+my word eve log okay that that is my
+
+363
+00:21:08,409 --> 00:21:12,909
+English
+
+364
+00:21:09,879 --> 00:21:17,469
+etymology linguistics writing related
+
+365
+00:21:12,909 --> 00:21:20,789
+blog which is this page from the hottie
+
+366
+00:21:17,469 --> 00:21:24,149
+emotions of lexicons holistic concerns
+
+367
+00:21:20,789 --> 00:21:27,669
+decipherment of grammar and idioms
+
+368
+00:21:24,149 --> 00:21:31,329
+linguistic ality literature and logic
+
+369
+00:21:27,669 --> 00:21:33,489
+allottee oh these are related subjects
+
+370
+00:21:31,329 --> 00:21:37,179
+so anytime I want to blog about
+
+371
+00:21:33,489 --> 00:21:39,759
+something about writing about etymology
+
+372
+00:21:37,179 --> 00:21:42,099
+about idioms about grandma about
+
+373
+00:21:39,759 --> 00:21:45,639
+literature classic literature such as
+
+374
+00:21:42,099 --> 00:21:48,279
+Shakespeare or linguist linguistics you
+
+375
+00:21:45,639 --> 00:21:50,440
+know I put in here and and why logic
+
+376
+00:21:48,279 --> 00:21:53,259
+while illogicality because when you
+
+377
+00:21:50,440 --> 00:21:55,959
+often when you talk about linguistics
+
+378
+00:21:53,259 --> 00:22:00,429
+there's a lot to do with logic such as
+
+379
+00:21:55,959 --> 00:22:02,709
+passing you know generative grammar
+
+380
+00:22:00,429 --> 00:22:05,559
+you know when if you're a programmer you
+
+381
+00:22:02,709 --> 00:22:10,469
+know what I'm talking about and and
+
+382
+00:22:05,559 --> 00:22:15,459
+formal languages you know the komoroske
+
+383
+00:22:10,469 --> 00:22:18,309
+hierarchy of syntax grammar a lot of it
+
+384
+00:22:15,459 --> 00:22:20,610
+has to do with logic and also form you
+
+385
+00:22:18,309 --> 00:22:24,240
+know formal logic actually
+
+386
+00:22:20,610 --> 00:22:30,210
+so it's very interesting topic so so now
+
+387
+00:22:24,240 --> 00:22:34,230
+I'm on my wordy blog what I want so yeah
+
+388
+00:22:30,210 --> 00:22:36,779
+so let's click on homology of tablet so
+
+389
+00:22:34,230 --> 00:22:43,980
+here is several links of etymology so
+
+390
+00:22:36,779 --> 00:22:48,330
+let's go there okay let's go there okay
+
+391
+00:22:43,980 --> 00:22:52,470
+and let me show you okay so we want to
+
+392
+00:22:48,330 --> 00:22:57,779
+change for every file in your directory
+
+393
+00:22:52,470 --> 00:23:02,070
+any link of these formats we want to
+
+394
+00:22:57,779 --> 00:23:02,840
+change the okay let's see what we're
+
+395
+00:23:02,070 --> 00:23:07,049
+gonna do
+
+396
+00:23:02,840 --> 00:23:10,669
+so strip of hope and a new window let me
+
+397
+00:23:07,049 --> 00:23:10,669
+show you so it's clear
+
+398
+00:23:13,890 --> 00:23:22,520
+okay so whenever we see something like
+
+399
+00:23:17,100 --> 00:23:22,520
+that we want to change it to
+
+400
+00:23:28,740 --> 00:23:40,270
+let's go to the talk show we want to
+
+401
+00:23:33,880 --> 00:23:41,950
+change into that okay so how are we
+
+402
+00:23:40,270 --> 00:23:48,160
+gonna do we're gonna use a regular
+
+403
+00:23:41,950 --> 00:23:48,490
+expression is that right yes okay you
+
+404
+00:23:48,160 --> 00:23:52,590
+ready
+
+405
+00:23:48,490 --> 00:23:55,660
+let's do regular expression in Emacs
+
+406
+00:23:52,590 --> 00:23:59,940
+okay no comment comment guys okay
+
+407
+00:23:55,660 --> 00:23:59,940
+regular expression so what do you do
+
+408
+00:24:06,770 --> 00:24:13,350
+25 minutes okay let's let's move on so
+
+409
+00:24:09,900 --> 00:24:15,720
+regular expression what we want we want
+
+410
+00:24:13,350 --> 00:24:23,340
+to yeah so let's do the regular
+
+411
+00:24:15,720 --> 00:24:25,830
+expression here we have let's use so we
+
+412
+00:24:23,340 --> 00:24:30,350
+I have a abbreviation for this regular
+
+413
+00:24:25,830 --> 00:24:30,350
+expression pattern this pattern means
+
+414
+00:24:30,650 --> 00:24:38,490
+this pattern means such anything until
+
+415
+00:24:34,170 --> 00:24:41,340
+you reach anything that is not a double
+
+416
+00:24:38,490 --> 00:24:44,880
+quote until you reach a double quote and
+
+417
+00:24:41,340 --> 00:24:49,350
+you want to find the minimum minimum of
+
+418
+00:24:44,880 --> 00:24:53,130
+it you know so this part means anything
+
+419
+00:24:49,350 --> 00:24:56,220
+that's not a double quote and and this
+
+420
+00:24:53,130 --> 00:24:58,730
+plus I means one or more then this
+
+421
+00:24:56,220 --> 00:25:01,419
+question mark means
+
+422
+00:24:58,730 --> 00:25:05,390
+for the previous pattern make it minimal
+
+423
+00:25:01,419 --> 00:25:08,299
+that is if you know don't go all the way
+
+424
+00:25:05,390 --> 00:25:12,200
+you know once you find it you know make
+
+425
+00:25:08,299 --> 00:25:14,840
+it minimal non greedy you know the
+
+426
+00:25:12,200 --> 00:25:17,299
+technical jargon is not greedy now the
+
+427
+00:25:14,840 --> 00:25:18,830
+regular expression is a big topic so if
+
+428
+00:25:17,299 --> 00:25:22,070
+you don't know regular expression I
+
+429
+00:25:18,830 --> 00:25:24,200
+highly recommend you learn it and I did
+
+430
+00:25:22,070 --> 00:25:26,000
+a talk show about regular expression so
+
+431
+00:25:24,200 --> 00:25:28,760
+you can search for Saudi regular
+
+432
+00:25:26,000 --> 00:25:33,290
+expression or Saudi regular expression e
+
+433
+00:25:28,760 --> 00:25:35,809
+max this OMS Emacs I have a lot articles
+
+434
+00:25:33,290 --> 00:25:42,850
+tutorials on that so anyway I we want
+
+435
+00:25:35,809 --> 00:25:47,059
+this pattern to be here okay so the
+
+436
+00:25:42,850 --> 00:25:53,740
+beginning is the etymology website then
+
+437
+00:25:47,059 --> 00:25:53,740
+whatever anything until the double quote
+
+438
+00:25:53,830 --> 00:26:02,499
+okay hold on second even copy that so we
+
+439
+00:25:57,340 --> 00:26:10,619
+want to find okay then repeat this
+
+440
+00:26:02,499 --> 00:26:10,619
+pattern repeat this pattern here
+
+441
+00:26:16,750 --> 00:26:23,080
+backslash 1 now backslash 1 refers to
+
+442
+00:26:20,390 --> 00:26:27,710
+the previous pattern you just captured
+
+443
+00:26:23,080 --> 00:26:32,860
+by your parentheses which is nice
+
+444
+00:26:27,710 --> 00:26:35,860
+ok so we want to find a link you know a
+
+445
+00:26:32,860 --> 00:26:35,860
+bracket
+
+446
+00:26:35,870 --> 00:26:43,640
+the URL will start with this etymology
+
+447
+00:26:39,110 --> 00:26:47,690
+online.com then followed by whatever
+
+448
+00:26:43,640 --> 00:26:52,190
+until the double quote then over here
+
+449
+00:26:47,690 --> 00:26:52,880
+it's the same thing over here it's the
+
+450
+00:26:52,190 --> 00:26:56,210
+same thing
+
+451
+00:26:52,880 --> 00:26:59,420
+then the backslash 1 means the previous
+
+452
+00:26:56,210 --> 00:27:01,310
+pattern which is this part ok that that
+
+453
+00:26:59,420 --> 00:27:04,679
+is a regular expression we want to use
+
+454
+00:27:01,310 --> 00:27:08,460
+and the
+
+455
+00:27:04,679 --> 00:27:12,030
+the replacement regular expression we OB
+
+456
+00:27:08,460 --> 00:27:20,830
+will be this one let me show you okay
+
+457
+00:27:12,030 --> 00:27:23,020
+one one so you can see so this is the
+
+458
+00:27:20,830 --> 00:27:25,860
+replacement regular expression is that
+
+459
+00:27:23,020 --> 00:27:29,590
+correct double check yes I'm pretty sure
+
+460
+00:27:25,860 --> 00:27:31,600
+so we got a regular expression but what
+
+461
+00:27:29,590 --> 00:27:34,230
+command we are going to call we are
+
+462
+00:27:31,600 --> 00:27:41,620
+going to call I have a command called
+
+463
+00:27:34,230 --> 00:27:44,410
+let me show you Casa find replace text
+
+464
+00:27:41,620 --> 00:27:48,220
+rejects okay that is a command let me
+
+465
+00:27:44,410 --> 00:27:50,440
+show you describe function so here is
+
+466
+00:27:48,220 --> 00:27:54,490
+the this is a command cause I'll find
+
+467
+00:27:50,440 --> 00:27:57,760
+replace text which rejects this command
+
+468
+00:27:54,490 --> 00:27:59,620
+we oh it's an interactive command you it
+
+469
+00:27:57,760 --> 00:28:03,880
+will ask you for a regular expression
+
+470
+00:27:59,620 --> 00:28:06,490
+and replacement stream then it will ask
+
+471
+00:28:03,880 --> 00:28:10,200
+you for a directory and also a pattern
+
+472
+00:28:06,490 --> 00:28:13,510
+for files for example Oh HTML files and
+
+473
+00:28:10,200 --> 00:28:15,730
+you can replace it will replace in one
+
+474
+00:28:13,510 --> 00:28:16,390
+shot every file in a directory very
+
+475
+00:28:15,730 --> 00:28:19,000
+useful
+
+476
+00:28:16,390 --> 00:28:23,559
+this command is part of the package so
+
+477
+00:28:19,000 --> 00:28:26,559
+find which is so here we have the source
+
+478
+00:28:23,559 --> 00:28:30,850
+code okay and you can find it on my Appa
+
+479
+00:28:26,559 --> 00:28:35,130
+okay Safa and yeah so let me copy that
+
+480
+00:28:30,850 --> 00:28:35,130
+and let me show you let's go back to
+
+481
+00:28:36,600 --> 00:28:40,290
+okay so here
+
+482
+00:28:44,110 --> 00:28:50,750
+here is the command we want to call and
+
+483
+00:28:46,850 --> 00:28:53,860
+it's available in that package okay
+
+484
+00:28:50,750 --> 00:28:53,860
+showing browser
+
+485
+00:28:55,350 --> 00:29:01,010
+okay so we are going to call that
+
+486
+00:28:57,750 --> 00:29:01,010
+command so let's do that
+
+487
+00:29:05,010 --> 00:29:11,950
+first of all I want to go to my worthy
+
+488
+00:29:08,260 --> 00:29:13,630
+blog okay my English woody blog we are
+
+489
+00:29:11,950 --> 00:29:16,650
+going to work on this directory so
+
+490
+00:29:13,630 --> 00:29:20,380
+called kind of command ah find/replace
+
+491
+00:29:16,650 --> 00:29:25,040
+rejects regular expression
+
+492
+00:29:20,380 --> 00:29:27,050
+enter and is asked you find rejects okay
+
+493
+00:29:25,040 --> 00:29:32,360
+the find regular expression is gonna be
+
+494
+00:29:27,050 --> 00:29:35,030
+this one paste it and he asked you for
+
+495
+00:29:32,360 --> 00:29:36,080
+replace string the replaced string is
+
+496
+00:29:35,030 --> 00:29:40,250
+gonna be this one
+
+497
+00:29:36,080 --> 00:29:42,530
+paste it enter and he asked you a
+
+498
+00:29:40,250 --> 00:29:45,680
+directory yes this directory let's say
+
+499
+00:29:42,530 --> 00:29:48,560
+what in English okay then he asked you
+
+500
+00:29:45,680 --> 00:29:51,800
+for a file path regular expression so I
+
+501
+00:29:48,560 --> 00:29:55,610
+say dot HTML that means Oh HTML file
+
+502
+00:29:51,800 --> 00:29:59,420
+enter do I want to change to file no
+
+503
+00:29:55,610 --> 00:30:03,170
+because I want to I say no because I
+
+504
+00:29:59,420 --> 00:30:05,270
+want to see what are the changes first
+
+505
+00:30:03,170 --> 00:30:08,990
+to make sure we are doing this correctly
+
+506
+00:30:05,270 --> 00:30:13,810
+let me ask you Fiske fixed case in such
+
+507
+00:30:08,990 --> 00:30:18,190
+yes Fiske fixed case in replacement yes
+
+508
+00:30:13,810 --> 00:30:23,950
+show context before after in output yes
+
+509
+00:30:18,190 --> 00:30:28,490
+make backup yes okay now it's running
+
+510
+00:30:23,950 --> 00:30:33,080
+fantastic now done let me show you okay
+
+511
+00:30:28,490 --> 00:30:35,330
+here is a result let's go let's magnify
+
+512
+00:30:33,080 --> 00:30:38,090
+the buffer so I mean you can see the
+
+513
+00:30:35,330 --> 00:30:40,880
+whole thing so you can see now you press
+
+514
+00:30:38,090 --> 00:30:45,050
+left arrow to go to the changes you can
+
+515
+00:30:40,880 --> 00:30:48,500
+see I can I can press left arrow I mean
+
+516
+00:30:45,050 --> 00:30:51,230
+left or right arrow to go up or down so
+
+517
+00:30:48,500 --> 00:30:53,630
+the pink lines means the file you can
+
+518
+00:30:51,230 --> 00:30:59,090
+press up/down arrow to go to the file so
+
+519
+00:30:53,630 --> 00:31:02,030
+that means in this file in this file
+
+520
+00:30:59,090 --> 00:31:05,030
+they are one change so originally it
+
+521
+00:31:02,030 --> 00:31:08,600
+looks like that and now the changed form
+
+522
+00:31:05,030 --> 00:31:10,550
+is this screen now let's double check to
+
+523
+00:31:08,600 --> 00:31:12,590
+see if it's correct because when you do
+
+524
+00:31:10,550 --> 00:31:15,230
+a regular expression find replace on
+
+525
+00:31:12,590 --> 00:31:17,330
+hundreds of files you don't want to make
+
+526
+00:31:15,230 --> 00:31:21,280
+mistakes because once you make mistake
+
+527
+00:31:17,330 --> 00:31:23,930
+all the files are changes changed it's
+
+528
+00:31:21,280 --> 00:31:26,720
+problematic it I mean it's tedious to
+
+529
+00:31:23,930 --> 00:31:30,290
+change them back typically you can use
+
+530
+00:31:26,720 --> 00:31:33,170
+get you know get to a commit make change
+
+531
+00:31:30,290 --> 00:31:36,440
+if you made a mistake you can revert so
+
+532
+00:31:33,170 --> 00:31:38,180
+that's one way to do it by anyway so
+
+533
+00:31:36,440 --> 00:31:39,710
+let's double check if our regular
+
+534
+00:31:38,180 --> 00:31:42,800
+expression is correct
+
+535
+00:31:39,710 --> 00:31:45,620
+so for example here we have a etymology
+
+536
+00:31:42,800 --> 00:31:50,060
+of the word firmament which means heaven
+
+537
+00:31:45,620 --> 00:31:55,850
+under heaven which is kind of a Chinese
+
+538
+00:31:50,060 --> 00:31:57,980
+idiom so that link becomes this link
+
+539
+00:31:55,850 --> 00:32:02,650
+let's double check if it's correct looks
+
+540
+00:31:57,980 --> 00:32:06,070
+like it is target equals to blank okay
+
+541
+00:32:02,650 --> 00:32:10,270
+and now let's see the next one stir ball
+
+542
+00:32:06,070 --> 00:32:14,230
+the etymology of the word stubble okay
+
+543
+00:32:10,270 --> 00:32:17,290
+looks like correct the next one the
+
+544
+00:32:14,230 --> 00:32:23,020
+etymology of the word cool you know it's
+
+545
+00:32:17,290 --> 00:32:27,580
+so cool which is a slam so anyway so the
+
+546
+00:32:23,020 --> 00:32:30,070
+pattern it looks good okay so we are
+
+547
+00:32:27,580 --> 00:32:31,830
+going to close this book actually so
+
+548
+00:32:30,070 --> 00:32:36,220
+there are so many changes you can see
+
+549
+00:32:31,830 --> 00:32:39,070
+you can see the the cruiser I mean the
+
+550
+00:32:36,220 --> 00:32:42,070
+window widget on the right they are
+
+551
+00:32:39,070 --> 00:32:45,370
+quite a lot pages how many pages are
+
+552
+00:32:42,070 --> 00:32:52,059
+there you know let's do least matching
+
+553
+00:32:45,370 --> 00:32:57,070
+lines saw slash web there you see so we
+
+554
+00:32:52,059 --> 00:32:59,970
+have 59 pages you know some page for
+
+555
+00:32:57,070 --> 00:33:03,880
+example this page has 10 changes and
+
+556
+00:32:59,970 --> 00:33:07,750
+this page has 20 to 22 changes so let's
+
+557
+00:33:03,880 --> 00:33:10,179
+open that open the page so when your
+
+558
+00:33:07,750 --> 00:33:12,490
+cursor is on one of these pink or green
+
+559
+00:33:10,179 --> 00:33:14,650
+or yellow you can just hit enter you
+
+560
+00:33:12,490 --> 00:33:18,700
+open the page so this is a fantastic
+
+561
+00:33:14,650 --> 00:33:21,660
+command package so now showing browser
+
+562
+00:33:18,700 --> 00:33:21,660
+wait
+
+563
+00:33:23,170 --> 00:33:28,520
+showing browser so this page is history
+
+564
+00:33:26,960 --> 00:33:31,760
+of English in ten minutes
+
+565
+00:33:28,520 --> 00:33:33,650
+annotated there is a YouTube by the way
+
+566
+00:33:31,760 --> 00:33:37,280
+so there is a YouTube on the history of
+
+567
+00:33:33,650 --> 00:33:42,410
+English so I watched it and I kind of
+
+568
+00:33:37,280 --> 00:33:45,200
+annotated it and made my notes and study
+
+569
+00:33:42,410 --> 00:33:50,680
+of it so you have a lot of etymology
+
+570
+00:33:45,200 --> 00:33:52,550
+links there it is so drag you see
+
+571
+00:33:50,680 --> 00:33:55,550
+etymology of drag
+
+572
+00:33:52,550 --> 00:33:59,450
+then etymology of ransack etymology of
+
+573
+00:33:55,550 --> 00:34:05,470
+die etymology of give etymology of take
+
+574
+00:33:59,450 --> 00:34:05,470
+give and take and die in Vikings
+
+575
+00:34:05,480 --> 00:34:13,679
+you know so it looks like regular
+
+576
+00:34:09,750 --> 00:34:17,010
+expression is good we made so many
+
+577
+00:34:13,679 --> 00:34:18,929
+changes now we want to repeat we want to
+
+578
+00:34:17,010 --> 00:34:23,159
+call this command again with the same
+
+579
+00:34:18,929 --> 00:34:25,320
+argument and this time we are say right
+
+580
+00:34:23,159 --> 00:34:29,790
+to fire okay do go ahead and right to
+
+581
+00:34:25,320 --> 00:34:31,800
+fire so close the output okay now here
+
+582
+00:34:29,790 --> 00:34:34,560
+is the new trick I'm going to tell you
+
+583
+00:34:31,800 --> 00:34:36,899
+okay a new trick when you want to call a
+
+584
+00:34:34,560 --> 00:34:40,349
+previous command you called when you
+
+585
+00:34:36,899 --> 00:34:43,500
+call meta X you know the you know
+
+586
+00:34:40,349 --> 00:34:46,440
+metallics and you want to use the exact
+
+587
+00:34:43,500 --> 00:34:49,040
+same arguments interactive arguments
+
+588
+00:34:46,440 --> 00:34:52,320
+there is a convenient command to do that
+
+589
+00:34:49,040 --> 00:34:56,010
+so you so you don't have to type the
+
+590
+00:34:52,320 --> 00:34:57,720
+arguments again remember before we typed
+
+591
+00:34:56,010 --> 00:34:59,760
+up a whole bunch of arguments the
+
+592
+00:34:57,720 --> 00:35:02,130
+regular expression the replacement
+
+593
+00:34:59,760 --> 00:35:04,170
+string then yes no yes no you know the
+
+594
+00:35:02,130 --> 00:35:09,089
+directory path we don't have to repeat
+
+595
+00:35:04,170 --> 00:35:11,820
+that so that command is called describe
+
+596
+00:35:09,089 --> 00:35:15,140
+key let me show you okay this command is
+
+597
+00:35:11,820 --> 00:35:17,460
+called replaced repeat complex command
+
+598
+00:35:15,140 --> 00:35:21,330
+okay so we are going to call that
+
+599
+00:35:17,460 --> 00:35:23,550
+command let me go to then go back to
+
+600
+00:35:21,330 --> 00:35:28,200
+course our talk show and let me let me
+
+601
+00:35:23,550 --> 00:35:30,650
+show you the let's type the command sort
+
+602
+00:35:28,200 --> 00:35:30,650
+of show
+
+603
+00:35:31,640 --> 00:35:39,739
+so so that is a command so so I'm going
+
+604
+00:35:36,650 --> 00:35:47,299
+to call that okay so because I have a
+
+605
+00:35:39,739 --> 00:35:52,910
+key you see my keys DDT DDT and actually
+
+606
+00:35:47,299 --> 00:35:56,210
+this is anyway so so then yes so I just
+
+607
+00:35:52,910 --> 00:36:01,640
+off arrow then here you can see can you
+
+608
+00:35:56,210 --> 00:36:03,829
+see at the bottom the mini buffer you
+
+609
+00:36:01,640 --> 00:36:06,109
+see this part okay
+
+610
+00:36:03,829 --> 00:36:09,829
+it's the fun it's kind of small let's
+
+611
+00:36:06,109 --> 00:36:11,329
+see if I can increase it now I cannot
+
+612
+00:36:09,829 --> 00:36:15,700
+how I can actually I can actually
+
+613
+00:36:11,329 --> 00:36:21,279
+increase it okay you see so I call me I
+
+614
+00:36:15,700 --> 00:36:21,279
+call what's the command I just called
+
+615
+00:36:22,059 --> 00:36:29,989
+repeat complex command then then it asks
+
+616
+00:36:27,109 --> 00:36:33,940
+me you know prompt we do so this so this
+
+617
+00:36:29,989 --> 00:36:38,210
+is actually the command in this format
+
+618
+00:36:33,940 --> 00:36:42,940
+you know so fine we replace text rejects
+
+619
+00:36:38,210 --> 00:36:47,180
+so I want to go here and say true to the
+
+620
+00:36:42,940 --> 00:36:50,599
+to the argument that one that argument
+
+621
+00:36:47,180 --> 00:36:54,349
+is about do you want to change to the
+
+622
+00:36:50,599 --> 00:36:59,260
+whole thing I mean right to fire okay so
+
+623
+00:36:54,349 --> 00:37:05,109
+I say yes enter I just press Enter
+
+624
+00:36:59,260 --> 00:37:08,170
+now it's done you see let's magnify now
+
+625
+00:37:05,109 --> 00:37:12,310
+it's done so you can arrow down you can
+
+626
+00:37:08,170 --> 00:37:16,720
+see all the changes now enter and you
+
+627
+00:37:12,310 --> 00:37:19,119
+will jump to the page and show a history
+
+628
+00:37:16,720 --> 00:37:25,060
+of English okay let's show another page
+
+629
+00:37:19,119 --> 00:37:28,869
+okay so this one show wait okay so this
+
+630
+00:37:25,060 --> 00:37:34,660
+actually so okay so this one is big okay
+
+631
+00:37:28,869 --> 00:37:38,920
+so this page this page show okay so here
+
+632
+00:37:34,660 --> 00:37:41,890
+so here is flower was flower the finest
+
+633
+00:37:38,920 --> 00:37:45,369
+part of meal that is the etymology of
+
+634
+00:37:41,890 --> 00:37:49,090
+flower which is the you know you use
+
+635
+00:37:45,369 --> 00:37:52,060
+flour to make bread and that has the
+
+636
+00:37:49,090 --> 00:37:54,010
+exact same pronounciation of the flower
+
+637
+00:37:52,060 --> 00:37:58,030
+of the plant you know the beautiful
+
+638
+00:37:54,010 --> 00:38:01,000
+flower smells good why because that is
+
+639
+00:37:58,030 --> 00:38:03,490
+ethnology the finest part of the meal
+
+640
+00:38:01,000 --> 00:38:06,850
+that's that's where the flower the word
+
+641
+00:38:03,490 --> 00:38:09,460
+flower came from so now if you click the
+
+642
+00:38:06,850 --> 00:38:12,790
+etymology link it will open a new link
+
+643
+00:38:09,460 --> 00:38:17,849
+let's try it indeed you see that's
+
+644
+00:38:12,790 --> 00:38:21,280
+fantastic we we did what we wanted
+
+645
+00:38:17,849 --> 00:38:25,869
+so that concludes that finish the job
+
+646
+00:38:21,280 --> 00:38:29,650
+that's that finished job so close this
+
+647
+00:38:25,869 --> 00:38:31,780
+output close this and go back to talk
+
+648
+00:38:29,650 --> 00:38:36,640
+show let's see
+
+649
+00:38:31,780 --> 00:38:40,809
+so that actually we finished that and
+
+650
+00:38:36,640 --> 00:38:44,410
+let's see if there's anything else we
+
+651
+00:38:40,809 --> 00:38:49,370
+want to talk about any questions
+
+652
+00:38:44,410 --> 00:38:57,400
+Cortez's dad can you tell me what a
+
+653
+00:38:49,370 --> 00:38:59,710
+solar eclipse is dad no son that's
+
+654
+00:38:57,400 --> 00:39:02,540
+that's good
+
+655
+00:38:59,710 --> 00:39:05,230
+so we talked for how long we've been
+
+656
+00:39:02,540 --> 00:39:05,230
+talking
+
+657
+00:39:11,280 --> 00:39:18,900
+I think that's it for today now we can
+
+658
+00:39:15,210 --> 00:39:26,550
+do some random chat we talked for 40
+
+659
+00:39:18,900 --> 00:39:29,780
+minutes yeah so what else is interesting
+
+660
+00:39:26,550 --> 00:39:29,780
+let's see
+
+661
+00:39:38,330 --> 00:39:47,090
+there okay so there is more okay
+
+662
+00:39:43,400 --> 00:39:49,460
+basically we are done but I can show you
+
+663
+00:39:47,090 --> 00:39:52,310
+some more examples
+
+664
+00:39:49,460 --> 00:39:59,810
+very similar examples let me show you
+
+665
+00:39:52,310 --> 00:40:03,170
+okay it's same thing so for example I
+
+666
+00:39:59,810 --> 00:40:07,600
+have a Chinese blog now this is
+
+667
+00:40:03,170 --> 00:40:13,010
+literature and linguistics about Chinese
+
+668
+00:40:07,600 --> 00:40:15,440
+for example about you know Chinese is
+
+669
+00:40:13,010 --> 00:40:18,220
+very interesting like when you study
+
+670
+00:40:15,440 --> 00:40:23,060
+English you have all these issues about
+
+671
+00:40:18,220 --> 00:40:29,450
+etymology about we talked about you know
+
+672
+00:40:23,060 --> 00:40:34,150
+etymology writing style accents
+
+673
+00:40:29,450 --> 00:40:36,560
+vocabulary lexicon literature
+
+674
+00:40:34,150 --> 00:40:38,930
+linguistics you know all these are very
+
+675
+00:40:36,560 --> 00:40:41,090
+interesting and very deep you know
+
+676
+00:40:38,930 --> 00:40:43,760
+depending on you can you can study this
+
+677
+00:40:41,090 --> 00:40:46,010
+for 10 years 20 years or your life you
+
+678
+00:40:43,760 --> 00:40:48,140
+know you can become if you focus on
+
+679
+00:40:46,010 --> 00:40:49,460
+vocabulary you can become a
+
+680
+00:40:48,140 --> 00:40:52,390
+lexicographer
+
+681
+00:40:49,460 --> 00:40:56,600
+which means someone collects words like
+
+682
+00:40:52,390 --> 00:40:58,730
+dictionary compilers there is the word
+
+683
+00:40:56,600 --> 00:41:01,550
+compile again you've become a dictionary
+
+684
+00:40:58,730 --> 00:41:04,160
+compiler or you can be your etymologist
+
+685
+00:41:01,550 --> 00:41:06,590
+you know if you saw the etymology aloud
+
+686
+00:41:04,160 --> 00:41:10,490
+you you really get to know history you
+
+687
+00:41:06,590 --> 00:41:13,190
+know so it becomes it's not just
+
+688
+00:41:10,490 --> 00:41:16,880
+etymology it not it's not just the words
+
+689
+00:41:13,190 --> 00:41:21,260
+you know you actually got into deep
+
+690
+00:41:16,880 --> 00:41:23,450
+about history of humanity because for
+
+691
+00:41:21,260 --> 00:41:26,990
+example let's say what's the a Tamala g
+
+692
+00:41:23,450 --> 00:41:31,520
+of meat meat you know the the meat the
+
+693
+00:41:26,990 --> 00:41:35,810
+pork beef you know we kill
+
+694
+00:41:31,520 --> 00:41:37,070
+pigs we eat their meat so what is the
+
+695
+00:41:35,810 --> 00:41:43,850
+item ology of meat
+
+696
+00:41:37,070 --> 00:41:48,440
+let's look up showing browser the
+
+697
+00:41:43,850 --> 00:41:52,580
+etymology of meat now you see the okay
+
+698
+00:41:48,440 --> 00:41:56,320
+is big so it says Middle English Middle
+
+699
+00:41:52,580 --> 00:41:59,780
+English food nourishment sustenance
+
+700
+00:41:56,320 --> 00:42:05,510
+paired with drink item of food animal
+
+701
+00:41:59,780 --> 00:42:07,280
+food father also meal we passed you see
+
+702
+00:42:05,510 --> 00:42:09,890
+you are learning history but you are
+
+703
+00:42:07,280 --> 00:42:11,480
+also learning vocabulary so you are
+
+704
+00:42:09,890 --> 00:42:13,490
+learning a word repast
+
+705
+00:42:11,480 --> 00:42:16,010
+very interesting word we don't see that
+
+706
+00:42:13,490 --> 00:42:19,960
+what use much anymore today
+
+707
+00:42:16,010 --> 00:42:23,360
+we passed so it's from proto-germanic
+
+708
+00:42:19,960 --> 00:42:25,640
+Marty something something and you get
+
+709
+00:42:23,360 --> 00:42:28,790
+into linguistics you get into
+
+710
+00:42:25,640 --> 00:42:31,310
+comparative linguistics you get into the
+
+711
+00:42:28,790 --> 00:42:35,270
+history of linguistics you get into you
+
+712
+00:42:31,310 --> 00:42:39,920
+get to learn German language then source
+
+713
+00:42:35,270 --> 00:42:43,940
+also old Frisian old saxon and old nose
+
+714
+00:42:39,920 --> 00:42:47,600
+in old high german umbrella in gothic
+
+715
+00:42:43,940 --> 00:42:49,310
+food middle dutch german something
+
+716
+00:42:47,600 --> 00:42:52,160
+something type of sausage
+
+717
+00:42:49,310 --> 00:42:59,750
+okay so meat came from type of sausage
+
+718
+00:42:52,160 --> 00:43:03,260
+and from high route mad moist wet oh now
+
+719
+00:42:59,750 --> 00:43:07,240
+it gets getting interesting so meat came
+
+720
+00:43:03,260 --> 00:43:11,630
+from somewhere meaning moist and wet
+
+721
+00:43:07,240 --> 00:43:16,570
+also reference to food qualities okay
+
+722
+00:43:11,630 --> 00:43:16,570
+Sanskrit Sanskrit Indian
+
+723
+00:43:16,740 --> 00:43:28,700
+oh then we got to pig you see so the
+
+724
+00:43:21,720 --> 00:43:33,480
+word meat originally came from pig
+
+725
+00:43:28,700 --> 00:43:35,970
+okay now narrower sense of okay so in
+
+726
+00:43:33,480 --> 00:43:41,970
+general so we can see the etymology of
+
+727
+00:43:35,970 --> 00:43:44,849
+meat in general just means food so when
+
+728
+00:43:41,970 --> 00:43:47,730
+we say so you see you saw so here is
+
+729
+00:43:44,849 --> 00:43:51,119
+some kind of logic coming out of this
+
+730
+00:43:47,730 --> 00:43:55,070
+you see when we say food you know food
+
+731
+00:43:51,119 --> 00:43:58,040
+is actually very abstract term for all
+
+732
+00:43:55,070 --> 00:44:01,109
+edibles you know we're getting into
+
+733
+00:43:58,040 --> 00:44:04,589
+technicalities the add up edibility of
+
+734
+00:44:01,109 --> 00:44:06,930
+something for food means something
+
+735
+00:44:04,589 --> 00:44:11,190
+that's suitable edible for human
+
+736
+00:44:06,930 --> 00:44:13,260
+consumption so that is a very abstract
+
+737
+00:44:11,190 --> 00:44:16,440
+word you know but you can imagine
+
+738
+00:44:13,260 --> 00:44:19,380
+primitive people they don't have these
+
+739
+00:44:16,440 --> 00:44:24,510
+abstractions they just say you know you
+
+740
+00:44:19,380 --> 00:44:29,520
+just say pig pig you eat pig you know so
+
+741
+00:44:24,510 --> 00:44:31,740
+that's the rangin of meat they narrow
+
+742
+00:44:29,520 --> 00:44:34,290
+sense narrower sense of flesh of
+
+743
+00:44:31,740 --> 00:44:40,140
+warm-blooded animals killed and used as
+
+744
+00:44:34,290 --> 00:44:44,640
+food is attested from circa 1300 earlier
+
+745
+00:44:40,140 --> 00:44:48,210
+this was flesh meat okay so before they
+
+746
+00:44:44,640 --> 00:44:50,369
+say flesh meat you know because
+
+747
+00:44:48,210 --> 00:44:53,640
+apparently from 12 century apparently
+
+748
+00:44:50,369 --> 00:44:58,130
+because the meat just means food so you
+
+749
+00:44:53,640 --> 00:45:00,930
+if you want to describe the
+
+750
+00:44:58,130 --> 00:45:07,110
+you know meat of an animal you have to
+
+751
+00:45:00,930 --> 00:45:09,180
+add flesh flesh meat you know so
+
+752
+00:45:07,110 --> 00:45:11,880
+entomology very interesting you know
+
+753
+00:45:09,180 --> 00:45:15,630
+then you know so when you study
+
+754
+00:45:11,880 --> 00:45:19,740
+etymology you are you depending how deep
+
+755
+00:45:15,630 --> 00:45:24,540
+you go you become a historian in fact
+
+756
+00:45:19,740 --> 00:45:28,050
+you can become a historian even more so
+
+757
+00:45:24,540 --> 00:45:30,870
+then then then with you by having a PhD
+
+758
+00:45:28,050 --> 00:45:33,420
+degree in history because when you study
+
+759
+00:45:30,870 --> 00:45:35,190
+etymology is quite general so anyway I
+
+760
+00:45:33,420 --> 00:45:38,760
+am talking about English
+
+761
+00:45:35,190 --> 00:45:41,100
+etymology but now you know in English
+
+762
+00:45:38,760 --> 00:45:44,810
+etymology and literature and linguistics
+
+763
+00:45:41,100 --> 00:45:46,830
+and writing style you know how
+
+764
+00:45:44,810 --> 00:45:48,060
+programmers you know the idiots
+
+765
+00:45:46,830 --> 00:45:50,010
+programming nerds
+
+766
+00:45:48,060 --> 00:45:51,810
+you know they like to talk about English
+
+767
+00:45:50,010 --> 00:45:55,740
+style you know they they like to talk
+
+768
+00:45:51,810 --> 00:45:58,650
+about writing styles when you when it
+
+769
+00:45:55,740 --> 00:46:00,600
+comes to writing they get excited for
+
+770
+00:45:58,650 --> 00:46:03,630
+example they will talk about grammar
+
+771
+00:46:00,600 --> 00:46:06,420
+they will start to mouth and drivel
+
+772
+00:46:03,630 --> 00:46:10,020
+about split infinitive is
+
+773
+00:46:06,420 --> 00:46:14,600
+programmer idiots you know they will
+
+774
+00:46:10,020 --> 00:46:18,810
+talk about spirit spirit infinities and
+
+775
+00:46:14,600 --> 00:46:22,930
+and in particular the UNIX people the
+
+776
+00:46:18,810 --> 00:46:25,329
+UNIX and Linux philosophy these idiots
+
+777
+00:46:22,930 --> 00:46:28,480
+it's which is good you know linguistic
+
+778
+00:46:25,329 --> 00:46:30,970
+so very interesting but but when you
+
+779
+00:46:28,480 --> 00:46:33,579
+study in linguistics once then then you
+
+780
+00:46:30,970 --> 00:46:36,369
+go to into Chinese Chinese the
+
+781
+00:46:33,579 --> 00:46:37,390
+linguistics of Chinese is entirely a
+
+782
+00:46:36,369 --> 00:46:43,440
+different story
+
+783
+00:46:37,390 --> 00:46:46,619
+and in fact it gets much more in general
+
+784
+00:46:43,440 --> 00:46:49,630
+okay it's very different okay but it's
+
+785
+00:46:46,619 --> 00:46:54,970
+in some sense it's much more deeper and
+
+786
+00:46:49,630 --> 00:46:57,450
+more difficult when you get into Chinese
+
+787
+00:46:54,970 --> 00:47:00,730
+linguistics writing styles of Chinese
+
+788
+00:46:57,450 --> 00:47:02,770
+the history of Chinese characters you
+
+789
+00:47:00,730 --> 00:47:06,010
+know look at this
+
+790
+00:47:02,770 --> 00:47:07,809
+oh these Chinese which are Greeks to you
+
+791
+00:47:06,010 --> 00:47:09,460
+most of you if you haven't studied
+
+792
+00:47:07,809 --> 00:47:11,619
+Chinese because Chinese is very
+
+793
+00:47:09,460 --> 00:47:15,420
+difficult so when you get into you know
+
+794
+00:47:11,619 --> 00:47:18,069
+the linguistics of Chinese the and
+
+795
+00:47:15,420 --> 00:47:20,680
+associated things such as Chinese
+
+796
+00:47:18,069 --> 00:47:24,339
+writing style Chinese grammar Chinese
+
+797
+00:47:20,680 --> 00:47:26,410
+function or or Japanese you know
+
+798
+00:47:24,339 --> 00:47:30,400
+Japanese Korean they also use Chinese
+
+799
+00:47:26,410 --> 00:47:34,390
+characters it's it's kind of deeper and
+
+800
+00:47:30,400 --> 00:47:37,030
+you know in a different way so Chinese
+
+801
+00:47:34,390 --> 00:47:39,819
+also have etymology the etymology of
+
+802
+00:47:37,030 --> 00:47:41,470
+Chinese phrases or Chinese characters
+
+803
+00:47:39,819 --> 00:47:43,720
+which is you know different thing from
+
+804
+00:47:41,470 --> 00:47:47,829
+English etymology from the English
+
+805
+00:47:43,720 --> 00:47:51,970
+etymology let me show your example so
+
+806
+00:47:47,829 --> 00:47:54,430
+let's say so you know I have a Chinese
+
+807
+00:47:51,970 --> 00:47:59,500
+blog which is about all the interesting
+
+808
+00:47:54,430 --> 00:48:01,450
+Chinese stuff okay let me show you some
+
+809
+00:47:59,500 --> 00:48:04,530
+interesting things okay let's see which
+
+810
+00:48:01,450 --> 00:48:04,530
+character we want
+
+811
+00:48:08,460 --> 00:48:19,380
+okay this one so this Chinese heart you
+
+812
+00:48:14,370 --> 00:48:21,510
+see you see this this I just copy and
+
+813
+00:48:19,380 --> 00:48:24,330
+pasted a Chinese character sure
+
+814
+00:48:21,510 --> 00:48:28,860
+now that word in Chinese is pronounced
+
+815
+00:48:24,330 --> 00:48:32,250
+shear and that word means a hole a hole
+
+816
+00:48:28,860 --> 00:48:39,150
+or some kind of a hole okay like a toe
+
+817
+00:48:32,250 --> 00:48:42,510
+no turn oh oh oh and it also means by
+
+818
+00:48:39,150 --> 00:48:47,480
+the way it also can also means vagina
+
+819
+00:48:42,510 --> 00:48:51,780
+okay so we actually have a passage about
+
+820
+00:48:47,480 --> 00:48:54,810
+which is we have a passage here from the
+
+821
+00:48:51,780 --> 00:48:57,990
+from the classic one of the great
+
+822
+00:48:54,810 --> 00:49:01,970
+classics one of the four great classics
+
+823
+00:48:57,990 --> 00:49:06,360
+of Chinese which is Journey to the West
+
+824
+00:49:01,970 --> 00:49:10,980
+that's the English title Journey to the
+
+825
+00:49:06,360 --> 00:49:14,970
+West one of the great classics fantastic
+
+826
+00:49:10,980 --> 00:49:21,510
+fan tax fantastic mug Oracle tale about
+
+827
+00:49:14,970 --> 00:49:24,480
+this Monkey King and you know this they
+
+828
+00:49:21,510 --> 00:49:26,820
+fight monsters fantastic you know it is
+
+829
+00:49:24,480 --> 00:49:28,950
+very interesting story anyway in these
+
+830
+00:49:26,820 --> 00:49:31,740
+classics they have a passage you know
+
+831
+00:49:28,950 --> 00:49:35,960
+this is a big you know these hundred
+
+832
+00:49:31,740 --> 00:49:40,440
+chapters okay and they have this passage
+
+833
+00:49:35,960 --> 00:49:49,920
+which is describing
+
+834
+00:49:40,440 --> 00:49:53,490
+seven spider how you say monsters okay
+
+835
+00:49:49,920 --> 00:49:59,230
+spider how you say
+
+836
+00:49:53,490 --> 00:50:02,560
+hmm let me try to remember the water you
+
+837
+00:49:59,230 --> 00:50:06,690
+know in Greek mythology you have God and
+
+838
+00:50:02,560 --> 00:50:09,220
+goddesses and you have hey King herring
+
+839
+00:50:06,690 --> 00:50:14,320
+you should wake up in normal times I
+
+840
+00:50:09,220 --> 00:50:18,670
+know hey Jeff chose I've never have I
+
+841
+00:50:14,320 --> 00:50:22,450
+seen you in my life show before we are
+
+842
+00:50:18,670 --> 00:50:26,920
+talking about Emacs but we digressed so
+
+843
+00:50:22,450 --> 00:50:29,050
+Jeff Jeff Shaw says let me let me finish
+
+844
+00:50:26,920 --> 00:50:29,350
+your topic about one more thing at that
+
+845
+00:50:29,050 --> 00:50:32,620
+time
+
+846
+00:50:29,350 --> 00:50:35,110
+okay so I'm saying in these Chinese
+
+847
+00:50:32,620 --> 00:50:37,450
+classics Journey to the West there's a
+
+848
+00:50:35,110 --> 00:50:42,580
+passage rather you attic passage
+
+849
+00:50:37,450 --> 00:50:48,490
+describing several describing seven
+
+850
+00:50:42,580 --> 00:50:51,610
+spider in Greek mythology what what so
+
+851
+00:50:48,490 --> 00:50:55,150
+you know in Greek mythology
+
+852
+00:50:51,610 --> 00:50:58,750
+there's a word describing female kind of
+
+853
+00:50:55,150 --> 00:51:06,940
+demigod okay demigod but yeah okay
+
+854
+00:50:58,750 --> 00:51:10,090
+demigod so Tami God and not fairies okay
+
+855
+00:51:06,940 --> 00:51:14,590
+what's the other word anyone
+
+856
+00:51:10,090 --> 00:51:16,750
+once in a while so jiff you must know
+
+857
+00:51:14,590 --> 00:51:19,260
+these so in Greek mythology what's
+
+858
+00:51:16,750 --> 00:51:25,810
+what's some more describing female
+
+859
+00:51:19,260 --> 00:51:28,120
+demigod I should know anyway so in
+
+860
+00:51:25,810 --> 00:51:30,670
+Chinese this passage is you have this
+
+861
+00:51:28,120 --> 00:51:33,460
+erotic passage describing these seven
+
+862
+00:51:30,670 --> 00:51:36,220
+kind of monsters okay female monsters
+
+863
+00:51:33,460 --> 00:51:39,160
+they are spider okay I mean if you play
+
+864
+00:51:36,220 --> 00:51:40,780
+games you know in Japan Japanese you
+
+865
+00:51:39,160 --> 00:51:44,080
+know lots of Japanese games you have
+
+866
+00:51:40,780 --> 00:51:48,040
+this foxy lady so it's you know it's a
+
+867
+00:51:44,080 --> 00:51:50,890
+female but you know a fox phone that
+
+868
+00:51:48,040 --> 00:51:53,890
+came from Chinese okay that's a classic
+
+869
+00:51:50,890 --> 00:52:00,130
+Chinese mythology a very common you have
+
+870
+00:51:53,890 --> 00:52:03,010
+this Fox Fox shaped female monster so
+
+871
+00:52:00,130 --> 00:52:05,260
+but here you have this spider shaped
+
+872
+00:52:03,010 --> 00:52:07,750
+female monsters they are said there
+
+873
+00:52:05,260 --> 00:52:11,020
+ourselves seven of them they are taking
+
+874
+00:52:07,750 --> 00:52:14,530
+a bath you know it's this is this is a
+
+875
+00:52:11,020 --> 00:52:18,700
+fantasy story but so you have this poem
+
+876
+00:52:14,530 --> 00:52:24,880
+in this classic describing how they are
+
+877
+00:52:18,700 --> 00:52:27,550
+taking a bath in a open river very funny
+
+878
+00:52:24,880 --> 00:52:33,300
+so anyway this character let's let me
+
+879
+00:52:27,550 --> 00:52:37,720
+show you it so I call command etymology
+
+880
+00:52:33,300 --> 00:52:40,090
+okay actually Chinese ok so words
+
+881
+00:52:37,720 --> 00:52:42,920
+Chinese link of I that's a command okay
+
+882
+00:52:40,090 --> 00:52:46,520
+on a second
+
+883
+00:52:42,920 --> 00:52:51,260
+I call it make a link so it becomes link
+
+884
+00:52:46,520 --> 00:52:55,460
+showing browser and page down so you can
+
+885
+00:52:51,260 --> 00:52:58,869
+see this a wait that's not the command I
+
+886
+00:52:55,460 --> 00:52:58,869
+want and do and do
+
+887
+00:53:02,140 --> 00:53:07,059
+okay that's that's what I want so go
+
+888
+00:53:04,720 --> 00:53:11,140
+back to browser showing browser reload
+
+889
+00:53:07,059 --> 00:53:13,809
+you can see magnifier you can see it
+
+890
+00:53:11,140 --> 00:53:16,390
+becomes like that so then you have
+
+891
+00:53:13,809 --> 00:53:22,569
+translate Wiktionary and history links
+
+892
+00:53:16,390 --> 00:53:26,619
+so let me click on them Wiktionary so
+
+893
+00:53:22,569 --> 00:53:28,660
+you can see what Google translates say
+
+894
+00:53:26,619 --> 00:53:32,769
+about this Chinese character so this
+
+895
+00:53:28,660 --> 00:53:39,700
+word means a hole and you can also click
+
+896
+00:53:32,769 --> 00:53:42,339
+on pronunciation you know okay and
+
+897
+00:53:39,700 --> 00:53:46,509
+you know and then you can go through the
+
+898
+00:53:42,339 --> 00:53:51,369
+wiki wiki Wiktionary on this character
+
+899
+00:53:46,509 --> 00:53:54,640
+Amy magnify okay then he'll give you you
+
+900
+00:53:51,369 --> 00:53:57,999
+know the meaning derived characters
+
+901
+00:53:54,640 --> 00:54:00,069
+references Chinese or ancient you know
+
+902
+00:53:57,999 --> 00:54:02,799
+so we are getting into the etymology of
+
+903
+00:54:00,069 --> 00:54:06,609
+the character so you know a thousand
+
+904
+00:54:02,799 --> 00:54:10,569
+years ago it's written like that and
+
+905
+00:54:06,609 --> 00:54:12,849
+different variations phonetic series
+
+906
+00:54:10,569 --> 00:54:15,880
+okay you know lots of information and
+
+907
+00:54:12,849 --> 00:54:17,680
+how it's pronounced in Mandarin how it's
+
+908
+00:54:15,880 --> 00:54:21,369
+pronounced in Cantonese and other
+
+909
+00:54:17,680 --> 00:54:27,839
+dialect and how its in definition okay
+
+910
+00:54:21,369 --> 00:54:30,579
+ho ho grave or cave or den lair exactly
+
+911
+00:54:27,839 --> 00:54:33,489
+then you also have you know different
+
+912
+00:54:30,579 --> 00:54:35,589
+phrases compounds then you have how
+
+913
+00:54:33,489 --> 00:54:39,420
+Japanese use the word so it you know
+
+914
+00:54:35,589 --> 00:54:41,460
+very lots of information about Chinese
+
+915
+00:54:39,420 --> 00:54:44,700
+characters
+
+916
+00:54:41,460 --> 00:54:48,990
+then you have this website by this guy
+
+917
+00:54:44,700 --> 00:54:51,000
+which is white guy he studied he is an
+
+918
+00:54:48,990 --> 00:54:53,970
+expert on etymology of Chinese
+
+919
+00:54:51,000 --> 00:54:56,550
+characters so he you know so anyway my
+
+920
+00:54:53,970 --> 00:54:59,250
+point is just that I have this Emacs
+
+921
+00:54:56,550 --> 00:55:02,910
+command where whenever I want to blog
+
+922
+00:54:59,250 --> 00:55:05,250
+about or if I want to know the etymology
+
+923
+00:55:02,910 --> 00:55:08,099
+of a Chinese character I can just type a
+
+924
+00:55:05,250 --> 00:55:11,609
+few keys and it gives gives me the link
+
+925
+00:55:08,099 --> 00:55:13,500
+very convenient so anyway so that's it
+
+926
+00:55:11,609 --> 00:55:17,210
+for today I'm just going to read about
+
+927
+00:55:13,500 --> 00:55:20,400
+what you guys are serious saying okay so
+
+928
+00:55:17,210 --> 00:55:23,130
+several suggestions nymph okay
+
+929
+00:55:20,400 --> 00:55:28,920
+nymph is the word I was looking for yeah
+
+930
+00:55:23,130 --> 00:55:31,380
+kind of link tie rad dyad triad actually
+
+931
+00:55:28,920 --> 00:55:35,570
+I don't know that word triad actually
+
+932
+00:55:31,380 --> 00:55:39,690
+interesting something I learned today
+
+933
+00:55:35,570 --> 00:55:44,450
+triad okay triad is a tree nymph oh
+
+934
+00:55:39,690 --> 00:55:44,450
+that's interesting Greek mythology
+
+935
+00:55:45,030 --> 00:55:53,380
+okay that's cool so back Mews
+
+936
+00:55:50,890 --> 00:55:55,450
+yeah Mews is also but you know I love
+
+937
+00:55:53,380 --> 00:55:57,910
+Greek mythology you have all this and
+
+938
+00:55:55,450 --> 00:56:00,910
+then you have succubus now I believe
+
+939
+00:55:57,910 --> 00:56:03,820
+succubus is not exactly Greek mythology
+
+940
+00:56:00,910 --> 00:56:07,500
+I think it's not the mythology but a
+
+941
+00:56:03,820 --> 00:56:10,660
+very interesting yeah I love these words
+
+942
+00:56:07,500 --> 00:56:14,320
+spider lady and then the sirens sirens
+
+943
+00:56:10,660 --> 00:56:17,970
+is a big chapter in Greek mythology so
+
+944
+00:56:14,320 --> 00:56:17,970
+anyway I think that's about it for today
+
+945
+00:56:18,090 --> 00:56:25,810
+about Emacs yeah so we've been talking
+
+946
+00:56:21,430 --> 00:56:29,770
+for 57 minutes okay anything else
+
+947
+00:56:25,810 --> 00:56:31,990
+anything interesting questions then we
+
+948
+00:56:29,770 --> 00:56:32,640
+will say goodbye we close down in two
+
+949
+00:56:31,990 --> 00:56:37,420
+minutes
+
+950
+00:56:32,640 --> 00:56:41,560
+how is house going Jeff so hey Jeff have
+
+951
+00:56:37,420 --> 00:56:44,320
+you is there any Emacs meet up in San
+
+952
+00:56:41,560 --> 00:56:48,010
+Francisco going on you know we have
+
+953
+00:56:44,320 --> 00:56:49,810
+kovat 19 in the past three months so I
+
+954
+00:56:48,010 --> 00:56:52,599
+guess not but I don't know if there's
+
+955
+00:56:49,810 --> 00:56:57,240
+any new so maybe there's a online
+
+956
+00:56:52,599 --> 00:57:00,550
+version I haven't been paying attention
+
+957
+00:56:57,240 --> 00:57:03,030
+lately so you see any news about that
+
+958
+00:57:00,550 --> 00:57:06,250
+that would be interesting so we can do
+
+959
+00:57:03,030 --> 00:57:11,619
+you know so Jeff runs you know if you
+
+960
+00:57:06,250 --> 00:57:15,460
+guys don't know Jeff Jeff runs the San
+
+961
+00:57:11,619 --> 00:57:18,599
+Francisco Emacs Meetup I I went to
+
+962
+00:57:15,460 --> 00:57:18,599
+several times
+
+963
+00:57:19,799 --> 00:57:28,680
+you know you just search for Emacs meet
+
+964
+00:57:23,700 --> 00:57:30,690
+up San Francisco you'll find it so I
+
+965
+00:57:28,680 --> 00:57:34,170
+actually I haven't been having out of
+
+966
+00:57:30,690 --> 00:57:37,109
+loop of Emacs happenings because I think
+
+967
+00:57:34,170 --> 00:57:44,579
+I'm getting old but I think Jeff you are
+
+968
+00:57:37,109 --> 00:57:49,170
+about the same age as me right oh yeah
+
+969
+00:57:44,579 --> 00:57:52,049
+GC GC seems fast fantastic website Jeff
+
+970
+00:57:49,170 --> 00:57:53,609
+says I have to learn it I mean what what
+
+971
+00:57:52,049 --> 00:57:59,400
+do you have to learn about it it seems
+
+972
+00:57:53,609 --> 00:58:01,829
+you just go there and it just works yeah
+
+973
+00:57:59,400 --> 00:58:04,589
+so Jeff runs you know some has Cisco
+
+974
+00:58:01,829 --> 00:58:09,630
+meter I went to several times and it's
+
+975
+00:58:04,589 --> 00:58:10,200
+fantastic you know so we have a YouTube
+
+976
+00:58:09,630 --> 00:58:15,950
+channel
+
+977
+00:58:10,200 --> 00:58:15,950
+indeed so let me just show it let's see
+
+978
+00:58:16,339 --> 00:58:22,309
+Emacs meet up san friend
+
+979
+00:58:24,470 --> 00:58:34,790
+so there it is the meetup.com website
+
+980
+00:58:29,050 --> 00:58:38,390
+then you have jeff has a github page
+
+981
+00:58:34,790 --> 00:58:47,960
+about San Francisco minute meetup then
+
+982
+00:58:38,390 --> 00:58:52,400
+there is also a YouTube okay uh okay I
+
+983
+00:58:47,960 --> 00:58:56,990
+actually I talked about it before so one
+
+984
+00:58:52,400 --> 00:59:00,319
+of my YouTube turned up but anyway you
+
+985
+00:58:56,990 --> 00:59:01,670
+if you go to youtube you can see it if
+
+986
+00:59:00,319 --> 00:59:10,180
+you search on YouTube
+
+987
+00:59:01,670 --> 00:59:10,180
+so here is 488 people yeah
+
+988
+00:59:11,630 --> 00:59:18,500
+yeah so the last one is February you
+
+989
+00:59:15,530 --> 00:59:22,220
+know then the kovat 19 hit you know Cove
+
+990
+00:59:18,500 --> 00:59:24,890
+igniting is such amazing and incredible
+
+991
+00:59:22,220 --> 00:59:29,950
+you know it it just happened and over
+
+992
+00:59:24,890 --> 00:59:29,950
+sudden it crippled the entire world
+
+993
+00:59:30,520 --> 00:59:39,770
+so anyway anything else anything
+
+994
+00:59:33,890 --> 00:59:44,110
+interesting glad to see you saw on your
+
+995
+00:59:39,770 --> 00:59:46,460
+YouTube thank you start diviner okay so
+
+996
+00:59:44,110 --> 00:59:49,400
+okay that's it I think that's it for
+
+997
+00:59:46,460 --> 00:59:50,500
+today we talked about Emacs okay thank
+
+998
+00:59:49,400 --> 00:59:55,750
+you guys for coming
+
+999
+00:59:50,500 --> 00:59:55,750
+hope to see you again next one
+
+1000
+00:59:57,940 --> 01:00:06,920
+krishna and the gopis now what is
+
+1001
+01:00:02,990 --> 01:00:14,960
+krishna krishna is a indian goddess
+
+1002
+01:00:06,920 --> 01:00:20,480
+right or am i totally wrong okay yeah so
+
+1003
+01:00:14,960 --> 01:00:25,000
+let's see mythologies of the world you
+
+1004
+01:00:20,480 --> 01:00:25,000
+know it's all very interesting Krishna
+
+1005
+01:00:25,360 --> 01:00:32,210
+you know so Indian you know Indian they
+
+1006
+01:00:28,730 --> 01:00:36,230
+are the or engine of Buddhism and
+
+1007
+01:00:32,210 --> 01:00:39,590
+Hinduism of course and so but in China
+
+1008
+01:00:36,230 --> 01:00:42,550
+China is mostly Buddhism so China the
+
+1009
+01:00:39,590 --> 01:00:48,050
+Buddha so much of China came from India
+
+1010
+01:00:42,550 --> 01:00:50,600
+and in fact that is what this journey to
+
+1011
+01:00:48,050 --> 01:00:53,270
+the West is about the entire you know
+
+1012
+01:00:50,600 --> 01:00:56,660
+Journey to the West that West means
+
+1013
+01:00:53,270 --> 01:00:58,100
+India back then so you know back then
+
+1014
+01:00:56,660 --> 01:01:00,500
+you don't have we don't you know you
+
+1015
+01:00:58,100 --> 01:01:03,950
+don't have airplanes you have cause so
+
+1016
+01:01:00,500 --> 01:01:08,540
+it's a tremendous travel to India you
+
+1017
+01:01:03,950 --> 01:01:13,150
+know take a year go to so we have you
+
+1018
+01:01:08,540 --> 01:01:17,030
+know one of the classic Chinese about
+
+1019
+01:01:13,150 --> 01:01:18,860
+you know there are monks these are a
+
+1020
+01:01:17,030 --> 01:01:21,170
+bunch of monks they are traveling to
+
+1021
+01:01:18,860 --> 01:01:24,230
+India why because they want to get the
+
+1022
+01:01:21,170 --> 01:01:26,690
+engine of Buddhism scriptures which is
+
+1023
+01:01:24,230 --> 01:01:29,720
+which is conceived you know like like
+
+1024
+01:01:26,690 --> 01:01:32,090
+the Bible which is considered you know a
+
+1025
+01:01:29,720 --> 01:01:35,060
+huge thing you you need to get the
+
+1026
+01:01:32,090 --> 01:01:38,440
+original scripture so it's this is a
+
+1027
+01:01:35,060 --> 01:01:43,700
+story about you know they go into India
+
+1028
+01:01:38,440 --> 01:01:46,360
+Journey to the West colloquially this
+
+1029
+01:01:43,700 --> 01:01:49,760
+story is also known as The Monkey King
+
+1030
+01:01:46,360 --> 01:01:53,630
+it's they are very popular they are you
+
+1031
+01:01:49,760 --> 01:01:56,150
+know in Asia in China Japan Korea they
+
+1032
+01:01:53,630 --> 01:01:59,180
+are more popular there was popular as
+
+1033
+01:01:56,150 --> 01:02:02,029
+Mickey Mouse in western society
+
+1034
+01:01:59,180 --> 01:02:04,519
+they are as popular as yours you know
+
+1035
+01:02:02,029 --> 01:02:08,210
+like you know like the foundation of
+
+1036
+01:02:04,519 --> 01:02:11,989
+Western society sewers the the god of
+
+1037
+01:02:08,210 --> 01:02:14,089
+all gods kind of so so you have cartoons
+
+1038
+01:02:11,989 --> 01:02:16,759
+you have comics you have movies about
+
+1039
+01:02:14,089 --> 01:02:24,410
+these every few years you have you know
+
+1040
+01:02:16,759 --> 01:02:26,269
+drama and this story so teacher early I
+
+1041
+01:02:24,410 --> 01:02:28,190
+mean by the title they are Journey to
+
+1042
+01:02:26,269 --> 01:02:31,099
+the West you know they are actually a
+
+1043
+01:02:28,190 --> 01:02:36,920
+bunch of monks but the story is more
+
+1044
+01:02:31,099 --> 01:02:39,140
+like Arabic Arabian Nights where you
+
+1045
+01:02:36,920 --> 01:02:41,390
+have a bunch of monsters I mean it's all
+
+1046
+01:02:39,140 --> 01:02:47,599
+about monsters in gods they are fighting
+
+1047
+01:02:41,390 --> 01:02:48,400
+how they so it's a fantastic tale let me
+
+1048
+01:02:47,599 --> 01:02:51,140
+show you
+
+1049
+01:02:48,400 --> 01:02:54,339
+literature in classics you know like
+
+1050
+01:02:51,140 --> 01:02:58,099
+Arabian Nights you must have heard of
+
+1051
+01:02:54,339 --> 01:03:02,079
+okay anyway um okay thank you guys for
+
+1052
+01:02:58,099 --> 01:03:02,079
+coming and hope to see you again
+
+1053
+01:03:02,289 --> 01:03:05,499
+bye guys
+
+1054
+01:03:06,410 --> 01:03:11,780
+but he saw the copies yeah so I don't
+
+1055
+01:03:09,410 --> 01:03:15,850
+know what his copies let's see let's
+
+1056
+01:03:11,780 --> 01:03:15,850
+look at copies
+
+1057
+01:03:19,750 --> 01:03:24,930
+copy agape let's see how how it's
+
+1058
+01:03:23,260 --> 01:03:27,940
+pronounced oops
+
+1059
+01:03:24,930 --> 01:03:31,950
+Wikipedia's the slacking of Wikipedia
+
+1060
+01:03:27,940 --> 01:03:36,720
+they did not provide a pronunciation in
+
+1061
+01:03:31,950 --> 01:03:41,160
+in IPA I found a flaw
+
+1062
+01:03:36,720 --> 01:03:45,900
+so copy agape egg I suppose is a
+
+1063
+01:03:41,160 --> 01:03:49,840
+Sanskrit word originating from the word
+
+1064
+01:03:45,900 --> 01:03:54,760
+capella Kabbalah referring to a person
+
+1065
+01:03:49,840 --> 01:03:56,650
+in charge of a herd of cows referring a
+
+1066
+01:03:54,760 --> 01:04:00,180
+person in charge of a herd of cows in
+
+1067
+01:03:56,650 --> 01:04:03,460
+Hinduism especially the name Caprica
+
+1068
+01:04:00,180 --> 01:04:06,340
+feminine form of copy is used more
+
+1069
+01:04:03,460 --> 01:04:12,040
+commonly to refer to the group of cow
+
+1070
+01:04:06,340 --> 01:04:16,920
+herding girls Oh famous within version
+
+1071
+01:04:12,040 --> 01:04:23,680
+of ISM for their unconditional devotion
+
+1072
+01:04:16,920 --> 01:04:27,430
+to Krishna has described in something
+
+1073
+01:04:23,680 --> 01:04:31,900
+something very interesting that's the
+
+1074
+01:04:27,430 --> 01:04:33,880
+that's the fruit of discussion with the
+
+1075
+01:04:31,900 --> 01:04:37,380
+different people we always learn things
+
+1076
+01:04:33,880 --> 01:04:37,380
+thank you guys bye
+

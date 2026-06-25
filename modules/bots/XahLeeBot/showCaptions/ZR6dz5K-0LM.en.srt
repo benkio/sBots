@@ -1,0 +1,7848 @@
+1
+00:00:05,520 --> 00:00:10,080
+hello guys welcome to another episode of
+
+2
+00:00:08,519 --> 00:00:12,500
+some talk show
+
+3
+00:00:10,080 --> 00:00:15,480
+today we are going to continue
+
+4
+00:00:12,500 --> 00:00:18,660
+the Advent of code
+
+5
+00:00:15,480 --> 00:00:22,080
+so we are going to code event of code in
+
+6
+00:00:18,660 --> 00:00:24,840
+Wolfram language yesterday it was a
+
+7
+00:00:22,080 --> 00:00:27,420
+spectacular struggle
+
+8
+00:00:24,840 --> 00:00:30,300
+uh so yesterday
+
+9
+00:00:27,420 --> 00:00:33,719
+we did you know the past two days we are
+
+10
+00:00:30,300 --> 00:00:37,380
+doing Advent of code live coding so we
+
+11
+00:00:33,719 --> 00:00:41,100
+did problem one uh where's problem one
+
+12
+00:00:37,380 --> 00:00:45,000
+yeah problem one uh then problem
+
+13
+00:00:41,100 --> 00:00:47,879
+two yesterday yesterday turns out to be
+
+14
+00:00:45,000 --> 00:00:51,360
+three hours affair you know the first
+
+15
+00:00:47,879 --> 00:00:52,980
+hour is pretty good the first half hour
+
+16
+00:00:51,360 --> 00:00:54,899
+I was talking about programming
+
+17
+00:00:52,980 --> 00:00:57,300
+languages you know many of you young
+
+18
+00:00:54,899 --> 00:00:58,140
+people are wondering which language to
+
+19
+00:00:57,300 --> 00:01:01,199
+learn
+
+20
+00:00:58,140 --> 00:01:02,640
+and uh you know I was doing a bit rent
+
+21
+00:01:01,199 --> 00:01:06,360
+on that
+
+22
+00:01:02,640 --> 00:01:08,939
+and also the meaning of hacker so check
+
+23
+00:01:06,360 --> 00:01:11,820
+out yesterday's video meaning of hacker
+
+24
+00:01:08,939 --> 00:01:15,600
+and what language to learn okay the
+
+25
+00:01:11,820 --> 00:01:16,520
+first hour then we are coding event of
+
+26
+00:01:15,600 --> 00:01:19,080
+code
+
+27
+00:01:16,520 --> 00:01:21,299
+analyze the problem then I was talking
+
+28
+00:01:19,080 --> 00:01:24,540
+about the
+
+29
+00:01:21,299 --> 00:01:26,580
+the essence of mathematics the issue of
+
+30
+00:01:24,540 --> 00:01:29,939
+how do you convert a real life
+
+31
+00:01:26,580 --> 00:01:33,240
+description uh certain you know some
+
+32
+00:01:29,939 --> 00:01:36,060
+sense of the problem how do you turn
+
+33
+00:01:33,240 --> 00:01:40,860
+that into a mathematical description
+
+34
+00:01:36,060 --> 00:01:44,579
+with precision and that is a non-trivial
+
+35
+00:01:40,860 --> 00:01:47,340
+thing and that is the problem of the
+
+36
+00:01:44,579 --> 00:01:49,259
+event of code day two I think most of
+
+37
+00:01:47,340 --> 00:01:52,200
+the domain of code problem is going to
+
+38
+00:01:49,259 --> 00:01:55,560
+be like that they describe it you know
+
+39
+00:01:52,200 --> 00:01:59,040
+in in a kind of story-like way and you
+
+40
+00:01:55,560 --> 00:02:01,979
+have to turn that into a specification
+
+41
+00:01:59,040 --> 00:02:03,420
+once you have a specification then
+
+42
+00:02:01,979 --> 00:02:07,140
+things have
+
+43
+00:02:03,420 --> 00:02:09,300
+uh usually usually easy okay so there
+
+44
+00:02:07,140 --> 00:02:10,259
+are two parts of the problem one is you
+
+45
+00:02:09,300 --> 00:02:12,599
+know
+
+46
+00:02:10,259 --> 00:02:15,000
+do an analysis you know think about it
+
+47
+00:02:12,599 --> 00:02:16,920
+you know turn that into a spec then once
+
+48
+00:02:15,000 --> 00:02:20,640
+you have a precise spec
+
+49
+00:02:16,920 --> 00:02:23,580
+then usually it's much easier much
+
+50
+00:02:20,640 --> 00:02:27,480
+easier then it's just about coding
+
+51
+00:02:23,580 --> 00:02:30,239
+so but the problem of turning a sun
+
+52
+00:02:27,480 --> 00:02:32,640
+fuzzy concept of the problem into a spec
+
+53
+00:02:30,239 --> 00:02:35,400
+is very difficult in fact that's the
+
+54
+00:02:32,640 --> 00:02:38,580
+essence of math Okay so yesterday we did
+
+55
+00:02:35,400 --> 00:02:40,140
+that then it turns out you know I had
+
+56
+00:02:38,580 --> 00:02:41,519
+some
+
+57
+00:02:40,140 --> 00:02:44,760
+um
+
+58
+00:02:41,519 --> 00:02:47,099
+uh problem with you know modular
+
+59
+00:02:44,760 --> 00:02:49,800
+arithmetics you know it took two hours
+
+60
+00:02:47,099 --> 00:02:52,500
+to eventually got the right answer so
+
+61
+00:02:49,800 --> 00:02:55,980
+here's the solution in Wolfram language
+
+62
+00:02:52,500 --> 00:02:57,900
+code uh just basically one single line
+
+63
+00:02:55,980 --> 00:03:01,860
+that's a solution
+
+64
+00:02:57,900 --> 00:03:03,840
+okay and and yesterday was two hours and
+
+65
+00:03:01,860 --> 00:03:07,019
+40 minutes today we are going to
+
+66
+00:03:03,840 --> 00:03:09,180
+continue problem number two every
+
+67
+00:03:07,019 --> 00:03:10,560
+problem there are two parts so we start
+
+68
+00:03:09,180 --> 00:03:13,680
+the first one we're gonna continue
+
+69
+00:03:10,560 --> 00:03:16,920
+problem number two then we're gonna do
+
+70
+00:03:13,680 --> 00:03:19,920
+uh problem number three okay so now I
+
+71
+00:03:16,920 --> 00:03:22,500
+get I got a taste of what this event of
+
+72
+00:03:19,920 --> 00:03:25,580
+code is I'm just going to be relaxed
+
+73
+00:03:22,500 --> 00:03:29,099
+I'll try to do as much as possible today
+
+74
+00:03:25,580 --> 00:03:31,140
+and try to focus on the problem but
+
+75
+00:03:29,099 --> 00:03:34,019
+don't worry I'm I'm not going to worry
+
+76
+00:03:31,140 --> 00:03:36,900
+about oh I'm going to do a good job and
+
+77
+00:03:34,019 --> 00:03:40,500
+finish it fastens and so on because
+
+78
+00:03:36,900 --> 00:03:43,019
+you know the as they say the process is
+
+79
+00:03:40,500 --> 00:03:45,900
+the fun part you know that we are doing
+
+80
+00:03:43,019 --> 00:03:50,840
+this TMI hi what's your keyboard is at
+
+81
+00:03:45,900 --> 00:03:50,840
+okay you must be new so this is expose
+
+82
+00:03:52,040 --> 00:03:58,799
+info okay so I want you guys to go to
+
+83
+00:03:55,879 --> 00:04:00,140
+kusali.info or
+
+84
+00:03:58,799 --> 00:04:03,900
+uh
+
+85
+00:04:00,140 --> 00:04:06,599
+sardi.org okay so kasabi.org is my
+
+86
+00:04:03,900 --> 00:04:10,379
+primary my central website I had this
+
+87
+00:04:06,599 --> 00:04:15,060
+domain for beginning year 2000 so for 20
+
+88
+00:04:10,379 --> 00:04:17,340
+years now then it split into Sally info
+
+89
+00:04:15,060 --> 00:04:20,760
+about 10 years ago and others but now
+
+90
+00:04:17,340 --> 00:04:23,040
+it's so now the con and also split into
+
+91
+00:04:20,760 --> 00:04:25,320
+many other domains but now it's all back
+
+92
+00:04:23,040 --> 00:04:29,639
+so sadi.org
+
+93
+00:04:25,320 --> 00:04:31,979
+then you you have sally.info sally.info
+
+94
+00:04:29,639 --> 00:04:34,800
+is all about math programming Unicode
+
+95
+00:04:31,979 --> 00:04:39,540
+keyboard technical stuff you know for
+
+96
+00:04:34,800 --> 00:04:42,060
+those of you nerds uh and uh saudi.org
+
+97
+00:04:39,540 --> 00:04:45,479
+is some other things English writing
+
+98
+00:04:42,060 --> 00:04:48,840
+Linguistics literature writing style
+
+99
+00:04:45,479 --> 00:04:50,160
+things like that and the songs you know
+
+100
+00:04:48,840 --> 00:04:52,620
+I talked about this many times
+
+101
+00:04:50,160 --> 00:04:55,740
+introduction to my website so
+
+102
+00:04:52,620 --> 00:04:58,380
+so I like you guys to those of you find
+
+103
+00:04:55,740 --> 00:05:00,600
+me interesting you want to you know
+
+104
+00:04:58,380 --> 00:05:03,240
+spend some time on my website
+
+105
+00:05:00,600 --> 00:05:06,180
+because usually it's a case you know you
+
+106
+00:05:03,240 --> 00:05:09,360
+got all these frequently asked questions
+
+107
+00:05:06,180 --> 00:05:10,680
+like almost for any YouTuber as well you
+
+108
+00:05:09,360 --> 00:05:12,660
+know people have questions but you
+
+109
+00:05:10,680 --> 00:05:14,100
+covered you talked about that a million
+
+110
+00:05:12,660 --> 00:05:17,520
+times
+
+111
+00:05:14,100 --> 00:05:19,800
+okay so sorry that info then you go
+
+112
+00:05:17,520 --> 00:05:21,960
+there then there is you know several
+
+113
+00:05:19,800 --> 00:05:25,440
+videos there's a keyboard okay so this
+
+114
+00:05:21,960 --> 00:05:27,900
+is uh they are right now currently 1 000
+
+115
+00:05:25,440 --> 00:05:30,900
+articles so you just go to Ergo
+
+116
+00:05:27,900 --> 00:05:34,259
+keyboards and uh
+
+117
+00:05:30,900 --> 00:05:36,419
+then there is expose all the information
+
+118
+00:05:34,259 --> 00:05:38,820
+and review and details are there okay
+
+119
+00:05:36,419 --> 00:05:42,060
+that is this keyboard and the other one
+
+120
+00:05:38,820 --> 00:05:44,460
+is automatic I talked about this
+
+121
+00:05:42,060 --> 00:05:47,100
+tens of times in my video okay so back
+
+122
+00:05:44,460 --> 00:05:49,880
+to event of code
+
+123
+00:05:47,100 --> 00:05:49,880
+uh
+
+124
+00:05:50,880 --> 00:05:55,740
+I recommend expose okay what is one of
+
+125
+00:05:54,000 --> 00:05:58,680
+the keyboard I recommend
+
+126
+00:05:55,740 --> 00:06:01,199
+you should go out and buy it now
+
+127
+00:05:58,680 --> 00:06:03,780
+okay so but let's do Advent of code
+
+128
+00:06:01,199 --> 00:06:07,080
+today okay so
+
+129
+00:06:03,780 --> 00:06:10,620
+um copy the paste copy paste copy the
+
+130
+00:06:07,080 --> 00:06:12,600
+link here go here close close Okay
+
+131
+00:06:10,620 --> 00:06:15,000
+yesterday's solution
+
+132
+00:06:12,600 --> 00:06:17,880
+uh doing a dependent of code number two
+
+133
+00:06:15,000 --> 00:06:21,300
+let's copy that here because we need
+
+134
+00:06:17,880 --> 00:06:23,819
+uh the code to solve it
+
+135
+00:06:21,300 --> 00:06:26,460
+from yesterday so here is the Wolfram
+
+136
+00:06:23,819 --> 00:06:28,800
+language code and here is Wolfram
+
+137
+00:06:26,460 --> 00:06:31,740
+language again I have a tutorial on my
+
+138
+00:06:28,800 --> 00:06:35,280
+website just search for Sardi wufam land
+
+139
+00:06:31,740 --> 00:06:38,160
+you'll find a complete tutorials and
+
+140
+00:06:35,280 --> 00:06:40,740
+video tutorials in the past
+
+141
+00:06:38,160 --> 00:06:43,440
+learning yo do you find the event of
+
+142
+00:06:40,740 --> 00:06:46,440
+code problems to be typical or typical
+
+143
+00:06:43,440 --> 00:06:49,400
+of common problems encountered in
+
+144
+00:06:46,440 --> 00:06:49,400
+software development
+
+145
+00:06:49,800 --> 00:06:57,360
+well basically all these exercises
+
+146
+00:06:53,240 --> 00:06:59,580
+basically all of them including you know
+
+147
+00:06:57,360 --> 00:07:02,220
+something became popular today you have
+
+148
+00:06:59,580 --> 00:07:05,880
+lead code you know that's a website that
+
+149
+00:07:02,220 --> 00:07:07,819
+so lead code is a website that's uh all
+
+150
+00:07:05,880 --> 00:07:12,180
+basically
+
+151
+00:07:07,819 --> 00:07:15,600
+exercises or toei problems and then you
+
+152
+00:07:12,180 --> 00:07:18,319
+have Euler project which is also a
+
+153
+00:07:15,600 --> 00:07:20,940
+programming problems you know simple
+
+154
+00:07:18,319 --> 00:07:23,120
+Euler project I believe that's what it
+
+155
+00:07:20,940 --> 00:07:23,120
+called
+
+156
+00:07:27,840 --> 00:07:35,099
+okay let's have a look about project oil
+
+157
+00:07:31,800 --> 00:07:37,500
+okay oil is a mathematician okay so you
+
+158
+00:07:35,099 --> 00:07:40,139
+go there you know so that's another
+
+159
+00:07:37,500 --> 00:07:42,780
+website for all sort of programming
+
+160
+00:07:40,139 --> 00:07:45,660
+problems but the end of a code once a
+
+161
+00:07:42,780 --> 00:07:49,139
+year oil project and there's another one
+
+162
+00:07:45,660 --> 00:07:52,919
+called lead code that's uh
+
+163
+00:07:49,139 --> 00:07:56,699
+it's a Malaysian Zuma's thing idiotic
+
+164
+00:07:52,919 --> 00:07:59,280
+you see they advertise themselves as the
+
+165
+00:07:56,699 --> 00:08:02,759
+the words leading something something
+
+166
+00:07:59,280 --> 00:08:04,919
+crap okay let's turn on JavaScript
+
+167
+00:08:02,759 --> 00:08:06,660
+you know this idiotic website if you
+
+168
+00:08:04,919 --> 00:08:08,819
+don't have JavaScript they won't show
+
+169
+00:08:06,660 --> 00:08:12,419
+but once you turn it on
+
+170
+00:08:08,819 --> 00:08:15,419
+that's JavaScript is the conduit of
+
+171
+00:08:12,419 --> 00:08:17,400
+Trojan Horse you know they can track you
+
+172
+00:08:15,419 --> 00:08:19,740
+they know everything you do including
+
+173
+00:08:17,400 --> 00:08:22,620
+which part you are looking at you know
+
+174
+00:08:19,740 --> 00:08:24,660
+where do you pass and all that so anyway
+
+175
+00:08:22,620 --> 00:08:28,440
+these codes you know some
+
+176
+00:08:24,660 --> 00:08:31,199
+some Zuma they want to cope in life the
+
+177
+00:08:28,440 --> 00:08:34,380
+[ __ ] idiotic so they create you know
+
+178
+00:08:31,199 --> 00:08:37,260
+the website they make money money is the
+
+179
+00:08:34,380 --> 00:08:39,779
+key money makes the world go around okay
+
+180
+00:08:37,260 --> 00:08:41,700
+everything is money so they created this
+
+181
+00:08:39,779 --> 00:08:43,020
+you know pretty good website you know
+
+182
+00:08:41,700 --> 00:08:46,920
+and also
+
+183
+00:08:43,020 --> 00:08:49,380
+not not too bad you know it so all these
+
+184
+00:08:46,920 --> 00:08:50,940
+websites they are programming exercise
+
+185
+00:08:49,380 --> 00:08:53,700
+websites
+
+186
+00:08:50,940 --> 00:08:56,220
+Euler code a project gorilla usually
+
+187
+00:08:53,700 --> 00:08:58,140
+focused on mathematical problems like
+
+188
+00:08:56,220 --> 00:09:00,600
+find the prime number or things like
+
+189
+00:08:58,140 --> 00:09:03,120
+that you deal with numbers
+
+190
+00:09:00,600 --> 00:09:04,980
+lead code is just a
+
+191
+00:09:03,120 --> 00:09:07,440
+you know I'm not I don't not you know
+
+192
+00:09:04,980 --> 00:09:09,540
+I've I've done like one of them you know
+
+193
+00:09:07,440 --> 00:09:12,480
+it's just provide me problems all these
+
+194
+00:09:09,540 --> 00:09:14,760
+problems including advantable code they
+
+195
+00:09:12,480 --> 00:09:16,860
+are toy problems okay they are toy
+
+196
+00:09:14,760 --> 00:09:18,899
+problems or used to be called
+
+197
+00:09:16,860 --> 00:09:21,600
+programming exercise
+
+198
+00:09:18,899 --> 00:09:23,100
+okay and if you want to be dramatic you
+
+199
+00:09:21,600 --> 00:09:26,519
+can call it
+
+200
+00:09:23,100 --> 00:09:28,920
+um you know programming challenge
+
+201
+00:09:26,519 --> 00:09:31,080
+or sometimes on the YouTubers you know
+
+202
+00:09:28,920 --> 00:09:33,660
+they want to you know you want a job
+
+203
+00:09:31,080 --> 00:09:36,420
+right you want to get into Google lots
+
+204
+00:09:33,660 --> 00:09:39,839
+of money free food Facebook and all that
+
+205
+00:09:36,420 --> 00:09:41,779
+you know so they allowed YouTubers these
+
+206
+00:09:39,839 --> 00:09:44,580
+Zoomers scammers
+
+207
+00:09:41,779 --> 00:09:46,500
+you know they these days they The Zuma
+
+208
+00:09:44,580 --> 00:09:48,839
+generation have a jargon they call it
+
+209
+00:09:46,500 --> 00:09:50,880
+grifters you know you just go on YouTube
+
+210
+00:09:48,839 --> 00:09:53,519
+you make something traumatic every day
+
+211
+00:09:50,880 --> 00:09:55,620
+so that you got lots of viewers
+
+212
+00:09:53,519 --> 00:09:58,260
+followers one million and you become a
+
+213
+00:09:55,620 --> 00:10:00,420
+millionaire and what they talk about is
+
+214
+00:09:58,260 --> 00:10:03,180
+just uh [ __ ] you know they talk about
+
+215
+00:10:00,420 --> 00:10:06,180
+drama and [ __ ] every day
+
+216
+00:10:03,180 --> 00:10:10,320
+so that's wasting your time so anyway so
+
+217
+00:10:06,180 --> 00:10:12,180
+this all these are toy problems uh do
+
+218
+00:10:10,320 --> 00:10:15,959
+they have anything to do with real life
+
+219
+00:10:12,180 --> 00:10:19,920
+no uh almost almost nothing nothing
+
+220
+00:10:15,959 --> 00:10:21,360
+whatsoever to do with real life coding
+
+221
+00:10:19,920 --> 00:10:25,140
+problems
+
+222
+00:10:21,360 --> 00:10:27,899
+however toy problems are very important
+
+223
+00:10:25,140 --> 00:10:30,660
+and useful it in in the sense that they
+
+224
+00:10:27,899 --> 00:10:32,700
+help you learn a language you know you
+
+225
+00:10:30,660 --> 00:10:35,420
+can go to Python tutorial there's a
+
+226
+00:10:32,700 --> 00:10:38,120
+hundred by pajit
+
+227
+00:10:35,420 --> 00:10:41,399
+that's another word I learned you know
+
+228
+00:10:38,120 --> 00:10:42,959
+by by lower level you know Indian people
+
+229
+00:10:41,399 --> 00:10:45,720
+they don't know what they're doing a lot
+
+230
+00:10:42,959 --> 00:10:48,360
+tons of it you know or they all all
+
+231
+00:10:45,720 --> 00:10:50,459
+these scam websites you know or not
+
+232
+00:10:48,360 --> 00:10:51,959
+technically scam but the idiotic you
+
+233
+00:10:50,459 --> 00:10:55,320
+know they are trying to make money
+
+234
+00:10:51,959 --> 00:10:56,700
+that's that's money okay they run ads
+
+235
+00:10:55,320 --> 00:10:59,640
+they're trying to make money but their
+
+236
+00:10:56,700 --> 00:11:01,740
+information is usually low quality so
+
+237
+00:10:59,640 --> 00:11:05,519
+anyway so there are a lot of tutorials
+
+238
+00:11:01,740 --> 00:11:07,380
+on python JavaScript particularly these
+
+239
+00:11:05,519 --> 00:11:09,420
+languages you know
+
+240
+00:11:07,380 --> 00:11:11,880
+um so when you learn you can just read
+
+241
+00:11:09,420 --> 00:11:14,760
+it but that doesn't help you need to
+
+242
+00:11:11,880 --> 00:11:17,279
+actually put hands-on experience so at
+
+243
+00:11:14,760 --> 00:11:19,440
+the end of code is one of the website
+
+244
+00:11:17,279 --> 00:11:23,880
+that helps you you know do you need to
+
+245
+00:11:19,440 --> 00:11:26,700
+practice so but ultimately it's for
+
+246
+00:11:23,880 --> 00:11:29,940
+beginners okay the Advent of code lead
+
+247
+00:11:26,700 --> 00:11:31,620
+code you know project order those are
+
+248
+00:11:29,940 --> 00:11:33,600
+all for beginners
+
+249
+00:11:31,620 --> 00:11:36,360
+you know let's say you know for young
+
+250
+00:11:33,600 --> 00:11:39,420
+people for students many of you are
+
+251
+00:11:36,360 --> 00:11:42,420
+hey Ethan Ethan is a mathematician I
+
+252
+00:11:39,420 --> 00:11:45,480
+want to mention Ethan is a great uh guy
+
+253
+00:11:42,420 --> 00:11:48,420
+so Ethan knows stuff I believe that's
+
+254
+00:11:45,480 --> 00:11:52,140
+who you are right Ethan Ethan Ahmad sad
+
+255
+00:11:48,420 --> 00:11:55,620
+Discord so you know my followers are
+
+256
+00:11:52,140 --> 00:11:57,720
+uh very diverse you know a lot of you
+
+257
+00:11:55,620 --> 00:12:01,500
+guys are young people you know college
+
+258
+00:11:57,720 --> 00:12:05,100
+students or teenagers or so-called need
+
+259
+00:12:01,500 --> 00:12:08,399
+or whatever you know uh meme posting
+
+260
+00:12:05,100 --> 00:12:11,820
+Chan you know you know a lot of people
+
+261
+00:12:08,399 --> 00:12:14,880
+but I also have certain percentage that
+
+262
+00:12:11,820 --> 00:12:17,459
+are professionals and mathematicians and
+
+263
+00:12:14,880 --> 00:12:20,760
+I really appreciate those people
+
+264
+00:12:17,459 --> 00:12:23,940
+and of course a lot of my peop followers
+
+265
+00:12:20,760 --> 00:12:25,740
+are also uh keep not programmers but
+
+266
+00:12:23,940 --> 00:12:29,360
+they are into keyboards you know they
+
+267
+00:12:25,740 --> 00:12:29,360
+are into all sort of um
+
+268
+00:12:29,480 --> 00:12:34,380
+keyboards okay so you know because I
+
+269
+00:12:32,459 --> 00:12:37,260
+have a huge website so keyboard
+
+270
+00:12:34,380 --> 00:12:39,360
+ergonomics Mouse you know what's uh
+
+271
+00:12:37,260 --> 00:12:42,180
+what's the deal with them which one is
+
+272
+00:12:39,360 --> 00:12:44,220
+better ergonomics you know what to do
+
+273
+00:12:42,180 --> 00:12:45,420
+when you have hand pain you know lots of
+
+274
+00:12:44,220 --> 00:12:49,260
+us
+
+275
+00:12:45,420 --> 00:12:50,639
+um have hand pain so you know so I also
+
+276
+00:12:49,260 --> 00:12:53,180
+have a lot of people who are into
+
+277
+00:12:50,639 --> 00:12:56,519
+keyboard they are not really programmers
+
+278
+00:12:53,180 --> 00:13:00,000
+so my audience is pretty diverse and
+
+279
+00:12:56,519 --> 00:13:05,279
+they are all over the Earth some are in
+
+280
+00:13:00,000 --> 00:13:09,540
+Europe in Africa Canadian China you know
+
+281
+00:13:05,279 --> 00:13:11,519
+uh so anyway so I so I hope that
+
+282
+00:13:09,540 --> 00:13:13,620
+answered the question all these website
+
+283
+00:13:11,519 --> 00:13:16,380
+toy uh
+
+284
+00:13:13,620 --> 00:13:18,899
+toy problems okay so
+
+285
+00:13:16,380 --> 00:13:21,240
+oh yeah let me mention so besides all
+
+286
+00:13:18,899 --> 00:13:24,839
+these websites of toy problems I myself
+
+287
+00:13:21,240 --> 00:13:27,720
+did a lot because when you are very
+
+288
+00:13:24,839 --> 00:13:30,000
+interested in programming such as me and
+
+289
+00:13:27,720 --> 00:13:33,420
+many of you you know you are obsessive
+
+290
+00:13:30,000 --> 00:13:36,060
+you want to especially the beginning few
+
+291
+00:13:33,420 --> 00:13:38,459
+years you know you are trying to you
+
+292
+00:13:36,060 --> 00:13:40,320
+know what's the best way to given at
+
+293
+00:13:38,459 --> 00:13:42,480
+least let's say you want to partition
+
+294
+00:13:40,320 --> 00:13:45,420
+into a sub list you know what's the best
+
+295
+00:13:42,480 --> 00:13:48,240
+way to do it in in whatever language in
+
+296
+00:13:45,420 --> 00:13:50,639
+python or JavaScript or Wolfram language
+
+297
+00:13:48,240 --> 00:13:52,920
+colon you know you do that a lot you
+
+298
+00:13:50,639 --> 00:13:56,940
+know there are forums even 20 years ago
+
+299
+00:13:52,920 --> 00:13:59,700
+30 years ago news groups so for example
+
+300
+00:13:56,940 --> 00:14:02,639
+in the 1990s I was doing these kind of
+
+301
+00:13:59,700 --> 00:14:04,800
+problems all day and every day with
+
+302
+00:14:02,639 --> 00:14:06,899
+Wolfram language you know what's the
+
+303
+00:14:04,800 --> 00:14:10,079
+most elegant way you know sometimes
+
+304
+00:14:06,899 --> 00:14:12,660
+people you post a snippet you know how
+
+305
+00:14:10,079 --> 00:14:14,519
+can I improve this to be you know there
+
+306
+00:14:12,660 --> 00:14:16,980
+are many judgments okay let me talk
+
+307
+00:14:14,519 --> 00:14:19,620
+about Judgment of the code
+
+308
+00:14:16,980 --> 00:14:22,079
+there are many criterias to judge a
+
+309
+00:14:19,620 --> 00:14:23,279
+piece of code for example here is a
+
+310
+00:14:22,079 --> 00:14:25,800
+solution
+
+311
+00:14:23,279 --> 00:14:29,339
+to yesterday's Advent of code problem
+
+312
+00:14:25,800 --> 00:14:32,519
+number two day two the first problem
+
+313
+00:14:29,339 --> 00:14:35,040
+okay you know so it looks like that
+
+314
+00:14:32,519 --> 00:14:37,380
+uh but how do you judge for for example
+
+315
+00:14:35,040 --> 00:14:40,980
+in your programming competition you know
+
+316
+00:14:37,380 --> 00:14:43,920
+so there are uh I'll just simplified
+
+317
+00:14:40,980 --> 00:14:46,560
+there are two primary criteria to judge
+
+318
+00:14:43,920 --> 00:14:51,959
+a piece of code doesn't matter what
+
+319
+00:14:46,560 --> 00:14:57,360
+language it is one is speed okay or
+
+320
+00:14:51,959 --> 00:15:00,839
+efficiency algorithmic efficiency so
+
+321
+00:14:57,360 --> 00:15:03,260
+given a solution in one specific
+
+322
+00:15:00,839 --> 00:15:03,260
+language
+
+323
+00:15:04,620 --> 00:15:10,740
+you want to come out with a code that's
+
+324
+00:15:07,139 --> 00:15:13,800
+fast the most fast the fastest than them
+
+325
+00:15:10,740 --> 00:15:15,899
+all given the input is a million a
+
+326
+00:15:13,800 --> 00:15:17,820
+billion you know you know usually your
+
+327
+00:15:15,899 --> 00:15:21,480
+billion is too large but usually you
+
+328
+00:15:17,820 --> 00:15:23,279
+know 10 input length is 10 or 100 or a
+
+329
+00:15:21,480 --> 00:15:26,579
+thousand your code
+
+330
+00:15:23,279 --> 00:15:29,100
+if if fast you know speed okay speed
+
+331
+00:15:26,579 --> 00:15:31,440
+also usually include algorithmic
+
+332
+00:15:29,100 --> 00:15:34,160
+complexity you know the computer science
+
+333
+00:15:31,440 --> 00:15:34,160
+jargon
+
+334
+00:15:35,100 --> 00:15:41,000
+algorithmic complexity that measures
+
+335
+00:15:37,860 --> 00:15:43,500
+that measures the growth rate
+
+336
+00:15:41,000 --> 00:15:45,720
+uh well anyway we're getting into
+
+337
+00:15:43,500 --> 00:15:48,120
+another topic so this algorithmic
+
+338
+00:15:45,720 --> 00:15:52,620
+complexity which measures memory
+
+339
+00:15:48,120 --> 00:15:54,720
+consumption and also the number of steps
+
+340
+00:15:52,620 --> 00:15:57,540
+your code is doing
+
+341
+00:15:54,720 --> 00:16:00,540
+it measures the proportion of those
+
+342
+00:15:57,540 --> 00:16:03,540
+things with respect to the input size
+
+343
+00:16:00,540 --> 00:16:06,199
+the ratio so when the input size grows
+
+344
+00:16:03,540 --> 00:16:08,699
+it it it it it
+
+345
+00:16:06,199 --> 00:16:11,820
+measures how much your memory
+
+346
+00:16:08,699 --> 00:16:15,600
+consumption grow and all your number of
+
+347
+00:16:11,820 --> 00:16:18,540
+instructions grow so if the memory if
+
+348
+00:16:15,600 --> 00:16:20,459
+the input size grows linearly
+
+349
+00:16:18,540 --> 00:16:22,380
+but your memory consumption goes
+
+350
+00:16:20,459 --> 00:16:25,079
+exponentially
+
+351
+00:16:22,380 --> 00:16:27,959
+that means your algorithmic complexity
+
+352
+00:16:25,079 --> 00:16:30,720
+of your solution is very bad it's it's
+
+353
+00:16:27,959 --> 00:16:34,139
+it's very bad okay depending on the
+
+354
+00:16:30,720 --> 00:16:37,199
+problem but anyway so one criteria to
+
+355
+00:16:34,139 --> 00:16:39,839
+judge which code is better is the
+
+356
+00:16:37,199 --> 00:16:42,959
+is this is this
+
+357
+00:16:39,839 --> 00:16:46,079
+you can simplify the algorithm complete
+
+358
+00:16:42,959 --> 00:16:47,820
+the complexity let's just say speed is
+
+359
+00:16:46,079 --> 00:16:50,940
+just to measure the speed of the code
+
+360
+00:16:47,820 --> 00:16:54,300
+okay you have to try different input
+
+361
+00:16:50,940 --> 00:16:57,180
+size okay so if you know so let's see
+
+362
+00:16:54,300 --> 00:17:00,300
+whose code is the fastest when the input
+
+363
+00:16:57,180 --> 00:17:04,439
+is huge okay that's one thing
+
+364
+00:17:00,300 --> 00:17:08,339
+the other criteria is to judge a piece
+
+365
+00:17:04,439 --> 00:17:10,040
+of code is the Elegance of the code or
+
+366
+00:17:08,339 --> 00:17:15,059
+uh
+
+367
+00:17:10,040 --> 00:17:17,459
+gravity okay so in other words a a rough
+
+368
+00:17:15,059 --> 00:17:20,160
+measure is how many characters how many
+
+369
+00:17:17,459 --> 00:17:22,799
+characters does your code contain in
+
+370
+00:17:20,160 --> 00:17:25,799
+comparison to the another solution of
+
+371
+00:17:22,799 --> 00:17:27,240
+the same language okay important it must
+
+372
+00:17:25,799 --> 00:17:29,040
+be the same language because different
+
+373
+00:17:27,240 --> 00:17:32,460
+language
+
+374
+00:17:29,040 --> 00:17:35,640
+the brevity is different Okay so
+
+375
+00:17:32,460 --> 00:17:39,120
+to summarize how do you judge a quality
+
+376
+00:17:35,640 --> 00:17:41,340
+of a piece of code one efficiency or
+
+377
+00:17:39,120 --> 00:17:44,820
+speed you know there are many technical
+
+378
+00:17:41,340 --> 00:17:47,760
+details or algorithmic complexity but in
+
+379
+00:17:44,820 --> 00:17:50,520
+summary let's just say efficiency and
+
+380
+00:17:47,760 --> 00:17:53,900
+speed that's one criteria the other
+
+381
+00:17:50,520 --> 00:17:57,960
+criteria is the Elegance of your code or
+
+382
+00:17:53,900 --> 00:18:00,539
+brevity of your code which may also
+
+383
+00:17:57,960 --> 00:18:02,280
+include readability
+
+384
+00:18:00,539 --> 00:18:05,400
+anyway we're getting complex because
+
+385
+00:18:02,280 --> 00:18:07,500
+because readability is not necessarily
+
+386
+00:18:05,400 --> 00:18:11,039
+uh
+
+387
+00:18:07,500 --> 00:18:12,559
+braverty because for example you have
+
+388
+00:18:11,039 --> 00:18:14,299
+UPS
+
+389
+00:18:12,559 --> 00:18:16,679
+absticated
+
+390
+00:18:14,299 --> 00:18:20,460
+obfuscated competition
+
+391
+00:18:16,679 --> 00:18:22,679
+or programming golf programming golf is
+
+392
+00:18:20,460 --> 00:18:25,440
+a competition where you can write the
+
+393
+00:18:22,679 --> 00:18:27,840
+shortest program to solve a problem
+
+394
+00:18:25,440 --> 00:18:30,179
+shorties means the major the count of
+
+395
+00:18:27,840 --> 00:18:33,120
+number of characters
+
+396
+00:18:30,179 --> 00:18:36,500
+so for example this this one if we do
+
+397
+00:18:33,120 --> 00:18:36,500
+num a count of characters
+
+398
+00:18:37,020 --> 00:18:43,620
+okay 199 characters
+
+399
+00:18:41,160 --> 00:18:45,600
+but then we can shorten the variable
+
+400
+00:18:43,620 --> 00:18:48,539
+names you know for example this function
+
+401
+00:18:45,600 --> 00:18:50,460
+I named it you know 20 characters let's
+
+402
+00:18:48,539 --> 00:18:52,679
+change it to one here so there's a lot
+
+403
+00:18:50,460 --> 00:18:56,820
+issues details but
+
+404
+00:18:52,679 --> 00:19:00,360
+basically again efficiency speed
+
+405
+00:18:56,820 --> 00:19:03,660
+brevity of the code and readability and
+
+406
+00:19:00,360 --> 00:19:06,900
+also Elegance that's basically the how
+
+407
+00:19:03,660 --> 00:19:10,200
+do you judge the criteria to judge you
+
+408
+00:19:06,900 --> 00:19:12,539
+know a piece of code solution okay
+
+409
+00:19:10,200 --> 00:19:16,860
+so you want to all these These are
+
+410
+00:19:12,539 --> 00:19:18,419
+important issues as a as a learned as a
+
+411
+00:19:16,860 --> 00:19:21,419
+you know student of a programming
+
+412
+00:19:18,419 --> 00:19:24,360
+language you want to
+
+413
+00:19:21,419 --> 00:19:29,160
+Master the language so you can so you
+
+414
+00:19:24,360 --> 00:19:33,600
+know which construct is is uh what is
+
+415
+00:19:29,160 --> 00:19:36,600
+its level of efficiency and uh
+
+416
+00:19:33,600 --> 00:19:38,520
+and uh you know and how to write the
+
+417
+00:19:36,600 --> 00:19:39,900
+same thing in a shorter way and more
+
+418
+00:19:38,520 --> 00:19:43,080
+readable so
+
+419
+00:19:39,900 --> 00:19:45,539
+the but efficiency and speed is the most
+
+420
+00:19:43,080 --> 00:19:46,500
+important efficiency okay efficiency of
+
+421
+00:19:45,539 --> 00:19:48,600
+the code
+
+422
+00:19:46,500 --> 00:19:50,940
+Okay so
+
+423
+00:19:48,600 --> 00:19:51,780
+So Yesterday here is the solution so
+
+424
+00:19:50,940 --> 00:19:52,799
+let's
+
+425
+00:19:51,780 --> 00:19:56,160
+um
+
+426
+00:19:52,799 --> 00:19:58,260
+so I'm starting to talk on and on so I
+
+427
+00:19:56,160 --> 00:20:00,780
+hope this video do not end like
+
+428
+00:19:58,260 --> 00:20:04,559
+yesterday two hours in 40 minutes okay
+
+429
+00:20:00,780 --> 00:20:07,320
+so let's let's start to uh solve this
+
+430
+00:20:04,559 --> 00:20:09,780
+problem anyway I'm gonna just be relaxed
+
+431
+00:20:07,320 --> 00:20:12,780
+so if you are watching this offline you
+
+432
+00:20:09,780 --> 00:20:15,620
+can you know Skip around or it's
+
+433
+00:20:12,780 --> 00:20:21,260
+probably boring or
+
+434
+00:20:15,620 --> 00:20:21,260
+make it play at speed 1.5 or something
+
+435
+00:20:21,360 --> 00:20:27,000
+ah
+
+436
+00:20:23,220 --> 00:20:30,059
+okay so you know you young people there
+
+437
+00:20:27,000 --> 00:20:32,520
+are many false beliefs because you you
+
+438
+00:20:30,059 --> 00:20:35,460
+guys read too much [ __ ] you know today
+
+439
+00:20:32,520 --> 00:20:37,140
+especially today uh online you know
+
+440
+00:20:35,460 --> 00:20:39,299
+Reddit how can you see it's all
+
+441
+00:20:37,140 --> 00:20:41,580
+bullshits so first of all I would
+
+442
+00:20:39,299 --> 00:20:43,559
+recommend you guys stop reading any of
+
+443
+00:20:41,580 --> 00:20:45,120
+those 4chan
+
+444
+00:20:43,559 --> 00:20:49,500
+read it
+
+445
+00:20:45,120 --> 00:20:51,840
+Hacker News or almost any other stop
+
+446
+00:20:49,500 --> 00:20:53,760
+reading them okay
+
+447
+00:20:51,840 --> 00:20:55,860
+you can do it you know you know stop
+
+448
+00:20:53,760 --> 00:20:58,140
+reading them that's what I say because
+
+449
+00:20:55,860 --> 00:21:00,660
+you guys many of the young people say
+
+450
+00:20:58,140 --> 00:21:03,539
+full of idiotic you know wrong
+
+451
+00:21:00,660 --> 00:21:05,340
+information so here's a question this I
+
+452
+00:21:03,539 --> 00:21:07,740
+thought lead code is good if you want to
+
+453
+00:21:05,340 --> 00:21:10,200
+get a job no that's what the guy is
+
+454
+00:21:07,740 --> 00:21:13,140
+trying to sell you know because
+
+455
+00:21:10,200 --> 00:21:16,080
+programming you know to get a job is
+
+456
+00:21:13,140 --> 00:21:18,240
+basically essentially the goal for just
+
+457
+00:21:16,080 --> 00:21:20,039
+about everyone when you are young when
+
+458
+00:21:18,240 --> 00:21:21,600
+you are a student you know when you are
+
+459
+00:21:20,039 --> 00:21:24,840
+you know
+
+460
+00:21:21,600 --> 00:21:27,120
+so lead code will advertise themselves
+
+461
+00:21:24,840 --> 00:21:30,960
+oh if you do this you're gonna get job
+
+462
+00:21:27,120 --> 00:21:33,679
+no okay you do lead code you never get a
+
+463
+00:21:30,960 --> 00:21:33,679
+job okay
+
+464
+00:21:33,900 --> 00:21:36,080
+foreign
+
+465
+00:21:38,900 --> 00:21:45,840
+so so let me put uh something positive
+
+466
+00:21:42,720 --> 00:21:47,039
+so how do you get a job Master a
+
+467
+00:21:45,840 --> 00:21:49,320
+language
+
+468
+00:21:47,039 --> 00:21:53,220
+you know you know this programming
+
+469
+00:21:49,320 --> 00:21:56,280
+problem story problems are very fun and
+
+470
+00:21:53,220 --> 00:21:58,620
+uh communal so like right now what I'm
+
+471
+00:21:56,280 --> 00:22:00,960
+doing you know I can talk to you guys
+
+472
+00:21:58,620 --> 00:22:03,840
+it's very it's fun you know we can
+
+473
+00:22:00,960 --> 00:22:06,720
+explore and chat but that's not how you
+
+474
+00:22:03,840 --> 00:22:08,700
+get a job okay it it does help you learn
+
+475
+00:22:06,720 --> 00:22:11,400
+a programming language but if you really
+
+476
+00:22:08,700 --> 00:22:13,559
+want to get a job I recommend once you
+
+477
+00:22:11,400 --> 00:22:17,880
+know the basics of a language
+
+478
+00:22:13,559 --> 00:22:19,620
+create a website create your own project
+
+479
+00:22:17,880 --> 00:22:21,419
+okay
+
+480
+00:22:19,620 --> 00:22:23,340
+you know I don't know what project you
+
+481
+00:22:21,419 --> 00:22:25,559
+know there are so many you know many of
+
+482
+00:22:23,340 --> 00:22:28,440
+you into games or writing a game engine
+
+483
+00:22:25,559 --> 00:22:31,740
+learn how to program a game some of you
+
+484
+00:22:28,440 --> 00:22:34,080
+into cyber security which is not about
+
+485
+00:22:31,740 --> 00:22:37,080
+programming but about lots of knowledge
+
+486
+00:22:34,080 --> 00:22:39,480
+and admin stuff you know some of you are
+
+487
+00:22:37,080 --> 00:22:41,760
+into Network networking that's another
+
+488
+00:22:39,480 --> 00:22:44,880
+giant topic you know
+
+489
+00:22:41,760 --> 00:22:46,980
+uh so there are many ways to go but I
+
+490
+00:22:44,880 --> 00:22:48,360
+recommend once you know the basics of
+
+491
+00:22:46,980 --> 00:22:51,539
+the language
+
+492
+00:22:48,360 --> 00:22:55,260
+focus on one language okay one that if
+
+493
+00:22:51,539 --> 00:22:57,539
+you want a job if your goal is to start
+
+494
+00:22:55,260 --> 00:23:00,000
+a career okay for you young people there
+
+495
+00:22:57,539 --> 00:23:02,460
+if your goal is to begin you know you
+
+496
+00:23:00,000 --> 00:23:05,280
+want to get a job so you can stay
+
+497
+00:23:02,460 --> 00:23:07,020
+comfort and like me you know who's been
+
+498
+00:23:05,280 --> 00:23:10,679
+very bad
+
+499
+00:23:07,020 --> 00:23:13,559
+so uh so you want to get a job so you
+
+500
+00:23:10,679 --> 00:23:17,100
+learn the basics of the language once
+
+501
+00:23:13,559 --> 00:23:20,400
+you know it you start a project big or
+
+502
+00:23:17,100 --> 00:23:24,240
+small you know a project of your own you
+
+503
+00:23:20,400 --> 00:23:27,600
+know then Focus publish that project
+
+504
+00:23:24,240 --> 00:23:31,200
+make it polished make it useful try to
+
+505
+00:23:27,600 --> 00:23:33,720
+try to uh you know the the more useful
+
+506
+00:23:31,200 --> 00:23:36,539
+to other people the better okay some
+
+507
+00:23:33,720 --> 00:23:40,860
+like Facebook for example Zuckerberg
+
+508
+00:23:36,539 --> 00:23:44,220
+which is a scam a human scum okay but he
+
+509
+00:23:40,860 --> 00:23:46,620
+but he you know when he's young he
+
+510
+00:23:44,220 --> 00:23:48,659
+created a project and that now becomes
+
+511
+00:23:46,620 --> 00:23:50,820
+the you know one of the richest people
+
+512
+00:23:48,659 --> 00:23:53,880
+in the world so do something like that
+
+513
+00:23:50,820 --> 00:23:56,480
+you can you can try to do that
+
+514
+00:23:53,880 --> 00:23:59,220
+create your own project okay
+
+515
+00:23:56,480 --> 00:24:01,500
+not forever you know in these
+
+516
+00:23:59,220 --> 00:24:03,720
+programming games or competitions so you
+
+517
+00:24:01,500 --> 00:24:06,179
+can prove to other things that oh I
+
+518
+00:24:03,720 --> 00:24:08,460
+served more problems than you that's
+
+519
+00:24:06,179 --> 00:24:11,940
+idiotic okay let's do some project
+
+520
+00:24:08,460 --> 00:24:14,400
+that's useful uh
+
+521
+00:24:11,940 --> 00:24:16,799
+and your own that's also important you
+
+522
+00:24:14,400 --> 00:24:19,700
+know you do this event of code that's
+
+523
+00:24:16,799 --> 00:24:23,700
+you are contributing for someone else
+
+524
+00:24:19,700 --> 00:24:26,520
+success now I by the way I respect this
+
+525
+00:24:23,700 --> 00:24:29,640
+guy you know the vendor code you know uh
+
+526
+00:24:26,520 --> 00:24:31,380
+he's a apparently a Christian and he you
+
+527
+00:24:29,640 --> 00:24:34,020
+know I respect the guy very good okay
+
+528
+00:24:31,380 --> 00:24:34,740
+but what I'm saying is that once you
+
+529
+00:24:34,020 --> 00:24:37,640
+know
+
+530
+00:24:34,740 --> 00:24:40,080
+the programming language you want to
+
+531
+00:24:37,640 --> 00:24:43,500
+start your own project
+
+532
+00:24:40,080 --> 00:24:46,140
+and the real life code that's that's the
+
+533
+00:24:43,500 --> 00:24:47,940
+difference okay some some of you asked
+
+534
+00:24:46,140 --> 00:24:51,419
+what's the difference you know are these
+
+535
+00:24:47,940 --> 00:24:54,200
+represent real life code no not at all
+
+536
+00:24:51,419 --> 00:24:56,880
+okay so but once you start a project
+
+537
+00:24:54,200 --> 00:25:00,539
+that becomes real life
+
+538
+00:24:56,880 --> 00:25:03,960
+uh code you you started to learn lots of
+
+539
+00:25:00,539 --> 00:25:06,480
+things that that's not fun okay this
+
+540
+00:25:03,960 --> 00:25:08,520
+programming exercise lead code event of
+
+541
+00:25:06,480 --> 00:25:11,159
+code project ruler that's kind of fun
+
+542
+00:25:08,520 --> 00:25:13,980
+and toei that's why they are you know
+
+543
+00:25:11,159 --> 00:25:15,659
+fun but once you start to do a real life
+
+544
+00:25:13,980 --> 00:25:18,299
+project you have to learn database
+
+545
+00:25:15,659 --> 00:25:19,919
+different protocols different you know
+
+546
+00:25:18,299 --> 00:25:23,400
+you have to read tons of document
+
+547
+00:25:19,919 --> 00:25:25,440
+documentation some of them doesn't exist
+
+548
+00:25:23,400 --> 00:25:27,900
+you know so
+
+549
+00:25:25,440 --> 00:25:30,419
+um that's real life coding okay
+
+550
+00:25:27,900 --> 00:25:33,179
+real life coding is almost almost
+
+551
+00:25:30,419 --> 00:25:36,600
+basically never like this lead code or
+
+552
+00:25:33,179 --> 00:25:38,640
+whatever okay never like it
+
+553
+00:25:36,600 --> 00:25:41,940
+and what about interview okay yeah
+
+554
+00:25:38,640 --> 00:25:45,419
+interview you know they they sometimes
+
+555
+00:25:41,940 --> 00:25:47,640
+show these toy problems but
+
+556
+00:25:45,419 --> 00:25:49,679
+but if you have real life coding
+
+557
+00:25:47,640 --> 00:25:53,279
+experience the all these story problems
+
+558
+00:25:49,679 --> 00:25:55,799
+become stories to you okay so don't
+
+559
+00:25:53,279 --> 00:25:58,559
+don't just like oh I'm going a master
+
+560
+00:25:55,799 --> 00:26:01,380
+lead code and so I can get a job I can
+
+561
+00:25:58,559 --> 00:26:04,919
+pass interview no you're gonna fail
+
+562
+00:26:01,380 --> 00:26:07,320
+okay you want to pass interviews
+
+563
+00:26:04,919 --> 00:26:10,620
+there's no easy way just like losing
+
+564
+00:26:07,320 --> 00:26:13,260
+weight okay you you want past interviews
+
+565
+00:26:10,620 --> 00:26:16,020
+Master language to a real life project
+
+566
+00:26:13,260 --> 00:26:18,779
+of your own put it on GitHub or whatever
+
+567
+00:26:16,020 --> 00:26:21,539
+and make it you know
+
+568
+00:26:18,779 --> 00:26:25,100
+satisfy your need some people other
+
+569
+00:26:21,539 --> 00:26:25,100
+people need you know do that
+
+570
+00:26:39,600 --> 00:26:42,260
+foreign
+
+571
+00:26:46,799 --> 00:26:52,140
+so we just random chatted for almost an
+
+572
+00:26:49,620 --> 00:26:55,140
+hour so let's let's start to do coding
+
+573
+00:26:52,140 --> 00:26:58,860
+then okay so let's yesterday rock paper
+
+574
+00:26:55,140 --> 00:27:02,159
+scissors so I need to okay let me just
+
+575
+00:26:58,860 --> 00:27:06,419
+you know take my time and do it
+
+576
+00:27:02,159 --> 00:27:10,260
+so we already did 30 minutes okay so
+
+577
+00:27:06,419 --> 00:27:15,600
+yesterday the problem is Rock scissor
+
+578
+00:27:10,260 --> 00:27:19,380
+paper a twisted with a Twist A variation
+
+579
+00:27:15,600 --> 00:27:22,140
+of it okay so I solved it by using
+
+580
+00:27:19,380 --> 00:27:23,460
+modular arithmetics oh let me mention
+
+581
+00:27:22,140 --> 00:27:26,039
+one more thing
+
+582
+00:27:23,460 --> 00:27:29,460
+so as far as programming problem goes
+
+583
+00:27:26,039 --> 00:27:32,460
+like I said in the 90s I did tons of
+
+584
+00:27:29,460 --> 00:27:35,880
+them every day you know just trying to
+
+585
+00:27:32,460 --> 00:27:38,220
+come up solutions for uh this list
+
+586
+00:27:35,880 --> 00:27:40,980
+manipulation and things like that for
+
+587
+00:27:38,220 --> 00:27:44,520
+example and I have so so I have written
+
+588
+00:27:40,980 --> 00:27:47,340
+quite a lot about 10 10 not not many 10
+
+589
+00:27:44,520 --> 00:27:48,419
+or 20 programming exercises on my
+
+590
+00:27:47,340 --> 00:27:50,700
+website
+
+591
+00:27:48,419 --> 00:27:53,279
+so here's one of them very interesting
+
+592
+00:27:50,700 --> 00:27:57,539
+programming problem construct a tree
+
+593
+00:27:53,279 --> 00:27:59,580
+given its edges you know this is written
+
+594
+00:27:57,539 --> 00:28:02,039
+in 2014
+
+595
+00:27:59,580 --> 00:28:04,980
+when I was dying of hunger I don't know
+
+596
+00:28:02,039 --> 00:28:07,559
+what I was you know doing I was
+
+597
+00:28:04,980 --> 00:28:12,000
+like many of you you guys you you know
+
+598
+00:28:07,559 --> 00:28:14,520
+you might say it's a mental problem so
+
+599
+00:28:12,000 --> 00:28:16,679
+I know programming very well I know
+
+600
+00:28:14,520 --> 00:28:19,980
+mathematics I'm bright you know I can't
+
+601
+00:28:16,679 --> 00:28:23,279
+do the problem but I do I failed in life
+
+602
+00:28:19,980 --> 00:28:25,740
+in some sense okay so this is a problem
+
+603
+00:28:23,279 --> 00:28:28,080
+given to me at Google
+
+604
+00:28:25,740 --> 00:28:30,240
+I was trying to do interview and I did
+
+605
+00:28:28,080 --> 00:28:31,919
+miserable but
+
+606
+00:28:30,240 --> 00:28:33,659
+um anyway I'm now going to go into
+
+607
+00:28:31,919 --> 00:28:38,159
+details because
+
+608
+00:28:33,659 --> 00:28:39,659
+it's a [ __ ] very shitty interview
+
+609
+00:28:38,159 --> 00:28:42,539
+um and the guy
+
+610
+00:28:39,659 --> 00:28:45,960
+don't know what he's uh doing
+
+611
+00:28:42,539 --> 00:28:47,640
+um very bad very bad experience in my
+
+612
+00:28:45,960 --> 00:28:51,900
+personal life
+
+613
+00:28:47,640 --> 00:28:54,600
+but in any case I document documented
+
+614
+00:28:51,900 --> 00:28:57,140
+you know this problem and I wrote a
+
+615
+00:28:54,600 --> 00:29:03,240
+solution after the interview you know
+
+616
+00:28:57,140 --> 00:29:05,760
+and uh so and I put and then I asked
+
+617
+00:29:03,240 --> 00:29:08,880
+people other people to come up with
+
+618
+00:29:05,760 --> 00:29:12,000
+Solutions so here is my solution which
+
+619
+00:29:08,880 --> 00:29:16,140
+is one of the most efficient okay
+
+620
+00:29:12,000 --> 00:29:19,440
+one of the most efficient okay this
+
+621
+00:29:16,140 --> 00:29:23,100
+Google interview problem
+
+622
+00:29:19,440 --> 00:29:25,320
+uh and then but there are they are
+
+623
+00:29:23,100 --> 00:29:28,140
+always always better programmers than
+
+624
+00:29:25,320 --> 00:29:30,840
+you just like in everything else okay so
+
+625
+00:29:28,140 --> 00:29:32,279
+there's a guy who created a python
+
+626
+00:29:30,840 --> 00:29:34,620
+solution
+
+627
+00:29:32,279 --> 00:29:37,679
+uh this guy
+
+628
+00:29:34,620 --> 00:29:39,720
+Ting you Ling okay a Chinese guy he
+
+629
+00:29:37,679 --> 00:29:41,399
+created a python Solution that's more
+
+630
+00:29:39,720 --> 00:29:45,000
+efficient than mine
+
+631
+00:29:41,399 --> 00:29:48,059
+and shorter than my too and more
+
+632
+00:29:45,000 --> 00:29:51,240
+readable than my you know my Approach is
+
+633
+00:29:48,059 --> 00:29:54,539
+top down approach and I actually I spent
+
+634
+00:29:51,240 --> 00:29:57,240
+five years five hours to
+
+635
+00:29:54,539 --> 00:29:59,820
+to write this code five hours after the
+
+636
+00:29:57,240 --> 00:30:01,500
+interview I failed I failed the
+
+637
+00:29:59,820 --> 00:30:03,539
+interview but after that
+
+638
+00:30:01,500 --> 00:30:06,740
+I've spent five hours
+
+639
+00:30:03,539 --> 00:30:10,380
+took me five hours to create a solution
+
+640
+00:30:06,740 --> 00:30:11,640
+but then someone else this guy he has a
+
+641
+00:30:10,380 --> 00:30:14,220
+solution
+
+642
+00:30:11,640 --> 00:30:17,399
+that's faster than mine
+
+643
+00:30:14,220 --> 00:30:19,380
+simpler to understand
+
+644
+00:30:17,399 --> 00:30:23,880
+better algorithm
+
+645
+00:30:19,380 --> 00:30:25,740
+okay and shorter so fantastic okay by
+
+646
+00:30:23,880 --> 00:30:27,840
+Ting Yu Lin
+
+647
+00:30:25,740 --> 00:30:29,820
+then there are other bunch of other
+
+648
+00:30:27,840 --> 00:30:32,279
+Solutions you know that's typically
+
+649
+00:30:29,820 --> 00:30:36,000
+online they don't know what they are
+
+650
+00:30:32,279 --> 00:30:39,059
+doing they are far more like a magnitude
+
+651
+00:30:36,000 --> 00:30:42,480
+inefficient you know if you give it the
+
+652
+00:30:39,059 --> 00:30:44,399
+input is 1000 length then they they took
+
+653
+00:30:42,480 --> 00:30:47,520
+an hours and things like that you know
+
+654
+00:30:44,399 --> 00:30:50,460
+so lots of other Solutions Solution by
+
+655
+00:30:47,520 --> 00:30:53,520
+Young uh you know
+
+656
+00:30:50,460 --> 00:30:57,059
+um timing comparison and solution in
+
+657
+00:30:53,520 --> 00:30:59,220
+emac this that's fun you know then
+
+658
+00:30:57,059 --> 00:31:02,580
+um solution enclosure list
+
+659
+00:30:59,220 --> 00:31:06,000
+solution in Shen this Shane lisp is one
+
+660
+00:31:02,580 --> 00:31:09,000
+of the you know Advanced lisp created by
+
+661
+00:31:06,000 --> 00:31:12,179
+this smart Tower a very strange guy
+
+662
+00:31:09,000 --> 00:31:16,080
+the solution in uh you know it was a
+
+663
+00:31:12,179 --> 00:31:19,799
+News Group uh comp.land.lisp
+
+664
+00:31:16,080 --> 00:31:23,520
+about seven years ago okay and in fact
+
+665
+00:31:19,799 --> 00:31:25,559
+the problems about tree construction you
+
+666
+00:31:23,520 --> 00:31:29,039
+know I have actually that's one of the
+
+667
+00:31:25,559 --> 00:31:32,460
+things I'm uh expert of so I did a lot
+
+668
+00:31:29,039 --> 00:31:36,179
+of that tree Construction
+
+669
+00:31:32,460 --> 00:31:38,460
+uh anyway so that's one one of the My
+
+670
+00:31:36,179 --> 00:31:40,760
+article about programming toy problems
+
+671
+00:31:38,460 --> 00:31:40,760
+okay
+
+672
+00:31:41,220 --> 00:31:45,860
+so let's go back to
+
+673
+00:31:43,860 --> 00:31:45,860
+um
+
+674
+00:31:48,240 --> 00:31:55,440
+yeah sure you can uh submit new
+
+675
+00:31:52,020 --> 00:31:58,559
+Solutions you know usually I have a lot
+
+676
+00:31:55,440 --> 00:32:01,799
+to do though so if you submit
+
+677
+00:31:58,559 --> 00:32:03,480
+I'll probably look into it but I got so
+
+678
+00:32:01,799 --> 00:32:06,240
+many other things to do I should I
+
+679
+00:32:03,480 --> 00:32:09,419
+really shouldn't be doing this Advent of
+
+680
+00:32:06,240 --> 00:32:11,700
+code but since I started I thought you
+
+681
+00:32:09,419 --> 00:32:13,620
+know I should finish you know go all the
+
+682
+00:32:11,700 --> 00:32:16,380
+way
+
+683
+00:32:13,620 --> 00:32:18,179
+um because I do have a lot you know I
+
+684
+00:32:16,380 --> 00:32:20,880
+never liked programming exercises
+
+685
+00:32:18,179 --> 00:32:24,960
+because my opinion is that there are so
+
+686
+00:32:20,880 --> 00:32:29,279
+many so many home basically infinite
+
+687
+00:32:24,960 --> 00:32:33,299
+number of problems that are not solved
+
+688
+00:32:29,279 --> 00:32:36,720
+okay unsolved problems in programming in
+
+689
+00:32:33,299 --> 00:32:39,659
+humanity in mathematics so once you know
+
+690
+00:32:36,720 --> 00:32:42,299
+the language spend your time
+
+691
+00:32:39,659 --> 00:32:44,700
+to solve something that's not solved
+
+692
+00:32:42,299 --> 00:32:48,659
+okay not this programming toys you know
+
+693
+00:32:44,700 --> 00:32:51,840
+that's that's fun yeah but you know uh
+
+694
+00:32:48,659 --> 00:32:53,820
+for example on my website I have a huge
+
+695
+00:32:51,840 --> 00:32:57,080
+amount of things I need to do okay so
+
+696
+00:32:53,820 --> 00:32:57,080
+let me show you an example
+
+697
+00:32:57,960 --> 00:33:02,700
+uh
+
+698
+00:33:00,059 --> 00:33:06,419
+what is this project or the lead code
+
+699
+00:33:02,700 --> 00:33:09,419
+you know these young people's thing
+
+700
+00:33:06,419 --> 00:33:11,940
+so for example I what
+
+701
+00:33:09,419 --> 00:33:14,659
+what I want to do with wolfam language
+
+702
+00:33:11,940 --> 00:33:19,500
+is really to get back
+
+703
+00:33:14,659 --> 00:33:22,080
+into get back to mathematics okay so
+
+704
+00:33:19,500 --> 00:33:24,419
+these are the things I need to do many
+
+705
+00:33:22,080 --> 00:33:27,059
+of them are out of date I mean well not
+
+706
+00:33:24,419 --> 00:33:30,059
+really but it would be nice to upgrade
+
+707
+00:33:27,059 --> 00:33:33,000
+them you know I wrote this all these 20
+
+708
+00:33:30,059 --> 00:33:34,080
+years ago 20 years ago it was the most
+
+709
+00:33:33,000 --> 00:33:38,220
+popular
+
+710
+00:33:34,080 --> 00:33:42,620
+website for mathematics okay so 24 for
+
+711
+00:33:38,220 --> 00:33:47,220
+about 10 years from 1990 seven to
+
+712
+00:33:42,620 --> 00:33:49,620
+2007 so for about decade many of my my
+
+713
+00:33:47,220 --> 00:33:52,080
+math website is the most popular linked
+
+714
+00:33:49,620 --> 00:33:54,899
+by all universities over ten thousand
+
+715
+00:33:52,080 --> 00:33:56,159
+okay I have a I have a history of links
+
+716
+00:33:54,899 --> 00:34:01,260
+and so on
+
+717
+00:33:56,159 --> 00:34:02,940
+so remember this is this is
+
+718
+00:34:01,260 --> 00:34:06,059
+20 years ago
+
+719
+00:34:02,940 --> 00:34:08,820
+okay so you have animations it was in
+
+720
+00:34:06,059 --> 00:34:11,820
+QuickTime but QuickTime that format
+
+721
+00:34:08,820 --> 00:34:14,580
+became obsolete so I changed them to
+
+722
+00:34:11,820 --> 00:34:17,659
+give so this is very old but this is
+
+723
+00:34:14,580 --> 00:34:20,220
+done all these are done 20 years ago so
+
+724
+00:34:17,659 --> 00:34:23,040
+mathematics that's that's what I was
+
+725
+00:34:20,220 --> 00:34:24,780
+doing when I was young so
+
+726
+00:34:23,040 --> 00:34:27,780
+um
+
+727
+00:34:24,780 --> 00:34:30,359
+so I hope you do you know maybe uh it's
+
+728
+00:34:27,780 --> 00:34:32,520
+a good advice that you guys do something
+
+729
+00:34:30,359 --> 00:34:35,720
+similar you know something makes make
+
+730
+00:34:32,520 --> 00:34:40,139
+something this is uh you very useful
+
+731
+00:34:35,720 --> 00:34:42,000
+resource for students of math calculus
+
+732
+00:34:40,139 --> 00:34:46,800
+you know that's why it's linked by all
+
+733
+00:34:42,000 --> 00:34:46,800
+over by many University departments
+
+734
+00:34:47,280 --> 00:34:52,020
+Okay so
+
+735
+00:34:49,260 --> 00:34:54,659
+but but this is kind of old you see the
+
+736
+00:34:52,020 --> 00:34:57,060
+images are very small and the
+
+737
+00:34:54,659 --> 00:35:00,320
+Mathematica package is you know quite
+
+738
+00:34:57,060 --> 00:35:03,060
+outdated you know outdated by uh by
+
+739
+00:35:00,320 --> 00:35:08,280
+basically 20 years so what I really
+
+740
+00:35:03,060 --> 00:35:10,980
+might my passion my is is about geometry
+
+741
+00:35:08,280 --> 00:35:12,839
+visualization in mathematics okay so
+
+742
+00:35:10,980 --> 00:35:14,460
+that's what I really want to do you know
+
+743
+00:35:12,839 --> 00:35:16,020
+there are tens of
+
+744
+00:35:14,460 --> 00:35:22,020
+uh
+
+745
+00:35:16,020 --> 00:35:25,200
+Pages this is Rose curve of uh so
+
+746
+00:35:22,020 --> 00:35:28,740
+so that's what I want I need to work on
+
+747
+00:35:25,200 --> 00:35:30,839
+you know not not the Advent of code you
+
+748
+00:35:28,740 --> 00:35:32,520
+know another thing is I need to get you
+
+749
+00:35:30,839 --> 00:35:34,260
+know just like you guys I need to get
+
+750
+00:35:32,520 --> 00:35:36,420
+more focused you know different
+
+751
+00:35:34,260 --> 00:35:39,720
+personality
+
+752
+00:35:36,420 --> 00:35:42,180
+um I'm not a very focused guy so I go
+
+753
+00:35:39,720 --> 00:35:44,579
+over take over places
+
+754
+00:35:42,180 --> 00:35:46,680
+so anyway so you know yeah so let me
+
+755
+00:35:44,579 --> 00:35:48,780
+show you some of that so for example a
+
+756
+00:35:46,680 --> 00:35:51,420
+gallery of surfaces you know this is
+
+757
+00:35:48,780 --> 00:35:53,160
+differential geometry it'll take you a
+
+758
+00:35:51,420 --> 00:35:55,859
+few years to know about to understand
+
+759
+00:35:53,160 --> 00:35:58,260
+them differential geometry so
+
+760
+00:35:55,859 --> 00:36:00,480
+you know although I mostly do
+
+761
+00:35:58,260 --> 00:36:04,440
+programming on my YouTube
+
+762
+00:36:00,480 --> 00:36:06,480
+which I'm an expert and but compared to
+
+763
+00:36:04,440 --> 00:36:09,780
+mathematics programming is much more
+
+764
+00:36:06,480 --> 00:36:13,560
+easier okay mathematics it's not it's
+
+765
+00:36:09,780 --> 00:36:16,260
+not easy this this is also why you don't
+
+766
+00:36:13,560 --> 00:36:19,820
+see a lot of [ __ ] on math but you
+
+767
+00:36:16,260 --> 00:36:23,339
+see tons of [ __ ] on programming like
+
+768
+00:36:19,820 --> 00:36:26,940
+patterns or oop or object you know
+
+769
+00:36:23,339 --> 00:36:29,280
+oriented oh Azure or this this way let
+
+770
+00:36:26,940 --> 00:36:30,960
+that language or is this language better
+
+771
+00:36:29,280 --> 00:36:33,180
+just you know
+
+772
+00:36:30,960 --> 00:36:35,940
+tons of crap you know something
+
+773
+00:36:33,180 --> 00:36:39,920
+something injection by the Martin
+
+774
+00:36:35,940 --> 00:36:39,920
+something Martin Fowler
+
+775
+00:36:39,980 --> 00:36:46,079
+crackpot I consider him anything he says
+
+776
+00:36:43,800 --> 00:36:47,220
+is a crackpot you know it's [ __ ] you
+
+777
+00:36:46,079 --> 00:36:51,480
+know
+
+778
+00:36:47,220 --> 00:36:55,020
+you know the uh Martin Fowler in agile
+
+779
+00:36:51,480 --> 00:36:57,780
+and whatever you know in unit testing or
+
+780
+00:36:55,020 --> 00:36:58,800
+a new library in Python in JavaScript or
+
+781
+00:36:57,780 --> 00:37:01,500
+whatever
+
+782
+00:36:58,800 --> 00:37:03,300
+in programming is filled with with this
+
+783
+00:37:01,500 --> 00:37:05,220
+garbage okay
+
+784
+00:37:03,300 --> 00:37:07,859
+but not so
+
+785
+00:37:05,220 --> 00:37:10,380
+not so much in math because math is
+
+786
+00:37:07,859 --> 00:37:12,720
+difficult and very precise you can't
+
+787
+00:37:10,380 --> 00:37:15,180
+just [ __ ] you can't just push it
+
+788
+00:37:12,720 --> 00:37:17,700
+some methodology or new paradigm or
+
+789
+00:37:15,180 --> 00:37:21,540
+whatever you know there are some math
+
+790
+00:37:17,700 --> 00:37:24,119
+crack Parts but much less you know
+
+791
+00:37:21,540 --> 00:37:26,579
+um so this these are the things I'm
+
+792
+00:37:24,119 --> 00:37:28,380
+really passionate about that's what I
+
+793
+00:37:26,579 --> 00:37:31,800
+you know that I need to spend time
+
+794
+00:37:28,380 --> 00:37:34,260
+especially with wolf fam language uh you
+
+795
+00:37:31,800 --> 00:37:37,579
+know buffam language is very suitable
+
+796
+00:37:34,260 --> 00:37:37,579
+for doing these kind of things
+
+797
+00:37:39,180 --> 00:37:42,140
+um yeah so
+
+798
+00:37:44,040 --> 00:37:50,700
+so you know all that all that um
+
+799
+00:37:48,480 --> 00:37:53,640
+okay
+
+800
+00:37:50,700 --> 00:37:56,579
+I think we are starting to uh lose track
+
+801
+00:37:53,640 --> 00:37:58,820
+so let's talk about uh advanable code
+
+802
+00:37:56,579 --> 00:37:58,820
+then
+
+803
+00:37:59,520 --> 00:38:05,339
+um yeah um this so hopefully next 30
+
+804
+00:38:04,020 --> 00:38:08,760
+minutes
+
+805
+00:38:05,339 --> 00:38:12,660
+let's make some progress here so problem
+
+806
+00:38:08,760 --> 00:38:16,140
+number two so it's about rock paper
+
+807
+00:38:12,660 --> 00:38:19,560
+scissors and uh I'm using modular
+
+808
+00:38:16,140 --> 00:38:22,140
+arithmetics here is a solution
+
+809
+00:38:19,560 --> 00:38:25,500
+this is the main body of the solution
+
+810
+00:38:22,140 --> 00:38:27,359
+and I can make the whole thing one line
+
+811
+00:38:25,500 --> 00:38:31,160
+of course
+
+812
+00:38:27,359 --> 00:38:37,400
+that's a power of wolfam language
+
+813
+00:38:31,160 --> 00:38:37,400
+okay and there is a part two
+
+814
+00:38:37,920 --> 00:38:44,460
+so it says now that let's move this here
+
+815
+00:38:41,099 --> 00:38:47,000
+so you can see it says now that you've
+
+816
+00:38:44,460 --> 00:38:47,000
+correctly
+
+817
+00:38:47,220 --> 00:38:51,839
+no no
+
+818
+00:38:48,740 --> 00:38:54,960
+that you are correctly decrypting the
+
+819
+00:38:51,839 --> 00:39:00,200
+ultra top secret strategy guide
+
+820
+00:38:54,960 --> 00:39:00,200
+you would get a total score of 12 what
+
+821
+00:39:00,720 --> 00:39:05,820
+okay part two so
+
+822
+00:39:03,420 --> 00:39:08,040
+I'm just gonna take my time to read it
+
+823
+00:39:05,820 --> 00:39:10,680
+okay
+
+824
+00:39:08,040 --> 00:39:14,820
+part two the L finish is helping with
+
+825
+00:39:10,680 --> 00:39:18,060
+the tent and sneaks back over to you
+
+826
+00:39:14,820 --> 00:39:20,940
+elf says anyway the second column says
+
+827
+00:39:18,060 --> 00:39:22,440
+how the round needs to end X means you
+
+828
+00:39:20,940 --> 00:39:25,380
+need to lose
+
+829
+00:39:22,440 --> 00:39:26,280
+y means you need to end the round in a
+
+830
+00:39:25,380 --> 00:39:29,099
+draw
+
+831
+00:39:26,280 --> 00:39:32,040
+and X means you need to win good luck
+
+832
+00:39:29,099 --> 00:39:35,060
+okay so they change the meaning of x y z
+
+833
+00:39:32,040 --> 00:39:35,060
+let's see how
+
+834
+00:39:36,300 --> 00:39:39,500
+let's write it down okay
+
+835
+00:39:39,540 --> 00:39:45,960
+so maybe I'm starting to get boring so
+
+836
+00:39:43,440 --> 00:39:48,260
+you know you can skip around or uh
+
+837
+00:39:45,960 --> 00:39:48,260
+whatever
+
+838
+00:39:53,339 --> 00:40:00,720
+so X means you want to lose okay y means
+
+839
+00:39:58,380 --> 00:40:03,900
+you
+
+840
+00:40:00,720 --> 00:40:07,160
+they change the meaning
+
+841
+00:40:03,900 --> 00:40:07,160
+Z means
+
+842
+00:40:11,520 --> 00:40:14,520
+okay
+
+843
+00:40:16,260 --> 00:40:21,960
+the total score is still calculated in
+
+844
+00:40:19,260 --> 00:40:25,680
+the same way but now you need to figure
+
+845
+00:40:21,960 --> 00:40:29,119
+out what shape to choose so the round
+
+846
+00:40:25,680 --> 00:40:29,119
+ends as indicated
+
+847
+00:40:31,500 --> 00:40:36,780
+the total score still calculated the
+
+848
+00:40:33,780 --> 00:40:38,040
+same way okay so each line there are two
+
+849
+00:40:36,780 --> 00:40:42,359
+letters
+
+850
+00:40:38,040 --> 00:40:45,599
+okay the first letter is a or b or c
+
+851
+00:40:42,359 --> 00:40:49,260
+and that's the first player
+
+852
+00:40:45,599 --> 00:40:52,920
+the second letter is x y or Z
+
+853
+00:40:49,260 --> 00:40:54,359
+that's a second player okay and you are
+
+854
+00:40:52,920 --> 00:40:57,720
+the second player
+
+855
+00:40:54,359 --> 00:41:02,480
+so now it says
+
+856
+00:40:57,720 --> 00:41:02,480
+now it says X means lose
+
+857
+00:41:03,420 --> 00:41:11,540
+y means straw Z means win okay so each
+
+858
+00:41:07,920 --> 00:41:11,540
+line you have a score
+
+859
+00:41:14,579 --> 00:41:20,839
+uh so but now they changed the meaning
+
+860
+00:41:17,700 --> 00:41:20,839
+of x y z
+
+861
+00:41:22,859 --> 00:41:27,480
+the total score is still calculated in
+
+862
+00:41:25,500 --> 00:41:31,320
+the same way but now you need to figure
+
+863
+00:41:27,480 --> 00:41:34,880
+out what shape to choose so the round
+
+864
+00:41:31,320 --> 00:41:34,880
+ends as indicated
+
+865
+00:41:35,220 --> 00:41:41,780
+okay so the score we previously
+
+866
+00:41:37,740 --> 00:41:41,780
+calculated is the same
+
+867
+00:41:41,880 --> 00:41:47,960
+but now the XYZ the second column
+
+868
+00:41:44,700 --> 00:41:47,960
+becomes a variable
+
+869
+00:41:52,320 --> 00:41:58,980
+what uh wait what
+
+870
+00:41:55,920 --> 00:42:01,440
+the example above goes like this okay in
+
+871
+00:41:58,980 --> 00:42:04,380
+the first round your opponent will
+
+872
+00:42:01,440 --> 00:42:08,220
+choose Rock okay it's whatever let's
+
+873
+00:42:04,380 --> 00:42:10,700
+copy this okay let's copy this and write
+
+874
+00:42:08,220 --> 00:42:10,700
+it out
+
+875
+00:42:18,540 --> 00:42:23,300
+so first round is a y
+
+876
+00:42:29,220 --> 00:42:37,500
+so Y is draw
+
+877
+00:42:32,280 --> 00:42:39,740
+so we we if you are given the line a y
+
+878
+00:42:37,500 --> 00:42:41,880
+so that means
+
+879
+00:42:39,740 --> 00:42:47,240
+so you
+
+880
+00:42:41,880 --> 00:42:47,240
+so you also choose Rock So Y is a draw
+
+881
+00:42:54,359 --> 00:43:01,040
+so a is Rock so what you want to do is
+
+882
+00:42:58,260 --> 00:43:01,040
+also a
+
+883
+00:43:02,700 --> 00:43:09,060
+this gives you a score of one plus three
+
+884
+00:43:06,020 --> 00:43:13,400
+why because
+
+885
+00:43:09,060 --> 00:43:13,400
+Rock have a score of one
+
+886
+00:43:13,680 --> 00:43:19,400
+and three
+
+887
+00:43:15,660 --> 00:43:19,400
+is a score of draw
+
+888
+00:43:22,079 --> 00:43:27,839
+so one plus three equals to four so I
+
+889
+00:43:25,020 --> 00:43:30,140
+don't I don't I don't quite get it so
+
+890
+00:43:27,839 --> 00:43:30,140
+before
+
+891
+00:43:31,680 --> 00:43:38,420
+so before x y z y means
+
+892
+00:43:35,940 --> 00:43:41,280
+X is Rock
+
+893
+00:43:38,420 --> 00:43:43,980
+Y is Caesar
+
+894
+00:43:41,280 --> 00:43:47,960
+so before
+
+895
+00:43:43,980 --> 00:43:47,960
+you have one two
+
+896
+00:43:50,660 --> 00:43:55,339
+ah God this problem is complicated
+
+897
+00:43:55,800 --> 00:44:03,359
+and you lose you lose means zero so your
+
+898
+00:43:59,940 --> 00:44:06,079
+score is two before is that right
+
+899
+00:44:03,359 --> 00:44:06,079
+uh
+
+900
+00:44:06,900 --> 00:44:09,859
+let's try it
+
+901
+00:44:14,940 --> 00:44:21,079
+so that's how we compute
+
+902
+00:44:17,579 --> 00:44:21,079
+so actually
+
+903
+00:44:26,280 --> 00:44:30,359
+let's see
+
+904
+00:44:28,740 --> 00:44:33,540
+so before
+
+905
+00:44:30,359 --> 00:44:36,660
+if you have a line a y
+
+906
+00:44:33,540 --> 00:44:39,200
+then your score is eight
+
+907
+00:44:36,660 --> 00:44:39,200
+because
+
+908
+00:44:39,300 --> 00:44:47,000
+Y is a score of two
+
+909
+00:44:42,780 --> 00:44:47,000
+and Y beats a
+
+910
+00:44:48,420 --> 00:44:55,680
+rock paper
+
+911
+00:44:50,760 --> 00:45:00,180
+scissor so yeah so paper is two
+
+912
+00:44:55,680 --> 00:45:04,500
+paper is two so a is Rock so you beat
+
+913
+00:45:00,180 --> 00:45:07,560
+the first player Therefore your score is
+
+914
+00:45:04,500 --> 00:45:15,859
+you win so if you win you have a score
+
+915
+00:45:07,560 --> 00:45:15,859
+of six plus you choose Y which is
+
+916
+00:45:15,960 --> 00:45:22,079
+paper so you have a score of two so two
+
+917
+00:45:19,260 --> 00:45:25,079
+plus six is eight okay
+
+918
+00:45:22,079 --> 00:45:27,900
+that's a second you know that's a day
+
+919
+00:45:25,079 --> 00:45:30,180
+two problem first problem so that's why
+
+920
+00:45:27,900 --> 00:45:31,740
+you have eight but now they change the
+
+921
+00:45:30,180 --> 00:45:35,040
+meaning of Y
+
+922
+00:45:31,740 --> 00:45:37,339
+so they are saying that it must be a
+
+923
+00:45:35,040 --> 00:45:37,339
+draw
+
+924
+00:45:49,140 --> 00:45:55,400
+it must be a draw also that you also
+
+925
+00:45:52,619 --> 00:45:55,400
+choose Rock
+
+926
+00:45:56,220 --> 00:46:00,260
+rock is X
+
+927
+00:46:03,480 --> 00:46:08,160
+so therefore your score your new score
+
+928
+00:46:06,119 --> 00:46:11,599
+is four I don't I don't quite get it
+
+929
+00:46:08,160 --> 00:46:11,599
+they change the meaning so
+
+930
+00:46:11,760 --> 00:46:15,380
+okay so let's read down
+
+931
+00:46:17,579 --> 00:46:21,859
+but wait let's focus on this
+
+932
+00:46:26,819 --> 00:46:34,140
+so you need it to ending a draw
+
+933
+00:46:30,180 --> 00:46:37,319
+so you also choose Rock okay this gives
+
+934
+00:46:34,140 --> 00:46:40,740
+you a score of four
+
+935
+00:46:37,319 --> 00:46:43,579
+so what does it what does it imply
+
+936
+00:46:40,740 --> 00:46:43,579
+uh
+
+937
+00:46:47,180 --> 00:46:52,740
+so in the second round your opponent
+
+938
+00:46:49,800 --> 00:46:54,720
+will choose paper B
+
+939
+00:46:52,740 --> 00:46:57,300
+okay okay
+
+940
+00:46:54,720 --> 00:47:01,859
+your opponent chooses B
+
+941
+00:46:57,300 --> 00:47:01,859
+and you choose Rock X
+
+942
+00:47:02,579 --> 00:47:09,900
+with a score of 1 plus 0 equals to one
+
+943
+00:47:06,780 --> 00:47:13,200
+so paper and rocks so you lose so you
+
+944
+00:47:09,900 --> 00:47:15,960
+get zero but however because you put up
+
+945
+00:47:13,200 --> 00:47:18,540
+rocks or your score is one so one plus
+
+946
+00:47:15,960 --> 00:47:20,700
+zero is one okay
+
+947
+00:47:18,540 --> 00:47:23,700
+in the third round you defeat your
+
+948
+00:47:20,700 --> 00:47:24,660
+opponent's Caesar with a rock blah blah
+
+949
+00:47:23,700 --> 00:47:31,619
+blah
+
+950
+00:47:24,660 --> 00:47:34,500
+so the third case is CZ okay and uh
+
+951
+00:47:31,619 --> 00:47:37,640
+and therefore you win
+
+952
+00:47:34,500 --> 00:47:37,640
+and first
+
+953
+00:47:43,980 --> 00:47:53,760
+wait the third the Z x y z z is Caesar
+
+954
+00:47:50,660 --> 00:47:57,800
+the third round you will beat your
+
+955
+00:47:53,760 --> 00:47:57,800
+opponent Caesar that's not correct
+
+956
+00:48:04,500 --> 00:48:13,020
+this you know the advantage code
+
+957
+00:48:08,819 --> 00:48:16,260
+although it's a Well written problem but
+
+958
+00:48:13,020 --> 00:48:18,420
+I think they their description needs to
+
+959
+00:48:16,260 --> 00:48:21,060
+be improved
+
+960
+00:48:18,420 --> 00:48:23,460
+because sometimes it's a bit hard to
+
+961
+00:48:21,060 --> 00:48:26,579
+understand in the third round you will
+
+962
+00:48:23,460 --> 00:48:30,480
+defeat your opponents Caesars
+
+963
+00:48:26,579 --> 00:48:32,700
+with rock for a score of one plus six
+
+964
+00:48:30,480 --> 00:48:35,400
+but that's not the case because
+
+965
+00:48:32,700 --> 00:48:37,500
+previously
+
+966
+00:48:35,400 --> 00:48:43,079
+the third round
+
+967
+00:48:37,500 --> 00:48:45,060
+your opponent put out c c means
+
+968
+00:48:43,079 --> 00:48:47,940
+Caesar okay
+
+969
+00:48:45,060 --> 00:48:50,460
+so it says in the third round you will
+
+970
+00:48:47,940 --> 00:48:55,440
+defeat your opponent opponent Caesar
+
+971
+00:48:50,460 --> 00:48:59,220
+that's right Caesar with rock okay but
+
+972
+00:48:55,440 --> 00:49:04,460
+but what you actually put out is z
+
+973
+00:48:59,220 --> 00:49:06,720
+so x y z so Z means you are putting out
+
+974
+00:49:04,460 --> 00:49:08,220
+Caesar two
+
+975
+00:49:06,720 --> 00:49:13,020
+right
+
+976
+00:49:08,220 --> 00:49:15,780
+so Caesar versus Caesar that's a draw
+
+977
+00:49:13,020 --> 00:49:19,160
+so but here it says you will the video
+
+978
+00:49:15,780 --> 00:49:19,160
+opponents Caesar
+
+979
+00:49:19,319 --> 00:49:26,720
+oh wait so because they changed the
+
+980
+00:49:22,800 --> 00:49:26,720
+meaning of the second column so
+
+981
+00:49:26,880 --> 00:49:34,140
+so Z here means draw what
+
+982
+00:49:31,619 --> 00:49:35,160
+right the new meaning right the new
+
+983
+00:49:34,140 --> 00:49:37,740
+meaning
+
+984
+00:49:35,160 --> 00:49:40,640
+z Oh Z means win
+
+985
+00:49:37,740 --> 00:49:40,640
+Okay so
+
+986
+00:49:40,740 --> 00:49:47,700
+now Z means win so in order to win
+
+987
+00:49:44,700 --> 00:49:52,040
+you need to
+
+988
+00:49:47,700 --> 00:49:52,040
+put a rock which is X
+
+989
+00:49:52,740 --> 00:49:59,760
+so you win so okay so whatever yeah
+
+990
+00:49:57,060 --> 00:50:03,300
+now that you are correctly decrypt
+
+991
+00:49:59,760 --> 00:50:04,260
+decrypting the ultra top secret strategy
+
+992
+00:50:03,300 --> 00:50:09,060
+guide
+
+993
+00:50:04,260 --> 00:50:13,859
+you would get a total score of 12.
+
+994
+00:50:09,060 --> 00:50:16,760
+okay so that's four plus one plus seven
+
+995
+00:50:13,859 --> 00:50:19,980
+that's 12 okay
+
+996
+00:50:16,760 --> 00:50:22,680
+following the elf's instructions for the
+
+997
+00:50:19,980 --> 00:50:27,500
+second column
+
+998
+00:50:22,680 --> 00:50:27,500
+what would your total score be
+
+999
+00:50:31,680 --> 00:50:37,619
+if everything goes exactly according to
+
+1000
+00:50:34,619 --> 00:50:41,780
+your strategy guide
+
+1001
+00:50:37,619 --> 00:50:41,780
+and this idiotic problem
+
+1002
+00:50:42,060 --> 00:50:47,700
+so they change the meaning of a second
+
+1003
+00:50:44,160 --> 00:50:49,319
+column so you you need to basically
+
+1004
+00:50:47,700 --> 00:50:51,240
+throw away
+
+1005
+00:50:49,319 --> 00:50:53,640
+or
+
+1006
+00:50:51,240 --> 00:50:57,599
+that has been said about the second
+
+1007
+00:50:53,640 --> 00:51:01,619
+column where x equals to
+
+1008
+00:50:57,599 --> 00:51:04,740
+Rock y equals to paper and Z equals to
+
+1009
+00:51:01,619 --> 00:51:09,240
+Caesar so forget about all of that
+
+1010
+00:51:04,740 --> 00:51:15,920
+but now it's just x y z indicates
+
+1011
+00:51:09,240 --> 00:51:15,920
+lose draw and win okay lose draw and win
+
+1012
+00:51:17,460 --> 00:51:21,900
+lose draw and win
+
+1013
+00:51:20,099 --> 00:51:24,839
+and
+
+1014
+00:51:21,900 --> 00:51:27,240
+so what is the question uh so so your
+
+1015
+00:51:24,839 --> 00:51:30,380
+problem is actually just compute the
+
+1016
+00:51:27,240 --> 00:51:33,000
+total score okay so just like yesterday
+
+1017
+00:51:30,380 --> 00:51:37,140
+you write a function
+
+1018
+00:51:33,000 --> 00:51:40,020
+and compute each line okay so you write
+
+1019
+00:51:37,140 --> 00:51:42,660
+a function compute each line now the new
+
+1020
+00:51:40,020 --> 00:51:45,440
+issue is that the second column they
+
+1021
+00:51:42,660 --> 00:51:45,440
+have a different meaning
+
+1022
+00:51:49,920 --> 00:51:56,220
+okay now I know and I understand
+
+1023
+00:51:52,800 --> 00:51:57,780
+so the second column
+
+1024
+00:51:56,220 --> 00:52:00,839
+indicates
+
+1025
+00:51:57,780 --> 00:52:02,880
+lose draw
+
+1026
+00:52:00,839 --> 00:52:05,960
+or wing
+
+1027
+00:52:02,880 --> 00:52:09,540
+so the second column now has a score
+
+1028
+00:52:05,960 --> 00:52:12,660
+because lose means zero
+
+1029
+00:52:09,540 --> 00:52:16,260
+draw means three score of three wing
+
+1030
+00:52:12,660 --> 00:52:17,359
+means six so the second column the
+
+1031
+00:52:16,260 --> 00:52:19,500
+letter
+
+1032
+00:52:17,359 --> 00:52:22,619
+contributes a score
+
+1033
+00:52:19,500 --> 00:52:23,880
+to the to this this function the final
+
+1034
+00:52:22,619 --> 00:52:27,420
+result
+
+1035
+00:52:23,880 --> 00:52:30,480
+so you want to you know previously just
+
+1036
+00:52:27,420 --> 00:52:34,020
+add y okay so let's start to modify this
+
+1037
+00:52:30,480 --> 00:52:36,540
+line so let's start to write code
+
+1038
+00:52:34,020 --> 00:52:39,240
+okay so we can actually we are making
+
+1039
+00:52:36,540 --> 00:52:43,220
+progress now
+
+1040
+00:52:39,240 --> 00:52:43,220
+it's um yeah so
+
+1041
+00:52:45,420 --> 00:52:54,720
+let's say F2 compute line
+
+1042
+00:52:49,440 --> 00:52:57,859
+okay compute line two so now x y
+
+1043
+00:52:54,720 --> 00:52:57,859
+we can say
+
+1044
+00:53:00,599 --> 00:53:09,240
+previously we converted y to
+
+1045
+00:53:04,260 --> 00:53:13,440
+uh either 0 or 1 or 2 previously
+
+1046
+00:53:09,240 --> 00:53:16,040
+you know if it's X then it's zero if
+
+1047
+00:53:13,440 --> 00:53:16,040
+it's y
+
+1048
+00:53:16,380 --> 00:53:22,280
+um
+
+1049
+00:53:18,240 --> 00:53:22,280
+you know this is what we have before
+
+1050
+00:53:30,420 --> 00:53:38,640
+x y z so before it was like that but now
+
+1051
+00:53:34,920 --> 00:53:42,380
+there's a new value for each okay
+
+1052
+00:53:38,640 --> 00:53:42,380
+the new value is
+
+1053
+00:53:42,839 --> 00:53:49,940
+that
+
+1054
+00:53:45,000 --> 00:53:49,940
+Z is for Wing is that correct
+
+1055
+00:53:59,880 --> 00:54:05,000
+okay so go back so
+
+1056
+00:54:05,040 --> 00:54:11,339
+X lose my draw in win okay so let's we
+
+1057
+00:54:09,960 --> 00:54:13,619
+can add
+
+1058
+00:54:11,339 --> 00:54:16,319
+uh
+
+1059
+00:54:13,619 --> 00:54:19,319
+let's write them down so let's go slowly
+
+1060
+00:54:16,319 --> 00:54:22,260
+and solidly
+
+1061
+00:54:19,319 --> 00:54:25,760
+so we we don't end up like yesterday
+
+1062
+00:54:22,260 --> 00:54:25,760
+spending so much time
+
+1063
+00:54:30,180 --> 00:54:34,020
+okay
+
+1064
+00:54:31,619 --> 00:54:36,480
+so here is
+
+1065
+00:54:34,020 --> 00:54:39,599
+the meaning of a second column they
+
+1066
+00:54:36,480 --> 00:54:41,400
+contribute to a score okay
+
+1067
+00:54:39,599 --> 00:54:44,720
+back to code
+
+1068
+00:54:41,400 --> 00:54:44,720
+okay so now
+
+1069
+00:54:46,079 --> 00:54:50,720
+so now this Y is so
+
+1070
+00:54:51,059 --> 00:54:56,420
+so before we have why is that we can use
+
+1071
+00:54:54,180 --> 00:55:00,420
+yesterday's code
+
+1072
+00:54:56,420 --> 00:55:01,619
+so now it just y plus y times three Okay
+
+1073
+00:55:00,420 --> 00:55:04,200
+so
+
+1074
+00:55:01,619 --> 00:55:08,000
+here y times three
+
+1075
+00:55:04,200 --> 00:55:08,000
+and we don't need plus one anymore
+
+1076
+00:55:08,700 --> 00:55:12,240
+okay let's win
+
+1077
+00:55:10,619 --> 00:55:16,800
+draw
+
+1078
+00:55:12,240 --> 00:55:21,800
+lose I mean loose draw Wing okay so now
+
+1079
+00:55:16,800 --> 00:55:21,800
+why put y times three is what we want
+
+1080
+00:55:24,480 --> 00:55:29,700
+okay
+
+1081
+00:55:26,220 --> 00:55:32,160
+and and what else so
+
+1082
+00:55:29,700 --> 00:55:35,099
+so now we know
+
+1083
+00:55:32,160 --> 00:55:37,260
+and now you need to find out yeah now
+
+1084
+00:55:35,099 --> 00:55:41,579
+you need to find out
+
+1085
+00:55:37,260 --> 00:55:43,559
+what number to use to beat
+
+1086
+00:55:41,579 --> 00:55:48,000
+your opponent
+
+1087
+00:55:43,559 --> 00:55:49,220
+and and use that shapes skull okay
+
+1088
+00:55:48,000 --> 00:55:52,680
+so so
+
+1089
+00:55:49,220 --> 00:55:54,980
+okay not not difficult we are almost
+
+1090
+00:55:52,680 --> 00:55:54,980
+done
+
+1091
+00:55:55,980 --> 00:56:00,720
+so you need to determine what you need
+
+1092
+00:55:58,500 --> 00:56:05,040
+to put out so what you need to put out
+
+1093
+00:56:00,720 --> 00:56:08,220
+is very easy is y is X plus one
+
+1094
+00:56:05,040 --> 00:56:10,260
+okay X Plus 1 and mod so let's write
+
+1095
+00:56:08,220 --> 00:56:16,319
+down okay
+
+1096
+00:56:10,260 --> 00:56:20,339
+X Plus 1 mod 3. that is a number
+
+1097
+00:56:16,319 --> 00:56:22,920
+between 0 1 and 2. and this is number
+
+1098
+00:56:20,339 --> 00:56:25,400
+you need to put out to beat your
+
+1099
+00:56:22,920 --> 00:56:25,400
+opponent
+
+1100
+00:56:25,800 --> 00:56:34,140
+okay and uh so zero represents Rock
+
+1101
+00:56:32,099 --> 00:56:35,880
+one represents
+
+1102
+00:56:34,140 --> 00:56:39,420
+paper
+
+1103
+00:56:35,880 --> 00:56:41,040
+2 represents Caesar okay but what is
+
+1104
+00:56:39,420 --> 00:56:43,380
+their score
+
+1105
+00:56:41,040 --> 00:56:45,660
+for each one of them
+
+1106
+00:56:43,380 --> 00:56:47,700
+one two three right so it's one two
+
+1107
+00:56:45,660 --> 00:56:50,880
+three
+
+1108
+00:56:47,700 --> 00:56:56,420
+so all you have to do is that plus one
+
+1109
+00:56:50,880 --> 00:56:56,420
+uh yeah so all you have to do
+
+1110
+00:56:58,140 --> 00:57:02,480
+okay that first one that's it
+
+1111
+00:57:05,040 --> 00:57:11,119
+okay so wait let's do that
+
+1112
+00:57:08,460 --> 00:57:11,119
+it's
+
+1113
+00:57:12,240 --> 00:57:18,260
+that's our new function I'm pretty sure
+
+1114
+00:57:14,880 --> 00:57:18,260
+it'll work okay
+
+1115
+00:57:21,780 --> 00:57:23,900
+um
+
+1116
+00:57:41,220 --> 00:57:46,619
+okay so yeah
+
+1117
+00:57:44,099 --> 00:57:50,660
+so now we got a new function I'm pretty
+
+1118
+00:57:46,619 --> 00:57:50,660
+sure it will work okay
+
+1119
+00:57:50,880 --> 00:57:55,940
+this new function f compute line two
+
+1120
+00:57:56,220 --> 00:58:00,859
+so now when you have a input
+
+1121
+00:58:01,319 --> 00:58:07,319
+when you have an input you change them
+
+1122
+00:58:03,420 --> 00:58:09,660
+to numbers you turn them into numbers
+
+1123
+00:58:07,319 --> 00:58:12,300
+into a sub list
+
+1124
+00:58:09,660 --> 00:58:17,520
+a list of list of numbers
+
+1125
+00:58:12,300 --> 00:58:21,200
+then you call compute line two
+
+1126
+00:58:17,520 --> 00:58:23,280
+okay that should get you the answer okay
+
+1127
+00:58:21,200 --> 00:58:27,900
+copy all
+
+1128
+00:58:23,280 --> 00:58:30,800
+now let's clean up the code you need to
+
+1129
+00:58:27,900 --> 00:58:30,800
+also
+
+1130
+00:58:31,020 --> 00:58:37,440
+just for
+
+1131
+00:58:32,880 --> 00:58:43,140
+better maintenance okay that's it
+
+1132
+00:58:37,440 --> 00:58:43,140
+so select all paste and evaluate
+
+1133
+00:58:44,160 --> 00:58:51,299
+do it
+
+1134
+00:58:45,900 --> 00:58:54,960
+15 okay let's see if it's correct
+
+1135
+00:58:51,299 --> 00:58:59,000
+incorrect okay the new
+
+1136
+00:58:54,960 --> 00:58:59,000
+result should be 12.
+
+1137
+00:58:59,760 --> 00:59:05,180
+okay that's incorrect
+
+1138
+00:59:01,980 --> 00:59:05,180
+close I think
+
+1139
+00:59:15,059 --> 00:59:21,359
+okay so any anyone still watching say
+
+1140
+00:59:18,839 --> 00:59:23,940
+something are you watching me you know
+
+1141
+00:59:21,359 --> 00:59:27,540
+are you trying are you learning some
+
+1142
+00:59:23,940 --> 00:59:29,640
+coding stuff with wolf and land
+
+1143
+00:59:27,540 --> 00:59:33,180
+okay so now
+
+1144
+00:59:29,640 --> 00:59:38,099
+our logic is wrong somewhere because we
+
+1145
+00:59:33,180 --> 00:59:42,799
+got 15 but the correct answer is 12.
+
+1146
+00:59:38,099 --> 00:59:42,799
+for this example input
+
+1147
+00:59:43,020 --> 00:59:49,140
+okay so first of all
+
+1148
+00:59:45,059 --> 00:59:51,599
+it says the result should be 4 1 7.
+
+1149
+00:59:49,140 --> 00:59:55,200
+let's see
+
+1150
+00:59:51,599 --> 00:59:57,319
+four one seven I got five three seven
+
+1151
+00:59:55,200 --> 01:00:00,059
+so
+
+1152
+00:59:57,319 --> 01:00:03,000
+something wrong
+
+1153
+01:00:00,059 --> 01:00:04,380
+Greg and dog hello
+
+1154
+01:00:03,000 --> 01:00:07,799
+so
+
+1155
+01:00:04,380 --> 01:00:10,640
+we got it wrong let's find out what is
+
+1156
+01:00:07,799 --> 01:00:10,640
+wrong okay
+
+1157
+01:00:11,339 --> 01:00:15,559
+let's revisit our logic
+
+1158
+01:00:19,079 --> 01:00:24,839
+so so let me go back up make a backup
+
+1159
+01:00:22,500 --> 01:00:27,240
+so
+
+1160
+01:00:24,839 --> 01:00:30,240
+you see so the problem is a lot about
+
+1161
+01:00:27,240 --> 01:00:32,579
+understanding it
+
+1162
+01:00:30,240 --> 01:00:36,420
+in the first round your opponent will
+
+1163
+01:00:32,579 --> 01:00:38,460
+choose Rock okay in the first round your
+
+1164
+01:00:36,420 --> 01:00:41,640
+opponent choose Rock
+
+1165
+01:00:38,460 --> 01:00:43,260
+and you need to you need a round to end
+
+1166
+01:00:41,640 --> 01:00:45,960
+in a
+
+1167
+01:00:43,260 --> 01:00:47,880
+draw okay I think our logic is wrong so
+
+1168
+01:00:45,960 --> 01:00:52,140
+you need it
+
+1169
+01:00:47,880 --> 01:00:56,940
+x y z so what is X Y Z again
+
+1170
+01:00:52,140 --> 01:00:59,940
+X is loose Y is true
+
+1171
+01:00:56,940 --> 01:01:04,460
+Z is win you need to memorize it okay
+
+1172
+01:00:59,940 --> 01:01:04,460
+lose draw win
+
+1173
+01:01:05,339 --> 01:01:11,700
+so
+
+1174
+01:01:07,020 --> 01:01:12,720
+loose draw wins so y means uh y means
+
+1175
+01:01:11,700 --> 01:01:15,480
+straw
+
+1176
+01:01:12,720 --> 01:01:19,400
+so we install
+
+1177
+01:01:15,480 --> 01:01:19,400
+so what are we doing so
+
+1178
+01:01:27,839 --> 01:01:35,180
+wait so B4 x y z is one zero one two
+
+1179
+01:01:35,880 --> 01:01:43,819
+that's how we converted the XYZ value
+
+1180
+01:01:40,020 --> 01:01:43,819
+to 0 1 2.
+
+1181
+01:01:44,099 --> 01:01:51,480
+and so first of all let's compute the
+
+1182
+01:01:48,359 --> 01:01:54,720
+let's compute the loose draw Wing so all
+
+1183
+01:01:51,480 --> 01:01:57,500
+you have to do is multiply by
+
+1184
+01:01:54,720 --> 01:01:57,500
+by three
+
+1185
+01:01:58,319 --> 01:02:03,119
+that's right so six times three times
+
+1186
+01:02:01,319 --> 01:02:06,059
+two is six
+
+1187
+01:02:03,119 --> 01:02:08,339
+three times one is three
+
+1188
+01:02:06,059 --> 01:02:11,700
+three times zero is zero so that
+
+1189
+01:02:08,339 --> 01:02:15,420
+represents yours your uh
+
+1190
+01:02:11,700 --> 01:02:18,119
+your loose draw Wing score
+
+1191
+01:02:15,420 --> 01:02:22,559
+so that would be
+
+1192
+01:02:18,119 --> 01:02:24,859
+that would be here y times three
+
+1193
+01:02:22,559 --> 01:02:24,859
+right
+
+1194
+01:02:24,900 --> 01:02:27,740
+that's correct
+
+1195
+01:02:32,579 --> 01:02:39,119
+and but so why is this incorrect then so
+
+1196
+01:02:36,140 --> 01:02:42,960
+then you need to find out what do you
+
+1197
+01:02:39,119 --> 01:02:47,160
+need to put out in order to beat X
+
+1198
+01:02:42,960 --> 01:02:51,059
+so X has the value of I mean the First
+
+1199
+01:02:47,160 --> 01:02:56,000
+Column the first column which is ABC so
+
+1200
+01:02:51,059 --> 01:02:56,000
+ABC also becomes 0 1 2.
+
+1201
+01:02:56,819 --> 01:03:03,140
+which is the x value here so
+
+1202
+01:03:00,420 --> 01:03:03,140
+so you
+
+1203
+01:03:03,420 --> 01:03:09,780
+so in order to Beat It
+
+1204
+01:03:06,240 --> 01:03:13,440
+if the opponent is zero you need to come
+
+1205
+01:03:09,780 --> 01:03:16,619
+out with one if the opponent is
+
+1206
+01:03:13,440 --> 01:03:20,280
+one you need to come up with two
+
+1207
+01:03:16,619 --> 01:03:23,460
+if the opponent come out two you need to
+
+1208
+01:03:20,280 --> 01:03:27,180
+use zero to Beat It
+
+1209
+01:03:23,460 --> 01:03:29,280
+so how do you get those values so
+
+1210
+01:03:27,180 --> 01:03:31,520
+you know we can we can try to write this
+
+1211
+01:03:29,280 --> 01:03:31,520
+out
+
+1212
+01:03:32,460 --> 01:03:35,000
+so
+
+1213
+01:03:35,700 --> 01:03:39,440
+true beat opponent
+
+1214
+01:03:39,780 --> 01:03:45,799
+to be enemy
+
+1215
+01:03:41,880 --> 01:03:45,799
+you know enemy is easier word
+
+1216
+01:03:47,880 --> 01:03:50,599
+guys
+
+1217
+01:03:50,700 --> 01:03:54,920
+so you basically just do that
+
+1218
+01:03:55,140 --> 01:03:58,260
+um
+
+1219
+01:03:56,040 --> 01:04:00,540
+one
+
+1220
+01:03:58,260 --> 01:04:04,440
+two
+
+1221
+01:04:00,540 --> 01:04:07,440
+and zero okay that's what you need to do
+
+1222
+01:04:04,440 --> 01:04:09,900
+so in order to get this value in order
+
+1223
+01:04:07,440 --> 01:04:13,260
+to create a function that Maps zero to
+
+1224
+01:04:09,900 --> 01:04:14,280
+one one two two to zero all you have to
+
+1225
+01:04:13,260 --> 01:04:16,740
+do
+
+1226
+01:04:14,280 --> 01:04:20,940
+is you
+
+1227
+01:04:16,740 --> 01:04:24,660
+to modular arithmics so the input
+
+1228
+01:04:20,940 --> 01:04:25,920
+plus one for example zero plus one is
+
+1229
+01:04:24,660 --> 01:04:30,180
+one
+
+1230
+01:04:25,920 --> 01:04:32,040
+and Mark 3 is also wait so let's see
+
+1231
+01:04:30,180 --> 01:04:36,000
+wait
+
+1232
+01:04:32,040 --> 01:04:40,440
+so the input if the input is zero
+
+1233
+01:04:36,000 --> 01:04:42,000
+zero plus one is one mark three is also
+
+1234
+01:04:40,440 --> 01:04:44,640
+one
+
+1235
+01:04:42,000 --> 01:04:47,940
+so that means you yeah so that means you
+
+1236
+01:04:44,640 --> 01:04:51,780
+come out with one to beat it okay
+
+1237
+01:04:47,940 --> 01:04:57,180
+now if the input is 1
+
+1238
+01:04:51,780 --> 01:05:00,059
+1 plus 1 is 2 2 mod 3 is also 2. so
+
+1239
+01:04:57,180 --> 01:05:03,900
+that's correct now if the
+
+1240
+01:05:00,059 --> 01:05:07,680
+if the enemy uses two then two plus one
+
+1241
+01:05:03,900 --> 01:05:11,700
+is three three mod three is zero
+
+1242
+01:05:07,680 --> 01:05:14,160
+so that's also correct so this
+
+1243
+01:05:11,700 --> 01:05:15,900
+this the right side is what you need to
+
+1244
+01:05:14,160 --> 01:05:20,180
+put out
+
+1245
+01:05:15,900 --> 01:05:20,180
+but now you need to convert those to
+
+1246
+01:05:20,339 --> 01:05:23,480
+to the school
+
+1247
+01:05:23,940 --> 01:05:28,020
+so uh
+
+1248
+01:05:25,940 --> 01:05:31,140
+so rock
+
+1249
+01:05:28,020 --> 01:05:32,280
+paper scissor in that order okay zero
+
+1250
+01:05:31,140 --> 01:05:35,700
+one two
+
+1251
+01:05:32,280 --> 01:05:40,819
+has a score of one two three rock paper
+
+1252
+01:05:35,700 --> 01:05:40,819
+scissor rock paper scissor
+
+1253
+01:05:43,260 --> 01:05:47,880
+you know the order of this game is
+
+1254
+01:05:45,240 --> 01:05:50,280
+different in in how we Chinese call it
+
+1255
+01:05:47,880 --> 01:05:54,260
+so in English it's rock rock paper
+
+1256
+01:05:50,280 --> 01:05:58,500
+scissors rock paper scissors in Chinese
+
+1257
+01:05:54,260 --> 01:05:59,960
+it's gender sutopu so in Chinese it's
+
+1258
+01:05:58,500 --> 01:06:03,960
+gender
+
+1259
+01:05:59,960 --> 01:06:05,520
+pool so you you know I have to con I
+
+1260
+01:06:03,960 --> 01:06:06,599
+have to because that's how I grew up
+
+1261
+01:06:05,520 --> 01:06:09,000
+with it
+
+1262
+01:06:06,599 --> 01:06:10,740
+but in English you call Rock Paper
+
+1263
+01:06:09,000 --> 01:06:13,380
+Scissors okay
+
+1264
+01:06:10,740 --> 01:06:16,079
+so rock paper scissors each one has a
+
+1265
+01:06:13,380 --> 01:06:19,260
+score of one two three
+
+1266
+01:06:16,079 --> 01:06:22,619
+so in order to convert
+
+1267
+01:06:19,260 --> 01:06:26,160
+what you put out we are using zero one
+
+1268
+01:06:22,619 --> 01:06:28,440
+two so you just add one right
+
+1269
+01:06:26,160 --> 01:06:31,440
+yeah you add one
+
+1270
+01:06:28,440 --> 01:06:35,480
+so if you put out one
+
+1271
+01:06:31,440 --> 01:06:35,480
+your actual score would be
+
+1272
+01:06:37,559 --> 01:06:46,260
+one here means rock paper paper
+
+1273
+01:06:43,140 --> 01:06:48,559
+which has a score of two so you just add
+
+1274
+01:06:46,260 --> 01:06:48,559
+one
+
+1275
+01:06:50,700 --> 01:06:57,799
+yeah so I don't see where
+
+1276
+01:06:53,400 --> 01:06:57,799
+why is the logic incorrect
+
+1277
+01:07:01,740 --> 01:07:06,539
+English language is soulless
+
+1278
+01:07:04,740 --> 01:07:08,579
+so
+
+1279
+01:07:06,539 --> 01:07:10,980
+so what what do you think what one of
+
+1280
+01:07:08,579 --> 01:07:12,539
+the logic do you think uh where did I go
+
+1281
+01:07:10,980 --> 01:07:16,400
+wrong
+
+1282
+01:07:12,539 --> 01:07:16,400
+did you did you do this problem
+
+1283
+01:07:16,559 --> 01:07:20,520
+uh
+
+1284
+01:07:17,940 --> 01:07:23,420
+so let's read the problem again this
+
+1285
+01:07:20,520 --> 01:07:23,420
+nasty
+
+1286
+01:07:26,280 --> 01:07:32,180
+so I really need to think I don't want
+
+1287
+01:07:28,500 --> 01:07:32,180
+to end up like two more hours
+
+1288
+01:07:34,619 --> 01:07:37,160
+okay
+
+1289
+01:07:47,900 --> 01:07:53,760
+uh you know sitting too long I need to
+
+1290
+01:07:51,359 --> 01:07:57,980
+get up and walk
+
+1291
+01:07:53,760 --> 01:07:57,980
+I usually do that every two hours
+
+1292
+01:08:02,400 --> 01:08:10,380
+so it says the answer should be eight
+
+1293
+01:08:05,579 --> 01:08:12,960
+one six so where did I do wrong
+
+1294
+01:08:10,380 --> 01:08:16,319
+why is the first one eight
+
+1295
+01:08:12,960 --> 01:08:20,120
+the first one is eight because so the
+
+1296
+01:08:16,319 --> 01:08:20,120
+first input is a y
+
+1297
+01:08:20,160 --> 01:08:31,460
+and y means win no a y means straw
+
+1298
+01:08:26,219 --> 01:08:31,460
+so the first one a y so it needs to draw
+
+1299
+01:08:34,560 --> 01:08:38,600
+he needs to draw so
+
+1300
+01:09:04,259 --> 01:09:09,839
+it needs to draw
+
+1301
+01:09:06,900 --> 01:09:13,080
+so a choose a rock
+
+1302
+01:09:09,839 --> 01:09:17,480
+your enemy chooses Rock
+
+1303
+01:09:13,080 --> 01:09:17,480
+is represented by zero
+
+1304
+01:09:21,299 --> 01:09:24,020
+what
+
+1305
+01:09:31,560 --> 01:09:40,620
+aybx CZ that's the that's an example
+
+1306
+01:09:35,279 --> 01:09:42,900
+input that's correct a y b x c z
+
+1307
+01:09:40,620 --> 01:09:44,940
+so a is Rock
+
+1308
+01:09:42,900 --> 01:09:46,980
+so it says
+
+1309
+01:09:44,940 --> 01:09:51,120
+the first round your opponent will
+
+1310
+01:09:46,980 --> 01:09:54,199
+choose Rock a okay correct and you
+
+1311
+01:09:51,120 --> 01:09:54,199
+should choose paper
+
+1312
+01:09:57,480 --> 01:10:01,640
+this ends in a win for you
+
+1313
+01:10:01,980 --> 01:10:05,480
+why should I choose paper
+
+1314
+01:10:07,980 --> 01:10:12,900
+why indicates a draw
+
+1315
+01:10:10,679 --> 01:10:15,080
+you know this [ __ ] this [ __ ]
+
+1316
+01:10:12,900 --> 01:10:15,080
+problem
+
+1317
+01:10:17,219 --> 01:10:22,380
+I thought why now in the case this is
+
+1318
+01:10:20,040 --> 01:10:25,020
+this the second one or the first one
+
+1319
+01:10:22,380 --> 01:10:26,400
+oh part two [ __ ]
+
+1320
+01:10:25,020 --> 01:10:29,640
+[ __ ]
+
+1321
+01:10:26,400 --> 01:10:32,400
+okay here so the the proper solution is
+
+1322
+01:10:29,640 --> 01:10:35,420
+four one seven okay
+
+1323
+01:10:32,400 --> 01:10:35,420
+four one seven
+
+1324
+01:10:35,699 --> 01:10:40,500
+which is I got it wrong I got five three
+
+1325
+01:10:38,760 --> 01:10:43,620
+seven okay
+
+1326
+01:10:40,500 --> 01:10:45,540
+so why is the first one full well it
+
+1327
+01:10:43,620 --> 01:10:50,159
+says the first round your opponent will
+
+1328
+01:10:45,540 --> 01:10:53,100
+choose Rock a okay that's right
+
+1329
+01:10:50,159 --> 01:10:55,920
+and you you need the round to end in a
+
+1330
+01:10:53,100 --> 01:10:59,480
+draw why
+
+1331
+01:10:55,920 --> 01:11:03,840
+that's right because y represent a draw
+
+1332
+01:10:59,480 --> 01:11:08,960
+so I yeah so I want it to be a draw why
+
+1333
+01:11:03,840 --> 01:11:08,960
+so you so you also choose Rock
+
+1334
+01:11:10,080 --> 01:11:14,460
+okay
+
+1335
+01:11:12,060 --> 01:11:17,699
+and this gives you a score of one plus
+
+1336
+01:11:14,460 --> 01:11:21,840
+three equals to four why because one is
+
+1337
+01:11:17,699 --> 01:11:24,659
+rock and three is a draw so therefore
+
+1338
+01:11:21,840 --> 01:11:27,420
+one plus three equals to four so the
+
+1339
+01:11:24,659 --> 01:11:31,140
+first round the solution should be four
+
+1340
+01:11:27,420 --> 01:11:34,800
+I got it wrong now why where
+
+1341
+01:11:31,140 --> 01:11:38,520
+did I went wrong okay let's check
+
+1342
+01:11:34,800 --> 01:11:40,739
+so opponent is Rock in my system that's
+
+1343
+01:11:38,520 --> 01:11:43,560
+zero okay
+
+1344
+01:11:40,739 --> 01:11:46,140
+so you need to run you need to run to
+
+1345
+01:11:43,560 --> 01:11:49,140
+end in your draw that's right because of
+
+1346
+01:11:46,140 --> 01:11:52,380
+Y so you also choose Rock
+
+1347
+01:11:49,140 --> 01:11:56,120
+so that means I also choose zero
+
+1348
+01:11:52,380 --> 01:11:56,120
+so in our solution here
+
+1349
+01:11:56,699 --> 01:12:03,120
+mod X1 Plus
+
+1350
+01:11:59,820 --> 01:12:06,659
+mod X1 mod 3.
+
+1351
+01:12:03,120 --> 01:12:10,620
+so opponent is Rock So this x is zero
+
+1352
+01:12:06,659 --> 01:12:13,380
+zero plus one is zero plus one is one
+
+1353
+01:12:10,620 --> 01:12:16,159
+one mark three
+
+1354
+01:12:13,380 --> 01:12:16,159
+is one
+
+1355
+01:12:21,000 --> 01:12:25,940
+wait wait okay so I see where the logic
+
+1356
+01:12:24,000 --> 01:12:29,219
+is wrong you need it to be your draw
+
+1357
+01:12:25,940 --> 01:12:30,480
+okay but however this formula is always
+
+1358
+01:12:29,219 --> 01:12:33,480
+a wing
+
+1359
+01:12:30,480 --> 01:12:35,940
+that's that's where it's wrong this
+
+1360
+01:12:33,480 --> 01:12:39,900
+formula is always to come out something
+
+1361
+01:12:35,940 --> 01:12:43,699
+that wins okay but it's not you know you
+
+1362
+01:12:39,900 --> 01:12:43,699
+need to be a draw so
+
+1363
+01:12:45,300 --> 01:12:51,659
+so this x shouldn't be X it this this x
+
+1364
+01:12:49,440 --> 01:12:55,199
+should be
+
+1365
+01:12:51,659 --> 01:13:00,420
+okay yeah I found the problem
+
+1366
+01:12:55,199 --> 01:13:04,020
+so you need to be either
+
+1367
+01:13:00,420 --> 01:13:06,540
+lose draw or win
+
+1368
+01:13:04,020 --> 01:13:10,980
+so first of all you need to determine
+
+1369
+01:13:06,540 --> 01:13:15,000
+what you want to be loose draw or win
+
+1370
+01:13:10,980 --> 01:13:19,820
+lose draw or win lose draw or Wing okay
+
+1371
+01:13:15,000 --> 01:13:19,820
+let's memorize it Loose draw wing
+
+1372
+01:13:20,600 --> 01:13:25,320
+so
+
+1373
+01:13:22,400 --> 01:13:28,440
+so what so
+
+1374
+01:13:25,320 --> 01:13:32,179
+so let's write it out okay so
+
+1375
+01:13:28,440 --> 01:13:32,179
+loose straw or wing
+
+1376
+01:13:33,239 --> 01:13:36,980
+so that also means
+
+1377
+01:13:39,600 --> 01:13:44,699
+so if you win if you want to win the
+
+1378
+01:13:42,480 --> 01:13:48,120
+solution is
+
+1379
+01:13:44,699 --> 01:13:50,040
+X first one
+
+1380
+01:13:48,120 --> 01:13:53,460
+mod three
+
+1381
+01:13:50,040 --> 01:13:56,460
+okay that's a solution for winning okay
+
+1382
+01:13:53,460 --> 01:14:01,080
+let's let's put it there
+
+1383
+01:13:56,460 --> 01:14:04,679
+okay now if you wanted to draw
+
+1384
+01:14:01,080 --> 01:14:08,040
+then you just need need X
+
+1385
+01:14:04,679 --> 01:14:13,980
+you know the same as your enemy
+
+1386
+01:14:08,040 --> 01:14:17,520
+if you want to lose x minus 1 mod 3.
+
+1387
+01:14:13,980 --> 01:14:18,900
+okay yeah so that's x minus one plus
+
+1388
+01:14:17,520 --> 01:14:21,560
+three
+
+1389
+01:14:18,900 --> 01:14:24,900
+that's right modular rhythmic
+
+1390
+01:14:21,560 --> 01:14:27,060
+arithmetics very powerful
+
+1391
+01:14:24,900 --> 01:14:30,360
+now we got a picture
+
+1392
+01:14:27,060 --> 01:14:33,260
+those drawing let's double check
+
+1393
+01:14:30,360 --> 01:14:33,260
+loose
+
+1394
+01:14:33,600 --> 01:14:39,679
+lose your opponent whatever your
+
+1395
+01:14:35,820 --> 01:14:39,679
+opponent minus one
+
+1396
+01:14:40,920 --> 01:14:45,179
+because I think that's correct draw is
+
+1397
+01:14:43,020 --> 01:14:47,520
+the same as your opponent and Wing is
+
+1398
+01:14:45,179 --> 01:14:53,340
+yeah so
+
+1399
+01:14:47,520 --> 01:14:57,800
+so which formula to use depends on
+
+1400
+01:14:53,340 --> 01:15:01,280
+what what is y should be wind uh
+
+1401
+01:14:57,800 --> 01:15:01,280
+loose drawing
+
+1402
+01:15:01,620 --> 01:15:07,560
+yeah so here so so we have to do is
+
+1403
+01:15:04,620 --> 01:15:10,080
+modify this part then plus one because
+
+1404
+01:15:07,560 --> 01:15:12,980
+that represents a score of whatever you
+
+1405
+01:15:10,080 --> 01:15:12,980
+put up okay
+
+1406
+01:15:13,260 --> 01:15:20,219
+so how can we now the problem is how can
+
+1407
+01:15:16,260 --> 01:15:22,860
+we turn this into a closed form math
+
+1408
+01:15:20,219 --> 01:15:26,040
+formula you know another we can do this
+
+1409
+01:15:22,860 --> 01:15:29,820
+by a switch statement or conditional you
+
+1410
+01:15:26,040 --> 01:15:32,100
+know if Y is zero if Y is 2 if Y is one
+
+1411
+01:15:29,820 --> 01:15:36,179
+then we do this
+
+1412
+01:15:32,100 --> 01:15:38,460
+that's a typical programmer solution
+
+1413
+01:15:36,179 --> 01:15:40,860
+but in this case there's an elegant
+
+1414
+01:15:38,460 --> 01:15:43,679
+Solution by because we are using modular
+
+1415
+01:15:40,860 --> 01:15:44,760
+arithmetics so this should be be able to
+
+1416
+01:15:43,679 --> 01:15:47,280
+be
+
+1417
+01:15:44,760 --> 01:15:49,940
+consumed into one formula okay let's see
+
+1418
+01:15:47,280 --> 01:15:49,940
+how to do it
+
+1419
+01:15:56,760 --> 01:16:00,840
+yeah so very easy so all we have to do
+
+1420
+01:15:59,699 --> 01:16:02,840
+is
+
+1421
+01:16:00,840 --> 01:16:02,840
+um
+
+1422
+01:16:04,140 --> 01:16:09,840
+yeah so this can be consumed into one
+
+1423
+01:16:07,199 --> 01:16:12,659
+formula and my solution is gonna be B
+
+1424
+01:16:09,840 --> 01:16:14,940
+demo okay and solution is going to be
+
+1425
+01:16:12,659 --> 01:16:16,380
+the most efficient of all solutions I
+
+1426
+01:16:14,940 --> 01:16:18,659
+can tell you right away
+
+1427
+01:16:16,380 --> 01:16:20,699
+including our solution for the first
+
+1428
+01:16:18,659 --> 01:16:23,100
+problem
+
+1429
+01:16:20,699 --> 01:16:25,620
+now let me digress a little bit you know
+
+1430
+01:16:23,100 --> 01:16:28,219
+because I'm doing the Advent of code for
+
+1431
+01:16:25,620 --> 01:16:32,580
+the first time there's there are problem
+
+1432
+01:16:28,219 --> 01:16:35,340
+specification is not 100 exact because
+
+1433
+01:16:32,580 --> 01:16:38,340
+they had never mentioned whether the
+
+1434
+01:16:35,340 --> 01:16:40,980
+input is a string or not you know I was
+
+1435
+01:16:38,340 --> 01:16:43,199
+just assuming it's a stream
+
+1436
+01:16:40,980 --> 01:16:45,300
+so but if you assume it's a string then
+
+1437
+01:16:43,199 --> 01:16:47,400
+you have to do a lot many stream
+
+1438
+01:16:45,300 --> 01:16:49,980
+manipulation first you need to turn the
+
+1439
+01:16:47,400 --> 01:16:52,620
+string you know into a list of least
+
+1440
+01:16:49,980 --> 01:16:55,920
+then turn them into numbers that's extra
+
+1441
+01:16:52,620 --> 01:16:58,800
+step but nowhere in this in the problem
+
+1442
+01:16:55,920 --> 01:16:59,940
+description says that the input is a
+
+1443
+01:16:58,800 --> 01:17:02,580
+string
+
+1444
+01:16:59,940 --> 01:17:05,219
+you see so therefore
+
+1445
+01:17:02,580 --> 01:17:07,620
+in order to make yourself and also they
+
+1446
+01:17:05,219 --> 01:17:12,659
+don't they don't require you to submit
+
+1447
+01:17:07,620 --> 01:17:15,300
+your code so they do not do any sort of
+
+1448
+01:17:12,659 --> 01:17:17,400
+con you know all they require is that
+
+1449
+01:17:15,300 --> 01:17:19,800
+you give them the number as a solution
+
+1450
+01:17:17,400 --> 01:17:22,140
+doesn't matter how you get it you know
+
+1451
+01:17:19,800 --> 01:17:24,840
+you can you can ask your friend what's a
+
+1452
+01:17:22,140 --> 01:17:28,020
+you know in a sense they don't actually
+
+1453
+01:17:24,840 --> 01:17:31,199
+require you to post a code also they
+
+1454
+01:17:28,020 --> 01:17:33,540
+don't they do not specify if the input
+
+1455
+01:17:31,199 --> 01:17:37,860
+should be a string or whatever you know
+
+1456
+01:17:33,540 --> 01:17:39,920
+in fact and they do not require you to
+
+1457
+01:17:37,860 --> 01:17:42,900
+actually write a function as a solution
+
+1458
+01:17:39,920 --> 01:17:45,060
+you in fact you can write you know using
+
+1459
+01:17:42,900 --> 01:17:46,440
+bash or whatever procedural you know
+
+1460
+01:17:45,060 --> 01:17:48,600
+lots of variables
+
+1461
+01:17:46,440 --> 01:17:51,900
+to get the same answer
+
+1462
+01:17:48,600 --> 01:17:53,580
+or in fact you can use emacs let me you
+
+1463
+01:17:51,900 --> 01:17:55,380
+know for example
+
+1464
+01:17:53,580 --> 01:17:59,340
+you don't you don't need to actually
+
+1465
+01:17:55,380 --> 01:18:01,980
+like write a standalone program you can
+
+1466
+01:17:59,340 --> 01:18:04,380
+just start with empty buffer
+
+1467
+01:18:01,980 --> 01:18:07,739
+and just these numbers and just for
+
+1468
+01:18:04,380 --> 01:18:10,140
+example replace a by zero
+
+1469
+01:18:07,739 --> 01:18:12,360
+you know when you have a huge input you
+
+1470
+01:18:10,140 --> 01:18:15,780
+just replace you know do find replace
+
+1471
+01:18:12,360 --> 01:18:17,880
+replace a by zero and do interactive
+
+1472
+01:18:15,780 --> 01:18:20,699
+using emacs you can do that
+
+1473
+01:18:17,880 --> 01:18:23,580
+yeah I should demonstrate that some of
+
+1474
+01:18:20,699 --> 01:18:26,219
+the you know some other time so
+
+1475
+01:18:23,580 --> 01:18:28,679
+it doesn't require the input to be a
+
+1476
+01:18:26,219 --> 01:18:30,900
+string it doesn't require you to write a
+
+1477
+01:18:28,679 --> 01:18:34,739
+function it doesn't require any of that
+
+1478
+01:18:30,900 --> 01:18:38,159
+or it requires is that you
+
+1479
+01:18:34,739 --> 01:18:40,560
+have the answer okay your number so so
+
+1480
+01:18:38,159 --> 01:18:43,020
+my my code here is actually Standalone
+
+1481
+01:18:40,560 --> 01:18:43,800
+so that's actually doing a lot
+
+1482
+01:18:43,020 --> 01:18:47,159
+um
+
+1483
+01:18:43,800 --> 01:18:49,920
+preparation which
+
+1484
+01:18:47,159 --> 01:18:51,840
+I don't need to because they'll make it
+
+1485
+01:18:49,920 --> 01:18:54,000
+much simpler so I don't have to think
+
+1486
+01:18:51,840 --> 01:18:58,280
+about string conversion and so that all
+
+1487
+01:18:54,000 --> 01:18:58,280
+that anyway let's go back to fix this
+
+1488
+01:18:58,500 --> 01:19:03,900
+so so what I'm saying is just that the
+
+1489
+01:19:01,739 --> 01:19:07,380
+event of code doesn't actually require
+
+1490
+01:19:03,900 --> 01:19:11,159
+you to submit a code or anything it just
+
+1491
+01:19:07,380 --> 01:19:13,980
+requires the answer so so the essence of
+
+1492
+01:19:11,159 --> 01:19:15,840
+of this is that you just need to have a
+
+1493
+01:19:13,980 --> 01:19:18,540
+way to solve this
+
+1494
+01:19:15,840 --> 01:19:22,260
+typically in a programmable way
+
+1495
+01:19:18,540 --> 01:19:25,980
+but not necessarily Standalone program
+
+1496
+01:19:22,260 --> 01:19:28,080
+okay so and and the meaning of that is
+
+1497
+01:19:25,980 --> 01:19:29,580
+that you can use a spreadsheet if you
+
+1498
+01:19:28,080 --> 01:19:31,920
+want you know you can just use a
+
+1499
+01:19:29,580 --> 01:19:35,360
+spreadsheet so that's an entirely
+
+1500
+01:19:31,920 --> 01:19:35,360
+different ways of computation
+
+1501
+01:19:35,699 --> 01:19:39,659
+or you can you can get fancy you know
+
+1502
+01:19:37,920 --> 01:19:42,540
+going into computer science you can
+
+1503
+01:19:39,659 --> 01:19:44,699
+write a cellular automata to solve this
+
+1504
+01:19:42,540 --> 01:19:49,100
+problem that would be interesting
+
+1505
+01:19:44,699 --> 01:19:49,100
+okay but anyway back to this um
+
+1506
+01:19:50,159 --> 01:19:54,719
+so we know what's the issue now so we
+
+1507
+01:19:53,100 --> 01:19:57,900
+need to convert this
+
+1508
+01:19:54,719 --> 01:20:00,060
+um so the input we we need a function
+
+1509
+01:19:57,900 --> 01:20:03,140
+let me let me think about it we'll we'll
+
+1510
+01:20:00,060 --> 01:20:03,140
+get to it okay
+
+1511
+01:20:03,420 --> 01:20:10,739
+loose straw Wing loose straw Wing let me
+
+1512
+01:20:07,380 --> 01:20:14,420
+just memorize zero one two
+
+1513
+01:20:10,739 --> 01:20:14,420
+0 1 2
+
+1514
+01:20:14,580 --> 01:20:21,020
+so
+
+1515
+01:20:16,199 --> 01:20:21,020
+so let's combine some needs um
+
+1516
+01:20:21,300 --> 01:20:25,159
+it's
+
+1517
+01:20:22,560 --> 01:20:25,159
+let's try this
+
+1518
+01:20:31,080 --> 01:20:36,540
+okay let's combine this into our system
+
+1519
+01:20:33,840 --> 01:20:39,739
+and we don't need that
+
+1520
+01:20:36,540 --> 01:20:39,739
+neither okay
+
+1521
+01:20:48,120 --> 01:20:52,800
+make that make them into one single
+
+1522
+01:20:51,060 --> 01:20:55,320
+thing
+
+1523
+01:20:52,800 --> 01:20:57,179
+okay so now it's much easier to
+
+1524
+01:20:55,320 --> 01:20:58,739
+understand
+
+1525
+01:20:57,179 --> 01:21:01,199
+so
+
+1526
+01:20:58,739 --> 01:21:04,880
+loose draw a wing
+
+1527
+01:21:01,199 --> 01:21:04,880
+loose draw wing
+
+1528
+01:21:11,179 --> 01:21:14,840
+so so
+
+1529
+01:21:17,699 --> 01:21:22,980
+okay so you see the difference between
+
+1530
+01:21:20,520 --> 01:21:25,320
+this Formula Three formulas one is
+
+1531
+01:21:22,980 --> 01:21:29,159
+negative one one is zero and one is
+
+1532
+01:21:25,320 --> 01:21:34,100
+first one so that corresponds with 0 1 2
+
+1533
+01:21:29,159 --> 01:21:34,100
+very well so you have to do is
+
+1534
+01:21:36,179 --> 01:21:43,260
+and Away here so y will be
+
+1535
+01:21:40,620 --> 01:21:46,980
+minus one that's right
+
+1536
+01:21:43,260 --> 01:21:51,980
+so all you have to do is add minus one
+
+1537
+01:21:46,980 --> 01:21:51,980
+in this formula let me show you okay
+
+1538
+01:21:55,679 --> 01:21:58,880
+first y
+
+1539
+01:21:59,699 --> 01:22:06,360
+minus 1 and minus 1 plus 1 cancel out so
+
+1540
+01:22:03,600 --> 01:22:12,260
+you don't need that anymore so that so
+
+1541
+01:22:06,360 --> 01:22:12,260
+now here is our new formula okay copy it
+
+1542
+01:22:13,500 --> 01:22:16,340
+do it
+
+1543
+01:22:19,080 --> 01:22:22,640
+that's still incorrect
+
+1544
+01:22:24,440 --> 01:22:29,420
+[ __ ] you need to think about this come
+
+1545
+01:22:27,239 --> 01:22:29,420
+on
+
+1546
+01:22:30,480 --> 01:22:35,940
+five to eight
+
+1547
+01:22:32,340 --> 01:22:38,640
+five two eight it should be four one
+
+1548
+01:22:35,940 --> 01:22:40,860
+seven okay that's still incorrect but
+
+1549
+01:22:38,640 --> 01:22:43,219
+very close now
+
+1550
+01:22:40,860 --> 01:22:43,219
+okay
+
+1551
+01:22:52,199 --> 01:22:59,640
+oh you have a plus three
+
+1552
+01:22:55,560 --> 01:23:04,880
+so actually so it's so
+
+1553
+01:22:59,640 --> 01:23:04,880
+plus three okay maybe I forgot that
+
+1554
+01:23:15,659 --> 01:23:18,260
+okay
+
+1555
+01:23:24,120 --> 01:23:26,300
+foreign
+
+1556
+01:23:42,480 --> 01:23:45,140
+so
+
+1557
+01:23:47,159 --> 01:23:54,320
+x y z lose draw Wing loose drawing
+
+1558
+01:23:55,560 --> 01:23:57,679
+thank you
+
+1559
+01:24:24,179 --> 01:24:31,520
+loose drawing minus one zero plus one
+
+1560
+01:24:28,800 --> 01:24:31,520
+so
+
+1561
+01:24:36,300 --> 01:24:44,780
+so y minus 1 so actually
+
+1562
+01:24:41,040 --> 01:24:44,780
+my minus 1.
+
+1563
+01:24:55,020 --> 01:24:58,940
+I think that's right okay
+
+1564
+01:25:03,420 --> 01:25:11,159
+four one seven come on please
+
+1565
+01:25:06,420 --> 01:25:13,739
+four one seven twelve correct okay here
+
+1566
+01:25:11,159 --> 01:25:17,280
+is the most efficient
+
+1567
+01:25:13,739 --> 01:25:19,739
+solution to this problem
+
+1568
+01:25:17,280 --> 01:25:21,600
+you know we can we can we can simplify
+
+1569
+01:25:19,739 --> 01:25:24,179
+the formula here because you see
+
+1570
+01:25:21,600 --> 01:25:26,699
+negative 1 plus 3 we can just make it
+
+1571
+01:25:24,179 --> 01:25:30,239
+plus two but let's
+
+1572
+01:25:26,699 --> 01:25:32,520
+that's the most I declare I can tell you
+
+1573
+01:25:30,239 --> 01:25:34,800
+again I declare this is the most
+
+1574
+01:25:32,520 --> 01:25:37,320
+efficient solution okay for the problem
+
+1575
+01:25:34,800 --> 01:25:40,860
+number two
+
+1576
+01:25:37,320 --> 01:25:44,400
+okay we don't need that one anymore
+
+1577
+01:25:40,860 --> 01:25:46,080
+okay and it's just remove clean out code
+
+1578
+01:25:44,400 --> 01:25:49,560
+okay
+
+1579
+01:25:46,080 --> 01:25:54,020
+now I'm pretty sure are you certain yes
+
+1580
+01:25:49,560 --> 01:25:54,020
+I'm certain now let's get our input
+
+1581
+01:25:54,300 --> 01:26:00,260
+okay we got the input yesterday so
+
+1582
+01:25:57,360 --> 01:26:00,260
+where's the input
+
+1583
+01:26:02,040 --> 01:26:08,460
+so let's let's do it here
+
+1584
+01:26:05,219 --> 01:26:10,980
+select or paste
+
+1585
+01:26:08,460 --> 01:26:15,000
+okay for 1 7 12
+
+1586
+01:26:10,980 --> 01:26:17,820
+check example input check now let's get
+
+1587
+01:26:15,000 --> 01:26:22,820
+our input from yesterday
+
+1588
+01:26:17,820 --> 01:26:22,820
+so yesterday there is a big input
+
+1589
+01:26:24,239 --> 01:26:27,239
+here
+
+1590
+01:26:32,520 --> 01:26:39,380
+okay so let's go to it talk
+
+1591
+01:26:36,719 --> 01:26:39,380
+yesterday
+
+1592
+01:26:39,480 --> 01:26:47,340
+okay here Arduino code so that's the
+
+1593
+01:26:43,860 --> 01:26:50,239
+input okay huge okay
+
+1594
+01:26:47,340 --> 01:26:50,239
+copy it
+
+1595
+01:26:50,280 --> 01:26:55,800
+new paste
+
+1596
+01:26:52,500 --> 01:26:57,480
+evaluate okay we got the input
+
+1597
+01:26:55,800 --> 01:26:59,540
+close
+
+1598
+01:26:57,480 --> 01:27:01,860
+close
+
+1599
+01:26:59,540 --> 01:27:04,560
+copy it
+
+1600
+01:27:01,860 --> 01:27:06,120
+uh
+
+1601
+01:27:04,560 --> 01:27:08,699
+okay
+
+1602
+01:27:06,120 --> 01:27:10,380
+make a new
+
+1603
+01:27:08,699 --> 01:27:11,639
+Fame language
+
+1604
+01:27:10,380 --> 01:27:16,699
+um
+
+1605
+01:27:11,639 --> 01:27:16,699
+and remove the input remove that
+
+1606
+01:27:18,480 --> 01:27:22,460
+okay so compute it
+
+1607
+01:27:24,239 --> 01:27:28,260
+paste
+
+1608
+01:27:25,980 --> 01:27:29,760
+compute
+
+1609
+01:27:28,260 --> 01:27:32,880
+the biggest
+
+1610
+01:27:29,760 --> 01:27:34,980
+okay here is our solution one three one
+
+1611
+01:27:32,880 --> 01:27:38,219
+three one
+
+1612
+01:27:34,980 --> 01:27:40,199
+now pray to God I don't get this wrong
+
+1613
+01:27:38,219 --> 01:27:43,460
+am I sure
+
+1614
+01:27:40,199 --> 01:27:43,460
+yes I'm sure
+
+1615
+01:27:43,500 --> 01:27:46,159
+submit
+
+1616
+01:27:46,500 --> 01:27:51,840
+that's the right answer you are one gold
+
+1617
+01:27:49,320 --> 01:27:53,600
+star closer to collecting a nerve star
+
+1618
+01:27:51,840 --> 01:27:56,780
+fruit
+
+1619
+01:27:53,600 --> 01:27:56,780
+[ __ ] you
+
+1620
+01:27:58,560 --> 01:28:04,620
+Hefty buffer thank you for help
+
+1621
+01:28:00,840 --> 01:28:07,020
+yesterday but today it's smooth
+
+1622
+01:28:04,620 --> 01:28:10,020
+you know some you know a bit smoother
+
+1623
+01:28:07,020 --> 01:28:12,420
+much more smoother than yesterday so so
+
+1624
+01:28:10,020 --> 01:28:14,400
+far we talked for 90 minutes I think
+
+1625
+01:28:12,420 --> 01:28:16,560
+that's it okay
+
+1626
+01:28:14,400 --> 01:28:17,940
+so can we go into the problem number
+
+1627
+01:28:16,560 --> 01:28:20,639
+three
+
+1628
+01:28:17,940 --> 01:28:23,540
+can we go into problem number three yes
+
+1629
+01:28:20,639 --> 01:28:23,540
+I think so
+
+1630
+01:28:24,719 --> 01:28:28,800
+okay let me clean up and let's see what
+
+1631
+01:28:27,000 --> 01:28:32,040
+we're gonna do maybe we'll go into
+
+1632
+01:28:28,800 --> 01:28:34,560
+problem number three or maybe we'll just
+
+1633
+01:28:32,040 --> 01:28:37,800
+be it today okay
+
+1634
+01:28:34,560 --> 01:28:39,360
+uh okay let's clean up the sound talk
+
+1635
+01:28:37,800 --> 01:28:41,219
+show
+
+1636
+01:28:39,360 --> 01:28:44,460
+so that's today
+
+1637
+01:28:41,219 --> 01:28:46,980
+Advent of code day two
+
+1638
+01:28:44,460 --> 01:28:49,920
+you know second problem ergonomic
+
+1639
+01:28:46,980 --> 01:28:52,920
+keyboards here is the day two solution
+
+1640
+01:28:49,920 --> 01:28:54,060
+basically that single line
+
+1641
+01:28:52,920 --> 01:28:56,280
+um
+
+1642
+01:28:54,060 --> 01:28:59,840
+and here is some
+
+1643
+01:28:56,280 --> 01:28:59,840
+explanation of the problem
+
+1644
+01:29:01,679 --> 01:29:08,960
+quite tedious okay so let's delete that
+
+1645
+01:29:05,639 --> 01:29:08,960
+we don't need that
+
+1646
+01:29:16,080 --> 01:29:21,659
+okay so that's it for that let's see
+
+1647
+01:29:19,500 --> 01:29:23,400
+what else let me click let me do clean
+
+1648
+01:29:21,659 --> 01:29:24,900
+up and okay
+
+1649
+01:29:23,400 --> 01:29:27,480
+so
+
+1650
+01:29:24,900 --> 01:29:29,280
+are we going to do the next one or are
+
+1651
+01:29:27,480 --> 01:29:31,860
+we going to
+
+1652
+01:29:29,280 --> 01:29:37,760
+say goodbye for today
+
+1653
+01:29:31,860 --> 01:29:37,760
+it's okay let's close this cling up
+
+1654
+01:29:39,300 --> 01:29:44,820
+don't save okay
+
+1655
+01:29:42,719 --> 01:29:47,159
+um
+
+1656
+01:29:44,820 --> 01:29:50,060
+okay let's read the comments and let's
+
+1657
+01:29:47,159 --> 01:29:50,060
+see where we go
+
+1658
+01:29:51,360 --> 01:29:56,880
+can we submit new solution oh yeah so
+
+1659
+01:29:53,880 --> 01:30:00,719
+Ethan yeah so JR says do you plan on
+
+1660
+01:29:56,880 --> 01:30:03,239
+doing a chat GPT programming stream
+
+1661
+01:30:00,719 --> 01:30:07,500
+how strictly you will find you know I
+
+1662
+01:30:03,239 --> 01:30:09,840
+can do chat GPT chat GPT is very
+
+1663
+01:30:07,500 --> 01:30:12,179
+interesting and uh
+
+1664
+01:30:09,840 --> 01:30:15,179
+okay let me talk random then okay
+
+1665
+01:30:12,179 --> 01:30:18,659
+because talking random is always fun and
+
+1666
+01:30:15,179 --> 01:30:20,520
+I can advertise my website stuff because
+
+1667
+01:30:18,659 --> 01:30:22,560
+usually there are so many topics
+
+1668
+01:30:20,520 --> 01:30:25,620
+including politics you know a lot of
+
+1669
+01:30:22,560 --> 01:30:27,960
+people would be interested in my opinion
+
+1670
+01:30:25,620 --> 01:30:31,440
+and uh
+
+1671
+01:30:27,960 --> 01:30:33,840
+but half of you you know you don't watch
+
+1672
+01:30:31,440 --> 01:30:35,840
+you know many young people that's a
+
+1673
+01:30:33,840 --> 01:30:38,639
+situation with YouTube you know many
+
+1674
+01:30:35,840 --> 01:30:40,860
+newcomers you know they don't
+
+1675
+01:30:38,639 --> 01:30:44,460
+they don't spend much time but anyway no
+
+1676
+01:30:40,860 --> 01:30:46,920
+no that's not my point I mean okay
+
+1677
+01:30:44,460 --> 01:30:49,560
+so
+
+1678
+01:30:46,920 --> 01:30:51,060
+so I want to talk about
+
+1679
+01:30:49,560 --> 01:30:54,719
+um
+
+1680
+01:30:51,060 --> 01:30:57,780
+chat GPT okay so I recommend you watch
+
+1681
+01:30:54,719 --> 01:31:01,920
+one my video here okay
+
+1682
+01:30:57,780 --> 01:31:05,060
+saw talk show 2022 12th fifth
+
+1683
+01:31:01,920 --> 01:31:09,179
+DG a doctor go search
+
+1684
+01:31:05,060 --> 01:31:12,360
+qqiai drawing open AI poem
+
+1685
+01:31:09,179 --> 01:31:13,739
+and some politics of 184 Laura and
+
+1686
+01:31:12,360 --> 01:31:16,679
+certain
+
+1687
+01:31:13,739 --> 01:31:19,500
+and emacs 29 core formatting so you go
+
+1688
+01:31:16,679 --> 01:31:24,300
+watch that one so
+
+1689
+01:31:19,500 --> 01:31:25,940
+so my opinion I made a claim that
+
+1690
+01:31:24,300 --> 01:31:30,900
+that the year
+
+1691
+01:31:25,940 --> 01:31:34,080
+2023 is the real beginning of artificial
+
+1692
+01:31:30,900 --> 01:31:37,679
+intelligence I mean the other you know
+
+1693
+01:31:34,080 --> 01:31:40,560
+there's a milestone so today you know
+
+1694
+01:31:37,679 --> 01:31:43,440
+I've been I have been observing AI for
+
+1695
+01:31:40,560 --> 01:31:44,880
+the past you know 30 years since I
+
+1696
+01:31:43,440 --> 01:31:47,699
+started programming that's why I'm
+
+1697
+01:31:44,880 --> 01:31:50,699
+interested in lisp and in wufan language
+
+1698
+01:31:47,699 --> 01:31:53,760
+because this is the granddaddy of
+
+1699
+01:31:50,699 --> 01:31:56,460
+artificial intelligence research you
+
+1700
+01:31:53,760 --> 01:31:59,580
+know that's why that's how this
+
+1701
+01:31:56,460 --> 01:32:02,820
+you know a big industry artificial
+
+1702
+01:31:59,580 --> 01:32:06,659
+intelligence at least in the 1980s
+
+1703
+01:32:02,820 --> 01:32:09,440
+mostly you know uh sponsored by U.S
+
+1704
+01:32:06,659 --> 01:32:11,880
+Department of Defense you know military
+
+1705
+01:32:09,440 --> 01:32:14,460
+serious stuff
+
+1706
+01:32:11,880 --> 01:32:16,620
+and internet is also part of from you
+
+1707
+01:32:14,460 --> 01:32:18,560
+know from it that's how internet got
+
+1708
+01:32:16,620 --> 01:32:21,540
+developed you know military
+
+1709
+01:32:18,560 --> 01:32:25,440
+basically indestructible communication
+
+1710
+01:32:21,540 --> 01:32:27,900
+system that was internet originally
+
+1711
+01:32:25,440 --> 01:32:30,659
+what it is about indestructible
+
+1712
+01:32:27,900 --> 01:32:32,580
+communication system like you can bomb
+
+1713
+01:32:30,659 --> 01:32:35,040
+you know like telephone Network or
+
+1714
+01:32:32,580 --> 01:32:37,920
+whatever you can bomb This Not That Oba
+
+1715
+01:32:35,040 --> 01:32:39,620
+done and and you know you don't have
+
+1716
+01:32:37,920 --> 01:32:43,440
+phones anymore it doesn't work anymore
+
+1717
+01:32:39,620 --> 01:32:45,540
+not so with internet so internet you can
+
+1718
+01:32:43,440 --> 01:32:47,880
+destroy this knot that it still works
+
+1719
+01:32:45,540 --> 01:32:51,420
+you know because of this
+
+1720
+01:32:47,880 --> 01:32:53,699
+the packet swam it's quite quite a
+
+1721
+01:32:51,420 --> 01:32:56,219
+technology you know internet package
+
+1722
+01:32:53,699 --> 01:32:59,760
+from you know they just they blindly
+
+1723
+01:32:56,219 --> 01:33:02,460
+follow local rules and essentially keep
+
+1724
+01:32:59,760 --> 01:33:05,340
+the communication still going you can
+
+1725
+01:33:02,460 --> 01:33:07,800
+you can many not knots destroyed and it
+
+1726
+01:33:05,340 --> 01:33:11,420
+still works
+
+1727
+01:33:07,800 --> 01:33:14,040
+that's original concept of Internet okay
+
+1728
+01:33:11,420 --> 01:33:16,679
+indestructible communication basically
+
+1729
+01:33:14,040 --> 01:33:19,620
+but today because of a giant cooperation
+
+1730
+01:33:16,679 --> 01:33:20,820
+is all controlled so it might be
+
+1731
+01:33:19,620 --> 01:33:24,120
+different today
+
+1732
+01:33:20,820 --> 01:33:26,219
+you know in some in some sense okay so
+
+1733
+01:33:24,120 --> 01:33:28,440
+that's about internet so
+
+1734
+01:33:26,219 --> 01:33:30,600
+so I was I'm making a claim so that's
+
+1735
+01:33:28,440 --> 01:33:33,360
+you know artificial intelligence is how
+
+1736
+01:33:30,600 --> 01:33:35,699
+I got I'm very interested in that topic
+
+1737
+01:33:33,360 --> 01:33:38,100
+you know I've talked about AI in my past
+
+1738
+01:33:35,699 --> 01:33:40,679
+videos too you can
+
+1739
+01:33:38,100 --> 01:33:43,679
+you know Eric you know again let me say
+
+1740
+01:33:40,679 --> 01:33:46,440
+you go to kasali.com and there's a
+
+1741
+01:33:43,679 --> 01:33:49,080
+search this will search or
+
+1742
+01:33:46,440 --> 01:33:52,800
+seven thousand titles on my website so
+
+1743
+01:33:49,080 --> 01:33:54,300
+you can type AI for example you'll find
+
+1744
+01:33:52,800 --> 01:33:57,060
+um
+
+1745
+01:33:54,300 --> 01:33:58,860
+all the titles containing this the word
+
+1746
+01:33:57,060 --> 01:34:01,320
+AI but
+
+1747
+01:33:58,860 --> 01:34:05,159
+you know closure function chaining
+
+1748
+01:34:01,320 --> 01:34:08,940
+Mantra board set explained uh state
+
+1749
+01:34:05,159 --> 01:34:11,400
+affairs of DB DVD rippers that's 20
+
+1750
+01:34:08,940 --> 01:34:13,800
+years ago you know what's what is
+
+1751
+01:34:11,400 --> 01:34:14,520
+algebraic data type that's a lousy your
+
+1752
+01:34:13,800 --> 01:34:16,679
+local
+
+1753
+01:34:14,520 --> 01:34:19,320
+brain fog language
+
+1754
+01:34:16,679 --> 01:34:21,060
+in the file design problem that's brain
+
+1755
+01:34:19,320 --> 01:34:23,460
+[ __ ] is a
+
+1756
+01:34:21,060 --> 01:34:25,920
+it's a idiotic language you know one of
+
+1757
+01:34:23,460 --> 01:34:29,699
+those language that that
+
+1758
+01:34:25,920 --> 01:34:31,980
+it was created to mean to be a very
+
+1759
+01:34:29,699 --> 01:34:34,500
+difficult incomprehensible thing however
+
+1760
+01:34:31,980 --> 01:34:37,920
+I learned something very fundamental
+
+1761
+01:34:34,500 --> 01:34:40,440
+from brain [ __ ] because one time I was
+
+1762
+01:34:37,920 --> 01:34:42,900
+doing homework once for for someone else
+
+1763
+01:34:40,440 --> 01:34:44,219
+you know you pay me I do homework for
+
+1764
+01:34:42,900 --> 01:34:47,159
+you
+
+1765
+01:34:44,219 --> 01:34:49,260
+hundred dollars okay hundred dollars for
+
+1766
+01:34:47,159 --> 01:34:52,020
+like two hours you pay me I do homework
+
+1767
+01:34:49,260 --> 01:34:54,600
+for you so one day I got you know I was
+
+1768
+01:34:52,020 --> 01:34:56,460
+dying of hunger pretty sad story you
+
+1769
+01:34:54,600 --> 01:34:59,760
+know you you won't understand
+
+1770
+01:34:56,460 --> 01:35:01,920
+so but you know I was I was doing brain
+
+1771
+01:34:59,760 --> 01:35:05,219
+fog and I learned something critical
+
+1772
+01:35:01,920 --> 01:35:07,380
+because I was never I'm I'm you know
+
+1773
+01:35:05,219 --> 01:35:09,659
+because my interest is is high level
+
+1774
+01:35:07,380 --> 01:35:13,380
+programming you know mathematics
+
+1775
+01:35:09,659 --> 01:35:16,920
+Foundation of mathematics logic
+
+1776
+01:35:13,380 --> 01:35:21,780
+what I'm not interested is code diddling
+
+1777
+01:35:16,920 --> 01:35:24,420
+like the C C plus plus Unix idiots you
+
+1778
+01:35:21,780 --> 01:35:26,940
+know they they are type this hacker they
+
+1779
+01:35:24,420 --> 01:35:29,880
+are interested in code detailing machine
+
+1780
+01:35:26,940 --> 01:35:32,159
+code you know compiler memory memory you
+
+1781
+01:35:29,880 --> 01:35:34,920
+need to manipulate memory Malak or
+
+1782
+01:35:32,159 --> 01:35:37,199
+whatever [ __ ] okay I'm not interested in
+
+1783
+01:35:34,920 --> 01:35:39,900
+those things I'm interested in high
+
+1784
+01:35:37,199 --> 01:35:42,719
+level programming and proof systems type
+
+1785
+01:35:39,900 --> 01:35:44,699
+Theory Haskell for example you know how
+
+1786
+01:35:42,719 --> 01:35:48,199
+how do you you know high level
+
+1787
+01:35:44,699 --> 01:35:51,120
+mathematics combinators Lambda calculus
+
+1788
+01:35:48,199 --> 01:35:53,639
+theoretical computer science that's what
+
+1789
+01:35:51,120 --> 01:35:56,400
+I'm interested in so
+
+1790
+01:35:53,639 --> 01:35:58,380
+when it comes to brain fog it's new to
+
+1791
+01:35:56,400 --> 01:36:01,260
+me it's new because you have to
+
+1792
+01:35:58,380 --> 01:36:02,639
+manipulate this thing you know but but
+
+1793
+01:36:01,260 --> 01:36:05,760
+brain [ __ ]
+
+1794
+01:36:02,639 --> 01:36:07,940
+is very fruitful to me because I started
+
+1795
+01:36:05,760 --> 01:36:09,600
+to realize how
+
+1796
+01:36:07,940 --> 01:36:12,780
+how
+
+1797
+01:36:09,600 --> 01:36:14,880
+um how brain [ __ ] um
+
+1798
+01:36:12,780 --> 01:36:17,940
+you know I realized many important
+
+1799
+01:36:14,880 --> 01:36:19,920
+principles one is that there's you know
+
+1800
+01:36:17,940 --> 01:36:22,860
+many programming languages they for
+
+1801
+01:36:19,920 --> 01:36:25,260
+example python they try to design it so
+
+1802
+01:36:22,860 --> 01:36:27,179
+that for any problem there's only one
+
+1803
+01:36:25,260 --> 01:36:30,120
+way to do it
+
+1804
+01:36:27,179 --> 01:36:33,900
+okay that's the most idiotic thought
+
+1805
+01:36:30,120 --> 01:36:36,480
+because it's not possible it is not
+
+1806
+01:36:33,900 --> 01:36:38,940
+possible theoretically to have just one
+
+1807
+01:36:36,480 --> 01:36:40,560
+way to do it you always have like
+
+1808
+01:36:38,940 --> 01:36:42,360
+different ways and you don't know which
+
+1809
+01:36:40,560 --> 01:36:43,679
+one is more efficient because there are
+
+1810
+01:36:42,360 --> 01:36:46,199
+different
+
+1811
+01:36:43,679 --> 01:36:48,540
+um issues okay anyway so if you dive
+
+1812
+01:36:46,199 --> 01:36:50,520
+into brain fog
+
+1813
+01:36:48,540 --> 01:36:52,679
+you know a lot hackers are interested
+
+1814
+01:36:50,520 --> 01:36:55,320
+this is a thing you guys are interested
+
+1815
+01:36:52,679 --> 01:36:57,420
+a lot of you see you know the industrial
+
+1816
+01:36:55,320 --> 01:37:00,120
+programmers who don't know nothing about
+
+1817
+01:36:57,420 --> 01:37:02,100
+math or types Theory but you would be
+
+1818
+01:37:00,120 --> 01:37:04,080
+interested in brain [ __ ] you know then
+
+1819
+01:37:02,100 --> 01:37:07,260
+you can tell your team friends see brain
+
+1820
+01:37:04,080 --> 01:37:09,900
+[ __ ] you know brain work you know anyway
+
+1821
+01:37:07,260 --> 01:37:11,639
+you you you try to code it solve
+
+1822
+01:37:09,900 --> 01:37:13,940
+problems you realize
+
+1823
+01:37:11,639 --> 01:37:17,760
+lots of the lower level
+
+1824
+01:37:13,940 --> 01:37:19,980
+algorithmic issues so anyway brain fog
+
+1825
+01:37:17,760 --> 01:37:22,380
+turns out it was fruitful
+
+1826
+01:37:19,980 --> 01:37:23,699
+for me
+
+1827
+01:37:22,380 --> 01:37:26,880
+uh
+
+1828
+01:37:23,699 --> 01:37:29,159
+so anyway so yeah so I was saying you go
+
+1829
+01:37:26,880 --> 01:37:32,900
+to Saudi search so for example type
+
+1830
+01:37:29,159 --> 01:37:32,900
+artificial intelligence okay
+
+1831
+01:37:32,940 --> 01:37:37,679
+but some of the article I didn't fully
+
+1832
+01:37:35,100 --> 01:37:39,300
+spell it out so that's why you don't get
+
+1833
+01:37:37,679 --> 01:37:41,400
+um
+
+1834
+01:37:39,300 --> 01:37:43,860
+you know so I have an article these this
+
+1835
+01:37:41,400 --> 01:37:47,400
+this article I also considered great
+
+1836
+01:37:43,860 --> 01:37:51,120
+okay this is about the nature of
+
+1837
+01:37:47,400 --> 01:37:54,719
+artificial neural network okay which is
+
+1838
+01:37:51,120 --> 01:37:57,300
+today's all the GPT chat bot is they are
+
+1839
+01:37:54,719 --> 01:38:00,360
+using that that's their methodology they
+
+1840
+01:37:57,300 --> 01:38:03,120
+are basically using massive statistics
+
+1841
+01:38:00,360 --> 01:38:06,120
+with one billion parameters you know to
+
+1842
+01:38:03,120 --> 01:38:09,420
+and they need to be trained in order for
+
+1843
+01:38:06,120 --> 01:38:11,820
+this today's you know AI to work they
+
+1844
+01:38:09,420 --> 01:38:15,060
+first of all need massive amount of data
+
+1845
+01:38:11,820 --> 01:38:18,120
+billion billion
+
+1846
+01:38:15,060 --> 01:38:21,060
+Peta whatever you know
+
+1847
+01:38:18,120 --> 01:38:23,639
+without that it doesn't work it can't do
+
+1848
+01:38:21,060 --> 01:38:26,159
+nothing you can't do a thing but once
+
+1849
+01:38:23,639 --> 01:38:28,260
+you have this huge amount of data or in
+
+1850
+01:38:26,159 --> 01:38:29,940
+the case of Chess or go it can play with
+
+1851
+01:38:28,260 --> 01:38:32,340
+by itself
+
+1852
+01:38:29,940 --> 01:38:34,199
+because it can generally generate data
+
+1853
+01:38:32,340 --> 01:38:36,540
+on the fly so you just let it play by
+
+1854
+01:38:34,199 --> 01:38:38,580
+itself then then in few days you'll beat
+
+1855
+01:38:36,540 --> 01:38:42,060
+the best chess player you know that
+
+1856
+01:38:38,580 --> 01:38:44,820
+happened just that be the best chest
+
+1857
+01:38:42,060 --> 01:38:46,920
+computer program written by human just
+
+1858
+01:38:44,820 --> 01:38:49,260
+by you know you create this neural
+
+1859
+01:38:46,920 --> 01:38:52,080
+network thing let it run by itself after
+
+1860
+01:38:49,260 --> 01:38:55,199
+a few days you beat any any other
+
+1861
+01:38:52,080 --> 01:38:57,960
+computer program human has written that
+
+1862
+01:38:55,199 --> 01:39:00,360
+happened you know that's all relying on
+
+1863
+01:38:57,960 --> 01:39:04,380
+you know neural network machine learning
+
+1864
+01:39:00,360 --> 01:39:06,780
+okay so you have ai which is a huge
+
+1865
+01:39:04,380 --> 01:39:09,239
+topic and then you have many different
+
+1866
+01:39:06,780 --> 01:39:12,120
+methodologies approaches
+
+1867
+01:39:09,239 --> 01:39:14,699
+for the artificial intelligence then one
+
+1868
+01:39:12,120 --> 01:39:16,860
+of them is machine learning
+
+1869
+01:39:14,699 --> 01:39:19,739
+and Below machine learning one of the
+
+1870
+01:39:16,860 --> 01:39:21,960
+methodologies neural network okay but
+
+1871
+01:39:19,739 --> 01:39:24,480
+the but there are many problems with
+
+1872
+01:39:21,960 --> 01:39:28,500
+neural network you know neural network
+
+1873
+01:39:24,480 --> 01:39:31,560
+is the most nasty because it um
+
+1874
+01:39:28,500 --> 01:39:33,780
+because you you know you can it knows
+
+1875
+01:39:31,560 --> 01:39:37,380
+things you know these AI parts for
+
+1876
+01:39:33,780 --> 01:39:39,900
+example the chat GPT or others they know
+
+1877
+01:39:37,380 --> 01:39:42,420
+things but they they don't they cannot
+
+1878
+01:39:39,900 --> 01:39:44,159
+it's impossible for them to tell you
+
+1879
+01:39:42,420 --> 01:39:46,500
+anything about it how do you know what
+
+1880
+01:39:44,159 --> 01:39:49,320
+you know they cannot tell they cannot
+
+1881
+01:39:46,500 --> 01:39:52,560
+tell you any Theory they can you know
+
+1882
+01:39:49,320 --> 01:39:56,300
+they just know they learn things but
+
+1883
+01:39:52,560 --> 01:39:56,300
+but by a way that's
+
+1884
+01:39:57,800 --> 01:40:03,420
+impenetratable you cannot see how it
+
+1885
+01:40:00,360 --> 01:40:04,500
+works you can see how it works it just
+
+1886
+01:40:03,420 --> 01:40:06,719
+knows stuff
+
+1887
+01:40:04,500 --> 01:40:09,719
+because of these
+
+1888
+01:40:06,719 --> 01:40:11,820
+kind of statistically based machine
+
+1889
+01:40:09,719 --> 01:40:13,679
+learning pattern recognition you know
+
+1890
+01:40:11,820 --> 01:40:18,320
+prediction you know
+
+1891
+01:40:13,679 --> 01:40:18,320
+so neural network is pretty nasty
+
+1892
+01:40:18,360 --> 01:40:23,699
+I mean not in in a sense not not
+
+1893
+01:40:20,880 --> 01:40:25,500
+necessarily nasty because it does it
+
+1894
+01:40:23,699 --> 01:40:28,860
+actually work that's the point you know
+
+1895
+01:40:25,500 --> 01:40:32,760
+it just it worked you know you can
+
+1896
+01:40:28,860 --> 01:40:35,580
+you know you go uh chess you know it can
+
+1897
+01:40:32,760 --> 01:40:39,480
+beat any human or any other programming
+
+1898
+01:40:35,580 --> 01:40:40,620
+human written computers it just that's a
+
+1899
+01:40:39,480 --> 01:40:44,580
+goal you know
+
+1900
+01:40:40,620 --> 01:40:48,719
+so anyway so I was trying to show
+
+1901
+01:40:44,580 --> 01:40:51,540
+I was telling about Saudi search and
+
+1902
+01:40:48,719 --> 01:40:54,120
+my interest in artificial intelligence
+
+1903
+01:40:51,540 --> 01:40:56,159
+which got me interested in wufan
+
+1904
+01:40:54,120 --> 01:40:58,739
+language because I want math is my
+
+1905
+01:40:56,159 --> 01:41:01,320
+interest you know wolfen language is the
+
+1906
+01:40:58,739 --> 01:41:04,639
+best and
+
+1907
+01:41:01,320 --> 01:41:07,620
+and then also this of course today
+
+1908
+01:41:04,639 --> 01:41:10,380
+artificial intelligence research is not
+
+1909
+01:41:07,620 --> 01:41:13,260
+done with this I blame the Communist
+
+1910
+01:41:10,380 --> 01:41:17,040
+facets okay that's how I that's why I
+
+1911
+01:41:13,260 --> 01:41:20,760
+blame I blame the common disp [ __ ]
+
+1912
+01:41:17,040 --> 01:41:23,340
+since 19 after 1990s you have this all
+
+1913
+01:41:20,760 --> 01:41:25,139
+the common these phonetics or skin
+
+1914
+01:41:23,340 --> 01:41:27,540
+Fanatics you know they are the
+
+1915
+01:41:25,139 --> 01:41:30,179
+industrial programmers they are nothing
+
+1916
+01:41:27,540 --> 01:41:31,739
+like the original communities people who
+
+1917
+01:41:30,179 --> 01:41:33,900
+actually think about things they are
+
+1918
+01:41:31,739 --> 01:41:37,080
+just the Babbling common lisp is the
+
+1919
+01:41:33,900 --> 01:41:39,000
+best thing skin is the best thing emacs
+
+1920
+01:41:37,080 --> 01:41:39,900
+is the best thing these [ __ ] idiots
+
+1921
+01:41:39,000 --> 01:41:42,659
+they
+
+1922
+01:41:39,900 --> 01:41:45,840
+so anyway today this basically died okay
+
+1923
+01:41:42,659 --> 01:41:48,739
+if you want to do AI research that's C
+
+1924
+01:41:45,840 --> 01:41:48,739
+plus for us
+
+1925
+01:41:51,000 --> 01:41:55,199
+I blame I blame these common these
+
+1926
+01:41:53,639 --> 01:41:58,139
+people because they
+
+1927
+01:41:55,199 --> 01:41:59,940
+they they they became a cult once you
+
+1928
+01:41:58,139 --> 01:42:02,280
+became a coach you don't have Innovation
+
+1929
+01:41:59,940 --> 01:42:05,159
+anymore because you have the proper
+
+1930
+01:42:02,280 --> 01:42:07,800
+thought you know if you don't agree emac
+
+1931
+01:42:05,159 --> 01:42:11,460
+this is the best you are they kick you
+
+1932
+01:42:07,800 --> 01:42:12,540
+out you know the code situation Emax
+
+1933
+01:42:11,460 --> 01:42:15,780
+okay
+
+1934
+01:42:12,540 --> 01:42:19,219
+emacs and this so this is no progress is
+
+1935
+01:42:15,780 --> 01:42:19,219
+kind of dead uh
+
+1936
+01:42:19,320 --> 01:42:24,900
+maybe except closure closure but closure
+
+1937
+01:42:22,619 --> 01:42:27,500
+is on Java in the Java world that's
+
+1938
+01:42:24,900 --> 01:42:27,500
+anyway
+
+1939
+01:42:29,100 --> 01:42:33,739
+Ai and stuff that's it that's it for
+
+1940
+01:42:31,500 --> 01:42:33,739
+today
+
+1941
+01:42:34,619 --> 01:42:39,540
+so if you like guys like my stuff okay
+
+1942
+01:42:37,020 --> 01:42:42,960
+donate to me okay just go to my website
+
+1943
+01:42:39,540 --> 01:42:46,040
+go to sorry.info in PayPal me
+
+1944
+01:42:42,960 --> 01:42:46,040
+okay do that
+
+1945
+01:42:58,020 --> 01:43:02,820
+if you want to my know my about emacs
+
+1946
+01:43:01,199 --> 01:43:04,500
+theme just search it you know I have
+
+1947
+01:43:02,820 --> 01:43:07,920
+like all the information on the website
+
+1948
+01:43:04,500 --> 01:43:12,000
+most people don't read
+
+1949
+01:43:07,920 --> 01:43:14,460
+so code man condemn 77 says sorry for
+
+1950
+01:43:12,000 --> 01:43:16,860
+the whole topic I want to ask here
+
+1951
+01:43:14,460 --> 01:43:19,020
+regarding your emacs tutorial oh yeah
+
+1952
+01:43:16,860 --> 01:43:20,520
+sorry so I've been delayed there are
+
+1953
+01:43:19,020 --> 01:43:21,960
+about three people
+
+1954
+01:43:20,520 --> 01:43:24,659
+you know
+
+1955
+01:43:21,960 --> 01:43:27,480
+so I will send it out today sorry about
+
+1956
+01:43:24,659 --> 01:43:29,840
+that so because I'm trying to generate a
+
+1957
+01:43:27,480 --> 01:43:29,840
+new version
+
+1958
+01:43:30,360 --> 01:43:35,280
+I can generate it right now but I mean
+
+1959
+01:43:32,699 --> 01:43:38,699
+but I need to do some cleanup so you get
+
+1960
+01:43:35,280 --> 01:43:42,000
+the best version as of today so sorry
+
+1961
+01:43:38,699 --> 01:43:45,320
+about that code condemn 77 okay that's
+
+1962
+01:43:42,000 --> 01:43:45,320
+it for today bye guys
+

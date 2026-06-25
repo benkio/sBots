@@ -1,0 +1,6008 @@
+1
+00:00:04,320 --> 00:00:07,600
+Good morning. Good morning.
+
+2
+00:00:06,200 --> 00:00:11,080
+Good morning, everyone.
+
+3
+00:00:07,600 --> 00:00:12,200
+Welcome to another episode of Xah Talk
+
+4
+00:00:11,080 --> 00:00:14,520
+Show.
+
+5
+00:00:12,200 --> 00:00:18,760
+We are going to code Wolfram Language
+
+6
+00:00:14,520 --> 00:00:21,600
+today. Wolfram Language. Uh so, this
+
+7
+00:00:18,760 --> 00:00:22,960
+today we're going to code seriously
+
+8
+00:00:21,600 --> 00:00:24,840
+serious
+
+9
+00:00:22,960 --> 00:00:28,400
+uh Wolfram Language coding.
+
+10
+00:00:24,840 --> 00:00:31,480
+So, this would be of interest to those
+
+11
+00:00:28,400 --> 00:00:34,400
+of you who are into Wolfram Language
+
+12
+00:00:31,480 --> 00:00:38,080
+Mathematica doing geometry plane curves.
+
+13
+00:00:34,400 --> 00:00:40,880
+So, we are going to write Wolfram
+
+14
+00:00:38,080 --> 00:00:44,080
+Language code to create
+
+15
+00:00:40,880 --> 00:00:46,720
+uh general purpose code to create
+
+16
+00:00:44,080 --> 00:00:50,240
+caustics, which is
+
+17
+00:00:46,720 --> 00:00:53,120
+given a plane curve and given a light
+
+18
+00:00:50,240 --> 00:00:57,160
+source, the light source shine rays onto
+
+19
+00:00:53,120 --> 00:00:59,680
+the curve and reflect off the curve. So,
+
+20
+00:00:57,160 --> 00:01:02,760
+this is a illustration of
+
+21
+00:00:59,680 --> 00:01:05,320
+caustics. It's called caustics.
+
+22
+00:01:02,760 --> 00:01:08,320
+Uh so, it's you know, the study of
+
+23
+00:01:05,320 --> 00:01:09,640
+optical properties uh called is called
+
+24
+00:01:08,320 --> 00:01:12,200
+caustics.
+
+25
+00:01:09,640 --> 00:01:14,040
+So, we are going to uh create a general
+
+26
+00:01:12,200 --> 00:01:15,760
+purpose code
+
+27
+00:01:14,040 --> 00:01:18,960
+to draw
+
+28
+00:01:15,760 --> 00:01:21,960
+these reflection rays or refraction rays
+
+29
+00:01:18,960 --> 00:01:25,440
+for any given curve.
+
+30
+00:01:21,960 --> 00:01:27,800
+Um so, we we started to do it last week
+
+31
+00:01:25,440 --> 00:01:29,080
+uh and here's a code. So, let's show the
+
+32
+00:01:27,800 --> 00:01:32,880
+code.
+
+33
+00:01:29,080 --> 00:01:34,640
+It runs, but it needs refinement, okay?
+
+34
+00:01:32,880 --> 00:01:36,560
+So, starting Wolfram Language, if you
+
+35
+00:01:34,640 --> 00:01:40,000
+don't know already, we did a lot
+
+36
+00:01:36,560 --> 00:01:41,840
+introduction to Wolfram Language. So,
+
+37
+00:01:40,000 --> 00:01:43,120
+okay. So, in case you don't know, let me
+
+38
+00:01:41,840 --> 00:01:45,600
+take
+
+39
+00:01:43,120 --> 00:01:50,640
+2 minutes to introduce you guys Wolfram
+
+40
+00:01:45,600 --> 00:01:52,840
+Language, okay? Wolfram Language is a um
+
+41
+00:01:50,640 --> 00:01:55,240
+is the most uh powerful advanced
+
+42
+00:01:52,840 --> 00:01:58,160
+programming system.
+
+43
+00:01:55,240 --> 00:02:00,920
+It was known as computer algebra system
+
+44
+00:01:58,160 --> 00:02:03,480
+30 years ago, but Wolfram Language
+
+45
+00:02:00,920 --> 00:02:06,880
+expanded, so it can do
+
+46
+00:02:03,480 --> 00:02:09,600
+uh today it's for you can think of it is
+
+47
+00:02:06,880 --> 00:02:12,920
+like 10 times more powerful than Python,
+
+48
+00:02:09,600 --> 00:02:14,320
+okay? Can do uh neural network, machine
+
+49
+00:02:12,920 --> 00:02:18,640
+learning,
+
+50
+00:02:14,320 --> 00:02:21,880
+uh solving equations, and derivatives,
+
+51
+00:02:18,640 --> 00:02:22,600
+integrals, and uh
+
+52
+00:02:21,880 --> 00:02:24,920
+um
+
+53
+00:02:22,600 --> 00:02:26,760
+number theory,
+
+54
+00:02:24,920 --> 00:02:30,000
+differential equations, all all
+
+55
+00:02:26,760 --> 00:02:33,000
+mathematics, prime numbers, crypto
+
+56
+00:02:30,000 --> 00:02:34,840
+uh cryptoanalysis,
+
+57
+00:02:33,000 --> 00:02:36,600
+uh and machine learning and graph
+
+58
+00:02:34,840 --> 00:02:39,440
+theory. So, it's like you can you can
+
+59
+00:02:36,600 --> 00:02:40,600
+kind of think of it as 10 times more
+
+60
+00:02:39,440 --> 00:02:42,400
+uh
+
+61
+00:02:40,600 --> 00:02:43,800
+powerful
+
+62
+00:02:42,400 --> 00:02:46,160
+than
+
+63
+00:02:43,800 --> 00:02:48,320
+Python, you know, the entire Python
+
+64
+00:02:46,160 --> 00:02:50,640
+libraries and stuff, okay?
+
+65
+00:02:48,320 --> 00:02:52,800
+So, and you can download, but however,
+
+66
+00:02:50,640 --> 00:02:55,240
+you have to pay like very expensive few
+
+67
+00:02:52,800 --> 00:02:59,360
+thousand dollars a year or something
+
+68
+00:02:55,240 --> 00:03:01,360
+like but you but today they have a uh
+
+69
+00:02:59,360 --> 00:03:03,400
+kind of free version you can download
+
+70
+00:03:01,360 --> 00:03:05,680
+for free. So,
+
+71
+00:03:03,400 --> 00:03:08,760
+all you have to do is just search for go
+
+72
+00:03:05,680 --> 00:03:11,360
+to my website xahlee.info, okay?
+
+73
+00:03:08,760 --> 00:03:13,760
+Uh xahlee.info.
+
+74
+00:03:11,360 --> 00:03:18,960
+So, you go to my website
+
+75
+00:03:13,760 --> 00:03:21,960
+xahlee.info, okay? Then you go to uh
+
+76
+00:03:18,960 --> 00:03:23,760
+go to uh Wolfram Language. So, this I
+
+77
+00:03:21,960 --> 00:03:26,080
+have lots of mathematics Wolfram
+
+78
+00:03:23,760 --> 00:03:29,200
+Language tutorial. Go there Wolfram
+
+79
+00:03:26,080 --> 00:03:30,280
+Language tutorial by Xah Lee, my name,
+
+80
+00:03:29,200 --> 00:03:32,680
+okay?
+
+81
+00:03:30,280 --> 00:03:34,840
+Uh you'll find it on the web and the
+
+82
+00:03:32,680 --> 00:03:36,560
+Wolfram Language download. So, there is
+
+83
+00:03:34,840 --> 00:03:40,080
+download. Go there and go to this
+
+84
+00:03:36,560 --> 00:03:40,080
+website wolfram.com/developer.
+
+85
+00:03:40,120 --> 00:03:43,560
+So, you can download the Wolfram Engine
+
+86
+00:03:42,000 --> 00:03:45,480
+for free.
+
+87
+00:03:43,560 --> 00:03:48,720
+Uh you need to turn on JavaScript. You
+
+88
+00:03:45,480 --> 00:03:51,480
+need to, you know, give your email and
+
+89
+00:03:48,720 --> 00:03:53,680
+agreement, you know, and stuff. Then you
+
+90
+00:03:51,480 --> 00:03:54,760
+can use it for free.
+
+91
+00:03:53,680 --> 00:03:57,200
+Um
+
+92
+00:03:54,760 --> 00:04:00,080
+or I recommend you just buy it. I bought
+
+93
+00:03:57,200 --> 00:04:02,000
+it like 30 years ago in beginning in
+
+94
+00:04:00,080 --> 00:04:05,280
+1992.
+
+95
+00:04:02,000 --> 00:04:08,360
+two. It is my first programming language
+
+96
+00:04:05,280 --> 00:04:12,520
+actually and I studied it I coded it
+
+97
+00:04:08,360 --> 00:04:15,360
+every day few hours a day uh for the
+
+98
+00:04:12,520 --> 00:04:18,160
+next, you know, for like 7 years in
+
+99
+00:04:15,360 --> 00:04:20,359
+1990s.
+
+100
+00:04:18,160 --> 00:04:22,760
+You know, af- after after 2 years it got
+
+101
+00:04:20,359 --> 00:04:23,640
+me a job at Wolfram Research.
+
+102
+00:04:22,760 --> 00:04:25,360
+So,
+
+103
+00:04:23,640 --> 00:04:27,160
+so I've been coding Wolfram Language for
+
+104
+00:04:25,360 --> 00:04:28,800
+30 years, okay?
+
+105
+00:04:27,160 --> 00:04:31,080
+So, um
+
+106
+00:04:28,800 --> 00:04:32,920
+you know, so I did a lot videos like
+
+107
+00:04:31,080 --> 00:04:36,040
+tons of videos. So, so you know, you
+
+108
+00:04:32,920 --> 00:04:38,400
+download it and also read my article,
+
+109
+00:04:36,040 --> 00:04:40,880
+you know, the differences and okay, you
+
+110
+00:04:38,400 --> 00:04:43,120
+can also get it from Raspberry Pi.
+
+111
+00:04:40,880 --> 00:04:46,680
+Uh differences bet- between Wolfram
+
+112
+00:04:43,120 --> 00:04:49,120
+Engine, Mathematica, Wolfram Language,
+
+113
+00:04:46,680 --> 00:04:51,600
+Wolfram Script, like what are they? Why
+
+114
+00:04:49,120 --> 00:04:53,800
+is so so many different names? So, you
+
+115
+00:04:51,600 --> 00:04:56,200
+can read about it and you also you want
+
+116
+00:04:53,800 --> 00:04:58,640
+to download the Jupyter
+
+117
+00:04:56,200 --> 00:05:00,840
+extension for Jupyter so that you can
+
+118
+00:04:58,640 --> 00:05:02,680
+have graphical interface, okay? Like we
+
+119
+00:05:00,840 --> 00:05:04,480
+do a lot of graphics.
+
+120
+00:05:02,680 --> 00:05:07,160
+Okay, so that's kind of so you want to
+
+121
+00:05:04,480 --> 00:05:10,360
+download this, okay? That's kind of the
+
+122
+00:05:07,160 --> 00:05:13,040
+kind of the introduction and and um
+
+123
+00:05:10,360 --> 00:05:15,920
+and I have done
+
+124
+00:05:13,040 --> 00:05:18,440
+over 100 videos on Wolfram Language. So,
+
+125
+00:05:15,920 --> 00:05:21,200
+some of the best ones can be seen on
+
+126
+00:05:18,440 --> 00:05:24,160
+this page Wolfram Language tutorial by
+
+127
+00:05:21,200 --> 00:05:25,200
+video Xah Lee or search on my YouTube,
+
+128
+00:05:24,160 --> 00:05:27,360
+okay?
+
+129
+00:05:25,200 --> 00:05:28,880
+So, I've done 100 videos on Wolfram
+
+130
+00:05:27,360 --> 00:05:30,920
+Language.
+
+131
+00:05:28,880 --> 00:05:32,880
+And the particularity, you know,
+
+132
+00:05:30,920 --> 00:05:35,200
+fascinating. I mean, the most beautiful
+
+133
+00:05:32,880 --> 00:05:36,520
+for example are these things, okay? For
+
+134
+00:05:35,200 --> 00:05:39,120
+example,
+
+135
+00:05:36,520 --> 00:05:41,000
+you know, here you can see the power of
+
+136
+00:05:39,120 --> 00:05:45,400
+Wolfram Language.
+
+137
+00:05:41,000 --> 00:05:48,200
+So, you see, that's a code. Shift enter.
+
+138
+00:05:45,400 --> 00:05:51,240
+Then here is a result.
+
+139
+00:05:48,200 --> 00:05:54,360
+Amazing. Is that beautiful? It's just
+
+140
+00:05:51,240 --> 00:05:56,040
+amazing, okay? It's control scroll to
+
+141
+00:05:54,360 --> 00:05:59,720
+like um
+
+142
+00:05:56,040 --> 00:06:02,720
+Wait, I I want to control um
+
+143
+00:05:59,720 --> 00:06:02,720
+shifts.
+
+144
+00:06:03,360 --> 00:06:07,400
+Wait.
+
+145
+00:06:04,440 --> 00:06:10,000
+Too many devices, trackball and mouse.
+
+146
+00:06:07,400 --> 00:06:12,360
+So, what is the uh
+
+147
+00:06:10,000 --> 00:06:16,920
+So, you can okay. So, yeah. So, you can
+
+148
+00:06:12,360 --> 00:06:16,920
+you see then you control um
+
+149
+00:06:17,480 --> 00:06:21,880
+Then you can you see? Beautiful. You can
+
+150
+00:06:19,880 --> 00:06:24,320
+you can magnify, you can zoom, you can
+
+151
+00:06:21,880 --> 00:06:29,600
+pan graphics, you see?
+
+152
+00:06:24,320 --> 00:06:29,600
+So, I don't want it too large. So, wait.
+
+153
+00:06:34,440 --> 00:06:37,040
+Yeah.
+
+154
+00:06:38,320 --> 00:06:43,160
+I have sticky keys on. That's why you
+
+155
+00:06:40,640 --> 00:06:46,160
+hear the beep. When I press control, it
+
+156
+00:06:43,160 --> 00:06:49,400
+held the control. That's why it seems
+
+157
+00:06:46,160 --> 00:06:51,760
+confusing. So, you see? Fantastic. This
+
+158
+00:06:49,400 --> 00:06:54,760
+is my favorite thing, geometry. This is
+
+159
+00:06:51,760 --> 00:06:59,320
+coding version. Uh in fact, we coded
+
+160
+00:06:54,760 --> 00:07:02,280
+live 3 years ago in 2023.
+
+161
+00:06:59,320 --> 00:07:04,040
+Uh okay. So, you see the the power of
+
+162
+00:07:02,280 --> 00:07:06,880
+Wolfram Language, okay? That's a short
+
+163
+00:07:04,040 --> 00:07:10,000
+introduction. So, shift control N to
+
+164
+00:07:06,880 --> 00:07:12,440
+make it typeset so you can see all these
+
+165
+00:07:10,000 --> 00:07:14,560
+became fractions and so on.
+
+166
+00:07:12,440 --> 00:07:17,200
+Okay. So, that's the introduction, okay?
+
+167
+00:07:14,560 --> 00:07:19,040
+But today we're going to really
+
+168
+00:07:17,200 --> 00:07:22,640
+I've been wanting to code this. Let's
+
+169
+00:07:19,040 --> 00:07:23,800
+just focus on coding this um
+
+170
+00:07:22,640 --> 00:07:25,600
+this
+
+171
+00:07:23,800 --> 00:07:27,640
+um
+
+172
+00:07:25,600 --> 00:07:31,200
+this caustics, okay?
+
+173
+00:07:27,640 --> 00:07:34,200
+Hello. If you are here, say hi. Hello.
+
+174
+00:07:31,200 --> 00:07:34,200
+NHQ.
+
+175
+00:07:34,640 --> 00:07:38,520
+Have Have you been on this channel
+
+176
+00:07:36,120 --> 00:07:41,000
+before? Have you used Wolfram Language
+
+177
+00:07:38,520 --> 00:07:43,120
+before? Are you a student? Or are you
+
+178
+00:07:41,000 --> 00:07:45,200
+interested in mathematics or something?
+
+179
+00:07:43,120 --> 00:07:47,480
+Are you learning math math? Or are you
+
+180
+00:07:45,200 --> 00:07:49,680
+maybe a professional?
+
+181
+00:07:47,480 --> 00:07:52,720
+Uh mathematician? Or are you a
+
+182
+00:07:49,680 --> 00:07:54,120
+carpenter? And are you in Africa? Or are
+
+183
+00:07:52,720 --> 00:07:56,520
+you in
+
+184
+00:07:54,120 --> 00:07:57,840
+Arab Middle East? Or are you in Japan?
+
+185
+00:07:56,520 --> 00:07:59,000
+Like
+
+186
+00:07:57,840 --> 00:08:00,800
+who are you?
+
+187
+00:07:59,000 --> 00:08:02,400
+You know, just for chat, okay? So, if
+
+188
+00:08:00,800 --> 00:08:06,160
+you are here, say hi. If you are not
+
+189
+00:08:02,400 --> 00:08:08,680
+here, play it play this video at 1.5
+
+190
+00:08:06,160 --> 00:08:11,400
+speed. Okay, video check, audio check,
+
+191
+00:08:08,680 --> 00:08:13,960
+okay? Let's start to code, okay?
+
+192
+00:08:11,400 --> 00:08:16,920
+So, we we we've talked about this kind
+
+193
+00:08:13,960 --> 00:08:20,400
+of introduction to death. So, we want to
+
+194
+00:08:16,920 --> 00:08:23,360
+do let's uh so, let's
+
+195
+00:08:20,400 --> 00:08:26,360
+start to So, from now on from this point
+
+196
+00:08:23,360 --> 00:08:28,840
+on, I'm going to code and this is going
+
+197
+00:08:26,360 --> 00:08:30,640
+to be like serious
+
+198
+00:08:28,840 --> 00:08:33,840
+um
+
+199
+00:08:30,640 --> 00:08:37,039
+Wolfram Language technicalities, okay?
+
+200
+00:08:33,840 --> 00:08:39,000
+Like like really uh deep. Uh so, most
+
+201
+00:08:37,039 --> 00:08:41,479
+people we all you we all not understand
+
+202
+00:08:39,000 --> 00:08:44,360
+it, okay? By the way, so this is this is
+
+203
+00:08:41,479 --> 00:08:47,480
+this curve is called nephroid. When you
+
+204
+00:08:44,360 --> 00:08:49,960
+roll a circle outside of the circle
+
+205
+00:08:47,480 --> 00:08:52,440
+such that the rolling circle is half the
+
+206
+00:08:49,960 --> 00:08:56,320
+size half the radius of the fixed
+
+207
+00:08:52,440 --> 00:08:59,960
+circle. Then you put a
+
+208
+00:08:56,320 --> 00:09:01,960
+dot on the rim of the circle a chalk or
+
+209
+00:08:59,960 --> 00:09:05,840
+pencil, it trace out this curve. It's
+
+210
+00:09:01,960 --> 00:09:08,840
+called nephroid, okay? And it can also
+
+211
+00:09:05,840 --> 00:09:10,040
+be formed if you shine a light parallel
+
+212
+00:09:08,840 --> 00:09:13,160
+rays
+
+213
+00:09:10,040 --> 00:09:16,040
+onto a circle, the reflection you see
+
+214
+00:09:13,160 --> 00:09:17,960
+this reflection will form
+
+215
+00:09:16,040 --> 00:09:21,080
+the nephroid.
+
+216
+00:09:17,960 --> 00:09:25,720
+In In other words, we say the envelope
+
+217
+00:09:21,080 --> 00:09:25,720
+of the reflected rays is
+
+218
+00:09:27,280 --> 00:09:33,880
+nephroid, okay? Is this nephroid. So,
+
+219
+00:09:30,440 --> 00:09:36,160
+there are so many ways to generate it.
+
+220
+00:09:33,880 --> 00:09:38,840
+Uh so, and today we're going to code
+
+221
+00:09:36,160 --> 00:09:41,440
+this, okay? Now, of course, I already
+
+222
+00:09:38,840 --> 00:09:44,280
+have the code. You just do that. Uh so,
+
+223
+00:09:41,440 --> 00:09:45,680
+so for example, uh
+
+224
+00:09:44,280 --> 00:09:47,360
+copy.
+
+225
+00:09:45,680 --> 00:09:50,040
+Go back here.
+
+226
+00:09:47,360 --> 00:09:54,480
+Uh let's let's run this, okay? Shift
+
+227
+00:09:50,040 --> 00:09:55,360
+enter. Let's uh this too huge. 125,
+
+228
+00:09:54,480 --> 00:09:57,880
+okay?
+
+229
+00:09:55,360 --> 00:10:01,040
+Okay, that's good enough.
+
+230
+00:09:57,880 --> 00:10:02,320
+So, you see so paste that. So, shift
+
+231
+00:10:01,040 --> 00:10:04,560
+enter.
+
+232
+00:10:02,320 --> 00:10:06,600
+So, you see beautiful you
+
+233
+00:10:04,560 --> 00:10:10,120
+you know, I have random color on. You
+
+234
+00:10:06,600 --> 00:10:12,400
+see random color. So, every time
+
+235
+00:10:10,120 --> 00:10:15,120
+I run this code I get a new picture of
+
+236
+00:10:12,400 --> 00:10:18,000
+different color. Fantastic. So, but this
+
+237
+00:10:15,120 --> 00:10:20,440
+code requires my package.
+
+238
+00:10:18,000 --> 00:10:25,280
+Search for it. You'll find it on the web
+
+239
+00:10:20,440 --> 00:10:27,920
+on GitHub plain curve plot by Xali.
+
+240
+00:10:25,280 --> 00:10:29,840
+Okay, but I don't want
+
+241
+00:10:27,920 --> 00:10:31,000
+packaged version. I want the gen
+
+242
+00:10:29,840 --> 00:10:34,000
+generate
+
+243
+00:10:31,000 --> 00:10:35,240
+you know, so people can
+
+244
+00:10:34,000 --> 00:10:38,000
+people don't have to download the
+
+245
+00:10:35,240 --> 00:10:40,200
+package. People can just run the code
+
+246
+00:10:38,000 --> 00:10:41,600
+and show the graphics. Okay, so here's
+
+247
+00:10:40,200 --> 00:10:43,280
+the code. So, it's going to be much
+
+248
+00:10:41,600 --> 00:10:46,200
+longer. You see.
+
+249
+00:10:43,280 --> 00:10:49,120
+But, you know, 50 lines. Okay, so you
+
+250
+00:10:46,200 --> 00:10:51,360
+see. So, if we run this
+
+251
+00:10:49,120 --> 00:10:53,600
+run it you see it's not done yet. Last
+
+252
+00:10:51,360 --> 00:10:54,640
+time we we started to do it it's not
+
+253
+00:10:53,600 --> 00:10:56,720
+done.
+
+254
+00:10:54,640 --> 00:10:58,920
+We're going to continue this. Okay, so
+
+255
+00:10:56,720 --> 00:11:01,800
+from now on it's going to be um
+
+256
+00:10:58,920 --> 00:11:01,800
+advanced.
+
+257
+00:11:09,800 --> 00:11:15,280
+This is
+
+258
+00:11:11,400 --> 00:11:18,000
+fantastic coffee. This is milk
+
+259
+00:11:15,280 --> 00:11:21,120
+and instant coffee
+
+260
+00:11:18,000 --> 00:11:24,320
+and honey
+
+261
+00:11:21,120 --> 00:11:24,320
+and some coca.
+
+262
+00:11:36,160 --> 00:11:40,839
+So far so good. So far so good. So far
+
+263
+00:11:38,839 --> 00:11:43,760
+so good.
+
+264
+00:11:40,839 --> 00:11:45,520
+Okay, so let's begin coding. So, let's
+
+265
+00:11:43,760 --> 00:11:48,480
+let's do. Okay.
+
+266
+00:11:45,520 --> 00:11:50,600
+So, this is for people who
+
+267
+00:11:48,480 --> 00:11:52,920
+who who are interesting with from
+
+268
+00:11:50,600 --> 00:11:55,200
+language or already know something about
+
+269
+00:11:52,920 --> 00:11:55,200
+it.
+
+270
+00:11:55,800 --> 00:12:01,560
+Um and well, we want to go to now for
+
+271
+00:11:59,440 --> 00:12:04,400
+it. Okay, wait.
+
+272
+00:12:01,560 --> 00:12:06,360
+Yes, we're going to go here.
+
+273
+00:12:04,400 --> 00:12:07,000
+That's the page.
+
+274
+00:12:06,360 --> 00:12:10,520
+Uh
+
+275
+00:12:07,000 --> 00:12:12,920
+so, what is this? Okay, so
+
+276
+00:12:10,520 --> 00:12:15,120
+make a backup. Pop this out. So, here's
+
+277
+00:12:12,920 --> 00:12:17,960
+a code. So,
+
+278
+00:12:15,120 --> 00:12:20,320
+I need to start to Okay, this is going
+
+279
+00:12:17,960 --> 00:12:22,880
+to be Okay, this is going to be boring.
+
+280
+00:12:20,320 --> 00:12:25,200
+Okay. I don't know if I can explain too
+
+281
+00:12:22,880 --> 00:12:28,040
+much because
+
+282
+00:12:25,200 --> 00:12:30,400
+you know, it's it's not
+
+283
+00:12:28,040 --> 00:12:32,920
+it's you know, somewhat
+
+284
+00:12:30,400 --> 00:12:34,400
+it's not beginners for sure.
+
+285
+00:12:32,920 --> 00:12:37,960
+So,
+
+286
+00:12:34,400 --> 00:12:39,760
+so you'll just be watching me code and
+
+287
+00:12:37,960 --> 00:12:43,040
+boring. Okay.
+
+288
+00:12:39,760 --> 00:12:46,160
+So, again we are trying to make this
+
+289
+00:12:43,040 --> 00:12:47,280
+uh for example, you see this shrink
+
+290
+00:12:46,160 --> 00:12:49,880
+thing
+
+291
+00:12:47,280 --> 00:12:51,880
+you can make it better by
+
+292
+00:12:49,880 --> 00:12:55,480
+um
+
+293
+00:12:51,880 --> 00:12:59,000
+by specify probably it's not anyway.
+
+294
+00:12:55,480 --> 00:13:02,400
+Okay, so let's focus on the code.
+
+295
+00:12:59,000 --> 00:13:05,040
+So, the the most important thing is this
+
+296
+00:13:02,400 --> 00:13:09,480
+caustic GP. Okay.
+
+297
+00:13:05,040 --> 00:13:09,480
+That is the usage. Okay.
+
+298
+00:13:11,000 --> 00:13:14,760
+Okay, let me type this out.
+
+299
+00:13:30,320 --> 00:13:38,040
+deep interest in Wolfram language
+
+300
+00:13:35,280 --> 00:13:38,040
+or car
+
+301
+00:13:40,160 --> 00:13:46,560
+Mathematica. Okay.
+
+302
+00:13:43,400 --> 00:13:48,360
+Okay, so
+
+303
+00:13:46,560 --> 00:13:50,680
+this
+
+304
+00:13:48,360 --> 00:13:52,480
+Yeah, okay. Every time I do this I
+
+305
+00:13:50,680 --> 00:13:55,880
+realized
+
+306
+00:13:52,480 --> 00:13:57,960
+if I am if I am going to explain this
+
+307
+00:13:55,880 --> 00:14:00,000
+then I will never code it. You know,
+
+308
+00:13:57,960 --> 00:14:02,880
+it's I'm just going to spend 1 hour
+
+309
+00:14:00,000 --> 00:14:06,800
+explaining what's it's doing.
+
+310
+00:14:02,880 --> 00:14:09,720
+Uh so, then we'll start again.
+
+311
+00:14:06,800 --> 00:14:11,600
+So, I'm not going to I I can't I can't
+
+312
+00:14:09,720 --> 00:14:14,000
+do explain. I just need to code this.
+
+313
+00:14:11,600 --> 00:14:14,000
+Okay.
+
+314
+00:14:14,680 --> 00:14:19,000
+Uh
+
+315
+00:14:16,760 --> 00:14:21,320
+because if I explain that's not going to
+
+316
+00:14:19,000 --> 00:14:22,800
+be finished. Okay, but anyway
+
+317
+00:14:21,320 --> 00:14:25,480
+So, this is
+
+318
+00:14:22,800 --> 00:14:29,000
+the key function. Okay, it draws the
+
+319
+00:14:25,480 --> 00:14:30,600
+caustic lines and it needs several
+
+320
+00:14:29,000 --> 00:14:35,040
+improvements.
+
+321
+00:14:30,600 --> 00:14:35,040
+points tangent vector ray origin
+
+322
+00:14:56,800 --> 00:15:04,920
+So, it takes 1 2 3 4 four parameters
+
+323
+00:15:00,720 --> 00:15:08,600
+list of points list of tangent vectors
+
+324
+00:15:04,920 --> 00:15:10,480
+and one ray origin which is a pair of
+
+325
+00:15:08,600 --> 00:15:13,200
+numbers
+
+326
+00:15:10,480 --> 00:15:16,240
+and length. Okay.
+
+327
+00:15:13,200 --> 00:15:19,000
+Now, I don't want length to be part of
+
+328
+00:15:16,240 --> 00:15:21,440
+these functions. So,
+
+329
+00:15:19,000 --> 00:15:24,160
+I want a new function where it doesn't
+
+330
+00:15:21,440 --> 00:15:25,000
+specify length, but
+
+331
+00:15:24,160 --> 00:15:30,400
+um
+
+332
+00:15:25,000 --> 00:15:30,400
+but that may create efficiency problems.
+
+333
+00:15:30,440 --> 00:15:34,880
+You see
+
+334
+00:15:31,959 --> 00:15:36,560
+you got efficiency considerations
+
+335
+00:15:34,880 --> 00:15:39,720
+because
+
+336
+00:15:36,560 --> 00:15:41,440
+So, what this function do is that you
+
+337
+00:15:39,720 --> 00:15:44,280
+when you call it you give a list of
+
+338
+00:15:41,440 --> 00:15:47,160
+points. That's the points on the curve.
+
+339
+00:15:44,280 --> 00:15:50,120
+For example, that that that
+
+340
+00:15:47,160 --> 00:15:52,000
+then you give a list of tangent vectors
+
+341
+00:15:50,120 --> 00:15:54,680
+at those points.
+
+342
+00:15:52,000 --> 00:15:54,680
+So,
+
+343
+00:15:55,440 --> 00:16:00,720
+So, there is a tangent vector. So, let
+
+344
+00:15:57,560 --> 00:16:05,800
+me show you this image. Okay.
+
+345
+00:16:00,720 --> 00:16:07,959
+Um well, I started to explain, but um
+
+346
+00:16:05,800 --> 00:16:10,520
+that means I'm never going to code
+
+347
+00:16:07,959 --> 00:16:10,520
+nothing.
+
+348
+00:16:14,000 --> 00:16:18,120
+Uh where is my plot range?
+
+349
+00:16:19,800 --> 00:16:26,880
+Uh there's no plot range. Okay.
+
+350
+00:16:22,839 --> 00:16:32,959
+So, you need to specify
+
+351
+00:16:26,880 --> 00:16:32,959
+graphics caustic table. What is this?
+
+352
+00:16:36,600 --> 00:16:42,120
+Okay, so you see it's calling the
+
+353
+00:16:38,720 --> 00:16:44,000
+function the caustic line list of points
+
+354
+00:16:42,120 --> 00:16:48,959
+on the curve
+
+355
+00:16:44,000 --> 00:16:51,320
+and the list of the derivatives then
+
+356
+00:16:48,959 --> 00:16:53,400
+then the
+
+357
+00:16:51,320 --> 00:16:53,400
+um
+
+358
+00:16:53,480 --> 00:16:59,760
+Yeah, the list of derivatives then
+
+359
+00:16:56,720 --> 00:17:01,440
+the origin of the light source then
+
+360
+00:16:59,760 --> 00:17:02,600
+length. Okay.
+
+361
+00:17:01,440 --> 00:17:05,880
+Then
+
+362
+00:17:02,600 --> 00:17:07,880
+uh you need to uh say plot
+
+363
+00:17:05,880 --> 00:17:10,480
+Yeah, okay. So,
+
+364
+00:17:07,880 --> 00:17:13,079
+let's say nine.
+
+365
+00:17:10,480 --> 00:17:16,839
+Nine is the length. Okay.
+
+366
+00:17:13,079 --> 00:17:16,839
+So, let's
+
+367
+00:17:18,160 --> 00:17:24,640
+Okay, let's put that there. Let's open
+
+368
+00:17:21,760 --> 00:17:24,640
+new one.
+
+369
+00:17:25,640 --> 00:17:32,880
+Paste it. Okay, let's make it 125.
+
+370
+00:17:31,240 --> 00:17:34,320
+150.
+
+371
+00:17:32,880 --> 00:17:35,960
+Yeah.
+
+372
+00:17:34,320 --> 00:17:38,400
+125.
+
+373
+00:17:35,960 --> 00:17:38,400
+Okay.
+
+374
+00:17:38,840 --> 00:17:44,240
+So,
+
+375
+00:17:41,040 --> 00:17:46,280
+yeah, shift enter.
+
+376
+00:17:44,240 --> 00:17:48,120
+Okay, so you can kind of see that.
+
+377
+00:17:46,280 --> 00:17:50,880
+That's not good.
+
+378
+00:17:48,120 --> 00:17:54,200
+Uh let's see you see the length is a
+
+379
+00:17:50,880 --> 00:17:57,480
+problem. Let's say
+
+380
+00:17:54,200 --> 00:17:59,960
+you kind of need a plot range. Yeah.
+
+381
+00:17:57,480 --> 00:17:59,960
+Yeah, okay.
+
+382
+00:18:00,440 --> 00:18:06,760
+99
+
+383
+00:18:02,200 --> 00:18:06,760
+then you need to say plot range.
+
+384
+00:18:08,920 --> 00:18:17,040
+Plot range limits the graphics to
+
+385
+00:18:13,040 --> 00:18:17,040
+specific region. Okay.
+
+386
+00:18:17,600 --> 00:18:23,640
+So, typically you can say -1 and 1
+
+387
+00:18:24,080 --> 00:18:29,480
+-1 and 1 multiplied by
+
+388
+00:18:28,280 --> 00:18:32,560
+two
+
+389
+00:18:29,480 --> 00:18:34,880
+that will give you a rectangular region.
+
+390
+00:18:32,560 --> 00:18:37,440
+Shift enter.
+
+391
+00:18:34,880 --> 00:18:39,600
+Okay, so that's not big enough. So,
+
+392
+00:18:37,440 --> 00:18:42,800
+let's say nine.
+
+393
+00:18:39,600 --> 00:18:42,800
+Okay, so
+
+394
+00:18:43,840 --> 00:18:49,000
+let's say
+
+395
+00:18:46,560 --> 00:18:49,000
+What?
+
+396
+00:18:53,000 --> 00:18:56,280
+Okay, you see?
+
+397
+00:18:54,360 --> 00:18:58,800
+That's what we want.
+
+398
+00:18:56,280 --> 00:18:58,800
+Um
+
+399
+00:18:58,840 --> 00:19:01,280
+God.
+
+400
+00:19:05,280 --> 00:19:12,400
+Okay, so by the way, I got I got a
+
+401
+00:19:08,120 --> 00:19:15,880
+haircut. So, my wife cut it for me.
+
+402
+00:19:12,400 --> 00:19:15,880
+Now, it's a bit hot.
+
+403
+00:19:16,159 --> 00:19:18,480
+Uh
+
+404
+00:19:21,120 --> 00:19:27,080
+Okay, what you going to do now? What are
+
+405
+00:19:23,600 --> 00:19:27,080
+you going to do with that?
+
+406
+00:19:30,600 --> 00:19:34,640
+So,
+
+407
+00:19:31,919 --> 00:19:36,280
+So, we understand the purpose of this
+
+408
+00:19:34,640 --> 00:19:39,040
+function.
+
+409
+00:19:36,280 --> 00:19:43,080
+And now, but what does this function
+
+410
+00:19:39,040 --> 00:19:47,720
+what it does? So, with So, it's got some
+
+411
+00:19:43,080 --> 00:19:47,720
+uh local variable local constants.
+
+412
+00:19:49,400 --> 00:19:53,320
+Then
+
+413
+00:19:50,919 --> 00:19:58,280
+Okay, then the major thing is a if
+
+414
+00:19:53,320 --> 00:19:58,280
+statement, okay? If statement.
+
+415
+00:19:59,160 --> 00:20:08,040
+If the origin ray origin is equals to
+
+416
+00:20:03,360 --> 00:20:08,040
+zero, that that is the um
+
+417
+00:20:08,480 --> 00:20:12,600
+uh that is kind of the um
+
+418
+00:20:18,120 --> 00:20:23,280
+You know, let's use you know, get the
+
+419
+00:20:20,880 --> 00:20:27,120
+numerical result.
+
+420
+00:20:23,280 --> 00:20:30,320
+So, if the ray origin is at zero, then
+
+421
+00:20:27,120 --> 00:20:35,040
+you do this, okay?
+
+422
+00:20:30,320 --> 00:20:35,040
+Otherwise, you do this. So,
+
+423
+00:20:38,280 --> 00:20:44,240
+So, you you need to know the ray origin.
+
+424
+00:20:41,080 --> 00:20:45,520
+Why? Because it saves computation, I
+
+425
+00:20:44,240 --> 00:20:48,320
+believe.
+
+426
+00:20:45,520 --> 00:20:49,400
+You see, so you got two cases. One is
+
+427
+00:20:48,320 --> 00:20:53,560
+that
+
+428
+00:20:49,400 --> 00:20:56,800
+the other one is that, okay? So, you can
+
+429
+00:20:53,560 --> 00:20:59,800
+see there are two cases there.
+
+430
+00:20:56,800 --> 00:21:04,440
+You see, this if statement.
+
+431
+00:20:59,800 --> 00:21:08,160
+If the ray origin is at zero,
+
+432
+00:21:04,440 --> 00:21:11,680
+I mean, so zero means here. So, it then
+
+433
+00:21:08,160 --> 00:21:13,240
+you reflect let's see.
+
+434
+00:21:11,680 --> 00:21:17,800
+So, norm
+
+435
+00:21:13,240 --> 00:21:17,800
+length greater than length two.
+
+436
+00:21:27,400 --> 00:21:32,360
+Yeah, you see,
+
+437
+00:21:29,240 --> 00:21:35,560
+this is kind of redundant,
+
+438
+00:21:32,360 --> 00:21:37,000
+but it's somewhat make it faster, I
+
+439
+00:21:35,560 --> 00:21:39,840
+believe.
+
+440
+00:21:37,000 --> 00:21:45,920
+You see, you are drawing a line if the
+
+441
+00:21:39,840 --> 00:21:48,440
+origin is the light source ray origin is
+
+442
+00:21:45,920 --> 00:21:48,440
+um
+
+443
+00:21:48,560 --> 00:21:55,240
+at zero zero. You know, the length of it
+
+444
+00:21:51,280 --> 00:21:57,840
+norm norm norm means the length. So, if
+
+445
+00:21:55,240 --> 00:22:00,480
+it's a zero vector, means it's origin,
+
+446
+00:21:57,840 --> 00:22:03,520
+which you know, origin means
+
+447
+00:22:00,480 --> 00:22:07,120
+zero zero coordinate.
+
+448
+00:22:03,520 --> 00:22:07,120
+Okay, then um
+
+449
+00:22:07,200 --> 00:22:13,640
+you know, so so if the origin is at zero
+
+450
+00:22:09,920 --> 00:22:19,480
+zero coordinate, then you create
+
+451
+00:22:13,640 --> 00:22:19,480
+a bunch of line from zero zero to
+
+452
+00:22:19,640 --> 00:22:24,960
+to normalize
+
+453
+00:22:22,679 --> 00:22:27,760
+let's see. What are you doing? You are
+
+454
+00:22:24,960 --> 00:22:30,280
+trying to map that map that. This is the
+
+455
+00:22:27,760 --> 00:22:32,679
+first argument. So, from draw draw a
+
+456
+00:22:30,280 --> 00:22:37,800
+line from the point
+
+457
+00:22:32,679 --> 00:22:41,240
+from zero zero to the
+
+458
+00:22:37,800 --> 00:22:41,240
+normal vector
+
+459
+00:22:42,520 --> 00:22:48,480
+of the curve, then multiply by length
+
+460
+00:22:46,560 --> 00:22:50,640
+two, okay?
+
+461
+00:22:48,480 --> 00:22:50,640
+Uh
+
+462
+00:22:55,600 --> 00:23:01,960
+So, what is the length two?
+
+463
+00:22:59,120 --> 00:23:05,480
+Okay, length two is equals to the
+
+464
+00:23:01,960 --> 00:23:07,840
+absolute value of length.
+
+465
+00:23:05,480 --> 00:23:07,840
+What?
+
+466
+00:23:08,920 --> 00:23:14,280
+Okay, that's just length.
+
+467
+00:23:12,000 --> 00:23:16,320
+Oh, okay, because length can be
+
+468
+00:23:14,280 --> 00:23:20,520
+negative. When length length is
+
+469
+00:23:16,320 --> 00:23:23,520
+negative, you draw the uh
+
+470
+00:23:20,520 --> 00:23:27,000
+refraction instead of the reflection.
+
+471
+00:23:23,520 --> 00:23:30,800
+That is the by design of this code.
+
+472
+00:23:27,000 --> 00:23:32,880
+But, I didn't document it, did we? Did
+
+473
+00:23:30,800 --> 00:23:36,880
+I? Each line length is X length
+
+474
+00:23:32,880 --> 00:23:39,080
+including the reflected portion.
+
+475
+00:23:36,880 --> 00:23:42,600
+Yeah, I think if you specify a negative
+
+476
+00:23:39,080 --> 00:23:46,440
+value, it draw refraction instead. So,
+
+477
+00:23:42,600 --> 00:23:46,440
+right now it's drawing
+
+478
+00:23:52,960 --> 00:23:56,920
+reflection, okay? Right now it's drawing
+
+479
+00:23:55,120 --> 00:23:59,720
+reflection.
+
+480
+00:23:56,920 --> 00:24:03,280
+Uh
+
+481
+00:23:59,720 --> 00:24:05,720
+This this is not good, okay? Let's
+
+482
+00:24:03,280 --> 00:24:08,080
+What this is a sign, okay? We don't want
+
+483
+00:24:05,720 --> 00:24:11,080
+sign, okay? So, first of all, let's go
+
+484
+00:24:08,080 --> 00:24:13,160
+back to fix that.
+
+485
+00:24:11,080 --> 00:24:16,600
+We don't want you see, this is drawing a
+
+486
+00:24:13,160 --> 00:24:19,120
+sign curve. X sign.
+
+487
+00:24:16,600 --> 00:24:23,000
+So, if you change it to
+
+488
+00:24:19,120 --> 00:24:25,160
+let's say three to six, let's say zero
+
+489
+00:24:23,000 --> 00:24:28,200
+to six.
+
+490
+00:24:25,160 --> 00:24:30,840
+Then plot range from
+
+491
+00:24:28,200 --> 00:24:33,600
+uh what?
+
+492
+00:24:30,840 --> 00:24:35,360
+From zero to
+
+493
+00:24:33,600 --> 00:24:39,840
+six.
+
+494
+00:24:35,360 --> 00:24:41,600
+And Y is let's say two of that, okay?
+
+495
+00:24:39,840 --> 00:24:43,960
+Copy all.
+
+496
+00:24:41,600 --> 00:24:45,960
+Go back here, select all, paste, shift
+
+497
+00:24:43,960 --> 00:24:48,320
+enter.
+
+498
+00:24:45,960 --> 00:24:50,960
+You see? Can you see it's a sign curve?
+
+499
+00:24:48,320 --> 00:24:53,040
+You see the sign curve goes Let's let's
+
+500
+00:24:50,960 --> 00:24:55,160
+do that, okay?
+
+501
+00:24:53,040 --> 00:24:58,600
+Uh plot.
+
+502
+00:24:55,160 --> 00:25:01,520
+Let's write sign. One two Not one two
+
+503
+00:24:58,600 --> 00:25:05,120
+nine. What stupid default?
+
+504
+00:25:01,520 --> 00:25:08,400
+Zero to six, okay?
+
+505
+00:25:05,120 --> 00:25:12,800
+You need to add that um
+
+506
+00:25:08,400 --> 00:25:12,800
+Okay, so you need to show
+
+507
+00:25:15,160 --> 00:25:21,000
+show this graphics and
+
+508
+00:25:18,960 --> 00:25:23,520
+that
+
+509
+00:25:21,000 --> 00:25:24,880
+two of them, okay?
+
+510
+00:25:23,520 --> 00:25:26,080
+Now,
+
+511
+00:25:24,880 --> 00:25:30,160
+copy all.
+
+512
+00:25:26,080 --> 00:25:32,840
+Select all, paste, shift enter.
+
+513
+00:25:30,160 --> 00:25:35,200
+Fantastic. Can you actually see the sign
+
+514
+00:25:32,840 --> 00:25:37,600
+curve? Actually, it looks beautiful.
+
+515
+00:25:35,200 --> 00:25:40,640
+I'll just leave it like that.
+
+516
+00:25:37,600 --> 00:25:43,320
+You see? So, now this is doing
+
+517
+00:25:40,640 --> 00:25:44,600
+uh reflection. The ray is coming from
+
+518
+00:25:43,320 --> 00:25:47,360
+above.
+
+519
+00:25:44,600 --> 00:25:50,320
+Now, let's make the rays
+
+520
+00:25:47,360 --> 00:25:53,022
+let's say three two. Let's make the ray
+
+521
+00:25:50,320 --> 00:25:53,040
+at three two point, okay?
+
+522
+00:25:53,022 --> 00:25:59,520
+>> [snorts]
+
+523
+00:25:53,040 --> 00:25:59,520
+>> So, let's make the ray at three two. So,
+
+524
+00:26:00,920 --> 00:26:07,880
+three and two, okay?
+
+525
+00:26:04,600 --> 00:26:10,520
+Does that make sense? Copy all.
+
+526
+00:26:07,880 --> 00:26:14,280
+Wait, copy all.
+
+527
+00:26:10,520 --> 00:26:17,280
+Select all, paste, shift enter.
+
+528
+00:26:14,280 --> 00:26:17,280
+Fantastic.
+
+529
+00:26:19,040 --> 00:26:22,600
+See?
+
+530
+00:26:20,200 --> 00:26:26,960
+Fantastic. Kind of beautiful.
+
+531
+00:26:22,600 --> 00:26:30,640
+Let's make these let's say at four four
+
+532
+00:26:26,960 --> 00:26:32,120
+three, okay? Let's uh
+
+533
+00:26:30,640 --> 00:26:34,160
+four three.
+
+534
+00:26:32,120 --> 00:26:38,560
+Select all.
+
+535
+00:26:34,160 --> 00:26:38,560
+Select all, paste, shift enter.
+
+536
+00:26:38,880 --> 00:26:43,080
+Fantastic.
+
+537
+00:26:40,640 --> 00:26:47,120
+Now, let's make the
+
+538
+00:26:43,080 --> 00:26:48,240
+the line color to be cyan.
+
+539
+00:26:47,120 --> 00:26:51,320
+So, it
+
+540
+00:26:48,240 --> 00:26:55,080
+looks more like light.
+
+541
+00:26:51,320 --> 00:26:58,360
+Okay, so you want the line color, so you
+
+542
+00:26:55,080 --> 00:26:58,360
+want to do it um
+
+543
+00:26:58,400 --> 00:27:06,160
+So, this this this return graphics.
+
+544
+00:27:03,679 --> 00:27:09,040
+Okay, so you can see
+
+545
+00:27:06,160 --> 00:27:09,040
+this part.
+
+546
+00:27:12,120 --> 00:27:16,080
+Okay?
+
+547
+00:27:13,400 --> 00:27:16,080
+That
+
+548
+00:27:18,560 --> 00:27:23,240
+is is cyan the color? Yes, you can see
+
+549
+00:27:21,280 --> 00:27:25,560
+highlight.
+
+550
+00:27:23,240 --> 00:27:28,480
+Okay, so select all.
+
+551
+00:27:25,560 --> 00:27:31,040
+Actually, we can just like copy this
+
+552
+00:27:28,480 --> 00:27:31,040
+part.
+
+553
+00:27:31,320 --> 00:27:38,520
+Paste it here, shift enter.
+
+554
+00:27:34,400 --> 00:27:40,320
+Fantastic and beautiful, okay?
+
+555
+00:27:38,520 --> 00:27:42,920
+Fantastic and beautiful.
+
+556
+00:27:40,320 --> 00:27:42,920
+And
+
+557
+00:27:44,960 --> 00:27:50,360
+So, again, if you guys are here, say hi,
+
+558
+00:27:48,160 --> 00:27:52,040
+okay? Love to see your comments. If you
+
+559
+00:27:50,360 --> 00:27:55,320
+guys are here,
+
+560
+00:27:52,040 --> 00:27:55,320
+uh say hi.
+
+561
+00:27:57,240 --> 00:28:00,400
+Uh okay.
+
+562
+00:28:05,040 --> 00:28:10,240
+Okay, so now let's see.
+
+563
+00:28:17,000 --> 00:28:20,720
+Yeah.
+
+564
+00:28:18,880 --> 00:28:23,679
+Okay.
+
+565
+00:28:20,720 --> 00:28:25,960
+So, we got the color
+
+566
+00:28:23,679 --> 00:28:29,280
+We got the color
+
+567
+00:28:25,960 --> 00:28:29,280
+We got this uh
+
+568
+00:28:29,360 --> 00:28:35,800
+So, this
+
+569
+00:28:31,760 --> 00:28:35,800
+So, this if statement
+
+570
+00:28:40,960 --> 00:28:45,520
+You see, it's trying to kind of save
+
+571
+00:28:43,760 --> 00:28:48,360
+time.
+
+572
+00:28:45,520 --> 00:28:51,919
+I don't think we want to do that. If ray
+
+573
+00:28:48,360 --> 00:28:55,280
+origin is equals to zero, okay?
+
+574
+00:28:51,919 --> 00:28:58,360
+So, basically, it's trying to save time.
+
+575
+00:28:55,280 --> 00:28:58,360
+That's why.
+
+576
+00:28:59,080 --> 00:29:06,360
+Okay, let's see if highlight that, okay?
+
+577
+00:29:03,360 --> 00:29:06,360
+So, you see
+
+578
+00:29:10,280 --> 00:29:17,720
+Okay, man, that's right. So, we want
+
+579
+00:29:13,400 --> 00:29:17,720
+this is more generalized version.
+
+580
+00:29:30,280 --> 00:29:35,440
+Okay, so I don't think we need this uh
+
+581
+00:29:35,960 --> 00:29:43,240
+remove this kind of optimization because
+
+582
+00:29:40,440 --> 00:29:45,840
+if you really want to optimize, if you
+
+583
+00:29:43,240 --> 00:29:50,080
+are really concerned about speed,
+
+584
+00:29:45,840 --> 00:29:50,080
+you should use compile function.
+
+585
+00:29:51,680 --> 00:29:55,760
+You know, there is a compile function in
+
+586
+00:29:53,680 --> 00:29:59,320
+Wolfram language that
+
+587
+00:29:55,760 --> 00:30:04,000
+will make your function very fast for
+
+588
+00:29:59,320 --> 00:30:05,280
+for basically numerical computation.
+
+589
+00:30:04,000 --> 00:30:08,000
+So,
+
+590
+00:30:05,280 --> 00:30:11,080
+our code here, which is written 30 years
+
+591
+00:30:08,000 --> 00:30:14,760
+ago, I don't think it's it's not
+
+592
+00:30:11,080 --> 00:30:14,760
+necessary. I mean, this
+
+593
+00:30:15,640 --> 00:30:20,720
+Make sure, okay? Make sure the people we
+
+594
+00:30:17,880 --> 00:30:20,720
+deleted.
+
+595
+00:30:21,800 --> 00:30:26,720
+So, the code is basically the same
+
+596
+00:30:24,080 --> 00:30:26,720
+thing.
+
+597
+00:30:43,640 --> 00:30:46,680
+Okay?
+
+598
+00:30:44,600 --> 00:30:49,280
+Okay. We decided we going to we don't
+
+599
+00:30:46,680 --> 00:30:50,600
+need this if statement, okay? Delete
+
+600
+00:30:49,280 --> 00:30:52,160
+that.
+
+601
+00:30:50,600 --> 00:30:54,360
+Delete that.
+
+602
+00:30:52,160 --> 00:30:57,320
+Delete delete delete delete delete
+
+603
+00:30:54,360 --> 00:30:58,840
+delete. Okay, we don't need this if
+
+604
+00:30:57,320 --> 00:31:01,440
+statement.
+
+605
+00:30:58,840 --> 00:31:03,320
+Delete delete, okay?
+
+606
+00:31:01,440 --> 00:31:05,760
+Now, simpler.
+
+607
+00:31:03,320 --> 00:31:09,000
+Oh my god, the code is now actually much
+
+608
+00:31:05,760 --> 00:31:10,320
+simpler. Just just that.
+
+609
+00:31:09,000 --> 00:31:12,920
+Okay?
+
+610
+00:31:10,320 --> 00:31:12,920
+Um
+
+611
+00:31:13,440 --> 00:31:15,840
+Yeah.
+
+612
+00:31:15,880 --> 00:31:21,000
+Okay, so what's the next thing to do?
+
+613
+00:31:18,680 --> 00:31:23,760
+So,
+
+614
+00:31:21,000 --> 00:31:26,680
+let me think about.
+
+615
+00:31:23,760 --> 00:31:30,040
+Now, when when the length is negative,
+
+616
+00:31:26,680 --> 00:31:33,760
+it generates re- refraction, okay? I'm
+
+617
+00:31:30,040 --> 00:31:37,120
+pretty sure. So, we can try it here.
+
+618
+00:31:33,760 --> 00:31:39,560
+You see, these are reflections.
+
+619
+00:31:37,120 --> 00:31:43,000
+The light rays reflected, okay? Let's
+
+620
+00:31:39,560 --> 00:31:47,200
+see, can we make it red?
+
+621
+00:31:43,000 --> 00:31:48,840
+Let's see, the the Darth Vader color.
+
+622
+00:31:47,200 --> 00:31:51,720
+So, I don't like
+
+623
+00:31:48,840 --> 00:31:52,960
+you know, that I I like red, okay? Shift
+
+624
+00:31:51,720 --> 00:31:55,840
+enter.
+
+625
+00:31:52,960 --> 00:31:58,000
+Fantastic, okay?
+
+626
+00:31:55,840 --> 00:32:02,760
+Now, here
+
+627
+00:31:58,000 --> 00:32:05,720
+make a copy. Here, use if you want
+
+628
+00:32:02,760 --> 00:32:07,120
+refraction instead of reflection, then
+
+629
+00:32:05,720 --> 00:32:11,240
+you say
+
+630
+00:32:07,120 --> 00:32:13,840
+neg here, you give a negative length
+
+631
+00:32:11,240 --> 00:32:16,600
+for this caustic line
+
+632
+00:32:13,840 --> 00:32:16,600
+GP.
+
+633
+00:32:17,040 --> 00:32:23,040
+The last argument. The caustic line GP,
+
+634
+00:32:19,880 --> 00:32:25,800
+the GP means graphics primitive. That
+
+635
+00:32:23,040 --> 00:32:27,200
+That was my naming convention. Shift
+
+636
+00:32:25,800 --> 00:32:31,000
+enter.
+
+637
+00:32:27,200 --> 00:32:34,200
+You see, now it shows refraction. Can
+
+638
+00:32:31,000 --> 00:32:38,520
+you see the difference?
+
+639
+00:32:34,200 --> 00:32:38,520
+You see, reflection refraction.
+
+640
+00:32:38,800 --> 00:32:42,560
+Um they,
+
+641
+00:32:40,240 --> 00:32:44,760
+you know, if you don't know, like
+
+642
+00:32:42,560 --> 00:32:47,240
+suppose this is a
+
+643
+00:32:44,760 --> 00:32:49,200
+horizon, the ground mirror.
+
+644
+00:32:47,240 --> 00:32:50,640
+So, you have if you have a light coming
+
+645
+00:32:49,200 --> 00:32:53,840
+from here,
+
+646
+00:32:50,640 --> 00:32:54,840
+it hit here and bounce it off there,
+
+647
+00:32:53,840 --> 00:32:56,720
+right?
+
+648
+00:32:54,840 --> 00:32:58,920
+Hit and bounce off.
+
+649
+00:32:56,720 --> 00:33:01,640
+Now, what does refraction mean? So,
+
+650
+00:32:58,920 --> 00:33:04,080
+that's reflection, okay? Hit here and
+
+651
+00:33:01,640 --> 00:33:06,360
+bounce off there. That's reflection.
+
+652
+00:33:04,080 --> 00:33:08,880
+Now, what is refraction? Refraction is
+
+653
+00:33:06,360 --> 00:33:11,120
+basically whatever the
+
+654
+00:33:08,880 --> 00:33:13,480
+bounce off line,
+
+655
+00:33:11,120 --> 00:33:15,760
+the other part of the bounce off line,
+
+656
+00:33:13,480 --> 00:33:18,600
+so it become there.
+
+657
+00:33:15,760 --> 00:33:18,600
+You see, so
+
+658
+00:33:19,320 --> 00:33:24,920
+Does that Do I make sense? Okay, maybe
+
+659
+00:33:21,679 --> 00:33:27,240
+not. So, if I do
+
+660
+00:33:24,920 --> 00:33:30,400
+Let's see, a copy. Let me do a
+
+661
+00:33:27,240 --> 00:33:32,240
+screenshot like like like um
+
+662
+00:33:30,400 --> 00:33:34,000
+like let's do a
+
+663
+00:33:32,240 --> 00:33:35,560
+lecture.
+
+664
+00:33:34,000 --> 00:33:36,720
+Open with
+
+665
+00:33:35,560 --> 00:33:38,040
+uh
+
+666
+00:33:36,720 --> 00:33:42,200
+snip
+
+667
+00:33:38,040 --> 00:33:42,200
+photo snipping tool. Let's draw.
+
+668
+00:33:43,360 --> 00:33:50,400
+Okay, let me show you refraction, okay?
+
+669
+00:33:47,960 --> 00:33:50,400
+So,
+
+670
+00:33:52,560 --> 00:33:58,600
+r e f r a c t i o n.
+
+671
+00:33:55,640 --> 00:34:01,400
+Okay, so that's reflection.
+
+672
+00:33:58,600 --> 00:34:01,400
+And do
+
+673
+00:34:12,960 --> 00:34:18,480
+That's refraction, okay? So,
+
+674
+00:34:15,960 --> 00:34:21,120
+the way it works is that if you have a
+
+675
+00:34:18,480 --> 00:34:21,120
+line
+
+676
+00:34:21,640 --> 00:34:26,560
+and if you have a light ray
+
+677
+00:34:30,200 --> 00:34:33,840
+going this way, it
+
+678
+00:34:38,080 --> 00:34:41,640
+Okay, that's reflection.
+
+679
+00:34:43,399 --> 00:34:47,399
+This is refraction.
+
+680
+00:34:49,320 --> 00:34:52,919
+Okay, does that make sense?
+
+681
+00:34:53,159 --> 00:34:56,240
+Save this.
+
+682
+00:34:55,040 --> 00:34:57,880
+Yes.
+
+683
+00:34:56,240 --> 00:35:00,920
+Overwrite.
+
+684
+00:34:57,880 --> 00:35:04,760
+Now, close.
+
+685
+00:35:00,920 --> 00:35:07,200
+Okay? Reflection and refraction.
+
+686
+00:35:04,760 --> 00:35:10,320
+Okay, now back to the So, you can kind
+
+687
+00:35:07,200 --> 00:35:12,200
+of see here, too. Now, back to the code
+
+688
+00:35:10,320 --> 00:35:15,120
+to the code. So,
+
+689
+00:35:12,200 --> 00:35:18,200
+uh we didn't document here, so it we
+
+690
+00:35:15,120 --> 00:35:18,200
+want to say
+
+691
+00:35:22,359 --> 00:35:26,960
+We didn't document it here.
+
+692
+00:35:25,840 --> 00:35:29,600
+If
+
+693
+00:35:26,960 --> 00:35:32,880
+length is negative,
+
+694
+00:35:29,600 --> 00:35:34,160
+it draws refraction.
+
+695
+00:35:32,880 --> 00:35:38,640
+Okay?
+
+696
+00:35:34,160 --> 00:35:38,640
+So, make it better documentation.
+
+697
+00:35:49,359 --> 00:35:53,320
+Okay, so that is that.
+
+698
+00:35:53,520 --> 00:35:58,400
+But now, what else do you need to do?
+
+699
+00:36:00,720 --> 00:36:06,280
+So, you map threads. So, those are
+
+700
+00:36:02,880 --> 00:36:09,120
+constants, okay? So, those are
+
+701
+00:36:06,280 --> 00:36:11,720
+like constants.
+
+702
+00:36:09,120 --> 00:36:14,280
+Sign
+
+703
+00:36:11,720 --> 00:36:17,240
+No, wait. The sign
+
+704
+00:36:14,280 --> 00:36:19,080
+sign is only used once, so we don't need
+
+705
+00:36:17,240 --> 00:36:21,760
+it there.
+
+706
+00:36:19,080 --> 00:36:21,760
+Um
+
+707
+00:36:27,200 --> 00:36:33,320
+Now, I'm trying to remove the length
+
+708
+00:36:29,960 --> 00:36:35,800
+because I don't want the length.
+
+709
+00:36:33,320 --> 00:36:39,640
+You see, because
+
+710
+00:36:35,800 --> 00:36:39,640
+because this function
+
+711
+00:36:39,840 --> 00:36:42,240
+um
+
+712
+00:36:44,600 --> 00:36:50,320
+it gives you the uh
+
+713
+00:36:48,040 --> 00:36:52,440
+So, essentially, it gives you actually
+
+714
+00:36:50,320 --> 00:36:56,320
+two lines.
+
+715
+00:36:52,440 --> 00:36:58,320
+What it really should do is just
+
+716
+00:36:56,320 --> 00:37:01,000
+the refracted
+
+717
+00:36:58,320 --> 00:37:02,040
+the reflection line, not the two lines.
+
+718
+00:37:01,000 --> 00:37:03,800
+Hello,
+
+719
+00:37:02,040 --> 00:37:06,800
+MHD
+
+720
+00:37:03,800 --> 00:37:06,800
+MHDNA.
+
+721
+00:37:08,400 --> 00:37:11,040
+Um
+
+722
+00:37:13,480 --> 00:37:15,280
+So, [snorts]
+
+723
+00:37:14,440 --> 00:37:17,680
+um
+
+724
+00:37:15,280 --> 00:37:21,080
+So, you see, this is about function
+
+725
+00:37:17,680 --> 00:37:23,440
+design. So, this function right now,
+
+726
+00:37:21,080 --> 00:37:27,120
+it's drawing the lines
+
+727
+00:37:23,440 --> 00:37:30,320
+both from the origin to the curve and
+
+728
+00:37:27,120 --> 00:37:31,720
+the reflected portion.
+
+729
+00:37:30,320 --> 00:37:34,400
+Okay?
+
+730
+00:37:31,720 --> 00:37:34,400
+Um
+
+731
+00:37:37,000 --> 00:37:41,240
+But what you want is um
+
+732
+00:37:46,800 --> 00:37:50,280
+You see,
+
+733
+00:37:53,040 --> 00:37:57,040
+Yeah, what I want to separate them
+
+734
+00:38:01,040 --> 00:38:07,000
+Yeah, basically, the important part is
+
+735
+00:38:04,280 --> 00:38:10,800
+just this part.
+
+736
+00:38:07,000 --> 00:38:13,560
+Ray origin. So, uh this is the function
+
+737
+00:38:10,800 --> 00:38:15,840
+of the Let me do a more tricky things,
+
+738
+00:38:13,560 --> 00:38:18,680
+okay? So, copy that.
+
+739
+00:38:15,840 --> 00:38:21,280
+So, let's rewrite the code. Now, this is
+
+740
+00:38:18,680 --> 00:38:24,440
+about Wolfram language. We rewrite the
+
+741
+00:38:21,280 --> 00:38:27,160
+code in a in a different syntax. Right
+
+742
+00:38:24,440 --> 00:38:29,640
+now, you see this ampersand,
+
+743
+00:38:27,160 --> 00:38:31,720
+that means it's you got a function. You
+
+744
+00:38:29,640 --> 00:38:34,240
+got a pure function there, so-called
+
+745
+00:38:31,720 --> 00:38:37,120
+pure function, which means lambda. The
+
+746
+00:38:34,240 --> 00:38:40,320
+The ampersand means this is a function,
+
+747
+00:38:37,120 --> 00:38:43,640
+okay? Which which is this part, okay?
+
+748
+00:38:40,320 --> 00:38:46,560
+That's a postfix notation, ampersand.
+
+749
+00:38:43,640 --> 00:38:48,320
+Now, those pound sign, those are
+
+750
+00:38:46,560 --> 00:38:52,520
+arguments. So,
+
+751
+00:38:48,320 --> 00:38:55,840
+so in this code, it's a function lambda.
+
+752
+00:38:52,520 --> 00:38:57,760
+And whenever the pound one occur the
+
+753
+00:38:55,840 --> 00:39:00,040
+number sign one occur, that means the
+
+754
+00:38:57,760 --> 00:39:02,760
+first argument. So, that's the first
+
+755
+00:39:00,040 --> 00:39:05,160
+argument, first argument, you see?
+
+756
+00:39:02,760 --> 00:39:07,720
+And whenever pound sign two occur,
+
+757
+00:39:05,160 --> 00:39:10,600
+that's the second argument, okay? So,
+
+758
+00:39:07,720 --> 00:39:11,960
+this is a like a notate special
+
+759
+00:39:10,600 --> 00:39:14,800
+notation.
+
+760
+00:39:11,960 --> 00:39:17,160
+Now, let's change that to something kind
+
+761
+00:39:14,800 --> 00:39:20,359
+of more intuitive, okay?
+
+762
+00:39:17,160 --> 00:39:21,600
+So, let's write fun
+
+763
+00:39:20,359 --> 00:39:24,359
+and
+
+764
+00:39:21,600 --> 00:39:25,960
+and let's write this way. Remove the
+
+765
+00:39:24,359 --> 00:39:28,600
+ampersand.
+
+766
+00:39:25,960 --> 00:39:33,600
+Okay, so now we have a function and the
+
+767
+00:39:28,600 --> 00:39:37,640
+the we we want arg1 arg2, so um
+
+768
+00:39:33,600 --> 00:39:38,800
+let's say AABB, okay? Two arguments,
+
+769
+00:39:37,640 --> 00:39:42,240
+okay?
+
+770
+00:39:38,800 --> 00:39:44,560
+So, now replace all pound sign one by
+
+771
+00:39:42,240 --> 00:39:47,880
+AA.
+
+772
+00:39:44,560 --> 00:39:50,160
+That's the first argument.
+
+773
+00:39:47,880 --> 00:39:55,760
+Okay?
+
+774
+00:39:50,160 --> 00:39:58,720
+And replace pound sign two by BB, okay?
+
+775
+00:39:55,760 --> 00:39:58,720
+Pound sign
+
+776
+00:39:59,040 --> 00:40:03,920
+two
+
+777
+00:40:00,400 --> 00:40:05,560
+by BB. Do it. Okay? So, only one
+
+778
+00:40:03,920 --> 00:40:06,680
+occurrence, okay?
+
+779
+00:40:05,560 --> 00:40:11,760
+So,
+
+780
+00:40:06,680 --> 00:40:12,880
+this code and this code are equivalent.
+
+781
+00:40:11,760 --> 00:40:14,680
+They are
+
+782
+00:40:12,880 --> 00:40:16,760
+purely equivalent because Wolfram
+
+783
+00:40:14,680 --> 00:40:18,640
+Language they will uh
+
+784
+00:40:16,760 --> 00:40:19,480
+turn one into the other to the, you
+
+785
+00:40:18,640 --> 00:40:21,920
+know,
+
+786
+00:40:19,480 --> 00:40:25,280
+to all to full form before it actually
+
+787
+00:40:21,920 --> 00:40:27,640
+do any computation. So, these two are
+
+788
+00:40:25,280 --> 00:40:28,960
+exactly equivalent, okay?
+
+789
+00:40:27,640 --> 00:40:32,880
+So, let's
+
+790
+00:40:28,960 --> 00:40:34,880
+let's use uh this one, okay? Because
+
+791
+00:40:32,880 --> 00:40:36,600
+Now, let me ask you guys let me ask you
+
+792
+00:40:34,880 --> 00:40:38,120
+guys a question. Which one do you think
+
+793
+00:40:36,600 --> 00:40:40,560
+is more
+
+794
+00:40:38,120 --> 00:40:42,280
+intuitive? Which one do you prefer? Do
+
+795
+00:40:40,560 --> 00:40:44,840
+you prefer,
+
+796
+00:40:42,280 --> 00:40:46,000
+you know, this is a function, that or
+
+797
+00:40:44,840 --> 00:40:48,240
+that?
+
+798
+00:40:46,000 --> 00:40:50,400
+You see, we are mapping a function using
+
+799
+00:40:48,240 --> 00:40:54,200
+map thread. The first argument is a
+
+800
+00:40:50,400 --> 00:40:56,120
+function here or here. And we map it to
+
+801
+00:40:54,200 --> 00:41:00,440
+two lists.
+
+802
+00:40:56,120 --> 00:41:03,680
+So, map thread is like in Python you map
+
+803
+00:41:00,440 --> 00:41:06,160
+plus a zip.
+
+804
+00:41:03,680 --> 00:41:09,160
+Uh it allows you to map a function of
+
+805
+00:41:06,160 --> 00:41:11,000
+two arguments to two lists in parallel
+
+806
+00:41:09,160 --> 00:41:13,840
+kind of.
+
+807
+00:41:11,000 --> 00:41:15,600
+So, anyway, so do you pre- guys prefer
+
+808
+00:41:13,840 --> 00:41:18,120
+the
+
+809
+00:41:15,600 --> 00:41:20,440
+the shortcut, the lambda notation,
+
+810
+00:41:18,120 --> 00:41:24,120
+should the ampersand say ampersand
+
+811
+00:41:20,440 --> 00:41:26,480
+notation, or the full function
+
+812
+00:41:24,120 --> 00:41:28,320
+notation? So, let me
+
+813
+00:41:26,480 --> 00:41:31,360
+tell me that, okay?
+
+814
+00:41:28,320 --> 00:41:33,760
+So, hello cuz I you I'm good. Thank you,
+
+815
+00:41:31,360 --> 00:41:36,320
+guys. Colonial
+
+816
+00:41:33,760 --> 00:41:39,120
+cuz uh can you tell us your opinion and
+
+817
+00:41:36,320 --> 00:41:42,080
+experience on Windows 11? Greetings from
+
+818
+00:41:39,120 --> 00:41:47,840
+Brazil. Okay, that is a
+
+819
+00:41:42,080 --> 00:41:47,840
+frequently asked question to death.
+
+820
+00:41:48,240 --> 00:41:51,960
+Windows, you know, which operating
+
+821
+00:41:50,240 --> 00:41:54,880
+system, okay?
+
+822
+00:41:51,960 --> 00:41:56,680
+Uh window Okay, so let me give you two
+
+823
+00:41:54,880 --> 00:41:58,960
+minutes reply.
+
+824
+00:41:56,680 --> 00:42:01,080
+I promise it's not going to be 1 hour
+
+825
+00:41:58,960 --> 00:42:03,760
+rant because every time people ask me
+
+826
+00:42:01,080 --> 00:42:05,040
+that it I started to like talk about
+
+827
+00:42:03,760 --> 00:42:06,880
+So,
+
+828
+00:42:05,040 --> 00:42:08,880
+so Windows
+
+829
+00:42:06,880 --> 00:42:13,400
+today sucks.
+
+830
+00:42:08,880 --> 00:42:16,400
+Windows was best in 1999.
+
+831
+00:42:13,400 --> 00:42:19,360
+Windows NT, around there, okay? Windows
+
+832
+00:42:16,400 --> 00:42:24,840
+NT. 1998,
+
+833
+00:42:19,360 --> 00:42:26,280
+99. And around 2005, Windows Vista and
+
+834
+00:42:24,840 --> 00:42:28,720
+Windows
+
+835
+00:42:26,280 --> 00:42:30,520
+7 8, you know, something like that.
+
+836
+00:42:28,720 --> 00:42:33,320
+That's the best time that's the best
+
+837
+00:42:30,520 --> 00:42:37,280
+Windows, okay? Windows XP.
+
+838
+00:42:33,320 --> 00:42:37,280
+XP and then Vista something.
+
+839
+00:42:37,760 --> 00:42:41,400
+That's the best.
+
+840
+00:42:39,280 --> 00:42:42,960
+Uh you know, but just among the Windows
+
+841
+00:42:41,400 --> 00:42:48,880
+versions, that's the best Windows.
+
+842
+00:42:42,960 --> 00:42:52,880
+Windows NT, 1999, then Windows XP and
+
+843
+00:42:48,880 --> 00:42:56,640
+Vista, you know, around 2004 to 2008
+
+844
+00:42:52,880 --> 00:42:59,480
+something like that, okay? Or 2010.
+
+845
+00:42:56,640 --> 00:43:03,400
+Today, you know, since Window Window 10
+
+846
+00:42:59,480 --> 00:43:05,760
+sucks donkey ass, they become flat, lots
+
+847
+00:43:03,400 --> 00:43:07,480
+of problems, okay? Like I I have like I
+
+848
+00:43:05,760 --> 00:43:10,280
+I have lots of articles about that,
+
+849
+00:43:07,480 --> 00:43:13,040
+okay? Go to ksati.info.
+
+850
+00:43:10,280 --> 00:43:15,040
+Um okay, let me quickly show. Okay,
+
+851
+00:43:13,040 --> 00:43:18,600
+okay, this is beginning to become a
+
+852
+00:43:15,040 --> 00:43:18,600
+rant. It is, you know,
+
+853
+00:43:19,040 --> 00:43:25,120
+window
+
+854
+00:43:20,640 --> 00:43:27,600
+sucks, okay? So, you go to search for
+
+855
+00:43:25,120 --> 00:43:27,600
+uh
+
+856
+00:43:28,560 --> 00:43:32,040
+Not just not this one, okay? I have like
+
+857
+00:43:30,560 --> 00:43:35,720
+20 articles.
+
+858
+00:43:32,040 --> 00:43:38,560
+This one. Microsoft Windows flaws.
+
+859
+00:43:35,720 --> 00:43:40,080
+Uh when did I rename it flaws, you know?
+
+860
+00:43:38,560 --> 00:43:42,640
+There's a
+
+861
+00:43:40,080 --> 00:43:45,160
+like titling issue, whether should it be
+
+862
+00:43:42,640 --> 00:43:48,000
+sucks or flaws. You you can't find it.
+
+863
+00:43:45,160 --> 00:43:50,880
+Anyway, so search the web, you'll find
+
+864
+00:43:48,000 --> 00:43:54,440
+my website, Microsoft Windows sucks or
+
+865
+00:43:50,880 --> 00:43:56,240
+Microsoft Windows flaws. There are about
+
+866
+00:43:54,440 --> 00:43:58,120
+how many how many articles are there,
+
+867
+00:43:56,240 --> 00:44:01,160
+okay?
+
+868
+00:43:58,120 --> 00:44:05,320
+Uh how many articles? Let's say uh let's
+
+869
+00:44:01,160 --> 00:44:07,480
+say yeah, I okay, so how
+
+870
+00:44:05,320 --> 00:44:11,600
+many
+
+871
+00:44:07,480 --> 00:44:15,160
+yeah, I okay? They are about 50 articles
+
+872
+00:44:11,600 --> 00:44:17,760
+on why Windows sucks.
+
+873
+00:44:15,160 --> 00:44:20,280
+Everything in detail. Full detail
+
+874
+00:44:17,760 --> 00:44:23,680
+documentation. Why it sucks.
+
+875
+00:44:20,280 --> 00:44:26,320
+You know, for example, this one. Windows
+
+876
+00:44:23,680 --> 00:44:29,040
+Windows 10 beginning like five years
+
+877
+00:44:26,320 --> 00:44:32,040
+ago. Oh, we got we created Windows 10,
+
+878
+00:44:29,040 --> 00:44:34,440
+the pretty boys, [ __ ] They go on
+
+879
+00:44:32,040 --> 00:44:36,560
+stage, you know, they they they they are
+
+880
+00:44:34,440 --> 00:44:38,600
+cool. They tell you we we designed
+
+881
+00:44:36,560 --> 00:44:41,359
+Windows 10, you know,
+
+882
+00:44:38,600 --> 00:44:43,320
+metro design, whatever. [ __ ]
+
+883
+00:44:41,359 --> 00:44:45,920
+When you actually use it, you know, it's
+
+884
+00:44:43,320 --> 00:44:48,120
+like you can't tell which window begin
+
+885
+00:44:45,920 --> 00:44:51,480
+which window ends, you know, it's like
+
+886
+00:44:48,120 --> 00:44:53,320
+confusing, [ __ ] No borders and no and
+
+887
+00:44:51,480 --> 00:44:56,040
+shadow is not done well. So, it's it
+
+888
+00:44:53,320 --> 00:44:58,800
+basically just sucks, okay? You eat
+
+889
+00:44:56,040 --> 00:45:01,600
+unusable Windows 10.
+
+890
+00:44:58,800 --> 00:45:03,359
+The flat [ __ ]
+
+891
+00:45:01,600 --> 00:45:06,040
+Okay, that's one article. Then there's
+
+892
+00:45:03,359 --> 00:45:07,840
+dark theme problem. Oh, we started to do
+
+893
+00:45:06,040 --> 00:45:10,800
+dark theme, you know, dark theme, you
+
+894
+00:45:07,840 --> 00:45:12,160
+know, the beautiful. [ __ ] [ __ ] their
+
+895
+00:45:10,800 --> 00:45:14,359
+ass.
+
+896
+00:45:12,160 --> 00:45:16,720
+They say they got dark theme, okay? I
+
+897
+00:45:14,359 --> 00:45:17,920
+talked about this many times, you know.
+
+898
+00:45:16,720 --> 00:45:19,960
+So,
+
+899
+00:45:17,920 --> 00:45:22,400
+for example, I wrote this program, so
+
+900
+00:45:19,960 --> 00:45:26,280
+you can search it, you'll find it, okay?
+
+901
+00:45:22,400 --> 00:45:29,120
+Ks toggle dark theme, okay? So,
+
+902
+00:45:26,280 --> 00:45:32,000
+you see, that's PowerShell. Run it.
+
+903
+00:45:29,120 --> 00:45:34,840
+And my Wait, what?
+
+904
+00:45:32,000 --> 00:45:36,240
+Then my whole system become using dark
+
+905
+00:45:34,840 --> 00:45:38,960
+theme, okay?
+
+906
+00:45:36,240 --> 00:45:41,080
+You see, the browser is also dark now.
+
+907
+00:45:38,960 --> 00:45:43,520
+I'll go it back. Wait, I don't want
+
+908
+00:45:41,080 --> 00:45:43,520
+that.
+
+909
+00:45:44,680 --> 00:45:48,240
+Okay? Now, they are back to white theme,
+
+910
+00:45:47,080 --> 00:45:50,440
+okay?
+
+911
+00:45:48,240 --> 00:45:52,520
+And I have like 10 articles about dark
+
+912
+00:45:50,440 --> 00:45:55,240
+theme. Is it good for you? Is it really
+
+913
+00:45:52,520 --> 00:45:57,760
+good for you? What does science say? And
+
+914
+00:45:55,240 --> 00:46:00,080
+how do you do it in cascading style
+
+915
+00:45:57,760 --> 00:46:01,800
+sheet? So, search my website ksati.info,
+
+916
+00:46:00,080 --> 00:46:04,560
+you'll find like
+
+917
+00:46:01,800 --> 00:46:05,359
+five articles about dark theme itself,
+
+918
+00:46:04,560 --> 00:46:07,880
+okay?
+
+919
+00:46:05,359 --> 00:46:10,240
+Anyway, so one of the in- window problem
+
+920
+00:46:07,880 --> 00:46:12,359
+is that it says it got dark theme, but
+
+921
+00:46:10,240 --> 00:46:14,520
+not really, you know, like okay, dark
+
+922
+00:46:12,359 --> 00:46:17,080
+theme.
+
+923
+00:46:14,520 --> 00:46:20,480
+Then you go to Okay, let's open the
+
+924
+00:46:17,080 --> 00:46:22,640
+preference. Okay, dark, very good.
+
+925
+00:46:20,480 --> 00:46:25,600
+Then you go to like
+
+926
+00:46:22,640 --> 00:46:27,160
+Like this tons of [ __ ] that's just not
+
+927
+00:46:25,600 --> 00:46:29,640
+dark, you know, like
+
+928
+00:46:27,160 --> 00:46:32,120
+like frequently.
+
+929
+00:46:29,640 --> 00:46:32,120
+Uh
+
+930
+00:46:33,400 --> 00:46:42,600
+Okay, let me show you um
+
+931
+00:46:37,120 --> 00:46:45,560
+like uh let's get go to disk management.
+
+932
+00:46:42,600 --> 00:46:48,040
+What what the what the [ __ ] is this?
+
+933
+00:46:45,560 --> 00:46:50,600
+Didn't you say you you you you have dark
+
+934
+00:46:48,040 --> 00:46:53,080
+theme? What the [ __ ] is this?
+
+935
+00:46:50,600 --> 00:46:55,200
+[ __ ] Microsoft, okay? It turned, you
+
+936
+00:46:53,080 --> 00:46:57,720
+know, it's like not just this window, so
+
+937
+00:46:55,200 --> 00:47:00,000
+many all over the place. That's the
+
+938
+00:46:57,720 --> 00:47:01,600
+that's the situation with Windows. [ __ ]
+
+939
+00:47:00,000 --> 00:47:03,600
+them.
+
+940
+00:47:01,600 --> 00:47:05,520
+Like all this is building uh
+
+941
+00:47:03,600 --> 00:47:07,280
+application. This is not random, you
+
+942
+00:47:05,520 --> 00:47:08,280
+know, there's so many so many more,
+
+943
+00:47:07,280 --> 00:47:10,359
+okay?
+
+944
+00:47:08,280 --> 00:47:13,920
+Uh so many more. Let's go to disk
+
+945
+00:47:10,359 --> 00:47:15,040
+manager, let's event viewers, okay? You
+
+946
+00:47:13,920 --> 00:47:17,240
+know,
+
+947
+00:47:15,040 --> 00:47:19,240
+[ __ ] their ass.
+
+948
+00:47:17,240 --> 00:47:21,600
+Didn't didn't you say you have dark
+
+949
+00:47:19,240 --> 00:47:23,960
+theme? No, not really.
+
+950
+00:47:21,600 --> 00:47:26,080
+Okay, so I showed, you know, so this is
+
+951
+00:47:23,960 --> 00:47:28,440
+a problem of dark theme, you know,
+
+952
+00:47:26,080 --> 00:47:30,400
+Windows. It just just just sucks,
+
+953
+00:47:28,440 --> 00:47:32,720
+inconsistent, you know,
+
+954
+00:47:30,400 --> 00:47:35,600
+everywhere.
+
+955
+00:47:32,720 --> 00:47:37,359
+That's two problems, okay? Flat design,
+
+956
+00:47:35,600 --> 00:47:38,520
+flat [ __ ]
+
+957
+00:47:37,359 --> 00:47:40,280
+and
+
+958
+00:47:38,520 --> 00:47:42,080
+dark theme [ __ ]
+
+959
+00:47:40,280 --> 00:47:44,880
+[ __ ] their ass.
+
+960
+00:47:42,080 --> 00:47:47,320
+Then tiny font, okay?
+
+961
+00:47:44,880 --> 00:47:50,640
+Like today, you have Windows um, you
+
+962
+00:47:47,320 --> 00:47:53,160
+know, they say, "Oh, by the way, we so
+
+963
+00:47:50,640 --> 00:47:55,440
+advanced you can change the font size
+
+964
+00:47:53,160 --> 00:47:56,793
+system wide." Not really.
+
+965
+00:47:55,440 --> 00:47:57,400
+Because
+
+966
+00:47:56,793 --> 00:47:59,040
+>> [laughter]
+
+967
+00:47:57,400 --> 00:48:00,600
+>> bec-
+
+968
+00:47:59,040 --> 00:48:01,480
+You know, like just like before, you
+
+969
+00:48:00,600 --> 00:48:03,480
+know,
+
+970
+00:48:01,480 --> 00:48:06,040
+I increase for example, I already
+
+971
+00:48:03,480 --> 00:48:07,880
+increased my system wide font because
+
+972
+00:48:06,040 --> 00:48:10,520
+I'm getting old. I need bigger font,
+
+973
+00:48:07,880 --> 00:48:12,520
+right? I already increased system wide.
+
+974
+00:48:10,520 --> 00:48:15,120
+But over here, some of these special
+
+975
+00:48:12,520 --> 00:48:18,359
+application old they they don't change
+
+976
+00:48:15,120 --> 00:48:19,840
+size. It's impossible to read this tiny
+
+977
+00:48:18,359 --> 00:48:22,240
+text.
+
+978
+00:48:19,840 --> 00:48:24,440
+You see, you you can't, you know, so
+
+979
+00:48:22,240 --> 00:48:26,840
+this is event viewer which which is
+
+980
+00:48:24,440 --> 00:48:29,040
+critical in Windows. It, you know,
+
+981
+00:48:26,840 --> 00:48:31,040
+basically allows you to
+
+982
+00:48:29,040 --> 00:48:34,040
+tell you like what what what's going on
+
+983
+00:48:31,040 --> 00:48:35,840
+in your system. You can magnify like in
+
+984
+00:48:34,040 --> 00:48:37,880
+this window, you can magnify, but as
+
+985
+00:48:35,840 --> 00:48:39,520
+soon as you switch to other, they become
+
+986
+00:48:37,880 --> 00:48:42,359
+small again.
+
+987
+00:48:39,520 --> 00:48:44,640
+The [ __ ] unusable [ __ ]
+
+988
+00:48:42,359 --> 00:48:46,120
+Do you guys know what I'm saying?
+
+989
+00:48:44,640 --> 00:48:49,400
+Okay, I talked about this, you know,
+
+990
+00:48:46,120 --> 00:48:52,920
+many times. So, anyway, so
+
+991
+00:48:49,400 --> 00:48:55,560
+So, back to the why Windows sucks, okay?
+
+992
+00:48:52,920 --> 00:48:56,640
+So, you know, I explained this, so if
+
+993
+00:48:55,560 --> 00:48:59,680
+you
+
+994
+00:48:56,640 --> 00:49:01,760
+tell your friends to watch my video and
+
+995
+00:48:59,680 --> 00:49:04,480
+uh share my links, okay? Because I I
+
+996
+00:49:01,760 --> 00:49:07,280
+explained it so many times.
+
+997
+00:49:04,480 --> 00:49:10,040
+Uh okay, I'm going to stop very soon,
+
+998
+00:49:07,280 --> 00:49:12,800
+okay? Two two more minutes.
+
+999
+00:49:10,040 --> 00:49:14,080
+So, then then this the problem does not
+
+1000
+00:49:12,800 --> 00:49:16,840
+stop there.
+
+1001
+00:49:14,080 --> 00:49:19,520
+The tiny font, dark theme problem, flat
+
+1002
+00:49:16,840 --> 00:49:22,040
+design problem, taskbar problem, lots of
+
+1003
+00:49:19,520 --> 00:49:24,960
+problems, okay? I won't go into detail
+
+1004
+00:49:22,040 --> 00:49:26,280
+now, but then there is this
+
+1005
+00:49:24,960 --> 00:49:27,920
+Windows
+
+1006
+00:49:26,280 --> 00:49:30,840
+world clock.
+
+1007
+00:49:27,920 --> 00:49:32,400
+You know, wait where is um
+
+1008
+00:49:30,840 --> 00:49:35,600
+New York?
+
+1009
+00:49:32,400 --> 00:49:40,520
+New York is in South America. New York
+
+1010
+00:49:35,600 --> 00:49:40,520
+is is where Peru is at, see?
+
+1011
+00:49:40,680 --> 00:49:46,800
+Where is Cologne, Germany? Oh, it's in
+
+1012
+00:49:43,760 --> 00:49:49,480
+South Africa. You see? This is Windows
+
+1013
+00:49:46,800 --> 00:49:52,280
+application.
+
+1014
+00:49:49,480 --> 00:49:54,920
+Can it possibly be more stupid? Like
+
+1015
+00:49:52,280 --> 00:49:58,560
+some [ __ ] idiots.
+
+1016
+00:49:54,920 --> 00:50:01,960
+How is this even possible? You know, the
+
+1017
+00:49:58,560 --> 00:50:03,880
+Microsoft huge giant corporation. This
+
+1018
+00:50:01,960 --> 00:50:06,480
+application, World Clock. By the way,
+
+1019
+00:50:03,880 --> 00:50:08,880
+they fixed it, okay? So, let me show
+
+1020
+00:50:06,480 --> 00:50:08,880
+you.
+
+1021
+00:50:10,040 --> 00:50:14,200
+Okay.
+
+1022
+00:50:11,240 --> 00:50:16,309
+They fixed it like few years ago.
+
+1023
+00:50:14,200 --> 00:50:17,400
+So, now the you know, they
+
+1024
+00:50:16,309 --> 00:50:18,600
+>> [laughter]
+
+1025
+00:50:17,400 --> 00:50:20,560
+>> Anyway.
+
+1026
+00:50:18,600 --> 00:50:23,720
+So, you see? This is part of Windows
+
+1027
+00:50:20,560 --> 00:50:28,240
+application, 2021, okay? They show this
+
+1028
+00:50:23,720 --> 00:50:30,520
+incredible. This this this is beyond um
+
+1029
+00:50:28,240 --> 00:50:32,520
+understanding.
+
+1030
+00:50:30,520 --> 00:50:35,000
+Now, when when when you know, Microsoft
+
+1031
+00:50:32,520 --> 00:50:36,920
+is a huge billion dollars corporation,
+
+1032
+00:50:35,000 --> 00:50:39,160
+right? They have, you know, testers.
+
+1033
+00:50:36,920 --> 00:50:42,040
+They have like In In fact, they probably
+
+1034
+00:50:39,160 --> 00:50:45,080
+pay millions of dollars. They spend
+
+1035
+00:50:42,040 --> 00:50:47,160
+millions on just testing.
+
+1036
+00:50:45,080 --> 00:50:48,840
+To make sure whatever change they they
+
+1037
+00:50:47,160 --> 00:50:50,000
+they create on Windows still works,
+
+1038
+00:50:48,840 --> 00:50:52,000
+right?
+
+1039
+00:50:50,000 --> 00:50:54,120
+But but you have
+
+1040
+00:50:52,000 --> 00:50:56,720
+you know, you you you you got then you
+
+1041
+00:50:54,120 --> 00:50:59,680
+have situation like this. This is This
+
+1042
+00:50:56,720 --> 00:51:02,200
+is not forgivable. It's not possible for
+
+1043
+00:50:59,680 --> 00:51:03,920
+anyone not to see this.
+
+1044
+00:51:02,200 --> 00:51:07,000
+You know, like
+
+1045
+00:51:03,920 --> 00:51:10,520
+London appears in in Cologne, Germany
+
+1046
+00:51:07,000 --> 00:51:12,200
+appears in South Africa. In Africa.
+
+1047
+00:51:10,520 --> 00:51:15,680
+Yeah, I mean, in Africa Africa
+
+1048
+00:51:12,200 --> 00:51:17,560
+continent. You know, and and the Moscow
+
+1049
+00:51:15,680 --> 00:51:21,600
+appears
+
+1050
+00:51:17,560 --> 00:51:24,080
+in in in South Pole.
+
+1051
+00:51:21,600 --> 00:51:25,880
+Moscow appear in South Pole. Can you see
+
+1052
+00:51:24,080 --> 00:51:28,680
+that?
+
+1053
+00:51:25,880 --> 00:51:31,960
+It's impossible. Okay.
+
+1054
+00:51:28,680 --> 00:51:33,640
+You see? This is very you know, So, if
+
+1055
+00:51:31,960 --> 00:51:36,480
+you ask me what's going on, something
+
+1056
+00:51:33,640 --> 00:51:40,120
+very dark is going on, okay? This is not
+
+1057
+00:51:36,480 --> 00:51:42,560
+like normal. And this is not
+
+1058
+00:51:40,120 --> 00:51:44,440
+I mean, it cannot even be possibly
+
+1059
+00:51:42,560 --> 00:51:45,880
+intentional mistake. It cannot be
+
+1060
+00:51:44,440 --> 00:51:47,520
+something, you know, it must be
+
+1061
+00:51:45,880 --> 00:51:50,760
+something
+
+1062
+00:51:47,520 --> 00:51:53,480
+very dark, okay? I'm I'm that This is
+
+1063
+00:51:50,760 --> 00:51:55,200
+verging on to politics. I'm telling you,
+
+1064
+00:51:53,480 --> 00:51:57,360
+so there's something very dark deep
+
+1065
+00:51:55,200 --> 00:51:58,800
+state going on, okay? That's when you
+
+1066
+00:51:57,360 --> 00:52:00,000
+when this kind of things start to
+
+1067
+00:51:58,800 --> 00:52:02,480
+happen.
+
+1068
+00:52:00,000 --> 00:52:04,960
+You ask me about what what I think about
+
+1069
+00:52:02,480 --> 00:52:07,680
+Windows 11, okay? Well, I haven't got to
+
+1070
+00:52:04,960 --> 00:52:09,560
+11 yet. All these are Windows 10.
+
+1071
+00:52:07,680 --> 00:52:12,680
+Windows 11
+
+1072
+00:52:09,560 --> 00:52:14,600
+did not improve much of it. Same [ __ ]
+
+1073
+00:52:12,680 --> 00:52:17,320
+you know? All these still applies
+
+1074
+00:52:14,600 --> 00:52:19,960
+Windows 11. So, anyway.
+
+1075
+00:52:17,320 --> 00:52:22,120
+And so, there are many more
+
+1076
+00:52:19,960 --> 00:52:24,920
+many more problems on Windows, okay?
+
+1077
+00:52:22,120 --> 00:52:26,520
+Since Windows 10. It's the worst [ __ ]
+
+1078
+00:52:24,920 --> 00:52:30,320
+okay?
+
+1079
+00:52:26,520 --> 00:52:32,760
+Because the So, why is it so bad? Well,
+
+1080
+00:52:30,320 --> 00:52:36,320
+and you know, Microsoft Are they stupid?
+
+1081
+00:52:32,760 --> 00:52:39,000
+Stupid? No. They got They they pay
+
+1082
+00:52:36,320 --> 00:52:42,000
+millions dollars, million billions to to
+
+1083
+00:52:39,000 --> 00:52:43,720
+these very smart programmers there.
+
+1084
+00:52:42,000 --> 00:52:46,160
+Something is wrong, okay?
+
+1085
+00:52:43,720 --> 00:52:47,000
+Like like there's some dark thing going
+
+1086
+00:52:46,160 --> 00:52:49,520
+on.
+
+1087
+00:52:47,000 --> 00:52:51,480
+Okay, so it's it's not about, oh, maybe
+
+1088
+00:52:49,520 --> 00:52:53,520
+they didn't think about it or they made
+
+1089
+00:52:51,480 --> 00:52:55,600
+a mistake. No, there's something very
+
+1090
+00:52:53,520 --> 00:52:58,440
+dark going on. Part of this is
+
+1091
+00:52:55,600 --> 00:53:01,680
+intentional.
+
+1092
+00:52:58,440 --> 00:53:05,200
+And they don't care. Because
+
+1093
+00:53:01,680 --> 00:53:06,680
+the Windows by now it's so saturated it
+
+1094
+00:53:05,200 --> 00:53:09,480
+doesn't improve, you know, you can
+
+1095
+00:53:06,680 --> 00:53:11,480
+improve it or it sucks, doesn't matter.
+
+1096
+00:53:09,480 --> 00:53:14,040
+They will still have the same number
+
+1097
+00:53:11,480 --> 00:53:16,200
+people using Windows.
+
+1098
+00:53:14,040 --> 00:53:18,320
+Uh you know,
+
+1099
+00:53:16,200 --> 00:53:21,320
+because they they they they sell it, you
+
+1100
+00:53:18,320 --> 00:53:24,520
+know, by pre-install on you know,
+
+1101
+00:53:21,320 --> 00:53:26,520
+on machines and also USA government is
+
+1102
+00:53:24,520 --> 00:53:29,080
+very much
+
+1103
+00:53:26,520 --> 00:53:32,440
+supporting this because Microsoft is
+
+1104
+00:53:29,080 --> 00:53:36,120
+USA, you know. Bill Gates. Bill Gates is
+
+1105
+00:53:32,440 --> 00:53:38,600
+another very dark story, okay? So, it's
+
+1106
+00:53:36,120 --> 00:53:40,400
+all kind of connected, so
+
+1107
+00:53:38,600 --> 00:53:42,680
+So, why don't they improve it? Well,
+
+1108
+00:53:40,400 --> 00:53:44,960
+they don't need to. You still, you know,
+
+1109
+00:53:42,680 --> 00:53:47,560
+going to use it. Okay, that's the
+
+1110
+00:53:44,960 --> 00:53:49,960
+situation. For most people, anyway.
+
+1111
+00:53:47,560 --> 00:53:52,720
+Part of the reason is because the Linux
+
+1112
+00:53:49,960 --> 00:53:55,240
+[ __ ] This The Linux people are
+
+1113
+00:53:52,720 --> 00:53:58,640
+idiots. They they are brainless. That's
+
+1114
+00:53:55,240 --> 00:54:01,120
+why. Because if if they are smart, you
+
+1115
+00:53:58,640 --> 00:54:04,640
+know, the open source [ __ ] If they
+
+1116
+00:54:01,120 --> 00:54:07,640
+are smart, Windows will be dead.
+
+1117
+00:54:04,640 --> 00:54:10,760
+Why? Because you got a free
+
+1118
+00:54:07,640 --> 00:54:12,840
+such much better and free
+
+1119
+00:54:10,760 --> 00:54:14,920
+operating system. Why would anyone use
+
+1120
+00:54:12,840 --> 00:54:17,480
+Windows? They would be dead long ago.
+
+1121
+00:54:14,920 --> 00:54:20,160
+But the the Linux people turned out they
+
+1122
+00:54:17,480 --> 00:54:22,320
+they are just idiots. The open source
+
+1123
+00:54:20,160 --> 00:54:24,600
+babbling, okay? Including lots of you
+
+1124
+00:54:22,320 --> 00:54:27,040
+guys. The open source Linux you know,
+
+1125
+00:54:24,600 --> 00:54:31,040
+[ __ ] Linux Linux got lots of other
+
+1126
+00:54:27,040 --> 00:54:33,440
+problems in in in design, too, okay?
+
+1127
+00:54:31,040 --> 00:54:35,600
+So, anyway, you ask me about what what I
+
+1128
+00:54:33,440 --> 00:54:38,080
+think about Windows 11. Okay, so these
+
+1129
+00:54:35,600 --> 00:54:41,440
+are the problems of Windows 10 and
+
+1130
+00:54:38,080 --> 00:54:44,120
+Windows 11. There are 52 articles, okay?
+
+1131
+00:54:41,440 --> 00:54:49,200
+It sucks.
+
+1132
+00:54:44,120 --> 00:54:49,200
+Uh okay, that that's about it, okay? So,
+
+1133
+00:54:49,560 --> 00:54:55,880
+as far as operating system goes,
+
+1134
+00:54:52,480 --> 00:54:58,280
+UNIX or Linux and Mac, the story is
+
+1135
+00:54:55,880 --> 00:55:01,720
+pretty much turns out to be the same for
+
+1136
+00:54:58,280 --> 00:55:03,960
+the past 30 years, okay?
+
+1137
+00:55:01,720 --> 00:55:06,080
+You know, if you want really the best
+
+1138
+00:55:03,960 --> 00:55:10,040
+experience, the best design, the best
+
+1139
+00:55:06,080 --> 00:55:14,280
+one is Apple, okay? Apple Mac.
+
+1140
+00:55:10,040 --> 00:55:18,560
+It's getting worse since Steve Jobs died
+
+1141
+00:55:14,280 --> 00:55:22,600
+some 15 years ago, okay? But still today
+
+1142
+00:55:18,560 --> 00:55:26,400
+Apple is by far the the better
+
+1143
+00:55:22,600 --> 00:55:28,880
+between Windows, Mac, or Linux, okay?
+
+1144
+00:55:26,400 --> 00:55:31,760
+So, you can use Apple. The problem with
+
+1145
+00:55:28,880 --> 00:55:33,240
+Apple is that, of course, it's twice as
+
+1146
+00:55:31,760 --> 00:55:35,680
+expensive.
+
+1147
+00:55:33,240 --> 00:55:37,520
+You have to pay. You know, pay to play.
+
+1148
+00:55:35,680 --> 00:55:40,480
+Every Every thing you buy, even the
+
+1149
+00:55:37,520 --> 00:55:42,800
+mouse, same mouse. When it's for Apple,
+
+1150
+00:55:40,480 --> 00:55:46,040
+exactly the same mouse. When when when
+
+1151
+00:55:42,800 --> 00:55:49,080
+they sell it for the Apple customers,
+
+1152
+00:55:46,040 --> 00:55:54,280
+it's like twice as expensive, you know?
+
+1153
+00:55:49,080 --> 00:55:57,240
+So, Apple, you know, so and if you want
+
+1154
+00:55:54,280 --> 00:56:00,000
+something average usable, this Windows,
+
+1155
+00:55:57,240 --> 00:56:02,480
+okay? It's pretty bad, but you know,
+
+1156
+00:56:00,000 --> 00:56:05,359
+if you want something incomprehensible,
+
+1157
+00:56:02,480 --> 00:56:07,600
+you have to be a nerd. You have to be a
+
+1158
+00:56:05,359 --> 00:56:10,760
+[ __ ] idiots like a nerd. You have to
+
+1159
+00:56:07,600 --> 00:56:12,920
+spend 1 year diddling about, oh, what is
+
+1160
+00:56:10,760 --> 00:56:15,200
+kernel? What is memory? What is
+
+1161
+00:56:12,920 --> 00:56:18,760
+programming language? The [ __ ] I
+
+1162
+00:56:15,200 --> 00:56:20,240
+despise them so much. And Emacs ring.
+
+1163
+00:56:18,760 --> 00:56:22,320
+You know, the if you are this type of
+
+1164
+00:56:20,240 --> 00:56:24,520
+people, you know, these [ __ ] Linux
+
+1165
+00:56:22,320 --> 00:56:27,440
+people. Yeah, you have to spend 1 year,
+
+1166
+00:56:24,520 --> 00:56:29,600
+2 years, 3 years to understand and to
+
+1167
+00:56:27,440 --> 00:56:30,974
+the understand what is distro, Linux
+
+1168
+00:56:29,600 --> 00:56:31,600
+distro, you know,
+
+1169
+00:56:30,974 --> 00:56:34,320
+>> [laughter]
+
+1170
+00:56:31,600 --> 00:56:36,920
+>> I like Arch Linux. You know, I think
+
+1171
+00:56:34,320 --> 00:56:39,600
+this one or or the or the Gnome versus
+
+1172
+00:56:36,920 --> 00:56:41,000
+you know, whatever [ __ ]
+
+1173
+00:56:39,600 --> 00:56:42,720
+Okay, so
+
+1174
+00:56:41,000 --> 00:56:44,840
+then
+
+1175
+00:56:42,720 --> 00:56:46,840
+Linux is for you.
+
+1176
+00:56:44,840 --> 00:56:48,520
+You know, you don't care about you know,
+
+1177
+00:56:46,840 --> 00:56:50,400
+you don't you don't you know, you you
+
+1178
+00:56:48,520 --> 00:56:55,480
+you you are a nerd.
+
+1179
+00:56:50,400 --> 00:56:55,480
+You are an outcast of society already.
+
+1180
+00:56:55,720 --> 00:57:01,520
+You are the little minority like one in
+
+1181
+00:56:58,640 --> 00:57:03,880
+10,000, one in a million.
+
+1182
+00:57:01,520 --> 00:57:06,160
+Like people don't care about [ __ ] about
+
+1183
+00:57:03,880 --> 00:57:08,040
+you, you [ __ ] You you just know
+
+1184
+00:57:06,160 --> 00:57:11,000
+about computers, you you you can't
+
+1185
+00:57:08,040 --> 00:57:13,600
+socialize, you don't understand nothing.
+
+1186
+00:57:11,000 --> 00:57:17,800
+Then Linux is for you, and it's free,
+
+1187
+00:57:13,600 --> 00:57:19,920
+you know, you you open source [ __ ]
+
+1188
+00:57:17,800 --> 00:57:21,920
+Okay, that's my summary. The best
+
+1189
+00:57:19,920 --> 00:57:25,120
+operating system, Apple, okay? But you
+
+1190
+00:57:21,920 --> 00:57:27,720
+pay twice, and it's actually also the
+
+1191
+00:57:25,120 --> 00:57:31,520
+most secure.
+
+1192
+00:57:27,720 --> 00:57:33,560
+Uh on Windows, it sucks donkey ass, but
+
+1193
+00:57:31,520 --> 00:57:35,000
+it's kind of usable and kind of free,
+
+1194
+00:57:33,560 --> 00:57:38,520
+kind of.
+
+1195
+00:57:35,000 --> 00:57:41,714
+And then, you know, the Microsoft, they
+
+1196
+00:57:38,520 --> 00:57:41,800
+get into your pants, they
+
+1197
+00:57:41,714 --> 00:57:43,240
+>> [laughter]
+
+1198
+00:57:41,800 --> 00:57:45,200
+>> they they
+
+1199
+00:57:43,240 --> 00:57:47,720
+you know, then you know, if you want
+
+1200
+00:57:45,200 --> 00:57:50,480
+like oh, you and you know, you are into
+
+1201
+00:57:47,720 --> 00:57:53,280
+freedom and you don't mind you are nerd,
+
+1202
+00:57:50,480 --> 00:57:56,520
+you don't know nothing except computers,
+
+1203
+00:57:53,280 --> 00:57:58,920
+then Linux is the best, okay?
+
+1204
+00:57:56,520 --> 00:58:00,600
+So, I want to tell you guys, you know,
+
+1205
+00:57:58,920 --> 00:58:02,760
+because I know a lot people is going to
+
+1206
+00:58:00,600 --> 00:58:05,080
+tell me most my readers are, you know,
+
+1207
+00:58:02,760 --> 00:58:06,359
+the Linux open source type people.
+
+1208
+00:58:05,080 --> 00:58:08,520
+They're going to tell you, "Son, you
+
+1209
+00:58:06,359 --> 00:58:09,720
+need to use this this or that. Oh, oh,
+
+1210
+00:58:08,520 --> 00:58:12,760
+by the way,
+
+1211
+00:58:09,720 --> 00:58:14,760
+deep state whatever. [ __ ] them."
+
+1212
+00:58:12,760 --> 00:58:17,480
+I don't give a [ __ ] about the Linux and
+
+1213
+00:58:14,760 --> 00:58:17,480
+open source.
+
+1214
+00:58:20,840 --> 00:58:26,880
+Okay, I didn't plan
+
+1215
+00:58:23,440 --> 00:58:30,600
+to rant, but I did.
+
+1216
+00:58:26,880 --> 00:58:33,200
+So, am I going to back to coding Wolfram
+
+1217
+00:58:30,600 --> 00:58:35,600
+language? Okay, so actually we did well
+
+1218
+00:58:33,200 --> 00:58:38,720
+today, but
+
+1219
+00:58:35,600 --> 00:58:40,760
+that became a rant. Um
+
+1220
+00:58:38,720 --> 00:58:42,640
+Okay, so is there any comment on Wolfram
+
+1221
+00:58:40,760 --> 00:58:45,560
+language?
+
+1222
+00:58:42,640 --> 00:58:45,560
+Uh
+
+1223
+00:58:45,840 --> 00:58:53,440
+So, RK19, did I answer your question?
+
+1224
+00:58:50,440 --> 00:58:55,800
+I think I spent 20 minutes, or was it 10
+
+1225
+00:58:53,440 --> 00:58:57,440
+minutes, answer your question. Did I?
+
+1226
+00:58:55,800 --> 00:58:59,760
+You need to say
+
+1227
+00:58:57,440 --> 00:59:02,359
+You need to respond, okay?
+
+1228
+00:58:59,760 --> 00:59:04,760
+Greetings from Brazil.
+
+1229
+00:59:02,359 --> 00:59:07,000
+Now, image, you said my name, which
+
+1230
+00:59:04,760 --> 00:59:09,680
+means you are really uh live. Some
+
+1231
+00:59:07,000 --> 00:59:12,600
+people are saying you died.
+
+1232
+00:59:09,680 --> 00:59:15,380
+Uh pre-recorded, which got me upset. Who
+
+1233
+00:59:12,600 --> 00:59:17,401
+said that?
+
+1234
+00:59:15,380 --> 00:59:17,401
+>> [laughter]
+
+1235
+00:59:18,655 --> 00:59:23,280
+[gasps]
+
+1236
+00:59:20,560 --> 00:59:24,920
+>> Who Who said that? [ __ ] stupid
+
+1237
+00:59:23,280 --> 00:59:27,400
+people.
+
+1238
+00:59:24,920 --> 00:59:30,080
+I am team functional notation.
+
+1239
+00:59:27,400 --> 00:59:32,000
+Fantastic. Emacs is the best operating
+
+1240
+00:59:30,080 --> 00:59:34,120
+system. Functional notation. Team
+
+1241
+00:59:32,000 --> 00:59:35,920
+functional notation. Which mean what you
+
+1242
+00:59:34,120 --> 00:59:39,040
+What do you mean? You mean You mean like
+
+1243
+00:59:35,920 --> 00:59:39,040
+the ampersand.
+
+1244
+00:59:40,080 --> 00:59:47,520
+Colonial, you mean the ampersand.
+
+1245
+00:59:42,960 --> 00:59:47,520
+Okay, let's get back to this. Okay, so
+
+1246
+00:59:47,720 --> 00:59:49,920
+Um
+
+1247
+00:59:57,440 --> 01:00:02,480
+Yeah, God. We went into a rant. Let's
+
+1248
+01:00:00,040 --> 01:00:03,160
+get back to this. Okay.
+
+1249
+01:00:02,480 --> 01:00:05,320
+Uh
+
+1250
+01:00:03,160 --> 01:00:07,720
+actually, I've been coding for We've
+
+1251
+01:00:05,320 --> 01:00:10,680
+been doing this for 1 hour already.
+
+1252
+01:00:07,720 --> 01:00:10,680
+Okay, so
+
+1253
+01:00:10,880 --> 01:00:14,800
+Well,
+
+1254
+01:00:11,840 --> 01:00:14,800
+let's continue.
+
+1255
+01:00:19,200 --> 01:00:23,680
+Okay, we got like some people we got
+
+1256
+01:00:21,320 --> 01:00:25,960
+nine people here. Okay, so
+
+1257
+01:00:23,680 --> 01:00:28,280
+So, we got this version. I don't want
+
+1258
+01:00:25,960 --> 01:00:31,800
+this version because the function
+
+1259
+01:00:28,280 --> 01:00:33,440
+version is more readable. Okay.
+
+1260
+01:00:31,800 --> 01:00:37,240
+So,
+
+1261
+01:00:33,440 --> 01:00:37,240
+AA is the um
+
+1262
+01:00:39,440 --> 01:00:43,280
+Okay, X point.
+
+1263
+01:00:44,480 --> 01:00:46,640
+Uh
+
+1264
+01:00:47,200 --> 01:00:50,040
+Okay.
+
+1265
+01:00:48,240 --> 01:00:53,680
+10 vec.
+
+1266
+01:00:50,040 --> 01:00:55,680
+Okay, let's change the name. So,
+
+1267
+01:00:53,680 --> 01:00:58,800
+AA
+
+1268
+01:00:55,680 --> 01:01:01,800
+change it to X point. Do it. Do it. Do
+
+1269
+01:00:58,800 --> 01:01:03,000
+it. Do it. Do it. Do it.
+
+1270
+01:01:01,800 --> 01:01:08,880
+Do it.
+
+1271
+01:01:03,000 --> 01:01:08,880
+Okay. And BB change it to 10 vector.
+
+1272
+01:01:09,520 --> 01:01:12,960
+Okay.
+
+1273
+01:01:10,760 --> 01:01:15,760
+So, there.
+
+1274
+01:01:12,960 --> 01:01:17,160
+I hope it's more readable. Okay.
+
+1275
+01:01:15,760 --> 01:01:19,960
+And uh
+
+1276
+01:01:17,160 --> 01:01:22,680
+haters are saying, I guess, so fake news
+
+1277
+01:01:19,960 --> 01:01:25,440
+after all. Yeah, that's kind of strange.
+
+1278
+01:01:22,680 --> 01:01:25,440
+I mean, that's
+
+1279
+01:01:26,160 --> 01:01:30,960
+That's not just strange, but that's kind
+
+1280
+01:01:28,720 --> 01:01:34,480
+of like
+
+1281
+01:01:30,960 --> 01:01:36,600
+I think that's a joke. Would you know?
+
+1282
+01:01:34,480 --> 01:01:38,160
+Like most I know a lot of people on
+
+1283
+01:01:36,600 --> 01:01:40,560
+4chan
+
+1284
+01:01:38,160 --> 01:01:42,520
+read, you know, they they read me and
+
+1285
+01:01:40,560 --> 01:01:45,040
+post my stuff.
+
+1286
+01:01:42,520 --> 01:01:47,760
+And so, that those are kind of the kind
+
+1287
+01:01:45,040 --> 01:01:50,160
+of the type of things from 4chan. But
+
+1288
+01:01:47,760 --> 01:01:53,720
+even on 4chan,
+
+1289
+01:01:50,160 --> 01:01:53,720
+I mean, who would say that?
+
+1290
+01:01:56,400 --> 01:02:03,080
+Okay. So, because that's uh very silly
+
+1291
+01:02:00,600 --> 01:02:05,160
+because for anyone who watch my live
+
+1292
+01:02:03,080 --> 01:02:07,160
+stream, they would know
+
+1293
+01:02:05,160 --> 01:02:08,240
+almost I do it every day, you know, live
+
+1294
+01:02:07,160 --> 01:02:09,960
+stream.
+
+1295
+01:02:08,240 --> 01:02:12,800
+You You can tell right away it's not
+
+1296
+01:02:09,960 --> 01:02:14,520
+pre-recorded.
+
+1297
+01:02:12,800 --> 01:02:17,920
+Anyway, so
+
+1298
+01:02:14,520 --> 01:02:17,920
+So, we got this um
+
+1299
+01:02:22,760 --> 01:02:29,080
+Okay, so we kind of break We We kind of
+
+1300
+01:02:26,680 --> 01:02:31,480
+broke our um
+
+1301
+01:02:29,080 --> 01:02:34,840
+thought flow.
+
+1302
+01:02:31,480 --> 01:02:37,720
+You need to get back to this um
+
+1303
+01:02:34,840 --> 01:02:39,600
+[ __ ] Not not good.
+
+1304
+01:02:37,720 --> 01:02:41,720
+Because
+
+1305
+01:02:39,600 --> 01:02:43,360
+you know, as far as this code goes,
+
+1306
+01:02:41,720 --> 01:02:46,240
+let's put it back.
+
+1307
+01:02:43,360 --> 01:02:49,960
+Syntax collect showing browser.
+
+1308
+01:02:46,240 --> 01:02:52,880
+Uh we are still in dark theme. So, let's
+
+1309
+01:02:49,960 --> 01:02:52,880
+put it back.
+
+1310
+01:02:53,000 --> 01:02:59,320
+So, this code as far as this code, we
+
+1311
+01:02:56,200 --> 01:03:02,200
+already talked for 1 hour.
+
+1312
+01:02:59,320 --> 01:03:04,800
+But we really haven't start to
+
+1313
+01:03:02,200 --> 01:03:06,320
+actually make make make it the way I
+
+1314
+01:03:04,800 --> 01:03:10,360
+want.
+
+1315
+01:03:06,320 --> 01:03:13,680
+So, it would be another hour
+
+1316
+01:03:10,360 --> 01:03:17,520
+to finish it. Um
+
+1317
+01:03:13,680 --> 01:03:20,240
+Okay, so that's
+
+1318
+01:03:17,520 --> 01:03:22,400
+Maybe I should stop, you know, it's
+
+1319
+01:03:20,240 --> 01:03:22,400
+um
+
+1320
+01:03:24,480 --> 01:03:31,960
+Yeah, because then I just going to work
+
+1321
+01:03:28,200 --> 01:03:33,880
+offline. This code is like
+
+1322
+01:03:31,960 --> 01:03:36,200
+most people wouldn't understand it
+
+1323
+01:03:33,880 --> 01:03:37,360
+unless you are Wolfram
+
+1324
+01:03:36,200 --> 01:03:39,760
+coder.
+
+1325
+01:03:37,360 --> 01:03:41,520
+Um
+
+1326
+01:03:39,760 --> 01:03:43,360
+Yeah, so we You see, we got two
+
+1327
+01:03:41,520 --> 01:03:46,000
+versions. Previously, it looks like
+
+1328
+01:03:43,360 --> 01:03:49,440
+that. Now, we have it like that.
+
+1329
+01:03:46,000 --> 01:03:51,120
+Yeah, we improved it. We improved it a
+
+1330
+01:03:49,440 --> 01:03:54,160
+little bit.
+
+1331
+01:03:51,120 --> 01:03:56,560
+Okay, so
+
+1332
+01:03:54,160 --> 01:03:58,120
+You see,
+
+1333
+01:03:56,560 --> 01:04:01,640
+yeah, so
+
+1334
+01:03:58,120 --> 01:04:04,440
+here is a previous version.
+
+1335
+01:04:01,640 --> 01:04:06,800
+Actually, that involves
+
+1336
+01:04:04,440 --> 01:04:12,560
+you know, the earliest version actually
+
+1337
+01:04:06,800 --> 01:04:12,560
+involves uh another if statement. So,
+
+1338
+01:04:13,359 --> 01:04:18,760
+So, there's actually another version
+
+1339
+01:04:15,240 --> 01:04:21,440
+before this. We already deleted.
+
+1340
+01:04:18,760 --> 01:04:24,400
+So, we made actually we made, you know,
+
+1341
+01:04:21,440 --> 01:04:25,920
+some improvements. Okay.
+
+1342
+01:04:24,400 --> 01:04:28,600
+But
+
+1343
+01:04:25,920 --> 01:04:30,960
+there's much more to go.
+
+1344
+01:04:28,600 --> 01:04:34,040
+We need to combine this into just, you
+
+1345
+01:04:30,960 --> 01:04:35,880
+know, just like one single
+
+1346
+01:04:34,040 --> 01:04:39,320
+code block.
+
+1347
+01:04:35,880 --> 01:04:41,359
+And, you know, without having this
+
+1348
+01:04:39,320 --> 01:04:42,760
+separate functions so that people can
+
+1349
+01:04:41,359 --> 01:04:44,720
+simply
+
+1350
+01:04:42,760 --> 01:04:46,920
+define a curve, you know, give a
+
+1351
+01:04:44,720 --> 01:04:49,359
+parametric equation for any curve and
+
+1352
+01:04:46,920 --> 01:04:52,200
+specify
+
+1353
+01:04:49,359 --> 01:04:54,880
+the light source.
+
+1354
+01:04:52,200 --> 01:04:58,040
+And they can plot
+
+1355
+01:04:54,880 --> 01:05:00,480
+this caustics. Okay.
+
+1356
+01:04:58,040 --> 01:05:00,480
+Yeah.
+
+1357
+01:05:01,600 --> 01:05:06,840
+So, I guess I going to work offline.
+
+1358
+01:05:08,280 --> 01:05:12,840
+Yeah, more needs more work to do.
+
+1359
+01:05:13,720 --> 01:05:17,280
+Okay, anything else?
+
+1360
+01:05:20,440 --> 01:05:31,760
+So, MHD, where did you see that comment?
+
+1361
+01:05:26,640 --> 01:05:31,760
+Is it on 4chan or is it somewhere else?
+
+1362
+01:05:35,840 --> 01:05:40,580
+Or did you just made it up?
+
+1363
+01:05:38,560 --> 01:05:40,580
+>> [laughter]
+
+1364
+01:06:00,160 --> 01:06:05,320
+>> Uh yeah, so
+
+1365
+01:06:02,400 --> 01:06:08,800
+there is actually a lot to do. I'm
+
+1366
+01:06:05,320 --> 01:06:11,200
+wondering what should I do now?
+
+1367
+01:06:08,800 --> 01:06:12,359
+Do I continue to work on this or do I
+
+1368
+01:06:11,200 --> 01:06:14,400
+just
+
+1369
+01:06:12,359 --> 01:06:16,480
+stop?
+
+1370
+01:06:14,400 --> 01:06:16,480
+Uh
+
+1371
+01:06:20,040 --> 01:06:23,520
+So, this code
+
+1372
+01:06:30,080 --> 01:06:36,640
+Um God, there's a lot
+
+1373
+01:06:32,680 --> 01:06:36,640
+things to think about. Um
+
+1374
+01:07:18,760 --> 01:07:24,720
+Uh you have a very dark view about the
+
+1375
+01:07:21,680 --> 01:07:28,320
+world. Whenever I listen to your rants,
+
+1376
+01:07:24,720 --> 01:07:31,960
+I get that feeling. Yes, that's true.
+
+1377
+01:07:28,320 --> 01:07:33,560
+Do you think the world is dark?
+
+1378
+01:07:31,960 --> 01:07:37,240
+You know,
+
+1379
+01:07:33,560 --> 01:07:39,760
+I can tell you why exactly. It's because
+
+1380
+01:07:37,240 --> 01:07:41,120
+I have a lot hatred
+
+1381
+01:07:39,760 --> 01:07:43,080
+in me.
+
+1382
+01:07:41,120 --> 01:07:45,080
+And why do I have
+
+1383
+01:07:43,080 --> 01:07:47,400
+this hatred? This This hatred you
+
+1384
+01:07:45,080 --> 01:07:49,040
+wouldn't understand. Okay.
+
+1385
+01:07:47,400 --> 01:07:53,040
+This hatred, you know, actually I'm
+
+1386
+01:07:49,040 --> 01:07:53,040
+telling you something very personal.
+
+1387
+01:07:54,320 --> 01:07:59,480
+Uh and I'm not sure you are ready for
+
+1388
+01:07:56,600 --> 01:08:02,560
+it. Okay, so I have this hatred
+
+1389
+01:07:59,480 --> 01:08:04,600
+and that is within me very deep since I
+
+1390
+01:08:02,560 --> 01:08:07,800
+was teens.
+
+1391
+01:08:04,600 --> 01:08:08,760
+And the degree of the the uh hatred the
+
+1392
+01:08:07,800 --> 01:08:10,200
+like
+
+1393
+01:08:08,760 --> 01:08:12,359
+you know, you wouldn't know, but most
+
+1394
+01:08:10,200 --> 01:08:17,319
+American they would say
+
+1395
+01:08:12,359 --> 01:08:20,120
+uh let's say let's call it um
+
+1396
+01:08:17,319 --> 01:08:22,040
+you know, post stress syndrome. Some you
+
+1397
+01:08:20,120 --> 01:08:24,920
+know, like the American white Americans
+
+1398
+01:08:22,040 --> 01:08:28,200
+they talk about these things.
+
+1399
+01:08:24,920 --> 01:08:31,240
+Post stress syndrome. Okay.
+
+1400
+01:08:28,200 --> 01:08:32,359
+Something that like this uh P PDSP
+
+1401
+01:08:31,240 --> 01:08:33,640
+something.
+
+1402
+01:08:32,359 --> 01:08:37,319
+Okay.
+
+1403
+01:08:33,640 --> 01:08:40,040
+Post-traumatic stress disorder, PTSD.
+
+1404
+01:08:37,319 --> 01:08:42,480
+Okay, which is something the white
+
+1405
+01:08:40,040 --> 01:08:44,839
+American idiots, they love to talk
+
+1406
+01:08:42,480 --> 01:08:47,200
+about. They chant They chant about these
+
+1407
+01:08:44,839 --> 01:08:49,520
+things. PTSD.
+
+1408
+01:08:47,200 --> 01:08:52,799
+You know, 10 years ago your 20 years ago
+
+1409
+01:08:49,520 --> 01:08:55,680
+it was beginning was women, you know,
+
+1410
+01:08:52,799 --> 01:08:57,319
+the feminism era. The women, they got
+
+1411
+01:08:55,680 --> 01:09:00,120
+they you know, the white people they
+
+1412
+01:08:57,319 --> 01:09:02,480
+chant about rape rape rape every day.
+
+1413
+01:09:00,120 --> 01:09:04,160
+Rape this or or that is that rape or is
+
+1414
+01:09:02,480 --> 01:09:05,880
+that not, you know, they love to talk
+
+1415
+01:09:04,160 --> 01:09:07,040
+about this.
+
+1416
+01:09:05,880 --> 01:09:08,799
+So,
+
+1417
+01:09:07,040 --> 01:09:10,400
+you know, before it was women saying
+
+1418
+01:09:08,799 --> 01:09:13,880
+that, you know, this
+
+1419
+01:09:10,400 --> 01:09:16,759
+They They have They all have PT PTSD
+
+1420
+01:09:13,880 --> 01:09:19,400
+because they got raped. They raped or or
+
+1421
+01:09:16,759 --> 01:09:22,120
+or then like you have to go to a doctor
+
+1422
+01:09:19,400 --> 01:09:24,680
+to see a psychotherapist. Then they they
+
+1423
+01:09:22,120 --> 01:09:25,960
+reminded you, oh by the way, your dad
+
+1424
+01:09:24,680 --> 01:09:27,839
+raped you.
+
+1425
+01:09:25,960 --> 01:09:29,920
+Did you know that?
+
+1426
+01:09:27,839 --> 01:09:31,880
+The [ __ ] Americans.
+
+1427
+01:09:29,920 --> 01:09:33,680
+Why do Americans doing this in the past
+
+1428
+01:09:31,880 --> 01:09:35,600
+20 years?
+
+1429
+01:09:33,680 --> 01:09:40,200
+That's That's when the rise of the
+
+1430
+01:09:35,600 --> 01:09:40,200
+social justice warriors, okay?
+
+1431
+01:09:40,240 --> 01:09:44,720
+Now, then then after that, then you got
+
+1432
+01:09:42,880 --> 01:09:48,000
+the other, you know, then you got, you
+
+1433
+01:09:44,720 --> 01:09:50,799
+know, okay, so the PTSD issue usually,
+
+1434
+01:09:48,000 --> 01:09:53,200
+you know, you for example, soldiers
+
+1435
+01:09:50,799 --> 01:09:55,200
+uh you got trauma traumatic experience
+
+1436
+01:09:53,200 --> 01:09:58,200
+soldiers and um
+
+1437
+01:09:55,200 --> 01:10:00,800
+others, okay? Anyway, the reason I'm
+
+1438
+01:09:58,200 --> 01:10:02,640
+mentioning this P
+
+1439
+01:10:00,800 --> 01:10:05,560
+T S D
+
+1440
+01:10:02,640 --> 01:10:09,200
+is so that you understand
+
+1441
+01:10:05,560 --> 01:10:12,000
+kind of my uh my my trauma, my my kind
+
+1442
+01:10:09,200 --> 01:10:14,560
+of my mentality, my situation, okay?
+
+1443
+01:10:12,000 --> 01:10:17,040
+Now, why do I have this
+
+1444
+01:10:14,560 --> 01:10:19,680
+hate like this a deep hatred? Why do I
+
+1445
+01:10:17,040 --> 01:10:22,960
+have that? Because, well, because my
+
+1446
+01:10:19,680 --> 01:10:25,360
+family, because my dad, because my
+
+1447
+01:10:22,960 --> 01:10:26,600
+upbringing, okay? Uh
+
+1448
+01:10:25,360 --> 01:10:29,360
+so
+
+1449
+01:10:26,600 --> 01:10:30,520
+from American California American point
+
+1450
+01:10:29,360 --> 01:10:32,680
+of view,
+
+1451
+01:10:30,520 --> 01:10:35,040
+you know, my family is, you know, it's
+
+1452
+01:10:32,680 --> 01:10:36,920
+like one of those problematic families,
+
+1453
+01:10:35,040 --> 01:10:39,440
+okay?
+
+1454
+01:10:36,920 --> 01:10:42,120
+So
+
+1455
+01:10:39,440 --> 01:10:43,800
+so technically speaking, I do have, you
+
+1456
+01:10:42,120 --> 01:10:45,480
+know, as far as I know,
+
+1457
+01:10:43,800 --> 01:10:48,120
+I have this some some kind of this
+
+1458
+01:10:45,480 --> 01:10:50,400
+post-traumatic stress disorder.
+
+1459
+01:10:48,120 --> 01:10:53,920
+Um
+
+1460
+01:10:50,400 --> 01:10:55,880
+and uh so so my view of the world, I
+
+1461
+01:10:53,920 --> 01:10:58,400
+wanted to be
+
+1462
+01:10:55,880 --> 01:11:01,800
+very successful, I want to be very I'm
+
+1463
+01:10:58,400 --> 01:11:05,960
+very ambitious. Meanwhile,
+
+1464
+01:11:01,800 --> 01:11:07,440
+uh you know, so this full of views of
+
+1465
+01:11:05,960 --> 01:11:10,640
+hatred
+
+1466
+01:11:07,440 --> 01:11:12,960
+or injustice in the world.
+
+1467
+01:11:10,640 --> 01:11:15,360
+Um
+
+1468
+01:11:12,960 --> 01:11:17,720
+that kind of thing, okay? So
+
+1469
+01:11:15,360 --> 01:11:20,800
+it's you know,
+
+1470
+01:11:17,720 --> 01:11:22,400
+and it is not normal
+
+1471
+01:11:20,800 --> 01:11:23,880
+and uh
+
+1472
+01:11:22,400 --> 01:11:27,240
+not healthy.
+
+1473
+01:11:23,880 --> 01:11:30,120
+You know, so many of my views
+
+1474
+01:11:27,240 --> 01:11:32,000
+I can understand it's probably
+
+1475
+01:11:30,120 --> 01:11:33,200
+it's a bit, you know, it's it's not
+
+1476
+01:11:32,000 --> 01:11:35,960
+normal.
+
+1477
+01:11:33,200 --> 01:11:35,960
+It's
+
+1478
+01:11:36,280 --> 01:11:40,760
+you know, it's it's like a it's like a
+
+1479
+01:11:38,400 --> 01:11:42,760
+perspective. Um
+
+1480
+01:11:40,760 --> 01:11:45,480
+but
+
+1481
+01:11:42,760 --> 01:11:47,880
+not necessarily healthy.
+
+1482
+01:11:45,480 --> 01:11:51,200
+You know, not not necessarily incorrect,
+
+1483
+01:11:47,880 --> 01:11:53,240
+but when you view things
+
+1484
+01:11:51,200 --> 01:11:55,680
+in a negative way,
+
+1485
+01:11:53,240 --> 01:11:58,400
+uh that may not be so good. Okay, I
+
+1486
+01:11:55,680 --> 01:12:00,480
+understand that. So anyway, that answers
+
+1487
+01:11:58,400 --> 01:12:02,920
+your question. Why do you have like very
+
+1488
+01:12:00,480 --> 01:12:04,000
+dark view about the world?
+
+1489
+01:12:02,920 --> 01:12:06,560
+Um
+
+1490
+01:12:04,000 --> 01:12:08,720
+that is why, because
+
+1491
+01:12:06,560 --> 01:12:11,880
+because I have the hatred, okay? That's
+
+1492
+01:12:08,720 --> 01:12:11,880
+what I would call it.
+
+1493
+01:12:12,600 --> 01:12:17,600
+Okay, I think that's it. Anything else?
+
+1494
+01:12:15,080 --> 01:12:17,600
+Any
+
+1495
+01:12:19,400 --> 01:12:24,200
+Okay, does that answer your question?
+
+1496
+01:12:21,040 --> 01:12:27,080
+Any you know, so actually
+
+1497
+01:12:24,200 --> 01:12:29,560
+this session is supposed to be like pure
+
+1498
+01:12:27,080 --> 01:12:31,320
+professional coding on Wolfram language.
+
+1499
+01:12:29,560 --> 01:12:34,280
+Well,
+
+1500
+01:12:31,320 --> 01:12:37,160
+okay, I think that's it.
+
+1501
+01:12:34,280 --> 01:12:39,760
+Bye, guys. I we shut down in um in 2
+
+1502
+01:12:37,160 --> 01:12:39,760
+minutes.
+

@@ -1,0 +1,4668 @@
+1
+00:00:00,000 --> 00:00:03,000
+for
+
+2
+00:00:58,920 --> 00:01:01,920
+one
+
+3
+00:01:28,920 --> 00:01:31,920
+for
+
+4
+00:01:58,840 --> 00:02:02,880
+what for
+
+5
+00:02:37,879 --> 00:02:40,879
+that
+
+6
+00:03:00,159 --> 00:03:06,760
+hello guys welcome to another episode of
+
+7
+00:03:03,120 --> 00:03:11,319
+c talk show we're going to code imagis
+
+8
+00:03:06,760 --> 00:03:14,280
+on image getting the image width and uh
+
+9
+00:03:11,319 --> 00:03:18,040
+height okay so let's
+
+10
+00:03:14,280 --> 00:03:22,480
+see so if you here say hi if you are
+
+11
+00:03:18,040 --> 00:03:25,799
+watching offline play at 1.5 speed and
+
+12
+00:03:22,480 --> 00:03:28,840
+uh skip around because I Rambo okay
+
+13
+00:03:25,799 --> 00:03:31,760
+today's topic is emac disp let's see
+
+14
+00:03:28,840 --> 00:03:31,760
+video check audio
+
+15
+00:03:32,239 --> 00:03:40,080
+check all good okay so emac is so
+
+16
+00:03:37,360 --> 00:03:42,200
+getting image size so the job what we
+
+17
+00:03:40,080 --> 00:03:48,000
+want to do is to get the
+
+18
+00:03:42,200 --> 00:03:50,519
+image uh height and width okay so here
+
+19
+00:03:48,000 --> 00:03:54,519
+is a image let me show you okay so
+
+20
+00:03:50,519 --> 00:03:57,959
+actually let's just copy that okay so
+
+21
+00:03:54,519 --> 00:04:02,159
+you got the image there okay let's go to
+
+22
+00:03:57,959 --> 00:04:05,239
+uh pictures directory and
+
+23
+00:04:02,159 --> 00:04:08,239
+screenshots and uh we got some image for
+
+24
+00:04:05,239 --> 00:04:11,319
+example if you want to know the
+
+25
+00:04:08,239 --> 00:04:15,200
+dimension so typically so you can you
+
+26
+00:04:11,319 --> 00:04:18,239
+know if you do it manually you open
+
+27
+00:04:15,200 --> 00:04:20,359
+image application so you can see this is
+
+28
+00:04:18,239 --> 00:04:23,759
+um
+
+29
+00:04:20,359 --> 00:04:23,759
+784 by
+
+30
+00:04:24,280 --> 00:04:33,120
+662 okay so um close that
+
+31
+00:04:30,160 --> 00:04:36,120
+and uh you can do it in multiple ways
+
+32
+00:04:33,120 --> 00:04:40,360
+you can do it in command line uh you can
+
+33
+00:04:36,120 --> 00:04:40,360
+also do it in
+
+34
+00:04:41,880 --> 00:04:47,000
+uh many ways okay but anyway let let me
+
+35
+00:04:44,840 --> 00:04:51,800
+just start to show you we want to be
+
+36
+00:04:47,000 --> 00:04:54,600
+able to do it in emac so for example we
+
+37
+00:04:51,800 --> 00:04:58,039
+um
+
+38
+00:04:54,600 --> 00:04:58,039
+actually H
+
+39
+00:04:58,639 --> 00:05:04,479
+what so hello guys hello shrimp hello
+
+40
+00:05:01,960 --> 00:05:08,720
+blue good evening from
+
+41
+00:05:04,479 --> 00:05:10,960
+UK the man from Germany hello the man
+
+42
+00:05:08,720 --> 00:05:10,960
+from
+
+43
+00:05:26,319 --> 00:05:31,199
+Germany have you tried the other text
+
+44
+00:05:28,720 --> 00:05:33,520
+editor like
+
+45
+00:05:31,199 --> 00:05:37,160
+like helex or
+
+46
+00:05:33,520 --> 00:05:42,600
+Vim well Vim I tried like 25 years ago
+
+47
+00:05:37,160 --> 00:05:42,600
+30 years ago in the year 2000s Vim is
+
+48
+00:05:43,160 --> 00:05:53,000
+the okay digression okay
+
+49
+00:05:46,720 --> 00:05:55,840
+Vim emergency Vim VI is one of the Unix
+
+50
+00:05:53,000 --> 00:05:59,240
+[ __ ] sometimes in a emergency
+
+51
+00:05:55,840 --> 00:06:02,000
+situation you are forced to deal with VI
+
+52
+00:05:59,240 --> 00:06:05,479
+and [ __ ] Unix admins refuse to
+
+53
+00:06:02,000 --> 00:06:10,639
+install emac okay then what you do in
+
+54
+00:06:05,479 --> 00:06:13,520
+Vim this is the the fundamentals
+
+55
+00:06:10,639 --> 00:06:19,080
+okay so I've been using them like in
+
+56
+00:06:13,520 --> 00:06:21,960
+year 2 1999 but it's a [ __ ] um back to
+
+57
+00:06:19,080 --> 00:06:24,960
+emac so let's let's focus on the get
+
+58
+00:06:21,960 --> 00:06:24,960
+image size
+
+59
+00:06:25,240 --> 00:06:31,680
+okay okay so I want to show you yeah
+
+60
+00:06:29,039 --> 00:06:33,759
+yeah let's just let do it okay
+
+61
+00:06:31,680 --> 00:06:37,560
+so
+
+62
+00:06:33,759 --> 00:06:40,080
+uh okay go to pictures then go to
+
+63
+00:06:37,560 --> 00:06:42,400
+screenshots so so I got one screenshot
+
+64
+00:06:40,080 --> 00:06:45,400
+we got two screenshot we got three
+
+65
+00:06:42,400 --> 00:06:48,880
+screenshots okay and I have a command
+
+66
+00:06:45,400 --> 00:06:52,319
+that um we'll move that to um let's
+
+67
+00:06:48,880 --> 00:06:55,120
+let's do it again go to pictures open in
+
+68
+00:06:52,319 --> 00:06:57,879
+uh Windows browser so you can see the
+
+69
+00:06:55,120 --> 00:07:00,039
+commands SAS show in desktop if you
+
+70
+00:06:57,879 --> 00:07:03,440
+search that you'll find a source code it
+
+71
+00:07:00,039 --> 00:07:07,440
+allows you to open any directory in in
+
+72
+00:07:03,440 --> 00:07:08,960
+Windows uh Explorer or on the Mac finder
+
+73
+00:07:07,440 --> 00:07:12,400
+and so
+
+74
+00:07:08,960 --> 00:07:15,520
+on okay so s show in desktop actually
+
+75
+00:07:12,400 --> 00:07:18,319
+you can do it and search you'll find the
+
+76
+00:07:15,520 --> 00:07:20,360
+code Kar show in desktop now in
+
+77
+00:07:18,319 --> 00:07:23,080
+Microsoft Windows highlight the file
+
+78
+00:07:20,360 --> 00:07:27,360
+what the [ __ ] is that oh that's part of
+
+79
+00:07:23,080 --> 00:07:30,680
+CA FL Keys okay so you can see that's
+
+80
+00:07:27,360 --> 00:07:34,199
+what I'm using sfly keys uh and you can
+
+81
+00:07:30,680 --> 00:07:34,199
+get the source code
+
+82
+00:07:35,479 --> 00:07:41,800
+um what is this S Talk Show okay I
+
+83
+00:07:38,479 --> 00:07:44,479
+talked about that a while ago but where
+
+84
+00:07:41,800 --> 00:07:46,840
+is the command by itself you know Brave
+
+85
+00:07:44,479 --> 00:07:49,199
+browser is not so good okay so let let
+
+86
+00:07:46,840 --> 00:07:51,319
+me just
+
+87
+00:07:49,199 --> 00:07:54,080
+um I'll show in
+
+88
+00:07:51,319 --> 00:07:56,319
+desktop yeah we digressed over so you
+
+89
+00:07:54,080 --> 00:07:59,720
+want to find that so search Google I
+
+90
+00:07:56,319 --> 00:08:02,440
+look up and then Google requires want to
+
+91
+00:07:59,720 --> 00:08:05,800
+know where you live and stuff very
+
+92
+00:08:02,440 --> 00:08:09,360
+annoying back to emac so search Google
+
+93
+00:08:05,800 --> 00:08:12,280
+again showing desktop so Google is
+
+94
+00:08:09,360 --> 00:08:15,479
+actually better at search uh so there it
+
+95
+00:08:12,280 --> 00:08:19,319
+is the source code so you can in any in
+
+96
+00:08:15,479 --> 00:08:23,800
+any file in emx you can you can um press
+
+97
+00:08:19,319 --> 00:08:26,759
+a key right press a key to to show in
+
+98
+00:08:23,800 --> 00:08:30,039
+the current um operating
+
+99
+00:08:26,759 --> 00:08:32,200
+systems file managements
+
+100
+00:08:30,039 --> 00:08:35,880
+fi file manager technically that's what
+
+101
+00:08:32,200 --> 00:08:39,320
+it called on Microsoft it's called File
+
+102
+00:08:35,880 --> 00:08:41,839
+Explorer on the Mac it's called finder
+
+103
+00:08:39,320 --> 00:08:44,640
+on Linux it's just file manager but
+
+104
+00:08:41,839 --> 00:08:47,480
+depending on which Linux distribution
+
+105
+00:08:44,640 --> 00:08:52,399
+you are using you have different um uh
+
+106
+00:08:47,480 --> 00:08:55,040
+ones such as notilus and uh you know so
+
+107
+00:08:52,399 --> 00:08:59,959
+anyway this command showing this up okay
+
+108
+00:08:55,040 --> 00:09:02,800
+U okay copy the URL back here paste a
+
+109
+00:08:59,959 --> 00:09:05,000
+URL make a link uh actually I don't want
+
+110
+00:09:02,800 --> 00:09:08,279
+that I want to go to the file so you can
+
+111
+00:09:05,000 --> 00:09:11,360
+see the local file there copy the file
+
+112
+00:09:08,279 --> 00:09:15,680
+path close it paste it here make a link
+
+113
+00:09:11,360 --> 00:09:19,399
+make a list then delete that then cut
+
+114
+00:09:15,680 --> 00:09:23,560
+that move it to uh move it to somewhere
+
+115
+00:09:19,399 --> 00:09:27,320
+here okay that's a digression but we are
+
+116
+00:09:23,560 --> 00:09:30,800
+going to do image okay
+
+117
+00:09:27,320 --> 00:09:33,200
+so so you can see so so uh so let me
+
+118
+00:09:30,800 --> 00:09:36,399
+just call the command Okay so press
+
+119
+00:09:33,200 --> 00:09:40,800
+press uh let's go here uh actually let's
+
+120
+00:09:36,399 --> 00:09:43,480
+go here let's go here press press press
+
+121
+00:09:40,800 --> 00:09:45,839
+That's one image press press press
+
+122
+00:09:43,480 --> 00:09:48,440
+that's another image press press press
+
+123
+00:09:45,839 --> 00:09:51,760
+that's another image showing browser so
+
+124
+00:09:48,440 --> 00:09:53,360
+you can see this command what I just
+
+125
+00:09:51,760 --> 00:09:59,120
+called
+
+126
+00:09:53,360 --> 00:10:01,880
+is um HTML move image files so that will
+
+127
+00:09:59,120 --> 00:10:03,839
+move move certain files in your pictures
+
+128
+00:10:01,880 --> 00:10:06,600
+directory or download directory or
+
+129
+00:10:03,839 --> 00:10:10,200
+documents directory or desktop you can
+
+130
+00:10:06,600 --> 00:10:13,000
+set it up by you know you can have a set
+
+131
+00:10:10,200 --> 00:10:14,680
+of list of directories to check it will
+
+132
+00:10:13,000 --> 00:10:17,720
+then you call this command it will
+
+133
+00:10:14,680 --> 00:10:20,600
+automatically move them into the current
+
+134
+00:10:17,720 --> 00:10:25,640
+buffer with the link so for example open
+
+135
+00:10:20,600 --> 00:10:27,600
+open that open that uh so open that
+
+136
+00:10:25,640 --> 00:10:30,399
+that's a screenshot we just did we don't
+
+137
+00:10:27,600 --> 00:10:33,480
+want it so delete the image then delete
+
+138
+00:10:30,399 --> 00:10:37,720
+this tag so showing browser again so you
+
+139
+00:10:33,480 --> 00:10:39,920
+see so it will automatically move the
+
+140
+00:10:37,720 --> 00:10:43,920
+file to the directory your current
+
+141
+00:10:39,920 --> 00:10:47,360
+directory but also you can see you you
+
+142
+00:10:43,920 --> 00:10:51,680
+got the width and height so how is that
+
+143
+00:10:47,360 --> 00:10:51,680
+done so that command I just called
+
+144
+00:10:52,560 --> 00:10:59,360
+um okay that command I just call this
+
+145
+00:10:55,639 --> 00:11:01,920
+some move uh HTML move image file let's
+
+146
+00:10:59,360 --> 00:11:05,360
+go to the source code then you can see
+
+147
+00:11:01,920 --> 00:11:10,360
+the source code let's expand it so the
+
+148
+00:11:05,360 --> 00:11:10,360
+source code has a list of
+
+149
+00:11:11,360 --> 00:11:18,480
+um list of directories
+
+150
+00:11:15,360 --> 00:11:22,639
+here by this local variable you can
+
+151
+00:11:18,480 --> 00:11:24,920
+change it you know and then it has a uh
+
+152
+00:11:22,639 --> 00:11:28,440
+Target directory
+
+153
+00:11:24,920 --> 00:11:29,760
+like like uh so this is relative to the
+
+154
+00:11:28,440 --> 00:11:33,440
+current file
+
+155
+00:11:29,760 --> 00:11:36,440
+so I set it to I so whatever my current
+
+156
+00:11:33,440 --> 00:11:38,680
+file then there's a directory named I
+
+157
+00:11:36,440 --> 00:11:42,160
+the image will move there okay that's
+
+158
+00:11:38,680 --> 00:11:45,519
+just my blog structure that my website
+
+159
+00:11:42,160 --> 00:11:48,480
+then you got this uh variable which is a
+
+160
+00:11:45,519 --> 00:11:51,160
+regular expression list and they are set
+
+161
+00:11:48,480 --> 00:11:55,440
+here so whenever a file name start with
+
+162
+00:11:51,160 --> 00:11:58,079
+TT move it or start with E move it TT
+
+163
+00:11:55,440 --> 00:12:00,120
+and E are the index finger on the V
+
+164
+00:11:58,079 --> 00:12:04,200
+keyboard layout which which is what I'm
+
+165
+00:12:00,120 --> 00:12:07,200
+using okay or a known. JPEG that's
+
+166
+00:12:04,200 --> 00:12:09,839
+typically uh when you save some file on
+
+167
+00:12:07,200 --> 00:12:12,519
+Twitter or something I forgot then
+
+168
+00:12:09,839 --> 00:12:14,079
+YouTube sometimes they have HQ default
+
+169
+00:12:12,519 --> 00:12:17,880
+that you know that's just some of the
+
+170
+00:12:14,079 --> 00:12:21,199
+default image names so when you save a
+
+171
+00:12:17,880 --> 00:12:23,880
+file from Twitter or YouTube or do a
+
+172
+00:12:21,199 --> 00:12:27,279
+screenshot you know these names Untitled
+
+173
+00:12:23,880 --> 00:12:30,320
+you know they they will be moved so this
+
+174
+00:12:27,279 --> 00:12:33,240
+you can set yourself and and on Twitter
+
+175
+00:12:30,320 --> 00:12:37,680
+they have this pattern for image default
+
+176
+00:12:33,240 --> 00:12:41,880
+and G they have this pattern and uh then
+
+177
+00:12:37,680 --> 00:12:44,760
+then old trer has this pattern uh eBay
+
+178
+00:12:41,880 --> 00:12:47,680
+image files they have this pattern and
+
+179
+00:12:44,760 --> 00:12:51,199
+then screenshots depending on different
+
+180
+00:12:47,680 --> 00:12:54,160
+operating system sometimes you have uh
+
+181
+00:12:51,199 --> 00:12:56,600
+you know screenshot with a space or no
+
+182
+00:12:54,160 --> 00:13:00,040
+space or lowercase and if you have
+
+183
+00:12:56,600 --> 00:13:03,120
+photos from your digital camera uh
+
+184
+00:13:00,040 --> 00:13:07,040
+usually they are IMG you know or DSC
+
+185
+00:13:03,120 --> 00:13:11,079
+something something and then uh there's
+
+186
+00:13:07,040 --> 00:13:13,959
+pmm that's for Mac I believe so then
+
+187
+00:13:11,079 --> 00:13:16,079
+there's Amazon image pattern so this
+
+188
+00:13:13,959 --> 00:13:19,000
+command allows you to whenever you save
+
+189
+00:13:16,079 --> 00:13:22,120
+image from different websites then you
+
+190
+00:13:19,000 --> 00:13:24,639
+press a key if you are writing Blog then
+
+191
+00:13:22,120 --> 00:13:30,560
+they automatically
+
+192
+00:13:24,639 --> 00:13:34,839
+become this figure tag very nice so see
+
+193
+00:13:30,560 --> 00:13:37,839
+with the image size and height okay so
+
+194
+00:13:34,839 --> 00:13:41,880
+go back go back to the code so the code
+
+195
+00:13:37,839 --> 00:13:47,480
+the code itself is this okay so this is
+
+196
+00:13:41,880 --> 00:13:52,959
+about um copy new buffer paste 80 lines
+
+197
+00:13:47,480 --> 00:13:56,480
+of code syntax color iMac this mod so
+
+198
+00:13:52,959 --> 00:14:01,480
+you see so is this command available to
+
+199
+00:13:56,480 --> 00:14:06,399
+you yes go to this un L open it showing
+
+200
+00:14:01,480 --> 00:14:06,399
+browser fantastic so you can use it
+
+201
+00:14:06,600 --> 00:14:14,360
+free okay so copy the file path close
+
+202
+00:14:10,519 --> 00:14:17,920
+close close the source code uh reopen uh
+
+203
+00:14:14,360 --> 00:14:20,839
+Untitled yeah we don't care close close
+
+204
+00:14:17,920 --> 00:14:23,920
+close oh by the way that's
+
+205
+00:14:20,839 --> 00:14:26,399
+um uh there's more to that command okay
+
+206
+00:14:23,920 --> 00:14:30,000
+let me show you but first of all make a
+
+207
+00:14:26,399 --> 00:14:32,839
+link show there show there there it is
+
+208
+00:14:30,000 --> 00:14:38,120
+smooth image file fantastic
+
+209
+00:14:32,839 --> 00:14:41,800
+utility via the power of emac
+
+210
+00:14:38,120 --> 00:14:45,160
+lisp uh so what is this uh yeah the
+
+211
+00:14:41,800 --> 00:14:48,440
+brave search not too good I
+
+212
+00:14:45,160 --> 00:14:51,880
+mean usually if you search common things
+
+213
+00:14:48,440 --> 00:14:55,199
+it's good but I'm searching SAR emac
+
+214
+00:14:51,880 --> 00:14:59,920
+commands so that's rarely done so that's
+
+215
+00:14:55,199 --> 00:15:01,160
+why Brave doesn't show my um my website
+
+216
+00:14:59,920 --> 00:15:04,440
+on the
+
+217
+00:15:01,160 --> 00:15:06,759
+top so we demonstrated we demonstrate
+
+218
+00:15:04,440 --> 00:15:09,199
+this uh image move command but there's a
+
+219
+00:15:06,759 --> 00:15:11,800
+much more to it so let me show you okay
+
+220
+00:15:09,199 --> 00:15:16,000
+let me explain and get to today's topic
+
+221
+00:15:11,800 --> 00:15:19,759
+so describe key this key uh wait
+
+222
+00:15:16,000 --> 00:15:22,320
+describe key uh wait describe key that
+
+223
+00:15:19,759 --> 00:15:23,680
+that that okay then jump to the source
+
+224
+00:15:22,320 --> 00:15:26,920
+code
+
+225
+00:15:23,680 --> 00:15:30,519
+so oh not convert to jpeg that's another
+
+226
+00:15:26,920 --> 00:15:30,519
+one so wait
+
+227
+00:15:32,040 --> 00:15:37,800
+uh
+
+228
+00:15:34,160 --> 00:15:37,800
+what oh okay
+
+229
+00:15:40,000 --> 00:15:46,319
+so move image file right so let's go to
+
+230
+00:15:43,560 --> 00:15:48,920
+the source code so you can see this
+
+231
+00:15:46,319 --> 00:15:52,560
+command actually it will
+
+232
+00:15:48,920 --> 00:15:55,880
+do quite useful it will
+
+233
+00:15:52,560 --> 00:15:59,040
+do uh optimize
+
+234
+00:15:55,880 --> 00:16:02,920
+PNG you see it will automatically
+
+235
+00:15:59,040 --> 00:16:06,199
+automatically optimize PNG and if it's a
+
+236
+00:16:02,920 --> 00:16:09,399
+JPEG file it will also remove the
+
+237
+00:16:06,199 --> 00:16:12,040
+metadata so for example you take a photo
+
+238
+00:16:09,399 --> 00:16:14,560
+it records your location the GPS
+
+239
+00:16:12,040 --> 00:16:17,759
+information you know on many phones you
+
+240
+00:16:14,560 --> 00:16:20,120
+can do that but when you write your blog
+
+241
+00:16:17,759 --> 00:16:22,680
+you don't want usually you don't want
+
+242
+00:16:20,120 --> 00:16:26,560
+that information there so you have this
+
+243
+00:16:22,680 --> 00:16:30,360
+command diet remove all metadata and you
+
+244
+00:16:26,560 --> 00:16:33,079
+have optimized PNG so all these commands
+
+245
+00:16:30,360 --> 00:16:37,199
+let's see uh optimize PNG is it
+
+246
+00:16:33,079 --> 00:16:41,360
+available to you no URL I'm sorry you
+
+247
+00:16:37,199 --> 00:16:44,199
+have to pay okay so this is part of my
+
+248
+00:16:41,360 --> 00:16:47,800
+uh diet package
+
+249
+00:16:44,199 --> 00:16:49,920
+so okay so anyway so this is very
+
+250
+00:16:47,800 --> 00:16:52,680
+convenient you just press a few Keys you
+
+251
+00:16:49,920 --> 00:16:56,319
+move images to your blog you don't have
+
+252
+00:16:52,680 --> 00:16:59,240
+to worry about removing the metadata or
+
+253
+00:16:56,319 --> 00:17:02,079
+or optimize the PNG file that makes a
+
+254
+00:16:59,240 --> 00:17:06,880
+significant difference so let's see the
+
+255
+00:17:02,079 --> 00:17:08,919
+metadata commands do we have it um no I
+
+256
+00:17:06,880 --> 00:17:11,079
+don't have it on my website why because
+
+257
+00:17:08,919 --> 00:17:14,919
+some of these command if you I want to
+
+258
+00:17:11,079 --> 00:17:17,439
+make it on my website sometimes they
+
+259
+00:17:14,919 --> 00:17:21,959
+require uh other
+
+260
+00:17:17,439 --> 00:17:26,679
+things uh but in not in the oh wait uh
+
+261
+00:17:21,959 --> 00:17:26,679
+yeah they call exit tools
+
+262
+00:17:27,840 --> 00:17:33,679
+okay you know sometimes I don't you know
+
+263
+00:17:30,679 --> 00:17:37,240
+anyway I don't I don't have it uh on the
+
+264
+00:17:33,679 --> 00:17:38,480
+website so yeah image move data I can
+
+265
+00:17:37,240 --> 00:17:41,200
+demo
+
+266
+00:17:38,480 --> 00:17:44,080
+them uh I can demo them for example
+
+267
+00:17:41,200 --> 00:17:47,760
+let's do another screenshot okay there
+
+268
+00:17:44,080 --> 00:17:53,559
+it is a screenshot now close that now go
+
+269
+00:17:47,760 --> 00:17:56,559
+to um go to the pictures directory
+
+270
+00:17:53,559 --> 00:18:00,200
+screenshot uh there it is the
+
+271
+00:17:56,559 --> 00:18:03,799
+current we the screenshot we just did
+
+272
+00:18:00,200 --> 00:18:06,880
+did okay so go to the directory so you
+
+273
+00:18:03,799 --> 00:18:10,320
+can see here's a f file size now make a
+
+274
+00:18:06,880 --> 00:18:14,159
+backup here's a back uh F backup now
+
+275
+00:18:10,320 --> 00:18:17,480
+let's view the meta data of this image
+
+276
+00:18:14,159 --> 00:18:20,520
+file so press the key there is the metad
+
+277
+00:18:17,480 --> 00:18:24,840
+data in this case there's not many
+
+278
+00:18:20,520 --> 00:18:28,919
+actually okay and uh press a
+
+279
+00:18:24,840 --> 00:18:32,280
+key that deletes the meta data meta data
+
+280
+00:18:28,919 --> 00:18:35,280
+so let's view it again uh in fact it's
+
+281
+00:18:32,280 --> 00:18:38,520
+one line shorter or something okay and
+
+282
+00:18:35,280 --> 00:18:42,720
+uh what about optimize so if you refresh
+
+283
+00:18:38,520 --> 00:18:47,559
+the the ad you can see the file size is
+
+284
+00:18:42,720 --> 00:18:52,080
+slightly smaller than the orinal compare
+
+285
+00:18:47,559 --> 00:18:55,360
+see and then the optimization okay now
+
+286
+00:18:52,080 --> 00:18:59,039
+let's make a another backup okay now
+
+287
+00:18:55,360 --> 00:19:01,760
+let's optimize this this image uh wait
+
+288
+00:18:59,039 --> 00:19:04,520
+let open it this image is not optimized
+
+289
+00:19:01,760 --> 00:19:09,080
+so let's do it press
+
+290
+00:19:04,520 --> 00:19:12,840
+press you see optimizing it's done
+
+291
+00:19:09,080 --> 00:19:17,360
+refresh now you can see now it's
+
+292
+00:19:12,840 --> 00:19:20,280
+23k kilobytes 23 kilobyte it was 33
+
+293
+00:19:17,360 --> 00:19:24,600
+kilobytes you see
+
+294
+00:19:20,280 --> 00:19:28,159
+fantastic same image now you see but
+
+295
+00:19:24,600 --> 00:19:29,960
+when you call this move image file uh
+
+296
+00:19:28,159 --> 00:19:32,760
+you don't even even have to call those
+
+297
+00:19:29,960 --> 00:19:36,919
+commands it's just all automatic That's
+
+298
+00:19:32,760 --> 00:19:39,640
+The Power of emac disp provided that you
+
+299
+00:19:36,919 --> 00:19:42,960
+have to write them you have to know emac
+
+300
+00:19:39,640 --> 00:19:46,320
+disp uh like me I spent like 15 years
+
+301
+00:19:42,960 --> 00:19:49,760
+coding emac disp so
+
+302
+00:19:46,320 --> 00:19:52,000
+powerful and uh okay that's
+
+303
+00:19:49,760 --> 00:19:54,400
+demonstration of some of these command
+
+304
+00:19:52,000 --> 00:19:56,280
+but we haven't get to the main topic
+
+305
+00:19:54,400 --> 00:19:59,240
+which is how do you do it I mean how do
+
+306
+00:19:56,280 --> 00:20:01,320
+you get the image file side image width
+
+307
+00:19:59,240 --> 00:20:04,039
+and dimension that's actually a tricky
+
+308
+00:20:01,320 --> 00:20:06,320
+question so I can show you so for
+
+309
+00:20:04,039 --> 00:20:08,720
+example so let's let's start to talk
+
+310
+00:20:06,320 --> 00:20:11,440
+about that let me show you okay so how
+
+311
+00:20:08,720 --> 00:20:12,919
+do you actually get the W uh width and
+
+312
+00:20:11,440 --> 00:20:19,320
+height
+
+313
+00:20:12,919 --> 00:20:19,320
+okay you you you you know um you uh
+
+314
+00:20:20,159 --> 00:20:26,640
+so okay let's uh let's go to that file
+
+315
+00:20:26,960 --> 00:20:32,840
+again I mean that's go to the source
+
+316
+00:20:29,480 --> 00:20:37,120
+code again cuz I convert to J now this
+
+317
+00:20:32,840 --> 00:20:44,320
+always got the wrong key uh describe key
+
+318
+00:20:37,120 --> 00:20:44,320
+that will be that that that uh
+
+319
+00:20:49,080 --> 00:20:57,000
+what okay there HT um got not that one
+
+320
+00:20:54,400 --> 00:20:57,000
+describe
+
+321
+00:20:57,039 --> 00:21:05,720
+key that that that yeah HTML move image
+
+322
+00:21:02,320 --> 00:21:08,760
+file okay go to the source code now you
+
+323
+00:21:05,720 --> 00:21:12,640
+can see so the part of the command will
+
+324
+00:21:08,760 --> 00:21:15,880
+call get image width and
+
+325
+00:21:12,640 --> 00:21:18,200
+height uh well you don't see it here but
+
+326
+00:21:15,880 --> 00:21:22,960
+uh okay let me show you another command
+
+327
+00:21:18,200 --> 00:21:25,919
+Okay so this file is image I want to
+
+328
+00:21:22,960 --> 00:21:30,080
+copy the file path so press a key it's
+
+329
+00:21:25,919 --> 00:21:35,080
+done now go here enter paste that's a
+
+330
+00:21:30,080 --> 00:21:37,520
+file path open it fantastic close it now
+
+331
+00:21:35,080 --> 00:21:40,480
+I want to make this into a image tag
+
+332
+00:21:37,520 --> 00:21:43,559
+when you have a image path turn it to a
+
+333
+00:21:40,480 --> 00:21:45,919
+image embedded image okay so that will
+
+334
+00:21:43,559 --> 00:21:49,400
+be tab I
+
+335
+00:21:45,919 --> 00:21:53,200
+I okay actually tab II does something
+
+336
+00:21:49,400 --> 00:21:56,760
+else undo okay because tab II actually
+
+337
+00:21:53,200 --> 00:22:00,080
+does the figure tag so let's see tab I
+
+338
+00:21:56,760 --> 00:22:00,080
+uh wait
+
+339
+00:22:02,880 --> 00:22:11,919
+okay so let's do it again t uh e i there
+
+340
+00:22:08,080 --> 00:22:14,960
+it is it became a image tag open it yeah
+
+341
+00:22:11,919 --> 00:22:19,159
+and show in browser so you can see this
+
+342
+00:22:14,960 --> 00:22:21,000
+image is duplicate twice but however you
+
+343
+00:22:19,159 --> 00:22:23,320
+can see the formatting is a bit
+
+344
+00:22:21,000 --> 00:22:26,240
+different because the second one got the
+
+345
+00:22:23,320 --> 00:22:30,000
+shadow on the side can you see that well
+
+346
+00:22:26,240 --> 00:22:32,720
+the first one no shadow why is that
+
+347
+00:22:30,000 --> 00:22:36,120
+because one of is one of them is simply
+
+348
+00:22:32,720 --> 00:22:40,960
+a image tag while the other one is
+
+349
+00:22:36,120 --> 00:22:44,080
+figure tag with figure caption okay and
+
+350
+00:22:40,960 --> 00:22:50,360
+then via CSS go to the top you can go to
+
+351
+00:22:44,080 --> 00:22:54,000
+the CSS search for figure f i u r e
+
+352
+00:22:50,360 --> 00:22:56,679
+there it is there it is so you can see
+
+353
+00:22:54,000 --> 00:23:00,080
+figure tag has a box
+
+354
+00:22:56,679 --> 00:23:02,159
+Shadow so that is why you see the
+
+355
+00:23:00,080 --> 00:23:07,240
+difference in fact there's more
+
+356
+00:23:02,159 --> 00:23:07,240
+difference u in fact the
+
+357
+00:23:07,559 --> 00:23:13,240
+um
+
+358
+00:23:10,120 --> 00:23:15,600
+anyway so we digress a little bit now
+
+359
+00:23:13,240 --> 00:23:19,120
+let's go back so you see that's a
+
+360
+00:23:15,600 --> 00:23:20,799
+command to make a turn a image path into
+
+361
+00:23:19,120 --> 00:23:24,919
+a image
+
+362
+00:23:20,799 --> 00:23:27,080
+tag now this command also need you see
+
+363
+00:23:24,919 --> 00:23:30,960
+this is one of the the the simplest
+
+364
+00:23:27,080 --> 00:23:33,720
+command that we requires the width and
+
+365
+00:23:30,960 --> 00:23:35,760
+height you see but how how does it know
+
+366
+00:23:33,720 --> 00:23:41,600
+how does it do it so let's look at this
+
+367
+00:23:35,760 --> 00:23:46,880
+command so describe key uh then tab
+
+368
+00:23:41,600 --> 00:23:50,480
+EI so HTML image to image tag jump to
+
+369
+00:23:46,880 --> 00:23:54,799
+the source code open it there it is copy
+
+370
+00:23:50,480 --> 00:23:59,279
+it new buffer paste 50 lines of
+
+371
+00:23:54,799 --> 00:24:02,760
+code now make it iMac list mod fantastic
+
+372
+00:23:59,279 --> 00:24:06,840
+beautiful syntax coloring go to the top
+
+373
+00:24:02,760 --> 00:24:06,840
+okay so this command so you can
+
+374
+00:24:11,120 --> 00:24:19,799
+see HTML image at with and height then
+
+375
+00:24:17,600 --> 00:24:24,840
+UHA then
+
+376
+00:24:19,799 --> 00:24:27,360
+thisa get image size okay so let's look
+
+377
+00:24:24,840 --> 00:24:31,440
+up that
+
+378
+00:24:27,360 --> 00:24:37,000
+command Target image size defined in
+
+379
+00:24:31,440 --> 00:24:39,640
+elip ut there it is now this elips UT
+
+380
+00:24:37,000 --> 00:24:44,840
+let's go to the directory elips
+
+381
+00:24:39,640 --> 00:24:48,760
+utilities this file is available for you
+
+382
+00:24:44,840 --> 00:24:52,679
+on this page you can click it and here's
+
+383
+00:24:48,760 --> 00:24:57,559
+the whole source code so emac this
+
+384
+00:24:52,679 --> 00:24:59,159
+utilities so copy it close now let's uh
+
+385
+00:24:57,559 --> 00:25:02,480
+paste the link here
+
+386
+00:24:59,159 --> 00:25:05,840
+here linky
+
+387
+00:25:02,480 --> 00:25:08,480
+okay uh but so we don't need this close
+
+388
+00:25:05,840 --> 00:25:12,039
+that now go back to the source code now
+
+389
+00:25:08,480 --> 00:25:16,080
+go back to that position IET image size
+
+390
+00:25:12,039 --> 00:25:18,520
+so you can see here's how it does so if
+
+391
+00:25:16,080 --> 00:25:21,440
+system equals to Wind by the way this
+
+392
+00:25:18,520 --> 00:25:23,279
+code is also here okay so you can grab
+
+393
+00:25:21,440 --> 00:25:27,840
+grab
+
+394
+00:25:23,279 --> 00:25:31,200
+this if the operating system is Windows
+
+395
+00:25:27,840 --> 00:25:34,559
+then you call get image size via image
+
+396
+00:25:31,200 --> 00:25:38,640
+magic okay look up the source code that
+
+397
+00:25:34,559 --> 00:25:42,600
+function is also defined here get image
+
+398
+00:25:38,640 --> 00:25:44,799
+size via the image magic utility which
+
+399
+00:25:42,600 --> 00:25:47,159
+is no good because that's two gigabyte
+
+400
+00:25:44,799 --> 00:25:51,000
+of download okay close
+
+401
+00:25:47,159 --> 00:25:54,600
+it uh by the way so this is uh this is
+
+402
+00:25:51,000 --> 00:25:58,600
+optimize PNG file output close it close
+
+403
+00:25:54,600 --> 00:26:02,360
+it so let's return here uh image to
+
+404
+00:25:58,600 --> 00:26:04,799
+image tag yeah so you can see uh let's
+
+405
+00:26:02,360 --> 00:26:07,919
+go back to the
+
+406
+00:26:04,799 --> 00:26:11,799
+um Clos
+
+407
+00:26:07,919 --> 00:26:16,159
+Set uh linky so where's the utility so
+
+408
+00:26:11,799 --> 00:26:20,600
+let's uh see so what is this command
+
+409
+00:26:16,159 --> 00:26:23,159
+image to image tag yeah so image to
+
+410
+00:26:20,600 --> 00:26:23,159
+image
+
+411
+00:26:24,360 --> 00:26:32,039
+tag H God I went all over but we haven't
+
+412
+00:26:28,039 --> 00:26:34,679
+get get into the image um size yet okay
+
+413
+00:26:32,039 --> 00:26:36,760
+let's get image size go back to this
+
+414
+00:26:34,679 --> 00:26:39,200
+okay so basically I have several
+
+415
+00:26:36,760 --> 00:26:42,360
+commands you can call image magic if
+
+416
+00:26:39,200 --> 00:26:47,320
+it's on the Mac then you call Image you
+
+417
+00:26:42,360 --> 00:26:50,720
+call the sips utility that is bundled on
+
+418
+00:26:47,320 --> 00:26:53,919
+the Mac that come with Mac OS that this
+
+419
+00:26:50,720 --> 00:26:56,120
+in fact is the best utility okay so you
+
+420
+00:26:53,919 --> 00:26:59,240
+can look at the source
+
+421
+00:26:56,120 --> 00:27:03,240
+code uh source code is it's also defined
+
+422
+00:26:59,240 --> 00:27:06,880
+here okay and if it's on Linux then you
+
+423
+00:27:03,240 --> 00:27:09,960
+call Image get size Linux which is um
+
+424
+00:27:06,880 --> 00:27:14,320
+you can see it here actually so image
+
+425
+00:27:09,960 --> 00:27:17,840
+get size sips on the
+
+426
+00:27:14,320 --> 00:27:20,840
+Mac this code is using image
+
+427
+00:27:17,840 --> 00:27:23,919
+magic this code is using
+
+428
+00:27:20,840 --> 00:27:27,480
+Powershell this code is using
+
+429
+00:27:23,919 --> 00:27:31,919
+Linux without image magic or anything
+
+430
+00:27:27,480 --> 00:27:36,640
+extra in stored so and then finally you
+
+431
+00:27:31,919 --> 00:27:39,000
+got image size using emac disp so
+
+432
+00:27:36,640 --> 00:27:41,200
+ideally this is the best solution
+
+433
+00:27:39,000 --> 00:27:43,919
+because then you don't require users to
+
+434
+00:27:41,200 --> 00:27:45,240
+have image magic installed or or
+
+435
+00:27:43,919 --> 00:27:50,200
+whatever
+
+436
+00:27:45,240 --> 00:27:53,559
+external programs this is pure emac
+
+437
+00:27:50,200 --> 00:27:58,600
+bisp okay so but it's got a problem
+
+438
+00:27:53,559 --> 00:28:03,679
+because I realized about few months ago
+
+439
+00:27:58,600 --> 00:28:06,760
+the image size obtained via emac this is
+
+440
+00:28:03,679 --> 00:28:09,519
+incorrect so let's go into that let me
+
+441
+00:28:06,760 --> 00:28:12,159
+show you that
+
+442
+00:28:09,519 --> 00:28:17,480
+okay so
+
+443
+00:28:12,159 --> 00:28:21,799
+um reopen close close close close now
+
+444
+00:28:17,480 --> 00:28:24,640
+switch showing browser okay we back here
+
+445
+00:28:21,799 --> 00:28:28,559
+so I have already written and linked
+
+446
+00:28:24,640 --> 00:28:32,240
+here so emac BG get emac list get image
+
+447
+00:28:28,559 --> 00:28:35,000
+width and height uh appears to be a bug
+
+448
+00:28:32,240 --> 00:28:35,000
+so let's
+
+449
+00:28:35,480 --> 00:28:41,440
+demonstrate so again using this sample
+
+450
+00:28:38,880 --> 00:28:45,080
+image by the way this this sample image
+
+451
+00:28:41,440 --> 00:28:50,600
+is how many websites are not using
+
+452
+00:28:45,080 --> 00:28:53,760
+https this is AI bot gr answer turns out
+
+453
+00:28:50,600 --> 00:28:57,720
+there are some 20% according to G that's
+
+454
+00:28:53,760 --> 00:28:59,799
+not https so how many is that 20% would
+
+455
+00:28:57,720 --> 00:29:06,720
+be
+
+456
+00:28:59,799 --> 00:29:10,120
+8 96 million wait 224 million
+
+457
+00:29:06,720 --> 00:29:13,720
+websites are not using https and they
+
+458
+00:29:10,120 --> 00:29:16,159
+are banned they they got censored by
+
+459
+00:29:13,720 --> 00:29:20,519
+Google Chrome and
+
+460
+00:29:16,159 --> 00:29:22,720
+Firefox they censored 224 million
+
+461
+00:29:20,519 --> 00:29:27,159
+websites that is whenever you have a
+
+462
+00:29:22,720 --> 00:29:29,200
+link that's not https you click it in
+
+463
+00:29:27,159 --> 00:29:32,840
+Google Chrome browser
+
+464
+00:29:29,200 --> 00:29:35,519
+the Google scum and the Firefox scum you
+
+465
+00:29:32,840 --> 00:29:37,919
+click it they will automatically change
+
+466
+00:29:35,519 --> 00:29:40,840
+that HTTP to
+
+467
+00:29:37,919 --> 00:29:43,880
+https automatically even if you have
+
+468
+00:29:40,840 --> 00:29:47,840
+setting settings turn it turn you have
+
+469
+00:29:43,880 --> 00:29:50,679
+it turned off okay then the website will
+
+470
+00:29:47,840 --> 00:29:53,440
+say error okay that's what Google and
+
+471
+00:29:50,679 --> 00:29:57,279
+Firefox is doing
+
+472
+00:29:53,440 --> 00:29:58,600
+so they are nasty this happened about a
+
+473
+00:29:57,279 --> 00:30:00,519
+month ago
+
+474
+00:29:58,600 --> 00:30:03,440
+so what you want to do is use a brave
+
+475
+00:30:00,519 --> 00:30:07,000
+browser Brave browser or Safari that
+
+476
+00:30:03,440 --> 00:30:09,279
+doesn't do that okay so we talked about
+
+477
+00:30:07,000 --> 00:30:12,799
+this yesterday this was yesterday's
+
+478
+00:30:09,279 --> 00:30:15,159
+topic so anyway so here's a gbot you
+
+479
+00:30:12,799 --> 00:30:19,799
+know image so you know
+
+480
+00:30:15,159 --> 00:30:22,880
+so so this image uh open it uh wait open
+
+481
+00:30:19,799 --> 00:30:26,440
+it again this image what uh so you can
+
+482
+00:30:22,880 --> 00:30:28,559
+see it's here what we want to do now
+
+483
+00:30:26,440 --> 00:30:32,960
+yeah we want to get the image side so
+
+484
+00:30:28,559 --> 00:30:37,360
+let's try the varieties of solutions
+
+485
+00:30:32,960 --> 00:30:39,880
+okay so let's um okay let's start a
+
+486
+00:30:37,360 --> 00:30:44,360
+let's start a emac this
+
+487
+00:30:39,880 --> 00:30:46,880
+code okay paste that pop this out okay
+
+488
+00:30:44,360 --> 00:30:51,039
+then what we want to do we want to call
+
+489
+00:30:46,880 --> 00:30:51,039
+those image functions okay
+
+490
+00:30:51,640 --> 00:30:59,360
+uh get image size describe function
+
+491
+00:30:55,679 --> 00:31:02,720
+let's go there okay
+
+492
+00:30:59,360 --> 00:31:06,080
+now let's uh let's copy okay so let's
+
+493
+00:31:02,720 --> 00:31:10,159
+copy the whole thing back
+
+494
+00:31:06,080 --> 00:31:13,159
+here okay we want to uh show the
+
+495
+00:31:10,159 --> 00:31:13,159
+varieties
+
+496
+00:31:13,399 --> 00:31:20,720
+of ways to do that
+
+497
+00:31:17,720 --> 00:31:23,039
+okay okay we got these functions
+
+498
+00:31:20,720 --> 00:31:25,880
+fantastic and Beautiful by the way this
+
+499
+00:31:23,039 --> 00:31:29,880
+is tedious so you can just do
+
+500
+00:31:25,880 --> 00:31:29,880
+that parent
+
+501
+00:31:30,200 --> 00:31:36,120
+let me try again okay undo undo undo so
+
+502
+00:31:33,519 --> 00:31:39,039
+copy that
+
+503
+00:31:36,120 --> 00:31:42,080
+wait okay anyway you got so you got this
+
+504
+00:31:39,039 --> 00:31:46,440
+you want to turn into parent so call
+
+505
+00:31:42,080 --> 00:31:48,720
+this command p r and parent and the
+
+506
+00:31:46,440 --> 00:31:53,039
+separator line separator
+
+507
+00:31:48,720 --> 00:31:56,919
+none fantastic and beautiful power of
+
+508
+00:31:53,039 --> 00:31:58,760
+emac V are coding s quot lines if you
+
+509
+00:31:56,919 --> 00:32:00,760
+want that command you can search it it's
+
+510
+00:31:58,760 --> 00:32:03,799
+on the
+
+511
+00:32:00,760 --> 00:32:08,320
+web okay let's just search it anyway uh
+
+512
+00:32:03,799 --> 00:32:12,159
+not atmology so we want uh search Brave
+
+513
+00:32:08,320 --> 00:32:17,279
+please Brave show it okay there it
+
+514
+00:32:12,159 --> 00:32:19,320
+is so that's command convenience for you
+
+515
+00:32:17,279 --> 00:32:22,679
+free of
+
+516
+00:32:19,320 --> 00:32:26,440
+charge now you should pay me okay I you
+
+517
+00:32:22,679 --> 00:32:30,600
+should if you enjoy
+
+518
+00:32:26,440 --> 00:32:33,360
+my talk very much okay so back here so
+
+519
+00:32:30,600 --> 00:32:36,639
+you can so we want to get image size so
+
+520
+00:32:33,360 --> 00:32:39,120
+each one of them will take a
+
+521
+00:32:36,639 --> 00:32:43,760
+um f
+
+522
+00:32:39,120 --> 00:32:46,279
+path okay so uh you know so then that
+
+523
+00:32:43,760 --> 00:32:48,720
+okay so for example let's try that one
+
+524
+00:32:46,279 --> 00:32:52,240
+so is that all you need let's look at
+
+525
+00:32:48,720 --> 00:32:53,760
+the documentation I'll get image size
+
+526
+00:32:52,240 --> 00:32:57,279
+image
+
+527
+00:32:53,760 --> 00:33:00,760
+magic okay all you need is the file path
+
+528
+00:32:57,279 --> 00:33:04,080
+okay now let's run
+
+529
+00:33:00,760 --> 00:33:08,320
+it identify
+
+530
+00:33:04,080 --> 00:33:11,399
+unable why because this is a relative
+
+531
+00:33:08,320 --> 00:33:15,840
+file path and right now this this temp
+
+532
+00:33:11,399 --> 00:33:20,360
+file is in the temp that's why you get
+
+533
+00:33:15,840 --> 00:33:23,919
+[ __ ] now so therefore you either need to
+
+534
+00:33:20,360 --> 00:33:28,279
+run this code in the proper directory or
+
+535
+00:33:23,919 --> 00:33:30,440
+use a full path so let's use the full
+
+536
+00:33:28,279 --> 00:33:35,679
+path that's a proper way
+
+537
+00:33:30,440 --> 00:33:40,559
+so so get the so is this the image yes
+
+538
+00:33:35,679 --> 00:33:44,720
+copy the URL and back here paste that's
+
+539
+00:33:40,559 --> 00:33:47,760
+a full path okay so let's fix that let's
+
+540
+00:33:44,720 --> 00:33:47,760
+fix all
+
+541
+00:33:48,480 --> 00:33:54,880
+this and uh this this us something
+
+542
+00:33:52,120 --> 00:33:59,720
+that's annoying let's just change it to
+
+543
+00:33:54,880 --> 00:33:59,720
+T the Unix AB bre
+
+544
+00:34:04,360 --> 00:34:13,200
+um okay that's better so you can go here
+
+545
+00:34:09,520 --> 00:34:18,359
+open it that's the correct file yes
+
+546
+00:34:13,200 --> 00:34:22,079
+close it now let's run this run
+
+547
+00:34:18,359 --> 00:34:26,320
+it identify unable ah God we cannot use
+
+548
+00:34:22,079 --> 00:34:28,760
+this shortcut okay let's undo okay now
+
+549
+00:34:26,320 --> 00:34:33,919
+okay now let's run it
+
+550
+00:34:28,760 --> 00:34:37,720
+there it is okay now that's using image
+
+551
+00:34:33,919 --> 00:34:40,679
+magic now if I call the use the Linux
+
+552
+00:34:37,720 --> 00:34:44,599
+one it won't work because I'm not on
+
+553
+00:34:40,679 --> 00:34:49,159
+Linux let's we can try it you can see it
+
+554
+00:34:44,599 --> 00:34:51,960
+returns Neo okay now uh oh Linux why is
+
+555
+00:34:49,159 --> 00:34:54,760
+it repeated okay so not that so on the
+
+556
+00:34:51,960 --> 00:34:57,960
+Mac this won't work neither because run
+
+557
+00:34:54,760 --> 00:35:00,560
+it NE because I'm not on the Mac I don't
+
+558
+00:34:57,960 --> 00:35:03,280
+have the sips
+
+559
+00:35:00,560 --> 00:35:06,680
+command oh but yeah we forgot the powers
+
+560
+00:35:03,280 --> 00:35:11,040
+shell okay so so let's do the poers
+
+561
+00:35:06,680 --> 00:35:13,839
+shell one Powershell native to Windows
+
+562
+00:35:11,040 --> 00:35:19,720
+pwsh describe function do we have the
+
+563
+00:35:13,839 --> 00:35:22,760
+name correct yes okay so now run
+
+564
+00:35:19,720 --> 00:35:26,440
+this there it is power sh is actually
+
+565
+00:35:22,760 --> 00:35:29,079
+much slower so why do you have all these
+
+566
+00:35:26,440 --> 00:35:33,960
+because depending on what operating
+
+567
+00:35:29,079 --> 00:35:36,880
+system you are on you know basically
+
+568
+00:35:33,960 --> 00:35:39,440
+you you don't want people to install you
+
+569
+00:35:36,880 --> 00:35:43,320
+know you don't want to rely on you know
+
+570
+00:35:39,440 --> 00:35:46,040
+external extra installation as much as
+
+571
+00:35:43,320 --> 00:35:48,760
+possible now there's one more thing we
+
+572
+00:35:46,040 --> 00:35:52,760
+forgot to show emac this version okay so
+
+573
+00:35:48,760 --> 00:35:55,359
+let's try it here so image s let's
+
+574
+00:35:52,760 --> 00:35:58,400
+completion I forgot to use completion
+
+575
+00:35:55,359 --> 00:36:00,680
+there it is emac this okay the
+
+576
+00:35:58,400 --> 00:36:04,680
+okay now let's try
+
+577
+00:36:00,680 --> 00:36:08,119
+this fantastic you see you see the
+
+578
+00:36:04,680 --> 00:36:09,359
+difference now image magic says the
+
+579
+00:36:08,119 --> 00:36:11,200
+width is
+
+580
+00:36:09,359 --> 00:36:15,040
+782
+
+581
+00:36:11,200 --> 00:36:19,359
+784 Powell says the width is
+
+582
+00:36:15,040 --> 00:36:23,240
+784 uh Linux says uh Linux and Mac I I'm
+
+583
+00:36:19,359 --> 00:36:25,640
+not on so ignore those but emac this
+
+584
+00:36:23,240 --> 00:36:28,560
+this says the the width
+
+585
+00:36:25,640 --> 00:36:30,960
+is 1,3
+
+586
+00:36:28,560 --> 00:36:33,480
+333 so you
+
+587
+00:36:30,960 --> 00:36:37,480
+see emac
+
+588
+00:36:33,480 --> 00:36:40,240
+Lis get image D Dimension got a problem
+
+589
+00:36:37,480 --> 00:36:44,400
+here is the code okay very short
+
+590
+00:36:40,240 --> 00:36:48,800
+code that's it so first of all you check
+
+591
+00:36:44,400 --> 00:36:53,280
+what image type by file name extension
+
+592
+00:36:48,800 --> 00:36:55,680
+so that's file name extension then if
+
+593
+00:36:53,280 --> 00:36:58,839
+image type is
+
+594
+00:36:55,680 --> 00:37:02,319
+available meaning that if ma this this
+
+595
+00:36:58,839 --> 00:37:06,520
+support that image type then you clear
+
+596
+00:37:02,319 --> 00:37:09,560
+image cache then you call image size
+
+597
+00:37:06,520 --> 00:37:12,280
+which is a buildin emac this function
+
+598
+00:37:09,560 --> 00:37:15,280
+you know then you have to create the
+
+599
+00:37:12,280 --> 00:37:18,000
+image first you know then you call image
+
+600
+00:37:15,280 --> 00:37:23,000
+size you get a size then you return the
+
+601
+00:37:18,000 --> 00:37:25,000
+result okay this is emac list get image
+
+602
+00:37:23,000 --> 00:37:29,400
+size but you got a
+
+603
+00:37:25,000 --> 00:37:29,400
+bug that's a problem
+
+604
+00:37:29,599 --> 00:37:35,599
+uh which is very annoying
+
+605
+00:37:32,560 --> 00:37:37,440
+because otherwise emac this would be the
+
+606
+00:37:35,599 --> 00:37:40,920
+best solution because we are working in
+
+607
+00:37:37,440 --> 00:37:45,280
+imag Le you don't require any external
+
+608
+00:37:40,920 --> 00:37:47,359
+[ __ ] such as image magic 2 gigabyte
+
+609
+00:37:45,280 --> 00:37:50,280
+installation it's going to install a
+
+610
+00:37:47,359 --> 00:37:53,119
+bunch of font and the font system you
+
+611
+00:37:50,280 --> 00:37:55,200
+know like and image you know like
+
+612
+00:37:53,119 --> 00:37:58,760
+character recognition
+
+613
+00:37:55,200 --> 00:38:04,400
+[ __ ] despise you know image magic was
+
+614
+00:37:58,760 --> 00:38:07,359
+from Unix like 20 20 years ago it it's
+
+615
+00:38:04,400 --> 00:38:09,240
+it's one of the worst design the worst
+
+616
+00:38:07,359 --> 00:38:11,839
+command line let let me explain that
+
+617
+00:38:09,240 --> 00:38:16,720
+okay so anyway we I think we finished
+
+618
+00:38:11,839 --> 00:38:20,000
+one one um section of the talk that is
+
+619
+00:38:16,720 --> 00:38:22,880
+demonstration of the varieties of ways
+
+620
+00:38:20,000 --> 00:38:25,520
+to get image size using different
+
+621
+00:38:22,880 --> 00:38:28,520
+commands on different operating
+
+622
+00:38:25,520 --> 00:38:30,079
+systems and we demonstrated the emac
+
+623
+00:38:28,520 --> 00:38:32,680
+list
+
+624
+00:38:30,079 --> 00:38:36,680
+bug that's quite interesting because
+
+625
+00:38:32,680 --> 00:38:39,240
+then you look into what how do you get
+
+626
+00:38:36,680 --> 00:38:41,599
+the image file size
+
+627
+00:38:39,240 --> 00:38:43,800
+exactly that's another topic okay
+
+628
+00:38:41,599 --> 00:38:48,720
+because a image size depending on what
+
+629
+00:38:43,800 --> 00:38:51,880
+type of image it is PNG or jpeg or uh or
+
+630
+00:38:48,720 --> 00:38:58,319
+you know or
+
+631
+00:38:51,880 --> 00:39:01,480
+um PNG jpeg GIF and uh web web webp you
+
+632
+00:38:58,319 --> 00:39:05,200
+know Google's new format and jpeg 2000
+
+633
+00:39:01,480 --> 00:39:08,079
+you know each one have different um
+
+634
+00:39:05,200 --> 00:39:11,599
+specification where they embed the image
+
+635
+00:39:08,079 --> 00:39:15,000
+width and height and it turns out at
+
+636
+00:39:11,599 --> 00:39:17,880
+least for some of these image types the
+
+637
+00:39:15,000 --> 00:39:19,240
+embedded width and height may not be
+
+638
+00:39:17,880 --> 00:39:21,920
+actually
+
+639
+00:39:19,240 --> 00:39:23,920
+correct it may you know it may not be
+
+640
+00:39:21,920 --> 00:39:27,599
+just a header you know one of the header
+
+641
+00:39:23,920 --> 00:39:30,400
+but it may not be actually up to date
+
+642
+00:39:27,599 --> 00:39:33,200
+you know something like that so to
+
+643
+00:39:30,400 --> 00:39:35,079
+actually look into this is quite getting
+
+644
+00:39:33,200 --> 00:39:39,920
+quite complex because then you have to
+
+645
+00:39:35,079 --> 00:39:42,480
+look into each image types file
+
+646
+00:39:39,920 --> 00:39:47,480
+specification and there are so many PNG
+
+647
+00:39:42,480 --> 00:39:51,119
+jpeg jpeg 2000 and and and this quite a
+
+648
+00:39:47,480 --> 00:39:54,800
+few new and apple has a
+
+649
+00:39:51,119 --> 00:39:57,359
+heif then there's GIF and uh then you
+
+650
+00:39:54,800 --> 00:39:59,359
+know so so you have to look into the spe
+
+651
+00:39:57,359 --> 00:40:02,720
+specification for each one so it gets
+
+652
+00:39:59,359 --> 00:40:09,280
+very comp complex and the other thing is
+
+653
+00:40:02,720 --> 00:40:12,560
+to check why is emac this have this bug
+
+654
+00:40:09,280 --> 00:40:15,680
+okay so let's sum summarize what what we
+
+655
+00:40:12,560 --> 00:40:17,920
+did syntax color it showing browser so
+
+656
+00:40:15,680 --> 00:40:20,480
+that's we talked about we talked about
+
+657
+00:40:17,920 --> 00:40:22,720
+the variet you know the iMac is you know
+
+658
+00:40:20,480 --> 00:40:25,640
+different ways to get image size we
+
+659
+00:40:22,720 --> 00:40:27,720
+talked about and demonstrated the emac
+
+660
+00:40:25,640 --> 00:40:31,119
+LBG
+
+661
+00:40:27,720 --> 00:40:33,280
+then this image magic tutorial which I
+
+662
+00:40:31,119 --> 00:40:36,839
+wrote like 20 years
+
+663
+00:40:33,280 --> 00:40:39,119
+ago uh but they changed you know so I
+
+664
+00:40:36,839 --> 00:40:44,119
+was saying it's one of the worst okay
+
+665
+00:40:39,119 --> 00:40:46,079
+the worst Unix [ __ ] [ __ ] possible
+
+666
+00:40:44,119 --> 00:40:50,040
+the image ma
+
+667
+00:40:46,079 --> 00:40:51,880
+magic and then and then because the
+
+668
+00:40:50,040 --> 00:40:55,800
+syntax is so
+
+669
+00:40:51,880 --> 00:40:59,800
+lousy uh about 10 years ago they started
+
+670
+00:40:55,800 --> 00:41:02,119
+to massively change the syntax so before
+
+671
+00:40:59,800 --> 00:41:04,520
+it was convert something something so
+
+672
+00:41:02,119 --> 00:41:08,280
+now they just say magic which is
+
+673
+00:41:04,520 --> 00:41:11,960
+actually better fix this Unix [ __ ]
+
+674
+00:41:08,280 --> 00:41:13,960
+sloppy [ __ ] problem you see the
+
+675
+00:41:11,960 --> 00:41:17,599
+Unix people they don't care you know
+
+676
+00:41:13,960 --> 00:41:19,880
+they they prefer short names man CP grab
+
+677
+00:41:17,599 --> 00:41:23,119
+you know cryptic names they they enjoy
+
+678
+00:41:19,880 --> 00:41:26,680
+it they love it because it makes them
+
+679
+00:41:23,119 --> 00:41:28,160
+like more man you know something I
+
+680
+00:41:26,680 --> 00:41:31,359
+understand you know
+
+681
+00:41:28,160 --> 00:41:35,200
+understand they like that so and and the
+
+682
+00:41:31,359 --> 00:41:37,960
+image magic they choose the word
+
+683
+00:41:35,200 --> 00:41:40,960
+convert for their name you know for
+
+684
+00:41:37,960 --> 00:41:44,960
+converting JPEG to give to PNG you know
+
+685
+00:41:40,960 --> 00:41:49,000
+to convert so so they this this is
+
+686
+00:41:44,960 --> 00:41:53,599
+another um very common
+
+687
+00:41:49,000 --> 00:41:56,599
+nasty Behavior among the Unix Community
+
+688
+00:41:53,599 --> 00:41:59,960
+okay image magic is kind of in a Unix
+
+689
+00:41:56,599 --> 00:42:02,560
+community so what they do is that so the
+
+690
+00:41:59,960 --> 00:42:06,079
+problem is that you want the command to
+
+691
+00:42:02,560 --> 00:42:09,359
+represent your program right to convert
+
+692
+00:42:06,079 --> 00:42:12,160
+images but then if you choose the word
+
+693
+00:42:09,359 --> 00:42:15,440
+convert that means you know like like
+
+694
+00:42:12,160 --> 00:42:19,720
+you can also convert HTML to text you
+
+695
+00:42:15,440 --> 00:42:21,960
+can convert latch to Mathematica syntax
+
+696
+00:42:19,720 --> 00:42:25,359
+you know W language you can so convert
+
+697
+00:42:21,960 --> 00:42:28,040
+can mean many other different things not
+
+698
+00:42:25,359 --> 00:42:31,200
+just for image
+
+699
+00:42:28,040 --> 00:42:34,319
+but however if you are the Unix [ __ ]
+
+700
+00:42:31,200 --> 00:42:38,079
+type you don't care you are selfish you
+
+701
+00:42:34,319 --> 00:42:40,480
+want a popular word you you want just
+
+702
+00:42:38,079 --> 00:42:42,880
+like steal it you know you let's just
+
+703
+00:42:40,480 --> 00:42:45,680
+use the convert to be our you know to
+
+704
+00:42:42,880 --> 00:42:48,680
+represent image magic so that other
+
+705
+00:42:45,680 --> 00:42:53,480
+programs cannot use the convert so this
+
+706
+00:42:48,680 --> 00:42:53,480
+convert you see that's a
+
+707
+00:42:53,800 --> 00:43:00,359
+problem so this kind of behavior is very
+
+708
+00:42:56,760 --> 00:43:04,720
+common among the Unix community in Pearl
+
+709
+00:43:00,359 --> 00:43:07,599
+especially in Pearl you know very common
+
+710
+00:43:04,720 --> 00:43:10,000
+this Unix
+
+711
+00:43:07,599 --> 00:43:13,760
+fuckets so but they got a problem
+
+712
+00:43:10,000 --> 00:43:16,920
+because now after 20 years you know your
+
+713
+00:43:13,760 --> 00:43:19,520
+program spread and you got windows in
+
+714
+00:43:16,920 --> 00:43:23,520
+play at you know and Mac different
+
+715
+00:43:19,520 --> 00:43:26,040
+operating systems Android so your your
+
+716
+00:43:23,520 --> 00:43:28,440
+command convert it's got a problem you
+
+717
+00:43:26,040 --> 00:43:30,920
+know and not just that you know it
+
+718
+00:43:28,440 --> 00:43:33,760
+doesn't represent your command at all
+
+719
+00:43:30,920 --> 00:43:36,000
+because it's a generic generic English
+
+720
+00:43:33,760 --> 00:43:39,520
+word but
+
+721
+00:43:36,000 --> 00:43:43,119
+also also that this word you know like
+
+722
+00:43:39,520 --> 00:43:46,559
+if you want to find the image width and
+
+723
+00:43:43,119 --> 00:43:50,359
+height using image magic you you cannot
+
+724
+00:43:46,559 --> 00:43:53,520
+use convert you have to use the identify
+
+725
+00:43:50,359 --> 00:43:56,599
+another [ __ ] generic English word
+
+726
+00:43:53,520 --> 00:44:00,079
+command name you have to say identify
+
+727
+00:43:56,599 --> 00:44:01,839
+Okay so um let's see if I still have it
+
+728
+00:44:00,079 --> 00:44:04,240
+available
+
+729
+00:44:01,839 --> 00:44:07,240
+GCM
+
+730
+00:44:04,240 --> 00:44:09,680
+identify okay it's good because image
+
+731
+00:44:07,240 --> 00:44:11,400
+magic so that's why they Chang you know
+
+732
+00:44:09,680 --> 00:44:16,119
+they massively
+
+733
+00:44:11,400 --> 00:44:18,800
+changed their command name so now the
+
+734
+00:44:16,119 --> 00:44:21,920
+new syntax is that every image magic
+
+735
+00:44:18,800 --> 00:44:25,559
+command will just start with magic much
+
+736
+00:44:21,920 --> 00:44:28,480
+better okay that should be the case back
+
+737
+00:44:25,559 --> 00:44:30,839
+then but this Unix [ __ ] you know
+
+738
+00:44:28,480 --> 00:44:35,599
+they they don't you know so why you know
+
+739
+00:44:30,839 --> 00:44:38,400
+like one obvious question is that why is
+
+740
+00:44:35,599 --> 00:44:42,480
+that 20 years ago they choose the word
+
+741
+00:44:38,400 --> 00:44:44,319
+convert and identify how is it possible
+
+742
+00:44:42,480 --> 00:44:47,920
+that's a question how is it possible
+
+743
+00:44:44,319 --> 00:44:50,280
+that these Unix fuckets never thought of
+
+744
+00:44:47,920 --> 00:44:53,079
+you know if you use the con convert word
+
+745
+00:44:50,280 --> 00:44:54,119
+it doesn't represent your program and it
+
+746
+00:44:53,079 --> 00:44:57,800
+also
+
+747
+00:44:54,119 --> 00:45:00,280
+encroaches the vast you know
+
+748
+00:44:57,800 --> 00:45:02,359
+much many other uses of the word convert
+
+749
+00:45:00,280 --> 00:45:05,000
+have you ever thought about that use
+
+750
+00:45:02,359 --> 00:45:05,000
+Unix
+
+751
+00:45:06,960 --> 00:45:10,800
+fuckets Unix
+
+752
+00:45:11,520 --> 00:45:17,559
+fuckets this this are design issues and
+
+753
+00:45:15,119 --> 00:45:19,920
+and also part of it is social issues
+
+754
+00:45:17,559 --> 00:45:23,000
+okay so image magic this very annoying
+
+755
+00:45:19,920 --> 00:45:25,559
+change so I have to you know this is
+
+756
+00:45:23,000 --> 00:45:27,680
+good to know this is just not my rent so
+
+757
+00:45:25,559 --> 00:45:29,839
+if you are using image mag you also
+
+758
+00:45:27,680 --> 00:45:33,960
+might want to know because this change
+
+759
+00:45:29,839 --> 00:45:33,960
+is not Backward Compatible
+
+760
+00:45:34,319 --> 00:45:41,960
+okay so now for backward compatibility
+
+761
+00:45:38,960 --> 00:45:44,599
+they made it so that you can say magic
+
+762
+00:45:41,960 --> 00:45:47,359
+Then followed back convert you know
+
+763
+00:45:44,599 --> 00:45:52,240
+that's what they do what they did it's
+
+764
+00:45:47,359 --> 00:45:55,920
+not exactly Backward Compatible but but
+
+765
+00:45:52,240 --> 00:46:00,599
+feels good Backward Compatible you know
+
+766
+00:45:55,920 --> 00:46:05,000
+you say magic then convert your old
+
+767
+00:46:00,599 --> 00:46:07,839
+way um okay so that's that's about that
+
+768
+00:46:05,000 --> 00:46:09,760
+image magic syntax change which is very
+
+769
+00:46:07,839 --> 00:46:13,559
+confused me for a long time for many
+
+770
+00:46:09,760 --> 00:46:17,359
+years then then one day you know in
+
+771
+00:46:13,559 --> 00:46:19,520
+20124 December about three month ago I
+
+772
+00:46:17,359 --> 00:46:22,119
+really started to look into what the
+
+773
+00:46:19,520 --> 00:46:24,640
+just exactly is it is the magic just for
+
+774
+00:46:22,119 --> 00:46:27,480
+Windows or is it what's going on I'm
+
+775
+00:46:24,640 --> 00:46:29,800
+used to the convert right
+
+776
+00:46:27,480 --> 00:46:34,280
+So eventually so I found out they they
+
+777
+00:46:29,800 --> 00:46:34,280
+did a major uh upgrade you
+
+778
+00:46:34,920 --> 00:46:40,520
+know okay that's about that that image
+
+779
+00:46:37,920 --> 00:46:44,520
+magic and I I think that's about it
+
+780
+00:46:40,520 --> 00:46:46,720
+today we talked about um yeah we talked
+
+781
+00:46:44,520 --> 00:46:50,119
+about all these things and you know
+
+782
+00:46:46,720 --> 00:46:53,079
+getting the image file width and height
+
+783
+00:46:50,119 --> 00:46:58,839
+that's it thank you guys for
+
+784
+00:46:53,079 --> 00:46:58,839
+watching do you like it is this fun
+
+785
+00:46:59,800 --> 00:47:05,599
+yes image magic is 2 gigabyte or was it
+
+786
+00:47:03,000 --> 00:47:08,160
+one gigabyte I forgot but at least one
+
+787
+00:47:05,599 --> 00:47:12,319
+gigabyte why because image
+
+788
+00:47:08,160 --> 00:47:15,520
+magic you know that's another like scum
+
+789
+00:47:12,319 --> 00:47:18,400
+tactics you see 20 years
+
+790
+00:47:15,520 --> 00:47:21,240
+ago is there any other question okay I'm
+
+791
+00:47:18,400 --> 00:47:21,240
+about to close
+
+792
+00:47:21,640 --> 00:47:29,359
+down and pay me okay don't forget you
+
+793
+00:47:24,520 --> 00:47:32,599
+know I don't get paid go to a.info
+
+794
+00:47:29,359 --> 00:47:36,079
+my homepage all the way to the bottom
+
+795
+00:47:32,599 --> 00:47:40,160
+pay me patreon Amazon GI card PayPal
+
+796
+00:47:36,079 --> 00:47:42,880
+okay I prefer Amazon gift card or
+
+797
+00:47:40,160 --> 00:47:44,160
+PayPal okay cool fantastic thank you
+
+798
+00:47:42,880 --> 00:47:46,920
+guys for
+
+799
+00:47:44,160 --> 00:47:48,880
+watching uh so let me answer the
+
+800
+00:47:46,920 --> 00:47:52,240
+question yeah so image magic let me
+
+801
+00:47:48,880 --> 00:47:56,280
+explain that
+
+802
+00:47:52,240 --> 00:48:01,240
+sh so image magic you see 20 years ago
+
+803
+00:47:56,280 --> 00:48:03,839
+this open open source [ __ ] it you know
+
+804
+00:48:01,240 --> 00:48:06,720
+so the thinking is that you know I'm
+
+805
+00:48:03,839 --> 00:48:09,319
+going to create a tool I'm going to help
+
+806
+00:48:06,720 --> 00:48:11,880
+Humanity you know that's what they think
+
+807
+00:48:09,319 --> 00:48:14,559
+they are thinking I you know I'm so good
+
+808
+00:48:11,880 --> 00:48:16,920
+I'm a good person I'm a hacker I'm a
+
+809
+00:48:14,559 --> 00:48:21,440
+ethical I I I'm going to create this
+
+810
+00:48:16,920 --> 00:48:24,280
+program image magic to benefit
+
+811
+00:48:21,440 --> 00:48:25,760
+Humanity a lot of them are like that
+
+812
+00:48:24,280 --> 00:48:28,680
+they
+
+813
+00:48:25,760 --> 00:48:30,160
+think you so they create this program so
+
+814
+00:48:28,680 --> 00:48:33,000
+typically they they have these
+
+815
+00:48:30,160 --> 00:48:35,000
+characteristics they grow and grow so I
+
+816
+00:48:33,000 --> 00:48:37,400
+my program is going to be the best of
+
+817
+00:48:35,000 --> 00:48:41,480
+them all I'm and my program is going to
+
+818
+00:48:37,400 --> 00:48:44,079
+convert every possible image in on Earth
+
+819
+00:48:41,480 --> 00:48:45,520
+so that I can get more popular I can
+
+820
+00:48:44,079 --> 00:48:48,720
+become more
+
+821
+00:48:45,520 --> 00:48:54,040
+famous that is the thinking behind the
+
+822
+00:48:48,720 --> 00:48:57,559
+scenes okay that's is sing so but so 20
+
+823
+00:48:54,040 --> 00:49:00,000
+25 20 25 years ago
+
+824
+00:48:57,559 --> 00:49:02,480
+you can kind of do that not today
+
+825
+00:49:00,000 --> 00:49:04,520
+because today you know the exponential
+
+826
+00:49:02,480 --> 00:49:06,119
+growth of Science and Engineering like
+
+827
+00:49:04,520 --> 00:49:08,799
+most of the things you don't even know
+
+828
+00:49:06,119 --> 00:49:12,240
+what it is like for example in
+
+829
+00:49:08,799 --> 00:49:15,680
+JavaScript you know 10 10,000 Frameworks
+
+830
+00:49:12,240 --> 00:49:18,200
+every year you know you can even
+
+831
+00:49:15,680 --> 00:49:21,000
+understand you know you can only be no a
+
+832
+00:49:18,200 --> 00:49:24,119
+little niche okay so anyway image magic
+
+833
+00:49:21,000 --> 00:49:27,400
+20 30 years ago you can kind of like
+
+834
+00:49:24,119 --> 00:49:29,400
+know all the image formats
+
+835
+00:49:27,400 --> 00:49:33,520
+but not today unless you are wam
+
+836
+00:49:29,400 --> 00:49:35,680
+language wam language can still do that
+
+837
+00:49:33,520 --> 00:49:40,359
+you know you at least like all possible
+
+838
+00:49:35,680 --> 00:49:43,839
+formats of images or videos or HTML Tech
+
+839
+00:49:40,359 --> 00:49:48,319
+L Tech it supports or 3D formats like
+
+840
+00:49:43,839 --> 00:49:51,119
+AutoCAD you know and audio format as Al
+
+841
+00:49:48,319 --> 00:49:54,359
+also so video format audio format image
+
+842
+00:49:51,119 --> 00:49:57,400
+format they have so many and also
+
+843
+00:49:54,359 --> 00:50:01,079
+3D 3D graphics
+
+844
+00:49:57,400 --> 00:50:04,440
+3D modeling formats there are so many
+
+845
+00:50:01,079 --> 00:50:07,440
+wolam language actually support them all
+
+846
+00:50:04,440 --> 00:50:09,799
+and robustly so but anyway back to the
+
+847
+00:50:07,440 --> 00:50:12,160
+image magic so back then they just they
+
+848
+00:50:09,799 --> 00:50:15,280
+want to support you know they want to be
+
+849
+00:50:12,160 --> 00:50:18,760
+the most popular they support all
+
+850
+00:50:15,280 --> 00:50:22,280
+all so today over the years so what
+
+851
+00:50:18,760 --> 00:50:25,480
+image magic does it actually can does do
+
+852
+00:50:22,280 --> 00:50:27,880
+a text recognition Okay let me demo that
+
+853
+00:50:25,480 --> 00:50:32,720
+because you know so we talking about 30
+
+854
+00:50:27,880 --> 00:50:36,079
+years of progress so today on Mac or
+
+855
+00:50:32,720 --> 00:50:38,680
+Windows on Mac at least you can have
+
+856
+00:50:36,079 --> 00:50:39,920
+text recognition so let me show you okay
+
+857
+00:50:38,680 --> 00:50:42,799
+so for
+
+858
+00:50:39,920 --> 00:50:46,280
+example uh yeah so we got this example
+
+859
+00:50:42,799 --> 00:50:49,200
+let's just not this one okay
+
+860
+00:50:46,280 --> 00:50:53,559
+uh by the way that image you are looking
+
+861
+00:50:49,200 --> 00:50:56,720
+at this is the this keyboard automattic
+
+862
+00:50:53,559 --> 00:50:58,240
+wait am I showing yeah this is uh wait
+
+863
+00:50:56,720 --> 00:51:00,240
+wait not
+
+864
+00:50:58,240 --> 00:51:04,799
+God close
+
+865
+00:51:00,240 --> 00:51:06,640
+that uh yeah show open it okay magnify
+
+866
+00:51:04,799 --> 00:51:09,319
+this this is the ultimate hacking
+
+867
+00:51:06,640 --> 00:51:10,400
+keyboard okay that's updating from
+
+868
+00:51:09,319 --> 00:51:12,839
+whereare
+
+869
+00:51:10,400 --> 00:51:15,400
+screenshot ultimate hacking keyboard got
+
+870
+00:51:12,839 --> 00:51:19,000
+the best software okay and they kept
+
+871
+00:51:15,400 --> 00:51:21,720
+they keep updating every year fantastic
+
+872
+00:51:19,000 --> 00:51:25,720
+so I you know I want to give them give
+
+873
+00:51:21,720 --> 00:51:28,200
+them a shout out very good you know um
+
+874
+00:51:25,720 --> 00:51:32,040
+kind of expensive but you know but they
+
+875
+00:51:28,200 --> 00:51:35,319
+are very very very high quality the guy
+
+876
+00:51:32,040 --> 00:51:38,240
+they are from like I think Ukraine or
+
+877
+00:51:35,319 --> 00:51:40,359
+something Eastern Europe you know
+
+878
+00:51:38,240 --> 00:51:43,319
+so you know there there are so many
+
+879
+00:51:40,359 --> 00:51:45,599
+keyboards competitors but anyway
+
+880
+00:51:43,319 --> 00:51:50,280
+ultimate hacking keyboard is very high
+
+881
+00:51:45,599 --> 00:51:52,799
+quality okay so um close that yeah so
+
+882
+00:51:50,280 --> 00:51:56,000
+let's get back to the image so this
+
+883
+00:51:52,799 --> 00:52:00,240
+image yeah so let's demo demo the uh
+
+884
+00:51:56,000 --> 00:52:02,359
+text recognition Okay image to text
+
+885
+00:52:00,240 --> 00:52:06,599
+so open
+
+886
+00:52:02,359 --> 00:52:09,599
+it so now I press the key
+
+887
+00:52:06,599 --> 00:52:09,599
+um
+
+888
+00:52:11,839 --> 00:52:19,319
+uh Windows shift
+
+889
+00:52:15,240 --> 00:52:25,160
+t Okay and then I can
+
+890
+00:52:19,319 --> 00:52:29,520
+select a section there okay then now
+
+891
+00:52:25,160 --> 00:52:33,359
+close this Escape close it close it now
+
+892
+00:52:29,520 --> 00:52:35,160
+I go here paste you
+
+893
+00:52:33,359 --> 00:52:39,760
+see
+
+894
+00:52:35,160 --> 00:52:43,280
+that's that's classically called OCR
+
+895
+00:52:39,760 --> 00:52:43,280
+optical character
+
+896
+00:52:43,440 --> 00:52:48,319
+recognition back then you know like 20
+
+897
+00:52:45,839 --> 00:52:51,480
+years ago but today it's just called AI
+
+898
+00:52:48,319 --> 00:52:55,079
+image to text image text recognition
+
+899
+00:52:51,480 --> 00:52:57,400
+Okay so you can see it grabbed the text
+
+900
+00:52:55,079 --> 00:52:59,480
+from that image
+
+901
+00:52:57,400 --> 00:53:02,400
+now if you want to do that you need to
+
+902
+00:52:59,480 --> 00:53:05,559
+install auto hard key uh no the you need
+
+903
+00:53:02,400 --> 00:53:09,119
+to install power uh power
+
+904
+00:53:05,559 --> 00:53:12,760
+toys okay I have a block about it power
+
+905
+00:53:09,119 --> 00:53:16,920
+toys that's from
+
+906
+00:53:12,760 --> 00:53:20,280
+Microsoft okay you have to install this
+
+907
+00:53:16,920 --> 00:53:24,040
+uh at least for window 10 now I don't
+
+908
+00:53:20,280 --> 00:53:27,480
+know what's uh what about window 11 but
+
+909
+00:53:24,040 --> 00:53:30,480
+anyway power toys okay on the on Windows
+
+910
+00:53:27,480 --> 00:53:32,240
+on the Mac it's building you can you you
+
+911
+00:53:30,480 --> 00:53:34,160
+know you can do the same thing in fact
+
+912
+00:53:32,240 --> 00:53:37,480
+the Mac version is much better because
+
+913
+00:53:34,160 --> 00:53:41,240
+one one time I Tred to
+
+914
+00:53:37,480 --> 00:53:46,559
+um okay I digress a
+
+915
+00:53:41,240 --> 00:53:52,720
+lot uh you know the a month ago I was
+
+916
+00:53:46,559 --> 00:53:57,319
+trying to image recognize my old codes
+
+917
+00:53:52,720 --> 00:54:00,119
+of screenshot for the HP
+
+918
+00:53:57,319 --> 00:54:04,240
+lisp language
+
+919
+00:54:00,119 --> 00:54:08,760
+hp28 uh calculator and uh that is eight
+
+920
+00:54:04,240 --> 00:54:11,520
+Queen problem there you see yeah so I
+
+921
+00:54:08,760 --> 00:54:13,799
+was trying to wait do we have no I
+
+922
+00:54:11,520 --> 00:54:18,680
+removed the image but anyway it was like
+
+923
+00:54:13,799 --> 00:54:20,799
+30 years old image and uh of this code
+
+924
+00:54:18,680 --> 00:54:23,720
+you see
+
+925
+00:54:20,799 --> 00:54:26,720
+so when you have nor more text it's
+
+926
+00:54:23,720 --> 00:54:29,119
+easier to recognize by statistic
+
+927
+00:54:26,720 --> 00:54:32,280
+patterns because they are all English
+
+928
+00:54:29,119 --> 00:54:34,640
+words right so if you you know if the
+
+929
+00:54:32,280 --> 00:54:39,839
+image is fuzzy but you can kind of tell
+
+930
+00:54:34,640 --> 00:54:42,160
+p o g something n o m but
+
+931
+00:54:39,839 --> 00:54:45,839
+statistically the program would know
+
+932
+00:54:42,160 --> 00:54:48,520
+okay it's probably p o g RM you know
+
+933
+00:54:45,839 --> 00:54:51,079
+program right so if you have English
+
+934
+00:54:48,520 --> 00:54:54,960
+text or some human language text it's
+
+935
+00:54:51,079 --> 00:55:00,160
+easier to do image recognition uh text
+
+936
+00:54:54,960 --> 00:55:03,960
+recognition of image but if your text is
+
+937
+00:55:00,160 --> 00:55:06,079
+code then that's rare so the program can
+
+938
+00:55:03,960 --> 00:55:07,119
+can't make sense of it especially if you
+
+939
+00:55:06,079 --> 00:55:10,480
+have
+
+940
+00:55:07,119 --> 00:55:13,480
+this you know this uh this
+
+941
+00:55:10,480 --> 00:55:16,920
+double you know double correct uh that's
+
+942
+00:55:13,480 --> 00:55:19,720
+called gulat that's a French quote okay
+
+943
+00:55:16,920 --> 00:55:22,079
+this this this is French quote
+
+944
+00:55:19,720 --> 00:55:27,280
+convention but it's used
+
+945
+00:55:22,079 --> 00:55:31,039
+in uh hp28 or HP 48 calcul calor
+
+946
+00:55:27,280 --> 00:55:34,039
+programming language okay so so the
+
+947
+00:55:31,039 --> 00:55:35,799
+Microsoft power toys image recognition
+
+948
+00:55:34,039 --> 00:55:38,440
+got a problem they can you know they
+
+949
+00:55:35,799 --> 00:55:42,799
+they came out kind of gibbish half of it
+
+950
+00:55:38,440 --> 00:55:45,359
+is gibbish but on the Mac that's why Mac
+
+951
+00:55:42,799 --> 00:55:48,359
+is like twice as expensive in everything
+
+952
+00:55:45,359 --> 00:55:50,000
+but mac Apple actually have quality on
+
+953
+00:55:48,359 --> 00:55:53,039
+the Mac you don't have to install
+
+954
+00:55:50,000 --> 00:55:56,359
+anything you can just text recognition
+
+955
+00:55:53,039 --> 00:55:58,799
+and most it came out mostly correct then
+
+956
+00:55:56,359 --> 00:56:01,520
+I just edited a little bit then you know
+
+957
+00:55:58,799 --> 00:56:04,920
+turned it into a text
+
+958
+00:56:01,520 --> 00:56:08,000
+fantastic okay so that's a demonstration
+
+959
+00:56:04,920 --> 00:56:11,920
+of image to text image a text
+
+960
+00:56:08,000 --> 00:56:15,559
+recognition in image okay copy that back
+
+961
+00:56:11,920 --> 00:56:18,119
+here showing browser back to emex paste
+
+962
+00:56:15,559 --> 00:56:21,640
+a link here link F make a list sh
+
+963
+00:56:18,119 --> 00:56:25,559
+showing browser okay that's it for
+
+964
+00:56:21,640 --> 00:56:28,559
+today so oh yeah so we were talking
+
+965
+00:56:25,559 --> 00:56:31,839
+about text recognition so that is part
+
+966
+00:56:28,559 --> 00:56:34,880
+of the reason why image magic is like 2
+
+967
+00:56:31,839 --> 00:56:37,520
+gigabyte because image magic they want
+
+968
+00:56:34,880 --> 00:56:40,079
+to do that too you know we cannot lose
+
+969
+00:56:37,520 --> 00:56:42,680
+to Apple so they they to they want to do
+
+970
+00:56:40,079 --> 00:56:45,319
+that but in order to do that you have
+
+971
+00:56:42,680 --> 00:56:49,160
+the you have to have the entire image
+
+972
+00:56:45,319 --> 00:56:51,640
+recognition AI system building then you
+
+973
+00:56:49,160 --> 00:56:54,880
+also need to install a bunch of fonts or
+
+974
+00:56:51,640 --> 00:56:56,319
+font technology so that it recognize
+
+975
+00:56:54,880 --> 00:56:59,319
+different fonts I guess you know you
+
+976
+00:56:56,319 --> 00:57:01,160
+know like it's extremely bloated image
+
+977
+00:56:59,319 --> 00:57:04,160
+magic two two
+
+978
+00:57:01,160 --> 00:57:04,160
+gigabytes
+
+979
+00:57:09,599 --> 00:57:17,440
+[ __ ] if you're dead we are X HTM why are
+
+980
+00:57:14,000 --> 00:57:20,960
+you guys asking that questions
+
+981
+00:57:17,440 --> 00:57:23,520
+[ __ ] annoying question you know like pay
+
+982
+00:57:20,960 --> 00:57:25,799
+me you know if you like my just pay me
+
+983
+00:57:23,520 --> 00:57:28,720
+to get it because it was free for like
+
+984
+00:57:25,799 --> 00:57:31,640
+10 [ __ ] years and nobody give a [ __ ]
+
+985
+00:57:28,720 --> 00:57:33,720
+and I was dying of hunger and then you
+
+986
+00:57:31,640 --> 00:57:36,000
+become tech support every every day
+
+987
+00:57:33,720 --> 00:57:37,880
+everyone is asking you but thank you
+
+988
+00:57:36,000 --> 00:57:40,760
+kasab but how do you do do this or
+
+989
+00:57:37,880 --> 00:57:42,920
+attacking you your code is [ __ ] you know
+
+990
+00:57:40,760 --> 00:57:45,280
+you know things like that that's open
+
+991
+00:57:42,920 --> 00:57:45,280
+source
+
+992
+00:57:50,880 --> 00:57:56,480
+fuckets um well I don't I don't mean I
+
+993
+00:57:54,799 --> 00:57:58,920
+don't mean you okay I don't mean to
+
+994
+00:57:56,480 --> 00:58:00,839
+attack you but that's kind of the kind
+
+995
+00:57:58,920 --> 00:58:04,799
+of the
+
+996
+00:58:00,839 --> 00:58:07,359
+situation so the back the the background
+
+997
+00:58:04,799 --> 00:58:09,200
+I mean the the code I use to optimize
+
+998
+00:58:07,359 --> 00:58:12,319
+image let me show you okay that's
+
+999
+00:58:09,200 --> 00:58:14,319
+another topic so search just
+
+1000
+00:58:12,319 --> 00:58:18,880
+search
+
+1001
+00:58:14,319 --> 00:58:24,160
+optimize PNG okay there are quite a few
+
+1002
+00:58:18,880 --> 00:58:27,599
+so this this one oxy PNG is currently
+
+1003
+00:58:24,160 --> 00:58:32,359
+the best okay I recommend copy it back
+
+1004
+00:58:27,599 --> 00:58:35,319
+here back to emx uh let's paste it there
+
+1005
+00:58:32,359 --> 00:58:38,720
+link list okay
+
+1006
+00:58:35,319 --> 00:58:44,799
+optipng so I recommend it it's written
+
+1007
+00:58:38,720 --> 00:58:48,319
+in Rust [ __ ] [ __ ] R anyway it's is is
+
+1008
+00:58:44,799 --> 00:58:51,760
+currently the best okay over the past 20
+
+1009
+00:58:48,319 --> 00:58:54,160
+years there are different stories so it
+
+1010
+00:58:51,760 --> 00:58:57,200
+was you know so you
+
+1011
+00:58:54,160 --> 00:58:58,400
+got you know you know you know so you
+
+1012
+00:58:57,200 --> 00:59:01,480
+got
+
+1013
+00:58:58,400 --> 00:59:05,440
+optipng which is pretty popular but
+
+1014
+00:59:01,480 --> 00:59:07,480
+before Opti PNG there was um another
+
+1015
+00:59:05,440 --> 00:59:10,960
+okay so they kind
+
+1016
+00:59:07,480 --> 00:59:15,200
+of anyway so that's the story
+
+1017
+00:59:10,960 --> 00:59:17,440
+okay uh then you got this PNG Quint
+
+1018
+00:59:15,200 --> 00:59:20,359
+created by a idiot because they are
+
+1019
+00:59:17,440 --> 00:59:23,960
+trying to what they do is they optimize
+
+1020
+00:59:20,359 --> 00:59:26,359
+PNG but make it lossy so you lose a
+
+1021
+00:59:23,960 --> 00:59:30,680
+little bit information but to this this
+
+1022
+00:59:26,359 --> 00:59:30,680
+guy this this idiot they think you
+
+1023
+00:59:31,000 --> 00:59:37,319
+know he thinks that it combines the best
+
+1024
+00:59:34,079 --> 00:59:39,920
+of both words you know you got PNG high
+
+1025
+00:59:37,319 --> 00:59:42,359
+quality but also kind of small size like
+
+1026
+00:59:39,920 --> 00:59:45,599
+jpeg this
+
+1027
+00:59:42,359 --> 00:59:51,520
+idiot who created Opti you know PNG
+
+1028
+00:59:45,599 --> 00:59:55,319
+Quint it's a fantastic incredible idiot
+
+1029
+00:59:51,520 --> 00:59:57,400
+this but you know so but they they grab
+
+1030
+00:59:55,319 --> 00:59:59,200
+the people like the today's generation
+
+1031
+00:59:57,400 --> 01:00:02,039
+the Zoomers don't know you know the
+
+1032
+00:59:59,200 --> 01:00:04,880
+Zoomers think oh this creates smaller I
+
+1033
+01:00:02,039 --> 01:00:04,880
+just going to use
+
+1034
+01:00:10,039 --> 01:00:16,599
+this do you have an article about mro
+
+1035
+01:00:14,680 --> 01:00:23,119
+keypad
+
+1036
+01:00:16,599 --> 01:00:27,960
+uh is it the most used uh you mean uh
+
+1037
+01:00:23,119 --> 01:00:27,960
+yeah okay so go to keyboard
+
+1038
+01:00:28,319 --> 01:00:33,960
+that's it that's it for today thank you
+
+1039
+01:00:30,319 --> 01:00:38,240
+guys for watching about 1 hour fantastic
+
+1040
+01:00:33,960 --> 01:00:42,039
+so uh keypads so you could just go to
+
+1041
+01:00:38,240 --> 01:00:44,599
+keyboard block keypads so I got some of
+
+1042
+01:00:42,039 --> 01:00:47,480
+the best keypads here but it's kind of
+
+1043
+01:00:44,599 --> 01:00:50,520
+outdated outdated because in the past
+
+1044
+01:00:47,480 --> 01:00:52,640
+five or 10 years there's new keypads
+
+1045
+01:00:50,520 --> 01:00:56,440
+programmable keypads coming out every
+
+1046
+01:00:52,640 --> 01:00:59,160
+year especially from China like today
+
+1047
+01:00:56,440 --> 01:01:02,200
+90% of all these keyboard Are For All
+
+1048
+01:00:59,160 --> 01:01:04,839
+from China and they are better than half
+
+1049
+01:01:02,200 --> 01:01:07,039
+of the time they are more they're much
+
+1050
+01:01:04,839 --> 01:01:08,359
+cheaper like you know and and the
+
+1051
+01:01:07,039 --> 01:01:12,200
+practical
+
+1052
+01:01:08,359 --> 01:01:16,039
+too so but if you want the ultimate
+
+1053
+01:01:12,200 --> 01:01:19,079
+keypad then ultimate hacking keyboard is
+
+1054
+01:01:16,039 --> 01:01:21,880
+great okay like the way I'm using if you
+
+1055
+01:01:19,079 --> 01:01:26,319
+want the ultimate keypad you know like
+
+1056
+01:01:21,880 --> 01:01:28,480
+spend $200 just for a keypad okay this
+
+1057
+01:01:26,319 --> 01:01:32,760
+so timate hacking comes in
+
+1058
+01:01:28,480 --> 01:01:35,280
+two you know modules you can disconnect
+
+1059
+01:01:32,760 --> 01:01:37,680
+one of them so one of them you still
+
+1060
+01:01:35,280 --> 01:01:40,599
+work so if you don't need the other you
+
+1061
+01:01:37,680 --> 01:01:42,839
+know I can still work kind of expensive
+
+1062
+01:01:40,599 --> 01:01:45,240
+though you can customize the color you
+
+1063
+01:01:42,839 --> 01:01:47,680
+see you see my keyboard the color
+
+1064
+01:01:45,240 --> 01:01:50,960
+actually mean different things you see
+
+1065
+01:01:47,680 --> 01:01:55,160
+and you can change the color you see so
+
+1066
+01:01:50,960 --> 01:01:58,079
+that is a luxury for rich people if you
+
+1067
+01:01:55,160 --> 01:02:00,359
+you know if you okay Google you can get
+
+1068
+01:01:58,079 --> 01:02:03,319
+this ultimate hacking for just for
+
+1069
+01:02:00,359 --> 01:02:06,640
+keypad uh then or or you can use you
+
+1070
+01:02:03,319 --> 01:02:10,160
+know Apple maker I don't have these okay
+
+1071
+01:02:06,640 --> 01:02:12,160
+so so these are the some of the mark
+
+1072
+01:02:10,160 --> 01:02:15,920
+this this is China
+
+1073
+01:02:12,160 --> 01:02:19,880
+Cheapo uh it works you know cheap and it
+
+1074
+01:02:15,920 --> 01:02:23,960
+works fine you know for for several
+
+1075
+01:02:19,880 --> 01:02:26,760
+years um then you got yeah another China
+
+1076
+01:02:23,960 --> 01:02:30,400
+China Chapo we you know
+
+1077
+01:02:26,760 --> 01:02:34,839
+my my tablet is who okay I also have
+
+1078
+01:02:30,400 --> 01:02:37,520
+article then then this General genation
+
+1079
+01:02:34,839 --> 01:02:41,079
+is I don't recommend it but this is
+
+1080
+01:02:37,520 --> 01:02:44,960
+Classic this is like from year 199 you
+
+1081
+01:02:41,079 --> 01:02:48,359
+know 19 '90s or early 2000 that's kind
+
+1082
+01:02:44,960 --> 01:02:51,400
+of classic before you know before you
+
+1083
+01:02:48,359 --> 01:02:53,640
+have today's like 3D printing or
+
+1084
+01:02:51,400 --> 01:02:56,319
+popularity of mechanical keys so anyway
+
+1085
+01:02:53,640 --> 01:02:58,599
+this is classic and
+
+1086
+01:02:56,319 --> 01:03:02,640
+today is kind of outdated because they
+
+1087
+01:02:58,599 --> 01:03:05,480
+are still using their software like
+
+1088
+01:03:02,640 --> 01:03:08,920
+typically for Windows only you know for
+
+1089
+01:03:05,480 --> 01:03:11,559
+Windows 98 you know like all very Asian
+
+1090
+01:03:08,920 --> 01:03:14,559
+okay and you know so anyway that's
+
+1091
+01:03:11,559 --> 01:03:18,599
+classic and this x Keys is also classic
+
+1092
+01:03:14,559 --> 01:03:21,079
+from 1990s okay uh so today they are
+
+1093
+01:03:18,599 --> 01:03:24,640
+kind of expensive you know
+
+1094
+01:03:21,079 --> 01:03:27,319
+like uh do they show how much do they
+
+1095
+01:03:24,640 --> 01:03:30,760
+actually
+
+1096
+01:03:27,319 --> 01:03:35,279
+this one I guess it's not even selling
+
+1097
+01:03:30,760 --> 01:03:39,680
+anymore yeah okay so this one 280 Keys
+
+1098
+01:03:35,279 --> 01:03:43,200
+that's 200 Keys 80 keys
+
+1099
+01:03:39,680 --> 01:03:46,359
+$259 what anyway yeah
+
+1100
+01:03:43,200 --> 01:03:48,160
+so you know this like this incredible
+
+1101
+01:03:46,359 --> 01:03:51,760
+you know this
+
+1102
+01:03:48,160 --> 01:03:55,440
+$260 for the 80
+
+1103
+01:03:51,760 --> 01:03:57,599
+keys in that case you want to get timate
+
+1104
+01:03:55,440 --> 01:04:00,440
+hacking keyboard about the same price
+
+1105
+01:03:57,599 --> 01:04:03,960
+but much more uh better
+
+1106
+01:04:00,440 --> 01:04:07,680
+okay so anyway so you know so and there
+
+1107
+01:04:03,960 --> 01:04:12,160
+are some old reviews uh then you know uh
+
+1108
+01:04:07,680 --> 01:04:15,520
+but my page is not that um to up to dat
+
+1109
+01:04:12,160 --> 01:04:18,319
+because you then there's elago among
+
+1110
+01:04:15,520 --> 01:04:20,960
+very popular among the gamer idiots
+
+1111
+01:04:18,319 --> 01:04:23,880
+gamers are typically they are all idiots
+
+1112
+01:04:20,960 --> 01:04:26,559
+they don't know what's quality and but
+
+1113
+01:04:23,880 --> 01:04:28,960
+they you know so it it
+
+1114
+01:04:26,559 --> 01:04:31,520
+Elgato I wouldn't recommend you know
+
+1115
+01:04:28,960 --> 01:04:33,799
+it's nice to have displays but they are
+
+1116
+01:04:31,520 --> 01:04:36,160
+you know so there's a taken you know
+
+1117
+01:04:33,799 --> 01:04:39,880
+some people take it apart it's very
+
+1118
+01:04:36,160 --> 01:04:42,920
+lousy you know mushy keys and and on and
+
+1119
+01:04:39,880 --> 01:04:46,440
+on so I don't recommend
+
+1120
+01:04:42,920 --> 01:04:50,640
+it uh very popular among the YouTubers
+
+1121
+01:04:46,440 --> 01:04:52,760
+and Gamers and the Zuma idiots okay then
+
+1122
+01:04:50,640 --> 01:04:56,160
+then you you know
+
+1123
+01:04:52,760 --> 01:04:58,480
+so uh then there's some classic like the
+
+1124
+01:04:56,160 --> 01:05:01,680
+razor you know this kind of
+
+1125
+01:04:58,480 --> 01:05:06,599
+thing uh well speaking of that then you
+
+1126
+01:05:01,680 --> 01:05:11,240
+got into then you got into
+
+1127
+01:05:06,599 --> 01:05:15,240
+um then you get into uh like fancy
+
+1128
+01:05:11,240 --> 01:05:19,119
+devices like um track ball pain input
+
+1129
+01:05:15,240 --> 01:05:21,839
+knobs joystick act so you got a bunch of
+
+1130
+01:05:19,119 --> 01:05:25,200
+joysticks you got bunch of knobs you
+
+1131
+01:05:21,839 --> 01:05:27,599
+know like you got this for Photoshop or
+
+1132
+01:05:25,200 --> 01:05:28,599
+video editing or image editing this
+
+1133
+01:05:27,599 --> 01:05:31,520
+would be
+
+1134
+01:05:28,599 --> 01:05:33,680
+suitable uh then if you are like really
+
+1135
+01:05:31,520 --> 01:05:35,920
+professional video editing you want
+
+1136
+01:05:33,680 --> 01:05:39,039
+something like this
+
+1137
+01:05:35,920 --> 01:05:41,200
+$2,000 actually this one is like few
+
+1138
+01:05:39,039 --> 01:05:43,839
+hundred like they they are doing
+
+1139
+01:05:41,200 --> 01:05:47,039
+something called uh color grading okay I
+
+1140
+01:05:43,839 --> 01:05:48,720
+don't you know so I have like examples
+
+1141
+01:05:47,039 --> 01:05:50,920
+like I looked into what the [ __ ] is
+
+1142
+01:05:48,720 --> 01:05:54,640
+color grading this
+
+1143
+01:05:50,920 --> 01:05:57,640
+dainy you know thing cost few hundred
+
+1144
+01:05:54,640 --> 01:06:00,000
+few thousand dollar
+
+1145
+01:05:57,640 --> 01:06:02,680
+you know like the this tangent Ripple
+
+1146
+01:06:00,000 --> 01:06:02,680
+panel okay
+
+1147
+01:06:03,640 --> 01:06:10,200
+350 uh and there's one selling for
+
+1148
+01:06:06,839 --> 01:06:13,039
+$2,000 okay so anyway go back then you
+
+1149
+01:06:10,200 --> 01:06:15,440
+so then you got this uh and by the way
+
+1150
+01:06:13,039 --> 01:06:19,760
+look at this professional
+
+1151
+01:06:15,440 --> 01:06:23,760
+panel and then you got um you got um
+
+1152
+01:06:19,760 --> 01:06:27,559
+joystick uh the one I'm looking for is
+
+1153
+01:06:23,760 --> 01:06:27,559
+coding uh
+
+1154
+01:06:27,839 --> 01:06:38,480
+wait not here this one called Aron okay
+
+1155
+01:06:32,920 --> 01:06:40,920
+so where do I put it there Aeron keypad
+
+1156
+01:06:38,480 --> 01:06:41,920
+then you got something like that I don't
+
+1157
+01:06:40,920 --> 01:06:45,760
+have it
+
+1158
+01:06:41,920 --> 01:06:48,480
+so you know but but those are not good
+
+1159
+01:06:45,760 --> 01:06:52,119
+for like marro Keys those are dedicated
+
+1160
+01:06:48,480 --> 01:06:52,119
+for gaming and
+
+1161
+01:06:52,200 --> 01:06:56,799
+stuff okay bye guys
+
+1162
+01:06:56,920 --> 01:07:01,640
+yes timate hacking keyboard support
+
+1163
+01:06:58,760 --> 01:07:04,799
+Linux you know it's it's all good
+
+1164
+01:07:01,640 --> 01:07:07,079
+yeah uh but you double you you know but
+
+1165
+01:07:04,799 --> 01:07:09,240
+don't take my words for it okay go check
+
+1166
+01:07:07,079 --> 01:07:14,480
+their website I'm pretty sure I think
+
+1167
+01:07:09,240 --> 01:07:14,480
+they do and uh yeah
+

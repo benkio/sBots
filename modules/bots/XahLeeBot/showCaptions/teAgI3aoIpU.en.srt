@@ -1,0 +1,7304 @@
+1
+00:00:00,880 --> 00:00:05,200
+Hello, good afternoon, good morning
+
+2
+00:00:02,320 --> 00:00:08,080
+everyone. Welcome to another episode of
+
+3
+00:00:05,200 --> 00:00:10,559
+Star Talk Show. We are going to code
+
+4
+00:00:08,080 --> 00:00:14,000
+Linux. Today,
+
+5
+00:00:10,559 --> 00:00:18,480
+uh let's switch to my my keyboard
+
+6
+00:00:14,000 --> 00:00:21,920
+Ultimate Hacking Keyboard 80. Okay, UHK
+
+7
+00:00:18,480 --> 00:00:23,760
+80. I have a review on my website and on
+
+8
+00:00:21,920 --> 00:00:27,039
+YouTube. Just search for it, you'll find
+
+9
+00:00:23,760 --> 00:00:29,920
+it. Okay, show my keyboard and show my
+
+10
+00:00:27,039 --> 00:00:32,399
+uh today's talk show.
+
+11
+00:00:29,920 --> 00:00:37,040
+So we going to talk about I'm going to
+
+12
+00:00:32,399 --> 00:00:40,239
+go leisurely casually install the
+
+13
+00:00:37,040 --> 00:00:43,840
+I mean we are going to install Emacs on
+
+14
+00:00:40,239 --> 00:00:46,719
+Windows subsystem for Linux. Okay. I'm
+
+15
+00:00:43,840 --> 00:00:49,280
+going to like compile in like install a
+
+16
+00:00:46,719 --> 00:00:51,520
+bunch of programs. So it allows me to
+
+17
+00:00:49,280 --> 00:00:53,760
+compile Emacs and download Emacs and
+
+18
+00:00:51,520 --> 00:00:56,559
+compile. Let's see what you know you
+
+19
+00:00:53,760 --> 00:00:58,559
+know let's just go and see. So this is a
+
+20
+00:00:56,559 --> 00:01:00,879
+casual session. You're just going to
+
+21
+00:00:58,559 --> 00:01:03,840
+watch me install
+
+22
+00:01:00,879 --> 00:01:07,439
+uh Linux. Okay, I mean not install
+
+23
+00:01:03,840 --> 00:01:11,360
+install Emacs in WSL.
+
+24
+00:01:07,439 --> 00:01:15,280
+So, let me have this uh candy. By the
+
+25
+00:01:11,360 --> 00:01:18,240
+way, this this candy quit cigarette
+
+26
+00:01:15,280 --> 00:01:21,360
+nicotine candy. By the way, I quit
+
+27
+00:01:18,240 --> 00:01:24,640
+smoking. So, I've been smoking for more
+
+28
+00:01:21,360 --> 00:01:28,320
+than 10 years. Okay. For Yeah. For the
+
+29
+00:01:24,640 --> 00:01:31,280
+for for almost 15 years, I think.
+
+30
+00:01:28,320 --> 00:01:34,720
+But I quit this year. Amazing. I just
+
+31
+00:01:31,280 --> 00:01:37,280
+quit cold turkey and I don't feel a
+
+32
+00:01:34,720 --> 00:01:41,360
+thing. Amazing.
+
+33
+00:01:37,280 --> 00:01:43,680
+Uh so but I got this uh nicotine candy
+
+34
+00:01:41,360 --> 00:01:46,560
+for helping you quit smoking three years
+
+35
+00:01:43,680 --> 00:01:50,640
+ago. I never, you know, I I occasionally
+
+36
+00:01:46,560 --> 00:01:54,720
+took one, but I never. So it not because
+
+37
+00:01:50,640 --> 00:01:58,640
+of this I quit. I just quit cold turkey.
+
+38
+00:01:54,720 --> 00:02:01,200
+But now I feel occasionally,
+
+39
+00:01:58,640 --> 00:02:04,000
+you know, I feel energizing to eat this
+
+40
+00:02:01,200 --> 00:02:06,079
+this nicotine candy. By the way, I know
+
+41
+00:02:04,000 --> 00:02:07,680
+what you're going to say of you like
+
+42
+00:02:06,079 --> 00:02:09,440
+white man. You're going to say, "Oh,
+
+43
+00:02:07,680 --> 00:02:11,656
+don't take it. Don't don't don't do
+
+44
+00:02:09,440 --> 00:02:13,676
+that. You're going to be smoking again."
+
+45
+00:02:11,656 --> 00:02:13,676
+[laughter]
+
+46
+00:02:14,720 --> 00:02:21,280
+Nicotine. Okay. They make you, you know,
+
+47
+00:02:17,840 --> 00:02:23,360
+actually nicotine energizes you. I like
+
+48
+00:02:21,280 --> 00:02:27,120
+nicotine. I don't like wine. I don't
+
+49
+00:02:23,360 --> 00:02:29,040
+like beer. You know, most most uh guys
+
+50
+00:02:27,120 --> 00:02:31,200
+like that like they like beer. I don't
+
+51
+00:02:29,040 --> 00:02:32,800
+like beer at all. I don't like red wine
+
+52
+00:02:31,200 --> 00:02:35,680
+either.
+
+53
+00:02:32,800 --> 00:02:38,800
+I don't like their taste. I mean, they
+
+54
+00:02:35,680 --> 00:02:40,480
+they they don't taste good. And I don't
+
+55
+00:02:38,800 --> 00:02:42,959
+like how they feels. They make you
+
+56
+00:02:40,480 --> 00:02:46,800
+stupid basically. But not nicotine.
+
+57
+00:02:42,959 --> 00:02:49,280
+Cigarettes. Cigarettes good. Okay.
+
+58
+00:02:46,800 --> 00:02:51,680
+So, let's go casually. If you are here,
+
+59
+00:02:49,280 --> 00:02:54,480
+say hi. Okay. It's going to be boring.
+
+60
+00:02:51,680 --> 00:02:56,800
+Okay. This is for nerds and for special
+
+61
+00:02:54,480 --> 00:03:00,160
+nerds. Um you don't know what I'm doing.
+
+62
+00:02:56,800 --> 00:03:04,080
+Okay. So first well the first thing you
+
+63
+00:03:00,160 --> 00:03:08,159
+need to do is you um
+
+64
+00:03:04,080 --> 00:03:10,879
+you need to start a shell. Okay. So we
+
+65
+00:03:08,159 --> 00:03:14,480
+are on Windows and it's PowerShell. So
+
+66
+00:03:10,879 --> 00:03:18,879
+control magnify. Okay.
+
+67
+00:03:14,480 --> 00:03:21,920
+So WSL I already installed WSL. So to
+
+68
+00:03:18,879 --> 00:03:26,879
+run it you just run WSL. you'll start
+
+69
+00:03:21,920 --> 00:03:29,920
+Linux. Okay. Amazing. You know, the uh
+
+70
+00:03:26,879 --> 00:03:33,760
+WSR Windows Subsystem for Linux, it's
+
+71
+00:03:29,920 --> 00:03:36,879
+been around since um since like 15 years
+
+72
+00:03:33,760 --> 00:03:40,879
+ago, but I never installed it until two
+
+73
+00:03:36,879 --> 00:03:45,680
+month ago uh uh with people's
+
+74
+00:03:40,879 --> 00:03:50,720
+help. uh Reaper in my discord reaper and
+
+75
+00:03:45,680 --> 00:03:53,040
+few other people they help me um and but
+
+76
+00:03:50,720 --> 00:03:56,720
+anyway it's you know it's amazing
+
+77
+00:03:53,040 --> 00:04:01,120
+technology so here we are in Linux now
+
+78
+00:03:56,720 --> 00:04:04,400
+so you see my prompt is so long so um
+
+79
+00:04:01,120 --> 00:04:08,040
+how do you know use uh oh Jesus I forgot
+
+80
+00:04:04,400 --> 00:04:08,040
+my Unix commands
+
+81
+00:04:08,879 --> 00:04:15,280
+you name I believe that's yeah there you
+
+82
+00:04:11,280 --> 00:04:19,040
+So you name a let's see the full name of
+
+83
+00:04:15,280 --> 00:04:23,360
+my uh system. So this is uh
+
+84
+00:04:19,040 --> 00:04:27,199
+uh Linux XGPC that's my machine name
+
+85
+00:04:23,360 --> 00:04:30,720
+6.6.87 A7 that's a Linux kernel version
+
+86
+00:04:27,199 --> 00:04:34,400
+I think what was it Microsoft standard
+
+87
+00:04:30,720 --> 00:04:36,960
+WSL2 number one SMP so there's a
+
+88
+00:04:34,400 --> 00:04:39,759
+technicalities
+
+89
+00:04:36,960 --> 00:04:41,919
+they created WSL2 which is different
+
+90
+00:04:39,759 --> 00:04:44,960
+from WSL1
+
+91
+00:04:41,919 --> 00:04:50,479
+okay number one S snp uh what does that
+
+92
+00:04:44,960 --> 00:04:53,280
+means uh that means the um anyway you
+
+93
+00:04:50,479 --> 00:04:57,600
+see in order to install this you have to
+
+94
+00:04:53,280 --> 00:05:01,120
+Um, so I did a log a blog about the
+
+95
+00:04:57,600 --> 00:05:03,680
+installation process. So if you have not
+
+96
+00:05:01,120 --> 00:05:06,080
+done it yet, you might check it out.
+
+97
+00:05:03,680 --> 00:05:08,720
+Okay. So what you need to do is like
+
+98
+00:05:06,080 --> 00:05:13,520
+let's go to uh so here you are looking
+
+99
+00:05:08,720 --> 00:05:18,000
+at uh today's talk show. Go to install
+
+100
+00:05:13,520 --> 00:05:22,000
+Windows Subsystem for Linux. Okay. So I
+
+101
+00:05:18,000 --> 00:05:24,800
+installed it on April 19th.
+
+102
+00:05:22,000 --> 00:05:27,440
+And basically the steps you need to do
+
+103
+00:05:24,800 --> 00:05:32,320
+is you need to turn on the
+
+104
+00:05:27,440 --> 00:05:34,560
+virtualization mode called SVM mode.
+
+105
+00:05:32,320 --> 00:05:38,320
+Okay? And you need to do that in your
+
+106
+00:05:34,560 --> 00:05:40,880
+so-called BIOS or UEFI.
+
+107
+00:05:38,320 --> 00:05:44,400
+And typically you restart your machine
+
+108
+00:05:40,880 --> 00:05:48,240
+and you hold down the delete key, the
+
+109
+00:05:44,400 --> 00:05:54,320
+right word delete or sometimes F1, F2 or
+
+110
+00:05:48,240 --> 00:05:58,560
+F10. Okay. Then if you are using a MAI
+
+111
+00:05:54,320 --> 00:06:01,919
+Jesus uh I think eating this candy
+
+112
+00:05:58,560 --> 00:06:06,440
+makes me not talk well.
+
+113
+00:06:01,919 --> 00:06:06,440
+So maybe I shouldn't eat it now.
+
+114
+00:06:07,280 --> 00:06:11,160
+Nicotine candy.
+
+115
+00:06:11,680 --> 00:06:16,560
+Okay. So now, okay, I can talk. Better
+
+116
+00:06:15,039 --> 00:06:19,249
+better.
+
+117
+00:06:16,560 --> 00:06:20,080
+Am I talking better?
+
+118
+00:06:19,249 --> 00:06:24,319
+[laughter]
+
+119
+00:06:20,080 --> 00:06:26,880
+B better better or better better
+
+120
+00:06:24,319 --> 00:06:29,440
+uh better.
+
+121
+00:06:26,880 --> 00:06:32,960
+So in order to install WSL, you need to
+
+122
+00:06:29,440 --> 00:06:35,360
+have this virtualization mode on SVM
+
+123
+00:06:32,960 --> 00:06:38,160
+mode and you need to go to your BIOS.
+
+124
+00:06:35,360 --> 00:06:40,080
+Okay. Now if you are running a machine
+
+125
+00:06:38,160 --> 00:06:42,400
+your motherboard you know the the
+
+126
+00:06:40,080 --> 00:06:45,039
+motherboard and stuff you if you are
+
+127
+00:06:42,400 --> 00:06:47,759
+running MSI
+
+128
+00:06:45,039 --> 00:06:51,344
+uh click BIOS which is my my machine.
+
+129
+00:06:47,759 --> 00:06:54,960
+Okay my machine is this one.
+
+130
+00:06:51,344 --> 00:06:57,680
+[sighs] Uh okay let's magnify.
+
+131
+00:06:54,960 --> 00:07:01,599
+This is my machine. Biggest spending in
+
+132
+00:06:57,680 --> 00:07:06,599
+16 years. I I I I spent $1,000 for it.
+
+133
+00:07:01,599 --> 00:07:06,599
+Okay. So this machine is 16 gigabyte.
+
+134
+00:07:06,639 --> 00:07:12,319
+So I bought in 2020 partly because of
+
+135
+00:07:09,919 --> 00:07:13,919
+you guys donation. Okay, that was back
+
+136
+00:07:12,319 --> 00:07:17,680
+then.
+
+137
+00:07:13,919 --> 00:07:19,520
+So for $900, okay, and plus the monitor.
+
+138
+00:07:17,680 --> 00:07:23,520
+But anyway, this is my gaming machine.
+
+139
+00:07:19,520 --> 00:07:27,039
+Okay, so this is motherboard motherboard
+
+140
+00:07:23,520 --> 00:07:30,160
+is it's MSI machine. So you hold down
+
+141
+00:07:27,039 --> 00:07:33,840
+the right the delete key. Okay, that's a
+
+142
+00:07:30,160 --> 00:07:35,680
+delete key on the home and insert
+
+143
+00:07:33,840 --> 00:07:37,599
+delete, you know, over there. It's not
+
+144
+00:07:35,680 --> 00:07:39,440
+the backspace. Okay, you hold on that
+
+145
+00:07:37,599 --> 00:07:43,280
+key
+
+146
+00:07:39,440 --> 00:07:45,599
+when machine start up. Then you So I
+
+147
+00:07:43,280 --> 00:07:48,960
+have instructions here and photo. So you
+
+148
+00:07:45,599 --> 00:07:54,000
+can see the full detail, the full glory
+
+149
+00:07:48,960 --> 00:07:56,479
+of this uh this BIOS [ __ ] bootstrap.
+
+150
+00:07:54,000 --> 00:07:58,879
+Fairly complicated, you know. Well, it's
+
+151
+00:07:56,479 --> 00:08:01,599
+part of the
+
+152
+00:07:58,879 --> 00:08:04,080
+uh computer engineering. Okay, you have
+
+153
+00:08:01,599 --> 00:08:06,800
+to have this bootstrap
+
+154
+00:08:04,080 --> 00:08:08,479
+which I don't know much about. Uh okay.
+
+155
+00:08:06,800 --> 00:08:11,680
+So that's what you have to do. You have
+
+156
+00:08:08,479 --> 00:08:15,599
+to turn on the uh virtualization mode.
+
+157
+00:08:11,680 --> 00:08:18,560
+Okay. Then you run wsl-install.
+
+158
+00:08:15,599 --> 00:08:21,680
+Just run it. It's it's uh it's bundled.
+
+159
+00:08:18,560 --> 00:08:24,479
+Okay. You do it the first time. It will
+
+160
+00:08:21,680 --> 00:08:28,000
+prepare WSL. Then you have to reboot the
+
+161
+00:08:24,479 --> 00:08:29,919
+machine. Then do it again wsl--install.
+
+162
+00:08:28,000 --> 00:08:33,760
+So the second time it will install a
+
+163
+00:08:29,919 --> 00:08:36,800
+Linux. By default it will install Ubuntu
+
+164
+00:08:33,760 --> 00:08:39,360
+but however you can specify other DRO
+
+165
+00:08:36,800 --> 00:08:41,680
+like Debian or whatever but you know
+
+166
+00:08:39,360 --> 00:08:44,880
+just go with Ubuntu because because
+
+167
+00:08:41,680 --> 00:08:47,760
+that's the most like compatible. If you
+
+168
+00:08:44,880 --> 00:08:49,360
+really want uh running Linux, you know,
+
+169
+00:08:47,760 --> 00:08:51,839
+you
+
+170
+00:08:49,360 --> 00:08:55,040
+you you you you start your OS from
+
+171
+00:08:51,839 --> 00:08:58,560
+Linux, you know, you don't do this uh
+
+172
+00:08:55,040 --> 00:09:00,800
+subsystem in Windows.
+
+173
+00:08:58,560 --> 00:09:06,040
+So anyway, so you see we started. Okay.
+
+174
+00:09:00,800 --> 00:09:06,040
+So what we going to do now? So uh again,
+
+175
+00:09:06,160 --> 00:09:10,880
+I'm just like doing nothing. Okay. I
+
+176
+00:09:08,480 --> 00:09:14,399
+mean uh I mean well I'm supposed to
+
+177
+00:09:10,880 --> 00:09:16,640
+install Emacs. Okay. So press Ctrl D to
+
+178
+00:09:14,399 --> 00:09:18,959
+exit. Okay, that's classic. That's a
+
+179
+00:09:16,640 --> 00:09:21,600
+bash. Okay, so here's a all the
+
+180
+00:09:18,959 --> 00:09:25,680
+screenshots of the install installation
+
+181
+00:09:21,600 --> 00:09:28,160
+process. Okay, once you install it, you
+
+182
+00:09:25,680 --> 00:09:32,640
+see which I do. Then you got this
+
+183
+00:09:28,160 --> 00:09:36,080
+prompt. So uh let's say duh. So you see
+
+184
+00:09:32,640 --> 00:09:39,360
+I'm in this talk show directory which is
+
+185
+00:09:36,080 --> 00:09:43,040
+on my um
+
+186
+00:09:39,360 --> 00:09:46,040
+this is on my Windows disc.
+
+187
+00:09:43,040 --> 00:09:46,040
+NTFS
+
+188
+00:09:46,160 --> 00:09:52,880
+new technology file system from Windows.
+
+189
+00:09:49,279 --> 00:09:57,200
+Okay, close it.
+
+190
+00:09:52,880 --> 00:10:01,360
+But when you are on in Linux, they
+
+191
+00:09:57,200 --> 00:10:03,839
+your Windows um disk is mounted at slash
+
+192
+00:10:01,360 --> 00:10:06,000
+mnt
+
+193
+00:10:03,839 --> 00:10:08,560
+users and so on.
+
+194
+00:10:06,000 --> 00:10:11,920
+Uh and uh
+
+195
+00:10:08,560 --> 00:10:13,839
+anyway one one of the big tip is that if
+
+196
+00:10:11,920 --> 00:10:15,680
+you are
+
+197
+00:10:13,839 --> 00:10:17,360
+um
+
+198
+00:10:15,680 --> 00:10:21,440
+accessing
+
+199
+00:10:17,360 --> 00:10:24,560
+Windows disk from Linux is slow. Okay.
+
+200
+00:10:21,440 --> 00:10:28,480
+So you want to access uh so let's say cd
+
+201
+00:10:24,560 --> 00:10:31,680
+to my home directory. So pwd for path
+
+202
+00:10:28,480 --> 00:10:34,560
+current path that's home. So you can see
+
+203
+00:10:31,680 --> 00:10:37,920
+I forgot you know I mean so it's been
+
+204
+00:10:34,560 --> 00:10:41,920
+quite a while I I uh typed any uh Linux
+
+205
+00:10:37,920 --> 00:10:46,839
+command 10 10 years or 20 years.
+
+206
+00:10:41,920 --> 00:10:46,839
+So what what is the um
+
+207
+00:10:47,600 --> 00:10:56,160
+FD? Okay. So let's see uh DF. Okay. So
+
+208
+00:10:52,480 --> 00:10:59,519
+there is my disk.
+
+209
+00:10:56,160 --> 00:11:03,880
+So these are my Linux Linux disc. Okay.
+
+210
+00:10:59,519 --> 00:11:03,880
+So you need to enlarge this
+
+211
+00:11:07,680 --> 00:11:15,200
+use. So, so M and T those are from
+
+212
+00:11:11,440 --> 00:11:16,800
+Windows. Okay. So, anyway,
+
+213
+00:11:15,200 --> 00:11:19,680
+well,
+
+214
+00:11:16,800 --> 00:11:23,600
+so what is is uh how do you find out
+
+215
+00:11:19,680 --> 00:11:27,279
+what space available there?
+
+216
+00:11:23,600 --> 00:11:30,800
+Uh so, we got 4 gigabyte available or
+
+217
+00:11:27,279 --> 00:11:33,680
+something. Okay.
+
+218
+00:11:30,800 --> 00:11:35,839
+Okay. I don't remember my Linux Unix
+
+219
+00:11:33,680 --> 00:11:40,240
+stuff. Okay. On Solaris. So, so let's
+
+220
+00:11:35,839 --> 00:11:44,079
+see. I want to let's go to uh my Linux
+
+221
+00:11:40,240 --> 00:11:48,880
+tutorial which I've written this like 10
+
+222
+00:11:44,079 --> 00:11:52,079
+years ago and uh it's good for beginners
+
+223
+00:11:48,880 --> 00:11:56,720
+but not much today because you can just
+
+224
+00:11:52,079 --> 00:11:59,519
+ask AI uh and these are AI generated
+
+225
+00:11:56,720 --> 00:12:02,560
+actually because
+
+226
+00:11:59,519 --> 00:12:05,519
+this page okay uh because I was trying
+
+227
+00:12:02,560 --> 00:12:08,959
+it last year and I thought just ask AI
+
+228
+00:12:05,519 --> 00:12:11,200
+to generate this most commonly used
+
+229
+00:12:08,959 --> 00:12:14,240
+shell commands. Okay, let's enlarge
+
+230
+00:12:11,200 --> 00:12:16,399
+this. Wait.
+
+231
+00:12:14,240 --> 00:12:19,279
+Okay, we we we are like right now
+
+232
+00:12:16,399 --> 00:12:22,079
+direction list. We need to like go
+
+233
+00:12:19,279 --> 00:12:26,079
+somewhere. Okay.
+
+234
+00:12:22,079 --> 00:12:29,279
+Get system info you name a. Okay. So, so
+
+235
+00:12:26,079 --> 00:12:31,200
+find the Linux distro release name. Do
+
+236
+00:12:29,279 --> 00:12:33,519
+you have this command available? I
+
+237
+00:12:31,200 --> 00:12:37,200
+wonder.
+
+238
+00:12:33,519 --> 00:12:40,240
+LSP release. You do? Okay, Uben 2. Uh,
+
+239
+00:12:37,200 --> 00:12:44,720
+okay. So, what are we going to do? We
+
+240
+00:12:40,240 --> 00:12:49,279
+need to Okay, let's go to Emacs.
+
+241
+00:12:44,720 --> 00:12:51,760
+Wait, copy. Go to today's talk show and
+
+242
+00:12:49,279 --> 00:12:54,160
+uh Oh, yeah. So, I already have it
+
+243
+00:12:51,760 --> 00:12:58,480
+prepared there.
+
+244
+00:12:54,160 --> 00:13:02,120
+Uh, paste linkify show. So, let's go to
+
+245
+00:12:58,480 --> 00:13:02,120
+Emacs download.
+
+246
+00:13:03,600 --> 00:13:09,360
+Okay. Yeah, let's download Emacs in
+
+247
+00:13:07,360 --> 00:13:11,680
+uh
+
+248
+00:13:09,360 --> 00:13:17,399
+not Windows.
+
+249
+00:13:11,680 --> 00:13:17,399
+Do I want to install let's say
+
+250
+00:13:19,120 --> 00:13:26,399
+anyone here? If you are here, say hi.
+
+251
+00:13:22,079 --> 00:13:30,120
+Okay. Mac Linux. Okay. So, how to build
+
+252
+00:13:26,399 --> 00:13:30,120
+Emacs on Linux?
+
+253
+00:13:33,839 --> 00:13:41,120
+Uh or you can directly install via apt
+
+254
+00:13:38,560 --> 00:13:43,519
+cache. Uh wait, you know, with the
+
+255
+00:13:41,120 --> 00:13:46,800
+appget? No, I don't want to install with
+
+256
+00:13:43,519 --> 00:13:50,880
+appget. So, let's see. Do I have via
+
+257
+00:13:46,800 --> 00:13:55,680
+which emacs? No.
+
+258
+00:13:50,880 --> 00:14:00,519
+Which vim? Yes, it has a basic uh vim,
+
+259
+00:13:55,680 --> 00:14:00,519
+but that's not a full vim, I believe.
+
+260
+00:14:01,680 --> 00:14:10,079
+version that's actually uh
+
+261
+00:14:05,519 --> 00:14:14,000
+what the [ __ ] vim vim runtime default
+
+262
+00:14:10,079 --> 00:14:17,000
+vim what vim rc
+
+263
+00:14:14,000 --> 00:14:17,000
+okay
+
+264
+00:14:17,600 --> 00:14:23,360
+okay okay I don't care so let's uh so
+
+265
+00:14:20,320 --> 00:14:29,519
+what do I have um
+
+266
+00:14:23,360 --> 00:14:32,800
+bo emac from source code should I Yeah.
+
+267
+00:14:29,519 --> 00:14:38,040
+Okay. So,
+
+268
+00:14:32,800 --> 00:14:38,040
+sudo app get install build essentials.
+
+269
+00:14:43,040 --> 00:14:47,519
+Paste.
+
+270
+00:14:44,800 --> 00:14:49,440
+Now it's going to ask my password.
+
+271
+00:14:47,519 --> 00:14:52,775
+Jesus.
+
+272
+00:14:49,440 --> 00:14:53,760
+What's my password?
+
+273
+00:14:52,775 --> 00:14:58,639
+[laughter]
+
+274
+00:14:53,760 --> 00:14:58,639
+Okay. I need to hide it. Okay.
+
+275
+00:15:00,959 --> 00:15:10,079
+Hide. Hide please. Hide uh audio. No
+
+276
+00:15:06,240 --> 00:15:14,160
+video special. So we got several videos.
+
+277
+00:15:10,079 --> 00:15:19,079
+My face, my keyboard there. And uh what
+
+278
+00:15:14,160 --> 00:15:19,079
+is this? Display capture. Okay.
+
+279
+00:15:26,320 --> 00:15:31,639
+Okay. So, let's put them back.
+
+280
+00:15:32,639 --> 00:15:41,120
+So, you see it says, "Oh my god, Jesus."
+
+281
+00:15:37,680 --> 00:15:46,440
+Apt get install build essentials.
+
+282
+00:15:41,120 --> 00:15:46,440
+It's going to install all this [ __ ]
+
+283
+00:15:50,480 --> 00:15:56,320
+You see on Linux if you're going to
+
+284
+00:15:52,639 --> 00:15:58,399
+compile anything you need this build
+
+285
+00:15:56,320 --> 00:16:01,360
+essentials. Okay there's this package
+
+286
+00:15:58,399 --> 00:16:05,040
+build essentials which is includes all
+
+287
+00:16:01,360 --> 00:16:11,160
+the like GCC stuff
+
+288
+00:16:05,040 --> 00:16:11,160
+C compiler CPP the CPP [ __ ]
+
+289
+00:16:13,996 --> 00:16:18,040
+[snorts] Okay. Am I alive?
+
+290
+00:16:18,560 --> 00:16:24,720
+Okay. So let's see. Okay. And then
+
+291
+00:16:22,399 --> 00:16:26,639
+you're going to you're going to install
+
+292
+00:16:24,720 --> 00:16:31,560
+G++.
+
+293
+00:16:26,639 --> 00:16:31,560
+What? What is G++?
+
+294
+00:16:31,681 --> 00:16:36,800
+[laughter]
+
+295
+00:16:32,880 --> 00:16:41,120
+I I don't know what what is G++. Okay,
+
+296
+00:16:36,800 --> 00:16:43,759
+let's let's um let's
+
+297
+00:16:41,120 --> 00:16:48,040
+you know let's uh let's take our
+
+298
+00:16:43,759 --> 00:16:48,040
+pleasure and ask AI.
+
+299
+00:16:53,199 --> 00:16:57,320
+What is g++?
+
+300
+00:16:58,880 --> 00:17:04,559
+>> C++ is the gen new C++ compiler. It's
+
+301
+00:17:02,079 --> 00:17:06,799
+the standard tool used to compile C++
+
+302
+00:17:04,559 --> 00:17:11,120
+code on Linux and many other systems.
+
+303
+00:17:06,799 --> 00:17:12,720
+You run it like C++ main CP
+
+304
+00:17:11,120 --> 00:17:15,760
+program to turn your code into an
+
+305
+00:17:12,720 --> 00:17:19,240
+executable. It's part of GCC, the Genu
+
+306
+00:17:15,760 --> 00:17:19,240
+compiler collection.
+
+307
+00:17:20,240 --> 00:17:25,000
+>> Okay, so let's make it louder.
+
+308
+00:17:26,079 --> 00:17:30,240
+>> Sorry, I'm stuck in a soft voice today.
+
+309
+00:17:28,400 --> 00:17:32,000
+Can't actually make myself louder on my
+
+310
+00:17:30,240 --> 00:17:32,559
+end. Try adjusting the volume on your
+
+311
+00:17:32,000 --> 00:17:35,799
+device.
+
+312
+00:17:32,559 --> 00:17:35,799
+>> Thank you.
+
+313
+00:17:36,799 --> 00:17:40,120
+>> You're welcome.
+
+314
+00:17:52,240 --> 00:17:58,760
+Okay. G++ is a GNU C++ compiler.
+
+315
+00:18:01,520 --> 00:18:04,520
+What?
+
+316
+00:18:05,039 --> 00:18:10,520
+Wait. Well, isn't it just GCC?
+
+317
+00:18:17,760 --> 00:18:26,520
+I thought GNU compiler GCC already also
+
+318
+00:18:22,160 --> 00:18:26,520
+compiles C++.
+
+319
+00:18:27,440 --> 00:18:33,200
+>> Yeah, exactly. GCC is the whole
+
+320
+00:18:29,840 --> 00:18:35,520
+collection and C++ is just its C++ front
+
+321
+00:18:33,200 --> 00:18:37,440
+end. Same compiler suite, just different
+
+322
+00:18:35,520 --> 00:18:42,280
+command name. So it automatically links
+
+323
+00:18:37,440 --> 00:18:42,280
+the C++ standard library for you.
+
+324
+00:18:43,280 --> 00:18:50,679
+>> I see.
+
+325
+00:18:46,640 --> 00:18:50,679
+>> Yep, that's pretty much it.
+
+326
+00:18:51,039 --> 00:19:00,120
+>> Hello, mass. Oh, mass
+
+327
+00:18:54,880 --> 00:19:00,120
+moto. Massive muscles.
+
+328
+00:19:00,368 --> 00:19:02,388
+[laughter]
+
+329
+00:19:03,919 --> 00:19:09,280
+That keyboard is [ __ ] awesome.
+
+330
+00:19:06,960 --> 00:19:11,360
+Ultimate hacking keyboard. Okay. Search
+
+331
+00:19:09,280 --> 00:19:15,200
+on my YouTube, you'll find a lot of
+
+332
+00:19:11,360 --> 00:19:18,320
+reviews also my website. Uh can we can
+
+333
+00:19:15,200 --> 00:19:20,480
+we show it? Show it quickly. Okay.
+
+334
+00:19:18,320 --> 00:19:22,559
+Because I talked about this a thousand
+
+335
+00:19:20,480 --> 00:19:24,400
+times. You see you see my massive
+
+336
+00:19:22,559 --> 00:19:28,320
+keyboard collection. You see all
+
+337
+00:19:24,400 --> 00:19:31,600
+beautiful. So the one you are looking at
+
+338
+00:19:28,320 --> 00:19:34,640
+I'm using today is this ultimate hacking
+
+339
+00:19:31,600 --> 00:19:40,080
+keyboard 80
+
+340
+00:19:34,640 --> 00:19:43,840
+massive $500. Okay, it's uh elite
+
+341
+00:19:40,080 --> 00:19:46,400
+keyboard for elite coders.
+
+342
+00:19:43,840 --> 00:19:49,760
+Okay, that's about keyboard. Okay, we
+
+343
+00:19:46,400 --> 00:19:55,200
+Okay, let's go back to the uh where is
+
+344
+00:19:49,760 --> 00:19:58,640
+my uh like technicalities? This [ __ ]
+
+345
+00:19:55,200 --> 00:20:04,440
+Let's just say yes. Okay, whatever. Say
+
+346
+00:19:58,640 --> 00:20:04,440
+yes. Yes. Yes, please. [ __ ] me.
+
+347
+00:20:05,213 --> 00:20:07,233
+[laughter]
+
+348
+00:20:07,440 --> 00:20:15,000
+Wait, I haven't had a drink yet. So,
+
+349
+00:20:10,400 --> 00:20:15,000
+let's have the nicotine candy.
+
+350
+00:20:18,640 --> 00:20:24,640
+Oh, what?
+
+351
+00:20:21,120 --> 00:20:28,400
+What? Unable to fetch some archives.
+
+352
+00:20:24,640 --> 00:20:31,520
+Maybe run app get update or try. Oh,
+
+353
+00:20:28,400 --> 00:20:36,320
+[ __ ] App get I forgot that. I remember
+
+354
+00:20:31,520 --> 00:20:42,840
+reading about that. App get update.
+
+355
+00:20:36,320 --> 00:20:42,840
+Now you need the meta key. Is this meta?
+
+356
+00:20:43,280 --> 00:20:47,120
+Yes, that's meta. Meta,
+
+357
+00:20:46,479 --> 00:20:49,919
+[laughter]
+
+358
+00:20:47,120 --> 00:20:54,080
+my Linux expertise.
+
+359
+00:20:49,919 --> 00:20:58,600
+App get update. Is that right?
+
+360
+00:20:54,080 --> 00:20:58,600
+Okay, you idiotic Linux
+
+361
+00:21:03,600 --> 00:21:09,679
+Uben to [ __ ] You know, there's
+
+362
+00:21:06,720 --> 00:21:12,960
+something very insulting about Ubuntu,
+
+363
+00:21:09,679 --> 00:21:16,720
+let me tell you. Okay. uh fetching
+
+364
+00:21:12,960 --> 00:21:21,360
+fetched 17 megabytes. Okay, now let's do
+
+365
+00:21:16,720 --> 00:21:22,960
+the build essentials again. Do it.
+
+366
+00:21:21,360 --> 00:21:26,240
+241
+
+367
+00:21:22,960 --> 00:21:28,320
+mgabytes of additional required. Will
+
+368
+00:21:26,240 --> 00:21:30,799
+you accept?
+
+369
+00:21:28,320 --> 00:21:33,760
+Yes.
+
+370
+00:21:30,799 --> 00:21:36,000
+Okay. There's something offensive about
+
+371
+00:21:33,760 --> 00:21:38,720
+Ubuntu. You guys don't know. Okay. Even
+
+372
+00:21:36,000 --> 00:21:41,120
+Even your daddy don't know because I'm
+
+373
+00:21:38,720 --> 00:21:45,440
+too old.
+
+374
+00:21:41,120 --> 00:21:48,600
+But let me explain. Okay. So, uh let me
+
+375
+00:21:45,440 --> 00:21:48,600
+show you.
+
+376
+00:21:50,000 --> 00:21:56,320
+You see this is the origin of the social
+
+377
+00:21:54,000 --> 00:21:59,679
+justice warriors
+
+378
+00:21:56,320 --> 00:22:02,880
+origin. Okay. Yes. You know, do you know
+
+379
+00:21:59,679 --> 00:22:06,640
+why the logo looks like that? Do you
+
+380
+00:22:02,880 --> 00:22:09,760
+know like you zoomers? Nothing.
+
+381
+00:22:06,640 --> 00:22:12,320
+Hello SCP.
+
+382
+00:22:09,760 --> 00:22:14,080
+Are you in a VM or docker container? We
+
+383
+00:22:12,320 --> 00:22:18,559
+are installing
+
+384
+00:22:14,080 --> 00:22:23,200
+we are trying to compile emacs
+
+385
+00:22:18,559 --> 00:22:25,600
+in Linux in Windows WSL windows
+
+386
+00:22:23,200 --> 00:22:28,400
+subsystem for Linux. Okay, that's what
+
+387
+00:22:25,600 --> 00:22:31,919
+we do going to do in compile emacs. But
+
+388
+00:22:28,400 --> 00:22:35,760
+before we do that, we have to uh uh um
+
+389
+00:22:31,919 --> 00:22:38,320
+apt update uh apt get update apt get
+
+390
+00:22:35,760 --> 00:22:42,320
+install essentials. That's what it's
+
+391
+00:22:38,320 --> 00:22:45,760
+doing. Oh no, I need to run top. [ __ ]
+
+392
+00:22:42,320 --> 00:22:48,320
+You see in Linux, you need to run this
+
+393
+00:22:45,760 --> 00:22:51,840
+top [ __ ] [laughter]
+
+394
+00:22:48,320 --> 00:22:55,840
+These nerds getting excited top. [ __ ]
+
+395
+00:22:51,840 --> 00:22:59,120
+them. [ __ ] them, man. [ __ ] their mom.
+
+396
+00:22:55,840 --> 00:23:01,679
+Top. Uh, there's a better one. Uh, I
+
+397
+00:22:59,120 --> 00:23:05,880
+believe was it called Utah Jesus. I
+
+398
+00:23:01,679 --> 00:23:05,880
+forgot. It's not installed.
+
+399
+00:23:08,480 --> 00:23:13,280
+You see, let me finish the story about
+
+400
+00:23:10,720 --> 00:23:16,880
+Ubentu logo. Okay, but I bet you guys
+
+401
+00:23:13,280 --> 00:23:20,320
+don't know. Like, do you guys know
+
+402
+00:23:16,880 --> 00:23:22,320
+what this Ubuntu logo? Why is it look
+
+403
+00:23:20,320 --> 00:23:25,600
+like that? If you know, tell me. Okay,
+
+404
+00:23:22,320 --> 00:23:28,799
+you zoomers know nothing. And you late
+
+405
+00:23:25,600 --> 00:23:32,159
+Malaysian [ __ ]
+
+406
+00:23:28,799 --> 00:23:34,559
+Okay, but before we do that, let's um I
+
+407
+00:23:32,159 --> 00:23:39,480
+need to get this going. And I need to uh
+
+408
+00:23:34,559 --> 00:23:39,480
+what is it that uh let's stop that.
+
+409
+00:23:39,919 --> 00:23:47,120
+What is it I want? Oh yeah, the top.
+
+410
+00:23:43,360 --> 00:23:49,679
+Okay, so the top.
+
+411
+00:23:47,120 --> 00:23:51,679
+Oh, that's Linux. Let's go to Windows.
+
+412
+00:23:49,679 --> 00:23:54,000
+Oh god.
+
+413
+00:23:51,679 --> 00:23:57,520
+What?
+
+414
+00:23:54,000 --> 00:23:59,760
+Keyboard lock and close. Let's go to
+
+415
+00:23:57,520 --> 00:24:02,326
+Linux tutorial.
+
+416
+00:23:59,760 --> 00:24:04,346
+This is what Linux looks like.
+
+417
+00:24:02,326 --> 00:24:04,346
+>> [laughter]
+
+418
+00:24:05,280 --> 00:24:12,240
+>> Penguin with rabbit rabbit ears. And
+
+419
+00:24:08,720 --> 00:24:15,919
+penguin with moose
+
+420
+00:24:12,240 --> 00:24:17,679
+horns and frog head. And penguin with
+
+421
+00:24:15,919 --> 00:24:19,360
+elephant
+
+422
+00:24:17,679 --> 00:24:23,360
+nose.
+
+423
+00:24:19,360 --> 00:24:25,679
+Trump trunk trump trunk
+
+424
+00:24:23,360 --> 00:24:29,039
+the mutation. That's Linux. By the way,
+
+425
+00:24:25,679 --> 00:24:32,720
+this this is uh this image came from
+
+426
+00:24:29,039 --> 00:24:35,279
+Microsoft in year 2000. because the
+
+427
+00:24:32,720 --> 00:24:39,200
+Microsoft they are marking Linux you
+
+428
+00:24:35,279 --> 00:24:42,000
+know um so where is it I don't have a oh
+
+429
+00:24:39,200 --> 00:24:44,240
+[ __ ] okay let me show you guys okay
+
+430
+00:24:42,000 --> 00:24:46,559
+because this interesting
+
+431
+00:24:44,240 --> 00:24:48,640
+you are watching nothing you are wasting
+
+432
+00:24:46,559 --> 00:24:50,240
+your time that's why you guys are here
+
+433
+00:24:48,640 --> 00:24:52,080
+okay if you are here you are wasting
+
+434
+00:24:50,240 --> 00:24:54,720
+your time better go do something busy
+
+435
+00:24:52,080 --> 00:24:57,840
+okay get you know go learn Linux go
+
+436
+00:24:54,720 --> 00:25:02,039
+learn AI and stuff you are wasting time
+
+437
+00:24:57,840 --> 00:25:02,039
+with a crazy And
+
+438
+00:25:05,120 --> 00:25:13,760
+uh Microsoft hatred 2002. Microsoft
+
+439
+00:25:09,120 --> 00:25:16,559
+hatred FAQ. Microsoft hatred and God.
+
+440
+00:25:13,760 --> 00:25:20,240
+You know a lot of people hate Microsoft
+
+441
+00:25:16,559 --> 00:25:22,720
+like deep hatred by this Linux and Unix
+
+442
+00:25:20,240 --> 00:25:25,520
+people. Anyway, here here's the
+
+443
+00:25:22,720 --> 00:25:27,520
+Microsoft that year 2000. But can you
+
+444
+00:25:25,520 --> 00:25:32,279
+imagine
+
+445
+00:25:27,520 --> 00:25:32,279
+now after 25 years
+
+446
+00:25:32,320 --> 00:25:38,720
+Microsoft embraced Linux in Linux and
+
+447
+00:25:35,840 --> 00:25:42,400
+Microsoft became the biggest open-source
+
+448
+00:25:38,720 --> 00:25:44,320
+corporation and still the most nasty
+
+449
+00:25:42,400 --> 00:25:46,400
+evil
+
+450
+00:25:44,320 --> 00:25:48,400
+you see and the Linux the open source
+
+451
+00:25:46,400 --> 00:25:50,720
+[ __ ] they don't know they know
+
+452
+00:25:48,400 --> 00:25:54,159
+nothing [laughter]
+
+453
+00:25:50,720 --> 00:25:57,120
+they become you know they they they got
+
+454
+00:25:54,159 --> 00:26:00,240
+eaten alive by the this deep state with
+
+455
+00:25:57,120 --> 00:26:01,919
+cooperation with one 10,000 lawyers you
+
+456
+00:26:00,240 --> 00:26:04,640
+know this Microsoft open source the
+
+457
+00:26:01,919 --> 00:26:07,039
+biggest open source corporation
+
+458
+00:26:04,640 --> 00:26:11,520
+Microsoft and Google by lines of code
+
+459
+00:26:07,039 --> 00:26:14,960
+okay they are like the entire uh net
+
+460
+00:26:11,520 --> 00:26:16,960
+system is open source
+
+461
+00:26:14,960 --> 00:26:19,919
+and Google you know you know chrome like
+
+462
+00:26:16,960 --> 00:26:23,919
+the Linux [ __ ] oh I use chrome oh I
+
+463
+00:26:19,919 --> 00:26:27,679
+use firefox oh but I use is ice fox you
+
+464
+00:26:23,919 --> 00:26:31,679
+know is I use Wasel browser. [ __ ] it.
+
+465
+00:26:27,679 --> 00:26:33,679
+Anyway, after 25 years, they become
+
+466
+00:26:31,679 --> 00:26:36,400
+bigger and bigger. They become the
+
+467
+00:26:33,679 --> 00:26:38,480
+biggest massive evil corporation, Google
+
+468
+00:26:36,400 --> 00:26:41,039
+and Microsoft.
+
+469
+00:26:38,480 --> 00:26:43,440
+And we got the open source fanatics.
+
+470
+00:26:41,039 --> 00:26:45,039
+Kasan, why are you not using Linux, you
+
+471
+00:26:43,440 --> 00:26:48,320
+[ __ ]
+
+472
+00:26:45,039 --> 00:26:51,120
+You know, every day we live in fear like
+
+473
+00:26:48,320 --> 00:26:54,080
+we don't dare to use real names. Oh, you
+
+474
+00:26:51,120 --> 00:26:56,880
+can't oh you can't talk nasty about you
+
+475
+00:26:54,080 --> 00:26:58,960
+know uh some
+
+476
+00:26:56,880 --> 00:27:02,080
+you get you get banned you know we live
+
+477
+00:26:58,960 --> 00:27:04,880
+in fear and these people they say oh but
+
+478
+00:27:02,080 --> 00:27:07,120
+but open source but you need open source
+
+479
+00:27:04,880 --> 00:27:10,880
+[ __ ] it
+
+480
+00:27:07,120 --> 00:27:14,320
+25 years his history you know Google
+
+481
+00:27:10,880 --> 00:27:16,000
+began like do no evil and they removed
+
+482
+00:27:14,320 --> 00:27:20,159
+that
+
+483
+00:27:16,000 --> 00:27:22,320
+they are now do evil let's do evil
+
+484
+00:27:20,159 --> 00:27:24,799
+[ __ ] them.
+
+485
+00:27:22,320 --> 00:27:27,919
+Okay. And that that got me angry, you
+
+486
+00:27:24,799 --> 00:27:30,320
+know. So I wanted I wanted to say um I
+
+487
+00:27:27,919 --> 00:27:34,720
+wanted to um [clears throat]
+
+488
+00:27:30,320 --> 00:27:38,320
+uh Unix pestilence. This is my um 25
+
+489
+00:27:34,720 --> 00:27:42,880
+years old article because I was s admin
+
+490
+00:27:38,320 --> 00:27:46,240
+for Solaris and and and and uh HP unit
+
+491
+00:27:42,880 --> 00:27:51,279
+UX and and stuff. Anyway, let's go back
+
+492
+00:27:46,240 --> 00:27:55,039
+to um Linux by command line.
+
+493
+00:27:51,279 --> 00:27:59,440
+I want to show you guys this UTP. Okay,
+
+494
+00:27:55,039 --> 00:28:02,440
+the [ __ ] The Linux Unix
+
+495
+00:27:59,440 --> 00:28:02,440
+[ __ ]
+
+496
+00:28:02,799 --> 00:28:05,989
+Where is it?
+
+497
+00:28:05,334 --> 00:28:07,679
+[snorts]
+
+498
+00:28:05,989 --> 00:28:09,760
+[sighs]
+
+499
+00:28:07,679 --> 00:28:12,240
+Okay, I need to calm down. Maybe I
+
+500
+00:28:09,760 --> 00:28:15,559
+should have a drink. Is it time for a
+
+501
+00:28:12,240 --> 00:28:15,559
+drink yet?
+
+502
+00:28:15,919 --> 00:28:18,919
+um
+
+503
+00:28:19,360 --> 00:28:26,080
+text processing file permissions. Oh,
+
+504
+00:28:22,399 --> 00:28:28,000
+PSQ top hop
+
+505
+00:28:26,080 --> 00:28:30,960
+say this is a better one. This is like
+
+506
+00:28:28,000 --> 00:28:34,000
+this is the story of Unix. You know they
+
+507
+00:28:30,960 --> 00:28:37,600
+create [ __ ] and after a while people
+
+508
+00:28:34,000 --> 00:28:40,960
+realize it's [ __ ] They need to pile
+
+509
+00:28:37,600 --> 00:28:45,289
+[ __ ] on top of the [ __ ] That's why you
+
+510
+00:28:40,960 --> 00:28:45,919
+have htop because the top is [ __ ]
+
+511
+00:28:45,289 --> 00:28:49,600
+[laughter]
+
+512
+00:28:45,919 --> 00:28:53,120
+the entire Unix thing like like grab, F
+
+513
+00:28:49,600 --> 00:28:56,159
+grab, E grab then then then silver then
+
+514
+00:28:53,120 --> 00:28:58,559
+then then then they they you know 10 10
+
+515
+00:28:56,159 --> 00:29:01,440
+years ago they got the the the one
+
+516
+00:28:58,559 --> 00:29:04,640
+written in rust and today you have so
+
+517
+00:29:01,440 --> 00:29:06,559
+many shells you know because it's [ __ ]
+
+518
+00:29:04,640 --> 00:29:08,960
+it's a [ __ ] to begin with but you just
+
+519
+00:29:06,559 --> 00:29:12,000
+pile it another [ __ ] you know that's why
+
+520
+00:29:08,960 --> 00:29:15,520
+that's why the Linux is like the entire
+
+521
+00:29:12,000 --> 00:29:17,120
+you know entire complexity
+
+522
+00:29:15,520 --> 00:29:20,640
+By the way, by the way, did you know
+
+523
+00:29:17,120 --> 00:29:23,679
+that Linux truncate lines like for for
+
+524
+00:29:20,640 --> 00:29:25,840
+example if you started Apache server or
+
+525
+00:29:23,679 --> 00:29:29,360
+whatever long command name you know
+
+526
+00:29:25,840 --> 00:29:32,320
+pearl or something or Java serlet or you
+
+527
+00:29:29,360 --> 00:29:34,559
+know then you run it you know then it's
+
+528
+00:29:32,320 --> 00:29:40,840
+um
+
+529
+00:29:34,559 --> 00:29:40,840
+uh PS okay so oh loud
+
+530
+00:29:40,880 --> 00:29:47,760
+PS aux
+
+531
+00:29:43,279 --> 00:29:50,399
+that's a Solaris version of the
+
+532
+00:29:47,760 --> 00:29:54,799
+of the um
+
+533
+00:29:50,399 --> 00:29:59,279
+options for PS a u www.
+
+534
+00:29:54,799 --> 00:30:02,080
+Why ww? Because w is for wordy. So two w
+
+535
+00:29:59,279 --> 00:30:06,399
+means more wordy. Okay. And it is
+
+536
+00:30:02,080 --> 00:30:10,159
+supported by Linux as well. Can you see?
+
+537
+00:30:06,399 --> 00:30:13,039
+But the other HPUX you know there's two
+
+538
+00:30:10,159 --> 00:30:16,880
+branch of Unix you know one is called um
+
+539
+00:30:13,039 --> 00:30:20,799
+system 5 the other one is um what is it
+
+540
+00:30:16,880 --> 00:30:22,885
+AT&T you know so the other Unix support
+
+541
+00:30:20,799 --> 00:30:23,679
+PS-f
+
+542
+00:30:22,885 --> 00:30:27,520
+[snorts]
+
+543
+00:30:23,679 --> 00:30:30,880
+okay so now both are supported by um
+
+544
+00:30:27,520 --> 00:30:36,000
+merged like by Linux you know because
+
+545
+00:30:30,880 --> 00:30:39,600
+but you you you realize why the auwx
+
+546
+00:30:36,000 --> 00:30:42,320
+Why? Why they don't have a dash? Because
+
+547
+00:30:39,600 --> 00:30:45,440
+the Unix inconsistency,
+
+548
+00:30:42,320 --> 00:30:48,000
+[ __ ] it's a [ __ ] to begin with, you
+
+549
+00:30:45,440 --> 00:30:51,760
+know? So, it's all [ __ ] That's why.
+
+550
+00:30:48,000 --> 00:30:53,919
+Okay. Awx.
+
+551
+00:30:51,760 --> 00:30:56,080
+But when you learn if you run a long
+
+552
+00:30:53,919 --> 00:30:59,840
+program, you know, the path is long,
+
+553
+00:30:56,080 --> 00:31:02,640
+lots of options. The Unix silently
+
+554
+00:30:59,840 --> 00:31:04,799
+truncate your lines. So when you want to
+
+555
+00:31:02,640 --> 00:31:09,520
+grab you know you want to grab you know
+
+556
+00:31:04,799 --> 00:31:13,919
+you're like like ps uh ps something pass
+
+557
+00:31:09,520 --> 00:31:16,399
+it to uh grab I want to know if I um did
+
+558
+00:31:13,919 --> 00:31:20,320
+I run s server
+
+559
+00:31:16,399 --> 00:31:22,480
+you know it says you know not found but
+
+560
+00:31:20,320 --> 00:31:25,520
+actually because it truncated the line
+
+561
+00:31:22,480 --> 00:31:28,000
+you are trying to search.
+
+562
+00:31:25,520 --> 00:31:33,360
+Do you see do you guys know what I mean?
+
+563
+00:31:28,000 --> 00:31:37,919
+[ __ ] Unix. Okay. [ __ ] it. [ __ ] the C and
+
+564
+00:31:33,360 --> 00:31:39,679
+Unix and now Linux [ __ ]
+
+565
+00:31:37,919 --> 00:31:42,159
+But what can you do? They they are like,
+
+566
+00:31:39,679 --> 00:31:45,120
+"Oh, but we are the most powerful. We
+
+567
+00:31:42,159 --> 00:31:48,480
+are cockroaches. Every server run us,
+
+568
+00:31:45,120 --> 00:31:50,399
+you know, Google. They are 10 gazillion
+
+569
+00:31:48,480 --> 00:31:53,279
+billion server farms. They are all
+
+570
+00:31:50,399 --> 00:31:56,640
+running Linux. Of course, because it's
+
+571
+00:31:53,279 --> 00:31:58,399
+free like cigarettes given to children
+
+572
+00:31:56,640 --> 00:32:01,519
+free,
+
+573
+00:31:58,399 --> 00:32:03,679
+you know.
+
+574
+00:32:01,519 --> 00:32:06,240
+[ __ ] him.
+
+575
+00:32:03,679 --> 00:32:08,559
+Uh, you know, I I can't get not angry
+
+576
+00:32:06,240 --> 00:32:10,799
+when I talk started to talk about Linux,
+
+577
+00:32:08,559 --> 00:32:13,840
+you know. And I've done this rant like a
+
+578
+00:32:10,799 --> 00:32:17,512
+thousand times in the past videos, but
+
+579
+00:32:13,840 --> 00:32:18,960
+not in recent years. Anyway,
+
+580
+00:32:17,512 --> 00:32:21,440
+[sighs]
+
+581
+00:32:18,960 --> 00:32:24,399
+take a breath. And now, let's get back
+
+582
+00:32:21,440 --> 00:32:26,720
+to um
+
+583
+00:32:24,399 --> 00:32:30,320
+what what we doing. So we will did we
+
+584
+00:32:26,720 --> 00:32:33,360
+install correctly the build tools build
+
+585
+00:32:30,320 --> 00:32:34,960
+essentials I think so.
+
+586
+00:32:33,360 --> 00:32:38,240
+Okay.
+
+587
+00:32:34,960 --> 00:32:42,480
+Okay. So you and you need to install uh
+
+588
+00:32:38,240 --> 00:32:45,279
+Utop hop. Uh is it is it I don't think
+
+589
+00:32:42,480 --> 00:32:48,279
+you know I'm pretty sure it's not a not
+
+590
+00:32:45,279 --> 00:32:48,279
+available
+
+591
+00:32:48,297 --> 00:32:50,317
+[sighs and gasps]
+
+592
+00:32:50,640 --> 00:32:55,919
+edge top.
+
+593
+00:32:53,120 --> 00:32:58,000
+Okay. when I was you know running Linux
+
+594
+00:32:55,919 --> 00:33:00,799
+I mean when I was doing Unix you know
+
+595
+00:32:58,000 --> 00:33:03,519
+like I'm very aggressive about this you
+
+596
+00:33:00,799 --> 00:33:06,399
+know you should never use top always
+
+597
+00:33:03,519 --> 00:33:09,279
+just install edgetop because it's better
+
+598
+00:33:06,399 --> 00:33:12,559
+you know improvement like mo [laughter]
+
+599
+00:33:09,279 --> 00:33:15,519
+like mo you know you you should use um
+
+600
+00:33:12,559 --> 00:33:18,240
+like you know you have find and today
+
+601
+00:33:15,519 --> 00:33:19,840
+you have a better one FD okay you should
+
+602
+00:33:18,240 --> 00:33:23,880
+install that because it's better you
+
+603
+00:33:19,840 --> 00:33:23,880
+know the the Linux fox
+
+604
+00:33:24,240 --> 00:33:27,840
+Um,
+
+605
+00:33:26,399 --> 00:33:31,120
+okay. [sighs]
+
+606
+00:33:27,840 --> 00:33:33,519
+Okay. Okay. Let's go back to Emacs.
+
+607
+00:33:31,120 --> 00:33:35,760
+Okay. Emacs.
+
+608
+00:33:33,519 --> 00:33:37,600
+Let's go back to Emacs. And I haven't
+
+609
+00:33:35,760 --> 00:33:40,000
+talked about this story yet. Did you
+
+610
+00:33:37,600 --> 00:33:43,480
+guys know? Okay. Let's Let's read the
+
+611
+00:33:40,000 --> 00:33:43,480
+comments. Okay.
+
+612
+00:33:47,279 --> 00:33:51,360
+I like the drunken master. Well, I
+
+613
+00:33:49,679 --> 00:33:57,240
+didn't drink today. I didn't drink
+
+614
+00:33:51,360 --> 00:33:57,240
+today. Today is my natural crazy.
+
+615
+00:33:59,919 --> 00:34:04,640
+Windows is pretty good nowadays, but
+
+616
+00:34:02,320 --> 00:34:08,240
+Windows is nasty. Windows got deep
+
+617
+00:34:04,640 --> 00:34:10,320
+state. Windows got back doors like like
+
+618
+00:34:08,240 --> 00:34:13,679
+every day like like yesterday, you know,
+
+619
+00:34:10,320 --> 00:34:15,359
+it just started to install updates, you
+
+620
+00:34:13,679 --> 00:34:17,280
+know, and you can't stop it, you know,
+
+621
+00:34:15,359 --> 00:34:19,200
+whatever nasty things they they they
+
+622
+00:34:17,280 --> 00:34:21,679
+come to your machine like they press the
+
+623
+00:34:19,200 --> 00:34:24,480
+button, someone in the deep state press
+
+624
+00:34:21,679 --> 00:34:27,040
+the button and the update sends out to
+
+625
+00:34:24,480 --> 00:34:31,599
+millions of people and you know when
+
+626
+00:34:27,040 --> 00:34:33,520
+when and they decided, oh, this guy is
+
+627
+00:34:31,599 --> 00:34:35,679
+bad mouthing us. you know, they they
+
+628
+00:34:33,520 --> 00:34:38,320
+send the update and tomorrow I can't
+
+629
+00:34:35,679 --> 00:34:41,599
+start my computers anymore. That's the
+
+630
+00:34:38,320 --> 00:34:43,760
+problem with Windows. Okay.
+
+631
+00:34:41,599 --> 00:34:46,159
+So, I've been wanting to switch away
+
+632
+00:34:43,760 --> 00:34:48,240
+from Windows, but you you know you it's
+
+633
+00:34:46,159 --> 00:34:50,879
+it's not like I'm not like young guys
+
+634
+00:34:48,240 --> 00:34:54,399
+like you guys. You got all the time. Oh,
+
+635
+00:34:50,879 --> 00:34:56,560
+let's play, you know, Linux Dro and uh
+
+636
+00:34:54,399 --> 00:34:59,440
+switch. You can't easy switch. You know,
+
+637
+00:34:56,560 --> 00:35:02,574
+I need to back up. I need to change a
+
+638
+00:34:59,440 --> 00:35:04,594
+lot of things.
+
+639
+00:35:02,574 --> 00:35:04,594
+[sighs]
+
+640
+00:35:05,520 --> 00:35:10,160
+Uh, Linux sucks, but it runs great on
+
+641
+00:35:07,839 --> 00:35:12,160
+old hardware. That's what they say, you
+
+642
+00:35:10,160 --> 00:35:14,079
+know.
+
+643
+00:35:12,160 --> 00:35:16,160
+Okay. I don't like Mac because it's
+
+644
+00:35:14,079 --> 00:35:19,280
+locked down. That's kind of true. Kind
+
+645
+00:35:16,160 --> 00:35:21,440
+of. But, um,
+
+646
+00:35:19,280 --> 00:35:24,640
+uh, okay. Topping [ __ ] with more [ __ ]
+
+647
+00:35:21,440 --> 00:35:28,240
+That's true.
+
+648
+00:35:24,640 --> 00:35:32,160
+Mac OS container machines, Windows WSL
+
+649
+00:35:28,240 --> 00:35:35,200
+competitor. Oh, I didn't know Mac OS has
+
+650
+00:35:32,160 --> 00:35:40,680
+container machines, but Mac OS X is
+
+651
+00:35:35,200 --> 00:35:40,680
+Linux. I mean I mean it's a Unix.
+
+652
+00:35:42,560 --> 00:35:50,640
+Okay, we got this BRW
+
+653
+00:35:46,320 --> 00:35:53,760
+this guy. Okay, VR V lex, you know, like
+
+654
+00:35:50,640 --> 00:35:58,160
+a non a non coward and is making fun of
+
+655
+00:35:53,760 --> 00:36:00,320
+me. Okay, so nobody knows what Ubentu
+
+656
+00:35:58,160 --> 00:36:03,760
+logo came from. So let me tell you guys
+
+657
+00:36:00,320 --> 00:36:08,960
+okay the Ubenu logo
+
+658
+00:36:03,760 --> 00:36:12,160
+came from the utopian ideology where the
+
+659
+00:36:08,960 --> 00:36:16,000
+the world of different races
+
+660
+00:36:12,160 --> 00:36:20,640
+unite like the white men the black man
+
+661
+00:36:16,000 --> 00:36:23,359
+men the let's say Palestinians
+
+662
+00:36:20,640 --> 00:36:26,000
+you know that we all and the other group
+
+663
+00:36:23,359 --> 00:36:30,320
+okay we all unite and hug each other
+
+664
+00:36:26,000 --> 00:36:34,160
+that's the origin of the uban tool logo.
+
+665
+00:36:30,320 --> 00:36:37,760
+Okay. Ubenu is built by a guy I believe
+
+666
+00:36:34,160 --> 00:36:41,440
+a African black guy.
+
+667
+00:36:37,760 --> 00:36:44,480
+So we need to uh look at Ubenu uh logo
+
+668
+00:36:41,440 --> 00:36:47,440
+photo. Can you see the original photo of
+
+669
+00:36:44,480 --> 00:36:49,680
+that? I think they erase things so you
+
+670
+00:36:47,440 --> 00:36:52,400
+don't
+
+671
+00:36:49,680 --> 00:36:54,800
+you can find it now. You see the
+
+672
+00:36:52,400 --> 00:36:57,760
+original design of this logo. It's three
+
+673
+00:36:54,800 --> 00:37:00,160
+people of different races like a black
+
+674
+00:36:57,760 --> 00:37:02,480
+guy, a white guy, a yellow guy,
+
+675
+00:37:00,160 --> 00:37:06,560
+whatever, you know, hugging each other.
+
+676
+00:37:02,480 --> 00:37:09,119
+That's a ideology. Utopian, the utopian
+
+677
+00:37:06,560 --> 00:37:11,680
+nation like you must believe this
+
+678
+00:37:09,119 --> 00:37:14,480
+otherwise you must die. That's what they
+
+679
+00:37:11,680 --> 00:37:17,920
+say. That's how we got the deeply [ __ ]
+
+680
+00:37:14,480 --> 00:37:19,359
+up deep state today. The original nice,
+
+681
+00:37:17,920 --> 00:37:22,160
+you know, it's always, you know, the
+
+682
+00:37:19,359 --> 00:37:25,880
+intention is nice. The intention is
+
+683
+00:37:22,160 --> 00:37:25,880
+always nice but
+
+684
+00:37:25,920 --> 00:37:31,040
+but uh you see the world doesn't go by
+
+685
+00:37:28,400 --> 00:37:33,520
+good intentions usually good intentions
+
+686
+00:37:31,040 --> 00:37:37,119
+the ideology like the free software
+
+687
+00:37:33,520 --> 00:37:39,520
+foundation [ __ ] you up that's why we
+
+688
+00:37:37,119 --> 00:37:41,839
+have the deep state we live in fear we
+
+689
+00:37:39,520 --> 00:37:44,800
+don't dare to show our face we everyone
+
+690
+00:37:41,839 --> 00:37:48,079
+is a none you don't dare to talk about
+
+691
+00:37:44,800 --> 00:37:50,800
+things you know but you are happy but I
+
+692
+00:37:48,079 --> 00:37:52,880
+hack I hack Linux so that they cannot
+
+693
+00:37:50,800 --> 00:37:54,480
+not you know so so I don't have back
+
+694
+00:37:52,880 --> 00:37:59,760
+door that you know that's what you guys
+
+695
+00:37:54,480 --> 00:38:01,280
+are why are the you know the that's like
+
+696
+00:37:59,760 --> 00:38:04,880
+0.1%
+
+697
+00:38:01,280 --> 00:38:07,920
+0.001% 001% people like like you guys
+
+698
+00:38:04,880 --> 00:38:10,560
+and me but most people they you know
+
+699
+00:38:07,920 --> 00:38:14,000
+anyway
+
+700
+00:38:10,560 --> 00:38:17,119
+so let's find the photo because I'm
+
+701
+00:38:14,000 --> 00:38:19,599
+determined okay
+
+702
+00:38:17,119 --> 00:38:23,006
+logo origin
+
+703
+00:38:19,599 --> 00:38:25,026
+search Ubuntu logo origin photo
+
+704
+00:38:23,006 --> 00:38:25,026
+[laughter]
+
+705
+00:38:25,520 --> 00:38:30,560
+you see this one someone is trying to
+
+706
+00:38:28,240 --> 00:38:32,960
+make fun of it
+
+707
+00:38:30,560 --> 00:38:35,359
+but I want to see the original photo. So
+
+708
+00:38:32,960 --> 00:38:39,200
+it's like 25 years ago. So it's hard to
+
+709
+00:38:35,359 --> 00:38:42,001
+find now. You see they buried history.
+
+710
+00:38:39,200 --> 00:38:44,021
+You see this steep state they you know.
+
+711
+00:38:42,001 --> 00:38:44,021
+[sighs]
+
+712
+00:38:44,400 --> 00:38:51,040
+So let's go to
+
+713
+00:38:48,160 --> 00:38:53,040
+yeah Uben 2 logo engine photo. Okay.
+
+714
+00:38:51,040 --> 00:38:57,119
+Someone is making fun of it. Let's see.
+
+715
+00:38:53,040 --> 00:39:00,320
+This is Reddit. Do they actually show?
+
+716
+00:38:57,119 --> 00:39:05,400
+None of these are real. Okay. But there
+
+717
+00:39:00,320 --> 00:39:05,400
+is should be a original um
+
+718
+00:39:05,839 --> 00:39:12,400
+copy. Now we need to go to the deep
+
+719
+00:39:09,040 --> 00:39:16,119
+state website. Let's see if they will
+
+720
+00:39:12,400 --> 00:39:16,119
+show you. Okay.
+
+721
+00:39:19,599 --> 00:39:25,119
+Okay. AI overview. The Ubuntu logo
+
+722
+00:39:22,400 --> 00:39:28,320
+universally known as the circle of
+
+723
+00:39:25,119 --> 00:39:31,520
+friends represents three abstract
+
+724
+00:39:28,320 --> 00:39:34,560
+figures holding hands and leaning back
+
+725
+00:39:31,520 --> 00:39:37,040
+in a circle. The design is a direct
+
+726
+00:39:34,560 --> 00:39:40,640
+graphical translation of the South
+
+727
+00:39:37,040 --> 00:39:44,000
+African philosophical concept of Ubuntu
+
+728
+00:39:40,640 --> 00:39:46,560
+which loosely translates to humanity to
+
+729
+00:39:44,000 --> 00:39:50,240
+others.
+
+730
+00:39:46,560 --> 00:39:53,040
+H I am because we are okay. So
+
+731
+00:39:50,240 --> 00:39:56,560
+photographic or engine. Let's see. Um
+
+732
+00:39:53,040 --> 00:39:59,560
+there it is. Ask Ubuntu. Let's go to ask
+
+733
+00:39:56,560 --> 00:39:59,560
+Ubuntu.
+
+734
+00:40:00,640 --> 00:40:06,400
+Who Uben to you know uh Stack Overflow.
+
+735
+00:40:03,839 --> 00:40:09,920
+You know this is history because Stlack
+
+736
+00:40:06,400 --> 00:40:12,880
+Overflow is now dead killed by AI since
+
+737
+00:40:09,920 --> 00:40:17,687
+about two years ago. But we are looking
+
+738
+00:40:12,880 --> 00:40:17,687
+at Stack Overflow. It's dead. [laughter]
+
+739
+00:40:18,000 --> 00:40:24,240
+And someone you know some zoomer
+
+740
+00:40:22,000 --> 00:40:27,520
+some zoomer is asking who is the
+
+741
+00:40:24,240 --> 00:40:30,480
+designer of the Ubuntu logo 2017. Okay
+
+742
+00:40:27,520 --> 00:40:34,160
+like they don't know nothing.
+
+743
+00:40:30,480 --> 00:40:35,680
+There it is. Can you see? So this is the
+
+744
+00:40:34,160 --> 00:40:37,680
+origin
+
+745
+00:40:35,680 --> 00:40:41,359
+of the ideology
+
+746
+00:40:37,680 --> 00:40:44,480
+of the social justice warriors
+
+747
+00:40:41,359 --> 00:40:47,040
+that if you don't believe men and women
+
+748
+00:40:44,480 --> 00:40:50,160
+are different you should die.
+
+749
+00:40:47,040 --> 00:40:52,960
+That's what they say. Okay.
+
+750
+00:40:50,160 --> 00:40:55,359
+And the riots and burning people alive
+
+751
+00:40:52,960 --> 00:40:58,720
+and you know massive burning buildings.
+
+752
+00:40:55,359 --> 00:41:02,079
+That's that's that's from them. And and
+
+753
+00:40:58,720 --> 00:41:04,960
+the Ukraine war and the other war and
+
+754
+00:41:02,079 --> 00:41:08,280
+you know that's uh the name of it is
+
+755
+00:41:04,960 --> 00:41:08,280
+deep state.
+
+756
+00:41:08,723 --> 00:41:15,720
+[sighs] I wonder if I said too much
+
+757
+00:41:11,280 --> 00:41:15,720
+Google is going to cancel me.
+
+758
+00:41:18,240 --> 00:41:24,480
+Uh, I like you, uncle. You seem cool.
+
+759
+00:41:20,880 --> 00:41:27,359
+Thank you. Vega Bomb says, "What is your
+
+760
+00:41:24,480 --> 00:41:30,920
+refresh rate, Uncle?" What? What refresh
+
+761
+00:41:27,359 --> 00:41:30,920
+rate? My monitor.
+
+762
+00:41:32,960 --> 00:41:40,160
+Okay, that's a story. Okay, Ubenu logo.
+
+763
+00:41:37,200 --> 00:41:43,359
+Uh, that's what I want to tell you guys,
+
+764
+00:41:40,160 --> 00:41:46,560
+the story, the tale of the Ubuntu logo.
+
+765
+00:41:43,359 --> 00:41:50,040
+So, let's make a screenshot of this for
+
+766
+00:41:46,560 --> 00:41:50,040
+history purposes.
+
+767
+00:41:50,880 --> 00:41:55,760
+So, for you guys, young people, if you
+
+768
+00:41:53,359 --> 00:41:59,839
+didn't know this, now you remember one
+
+769
+00:41:55,760 --> 00:42:04,000
+day I watched this weird guy si and I
+
+770
+00:41:59,839 --> 00:42:06,240
+learned, oh, there's this concept. Okay,
+
+771
+00:42:04,000 --> 00:42:09,680
+now let me tell you why is this uh
+
+772
+00:42:06,240 --> 00:42:13,680
+nasty? Because this ideology never
+
+773
+00:42:09,680 --> 00:42:16,160
+works. Okay, ideally, sure. Why not? Of
+
+774
+00:42:13,680 --> 00:42:18,640
+course, I always loved, you know, I
+
+775
+00:42:16,160 --> 00:42:23,119
+don't have any problem with blacks. So
+
+776
+00:42:18,640 --> 00:42:26,560
+why do you know the but
+
+777
+00:42:23,119 --> 00:42:28,800
+in reality you see
+
+778
+00:42:26,560 --> 00:42:31,839
+when push comes to shove this just
+
+779
+00:42:28,800 --> 00:42:33,359
+doesn't work. You need practical you
+
+780
+00:42:31,839 --> 00:42:36,079
+need
+
+781
+00:42:33,359 --> 00:42:37,680
+practical thinking. You need to live in
+
+782
+00:42:36,079 --> 00:42:40,800
+peace
+
+783
+00:42:37,680 --> 00:42:43,839
+but not by ideology. Okay, that gives
+
+784
+00:42:40,800 --> 00:42:47,200
+you misery. That's what we have. Death
+
+785
+00:42:43,839 --> 00:42:51,280
+killing people. That's what this
+
+786
+00:42:47,200 --> 00:42:53,760
+result. Okay. The result of that.
+
+787
+00:42:51,280 --> 00:42:56,400
+Now, shall we go back to Emacs? Shall
+
+788
+00:42:53,760 --> 00:42:59,040
+we? Um, let's see. We want to look. So,
+
+789
+00:42:56,400 --> 00:43:02,240
+we solved that question. This is the
+
+790
+00:42:59,040 --> 00:43:05,440
+Unix pestilence. Okay. This book you you
+
+791
+00:43:02,240 --> 00:43:08,560
+guys should read the Unix pestilence.
+
+792
+00:43:05,440 --> 00:43:10,880
+Pestilence still true to this day. All
+
+793
+00:43:08,560 --> 00:43:13,280
+the details, the commands, the [ __ ] up
+
+794
+00:43:10,880 --> 00:43:16,160
+commands, you know, the the design,
+
+795
+00:43:13,280 --> 00:43:20,000
+no-brainer design, the Unix. Okay, no
+
+796
+00:43:16,160 --> 00:43:23,280
+brainer. Like everything is just [ __ ]
+
+797
+00:43:20,000 --> 00:43:25,200
+[ __ ] Just memorize it. Okay, that's
+
+798
+00:43:23,280 --> 00:43:27,440
+all that's all you want to do. Just
+
+799
+00:43:25,200 --> 00:43:29,920
+memorize it. Don't ask questions. Why is
+
+800
+00:43:27,440 --> 00:43:34,079
+it this way? Just just just do it. Just
+
+801
+00:43:29,920 --> 00:43:37,800
+just type what I say. [laughter]
+
+802
+00:43:34,079 --> 00:43:37,800
+Linux [ __ ]
+
+803
+00:43:38,319 --> 00:43:44,480
+Okay, now let's get back to Emacs. Let's
+
+804
+00:43:41,119 --> 00:43:47,599
+see. We were original intention is to
+
+805
+00:43:44,480 --> 00:43:51,359
+install Emacs. Now, where is Emacs?
+
+806
+00:43:47,599 --> 00:43:56,839
+Okay, you need to um build essentials.
+
+807
+00:43:51,359 --> 00:43:56,839
+We got did we? Let's see.
+
+808
+00:43:59,119 --> 00:44:06,319
+So I need to install a lot of programs
+
+809
+00:44:01,599 --> 00:44:08,480
+like Utop and and the tree a tree
+
+810
+00:44:06,319 --> 00:44:12,319
+command. So I don't think I have a tree
+
+811
+00:44:08,480 --> 00:44:17,280
+command. So which tree that shows
+
+812
+00:44:12,319 --> 00:44:20,960
+directory as a tree and uh but and and
+
+813
+00:44:17,280 --> 00:44:23,260
+uh uh which GCC
+
+814
+00:44:20,960 --> 00:44:25,280
+I got gccy
+
+815
+00:44:23,260 --> 00:44:25,280
+[laughter]
+
+816
+00:44:25,520 --> 00:44:32,319
+C and C++ [ __ ]
+
+817
+00:44:29,520 --> 00:44:36,000
+Okay, that's installed. Now I let's uh
+
+818
+00:44:32,319 --> 00:44:40,319
+install that's um
+
+819
+00:44:36,000 --> 00:44:44,400
+sudo app get build dependency emac 24. I
+
+820
+00:44:40,319 --> 00:44:48,560
+don't even have emac 24. Well, but does
+
+821
+00:44:44,400 --> 00:44:53,480
+that work? By now it's emac 30. You see
+
+822
+00:44:48,560 --> 00:44:53,480
+I wrote this in 2012.
+
+823
+00:44:53,599 --> 00:45:00,720
+So now it's emac uh 30. Can you like run
+
+824
+00:44:58,480 --> 00:45:04,079
+this? Let's see.
+
+825
+00:45:00,720 --> 00:45:06,319
+Emacs 30.
+
+826
+00:45:04,079 --> 00:45:09,960
+Can you do Can you do that? Oh, password
+
+827
+00:45:06,319 --> 00:45:09,960
+again. Okay.
+
+828
+00:45:11,119 --> 00:45:17,680
+Okay. Let's see what
+
+829
+00:45:14,800 --> 00:45:20,400
+what
+
+830
+00:45:17,680 --> 00:45:22,319
+you can see my keyboard. Okay. So, hold
+
+831
+00:45:20,400 --> 00:45:27,800
+on a second.
+
+832
+00:45:22,319 --> 00:45:27,800
+Uh that and uh that that
+
+833
+00:45:44,800 --> 00:45:52,400
+Okay, it says
+
+834
+00:45:48,319 --> 00:45:55,119
+you must put some describe source URIs
+
+835
+00:45:52,400 --> 00:45:59,960
+in your resource list. So this command
+
+836
+00:45:55,119 --> 00:45:59,960
+does not work any Oh [ __ ]
+
+837
+00:46:01,200 --> 00:46:07,960
+Okay, let's ask AI. Okay.
+
+838
+00:46:04,960 --> 00:46:07,960
+Uh
+
+839
+00:46:14,000 --> 00:46:18,880
+why don't I use Linux? Like I said
+
+840
+00:46:16,000 --> 00:46:21,760
+before, it takes time to switch. You I'm
+
+841
+00:46:18,880 --> 00:46:23,680
+old. I'm not like you guys younger
+
+842
+00:46:21,760 --> 00:46:27,040
+people who got older time. You can
+
+843
+00:46:23,680 --> 00:46:30,480
+switch around. For me to switch, I need
+
+844
+00:46:27,040 --> 00:46:32,960
+to back up. I need to then of course
+
+845
+00:46:30,480 --> 00:46:35,440
+install Linux. Then I need to put all my
+
+846
+00:46:32,960 --> 00:46:37,760
+systems back to Linux. You know, it's
+
+847
+00:46:35,440 --> 00:46:40,000
+lots of work.
+
+848
+00:46:37,760 --> 00:46:43,359
+Um
+
+849
+00:46:40,000 --> 00:46:48,440
+but but Microsoft is becoming very deep
+
+850
+00:46:43,359 --> 00:46:48,440
+state. So I really uh want to switch
+
+851
+00:47:04,640 --> 00:47:08,839
+Okay. Uh, so what?
+
+852
+00:47:09,440 --> 00:47:15,839
+Yes, your monitor. What?
+
+853
+00:47:12,480 --> 00:47:18,079
+My monitor refresh rate, it's pretty
+
+854
+00:47:15,839 --> 00:47:20,319
+good. But are you talking about the
+
+855
+00:47:18,079 --> 00:47:23,839
+update rate of the chat? There's like
+
+856
+00:47:20,319 --> 00:47:26,640
+five minute 5second delay. Okay. So
+
+857
+00:47:23,839 --> 00:47:30,040
+anyway, so this doesn't work. So let's
+
+858
+00:47:26,640 --> 00:47:30,040
+ask AI
+
+859
+00:47:35,119 --> 00:47:38,119
+copy.
+
+860
+00:47:39,520 --> 00:47:46,800
+I used to run
+
+861
+00:47:43,280 --> 00:47:52,160
+this. Okay.
+
+862
+00:47:46,800 --> 00:47:56,359
+But it doesn't work anymore.
+
+863
+00:47:52,160 --> 00:47:56,359
+Let's see what AI says.
+
+864
+00:47:59,920 --> 00:48:07,560
+Check. Video check. Audio check. It
+
+865
+00:48:02,079 --> 00:48:07,560
+says, okay, AI says, uh,
+
+866
+00:48:08,880 --> 00:48:15,680
+yes, that's expected. Emac 24 is
+
+867
+00:48:12,240 --> 00:48:18,880
+extremely old from 2014. and has been
+
+868
+00:48:15,680 --> 00:48:22,720
+removed from modern Ubuntu Debian. So
+
+869
+00:48:18,880 --> 00:48:26,000
+sudo Emacs build de dependency Emac 24
+
+870
+00:48:22,720 --> 00:48:28,400
+no longer works. Modern solution try
+
+871
+00:48:26,000 --> 00:48:31,200
+this. Um
+
+872
+00:48:28,400 --> 00:48:34,200
+oh okay. So you just drop the version
+
+873
+00:48:31,200 --> 00:48:34,200
+number.
+
+874
+00:48:39,119 --> 00:48:48,280
+So let's try sudo app get build
+
+875
+00:48:42,880 --> 00:48:48,280
+dependency sudo app get build
+
+876
+00:48:51,680 --> 00:48:57,839
+you know another thing about the this
+
+877
+00:48:54,079 --> 00:49:00,640
+apt is stupid name like apt like what
+
+878
+00:48:57,839 --> 00:49:03,119
+the [ __ ] does it mean apt
+
+879
+00:49:00,640 --> 00:49:06,119
+so let's do that
+
+880
+00:49:03,119 --> 00:49:06,119
+No.
+
+881
+00:49:21,280 --> 00:49:30,960
+Okay. So, here is a explicit list.
+
+882
+00:49:26,319 --> 00:49:36,040
+It says it says this. AI help me.
+
+883
+00:49:30,960 --> 00:49:36,040
+AI help me. I don't know nothing.
+
+884
+00:49:49,454 --> 00:49:52,960
+[laughter]
+
+885
+00:49:50,160 --> 00:49:57,520
+So you say it's got it. You are on a
+
+886
+00:49:52,960 --> 00:50:03,200
+recent Ubuntu likely 24.04 04 or newer
+
+887
+00:49:57,520 --> 00:50:05,200
+which uses the new deb 822 format.
+
+888
+00:50:03,200 --> 00:50:07,760
+The old resources that list this is
+
+889
+00:50:05,200 --> 00:50:11,240
+mostly a sub now. Now what the [ __ ] is
+
+890
+00:50:07,760 --> 00:50:11,240
+dev 822
+
+891
+00:50:13,760 --> 00:50:19,920
+quick fix recommend
+
+892
+00:50:16,960 --> 00:50:24,400
+cd sudo cp
+
+893
+00:50:19,920 --> 00:50:28,160
+sources list. Okay. Oh [ __ ]
+
+894
+00:50:24,400 --> 00:50:32,640
+alternative ways. Open software updates.
+
+895
+00:50:28,160 --> 00:50:35,440
+That's uh that's the GUI, right?
+
+896
+00:50:32,640 --> 00:50:38,559
+Okay.
+
+897
+00:50:35,440 --> 00:50:41,920
+What the [ __ ] is
+
+898
+00:50:38,559 --> 00:50:44,000
+Deb 822?
+
+899
+00:50:41,920 --> 00:50:47,480
+This is the way I work, you know? I need
+
+900
+00:50:44,000 --> 00:50:47,480
+to know everything.
+
+901
+00:50:48,000 --> 00:50:55,119
+So, what the [ __ ] is step 822? 822 is
+
+902
+00:50:51,359 --> 00:50:58,880
+the new structured format for APT source
+
+903
+00:50:55,119 --> 00:51:05,359
+list. Okay. Old style sources list
+
+904
+00:50:58,880 --> 00:51:08,960
+example. Okay. A22 style is what
+
+905
+00:51:05,359 --> 00:51:12,160
+key value stanza stanza my ass. You see
+
+906
+00:51:08,960 --> 00:51:15,359
+they they go waxing poetry
+
+907
+00:51:12,160 --> 00:51:17,880
+is Unix idiots.
+
+908
+00:51:15,359 --> 00:51:19,900
+The key value stanzas
+
+909
+00:51:17,880 --> 00:51:19,900
+[laughter]
+
+910
+00:51:22,480 --> 00:51:28,960
+why the change more readable and less
+
+911
+00:51:24,800 --> 00:51:31,520
+errorrone. Oh god [ __ ] That's basically
+
+912
+00:51:28,960 --> 00:51:36,480
+what your woven two sources files look
+
+913
+00:51:31,520 --> 00:51:40,040
+like. Oh [ __ ] Oh [ __ ]
+
+914
+00:51:36,480 --> 00:51:40,040
+I don't understand.
+
+915
+00:51:42,240 --> 00:51:49,200
+Oh, belex
+
+916
+00:51:45,920 --> 00:51:52,960
+says in Linux apt stand for advanced
+
+917
+00:51:49,200 --> 00:51:55,520
+package tool. Oh, that's right.
+
+918
+00:51:52,960 --> 00:51:57,599
+Command software manager used in Debian
+
+919
+00:51:55,520 --> 00:52:00,480
+based distribution. Yes, of course,
+
+920
+00:51:57,599 --> 00:52:03,760
+that's long ago. That's like 25 years
+
+921
+00:52:00,480 --> 00:52:06,640
+ago, you know, like
+
+922
+00:52:03,760 --> 00:52:08,640
+you guys don't know the story, but um
+
+923
+00:52:06,640 --> 00:52:11,520
+you know the the the beginning the
+
+924
+00:52:08,640 --> 00:52:15,200
+history of the app manager, it didn't
+
+925
+00:52:11,520 --> 00:52:17,520
+exist before. Okay, I lived through it.
+
+926
+00:52:15,200 --> 00:52:20,400
+So I watched the birth of these
+
+927
+00:52:17,520 --> 00:52:22,720
+so-called app managers. So the first
+
+928
+00:52:20,400 --> 00:52:25,359
+one, wait, can I even remember what's
+
+929
+00:52:22,720 --> 00:52:27,040
+the first one? But anyway, back then you
+
+930
+00:52:25,359 --> 00:52:29,680
+don't have these app managers. every
+
+931
+00:52:27,040 --> 00:52:32,240
+time you want to uh install Emacs or Vim
+
+932
+00:52:29,680 --> 00:52:35,440
+or whatever you download a source and
+
+933
+00:52:32,240 --> 00:52:39,040
+comp compile manually yourself for every
+
+934
+00:52:35,440 --> 00:52:40,800
+software okay there's no just type this
+
+935
+00:52:39,040 --> 00:52:43,599
+and install something app manager
+
+936
+00:52:40,800 --> 00:52:47,680
+there's no such thing
+
+937
+00:52:43,599 --> 00:52:50,640
+is not apt okay it's it's um I can't
+
+938
+00:52:47,680 --> 00:52:52,960
+remember what's the first one okay or
+
+939
+00:52:50,640 --> 00:52:56,079
+you go to some website they have
+
+940
+00:52:52,960 --> 00:52:59,280
+prepared binaries you download that okay
+
+941
+00:52:56,079 --> 00:53:01,760
+so there's no app managers then then it
+
+942
+00:52:59,280 --> 00:53:03,839
+began then there's so many versions you
+
+943
+00:53:01,760 --> 00:53:08,920
+know on the Mac I can tell you for
+
+944
+00:53:03,839 --> 00:53:08,920
+example on the Mac it began with think
+
+945
+00:53:09,839 --> 00:53:17,200
+which is a clone of something uh I don't
+
+946
+00:53:12,960 --> 00:53:19,839
+remember okay so but but can we um let's
+
+947
+00:53:17,200 --> 00:53:22,880
+let's see if I can have some let's say
+
+948
+00:53:19,839 --> 00:53:24,559
+if I have some historical document about
+
+949
+00:53:22,880 --> 00:53:28,800
+think
+
+950
+00:53:24,559 --> 00:53:31,599
+f i n Okay, there it is. Software
+
+951
+00:53:28,800 --> 00:53:33,359
+dependency complexity think. Anyway,
+
+952
+00:53:31,599 --> 00:53:35,440
+that's another article about something
+
+953
+00:53:33,359 --> 00:53:38,240
+else. But anyway, you on the Mac, you
+
+954
+00:53:35,440 --> 00:53:40,960
+begin with think, then you got then you
+
+955
+00:53:38,240 --> 00:53:45,280
+begin with um I believe it's a port.
+
+956
+00:53:40,960 --> 00:53:48,640
+Okay. Well, AI will answer. Okay.
+
+957
+00:53:45,280 --> 00:53:51,040
+Tell me tell me about the history of app
+
+958
+00:53:48,640 --> 00:53:54,720
+managers on the Mac. For example, it
+
+959
+00:53:51,040 --> 00:53:57,440
+begin with think then eventually you
+
+960
+00:53:54,720 --> 00:54:01,680
+have homebrew but there was another one
+
+961
+00:53:57,440 --> 00:54:03,680
+Mac port I believe. Is that right?
+
+962
+00:54:01,680 --> 00:54:05,760
+Yeah, you got the timeline mostly right.
+
+963
+00:54:03,680 --> 00:54:08,400
+Here's the short history. Think came
+
+964
+00:54:05,760 --> 00:54:10,720
+first started around 2000. It was based
+
+965
+00:54:08,400 --> 00:54:13,839
+on Debian's package manager. So it used
+
+966
+00:54:10,720 --> 00:54:16,480
+apt and dpkg. It was the original way to
+
+967
+00:54:13,839 --> 00:54:18,880
+install Unix software on early Macs. Mac
+
+968
+00:54:16,480 --> 00:54:20,880
+ports launched in 2002. Originally
+
+969
+00:54:18,880 --> 00:54:23,520
+called Darwin ports, it was modeled
+
+970
+00:54:20,880 --> 00:54:24,960
+after FreeBSD's port system. Many people
+
+971
+00:54:23,520 --> 00:54:26,960
+preferred it over Think because it
+
+972
+00:54:24,960 --> 00:54:28,960
+didn't mix Debian tools with Mac OS as
+
+973
+00:54:26,960 --> 00:54:31,599
+aggressively. Homebrew showed up much
+
+974
+00:54:28,960 --> 00:54:33,839
+later in 2009. It was designed
+
+975
+00:54:31,599 --> 00:54:36,400
+specifically for Mac OS, much simpler to
+
+976
+00:54:33,839 --> 00:54:38,319
+use and installed everything into USR
+
+977
+00:54:36,400 --> 00:54:40,000
+local instead of its own isolated
+
+978
+00:54:38,319 --> 00:54:43,040
+directory. That made it feel more
+
+979
+00:54:40,000 --> 00:54:45,040
+native. So the order is think Mac ports
+
+980
+00:54:43,040 --> 00:54:47,280
+homebrew. Homebrew quickly became the
+
+981
+00:54:45,040 --> 00:54:49,040
+most popular by far. Mac ports is still
+
+982
+00:54:47,280 --> 00:54:51,599
+actively maintained, but homebrew
+
+983
+00:54:49,040 --> 00:54:52,800
+dominates now. Think is basically dead.
+
+984
+00:54:51,599 --> 00:54:55,599
+Want me to compare how they work
+
+985
+00:54:52,800 --> 00:54:58,319
+differently under the hood?
+
+986
+00:54:55,599 --> 00:55:00,319
+>> Thank you. You are correct. Now, is it
+
+987
+00:54:58,319 --> 00:55:03,280
+true that the zoomers don't know
+
+988
+00:55:00,319 --> 00:55:05,440
+anything about it?
+
+989
+00:55:03,280 --> 00:55:07,359
+>> Yeah, pretty much. Most zoomers have
+
+990
+00:55:05,440 --> 00:55:09,520
+never heard of Think, Mac ports, or even
+
+991
+00:55:07,359 --> 00:55:11,280
+homebrew. For them, installing apps on a
+
+992
+00:55:09,520 --> 00:55:13,359
+Mac usually means going to the app store
+
+993
+00:55:11,280 --> 00:55:15,440
+or just downloading a DMG file and
+
+994
+00:55:13,359 --> 00:55:17,440
+dragging it to applications. The idea of
+
+995
+00:55:15,440 --> 00:55:19,040
+using a command line package manager to
+
+996
+00:55:17,440 --> 00:55:19,599
+install developer tools or Unix
+
+997
+00:55:19,040 --> 00:55:21,599
+software.
+
+998
+00:55:19,599 --> 00:55:25,200
+>> It's funny. Thank you. [ __ ] the
+
+999
+00:55:21,599 --> 00:55:27,440
+Zoomer idiots.
+
+1000
+00:55:25,200 --> 00:55:29,280
+>> Hey, let's keep it chill. Not everyone
+
+1001
+00:55:27,440 --> 00:55:31,680
+needs to know about package managers.
+
+1002
+00:55:29,280 --> 00:55:35,760
+>> Okay, chill. Okay, chill. Now, tell me
+
+1003
+00:55:31,680 --> 00:55:39,280
+about the history of app managers on on
+
+1004
+00:55:35,760 --> 00:55:40,640
+Unix or Linux.
+
+1005
+00:55:39,280 --> 00:55:42,640
+>> Here's the short version of Linux
+
+1006
+00:55:40,640 --> 00:55:45,920
+package manager history. It all started
+
+1007
+00:55:42,640 --> 00:55:48,880
+with DPKG in 1993 for Debian. That was
+
+1008
+00:55:45,920 --> 00:55:51,280
+the first big one. Then in 1994, Red Hat
+
+1009
+00:55:48,880 --> 00:55:54,799
+created RPM which became the other major
+
+1010
+00:55:51,280 --> 00:55:57,839
+format. In 1998, Debian released AP on
+
+1011
+00:55:54,799 --> 00:56:00,079
+top of DPKG. This is what made AP get
+
+1012
+00:55:57,839 --> 00:56:03,440
+installed so easy and popular. A few
+
+1013
+00:56:00,079 --> 00:56:05,520
+years later around 2001 2003, we got the
+
+1014
+00:56:03,440 --> 00:56:07,440
+higher level tools young for Red Hat
+
+1015
+00:56:05,520 --> 00:56:10,559
+based systems and Pac-Man for Arch
+
+1016
+00:56:07,440 --> 00:56:13,599
+Linux. Then Ubuntu came out in 2004 and
+
+1017
+00:56:10,559 --> 00:56:16,240
+made a later just apt the most widely
+
+1018
+00:56:13,599 --> 00:56:19,119
+known in the 2010s we got newer ones
+
+1019
+00:56:16,240 --> 00:56:21,440
+like zipper for susa dnf which replaced
+
+1020
+00:56:19,119 --> 00:56:23,440
+young on fedora and flatpack and snap
+
+1021
+00:56:21,440 --> 00:56:26,640
+for distributing desktop apps so
+
+1022
+00:56:23,440 --> 00:56:28,799
+basically dpkg and rpm started it all
+
+1023
+00:56:26,640 --> 00:56:31,040
+apt made it userfriendly and everything
+
+1024
+00:56:28,799 --> 00:56:32,160
+else came after want me to go deeper on
+
+1025
+00:56:31,040 --> 00:56:35,799
+any of these
+
+1026
+00:56:32,160 --> 00:56:35,799
+>> no thank you
+
+1027
+00:56:35,920 --> 00:56:40,400
+>> no problem let me know if you need
+
+1028
+00:56:37,599 --> 00:56:42,880
+anything else
+
+1029
+00:56:40,400 --> 00:56:45,760
+>> you see The open-source idiots,
+
+1030
+00:56:42,880 --> 00:56:49,440
+[ __ ] they are in a war. You see,
+
+1031
+00:56:45,760 --> 00:56:52,160
+because everyone wants to be uh you know
+
+1032
+00:56:49,440 --> 00:56:54,400
+like I I I I need to be famous. I need
+
+1033
+00:56:52,160 --> 00:56:56,559
+to create my own you know why you know
+
+1034
+00:56:54,400 --> 00:56:58,240
+we are open source we can money we can
+
+1035
+00:56:56,559 --> 00:57:00,559
+make money but I need to create
+
+1036
+00:56:58,240 --> 00:57:02,880
+something by myself different from
+
+1037
+00:57:00,559 --> 00:57:07,920
+others. That's why you got this, you
+
+1038
+00:57:02,880 --> 00:57:11,040
+know, uh, apt, DP, KG, RPM, apt,
+
+1039
+00:57:07,920 --> 00:57:14,319
+Pac-Man, and, uh, Red Hat, you know, the
+
+1040
+00:57:11,040 --> 00:57:16,400
+RPM something, you know, [ __ ] So,
+
+1041
+00:57:14,319 --> 00:57:19,599
+quite quite a [ __ ] up. This improvement,
+
+1042
+00:57:16,400 --> 00:57:21,760
+but oh, but I disagree. I disagree with
+
+1043
+00:57:19,599 --> 00:57:26,000
+your approach. I need to create my own.
+
+1044
+00:57:21,760 --> 00:57:28,480
+That's the story of open source.
+
+1045
+00:57:26,000 --> 00:57:30,640
+Okay. on the commercial world this
+
+1046
+00:57:28,480 --> 00:57:33,119
+doesn't happen because in the commercial
+
+1047
+00:57:30,640 --> 00:57:35,119
+world it's money based
+
+1048
+00:57:33,119 --> 00:57:39,839
+you know on Linux you you can't make
+
+1049
+00:57:35,119 --> 00:57:42,079
+money so you fight about about uh fame
+
+1050
+00:57:39,839 --> 00:57:44,160
+you know but in commercial world it's
+
+1051
+00:57:42,079 --> 00:57:46,960
+money based so whatever makes money you
+
+1052
+00:57:44,160 --> 00:57:50,079
+don't just create you know uh uh
+
+1053
+00:57:46,960 --> 00:57:53,040
+different things uh
+
+1054
+00:57:50,079 --> 00:57:54,799
+if if you cannot make money you know you
+
+1055
+00:57:53,040 --> 00:57:58,720
+can create different things but they
+
+1056
+00:57:54,799 --> 00:58:01,359
+compete by by people who are willing to
+
+1057
+00:57:58,720 --> 00:58:03,599
+pay. Okay.
+
+1058
+00:58:01,359 --> 00:58:09,040
+So anyway, that's a history of the
+
+1059
+00:58:03,599 --> 00:58:11,599
+appget. Okay. Uh so now let's um
+
+1060
+00:58:09,040 --> 00:58:13,839
+maybe that's it for today. Maybe what do
+
+1061
+00:58:11,599 --> 00:58:17,599
+you think? So well we haven't installed
+
+1062
+00:58:13,839 --> 00:58:20,599
+Emacs. So uh so okay. So let's ask a new
+
+1063
+00:58:17,599 --> 00:58:20,599
+question.
+
+1064
+00:58:35,680 --> 00:58:38,680
+Check
+
+1065
+00:58:55,520 --> 00:59:01,280
+next. I have a lot of people
+
+1066
+00:58:57,599 --> 00:59:05,040
+recommending me Nyx like 15 years ago,
+
+1067
+00:59:01,280 --> 00:59:07,040
+but I just never tried it. Okay, but
+
+1068
+00:59:05,040 --> 00:59:10,720
+okay, here's a question. I want to know
+
+1069
+00:59:07,040 --> 00:59:15,280
+what commands to run to be able to
+
+1070
+00:59:10,720 --> 00:59:17,599
+compile Emacs on Linux.
+
+1071
+00:59:15,280 --> 00:59:18,880
+To compile Emacs from source on Linux,
+
+1072
+00:59:17,599 --> 00:59:21,680
+start by installing the build
+
+1073
+00:59:18,880 --> 00:59:24,799
+dependencies on iuntu or Debian. Run
+
+1074
+00:59:21,680 --> 00:59:27,119
+pseudoapp get build emacs or manually
+
+1075
+00:59:24,799 --> 00:59:31,200
+install packages like build essential
+
+1076
+00:59:27,119 --> 00:59:33,359
+autocomp text info lib gtk-3debit
+
+1077
+00:59:31,200 --> 00:59:34,880
+and others for image support. Then clone
+
+1078
+00:59:33,359 --> 00:59:37,880
+the repo with git clone
+
+1079
+00:59:34,880 --> 00:59:37,880
+git/git.sb.gmu.org/eac.git.
+
+1080
+00:59:40,799 --> 00:59:44,720
+Run cdo autogen.sh/configure
+
+1081
+00:59:42,640 --> 00:59:47,520
+sh/configure
+
+1082
+00:59:44,720 --> 00:59:48,640
+make and finally pseudoake install. Want
+
+1083
+00:59:47,520 --> 00:59:51,599
+me to give you the full list of
+
+1084
+00:59:48,640 --> 00:59:53,680
+recommended dev packages?
+
+1085
+00:59:51,599 --> 00:59:55,680
+>> Yeah, shut the [ __ ] up. You know, we
+
+1086
+00:59:53,680 --> 00:59:59,266
+went we ran that before. It doesn't
+
+1087
+00:59:55,680 --> 00:59:59,920
+work. You see
+
+1088
+00:59:59,266 --> 01:00:02,640
+[sighs and gasps]
+
+1089
+00:59:59,920 --> 01:00:06,160
+God.
+
+1090
+01:00:02,640 --> 01:00:09,280
+So or manually install packages like B
+
+1091
+01:00:06,160 --> 01:00:12,400
+essential auto conf
+
+1092
+01:00:09,280 --> 01:00:15,040
+uh auto confo
+
+1093
+01:00:12,400 --> 01:00:17,599
+you can't manually do it because Emacs
+
+1094
+01:00:15,040 --> 01:00:20,880
+require a lot of things if you you you
+
+1095
+01:00:17,599 --> 01:00:23,680
+need a full list
+
+1096
+01:00:20,880 --> 01:00:28,319
+uh then clone the repo with that then
+
+1097
+01:00:23,680 --> 01:00:30,240
+you know so this is not a good answer
+
+1098
+01:00:28,319 --> 01:00:35,720
+uh [ __ ]
+
+1099
+01:00:30,240 --> 01:00:35,720
+yeah so we need to do It's um
+
+1100
+01:00:35,760 --> 01:00:41,760
+Oh, [ __ ] We need to solve the deb 822
+
+1101
+01:00:39,040 --> 01:00:44,760
+issue.
+
+1102
+01:00:41,760 --> 01:00:44,760
+Okay.
+
+1103
+01:00:50,880 --> 01:00:54,480
+Why don't you just install? What do you
+
+1104
+01:00:52,720 --> 01:00:57,599
+mean just install? I can't, you know,
+
+1105
+01:00:54,480 --> 01:01:00,000
+I'm I'm slow. I cannot just install. I
+
+1106
+01:00:57,599 --> 01:01:04,480
+need to know like who wrote it. What's
+
+1107
+01:01:00,000 --> 01:01:09,760
+the nature of the guy, you know, and uh
+
+1108
+01:01:04,480 --> 01:01:12,760
+well I you know I'm on you know I'm
+
+1109
+01:01:09,760 --> 01:01:12,760
+uh
+
+1110
+01:01:13,359 --> 01:01:19,280
+maybe that's it for today. Okay so we
+
+1111
+01:01:15,839 --> 01:01:23,119
+didn't so we need to solve I mean the
+
+1112
+01:01:19,280 --> 01:01:27,040
+problem right now is this install Emacs
+
+1113
+01:01:23,119 --> 01:01:30,480
+dependencies. Okay. So the AI says run
+
+1114
+01:01:27,040 --> 01:01:33,440
+pseudo app get build dependency emacs.
+
+1115
+01:01:30,480 --> 01:01:36,720
+That doesn't work because it says you
+
+1116
+01:01:33,440 --> 01:01:39,040
+must put some dev source uris in your
+
+1117
+01:01:36,720 --> 01:01:43,280
+source list.
+
+1118
+01:01:39,040 --> 01:01:45,839
+Then sources list is absolute. You have
+
+1119
+01:01:43,280 --> 01:01:48,720
+deb22
+
+1120
+01:01:45,839 --> 01:01:52,000
+thing.
+
+1121
+01:01:48,720 --> 01:01:55,000
+So you uh
+
+1122
+01:01:52,000 --> 01:01:55,000
+Okay.
+
+1123
+01:01:55,359 --> 01:02:02,000
+So I I suppose that's boring for you
+
+1124
+01:01:58,079 --> 01:02:06,920
+guys. Uh let's see what to do. How long
+
+1125
+01:02:02,000 --> 01:02:06,920
+have I been talking? One hour.
+
+1126
+01:02:11,760 --> 01:02:21,160
+Okay. So how many people watching? Oh,
+
+1127
+01:02:14,880 --> 01:02:21,160
+15. Oh god, thank you. I'm so popular.
+
+1128
+01:02:21,520 --> 01:02:28,000
+So does does anyone of you Moedo don't
+
+1129
+01:02:25,359 --> 01:02:31,599
+you know what is the command to install
+
+1130
+01:02:28,000 --> 01:02:34,480
+Emacs dependencies like you you are the
+
+1131
+01:02:31,599 --> 01:02:37,200
+Linux you are the open-source fanatic
+
+1132
+01:02:34,480 --> 01:02:41,119
+you should know tell me how do I what
+
+1133
+01:02:37,200 --> 01:02:44,000
+command to run to get all the Emacs
+
+1134
+01:02:41,119 --> 01:02:48,319
+dependencies so I can start to build it
+
+1135
+01:02:44,000 --> 01:02:51,599
+and Hang don't you know hang and this
+
+1136
+01:02:48,319 --> 01:02:54,559
+BRV guy don't you know so anyone of you
+
+1137
+01:02:51,599 --> 01:02:58,960
+know it. Type it. Okay. I need to run
+
+1138
+01:02:54,559 --> 01:03:01,960
+the command that installs all Emacs
+
+1139
+01:02:58,960 --> 01:03:01,960
+dependencies.
+
+1140
+01:03:04,880 --> 01:03:10,839
+Just clone Emacs. What? What do you mean
+
+1141
+01:03:07,440 --> 01:03:10,839
+clone Emacs?
+
+1142
+01:03:10,880 --> 01:03:15,760
+Oh, then you'll tell me what I need.
+
+1143
+01:03:13,599 --> 01:03:18,720
+Okay.
+
+1144
+01:03:15,760 --> 01:03:21,440
+Well, okay. So, Okay. So, I need to
+
+1145
+01:03:18,720 --> 01:03:25,400
+download Emacs now. Wait. And now what
+
+1146
+01:03:21,440 --> 01:03:25,400
+is the command? I forgot.
+
+1147
+01:03:25,680 --> 01:03:33,079
+Uh wait. So go to where? Uh so what are
+
+1148
+01:03:29,839 --> 01:03:33,079
+we going
+
+1149
+01:03:33,280 --> 01:03:39,920
+install? So I need to go to my Emacs
+
+1150
+01:03:36,640 --> 01:03:42,079
+page. Okay. So let's
+
+1151
+01:03:39,920 --> 01:03:45,760
+showing browser.
+
+1152
+01:03:42,079 --> 01:03:49,119
+Uh how to be? So Emacs download. So, I
+
+1153
+01:03:45,760 --> 01:03:54,400
+need to get
+
+1154
+01:03:49,119 --> 01:03:58,599
+um I need to find what's the Emacs
+
+1155
+01:03:54,400 --> 01:03:58,599
+to download. Okay.
+
+1156
+01:04:03,440 --> 01:04:08,169
+Yeah, [ __ ] it. Let's just install the
+
+1157
+01:04:05,920 --> 01:04:09,200
+default Emacs.
+
+1158
+01:04:08,169 --> 01:04:13,839
+[laughter]
+
+1159
+01:04:09,200 --> 01:04:18,000
+Let's let's just
+
+1160
+01:04:13,839 --> 01:04:22,079
+app search Emacs please. Oh Jesus.
+
+1161
+01:04:18,000 --> 01:04:25,039
+They have Emacs 21. Oh X Emacs. XE Emacs
+
+1162
+01:04:22,079 --> 01:04:28,400
+is another story. That's the earliest
+
+1163
+01:04:25,039 --> 01:04:30,799
+opensource split.
+
+1164
+01:04:28,400 --> 01:04:32,799
+It's called Schism. Okay. You guys may
+
+1165
+01:04:30,799 --> 01:04:35,200
+not know you you guys young people. It's
+
+1166
+01:04:32,799 --> 01:04:38,799
+called
+
+1167
+01:04:35,200 --> 01:04:41,920
+open source software schism.
+
+1168
+01:04:38,799 --> 01:04:46,079
+That's the very first one fork uh of
+
+1169
+01:04:41,920 --> 01:04:48,559
+Emacs XE Emacs big war for like over 10
+
+1170
+01:04:46,079 --> 01:04:52,160
+years
+
+1171
+01:04:48,559 --> 01:04:55,440
+uh but okay but uh okay so what is the
+
+1172
+01:04:52,160 --> 01:04:59,440
+command what is the latest im oh god im
+
+1173
+01:04:55,440 --> 01:05:02,559
+is so much so many of it oh Jesus the
+
+1174
+01:04:59,440 --> 01:05:06,000
+alpa [ __ ] is also here
+
+1175
+01:05:02,559 --> 01:05:09,520
+why why they put you know they they this
+
+1176
+01:05:06,000 --> 01:05:13,440
+these people
+
+1177
+01:05:09,520 --> 01:05:17,000
+They put alpas stuff in the apt
+
+1178
+01:05:13,440 --> 01:05:17,000
+package manager
+
+1179
+01:05:18,160 --> 01:05:25,760
+that spams the a the package manager.
+
+1180
+01:05:23,280 --> 01:05:28,760
+They put all the library emacs library
+
+1181
+01:05:25,760 --> 01:05:28,760
+stuff.
+
+1182
+01:05:28,960 --> 01:05:35,640
+You see very confusing. and white. Um
+
+1183
+01:05:32,640 --> 01:05:35,640
+Jesus
+
+1184
+01:05:40,559 --> 01:05:48,160
+so common facilities
+
+1185
+01:05:44,559 --> 01:05:50,640
+Emacen common common facilities for all
+
+1186
+01:05:48,160 --> 01:05:54,920
+EMAC
+
+1187
+01:05:50,640 --> 01:05:54,920
+portable library for Emacen
+
+1188
+01:05:55,200 --> 01:06:04,000
+just give me the EMAC I don't want EMAC
+
+1189
+01:06:00,319 --> 01:06:07,000
+libraries. I just want the Emacs. She
+
+1190
+01:06:04,000 --> 01:06:07,000
+Jesus.
+
+1191
+01:06:07,359 --> 01:06:13,520
+Emacs and my ass. By the way, this is
+
+1192
+01:06:10,720 --> 01:06:17,920
+another thing you Zoomers don't know.
+
+1193
+01:06:13,520 --> 01:06:20,480
+Okay, in the Unix community, they have a
+
+1194
+01:06:17,920 --> 01:06:24,000
+knack for these
+
+1195
+01:06:20,480 --> 01:06:27,119
+like supposedly proper English names.
+
+1196
+01:06:24,000 --> 01:06:29,520
+So, when you want to call a Emac user,
+
+1197
+01:06:27,119 --> 01:06:32,559
+you don't say Emacs user. That's stupid.
+
+1198
+01:06:29,520 --> 01:06:36,640
+Okay, you have to say eaxen
+
+1199
+01:06:32,559 --> 01:06:39,440
+that that indicates that you are a
+
+1200
+01:06:36,640 --> 01:06:40,799
+insider. Okay, you are a hacker. When
+
+1201
+01:06:39,440 --> 01:06:43,920
+you say you know when you talk to
+
+1202
+01:06:40,799 --> 01:06:46,640
+people, oh I need you know I'm an Emac
+
+1203
+01:06:43,920 --> 01:06:49,280
+or something Emac then people know oh
+
+1204
+01:06:46,640 --> 01:06:51,599
+you are a hacker you know you are all
+
+1205
+01:06:49,280 --> 01:06:53,839
+all kind.
+
+1206
+01:06:51,599 --> 01:06:56,400
+If you say Emacs user they they think
+
+1207
+01:06:53,839 --> 01:06:58,720
+you are stupid. [laughter]
+
+1208
+01:06:56,400 --> 01:07:03,359
+So you you know you got Emacs and you
+
+1209
+01:06:58,720 --> 01:07:06,559
+got quite a few uh quite a few but I
+
+1210
+01:07:03,359 --> 01:07:09,280
+don't remember. So you can ask AI.
+
+1211
+01:07:06,559 --> 01:07:11,599
+So shall we? No, let's not. Let's just
+
+1212
+01:07:09,280 --> 01:07:14,240
+get this. Um
+
+1213
+01:07:11,599 --> 01:07:17,839
+look look at this. They they put all the
+
+1214
+01:07:14,240 --> 01:07:21,160
+uh Wait, that's X Emacs.
+
+1215
+01:07:17,839 --> 01:07:21,160
+Ah Jesus.
+
+1216
+01:07:21,359 --> 01:07:29,559
+Search Emacs 30. Can Can you do that?
+
+1217
+01:07:26,559 --> 01:07:29,559
+No.
+
+1218
+01:07:30,960 --> 01:07:34,599
+What the [ __ ]
+
+1219
+01:07:36,160 --> 01:07:42,400
+You see they even put OG mod or mode
+
+1220
+01:07:39,520 --> 01:07:44,240
+documentation in appgget. Why do they do
+
+1221
+01:07:42,400 --> 01:07:46,559
+that?
+
+1222
+01:07:44,240 --> 01:07:48,880
+You suppose like you once you install
+
+1223
+01:07:46,559 --> 01:07:51,599
+Emacs then you can install the other
+
+1224
+01:07:48,880 --> 01:07:54,856
+things but wait
+
+1225
+01:07:51,599 --> 01:07:54,856
+uh [sighs]
+
+1226
+01:08:03,599 --> 01:08:10,319
+clone and build. Okay. Okay. So, but
+
+1227
+01:08:07,039 --> 01:08:13,280
+where is the uh
+
+1228
+01:08:10,319 --> 01:08:14,799
+but I forgot what's the command to clone
+
+1229
+01:08:13,280 --> 01:08:18,239
+um
+
+1230
+01:08:14,799 --> 01:08:21,759
+the repo like I need to
+
+1231
+01:08:18,239 --> 01:08:25,960
+oh g do I have git installed
+
+1232
+01:08:21,759 --> 01:08:25,960
+which I don't think so
+
+1233
+01:08:26,000 --> 01:08:32,640
+wait so you need this key
+
+1234
+01:08:29,520 --> 01:08:36,640
+which get
+
+1235
+01:08:32,640 --> 01:08:40,480
+oh I have git installed now that's
+
+1236
+01:08:36,640 --> 01:08:42,560
+get okay get Chrome but I don't want the
+
+1237
+01:08:40,480 --> 01:08:45,679
+I don't want the latest I mean I don't
+
+1238
+01:08:42,560 --> 01:08:49,359
+want the you know dev version I I just
+
+1239
+01:08:45,679 --> 01:08:51,600
+want the E okay let's try it
+
+1240
+01:08:49,359 --> 01:08:54,719
+okay so
+
+1241
+01:08:51,600 --> 01:08:58,560
+so Emacs so let's see download Emacs
+
+1242
+01:08:54,719 --> 01:09:01,040
+binary wait Emacs from source code and
+
+1243
+01:08:58,560 --> 01:09:04,239
+what is this page download okay so you
+
+1244
+01:09:01,040 --> 01:09:08,960
+you want to build from source code click
+
+1245
+01:09:04,239 --> 01:09:12,960
+on that but I want to build from the
+
+1246
+01:09:08,960 --> 01:09:17,199
+repo. So you go here. Uh again this is
+
+1247
+01:09:12,960 --> 01:09:20,960
+written in 2014. Okay but at least they
+
+1248
+01:09:17,199 --> 01:09:22,880
+tell you the repo. Okay. So
+
+1249
+01:09:20,960 --> 01:09:27,120
+there
+
+1250
+01:09:22,880 --> 01:09:30,880
+get clone get clone now if that I you
+
+1251
+01:09:27,120 --> 01:09:34,960
+know let's hope that URL is still good.
+
+1252
+01:09:30,880 --> 01:09:36,960
+Get clone. Get clone it.
+
+1253
+01:09:34,960 --> 01:09:39,359
+Oh [ __ ] I don't want to clone the
+
+1254
+01:09:36,960 --> 01:09:41,520
+history. I forgot. I should say no
+
+1255
+01:09:39,359 --> 01:09:45,799
+history
+
+1256
+01:09:41,520 --> 01:09:45,799
+because otherwise it's huge.
+
+1257
+01:09:50,319 --> 01:09:58,440
+Okay, I think maybe I should stop.
+
+1258
+01:09:53,040 --> 01:09:58,440
+That's enough fun for the day.
+
+1259
+01:10:02,400 --> 01:10:09,199
+Check discord.
+
+1260
+01:10:05,040 --> 01:10:15,320
+Check discord. Uh where is my discord?
+
+1261
+01:10:09,199 --> 01:10:15,320
+Check. Mo says check discord.
+
+1262
+01:10:16,880 --> 01:10:24,000
+His majestity. Majesty. Mo says sudo app
+
+1263
+01:10:20,880 --> 01:10:27,120
+update. That did I did that sudo app
+
+1264
+01:10:24,000 --> 01:10:30,960
+install build essentials auto conf. egg
+
+1265
+01:10:27,120 --> 01:10:34,640
+that I already did, I think. Let's just
+
+1266
+01:10:30,960 --> 01:10:38,800
+let's just do whatever Mo says. Okay.
+
+1267
+01:10:34,640 --> 01:10:42,400
+Uh let's move this here.
+
+1268
+01:10:38,800 --> 01:10:47,360
+Okay. Wait until this finish.
+
+1269
+01:10:42,400 --> 01:10:51,654
+So that is my Emacs clone from Ripple.
+
+1270
+01:10:47,360 --> 01:10:55,520
+We are advanced technologist. You see
+
+1271
+01:10:51,654 --> 01:10:58,320
+[laughter] very good.
+
+1272
+01:10:55,520 --> 01:11:01,320
+We understand this incomprehensible
+
+1273
+01:10:58,320 --> 01:11:01,320
+[ __ ]
+
+1274
+01:11:02,080 --> 01:11:07,080
+but how long is this is going to take?
+
+1275
+01:11:11,840 --> 01:11:21,320
+Oh, okay. So, that's uh one gigabyte,
+
+1276
+01:11:15,920 --> 01:11:21,320
+right? K. What? This is
+
+1277
+01:11:21,520 --> 01:11:25,360
+kilo.
+
+1278
+01:11:23,520 --> 01:11:27,760
+What?
+
+1279
+01:11:25,360 --> 01:11:30,760
+It's just one megabyte. Wait, one
+
+1280
+01:11:27,760 --> 01:11:30,760
+gigabyte.
+
+1281
+01:11:31,360 --> 01:11:35,159
+Uh, one gigabyte.
+
+1282
+01:11:36,960 --> 01:11:42,640
+You know, when I started my computing
+
+1283
+01:11:39,120 --> 01:11:46,480
+life around 1992,
+
+1284
+01:11:42,640 --> 01:11:49,280
+a big hard drive is 40 megabyte. That's
+
+1285
+01:11:46,480 --> 01:11:53,224
+uh, you know, if you are a rich man, you
+
+1286
+01:11:49,280 --> 01:11:54,719
+buy the big hard drive, 40 megabytes.
+
+1287
+01:11:53,224 --> 01:11:57,600
+>> [laughter]
+
+1288
+01:11:54,719 --> 01:12:01,320
+>> So, I'm not familiar with this one
+
+1289
+01:11:57,600 --> 01:12:01,320
+gigabyte [ __ ]
+
+1290
+01:12:04,480 --> 01:12:09,159
+Jesus. One gigabyte [ __ ]
+
+1291
+01:12:16,800 --> 01:12:20,280
+Okay. 1.5
+
+1292
+01:12:20,400 --> 01:12:27,600
+giga or giga.
+
+1293
+01:12:24,000 --> 01:12:32,080
+Now let's see what mo says.
+
+1294
+01:12:27,600 --> 01:12:34,719
+Mo says you need to uh here.
+
+1295
+01:12:32,080 --> 01:12:39,199
+Okay, that then sudo install lib
+
+1296
+01:12:34,719 --> 01:12:42,880
+package. Oh god. Lip lib lib lib xpm.
+
+1297
+01:12:39,199 --> 01:12:47,040
+That's a stupid image like textbased
+
+1298
+01:12:42,880 --> 01:12:50,159
+image from the Unix idiots.
+
+1299
+01:12:47,040 --> 01:12:52,320
+lip gtk
+
+1300
+01:12:50,159 --> 01:12:58,080
+lip jpeg
+
+1301
+01:12:52,320 --> 01:13:00,080
+lip gif lip t that's a old image format
+
+1302
+01:12:58,080 --> 01:13:03,600
+lip ne
+
+1303
+01:13:00,080 --> 01:13:07,840
+what what is this lip gut
+
+1304
+01:13:03,600 --> 01:13:12,840
+okay then lip curses that's uh let's
+
+1305
+01:13:07,840 --> 01:13:12,840
+magnify okay so can you guys see
+
+1306
+01:13:13,600 --> 01:13:17,800
+wait where's my first.
+
+1307
+01:13:17,920 --> 01:13:25,760
+Okay. So, magnify so that you guys can
+
+1308
+01:13:21,920 --> 01:13:33,040
+see what Mo is saying. So, you you see
+
+1309
+01:13:25,760 --> 01:13:38,159
+lip curses. That's um text textbased GUI
+
+1310
+01:13:33,040 --> 01:13:42,320
+then li GCC JIT just in time
+
+1311
+01:13:38,159 --> 01:13:45,280
+li J lip what lip Jansson I don't know
+
+1312
+01:13:42,320 --> 01:13:49,679
+what the [ __ ] that is
+
+1313
+01:13:45,280 --> 01:13:52,480
+then gu bing li tree sitter or tree
+
+1314
+01:13:49,679 --> 01:13:56,239
+sitter that's advanced technology for
+
+1315
+01:13:52,480 --> 01:13:59,520
+passing source code
+
+1316
+01:13:56,239 --> 01:14:02,320
+Is it done? Okay. Says it's done. So now
+
+1317
+01:13:59,520 --> 01:14:07,920
+let's follow GNU
+
+1318
+01:14:02,320 --> 01:14:11,440
+most instructions. Okay. So uh wait. So
+
+1319
+01:14:07,920 --> 01:14:16,199
+do we have already that? I think so.
+
+1320
+01:14:11,440 --> 01:14:16,199
+Just make sure. Let's run it again.
+
+1321
+01:14:17,199 --> 01:14:21,320
+Oh god. Jesus.
+
+1322
+01:14:21,760 --> 01:14:25,239
+Okay. Yes.
+
+1323
+01:14:33,679 --> 01:14:42,080
+Okay. So that is uh auto conf make GCC
+
+1324
+01:14:38,640 --> 01:14:46,280
+text info. What why are they uh I
+
+1325
+01:14:42,080 --> 01:14:46,280
+thought they are part of the dependency.
+
+1326
+01:14:50,480 --> 01:14:55,440
+Why are there so many
+
+1327
+01:14:53,679 --> 01:14:59,560
+pearl?
+
+1328
+01:14:55,440 --> 01:14:59,560
+Are they installing pearl?
+
+1329
+01:15:07,440 --> 01:15:10,440
+Jesus.
+
+1330
+01:15:19,760 --> 01:15:24,600
+Hey, why why are they installing pearl?
+
+1331
+01:15:29,520 --> 01:15:34,000
+Oh, Jesus.
+
+1332
+01:15:32,159 --> 01:15:35,600
+Okay.
+
+1333
+01:15:34,000 --> 01:15:38,400
+Okay.
+
+1334
+01:15:35,600 --> 01:15:44,760
+I don't understand.
+
+1335
+01:15:38,400 --> 01:15:44,760
+I don't understand. But it's done. Next.
+
+1336
+01:15:45,120 --> 01:15:50,400
+Next. Do this.
+
+1337
+01:15:48,159 --> 01:15:53,920
+Do it.
+
+1338
+01:15:50,400 --> 01:15:56,800
+Do you want to? Yes.
+
+1339
+01:15:53,920 --> 01:15:59,520
+No. You got this
+
+1340
+01:15:56,800 --> 01:16:02,782
+XZO,
+
+1341
+01:15:59,520 --> 01:16:03,679
+a big virus.
+
+1342
+01:16:02,782 --> 01:16:07,440
+[laughter]
+
+1343
+01:16:03,679 --> 01:16:10,480
+Have you guys heard the story
+
+1344
+01:16:07,440 --> 01:16:14,640
+uh XZXY?
+
+1345
+01:16:10,480 --> 01:16:16,960
+um you know there's a big hacking story
+
+1346
+01:16:14,640 --> 01:16:20,800
+that being hacked
+
+1347
+01:16:16,960 --> 01:16:24,159
+by um so you can read that story by
+
+1348
+01:16:20,800 --> 01:16:27,199
+going into Twitter
+
+1349
+01:16:24,159 --> 01:16:30,000
+from my friend who told me well I know I
+
+1350
+01:16:27,199 --> 01:16:32,640
+already know the story but he reminded
+
+1351
+01:16:30,000 --> 01:16:35,280
+me yesterday
+
+1352
+01:16:32,640 --> 01:16:38,239
+there is this
+
+1353
+01:16:35,280 --> 01:16:41,280
+giant hack XZ
+
+1354
+01:16:38,239 --> 01:16:44,960
+very interesting okay This this is deep
+
+1355
+01:16:41,280 --> 01:16:48,800
+state hack to Linux. So someone
+
+1356
+01:16:44,960 --> 01:16:53,840
+supposedly a Chinese name Jan
+
+1357
+01:16:48,800 --> 01:16:56,800
+uh embedded a remote run uh virus like
+
+1358
+01:16:53,840 --> 01:16:59,520
+allows you to control take over your
+
+1359
+01:16:56,800 --> 01:17:02,239
+Linux machine remotely run any command
+
+1360
+01:16:59,520 --> 01:17:06,800
+they want in bet. So they have the back
+
+1361
+01:17:02,239 --> 01:17:09,040
+door installed in the uh XZ util which
+
+1362
+01:17:06,800 --> 01:17:12,640
+is a compression.
+
+1363
+01:17:09,040 --> 01:17:15,840
+Very interesting story. Okay. So XZ.
+
+1364
+01:17:12,640 --> 01:17:20,239
+Yeah, that's right. So that's that. So
+
+1365
+01:17:15,840 --> 01:17:25,480
+is it done yet? Is it done yet? Jesus.
+
+1366
+01:17:20,239 --> 01:17:25,480
+Jesus. Okay, it's done now. Next.
+
+1367
+01:17:25,679 --> 01:17:32,719
+Next.
+
+1368
+01:17:28,239 --> 01:17:37,480
+Sudo app install. G leave GCC or Jesus.
+
+1369
+01:17:32,719 --> 01:17:37,480
+Another bunch. Copy.
+
+1370
+01:17:37,760 --> 01:17:44,880
+Okay. Thank you, Juan, for the cute cat.
+
+1371
+01:17:42,640 --> 01:17:48,800
+Do it.
+
+1372
+01:17:44,880 --> 01:17:53,800
+Yes or no? Yes. Okay. I don't know what
+
+1373
+01:17:48,800 --> 01:17:53,800
+the [ __ ] they are doing to me,
+
+1374
+01:17:55,199 --> 01:18:02,840
+but I can trust Mo and I verified is
+
+1375
+01:17:59,840 --> 01:18:02,840
+good.
+
+1376
+01:18:09,854 --> 01:18:14,239
+[laughter]
+
+1377
+01:18:11,600 --> 01:18:17,760
+Okay. Okay. Are we going to finish
+
+1378
+01:18:14,239 --> 01:18:21,679
+installing Emacs? I don't think so.
+
+1379
+01:18:17,760 --> 01:18:26,159
+Okay, now I think all the dependency are
+
+1380
+01:18:21,679 --> 01:18:28,480
+installed. Now CD, let's see the Oh my
+
+1381
+01:18:26,159 --> 01:18:33,489
+god. Jesus, my Windows habit. It's not
+
+1382
+01:18:28,480 --> 01:18:33,489
+the it's ls. Okay, [laughter]
+
+1383
+01:18:34,080 --> 01:18:39,840
+so there we have Emacs
+
+1384
+01:18:37,840 --> 01:18:47,080
+um
+
+1385
+01:18:39,840 --> 01:18:47,080
+the Emacs clone report. Uh now
+
+1386
+01:18:47,199 --> 01:18:54,800
+which make please make. Okay.
+
+1387
+01:18:51,840 --> 01:18:59,040
+So I I guess I can start to build. Let's
+
+1388
+01:18:54,800 --> 01:19:01,760
+see. Okay. So I don't remember.
+
+1389
+01:18:59,040 --> 01:19:03,360
+I'm too old. I don't remember what what
+
+1390
+01:19:01,760 --> 01:19:09,320
+make.
+
+1391
+01:19:03,360 --> 01:19:09,320
+So see the autogen now. Is it autogen?
+
+1392
+01:19:10,159 --> 01:19:15,520
+Do I still need to run the autogen?
+
+1393
+01:19:13,199 --> 01:19:18,520
+I don't even know if it's there. Let's
+
+1394
+01:19:15,520 --> 01:19:18,520
+see.
+
+1395
+01:19:20,719 --> 01:19:26,719
+Uh,
+
+1396
+01:19:23,600 --> 01:19:28,960
+I don't know what autogen does actually.
+
+1397
+01:19:26,719 --> 01:19:30,800
+CDMAX
+
+1398
+01:19:28,960 --> 01:19:33,920
+LS.
+
+1399
+01:19:30,800 --> 01:19:38,840
+Do we have autogen? No, that hides the
+
+1400
+01:19:33,920 --> 01:19:38,840
+dot file. Another Linux. [ __ ]
+
+1401
+01:19:43,040 --> 01:19:48,840
+Do we have the autogen? No. You got the
+
+1402
+01:19:45,840 --> 01:19:48,840
+clan.
+
+1403
+01:19:52,080 --> 01:19:57,159
+Oh, there it is. Autogen. Okay.
+
+1404
+01:19:58,480 --> 01:20:04,679
+Oh, you don't need to build from the
+
+1405
+01:20:00,080 --> 01:20:04,679
+source. It's already done. What?
+
+1406
+01:20:04,880 --> 01:20:10,400
+Which Emac
+
+1407
+01:20:07,840 --> 01:20:12,159
+CD? What do you mean? It's It's not
+
+1408
+01:20:10,400 --> 01:20:16,560
+done.
+
+1409
+01:20:12,159 --> 01:20:19,440
+So, what do you mean it's done?
+
+1410
+01:20:16,560 --> 01:20:21,760
+Now, you can run Emacs directly from the
+
+1411
+01:20:19,440 --> 01:20:26,640
+command line. Oh, that's what you mean.
+
+1412
+01:20:21,760 --> 01:20:31,400
+Oh, okay. Okay. So, let's run um
+
+1413
+01:20:26,640 --> 01:20:31,400
+So, wait. So, where are we?
+
+1414
+01:20:32,640 --> 01:20:39,440
+uh cde max
+
+1415
+01:20:36,080 --> 01:20:44,159
+ls a l.
+
+1416
+01:20:39,440 --> 01:20:48,320
+So there is I believe it's a bing
+
+1417
+01:20:44,159 --> 01:20:50,560
+directory, right? I don't remember.
+
+1418
+01:20:48,320 --> 01:20:53,840
+I'm too old.
+
+1419
+01:20:50,560 --> 01:20:55,760
+Okay. So
+
+1420
+01:20:53,840 --> 01:20:58,239
+yeah, that's right. You we we have to
+
+1421
+01:20:55,760 --> 01:21:01,120
+build it. We only installed the uh you
+
+1422
+01:20:58,239 --> 01:21:02,320
+know. So now I need to run the autogen.
+
+1423
+01:21:01,120 --> 01:21:05,320
+Okay.
+
+1424
+01:21:02,320 --> 01:21:05,320
+So
+
+1425
+01:21:05,600 --> 01:21:10,440
+it's there. So autogen
+
+1426
+01:21:11,120 --> 01:21:17,280
+confusion not work. You need the dot
+
+1427
+01:21:14,719 --> 01:21:18,960
+autogen.
+
+1428
+01:21:17,280 --> 01:21:20,719
+No,
+
+1429
+01:21:18,960 --> 01:21:22,239
+you need
+
+1430
+01:21:20,719 --> 01:21:25,760
+slash.
+
+1431
+01:21:22,239 --> 01:21:29,280
+Wait, is it it um
+
+1432
+01:21:25,760 --> 01:21:32,560
+dot slash autogen?
+
+1433
+01:21:29,280 --> 01:21:32,560
+What the [ __ ]
+
+1434
+01:21:38,159 --> 01:21:43,600
+Oh, is it? Uh, [ __ ] It's been too long.
+
+1435
+01:21:41,520 --> 01:21:47,920
+Okay, so
+
+1436
+01:21:43,600 --> 01:21:51,120
+uh yeah, dot slash dot. Wait.
+
+1437
+01:21:47,920 --> 01:21:55,000
+Oh, there's no dot in front. So, autogen
+
+1438
+01:21:51,120 --> 01:21:55,000
+there. Do it.
+
+1439
+01:21:57,920 --> 01:22:05,159
+Now you can run config
+
+1440
+01:22:01,040 --> 01:22:05,159
+config please.
+
+1441
+01:22:15,120 --> 01:22:19,000
+Fantastic success.
+
+1442
+01:22:44,400 --> 01:22:49,239
+Fantastic.
+
+1443
+01:22:46,239 --> 01:22:49,239
+Fantastic.
+
+1444
+01:22:51,440 --> 01:22:55,920
+Fantastic.
+
+1445
+01:22:52,960 --> 01:22:58,239
+Fantastic. Fantastic.
+
+1446
+01:22:55,920 --> 01:23:02,199
+Fantastic.
+
+1447
+01:22:58,239 --> 01:23:02,199
+Fantastic. And beautiful.
+
+1448
+01:23:06,239 --> 01:23:11,760
+checking, checking, building and
+
+1449
+01:23:08,400 --> 01:23:15,920
+checking and compiling and fax C and
+
+1450
+01:23:11,760 --> 01:23:19,280
+[ __ ] C++. You see this is a this is one
+
+1451
+01:23:15,920 --> 01:23:22,239
+of the damage from the C and C++
+
+1452
+01:23:19,280 --> 01:23:25,840
+[ __ ] because they are com their
+
+1453
+01:23:22,239 --> 01:23:30,320
+programming language C and C++ are so
+
+1454
+01:23:25,840 --> 01:23:32,880
+convoluted it takes you know roundabout
+
+1455
+01:23:30,320 --> 01:23:38,040
+to compile them.
+
+1456
+01:23:32,880 --> 01:23:38,040
+the brainless from the Unix [ __ ]
+
+1457
+01:23:41,679 --> 01:23:47,280
+Okay. Now you can continue to support
+
+1458
+01:23:44,320 --> 01:23:51,360
+using configure with pop configure. You
+
+1459
+01:23:47,280 --> 01:23:56,239
+might want to install GNU mail util. No,
+
+1460
+01:23:51,360 --> 01:23:59,600
+I'm not going to install GNU mail. [ __ ]
+
+1461
+01:23:56,239 --> 01:24:02,239
+Now I believe it's ready. Okay. So which
+
+1462
+01:23:59,600 --> 01:24:06,239
+Emacs? No. Well, actually I need to say
+
+1463
+01:24:02,239 --> 01:24:09,360
+install Emacs but
+
+1464
+01:24:06,239 --> 01:24:13,440
+but I believe Emacs can run from this
+
+1465
+01:24:09,360 --> 01:24:16,800
+directory now. So ls though there's a
+
+1466
+01:24:13,440 --> 01:24:19,800
+bin directory I think is something like
+
+1467
+01:24:16,800 --> 01:24:19,800
+that.
+
+1468
+01:24:20,159 --> 01:24:24,960
+Did they create a bin directory or
+
+1469
+01:24:22,320 --> 01:24:28,080
+something? This the content of the
+
+1470
+01:24:24,960 --> 01:24:31,199
+directory. Okay. So Mo says if not C
+
+1471
+01:24:28,080 --> 01:24:34,719
+then what? Oh, today you got options
+
+1472
+01:24:31,199 --> 01:24:37,719
+rust and go. I would prefer goland.
+
+1473
+01:24:34,719 --> 01:24:37,719
+Okay.
+
+1474
+01:24:38,560 --> 01:24:47,840
+Yes, there is a build somewhere but uh I
+
+1475
+01:24:42,560 --> 01:24:52,560
+forgot where I thought it's in a binding
+
+1476
+01:24:47,840 --> 01:24:56,239
+and or did they um so you need to well
+
+1477
+01:24:52,560 --> 01:24:59,600
+let's go refer to my
+
+1478
+01:24:56,239 --> 01:25:04,920
+uh instruction make bootstrap that's
+
+1479
+01:24:59,600 --> 01:25:04,920
+what we have to do make bootstrap please
+
+1480
+01:25:05,128 --> 01:25:07,679
+[laughter]
+
+1481
+01:25:07,094 --> 01:25:11,880
+[gasps]
+
+1482
+01:25:07,679 --> 01:25:11,880
+science instruction is correct.
+
+1483
+01:25:20,320 --> 01:25:24,520
+Okay. Okay.
+
+1484
+01:25:25,199 --> 01:25:33,639
+Checking checking checking checking
+
+1485
+01:25:29,040 --> 01:25:33,639
+checking this and checking that.
+
+1486
+01:25:35,840 --> 01:25:41,320
+Yes. Yes. Yes. Yes.
+
+1487
+01:25:45,199 --> 01:25:49,719
+Checking debus. Checking.
+
+1488
+01:25:50,719 --> 01:26:02,120
+Oh god. Emacs is big
+
+1489
+01:25:54,960 --> 01:26:02,120
+big power machine. That's a master of
+
+1490
+01:26:17,199 --> 01:26:23,840
+Well, so the question
+
+1491
+01:26:20,800 --> 01:26:27,280
+Thanos says, "Isn't Go evil Google and
+
+1492
+01:26:23,840 --> 01:26:29,440
+Russ deep state?"
+
+1493
+01:26:27,280 --> 01:26:31,440
+Well, they are, but they are just
+
+1494
+01:26:29,440 --> 01:26:34,639
+programming languages.
+
+1495
+01:26:31,440 --> 01:26:38,239
+So you know
+
+1496
+01:26:34,639 --> 01:26:41,440
+and if you want to avoid programming
+
+1497
+01:26:38,239 --> 01:26:42,960
+languages from deep state then you don't
+
+1498
+01:26:41,440 --> 01:26:44,960
+have programming languages you don't
+
+1499
+01:26:42,960 --> 01:26:47,679
+have go you don't have rust you don't
+
+1500
+01:26:44,960 --> 01:26:50,960
+have well in fact you don't have C and
+
+1501
+01:26:47,679 --> 01:26:54,880
+C++ because
+
+1502
+01:26:50,960 --> 01:26:59,719
+well well C and C++ you can rely on the
+
+1503
+01:26:54,880 --> 01:26:59,719
+GNU compiler um But
+
+1504
+01:27:02,880 --> 01:27:07,000
+anyway, it's almost done.
+
+1505
+01:27:12,639 --> 01:27:19,000
+Okay, now it's been 1 hour and 28
+
+1506
+01:27:16,000 --> 01:27:19,000
+minutes
+
+1507
+01:27:19,600 --> 01:27:28,600
+of this live stream.
+
+1508
+01:27:23,199 --> 01:27:28,600
+Okay, almost done. CC compiling.
+
+1509
+01:27:35,920 --> 01:27:44,440
+Okay, come on. Come on. Finish it. I
+
+1510
+01:27:39,360 --> 01:27:44,440
+need to go home and have breakfast.
+
+1511
+01:27:50,000 --> 01:27:55,920
+Hang is the zoomer jet. You can tell by
+
+1512
+01:27:53,440 --> 01:27:58,480
+the, you know, by the memes and cats
+
+1513
+01:27:55,920 --> 01:28:02,080
+they post.
+
+1514
+01:27:58,480 --> 01:28:04,560
+Zuma Jen. Look, look at this. What this?
+
+1515
+01:28:02,080 --> 01:28:07,840
+This is the Zuma Jen's brand. That's
+
+1516
+01:28:04,560 --> 01:28:10,560
+what you know that's their that's what
+
+1517
+01:28:07,840 --> 01:28:12,960
+their brain are made of memes and stuff
+
+1518
+01:28:10,560 --> 01:28:15,679
+and usually ugly like especially by
+
+1519
+01:28:12,960 --> 01:28:19,040
+Huang. Huang likes to po post this ugly
+
+1520
+01:28:15,679 --> 01:28:21,360
+[ __ ] They they call it memes, you know.
+
+1521
+01:28:19,040 --> 01:28:25,719
+That's that's the that's their entire
+
+1522
+01:28:21,360 --> 01:28:25,719
+brain is these things.
+
+1523
+01:28:27,199 --> 01:28:32,960
+Is there a list that could do it? Yeah,
+
+1524
+01:28:29,760 --> 01:28:35,440
+sure. You go back 30, 40 years ago, then
+
+1525
+01:28:32,960 --> 01:28:38,639
+you run this machines, then you don't
+
+1526
+01:28:35,440 --> 01:28:43,040
+have this G and G, you know, this GCC
+
+1527
+01:28:38,639 --> 01:28:46,280
+C++ crap. Okay, this machine that's 40
+
+1528
+01:28:43,040 --> 01:28:46,280
+years ago.
+
+1529
+01:28:51,520 --> 01:28:56,480
+God is still doing Jesus. This taking
+
+1530
+01:28:54,480 --> 01:28:58,880
+people, you know, I wish I can run. I
+
+1531
+01:28:56,480 --> 01:29:02,320
+don't know how to do it, but I want to
+
+1532
+01:28:58,880 --> 01:29:06,480
+have another terminal in WSL so I can
+
+1533
+01:29:02,320 --> 01:29:11,120
+run top and see what are the processes.
+
+1534
+01:29:06,480 --> 01:29:15,840
+Uh but I think like on Linux you can
+
+1535
+01:29:11,120 --> 01:29:18,480
+press Ctrl Alt F1 or F2 or or one of the
+
+1536
+01:29:15,840 --> 01:29:21,440
+you know so you can dive into the
+
+1537
+01:29:18,480 --> 01:29:25,120
+virtual terminal and then you can have
+
+1538
+01:29:21,440 --> 01:29:28,560
+several terminals but I'm not sure how
+
+1539
+01:29:25,120 --> 01:29:30,719
+you you know if that can be done in the
+
+1540
+01:29:28,560 --> 01:29:33,920
+WSL.
+
+1541
+01:29:30,719 --> 01:29:35,440
+By the way, uh Mo, do you use WSL? Oh, I
+
+1542
+01:29:33,920 --> 01:29:39,679
+don't think you do because you are on
+
+1543
+01:29:35,440 --> 01:29:43,199
+Linux. You can use T-Max.
+
+1544
+01:29:39,679 --> 01:29:45,600
+I never I never actually am a user of
+
+1545
+01:29:43,199 --> 01:29:48,880
+T-Max, but
+
+1546
+01:29:45,600 --> 01:29:51,040
+anyway, I don't think you can. I mean,
+
+1547
+01:29:48,880 --> 01:29:54,642
+it's already running. So, you need to
+
+1548
+01:29:51,040 --> 01:29:55,360
+run it before you do the compile.
+
+1549
+01:29:54,642 --> 01:29:58,560
+[snorts]
+
+1550
+01:29:55,360 --> 01:30:01,280
+So, anyway, it's uh Okay, now it's
+
+1551
+01:29:58,560 --> 01:30:06,000
+building. It's compiling lisp code. You
+
+1552
+01:30:01,280 --> 01:30:09,520
+see that those ELC those ELC are
+
+1553
+01:30:06,000 --> 01:30:12,400
+uh bite compile lisp
+
+1554
+01:30:09,520 --> 01:30:17,120
+uh lisp source code. EMAC lisp source
+
+1555
+01:30:12,400 --> 01:30:21,560
+code. So they are now compiling the
+
+1556
+01:30:17,120 --> 01:30:21,560
+emac lisp source code.
+
+1557
+01:30:22,880 --> 01:30:28,040
+Okay.
+
+1558
+01:30:24,719 --> 01:30:28,040
+Oh Jesus.
+
+1559
+01:30:32,632 --> 01:30:37,800
+>> [sighs]
+
+1560
+01:30:33,600 --> 01:30:37,800
+>> Almost almost done.
+
+1561
+01:30:39,199 --> 01:30:49,520
+CET CET is a EMAC bisp package that is
+
+1562
+01:30:45,120 --> 01:30:53,360
+designed to have um
+
+1563
+01:30:49,520 --> 01:30:56,560
+advanced IDE features but it's so
+
+1564
+01:30:53,360 --> 01:30:58,639
+complex that very few people use almost
+
+1565
+01:30:56,560 --> 01:31:01,760
+nobody uses
+
+1566
+01:30:58,639 --> 01:31:05,360
+okay now it's still building compiling
+
+1567
+01:31:01,760 --> 01:31:08,080
+byte compile emac disp code
+
+1568
+01:31:05,360 --> 01:31:13,480
+you see it's filling up the eacisp
+
+1569
+01:31:08,080 --> 01:31:13,480
+directory with compiled emac of code.
+
+1570
+01:31:15,360 --> 01:31:20,960
+So lots of emacs, you know, do
+
+1571
+01:31:17,760 --> 01:31:24,239
+everything. You can you can run emails,
+
+1572
+01:31:20,960 --> 01:31:27,360
+you can do music players, you can do
+
+1573
+01:31:24,239 --> 01:31:30,400
+like you can you can you can control
+
+1574
+01:31:27,360 --> 01:31:33,520
+your coffee machine from Emacs, you can
+
+1575
+01:31:30,400 --> 01:31:37,120
+also remotely control Dodo from Emacs.
+
+1576
+01:31:33,520 --> 01:31:40,760
+This package is [snorts]
+
+1577
+01:31:37,120 --> 01:31:40,760
+Oh god.
+
+1578
+01:31:43,760 --> 01:31:48,560
+See that is slow even with modern
+
+1579
+01:31:45,920 --> 01:31:51,679
+hardware. Yeah, I never actually use it.
+
+1580
+01:31:48,560 --> 01:31:53,920
+Yeah, nobody use it.
+
+1581
+01:31:51,679 --> 01:31:56,080
+Playing games. That's right. Emax can
+
+1582
+01:31:53,920 --> 01:32:01,040
+also play games. Let's, you know, let's
+
+1583
+01:31:56,080 --> 01:32:03,600
+when it's after it's done, let's run the
+
+1584
+01:32:01,040 --> 01:32:07,920
+Tetris. Okay. or there's a snake
+
+1585
+01:32:03,600 --> 01:32:10,320
+building Emacs. These Emacs idiots,
+
+1586
+01:32:07,920 --> 01:32:12,639
+they have to include games like Snake
+
+1587
+01:32:10,320 --> 01:32:16,000
+and Tetris to demonstrate to show you
+
+1588
+01:32:12,639 --> 01:32:18,719
+how advanced Emacs is.
+
+1589
+01:32:16,000 --> 01:32:21,679
+But we can we can run here. So, let's
+
+1590
+01:32:18,719 --> 01:32:24,800
+start Tetris. Okay,
+
+1591
+01:32:21,679 --> 01:32:27,520
+Tetris. Let's begin again. Let's wait.
+
+1592
+01:32:24,800 --> 01:32:31,040
+What is the key to flip? Oh, the Yeah.
+
+1593
+01:32:27,520 --> 01:32:34,480
+Okay. So, down space to down. Okay. So,
+
+1594
+01:32:31,040 --> 01:32:37,880
+just move that space. Wait, how do you
+
+1595
+01:32:34,480 --> 01:32:37,880
+put it down?
+
+1596
+01:32:39,040 --> 01:32:47,000
+Change. Switch. Switch. Okay. Oh god,
+
+1597
+01:32:43,520 --> 01:32:47,000
+I'm in trouble.
+
+1598
+01:32:49,440 --> 01:32:55,639
+Switch. Switch. Switch.
+
+1599
+01:32:52,320 --> 01:32:55,639
+Oh god.
+
+1600
+01:32:59,120 --> 01:33:05,280
+Okay, that's Tetris in Emacs. Okay, by
+
+1601
+01:33:02,560 --> 01:33:07,440
+the way, all these are text.
+
+1602
+01:33:05,280 --> 01:33:10,480
+Uh I don't remember what's the command.
+
+1603
+01:33:07,440 --> 01:33:14,199
+So you can do this and to show all the
+
+1604
+01:33:10,480 --> 01:33:14,199
+Tetris commands.
+
+1605
+01:33:15,120 --> 01:33:23,400
+So right now it's still running. So you
+
+1606
+01:33:17,440 --> 01:33:23,400
+can see wait did it stop?
+
+1607
+01:33:24,320 --> 01:33:30,800
+Oh, when your cruiser is there and it
+
+1608
+01:33:26,560 --> 01:33:33,040
+runs. See when your cursor is here,
+
+1609
+01:33:30,800 --> 01:33:36,800
+expand the window so you can see all the
+
+1610
+01:33:33,040 --> 01:33:40,080
+commands. So Tetris move down. What's
+
+1611
+01:33:36,800 --> 01:33:45,440
+the way uh rotate? Okay. So what is the
+
+1612
+01:33:40,080 --> 01:33:49,400
+key to push them down all the way?
+
+1613
+01:33:45,440 --> 01:33:49,400
+I didn't see it there.
+
+1614
+01:33:49,840 --> 01:33:54,800
+Oh, maybe there's not, but because it's
+
+1615
+01:33:52,000 --> 01:33:57,760
+pretty basic. Okay, so anyway, there's a
+
+1616
+01:33:54,800 --> 01:34:00,719
+demo of Tetris. Now let's go back to Oh
+
+1617
+01:33:57,760 --> 01:34:04,480
+god, it's still building.
+
+1618
+01:34:00,719 --> 01:34:08,880
+How long is this going to take?
+
+1619
+01:34:04,480 --> 01:34:12,960
+Let's see the Windows process
+
+1620
+01:34:08,880 --> 01:34:17,040
+CPU. It only uses one CPU.
+
+1621
+01:34:12,960 --> 01:34:19,040
+That's why the other CPU is not filled.
+
+1622
+01:34:17,040 --> 01:34:23,360
+Okay,
+
+1623
+01:34:19,040 --> 01:34:27,600
+let's see processes. What?
+
+1624
+01:34:23,360 --> 01:34:32,600
+Okay, this is the virtual machine.
+
+1625
+01:34:27,600 --> 01:34:32,600
+This one is a virtual machine. 8%.
+
+1626
+01:34:37,360 --> 01:34:43,440
+Okay, it's still running. Jesus. Now
+
+1627
+01:34:40,639 --> 01:34:47,400
+close that.
+
+1628
+01:34:43,440 --> 01:34:47,400
+Switch to Tetris.
+
+1629
+01:34:50,960 --> 01:34:53,960
+Okay.
+
+1630
+01:35:01,280 --> 01:35:07,719
+Still building. God, this is too slow.
+
+1631
+01:35:04,560 --> 01:35:07,719
+Come on.
+
+1632
+01:35:16,480 --> 01:35:23,760
+Make only uses one CPU by default.
+
+1633
+01:35:20,719 --> 01:35:26,239
+Okay. Did didn't they improve like don't
+
+1634
+01:35:23,760 --> 01:35:30,480
+they you know all these years didn't
+
+1635
+01:35:26,239 --> 01:35:34,719
+they create a parallel um concurrent
+
+1636
+01:35:30,480 --> 01:35:38,719
+make maybe they cannot because
+
+1637
+01:35:34,719 --> 01:35:43,199
+you know because it is a C C++
+
+1638
+01:35:38,719 --> 01:35:45,840
+sequential nature maybe
+
+1639
+01:35:43,199 --> 01:35:47,920
+still running.
+
+1640
+01:35:45,840 --> 01:35:50,960
+Let's see Discord. What's new in
+
+1641
+01:35:47,920 --> 01:35:54,360
+Discord? Oh Jesus.
+
+1642
+01:35:50,960 --> 01:35:54,360
+One's life.
+
+1643
+01:36:02,000 --> 01:36:07,000
+Okay, we uh can't
+
+1644
+01:36:08,159 --> 01:36:11,159
+ugly.
+
+1645
+01:36:12,480 --> 01:36:18,880
+Oh god, it's still running. GNUS is a
+
+1646
+01:36:16,080 --> 01:36:22,000
+email reader and also a news group
+
+1647
+01:36:18,880 --> 01:36:23,920
+reader. Uh well, if you are young, you
+
+1648
+01:36:22,000 --> 01:36:26,880
+don't know what's a news group. New news
+
+1649
+01:36:23,920 --> 01:36:29,120
+group is the
+
+1650
+01:36:26,880 --> 01:36:33,199
+is is like a group chat. It's like
+
+1651
+01:36:29,120 --> 01:36:35,840
+today's Twitter but 40 years ago. It's
+
+1652
+01:36:33,199 --> 01:36:40,000
+all text, you know. It's kind of wow.
+
+1653
+01:36:35,840 --> 01:36:42,480
+It's not like it's like a forum, okay,
+
+1654
+01:36:40,000 --> 01:36:45,760
+where you can post questions or talk to
+
+1655
+01:36:42,480 --> 01:36:48,960
+people. uh news group. Okay, it's called
+
+1656
+01:36:45,760 --> 01:36:50,719
+news group. It's like what's news today?
+
+1657
+01:36:48,960 --> 01:36:53,679
+You know, today you go to Twitter.
+
+1658
+01:36:50,719 --> 01:36:55,280
+What's news today? You go to Twitter.
+
+1659
+01:36:53,679 --> 01:36:58,480
+You know, if I click it, you're going to
+
+1660
+01:36:55,280 --> 01:37:00,320
+see lots of ugly news like war, you
+
+1661
+01:36:58,480 --> 01:37:03,040
+know, that that's what I follow Twitter
+
+1662
+01:37:00,320 --> 01:37:05,280
+for. So, you click here, it's my
+
+1663
+01:37:03,040 --> 01:37:08,880
+profile. It's, you know, it's it's, you
+
+1664
+01:37:05,280 --> 01:37:13,040
+know, oh, by the way, I discovered
+
+1665
+01:37:08,880 --> 01:37:15,360
+the emoji from Google and from Apple,
+
+1666
+01:37:13,040 --> 01:37:18,800
+the emoji font. For example, on Apple,
+
+1667
+01:37:15,360 --> 01:37:21,199
+it's called Apple color emoji. If you
+
+1668
+01:37:18,800 --> 01:37:24,719
+use Google on Linux, you typically use
+
+1669
+01:37:21,199 --> 01:37:27,360
+Google's emoji font called Google Notto
+
+1670
+01:37:24,719 --> 01:37:28,960
+emoji. Uh, Google notto color emoji.
+
+1671
+01:37:27,360 --> 01:37:30,960
+There there are two versions, one for
+
+1672
+01:37:28,960 --> 01:37:33,360
+color. Okay. Anyway, if you use the
+
+1673
+01:37:30,960 --> 01:37:36,800
+color version on Mac and from Google and
+
+1674
+01:37:33,360 --> 01:37:41,040
+Mac, they are actually bitmapped. Okay,
+
+1675
+01:37:36,800 --> 01:37:43,679
+that's something I learned by asking AI.
+
+1676
+01:37:41,040 --> 01:37:46,560
+So when you in so so the font actually
+
+1677
+01:37:43,679 --> 01:37:51,040
+has many versions of different sizes,
+
+1678
+01:37:46,560 --> 01:37:55,040
+but if you enlarge it beyond 160 pixels,
+
+1679
+01:37:51,040 --> 01:37:57,600
+you'll get jagged pictures. You see, you
+
+1680
+01:37:55,040 --> 01:38:00,719
+know, not clear fuzzy. they become fuzzy
+
+1681
+01:37:57,600 --> 01:38:03,280
+because they are not
+
+1682
+01:38:00,719 --> 01:38:06,159
+they are not in vector format they are
+
+1683
+01:38:03,280 --> 01:38:09,360
+bitmapped so that's something new I
+
+1684
+01:38:06,159 --> 01:38:12,080
+learned amazing you know this emoji are
+
+1685
+01:38:09,360 --> 01:38:15,840
+actually bitmapped
+
+1686
+01:38:12,080 --> 01:38:18,880
+uh you know but on the other hand if you
+
+1687
+01:38:15,840 --> 01:38:20,480
+the Microsoft emoji they are not
+
+1688
+01:38:18,880 --> 01:38:23,199
+bitmapped
+
+1689
+01:38:20,480 --> 01:38:26,239
+it's still building okay so on the
+
+1690
+01:38:23,199 --> 01:38:29,280
+Microsoft emoji let's see let's see my
+
+1691
+01:38:26,239 --> 01:38:32,000
+Tetris. Okay, I'm dead.
+
+1692
+01:38:29,280 --> 01:38:37,840
+Uh, okay. Let's do a screenshot of this.
+
+1693
+01:38:32,000 --> 01:38:40,239
+So, this this is EMAC Tetris in Emacs
+
+1694
+01:38:37,840 --> 01:38:42,560
+for oldtime. This is old news. This is
+
+1695
+01:38:40,239 --> 01:38:44,800
+like everyone knows except young people,
+
+1696
+01:38:42,560 --> 01:38:48,320
+you know, you guys don't know. But let's
+
+1697
+01:38:44,800 --> 01:38:51,119
+go to uh Unicode, my Unicode blog, which
+
+1698
+01:38:48,320 --> 01:38:52,960
+I talked about so frequently. So, you
+
+1699
+01:38:51,119 --> 01:38:56,400
+can see
+
+1700
+01:38:52,960 --> 01:38:58,719
+emoji. If you use emoji of Microsoft
+
+1701
+01:38:56,400 --> 01:39:02,880
+emoji, these are Microsoft version. They
+
+1702
+01:38:58,719 --> 01:39:06,080
+updated to become trans. So every emoji
+
+1703
+01:39:02,880 --> 01:39:09,440
+reminds you of the trans [ __ ] like
+
+1704
+01:39:06,080 --> 01:39:12,560
+crazy. You know this ugly.
+
+1705
+01:39:09,440 --> 01:39:16,159
+But but anyway, the Microsoft emoji,
+
+1706
+01:39:12,560 --> 01:39:18,560
+they use vector graphics. So they don't,
+
+1707
+01:39:16,159 --> 01:39:20,960
+you know, they don't get um you see you
+
+1708
+01:39:18,560 --> 01:39:22,719
+can enlarge. Let me show you this. Okay.
+
+1709
+01:39:20,960 --> 01:39:26,159
+Bigger. Bigger. By the way, this is my
+
+1710
+01:39:22,719 --> 01:39:27,920
+website. Just go to casardi.info
+
+1711
+01:39:26,159 --> 01:39:29,840
+everything you want to know about unic
+
+1712
+01:39:27,920 --> 01:39:32,639
+code. Okay. So anyway you are looking at
+
+1713
+01:39:29,840 --> 01:39:36,000
+the Microsoft emoji font. Okay. They are
+
+1714
+01:39:32,639 --> 01:39:38,239
+not bit map. You can enlarge it. Okay.
+
+1715
+01:39:36,000 --> 01:39:41,920
+So let me show you.
+
+1716
+01:39:38,239 --> 01:39:44,080
+Okay. But if you use Google's
+
+1717
+01:39:41,920 --> 01:39:49,280
+emoji font let's see. Click here. So
+
+1718
+01:39:44,080 --> 01:39:52,639
+this is Google version. Okay. Um
+
+1719
+01:39:49,280 --> 01:39:56,800
+and you need to enlarge it more. uh
+
+1720
+01:39:52,639 --> 01:40:00,560
+enlarge it more. So
+
+1721
+01:39:56,800 --> 01:40:02,639
+wait, Google also have a vector version.
+
+1722
+01:40:00,560 --> 01:40:06,000
+So actually this is using the vector
+
+1723
+01:40:02,639 --> 01:40:09,679
+version. Yeah, Google also has a vector
+
+1724
+01:40:06,000 --> 01:40:11,760
+version. Okay, so this is Yeah. So this
+
+1725
+01:40:09,679 --> 01:40:14,080
+is using the vector version because you
+
+1726
+01:40:11,760 --> 01:40:17,119
+don't see the jacked
+
+1727
+01:40:14,080 --> 01:40:19,199
+lines. So this is good. Well, anyway, I
+
+1728
+01:40:17,119 --> 01:40:22,639
+cannot demo Apple because I don't have
+
+1729
+01:40:19,199 --> 01:40:25,119
+Apple's font. Um,
+
+1730
+01:40:22,639 --> 01:40:28,400
+anyway, that's something interesting.
+
+1731
+01:40:25,119 --> 01:40:31,280
+So, now let's just
+
+1732
+01:40:28,400 --> 01:40:34,239
+make it uh
+
+1733
+01:40:31,280 --> 01:40:36,800
+Okay, back to 30.
+
+1734
+01:40:34,239 --> 01:40:40,679
+Okay, it's still building. Oh, Jesus.
+
+1735
+01:40:36,800 --> 01:40:40,679
+How long does it take?
+
+1736
+01:40:46,880 --> 01:40:55,639
+It's 2 hours now. We've been talking for
+
+1737
+01:40:50,080 --> 01:40:55,639
+1 hour and 40 minutes. Okay.
+
+1738
+01:41:04,960 --> 01:41:09,320
+Okay. Yeah, it's still building.
+
+1739
+01:41:10,880 --> 01:41:14,600
+So, actually,
+
+1740
+01:41:16,159 --> 01:41:20,760
+yeah, it's still building. Jesus,
+
+1741
+01:41:21,840 --> 01:41:28,560
+why is it taking so long? God, this
+
+1742
+01:41:25,679 --> 01:41:30,639
+building emac this this they are trying
+
+1743
+01:41:28,560 --> 01:41:36,800
+to compile
+
+1744
+01:41:30,639 --> 01:41:40,159
+all this emac this code by compile it.
+
+1745
+01:41:36,800 --> 01:41:43,600
+Okay, almost done. Okay. Okay. I think
+
+1746
+01:41:40,159 --> 01:41:48,560
+are you done yet?
+
+1747
+01:41:43,600 --> 01:41:48,560
+Nazi entries. I don't know what that is.
+
+1748
+01:41:50,239 --> 01:41:56,960
+Ctrl C and type
+
+1749
+01:41:52,880 --> 01:42:02,480
+why do why do I want to type that make
+
+1750
+01:41:56,960 --> 01:42:06,560
+JS M progue that's that's concurrent
+
+1751
+01:42:02,480 --> 01:42:10,760
+it will continue from where you stopped
+
+1752
+01:42:06,560 --> 01:42:10,760
+uh I don't want to risk it
+
+1753
+01:42:13,520 --> 01:42:24,400
+so what is that uh make JS.
+
+1754
+01:42:18,480 --> 01:42:29,000
+So let's ask AI. Okay. So let's ask AI
+
+1755
+01:42:24,400 --> 01:42:29,000
+what is this thing?
+
+1756
+01:42:32,239 --> 01:42:39,040
+Make dash J dollar sign M prog is a very
+
+1757
+01:42:36,560 --> 01:42:41,760
+common way to speed up compilation by
+
+1758
+01:42:39,040 --> 01:42:43,679
+running it multiple jobs in parallel.
+
+1759
+01:42:41,760 --> 01:42:45,920
+Oh,
+
+1760
+01:42:43,679 --> 01:42:48,880
+okay. But I don't want to try it. I
+
+1761
+01:42:45,920 --> 01:42:50,800
+don't want to risk it because you never
+
+1762
+01:42:48,880 --> 01:42:54,400
+know. You You try something you don't
+
+1763
+01:42:50,800 --> 01:42:57,040
+know and you screw up. You have to redo
+
+1764
+01:42:54,400 --> 01:42:59,280
+it. Now it's done
+
+1765
+01:42:57,040 --> 01:43:02,719
+finally. I think that's it for today.
+
+1766
+01:42:59,280 --> 01:43:05,960
+Okay. Now let's run. Um it's done. Okay.
+
+1767
+01:43:02,719 --> 01:43:05,960
+So now
+
+1768
+01:43:07,199 --> 01:43:15,679
+now LS-
+
+1769
+01:43:11,360 --> 01:43:19,960
+Okay. Now, do we have a bing directory?
+
+1770
+01:43:15,679 --> 01:43:19,960
+Where did you um
+
+1771
+01:43:24,800 --> 01:43:33,520
+I don't remember where did it install.
+
+1772
+01:43:28,480 --> 01:43:36,639
+So, now let's go back to my website.
+
+1773
+01:43:33,520 --> 01:43:39,520
+Uh what's the last command?
+
+1774
+01:43:36,639 --> 01:43:43,080
+Make bootstrapped. Oh, then I have to
+
+1775
+01:43:39,520 --> 01:43:43,080
+make Jesus.
+
+1776
+01:43:43,226 --> 01:43:47,840
+>> [laughter]
+
+1777
+01:43:44,800 --> 01:43:54,119
+>> That was just make bootstrap. Now you
+
+1778
+01:43:47,840 --> 01:43:54,119
+have to make Oh god. Oh then.
+
+1779
+01:43:58,080 --> 01:44:03,480
+Did they create a binder? No.
+
+1780
+01:44:04,080 --> 01:44:10,560
+Okay. Then when done.
+
+1781
+01:44:08,320 --> 01:44:13,199
+Oh, the whole process will take about 20
+
+1782
+01:44:10,560 --> 01:44:19,360
+minutes. When done, Emacs binary will be
+
+1783
+01:44:13,199 --> 01:44:23,840
+at source. Okay. So, let's go to source.
+
+1784
+01:44:19,360 --> 01:44:28,239
+So, my instruction written 10 years ago
+
+1785
+01:44:23,840 --> 01:44:33,280
+is still good. Still good. Now, cd
+
+1786
+01:44:28,239 --> 01:44:36,480
+source ls a l.
+
+1787
+01:44:33,280 --> 01:44:40,119
+Uh, where is my emac here? So, my emac
+
+1788
+01:44:36,480 --> 01:44:40,119
+is here somewhere.
+
+1789
+01:44:40,800 --> 01:44:46,119
+There it is. So now let's run Emacs.
+
+1790
+01:44:46,880 --> 01:44:56,520
+Okay. So wait
+
+1791
+01:44:49,920 --> 01:44:56,520
+slash dot slash Emacs. Run it. Run it.
+
+1792
+01:45:00,159 --> 01:45:11,520
+Success. So this is Emacs in WSL Windows
+
+1793
+01:45:06,480 --> 01:45:15,199
+Subsystem for Linux. Okay. Now you want
+
+1794
+01:45:11,520 --> 01:45:21,679
+you see. So now we want to magnify the
+
+1795
+01:45:15,199 --> 01:45:28,760
+font. Control alt square. That works.
+
+1796
+01:45:21,679 --> 01:45:28,760
+Okay. Now let's say meta x
+
+1797
+01:45:29,199 --> 01:45:34,080
+version.
+
+1798
+01:45:31,360 --> 01:45:37,199
+Okay. So it tells me I'm running emac
+
+1799
+01:45:34,080 --> 01:45:39,040
+32. Oh Jesus even greater than my
+
+1800
+01:45:37,199 --> 01:45:43,679
+current version. So my current version
+
+1801
+01:45:39,040 --> 01:45:45,600
+is emac 30. Wow. So the ripple is emac
+
+1802
+01:45:43,679 --> 01:45:50,960
+32.
+
+1803
+01:45:45,600 --> 01:45:57,239
+So let's magnify more. Control port
+
+1804
+01:45:50,960 --> 01:45:57,239
+magnify. So it becomes huge. Okay.
+
+1805
+01:45:59,679 --> 01:46:07,440
+Okay. Now magnify more. This is the
+
+1806
+01:46:04,000 --> 01:46:11,520
+first time I started a GUI
+
+1807
+01:46:07,440 --> 01:46:13,679
+in WSL. Okay.
+
+1808
+01:46:11,520 --> 01:46:17,440
+So now
+
+1809
+01:46:13,679 --> 01:46:20,000
+now Tetris. Okay.
+
+1810
+01:46:17,440 --> 01:46:23,000
+X
+
+1811
+01:46:20,000 --> 01:46:23,000
+Tetris.
+
+1812
+01:46:24,080 --> 01:46:27,080
+Fantastic.
+
+1813
+01:46:37,119 --> 01:46:41,920
+Success. Okay, we installed Emacs.
+
+1814
+01:46:39,920 --> 01:46:45,040
+Fantastic. That's it for today. Thank
+
+1815
+01:46:41,920 --> 01:46:49,600
+you guys for watching and uh thank you
+
+1816
+01:46:45,040 --> 01:46:51,600
+Mo for help and hang finally. Okay, bye
+
+1817
+01:46:49,600 --> 01:46:53,360
+guys. Have a good day. I think that's
+
+1818
+01:46:51,600 --> 01:46:56,320
+good.
+
+1819
+01:46:53,360 --> 01:47:00,400
+Anything else? Let's see. Uh the final
+
+1820
+01:46:56,320 --> 01:47:03,119
+check. So Unix we close that uh to close
+
+1821
+01:47:00,400 --> 01:47:06,560
+close because our talk show that's
+
+1822
+01:47:03,119 --> 01:47:11,040
+today's talk show. We installed Emacs
+
+1823
+01:47:06,560 --> 01:47:14,400
+and compiled and all the trouble on WSL.
+
+1824
+01:47:11,040 --> 01:47:20,040
+on Windows. So, yeah. Okay. Thank you
+
+1825
+01:47:14,400 --> 01:47:20,040
+guys. Bye. Have fun. That was fun.
+
+1826
+01:47:27,040 --> 01:47:30,600
+Bye. Bye.
+

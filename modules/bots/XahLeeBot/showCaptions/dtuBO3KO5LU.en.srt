@@ -1,0 +1,5640 @@
+1
+00:00:02,960 --> 00:00:08,559
+Hello, good evening. Welcome to another
+
+2
+00:00:05,759 --> 00:00:12,160
+episode of Exot Talk Show. We are going
+
+3
+00:00:08,559 --> 00:00:15,200
+to uh code JavaScript. Okay, we're going
+
+4
+00:00:12,160 --> 00:00:18,080
+to have fun code JavaScript. We going to
+
+5
+00:00:15,200 --> 00:00:21,920
+um so JavaScript we're going to write a
+
+6
+00:00:18,080 --> 00:00:24,080
+command that taste test equality of
+
+7
+00:00:21,920 --> 00:00:26,320
+array or object.
+
+8
+00:00:24,080 --> 00:00:29,599
+Uh you know in JavaScript it's a very
+
+9
+00:00:26,320 --> 00:00:34,239
+lousy language. you you cannot compare
+
+10
+00:00:29,599 --> 00:00:36,079
+uh array by array content or uh object.
+
+11
+00:00:34,239 --> 00:00:38,480
+So we're gonna write that in fact it's
+
+12
+00:00:36,079 --> 00:00:40,239
+already written
+
+13
+00:00:38,480 --> 00:00:41,760
+but we're going to do some uh we're
+
+14
+00:00:40,239 --> 00:00:44,000
+going to write so what we're going to
+
+15
+00:00:41,760 --> 00:00:48,480
+write so the command is already here
+
+16
+00:00:44,000 --> 00:00:51,360
+okay test equality of array and object
+
+17
+00:00:48,480 --> 00:00:55,199
+by content okay so the array or object
+
+18
+00:00:51,360 --> 00:00:58,239
+can be nested so that's what we uh and
+
+19
+00:00:55,199 --> 00:01:03,280
+you know so but so here's the code uh
+
+20
+00:00:58,239 --> 00:01:06,159
+and this is written beginning in 2022
+
+21
+00:01:03,280 --> 00:01:09,200
+uh I think it's earlier than that. But
+
+22
+00:01:06,159 --> 00:01:10,880
+anyway, so
+
+23
+00:01:09,200 --> 00:01:13,600
+what we're going to write is actually
+
+24
+00:01:10,880 --> 00:01:18,080
+we're going to write a benchmark of
+
+25
+00:01:13,600 --> 00:01:21,280
+using alternative uh method of uh JSON
+
+26
+00:01:18,080 --> 00:01:24,960
+to uh string gify. Okay. So we can turn
+
+27
+00:01:21,280 --> 00:01:27,840
+an array to JSON string and compare the
+
+28
+00:01:24,960 --> 00:01:32,000
+resulting string. That's one of the way
+
+29
+00:01:27,840 --> 00:01:34,240
+to uh test if arrays are equal or
+
+30
+00:01:32,000 --> 00:01:36,720
+object. But however, there's lots of
+
+31
+00:01:34,240 --> 00:01:38,720
+problems. We're going to talk about that
+
+32
+00:01:36,720 --> 00:01:41,840
+because you know when you use uh when
+
+33
+00:01:38,720 --> 00:01:45,840
+you turn them into JSON, you got lots of
+
+34
+00:01:41,840 --> 00:01:49,520
+issues. Uh uh for example, object uh key
+
+35
+00:01:45,840 --> 00:01:51,439
+order, that's an issue. And uh and also
+
+36
+00:01:49,520 --> 00:01:54,640
+when you use array, you got issues like
+
+37
+00:01:51,439 --> 00:01:57,040
+undefined and new values or sparse
+
+38
+00:01:54,640 --> 00:02:00,320
+array. They will cause problems. Okay,
+
+39
+00:01:57,040 --> 00:02:02,000
+so that's what we're going to explore.
+
+40
+00:02:00,320 --> 00:02:05,119
+Uh if you are watching this offline,
+
+41
+00:02:02,000 --> 00:02:08,439
+play at speed two. If you are here, say
+
+42
+00:02:05,119 --> 00:02:08,439
+hi. Okay.
+
+43
+00:02:08,640 --> 00:02:13,120
+So let's start code. Okay. So let me
+
+44
+00:02:10,800 --> 00:02:16,239
+just uh I I need to do it this for
+
+45
+00:02:13,120 --> 00:02:18,400
+myself. Uh continue from Yes. So today's
+
+46
+00:02:16,239 --> 00:02:23,120
+today's talk show. Can you see it? Yes.
+
+47
+00:02:18,400 --> 00:02:25,599
+Okay. So let me start to do it. Okay.
+
+48
+00:02:23,120 --> 00:02:27,520
+Uh let's remove remove that showing
+
+49
+00:02:25,599 --> 00:02:30,560
+browser. So that's what we going to talk
+
+50
+00:02:27,520 --> 00:02:33,120
+about. And uh that's my keyboard if you
+
+51
+00:02:30,560 --> 00:02:34,959
+are wondering. So that's my uh ultimate
+
+52
+00:02:33,120 --> 00:02:37,680
+hacking keyboard. The keyboard you see
+
+53
+00:02:34,959 --> 00:02:40,080
+here and go here, go here, go here, go
+
+54
+00:02:37,680 --> 00:02:42,720
+here. Scene two. So the ultimate hacking
+
+55
+00:02:40,080 --> 00:02:45,519
+keyboard UHK80
+
+56
+00:02:42,720 --> 00:02:48,640
+NIA trackboard and Logitech trackboard.
+
+57
+00:02:45,519 --> 00:02:51,120
+And uh let me mention again this is
+
+58
+00:02:48,640 --> 00:02:53,040
+fantastic device. This is called SWA
+
+59
+00:02:51,120 --> 00:02:57,840
+board. SV
+
+60
+00:02:53,040 --> 00:03:00,080
+A L B O A R D S V A L SWboard. Okay.
+
+61
+00:02:57,840 --> 00:03:05,120
+Magnetic switch. I haven't used it yet.
+
+62
+00:03:00,080 --> 00:03:08,159
+So, I'm I so so fantastic.
+
+63
+00:03:05,120 --> 00:03:11,040
+You can uh check out YouTube. I had a
+
+64
+00:03:08,159 --> 00:03:13,360
+kind of review a year or two ago and
+
+65
+00:03:11,040 --> 00:03:17,720
+lots of other people has done it. Uh
+
+66
+00:03:13,360 --> 00:03:17,720
+they have reviews. Okay.
+
+67
+00:03:24,879 --> 00:03:29,280
+Okay. Now let's let me just let's let's
+
+68
+00:03:27,040 --> 00:03:33,680
+let me just go back to start to code.
+
+69
+00:03:29,280 --> 00:03:35,360
+Okay. Uh so demo object. So let's let's
+
+70
+00:03:33,680 --> 00:03:37,760
+show the code. Okay. If you are here,
+
+71
+00:03:35,360 --> 00:03:41,599
+say hi. Hello. Hello Andrean. Hello
+
+72
+00:03:37,760 --> 00:03:43,360
+Isaac. Isaac Fiddler. So we going to
+
+73
+00:03:41,599 --> 00:03:46,159
+demonstrate the code. Uh show in
+
+74
+00:03:43,360 --> 00:03:48,319
+browser. My god the the the font is
+
+75
+00:03:46,159 --> 00:03:50,159
+huge.
+
+76
+00:03:48,319 --> 00:03:52,879
+You know, one thing you learned when you
+
+77
+00:03:50,159 --> 00:03:55,200
+do live stream is that you need to make
+
+78
+00:03:52,879 --> 00:03:59,519
+your font on your screen like twice as
+
+79
+00:03:55,200 --> 00:04:01,519
+large like and then because of
+
+80
+00:03:59,519 --> 00:04:04,159
+for for for for those watching the
+
+81
+00:04:01,519 --> 00:04:07,680
+YouTube that will be much easier but for
+
+82
+00:04:04,159 --> 00:04:10,159
+you for myself the font becomes so so
+
+83
+00:04:07,680 --> 00:04:13,040
+huge you know it's hard to get used to
+
+84
+00:04:10,159 --> 00:04:15,519
+because then you you can only see a tiny
+
+85
+00:04:13,040 --> 00:04:18,479
+part of your screen.
+
+86
+00:04:15,519 --> 00:04:20,799
+So anyway, so
+
+87
+00:04:18,479 --> 00:04:23,280
+so that's a code. So we going to let me
+
+88
+00:04:20,799 --> 00:04:26,240
+uh first of all demo demo de demonstrate
+
+89
+00:04:23,280 --> 00:04:28,880
+the code. Okay, so here's a code uh
+
+90
+00:04:26,240 --> 00:04:32,400
+search for it. So pop it out. So here's
+
+91
+00:04:28,880 --> 00:04:34,880
+a code. Here's a documentation. Uh is
+
+92
+00:04:32,400 --> 00:04:38,240
+object equal return true if every
+
+93
+00:04:34,880 --> 00:04:41,520
+innumerable property keys and values are
+
+94
+00:04:38,240 --> 00:04:44,000
+equal. Symbol keys are ignored. Nested
+
+95
+00:04:41,520 --> 00:04:46,639
+object are compared uh in the same way.
+
+96
+00:04:44,000 --> 00:04:46,639
+Okay.
+
+97
+00:04:47,360 --> 00:04:53,280
+So you can you the object can be array
+
+98
+00:04:50,400 --> 00:04:56,639
+or uh or data object and they can be
+
+99
+00:04:53,280 --> 00:04:59,120
+nested and only innumerable property
+
+100
+00:04:56,639 --> 00:05:01,360
+keys are compared. Okay. And their value
+
+101
+00:04:59,120 --> 00:05:04,320
+okay must be equal. All the properties
+
+102
+00:05:01,360 --> 00:05:07,199
+does not matter.
+
+103
+00:05:04,320 --> 00:05:11,960
+Okay. So uh excuse me. Hold on a second.
+
+104
+00:05:07,199 --> 00:05:11,960
+Need to blow my nose.
+
+105
+00:05:18,880 --> 00:05:24,160
+So here is a so so here is the uh code.
+
+106
+00:05:21,919 --> 00:05:27,600
+Okay. So here is the code. Not not too
+
+107
+00:05:24,160 --> 00:05:31,400
+long. It's only uh you know it's only
+
+108
+00:05:27,600 --> 00:05:31,400
+let's see uh
+
+109
+00:05:31,759 --> 00:05:38,320
+copy uh copy new paste 20 lines of code.
+
+110
+00:05:35,520 --> 00:05:40,000
+Okay. 20 lines. Fantastic supreme
+
+111
+00:05:38,320 --> 00:05:42,560
+functional programming. This is
+
+112
+00:05:40,000 --> 00:05:44,880
+recursive function. Okay, this function
+
+113
+00:05:42,560 --> 00:05:48,560
+coites itself
+
+114
+00:05:44,880 --> 00:05:51,440
+and it is the most efficient
+
+115
+00:05:48,560 --> 00:05:53,600
+function for this purpose out there. You
+
+116
+00:05:51,440 --> 00:05:56,160
+know, you can go out and look at the
+
+117
+00:05:53,600 --> 00:05:57,680
+MPM, you know, there's lots of
+
+118
+00:05:56,160 --> 00:06:00,400
+libraries,
+
+119
+00:05:57,680 --> 00:06:03,120
+you know, the popular frameworks that
+
+120
+00:06:00,400 --> 00:06:06,639
+has this kind of similar feature. And I
+
+121
+00:06:03,120 --> 00:06:10,240
+would say my is the most correct
+
+122
+00:06:06,639 --> 00:06:14,080
+and the most the the the fastest as
+
+123
+00:06:10,240 --> 00:06:16,400
+well. the most so they say performant
+
+124
+00:06:14,080 --> 00:06:18,800
+okay you can you can test it you know it
+
+125
+00:06:16,400 --> 00:06:21,440
+go up but actually there's one thing we
+
+126
+00:06:18,800 --> 00:06:24,000
+need to modify okay there is uh because
+
+127
+00:06:21,440 --> 00:06:26,080
+I was looking at the code I noticed
+
+128
+00:06:24,000 --> 00:06:28,880
+there's one thing we need to modify to
+
+129
+00:06:26,080 --> 00:06:31,600
+improve the speed because here you can
+
+130
+00:06:28,880 --> 00:06:36,120
+see they they get the keys object if
+
+131
+00:06:31,600 --> 00:06:36,120
+they are objects okay if they are array
+
+132
+00:06:37,039 --> 00:06:41,280
+you know if their ref reference is the
+
+133
+00:06:39,440 --> 00:06:43,199
+same then you just return true you know
+
+134
+00:06:41,280 --> 00:06:45,199
+by the triple equal because they are
+
+135
+00:06:43,199 --> 00:06:47,280
+exactly the same array because they have
+
+136
+00:06:45,199 --> 00:06:49,600
+the same array address okay but
+
+137
+00:06:47,280 --> 00:06:52,319
+otherwise if they are not object both of
+
+138
+00:06:49,600 --> 00:06:54,560
+them are not object a a and bb so that's
+
+139
+00:06:52,319 --> 00:06:57,759
+the argument okay if they are not object
+
+140
+00:06:54,560 --> 00:06:59,759
+then then you compare them as array by
+
+141
+00:06:57,759 --> 00:07:04,479
+nest you know you compare each element
+
+142
+00:06:59,759 --> 00:07:06,960
+you nest into um and you call itself
+
+143
+00:07:04,479 --> 00:07:09,199
+okay those if if they are both of them
+
+144
+00:07:06,960 --> 00:07:12,639
+are true arrays okay because in
+
+145
+00:07:09,199 --> 00:07:16,160
+JavaScript You got this array like
+
+146
+00:07:12,639 --> 00:07:19,039
+ you know very complicated So
+
+147
+00:07:16,160 --> 00:07:22,160
+if they are if one of them is not array
+
+148
+00:07:19,039 --> 00:07:24,800
+then you have to compare compare them as
+
+149
+00:07:22,160 --> 00:07:27,360
+object. So when you compare them as
+
+150
+00:07:24,800 --> 00:07:29,440
+object you got several issues. You got
+
+151
+00:07:27,360 --> 00:07:32,560
+keys whether they are innumerable or
+
+152
+00:07:29,440 --> 00:07:36,479
+not. You also got the issue of symbol
+
+153
+00:07:32,560 --> 00:07:39,039
+keys because remember a object in
+
+154
+00:07:36,479 --> 00:07:42,319
+JavaScript is a collection of key and
+
+155
+00:07:39,039 --> 00:07:45,199
+value pairs. Each key and value is
+
+156
+00:07:42,319 --> 00:07:48,400
+called a property. Okay, am I too loud
+
+157
+00:07:45,199 --> 00:07:51,039
+here? So collection of key and value
+
+158
+00:07:48,400 --> 00:07:55,039
+pairs. That's a definition of object in
+
+159
+00:07:51,039 --> 00:07:58,560
+JavaScript. And each key and value pair
+
+160
+00:07:55,039 --> 00:08:02,479
+is called a property. Okay? And they are
+
+161
+00:07:58,560 --> 00:08:04,319
+identified by the keys name. Okay. And
+
+162
+00:08:02,479 --> 00:08:06,960
+the key
+
+163
+00:08:04,319 --> 00:08:09,440
+uh can be two types you know like a
+
+164
+00:08:06,960 --> 00:08:13,319
+value type. So the key must be a string
+
+165
+00:08:09,440 --> 00:08:13,319
+or a symbol type.
+
+166
+00:08:17,280 --> 00:08:22,160
+I'm coughing a bit. So I'm you know so
+
+167
+00:08:20,080 --> 00:08:25,360
+anyway key must be string or symbol
+
+168
+00:08:22,160 --> 00:08:28,160
+type. Okay. And also a key a property
+
+169
+00:08:25,360 --> 00:08:30,319
+can be innumerable. there's a attribute.
+
+170
+00:08:28,160 --> 00:08:33,360
+So, so you got key and value that's
+
+171
+00:08:30,319 --> 00:08:36,800
+called property. Key can be a string
+
+172
+00:08:33,360 --> 00:08:41,279
+type or a symbol type. The symbol type
+
+173
+00:08:36,800 --> 00:08:44,800
+is new 10 10 years ago in 2015. Okay.
+
+174
+00:08:41,279 --> 00:08:46,959
+The value of a property can be any type
+
+175
+00:08:44,800 --> 00:08:50,320
+can be can be string can be number can
+
+176
+00:08:46,959 --> 00:08:53,040
+be a function can be whatever. Okay. So
+
+177
+00:08:50,320 --> 00:08:57,440
+key value pairs each key value is called
+
+178
+00:08:53,040 --> 00:09:00,800
+property. Okay. Now for each property
+
+179
+00:08:57,440 --> 00:09:03,440
+you can have attributes you know so so
+
+180
+00:09:00,800 --> 00:09:06,240
+one of the attribute is innumerable
+
+181
+00:09:03,440 --> 00:09:08,480
+boolean attribute whether that
+
+182
+00:09:06,240 --> 00:09:11,600
+you know that property is considered
+
+183
+00:09:08,480 --> 00:09:15,120
+considered innumerable then you got uh
+
+184
+00:09:11,600 --> 00:09:17,120
+you got two others okay uh like get
+
+185
+00:09:15,120 --> 00:09:19,600
+getter and setter anyway that's very
+
+186
+00:09:17,120 --> 00:09:22,800
+complicated and you you know you it's
+
+187
+00:09:19,600 --> 00:09:25,440
+like so complicated the JavaScript is
+
+188
+00:09:22,800 --> 00:09:27,440
+crap okay you don't need them. I mean
+
+189
+00:09:25,440 --> 00:09:29,920
+the reason they have them because they
+
+190
+00:09:27,440 --> 00:09:31,920
+don't have true arrays. So they you know
+
+191
+00:09:29,920 --> 00:09:33,920
+they are trying to make it easier but
+
+192
+00:09:31,920 --> 00:09:35,680
+they got up because this the
+
+193
+00:09:33,920 --> 00:09:39,440
+whole thing is written and designed in
+
+194
+00:09:35,680 --> 00:09:42,640
+10 days JavaScript in 1995. So you got
+
+195
+00:09:39,440 --> 00:09:45,600
+like tons of problems. Okay. So anyway
+
+196
+00:09:42,640 --> 00:09:49,839
+now remember object by definition is a
+
+197
+00:09:45,600 --> 00:09:51,680
+collection of key value pairs.
+
+198
+00:09:49,839 --> 00:09:54,640
+Well actually there's more than that. By
+
+199
+00:09:51,680 --> 00:09:57,519
+the spec it says key value pairs but in
+
+200
+00:09:54,640 --> 00:10:00,959
+reality in practice actually
+
+201
+00:09:57,519 --> 00:10:04,320
+each object may have special behaviors
+
+202
+00:10:00,959 --> 00:10:06,720
+such as function date and time object
+
+203
+00:10:04,320 --> 00:10:10,160
+regular expression object
+
+204
+00:10:06,720 --> 00:10:14,160
+u you know the the reflect object you
+
+205
+00:10:10,160 --> 00:10:16,480
+know like the specialized objects but
+
+206
+00:10:14,160 --> 00:10:19,040
+anyway object is key value pairs and
+
+207
+00:10:16,480 --> 00:10:22,240
+they are it's each key value pairs is
+
+208
+00:10:19,040 --> 00:10:24,800
+called a property and uh a property can
+
+209
+00:10:22,240 --> 00:10:28,640
+be innumerable have several attributes
+
+210
+00:10:24,800 --> 00:10:31,279
+and one of them is innumerable so anyway
+
+211
+00:10:28,640 --> 00:10:34,000
+so you started to so I'm talking about
+
+212
+00:10:31,279 --> 00:10:37,680
+there's a inefficiency here I shouldn't
+
+213
+00:10:34,000 --> 00:10:40,079
+sort there I should sort it later okay
+
+214
+00:10:37,680 --> 00:10:42,959
+but actually we can fix it but before we
+
+215
+00:10:40,079 --> 00:10:47,040
+do let's just run it test it okay
+
+216
+00:10:42,959 --> 00:10:49,839
+compare array compare object compare uh
+
+217
+00:10:47,040 --> 00:10:51,760
+then compare so then so this is object
+
+218
+00:10:49,839 --> 00:10:55,440
+this is pure array array, nested array.
+
+219
+00:10:51,760 --> 00:10:58,720
+This is nested object and here is nested
+
+220
+00:10:55,440 --> 00:11:01,279
+array and object or array and array
+
+221
+00:10:58,720 --> 00:11:04,560
+array or or object array you know you
+
+222
+00:11:01,279 --> 00:11:06,480
+know nested nested any of object array
+
+223
+00:11:04,560 --> 00:11:10,079
+and here is primitives let's just run
+
+224
+00:11:06,480 --> 00:11:12,959
+them all so they return nothing because
+
+225
+00:11:10,079 --> 00:11:15,360
+that means it's success because this
+
+226
+00:11:12,959 --> 00:11:18,160
+console log uh I mean this console
+
+227
+00:11:15,360 --> 00:11:20,560
+assert function that's a function I just
+
+228
+00:11:18,160 --> 00:11:23,680
+learned today actually I never used it
+
+229
+00:11:20,560 --> 00:11:28,320
+but it's pretty old. I think concert
+
+230
+00:11:23,680 --> 00:11:32,560
+assert that um basically return if it
+
+231
+00:11:28,320 --> 00:11:35,440
+returns true it does nothing. It only re
+
+232
+00:11:32,560 --> 00:11:38,640
+it only prints just like console log
+
+233
+00:11:35,440 --> 00:11:41,600
+when when the value is not true. So it's
+
+234
+00:11:38,640 --> 00:11:43,440
+just like console log except
+
+235
+00:11:41,600 --> 00:11:47,120
+when the value is true it doesn't
+
+236
+00:11:43,440 --> 00:11:49,360
+doesn't do anything. Okay. So, so all
+
+237
+00:11:47,120 --> 00:11:53,519
+these are true. Prints nothing. That
+
+238
+00:11:49,360 --> 00:11:56,000
+means my test function is successful.
+
+239
+00:11:53,519 --> 00:11:59,200
+Uh
+
+240
+00:11:56,000 --> 00:12:01,680
+but I needed to add some more. So let me
+
+241
+00:11:59,200 --> 00:12:04,720
+show you some more. Okay. So compare uh
+
+242
+00:12:01,680 --> 00:12:06,639
+let's say compare array. So let's add a
+
+243
+00:12:04,720 --> 00:12:10,880
+new condition
+
+244
+00:12:06,639 --> 00:12:15,920
+array with undefined and no values.
+
+245
+00:12:10,880 --> 00:12:19,360
+Okay. So let's say uh three no and uh
+
+246
+00:12:15,920 --> 00:12:22,880
+here three undefined. Okay, let's see if
+
+247
+00:12:19,360 --> 00:12:25,760
+they are uh yes or no same or not.
+
+248
+00:12:22,880 --> 00:12:28,079
+Assertion failed.
+
+249
+00:12:25,760 --> 00:12:30,160
+Okay, so there you got assertion. Well,
+
+250
+00:12:28,079 --> 00:12:32,079
+of course, because they are not equal.
+
+251
+00:12:30,160 --> 00:12:35,040
+Okay, they are not supposed to equal.
+
+252
+00:12:32,079 --> 00:12:39,440
+Okay, so that's successful. So this
+
+253
+00:12:35,040 --> 00:12:43,920
+should be equals to um false.
+
+254
+00:12:39,440 --> 00:12:46,480
+Okay. Now run it. Perfect. So this means
+
+255
+00:12:43,920 --> 00:12:50,079
+my function is working correctly. Okay.
+
+256
+00:12:46,480 --> 00:12:52,959
+Unlike possibly some like if you use
+
+257
+00:12:50,079 --> 00:12:55,200
+string, if you use JSON. So let me show
+
+258
+00:12:52,959 --> 00:13:01,639
+you the JSON thing. Okay. So if you want
+
+259
+00:12:55,200 --> 00:13:01,639
+to compare to a object, you can use JSON
+
+260
+00:13:02,079 --> 00:13:09,040
+uh JSON stringify. Okay, there it is. So
+
+261
+00:13:05,760 --> 00:13:13,360
+you want JSON stringify that is it
+
+262
+00:13:09,040 --> 00:13:14,959
+equals to JSON stringify
+
+263
+00:13:13,360 --> 00:13:19,440
+of
+
+264
+00:13:14,959 --> 00:13:23,519
+of that. Okay. Now you you can run this.
+
+265
+00:13:19,440 --> 00:13:26,000
+Let's just run it locally.
+
+266
+00:13:23,519 --> 00:13:29,839
+No output. Okay. Let's see. Let's try
+
+267
+00:13:26,000 --> 00:13:33,279
+again. No output. Okay. So that means
+
+268
+00:13:29,839 --> 00:13:35,200
+it's successful. This assert. Yeah. I'm
+
+269
+00:13:33,279 --> 00:13:38,079
+not sure I like assert, you know. I just
+
+270
+00:13:35,200 --> 00:13:40,399
+started to use it
+
+271
+00:13:38,079 --> 00:13:43,519
+because when you have log they actually
+
+272
+00:13:40,399 --> 00:13:46,560
+make sense because it prints it. So it's
+
+273
+00:13:43,519 --> 00:13:49,600
+like it's more intuitive
+
+274
+00:13:46,560 --> 00:13:52,639
+you know like because most of because
+
+275
+00:13:49,600 --> 00:13:54,880
+assert is rather more rare used rarely
+
+276
+00:13:52,639 --> 00:13:59,760
+used. Hello are you guys here? Say hi.
+
+277
+00:13:54,880 --> 00:14:02,639
+Okay say hi guys. Andrean and Isaac and
+
+278
+00:13:59,760 --> 00:14:04,720
+train what are you doing? You missed you
+
+279
+00:14:02,639 --> 00:14:08,399
+missed things. We we coding advanced
+
+280
+00:14:04,720 --> 00:14:10,959
+JavaScript JavaScript in depth. Okay.
+
+281
+00:14:08,399 --> 00:14:15,360
+So let's uh let's change the assert back
+
+282
+00:14:10,959 --> 00:14:18,560
+to log. So I don't want to assert
+
+283
+00:14:15,360 --> 00:14:20,639
+because assert is less well-known thing
+
+284
+00:14:18,560 --> 00:14:23,279
+when you have like console log is
+
+285
+00:14:20,639 --> 00:14:25,760
+universal. So you see now it returned
+
+286
+00:14:23,279 --> 00:14:29,440
+all true. Okay.
+
+287
+00:14:25,760 --> 00:14:32,079
+So we we tested special case. So this is
+
+288
+00:14:29,440 --> 00:14:36,240
+the example of using JSON to compare
+
+289
+00:14:32,079 --> 00:14:39,360
+string. Okay. Uh and and in this case uh
+
+290
+00:14:36,240 --> 00:14:43,199
+this returns true. Okay. Let me run it.
+
+291
+00:14:39,360 --> 00:14:45,680
+You see true which is incorrect. You see
+
+292
+00:14:43,199 --> 00:14:48,880
+because one array is got the no the
+
+293
+00:14:45,680 --> 00:14:51,120
+other arrays got a undefined. No new and
+
+294
+00:14:48,880 --> 00:14:54,480
+undefined are not the same thing. Okay.
+
+295
+00:14:51,120 --> 00:14:56,959
+So this is a failure the example of a
+
+296
+00:14:54,480 --> 00:15:00,240
+failure when when you use JSON string.
+
+297
+00:14:56,959 --> 00:15:02,880
+Okay. So anyway so let's uh we want to
+
+298
+00:15:00,240 --> 00:15:07,519
+test some more things. Okay. So let's
+
+299
+00:15:02,880 --> 00:15:11,320
+make another test case. Compare object
+
+300
+00:15:07,519 --> 00:15:11,320
+uh with
+
+301
+00:15:14,000 --> 00:15:21,600
+key in different uh
+
+302
+00:15:18,800 --> 00:15:23,760
+okay let's just say that
+
+303
+00:15:21,600 --> 00:15:28,920
+two
+
+304
+00:15:23,760 --> 00:15:28,920
+uh two okay so we need to
+
+305
+00:15:36,880 --> 00:15:43,680
+Okay. So, let's see if that uh
+
+306
+00:15:41,279 --> 00:15:45,680
+works or not.
+
+307
+00:15:43,680 --> 00:15:49,120
+Okay. So, you don't want the extra
+
+308
+00:15:45,680 --> 00:15:52,160
+comma. You know, it's very annoying that
+
+309
+00:15:49,120 --> 00:15:54,000
+um you see I have I have a script that
+
+310
+00:15:52,160 --> 00:15:55,600
+auto format for example. Let me show
+
+311
+00:15:54,000 --> 00:15:57,360
+you.
+
+312
+00:15:55,600 --> 00:16:00,320
+The pink window shows all my command
+
+313
+00:15:57,360 --> 00:16:02,399
+calls and the function names. Okay. So,
+
+314
+00:16:00,320 --> 00:16:07,199
+do you know what I'm doing now? Trainer.
+
+315
+00:16:02,399 --> 00:16:10,160
+Okay. Uh a arise. Hello from dev room.
+
+316
+00:16:07,199 --> 00:16:12,480
+Hello there congaroo.
+
+317
+00:16:10,160 --> 00:16:15,519
+So, let's make it one line. Okay. Now,
+
+318
+00:16:12,480 --> 00:16:19,040
+press the key format. Okay. It's still
+
+319
+00:16:15,519 --> 00:16:21,839
+formatted into one line. But um but if
+
+320
+00:16:19,040 --> 00:16:24,560
+the line is too long, it will not. Okay.
+
+321
+00:16:21,839 --> 00:16:26,800
+So, let's see.
+
+322
+00:16:24,560 --> 00:16:30,480
+So anyway, so let's see for example, for
+
+323
+00:16:26,800 --> 00:16:33,199
+example, let's say uh let's say else
+
+324
+00:16:30,480 --> 00:16:34,880
+make it one line. This make it one line.
+
+325
+00:16:33,199 --> 00:16:38,880
+Let's make it the whole thing one line.
+
+326
+00:16:34,880 --> 00:16:42,720
+Okay. Now press a key. It's you see it
+
+327
+00:16:38,880 --> 00:16:47,360
+formats and that command is um that
+
+328
+00:16:42,720 --> 00:16:51,120
+command is uh describe key. That command
+
+329
+00:16:47,360 --> 00:16:52,800
+is JS format buffer. Okay. Go to the
+
+330
+00:16:51,120 --> 00:16:57,199
+source code. You can go to the source
+
+331
+00:16:52,800 --> 00:17:01,199
+code. Go there. SJS format buffer and it
+
+332
+00:16:57,199 --> 00:17:07,280
+actually calls deno. Okay. D N O
+
+333
+00:17:01,199 --> 00:17:10,240
+highlighted. It call it call deno. Okay.
+
+334
+00:17:07,280 --> 00:17:13,439
+So, but I don't have to go to shell like
+
+335
+00:17:10,240 --> 00:17:18,160
+for example go to shell
+
+336
+00:17:13,439 --> 00:17:20,400
+then deno fmt or was it just fmt then
+
+337
+00:17:18,160 --> 00:17:22,240
+file name you know then completion to
+
+338
+00:17:20,400 --> 00:17:24,640
+get the file name too too much problem.
+
+339
+00:17:22,240 --> 00:17:27,600
+I don't want that. Okay. I just want
+
+340
+00:17:24,640 --> 00:17:31,280
+whatever the file I'm in. For example,
+
+341
+00:17:27,600 --> 00:17:33,840
+let's make this long line. Okay. I mean
+
+342
+00:17:31,280 --> 00:17:37,440
+long space in front. Okay. Now, press a
+
+343
+00:17:33,840 --> 00:17:39,440
+key. You see my cursor can be anywhere.
+
+344
+00:17:37,440 --> 00:17:41,919
+Press a key.
+
+345
+00:17:39,440 --> 00:17:45,360
+You see I can I can you know I can
+
+346
+00:17:41,919 --> 00:17:48,559
+actually So, let's let's try this.
+
+347
+00:17:45,360 --> 00:17:52,960
+Make a backup first. Okay. So,
+
+348
+00:17:48,559 --> 00:17:55,840
+so the whole thing make it one line and
+
+349
+00:17:52,960 --> 00:17:57,919
+run it. It will still run fantastic and
+
+350
+00:17:55,840 --> 00:18:00,799
+beautiful. Can you see the power of this
+
+351
+00:17:57,919 --> 00:18:02,880
+functional programming style? Most
+
+352
+00:18:00,799 --> 00:18:06,000
+industrial coders, they don't know this.
+
+353
+00:18:02,880 --> 00:18:07,919
+Okay, those people at Google or GitHub
+
+354
+00:18:06,000 --> 00:18:10,559
+or you know they create the frameworks
+
+355
+00:18:07,919 --> 00:18:14,559
+and you know oh the sparkling frameworks
+
+356
+00:18:10,559 --> 00:18:18,240
+and this or that react you know but they
+
+357
+00:18:14,559 --> 00:18:22,160
+don't know this coding style then
+
+358
+00:18:18,240 --> 00:18:24,799
+likely they never seen it. Okay.
+
+359
+00:18:22,160 --> 00:18:27,919
+So now you see one single line run the
+
+360
+00:18:24,799 --> 00:18:30,000
+code it still works and but now press
+
+361
+00:18:27,919 --> 00:18:32,480
+key to format it everything nice
+
+362
+00:18:30,000 --> 00:18:34,799
+automatically one key press. Okay. Now
+
+363
+00:18:32,480 --> 00:18:38,880
+expand the window so you can see. So you
+
+364
+00:18:34,799 --> 00:18:41,360
+see now render code still works.
+
+365
+00:18:38,880 --> 00:18:43,039
+That's the beauty of the automatic
+
+366
+00:18:41,360 --> 00:18:46,240
+formatting.
+
+367
+00:18:43,039 --> 00:18:49,280
+Uh it's it this is done by Deno. Okay.
+
+368
+00:18:46,240 --> 00:18:52,559
+Deno I highly recommend it. Okay. Deno
+
+369
+00:18:49,280 --> 00:18:56,080
+don't use uh uh NodeJS that's because
+
+370
+00:18:52,559 --> 00:18:58,480
+it's it got corrupted by this Isaac like
+
+371
+00:18:56,080 --> 00:19:02,000
+ I believe he's in my opinion
+
+372
+00:18:58,480 --> 00:19:04,799
+only okay by by the mpm you know
+
+373
+00:19:02,000 --> 00:19:07,440
+whatever he did with it so the I
+
+374
+00:19:04,799 --> 00:19:09,840
+recommend Deno highly recommend Deno if
+
+375
+00:19:07,440 --> 00:19:12,160
+you're going to do web dev use deno okay
+
+376
+00:19:09,840 --> 00:19:16,559
+don't use njs
+
+377
+00:19:12,160 --> 00:19:19,360
+and also okay so so deno uh and uh what
+
+378
+00:19:16,559 --> 00:19:24,240
+else what Um
+
+379
+00:19:19,360 --> 00:19:27,039
+so this superb code okay now put it back
+
+380
+00:19:24,240 --> 00:19:30,400
+put it back you you can see now show in
+
+381
+00:19:27,039 --> 00:19:33,440
+browser now this not syntax colored go
+
+382
+00:19:30,400 --> 00:19:35,679
+back to emac error because every time I
+
+383
+00:19:33,440 --> 00:19:38,480
+show in browser it will try to validate
+
+384
+00:19:35,679 --> 00:19:40,720
+you cannot right now because you got you
+
+385
+00:19:38,480 --> 00:19:44,240
+got this greater equal you know greater
+
+386
+00:19:40,720 --> 00:19:46,640
+than sign so but now press a key to
+
+387
+00:19:44,240 --> 00:19:49,200
+syntax color all the code in this page
+
+388
+00:19:46,640 --> 00:19:52,480
+and show in browser And now you can see
+
+389
+00:19:49,200 --> 00:19:55,840
+it says HTML valid and in the browser
+
+390
+00:19:52,480 --> 00:19:58,000
+you can see colorful beautiful code one
+
+391
+00:19:55,840 --> 00:20:00,640
+line functional programming the power of
+
+392
+00:19:58,000 --> 00:20:05,200
+functional programming okay it's pure
+
+393
+00:20:00,640 --> 00:20:07,840
+function it's no imperative you know for
+
+394
+00:20:05,200 --> 00:20:11,679
+for looping C++
+
+395
+00:20:07,840 --> 00:20:14,640
+biting thing and bit deleted hack you
+
+396
+00:20:11,679 --> 00:20:17,360
+know let's let's use bit bit end you
+
+397
+00:20:14,640 --> 00:20:19,520
+know so we can save one microc second
+
+398
+00:20:17,360 --> 00:20:25,280
+and nobody can understand your code. The
+
+399
+00:20:19,520 --> 00:20:27,039
+C C++ fuckets. Okay, I despise them. So
+
+400
+00:20:25,280 --> 00:20:30,559
+anyway, function functional programming
+
+401
+00:20:27,039 --> 00:20:32,799
+and test cases. Okay, uh we are not
+
+402
+00:20:30,559 --> 00:20:34,799
+done. So actually we need to actually I
+
+403
+00:20:32,799 --> 00:20:36,960
+need to move on because I got actually
+
+404
+00:20:34,799 --> 00:20:39,440
+things to do because I can talk for
+
+405
+00:20:36,960 --> 00:20:42,559
+hours. I can talk and tell you things
+
+406
+00:20:39,440 --> 00:20:45,200
+about JavaScript for hours but but I'm
+
+407
+00:20:42,559 --> 00:20:46,720
+not doing anything for myself. I need to
+
+408
+00:20:45,200 --> 00:20:48,640
+actually
+
+409
+00:20:46,720 --> 00:20:51,919
+So what I want to do is actually write a
+
+410
+00:20:48,640 --> 00:20:55,120
+benchmark. We so what we want to do is
+
+411
+00:20:51,919 --> 00:20:58,960
+write a new uh version of the object
+
+412
+00:20:55,120 --> 00:21:02,559
+comparison equality test function but
+
+413
+00:20:58,960 --> 00:21:05,200
+but but make it based on the uh JSON
+
+414
+00:21:02,559 --> 00:21:07,679
+stringify. Okay, we showed before. Make
+
+415
+00:21:05,200 --> 00:21:11,360
+it based on stringify. We need to fix
+
+416
+00:21:07,679 --> 00:21:13,600
+part of it and write a benchmark to see
+
+417
+00:21:11,360 --> 00:21:15,440
+which one is faster. Okay. Okay. Let's
+
+418
+00:21:13,600 --> 00:21:19,840
+quickly do that. But there's one more
+
+419
+00:21:15,440 --> 00:21:23,520
+thing we need to uh uh uh check. Okay.
+
+420
+00:21:19,840 --> 00:21:26,720
+So, compare object. Um okay, this is
+
+421
+00:21:23,520 --> 00:21:29,840
+this is like nested and readable. See,
+
+422
+00:21:26,720 --> 00:21:32,000
+now it's better. Okay. Now, I was saying
+
+423
+00:21:29,840 --> 00:21:35,440
+demo before they they add this
+
+424
+00:21:32,000 --> 00:21:37,679
+extraneous comma at the end. Finally
+
+425
+00:21:35,440 --> 00:21:40,400
+they don't they fix that because for
+
+426
+00:21:37,679 --> 00:21:43,120
+example here you know the reason they
+
+427
+00:21:40,400 --> 00:21:45,280
+you know you see here is a function call
+
+428
+00:21:43,120 --> 00:21:47,760
+okay that's a function call but the
+
+429
+00:21:45,280 --> 00:21:50,000
+thing the the thing with the console
+
+430
+00:21:47,760 --> 00:21:53,600
+lock is that you can have three four
+
+431
+00:21:50,000 --> 00:21:57,039
+five you any function call you can have
+
+432
+00:21:53,600 --> 00:22:00,159
+a ending comma in JavaScript okay that
+
+433
+00:21:57,039 --> 00:22:03,760
+is by you know that's the syntax that's
+
+434
+00:22:00,159 --> 00:22:05,840
+valid and some people beginning with
+
+435
+00:22:03,760 --> 00:22:07,840
+late Malay and gen they think this is a
+
+436
+00:22:05,840 --> 00:22:09,440
+better syntax you know programming
+
+437
+00:22:07,840 --> 00:22:12,400
+language should allow you to have a
+
+438
+00:22:09,440 --> 00:22:14,880
+trading comma because because that way
+
+439
+00:22:12,400 --> 00:22:18,400
+it's easier to add a new item whenever
+
+440
+00:22:14,880 --> 00:22:20,720
+you know you can add a new item
+
+441
+00:22:18,400 --> 00:22:22,960
+uh but it's less logical because then
+
+442
+00:22:20,720 --> 00:22:25,440
+you know because this is not English
+
+443
+00:22:22,960 --> 00:22:28,080
+this is not traditional
+
+444
+00:22:25,440 --> 00:22:30,960
+writing systems you don't have a ending
+
+445
+00:22:28,080 --> 00:22:34,080
+comma that's goes nowhere you know but
+
+446
+00:22:30,960 --> 00:22:35,600
+however anyway in JavaScript this
+
+447
+00:22:34,080 --> 00:22:38,880
+valid
+
+448
+00:22:35,600 --> 00:22:41,440
+and with a demo format they
+
+449
+00:22:38,880 --> 00:22:44,000
+automatically add this thing you you
+
+450
+00:22:41,440 --> 00:22:48,000
+know like whenever you have a function
+
+451
+00:22:44,000 --> 00:22:52,559
+call uh let's say
+
+452
+00:22:48,000 --> 00:22:55,760
+uh my function okay my fun something so
+
+453
+00:22:52,559 --> 00:22:59,120
+when you call demo demo format then boom
+
+454
+00:22:55,760 --> 00:23:02,480
+they they add a comma at the end of the
+
+455
+00:22:59,120 --> 00:23:05,600
+argument like what the is that so
+
+456
+00:23:02,480 --> 00:23:08,480
+that is Why you see this comma here?
+
+457
+00:23:05,600 --> 00:23:12,240
+Because I was using den also before. So
+
+458
+00:23:08,480 --> 00:23:14,559
+now if you remove it and you know for
+
+459
+00:23:12,240 --> 00:23:18,480
+example let me uh make it one line.
+
+460
+00:23:14,559 --> 00:23:20,320
+Okay. So
+
+461
+00:23:18,480 --> 00:23:23,039
+wait
+
+462
+00:23:20,320 --> 00:23:26,400
+did we?
+
+463
+00:23:23,039 --> 00:23:29,520
+Yeah remove that. Okay. And uh make it
+
+464
+00:23:26,400 --> 00:23:32,640
+one line. Yeah. Okay. Now format the
+
+465
+00:23:29,520 --> 00:23:35,679
+whole buffer to it. It doesn't add
+
+466
+00:23:32,640 --> 00:23:38,240
+extraneous comma again. Okay. So there's
+
+467
+00:23:35,679 --> 00:23:40,559
+another one. Remove it. Okay. So wait.
+
+468
+00:23:38,240 --> 00:23:43,120
+So we we need to uh do this quickly. So
+
+469
+00:23:40,559 --> 00:23:46,720
+what is this? Compare object. Compare
+
+470
+00:23:43,120 --> 00:23:49,600
+array with undefined and no. Okay. Then
+
+471
+00:23:46,720 --> 00:23:51,600
+uh what we want to do is compare object.
+
+472
+00:23:49,600 --> 00:23:54,720
+Yes.
+
+473
+00:23:51,600 --> 00:23:58,320
+And compare object with diff uh with uh
+
+474
+00:23:54,720 --> 00:24:03,039
+with uh key in different order. That's
+
+475
+00:23:58,320 --> 00:24:06,960
+right. So A1 B2 B2 A1 that should return
+
+476
+00:24:03,039 --> 00:24:11,919
+true still run it. Okay, fantastic. It's
+
+477
+00:24:06,960 --> 00:24:15,360
+all true. Yes. Okay. So
+
+478
+00:24:11,919 --> 00:24:18,960
+put it back syntax show in browser.
+
+479
+00:24:15,360 --> 00:24:21,600
+Okay. Now is there anything we missing?
+
+480
+00:24:18,960 --> 00:24:24,720
+So far so good everyone.
+
+481
+00:24:21,600 --> 00:24:27,279
+Oh now you sir I'm 50 something pushing
+
+482
+00:24:24,720 --> 00:24:30,880
+60
+
+483
+00:24:27,279 --> 00:24:33,679
+sir. I'm about to die.
+
+484
+00:24:30,880 --> 00:24:38,360
+Well, few more, you know, maybe a 10
+
+485
+00:24:33,679 --> 00:24:38,360
+more years actually. Maybe.
+
+486
+00:24:39,919 --> 00:24:43,679
+What if you have two ending commas?
+
+487
+00:24:42,000 --> 00:24:46,720
+That's a good question. Two ending
+
+488
+00:24:43,679 --> 00:24:49,200
+commas. That's illegal. You got syntax
+
+489
+00:24:46,720 --> 00:24:52,480
+error. So, let me let me So, actually I
+
+490
+00:24:49,200 --> 00:24:54,799
+I So, so let me show you that. Okay. So,
+
+491
+00:24:52,480 --> 00:24:57,360
+you go to JavaScript JavaScript in
+
+492
+00:24:54,799 --> 00:25:00,720
+depth. That's my tutorial. I you know
+
+493
+00:24:57,360 --> 00:25:04,159
+there are 600 pages JavaScript in depth
+
+494
+00:25:00,720 --> 00:25:07,440
+the most concise the most accurate
+
+495
+00:25:04,159 --> 00:25:10,640
+correct and the most easy to understand
+
+496
+00:25:07,440 --> 00:25:13,919
+JavaScript and the most in-depth in the
+
+497
+00:25:10,640 --> 00:25:17,039
+world on earth in English language okay
+
+498
+00:25:13,919 --> 00:25:20,240
+you can check it out okay so so here you
+
+499
+00:25:17,039 --> 00:25:23,039
+go to um the comma okay so the trading
+
+500
+00:25:20,240 --> 00:25:25,120
+comma objects of so there are several
+
+501
+00:25:23,039 --> 00:25:26,640
+issues there's a trailing comma in
+
+502
+00:25:25,120 --> 00:25:29,360
+object literal
+
+503
+00:25:26,640 --> 00:25:33,600
+expression which is here basics value
+
+504
+00:25:29,360 --> 00:25:36,320
+types variable strings. Uh then you got
+
+505
+00:25:33,600 --> 00:25:39,840
+properties. Then you got object and
+
+506
+00:25:36,320 --> 00:25:43,760
+inheritance object object overview. Go
+
+507
+00:25:39,840 --> 00:25:45,840
+there and go down. Then you got object
+
+508
+00:25:43,760 --> 00:25:48,159
+type. Uh where where is it? Object
+
+509
+00:25:45,840 --> 00:25:51,159
+overview.
+
+510
+00:25:48,159 --> 00:25:51,159
+Uh
+
+511
+00:25:52,880 --> 00:25:58,640
+object type. You want to go to the
+
+512
+00:25:55,440 --> 00:26:00,559
+object literal expression. Okay. So
+
+513
+00:25:58,640 --> 00:26:03,039
+where where is it? Create object. Okay.
+
+514
+00:26:00,559 --> 00:26:06,640
+Go create object then object literal
+
+515
+00:26:03,039 --> 00:26:08,799
+expression. That means the that kind
+
+516
+00:26:06,640 --> 00:26:12,320
+that means the literal the syntax you
+
+517
+00:26:08,799 --> 00:26:15,760
+use to create object. Okay. So in object
+
+518
+00:26:12,320 --> 00:26:18,720
+literal expression you have the issue of
+
+519
+00:26:15,760 --> 00:26:21,039
+ending comma. You see
+
+520
+00:26:18,720 --> 00:26:23,200
+trailing comma is ignored. That's no
+
+521
+00:26:21,039 --> 00:26:25,360
+problem. But however, if you have
+
+522
+00:26:23,200 --> 00:26:27,120
+repeated trading comma, that's a syntax
+
+523
+00:26:25,360 --> 00:26:29,679
+error. Okay. So, for example, you can
+
+524
+00:26:27,120 --> 00:26:33,840
+run this for example, let's open that
+
+525
+00:26:29,679 --> 00:26:35,840
+page. Search pre uh that that that
+
+526
+00:26:33,840 --> 00:26:39,120
+trading comma repeated trading comma.
+
+527
+00:26:35,840 --> 00:26:41,120
+Okay. Pop it up. Run it. You see error.
+
+528
+00:26:39,120 --> 00:26:43,440
+The module source code could not be
+
+529
+00:26:41,120 --> 00:26:46,880
+passed. Expected something. Okay.
+
+530
+00:26:43,440 --> 00:26:49,919
+Because you got two comma, but one is
+
+531
+00:26:46,880 --> 00:26:55,600
+fine. Uh okay. So, let's try it. Remove
+
+532
+00:26:49,919 --> 00:26:59,440
+it. Run it. Uh, wait. Run it. What?
+
+533
+00:26:55,600 --> 00:27:02,440
+Uh, wait. One, comma. Save it. Run.
+
+534
+00:26:59,440 --> 00:27:02,440
+What?
+
+535
+00:27:06,320 --> 00:27:11,240
+Wait. So, this is um
+
+536
+00:27:12,000 --> 00:27:18,320
+what's going on?
+
+537
+00:27:14,559 --> 00:27:23,000
+Trading comma is ignored. So why is it
+
+538
+00:27:18,320 --> 00:27:23,000
+uh what's going on?
+
+539
+00:27:23,120 --> 00:27:29,679
+Run it.
+
+540
+00:27:25,679 --> 00:27:33,039
+One comma should be fine. But why are we
+
+541
+00:27:29,679 --> 00:27:36,679
+Oh, wait. Is it trying to cash? I
+
+542
+00:27:33,039 --> 00:27:36,679
+got somewhere.
+
+543
+00:27:38,559 --> 00:27:47,520
+Wait. Close that. Okay. Now run this.
+
+544
+00:27:44,559 --> 00:27:47,520
+What?
+
+545
+00:27:47,919 --> 00:27:51,240
+This is
+
+546
+00:27:52,960 --> 00:27:59,960
+what uh wait something is going on.
+
+547
+00:28:01,200 --> 00:28:05,480
+What? It's not.
+
+548
+00:28:11,840 --> 00:28:17,360
+So, it's it's using the latest code, but
+
+549
+00:28:15,440 --> 00:28:20,600
+it's not
+
+550
+00:28:17,360 --> 00:28:20,600
+uh what
+
+551
+00:28:21,279 --> 00:28:27,000
+am I have I gone crazy? What's going on
+
+552
+00:28:24,000 --> 00:28:27,000
+here?
+
+553
+00:28:27,679 --> 00:28:34,240
+Oh, that's right. Oh god, another
+
+554
+00:28:30,559 --> 00:28:36,720
+problem. You see, here's another watt of
+
+555
+00:28:34,240 --> 00:28:38,880
+JavaScript. You see
+
+556
+00:28:36,720 --> 00:28:42,480
+when you have that you know that's a
+
+557
+00:28:38,880 --> 00:28:47,360
+object literal expression syntax right
+
+558
+00:28:42,480 --> 00:28:50,559
+no not here you must have like you know
+
+559
+00:28:47,360 --> 00:28:53,600
+you must in the proper context okay so
+
+560
+00:28:50,559 --> 00:28:57,360
+here this thing is a object literal
+
+561
+00:28:53,600 --> 00:29:00,640
+expression okay not here because over
+
+562
+00:28:57,360 --> 00:29:03,200
+there JavaScript is thinking that you
+
+563
+00:29:00,640 --> 00:29:06,880
+are writing a block you know like
+
+564
+00:29:03,200 --> 00:29:11,279
+constant you know constant a = to 3
+
+565
+00:29:06,880 --> 00:29:13,919
+print x + uh 2 you know so so when you
+
+566
+00:29:11,279 --> 00:29:16,880
+have this thing without any you know
+
+567
+00:29:13,919 --> 00:29:19,600
+without a variable in front or whatever
+
+568
+00:29:16,880 --> 00:29:23,679
+JavaScript is is thinking you you are
+
+569
+00:29:19,600 --> 00:29:25,440
+doing a you know a block expression that
+
+570
+00:29:23,679 --> 00:29:27,360
+is why
+
+571
+00:29:25,440 --> 00:29:30,240
+so that is why when you run the code it
+
+572
+00:29:27,360 --> 00:29:34,320
+says error you know the module source
+
+573
+00:29:30,240 --> 00:29:38,159
+code could not be passed you know so But
+
+574
+00:29:34,320 --> 00:29:41,039
+you do this then remove that this. Okay.
+
+575
+00:29:38,159 --> 00:29:42,640
+Now run it. Fantastic and beautiful. You
+
+576
+00:29:41,039 --> 00:29:44,799
+see?
+
+577
+00:29:42,640 --> 00:29:48,080
+So now we can demonstrate the comma.
+
+578
+00:29:44,799 --> 00:29:53,360
+Okay. So one single comma. Put it there.
+
+579
+00:29:48,080 --> 00:29:57,360
+Okay. Now run it. No problem.
+
+580
+00:29:53,360 --> 00:30:00,159
+Add another comma. Run it. Problem.
+
+581
+00:29:57,360 --> 00:30:02,559
+Okay. So that is uh what we're going to
+
+582
+00:30:00,159 --> 00:30:04,960
+demonstrate. So put it back. And let me
+
+583
+00:30:02,559 --> 00:30:09,279
+fix the code here because I need to fix
+
+584
+00:30:04,960 --> 00:30:12,559
+code. So this part one single comma you
+
+585
+00:30:09,279 --> 00:30:16,960
+need to um
+
+586
+00:30:12,559 --> 00:30:21,480
+uh constant. Okay. So so that way people
+
+587
+00:30:16,960 --> 00:30:21,480
+can actually kind of see.
+
+588
+00:30:24,799 --> 00:30:33,200
+Perfect. Okay. Now
+
+589
+00:30:28,000 --> 00:30:36,720
+put it back. Now this part this part uh
+
+590
+00:30:33,200 --> 00:30:39,919
+two comma is a error. That's right.
+
+591
+00:30:36,720 --> 00:30:44,640
+Okay. So put it back. Syntax correct
+
+592
+00:30:39,919 --> 00:30:46,720
+show in browser. Okay. So we got the so
+
+593
+00:30:44,640 --> 00:30:48,799
+it's a bad design. Okay. So if you have
+
+594
+00:30:46,720 --> 00:30:50,799
+one trailing comma it's okay but if you
+
+595
+00:30:48,799 --> 00:30:53,039
+got two you got a problem. Also you
+
+596
+00:30:50,799 --> 00:30:55,840
+can't have two comma in the middle
+
+597
+00:30:53,039 --> 00:31:00,799
+neither. Okay. So so okay I we need to
+
+598
+00:30:55,840 --> 00:31:04,480
+fix that part too. So pre so we are like
+
+599
+00:31:00,799 --> 00:31:07,279
+going all over we are not um so is it
+
+600
+00:31:04,480 --> 00:31:10,480
+entertaining is it informative or is it
+
+601
+00:31:07,279 --> 00:31:12,480
+entertaining is it uh you know something
+
+602
+00:31:10,480 --> 00:31:14,720
+let me know okay so let let's run this
+
+603
+00:31:12,480 --> 00:31:21,600
+run this uh this won't work because you
+
+604
+00:31:14,720 --> 00:31:25,279
+got two commas there uh so we need um
+
+605
+00:31:21,600 --> 00:31:27,360
+let's say cannot have
+
+606
+00:31:25,279 --> 00:31:29,840
+repeated comma
+
+607
+00:31:27,360 --> 00:31:33,360
+Okay,
+
+608
+00:31:29,840 --> 00:31:36,240
+it got problems. Okay, put it back now.
+
+609
+00:31:33,360 --> 00:31:38,799
+Syntax code showing browser. Fantastic.
+
+610
+00:31:36,240 --> 00:31:41,760
+Okay, so this is about object literal
+
+611
+00:31:38,799 --> 00:31:44,640
+expression. Now, but
+
+612
+00:31:41,760 --> 00:31:46,720
+you got the trailing comma issue or
+
+613
+00:31:44,640 --> 00:31:49,840
+repeated comma issue. But the same thing
+
+614
+00:31:46,720 --> 00:31:54,960
+applies the same thing applies when you
+
+615
+00:31:49,840 --> 00:31:57,440
+have array syntax. Okay. So do I have a
+
+616
+00:31:54,960 --> 00:31:59,519
+did I explain somewhere array repeated
+
+617
+00:31:57,440 --> 00:32:02,159
+comma?
+
+618
+00:31:59,519 --> 00:32:06,080
+Uh I might have somewhere. Okay, you got
+
+619
+00:32:02,159 --> 00:32:08,640
+exactly the same situation in array and
+
+620
+00:32:06,080 --> 00:32:11,279
+in function call. Okay, so when you when
+
+621
+00:32:08,640 --> 00:32:12,960
+you go down go down function call. So
+
+622
+00:32:11,279 --> 00:32:15,279
+where's the function array function
+
+623
+00:32:12,960 --> 00:32:17,840
+function overview arrow function
+
+624
+00:32:15,279 --> 00:32:20,240
+function constructor you know so and
+
+625
+00:32:17,840 --> 00:32:22,480
+also keyword function
+
+626
+00:32:20,240 --> 00:32:24,559
+uh and function call. So you also got
+
+627
+00:32:22,480 --> 00:32:28,080
+these issues whether you have one you
+
+628
+00:32:24,559 --> 00:32:30,320
+know trading comma or or repeated comma
+
+629
+00:32:28,080 --> 00:32:34,159
+in general repeated comma in all all
+
+630
+00:32:30,320 --> 00:32:37,120
+these three cases repeated comma is not
+
+631
+00:32:34,159 --> 00:32:41,519
+good is error okay but trading comma is
+
+632
+00:32:37,120 --> 00:32:43,840
+good so we were saying that demo
+
+633
+00:32:41,519 --> 00:32:46,320
+used to like at least a year ago they
+
+634
+00:32:43,840 --> 00:32:49,760
+they automatically add a trailing comma
+
+635
+00:32:46,320 --> 00:32:54,880
+at the end a function code very bad and
+
+636
+00:32:49,760 --> 00:32:57,679
+this trailing comma idea began about
+
+637
+00:32:54,880 --> 00:33:01,360
+it began with a late Malaysian I believe
+
+638
+00:32:57,679 --> 00:33:03,600
+like 2010 like people started to think
+
+639
+00:33:01,360 --> 00:33:05,840
+trading comma is a good thing we should
+
+640
+00:33:03,600 --> 00:33:08,159
+have it you know in style guides and you
+
+641
+00:33:05,840 --> 00:33:10,240
+know people started to have that opinion
+
+642
+00:33:08,159 --> 00:33:12,720
+you know so I think you know the late
+
+643
+00:33:10,240 --> 00:33:14,399
+Malay chen you know people became more
+
+644
+00:33:12,720 --> 00:33:16,559
+idiotic
+
+645
+00:33:14,399 --> 00:33:19,760
+lots of problems
+
+646
+00:33:16,559 --> 00:33:23,440
+so anyway we digressed we haven't um we
+
+647
+00:33:19,760 --> 00:33:26,399
+haven't got to talk about actual um
+
+648
+00:33:23,440 --> 00:33:30,880
+writing a um
+
+649
+00:33:26,399 --> 00:33:33,840
+we wanted to write a um
+
+650
+00:33:30,880 --> 00:33:36,000
+right we we we wanted to write okay so
+
+651
+00:33:33,840 --> 00:33:38,080
+where are we showing browser go back
+
+652
+00:33:36,000 --> 00:33:41,600
+close that
+
+653
+00:33:38,080 --> 00:33:43,200
+showing browser we wanted to write a
+
+654
+00:33:41,600 --> 00:33:45,279
+function
+
+655
+00:33:43,200 --> 00:33:48,000
+basically we want to write a benchmark
+
+656
+00:33:45,279 --> 00:33:51,760
+okay let's just you know benchmark of
+
+657
+00:33:48,000 --> 00:33:53,279
+this function versus uh uh JSON two
+
+658
+00:33:51,760 --> 00:33:55,600
+string. Okay, let's just write a
+
+659
+00:33:53,279 --> 00:33:58,159
+benchmark and that's it. Let's forget
+
+660
+00:33:55,600 --> 00:34:03,120
+about
+
+661
+00:33:58,159 --> 00:34:05,039
+uh any other extra details. Okay,
+
+662
+00:34:03,120 --> 00:34:07,039
+so let's see what what are you guys
+
+663
+00:34:05,039 --> 00:34:09,359
+saying? Uh maybe that's why the correct
+
+664
+00:34:07,039 --> 00:34:11,599
+way is to not have the trading comma if
+
+665
+00:34:09,359 --> 00:34:13,359
+you by mistake have two in the code
+
+666
+00:34:11,599 --> 00:34:16,639
+dice.
+
+667
+00:34:13,359 --> 00:34:18,879
+Uh yes.
+
+668
+00:34:16,639 --> 00:34:21,440
+But the you see the reason they think
+
+669
+00:34:18,879 --> 00:34:24,480
+training comma is convenient is great
+
+670
+00:34:21,440 --> 00:34:27,040
+because like it it does make sense
+
+671
+00:34:24,480 --> 00:34:29,679
+sometimes like because
+
+672
+00:34:27,040 --> 00:34:33,359
+like when you want to add more item in a
+
+673
+00:34:29,679 --> 00:34:36,240
+array or in a you know object
+
+674
+00:34:33,359 --> 00:34:38,879
+when you have trading comma it's easy
+
+675
+00:34:36,240 --> 00:34:41,119
+but then they but then if you have
+
+676
+00:34:38,879 --> 00:34:44,000
+double trailing comma it's error. I'm
+
+677
+00:34:41,119 --> 00:34:46,159
+not sure what you know
+
+678
+00:34:44,000 --> 00:34:48,720
+that you know that makes sense. Either
+
+679
+00:34:46,159 --> 00:34:51,440
+you allow
+
+680
+00:34:48,720 --> 00:34:54,159
+Yeah. So I actually I I have to think
+
+681
+00:34:51,440 --> 00:34:56,800
+about this like maybe you should you
+
+682
+00:34:54,159 --> 00:34:58,800
+know either allow both you know if you
+
+683
+00:34:56,800 --> 00:35:01,520
+allow the training comma then you should
+
+684
+00:34:58,800 --> 00:35:04,160
+allow repeated comma which should you
+
+685
+00:35:01,520 --> 00:35:07,200
+know assume then just to be one single
+
+686
+00:35:04,160 --> 00:35:09,520
+comma maybe I you know I have to think
+
+687
+00:35:07,200 --> 00:35:14,560
+about so this is about
+
+688
+00:35:09,520 --> 00:35:17,200
+syntax design okay so for example in in
+
+689
+00:35:14,560 --> 00:35:19,440
+Wuam language and all earlier languages
+
+690
+00:35:17,200 --> 00:35:21,359
+they don't allow that you know they
+
+691
+00:35:19,440 --> 00:35:24,880
+don't allow a trading comma but I think
+
+692
+00:35:21,359 --> 00:35:27,520
+in later languages
+
+693
+00:35:24,880 --> 00:35:30,960
+um they allow that actually that's
+
+694
+00:35:27,520 --> 00:35:33,599
+interesting let's ask guac
+
+695
+00:35:30,960 --> 00:35:38,960
+okay can we ask guac which programming
+
+696
+00:35:33,599 --> 00:35:42,480
+language has trading comma in uh in list
+
+697
+00:35:38,960 --> 00:35:45,480
+okay so let's ask a guac a new question
+
+698
+00:35:42,480 --> 00:35:45,480
+uh
+
+699
+00:35:47,200 --> 00:35:57,480
+Which part then allow trailing comma in
+
+700
+00:35:53,760 --> 00:35:57,480
+list or array
+
+701
+00:35:59,599 --> 00:36:06,160
+items. Okay. So let's just say that the
+
+702
+00:36:02,960 --> 00:36:08,160
+AI is will understand. You know AI
+
+703
+00:36:06,160 --> 00:36:10,400
+doesn't care about your grammatical
+
+704
+00:36:08,160 --> 00:36:13,280
+errors. You know your incorrect English.
+
+705
+00:36:10,400 --> 00:36:15,359
+AI understand.
+
+706
+00:36:13,280 --> 00:36:20,280
+So let's magnify
+
+707
+00:36:15,359 --> 00:36:20,280
+control. It's a big farmed.
+
+708
+00:36:24,720 --> 00:36:31,920
+Okay. So, how long have we been talking?
+
+709
+00:36:27,440 --> 00:36:34,560
+So, wait. What are you doing? God.
+
+710
+00:36:31,920 --> 00:36:36,640
+Uh, I'm thinking maybe I should go 40
+
+711
+00:36:34,560 --> 00:36:38,720
+minutes. Okay. We've been talking for 40
+
+712
+00:36:36,640 --> 00:36:41,440
+minutes.
+
+713
+00:36:38,720 --> 00:36:43,280
+So, what is Guac's answer?
+
+714
+00:36:41,440 --> 00:36:46,000
+Here are the major programming languages
+
+715
+00:36:43,280 --> 00:36:48,240
+that allow trailing commas in array list
+
+716
+00:36:46,000 --> 00:36:50,160
+literal and often in other comma
+
+717
+00:36:48,240 --> 00:36:52,880
+separated constructs like object
+
+718
+00:36:50,160 --> 00:36:56,079
+parameters. Yes. Okay. Of course,
+
+719
+00:36:52,880 --> 00:36:59,760
+JavaScript and Typescript that began it
+
+720
+00:36:56,079 --> 00:37:03,119
+and Python idiotic Python
+
+721
+00:36:59,760 --> 00:37:05,200
+indeed. Okay. So, Rust
+
+722
+00:37:03,119 --> 00:37:07,920
+uh so what is it? Training comma uh
+
+723
+00:37:05,200 --> 00:37:10,480
+object and dictionary. Okay. So, array
+
+724
+00:37:07,920 --> 00:37:13,680
+and D. Okay. Rust allow it. Okay. Rust
+
+725
+00:37:10,480 --> 00:37:15,839
+is new. Golan
+
+726
+00:37:13,680 --> 00:37:19,280
+also allow it. Okay, that makes sense.
+
+727
+00:37:15,839 --> 00:37:21,920
+Okay. Yeah, you see they all allow it.
+
+728
+00:37:19,280 --> 00:37:24,920
+Okay. I didn't know but it begin with
+
+729
+00:37:21,920 --> 00:37:24,920
+Java.
+
+730
+00:37:26,000 --> 00:37:33,760
+So it begin with Java I guess. See do
+
+731
+00:37:30,079 --> 00:37:38,560
+they have C and C++ first? No. You see?
+
+732
+00:37:33,760 --> 00:37:43,280
+Yeah. So I was correct. not in C, C++
+
+733
+00:37:38,560 --> 00:37:47,119
+but basically began with Java. Well,
+
+734
+00:37:43,280 --> 00:37:50,480
+Java began in 1994, 1995.
+
+735
+00:37:47,119 --> 00:37:54,880
+Ruby began in 1987
+
+736
+00:37:50,480 --> 00:37:57,520
+like Ruby and Python and uh they began
+
+737
+00:37:54,880 --> 00:38:00,000
+all about the same year. R Python in
+
+738
+00:37:57,520 --> 00:38:04,960
+1987
+
+739
+00:38:00,000 --> 00:38:07,680
+1987 or 88 Python and Pearl. Uh but Ruby
+
+740
+00:38:04,960 --> 00:38:10,960
+is a bit later like two years later. So
+
+741
+00:38:07,680 --> 00:38:13,200
+1989 something. So but so it's
+
+742
+00:38:10,960 --> 00:38:16,640
+interesting the so the who is the first
+
+743
+00:38:13,200 --> 00:38:20,720
+who began it that would be
+
+744
+00:38:16,640 --> 00:38:23,040
+okay. So that would be uh Python and and
+
+745
+00:38:20,720 --> 00:38:25,599
+Ruby. You see the the the the problem
+
+746
+00:38:23,040 --> 00:38:28,960
+with Python and Ruby as the originator
+
+747
+00:38:25,599 --> 00:38:31,599
+is that they are not popular until after
+
+748
+00:38:28,960 --> 00:38:34,400
+year 2000s. Like nobody know what the
+
+749
+00:38:31,599 --> 00:38:36,480
+ is Python. But people do know what
+
+750
+00:38:34,400 --> 00:38:41,839
+is what the is Java like since
+
+751
+00:38:36,480 --> 00:38:46,560
+1995. So in in a sense uh Java began and
+
+752
+00:38:41,839 --> 00:38:49,280
+then C++ pushed it. Okay. Okay. Okay.
+
+753
+00:38:46,560 --> 00:38:51,119
+Well then well oh there it is Pearl.
+
+754
+00:38:49,280 --> 00:38:54,160
+Okay.
+
+755
+00:38:51,119 --> 00:38:56,400
+Okay. So so Pearl.
+
+756
+00:38:54,160 --> 00:39:00,000
+So there is the answer. Pearl kind of
+
+757
+00:38:56,400 --> 00:39:02,320
+started Pearl and Java I think.
+
+758
+00:39:00,000 --> 00:39:06,160
+Interesting question. Okay. So anyway,
+
+759
+00:39:02,320 --> 00:39:08,640
+we we digressed so much. We haven't uh I
+
+760
+00:39:06,160 --> 00:39:11,359
+wanted to write a function to I mean we
+
+761
+00:39:08,640 --> 00:39:12,960
+I want to write a benchmark. So you see
+
+762
+00:39:11,359 --> 00:39:15,599
+why is this interesting? What we're
+
+763
+00:39:12,960 --> 00:39:17,839
+going to do is that you know you can you
+
+764
+00:39:15,599 --> 00:39:19,680
+can use um so let me show you articles.
+
+765
+00:39:17,839 --> 00:39:21,920
+I already have this you know 10,000
+
+766
+00:39:19,680 --> 00:39:25,599
+articles written about this. You can you
+
+767
+00:39:21,920 --> 00:39:27,599
+see test object equality by JSON string.
+
+768
+00:39:25,599 --> 00:39:29,920
+You you cannot do that. You got older
+
+769
+00:39:27,599 --> 00:39:33,359
+problem. You got you got because the key
+
+770
+00:39:29,920 --> 00:39:36,720
+if they are ordered in different way
+
+771
+00:39:33,359 --> 00:39:39,200
+otherwise exactly the same you still
+
+772
+00:39:36,720 --> 00:39:41,839
+won't get you know true you know because
+
+773
+00:39:39,200 --> 00:39:44,640
+the order you when you JSON dot string
+
+774
+00:39:41,839 --> 00:39:48,000
+ the order matters okay so but you
+
+775
+00:39:44,640 --> 00:39:52,839
+can fix it by first of all by by first
+
+776
+00:39:48,000 --> 00:39:52,839
+kind of reorder the object like
+
+777
+00:39:53,359 --> 00:39:58,560
+well actually you know for for the for
+
+778
+00:39:55,680 --> 00:40:00,800
+the object case it's it's difficult to
+
+779
+00:39:58,560 --> 00:40:03,040
+to write the equality using JSON
+
+780
+00:40:00,800 --> 00:40:05,280
+stringify. Okay. But however, for the
+
+781
+00:40:03,040 --> 00:40:07,920
+array case, if you want to if you want
+
+782
+00:40:05,280 --> 00:40:11,760
+to test
+
+783
+00:40:07,920 --> 00:40:14,800
+the equality of two arrays to nested
+
+784
+00:40:11,760 --> 00:40:18,640
+arrays by their content,
+
+785
+00:40:14,800 --> 00:40:21,280
+it is then possible to use JSON string
+
+786
+00:40:18,640 --> 00:40:23,599
+stringify to do it. Okay. But there are
+
+787
+00:40:21,280 --> 00:40:27,040
+some issues you need to pay attention
+
+788
+00:40:23,599 --> 00:40:30,320
+to. One is undefined versus new because
+
+789
+00:40:27,040 --> 00:40:33,359
+in JSON there is no such thing as
+
+790
+00:40:30,320 --> 00:40:36,160
+undefined. This just new okay or or was
+
+791
+00:40:33,359 --> 00:40:37,599
+it the other value but anyway so doesn't
+
+792
+00:40:36,160 --> 00:40:40,640
+matter it's you know when you have
+
+793
+00:40:37,599 --> 00:40:44,000
+undefined and new both of them become
+
+794
+00:40:40,640 --> 00:40:46,640
+new in JSON okay so but however in
+
+795
+00:40:44,000 --> 00:40:51,040
+JavaScript these two are different
+
+796
+00:40:46,640 --> 00:40:53,680
+values so this is one thing you need to
+
+797
+00:40:51,040 --> 00:40:57,359
+uh pay attention to. So if you're going
+
+798
+00:40:53,680 --> 00:41:01,599
+to write a array equality test, you have
+
+799
+00:40:57,359 --> 00:41:04,560
+to check if um
+
+800
+00:41:01,599 --> 00:41:07,920
+so can you like so the question is like
+
+801
+00:41:04,560 --> 00:41:11,520
+can you actually like um
+
+802
+00:41:07,920 --> 00:41:15,040
+try to use stringify
+
+803
+00:41:11,520 --> 00:41:18,160
+but still fix this problem? uh because
+
+804
+00:41:15,040 --> 00:41:20,880
+that would be difficult actually because
+
+805
+00:41:18,160 --> 00:41:22,800
+because you have to know each element
+
+806
+00:41:20,880 --> 00:41:25,119
+then
+
+807
+00:41:22,800 --> 00:41:28,800
+you have to dive into the array nested
+
+808
+00:41:25,119 --> 00:41:31,200
+array to actually know if if there's an
+
+809
+00:41:28,800 --> 00:41:34,880
+element that's undefined or new you have
+
+810
+00:41:31,200 --> 00:41:37,119
+to but if you want to do that then you
+
+811
+00:41:34,880 --> 00:41:39,520
+don't need stringify any anymore because
+
+812
+00:41:37,119 --> 00:41:42,960
+you could you just directly compare the
+
+813
+00:41:39,520 --> 00:41:45,440
+array element values right so it doesn't
+
+814
+00:41:42,960 --> 00:41:49,200
+save you anything to use stringify. So
+
+815
+00:41:45,440 --> 00:41:52,480
+that's you see that was what I I was
+
+816
+00:41:49,200 --> 00:41:55,280
+thinking about doing like because
+
+817
+00:41:52,480 --> 00:41:58,000
+otherwise let me show you okay so beside
+
+818
+00:41:55,280 --> 00:42:01,040
+these few issues stringify is rather it
+
+819
+00:41:58,000 --> 00:42:05,119
+works it works for array okay for pure
+
+820
+00:42:01,040 --> 00:42:08,560
+array I mean uh true array like array is
+
+821
+00:42:05,119 --> 00:42:12,960
+array return true not for array like
+
+822
+00:42:08,560 --> 00:42:15,359
+ okay so so you got undefined versus
+
+823
+00:42:12,960 --> 00:42:19,280
+new then you also got sparse array
+
+824
+00:42:15,359 --> 00:42:22,000
+issue. Um you know for example these two
+
+825
+00:42:19,280 --> 00:42:25,200
+arrays one is got repeated comma that's
+
+826
+00:42:22,000 --> 00:42:28,400
+a actually in array that's that's valid.
+
+827
+00:42:25,200 --> 00:42:31,520
+Okay but you got
+
+828
+00:42:28,400 --> 00:42:34,560
+you you you you you
+
+829
+00:42:31,520 --> 00:42:39,280
+will end up creating a so-called sparse
+
+830
+00:42:34,560 --> 00:42:41,680
+array which is different from array of
+
+831
+00:42:39,280 --> 00:42:43,760
+of having a value of undefined. Okay, so
+
+832
+00:42:41,680 --> 00:42:46,079
+this aa and bb these two array are
+
+833
+00:42:43,760 --> 00:42:50,000
+actually different. They behave
+
+834
+00:42:46,079 --> 00:42:52,160
+completely differently like when you map
+
+835
+00:42:50,000 --> 00:42:55,119
+you know a function to the array the map
+
+836
+00:42:52,160 --> 00:42:57,200
+will skip those missing indexes. So they
+
+837
+00:42:55,119 --> 00:43:00,640
+are completely different things these
+
+838
+00:42:57,200 --> 00:43:02,480
+two. Okay. But but if you say you see
+
+839
+00:43:00,640 --> 00:43:06,319
+because if you get the key they say they
+
+840
+00:43:02,480 --> 00:43:09,520
+are not the same force. But if you turn
+
+841
+00:43:06,319 --> 00:43:11,119
+them into JSON they become equal
+
+842
+00:43:09,520 --> 00:43:14,480
+because
+
+843
+00:43:11,119 --> 00:43:17,920
+when you have like a sparse array JSON
+
+844
+00:43:14,480 --> 00:43:21,520
+will automatically turn all missing
+
+845
+00:43:17,920 --> 00:43:23,920
+indexes to have a value of undefined. So
+
+846
+00:43:21,520 --> 00:43:26,720
+they become the same. Okay. So this is a
+
+847
+00:43:23,920 --> 00:43:29,599
+issue. So but when you actually so in
+
+848
+00:43:26,720 --> 00:43:32,880
+JavaScript when you want to compare two
+
+849
+00:43:29,599 --> 00:43:35,520
+arrays and one is sparse do you want to
+
+850
+00:43:32,880 --> 00:43:37,520
+consider these two equal? No. Right?
+
+851
+00:43:35,520 --> 00:43:40,400
+Because when you have a sparse array
+
+852
+00:43:37,520 --> 00:43:42,160
+it's very problematic. Okay. It's very
+
+853
+00:43:40,400 --> 00:43:45,200
+problematic.
+
+854
+00:43:42,160 --> 00:43:46,800
+So you don't want this to return true.
+
+855
+00:43:45,200 --> 00:43:48,560
+Okay. So that's another thing you need
+
+856
+00:43:46,800 --> 00:43:52,400
+to fix.
+
+857
+00:43:48,560 --> 00:43:56,160
+Um so how can we fix this? I mean and
+
+858
+00:43:52,400 --> 00:43:59,760
+still use uh JSON.st stringify. So you
+
+859
+00:43:56,160 --> 00:44:02,240
+need to detect SP uh sparse array which
+
+860
+00:43:59,760 --> 00:44:04,400
+means you need to detect
+
+861
+00:44:02,240 --> 00:44:07,119
+missing keys. So you need to get the
+
+862
+00:44:04,400 --> 00:44:10,640
+length of the array and you need need to
+
+863
+00:44:07,119 --> 00:44:14,720
+check it has keys starting from zero to
+
+864
+00:44:10,640 --> 00:44:18,319
+to length minus one. All keys exist
+
+865
+00:44:14,720 --> 00:44:22,079
+otherwise you got a sparse array. Okay.
+
+866
+00:44:18,319 --> 00:44:23,920
+Uh by the way all all this all this I'm
+
+867
+00:44:22,079 --> 00:44:26,880
+talking about is explained in my
+
+868
+00:44:23,920 --> 00:44:29,119
+tutorial like for example array overview
+
+869
+00:44:26,880 --> 00:44:33,520
+then you got you you you know you got a
+
+870
+00:44:29,119 --> 00:44:35,599
+full page on um on sparse array array
+
+871
+00:44:33,520 --> 00:44:37,520
+like object and so on and how to convert
+
+872
+00:44:35,599 --> 00:44:41,440
+them and how to fix them things like
+
+873
+00:44:37,520 --> 00:44:44,640
+that okay so let's go back
+
+874
+00:44:41,440 --> 00:44:47,200
+so so let's go back so we were talking
+
+875
+00:44:44,640 --> 00:44:49,839
+about test array equality by comparison
+
+876
+00:44:47,200 --> 00:44:52,240
+with JSON string Okay. So we get so
+
+877
+00:44:49,839 --> 00:44:54,640
+sparse array.
+
+878
+00:44:52,240 --> 00:44:57,680
+So you need to so if you want to use
+
+879
+00:44:54,640 --> 00:45:01,040
+stringify to
+
+880
+00:44:57,680 --> 00:45:03,760
+as a as you know implement the array
+
+881
+00:45:01,040 --> 00:45:06,240
+comparison how can you do it? You have
+
+882
+00:45:03,760 --> 00:45:10,480
+to first of all write a function to
+
+883
+00:45:06,240 --> 00:45:12,720
+check for sparse array and uh that would
+
+884
+00:45:10,480 --> 00:45:14,800
+be too much work
+
+885
+00:45:12,720 --> 00:45:17,119
+because again if you're going to do that
+
+886
+00:45:14,800 --> 00:45:19,920
+you might as well compare the elements.
+
+887
+00:45:17,119 --> 00:45:22,240
+You don't need stringify, you know,
+
+888
+00:45:19,920 --> 00:45:24,720
+because stringify is just super
+
+889
+00:45:22,240 --> 00:45:28,160
+convenient. And you see the reason we
+
+890
+00:45:24,720 --> 00:45:31,200
+want to we might want to implement array
+
+891
+00:45:28,160 --> 00:45:34,640
+equality function using string stringify
+
+892
+00:45:31,200 --> 00:45:36,880
+because it's implemented
+
+893
+00:45:34,640 --> 00:45:41,200
+building function that means it's
+
+894
+00:45:36,880 --> 00:45:43,599
+implemented in C you know very low level
+
+895
+00:45:41,200 --> 00:45:45,680
+language and guaranteed to be correct
+
+896
+00:45:43,599 --> 00:45:48,640
+otherwise because millions millions of
+
+897
+00:45:45,680 --> 00:45:51,760
+people using it. So the stringify is
+
+898
+00:45:48,640 --> 00:45:54,240
+fully specified and guaranteed to be
+
+899
+00:45:51,760 --> 00:45:57,520
+correct according to the specification
+
+900
+00:45:54,240 --> 00:45:59,680
+and it is the fastest possible. Okay. No
+
+901
+00:45:57,520 --> 00:46:01,839
+function you can write that's do
+
+902
+00:45:59,680 --> 00:46:04,079
+stringify faster than the building.
+
+903
+00:46:01,839 --> 00:46:07,119
+That's the nature in almost all
+
+904
+00:46:04,079 --> 00:46:09,359
+languages in in in eac in whatever
+
+905
+00:46:07,119 --> 00:46:12,319
+language. Okay. You want to use the
+
+906
+00:46:09,359 --> 00:46:15,119
+building function as much as possible.
+
+907
+00:46:12,319 --> 00:46:18,160
+So that's why we might want to write a
+
+908
+00:46:15,119 --> 00:46:20,079
+array comparison function.
+
+909
+00:46:18,160 --> 00:46:22,880
+and you know using the stringify because
+
+910
+00:46:20,079 --> 00:46:25,680
+that will make it very fast but then you
+
+911
+00:46:22,880 --> 00:46:30,000
+know so we got these issues uh I'm not
+
+912
+00:46:25,680 --> 00:46:34,800
+sure we can actually solve it
+
+913
+00:46:30,000 --> 00:46:37,280
+okay so other than these two issues um
+
+914
+00:46:34,800 --> 00:46:40,240
+everything works out okay so array can
+
+915
+00:46:37,280 --> 00:46:42,400
+be nested it also work out uh test
+
+916
+00:46:40,240 --> 00:46:45,520
+equality of nested array by converting
+
+917
+00:46:42,400 --> 00:46:48,240
+to JSON uh JSON cannot be used to test
+
+918
+00:46:45,520 --> 00:46:51,680
+equality of object right so if your
+
+919
+00:46:48,240 --> 00:46:54,160
+array contains a element that is object
+
+920
+00:46:51,680 --> 00:46:57,520
+then you are okay when you have
+
+921
+00:46:54,160 --> 00:47:00,079
+object uh JSON stringify cannot do it
+
+922
+00:46:57,520 --> 00:47:02,880
+okay
+
+923
+00:47:00,079 --> 00:47:06,079
+uh and when you have array likes like
+
+924
+00:47:02,880 --> 00:47:08,400
+object that's al you also no good okay
+
+925
+00:47:06,079 --> 00:47:10,560
+because array like object are not array
+
+926
+00:47:08,400 --> 00:47:13,680
+they are objects so you als it's the
+
+927
+00:47:10,560 --> 00:47:17,200
+same situation with objects
+
+928
+00:47:13,680 --> 00:47:19,599
+okay so in the summary So far I think
+
+929
+00:47:17,200 --> 00:47:22,960
+you you know you simply you cannot use
+
+930
+00:47:19,599 --> 00:47:25,760
+JSON stringify. Okay
+
+931
+00:47:22,960 --> 00:47:29,920
+I mean you you you can if your array
+
+932
+00:47:25,760 --> 00:47:34,319
+doesn't contain define and
+
+933
+00:47:29,920 --> 00:47:38,160
+if it's not sparse array
+
+934
+00:47:34,319 --> 00:47:42,480
+and it doesn't contain object objects or
+
+935
+00:47:38,160 --> 00:47:45,760
+array like objects then JSON works.
+
+936
+00:47:42,480 --> 00:47:48,480
+Okay, but then there's another issue.
+
+937
+00:47:45,760 --> 00:47:52,240
+Okay, so even if it works, but let's say
+
+938
+00:47:48,480 --> 00:47:56,960
+if you have a array of let's say 100,000
+
+939
+00:47:52,240 --> 00:47:59,760
+items. Ching. Hello, F Hank. Thank you.
+
+940
+00:47:56,960 --> 00:48:02,400
+Uh did you see the new Jerry Qu uh
+
+941
+00:47:59,760 --> 00:48:07,200
+jQuery version came out? Jerry uh jQuery
+
+942
+00:48:02,400 --> 00:48:10,079
+is no good, man. JQuery is good like 15
+
+943
+00:48:07,200 --> 00:48:14,960
+years ago.
+
+944
+00:48:10,079 --> 00:48:18,480
+15 years ago before 2015 I mean it's
+
+945
+00:48:14,960 --> 00:48:23,200
+it's useful like in 2005 okay 20 years
+
+946
+00:48:18,480 --> 00:48:26,319
+ago 2005 to 2015
+
+947
+00:48:23,200 --> 00:48:28,559
+so 10 years ago it's still useful very
+
+948
+00:48:26,319 --> 00:48:31,440
+useful in fact it's not just useful it's
+
+949
+00:48:28,559 --> 00:48:35,119
+necessary jQuery is not just useful it's
+
+950
+00:48:31,440 --> 00:48:39,200
+like absolutely necessary if you want to
+
+951
+00:48:35,119 --> 00:48:42,160
+uh do any web dev jQuery okay it's it's
+
+952
+00:48:39,200 --> 00:48:44,480
+written by a late Malay Jen who is
+
+953
+00:48:42,160 --> 00:48:47,119
+pushing for you know kind of pushing for
+
+954
+00:48:44,480 --> 00:48:50,640
+the for the for the social justice
+
+955
+00:48:47,119 --> 00:48:54,160
+warriors. Okay.
+
+956
+00:48:50,640 --> 00:48:57,760
+Hello go J. So jQuery is extremely
+
+957
+00:48:54,160 --> 00:49:01,040
+useful and necessary 10 years ago but
+
+958
+00:48:57,760 --> 00:49:03,040
+since 2015 JavaScript has a big change
+
+959
+00:49:01,040 --> 00:49:06,240
+you know
+
+960
+00:49:03,040 --> 00:49:08,240
+basically J jQuery you know because
+
+961
+00:49:06,240 --> 00:49:12,640
+JavaScript went went through the
+
+962
+00:49:08,240 --> 00:49:14,240
+modernization along with um not NodeJS
+
+963
+00:49:12,640 --> 00:49:17,040
+you know they became actually a
+
+964
+00:49:14,240 --> 00:49:20,160
+revolution in computing industry. So you
+
+965
+00:49:17,040 --> 00:49:24,079
+started to have the idea of the
+
+966
+00:49:20,160 --> 00:49:27,040
+a sync functions which before before
+
+967
+00:49:24,079 --> 00:49:29,200
+NodeJS around 2009
+
+968
+00:49:27,040 --> 00:49:31,359
+it almost doesn't exist in other
+
+969
+00:49:29,200 --> 00:49:34,400
+programming languages like nobody
+
+970
+00:49:31,359 --> 00:49:36,400
+thought of I'm pretty sure it exists but
+
+971
+00:49:34,400 --> 00:49:39,359
+the average you know the the the
+
+972
+00:49:36,400 --> 00:49:42,960
+mainstream nobody you know it's not a
+
+973
+00:49:39,359 --> 00:49:45,520
+common idea to think about to to have a
+
+974
+00:49:42,960 --> 00:49:48,800
+function that that does a sync you know
+
+975
+00:49:45,520 --> 00:49:51,839
+then do promise and wait or whatever
+
+976
+00:49:48,800 --> 00:49:54,880
+people don't do that but
+
+977
+00:49:51,839 --> 00:49:57,280
+beginning in 200 you know since nojs in
+
+978
+00:49:54,880 --> 00:50:00,559
+2009 2008
+
+979
+00:49:57,280 --> 00:50:03,520
+that be that that became a thing and to
+
+980
+00:50:00,559 --> 00:50:05,520
+this day I'm not sure I don't fully
+
+981
+00:50:03,520 --> 00:50:08,079
+understand it okay so I I don't
+
+982
+00:50:05,520 --> 00:50:11,280
+understand I I'm not sure whether it's
+
+983
+00:50:08,079 --> 00:50:14,880
+justified like why is it we don't have a
+
+984
+00:50:11,280 --> 00:50:16,160
+sync functions in most other languages
+
+985
+00:50:14,880 --> 00:50:18,319
+before I
+
+986
+00:50:16,160 --> 00:50:20,880
+So
+
+987
+00:50:18,319 --> 00:50:23,839
+it's it's a it's a bit complicated issue
+
+988
+00:50:20,880 --> 00:50:26,400
+because it it has to do with concurrency
+
+989
+00:50:23,839 --> 00:50:29,200
+programming and parallel programming
+
+990
+00:50:26,400 --> 00:50:32,480
+which are different. So it has to do
+
+991
+00:50:29,200 --> 00:50:35,440
+with those but not exactly. Okay, it's
+
+992
+00:50:32,480 --> 00:50:37,440
+like somewhere there somewhere there
+
+993
+00:50:35,440 --> 00:50:40,480
+with to do with concurrency but not
+
+994
+00:50:37,440 --> 00:50:43,359
+exactly because a sync in JavaScript is
+
+995
+00:50:40,480 --> 00:50:46,319
+still serial. It's not parallel. It's
+
+996
+00:50:43,359 --> 00:50:50,640
+not concurrent at all. It just delayed.
+
+997
+00:50:46,319 --> 00:50:53,119
+It's just like a loop check. Okay. So
+
+998
+00:50:50,640 --> 00:50:55,040
+anyway, so it's very complex. So, so in
+
+999
+00:50:53,119 --> 00:50:57,839
+summary,
+
+1000
+00:50:55,040 --> 00:51:01,280
+starting in no Node.js 2009, uh,
+
+1001
+00:50:57,839 --> 00:51:04,000
+JavaScript introduced the like a sync
+
+1002
+00:51:01,280 --> 00:51:08,000
+idea kind of to the to the programming
+
+1003
+00:51:04,000 --> 00:51:10,400
+industry and and JavaScript started a
+
+1004
+00:51:08,000 --> 00:51:12,880
+revolution kind of and also you started
+
+1005
+00:51:10,400 --> 00:51:16,960
+to have serverside JavaScript. So the
+
+1006
+00:51:12,880 --> 00:51:20,240
+web the web dev industry is going
+
+1007
+00:51:16,960 --> 00:51:23,119
+through lots of change and also remember
+
+1008
+00:51:20,240 --> 00:51:25,200
+internet explorer
+
+1009
+00:51:23,119 --> 00:51:27,680
+people are trying to kick it out. It's
+
+1010
+00:51:25,200 --> 00:51:31,200
+very hard you know there's still like
+
+1011
+00:51:27,680 --> 00:51:33,440
+you know there's still 6% using it
+
+1012
+00:51:31,200 --> 00:51:36,960
+which is not compatible with all your
+
+1013
+00:51:33,440 --> 00:51:39,440
+JavaScript code. So, so but eventually
+
+1014
+00:51:36,960 --> 00:51:42,400
+so 2015
+
+1015
+00:51:39,440 --> 00:51:45,200
+eventually you know so we have a new
+
+1016
+00:51:42,400 --> 00:51:47,680
+JavaScript version and and uh you know
+
+1017
+00:51:45,200 --> 00:51:50,640
+JavaScript used on servers and internal
+
+1018
+00:51:47,680 --> 00:51:54,559
+internet explorer explorer finally went
+
+1019
+00:51:50,640 --> 00:51:57,520
+away so there's a lot changed so that's
+
+1020
+00:51:54,559 --> 00:52:00,480
+so you know so jQuery
+
+1021
+00:51:57,520 --> 00:52:03,200
+you know by 2015
+
+1022
+00:52:00,480 --> 00:52:06,559
+starting in 2015 it's basically useless
+
+1023
+00:52:03,200 --> 00:52:09,040
+okay it's like useless. The only people
+
+1024
+00:52:06,559 --> 00:52:11,599
+who still use jQuery are those people
+
+1025
+00:52:09,040 --> 00:52:13,440
+who don't know how to code like they
+
+1026
+00:52:11,599 --> 00:52:16,480
+don't they don't know they just follow
+
+1027
+00:52:13,440 --> 00:52:18,960
+you know I I I you know I need a job I
+
+1028
+00:52:16,480 --> 00:52:21,760
+heard working as a programmer can make a
+
+1029
+00:52:18,960 --> 00:52:24,640
+lot of money so oh this jQuery you just
+
+1030
+00:52:21,760 --> 00:52:28,079
+do this and that's only that's basically
+
+1031
+00:52:24,640 --> 00:52:30,640
+the only two there are two two two kind
+
+1032
+00:52:28,079 --> 00:52:32,319
+of people still using jQuery one one is
+
+1033
+00:52:30,640 --> 00:52:35,680
+the new like people who don't know how
+
+1034
+00:52:32,319 --> 00:52:38,960
+to code at all they still use you know
+
+1035
+00:52:35,680 --> 00:52:41,359
+jQuery and the other is like backward is
+
+1036
+00:52:38,960 --> 00:52:43,280
+like legacy code
+
+1037
+00:52:41,359 --> 00:52:45,760
+there's already one million more than a
+
+1038
+00:52:43,280 --> 00:52:49,040
+million lines on the web that's using
+
+1039
+00:52:45,760 --> 00:52:51,760
+jQuery and you don't have you know you
+
+1040
+00:52:49,040 --> 00:52:54,000
+you are not going to hire programmers to
+
+1041
+00:52:51,760 --> 00:52:56,319
+rewrite them
+
+1042
+00:52:54,000 --> 00:52:58,559
+so it's just there it's going to stay
+
+1043
+00:52:56,319 --> 00:53:00,640
+there forever like like forever so
+
+1044
+00:52:58,559 --> 00:53:04,640
+that's you know so you got new
+
+1045
+00:53:00,640 --> 00:53:07,040
+programmers I mean you you you
+
+1046
+00:53:04,640 --> 00:53:09,359
+know gradually remove them or you like
+
+1047
+00:53:07,040 --> 00:53:12,800
+usually they just stays okay this legacy
+
+1048
+00:53:09,359 --> 00:53:14,559
+code they just stay until this you know
+
+1049
+00:53:12,800 --> 00:53:17,359
+you you no longer use the software you
+
+1050
+00:53:14,559 --> 00:53:20,559
+know the company died or whatever so
+
+1051
+00:53:17,359 --> 00:53:24,319
+that's the only reason jQuery is still
+
+1052
+00:53:20,559 --> 00:53:26,559
+around basically you know
+
+1053
+00:53:24,319 --> 00:53:29,359
+okay so we went through all of us the
+
+1054
+00:53:26,559 --> 00:53:32,000
+stuff uh I think that's it
+
+1055
+00:53:29,359 --> 00:53:34,800
+you know we uh we didn't write a
+
+1056
+00:53:32,000 --> 00:53:36,400
+benchmark so
+
+1057
+00:53:34,800 --> 00:53:39,200
+You see we were going to write a
+
+1058
+00:53:36,400 --> 00:53:41,359
+benchmark. You know so far I explained
+
+1059
+00:53:39,200 --> 00:53:46,720
+you know the all the details about you
+
+1060
+00:53:41,359 --> 00:53:50,480
+know JSON and test you know uh array
+
+1061
+00:53:46,720 --> 00:53:53,920
+equality code uh test equality of array
+
+1062
+00:53:50,480 --> 00:53:57,200
+and object by content. We talk about
+
+1063
+00:53:53,920 --> 00:53:59,440
+also we talked about using JSON to do it
+
+1064
+00:53:57,200 --> 00:54:01,839
+and we were talking about benchmark. So
+
+1065
+00:53:59,440 --> 00:54:04,480
+what is it about benchmark? So if you
+
+1066
+00:54:01,839 --> 00:54:06,559
+don't know, you go to JavaScript
+
+1067
+00:54:04,480 --> 00:54:09,839
+at the bottom there's a benchmark. So
+
+1068
+00:54:06,559 --> 00:54:13,599
+you can you can you can uh in demo you
+
+1069
+00:54:09,839 --> 00:54:16,079
+can um you can do benchmark. So it
+
+1070
+00:54:13,599 --> 00:54:18,640
+allows you to test you know many
+
+1071
+00:54:16,079 --> 00:54:21,040
+different to compare different
+
+1072
+00:54:18,640 --> 00:54:23,599
+constructs or implementations
+
+1073
+00:54:21,040 --> 00:54:26,160
+of functions in JavaScript. Very useful.
+
+1074
+00:54:23,599 --> 00:54:28,880
+So this will bring up you know this will
+
+1075
+00:54:26,160 --> 00:54:30,559
+show you lots of like
+
+1076
+00:54:28,880 --> 00:54:33,200
+issues you might be wondering. For
+
+1077
+00:54:30,559 --> 00:54:35,680
+example, we did some others before speed
+
+1078
+00:54:33,200 --> 00:54:38,400
+comparison of generating array. There
+
+1079
+00:54:35,680 --> 00:54:40,960
+are many ways to do it. You can use a
+
+1080
+00:54:38,400 --> 00:54:44,720
+for loop. You can use a you know like
+
+1081
+00:54:40,960 --> 00:54:48,960
+while loop. Here is a while loop of
+
+1082
+00:54:44,720 --> 00:54:51,200
+generating a um
+
+1083
+00:54:48,960 --> 00:54:53,680
+array. Okay. So you want I believe you
+
+1084
+00:54:51,200 --> 00:54:56,880
+want a range function. Yeah. You want an
+
+1085
+00:54:53,680 --> 00:54:59,119
+array with values from 0 1 2 3 and so
+
+1086
+00:54:56,880 --> 00:55:01,280
+on. Okay. So you can use a while loop.
+
+1087
+00:54:59,119 --> 00:55:02,880
+You can use a for loop or you can use a
+
+1088
+00:55:01,280 --> 00:55:05,520
+functional programming style. You see
+
+1089
+00:55:02,880 --> 00:55:07,200
+this one very supreme functional
+
+1090
+00:55:05,520 --> 00:55:08,960
+functional programming you know you
+
+1091
+00:55:07,200 --> 00:55:11,680
+don't have local variables you know so
+
+1092
+00:55:08,960 --> 00:55:14,240
+which one is faster you can compare you
+
+1093
+00:55:11,680 --> 00:55:17,359
+know do it one 10,000 times you know it
+
+1094
+00:55:14,240 --> 00:55:21,599
+came out result
+
+1095
+00:55:17,359 --> 00:55:23,359
+for loop is the fastest okay
+
+1096
+00:55:21,599 --> 00:55:26,880
+there's nothing you can do about it for
+
+1097
+00:55:23,359 --> 00:55:30,559
+loop you know this this uh well you know
+
+1098
+00:55:26,880 --> 00:55:33,920
+if you do it 10,000 times then it's a
+
+1099
+00:55:30,559 --> 00:55:36,079
+you know it's 10 50 microcond faster.
+
+1100
+00:55:33,920 --> 00:55:39,440
+Okay.
+
+1101
+00:55:36,079 --> 00:55:41,760
+So even if you use push you know so can
+
+1102
+00:55:39,440 --> 00:55:45,760
+you see the like the result? Yeah you
+
+1103
+00:55:41,760 --> 00:55:49,359
+can know if you use uh direct assign for
+
+1104
+00:55:45,760 --> 00:55:52,559
+loop or wire loop that's n microscond.
+
+1105
+00:55:49,359 --> 00:55:56,480
+If you use push to generate array you
+
+1106
+00:55:52,559 --> 00:55:58,400
+got 40 microcond. If you use array field
+
+1107
+00:55:56,480 --> 00:56:01,520
+purely functional programming way you
+
+1108
+00:55:58,400 --> 00:56:05,119
+got 60 microsconds. So the difference is
+
+1109
+00:56:01,520 --> 00:56:08,559
+like compared to for loop is like 50
+
+1110
+00:56:05,119 --> 00:56:11,799
+microsconds. Okay, that's like 10,000 of
+
+1111
+00:56:08,559 --> 00:56:11,799
+a second.
+
+1112
+00:56:16,160 --> 00:56:19,440
+But you know what happens if you use
+
+1113
+00:56:17,839 --> 00:56:22,880
+jQuery?
+
+1114
+00:56:19,440 --> 00:56:25,680
+If you use jQuery, it's going to be more
+
+1115
+00:56:22,880 --> 00:56:30,359
+than 100 times slow. Like your entire
+
+1116
+00:56:25,680 --> 00:56:30,359
+thing is like 100 times slow.
+
+1117
+00:56:32,000 --> 00:56:35,760
+Uh
+
+1118
+00:56:34,000 --> 00:56:37,359
+so I think that's it. Okay. So let me
+
+1119
+00:56:35,760 --> 00:56:39,839
+answer a few more questions. You've
+
+1120
+00:56:37,359 --> 00:56:42,000
+called lispcon's logic garbage compared
+
+1121
+00:56:39,839 --> 00:56:44,799
+to Mathematica. That's correct. But
+
+1122
+00:56:42,000 --> 00:56:48,160
+still use Emacs. Is wam perfect syntax
+
+1123
+00:56:44,799 --> 00:56:51,359
+irrelevant if it's proprietary license
+
+1124
+00:56:48,160 --> 00:56:55,200
+kills the open echo economy? Well the
+
+1125
+00:56:51,359 --> 00:56:57,440
+the reason I don't use wuam language for
+
+1126
+00:56:55,200 --> 00:56:59,599
+everything is because it's not suitable.
+
+1127
+00:56:57,440 --> 00:57:01,200
+Okay. It has nothing to do with open
+
+1128
+00:56:59,599 --> 00:57:03,200
+source.
+
+1129
+00:57:01,200 --> 00:57:07,280
+First of all, first of all in Emacs, why
+
+1130
+00:57:03,200 --> 00:57:09,520
+am I using emacisp? Because emacisp is
+
+1131
+00:57:07,280 --> 00:57:13,599
+for the editor. I need to process text.
+
+1132
+00:57:09,520 --> 00:57:16,079
+I for example, I can press a key. Wait.
+
+1133
+00:57:13,599 --> 00:57:18,240
+For example, I can uh for example, let's
+
+1134
+00:57:16,079 --> 00:57:20,960
+scroll down. Okay. So, you see this is
+
+1135
+00:57:18,240 --> 00:57:24,960
+uh syntax color JavaScript code. Press
+
+1136
+00:57:20,960 --> 00:57:28,559
+press. Now, they become, you know, they
+
+1137
+00:57:24,960 --> 00:57:29,200
+remove the syntax tax. You see now I can
+
+1138
+00:57:28,559 --> 00:57:29,200
+press press press press press press
+
+1139
+00:57:29,200 --> 00:57:29,200
+press press press press press press
+
+1140
+00:57:29,200 --> 00:57:30,880
+press press press press press press
+
+1141
+00:57:29,200 --> 00:57:33,040
+press press press press pop it out now
+
+1142
+00:57:30,880 --> 00:57:36,000
+it's in a dedicated
+
+1143
+00:57:33,040 --> 00:57:38,640
+uh buffer of JavaScript and I can press
+
+1144
+00:57:36,000 --> 00:57:40,559
+press I can run the code and I can
+
+1145
+00:57:38,640 --> 00:57:42,079
+expand the window you can see all my
+
+1146
+00:57:40,559 --> 00:57:45,200
+command calls in the pink window it's
+
+1147
+00:57:42,079 --> 00:57:48,880
+all commands written by myself okay in
+
+1148
+00:57:45,200 --> 00:57:52,960
+eagisp what do you think eagisp okay so
+
+1149
+00:57:48,880 --> 00:57:56,160
+for example HTML toggle syntactical text
+
+1150
+00:57:52,960 --> 00:57:59,200
+uh stuff like HTML pop out source code
+
+1151
+00:57:56,160 --> 00:58:02,160
+you That's what I'm doing. So now press
+
+1152
+00:57:59,200 --> 00:58:06,160
+press. You can you can see pop back
+
+1153
+00:58:02,160 --> 00:58:09,920
+source code. Now press press press. Now
+
+1154
+00:58:06,160 --> 00:58:14,160
+you can see HTML re HTML
+
+1155
+00:58:09,920 --> 00:58:17,040
+pre-code buffer. Okay. Now press. That's
+
+1156
+00:58:14,160 --> 00:58:20,079
+HTML open in browser. You see I can do
+
+1157
+00:58:17,040 --> 00:58:23,040
+all this. Where's the code? Well, let's
+
+1158
+00:58:20,079 --> 00:58:28,559
+show the code. Press press. Okay. Wait.
+
+1159
+00:58:23,040 --> 00:58:32,720
+Um. Okay. describe key press. Okay, so
+
+1160
+00:58:28,559 --> 00:58:35,680
+this you are coding HTML re HTML as uh
+
+1161
+00:58:32,720 --> 00:58:38,240
+pre-code buffer. The source code is here
+
+1162
+00:58:35,680 --> 00:58:42,079
+as well as all the other source code
+
+1163
+00:58:38,240 --> 00:58:44,160
+1,00 lines actually this file is 3,000
+
+1164
+00:58:42,079 --> 00:58:46,240
+lines of code but that's not the only
+
+1165
+00:58:44,160 --> 00:58:48,480
+one you got.
+
+1166
+00:58:46,240 --> 00:58:52,720
+You got uh you know you got so alto
+
+1167
+00:58:48,480 --> 00:58:56,240
+together it's like six almost
+
+1168
+00:58:52,720 --> 00:59:00,480
+9,000 files 9 9,000 lines of code in
+
+1169
+00:58:56,240 --> 00:59:02,960
+this HTML HTML mode okay you see all
+
+1170
+00:59:00,480 --> 00:59:05,119
+these commands you see
+
+1171
+00:59:02,960 --> 00:59:07,520
+where's the code that's here's the code
+
+1172
+00:59:05,119 --> 00:59:11,040
+what is the source code this is emac
+
+1173
+00:59:07,520 --> 00:59:14,920
+this can you do this in wam language
+
+1174
+00:59:11,040 --> 00:59:14,920
+actually you can because
+
+1175
+00:59:16,240 --> 00:59:21,040
+But nobody do it because
+
+1176
+00:59:19,119 --> 00:59:22,960
+so anyway the the reason I don't use
+
+1177
+00:59:21,040 --> 00:59:25,760
+wuam language you know first of all you
+
+1178
+00:59:22,960 --> 00:59:28,880
+can't
+
+1179
+00:59:25,760 --> 00:59:31,920
+it's not suitable okay it's a different
+
+1180
+00:59:28,880 --> 00:59:34,640
+thing uh it's not suitable now in wam
+
+1181
+00:59:31,920 --> 00:59:37,280
+language you can actually
+
+1182
+00:59:34,640 --> 00:59:40,160
+you can actually just program it like
+
+1183
+00:59:37,280 --> 00:59:42,160
+like just like eag this okay I talked
+
+1184
+00:59:40,160 --> 00:59:44,799
+about this before but first first of all
+
+1185
+00:59:42,160 --> 00:59:47,200
+evaluate it
+
+1186
+00:59:44,799 --> 00:59:50,720
+uh you can you can program it just like
+
+1187
+00:59:47,200 --> 00:59:52,640
+emac this you can manipulate because
+
+1188
+00:59:50,720 --> 00:59:55,119
+anyway that's another topic okay I
+
+1189
+00:59:52,640 --> 00:59:57,280
+talked about watch my old videos I'm
+
+1190
+00:59:55,119 --> 01:00:00,079
+pretty sure I I think you know most you
+
+1191
+00:59:57,280 --> 01:00:02,160
+I don't think you are interested you are
+
+1192
+01:00:00,079 --> 01:00:04,720
+just asking because you want things to
+
+1193
+01:00:02,160 --> 01:00:07,040
+be free that's why that's that's your
+
+1194
+01:00:04,720 --> 01:00:09,599
+question that's like that's the heart of
+
+1195
+01:00:07,040 --> 01:00:12,240
+your question because wuan language you
+
+1196
+01:00:09,599 --> 01:00:14,000
+have to pay you don't want to pay you
+
+1197
+01:00:12,240 --> 01:00:15,839
+really like can can it be like open
+
+1198
+01:00:14,000 --> 01:00:17,920
+source so I don't have to pay of course
+
+1199
+01:00:15,839 --> 01:00:19,760
+you don't say you you don't you you
+
+1200
+01:00:17,920 --> 01:00:22,640
+don't say that you don't want to pay you
+
+1201
+01:00:19,760 --> 01:00:25,440
+you say in terms of like open source I
+
+1202
+01:00:22,640 --> 01:00:27,040
+want you know the share but actually
+
+1203
+01:00:25,440 --> 01:00:29,200
+what you really want is that you don't
+
+1204
+01:00:27,040 --> 01:00:31,520
+want to pay okay that's why you are
+
+1205
+01:00:29,200 --> 01:00:33,520
+asking how come you are not using you
+
+1206
+01:00:31,520 --> 01:00:37,520
+know woven you know basically that's
+
+1207
+01:00:33,520 --> 01:00:40,480
+that's the the fundamental source of the
+
+1208
+01:00:37,520 --> 01:00:43,359
+question
+
+1209
+01:00:40,480 --> 01:00:45,839
+so I'm not using it here you know or in
+
+1210
+01:00:43,359 --> 01:00:47,680
+JavaScript in in browser because well
+
+1211
+01:00:45,839 --> 01:00:50,160
+you cannot
+
+1212
+01:00:47,680 --> 01:00:54,079
+use you know JavaScript is the language
+
+1213
+01:00:50,160 --> 01:00:56,720
+for the browser you can use wam language
+
+1214
+01:00:54,079 --> 01:00:59,599
+so you can also you know compare to comp
+
+1215
+01:00:56,720 --> 01:01:02,160
+compile to javascript or web assembly
+
+1216
+01:00:59,599 --> 01:01:05,280
+you can also do that with f or judia or
+
+1217
+01:01:02,160 --> 01:01:09,839
+some other languages but but that's not
+
+1218
+01:01:05,280 --> 01:01:12,240
+the like the core you know that's
+
+1219
+01:01:09,839 --> 01:01:14,880
+that's why okay I I think that's the
+
+1220
+01:01:12,240 --> 01:01:17,880
+that's kind of your question.
+
+1221
+01:01:14,880 --> 01:01:17,880
+Um
+
+1222
+01:01:18,559 --> 01:01:23,599
+so I think that's it. What what what are
+
+1223
+01:01:20,640 --> 01:01:26,240
+the questions? Uh so nothing beats for
+
+1224
+01:01:23,599 --> 01:01:28,960
+um four plus
+
+1225
+01:01:26,240 --> 01:01:34,240
+ifs. Uh
+
+1226
+01:01:28,960 --> 01:01:36,880
+yeah for and if yeah they you know the
+
+1227
+01:01:34,240 --> 01:01:40,319
+imperative code they it's true that they
+
+1228
+01:01:36,880 --> 01:01:42,400
+are the most you know if you uh they are
+
+1229
+01:01:40,319 --> 01:01:44,480
+the fastest if you are really concerned
+
+1230
+01:01:42,400 --> 01:01:46,400
+about that
+
+1231
+01:01:44,480 --> 01:01:48,799
+so this question you know so you are
+
+1232
+01:01:46,400 --> 01:01:50,319
+call this con very silly question
+
+1233
+01:01:48,799 --> 01:01:53,839
+because
+
+1234
+01:01:50,319 --> 01:01:56,400
+this so if you are you know because I'm
+
+1235
+01:01:53,839 --> 01:01:58,480
+in EMAC this you know I code you know I
+
+1236
+01:01:56,400 --> 01:02:02,079
+do this things that's that's why I use
+
+1237
+01:01:58,480 --> 01:02:06,400
+emacisp can I have wam language in emac
+
+1238
+01:02:02,079 --> 01:02:09,839
+emac no emacs is not using wuam language
+
+1239
+01:02:06,400 --> 01:02:14,880
+just just like vim is not using emacisp
+
+1240
+01:02:09,839 --> 01:02:17,200
+if you use vim or neo vim can you why
+
+1241
+01:02:14,880 --> 01:02:19,520
+why don't why are not use why why are
+
+1242
+01:02:17,200 --> 01:02:22,799
+you not using eacisp
+
+1243
+01:02:19,520 --> 01:02:26,680
+to code nim or v or nim or if you are
+
+1244
+01:02:22,799 --> 01:02:26,680
+using vs code.
+
+1245
+01:02:26,720 --> 01:02:33,359
+Open this file in VS code. Okay. Why are
+
+1246
+01:02:30,240 --> 01:02:36,480
+you not using emac this to code VS code?
+
+1247
+01:02:33,359 --> 01:02:38,160
+VS code is written in JavaScript. Okay.
+
+1248
+01:02:36,480 --> 01:02:41,040
+Why why are they all these people
+
+1249
+01:02:38,160 --> 01:02:44,160
+millions of like literally 10 million of
+
+1250
+01:02:41,040 --> 01:02:46,880
+VS code developers? Why are not they are
+
+1251
+01:02:44,160 --> 01:02:49,520
+not using emac this?
+
+1252
+01:02:46,880 --> 01:02:51,680
+Because it's not part of EBS code. Is
+
+1253
+01:02:49,520 --> 01:02:54,559
+you know VS code is written in electron
+
+1254
+01:02:51,680 --> 01:02:56,880
+in JavaScript.
+
+1255
+01:02:54,559 --> 01:03:00,240
+That is why so why why don't you why are
+
+1256
+01:02:56,880 --> 01:03:04,520
+you not using JavaScript to develop wam
+
+1257
+01:03:00,240 --> 01:03:04,520
+notebook you know wufam notebook
+
+1258
+01:03:05,359 --> 01:03:09,920
+because wufam notebook is not written in
+
+1259
+01:03:07,440 --> 01:03:12,559
+JavaScript or this wam notebook is in
+
+1260
+01:03:09,920 --> 01:03:14,799
+written in wuam language okay now now
+
+1261
+01:03:12,559 --> 01:03:17,200
+now
+
+1262
+01:03:14,799 --> 01:03:19,520
+you mention it let me let me let me I
+
+1263
+01:03:17,200 --> 01:03:22,079
+need to run uh some code to demo woof
+
+1264
+01:03:19,520 --> 01:03:25,359
+language
+
+1265
+01:03:22,079 --> 01:03:28,319
+okay So uh in fact I have so many you
+
+1266
+01:03:25,359 --> 01:03:31,920
+know uh wam language uh tutorials and
+
+1267
+01:03:28,319 --> 01:03:34,880
+let's go to there. So uh wam language go
+
+1268
+01:03:31,920 --> 01:03:38,079
+there. Let's just uh repeat one of the
+
+1269
+01:03:34,880 --> 01:03:41,680
+okay so programming language tutorials.
+
+1270
+01:03:38,079 --> 01:03:44,720
+Uh there is wra language uh let's just
+
+1271
+01:03:41,680 --> 01:03:48,160
+copy this code. Okay I want to learn
+
+1272
+01:03:44,720 --> 01:03:51,520
+something 3D. So here's a code we
+
+1273
+01:03:48,160 --> 01:03:54,720
+demonstrated. We coded live about in
+
+1274
+01:03:51,520 --> 01:03:57,839
+2023. So that's two years ago. So copy
+
+1275
+01:03:54,720 --> 01:04:01,920
+the code. You see how concise it is.
+
+1276
+01:03:57,839 --> 01:04:06,520
+Paste it. Uh wait, paste it wrong. Uh
+
+1277
+01:04:01,920 --> 01:04:06,520
+select all. Delete.
+
+1278
+01:04:07,520 --> 01:04:13,640
+Delete. Okay. Paste it. Okay. Here's the
+
+1279
+01:04:10,640 --> 01:04:13,640
+code.
+
+1280
+01:04:14,000 --> 01:04:23,200
+Magnify. Okay. Now shift enter to run
+
+1281
+01:04:16,799 --> 01:04:26,079
+it. There it is. Okay. This this can do
+
+1282
+01:04:23,200 --> 01:04:29,839
+computation, can do uh mathematics, can
+
+1283
+01:04:26,079 --> 01:04:32,960
+do number theory, can do uh differential
+
+1284
+01:04:29,839 --> 01:04:36,559
+equations, can do differential geometry,
+
+1285
+01:04:32,960 --> 01:04:38,640
+can do um black holes physics, you know,
+
+1286
+01:04:36,559 --> 01:04:40,240
+can can solve all these equations, can
+
+1287
+01:04:38,640 --> 01:04:42,240
+do
+
+1288
+01:04:40,240 --> 01:04:45,039
+neural networks, can do machine
+
+1289
+01:04:42,240 --> 01:04:47,520
+learning. one single function like one
+
+1290
+01:04:45,039 --> 01:04:50,480
+single function you can do chart GPT and
+
+1291
+01:04:47,520 --> 01:04:53,839
+so on. Okay. And you can type set like
+
+1292
+01:04:50,480 --> 01:04:56,720
+press press control shift N to type set
+
+1293
+01:04:53,839 --> 01:04:59,920
+it. Okay. So this is Wuan language. You
+
+1294
+01:04:56,720 --> 01:05:02,079
+can format it on the fly as you type.
+
+1295
+01:04:59,920 --> 01:05:04,480
+Okay. You can see even if you have
+
+1296
+01:05:02,079 --> 01:05:07,200
+complicated math expressions like
+
+1297
+01:05:04,480 --> 01:05:11,680
+fractions or nested fractions, it will
+
+1298
+01:05:07,200 --> 01:05:14,240
+format it in a great logical way on the
+
+1299
+01:05:11,680 --> 01:05:17,839
+fly. You don't have to manually insert
+
+1300
+01:05:14,240 --> 01:05:21,520
+tab and return like tab like Python
+
+1301
+01:05:17,839 --> 01:05:24,720
+idiots. Python and F idiots. This you
+
+1302
+01:05:21,520 --> 01:05:28,400
+zoomer idiots.
+
+1303
+01:05:24,720 --> 01:05:31,200
+Okay. So you have to pay.
+
+1304
+01:05:28,400 --> 01:05:33,760
+So why am I not you know why why is
+
+1305
+01:05:31,200 --> 01:05:37,599
+Wuan? Why am I not using JavaScript or
+
+1306
+01:05:33,760 --> 01:05:41,520
+or or or you know emac this or this to
+
+1307
+01:05:37,599 --> 01:05:45,280
+code wan language but because it's not
+
+1308
+01:05:41,520 --> 01:05:48,280
+it's not that it's not written in those
+
+1309
+01:05:45,280 --> 01:05:48,280
+languages.
+
+1310
+01:05:50,400 --> 01:05:56,559
+Okay, that's it. Bye guys.
+
+1311
+01:05:53,920 --> 01:06:00,000
+Did we complete everything? Well,
+
+1312
+01:05:56,559 --> 01:06:03,119
+basically yes. We kind of covered the
+
+1313
+01:06:00,000 --> 01:06:07,119
+topic we want to talk about. Uh so
+
+1314
+01:06:03,119 --> 01:06:12,799
+showing browser. Yes. Close. Okay. So
+
+1315
+01:06:07,119 --> 01:06:15,359
+here's HTML mode. Close. Emac list code.
+
+1316
+01:06:12,799 --> 01:06:17,200
+Okay. Different purpose different place
+
+1317
+01:06:15,359 --> 01:06:20,240
+in different places. Here you are
+
+1318
+01:06:17,200 --> 01:06:24,000
+looking at extreme
+
+1319
+01:06:20,240 --> 01:06:26,400
+functional programming of EMAC listp.
+
+1320
+01:06:24,000 --> 01:06:28,880
+Okay. Extreme functional programming.
+
+1321
+01:06:26,400 --> 01:06:32,160
+And here we are looking at the most
+
+1322
+01:06:28,880 --> 01:06:34,960
+extreme tur supreme
+
+1323
+01:06:32,160 --> 01:06:36,880
+functional programming in wuam language
+
+1324
+01:06:34,960 --> 01:06:42,960
+and in fact more advanced and then
+
+1325
+01:06:36,880 --> 01:06:46,160
+hascar or f okay here here my code
+
+1326
+01:06:42,960 --> 01:06:47,920
+this this this subject is is is called
+
+1327
+01:06:46,160 --> 01:06:50,160
+inversion okay inversion
+
+1328
+01:06:47,920 --> 01:06:53,119
+threedimensional geometry inversive
+
+1329
+01:06:50,160 --> 01:06:55,359
+geometry okay beautiful
+
+1330
+01:06:53,119 --> 01:06:57,599
+and in fact we need to change something
+
+1331
+01:06:55,359 --> 01:07:00,000
+so that when you rotate it, it doesn't
+
+1332
+01:06:57,599 --> 01:07:02,880
+so it like has a fixed center. It
+
+1333
+01:07:00,000 --> 01:07:07,440
+doesn't shrink or enlarge. And you can
+
+1334
+01:07:02,880 --> 01:07:10,480
+actually let's see control uh Oh yeah.
+
+1335
+01:07:07,440 --> 01:07:12,720
+So control. So now you use you need to
+
+1336
+01:07:10,480 --> 01:07:16,160
+use a mouse. It's easier if you use a
+
+1337
+01:07:12,720 --> 01:07:18,640
+mouse. Control that. You see? Can you
+
+1338
+01:07:16,160 --> 01:07:22,160
+see a circle? Can you see kind of like a
+
+1339
+01:07:18,640 --> 01:07:24,720
+sphere inside it? Sublime. This is
+
+1340
+01:07:22,160 --> 01:07:26,960
+sublime. Can you do this in JavaScript?
+
+1341
+01:07:24,720 --> 01:07:29,359
+Actually you can
+
+1342
+01:07:26,960 --> 01:07:32,400
+yeah it would be interesting to code
+
+1343
+01:07:29,359 --> 01:07:35,200
+this in JavaScript. Uh so uh to code
+
+1344
+01:07:32,400 --> 01:07:39,119
+this in JavaScript you have two options.
+
+1345
+01:07:35,200 --> 01:07:40,960
+One is just using um well you can use
+
+1346
+01:07:39,119 --> 01:07:43,280
+SVG
+
+1347
+01:07:40,960 --> 01:07:45,599
+then that's no good because SVG is just
+
+1348
+01:07:43,280 --> 01:07:47,200
+two dimensional. So if you want to code
+
+1349
+01:07:45,599 --> 01:07:52,640
+this in JavaScript you're going to write
+
+1350
+01:07:47,200 --> 01:07:56,000
+a lot code. if you want to do um um
+
+1351
+01:07:52,640 --> 01:07:58,720
+uh SVG. So I have a tutorial on that SVG
+
+1352
+01:07:56,000 --> 01:08:01,520
+clocks. Okay. So you click on that uh
+
+1353
+01:07:58,720 --> 01:08:04,400
+live clock.
+
+1354
+01:08:01,520 --> 01:08:09,520
+So but so another way is you using a
+
+1355
+01:08:04,400 --> 01:08:15,440
+3DJS which still create SVG or use the
+
+1356
+01:08:09,520 --> 01:08:18,400
+uh um uh web uh GL WebGL. Okay. 3D G
+
+1357
+01:08:15,440 --> 01:08:20,960
+WebGL.
+
+1358
+01:08:18,400 --> 01:08:22,560
+So I haven't actually this is what I
+
+1359
+01:08:20,960 --> 01:08:26,080
+really want to learn but I haven't
+
+1360
+01:08:22,560 --> 01:08:29,199
+learned it. Okay. So so so co to code
+
+1361
+01:08:26,080 --> 01:08:31,279
+this in JavaScript you you use webgl and
+
+1362
+01:08:29,199 --> 01:08:35,279
+in fact I have a demo on my website.
+
+1363
+01:08:31,279 --> 01:08:37,600
+Okay. So then here is the typescript. Uh
+
+1364
+01:08:35,279 --> 01:08:40,319
+I mean that's the VS code. Where is my
+
+1365
+01:08:37,600 --> 01:08:44,080
+page? Okay. So let's go
+
+1366
+01:08:40,319 --> 01:08:47,679
+um web. So let's go to CSS.
+
+1367
+01:08:44,080 --> 01:08:53,120
+Go down here. Go here. So actually go
+
+1368
+01:08:47,679 --> 01:08:58,640
+here go hacker code go search uh webgl
+
+1369
+01:08:53,120 --> 01:09:02,239
+do I have there it is uh so
+
+1370
+01:08:58,640 --> 01:09:05,359
+so you got this dynamic thing in in
+
+1371
+01:09:02,239 --> 01:09:08,799
+written webgl so I haven't learned how
+
+1372
+01:09:05,359 --> 01:09:11,799
+to do it yet okay it went off uh so you
+
+1373
+01:09:08,799 --> 01:09:11,799
+see
+
+1374
+01:09:11,839 --> 01:09:18,560
+um so yeah you can do this in but you
+
+1375
+01:09:16,319 --> 01:09:20,960
+In Wufam language, this is like one
+
+1376
+01:09:18,560 --> 01:09:23,839
+single line. Okay? Or if you count
+
+1377
+01:09:20,960 --> 01:09:27,359
+characters, you know, maybe three lines.
+
+1378
+01:09:23,839 --> 01:09:30,719
+But in WebGL, it's like 300 lines. No,
+
+1379
+01:09:27,359 --> 01:09:33,679
+it's going to it's more like
+
+1380
+01:09:30,719 --> 01:09:39,199
+it's more like 1,000 2,000 lines of
+
+1381
+01:09:33,679 --> 01:09:42,319
+code. Okay. To to do this um to uh wait,
+
+1382
+01:09:39,199 --> 01:09:44,799
+if you want to, you know, see. So, if
+
+1383
+01:09:42,319 --> 01:09:47,960
+you want to be able to like rotate it,
+
+1384
+01:09:44,799 --> 01:09:47,960
+you know,
+
+1385
+01:09:48,480 --> 01:09:55,280
+here's a challenge. Okay, for those of
+
+1386
+01:09:50,560 --> 01:09:57,440
+you who think you know stuff, code this,
+
+1387
+01:09:55,280 --> 01:09:59,280
+okay, look up geometric inversion
+
+1388
+01:09:57,440 --> 01:10:03,120
+actually. So, you can code this, okay?
+
+1389
+01:09:59,280 --> 01:10:05,360
+Code this in uh in WebGL. I would be
+
+1390
+01:10:03,120 --> 01:10:07,280
+very interested.
+
+1391
+01:10:05,360 --> 01:10:10,000
+And if you if you showed me, you know,
+
+1392
+01:10:07,280 --> 01:10:12,320
+you can go to Kasar Discord, you know, I
+
+1393
+01:10:10,000 --> 01:10:15,040
+have on my Twitter. I am on Twitter or
+
+1394
+01:10:12,320 --> 01:10:16,560
+Kasar Discord. You can find it on my
+
+1395
+01:10:15,040 --> 01:10:19,360
+website.info
+
+1396
+01:10:16,560 --> 01:10:24,199
+the address. Okay. So if you call this
+
+1397
+01:10:19,360 --> 01:10:24,199
+in WebGL, I will be highly respect
+
+1398
+01:10:24,239 --> 01:10:30,640
+of of your uh you know creation you know
+
+1399
+01:10:27,760 --> 01:10:34,000
+call this in WebGL. This is geometric
+
+1400
+01:10:30,640 --> 01:10:36,640
+inversion of a three-dimensional uh grid
+
+1401
+01:10:34,000 --> 01:10:38,560
+of cubes. Okay, that's it. Simple. Just
+
+1402
+01:10:36,640 --> 01:10:41,199
+look up with geometric inversion. We did
+
+1403
+01:10:38,560 --> 01:10:43,120
+this live, okay? In one of my YouTube
+
+1404
+01:10:41,199 --> 01:10:47,040
+two or three years ago. Okay, you can
+
+1405
+01:10:43,120 --> 01:10:50,480
+you can look up. So, code this in WebGL.
+
+1406
+01:10:47,040 --> 01:10:52,159
+I will be very interested to see that.
+
+1407
+01:10:50,480 --> 01:10:54,000
+You know, this is one of the things I
+
+1408
+01:10:52,159 --> 01:10:59,120
+have to learn. But but you got too many
+
+1409
+01:10:54,000 --> 01:11:02,679
+things to learn. Okay, bye guys. Bye.
+
+1410
+01:10:59,120 --> 01:11:02,679
+That's it. Bye.
+

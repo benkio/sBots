@@ -1,0 +1,7328 @@
+1
+00:00:04,940 --> 00:00:14,150
+good morning everyone welcome to another
+
+2
+00:00:08,910 --> 00:00:19,470
+episode of Zatoichi Oh today is August 7
+
+3
+00:00:14,150 --> 00:00:22,460
+2019 8 o clock p.m. San Francisco time
+
+4
+00:00:19,470 --> 00:00:27,510
+and today we are going to talk about
+
+5
+00:00:22,460 --> 00:00:31,349
+homotopy type theory the foundation of
+
+6
+00:00:27,510 --> 00:00:34,590
+mathematics logic proof theory and the
+
+7
+00:00:31,349 --> 00:00:36,860
+foundation of math now let me check if
+
+8
+00:00:34,590 --> 00:00:42,989
+I'm alive
+
+9
+00:00:36,860 --> 00:00:55,730
+good I'm alive and ok let's modify this
+
+10
+00:00:42,989 --> 00:01:07,519
+so people know random chat on mass
+
+11
+00:00:55,730 --> 00:01:07,519
+foundation true theory th e o ry & a
+
+12
+00:01:09,020 --> 00:01:14,310
+good morning the Neal Lang law is
+
+13
+00:01:11,850 --> 00:01:17,820
+haven't seen you for the past few days
+
+14
+00:01:14,310 --> 00:01:20,009
+so today we are going to random chat our
+
+15
+00:01:17,820 --> 00:01:26,100
+math foundation proof systems proof
+
+16
+00:01:20,009 --> 00:01:30,150
+theory and homotopy type theory ok
+
+17
+00:01:26,100 --> 00:01:37,380
+that's that's fantastic esoteric hey
+
+18
+00:01:30,150 --> 00:01:40,710
+good morning not J nsz ok not J so we're
+
+19
+00:01:37,380 --> 00:01:43,220
+gonna do random chat on this serious
+
+20
+00:01:40,710 --> 00:01:48,350
+topic math foundation proof systems
+
+21
+00:01:43,220 --> 00:01:52,250
+formalism lattice ISM into it into
+
+22
+00:01:48,350 --> 00:01:57,630
+intuition is a construct constructivism
+
+23
+00:01:52,250 --> 00:02:00,000
+or these isms now these are about math
+
+24
+00:01:57,630 --> 00:02:02,759
+foundation basically or you know or
+
+25
+00:02:00,000 --> 00:02:06,689
+philosophy of mathematics basically they
+
+26
+00:02:02,759 --> 00:02:08,550
+are foundation of math ok how do you
+
+27
+00:02:06,689 --> 00:02:11,430
+explain that basically it's like you
+
+28
+00:02:08,550 --> 00:02:13,560
+know 1 plus 1 equals 2 2 right but how
+
+29
+00:02:11,430 --> 00:02:15,450
+do you know you know
+
+30
+00:02:13,560 --> 00:02:18,690
+we have you know addition multiplication
+
+31
+00:02:15,450 --> 00:02:20,760
+and so on you know three divided by you
+
+32
+00:02:18,690 --> 00:02:24,780
+know four divided by two is two and so
+
+33
+00:02:20,760 --> 00:02:26,340
+on but how do you know for sure I mean
+
+34
+00:02:24,780 --> 00:02:28,500
+is it possible maybe you know
+
+35
+00:02:26,340 --> 00:02:30,569
+mathematicians two proofs right you know
+
+36
+00:02:28,500 --> 00:02:34,470
+they prove something they prove prove
+
+37
+00:02:30,569 --> 00:02:36,420
+four color theorems and so on but how
+
+38
+00:02:34,470 --> 00:02:39,270
+can you be sure you know maybe someday a
+
+39
+00:02:36,420 --> 00:02:42,030
+mathematician proved something that
+
+40
+00:02:39,270 --> 00:02:45,450
+shows one plus one equals two three you
+
+41
+00:02:42,030 --> 00:02:47,700
+know you have a you have a conflict so
+
+42
+00:02:45,450 --> 00:02:52,080
+is it just one plus one equals two or
+
+43
+00:02:47,700 --> 00:02:55,080
+three you know I mean so I mean so you
+
+44
+00:02:52,080 --> 00:02:57,420
+know you might think oh that's silly you
+
+45
+00:02:55,080 --> 00:02:59,700
+know that will never happen that you
+
+46
+00:02:57,420 --> 00:03:03,569
+know you cannot be sure because in a
+
+47
+00:02:59,700 --> 00:03:06,750
+history of math you know every you know
+
+48
+00:03:03,569 --> 00:03:09,180
+there are several crises you know
+
+49
+00:03:06,750 --> 00:03:10,980
+because just like we are talking you
+
+50
+00:03:09,180 --> 00:03:13,080
+know like you know all the
+
+51
+00:03:10,980 --> 00:03:15,840
+mathematicians believes in one thing
+
+52
+00:03:13,080 --> 00:03:17,730
+then some mathematician or something you
+
+53
+00:03:15,840 --> 00:03:21,780
+know some mathematician discovers some
+
+54
+00:03:17,730 --> 00:03:24,299
+other thing that totally you know
+
+55
+00:03:21,780 --> 00:03:27,090
+surprised shocked all the mathematicians
+
+56
+00:03:24,299 --> 00:03:29,130
+and you should typically often for like
+
+57
+00:03:27,090 --> 00:03:31,980
+hundred years or or you know two hundred
+
+58
+00:03:29,130 --> 00:03:34,260
+years that these mathematicians they
+
+59
+00:03:31,980 --> 00:03:37,410
+argued you know this is ridiculous you
+
+60
+00:03:34,260 --> 00:03:40,350
+are idiot you know this is this you are
+
+61
+00:03:37,410 --> 00:03:43,709
+pseudoscience you know they argue for
+
+62
+00:03:40,350 --> 00:03:46,049
+hundred years 200 years until they find
+
+63
+00:03:43,709 --> 00:03:48,390
+finally understand oh so you know it's
+
+64
+00:03:46,049 --> 00:03:50,850
+actually that is true oh you know
+
+65
+00:03:48,390 --> 00:03:54,410
+something like why is that true so this
+
+66
+00:03:50,850 --> 00:03:56,700
+happened you know in a history of math
+
+67
+00:03:54,410 --> 00:04:01,590
+basically throughout the history of math
+
+68
+00:03:56,700 --> 00:04:05,040
+so that is why we have this question
+
+69
+00:04:01,590 --> 00:04:08,040
+about the foundation of math or you know
+
+70
+00:04:05,040 --> 00:04:10,530
+philosophers they say a philosophy of
+
+71
+00:04:08,040 --> 00:04:12,980
+math or two mathematicians it's the
+
+72
+00:04:10,530 --> 00:04:15,660
+foundation basically so can we actually
+
+73
+00:04:12,980 --> 00:04:18,720
+you know so you have these crises in the
+
+74
+00:04:15,660 --> 00:04:22,460
+history of math you know for example two
+
+75
+00:04:18,720 --> 00:04:25,680
+thousand years ago the discovery of
+
+76
+00:04:22,460 --> 00:04:27,240
+irrational numbers like square root of 2
+
+77
+00:04:25,680 --> 00:04:29,400
+or square root of 3
+
+78
+00:04:27,240 --> 00:04:31,949
+and you know that's those are irrational
+
+79
+00:04:29,400 --> 00:04:34,680
+numbers meaning that those numbers
+
+80
+00:04:31,949 --> 00:04:36,330
+cannot be expressed as a fraction you
+
+81
+00:04:34,680 --> 00:04:38,910
+know you have you know two over three
+
+82
+00:04:36,330 --> 00:04:42,060
+that's a fraction one point five you
+
+83
+00:04:38,910 --> 00:04:43,979
+know so they describe mathematicians
+
+84
+00:04:42,060 --> 00:04:46,050
+discovered irrational numbers so you
+
+85
+00:04:43,979 --> 00:04:50,310
+have this number that cannot be
+
+86
+00:04:46,050 --> 00:04:53,580
+represented by a fraction but you see
+
+87
+00:04:50,310 --> 00:04:55,770
+today we don't think it much of it
+
+88
+00:04:53,580 --> 00:04:59,250
+because we understand oh yeah obviously
+
+89
+00:04:55,770 --> 00:05:02,039
+you know obviously some number cannot be
+
+90
+00:04:59,250 --> 00:05:03,720
+written as fractions but not so in you
+
+91
+00:05:02,039 --> 00:05:05,910
+know back in the days you know back in
+
+92
+00:05:03,720 --> 00:05:08,550
+the day so all the mathematicians think
+
+93
+00:05:05,910 --> 00:05:11,250
+you know fractions but then you know so
+
+94
+00:05:08,550 --> 00:05:11,880
+it's shocking so this is like 2,000
+
+95
+00:05:11,250 --> 00:05:15,060
+years ago
+
+96
+00:05:11,880 --> 00:05:17,820
+like discovered you know Pythagorean
+
+97
+00:05:15,060 --> 00:05:22,320
+school you know they have a philosophy
+
+98
+00:05:17,820 --> 00:05:23,820
+they have school and and you know so you
+
+99
+00:05:22,320 --> 00:05:27,720
+have this program by the way guys
+
+100
+00:05:23,820 --> 00:05:29,849
+comments okay post opinions just post it
+
+101
+00:05:27,720 --> 00:05:35,580
+I'm good I'm just going to do random
+
+102
+00:05:29,849 --> 00:05:38,130
+chat on and on you know foundation of
+
+103
+00:05:35,580 --> 00:05:41,580
+math related stuff like largest ism
+
+104
+00:05:38,130 --> 00:05:43,440
+formalism prove the proof theory and you
+
+105
+00:05:41,580 --> 00:05:46,050
+know the different schools of thought
+
+106
+00:05:43,440 --> 00:05:49,080
+different logics and also I want to
+
+107
+00:05:46,050 --> 00:05:52,590
+mention you know I'm I'm not a expert in
+
+108
+00:05:49,080 --> 00:05:55,560
+these subjects but you know every time I
+
+109
+00:05:52,590 --> 00:05:59,240
+do a video I have you know like I feel
+
+110
+00:05:55,560 --> 00:06:01,830
+like reserve doc this a conflict like
+
+111
+00:05:59,240 --> 00:06:04,560
+like I don't know the stuff you know so
+
+112
+00:06:01,830 --> 00:06:06,930
+do you people so why should we talk you
+
+113
+00:06:04,560 --> 00:06:09,479
+know why should people watch my stuff
+
+114
+00:06:06,930 --> 00:06:12,180
+you know but then I look at you know the
+
+115
+00:06:09,479 --> 00:06:14,219
+YouTube or the millions followers they
+
+116
+00:06:12,180 --> 00:06:18,000
+talk about drama the skimmers you know
+
+117
+00:06:14,219 --> 00:06:20,130
+it's tough so this is just you know
+
+118
+00:06:18,000 --> 00:06:22,409
+there's this so I'm just going to chat
+
+119
+00:06:20,130 --> 00:06:25,590
+about this subject you know math
+
+120
+00:06:22,409 --> 00:06:30,719
+foundation stuff I've been reading about
+
+121
+00:06:25,590 --> 00:06:33,719
+it but anyway so I'm learning so anyway
+
+122
+00:06:30,719 --> 00:06:38,580
+so you know history of math they are
+
+123
+00:06:33,719 --> 00:06:40,729
+several great crisis you know serious
+
+124
+00:06:38,580 --> 00:06:43,009
+crisis because all the mathematician
+
+125
+00:06:40,729 --> 00:06:44,569
+believes in one thing but it turns out
+
+126
+00:06:43,009 --> 00:06:47,240
+you know someone amended some other
+
+127
+00:06:44,569 --> 00:06:49,550
+thing that's shocking and then they try
+
+128
+00:06:47,240 --> 00:06:52,430
+to resolve it you know usually takes a
+
+129
+00:06:49,550 --> 00:06:55,219
+long time sometimes you know thousands
+
+130
+00:06:52,430 --> 00:06:57,199
+years sometimes a few hundred years
+
+131
+00:06:55,219 --> 00:07:00,770
+sometimes you know tens of years to
+
+132
+00:06:57,199 --> 00:07:03,050
+finally resolve or understand things so
+
+133
+00:07:00,770 --> 00:07:06,099
+anyway back in 2000 years ago there's a
+
+134
+00:07:03,050 --> 00:07:10,939
+discovery of irrational numbers okay
+
+135
+00:07:06,099 --> 00:07:14,689
+then for example then there is I guess
+
+136
+00:07:10,939 --> 00:07:17,449
+negative numbers also count you know I'm
+
+137
+00:07:14,689 --> 00:07:20,539
+not too sure there's a great shark of
+
+138
+00:07:17,449 --> 00:07:22,939
+that but anyway but then for example
+
+139
+00:07:20,539 --> 00:07:31,159
+then you have complex numbers you know
+
+140
+00:07:22,939 --> 00:07:36,770
+you have a number whose square and you
+
+141
+00:07:31,159 --> 00:07:38,919
+have a number how do you say that you
+
+142
+00:07:36,770 --> 00:07:42,589
+know complex numbers the imaginary
+
+143
+00:07:38,919 --> 00:07:50,680
+numbers let's see let's see again how do
+
+144
+00:07:42,589 --> 00:07:55,819
+i okay so so basically square root
+
+145
+00:07:50,680 --> 00:07:58,129
+negative 1 okay so square root of
+
+146
+00:07:55,819 --> 00:08:00,080
+negative 1 let me explain
+
+147
+00:07:58,129 --> 00:08:02,089
+yeah in case you don't know you know I
+
+148
+00:08:00,080 --> 00:08:04,099
+guess a lot of people know but for
+
+149
+00:08:02,089 --> 00:08:07,099
+example a square root of 4 so what does
+
+150
+00:08:04,099 --> 00:08:09,319
+it mean it means a number multiplied by
+
+151
+00:08:07,099 --> 00:08:14,240
+itself twice you know
+
+152
+00:08:09,319 --> 00:08:19,279
+n times N equals to 4 so the answer is 2
+
+153
+00:08:14,240 --> 00:08:23,689
+here so because 2 times 2 equals to 4 so
+
+154
+00:08:19,279 --> 00:08:26,330
+therefore the square root of 4 equals to
+
+155
+00:08:23,689 --> 00:08:29,719
+2 and for example square root of 9
+
+156
+00:08:26,330 --> 00:08:31,899
+equals to 3 because 3 times 3 equals to
+
+157
+00:08:29,719 --> 00:08:31,899
+9
+
+158
+00:08:33,550 --> 00:08:41,569
+however mask mathematicians discovered
+
+159
+00:08:37,370 --> 00:08:43,639
+that you know when you when you try to
+
+160
+00:08:41,569 --> 00:08:48,680
+manipulate solve equations you know you
+
+161
+00:08:43,639 --> 00:08:51,110
+you you it this this thing comes up you
+
+162
+00:08:48,680 --> 00:08:54,140
+know these things who love you square
+
+163
+00:08:51,110 --> 00:08:56,750
+root of negative 1 comes up
+
+164
+00:08:54,140 --> 00:08:59,870
+and that's strange because no number any
+
+165
+00:08:56,750 --> 00:09:02,839
+number times itself will be positive
+
+166
+00:08:59,870 --> 00:09:06,079
+it's impossible to have a number that
+
+167
+00:09:02,839 --> 00:09:11,779
+times itself equals to negative one so
+
+168
+00:09:06,079 --> 00:09:15,800
+this is the birth the birth of complex
+
+169
+00:09:11,779 --> 00:09:17,810
+numbers so you know the mathematicians
+
+170
+00:09:15,800 --> 00:09:19,700
+try to solve the problem and they you
+
+171
+00:09:17,810 --> 00:09:23,209
+know they run into this it's a great
+
+172
+00:09:19,700 --> 00:09:26,269
+person until until we realized okay
+
+173
+00:09:23,209 --> 00:09:28,640
+there's you know we we realized
+
+174
+00:09:26,269 --> 00:09:31,970
+basically we extended the number system
+
+175
+00:09:28,640 --> 00:09:35,500
+so you know for example you have
+
+176
+00:09:31,970 --> 00:09:37,640
+positive integers 1 2 3 4 and so on
+
+177
+00:09:35,500 --> 00:09:40,130
+everyone understand that's you know
+
+178
+00:09:37,640 --> 00:09:42,709
+that's natural from millions years ago
+
+179
+00:09:40,130 --> 00:09:45,290
+then you have started mathematicians
+
+180
+00:09:42,709 --> 00:09:47,390
+started to invent you know zero zero can
+
+181
+00:09:45,290 --> 00:09:51,170
+be in two places evil just means nothing
+
+182
+00:09:47,390 --> 00:09:54,529
+okay okay then negative numbers come
+
+183
+00:09:51,170 --> 00:09:59,089
+into play because when you solve
+
+184
+00:09:54,529 --> 00:10:03,079
+equations like you know something plus
+
+185
+00:09:59,089 --> 00:10:07,339
+three you know plus one equals to five
+
+186
+00:10:03,079 --> 00:10:13,399
+you know X plus y equals to five so egg
+
+187
+00:10:07,339 --> 00:10:19,459
+what is X okay how do you say this X X
+
+188
+00:10:13,399 --> 00:10:29,120
+first let's say X minus one does that
+
+189
+00:10:19,459 --> 00:10:29,690
+work X minus one equals to five no that
+
+190
+00:10:29,120 --> 00:10:33,140
+doesn't work
+
+191
+00:10:29,690 --> 00:10:36,920
+so X minus okay X minus six equals to
+
+192
+00:10:33,140 --> 00:10:39,019
+five you know like when you go you call
+
+193
+00:10:36,920 --> 00:10:41,570
+your daily life sobbing you know simple
+
+194
+00:10:39,019 --> 00:10:44,899
+equations then then you then you
+
+195
+00:10:41,570 --> 00:10:47,690
+encounter this equation X minus six
+
+196
+00:10:44,899 --> 00:10:53,360
+equals to five you know obviously we
+
+197
+00:10:47,690 --> 00:10:59,990
+know that so x equals two what wait like
+
+198
+00:10:53,360 --> 00:11:06,190
+I get this wrong now this is X minus six
+
+199
+00:10:59,990 --> 00:11:06,190
+equals to 5 so plus yeah so x equals 2
+
+200
+00:11:07,360 --> 00:11:13,309
+no this is wrong I cannot get the
+
+201
+00:11:11,170 --> 00:11:13,850
+equation right okay let me read the
+
+202
+00:11:13,309 --> 00:11:16,519
+comments
+
+203
+00:11:13,850 --> 00:11:18,739
+so Daniel Wrangler says since homotopy
+
+204
+00:11:16,519 --> 00:11:21,800
+is a very loose notion of equality
+
+205
+00:11:18,739 --> 00:11:23,809
+between maps to mathematician to
+
+206
+00:11:21,800 --> 00:11:26,869
+mathematical objects are said to be
+
+207
+00:11:23,809 --> 00:11:31,519
+homotopic if one can be continuously
+
+208
+00:11:26,869 --> 00:11:33,019
+deformed into the other right mapping
+
+209
+00:11:31,519 --> 00:11:35,929
+mapping and transformation tend to be
+
+210
+00:11:33,019 --> 00:11:38,329
+used interchangeably and Daniel says the
+
+211
+00:11:35,929 --> 00:11:40,939
+mathematical notion of mapping is an
+
+212
+00:11:38,329 --> 00:11:46,939
+abstraction of the process of making a
+
+213
+00:11:40,939 --> 00:11:51,040
+geographic map yeah yeah you getting
+
+214
+00:11:46,939 --> 00:11:54,019
+ahead of me but anyway so so what is
+
+215
+00:11:51,040 --> 00:11:56,589
+okay I'm I'm trying to some I'm trying
+
+216
+00:11:54,019 --> 00:11:59,360
+to give us explain the the the
+
+217
+00:11:56,589 --> 00:12:02,809
+historical crisis in math so one of them
+
+218
+00:11:59,360 --> 00:12:05,779
+is complex is well negative numbers but
+
+219
+00:12:02,809 --> 00:12:08,920
+I'm trying to give a equation about
+
+220
+00:12:05,779 --> 00:12:12,110
+negative numbers okay the easiest way to
+
+221
+00:12:08,920 --> 00:12:18,309
+because I'm also talking so I don't do
+
+222
+00:12:12,110 --> 00:12:24,799
+good so let's say negative 3 plus 2 plus
+
+223
+00:12:18,309 --> 00:12:28,160
+4 equals to 1 okay so in this case yeah
+
+224
+00:12:24,799 --> 00:12:30,769
+so we can say X plus 4 equals to 1 okay
+
+225
+00:12:28,160 --> 00:12:33,649
+that that is an example so when you
+
+226
+00:12:30,769 --> 00:12:36,290
+doing some equations you run into this X
+
+227
+00:12:33,649 --> 00:12:40,069
+plus 4 equals 1 so the obvious solution
+
+228
+00:12:36,290 --> 00:12:42,559
+is X x equals 2 negative 3 so that
+
+229
+00:12:40,069 --> 00:12:45,769
+notion the negative number comes into
+
+230
+00:12:42,559 --> 00:12:47,990
+play you know come became came to us and
+
+231
+00:12:45,769 --> 00:12:51,290
+you can and this is still pretty
+
+232
+00:12:47,990 --> 00:12:54,319
+intuitive because if you do you know if
+
+233
+00:12:51,290 --> 00:12:56,419
+I borrow money from you I owe you five
+
+234
+00:12:54,319 --> 00:13:00,199
+dollars you know that's kind of the
+
+235
+00:12:56,419 --> 00:13:03,079
+sense of negative numbers you know so
+
+236
+00:13:00,199 --> 00:13:06,649
+you have negative you know so negative
+
+237
+00:13:03,079 --> 00:13:09,019
+numbers then then you started complex
+
+238
+00:13:06,649 --> 00:13:10,879
+numbers you begin to have this square
+
+239
+00:13:09,019 --> 00:13:13,669
+root of negative 1 then we understand
+
+240
+00:13:10,879 --> 00:13:16,129
+it's complex numbers but the important
+
+241
+00:13:13,669 --> 00:13:19,490
+thing to note is that at the time you
+
+242
+00:13:16,129 --> 00:13:20,570
+know each of these crises okay let me
+
+243
+00:13:19,490 --> 00:13:26,930
+write it out
+
+244
+00:13:20,570 --> 00:13:30,830
+math crisis in history okay let's just
+
+245
+00:13:26,930 --> 00:13:36,710
+read like like we are going to write a
+
+246
+00:13:30,830 --> 00:13:43,030
+blog in real time so mass crisis in
+
+247
+00:13:36,710 --> 00:13:48,200
+history for example okay this okay
+
+248
+00:13:43,030 --> 00:13:52,580
+example discovery of irrational number
+
+249
+00:13:48,200 --> 00:13:58,370
+irrational numbers that is numbers that
+
+250
+00:13:52,580 --> 00:14:07,790
+cannot be represented by a fraction such
+
+251
+00:13:58,370 --> 00:14:11,540
+as square root of two and that is like
+
+252
+00:14:07,790 --> 00:14:19,150
+two thousand years ago then make
+
+253
+00:14:11,540 --> 00:14:30,650
+negative numbers when you solve equation
+
+254
+00:14:19,150 --> 00:14:35,540
+like such as X plus four equals to 1 you
+
+255
+00:14:30,650 --> 00:14:37,000
+get the notion of notion of negative
+
+256
+00:14:35,540 --> 00:14:42,170
+numbers
+
+257
+00:14:37,000 --> 00:14:44,840
+okay that's example showing browser so
+
+258
+00:14:42,170 --> 00:14:47,480
+example discovery of irrational numbers
+
+259
+00:14:44,840 --> 00:14:55,690
+then negative numbers then we have
+
+260
+00:14:47,480 --> 00:14:59,500
+example complex numbers discovery of
+
+261
+00:14:55,690 --> 00:14:59,500
+complex numbers okay
+
+262
+00:15:06,300 --> 00:15:12,480
+the birth of complex numbers okay and
+
+263
+00:15:12,690 --> 00:15:23,410
+this the square root negative one came
+
+264
+00:15:16,210 --> 00:15:30,070
+up because mathematicians are trying to
+
+265
+00:15:23,410 --> 00:15:34,780
+solve polynomial of degree three
+
+266
+00:15:30,070 --> 00:15:36,490
+okay and and degree four in degree 3
+
+267
+00:15:34,780 --> 00:15:38,380
+degree 4 degree five you know they are
+
+268
+00:15:36,490 --> 00:15:43,870
+trying to solve polynomial of degree
+
+269
+00:15:38,380 --> 00:15:46,750
+fees for examples such as X X cube cube
+
+270
+00:15:43,870 --> 00:15:49,630
+x you know there's third power of X
+
+271
+00:15:46,750 --> 00:15:54,940
+first person one equals to zero
+
+272
+00:15:49,630 --> 00:15:57,730
+something like that so so that is how
+
+273
+00:15:54,940 --> 00:16:00,490
+the complex numbers came up so remember
+
+274
+00:15:57,730 --> 00:16:03,040
+you know at the time people don't
+
+275
+00:16:00,490 --> 00:16:05,470
+understand it you know and and often
+
+276
+00:16:03,040 --> 00:16:07,480
+mathematicians like attack you know they
+
+277
+00:16:05,470 --> 00:16:10,210
+form schools they attack each other you
+
+278
+00:16:07,480 --> 00:16:13,660
+know they think you are a you are a
+
+279
+00:16:10,210 --> 00:16:16,630
+troll hectic what square root of
+
+280
+00:16:13,660 --> 00:16:18,820
+negative 1 you are a job then eventually
+
+281
+00:16:16,630 --> 00:16:21,370
+that if people understand so all these
+
+282
+00:16:18,820 --> 00:16:29,830
+are crises and for example another
+
+283
+00:16:21,370 --> 00:16:32,430
+crisis example example crisis in Ukraine
+
+284
+00:16:29,830 --> 00:16:32,430
+and geometry
+
+285
+00:16:36,680 --> 00:16:46,639
+okay the crisis in Ukraine geometry is
+
+286
+00:16:40,040 --> 00:16:50,170
+that you know in Euclidean geometry like
+
+287
+00:16:46,639 --> 00:16:52,759
+you know the triangles circles you
+
+288
+00:16:50,170 --> 00:16:56,800
+basically what happens that is that
+
+289
+00:16:52,759 --> 00:17:01,790
+there is this book code that you cried
+
+290
+00:16:56,800 --> 00:17:04,250
+elements ignoring Matthew a Sousa
+
+291
+00:17:01,790 --> 00:17:06,669
+oh I think I got the stream early today
+
+292
+00:17:04,250 --> 00:17:06,669
+cool
+
+293
+00:17:06,699 --> 00:17:15,230
+so I'm we are going through the crisis
+
+294
+00:17:09,529 --> 00:17:17,779
+of math but anyway the the Euclidean
+
+295
+00:17:15,230 --> 00:17:23,809
+geometry is that you know there is this
+
+296
+00:17:17,779 --> 00:17:27,860
+book elements written by you cried which
+
+297
+00:17:23,809 --> 00:17:30,260
+is a perfection of logic you know back
+
+298
+00:17:27,860 --> 00:17:33,880
+you know for like over a thousand years
+
+299
+00:17:30,260 --> 00:17:40,520
+and in this book basically the the the
+
+300
+00:17:33,880 --> 00:17:43,370
+okay let's let's you know instead of me
+
+301
+00:17:40,520 --> 00:17:49,059
+just like talking randomly let's look at
+
+302
+00:17:43,370 --> 00:17:49,059
+Wikipedia because it gives you a very
+
+303
+00:17:49,870 --> 00:18:01,549
+precise you cry its elements okay now
+
+304
+00:17:57,440 --> 00:18:04,820
+this is a book this is the kind of a
+
+305
+00:18:01,549 --> 00:18:08,630
+perfection of math for for over a
+
+306
+00:18:04,820 --> 00:18:15,169
+thousand years this is this is written
+
+307
+00:18:08,630 --> 00:18:18,230
+in 300 BC and up to like 1500s everyone
+
+308
+00:18:15,169 --> 00:18:20,720
+studied this book you cry its elements
+
+309
+00:18:18,230 --> 00:18:23,240
+so what's the deal about this book well
+
+310
+00:18:20,720 --> 00:18:25,460
+they teach theories of geometry you know
+
+311
+00:18:23,240 --> 00:18:28,100
+triangles how many angles are there you
+
+312
+00:18:25,460 --> 00:18:31,279
+know um you know the angle sums to 180
+
+313
+00:18:28,100 --> 00:18:35,480
+degrees and things like that and but
+
+314
+00:18:31,279 --> 00:18:38,720
+however it uses a strict logic you know
+
+315
+00:18:35,480 --> 00:18:41,690
+you know strictly based on logic you
+
+316
+00:18:38,720 --> 00:18:44,929
+know it began with some five axioms you
+
+317
+00:18:41,690 --> 00:18:45,460
+know like there exist you know things
+
+318
+00:18:44,929 --> 00:18:47,990
+like that
+
+319
+00:18:45,460 --> 00:18:50,240
+axioms for example first of all it
+
+320
+00:18:47,990 --> 00:18:52,670
+defines a point
+
+321
+00:18:50,240 --> 00:18:55,910
+which you know is just a point okay they
+
+322
+00:18:52,670 --> 00:18:58,040
+defines like one line can be connected
+
+323
+00:18:55,910 --> 00:18:59,570
+you know to two points and things like
+
+324
+00:18:58,040 --> 00:19:06,200
+that
+
+325
+00:18:59,570 --> 00:19:10,670
+let's see what what so so anyway it
+
+326
+00:19:06,200 --> 00:19:12,590
+start with you know some axioms which is
+
+327
+00:19:10,670 --> 00:19:14,210
+not proven you know it just gives you
+
+328
+00:19:12,590 --> 00:19:16,130
+you know these are the things we are
+
+329
+00:19:14,210 --> 00:19:18,380
+going to work with you know you got
+
+330
+00:19:16,130 --> 00:19:25,250
+point I think you got lines and you got
+
+331
+00:19:18,380 --> 00:19:28,880
+a few axioms then you build up entire
+
+332
+00:19:25,250 --> 00:19:32,150
+giant geometry you know for example what
+
+333
+00:19:28,880 --> 00:19:34,700
+you know when you have triangles such in
+
+334
+00:19:32,150 --> 00:19:36,650
+such and such then this angle must be
+
+335
+00:19:34,700 --> 00:19:39,860
+certain value this angle is the value of
+
+336
+00:19:36,650 --> 00:19:43,580
+you know the sum of the other two angles
+
+337
+00:19:39,860 --> 00:19:46,460
+things like that so so this is the okay
+
+338
+00:19:43,580 --> 00:19:49,280
+so this is actually the you cry its
+
+339
+00:19:46,460 --> 00:19:52,910
+elements I haven't seen this what year
+
+340
+00:19:49,280 --> 00:20:01,670
+is this printed version of you cried
+
+341
+00:19:52,910 --> 00:20:07,070
+elements oh so this is that was 1482
+
+342
+00:20:01,670 --> 00:20:09,650
+okay so that was 1482 printed so the
+
+343
+00:20:07,070 --> 00:20:11,780
+thing about this book is it's like it's
+
+344
+00:20:09,650 --> 00:20:14,480
+the perfection of logic you know it
+
+345
+00:20:11,780 --> 00:20:17,450
+tries to cover the whole geometry by
+
+346
+00:20:14,480 --> 00:20:20,750
+logical deductive steps you know so in
+
+347
+00:20:17,450 --> 00:20:24,320
+so given axioms then it proves every
+
+348
+00:20:20,750 --> 00:20:26,570
+theory then new theory my based on the
+
+349
+00:20:24,320 --> 00:20:29,600
+theorem before you know so everything is
+
+350
+00:20:26,570 --> 00:20:31,309
+like very solid so that's you cry its
+
+351
+00:20:29,600 --> 00:20:34,160
+elements that's you Qaeda and geometry
+
+352
+00:20:31,309 --> 00:20:39,770
+but so what what is the crisis the
+
+353
+00:20:34,160 --> 00:20:44,000
+crisis is that okay the crisis that in
+
+354
+00:20:39,770 --> 00:20:49,130
+this in this in this book there are five
+
+355
+00:20:44,000 --> 00:20:52,490
+axioms okay five postulates okay now
+
+356
+00:20:49,130 --> 00:20:54,890
+four of them are pretty obvious but
+
+357
+00:20:52,490 --> 00:20:57,410
+there's a fifth one that's not too
+
+358
+00:20:54,890 --> 00:20:59,540
+obvious okay like if you are a
+
+359
+00:20:57,410 --> 00:21:03,530
+mathematician you read it you know the
+
+360
+00:20:59,540 --> 00:21:04,039
+fifth fifth one is not too obvious so it
+
+361
+00:21:03,530 --> 00:21:07,489
+would be
+
+362
+00:21:04,039 --> 00:21:10,489
+better now it's you know you might think
+
+363
+00:21:07,489 --> 00:21:12,979
+okay so the axiom number five is not
+
+364
+00:21:10,489 --> 00:21:16,580
+necessary because maybe we can prove
+
+365
+00:21:12,979 --> 00:21:18,590
+axiom you know postulate number five by
+
+366
+00:21:16,580 --> 00:21:22,039
+using the you know axiom one two three
+
+367
+00:21:18,590 --> 00:21:24,049
+four so we eliminate you know one one
+
+368
+00:21:22,039 --> 00:21:27,379
+axiom because that would be better you
+
+369
+00:21:24,049 --> 00:21:30,489
+know we want a small number of axioms to
+
+370
+00:21:27,379 --> 00:21:33,440
+begin with you know so there's this
+
+371
+00:21:30,489 --> 00:21:38,139
+postulate postulant number five let me
+
+372
+00:21:33,440 --> 00:21:38,139
+show the wikipedia so you can read it
+
+373
+00:21:41,169 --> 00:21:47,659
+okay influence contents you cry met
+
+374
+00:21:44,059 --> 00:21:53,299
+methods criticism additions okay they
+
+375
+00:21:47,659 --> 00:21:58,220
+don't talk about that we can actually
+
+376
+00:21:53,299 --> 00:22:03,919
+just search it you cried postulate right
+
+377
+00:21:58,220 --> 00:22:08,769
+okay we can just find it you cry it's
+
+378
+00:22:03,919 --> 00:22:11,389
+postulates okay fifth postulate then
+
+379
+00:22:08,769 --> 00:22:14,539
+there are many website about is because
+
+380
+00:22:11,389 --> 00:22:18,769
+this is a huge topic in math because
+
+381
+00:22:14,539 --> 00:22:23,779
+it's a crisis parallel postulate that's
+
+382
+00:22:18,769 --> 00:22:27,349
+it let's let's go show Wikipedia so in
+
+383
+00:22:23,779 --> 00:22:31,009
+geometry the parallel postulate also
+
+384
+00:22:27,349 --> 00:22:33,769
+called Euclides fifth postulate because
+
+385
+00:22:31,009 --> 00:22:37,519
+it is the fifth postulate in Euclid's
+
+386
+00:22:33,769 --> 00:22:40,789
+elements is a okay is a distinctive
+
+387
+00:22:37,519 --> 00:22:44,359
+axiom in Euclidean geometry it states
+
+388
+00:22:40,789 --> 00:22:47,109
+that in two-dimensional geometry okay
+
+389
+00:22:44,359 --> 00:22:51,320
+this is what it says if a line segment
+
+390
+00:22:47,109 --> 00:22:54,609
+intersects two straight lines forming
+
+391
+00:22:51,320 --> 00:22:57,919
+two interior angles on the same side
+
+392
+00:22:54,609 --> 00:23:01,840
+anyway basically what what he is trying
+
+393
+00:22:57,919 --> 00:23:01,840
+to say is that if you have two lines
+
+394
+00:23:07,970 --> 00:23:21,150
+basically what he's trying to say is if
+
+395
+00:23:10,530 --> 00:23:23,520
+you have if you have two lines then then
+
+396
+00:23:21,150 --> 00:23:26,820
+three possibilities will happen two
+
+397
+00:23:23,520 --> 00:23:29,880
+possibilities will happen one is that
+
+398
+00:23:26,820 --> 00:23:32,220
+they will intersect you know when you
+
+399
+00:23:29,880 --> 00:23:34,440
+have two lines you know there are two
+
+400
+00:23:32,220 --> 00:23:37,710
+possibilities one they will intersect
+
+401
+00:23:34,440 --> 00:23:40,710
+two they will never never intersect when
+
+402
+00:23:37,710 --> 00:23:43,560
+they are parallel that's that's the
+
+403
+00:23:40,710 --> 00:23:47,190
+essence of the parallel postulate you
+
+404
+00:23:43,560 --> 00:23:51,090
+know the fifth postulate okay then you
+
+405
+00:23:47,190 --> 00:23:53,130
+know so so this is given like it's it
+
+406
+00:23:51,090 --> 00:23:56,400
+doesn't have any proof it just says it
+
+407
+00:23:53,130 --> 00:23:59,310
+is so you know then you prove all all
+
+408
+00:23:56,400 --> 00:24:02,460
+your theorems like in entire 2d geometry
+
+409
+00:23:59,310 --> 00:24:05,130
+theorems and 3d geometry from from these
+
+410
+00:24:02,460 --> 00:24:07,950
+given so this this postulate is
+
+411
+00:24:05,130 --> 00:24:09,870
+questionable you know you know okay so
+
+412
+00:24:07,950 --> 00:24:14,040
+two lines there are two possibilities
+
+413
+00:24:09,870 --> 00:24:16,920
+they cross each other or they don't but
+
+414
+00:24:14,040 --> 00:24:20,400
+so mathematicians tried to prove this
+
+415
+00:24:16,920 --> 00:24:22,470
+from the previous four axioms you know
+
+416
+00:24:20,400 --> 00:24:25,260
+with hundreds of years greatest
+
+417
+00:24:22,470 --> 00:24:27,330
+mathematicians they realize you know
+
+418
+00:24:25,260 --> 00:24:32,430
+nobody can do it you know it's just it's
+
+419
+00:24:27,330 --> 00:24:34,470
+just they cannot do it so eventually we
+
+420
+00:24:32,430 --> 00:24:40,490
+understand we realize that this
+
+421
+00:24:34,470 --> 00:24:42,960
+postulate is is is independent of
+
+422
+00:24:40,490 --> 00:24:47,820
+Ukrainian geometry that is you cannot
+
+423
+00:24:42,960 --> 00:24:50,340
+you cannot prove this is the case no you
+
+424
+00:24:47,820 --> 00:24:53,130
+know can you disprove it is the case
+
+425
+00:24:50,340 --> 00:24:55,740
+rather it's like you begin with a set of
+
+426
+00:24:53,130 --> 00:24:58,230
+axioms it's independent you in other
+
+427
+00:24:55,740 --> 00:25:02,490
+work in other words mathematicians
+
+428
+00:24:58,230 --> 00:25:07,190
+discovered that you can have a geometry
+
+429
+00:25:02,490 --> 00:25:10,050
+like entire geometry system such that
+
+430
+00:25:07,190 --> 00:25:12,120
+given two lines you know one of the
+
+431
+00:25:10,050 --> 00:25:15,630
+axiom is that given to that lines they
+
+432
+00:25:12,120 --> 00:25:17,220
+we are always intersect always okay in
+
+433
+00:25:15,630 --> 00:25:19,549
+other words there is no parallel lines
+
+434
+00:25:17,220 --> 00:25:20,899
+and in
+
+435
+00:25:19,549 --> 00:25:23,720
+you can order have other another
+
+436
+00:25:20,899 --> 00:25:26,299
+geometry such that given two lines that
+
+437
+00:25:23,720 --> 00:25:28,970
+we are never intersect so you see this
+
+438
+00:25:26,299 --> 00:25:31,159
+is like very strange you know in a
+
+439
+00:25:28,970 --> 00:25:33,080
+normal world we think of you know of
+
+440
+00:25:31,159 --> 00:25:35,480
+course two lines they will either
+
+441
+00:25:33,080 --> 00:25:37,850
+intersect once or they will never
+
+442
+00:25:35,480 --> 00:25:39,649
+intersect when they are parallel this is
+
+443
+00:25:37,850 --> 00:25:43,129
+you know the world we live in you know
+
+444
+00:25:39,649 --> 00:25:46,489
+no more no more intuition but you see
+
+445
+00:25:43,129 --> 00:25:49,279
+the ucae daeun elements you creates
+
+446
+00:25:46,489 --> 00:25:51,110
+elements it's a based on logic you know
+
+447
+00:25:49,279 --> 00:25:53,359
+it's not about what you think you know
+
+448
+00:25:51,110 --> 00:25:55,460
+what you feel it's about you have to
+
+449
+00:25:53,359 --> 00:25:59,269
+prove everything by logic you have to
+
+450
+00:25:55,460 --> 00:26:02,299
+you know go step by step then pick you
+
+451
+00:25:59,269 --> 00:26:04,730
+know so you know this this is part of
+
+452
+00:26:02,299 --> 00:26:06,739
+the you know this is kind of the oh you
+
+453
+00:26:04,730 --> 00:26:11,299
+can almost say the quick geometries or
+
+454
+00:26:06,739 --> 00:26:14,629
+engine of study of logic okay which we
+
+455
+00:26:11,299 --> 00:26:18,499
+in turn what we have is foundation of
+
+456
+00:26:14,629 --> 00:26:21,200
+math proof proof theory and latest
+
+457
+00:26:18,499 --> 00:26:25,700
+homotopy type theory okay type theories
+
+458
+00:26:21,200 --> 00:26:27,859
+and you know and category theory so
+
+459
+00:26:25,700 --> 00:26:30,590
+anyway so you can elements you know it's
+
+460
+00:26:27,859 --> 00:26:33,249
+based on logic and you got this parallel
+
+461
+00:26:30,590 --> 00:26:35,749
+postulate which is very strange and
+
+462
+00:26:33,249 --> 00:26:40,190
+mathematicians try to prove it all you
+
+463
+00:26:35,749 --> 00:26:44,809
+know eventually we realize that this is
+
+464
+00:26:40,190 --> 00:26:47,119
+actually independent I mean you you so
+
+465
+00:26:44,809 --> 00:26:50,059
+we realize you could have aged entire
+
+466
+00:26:47,119 --> 00:26:53,259
+system of geometry you know where the
+
+467
+00:26:50,059 --> 00:26:56,989
+fifth postulate is you know alternative
+
+468
+00:26:53,259 --> 00:27:00,049
+so when when when given two lines they
+
+469
+00:26:56,989 --> 00:27:07,399
+oh if they always cause each other that
+
+470
+00:27:00,049 --> 00:27:10,669
+geometry is called sweep elliptical
+
+471
+00:27:07,399 --> 00:27:12,529
+geometry and on the other hand if two
+
+472
+00:27:10,669 --> 00:27:16,119
+lines never cross each other that is
+
+473
+00:27:12,529 --> 00:27:18,649
+that is called hyperbolic geometry I
+
+474
+00:27:16,119 --> 00:27:21,109
+don't know you know I I don't know them
+
+475
+00:27:18,649 --> 00:27:23,090
+you know like like I said I'm no expert
+
+476
+00:27:21,109 --> 00:27:26,059
+in these things but you know I studied
+
+477
+00:27:23,090 --> 00:27:30,109
+them so I'm you know this is just talk
+
+478
+00:27:26,059 --> 00:27:32,490
+about them and and maybe you you know
+
+479
+00:27:30,109 --> 00:27:36,360
+find an interesting and study math
+
+480
+00:27:32,490 --> 00:27:38,759
+you know it's so anyway so you so that
+
+481
+00:27:36,360 --> 00:27:40,919
+is when you see when we say you cry D
+
+482
+00:27:38,759 --> 00:27:43,200
+and geometry today you know like you
+
+483
+00:27:40,919 --> 00:27:46,980
+might have heard it what what like what
+
+484
+00:27:43,200 --> 00:27:48,679
+you might think you you see your ID EA
+
+485
+00:27:46,980 --> 00:27:51,570
+and geometry
+
+486
+00:27:48,679 --> 00:27:54,179
+okay that's such it you might think okay
+
+487
+00:27:51,570 --> 00:27:56,669
+why is there you know geometry is just
+
+488
+00:27:54,179 --> 00:27:59,850
+geometry geometry why do you call it you
+
+489
+00:27:56,669 --> 00:28:01,919
+cry D and geometry it is because we
+
+490
+00:27:59,850 --> 00:28:03,450
+realized that there are different
+
+491
+00:28:01,919 --> 00:28:05,700
+geometries you know you could have a
+
+492
+00:28:03,450 --> 00:28:08,999
+geometry that's not you know two lines
+
+493
+00:28:05,700 --> 00:28:11,669
+never cross each other so that that is
+
+494
+00:28:08,999 --> 00:28:14,730
+why in this Euclid's elements this
+
+495
+00:28:11,669 --> 00:28:16,590
+system this system that that is most
+
+496
+00:28:14,730 --> 00:28:19,919
+intuitive to most of us you know
+
+497
+00:28:16,590 --> 00:28:22,470
+this geometry system we call you cry D
+
+498
+00:28:19,919 --> 00:28:26,460
+and geometry you know but then you have
+
+499
+00:28:22,470 --> 00:28:28,080
+others let's see you know so if you read
+
+500
+00:28:26,460 --> 00:28:31,590
+this you will see the history you know
+
+501
+00:28:28,080 --> 00:28:36,840
+that we Wikipedia gives you details you
+
+502
+00:28:31,590 --> 00:28:39,720
+know much more precise but then we can
+
+503
+00:28:36,840 --> 00:28:42,210
+see we found that then we have non
+
+504
+00:28:39,720 --> 00:28:44,399
+Euclidean geometry you know so we have
+
+505
+00:28:42,210 --> 00:28:46,769
+hyperbolic geometry then you have
+
+506
+00:28:44,399 --> 00:28:48,299
+elliptic geometry so those are
+
+507
+00:28:46,769 --> 00:28:52,619
+geometries that's entirely different
+
+508
+00:28:48,299 --> 00:28:55,909
+system so anyway so so this is a major
+
+509
+00:28:52,619 --> 00:28:59,009
+crisis the discovery of non-euclidean
+
+510
+00:28:55,909 --> 00:29:04,769
+geometry is the major crisis in
+
+511
+00:28:59,009 --> 00:29:08,850
+mathematics non Euclidean geometry a
+
+512
+00:29:04,769 --> 00:29:17,779
+major crisis in math and this happened
+
+513
+00:29:08,850 --> 00:29:17,779
+around 1700 so I think 1700
+
+514
+00:29:18,769 --> 00:29:25,860
+around 1700 and by the way the complex
+
+515
+00:29:23,549 --> 00:29:28,350
+number the discovery of complex numbers
+
+516
+00:29:25,860 --> 00:29:31,799
+that also happen around the same time so
+
+517
+00:29:28,350 --> 00:29:35,610
+you see the mathematicians they they
+
+518
+00:29:31,799 --> 00:29:38,039
+they got into this crisis because nobody
+
+519
+00:29:35,610 --> 00:29:40,619
+you know nobody in their same mind would
+
+520
+00:29:38,039 --> 00:29:42,990
+think oh two lines they will always
+
+521
+00:29:40,619 --> 00:29:45,850
+intersect you know nobody will think you
+
+522
+00:29:42,990 --> 00:29:47,980
+know things like that but
+
+523
+00:29:45,850 --> 00:29:51,460
+but if you go by logic you know if you
+
+524
+00:29:47,980 --> 00:29:54,309
+follow strictly logic you know you
+
+525
+00:29:51,460 --> 00:29:55,870
+realize that that is actually valid you
+
+526
+00:29:54,309 --> 00:29:58,090
+know you can't you cannot say it's
+
+527
+00:29:55,870 --> 00:30:00,549
+invalid maybe you don't see it in this
+
+528
+00:29:58,090 --> 00:30:03,850
+word in this video would but it is
+
+529
+00:30:00,549 --> 00:30:06,340
+actually logically consistent you know
+
+530
+00:30:03,850 --> 00:30:08,440
+it so it's an entire ward you know non
+
+531
+00:30:06,340 --> 00:30:10,600
+non Euclidean geometry you discovered
+
+532
+00:30:08,440 --> 00:30:16,620
+like nobody knew this before you know
+
+533
+00:30:10,600 --> 00:30:19,419
+before 1700 yeah let's see what year I
+
+534
+00:30:16,620 --> 00:30:32,789
+forgot what year but they say somewhere
+
+535
+00:30:19,419 --> 00:30:36,010
+here 1400 to 1700 no I guess no wait yes
+
+536
+00:30:32,789 --> 00:30:40,000
+severac oh geometry give gives us the
+
+537
+00:30:36,010 --> 00:30:42,730
+simplest model of elliptic geometry I
+
+538
+00:30:40,000 --> 00:30:44,320
+cannot watch that for sure because I
+
+539
+00:30:42,730 --> 00:30:50,409
+don't you know I don't really know these
+
+540
+00:30:44,320 --> 00:30:51,760
+subjects so well so you know because
+
+541
+00:30:50,409 --> 00:30:55,600
+when you actually talk about these
+
+542
+00:30:51,760 --> 00:30:57,909
+things you gotta be I mean the you know
+
+543
+00:30:55,600 --> 00:30:59,860
+if you ask you know mathematician you're
+
+544
+00:30:57,909 --> 00:31:02,650
+gonna be very specific you know very
+
+545
+00:30:59,860 --> 00:31:04,960
+specific you know you cannot just say
+
+546
+00:31:02,650 --> 00:31:08,650
+you know every time like in math you
+
+547
+00:31:04,960 --> 00:31:11,169
+almost always every term they have very
+
+548
+00:31:08,650 --> 00:31:15,250
+especially today they have very precise
+
+549
+00:31:11,169 --> 00:31:17,950
+definitions based on you know say theory
+
+550
+00:31:15,250 --> 00:31:19,929
+and logic very precise like you can just
+
+551
+00:31:17,950 --> 00:31:24,130
+like you you crys elements you know they
+
+552
+00:31:19,929 --> 00:31:25,720
+this is this is all foundations of math
+
+553
+00:31:24,130 --> 00:31:28,240
+is about everything is you know
+
+554
+00:31:25,720 --> 00:31:30,490
+precisely defined supposed to like
+
+555
+00:31:28,240 --> 00:31:33,130
+programmers you know Haskell Oh type
+
+556
+00:31:30,490 --> 00:31:35,440
+type theory type typed languages space
+
+557
+00:31:33,130 --> 00:31:38,530
+you know Oh object-oriented is the best
+
+558
+00:31:35,440 --> 00:31:40,600
+because this is that you know so so math
+
+559
+00:31:38,530 --> 00:31:42,549
+is a different world so anyway you you
+
+560
+00:31:40,600 --> 00:31:46,929
+know you crazy and geometry it's like a
+
+561
+00:31:42,549 --> 00:31:50,409
+entire new world okay you know this is a
+
+562
+00:31:46,929 --> 00:31:54,130
+so so very deep because it means you see
+
+563
+00:31:50,409 --> 00:31:56,320
+it means our universe you know for
+
+564
+00:31:54,130 --> 00:31:59,230
+example today when we talk about black
+
+565
+00:31:56,320 --> 00:31:59,940
+holes or wormholes or oh you know things
+
+566
+00:31:59,230 --> 00:32:03,070
+like that
+
+567
+00:31:59,940 --> 00:32:07,090
+or you know ten dimensions things like
+
+568
+00:32:03,070 --> 00:32:09,250
+that but it okay you could say all came
+
+569
+00:32:07,090 --> 00:32:13,269
+from math because with non Euclidean
+
+570
+00:32:09,250 --> 00:32:15,580
+geometry you begin to see that maybe our
+
+571
+00:32:13,269 --> 00:32:17,769
+universe is like just one of them they
+
+572
+00:32:15,580 --> 00:32:22,059
+are there other universes let's that's
+
+573
+00:32:17,769 --> 00:32:27,610
+very different and in fact also I don't
+
+574
+00:32:22,059 --> 00:32:29,970
+think we know yeah you know I think you
+
+575
+00:32:27,610 --> 00:32:33,690
+know mathematicians you know the Astro
+
+576
+00:32:29,970 --> 00:32:38,110
+cosmologists we do not know actually
+
+577
+00:32:33,690 --> 00:32:41,230
+exactly you know what is the shape of
+
+578
+00:32:38,110 --> 00:32:44,289
+our space like is it hyperbolic or
+
+579
+00:32:41,230 --> 00:32:48,340
+Euclidean or elliptic I think we don't
+
+580
+00:32:44,289 --> 00:32:49,720
+know that actually I think okay I don't
+
+581
+00:32:48,340 --> 00:32:53,769
+know for sure
+
+582
+00:32:49,720 --> 00:33:03,850
+because this is based on from what I
+
+583
+00:32:53,769 --> 00:33:08,139
+read there's this great book shape of
+
+584
+00:33:03,850 --> 00:33:12,580
+space I this is a great book I recommend
+
+585
+00:33:08,139 --> 00:33:16,090
+to check it out because this book talks
+
+586
+00:33:12,580 --> 00:33:19,450
+about the shape of space you know like
+
+587
+00:33:16,090 --> 00:33:22,539
+not just Euclidian anyway it's a great
+
+588
+00:33:19,450 --> 00:33:24,639
+book and it's written such that it's
+
+589
+00:33:22,539 --> 00:33:28,120
+written for non mathematicians so it's
+
+590
+00:33:24,639 --> 00:33:32,139
+an introduction so anyone can read it so
+
+591
+00:33:28,120 --> 00:33:36,820
+go buy it okay go buy from my website I
+
+592
+00:33:32,139 --> 00:33:39,220
+make a few bucks so anyway so this non
+
+593
+00:33:36,820 --> 00:33:46,510
+Euclidean geometry is the major crisis
+
+594
+00:33:39,220 --> 00:33:49,029
+in math okay so this is so so so so this
+
+595
+00:33:46,510 --> 00:33:52,240
+is why you know when we talk about the
+
+596
+00:33:49,029 --> 00:33:54,039
+philosophy of math or foundation of math
+
+597
+00:33:52,240 --> 00:33:56,529
+you know like we were talking about
+
+598
+00:33:54,039 --> 00:33:58,600
+before you know we were I was saying you
+
+599
+00:33:56,529 --> 00:34:00,429
+know one plus one equals to two but
+
+600
+00:33:58,600 --> 00:34:02,200
+maybe you know how do you know for sure
+
+601
+00:34:00,429 --> 00:34:04,240
+you know maybe one plus one equals two
+
+602
+00:34:02,200 --> 00:34:06,730
+three maybe some mathematician will
+
+603
+00:34:04,240 --> 00:34:11,109
+prove that you know then we have a
+
+604
+00:34:06,730 --> 00:34:13,159
+situation you know like so but you know
+
+605
+00:34:11,109 --> 00:34:15,379
+you might think oh that's silly
+
+606
+00:34:13,159 --> 00:34:17,089
+you know but actually that's not City
+
+607
+00:34:15,379 --> 00:34:19,909
+because all these things you know you
+
+608
+00:34:17,089 --> 00:34:22,849
+you see mathematicians the history of
+
+609
+00:34:19,909 --> 00:34:25,159
+math it happened you know it happens
+
+610
+00:34:22,849 --> 00:34:28,669
+then you have other I mean that's not
+
+611
+00:34:25,159 --> 00:34:32,809
+all then you have set theory okay
+
+612
+00:34:28,669 --> 00:34:36,730
+set theory is also was a shocking thing
+
+613
+00:34:32,809 --> 00:34:40,539
+to mathematicians then you have good oh
+
+614
+00:34:36,730 --> 00:34:45,440
+good O's theorem ok in company
+
+615
+00:34:40,539 --> 00:34:47,659
+incompleteness theorem now this so this
+
+616
+00:34:45,440 --> 00:34:50,659
+is like shocking you know like it
+
+617
+00:34:47,659 --> 00:34:54,129
+changed this they are like revolutions
+
+618
+00:34:50,659 --> 00:34:57,680
+in math they change the entire thought
+
+619
+00:34:54,129 --> 00:35:01,819
+about the entire math you know these
+
+620
+00:34:57,680 --> 00:35:04,119
+things happened so that is why you want
+
+621
+00:35:01,819 --> 00:35:07,160
+to study I mean that that is why the
+
+622
+00:35:04,119 --> 00:35:12,339
+foundations of math prove you know such
+
+623
+00:35:07,160 --> 00:35:14,630
+as logic proof systems proof theory and
+
+624
+00:35:12,339 --> 00:35:16,910
+homotopy type theory they become
+
+625
+00:35:14,630 --> 00:35:18,859
+important now homotopy type theory they
+
+626
+00:35:16,910 --> 00:35:20,779
+have a different kind of different
+
+627
+00:35:18,859 --> 00:35:23,809
+background when it's gonna let's talk
+
+628
+00:35:20,779 --> 00:35:26,900
+about that in a bit but anyway so this
+
+629
+00:35:23,809 --> 00:35:30,200
+is why the foundation of math is the
+
+630
+00:35:26,900 --> 00:35:32,359
+issue it's a major critical research
+
+631
+00:35:30,200 --> 00:35:35,900
+area you know because we want to know
+
+632
+00:35:32,359 --> 00:35:39,559
+just just you know just when is the
+
+633
+00:35:35,900 --> 00:35:42,650
+theory you know is it possible for some
+
+634
+00:35:39,559 --> 00:35:45,799
+theory to become invalid you know you
+
+635
+00:35:42,650 --> 00:35:50,410
+know someday so that's the foundation of
+
+636
+00:35:45,799 --> 00:35:50,410
+math that it that is why it is important
+
+637
+00:35:52,809 --> 00:35:59,210
+ok this so this let me take so how many
+
+638
+00:35:56,180 --> 00:36:04,400
+how much okay I've been talking for 35
+
+639
+00:35:59,210 --> 00:36:06,260
+minutes so let's read the comments so
+
+640
+00:36:04,400 --> 00:36:09,410
+the new says one point is that spherical
+
+641
+00:36:06,260 --> 00:36:13,010
+geometry give us a give us up gives us
+
+642
+00:36:09,410 --> 00:36:16,160
+perhaps the simplest model of he did the
+
+643
+00:36:13,010 --> 00:36:20,829
+elliptic geometry and it always existed
+
+644
+00:36:16,160 --> 00:36:20,829
+yet so no major crisis yes
+
+645
+00:36:21,810 --> 00:36:27,510
+no wait well then then Geneo se is not
+
+646
+00:36:25,020 --> 00:36:29,250
+nobody in their same mind says that well
+
+647
+00:36:27,510 --> 00:36:35,780
+you know that no that's a different
+
+648
+00:36:29,250 --> 00:36:35,780
+that's that's let me try to explain that
+
+649
+00:36:36,320 --> 00:36:40,470
+yeah so you are saying you know
+
+650
+00:36:38,490 --> 00:36:43,170
+spherical geometry basically you know
+
+651
+00:36:40,470 --> 00:36:45,900
+geometry on a sphere for example if you
+
+652
+00:36:43,170 --> 00:36:48,210
+draw a triangle on a sphere they are not
+
+653
+00:36:45,900 --> 00:36:50,970
+you know they are angle to not some two
+
+654
+00:36:48,210 --> 00:36:53,760
+hundred eighty degrees that's different
+
+655
+00:36:50,970 --> 00:36:56,250
+from Euclidean geometry where the sum of
+
+656
+00:36:53,760 --> 00:37:00,690
+triangle always sum to 180 degrees
+
+657
+00:36:56,250 --> 00:37:03,510
+but however however spherical geometry
+
+658
+00:37:00,690 --> 00:37:06,630
+is still you crazy and geometry you see
+
+659
+00:37:03,510 --> 00:37:10,020
+because you know it's just sweet you
+
+660
+00:37:06,630 --> 00:37:11,670
+know it's still cheap well you see
+
+661
+00:37:10,020 --> 00:37:17,820
+because back then you don't have the
+
+662
+00:37:11,670 --> 00:37:21,840
+idea of of 9q you cry d and geometry so
+
+663
+00:37:17,820 --> 00:37:23,730
+how do you know so how do i you don't
+
+664
+00:37:21,840 --> 00:37:26,610
+have the crisis situation you know
+
+665
+00:37:23,730 --> 00:37:31,050
+because like so what I'm saying is that
+
+666
+00:37:26,610 --> 00:37:33,600
+in retrospect okay in retrospect you can
+
+667
+00:37:31,050 --> 00:37:36,180
+look at vehicle geometry and you say oh
+
+668
+00:37:33,600 --> 00:37:39,260
+that's a model of elliptical geometry
+
+669
+00:37:36,180 --> 00:37:41,520
+you know that's a well the model of the
+
+670
+00:37:39,260 --> 00:37:45,660
+know you cry D an elliptical geometry
+
+671
+00:37:41,520 --> 00:37:47,610
+you can say that in retrospect but
+
+672
+00:37:45,660 --> 00:37:49,350
+remember that's a model that's that's
+
+673
+00:37:47,610 --> 00:37:52,470
+what we are talking about we are using
+
+674
+00:37:49,350 --> 00:37:57,300
+models you know for example hyperbolic
+
+675
+00:37:52,470 --> 00:38:01,880
+geometry can be modelled on let me show
+
+676
+00:37:57,300 --> 00:38:01,880
+you some examples hyperbolic geometry
+
+677
+00:38:02,930 --> 00:38:11,100
+okay so yeah so let's code here and it's
+
+678
+00:38:06,510 --> 00:38:17,220
+go to the hyperbolic geometry so that's
+
+679
+00:38:11,100 --> 00:38:19,530
+going to be here pseudo sphere now this
+
+680
+00:38:17,220 --> 00:38:22,440
+surface is called pseudo sphere so it's
+
+681
+00:38:19,530 --> 00:38:24,630
+like sphere but not you know see the
+
+682
+00:38:22,440 --> 00:38:26,610
+sphere very interesting this you know
+
+683
+00:38:24,630 --> 00:38:29,130
+you can look up on Wikipedia so you'll
+
+684
+00:38:26,610 --> 00:38:32,010
+get a lot of information now pseudo
+
+685
+00:38:29,130 --> 00:38:35,700
+sphere is a model of the hyperbolic
+
+686
+00:38:32,010 --> 00:38:38,510
+geometry so I remember hyperbolic job
+
+687
+00:38:35,700 --> 00:38:43,260
+geometry means any two lines they will
+
+688
+00:38:38,510 --> 00:38:48,150
+never intersect each other okay remember
+
+689
+00:38:43,260 --> 00:38:51,030
+we have non Euclidean geometry we have
+
+690
+00:38:48,150 --> 00:38:54,180
+these three types never intersect each
+
+691
+00:38:51,030 --> 00:38:56,970
+other so so on this surface pseudo
+
+692
+00:38:54,180 --> 00:38:59,640
+sphere it gives it gives a model you
+
+693
+00:38:56,970 --> 00:39:02,240
+know remember this is critical it's just
+
+694
+00:38:59,640 --> 00:39:06,660
+a model it's not this is not hyperbolic
+
+695
+00:39:02,240 --> 00:39:08,970
+geometry okay this this pseudo sphere
+
+696
+00:39:06,660 --> 00:39:11,910
+this this surface call we call pseudo
+
+697
+00:39:08,970 --> 00:39:14,910
+sphere which is a surface in
+
+698
+00:39:11,910 --> 00:39:17,339
+three-dimensional Euclidean space okay
+
+699
+00:39:14,910 --> 00:39:20,250
+it's not hyperbolic space it's seen you
+
+700
+00:39:17,339 --> 00:39:23,180
+know you cried in space that we can
+
+701
+00:39:20,250 --> 00:39:26,250
+model you know it gives us say like a
+
+702
+00:39:23,180 --> 00:39:30,810
+you know like example of visual you know
+
+703
+00:39:26,250 --> 00:39:33,420
+tangible model to represent hyperbolic
+
+704
+00:39:30,810 --> 00:39:36,810
+geometry two-dimensional hyperbolic
+
+705
+00:39:33,420 --> 00:39:41,970
+geometry you see that's what it is in
+
+706
+00:39:36,810 --> 00:39:46,859
+other in another sitting in another way
+
+707
+00:39:41,970 --> 00:39:48,960
+the sphere which is a which is a
+
+708
+00:39:46,859 --> 00:39:52,349
+three-dimensional object in Euclidian
+
+709
+00:39:48,960 --> 00:39:54,210
+space you know it gives us a model you
+
+710
+00:39:52,349 --> 00:40:00,410
+know the surface of a sphere it gives us
+
+711
+00:39:54,210 --> 00:40:03,589
+a model of a the non Euclidean
+
+712
+00:40:00,410 --> 00:40:07,619
+elliptical geometry I think okay I'm not
+
+713
+00:40:03,589 --> 00:40:10,440
+too sure about whether this qualify you
+
+714
+00:40:07,619 --> 00:40:12,240
+know yeah it's you know like it's is
+
+715
+00:40:10,440 --> 00:40:20,490
+just random chat okay either I'm not
+
+716
+00:40:12,240 --> 00:40:22,200
+expert on this subject okay Daniel they
+
+717
+00:40:20,490 --> 00:40:25,619
+may always have a lot of things to say
+
+718
+00:40:22,200 --> 00:40:31,619
+so Daniel says all raindrops begin with
+
+719
+00:40:25,619 --> 00:40:33,420
+roughly spherical yeah why so daniel
+
+720
+00:40:31,619 --> 00:40:38,839
+says why are longer - no it's not
+
+721
+00:40:33,420 --> 00:40:44,540
+parallel to each other who's what
+
+722
+00:40:38,839 --> 00:40:44,540
+geographic coordinate system okay
+
+723
+00:40:48,290 --> 00:40:53,700
+well I anyway yeah so you know Daniel is
+
+724
+00:40:51,480 --> 00:40:55,980
+talking about you know latitude and
+
+725
+00:40:53,700 --> 00:40:59,730
+longitude and stuff but let me continue
+
+726
+00:40:55,980 --> 00:41:06,300
+along with the you know the the
+
+727
+00:40:59,730 --> 00:41:08,220
+foundations of math stuff so so yeah so
+
+728
+00:41:06,300 --> 00:41:10,500
+you see there are a lot of crisis that's
+
+729
+00:41:08,220 --> 00:41:13,740
+why mathematicians begin to you know
+
+730
+00:41:10,500 --> 00:41:16,200
+really want to understand you know the
+
+731
+00:41:13,740 --> 00:41:19,740
+logic systems and foundations that's
+
+732
+00:41:16,200 --> 00:41:23,720
+very interesting okay one there are two
+
+733
+00:41:19,740 --> 00:41:26,730
+more crises I could kind of like explain
+
+734
+00:41:23,720 --> 00:41:29,910
+like the crisis you know the beginning
+
+735
+00:41:26,730 --> 00:41:32,310
+of set theory which is this is very
+
+736
+00:41:29,910 --> 00:41:35,520
+interesting okay this is also one of the
+
+737
+00:41:32,310 --> 00:41:39,710
+shocking thing and and Cantor the guy
+
+738
+00:41:35,520 --> 00:41:42,840
+who invented set theories Cantor because
+
+739
+00:41:39,710 --> 00:41:47,730
+this is shocking this okay so say theory
+
+740
+00:41:42,840 --> 00:41:54,330
+this is the beginning of comparing the
+
+741
+00:41:47,730 --> 00:41:56,760
+size of infinities okay now this is one
+
+742
+00:41:54,330 --> 00:42:00,120
+way to put it that's you know to make it
+
+743
+00:41:56,760 --> 00:42:03,300
+interesting I mean it is interesting by
+
+744
+00:42:00,120 --> 00:42:06,720
+itself you know you see when we have in
+
+745
+00:42:03,300 --> 00:42:09,930
+infinite you know like what we have like
+
+746
+00:42:06,720 --> 00:42:12,600
+infinite number of oranges over here
+
+747
+00:42:09,930 --> 00:42:17,400
+then we have infinite number of apples
+
+748
+00:42:12,600 --> 00:42:19,140
+over there and intuitively we think oh
+
+749
+00:42:17,400 --> 00:42:21,270
+they are just infinite you know both are
+
+750
+00:42:19,140 --> 00:42:25,260
+infinite so they are like the same
+
+751
+00:42:21,270 --> 00:42:27,810
+number of infinite maybe but not not
+
+752
+00:42:25,260 --> 00:42:32,010
+really because he discovered you know
+
+753
+00:42:27,810 --> 00:42:34,860
+you can compare they are different sizes
+
+754
+00:42:32,010 --> 00:42:41,100
+of infinity for example let me see let's
+
+755
+00:42:34,860 --> 00:42:43,440
+let's give an example let's let's say
+
+756
+00:42:41,100 --> 00:42:49,400
+the example okay so let me let me type
+
+757
+00:42:43,440 --> 00:42:49,400
+it which one is larger
+
+758
+00:42:49,410 --> 00:43:00,020
+a the the set of all positive integers
+
+759
+00:43:01,190 --> 00:43:09,870
+for example one two three one two three
+
+760
+00:43:05,550 --> 00:43:16,410
+and so on okay a the which one is larger
+
+761
+00:43:09,870 --> 00:43:21,680
+a the set of all positive integers P the
+
+762
+00:43:16,410 --> 00:43:26,520
+set of let's type it here the set of all
+
+763
+00:43:21,680 --> 00:43:35,370
+even positive integers so we so that
+
+764
+00:43:26,520 --> 00:43:40,650
+means two four six okay let's show in
+
+765
+00:43:35,370 --> 00:43:42,990
+browser so which one is larger a the set
+
+766
+00:43:40,650 --> 00:43:45,630
+of all positive integers integers 1 2 3
+
+767
+00:43:42,990 --> 00:43:48,710
+4 5 and so be the set of all even
+
+768
+00:43:45,630 --> 00:43:51,530
+positive integers 2 4 6 and so on
+
+769
+00:43:48,710 --> 00:43:54,240
+so 2 normally we would think you know
+
+770
+00:43:51,530 --> 00:43:56,400
+obviously this is so obvious that the
+
+771
+00:43:54,240 --> 00:43:59,970
+the set of all positive integers is
+
+772
+00:43:56,400 --> 00:44:02,190
+larger because you know because the even
+
+773
+00:43:59,970 --> 00:44:04,740
+positive integers you are skipping you
+
+774
+00:44:02,190 --> 00:44:08,100
+know you are skipping one so in a sense
+
+775
+00:44:04,740 --> 00:44:11,430
+the set of all positive integers is
+
+776
+00:44:08,100 --> 00:44:15,180
+larger than you know it has more stuff
+
+777
+00:44:11,430 --> 00:44:18,150
+in fact precisely like half half times
+
+778
+00:44:15,180 --> 00:44:20,670
+you know 2 times more number of elements
+
+779
+00:44:18,150 --> 00:44:23,220
+then the set of positive integers
+
+780
+00:44:20,670 --> 00:44:27,570
+integers I mean then the set of even
+
+781
+00:44:23,220 --> 00:44:28,890
+positive integers and that is wrong that
+
+782
+00:44:27,570 --> 00:44:32,340
+is a wrong answer
+
+783
+00:44:28,890 --> 00:44:35,100
+in fact we understand today you know
+
+784
+00:44:32,340 --> 00:44:36,930
+they they actually they are equal number
+
+785
+00:44:35,100 --> 00:44:40,350
+of elements right like they are their
+
+786
+00:44:36,930 --> 00:44:43,140
+size are the same you see but this is
+
+787
+00:44:40,350 --> 00:44:47,970
+tremendously shocking you know because
+
+788
+00:44:43,140 --> 00:44:50,040
+this is not how can you possibly how can
+
+789
+00:44:47,970 --> 00:44:52,320
+that possibly be true because everyone
+
+790
+00:44:50,040 --> 00:44:54,030
+you know every child can see that you
+
+791
+00:44:52,320 --> 00:44:56,910
+got more numbers in the set of all
+
+792
+00:44:54,030 --> 00:44:59,220
+positive integers then compare as
+
+793
+00:44:56,910 --> 00:45:02,880
+compared to the even positive integers
+
+794
+00:44:59,220 --> 00:45:07,650
+which you actually take out one element
+
+795
+00:45:02,880 --> 00:45:10,620
+at every step so but so Cantor he
+
+796
+00:45:07,650 --> 00:45:14,480
+created he created the set theory which
+
+797
+00:45:10,620 --> 00:45:18,650
+is which begin with like kind of like
+
+798
+00:45:14,480 --> 00:45:21,060
+answer to this question he gives so he
+
+799
+00:45:18,650 --> 00:45:24,450
+you know when I learned this like I
+
+800
+00:45:21,060 --> 00:45:27,150
+learned this in 1991 okay it was you
+
+801
+00:45:24,450 --> 00:45:31,080
+know he was really shocking you know it
+
+802
+00:45:27,150 --> 00:45:31,830
+was like you feel the power of the
+
+803
+00:45:31,080 --> 00:45:34,890
+universe
+
+804
+00:45:31,830 --> 00:45:36,750
+you know the mystery if you I felt you
+
+805
+00:45:34,890 --> 00:45:41,160
+know like it's like if you're really
+
+806
+00:45:36,750 --> 00:45:42,060
+into you know math and truth you you
+
+807
+00:45:41,160 --> 00:45:44,790
+feel something
+
+808
+00:45:42,060 --> 00:45:48,240
+you know shocking going on so the way he
+
+809
+00:45:44,790 --> 00:45:50,640
+did it is you know he you know explained
+
+810
+00:45:48,240 --> 00:45:56,310
+that logically you know by pure logic
+
+811
+00:45:50,640 --> 00:45:58,950
+logic you know he asked you okay so so
+
+812
+00:45:56,310 --> 00:46:00,690
+okay you have infinite things you have
+
+813
+00:45:58,950 --> 00:46:03,270
+lots of infinite things you want to
+
+814
+00:46:00,690 --> 00:46:06,660
+compare them to see which one has more
+
+815
+00:46:03,270 --> 00:46:08,580
+elements so one way to do it you know he
+
+816
+00:46:06,660 --> 00:46:12,240
+give out his reasons basically it's like
+
+817
+00:46:08,580 --> 00:46:14,760
+this okay so you have one set you have
+
+818
+00:46:12,240 --> 00:46:19,260
+another set and you want to see which
+
+819
+00:46:14,760 --> 00:46:24,750
+one has more number of elements so he
+
+820
+00:46:19,260 --> 00:46:27,830
+says one way to do it okay is that if
+
+821
+00:46:24,750 --> 00:46:32,070
+you can match every elements with the
+
+822
+00:46:27,830 --> 00:46:34,080
+element in the other set you know it's
+
+823
+00:46:32,070 --> 00:46:37,650
+like you have a bunch of curves here
+
+824
+00:46:34,080 --> 00:46:39,210
+okay you have a set of cups you know
+
+825
+00:46:37,650 --> 00:46:42,390
+cups like coffee cups
+
+826
+00:46:39,210 --> 00:46:43,740
+you know then on the other hand you have
+
+827
+00:46:42,390 --> 00:46:47,340
+a set of spoons
+
+828
+00:46:43,740 --> 00:46:49,920
+you know like spoons you know so one way
+
+829
+00:46:47,340 --> 00:46:55,260
+to see which said has more elements is
+
+830
+00:46:49,920 --> 00:46:58,140
+by if you can match one Emin with the
+
+831
+00:46:55,260 --> 00:47:02,100
+other pair by pair like you you put one
+
+832
+00:46:58,140 --> 00:47:05,490
+spoon in a cup you know you put one
+
+833
+00:47:02,100 --> 00:47:09,210
+scoop you know in a in a cup so this is
+
+834
+00:47:05,490 --> 00:47:14,790
+a pair you know it so it's match you if
+
+835
+00:47:09,210 --> 00:47:15,859
+you can do that for every elements in a
+
+836
+00:47:14,790 --> 00:47:19,759
+set the
+
+837
+00:47:15,859 --> 00:47:23,239
+you know these two sets have exactly the
+
+838
+00:47:19,759 --> 00:47:24,920
+same number of elements okay then you
+
+839
+00:47:23,239 --> 00:47:27,410
+know for sure even though both of them
+
+840
+00:47:24,920 --> 00:47:29,779
+are infinite but you know they have the
+
+841
+00:47:27,410 --> 00:47:33,769
+exactly the same element and in this
+
+842
+00:47:29,779 --> 00:47:36,829
+argument you see a every child can see
+
+843
+00:47:33,769 --> 00:47:41,480
+this is you know valid very valid logic
+
+844
+00:47:36,829 --> 00:47:45,259
+you know logical argument so so meaning
+
+845
+00:47:41,480 --> 00:47:48,230
+so if you can have a function that maps
+
+846
+00:47:45,259 --> 00:47:51,019
+one said to the other for L or elements
+
+847
+00:47:48,230 --> 00:47:54,049
+in the set then you must follow the
+
+848
+00:47:51,019 --> 00:47:57,319
+conclusion that these two sets are have
+
+849
+00:47:54,049 --> 00:47:58,970
+the equal number of elements so all you
+
+850
+00:47:57,319 --> 00:48:01,160
+have to do now is to find a function
+
+851
+00:47:58,970 --> 00:48:05,180
+that map's you know the positive
+
+852
+00:48:01,160 --> 00:48:15,319
+integers to the to the even positive
+
+853
+00:48:05,180 --> 00:48:19,279
+integers so can actually do that can I
+
+854
+00:48:15,319 --> 00:48:21,769
+do that not sure I can do that on this
+
+855
+00:48:19,279 --> 00:48:25,640
+I've I don't remember you know I forgot
+
+856
+00:48:21,769 --> 00:48:27,349
+but actually if you read yeah you know
+
+857
+00:48:25,640 --> 00:48:30,349
+if I'm gonna do it you know it's gonna
+
+858
+00:48:27,349 --> 00:48:37,279
+take ten minutes try out an arrow you
+
+859
+00:48:30,349 --> 00:48:39,380
+know so let's just read I'm gonna show
+
+860
+00:48:37,279 --> 00:48:45,140
+you a you know you can read about it's a
+
+861
+00:48:39,380 --> 00:48:49,880
+theory okay so let's let's find let's
+
+862
+00:48:45,140 --> 00:48:53,239
+try to find an article where where that
+
+863
+00:48:49,880 --> 00:48:57,559
+discuss this this particular issue
+
+864
+00:48:53,239 --> 00:49:01,839
+because I Wikipedia if you just read set
+
+865
+00:48:57,559 --> 00:49:05,989
+theory okay so let's go to actually
+
+866
+00:49:01,839 --> 00:49:10,999
+let's actually search for counterpose
+
+867
+00:49:05,989 --> 00:49:13,039
+count countable set okay there it is so
+
+868
+00:49:10,999 --> 00:49:15,920
+if you read this article you you will
+
+869
+00:49:13,039 --> 00:49:18,440
+see you will find a function you can
+
+870
+00:49:15,920 --> 00:49:19,940
+actually you know think of this as the
+
+871
+00:49:18,440 --> 00:49:24,099
+homework you know find a function that
+
+872
+00:49:19,940 --> 00:49:28,700
+maps for every element positive integers
+
+873
+00:49:24,099 --> 00:49:29,510
+married to every element of the even
+
+874
+00:49:28,700 --> 00:49:32,240
+positive
+
+875
+00:49:29,510 --> 00:49:34,430
+as positive integers so you can you know
+
+876
+00:49:32,240 --> 00:49:36,410
+if you read the counterpose set in
+
+877
+00:49:34,430 --> 00:49:41,840
+Wikipedia you you all know how to do
+
+878
+00:49:36,410 --> 00:49:44,930
+that so anyway so Cantor you know he so
+
+879
+00:49:41,840 --> 00:49:47,510
+this was shocking so you know and in
+
+880
+00:49:44,930 --> 00:49:53,330
+turn he discovered that real numbers are
+
+881
+00:49:47,510 --> 00:49:57,650
+not comfortable real numbers so meaning
+
+882
+00:49:53,330 --> 00:50:01,340
+that you know so basically he came up
+
+883
+00:49:57,650 --> 00:50:04,280
+with I you know the idea that infinite
+
+884
+00:50:01,340 --> 00:50:09,020
+sets they have kind of ordered they it's
+
+885
+00:50:04,280 --> 00:50:11,960
+called the ordinal of you know basically
+
+886
+00:50:09,020 --> 00:50:15,560
+the size like you know the I give you a
+
+887
+00:50:11,960 --> 00:50:18,619
+size for this Internet infinite set you
+
+888
+00:50:15,560 --> 00:50:22,460
+can now actually kind of compare you
+
+889
+00:50:18,619 --> 00:50:26,180
+know you we you know we it shows a light
+
+890
+00:50:22,460 --> 00:50:29,960
+that it shows us that we they are you
+
+891
+00:50:26,180 --> 00:50:34,609
+know different order like different
+
+892
+00:50:29,960 --> 00:50:37,250
+sizes of infinite infinities so anyway
+
+893
+00:50:34,609 --> 00:50:39,650
+that's that's that's that's the set
+
+894
+00:50:37,250 --> 00:50:42,470
+theory that's that's what set theory is
+
+895
+00:50:39,650 --> 00:50:45,650
+about so this so this was you know this
+
+896
+00:50:42,470 --> 00:50:48,200
+was you know it's it's a shocking you
+
+897
+00:50:45,650 --> 00:50:50,570
+know back then you know mathematicians
+
+898
+00:50:48,200 --> 00:50:53,119
+they fight each other you know some some
+
+899
+00:50:50,570 --> 00:50:55,550
+Cole Cantor at raw you know get him
+
+900
+00:50:53,119 --> 00:50:59,869
+fired you know things like that it's a
+
+901
+00:50:55,550 --> 00:51:02,119
+big chapter of history of math so you
+
+902
+00:50:59,869 --> 00:51:05,090
+can see all these are crisis in math
+
+903
+00:51:02,119 --> 00:51:11,980
+then then there is this guy hubert
+
+904
+00:51:05,090 --> 00:51:11,980
+german mathematician David Hilbert a
+
+905
+00:51:13,480 --> 00:51:22,550
+good morning's panel champ so guys any
+
+906
+00:51:19,430 --> 00:51:25,460
+comments Matthews sources anyone
+
+907
+00:51:22,550 --> 00:51:29,300
+comments comments so actually I dragged
+
+908
+00:51:25,460 --> 00:51:33,320
+down about oh my god you know I was
+
+909
+00:51:29,300 --> 00:51:37,960
+talking about foundation of math but it
+
+910
+00:51:33,320 --> 00:51:40,970
+ends up I spend 15 minutes talking about
+
+911
+00:51:37,960 --> 00:51:43,260
+you know the historical crisis of
+
+912
+00:51:40,970 --> 00:51:47,220
+mathematics
+
+913
+00:51:43,260 --> 00:51:50,400
+which you know justifies the the valid
+
+914
+00:51:47,220 --> 00:51:52,740
+you know why the foundation study of the
+
+915
+00:51:50,400 --> 00:51:54,900
+foundation of math is critical is
+
+916
+00:51:52,740 --> 00:51:57,060
+important I mean why you know it's not
+
+917
+00:51:54,900 --> 00:51:59,250
+just oh it's just philosophy you know
+
+918
+00:51:57,060 --> 00:52:02,070
+philosophy you know thinking about
+
+919
+00:51:59,250 --> 00:52:08,070
+useless things it's not that because all
+
+920
+00:52:02,070 --> 00:52:10,369
+these crises but we haven't got into you
+
+921
+00:52:08,070 --> 00:52:16,790
+know what what I wanted to talk
+
+922
+00:52:10,369 --> 00:52:23,730
+originally was formalism narcissism and
+
+923
+00:52:16,790 --> 00:52:31,590
+into intuition ISM which is kind of also
+
+924
+00:52:23,730 --> 00:52:33,780
+became constructivism okay so so again
+
+925
+00:52:31,590 --> 00:52:41,160
+anyway yeah so we are going we are
+
+926
+00:52:33,780 --> 00:52:43,020
+getting onto that so david hilbert you
+
+927
+00:52:41,160 --> 00:52:45,480
+know he's one of the great greatest
+
+928
+00:52:43,020 --> 00:52:50,760
+mathematician you know maybe top ten or
+
+929
+00:52:45,480 --> 00:52:52,590
+something in history so he he started a
+
+930
+00:52:50,760 --> 00:52:57,090
+school of thought you know back you know
+
+931
+00:52:52,590 --> 00:52:59,730
+he's he was born in 1862 so you can see
+
+932
+00:52:57,090 --> 00:53:02,570
+this is the era where all these crisis
+
+933
+00:52:59,730 --> 00:53:07,760
+happened now he's a contemporary
+
+934
+00:53:02,570 --> 00:53:14,790
+contemporary of Cantor Georg Cantor
+
+935
+00:53:07,760 --> 00:53:18,830
+Georg Cantor okay let's let's look up
+
+936
+00:53:14,790 --> 00:53:22,230
+his name yeah Georg Cantor he is also
+
+937
+00:53:18,830 --> 00:53:27,109
+German mathematician sure German are
+
+938
+00:53:22,230 --> 00:53:29,850
+usually great at math German Russia and
+
+939
+00:53:27,109 --> 00:53:33,080
+anyways you know this is about great
+
+940
+00:53:29,850 --> 00:53:39,260
+mathematicians so anyway he's also a
+
+941
+00:53:33,080 --> 00:53:44,490
+German guy so he's he was born 1845 okay
+
+942
+00:53:39,260 --> 00:53:46,859
+David Hilbert was from 1862 yeah so they
+
+943
+00:53:44,490 --> 00:53:51,660
+are contemporaries you know they didn't
+
+944
+00:53:46,859 --> 00:53:53,010
+know each other but so David Hilbert so
+
+945
+00:53:51,660 --> 00:53:56,490
+with all these crises
+
+946
+00:53:53,010 --> 00:54:01,290
+you know David Hilbert started to have
+
+947
+00:53:56,490 --> 00:54:03,480
+a program you know he you know that they
+
+948
+00:54:01,290 --> 00:54:06,210
+you know basically they want to codify
+
+949
+00:54:03,480 --> 00:54:09,750
+all math so they you know mathematicians
+
+950
+00:54:06,210 --> 00:54:13,080
+Begins wants to desire you know they
+
+951
+00:54:09,750 --> 00:54:15,090
+desire like a system or you can think of
+
+952
+00:54:13,080 --> 00:54:18,150
+it like a programming language you know
+
+953
+00:54:15,090 --> 00:54:20,250
+they want a system so that so that
+
+954
+00:54:18,150 --> 00:54:25,230
+mathematicians can prove that this
+
+955
+00:54:20,250 --> 00:54:27,570
+system is consistent and then then every
+
+956
+00:54:25,230 --> 00:54:29,880
+mathematics will be based on this system
+
+957
+00:54:27,570 --> 00:54:33,000
+so you know we want a solid foundation
+
+958
+00:54:29,880 --> 00:54:35,910
+so you know we can start to grow math
+
+959
+00:54:33,000 --> 00:54:38,130
+without all these crises you know every
+
+960
+00:54:35,910 --> 00:54:42,510
+once in a while with a major crisis you
+
+961
+00:54:38,130 --> 00:54:45,570
+know comes in you know the crisis are
+
+962
+00:54:42,510 --> 00:54:48,000
+critical because they they they seems to
+
+963
+00:54:45,570 --> 00:54:50,190
+collapse your entire math because what
+
+964
+00:54:48,000 --> 00:54:52,470
+you think is true is no longer true that
+
+965
+00:54:50,190 --> 00:54:55,170
+that is the thing because you think oh
+
+966
+00:54:52,470 --> 00:54:58,560
+this is why this is black then some
+
+967
+00:54:55,170 --> 00:55:00,720
+mathematicians discover something then
+
+968
+00:54:58,560 --> 00:55:03,660
+you're white and black is no longer you
+
+969
+00:55:00,720 --> 00:55:06,859
+you know your entire lives you know
+
+970
+00:55:03,660 --> 00:55:09,690
+experience is shattered you know you is
+
+971
+00:55:06,859 --> 00:55:12,600
+that is what you know why crises are
+
+972
+00:55:09,690 --> 00:55:15,240
+quick you know become that crisis so
+
+973
+00:55:12,600 --> 00:55:17,100
+they so David Hilbert you know began he
+
+974
+00:55:15,240 --> 00:55:26,280
+well basically he began a school of
+
+975
+00:55:17,100 --> 00:55:29,400
+formalism then Bertrand Russell began
+
+976
+00:55:26,280 --> 00:55:32,820
+the school of largest ISM they are
+
+977
+00:55:29,400 --> 00:55:34,800
+different schools of thought different
+
+978
+00:55:32,820 --> 00:55:39,690
+kind of school of thought they all want
+
+979
+00:55:34,800 --> 00:55:42,030
+to have a solid foundation of math but
+
+980
+00:55:39,690 --> 00:55:45,900
+Ron Rosso is kind of my favorite author
+
+981
+00:55:42,030 --> 00:55:49,460
+you know in the 1990s I read most of his
+
+982
+00:55:45,900 --> 00:55:53,760
+books you know he's he's a logician and
+
+983
+00:55:49,460 --> 00:55:56,100
+you know I I I follow him a lot I read
+
+984
+00:55:53,760 --> 00:56:00,450
+like almost all his stuff his
+
+985
+00:55:56,100 --> 00:56:01,140
+biographies and stuff so Bertrand
+
+986
+00:56:00,450 --> 00:56:04,080
+Russell
+
+987
+00:56:01,140 --> 00:56:08,420
+you know he you know he's a he's a
+
+988
+00:56:04,080 --> 00:56:10,500
+leader or proponent of the logic school
+
+989
+00:56:08,420 --> 00:56:14,520
+so largely systems
+
+990
+00:56:10,500 --> 00:56:17,820
+of thought is that okay so the logic
+
+991
+00:56:14,520 --> 00:56:21,980
+school is that they think that math the
+
+992
+00:56:17,820 --> 00:56:25,830
+entirety of math can be reduced to logic
+
+993
+00:56:21,980 --> 00:56:28,560
+you know like if this is so and that is
+
+994
+00:56:25,830 --> 00:56:32,630
+so therefore you know you know reduce to
+
+995
+00:56:28,560 --> 00:56:35,130
+logic the formalist school formalism
+
+996
+00:56:32,630 --> 00:56:40,260
+they are belief you know the David
+
+997
+00:56:35,130 --> 00:56:44,630
+Hilbert his belief is that the math math
+
+998
+00:56:40,260 --> 00:56:47,520
+is nothing but just symbol manipulation
+
+999
+00:56:44,630 --> 00:56:49,770
+you know like you know when you do high
+
+1000
+00:56:47,520 --> 00:56:52,170
+school algebra you have X plus you know
+
+1001
+00:56:49,770 --> 00:56:55,350
+x squared equals to five you know you
+
+1002
+00:56:52,170 --> 00:56:57,330
+can add you know a quantity to both side
+
+1003
+00:56:55,350 --> 00:57:00,000
+you can minus something both side or
+
+1004
+00:56:57,330 --> 00:57:02,370
+divide both side by anything not zero
+
+1005
+00:57:00,000 --> 00:57:04,350
+you know then then you can solve the
+
+1006
+00:57:02,370 --> 00:57:09,630
+equation you know that's manipulation of
+
+1007
+00:57:04,350 --> 00:57:12,620
+symbols so so David Hilbert he his idea
+
+1008
+00:57:09,630 --> 00:57:15,030
+of math he believes in formalism formal
+
+1009
+00:57:12,620 --> 00:57:21,630
+formality that's the same word the same
+
+1010
+00:57:15,030 --> 00:57:24,720
+route of word okay formal formality form
+
+1011
+00:57:21,630 --> 00:57:25,560
+you know you know we have the phrase for
+
+1012
+00:57:24,720 --> 00:57:28,080
+main function
+
+1013
+00:57:25,560 --> 00:57:31,340
+so David help but he believes in form
+
+1014
+00:57:28,080 --> 00:57:34,860
+from formal formalism form formality
+
+1015
+00:57:31,340 --> 00:57:37,590
+meaning that he believed math is is is
+
+1016
+00:57:34,860 --> 00:57:40,050
+simply manipulation of symbols nothing
+
+1017
+00:57:37,590 --> 00:57:42,300
+else it does not necessarily have a
+
+1018
+00:57:40,050 --> 00:57:47,040
+meaning so you are given a bunch of
+
+1019
+00:57:42,300 --> 00:57:49,320
+strings like formal language okay so
+
+1020
+00:57:47,040 --> 00:57:52,350
+much of computer science today formal
+
+1021
+00:57:49,320 --> 00:57:54,600
+language is a foundation of computers
+
+1022
+00:57:52,350 --> 00:57:56,640
+theoretical computer science you know
+
+1023
+00:57:54,600 --> 00:58:00,210
+forget about tuning machines lambda
+
+1024
+00:57:56,640 --> 00:58:04,260
+calculus actually member calculus is is
+
+1025
+00:58:00,210 --> 00:58:07,500
+a branch of formal language theory not
+
+1026
+00:58:04,260 --> 00:58:09,990
+not tuning machine sided neuron not not
+
+1027
+00:58:07,500 --> 00:58:13,950
+not exactly but anyway formal language
+
+1028
+00:58:09,990 --> 00:58:18,030
+which which is a subject I love which is
+
+1029
+00:58:13,950 --> 00:58:20,820
+you know last week I did a video on
+
+1030
+00:58:18,030 --> 00:58:22,710
+what's the meaning of symbols in your
+
+1031
+00:58:20,820 --> 00:58:24,120
+programming language like Lisp and
+
+1032
+00:58:22,710 --> 00:58:28,380
+Mathematica
+
+1033
+00:58:24,120 --> 00:58:32,460
+check that out because that is symbolic
+
+1034
+00:58:28,380 --> 00:58:33,990
+math algebra and and that you have
+
+1035
+00:58:32,460 --> 00:58:38,310
+pattern matching you have symbolic
+
+1036
+00:58:33,990 --> 00:58:40,320
+pattern matching and and which ties to
+
+1037
+00:58:38,310 --> 00:58:42,750
+regular expressions and grammar and
+
+1038
+00:58:40,320 --> 00:58:47,340
+context-free grammar you know passing
+
+1039
+00:58:42,750 --> 00:58:50,310
+compilers and stuff so the theory aspect
+
+1040
+00:58:47,340 --> 00:58:54,060
+of them are all formal languages formal
+
+1041
+00:58:50,310 --> 00:58:59,670
+language so this is critical ok so read
+
+1042
+00:58:54,060 --> 00:59:02,280
+it up formal language ok this is one of
+
+1043
+00:58:59,670 --> 00:59:05,100
+the foundation of theoretical computer
+
+1044
+00:59:02,280 --> 00:59:08,700
+science formal language this this is the
+
+1045
+00:59:05,100 --> 00:59:12,350
+school I like ok this is my school of
+
+1046
+00:59:08,700 --> 00:59:12,350
+thought everything else is garbage
+
+1047
+00:59:12,440 --> 00:59:20,340
+so anyway formal languages so yeah so
+
+1048
+00:59:16,290 --> 00:59:22,380
+these are related formalism for more
+
+1049
+00:59:20,340 --> 00:59:25,470
+reason you know formal formality for
+
+1050
+00:59:22,380 --> 00:59:28,560
+formal languages the essence of their
+
+1051
+00:59:25,470 --> 00:59:30,660
+meaning is that it's just like pure
+
+1052
+00:59:28,560 --> 00:59:32,670
+symbols you just have seen sequence of
+
+1053
+00:59:30,660 --> 00:59:34,530
+symbols like string you know everything
+
+1054
+00:59:32,670 --> 00:59:36,930
+is just a string then you have a bunch
+
+1055
+00:59:34,530 --> 00:59:41,010
+of rules to manipulate it so it's just
+
+1056
+00:59:36,930 --> 00:59:44,010
+like it's just the form you know so
+
+1057
+00:59:41,010 --> 00:59:46,770
+that's that's David Hilbert's idea you
+
+1058
+00:59:44,010 --> 00:59:49,890
+know his philosophy he believes math oh
+
+1059
+00:59:46,770 --> 00:59:52,650
+math is can be reduced to formalism it's
+
+1060
+00:59:49,890 --> 00:59:54,840
+just you just you know begin with a
+
+1061
+00:59:52,650 --> 01:00:00,030
+string then you have some rules how to
+
+1062
+00:59:54,840 --> 01:00:03,180
+transform the stream and that is a
+
+1063
+01:00:00,030 --> 01:00:07,740
+system then you can give interpretation
+
+1064
+01:00:03,180 --> 01:00:09,540
+you know then oh this means you know you
+
+1065
+01:00:07,740 --> 01:00:12,000
+know particular theory you know some
+
+1066
+01:00:09,540 --> 01:00:15,510
+some fearing math oh this is some theory
+
+1067
+01:00:12,000 --> 01:00:17,940
+in differential equations in fundamental
+
+1068
+01:00:15,510 --> 01:00:21,420
+theorem of calculus you know that that's
+
+1069
+01:00:17,940 --> 01:00:23,610
+that's just interpretation you know but
+
+1070
+01:00:21,420 --> 01:00:25,860
+he believes everything came you know the
+
+1071
+01:00:23,610 --> 01:00:29,940
+whole math is just the symbols in
+
+1072
+01:00:25,860 --> 01:00:31,920
+manipulation and on the other hand
+
+1073
+01:00:29,940 --> 01:00:34,140
+Bertrand Russell believes if you know
+
+1074
+01:00:31,920 --> 01:00:37,560
+math is just logic you know you can
+
+1075
+01:00:34,140 --> 01:00:39,780
+reduce it the whole thing to logic
+
+1076
+01:00:37,560 --> 01:00:44,450
+there's another school I don't like very
+
+1077
+01:00:39,780 --> 01:00:52,680
+much back then okay into us into your
+
+1078
+01:00:44,450 --> 01:00:58,650
+intuition ISM okay that's started by
+
+1079
+01:00:52,680 --> 01:01:04,700
+this JW poor guy very strange you know
+
+1080
+01:00:58,650 --> 01:01:08,480
+into it into a nism intuition ISM okay
+
+1081
+01:01:04,700 --> 01:01:15,450
+and today a branch of it is called
+
+1082
+01:01:08,480 --> 01:01:17,760
+constructivism okay so this is started
+
+1083
+01:01:15,450 --> 01:01:21,540
+by into it intuition
+
+1084
+01:01:17,760 --> 01:01:27,150
+nissim is started by let's find the
+
+1085
+01:01:21,540 --> 01:01:31,680
+guy's name where is it
+
+1086
+01:01:27,150 --> 01:01:33,270
+infinity history okay so the several
+
+1087
+01:01:31,680 --> 01:01:35,610
+guys you know usually they are not
+
+1088
+01:01:33,270 --> 01:01:38,820
+started by one single guy usually it's
+
+1089
+01:01:35,610 --> 01:01:43,920
+like several influences influences okay
+
+1090
+01:01:38,820 --> 01:01:51,360
+this guy l ej prove prove awesome you
+
+1091
+01:01:43,920 --> 01:01:55,710
+know so he was born in 1881 and touch
+
+1092
+01:01:51,360 --> 01:02:00,720
+okay he's Dutch anyway so he is kind of
+
+1093
+01:01:55,710 --> 01:02:03,300
+like the founder of intuition ISM which
+
+1094
+01:02:00,720 --> 01:02:05,670
+is very strange and you know I didn't
+
+1095
+01:02:03,300 --> 01:02:06,780
+like it I didn't like it back then but
+
+1096
+01:02:05,670 --> 01:02:10,710
+this at rest
+
+1097
+01:02:06,780 --> 01:02:16,680
+I like it now because this is why so
+
+1098
+01:02:10,710 --> 01:02:19,560
+math is so interesting okay okay so am I
+
+1099
+01:02:16,680 --> 01:02:25,530
+making sense guys type something except
+
+1100
+01:02:19,560 --> 01:02:32,490
+Daniels Daniel kept typing well yeah
+
+1101
+01:02:25,530 --> 01:02:35,190
+about you know that anyway so it's about
+
+1102
+01:02:32,490 --> 01:02:37,820
+something anyway I want to finish the
+
+1103
+01:02:35,190 --> 01:02:39,810
+you know I want to finish the talk about
+
+1104
+01:02:37,820 --> 01:02:42,360
+you know so many interesting things
+
+1105
+01:02:39,810 --> 01:02:45,480
+about foundational math okay you know
+
+1106
+01:02:42,360 --> 01:02:46,440
+philosophy of math so anyway poopoo
+
+1107
+01:02:45,480 --> 01:02:51,849
+Bruford
+
+1108
+01:02:46,440 --> 01:02:54,069
+he created into asian ism you can
+
+1109
+01:02:51,849 --> 01:02:58,769
+about what it is exactly but basically
+
+1110
+01:02:54,069 --> 01:03:02,950
+it's like they refuse
+
+1111
+01:02:58,769 --> 01:03:05,890
+it's very strange okay you know if you
+
+1112
+01:03:02,950 --> 01:03:09,339
+encounter it for the first time they
+
+1113
+01:03:05,890 --> 01:03:12,309
+they refuse the thought that any
+
+1114
+01:03:09,339 --> 01:03:17,739
+everything is either or not okay for
+
+1115
+01:03:12,309 --> 01:03:18,880
+example for example one plus one equals
+
+1116
+01:03:17,739 --> 01:03:23,079
+to two okay
+
+1117
+01:03:18,880 --> 01:03:27,039
+is that true Yemi that's a proposition
+
+1118
+01:03:23,079 --> 01:03:29,349
+let's say 1 plus 1 equals 2 equals to 2
+
+1119
+01:03:27,039 --> 01:03:31,359
+okay you can say whether it's true or
+
+1120
+01:03:29,349 --> 01:03:34,539
+whether it's false you know it's either
+
+1121
+01:03:31,359 --> 01:03:35,249
+true or false it's very simple true or
+
+1122
+01:03:34,539 --> 01:03:38,739
+false
+
+1123
+01:03:35,249 --> 01:03:42,489
+but intuition ISM doesn't believe that
+
+1124
+01:03:38,739 --> 01:03:46,239
+they it's not just true or false there's
+
+1125
+01:03:42,489 --> 01:03:48,309
+something else ok you know this is a
+
+1126
+01:03:46,239 --> 01:03:54,579
+dramatic way to put it it's called
+
+1127
+01:03:48,309 --> 01:03:57,759
+excluded middle ok let's look up
+
+1128
+01:03:54,579 --> 01:04:01,599
+Wikipedia I'm pretty sure this article
+
+1129
+01:03:57,759 --> 01:04:06,039
+yes law of excluded middle so in logic
+
+1130
+01:04:01,599 --> 01:04:08,200
+the law of excluded middle states that
+
+1131
+01:04:06,039 --> 01:04:11,380
+for any proposition either that
+
+1132
+01:04:08,200 --> 01:04:19,329
+proposition is true or its negation is
+
+1133
+01:04:11,380 --> 01:04:22,329
+true okay yeah so the law of excluded
+
+1134
+01:04:19,329 --> 01:04:24,460
+excluded middle so if I say something
+
+1135
+01:04:22,329 --> 01:04:27,009
+either it's true or its false you know
+
+1136
+01:04:24,460 --> 01:04:29,440
+there's no like I mean what else could
+
+1137
+01:04:27,009 --> 01:04:34,450
+it be you know it's so simple this is
+
+1138
+01:04:29,440 --> 01:04:39,329
+called law of excluded middle now the
+
+1139
+01:04:34,450 --> 01:04:40,450
+problem is you see if you are a into
+
+1140
+01:04:39,329 --> 01:04:43,029
+intuitionist
+
+1141
+01:04:40,450 --> 01:04:48,190
+you don't believe this law of excluded
+
+1142
+01:04:43,029 --> 01:04:52,619
+middle ok you see so there is a section
+
+1143
+01:04:48,190 --> 01:04:56,019
+largest is largest versus intuitionists
+
+1144
+01:04:52,619 --> 01:04:58,710
+so let's read it ok so in late 1800s
+
+1145
+01:04:56,019 --> 01:05:04,229
+through the 1930s
+
+1146
+01:04:58,710 --> 01:05:05,770
+Peter persistent debate raged between
+
+1147
+01:05:04,229 --> 01:05:10,680
+Hubert
+
+1148
+01:05:05,770 --> 01:05:14,980
+his followers versus him and whale and
+
+1149
+01:05:10,680 --> 01:05:18,810
+Ellijay brewer Brewers philosophy called
+
+1150
+01:05:14,980 --> 01:05:25,410
+intuition ISM started in earnest with
+
+1151
+01:05:18,810 --> 01:05:28,240
+Leopold Kronecker in late 18-hundreds
+
+1152
+01:05:25,410 --> 01:05:30,550
+ok anyway that's some details about
+
+1153
+01:05:28,240 --> 01:05:33,250
+their fight you know it's a war it's a
+
+1154
+01:05:30,550 --> 01:05:35,260
+it's a big war between mathematicians
+
+1155
+01:05:33,250 --> 01:05:38,230
+but anyway it's a largest you know
+
+1156
+01:05:35,260 --> 01:05:41,650
+largest you know largest school of
+
+1157
+01:05:38,230 --> 01:05:45,100
+thought versus the into intuitionist and
+
+1158
+01:05:41,650 --> 01:05:48,370
+one of the big point is the the law of
+
+1159
+01:05:45,100 --> 01:05:49,750
+excluded middle because in intuitionists
+
+1160
+01:05:48,370 --> 01:05:51,970
+they don't believe that they don't
+
+1161
+01:05:49,750 --> 01:05:54,190
+believe you know if you prove it's not
+
+1162
+01:05:51,970 --> 01:05:57,490
+true then it's false if you prove it's
+
+1163
+01:05:54,190 --> 01:06:00,160
+false then therefore it must be true it
+
+1164
+01:05:57,490 --> 01:06:03,370
+don't believe such a thing and to me
+
+1165
+01:06:00,160 --> 01:06:06,100
+that's just like why I learnt this why
+
+1166
+01:06:03,370 --> 01:06:07,990
+when I read about this in 1990s you know
+
+1167
+01:06:06,100 --> 01:06:11,400
+in from books they don't have Wikipedia
+
+1168
+01:06:07,990 --> 01:06:15,670
+back then I think it's stupid you know
+
+1169
+01:06:11,400 --> 01:06:17,650
+but now I see much point in that this so
+
+1170
+01:06:15,670 --> 01:06:19,810
+this is why you know I'm doing this talk
+
+1171
+01:06:17,650 --> 01:06:23,800
+show because these many interesting
+
+1172
+01:06:19,810 --> 01:06:31,660
+things a good morning just just in hey
+
+1173
+01:06:23,800 --> 01:06:33,930
+say hi to Canada hi to Vancouver okay
+
+1174
+01:06:31,660 --> 01:06:36,910
+I'm actually I've been talking for like
+
+1175
+01:06:33,930 --> 01:06:39,550
+one hour and six minutes I'm about to
+
+1176
+01:06:36,910 --> 01:06:43,060
+and we should because I've been talking
+
+1177
+01:06:39,550 --> 01:06:45,700
+too long so I've been talking about so
+
+1178
+01:06:43,060 --> 01:06:47,230
+let's do a quick summary so we've been
+
+1179
+01:06:45,700 --> 01:06:51,610
+talking about for the past one hour
+
+1180
+01:06:47,230 --> 01:06:56,230
+about the various crisis in in a history
+
+1181
+01:06:51,610 --> 01:06:59,110
+of math then we talked about that
+
+1182
+01:06:56,230 --> 01:07:01,750
+because we want to justify why are we
+
+1183
+01:06:59,110 --> 01:07:04,690
+studying the foundation of math I mean
+
+1184
+01:07:01,750 --> 01:07:06,880
+why do mathematicians find this critical
+
+1185
+01:07:04,690 --> 01:07:10,570
+so this is a critical because all these
+
+1186
+01:07:06,880 --> 01:07:16,600
+crises and then we begin to talk about
+
+1187
+01:07:10,570 --> 01:07:19,240
+the three major school of thought of the
+
+1188
+01:07:16,600 --> 01:07:19,690
+foundation of math so the three schools
+
+1189
+01:07:19,240 --> 01:07:29,110
+of
+
+1190
+01:07:19,690 --> 01:07:34,210
+formulism david hilbert yeah formalism
+
+1191
+01:07:29,110 --> 01:07:37,540
+of david hilbert and largest ism led by
+
+1192
+01:07:34,210 --> 01:07:41,860
+bertrand russell and the intuition is
+
+1193
+01:07:37,540 --> 01:07:48,160
+i'm led by the by the brewer guy you
+
+1194
+01:07:41,860 --> 01:07:52,750
+know by in the pour le by this Ellijay
+
+1195
+01:07:48,160 --> 01:07:55,600
+brewer guy and we kind of gave kind of
+
+1196
+01:07:52,750 --> 01:07:57,610
+some kind of you know summary of what
+
+1197
+01:07:55,600 --> 01:08:00,570
+they are about formalism is about
+
+1198
+01:07:57,610 --> 01:08:03,640
+everything is just symbol manipulation
+
+1199
+01:08:00,570 --> 01:08:07,980
+lattice ism is the belief that the whole
+
+1200
+01:08:03,640 --> 01:08:07,980
+math can be reduced to logic you know
+
+1201
+01:08:08,880 --> 01:08:17,020
+and the intuition ism they believed they
+
+1202
+01:08:15,160 --> 01:08:20,710
+believed kind of they actually you know
+
+1203
+01:08:17,020 --> 01:08:24,340
+they believed the law of exclude the
+
+1204
+01:08:20,710 --> 01:08:26,740
+middle is force you know it's not cannot
+
+1205
+01:08:24,340 --> 01:08:31,290
+be used to prove math basically they
+
+1206
+01:08:26,740 --> 01:08:31,290
+believed construction nativism
+
+1207
+01:08:32,580 --> 01:08:39,730
+constructive i think that's the word
+
+1208
+01:08:36,160 --> 01:08:43,690
+okay constructivism now that word has
+
+1209
+01:08:39,730 --> 01:08:46,870
+much meanings in outside of math but but
+
+1210
+01:08:43,690 --> 01:08:48,640
+that's not what we are interested we you
+
+1211
+01:08:46,870 --> 01:08:51,450
+know because in philosophy you have all
+
+1212
+01:08:48,640 --> 01:08:55,890
+these many of them questionable things
+
+1213
+01:08:51,450 --> 01:09:00,180
+but okay so let's try to find a
+
+1214
+01:08:55,890 --> 01:09:04,330
+constructivism math okay here
+
+1215
+01:09:00,180 --> 01:09:07,240
+so intuition ism i mean by the way i
+
+1216
+01:09:04,330 --> 01:09:09,700
+want also to add you know let me repeat
+
+1217
+01:09:07,240 --> 01:09:11,830
+again i'm not i'm not a expert in these
+
+1218
+01:09:09,700 --> 01:09:16,360
+subjects so if you are interested you
+
+1219
+01:09:11,830 --> 01:09:18,210
+know go with wikipedia if you are a
+
+1220
+01:09:16,360 --> 01:09:20,680
+mathematician you know professor
+
+1221
+01:09:18,210 --> 01:09:22,780
+professional mathematician logician feel
+
+1222
+01:09:20,680 --> 01:09:25,690
+feel free to you know come and correct
+
+1223
+01:09:22,780 --> 01:09:27,160
+but only if you know not programmers you
+
+1224
+01:09:25,690 --> 01:09:30,710
+know if you are just like me you know
+
+1225
+01:09:27,160 --> 01:09:34,549
+programmers you have opinions
+
+1226
+01:09:30,710 --> 01:09:36,950
+they may not be correct okay because so
+
+1227
+01:09:34,549 --> 01:09:39,259
+I want to also to mention these ideas
+
+1228
+01:09:36,950 --> 01:09:44,239
+formalism logic system they are
+
+1229
+01:09:39,259 --> 01:09:46,160
+I mean I'm simplifying them also but
+
+1230
+01:09:44,239 --> 01:09:47,989
+also they are very precise and very
+
+1231
+01:09:46,160 --> 01:09:51,410
+detailed you know they are they are not
+
+1232
+01:09:47,989 --> 01:09:54,739
+like something you can just pick up and
+
+1233
+01:09:51,410 --> 01:09:56,930
+in one hour they you have to to
+
+1234
+01:09:54,739 --> 01:10:00,590
+understand all these in full detail you
+
+1235
+01:09:56,930 --> 01:10:05,989
+have to basically like equivalent to a
+
+1236
+01:10:00,590 --> 01:10:08,870
+PhD degree okay so anyway so you know
+
+1237
+01:10:05,989 --> 01:10:11,090
+yaakov go read Wikipedia which is
+
+1238
+01:10:08,870 --> 01:10:11,900
+actually you trustworthy on these
+
+1239
+01:10:11,090 --> 01:10:15,710
+subjects
+
+1240
+01:10:11,900 --> 01:10:18,860
+now constructivist I mean now one one
+
+1241
+01:10:15,710 --> 01:10:21,110
+the main part of in intuition ISM the
+
+1242
+01:10:18,860 --> 01:10:26,090
+school of thought is that they believe
+
+1243
+01:10:21,110 --> 01:10:30,739
+in constructive mathematics simply put
+
+1244
+01:10:26,090 --> 01:10:32,900
+that means they if you want to prove for
+
+1245
+01:10:30,739 --> 01:10:35,210
+example of something exists or something
+
+1246
+01:10:32,900 --> 01:10:38,390
+doesn't exist you know for example some
+
+1247
+01:10:35,210 --> 01:10:39,520
+number with certain properties exist or
+
+1248
+01:10:38,390 --> 01:10:43,430
+doesn't exist
+
+1249
+01:10:39,520 --> 01:10:49,219
+the constructivism you know the school
+
+1250
+01:10:43,430 --> 01:10:51,230
+of thought is believes that you you
+
+1251
+01:10:49,219 --> 01:10:53,780
+actually have to build it I mean like
+
+1252
+01:10:51,230 --> 01:10:57,440
+show the number something you know kind
+
+1253
+01:10:53,780 --> 01:11:01,390
+of like that like programming okay this
+
+1254
+01:10:57,440 --> 01:11:04,850
+is why the into a in intuition ISM and
+
+1255
+01:11:01,390 --> 01:11:06,830
+constructivism are so much relevant
+
+1256
+01:11:04,850 --> 01:11:09,980
+today because you know today especially
+
+1257
+01:11:06,830 --> 01:11:12,610
+you know a man has car camp programmers
+
+1258
+01:11:09,980 --> 01:11:15,530
+they they like to talk about you know
+
+1259
+01:11:12,610 --> 01:11:19,460
+category theory and you know many math
+
+1260
+01:11:15,530 --> 01:11:22,670
+dragons and how they relate to prove you
+
+1261
+01:11:19,460 --> 01:11:25,489
+know the there's something something I
+
+1262
+01:11:22,670 --> 01:11:28,280
+so means I saw morphism you know
+
+1263
+01:11:25,489 --> 01:11:31,670
+Justine probably knows that you know a
+
+1264
+01:11:28,280 --> 01:11:36,200
+lot more than me because I think Justin
+
+1265
+01:11:31,670 --> 01:11:42,950
+is a Haskell code right so so there is
+
+1266
+01:11:36,200 --> 01:11:44,420
+this you know popular Hart phrase you
+
+1267
+01:11:42,950 --> 01:11:46,969
+know Howard Curie I
+
+1268
+01:11:44,420 --> 01:11:52,460
+so movies and you know bantered around
+
+1269
+01:11:46,969 --> 01:11:58,040
+by Haskell coders often how would curvy
+
+1270
+01:11:52,460 --> 01:12:01,390
+Howard isomorphism okay so let's sit
+
+1271
+01:11:58,040 --> 01:12:04,670
+let's look at that up now curry Howard
+
+1272
+01:12:01,390 --> 01:12:09,940
+correspondence okay essentially it means
+
+1273
+01:12:04,670 --> 01:12:12,980
+that it's a theory such that any
+
+1274
+01:12:09,940 --> 01:12:17,420
+computer program you know algorithm step
+
+1275
+01:12:12,980 --> 01:12:21,739
+by step instruction is can be translated
+
+1276
+01:12:17,420 --> 01:12:23,120
+to a a proof and any proof can math you
+
+1277
+01:12:21,739 --> 01:12:28,130
+know any math proof can be also
+
+1278
+01:12:23,120 --> 01:12:31,250
+translated to a two computer programs
+
+1279
+01:12:28,130 --> 01:12:35,210
+that's kind of the gist and you know
+
+1280
+01:12:31,250 --> 01:12:38,600
+kind of of this is about so it's very
+
+1281
+01:12:35,210 --> 01:12:43,489
+popular among you know Haskell
+
+1282
+01:12:38,600 --> 01:12:46,520
+communities okay so just in says I'm a
+
+1283
+01:12:43,489 --> 01:12:49,960
+scholar scholar in Haskell code learning
+
+1284
+01:12:46,520 --> 01:12:53,719
+about category theory okay so yeah so
+
+1285
+01:12:49,960 --> 01:13:00,440
+I'm yeah I mean learning about these
+
+1286
+01:12:53,719 --> 01:13:03,800
+things too so so what are we saying so
+
+1287
+01:13:00,440 --> 01:13:06,410
+yeah the intuition you know they believe
+
+1288
+01:13:03,800 --> 01:13:10,850
+in constructive math that is they
+
+1289
+01:13:06,410 --> 01:13:14,989
+believe in you cannot prove something
+
+1290
+01:13:10,850 --> 01:13:18,110
+exists or doesn't exist by any way they
+
+1291
+01:13:14,989 --> 01:13:22,160
+believe one of the big thing is that
+
+1292
+01:13:18,110 --> 01:13:24,830
+they believe in E in actual building
+
+1293
+01:13:22,160 --> 01:13:26,810
+something then you can say it exists
+
+1294
+01:13:24,830 --> 01:13:29,170
+okay they don't like to talk about this
+
+1295
+01:13:26,810 --> 01:13:33,050
+usually okay something like that the
+
+1296
+01:13:29,170 --> 01:13:35,600
+intuition ISM does these people they
+
+1297
+01:13:33,050 --> 01:13:39,020
+don't they don't believing anything
+
+1298
+01:13:35,600 --> 01:13:43,310
+dealing with infinity okay when you deal
+
+1299
+01:13:39,020 --> 01:13:45,020
+with something infinity they don't you
+
+1300
+01:13:43,310 --> 01:13:47,120
+know they don't like it they don't
+
+1301
+01:13:45,020 --> 01:13:50,000
+believe it they believe you know if you
+
+1302
+01:13:47,120 --> 01:13:52,250
+want to talk about something like in in
+
+1303
+01:13:50,000 --> 01:13:55,070
+a realm of infinity okay you have to
+
+1304
+01:13:52,250 --> 01:13:57,350
+actually build it like like show me show
+
+1305
+01:13:55,070 --> 01:13:58,100
+me you know okay I found this number
+
+1306
+01:13:57,350 --> 01:14:00,710
+with
+
+1307
+01:13:58,100 --> 01:14:04,180
+such a property then you say it exists
+
+1308
+01:14:00,710 --> 01:14:07,100
+you cannot say you cannot arrive at
+
+1309
+01:14:04,180 --> 01:14:09,560
+something exists so does doesn't exist
+
+1310
+01:14:07,100 --> 01:14:13,430
+by the argument of contradiction you
+
+1311
+01:14:09,560 --> 01:14:16,790
+know which is a conventional proof you
+
+1312
+01:14:13,430 --> 01:14:19,040
+know method of proof in math they they
+
+1313
+01:14:16,790 --> 01:14:21,740
+can prove something by contradiction
+
+1314
+01:14:19,040 --> 01:14:25,370
+meaning that we begin with this
+
+1315
+01:14:21,740 --> 01:14:29,180
+assumption then we use logic step by
+
+1316
+01:14:25,370 --> 01:14:31,610
+step we show we arrive at a at a
+
+1317
+01:14:29,180 --> 01:14:34,610
+conclusion that is absurd
+
+1318
+01:14:31,610 --> 01:14:37,490
+you know conflict with itself then you
+
+1319
+01:14:34,610 --> 01:14:39,670
+say then you know the traditional
+
+1320
+01:14:37,490 --> 01:14:43,340
+mathematicians say okay then the
+
+1321
+01:14:39,670 --> 01:14:45,560
+assumption is wrong okay that you know
+
+1322
+01:14:43,340 --> 01:14:47,720
+something exists is wrong therefore
+
+1323
+01:14:45,560 --> 01:14:51,260
+something does not exist you know this
+
+1324
+01:14:47,720 --> 01:14:58,000
+is the proof by contradiction okay yeah
+
+1325
+01:14:51,260 --> 01:15:05,300
+let's look up proved by contradict
+
+1326
+01:14:58,000 --> 01:15:07,460
+contradiction we want such we don't want
+
+1327
+01:15:05,300 --> 01:15:11,030
+dictionary okay yeah so there's a
+
+1328
+01:15:07,460 --> 01:15:13,580
+Wikipedia article on that prove by
+
+1329
+01:15:11,030 --> 01:15:17,180
+contradiction now this this is accepted
+
+1330
+01:15:13,580 --> 01:15:20,780
+by majority of mathematicians but
+
+1331
+01:15:17,180 --> 01:15:22,780
+however if you are a intuitionist you
+
+1332
+01:15:20,780 --> 01:15:25,820
+know if you are the constructing
+
+1333
+01:15:22,780 --> 01:15:27,410
+constructivism school of people you
+
+1334
+01:15:25,820 --> 01:15:29,390
+don't you don't believe in that when
+
+1335
+01:15:27,410 --> 01:15:32,300
+when when a mathematician shows the
+
+1336
+01:15:29,390 --> 01:15:36,260
+proof you know and using the method the
+
+1337
+01:15:32,300 --> 01:15:38,180
+method of proof by contradiction you you
+
+1338
+01:15:36,260 --> 01:15:40,310
+as far as you are concerned you don't
+
+1339
+01:15:38,180 --> 01:15:42,350
+believe it you know that's not proof
+
+1340
+01:15:40,310 --> 01:15:46,160
+that's not you know that's improvement
+
+1341
+01:15:42,350 --> 01:15:49,310
+so that's the school of the intuition
+
+1342
+01:15:46,160 --> 01:15:53,360
+ISM people's that's very interesting
+
+1343
+01:15:49,310 --> 01:15:55,910
+because today so you see so I find this
+
+1344
+01:15:53,360 --> 01:15:58,100
+very interesting because today you know
+
+1345
+01:15:55,910 --> 01:16:01,010
+we have been trying to because since the
+
+1346
+01:15:58,100 --> 01:16:02,540
+computer age you know since 1940s we
+
+1347
+01:16:01,010 --> 01:16:06,980
+have computers then we have you know
+
+1348
+01:16:02,540 --> 01:16:09,290
+digital computers CPU you know we
+
+1349
+01:16:06,980 --> 01:16:11,030
+started to and we research into
+
+1350
+01:16:09,290 --> 01:16:13,480
+artificial intelligence
+
+1351
+01:16:11,030 --> 01:16:17,059
+and we started to research into
+
+1352
+01:16:13,480 --> 01:16:19,969
+automated proof systems you know imagine
+
+1353
+01:16:17,059 --> 01:16:22,300
+how fantastic it is you know like we can
+
+1354
+01:16:19,969 --> 01:16:25,460
+write programs write you know programs
+
+1355
+01:16:22,300 --> 01:16:27,349
+you know so you know programs are so
+
+1356
+01:16:25,460 --> 01:16:30,469
+logical because computer that doesn't
+
+1357
+01:16:27,349 --> 01:16:32,449
+make errors you know so why don't we
+
+1358
+01:16:30,469 --> 01:16:35,960
+write a program so that it can just
+
+1359
+01:16:32,449 --> 01:16:37,909
+prove everything you know we can and let
+
+1360
+01:16:35,960 --> 01:16:39,619
+it run by itself you know it just prove
+
+1361
+01:16:37,909 --> 01:16:41,539
+everything you know proof it will
+
+1362
+01:16:39,619 --> 01:16:43,579
+automatically find a theory of
+
+1363
+01:16:41,539 --> 01:16:46,400
+relativity you know and you
+
+1364
+01:16:43,579 --> 01:16:49,760
+automatically find whatever you know
+
+1365
+01:16:46,400 --> 01:16:50,869
+theories we don't know yet that's that
+
+1366
+01:16:49,760 --> 01:16:53,840
+would be fantastic
+
+1367
+01:16:50,869 --> 01:17:13,730
+so this score is called automated prove
+
+1368
+01:16:53,840 --> 01:17:18,800
+the automate automated prove did I spell
+
+1369
+01:17:13,730 --> 01:17:22,010
+wrong PRF okay yeah this this field is
+
+1370
+01:17:18,800 --> 01:17:24,800
+called automated theorem proving you
+
+1371
+01:17:22,010 --> 01:17:27,829
+know this this is like a great fantastic
+
+1372
+01:17:24,800 --> 01:17:29,150
+goal if we can actually find a way to do
+
+1373
+01:17:27,829 --> 01:17:30,949
+that you know we you know we have
+
+1374
+01:17:29,150 --> 01:17:34,670
+computers just let it run
+
+1375
+01:17:30,949 --> 01:17:37,210
+you know you'll prove everything so this
+
+1376
+01:17:34,670 --> 01:17:39,530
+is part of the research into the
+
+1377
+01:17:37,210 --> 01:17:42,530
+foundation of math you know including
+
+1378
+01:17:39,530 --> 01:17:45,829
+all these different schools and today we
+
+1379
+01:17:42,530 --> 01:17:48,440
+know that you know I've been looking
+
+1380
+01:17:45,829 --> 01:17:50,659
+into this because I'm so interested you
+
+1381
+01:17:48,440 --> 01:17:53,030
+know as a programmer you think oh yeah
+
+1382
+01:17:50,659 --> 01:17:55,429
+this is great you know automated prove
+
+1383
+01:17:53,030 --> 01:17:58,340
+theorems we have you know Google
+
+1384
+01:17:55,429 --> 01:18:00,380
+tetrapod of data we just you know chunk
+
+1385
+01:17:58,340 --> 01:18:03,619
+you know the run run them in parallel
+
+1386
+01:18:00,380 --> 01:18:07,010
+then we will find everything it's not
+
+1387
+01:18:03,619 --> 01:18:09,770
+like that first of all there are so many
+
+1388
+01:18:07,010 --> 01:18:13,010
+issues organist that this fantasy
+
+1389
+01:18:09,770 --> 01:18:16,340
+because first of all you have you have
+
+1390
+01:18:13,010 --> 01:18:19,159
+things like you have things like
+
+1391
+01:18:16,340 --> 01:18:21,940
+theories in or cellular automata you
+
+1392
+01:18:19,159 --> 01:18:25,250
+know how do you say that you know
+
+1393
+01:18:21,940 --> 01:18:28,610
+meaning that if you know like
+
+1394
+01:18:25,250 --> 01:18:31,670
+monistic I mean even if the whole entire
+
+1395
+01:18:28,610 --> 01:18:34,550
+world is deterministic by by a rule by a
+
+1396
+01:18:31,670 --> 01:18:38,450
+simple rule however you can still not
+
+1397
+01:18:34,550 --> 01:18:40,580
+predict the future you know even though
+
+1398
+01:18:38,450 --> 01:18:43,150
+everything is deterministic like you
+
+1399
+01:18:40,580 --> 01:18:45,860
+know philosophers talk about freewheel
+
+1400
+01:18:43,150 --> 01:18:48,110
+like how do you how do you know you have
+
+1401
+01:18:45,860 --> 01:18:49,820
+freewheel you know and then some argue
+
+1402
+01:18:48,110 --> 01:18:52,490
+you actually don't have freewheel
+
+1403
+01:18:49,820 --> 01:18:54,890
+because if you know the universe physics
+
+1404
+01:18:52,490 --> 01:18:58,580
+atoms they they work according to
+
+1405
+01:18:54,890 --> 01:19:01,370
+certain rules you know physics therefore
+
+1406
+01:18:58,580 --> 01:19:03,110
+free wheel is impossible because you are
+
+1407
+01:19:01,370 --> 01:19:05,420
+actually just some mechanisms you know
+
+1408
+01:19:03,110 --> 01:19:08,210
+you are just you think of this way or
+
+1409
+01:19:05,420 --> 01:19:10,850
+that way because the wheels you know the
+
+1410
+01:19:08,210 --> 01:19:12,410
+ wheels in your brain big you know
+
+1411
+01:19:10,850 --> 01:19:14,510
+they rotate this way that way therefore
+
+1412
+01:19:12,410 --> 01:19:16,400
+you are therefore I am talking about
+
+1413
+01:19:14,510 --> 01:19:19,640
+this right now you know like everything
+
+1414
+01:19:16,400 --> 01:19:23,510
+is determined you know there's you but
+
+1415
+01:19:19,640 --> 01:19:26,930
+it turns out you know the if even if the
+
+1416
+01:19:23,510 --> 01:19:29,810
+universe is deterministic you cannot
+
+1417
+01:19:26,930 --> 01:19:37,430
+predict predict what will happen in the
+
+1418
+01:19:29,810 --> 01:19:39,620
+future because because essentially you
+
+1419
+01:19:37,430 --> 01:19:44,780
+have to run the computation that like if
+
+1420
+01:19:39,620 --> 01:19:47,000
+you I'm not sure there's I think there's
+
+1421
+01:19:44,780 --> 01:19:50,120
+a name to this what I'm talking about
+
+1422
+01:19:47,000 --> 01:19:58,460
+right now anyone knows but I'm not sure
+
+1423
+01:19:50,120 --> 01:20:03,470
+what is the name but anyway if you study
+
+1424
+01:19:58,460 --> 01:20:07,460
+if you read into cellular automata you
+
+1425
+01:20:03,470 --> 01:20:13,300
+might find that you know like a term
+
+1426
+01:20:07,460 --> 01:20:13,300
+that describes a situation where where
+
+1427
+01:20:13,750 --> 01:20:21,920
+even if the universe is deterministic is
+
+1428
+01:20:16,820 --> 01:20:24,800
+not predictable or you can maybe see an
+
+1429
+01:20:21,920 --> 01:20:27,680
+article of determinism in Wikipedia you
+
+1430
+01:20:24,800 --> 01:20:29,690
+might find it you can also look up
+
+1431
+01:20:27,680 --> 01:20:34,490
+freewheel you know they have articles
+
+1432
+01:20:29,690 --> 01:20:37,190
+like that anyway so back to the so so
+
+1433
+01:20:34,490 --> 01:20:39,170
+there are many obstacles to the you know
+
+1434
+01:20:37,190 --> 01:20:40,850
+the automated here improving
+
+1435
+01:20:39,170 --> 01:20:45,620
+proving everything because first of all
+
+1436
+01:20:40,850 --> 01:20:47,360
+so yeah even if you found a system where
+
+1437
+01:20:45,620 --> 01:20:50,179
+you can just run programs to keep it
+
+1438
+01:20:47,360 --> 01:20:53,920
+running you will find all theories in
+
+1439
+01:20:50,179 --> 01:20:58,190
+the universe even if that is true and
+
+1440
+01:20:53,920 --> 01:21:01,310
+even if you have you know you know you
+
+1441
+01:20:58,190 --> 01:21:04,610
+have a computer system that's 10 billion
+
+1442
+01:21:01,310 --> 01:21:06,949
+times then today then you can still not
+
+1443
+01:21:04,610 --> 01:21:10,820
+find you know new theorems because
+
+1444
+01:21:06,949 --> 01:21:13,010
+because possibly possibly because you
+
+1445
+01:21:10,820 --> 01:21:15,830
+have to compute for a billion years
+
+1446
+01:21:13,010 --> 01:21:18,920
+you see that's one of the obstacle even
+
+1447
+01:21:15,830 --> 01:21:21,770
+you if you have the automated computer
+
+1448
+01:21:18,920 --> 01:21:24,679
+system it might be you know you may take
+
+1449
+01:21:21,770 --> 01:21:26,929
+you 1 million 1 billion years to find to
+
+1450
+01:21:24,679 --> 01:21:29,000
+find the theorem because you know I mean
+
+1451
+01:21:26,929 --> 01:21:31,310
+regardless how powerful is your computer
+
+1452
+01:21:29,000 --> 01:21:33,290
+you can assume it's you know billion or
+
+1453
+01:21:31,310 --> 01:21:35,780
+ten billion or gazillion billion times
+
+1454
+01:21:33,290 --> 01:21:37,730
+more powerful it's I mean you see all
+
+1455
+01:21:35,780 --> 01:21:42,110
+these are related you still have like a
+
+1456
+01:21:37,730 --> 01:21:43,670
+billion years to compute it so that's
+
+1457
+01:21:42,110 --> 01:21:46,460
+one obstacle then there are other
+
+1458
+01:21:43,670 --> 01:21:49,160
+obstacles like when we study into the
+
+1459
+01:21:46,460 --> 01:21:51,679
+foundation of math you know these logics
+
+1460
+01:21:49,160 --> 01:21:53,989
+you know you realize like as a
+
+1461
+01:21:51,679 --> 01:21:56,060
+programmer okay I started to you know I
+
+1462
+01:21:53,989 --> 01:21:58,910
+studied them I read them I realize it's
+
+1463
+01:21:56,060 --> 01:22:02,239
+not so simple you started to see okay so
+
+1464
+01:21:58,910 --> 01:22:04,760
+logics so there's this this model this
+
+1465
+01:22:02,239 --> 01:22:07,760
+system you know logic system just like
+
+1466
+01:22:04,760 --> 01:22:10,100
+the Ukrainian geometry you know you you
+
+1467
+01:22:07,760 --> 01:22:12,440
+you gradient geometry know you cried you
+
+1468
+01:22:10,100 --> 01:22:16,040
+know hyperbolic or elliptic there are
+
+1469
+01:22:12,440 --> 01:22:18,410
+different systems so you study logic you
+
+1470
+01:22:16,040 --> 01:22:20,270
+realize that okay there's this logic
+
+1471
+01:22:18,410 --> 01:22:22,940
+system then this you know first order
+
+1472
+01:22:20,270 --> 01:22:25,610
+logic then there's a second order logic
+
+1473
+01:22:22,940 --> 01:22:28,130
+you know they have pros and cons then
+
+1474
+01:22:25,610 --> 01:22:31,190
+you have other things like motor logic
+
+1475
+01:22:28,130 --> 01:22:33,020
+then then type theory you know the you
+
+1476
+01:22:31,190 --> 01:22:36,650
+you kind of like this bunch of things
+
+1477
+01:22:33,020 --> 01:22:36,949
+and it's not like one is better than the
+
+1478
+01:22:36,650 --> 01:22:38,989
+other
+
+1479
+01:22:36,949 --> 01:22:41,630
+it's like pros and cons you know it's
+
+1480
+01:22:38,989 --> 01:22:43,699
+like programming languages you know you
+
+1481
+01:22:41,630 --> 01:22:46,340
+think oh this one programming language
+
+1482
+01:22:43,699 --> 01:22:50,270
+that's also open turns out you know it's
+
+1483
+01:22:46,340 --> 01:22:53,100
+just this bunch of logic systems in yeah
+
+1484
+01:22:50,270 --> 01:22:56,610
+so it gets very deep and
+
+1485
+01:22:53,100 --> 01:22:58,530
+complex so you end up so you know like
+
+1486
+01:22:56,610 --> 01:23:02,280
+I'm thinking oh if I just study logic
+
+1487
+01:22:58,530 --> 01:23:06,450
+then they all know you know the solid
+
+1488
+01:23:02,280 --> 01:23:08,520
+foundation of math so it's not like that
+
+1489
+01:23:06,450 --> 01:23:11,160
+so there are different schools of math
+
+1490
+01:23:08,520 --> 01:23:13,710
+each who have sub schools you know they
+
+1491
+01:23:11,160 --> 01:23:15,630
+differ you just likes philosophy then
+
+1492
+01:23:13,710 --> 01:23:19,080
+logic you know logic there are different
+
+1493
+01:23:15,630 --> 01:23:21,930
+types the each has pros and cons so it's
+
+1494
+01:23:19,080 --> 01:23:25,200
+not like one soft so then you have got
+
+1495
+01:23:21,930 --> 01:23:27,600
+their own incompleteness theorem okay
+
+1496
+01:23:25,200 --> 01:23:32,340
+that's that's another thing we haven't
+
+1497
+01:23:27,600 --> 01:23:36,360
+talked about yeah so you know so it's a
+
+1498
+01:23:32,340 --> 01:23:40,170
+very interesting ok I think that's kind
+
+1499
+01:23:36,360 --> 01:23:42,810
+of that's that covered what I wanted to
+
+1500
+01:23:40,170 --> 01:23:45,530
+cover basically you know I
+
+1501
+01:23:42,810 --> 01:23:48,990
+so we covered crisis of math in history
+
+1502
+01:23:45,530 --> 01:23:52,560
+the importance of foundation of math the
+
+1503
+01:23:48,990 --> 01:23:56,850
+different schools of philosophy of
+
+1504
+01:23:52,560 --> 01:24:00,000
+mathematics and today's situation where
+
+1505
+01:23:56,850 --> 01:24:03,710
+we have you know we we try to have proof
+
+1506
+01:24:00,000 --> 01:24:06,570
+systems you know automated proofs theory
+
+1507
+01:24:03,710 --> 01:24:10,230
+and programming languages like Haskell
+
+1508
+01:24:06,570 --> 01:24:12,180
+is kind of what Haskell you know it
+
+1509
+01:24:10,230 --> 01:24:14,820
+should be said you know Haskell is not
+
+1510
+01:24:12,180 --> 01:24:17,430
+actually it doesn't have anything to do
+
+1511
+01:24:14,820 --> 01:24:22,520
+with proofs really is it rather is just
+
+1512
+01:24:17,430 --> 01:24:26,490
+a pure functional programming which
+
+1513
+01:24:22,520 --> 01:24:29,430
+which are heavily associated with these
+
+1514
+01:24:26,490 --> 01:24:31,560
+things we are talking about you know so
+
+1515
+01:24:29,430 --> 01:24:37,680
+there are several languages like this
+
+1516
+01:24:31,560 --> 01:24:42,480
+one called that is a programming
+
+1517
+01:24:37,680 --> 01:24:44,790
+language to do proof and many has cars
+
+1518
+01:24:42,480 --> 01:24:47,370
+you know familiar with you know heard of
+
+1519
+01:24:44,790 --> 01:24:49,110
+you know it's kind of a frequently
+
+1520
+01:24:47,370 --> 01:24:51,000
+mentioned together with Haskell and
+
+1521
+01:24:49,110 --> 01:24:52,650
+there are several others there's also
+
+1522
+01:24:51,000 --> 01:24:55,050
+you know there are several others you
+
+1523
+01:24:52,650 --> 01:24:58,980
+can find them on you know if you keep
+
+1524
+01:24:55,050 --> 01:25:01,140
+clicking on Wikipedia you find them yeah
+
+1525
+01:24:58,980 --> 01:25:04,400
+that's that's basically okay okay yeah
+
+1526
+01:25:01,140 --> 01:25:06,479
+that's what I want to talk about today
+
+1527
+01:25:04,400 --> 01:25:09,030
+18 minutes yeah that's
+
+1528
+01:25:06,479 --> 01:25:12,090
+I think I'm gonna stop its read comments
+
+1529
+01:25:09,030 --> 01:25:17,059
+so let's have some chat random chats so
+
+1530
+01:25:12,090 --> 01:25:20,219
+say hi so come by and say hi in the sea
+
+1531
+01:25:17,059 --> 01:25:23,539
+so Dania was saying okay let me magnify
+
+1532
+01:25:20,219 --> 01:25:23,539
+the window and
+
+1533
+01:25:34,860 --> 01:25:45,590
+so Daniel was talking about the geometry
+
+1534
+01:25:39,030 --> 01:25:45,590
+on the sphere okay no 93 Panaji
+
+1535
+01:25:51,540 --> 01:26:00,700
+okay I think Dan you know is disagreeing
+
+1536
+01:25:56,320 --> 01:26:05,560
+with my characterization of spherical
+
+1537
+01:26:00,700 --> 01:26:12,940
+geometry okay okay yeah maybe you are
+
+1538
+01:26:05,560 --> 01:26:14,950
+right you know so Dino says on a
+
+1539
+01:26:12,940 --> 01:26:19,210
+different subject the no say is Cantor's
+
+1540
+01:26:14,950 --> 01:26:22,840
+incredible proof I once saw a refutation
+
+1541
+01:26:19,210 --> 01:26:27,330
+of Candace diagonal argument on a blog
+
+1542
+01:26:22,840 --> 01:26:31,060
+post some crackpot yeah they are a lot
+
+1543
+01:26:27,330 --> 01:26:32,670
+you know math math you know in the field
+
+1544
+01:26:31,060 --> 01:26:35,350
+of math is quite different from
+
+1545
+01:26:32,670 --> 01:26:37,600
+programming you know in programming
+
+1546
+01:26:35,350 --> 01:26:38,650
+anyone can say anything you know that's
+
+1547
+01:26:37,600 --> 01:26:40,870
+why you have programming
+
+1548
+01:26:38,650 --> 01:26:43,330
+flame wars you know foreign language
+
+1549
+01:26:40,870 --> 01:26:45,370
+frame was you know like oh oh he is the
+
+1550
+01:26:43,330 --> 01:26:47,800
+best overall functional programming or
+
+1551
+01:26:45,370 --> 01:26:52,720
+or some new you know paradigms like
+
+1552
+01:26:47,800 --> 01:26:54,760
+agile you know had your so but but
+
+1553
+01:26:52,720 --> 01:26:56,440
+in math you don't have things like that
+
+1554
+01:26:54,760 --> 01:26:59,880
+math everything is like almost
+
+1555
+01:26:56,440 --> 01:27:03,070
+everything is you know well defined and
+
+1556
+01:26:59,880 --> 01:27:05,890
+but however they are also crackpots in
+
+1557
+01:27:03,070 --> 01:27:09,240
+math but they are not like programmers
+
+1558
+01:27:05,890 --> 01:27:19,060
+you know they are kind of different
+
+1559
+01:27:09,240 --> 01:27:21,760
+crackpots yeah there's quite a few you
+
+1560
+01:27:19,060 --> 01:27:23,710
+say okay so so let me clarify so what's
+
+1561
+01:27:21,760 --> 01:27:26,920
+the difference of a crackpot in
+
+1562
+01:27:23,710 --> 01:27:29,050
+programming community and in math ok
+
+1563
+01:27:26,920 --> 01:27:30,970
+here the here's the difference if you
+
+1564
+01:27:29,050 --> 01:27:34,140
+are a crackpot you know you you cook up
+
+1565
+01:27:30,970 --> 01:27:38,020
+some idiotic pseudo scientific
+
+1566
+01:27:34,140 --> 01:27:40,420
+pseudo science idea and in in the
+
+1567
+01:27:38,020 --> 01:27:44,800
+programming community you can become a
+
+1568
+01:27:40,420 --> 01:27:46,900
+hero like for example I would say a few
+
+1569
+01:27:44,800 --> 01:27:49,360
+people I'd rather you know probably it's
+
+1570
+01:27:46,900 --> 01:27:50,860
+better not to mention name okay yeah you
+
+1571
+01:27:49,360 --> 01:27:53,440
+will become a hero
+
+1572
+01:27:50,860 --> 01:27:56,590
+like a leader of some big with giant
+
+1573
+01:27:53,440 --> 01:27:58,720
+corporation and with you know millions
+
+1574
+01:27:56,590 --> 01:28:01,780
+of programmer follow us you know they
+
+1575
+01:27:58,720 --> 01:28:03,820
+think let me just say for example Opie
+
+1576
+01:28:01,780 --> 01:28:05,380
+oh oh he is the greatest thing you know
+
+1577
+01:28:03,820 --> 01:28:07,210
+oh we will solve everything
+
+1578
+01:28:05,380 --> 01:28:09,700
+this happened in programming community
+
+1579
+01:28:07,210 --> 01:28:11,920
+and pro you know / laziness you know
+
+1580
+01:28:09,700 --> 01:28:14,200
+pearl you know it's supposed to you know
+
+1581
+01:28:11,920 --> 01:28:18,370
+this order had more than one way to do
+
+1582
+01:28:14,200 --> 01:28:21,580
+it that those are crackpots and for
+
+1583
+01:28:18,370 --> 01:28:23,710
+several years they've being right
+
+1584
+01:28:21,580 --> 01:28:27,010
+rampant in a programming industry like
+
+1585
+01:28:23,710 --> 01:28:30,370
+every programmer believe it that's some
+
+1586
+01:28:27,010 --> 01:28:33,490
+of the example then there's lots of tons
+
+1587
+01:28:30,370 --> 01:28:36,070
+of examples like no sq our own osq how
+
+1588
+01:28:33,490 --> 01:28:39,130
+is the best thing because SQL has these
+
+1589
+01:28:36,070 --> 01:28:43,450
+problems then today it seems that the
+
+1590
+01:28:39,130 --> 01:28:46,240
+days of no SQL is good you know and you
+
+1591
+01:28:43,450 --> 01:28:48,550
+know so it's very common
+
+1592
+01:28:46,240 --> 01:28:51,730
+this happens in programming community so
+
+1593
+01:28:48,550 --> 01:28:54,580
+what I'm my point is if you are you know
+
+1594
+01:28:51,730 --> 01:28:56,680
+you can be a crackpot but in programming
+
+1595
+01:28:54,580 --> 01:28:59,130
+community you can be you can become a
+
+1596
+01:28:56,680 --> 01:29:03,460
+leader like a hero like you know for
+
+1597
+01:28:59,130 --> 01:29:05,860
+Idol you know for tens of years but I
+
+1598
+01:29:03,460 --> 01:29:10,960
+mean for for for like 10 years or 5 or
+
+1599
+01:29:05,860 --> 01:29:14,080
+so but not so with math now in math
+
+1600
+01:29:10,960 --> 01:29:16,380
+there are also crackpots but typically
+
+1601
+01:29:14,080 --> 01:29:19,810
+this you know these people they don't
+
+1602
+01:29:16,380 --> 01:29:22,930
+they don't get big ok they will not
+
+1603
+01:29:19,810 --> 01:29:25,810
+become an idol by fire you know a lot of
+
+1604
+01:29:22,930 --> 01:29:28,090
+mathematicians not really they don't get
+
+1605
+01:29:25,810 --> 01:29:32,860
+big and every mathematician who actually
+
+1606
+01:29:28,090 --> 01:29:36,850
+studied you know the math you know no
+
+1607
+01:29:32,860 --> 01:29:40,600
+nose can tell they so the crackpots in
+
+1608
+01:29:36,850 --> 01:29:43,750
+math they only fool the mathematicians
+
+1609
+01:29:40,600 --> 01:29:45,490
+you know like outsiders yeah they are
+
+1610
+01:29:43,750 --> 01:29:48,700
+such people like there are people are
+
+1611
+01:29:45,490 --> 01:29:51,370
+saying that there are such people you
+
+1612
+01:29:48,700 --> 01:29:54,700
+know they they have a great number of
+
+1613
+01:29:51,370 --> 01:29:57,280
+followers non mathematicians he himself
+
+1614
+01:29:54,700 --> 01:29:59,440
+you know he say you know I'm the
+
+1615
+01:29:57,280 --> 01:30:01,330
+greatest mathematician you know one
+
+1616
+01:29:59,440 --> 01:30:03,880
+person one goes to five because you know
+
+1617
+01:30:01,330 --> 01:30:06,250
+and I have a lot of followers but they
+
+1618
+01:30:03,880 --> 01:30:08,410
+are not mathematicians did you know so
+
+1619
+01:30:06,250 --> 01:30:11,080
+that's a difference a crack party in
+
+1620
+01:30:08,410 --> 01:30:13,840
+programming you can become an idol hero
+
+1621
+01:30:11,080 --> 01:30:16,890
+and with with you know friends you know
+
+1622
+01:30:13,840 --> 01:30:19,060
+the funds we all you know come to you
+
+1623
+01:30:16,890 --> 01:30:22,120
+but for the mathematic
+
+1624
+01:30:19,060 --> 01:30:24,520
+shankrappa that you that does not happen
+
+1625
+01:30:22,120 --> 01:30:27,250
+okay usually that's not the case your
+
+1626
+01:30:24,520 --> 01:30:34,690
+followers you know if any it's not
+
+1627
+01:30:27,250 --> 01:30:40,330
+mathematicians okay so I have a lot
+
+1628
+01:30:34,690 --> 01:30:42,760
+comments a Dewey's okay so let me yeah
+
+1629
+01:30:40,330 --> 01:30:44,830
+they said I've been talking for 90
+
+1630
+01:30:42,760 --> 01:30:51,520
+minutes let me finish me the comments
+
+1631
+01:30:44,830 --> 01:30:59,440
+quick so they know you got a lot of
+
+1632
+01:30:51,520 --> 01:31:01,390
+things to say like I got okay so so I'm
+
+1633
+01:30:59,440 --> 01:31:07,720
+gonna you know I gotta skip some
+
+1634
+01:31:01,390 --> 01:31:14,850
+comments sorry because I gotta go I'm
+
+1635
+01:31:07,720 --> 01:31:17,920
+gonna get off Daniel says Brewers
+
+1636
+01:31:14,850 --> 01:31:20,920
+intuition intuition ISM is a bit nuts
+
+1637
+01:31:17,920 --> 01:31:27,700
+brewer quite clearly thinks that
+
+1638
+01:31:20,920 --> 01:31:31,360
+classical mathematics is false so see it
+
+1639
+01:31:27,700 --> 01:31:34,690
+hegemony said so she says one problem I
+
+1640
+01:31:31,360 --> 01:31:37,330
+have seen in many programmers is that
+
+1641
+01:31:34,690 --> 01:31:41,380
+they believe certain difficult topics in
+
+1642
+01:31:37,330 --> 01:31:45,100
+math are actually quite easy off for
+
+1643
+01:31:41,380 --> 01:31:46,800
+example you know like programmers and
+
+1644
+01:31:45,100 --> 01:31:49,510
+mathematicians they are typically
+
+1645
+01:31:46,800 --> 01:31:51,370
+separate communities you know they you
+
+1646
+01:31:49,510 --> 01:31:53,200
+know they are not yeah of course you
+
+1647
+01:31:51,370 --> 01:31:54,880
+know there are programmers there are a
+
+1648
+01:31:53,200 --> 01:31:57,760
+lot mathematicians who are programmers
+
+1649
+01:31:54,880 --> 01:32:00,730
+in vice-versa but in general they are
+
+1650
+01:31:57,760 --> 01:32:03,310
+just like two separate communities
+
+1651
+01:32:00,730 --> 01:32:05,890
+it's like gamers ok gamers and
+
+1652
+01:32:03,310 --> 01:32:08,290
+programmers you know cameras is its own
+
+1653
+01:32:05,890 --> 01:32:11,320
+community you know you a bunch of gamers
+
+1654
+01:32:08,290 --> 01:32:13,660
+playing you know overwatch you know
+
+1655
+01:32:11,320 --> 01:32:16,060
+playing in for tonight whatever is today
+
+1656
+01:32:13,660 --> 01:32:18,160
+minecraft they have slash you know love
+
+1657
+01:32:16,060 --> 01:32:22,600
+me they do means they do you know they
+
+1658
+01:32:18,160 --> 01:32:24,340
+love that gamers and programmers that's
+
+1659
+01:32:22,600 --> 01:32:26,710
+a different community but however they
+
+1660
+01:32:24,340 --> 01:32:29,290
+are quite a lot you know programmers who
+
+1661
+01:32:26,710 --> 01:32:31,630
+are also game us you know but in general
+
+1662
+01:32:29,290 --> 01:32:33,010
+they are the odd you know they are
+
+1663
+01:32:31,630 --> 01:32:35,770
+different their mindset
+
+1664
+01:32:33,010 --> 01:32:37,930
+you know they are just different same
+
+1665
+01:32:35,770 --> 01:32:40,870
+thing with mathematicians and
+
+1666
+01:32:37,930 --> 01:32:43,060
+programmers you know program usually the
+
+1667
+01:32:40,870 --> 01:32:46,600
+programmers they I don't you know they
+
+1668
+01:32:43,060 --> 01:32:50,560
+idolize mathematician usually like they
+
+1669
+01:32:46,600 --> 01:32:52,480
+they all math but in general programmers
+
+1670
+01:32:50,560 --> 01:32:55,270
+they don't know nothing like like they
+
+1671
+01:32:52,480 --> 01:32:58,980
+don't have the basic undergrad like for
+
+1672
+01:32:55,270 --> 01:33:01,420
+example you know sorry for saying is
+
+1673
+01:32:58,980 --> 01:33:02,800
+adjusting okay all those haskell
+
+1674
+01:33:01,420 --> 01:33:05,140
+programmers you know the haskell
+
+1675
+01:33:02,800 --> 01:33:07,660
+programmers they talk about old-time
+
+1676
+01:33:05,140 --> 01:33:10,180
+theory Oh theory or category theory
+
+1677
+01:33:07,660 --> 01:33:11,100
+theory you know improve oh I so you know
+
+1678
+01:33:10,180 --> 01:33:14,590
+curry
+
+1679
+01:33:11,100 --> 01:33:16,870
+Howard isomorphism you know but then you
+
+1680
+01:33:14,590 --> 01:33:18,670
+look at them you ask them what's a good
+
+1681
+01:33:16,870 --> 01:33:22,960
+theory they don't know what is a group
+
+1682
+01:33:18,670 --> 01:33:25,060
+they don't know what is a group like the
+
+1683
+01:33:22,960 --> 01:33:26,890
+fundamental building block of method
+
+1684
+01:33:25,060 --> 01:33:28,930
+they don't know most of them are like
+
+1685
+01:33:26,890 --> 01:33:31,510
+that you know the some of the you know
+
+1686
+01:33:28,930 --> 01:33:33,880
+today younger generation they talk about
+
+1687
+01:33:31,510 --> 01:33:36,760
+Haskell all day Oh theory because oh you
+
+1688
+01:33:33,880 --> 01:33:39,370
+know referential transparency because
+
+1689
+01:33:36,760 --> 01:33:42,340
+this is therefore you know the this that
+
+1690
+01:33:39,370 --> 01:33:45,760
+that math then they don't know what is a
+
+1691
+01:33:42,340 --> 01:33:48,450
+group what the that's why I don't
+
+1692
+01:33:45,760 --> 01:33:51,460
+like you know yeah well you know because
+
+1693
+01:33:48,450 --> 01:33:55,240
+you know that's why I don't like the I
+
+1694
+01:33:51,460 --> 01:33:56,980
+usually you know attack those you know I
+
+1695
+01:33:55,240 --> 01:34:05,770
+don't like pop you know whatever is
+
+1696
+01:33:56,980 --> 01:34:08,280
+popular hey Jaden Jaden Sarah's so let
+
+1697
+01:34:05,770 --> 01:34:08,280
+me see
+
+1698
+01:34:13,090 --> 01:34:18,650
+homotopy type theory yeah I want to oh
+
+1699
+01:34:15,800 --> 01:34:24,470
+my god today I actually I wanted to show
+
+1700
+01:34:18,650 --> 01:34:28,460
+you some links and some and it turns out
+
+1701
+01:34:24,470 --> 01:34:31,790
+you know I didn't cover them you know I
+
+1702
+01:34:28,460 --> 01:34:35,470
+by the way Jung this guy Jung bass he's
+
+1703
+01:34:31,790 --> 01:34:39,080
+a great mathematician okay he taught me
+
+1704
+01:34:35,470 --> 01:34:42,830
+many math over the past five years you
+
+1705
+01:34:39,080 --> 01:34:47,330
+know he he's a math Prager okay he well
+
+1706
+01:34:42,830 --> 01:34:49,010
+professionally he is now a quantum
+
+1707
+01:34:47,330 --> 01:34:52,970
+physicist okay
+
+1708
+01:34:49,010 --> 01:34:57,320
+he that's his research area right now
+
+1709
+01:34:52,970 --> 01:34:59,540
+you know country but but he he's also a
+
+1710
+01:34:57,320 --> 01:35:05,090
+math Prager you know he talked about
+
+1711
+01:34:59,540 --> 01:35:07,550
+math like educational not just you know
+
+1712
+01:35:05,090 --> 01:35:09,710
+there are a lot occasional math out
+
+1713
+01:35:07,550 --> 01:35:12,790
+there like typically they're like
+
+1714
+01:35:09,710 --> 01:35:15,320
+community building you know funny funny
+
+1715
+01:35:12,790 --> 01:35:17,000
+mobius strip they show you how to you
+
+1716
+01:35:15,320 --> 01:35:19,970
+know create a mobius to it you know
+
+1717
+01:35:17,000 --> 01:35:25,360
+those are those are fun but though they
+
+1718
+01:35:19,970 --> 01:35:29,510
+have no depth this guy john-carlos space
+
+1719
+01:35:25,360 --> 01:35:32,660
+he when he talked about math he talked
+
+1720
+01:35:29,510 --> 01:35:35,120
+about depth you know well typically you
+
+1721
+01:35:32,660 --> 01:35:39,770
+have to have a undergraduate you know
+
+1722
+01:35:35,120 --> 01:35:42,410
+just undergraduate math degree to to get
+
+1723
+01:35:39,770 --> 01:35:45,650
+it you know what that is actually true
+
+1724
+01:35:42,410 --> 01:35:49,070
+but anyway so so you know so i enjoy a
+
+1725
+01:35:45,650 --> 01:35:52,640
+lot of his you know you can learn from
+
+1726
+01:35:49,070 --> 01:35:54,470
+it but even if you don't have a math
+
+1727
+01:35:52,640 --> 01:35:56,180
+degree you can follow him because you
+
+1728
+01:35:54,470 --> 01:35:58,100
+have to start somewhere you know just
+
+1729
+01:35:56,180 --> 01:36:02,750
+just meet just read one and whatever
+
+1730
+01:35:58,100 --> 01:36:06,110
+then if it's you know you know if it's
+
+1731
+01:36:02,750 --> 01:36:08,360
+far ahead of you think then don't you
+
+1732
+01:36:06,110 --> 01:36:11,360
+know ignore it you know it's you have to
+
+1733
+01:36:08,360 --> 01:36:13,370
+start somewhere so anyway he is say so
+
+1734
+01:36:11,360 --> 01:36:15,800
+he's a quantum physicist you know he and
+
+1735
+01:36:13,370 --> 01:36:18,230
+he has there are several his sweet
+
+1736
+01:36:15,800 --> 01:36:21,860
+videos on youtube you can find just
+
+1737
+01:36:18,230 --> 01:36:24,830
+search his name John pace okay and he's
+
+1738
+01:36:21,860 --> 01:36:25,789
+also a big fan of category theory you
+
+1739
+01:36:24,830 --> 01:36:29,360
+know he's a
+
+1740
+01:36:25,789 --> 01:36:33,099
+category theorists and he has websites
+
+1741
+01:36:29,360 --> 01:36:37,780
+anyway so I highly recommended you know
+
+1742
+01:36:33,099 --> 01:36:37,780
+you follow him he's on Twitter
+
+1743
+01:36:38,079 --> 01:36:45,260
+yes but so there's this homotopy type
+
+1744
+01:36:41,929 --> 01:36:47,719
+theory okay so that's another topic I'm
+
+1745
+01:36:45,260 --> 01:36:50,260
+trying to learn this this is something
+
+1746
+01:36:47,719 --> 01:36:53,389
+I've been really interested this is a
+
+1747
+01:36:50,260 --> 01:36:54,889
+kind of a new foundation you know one of
+
+1748
+01:36:53,389 --> 01:36:58,179
+the approach one of the school of
+
+1749
+01:36:54,889 --> 01:37:00,889
+thought for the foundation of math and
+
+1750
+01:36:58,179 --> 01:37:04,760
+this foundation this school of thought
+
+1751
+01:37:00,889 --> 01:37:07,550
+is amenable to programming you know so
+
+1752
+01:37:04,760 --> 01:37:11,360
+if you are Haskell coder you would be
+
+1753
+01:37:07,550 --> 01:37:14,539
+interested in this highly because this
+
+1754
+01:37:11,360 --> 01:37:18,980
+way of treating mass can be codified
+
+1755
+01:37:14,539 --> 01:37:22,429
+into programming languages you know and
+
+1756
+01:37:18,980 --> 01:37:25,690
+so so this this book is free on a web
+
+1757
+01:37:22,429 --> 01:37:30,710
+but it's hard to read I try to read it
+
+1758
+01:37:25,690 --> 01:37:32,869
+you know it's how to read so you have
+
+1759
+01:37:30,710 --> 01:37:36,829
+table of contents you know type theory
+
+1760
+01:37:32,869 --> 01:37:41,289
+versus v theory you know it's how to
+
+1761
+01:37:36,829 --> 01:37:47,269
+read and its invented by this guy vadoma
+
+1762
+01:37:41,289 --> 01:37:48,920
+vadoma kovarsky russian he died like two
+
+1763
+01:37:47,269 --> 01:37:52,750
+years ago
+
+1764
+01:37:48,920 --> 01:37:55,849
+and you know here is one of his alko
+
+1765
+01:37:52,750 --> 01:37:58,190
+it's you know it's great way to read how
+
+1766
+01:37:55,849 --> 01:38:00,920
+I became interested in foundations of
+
+1767
+01:37:58,190 --> 01:38:04,480
+math so he tells you his journey and
+
+1768
+01:38:00,920 --> 01:38:09,920
+he's by the way he say he also won
+
+1769
+01:38:04,480 --> 01:38:11,989
+awards in math by the way this is
+
+1770
+01:38:09,920 --> 01:38:14,449
+something I want to say to any of you
+
+1771
+01:38:11,989 --> 01:38:18,280
+programmers you know if you really want
+
+1772
+01:38:14,449 --> 01:38:20,750
+to learn math you know you cannot just
+
+1773
+01:38:18,280 --> 01:38:22,969
+okay let me say you know let me say to
+
+1774
+01:38:20,750 --> 01:38:26,059
+ask ask our fans you know kind of like
+
+1775
+01:38:22,969 --> 01:38:29,679
+you know the pup has comments if you
+
+1776
+01:38:26,059 --> 01:38:32,360
+really want to get into math you cannot
+
+1777
+01:38:29,679 --> 01:38:34,130
+just say oh I'm just going to stick to
+
+1778
+01:38:32,360 --> 01:38:36,860
+category theory you know it's not like
+
+1779
+01:38:34,130 --> 01:38:39,619
+just like that you have to learn you
+
+1780
+01:38:36,860 --> 01:38:43,310
+know you have to learn you know
+
+1781
+01:38:39,619 --> 01:38:46,570
+basics of logic the the basics of you
+
+1782
+01:38:43,310 --> 01:38:49,820
+know goob theories almost fundamental
+
+1783
+01:38:46,570 --> 01:38:52,010
+for example you know this guy who
+
+1784
+01:38:49,820 --> 01:38:57,050
+created the foundation you know this
+
+1785
+01:38:52,010 --> 01:39:00,110
+homotopy type theory this is new by the
+
+1786
+01:38:57,050 --> 01:39:02,750
+way so this is actually cutting age you
+
+1787
+01:39:00,110 --> 01:39:05,780
+know in in a math proofs community this
+
+1788
+01:39:02,750 --> 01:39:09,860
+is kind of cutting age only began in
+
+1789
+01:39:05,780 --> 01:39:13,190
+that last ten years and it's created by
+
+1790
+01:39:09,860 --> 01:39:15,830
+him and he you know so like John Hayes
+
+1791
+01:39:13,190 --> 01:39:17,420
+told me actually you know you see so he
+
+1792
+01:39:15,830 --> 01:39:19,460
+wrote this article how I became
+
+1793
+01:39:17,420 --> 01:39:20,900
+interested in a foundation of math you
+
+1794
+01:39:19,460 --> 01:39:24,349
+read it you see the history it's
+
+1795
+01:39:20,900 --> 01:39:27,310
+fantastic ok you know it's not in the
+
+1796
+01:39:24,349 --> 01:39:36,830
+nose and by the way this article also
+
+1797
+01:39:27,310 --> 01:39:46,310
+was shown to me by based on am i
+
+1798
+01:39:36,830 --> 01:39:51,260
+frozen ok so looks like ok so this
+
+1799
+01:39:46,310 --> 01:39:53,119
+article am I still talking ok so this
+
+1800
+01:39:51,260 --> 01:39:55,790
+all about was shown to me by base and
+
+1801
+01:39:53,119 --> 01:40:02,810
+John Bay is also said you know he told
+
+1802
+01:39:55,790 --> 01:40:05,599
+me here that you know venomoth Podolski
+
+1803
+01:40:02,810 --> 01:40:08,060
+was better at math than most of us okay
+
+1804
+01:40:05,599 --> 01:40:11,179
+he's being polite he is one of the great
+
+1805
+01:40:08,060 --> 01:40:13,760
+mathematician okay base you know he says
+
+1806
+01:40:11,179 --> 01:40:16,190
+okay vadoma is was better than math they
+
+1807
+01:40:13,760 --> 01:40:18,739
+most of us and he has spent years
+
+1808
+01:40:16,190 --> 01:40:23,210
+mastering homotopy theory before
+
+1809
+01:40:18,739 --> 01:40:25,250
+inventing homotopy type theory okay so
+
+1810
+01:40:23,210 --> 01:40:27,469
+this is critical so it's not like you
+
+1811
+01:40:25,250 --> 01:40:30,619
+know he just invented homotopy type
+
+1812
+01:40:27,469 --> 01:40:32,420
+theory he's he studied years in homotopy
+
+1813
+01:40:30,619 --> 01:40:36,130
+theory which is very interesting
+
+1814
+01:40:32,420 --> 01:40:39,860
+homotopy theory is a you know that's
+
+1815
+01:40:36,130 --> 01:40:44,900
+it's part of the topology very abstract
+
+1816
+01:40:39,860 --> 01:40:47,030
+and and difficult you know so anyway so
+
+1817
+01:40:44,900 --> 01:40:49,040
+what I'm pointing is that you know if
+
+1818
+01:40:47,030 --> 01:40:50,929
+you are program you you know don't don't
+
+1819
+01:40:49,040 --> 01:40:53,360
+try to you know don't think you're gonna
+
+1820
+01:40:50,929 --> 01:40:56,180
+cut corners you know I'm just going to
+
+1821
+01:40:53,360 --> 01:41:07,360
+the graph theory and I don't know Methos
+
+1822
+01:40:56,180 --> 01:41:07,360
+it's not like that okay if you so what
+
+1823
+01:41:11,740 --> 01:41:23,900
+so Sid says creeper so we back in the
+
+1824
+01:41:19,910 --> 01:41:26,380
+mine kappa oh man what are you guys
+
+1825
+01:41:23,900 --> 01:41:26,380
+talking about
+
+1826
+01:41:27,670 --> 01:41:36,040
+okay we got a TRO I guess this Luiz
+
+1827
+01:41:31,940 --> 01:41:36,040
+Sara's guy I don't know what he's
+
+1828
+01:41:43,720 --> 01:41:52,840
+oh that's a book by John bass yes yeah
+
+1829
+01:41:48,120 --> 01:41:54,310
+yeah so I think that's it for today so
+
+1830
+01:41:52,840 --> 01:41:58,560
+thank you guys for coming
+
+1831
+01:41:54,310 --> 01:42:09,300
+yeah that's it for today 100 minutes
+
+1832
+01:41:58,560 --> 01:42:09,300
+okay so thank you guys bye
+

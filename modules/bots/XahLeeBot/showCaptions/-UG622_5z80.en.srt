@@ -1,0 +1,4640 @@
+1
+00:00:01,190 --> 00:00:10,910
+good morning everyone
+
+2
+00:00:03,259 --> 00:00:10,910
+welcome to Santa show today is July 9th
+
+3
+00:00:11,090 --> 00:00:20,250
+2019 4 o'clock p.m. California time
+
+4
+00:00:17,869 --> 00:00:27,090
+today we're gonna talk about two things
+
+5
+00:00:20,250 --> 00:00:30,570
+okay so the first thing is the first the
+
+6
+00:00:27,090 --> 00:00:33,329
+first thing is about unicode there is
+
+7
+00:00:30,570 --> 00:00:36,149
+this problem of unicode so we cannot
+
+8
+00:00:33,329 --> 00:00:41,670
+talk about that then the other thing is
+
+9
+00:00:36,149 --> 00:00:45,570
+we are going to do a live coding of : we
+
+10
+00:00:41,670 --> 00:00:49,110
+are in first tutorial so wow I'm coding
+
+11
+00:00:45,570 --> 00:00:52,890
+it I'm gonna explain how to do it so you
+
+12
+00:00:49,110 --> 00:00:56,969
+can learn it's good for : beginners so
+
+13
+00:00:52,890 --> 00:00:58,770
+if you have never learned : I recommend
+
+14
+00:00:56,969 --> 00:01:02,570
+that you can learn you know you can I
+
+15
+00:00:58,770 --> 00:01:07,790
+hope it inspires you and also as a
+
+16
+00:01:02,570 --> 00:01:10,530
+beginning course :
+
+17
+00:01:07,790 --> 00:01:12,900
+you know : is the most popular one of
+
+18
+00:01:10,530 --> 00:01:15,659
+the most popular industrial language
+
+19
+00:01:12,900 --> 00:01:19,619
+it's fantastic it's my favorite
+
+20
+00:01:15,659 --> 00:01:22,140
+industrial language so we have one guy
+
+21
+00:01:19,619 --> 00:01:25,290
+watching say hi and we're gonna begin
+
+22
+00:01:22,140 --> 00:01:28,290
+talking about today's topic let's let's
+
+23
+00:01:25,290 --> 00:01:30,229
+begin begin at the beginning let's begin
+
+24
+00:01:28,290 --> 00:01:36,390
+talking about it
+
+25
+00:01:30,229 --> 00:01:38,729
+so let's get the window up here so you
+
+26
+00:01:36,390 --> 00:01:41,759
+know so there is this problem with
+
+27
+00:01:38,729 --> 00:01:46,590
+unicode you know so you your writings
+
+28
+00:01:41,759 --> 00:01:48,570
+you know you write you know in
+
+29
+00:01:46,590 --> 00:01:51,299
+mathematics suppose you write you know
+
+30
+00:01:48,570 --> 00:01:58,579
+you know let's say let's see this
+
+31
+00:01:51,299 --> 00:02:03,390
+okay oops let's say okay so you you
+
+32
+00:01:58,579 --> 00:02:03,840
+what's going on what oh okay it's so
+
+33
+00:02:03,390 --> 00:02:09,929
+long
+
+34
+00:02:03,840 --> 00:02:13,910
+okay so you write a change to be okay so
+
+35
+00:02:09,929 --> 00:02:19,680
+a let's say not AP but
+
+36
+00:02:13,910 --> 00:02:23,490
+but let's say you say that okay so you
+
+37
+00:02:19,680 --> 00:02:27,510
+like that and you know you write that in
+
+38
+00:02:23,490 --> 00:02:29,880
+your let's say PhD thesis or some you
+
+39
+00:02:27,510 --> 00:02:32,489
+know online publication in your blog or
+
+40
+00:02:29,880 --> 00:02:34,430
+you know something somewhere important
+
+41
+00:02:32,489 --> 00:02:36,930
+you know you want the words
+
+42
+00:02:34,430 --> 00:02:40,800
+mathematicians to read it you know a
+
+43
+00:02:36,930 --> 00:02:43,050
+proof of something some theory then in
+
+44
+00:02:40,800 --> 00:02:46,550
+your code you know after a few years it
+
+45
+00:02:43,050 --> 00:02:51,750
+becomes this so you see your double
+
+46
+00:02:46,550 --> 00:02:55,680
+double headed arrow usually you know it
+
+47
+00:02:51,750 --> 00:02:59,069
+becomes this emoji it's pretty [ __ ] up
+
+48
+00:02:55,680 --> 00:03:03,569
+okay and so that is a problem with
+
+49
+00:02:59,069 --> 00:03:07,260
+unicode and this symbol by the way this
+
+50
+00:03:03,569 --> 00:03:13,519
+symbol usually means it's usually means
+
+51
+00:03:07,260 --> 00:03:13,519
+if and only if or it it can means
+
+52
+00:03:14,900 --> 00:03:23,579
+implication
+
+53
+00:03:16,019 --> 00:03:28,980
+you know necessary and well how they say
+
+54
+00:03:23,579 --> 00:03:31,860
+necessary and sufficient sufficient and
+
+55
+00:03:28,980 --> 00:03:34,680
+necessary condition but anyway it
+
+56
+00:03:31,860 --> 00:03:38,130
+usually just means if and only if the
+
+57
+00:03:34,680 --> 00:03:40,500
+easiest way to remember such a property
+
+58
+00:03:38,130 --> 00:03:43,440
+is that when you have something if and
+
+59
+00:03:40,500 --> 00:03:46,980
+only if that means a implies P P implies
+
+60
+00:03:43,440 --> 00:03:49,590
+a or in other words a and B are kind of
+
+61
+00:03:46,980 --> 00:03:51,750
+almost like the same thing okay when you
+
+62
+00:03:49,590 --> 00:03:55,739
+have condition a you know it's the same
+
+63
+00:03:51,750 --> 00:04:02,130
+as P well I mean not the same but it
+
+64
+00:03:55,739 --> 00:04:04,380
+implies in both ways so so so in other
+
+65
+00:04:02,130 --> 00:04:10,070
+words you know when you have this in
+
+66
+00:04:04,380 --> 00:04:13,920
+math that means the a and B are of the
+
+67
+00:04:10,070 --> 00:04:18,950
+same condition not not the same
+
+68
+00:04:13,920 --> 00:04:18,950
+condition but the same kind of
+
+69
+00:04:21,019 --> 00:04:26,640
+requirement like some sort of
+
+70
+00:04:23,610 --> 00:04:27,510
+requirement requirement structure anyway
+
+71
+00:04:26,640 --> 00:04:30,360
+that that's
+
+72
+00:04:27,510 --> 00:04:32,790
+that's math you know so that the problem
+
+73
+00:04:30,360 --> 00:04:35,940
+here is emoji you know the emoji the
+
+74
+00:04:32,790 --> 00:04:39,720
+damnation of the emoji and this happened
+
+75
+00:04:35,940 --> 00:04:41,700
+with Unicode you know they did so let me
+
+76
+00:04:39,720 --> 00:04:43,560
+give you another example then we're
+
+77
+00:04:41,700 --> 00:04:46,590
+gonna explain what's what's really going
+
+78
+00:04:43,560 --> 00:04:49,380
+on so in my articles I have you know
+
+79
+00:04:46,590 --> 00:04:51,600
+describing keywords I have I wrote this
+
+80
+00:04:49,380 --> 00:04:54,570
+you know okay so this particular
+
+81
+00:04:51,600 --> 00:04:55,710
+keyboard you have more type media keys
+
+82
+00:04:54,570 --> 00:04:58,890
+this is this
+
+83
+00:04:55,710 --> 00:05:03,630
+you know those multimedia keys like stop
+
+84
+00:04:58,890 --> 00:05:07,230
+play pause fast forward fast backward
+
+85
+00:05:03,630 --> 00:05:09,240
+and mute and you also have sound control
+
+86
+00:05:07,230 --> 00:05:12,570
+keys you know you can increase the sound
+
+87
+00:05:09,240 --> 00:05:15,270
+or lower the sound so those are typical
+
+88
+00:05:12,570 --> 00:05:18,030
+multimedia keys on a keyboard computer
+
+89
+00:05:15,270 --> 00:05:21,720
+keyboard and also you have typically
+
+90
+00:05:18,030 --> 00:05:24,330
+represented by these symbols so you
+
+91
+00:05:21,720 --> 00:05:26,100
+wrote this but a few years later they
+
+92
+00:05:24,330 --> 00:05:37,110
+they become these you know they become
+
+93
+00:05:26,100 --> 00:05:39,540
+is this this like inconsistent crap you
+
+94
+00:05:37,110 --> 00:05:41,700
+know part of it is in this character for
+
+95
+00:05:39,540 --> 00:05:44,880
+example the stop sign or square black
+
+96
+00:05:41,700 --> 00:05:48,090
+square is not emoji but then the
+
+97
+00:05:44,880 --> 00:05:51,560
+fastball for fastback word and play
+
+98
+00:05:48,090 --> 00:05:55,830
+button becoming emoji and also the sound
+
+99
+00:05:51,560 --> 00:05:58,170
+you know mute symbol they all become
+
+100
+00:05:55,830 --> 00:06:04,140
+emoji but you know it so it becomes this
+
+101
+00:05:58,170 --> 00:06:06,480
+it's this is a problem you know this is
+
+102
+00:06:04,140 --> 00:06:09,740
+a problem due to what's called I think
+
+103
+00:06:06,480 --> 00:06:12,630
+it's something called emoji and symbol
+
+104
+00:06:09,740 --> 00:06:15,840
+much something like that but basically
+
+105
+00:06:12,630 --> 00:06:20,370
+the history of it is that you know
+
+106
+00:06:15,840 --> 00:06:24,000
+around 2007 also that Unicode invented
+
+107
+00:06:20,370 --> 00:06:27,090
+in emoji which are you know emoji which
+
+108
+00:06:24,000 --> 00:06:32,550
+are this you know these characters emoji
+
+109
+00:06:27,090 --> 00:06:35,400
+you have all sort of emojis Unicode
+
+110
+00:06:32,550 --> 00:06:37,940
+didn't invented it it was kind of
+
+111
+00:06:35,400 --> 00:06:41,470
+invented in Japan you know it came from
+
+112
+00:06:37,940 --> 00:06:45,540
+emoticon by anyway so
+
+113
+00:06:41,470 --> 00:06:49,660
+so around 2007 also Unicode introduced
+
+114
+00:06:45,540 --> 00:06:52,300
+emoji to to their you know characters so
+
+115
+00:06:49,660 --> 00:06:56,440
+that you know it's a good thing because
+
+116
+00:06:52,300 --> 00:06:58,630
+the idea is that so we can unify I mean
+
+117
+00:06:56,440 --> 00:07:02,230
+all the emoji you know this you know
+
+118
+00:06:58,630 --> 00:07:04,510
+smiley characters you have a code point
+
+119
+00:07:02,230 --> 00:07:07,060
+you have a code represented so it's kind
+
+120
+00:07:04,510 --> 00:07:10,540
+of like standardized you know so
+
+121
+00:07:07,060 --> 00:07:12,820
+everyone will have these kind of you
+
+122
+00:07:10,540 --> 00:07:17,860
+know emoticons you know X facial
+
+123
+00:07:12,820 --> 00:07:20,920
+expressions characters so so so you so
+
+124
+00:07:17,860 --> 00:07:25,870
+Japanese you know began to use it around
+
+125
+00:07:20,920 --> 00:07:30,070
+year 2000 okay then Unicode in around
+
+126
+00:07:25,870 --> 00:07:32,410
+2007 also they they introduced in emoji
+
+127
+00:07:30,070 --> 00:07:35,410
+you know from they take it from Japan
+
+128
+00:07:32,410 --> 00:07:39,460
+you know based on the Japanese emoticons
+
+129
+00:07:35,410 --> 00:07:43,780
+you know emoji so Unicode introduced
+
+130
+00:07:39,460 --> 00:07:47,440
+emoji around 2007 but then what happens
+
+131
+00:07:43,780 --> 00:07:51,610
+is that then some of the characters are
+
+132
+00:07:47,440 --> 00:07:53,260
+not emoji for example these stars you
+
+133
+00:07:51,610 --> 00:07:57,130
+know you have a bunch of stars in
+
+134
+00:07:53,260 --> 00:08:04,840
+Unicode or you have for example let's
+
+135
+00:07:57,130 --> 00:08:07,840
+say costs you know different causes you
+
+136
+00:08:04,840 --> 00:08:10,600
+know all this sort of dim bats you know
+
+137
+00:08:07,840 --> 00:08:14,830
+game characters you know chess chess
+
+138
+00:08:10,600 --> 00:08:18,340
+characters playing cards characters so
+
+139
+00:08:14,830 --> 00:08:20,680
+these exist you know many of these exist
+
+140
+00:08:18,340 --> 00:08:26,380
+in Unicode you know such as the star
+
+141
+00:08:20,680 --> 00:08:28,750
+signs stars okay so so this already
+
+142
+00:08:26,380 --> 00:08:31,030
+exists in Unicode then you know Unicode
+
+143
+00:08:28,750 --> 00:08:36,599
+introduced emoji you know which are
+
+144
+00:08:31,030 --> 00:08:39,940
+these smiley symbols then apparently
+
+145
+00:08:36,599 --> 00:08:42,430
+some companies you know it becomes you
+
+146
+00:08:39,940 --> 00:08:45,370
+know some companies companies when they
+
+147
+00:08:42,430 --> 00:08:48,010
+see your star sign for example they try
+
+148
+00:08:45,370 --> 00:08:51,370
+to render it like that like emoji you
+
+149
+00:08:48,010 --> 00:08:56,260
+know they try to replace it with us you
+
+150
+00:08:51,370 --> 00:08:59,830
+know into a colored you know pretty
+
+151
+00:08:56,260 --> 00:09:02,620
+picture why do company do that of course
+
+152
+00:08:59,830 --> 00:09:07,149
+they so that they think the product will
+
+153
+00:09:02,620 --> 00:09:09,700
+be better you know so anyway so so some
+
+154
+00:09:07,149 --> 00:09:14,080
+some characters even though they are not
+
+155
+00:09:09,700 --> 00:09:17,140
+emoji but they there's a you know
+
+156
+00:09:14,080 --> 00:09:19,480
+there's a situation where people render
+
+157
+00:09:17,140 --> 00:09:20,050
+them as emoji you know like a pretty
+
+158
+00:09:19,480 --> 00:09:26,040
+picture
+
+159
+00:09:20,050 --> 00:09:29,200
+anyway so so so Unicode began to kind of
+
+160
+00:09:26,040 --> 00:09:31,660
+standardize these as well you know these
+
+161
+00:09:29,200 --> 00:09:35,290
+único started to say okay which
+
+162
+00:09:31,660 --> 00:09:37,990
+character should be emoji which
+
+163
+00:09:35,290 --> 00:09:40,120
+character should remain a symbol you
+
+164
+00:09:37,990 --> 00:09:44,529
+know not becoming a colored you know
+
+165
+00:09:40,120 --> 00:09:49,209
+pretty pictures so they started to say
+
+166
+00:09:44,529 --> 00:09:52,029
+that and that is over here it's you know
+
+167
+00:09:49,209 --> 00:09:55,149
+they started they started to specify on
+
+168
+00:09:52,029 --> 00:09:58,209
+that but what happened is that they just
+
+169
+00:09:55,149 --> 00:10:03,910
+[ __ ] up you know they just totally
+
+170
+00:09:58,209 --> 00:10:06,580
+[ __ ] up so so let me explain what is a
+
+171
+00:10:03,910 --> 00:10:11,080
+current situation you know the technical
+
+172
+00:10:06,580 --> 00:10:14,140
+you know SPECT regarding when is a you
+
+173
+00:10:11,080 --> 00:10:16,959
+know a character is a emoji when is a
+
+174
+00:10:14,140 --> 00:10:20,680
+text so basically you Unicode
+
+175
+00:10:16,959 --> 00:10:25,150
+specification says there are some
+
+176
+00:10:20,680 --> 00:10:28,150
+characters came be rendered as text and
+
+177
+00:10:25,150 --> 00:10:33,040
+some characters can also be rendered as
+
+178
+00:10:28,150 --> 00:10:36,209
+emoji okay so they so a character can be
+
+179
+00:10:33,040 --> 00:10:41,230
+rendered as text or emoji but únicos
+
+180
+00:10:36,209 --> 00:10:45,130
+specifies that certain characters can
+
+181
+00:10:41,230 --> 00:10:48,329
+only be text the can only be rendered as
+
+182
+00:10:45,130 --> 00:10:49,600
+text for example you know English
+
+183
+00:10:48,329 --> 00:10:52,060
+alphabet
+
+184
+00:10:49,600 --> 00:10:55,149
+you know letters ABCD those are just
+
+185
+00:10:52,060 --> 00:10:57,910
+text you can you know you would it is
+
+186
+00:10:55,149 --> 00:10:59,829
+incorrect to render them into emoji you
+
+187
+00:10:57,910 --> 00:11:03,640
+know well you can do that but that's you
+
+188
+00:10:59,829 --> 00:11:06,120
+know just technically incorrect so some
+
+189
+00:11:03,640 --> 00:11:06,120
+text
+
+190
+00:11:06,180 --> 00:11:13,320
+can only be text according to unicode
+
+191
+00:11:08,940 --> 00:11:16,470
+suspect okay now some other characters
+
+192
+00:11:13,320 --> 00:11:20,370
+are always emoji they can never be
+
+193
+00:11:16,470 --> 00:11:24,210
+rendered in a texture you know symbol
+
+194
+00:11:20,370 --> 00:11:27,330
+fashion so what are those those are you
+
+195
+00:11:24,210 --> 00:11:30,270
+know for example the it is emoji you
+
+196
+00:11:27,330 --> 00:11:32,730
+know some of them is how explain okay
+
+197
+00:11:30,270 --> 00:11:36,810
+but anyway let's check out food okay so
+
+198
+00:11:32,730 --> 00:11:39,420
+all these characters I think of them by
+
+199
+00:11:36,810 --> 00:11:41,250
+according to Unicode they must always be
+
+200
+00:11:39,420 --> 00:11:44,670
+rendered as emoji I mean they are
+
+201
+00:11:41,250 --> 00:11:50,540
+classified as emoji on the other hand
+
+202
+00:11:44,670 --> 00:11:55,230
+there's the third a third category some
+
+203
+00:11:50,540 --> 00:11:59,250
+texts have both emoji and the text
+
+204
+00:11:55,230 --> 00:12:02,490
+textual representation so this is what
+
+205
+00:11:59,250 --> 00:12:05,760
+Unicode consortium you know the standard
+
+206
+00:12:02,490 --> 00:12:08,310
+says so some characters can only be text
+
+207
+00:12:05,760 --> 00:12:11,250
+some characters can be rendered as emoji
+
+208
+00:12:08,310 --> 00:12:14,070
+I mean can only be rendered as emoji and
+
+209
+00:12:11,250 --> 00:12:20,730
+while another set of characters can be
+
+210
+00:12:14,070 --> 00:12:22,860
+either way and they also introduced let
+
+211
+00:12:20,730 --> 00:12:25,500
+me show you they are also introduced a
+
+212
+00:12:22,860 --> 00:12:28,200
+variation character now a variation
+
+213
+00:12:25,500 --> 00:12:31,650
+character is basically an invisible
+
+214
+00:12:28,200 --> 00:12:34,170
+character for example like the tab key
+
+215
+00:12:31,650 --> 00:12:36,360
+the tab character or the return newline
+
+216
+00:12:34,170 --> 00:12:39,690
+you know characters those are invisible
+
+217
+00:12:36,360 --> 00:12:42,450
+also the space characters are in this is
+
+218
+00:12:39,690 --> 00:12:48,990
+a example of invisible character so
+
+219
+00:12:42,450 --> 00:12:51,840
+Unicode created two they created a bunch
+
+220
+00:12:48,990 --> 00:12:54,120
+but you know some of the they created
+
+221
+00:12:51,840 --> 00:12:57,240
+these invisible characters they are
+
+222
+00:12:54,120 --> 00:13:00,630
+called variations selector so there are
+
+223
+00:12:57,240 --> 00:13:05,190
+sixteen of them so the purpose of them
+
+224
+00:13:00,630 --> 00:13:07,440
+is that when you have this character you
+
+225
+00:13:05,190 --> 00:13:10,350
+know this variation selector after
+
+226
+00:13:07,440 --> 00:13:13,050
+another character it tells you know
+
+227
+00:13:10,350 --> 00:13:15,660
+whatever the application to render the
+
+228
+00:13:13,050 --> 00:13:20,360
+previous character in a particular way
+
+229
+00:13:15,660 --> 00:13:20,360
+so for example
+
+230
+00:13:22,300 --> 00:13:28,070
+for example the soccer ball let's look
+
+231
+00:13:25,250 --> 00:13:29,990
+at this soccer ball okay so this this
+
+232
+00:13:28,070 --> 00:13:33,260
+soccer ball is a Unicode you know
+
+233
+00:13:29,990 --> 00:13:37,160
+character like every other character in
+
+234
+00:13:33,260 --> 00:13:41,170
+Unicode so according to Unicode Specht
+
+235
+00:13:37,160 --> 00:13:44,030
+this soccer ball has both emoji
+
+236
+00:13:41,170 --> 00:13:46,700
+representation and also a textual
+
+237
+00:13:44,030 --> 00:13:49,310
+representation so this soccer ball
+
+238
+00:13:46,700 --> 00:13:53,150
+character can be you know represent in
+
+239
+00:13:49,310 --> 00:13:57,470
+either way now if you wanted to be
+
+240
+00:13:53,150 --> 00:14:00,740
+textual you can add a variation selector
+
+241
+00:13:57,470 --> 00:14:03,770
+15 after the character that should tell
+
+242
+00:14:00,740 --> 00:14:06,530
+the application to render the soccer
+
+243
+00:14:03,770 --> 00:14:09,710
+ball like this here you know as a text
+
+244
+00:14:06,530 --> 00:14:13,670
+you know that is a simple not not
+
+245
+00:14:09,710 --> 00:14:15,740
+colorful pretty picture but if you want
+
+246
+00:14:13,670 --> 00:14:18,350
+a soccer ball to be rendered as a emoji
+
+247
+00:14:15,740 --> 00:14:21,800
+you know a pretty picture then you you
+
+248
+00:14:18,350 --> 00:14:24,050
+can use the variation selector then it
+
+249
+00:14:21,800 --> 00:14:27,730
+should be rendered that like you know a
+
+250
+00:14:24,050 --> 00:14:31,550
+pretty picture
+
+251
+00:14:27,730 --> 00:14:34,850
+so in summary unic expect you know they
+
+252
+00:14:31,550 --> 00:14:37,700
+say this is the this is the way to go
+
+253
+00:14:34,850 --> 00:14:40,250
+so some characters can be okay are
+
+254
+00:14:37,700 --> 00:14:44,890
+always text only some are always emoji
+
+255
+00:14:40,250 --> 00:14:48,710
+while others can be text or emoji and
+
+256
+00:14:44,890 --> 00:14:51,710
+also unicode created created this
+
+257
+00:14:48,710 --> 00:14:58,130
+variation selectors invisible characters
+
+258
+00:14:51,710 --> 00:15:00,800
+that allows you to kind of specify how a
+
+259
+00:14:58,130 --> 00:15:06,050
+character is represented on you know on
+
+260
+00:15:00,800 --> 00:15:10,370
+your application so this is what unico
+
+261
+00:15:06,050 --> 00:15:13,880
+Specht did but it turns out it's it's
+
+262
+00:15:10,370 --> 00:15:17,150
+crap it's very bad okay so you see you
+
+263
+00:15:13,880 --> 00:15:19,490
+turns also these characters so this set
+
+264
+00:15:17,150 --> 00:15:23,750
+of characters you can see all of them
+
+265
+00:15:19,490 --> 00:15:29,780
+here they are not many like 1 2 3 4 5 6
+
+266
+00:15:23,750 --> 00:15:32,570
+7 8 9 10 10 times like 2010 like 200 of
+
+267
+00:15:29,780 --> 00:15:35,960
+them they can both be when
+
+268
+00:15:32,570 --> 00:15:39,830
+emoji or text okay oh and there's
+
+269
+00:15:35,960 --> 00:15:42,110
+another concept of default like if you
+
+270
+00:15:39,830 --> 00:15:45,050
+do not use any variation character
+
+271
+00:15:42,110 --> 00:15:47,690
+variation selector then what should be
+
+272
+00:15:45,050 --> 00:15:48,530
+the default rendering should it be text
+
+273
+00:15:47,690 --> 00:15:52,220
+or emoji
+
+274
+00:15:48,530 --> 00:15:55,730
+so anyway Unicode says these characters
+
+275
+00:15:52,220 --> 00:15:59,510
+can be both and they must they should
+
+276
+00:15:55,730 --> 00:16:09,100
+default to emoji and único says these
+
+277
+00:15:59,510 --> 00:16:12,770
+characters must be wait a second okay so
+
+278
+00:16:09,100 --> 00:16:15,740
+so then these characters can also be
+
+279
+00:16:12,770 --> 00:16:20,450
+both but however they must default to
+
+280
+00:16:15,740 --> 00:16:23,150
+text okay then Unicode says the
+
+281
+00:16:20,450 --> 00:16:25,220
+following characters you know there are
+
+282
+00:16:23,150 --> 00:16:30,470
+hundreds of them these must always be
+
+283
+00:16:25,220 --> 00:16:34,580
+emoji okay yeah so this so so that's
+
+284
+00:16:30,470 --> 00:16:37,300
+what Unicode says but you know it's very
+
+285
+00:16:34,580 --> 00:16:42,200
+confusing it's very it's a very bad
+
+286
+00:16:37,300 --> 00:16:44,690
+SPECT because first of all in practice
+
+287
+00:16:42,200 --> 00:16:49,100
+you know a few application actually
+
+288
+00:16:44,690 --> 00:16:53,120
+follow Unicode for example in this in
+
+289
+00:16:49,100 --> 00:16:57,050
+this box these characters they can be
+
+290
+00:16:53,120 --> 00:17:01,490
+both text or emoji but by default they
+
+291
+00:16:57,050 --> 00:17:04,040
+must be shown as emoji but as you can
+
+292
+00:17:01,490 --> 00:17:06,230
+see here all these here they are not
+
+293
+00:17:04,040 --> 00:17:11,000
+shown as emoji you see at the bottom
+
+294
+00:17:06,230 --> 00:17:16,360
+these two lines and I did not use any of
+
+295
+00:17:11,000 --> 00:17:18,650
+the variation selector so technically
+
+296
+00:17:16,360 --> 00:17:21,740
+technically they should be rendered as
+
+297
+00:17:18,650 --> 00:17:25,190
+emoji so in Firefox you can see
+
+298
+00:17:21,740 --> 00:17:27,530
+apparently it's incorrect it's incorrect
+
+299
+00:17:25,190 --> 00:17:30,800
+you know almost everywhere because
+
+300
+00:17:27,530 --> 00:17:32,840
+nobody actually follow this standard and
+
+301
+00:17:30,800 --> 00:17:36,380
+nobody actually follow this standard
+
+302
+00:17:32,840 --> 00:17:39,080
+because the standard is really bad okay
+
+303
+00:17:36,380 --> 00:17:42,820
+so here is seeing brave browser which is
+
+304
+00:17:39,080 --> 00:17:44,850
+chrome using the convention you can see
+
+305
+00:17:42,820 --> 00:17:48,059
+okay
+
+306
+00:17:44,850 --> 00:17:51,690
+still many of them are not rendered as a
+
+307
+00:17:48,059 --> 00:17:55,710
+text I mean not not as emoji they should
+
+308
+00:17:51,690 --> 00:17:59,419
+be they should be rendered as emoji so
+
+309
+00:17:55,710 --> 00:18:03,000
+anyway back to Firefox and on this box
+
+310
+00:17:59,419 --> 00:18:06,470
+can be emoji or text and default to text
+
+311
+00:18:03,000 --> 00:18:11,519
+you see so all these are wrong you know
+
+312
+00:18:06,470 --> 00:18:14,820
+all these you know you know Firefox is
+
+313
+00:18:11,519 --> 00:18:18,000
+just incorrect now let's see chrome you
+
+314
+00:18:14,820 --> 00:18:20,639
+know it's same on Chrome you know just
+
+315
+00:18:18,000 --> 00:18:26,639
+or incorrect because nobody actually
+
+316
+00:18:20,639 --> 00:18:28,830
+follow follow this standard so so why
+
+317
+00:18:26,639 --> 00:18:30,750
+why is that I mean what's going on so
+
+318
+00:18:28,830 --> 00:18:34,409
+you know if you actually look at these
+
+319
+00:18:30,750 --> 00:18:36,899
+characters you see Unicode says you look
+
+320
+00:18:34,409 --> 00:18:40,320
+at you know the Unicode spec you know
+
+321
+00:18:36,899 --> 00:18:43,110
+what which character must be default to
+
+322
+00:18:40,320 --> 00:18:45,299
+emoji which must be text they doesn't
+
+323
+00:18:43,110 --> 00:18:47,990
+make sense at all they you know some of
+
+324
+00:18:45,299 --> 00:18:53,549
+the characters for example for example
+
+325
+00:18:47,990 --> 00:18:58,379
+let me show you this multimedia symbols
+
+326
+00:18:53,549 --> 00:19:00,960
+you know mute these symbols the mute
+
+327
+00:18:58,379 --> 00:19:04,590
+symbol the increased volume symbol the
+
+328
+00:19:00,960 --> 00:19:06,899
+decreased volume symbol over here they
+
+329
+00:19:04,590 --> 00:19:09,570
+are rendered as text over here they are
+
+330
+00:19:06,899 --> 00:19:13,379
+rendered as emoji now according to
+
+331
+00:19:09,570 --> 00:19:15,029
+Unicode this mute symbol and this you
+
+332
+00:19:13,379 --> 00:19:18,679
+know increased volume and decreased
+
+333
+00:19:15,029 --> 00:19:22,590
+volumes symbol this you know sound level
+
+334
+00:19:18,679 --> 00:19:27,269
+symbols according to Unicode they must
+
+335
+00:19:22,590 --> 00:19:32,700
+be always rendered as emoji let me show
+
+336
+00:19:27,269 --> 00:19:36,690
+you where you can see here you see this
+
+337
+00:19:32,700 --> 00:19:39,809
+speaker with 3 sound waves speaker with
+
+338
+00:19:36,690 --> 00:19:43,700
+one sound wave and a speaker with
+
+339
+00:19:39,809 --> 00:19:48,049
+cancellation stroke you see these three
+
+340
+00:19:43,700 --> 00:19:51,750
+characters they are in this group of
+
+341
+00:19:48,049 --> 00:19:55,200
+characters we scroll to the top and
+
+342
+00:19:51,750 --> 00:19:58,080
+let's see so you see they are in this
+
+343
+00:19:55,200 --> 00:19:58,800
+section which are they must be always
+
+344
+00:19:58,080 --> 00:20:02,400
+showing us
+
+345
+00:19:58,800 --> 00:20:05,700
+emoji um be so that this is what Unicode
+
+346
+00:20:02,400 --> 00:20:09,660
+spec says but that doesn't make sense
+
+347
+00:20:05,700 --> 00:20:12,470
+because you know these mute symbols they
+
+348
+00:20:09,660 --> 00:20:17,280
+are very typical you know on keyboard
+
+349
+00:20:12,470 --> 00:20:18,990
+you know everyone sees it every day but
+
+350
+00:20:17,280 --> 00:20:20,850
+now you interview you know you are
+
+351
+00:20:18,990 --> 00:20:23,940
+saying Unicode is saying that they must
+
+352
+00:20:20,850 --> 00:20:28,560
+be rendered in a similar stupid you know
+
+353
+00:20:23,940 --> 00:20:31,440
+and also if you look at the emoji who
+
+354
+00:20:28,560 --> 00:20:33,810
+you know where does this you know do you
+
+355
+00:20:31,440 --> 00:20:36,410
+ever see an emoji symbol showing this
+
+356
+00:20:33,810 --> 00:20:39,660
+like this it's almost like doesn't exist
+
+357
+00:20:36,410 --> 00:20:42,590
+but Unicode says you know these
+
+358
+00:20:39,660 --> 00:20:47,820
+characters are always emoji it's like
+
+359
+00:20:42,590 --> 00:20:52,830
+completely idiotic okay so that's the
+
+360
+00:20:47,820 --> 00:20:57,420
+situation with this this único emoji and
+
+361
+00:20:52,830 --> 00:21:01,530
+the text situation okay that that can
+
+362
+00:20:57,420 --> 00:21:03,450
+concludes that topic let's see how many
+
+363
+00:21:01,530 --> 00:21:07,920
+people are watching two people watching
+
+364
+00:21:03,450 --> 00:21:13,220
+say something here say hi so the next
+
+365
+00:21:07,920 --> 00:21:19,140
+topic I'm thinking I'm going to code :
+
+366
+00:21:13,220 --> 00:21:25,530
+so are you guys here anyone here want to
+
+367
+00:21:19,140 --> 00:21:32,000
+do : because I'm planning to start a
+
+368
+00:21:25,530 --> 00:21:32,000
+live coding of Golan first tutorial
+
+369
+00:21:36,120 --> 00:21:44,039
+so you know just type what do you think
+
+370
+00:21:40,470 --> 00:21:47,190
+type it so anyway so okay so you know
+
+371
+00:21:44,039 --> 00:21:51,990
+you guys know how to be funny but so let
+
+372
+00:21:47,190 --> 00:22:04,559
+me see let's see what what what we gonna
+
+373
+00:21:51,990 --> 00:22:08,510
+do problems of decorative animation okay
+
+374
+00:22:04,559 --> 00:22:13,340
+so I think I'm going to code go Landon
+
+375
+00:22:08,510 --> 00:22:17,309
+okay so let's let's do code goal and so
+
+376
+00:22:13,340 --> 00:22:20,730
+goal and so what am I going to do with :
+
+377
+00:22:17,309 --> 00:22:22,230
+let me show you so let's go to Casa lead
+
+378
+00:22:20,730 --> 00:22:27,360
+that info okay
+
+379
+00:22:22,230 --> 00:22:35,149
+and it's just sorry sorry dot info this
+
+380
+00:22:27,360 --> 00:22:41,399
+is my website and and you go all the way
+
+381
+00:22:35,149 --> 00:22:43,890
+to the bottom you can see a site map and
+
+382
+00:22:41,399 --> 00:22:51,330
+see if you can see that actually okay so
+
+383
+00:22:43,890 --> 00:22:59,070
+let me move the window left so there is
+
+384
+00:22:51,330 --> 00:23:02,880
+a site map click on that and and you
+
+385
+00:22:59,070 --> 00:23:08,549
+have a list of basically all the
+
+386
+00:23:02,880 --> 00:23:13,130
+articles on this particular website so
+
+387
+00:23:08,549 --> 00:23:16,980
+you have you have I have like let's see
+
+388
+00:23:13,130 --> 00:23:23,460
+three thousand six hundred forty eight
+
+389
+00:23:16,980 --> 00:23:27,770
+articles let's go to the top now you can
+
+390
+00:23:23,460 --> 00:23:34,520
+randomize the order they are shown so
+
+391
+00:23:27,770 --> 00:23:38,630
+you can random nice and see
+
+392
+00:23:34,520 --> 00:23:41,210
+yeah okay so when you click on that it
+
+393
+00:23:38,630 --> 00:23:43,190
+just go to that page you know it opens a
+
+394
+00:23:41,210 --> 00:23:46,250
+new tab on this page
+
+395
+00:23:43,190 --> 00:23:49,640
+close your meta data okay working
+
+396
+00:23:46,250 --> 00:23:53,660
+progress okay let's open let's open some
+
+397
+00:23:49,640 --> 00:23:56,470
+of the carcass of some of the pages this
+
+398
+00:23:53,660 --> 00:23:56,470
+just open them
+
+399
+00:24:01,700 --> 00:24:11,370
+so so this this is these pages called
+
+400
+00:24:08,520 --> 00:24:17,549
+sitemap you know the word sitemap used
+
+401
+00:24:11,370 --> 00:24:19,710
+to be popular around 1900 in 2030 mm
+
+402
+00:24:17,549 --> 00:24:23,880
+when we when you have a website
+
+403
+00:24:19,710 --> 00:24:25,470
+typically they have a site map you know
+
+404
+00:24:23,880 --> 00:24:28,919
+basically tells you okay
+
+405
+00:24:25,470 --> 00:24:32,390
+of all the things on the web site you
+
+406
+00:24:28,919 --> 00:24:35,070
+know like kind of give you a overview
+
+407
+00:24:32,390 --> 00:24:37,260
+kind of like table of contents you know
+
+408
+00:24:35,070 --> 00:24:40,440
+for the articles on the website so you
+
+409
+00:24:37,260 --> 00:24:43,559
+can easily find the information you need
+
+410
+00:24:40,440 --> 00:24:46,110
+but today you don't have you know you
+
+411
+00:24:43,559 --> 00:24:48,899
+don't have a site map anymore I think
+
+412
+00:24:46,110 --> 00:24:52,409
+they are you know they are it's because
+
+413
+00:24:48,899 --> 00:24:56,970
+they are gradually replaced by such yeah
+
+414
+00:24:52,409 --> 00:24:59,130
+Google such like few people like you
+
+415
+00:24:56,970 --> 00:25:02,909
+don't see site map anymore anymore
+
+416
+00:24:59,130 --> 00:25:05,309
+but if but also it used to be like on
+
+417
+00:25:02,909 --> 00:25:10,250
+each web site usually you have a search
+
+418
+00:25:05,309 --> 00:25:13,620
+button that lets you such you know the
+
+419
+00:25:10,250 --> 00:25:16,500
+stuff on on the web site on that
+
+420
+00:25:13,620 --> 00:25:18,750
+particular web site but even that kind
+
+421
+00:25:16,500 --> 00:25:22,200
+of disappeared like I don't think I've
+
+422
+00:25:18,750 --> 00:25:25,710
+seen them much anymore so today it's all
+
+423
+00:25:22,200 --> 00:25:27,870
+replaced by you know Google people just
+
+424
+00:25:25,710 --> 00:25:29,940
+use Google search or Bing search or
+
+425
+00:25:27,870 --> 00:25:32,820
+other you know search engines to fight
+
+426
+00:25:29,940 --> 00:25:35,309
+to find info they don't you know they
+
+427
+00:25:32,820 --> 00:25:38,220
+they don't even use a search button on a
+
+428
+00:25:35,309 --> 00:25:41,549
+web site so anyway I have this site map
+
+429
+00:25:38,220 --> 00:25:48,289
+and let's see some of the links so here
+
+430
+00:25:41,549 --> 00:25:53,279
+is one of my unicode page let's see it's
+
+431
+00:25:48,289 --> 00:25:57,270
+the page is stuck stuck for a while okay
+
+432
+00:25:53,279 --> 00:26:01,440
+so this is a Devanagari language you
+
+433
+00:25:57,270 --> 00:26:05,640
+can't close it so here's another article
+
+434
+00:26:01,440 --> 00:26:08,220
+this is an essay about yes I wrote how
+
+435
+00:26:05,640 --> 00:26:12,149
+to not engage me now if you don't know
+
+436
+00:26:08,220 --> 00:26:15,049
+ye-es I is the famous guy Eric s Raymond
+
+437
+00:26:12,149 --> 00:26:17,690
+he is known for
+
+438
+00:26:15,049 --> 00:26:21,139
+you know he's one of the leader the
+
+439
+00:26:17,690 --> 00:26:24,230
+engine of kind of founder co-founder of
+
+440
+00:26:21,139 --> 00:26:28,940
+the open source organization the open
+
+441
+00:26:24,230 --> 00:26:30,470
+source movement movement in 1997 okay
+
+442
+00:26:28,940 --> 00:26:33,739
+around 1997
+
+443
+00:26:30,470 --> 00:26:37,039
+it's a offshoot of Richard Stallman's
+
+444
+00:26:33,739 --> 00:26:38,239
+free software foundation so in a
+
+445
+00:26:37,039 --> 00:26:41,360
+beginning you have Free Software
+
+446
+00:26:38,239 --> 00:26:44,929
+Foundation which is copyright
+
+447
+00:26:41,360 --> 00:26:48,470
+I mean copy left or new project you know
+
+448
+00:26:44,929 --> 00:26:53,720
+it's so good new project is the project
+
+449
+00:26:48,470 --> 00:26:56,059
+to create a operating system of kind of
+
+450
+00:26:53,720 --> 00:26:59,119
+you know freedom oriented up in his
+
+451
+00:26:56,059 --> 00:27:02,629
+operating system and that's called new
+
+452
+00:26:59,119 --> 00:27:06,830
+project and good new project is created
+
+453
+00:27:02,629 --> 00:27:08,840
+by Richard Stallman and the organization
+
+454
+00:27:06,830 --> 00:27:12,590
+he created is called Free Software
+
+455
+00:27:08,840 --> 00:27:14,950
+Foundation so kuno is a you know a
+
+456
+00:27:12,590 --> 00:27:18,559
+project of the Free Software Foundation
+
+457
+00:27:14,950 --> 00:27:22,309
+they are the you know they are they are
+
+458
+00:27:18,559 --> 00:27:28,909
+the creator of the GPL license
+
+459
+00:27:22,309 --> 00:27:34,600
+GNU GPL eyes license so anyway so so
+
+460
+00:27:28,909 --> 00:27:40,609
+Richard Stallman began that around 1980
+
+461
+00:27:34,600 --> 00:27:43,299
+was at 80 84 87 something like that then
+
+462
+00:27:40,609 --> 00:27:48,259
+it became popular because of Linux in
+
+463
+00:27:43,299 --> 00:27:53,379
+1990s then the open source movement
+
+464
+00:27:48,259 --> 00:27:56,499
+began around 1997 or six ninety you know
+
+465
+00:27:53,379 --> 00:28:01,700
+1996 or something
+
+466
+00:27:56,499 --> 00:28:05,419
+one of the major force is the ESRI Eric
+
+467
+00:28:01,700 --> 00:28:11,659
+s women he is known for having written
+
+468
+00:28:05,419 --> 00:28:13,879
+the the art of UNIX I think he has
+
+469
+00:28:11,659 --> 00:28:17,629
+written several books the art of UNIX
+
+470
+00:28:13,879 --> 00:28:20,590
+which is crap okay and his proponent of
+
+471
+00:28:17,629 --> 00:28:23,869
+UNIX philosophy which is which which is
+
+472
+00:28:20,590 --> 00:28:26,840
+code he's you know it's a total total
+
+473
+00:28:23,869 --> 00:28:28,790
+empty content other than code stinks and
+
+474
+00:28:26,840 --> 00:28:32,720
+he is also known for
+
+475
+00:28:28,790 --> 00:28:38,870
+Cathedral Bazaar and Cathedral and he is
+
+476
+00:28:32,720 --> 00:28:42,770
+also the maintainer of the of the jargon
+
+477
+00:28:38,870 --> 00:28:46,490
+file ho also known as hackers dictionary
+
+478
+00:28:42,770 --> 00:28:49,580
+you know he is the he's not the original
+
+479
+00:28:46,490 --> 00:28:52,940
+creator or editor he he is the
+
+480
+00:28:49,580 --> 00:28:56,270
+maintainer and he changed much of it to
+
+481
+00:28:52,940 --> 00:29:01,160
+suit his unix preference preferences and
+
+482
+00:28:56,270 --> 00:29:04,910
+you his UNIX philosophy code so anyway
+
+483
+00:29:01,160 --> 00:29:07,850
+he you know he's well known so he one
+
+484
+00:29:04,910 --> 00:29:12,320
+day he blogged about how to not engage
+
+485
+00:29:07,850 --> 00:29:15,950
+me okay this article is funny you know
+
+486
+00:29:12,320 --> 00:29:18,740
+so this is when this is 2012 okay he
+
+487
+00:29:15,950 --> 00:29:21,830
+wrote a blog about how to not engage me
+
+488
+00:29:18,740 --> 00:29:27,340
+he's basically someone send him your
+
+489
+00:29:21,830 --> 00:29:29,780
+email okay someone sent him an email I
+
+490
+00:29:27,340 --> 00:29:34,400
+forgot what's a content but basically
+
+491
+00:29:29,780 --> 00:29:36,350
+flame him or something so and so he you
+
+492
+00:29:34,400 --> 00:29:40,310
+know he blogged about it you know with
+
+493
+00:29:36,350 --> 00:29:42,680
+for part of the email content and he
+
+494
+00:29:40,310 --> 00:29:44,510
+basically ridicuious it you know
+
+495
+00:29:42,680 --> 00:29:53,720
+basically he gave his reasons or
+
+496
+00:29:44,510 --> 00:29:55,430
+whatever but let's see yeah so I found
+
+497
+00:29:53,720 --> 00:29:58,010
+this out article because someone
+
+498
+00:29:55,430 --> 00:30:00,610
+mentioned me you know in his comment you
+
+499
+00:29:58,010 --> 00:30:04,790
+know he says you know someone mentioned
+
+500
+00:30:00,610 --> 00:30:07,000
+Sally the writer was maybe Sally you
+
+501
+00:30:04,790 --> 00:30:10,730
+know some someone mentioned Jack Jack
+
+502
+00:30:07,000 --> 00:30:13,130
+both Smith said that and yes si is
+
+503
+00:30:10,730 --> 00:30:16,010
+probably not the name given was quick
+
+504
+00:30:13,130 --> 00:30:18,830
+not Chinese and a Google search
+
+505
+00:30:16,010 --> 00:30:22,100
+indicated that it corresponds to a real
+
+506
+00:30:18,830 --> 00:30:24,230
+person okay so yeah so someone sent him
+
+507
+00:30:22,100 --> 00:30:27,140
+an email a frame mail or something and
+
+508
+00:30:24,230 --> 00:30:30,440
+he disagree and he oh he opened it up
+
+509
+00:30:27,140 --> 00:30:33,380
+you know to ridicu it and then someone
+
+510
+00:30:30,440 --> 00:30:36,500
+mentioned me that's that's how I found
+
+511
+00:30:33,380 --> 00:30:40,910
+it so I went and and read his blog
+
+512
+00:30:36,500 --> 00:30:42,290
+I read his blog and you so it turns out
+
+513
+00:30:40,910 --> 00:30:45,230
+you know to me
+
+514
+00:30:42,290 --> 00:30:48,260
+that the guy who wrote the email
+
+515
+00:30:45,230 --> 00:30:49,610
+actually made sense but he doesn't make
+
+516
+00:30:48,260 --> 00:30:52,040
+make sense okay
+
+517
+00:30:49,610 --> 00:30:55,820
+this is why I have problem with all
+
+518
+00:30:52,040 --> 00:31:00,620
+these so-called hackers okay this hacker
+
+519
+00:30:55,820 --> 00:31:02,990
+culture I find them idiotic okay see
+
+520
+00:31:00,620 --> 00:31:05,660
+well I didn't plan to talk about this
+
+521
+00:31:02,990 --> 00:31:09,770
+subject but since we are on it let's
+
+522
+00:31:05,660 --> 00:31:14,000
+talk about it and it's I don't know what
+
+523
+00:31:09,770 --> 00:31:17,929
+we're gonna do the goal encoding maybe
+
+524
+00:31:14,000 --> 00:31:21,970
+maybe we can do that more you know so
+
+525
+00:31:17,929 --> 00:31:25,280
+let's let's talk about this ESR Oracle
+
+526
+00:31:21,970 --> 00:31:29,360
+you know how not to engage me
+
+527
+00:31:25,280 --> 00:31:32,179
+so let's see magnify so he says
+
+528
+00:31:29,360 --> 00:31:34,460
+considering concede considering the
+
+529
+00:31:32,179 --> 00:31:35,150
+extent to which I'm still a public
+
+530
+00:31:34,460 --> 00:31:38,809
+figure
+
+531
+00:31:35,150 --> 00:31:42,620
+it is perhaps surprising how seldom I
+
+532
+00:31:38,809 --> 00:31:44,450
+get email that deserves a floor up one
+
+533
+00:31:42,620 --> 00:31:51,320
+side and down the other
+
+534
+00:31:44,450 --> 00:31:54,230
+flaming I got I got one today which I
+
+535
+00:31:51,320 --> 00:31:58,360
+shall reproduce here was a perfect
+
+536
+00:31:54,230 --> 00:32:02,000
+example of how not to engage me okay so
+
+537
+00:31:58,360 --> 00:32:06,049
+you know these guys pompous the word is
+
+538
+00:32:02,000 --> 00:32:09,980
+pompous Eric s Raymond he's a [ __ ]
+
+539
+00:32:06,049 --> 00:32:14,210
+pompous guy we all consider the extent
+
+540
+00:32:09,980 --> 00:32:16,520
+to which I'm still a public figure it's
+
+541
+00:32:14,210 --> 00:32:20,030
+perhaps surprising how seldom I get
+
+542
+00:32:16,520 --> 00:32:24,169
+email that deserves a through row one up
+
+543
+00:32:20,030 --> 00:32:28,160
+one side and down the other framing what
+
+544
+00:32:24,169 --> 00:32:31,669
+the [ __ ] anyway so you know he is gonna
+
+545
+00:32:28,160 --> 00:32:35,179
+say he's gonna showcase the email he
+
+546
+00:32:31,669 --> 00:32:37,970
+received okay the email reads I just
+
+547
+00:32:35,179 --> 00:32:42,260
+finished skimming through your guide how
+
+548
+00:32:37,970 --> 00:32:44,780
+to ask questions the smart way that that
+
+549
+00:32:42,260 --> 00:32:49,640
+is a very popular or used to be very
+
+550
+00:32:44,780 --> 00:32:52,190
+popular article on the web he wrote it
+
+551
+00:32:49,640 --> 00:32:56,110
+you know the ESL wrote it and and that
+
+552
+00:32:52,190 --> 00:32:59,200
+are Co the content it's kind of idea
+
+553
+00:32:56,110 --> 00:33:01,030
+okay I'll explain okay it's a good
+
+554
+00:32:59,200 --> 00:33:04,830
+article but it's kind of it's just like
+
+555
+00:33:01,030 --> 00:33:10,330
+everything not too idiotic like
+
+556
+00:33:04,830 --> 00:33:13,000
+impractical and ineffectual this hacker
+
+557
+00:33:10,330 --> 00:33:16,000
+you know UNIX philosophy hacker types
+
+558
+00:33:13,000 --> 00:33:21,490
+that's what they are typically you know
+
+559
+00:33:16,000 --> 00:33:24,120
+very accurate very precise very you know
+
+560
+00:33:21,490 --> 00:33:28,540
+what they say seems and seems to be true
+
+561
+00:33:24,120 --> 00:33:31,980
+but however they are total in effect of
+
+562
+00:33:28,540 --> 00:33:34,780
+what they are doing it tends to be
+
+563
+00:33:31,980 --> 00:33:37,960
+nothing like English actually in fact
+
+564
+00:33:34,780 --> 00:33:40,600
+harmful to themselves like look at
+
+565
+00:33:37,960 --> 00:33:44,110
+today's you know like they used to fight
+
+566
+00:33:40,600 --> 00:33:53,200
+spam they used to fight spam by you know
+
+567
+00:33:44,110 --> 00:33:56,650
+by by by by by plunking by what's that
+
+568
+00:33:53,200 --> 00:33:58,830
+the code is a word oh god it's been so
+
+569
+00:33:56,650 --> 00:33:58,830
+long
+
+570
+00:33:59,130 --> 00:34:07,720
+by blacklist by you know it's the slang
+
+571
+00:34:03,010 --> 00:34:10,210
+is flunking by well basically it's a
+
+572
+00:34:07,720 --> 00:34:13,840
+filter in new scoops anyway let's
+
+573
+00:34:10,210 --> 00:34:16,899
+continue to read this okay so he saw the
+
+574
+00:34:13,840 --> 00:34:18,820
+email the the guy who emailed him says I
+
+575
+00:34:16,899 --> 00:34:21,010
+just finished skimming through your
+
+576
+00:34:18,820 --> 00:34:24,909
+article how to ask questions the smart
+
+577
+00:34:21,010 --> 00:34:27,869
+way I am sorry to say that to say I'm
+
+578
+00:34:24,909 --> 00:34:31,929
+alarmed by the kind of immature
+
+579
+00:34:27,869 --> 00:34:35,500
+mentality that runs through it this guy
+
+580
+00:34:31,929 --> 00:34:38,020
+so this guy is a flamer okay then he
+
+581
+00:34:35,500 --> 00:34:40,960
+says I will not begin to analyze how
+
+582
+00:34:38,020 --> 00:34:44,859
+many of the assertions you make are
+
+583
+00:34:40,960 --> 00:34:48,250
+simply illogical and unjust because it
+
+584
+00:34:44,859 --> 00:34:50,649
+upsets me to think about them okay and
+
+585
+00:34:48,250 --> 00:34:53,619
+he continues I would like to ask you to
+
+586
+00:34:50,649 --> 00:34:58,090
+consider the reasons why you are taking
+
+587
+00:34:53,619 --> 00:35:04,660
+this stance if it's out of sympathy for
+
+588
+00:34:58,090 --> 00:35:08,410
+the superior case of hackers an idiotic
+
+589
+00:35:04,660 --> 00:35:09,670
+and misapplied term if ever there was
+
+590
+00:35:08,410 --> 00:35:13,480
+one
+
+591
+00:35:09,670 --> 00:35:16,720
+that's right okay do you realize that
+
+592
+00:35:13,480 --> 00:35:19,960
+you are describing real people with
+
+593
+00:35:16,720 --> 00:35:22,690
+serious psychological problems and that
+
+594
+00:35:19,960 --> 00:35:25,089
+you are feeding their pain by your
+
+595
+00:35:22,690 --> 00:35:28,599
+writings okay
+
+596
+00:35:25,089 --> 00:35:31,299
+then he last sentence I hope you can
+
+597
+00:35:28,599 --> 00:35:34,589
+balance the effort you have put behind
+
+598
+00:35:31,299 --> 00:35:39,880
+this document with some social
+
+599
+00:35:34,589 --> 00:35:43,150
+responsibility okay so this guy is a
+
+600
+00:35:39,880 --> 00:35:48,059
+good writer okay yeah he's writing this
+
+601
+00:35:43,150 --> 00:35:50,859
+you know this just few sinners sentences
+
+602
+00:35:48,059 --> 00:35:54,309
+excellent excellently written you know
+
+603
+00:35:50,859 --> 00:35:57,700
+we are very well written by the way ESI
+
+604
+00:35:54,309 --> 00:36:01,660
+is also a master of writing okay that I
+
+605
+00:35:57,700 --> 00:36:07,240
+cannot deny ESI is very knowledgeable he
+
+606
+00:36:01,660 --> 00:36:10,500
+is he possessed the expertise of the C
+
+607
+00:36:07,240 --> 00:36:13,599
+language and I think also see prosperous
+
+608
+00:36:10,500 --> 00:36:16,180
+you know he's very you know he's very
+
+609
+00:36:13,599 --> 00:36:20,410
+knowledgeable guy he's a very skilled
+
+610
+00:36:16,180 --> 00:36:24,130
+programmer expert in C at least and also
+
+611
+00:36:20,410 --> 00:36:26,529
+he is a top writer okay I can
+
+612
+00:36:24,130 --> 00:36:30,400
+acknowledge that and he knows a lot of
+
+613
+00:36:26,529 --> 00:36:32,890
+things you know quite a lot you know if
+
+614
+00:36:30,400 --> 00:36:36,309
+you want you know let's say he's euro
+
+615
+00:36:32,890 --> 00:36:38,680
+tight you know meaning that man you know
+
+616
+00:36:36,309 --> 00:36:41,140
+you learn things about you know not just
+
+617
+00:36:38,680 --> 00:36:43,660
+programming not just a mathematician not
+
+618
+00:36:41,140 --> 00:36:46,390
+just a nerd but you well still or not
+
+619
+00:36:43,660 --> 00:36:52,690
+but you you learn you know variety of
+
+620
+00:36:46,390 --> 00:36:55,630
+things in you know academic subjects or
+
+621
+00:36:52,690 --> 00:36:58,420
+even outside of academic subjects anyway
+
+622
+00:36:55,630 --> 00:37:03,910
+so yes is very knowledgeable skilled
+
+623
+00:36:58,420 --> 00:37:07,450
+programmer and good writer but the guy
+
+624
+00:37:03,910 --> 00:37:12,160
+who emailed him is also you know judging
+
+625
+00:37:07,450 --> 00:37:16,630
+by just this six paragraph a graphs you
+
+626
+00:37:12,160 --> 00:37:20,470
+know he also write he he writes well so
+
+627
+00:37:16,630 --> 00:37:23,000
+so anyway so this guy wrote to him that
+
+628
+00:37:20,470 --> 00:37:26,960
+and then ESR says
+
+629
+00:37:23,000 --> 00:37:29,750
+I swear to all of you I swear to all of
+
+630
+00:37:26,960 --> 00:37:32,150
+you I did not invent or modify even a
+
+631
+00:37:29,750 --> 00:37:35,530
+word of this I wouldn't have been
+
+632
+00:37:32,150 --> 00:37:40,370
+capable I can simulate galloping
+
+633
+00:37:35,530 --> 00:37:43,340
+stupidity that well here was my response
+
+634
+00:37:40,370 --> 00:37:48,850
+okay this is our guy
+
+635
+00:37:43,340 --> 00:37:54,020
+[ __ ] what a [ __ ] pompous [ __ ] okay
+
+636
+00:37:48,850 --> 00:37:56,330
+he you know he's not just well how would
+
+637
+00:37:54,020 --> 00:37:59,120
+you know yeah I have quite a lot of
+
+638
+00:37:56,330 --> 00:38:02,780
+things to say about this year's our guy
+
+639
+00:37:59,120 --> 00:38:05,230
+from his political opinions to his UNIX
+
+640
+00:38:02,780 --> 00:38:07,340
+philosophy crap okay
+
+641
+00:38:05,230 --> 00:38:10,040
+by the way one thing I haven't mentioned
+
+642
+00:38:07,340 --> 00:38:12,310
+is his political stance you know he's
+
+643
+00:38:10,040 --> 00:38:17,380
+also well known for it and a lot people
+
+644
+00:38:12,310 --> 00:38:20,930
+hates him he is you know he's kind of I
+
+645
+00:38:17,380 --> 00:38:24,920
+guess you know some people call him new
+
+646
+00:38:20,930 --> 00:38:29,210
+account you know basically he is for war
+
+647
+00:38:24,920 --> 00:38:34,190
+he is like pro-american for war you know
+
+648
+00:38:29,210 --> 00:38:35,420
+he he he supports invading Iraq you know
+
+649
+00:38:34,190 --> 00:38:39,350
+during the Iraq war
+
+650
+00:38:35,420 --> 00:38:42,770
+and he is a cantata you know he collects
+
+651
+00:38:39,350 --> 00:38:45,740
+he has guns you know he he advocate for
+
+652
+00:38:42,770 --> 00:38:49,670
+gun rights and for you know those those
+
+653
+00:38:45,740 --> 00:38:52,850
+kind of things so he's a so so he's not
+
+654
+00:38:49,670 --> 00:38:55,730
+just you know outside of programming
+
+655
+00:38:52,850 --> 00:38:57,020
+he's hosing like people call him it's
+
+656
+00:38:55,730 --> 00:38:59,990
+like a new new account
+
+657
+00:38:57,020 --> 00:39:02,450
+I think knio knio kong is the proper
+
+658
+00:38:59,990 --> 00:39:04,790
+term to describe his political
+
+659
+00:39:02,450 --> 00:39:12,020
+inclinations you know at least the
+
+660
+00:39:04,790 --> 00:39:14,480
+critics of the right-wing anyway yeah so
+
+661
+00:39:12,020 --> 00:39:18,980
+he is also known for that you know you
+
+662
+00:39:14,480 --> 00:39:23,990
+know and I don't I don't agree with that
+
+663
+00:39:18,980 --> 00:39:27,230
+okay I I this more to say about that it
+
+664
+00:39:23,990 --> 00:39:30,280
+gets very interesting because so you
+
+665
+00:39:27,230 --> 00:39:33,080
+know so he is you know kind of white
+
+666
+00:39:30,280 --> 00:39:36,780
+right-wing okay so many programmers
+
+667
+00:39:33,080 --> 00:39:39,150
+don't like him and also also the way he
+
+668
+00:39:36,780 --> 00:39:43,230
+right is very pompous you know look at
+
+669
+00:39:39,150 --> 00:39:45,750
+this I swear to all of you I swear not
+
+670
+00:39:43,230 --> 00:39:48,150
+just he'd you know he he has to say
+
+671
+00:39:45,750 --> 00:39:51,360
+something but he needs to sir swear it
+
+672
+00:39:48,150 --> 00:39:54,240
+but not just to like one one guy owed to
+
+673
+00:39:51,360 --> 00:39:57,810
+my audience like you know to you know he
+
+674
+00:39:54,240 --> 00:40:01,080
+has to state that he swear to whom to
+
+675
+00:39:57,810 --> 00:40:03,690
+all of you and what does he say what
+
+676
+00:40:01,080 --> 00:40:07,110
+does his way ok he swear to all of you
+
+677
+00:40:03,690 --> 00:40:12,870
+that he did not invent or modify even a
+
+678
+00:40:07,110 --> 00:40:15,060
+single word of this so he just pasted
+
+679
+00:40:12,870 --> 00:40:19,770
+you know the email he received ok
+
+680
+00:40:15,060 --> 00:40:21,660
+normally you know like different people
+
+681
+00:40:19,770 --> 00:40:24,480
+person different people have different
+
+682
+00:40:21,660 --> 00:40:26,730
+writing styles right normally you pay
+
+683
+00:40:24,480 --> 00:40:28,710
+something then you start to talk about
+
+684
+00:40:26,730 --> 00:40:31,980
+it that's you know that's it what do you
+
+685
+00:40:28,710 --> 00:40:34,110
+pay state but he you know you don't have
+
+686
+00:40:31,980 --> 00:40:36,750
+to say it's not necessary to say I
+
+687
+00:40:34,110 --> 00:40:38,730
+didn't modify it unless you know maybe
+
+688
+00:40:36,750 --> 00:40:41,790
+the content cause for it you know maybe
+
+689
+00:40:38,730 --> 00:40:44,040
+because it's a leaked email or something
+
+690
+00:40:41,790 --> 00:40:46,440
+you know something leaked or something
+
+691
+00:40:44,040 --> 00:40:49,710
+you know there's no need in this case
+
+692
+00:40:46,440 --> 00:40:52,290
+there's no need to to to like to repeat
+
+693
+00:40:49,710 --> 00:40:55,760
+or emphasize that you did not modify it
+
+694
+00:40:52,290 --> 00:40:59,040
+but he he has to you know this ESR [ __ ]
+
+695
+00:40:55,760 --> 00:41:02,060
+you know I swear to all of you I did not
+
+696
+00:40:59,040 --> 00:41:05,190
+invent or modify even a word of this
+
+697
+00:41:02,060 --> 00:41:08,880
+then he says I wouldn't have been
+
+698
+00:41:05,190 --> 00:41:11,490
+capable I can't simulate I can't you
+
+699
+00:41:08,880 --> 00:41:15,330
+know I can't simulate kalpen stupidity
+
+700
+00:41:11,490 --> 00:41:18,270
+that well that's a good description ok
+
+701
+00:41:15,330 --> 00:41:20,520
+and he says here's my response but hold
+
+702
+00:41:18,270 --> 00:41:24,110
+on ok let me finish talking about his
+
+703
+00:41:20,520 --> 00:41:28,770
+the political situation his political
+
+704
+00:41:24,110 --> 00:41:31,830
+inclinations ok so he you know as we
+
+705
+00:41:28,770 --> 00:41:34,440
+mentioned he's kind of a neocon oh all
+
+706
+00:41:31,830 --> 00:41:37,890
+right wing ok I'm not sure a new account
+
+707
+00:41:34,440 --> 00:41:40,080
+he actually espoused that word I don't
+
+708
+00:41:37,890 --> 00:41:43,430
+know if he you know typically it's a
+
+709
+00:41:40,080 --> 00:41:45,210
+negative you know what I mean it's a
+
+710
+00:41:43,430 --> 00:41:49,020
+derogatory
+
+711
+00:41:45,210 --> 00:41:54,099
+you know it's called derogatory
+
+712
+00:41:49,020 --> 00:41:57,280
+but anyway so let's see yeah let's go to
+
+713
+00:41:54,099 --> 00:41:59,380
+his house so so so he's kind of neocon
+
+714
+00:41:57,280 --> 00:42:03,040
+oh right wing okay let's just say right
+
+715
+00:41:59,380 --> 00:42:04,150
+wing day but now you see that is back in
+
+716
+00:42:03,040 --> 00:42:08,560
+mm
+
+717
+00:42:04,150 --> 00:42:13,359
+but since around 2010 the social justice
+
+718
+00:42:08,560 --> 00:42:15,940
+can arose you know and the landscape of
+
+719
+00:42:13,359 --> 00:42:20,349
+American politics in gnomes
+
+720
+00:42:15,940 --> 00:42:24,660
+it's like changed entirely 180 degrees
+
+721
+00:42:20,349 --> 00:42:28,780
+you know like about face it did a
+
+722
+00:42:24,660 --> 00:42:32,320
+about-face you know it used to be
+
+723
+00:42:28,780 --> 00:42:36,790
+conservative rules you know the country
+
+724
+00:42:32,320 --> 00:42:39,520
+God you know stuff but now it's like Oh
+
+725
+00:42:36,790 --> 00:42:42,400
+or every day is like gays and transient
+
+726
+00:42:39,520 --> 00:42:45,810
+trends you know women's right and this
+
+727
+00:42:42,400 --> 00:42:52,810
+and all ladies immigration in you know
+
+728
+00:42:45,810 --> 00:42:55,540
+victims and stuff so around 2010 let's
+
+729
+00:42:52,810 --> 00:42:58,990
+just say 2010 the social justice can
+
+730
+00:42:55,540 --> 00:43:05,220
+arose it's a major change in particular
+
+731
+00:42:58,990 --> 00:43:09,910
+in 2016 there's a major change in u.s.
+
+732
+00:43:05,220 --> 00:43:12,730
+culture or politics kind of and I don't
+
+733
+00:43:09,910 --> 00:43:15,730
+like that well because I'm anti the
+
+734
+00:43:12,730 --> 00:43:20,650
+social justice cat okay I I think they
+
+735
+00:43:15,730 --> 00:43:22,780
+are not just the you know it's not it's
+
+736
+00:43:20,650 --> 00:43:24,970
+not like I don't agree with their
+
+737
+00:43:22,780 --> 00:43:28,450
+opinions but actually I think they are
+
+738
+00:43:24,970 --> 00:43:31,810
+like criminals they are evil they they
+
+739
+00:43:28,450 --> 00:43:35,080
+are you know lying scumbags they are
+
+740
+00:43:31,810 --> 00:43:36,220
+corrupt with many of them the leaders
+
+741
+00:43:35,080 --> 00:43:38,980
+are super rich
+
+742
+00:43:36,220 --> 00:43:42,670
+like not just rich like the millions and
+
+743
+00:43:38,980 --> 00:43:46,150
+billions of you know money you know they
+
+744
+00:43:42,670 --> 00:43:50,470
+do these kind of things so that that is
+
+745
+00:43:46,150 --> 00:43:52,660
+my opinion of the social justice type of
+
+746
+00:43:50,470 --> 00:43:56,700
+people I mean not in general not just
+
+747
+00:43:52,660 --> 00:43:59,710
+you know not particular person because
+
+748
+00:43:56,700 --> 00:44:01,990
+in you know this that's that's my
+
+749
+00:43:59,710 --> 00:44:04,839
+opinion but a social justice movement
+
+750
+00:44:01,990 --> 00:44:10,089
+so I don't like them okay so they are my
+
+751
+00:44:04,839 --> 00:44:14,589
+enemies but however the ESR guy Eric s
+
+752
+00:44:10,089 --> 00:44:16,780
+Raymond he is you know so of course it's
+
+753
+00:44:14,589 --> 00:44:18,820
+not his friend the social justice kinds
+
+754
+00:44:16,780 --> 00:44:22,690
+is are not his friend
+
+755
+00:44:18,820 --> 00:44:25,570
+in fact is his enemy so he he fight them
+
+756
+00:44:22,690 --> 00:44:28,599
+you know he do what he can to fight them
+
+757
+00:44:25,570 --> 00:44:33,099
+you can see it constant you know often
+
+758
+00:44:28,599 --> 00:44:34,990
+in his blogs and I agree okay I you know
+
+759
+00:44:33,099 --> 00:44:37,869
+even though I'm you know I don't like
+
+760
+00:44:34,990 --> 00:44:42,280
+he's you know yes his political opinions
+
+761
+00:44:37,869 --> 00:44:45,160
+about war about guns you know all these
+
+762
+00:44:42,280 --> 00:44:45,910
+guns and stuff like oh we you know he's
+
+763
+00:44:45,160 --> 00:44:51,099
+right you know
+
+764
+00:44:45,910 --> 00:44:52,839
+yeah it's you know it's like you know
+
+765
+00:44:51,099 --> 00:44:55,480
+you can hardly go that's fine you know
+
+766
+00:44:52,839 --> 00:44:56,920
+American that's how American history
+
+767
+00:44:55,480 --> 00:45:03,400
+happens to be that way
+
+768
+00:44:56,920 --> 00:45:06,220
+and it's not necessarily bad okay you
+
+769
+00:45:03,400 --> 00:45:08,710
+know and you know this foreign cause I
+
+770
+00:45:06,220 --> 00:45:13,330
+mean many issues in society there is no
+
+771
+00:45:08,710 --> 00:45:17,080
+right answer you know so as far as gun
+
+772
+00:45:13,330 --> 00:45:17,980
+goes you know legalization of gun you
+
+773
+00:45:17,080 --> 00:45:22,900
+know to me
+
+774
+00:45:17,980 --> 00:45:26,589
+I don't think you know I my opinion is
+
+775
+00:45:22,900 --> 00:45:29,560
+like I'm not against it I'm not against
+
+776
+00:45:26,589 --> 00:45:32,920
+you know owning a gun but no am i you
+
+777
+00:45:29,560 --> 00:45:35,200
+know thinking that you know American
+
+778
+00:45:32,920 --> 00:45:38,260
+with guns is just bad okay I don't think
+
+779
+00:45:35,200 --> 00:45:41,440
+he's that way so I'm not for comment I
+
+780
+00:45:38,260 --> 00:45:47,500
+think it's just there it's okay so
+
+781
+00:45:41,440 --> 00:45:50,680
+anyway he so why so yeah so so in
+
+782
+00:45:47,500 --> 00:45:53,890
+general the so good doesn't matter to me
+
+783
+00:45:50,680 --> 00:45:55,810
+but you know either way but ESI is like
+
+784
+00:45:53,890 --> 00:45:58,839
+you know this is some there are certain
+
+785
+00:45:55,810 --> 00:46:00,580
+type of American they heard like they
+
+786
+00:45:58,839 --> 00:46:02,920
+have to talk about guns all the time
+
+787
+00:46:00,580 --> 00:46:05,109
+like oh I would you know rights and
+
+788
+00:46:02,920 --> 00:46:07,869
+stuff so yes I is one of them you know
+
+789
+00:46:05,109 --> 00:46:10,720
+and in fact I think he collect guns you
+
+790
+00:46:07,869 --> 00:46:13,359
+know he like some of these people it's
+
+791
+00:46:10,720 --> 00:46:15,830
+almost it's like it's a subculture it's
+
+792
+00:46:13,359 --> 00:46:19,400
+a hobby you know like you have this
+
+793
+00:46:15,830 --> 00:46:22,640
+typically white ruh-roh
+
+794
+00:46:19,400 --> 00:46:26,750
+Americans I think okay they you know
+
+795
+00:46:22,640 --> 00:46:29,390
+they like to hunt you know gun
+
+796
+00:46:26,750 --> 00:46:33,610
+collection to practice target you know
+
+797
+00:46:29,390 --> 00:46:36,170
+shooting stuff you know and they collect
+
+798
+00:46:33,610 --> 00:46:41,780
+you know some of them collect you know
+
+799
+00:46:36,170 --> 00:46:47,150
+war memorabilia or you know they they
+
+800
+00:46:41,780 --> 00:46:49,850
+like to in tango they like to practice
+
+801
+00:46:47,150 --> 00:46:52,400
+civil war you know like fake you know
+
+802
+00:46:49,850 --> 00:46:56,740
+how they could have they could in being
+
+803
+00:46:52,400 --> 00:47:00,140
+act ccc american civil was good stuff
+
+804
+00:46:56,740 --> 00:47:01,640
+you know so it's it's kind of hobby it's
+
+805
+00:47:00,140 --> 00:47:06,110
+it's all tied together
+
+806
+00:47:01,640 --> 00:47:08,090
+so anyway anyway so but one thing i
+
+807
+00:47:06,110 --> 00:47:10,040
+really don't you know so yes i don't
+
+808
+00:47:08,090 --> 00:47:14,000
+like him anyway so his political
+
+809
+00:47:10,040 --> 00:47:16,700
+opinions neocon you know for war and you
+
+810
+00:47:14,000 --> 00:47:20,120
+know to him and to this new accounts
+
+811
+00:47:16,700 --> 00:47:23,030
+opinion I mean people their opinion you
+
+812
+00:47:20,120 --> 00:47:25,460
+know he said Oh America is democracy
+
+813
+00:47:23,030 --> 00:47:29,270
+therefore we must spread democracy to
+
+814
+00:47:25,460 --> 00:47:33,050
+free free you you know we're gonna come
+
+815
+00:47:29,270 --> 00:47:34,580
+in free you drop a few palms that's the
+
+816
+00:47:33,050 --> 00:47:36,410
+opinion you know they think they are
+
+817
+00:47:34,580 --> 00:47:39,680
+helping they are helping the world you
+
+818
+00:47:36,410 --> 00:47:43,760
+know the into democracy into a you know
+
+819
+00:47:39,680 --> 00:47:45,110
+so yes I is one of those guy so I this
+
+820
+00:47:43,760 --> 00:47:49,070
+particular point
+
+821
+00:47:45,110 --> 00:47:53,390
+I hate very much okay yeah III think
+
+822
+00:47:49,070 --> 00:47:56,470
+it's it's it's the worst it's kind of a
+
+823
+00:47:53,390 --> 00:48:00,020
+criminal and this this mentality it is
+
+824
+00:47:56,470 --> 00:48:00,980
+anyway so I don't like him for that at
+
+825
+00:48:00,020 --> 00:48:03,980
+least
+
+826
+00:48:00,980 --> 00:48:08,000
+but then the social justice can arose
+
+827
+00:48:03,980 --> 00:48:10,370
+you see and he started you know of
+
+828
+00:48:08,000 --> 00:48:12,890
+course obviously he start began to fight
+
+829
+00:48:10,370 --> 00:48:13,880
+with the social justice but now I
+
+830
+00:48:12,890 --> 00:48:18,230
+support him
+
+831
+00:48:13,880 --> 00:48:21,290
+I support ESR I support Eric s Raymond
+
+832
+00:48:18,230 --> 00:48:24,770
+even though I you know I find him to be
+
+833
+00:48:21,290 --> 00:48:27,950
+a very problematic guy but the very fact
+
+834
+00:48:24,770 --> 00:48:29,329
+that he is against associates the social
+
+835
+00:48:27,950 --> 00:48:34,190
+justice can I
+
+836
+00:48:29,329 --> 00:48:37,579
+support Eric s Raymond okay because in
+
+837
+00:48:34,190 --> 00:48:40,700
+my opinion the social justice candid odd
+
+838
+00:48:37,579 --> 00:48:43,489
+any people as you know especially that
+
+839
+00:48:40,700 --> 00:48:45,650
+the top you know like today you have the
+
+840
+00:48:43,489 --> 00:48:49,009
+leaders of the you know basically the
+
+841
+00:48:45,650 --> 00:48:51,859
+CEO of Google Facebook you know they are
+
+842
+00:48:49,009 --> 00:48:53,920
+all doing it you know they do in social
+
+843
+00:48:51,859 --> 00:48:57,200
+they've seen the songs of social justice
+
+844
+00:48:53,920 --> 00:48:58,369
+they seen the songs of you know there
+
+845
+00:48:57,200 --> 00:49:00,469
+are words I don't want to mention
+
+846
+00:48:58,369 --> 00:49:05,900
+because you know google has censorship
+
+847
+00:49:00,469 --> 00:49:08,269
+right now anyway that is the I think
+
+848
+00:49:05,900 --> 00:49:11,450
+that's the worst evil much worse the
+
+849
+00:49:08,269 --> 00:49:17,150
+social justice can to me is it's much
+
+850
+00:49:11,450 --> 00:49:21,859
+much worse then the let's say let's say
+
+851
+00:49:17,150 --> 00:49:24,769
+the I can say which one is actually was
+
+852
+00:49:21,859 --> 00:49:26,599
+you know because the neocon you know if
+
+853
+00:49:24,769 --> 00:49:29,869
+you talk about the neocon you know they
+
+854
+00:49:26,599 --> 00:49:31,549
+they up for war they they invade you
+
+855
+00:49:29,869 --> 00:49:35,239
+know other countries all the time for
+
+856
+00:49:31,549 --> 00:49:38,859
+the benefit of of America for the
+
+857
+00:49:35,239 --> 00:49:43,819
+benefit for the benefit of American us
+
+858
+00:49:38,859 --> 00:49:45,979
+okay counting me so you know but anyway
+
+859
+00:49:43,819 --> 00:49:49,809
+so new account they you know they do war
+
+860
+00:49:45,979 --> 00:49:54,410
+and you know in the pretext of democracy
+
+861
+00:49:49,809 --> 00:49:57,829
+democracy is just a pretext really you
+
+862
+00:49:54,410 --> 00:50:00,920
+know so that's not good that you know
+
+863
+00:49:57,829 --> 00:50:04,279
+war you have meaning that you know you
+
+864
+00:50:00,920 --> 00:50:06,979
+have hundreds of thousands dead you know
+
+865
+00:50:04,279 --> 00:50:10,430
+for example in Iraq war you have like
+
+866
+00:50:06,979 --> 00:50:13,670
+how many servi civilians dead 300,000
+
+867
+00:50:10,430 --> 00:50:17,329
+something like that you can you know and
+
+868
+00:50:13,670 --> 00:50:20,869
+you know so that's not good the new
+
+869
+00:50:17,329 --> 00:50:23,150
+account is no good but however this is a
+
+870
+00:50:20,869 --> 00:50:28,249
+social justice the way I see social
+
+871
+00:50:23,150 --> 00:50:33,199
+justice it's it's it's not better okay
+
+872
+00:50:28,249 --> 00:50:35,989
+so so I so if you press me to say which
+
+873
+00:50:33,199 --> 00:50:37,729
+one is was that actually depends on
+
+874
+00:50:35,989 --> 00:50:40,400
+depends on what you're talking about I
+
+875
+00:50:37,729 --> 00:50:42,349
+mean if you're talking about war already
+
+876
+00:50:40,400 --> 00:50:43,730
+happened you know we you know we have
+
+877
+00:50:42,349 --> 00:50:46,550
+you know
+
+878
+00:50:43,730 --> 00:50:48,770
+hundreds of thousands people dead or all
+
+879
+00:50:46,550 --> 00:50:52,099
+over the globe because of US invasion
+
+880
+00:50:48,770 --> 00:50:58,220
+because of a USA you know the you know
+
+881
+00:50:52,099 --> 00:50:59,810
+it's it's euphemized as what what they
+
+882
+00:50:58,220 --> 00:51:03,380
+say tulsi gabbard
+
+883
+00:50:59,810 --> 00:51:06,710
+he often says that you form Isis regime
+
+884
+00:51:03,380 --> 00:51:09,890
+change okay yeah no we'd only we don't
+
+885
+00:51:06,710 --> 00:51:13,220
+you know we don't kill we don't invade
+
+886
+00:51:09,890 --> 00:51:15,640
+other countries we simply just do regime
+
+887
+00:51:13,220 --> 00:51:15,640
+change
+
+888
+00:51:16,300 --> 00:51:24,740
+we always that's all we do you know so
+
+889
+00:51:21,079 --> 00:51:26,619
+anyway so if you talk about you know war
+
+890
+00:51:24,740 --> 00:51:31,300
+and you know actually a lot of people
+
+891
+00:51:26,619 --> 00:51:34,670
+you know dead so that aspect is surely
+
+892
+00:51:31,300 --> 00:51:41,589
+was in the social justice at least the
+
+893
+00:51:34,670 --> 00:51:45,079
+social justice can has not caused a war
+
+894
+00:51:41,589 --> 00:51:46,760
+well actually is so you see so the sort
+
+895
+00:51:45,079 --> 00:51:49,550
+of Justice can is extremely bad
+
+896
+00:51:46,760 --> 00:51:53,390
+extremely bad in fact they are also for
+
+897
+00:51:49,550 --> 00:51:56,869
+poor war they you know that like today's
+
+898
+00:51:53,390 --> 00:51:59,450
+democrat party they are a very poor war
+
+899
+00:51:56,869 --> 00:52:02,329
+just like exactly like the right the
+
+900
+00:51:59,450 --> 00:52:05,329
+right wing knee accounts you know these
+
+901
+00:52:02,329 --> 00:52:08,960
+rich powerful corporations in people in
+
+902
+00:52:05,329 --> 00:52:11,300
+politicians so anyway but what I'm
+
+903
+00:52:08,960 --> 00:52:13,730
+saying is that at at a personal level
+
+904
+00:52:11,300 --> 00:52:16,250
+like everyday life you know I I think
+
+905
+00:52:13,730 --> 00:52:20,540
+the social justice is far worse than the
+
+906
+00:52:16,250 --> 00:52:22,940
+the typical American culture and you
+
+907
+00:52:20,540 --> 00:52:27,310
+know before let's say before 2010 the
+
+908
+00:52:22,940 --> 00:52:31,520
+social justice is very bad that is why
+
+909
+00:52:27,310 --> 00:52:34,819
+if I have to choose either support Eric
+
+910
+00:52:31,520 --> 00:52:38,210
+s Raymond or not support him I choose to
+
+911
+00:52:34,819 --> 00:52:40,069
+support because when it comes to a civil
+
+912
+00:52:38,210 --> 00:52:43,460
+war you have to make a choice that's
+
+913
+00:52:40,069 --> 00:52:46,339
+what civil war happen you know you know
+
+914
+00:52:43,460 --> 00:52:49,780
+$0.02 many people say that civil war is
+
+915
+00:52:46,339 --> 00:52:52,609
+coming if it's not not already happening
+
+916
+00:52:49,780 --> 00:52:57,230
+that's very bad you know when civil war
+
+917
+00:52:52,609 --> 00:52:57,740
+comes you gonna you gonna make a choice
+
+918
+00:52:57,230 --> 00:53:00,710
+you know
+
+919
+00:52:57,740 --> 00:53:02,599
+enemy or friend and that choice will
+
+920
+00:53:00,710 --> 00:53:05,780
+happen upon your friends your relatives
+
+921
+00:53:02,599 --> 00:53:07,430
+your family your sisters your mama and
+
+922
+00:53:05,780 --> 00:53:09,770
+you know you're gonna choose neither
+
+923
+00:53:07,430 --> 00:53:10,550
+either they die or you die that's what
+
+924
+00:53:09,770 --> 00:53:13,520
+the [ __ ]
+
+925
+00:53:10,550 --> 00:53:17,480
+social justice people who has created
+
+926
+00:53:13,520 --> 00:53:20,559
+this the the Twitter CEO Jack Dorsey and
+
+927
+00:53:17,480 --> 00:53:25,420
+and all these scums Google you know
+
+928
+00:53:20,559 --> 00:53:29,210
+whoever's current as CEO right now
+
+929
+00:53:25,420 --> 00:53:34,960
+anyway so that's a lot rent right off
+
+930
+00:53:29,210 --> 00:53:38,359
+the bat I got maybe the comment so I Sam
+
+931
+00:53:34,960 --> 00:53:49,339
+Morris's how about the six million
+
+932
+00:53:38,359 --> 00:53:53,710
+Muslims held in China how about that are
+
+933
+00:53:49,339 --> 00:53:53,710
+you a true are you like joining me
+
+934
+00:53:53,890 --> 00:53:57,680
+answer that are you is that a serious
+
+935
+00:53:57,079 --> 00:53:59,540
+question
+
+936
+00:53:57,680 --> 00:54:02,359
+are you trolling me do you know me
+
+937
+00:53:59,540 --> 00:54:06,290
+before you are you just came to this you
+
+938
+00:54:02,359 --> 00:54:08,869
+know you just came to you know you have
+
+939
+00:54:06,290 --> 00:54:13,940
+to say you say it then answer because I
+
+940
+00:54:08,869 --> 00:54:19,640
+don't know if you are sincere so anyway
+
+941
+00:54:13,940 --> 00:54:21,020
+back to yes yes ah okay so yeah I don't
+
+942
+00:54:19,640 --> 00:54:23,270
+know I don't know it maybe you are
+
+943
+00:54:21,020 --> 00:54:26,390
+follow you know you are like I'm a nerd
+
+944
+00:54:23,270 --> 00:54:28,240
+I'm a programmer I'm kind of you know I
+
+945
+00:54:26,390 --> 00:54:30,799
+being in the programming you know I'm
+
+946
+00:54:28,240 --> 00:54:33,799
+knowing some small you know programming
+
+947
+00:54:30,799 --> 00:54:36,859
+communities so I don't know I wonder if
+
+948
+00:54:33,799 --> 00:54:43,280
+you you know of you following me and
+
+949
+00:54:36,859 --> 00:54:45,589
+know the okay so well yeah okay so you
+
+950
+00:54:43,280 --> 00:54:47,990
+you you ask me about this
+
+951
+00:54:45,589 --> 00:54:50,329
+you know I don't you know I don't you
+
+952
+00:54:47,990 --> 00:54:53,450
+know I don't want to mention those
+
+953
+00:54:50,329 --> 00:54:55,309
+things because that's that's that's
+
+954
+00:54:53,450 --> 00:54:59,660
+censorship you know Google is going to
+
+955
+00:54:55,309 --> 00:55:04,520
+censor this video but anyway to answer
+
+956
+00:54:59,660 --> 00:55:06,799
+the question okay I don't actually know
+
+957
+00:55:04,520 --> 00:55:09,829
+the details about the China situation
+
+958
+00:55:06,799 --> 00:55:11,600
+you know the the Muslims out you know
+
+959
+00:55:09,829 --> 00:55:14,960
+but what I know is
+
+960
+00:55:11,600 --> 00:55:17,270
+that I I know it very well you know in
+
+961
+00:55:14,960 --> 00:55:20,540
+Weston because I because I'm American by
+
+962
+00:55:17,270 --> 00:55:23,300
+the way I'm American citizen I a oh you
+
+963
+00:55:20,540 --> 00:55:25,900
+are it is back okay great so yeah you
+
+964
+00:55:23,300 --> 00:55:29,090
+are you my we are in the same community
+
+965
+00:55:25,900 --> 00:55:32,870
+so I am an American citizen I live here
+
+966
+00:55:29,090 --> 00:55:36,020
+for the past 30 years basically most of
+
+967
+00:55:32,870 --> 00:55:38,630
+my adult life since I was since I was 21
+
+968
+00:55:36,020 --> 00:55:42,830
+before that three years in a me in
+
+969
+00:55:38,630 --> 00:55:45,770
+Canada so basically since I'm 17 I lived
+
+970
+00:55:42,830 --> 00:55:50,300
+my life in three years in Canada and the
+
+971
+00:55:45,770 --> 00:55:52,640
+rest of it in USA I'm 51 today like
+
+972
+00:55:50,300 --> 00:55:56,240
+halfway into the grave I have begun
+
+973
+00:55:52,640 --> 00:56:02,420
+pretty soon so anyway 30 years in USA I
+
+974
+00:55:56,240 --> 00:56:04,040
+know exactly what you know Americans you
+
+975
+00:56:02,420 --> 00:56:06,410
+know the all the newspapers you know
+
+976
+00:56:04,040 --> 00:56:08,390
+when they talk about China I know
+
+977
+00:56:06,410 --> 00:56:10,940
+exactly what they say doesn't matter
+
+978
+00:56:08,390 --> 00:56:13,460
+what what year they were what they want
+
+979
+00:56:10,940 --> 00:56:17,150
+to say is that and also this is also
+
+980
+00:56:13,460 --> 00:56:19,580
+what most Americans believe because you
+
+981
+00:56:17,150 --> 00:56:21,920
+know those are from newspapers they you
+
+982
+00:56:19,580 --> 00:56:28,040
+know they push it out every day so you
+
+983
+00:56:21,920 --> 00:56:28,730
+know after decades yeah it looks like I
+
+984
+00:56:28,040 --> 00:56:31,220
+look younger
+
+985
+00:56:28,730 --> 00:56:33,650
+no but you know I've you know I'm like
+
+986
+00:56:31,220 --> 00:56:35,720
+hey I think Asians usually have the
+
+987
+00:56:33,650 --> 00:56:39,350
+characters you know you you don't look
+
+988
+00:56:35,720 --> 00:56:41,750
+so older so so fast but also you know
+
+989
+00:56:39,350 --> 00:56:43,030
+I'm getting old like my eyes I'm going
+
+990
+00:56:41,750 --> 00:56:47,810
+blind
+
+991
+00:56:43,030 --> 00:56:49,790
+anyway anyway so so I know you know so
+
+992
+00:56:47,810 --> 00:56:53,810
+basic typically like you know let me
+
+993
+00:56:49,790 --> 00:56:56,240
+tell you you know my opinions okay so
+
+994
+00:56:53,810 --> 00:56:58,220
+basically whenever Americans say
+
+995
+00:56:56,240 --> 00:57:00,290
+something about China they have only one
+
+996
+00:56:58,220 --> 00:57:04,820
+call you can just say they have a call
+
+997
+00:57:00,290 --> 00:57:07,190
+like their goal is to say China is like
+
+998
+00:57:04,820 --> 00:57:08,780
+inhuman like they are violating human
+
+999
+00:57:07,190 --> 00:57:10,790
+rights they or whatever this or that
+
+1000
+00:57:08,780 --> 00:57:14,930
+they are not free they are communist and
+
+1001
+00:57:10,790 --> 00:57:18,080
+we must take over we must spread freedom
+
+1002
+00:57:14,930 --> 00:57:21,830
+we must spread democracy we must spread
+
+1003
+00:57:18,080 --> 00:57:23,870
+human rights China Evo okay and we must
+
+1004
+00:57:21,830 --> 00:57:25,100
+you know do something like invade China
+
+1005
+00:57:23,870 --> 00:57:27,740
+or whatever that is
+
+1006
+00:57:25,100 --> 00:57:30,530
+see basically every article in the past
+
+1007
+00:57:27,740 --> 00:57:33,500
+since I've read in the past 30 years on
+
+1008
+00:57:30,530 --> 00:57:35,840
+every issue from every publication every
+
+1009
+00:57:33,500 --> 00:57:39,050
+major you know mainstream publication
+
+1010
+00:57:35,840 --> 00:57:40,990
+that's it it's all say that you don't
+
+1011
+00:57:39,050 --> 00:57:44,210
+like you don't even have to know what
+
+1012
+00:57:40,990 --> 00:57:45,470
+what is the the thing they are talking
+
+1013
+00:57:44,210 --> 00:57:46,270
+about what is the issue you don't have
+
+1014
+00:57:45,470 --> 00:57:48,590
+to know
+
+1015
+00:57:46,270 --> 00:57:52,520
+but the every article they basically
+
+1016
+00:57:48,590 --> 00:57:55,450
+have the same premise China bad you know
+
+1017
+00:57:52,520 --> 00:57:59,920
+we need to free them we need to like
+
+1018
+00:57:55,450 --> 00:58:03,950
+liberate them we need to regime change
+
+1019
+00:57:59,920 --> 00:58:07,610
+so so that's what that that is my
+
+1020
+00:58:03,950 --> 00:58:10,370
+opinion okay you can you know if you you
+
+1021
+00:58:07,610 --> 00:58:12,020
+know you can you can if you trust me you
+
+1022
+00:58:10,370 --> 00:58:14,800
+you know you maybe you take it to heart
+
+1023
+00:58:12,020 --> 00:58:19,070
+you think about it if you don't you know
+
+1024
+00:58:14,800 --> 00:58:24,530
+you know nothing I can do so that is my
+
+1025
+00:58:19,070 --> 00:58:27,470
+basis basic opinion my perception about
+
+1026
+00:58:24,530 --> 00:58:29,990
+the situation now so this specifically
+
+1027
+00:58:27,470 --> 00:58:32,240
+about the Muslim in China how you know
+
+1028
+00:58:29,990 --> 00:58:35,930
+China is doing you know bad things to
+
+1029
+00:58:32,240 --> 00:58:39,260
+them I don't know that specific but but
+
+1030
+00:58:35,930 --> 00:58:41,270
+again I'm like I don't like I don't it's
+
+1031
+00:58:39,260 --> 00:58:43,280
+not it's not like oh maybe I should
+
+1032
+00:58:41,270 --> 00:58:44,690
+think about it all China is really doing
+
+1033
+00:58:43,280 --> 00:58:46,460
+these bad things no I don't even think
+
+1034
+00:58:44,690 --> 00:58:49,310
+about that because first of all I just
+
+1035
+00:58:46,460 --> 00:58:53,030
+wash it off I think it's just it's a lie
+
+1036
+00:58:49,310 --> 00:58:55,610
+by the by the by the American powerful
+
+1037
+00:58:53,030 --> 00:58:58,160
+because they want you know and also it
+
+1038
+00:58:55,610 --> 00:59:00,890
+but but so so why does the typical
+
+1039
+00:58:58,160 --> 00:59:02,840
+American that nimma stay address that so
+
+1040
+00:59:00,890 --> 00:59:06,290
+why does typical American believe that
+
+1041
+00:59:02,840 --> 00:59:09,530
+because we are all human beings human
+
+1042
+00:59:06,290 --> 00:59:11,270
+animals okay we all have biases so if
+
+1043
+00:59:09,530 --> 00:59:14,480
+you are American especially if you are
+
+1044
+00:59:11,270 --> 00:59:17,180
+white American you naturally believe
+
+1045
+00:59:14,480 --> 00:59:18,830
+whatever that benefits you you know
+
+1046
+00:59:17,180 --> 00:59:20,900
+China is bad you know they always
+
+1047
+00:59:18,830 --> 00:59:22,370
+something we need to or some me
+
+1048
+00:59:20,900 --> 00:59:25,460
+something something whatever you know
+
+1049
+00:59:22,370 --> 00:59:28,160
+what I'm saying is it's just that we all
+
+1050
+00:59:25,460 --> 00:59:31,310
+have biases but however you I mean what
+
+1051
+00:59:28,160 --> 00:59:33,230
+I'm saying so if you are if you are like
+
+1052
+00:59:31,310 --> 00:59:35,810
+me for example you if you are Chinese
+
+1053
+00:59:33,230 --> 00:59:38,540
+you know you didn't you know you are not
+
+1054
+00:59:35,810 --> 00:59:38,960
+white you came from elsewhere immigrant
+
+1055
+00:59:38,540 --> 00:59:42,050
+okay
+
+1056
+00:59:38,960 --> 00:59:44,780
+my immigrant but I'd buy the way but III
+
+1057
+00:59:42,050 --> 00:59:48,109
+think the socialist is the Democrat
+
+1058
+00:59:44,780 --> 00:59:51,109
+today are scums okay I was a illegal
+
+1059
+00:59:48,109 --> 00:59:52,940
+immigrant in Canada I make $3 an hour
+
+1060
+00:59:51,109 --> 00:59:55,520
+you know I didn't dollars an hour
+
+1061
+00:59:52,940 --> 00:59:58,760
+working in clothing factories and all so
+
+1062
+00:59:55,520 --> 01:00:01,640
+anyway that's that's my history but
+
+1063
+00:59:58,760 --> 01:00:03,619
+anyway back to the question about so I
+
+1064
+01:00:01,640 --> 01:00:06,530
+was saying everyone has biases you know
+
+1065
+01:00:03,619 --> 01:00:09,349
+you can you cannot blame you know
+
+1066
+01:00:06,530 --> 01:00:12,320
+average American for their beliefs or
+
+1067
+01:00:09,349 --> 01:00:14,599
+the you know you can say you can i
+
+1068
+01:00:12,320 --> 01:00:17,180
+cannot say they are idiotic because they
+
+1069
+01:00:14,599 --> 01:00:19,190
+simply believe all the lies the US
+
+1070
+01:00:17,180 --> 01:00:22,369
+government spread about China okay
+
+1071
+01:00:19,190 --> 01:00:25,190
+meanwhile for example let me let me give
+
+1072
+01:00:22,369 --> 01:00:28,609
+you another example of bias in China in
+
+1073
+01:00:25,190 --> 01:00:30,680
+China you know if you go to China oh if
+
+1074
+01:00:28,609 --> 01:00:33,500
+you are Chinese by the way I was from
+
+1075
+01:00:30,680 --> 01:00:35,480
+Taiwan I have never been to China but if
+
+1076
+01:00:33,500 --> 01:00:39,859
+you are Chinese you were born in China
+
+1077
+01:00:35,480 --> 01:00:42,020
+you ask them Oh what they think about us
+
+1078
+01:00:39,859 --> 01:00:44,930
+you know they are not going to tell you
+
+1079
+01:00:42,020 --> 01:00:47,780
+all us is gonna help us we need you as
+
+1080
+01:00:44,930 --> 01:00:50,599
+China but oh my government is very bad I
+
+1081
+01:00:47,780 --> 01:00:53,480
+need you know because this because they
+
+1082
+01:00:50,599 --> 01:00:56,180
+put more servants you know in imprison
+
+1083
+01:00:53,480 --> 01:00:59,630
+or something I need please come help us
+
+1084
+01:00:56,180 --> 01:01:02,359
+you know hey nobody nobody says that
+
+1085
+01:00:59,630 --> 01:01:06,440
+they've in fact if you press them they
+
+1086
+01:01:02,359 --> 01:01:09,320
+all say USA is evil bad just like what
+
+1087
+01:01:06,440 --> 01:01:13,430
+you are thinking about China okay that
+
+1088
+01:01:09,320 --> 01:01:15,710
+is my opinion on this issue so you know
+
+1089
+01:01:13,430 --> 01:01:18,200
+I'm not saying you're you know you know
+
+1090
+01:01:15,710 --> 01:01:21,290
+so American is biased and Chinese is now
+
+1091
+01:01:18,200 --> 01:01:23,420
+everyone is biased but so how do you
+
+1092
+01:01:21,290 --> 01:01:25,790
+solve this problem you know yes you have
+
+1093
+01:01:23,420 --> 01:01:30,320
+to be reasonable anyway on the
+
+1094
+01:01:25,790 --> 01:01:33,170
+particular Muslim issue I can I can
+
+1095
+01:01:30,320 --> 01:01:34,670
+refer you to if you are interested you
+
+1096
+01:01:33,170 --> 01:01:37,160
+know most people are not really
+
+1097
+01:01:34,670 --> 01:01:40,369
+interested about truth like you know
+
+1098
+01:01:37,160 --> 01:01:44,390
+like if you can actually find out you
+
+1099
+01:01:40,369 --> 01:01:46,430
+know what really happens about that for
+
+1100
+01:01:44,390 --> 01:01:48,740
+example you can if you really want to
+
+1101
+01:01:46,430 --> 01:01:52,339
+but there's a price to pay
+
+1102
+01:01:48,740 --> 01:01:55,700
+meaning that from now on every day you
+
+1103
+01:01:52,339 --> 01:01:58,249
+goodness you have to spend one hour look
+
+1104
+01:01:55,700 --> 01:02:01,069
+for the truth you know you will find
+
+1105
+01:01:58,249 --> 01:02:02,960
+what exactly really happens you know if
+
+1106
+01:02:01,069 --> 01:02:06,380
+you really want to spend one hour a day
+
+1107
+01:02:02,960 --> 01:02:10,279
+for the next 30 days for a month you I
+
+1108
+01:02:06,380 --> 01:02:13,489
+bet you know I will I can you know I'm
+
+1109
+01:02:10,279 --> 01:02:16,130
+confident to challenge you that your
+
+1110
+01:02:13,489 --> 01:02:18,769
+opinion will change after 30 days you
+
+1111
+01:02:16,130 --> 01:02:22,190
+look into the issue you you you know you
+
+1112
+01:02:18,769 --> 01:02:24,469
+questioned exactly that issue spend one
+
+1113
+01:02:22,190 --> 01:02:27,380
+hour a day try to look for you know
+
+1114
+01:02:24,469 --> 01:02:31,849
+truth whatever you know it is spin wild
+
+1115
+01:02:27,380 --> 01:02:34,339
+a day after 30 days I guarantee your
+
+1116
+01:02:31,849 --> 01:02:37,369
+opinion will be quite different in
+
+1117
+01:02:34,339 --> 01:02:48,769
+nature from today about that issue okay
+
+1118
+01:02:37,369 --> 01:02:55,150
+that's that's what I think how I made
+
+1119
+01:02:48,769 --> 01:03:01,789
+book pro what is Hawaii made mate put oh
+
+1120
+01:02:55,150 --> 01:03:07,160
+wow I wow I made wow made book okay
+
+1121
+01:03:01,789 --> 01:03:10,539
+that's the power laptop anyway so we are
+
+1122
+01:03:07,160 --> 01:03:15,579
+where are you from by the way are you
+
+1123
+01:03:10,539 --> 01:03:15,579
+are you American are you in the u.s. USA
+
+1124
+01:03:17,019 --> 01:03:22,609
+so actually I think that's it for today
+
+1125
+01:03:19,849 --> 01:03:27,499
+I think because you know we I could you
+
+1126
+01:03:22,609 --> 01:03:30,499
+know ice I started to rant about so we
+
+1127
+01:03:27,499 --> 01:03:34,309
+we talked about the Unicode the Unicode
+
+1128
+01:03:30,499 --> 01:03:38,269
+emoji versus text issue that is about
+
+1129
+01:03:34,309 --> 01:03:41,450
+the first 20 or 30 minutes okay then we
+
+1130
+01:03:38,269 --> 01:03:46,249
+started to talk about sitemap yeah the
+
+1131
+01:03:41,450 --> 01:03:50,450
+purpose of sitemap and how it became no
+
+1132
+01:03:46,249 --> 01:03:54,529
+longer used then we started to talk
+
+1133
+01:03:50,450 --> 01:03:56,869
+about this es aha person okay and you
+
+1134
+01:03:54,529 --> 01:04:01,160
+know he's interesting and very
+
+1135
+01:03:56,869 --> 01:04:04,190
+controversial guy and very controversial
+
+1136
+01:04:01,160 --> 01:04:06,289
+opinions then from that point on I
+
+1137
+01:04:04,190 --> 01:04:08,390
+started to win in
+
+1138
+01:04:06,289 --> 01:04:11,959
+to Arendt about quite a few things about
+
+1139
+01:04:08,390 --> 01:04:14,779
+hacker culture about you know the
+
+1140
+01:04:11,959 --> 01:04:19,069
+arrangement of open source free software
+
+1141
+01:04:14,779 --> 01:04:22,189
+foundation and then I started to talk
+
+1142
+01:04:19,069 --> 01:04:24,619
+about neo Kong you know the opinions
+
+1143
+01:04:22,189 --> 01:04:29,390
+about you know in the social justice
+
+1144
+01:04:24,619 --> 01:04:37,519
+people so okay you are from Britain okay
+
+1145
+01:04:29,390 --> 01:04:40,219
+so you know and yeah so so now it's
+
+1146
+01:04:37,519 --> 01:04:46,609
+being on our way anyway I want you know
+
+1147
+01:04:40,219 --> 01:04:48,469
+so I think that's maybe we can let me
+
+1148
+01:04:46,609 --> 01:04:54,140
+talk about five more minutes to finish
+
+1149
+01:04:48,469 --> 01:04:58,219
+more minutes to finish okay thank you
+
+1150
+01:04:54,140 --> 01:05:02,359
+yeah a few more minutes to finish about
+
+1151
+01:04:58,219 --> 01:05:04,489
+this this topic about what this ESI is
+
+1152
+01:05:02,359 --> 01:05:07,759
+talking about you know how to not engage
+
+1153
+01:05:04,489 --> 01:05:11,179
+me so anyway someone sent him an email
+
+1154
+01:05:07,759 --> 01:05:14,359
+kind of flame Flemish and he be taught
+
+1155
+01:05:11,179 --> 01:05:19,249
+you know and he says proverb rah and you
+
+1156
+01:05:14,359 --> 01:05:21,199
+know you can you can read it so anyway
+
+1157
+01:05:19,249 --> 01:05:27,529
+yeah okay yeah so I guess that's it so I
+
+1158
+01:05:21,199 --> 01:05:31,029
+you know so so thank you guys for coming
+
+1159
+01:05:27,529 --> 01:05:31,029
+thanks for watching
+
+1160
+01:05:32,140 --> 01:05:38,919
+yep thanks so by eyes and bye guys
+

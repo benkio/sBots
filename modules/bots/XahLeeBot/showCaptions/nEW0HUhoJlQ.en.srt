@@ -1,0 +1,3836 @@
+1
+00:00:03,899 --> 00:00:10,620
+hello welcome to another episode of Star
+
+2
+00:00:07,259 --> 00:00:13,320
+Talk Show today we are going to code
+
+3
+00:00:10,620 --> 00:00:17,460
+Advent of code
+
+4
+00:00:13,320 --> 00:00:22,500
+in Wolfram language and possibly also in
+
+5
+00:00:17,460 --> 00:00:24,720
+JavaScript in Golan in emac bisp
+
+6
+00:00:22,500 --> 00:00:26,939
+uh and uh
+
+7
+00:00:24,720 --> 00:00:29,400
+python probably not python because
+
+8
+00:00:26,939 --> 00:00:32,040
+python is very popular you guys already
+
+9
+00:00:29,400 --> 00:00:34,559
+know there's a lot you know python
+
+10
+00:00:32,040 --> 00:00:38,760
+answers so mostly Wolfram language
+
+11
+00:00:34,559 --> 00:00:42,120
+coding and maybe JavaScript okay event
+
+12
+00:00:38,760 --> 00:00:44,700
+of code let's see how far we can go
+
+13
+00:00:42,120 --> 00:00:48,480
+okay so what is advantage of code it's
+
+14
+00:00:44,700 --> 00:00:51,000
+coding puzzle now an event of code is a
+
+15
+00:00:48,480 --> 00:00:52,260
+Christian thing so this guy is a
+
+16
+00:00:51,000 --> 00:00:55,440
+Christian he
+
+17
+00:00:52,260 --> 00:00:58,920
+you know he so I'm not a Christian but
+
+18
+00:00:55,440 --> 00:01:01,860
+this would be fun oh well there's a time
+
+19
+00:00:58,920 --> 00:01:04,440
+there's a timer oh okay so at the end of
+
+20
+00:01:01,860 --> 00:01:08,060
+a code is a bunch of coding you know
+
+21
+00:01:04,440 --> 00:01:11,939
+programming puzzles or you know exercise
+
+22
+00:01:08,060 --> 00:01:13,560
+so there are 25 of them and basically
+
+23
+00:01:11,939 --> 00:01:15,240
+you come to the day of Christmas
+
+24
+00:01:13,560 --> 00:01:16,860
+something like that it's a Christian
+
+25
+00:01:15,240 --> 00:01:20,939
+thing
+
+26
+00:01:16,860 --> 00:01:23,759
+so and and uh so you know 25 problems it
+
+27
+00:01:20,939 --> 00:01:26,820
+opens like two problems every day you
+
+28
+00:01:23,759 --> 00:01:29,939
+know until the day of Christmas and uh
+
+29
+00:01:26,820 --> 00:01:32,220
+so let's see how far we can go and I'm
+
+30
+00:01:29,939 --> 00:01:35,939
+thinking you know I'm going to do a
+
+31
+00:01:32,220 --> 00:01:38,700
+series of live stream uh YouTube you
+
+32
+00:01:35,939 --> 00:01:41,280
+know so I'll be coding wolfam language
+
+33
+00:01:38,700 --> 00:01:44,280
+and possibly also JavaScript or emac
+
+34
+00:01:41,280 --> 00:01:46,560
+bisp okay just show you just to show you
+
+35
+00:01:44,280 --> 00:01:47,759
+you know the language differences you
+
+36
+00:01:46,560 --> 00:01:49,979
+know because I'm interested in
+
+37
+00:01:47,759 --> 00:01:52,079
+programming languages so you can see
+
+38
+00:01:49,979 --> 00:01:53,659
+different differences in how different
+
+39
+00:01:52,079 --> 00:01:57,060
+programming languages
+
+40
+00:01:53,659 --> 00:02:00,299
+uh solve this problem in particular
+
+41
+00:01:57,060 --> 00:02:01,320
+within language emac this these two are
+
+42
+00:02:00,299 --> 00:02:04,680
+like
+
+43
+00:02:01,320 --> 00:02:07,320
+uh unusual you know with respect to the
+
+44
+00:02:04,680 --> 00:02:09,239
+programming industry JavaScript a lot of
+
+45
+00:02:07,320 --> 00:02:12,660
+people know
+
+46
+00:02:09,239 --> 00:02:15,300
+okay so event of code
+
+47
+00:02:12,660 --> 00:02:18,000
+25 problems two problems a day let's see
+
+48
+00:02:15,300 --> 00:02:21,000
+how far we can go so a series of live
+
+49
+00:02:18,000 --> 00:02:23,580
+streams and I hope it's going to be fun
+
+50
+00:02:21,000 --> 00:02:25,920
+you know I'm just gonna take my time and
+
+51
+00:02:23,580 --> 00:02:29,160
+chat about it and you know go through it
+
+52
+00:02:25,920 --> 00:02:31,020
+so if you are watching this offline you
+
+53
+00:02:29,160 --> 00:02:32,940
+know you might want to skip around or
+
+54
+00:02:31,020 --> 00:02:35,280
+maybe it's boring okay
+
+55
+00:02:32,940 --> 00:02:37,860
+you know I'm gonna be chatty and talking
+
+56
+00:02:35,280 --> 00:02:39,780
+to you guys good morning or flamio and
+
+57
+00:02:37,860 --> 00:02:42,360
+uh
+
+58
+00:02:39,780 --> 00:02:46,200
+Neo Pagan okay
+
+59
+00:02:42,360 --> 00:02:50,280
+okay so yeah so the Christian thing so
+
+60
+00:02:46,200 --> 00:02:53,879
+you know what is advent okay Advent of
+
+61
+00:02:50,280 --> 00:02:53,879
+code event Christianality
+
+62
+00:02:54,480 --> 00:02:58,140
+you know apparently they have this
+
+63
+00:02:56,580 --> 00:03:01,140
+Christian
+
+64
+00:02:58,140 --> 00:03:01,140
+uh
+
+65
+00:03:03,500 --> 00:03:07,739
+c-h-i-s-t-i-a-n uh
+
+66
+00:03:05,879 --> 00:03:11,400
+and let's just say Christian okay
+
+67
+00:03:07,739 --> 00:03:13,920
+Christianity okay Advanced Christian
+
+68
+00:03:11,400 --> 00:03:17,400
+Church okay what
+
+69
+00:03:13,920 --> 00:03:20,640
+I'm not sure what is advent holiday
+
+70
+00:03:17,400 --> 00:03:23,159
+season scholars believe that during the
+
+71
+00:03:20,640 --> 00:03:27,239
+fourth and fifth centuries in Spain and
+
+72
+00:03:23,159 --> 00:03:31,280
+go Advent was is was a
+
+73
+00:03:27,239 --> 00:03:34,500
+season of preparation for the best
+
+74
+00:03:31,280 --> 00:03:37,519
+baptism of new Christians at the January
+
+75
+00:03:34,500 --> 00:03:40,140
+Feast of epiphany
+
+76
+00:03:37,519 --> 00:03:42,060
+Epiphany that's a that's the English
+
+77
+00:03:40,140 --> 00:03:42,659
+word so
+
+78
+00:03:42,060 --> 00:03:45,920
+um
+
+79
+00:03:42,659 --> 00:03:45,920
+yeah something like that
+
+80
+00:03:47,220 --> 00:03:53,459
+okay anyway Advent of code okay so let's
+
+81
+00:03:50,040 --> 00:03:54,480
+let's call it you know is uh programming
+
+82
+00:03:53,459 --> 00:03:57,379
+problem
+
+83
+00:03:54,480 --> 00:04:00,000
+so you go to this website or doing an
+
+84
+00:03:57,379 --> 00:04:03,420
+eventofco.com and you'll start to see
+
+85
+00:04:00,000 --> 00:04:07,620
+you know the questions so I already read
+
+86
+00:04:03,420 --> 00:04:10,799
+it it's like a story so it's kind of um
+
+87
+00:04:07,620 --> 00:04:12,000
+you know it gives you it describe the
+
+88
+00:04:10,799 --> 00:04:15,060
+problem
+
+89
+00:04:12,000 --> 00:04:18,299
+in a way of a story so it's not like
+
+90
+00:04:15,060 --> 00:04:20,639
+math it's it's not like a math quiz you
+
+91
+00:04:18,299 --> 00:04:22,919
+know just some of these you know this is
+
+92
+00:04:20,639 --> 00:04:24,840
+input this is up what we want and do it
+
+93
+00:04:22,919 --> 00:04:26,280
+you know instead you have to read a
+
+94
+00:04:24,840 --> 00:04:29,280
+story
+
+95
+00:04:26,280 --> 00:04:33,000
+so I already already uh read it so you
+
+96
+00:04:29,280 --> 00:04:35,940
+know 25 problems each problem for each
+
+97
+00:04:33,000 --> 00:04:38,340
+problem you get two stars so if you do
+
+98
+00:04:35,940 --> 00:04:41,100
+all of them correctly you get 50 stars
+
+99
+00:04:38,340 --> 00:04:42,000
+that's uh that's your score okay so the
+
+100
+00:04:41,100 --> 00:04:45,180
+first one
+
+101
+00:04:42,000 --> 00:04:47,699
+and so far it's already 12 problems are
+
+102
+00:04:45,180 --> 00:04:50,820
+open okay so those first one you know it
+
+103
+00:04:47,699 --> 00:04:53,280
+talks about stars so let me talk about
+
+104
+00:04:50,820 --> 00:04:55,680
+something uh interesting okay so you
+
+105
+00:04:53,280 --> 00:04:58,520
+know Santa Claus
+
+106
+00:04:55,680 --> 00:04:58,520
+uh
+
+107
+00:04:59,180 --> 00:05:06,060
+let's go search okay uh Brave search is
+
+108
+00:05:03,720 --> 00:05:09,120
+a new search engine that's independent
+
+109
+00:05:06,060 --> 00:05:12,600
+of the Google's engine or Microsoft's
+
+110
+00:05:09,120 --> 00:05:15,180
+engine so you might want to try that
+
+111
+00:05:12,600 --> 00:05:19,199
+you know so every year you have Santa
+
+112
+00:05:15,180 --> 00:05:23,340
+Claus that goes around every house to
+
+113
+00:05:19,199 --> 00:05:27,000
+deliver gifts to good boys or good girls
+
+114
+00:05:23,340 --> 00:05:30,259
+uh so and uh the way he does that is he
+
+115
+00:05:27,000 --> 00:05:33,240
+rides uh snow uh
+
+116
+00:05:30,259 --> 00:05:36,240
+sled something like that and you have
+
+117
+00:05:33,240 --> 00:05:39,060
+the reigning Diaz these are the burdens
+
+118
+00:05:36,240 --> 00:05:40,560
+of Beast you know helping him going
+
+119
+00:05:39,060 --> 00:05:42,900
+around
+
+120
+00:05:40,560 --> 00:05:47,400
+so you have any ideas but you also have
+
+121
+00:05:42,900 --> 00:05:50,940
+elves helping Santa okay so so for uh so
+
+122
+00:05:47,400 --> 00:05:53,699
+let's you know that's a story of the
+
+123
+00:05:50,940 --> 00:05:56,699
+kind of Christian Story I mean if you
+
+124
+00:05:53,699 --> 00:05:59,940
+dig deeper there's you know it's a
+
+125
+00:05:56,699 --> 00:06:02,479
+mixture of stuff so but anyway the
+
+126
+00:05:59,940 --> 00:06:06,960
+conventional the cultural the American
+
+127
+00:06:02,479 --> 00:06:09,000
+culture of Christmas is this kind of
+
+128
+00:06:06,960 --> 00:06:14,539
+story and pictures
+
+129
+00:06:09,000 --> 00:06:14,539
+uh what what is it suggesting me
+
+130
+00:06:14,600 --> 00:06:20,940
+Roblox okay Roblox is the worst idiotic
+
+131
+00:06:19,080 --> 00:06:24,660
+game for kids
+
+132
+00:06:20,940 --> 00:06:28,259
+uh okay so uh what I want to see okay uh
+
+133
+00:06:24,660 --> 00:06:28,259
+Santa elves
+
+134
+00:06:29,280 --> 00:06:36,419
+okay so you have the elves helping Santa
+
+135
+00:06:32,520 --> 00:06:39,060
+to make the gifts then you know the
+
+136
+00:06:36,419 --> 00:06:41,160
+center delivers delivers them with the
+
+137
+00:06:39,060 --> 00:06:44,340
+help of reindeer okay that's the
+
+138
+00:06:41,160 --> 00:06:49,080
+background of the story
+
+139
+00:06:44,340 --> 00:06:51,720
+okay so you need to click so
+
+140
+00:06:49,080 --> 00:06:55,380
+let me Showtime it you know I'm talking
+
+141
+00:06:51,720 --> 00:06:58,740
+too much so 25 problems each problem you
+
+142
+00:06:55,380 --> 00:07:01,139
+get two stars okay so you need to solve
+
+143
+00:06:58,740 --> 00:07:03,900
+them the first problem is this the
+
+144
+00:07:01,139 --> 00:07:06,240
+problem of the calories counting
+
+145
+00:07:03,900 --> 00:07:08,460
+Counting calories it's a bit long so I
+
+146
+00:07:06,240 --> 00:07:10,080
+won't be reading it you know just go to
+
+147
+00:07:08,460 --> 00:07:12,180
+the website and you can read it so
+
+148
+00:07:10,080 --> 00:07:16,080
+basically
+
+149
+00:07:12,180 --> 00:07:20,580
+you are going to a trip with the elves
+
+150
+00:07:16,080 --> 00:07:22,500
+to a forest to collect fruits for the
+
+151
+00:07:20,580 --> 00:07:26,220
+raining deers okay
+
+152
+00:07:22,500 --> 00:07:28,500
+and uh but in order to do so you know
+
+153
+00:07:26,220 --> 00:07:32,400
+each elves have to carry food for
+
+154
+00:07:28,500 --> 00:07:35,180
+themselves so each elf and uh and you
+
+155
+00:07:32,400 --> 00:07:39,840
+know they carry food so the first elf
+
+156
+00:07:35,180 --> 00:07:41,699
+has three food items and and each one
+
+157
+00:07:39,840 --> 00:07:44,099
+you know one of them has one one
+
+158
+00:07:41,699 --> 00:07:46,139
+thousand calorie this you know the other
+
+159
+00:07:44,099 --> 00:07:49,319
+item has two thousand calorie and third
+
+160
+00:07:46,139 --> 00:07:52,620
+item is three thousand calorie so that's
+
+161
+00:07:49,319 --> 00:07:56,580
+the that's the one of the elves carrying
+
+162
+00:07:52,620 --> 00:07:58,620
+and another house is carrying a food one
+
+163
+00:07:56,580 --> 00:08:01,740
+single food item of four thousand
+
+164
+00:07:58,620 --> 00:08:05,340
+calories and the other another elf has
+
+165
+00:08:01,740 --> 00:08:08,759
+two items one is five thousand calories
+
+166
+00:08:05,340 --> 00:08:12,300
+and another is six thousand calories so
+
+167
+00:08:08,759 --> 00:08:15,419
+um so you have a bunch of elves each elf
+
+168
+00:08:12,300 --> 00:08:19,020
+carries one or more items of food and
+
+169
+00:08:15,419 --> 00:08:21,660
+each item has a number of calories so
+
+170
+00:08:19,020 --> 00:08:24,539
+your problem
+
+171
+00:08:21,660 --> 00:08:28,139
+your problem I mean your so this is your
+
+172
+00:08:24,539 --> 00:08:32,219
+input a list of numbers a list of groups
+
+173
+00:08:28,139 --> 00:08:35,300
+grouped num numbers your your
+
+174
+00:08:32,219 --> 00:08:39,779
+what you need to do is you need to find
+
+175
+00:08:35,300 --> 00:08:43,580
+which elf carries the most number of
+
+176
+00:08:39,779 --> 00:08:46,500
+calories okay so that's that's a trivial
+
+177
+00:08:43,580 --> 00:08:50,040
+introductory problem all you have to do
+
+178
+00:08:46,500 --> 00:08:52,620
+is send them some each group you know
+
+179
+00:08:50,040 --> 00:08:56,640
+some that some that some that some that
+
+180
+00:08:52,620 --> 00:08:59,700
+and the return the biggest number you
+
+181
+00:08:56,640 --> 00:09:03,180
+know so it's very very trivial problem
+
+182
+00:08:59,700 --> 00:09:05,519
+you know from last year I didn't code it
+
+183
+00:09:03,180 --> 00:09:09,839
+last year but our friends on Discord
+
+184
+00:09:05,519 --> 00:09:12,060
+they have coded a advantage of code 2021
+
+185
+00:09:09,839 --> 00:09:14,760
+last year so they have
+
+186
+00:09:12,060 --> 00:09:21,000
+created many Creative Solutions in
+
+187
+00:09:14,760 --> 00:09:24,060
+Python in Ruby in Rust in Oak one guy
+
+188
+00:09:21,000 --> 00:09:25,140
+did it in Oak you know so it's it's fun
+
+189
+00:09:24,060 --> 00:09:26,880
+you know
+
+190
+00:09:25,140 --> 00:09:29,700
+but this year
+
+191
+00:09:26,880 --> 00:09:32,339
+you know so from what I understand the
+
+192
+00:09:29,700 --> 00:09:34,740
+problem progressively gets harder okay
+
+193
+00:09:32,339 --> 00:09:36,660
+so the first problem very easy trivial
+
+194
+00:09:34,740 --> 00:09:40,260
+you know so let's let's do it in
+
+195
+00:09:36,660 --> 00:09:43,019
+Mathematica okay so I I was told the
+
+196
+00:09:40,260 --> 00:09:45,260
+input is a string so let's start buffan
+
+197
+00:09:43,019 --> 00:09:45,260
+language
+
+198
+00:09:47,600 --> 00:09:55,019
+uh okay so yeah so if you guys uh
+
+199
+00:09:51,240 --> 00:09:58,980
+questions comments posted okay so new
+
+200
+00:09:55,019 --> 00:10:02,779
+notepad let's magnify and let's say
+
+201
+00:09:58,980 --> 00:10:05,820
+three evaluate it to start the Wolfram
+
+202
+00:10:02,779 --> 00:10:08,279
+kernel okay the Wolfram computational
+
+203
+00:10:05,820 --> 00:10:12,480
+engine
+
+204
+00:10:08,279 --> 00:10:15,360
+okay let's begin coding so yeah there it
+
+205
+00:10:12,480 --> 00:10:18,000
+is so first of all the input is a string
+
+206
+00:10:15,360 --> 00:10:20,519
+I was told it's not clear according to
+
+207
+00:10:18,000 --> 00:10:23,279
+the question but I was told you know you
+
+208
+00:10:20,519 --> 00:10:27,540
+can assume it to be a string as opposed
+
+209
+00:10:23,279 --> 00:10:29,820
+to a file or at least you know already
+
+210
+00:10:27,540 --> 00:10:32,700
+given data structure but anyway it's a
+
+211
+00:10:29,820 --> 00:10:38,160
+string string so okay so I want I want
+
+212
+00:10:32,700 --> 00:10:40,620
+to say x x equals to there so uh so we
+
+213
+00:10:38,160 --> 00:10:42,720
+have the input
+
+214
+00:10:40,620 --> 00:10:46,380
+Okay so
+
+215
+00:10:42,720 --> 00:10:48,899
+so first job is that we want to you know
+
+216
+00:10:46,380 --> 00:10:53,100
+remember we want to sum the numbers
+
+217
+00:10:48,899 --> 00:10:56,040
+uh and pick out the biggest number so
+
+218
+00:10:53,100 --> 00:10:58,320
+first of all we need to you know we
+
+219
+00:10:56,040 --> 00:11:00,240
+cannot work with strings but we need we
+
+220
+00:10:58,320 --> 00:11:05,100
+want to convert it to a
+
+221
+00:11:00,240 --> 00:11:06,959
+list of lists okay each sublist is
+
+222
+00:11:05,100 --> 00:11:10,260
+one else
+
+223
+00:11:06,959 --> 00:11:13,560
+you know list of calories Okay so
+
+224
+00:11:10,260 --> 00:11:16,140
+so string two list let's see if there is
+
+225
+00:11:13,560 --> 00:11:19,019
+a
+
+226
+00:11:16,140 --> 00:11:22,820
+uh there's no string to list so there is
+
+227
+00:11:19,019 --> 00:11:22,820
+a split string I think
+
+228
+00:11:22,860 --> 00:11:29,600
+no okay so Wolfram language
+
+229
+00:11:26,640 --> 00:11:29,600
+let's see
+
+230
+00:11:30,540 --> 00:11:38,000
+split okay string split Maybe
+
+231
+00:11:34,500 --> 00:11:38,000
+okay there it is
+
+232
+00:11:38,279 --> 00:11:45,360
+string split you can click on that to
+
+233
+00:11:40,740 --> 00:11:48,360
+get the documentation or you can just do
+
+234
+00:11:45,360 --> 00:11:51,779
+for example question mark
+
+235
+00:11:48,360 --> 00:11:55,140
+and it will return the doc the kind of
+
+236
+00:11:51,779 --> 00:11:59,040
+the documentation short form for what
+
+237
+00:11:55,140 --> 00:12:01,560
+this function do this is wufam language
+
+238
+00:11:59,040 --> 00:12:04,079
+now if you don't know if I'm language I
+
+239
+00:12:01,560 --> 00:12:07,500
+talked before many introduction uh
+
+240
+00:12:04,079 --> 00:12:10,320
+actually I need I want to show it so
+
+241
+00:12:07,500 --> 00:12:13,680
+move from language copy the link and go
+
+242
+00:12:10,320 --> 00:12:13,680
+here and
+
+243
+00:12:14,220 --> 00:12:19,740
+and post it here link if I make a list
+
+244
+00:12:17,160 --> 00:12:22,260
+showing browser here's today's talk show
+
+245
+00:12:19,740 --> 00:12:25,079
+so later on you can click on the YouTube
+
+246
+00:12:22,260 --> 00:12:29,160
+and go to this page and you can see our
+
+247
+00:12:25,079 --> 00:12:31,740
+notes okay so we have you know you go so
+
+248
+00:12:29,160 --> 00:12:34,019
+I did many many woven language tutorials
+
+249
+00:12:31,740 --> 00:12:37,440
+you can go there download it and Order
+
+250
+00:12:34,019 --> 00:12:40,920
+introductory information okay it's one
+
+251
+00:12:37,440 --> 00:12:43,740
+of the my favorite language it's uh in
+
+252
+00:12:40,920 --> 00:12:48,420
+my opinion it's a magnitude in terms of
+
+253
+00:12:43,740 --> 00:12:48,420
+power and express accessibility
+
+254
+00:12:48,660 --> 00:12:56,220
+a magnitude Beyond any existing language
+
+255
+00:12:52,200 --> 00:12:57,899
+including Lis Pascal or whatever okay so
+
+256
+00:12:56,220 --> 00:13:03,300
+move from language I've been coding it
+
+257
+00:12:57,899 --> 00:13:05,760
+since 1990 3. okay so so yeah so go
+
+258
+00:13:03,300 --> 00:13:09,120
+there and check it out okay so now but
+
+259
+00:13:05,760 --> 00:13:10,740
+today we uh we are going to
+
+260
+00:13:09,120 --> 00:13:15,480
+so we got
+
+261
+00:13:10,740 --> 00:13:19,680
+um what else so today yeah okay so
+
+262
+00:13:15,480 --> 00:13:23,519
+let's delete this part we don't need
+
+263
+00:13:19,680 --> 00:13:25,200
+okay so back to Wolfram language so
+
+264
+00:13:23,519 --> 00:13:27,420
+string split
+
+265
+00:13:25,200 --> 00:13:29,940
+uh
+
+266
+00:13:27,420 --> 00:13:33,620
+uh splits a string into a list okay
+
+267
+00:13:29,940 --> 00:13:33,620
+that's what we want so
+
+268
+00:13:37,860 --> 00:13:44,160
+okay that's the syntax so you give it a
+
+269
+00:13:40,980 --> 00:13:47,760
+string XX
+
+270
+00:13:44,160 --> 00:13:49,980
+okay there it is
+
+271
+00:13:47,760 --> 00:13:52,019
+okay but actually
+
+272
+00:13:49,980 --> 00:13:55,860
+um you see
+
+273
+00:13:52,019 --> 00:14:00,200
+this way it splits by the end of line
+
+274
+00:13:55,860 --> 00:14:03,060
+character so but what
+
+275
+00:14:00,200 --> 00:14:05,040
+you know of this string but what you
+
+276
+00:14:03,060 --> 00:14:10,800
+want is you want to group these three
+
+277
+00:14:05,040 --> 00:14:10,800
+numbers together you know so each
+
+278
+00:14:11,040 --> 00:14:16,440
+every two empty lines you want to split
+
+279
+00:14:13,800 --> 00:14:19,320
+into a group okay so how do we do that
+
+280
+00:14:16,440 --> 00:14:22,860
+let's see string split
+
+281
+00:14:19,320 --> 00:14:24,720
+so we give a pattern Street split into a
+
+282
+00:14:22,860 --> 00:14:26,279
+substring separated by delimiters
+
+283
+00:14:24,720 --> 00:14:29,779
+matching the string expression okay
+
+284
+00:14:26,279 --> 00:14:29,779
+let's let's just try it
+
+285
+00:14:29,820 --> 00:14:37,440
+so now by default it assumes
+
+286
+00:14:34,100 --> 00:14:40,860
+one end of the line character but now we
+
+287
+00:14:37,440 --> 00:14:45,380
+want two let's see what it turns up
+
+288
+00:14:40,860 --> 00:14:45,380
+okay so let's say length
+
+289
+00:14:46,980 --> 00:14:53,459
+and length
+
+290
+00:14:49,740 --> 00:14:57,720
+a percentage size stands for the output
+
+291
+00:14:53,459 --> 00:14:59,940
+above so there it is so length five so
+
+292
+00:14:57,720 --> 00:15:01,320
+let's see let's go back to the original
+
+293
+00:14:59,940 --> 00:15:05,160
+problem
+
+294
+00:15:01,320 --> 00:15:07,699
+so one two three four five that's
+
+295
+00:15:05,160 --> 00:15:07,699
+correct
+
+296
+00:15:09,240 --> 00:15:14,459
+but uh let's see
+
+297
+00:15:12,000 --> 00:15:19,019
+let's see the full structure so now is
+
+298
+00:15:14,459 --> 00:15:22,079
+so now X list okay let's assign it to a
+
+299
+00:15:19,019 --> 00:15:27,779
+variable so let's we can properly see
+
+300
+00:15:22,079 --> 00:15:27,779
+the structure at X list okay uh
+
+301
+00:15:33,060 --> 00:15:39,740
+so the first one item should have three
+
+302
+00:15:36,360 --> 00:15:39,740
+items how is this
+
+303
+00:15:41,779 --> 00:15:46,680
+we want to see the structure of these
+
+304
+00:15:44,760 --> 00:15:49,019
+but
+
+305
+00:15:46,680 --> 00:15:52,019
+okay so it
+
+306
+00:15:49,019 --> 00:15:55,440
+okay we started to see so these three
+
+307
+00:15:52,019 --> 00:15:56,880
+you see the first item is actually a
+
+308
+00:15:55,440 --> 00:16:00,959
+string
+
+309
+00:15:56,880 --> 00:16:03,180
+you know so you need to split
+
+310
+00:16:00,959 --> 00:16:04,920
+this input stream
+
+311
+00:16:03,180 --> 00:16:08,220
+into a list
+
+312
+00:16:04,920 --> 00:16:11,100
+but you also need to convert each of the
+
+313
+00:16:08,220 --> 00:16:14,100
+number into a number
+
+314
+00:16:11,100 --> 00:16:16,860
+so you know I thought this is a trivial
+
+315
+00:16:14,100 --> 00:16:19,980
+problem but they are you know some
+
+316
+00:16:16,860 --> 00:16:22,139
+things you need to do so
+
+317
+00:16:19,980 --> 00:16:25,079
+so
+
+318
+00:16:22,139 --> 00:16:28,019
+let's see what we're gonna do so a
+
+319
+00:16:25,079 --> 00:16:29,279
+string two least split string string
+
+320
+00:16:28,019 --> 00:16:32,180
+split
+
+321
+00:16:29,279 --> 00:16:32,180
+uh
+
+322
+00:16:32,339 --> 00:16:37,860
+yeah okay let's let's do this okay
+
+323
+00:16:35,220 --> 00:16:41,699
+now I'm going to
+
+324
+00:16:37,860 --> 00:16:42,580
+what is this that's this code I'm going
+
+325
+00:16:41,699 --> 00:16:43,019
+to
+
+326
+00:16:42,580 --> 00:16:45,019
+[Music]
+
+327
+00:16:43,019 --> 00:16:45,019
+um
+
+328
+00:16:46,440 --> 00:16:53,639
+I'm going to code here in emacs because
+
+329
+00:16:50,100 --> 00:16:56,639
+in emacs I can code it fast with
+
+330
+00:16:53,639 --> 00:16:59,660
+subwoofer mod so let's code it here so
+
+331
+00:16:56,639 --> 00:17:02,339
+okay so subwoofer mod
+
+332
+00:16:59,660 --> 00:17:04,140
+yeah I talked about this before just
+
+333
+00:17:02,339 --> 00:17:07,559
+search for it and you'll find it so
+
+334
+00:17:04,140 --> 00:17:10,559
+subwoofer mod is a Emax major mod that
+
+335
+00:17:07,559 --> 00:17:13,439
+lets you code ufum language easily okay
+
+336
+00:17:10,559 --> 00:17:14,939
+so that's why we're doing it so first of
+
+337
+00:17:13,439 --> 00:17:19,220
+all you have the
+
+338
+00:17:14,939 --> 00:17:19,220
+input let's just copy it here
+
+339
+00:17:19,380 --> 00:17:27,360
+x x equals to string so here is the
+
+340
+00:17:22,980 --> 00:17:30,360
+input magnify and okay and we're gonna
+
+341
+00:17:27,360 --> 00:17:30,360
+string
+
+342
+00:17:30,419 --> 00:17:38,820
+split okay and split by xx and by
+
+343
+00:17:36,660 --> 00:17:44,220
+by double
+
+344
+00:17:38,820 --> 00:17:46,559
+new lines okay now this is X2 let's say
+
+345
+00:17:44,220 --> 00:17:50,160
+okay
+
+346
+00:17:46,559 --> 00:17:51,600
+then we're going to let's say X3 now
+
+347
+00:17:50,160 --> 00:17:55,500
+let's just
+
+348
+00:17:51,600 --> 00:17:57,620
+Mumbo it through so I mean
+
+349
+00:17:55,500 --> 00:17:57,620
+um
+
+350
+00:17:58,080 --> 00:18:02,299
+so first of all we split into
+
+351
+00:18:03,059 --> 00:18:10,020
+we split a string and we need to split
+
+352
+00:18:05,940 --> 00:18:13,919
+into a nested list
+
+353
+00:18:10,020 --> 00:18:17,520
+so is there some easy way
+
+354
+00:18:13,919 --> 00:18:22,580
+okay maybe there is let's look up the
+
+355
+00:18:17,520 --> 00:18:22,580
+Wolfram documentation again so pattern
+
+356
+00:18:22,799 --> 00:18:25,580
+okay
+
+357
+00:18:36,539 --> 00:18:43,260
+Spirit had any any of the peace into
+
+358
+00:18:40,440 --> 00:18:45,679
+substrings separated by three meters
+
+359
+00:18:43,260 --> 00:18:45,679
+okay
+
+360
+00:18:46,320 --> 00:18:52,799
+Okay so
+
+361
+00:18:48,960 --> 00:18:56,960
+let's see is there some other
+
+362
+00:18:52,799 --> 00:18:56,960
+and see sequence split
+
+363
+00:19:04,440 --> 00:19:09,260
+splits lists into sub-list
+
+364
+00:19:10,140 --> 00:19:12,559
+okay
+
+365
+00:19:16,380 --> 00:19:22,440
+I mean the problem is pretty simple but
+
+366
+00:19:19,440 --> 00:19:26,940
+uh I'm trying to see if there is one
+
+367
+00:19:22,440 --> 00:19:29,160
+single function so we don't have to do
+
+368
+00:19:26,940 --> 00:19:31,620
+okay maybe that's getting more complex
+
+369
+00:19:29,160 --> 00:19:35,220
+Let's do let's just do the most basic
+
+370
+00:19:31,620 --> 00:19:37,919
+way so first of all we split by double
+
+371
+00:19:35,220 --> 00:19:40,160
+blank lines
+
+372
+00:19:37,919 --> 00:19:44,160
+then we
+
+373
+00:19:40,160 --> 00:19:46,620
+for each of the
+
+374
+00:19:44,160 --> 00:19:49,919
+for for each of the
+
+375
+00:19:46,620 --> 00:19:53,720
+string we do a map okay
+
+376
+00:19:49,919 --> 00:19:53,720
+so map okay
+
+377
+00:19:55,740 --> 00:20:03,600
+okay map
+
+378
+00:19:58,140 --> 00:20:06,740
+you okay map a function to F X2 and this
+
+379
+00:20:03,600 --> 00:20:06,740
+function will be
+
+380
+00:20:10,559 --> 00:20:16,340
+okay this function will be split string
+
+381
+00:20:14,100 --> 00:20:16,340
+again
+
+382
+00:20:18,960 --> 00:20:27,660
+okay and this time is split by just one
+
+383
+00:20:23,580 --> 00:20:31,620
+single n which we don't need and because
+
+384
+00:20:27,660 --> 00:20:34,039
+by default it's just split by a single
+
+385
+00:20:31,620 --> 00:20:37,860
+End of Line character
+
+386
+00:20:34,039 --> 00:20:40,520
+and here is a function okay so you can
+
+387
+00:20:37,860 --> 00:20:40,520
+just say that
+
+388
+00:20:41,640 --> 00:20:45,419
+actually you don't even so here's a
+
+389
+00:20:43,919 --> 00:20:48,539
+function so
+
+390
+00:20:45,419 --> 00:20:52,799
+so okay so select that back to from
+
+391
+00:20:48,539 --> 00:20:56,100
+language select door paste okay let's
+
+392
+00:20:52,799 --> 00:20:57,840
+have a fresh start done let's see what
+
+393
+00:20:56,100 --> 00:21:01,500
+is X3
+
+394
+00:20:57,840 --> 00:21:04,799
+there it is that's what we want
+
+395
+00:21:01,500 --> 00:21:08,039
+now once we got this we can kind of
+
+396
+00:21:04,799 --> 00:21:09,059
+purify we can kind of purify this into
+
+397
+00:21:08,039 --> 00:21:12,299
+one
+
+398
+00:21:09,059 --> 00:21:15,059
+okay let me show you so this is some
+
+399
+00:21:12,299 --> 00:21:17,160
+if you are interested in interested in
+
+400
+00:21:15,059 --> 00:21:19,080
+the expressibility of programming
+
+401
+00:21:17,160 --> 00:21:21,600
+languages or the power programming
+
+402
+00:21:19,080 --> 00:21:23,820
+languages you'll be you will be this
+
+403
+00:21:21,600 --> 00:21:27,130
+will be interesting to you okay so we're
+
+404
+00:21:23,820 --> 00:21:27,720
+gonna combine them into one okay
+
+405
+00:21:27,130 --> 00:21:29,720
+[Music]
+
+406
+00:21:27,720 --> 00:21:29,720
+um
+
+407
+00:21:29,760 --> 00:21:36,120
+yeah so this part can just be here you
+
+408
+00:21:33,600 --> 00:21:39,860
+don't need the X2 anymore so coming out
+
+409
+00:21:36,120 --> 00:21:39,860
+so we can do it this way
+
+410
+00:21:44,880 --> 00:21:50,880
+okay then but further we can further
+
+411
+00:21:56,039 --> 00:22:03,260
+further we can rewrite the map by
+
+412
+00:22:00,059 --> 00:22:03,260
+doing it this way
+
+413
+00:22:05,340 --> 00:22:09,600
+okay
+
+414
+00:22:06,720 --> 00:22:13,620
+it's all the same so for example comment
+
+415
+00:22:09,600 --> 00:22:17,880
+out select all back to firm language
+
+416
+00:22:13,620 --> 00:22:22,799
+select or paste and let's start
+
+417
+00:22:17,880 --> 00:22:26,460
+over okay now show X3 there it is so we
+
+418
+00:22:22,799 --> 00:22:27,659
+kind of condensed make it more elegant
+
+419
+00:22:26,460 --> 00:22:29,460
+okay
+
+420
+00:22:27,659 --> 00:22:32,460
+now I think there's actually more
+
+421
+00:22:29,460 --> 00:22:34,940
+elegant way but let's skip it
+
+422
+00:22:32,460 --> 00:22:34,940
+okay
+
+423
+00:22:34,980 --> 00:22:41,340
+okay now you got a bunch of numbers now
+
+424
+00:22:37,380 --> 00:22:44,280
+you just want to sum each sublist then
+
+425
+00:22:41,340 --> 00:22:49,140
+pick the biggest biggest number
+
+426
+00:22:44,280 --> 00:22:53,340
+very easy okay so now you just send
+
+427
+00:22:49,140 --> 00:22:55,559
+so total you know in movement language
+
+428
+00:22:53,340 --> 00:22:58,500
+you can just say total and give a list
+
+429
+00:22:55,559 --> 00:23:01,500
+of numbers that Returns the sum now in
+
+430
+00:22:58,500 --> 00:23:04,380
+most other languages such as Haskell you
+
+431
+00:23:01,500 --> 00:23:06,539
+might have a function named sum but you
+
+432
+00:23:04,380 --> 00:23:08,400
+move from language you also have a
+
+433
+00:23:06,539 --> 00:23:11,640
+function named sum but that's not it
+
+434
+00:23:08,400 --> 00:23:14,640
+because the function sum is for you to
+
+435
+00:23:11,640 --> 00:23:17,100
+do mathematical summation for example
+
+436
+00:23:14,640 --> 00:23:20,400
+some X
+
+437
+00:23:17,100 --> 00:23:23,880
+X from 1 to 10.
+
+438
+00:23:20,400 --> 00:23:28,740
+okay so 55 so let's give it another
+
+439
+00:23:23,880 --> 00:23:30,360
+example sum X
+
+440
+00:23:28,740 --> 00:23:35,120
+Sim
+
+441
+00:23:30,360 --> 00:23:35,120
+let's let's try this okay so
+
+442
+00:23:45,539 --> 00:23:48,919
+no I want to
+
+443
+00:23:51,960 --> 00:23:59,720
+oh okay so what I want to do is this X
+
+444
+00:23:56,100 --> 00:24:02,400
+from A to B okay
+
+445
+00:23:59,720 --> 00:24:04,740
+symbolic result
+
+446
+00:24:02,400 --> 00:24:07,559
+okay now if you have you know it
+
+447
+00:24:04,740 --> 00:24:10,500
+actually gives you a closed form of this
+
+448
+00:24:07,559 --> 00:24:13,400
+sum but let's suppose you have something
+
+449
+00:24:10,500 --> 00:24:13,400
+more complex
+
+450
+00:24:16,260 --> 00:24:22,740
+okay so suppose you have that you can
+
+451
+00:24:19,679 --> 00:24:27,020
+press the button for it to format format
+
+452
+00:24:22,740 --> 00:24:29,400
+it in a mathematical way and you can
+
+453
+00:24:27,020 --> 00:24:32,760
+evaluate it
+
+454
+00:24:29,400 --> 00:24:37,320
+this one also works out so it gives you
+
+455
+00:24:32,760 --> 00:24:40,200
+a closed form symbolic solution to this
+
+456
+00:24:37,320 --> 00:24:43,620
+summation okay anyway we are digressing
+
+457
+00:24:40,200 --> 00:24:46,980
+my point here is that you know the sum
+
+458
+00:24:43,620 --> 00:24:50,760
+function in Wolfram language is for
+
+459
+00:24:46,980 --> 00:24:52,740
+doing mathematical summations okay now
+
+460
+00:24:50,760 --> 00:24:53,940
+if you just want to add a bunch of
+
+461
+00:24:52,740 --> 00:24:57,799
+numbers
+
+462
+00:24:53,940 --> 00:24:57,799
+that function is total
+
+463
+00:24:59,940 --> 00:25:08,220
+okay Toto needs to take a least okay so
+
+464
+00:25:04,340 --> 00:25:09,419
+so you need to for example three four
+
+465
+00:25:08,220 --> 00:25:12,840
+four
+
+466
+00:25:09,419 --> 00:25:15,659
+okay eleven so I mean this is a little a
+
+467
+00:25:12,840 --> 00:25:18,059
+little interesting tidbits because in
+
+468
+00:25:15,659 --> 00:25:20,659
+most other languages they are just say
+
+469
+00:25:18,059 --> 00:25:24,120
+some and many of the functional language
+
+470
+00:25:20,659 --> 00:25:27,179
+languages they think this is a
+
+471
+00:25:24,120 --> 00:25:31,080
+fantastic demonstration of the you know
+
+472
+00:25:27,179 --> 00:25:33,240
+of the declarative programming but in
+
+473
+00:25:31,080 --> 00:25:35,700
+Wolfram language that is actually just
+
+474
+00:25:33,240 --> 00:25:38,279
+called Toto
+
+475
+00:25:35,700 --> 00:25:41,340
+okay so so interesting so let's go back
+
+476
+00:25:38,279 --> 00:25:43,860
+to the problem so we want to sum up you
+
+477
+00:25:41,340 --> 00:25:45,779
+know so we want to do a map again so let
+
+478
+00:25:43,860 --> 00:25:48,360
+me show you okay map
+
+479
+00:25:45,779 --> 00:25:51,000
+so map a function
+
+480
+00:25:48,360 --> 00:25:54,799
+uh what is the function so the function
+
+481
+00:25:51,000 --> 00:25:54,799
+let's write it out function
+
+482
+00:25:56,700 --> 00:26:02,400
+okay
+
+483
+00:25:57,659 --> 00:26:06,779
+uh the function of X and what will it do
+
+484
+00:26:02,400 --> 00:26:09,600
+so it will just do total X
+
+485
+00:26:06,779 --> 00:26:14,220
+okay so here is a function
+
+486
+00:26:09,600 --> 00:26:18,720
+gets a total and map it to X3 okay let's
+
+487
+00:26:14,220 --> 00:26:20,039
+don't okay so that is how you
+
+488
+00:26:18,720 --> 00:26:23,279
+sum
+
+489
+00:26:20,039 --> 00:26:24,539
+each sub-list like that
+
+490
+00:26:23,279 --> 00:26:26,580
+that
+
+491
+00:26:24,539 --> 00:26:29,640
+okay
+
+492
+00:26:26,580 --> 00:26:31,140
+so now copy all
+
+493
+00:26:29,640 --> 00:26:35,360
+new
+
+494
+00:26:31,140 --> 00:26:35,360
+uh new window
+
+495
+00:26:35,880 --> 00:26:39,559
+it's magnify okay
+
+496
+00:26:40,140 --> 00:26:44,299
+okay
+
+497
+00:26:41,340 --> 00:26:44,299
+evaluated
+
+498
+00:26:49,080 --> 00:26:55,980
+uh why is it not actually summing it oh
+
+499
+00:26:53,100 --> 00:26:58,500
+now I know why because each of these
+
+500
+00:26:55,980 --> 00:27:01,380
+item is still string
+
+501
+00:26:58,500 --> 00:27:04,380
+you know when you do total their input
+
+502
+00:27:01,380 --> 00:27:07,799
+must be numbers so
+
+503
+00:27:04,380 --> 00:27:11,340
+if you give a input of string it just
+
+504
+00:27:07,799 --> 00:27:13,980
+returned that so we forgot to do the
+
+505
+00:27:11,340 --> 00:27:17,840
+step of converting
+
+506
+00:27:13,980 --> 00:27:21,779
+string to number so we can do it here
+
+507
+00:27:17,840 --> 00:27:25,200
+okay so let's see so let's go back here
+
+508
+00:27:21,779 --> 00:27:28,140
+let's see let me show you so
+
+509
+00:27:25,200 --> 00:27:31,020
+okay so easy enough so all we have to do
+
+510
+00:27:28,140 --> 00:27:33,840
+now is map again
+
+511
+00:27:31,020 --> 00:27:36,900
+okay map
+
+512
+00:27:33,840 --> 00:27:39,000
+a function to X3
+
+513
+00:27:36,900 --> 00:27:42,799
+where the function what does the
+
+514
+00:27:39,000 --> 00:27:42,799
+function do he will
+
+515
+00:27:44,600 --> 00:27:48,020
+string to
+
+516
+00:27:54,299 --> 00:28:00,419
+a string two expression huh
+
+517
+00:27:57,720 --> 00:28:04,520
+now in typical typically other languages
+
+518
+00:28:00,419 --> 00:28:04,520
+it's string two numbers so
+
+519
+00:28:11,220 --> 00:28:15,840
+yeah we want to convert a string to
+
+520
+00:28:13,559 --> 00:28:19,559
+number
+
+521
+00:28:15,840 --> 00:28:20,820
+so why is that so what is a function
+
+522
+00:28:19,559 --> 00:28:23,279
+let's see
+
+523
+00:28:20,820 --> 00:28:28,020
+no
+
+524
+00:28:23,279 --> 00:28:29,220
+we want to convert a string to integer
+
+525
+00:28:28,020 --> 00:28:29,640
+but
+
+526
+00:28:29,220 --> 00:28:30,480
+[Music]
+
+527
+00:28:29,640 --> 00:28:34,260
+um
+
+528
+00:28:30,480 --> 00:28:37,080
+okay so what we can do is to query all
+
+529
+00:28:34,260 --> 00:28:39,559
+functions whose name contains the word
+
+530
+00:28:37,080 --> 00:28:39,559
+string
+
+531
+00:28:39,779 --> 00:28:45,140
+number two string so there is number two
+
+532
+00:28:42,600 --> 00:28:45,140
+string
+
+533
+00:28:49,100 --> 00:28:52,580
+okay let's
+
+534
+00:28:54,779 --> 00:28:59,220
+string pad and string length string
+
+535
+00:28:57,480 --> 00:29:03,860
+format
+
+536
+00:28:59,220 --> 00:29:03,860
+number string okay maybe that
+
+537
+00:29:03,960 --> 00:29:09,720
+number string represents the characters
+
+538
+00:29:06,480 --> 00:29:11,940
+of a number
+
+539
+00:29:09,720 --> 00:29:14,720
+in string expression okay that's not
+
+540
+00:29:11,940 --> 00:29:14,720
+what we want
+
+541
+00:29:15,720 --> 00:29:19,880
+we want string two number
+
+542
+00:29:29,940 --> 00:29:35,059
+uh I think read string okay
+
+543
+00:29:35,640 --> 00:29:44,159
+no okay I forgot what's uh what's the
+
+544
+00:29:39,419 --> 00:29:46,679
+name so what we can do is we I normally
+
+545
+00:29:44,159 --> 00:29:48,480
+the way I do it I just go to My woofam
+
+546
+00:29:46,679 --> 00:29:51,240
+Language tutorial
+
+547
+00:29:48,480 --> 00:29:55,320
+and look at
+
+548
+00:29:51,240 --> 00:29:58,140
+my own tutorial because there I usually
+
+549
+00:29:55,320 --> 00:30:00,480
+condense the most essential the most
+
+550
+00:29:58,140 --> 00:30:03,539
+frequently used functions
+
+551
+00:30:00,480 --> 00:30:04,559
+so do we have a string two number how is
+
+552
+00:30:03,539 --> 00:30:08,539
+it done
+
+553
+00:30:04,559 --> 00:30:08,539
+for my string string to list
+
+554
+00:30:08,840 --> 00:30:13,520
+okay these two string
+
+555
+00:30:16,020 --> 00:30:22,380
+okay I think I know what
+
+556
+00:30:18,840 --> 00:30:26,179
+two expression okay so what we want is
+
+557
+00:30:22,380 --> 00:30:26,179
+two expressions there it is
+
+558
+00:30:26,520 --> 00:30:31,220
+okay two expression input gives the
+
+559
+00:30:28,860 --> 00:30:34,559
+expression of 10 by interpret
+
+560
+00:30:31,220 --> 00:30:37,799
+interpreting strings or boxes as valid
+
+561
+00:30:34,559 --> 00:30:40,559
+language input okay that's what we want
+
+562
+00:30:37,799 --> 00:30:43,860
+for example
+
+563
+00:30:40,559 --> 00:30:48,480
+three so you want to give it a string
+
+564
+00:30:43,860 --> 00:30:51,320
+three three there it is now you can say
+
+565
+00:30:48,480 --> 00:30:51,320
+number Q
+
+566
+00:30:52,140 --> 00:31:00,260
+okay number Q
+
+567
+00:30:55,140 --> 00:31:03,419
+that true so two expression is how you
+
+568
+00:31:00,260 --> 00:31:06,659
+convert a string to a number okay that's
+
+569
+00:31:03,419 --> 00:31:10,340
+what we want copy it
+
+570
+00:31:06,659 --> 00:31:13,440
+so two expression function
+
+571
+00:31:10,340 --> 00:31:15,919
+X2 expression
+
+572
+00:31:13,440 --> 00:31:15,919
+X
+
+573
+00:31:17,220 --> 00:31:23,960
+okay so let's say X4 equals true that
+
+574
+00:31:21,720 --> 00:31:23,960
+okay
+
+575
+00:31:25,860 --> 00:31:30,500
+Okay so
+
+576
+00:31:27,899 --> 00:31:30,500
+now
+
+577
+00:31:30,600 --> 00:31:36,559
+okay that's our whole code copy it
+
+578
+00:31:33,899 --> 00:31:36,559
+back here
+
+579
+00:31:38,880 --> 00:31:43,620
+paste it
+
+580
+00:31:40,620 --> 00:31:43,620
+Eva
+
+581
+00:31:44,760 --> 00:31:50,779
+what oh yeah this this should be X4 okay
+
+582
+00:31:55,200 --> 00:31:58,980
+there it is
+
+583
+00:31:57,419 --> 00:32:02,640
+so those
+
+584
+00:31:58,980 --> 00:32:04,020
+you know you just summed the subleased
+
+585
+00:32:02,640 --> 00:32:06,960
+what's up guys
+
+586
+00:32:04,020 --> 00:32:10,399
+so then all we have to do now is to pick
+
+587
+00:32:06,960 --> 00:32:10,399
+the biggest item
+
+588
+00:32:10,679 --> 00:32:17,120
+and that would be Max
+
+589
+00:32:14,580 --> 00:32:17,120
+okay
+
+590
+00:32:18,600 --> 00:32:25,460
+yeah Max Returns the biggest biggest
+
+591
+00:32:20,940 --> 00:32:25,460
+item for for example we can do this
+
+592
+00:32:30,720 --> 00:32:34,980
+Okay so
+
+593
+00:32:32,220 --> 00:32:39,799
+that's the answer okay now all we have
+
+594
+00:32:34,980 --> 00:32:39,799
+to do is to clean up our code
+
+595
+00:32:43,039 --> 00:32:52,460
+okay let's say X5 here X5 so we you know
+
+596
+00:32:47,820 --> 00:32:55,320
+we kind of did we did exploration
+
+597
+00:32:52,460 --> 00:32:59,640
+explorative programming
+
+598
+00:32:55,320 --> 00:33:01,740
+and the max X5 is our answer let's do it
+
+599
+00:32:59,640 --> 00:33:04,679
+one more time
+
+600
+00:33:01,740 --> 00:33:08,940
+there it is okay
+
+601
+00:33:04,679 --> 00:33:11,520
+now let's go back to the event of code
+
+602
+00:33:08,940 --> 00:33:15,840
+page
+
+603
+00:33:11,520 --> 00:33:18,840
+to begin get your personal input
+
+604
+00:33:15,840 --> 00:33:21,360
+okay so I have to you know this is a
+
+605
+00:33:18,840 --> 00:33:26,519
+example input so let's get my personal
+
+606
+00:33:21,360 --> 00:33:29,880
+input okay oh so a lot more oh
+
+607
+00:33:26,519 --> 00:33:31,559
+okay we're gonna check on that
+
+608
+00:33:29,880 --> 00:33:33,600
+easy
+
+609
+00:33:31,559 --> 00:33:36,419
+easy but before we do that let's clean
+
+610
+00:33:33,600 --> 00:33:38,519
+up our code because this is ugly you
+
+611
+00:33:36,419 --> 00:33:41,279
+know we are exploration you know
+
+612
+00:33:38,519 --> 00:33:44,700
+exploring how to do it this is gonna be
+
+613
+00:33:41,279 --> 00:33:47,960
+one single line okay one single line so
+
+614
+00:33:44,700 --> 00:33:51,240
+let me let me code it okay so basically
+
+615
+00:33:47,960 --> 00:33:55,980
+here is the code you want to make it one
+
+616
+00:33:51,240 --> 00:33:58,640
+single line let's do it okay so let me
+
+617
+00:33:55,980 --> 00:33:58,640
+call this
+
+618
+00:33:58,980 --> 00:34:05,640
+so of lamio says
+
+619
+00:34:02,460 --> 00:34:10,020
+event means coming as in the coming of
+
+620
+00:34:05,640 --> 00:34:12,899
+Christ oh thank you analytic minded Greg
+
+621
+00:34:10,020 --> 00:34:16,440
+and dog says orange clothes
+
+622
+00:34:12,899 --> 00:34:19,500
+this is a friend of my wife's
+
+623
+00:34:16,440 --> 00:34:21,599
+who gave her this sweater and she think
+
+624
+00:34:19,500 --> 00:34:23,780
+it's too big for her so she gave it to
+
+625
+00:34:21,599 --> 00:34:23,780
+me
+
+626
+00:34:30,060 --> 00:34:35,119
+what you are learning to reference
+
+627
+00:34:32,820 --> 00:34:39,659
+material already
+
+628
+00:34:35,119 --> 00:34:42,659
+or flamio start too cold you know do
+
+629
+00:34:39,659 --> 00:34:47,460
+more coding instead of just reading
+
+630
+00:34:42,659 --> 00:34:49,740
+that's important uh okay so
+
+631
+00:34:47,460 --> 00:34:52,740
+so we are yeah we're gonna clean up the
+
+632
+00:34:49,740 --> 00:34:55,320
+code okay so let's make it elegant
+
+633
+00:34:52,740 --> 00:34:58,020
+the way I can so
+
+634
+00:34:55,320 --> 00:35:01,640
+let's see split string
+
+635
+00:34:58,020 --> 00:35:01,640
+let me split string again
+
+636
+00:35:03,300 --> 00:35:09,740
+uh
+
+637
+00:35:05,400 --> 00:35:13,280
+yeah so the input is a list of
+
+638
+00:35:09,740 --> 00:35:13,280
+uh where is it
+
+639
+00:35:17,640 --> 00:35:24,680
+okay the input is a is a stream
+
+640
+00:35:21,000 --> 00:35:24,680
+the input is a string
+
+641
+00:35:26,520 --> 00:35:31,520
+and
+
+642
+00:35:27,859 --> 00:35:31,520
+separated by
+
+643
+00:35:34,740 --> 00:35:40,820
+first first of all it's separated by two
+
+644
+00:35:37,619 --> 00:35:40,820
+end of character
+
+645
+00:35:41,160 --> 00:35:47,400
+end of lying characters
+
+646
+00:35:43,220 --> 00:35:49,980
+then then each subseq I mean each number
+
+647
+00:35:47,400 --> 00:35:51,540
+in a group is separated by one and
+
+648
+00:35:49,980 --> 00:35:54,320
+applying characters
+
+649
+00:35:51,540 --> 00:35:54,320
+so
+
+650
+00:35:55,020 --> 00:35:59,520
+so
+
+651
+00:35:57,300 --> 00:36:02,760
+you know the the one of the the major
+
+652
+00:35:59,520 --> 00:36:07,380
+problem is you want to turn this into a
+
+653
+00:36:02,760 --> 00:36:10,619
+list of least and uh each atom each
+
+654
+00:36:07,380 --> 00:36:12,660
+element in the list must be a number so
+
+655
+00:36:10,619 --> 00:36:16,740
+you want to turn it into a list of list
+
+656
+00:36:12,660 --> 00:36:20,099
+and convert the string to numbers now
+
+657
+00:36:16,740 --> 00:36:23,099
+what's the shortest way to do that
+
+658
+00:36:20,099 --> 00:36:23,099
+so
+
+659
+00:36:27,240 --> 00:36:31,859
+so
+
+660
+00:36:28,920 --> 00:36:35,099
+let me let me tell you okay we can
+
+661
+00:36:31,859 --> 00:36:37,980
+simply do one single solution to
+
+662
+00:36:35,099 --> 00:36:40,320
+expression okay
+
+663
+00:36:37,980 --> 00:36:45,180
+let's try it
+
+664
+00:36:40,320 --> 00:36:48,839
+two expression XX copy it go back here
+
+665
+00:36:45,180 --> 00:36:51,599
+okay let's select all paste
+
+666
+00:36:48,839 --> 00:36:56,119
+one single
+
+667
+00:36:51,599 --> 00:36:56,119
+uh line let's see what it does
+
+668
+00:36:57,300 --> 00:37:02,220
+okay that just returned the last item no
+
+669
+00:37:00,180 --> 00:37:06,800
+it's no good
+
+670
+00:37:02,220 --> 00:37:06,800
+okay let's look at two expressions
+
+671
+00:37:09,839 --> 00:37:15,060
+okay yeah it's in in interpreting
+
+672
+00:37:15,780 --> 00:37:20,040
+okay they are they are kind of seven you
+
+673
+00:37:18,420 --> 00:37:22,920
+know there are many ways to approach
+
+674
+00:37:20,040 --> 00:37:25,800
+this problem I mean this is kind of a
+
+675
+00:37:22,920 --> 00:37:30,000
+toy problem right you know we we could
+
+676
+00:37:25,800 --> 00:37:33,060
+just use you know this code to do it
+
+677
+00:37:30,000 --> 00:37:34,260
+you know in fact let's let's just do it
+
+678
+00:37:33,060 --> 00:37:36,540
+okay let's
+
+679
+00:37:34,260 --> 00:37:39,240
+let's just uh
+
+680
+00:37:36,540 --> 00:37:41,280
+just make sure we
+
+681
+00:37:39,240 --> 00:37:42,660
+you know first of all let's comment this
+
+682
+00:37:41,280 --> 00:37:44,820
+out
+
+683
+00:37:42,660 --> 00:37:50,220
+so copy that
+
+684
+00:37:44,820 --> 00:37:52,440
+so here page that's a huge bunch of uh
+
+685
+00:37:50,220 --> 00:37:54,980
+uh things
+
+686
+00:37:52,440 --> 00:37:57,060
+okay let's copy it
+
+687
+00:37:54,980 --> 00:37:59,880
+copy it
+
+688
+00:37:57,060 --> 00:38:02,339
+and uh
+
+689
+00:37:59,880 --> 00:38:06,119
+paste it so you can see
+
+690
+00:38:02,339 --> 00:38:07,320
+there it is huge input all right
+
+691
+00:38:06,119 --> 00:38:10,440
+now
+
+692
+00:38:07,320 --> 00:38:17,060
+return run it okay
+
+693
+00:38:10,440 --> 00:38:21,839
+okay big big big now the result is 70
+
+694
+00:38:17,060 --> 00:38:24,619
+16 okay so let's just
+
+695
+00:38:21,839 --> 00:38:24,619
+answer
+
+696
+00:38:25,740 --> 00:38:31,220
+uh
+
+697
+00:38:27,599 --> 00:38:31,220
+seven zero one and six
+
+698
+00:38:38,579 --> 00:38:43,740
+submit
+
+699
+00:38:40,680 --> 00:38:46,560
+that's the right answer you are one gold
+
+700
+00:38:43,740 --> 00:38:50,280
+star closer to collecting a Nerf star
+
+701
+00:38:46,560 --> 00:38:53,040
+fruit okay continue to part two
+
+702
+00:38:50,280 --> 00:38:54,960
+okay so you know it's trivial problem
+
+703
+00:38:53,040 --> 00:38:57,660
+should we
+
+704
+00:38:54,960 --> 00:39:00,599
+Let's see we already did 50 minutes so
+
+705
+00:38:57,660 --> 00:39:03,200
+that's about it today so should we start
+
+706
+00:39:00,599 --> 00:39:06,240
+to do the second problem or should we
+
+707
+00:39:03,200 --> 00:39:09,060
+clean up our code to come up with the
+
+708
+00:39:06,240 --> 00:39:11,880
+most elegant solution
+
+709
+00:39:09,060 --> 00:39:13,339
+your new haircut reminds me of the guy
+
+710
+00:39:11,880 --> 00:39:17,640
+being
+
+711
+00:39:13,339 --> 00:39:20,000
+trapped in the alien's cage in Rick and
+
+712
+00:39:17,640 --> 00:39:20,000
+Morty
+
+713
+00:39:24,060 --> 00:39:27,420
+oh yeah
+
+714
+00:39:25,380 --> 00:39:29,579
+because of the
+
+715
+00:39:27,420 --> 00:39:32,700
+because the orange
+
+716
+00:39:29,579 --> 00:39:37,320
+jumpsuit or something I think
+
+717
+00:39:32,700 --> 00:39:40,020
+Rick and Morty is one of the
+
+718
+00:39:37,320 --> 00:39:43,700
+it's a great show okay it's but I want I
+
+719
+00:39:40,020 --> 00:39:43,700
+was going to say it's one of the um
+
+720
+00:39:48,300 --> 00:39:54,380
+dark humor and uh
+
+721
+00:39:51,359 --> 00:39:54,380
+uh anyway
+
+722
+00:39:54,839 --> 00:40:00,900
+okay so let's go to the next one yeah so
+
+723
+00:39:57,720 --> 00:40:02,880
+good or Flamingo okay so yeah let's not
+
+724
+00:40:00,900 --> 00:40:07,020
+you know
+
+725
+00:40:02,880 --> 00:40:08,339
+you know this code is actually normally
+
+726
+00:40:07,020 --> 00:40:11,040
+you don't
+
+727
+00:40:08,339 --> 00:40:13,079
+you don't write four things uh in wolfen
+
+728
+00:40:11,040 --> 00:40:16,020
+language once once you are familiar with
+
+729
+00:40:13,079 --> 00:40:18,900
+it you use a lot of shortcuts for
+
+730
+00:40:16,020 --> 00:40:22,740
+example this map for example this scene
+
+731
+00:40:18,900 --> 00:40:25,200
+you know this slash ad that's a map
+
+732
+00:40:22,740 --> 00:40:28,380
+so you see that's that's the same as
+
+733
+00:40:25,200 --> 00:40:30,900
+this map but it's a shortcut so when you
+
+734
+00:40:28,380 --> 00:40:33,420
+use shortcuts that's very normal but
+
+735
+00:40:30,900 --> 00:40:35,700
+then people don't understand it you know
+
+736
+00:40:33,420 --> 00:40:38,339
+so I try to write them in full but
+
+737
+00:40:35,700 --> 00:40:42,140
+anyway let's let's we got this so let's
+
+738
+00:40:38,339 --> 00:40:42,140
+just put it here for now okay
+
+739
+00:40:42,240 --> 00:40:47,599
+okay so oh God this is long
+
+740
+00:40:48,960 --> 00:40:54,380
+okay so there is the answer but uh do we
+
+741
+00:40:51,839 --> 00:40:54,380
+have it
+
+742
+00:40:55,140 --> 00:41:00,180
+do we have the show yeah okay so so that
+
+743
+00:40:58,380 --> 00:41:03,240
+solves the problem next one
+
+744
+00:41:00,180 --> 00:41:06,000
+now I don't know I can you know so I can
+
+745
+00:41:03,240 --> 00:41:08,579
+we can I can continue doing this in
+
+746
+00:41:06,000 --> 00:41:10,680
+Wolfram language or we can start to do
+
+747
+00:41:08,579 --> 00:41:14,579
+the JavaScript version of this problem
+
+748
+00:41:10,680 --> 00:41:16,859
+or emac this solution so that depends on
+
+749
+00:41:14,579 --> 00:41:19,280
+what you guys want to do so but I think
+
+750
+00:41:16,859 --> 00:41:22,260
+we are done today
+
+751
+00:41:19,280 --> 00:41:25,500
+uh let's see how many
+
+752
+00:41:22,260 --> 00:41:28,220
+people watching who is my
+
+753
+00:41:25,500 --> 00:41:28,220
+YouTube
+
+754
+00:41:31,800 --> 00:41:38,579
+okay that's it I think
+
+755
+00:41:34,440 --> 00:41:41,660
+okay so let's for the sake of let's read
+
+756
+00:41:38,579 --> 00:41:41,660
+what's the second problem
+
+757
+00:41:42,359 --> 00:41:47,220
+in case the elves okay it's gonna be a
+
+758
+00:41:44,820 --> 00:41:49,920
+lot reading in case the elves got get
+
+759
+00:41:47,220 --> 00:41:53,700
+hungry and need extra snacks they need
+
+760
+00:41:49,920 --> 00:41:56,339
+to know which elves to ask blah blah
+
+761
+00:41:53,700 --> 00:41:58,440
+blah blah blah
+
+762
+00:41:56,339 --> 00:42:01,260
+find the L carrying the most calories
+
+763
+00:41:58,440 --> 00:42:04,680
+how many total calories is that inside
+
+764
+00:42:01,260 --> 00:42:05,700
+of carrying that's okay that's the first
+
+765
+00:42:04,680 --> 00:42:08,160
+question
+
+766
+00:42:05,700 --> 00:42:11,160
+the first half of this puzzle is
+
+767
+00:42:08,160 --> 00:42:13,800
+complete oh God this is the second half
+
+768
+00:42:11,160 --> 00:42:15,540
+part two by the time you can carry
+
+769
+00:42:13,800 --> 00:42:17,520
+answers to Elvis question they've
+
+770
+00:42:15,540 --> 00:42:19,260
+already realized that they are carrying
+
+771
+00:42:17,520 --> 00:42:22,619
+the most calories of food might
+
+772
+00:42:19,260 --> 00:42:25,859
+eventually run out of snack
+
+773
+00:42:22,619 --> 00:42:28,800
+to avoid these unacceptable situation
+
+774
+00:42:25,859 --> 00:42:32,099
+the elves would instead like to know the
+
+775
+00:42:28,800 --> 00:42:35,339
+total calories carried by the top three
+
+776
+00:42:32,099 --> 00:42:37,980
+elves carrying the most calories
+
+777
+00:42:35,339 --> 00:42:40,320
+that way even if one of those helps run
+
+778
+00:42:37,980 --> 00:42:41,640
+up out of snacks they still have two
+
+779
+00:42:40,320 --> 00:42:45,119
+backups
+
+780
+00:42:41,640 --> 00:42:47,579
+in the example above the top three elves
+
+781
+00:42:45,119 --> 00:42:50,640
+are the
+
+782
+00:42:47,579 --> 00:42:53,400
+fourth elf
+
+783
+00:42:50,640 --> 00:42:58,040
+wait in the example above the top three
+
+784
+00:42:53,400 --> 00:42:58,040
+elves are the fourth elf
+
+785
+00:43:01,200 --> 00:43:06,119
+with 24
+
+786
+00:43:03,240 --> 00:43:10,560
+000 calories then the third elf
+
+787
+00:43:06,119 --> 00:43:12,480
+with 11 000 calories then the fifth the
+
+788
+00:43:10,560 --> 00:43:14,520
+sum of the calories carried by these
+
+789
+00:43:12,480 --> 00:43:16,819
+three elves is 45
+
+790
+00:43:14,520 --> 00:43:16,819
+000.
+
+791
+00:43:22,800 --> 00:43:31,619
+okay he is referring to you know my own
+
+792
+00:43:27,980 --> 00:43:34,040
+this custom problem here so what is he
+
+793
+00:43:31,619 --> 00:43:34,040
+saying
+
+794
+00:43:39,240 --> 00:43:44,160
+in an example above the top three hours
+
+795
+00:43:42,119 --> 00:43:47,579
+are the fourth elf
+
+796
+00:43:44,160 --> 00:43:49,980
+one two three
+
+797
+00:43:47,579 --> 00:43:51,359
+okay
+
+798
+00:43:49,980 --> 00:43:53,579
+four
+
+799
+00:43:51,359 --> 00:43:58,280
+what
+
+800
+00:43:53,579 --> 00:43:58,280
+then the third then the fifth
+
+801
+00:44:02,220 --> 00:44:09,240
+so he wants to know the top three that's
+
+802
+00:44:05,880 --> 00:44:12,000
+so easy okay let's go back to
+
+803
+00:44:09,240 --> 00:44:14,700
+so instead of just getting the the
+
+804
+00:44:12,000 --> 00:44:18,839
+maximum you just want to know the top
+
+805
+00:44:14,700 --> 00:44:21,780
+three maximum okay so you just look up
+
+806
+00:44:18,839 --> 00:44:25,619
+the documentation for Max in Wolfram
+
+807
+00:44:21,780 --> 00:44:27,740
+language I believe you can you can
+
+808
+00:44:25,619 --> 00:44:27,740
+um
+
+809
+00:44:30,900 --> 00:44:36,000
+turn on JavaScript
+
+810
+00:44:33,000 --> 00:44:39,560
+so instead of returning the maximum you
+
+811
+00:44:36,000 --> 00:44:43,560
+want to return the top three biggest
+
+812
+00:44:39,560 --> 00:44:48,119
+so you can so I guess you need to sort
+
+813
+00:44:43,560 --> 00:44:51,740
+it then sort and pick the first three
+
+814
+00:44:48,119 --> 00:44:51,740
+but easier a
+
+815
+00:44:54,180 --> 00:44:57,560
+easier solution
+
+816
+00:44:57,900 --> 00:45:03,960
+there it is take largest so you know see
+
+817
+00:45:01,560 --> 00:45:07,140
+you see wolfam language is like I said
+
+818
+00:45:03,960 --> 00:45:09,960
+before is a magnitude more powerful than
+
+819
+00:45:07,140 --> 00:45:12,060
+all the rest industrial languages
+
+820
+00:45:09,960 --> 00:45:14,280
+so many
+
+821
+00:45:12,060 --> 00:45:17,040
+problems you have a building function
+
+822
+00:45:14,280 --> 00:45:21,300
+for example right now we want to we need
+
+823
+00:45:17,040 --> 00:45:24,240
+to sort the list and take the top three
+
+824
+00:45:21,300 --> 00:45:26,640
+biggest numbers but you don't need to in
+
+825
+00:45:24,240 --> 00:45:30,060
+open language you just call
+
+826
+00:45:26,640 --> 00:45:32,099
+take largest okay you know that will do
+
+827
+00:45:30,060 --> 00:45:35,280
+it
+
+828
+00:45:32,099 --> 00:45:38,339
+you know gives the numerically largest
+
+829
+00:45:35,280 --> 00:45:43,200
+elements in this sorted in descending
+
+830
+00:45:38,339 --> 00:45:46,819
+order okay so let's let's you know so
+
+831
+00:45:43,200 --> 00:45:46,819
+take largest
+
+832
+00:45:48,839 --> 00:45:55,859
+okay so take largest
+
+833
+00:45:52,680 --> 00:46:00,480
+list X5
+
+834
+00:45:55,859 --> 00:46:03,680
+and we want top top top three right
+
+835
+00:46:00,480 --> 00:46:03,680
+what is the problem
+
+836
+00:46:05,880 --> 00:46:10,220
+top three okay so that's so easy
+
+837
+00:46:11,280 --> 00:46:16,460
+so yeah so we you know we just uh
+
+838
+00:46:18,720 --> 00:46:24,900
+there it is okay so copy the solution
+
+839
+00:46:22,200 --> 00:46:29,300
+copy it
+
+840
+00:46:24,900 --> 00:46:29,300
+and uh let's see
+
+841
+00:46:29,940 --> 00:46:36,420
+answer so
+
+842
+00:46:33,720 --> 00:46:39,500
+do they accept comma
+
+843
+00:46:36,420 --> 00:46:39,500
+or do they what
+
+844
+00:46:45,780 --> 00:46:51,960
+wait what is find the top three elves
+
+845
+00:46:49,380 --> 00:46:55,319
+carrying the most calories how many
+
+846
+00:46:51,960 --> 00:46:58,800
+calories are those elves carrying in in
+
+847
+00:46:55,319 --> 00:47:00,540
+total okay in total so you actually need
+
+848
+00:46:58,800 --> 00:47:02,640
+to Total them up
+
+849
+00:47:00,540 --> 00:47:04,380
+okay I'm just gonna start to use
+
+850
+00:47:02,640 --> 00:47:08,660
+shortcuts so
+
+851
+00:47:04,380 --> 00:47:08,660
+so here is the solution okay
+
+852
+00:47:12,839 --> 00:47:19,380
+I think so let's just let's just submit
+
+853
+00:47:16,619 --> 00:47:21,300
+that's the right answer you you are one
+
+854
+00:47:19,380 --> 00:47:24,300
+gold star closer to collecting enough
+
+855
+00:47:21,300 --> 00:47:24,830
+star fruit you have completed day one
+
+856
+00:47:24,300 --> 00:47:26,480
+okay
+
+857
+00:47:24,830 --> 00:47:29,460
+[Music]
+
+858
+00:47:26,480 --> 00:47:32,180
+share this Victory or return to your
+
+859
+00:47:29,460 --> 00:47:32,180
+adventure okay
+
+860
+00:47:32,460 --> 00:47:37,700
+some of top three okay yeah that's good
+
+861
+00:47:34,980 --> 00:47:41,160
+okay I think that's it for today any
+
+862
+00:47:37,700 --> 00:47:45,480
+comments and questions you guys have
+
+863
+00:47:41,160 --> 00:47:47,880
+about today's you know topics all about
+
+864
+00:47:45,480 --> 00:47:50,339
+wufa language
+
+865
+00:47:47,880 --> 00:47:54,060
+because I think the interesting thing I
+
+866
+00:47:50,339 --> 00:47:56,780
+mean today's problem is pretty trivial I
+
+867
+00:47:54,060 --> 00:48:00,780
+mean for basically for beginning
+
+868
+00:47:56,780 --> 00:48:03,720
+programmers but what I'm doing is
+
+869
+00:48:00,780 --> 00:48:06,240
+showing wolfam language so
+
+870
+00:48:03,720 --> 00:48:08,220
+I guess it's kind of new to you guys so
+
+871
+00:48:06,240 --> 00:48:10,740
+if you have any questions just ask me
+
+872
+00:48:08,220 --> 00:48:12,660
+okay but I I want to clean up the code
+
+873
+00:48:10,740 --> 00:48:15,780
+Okay so
+
+874
+00:48:12,660 --> 00:48:18,000
+so let me just let me just blindly uh
+
+875
+00:48:15,780 --> 00:48:22,079
+start to clean up so because there's a
+
+876
+00:48:18,000 --> 00:48:23,400
+lot uh to do for example for let me just
+
+877
+00:48:22,079 --> 00:48:26,160
+show you okay
+
+878
+00:48:23,400 --> 00:48:29,280
+so for example this one you don't ride
+
+879
+00:48:26,160 --> 00:48:31,980
+it like that okay
+
+880
+00:48:29,280 --> 00:48:34,980
+and two expression
+
+881
+00:48:31,980 --> 00:48:34,980
+uh
+
+882
+00:48:37,579 --> 00:48:46,819
+let's see if there's a short Syntax for
+
+883
+00:48:41,460 --> 00:48:50,099
+that no okay two expression at that
+
+884
+00:48:46,819 --> 00:48:56,460
+and okay
+
+885
+00:48:50,099 --> 00:48:59,119
+so yeah so we can do that there and uh
+
+886
+00:48:56,460 --> 00:48:59,119
+map
+
+887
+00:49:05,660 --> 00:49:09,560
+X3 so
+
+888
+00:49:14,599 --> 00:49:21,020
+yeah in fact I want to do this in
+
+889
+00:49:21,480 --> 00:49:26,420
+okay so actually just forget about that
+
+890
+00:49:27,660 --> 00:49:30,500
+uh is this
+
+891
+00:49:45,240 --> 00:49:51,079
+okay I'm starting to like
+
+892
+00:49:48,240 --> 00:49:54,900
+really make them short
+
+893
+00:49:51,079 --> 00:49:57,540
+so again total
+
+894
+00:49:54,900 --> 00:50:00,960
+so actually
+
+895
+00:49:57,540 --> 00:50:01,980
+all you need is total here and
+
+896
+00:50:00,960 --> 00:50:04,800
+that
+
+897
+00:50:01,980 --> 00:50:08,359
+so I'm actually
+
+898
+00:50:04,800 --> 00:50:08,359
+so let me show you guys
+
+899
+00:50:15,540 --> 00:50:21,839
+Okay so
+
+900
+00:50:18,119 --> 00:50:24,260
+don't need that you don't need that and
+
+901
+00:50:21,839 --> 00:50:24,260
+uh
+
+902
+00:50:26,160 --> 00:50:33,540
+there it is okay this single line
+
+903
+00:50:30,900 --> 00:50:37,819
+and
+
+904
+00:50:33,540 --> 00:50:37,819
+this single line and
+
+905
+00:50:46,079 --> 00:50:50,900
+let's see uh result okay
+
+906
+00:50:53,940 --> 00:50:58,200
+okay then
+
+907
+00:50:56,160 --> 00:51:01,339
+Max lab
+
+908
+00:50:58,200 --> 00:51:01,339
+dead okay
+
+909
+00:51:04,859 --> 00:51:10,559
+okay so that that's our code let's do it
+
+910
+00:51:08,700 --> 00:51:12,900
+copy it
+
+911
+00:51:10,559 --> 00:51:14,400
+back to Wolfram language
+
+912
+00:51:12,900 --> 00:51:16,200
+select all
+
+913
+00:51:14,400 --> 00:51:19,200
+paste it
+
+914
+00:51:16,200 --> 00:51:21,599
+you know so here is the
+
+915
+00:51:19,200 --> 00:51:24,660
+solution
+
+916
+00:51:21,599 --> 00:51:26,819
+this one single line then you just call
+
+917
+00:51:24,660 --> 00:51:29,460
+Max to answer the first question the
+
+918
+00:51:26,819 --> 00:51:31,380
+first part then that's the second part
+
+919
+00:51:29,460 --> 00:51:34,040
+okay do it
+
+920
+00:51:31,380 --> 00:51:34,040
+okay
+
+921
+00:51:35,520 --> 00:51:43,280
+did we uh oh you have two total I would
+
+922
+00:51:39,300 --> 00:51:43,280
+we forgot so let's add total
+
+923
+00:51:44,339 --> 00:51:47,660
+oh wait what
+
+924
+00:51:50,760 --> 00:51:56,180
+oh yeah so so so here is the total
+
+925
+00:52:00,359 --> 00:52:07,680
+okay so there
+
+926
+00:52:03,540 --> 00:52:12,680
+do it again select or paste
+
+927
+00:52:07,680 --> 00:52:12,680
+so here is the solution okay
+
+928
+00:52:13,079 --> 00:52:18,420
+do it
+
+929
+00:52:15,480 --> 00:52:20,040
+there it is
+
+930
+00:52:18,420 --> 00:52:23,660
+okay
+
+931
+00:52:20,040 --> 00:52:23,660
+bye guys we're shutting down
+
+932
+00:52:35,579 --> 00:52:40,920
+one zero one zero what did you say
+
+933
+00:52:38,579 --> 00:52:42,720
+message redacted
+
+934
+00:52:40,920 --> 00:52:45,420
+you know I always wondered you know
+
+935
+00:52:42,720 --> 00:52:48,079
+YouTube comment off often say message
+
+936
+00:52:45,420 --> 00:52:54,079
+redacted does that mean you deleted it
+
+937
+00:52:48,079 --> 00:52:54,079
+or does that mean YouTube censored it
+
+938
+00:52:55,920 --> 00:52:58,640
+I don't know
+
+939
+00:53:00,720 --> 00:53:09,059
+and uh and in fact I'm thinking of
+
+940
+00:53:05,359 --> 00:53:10,619
+more ways to simplify this one-line
+
+941
+00:53:09,059 --> 00:53:12,119
+solution
+
+942
+00:53:10,619 --> 00:53:14,119
+so
+
+943
+00:53:12,119 --> 00:53:14,119
+um
+
+944
+00:53:15,000 --> 00:53:21,319
+oh they deleted on their own okay
+
+945
+00:53:18,900 --> 00:53:21,319
+okay
+
+946
+00:53:21,780 --> 00:53:23,900
+um
+
+947
+00:53:24,480 --> 00:53:30,300
+okay that's it thank you guys for
+
+948
+00:53:26,520 --> 00:53:32,760
+watching and uh Merry Christmas speaking
+
+949
+00:53:30,300 --> 00:53:38,900
+of Advent of you know
+
+950
+00:53:32,760 --> 00:53:38,900
+Advent of code and uh happy holidays
+
+951
+00:53:46,500 --> 00:53:53,400
+oh yeah okay bye if
+
+952
+00:53:50,240 --> 00:53:56,099
+don't forget if you like my stuff donate
+
+953
+00:53:53,400 --> 00:53:59,579
+okay if you like my you know
+
+954
+00:53:56,099 --> 00:54:01,619
+pay what you like so buy my emacs
+
+955
+00:53:59,579 --> 00:54:05,160
+tutorial buy my JavaScript tutorial
+
+956
+00:54:01,619 --> 00:54:08,099
+JavaScript in depth or just donate to me
+
+957
+00:54:05,160 --> 00:54:12,079
+go to my website you'll see you know my
+
+958
+00:54:08,099 --> 00:54:12,079
+PayPal in patreon bye guys
+
+959
+00:54:13,680 --> 00:54:17,780
+close right across
+

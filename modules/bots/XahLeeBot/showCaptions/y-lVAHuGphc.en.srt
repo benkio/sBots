@@ -1,0 +1,4032 @@
+1
+00:00:05,640 --> 00:00:11,400
+Good morning, guys, or good night, or
+
+2
+00:00:08,000 --> 00:00:17,280
+whatever. I think I'm late for 5 minutes
+
+3
+00:00:11,400 --> 00:00:17,280
+because a OBS software update.
+
+4
+00:00:17,320 --> 00:00:22,080
+Let's see
+
+5
+00:00:18,880 --> 00:00:22,080
+how many people watching.
+
+6
+00:00:22,720 --> 00:00:29,440
+Okay, so today I'm going to talk about
+
+7
+00:00:26,000 --> 00:00:32,200
+Emacs, the most efficient way to open
+
+8
+00:00:29,440 --> 00:00:32,200
+files.
+
+9
+00:00:32,320 --> 00:00:35,960
+So, that's the topic I'm going to talk
+
+10
+00:00:34,240 --> 00:00:37,760
+about. So,
+
+11
+00:00:35,960 --> 00:00:40,200
+again, um
+
+12
+00:00:37,760 --> 00:00:42,080
+you know, post your questions so that
+
+13
+00:00:40,200 --> 00:00:43,200
+can guide me
+
+14
+00:00:42,080 --> 00:00:46,760
+to
+
+15
+00:00:43,200 --> 00:00:46,760
+what I'm going to talk about.
+
+16
+00:00:47,760 --> 00:00:50,600
+Let's see.
+
+17
+00:00:51,120 --> 00:00:54,120
+YouTube.
+
+18
+00:00:54,200 --> 00:01:00,440
+Oh, yeah, electronic dance music. That's
+
+19
+00:00:56,560 --> 00:01:03,200
+my favorite type of music.
+
+20
+00:01:00,440 --> 00:01:03,200
+Stop.
+
+21
+00:01:03,760 --> 00:01:06,920
+Master done.
+
+22
+00:01:07,080 --> 00:01:12,400
+Okay, so I'm going to talk about the
+
+23
+00:01:09,360 --> 00:01:16,040
+most efficient way to open files. So,
+
+24
+00:01:12,400 --> 00:01:17,800
+let me start up the
+
+25
+00:01:16,040 --> 00:01:20,880
+command log.
+
+26
+00:01:17,800 --> 00:01:23,880
+I should have a um
+
+27
+00:01:20,880 --> 00:01:26,400
+alpha command log mod.
+
+28
+00:01:23,880 --> 00:01:29,480
+I should have a quick
+
+29
+00:01:26,400 --> 00:01:32,200
+key set up to turn this on. Now, this
+
+30
+00:01:29,480 --> 00:01:33,720
+mod is problematic. I talked about it a
+
+31
+00:01:32,200 --> 00:01:36,440
+few times.
+
+32
+00:01:33,720 --> 00:01:39,080
+In order to run this mod, you need to
+
+33
+00:01:36,440 --> 00:01:41,160
+run this command first, then run this
+
+34
+00:01:39,080 --> 00:01:43,400
+command first.
+
+35
+00:01:41,160 --> 00:01:46,960
+Uh then you run this command. It must be
+
+36
+00:01:43,400 --> 00:01:48,960
+in that order. What this does is that
+
+37
+00:01:46,960 --> 00:01:51,280
+it just show you all the commands you
+
+38
+00:01:48,960 --> 00:01:52,320
+call in Emacs. So, I'm going to leave it
+
+39
+00:01:51,280 --> 00:01:54,880
+there.
+
+40
+00:01:52,320 --> 00:01:55,880
+And maybe, you know, um
+
+41
+00:01:54,880 --> 00:01:59,440
+well,
+
+42
+00:01:55,880 --> 00:02:01,960
+let's see. So, people here yet?
+
+43
+00:01:59,440 --> 00:02:04,160
+Oh, hi guys. So, I'm going to talk about
+
+44
+00:02:01,960 --> 00:02:05,640
+most efficient ways to
+
+45
+00:02:04,160 --> 00:02:07,800
+um
+
+46
+00:02:05,640 --> 00:02:10,600
+to open files in Emacs.
+
+47
+00:02:07,800 --> 00:02:12,920
+Now, I'm going to
+
+48
+00:02:10,600 --> 00:02:15,800
+um
+
+49
+00:02:12,920 --> 00:02:17,959
+Yeah, most efficient ways to open files
+
+50
+00:02:15,800 --> 00:02:20,520
+in Emacs.
+
+51
+00:02:17,959 --> 00:02:22,840
+Uh what I was going to say? I forgot
+
+52
+00:02:20,520 --> 00:02:25,040
+what I was going to say. So, yeah, so
+
+53
+00:02:22,840 --> 00:02:27,040
+anyway, so you know
+
+54
+00:02:25,040 --> 00:02:29,680
+feel free to ask me questions, you know,
+
+55
+00:02:27,040 --> 00:02:30,959
+just type in the comment box. I'll see
+
+56
+00:02:29,680 --> 00:02:33,840
+it.
+
+57
+00:02:30,959 --> 00:02:35,760
+So, I wasn't prepared, you know, I mean,
+
+58
+00:02:33,840 --> 00:02:37,600
+I'm not this is not scripted. So, I'm
+
+59
+00:02:35,760 --> 00:02:40,160
+going but I know this stuff. So, I'm
+
+60
+00:02:37,600 --> 00:02:42,000
+just going going to tell you
+
+61
+00:02:40,160 --> 00:02:45,000
+what are the most
+
+62
+00:02:42,000 --> 00:02:47,640
+um efficient ways to open files, you
+
+63
+00:02:45,000 --> 00:02:51,400
+know, I'm going to give you some tips.
+
+64
+00:02:47,640 --> 00:02:51,400
+First of all, master Dired.
+
+65
+00:02:52,760 --> 00:02:58,120
+Master Dired. You know, people think,
+
+66
+00:02:55,760 --> 00:03:00,120
+"Oh my god, master Dired. That's the
+
+67
+00:02:58,120 --> 00:03:02,360
+first thing." Then, you know, it's so
+
+68
+00:03:00,120 --> 00:03:04,560
+boring then they stop watching.
+
+69
+00:03:02,360 --> 00:03:07,320
+But anyway, master Dired is actually the
+
+70
+00:03:04,560 --> 00:03:10,920
+the most important thing. Right?
+
+71
+00:03:07,320 --> 00:03:12,920
+Uh yeah, let me you know, so so all the
+
+72
+00:03:10,920 --> 00:03:15,840
+commands I call in Emacs is going to
+
+73
+00:03:12,920 --> 00:03:18,800
+show up on the left panel uh with the
+
+74
+00:03:15,840 --> 00:03:22,040
+keys. And by the way, I'm using a Vorak
+
+75
+00:03:18,800 --> 00:03:24,040
+keys, so the letters may be funny.
+
+76
+00:03:22,040 --> 00:03:27,440
+And also, I'm using soft light keys
+
+77
+00:03:24,040 --> 00:03:29,280
+mode. Um you probably know already uh
+
+78
+00:03:27,440 --> 00:03:30,519
+what is that already, but if you don't
+
+79
+00:03:29,280 --> 00:03:33,600
+know
+
+80
+00:03:30,519 --> 00:03:36,880
+let me just uh
+
+81
+00:03:33,600 --> 00:03:39,880
+that there. You can just look it up. So,
+
+82
+00:03:36,880 --> 00:03:44,360
+uh and okay, so I'm going to show you a
+
+83
+00:03:39,880 --> 00:03:44,360
+few commands. Uh not that one.
+
+84
+00:03:45,519 --> 00:03:50,880
+I'm going to show you some of the
+
+85
+00:03:47,640 --> 00:03:53,240
+commands you you should use. Uh and
+
+86
+00:03:50,880 --> 00:03:55,520
+actually, I'm preparing here. So, master
+
+87
+00:03:53,240 --> 00:03:59,200
+diet, uh, I mean this is what I'm going
+
+88
+00:03:55,520 --> 00:04:01,520
+to cover. Master diet, diet jump, and of
+
+89
+00:03:59,200 --> 00:04:03,920
+course you can use soft light keys, but
+
+90
+00:04:01,520 --> 00:04:06,160
+it's not related to opening files
+
+91
+00:04:03,920 --> 00:04:07,440
+exactly. Um,
+
+92
+00:04:06,160 --> 00:04:10,640
+Okay, let me
+
+93
+00:04:07,440 --> 00:04:13,280
+Uh, what's going on? So, uh,
+
+94
+00:04:10,640 --> 00:04:15,560
+So, close that. Uh,
+
+95
+00:04:13,280 --> 00:04:18,079
+So, you want to master diet, diet jump,
+
+96
+00:04:15,560 --> 00:04:22,160
+and I want to also, uh, show Oh, yeah,
+
+97
+00:04:18,079 --> 00:04:22,160
+bookmarks. So,
+
+98
+00:04:22,240 --> 00:04:26,880
+there it is. Uh, Oh, yeah, this command.
+
+99
+00:04:24,640 --> 00:04:28,880
+This is real command. So, I'm just going
+
+100
+00:04:26,880 --> 00:04:30,800
+to write it down first at top level, you
+
+101
+00:04:28,880 --> 00:04:31,680
+know, what I'm going to, uh,
+
+102
+00:04:30,800 --> 00:04:35,200
+sh- uh,
+
+103
+00:04:31,680 --> 00:04:37,280
+tell you. And, uh, so, I'm going to,
+
+104
+00:04:35,200 --> 00:04:39,480
+first of all, prepare
+
+105
+00:04:37,280 --> 00:04:43,720
+all the commands,
+
+106
+00:04:39,480 --> 00:04:45,440
+um, that I think is appropriate.
+
+107
+00:04:43,720 --> 00:04:49,720
+So, that
+
+108
+00:04:45,440 --> 00:04:52,560
+that I'm just going to put here. And,
+
+109
+00:04:49,720 --> 00:04:57,919
+um,
+
+110
+00:04:52,560 --> 00:05:00,520
+Yeah, so, basically these I'm going to
+
+111
+00:04:57,919 --> 00:05:03,160
+Now, this is actually my Emacs block, so
+
+112
+00:05:00,520 --> 00:05:06,000
+you can show in browser, and you can see
+
+113
+00:05:03,160 --> 00:05:08,800
+uh, here, and there's a certain order to
+
+114
+00:05:06,000 --> 00:05:11,919
+it. So, let's
+
+115
+00:05:08,800 --> 00:05:14,600
+change it to OL, and master diet is the
+
+116
+00:05:11,919 --> 00:05:17,240
+first thing. Diet jump is important.
+
+117
+00:05:14,600 --> 00:05:19,000
+Then, you want
+
+118
+00:05:17,240 --> 00:05:21,720
+open recent.
+
+119
+00:05:19,000 --> 00:05:23,480
+Uh, that's important. Open bookmark,
+
+120
+00:05:21,720 --> 00:05:26,560
+that's important. And when you use
+
+121
+00:05:23,480 --> 00:05:28,440
+bookmark bookmark, uh, you also want
+
+122
+00:05:26,560 --> 00:05:31,840
+this command.
+
+123
+00:05:28,440 --> 00:05:35,480
+Now, actually, uh, each of these items I
+
+124
+00:05:31,840 --> 00:05:37,480
+actually have a tutorial on my page. So,
+
+125
+00:05:35,480 --> 00:05:40,560
+you know, I I see people on Reddit
+
+126
+00:05:37,480 --> 00:05:44,000
+asking Emacs questions all the time, and
+
+127
+00:05:40,560 --> 00:05:46,040
+actually, if you just read my tutorial,
+
+128
+00:05:44,000 --> 00:05:49,600
+they are all covered.
+
+129
+00:05:46,040 --> 00:05:51,960
+Hi, Yihong Chen. I'm sorry I if I
+
+130
+00:05:49,600 --> 00:05:56,680
+pronounced your name incorrectly, but hi
+
+131
+00:05:51,960 --> 00:05:58,680
+Chen. Hi Mr. Splendid. That's Splendid.
+
+132
+00:05:56,680 --> 00:06:01,440
+I'm not Emacs user. Basically, I use
+
+133
+00:05:58,680 --> 00:06:03,640
+fuzzy search in project project files
+
+134
+00:06:01,440 --> 00:06:04,760
+most of the time. Okay.
+
+135
+00:06:03,640 --> 00:06:08,200
+Well, uh
+
+136
+00:06:04,760 --> 00:06:11,000
+that's great. But this this uh talk is
+
+137
+00:06:08,200 --> 00:06:13,080
+going to be about Emacs.
+
+138
+00:06:11,000 --> 00:06:16,960
+So, um
+
+139
+00:06:13,080 --> 00:06:19,640
+you know, for Emacs users. Uh but
+
+140
+00:06:16,960 --> 00:06:21,800
+of course, you are very welcome. You are
+
+141
+00:06:19,640 --> 00:06:25,280
+uh love to have you here.
+
+142
+00:06:21,800 --> 00:06:27,919
+Uh so, anyway, so master Okay, so
+
+143
+00:06:25,280 --> 00:06:30,960
+yeah, so I'm going to focus on um
+
+144
+00:06:27,919 --> 00:06:33,640
+the subject of opening the most
+
+145
+00:06:30,960 --> 00:06:36,760
+efficient ways to open files. Now, in
+
+146
+00:06:33,640 --> 00:06:39,240
+Emacs, whenever you find yourself like,
+
+147
+00:06:36,760 --> 00:06:40,880
+you know, typing a path, like what I'm
+
+148
+00:06:39,240 --> 00:06:44,520
+doing right now. For example, I want to
+
+149
+00:06:40,880 --> 00:06:48,520
+open uh some package name like dot
+
+150
+00:06:44,520 --> 00:06:53,320
+Emacs complete. Okay, uh that directory
+
+151
+00:06:48,520 --> 00:06:56,280
+alpha, that directory uh yes, then that
+
+152
+00:06:53,320 --> 00:06:58,080
+directory. That's no good. Stop that.
+
+153
+00:06:56,280 --> 00:06:59,200
+Whenever you find yourself typing the
+
+154
+00:06:58,080 --> 00:07:01,440
+path,
+
+155
+00:06:59,200 --> 00:07:04,200
+that's no good. Actually, occasionally
+
+156
+00:07:01,440 --> 00:07:06,560
+occasionally you still need to. But what
+
+157
+00:07:04,200 --> 00:07:08,400
+I suggest is that
+
+158
+00:07:06,560 --> 00:07:10,200
+for every
+
+159
+00:07:08,400 --> 00:07:12,919
+every few months, whenever you have a
+
+160
+00:07:10,200 --> 00:07:14,320
+project, you put all your files in
+
+161
+00:07:12,919 --> 00:07:15,720
+bookmark.
+
+162
+00:07:14,320 --> 00:07:18,520
+Okay, but let's start from the
+
+163
+00:07:15,720 --> 00:07:21,120
+beginning. So, first of all, dired.
+
+164
+00:07:18,520 --> 00:07:23,960
+Uh you know, you probably familiar with
+
+165
+00:07:21,120 --> 00:07:26,680
+dired. Everyone, you know, if you are a
+
+166
+00:07:23,960 --> 00:07:29,120
+Emacs user, you should
+
+167
+00:07:26,680 --> 00:07:32,080
+master dired. Because, you see, when I'm
+
+168
+00:07:29,120 --> 00:07:34,000
+in in Emacs, you you know, you don't
+
+169
+00:07:32,080 --> 00:07:36,320
+Like that's what people mean by living
+
+170
+00:07:34,000 --> 00:07:38,200
+in Emacs. So, once you start Emacs, you
+
+171
+00:07:36,320 --> 00:07:39,520
+just uh stay here. You don't you ne-
+
+172
+00:07:38,200 --> 00:07:42,400
+never um
+
+173
+00:07:39,520 --> 00:07:45,240
+exit Emacs. So, all your opening files
+
+174
+00:07:42,400 --> 00:07:47,880
+is done in Emacs. You don't like You
+
+175
+00:07:45,240 --> 00:07:50,560
+don't go to the terminal and, you know,
+
+176
+00:07:47,880 --> 00:07:53,800
+and maybe open some files and type the
+
+177
+00:07:50,560 --> 00:07:56,200
+path. No, you don't do that. Okay.
+
+178
+00:07:53,800 --> 00:07:58,440
+You know, once you start Emacs, you just
+
+179
+00:07:56,200 --> 00:08:03,520
+leave leave in Emacs.
+
+180
+00:07:58,440 --> 00:08:04,800
+So, so Dired Dired is, of course, MX
+
+181
+00:08:03,520 --> 00:08:06,960
+Dired.
+
+182
+00:08:04,800 --> 00:08:09,560
+You know, then you get to into Dired.
+
+183
+00:08:06,960 --> 00:08:11,640
+But, actually, I don't I never actually
+
+184
+00:08:09,560 --> 00:08:14,800
+call MX Dired.
+
+185
+00:08:11,640 --> 00:08:16,120
+Instead, what you do is you call this
+
+186
+00:08:14,800 --> 00:08:20,360
+command
+
+187
+00:08:16,120 --> 00:08:21,600
+it's that this command, Dired Jump. So,
+
+188
+00:08:20,360 --> 00:08:25,960
+basically,
+
+189
+00:08:21,600 --> 00:08:28,840
+you want orient oriented your workflow
+
+190
+00:08:25,960 --> 00:08:30,800
+towards files. So, you always deal with
+
+191
+00:08:28,840 --> 00:08:32,640
+files. You know, you have files, you
+
+192
+00:08:30,800 --> 00:08:35,400
+have bunch of files you want to open
+
+193
+00:08:32,640 --> 00:08:37,560
+frequently. And whenever you are in a
+
+194
+00:08:35,400 --> 00:08:40,440
+file, you want to go to that file's
+
+195
+00:08:37,560 --> 00:08:42,440
+directory, then you just um
+
+196
+00:08:40,440 --> 00:08:45,240
+Dired Jump. You know, like what I'm
+
+197
+00:08:42,440 --> 00:08:47,720
+doing. So, you see, let me close this.
+
+198
+00:08:45,240 --> 00:08:50,520
+Okay, let me try that again.
+
+199
+00:08:47,720 --> 00:08:53,400
+Dired Jump. You see the cursor is on on
+
+200
+00:08:50,520 --> 00:08:55,120
+this line, and this line is exactly the
+
+201
+00:08:53,400 --> 00:08:58,320
+file I was on.
+
+202
+00:08:55,120 --> 00:09:00,480
+For example, now let's go down.
+
+203
+00:08:58,320 --> 00:09:01,720
+For example, I
+
+204
+00:09:00,480 --> 00:09:04,760
+Oops.
+
+205
+00:09:01,720 --> 00:09:08,000
+Let's say I'm on this You know, I put
+
+206
+00:09:04,760 --> 00:09:11,600
+cursor here. I open that file.
+
+207
+00:09:08,000 --> 00:09:14,360
+Wait. So, wait.
+
+208
+00:09:11,600 --> 00:09:17,720
+Now, I close Dired. Okay, so I'm on this
+
+209
+00:09:14,360 --> 00:09:21,440
+file, and uh you know, I want to go to
+
+210
+00:09:17,720 --> 00:09:24,480
+Dired, which is where this file is at.
+
+211
+00:09:21,440 --> 00:09:27,120
+So, I just, you know, Dired Jump. And,
+
+212
+00:09:24,480 --> 00:09:28,720
+you know, I'm right on here.
+
+213
+00:09:27,120 --> 00:09:30,160
+Uh
+
+214
+00:09:28,720 --> 00:09:31,960
+Okay, that's
+
+215
+00:09:30,160 --> 00:09:33,040
+That's done. Then, let me close that.
+
+216
+00:09:31,960 --> 00:09:36,080
+So,
+
+217
+00:09:33,040 --> 00:09:38,440
+so master Dired. Now, Dired has a lot
+
+218
+00:09:36,080 --> 00:09:41,680
+features, of course. Let's Let's um
+
+219
+00:09:38,440 --> 00:09:43,960
+Let's go to my Dired tutorial. So, I use
+
+220
+00:09:41,680 --> 00:09:46,560
+a bookmark. Uh
+
+221
+00:09:43,960 --> 00:09:49,920
+Emacs Wait.
+
+222
+00:09:46,560 --> 00:09:51,840
+Emacs site. You know, I have a shortcut.
+
+223
+00:09:49,920 --> 00:09:53,520
+Well, I I'm going to show you all these.
+
+224
+00:09:51,840 --> 00:09:56,280
+Not right now Right now, I'm going to
+
+225
+00:09:53,520 --> 00:09:57,480
+use I'm using a bookmark to open my
+
+226
+00:09:56,280 --> 00:10:00,840
+Emacs
+
+227
+00:09:57,480 --> 00:10:04,120
+uh website file. So, show in browser.
+
+228
+00:10:00,840 --> 00:10:06,160
+That's my Emacs directory. Um
+
+229
+00:10:04,120 --> 00:10:08,600
+So, um
+
+230
+00:10:06,160 --> 00:10:13,080
+Dired. Let's go to Dired.
+
+231
+00:10:08,600 --> 00:10:16,000
+Uh file file topic, file manager, Dired.
+
+232
+00:10:13,080 --> 00:10:19,560
+You know, Dired is a old word. Uh it's
+
+233
+00:10:16,000 --> 00:10:23,560
+actually It stands for the Ed. Like
+
+234
+00:10:19,560 --> 00:10:25,560
+direct directory edit. The Ed. But But,
+
+235
+00:10:23,560 --> 00:10:27,840
+I just pronounce it Dired. I I'm not
+
+236
+00:10:25,560 --> 00:10:29,280
+sure how other people pronounce it.
+
+237
+00:10:27,840 --> 00:10:30,640
+But, you know, it's called the Ed
+
+238
+00:10:29,280 --> 00:10:33,800
+because you know
+
+239
+00:10:30,640 --> 00:10:36,960
+because directory in Unix systems or on
+
+240
+00:10:33,800 --> 00:10:39,320
+Linux is actually a file. So, you know,
+
+241
+00:10:36,960 --> 00:10:43,240
+it's you know, just a nerd
+
+242
+00:10:39,320 --> 00:10:45,240
+geek um history of, you know,
+
+243
+00:10:43,240 --> 00:10:48,440
+computer technology. So, that's you call
+
+244
+00:10:45,240 --> 00:10:50,240
+directory edit. But, it's kind of silly.
+
+245
+00:10:48,440 --> 00:10:52,000
+But, anyway, so
+
+246
+00:10:50,240 --> 00:10:53,200
+of course, on a Mac, you just call it a
+
+247
+00:10:52,000 --> 00:10:55,280
+folder.
+
+248
+00:10:53,200 --> 00:10:57,960
+Uh which is actually more intuitive
+
+249
+00:10:55,280 --> 00:11:01,080
+name. So, you see You see, I just
+
+250
+00:10:57,960 --> 00:11:02,880
+call this command um and uh
+
+251
+00:11:01,080 --> 00:11:05,440
+Anyway, so
+
+252
+00:11:02,880 --> 00:11:07,839
+go to Dired. So, let's let's Let's talk
+
+253
+00:11:05,440 --> 00:11:09,080
+about what does Dired do.
+
+254
+00:11:07,839 --> 00:11:12,839
+Uh
+
+255
+00:11:09,080 --> 00:11:14,480
+Let me see comments.
+
+256
+00:11:12,839 --> 00:11:17,240
+Five people watching. And remember, you
+
+257
+00:11:14,480 --> 00:11:19,640
+know, keep the comment going because
+
+258
+00:11:17,240 --> 00:11:21,480
+there are a lot Emacs users, you know,
+
+259
+00:11:19,640 --> 00:11:23,960
+some people are like towards the
+
+260
+00:11:21,480 --> 00:11:26,880
+beginning begin beginners. You know,
+
+261
+00:11:23,960 --> 00:11:29,480
+they they may not know what's the Dired,
+
+262
+00:11:26,880 --> 00:11:31,120
+you know, but some other people a lot
+
+263
+00:11:29,480 --> 00:11:33,240
+other people who are
+
+264
+00:11:31,120 --> 00:11:35,400
+you know, following me, they are
+
+265
+00:11:33,240 --> 00:11:37,600
+advanced, you know, they they actually
+
+266
+00:11:35,400 --> 00:11:38,200
+want you know, some
+
+267
+00:11:37,600 --> 00:11:40,520
+uh
+
+268
+00:11:38,200 --> 00:11:43,320
+advanced tips like, you know, some
+
+269
+00:11:40,520 --> 00:11:44,280
+tricks and stuff. So, I don't know
+
+270
+00:11:43,320 --> 00:11:45,320
+uh
+
+271
+00:11:44,280 --> 00:11:47,000
+you know,
+
+272
+00:11:45,320 --> 00:11:49,560
+which way to go.
+
+273
+00:11:47,000 --> 00:11:51,720
+So, but but in general, I tends to go
+
+274
+00:11:49,560 --> 00:11:53,280
+towards, you know, for the beginners.
+
+275
+00:11:51,720 --> 00:11:55,240
+So, because that's
+
+276
+00:11:53,280 --> 00:11:57,200
+a majority of people. So, anyway, you
+
+277
+00:11:55,240 --> 00:12:00,000
+want to master diet. Well, okay, what do
+
+278
+00:11:57,200 --> 00:12:03,480
+you mean by diet? So, I'm in diet
+
+279
+00:12:00,000 --> 00:12:05,760
+one second. Yeah, so I'm in diet and you
+
+280
+00:12:03,480 --> 00:12:07,960
+So, once in diet, you see all the files
+
+281
+00:12:05,760 --> 00:12:10,400
+listed.
+
+282
+00:12:07,960 --> 00:12:13,480
+And you can you know, you can you can
+
+283
+00:12:10,400 --> 00:12:15,600
+page page down or
+
+284
+00:12:13,480 --> 00:12:18,160
+uh let's see. Okay, you can Well, you
+
+285
+00:12:15,600 --> 00:12:21,120
+can page down or page up and go to any
+
+286
+00:12:18,160 --> 00:12:23,920
+file and just press enter to open it.
+
+287
+00:12:21,120 --> 00:12:25,880
+So, close that.
+
+288
+00:12:23,920 --> 00:12:28,680
+But it's got a lot of things, you know,
+
+289
+00:12:25,880 --> 00:12:31,480
+lots of features. For For you know, if
+
+290
+00:12:28,680 --> 00:12:34,400
+you are new to diet, the the first thing
+
+291
+00:12:31,480 --> 00:12:35,960
+you can do is once you are in diet, you
+
+292
+00:12:34,400 --> 00:12:36,720
+will see several
+
+293
+00:12:35,960 --> 00:12:39,560
+um
+
+294
+00:12:36,720 --> 00:12:42,760
+Let's turn auto click off. You will see
+
+295
+00:12:39,560 --> 00:12:44,160
+several several new menus. So, this one
+
+296
+00:12:42,760 --> 00:12:46,760
+is a menu.
+
+297
+00:12:44,160 --> 00:12:48,720
+So, it's you can see that you can copy
+
+298
+00:12:46,760 --> 00:12:51,000
+file, rename file,
+
+299
+00:12:48,720 --> 00:12:53,080
+delete file,
+
+300
+00:12:51,000 --> 00:12:55,320
+find file. Find file is actually just
+
+301
+00:12:53,080 --> 00:12:58,120
+open. It's a old name in Emacs. Like,
+
+302
+00:12:55,320 --> 00:12:59,800
+this is just open file. Find file, shell
+
+303
+00:12:58,120 --> 00:13:01,760
+shell commands,
+
+304
+00:12:59,800 --> 00:13:03,520
+lots of things. So, if you are a
+
+305
+00:13:01,760 --> 00:13:05,720
+beginner, you never used diet before.
+
+306
+00:13:03,520 --> 00:13:07,440
+So, when you you can you know, just
+
+307
+00:13:05,720 --> 00:13:10,440
+systematically
+
+308
+00:13:07,440 --> 00:13:11,120
+uh go through these these
+
+309
+00:13:10,440 --> 00:13:14,120
+um
+
+310
+00:13:11,120 --> 00:13:15,560
+four menus. Operate,
+
+311
+00:13:14,120 --> 00:13:17,800
+mark,
+
+312
+00:13:15,560 --> 00:13:20,480
+rejects,
+
+313
+00:13:17,800 --> 00:13:22,440
+immediate.
+
+314
+00:13:20,480 --> 00:13:23,200
+Now, you know, if if you are you know,
+
+315
+00:13:22,440 --> 00:13:26,160
+I've
+
+316
+00:13:23,200 --> 00:13:29,080
+I've been using Emacs for like 20 years
+
+317
+00:13:26,160 --> 00:13:31,360
+now, since 1998. So, I
+
+318
+00:13:29,080 --> 00:13:33,400
+you know, I don't look at the menus. I
+
+319
+00:13:31,360 --> 00:13:35,400
+don't even remember which one is where,
+
+320
+00:13:33,400 --> 00:13:37,440
+you know, cuz you are
+
+321
+00:13:35,400 --> 00:13:39,920
+you know, all just muscle memory. For
+
+322
+00:13:37,440 --> 00:13:42,440
+example, I want to copy this file to
+
+323
+00:13:39,920 --> 00:13:45,560
+some other directory. Let's say, okay,
+
+324
+00:13:42,440 --> 00:13:47,880
+let's say let's go to my
+
+325
+00:13:45,560 --> 00:13:49,120
+computer programming blog.
+
+326
+00:13:47,880 --> 00:13:52,920
+Okay.
+
+327
+00:13:49,120 --> 00:13:55,120
+Now, you can see that's my computing
+
+328
+00:13:52,920 --> 00:13:57,000
+you know, programming blog and it's
+
+329
+00:13:55,120 --> 00:13:59,920
+turned auto click on.
+
+330
+00:13:57,000 --> 00:14:01,880
+So, now I can go to diet of this
+
+331
+00:13:59,920 --> 00:14:04,320
+directory.
+
+332
+00:14:01,880 --> 00:14:05,760
+Let's let's show this window. So, I'm
+
+333
+00:14:04,320 --> 00:14:06,960
+I'm I can
+
+334
+00:14:05,760 --> 00:14:10,160
+oops.
+
+335
+00:14:06,960 --> 00:14:12,320
+I just clicked. You see, I have a mouse
+
+336
+00:14:10,160 --> 00:14:15,000
+auto click on, which is great feature.
+
+337
+00:14:12,320 --> 00:14:16,520
+Like I just move mouse to where I want
+
+338
+00:14:15,000 --> 00:14:18,640
+it.
+
+339
+00:14:16,520 --> 00:14:21,840
+When the mouse stops moving, it'll just
+
+340
+00:14:18,640 --> 00:14:24,800
+make a click. So, I don't I don't ever
+
+341
+00:14:21,840 --> 00:14:24,800
+have to click.
+
+342
+00:14:26,000 --> 00:14:33,880
+Dired plus. Okay, Dired plus is a
+
+343
+00:14:29,680 --> 00:14:36,160
+extension of Dired and it has more
+
+344
+00:14:33,880 --> 00:14:39,080
+features. For example, it will actually
+
+345
+00:14:36,160 --> 00:14:42,240
+color your um
+
+346
+00:14:39,080 --> 00:14:45,160
+um different type of files. For example,
+
+347
+00:14:42,240 --> 00:14:48,920
+H you know, HTML files will be in one
+
+348
+00:14:45,160 --> 00:14:50,640
+color. But anyway, I used Dired Dired
+
+349
+00:14:48,920 --> 00:14:51,520
+plus for like
+
+350
+00:14:50,640 --> 00:14:54,400
+um
+
+351
+00:14:51,520 --> 00:14:56,560
+for for a few years.
+
+352
+00:14:54,400 --> 00:14:59,600
+You know, a few years ago.
+
+353
+00:14:56,560 --> 00:15:02,360
+Around 2009 or something. I used it for
+
+354
+00:14:59,600 --> 00:15:05,320
+like two or three years, but I stopped
+
+355
+00:15:02,360 --> 00:15:08,880
+because I find myself, you know, I don't
+
+356
+00:15:05,320 --> 00:15:11,320
+actually need those extra features.
+
+357
+00:15:08,880 --> 00:15:12,920
+Um but
+
+358
+00:15:11,320 --> 00:15:15,800
+but hold on a second. Let me let me show
+
+359
+00:15:12,920 --> 00:15:16,880
+you a copy. So, in this is Dired. You
+
+360
+00:15:15,800 --> 00:15:19,080
+can see there are two different
+
+361
+00:15:16,880 --> 00:15:22,320
+directories. So, this is
+
+362
+00:15:19,080 --> 00:15:26,160
+sardi info, you know, com. This is Emacs
+
+363
+00:15:22,320 --> 00:15:26,840
+or Emacs. So, suppose I want to copy
+
+364
+00:15:26,160 --> 00:15:29,360
+um
+
+365
+00:15:26,840 --> 00:15:32,440
+uh let's say
+
+366
+00:15:29,360 --> 00:15:36,480
+uh s Emacs. I want to copy this file
+
+367
+00:15:32,440 --> 00:15:39,080
+over to this directory. Uh actually um
+
+368
+00:15:36,480 --> 00:15:41,040
+let's copy. Okay, let's copy this this
+
+369
+00:15:39,080 --> 00:15:42,680
+uh let me do that. This this this this.
+
+370
+00:15:41,040 --> 00:15:45,800
+Okay, hold on.
+
+371
+00:15:42,680 --> 00:15:47,920
+Let me show the Yeah, I want to keep the
+
+372
+00:15:45,800 --> 00:15:50,840
+this panel showing so you can see what
+
+373
+00:15:47,920 --> 00:15:53,480
+command I'm coding. So, uh let's let's
+
+374
+00:15:50,840 --> 00:15:56,680
+redo. So, suppose I want to copy these
+
+375
+00:15:53,480 --> 00:15:58,560
+files over to the other directory below.
+
+376
+00:15:56,680 --> 00:16:00,240
+So, I just press
+
+377
+00:15:58,560 --> 00:16:03,320
+capital C.
+
+378
+00:16:00,240 --> 00:16:05,840
+And uh you know, then if I press enter
+
+379
+00:16:03,320 --> 00:16:08,320
+now, it'll just all all be copied over.
+
+380
+00:16:05,840 --> 00:16:11,120
+So, let's do it.
+
+381
+00:16:08,320 --> 00:16:13,760
+It's done. So, now I move the cursor to
+
+382
+00:16:11,120 --> 00:16:16,760
+this panel. You can see you can see
+
+383
+00:16:13,760 --> 00:16:19,840
+those files are here.
+
+384
+00:16:16,760 --> 00:16:23,560
+You know, now if I refresh uh you
+
+385
+00:16:19,840 --> 00:16:26,080
+actually sorted. So, uh let's say search
+
+386
+00:16:23,560 --> 00:16:28,920
+e-list. You see they are here.
+
+387
+00:16:26,080 --> 00:16:31,080
+Uh 1 2 3 4. You know, so you can cut
+
+388
+00:16:28,920 --> 00:16:33,040
+copy a bunch of files to another
+
+389
+00:16:31,080 --> 00:16:35,120
+directory. You can delete them. Right
+
+390
+00:16:33,040 --> 00:16:37,400
+now, for example, I want to delete them
+
+391
+00:16:35,120 --> 00:16:39,960
+cuz, you know, I don't actually I don't
+
+392
+00:16:37,400 --> 00:16:40,839
+want these files here. So, I just select
+
+393
+00:16:39,960 --> 00:16:44,000
+them.
+
+394
+00:16:40,839 --> 00:16:46,960
+Uh I mark them as D for delete. Then I
+
+395
+00:16:44,000 --> 00:16:48,880
+just press X. Now, look on the left.
+
+396
+00:16:46,960 --> 00:16:51,839
+Now, look look at on the left on this
+
+397
+00:16:48,880 --> 00:16:55,600
+panel. You can see my operation my
+
+398
+00:16:51,839 --> 00:16:57,839
+operation. So, I press X.
+
+399
+00:16:55,600 --> 00:16:59,880
+Then you'll ask me, you know, it's going
+
+400
+00:16:57,839 --> 00:17:02,080
+it's doing a prompt to
+
+401
+00:16:59,880 --> 00:17:05,079
+asking me to delete four files. Yes or
+
+402
+00:17:02,080 --> 00:17:06,240
+no. So, space for yes, and they are
+
+403
+00:17:05,079 --> 00:17:09,319
+gone.
+
+404
+00:17:06,240 --> 00:17:11,240
+So, you see once you um
+
+405
+00:17:09,319 --> 00:17:13,839
+are familiar with Emacs, you know, you
+
+406
+00:17:11,240 --> 00:17:16,360
+can um then it's all muscle memory. Like
+
+407
+00:17:13,839 --> 00:17:19,280
+I don't, you know, it's instantaneous.
+
+408
+00:17:16,360 --> 00:17:21,680
+On the other hand, you know, it it it it
+
+409
+00:17:19,280 --> 00:17:24,079
+beats, you know, terminal commands by
+
+410
+00:17:21,680 --> 00:17:24,920
+far. Like, you know, um
+
+411
+00:17:24,079 --> 00:17:27,839
+um
+
+412
+00:17:24,920 --> 00:17:30,160
+it's all like visual and interactive.
+
+413
+00:17:27,839 --> 00:17:33,520
+So, because, you know, I started to use
+
+414
+00:17:30,160 --> 00:17:36,800
+Emacs in 1998. That was on Unix on
+
+415
+00:17:33,520 --> 00:17:39,920
+Solaris uh Solaris basically uh the
+
+416
+00:17:36,800 --> 00:17:42,080
+Solaris operating system from Sun
+
+417
+00:17:39,920 --> 00:17:44,600
+Microsystems. You know, of course, they
+
+418
+00:17:42,080 --> 00:17:46,720
+are dead, you know, that was you know,
+
+419
+00:17:44,600 --> 00:17:47,880
+things move on. Corporations come and
+
+420
+00:17:46,720 --> 00:17:51,240
+go.
+
+421
+00:17:47,880 --> 00:17:54,880
+But, anyway, so um um you know, since
+
+422
+00:17:51,240 --> 00:17:57,200
+since I started to use uh Emacs dired,
+
+423
+00:17:54,880 --> 00:17:58,400
+you know, you basically you basically
+
+424
+00:17:57,200 --> 00:18:01,720
+never
+
+425
+00:17:58,400 --> 00:18:04,480
+like never go back to the terminal to
+
+426
+00:18:01,720 --> 00:18:07,080
+make the whatever like make the
+
+427
+00:18:04,480 --> 00:18:08,440
+whatever. For example, um oops.
+
+428
+00:18:07,080 --> 00:18:09,800
+For example, if I want to make a
+
+429
+00:18:08,440 --> 00:18:12,080
+directory, this
+
+430
+00:18:09,800 --> 00:18:14,240
+Okay, let's close that.
+
+431
+00:18:12,080 --> 00:18:16,920
+Close that. Um
+
+432
+00:18:14,240 --> 00:18:19,880
+Close my computer programming blog back
+
+433
+00:18:16,920 --> 00:18:22,600
+to the Emacs blog. So, now I uh let me
+
+434
+00:18:19,880 --> 00:18:26,600
+show that panel again. So, now I jump to
+
+435
+00:18:22,600 --> 00:18:28,840
+dired dired dired jump. And uh oh, I I
+
+436
+00:18:26,600 --> 00:18:32,640
+want to make a directory. So, what I do
+
+437
+00:18:28,840 --> 00:18:34,680
+is uh to is just press the plus sign.
+
+438
+00:18:32,640 --> 00:18:36,800
+Now, look on the left panel.
+
+439
+00:18:34,680 --> 00:18:38,520
+I press plus sign.
+
+440
+00:18:36,800 --> 00:18:40,520
+And Emacs asked me, you know, what
+
+441
+00:18:38,520 --> 00:18:43,040
+directory I want to create. So, let's
+
+442
+00:18:40,520 --> 00:18:45,240
+say TET. You know,
+
+443
+00:18:43,040 --> 00:18:47,000
+you know, there it is, a new directory.
+
+444
+00:18:45,240 --> 00:18:50,520
+Then, I press enter.
+
+445
+00:18:47,000 --> 00:18:51,320
+There it is. Now, I split the pane.
+
+446
+00:18:50,520 --> 00:18:53,440
+Uh
+
+447
+00:18:51,320 --> 00:18:56,640
+go to the directory the parent
+
+448
+00:18:53,440 --> 00:18:59,520
+directory. Now, I can, for example, move
+
+449
+00:18:56,640 --> 00:19:01,920
+down. Let's say copy these files over.
+
+450
+00:18:59,520 --> 00:19:05,320
+Let's say I want to move them not copy.
+
+451
+00:19:01,920 --> 00:19:07,240
+So, I press I just press uh look at
+
+452
+00:19:05,320 --> 00:19:11,320
+Again, look at the left panel for the
+
+453
+00:19:07,240 --> 00:19:14,160
+command. So, I press capital R.
+
+454
+00:19:11,320 --> 00:19:16,480
+It asked me, do I want to move? Yes. So,
+
+455
+00:19:14,160 --> 00:19:18,440
+I just press enter. Yes, you see the the
+
+456
+00:19:16,480 --> 00:19:20,400
+files are moved over.
+
+457
+00:19:18,440 --> 00:19:24,080
+Now, I just move them back. Move them
+
+458
+00:19:20,400 --> 00:19:25,720
+back. Yes. Okay, it's done, you know, so
+
+459
+00:19:24,080 --> 00:19:28,200
+it's so great.
+
+460
+00:19:25,720 --> 00:19:30,640
+And now I don't need, you know, the ttt
+
+461
+00:19:28,200 --> 00:19:32,880
+directory is just the example, you know.
+
+462
+00:19:30,640 --> 00:19:35,880
+Now, I want delete it.
+
+463
+00:19:32,880 --> 00:19:38,160
+Uh then it's gone. So, close that. We we
+
+464
+00:19:35,880 --> 00:19:40,840
+back to the um
+
+465
+00:19:38,160 --> 00:19:42,000
+the my Emacs blog. Now, let's view in
+
+466
+00:19:40,840 --> 00:19:45,080
+browser
+
+467
+00:19:42,000 --> 00:19:49,320
+and let's go to practical Emacs. Now,
+
+468
+00:19:45,080 --> 00:19:53,560
+let's see dired. I have I used to have a
+
+469
+00:19:49,320 --> 00:19:55,400
+um tutorial for dired plus. Let's see if
+
+470
+00:19:53,560 --> 00:19:57,080
+it's still there. I'm not sure it's
+
+471
+00:19:55,400 --> 00:19:59,880
+still there.
+
+472
+00:19:57,080 --> 00:20:03,040
+Uh I might, you know, it's possible that
+
+473
+00:19:59,880 --> 00:20:07,800
+I deleted because
+
+474
+00:20:03,040 --> 00:20:07,800
+uh file manager customization
+
+475
+00:20:08,480 --> 00:20:13,560
+Okay, I I maybe it's not linked. So,
+
+476
+00:20:11,080 --> 00:20:18,160
+let's try to find it. Uh let's try to
+
+477
+00:20:13,560 --> 00:20:22,040
+find it. So, dired jump then uh uh
+
+478
+00:20:18,160 --> 00:20:25,680
+list matching lines. So, show all all
+
+479
+00:20:22,040 --> 00:20:28,520
+files whose name contain dired.
+
+480
+00:20:25,680 --> 00:20:30,400
+There it is. You see, dired plus.
+
+481
+00:20:28,520 --> 00:20:32,240
+You see, it's right here.
+
+482
+00:20:30,400 --> 00:20:34,840
+So, let's open that.
+
+483
+00:20:32,240 --> 00:20:38,040
+Open it. Show in browser.
+
+484
+00:20:34,840 --> 00:20:40,880
+So, that's dired plus. Let's magnify.
+
+485
+00:20:38,040 --> 00:20:45,640
+So, um you know, I was using it. So,
+
+486
+00:20:40,880 --> 00:20:47,440
+yeah, it's like 2010 to to 2012.
+
+487
+00:20:45,640 --> 00:20:49,840
+Um
+
+488
+00:20:47,440 --> 00:20:52,480
+So, it's got many features, but
+
+489
+00:20:49,840 --> 00:20:55,040
+eventually I I it's like um I don't
+
+490
+00:20:52,480 --> 00:20:58,720
+really need it, so I don't use it. Uh
+
+491
+00:20:55,040 --> 00:20:58,720
+let's let's go back. So,
+
+492
+00:21:00,040 --> 00:21:05,480
+Yeah, so uh you know, so yeah, so you
+
+493
+00:21:02,760 --> 00:21:08,760
+want to uh master dired, which is, you
+
+494
+00:21:05,480 --> 00:21:11,080
+know, really helpful. So, now, okay.
+
+495
+00:21:08,760 --> 00:21:13,640
+Master diet and diet jump, I already
+
+496
+00:21:11,080 --> 00:21:15,880
+showed you that command many times, uh
+
+497
+00:21:13,640 --> 00:21:18,960
+how useful it is. So, basically,
+
+498
+00:21:15,880 --> 00:21:21,800
+uh basically, never um
+
+499
+00:21:18,960 --> 00:21:23,840
+never actually
+
+500
+00:21:21,800 --> 00:21:25,760
+need to do
+
+501
+00:21:23,840 --> 00:21:28,320
+MX diet.
+
+502
+00:21:25,760 --> 00:21:31,600
+Just
+
+503
+00:21:28,320 --> 00:21:33,840
+orient orient your
+
+504
+00:21:31,600 --> 00:21:39,160
+workflow
+
+505
+00:21:33,840 --> 00:21:41,160
+by files. Then, on a file, just
+
+506
+00:21:39,160 --> 00:21:43,960
+use diet
+
+507
+00:21:41,160 --> 00:21:45,640
+jump to go
+
+508
+00:21:43,960 --> 00:21:47,960
+to the duh
+
+509
+00:21:45,640 --> 00:21:50,320
+Okay, that that's the, you know, and
+
+510
+00:21:47,960 --> 00:21:53,080
+also diet jump has a quick key. For me,
+
+511
+00:21:50,320 --> 00:21:56,000
+it's just uh uh
+
+512
+00:21:53,080 --> 00:21:58,400
+space M. It It says delete because I'm
+
+513
+00:21:56,000 --> 00:21:59,560
+using a fancy keyboard. Why don't I just
+
+514
+00:21:58,400 --> 00:22:00,920
+show you
+
+515
+00:21:59,560 --> 00:22:03,080
+here.
+
+516
+00:22:00,920 --> 00:22:05,080
+You see, I'm using a fancy keyboard and
+
+517
+00:22:03,080 --> 00:22:07,000
+this is space key.
+
+518
+00:22:05,080 --> 00:22:10,240
+And and this
+
+519
+00:22:07,000 --> 00:22:13,320
+uh this is backspace. So, when you see
+
+520
+00:22:10,240 --> 00:22:15,640
+delete, that at that's actually space. I
+
+521
+00:22:13,320 --> 00:22:17,320
+mean
+
+522
+00:22:15,640 --> 00:22:18,600
+Well, it's getting complicated, but
+
+523
+00:22:17,320 --> 00:22:21,280
+anyway,
+
+524
+00:22:18,600 --> 00:22:23,720
+the the the point is that my delete key
+
+525
+00:22:21,280 --> 00:22:26,240
+is just my thumb under my thumb. So,
+
+526
+00:22:23,720 --> 00:22:28,760
+it's really easy, you know.
+
+527
+00:22:26,240 --> 00:22:30,120
+Like, press two keys and I'm in diet.
+
+528
+00:22:28,760 --> 00:22:33,320
+Close it.
+
+529
+00:22:30,120 --> 00:22:35,960
+Press two keys, I'm in diet. Close it.
+
+530
+00:22:33,320 --> 00:22:37,600
+Actually, I I also press one single key
+
+531
+00:22:35,960 --> 00:22:41,600
+to close the file.
+
+532
+00:22:37,600 --> 00:22:44,280
+It shows uh it shows meta W, but that's
+
+533
+00:22:41,600 --> 00:22:49,000
+because I'm using a macro. But anyway,
+
+534
+00:22:44,280 --> 00:22:49,000
+so so, use diet jump. Um
+
+535
+00:22:49,240 --> 00:22:56,520
+Okay, and okay, I'm going to show you
+
+536
+00:22:53,680 --> 00:22:56,520
+uh an a
+
+537
+00:22:56,600 --> 00:23:02,880
+I'm going to show you
+
+538
+00:22:59,320 --> 00:23:05,640
+um how to use uh open recent
+
+539
+00:23:02,880 --> 00:23:07,360
+files, recently opened files. So, for
+
+540
+00:23:05,640 --> 00:23:09,480
+me, look uh
+
+541
+00:23:07,360 --> 00:23:11,080
+remember look at the left left panel.
+
+542
+00:23:09,480 --> 00:23:13,880
+So,
+
+543
+00:23:11,080 --> 00:23:17,040
+I press uh three keys, you know, space c
+
+544
+00:23:13,880 --> 00:23:20,480
+h, and I have a list of files here.
+
+545
+00:23:17,040 --> 00:23:22,160
+Uh oops, I just clicked. So, stop that.
+
+546
+00:23:20,480 --> 00:23:24,760
+Let's try again.
+
+547
+00:23:22,160 --> 00:23:26,800
+Press the key, and I'm in this panel.
+
+548
+00:23:24,760 --> 00:23:29,600
+This is recent
+
+549
+00:23:26,800 --> 00:23:32,160
+uh this is a mod. It's uh in Emacs it's
+
+550
+00:23:29,600 --> 00:23:35,480
+called uh open you know, uh recent f
+
+551
+00:23:32,160 --> 00:23:37,880
+that recent f, you know, that's just the
+
+552
+00:23:35,480 --> 00:23:40,880
+command name. It basically what what it
+
+553
+00:23:37,880 --> 00:23:43,480
+does is it shows you a list of recently
+
+554
+00:23:40,880 --> 00:23:45,880
+opened files. And you just then you can
+
+555
+00:23:43,480 --> 00:23:47,840
+just press a number key, it'll go to the
+
+556
+00:23:45,880 --> 00:23:50,360
+file. Oops, I just clicked by by
+
+557
+00:23:47,840 --> 00:23:53,000
+mistake. Uh hold on.
+
+558
+00:23:50,360 --> 00:23:54,160
+Um personal, let's go back to Emacs
+
+559
+00:23:53,000 --> 00:23:57,000
+blog.
+
+560
+00:23:54,160 --> 00:23:58,920
+So, there. Okay, so it's you know,
+
+561
+00:23:57,000 --> 00:24:01,480
+so there I am. You see the personal
+
+562
+00:23:58,920 --> 00:24:04,840
+notes I opened by mistake. Now it is on
+
+563
+00:24:01,480 --> 00:24:06,960
+top because the uh oops, I I clicked it
+
+564
+00:24:04,840 --> 00:24:08,640
+again. You know, I have a
+
+565
+00:24:06,960 --> 00:24:10,360
+yeah, I have a mouse auto click, so
+
+566
+00:24:08,640 --> 00:24:12,800
+that's why. So,
+
+567
+00:24:10,360 --> 00:24:15,440
+so anyway, so um you can just press a
+
+568
+00:24:12,800 --> 00:24:16,960
+number now. It just like if I press
+
+569
+00:24:15,440 --> 00:24:19,240
+number three,
+
+570
+00:24:16,960 --> 00:24:21,880
+uh look at the left panel. Now I'm going
+
+571
+00:24:19,240 --> 00:24:27,040
+to press number three.
+
+572
+00:24:21,880 --> 00:24:27,040
+Three. Uh uh uh wait, what happens?
+
+573
+00:24:29,560 --> 00:24:34,040
+Oh, yeah, because I'm using soft light
+
+574
+00:24:31,480 --> 00:24:37,560
+keys, it overrides. But now now look
+
+575
+00:24:34,040 --> 00:24:40,040
+again. If I'm going to press three,
+
+576
+00:24:37,560 --> 00:24:44,040
+you see now it opens.
+
+577
+00:24:40,040 --> 00:24:47,560
+Uh so, recent open files is uh so
+
+578
+00:24:44,040 --> 00:24:49,880
+extremely useful because um you know,
+
+579
+00:24:47,560 --> 00:24:53,000
+because almost like what once you have
+
+580
+00:24:49,880 --> 00:24:55,600
+the files you want open, usually you
+
+581
+00:24:53,000 --> 00:24:57,160
+just want to switch between them. Of
+
+582
+00:24:55,600 --> 00:24:59,720
+course, you can always use switch
+
+583
+00:24:57,160 --> 00:25:01,840
+buffer, you know, um you know, um
+
+584
+00:24:59,720 --> 00:25:05,080
+I I I switch buffer command.
+
+585
+00:25:01,840 --> 00:25:06,920
+But anyway, so recent open files is very
+
+586
+00:25:05,080 --> 00:25:10,360
+useful.
+
+587
+00:25:06,920 --> 00:25:12,720
+That get rid of,
+
+588
+00:25:10,360 --> 00:25:15,600
+you know, half of the time where you
+
+589
+00:25:12,720 --> 00:25:18,120
+need to open a file by typing the path,
+
+590
+00:25:15,600 --> 00:25:20,480
+you know, never never almost almost
+
+591
+00:25:18,120 --> 00:25:23,760
+never like you almost never need to
+
+592
+00:25:20,480 --> 00:25:26,680
+actually type a file path.
+
+593
+00:25:23,760 --> 00:25:26,680
+So, let's see.
+
+594
+00:25:26,720 --> 00:25:30,880
+So, again, you know, if you have
+
+595
+00:25:28,560 --> 00:25:34,400
+questions, you know, just ask.
+
+596
+00:25:30,880 --> 00:25:34,400
+So, yeah, use
+
+597
+00:25:34,440 --> 00:25:39,480
+use recent, okay, that's
+
+598
+00:25:37,800 --> 00:25:41,720
+very helpful.
+
+599
+00:25:39,480 --> 00:25:44,280
+Let's see if I have So,
+
+600
+00:25:41,720 --> 00:25:46,200
+on my Emacs tutorial,
+
+601
+00:25:44,280 --> 00:25:49,720
+I cover
+
+602
+00:25:46,200 --> 00:25:52,360
+many of these, but not
+
+603
+00:25:49,720 --> 00:25:55,120
+Yeah, almost Yeah, so, if you actually
+
+604
+00:25:52,360 --> 00:25:57,640
+read my, you know, my Emacs tutorial,
+
+605
+00:25:55,120 --> 00:26:00,000
+you will see actually I cover almost all
+
+606
+00:25:57,640 --> 00:26:02,880
+of them in detail. So,
+
+607
+00:26:00,000 --> 00:26:06,120
+So, you that's that's
+
+608
+00:26:02,880 --> 00:26:08,400
+you can do that. Now, bookmark Emacs has
+
+609
+00:26:06,120 --> 00:26:10,600
+a feature called bookmark. So, what it
+
+610
+00:26:08,400 --> 00:26:13,800
+does is like a browser's bookmark. For
+
+611
+00:26:10,600 --> 00:26:16,160
+example, let me open my bookmark.
+
+612
+00:26:13,800 --> 00:26:19,000
+Okay, you can see my
+
+613
+00:26:16,160 --> 00:26:22,120
+my key is just the space CC, you know,
+
+614
+00:26:19,000 --> 00:26:24,720
+it lists all the files I want to use
+
+615
+00:26:22,120 --> 00:26:27,400
+often. So, you know, for example, I
+
+616
+00:26:24,720 --> 00:26:30,720
+closed my Emacs blog.
+
+617
+00:26:27,400 --> 00:26:33,720
+Now, I want to open my Emacs blog. So, I
+
+618
+00:26:30,720 --> 00:26:37,880
+could just um
+
+619
+00:26:33,720 --> 00:26:39,840
+open bookmark and search for Emacs blog.
+
+620
+00:26:37,880 --> 00:26:41,200
+So, actually this is not a good way.
+
+621
+00:26:39,840 --> 00:26:44,160
+But, anyway,
+
+622
+00:26:41,200 --> 00:26:46,680
+let me let me tell you So, anyway, so,
+
+623
+00:26:44,160 --> 00:26:49,960
+first of all, remember use bookmarks,
+
+624
+00:26:46,680 --> 00:26:53,280
+okay? Now, um
+
+625
+00:26:49,960 --> 00:26:58,080
+Okay, here is how I actually open my
+
+626
+00:26:53,280 --> 00:27:00,920
+Emacs blog. I press this key EB
+
+627
+00:26:58,080 --> 00:27:01,880
+and there it is. Okay, I don't actually,
+
+628
+00:27:00,920 --> 00:27:04,240
+you know,
+
+629
+00:27:01,880 --> 00:27:06,520
+look at my list of
+
+630
+00:27:04,240 --> 00:27:08,200
+you know, bookmarks. But I'm going to
+
+631
+00:27:06,520 --> 00:27:09,440
+cover that. I'm going to going to show
+
+632
+00:27:08,200 --> 00:27:12,280
+you how
+
+633
+00:27:09,440 --> 00:27:13,880
+how that is done. That is actually the
+
+634
+00:27:12,280 --> 00:27:16,320
+next command.
+
+635
+00:27:13,880 --> 00:27:20,000
+Okay, but before we go there let me go
+
+636
+00:27:16,320 --> 00:27:23,520
+back to the tutorial. So, you want to
+
+637
+00:27:20,000 --> 00:27:26,040
+open recent files. Um
+
+638
+00:27:23,520 --> 00:27:27,960
+I I show you how to set it up. You know,
+
+639
+00:27:26,040 --> 00:27:31,000
+you want to um
+
+640
+00:27:27,960 --> 00:27:33,400
+have this in your init, so it's on.
+
+641
+00:27:31,000 --> 00:27:36,120
+And remember
+
+642
+00:27:33,400 --> 00:27:39,720
+you want to give it a fast key, a quick
+
+643
+00:27:36,120 --> 00:27:42,160
+key, um such as F F7. Oh, you know, it
+
+644
+00:27:39,720 --> 00:27:44,440
+depends on your keyboard, you know. So,
+
+645
+00:27:42,160 --> 00:27:46,640
+but anyway, pick a very easy key for
+
+646
+00:27:44,440 --> 00:27:48,920
+you, so you can, you know
+
+647
+00:27:46,640 --> 00:27:52,440
+you can list the recent
+
+648
+00:27:48,920 --> 00:27:54,160
+recently open the files uh very fast.
+
+649
+00:27:52,440 --> 00:27:57,920
+So, let's go to
+
+650
+00:27:54,160 --> 00:27:59,880
+uh so, bookmark is covered here. Now
+
+651
+00:27:57,920 --> 00:28:01,360
+uh for bookmark, uh
+
+652
+00:27:59,880 --> 00:28:04,560
+you know, how
+
+653
+00:28:01,360 --> 00:28:06,760
+I got a list, but if you try it, you
+
+654
+00:28:04,560 --> 00:28:08,720
+know, you are going to have a empty list
+
+655
+00:28:06,760 --> 00:28:10,960
+because, of course, because you didn't
+
+656
+00:28:08,720 --> 00:28:13,440
+add any bookmarks. So, you need to add
+
+657
+00:28:10,960 --> 00:28:16,880
+the bookmarks. So, all these commands
+
+658
+00:28:13,440 --> 00:28:19,960
+are shown here, bookmark uh set.
+
+659
+00:28:16,880 --> 00:28:22,520
+That's how you add a bookmark and list
+
+660
+00:28:19,960 --> 00:28:24,200
+bookmark and and so on. And you can
+
+661
+00:28:22,520 --> 00:28:26,400
+remove bookmarks, so you know, so
+
+662
+00:28:24,200 --> 00:28:27,880
+manage, you know, how to manage the
+
+663
+00:28:26,400 --> 00:28:30,160
+bookmarks.
+
+664
+00:28:27,880 --> 00:28:34,440
+So, anyway, let's let's go on.
+
+665
+00:28:30,160 --> 00:28:37,120
+Uh open recent files, open okay, um
+
+666
+00:28:34,440 --> 00:28:38,160
+open file fast. Okay, so let's cover
+
+667
+00:28:37,120 --> 00:28:40,120
+that one.
+
+668
+00:28:38,160 --> 00:28:42,160
+So, what does that mean? Okay, so
+
+669
+00:28:40,120 --> 00:28:43,000
+remember the bookmarks, so let me show
+
+670
+00:28:42,160 --> 00:28:45,960
+you.
+
+671
+00:28:43,000 --> 00:28:49,080
+So, I press the key and I see a bunch of
+
+672
+00:28:45,960 --> 00:28:53,120
+book bookmarks. You know, I have like
+
+673
+00:28:49,080 --> 00:28:55,560
+okay, 70 book 100 over 100 bookmarks.
+
+674
+00:28:53,120 --> 00:28:57,520
+Once you open a bookmark, it's it's
+
+675
+00:28:55,560 --> 00:28:58,640
+painful to you know, then you have to
+
+676
+00:28:57,520 --> 00:29:01,800
+search
+
+677
+00:28:58,640 --> 00:29:04,160
+uh for example, search Emacs which you
+
+678
+00:29:01,800 --> 00:29:06,840
+know, which file I want. You know, you
+
+679
+00:29:04,160 --> 00:29:09,160
+you you find the file you want.
+
+680
+00:29:06,840 --> 00:29:10,960
+Uh for example, this one goes to my
+
+681
+00:29:09,160 --> 00:29:13,840
+Emacs in it.
+
+682
+00:29:10,960 --> 00:29:16,520
+I press enter, then this is my Oh,
+
+683
+00:29:13,840 --> 00:29:18,680
+actually that's my old Emacs in it. You
+
+684
+00:29:16,520 --> 00:29:20,000
+know, so that's how you open file in
+
+685
+00:29:18,680 --> 00:29:22,120
+bookmark.
+
+686
+00:29:20,000 --> 00:29:25,280
+But it's painful, you know, first of
+
+687
+00:29:22,120 --> 00:29:28,120
+all, you open a bookmark list, then you
+
+688
+00:29:25,280 --> 00:29:29,640
+have to you know, navigate to the files
+
+689
+00:29:28,120 --> 00:29:33,040
+you want.
+
+690
+00:29:29,640 --> 00:29:35,360
+Uh for example, Linux site.
+
+691
+00:29:33,040 --> 00:29:38,800
+Um you know, then then you are there. So
+
+692
+00:29:35,360 --> 00:29:40,600
+it's it's painful. It's lots of steps.
+
+693
+00:29:38,800 --> 00:29:42,240
+So there's a convenient way, you know,
+
+694
+00:29:40,600 --> 00:29:44,560
+wouldn't be great
+
+695
+00:29:42,240 --> 00:29:47,800
+you know, if you want to open some file
+
+696
+00:29:44,560 --> 00:29:50,640
+in your bookmark without you know, first
+
+697
+00:29:47,800 --> 00:29:52,320
+showing a bookmark list, but instead you
+
+698
+00:29:50,640 --> 00:29:55,440
+just type some key
+
+699
+00:29:52,320 --> 00:29:57,280
+you'll actually rejects match the files
+
+700
+00:29:55,440 --> 00:29:59,040
+you want.
+
+701
+00:29:57,280 --> 00:30:01,520
+You know, wouldn't that be great? So
+
+702
+00:29:59,040 --> 00:30:04,800
+that is this command cuz I'll open file
+
+703
+00:30:01,520 --> 00:30:06,920
+fast. So So now look at the left panel.
+
+704
+00:30:04,800 --> 00:30:09,480
+I'm going to call that. So
+
+705
+00:30:06,920 --> 00:30:10,560
+let's say I want to go to my
+
+706
+00:30:09,480 --> 00:30:13,480
+um
+
+707
+00:30:10,560 --> 00:30:16,200
+uh my music blog, for example. So I'm
+
+708
+00:30:13,480 --> 00:30:17,400
+going to call this command by a key, you
+
+709
+00:30:16,200 --> 00:30:19,280
+see?
+
+710
+00:30:17,400 --> 00:30:22,400
+Look at the left panel. It says cuz I'll
+
+711
+00:30:19,280 --> 00:30:23,560
+open file fast. You see it it prompts me
+
+712
+00:30:22,400 --> 00:30:24,840
+here.
+
+713
+00:30:23,560 --> 00:30:27,480
+You know,
+
+714
+00:30:24,840 --> 00:30:30,040
+you know, I can start to type.
+
+715
+00:30:27,480 --> 00:30:32,760
+So what are these files? All these files
+
+716
+00:30:30,040 --> 00:30:34,400
+are actually all uh over them are from
+
+717
+00:30:32,760 --> 00:30:37,200
+my bookmark.
+
+718
+00:30:34,400 --> 00:30:39,560
+So I now I just type music, you know,
+
+719
+00:30:37,200 --> 00:30:41,520
+there there it is, music blog.
+
+720
+00:30:39,560 --> 00:30:44,200
+Enter.
+
+721
+00:30:41,520 --> 00:30:45,520
+That that is a file I want. Show in
+
+722
+00:30:44,200 --> 00:30:48,360
+browser.
+
+723
+00:30:45,520 --> 00:30:50,840
+You know, that's my music blog. I just
+
+724
+00:30:48,360 --> 00:30:53,560
+blog some, you know, music, dance music,
+
+725
+00:30:50,840 --> 00:30:56,760
+whatever music.
+
+726
+00:30:53,560 --> 00:30:59,880
+So So So there is this uh open file
+
+727
+00:30:56,760 --> 00:31:02,040
+fast. Now that that uh let's go to work
+
+728
+00:30:59,880 --> 00:31:05,440
+for you.
+
+729
+00:31:02,040 --> 00:31:06,880
+So yeah, so So this solves the problem
+
+730
+00:31:05,440 --> 00:31:08,680
+of
+
+731
+00:31:06,880 --> 00:31:11,760
+uh hold on a second.
+
+732
+00:31:08,680 --> 00:31:12,920
+This solves the problem of having to
+
+733
+00:31:11,760 --> 00:31:14,800
+Now
+
+734
+00:31:12,920 --> 00:31:17,280
+let's say I want to open that. Now look
+
+735
+00:31:14,800 --> 00:31:18,920
+at the left panel. Look at the command
+
+736
+00:31:17,280 --> 00:31:21,640
+I'm going to call.
+
+737
+00:31:18,920 --> 00:31:26,440
+So I do I call the command open file
+
+738
+00:31:21,640 --> 00:31:28,880
+fast, then just type CSS. You see it it
+
+739
+00:31:26,440 --> 00:31:31,600
+Look at the bottom prompt. It you know,
+
+740
+00:31:28,880 --> 00:31:33,520
+it it said that's the file I want. I
+
+741
+00:31:31,600 --> 00:31:36,120
+just press enter.
+
+742
+00:31:33,520 --> 00:31:38,560
+Then that's the file I want. Then if I
+
+743
+00:31:36,120 --> 00:31:39,840
+view in browser, you know, this is the
+
+744
+00:31:38,560 --> 00:31:42,520
+file.
+
+745
+00:31:39,840 --> 00:31:43,440
+Uh so close it, go back to Emacs, close
+
+746
+00:31:42,520 --> 00:31:45,640
+it.
+
+747
+00:31:43,440 --> 00:31:47,720
+Okay, so that that's that is this
+
+748
+00:31:45,640 --> 00:31:50,760
+command. Very useful.
+
+749
+00:31:47,720 --> 00:31:53,240
+Uh just just uh grab the command and put
+
+750
+00:31:50,760 --> 00:31:56,280
+in your Emacs in it. And also remember
+
+751
+00:31:53,240 --> 00:31:57,720
+always remember to give it a easy key.
+
+752
+00:31:56,280 --> 00:32:00,480
+Basically
+
+753
+00:31:57,720 --> 00:32:03,240
+you want to uh the
+
+754
+00:32:00,480 --> 00:32:06,240
+the command you use most frequently, you
+
+755
+00:32:03,240 --> 00:32:08,520
+want to give them the most easy keys.
+
+756
+00:32:06,240 --> 00:32:10,800
+Exactly which key to give them depends
+
+757
+00:32:08,520 --> 00:32:13,440
+on your keyboard actually, you know, uh
+
+758
+00:32:10,800 --> 00:32:16,920
+because different keyboard have
+
+759
+00:32:13,440 --> 00:32:16,920
+the easy keys are different.
+
+760
+00:32:18,640 --> 00:32:23,640
+So any any questions?
+
+761
+00:32:21,840 --> 00:32:25,520
+We are almost done.
+
+762
+00:32:23,640 --> 00:32:28,440
+Uh I mean, this is going to this is
+
+763
+00:32:25,520 --> 00:32:32,120
+pretty short today, so
+
+764
+00:32:28,440 --> 00:32:32,120
+how long have we been going?
+
+765
+00:32:32,920 --> 00:32:36,200
+Uh
+
+766
+00:32:33,960 --> 00:32:39,120
+let's see. According 30 minutes. Yeah,
+
+767
+00:32:36,200 --> 00:32:41,560
+that's not bad.
+
+768
+00:32:39,120 --> 00:32:43,600
+Okay, so what else?
+
+769
+00:32:41,560 --> 00:32:43,600
+Um
+
+770
+00:32:45,040 --> 00:32:48,240
+Okay, I think actually we are done. I
+
+771
+00:32:47,000 --> 00:32:51,000
+mean, uh
+
+772
+00:32:48,240 --> 00:32:52,960
+these are the tips I want to um
+
+773
+00:32:51,000 --> 00:32:56,760
+give.
+
+774
+00:32:52,960 --> 00:33:00,360
+Um yeah, and basically all of these uh
+
+775
+00:32:56,760 --> 00:33:02,800
+you do not need external packages. Now,
+
+776
+00:33:00,360 --> 00:33:05,560
+I know many of you use external package
+
+777
+00:33:02,800 --> 00:33:08,840
+packages uh such as Helm,
+
+778
+00:33:05,560 --> 00:33:10,120
+you know, h e l m Helm, and some others,
+
+779
+00:33:08,840 --> 00:33:11,920
+but
+
+780
+00:33:10,120 --> 00:33:12,840
+I mean, that's good. I mean, if you like
+
+781
+00:33:11,920 --> 00:33:15,240
+them,
+
+782
+00:33:12,840 --> 00:33:16,640
+it works for you, it's great.
+
+783
+00:33:15,240 --> 00:33:18,920
+Uh but
+
+784
+00:33:16,640 --> 00:33:22,200
+for me, you know, these these are
+
+785
+00:33:18,920 --> 00:33:24,360
+sufficient. Uh you can, you know, any on
+
+786
+00:33:22,200 --> 00:33:27,480
+any project, I mean, if you are using a
+
+787
+00:33:24,360 --> 00:33:29,760
+Git, uh for example, I'm using Git, you
+
+788
+00:33:27,480 --> 00:33:31,840
+know, I go to book uh
+
+789
+00:33:29,760 --> 00:33:33,120
+yeah, hold on a sec. So, I go to the
+
+790
+00:33:31,840 --> 00:33:36,640
+diet.
+
+791
+00:33:33,120 --> 00:33:38,880
+Uh you can see I'm using Git.
+
+792
+00:33:36,640 --> 00:33:41,600
+So, you know, all these files, you know,
+
+793
+00:33:38,880 --> 00:33:43,160
+they are like a few thousand files. Uh
+
+794
+00:33:41,600 --> 00:33:47,240
+you know, uh
+
+795
+00:33:43,160 --> 00:33:50,440
+So, 700 in this directory, uh
+
+796
+00:33:47,240 --> 00:33:53,000
+and and this direct tree has
+
+797
+00:33:50,440 --> 00:33:53,960
+1,000 files and another thousand files
+
+798
+00:33:53,000 --> 00:33:54,640
+here.
+
+799
+00:33:53,960 --> 00:33:56,400
+Uh
+
+800
+00:33:54,640 --> 00:33:58,880
+so, you know, there are several thousand
+
+801
+00:33:56,400 --> 00:34:01,240
+files, and but I can, you know, for any
+
+802
+00:33:58,880 --> 00:34:04,200
+file I want to open fast, I just put
+
+803
+00:34:01,240 --> 00:34:06,520
+them in bookmark.
+
+804
+00:34:04,200 --> 00:34:08,760
+Uh for example, let's go to Emacs menu.
+
+805
+00:34:06,520 --> 00:34:11,360
+Let's give one more example. Let's go to
+
+806
+00:34:08,760 --> 00:34:14,520
+Emacs menu, E list menu.
+
+807
+00:34:11,360 --> 00:34:16,280
+So, let's see uh windows and frames.
+
+808
+00:34:14,520 --> 00:34:17,840
+Let's open that file.
+
+809
+00:34:16,280 --> 00:34:21,000
+Showing browser.
+
+810
+00:34:17,840 --> 00:34:24,760
+So, this is this is a manual uh Emacs
+
+811
+00:34:21,000 --> 00:34:26,679
+list manual about windows and frames.
+
+812
+00:34:24,760 --> 00:34:30,360
+And suppose I need to open this file
+
+813
+00:34:26,679 --> 00:34:32,919
+often. So, what I do, I just uh look
+
+814
+00:34:30,360 --> 00:34:35,600
+look at the left panel again. So, I
+
+815
+00:34:32,919 --> 00:34:38,800
+believe my key is this.
+
+816
+00:34:35,600 --> 00:34:42,159
+There it is. Set bookmark. So, I give it
+
+817
+00:34:38,800 --> 00:34:43,919
+a name. Let's say Let's just say t d t
+
+818
+00:34:42,159 --> 00:34:48,200
+t, okay?
+
+819
+00:34:43,919 --> 00:34:51,080
+Enter. Okay, now it's set
+
+820
+00:34:48,200 --> 00:34:54,000
+in my bookmark. Now, I close it. Close
+
+821
+00:34:51,080 --> 00:34:56,800
+it. Close. I don't need that. Close.
+
+822
+00:34:54,000 --> 00:34:58,520
+Okay, I'm back to my Emacs blog. Now, I
+
+823
+00:34:56,800 --> 00:35:00,320
+Let's say I want to open that file
+
+824
+00:34:58,520 --> 00:35:03,240
+again.
+
+825
+00:35:00,320 --> 00:35:05,320
+All I have to do is
+
+826
+00:35:03,240 --> 00:35:08,600
+Cuz I open file fast. Oh, it's right
+
+827
+00:35:05,320 --> 00:35:08,600
+there, t d t t.
+
+828
+00:35:08,880 --> 00:35:13,680
+I I don't know why it's why it is on
+
+829
+00:35:11,280 --> 00:35:16,000
+top, but anyway, it's already on top. I
+
+830
+00:35:13,680 --> 00:35:17,600
+just press enter, then it, you know,
+
+831
+00:35:16,000 --> 00:35:20,480
+there it is.
+
+832
+00:35:17,600 --> 00:35:23,120
+So, that's how useful is bookmark
+
+833
+00:35:20,480 --> 00:35:25,280
+uh bookmark. So, close that. So, let me
+
+834
+00:35:23,120 --> 00:35:27,240
+show you a example of deleting that file
+
+835
+00:35:25,280 --> 00:35:31,320
+in bookmark. So, I open the bookmark
+
+836
+00:35:27,240 --> 00:35:33,040
+again. Search t d t t. I'm there.
+
+837
+00:35:31,320 --> 00:35:35,240
+Delete it.
+
+838
+00:35:33,040 --> 00:35:35,960
+Yes. Gone.
+
+839
+00:35:35,240 --> 00:35:37,720
+Uh
+
+840
+00:35:35,960 --> 00:35:39,480
+you know, close bookmark there. So,
+
+841
+00:35:37,720 --> 00:35:41,600
+that's um
+
+842
+00:35:39,480 --> 00:35:45,080
+So, I think that's it for I guess that's
+
+843
+00:35:41,600 --> 00:35:45,080
+it for today. Um
+
+844
+00:35:49,600 --> 00:35:54,160
+Wait, is my Is my screen fuzzy?
+
+845
+00:35:56,640 --> 00:36:02,960
+Because I, you know, I just upgraded the
+
+846
+00:36:00,200 --> 00:36:02,960
+uh
+
+847
+00:36:03,520 --> 00:36:08,720
+OBS. Maybe I have some setup not
+
+848
+00:36:06,280 --> 00:36:11,680
+correct.
+
+849
+00:36:08,720 --> 00:36:14,320
+Guys, talk.
+
+850
+00:36:11,680 --> 00:36:18,440
+So, in Anyway, no, okay, great. Thank
+
+851
+00:36:14,320 --> 00:36:20,720
+you. Thank you, James Hacking Hasking.
+
+852
+00:36:18,440 --> 00:36:23,400
+So, any any anything else? I think
+
+853
+00:36:20,720 --> 00:36:24,560
+that's it for today. I mean, did I miss
+
+854
+00:36:23,400 --> 00:36:27,120
+anything?
+
+855
+00:36:24,560 --> 00:36:28,440
+Uh is anything about opening files in
+
+856
+00:36:27,120 --> 00:36:31,800
+Emacs
+
+857
+00:36:28,440 --> 00:36:33,880
+that you might have a question?
+
+858
+00:36:31,800 --> 00:36:36,600
+Just let me know. So,
+
+859
+00:36:33,880 --> 00:36:37,800
+I mean, if yeah, then you know, so this
+
+860
+00:36:36,600 --> 00:36:39,520
+is um
+
+861
+00:36:37,800 --> 00:36:43,240
+questions and
+
+862
+00:36:39,520 --> 00:36:43,240
+uh answers session.
+
+863
+00:36:45,120 --> 00:36:49,200
+So, what do you think? Let me know, you
+
+864
+00:36:47,000 --> 00:36:50,960
+know, what do you think? Do you think
+
+865
+00:36:49,200 --> 00:36:52,640
+this is a thing Okay, there's one more
+
+866
+00:36:50,960 --> 00:36:53,880
+thing I want to show you. One more one
+
+867
+00:36:52,640 --> 00:36:55,320
+last thing.
+
+868
+00:36:53,880 --> 00:36:58,160
+Um
+
+869
+00:36:55,320 --> 00:37:00,240
+Now, in browser, for example,
+
+870
+00:36:58,160 --> 00:37:03,160
+you see, in browser, you have many tabs,
+
+871
+00:37:00,240 --> 00:37:04,640
+right? Let Let's switch tab. Switch to
+
+872
+00:37:03,160 --> 00:37:07,040
+another tab.
+
+873
+00:37:04,640 --> 00:37:08,760
+Now, suppose I close this tab, okay? I
+
+874
+00:37:07,040 --> 00:37:11,760
+close it.
+
+875
+00:37:08,760 --> 00:37:14,120
+Oops, I did that I did that by mistake.
+
+876
+00:37:11,760 --> 00:37:16,240
+You know, you want to reopen it. How do
+
+877
+00:37:14,120 --> 00:37:17,280
+you do that? In browser, you can do that
+
+878
+00:37:16,240 --> 00:37:20,400
+by
+
+879
+00:37:17,280 --> 00:37:23,440
+control shift T.
+
+880
+00:37:20,400 --> 00:37:26,080
+Oh, on the Mac, it's command shift T.
+
+881
+00:37:23,440 --> 00:37:29,000
+There it is. So, you see, when you close
+
+882
+00:37:26,080 --> 00:37:32,040
+the file by mistake, a a tab by mistake,
+
+883
+00:37:29,000 --> 00:37:35,600
+you can reopen that tab by you know,
+
+884
+00:37:32,040 --> 00:37:38,040
+usually control shift T or command shift
+
+885
+00:37:35,600 --> 00:37:40,880
+T on the Mac.
+
+886
+00:37:38,040 --> 00:37:42,520
+But, in Emacs, if I close this file, now
+
+887
+00:37:40,880 --> 00:37:44,440
+look.
+
+888
+00:37:42,520 --> 00:37:46,880
+Look Look at the
+
+889
+00:37:44,440 --> 00:37:50,600
+the command I call on on the left.
+
+890
+00:37:46,880 --> 00:37:53,560
+Now, if I close my Emacs blog,
+
+891
+00:37:50,600 --> 00:37:56,480
+now if I close it, oops,
+
+892
+00:37:53,560 --> 00:37:58,600
+I made a mistake. I want to reopen it.
+
+893
+00:37:56,480 --> 00:38:01,320
+And oh my god, I forgot what's the path.
+
+894
+00:37:58,600 --> 00:38:03,960
+I mean, what what file I I just closed
+
+895
+00:38:01,320 --> 00:38:05,720
+exactly, I forgot. You know, I don't
+
+896
+00:38:03,960 --> 00:38:08,200
+remember which I you know, I don't know
+
+897
+00:38:05,720 --> 00:38:10,360
+if it's a file in my bookmark, or maybe
+
+898
+00:38:08,200 --> 00:38:13,600
+it's a file a friend just sent it to me,
+
+899
+00:38:10,360 --> 00:38:14,800
+so it's definitely not in my bookmark.
+
+900
+00:38:13,600 --> 00:38:17,240
+Uh
+
+901
+00:38:14,800 --> 00:38:20,160
+but maybe it's in the uh
+
+902
+00:38:17,240 --> 00:38:22,280
+you know, uh recently opened.
+
+903
+00:38:20,160 --> 00:38:25,000
+But, suppose I opened that file last
+
+904
+00:38:22,280 --> 00:38:27,360
+week. You know, then it's not in the
+
+905
+00:38:25,000 --> 00:38:30,320
+recently opened file, you know.
+
+906
+00:38:27,360 --> 00:38:32,720
+You know, so So, I closed it by mistake.
+
+907
+00:38:30,320 --> 00:38:35,640
+How do you get it back? Now, look,
+
+908
+00:38:32,720 --> 00:38:38,480
+here's the magic. I press one key
+
+909
+00:38:35,640 --> 00:38:41,200
+and it's back. And so, what is that
+
+910
+00:38:38,480 --> 00:38:43,000
+command? That is this one. So, open last
+
+911
+00:38:41,200 --> 00:38:45,400
+closed.
+
+912
+00:38:43,000 --> 00:38:46,800
+Now, in order to So, you can do that,
+
+913
+00:38:45,400 --> 00:38:48,840
+too. But,
+
+914
+00:38:46,800 --> 00:38:50,000
+uh you need to put the function in your
+
+915
+00:38:48,840 --> 00:38:53,200
+Emacs
+
+916
+00:38:50,000 --> 00:38:56,400
+uh in it. So, that uh function is it
+
+917
+00:38:53,200 --> 00:38:59,400
+it's Let's look at the function.
+
+918
+00:38:56,400 --> 00:39:01,200
+So, this is a function and this is
+
+919
+00:38:59,400 --> 00:39:04,240
+defined here.
+
+920
+00:39:01,200 --> 00:39:07,040
+But, I have a web page here uh showing
+
+921
+00:39:04,240 --> 00:39:09,640
+this command. So, let's open that
+
+922
+00:39:07,040 --> 00:39:13,080
+and look in browser.
+
+923
+00:39:09,640 --> 00:39:14,240
+Uh open last closed file.
+
+924
+00:39:13,080 --> 00:39:16,840
+So,
+
+925
+00:39:14,240 --> 00:39:21,200
+if you want this feature in Emacs, you
+
+926
+00:39:16,840 --> 00:39:23,120
+need to put uh you need to put these two
+
+927
+00:39:21,200 --> 00:39:25,080
+um
+
+928
+00:39:23,120 --> 00:39:27,240
+Okay, you need to actu- actually put
+
+929
+00:39:25,080 --> 00:39:30,040
+these three functions
+
+930
+00:39:27,240 --> 00:39:32,280
+uh you know, three functions in your
+
+931
+00:39:30,040 --> 00:39:34,480
+Emacs in it.
+
+932
+00:39:32,280 --> 00:39:37,760
+Uh why? Because
+
+933
+00:39:34,480 --> 00:39:41,800
+because in order to open
+
+934
+00:39:37,760 --> 00:39:44,280
+um the files you closed, you need to
+
+935
+00:39:41,800 --> 00:39:46,320
+record. Every time you close the file,
+
+936
+00:39:44,280 --> 00:39:48,680
+you need to record it.
+
+937
+00:39:46,320 --> 00:39:50,720
+So, that is why uh you know, you have
+
+938
+00:39:48,680 --> 00:39:52,920
+like several of functions I need to
+
+939
+00:39:50,720 --> 00:39:54,840
+define in order to do that.
+
+940
+00:39:52,920 --> 00:39:57,040
+So, but it's extremely useful. For
+
+941
+00:39:54,840 --> 00:39:59,280
+example, let me show you.
+
+942
+00:39:57,040 --> 00:40:02,640
+So, I'm going to close this file, close
+
+943
+00:39:59,280 --> 00:40:05,040
+this file, close, close, close, close.
+
+944
+00:40:02,640 --> 00:40:07,840
+Okay, I closed like a bunch of files. I
+
+945
+00:40:05,040 --> 00:40:10,480
+don't remember what they are. Now, I can
+
+946
+00:40:07,840 --> 00:40:15,400
+like revert them, reopen them like
+
+947
+00:40:10,480 --> 00:40:16,320
+reopen, reopen, reopen, reopen. You see,
+
+948
+00:40:15,400 --> 00:40:19,960
+this or
+
+949
+00:40:16,320 --> 00:40:19,960
+you know, it's extremely useful.
+
+950
+00:40:21,080 --> 00:40:28,040
+Okay, thank you guys for coming by and
+
+951
+00:40:26,160 --> 00:40:30,040
+if there's no more questions, that's it.
+
+952
+00:40:28,040 --> 00:40:31,960
+Thank you.
+
+953
+00:40:30,040 --> 00:40:33,920
+How do you pronounce DeYoung? DeYoung or
+
+954
+00:40:31,960 --> 00:40:35,240
+Deion?
+
+955
+00:40:33,920 --> 00:40:37,800
+Richard
+
+956
+00:40:35,240 --> 00:40:40,440
+DeYoung or Deion? And thank you
+
+957
+00:40:37,800 --> 00:40:42,000
+informatic. You guys came before and
+
+958
+00:40:40,440 --> 00:40:43,360
+James asking.
+
+959
+00:40:42,000 --> 00:40:47,200
+And
+
+960
+00:40:43,360 --> 00:40:50,400
+thanks Jan for coming by today.
+
+961
+00:40:47,200 --> 00:40:54,440
+How hard would it be to extend your
+
+962
+00:40:50,400 --> 00:40:56,800
+function to reopen group files?
+
+963
+00:40:54,440 --> 00:40:59,920
+Uh
+
+964
+00:40:56,800 --> 00:41:02,800
+Okay, so you want to reopen a group
+
+965
+00:40:59,920 --> 00:41:06,240
+file. You can. I mean, you can, but
+
+966
+00:41:02,800 --> 00:41:08,120
+but I think the question is how do you I
+
+967
+00:41:06,240 --> 00:41:10,400
+mean
+
+968
+00:41:08,120 --> 00:41:13,080
+You know, you can you can easily create
+
+969
+00:41:10,400 --> 00:41:15,720
+a command that reopen the last five, for
+
+970
+00:41:13,080 --> 00:41:17,160
+example, or last 10. But if you want to
+
+971
+00:41:15,720 --> 00:41:19,480
+be selective, then it would be
+
+972
+00:41:17,160 --> 00:41:22,000
+difficult. You know, basically, how this
+
+973
+00:41:19,480 --> 00:41:26,080
+command work is that um
+
+974
+00:41:22,000 --> 00:41:29,680
+it keeps a list of files you just closed
+
+975
+00:41:26,080 --> 00:41:32,120
+and uh set the maximum to 40. You see?
+
+976
+00:41:29,680 --> 00:41:33,640
+You know, you can set to 50 or 100 if
+
+977
+00:41:32,120 --> 00:41:35,240
+you want.
+
+978
+00:41:33,640 --> 00:41:36,760
+So,
+
+979
+00:41:35,240 --> 00:41:38,840
+um
+
+980
+00:41:36,760 --> 00:41:42,000
+you know, so I mean, you can you can
+
+981
+00:41:38,840 --> 00:41:44,040
+modify it and create a command that
+
+982
+00:41:42,000 --> 00:41:46,920
+takes an argument. You know, you know,
+
+983
+00:41:44,040 --> 00:41:51,280
+if you say five, you know, then you will
+
+984
+00:41:46,920 --> 00:41:53,160
+reopen the last five uh closed file. But
+
+985
+00:41:51,280 --> 00:41:55,040
+it's easier if you just press a key, you
+
+986
+00:41:53,160 --> 00:41:57,680
+know, five times, you know.
+
+987
+00:41:55,040 --> 00:41:57,680
+So.
+
+988
+00:41:59,000 --> 00:42:04,080
+Uh starting files with a certain path,
+
+989
+00:42:01,520 --> 00:42:06,920
+that certainly that can be be easily
+
+990
+00:42:04,080 --> 00:42:09,160
+done as well. Uh yeah, that yeah, I
+
+991
+00:42:06,920 --> 00:42:10,280
+think that's can be easily done because
+
+992
+00:42:09,160 --> 00:42:13,880
+all you
+
+993
+00:42:10,280 --> 00:42:17,760
+all you actually are doing is a
+
+994
+00:42:13,880 --> 00:42:20,480
+here. Look at this. This is a variable.
+
+995
+00:42:17,760 --> 00:42:23,920
+So recently closed buffer is just a list
+
+996
+00:42:20,480 --> 00:42:27,160
+of file file paths. So you can have a
+
+997
+00:42:23,920 --> 00:42:29,440
+command that read reads this list and
+
+998
+00:42:27,160 --> 00:42:31,720
+filter out, you know, by regular
+
+999
+00:42:29,440 --> 00:42:34,400
+expression all the files you want. Then
+
+1000
+00:42:31,720 --> 00:42:37,840
+you just, you know, open them, find file
+
+1001
+00:42:34,400 --> 00:42:37,840
+and just open them. So
+
+1002
+00:42:38,800 --> 00:42:44,600
+So thank you guys for watching.
+
+1003
+00:42:41,760 --> 00:42:47,240
+So I mean today is going to this is a
+
+1004
+00:42:44,600 --> 00:42:50,240
+kind of technical and focused
+
+1005
+00:42:47,240 --> 00:42:51,760
+talk. I hope to see you guys again.
+
+1006
+00:42:50,240 --> 00:42:53,080
+Um
+
+1007
+00:42:51,760 --> 00:42:55,720
+Thanks.
+
+1008
+00:42:53,080 --> 00:42:55,720
+Bye.
+

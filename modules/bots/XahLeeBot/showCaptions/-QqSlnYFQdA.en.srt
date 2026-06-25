@@ -1,0 +1,9624 @@
+1
+00:00:04,799 --> 00:00:10,380
+hello guys welcome to another episode of
+
+2
+00:00:07,620 --> 00:00:15,360
+sound talk show so today we are going to
+
+3
+00:00:10,380 --> 00:00:19,080
+continue the Advent of code day 7. we
+
+4
+00:00:15,360 --> 00:00:22,800
+started yesterday and we did for two
+
+5
+00:00:19,080 --> 00:00:26,760
+hours but we did not complete
+
+6
+00:00:22,800 --> 00:00:28,460
+uh yesterday the Advent of code day 7 is
+
+7
+00:00:26,760 --> 00:00:31,500
+a tough problem
+
+8
+00:00:28,460 --> 00:00:33,600
+and the problem is so we're gonna
+
+9
+00:00:31,500 --> 00:00:36,120
+continue coding it in Wolfram language
+
+10
+00:00:33,600 --> 00:00:40,739
+okay if you are here comments and
+
+11
+00:00:36,120 --> 00:00:44,100
+questions posted okay and uh for those
+
+12
+00:00:40,739 --> 00:00:47,160
+of you watching off offline you know
+
+13
+00:00:44,100 --> 00:00:49,920
+post time stamp you know I love you to
+
+14
+00:00:47,160 --> 00:00:52,920
+see your comments okay be on topic
+
+15
+00:00:49,920 --> 00:00:55,440
+Okay so yesterday the problem is
+
+16
+00:00:52,920 --> 00:00:57,539
+basically construct a tree at the end of
+
+17
+00:00:55,440 --> 00:01:00,000
+code okay you can see advantage of a
+
+18
+00:00:57,539 --> 00:01:03,660
+code here you know that's a website they
+
+19
+00:01:00,000 --> 00:01:07,439
+do this every year uh about 24 problems
+
+20
+00:01:03,660 --> 00:01:10,140
+programming problems story problems so
+
+21
+00:01:07,439 --> 00:01:13,439
+day seven each problem there are two
+
+22
+00:01:10,140 --> 00:01:16,680
+parts so day seven you know they go by
+
+23
+00:01:13,439 --> 00:01:19,320
+day you know anyway day seven the
+
+24
+00:01:16,680 --> 00:01:24,840
+problem is given this input which is
+
+25
+00:01:19,320 --> 00:01:27,540
+essentially the Unix uh command line
+
+26
+00:01:24,840 --> 00:01:29,840
+prompt navigation directory so you have
+
+27
+00:01:27,540 --> 00:01:31,460
+the command CD
+
+28
+00:01:29,840 --> 00:01:36,720
+CDLs
+
+29
+00:01:31,460 --> 00:01:39,240
+and your job is to given this input as a
+
+30
+00:01:36,720 --> 00:01:42,479
+string you need to construct the tree
+
+31
+00:01:39,240 --> 00:01:45,840
+that reflects the directory structure
+
+32
+00:01:42,479 --> 00:01:49,079
+and the file size and the actual
+
+33
+00:01:45,840 --> 00:01:51,299
+question is to compute the sum of
+
+34
+00:01:49,079 --> 00:01:53,759
+directories find which one is what size
+
+35
+00:01:51,299 --> 00:01:55,140
+you know that's the actual question you
+
+36
+00:01:53,759 --> 00:01:56,399
+have to answer
+
+37
+00:01:55,140 --> 00:01:59,579
+so
+
+38
+00:01:56,399 --> 00:02:01,920
+so you see uh so here is you know here
+
+39
+00:01:59,579 --> 00:02:05,280
+is the input and you have to construct
+
+40
+00:02:01,920 --> 00:02:08,280
+the tree so yesterday we did we did a
+
+41
+00:02:05,280 --> 00:02:10,380
+lot of analysis of the problem and
+
+42
+00:02:08,280 --> 00:02:14,160
+decision about how to solve the problem
+
+43
+00:02:10,380 --> 00:02:16,920
+how to represent the tree uh eventually
+
+44
+00:02:14,160 --> 00:02:19,379
+so there's two reposition two
+
+45
+00:02:16,920 --> 00:02:22,560
+representations of a tree one is nested
+
+46
+00:02:19,379 --> 00:02:25,620
+list the other one is nested dictionary
+
+47
+00:02:22,560 --> 00:02:29,580
+or key value pairs we decided the key
+
+48
+00:02:25,620 --> 00:02:33,720
+value pairs is small is easier
+
+49
+00:02:29,580 --> 00:02:36,540
+so so we did the code so let's start the
+
+50
+00:02:33,720 --> 00:02:40,920
+code okay so let's start the code uh
+
+51
+00:02:36,540 --> 00:02:43,920
+let's copy let's start to code it okay
+
+52
+00:02:40,920 --> 00:02:46,440
+start move from language okay and let's
+
+53
+00:02:43,920 --> 00:02:49,160
+go to yesterday so we can copy the code
+
+54
+00:02:46,440 --> 00:02:49,160
+from yesterday
+
+55
+00:02:50,760 --> 00:02:54,860
+okay so I mean here is the code
+
+56
+00:02:55,620 --> 00:02:59,000
+okay so let's
+
+57
+00:03:03,180 --> 00:03:09,239
+okay so copy it close it
+
+58
+00:03:06,379 --> 00:03:13,260
+go to today's talk show
+
+59
+00:03:09,239 --> 00:03:18,480
+and paste it here to remove that
+
+60
+00:03:13,260 --> 00:03:22,819
+pop it into its own uh buffer okay we
+
+61
+00:03:18,480 --> 00:03:22,819
+so now let's start wolfam language
+
+62
+00:03:26,760 --> 00:03:30,739
+we're gonna continue from yesterday
+
+63
+00:03:32,519 --> 00:03:40,680
+uh with some language okay start the new
+
+64
+00:03:35,819 --> 00:03:44,400
+new file start the Wolfram engine and
+
+65
+00:03:40,680 --> 00:03:47,099
+let's magnify it so it's easier to see
+
+66
+00:03:44,400 --> 00:03:51,599
+let's put it here
+
+67
+00:03:47,099 --> 00:03:53,700
+okay so I can easily get to it
+
+68
+00:03:51,599 --> 00:03:56,819
+okay so Wolfram language
+
+69
+00:03:53,700 --> 00:04:00,540
+so yesterday the code you know we here
+
+70
+00:03:56,819 --> 00:04:05,760
+is extra input so you know let's copy
+
+71
+00:04:00,540 --> 00:04:08,400
+the code let's let's just copy it
+
+72
+00:04:05,760 --> 00:04:10,920
+so here's the code yesterday here's a
+
+73
+00:04:08,400 --> 00:04:15,900
+huge input
+
+74
+00:04:10,920 --> 00:04:17,340
+uh and let's see so we split the lines
+
+75
+00:04:15,900 --> 00:04:20,639
+we
+
+76
+00:04:17,340 --> 00:04:24,419
+the path is uh we first of all we build
+
+77
+00:04:20,639 --> 00:04:27,360
+a list of file paths then
+
+78
+00:04:24,419 --> 00:04:30,840
+from a list of file path we construct
+
+79
+00:04:27,360 --> 00:04:33,000
+the tree so we succeeded yesterday in
+
+80
+00:04:30,840 --> 00:04:36,120
+this in building the list of file path
+
+81
+00:04:33,000 --> 00:04:39,000
+okay so we start with a global variable
+
+82
+00:04:36,120 --> 00:04:40,620
+empty list then we start to add things
+
+83
+00:04:39,000 --> 00:04:44,040
+to it
+
+84
+00:04:40,620 --> 00:04:46,919
+and here is the function that does the
+
+85
+00:04:44,040 --> 00:04:49,199
+bulk of the work this function we map
+
+86
+00:04:46,919 --> 00:04:53,100
+this function to
+
+87
+00:04:49,199 --> 00:04:55,440
+the line part list line part list you
+
+88
+00:04:53,100 --> 00:04:57,720
+know each one is basically a line of the
+
+89
+00:04:55,440 --> 00:05:03,479
+input but separated into a list of
+
+90
+00:04:57,720 --> 00:05:06,060
+strings so let's uh line parts list so
+
+91
+00:05:03,479 --> 00:05:07,199
+we map a function to all elements of
+
+92
+00:05:06,060 --> 00:05:09,060
+that
+
+93
+00:05:07,199 --> 00:05:13,680
+line basically
+
+94
+00:05:09,060 --> 00:05:18,060
+and then in this process we build we
+
+95
+00:05:13,680 --> 00:05:21,780
+build the fire path XPath
+
+96
+00:05:18,060 --> 00:05:26,120
+so okay so now let's uh yeah let's
+
+97
+00:05:21,780 --> 00:05:26,120
+remove this one this one is not needed
+
+98
+00:05:26,520 --> 00:05:33,479
+okay let's just eval eval the code
+
+99
+00:05:30,180 --> 00:05:35,460
+uh where did it go
+
+100
+00:05:33,479 --> 00:05:38,940
+what
+
+101
+00:05:35,460 --> 00:05:40,160
+uh 150 okay
+
+102
+00:05:38,940 --> 00:05:44,120
+okay
+
+103
+00:05:40,160 --> 00:05:44,120
+we I think we
+
+104
+00:05:44,580 --> 00:05:52,220
+I think we changed the font size uh okay
+
+105
+00:05:47,639 --> 00:05:52,220
+do you need it did the whole thing
+
+106
+00:05:53,580 --> 00:05:57,479
+now we don't need this part copy the
+
+107
+00:05:56,400 --> 00:05:59,400
+whole
+
+108
+00:05:57,479 --> 00:06:00,900
+paste it here
+
+109
+00:05:59,400 --> 00:06:06,120
+run it
+
+110
+00:06:00,900 --> 00:06:08,580
+okay it's done now let's see X path so
+
+111
+00:06:06,120 --> 00:06:12,539
+you can see that is a
+
+112
+00:06:08,580 --> 00:06:13,440
+result we have let's show them in column
+
+113
+00:06:12,539 --> 00:06:16,400
+form
+
+114
+00:06:13,440 --> 00:06:20,639
+okay so each of these
+
+115
+00:06:16,400 --> 00:06:26,160
+sublease represent a file path you know
+
+116
+00:06:20,639 --> 00:06:28,620
+but each directory name is is a element
+
+117
+00:06:26,160 --> 00:06:30,800
+so you can just join string then you'll
+
+118
+00:06:28,620 --> 00:06:34,100
+be a file path okay
+
+119
+00:06:30,800 --> 00:06:34,100
+and uh
+
+120
+00:06:34,380 --> 00:06:39,720
+yeah okay so but do we have a
+
+121
+00:06:37,080 --> 00:06:44,780
+distinction between
+
+122
+00:06:39,720 --> 00:06:44,780
+a directory or a file
+
+123
+00:06:45,240 --> 00:06:51,180
+now obviously if the name is something
+
+124
+00:06:48,360 --> 00:06:53,940
+not something that's a file but
+
+125
+00:06:51,180 --> 00:06:55,080
+but is that always so let's check the
+
+126
+00:06:53,940 --> 00:06:58,080
+input
+
+127
+00:06:55,080 --> 00:07:02,280
+so here's the inputs
+
+128
+00:06:58,080 --> 00:07:06,060
+okay so let's go check look at the input
+
+129
+00:07:02,280 --> 00:07:09,960
+talk show talk show yesterday
+
+130
+00:07:06,060 --> 00:07:13,380
+search for input
+
+131
+00:07:09,960 --> 00:07:16,500
+okay so here is the input copy all new
+
+132
+00:07:13,380 --> 00:07:17,580
+buffer paste it and let's delete all
+
+133
+00:07:16,500 --> 00:07:21,960
+lines
+
+134
+00:07:17,580 --> 00:07:23,340
+let's list our lines uh that begins with
+
+135
+00:07:21,960 --> 00:07:25,139
+the dollar
+
+136
+00:07:23,340 --> 00:07:28,220
+okay
+
+137
+00:07:25,139 --> 00:07:28,220
+let's do it again
+
+138
+00:07:28,560 --> 00:07:34,460
+Okay so
+
+139
+00:07:30,419 --> 00:07:34,460
+let's remove all those
+
+140
+00:07:35,160 --> 00:07:40,380
+delete matching lines that okay
+
+141
+00:07:38,340 --> 00:07:42,060
+then
+
+142
+00:07:40,380 --> 00:07:44,819
+Okay so
+
+143
+00:07:42,060 --> 00:07:47,460
+so you can see some of them out there
+
+144
+00:07:44,819 --> 00:07:51,180
+now let's list all
+
+145
+00:07:47,460 --> 00:07:53,599
+uh all lines that contains the word the
+
+146
+00:07:51,180 --> 00:07:53,599
+space
+
+147
+00:07:55,380 --> 00:07:59,039
+okay
+
+148
+00:07:56,400 --> 00:08:01,020
+so you can see all directory names do
+
+149
+00:07:59,039 --> 00:08:02,639
+not have a dot in them
+
+150
+00:08:01,020 --> 00:08:05,039
+you can see
+
+151
+00:08:02,639 --> 00:08:07,620
+yeah that's correct
+
+152
+00:08:05,039 --> 00:08:12,060
+okay that makes the problem easier
+
+153
+00:08:07,620 --> 00:08:17,160
+so directory names do not have any dot
+
+154
+00:08:12,060 --> 00:08:20,460
+in it now let's delete all directory
+
+155
+00:08:17,160 --> 00:08:21,780
+space okay now all these are files now
+
+156
+00:08:20,460 --> 00:08:24,780
+you can see
+
+157
+00:08:21,780 --> 00:08:29,720
+okay so some files
+
+158
+00:08:24,780 --> 00:08:29,720
+has start something but some files not
+
+159
+00:08:30,120 --> 00:08:36,060
+so some files has done something but
+
+160
+00:08:32,580 --> 00:08:40,260
+some files not okay so we have to so
+
+161
+00:08:36,060 --> 00:08:43,860
+this is ambiguous actually so I mean our
+
+162
+00:08:40,260 --> 00:08:46,620
+list is ambiguous hello crazy frog I
+
+163
+00:08:43,860 --> 00:08:48,600
+have seen you seen seen you before
+
+164
+00:08:46,620 --> 00:08:50,880
+so
+
+165
+00:08:48,600 --> 00:08:53,640
+some
+
+166
+00:08:50,880 --> 00:08:55,920
+some of these file path
+
+167
+00:08:53,640 --> 00:08:58,680
+you know we don't know it's a directory
+
+168
+00:08:55,920 --> 00:09:01,320
+or it's a file that's a problem let's
+
+169
+00:08:58,680 --> 00:09:05,000
+see how do we solve the problem because
+
+170
+00:09:01,320 --> 00:09:05,000
+we are going to turn this
+
+171
+00:09:08,700 --> 00:09:16,320
+into a nested
+
+172
+00:09:11,940 --> 00:09:20,279
+dictionary basically a tree
+
+173
+00:09:16,320 --> 00:09:23,339
+so do we actually so to turn this list
+
+174
+00:09:20,279 --> 00:09:24,660
+of final path into a tree a nested
+
+175
+00:09:23,339 --> 00:09:27,360
+dictionary
+
+176
+00:09:24,660 --> 00:09:30,000
+do we actually need to distinguish
+
+177
+00:09:27,360 --> 00:09:30,899
+whether one is a directory or it's a
+
+178
+00:09:30,000 --> 00:09:33,480
+file
+
+179
+00:09:30,899 --> 00:09:37,140
+now we know that if it's a file
+
+180
+00:09:33,480 --> 00:09:40,920
+that's always the leaves of a tree
+
+181
+00:09:37,140 --> 00:09:43,980
+you know so and you know if it's a
+
+182
+00:09:40,920 --> 00:09:46,820
+directory then it's not a leave you know
+
+183
+00:09:43,980 --> 00:09:46,820
+big wait
+
+184
+00:09:48,300 --> 00:09:52,860
+okay some directory may also be a leaf
+
+185
+00:09:51,180 --> 00:09:55,019
+nod
+
+186
+00:09:52,860 --> 00:09:56,700
+because it just so happens there's no
+
+187
+00:09:55,019 --> 00:10:00,180
+fire seeing it
+
+188
+00:09:56,700 --> 00:10:03,839
+okay so we need so let's uh let's write
+
+189
+00:10:00,180 --> 00:10:06,959
+some notes we this is important to know
+
+190
+00:10:03,839 --> 00:10:09,600
+so let's go back to the talk show
+
+191
+00:10:06,959 --> 00:10:11,640
+uh that's yesterday go back to talk show
+
+192
+00:10:09,600 --> 00:10:15,140
+today
+
+193
+00:10:11,640 --> 00:10:15,140
+uh no that's yesterday
+
+194
+00:10:15,959 --> 00:10:20,760
+so today's talk show is this one
+
+195
+00:10:19,380 --> 00:10:23,839
+uh
+
+196
+00:10:20,760 --> 00:10:23,839
+some notes
+
+197
+00:10:29,100 --> 00:10:38,300
+some file names contains a DOT but not
+
+198
+00:10:34,200 --> 00:10:38,300
+all okay that's important to know
+
+199
+00:10:38,820 --> 00:10:46,440
+the names never contains a DOT
+
+200
+00:10:43,740 --> 00:10:48,959
+okay so let's put that so the name
+
+201
+00:10:46,440 --> 00:10:51,959
+directory names never contains the dot
+
+202
+00:10:48,959 --> 00:10:55,019
+okay but some file names contains the
+
+203
+00:10:51,959 --> 00:10:58,620
+dot but not all okay
+
+204
+00:10:55,019 --> 00:11:01,019
+uh and uh you know we are asking this
+
+205
+00:10:58,620 --> 00:11:04,019
+because we want to know is it possible
+
+206
+00:11:01,019 --> 00:11:07,500
+to determine it's a file or directory by
+
+207
+00:11:04,019 --> 00:11:10,220
+by purely just the final path so the
+
+208
+00:11:07,500 --> 00:11:10,220
+answer is no
+
+209
+00:11:12,360 --> 00:11:19,740
+is it
+
+210
+00:11:14,399 --> 00:11:23,040
+possible to determine a
+
+211
+00:11:19,740 --> 00:11:26,160
+for a given full path
+
+212
+00:11:23,040 --> 00:11:30,019
+is a the whole file
+
+213
+00:11:26,160 --> 00:11:30,019
+from our X path
+
+214
+00:11:30,720 --> 00:11:36,120
+okay
+
+215
+00:11:33,060 --> 00:11:38,959
+the answer seems no
+
+216
+00:11:36,120 --> 00:11:38,959
+because
+
+217
+00:11:39,480 --> 00:11:43,560
+those reasons
+
+218
+00:11:42,120 --> 00:11:46,140
+okay
+
+219
+00:11:43,560 --> 00:11:49,140
+so let's comment out that this YouTube
+
+220
+00:11:46,140 --> 00:11:49,140
+okay
+
+221
+00:11:50,160 --> 00:11:54,540
+the name never contains the dot but some
+
+222
+00:11:52,500 --> 00:12:01,160
+file names contains the dot but not o
+
+223
+00:11:54,540 --> 00:12:01,160
+okay and we also we also discovered that
+
+224
+00:12:03,480 --> 00:12:09,060
+files are the
+
+225
+00:12:06,959 --> 00:12:11,459
+whole files
+
+226
+00:12:09,060 --> 00:12:14,540
+any file
+
+227
+00:12:11,459 --> 00:12:18,000
+is a
+
+228
+00:12:14,540 --> 00:12:20,240
+Leaf nod meaning they don't have
+
+229
+00:12:18,000 --> 00:12:20,240
+children
+
+230
+00:12:21,180 --> 00:12:30,480
+but hey the maybe a thief knot
+
+231
+00:12:27,120 --> 00:12:31,860
+or a non-leaf nod
+
+232
+00:12:30,480 --> 00:12:35,120
+because
+
+233
+00:12:31,860 --> 00:12:35,120
+when a the
+
+234
+00:12:35,820 --> 00:12:41,399
+because
+
+235
+00:12:37,200 --> 00:12:42,839
+uh the may have zero children
+
+236
+00:12:41,399 --> 00:12:46,680
+or
+
+237
+00:12:42,839 --> 00:12:48,540
+no ALS is performed
+
+238
+00:12:46,680 --> 00:12:53,220
+on the
+
+239
+00:12:48,540 --> 00:12:54,660
+okay so that's some findings
+
+240
+00:12:53,220 --> 00:12:56,399
+okay
+
+241
+00:12:54,660 --> 00:13:00,060
+so
+
+242
+00:12:56,399 --> 00:13:02,459
+any file is a leaf node but a duh may be
+
+243
+00:13:00,060 --> 00:13:06,440
+a leaf nod or a
+
+244
+00:13:02,459 --> 00:13:06,440
+or a non-leaf knot okay
+
+245
+00:13:07,019 --> 00:13:11,579
+so a directory may be your Leaf nod or
+
+246
+00:13:09,480 --> 00:13:14,040
+maybe your non-leaf nod
+
+247
+00:13:11,579 --> 00:13:16,860
+okay and uh
+
+248
+00:13:14,040 --> 00:13:19,980
+again we are trying to build a tree from
+
+249
+00:13:16,860 --> 00:13:21,300
+this given file path now is it necessary
+
+250
+00:13:19,980 --> 00:13:24,720
+to know
+
+251
+00:13:21,300 --> 00:13:26,399
+if this food if a given full path is a
+
+252
+00:13:24,720 --> 00:13:29,899
+fire or directory
+
+253
+00:13:26,399 --> 00:13:29,899
+no because
+
+254
+00:13:30,420 --> 00:13:35,820
+because it doesn't matter it you know
+
+255
+00:13:32,880 --> 00:13:39,000
+this full path basically
+
+256
+00:13:35,820 --> 00:13:40,860
+specifies the structure of the tree
+
+257
+00:13:39,000 --> 00:13:43,380
+it doesn't matter it's a file or
+
+258
+00:13:40,860 --> 00:13:47,120
+directory okay so that's important to
+
+259
+00:13:43,380 --> 00:13:47,120
+know so let's write it down okay
+
+260
+00:13:47,399 --> 00:13:52,940
+we are going to build a tree
+
+261
+00:13:55,339 --> 00:13:59,899
+using nested dictionary
+
+262
+00:14:00,000 --> 00:14:05,279
+from
+
+263
+00:14:01,320 --> 00:14:07,320
+a list of four
+
+264
+00:14:05,279 --> 00:14:11,279
+path
+
+265
+00:14:07,320 --> 00:14:12,839
+which is our X path
+
+266
+00:14:11,279 --> 00:14:15,620
+okay
+
+267
+00:14:12,839 --> 00:14:15,620
+is it
+
+268
+00:14:16,380 --> 00:14:21,800
+do we need to know
+
+269
+00:14:19,139 --> 00:14:21,800
+if
+
+270
+00:14:23,940 --> 00:14:30,180
+a path
+
+271
+00:14:26,480 --> 00:14:33,360
+is a the or file
+
+272
+00:14:30,180 --> 00:14:36,079
+okay answer no
+
+273
+00:14:33,360 --> 00:14:38,700
+because
+
+274
+00:14:36,079 --> 00:14:42,139
+a full path
+
+275
+00:14:38,700 --> 00:14:42,139
+at least a full path
+
+276
+00:14:43,079 --> 00:14:46,519
+fully specifies
+
+277
+00:14:46,620 --> 00:14:53,639
+the
+
+278
+00:14:49,019 --> 00:14:57,600
+tree structure okay so okay that's good
+
+279
+00:14:53,639 --> 00:15:00,060
+to know so one step further okay so now
+
+280
+00:14:57,600 --> 00:15:03,180
+we are we want to turn this into a
+
+281
+00:15:00,060 --> 00:15:06,800
+nested dictionary how do we do that okay
+
+282
+00:15:03,180 --> 00:15:09,600
+uh it should not be difficult okay we
+
+283
+00:15:06,800 --> 00:15:12,839
+essentially this is how how you do it in
+
+284
+00:15:09,600 --> 00:15:16,320
+Wolfram language so the tree
+
+285
+00:15:12,839 --> 00:15:17,579
+the tree is a Association list we talked
+
+286
+00:15:16,320 --> 00:15:21,300
+about yesterday
+
+287
+00:15:17,579 --> 00:15:23,220
+uh let's go to Wolfram language okay go
+
+288
+00:15:21,300 --> 00:15:26,760
+to my website you'll see your complete
+
+289
+00:15:23,220 --> 00:15:30,360
+tutorial and in Wolfram language there
+
+290
+00:15:26,760 --> 00:15:32,279
+are two major data structure list is the
+
+291
+00:15:30,360 --> 00:15:34,260
+primary one just like any list
+
+292
+00:15:32,279 --> 00:15:35,399
+programming language everything is at
+
+293
+00:15:34,260 --> 00:15:38,160
+least
+
+294
+00:15:35,399 --> 00:15:39,300
+then but there is a special data
+
+295
+00:15:38,160 --> 00:15:43,040
+structure
+
+296
+00:15:39,300 --> 00:15:44,940
+and that is called
+
+297
+00:15:43,040 --> 00:15:48,720
+Association
+
+298
+00:15:44,940 --> 00:15:51,180
+okay so Association is essentially in
+
+299
+00:15:48,720 --> 00:15:54,420
+Python it's called dictionary info and
+
+300
+00:15:51,180 --> 00:15:56,760
+Ruby it's called hash table in Java in
+
+301
+00:15:54,420 --> 00:16:00,480
+JavaScript it's called a map
+
+302
+00:15:56,760 --> 00:16:03,480
+object uh you know it's basically at
+
+303
+00:16:00,480 --> 00:16:06,480
+least the key value pairs Association
+
+304
+00:16:03,480 --> 00:16:07,560
+in woven language and in lisp it's
+
+305
+00:16:06,480 --> 00:16:10,860
+called
+
+306
+00:16:07,560 --> 00:16:14,639
+either hash table or Association list
+
+307
+00:16:10,860 --> 00:16:18,000
+okay it's an old name it's a variation
+
+308
+00:16:14,639 --> 00:16:21,420
+name Association list
+
+309
+00:16:18,000 --> 00:16:23,940
+from from which you have hash table and
+
+310
+00:16:21,420 --> 00:16:27,000
+in fact the word the jargon dictionary
+
+311
+00:16:23,940 --> 00:16:30,600
+is not from python the jargon dictionary
+
+312
+00:16:27,000 --> 00:16:32,820
+is also very old it probably the first
+
+313
+00:16:30,600 --> 00:16:35,760
+one so they are basically the same thing
+
+314
+00:16:32,820 --> 00:16:36,779
+at least the key value pairs okay hash
+
+315
+00:16:35,760 --> 00:16:39,839
+table
+
+316
+00:16:36,779 --> 00:16:43,380
+uh association association list
+
+317
+00:16:39,839 --> 00:16:45,660
+dictionary or the same or map
+
+318
+00:16:43,380 --> 00:16:48,180
+it just so happens we have different
+
+319
+00:16:45,660 --> 00:16:50,339
+names uh unfortunate
+
+320
+00:16:48,180 --> 00:16:53,459
+so in Google fan language you use
+
+321
+00:16:50,339 --> 00:16:57,660
+Association okay key value pairs so we
+
+322
+00:16:53,459 --> 00:16:59,940
+use this to build a tree uh so and the
+
+323
+00:16:57,660 --> 00:17:02,639
+way you do that
+
+324
+00:16:59,940 --> 00:17:06,000
+close that the the way you do that is
+
+325
+00:17:02,639 --> 00:17:09,059
+something like that okay so the tree is
+
+326
+00:17:06,000 --> 00:17:11,880
+Association we defined
+
+327
+00:17:09,059 --> 00:17:15,059
+we defined here so you know in the
+
+328
+00:17:11,880 --> 00:17:19,140
+beginning it's just the empty list of
+
+329
+00:17:15,059 --> 00:17:25,339
+key value pairs then
+
+330
+00:17:19,140 --> 00:17:25,339
+then you can do it this way the name one
+
+331
+00:17:25,980 --> 00:17:31,140
+the name to the name three something
+
+332
+00:17:29,100 --> 00:17:32,299
+something
+
+333
+00:17:31,140 --> 00:17:36,900
+uh
+
+334
+00:17:32,299 --> 00:17:38,580
+equals to so let's let's so this is what
+
+335
+00:17:36,900 --> 00:17:41,100
+we're gonna do now
+
+336
+00:17:38,580 --> 00:17:43,799
+so the input
+
+337
+00:17:41,100 --> 00:17:48,120
+so this is a function okay so we want to
+
+338
+00:17:43,799 --> 00:17:50,940
+map a function to this list of file path
+
+339
+00:17:48,120 --> 00:17:57,360
+and in the process it it should build
+
+340
+00:17:50,940 --> 00:18:00,600
+this Association tree okay so map of
+
+341
+00:17:57,360 --> 00:18:01,860
+course obviously you map a function
+
+342
+00:18:00,600 --> 00:18:05,160
+to
+
+343
+00:18:01,860 --> 00:18:07,020
+X path okay
+
+344
+00:18:05,160 --> 00:18:10,080
+and uh
+
+345
+00:18:07,020 --> 00:18:13,200
+at level one by default it's level one
+
+346
+00:18:10,080 --> 00:18:16,080
+level one just means just like every
+
+347
+00:18:13,200 --> 00:18:19,860
+every other language is map but in
+
+348
+00:18:16,080 --> 00:18:23,280
+Wolfram language you can specify a level
+
+349
+00:18:19,860 --> 00:18:27,120
+by default is one you can say two then
+
+350
+00:18:23,280 --> 00:18:30,240
+you just map to like the the children of
+
+351
+00:18:27,120 --> 00:18:31,320
+the root only those knots and you can
+
+352
+00:18:30,240 --> 00:18:33,840
+say three
+
+353
+00:18:31,320 --> 00:18:36,660
+that means the children and Children of
+
+354
+00:18:33,840 --> 00:18:39,419
+the root only those you know or you can
+
+355
+00:18:36,660 --> 00:18:43,140
+say negative one that means map the
+
+356
+00:18:39,419 --> 00:18:44,100
+function to only the leaves of a nested
+
+357
+00:18:43,140 --> 00:18:47,820
+list
+
+358
+00:18:44,100 --> 00:18:50,460
+okay so you know the map is super
+
+359
+00:18:47,820 --> 00:18:52,140
+powerful extremely powerful in Wolfram
+
+360
+00:18:50,460 --> 00:18:56,580
+language
+
+361
+00:18:52,140 --> 00:18:58,140
+so this is worth mentioning because this
+
+362
+00:18:56,580 --> 00:19:01,620
+because
+
+363
+00:18:58,140 --> 00:19:03,780
+list is the primary data structure in
+
+364
+00:19:01,620 --> 00:19:07,200
+fact the whole language everything you
+
+365
+00:19:03,780 --> 00:19:09,419
+see every code is the least just like
+
+366
+00:19:07,200 --> 00:19:11,220
+least you know list these data data is
+
+367
+00:19:09,419 --> 00:19:14,400
+the least
+
+368
+00:19:11,220 --> 00:19:15,480
+um and so in Wolfram language you use
+
+369
+00:19:14,400 --> 00:19:18,299
+list
+
+370
+00:19:15,480 --> 00:19:22,320
+everything is the least and you use
+
+371
+00:19:18,299 --> 00:19:24,780
+nested list extensively you know
+
+372
+00:19:22,320 --> 00:19:26,880
+you may not see it here but in fact this
+
+373
+00:19:24,780 --> 00:19:29,520
+is one giant nested Beast you know even
+
+374
+00:19:26,880 --> 00:19:31,080
+the code code or data whatever it's
+
+375
+00:19:29,520 --> 00:19:34,860
+honest at least
+
+376
+00:19:31,080 --> 00:19:37,380
+so nested list is used everywhere okay
+
+377
+00:19:34,860 --> 00:19:40,200
+and uh
+
+378
+00:19:37,380 --> 00:19:42,780
+and then you have the concept when you
+
+379
+00:19:40,200 --> 00:19:46,200
+want to map a function to a nest to this
+
+380
+00:19:42,780 --> 00:19:49,640
+you you can you can you know specify
+
+381
+00:19:46,200 --> 00:19:53,580
+which level at what depth or
+
+382
+00:19:49,640 --> 00:19:55,380
+uh you know third depth to seventh step
+
+383
+00:19:53,580 --> 00:19:58,440
+you can do that
+
+384
+00:19:55,380 --> 00:20:01,140
+you know one specific level or a range
+
+385
+00:19:58,440 --> 00:20:04,500
+of level you know in Unix you call it
+
+386
+00:20:01,140 --> 00:20:05,100
+depth usually just like when you do
+
+387
+00:20:04,500 --> 00:20:09,840
+um
+
+388
+00:20:05,100 --> 00:20:12,539
+you do uh find some file name in dash
+
+389
+00:20:09,840 --> 00:20:14,460
+depth you know anyway so map is very
+
+390
+00:20:12,539 --> 00:20:18,799
+very powerful this so if you are
+
+391
+00:20:14,460 --> 00:20:23,039
+programming uh learning Wolfram language
+
+392
+00:20:18,799 --> 00:20:26,160
+uh you you want to master this concept
+
+393
+00:20:23,039 --> 00:20:28,200
+of level okay I don't even say I didn't
+
+394
+00:20:26,160 --> 00:20:31,260
+say here because
+
+395
+00:20:28,200 --> 00:20:32,700
+you know I'm trying to make beginner
+
+396
+00:20:31,260 --> 00:20:36,299
+friendly
+
+397
+00:20:32,700 --> 00:20:37,559
+but you can see there's a level you see
+
+398
+00:20:36,299 --> 00:20:40,260
+you can
+
+399
+00:20:37,559 --> 00:20:41,280
+um so a bit digression you know so map
+
+400
+00:20:40,260 --> 00:20:44,100
+you can
+
+401
+00:20:41,280 --> 00:20:47,840
+say you see there's a level spec
+
+402
+00:20:44,100 --> 00:20:47,840
+and let's turn JavaScript
+
+403
+00:20:51,000 --> 00:20:56,880
+you see so this is kind of the standard
+
+404
+00:20:54,419 --> 00:21:00,179
+syntax when you want to specify level
+
+405
+00:20:56,880 --> 00:21:03,059
+you can see also say infinity that means
+
+406
+00:21:00,179 --> 00:21:05,580
+mapped through all levels every nod and
+
+407
+00:21:03,059 --> 00:21:09,120
+every leaf of a tree so this is
+
+408
+00:21:05,580 --> 00:21:11,280
+extremely powerful this feature
+
+409
+00:21:09,120 --> 00:21:14,640
+where you can map a function to any
+
+410
+00:21:11,280 --> 00:21:17,820
+particular level or range of level is
+
+411
+00:21:14,640 --> 00:21:19,200
+not found in any language I know of you
+
+412
+00:21:17,820 --> 00:21:21,960
+know you don't you don't see them you
+
+413
+00:21:19,200 --> 00:21:24,900
+have to code it yourself and it's not
+
+414
+00:21:21,960 --> 00:21:28,200
+trivial it's very not trivial you know I
+
+415
+00:21:24,900 --> 00:21:32,039
+so because I I tried I did this in the
+
+416
+00:21:28,200 --> 00:21:33,780
+1998 I did a lot of these three stuff
+
+417
+00:21:32,039 --> 00:21:35,580
+so if you're gonna write this function
+
+418
+00:21:33,780 --> 00:21:38,520
+in Python it's not trivial python
+
+419
+00:21:35,580 --> 00:21:39,960
+whatever JavaScript has whatever even at
+
+420
+00:21:38,520 --> 00:21:41,940
+least
+
+421
+00:21:39,960 --> 00:21:44,640
+they don't have this you know they
+
+422
+00:21:41,940 --> 00:21:48,059
+usually you know you'll be not even a
+
+423
+00:21:44,640 --> 00:21:51,539
+library you'll be hard hard to find okay
+
+424
+00:21:48,059 --> 00:21:53,640
+so so in most industrial languages when
+
+425
+00:21:51,539 --> 00:21:55,679
+you have at least typically it's flat
+
+426
+00:21:53,640 --> 00:21:58,200
+you know you don't work with Nest at
+
+427
+00:21:55,679 --> 00:21:59,880
+least that much unless you are doing
+
+428
+00:21:58,200 --> 00:22:02,700
+linear algebra you know computer
+
+429
+00:21:59,880 --> 00:22:04,500
+Graphics then at most you have like
+
+430
+00:22:02,700 --> 00:22:08,159
+two-dimensional
+
+431
+00:22:04,500 --> 00:22:10,860
+uh a matrix you know basically a nested
+
+432
+00:22:08,159 --> 00:22:14,240
+list where each element has the same
+
+433
+00:22:10,860 --> 00:22:17,700
+same length as every other
+
+434
+00:22:14,240 --> 00:22:20,520
+two by two Matrix two by five makes
+
+435
+00:22:17,700 --> 00:22:22,440
+tricks three by seven Matrix you know
+
+436
+00:22:20,520 --> 00:22:26,520
+that's all two dimensional
+
+437
+00:22:22,440 --> 00:22:30,960
+Matrix and and all those are nested
+
+438
+00:22:26,520 --> 00:22:33,179
+least okay but in Wolfram language
+
+439
+00:22:30,960 --> 00:22:36,000
+you know you have that but you can you
+
+440
+00:22:33,179 --> 00:22:38,340
+know the each element may not have the
+
+441
+00:22:36,000 --> 00:22:41,159
+same size as the other so it's a tree so
+
+442
+00:22:38,340 --> 00:22:43,919
+you know next at least represents a tree
+
+443
+00:22:41,159 --> 00:22:47,280
+and you can map to you know you have
+
+444
+00:22:43,919 --> 00:22:50,640
+this map function map to any level okay
+
+445
+00:22:47,280 --> 00:22:55,919
+so now we want to map a function to the
+
+446
+00:22:50,640 --> 00:22:58,260
+list of path just just level one and so
+
+447
+00:22:55,919 --> 00:23:00,600
+the question how to the question is how
+
+448
+00:22:58,260 --> 00:23:02,460
+do you define this function the function
+
+449
+00:23:00,600 --> 00:23:05,280
+will basically do something like this
+
+450
+00:23:02,460 --> 00:23:08,240
+okay and we have to think about it now
+
+451
+00:23:05,280 --> 00:23:08,240
+let's see the comment
+
+452
+00:23:08,640 --> 00:23:13,620
+I prefer watching people programming
+
+453
+00:23:11,460 --> 00:23:15,659
+actually programming okay that's
+
+454
+00:23:13,620 --> 00:23:18,120
+interesting
+
+455
+00:23:15,659 --> 00:23:20,820
+um so
+
+456
+00:23:18,120 --> 00:23:23,039
+are you joking you know sometimes you
+
+457
+00:23:20,820 --> 00:23:25,559
+are joking because what's the point then
+
+458
+00:23:23,039 --> 00:23:28,320
+if you don't program just watch
+
+459
+00:23:25,559 --> 00:23:31,799
+I I guess that I guess that can be
+
+460
+00:23:28,320 --> 00:23:34,919
+likened to watching sports you know
+
+461
+00:23:31,799 --> 00:23:37,559
+right now the world soccer football is
+
+462
+00:23:34,919 --> 00:23:40,860
+going on you know a lot other countries
+
+463
+00:23:37,559 --> 00:23:44,100
+South American Italian French England
+
+464
+00:23:40,860 --> 00:23:46,140
+they are crazy about football so you
+
+465
+00:23:44,100 --> 00:23:48,900
+know you're gonna have a riot
+
+466
+00:23:46,140 --> 00:23:51,419
+yeah so that's watching sports you know
+
+467
+00:23:48,900 --> 00:23:54,900
+watching American football or you know
+
+468
+00:23:51,419 --> 00:23:56,400
+the you know the the non-round but you
+
+469
+00:23:54,900 --> 00:23:58,440
+know American football
+
+470
+00:23:56,400 --> 00:24:02,280
+or Rock by
+
+471
+00:23:58,440 --> 00:24:05,700
+you know sports baseball basketball NBA
+
+472
+00:24:02,280 --> 00:24:07,320
+and so on so you have the sport of
+
+473
+00:24:05,700 --> 00:24:09,840
+watching sport
+
+474
+00:24:07,320 --> 00:24:14,159
+so I suppose you can also have you know
+
+475
+00:24:09,840 --> 00:24:17,640
+programming of the of the uh spectacle
+
+476
+00:24:14,159 --> 00:24:20,760
+of watching other programs
+
+477
+00:24:17,640 --> 00:24:23,100
+is that fun that would be New Field I
+
+478
+00:24:20,760 --> 00:24:25,400
+think that would be new I haven't heard
+
+479
+00:24:23,100 --> 00:24:25,400
+of it
+
+480
+00:24:26,539 --> 00:24:32,700
+how am I doing
+
+481
+00:24:29,700 --> 00:24:36,360
+so how many people two or three I
+
+482
+00:24:32,700 --> 00:24:39,360
+suppose two or three watching me oh oh
+
+483
+00:24:36,360 --> 00:24:42,480
+five okay say say something okay say hi
+
+484
+00:24:39,360 --> 00:24:44,580
+okay let's get back to you direct you
+
+485
+00:24:42,480 --> 00:24:47,340
+know how am you know my style you you
+
+486
+00:24:44,580 --> 00:24:49,919
+you tell me and I'll go that way
+
+487
+00:24:47,340 --> 00:24:53,820
+okay I'm still alive I'm doing good
+
+488
+00:24:49,919 --> 00:24:57,919
+voice check yeah okay so right now our
+
+489
+00:24:53,820 --> 00:24:57,919
+problem is to write this function okay
+
+490
+00:24:58,080 --> 00:25:03,240
+okay so but before we do that we it's
+
+491
+00:25:01,679 --> 00:25:06,659
+prudent
+
+492
+00:25:03,240 --> 00:25:10,200
+it's a very good idea to
+
+493
+00:25:06,659 --> 00:25:11,880
+to try a toi program first so let's do
+
+494
+00:25:10,200 --> 00:25:15,020
+that okay
+
+495
+00:25:11,880 --> 00:25:18,179
+so delete that put this back in browser
+
+496
+00:25:15,020 --> 00:25:21,780
+and start a new Wolfram and let's just
+
+497
+00:25:18,179 --> 00:25:22,860
+do that and let's maybe copy this list
+
+498
+00:25:21,780 --> 00:25:26,100
+okay
+
+499
+00:25:22,860 --> 00:25:30,240
+and paste it here
+
+500
+00:25:26,100 --> 00:25:34,080
+and the color syntax color it move this
+
+501
+00:25:30,240 --> 00:25:37,380
+out so we're gonna work with this
+
+502
+00:25:34,080 --> 00:25:40,799
+you know example just to just for this
+
+503
+00:25:37,380 --> 00:25:44,100
+part create a tree using nested
+
+504
+00:25:40,799 --> 00:25:45,240
+dictionary out of at least the file path
+
+505
+00:25:44,100 --> 00:25:49,080
+okay
+
+506
+00:25:45,240 --> 00:25:50,220
+and we go back to browser you can show
+
+507
+00:25:49,080 --> 00:25:54,779
+it
+
+508
+00:25:50,220 --> 00:25:57,299
+show it so here is today's code so far
+
+509
+00:25:54,779 --> 00:25:59,400
+essentially from yesterday okay but
+
+510
+00:25:57,299 --> 00:26:03,419
+we're gonna work on this
+
+511
+00:25:59,400 --> 00:26:05,640
+feel the tree okay so you begin with
+
+512
+00:26:03,419 --> 00:26:08,039
+um you know so first thing we want to
+
+513
+00:26:05,640 --> 00:26:14,120
+make sure is that
+
+514
+00:26:08,039 --> 00:26:14,120
+the list of file path is ordered by
+
+515
+00:26:14,400 --> 00:26:19,799
+their length
+
+516
+00:26:16,679 --> 00:26:22,320
+you know that way we can make sure we
+
+517
+00:26:19,799 --> 00:26:24,299
+don't encounter a deep
+
+518
+00:26:22,320 --> 00:26:26,220
+nod before
+
+519
+00:26:24,299 --> 00:26:29,520
+its parent
+
+520
+00:26:26,220 --> 00:26:32,700
+but I think from the input you know they
+
+521
+00:26:29,520 --> 00:26:35,279
+are already that way yeah because you
+
+522
+00:26:32,700 --> 00:26:37,799
+see before you see a new directory you
+
+523
+00:26:35,279 --> 00:26:40,919
+do have the parent happening before it
+
+524
+00:26:37,799 --> 00:26:44,159
+you know so you have this directory then
+
+525
+00:26:40,919 --> 00:26:45,840
+you create children yeah so I don't need
+
+526
+00:26:44,159 --> 00:26:48,000
+to we don't need to worry about the
+
+527
+00:26:45,840 --> 00:26:50,220
+order we can just
+
+528
+00:26:48,000 --> 00:26:51,299
+map a function and go through them one
+
+529
+00:26:50,220 --> 00:26:56,340
+by one
+
+530
+00:26:51,299 --> 00:26:58,740
+okay so so here this is the input
+
+531
+00:26:56,340 --> 00:27:02,279
+and it's uh
+
+532
+00:26:58,740 --> 00:27:05,539
+let's say xx1 okay
+
+533
+00:27:02,279 --> 00:27:05,539
+let's say
+
+534
+00:27:08,059 --> 00:27:12,260
+hex path list okay
+
+535
+00:27:12,960 --> 00:27:15,799
+now
+
+536
+00:27:18,320 --> 00:27:24,840
+uh now let's see so this is the first so
+
+537
+00:27:23,279 --> 00:27:28,260
+up to here
+
+538
+00:27:24,840 --> 00:27:31,500
+we build a directory let's shorten it
+
+539
+00:27:28,260 --> 00:27:35,220
+even further so let's try this
+
+540
+00:27:31,500 --> 00:27:40,880
+this is building one
+
+541
+00:27:35,220 --> 00:27:40,880
+uh one tree okay so let's try that
+
+542
+00:27:44,700 --> 00:27:47,779
+use random
+
+543
+00:27:49,440 --> 00:27:54,080
+okay let's try something like that
+
+544
+00:27:51,659 --> 00:27:54,080
+simple
+
+545
+00:27:54,659 --> 00:27:59,940
+a very short tree
+
+546
+00:27:57,120 --> 00:28:02,159
+okay now we want to turn that into a
+
+547
+00:27:59,940 --> 00:28:04,340
+tree so
+
+548
+00:28:02,159 --> 00:28:04,340
+um
+
+549
+00:28:05,400 --> 00:28:10,400
+let's just use x okay
+
+550
+00:28:08,299 --> 00:28:13,279
+X1 okay
+
+551
+00:28:10,400 --> 00:28:18,380
+X2 equals to
+
+552
+00:28:13,279 --> 00:28:18,380
+Association okay empty Association
+
+553
+00:28:24,360 --> 00:28:30,320
+okay then we want to map a function to
+
+554
+00:28:28,080 --> 00:28:30,320
+it
+
+555
+00:28:33,720 --> 00:28:37,620
+okay and how do we do it
+
+556
+00:28:36,600 --> 00:28:42,980
+um
+
+557
+00:28:37,620 --> 00:28:42,980
+so so the first item is just
+
+558
+00:28:46,380 --> 00:28:50,960
+let's see let's see even shorter
+
+559
+00:28:53,640 --> 00:29:01,520
+so you know let's let's say
+
+560
+00:28:58,020 --> 00:29:01,520
+even shorter
+
+561
+00:29:02,100 --> 00:29:04,580
+wait
+
+562
+00:29:05,100 --> 00:29:11,880
+oh this list we got the extra
+
+563
+00:29:09,360 --> 00:29:15,380
+bracket
+
+564
+00:29:11,880 --> 00:29:15,380
+why why is it extra
+
+565
+00:29:25,260 --> 00:29:30,240
+let's try again okay let's see what's
+
+566
+00:29:28,320 --> 00:29:33,960
+inc's path
+
+567
+00:29:30,240 --> 00:29:36,860
+why do we got the extra
+
+568
+00:29:33,960 --> 00:29:36,860
+brackets
+
+569
+00:29:38,460 --> 00:29:43,279
+let's copy it
+
+570
+00:29:40,440 --> 00:29:43,279
+copy
+
+571
+00:29:44,159 --> 00:29:50,960
+paste yeah there's no extra must be
+
+572
+00:29:47,700 --> 00:29:50,960
+copied error
+
+573
+00:29:51,059 --> 00:29:57,299
+okay so hmm
+
+574
+00:29:54,419 --> 00:29:59,460
+what you're gonna do okay so so this
+
+575
+00:29:57,299 --> 00:30:03,539
+this part is wrong
+
+576
+00:29:59,460 --> 00:30:05,480
+and this part extra bracket and it's
+
+577
+00:30:03,539 --> 00:30:08,820
+let's remove that
+
+578
+00:30:05,480 --> 00:30:12,059
+let's fix this
+
+579
+00:30:08,820 --> 00:30:19,440
+format them nicely okay
+
+580
+00:30:12,059 --> 00:30:23,039
+copy replace replace that by that that
+
+581
+00:30:19,440 --> 00:30:27,059
+okay uh that's not okay so make them
+
+582
+00:30:23,039 --> 00:30:30,059
+into one line and do this replacement
+
+583
+00:30:27,059 --> 00:30:32,460
+okay now it's much better
+
+584
+00:30:30,059 --> 00:30:35,600
+yeah
+
+585
+00:30:32,460 --> 00:30:38,840
+okay so now X1
+
+586
+00:30:35,600 --> 00:30:38,840
+equals to
+
+587
+00:30:39,480 --> 00:30:47,340
+yeah I can do that
+
+588
+00:30:42,539 --> 00:30:50,360
+yeah so we want to go up to here
+
+589
+00:30:47,340 --> 00:30:50,360
+let's see
+
+590
+00:30:51,840 --> 00:30:55,100
+okay that's good
+
+591
+00:30:56,880 --> 00:31:05,039
+that's is that is good we just wanna do
+
+592
+00:31:00,299 --> 00:31:08,760
+this next one equals to
+
+593
+00:31:05,039 --> 00:31:12,659
+uh okay so you need a
+
+594
+00:31:08,760 --> 00:31:12,659
+bracket there
+
+595
+00:31:15,179 --> 00:31:22,020
+okay so here is a toy
+
+596
+00:31:19,620 --> 00:31:24,299
+this is the final path we want to build
+
+597
+00:31:22,020 --> 00:31:28,020
+a tree okay
+
+598
+00:31:24,299 --> 00:31:32,240
+so imagine the first item so the first
+
+599
+00:31:28,020 --> 00:31:32,240
+item when you yeah okay so wait
+
+600
+00:31:33,539 --> 00:31:38,059
+so let's just manually fix this
+
+601
+00:31:38,399 --> 00:31:43,320
+okay so imagine you just got two final
+
+602
+00:31:41,399 --> 00:31:46,740
+paths that
+
+603
+00:31:43,320 --> 00:31:49,580
+okay so you don't even worry about this
+
+604
+00:31:46,740 --> 00:31:49,580
+need a
+
+605
+00:31:51,600 --> 00:31:57,179
+okay so if you're gonna just have this
+
+606
+00:31:54,779 --> 00:32:01,140
+two-file path what you're gonna do so
+
+607
+00:31:57,179 --> 00:32:05,240
+the first one obviously you want to do
+
+608
+00:32:01,140 --> 00:32:05,240
+something like so X2
+
+609
+00:32:06,080 --> 00:32:17,120
+let's let's make it that way so the tree
+
+610
+00:32:10,980 --> 00:32:17,120
+you're gonna have the names uh that
+
+611
+00:32:20,940 --> 00:32:24,200
+how you gonna do so
+
+612
+00:32:26,220 --> 00:32:29,220
+Association
+
+613
+00:32:31,500 --> 00:32:37,320
+so Association
+
+614
+00:32:34,620 --> 00:32:40,279
+so the yeah so you're gonna add a key
+
+615
+00:32:37,320 --> 00:32:40,279
+slash
+
+616
+00:32:40,799 --> 00:32:46,940
+you're gonna create that key but what
+
+617
+00:32:43,440 --> 00:32:46,940
+what is the value
+
+618
+00:32:49,080 --> 00:32:55,279
+the value is gonna be a another
+
+619
+00:32:51,840 --> 00:32:55,279
+Association right
+
+620
+00:32:58,140 --> 00:33:02,840
+so
+
+621
+00:32:59,880 --> 00:33:06,299
+let's think about how Association
+
+622
+00:33:02,840 --> 00:33:09,120
+corresponds to the tree I mean a list of
+
+623
+00:33:06,299 --> 00:33:12,600
+key value pairs nested correspond to a
+
+624
+00:33:09,120 --> 00:33:15,419
+tree so a tree you have a root
+
+625
+00:33:12,600 --> 00:33:18,299
+and how do you represent that root
+
+626
+00:33:15,419 --> 00:33:19,919
+one way to do it is you have Association
+
+627
+00:33:18,299 --> 00:33:22,799
+of a key
+
+628
+00:33:19,919 --> 00:33:25,980
+and that key is the the name of the
+
+629
+00:33:22,799 --> 00:33:27,120
+route you know in Unix tradition that's
+
+630
+00:33:25,980 --> 00:33:30,120
+a slash
+
+631
+00:33:27,120 --> 00:33:33,779
+you know you can think of the slasher as
+
+632
+00:33:30,120 --> 00:33:35,760
+the name of the root directory
+
+633
+00:33:33,779 --> 00:33:39,299
+even though it's not the directory it's
+
+634
+00:33:35,760 --> 00:33:43,320
+technically a file system mounting point
+
+635
+00:33:39,299 --> 00:33:45,779
+you know that's the Unix anyway so
+
+636
+00:33:43,320 --> 00:33:48,360
+you can think of as a directory so the
+
+637
+00:33:45,779 --> 00:33:50,940
+direct the root directory
+
+638
+00:33:48,360 --> 00:33:53,460
+name is the key
+
+639
+00:33:50,940 --> 00:33:56,460
+so these associations have only one
+
+640
+00:33:53,460 --> 00:33:58,320
+single key that's a slash okay
+
+641
+00:33:56,460 --> 00:34:00,480
+then
+
+642
+00:33:58,320 --> 00:34:02,580
+it has children okay
+
+643
+00:34:00,480 --> 00:34:07,679
+but the children is of course
+
+644
+00:34:02,580 --> 00:34:09,780
+Association but do we do we say no here
+
+645
+00:34:07,679 --> 00:34:13,020
+or do we say
+
+646
+00:34:09,780 --> 00:34:15,619
+empty Association like do we which way
+
+647
+00:34:13,020 --> 00:34:15,619
+do we go
+
+648
+00:34:15,960 --> 00:34:20,960
+I mean for each step do we say
+
+649
+00:34:18,899 --> 00:34:20,960
+um
+
+650
+00:34:24,960 --> 00:34:30,240
+so when you have a directory
+
+651
+00:34:28,200 --> 00:34:32,339
+yeah obviously
+
+652
+00:34:30,240 --> 00:34:35,119
+yeah okay I know the answer when you
+
+653
+00:34:32,339 --> 00:34:35,119
+have a directory
+
+654
+00:34:36,000 --> 00:34:40,859
+it correspond to a key in dictionary and
+
+655
+00:34:39,480 --> 00:34:43,679
+the value
+
+656
+00:34:40,859 --> 00:34:46,260
+must be of course
+
+657
+00:34:43,679 --> 00:34:48,419
+a list of children's so it may be empty
+
+658
+00:34:46,260 --> 00:34:50,879
+it shouldn't be no
+
+659
+00:34:48,419 --> 00:34:54,179
+because the directory means a folder
+
+660
+00:34:50,879 --> 00:34:57,119
+folder means it's a container so it's
+
+661
+00:34:54,179 --> 00:35:00,540
+going to have children so so it's
+
+662
+00:34:57,119 --> 00:35:03,960
+appropriate to say A you know there's a
+
+663
+00:35:00,540 --> 00:35:06,599
+new Association just empty okay so yeah
+
+664
+00:35:03,960 --> 00:35:08,820
+so each time you encounter that you do
+
+665
+00:35:06,599 --> 00:35:12,180
+that
+
+666
+00:35:08,820 --> 00:35:15,540
+uh then so let's say then we got into
+
+667
+00:35:12,180 --> 00:35:18,920
+the second part let's let's make this
+
+668
+00:35:15,540 --> 00:35:18,920
+this way so it's clear
+
+669
+00:35:25,140 --> 00:35:34,500
+you know we have a list of two items
+
+670
+00:35:29,640 --> 00:35:37,339
+so then you get to the second part
+
+671
+00:35:34,500 --> 00:35:37,339
+you
+
+672
+00:35:43,200 --> 00:35:48,079
+so you start to have children in it okay
+
+673
+00:35:50,460 --> 00:35:56,520
+oh God so so maybe at this point you do
+
+674
+00:35:54,480 --> 00:36:00,839
+need to know
+
+675
+00:35:56,520 --> 00:36:02,880
+if a knot is a file or not because it's
+
+676
+00:36:00,839 --> 00:36:05,700
+a file
+
+677
+00:36:02,880 --> 00:36:09,020
+you don't want to you you don't want its
+
+678
+00:36:05,700 --> 00:36:09,020
+value to be Association
+
+679
+00:36:15,180 --> 00:36:19,859
+yeah that's uh you know that's either
+
+680
+00:36:17,640 --> 00:36:22,560
+way we can go actually
+
+681
+00:36:19,859 --> 00:36:25,400
+because in the end we can just determine
+
+682
+00:36:22,560 --> 00:36:26,940
+those empty associations
+
+683
+00:36:25,400 --> 00:36:29,280
+wait
+
+684
+00:36:26,940 --> 00:36:31,079
+so actually we it's it would be better
+
+685
+00:36:29,280 --> 00:36:34,980
+if we do know
+
+686
+00:36:31,079 --> 00:36:37,700
+if we do know it's a directory or a
+
+687
+00:36:34,980 --> 00:36:37,700
+file
+
+688
+00:36:39,540 --> 00:36:44,460
+yeah but to add that information that
+
+689
+00:36:42,000 --> 00:36:47,160
+means this list will not just be at
+
+690
+00:36:44,460 --> 00:36:48,960
+least at least this list will be a pair
+
+691
+00:36:47,160 --> 00:36:51,800
+of these
+
+692
+00:36:48,960 --> 00:36:55,380
+you know with the second part being
+
+693
+00:36:51,800 --> 00:36:58,619
+telling you it's a duh or a file
+
+694
+00:36:55,380 --> 00:37:00,980
+and maybe perhaps you can also add file
+
+695
+00:36:58,619 --> 00:37:00,980
+size
+
+696
+00:37:01,980 --> 00:37:05,660
+yeah we can do that so
+
+697
+00:37:05,880 --> 00:37:12,980
+so that but to do that that means we
+
+698
+00:37:08,820 --> 00:37:12,980
+have to modify yesterday's code
+
+699
+00:37:16,140 --> 00:37:22,260
+okay and yesterday we also have this
+
+700
+00:37:18,660 --> 00:37:25,980
+lookup size table oh okay I know what to
+
+701
+00:37:22,260 --> 00:37:27,540
+do so look up size table is basically
+
+702
+00:37:25,980 --> 00:37:30,540
+all files
+
+703
+00:37:27,540 --> 00:37:33,060
+so look lookup size table is again a
+
+704
+00:37:30,540 --> 00:37:37,500
+dictionary of key value pairs
+
+705
+00:37:33,060 --> 00:37:40,380
+the key is a file path okay for example
+
+706
+00:37:37,500 --> 00:37:44,880
+that's the final path the value is the
+
+707
+00:37:40,380 --> 00:37:47,880
+file size and all the keys in this size
+
+708
+00:37:44,880 --> 00:37:50,820
+lookup table they are all files
+
+709
+00:37:47,880 --> 00:37:54,300
+so in order to determine if a pharaoh
+
+710
+00:37:50,820 --> 00:37:57,599
+path is a file or directory we can just
+
+711
+00:37:54,300 --> 00:38:00,180
+check the lookup table if the key exists
+
+712
+00:37:57,599 --> 00:38:02,180
+there it's a file fantastic
+
+713
+00:38:00,180 --> 00:38:06,119
+fantastic
+
+714
+00:38:02,180 --> 00:38:08,540
+perfect design from yesterday Real Chad
+
+715
+00:38:06,119 --> 00:38:08,540
+hello
+
+716
+00:38:09,839 --> 00:38:13,700
+second Dario account hello
+
+717
+00:38:15,119 --> 00:38:23,540
+great yeah nested map okay so fantastic
+
+718
+00:38:20,040 --> 00:38:26,300
+we so we carefully
+
+719
+00:38:23,540 --> 00:38:29,220
+thanks to my method
+
+720
+00:38:26,300 --> 00:38:32,460
+methodological analytical
+
+721
+00:38:29,220 --> 00:38:34,920
+style of programming you know we get it
+
+722
+00:38:32,460 --> 00:38:36,960
+get the thing right the first time so
+
+723
+00:38:34,920 --> 00:38:40,020
+after two hours carefully thinking
+
+724
+00:38:36,960 --> 00:38:42,660
+yesterday this structure
+
+725
+00:38:40,020 --> 00:38:44,820
+this design it's really good I mean
+
+726
+00:38:42,660 --> 00:38:47,280
+that's
+
+727
+00:38:44,820 --> 00:38:49,320
+the way I I approach there are other
+
+728
+00:38:47,280 --> 00:38:51,780
+ways you know there are better
+
+729
+00:38:49,320 --> 00:38:55,260
+programmers they can they they do trial
+
+730
+00:38:51,780 --> 00:38:56,400
+and error kind of exploration and they
+
+731
+00:38:55,260 --> 00:38:58,320
+can
+
+732
+00:38:56,400 --> 00:39:01,740
+um you know some of them can finish
+
+733
+00:38:58,320 --> 00:39:05,099
+faster that's good but I usually take
+
+734
+00:39:01,740 --> 00:39:07,859
+from you know I approach problem from a
+
+735
+00:39:05,099 --> 00:39:11,099
+full logical analysis first
+
+736
+00:39:07,859 --> 00:39:13,820
+so anyway the point is we got this size
+
+737
+00:39:11,099 --> 00:39:19,700
+lookup table very useful
+
+738
+00:39:13,820 --> 00:39:19,700
+uh now go let's go back to this okay so
+
+739
+00:39:19,800 --> 00:39:25,380
+so I guess first of all we need to find
+
+740
+00:39:23,820 --> 00:39:31,200
+first
+
+741
+00:39:25,380 --> 00:39:33,680
+check if the full path is a fire order
+
+742
+00:39:31,200 --> 00:39:33,680
+okay
+
+743
+00:39:34,140 --> 00:39:39,020
+by checking
+
+744
+00:39:36,240 --> 00:39:39,020
+the
+
+745
+00:39:43,619 --> 00:39:51,380
+yeah what what is the What is the
+
+746
+00:39:47,760 --> 00:39:51,380
+size lookup table
+
+747
+00:39:53,940 --> 00:39:56,480
+yeah
+
+748
+00:39:56,880 --> 00:40:02,780
+then
+
+749
+00:39:59,400 --> 00:40:02,780
+it equals to
+
+750
+00:40:04,140 --> 00:40:06,740
+if
+
+751
+00:40:08,040 --> 00:40:11,000
+is the
+
+752
+00:40:11,220 --> 00:40:17,280
+so if it's a directory then you the
+
+753
+00:40:14,339 --> 00:40:21,300
+value is a Association empty
+
+754
+00:40:17,280 --> 00:40:23,040
+meaning a folder a container if it's a
+
+755
+00:40:21,300 --> 00:40:24,839
+file
+
+756
+00:40:23,040 --> 00:40:26,160
+oh we're starting to build a tree
+
+757
+00:40:24,839 --> 00:40:28,680
+fantastic
+
+758
+00:40:26,160 --> 00:40:32,280
+this is gonna be one shot
+
+759
+00:40:28,680 --> 00:40:34,700
+operation one shot run it and it works
+
+760
+00:40:32,280 --> 00:40:37,440
+and it would be correct
+
+761
+00:40:34,700 --> 00:40:39,839
+so if it's a file
+
+762
+00:40:37,440 --> 00:40:42,000
+yeah so first of all you need to check
+
+763
+00:40:39,839 --> 00:40:44,520
+the lookup table so let's look at the
+
+764
+00:40:42,000 --> 00:40:47,220
+lookup table okay so
+
+765
+00:40:44,520 --> 00:40:49,440
+let's Define a variable
+
+766
+00:40:47,220 --> 00:40:53,640
+uh
+
+767
+00:40:49,440 --> 00:40:57,900
+couldn't path okay couldn't path
+
+768
+00:40:53,640 --> 00:41:01,800
+current path is you know that or that so
+
+769
+00:40:57,900 --> 00:41:04,680
+current path so now you if you want to
+
+770
+00:41:01,800 --> 00:41:08,460
+see that current path exist in the the
+
+771
+00:41:04,680 --> 00:41:11,880
+size lookup table okay so how do you do
+
+772
+00:41:08,460 --> 00:41:15,440
+that you go back to wolfam language we
+
+773
+00:41:11,880 --> 00:41:18,540
+go back to Association
+
+774
+00:41:15,440 --> 00:41:22,560
+Advanced pattern matching function
+
+775
+00:41:18,540 --> 00:41:24,900
+Association okay then you go to check
+
+776
+00:41:22,560 --> 00:41:28,079
+existence
+
+777
+00:41:24,900 --> 00:41:30,780
+okay key exists
+
+778
+00:41:28,079 --> 00:41:34,920
+there it is
+
+779
+00:41:30,780 --> 00:41:38,460
+so you say key exists
+
+780
+00:41:34,920 --> 00:41:41,040
+and the association is a size lookup
+
+781
+00:41:38,460 --> 00:41:43,520
+table and the key is the current path
+
+782
+00:41:41,040 --> 00:41:43,520
+okay
+
+783
+00:41:45,660 --> 00:41:51,599
+is fire
+
+784
+00:41:48,119 --> 00:41:55,740
+another temp variable so is Phi or
+
+785
+00:41:51,599 --> 00:41:58,740
+equals to that okay is file Q
+
+786
+00:41:55,740 --> 00:42:01,740
+Q in Wolfram Language by wufan language
+
+787
+00:41:58,740 --> 00:42:04,920
+convention Q means the question
+
+788
+00:42:01,740 --> 00:42:07,740
+which means a predicate which means
+
+789
+00:42:04,920 --> 00:42:10,859
+anything ending in capital Q always
+
+790
+00:42:07,740 --> 00:42:14,160
+return true or false nothing else either
+
+791
+00:42:10,859 --> 00:42:17,400
+true or false always so this is similar
+
+792
+00:42:14,160 --> 00:42:22,079
+to the predicate in lisp where they
+
+793
+00:42:17,400 --> 00:42:24,780
+usually ends in P like file exists P you
+
+794
+00:42:22,079 --> 00:42:27,180
+know number P is it the number number P
+
+795
+00:42:24,780 --> 00:42:30,359
+you know that's this convention ending
+
+796
+00:42:27,180 --> 00:42:35,520
+in p in wolfen language ends in capital
+
+797
+00:42:30,359 --> 00:42:38,400
+Q in Ruby and in skim lisp they ends in
+
+798
+00:42:35,520 --> 00:42:42,440
+a question mark this is very
+
+799
+00:42:38,400 --> 00:42:45,660
+nice to know uh let me show you okay
+
+800
+00:42:42,440 --> 00:42:47,700
+let's go digression
+
+801
+00:42:45,660 --> 00:42:53,900
+so I have an article on that
+
+802
+00:42:47,700 --> 00:42:53,900
+I talked about that before uh predicate
+
+803
+00:42:54,000 --> 00:42:59,720
+yeah I don't have it here so you have to
+
+804
+00:42:56,400 --> 00:43:02,099
+go search study such
+
+805
+00:42:59,720 --> 00:43:04,220
+p-i-e-d-i-c okay predicate in
+
+806
+00:43:02,099 --> 00:43:07,560
+programming night language naming okay
+
+807
+00:43:04,220 --> 00:43:10,260
+so in wolf in
+
+808
+00:43:07,560 --> 00:43:11,480
+lisp you have bound P both are modified
+
+809
+00:43:10,260 --> 00:43:15,780
+p
+
+810
+00:43:11,480 --> 00:43:17,880
+f-bound P feature P file directory P you
+
+811
+00:43:15,780 --> 00:43:20,700
+know they return true or false that's
+
+812
+00:43:17,880 --> 00:43:23,960
+list of convention in scheme it's
+
+813
+00:43:20,700 --> 00:43:27,720
+question mark scheme this closure list
+
+814
+00:43:23,960 --> 00:43:30,780
+and the Ruby question mark okay in Wu
+
+815
+00:43:27,720 --> 00:43:31,800
+from language it's capital Q Q stand for
+
+816
+00:43:30,780 --> 00:43:34,260
+question
+
+817
+00:43:31,800 --> 00:43:35,460
+now this is interesting the naming of
+
+818
+00:43:34,260 --> 00:43:37,500
+things
+
+819
+00:43:35,460 --> 00:43:39,960
+so which one is better you know why why
+
+820
+00:43:37,500 --> 00:43:42,300
+doesn't wolfam language follow the
+
+821
+00:43:39,960 --> 00:43:47,160
+conventional computer science
+
+822
+00:43:42,300 --> 00:43:50,640
+and and use p p for pedicate
+
+823
+00:43:47,160 --> 00:43:54,480
+well because credit card is kind of a
+
+824
+00:43:50,640 --> 00:43:57,720
+esoteric jargon it came from logic you
+
+825
+00:43:54,480 --> 00:44:01,800
+know it came from you know the field of
+
+826
+00:43:57,720 --> 00:44:04,920
+Math logic predicate in logic it the
+
+827
+00:44:01,800 --> 00:44:07,800
+meaning is slightly different
+
+828
+00:44:04,920 --> 00:44:10,740
+in computer programming languages in
+
+829
+00:44:07,800 --> 00:44:12,660
+logic a predicate is a assertion you
+
+830
+00:44:10,740 --> 00:44:17,220
+know something is true
+
+831
+00:44:12,660 --> 00:44:19,380
+you know all people all people are good
+
+832
+00:44:17,220 --> 00:44:22,140
+okay that's just that's not a question
+
+833
+00:44:19,380 --> 00:44:24,540
+like programming languages you know when
+
+834
+00:44:22,140 --> 00:44:27,119
+you have a credit card it just you know
+
+835
+00:44:24,540 --> 00:44:30,540
+it's a search and it's a it's a you know
+
+836
+00:44:27,119 --> 00:44:32,880
+it's a statement okay it's a assertion
+
+837
+00:44:30,540 --> 00:44:34,619
+but in programming languages you don't
+
+838
+00:44:32,880 --> 00:44:36,599
+have that in general unless you are
+
+839
+00:44:34,619 --> 00:44:39,119
+talking about logic programming
+
+840
+00:44:36,599 --> 00:44:42,359
+languages a very Niche specialized
+
+841
+00:44:39,119 --> 00:44:46,440
+language but in all other languages CVC
+
+842
+00:44:42,359 --> 00:44:48,599
+plus plus Java python Ruby whatever when
+
+843
+00:44:46,440 --> 00:44:52,140
+you have a credit card that just means
+
+844
+00:44:48,599 --> 00:44:56,700
+the function returns true or false okay
+
+845
+00:44:52,140 --> 00:45:01,500
+so so Predator is a jargon originally
+
+846
+00:44:56,700 --> 00:45:03,960
+from logic so but programming
+
+847
+00:45:01,500 --> 00:45:05,819
+is kind of came from math you know in
+
+848
+00:45:03,960 --> 00:45:08,339
+the early days there's no programming
+
+849
+00:45:05,819 --> 00:45:11,040
+then started so you borrowed a lot of
+
+850
+00:45:08,339 --> 00:45:12,420
+jargons for math so you have predicate
+
+851
+00:45:11,040 --> 00:45:14,579
+in lisp
+
+852
+00:45:12,420 --> 00:45:16,980
+meaning a function returning true or
+
+853
+00:45:14,579 --> 00:45:20,099
+false and you have a convention it's
+
+854
+00:45:16,980 --> 00:45:22,200
+just end in p but this this got a
+
+855
+00:45:20,099 --> 00:45:25,440
+problem though like some function ends
+
+856
+00:45:22,200 --> 00:45:28,380
+in P that but it's not a predicate so
+
+857
+00:45:25,440 --> 00:45:31,140
+it's not very well
+
+858
+00:45:28,380 --> 00:45:34,680
+the naming of the this list convention
+
+859
+00:45:31,140 --> 00:45:37,500
+is not very well done in common lisp in
+
+860
+00:45:34,680 --> 00:45:40,680
+emac this because some functions and
+
+861
+00:45:37,500 --> 00:45:44,520
+ends in P but it's not a predicate okay
+
+862
+00:45:40,680 --> 00:45:48,839
+for example there is forward sex
+
+863
+00:45:44,520 --> 00:45:51,540
+there is pop you know let's magnify
+
+864
+00:45:48,839 --> 00:45:55,200
+you know there is pop there is
+
+865
+00:45:51,540 --> 00:45:58,619
+a different group there's make Spas key
+
+866
+00:45:55,200 --> 00:46:01,500
+map they will end in p but it's not a
+
+867
+00:45:58,619 --> 00:46:06,079
+predicate obviously while the others
+
+868
+00:46:01,500 --> 00:46:09,599
+list p number P string P symbol p Vector
+
+869
+00:46:06,079 --> 00:46:12,060
+p0p they are predicate meaning meaning
+
+870
+00:46:09,599 --> 00:46:15,240
+that they always return true or false
+
+871
+00:46:12,060 --> 00:46:17,520
+uh and there's inconsistency
+
+872
+00:46:15,240 --> 00:46:21,420
+in emac this
+
+873
+00:46:17,520 --> 00:46:24,660
+for example sum is Dash p sum is just P
+
+874
+00:46:21,420 --> 00:46:27,180
+so you know it's a problem you can look
+
+875
+00:46:24,660 --> 00:46:30,540
+into these different aspects
+
+876
+00:46:27,180 --> 00:46:33,240
+these are things that I find um you know
+
+877
+00:46:30,540 --> 00:46:35,040
+many times the in my study or
+
+878
+00:46:33,240 --> 00:46:37,800
+programming language is you know you
+
+879
+00:46:35,040 --> 00:46:39,480
+find these kind of things but you like
+
+880
+00:46:37,800 --> 00:46:42,720
+you never
+
+881
+00:46:39,480 --> 00:46:45,359
+ever seen the industrial programmers
+
+882
+00:46:42,720 --> 00:46:48,839
+talk about these issues like never not
+
+883
+00:46:45,359 --> 00:46:53,099
+not once in in my 20 years reading slash
+
+884
+00:46:48,839 --> 00:46:55,619
+dot Hacker News Reddit or whatever you
+
+885
+00:46:53,099 --> 00:46:58,440
+know online you know the hackers you
+
+886
+00:46:55,619 --> 00:47:01,260
+know the python forum mailing python
+
+887
+00:46:58,440 --> 00:47:04,079
+mailing list the emac this emac Dev
+
+888
+00:47:01,260 --> 00:47:06,119
+meaning is these issues they never
+
+889
+00:47:04,079 --> 00:47:07,740
+thought of you know it's like kind of
+
+890
+00:47:06,119 --> 00:47:10,440
+strange
+
+891
+00:47:07,740 --> 00:47:12,660
+they never talk about this but the
+
+892
+00:47:10,440 --> 00:47:13,920
+designer programming language they do
+
+893
+00:47:12,660 --> 00:47:16,859
+they have to
+
+894
+00:47:13,920 --> 00:47:20,400
+because why is least why is game this
+
+895
+00:47:16,859 --> 00:47:23,160
+skin release crochet lisp they have a
+
+896
+00:47:20,400 --> 00:47:26,160
+Convention of using a question mark and
+
+897
+00:47:23,160 --> 00:47:28,560
+it's absolute if a function ends in
+
+898
+00:47:26,160 --> 00:47:30,180
+question mark that always means the
+
+899
+00:47:28,560 --> 00:47:34,079
+function returns either true or false
+
+900
+00:47:30,180 --> 00:47:36,960
+okay this is this is good this is good
+
+901
+00:47:34,079 --> 00:47:40,680
+who came with you know who did it
+
+902
+00:47:36,960 --> 00:47:43,800
+you know well whoever created scheme and
+
+903
+00:47:40,680 --> 00:47:45,000
+crochet is for example crochet is the
+
+904
+00:47:43,800 --> 00:47:47,640
+the guy
+
+905
+00:47:45,000 --> 00:47:51,420
+uh what's his name
+
+906
+00:47:47,640 --> 00:47:53,400
+rich hiki you know it doesn't come out
+
+907
+00:47:51,420 --> 00:47:56,400
+of nowhere you know you have to desire
+
+908
+00:47:53,400 --> 00:47:58,560
+you have to implement closure so they
+
+909
+00:47:56,400 --> 00:48:00,900
+know these these people they they
+
+910
+00:47:58,560 --> 00:48:04,440
+thought about they they have you know
+
+911
+00:48:00,900 --> 00:48:06,420
+thought about things okay skim these
+
+912
+00:48:04,440 --> 00:48:07,740
+closure this question mark which is
+
+913
+00:48:06,420 --> 00:48:11,040
+excellent
+
+914
+00:48:07,740 --> 00:48:12,720
+okay now so but what about Wolfram
+
+915
+00:48:11,040 --> 00:48:15,119
+language why is it Q
+
+916
+00:48:12,720 --> 00:48:18,119
+you know why don't you just use P just
+
+917
+00:48:15,119 --> 00:48:20,099
+like you know be a good boy follow the
+
+918
+00:48:18,119 --> 00:48:23,460
+convention P predicate
+
+919
+00:48:20,099 --> 00:48:25,560
+well the issue is predicate what the
+
+920
+00:48:23,460 --> 00:48:28,800
+ is the Predator do you know nobody
+
+921
+00:48:25,560 --> 00:48:30,780
+knows unless you are a logician
+
+922
+00:48:28,800 --> 00:48:33,900
+or mathematician
+
+923
+00:48:30,780 --> 00:48:37,260
+so the credit card is not intuitive the
+
+924
+00:48:33,900 --> 00:48:39,839
+naming of things okay intuitiveness is a
+
+925
+00:48:37,260 --> 00:48:42,780
+one of the good quality in the naming of
+
+926
+00:48:39,839 --> 00:48:43,980
+things so the Wolfram language stepped
+
+927
+00:48:42,780 --> 00:48:48,420
+from Wolfram
+
+928
+00:48:43,980 --> 00:48:50,819
+he he went with q q means question so
+
+929
+00:48:48,420 --> 00:48:52,020
+everyone understand you don't need a
+
+930
+00:48:50,819 --> 00:48:54,900
+math degree
+
+931
+00:48:52,020 --> 00:48:57,300
+you know that is why
+
+932
+00:48:54,900 --> 00:48:59,280
+question is also good question mark is
+
+933
+00:48:57,300 --> 00:49:01,980
+also good but in Wolfram language
+
+934
+00:48:59,280 --> 00:49:05,099
+question mark is used for you know
+
+935
+00:49:01,980 --> 00:49:07,020
+because it's used for other syntax so
+
+936
+00:49:05,099 --> 00:49:10,020
+you don't you don't have you know
+
+937
+00:49:07,020 --> 00:49:11,880
+question mark is not allowed
+
+938
+00:49:10,020 --> 00:49:14,220
+uh what is question mark Yeah question
+
+939
+00:49:11,880 --> 00:49:16,500
+mark is a shortcut for help you know
+
+940
+00:49:14,220 --> 00:49:18,300
+anyway so it's not not allowing
+
+941
+00:49:16,500 --> 00:49:22,440
+identifiers
+
+942
+00:49:18,300 --> 00:49:26,099
+that is why wolfam language use q and
+
+943
+00:49:22,440 --> 00:49:27,060
+Ruby uses question mark okay now Ruby is
+
+944
+00:49:26,099 --> 00:49:27,900
+actually
+
+945
+00:49:27,060 --> 00:49:32,400
+um
+
+946
+00:49:27,900 --> 00:49:34,980
+Ruby came from lisp and pearl Ruby you
+
+947
+00:49:32,400 --> 00:49:38,760
+can say Ruby is a synthesis of least
+
+948
+00:49:34,980 --> 00:49:41,579
+pain Pearl so you can see a lot of Ruby
+
+949
+00:49:38,760 --> 00:49:44,160
+programming language their structure
+
+950
+00:49:41,579 --> 00:49:47,119
+convention is kind of a little bit
+
+951
+00:49:44,160 --> 00:49:47,119
+similar to this
+
+952
+00:49:47,460 --> 00:49:53,339
+so anyway that's a digression about
+
+953
+00:49:49,920 --> 00:49:56,540
+predicate Okay naming a pericard
+
+954
+00:49:53,339 --> 00:49:56,540
+okay let's go back
+
+955
+00:49:57,119 --> 00:50:01,740
+okay I want to copy this and put this
+
+956
+00:49:59,760 --> 00:50:03,800
+into talk show
+
+957
+00:50:01,740 --> 00:50:03,800
+um
+
+958
+00:50:04,260 --> 00:50:10,680
+so today so let's just put it somewhere
+
+959
+00:50:07,319 --> 00:50:12,000
+since it's something we talked about
+
+960
+00:50:10,680 --> 00:50:15,480
+okay
+
+961
+00:50:12,000 --> 00:50:20,599
+now back to the code
+
+962
+00:50:15,480 --> 00:50:20,599
+okay so back to the code so
+
+963
+00:50:21,000 --> 00:50:29,339
+is file Q okay is file Q
+
+964
+00:50:24,720 --> 00:50:29,339
+so if it's a file then
+
+965
+00:50:31,680 --> 00:50:35,579
+then you do something otherwise you do
+
+966
+00:50:34,560 --> 00:50:38,460
+uh
+
+967
+00:50:35,579 --> 00:50:42,140
+Association okay
+
+968
+00:50:38,460 --> 00:50:42,140
+so what if it's a file
+
+969
+00:50:43,140 --> 00:50:47,760
+okay so when it's a file you want to
+
+970
+00:50:45,900 --> 00:50:52,880
+assign it
+
+971
+00:50:47,760 --> 00:50:52,880
+just the size okay yeah let's do
+
+972
+00:50:55,319 --> 00:50:59,660
+okay let's do this let's see
+
+973
+00:51:09,599 --> 00:51:13,220
+so this will return
+
+974
+00:51:15,660 --> 00:51:20,640
+wait let's see how do you how do you
+
+975
+00:51:18,180 --> 00:51:22,800
+access a dictionary
+
+976
+00:51:20,640 --> 00:51:26,280
+Association okay
+
+977
+00:51:22,800 --> 00:51:31,260
+so that's how you check if it exists
+
+978
+00:51:26,280 --> 00:51:34,920
+but there is also uh get value okay
+
+979
+00:51:31,260 --> 00:51:39,240
+so lookup Association key but if the key
+
+980
+00:51:34,920 --> 00:51:42,780
+do not exist it returns missing
+
+981
+00:51:39,240 --> 00:51:45,020
+okay okay for Simplicity let's forget
+
+982
+00:51:42,780 --> 00:51:49,619
+about
+
+983
+00:51:45,020 --> 00:51:52,500
+efficiency let's just have clear code
+
+984
+00:51:49,619 --> 00:51:55,260
+so people can understand because most
+
+985
+00:51:52,500 --> 00:52:00,720
+people are new to Fan language so let's
+
+986
+00:51:55,260 --> 00:52:03,540
+go with more code okay so Inspire that
+
+987
+00:52:00,720 --> 00:52:05,579
+and uh
+
+988
+00:52:03,540 --> 00:52:08,400
+if
+
+989
+00:52:05,579 --> 00:52:10,319
+and file size okay let's just say file
+
+990
+00:52:08,400 --> 00:52:13,940
+size
+
+991
+00:52:10,319 --> 00:52:13,940
+file size you look up
+
+992
+00:52:17,040 --> 00:52:24,980
+lookup Association and key okay
+
+993
+00:52:20,660 --> 00:52:24,980
+Association and the key
+
+994
+00:52:30,720 --> 00:52:38,480
+okay so if it's a file
+
+995
+00:52:33,599 --> 00:52:38,480
+you just add this file size
+
+996
+00:52:39,480 --> 00:52:44,460
+yeah let's just do the multiple
+
+997
+00:52:42,059 --> 00:52:46,680
+variables okay yeah
+
+998
+00:52:44,460 --> 00:52:49,700
+so the tree
+
+999
+00:52:46,680 --> 00:52:49,700
+something something
+
+1000
+00:52:55,140 --> 00:53:01,460
+path okay the tree
+
+1001
+00:52:58,200 --> 00:53:01,460
+can path
+
+1002
+00:53:04,140 --> 00:53:09,720
+wait
+
+1003
+00:53:05,940 --> 00:53:11,900
+okay so this is assuming that the
+
+1004
+00:53:09,720 --> 00:53:16,099
+current path is one single element
+
+1005
+00:53:11,900 --> 00:53:16,099
+usually it's not okay
+
+1006
+00:53:17,700 --> 00:53:21,740
+so now let's say
+
+1007
+00:53:25,140 --> 00:53:30,140
+say current
+
+1008
+00:53:27,480 --> 00:53:30,140
+path
+
+1009
+00:53:32,400 --> 00:53:37,940
+let's let's pick one example okay yeah
+
+1010
+00:53:39,300 --> 00:53:42,740
+let's say that yeah
+
+1011
+00:53:44,460 --> 00:53:50,940
+okay what you're gonna do there
+
+1012
+00:53:47,940 --> 00:53:54,420
+so current path is that
+
+1013
+00:53:50,940 --> 00:53:58,339
+then what you're gonna do you want to
+
+1014
+00:53:54,420 --> 00:53:58,339
+do something like that
+
+1015
+00:54:02,099 --> 00:54:11,760
+okay that's probably what you want to do
+
+1016
+00:54:07,380 --> 00:54:14,760
+so the first part gives you the yeah the
+
+1017
+00:54:11,760 --> 00:54:17,640
+first part gives you a Association
+
+1018
+00:54:14,760 --> 00:54:20,000
+the container for that then the second
+
+1019
+00:54:17,640 --> 00:54:20,000
+part
+
+1020
+00:54:21,660 --> 00:54:24,500
+which is
+
+1021
+00:54:26,640 --> 00:54:30,960
+hmm
+
+1022
+00:54:28,440 --> 00:54:33,300
+okay we're getting closer though
+
+1023
+00:54:30,960 --> 00:54:36,200
+uh
+
+1024
+00:54:33,300 --> 00:54:36,200
+second part
+
+1025
+00:54:38,040 --> 00:54:41,359
+if it's a fire
+
+1026
+00:54:44,339 --> 00:54:48,359
+so if it's a file then just put the file
+
+1027
+00:54:47,400 --> 00:54:50,819
+size
+
+1028
+00:54:48,359 --> 00:54:53,760
+otherwise it's a directory putting
+
+1029
+00:54:50,819 --> 00:54:54,839
+Association okay yeah okay that that
+
+1030
+00:54:53,760 --> 00:54:56,640
+also
+
+1031
+00:54:54,839 --> 00:55:01,640
+uh
+
+1032
+00:54:56,640 --> 00:55:01,640
+so these are two scenarios of our code
+
+1033
+00:55:05,099 --> 00:55:09,359
+does that work I mean does what if we
+
+1034
+00:55:07,619 --> 00:55:12,140
+have let's say
+
+1035
+00:55:09,359 --> 00:55:12,140
+uh
+
+1036
+00:55:13,859 --> 00:55:19,380
+something like that
+
+1037
+00:55:16,020 --> 00:55:20,940
+so given a full path
+
+1038
+00:55:19,380 --> 00:55:24,619
+you
+
+1039
+00:55:20,940 --> 00:55:24,619
+construct these
+
+1040
+00:55:25,680 --> 00:55:29,839
+then sets its value
+
+1041
+00:55:31,500 --> 00:55:37,380
+so herbal says you are going to have a
+
+1042
+00:55:34,500 --> 00:55:39,800
+new pointer error why
+
+1043
+00:55:37,380 --> 00:55:39,800
+why
+
+1044
+00:55:39,839 --> 00:55:44,280
+I don't I'm not seeing a new pointer
+
+1045
+00:55:42,240 --> 00:55:48,980
+error okay
+
+1046
+00:55:44,280 --> 00:55:48,980
+so anyway so here is the
+
+1047
+00:55:56,099 --> 00:56:01,800
+okay let's start to build it now
+
+1048
+00:55:59,400 --> 00:56:05,040
+before we build it
+
+1049
+00:56:01,800 --> 00:56:09,540
+you know essentially we want to put this
+
+1050
+00:56:05,040 --> 00:56:13,140
+section into this function
+
+1051
+00:56:09,540 --> 00:56:14,640
+before we build it now notice the this
+
+1052
+00:56:13,140 --> 00:56:17,700
+path
+
+1053
+00:56:14,640 --> 00:56:19,920
+you know when a given full path is
+
+1054
+00:56:17,700 --> 00:56:24,300
+actually a list of things
+
+1055
+00:56:19,920 --> 00:56:29,240
+so for each of the element you want to
+
+1056
+00:56:24,300 --> 00:56:29,240
+make it make it into these key syntax
+
+1057
+00:56:31,559 --> 00:56:39,660
+so one way to do that is to build this
+
+1058
+00:56:35,059 --> 00:56:42,119
+sequence of symbols then you call Eva
+
+1059
+00:56:39,660 --> 00:56:44,480
+you know just like other languages Eva
+
+1060
+00:56:42,119 --> 00:56:47,760
+that turns that into an expression and
+
+1061
+00:56:44,480 --> 00:56:51,300
+evaluate it that's one way but that's
+
+1062
+00:56:47,760 --> 00:56:53,640
+usually not efficient because in just
+
+1063
+00:56:51,300 --> 00:56:59,000
+about any programming language you want
+
+1064
+00:56:53,640 --> 00:56:59,000
+to avoid calling Eva as much as possible
+
+1065
+00:56:59,339 --> 00:57:05,280
+especially in industrial languages such
+
+1066
+00:57:02,640 --> 00:57:08,700
+as CC plus plus I mean c doesn't even
+
+1067
+00:57:05,280 --> 00:57:12,540
+have it but in in Python in JavaScript
+
+1068
+00:57:08,700 --> 00:57:14,579
+you know you can do Eva and in this
+
+1069
+00:57:12,540 --> 00:57:17,160
+image these two but usually you don't
+
+1070
+00:57:14,579 --> 00:57:18,359
+want to do that because you have you
+
+1071
+00:57:17,160 --> 00:57:21,960
+know first of all you have security
+
+1072
+00:57:18,359 --> 00:57:25,680
+issues but also but mostly
+
+1073
+00:57:21,960 --> 00:57:28,619
+it's slow okay it's kind of meta
+
+1074
+00:57:25,680 --> 00:57:30,540
+programming it's meta programming meta
+
+1075
+00:57:28,619 --> 00:57:33,180
+programming is very powerful but you
+
+1076
+00:57:30,540 --> 00:57:37,079
+want to avoid meta programming as much
+
+1077
+00:57:33,180 --> 00:57:38,940
+as possible okay most this
+
+1078
+00:57:37,079 --> 00:57:41,099
+beginners don't know about that they
+
+1079
+00:57:38,940 --> 00:57:43,500
+think medical programming is you know
+
+1080
+00:57:41,099 --> 00:57:46,020
+traumatic they always use that like this
+
+1081
+00:57:43,500 --> 00:57:48,240
+Mark was no you don't want to do that
+
+1082
+00:57:46,020 --> 00:57:51,720
+you want to avoid mid-high programming
+
+1083
+00:57:48,240 --> 00:57:54,240
+as much as possible until unless you
+
+1084
+00:57:51,720 --> 00:57:57,559
+absolutely there's no other way then you
+
+1085
+00:57:54,240 --> 00:57:57,559
+do meta programming okay
+
+1086
+00:57:58,079 --> 00:58:07,200
+um okay so back to the problem so now
+
+1087
+00:58:02,579 --> 00:58:09,480
+so we want to build these syntax is
+
+1088
+00:58:07,200 --> 00:58:13,319
+there a way without having to require
+
+1089
+00:58:09,480 --> 00:58:16,079
+you to use eval yes I think so
+
+1090
+00:58:13,319 --> 00:58:19,200
+how do you do that uh
+
+1091
+00:58:16,079 --> 00:58:22,380
+yeah let me show you okay so you are
+
+1092
+00:58:19,200 --> 00:58:26,400
+given a list of things let's say you are
+
+1093
+00:58:22,380 --> 00:58:28,880
+given ABC at least you want to turn that
+
+1094
+00:58:26,400 --> 00:58:28,880
+into
+
+1095
+00:58:30,960 --> 00:58:35,579
+is that right you want to turn that
+
+1096
+00:58:33,839 --> 00:58:38,400
+equal let's you can know that you know
+
+1097
+00:58:35,579 --> 00:58:40,260
+you want to turn that into that
+
+1098
+00:58:38,400 --> 00:58:44,640
+but
+
+1099
+00:58:40,260 --> 00:58:47,960
+but what you can do is you can Nest okay
+
+1100
+00:58:44,640 --> 00:58:47,960
+you want to
+
+1101
+00:58:48,240 --> 00:58:54,020
+this is a short syntax what is a full
+
+1102
+00:58:50,819 --> 00:58:54,020
+syntax let me see
+
+1103
+00:58:55,579 --> 00:59:02,240
+uh so Association
+
+1104
+00:58:58,980 --> 00:59:02,240
+add a key
+
+1105
+00:59:05,700 --> 00:59:14,339
+okay so this is this is one way to do it
+
+1106
+00:59:09,540 --> 00:59:14,339
+add a new key value pair that's
+
+1107
+00:59:14,460 --> 00:59:22,140
+this syntax is traditional I mean like
+
+1108
+00:59:18,240 --> 00:59:25,740
+in in other languages Pearl JavaScript
+
+1109
+00:59:22,140 --> 00:59:28,920
+python you also do it similar to that
+
+1110
+00:59:25,740 --> 00:59:30,420
+but that's not a functional there's a
+
+1111
+00:59:28,920 --> 00:59:33,359
+problem with that
+
+1112
+00:59:30,420 --> 00:59:37,380
+using operator this is you know you can
+
+1113
+00:59:33,359 --> 00:59:39,900
+think of that as a operator form
+
+1114
+00:59:37,380 --> 00:59:42,299
+and when you do a lot of functional
+
+1115
+00:59:39,900 --> 00:59:45,059
+programming you do not want to use
+
+1116
+00:59:42,299 --> 00:59:48,119
+operators you want to use the functional
+
+1117
+00:59:45,059 --> 00:59:51,420
+form always use the functional form why
+
+1118
+00:59:48,119 --> 00:59:53,520
+because when you use functional form you
+
+1119
+00:59:51,420 --> 00:59:56,579
+can manipulate you can use the full
+
+1120
+00:59:53,520 --> 00:59:58,980
+power of functional programming to
+
+1121
+00:59:56,579 --> 01:00:01,619
+manipulate the function to take the
+
+1122
+00:59:58,980 --> 01:00:04,440
+function as input to another function or
+
+1123
+01:00:01,619 --> 01:00:06,960
+output a function and you can you know
+
+1124
+01:00:04,440 --> 01:00:08,220
+manipulate the past whatever argument
+
+1125
+01:00:06,960 --> 01:00:11,400
+you want
+
+1126
+01:00:08,220 --> 01:00:14,760
+but if you have a operator form you
+
+1127
+01:00:11,400 --> 01:00:17,700
+cannot do that you know you have to just
+
+1128
+01:00:14,760 --> 01:00:20,579
+in in Python in JavaScript you have to
+
+1129
+01:00:17,700 --> 01:00:23,700
+build a string of that then eval that
+
+1130
+01:00:20,579 --> 01:00:25,020
+string no good okay so you want so that
+
+1131
+01:00:23,700 --> 01:00:28,020
+is why
+
+1132
+01:00:25,020 --> 01:00:29,819
+you want the functional form this is you
+
+1133
+01:00:28,020 --> 01:00:31,380
+know one great tip about functional
+
+1134
+01:00:29,819 --> 01:00:33,720
+programming
+
+1135
+01:00:31,380 --> 01:00:35,160
+I mean it's a it's a tip you'll get to
+
+1136
+01:00:33,720 --> 01:00:38,240
+know if you do a lot of functional
+
+1137
+01:00:35,160 --> 01:00:42,599
+programming so you want to use
+
+1138
+01:00:38,240 --> 01:00:43,140
+this instead of the assignment operation
+
+1139
+01:00:42,599 --> 01:00:45,420
+um
+
+1140
+01:00:43,140 --> 01:00:47,760
+but in Wolfram language actually they
+
+1141
+01:00:45,420 --> 01:00:49,260
+are equal if they are equivalent because
+
+1142
+01:00:47,760 --> 01:00:51,660
+this actually
+
+1143
+01:00:49,260 --> 01:00:53,819
+the compiler will turn this form into
+
+1144
+01:00:51,660 --> 01:00:56,400
+that form
+
+1145
+01:00:53,819 --> 01:00:57,420
+oh yeah that's right so actually we we
+
+1146
+01:00:56,400 --> 01:01:00,660
+can
+
+1147
+01:00:57,420 --> 01:01:02,099
+we can do it something like that yeah
+
+1148
+01:01:00,660 --> 01:01:04,619
+fantastic
+
+1149
+01:01:02,099 --> 01:01:08,099
+but anyway I was going to show you using
+
+1150
+01:01:04,619 --> 01:01:12,200
+Nest okay but okay let's get on to get
+
+1151
+01:01:08,099 --> 01:01:12,200
+get the result let's get to work
+
+1152
+01:01:12,240 --> 01:01:21,619
+okay God this is already one hour
+
+1153
+01:01:15,960 --> 01:01:24,180
+oh anyway that's not talk show
+
+1154
+01:01:21,619 --> 01:01:27,480
+oh God
+
+1155
+01:01:24,180 --> 01:01:29,339
+so we can do it this way or we can do it
+
+1156
+01:01:27,480 --> 01:01:32,400
+this way but what is how do you do it
+
+1157
+01:01:29,339 --> 01:01:34,740
+this way so let me show you okay so
+
+1158
+01:01:32,400 --> 01:01:37,280
+associate variable
+
+1159
+01:01:34,740 --> 01:01:37,280
+key
+
+1160
+01:01:38,040 --> 01:01:43,400
+value okay right that's uh how you do it
+
+1161
+01:01:55,740 --> 01:02:00,319
+okay so the second argument
+
+1162
+01:02:06,020 --> 01:02:09,619
+associate two
+
+1163
+01:02:12,599 --> 01:02:17,480
+okay so you use associate two
+
+1164
+01:02:17,520 --> 01:02:24,500
+right
+
+1165
+01:02:19,020 --> 01:02:24,500
+so so let's write it out clearly
+
+1166
+01:02:26,000 --> 01:02:31,640
+so that is equivalent to
+
+1167
+01:02:35,880 --> 01:02:42,200
+so that is equivalent to that how do you
+
+1168
+01:02:38,700 --> 01:02:42,200
+know you can do this
+
+1169
+01:02:47,940 --> 01:02:53,359
+let me show you okay so you can do this
+
+1170
+01:03:02,819 --> 01:03:06,900
+let me show you okay because this is
+
+1171
+01:03:05,400 --> 01:03:10,040
+interesting
+
+1172
+01:03:06,900 --> 01:03:10,040
+Wolfram language
+
+1173
+01:03:11,700 --> 01:03:17,040
+you see
+
+1174
+01:03:13,500 --> 01:03:19,440
+let me show you the other way so you see
+
+1175
+01:03:17,040 --> 01:03:23,059
+uh wait
+
+1176
+01:03:19,440 --> 01:03:23,059
+that's not the full form
+
+1177
+01:03:24,900 --> 01:03:26,900
+um
+
+1178
+01:03:32,280 --> 01:03:36,680
+okay yeah we don't want to use this
+
+1179
+01:03:37,500 --> 01:03:41,359
+but why is it not
+
+1180
+01:03:44,160 --> 01:03:48,420
+let's go let's look up the documentation
+
+1181
+01:03:46,980 --> 01:03:51,480
+okay
+
+1182
+01:03:48,420 --> 01:03:57,059
+this is a function
+
+1183
+01:03:51,480 --> 01:03:59,400
+Let's uh so Association you can assign
+
+1184
+01:03:57,059 --> 01:04:01,079
+you can add a new key value Pair by
+
+1185
+01:03:59,400 --> 01:04:05,160
+associate two
+
+1186
+01:04:01,079 --> 01:04:08,660
+now let's go back to Association
+
+1187
+01:04:05,160 --> 01:04:08,660
+and see how they explain
+
+1188
+01:04:17,339 --> 01:04:24,240
+oh yeah okay here's some tricky thing
+
+1189
+01:04:21,000 --> 01:04:26,960
+going on okay anyway we want to use this
+
+1190
+01:04:24,240 --> 01:04:26,960
+phone okay
+
+1191
+01:04:38,640 --> 01:04:42,380
+but how do you Nest it
+
+1192
+01:04:45,960 --> 01:04:50,760
+okay how do you get
+
+1193
+01:04:47,880 --> 01:04:52,799
+um okay you have to do Association how
+
+1194
+01:04:50,760 --> 01:04:55,640
+do you get a value
+
+1195
+01:04:52,799 --> 01:04:55,640
+and see
+
+1196
+01:04:55,920 --> 01:05:00,559
+let's so let's use the function form
+
+1197
+01:05:07,319 --> 01:05:15,559
+okay so you can do Association key
+
+1198
+01:05:12,359 --> 01:05:15,559
+lookup key
+
+1199
+01:05:17,460 --> 01:05:23,900
+look up a key
+
+1200
+01:05:21,240 --> 01:05:23,900
+a
+
+1201
+01:05:24,839 --> 01:05:27,500
+then
+
+1202
+01:05:33,839 --> 01:05:37,160
+look up B
+
+1203
+01:05:37,200 --> 01:05:42,859
+okay let's do this lookup C
+
+1204
+01:05:46,740 --> 01:05:53,280
+that's how you Nest it okay
+
+1205
+01:05:49,980 --> 01:05:57,000
+yeah look up CBA okay
+
+1206
+01:05:53,280 --> 01:06:01,740
+you Nest it three times
+
+1207
+01:05:57,000 --> 01:06:06,380
+then the result is a Association
+
+1208
+01:06:01,740 --> 01:06:06,380
+which is a B's uh okay
+
+1209
+01:06:13,559 --> 01:06:17,099
+wait so
+
+1210
+01:06:20,160 --> 01:06:27,319
+you look up a
+
+1211
+01:06:23,460 --> 01:06:27,319
+then you look up B
+
+1212
+01:06:27,420 --> 01:06:34,079
+yeah yeah I should be in this order then
+
+1213
+01:06:30,960 --> 01:06:36,180
+the last one is special okay hold on a
+
+1214
+01:06:34,079 --> 01:06:38,460
+second
+
+1215
+01:06:36,180 --> 01:06:42,780
+so you Nest him like that
+
+1216
+01:06:38,460 --> 01:06:45,420
+this will be equivalent to that okay
+
+1217
+01:06:42,780 --> 01:06:47,039
+that and that should be
+
+1218
+01:06:45,420 --> 01:06:50,760
+equivalent
+
+1219
+01:06:47,039 --> 01:06:53,280
+but if you want to assign
+
+1220
+01:06:50,760 --> 01:06:57,079
+let's do it again okay if you want to
+
+1221
+01:06:53,280 --> 01:06:57,079
+assign let's say
+
+1222
+01:06:57,319 --> 01:07:01,880
+then what you do is that
+
+1223
+01:07:02,760 --> 01:07:08,480
+um
+
+1224
+01:07:03,559 --> 01:07:08,480
+then what you have to do is that
+
+1225
+01:07:13,079 --> 01:07:18,740
+okay you look up a and look up B then
+
+1226
+01:07:16,859 --> 01:07:22,339
+you want to
+
+1227
+01:07:18,740 --> 01:07:22,339
+associate two
+
+1228
+01:07:22,520 --> 01:07:27,660
+yeah God you cannot use associate too
+
+1229
+01:07:26,039 --> 01:07:30,299
+can you
+
+1230
+01:07:27,660 --> 01:07:33,660
+because associate two requires a
+
+1231
+01:07:30,299 --> 01:07:33,660
+variable back
+
+1232
+01:07:37,140 --> 01:07:40,700
+so I'm thinking
+
+1233
+01:07:44,520 --> 01:07:48,380
+well you can just say that
+
+1234
+01:08:00,859 --> 01:08:04,579
+that's not good
+
+1235
+01:08:13,079 --> 01:08:18,739
+okay we have to dive into Association a
+
+1236
+01:08:16,560 --> 01:08:18,739
+lot
+
+1237
+01:08:24,660 --> 01:08:29,040
+ it's
+
+1238
+01:08:27,239 --> 01:08:33,259
+18 minutes
+
+1239
+01:08:29,040 --> 01:08:33,259
+uh how do you so how do you
+
+1240
+01:08:35,699 --> 01:08:43,980
+we need to build a
+
+1241
+01:08:38,460 --> 01:08:45,359
+tree a nested dictionary from a list of
+
+1242
+01:08:43,980 --> 01:08:48,000
+file path
+
+1243
+01:08:45,359 --> 01:08:51,560
+and right now we are taking apart the
+
+1244
+01:08:48,000 --> 01:08:51,560
+final path component
+
+1245
+01:08:52,020 --> 01:08:57,900
+you know basically we want to write this
+
+1246
+01:08:54,960 --> 01:08:59,160
+function map a function to at least the
+
+1247
+01:08:57,900 --> 01:09:02,759
+file path
+
+1248
+01:08:59,160 --> 01:09:05,279
+and this function will essentially do
+
+1249
+01:09:02,759 --> 01:09:06,719
+things like that each line is one
+
+1250
+01:09:05,279 --> 01:09:10,859
+example
+
+1251
+01:09:06,719 --> 01:09:14,960
+but right now so we but right now we
+
+1252
+01:09:10,859 --> 01:09:14,960
+want to turn this code into
+
+1253
+01:09:15,000 --> 01:09:21,779
+kind of a function
+
+1254
+01:09:17,640 --> 01:09:24,480
+so the function input will be a list of
+
+1255
+01:09:21,779 --> 01:09:26,400
+directory names or file names a list of
+
+1256
+01:09:24,480 --> 01:09:29,279
+directories and file names
+
+1257
+01:09:26,400 --> 01:09:31,440
+and you want to tie it into something
+
+1258
+01:09:29,279 --> 01:09:36,440
+like that
+
+1259
+01:09:31,440 --> 01:09:36,440
+is yeah so why can't you just um
+
+1260
+01:09:38,040 --> 01:09:44,120
+if you use eval Eva that'll be the
+
+1261
+01:09:41,640 --> 01:09:44,120
+easiest
+
+1262
+01:09:45,299 --> 01:09:51,480
+so actually so Association in Wolfram
+
+1263
+01:09:48,600 --> 01:09:54,960
+language is actually a function
+
+1264
+01:09:51,480 --> 01:09:56,460
+yeah because that's uh esoteric detail
+
+1265
+01:09:54,960 --> 01:10:00,000
+I'm not
+
+1266
+01:09:56,460 --> 01:10:02,520
+too familiar with yet Association is a
+
+1267
+01:10:00,000 --> 01:10:04,500
+new thing about years about eight years
+
+1268
+01:10:02,520 --> 01:10:07,140
+ago in Wolfram language
+
+1269
+01:10:04,500 --> 01:10:09,660
+so anyway so
+
+1270
+01:10:07,140 --> 01:10:11,940
+so why don't we just write this directly
+
+1271
+01:10:09,660 --> 01:10:16,380
+it's so simple
+
+1272
+01:10:11,940 --> 01:10:19,140
+yeah so okay so you want to map you want
+
+1273
+01:10:16,380 --> 01:10:21,540
+to map a list of names
+
+1274
+01:10:19,140 --> 01:10:25,280
+string
+
+1275
+01:10:21,540 --> 01:10:25,280
+turn them into that
+
+1276
+01:10:26,219 --> 01:10:30,980
+so you you so you want to write a
+
+1277
+01:10:28,620 --> 01:10:30,980
+function
+
+1278
+01:10:34,880 --> 01:10:42,620
+uh you want to turn a function into
+
+1279
+01:10:38,340 --> 01:10:42,620
+given these values into that
+
+1280
+01:10:51,900 --> 01:10:58,500
+head head head
+
+1281
+01:10:54,300 --> 01:11:00,900
+so this would not so how do you do that
+
+1282
+01:10:58,500 --> 01:11:03,239
+should not be
+
+1283
+01:11:00,900 --> 01:11:06,239
+too difficult
+
+1284
+01:11:03,239 --> 01:11:06,239
+so
+
+1285
+01:11:08,360 --> 01:11:11,719
+let me think
+
+1286
+01:11:12,540 --> 01:11:21,440
+so you got a list of items let's say ABC
+
+1287
+01:11:16,159 --> 01:11:21,440
+you want to turn that into that
+
+1288
+01:11:29,280 --> 01:11:35,580
+okay the easiest way is to use Nest
+
+1289
+01:11:32,699 --> 01:11:36,780
+actually just like we are trying to say
+
+1290
+01:11:35,580 --> 01:11:42,060
+here
+
+1291
+01:11:36,780 --> 01:11:45,480
+yeah so let's let's let's go here
+
+1292
+01:11:42,060 --> 01:11:48,020
+so the easiest way is actually just use
+
+1293
+01:11:45,480 --> 01:11:48,020
+nest
+
+1294
+01:11:48,060 --> 01:11:54,500
+let's see
+
+1295
+01:11:50,820 --> 01:11:54,500
+Nest something
+
+1296
+01:11:54,719 --> 01:12:02,480
+length of the list okay
+
+1297
+01:11:58,260 --> 01:12:02,480
+okay and uh
+
+1298
+01:12:03,300 --> 01:12:09,060
+yeah let's see
+
+1299
+01:12:05,460 --> 01:12:11,840
+for example three
+
+1300
+01:12:09,060 --> 01:12:16,080
+then let me show you how it works okay
+
+1301
+01:12:11,840 --> 01:12:17,699
+so let's try the tree is that okay
+
+1302
+01:12:16,080 --> 01:12:20,760
+that's
+
+1303
+01:12:17,699 --> 01:12:25,380
+that's empty but let's say
+
+1304
+01:12:20,760 --> 01:12:27,739
+Dr okay the tree that
+
+1305
+01:12:25,380 --> 01:12:27,739
+that
+
+1306
+01:12:33,060 --> 01:12:41,780
+okay what's this Nest what's the syntax
+
+1307
+01:12:37,620 --> 01:12:41,780
+expression in Okay so
+
+1308
+01:12:42,120 --> 01:12:48,199
+you have to oh you cannot use Nest you
+
+1309
+01:12:45,300 --> 01:12:48,199
+have to use fold
+
+1310
+01:12:50,040 --> 01:12:54,600
+yeah because for each time you need to
+
+1311
+01:12:52,080 --> 01:12:57,300
+take an argument ABC
+
+1312
+01:12:54,600 --> 01:12:58,800
+hey ring tingle
+
+1313
+01:12:57,300 --> 01:13:01,739
+thank you
+
+1314
+01:12:58,800 --> 01:13:04,140
+so you cannot use Nest you can use food
+
+1315
+01:13:01,739 --> 01:13:06,900
+do you guys understand like do you guys
+
+1316
+01:13:04,140 --> 01:13:07,980
+can are you guys making sense what I'm
+
+1317
+01:13:06,900 --> 01:13:10,500
+doing
+
+1318
+01:13:07,980 --> 01:13:14,179
+you know I'm guessing from language is
+
+1319
+01:13:10,500 --> 01:13:14,179
+new to you guys so
+
+1320
+01:13:14,280 --> 01:13:20,219
+am I actually making any sense at all
+
+1321
+01:13:17,880 --> 01:13:23,820
+so anyway fold
+
+1322
+01:13:20,219 --> 01:13:28,320
+so Ford for example let's let's see fold
+
+1323
+01:13:23,820 --> 01:13:32,100
+okay food is like pythons reduce okay
+
+1324
+01:13:28,320 --> 01:13:36,300
+so f x and this okay
+
+1325
+01:13:32,100 --> 01:13:39,300
+again four is like pythons reduce okay
+
+1326
+01:13:36,300 --> 01:13:40,560
+so you can see okay but so let's do that
+
+1327
+01:13:39,300 --> 01:13:44,900
+here
+
+1328
+01:13:40,560 --> 01:13:48,600
+so the list is gonna be ABC for example
+
+1329
+01:13:44,900 --> 01:13:52,679
+directory names or find our names
+
+1330
+01:13:48,600 --> 01:13:55,020
+so you're gonna fold it into that uh
+
+1331
+01:13:52,679 --> 01:14:00,860
+okay you don't need the three
+
+1332
+01:13:55,020 --> 01:14:00,860
+okay so let me show you how this works
+
+1333
+01:14:02,100 --> 01:14:04,699
+right
+
+1334
+01:14:06,420 --> 01:14:08,420
+what
+
+1335
+01:14:11,880 --> 01:14:15,080
+it's not folding
+
+1336
+01:14:15,540 --> 01:14:17,960
+right
+
+1337
+01:14:21,480 --> 01:14:28,580
+oh f
+
+1338
+01:14:23,520 --> 01:14:28,580
+F needs to have two arguments
+
+1339
+01:14:29,699 --> 01:14:33,320
+wait something is wrong here
+
+1340
+01:14:33,900 --> 01:14:39,480
+oh yeah you forgot the comma okay in of
+
+1341
+01:14:37,320 --> 01:14:42,120
+course in Wolfram language your item
+
+1342
+01:14:39,480 --> 01:14:45,620
+needs item needs to be separated by
+
+1343
+01:14:42,120 --> 01:14:45,620
+comma okay there it is
+
+1344
+01:14:48,239 --> 01:14:51,900
+you see so
+
+1345
+01:14:56,219 --> 01:15:01,040
+so each time it takes two arguments
+
+1346
+01:15:01,260 --> 01:15:06,840
+but you don't want it to fold it that
+
+1347
+01:15:03,659 --> 01:15:11,360
+way you want to you want to create this
+
+1348
+01:15:06,840 --> 01:15:11,360
+structure okay not that
+
+1349
+01:15:13,260 --> 01:15:20,520
+uh but using fold is a key okay but we
+
+1350
+01:15:17,820 --> 01:15:23,780
+have to think about how to do it
+
+1351
+01:15:20,520 --> 01:15:23,780
+Okay so
+
+1352
+01:15:24,080 --> 01:15:27,800
+I'm getting tired
+
+1353
+01:15:28,620 --> 01:15:33,960
+yeah
+
+1354
+01:15:31,020 --> 01:15:35,640
+don't forget the comma
+
+1355
+01:15:33,960 --> 01:15:37,699
+okay
+
+1356
+01:15:35,640 --> 01:15:41,699
+so
+
+1357
+01:15:37,699 --> 01:15:43,440
+fold hey B it takes two arguments at a
+
+1358
+01:15:41,699 --> 01:15:47,520
+time
+
+1359
+01:15:43,440 --> 01:15:51,980
+you want it to return for example fold a
+
+1360
+01:15:47,520 --> 01:15:51,980
+b you want it to return that
+
+1361
+01:16:02,000 --> 01:16:08,540
+yeah so
+
+1362
+01:16:05,640 --> 01:16:08,540
+so
+
+1363
+01:16:15,739 --> 01:16:21,780
+okay so you want the function here let's
+
+1364
+01:16:19,140 --> 01:16:24,179
+write down the function okay
+
+1365
+01:16:21,780 --> 01:16:28,699
+let's make that a function
+
+1366
+01:16:24,179 --> 01:16:28,699
+and here is what you want
+
+1367
+01:16:29,460 --> 01:16:34,620
+first argument
+
+1368
+01:16:32,100 --> 01:16:37,880
+second argument okay
+
+1369
+01:16:34,620 --> 01:16:37,880
+let's try this
+
+1370
+01:16:39,780 --> 01:16:47,000
+okay let's check yeah that's one thing
+
+1371
+01:16:44,400 --> 01:16:47,000
+do it
+
+1372
+01:16:47,040 --> 01:16:49,760
+close
+
+1373
+01:16:49,860 --> 01:16:53,179
+okay now
+
+1374
+01:16:55,280 --> 01:17:02,120
+let's close we get in there okay let's
+
+1375
+01:16:59,100 --> 01:17:02,120
+see ABCD
+
+1376
+01:17:07,800 --> 01:17:13,320
+okay something's still wrong we don't
+
+1377
+01:17:10,320 --> 01:17:17,060
+want it to go inside at all
+
+1378
+01:17:13,320 --> 01:17:17,060
+but this is getting close
+
+1379
+01:17:17,400 --> 01:17:21,179
+you know let's let's do this so you can
+
+1380
+01:17:20,100 --> 01:17:24,600
+see
+
+1381
+01:17:21,179 --> 01:17:27,420
+now we can use range
+
+1382
+01:17:24,600 --> 01:17:30,260
+had 10
+
+1383
+01:17:27,420 --> 01:17:30,260
+you see
+
+1384
+01:17:31,800 --> 01:17:37,920
+there is a nesting going on but not the
+
+1385
+01:17:35,940 --> 01:17:40,920
+way we want it you see
+
+1386
+01:17:37,920 --> 01:17:40,920
+F2
+
+1387
+01:17:41,280 --> 01:17:44,719
+there's F3
+
+1388
+01:17:46,199 --> 01:17:53,699
+F4 you know some kind of we want we want
+
+1389
+01:17:50,580 --> 01:17:56,460
+to to sequentially go to the phone okay
+
+1390
+01:17:53,699 --> 01:17:59,179
+let's think about this
+
+1391
+01:17:56,460 --> 01:17:59,179
+it
+
+1392
+01:18:04,620 --> 01:18:12,000
+so each time you just add you just kind
+
+1393
+01:18:08,219 --> 01:18:14,580
+of append a thing to the end
+
+1394
+01:18:12,000 --> 01:18:16,380
+each time you want to append the thing
+
+1395
+01:18:14,580 --> 01:18:19,080
+to the end
+
+1396
+01:18:16,380 --> 01:18:22,980
+uh
+
+1397
+01:18:19,080 --> 01:18:24,659
+ABC yeah each time you append a thing to
+
+1398
+01:18:22,980 --> 01:18:26,699
+the end
+
+1399
+01:18:24,659 --> 01:18:29,900
+so
+
+1400
+01:18:26,699 --> 01:18:29,900
+when it begin
+
+1401
+01:18:31,860 --> 01:18:35,300
+so when I begin
+
+1402
+01:18:36,020 --> 01:18:42,540
+you know it begins with two arguments
+
+1403
+01:18:39,179 --> 01:18:45,320
+but you wanted to not begin with two
+
+1404
+01:18:42,540 --> 01:18:45,320
+arguments
+
+1405
+01:18:49,860 --> 01:18:54,260
+each time you take these two things
+
+1406
+01:18:59,760 --> 01:19:07,040
+I got a better idea
+
+1407
+01:19:02,580 --> 01:19:07,040
+so we are doing this all wrong
+
+1408
+01:19:25,560 --> 01:19:30,300
+let's hope it doesn't crash when I do
+
+1409
+01:19:28,260 --> 01:19:33,460
+this okay
+
+1410
+01:19:30,300 --> 01:19:49,739
+okay so fold
+
+1411
+01:19:33,460 --> 01:19:53,360
+[Music]
+
+1412
+01:19:49,739 --> 01:19:53,360
+some examples
+
+1413
+01:19:54,300 --> 01:20:04,119
+each time
+
+1414
+01:19:55,540 --> 01:20:04,119
+[Music]
+
+1415
+01:20:05,940 --> 01:20:14,840
+okay I got it
+
+1416
+01:20:08,520 --> 01:20:14,840
+wait fault must take one argument or two
+
+1417
+01:20:19,470 --> 01:20:23,100
+[Music]
+
+1418
+01:20:27,300 --> 01:20:31,760
+Ford takes two arguments
+
+1419
+01:20:33,239 --> 01:20:37,980
+the function I mean the the function to
+
+1420
+01:20:36,600 --> 01:20:41,600
+the fold
+
+1421
+01:20:37,980 --> 01:20:41,600
+takes two arguments
+
+1422
+01:20:50,360 --> 01:20:57,020
+the function for folding takes two
+
+1423
+01:20:54,239 --> 01:20:57,020
+arguments
+
+1424
+01:21:07,500 --> 01:21:11,840
+so we don't want to use fold
+
+1425
+01:21:10,500 --> 01:21:14,840
+wait
+
+1426
+01:21:11,840 --> 01:21:18,300
+ah God
+
+1427
+01:21:14,840 --> 01:21:23,000
+why can't we use nest
+
+1428
+01:21:18,300 --> 01:21:23,000
+well because we need a list of input
+
+1429
+01:21:24,239 --> 01:21:31,760
+okay let's read a bit let's read about
+
+1430
+01:21:28,620 --> 01:21:31,760
+sequence fold
+
+1431
+01:21:37,520 --> 01:21:44,460
+sequence fold okay sequence fold is new
+
+1432
+01:21:41,460 --> 01:21:44,460
+2015.
+
+1433
+01:21:46,460 --> 01:21:52,760
+okay
+
+1434
+01:21:49,219 --> 01:21:52,760
+sequence fold
+
+1435
+01:21:57,739 --> 01:22:05,600
+sequence a sequence B A to sequence A3
+
+1436
+01:22:05,820 --> 01:22:08,420
+okay
+
+1437
+01:22:08,520 --> 01:22:13,640
+for least fold pair list Nest list
+
+1438
+01:22:14,100 --> 01:22:17,880
+functional iteration
+
+1439
+01:22:16,200 --> 01:22:22,280
+[Music]
+
+1440
+01:22:17,880 --> 01:22:22,280
+third sequence for fourth pair
+
+1441
+01:22:22,500 --> 01:22:27,739
+on his forward pair fold pair is also
+
+1442
+01:22:25,560 --> 01:22:27,739
+new
+
+1443
+01:22:28,040 --> 01:22:35,520
+2015 okay full pair
+
+1444
+01:22:31,920 --> 01:22:39,540
+let's see what's fourth pay at least
+
+1445
+01:22:35,520 --> 01:22:41,820
+gives a list of successive X1 X I
+
+1446
+01:22:39,540 --> 01:22:43,679
+obtained by applying F2 pairs of the
+
+1447
+01:22:41,820 --> 01:22:46,020
+form
+
+1448
+01:22:43,679 --> 01:22:48,540
+but
+
+1449
+01:22:46,020 --> 01:22:53,100
+okay let's go back to functional
+
+1450
+01:22:48,540 --> 01:22:57,500
+iteration Nestle is Nest Nest graph for
+
+1451
+01:22:53,100 --> 01:22:57,500
+list sequence fold fold wire
+
+1452
+01:22:58,020 --> 01:23:04,380
+fixed Point Nest wire
+
+1453
+01:23:01,140 --> 01:23:07,260
+you know all these are basically loops
+
+1454
+01:23:04,380 --> 01:23:08,940
+in a in a functional programming style
+
+1455
+01:23:07,260 --> 01:23:11,940
+okay
+
+1456
+01:23:08,940 --> 01:23:11,940
+uh
+
+1457
+01:23:13,080 --> 01:23:16,880
+okay
+
+1458
+01:23:14,880 --> 01:23:16,880
+um
+
+1459
+01:23:24,179 --> 01:23:29,460
+so the function the function takes at
+
+1460
+01:23:27,360 --> 01:23:34,159
+least we want to turn that into that
+
+1461
+01:23:29,460 --> 01:23:34,159
+okay anyone does anyone know
+
+1462
+01:23:36,060 --> 01:23:41,100
+uh
+
+1463
+01:23:38,340 --> 01:23:44,640
+this is very very interesting problem
+
+1464
+01:23:41,100 --> 01:23:46,880
+and pure Wolfram language term rewriting
+
+1465
+01:23:44,640 --> 01:23:50,280
+problem
+
+1466
+01:23:46,880 --> 01:23:52,080
+but I have to think about this though
+
+1467
+01:23:50,280 --> 01:23:55,500
+uh
+
+1468
+01:23:52,080 --> 01:23:57,960
+so you are given a list you are given at
+
+1469
+01:23:55,500 --> 01:24:01,380
+least you want to go through them
+
+1470
+01:23:57,960 --> 01:24:04,140
+by a loop or by a map or by nesting or
+
+1471
+01:24:01,380 --> 01:24:07,219
+by recursion however you do it given a
+
+1472
+01:24:04,140 --> 01:24:10,080
+list you want to
+
+1473
+01:24:07,219 --> 01:24:12,239
+basic basically turn it into this
+
+1474
+01:24:10,080 --> 01:24:14,580
+expression and this expression in
+
+1475
+01:24:12,239 --> 01:24:16,880
+Wolfram language is actually
+
+1476
+01:24:14,580 --> 01:24:21,000
+nesting
+
+1477
+01:24:16,880 --> 01:24:24,179
+you you Nest a function in front you
+
+1478
+01:24:21,000 --> 01:24:27,000
+know so this this expression in Wolfram
+
+1479
+01:24:24,179 --> 01:24:29,340
+language is actually like this okay let
+
+1480
+01:24:27,000 --> 01:24:31,739
+me show you
+
+1481
+01:24:29,340 --> 01:24:35,699
+Okay so
+
+1482
+01:24:31,739 --> 01:24:38,300
+so you you consider that a as a like
+
+1483
+01:24:35,699 --> 01:24:38,300
+that okay
+
+1484
+01:24:43,380 --> 01:24:49,280
+okay this is how it actually is
+
+1485
+01:24:47,280 --> 01:24:49,280
+um
+
+1486
+01:24:49,800 --> 01:24:52,400
+you can
+
+1487
+01:24:52,560 --> 01:24:55,400
+you know so
+
+1488
+01:24:55,500 --> 01:25:01,020
+so basically
+
+1489
+01:24:58,020 --> 01:25:04,739
+this part is one function
+
+1490
+01:25:01,020 --> 01:25:06,719
+then this function
+
+1491
+01:25:04,739 --> 01:25:09,659
+this function name is actually that iPod
+
+1492
+01:25:06,719 --> 01:25:13,020
+and this function the function name is
+
+1493
+01:25:09,659 --> 01:25:16,800
+that so it's actually nesting in front
+
+1494
+01:25:13,020 --> 01:25:20,120
+that you know that's what that means
+
+1495
+01:25:16,800 --> 01:25:20,120
+so um
+
+1496
+01:25:21,239 --> 01:25:28,920
+so okay so we can yeah so that's yeah oh
+
+1497
+01:25:24,900 --> 01:25:35,120
+oh I got it oh yeah good I got it
+
+1498
+01:25:28,920 --> 01:25:35,120
+so now so what we we we do is that we
+
+1499
+01:25:37,440 --> 01:25:41,520
+nesting front okay remember Nestle in
+
+1500
+01:25:40,500 --> 01:25:45,020
+front
+
+1501
+01:25:41,520 --> 01:25:45,020
+so for each time
+
+1502
+01:25:50,659 --> 01:25:56,340
+so you want to put this dollar sign I
+
+1503
+01:25:54,960 --> 01:25:59,060
+mean the
+
+1504
+01:25:56,340 --> 01:25:59,060
+thing
+
+1505
+01:26:03,179 --> 01:26:07,400
+wait why is that not correct
+
+1506
+01:26:12,239 --> 01:26:15,560
+how is that
+
+1507
+01:26:17,580 --> 01:26:22,460
+let's see what's the Precedence
+
+1508
+01:26:27,540 --> 01:26:31,100
+that's right so
+
+1509
+01:26:55,500 --> 01:26:59,699
+the problem is
+
+1510
+01:27:00,659 --> 01:27:04,699
+can't can't we do it
+
+1511
+01:27:09,179 --> 01:27:13,699
+okay so something like that
+
+1512
+01:27:15,179 --> 01:27:19,520
+uh the problem is uh you know
+
+1513
+01:27:21,360 --> 01:27:26,639
+very pure mathematical problem here you
+
+1514
+01:27:25,260 --> 01:27:29,219
+know you don't need to know who from
+
+1515
+01:27:26,639 --> 01:27:32,460
+language you know anyone you can
+
+1516
+01:27:29,219 --> 01:27:35,120
+try to come up with a solution
+
+1517
+01:27:32,460 --> 01:27:35,120
+uh
+
+1518
+01:27:53,460 --> 01:27:57,360
+you are given at least you are given at
+
+1519
+01:27:56,400 --> 01:28:01,620
+least
+
+1520
+01:27:57,360 --> 01:28:04,520
+you want to turn that list into that
+
+1521
+01:28:01,620 --> 01:28:04,520
+so
+
+1522
+01:28:06,239 --> 01:28:10,940
+so the first one is the 3A
+
+1523
+01:28:10,980 --> 01:28:16,320
+so you map a function
+
+1524
+01:28:13,639 --> 01:28:20,159
+subsequently to the list
+
+1525
+01:28:16,320 --> 01:28:22,080
+so you want some kind of nest
+
+1526
+01:28:20,159 --> 01:28:25,380
+or fold
+
+1527
+01:28:22,080 --> 01:28:28,219
+now you cannot use nest because if you
+
+1528
+01:28:25,380 --> 01:28:28,219
+use nest
+
+1529
+01:28:28,620 --> 01:28:34,320
+each time Nest doesn't take a list of
+
+1530
+01:28:32,219 --> 01:28:36,780
+arguments
+
+1531
+01:28:34,320 --> 01:28:40,500
+because in this case each time you need
+
+1532
+01:28:36,780 --> 01:28:45,239
+a different arguments argument ABC
+
+1533
+01:28:40,500 --> 01:28:49,219
+and you want the function to take
+
+1534
+01:28:45,239 --> 01:28:49,219
+one argument at a time
+
+1535
+01:28:50,699 --> 01:28:57,139
+so you want the function to take one
+
+1536
+01:28:53,760 --> 01:28:57,139
+argument at a time
+
+1537
+01:28:58,320 --> 01:29:03,540
+but for fold the function return you
+
+1538
+01:29:01,560 --> 01:29:07,460
+know must take two argument at a time
+
+1539
+01:29:03,540 --> 01:29:07,460
+now wait what's going on
+
+1540
+01:29:08,159 --> 01:29:16,380
+so you see
+
+1541
+01:29:10,280 --> 01:29:19,040
+this xabc you want to somehow avoid that
+
+1542
+01:29:16,380 --> 01:29:19,040
+X
+
+1543
+01:29:21,719 --> 01:29:26,239
+you know you want to avoid this
+
+1544
+01:29:26,940 --> 01:29:30,440
+you know remove that X
+
+1545
+01:29:37,920 --> 01:29:42,960
+wait but but all these are function of
+
+1546
+01:29:40,980 --> 01:29:44,880
+two arguments you see this is one
+
+1547
+01:29:42,960 --> 01:29:46,920
+argument named B
+
+1548
+01:29:44,880 --> 01:29:51,060
+then
+
+1549
+01:29:46,920 --> 01:29:53,820
+so it always the function to fold always
+
+1550
+01:29:51,060 --> 01:29:56,880
+takes two arguments
+
+1551
+01:29:53,820 --> 01:29:59,219
+okay the function to fold always takes
+
+1552
+01:29:56,880 --> 01:30:01,880
+two arguments
+
+1553
+01:29:59,219 --> 01:30:01,880
+so
+
+1554
+01:30:05,880 --> 01:30:12,239
+so you have a case of
+
+1555
+01:30:09,719 --> 01:30:16,920
+for example function
+
+1556
+01:30:12,239 --> 01:30:18,980
+and given the arguments A and B
+
+1557
+01:30:16,920 --> 01:30:22,920
+then
+
+1558
+01:30:18,980 --> 01:30:27,060
+you have let's say you did this
+
+1559
+01:30:22,920 --> 01:30:29,400
+then you have a b then you are given an
+
+1560
+01:30:27,060 --> 01:30:31,199
+argument of
+
+1561
+01:30:29,400 --> 01:30:33,060
+you know well first of all you have the
+
+1562
+01:30:31,199 --> 01:30:36,920
+argument of A and B
+
+1563
+01:30:33,060 --> 01:30:36,920
+then suppose you get that
+
+1564
+01:30:38,940 --> 01:30:43,520
+let's suppose okay
+
+1565
+01:30:40,860 --> 01:30:43,520
+then
+
+1566
+01:30:43,679 --> 01:30:46,940
+then you have
+
+1567
+01:30:47,460 --> 01:30:55,980
+that and C okay and what you want is
+
+1568
+01:30:53,580 --> 01:30:58,620
+let's let's make let's make this let's
+
+1569
+01:30:55,980 --> 01:31:01,500
+put it here
+
+1570
+01:30:58,620 --> 01:31:04,560
+okay A B becomes that that's that's
+
+1571
+01:31:01,500 --> 01:31:05,940
+right then you have the argument like
+
+1572
+01:31:04,560 --> 01:31:08,340
+that
+
+1573
+01:31:05,940 --> 01:31:12,360
+okay let's put comma okay
+
+1574
+01:31:08,340 --> 01:31:13,500
+so that should become
+
+1575
+01:31:12,360 --> 01:31:16,580
+that
+
+1576
+01:31:13,500 --> 01:31:16,580
+okay so that
+
+1577
+01:31:16,980 --> 01:31:20,600
+should become that okay
+
+1578
+01:31:20,880 --> 01:31:25,679
+so yeah okay so now it's clear so you
+
+1579
+01:31:23,639 --> 01:31:28,980
+begin with f
+
+1580
+01:31:25,679 --> 01:31:31,139
+you begin with f and each time you get
+
+1581
+01:31:28,980 --> 01:31:33,420
+argument
+
+1582
+01:31:31,139 --> 01:31:34,800
+you just append it yeah so it's so
+
+1583
+01:31:33,420 --> 01:31:37,400
+obvious
+
+1584
+01:31:34,800 --> 01:31:37,400
+you know
+
+1585
+01:31:37,500 --> 01:31:43,860
+but since but then why but how do you uh
+
+1586
+01:31:41,400 --> 01:31:46,440
+why is fold
+
+1587
+01:31:43,860 --> 01:31:49,520
+so you basically you want it to be a
+
+1588
+01:31:46,440 --> 01:31:49,520
+single argument
+
+1589
+01:31:51,659 --> 01:31:56,360
+so the second argument you don't care
+
+1590
+01:31:58,620 --> 01:32:04,440
+okay this if if you don't care about the
+
+1591
+01:32:01,139 --> 01:32:06,360
+second argument no you cannot do
+
+1592
+01:32:04,440 --> 01:32:08,219
+well if you don't care about second
+
+1593
+01:32:06,360 --> 01:32:12,679
+argument
+
+1594
+01:32:08,219 --> 01:32:12,679
+then you get f a
+
+1595
+01:32:13,980 --> 01:32:18,920
+let's see maybe even read that's all we
+
+1596
+01:32:16,380 --> 01:32:18,920
+have to do
+
+1597
+01:32:19,199 --> 01:32:22,340
+I don't think so
+
+1598
+01:32:23,760 --> 01:32:26,120
+here
+
+1599
+01:32:40,080 --> 01:32:44,520
+yeah if you don't care about second
+
+1600
+01:32:42,300 --> 01:32:47,239
+argument that's what you get so what if
+
+1601
+01:32:44,520 --> 01:32:47,239
+you say two
+
+1602
+01:32:53,219 --> 01:32:59,699
+okay so the problem here is
+
+1603
+01:32:57,659 --> 01:33:02,100
+somehow you need to turn these two
+
+1604
+01:32:59,699 --> 01:33:04,699
+arguments into
+
+1605
+01:33:02,100 --> 01:33:04,699
+one
+
+1606
+01:33:06,540 --> 01:33:14,100
+wait what why is it not work so
+
+1607
+01:33:10,800 --> 01:33:17,280
+it's very very simple
+
+1608
+01:33:14,100 --> 01:33:19,320
+each time you take an argument
+
+1609
+01:33:17,280 --> 01:33:21,719
+suppose your function only take one
+
+1610
+01:33:19,320 --> 01:33:25,880
+argument so each one you take an
+
+1611
+01:33:21,719 --> 01:33:25,880
+argument you just append it
+
+1612
+01:33:26,400 --> 01:33:33,500
+right so F A is that then
+
+1613
+01:33:31,380 --> 01:33:36,659
+you get
+
+1614
+01:33:33,500 --> 01:33:39,540
+you basically Nest it
+
+1615
+01:33:36,659 --> 01:33:40,800
+so you want the recursion you you want
+
+1616
+01:33:39,540 --> 01:33:43,500
+the nest
+
+1617
+01:33:40,800 --> 01:33:44,820
+you know you want the neck you you want
+
+1618
+01:33:43,500 --> 01:33:48,179
+the
+
+1619
+01:33:44,820 --> 01:33:52,880
+Nest okay you want to call that
+
+1620
+01:33:48,179 --> 01:33:52,880
+but however Nest does not take
+
+1621
+01:33:54,060 --> 01:33:59,340
+um
+
+1622
+01:33:55,860 --> 01:34:03,020
+it does not take any
+
+1623
+01:33:59,340 --> 01:34:03,020
+a list of arguments
+
+1624
+01:34:06,540 --> 01:34:09,620
+Okay so
+
+1625
+01:34:15,060 --> 01:34:19,280
+okay I know what to do now
+
+1626
+01:34:20,360 --> 01:34:27,780
+okay nice well is also new
+
+1627
+01:34:24,420 --> 01:34:28,800
+oh this one is in 1999 okay that's not
+
+1628
+01:34:27,780 --> 01:34:33,020
+so new
+
+1629
+01:34:28,800 --> 01:34:33,020
+okay next well is what we want okay
+
+1630
+01:34:34,199 --> 01:34:42,860
+uh no not this well actually the the
+
+1631
+01:34:37,560 --> 01:34:42,860
+thing we want is just fold okay
+
+1632
+01:34:43,500 --> 01:34:48,719
+yeah the thing we really want is just
+
+1633
+01:34:45,960 --> 01:34:50,699
+Ford but we have some logical
+
+1634
+01:34:48,719 --> 01:34:53,880
+problems
+
+1635
+01:34:50,699 --> 01:34:56,820
+okay so let's think
+
+1636
+01:34:53,880 --> 01:34:59,659
+we have logical problems of trying to
+
+1637
+01:34:56,820 --> 01:34:59,659
+resolve forward
+
+1638
+01:35:17,040 --> 01:35:20,300
+let's write them out
+
+1639
+01:35:32,520 --> 01:35:37,260
+so people looking and watching me
+
+1640
+01:35:35,340 --> 01:35:39,540
+staring at the screen
+
+1641
+01:35:37,260 --> 01:35:42,080
+can understand the problem we are trying
+
+1642
+01:35:39,540 --> 01:35:42,080
+to solve
+
+1643
+01:35:50,699 --> 01:36:00,380
+so what we what we really need is food
+
+1644
+01:35:55,219 --> 01:36:00,380
+but we need to resolve the logical
+
+1645
+01:36:00,840 --> 01:36:07,159
+kind of the Paradox so fold allows you
+
+1646
+01:36:04,199 --> 01:36:07,159
+to take at least
+
+1647
+01:36:07,920 --> 01:36:13,100
+okay let's think about this
+
+1648
+01:36:10,199 --> 01:36:13,100
+so fold
+
+1649
+01:36:13,620 --> 01:36:19,620
+takes a function the function always
+
+1650
+01:36:16,080 --> 01:36:23,400
+takes two arguments why
+
+1651
+01:36:19,620 --> 01:36:25,980
+well the the essence of fold is that it
+
+1652
+01:36:23,400 --> 01:36:28,679
+allows the function to take
+
+1653
+01:36:25,980 --> 01:36:30,840
+a list of things and apply it
+
+1654
+01:36:28,679 --> 01:36:33,480
+recursively
+
+1655
+01:36:30,840 --> 01:36:36,080
+each time taking one element of the list
+
+1656
+01:36:33,480 --> 01:36:36,080
+okay
+
+1657
+01:36:38,400 --> 01:36:41,300
+so
+
+1658
+01:36:44,880 --> 01:36:50,179
+so fold you apply when you do fold
+
+1659
+01:36:57,420 --> 01:37:02,280
+you know when you do fold
+
+1660
+01:36:59,880 --> 01:37:05,520
+you can have these forms but essentially
+
+1661
+01:37:02,280 --> 01:37:09,260
+you take you know at least
+
+1662
+01:37:05,520 --> 01:37:12,780
+and it returns that
+
+1663
+01:37:09,260 --> 01:37:16,159
+Okay so
+
+1664
+01:37:12,780 --> 01:37:16,159
+function a
+
+1665
+01:37:17,580 --> 01:37:23,179
+X so it takes two arguments
+
+1666
+01:37:24,840 --> 01:37:28,159
+two arguments
+
+1667
+01:37:43,080 --> 01:37:50,960
+so it essentially nest
+
+1668
+01:37:46,739 --> 01:37:50,960
+do we do we have a fold right
+
+1669
+01:38:01,139 --> 01:38:05,900
+no you don't have a fold right okay
+
+1670
+01:38:15,540 --> 01:38:24,060
+when you take a thing and it nests it
+
+1671
+01:38:21,060 --> 01:38:24,060
+so
+
+1672
+01:38:28,139 --> 01:38:32,300
+so why is this
+
+1673
+01:38:37,280 --> 01:38:42,139
+God this ABC is no good
+
+1674
+01:39:05,159 --> 01:39:09,300
+you you don't want it to Nest that's the
+
+1675
+01:39:07,980 --> 01:39:13,199
+problem
+
+1676
+01:39:09,300 --> 01:39:15,739
+you don't want it to Nest oh I think I I
+
+1677
+01:39:13,199 --> 01:39:15,739
+got it
+
+1678
+01:39:15,840 --> 01:39:20,420
+there it is a function without head
+
+1679
+01:39:21,300 --> 01:39:30,260
+okay without head is its syntax error
+
+1680
+01:39:26,159 --> 01:39:30,260
+you have to have some kind of head
+
+1681
+01:39:31,070 --> 01:39:34,170
+[Music]
+
+1682
+01:39:37,040 --> 01:39:45,239
+okay so what about what about this we
+
+1683
+01:39:41,420 --> 01:39:47,420
+bracket them in a different way
+
+1684
+01:39:45,239 --> 01:39:47,420
+foreign
+
+1685
+01:39:50,420 --> 01:39:56,280
+tax Arrow yeah but wait
+
+1686
+01:39:53,699 --> 01:39:58,940
+actually
+
+1687
+01:39:56,280 --> 01:39:58,940
+that
+
+1688
+01:40:06,239 --> 01:40:09,739
+oh yeah so
+
+1689
+01:40:10,580 --> 01:40:16,500
+you can't really do that
+
+1690
+01:40:13,679 --> 01:40:19,040
+yeah
+
+1691
+01:40:16,500 --> 01:40:19,040
+foreign
+
+1692
+01:40:21,860 --> 01:40:27,900
+okay I don't know I cannot resolve the
+
+1693
+01:40:25,739 --> 01:40:30,780
+logical issue of fold
+
+1694
+01:40:27,900 --> 01:40:32,280
+it needs uh I need some kind of
+
+1695
+01:40:30,780 --> 01:40:35,580
+understanding
+
+1696
+01:40:32,280 --> 01:40:38,460
+I mean the the issue is is fold
+
+1697
+01:40:35,580 --> 01:40:41,719
+essentially allows you to take
+
+1698
+01:40:38,460 --> 01:40:45,239
+a list of things so fold is like a nest
+
+1699
+01:40:41,719 --> 01:40:46,820
+basically you apply a function to its
+
+1700
+01:40:45,239 --> 01:40:51,679
+own result
+
+1701
+01:40:46,820 --> 01:40:54,840
+recursively but except fold allows you
+
+1702
+01:40:51,679 --> 01:40:57,360
+except that you want to for each time it
+
+1703
+01:40:54,840 --> 01:40:59,219
+calls itself you want to take a value
+
+1704
+01:40:57,360 --> 01:41:03,060
+from a list
+
+1705
+01:40:59,219 --> 01:41:05,520
+so forward is a kind of net recursion or
+
+1706
+01:41:03,060 --> 01:41:07,920
+nesting of a function but for each time
+
+1707
+01:41:05,520 --> 01:41:08,940
+you take a new value
+
+1708
+01:41:07,920 --> 01:41:10,860
+okay
+
+1709
+01:41:08,940 --> 01:41:12,860
+so
+
+1710
+01:41:10,860 --> 01:41:15,300
+so the the
+
+1711
+01:41:12,860 --> 01:41:18,780
+confusing I mean the thing I'm trying to
+
+1712
+01:41:15,300 --> 01:41:21,420
+resolve is that so in a sense fold
+
+1713
+01:41:18,780 --> 01:41:24,179
+should take one the function four-fold
+
+1714
+01:41:21,420 --> 01:41:26,540
+should take one argument only one
+
+1715
+01:41:24,179 --> 01:41:26,540
+argument
+
+1716
+01:41:27,060 --> 01:41:30,920
+but why is it takes two
+
+1717
+01:41:37,380 --> 01:41:44,719
+okay so you you so you take two
+
+1718
+01:41:41,040 --> 01:41:44,719
+arguments you get a result
+
+1719
+01:41:47,940 --> 01:41:52,020
+oh okay so once you when you get the
+
+1720
+01:41:50,460 --> 01:41:54,840
+result
+
+1721
+01:41:52,020 --> 01:41:58,159
+that's right so it's
+
+1722
+01:41:54,840 --> 01:42:00,960
+what I want what we want is a result
+
+1723
+01:41:58,159 --> 01:42:04,520
+applied to
+
+1724
+01:42:00,960 --> 01:42:04,520
+to the new thing not
+
+1725
+01:42:04,920 --> 01:42:10,580
+not repeated yeah so we actually don't
+
+1726
+01:42:09,179 --> 01:42:14,159
+want to
+
+1727
+01:42:10,580 --> 01:42:15,900
+repeatedly or recursively apply a
+
+1728
+01:42:14,159 --> 01:42:18,780
+function f
+
+1729
+01:42:15,900 --> 01:42:22,380
+you know in the case of fold
+
+1730
+01:42:18,780 --> 01:42:26,159
+the function f is repeatedly applied
+
+1731
+01:42:22,380 --> 01:42:27,540
+each time so you always call F
+
+1732
+01:42:26,159 --> 01:42:31,440
+okay
+
+1733
+01:42:27,540 --> 01:42:34,139
+and every time it takes two arguments
+
+1734
+01:42:31,440 --> 01:42:36,239
+the first argument is whatever is a
+
+1735
+01:42:34,139 --> 01:42:38,880
+result
+
+1736
+01:42:36,239 --> 01:42:41,960
+okay and the second argument is a new
+
+1737
+01:42:38,880 --> 01:42:41,960
+item from the list
+
+1738
+01:42:42,000 --> 01:42:47,820
+however you are still calling f
+
+1739
+01:42:45,119 --> 01:42:50,520
+you know and feed those arguments
+
+1740
+01:42:47,820 --> 01:42:52,679
+so you do that you get a result then you
+
+1741
+01:42:50,520 --> 01:42:55,199
+call F again
+
+1742
+01:42:52,679 --> 01:42:58,619
+and put a new result into the argument
+
+1743
+01:42:55,199 --> 01:43:00,780
+and another part from the list you do
+
+1744
+01:42:58,619 --> 01:43:05,760
+that again again you call F so you call
+
+1745
+01:43:00,780 --> 01:43:08,820
+f f many times that's fold you are
+
+1746
+01:43:05,760 --> 01:43:11,880
+essentially doing a recursion
+
+1747
+01:43:08,820 --> 01:43:14,820
+or nesting of the function f
+
+1748
+01:43:11,880 --> 01:43:17,100
+the main point is that f is repeatedly
+
+1749
+01:43:14,820 --> 01:43:20,239
+chord okay
+
+1750
+01:43:17,100 --> 01:43:20,239
+okay that's fold
+
+1751
+01:43:20,400 --> 01:43:28,020
+now in our case what we want here
+
+1752
+01:43:24,780 --> 01:43:30,719
+we do not want to call a function BP to
+
+1753
+01:43:28,020 --> 01:43:32,460
+see repeatedly there's no one single
+
+1754
+01:43:30,719 --> 01:43:35,119
+function
+
+1755
+01:43:32,460 --> 01:43:35,119
+that
+
+1756
+01:43:35,219 --> 01:43:40,739
+our code repeatedly instead
+
+1757
+01:43:38,460 --> 01:43:44,760
+we want to
+
+1758
+01:43:40,739 --> 01:43:47,760
+I've had start with the tree function
+
+1759
+01:43:44,760 --> 01:43:49,920
+then when we get the first value a you
+
+1760
+01:43:47,760 --> 01:43:53,400
+know it becomes that
+
+1761
+01:43:49,920 --> 01:43:57,239
+then when we get the second value B
+
+1762
+01:43:53,400 --> 01:43:59,880
+we don't want to call F order 3 again we
+
+1763
+01:43:57,239 --> 01:44:01,800
+want to call the last result as the
+
+1764
+01:43:59,880 --> 01:44:04,280
+function
+
+1765
+01:44:01,800 --> 01:44:04,280
+okay
+
+1766
+01:44:04,440 --> 01:44:11,280
+so so now we'll get the result is that
+
+1767
+01:44:08,159 --> 01:44:15,480
+okay this is the result
+
+1768
+01:44:11,280 --> 01:44:17,760
+then we get the new values C then we
+
+1769
+01:44:15,480 --> 01:44:20,520
+just apply the result to the to the
+
+1770
+01:44:17,760 --> 01:44:23,760
+argument C Okay so
+
+1771
+01:44:20,520 --> 01:44:27,060
+each time you take the previous result
+
+1772
+01:44:23,760 --> 01:44:29,940
+as the new function to apply to the next
+
+1773
+01:44:27,060 --> 01:44:32,460
+value in the list okay
+
+1774
+01:44:29,940 --> 01:44:34,380
+now remember that that that is a key
+
+1775
+01:44:32,460 --> 01:44:37,199
+that is a key
+
+1776
+01:44:34,380 --> 01:44:39,360
+that is a logical Essence what we are
+
+1777
+01:44:37,199 --> 01:44:42,360
+doing here
+
+1778
+01:44:39,360 --> 01:44:44,040
+you begin with the function called the
+
+1779
+01:44:42,360 --> 01:44:47,820
+tree
+
+1780
+01:44:44,040 --> 01:44:51,199
+can apply it to an argument okay
+
+1781
+01:44:47,820 --> 01:44:51,199
+you begin with function
+
+1782
+01:44:52,020 --> 01:44:56,760
+take an argument from the least apply it
+
+1783
+01:44:55,080 --> 01:45:00,420
+you get a result
+
+1784
+01:44:56,760 --> 01:45:03,000
+now use this result as your new function
+
+1785
+01:45:00,420 --> 01:45:06,540
+take another argument from the list
+
+1786
+01:45:03,000 --> 01:45:10,020
+apply it then you get a new result then
+
+1787
+01:45:06,540 --> 01:45:13,320
+use that result as your function okay so
+
+1788
+01:45:10,020 --> 01:45:15,780
+what you want is some type of it's also
+
+1789
+01:45:13,320 --> 01:45:19,619
+recursion okay
+
+1790
+01:45:15,780 --> 01:45:20,600
+but it's not a recursion of a fixed
+
+1791
+01:45:19,619 --> 01:45:24,119
+point
+
+1792
+01:45:20,600 --> 01:45:26,780
+it's not a recursion of a fixed function
+
+1793
+01:45:24,119 --> 01:45:26,780
+rather
+
+1794
+01:45:36,239 --> 01:45:39,619
+so uh
+
+1795
+01:45:40,380 --> 01:45:46,860
+yeah so this is not a recurs so
+
+1796
+01:45:43,800 --> 01:45:50,400
+what's going on here so each time you
+
+1797
+01:45:46,860 --> 01:45:52,920
+get a result then use that result as a
+
+1798
+01:45:50,400 --> 01:45:56,280
+function so you have some kind of
+
+1799
+01:45:52,920 --> 01:45:58,739
+functional level programming okay
+
+1800
+01:45:56,280 --> 01:46:01,440
+right you don't have like
+
+1801
+01:45:58,739 --> 01:46:05,179
+you know you have some sort of so-called
+
+1802
+01:46:01,440 --> 01:46:05,179
+functional level programming
+
+1803
+01:46:05,460 --> 01:46:08,960
+now I wonder you know the Haskell people
+
+1804
+01:46:07,980 --> 01:46:12,300
+made
+
+1805
+01:46:08,960 --> 01:46:14,340
+know a few things about these I'm not
+
+1806
+01:46:12,300 --> 01:46:18,020
+sure you know I'm not sure about ask our
+
+1807
+01:46:14,340 --> 01:46:18,020
+people but anyway so
+
+1808
+01:46:19,080 --> 01:46:22,340
+start with the function
+
+1809
+01:46:25,820 --> 01:46:32,340
+if I apply it to a very uh argument
+
+1810
+01:46:30,300 --> 01:46:35,300
+you get a result
+
+1811
+01:46:32,340 --> 01:46:35,300
+then
+
+1812
+01:46:41,699 --> 01:46:50,119
+how this is interesting so why is there
+
+1813
+01:46:45,179 --> 01:46:50,119
+this this is a new kind of um
+
+1814
+01:47:02,340 --> 01:47:07,500
+yeah and even in normal recursion in
+
+1815
+01:47:05,219 --> 01:47:10,440
+other programming languages such as
+
+1816
+01:47:07,500 --> 01:47:13,380
+closure in skim this when you do
+
+1817
+01:47:10,440 --> 01:47:16,320
+recursion you call a function you define
+
+1818
+01:47:13,380 --> 01:47:18,540
+a function and in a function body you
+
+1819
+01:47:16,320 --> 01:47:22,619
+call the function itself
+
+1820
+01:47:18,540 --> 01:47:24,300
+you know so that's recursion in you know
+
+1821
+01:47:22,619 --> 01:47:27,900
+other languages
+
+1822
+01:47:24,300 --> 01:47:32,820
+but in in that case you are still
+
+1823
+01:47:27,900 --> 01:47:35,360
+calling a fixed function you repeatedly
+
+1824
+01:47:32,820 --> 01:47:35,360
+call it
+
+1825
+01:47:35,880 --> 01:47:44,239
+you know so it's but in here what we
+
+1826
+01:47:39,780 --> 01:47:44,239
+want is not there's no fixed function
+
+1827
+01:47:44,639 --> 01:47:52,500
+so is this so this is not a so you would
+
+1828
+01:47:49,440 --> 01:47:55,699
+say this is not a recursion this is just
+
+1829
+01:47:52,500 --> 01:47:55,699
+a loop then
+
+1830
+01:47:56,520 --> 01:48:01,260
+yeah so in you know if you use a
+
+1831
+01:47:59,580 --> 01:48:04,560
+procedural language
+
+1832
+01:48:01,260 --> 01:48:08,280
+then this is essentially like
+
+1833
+01:48:04,560 --> 01:48:10,080
+assigned to a variable in a loop
+
+1834
+01:48:08,280 --> 01:48:14,100
+you do something
+
+1835
+01:48:10,080 --> 01:48:16,440
+you assign the result to that value
+
+1836
+01:48:14,100 --> 01:48:17,760
+and you do something again then you
+
+1837
+01:48:16,440 --> 01:48:20,100
+assign the
+
+1838
+01:48:17,760 --> 01:48:21,719
+result the new result to that value
+
+1839
+01:48:20,100 --> 01:48:24,300
+again
+
+1840
+01:48:21,719 --> 01:48:25,679
+kind of combine the previous
+
+1841
+01:48:24,300 --> 01:48:27,360
+thing
+
+1842
+01:48:25,679 --> 01:48:29,820
+Okay so
+
+1843
+01:48:27,360 --> 01:48:32,340
+but how do you do this
+
+1844
+01:48:29,820 --> 01:48:34,500
+how do you actually code it
+
+1845
+01:48:32,340 --> 01:48:36,840
+uh
+
+1846
+01:48:34,500 --> 01:48:39,980
+so you want to
+
+1847
+01:48:36,840 --> 01:48:39,980
+so the result
+
+1848
+01:48:40,619 --> 01:48:46,080
+so you you apply a function through
+
+1849
+01:48:42,420 --> 01:48:50,960
+argument okay the thing get a result
+
+1850
+01:48:46,080 --> 01:48:50,960
+then have the result apply
+
+1851
+01:48:54,679 --> 01:49:01,860
+okay this is two hours two hours and we
+
+1852
+01:48:59,400 --> 01:49:04,500
+haven't resolved this I think I you know
+
+1853
+01:49:01,860 --> 01:49:06,780
+maybe I should stop
+
+1854
+01:49:04,500 --> 01:49:09,560
+who is watching
+
+1855
+01:49:06,780 --> 01:49:09,560
+two people
+
+1856
+01:49:10,619 --> 01:49:14,960
+God this day seven
+
+1857
+01:49:15,900 --> 01:49:19,760
+today's problem day seven
+
+1858
+01:49:20,340 --> 01:49:26,280
+we still have not solved it
+
+1859
+01:49:23,219 --> 01:49:27,719
+although we are making steady steps
+
+1860
+01:49:26,280 --> 01:49:30,480
+you know it's
+
+1861
+01:49:27,719 --> 01:49:33,000
+we are I you know I don't think I'm
+
+1862
+01:49:30,480 --> 01:49:34,739
+stuck anywhere because I'm not really
+
+1863
+01:49:33,000 --> 01:49:38,699
+stuck you know
+
+1864
+01:49:34,739 --> 01:49:40,500
+hate you know I may be it may may appear
+
+1865
+01:49:38,699 --> 01:49:43,920
+that I'm stuck these but I don't think
+
+1866
+01:49:40,500 --> 01:49:48,780
+so this is a clear problem
+
+1867
+01:49:43,920 --> 01:49:50,760
+and I am 100 I can work it out
+
+1868
+01:49:48,780 --> 01:49:53,760
+it just needs some time to think about
+
+1869
+01:49:50,760 --> 01:49:57,000
+this you know and and I want to do it in
+
+1870
+01:49:53,760 --> 01:50:00,000
+a proper way you know I'm
+
+1871
+01:49:57,000 --> 01:50:02,280
+well yeah I'm trying to build this in
+
+1872
+01:50:00,000 --> 01:50:06,600
+you know
+
+1873
+01:50:02,280 --> 01:50:09,060
+in a correct you know in a in a good way
+
+1874
+01:50:06,600 --> 01:50:12,540
+I don't want to
+
+1875
+01:50:09,060 --> 01:50:14,580
+you know I can try to use eval maybe
+
+1876
+01:50:12,540 --> 01:50:16,860
+that's that'll be simpler and there's
+
+1877
+01:50:14,580 --> 01:50:19,199
+quite a lot other ways to
+
+1878
+01:50:16,860 --> 01:50:20,400
+solve this that I haven't tried to think
+
+1879
+01:50:19,199 --> 01:50:23,820
+about yet
+
+1880
+01:50:20,400 --> 01:50:26,340
+you know but I'm just like
+
+1881
+01:50:23,820 --> 01:50:28,440
+you know hitting a wall and I want to
+
+1882
+01:50:26,340 --> 01:50:31,920
+break through that wall and I know I can
+
+1883
+01:50:28,440 --> 01:50:34,639
+that you know I'm just stuck with this
+
+1884
+01:50:31,920 --> 01:50:37,619
+uh idea
+
+1885
+01:50:34,639 --> 01:50:40,080
+so I was trying to resolve you know what
+
+1886
+01:50:37,619 --> 01:50:42,060
+what is the you know logical
+
+1887
+01:50:40,080 --> 01:50:43,679
+uh
+
+1888
+01:50:42,060 --> 01:50:46,199
+you know what's the difference between
+
+1889
+01:50:43,679 --> 01:50:49,139
+nest and forward
+
+1890
+01:50:46,199 --> 01:50:50,820
+what's their implication and what's
+
+1891
+01:50:49,139 --> 01:50:53,159
+their relation to the number of
+
+1892
+01:50:50,820 --> 01:50:55,560
+arguments the hierarity of a function
+
+1893
+01:50:53,159 --> 01:50:59,880
+things like that
+
+1894
+01:50:55,560 --> 01:51:03,300
+so and right now we found that we want a
+
+1895
+01:50:59,880 --> 01:51:06,360
+that the thing we want is a we apply a
+
+1896
+01:51:03,300 --> 01:51:09,719
+function to a value get a result and
+
+1897
+01:51:06,360 --> 01:51:12,239
+this result is supposed to be a function
+
+1898
+01:51:09,719 --> 01:51:14,940
+you then you apply this function to
+
+1899
+01:51:12,239 --> 01:51:16,860
+another value in a list you get a result
+
+1900
+01:51:14,940 --> 01:51:17,880
+and that result is looking at a function
+
+1901
+01:51:16,860 --> 01:51:19,440
+okay
+
+1902
+01:51:17,880 --> 01:51:22,639
+so
+
+1903
+01:51:19,440 --> 01:51:22,639
+is this
+
+1904
+01:51:23,820 --> 01:51:30,960
+I can tell you now that this is
+
+1905
+01:51:28,139 --> 01:51:33,060
+not that frequently done in Wolfram
+
+1906
+01:51:30,960 --> 01:51:36,420
+language because when you have a nested
+
+1907
+01:51:33,060 --> 01:51:39,659
+head that doesn't happen that often okay
+
+1908
+01:51:36,420 --> 01:51:42,119
+let's say it does happen but
+
+1909
+01:51:39,659 --> 01:51:43,739
+let's say 30 percent of
+
+1910
+01:51:42,119 --> 01:51:45,360
+you know Wolfram code you know
+
+1911
+01:51:43,739 --> 01:51:48,420
+functional basically you have a
+
+1912
+01:51:45,360 --> 01:51:51,659
+functional function returning function
+
+1913
+01:51:48,420 --> 01:51:54,000
+but why is this
+
+1914
+01:51:51,659 --> 01:51:58,080
+I mean is there a building construct
+
+1915
+01:51:54,000 --> 01:52:01,260
+like am I I'm uh I need to figure out
+
+1916
+01:51:58,080 --> 01:52:02,820
+where does this feeding fit into the
+
+1917
+01:52:01,260 --> 01:52:04,320
+Wolfram language
+
+1918
+01:52:02,820 --> 01:52:06,719
+uh
+
+1919
+01:52:04,320 --> 01:52:09,960
+you know iteration
+
+1920
+01:52:06,719 --> 01:52:11,400
+kind of uh functions you see there's a
+
+1921
+01:52:09,960 --> 01:52:14,400
+tech node
+
+1922
+01:52:11,400 --> 01:52:17,820
+there's uh you know this these Tech
+
+1923
+01:52:14,400 --> 01:52:20,940
+nodes are originally written by
+
+1924
+01:52:17,820 --> 01:52:23,400
+they are originally from the woofer
+
+1925
+01:52:20,940 --> 01:52:25,980
+Mathematica book which is over a
+
+1926
+01:52:23,400 --> 01:52:29,340
+thousand pages
+
+1927
+01:52:25,980 --> 01:52:31,500
+and they have added new things so in
+
+1928
+01:52:29,340 --> 01:52:33,600
+this section so you know originally came
+
+1929
+01:52:31,500 --> 01:52:36,600
+from wolf family
+
+1930
+01:52:33,600 --> 01:52:38,280
+it's called Mathematica book right over
+
+1931
+01:52:36,600 --> 01:52:40,560
+1000 pages
+
+1932
+01:52:38,280 --> 01:52:42,900
+so but if you look at them you know I
+
+1933
+01:52:40,560 --> 01:52:45,659
+read them cover to cover
+
+1934
+01:52:42,900 --> 01:52:48,480
+three times in 1990s
+
+1935
+01:52:45,659 --> 01:52:52,440
+but today you you might have some new
+
+1936
+01:52:48,480 --> 01:52:54,659
+things not not printed the Wolfram the
+
+1937
+01:52:52,440 --> 01:52:56,400
+Mathematica book stopped printing in
+
+1938
+01:52:54,659 --> 01:52:59,040
+2004.
+
+1939
+01:52:56,400 --> 01:53:02,900
+so anyway so here you have functional
+
+1940
+01:52:59,040 --> 01:53:02,900
+operations and you have
+
+1941
+01:53:03,360 --> 01:53:08,940
+so I want to see where you know what we
+
+1942
+01:53:06,900 --> 01:53:11,719
+are trying to do today where does it fit
+
+1943
+01:53:08,940 --> 01:53:11,719
+in this
+
+1944
+01:53:16,739 --> 01:53:23,699
+we can do that you know yeah I can I can
+
+1945
+01:53:20,580 --> 01:53:25,080
+actually get it to work you know we we
+
+1946
+01:53:23,699 --> 01:53:28,020
+could
+
+1947
+01:53:25,080 --> 01:53:29,699
+we could actually what we can do is just
+
+1948
+01:53:28,020 --> 01:53:32,219
+use nest
+
+1949
+01:53:29,699 --> 01:53:35,460
+and write a function such that the
+
+1950
+01:53:32,219 --> 01:53:38,639
+function contains this this list of
+
+1951
+01:53:35,460 --> 01:53:40,080
+items so each time it calls itself it
+
+1952
+01:53:38,639 --> 01:53:45,500
+takes one of them
+
+1953
+01:53:40,080 --> 01:53:45,500
+reduce you know it remove one item until
+
+1954
+01:53:45,780 --> 01:53:50,699
+there's no item when there's no item the
+
+1955
+01:53:48,659 --> 01:53:53,520
+function returns itself then you get the
+
+1956
+01:53:50,699 --> 01:53:55,880
+result yeah we can do that
+
+1957
+01:53:53,520 --> 01:53:55,880
+okay
+
+1958
+01:54:01,619 --> 01:54:06,540
+okay but okay for now
+
+1959
+01:54:04,260 --> 01:54:08,460
+I think what we are going to do is we're
+
+1960
+01:54:06,540 --> 01:54:10,860
+going to take a break and let's see
+
+1961
+01:54:08,460 --> 01:54:13,920
+maybe after the break
+
+1962
+01:54:10,860 --> 01:54:15,840
+then that's it for today uh
+
+1963
+01:54:13,920 --> 01:54:18,300
+maybe after break
+
+1964
+01:54:15,840 --> 01:54:20,580
+I feel like coding it then let's
+
+1965
+01:54:18,300 --> 01:54:25,440
+continue because right now it's already
+
+1966
+01:54:20,580 --> 01:54:29,719
+two hours okay yeah I know these
+
+1967
+01:54:25,440 --> 01:54:29,719
+I know these functions okay
+
+1968
+01:54:32,639 --> 01:54:39,060
+sequence
+
+1969
+01:54:35,239 --> 01:54:42,320
+sequence is okay
+
+1970
+01:54:39,060 --> 01:54:42,320
+Okay so
+
+1971
+01:54:50,400 --> 01:54:54,560
+so be right back five minutes okay
+
+1972
+01:55:07,679 --> 01:55:11,340
+okay
+
+1973
+01:55:08,540 --> 01:55:13,860
+so I'm gonna take a break be right back
+
+1974
+01:55:11,340 --> 01:55:16,040
+five minutes and maybe that's it for
+
+1975
+01:55:13,860 --> 01:55:18,600
+today
+
+1976
+01:55:16,040 --> 01:55:21,060
+uh you know we stuck with this problem
+
+1977
+01:55:18,600 --> 01:55:23,639
+okay
+
+1978
+01:55:21,060 --> 01:55:24,900
+so let's highlight it so other people
+
+1979
+01:55:23,639 --> 01:55:27,600
+can
+
+1980
+01:55:24,900 --> 01:55:30,080
+uh
+
+1981
+01:55:27,600 --> 01:55:30,080
+see
+
+1982
+01:55:33,000 --> 01:55:35,540
+okay
+
+1983
+01:55:52,739 --> 01:55:55,739
+foreign
+
+1984
+01:56:28,199 --> 01:56:32,300
+gonna turn my video off
+
+1985
+01:56:39,420 --> 01:56:43,040
+China Cheapo
+
+1986
+01:56:51,719 --> 01:56:54,719
+foreign
+
+1987
+01:57:54,139 --> 01:57:57,139
+thank you
+
+1988
+02:02:22,020 --> 02:02:27,199
+foreign
+
+1989
+02:02:24,360 --> 02:02:27,199
+foreign
+
+1990
+02:03:12,900 --> 02:03:15,080
+foreign
+
+1991
+02:03:42,599 --> 02:03:50,760
+okay we might do another break let's see
+
+1992
+02:03:48,179 --> 02:03:53,219
+two people
+
+1993
+02:03:50,760 --> 02:03:57,540
+two people okay
+
+1994
+02:03:53,219 --> 02:04:00,360
+okay let's try something let's try
+
+1995
+02:03:57,540 --> 02:04:02,420
+so we don't want to fold we want
+
+1996
+02:04:00,360 --> 02:04:02,420
+um
+
+1997
+02:04:04,020 --> 02:04:08,340
+we want the nest okay so let's let me
+
+1998
+02:04:06,900 --> 02:04:12,980
+just write it
+
+1999
+02:04:08,340 --> 02:04:12,980
+we want the function that call itself
+
+2000
+02:04:14,280 --> 02:04:19,980
+we want to Nest a function
+
+2001
+02:04:17,340 --> 02:04:22,440
+so when you do nest
+
+2002
+02:04:19,980 --> 02:04:23,880
+when you use nest
+
+2003
+02:04:22,440 --> 02:04:27,080
+you
+
+2004
+02:04:23,880 --> 02:04:27,080
+are also
+
+2005
+02:04:27,780 --> 02:04:33,440
+when you are doing when you do a nest
+
+2006
+02:04:30,599 --> 02:04:38,179
+you are also
+
+2007
+02:04:33,440 --> 02:04:38,179
+recursively calling or fixed function
+
+2008
+02:04:40,440 --> 02:04:46,679
+you are calling the function
+
+2009
+02:04:43,380 --> 02:04:49,460
+it returns something
+
+2010
+02:04:46,679 --> 02:04:49,460
+then
+
+2011
+02:04:49,920 --> 02:04:55,520
+you see
+
+2012
+02:04:51,900 --> 02:04:55,520
+then it um
+
+2013
+02:04:57,000 --> 02:05:02,719
+it calls itself again
+
+2014
+02:04:59,820 --> 02:05:02,719
+on the result
+
+2015
+02:05:06,000 --> 02:05:10,679
+so you want to do Nest okay yeah
+
+2016
+02:05:12,540 --> 02:05:18,920
+okay next function
+
+2017
+02:05:15,780 --> 02:05:18,920
+start with
+
+2018
+02:05:19,380 --> 02:05:22,520
+start with
+
+2019
+02:05:24,540 --> 02:05:27,739
+start with nothing
+
+2020
+02:05:28,560 --> 02:05:31,880
+Okay so
+
+2021
+02:05:32,099 --> 02:05:37,080
+you need to start with something but we
+
+2022
+02:05:34,500 --> 02:05:40,280
+don't want to start with something and
+
+2023
+02:05:37,080 --> 02:05:43,619
+we don't want a fixed number of times
+
+2024
+02:05:40,280 --> 02:05:46,739
+the number of times we repeat the code
+
+2025
+02:05:43,619 --> 02:05:49,440
+the function depends on the
+
+2026
+02:05:46,739 --> 02:05:52,020
+the length of the list
+
+2027
+02:05:49,440 --> 02:05:54,480
+so
+
+2028
+02:05:52,020 --> 02:05:58,440
+we don't want to use nest what we want
+
+2029
+02:05:54,480 --> 02:06:01,860
+to use is fixed Point okay
+
+2030
+02:05:58,440 --> 02:06:04,340
+fixed point will call F on the
+
+2031
+02:06:01,860 --> 02:06:04,340
+expression
+
+2032
+02:06:06,320 --> 02:06:10,040
+repeatedly until
+
+2033
+02:06:10,139 --> 02:06:16,500
+the result no longer changes okay
+
+2034
+02:06:13,619 --> 02:06:21,080
+so
+
+2035
+02:06:16,500 --> 02:06:21,080
+so F apply the expression
+
+2036
+02:06:24,239 --> 02:06:32,239
+then it returns something
+
+2037
+02:06:27,239 --> 02:06:32,239
+let's see fixed Point let's try it
+
+2038
+02:06:38,520 --> 02:06:44,280
+let's say full okay
+
+2039
+02:06:40,800 --> 02:06:48,440
+yeah normally you just Nest it it just
+
+2040
+02:06:44,280 --> 02:06:48,440
+called the function itself four times
+
+2041
+02:06:51,380 --> 02:06:57,239
+okay next call here for again
+
+2042
+02:06:54,900 --> 02:07:00,380
+call info again
+
+2043
+02:06:57,239 --> 02:07:00,380
+cool if again
+
+2044
+02:07:00,480 --> 02:07:08,119
+so if given the argument it returns
+
+2045
+02:07:03,900 --> 02:07:08,119
+something then you call F again
+
+2046
+02:07:09,360 --> 02:07:16,580
+you see that's a problem we don't want a
+
+2047
+02:07:12,000 --> 02:07:16,580
+fixed function we don't want to
+
+2048
+02:07:18,840 --> 02:07:23,239
+we want the result to be a function
+
+2049
+02:07:26,340 --> 02:07:31,500
+yeah this is interesting issue
+
+2050
+02:07:29,159 --> 02:07:32,699
+this is an interesting issue we don't
+
+2051
+02:07:31,500 --> 02:07:37,020
+want
+
+2052
+02:07:32,699 --> 02:07:39,840
+to repeated the core function instead we
+
+2053
+02:07:37,020 --> 02:07:42,540
+want to be repeatedly have the result
+
+2054
+02:07:39,840 --> 02:07:44,520
+becomes a function
+
+2055
+02:07:42,540 --> 02:07:47,880
+okay
+
+2056
+02:07:44,520 --> 02:07:49,139
+so that is that is the main problem we
+
+2057
+02:07:47,880 --> 02:07:51,719
+have
+
+2058
+02:07:49,139 --> 02:07:54,659
+and what and what is this thing we want
+
+2059
+02:07:51,719 --> 02:07:56,460
+is there a name in mathematics in
+
+2060
+02:07:54,659 --> 02:07:59,060
+functional programming
+
+2061
+02:07:56,460 --> 02:07:59,060
+where
+
+2062
+02:08:00,780 --> 02:08:05,460
+you start with at least
+
+2063
+02:08:03,540 --> 02:08:09,360
+you know each time you apply the
+
+2064
+02:08:05,460 --> 02:08:11,940
+function then the result
+
+2065
+02:08:09,360 --> 02:08:14,820
+you want to use the result as a function
+
+2066
+02:08:11,940 --> 02:08:18,179
+then apply to the next next thing
+
+2067
+02:08:14,820 --> 02:08:21,239
+is there a name for this this
+
+2068
+02:08:18,179 --> 02:08:24,239
+thing we are doing Harold hey Harold
+
+2069
+02:08:21,239 --> 02:08:26,760
+where are you from anyone knows against
+
+2070
+02:08:24,239 --> 02:08:30,119
+nobody
+
+2071
+02:08:26,760 --> 02:08:31,800
+replace repeated okay let's see replace
+
+2072
+02:08:30,119 --> 02:08:33,360
+repeated
+
+2073
+02:08:31,800 --> 02:08:37,860
+it's not
+
+2074
+02:08:33,360 --> 02:08:40,580
+ah okay so we can ah pattern yes we can
+
+2075
+02:08:37,860 --> 02:08:40,580
+use pattern
+
+2076
+02:08:44,580 --> 02:08:51,199
+so we want to turn this pattern
+
+2077
+02:08:47,639 --> 02:08:51,199
+into land pattern
+
+2078
+02:08:54,659 --> 02:08:59,280
+huh
+
+2079
+02:08:55,940 --> 02:09:02,340
+pattern matching
+
+2080
+02:08:59,280 --> 02:09:05,719
+okay let's let's try to sketch out the
+
+2081
+02:09:02,340 --> 02:09:05,719
+idea how do you do that
+
+2082
+02:09:08,520 --> 02:09:15,020
+okay let's sketch out this idea so if we
+
+2083
+02:09:11,940 --> 02:09:19,020
+use replace repeated
+
+2084
+02:09:15,020 --> 02:09:22,920
+so we begin with that
+
+2085
+02:09:19,020 --> 02:09:27,480
+and we begin with the least
+
+2086
+02:09:22,920 --> 02:09:31,500
+um then we want to replace repeated
+
+2087
+02:09:27,480 --> 02:09:33,719
+and the pattern is gonna be
+
+2088
+02:09:31,500 --> 02:09:35,880
+a
+
+2089
+02:09:33,719 --> 02:09:39,119
+rest okay
+
+2090
+02:09:35,880 --> 02:09:41,960
+you can say rest okay
+
+2091
+02:09:39,119 --> 02:09:41,960
+becomes
+
+2092
+02:09:49,440 --> 02:09:53,000
+becomes a
+
+2093
+02:09:57,900 --> 02:10:00,440
+foreign
+
+2094
+02:10:03,960 --> 02:10:06,679
+whatever
+
+2095
+02:10:07,739 --> 02:10:10,739
+wait
+
+2096
+02:10:11,099 --> 02:10:15,320
+yeah we want something like this
+
+2097
+02:10:15,900 --> 02:10:20,280
+okay
+
+2098
+02:10:17,280 --> 02:10:20,280
+becomes
+
+2099
+02:10:38,820 --> 02:10:44,360
+hmm
+
+2100
+02:10:40,139 --> 02:10:44,360
+not sure if that will work
+
+2101
+02:10:45,179 --> 02:10:49,739
+let's see let's hope no recursion limit
+
+2102
+02:10:47,820 --> 02:10:54,560
+reached okay
+
+2103
+02:10:49,739 --> 02:10:54,560
+yeah it says it cannot be combined
+
+2104
+02:11:18,780 --> 02:11:26,060
+right so when you have that oh okay wait
+
+2105
+02:11:22,440 --> 02:11:26,060
+you got the arrow here
+
+2106
+02:11:28,920 --> 02:11:33,380
+yeah that's just ABC
+
+2107
+02:11:34,440 --> 02:11:39,320
+I know more
+
+2108
+02:11:37,139 --> 02:11:42,739
+becomes a
+
+2109
+02:11:39,320 --> 02:11:42,739
+and uh
+
+2110
+02:11:45,960 --> 02:11:51,000
+rest okay
+
+2111
+02:11:48,960 --> 02:11:54,199
+no
+
+2112
+02:11:51,000 --> 02:11:54,199
+something like that
+
+2113
+02:12:02,460 --> 02:12:07,880
+okay it doesn't apply because you need F
+
+2114
+02:12:05,520 --> 02:12:07,880
+here
+
+2115
+02:12:08,400 --> 02:12:15,420
+okay something like that it's
+
+2116
+02:12:11,639 --> 02:12:18,360
+it's let's do it here this way okay it's
+
+2117
+02:12:15,420 --> 02:12:21,139
+okay so instead of ABC let's just use
+
+2118
+02:12:18,360 --> 02:12:21,139
+one two three
+
+2119
+02:12:22,199 --> 02:12:26,940
+okay
+
+2120
+02:12:23,540 --> 02:12:28,520
+let's say that
+
+2121
+02:12:26,940 --> 02:12:32,000
+okay
+
+2122
+02:12:28,520 --> 02:12:32,000
+and uh
+
+2123
+02:12:35,940 --> 02:12:42,020
+okay that's I think
+
+2124
+02:12:38,520 --> 02:12:42,020
+that might work
+
+2125
+02:12:43,320 --> 02:12:47,820
+stick
+
+2126
+02:12:45,179 --> 02:12:50,659
+that is the solution
+
+2127
+02:12:47,820 --> 02:12:50,659
+fantastic
+
+2128
+02:12:52,980 --> 02:12:57,780
+for the last one we need to do something
+
+2129
+02:12:55,860 --> 02:13:00,540
+about it
+
+2130
+02:12:57,780 --> 02:13:02,040
+okay this is fantastic
+
+2131
+02:13:00,540 --> 02:13:04,260
+this is
+
+2132
+02:13:02,040 --> 02:13:06,900
+the way to go
+
+2133
+02:13:04,260 --> 02:13:09,480
+this is pattern matching
+
+2134
+02:13:06,900 --> 02:13:11,099
+okay this is transformation of
+
+2135
+02:13:09,480 --> 02:13:13,820
+expression
+
+2136
+02:13:11,099 --> 02:13:13,820
+now
+
+2137
+02:13:14,280 --> 02:13:20,579
+yeah again this is interesting because
+
+2138
+02:13:16,619 --> 02:13:25,380
+we want we want this this this some sort
+
+2139
+02:13:20,579 --> 02:13:28,619
+of recursion or Loop where you apply a
+
+2140
+02:13:25,380 --> 02:13:31,440
+function to a list of things
+
+2141
+02:13:28,619 --> 02:13:33,659
+first you take the first element you
+
+2142
+02:13:31,440 --> 02:13:36,840
+apply a function to it you got a result
+
+2143
+02:13:33,659 --> 02:13:39,659
+then you want to apply the result as a
+
+2144
+02:13:36,840 --> 02:13:42,119
+function to the second element you got a
+
+2145
+02:13:39,659 --> 02:13:43,079
+new result then you apply the result of
+
+2146
+02:13:42,119 --> 02:13:45,780
+that
+
+2147
+02:13:43,079 --> 02:13:47,760
+to the Third
+
+2148
+02:13:45,780 --> 02:13:51,300
+element
+
+2149
+02:13:47,760 --> 02:13:54,020
+you do that with pt3
+
+2150
+02:13:51,300 --> 02:13:54,020
+until
+
+2151
+02:13:54,900 --> 02:14:00,719
+Okay so until there is no more element
+
+2152
+02:13:57,119 --> 02:14:02,900
+in the list okay so we can do it this
+
+2153
+02:14:00,719 --> 02:14:02,900
+way
+
+2154
+02:14:03,840 --> 02:14:08,599
+fantastic that's that is what we want
+
+2155
+02:14:10,800 --> 02:14:13,880
+Okay so
+
+2156
+02:14:16,619 --> 02:14:21,739
+yeah but the last part you want to
+
+2157
+02:14:19,679 --> 02:14:21,739
+um
+
+2158
+02:14:22,079 --> 02:14:27,659
+so so so essentially this is what we
+
+2159
+02:14:25,260 --> 02:14:30,179
+want to do yes this is
+
+2160
+02:14:27,659 --> 02:14:32,880
+this is what we want okay
+
+2161
+02:14:30,179 --> 02:14:35,940
+and uh
+
+2162
+02:14:32,880 --> 02:14:37,139
+and uh
+
+2163
+02:14:35,940 --> 02:14:39,780
+right
+
+2164
+02:14:37,139 --> 02:14:41,639
+so what does this what is this pattern I
+
+2165
+02:14:39,780 --> 02:14:44,760
+mean what how do you call this in
+
+2166
+02:14:41,639 --> 02:14:47,219
+functional programming parody Or logic
+
+2167
+02:14:44,760 --> 02:14:48,420
+is there a name you see your name for
+
+2168
+02:14:47,219 --> 02:14:51,060
+this
+
+2169
+02:14:48,420 --> 02:14:57,500
+kind of
+
+2170
+02:14:51,060 --> 02:14:57,500
+Loop or recursion so is this a recursion
+
+2171
+02:14:57,980 --> 02:15:02,820
+recursion
+
+2172
+02:14:59,880 --> 02:15:06,000
+yes this is a sense of recursion but
+
+2173
+02:15:02,820 --> 02:15:10,880
+it's not nesting it's not the typical
+
+2174
+02:15:06,000 --> 02:15:10,880
+recursion using a fixed function
+
+2175
+02:15:12,119 --> 02:15:18,960
+well it can be it I think it can be so
+
+2176
+02:15:15,840 --> 02:15:23,780
+in any case I think this is a recursion
+
+2177
+02:15:18,960 --> 02:15:23,780
+this is a recursion because the function
+
+2178
+02:15:24,540 --> 02:15:29,179
+apply an argument it returns
+
+2179
+02:15:31,380 --> 02:15:36,420
+something okay
+
+2180
+02:15:33,480 --> 02:15:39,420
+and you
+
+2181
+02:15:36,420 --> 02:15:39,420
+apply
+
+2182
+02:15:40,139 --> 02:15:45,360
+can you can we make can we turn this
+
+2183
+02:15:43,139 --> 02:15:47,400
+something into the function itself so
+
+2184
+02:15:45,360 --> 02:15:49,760
+you need a function such that it takes
+
+2185
+02:15:47,400 --> 02:15:49,760
+something
+
+2186
+02:15:51,300 --> 02:15:54,500
+returns a result
+
+2187
+02:15:57,000 --> 02:16:01,760
+and if the arguments
+
+2188
+02:16:03,239 --> 02:16:08,900
+you you wanted to return a result such
+
+2189
+02:16:06,599 --> 02:16:08,900
+that
+
+2190
+02:16:09,300 --> 02:16:14,360
+such that the function does not appear
+
+2191
+02:16:11,699 --> 02:16:14,360
+in the result
+
+2192
+02:16:23,400 --> 02:16:29,940
+so this is not
+
+2193
+02:16:27,000 --> 02:16:32,340
+so the the the question now is is can we
+
+2194
+02:16:29,940 --> 02:16:36,780
+call this recursion
+
+2195
+02:16:32,340 --> 02:16:41,899
+this part is either recursion or not
+
+2196
+02:16:36,780 --> 02:16:41,899
+in some sense it is it's always a loop
+
+2197
+02:16:46,800 --> 02:16:52,500
+but in some broader sense it is a
+
+2198
+02:16:50,160 --> 02:16:56,240
+recursion okay
+
+2199
+02:16:52,500 --> 02:16:56,240
+in some broader sense
+
+2200
+02:16:58,019 --> 02:17:05,519
+or maybe it's not I don't know this is
+
+2201
+02:17:01,920 --> 02:17:07,500
+actually interesting because you are not
+
+2202
+02:17:05,519 --> 02:17:10,500
+calling a fixed function
+
+2203
+02:17:07,500 --> 02:17:10,500
+repeatedly
+
+2204
+02:17:15,719 --> 02:17:19,859
+but that might be a narrow definition of
+
+2205
+02:17:18,719 --> 02:17:23,040
+recursion
+
+2206
+02:17:19,859 --> 02:17:25,760
+so what does Wikipedia say let's look
+
+2207
+02:17:23,040 --> 02:17:25,760
+let's look
+
+2208
+02:17:28,679 --> 02:17:32,460
+so recursion
+
+2209
+02:17:33,780 --> 02:17:39,479
+you know so recursion there is lots of
+
+2210
+02:17:36,899 --> 02:17:43,939
+you know uh
+
+2211
+02:17:39,479 --> 02:17:43,939
+what uh what they talking about
+
+2212
+02:17:45,479 --> 02:17:51,300
+so this they are talking about the
+
+2213
+02:17:48,120 --> 02:17:53,700
+general concept of recursion you have
+
+2214
+02:17:51,300 --> 02:17:56,820
+recursive humor
+
+2215
+02:17:53,700 --> 02:17:58,460
+and it doesn't that's idiotic so here in
+
+2216
+02:17:56,820 --> 02:18:02,700
+mathematics
+
+2217
+02:17:58,460 --> 02:18:05,580
+recursively defined sets
+
+2218
+02:18:02,700 --> 02:18:08,059
+recursive definition example the natural
+
+2219
+02:18:05,580 --> 02:18:08,059
+numbers
+
+2220
+02:18:09,120 --> 02:18:15,059
+okay and you have proof procedure
+
+2221
+02:18:12,960 --> 02:18:17,399
+another interesting example is the set
+
+2222
+02:18:15,059 --> 02:18:18,780
+of all provable propositions in your
+
+2223
+02:18:17,399 --> 02:18:22,859
+axiomatics
+
+2224
+02:18:18,780 --> 02:18:26,280
+system that are defined in terms of a
+
+2225
+02:18:22,859 --> 02:18:29,719
+proof procedure which is inductively or
+
+2226
+02:18:26,280 --> 02:18:34,439
+recursively defined as follows
+
+2227
+02:18:29,719 --> 02:18:36,840
+okay finite subdivision rules okay
+
+2228
+02:18:34,439 --> 02:18:41,479
+functional recursion a function may be
+
+2229
+02:18:36,840 --> 02:18:41,479
+recursively defined in terms of itself
+
+2230
+02:18:43,320 --> 02:18:48,500
+so function is recursively defined yeah
+
+2231
+02:18:46,620 --> 02:18:51,899
+you define the function
+
+2232
+02:18:48,500 --> 02:18:54,179
+involving coding itself okay
+
+2233
+02:18:51,899 --> 02:18:57,120
+a famous recursive function is the
+
+2234
+02:18:54,179 --> 02:18:59,700
+Ackerman function okay which unlike the
+
+2235
+02:18:57,120 --> 02:19:01,639
+Fibonacci sequence cannot be expressed
+
+2236
+02:18:59,700 --> 02:19:04,559
+without recursion okay
+
+2237
+02:19:01,639 --> 02:19:07,859
+proof involves recursive definitions
+
+2238
+02:19:04,559 --> 02:19:09,200
+okay recursive optimization okay
+
+2239
+02:19:07,859 --> 02:19:13,979
+uh
+
+2240
+02:19:09,200 --> 02:19:16,380
+the recursion theorem in set theory this
+
+2241
+02:19:13,979 --> 02:19:19,380
+is a theorem guaranteeing that
+
+2242
+02:19:16,380 --> 02:19:23,219
+recursively defined functions exist
+
+2243
+02:19:19,380 --> 02:19:25,500
+given a set X an element a of X and a
+
+2244
+02:19:23,219 --> 02:19:28,740
+function f x to X
+
+2245
+02:19:25,500 --> 02:19:31,800
+the theorem States states that there is
+
+2246
+02:19:28,740 --> 02:19:34,800
+a unique function f natural number to x
+
+2247
+02:19:31,800 --> 02:19:40,160
+square n denotes the set natural numbers
+
+2248
+02:19:34,800 --> 02:19:40,160
+such that f is 0 equals to A and
+
+2249
+02:19:40,559 --> 02:19:46,340
+what the for any natural number in
+
+2250
+02:19:50,700 --> 02:19:54,620
+the recursion theorem
+
+2251
+02:19:59,399 --> 02:20:04,680
+okay so then you have the computer
+
+2252
+02:20:01,380 --> 02:20:07,460
+science recursion
+
+2253
+02:20:04,680 --> 02:20:07,460
+uh
+
+2254
+02:20:07,500 --> 02:20:13,500
+a common method of simplification is to
+
+2255
+02:20:10,979 --> 02:20:15,500
+divide the problem into sub problems of
+
+2256
+02:20:13,500 --> 02:20:18,380
+the same type
+
+2257
+02:20:15,500 --> 02:20:20,880
+so we have here another typical
+
+2258
+02:20:18,380 --> 02:20:22,500
+programming language
+
+2259
+02:20:20,880 --> 02:20:25,700
+except uh
+
+2260
+02:20:22,500 --> 02:20:25,700
+recursion okay
+
+2261
+02:20:26,939 --> 02:20:34,439
+so today we run into a kind of an issue
+
+2262
+02:20:30,960 --> 02:20:35,820
+about nesting and recursion what do they
+
+2263
+02:20:34,439 --> 02:20:39,660
+really mean
+
+2264
+02:20:35,820 --> 02:20:40,740
+so this is when we need a exact formal
+
+2265
+02:20:39,660 --> 02:20:44,340
+definition
+
+2266
+02:20:40,740 --> 02:20:48,260
+because the thing we are trying to do
+
+2267
+02:20:44,340 --> 02:20:48,260
+you know turn at least into that
+
+2268
+02:20:48,720 --> 02:20:56,340
+this is uh this is kind of strange this
+
+2269
+02:20:51,960 --> 02:20:59,160
+is new to me is it new to me
+
+2270
+02:20:56,340 --> 02:21:03,120
+you know he's due to is that a recursion
+
+2271
+02:20:59,160 --> 02:21:06,780
+or is that just a something
+
+2272
+02:21:03,120 --> 02:21:11,819
+can you call that a recursion
+
+2273
+02:21:06,780 --> 02:21:14,160
+so you are defining so if you want to so
+
+2274
+02:21:11,819 --> 02:21:15,780
+what how do we formally State the
+
+2275
+02:21:14,160 --> 02:21:19,439
+problem
+
+2276
+02:21:15,780 --> 02:21:23,240
+we want a function that take at least
+
+2277
+02:21:19,439 --> 02:21:23,240
+and return
+
+2278
+02:21:24,319 --> 02:21:30,140
+is somewhat a nested function call
+
+2279
+02:21:32,220 --> 02:21:38,939
+so is this
+
+2280
+02:21:35,220 --> 02:21:44,580
+how do you call this function or
+
+2281
+02:21:38,939 --> 02:21:47,040
+how do you uh or is this just
+
+2282
+02:21:44,580 --> 02:21:49,920
+or how do you you know if you define
+
+2283
+02:21:47,040 --> 02:21:52,080
+this process procedure is there a name
+
+2284
+02:21:49,920 --> 02:21:55,080
+for this
+
+2285
+02:21:52,080 --> 02:21:57,080
+this
+
+2286
+02:21:55,080 --> 02:21:57,080
+um
+
+2287
+02:21:57,720 --> 02:22:03,740
+well first of all it is certainly a
+
+2288
+02:22:00,780 --> 02:22:09,120
+recursion because this procedure
+
+2289
+02:22:03,740 --> 02:22:11,660
+repeats itself unchanged this procedure
+
+2290
+02:22:09,120 --> 02:22:11,660
+which
+
+2291
+02:22:12,479 --> 02:22:16,040
+which you may begin
+
+2292
+02:22:18,540 --> 02:22:24,720
+you know this procedure you may begin a
+
+2293
+02:22:21,000 --> 02:22:28,760
+list with the function itself so
+
+2294
+02:22:24,720 --> 02:22:28,760
+you know you may begin with the f
+
+2295
+02:22:30,720 --> 02:22:37,680
+okay maybe maybe not but anyway it you
+
+2296
+02:22:33,600 --> 02:22:39,840
+know it's it's repeating a procedure or
+
+2297
+02:22:37,680 --> 02:22:43,260
+a process
+
+2298
+02:22:39,840 --> 02:22:46,080
+and this procedure never changes so
+
+2299
+02:22:43,260 --> 02:22:49,700
+first of all it is a loop
+
+2300
+02:22:46,080 --> 02:22:52,580
+or repetition it is
+
+2301
+02:22:49,700 --> 02:22:56,819
+repeated repetition a
+
+2302
+02:22:52,580 --> 02:23:02,100
+loop okay so it is a loop
+
+2303
+02:22:56,819 --> 02:23:05,580
+it is a loop because you have to do this
+
+2304
+02:23:02,100 --> 02:23:09,200
+many times however how many times you do
+
+2305
+02:23:05,580 --> 02:23:13,859
+it depends on the given least length
+
+2306
+02:23:09,200 --> 02:23:18,300
+Okay so it's a you know maybe you might
+
+2307
+02:23:13,859 --> 02:23:20,760
+say indefinite Loop or a while loop
+
+2308
+02:23:18,300 --> 02:23:23,580
+or you know in programming languages you
+
+2309
+02:23:20,760 --> 02:23:25,439
+might call a it can be done as a for
+
+2310
+02:23:23,580 --> 02:23:28,800
+loop as well
+
+2311
+02:23:25,439 --> 02:23:31,800
+so in procedural languages or imperative
+
+2312
+02:23:28,800 --> 02:23:34,200
+languages you just assign
+
+2313
+02:23:31,800 --> 02:23:36,479
+you know you just Loop through the list
+
+2314
+02:23:34,200 --> 02:23:39,300
+and each time you assign a variable to
+
+2315
+02:23:36,479 --> 02:23:40,500
+be the value of a function applied to
+
+2316
+02:23:39,300 --> 02:23:43,439
+that
+
+2317
+02:23:40,500 --> 02:23:46,560
+and you assign that to a variable and
+
+2318
+02:23:43,439 --> 02:23:49,140
+this variable is a result
+
+2319
+02:23:46,560 --> 02:23:51,300
+then you take the next element then you
+
+2320
+02:23:49,140 --> 02:23:53,580
+just apply the result as a function to
+
+2321
+02:23:51,300 --> 02:23:56,720
+that element
+
+2322
+02:23:53,580 --> 02:23:56,720
+so definitely
+
+2323
+02:23:57,300 --> 02:24:02,240
+yeah definitely you can do this as a
+
+2324
+02:23:59,939 --> 02:24:02,240
+loop
+
+2325
+02:24:02,340 --> 02:24:05,960
+in a procedural way
+
+2326
+02:24:06,899 --> 02:24:11,340
+so there are many so there are a few
+
+2327
+02:24:08,880 --> 02:24:13,500
+questions so how do you do this
+
+2328
+02:24:11,340 --> 02:24:16,500
+functionally of course we can do it this
+
+2329
+02:24:13,500 --> 02:24:18,479
+way this is one functional way to do it
+
+2330
+02:24:16,500 --> 02:24:21,240
+without assignment
+
+2331
+02:24:18,479 --> 02:24:24,660
+you know because you replace you replace
+
+2332
+02:24:21,240 --> 02:24:28,319
+this form into that form and repeat
+
+2333
+02:24:24,660 --> 02:24:31,140
+until the result Remains the Same
+
+2334
+02:24:28,319 --> 02:24:34,200
+you know so this is a functional way to
+
+2335
+02:24:31,140 --> 02:24:38,220
+express this
+
+2336
+02:24:34,200 --> 02:24:40,680
+you know that which came also be done by
+
+2337
+02:24:38,220 --> 02:24:44,760
+assigning them to a variable so you can
+
+2338
+02:24:40,680 --> 02:24:47,399
+do it procedurally or imperatively
+
+2339
+02:24:44,760 --> 02:24:50,760
+or you can do it functionally but but
+
+2340
+02:24:47,399 --> 02:24:53,700
+now what what is this
+
+2341
+02:24:50,760 --> 02:24:56,399
+what is this thing I mean what what is
+
+2342
+02:24:53,700 --> 02:24:58,260
+this the you know what how does it
+
+2343
+02:24:56,399 --> 02:25:01,560
+relate to
+
+2344
+02:24:58,260 --> 02:25:05,760
+uh recursion or um
+
+2345
+02:25:01,560 --> 02:25:09,420
+I don't know I don't know so
+
+2346
+02:25:05,760 --> 02:25:12,899
+but anyway that is the
+
+2347
+02:25:09,420 --> 02:25:15,660
+this this is the thing we want it works
+
+2348
+02:25:12,899 --> 02:25:17,580
+it works now we all we have to do is
+
+2349
+02:25:15,660 --> 02:25:20,580
+just to make sure
+
+2350
+02:25:17,580 --> 02:25:22,740
+you know each of these F1 F2 you know
+
+2351
+02:25:20,580 --> 02:25:23,640
+those one two three four are directory
+
+2352
+02:25:22,740 --> 02:25:27,120
+names
+
+2353
+02:25:23,640 --> 02:25:30,479
+in a in a full path you know those are
+
+2354
+02:25:27,120 --> 02:25:34,560
+components of the full path so each F1
+
+2355
+02:25:30,479 --> 02:25:35,760
+will return a Association
+
+2356
+02:25:34,560 --> 02:25:38,819
+then
+
+2357
+02:25:35,760 --> 02:25:41,520
+you take the F2 2 is another another
+
+2358
+02:25:38,819 --> 02:25:43,680
+directory name he'll return a
+
+2359
+02:25:41,520 --> 02:25:47,840
+Association
+
+2360
+02:25:43,680 --> 02:25:47,840
+and until you reach F5
+
+2361
+02:25:49,439 --> 02:25:55,380
+then then the you know
+
+2362
+02:25:52,560 --> 02:25:58,740
+the last one if it doesn't exist you
+
+2363
+02:25:55,380 --> 02:26:01,560
+create it you have to say equals to you
+
+2364
+02:25:58,740 --> 02:26:04,500
+know either a file or uh
+
+2365
+02:26:01,560 --> 02:26:08,040
+like we did here
+
+2366
+02:26:04,500 --> 02:26:10,740
+you know this this part depending on its
+
+2367
+02:26:08,040 --> 02:26:13,200
+file or not the file if it's not a file
+
+2368
+02:26:10,740 --> 02:26:14,700
+we create a container
+
+2369
+02:26:13,200 --> 02:26:18,979
+Association
+
+2370
+02:26:14,700 --> 02:26:18,979
+if it's a file we just
+
+2371
+02:26:19,140 --> 02:26:23,520
+set it to the file size
+
+2372
+02:26:22,260 --> 02:26:26,580
+okay
+
+2373
+02:26:23,520 --> 02:26:29,520
+so we can modify this and move on modify
+
+2374
+02:26:26,580 --> 02:26:31,859
+this so that it actually works so what
+
+2375
+02:26:29,520 --> 02:26:34,260
+we really want to do is originally here
+
+2376
+02:26:31,859 --> 02:26:37,500
+you know we are given a list of
+
+2377
+02:26:34,260 --> 02:26:39,180
+directory names like that a list of
+
+2378
+02:26:37,500 --> 02:26:41,540
+directory
+
+2379
+02:26:39,180 --> 02:26:44,340
+path full path
+
+2380
+02:26:41,540 --> 02:26:46,020
+represented as a list of you know each
+
+2381
+02:26:44,340 --> 02:26:50,040
+directory names
+
+2382
+02:26:46,020 --> 02:26:53,100
+so given a full path a list of them we
+
+2383
+02:26:50,040 --> 02:26:54,660
+map a function to that list
+
+2384
+02:26:53,100 --> 02:26:58,680
+two
+
+2385
+02:26:54,660 --> 02:27:00,120
+this function will create a nested
+
+2386
+02:26:58,680 --> 02:27:03,000
+uh
+
+2387
+02:27:00,120 --> 02:27:04,740
+Association key value pairs
+
+2388
+02:27:03,000 --> 02:27:08,040
+a tree
+
+2389
+02:27:04,740 --> 02:27:10,560
+so we we build a tree
+
+2390
+02:27:08,040 --> 02:27:14,160
+but right now we are at the problem of
+
+2391
+02:27:10,560 --> 02:27:17,220
+of writing this part this function
+
+2392
+02:27:14,160 --> 02:27:19,620
+so this can be you know we we know how
+
+2393
+02:27:17,220 --> 02:27:21,780
+to do it now and
+
+2394
+02:27:19,620 --> 02:27:24,600
+but right now we are stuck with the
+
+2395
+02:27:21,780 --> 02:27:28,520
+logical issues of this
+
+2396
+02:27:24,600 --> 02:27:32,399
+I think that's it for today okay
+
+2397
+02:27:28,520 --> 02:27:34,319
+maybe continuing on our I don't know
+
+2398
+02:27:32,399 --> 02:27:36,540
+so but
+
+2399
+02:27:34,319 --> 02:27:38,880
+that's it okay thank you guys for
+
+2400
+02:27:36,540 --> 02:27:42,540
+watching
+
+2401
+02:27:38,880 --> 02:27:45,319
+yeah because I want I want to you know
+
+2402
+02:27:42,540 --> 02:27:45,319
+normally
+
+2403
+02:27:45,479 --> 02:27:50,580
+you know you should just move on I
+
+2404
+02:27:47,220 --> 02:27:53,880
+should just move on but um
+
+2405
+02:27:50,580 --> 02:27:56,000
+very interesting I need a break okay bye
+
+2406
+02:27:53,880 --> 02:27:56,000
+guys
+

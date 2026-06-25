@@ -1,0 +1,3240 @@
+1
+00:00:00,080 --> 00:00:04,480
+Good morning. Good morning everyone.
+
+2
+00:00:01,760 --> 00:00:07,759
+Welcome to another episode of Son talk
+
+3
+00:00:04,480 --> 00:00:09,599
+show. We going to code wam language. I'm
+
+4
+00:00:07,759 --> 00:00:13,519
+going to show you some wam language
+
+5
+00:00:09,599 --> 00:00:15,839
+functions that does um that does
+
+6
+00:00:13,519 --> 00:00:18,080
+combinotaurics
+
+7
+00:00:15,839 --> 00:00:20,880
+wam language functions doing
+
+8
+00:00:18,080 --> 00:00:24,080
+combinotaurics. Okay. So if you are
+
+9
+00:00:20,880 --> 00:00:26,320
+watching this offline play at 1.5 speed
+
+10
+00:00:24,080 --> 00:00:31,359
+because I ramble. If you are watching
+
+11
+00:00:26,320 --> 00:00:37,200
+live uh say hi in the comments
+
+12
+00:00:31,359 --> 00:00:39,840
+how how hi to so wam language let's um
+
+13
+00:00:37,200 --> 00:00:42,960
+wam language tutorial so you can go
+
+14
+00:00:39,840 --> 00:00:45,840
+there and check out the full tutorial
+
+15
+00:00:42,960 --> 00:00:49,360
+for programmers and you can also
+
+16
+00:00:45,840 --> 00:00:52,559
+download wam language for free and uh
+
+17
+00:00:49,360 --> 00:00:55,520
+okay so let's begin so I want to so
+
+18
+00:00:52,559 --> 00:00:58,079
+let's begin so here is wufam language.
+
+19
+00:00:55,520 --> 00:01:01,760
+Copy the file path. Here's today's talk
+
+20
+00:00:58,079 --> 00:01:05,119
+show. Uh paste the link there. Uh
+
+21
+00:01:01,760 --> 00:01:09,280
+linkify show in browser and go there.
+
+22
+00:01:05,119 --> 00:01:11,200
+And what we want to do is uh uh several
+
+23
+00:01:09,280 --> 00:01:15,200
+functions
+
+24
+00:01:11,200 --> 00:01:18,159
+on list that generates combinatorial
+
+25
+00:01:15,200 --> 00:01:21,360
+uh things such as permutation.
+
+26
+00:01:18,159 --> 00:01:24,720
+You know given a list of items you want
+
+27
+00:01:21,360 --> 00:01:26,960
+to find all possible arrangements. So
+
+28
+00:01:24,720 --> 00:01:30,479
+that's one of the problem. So let's go
+
+29
+00:01:26,960 --> 00:01:33,759
+to there. So list data structure data
+
+30
+00:01:30,479 --> 00:01:35,920
+structure association
+
+31
+00:01:33,759 --> 00:01:37,680
+excuse me. So let's go to list list
+
+32
+00:01:35,920 --> 00:01:40,640
+operations.
+
+33
+00:01:37,680 --> 00:01:42,799
+So list operations combinatorics. So I'm
+
+34
+00:01:40,640 --> 00:01:44,479
+going to show you. Okay you will see in
+
+35
+00:01:42,799 --> 00:01:47,360
+a moment.
+
+36
+00:01:44,479 --> 00:01:50,399
+So first of all paste the link here. uh
+
+37
+00:01:47,360 --> 00:01:52,000
+paste link file. So we can go there
+
+38
+00:01:50,399 --> 00:01:54,240
+directly.
+
+39
+00:01:52,000 --> 00:01:56,799
+So there are several functions this this
+
+40
+00:01:54,240 --> 00:01:59,840
+is amazing fantastic you know try to do
+
+41
+00:01:56,799 --> 00:02:03,360
+this in Python, JavaScript or Goland or
+
+42
+00:01:59,840 --> 00:02:06,479
+whatever your favorite language Rust,
+
+43
+00:02:03,360 --> 00:02:08,479
+Hascal or camel or F you know try them.
+
+44
+00:02:06,479 --> 00:02:11,760
+Usually they are not built in but Wuam
+
+45
+00:02:08,479 --> 00:02:13,680
+language has them built in. Okay. So let
+
+46
+00:02:11,760 --> 00:02:16,080
+me just show you a couple because there
+
+47
+00:02:13,680 --> 00:02:18,239
+are several you see uh what I want to do
+
+48
+00:02:16,080 --> 00:02:20,560
+is I want to add the groupings and
+
+49
+00:02:18,239 --> 00:02:23,200
+subsequence but let me show you. So
+
+50
+00:02:20,560 --> 00:02:27,599
+generate tpples all possible turbos
+
+51
+00:02:23,200 --> 00:02:30,640
+tpples. Okay. So uh wam language for
+
+52
+00:02:27,599 --> 00:02:34,400
+programmers. So combinatorics update
+
+53
+00:02:30,640 --> 00:02:38,160
+today's state here and turppos. Okay. Uh
+
+54
+00:02:34,400 --> 00:02:41,120
+go to pre. So here is tpos. So you want
+
+55
+00:02:38,160 --> 00:02:44,640
+you know given at least one two three
+
+56
+00:02:41,120 --> 00:02:49,080
+you want all possible two tuples. So
+
+57
+00:02:44,640 --> 00:02:49,080
+that's how you do it run it.
+
+58
+00:02:51,680 --> 00:02:57,680
+Okay. So here's the result. It's all
+
+59
+00:02:53,760 --> 00:02:59,360
+possible pairs of of these three uh
+
+60
+00:02:57,680 --> 00:03:02,959
+items.
+
+61
+00:02:59,360 --> 00:03:06,879
+You see uh what one two three you see.
+
+62
+00:03:02,959 --> 00:03:10,720
+So so uh so that's the output. So let's
+
+63
+00:03:06,879 --> 00:03:13,280
+try you can also try AB uh let's say A
+
+64
+00:03:10,720 --> 00:03:18,640
+and B symbolic and let's say all
+
+65
+00:03:13,280 --> 00:03:22,080
+possible three tuples it
+
+66
+00:03:18,640 --> 00:03:26,080
+you see you got a a ABA
+
+67
+00:03:22,080 --> 00:03:29,760
+abba aa ba bba
+
+68
+00:03:26,080 --> 00:03:33,920
+and bbb fantastic and beautiful okay
+
+69
+00:03:29,760 --> 00:03:36,640
+showing browser so that's
+
+70
+00:03:33,920 --> 00:03:40,319
+uh what if you want this variations. You
+
+71
+00:03:36,640 --> 00:03:43,599
+see one um let me show you. Okay. So uh
+
+72
+00:03:40,319 --> 00:03:46,480
+it's also about turppos but variation.
+
+73
+00:03:43,599 --> 00:03:49,280
+So what if you have two list you know
+
+74
+00:03:46,480 --> 00:03:52,879
+the first list is 1 2 3 the second list
+
+75
+00:03:49,280 --> 00:03:59,680
+is ab you want all possible pairings.
+
+76
+00:03:52,879 --> 00:04:04,640
+Again the result are tpples. So run it
+
+77
+00:03:59,680 --> 00:04:07,680
+you see 1 A 1 B 2 A 2 B uh you know so
+
+78
+00:04:04,640 --> 00:04:10,640
+that's that's another alternative u
+
+79
+00:04:07,680 --> 00:04:13,360
+argument form for tpples
+
+80
+00:04:10,640 --> 00:04:17,440
+okay show in browser
+
+81
+00:04:13,360 --> 00:04:20,959
+uh so language has the property given a
+
+82
+00:04:17,440 --> 00:04:23,520
+function function is usually named uh
+
+83
+00:04:20,959 --> 00:04:27,280
+based on the result so if you have a
+
+84
+00:04:23,520 --> 00:04:31,520
+tole tuples a function named tpples that
+
+85
+00:04:27,280 --> 00:04:34,639
+means the result are tpples. Okay. Then
+
+86
+00:04:31,520 --> 00:04:38,160
+so one of the base the most basic usage
+
+87
+00:04:34,639 --> 00:04:41,440
+is a tpos of a list of items you know
+
+88
+00:04:38,160 --> 00:04:44,400
+then you specify how many turppos
+
+89
+00:04:41,440 --> 00:04:48,639
+you know two two items or three items
+
+90
+00:04:44,400 --> 00:04:51,280
+per tuple three tuple then you can also
+
+91
+00:04:48,639 --> 00:04:54,320
+have a variation you given a list of
+
+92
+00:04:51,280 --> 00:04:57,600
+list. So basically this does what this
+
+93
+00:04:54,320 --> 00:05:01,360
+does is called cartesium product. So it
+
+94
+00:04:57,600 --> 00:05:03,759
+forms a tuple and uh the first part is
+
+95
+00:05:01,360 --> 00:05:05,840
+whatever possible elements in your first
+
+96
+00:05:03,759 --> 00:05:08,400
+list. The second part is whatever
+
+97
+00:05:05,840 --> 00:05:11,199
+elements in your second list and so on.
+
+98
+00:05:08,400 --> 00:05:15,039
+So if you give a total of three lists
+
+99
+00:05:11,199 --> 00:05:16,880
+then the results are three to you see.
+
+100
+00:05:15,039 --> 00:05:18,800
+So both are tpples but they are
+
+101
+00:05:16,880 --> 00:05:21,759
+different. So but they are all named
+
+102
+00:05:18,800 --> 00:05:23,919
+tpples because that's what they are. So
+
+103
+00:05:21,759 --> 00:05:26,000
+woven language has a property applies to
+
+104
+00:05:23,919 --> 00:05:29,039
+all functions. The function name
+
+105
+00:05:26,000 --> 00:05:30,880
+indicates the result. Okay. Like
+
+106
+00:05:29,039 --> 00:05:33,919
+different programming language they have
+
+107
+00:05:30,880 --> 00:05:36,320
+different uh mechanism different u
+
+108
+00:05:33,919 --> 00:05:41,120
+philosophy about how they name their
+
+109
+00:05:36,320 --> 00:05:43,919
+functions. For for example in PowerShell
+
+110
+00:05:41,120 --> 00:05:47,759
+uh okay so in PowerShell
+
+111
+00:05:43,919 --> 00:05:49,759
+they tend to name uh
+
+112
+00:05:47,759 --> 00:05:52,639
+for example child. Let me show you.
+
+113
+00:05:49,759 --> 00:05:54,560
+Okay. So close that uh start a new
+
+114
+00:05:52,639 --> 00:05:58,280
+PowerShell
+
+115
+00:05:54,560 --> 00:05:58,280
+and uh magnify.
+
+116
+00:05:58,800 --> 00:06:08,759
+Okay. And child
+
+117
+00:06:02,880 --> 00:06:08,759
+ch I ch uh chir.
+
+118
+00:06:10,160 --> 00:06:13,160
+What?
+
+119
+00:06:13,919 --> 00:06:17,479
+What's going on?
+
+120
+00:06:18,000 --> 00:06:24,560
+Oh, get
+
+121
+00:06:20,639 --> 00:06:27,520
+get child item. You see that's a name.
+
+122
+00:06:24,560 --> 00:06:30,080
+You see in PowerShell all all command
+
+123
+00:06:27,520 --> 00:06:33,120
+names are named like that something dash
+
+124
+00:06:30,080 --> 00:06:35,840
+something. So the first word is a verb.
+
+125
+00:06:33,120 --> 00:06:38,880
+The second word describe what the uh is
+
+126
+00:06:35,840 --> 00:06:43,280
+a noun describe what the verb do to.
+
+127
+00:06:38,880 --> 00:06:46,080
+Okay. So in PowerShell all
+
+128
+00:06:43,280 --> 00:06:48,479
+uh commands names are named like that.
+
+129
+00:06:46,080 --> 00:06:50,160
+So what I'm saying is that different
+
+130
+00:06:48,479 --> 00:06:54,000
+programming languages they have
+
+131
+00:06:50,160 --> 00:06:57,039
+different way kind of uh systematic way
+
+132
+00:06:54,000 --> 00:06:59,199
+to name their functions or commands. So
+
+133
+00:06:57,039 --> 00:07:01,599
+let's go to PowerShell.
+
+134
+00:06:59,199 --> 00:07:03,360
+So so you can see a complete list
+
+135
+00:07:01,599 --> 00:07:06,560
+PowerShell tutorial. Check it out.
+
+136
+00:07:03,360 --> 00:07:08,800
+That's my tutorial on.info.
+
+137
+00:07:06,560 --> 00:07:11,759
+Okay. So download install a list of
+
+138
+00:07:08,800 --> 00:07:14,400
+aliases. For example, here here is a
+
+139
+00:07:11,759 --> 00:07:17,840
+list of all aliases. And here you can
+
+140
+00:07:14,400 --> 00:07:22,000
+see kind of all the possible command
+
+141
+00:07:17,840 --> 00:07:26,479
+names where dash object for each object
+
+142
+00:07:22,000 --> 00:07:30,240
+add content get content set location set
+
+143
+00:07:26,479 --> 00:07:35,120
+location clear content clear host clear
+
+144
+00:07:30,240 --> 00:07:37,520
+history clear item clear item property
+
+145
+00:07:35,120 --> 00:07:40,560
+and clear variable and so on and you
+
+146
+00:07:37,520 --> 00:07:44,080
+know move item move PS drive move item
+
+147
+00:07:40,560 --> 00:07:46,800
+move item property move alias move uh
+
+148
+00:07:44,080 --> 00:07:49,599
+module and new you know so that's the
+
+149
+00:07:46,800 --> 00:07:52,479
+naming of a powershell now in wuam
+
+150
+00:07:49,599 --> 00:07:55,120
+language so the name the function name
+
+151
+00:07:52,479 --> 00:07:57,840
+typically describes what is the re
+
+152
+00:07:55,120 --> 00:08:01,440
+result okay so here is turbo that gives
+
+153
+00:07:57,840 --> 00:08:05,120
+all possible tpples now that's one thing
+
+154
+00:08:01,440 --> 00:08:06,960
+okay the naming of the let let's write
+
+155
+00:08:05,120 --> 00:08:10,400
+it down okay naming of programming
+
+156
+00:08:06,960 --> 00:08:14,879
+language uh names okay so I was working
+
+157
+00:08:10,400 --> 00:08:18,720
+on the loge bump uh artificial
+
+158
+00:08:14,879 --> 00:08:22,080
+constructed language. So copy that. So
+
+159
+00:08:18,720 --> 00:08:26,960
+what are we here? These combinations. So
+
+160
+00:08:22,080 --> 00:08:32,959
+talk show. So we talked about um
+
+161
+00:08:26,960 --> 00:08:36,959
+PowerShell and naming of functions
+
+162
+00:08:32,959 --> 00:08:39,279
+in different programming languages.
+
+163
+00:08:36,959 --> 00:08:43,120
+Okay, that's a interesting thing to dive
+
+164
+00:08:39,279 --> 00:08:45,120
+into. So you can look at Python, C, C++,
+
+165
+00:08:43,120 --> 00:08:47,680
+Java, whatever your uh favorite
+
+166
+00:08:45,120 --> 00:08:51,279
+language. Some of the language may not
+
+167
+00:08:47,680 --> 00:08:55,600
+have consistent names such as the Unix
+
+168
+00:08:51,279 --> 00:08:57,680
+[ __ ] you know, everything in Unix.
+
+169
+00:08:55,600 --> 00:08:59,839
+Well, you can say they are consistent
+
+170
+00:08:57,680 --> 00:09:02,560
+because nothing m makes sense. you know,
+
+171
+00:08:59,839 --> 00:09:07,040
+they prefer the briefs, you know, they
+
+172
+00:09:02,560 --> 00:09:12,880
+prefer uh, you know, CD
+
+173
+00:09:07,040 --> 00:09:15,120
+uh, CD LS cat,
+
+174
+00:09:12,880 --> 00:09:18,120
+you know, nonsensical, you know, uh,
+
+175
+00:09:15,120 --> 00:09:18,120
+juvenile.
+
+176
+00:09:18,320 --> 00:09:24,000
+That's what Unix is.
+
+177
+00:09:21,279 --> 00:09:27,200
+Uh, by the way, something interesting,
+
+178
+00:09:24,000 --> 00:09:30,880
+let me tell you guys. So a friend
+
+179
+00:09:27,200 --> 00:09:35,279
+visited me uh with Discord. We are you
+
+180
+00:09:30,880 --> 00:09:38,959
+know we met on discord and so Kim Posome
+
+181
+00:09:35,279 --> 00:09:42,720
+Kim Posen and Ka
+
+182
+00:09:38,959 --> 00:09:45,279
+okay posum and Mickey Mouse.
+
+183
+00:09:42,720 --> 00:09:47,360
+So
+
+184
+00:09:45,279 --> 00:09:49,680
+so yeah we were talking about so naming
+
+185
+00:09:47,360 --> 00:09:52,000
+of things uh naming of functions in
+
+186
+00:09:49,680 --> 00:09:54,399
+different programming languages. Uh and
+
+187
+00:09:52,000 --> 00:09:57,200
+what what was it I wanted to say. There
+
+188
+00:09:54,399 --> 00:09:58,880
+is some
+
+189
+00:09:57,200 --> 00:10:00,880
+well
+
+190
+00:09:58,880 --> 00:10:02,959
+I forgot what to say. I you know I
+
+191
+00:10:00,880 --> 00:10:09,760
+forgot what is the thing I wanted to
+
+192
+00:10:02,959 --> 00:10:14,720
+mention. Anyway so a friend visit me uh
+
+193
+00:10:09,760 --> 00:10:16,720
+and uh so uh yeah naming
+
+194
+00:10:14,720 --> 00:10:18,640
+let me think okay naming a function in
+
+195
+00:10:16,720 --> 00:10:21,920
+different programming languages. So you
+
+196
+00:10:18,640 --> 00:10:25,120
+got Oh. Oh, Unix. Okay. Yeah. So, here.
+
+197
+00:10:21,920 --> 00:10:28,560
+So, I wanted to show you uh you know, he
+
+198
+00:10:25,120 --> 00:10:32,000
+went to the computer museum, which is
+
+199
+00:10:28,560 --> 00:10:34,640
+kind of the famous tourist spot in
+
+200
+00:10:32,000 --> 00:10:37,279
+Silicon Valley here, Mountain View,
+
+201
+00:10:34,640 --> 00:10:40,480
+where Google is at. That's where I live.
+
+202
+00:10:37,279 --> 00:10:42,640
+Okay. Google. Google is like 30 minutes
+
+203
+00:10:40,480 --> 00:10:45,360
+walk.
+
+204
+00:10:42,640 --> 00:10:47,920
+So, and we have a computer museum. You
+
+205
+00:10:45,360 --> 00:10:51,519
+can look up you know uh computer museum
+
+206
+00:10:47,920 --> 00:10:55,040
+in Silicon Valley. So so they show this
+
+207
+00:10:51,519 --> 00:10:59,800
+Unix operating system and they call it
+
+208
+00:10:55,040 --> 00:10:59,800
+universal operating system.
+
+209
+00:11:00,560 --> 00:11:08,079
+What what a what a fast what what a fake
+
+210
+00:11:03,440 --> 00:11:09,920
+story you know Unix why is it named Unix
+
+211
+00:11:08,079 --> 00:11:12,720
+like unix?
+
+212
+00:11:09,920 --> 00:11:15,279
+That is because it's a pun by these
+
+213
+00:11:12,720 --> 00:11:18,160
+hacker types. You know, we hackers love
+
+214
+00:11:15,279 --> 00:11:20,800
+puns and uh [ __ ] and we don't mind, you
+
+215
+00:11:18,160 --> 00:11:24,000
+know, saying those swearing words. Uh
+
+216
+00:11:20,800 --> 00:11:27,920
+sucks, [ __ ] and whatever [ __ ] So,
+
+217
+00:11:24,000 --> 00:11:33,440
+Unix, the name Unix, it was a pun
+
+218
+00:11:27,920 --> 00:11:35,760
+against Motex, M U L T I CX, which is a
+
+219
+00:11:33,440 --> 00:11:39,600
+operating system popular at the time,
+
+220
+00:11:35,760 --> 00:11:42,640
+1970s, I think. So, they why do they
+
+221
+00:11:39,600 --> 00:11:46,000
+name it Unix? Because it's like Unix,
+
+222
+00:11:42,640 --> 00:11:50,720
+you know, the the guy without
+
+223
+00:11:46,000 --> 00:11:53,440
+penis being cut off. Unix kind of
+
+224
+00:11:50,720 --> 00:11:57,600
+offensive term, you know, offensive and
+
+225
+00:11:53,440 --> 00:11:59,760
+ugly and juvenile juvenile joke. That is
+
+226
+00:11:57,600 --> 00:12:02,079
+the root of Unix. The Unix type of
+
+227
+00:11:59,760 --> 00:12:05,519
+people, they love that. So why is it
+
+228
+00:12:02,079 --> 00:12:08,240
+named Unix? Because the Unix, you know,
+
+229
+00:12:05,519 --> 00:12:09,839
+against, you know, making fun of Motics,
+
+230
+00:12:08,240 --> 00:12:12,560
+Motics.
+
+231
+00:12:09,839 --> 00:12:16,079
+But now in the computer museum they say
+
+232
+00:12:12,560 --> 00:12:19,519
+a universal operating system.
+
+233
+00:12:16,079 --> 00:12:22,320
+I never heard of that phrase in my 30 40
+
+234
+00:12:19,519 --> 00:12:25,680
+years of of reading about Unix history.
+
+235
+00:12:22,320 --> 00:12:29,360
+I never heard of this phrase a universal
+
+236
+00:12:25,680 --> 00:12:33,120
+operating system. What the [ __ ]
+
+237
+00:12:29,360 --> 00:12:34,639
+So this is how history become twisted.
+
+238
+00:12:33,120 --> 00:12:38,000
+You know, like when you read back
+
+239
+00:12:34,639 --> 00:12:40,560
+history 100 years ago, World War II,
+
+240
+00:12:38,000 --> 00:12:43,440
+certain country or whatever, they they
+
+241
+00:12:40,560 --> 00:12:46,399
+become all twisted, you know. So, here
+
+242
+00:12:43,440 --> 00:12:49,920
+is an example about computer history,
+
+243
+00:12:46,399 --> 00:12:52,480
+computing history from the uh computer
+
+244
+00:12:49,920 --> 00:12:55,120
+museum.
+
+245
+00:12:52,480 --> 00:12:57,279
+Okay. So, that's what I want to mention.
+
+246
+00:12:55,120 --> 00:12:59,040
+So, we were talking about naming of
+
+247
+00:12:57,279 --> 00:13:01,040
+functions in programming languages.
+
+248
+00:12:59,040 --> 00:13:03,519
+Okay. So some of the programming
+
+249
+00:13:01,040 --> 00:13:07,200
+language they do follow a consistent
+
+250
+00:13:03,519 --> 00:13:11,279
+naming such as Wuang language such as
+
+251
+00:13:07,200 --> 00:13:13,120
+PowerShell I mean you may not like their
+
+252
+00:13:11,279 --> 00:13:16,160
+philosophy each one is different but
+
+253
+00:13:13,120 --> 00:13:21,440
+they at least they are consistent okay
+
+254
+00:13:16,160 --> 00:13:24,800
+bash consistent no Unix it's [ __ ] it's
+
+255
+00:13:21,440 --> 00:13:28,959
+fa [ __ ] [ __ ] or [ __ ] up [ __ ] that's
+
+256
+00:13:24,800 --> 00:13:32,399
+what Unix is which became Linux
+
+257
+00:13:28,959 --> 00:13:36,480
+So this is an example of my deep hatred
+
+258
+00:13:32,399 --> 00:13:39,600
+against Unix and C. Okay. So anyway,
+
+259
+00:13:36,480 --> 00:13:42,240
+let's go back to the combinatorics. So
+
+260
+00:13:39,600 --> 00:13:45,279
+we demonstrated turppo actually just two
+
+261
+00:13:42,240 --> 00:13:48,079
+cases. Then there's more uh cases. So
+
+262
+00:13:45,279 --> 00:13:50,480
+here here's another example of turppo.
+
+263
+00:13:48,079 --> 00:13:54,800
+Okay, let me let me show you. Okay, so
+
+264
+00:13:50,480 --> 00:13:56,959
+we illustrated. So go to um wuam
+
+265
+00:13:54,800 --> 00:13:59,600
+language componentics.
+
+266
+00:13:56,959 --> 00:14:01,360
+Uh actually let me write down the naming
+
+267
+00:13:59,600 --> 00:14:03,440
+of functions in different languages.
+
+268
+00:14:01,360 --> 00:14:08,399
+Okay,
+
+269
+00:14:03,440 --> 00:14:13,120
+different programming languages may
+
+270
+00:14:08,399 --> 00:14:15,120
+have let's say uh let's may have
+
+271
+00:14:13,120 --> 00:14:18,120
+different
+
+272
+00:14:15,120 --> 00:14:18,120
+philosophy
+
+273
+00:14:18,560 --> 00:14:29,279
+philosophy of naming of their
+
+274
+00:14:24,880 --> 00:14:29,279
+functions or commands.
+
+275
+00:14:31,120 --> 00:14:34,120
+Some
+
+276
+00:14:36,560 --> 00:14:42,720
+programming languages
+
+277
+00:14:39,040 --> 00:14:45,519
+has a consistent
+
+278
+00:14:42,720 --> 00:14:47,279
+philosophy.
+
+279
+00:14:45,519 --> 00:14:50,079
+For example,
+
+280
+00:14:47,279 --> 00:14:55,920
+PowerShell,
+
+281
+00:14:50,079 --> 00:15:00,800
+Wuam language and emacisp and this in
+
+282
+00:14:55,920 --> 00:15:03,279
+general. Okay. And uh uh what and Java.
+
+283
+00:15:00,800 --> 00:15:06,320
+Okay. I can I can say for sure Java is
+
+284
+00:15:03,279 --> 00:15:08,480
+also consistently named. Doesn't matter
+
+285
+00:15:06,320 --> 00:15:11,360
+you like it. So whether you like their
+
+286
+00:15:08,480 --> 00:15:13,920
+philosophy of of naming is one thing.
+
+287
+00:15:11,360 --> 00:15:18,560
+Okay. But however they are consistently
+
+288
+00:15:13,920 --> 00:15:21,839
+named. Okay. These are some examples.
+
+289
+00:15:18,560 --> 00:15:27,519
+But some programming languages
+
+290
+00:15:21,839 --> 00:15:31,199
+do not have consistent naming scheme.
+
+291
+00:15:27,519 --> 00:15:34,959
+For example, bash, Unix,
+
+292
+00:15:31,199 --> 00:15:39,360
+uh tools and uh
+
+293
+00:15:34,959 --> 00:15:41,120
+does it apply to C kind of. Okay. C and
+
+294
+00:15:39,360 --> 00:15:46,800
+C++
+
+295
+00:15:41,120 --> 00:15:49,360
+the circus [ __ ] Uh they anyway. Okay.
+
+296
+00:15:46,800 --> 00:15:52,560
+So anyway, let's make that. So that's
+
+297
+00:15:49,360 --> 00:15:55,759
+about that. Okay, that's one topic. Now
+
+298
+00:15:52,560 --> 00:15:58,720
+let's go back to TPO. So we were doing
+
+299
+00:15:55,759 --> 00:16:02,240
+demonstration of TPO. Let's show another
+
+300
+00:15:58,720 --> 00:16:04,800
+uh another example of TPO. Okay, so
+
+301
+00:16:02,240 --> 00:16:06,800
+actually I need to rewrite this part.
+
+302
+00:16:04,800 --> 00:16:10,639
+Okay, so here's original. Now we're
+
+303
+00:16:06,800 --> 00:16:13,519
+going to say re uh because I was, you
+
+304
+00:16:10,639 --> 00:16:16,079
+know, so what what I'm doing now is
+
+305
+00:16:13,519 --> 00:16:17,759
+improve the writing. So right now it
+
+306
+00:16:16,079 --> 00:16:21,040
+says
+
+307
+00:16:17,759 --> 00:16:23,920
+tupo given a list and given a list of
+
+308
+00:16:21,040 --> 00:16:27,120
+numbers return all possible array of
+
+309
+00:16:23,920 --> 00:16:29,759
+dimension n1 n2 something using elements
+
+310
+00:16:27,120 --> 00:16:33,040
+in list. Okay, that's the current
+
+311
+00:16:29,759 --> 00:16:38,920
+wording, but let me reward it because uh
+
+312
+00:16:33,040 --> 00:16:38,920
+it would be better. Okay. Uh return or
+
+313
+00:16:40,399 --> 00:16:47,199
+uh
+
+314
+00:16:43,120 --> 00:16:49,519
+higher dimensional array
+
+315
+00:16:47,199 --> 00:16:52,519
+of
+
+316
+00:16:49,519 --> 00:16:52,519
+array.
+
+317
+00:16:55,199 --> 00:16:58,199
+uh
+
+318
+00:16:58,880 --> 00:17:09,959
+return all let's just say this n by n2
+
+319
+00:17:05,360 --> 00:17:09,959
+by that array.
+
+320
+00:17:10,640 --> 00:17:17,839
+Okay, show in browser. So the new
+
+321
+00:17:13,280 --> 00:17:20,640
+version says return all n1 by n2 by act
+
+322
+00:17:17,839 --> 00:17:24,000
+array using elements in this one. So I
+
+323
+00:17:20,640 --> 00:17:26,559
+think this one is more clear. So this is
+
+324
+00:17:24,000 --> 00:17:28,480
+about technical writing
+
+325
+00:17:26,559 --> 00:17:31,520
+uh you know whether you you know so I
+
+326
+00:17:28,480 --> 00:17:33,760
+think this one is uh clear
+
+327
+00:17:31,520 --> 00:17:36,799
+okay but uh I have to think about it
+
+328
+00:17:33,760 --> 00:17:39,840
+actually but for now let's leave it so
+
+329
+00:17:36,799 --> 00:17:42,160
+so let's demonstrate this one okay
+
+330
+00:17:39,840 --> 00:17:44,480
+comments and questions 14 people I got a
+
+331
+00:17:42,160 --> 00:17:48,000
+c wow a lot people saying things okay
+
+332
+00:17:44,480 --> 00:17:52,880
+let me read it in a bit so here we have
+
+333
+00:17:48,000 --> 00:17:55,440
+so we want a 2x two array okay and there
+
+334
+00:17:52,880 --> 00:17:58,559
+elements is A or B. So we want all
+
+335
+00:17:55,440 --> 00:18:02,919
+possible 2x2 array with elements A or O
+
+336
+00:17:58,559 --> 00:18:02,919
+or B. Okay. Let's try that.
+
+337
+00:18:03,520 --> 00:18:09,360
+Okay. So you know so then then you need
+
+338
+00:18:06,160 --> 00:18:12,720
+to format it. Um but but but basically
+
+339
+00:18:09,360 --> 00:18:15,679
+what you get is this. Okay. So this so
+
+340
+00:18:12,720 --> 00:18:22,480
+each one so let's see. So you see each
+
+341
+00:18:15,679 --> 00:18:28,200
+one of these is a 2x two array. A a AA a
+
+342
+00:18:22,480 --> 00:18:28,200
+ba a a bb a a a ab a
+
+343
+00:18:28,960 --> 00:18:36,240
+ba you see? So if you say three let's
+
+344
+00:18:32,640 --> 00:18:38,640
+try it again. Okay. So let's um 2x3
+
+345
+00:18:36,240 --> 00:18:42,640
+array. Okay. Now that's going to be more
+
+346
+00:18:38,640 --> 00:18:44,400
+huge. It's going to be it the the length
+
+347
+00:18:42,640 --> 00:18:46,480
+of search is going to grow
+
+348
+00:18:44,400 --> 00:18:48,640
+exponentially. So you got all these.
+
+349
+00:18:46,480 --> 00:18:50,799
+Okay. Now what what if you want to
+
+350
+00:18:48,640 --> 00:18:53,520
+format it?
+
+351
+00:18:50,799 --> 00:18:56,559
+I don't have that feature in saw wam
+
+352
+00:18:53,520 --> 00:19:01,000
+mod. So let's let's start wam language
+
+353
+00:18:56,559 --> 00:19:01,000
+then you'll format it well.
+
+354
+00:19:01,840 --> 00:19:10,400
+Okay, new notebook and place a notebook
+
+355
+00:19:05,039 --> 00:19:14,240
+here and uh and uh let's say three shift
+
+356
+00:19:10,400 --> 00:19:18,480
+enter to start the kernel and uh let's
+
+357
+00:19:14,240 --> 00:19:21,520
+magnify magnify 150. Okay, then we want
+
+358
+00:19:18,480 --> 00:19:25,440
+to do tles to three.
+
+359
+00:19:21,520 --> 00:19:28,000
+Okay, paste it. Shift enter. So you see
+
+360
+00:19:25,440 --> 00:19:33,440
+it looks much better. So you see
+
+361
+00:19:28,000 --> 00:19:36,400
+automatic formatting see on the fly
+
+362
+00:19:33,440 --> 00:19:38,640
+and if you want uh and you can say
+
+363
+00:19:36,400 --> 00:19:42,480
+matrix form and you know you can
+
+364
+00:19:38,640 --> 00:19:47,559
+actually format it uh by
+
+365
+00:19:42,480 --> 00:19:47,559
+let's say matrix form.
+
+366
+00:19:47,679 --> 00:19:53,200
+So it kind of make it nicer.
+
+367
+00:19:50,880 --> 00:19:54,720
+Uh
+
+368
+00:19:53,200 --> 00:19:57,679
+wait
+
+369
+00:19:54,720 --> 00:20:00,640
+or you can you can also say wow this is
+
+370
+00:19:57,679 --> 00:20:04,840
+super long
+
+371
+00:20:00,640 --> 00:20:04,840
+let's say table form
+
+372
+00:20:05,760 --> 00:20:13,960
+okay table form just okay table form is
+
+373
+00:20:08,080 --> 00:20:13,960
+boring and you can say tree form too
+
+374
+00:20:16,400 --> 00:20:22,880
+oh this this is humongous tree This this
+
+375
+00:20:20,799 --> 00:20:27,640
+this this this
+
+376
+00:20:22,880 --> 00:20:27,640
+shows a tree but it's humongous
+
+377
+00:20:29,520 --> 00:20:36,159
+you see. So we got a giant list and and
+
+378
+00:20:32,400 --> 00:20:38,480
+sub list and sub list. Okay. So anyway
+
+379
+00:20:36,159 --> 00:20:41,919
+so anyway that that's demonstration of
+
+380
+00:20:38,480 --> 00:20:46,240
+turppos. Okay. So and and you can also
+
+381
+00:20:41,919 --> 00:20:49,120
+have more elements you know a b and c
+
+382
+00:20:46,240 --> 00:20:54,080
+let's say 1 by3
+
+383
+00:20:49,120 --> 00:20:58,240
+uh array. Okay, run it.
+
+384
+00:20:54,080 --> 00:21:01,520
+Okay, so you got that and uh let's see
+
+385
+00:20:58,240 --> 00:21:05,440
+1x3. So 1x3 is simply a vector. So each
+
+386
+00:21:01,520 --> 00:21:08,000
+one of these is a you know a vector.
+
+387
+00:21:05,440 --> 00:21:11,919
+Okay, so that's a demonstration. So you
+
+388
+00:21:08,000 --> 00:21:15,600
+see so so this form turppos you know uh
+
+389
+00:21:11,919 --> 00:21:18,400
+you want the first argument specifies a
+
+390
+00:21:15,600 --> 00:21:21,039
+list of elements you want to be as the
+
+391
+00:21:18,400 --> 00:21:24,799
+topos elements. The second argument
+
+392
+00:21:21,039 --> 00:21:26,320
+specify a dimension. So here is means 1
+
+393
+00:21:24,799 --> 00:21:30,000
+by3
+
+394
+00:21:26,320 --> 00:21:32,159
+uh and here is 2x two you know then it
+
+395
+00:21:30,000 --> 00:21:35,120
+generates all possible search
+
+396
+00:21:32,159 --> 00:21:39,039
+dimensional arrays. So in this sense
+
+397
+00:21:35,120 --> 00:21:42,720
+this array you know n byn n m n by m
+
+398
+00:21:39,039 --> 00:21:45,360
+array is actually a
+
+399
+00:21:42,720 --> 00:21:50,200
+uh generalized version of the sense
+
+400
+00:21:45,360 --> 00:21:50,200
+tupo. You see normally
+
+401
+00:21:50,880 --> 00:21:56,320
+uh okay I need to adjust my this should
+
+402
+00:21:54,159 --> 00:21:58,720
+be
+
+403
+00:21:56,320 --> 00:22:02,000
+you see normally a tupo means just a
+
+404
+00:21:58,720 --> 00:22:04,159
+flat list of n items. Two tppleo is a
+
+405
+00:22:02,000 --> 00:22:07,280
+list of two items. Three turppo is a
+
+406
+00:22:04,159 --> 00:22:10,559
+list of three items, right?
+
+407
+00:22:07,280 --> 00:22:13,600
+But here you what you have is basically
+
+408
+00:22:10,559 --> 00:22:16,960
+higher dimensional turppos. So turppo is
+
+409
+00:22:13,600 --> 00:22:19,360
+basically an array. You know is
+
+410
+00:22:16,960 --> 00:22:21,440
+basically one-dimensional array or in
+
+411
+00:22:19,360 --> 00:22:25,280
+other words a turbo is just a vector.
+
+412
+00:22:21,440 --> 00:22:29,280
+Okay. So a general sense of turbo is n
+
+413
+00:22:25,280 --> 00:22:31,760
+byn array or n by n by n you know by a
+
+414
+00:22:29,280 --> 00:22:34,799
+by b by c by the you know higher
+
+415
+00:22:31,760 --> 00:22:38,240
+dimensional array. So what I'm saying is
+
+416
+00:22:34,799 --> 00:22:40,640
+that wuam language first of all they the
+
+417
+00:22:38,240 --> 00:22:44,880
+naming convention is that the name of a
+
+418
+00:22:40,640 --> 00:22:46,960
+function means the return result. It's a
+
+419
+00:22:44,880 --> 00:22:49,200
+noun. It's usually always a noun. It's
+
+420
+00:22:46,960 --> 00:22:52,799
+just what it you know what the return
+
+421
+00:22:49,200 --> 00:22:54,799
+value is. So those are tpples that's one
+
+422
+00:22:52,799 --> 00:22:58,640
+thing naming convention. The other thing
+
+423
+00:22:54,799 --> 00:23:02,080
+is that wra language they for each thing
+
+424
+00:22:58,640 --> 00:23:05,760
+each function they extend all possible
+
+425
+00:23:02,080 --> 00:23:08,159
+uh things about. So you can have a you
+
+426
+00:23:05,760 --> 00:23:11,520
+can specify a tupo of given list of
+
+427
+00:23:08,159 --> 00:23:15,039
+elements or you can specify several list
+
+428
+00:23:11,520 --> 00:23:17,760
+of elements where you generate a tuple
+
+429
+00:23:15,039 --> 00:23:22,320
+by taking you know element from each uh
+
+430
+00:23:17,760 --> 00:23:25,600
+list. cartesium product or you can have
+
+431
+00:23:22,320 --> 00:23:30,159
+all possible higher dimensional turppo
+
+432
+00:23:25,600 --> 00:23:32,960
+which is array uh you know so so that's
+
+433
+00:23:30,159 --> 00:23:37,120
+about tpples okay
+
+434
+00:23:32,960 --> 00:23:39,679
+so let's uh let's let's um yeah let's
+
+435
+00:23:37,120 --> 00:23:43,840
+clean up let's return the code to what I
+
+436
+00:23:39,679 --> 00:23:47,039
+had okay so we don't want that okay so
+
+437
+00:23:43,840 --> 00:23:50,640
+okay syntax clear so we talked about
+
+438
+00:23:47,039 --> 00:23:52,880
+tbles Then there's subsets
+
+439
+00:23:50,640 --> 00:23:55,440
+again just like turppo. So but different
+
+440
+00:23:52,880 --> 00:23:58,880
+from turbo this is talking about subset
+
+441
+00:23:55,440 --> 00:24:02,120
+subsets. So uh should we show let's show
+
+442
+00:23:58,880 --> 00:24:02,120
+one example.
+
+443
+00:24:04,720 --> 00:24:11,120
+Okay. So subset one two three gives you
+
+444
+00:24:08,320 --> 00:24:14,400
+all possible subset. You know empty set
+
+445
+00:24:11,120 --> 00:24:17,520
+is a subset. One by itself is a subset.
+
+446
+00:24:14,400 --> 00:24:20,400
+Two by itself. Okay. Three by itself. Or
+
+447
+00:24:17,520 --> 00:24:23,039
+you have a subset of one and two or one
+
+448
+00:24:20,400 --> 00:24:26,080
+and three or two and three or the whole
+
+449
+00:24:23,039 --> 00:24:28,159
+thing 1 2 3. You see that's subset. Of
+
+450
+00:24:26,080 --> 00:24:31,480
+course you can change you know the value
+
+451
+00:24:28,159 --> 00:24:31,480
+to whatever.
+
+452
+00:24:33,039 --> 00:24:38,799
+Uh so those are subsets you see and here
+
+453
+00:24:36,480 --> 00:24:42,240
+in term when we are talking about
+
+454
+00:24:38,799 --> 00:24:45,200
+subsets the order doesn't matter. So you
+
+455
+00:24:42,240 --> 00:24:47,679
+have a item of 1 three I mean you have a
+
+456
+00:24:45,200 --> 00:24:50,320
+item of one two but you do not have a
+
+457
+00:24:47,679 --> 00:24:52,159
+item of 2 one because they are
+
+458
+00:24:50,320 --> 00:24:54,480
+considered the same you know we are
+
+459
+00:24:52,159 --> 00:24:57,919
+talking about sets which is different
+
+460
+00:24:54,480 --> 00:25:01,600
+from tuples okay so here is how you
+
+461
+00:24:57,919 --> 00:25:07,159
+generate all possible subsets okay so
+
+462
+00:25:01,600 --> 00:25:07,159
+now let's return uh let's return to
+
+463
+00:25:07,520 --> 00:25:13,600
+to to whatever I had okay then there's
+
+464
+00:25:10,799 --> 00:25:17,440
+any many variations you can specify
+
+465
+00:25:13,600 --> 00:25:20,960
+subset of two items only. So you want um
+
+466
+00:25:17,440 --> 00:25:24,080
+wait maximum okay so you can specify
+
+467
+00:25:20,960 --> 00:25:26,080
+specify maximum length of the subset. So
+
+468
+00:25:24,080 --> 00:25:29,840
+in this example you don't have one two
+
+469
+00:25:26,080 --> 00:25:33,279
+three or you can specify the subset such
+
+470
+00:25:29,840 --> 00:25:36,640
+that each subset must just have exactly
+
+471
+00:25:33,279 --> 00:25:40,240
+two items. So then all you get is one
+
+472
+00:25:36,640 --> 00:25:42,320
+two 1 3 2 3. Okay. And this is still
+
+473
+00:25:40,240 --> 00:25:44,960
+different from turppos because if you
+
+474
+00:25:42,320 --> 00:25:48,080
+generate all possible tpples you would
+
+475
+00:25:44,960 --> 00:25:50,400
+have one two and two one right but you
+
+476
+00:25:48,080 --> 00:25:52,559
+don't have that here. So anyway so these
+
+477
+00:25:50,400 --> 00:25:55,200
+kind of problems you know generate all
+
+478
+00:25:52,559 --> 00:25:57,039
+possible uh things they are called
+
+479
+00:25:55,200 --> 00:26:00,080
+combinotaurics
+
+480
+00:25:57,039 --> 00:26:02,320
+that's a branch of mathematics. Okay, in
+
+481
+00:26:00,080 --> 00:26:04,000
+other words, it's called it's a counting
+
+482
+00:26:02,320 --> 00:26:06,080
+problem.
+
+483
+00:26:04,000 --> 00:26:08,000
+You know, technically it's trivial
+
+484
+00:26:06,080 --> 00:26:10,080
+because because you can actually just
+
+485
+00:26:08,000 --> 00:26:12,240
+count them, you know, like a like a
+
+486
+00:26:10,080 --> 00:26:15,360
+child, you know, you you you write down
+
+487
+00:26:12,240 --> 00:26:19,120
+all possible uh zero items, so possible
+
+488
+00:26:15,360 --> 00:26:22,000
+one item compare, you know, but it gets,
+
+489
+00:26:19,120 --> 00:26:23,840
+you know, quickly becomes impossible
+
+490
+00:26:22,000 --> 00:26:28,559
+because it's too, you know, it'll take
+
+491
+00:26:23,840 --> 00:26:30,640
+you one million years to finish it. So
+
+492
+00:26:28,559 --> 00:26:33,520
+that is why you have the mathematics of
+
+493
+00:26:30,640 --> 00:26:36,640
+combin combinotaurics that's kind of you
+
+494
+00:26:33,520 --> 00:26:39,760
+know finding efficient ways to count
+
+495
+00:26:36,640 --> 00:26:41,919
+things sometimes without even actually
+
+496
+00:26:39,760 --> 00:26:46,240
+counting and listing them you know
+
+497
+00:26:41,919 --> 00:26:49,440
+that's that's a it's a broad uh field of
+
+498
+00:26:46,240 --> 00:26:51,679
+mathematics. Okay. So for example in
+
+499
+00:26:49,440 --> 00:26:57,760
+graph theory lots of problem in graph
+
+500
+00:26:51,679 --> 00:27:00,159
+theory in um uh combin combinatorics or
+
+501
+00:26:57,760 --> 00:27:02,159
+the lottery you know if you buy a
+
+502
+00:27:00,159 --> 00:27:05,279
+lottery what are the chances you're
+
+503
+00:27:02,159 --> 00:27:07,840
+going to win that's probability right
+
+504
+00:27:05,279 --> 00:27:10,559
+but in order to do probability for this
+
+505
+00:27:07,840 --> 00:27:12,080
+problem you need combinotaurics because
+
+506
+00:27:10,559 --> 00:27:14,480
+you need to know all possible
+
+507
+00:27:12,080 --> 00:27:17,200
+combinations of you know six numbers out
+
+508
+00:27:14,480 --> 00:27:20,080
+of 49 something.
+
+509
+00:27:17,200 --> 00:27:23,679
+So combinotaurics is a branch. Okay. So
+
+510
+00:27:20,080 --> 00:27:26,559
+let's put this back. So subsets. So we
+
+511
+00:27:23,679 --> 00:27:28,400
+covered tpples. We covered you know some
+
+512
+00:27:26,559 --> 00:27:31,520
+example of subsets. There's small
+
+513
+00:27:28,400 --> 00:27:34,799
+variations. Then permutations is
+
+514
+00:27:31,520 --> 00:27:38,080
+interesting because um let me show you.
+
+515
+00:27:34,799 --> 00:27:41,679
+Uh so let's just do it here in wam
+
+516
+00:27:38,080 --> 00:27:44,000
+language. Okay. Uh let's delete this
+
+517
+00:27:41,679 --> 00:27:47,760
+humongous output.
+
+518
+00:27:44,000 --> 00:27:52,480
+Okay. So let's just
+
+519
+00:27:47,760 --> 00:27:56,000
+select all uh Ctrl A delete all. Okay.
+
+520
+00:27:52,480 --> 00:27:59,200
+Now let's just do the permutations.
+
+521
+00:27:56,000 --> 00:28:07,840
+So permutation of three things. So you
+
+522
+00:27:59,200 --> 00:28:10,080
+got ABC ACB B A C BCA CAB CBA. Okay,
+
+523
+00:28:07,840 --> 00:28:12,480
+that's permutations. That's another
+
+524
+00:28:10,080 --> 00:28:14,799
+combinatorics.
+
+525
+00:28:12,480 --> 00:28:17,279
+uh then you got variations then you got
+
+526
+00:28:14,799 --> 00:28:19,840
+groupings and sequences okay that is
+
+527
+00:28:17,279 --> 00:28:21,840
+what I want to do myself because I'm
+
+528
+00:28:19,840 --> 00:28:24,640
+writing a tutorial I don't have coverage
+
+529
+00:28:21,840 --> 00:28:26,799
+of that so let's let's write them and de
+
+530
+00:28:24,640 --> 00:28:28,320
+demonstrate okay
+
+531
+00:28:26,799 --> 00:28:32,640
+uh
+
+532
+00:28:28,320 --> 00:28:36,799
+so here is now Emacs workflow okay so
+
+533
+00:28:32,640 --> 00:28:39,520
+delete that so let's copy that delete uh
+
+534
+00:28:36,799 --> 00:28:41,120
+wait delete delete delete okay so
+
+535
+00:28:39,520 --> 00:28:44,640
+groupings
+
+536
+00:28:41,120 --> 00:28:46,720
+uh how do I want them. Okay. So, what
+
+537
+00:28:44,640 --> 00:28:48,480
+you have to do is do that that that
+
+538
+00:28:46,720 --> 00:28:50,880
+that.
+
+539
+00:28:48,480 --> 00:28:53,520
+Okay. Then subsequence is a function
+
+540
+00:28:50,880 --> 00:28:55,360
+name that that that that gives you a
+
+541
+00:28:53,520 --> 00:28:58,320
+list
+
+542
+00:28:55,360 --> 00:29:01,679
+a definition list. Okay. So, you want to
+
+543
+00:28:58,320 --> 00:29:04,159
+turn that to code brackets and you also
+
+544
+00:29:01,679 --> 00:29:06,880
+want to turn that to code bracket
+
+545
+00:29:04,159 --> 00:29:10,880
+refresh. That gets you that. Then of
+
+546
+00:29:06,880 --> 00:29:15,120
+course the references you got to move
+
+547
+00:29:10,880 --> 00:29:15,120
+uh remove the list. Okay. Then cut cut
+
+548
+00:29:15,120 --> 00:29:16,159
+cut cut cut cut cut cut cut cut cut cut
+
+549
+00:29:15,120 --> 00:29:19,919
+cut cut cut cut cut cut cut cut cut cut.
+
+550
+00:29:16,159 --> 00:29:22,880
+So here is a reference for sequences
+
+551
+00:29:19,919 --> 00:29:25,120
+subsequences all possible subsequences
+
+552
+00:29:22,880 --> 00:29:27,520
+and here is reference for all possible
+
+553
+00:29:25,120 --> 00:29:31,840
+groupings. Okay now let's demonstrate
+
+554
+00:29:27,520 --> 00:29:36,480
+groupings. Okay, I uh so start a wolfam
+
+555
+00:29:31,840 --> 00:29:40,679
+language code and uh let's just pop it
+
+556
+00:29:36,480 --> 00:29:40,679
+out grouping.
+
+557
+00:29:40,880 --> 00:29:50,240
+Okay, so let's see one two three. So
+
+558
+00:29:45,600 --> 00:29:52,559
+given a list it'll show you all possible
+
+559
+00:29:50,240 --> 00:29:54,399
+um like if you're going to put
+
+560
+00:29:52,559 --> 00:29:58,240
+parenthesis for example if you're going
+
+561
+00:29:54,399 --> 00:30:01,120
+to put parenthesis inside the list
+
+562
+00:29:58,240 --> 00:30:04,159
+that's one one grouping so basically you
+
+563
+00:30:01,120 --> 00:30:07,760
+want all possible groupings okay so
+
+564
+00:30:04,159 --> 00:30:10,760
+let's undo undo undo undo okay redo run
+
+565
+00:30:07,760 --> 00:30:10,760
+it
+
+566
+00:30:11,440 --> 00:30:17,440
+uh code with argument 203 expected okay
+
+567
+00:30:14,880 --> 00:30:19,760
+So
+
+568
+00:30:17,440 --> 00:30:22,559
+okay so you want let's see the
+
+569
+00:30:19,760 --> 00:30:27,200
+documentation groupings
+
+570
+00:30:22,559 --> 00:30:30,240
+okay K uh taken K at a time yeah so this
+
+571
+00:30:27,200 --> 00:30:33,039
+is this is actually the lottery
+
+572
+00:30:30,240 --> 00:30:36,159
+the chances to to compute the what
+
+573
+00:30:33,039 --> 00:30:39,360
+what's your chances of winning a lottery
+
+574
+00:30:36,159 --> 00:30:42,720
+groupings gives a list of all possible
+
+575
+00:30:39,360 --> 00:30:45,600
+groupings one to n taken n at a time
+
+576
+00:30:42,720 --> 00:30:50,320
+okay so let's let's rewrite Try that.
+
+577
+00:30:45,600 --> 00:30:54,399
+What? Oh god. Windows key control key
+
+578
+00:30:50,320 --> 00:30:57,679
+off. So that's a issue about
+
+579
+00:30:54,399 --> 00:31:01,120
+uh sticky keys.
+
+580
+00:30:57,679 --> 00:31:03,840
+Okay. So uh groupings let's say three
+
+581
+00:31:01,120 --> 00:31:06,960
+two. So three items taking two at a
+
+582
+00:31:03,840 --> 00:31:09,360
+time. Don't it?
+
+583
+00:31:06,960 --> 00:31:11,919
+Okay. So this three item means one two
+
+584
+00:31:09,360 --> 00:31:15,360
+three. So a list of one two three then
+
+585
+00:31:11,919 --> 00:31:18,880
+two at a time. take uh grouping two at a
+
+586
+00:31:15,360 --> 00:31:21,520
+time, doesn't it?
+
+587
+00:31:18,880 --> 00:31:24,559
+Yeah. So that's identical. So that's so
+
+588
+00:31:21,520 --> 00:31:28,799
+this this three is just a short hand of
+
+589
+00:31:24,559 --> 00:31:30,320
+generating this this list. Okay. This
+
+590
+00:31:28,799 --> 00:31:32,720
+list.
+
+591
+00:31:30,320 --> 00:31:35,840
+So
+
+592
+00:31:32,720 --> 00:31:38,960
+so that that is that is a basic idea. So
+
+593
+00:31:35,840 --> 00:31:42,240
+we just covered that and that then you
+
+594
+00:31:38,960 --> 00:31:45,200
+can have combination of all possible
+
+595
+00:31:42,240 --> 00:31:48,880
+groupings of each of the least AB taken
+
+596
+00:31:45,200 --> 00:31:53,279
+K at a time. So I'm not sure um what is
+
+597
+00:31:48,880 --> 00:31:57,200
+that? Let's try it. Okay. So comment out
+
+598
+00:31:53,279 --> 00:32:04,000
+comment out remove that copy that
+
+599
+00:31:57,200 --> 00:32:09,080
+one two three and let's say A B C. Okay.
+
+600
+00:32:04,000 --> 00:32:09,080
+uh taken two at a time don't it
+
+601
+00:32:09,519 --> 00:32:16,480
+invalid arity specification
+
+602
+00:32:13,039 --> 00:32:19,120
+what is that oh the first argument they
+
+603
+00:32:16,480 --> 00:32:21,919
+they should be together okay they should
+
+604
+00:32:19,120 --> 00:32:24,919
+be one list okay
+
+605
+00:32:21,919 --> 00:32:24,919
+it
+
+606
+00:32:29,679 --> 00:32:38,960
+so we got okay so we got one two then
+
+607
+00:32:33,760 --> 00:32:43,440
+three then a b then c and 1 2 3 and a.
+
+608
+00:32:38,960 --> 00:32:47,600
+So how does this work?
+
+609
+00:32:43,440 --> 00:32:50,000
+Uh taking two numbers. Okay. So you want
+
+610
+00:32:47,600 --> 00:32:52,559
+to group two elements.
+
+611
+00:32:50,000 --> 00:32:56,480
+So that's what these two means. group
+
+612
+00:32:52,559 --> 00:33:00,440
+two elements and uh
+
+613
+00:32:56,480 --> 00:33:00,440
+and uh
+
+614
+00:33:01,519 --> 00:33:13,320
+so actually this this is just equals to
+
+615
+00:33:06,880 --> 00:33:13,320
+you know this is actually just equals to
+
+616
+00:33:15,919 --> 00:33:22,360
+combination of these two I think am I
+
+617
+00:33:19,360 --> 00:33:22,360
+Right.
+
+618
+00:33:23,600 --> 00:33:30,480
+I mean combining these two results. So I
+
+619
+00:33:27,279 --> 00:33:34,960
+think let's see one two and three. One
+
+620
+00:33:30,480 --> 00:33:37,919
+and two three there. Yeah. A B and C. AB
+
+621
+00:33:34,960 --> 00:33:41,519
+and C. Yeah. So this is just the short
+
+622
+00:33:37,919 --> 00:33:45,360
+hand of these two together.
+
+623
+00:33:41,519 --> 00:33:47,600
+Okay. Anyway, that's um Okay. That's
+
+624
+00:33:45,360 --> 00:33:50,080
+some basic about grouping. Show in
+
+625
+00:33:47,600 --> 00:33:54,000
+browser.
+
+626
+00:33:50,080 --> 00:33:55,919
+So I need to permutations. So I need to
+
+627
+00:33:54,000 --> 00:33:57,760
+groupings. I need I need to write a
+
+628
+00:33:55,919 --> 00:33:59,519
+description and read read the
+
+629
+00:33:57,760 --> 00:34:03,039
+documentation
+
+630
+00:33:59,519 --> 00:34:06,559
+uh more in detail. Uh it can get fairly
+
+631
+00:34:03,039 --> 00:34:09,679
+complicated. Okay. So next item
+
+632
+00:34:06,559 --> 00:34:13,839
+next item is subsequences. That's very
+
+633
+00:34:09,679 --> 00:34:20,040
+interesting. So let me show you. So
+
+634
+00:34:13,839 --> 00:34:20,040
+subsequence. So let's wam language
+
+635
+00:34:20,159 --> 00:34:26,320
+subsequence
+
+636
+00:34:22,000 --> 00:34:31,720
+subsets no subsequence that's right and
+
+637
+00:34:26,320 --> 00:34:31,720
+let's say just one two three okay
+
+638
+00:34:33,599 --> 00:34:41,200
+you see now it's about subsequences
+
+639
+00:34:37,760 --> 00:34:44,240
+you see so you given a list that's a
+
+640
+00:34:41,200 --> 00:34:45,919
+sequence then you want all possible
+
+641
+00:34:44,240 --> 00:34:50,320
+subsequences.
+
+642
+00:34:45,919 --> 00:34:53,119
+So empty sequence is a subsequence. Now
+
+643
+00:34:50,320 --> 00:34:57,359
+the sequence just just of one number one
+
+644
+00:34:53,119 --> 00:35:00,960
+is a subsequence. So is two so is three.
+
+645
+00:34:57,359 --> 00:35:03,359
+Then you got one two as a subsequence.
+
+646
+00:35:00,960 --> 00:35:05,920
+Then two three a subsequence then one
+
+647
+00:35:03,359 --> 00:35:09,119
+two three. However you don't have one
+
+648
+00:35:05,920 --> 00:35:11,119
+three. You see you don't have one three
+
+649
+00:35:09,119 --> 00:35:15,280
+there. You see? So this is different
+
+650
+00:35:11,119 --> 00:35:17,839
+from turos and also different from
+
+651
+00:35:15,280 --> 00:35:19,920
+subset we showed before. So that's an
+
+652
+00:35:17,839 --> 00:35:22,560
+example
+
+653
+00:35:19,920 --> 00:35:26,560
+uh syntax color show in browser. I think
+
+654
+00:35:22,560 --> 00:35:29,839
+that's it for today. So when I'm offline
+
+655
+00:35:26,560 --> 00:35:31,839
+I'm going to you know read in detail uh
+
+656
+00:35:29,839 --> 00:35:36,079
+you know see all the variations and
+
+657
+00:35:31,839 --> 00:35:38,720
+document it here. So today this is about
+
+658
+00:35:36,079 --> 00:35:41,119
+list operations. Now you can try to
+
+659
+00:35:38,720 --> 00:35:42,800
+write any of these in Python, Golang,
+
+660
+00:35:41,119 --> 00:35:46,079
+JavaScript, whatever your favorite
+
+661
+00:35:42,800 --> 00:35:48,400
+language usually
+
+662
+00:35:46,079 --> 00:35:50,960
+um like all of these like except one or
+
+663
+00:35:48,400 --> 00:35:52,640
+two most of them are not in other
+
+664
+00:35:50,960 --> 00:35:56,480
+languages. So you have to write them
+
+665
+00:35:52,640 --> 00:35:59,440
+yourself and it's not trivial. Okay,
+
+666
+00:35:56,480 --> 00:36:02,720
+this is this is simple problem you know
+
+667
+00:35:59,440 --> 00:36:04,720
+you can you can do it in like 10 minutes
+
+668
+00:36:02,720 --> 00:36:07,359
+to an hour. If you are professional
+
+669
+00:36:04,720 --> 00:36:10,000
+coder, you can write it in five minutes
+
+670
+00:36:07,359 --> 00:36:12,960
+or if you are new, you can write it in 1
+
+671
+00:36:10,000 --> 00:36:15,119
+hour. But however,
+
+672
+00:36:12,960 --> 00:36:17,920
+when it comes to efficiency, you run
+
+673
+00:36:15,119 --> 00:36:19,920
+into problems because you you need to
+
+674
+00:36:17,920 --> 00:36:22,880
+write your code to generate all these
+
+675
+00:36:19,920 --> 00:36:26,000
+possible combinations in a efficient
+
+676
+00:36:22,880 --> 00:36:28,160
+manner. You know, speed and uh memory
+
+677
+00:36:26,000 --> 00:36:30,560
+consumption.
+
+678
+00:36:28,160 --> 00:36:32,960
+If you take those into account, if you
+
+679
+00:36:30,560 --> 00:36:35,280
+want to really write a program that's
+
+680
+00:36:32,960 --> 00:36:37,359
+really efficient,
+
+681
+00:36:35,280 --> 00:36:39,920
+then it becomes like it'll take you
+
+682
+00:36:37,359 --> 00:36:42,400
+several days, you know, something, you
+
+683
+00:36:39,920 --> 00:36:44,720
+know, something like that. And and also
+
+684
+00:36:42,400 --> 00:36:47,599
+if you want to create a one single
+
+685
+00:36:44,720 --> 00:36:49,920
+function that does all these variations,
+
+686
+00:36:47,599 --> 00:36:53,160
+so it's not trivial. So it's not trivial
+
+687
+00:36:49,920 --> 00:36:53,160
+at all.
+
+688
+00:36:53,440 --> 00:36:58,160
+Okay. So let me read the comments. I
+
+689
+00:36:55,200 --> 00:37:02,880
+think that's it for today. Uh that's 48
+
+690
+00:36:58,160 --> 00:37:07,359
+minutes. Uh that's about 40 minutes.
+
+691
+00:37:02,880 --> 00:37:10,079
+5.9 gigabyte download Wam language.
+
+692
+00:37:07,359 --> 00:37:11,839
+Oh, okay. It's also asking for a
+
+693
+00:37:10,079 --> 00:37:14,000
+license.
+
+694
+00:37:11,839 --> 00:37:16,079
+Well, you go to, you know, you just
+
+695
+00:37:14,000 --> 00:37:18,160
+follow their instructions. Don't do any
+
+696
+00:37:16,079 --> 00:37:20,240
+tricky stuff, you know. Don't create a
+
+697
+00:37:18,160 --> 00:37:22,880
+new email for whatever, you know. Then
+
+698
+00:37:20,240 --> 00:37:26,400
+you can you'll have it. I don't know
+
+699
+00:37:22,880 --> 00:37:29,280
+what, you know, it's asking. Yeah.
+
+700
+00:37:26,400 --> 00:37:31,599
+uh you know you can you know you can do
+
+701
+00:37:29,280 --> 00:37:34,160
+it. I I I don't remember exactly what's
+
+702
+00:37:31,599 --> 00:37:36,240
+the procedure.
+
+703
+00:37:34,160 --> 00:37:40,680
+Uh actually have I ever installed the
+
+704
+00:37:36,240 --> 00:37:40,680
+free version? I don't think I have.
+
+705
+00:37:48,240 --> 00:37:54,960
+ACP says, "I went to the computer museum
+
+706
+00:37:51,040 --> 00:37:58,240
+once and I saw Nintendo Saga display on
+
+707
+00:37:54,960 --> 00:38:00,480
+display." Nintendo and Sega. That's
+
+708
+00:37:58,240 --> 00:38:02,320
+nice.
+
+709
+00:38:00,480 --> 00:38:04,560
+Yeah. Well, they Yeah, they are
+
+710
+00:38:02,320 --> 00:38:07,599
+warranted.
+
+711
+00:38:04,560 --> 00:38:10,880
+Uh computer computing became popular in
+
+712
+00:38:07,599 --> 00:38:13,680
+last 40 years or so. So, this Linux and
+
+713
+00:38:10,880 --> 00:38:16,160
+Unix is just beginning. Other countries
+
+714
+00:38:13,680 --> 00:38:18,400
+are realizing the power of these tech
+
+715
+00:38:16,160 --> 00:38:21,200
+technologies. It is only a matter of
+
+716
+00:38:18,400 --> 00:38:25,040
+time when other people develop something
+
+717
+00:38:21,200 --> 00:38:27,760
+far more superior something. Uh, okay.
+
+718
+00:38:25,040 --> 00:38:30,640
+Seriously though, am I missing
+
+719
+00:38:27,760 --> 00:38:33,119
+something? If I exclusively use evil
+
+720
+00:38:30,640 --> 00:38:36,480
+mod, I could go back to default bindings
+
+721
+00:38:33,119 --> 00:38:39,680
+if that's the case.
+
+722
+00:38:36,480 --> 00:38:42,640
+Uh, so I I don't remember what is the
+
+723
+00:38:39,680 --> 00:38:45,520
+context, but Evo mod for EMAC is pretty
+
+724
+00:38:42,640 --> 00:38:48,320
+good. Okay. But if you want to upgrade,
+
+725
+00:38:45,520 --> 00:38:52,720
+you want to be more efficient, then I
+
+726
+00:38:48,320 --> 00:38:54,880
+recommend softly keys. Okay, which uh
+
+727
+00:38:52,720 --> 00:39:01,440
+pranchu you know are you the pranchu
+
+728
+00:38:54,880 --> 00:39:05,520
+guy? Uh who wait palash palash backup.
+
+729
+00:39:01,440 --> 00:39:07,680
+Um so kanfly keys I don't know if you if
+
+730
+00:39:05,520 --> 00:39:12,160
+you watch my video you know you know so
+
+731
+00:39:07,680 --> 00:39:15,839
+let me show um so kafly keys I talked
+
+732
+00:39:12,160 --> 00:39:19,520
+about few days ago there's episode on
+
+733
+00:39:15,839 --> 00:39:22,079
+latest version and lots of demo and I
+
+734
+00:39:19,520 --> 00:39:24,400
+have like tens of videos about keys so
+
+735
+00:39:22,079 --> 00:39:27,520
+it's the most efficient key binding
+
+736
+00:39:24,400 --> 00:39:29,920
+system for Emacs
+
+737
+00:39:27,520 --> 00:39:34,839
+and more efficient than vim okay more
+
+738
+00:39:29,920 --> 00:39:34,839
+efficient than if you actually use Vim.
+
+739
+00:39:36,079 --> 00:39:40,320
+God mod is no good. Okay, I can
+
+740
+00:39:38,480 --> 00:39:42,560
+recommend you know these are old
+
+741
+00:39:40,320 --> 00:39:45,760
+stories. God mod has been around since
+
+742
+00:39:42,560 --> 00:39:48,240
+15 years ago and I of course I know it
+
+743
+00:39:45,760 --> 00:39:51,920
+well. God mod is no good. Okay, I do not
+
+744
+00:39:48,240 --> 00:39:54,640
+recommend it at all. So ACP says most of
+
+745
+00:39:51,920 --> 00:39:59,440
+my professional experience has been with
+
+746
+00:39:54,640 --> 00:40:01,520
+web apps and big data apps. So while wam
+
+747
+00:39:59,440 --> 00:40:03,359
+language very powerful I am ignorant
+
+748
+00:40:01,520 --> 00:40:06,240
+ignorant about its application in
+
+749
+00:40:03,359 --> 00:40:07,760
+business world.
+
+750
+00:40:06,240 --> 00:40:10,240
+Uh
+
+751
+00:40:07,760 --> 00:40:14,480
+wuam language is business world not
+
+752
+00:40:10,240 --> 00:40:17,040
+much. Okay. uh
+
+753
+00:40:14,480 --> 00:40:19,760
+I think there are some in financial
+
+754
+00:40:17,040 --> 00:40:23,200
+world and in business world but they are
+
+755
+00:40:19,760 --> 00:40:27,520
+well there's you know wam language is
+
+756
+00:40:23,200 --> 00:40:29,680
+mostly for scientific programming or if
+
+757
+00:40:27,520 --> 00:40:32,000
+you are a hobbyist you want one
+
+758
+00:40:29,680 --> 00:40:34,560
+programming language that does
+
+759
+00:40:32,000 --> 00:40:37,680
+everything everything possible which is
+
+760
+00:40:34,560 --> 00:40:41,280
+actually the lisp philosophy 30 years
+
+761
+00:40:37,680 --> 00:40:43,680
+ago you know lisp is of the philosophy
+
+762
+00:40:41,280 --> 00:40:46,400
+that one language to rule them all. So
+
+763
+00:40:43,680 --> 00:40:50,320
+you have like all possible functions. Uh
+
+764
+00:40:46,400 --> 00:40:54,400
+wam language is like just one mega level
+
+765
+00:40:50,320 --> 00:40:57,280
+up. So you can you can do anything
+
+766
+00:40:54,400 --> 00:40:59,200
+physics, physics, chemistry, mechanical
+
+767
+00:40:57,280 --> 00:41:01,760
+engineering, electronic engineering,
+
+768
+00:40:59,200 --> 00:41:05,119
+anything algorithms possible. If it's
+
+769
+00:41:01,760 --> 00:41:07,760
+possible to build in if it's a known
+
+770
+00:41:05,119 --> 00:41:09,839
+algorithm, it's already built in. Okay?
+
+771
+00:41:07,760 --> 00:41:12,800
+If it's a known concept such as machine
+
+772
+00:41:09,839 --> 00:41:15,520
+learning such as statistics such as
+
+773
+00:41:12,800 --> 00:41:18,160
+probability, combinatorics, uh list
+
+774
+00:41:15,520 --> 00:41:19,680
+processing, text processing, artificial
+
+775
+00:41:18,160 --> 00:41:23,200
+intelligence, neuronet networks,
+
+776
+00:41:19,680 --> 00:41:26,000
+modeling, modeling or physics, fluid
+
+777
+00:41:23,200 --> 00:41:29,280
+dynamics, you know, if it's possible
+
+778
+00:41:26,000 --> 00:41:31,520
+possibly done by computer, it is in Wuam
+
+779
+00:41:29,280 --> 00:41:35,119
+language building usually by just one
+
+780
+00:41:31,520 --> 00:41:38,800
+function. Okay. So you can in in in some
+
+781
+00:41:35,119 --> 00:41:42,240
+sense you can think of it as a the god's
+
+782
+00:41:38,800 --> 00:41:44,560
+calculator. Okay. You don't have to oh
+
+783
+00:41:42,240 --> 00:41:47,040
+uh I'm going to download Python you know
+
+784
+00:41:44,560 --> 00:41:50,240
+you need this library that you know or
+
+785
+00:41:47,040 --> 00:41:52,319
+mpm you know then then what does this
+
+786
+00:41:50,240 --> 00:41:54,160
+library do? Oh it's got a bug. So you
+
+787
+00:41:52,319 --> 00:41:57,520
+have to use that library. You need to
+
+788
+00:41:54,160 --> 00:42:00,319
+update the version you know like a mess.
+
+789
+00:41:57,520 --> 00:42:03,599
+So woof language one single single
+
+790
+00:42:00,319 --> 00:42:06,240
+package coherent to do it all
+
+791
+00:42:03,599 --> 00:42:08,960
+and it is mostly used by engineers
+
+792
+00:42:06,240 --> 00:42:10,480
+engineers scientist mathematicians
+
+793
+00:42:08,960 --> 00:42:13,520
+physicist
+
+794
+00:42:10,480 --> 00:42:17,839
+mostly okay but they today and computer
+
+795
+00:42:13,520 --> 00:42:21,359
+scientist okay for example Donald
+
+796
+00:42:17,839 --> 00:42:24,720
+uses wuam language long time and he also
+
+797
+00:42:21,359 --> 00:42:26,720
+uses emacs emacs and wuam language and
+
+798
+00:42:24,720 --> 00:42:29,599
+and and quite a few several you know
+
+799
+00:42:26,720 --> 00:42:34,839
+prominent and computer scientist.
+
+800
+00:42:29,599 --> 00:42:34,839
+Okay, that's it for today. Bye, guys.
+
+801
+00:42:36,160 --> 00:42:45,079
+Uh yeah. So, so if you like my stuff,
+
+802
+00:42:40,720 --> 00:42:45,079
+donate to me, okay? Go to.info.
+
+803
+00:42:45,440 --> 00:42:52,000
+Uh go to the bottom. If you have a job,
+
+804
+00:42:48,720 --> 00:42:56,319
+donate to me $100, okay? Patreon me,
+
+805
+00:42:52,000 --> 00:42:59,520
+Amazon gift card me, PayPal me.
+
+806
+00:42:56,319 --> 00:43:02,640
+That's it.
+
+807
+00:42:59,520 --> 00:43:06,160
+Copy that. We shut down in a minute.
+
+808
+00:43:02,640 --> 00:43:08,480
+Okay. So, let's just paste uh stuff
+
+809
+00:43:06,160 --> 00:43:11,800
+here.
+
+810
+00:43:08,480 --> 00:43:11,800
+Bye, guys.
+

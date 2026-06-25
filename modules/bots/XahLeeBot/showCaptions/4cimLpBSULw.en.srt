@@ -1,0 +1,4416 @@
+1
+00:00:01,839 --> 00:00:06,879
+Good evening. Good evening, guys.
+
+2
+00:00:04,640 --> 00:00:08,880
+Welcome to another episode of Cloud Talk
+
+3
+00:00:06,879 --> 00:00:10,559
+Show. So, we're going to start to code
+
+4
+00:00:08,880 --> 00:00:12,880
+JavaScript
+
+5
+00:00:10,559 --> 00:00:15,120
+in depth functional pro programming
+
+6
+00:00:12,880 --> 00:00:17,119
+today. Functional Programming Supreme.
+
+7
+00:00:15,120 --> 00:00:20,080
+This is my keyboard, Ultimate Hacking
+
+8
+00:00:17,119 --> 00:00:22,240
+Keyboard 80, UHK80.
+
+9
+00:00:20,080 --> 00:00:26,000
+Uh, search my YouTube, you'll find
+
+10
+00:00:22,240 --> 00:00:28,400
+reviews. Okay. Uh, now let's get on to
+
+11
+00:00:26,000 --> 00:00:31,279
+uh code. Okay. So, here is this talk
+
+12
+00:00:28,400 --> 00:00:34,000
+show showing browser. So you can see my
+
+13
+00:00:31,279 --> 00:00:36,640
+Emacs. So those uh the most powerful
+
+14
+00:00:34,000 --> 00:00:39,600
+editor Emacs that I'm using the ping
+
+15
+00:00:36,640 --> 00:00:42,079
+window shows all my uh command codes and
+
+16
+00:00:39,600 --> 00:00:45,840
+keystrokes. You can see uh why can't I
+
+17
+00:00:42,079 --> 00:00:51,200
+just um so you can see
+
+18
+00:00:45,840 --> 00:00:53,680
+oh it didn't wait what happened to my um
+
+19
+00:00:51,200 --> 00:00:55,600
+it does not let me move my cursor up
+
+20
+00:00:53,680 --> 00:00:58,559
+anyway. So let's focus on JavaScript.
+
+21
+00:00:55,600 --> 00:01:00,559
+Okay, JavaScript. So we going to do uh
+
+22
+00:00:58,559 --> 00:01:02,480
+functional programming. Okay. So let
+
+23
+00:01:00,559 --> 00:01:04,320
+let's start to do it. Okay. I'm uh going
+
+24
+00:01:02,480 --> 00:01:07,119
+to teach you something about functional
+
+25
+00:01:04,320 --> 00:01:12,640
+programming in JavaScript. Okay. Uh hey
+
+26
+00:01:07,119 --> 00:01:16,159
+brother AC. Hello. Awesome. The show uh
+
+27
+00:01:12,640 --> 00:01:19,119
+the show is still on. Yes. Yes. Uh yes.
+
+28
+00:01:16,159 --> 00:01:21,600
+Test. Test. Audio check. Video check.
+
+29
+00:01:19,119 --> 00:01:25,360
+Right. Okay. So JavaScript. Okay. So
+
+30
+00:01:21,600 --> 00:01:28,320
+let's go to uh let's begin JavaScript.
+
+31
+00:01:25,360 --> 00:01:30,479
+um JavaScript in depth and uh scroll
+
+32
+00:01:28,320 --> 00:01:33,520
+down. So this is the best tutorial on
+
+33
+00:01:30,479 --> 00:01:37,880
+JavaScript my tutorial. Okay, so let's
+
+34
+00:01:33,520 --> 00:01:37,880
+uh just just go to um
+
+35
+00:01:38,960 --> 00:01:43,040
+functional programming. Okay, so you can
+
+36
+00:01:40,799 --> 00:01:45,200
+you can you can check uh miscellaneous
+
+37
+00:01:43,040 --> 00:01:47,520
+at the bottom there's advanced section
+
+38
+00:01:45,200 --> 00:01:50,960
+about functional programming uh
+
+39
+00:01:47,520 --> 00:01:53,119
+JavaScript exclamation uh before
+
+40
+00:01:50,960 --> 00:01:55,119
+function. I should move those away. Uh
+
+41
+00:01:53,119 --> 00:01:58,560
+anyway, here so JavaScript style guide
+
+42
+00:01:55,119 --> 00:02:00,479
+for functional programmers. Okay, so uh
+
+43
+00:01:58,560 --> 00:02:02,479
+I have a bunch of tips. If you're going
+
+44
+00:02:00,479 --> 00:02:04,560
+to if uh you want to format your
+
+45
+00:02:02,479 --> 00:02:06,719
+JavaScript code, I recommend Deno
+
+46
+00:02:04,560 --> 00:02:08,720
+format. Deno, okay, demo. Deno is the
+
+47
+00:02:06,719 --> 00:02:10,800
+best thing. [snorts]
+
+48
+00:02:08,720 --> 00:02:15,360
+Download Deno. Okay, uh Deno is much
+
+49
+00:02:10,800 --> 00:02:18,239
+better than MPN, MPM or NodeJS. Okay, so
+
+50
+00:02:15,360 --> 00:02:21,280
+I recommend Deno for code for formatting
+
+51
+00:02:18,239 --> 00:02:23,760
+and uh uh disable auto format for code
+
+52
+00:02:21,280 --> 00:02:25,760
+block. uh if you want to do that yeah uh
+
+53
+00:02:23,760 --> 00:02:28,319
+sometimes you need to do that because
+
+54
+00:02:25,760 --> 00:02:30,080
+sometimes you have anyway there there
+
+55
+00:02:28,319 --> 00:02:32,800
+are occasions you need to do this okay
+
+56
+00:02:30,080 --> 00:02:34,879
+but let's go back never use v so anyway
+
+57
+00:02:32,800 --> 00:02:38,080
+I have some tips okay but first of all
+
+58
+00:02:34,879 --> 00:02:42,959
+so these are basic tips uh arranged from
+
+59
+00:02:38,080 --> 00:02:46,000
+the most easy to understand easy to do
+
+60
+00:02:42,959 --> 00:02:48,480
+then to the most advanced functional
+
+61
+00:02:46,000 --> 00:02:51,040
+programming tips okay so in the
+
+62
+00:02:48,480 --> 00:02:54,879
+beginning the so for example uh by the
+
+63
+00:02:51,040 --> 00:02:57,519
+way you can see uh my code you know my
+
+64
+00:02:54,879 --> 00:02:59,920
+functional programming code this is um
+
+65
+00:02:57,519 --> 00:03:02,800
+this is unic code so let's go to unic
+
+66
+00:02:59,920 --> 00:03:05,120
+code I got a lot of things to do uh to
+
+67
+00:03:02,800 --> 00:03:07,519
+talk about so
+
+68
+00:03:05,120 --> 00:03:10,319
+uh at this rate we'll never finish so
+
+69
+00:03:07,519 --> 00:03:14,319
+for example this is uh unic code search
+
+70
+00:03:10,319 --> 00:03:18,159
+you can type anything let's say f i e
+
+71
+00:03:14,319 --> 00:03:21,040
+and uh it will show up uh let's m let's
+
+72
+00:03:18,159 --> 00:03:23,760
+shrink
+
+73
+00:03:21,040 --> 00:03:29,840
+It will show up all the characters as as
+
+74
+00:03:23,760 --> 00:03:33,440
+you type. Uh for example, f i e show up
+
+75
+00:03:29,840 --> 00:03:36,000
+uh dynamically or unic code whose name
+
+76
+00:03:33,440 --> 00:03:42,400
+contains f i r e. Oh, let's try water.
+
+77
+00:03:36,000 --> 00:03:47,120
+Okay. W A T E R. Okay. Let's say fruit.
+
+78
+00:03:42,400 --> 00:03:49,360
+F R U. Okay. There's only one Unicode
+
+79
+00:03:47,120 --> 00:03:53,120
+character contains whose name contains
+
+80
+00:03:49,360 --> 00:03:55,040
+the word F ru. Okay, let's say uh you
+
+81
+00:03:53,120 --> 00:03:56,640
+know when you try something uh funky
+
+82
+00:03:55,040 --> 00:04:02,480
+that's more interesting. Let's say
+
+83
+00:03:56,640 --> 00:04:04,400
+number n u mb e r. So n u n. So y
+
+84
+00:04:02,480 --> 00:04:09,200
+capital case
+
+85
+00:04:04,400 --> 00:04:11,840
+n u mb e. Uh so you got more than 500
+
+86
+00:04:09,200 --> 00:04:15,599
+characters that's number. Okay. So let's
+
+87
+00:04:11,840 --> 00:04:21,280
+see. So let's try. So now let's do at t
+
+88
+00:04:15,599 --> 00:04:24,080
+h o u n. So you got 122 characters, you
+
+89
+00:04:21,280 --> 00:04:27,199
+know. So these are all
+
+90
+00:04:24,080 --> 00:04:31,040
+uh characters in different human
+
+91
+00:04:27,199 --> 00:04:34,160
+languages that represents the number
+
+92
+00:04:31,040 --> 00:04:36,160
+10,00. Okay. Very interesting.
+
+93
+00:04:34,160 --> 00:04:40,240
+Okay. So you can see this code. This is
+
+94
+00:04:36,160 --> 00:04:43,440
+Unicode. So let's go to Unicode uh.ts.
+
+95
+00:04:40,240 --> 00:04:47,520
+So that is the uh
+
+96
+00:04:43,440 --> 00:04:50,479
+that code is the
+
+97
+00:04:47,520 --> 00:04:52,880
+search. So that is that JavaScript
+
+98
+00:04:50,479 --> 00:04:57,199
+search typescript.
+
+99
+00:04:52,880 --> 00:05:00,080
+Okay. So this um wait that's the data
+
+100
+00:04:57,199 --> 00:05:02,800
+part. So search is this part. Okay. So
+
+101
+00:05:00,080 --> 00:05:05,120
+this is all pure functional code. Okay.
+
+102
+00:05:02,800 --> 00:05:07,840
+So that's the I'm talking about that
+
+103
+00:05:05,120 --> 00:05:10,800
+because I was I was going to tell you
+
+104
+00:05:07,840 --> 00:05:12,880
+where the screenshot came from. So I
+
+105
+00:05:10,800 --> 00:05:15,280
+mean the screenshot just give you a
+
+106
+00:05:12,880 --> 00:05:17,360
+sense of like what functional
+
+107
+00:05:15,280 --> 00:05:19,680
+programming style looks like in
+
+108
+00:05:17,360 --> 00:05:22,320
+JavaScript. So you can see this file.
+
+109
+00:05:19,680 --> 00:05:24,639
+Okay. So this file is only like 300
+
+110
+00:05:22,320 --> 00:05:26,479
+lines. Okay. Pure functional
+
+111
+00:05:24,639 --> 00:05:28,880
+programming. Fantastic. Okay. So we
+
+112
+00:05:26,479 --> 00:05:31,520
+talked about that that close close um
+
+113
+00:05:28,880 --> 00:05:34,320
+close close. Uh we got a lot of things
+
+114
+00:05:31,520 --> 00:05:36,479
+to do actually. Uh don't close that.
+
+115
+00:05:34,320 --> 00:05:39,440
+Okay. So showing browser what is this
+
+116
+00:05:36,479 --> 00:05:42,320
+unic code block close show in browser.
+
+117
+00:05:39,440 --> 00:05:43,759
+Uh okay so why so I want to tell you
+
+118
+00:05:42,320 --> 00:05:45,840
+about functional programming guide.
+
+119
+00:05:43,759 --> 00:05:48,479
+Okay. So beginning in the beginning you
+
+120
+00:05:45,840 --> 00:05:50,960
+just don't use var and always declare
+
+121
+00:05:48,479 --> 00:05:53,680
+variables. Okay. Declare them by let or
+
+122
+00:05:50,960 --> 00:05:57,360
+constant. Okay. Never use double equal
+
+123
+00:05:53,680 --> 00:06:00,400
+because double equal they automatically
+
+124
+00:05:57,360 --> 00:06:03,280
+do type conversion. So then you get a
+
+125
+00:06:00,400 --> 00:06:06,160
+situation if you do compare empty string
+
+126
+00:06:03,280 --> 00:06:09,919
+versus empty array it will come out
+
+127
+00:06:06,160 --> 00:06:11,840
+equal or some some weird result you know
+
+128
+00:06:09,919 --> 00:06:14,160
+double equal so don't use that use
+
+129
+00:06:11,840 --> 00:06:17,280
+triple equal okay so there's full detail
+
+130
+00:06:14,160 --> 00:06:19,919
+about that so all these are easy um to
+
+131
+00:06:17,280 --> 00:06:23,039
+do uh things never use forin loop
+
+132
+00:06:19,919 --> 00:06:26,240
+because for in loop you uh they they
+
+133
+00:06:23,039 --> 00:06:29,680
+will go up to the parent chain which is
+
+134
+00:06:26,240 --> 00:06:31,520
+basically never what you want they go to
+
+135
+00:06:29,680 --> 00:06:35,840
+the prototype chain. Okay, so you want
+
+136
+00:06:31,520 --> 00:06:39,759
+to use object keys instead or for of
+
+137
+00:06:35,840 --> 00:06:43,199
+loop. Okay, object keys uh then do for
+
+138
+00:06:39,759 --> 00:06:45,520
+each then uh then you can also do um you
+
+139
+00:06:43,199 --> 00:06:47,840
+know so there's a a bunch of ways to
+
+140
+00:06:45,520 --> 00:06:51,919
+list properties in JavaScript. You can
+
+141
+00:06:47,840 --> 00:06:55,440
+use object.key keys or and uh uh object
+
+142
+00:06:51,919 --> 00:06:57,840
+get own property names and reflect own
+
+143
+00:06:55,440 --> 00:07:00,319
+keys. You know they they are a bit
+
+144
+00:06:57,840 --> 00:07:03,680
+complicated because in JavaScript you
+
+145
+00:07:00,319 --> 00:07:07,199
+got the issue of innumerable keys versus
+
+146
+00:07:03,680 --> 00:07:11,599
+symbol keys versus string keys. So each
+
+147
+00:07:07,199 --> 00:07:13,919
+way to to list the keys differ whether
+
+148
+00:07:11,599 --> 00:07:16,720
+depending on whether you want the you
+
+149
+00:07:13,919 --> 00:07:18,800
+want non innumerable keys to be included
+
+150
+00:07:16,720 --> 00:07:21,120
+or if you want the symbol keys to be
+
+151
+00:07:18,800 --> 00:07:24,400
+included. Usually you don't want okay
+
+152
+00:07:21,120 --> 00:07:28,319
+but uh sometimes you do and or if you
+
+153
+00:07:24,400 --> 00:07:30,960
+want them to go to up the up one up the
+
+154
+00:07:28,319 --> 00:07:33,360
+uh prototype chain so that so that if
+
+155
+00:07:30,960 --> 00:07:37,360
+you want that that then you use for loop
+
+156
+00:07:33,360 --> 00:07:39,759
+but almost you never want that
+
+157
+00:07:37,360 --> 00:07:42,240
+okay so so so
+
+158
+00:07:39,759 --> 00:07:43,919
+the key here is don't use for in loop
+
+159
+00:07:42,240 --> 00:07:47,280
+okay because most people don't know they
+
+160
+00:07:43,919 --> 00:07:49,599
+just like for in uh because that's the
+
+161
+00:07:47,280 --> 00:07:52,960
+most familiar because that exists is in
+
+162
+00:07:49,599 --> 00:07:54,560
+lots of other languages like Python but
+
+163
+00:07:52,960 --> 00:07:57,039
+that's a mistake if you do that in
+
+164
+00:07:54,560 --> 00:08:01,120
+JavaScript that's a mistake for in loop
+
+165
+00:07:57,039 --> 00:08:03,440
+don't use that okay use for of loop so
+
+166
+00:08:01,120 --> 00:08:07,520
+for of loop that I have an introduction
+
+167
+00:08:03,440 --> 00:08:11,199
+so let's see for in loop um uh for of
+
+168
+00:08:07,520 --> 00:08:14,400
+loop for of loop is introduced in 2015
+
+169
+00:08:11,199 --> 00:08:17,759
+okay so use that don't do forin okay so
+
+170
+00:08:14,400 --> 00:08:20,879
+we so this these are tips for functional
+
+171
+00:08:17,759 --> 00:08:22,960
+programming and as well as some other uh
+
+172
+00:08:20,879 --> 00:08:25,039
+basically JavaScript tip tips. For
+
+173
+00:08:22,960 --> 00:08:26,560
+example, this for in loop that's not
+
+174
+00:08:25,039 --> 00:08:30,400
+really about functional programming.
+
+175
+00:08:26,560 --> 00:08:32,560
+It's about um JavaScript problems you
+
+176
+00:08:30,400 --> 00:08:35,120
+want to avoid. Okay. Anyway, let's move
+
+177
+00:08:32,560 --> 00:08:39,039
+on. So width never use width. In fact,
+
+178
+00:08:35,120 --> 00:08:42,320
+width got uh you can't even use it today
+
+179
+00:08:39,039 --> 00:08:44,159
+because they um in Deno for example they
+
+180
+00:08:42,320 --> 00:08:47,920
+um
+
+181
+00:08:44,159 --> 00:08:51,839
+the in in in in any code that contains a
+
+182
+00:08:47,920 --> 00:08:54,399
+module of JavaScript they automatically
+
+183
+00:08:51,839 --> 00:08:57,360
+evaluate it. They turn the mod into a
+
+184
+00:08:54,399 --> 00:08:59,279
+use strict mod which does not allow with
+
+185
+00:08:57,360 --> 00:09:01,920
+statement. Okay. So anyway that's a
+
+186
+00:08:59,279 --> 00:09:04,480
+width statement. I don't know if you
+
+187
+00:09:01,920 --> 00:09:08,800
+guys even know about that because nobody
+
+188
+00:09:04,480 --> 00:09:10,959
+use it in. Okay, so never assign array
+
+189
+00:09:08,800 --> 00:09:13,600
+by index.
+
+190
+00:09:10,959 --> 00:09:15,519
+Okay, that's another um issue like
+
+191
+00:09:13,600 --> 00:09:17,920
+sometimes in other programming languages
+
+192
+00:09:15,519 --> 00:09:20,480
+you just create an array and you assign
+
+193
+00:09:17,920 --> 00:09:22,959
+array index zero equals to something
+
+194
+00:09:20,480 --> 00:09:25,040
+index n equals to something right don't
+
+195
+00:09:22,959 --> 00:09:27,519
+do that in JavaScript okay because that
+
+196
+00:09:25,040 --> 00:09:30,560
+easily that will create a sparse array
+
+197
+00:09:27,519 --> 00:09:33,920
+sparse array means you got array but
+
+198
+00:09:30,560 --> 00:09:36,000
+some item does not exist like you you
+
+199
+00:09:33,920 --> 00:09:38,160
+got this complicated situation like
+
+200
+00:09:36,000 --> 00:09:41,279
+array but some item that doesn't
+
+201
+00:09:38,160 --> 00:09:44,000
+actually exist so what happens S if you
+
+202
+00:09:41,279 --> 00:09:46,240
+map, you know, map some function to the
+
+203
+00:09:44,000 --> 00:09:49,200
+array, weird things happen depending on
+
+204
+00:09:46,240 --> 00:09:55,200
+which method you use. For example, if
+
+205
+00:09:49,200 --> 00:09:57,680
+you use map, they skip these nonexistent
+
+206
+00:09:55,200 --> 00:10:00,720
+indexes. But if you use some other
+
+207
+00:09:57,680 --> 00:10:03,519
+function, let's say array.form or field
+
+208
+00:10:00,720 --> 00:10:06,640
+depending on the method. So then then
+
+209
+00:10:03,519 --> 00:10:10,320
+they will automatically
+
+210
+00:10:06,640 --> 00:10:13,839
+view these empty indexes by a value of
+
+211
+00:10:10,320 --> 00:10:15,680
+undefined. Okay. So um so depends on the
+
+212
+00:10:13,839 --> 00:10:18,160
+method. So you got the complic
+
+213
+00:10:15,680 --> 00:10:19,920
+complicated situation whenever you call
+
+214
+00:10:18,160 --> 00:10:22,240
+a method on array you have to think
+
+215
+00:10:19,920 --> 00:10:24,399
+about oh whether this is sparse or not
+
+216
+00:10:22,240 --> 00:10:27,600
+which method I'm using on it whether
+
+217
+00:10:24,399 --> 00:10:31,360
+that method how they deal with
+
+218
+00:10:27,600 --> 00:10:33,839
+array when it is sparse array. Okay. So
+
+219
+00:10:31,360 --> 00:10:36,560
+in general you never want anything you
+
+220
+00:10:33,839 --> 00:10:39,920
+you never want the situation of sparse
+
+221
+00:10:36,560 --> 00:10:44,079
+array to happen. Okay. So one of the tip
+
+222
+00:10:39,920 --> 00:10:47,200
+to avoid sparse array is just never um
+
+223
+00:10:44,079 --> 00:10:50,480
+assign array element like that. Usually
+
+224
+00:10:47,200 --> 00:10:52,480
+this is not a good thing to do anyway in
+
+225
+00:10:50,480 --> 00:10:55,200
+algorithms. You usually you want to
+
+226
+00:10:52,480 --> 00:10:58,800
+manipulate array in a systematic way
+
+227
+00:10:55,200 --> 00:11:00,902
+like push pop shift and shift. Those are
+
+228
+00:10:58,800 --> 00:11:01,120
+common ways to
+
+229
+00:11:00,902 --> 00:11:04,480
+>> [snorts]
+
+230
+00:11:01,120 --> 00:11:06,800
+>> um common uh methodology in data
+
+231
+00:11:04,480 --> 00:11:09,120
+structure uh in algorithms because those
+
+232
+00:11:06,800 --> 00:11:12,240
+are stacks you know so when you use
+
+233
+00:11:09,120 --> 00:11:14,560
+array like a stack you you want push pop
+
+234
+00:11:12,240 --> 00:11:17,120
+shift and shift okay so that's a common
+
+235
+00:11:14,560 --> 00:11:20,000
+way to do it but if you need to uh
+
+236
+00:11:17,120 --> 00:11:23,600
+remove items in array for example array
+
+237
+00:11:20,000 --> 00:11:26,399
+represent let's say some some list of
+
+238
+00:11:23,600 --> 00:11:28,399
+things that's important things so when
+
+239
+00:11:26,399 --> 00:11:30,800
+you finish with that thing you don't
+
+240
+00:11:28,399 --> 00:11:33,600
+want the list you don't want it to be in
+
+241
+00:11:30,800 --> 00:11:38,240
+a array right suppose suppose this array
+
+242
+00:11:33,600 --> 00:11:40,959
+means a to-do list or uh existing bank
+
+243
+00:11:38,240 --> 00:11:43,360
+account something right so if a count is
+
+244
+00:11:40,959 --> 00:11:47,120
+closed you don't want that element to be
+
+245
+00:11:43,360 --> 00:11:49,440
+in an array anymore so in so if you want
+
+246
+00:11:47,120 --> 00:11:52,720
+to systematically deal with array you
+
+247
+00:11:49,440 --> 00:11:55,440
+use a splice key splice
+
+248
+00:11:52,720 --> 00:12:00,079
+uh method okay so array prototype these
+
+249
+00:11:55,440 --> 00:12:02,959
+are all array methods you want to use um
+
+250
+00:12:00,079 --> 00:12:04,880
+uh splice or even better if if you are
+
+251
+00:12:02,959 --> 00:12:08,880
+doing functional programming you use two
+
+252
+00:12:04,880 --> 00:12:11,839
+spliced. So this two splice is added in
+
+253
+00:12:08,880 --> 00:12:15,440
+2023 two years ago. What does it do?
+
+254
+00:12:11,839 --> 00:12:18,320
+It's exactly like splice except it
+
+255
+00:12:15,440 --> 00:12:21,600
+returns a new value. It does not modify
+
+256
+00:12:18,320 --> 00:12:23,519
+the array. Okay. So it's like so you
+
+257
+00:12:21,600 --> 00:12:25,440
+know the JavaScript is trying to fix
+
+258
+00:12:23,519 --> 00:12:27,680
+lots of things trying to improve. So
+
+259
+00:12:25,440 --> 00:12:29,600
+this new function two years ago two
+
+260
+00:12:27,680 --> 00:12:31,360
+spliced. Okay. So anyway that's about
+
+261
+00:12:29,600 --> 00:12:34,240
+array.
+
+262
+00:12:31,360 --> 00:12:36,079
+So uh am I doing good? Do you guys like
+
+263
+00:12:34,240 --> 00:12:38,000
+what I'm doing? Because I want to move
+
+264
+00:12:36,079 --> 00:12:42,639
+on, you know, because I'm, you know,
+
+265
+00:12:38,000 --> 00:12:45,200
+usually I don't like to like give a
+
+266
+00:12:42,639 --> 00:12:47,440
+tutorial, you know, because I I got lots
+
+267
+00:12:45,200 --> 00:12:51,120
+of things to do. I I need to work on my
+
+268
+00:12:47,440 --> 00:12:54,000
+tutorial. So uh so you know so this page
+
+269
+00:12:51,120 --> 00:12:56,720
+if I continue to expand each item
+
+270
+00:12:54,000 --> 00:12:58,800
+quickly. So we are here about never
+
+271
+00:12:56,720 --> 00:13:01,200
+assign array by index we are almost
+
+272
+00:12:58,800 --> 00:13:03,279
+halfway. Then you got the issue about
+
+273
+00:13:01,200 --> 00:13:05,680
+the delete operator basically never use
+
+274
+00:13:03,279 --> 00:13:08,959
+it. Okay. So how how am I doing? Do you
+
+275
+00:13:05,680 --> 00:13:10,560
+guys want me to like um go through this
+
+276
+00:13:08,959 --> 00:13:12,880
+or
+
+277
+00:13:10,560 --> 00:13:15,200
+or I move on to something I want I I
+
+278
+00:13:12,880 --> 00:13:17,600
+need to do for my website. So I explain
+
+279
+00:13:15,200 --> 00:13:19,760
+alone what I'm doing. Okay. So let me
+
+280
+00:13:17,600 --> 00:13:22,160
+know AC. So let's see what you guys
+
+281
+00:13:19,760 --> 00:13:25,040
+think.
+
+282
+00:13:22,160 --> 00:13:27,279
+Uh so let's see. It's very annoying.
+
+283
+00:13:25,040 --> 00:13:30,639
+Every time you click on this, it
+
+284
+00:13:27,279 --> 00:13:35,279
+automatically create this uh you know
+
+285
+00:13:30,639 --> 00:13:37,680
+channel stuff. So let's see. I look at
+
+286
+00:13:35,279 --> 00:13:40,399
+all things not to do in language at my
+
+287
+00:13:37,680 --> 00:13:42,720
+level. It's faster. I look at all the
+
+288
+00:13:40,399 --> 00:13:44,880
+things not to do in a language at my
+
+289
+00:13:42,720 --> 00:13:46,639
+level. It's faster. Okay. I kind of
+
+290
+00:13:44,880 --> 00:13:49,760
+understand what you mean but not
+
+291
+00:13:46,639 --> 00:13:53,480
+exactly. Yeah. I I guess that's one way
+
+292
+00:13:49,760 --> 00:13:53,480
+to um
+
+293
+00:13:53,760 --> 00:13:59,760
+not to do. Okay. So avoid things.
+
+294
+00:13:57,519 --> 00:14:03,279
+That's one way to
+
+295
+00:13:59,760 --> 00:14:06,720
+learn I guess. Uh or something. Do you
+
+296
+00:14:03,279 --> 00:14:09,440
+use flight check? Uh no I don't use
+
+297
+00:14:06,720 --> 00:14:11,680
+flight check. I never used flight
+
+298
+00:14:09,440 --> 00:14:15,120
+checker.
+
+299
+00:14:11,680 --> 00:14:19,199
+Uh nor lint. Okay. So
+
+300
+00:14:15,120 --> 00:14:22,560
+in fact I despise the the jargon llinter
+
+301
+00:14:19,199 --> 00:14:25,920
+that came from C idiots. Okay. They they
+
+302
+00:14:22,560 --> 00:14:29,360
+the word llinter as far as I know it's
+
+303
+00:14:25,920 --> 00:14:32,959
+from 1990s. It's from the C programming
+
+304
+00:14:29,360 --> 00:14:36,000
+kind of or C++ community. They have this
+
+305
+00:14:32,959 --> 00:14:38,320
+concept of llinter. What what it what it
+
+306
+00:14:36,000 --> 00:14:40,720
+does is that it's a it's a tool. It's a
+
+307
+00:14:38,320 --> 00:14:44,639
+command line tool basically that check
+
+308
+00:14:40,720 --> 00:14:47,360
+your code. They they they do several
+
+309
+00:14:44,639 --> 00:14:50,079
+things like they they try to warn you if
+
+310
+00:14:47,360 --> 00:14:53,440
+you have uh you know they they want they
+
+311
+00:14:50,079 --> 00:14:57,040
+they it's kind of like a style checker.
+
+312
+00:14:53,440 --> 00:14:59,440
+Okay. It it's style checker and also
+
+313
+00:14:57,040 --> 00:15:02,639
+kind of a formatter. Sometimes it helps
+
+314
+00:14:59,440 --> 00:15:04,800
+you reformat your code. Sometimes it uh
+
+315
+00:15:02,639 --> 00:15:07,040
+so that's what it is. Llinter. Okay. But
+
+316
+00:15:04,800 --> 00:15:09,519
+usually it gives you like lots of
+
+317
+00:15:07,040 --> 00:15:11,120
+warning. Oh, by the way, you should you
+
+318
+00:15:09,519 --> 00:15:13,279
+shouldn't name variables with
+
+319
+00:15:11,120 --> 00:15:15,680
+underscore, you know, like style guide,
+
+320
+00:15:13,279 --> 00:15:18,560
+you know. So, so anyway, that's called
+
+321
+00:15:15,680 --> 00:15:22,320
+llinter. I despise that.
+
+322
+00:15:18,560 --> 00:15:24,160
+So, so in in the realm of of software
+
+323
+00:15:22,320 --> 00:15:28,079
+formatting style guy there's something
+
+324
+00:15:24,160 --> 00:15:31,199
+very important happened in 2009 around
+
+325
+00:15:28,079 --> 00:15:34,240
+2009 that is the invention of the go
+
+326
+00:15:31,199 --> 00:15:37,760
+programming language who came uh which
+
+327
+00:15:34,240 --> 00:15:39,360
+came with a automatic formatter for the
+
+328
+00:15:37,760 --> 00:15:41,920
+whole language like you can format
+
+329
+00:15:39,360 --> 00:15:44,639
+10,000 files all files in a directory it
+
+330
+00:15:41,920 --> 00:15:47,279
+just format in one way one way only so
+
+331
+00:15:44,639 --> 00:15:49,600
+you don't debate about oh but I like I
+
+332
+00:15:47,279 --> 00:15:51,759
+like this way of formatting. I like you
+
+333
+00:15:49,600 --> 00:15:54,800
+know space instead of tab or whatever.
+
+334
+00:15:51,759 --> 00:15:57,360
+ So that's go format. They
+
+335
+00:15:54,800 --> 00:16:00,639
+revolutionized
+
+336
+00:15:57,360 --> 00:16:03,920
+the programming industry around 2009
+
+337
+00:16:00,639 --> 00:16:08,160
+2008 or so. Go language. Okay. By Rob
+
+338
+00:16:03,920 --> 00:16:11,199
+Pike and uh and another guy or two but
+
+339
+00:16:08,160 --> 00:16:13,199
+Rob Pike is most famous. So he he get he
+
+340
+00:16:11,199 --> 00:16:16,000
+almost always get the credit. Rob Pike
+
+341
+00:16:13,199 --> 00:16:19,360
+and another guy. I have to look up robot
+
+342
+00:16:16,000 --> 00:16:21,680
+robot something I think so go format
+
+343
+00:16:19,360 --> 00:16:23,120
+okay go goland they come with it you
+
+344
+00:16:21,680 --> 00:16:25,839
+know you don't have it's not like a
+
+345
+00:16:23,120 --> 00:16:28,079
+separate tool it come with a compiler so
+
+346
+00:16:25,839 --> 00:16:31,279
+go format is so you format entire code
+
+347
+00:16:28,079 --> 00:16:33,440
+in in source directory right and and
+
+348
+00:16:31,279 --> 00:16:36,639
+also there's one very critical thing
+
+349
+00:16:33,440 --> 00:16:39,600
+about it okay unlike the lintter
+
+350
+00:16:36,639 --> 00:16:41,839
+okay go format is like a tool that
+
+351
+00:16:39,600 --> 00:16:44,800
+completely understand the go programming
+
+352
+00:16:41,839 --> 00:16:47,199
+language syntax So it's part of the
+
+353
+00:16:44,800 --> 00:16:49,040
+compiler. It's not exactly compiler
+
+354
+00:16:47,199 --> 00:16:50,240
+compiler because they do different
+
+355
+00:16:49,040 --> 00:16:52,480
+things. They have different
+
+356
+00:16:50,240 --> 00:16:55,519
+requirements. But if you're going to
+
+357
+00:16:52,480 --> 00:16:59,360
+write it, but anyway it's like a
+
+358
+00:16:55,519 --> 00:17:01,440
+compiler. It it it understand the uh go
+
+359
+00:16:59,360 --> 00:17:03,519
+pro programming language syntax fully
+
+360
+00:17:01,440 --> 00:17:05,439
+grammar. Okay. [snorts] So it can
+
+361
+00:17:03,519 --> 00:17:07,520
+reformat code. So this is the most
+
+362
+00:17:05,439 --> 00:17:11,360
+important thing when you have a code.
+
+363
+00:17:07,520 --> 00:17:14,160
+Let's um Okay. Let's say let's say uh
+
+364
+00:17:11,360 --> 00:17:16,640
+yeah let's can we do go? Yes. So, okay.
+
+365
+00:17:14,160 --> 00:17:18,559
+So, let's do go uh land. Okay. I'm
+
+366
+00:17:16,640 --> 00:17:20,240
+starting to digress. I want to get back
+
+367
+00:17:18,559 --> 00:17:22,240
+to JavaScript because I got a lot of
+
+368
+00:17:20,240 --> 00:17:25,199
+things to do. Okay. So, let me talk
+
+369
+00:17:22,240 --> 00:17:29,200
+quickly. So, go. So, for example, here
+
+370
+00:17:25,199 --> 00:17:31,919
+is um go uh file. You can run it. It'll
+
+371
+00:17:29,200 --> 00:17:35,120
+just print uh 33.
+
+372
+00:17:31,919 --> 00:17:37,679
+Okay. First time it needs to uh load the
+
+373
+00:17:35,120 --> 00:17:41,919
+Go compiler. So, there there you go. 33.
+
+374
+00:17:37,679 --> 00:17:43,760
+Okay. So you can say uh
+
+375
+00:17:41,919 --> 00:17:47,360
+hi guys
+
+376
+00:17:43,760 --> 00:17:49,440
+supreme functional programming. Okay now
+
+377
+00:17:47,360 --> 00:17:52,640
+run it.
+
+378
+00:17:49,440 --> 00:17:56,080
+Fantastic. Okay now let's
+
+379
+00:17:52,640 --> 00:18:00,720
+make it the whole thing one line. Okay.
+
+380
+00:17:56,080 --> 00:18:02,720
+Goland supreme. Run it. Wait. Okay. You
+
+381
+00:18:00,720 --> 00:18:04,880
+know when you want to make them one line
+
+382
+00:18:02,720 --> 00:18:06,799
+you have to do you then you need the
+
+383
+00:18:04,880 --> 00:18:09,799
+semicolon. Okay. Uh, [clears throat]
+
+384
+00:18:06,799 --> 00:18:09,799
+wait.
+
+385
+00:18:10,880 --> 00:18:17,600
+Okay. So, make them one line. Okay. Run
+
+386
+00:18:13,840 --> 00:18:19,600
+it. Fantastic. Goland. Okay. Now, here
+
+387
+00:18:17,600 --> 00:18:21,840
+here is go format. Okay. Look, look
+
+388
+00:18:19,600 --> 00:18:26,320
+carefully at go format. So, now I press
+
+389
+00:18:21,840 --> 00:18:29,600
+the key. It will call it will Oh, it's
+
+390
+00:18:26,320 --> 00:18:32,799
+already done. Wait. Uh, let's see. it
+
+391
+00:18:29,600 --> 00:18:35,520
+will call
+
+392
+00:18:32,799 --> 00:18:41,240
+uh my um
+
+393
+00:18:35,520 --> 00:18:41,240
+wait let me start my start
+
+394
+00:18:41,760 --> 00:18:53,400
+command log mode start
+
+395
+00:18:46,480 --> 00:18:53,400
+okay it doesn't so global stop
+
+396
+00:18:56,080 --> 00:19:05,120
+uh glo What?
+
+397
+00:19:01,360 --> 00:19:06,720
+Global stop.
+
+398
+00:19:05,120 --> 00:19:11,120
+Wait.
+
+399
+00:19:06,720 --> 00:19:13,360
+Global command lock mode. That will stop
+
+400
+00:19:11,120 --> 00:19:17,520
+it. Okay.
+
+401
+00:19:13,360 --> 00:19:22,840
+Now close that new window
+
+402
+00:19:17,520 --> 00:19:22,840
+and make it small. Now
+
+403
+00:19:25,120 --> 00:19:33,600
+start command look mod. Okay.
+
+404
+00:19:30,240 --> 00:19:37,039
+Yeah, for some reason it's not let me
+
+405
+00:19:33,600 --> 00:19:40,000
+move cursor up. Uh it used I should be
+
+406
+00:19:37,039 --> 00:19:44,080
+able to but not today for some reason.
+
+407
+00:19:40,000 --> 00:19:46,000
+Okay. So, let me um so we digress over.
+
+408
+00:19:44,080 --> 00:19:48,160
+So, let's go back. Okay, let me go back
+
+409
+00:19:46,000 --> 00:19:50,080
+quickly. So anyway the the the the
+
+410
+00:19:48,160 --> 00:19:53,120
+critical thing about the go format how
+
+411
+00:19:50,080 --> 00:19:55,440
+it revolutionized the industry is that
+
+412
+00:19:53,120 --> 00:19:57,919
+first of all it's bundled with go
+
+413
+00:19:55,440 --> 00:20:00,080
+language and it's not just a llinter
+
+414
+00:19:57,919 --> 00:20:02,559
+llin lintter the llinter is like the
+
+415
+00:20:00,080 --> 00:20:04,559
+most idiotic thing they don't understand
+
+416
+00:20:02,559 --> 00:20:07,360
+the programming grammar language grammar
+
+417
+00:20:04,559 --> 00:20:09,840
+it's just like trying to do some text
+
+418
+00:20:07,360 --> 00:20:11,679
+processing you know to try you know to
+
+419
+00:20:09,840 --> 00:20:15,039
+try to tell you if you formatted
+
+420
+00:20:11,679 --> 00:20:18,320
+correctly or whatever lint okay from the
+
+421
+00:20:15,039 --> 00:20:20,480
+C++ plus plus idiots I despise them
+
+422
+00:20:18,320 --> 00:20:22,480
+because not you know this is not
+
+423
+00:20:20,480 --> 00:20:24,960
+superficial complaint that because they
+
+424
+00:20:22,480 --> 00:20:28,320
+are brand they don't work correctly okay
+
+425
+00:20:24,960 --> 00:20:31,360
+when it comes to like proper design so
+
+426
+00:20:28,320 --> 00:20:34,000
+anyway go for go format okay
+
+427
+00:20:31,360 --> 00:20:36,000
+it revolution
+
+428
+00:20:34,000 --> 00:20:38,000
+re it create a revolution in programming
+
+429
+00:20:36,000 --> 00:20:40,480
+industry with respect to coding style
+
+430
+00:20:38,000 --> 00:20:44,480
+and formatting because of two things one
+
+431
+00:20:40,480 --> 00:20:47,039
+is that because it it it it it
+
+432
+00:20:44,480 --> 00:20:48,799
+this tool or understand the uh
+
+433
+00:20:47,039 --> 00:20:51,440
+programming language. Okay, that's one
+
+434
+00:20:48,799 --> 00:20:55,360
+thing. Okay, so it can format the whole
+
+435
+00:20:51,440 --> 00:20:58,240
+line. For example, um let's do it. Yeah,
+
+436
+00:20:55,360 --> 00:21:00,320
+it can format the whole line even if you
+
+437
+00:20:58,240 --> 00:21:02,480
+have them in one single line. You see,
+
+438
+00:21:00,320 --> 00:21:05,679
+right now it's one single line. Let's
+
+439
+00:21:02,480 --> 00:21:07,919
+run it. It works. But now I press a key.
+
+440
+00:21:05,679 --> 00:21:10,640
+I have a command written in Emacs. So I
+
+441
+00:21:07,919 --> 00:21:13,280
+press a key that which does call the go
+
+442
+00:21:10,640 --> 00:21:15,840
+format. You know the shell command. It
+
+443
+00:21:13,280 --> 00:21:18,240
+does it behind the scene. So it it so I
+
+444
+00:21:15,840 --> 00:21:23,520
+call it No, wait. There's a mistake
+
+445
+00:21:18,240 --> 00:21:28,159
+there. So let's um
+
+446
+00:21:23,520 --> 00:21:30,320
+So save it. Run it. Okay. Hi. Supreme
+
+447
+00:21:28,159 --> 00:21:35,200
+function of programming. Now call go
+
+448
+00:21:30,320 --> 00:21:37,679
+format. Press tab F. You see
+
+449
+00:21:35,200 --> 00:21:40,240
+now you can run it again. Still works.
+
+450
+00:21:37,679 --> 00:21:42,640
+You see what go format does is that it's
+
+451
+00:21:40,240 --> 00:21:45,039
+capable of if you have the whole thing a
+
+452
+00:21:42,640 --> 00:21:49,120
+valid code in one single line it will
+
+453
+00:21:45,039 --> 00:21:51,840
+format it correctly. No other llinter or
+
+454
+00:21:49,120 --> 00:21:55,120
+whatever format did this before. None.
+
+455
+00:21:51,840 --> 00:21:56,960
+Zero. Okay. Zero. Like when you talk to
+
+456
+00:21:55,120 --> 00:21:59,039
+the C programmers they don't understand
+
+457
+00:21:56,960 --> 00:22:02,640
+their brain are Their brain are
+
+458
+00:21:59,039 --> 00:22:05,280
+ the C and C++ coders. Okay. Now
+
+459
+00:22:02,640 --> 00:22:07,600
+listen one more time. Okay. Before go
+
+460
+00:22:05,280 --> 00:22:10,480
+format
+
+461
+00:22:07,600 --> 00:22:12,960
+there is no line program in whatever
+
+462
+00:22:10,480 --> 00:22:15,520
+whatsoever language. If you have a
+
+463
+00:22:12,960 --> 00:22:18,240
+programming language that is valid but
+
+464
+00:22:15,520 --> 00:22:20,400
+you put them into a one line single line
+
+465
+00:22:18,240 --> 00:22:22,880
+there is no llinter or what whatever
+
+466
+00:22:20,400 --> 00:22:25,760
+that you call it that that will um
+
+467
+00:22:22,880 --> 00:22:27,600
+reformat it into multiple lines. Okay.
+
+468
+00:22:25,760 --> 00:22:30,720
+Go format is the first one that did
+
+469
+00:22:27,600 --> 00:22:33,360
+that. Well actually there's one before
+
+470
+00:22:30,720 --> 00:22:36,000
+that wufam language. Okay. Okay, wolfam
+
+471
+00:22:33,360 --> 00:22:38,000
+language beginning in 1996
+
+472
+00:22:36,000 --> 00:22:40,640
+which I demonstrated this about this
+
+473
+00:22:38,000 --> 00:22:44,400
+format many times. Okay. So, Wuam
+
+474
+00:22:40,640 --> 00:22:49,480
+language did it in 1996 with Wuam uh
+
+475
+00:22:44,400 --> 00:22:49,480
+Mathematica version 3. 1996
+
+476
+00:22:49,679 --> 00:22:54,240
+that that is like 10 years before Golan.
+
+477
+00:22:52,240 --> 00:22:56,720
+Okay. But Golan
+
+478
+00:22:54,240 --> 00:23:00,240
+but but Wuan language is like the in a
+
+479
+00:22:56,720 --> 00:23:02,159
+scientific mathematical phys
+
+480
+00:23:00,240 --> 00:23:04,640
+physics community. So it's, you know,
+
+481
+00:23:02,159 --> 00:23:06,960
+it's a bit different from the the
+
+482
+00:23:04,640 --> 00:23:09,520
+industrial programmers, you know, the
+
+483
+00:23:06,960 --> 00:23:12,559
+operating systems, the file systems, the
+
+484
+00:23:09,520 --> 00:23:15,120
+web web or whatever. So, but Goland is
+
+485
+00:23:12,559 --> 00:23:18,400
+the first one that that revolutionized
+
+486
+00:23:15,120 --> 00:23:20,080
+this um with the go format. Okay, it
+
+487
+00:23:18,400 --> 00:23:22,240
+format the whole thing. It understand
+
+488
+00:23:20,080 --> 00:23:24,159
+the programming language grammar, but it
+
+489
+00:23:22,240 --> 00:23:27,039
+also
+
+490
+00:23:24,159 --> 00:23:29,520
+is able to format from one single line
+
+491
+00:23:27,039 --> 00:23:32,159
+to multiple lines.
+
+492
+00:23:29,520 --> 00:23:34,240
+None of the lint does it. Okay, so
+
+493
+00:23:32,159 --> 00:23:36,640
+anyway, that's a major digression. Okay,
+
+494
+00:23:34,240 --> 00:23:38,880
+so uh I started to rant and a lot of
+
+495
+00:23:36,640 --> 00:23:43,386
+people like that because now I got like
+
+496
+00:23:38,880 --> 00:23:43,386
+oh 19 concurrent viewers. [laughter]
+
+497
+00:23:44,400 --> 00:23:50,559
+Uh so uh so actually I got a lot to do
+
+498
+00:23:47,520 --> 00:23:52,640
+about JavaScript. Um because every time
+
+499
+00:23:50,559 --> 00:23:55,200
+I start a live stream I wanted to do
+
+500
+00:23:52,640 --> 00:23:57,200
+some JavaScript then I got distracted. I
+
+501
+00:23:55,200 --> 00:24:00,799
+just talk about things and I never get
+
+502
+00:23:57,200 --> 00:24:03,360
+to do what I actually need to do because
+
+503
+00:24:00,799 --> 00:24:05,840
+like usually when I do live stream like
+
+504
+00:24:03,360 --> 00:24:08,320
+I talk about like just what I I just did
+
+505
+00:24:05,840 --> 00:24:12,320
+you know 20 minutes about the format it
+
+506
+00:24:08,320 --> 00:24:15,600
+doesn't benefit me you see you know to
+
+507
+00:24:12,320 --> 00:24:18,559
+uh to you guys maybe uh some uh many of
+
+508
+00:24:15,600 --> 00:24:21,120
+you find it fun and uh informative right
+
+509
+00:24:18,559 --> 00:24:22,799
+but it doesn't do anything to me to my
+
+510
+00:24:21,120 --> 00:24:25,039
+website you know that's not the work I
+
+511
+00:24:22,799 --> 00:24:28,240
+need to do I got lots of work I need to
+
+512
+00:24:25,039 --> 00:24:31,039
+do. So anyway,
+
+513
+00:24:28,240 --> 00:24:32,559
+uh so if you Okay, so if you guys like
+
+514
+00:24:31,039 --> 00:24:34,960
+my stuff, donate. Okay, go to
+
+515
+00:24:32,559 --> 00:24:37,919
+kasali.info, donate to me. Okay, so
+
+516
+00:24:34,960 --> 00:24:40,400
+let's see what um uh yeah, so I
+
+517
+00:24:37,919 --> 00:24:44,080
+digressed into the llinter. Yeah, so I
+
+518
+00:24:40,400 --> 00:24:45,760
+don't use llinter and fly checker. I a
+
+519
+00:24:44,080 --> 00:24:48,960
+lot of people use it. I actually never
+
+520
+00:24:45,760 --> 00:24:51,440
+get quite get what it is. Um so I don't
+
+521
+00:24:48,960 --> 00:24:55,200
+use it.
+
+522
+00:24:51,440 --> 00:24:57,200
+Uh okay, so let's see. Uh so you can see
+
+523
+00:24:55,200 --> 00:24:59,919
+the point is trying to get us to higher
+
+524
+00:24:57,200 --> 00:25:01,760
+levels. Okay. Uh absolutely this great
+
+525
+00:24:59,919 --> 00:25:04,320
+great fantastic. Thank you for the show.
+
+526
+00:25:01,760 --> 00:25:06,080
+Got to go got to jet. Let's focus on
+
+527
+00:25:04,320 --> 00:25:09,360
+Java. Okay. Let's go back to JavaScript.
+
+528
+00:25:06,080 --> 00:25:11,039
+Okay. So now so JavaScript. So we we we
+
+529
+00:25:09,360 --> 00:25:12,720
+were talking about you know uh
+
+530
+00:25:11,039 --> 00:25:16,240
+functional programming style guide.
+
+531
+00:25:12,720 --> 00:25:18,080
+Okay. So we we talked about uh you know
+
+532
+00:25:16,240 --> 00:25:20,960
+something you never should do and what
+
+533
+00:25:18,080 --> 00:25:23,279
+you should do instead. Uh JavaScript and
+
+534
+00:25:20,960 --> 00:25:26,320
+never use width. Never use width and
+
+535
+00:25:23,279 --> 00:25:29,039
+never assign array by index. Okay? Never
+
+536
+00:25:26,320 --> 00:25:32,320
+use delete operator because if if you
+
+537
+00:25:29,039 --> 00:25:34,400
+use that on array object then it will
+
+538
+00:25:32,320 --> 00:25:36,400
+create sparse array. We talked about
+
+539
+00:25:34,400 --> 00:25:38,720
+before it will create sparse array
+
+540
+00:25:36,400 --> 00:25:40,799
+array. You don't want that. Okay. So but
+
+541
+00:25:38,720 --> 00:25:44,000
+if and if you want if if you use a
+
+542
+00:25:40,799 --> 00:25:46,720
+delete operator on object it will uh
+
+543
+00:25:44,000 --> 00:25:50,240
+it's no good because a better operator
+
+544
+00:25:46,720 --> 00:25:52,640
+for deleting properties on object is the
+
+545
+00:25:50,240 --> 00:25:55,360
+reflect.delete delete property because
+
+546
+00:25:52,640 --> 00:25:57,760
+you know what that's another pothole in
+
+547
+00:25:55,360 --> 00:26:00,960
+JavaScript because when you use delete
+
+548
+00:25:57,760 --> 00:26:03,600
+operator and if your argument is not a
+
+549
+00:26:00,960 --> 00:26:05,520
+object let's say you know delete let's
+
+550
+00:26:03,600 --> 00:26:07,840
+say three you just say delete three
+
+551
+00:26:05,520 --> 00:26:10,640
+three is just a number or a string you
+
+552
+00:26:07,840 --> 00:26:13,279
+let's say delete delete hello world what
+
+553
+00:26:10,640 --> 00:26:14,799
+happened it will return true meaning
+
+554
+00:26:13,279 --> 00:26:16,080
+success
+
+555
+00:26:14,799 --> 00:26:18,559
+because [laughter]
+
+556
+00:26:16,080 --> 00:26:21,200
+you see delete [snorts] object it
+
+557
+00:26:18,559 --> 00:26:25,279
+returns true when property exists and is
+
+558
+00:26:21,200 --> 00:26:28,960
+deleted. It return true also when
+
+559
+00:26:25,279 --> 00:26:31,440
+property does not exist and it will also
+
+560
+00:26:28,960 --> 00:26:34,480
+return true when the argument is not
+
+561
+00:26:31,440 --> 00:26:37,760
+even an object. Okay, so this like
+
+562
+00:26:34,480 --> 00:26:40,240
+ up Okay, so the return
+
+563
+00:26:37,760 --> 00:26:42,960
+value is not indication of success or
+
+564
+00:26:40,240 --> 00:26:45,200
+not. It just like
+
+565
+00:26:42,960 --> 00:26:47,360
+it's almost it's almost it's useless.
+
+566
+00:26:45,200 --> 00:26:49,120
+It's almost like always return true.
+
+567
+00:26:47,360 --> 00:26:51,360
+Whenever it return false, it doesn't
+
+568
+00:26:49,120 --> 00:26:56,000
+make sense. Okay. So that's why they
+
+569
+00:26:51,360 --> 00:26:59,440
+created in 200 uh um in 2015 they
+
+570
+00:26:56,000 --> 00:27:01,760
+created reflect delete property. Okay.
+
+571
+00:26:59,440 --> 00:27:06,080
+It basically do exactly the same thing
+
+572
+00:27:01,760 --> 00:27:09,440
+except it return true only if the key
+
+573
+00:27:06,080 --> 00:27:11,600
+exists and is deleted or if the key does
+
+574
+00:27:09,440 --> 00:27:13,360
+not exist.
+
+575
+00:27:11,600 --> 00:27:16,720
+So
+
+576
+00:27:13,360 --> 00:27:19,840
+but you but it basically it returns true
+
+577
+00:27:16,720 --> 00:27:22,799
+when you know for sure it's given a
+
+578
+00:27:19,840 --> 00:27:26,240
+property and uh the no it no longer has
+
+579
+00:27:22,799 --> 00:27:28,559
+that key. Okay so this is a you know so
+
+580
+00:27:26,240 --> 00:27:31,520
+this is another one of the JavaScript
+
+581
+00:27:28,559 --> 00:27:34,640
+script fix like they have lots of it in
+
+582
+00:27:31,520 --> 00:27:37,520
+2015 10 years ago and then since then
+
+583
+00:27:34,640 --> 00:27:40,320
+every year. So JavaScript is a language
+
+584
+00:27:37,520 --> 00:27:42,240
+filled with this holes like every time
+
+585
+00:27:40,320 --> 00:27:43,919
+you have like 100 method you have to
+
+586
+00:27:42,240 --> 00:27:46,240
+know which one is you know you shouldn't
+
+587
+00:27:43,919 --> 00:27:48,720
+use or which one you should use because
+
+588
+00:27:46,240 --> 00:27:51,279
+that one fix that issues you know
+
+589
+00:27:48,720 --> 00:27:54,799
+JavaScript is like that okay so never
+
+590
+00:27:51,279 --> 00:27:57,200
+use delete operator okay and and uh okay
+
+591
+00:27:54,799 --> 00:28:01,360
+so then never use the argument object
+
+592
+00:27:57,200 --> 00:28:04,240
+the argument object was created because
+
+593
+00:28:01,360 --> 00:28:06,640
+before the rest parameter was invented
+
+594
+00:28:04,240 --> 00:28:09,279
+okay the rest argument like the rest
+
+595
+00:28:06,640 --> 00:28:12,080
+argument. The rest parameter for a
+
+596
+00:28:09,279 --> 00:28:15,200
+function means when you need to write
+
+597
+00:28:12,080 --> 00:28:17,039
+create define a function that allows it
+
+598
+00:28:15,200 --> 00:28:19,200
+to take
+
+599
+00:28:17,039 --> 00:28:21,760
+infinite number of arguments such as
+
+600
+00:28:19,200 --> 00:28:24,399
+plus or multiply. You know if you want
+
+601
+00:28:21,760 --> 00:28:29,279
+to write a function like plus you know
+
+602
+00:28:24,399 --> 00:28:31,760
+you might say plus 3 4 5 or 3 4 5 1 2
+
+603
+00:28:29,279 --> 00:28:34,559
+you know the the number of argument
+
+604
+00:28:31,760 --> 00:28:37,440
+varies. So that so that's when you need
+
+605
+00:28:34,559 --> 00:28:40,000
+to use this uh rest parameter feature
+
+606
+00:28:37,440 --> 00:28:42,320
+which allows you to have a function to
+
+607
+00:28:40,000 --> 00:28:46,159
+accept arbitrary number of arguments.
+
+608
+00:28:42,320 --> 00:28:50,080
+Okay. Now this is the rest uh parameter
+
+609
+00:28:46,159 --> 00:28:52,559
+is created in 2015. Okay. Well before
+
+610
+00:28:50,080 --> 00:28:54,480
+that there are many techniques to to
+
+611
+00:28:52,559 --> 00:28:56,559
+make this happen. Okay. So one of the
+
+612
+00:28:54,480 --> 00:28:59,440
+technique in other programming languages
+
+613
+00:28:56,559 --> 00:29:03,520
+such as pearl is you have this argument
+
+614
+00:28:59,440 --> 00:29:05,520
+object which is like a variable a
+
+615
+00:29:03,520 --> 00:29:07,279
+predefined variable in a function.
+
+616
+00:29:05,520 --> 00:29:10,000
+Whenever you define a function that
+
+617
+00:29:07,279 --> 00:29:13,679
+variable got created and that variable
+
+618
+00:29:10,000 --> 00:29:16,159
+is a array that holds the values of the
+
+619
+00:29:13,679 --> 00:29:19,120
+argument passed to the function. So you
+
+620
+00:29:16,159 --> 00:29:21,120
+can always know you know what what
+
+621
+00:29:19,120 --> 00:29:23,760
+arguments are passed to a fun to the
+
+622
+00:29:21,120 --> 00:29:26,399
+function by the arguments you know the
+
+623
+00:29:23,760 --> 00:29:27,919
+predefined variable. Okay. So this is
+
+624
+00:29:26,399 --> 00:29:30,559
+when
+
+625
+00:29:27,919 --> 00:29:34,240
+when JavaScript does not have the you
+
+626
+00:29:30,559 --> 00:29:39,840
+know the the dot dot rest parameter uh
+
+627
+00:29:34,240 --> 00:29:42,320
+syntax dot dot dot but but it has this
+
+628
+00:29:39,840 --> 00:29:44,320
+argument way to do it to do basically
+
+629
+00:29:42,320 --> 00:29:47,919
+the same thing. It allows the function
+
+630
+00:29:44,320 --> 00:29:50,799
+to know you know to accept any arbitrary
+
+631
+00:29:47,919 --> 00:29:54,720
+number of parameters. Okay, this is one
+
+632
+00:29:50,799 --> 00:29:56,960
+mechanism to make that happen. So which
+
+633
+00:29:54,720 --> 00:30:00,640
+one is better depending on the language?
+
+634
+00:29:56,960 --> 00:30:03,279
+Pearl use it this way and uh but the the
+
+635
+00:30:00,640 --> 00:30:05,840
+rest parameter is more like more is
+
+636
+00:30:03,279 --> 00:30:07,679
+better because it's explicit because
+
+637
+00:30:05,840 --> 00:30:10,559
+then when you define a function you can
+
+638
+00:30:07,679 --> 00:30:14,720
+know exactly you know whether it ex
+
+639
+00:30:10,559 --> 00:30:18,480
+accept arbitrary number of uh arguments
+
+640
+00:30:14,720 --> 00:30:20,159
+but but if you use the argument object
+
+641
+00:30:18,480 --> 00:30:23,279
+if you design your programming language
+
+642
+00:30:20,159 --> 00:30:25,760
+to be this way then if you have the
+
+643
+00:30:23,279 --> 00:30:28,399
+argument object then you don't even need
+
+644
+00:30:25,760 --> 00:30:30,880
+any parameters. in the functions at all
+
+645
+00:30:28,399 --> 00:30:33,039
+because any user when they define a
+
+646
+00:30:30,880 --> 00:30:35,440
+function they can just have empty
+
+647
+00:30:33,039 --> 00:30:38,960
+parameters because they going to just
+
+648
+00:30:35,440 --> 00:30:41,520
+use the argument arguments object right
+
+649
+00:30:38,960 --> 00:30:44,960
+they don't need to have actual declare
+
+650
+00:30:41,520 --> 00:30:47,440
+any uh parameters so so so that means
+
+651
+00:30:44,960 --> 00:30:51,840
+when you have this argument object that
+
+652
+00:30:47,440 --> 00:30:55,440
+kind of make people not it defeats the
+
+653
+00:30:51,840 --> 00:30:56,559
+purpose of having explicit parameters in
+
+654
+00:30:55,440 --> 00:30:59,360
+the function
+
+655
+00:30:56,559 --> 00:31:02,720
+So which is not very good because
+
+656
+00:30:59,360 --> 00:31:05,200
+usually you want uh people to be
+
+657
+00:31:02,720 --> 00:31:07,200
+explicit about what the function accept.
+
+658
+00:31:05,200 --> 00:31:09,360
+You know also you know when you do this
+
+659
+00:31:07,200 --> 00:31:12,011
+when you if you design your programming
+
+660
+00:31:09,360 --> 00:31:12,640
+language using this argument um method
+
+661
+00:31:12,011 --> 00:31:16,399
+[clears throat]
+
+662
+00:31:12,640 --> 00:31:18,640
+then it then your function does not know
+
+663
+00:31:16,399 --> 00:31:21,760
+at compile time how many argument it
+
+664
+00:31:18,640 --> 00:31:24,480
+takes. It it will only know when it's
+
+665
+00:31:21,760 --> 00:31:28,000
+called. So that creates another kind of
+
+666
+00:31:24,480 --> 00:31:30,960
+problem. you will not be able to like
+
+667
+00:31:28,000 --> 00:31:33,360
+check correct correctness and so on.
+
+668
+00:31:30,960 --> 00:31:35,520
+Okay. And and it you know so any
+
+669
+00:31:33,360 --> 00:31:38,159
+function can pass any number of argument
+
+670
+00:31:35,520 --> 00:31:40,320
+basically. So there's no you know you
+
+671
+00:31:38,159 --> 00:31:43,039
+you lose the specification for
+
+672
+00:31:40,320 --> 00:31:44,799
+functions. So this is very bad. So
+
+673
+00:31:43,039 --> 00:31:49,360
+that's why they created the rest
+
+674
+00:31:44,799 --> 00:31:51,120
+parameters. So in 2015 but they the
+
+675
+00:31:49,360 --> 00:31:53,279
+JavaScript people they try to maintain
+
+676
+00:31:51,120 --> 00:31:56,000
+backward compatibility so they don't
+
+677
+00:31:53,279 --> 00:31:59,919
+remove you know very bad. So don't use
+
+678
+00:31:56,000 --> 00:32:03,840
+argument object. Okay. [clears throat]
+
+679
+00:31:59,919 --> 00:32:06,720
+Okay. So looks like um so I got you know
+
+680
+00:32:03,840 --> 00:32:10,960
+there are more things but I wanted to do
+
+681
+00:32:06,720 --> 00:32:14,880
+uh actually um you see I wanted to do so
+
+682
+00:32:10,960 --> 00:32:17,840
+let's let's do them. Okay. Uh and and
+
+683
+00:32:14,880 --> 00:32:21,440
+then that's it for today. Okay. So uh
+
+684
+00:32:17,840 --> 00:32:25,840
+how long have I been? Oh only I've only
+
+685
+00:32:21,440 --> 00:32:28,640
+been going 35 minutes. Okay. Yeah. Am I
+
+686
+00:32:25,840 --> 00:32:33,440
+uh Yeah. Okay. So, let's see. Uh focus.
+
+687
+00:32:28,640 --> 00:32:36,000
+HTML has gone back to the uh
+
+688
+00:32:33,440 --> 00:32:42,240
+the dark ages. It's one of the worst
+
+689
+00:32:36,000 --> 00:32:46,720
+idea since MS DOS. Is it HTML? Okay.
+
+690
+00:32:42,240 --> 00:32:48,960
+Okay. So, I wanted to do so this is F.
+
+691
+00:32:46,720 --> 00:32:51,760
+Um Oh, yeah. So there there's some tips
+
+692
+00:32:48,960 --> 00:32:54,192
+I want to uh tell you guys which is
+
+693
+00:32:51,760 --> 00:32:56,640
+advanced functional programming. Okay.
+
+694
+00:32:54,192 --> 00:32:58,880
+[snorts] So and okay let me finish this.
+
+695
+00:32:56,640 --> 00:33:01,760
+Okay. So never let me just finish this.
+
+696
+00:32:58,880 --> 00:33:03,600
+Okay. So so and so never use the
+
+697
+00:33:01,760 --> 00:33:05,760
+argument object and never use the
+
+698
+00:33:03,600 --> 00:33:08,559
+property constructor. Okay. The the
+
+699
+00:33:05,760 --> 00:33:11,600
+property constructor is supposedly okay.
+
+700
+00:33:08,559 --> 00:33:14,159
+There's some edit I want to do. Okay. So
+
+701
+00:33:11,600 --> 00:33:16,000
+let's just let me just work on my stuff.
+
+702
+00:33:14,159 --> 00:33:20,320
+Okay.
+
+703
+00:33:16,000 --> 00:33:23,720
+So let's say functional programming uh
+
+704
+00:33:20,320 --> 00:33:23,720
+search for
+
+705
+00:33:24,480 --> 00:33:29,880
+okay go to it search for argument
+
+706
+00:33:30,960 --> 00:33:40,000
+never use argument uh don't use argument
+
+707
+00:33:35,039 --> 00:33:42,320
+it was this um
+
+708
+00:33:40,000 --> 00:33:46,240
+it was designed
+
+709
+00:33:42,320 --> 00:33:50,000
+before rest parameter the
+
+710
+00:33:46,240 --> 00:33:51,840
+syntax were introduced. Okay, let's just
+
+711
+00:33:50,000 --> 00:33:56,320
+say that
+
+712
+00:33:51,840 --> 00:34:00,120
+verify. Okay, so we we we want to um
+
+713
+00:33:56,320 --> 00:34:00,120
+Yeah. Okay.
+
+714
+00:34:00,640 --> 00:34:06,039
+Uh
+
+715
+00:34:03,039 --> 00:34:06,039
+refresh
+
+716
+00:34:10,159 --> 00:34:15,040
+uh function argument destructure. Okay,
+
+717
+00:34:12,480 --> 00:34:17,200
+that's another feature.
+
+718
+00:34:15,040 --> 00:34:20,000
+Never use the property constructor
+
+719
+00:34:17,200 --> 00:34:23,520
+because constructor it's meant to let
+
+720
+00:34:20,000 --> 00:34:25,599
+you um know which function created the
+
+721
+00:34:23,520 --> 00:34:28,639
+object something like that. But the
+
+722
+00:34:25,599 --> 00:34:34,000
+problem is that JavaScript the the the
+
+723
+00:34:28,639 --> 00:34:38,000
+mechanism is extremely convoluted. So
+
+724
+00:34:34,000 --> 00:34:39,760
+the way it is um the user can change the
+
+725
+00:34:38,000 --> 00:34:42,240
+constructor
+
+726
+00:34:39,760 --> 00:34:45,679
+to anything they like and also the
+
+727
+00:34:42,240 --> 00:34:49,200
+parents constructor. So so the bottom
+
+728
+00:34:45,679 --> 00:34:50,560
+line is that it's never guaranteed
+
+729
+00:34:49,200 --> 00:34:52,960
+you know when you use a property
+
+730
+00:34:50,560 --> 00:34:56,480
+constructor you can never guarantee what
+
+731
+00:34:52,960 --> 00:34:58,480
+it will correctly work. Okay so it just
+
+732
+00:34:56,480 --> 00:35:01,040
+does not work.
+
+733
+00:34:58,480 --> 00:35:03,280
+It will work when you use the
+
+734
+00:35:01,040 --> 00:35:06,560
+constructor property
+
+735
+00:35:03,280 --> 00:35:09,520
+uh for building objects such as the
+
+736
+00:35:06,560 --> 00:35:13,440
+building you know functions array uh
+
+737
+00:35:09,520 --> 00:35:15,520
+object object data object um date object
+
+738
+00:35:13,440 --> 00:35:18,320
+function object
+
+739
+00:35:15,520 --> 00:35:21,280
+data object okay regular expression
+
+740
+00:35:18,320 --> 00:35:24,560
+object but when you use it on your user
+
+741
+00:35:21,280 --> 00:35:27,440
+created object is not guaranteed to work
+
+742
+00:35:24,560 --> 00:35:31,680
+okay the intention was that you use this
+
+743
+00:35:27,440 --> 00:35:35,920
+the way you poet normally is to um
+
+744
+00:35:31,680 --> 00:35:38,800
+to know like uh the the the like to know
+
+745
+00:35:35,920 --> 00:35:41,839
+which function created on this object.
+
+746
+00:35:38,800 --> 00:35:44,800
+Okay, so that's what this instructor
+
+747
+00:35:41,839 --> 00:35:47,119
+property is supposed is supposed to
+
+748
+00:35:44,800 --> 00:35:49,599
+mean. Okay, but that's no good. Okay, so
+
+749
+00:35:47,119 --> 00:35:55,240
+I want to make some modifications. Okay,
+
+750
+00:35:49,599 --> 00:35:55,240
+so let me go to it. Uh,
+
+751
+00:36:08,640 --> 00:36:15,560
+so
+
+752
+00:36:10,320 --> 00:36:15,560
+update the date. Okay. So,
+
+753
+00:36:16,480 --> 00:36:21,960
+so property key type prototype. Okay.
+
+754
+00:36:27,070 --> 00:36:29,090
+>> [clears throat]
+
+755
+00:36:43,440 --> 00:36:48,960
+>> Actually,
+
+756
+00:36:45,200 --> 00:36:52,720
+maybe doing this is not a good idea
+
+757
+00:36:48,960 --> 00:36:56,400
+because you because it's probably better
+
+758
+00:36:52,720 --> 00:36:58,960
+if I just keep talking. Okay.
+
+759
+00:36:56,400 --> 00:37:01,760
+Yeah. Because if I just going to work on
+
+760
+00:36:58,960 --> 00:37:04,240
+my website, uh it's probably boring.
+
+761
+00:37:01,760 --> 00:37:06,400
+Okay? Because what I'm doing is like I
+
+762
+00:37:04,240 --> 00:37:09,119
+want to make some improvement because
+
+763
+00:37:06,400 --> 00:37:11,440
+before you see the link is embedded in
+
+764
+00:37:09,119 --> 00:37:13,680
+the word. But in some situation I think
+
+765
+00:37:11,440 --> 00:37:15,920
+it's better if you move the link
+
+766
+00:37:13,680 --> 00:37:18,240
+outside. So if people want to know what
+
+767
+00:37:15,920 --> 00:37:22,240
+is the prototype property, they can
+
+768
+00:37:18,240 --> 00:37:25,520
+click here. Uh and so go back. So
+
+769
+00:37:22,240 --> 00:37:27,920
+instead of you know so um
+
+770
+00:37:25,520 --> 00:37:31,119
+instead of embedded link in the wording
+
+771
+00:37:27,920 --> 00:37:33,280
+here because it will kind of confuse the
+
+772
+00:37:31,119 --> 00:37:35,040
+wording. Basically what I'm saying here
+
+773
+00:37:33,280 --> 00:37:38,480
+is that where so where is the
+
+774
+00:37:35,040 --> 00:37:41,359
+constructor property came from
+
+775
+00:37:38,480 --> 00:37:43,760
+basically it's a magical property okay
+
+776
+00:37:41,359 --> 00:37:47,359
+by specification every function has a
+
+777
+00:37:43,760 --> 00:37:50,480
+property key a string of string type
+
+778
+00:37:47,359 --> 00:37:54,880
+property key named proper type okay so
+
+779
+00:37:50,480 --> 00:38:01,800
+that is where it came from so uh so this
+
+780
+00:37:54,880 --> 00:38:01,800
+should be lowerase property key opty key
+
+781
+00:38:02,640 --> 00:38:08,960
+string let's not say string okay so you
+
+782
+00:38:05,839 --> 00:38:12,240
+know so if people want to know more
+
+783
+00:38:08,960 --> 00:38:15,280
+about that prototype key I mean where
+
+784
+00:38:12,240 --> 00:38:17,760
+does this prototype key came from well
+
+785
+00:38:15,280 --> 00:38:19,839
+then you go here then again it's magic
+
+786
+00:38:17,760 --> 00:38:22,960
+okay every function defined by the
+
+787
+00:38:19,839 --> 00:38:25,680
+keyword function has a magical property
+
+788
+00:38:22,960 --> 00:38:28,560
+key of string type prototype named
+
+789
+00:38:25,680 --> 00:38:31,599
+prototype by specification okay it just
+
+790
+00:38:28,560 --> 00:38:34,240
+by spec okay it's just there and where
+
+791
+00:38:31,599 --> 00:38:36,880
+does the constructor came from again
+
+792
+00:38:34,240 --> 00:38:38,720
+it's like a magic but it's more complex
+
+793
+00:38:36,880 --> 00:38:40,800
+because
+
+794
+00:38:38,720 --> 00:38:42,960
+you know it came from the prototype then
+
+795
+00:38:40,800 --> 00:38:47,520
+you got a object then you got the
+
+796
+00:38:42,960 --> 00:38:50,480
+prototype got the property uh I mean his
+
+797
+00:38:47,520 --> 00:38:52,640
+whose value is object data object and
+
+798
+00:38:50,480 --> 00:38:56,160
+that data object has a property called
+
+799
+00:38:52,640 --> 00:38:59,200
+constructor so and so whenever you say
+
+800
+00:38:56,160 --> 00:39:02,960
+constructor it's actually querying
+
+801
+00:38:59,200 --> 00:39:05,440
+an object's parent
+
+802
+00:39:02,960 --> 00:39:09,760
+via the prototype. That's how it finds a
+
+803
+00:39:05,440 --> 00:39:11,760
+parent and the parent has a um um yeah
+
+804
+00:39:09,760 --> 00:39:14,320
+prototype value whose value is the
+
+805
+00:39:11,760 --> 00:39:17,280
+object and that object has a key
+
+806
+00:39:14,320 --> 00:39:19,920
+constructor. So that's how anyway very
+
+807
+00:39:17,280 --> 00:39:21,520
+complicated. Okay.
+
+808
+00:39:19,920 --> 00:39:23,040
+Uh
+
+809
+00:39:21,520 --> 00:39:25,440
+so
+
+810
+00:39:23,040 --> 00:39:28,400
+okay so maybe that's it for today. So
+
+811
+00:39:25,440 --> 00:39:31,040
+let's see 42 minutes.
+
+812
+00:39:28,400 --> 00:39:33,359
+Uh I got some Okay. So let's work on
+
+813
+00:39:31,040 --> 00:39:35,520
+this one. This one is easy to work on.
+
+814
+00:39:33,359 --> 00:39:37,839
+So let me tell you guys about this one.
+
+815
+00:39:35,520 --> 00:39:40,880
+Uh standard object constructor. Okay. So
+
+816
+00:39:37,839 --> 00:39:42,880
+we are still on the constructor page. So
+
+817
+00:39:40,880 --> 00:39:46,160
+on the constructor page, you can move
+
+818
+00:39:42,880 --> 00:39:48,000
+down move down. So so let's let's let's
+
+819
+00:39:46,160 --> 00:39:50,000
+get into detail. Okay. So where does the
+
+820
+00:39:48,000 --> 00:39:52,320
+constructor constructor property came
+
+821
+00:39:50,000 --> 00:39:55,119
+from? Well, it's basically by spec.
+
+822
+00:39:52,320 --> 00:39:58,960
+Okay. Because every function has a
+
+823
+00:39:55,119 --> 00:40:03,920
+property key named prototype and that
+
+824
+00:39:58,960 --> 00:40:08,079
+keys value is a data object and by spec
+
+825
+00:40:03,920 --> 00:40:10,560
+that object has a key named constructor
+
+826
+00:40:08,079 --> 00:40:12,560
+and the value of that key is the
+
+827
+00:40:10,560 --> 00:40:15,440
+function itself
+
+828
+00:40:12,560 --> 00:40:18,240
+which is the uh like you know so it's
+
+829
+00:40:15,440 --> 00:40:20,640
+kind of convoluted. Okay.
+
+830
+00:40:18,240 --> 00:40:24,160
+So this is why the constructor property
+
+831
+00:40:20,640 --> 00:40:26,160
+came from. Okay. So anyway, then you go
+
+832
+00:40:24,160 --> 00:40:28,400
+down then what's the purpose? Well, the
+
+833
+00:40:26,160 --> 00:40:32,400
+constructor property is meant to let you
+
+834
+00:40:28,400 --> 00:40:34,320
+find the creator function of a object,
+
+835
+00:40:32,400 --> 00:40:36,400
+but it's not reliable. Okay, so
+
+836
+00:40:34,320 --> 00:40:39,119
+typically this is how people use it. You
+
+837
+00:40:36,400 --> 00:40:43,040
+know, you define a function then you say
+
+838
+00:40:39,119 --> 00:40:45,520
+um new something new that
+
+839
+00:40:43,040 --> 00:40:48,240
+class or function. So that creates a
+
+840
+00:40:45,520 --> 00:40:50,320
+object. Then you can say
+
+841
+00:40:48,240 --> 00:40:54,000
+object.constructor constructor to try to
+
+842
+00:40:50,320 --> 00:40:57,839
+see what what function or class created
+
+843
+00:40:54,000 --> 00:41:00,960
+it. That's how it is supposedly to be
+
+844
+00:40:57,839 --> 00:41:03,760
+used. Okay, but not reliable because
+
+845
+00:41:00,960 --> 00:41:07,280
+people can assign value to it any
+
+846
+00:41:03,760 --> 00:41:08,400
+anytime. Okay, any anytime. Okay, so
+
+847
+00:41:07,280 --> 00:41:11,599
+value [clears throat] so what is the
+
+848
+00:41:08,400 --> 00:41:13,680
+value then? Depends. Okay, so that that
+
+849
+00:41:11,599 --> 00:41:16,720
+that because of that because of the
+
+850
+00:41:13,680 --> 00:41:19,599
+parents because of that then then
+
+851
+00:41:16,720 --> 00:41:21,440
+therefore it's that okay. So tip do not
+
+852
+00:41:19,599 --> 00:41:24,640
+use the constructor property. Why?
+
+853
+00:41:21,440 --> 00:41:27,839
+Because the value can change anytime.
+
+854
+00:41:24,640 --> 00:41:31,520
+Okay. And uh even the property key can
+
+855
+00:41:27,839 --> 00:41:33,680
+be removed. So okay and here is an
+
+856
+00:41:31,520 --> 00:41:36,560
+actual example. Okay. So what I want to
+
+857
+00:41:33,680 --> 00:41:38,560
+do is I want to remove the console log
+
+858
+00:41:36,560 --> 00:41:40,720
+to something better. Okay. So let me
+
+859
+00:41:38,560 --> 00:41:42,400
+show you.
+
+860
+00:41:40,720 --> 00:41:45,839
+Uh
+
+861
+00:41:42,400 --> 00:41:47,599
+okay. So
+
+862
+00:41:45,839 --> 00:41:49,760
+so let's see. Every function has a
+
+863
+00:41:47,599 --> 00:41:51,760
+property key prototype except our
+
+864
+00:41:49,760 --> 00:41:54,560
+function. So evaluate it everything
+
+865
+00:41:51,760 --> 00:41:57,200
+returns true because so it kind of
+
+866
+00:41:54,560 --> 00:41:59,760
+verifies the statement. Okay. So what I
+
+867
+00:41:57,200 --> 00:42:03,839
+want to do is I want to uh change the
+
+868
+00:41:59,760 --> 00:42:08,200
+console.log to console.assert.
+
+869
+00:42:03,839 --> 00:42:08,200
+So let me do that. Um
+
+870
+00:42:09,359 --> 00:42:18,960
+yeah so do that and uh then do that what
+
+871
+00:42:16,800 --> 00:42:21,200
+do that do that okay so now run
+
+872
+00:42:18,960 --> 00:42:26,240
+everything now there's no return value
+
+873
+00:42:21,200 --> 00:42:29,520
+because what console assert does is that
+
+874
+00:42:26,240 --> 00:42:32,400
+if whatever the argument if it's true
+
+875
+00:42:29,520 --> 00:42:34,319
+and it doesn't do nothing okay so if
+
+876
+00:42:32,400 --> 00:42:37,839
+your assertion whatever you think is
+
+877
+00:42:34,319 --> 00:42:40,880
+true is actually indeed true. It doesn't
+
+878
+00:42:37,839 --> 00:42:44,319
+do anything. Only when the argument is
+
+879
+00:42:40,880 --> 00:42:46,560
+false then it will print just like
+
+880
+00:42:44,319 --> 00:42:49,920
+console do.log
+
+881
+00:42:46,560 --> 00:42:52,880
+it you it'll say assertion failed. Okay.
+
+882
+00:42:49,920 --> 00:42:55,599
+So when you change console.log before it
+
+883
+00:42:52,880 --> 00:42:57,599
+just print true true true you know. But
+
+884
+00:42:55,599 --> 00:42:59,520
+if you change it to assert, it makes
+
+885
+00:42:57,599 --> 00:43:01,839
+your intention more clear because you
+
+886
+00:42:59,520 --> 00:43:05,119
+are because you are trying to tell
+
+887
+00:43:01,839 --> 00:43:09,920
+people you are claiming that this value
+
+888
+00:43:05,119 --> 00:43:12,240
+will evaluate to be true. And if that is
+
+889
+00:43:09,920 --> 00:43:14,000
+actually the case, don't do anything you
+
+890
+00:43:12,240 --> 00:43:18,480
+know. So when there's no output, that
+
+891
+00:43:14,000 --> 00:43:22,480
+means this assertion is all valid. Okay.
+
+892
+00:43:18,480 --> 00:43:24,079
+So so we are trying to verify every
+
+893
+00:43:22,480 --> 00:43:27,760
+function has a property key name
+
+894
+00:43:24,079 --> 00:43:30,880
+prototype. Okay, so everything is true.
+
+895
+00:43:27,760 --> 00:43:32,560
+Now go uh go down search for log. Now
+
+896
+00:43:30,880 --> 00:43:34,319
+again there's something we want to
+
+897
+00:43:32,560 --> 00:43:39,119
+change here. Run it first of all. True.
+
+898
+00:43:34,319 --> 00:43:42,640
+True. Okay. Fantastic. Now uh change
+
+899
+00:43:39,119 --> 00:43:45,280
+change to assert then run it. Fantastic.
+
+900
+00:43:42,640 --> 00:43:47,680
+Okay. Now put it back. Now search for
+
+901
+00:43:45,280 --> 00:43:50,880
+log again. So there's more to change.
+
+902
+00:43:47,680 --> 00:43:54,800
+First of all run it. So typical use of
+
+903
+00:43:50,880 --> 00:43:57,680
+constructor property. Okay. Now uh now
+
+904
+00:43:54,800 --> 00:44:00,160
+let's change that to assert run it no
+
+905
+00:43:57,680 --> 00:44:02,480
+output. Fantastic. Okay. Now put it
+
+906
+00:44:00,160 --> 00:44:04,720
+back. Search for log again. So there's
+
+907
+00:44:02,480 --> 00:44:07,440
+one more part we need to change actually
+
+908
+00:44:04,720 --> 00:44:11,200
+more than uh this more. So run it first
+
+909
+00:44:07,440 --> 00:44:13,440
+of all true to true to verify whatever
+
+910
+00:44:11,200 --> 00:44:15,280
+uh we are trying to verify here. So what
+
+911
+00:44:13,440 --> 00:44:17,839
+exactly we are trying to verify? I
+
+912
+00:44:15,280 --> 00:44:20,400
+forgot uh this value of property key.
+
+913
+00:44:17,839 --> 00:44:22,960
+Okay. So we are trying to check the
+
+914
+00:44:20,400 --> 00:44:24,640
+value of property key.
+
+915
+00:44:22,960 --> 00:44:26,800
+So
+
+916
+00:44:24,640 --> 00:44:31,359
+uh so first of all you define a class
+
+917
+00:44:26,800 --> 00:44:34,720
+function then you uh define a object
+
+918
+00:44:31,359 --> 00:44:36,960
+that's new you know that class okay the
+
+919
+00:44:34,720 --> 00:44:41,359
+new you create a new object then you
+
+920
+00:44:36,960 --> 00:44:45,839
+define a get uh prototype so you get the
+
+921
+00:44:41,359 --> 00:44:49,280
+parent of the new object PP okay so then
+
+922
+00:44:45,839 --> 00:44:52,000
+you check does the object JJ has the
+
+923
+00:44:49,280 --> 00:44:55,280
+constructor key force that means Means
+
+924
+00:44:52,000 --> 00:44:58,160
+the constructor property is not its own
+
+925
+00:44:55,280 --> 00:45:00,400
+object. Okay. Now does the PP object
+
+926
+00:44:58,160 --> 00:45:03,280
+which is a JJ's parent does that have
+
+927
+00:45:00,400 --> 00:45:05,760
+the constructor key? Yes. Okay. So this
+
+928
+00:45:03,280 --> 00:45:08,720
+is actually yes.
+
+929
+00:45:05,760 --> 00:45:10,960
+And the PB constructor value is is the
+
+930
+00:45:08,720 --> 00:45:15,599
+function itself. So you know you run it.
+
+931
+00:45:10,960 --> 00:45:20,000
+It's all true now. So let's change to um
+
+932
+00:45:15,599 --> 00:45:22,079
+press press that that. Okay. Now run it.
+
+933
+00:45:20,000 --> 00:45:24,560
+Fantastic. Okay. We change them to
+
+934
+00:45:22,079 --> 00:45:27,680
+assert. Put it back. Now search for
+
+935
+00:45:24,560 --> 00:45:30,160
+next. There's uh so what is this one?
+
+936
+00:45:27,680 --> 00:45:32,319
+True. [snorts] Okay. So the value of a
+
+937
+00:45:30,160 --> 00:45:34,079
+property key constructor is not
+
+938
+00:45:32,319 --> 00:45:36,480
+guaranteed to be the constructor
+
+939
+00:45:34,079 --> 00:45:40,160
+function. Okay. This is when something
+
+940
+00:45:36,480 --> 00:45:44,319
+nasty happened unexpected because user
+
+941
+00:45:40,160 --> 00:45:47,040
+can change change at any time. So let's
+
+942
+00:45:44,319 --> 00:45:50,319
+write it. It's false. Okay. I mean it's
+
+943
+00:45:47,040 --> 00:45:53,760
+true. So now let's change it to uh
+
+944
+00:45:50,319 --> 00:45:56,800
+console alert assert right no output
+
+945
+00:45:53,760 --> 00:45:58,640
+fantastic okay so let's make a comment
+
+946
+00:45:56,800 --> 00:46:03,839
+somewhere
+
+947
+00:45:58,640 --> 00:46:07,119
+to indicate where did it um so that's a
+
+948
+00:46:03,839 --> 00:46:09,920
+object then this is a function functionp
+
+949
+00:46:07,119 --> 00:46:13,520
+prototype so you set the functions
+
+950
+00:46:09,920 --> 00:46:15,599
+prototype to that okay object then
+
+951
+00:46:13,520 --> 00:46:20,240
+constant so you then you create a new
+
+952
+00:46:15,599 --> 00:46:23,440
+object out of this FF F class then when
+
+953
+00:46:20,240 --> 00:46:26,400
+you say you know the constructor of that
+
+954
+00:46:23,440 --> 00:46:30,480
+it become false because because of this
+
+955
+00:46:26,400 --> 00:46:33,839
+line you see because because that line
+
+956
+00:46:30,480 --> 00:46:37,040
+changed the parent.
+
+957
+00:46:33,839 --> 00:46:39,599
+Okay. So uh so we should make a comment
+
+958
+00:46:37,040 --> 00:46:43,760
+somewhere. Um
+
+959
+00:46:39,599 --> 00:46:46,319
+you know we can say change the portal
+
+960
+00:46:43,760 --> 00:46:50,560
+portal type
+
+961
+00:46:46,319 --> 00:46:53,560
+of f of f
+
+962
+00:46:50,560 --> 00:46:53,560
+f.
+
+963
+00:46:56,240 --> 00:47:02,800
+You see so when you do that then then
+
+964
+00:46:59,520 --> 00:47:05,520
+unexpected happens. Okay.
+
+965
+00:47:02,800 --> 00:47:09,040
+So let's put it back. Search for next
+
+966
+00:47:05,520 --> 00:47:11,280
+log and okay. So this is testing of all
+
+967
+00:47:09,040 --> 00:47:13,680
+the building constructors. So showing
+
+968
+00:47:11,280 --> 00:47:17,040
+arrays constructor.
+
+969
+00:47:13,680 --> 00:47:19,920
+So create array aa. Okay. Then does it
+
+970
+00:47:17,040 --> 00:47:23,200
+has own key constructor? No. False.
+
+971
+00:47:19,920 --> 00:47:24,560
+Okay. Does it does it so what's the
+
+972
+00:47:23,200 --> 00:47:26,160
+parent? Well, the parent is
+
+973
+00:47:24,560 --> 00:47:28,480
+array.prototype.
+
+974
+00:47:26,160 --> 00:47:31,760
+Then does the prototype array.prototype
+
+975
+00:47:28,480 --> 00:47:34,400
+has the property key constructor? Yes.
+
+976
+00:47:31,760 --> 00:47:38,079
+Now what is the value of that? Well,
+
+977
+00:47:34,400 --> 00:47:40,960
+that is array. Okay, then the uh and it
+
+978
+00:47:38,079 --> 00:47:44,480
+is also equals to array uh a dot
+
+979
+00:47:40,960 --> 00:47:47,119
+constructor. Okay, if you evaluate this,
+
+980
+00:47:44,480 --> 00:47:51,280
+it's all true. So you see it's all true.
+
+981
+00:47:47,119 --> 00:47:56,319
+Now close that. So you can see this part
+
+982
+00:47:51,280 --> 00:48:00,079
+is verifying the array object and this
+
+983
+00:47:56,319 --> 00:48:02,000
+section verifies the date object. you
+
+984
+00:48:00,079 --> 00:48:05,040
+know we create a date object. This
+
+985
+00:48:02,000 --> 00:48:09,040
+section verifies a function object. So
+
+986
+00:48:05,040 --> 00:48:12,640
+now you run it. It's all true now. But
+
+987
+00:48:09,040 --> 00:48:14,960
+let's change them to uh assert. Okay. So
+
+988
+00:48:12,640 --> 00:48:18,640
+press press. That's my own command. Uh
+
+989
+00:48:14,960 --> 00:48:20,560
+so let's do press press. Now repeat last
+
+990
+00:48:18,640 --> 00:48:21,760
+command. Do do it. Do it. Do it. Do it.
+
+991
+00:48:20,560 --> 00:48:25,200
+Do it. Do it. Do it do it. Do do it do
+
+992
+00:48:21,760 --> 00:48:27,280
+it do it do it do it do it. Evaluate the
+
+993
+00:48:25,200 --> 00:48:29,359
+whole thing. No output. Fantastic. It
+
+994
+00:48:27,280 --> 00:48:32,079
+means all the assertion came out true.
+
+995
+00:48:29,359 --> 00:48:34,880
+Okay, now put it back. Syntax color the
+
+996
+00:48:32,079 --> 00:48:36,800
+whole page. Search for log. There's no
+
+997
+00:48:34,880 --> 00:48:38,800
+more occurrence. Okay, now show the
+
+998
+00:48:36,800 --> 00:48:43,599
+whole thing in browser. So we finished
+
+999
+00:48:38,800 --> 00:48:45,520
+it. We finished updating all console.log
+
+1000
+00:48:43,599 --> 00:48:48,960
+to console.assert
+
+1001
+00:48:45,520 --> 00:48:54,119
+for this page on constructor property.
+
+1002
+00:48:48,960 --> 00:48:54,119
+Okay, I think that's it for today. Um,
+
+1003
+00:48:58,559 --> 00:49:05,440
+so hi. Hey dude. Hey dude. Alex dude the
+
+1004
+00:49:02,880 --> 00:49:08,559
+informat informaticist.
+
+1005
+00:49:05,440 --> 00:49:11,359
+You should write some modes for zero ad.
+
+1006
+00:49:08,559 --> 00:49:14,559
+Just for fun. People would like it. Now
+
+1007
+00:49:11,359 --> 00:49:18,640
+what is zero ad? I don't know exactly
+
+1008
+00:49:14,559 --> 00:49:22,559
+what is zero ad.
+
+1009
+00:49:18,640 --> 00:49:25,359
+Uh, ha. I noticed you stopped using the
+
+1010
+00:49:22,559 --> 00:49:27,760
+Kinesis today. How come you switched for
+
+1011
+00:49:25,359 --> 00:49:31,040
+fun or freshness? Yeah, you haven't
+
+1012
+00:49:27,760 --> 00:49:34,400
+watched my videos for a long time.
+
+1013
+00:49:31,040 --> 00:49:37,359
+I stopped using Kinesis like
+
+1014
+00:49:34,400 --> 00:49:40,319
+two three years ago. Okay. I started to
+
+1015
+00:49:37,359 --> 00:49:43,440
+use Glove 80. Perhaps that's what you
+
+1016
+00:49:40,319 --> 00:49:48,000
+meant. So I used the glove 80 in the
+
+1017
+00:49:43,440 --> 00:49:50,800
+past two or three years. Okay. Then for
+
+1018
+00:49:48,000 --> 00:49:54,800
+all my live stream then about two month
+
+1019
+00:49:50,800 --> 00:49:58,720
+ago two or three I started to using the
+
+1020
+00:49:54,800 --> 00:50:01,359
+ultimate hacking keyboard 80 UHK80.
+
+1021
+00:49:58,720 --> 00:50:04,800
+Why? Because they sent it to me. It's
+
+1022
+00:50:01,359 --> 00:50:07,280
+new. So I'm doing uh kind of a plugin,
+
+1023
+00:50:04,800 --> 00:50:09,599
+you know, review for them. It's very
+
+1024
+00:50:07,280 --> 00:50:12,800
+good. I enjoy it very much. I like them
+
+1025
+00:50:09,599 --> 00:50:15,839
+both very much. Okay. So I think that's
+
+1026
+00:50:12,800 --> 00:50:18,160
+it for today. So uh you know you guys uh
+
+1027
+00:50:15,839 --> 00:50:21,119
+can you know if you don't know about the
+
+1028
+00:50:18,160 --> 00:50:23,839
+keyboard stuff let me go to it. Go to
+
+1029
+00:50:21,119 --> 00:50:28,000
+kasadi. So go to kasardi.info
+
+1030
+00:50:23,839 --> 00:50:30,480
+http nos. Okay search for it uh for
+
+1031
+00:50:28,000 --> 00:50:32,640
+kasar code you'll find it. Okay then you
+
+1032
+00:50:30,480 --> 00:50:35,119
+first of all go all the way down but to
+
+1033
+00:50:32,640 --> 00:50:38,240
+the bottom you pay me donate to me.
+
+1034
+00:50:35,119 --> 00:50:41,520
+Okay. If you like my stuff you go down
+
+1035
+00:50:38,240 --> 00:50:44,720
+here. PayPal me, Patreon, Amazon gift
+
+1036
+00:50:41,520 --> 00:50:47,920
+card or PayPal. Okay, fantastic. If you
+
+1037
+00:50:44,720 --> 00:50:52,079
+do $100, if you have a job
+
+1038
+00:50:47,920 --> 00:50:54,960
+now, so here then you go to uh si.info,
+
+1039
+00:50:52,079 --> 00:50:59,200
+you go to a keyboard section. So that's
+
+1040
+00:50:54,960 --> 00:51:02,000
+there are uh 1,000 over 1,000 articles
+
+1041
+00:50:59,200 --> 00:51:06,400
+on keyboard on
+
+1042
+00:51:02,000 --> 00:51:08,640
+um on keyboard on keyboard layout on
+
+1043
+00:51:06,400 --> 00:51:12,720
+ergonomic keyboard on keyboard history
+
+1044
+00:51:08,640 --> 00:51:14,960
+on typewriters on key caps on key switch
+
+1045
+00:51:12,720 --> 00:51:18,960
+mechanisms you know everything. Uh for
+
+1046
+00:51:14,960 --> 00:51:21,280
+example track balls uh tracks video
+
+1047
+00:51:18,960 --> 00:51:24,400
+reviews. So some of these are some of my
+
+1048
+00:51:21,280 --> 00:51:26,480
+best videos. Okay. uh talk show on
+
+1049
+00:51:24,400 --> 00:51:30,960
+keyboard videos. Okay, the collection of
+
+1050
+00:51:26,480 --> 00:51:33,760
+my kind of my best uh each one of these
+
+1051
+00:51:30,960 --> 00:51:37,440
+is one hour. Okay, so that's Kinesis
+
+1052
+00:51:33,760 --> 00:51:42,240
+360. This is glove 80. Fantastic. This
+
+1053
+00:51:37,440 --> 00:51:46,640
+is fantastic. This is suave board.
+
+1054
+00:51:42,240 --> 00:51:49,839
+Okay, swabboard. Fantastic. Okay,
+
+1055
+00:51:46,640 --> 00:51:53,359
+I haven't used it yet. I will. Okay. So
+
+1056
+00:51:49,839 --> 00:51:55,839
+then then Kinesis 360 then then expose
+
+1057
+00:51:53,359 --> 00:51:58,559
+also another fantastic and this is
+
+1058
+00:51:55,839 --> 00:52:01,760
+ultimate hacking keyboard 60. This
+
+1059
+00:51:58,559 --> 00:52:05,200
+before my current 80. Okay. Now look at
+
+1060
+00:52:01,760 --> 00:52:10,240
+me. That's Beethoven here.
+
+1061
+00:52:05,200 --> 00:52:12,880
+Okay. So um Okay. So I I So that's about
+
+1062
+00:52:10,240 --> 00:52:15,760
+the keyboards. Okay. So uh if you guys
+
+1063
+00:52:12,880 --> 00:52:18,640
+haven't It looks like it's a cool thumb
+
+1064
+00:52:15,760 --> 00:52:21,280
+cluster. Yeah. So yeah. So three month
+
+1065
+00:52:18,640 --> 00:52:25,359
+ago they you know they have you know
+
+1066
+00:52:21,280 --> 00:52:27,920
+they sent me Wait, don't I have a UHK80
+
+1067
+00:52:25,359 --> 00:52:30,640
+here?
+
+1068
+00:52:27,920 --> 00:52:32,960
+Oh, I don't.
+
+1069
+00:52:30,640 --> 00:52:34,800
+So that's a fantastic mouse. A friend,
+
+1070
+00:52:32,960 --> 00:52:38,880
+one one of you guys a friend sent it to
+
+1071
+00:52:34,800 --> 00:52:41,280
+me from China. Uh I I should actually
+
+1072
+00:52:38,880 --> 00:52:44,800
+take it out, use it because this mouse
+
+1073
+00:52:41,280 --> 00:52:48,079
+got uh buttons. Okay, because this this
+
+1074
+00:52:44,800 --> 00:52:50,480
+mouse um
+
+1075
+00:52:48,079 --> 00:52:53,520
+This mouse got buttons because now I
+
+1076
+00:52:50,480 --> 00:52:56,880
+wanted to use button anyway.
+
+1077
+00:52:53,520 --> 00:52:59,440
+So, so, so, uh, yeah. So, Ultimate
+
+1078
+00:52:56,880 --> 00:53:04,280
+Hacking Keyboard 80. I should put the,
+
+1079
+00:52:59,440 --> 00:53:04,280
+you know, I got to link.
+
+1080
+00:53:06,079 --> 00:53:10,880
+Yeah. Interesting. Yeah, I should. So,
+
+1081
+00:53:08,480 --> 00:53:13,839
+anyway, but you go to my keyboard blog,
+
+1082
+00:53:10,880 --> 00:53:16,000
+you'll see it linked right there. Okay.
+
+1083
+00:53:13,839 --> 00:53:20,680
+So,
+
+1084
+00:53:16,000 --> 00:53:20,680
+uh, okay. That's it. Bye, guys.
+
+1085
+00:53:23,119 --> 00:53:26,800
+Yeah, checking them out. Check them out.
+
+1086
+00:53:25,200 --> 00:53:29,920
+Uh,
+
+1087
+00:53:26,800 --> 00:53:32,640
+I need to have Bluetooth. Okay, so
+
+1088
+00:53:29,920 --> 00:53:35,040
+Swabboard, they do have like Bluetooth
+
+1089
+00:53:32,640 --> 00:53:37,280
+feature. I mean, not so you need to
+
+1090
+00:53:35,040 --> 00:53:39,359
+check out, you know, contact them. They
+
+1091
+00:53:37,280 --> 00:53:43,200
+they got a website. They also got a
+
+1092
+00:53:39,359 --> 00:53:45,119
+Discord. Tell them sent you. Okay. So,
+
+1093
+00:53:43,200 --> 00:53:48,079
+yeah, Bluetooth is required. I don't
+
+1094
+00:53:45,119 --> 00:53:51,440
+know what's the current state but the
+
+1095
+00:53:48,079 --> 00:53:54,000
+way it was that you you can they I
+
+1096
+00:53:51,440 --> 00:53:57,280
+forgot what's the thing they um you can
+
+1097
+00:53:54,000 --> 00:53:59,599
+like install Bluetooth module
+
+1098
+00:53:57,280 --> 00:54:02,559
+um yeah I forgot what's the thing but
+
+1099
+00:53:59,599 --> 00:54:06,880
+the guy is using it they he showed me if
+
+1100
+00:54:02,559 --> 00:54:10,160
+you want so um so anyway you go to the
+
+1101
+00:54:06,880 --> 00:54:14,040
+his discord his website you you'll find
+
+1102
+00:54:10,160 --> 00:54:14,040
+information about that
+
+1103
+00:54:18,160 --> 00:54:24,520
+string on finger joint. Yeah, I don't
+
+1104
+00:54:19,920 --> 00:54:24,520
+know yet. Okay, so bye guys.
+

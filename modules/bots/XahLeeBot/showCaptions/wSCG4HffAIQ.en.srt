@@ -1,0 +1,6528 @@
+1
+00:00:04,560 --> 00:00:09,679
+good morning everyone welcome to another
+
+2
+00:00:07,040 --> 00:00:12,719
+episode of sound talk show
+
+3
+00:00:09,679 --> 00:00:14,719
+so today we are going to do geometric
+
+4
+00:00:12,719 --> 00:00:18,000
+inversion ufm
+
+5
+00:00:14,719 --> 00:00:20,400
+language coding and uh
+
+6
+00:00:18,000 --> 00:00:22,480
+and lots of fun stuff okay basically
+
+7
+00:00:20,400 --> 00:00:24,480
+centered around around the mathematics
+
+8
+00:00:22,480 --> 00:00:27,039
+geometric inversion you are looking at
+
+9
+00:00:24,480 --> 00:00:30,400
+some of the fantastic images of
+
+10
+00:00:27,039 --> 00:00:33,680
+geometric inversion and i'm going to uh
+
+11
+00:00:30,400 --> 00:00:36,480
+do some live coding and teach you oofam
+
+12
+00:00:33,680 --> 00:00:38,800
+language how do you do that
+
+13
+00:00:36,480 --> 00:00:41,040
+and wufang language is free by the way
+
+14
+00:00:38,800 --> 00:00:43,120
+so uh you you can download it just
+
+15
+00:00:41,040 --> 00:00:46,320
+search for wufam language free i'm gonna
+
+16
+00:00:43,120 --> 00:00:48,719
+show you my links okay uh and also so
+
+17
+00:00:46,320 --> 00:00:51,360
+you are looking at some of the images
+
+18
+00:00:48,719 --> 00:00:54,480
+fantastic beautiful images of geometric
+
+19
+00:00:51,360 --> 00:00:56,559
+inversion okay the the uh
+
+20
+00:00:54,480 --> 00:00:59,359
+the concept of geometric inversion and
+
+21
+00:00:56,559 --> 00:01:01,760
+also works in 3d so
+
+22
+00:00:59,359 --> 00:01:04,159
+and also okay so today and you are also
+
+23
+00:01:01,760 --> 00:01:06,799
+looking at my keyboard so i got a new
+
+24
+00:01:04,159 --> 00:01:10,159
+camera so let me show you uh the new
+
+25
+00:01:06,799 --> 00:01:11,040
+camera okay so you
+
+26
+00:01:10,159 --> 00:01:12,799
+uh
+
+27
+00:01:11,040 --> 00:01:13,920
+so i bought a new camera because the
+
+28
+00:01:12,799 --> 00:01:15,759
+logitech
+
+29
+00:01:13,920 --> 00:01:17,520
+so now i have two you can see my
+
+30
+00:01:15,759 --> 00:01:20,479
+keyboard i'm gonna work on it and you
+
+31
+00:01:17,520 --> 00:01:22,400
+can see how i operate the most efficient
+
+32
+00:01:20,479 --> 00:01:24,799
+way to operate
+
+33
+00:01:22,400 --> 00:01:26,720
+with emacs stuff like keys and keyboard
+
+34
+00:01:24,799 --> 00:01:29,200
+markers with the ultimate hacking
+
+35
+00:01:26,720 --> 00:01:32,000
+keyboard and kinesis advantage two
+
+36
+00:01:29,200 --> 00:01:34,479
+keyboard red switches red switches okay
+
+37
+00:01:32,000 --> 00:01:35,759
+you want linear light switches if you
+
+38
+00:01:34,479 --> 00:01:38,000
+already have
+
+39
+00:01:35,759 --> 00:01:39,880
+repetitive straight injury hand pain
+
+40
+00:01:38,000 --> 00:01:42,720
+okay and today is
+
+41
+00:01:39,880 --> 00:01:44,560
+2021 october 1st
+
+42
+00:01:42,720 --> 00:01:46,560
+okay so anyway so i i bought a new
+
+43
+00:01:44,560 --> 00:01:50,880
+camera because so right now i'm using
+
+44
+00:01:46,560 --> 00:01:52,159
+this one logitech c920 okay uh something
+
+45
+00:01:50,880 --> 00:01:55,520
+like 70
+
+46
+00:01:52,159 --> 00:01:57,759
+then i bought a cheap uh china cheapo
+
+47
+00:01:55,520 --> 00:01:58,799
+okay this one fantastic only forty
+
+48
+00:01:57,759 --> 00:02:00,000
+dollars
+
+49
+00:01:58,799 --> 00:02:02,240
+and uh
+
+50
+00:02:00,000 --> 00:02:04,079
+so the china cheaper you are you are
+
+51
+00:02:02,240 --> 00:02:06,640
+seeing is this one
+
+52
+00:02:04,079 --> 00:02:08,879
+well it's it's it's pointing at my
+
+53
+00:02:06,640 --> 00:02:11,280
+keyboard
+
+54
+00:02:08,879 --> 00:02:14,480
+and so i have a review here so you can
+
+55
+00:02:11,280 --> 00:02:17,840
+see uh i explained that you know what's
+
+56
+00:02:14,480 --> 00:02:20,239
+good or what's bad okay so i i would
+
+57
+00:02:17,840 --> 00:02:22,640
+recommend the china cheaper 30 dollars
+
+58
+00:02:20,239 --> 00:02:25,440
+cheaper than logitech okay so just
+
+59
+00:02:22,640 --> 00:02:28,080
+search for go to my xrd keyboard blog
+
+60
+00:02:25,440 --> 00:02:31,360
+and you know search for this your
+
+61
+00:02:28,080 --> 00:02:34,080
+logitech c 920 versus cheap webcam
+
+62
+00:02:31,360 --> 00:02:37,040
+you'll find my review
+
+63
+00:02:34,080 --> 00:02:40,000
+okay so that's about webcam i bought
+
+64
+00:02:37,040 --> 00:02:43,760
+and that's about the keyboard
+
+65
+00:02:40,000 --> 00:02:45,680
+uh and let's do shall we start to do uh
+
+66
+00:02:43,760 --> 00:02:48,640
+geometric inversion okay so let's see
+
+67
+00:02:45,680 --> 00:02:50,400
+what topic let's look at my notes
+
+68
+00:02:48,640 --> 00:02:52,959
+show graphics so i showed you some
+
+69
+00:02:50,400 --> 00:02:56,400
+images of geometric inversion the web
+
+70
+00:02:52,959 --> 00:02:58,560
+camera and okay so let's begin
+
+71
+00:02:56,400 --> 00:03:00,720
+to talk about
+
+72
+00:02:58,560 --> 00:03:02,640
+what is geometric inversion okay so if
+
+73
+00:03:00,720 --> 00:03:04,080
+you have questions comments posted okay
+
+74
+00:03:02,640 --> 00:03:05,760
+i'd love to see your comments and
+
+75
+00:03:04,080 --> 00:03:09,360
+questions hi guys
+
+76
+00:03:05,760 --> 00:03:09,360
+hi people of the world
+
+77
+00:03:09,519 --> 00:03:13,920
+okay so geometric inversion it's pretty
+
+78
+00:03:11,599 --> 00:03:16,800
+simple concept okay so we are we are
+
+79
+00:03:13,920 --> 00:03:20,080
+getting into math now uh so you can see
+
+80
+00:03:16,800 --> 00:03:22,239
+so so listen carefully okay geometric
+
+81
+00:03:20,080 --> 00:03:23,599
+inversion basically is a function okay
+
+82
+00:03:22,239 --> 00:03:26,239
+it's a function
+
+83
+00:03:23,599 --> 00:03:28,560
+that takes in a vector or point in the
+
+84
+00:03:26,239 --> 00:03:30,640
+plane or in three-dimensional it works
+
+85
+00:03:28,560 --> 00:03:33,519
+in any dimension okay so
+
+86
+00:03:30,640 --> 00:03:35,040
+geometric inversion is a function okay
+
+87
+00:03:33,519 --> 00:03:37,599
+it's a function
+
+88
+00:03:35,040 --> 00:03:39,360
+the argument is a vector okay
+
+89
+00:03:37,599 --> 00:03:41,120
+two-dimensional vector three-dimensional
+
+90
+00:03:39,360 --> 00:03:43,440
+four-dimensional whatever it's basically
+
+91
+00:03:41,120 --> 00:03:45,599
+a sequence of real numbers
+
+92
+00:03:43,440 --> 00:03:48,239
+okay uh that's the input that's the
+
+93
+00:03:45,599 --> 00:03:50,560
+argument to the function a point okay
+
+94
+00:03:48,239 --> 00:03:52,879
+let's let's let's just talk about in the
+
+95
+00:03:50,560 --> 00:03:54,400
+two-dimensional case so a vector to
+
+96
+00:03:52,879 --> 00:03:57,599
+d-vector okay
+
+97
+00:03:54,400 --> 00:03:59,439
+the output is another 2d vector so it's
+
+98
+00:03:57,599 --> 00:04:01,760
+so it's a function that takes a vector
+
+99
+00:03:59,439 --> 00:04:02,799
+and output a vector okay
+
+100
+00:04:01,760 --> 00:04:04,400
+oops
+
+101
+00:04:02,799 --> 00:04:06,239
+so this uh
+
+102
+00:04:04,400 --> 00:04:08,239
+let's see my
+
+103
+00:04:06,239 --> 00:04:10,000
+my keyboard shaking
+
+104
+00:04:08,239 --> 00:04:12,239
+so
+
+105
+00:04:10,000 --> 00:04:14,720
+so a function okay so now let me show
+
+106
+00:04:12,239 --> 00:04:17,680
+you so how is this function defined let
+
+107
+00:04:14,720 --> 00:04:19,359
+me explain okay so
+
+108
+00:04:17,680 --> 00:04:21,519
+so given the function
+
+109
+00:04:19,359 --> 00:04:23,199
+given a point p
+
+110
+00:04:21,519 --> 00:04:25,759
+remember it's a function that returns a
+
+111
+00:04:23,199 --> 00:04:27,040
+new point a new vector okay so given the
+
+112
+00:04:25,759 --> 00:04:29,600
+point p
+
+113
+00:04:27,040 --> 00:04:32,240
+it returns another q
+
+114
+00:04:29,600 --> 00:04:34,080
+but how is it defined well
+
+115
+00:04:32,240 --> 00:04:36,160
+it's defined this way okay you draw a
+
+116
+00:04:34,080 --> 00:04:38,960
+line from the origin from the center of
+
+117
+00:04:36,160 --> 00:04:41,680
+the coordinate to the point p
+
+118
+00:04:38,960 --> 00:04:44,639
+so you have a distance from o to p
+
+119
+00:04:41,680 --> 00:04:47,759
+always origin so o2p is the distance
+
+120
+00:04:44,639 --> 00:04:50,479
+so the q is another vector that lies on
+
+121
+00:04:47,759 --> 00:04:54,639
+the same line from o to p
+
+122
+00:04:50,479 --> 00:04:54,639
+but the distance of oq
+
+123
+00:04:55,199 --> 00:05:02,240
+times the distance of all p is equals to
+
+124
+00:04:59,759 --> 00:05:03,199
+uh the radius of inversion basically one
+
+125
+00:05:02,240 --> 00:05:05,280
+okay so
+
+126
+00:05:03,199 --> 00:05:07,680
+okay let me explain
+
+127
+00:05:05,280 --> 00:05:10,880
+so to define inversion you you you need
+
+128
+00:05:07,680 --> 00:05:12,560
+a circle okay let's say the circle at
+
+129
+00:05:10,880 --> 00:05:14,560
+origin
+
+130
+00:05:12,560 --> 00:05:16,800
+of radius r okay
+
+131
+00:05:14,560 --> 00:05:16,800
+so
+
+132
+00:05:16,960 --> 00:05:22,320
+so given point p
+
+133
+00:05:19,680 --> 00:05:24,400
+you want to find that it returns a point
+
+134
+00:05:22,320 --> 00:05:25,759
+q such that
+
+135
+00:05:24,400 --> 00:05:29,840
+q is
+
+136
+00:05:25,759 --> 00:05:33,759
+q lies on the same line from op okay the
+
+137
+00:05:29,840 --> 00:05:36,320
+op ray q lies on the same line as op but
+
+138
+00:05:33,759 --> 00:05:38,479
+however but then where is q then where
+
+139
+00:05:36,320 --> 00:05:41,440
+is q well q
+
+140
+00:05:38,479 --> 00:05:44,560
+q is such that the distance
+
+141
+00:05:41,440 --> 00:05:47,759
+of o times p the distance of o p
+
+142
+00:05:44,560 --> 00:05:50,800
+times the distance of oq equals to the
+
+143
+00:05:47,759 --> 00:05:52,479
+radius of the circle
+
+144
+00:05:50,800 --> 00:05:54,720
+okay that's a you know you can go to
+
+145
+00:05:52,479 --> 00:05:56,560
+wikipedia just look for geometric
+
+146
+00:05:54,720 --> 00:05:58,720
+version you'll you'll find actually go
+
+147
+00:05:56,560 --> 00:06:00,080
+to my website okay so
+
+148
+00:05:58,720 --> 00:06:03,039
+uh go to
+
+149
+00:06:00,080 --> 00:06:05,520
+go to visual dictionary of special claim
+
+150
+00:06:03,039 --> 00:06:07,919
+curves so that's my website that's my
+
+151
+00:06:05,520 --> 00:06:10,960
+most popular website linked by thousands
+
+152
+00:06:07,919 --> 00:06:12,639
+of universities math departments
+
+153
+00:06:10,960 --> 00:06:14,560
+uh starting from
+
+154
+00:06:12,639 --> 00:06:16,160
+late 1990s
+
+155
+00:06:14,560 --> 00:06:18,240
+so you go to uh
+
+156
+00:06:16,160 --> 00:06:20,479
+you know visual dictionary of special
+
+157
+00:06:18,240 --> 00:06:24,160
+plan curves then you just go to
+
+158
+00:06:20,479 --> 00:06:29,199
+inversion okay so there's an inversion
+
+159
+00:06:24,160 --> 00:06:31,280
+invert envelope evolute uh roulette uh
+
+160
+00:06:29,199 --> 00:06:33,039
+geometric inversion okay it's called by
+
+161
+00:06:31,280 --> 00:06:34,800
+the way it's called geometric inversion
+
+162
+00:06:33,039 --> 00:06:37,680
+not just inversion because inversion
+
+163
+00:06:34,800 --> 00:06:40,160
+means quite a quite a lot of things but
+
+164
+00:06:37,680 --> 00:06:42,000
+essentially the geometric inversion
+
+165
+00:06:40,160 --> 00:06:45,600
+okay we already gave you the definition
+
+166
+00:06:42,000 --> 00:06:45,600
+so you can read the details here
+
+167
+00:06:46,840 --> 00:06:52,240
+and i also want to tell you so so we
+
+168
+00:06:50,160 --> 00:06:54,400
+gave you the definition of the geometric
+
+169
+00:06:52,240 --> 00:06:56,960
+inversion so but what is essence what
+
+170
+00:06:54,400 --> 00:06:59,199
+what what does it i mean why do you need
+
+171
+00:06:56,960 --> 00:07:02,080
+this function
+
+172
+00:06:59,199 --> 00:07:04,800
+essentially it's a this geometric
+
+173
+00:07:02,080 --> 00:07:07,199
+inversion kind of defines multiplication
+
+174
+00:07:04,800 --> 00:07:08,560
+so you you could say
+
+175
+00:07:07,199 --> 00:07:11,120
+in a way
+
+176
+00:07:08,560 --> 00:07:13,840
+it defines multiplication
+
+177
+00:07:11,120 --> 00:07:16,800
+another way to characterize it is that
+
+178
+00:07:13,840 --> 00:07:19,120
+it's a function that
+
+179
+00:07:16,800 --> 00:07:20,880
+that swaps
+
+180
+00:07:19,120 --> 00:07:23,599
+let me see if i have a good picture
+
+181
+00:07:20,880 --> 00:07:24,639
+somewhere here okay so let's see it's a
+
+182
+00:07:23,599 --> 00:07:28,240
+function
+
+183
+00:07:24,639 --> 00:07:30,720
+that swaps any point outside of a circle
+
+184
+00:07:28,240 --> 00:07:33,919
+to inside of the circle okay so let me
+
+185
+00:07:30,720 --> 00:07:36,720
+see if i have a a good image to
+
+186
+00:07:33,919 --> 00:07:37,520
+illustrate that
+
+187
+00:07:36,720 --> 00:07:39,440
+uh
+
+188
+00:07:37,520 --> 00:07:41,520
+beautiful you know geometric inversion
+
+189
+00:07:39,440 --> 00:07:44,000
+is beautiful theory i mean i mean
+
+190
+00:07:41,520 --> 00:07:45,440
+beautiful of a very beautiful process
+
+191
+00:07:44,000 --> 00:07:48,479
+okay
+
+192
+00:07:45,440 --> 00:07:50,080
+and it's related to complex functions
+
+193
+00:07:48,479 --> 00:07:52,879
+okay so
+
+194
+00:07:50,080 --> 00:07:54,800
+okay we are getting um
+
+195
+00:07:52,879 --> 00:07:55,919
+a bit digression it's related to
+
+196
+00:07:54,800 --> 00:07:58,000
+complete
+
+197
+00:07:55,919 --> 00:08:01,599
+complex functions so let me see let me
+
+198
+00:07:58,000 --> 00:08:03,840
+show you um what let's see where
+
+199
+00:08:01,599 --> 00:08:05,680
+so you have geometric inversion now
+
+200
+00:08:03,840 --> 00:08:11,000
+where's the
+
+201
+00:08:05,680 --> 00:08:11,000
+gallery of geometric inversions okay so
+
+202
+00:08:13,520 --> 00:08:18,319
+uh where's my galleries
+
+203
+00:08:15,520 --> 00:08:20,400
+um okay so anyway so
+
+204
+00:08:18,319 --> 00:08:23,440
+somewhere linked you know you can find
+
+205
+00:08:20,400 --> 00:08:26,160
+so here you are looking at all the
+
+206
+00:08:23,440 --> 00:08:27,360
+geometric inversions so for example this
+
+207
+00:08:26,160 --> 00:08:31,120
+picture
+
+208
+00:08:27,360 --> 00:08:32,719
+this picture is a geometric inversion of
+
+209
+00:08:31,120 --> 00:08:35,919
+seven circles
+
+210
+00:08:32,719 --> 00:08:38,159
+nested inversion okay so you begin with
+
+211
+00:08:35,919 --> 00:08:41,919
+you know one two three four five six
+
+212
+00:08:38,159 --> 00:08:43,519
+seven seven circles then you invert
+
+213
+00:08:41,919 --> 00:08:46,080
+each circle
+
+214
+00:08:43,519 --> 00:08:47,760
+with respect to each of the circles and
+
+215
+00:08:46,080 --> 00:08:50,080
+you do that two two or three times
+
+216
+00:08:47,760 --> 00:08:51,600
+nesting okay so you got this picture
+
+217
+00:08:50,080 --> 00:08:54,160
+beautiful
+
+218
+00:08:51,600 --> 00:08:56,880
+and this this image for example you
+
+219
+00:08:54,160 --> 00:08:59,760
+begin with a bunch of circles arranged
+
+220
+00:08:56,880 --> 00:09:01,120
+like that configuration like that and
+
+221
+00:08:59,760 --> 00:09:03,440
+you got
+
+222
+00:09:01,120 --> 00:09:05,760
+and you invert them with respect to each
+
+223
+00:09:03,440 --> 00:09:09,120
+of the circle then you got that so now
+
+224
+00:09:05,760 --> 00:09:11,600
+let me get back so now i hope you will
+
+225
+00:09:09,120 --> 00:09:13,600
+learn you will understand fully after
+
+226
+00:09:11,600 --> 00:09:16,240
+watching this video what geometric
+
+227
+00:09:13,600 --> 00:09:17,680
+inversion means okay so let me emphasize
+
+228
+00:09:16,240 --> 00:09:20,080
+a few things
+
+229
+00:09:17,680 --> 00:09:22,320
+geometric inversion is a function
+
+230
+00:09:20,080 --> 00:09:24,959
+given a point
+
+231
+00:09:22,320 --> 00:09:27,040
+in a plane or in 3d space or in
+
+232
+00:09:24,959 --> 00:09:29,600
+n-dimensional space given a point it
+
+233
+00:09:27,040 --> 00:09:31,440
+will return a new point okay that's it
+
+234
+00:09:29,600 --> 00:09:34,080
+that's it it's just just a function that
+
+235
+00:09:31,440 --> 00:09:35,519
+takes a vector returns a vector
+
+236
+00:09:34,080 --> 00:09:38,480
+and now
+
+237
+00:09:35,519 --> 00:09:39,360
+but so what we mean so so when you see
+
+238
+00:09:38,480 --> 00:09:41,680
+these
+
+239
+00:09:39,360 --> 00:09:43,680
+how does that work you know
+
+240
+00:09:41,680 --> 00:09:47,120
+so because each point
+
+241
+00:09:43,680 --> 00:09:50,880
+uh okay so here is you know this fancy
+
+242
+00:09:47,120 --> 00:09:53,440
+graphics is is uh
+
+243
+00:09:50,880 --> 00:09:56,080
+more complicated okay so let me
+
+244
+00:09:53,440 --> 00:09:58,000
+uh perhaps we should uh focus on you
+
+245
+00:09:56,080 --> 00:09:59,519
+know just remember it's a it's a vector
+
+246
+00:09:58,000 --> 00:10:02,839
+it's a function that takes a vector
+
+247
+00:09:59,519 --> 00:10:08,320
+returns a vector and it's defined
+
+248
+00:10:02,839 --> 00:10:08,320
+um based on a circle of radius one okay
+
+249
+00:10:08,880 --> 00:10:15,360
+so what it does essentially is that
+
+250
+00:10:12,640 --> 00:10:17,200
+it swaps any point outside of the circle
+
+251
+00:10:15,360 --> 00:10:18,560
+to the inside of the circle and any
+
+252
+00:10:17,200 --> 00:10:21,440
+point inside us
+
+253
+00:10:18,560 --> 00:10:24,320
+of the circle becomes goes outside of
+
+254
+00:10:21,440 --> 00:10:26,720
+the circle okay and points on the circle
+
+255
+00:10:24,320 --> 00:10:28,880
+of radius one remains on the circle they
+
+256
+00:10:26,720 --> 00:10:33,120
+don't change okay so those are fixed
+
+257
+00:10:28,880 --> 00:10:35,839
+point uh in mathematical jargon
+
+258
+00:10:33,120 --> 00:10:38,079
+so so that's how you do geometric
+
+259
+00:10:35,839 --> 00:10:40,399
+inversion i mean that's a function of a
+
+260
+00:10:38,079 --> 00:10:42,480
+point returning a point so what but but
+
+261
+00:10:40,399 --> 00:10:45,040
+how do you get the graphics like that
+
+262
+00:10:42,480 --> 00:10:47,519
+okay so let me explain in basic detail i
+
+263
+00:10:45,040 --> 00:10:50,320
+mean for those of you who are not too
+
+264
+00:10:47,519 --> 00:10:52,640
+familiar with math okay so
+
+265
+00:10:50,320 --> 00:10:55,440
+so here what what you are looking at
+
+266
+00:10:52,640 --> 00:10:57,839
+okay let's go back okay so let's go look
+
+267
+00:10:55,440 --> 00:11:00,480
+at this image okay so here you are
+
+268
+00:10:57,839 --> 00:11:01,440
+seeing a grid okay
+
+269
+00:11:00,480 --> 00:11:03,600
+and
+
+270
+00:11:01,440 --> 00:11:06,560
+after applying the geometric inversion
+
+271
+00:11:03,600 --> 00:11:08,480
+function it becomes that okay so how
+
+272
+00:11:06,560 --> 00:11:11,040
+does that work well
+
+273
+00:11:08,480 --> 00:11:13,600
+you see a grid is a lot of points you
+
+274
+00:11:11,040 --> 00:11:16,720
+know it's made made of lines and so you
+
+275
+00:11:13,600 --> 00:11:18,720
+can see that each point on the line
+
+276
+00:11:16,720 --> 00:11:20,959
+okay for example the corner point over
+
+277
+00:11:18,720 --> 00:11:23,120
+here so you
+
+278
+00:11:20,959 --> 00:11:25,279
+you you apply the function geometric
+
+279
+00:11:23,120 --> 00:11:27,519
+inversion to that point and you get a
+
+280
+00:11:25,279 --> 00:11:29,600
+new point okay for that for that point
+
+281
+00:11:27,519 --> 00:11:32,000
+in the corner and you do the same thing
+
+282
+00:11:29,600 --> 00:11:34,000
+for every point in the line for every
+
+283
+00:11:32,000 --> 00:11:35,760
+point on the grid then you get these
+
+284
+00:11:34,000 --> 00:11:38,320
+okay so that's
+
+285
+00:11:35,760 --> 00:11:41,040
+geometric inversion of a 2d grid that
+
+286
+00:11:38,320 --> 00:11:41,040
+looks like that
+
+287
+00:11:41,440 --> 00:11:47,839
+does that make sense do i make sense
+
+288
+00:11:44,959 --> 00:11:50,320
+i hope you understand okay so and i hope
+
+289
+00:11:47,839 --> 00:11:53,440
+i'm not you know being repetitive
+
+290
+00:11:50,320 --> 00:11:55,440
+repetitive okay so in this case so here
+
+291
+00:11:53,440 --> 00:11:58,880
+we apply geometric
+
+292
+00:11:55,440 --> 00:11:59,920
+uh inversion to a you know a grid lines
+
+293
+00:11:58,880 --> 00:12:00,880
+of grid
+
+294
+00:11:59,920 --> 00:12:03,279
+now
+
+295
+00:12:00,880 --> 00:12:04,720
+in this case we apply a geometric
+
+296
+00:12:03,279 --> 00:12:07,200
+inversion to
+
+297
+00:12:04,720 --> 00:12:09,440
+a bunch of squares oh by the way let me
+
+298
+00:12:07,200 --> 00:12:11,040
+also mention when we apply the geometric
+
+299
+00:12:09,440 --> 00:12:13,839
+inversion here
+
+300
+00:12:11,040 --> 00:12:16,000
+we actually do not apply to every point
+
+301
+00:12:13,839 --> 00:12:19,120
+on the line rather we just apply to the
+
+302
+00:12:16,000 --> 00:12:19,120
+grid points so
+
+303
+00:12:19,760 --> 00:12:24,560
+so like we apply here here here here
+
+304
+00:12:23,680 --> 00:12:26,720
+here
+
+305
+00:12:24,560 --> 00:12:28,639
+and same thing you know here here here
+
+306
+00:12:26,720 --> 00:12:32,480
+the grid points
+
+307
+00:12:28,639 --> 00:12:34,800
+so once we do that we connect the points
+
+308
+00:12:32,480 --> 00:12:36,880
+like how they are connected before then
+
+309
+00:12:34,800 --> 00:12:39,680
+we got that
+
+310
+00:12:36,880 --> 00:12:41,839
+now now if you do not if you apply the
+
+311
+00:12:39,680 --> 00:12:44,399
+geometric inversion to
+
+312
+00:12:41,839 --> 00:12:46,959
+entire points on the line what you get
+
+313
+00:12:44,399 --> 00:12:49,279
+is bunch of circles because by by a
+
+314
+00:12:46,959 --> 00:12:51,440
+theorem geometric inversion
+
+315
+00:12:49,279 --> 00:12:54,560
+any straight line becomes circles any
+
+316
+00:12:51,440 --> 00:12:56,720
+any circle becomes a line or circles
+
+317
+00:12:54,560 --> 00:12:58,959
+okay that's that's a theory
+
+318
+00:12:56,720 --> 00:13:00,160
+that's one of the theorem in geometry
+
+319
+00:12:58,959 --> 00:13:02,480
+inversion
+
+320
+00:13:00,160 --> 00:13:04,880
+so on this page you can see the full
+
+321
+00:13:02,480 --> 00:13:07,200
+explanation and i hope you go there and
+
+322
+00:13:04,880 --> 00:13:09,600
+study it so we are you know learning
+
+323
+00:13:07,200 --> 00:13:11,440
+mathematics
+
+324
+00:13:09,600 --> 00:13:14,480
+so okay so
+
+325
+00:13:11,440 --> 00:13:16,959
+now i want to show you demonstrate some
+
+326
+00:13:14,480 --> 00:13:19,360
+wolfram language code okay so we explain
+
+327
+00:13:16,959 --> 00:13:22,160
+how this image you know what this image
+
+328
+00:13:19,360 --> 00:13:23,519
+is so in this case we have a bunch of
+
+329
+00:13:22,160 --> 00:13:26,160
+squares
+
+330
+00:13:23,519 --> 00:13:29,040
+laid out on a grid and we apply the
+
+331
+00:13:26,160 --> 00:13:30,959
+geometric inversion to each corner the
+
+332
+00:13:29,040 --> 00:13:32,399
+vertices of the
+
+333
+00:13:30,959 --> 00:13:35,040
+of the squares
+
+334
+00:13:32,399 --> 00:13:37,200
+then what you get is this beautiful you
+
+335
+00:13:35,040 --> 00:13:42,160
+know this fascinating this decor you
+
+336
+00:13:37,200 --> 00:13:42,160
+know decorative uh mathematical patterns
+
+337
+00:13:42,959 --> 00:13:49,199
+so okay so so here we and we do the same
+
+338
+00:13:46,639 --> 00:13:51,680
+now they look you know there's a signifi
+
+339
+00:13:49,199 --> 00:13:54,240
+this kind of a visual impact how they
+
+340
+00:13:51,680 --> 00:13:57,120
+are different because this one you start
+
+341
+00:13:54,240 --> 00:13:58,800
+with a square in the middle
+
+342
+00:13:57,120 --> 00:14:00,399
+then you get that
+
+343
+00:13:58,800 --> 00:14:03,600
+and this one you don't have a square in
+
+344
+00:14:00,399 --> 00:14:05,199
+the middle and you get that
+
+345
+00:14:03,600 --> 00:14:07,680
+you know they are exactly the same thing
+
+346
+00:14:05,199 --> 00:14:10,720
+geometric version but the the outcome
+
+347
+00:14:07,680 --> 00:14:13,040
+the visual impact is slightly different
+
+348
+00:14:10,720 --> 00:14:15,120
+okay am i am i good
+
+349
+00:14:13,040 --> 00:14:16,720
+uh let's see video check audio check it
+
+350
+00:14:15,120 --> 00:14:20,079
+so let's
+
+351
+00:14:16,720 --> 00:14:21,920
+remove that and
+
+352
+00:14:20,079 --> 00:14:24,399
+okay so let's
+
+353
+00:14:21,920 --> 00:14:24,399
+continue
+
+354
+00:14:25,440 --> 00:14:32,000
+so next i want to show you so here is a
+
+355
+00:14:29,600 --> 00:14:33,360
+geometric inversion of a square grid
+
+356
+00:14:32,000 --> 00:14:36,000
+then here
+
+357
+00:14:33,360 --> 00:14:38,399
+this is spectacular now this is a
+
+358
+00:14:36,000 --> 00:14:40,560
+geometric inversion same thing like that
+
+359
+00:14:38,399 --> 00:14:44,240
+something like that except instead of
+
+360
+00:14:40,560 --> 00:14:46,880
+squares you have n gongs regular
+
+361
+00:14:44,240 --> 00:14:50,560
+polygons you know you have hexagons you
+
+362
+00:14:46,880 --> 00:14:51,920
+can be triangle hexagon
+
+363
+00:14:50,560 --> 00:14:53,440
+heptagon
+
+364
+00:14:51,920 --> 00:14:55,360
+seven-sided
+
+365
+00:14:53,440 --> 00:14:56,160
+regular polyhedron
+
+366
+00:14:55,360 --> 00:14:57,360
+or
+
+367
+00:14:56,160 --> 00:15:00,240
+octagon
+
+368
+00:14:57,360 --> 00:15:02,720
+or and so on and pentagon you know nice
+
+369
+00:15:00,240 --> 00:15:04,480
+sided so
+
+370
+00:15:02,720 --> 00:15:07,279
+okay i'm going to show you so here's a
+
+371
+00:15:04,480 --> 00:15:09,680
+code this is a wufam language code
+
+372
+00:15:07,279 --> 00:15:12,160
+then here is a spectacular you know you
+
+373
+00:15:09,680 --> 00:15:15,360
+do the same thing like the first one
+
+374
+00:15:12,160 --> 00:15:19,120
+like this one but is but now you make it
+
+375
+00:15:15,360 --> 00:15:21,839
+into 3d so you have kind of a tie out uh
+
+376
+00:15:19,120 --> 00:15:23,120
+you know like pavement like nice garden
+
+377
+00:15:21,839 --> 00:15:24,959
+pavement
+
+378
+00:15:23,120 --> 00:15:28,480
+pattern
+
+379
+00:15:24,959 --> 00:15:31,440
+uh and here and and and you know you see
+
+380
+00:15:28,480 --> 00:15:34,160
+so geometric inversion remember
+
+381
+00:15:31,440 --> 00:15:35,839
+it's based on a circle any point outside
+
+382
+00:15:34,160 --> 00:15:38,320
+the circle
+
+383
+00:15:35,839 --> 00:15:40,320
+becomes inside and inside
+
+384
+00:15:38,320 --> 00:15:42,320
+goes to outside
+
+385
+00:15:40,320 --> 00:15:44,720
+so that means when you have a plane you
+
+386
+00:15:42,320 --> 00:15:47,279
+know you have lots lots of points out of
+
+387
+00:15:44,720 --> 00:15:49,440
+outside of circle they become congested
+
+388
+00:15:47,279 --> 00:15:51,360
+in the middle you see
+
+389
+00:15:49,440 --> 00:15:54,959
+they they all have this pattern they
+
+390
+00:15:51,360 --> 00:15:57,120
+become infinitely small in the middle
+
+391
+00:15:54,959 --> 00:15:59,040
+so but that doesn't work well if you
+
+392
+00:15:57,120 --> 00:16:02,320
+want a you know
+
+393
+00:15:59,040 --> 00:16:05,040
+tires you know garden pavement tiles so
+
+394
+00:16:02,320 --> 00:16:07,519
+is there some way to make them to to you
+
+395
+00:16:05,040 --> 00:16:10,160
+know to have this beautiful pattern but
+
+396
+00:16:07,519 --> 00:16:12,000
+without the congestion in the middle
+
+397
+00:16:10,160 --> 00:16:13,120
+well yeah we can do that i tried to do
+
+398
+00:16:12,000 --> 00:16:15,680
+that so
+
+399
+00:16:13,120 --> 00:16:17,839
+this here is a result
+
+400
+00:16:15,680 --> 00:16:20,320
+uh so what you do is you
+
+401
+00:16:17,839 --> 00:16:23,600
+start the grid you know remember we
+
+402
+00:16:20,320 --> 00:16:24,720
+start with the rectangular grid
+
+403
+00:16:23,600 --> 00:16:27,839
+now
+
+404
+00:16:24,720 --> 00:16:29,120
+you move the grid points apart further
+
+405
+00:16:27,839 --> 00:16:31,759
+apart
+
+406
+00:16:29,120 --> 00:16:35,600
+by using geometric inversion again
+
+407
+00:16:31,759 --> 00:16:37,839
+and also the the size of each square
+
+408
+00:16:35,600 --> 00:16:39,120
+will also be different depending on how
+
+409
+00:16:37,839 --> 00:16:40,959
+far
+
+410
+00:16:39,120 --> 00:16:43,519
+they are from the engine
+
+411
+00:16:40,959 --> 00:16:46,240
+so you begin so basically you begin with
+
+412
+00:16:43,519 --> 00:16:49,279
+this pattern you know not
+
+413
+00:16:46,240 --> 00:16:51,600
+you know not just a rectangular grid
+
+414
+00:16:49,279 --> 00:16:54,320
+but you begin with uh you know this
+
+415
+00:16:51,600 --> 00:16:56,560
+pattern then after applying geometric
+
+416
+00:16:54,320 --> 00:16:59,839
+inversion you get this one so this one
+
+417
+00:16:56,560 --> 00:17:02,320
+so now we have a tiled version
+
+418
+00:16:59,839 --> 00:17:04,240
+okay and there's also a 3d case we did
+
+419
+00:17:02,320 --> 00:17:06,160
+like a month ago so here's a
+
+420
+00:17:04,240 --> 00:17:09,199
+three-dimensional case of geometric
+
+421
+00:17:06,160 --> 00:17:11,679
+inversion fantastic beautiful
+
+422
+00:17:09,199 --> 00:17:13,039
+now let's do some wufang language coding
+
+423
+00:17:11,679 --> 00:17:14,319
+okay so
+
+424
+00:17:13,039 --> 00:17:16,720
+let me show you
+
+425
+00:17:14,319 --> 00:17:19,360
+comments guys comments okay
+
+426
+00:17:16,720 --> 00:17:22,400
+so uh
+
+427
+00:17:19,360 --> 00:17:24,799
+so let's go to let's look at uh let's do
+
+428
+00:17:22,400 --> 00:17:27,439
+some movement language coding okay
+
+429
+00:17:24,799 --> 00:17:30,960
+so we expand geometric inversion and
+
+430
+00:17:27,439 --> 00:17:32,960
+let's okay so copy the code
+
+431
+00:17:30,960 --> 00:17:36,400
+go to firm language
+
+432
+00:17:32,960 --> 00:17:37,200
+select all paste it evaluate so you can
+
+433
+00:17:36,400 --> 00:17:39,760
+see
+
+434
+00:17:37,200 --> 00:17:42,720
+so there it is okay so let's show some
+
+435
+00:17:39,760 --> 00:17:44,000
+other you know some more um
+
+436
+00:17:42,720 --> 00:17:46,080
+copy it
+
+437
+00:17:44,000 --> 00:17:47,120
+go to frame language code select or
+
+438
+00:17:46,080 --> 00:17:50,640
+paste
+
+439
+00:17:47,120 --> 00:17:52,400
+uh actually undo let's do a new one at
+
+440
+00:17:50,640 --> 00:17:54,720
+bottom do it
+
+441
+00:17:52,400 --> 00:17:59,600
+okay you can see
+
+442
+00:17:54,720 --> 00:18:00,480
+then you can also uh magnify it
+
+443
+00:17:59,600 --> 00:18:02,080
+okay
+
+444
+00:18:00,480 --> 00:18:04,640
+so let's do
+
+445
+00:18:02,080 --> 00:18:06,799
+okay so now this one is interesting so
+
+446
+00:18:04,640 --> 00:18:09,440
+because there are so many variations
+
+447
+00:18:06,799 --> 00:18:12,960
+this is a regular polyhedron so let's do
+
+448
+00:18:09,440 --> 00:18:12,960
+some experiment on that
+
+449
+00:18:13,280 --> 00:18:17,679
+uh let's uh okay so let's
+
+450
+00:18:18,880 --> 00:18:22,559
+and i'm going to explain the code okay
+
+451
+00:18:20,880 --> 00:18:25,440
+i'm going to explain
+
+452
+00:18:22,559 --> 00:18:28,160
+uh the code so but
+
+453
+00:18:25,440 --> 00:18:31,679
+so you see so let me actually show let
+
+454
+00:18:28,160 --> 00:18:31,679
+me show you the um
+
+455
+00:18:31,919 --> 00:18:36,640
+let's make them
+
+456
+00:18:33,760 --> 00:18:39,360
+you know rendered as uh you know
+
+457
+00:18:36,640 --> 00:18:41,600
+as mathematics so this is woofam code
+
+458
+00:18:39,360 --> 00:18:44,480
+you can you know it's fantastic gruffan
+
+459
+00:18:41,600 --> 00:18:47,039
+language is mathematical feature so you
+
+460
+00:18:44,480 --> 00:18:50,080
+can have you know you can have this
+
+461
+00:18:47,039 --> 00:18:52,880
+uh kind of um
+
+462
+00:18:50,080 --> 00:18:55,760
+typeset you know math mathematics you
+
+463
+00:18:52,880 --> 00:18:58,240
+know on the flag as you type
+
+464
+00:18:55,760 --> 00:19:00,960
+so no no no more you know the the
+
+465
+00:18:58,240 --> 00:19:03,520
+typical industrial programmers you know
+
+466
+00:19:00,960 --> 00:19:04,720
+including these coders python you know
+
+467
+00:19:03,520 --> 00:19:07,360
+they they
+
+468
+00:19:04,720 --> 00:19:10,000
+they want to argue and idioms and coding
+
+469
+00:19:07,360 --> 00:19:11,919
+styles about when to press the tab you
+
+470
+00:19:10,000 --> 00:19:14,400
+know when should you have a tab and
+
+471
+00:19:11,919 --> 00:19:16,400
+whether it should be space or tab or
+
+472
+00:19:14,400 --> 00:19:19,760
+whether how you code formatting you know
+
+473
+00:19:16,400 --> 00:19:21,280
+idiocy here you are seeing
+
+474
+00:19:19,760 --> 00:19:24,400
+automated
+
+475
+00:19:21,280 --> 00:19:26,480
+uh formatting on the fly
+
+476
+00:19:24,400 --> 00:19:28,160
+you see for example let me let me for
+
+477
+00:19:26,480 --> 00:19:30,880
+example this line you know it's a long
+
+478
+00:19:28,160 --> 00:19:32,960
+line but if your window is small
+
+479
+00:19:30,880 --> 00:19:35,840
+you know it automatically become you
+
+480
+00:19:32,960 --> 00:19:38,400
+know it's it's it doesn't fly off the
+
+481
+00:19:35,840 --> 00:19:39,919
+window you know like typical programmers
+
+482
+00:19:38,400 --> 00:19:42,400
+you know that you know
+
+483
+00:19:39,919 --> 00:19:44,480
+like in emacs field field region that
+
+484
+00:19:42,400 --> 00:19:46,400
+idiocy
+
+485
+00:19:44,480 --> 00:19:49,440
+you see so you are you are looking at
+
+486
+00:19:46,400 --> 00:19:52,000
+the automatic you know formatting okay
+
+487
+00:19:49,440 --> 00:19:54,640
+on the fly and not just that also
+
+488
+00:19:52,000 --> 00:19:56,559
+mathematical type setting
+
+489
+00:19:54,640 --> 00:19:58,640
+okay so anyway that's a bit digression
+
+490
+00:19:56,559 --> 00:20:01,600
+so you are looking at so let me let's
+
+491
+00:19:58,640 --> 00:20:04,320
+modify the code okay so let's see the
+
+492
+00:20:01,600 --> 00:20:04,320
+polygon
+
+493
+00:20:04,480 --> 00:20:10,480
+so let's change the polygon to uh
+
+494
+00:20:07,760 --> 00:20:12,320
+polygon number of sides okay so actually
+
+495
+00:20:10,480 --> 00:20:17,039
+you cannot see that so let me change
+
+496
+00:20:12,320 --> 00:20:17,039
+that polygon number of side four okay
+
+497
+00:20:17,760 --> 00:20:20,760
+evaluated
+
+498
+00:20:21,200 --> 00:20:24,640
+so you got that okay
+
+499
+00:20:24,720 --> 00:20:27,919
+um
+
+500
+00:20:25,679 --> 00:20:31,600
+okay so now let's try a polygon number
+
+501
+00:20:27,919 --> 00:20:32,720
+let's let's magnify this so that
+
+502
+00:20:31,600 --> 00:20:36,159
+and
+
+503
+00:20:32,720 --> 00:20:36,159
+let's make it smaller
+
+504
+00:20:37,280 --> 00:20:41,679
+and let's
+
+505
+00:20:38,960 --> 00:20:43,039
+remove this image okay so let's remove
+
+506
+00:20:41,679 --> 00:20:47,640
+so
+
+507
+00:20:43,039 --> 00:20:47,640
+let's do that okay let me show you
+
+508
+00:20:49,039 --> 00:20:53,200
+do that okay so let's also remove that
+
+509
+00:20:52,080 --> 00:20:55,200
+one
+
+510
+00:20:53,200 --> 00:20:56,240
+okay so we can see the graph directly
+
+511
+00:20:55,200 --> 00:20:59,840
+below
+
+512
+00:20:56,240 --> 00:21:03,039
+so now let's magnify a bit okay
+
+513
+00:20:59,840 --> 00:21:08,159
+now let's change the
+
+514
+00:21:03,039 --> 00:21:08,159
+polygon radius okay polygon radius
+
+515
+00:21:11,200 --> 00:21:17,200
+polygon radius
+
+516
+00:21:13,039 --> 00:21:19,440
+0.5 so so that they don't overlap
+
+517
+00:21:17,200 --> 00:21:22,320
+so you see now we got little squares
+
+518
+00:21:19,440 --> 00:21:24,880
+they don't overlap now let's
+
+519
+00:21:22,320 --> 00:21:27,039
+polygon number of sides let's make it
+
+520
+00:21:24,880 --> 00:21:29,039
+five pentagon
+
+521
+00:21:27,039 --> 00:21:33,440
+so you see pentagon
+
+522
+00:21:29,039 --> 00:21:34,480
+now let's say make it six hexagon okay
+
+523
+00:21:33,440 --> 00:21:36,960
+now
+
+524
+00:21:34,480 --> 00:21:39,679
+the side let's make the side larger so
+
+525
+00:21:36,960 --> 00:21:40,480
+it's more interesting so
+
+526
+00:21:39,679 --> 00:21:43,039
+uh
+
+527
+00:21:40,480 --> 00:21:45,840
+three okay let's see
+
+528
+00:21:43,039 --> 00:21:45,840
+so they overlap
+
+529
+00:21:46,240 --> 00:21:52,480
+okay so it's not
+
+530
+00:21:48,320 --> 00:21:52,480
+this one is not so aesthetic
+
+531
+00:21:53,919 --> 00:21:58,720
+okay so
+
+532
+00:21:56,159 --> 00:22:00,880
+so anyway so you see this one start you
+
+533
+00:21:58,720 --> 00:22:03,280
+begin with this pattern and after you
+
+534
+00:22:00,880 --> 00:22:05,200
+apply geometry inversion you get that
+
+535
+00:22:03,280 --> 00:22:06,480
+okay
+
+536
+00:22:05,200 --> 00:22:09,120
+so let's see
+
+537
+00:22:06,480 --> 00:22:13,919
+how long have i been talking um let's
+
+538
+00:22:09,120 --> 00:22:16,799
+see maybe i should uh move on to
+
+539
+00:22:13,919 --> 00:22:19,440
+10 okay we already talked for 30 minutes
+
+540
+00:22:16,799 --> 00:22:22,000
+okay so let's do the tiled version one
+
+541
+00:22:19,440 --> 00:22:22,000
+okay so
+
+542
+00:22:22,880 --> 00:22:27,520
+copy it make it smaller go here
+
+543
+00:22:26,720 --> 00:22:30,000
+and
+
+544
+00:22:27,520 --> 00:22:30,000
+paste it
+
+545
+00:22:32,559 --> 00:22:38,000
+okay so
+
+546
+00:22:34,559 --> 00:22:38,000
+here you got it okay so
+
+547
+00:22:39,200 --> 00:22:41,840
+then
+
+548
+00:22:44,240 --> 00:22:47,679
+then you can rotate the thing
+
+549
+00:22:49,520 --> 00:22:54,559
+okay so now
+
+550
+00:22:52,000 --> 00:22:56,960
+now this one okay now
+
+551
+00:22:54,559 --> 00:23:00,400
+this one is fascinating so but let's
+
+552
+00:22:56,960 --> 00:23:02,960
+copy let's use this code so it's uh
+
+553
+00:23:00,400 --> 00:23:02,960
+fancy
+
+554
+00:23:04,240 --> 00:23:09,360
+so let me show you this code okay let me
+
+555
+00:23:06,159 --> 00:23:10,480
+show you in uh let me also mention
+
+556
+00:23:09,360 --> 00:23:14,000
+from
+
+557
+00:23:10,480 --> 00:23:16,559
+emacs wolf mod okay let's see let's let
+
+558
+00:23:14,000 --> 00:23:16,559
+me show you
+
+559
+00:23:18,320 --> 00:23:22,640
+so um yeah let's start to do some typing
+
+560
+00:23:21,200 --> 00:23:24,559
+so 3d
+
+561
+00:23:22,640 --> 00:23:29,039
+tile
+
+562
+00:23:24,559 --> 00:23:32,880
+okay so here is my html mod magnify okay
+
+563
+00:23:29,039 --> 00:23:34,080
+so you can see here's the image of that
+
+564
+00:23:32,880 --> 00:23:36,960
+this
+
+565
+00:23:34,080 --> 00:23:38,880
+this section correspond to this you see
+
+566
+00:23:36,960 --> 00:23:42,000
+on the right
+
+567
+00:23:38,880 --> 00:23:44,640
+so here is the code
+
+568
+00:23:42,000 --> 00:23:47,279
+okay this section
+
+569
+00:23:44,640 --> 00:23:48,080
+corresponds to the wolfram code here so
+
+570
+00:23:47,279 --> 00:23:50,799
+but
+
+571
+00:23:48,080 --> 00:23:52,080
+let's make it let's um
+
+572
+00:23:50,799 --> 00:23:54,880
+do a backup
+
+573
+00:23:52,080 --> 00:23:54,880
+and let's
+
+574
+00:23:55,600 --> 00:24:00,559
+put it out onto a new buffer so here's
+
+575
+00:23:58,400 --> 00:24:03,279
+the wolfram language code and you can
+
+576
+00:24:00,559 --> 00:24:05,840
+see it's using saufa mod so let me show
+
+577
+00:24:03,279 --> 00:24:05,840
+you okay
+
+578
+00:24:06,320 --> 00:24:13,679
+describe key then press the key to go to
+
+579
+00:24:09,760 --> 00:24:16,080
+kasa wu friend mod documentation so you
+
+580
+00:24:13,679 --> 00:24:19,679
+are looking at the documentation of
+
+581
+00:24:16,080 --> 00:24:20,960
+wolfram mod okay so actually
+
+582
+00:24:19,679 --> 00:24:23,440
+um
+
+583
+00:24:20,960 --> 00:24:27,679
+let me turn on this okay so you can see
+
+584
+00:24:23,440 --> 00:24:29,679
+so let's go to the uh the source code
+
+585
+00:24:27,679 --> 00:24:31,760
+so here's the source code i just wrote
+
+586
+00:24:29,679 --> 00:24:34,720
+this about two months beginning two
+
+587
+00:24:31,760 --> 00:24:37,200
+months ago so it's fantastic so if you
+
+588
+00:24:34,720 --> 00:24:39,600
+are a wufang language coder so the you
+
+589
+00:24:37,200 --> 00:24:41,520
+know there's lots of uh
+
+590
+00:24:39,600 --> 00:24:44,080
+you know here are the building functions
+
+591
+00:24:41,520 --> 00:24:46,559
+of buffer language lots of code so if
+
+592
+00:24:44,080 --> 00:24:50,799
+you have language uh
+
+593
+00:24:46,559 --> 00:24:53,520
+user and also an emacs user you might uh
+
+594
+00:24:50,799 --> 00:24:56,320
+try my code and buy it okay so just go
+
+595
+00:24:53,520 --> 00:24:58,559
+to paypal send me money and buy it okay
+
+596
+00:24:56,320 --> 00:25:01,440
+so let me show you
+
+597
+00:24:58,559 --> 00:25:04,159
+you know i will find mod
+
+598
+00:25:01,440 --> 00:25:06,480
+okay so here so so that's the emac these
+
+599
+00:25:04,159 --> 00:25:08,720
+you know so then but but let's let me
+
+600
+00:25:06,480 --> 00:25:09,840
+show you how this works okay so here is
+
+601
+00:25:08,720 --> 00:25:13,279
+a code
+
+602
+00:25:09,840 --> 00:25:15,760
+uh this is how the code looks like
+
+603
+00:25:13,279 --> 00:25:18,000
+so what we want to do uh yeah okay copy
+
+604
+00:25:15,760 --> 00:25:19,679
+the code
+
+605
+00:25:18,000 --> 00:25:22,799
+so you know one of the interesting thing
+
+606
+00:25:19,679 --> 00:25:26,880
+you can see is that um
+
+607
+00:25:22,799 --> 00:25:26,880
+you know how the code looks like
+
+608
+00:25:27,200 --> 00:25:32,080
+in a typical you know like emacs editor
+
+609
+00:25:30,240 --> 00:25:36,400
+and how it looks like for example let's
+
+610
+00:25:32,080 --> 00:25:39,039
+copy okay copy and paste it here okay so
+
+611
+00:25:36,400 --> 00:25:41,840
+and and then let's make it
+
+612
+00:25:39,039 --> 00:25:44,159
+uh typeset okay so you can see it's much
+
+613
+00:25:41,840 --> 00:25:48,080
+easier it's it's much more readable when
+
+614
+00:25:44,159 --> 00:25:51,279
+you have two-dimensional typeset uh code
+
+615
+00:25:48,080 --> 00:25:54,080
+okay now evaluate it so you can see
+
+616
+00:25:51,279 --> 00:25:56,640
+so here we got what we want
+
+617
+00:25:54,080 --> 00:25:58,799
+and magnify and you again you can rotate
+
+618
+00:25:56,640 --> 00:25:58,799
+it
+
+619
+00:25:58,960 --> 00:26:00,960
+uh
+
+620
+00:26:00,240 --> 00:26:03,279
+and
+
+621
+00:26:00,960 --> 00:26:03,279
+you know
+
+622
+00:26:03,360 --> 00:26:07,679
+so
+
+623
+00:26:05,520 --> 00:26:09,440
+so you can see here is how wufam
+
+624
+00:26:07,679 --> 00:26:11,600
+language um
+
+625
+00:26:09,440 --> 00:26:14,240
+renders the code and also you can see
+
+626
+00:26:11,600 --> 00:26:16,559
+syntax coloring very interesting choice
+
+627
+00:26:14,240 --> 00:26:18,960
+you know there are so many schemes for
+
+628
+00:26:16,559 --> 00:26:22,080
+syntax coloring the question is
+
+629
+00:26:18,960 --> 00:26:25,200
+how you know should you how do you color
+
+630
+00:26:22,080 --> 00:26:27,440
+a programming language code
+
+631
+00:26:25,200 --> 00:26:29,919
+for example in emacs because i will find
+
+632
+00:26:27,440 --> 00:26:32,400
+mod i'm coloring all the building
+
+633
+00:26:29,919 --> 00:26:33,760
+function names blue okay
+
+634
+00:26:32,400 --> 00:26:37,039
+so that's how
+
+635
+00:26:33,760 --> 00:26:39,120
+how i do it but in language they color
+
+636
+00:26:37,039 --> 00:26:41,120
+basically essentially they color just
+
+637
+00:26:39,120 --> 00:26:43,279
+the local variables and this is
+
+638
+00:26:41,120 --> 00:26:46,400
+fantastic this is actually
+
+639
+00:26:43,279 --> 00:26:49,679
+i believe this is the most useful color
+
+640
+00:26:46,400 --> 00:26:52,240
+the local variables okay
+
+641
+00:26:49,679 --> 00:26:55,200
+but this this is not it's not easy to do
+
+642
+00:26:52,240 --> 00:26:57,279
+in uh you know in for example in emacs
+
+643
+00:26:55,200 --> 00:27:00,480
+because you need syntactical you need
+
+644
+00:26:57,279 --> 00:27:02,720
+syntax analysis you cannot just do it by
+
+645
+00:27:00,480 --> 00:27:05,440
+uh text processing methods or regular
+
+646
+00:27:02,720 --> 00:27:08,799
+expression you actually need to know
+
+647
+00:27:05,440 --> 00:27:10,799
+the grammar of the you know not just
+
+648
+00:27:08,799 --> 00:27:12,320
+grammar not just the syntactical grammar
+
+649
+00:27:10,799 --> 00:27:14,400
+you need to know the
+
+650
+00:27:12,320 --> 00:27:16,960
+the semantics of the language you need a
+
+651
+00:27:14,400 --> 00:27:18,960
+pasta for the language
+
+652
+00:27:16,960 --> 00:27:20,720
+not just the pasta you need act you know
+
+653
+00:27:18,960 --> 00:27:23,039
+you know you need you need to know the
+
+654
+00:27:20,720 --> 00:27:23,919
+semantics of the language in order to
+
+655
+00:27:23,039 --> 00:27:26,960
+color
+
+656
+00:27:23,919 --> 00:27:29,039
+the color just the variable names okay
+
+657
+00:27:26,960 --> 00:27:31,279
+so that's how woof and language does it
+
+658
+00:27:29,039 --> 00:27:35,440
+they color the variable names
+
+659
+00:27:31,279 --> 00:27:37,679
+i think i believe that's the most useful
+
+660
+00:27:35,440 --> 00:27:40,720
+so but also you can see how much
+
+661
+00:27:37,679 --> 00:27:43,919
+readable you know is when when you have
+
+662
+00:27:40,720 --> 00:27:45,760
+this you know rendered in 2d um
+
+663
+00:27:43,919 --> 00:27:48,399
+typeset
+
+664
+00:27:45,760 --> 00:27:50,480
+so anyway so in my in
+
+665
+00:27:48,399 --> 00:27:51,440
+uh but however the
+
+666
+00:27:50,480 --> 00:27:54,159
+flaw
+
+667
+00:27:51,440 --> 00:27:58,240
+with the mathematica notebook is that
+
+668
+00:27:54,159 --> 00:27:58,240
+it's hard to edit you know because
+
+669
+00:27:58,799 --> 00:28:02,640
+let me let me let me show you okay so so
+
+670
+00:28:00,799 --> 00:28:05,120
+for example for example i want to
+
+671
+00:28:02,640 --> 00:28:07,360
+comment out something okay so let's
+
+672
+00:28:05,120 --> 00:28:09,039
+comment out
+
+673
+00:28:07,360 --> 00:28:12,880
+uh
+
+674
+00:28:09,039 --> 00:28:12,880
+it's coming out this one okay so
+
+675
+00:28:13,600 --> 00:28:19,840
+comment down that one copy it okay
+
+676
+00:28:17,760 --> 00:28:21,520
+paste it
+
+677
+00:28:19,840 --> 00:28:23,919
+evaluate
+
+678
+00:28:21,520 --> 00:28:25,840
+so you see we don't see that so in order
+
+679
+00:28:23,919 --> 00:28:28,000
+to comment out all i have to do is press
+
+680
+00:28:25,840 --> 00:28:30,960
+a key you look at the
+
+681
+00:28:28,000 --> 00:28:33,120
+pink window you'll see the command
+
+682
+00:28:30,960 --> 00:28:35,760
+name and the key i pressed you see i
+
+683
+00:28:33,120 --> 00:28:39,360
+just i just press the key
+
+684
+00:28:35,760 --> 00:28:41,600
+semicolon and it calls common dream do
+
+685
+00:28:39,360 --> 00:28:44,320
+do what i mean and and it command out
+
+686
+00:28:41,600 --> 00:28:46,799
+this code you see i can do it again do
+
+687
+00:28:44,320 --> 00:28:48,480
+it again do it again so if i want to
+
+688
+00:28:46,799 --> 00:28:50,960
+comment out a whole bunch of lines i can
+
+689
+00:28:48,480 --> 00:28:53,039
+just press that okay
+
+690
+00:28:50,960 --> 00:28:54,320
+but in wufang language you
+
+691
+00:28:53,039 --> 00:28:57,720
+you know
+
+692
+00:28:54,320 --> 00:28:57,720
+it's um
+
+693
+00:28:58,240 --> 00:29:04,880
+plus uh plus four too common
+
+694
+00:29:01,440 --> 00:29:08,640
+you know it's not as easy i don't even i
+
+695
+00:29:04,880 --> 00:29:08,640
+don't remember what's the key to comment
+
+696
+00:29:09,520 --> 00:29:13,360
+but anyway you'll find you know i
+
+697
+00:29:11,279 --> 00:29:16,559
+believe there's a key
+
+698
+00:29:13,360 --> 00:29:18,640
+to comment out code but then
+
+699
+00:29:16,559 --> 00:29:21,360
+you have to select the code first okay
+
+700
+00:29:18,640 --> 00:29:23,440
+so actually so let's look for it
+
+701
+00:29:21,360 --> 00:29:27,840
+uh
+
+702
+00:29:23,440 --> 00:29:27,840
+uncommon selection yeah you see
+
+703
+00:29:28,000 --> 00:29:31,679
+so you do that it just comment the
+
+704
+00:29:30,399 --> 00:29:33,279
+current word
+
+705
+00:29:31,679 --> 00:29:34,799
+you know so you have to select the
+
+706
+00:29:33,279 --> 00:29:37,120
+expression first
+
+707
+00:29:34,799 --> 00:29:37,120
+then
+
+708
+00:29:38,399 --> 00:29:46,000
+old slash is uncommon selection okay
+
+709
+00:29:42,240 --> 00:29:50,399
+but by the way oh slash that's based on
+
+710
+00:29:46,000 --> 00:29:50,399
+wait am i missing never mind okay
+
+711
+00:29:51,200 --> 00:29:58,559
+yeah so to edit code in languages is
+
+712
+00:29:55,039 --> 00:30:00,799
+that's a flow i would like i would say
+
+713
+00:29:58,559 --> 00:30:03,520
+so i much prefer working emacs that's
+
+714
+00:30:00,799 --> 00:30:06,159
+why i created the wolfram language mod
+
+715
+00:30:03,520 --> 00:30:09,840
+okay so what do i want to do next so we
+
+716
+00:30:06,159 --> 00:30:09,840
+showed that so um
+
+717
+00:30:10,000 --> 00:30:14,320
+so let's see
+
+718
+00:30:12,080 --> 00:30:16,159
+so the 3d case we don't want to so okay
+
+719
+00:30:14,320 --> 00:30:18,240
+what's next
+
+720
+00:30:16,159 --> 00:30:21,120
+comments
+
+721
+00:30:18,240 --> 00:30:23,679
+no comments okay what's what's next
+
+722
+00:30:21,120 --> 00:30:25,679
+let's do some
+
+723
+00:30:23,679 --> 00:30:29,360
+live coding of
+
+724
+00:30:25,679 --> 00:30:31,600
+some new things with geometric inversion
+
+725
+00:30:29,360 --> 00:30:33,840
+okay
+
+726
+00:30:31,600 --> 00:30:36,799
+can we do that uh
+
+727
+00:30:33,840 --> 00:30:39,600
+yeah so basically i think we are do we
+
+728
+00:30:36,799 --> 00:30:39,600
+are done today
+
+729
+00:30:39,760 --> 00:30:45,120
+uh we talked for 36 minutes i think we
+
+730
+00:30:42,559 --> 00:30:48,399
+are done probably maybe
+
+731
+00:30:45,120 --> 00:30:51,399
+we can do some live coding of language
+
+732
+00:30:48,399 --> 00:30:51,399
+or
+
+733
+00:30:52,159 --> 00:30:57,360
+uh let me let me let me think okay what
+
+734
+00:30:54,640 --> 00:30:57,360
+we want to do
+
+735
+00:30:59,760 --> 00:31:02,760
+uh
+
+736
+00:31:15,200 --> 00:31:19,200
+beautiful thank you
+
+737
+00:31:16,960 --> 00:31:21,519
+i aspen sentry
+
+738
+00:31:19,200 --> 00:31:24,559
+okay so what's next what do you think
+
+739
+00:31:21,519 --> 00:31:27,279
+aspen um should we should we do some
+
+740
+00:31:24,559 --> 00:31:30,720
+live coding
+
+741
+00:31:27,279 --> 00:31:30,720
+of wufam language or
+
+742
+00:31:30,960 --> 00:31:34,480
+any
+
+743
+00:31:33,120 --> 00:31:36,559
+or do you
+
+744
+00:31:34,480 --> 00:31:38,880
+it does just do i make sense about
+
+745
+00:31:36,559 --> 00:31:41,440
+geometry inversion let's see what i want
+
+746
+00:31:38,880 --> 00:31:43,679
+what else we gonna do
+
+747
+00:31:41,440 --> 00:31:45,200
+okay so if you want if you like what i
+
+748
+00:31:43,679 --> 00:31:47,279
+you know if you like
+
+749
+00:31:45,200 --> 00:31:49,440
+language you know they they sponsored me
+
+750
+00:31:47,279 --> 00:31:50,480
+they gave me a free copy
+
+751
+00:31:49,440 --> 00:31:51,679
+um
+
+752
+00:31:50,480 --> 00:31:54,240
+language
+
+753
+00:31:51,679 --> 00:31:56,559
+so you i you know because i've been
+
+754
+00:31:54,240 --> 00:31:59,679
+coding wufang language for 10 years in
+
+755
+00:31:56,559 --> 00:32:02,960
+1990s you know it's a it's basically the
+
+756
+00:31:59,679 --> 00:32:05,600
+first language i mastered thoroughly
+
+757
+00:32:02,960 --> 00:32:08,399
+i coded every day for several hours a
+
+758
+00:32:05,600 --> 00:32:11,600
+day for over 10 years
+
+759
+00:32:08,399 --> 00:32:13,519
+and i you know and i did several videos
+
+760
+00:32:11,600 --> 00:32:16,399
+on ufam language before you should watch
+
+761
+00:32:13,519 --> 00:32:17,840
+just go to you know sari wufam language
+
+762
+00:32:16,399 --> 00:32:19,440
+search for it
+
+763
+00:32:17,840 --> 00:32:21,200
+uh and
+
+764
+00:32:19,440 --> 00:32:23,519
+and uh yeah so
+
+765
+00:32:21,200 --> 00:32:25,919
+if you like to use it of course it costs
+
+766
+00:32:23,519 --> 00:32:28,480
+you two thousand dollars if you if you
+
+767
+00:32:25,919 --> 00:32:30,960
+want the you know certified version you
+
+768
+00:32:28,480 --> 00:32:33,039
+know if if you are a
+
+769
+00:32:30,960 --> 00:32:34,720
+employee at nasa
+
+770
+00:32:33,039 --> 00:32:36,480
+or if you are you know google
+
+771
+00:32:34,720 --> 00:32:38,399
+corporation you know it costs you ten
+
+772
+00:32:36,480 --> 00:32:40,320
+thousand dollars ten twenty two thousand
+
+773
+00:32:38,399 --> 00:32:43,279
+dollars something three thousand dollars
+
+774
+00:32:40,320 --> 00:32:46,960
+but if you are a student it's like 200
+
+775
+00:32:43,279 --> 00:32:49,440
+uh 250 something or you can get it free
+
+776
+00:32:46,960 --> 00:32:51,200
+if you buy a raspberry pi
+
+777
+00:32:49,440 --> 00:32:53,360
+uh you know 70
+
+778
+00:32:51,200 --> 00:32:55,440
+you get it free it's bundled or you can
+
+779
+00:32:53,360 --> 00:32:58,080
+download free
+
+780
+00:32:55,440 --> 00:32:59,600
+wolfram engine or wolfram script is you
+
+781
+00:32:58,080 --> 00:33:01,679
+know it's free
+
+782
+00:32:59,600 --> 00:33:03,679
+for personal use
+
+783
+00:33:01,679 --> 00:33:06,000
+so i highly recommend it it's the most
+
+784
+00:33:03,679 --> 00:33:08,000
+of that is the most advanced uh language
+
+785
+00:33:06,000 --> 00:33:09,679
+by far it's a magnitude beyond you know
+
+786
+00:33:08,000 --> 00:33:12,480
+i talked about you know for an hour
+
+787
+00:33:09,679 --> 00:33:16,559
+about why i think so and
+
+788
+00:33:12,480 --> 00:33:18,720
+and and you have you have seen
+
+789
+00:33:16,559 --> 00:33:21,600
+some of the features that that you and
+
+790
+00:33:18,720 --> 00:33:23,919
+you will not see anywhere else
+
+791
+00:33:21,600 --> 00:33:25,679
+you know for example you know i want to
+
+792
+00:33:23,919 --> 00:33:27,200
+typeset this code okay i press the
+
+793
+00:33:25,679 --> 00:33:28,720
+button
+
+794
+00:33:27,200 --> 00:33:30,640
+you got you know you got these two
+
+795
+00:33:28,720 --> 00:33:32,159
+dimensional fractions and also square
+
+796
+00:33:30,640 --> 00:33:34,880
+root you see
+
+797
+00:33:32,159 --> 00:33:36,000
+now in tech typically the unix people
+
+798
+00:33:34,880 --> 00:33:38,480
+you know the
+
+799
+00:33:36,000 --> 00:33:40,000
+unix people attack you
+
+800
+00:33:38,480 --> 00:33:41,039
+you know it's city
+
+801
+00:33:40,000 --> 00:33:43,679
+in
+
+802
+00:33:41,039 --> 00:33:43,679
+super city
+
+803
+00:33:44,399 --> 00:33:49,799
+okay so i'm i think i'm done for today
+
+804
+00:33:46,799 --> 00:33:49,799
+um
+
+805
+00:33:52,559 --> 00:33:57,679
+do i have any kinesis keyboard okay the
+
+806
+00:33:54,960 --> 00:34:01,279
+question is about keyboard any new
+
+807
+00:33:57,679 --> 00:34:04,399
+developments in the keyboard space
+
+808
+00:34:01,279 --> 00:34:07,840
+yeah okay maybe let's you know maybe i'm
+
+809
+00:34:04,399 --> 00:34:07,840
+you know i'm hoping
+
+810
+00:34:07,919 --> 00:34:11,520
+possibly i'll do some
+
+811
+00:34:09,520 --> 00:34:14,560
+wolfram language coding but let's talk
+
+812
+00:34:11,520 --> 00:34:16,800
+about keyboard for a while
+
+813
+00:34:14,560 --> 00:34:18,480
+any new developments in a keyboard space
+
+814
+00:34:16,800 --> 00:34:20,960
+my comments is
+
+815
+00:34:18,480 --> 00:34:23,119
+kibo is just like yours it's not tactile
+
+816
+00:34:20,960 --> 00:34:24,720
+which i don't like
+
+817
+00:34:23,119 --> 00:34:27,599
+uh what do you mean
+
+818
+00:34:24,720 --> 00:34:29,919
+do you have all the other kinesis yes
+
+819
+00:34:27,599 --> 00:34:32,399
+the tactile ones
+
+820
+00:34:29,919 --> 00:34:34,399
+okay let me let me explain let me answer
+
+821
+00:34:32,399 --> 00:34:36,399
+okay
+
+822
+00:34:34,399 --> 00:34:38,720
+so kinesis keyboard you are looking at
+
+823
+00:34:36,399 --> 00:34:40,960
+fantastic okay yeah you know look at how
+
+824
+00:34:38,720 --> 00:34:43,440
+i operate you know i talked about speech
+
+825
+00:34:40,960 --> 00:34:45,520
+efficiency you know i'm a keyboard nerds
+
+826
+00:34:43,440 --> 00:34:48,480
+i study the keyboard layout let's go to
+
+827
+00:34:45,520 --> 00:34:50,000
+keyboard block okay so you can see all
+
+828
+00:34:48,480 --> 00:34:53,040
+the things you want to know about
+
+829
+00:34:50,000 --> 00:34:55,040
+keyboard so here's ergonomic keyboards
+
+830
+00:34:53,040 --> 00:34:57,680
+so i highly recommend kinesis that's
+
+831
+00:34:55,040 --> 00:35:00,240
+what i'm using right now and also the
+
+832
+00:34:57,680 --> 00:35:03,280
+ultimate hacking keyboard you can see
+
+833
+00:35:00,240 --> 00:35:05,119
+reviews my reviews my video reviews and
+
+834
+00:35:03,280 --> 00:35:07,920
+every detail
+
+835
+00:35:05,119 --> 00:35:10,400
+okay so happy hacking keyboard
+
+836
+00:35:07,920 --> 00:35:12,480
+i also like it's the best for marco key
+
+837
+00:35:10,400 --> 00:35:16,079
+marco if you want the most
+
+838
+00:35:12,480 --> 00:35:18,400
+the best key marker system for example
+
+839
+00:35:16,079 --> 00:35:20,480
+let me show you the
+
+840
+00:35:18,400 --> 00:35:21,839
+let me show you okay so ultimate hacking
+
+841
+00:35:20,480 --> 00:35:24,400
+keyboard
+
+842
+00:35:21,839 --> 00:35:27,200
+so you can see my current configuration
+
+843
+00:35:24,400 --> 00:35:29,839
+for my keyboard markup this is fantastic
+
+844
+00:35:27,200 --> 00:35:32,800
+okay so this is my keep keyboard markers
+
+845
+00:35:29,839 --> 00:35:34,720
+okay switch to last window this is one
+
+846
+00:35:32,800 --> 00:35:37,119
+of the most frequently used commands
+
+847
+00:35:34,720 --> 00:35:39,760
+switch to last window okay or you can
+
+848
+00:35:37,119 --> 00:35:41,119
+switch to um
+
+849
+00:35:39,760 --> 00:35:43,760
+wait here
+
+850
+00:35:41,119 --> 00:35:45,760
+okay you can switch to previous window
+
+851
+00:35:43,760 --> 00:35:48,560
+next window
+
+852
+00:35:45,760 --> 00:35:51,680
+okay one key press okay i don't know if
+
+853
+00:35:48,560 --> 00:35:53,200
+you can you see it okay wait
+
+854
+00:35:51,680 --> 00:35:55,839
+you know one of the annoying thing about
+
+855
+00:35:53,200 --> 00:35:56,720
+window is that it doesn't
+
+856
+00:35:55,839 --> 00:35:58,880
+show
+
+857
+00:35:56,720 --> 00:36:01,040
+windows that you've hidden for example i
+
+858
+00:35:58,880 --> 00:36:02,240
+want to go to obs it doesn't show
+
+859
+00:36:01,040 --> 00:36:06,079
+because i
+
+860
+00:36:02,240 --> 00:36:06,079
+minified it idiotic
+
+861
+00:36:07,200 --> 00:36:11,359
+rather i prefer if you just cycle
+
+862
+00:36:09,119 --> 00:36:14,079
+through windows it just should turn up
+
+863
+00:36:11,359 --> 00:36:16,720
+every window so you can see so yeah
+
+864
+00:36:14,079 --> 00:36:19,200
+checking if i can see myself you see
+
+865
+00:36:16,720 --> 00:36:20,320
+just single key press okay
+
+866
+00:36:19,200 --> 00:36:22,400
+um
+
+867
+00:36:20,320 --> 00:36:24,240
+so anyway ultimate hacking keyboard is
+
+868
+00:36:22,400 --> 00:36:27,040
+the most
+
+869
+00:36:24,240 --> 00:36:29,119
+powerful and easy to program with a
+
+870
+00:36:27,040 --> 00:36:30,880
+visual you know software
+
+871
+00:36:29,119 --> 00:36:32,640
+that allows you you know for example i
+
+872
+00:36:30,880 --> 00:36:33,680
+want to shrink window i do this often
+
+873
+00:36:32,640 --> 00:36:34,800
+you see
+
+874
+00:36:33,680 --> 00:36:37,280
+usually
+
+875
+00:36:34,800 --> 00:36:39,119
+uh you know press one key okay i don't
+
+876
+00:36:37,280 --> 00:36:41,520
+want this uh
+
+877
+00:36:39,119 --> 00:36:45,280
+so you know press one key
+
+878
+00:36:41,520 --> 00:36:48,160
+you know and if i'm a browser you know
+
+879
+00:36:45,280 --> 00:36:50,320
+much of uh macros here is designed for
+
+880
+00:36:48,160 --> 00:36:53,280
+browsers okay because browser is what i
+
+881
+00:36:50,320 --> 00:36:55,680
+use the most browsers and emacs in emacs
+
+882
+00:36:53,280 --> 00:36:57,599
+i've got soft flag keys as you already
+
+883
+00:36:55,680 --> 00:37:01,119
+know
+
+884
+00:36:57,599 --> 00:37:04,400
+uh and in browser and also see how i
+
+885
+00:37:01,119 --> 00:37:06,160
+switch window there's no key press see
+
+886
+00:37:04,400 --> 00:37:08,320
+typically you know the typical
+
+887
+00:37:06,160 --> 00:37:11,040
+programmers you know they they what they
+
+888
+00:37:08,320 --> 00:37:13,839
+do is alt tab okay
+
+889
+00:37:11,040 --> 00:37:16,000
+not now here's all here's tab okay so
+
+890
+00:37:13,839 --> 00:37:16,720
+here you see this is what people usually
+
+891
+00:37:16,000 --> 00:37:18,480
+do
+
+892
+00:37:16,720 --> 00:37:19,599
+so for example i want to switch to
+
+893
+00:37:18,480 --> 00:37:21,920
+chrome
+
+894
+00:37:19,599 --> 00:37:24,960
+um you know let's say i want to switch
+
+895
+00:37:21,920 --> 00:37:28,000
+to obs okay so you do this okay oh oh
+
+896
+00:37:24,960 --> 00:37:29,839
+where's obs which one oh i i overshoot
+
+897
+00:37:28,000 --> 00:37:32,640
+it okay shift
+
+898
+00:37:29,839 --> 00:37:34,839
+oh wait actually obs is this one okay
+
+899
+00:37:32,640 --> 00:37:38,800
+that's idiocy
+
+900
+00:37:34,839 --> 00:37:40,000
+okay you know so
+
+901
+00:37:38,800 --> 00:37:42,400
+so the
+
+902
+00:37:40,000 --> 00:37:44,079
+so i don't do that okay so first of all
+
+903
+00:37:42,400 --> 00:37:45,280
+you should turn on
+
+904
+00:37:44,079 --> 00:37:47,920
+um
+
+905
+00:37:45,280 --> 00:37:50,240
+hoover who will activate windows so
+
+906
+00:37:47,920 --> 00:37:52,720
+why so i hope you can see it yeah you
+
+907
+00:37:50,240 --> 00:37:55,119
+can see it in my mouse you see who will
+
+908
+00:37:52,720 --> 00:37:57,520
+activate window you know you i don't
+
+909
+00:37:55,119 --> 00:38:01,040
+have to because i type so much i have
+
+910
+00:37:57,520 --> 00:38:03,040
+rsi right now like over here okay
+
+911
+00:38:01,040 --> 00:38:05,440
+like i i don't feel so good right now
+
+912
+00:38:03,040 --> 00:38:06,560
+because i typed too much you you can
+
+913
+00:38:05,440 --> 00:38:08,800
+imagine
+
+914
+00:38:06,560 --> 00:38:11,280
+so
+
+915
+00:38:08,800 --> 00:38:13,599
+why should you use
+
+916
+00:38:11,280 --> 00:38:15,440
+mouse hoover click because
+
+917
+00:38:13,599 --> 00:38:17,599
+you know it doesn't you know even press
+
+918
+00:38:15,440 --> 00:38:20,320
+a single key that
+
+919
+00:38:17,599 --> 00:38:24,160
+if you have hand pan rsi you have hand
+
+920
+00:38:20,320 --> 00:38:26,000
+injury the idea of pressing a single key
+
+921
+00:38:24,160 --> 00:38:27,839
+that's painful okay you don't want to
+
+922
+00:38:26,000 --> 00:38:29,839
+you don't want to press any key the best
+
+923
+00:38:27,839 --> 00:38:31,760
+is that the best thing to do is that you
+
+924
+00:38:29,839 --> 00:38:34,560
+just think what you want to do and you
+
+925
+00:38:31,760 --> 00:38:37,680
+know things do it themselves okay
+
+926
+00:38:34,560 --> 00:38:40,079
+so hoover to activate window is one of
+
+927
+00:38:37,680 --> 00:38:42,480
+this one of the steps okay
+
+928
+00:38:40,079 --> 00:38:45,520
+so in my videos in the past two to three
+
+929
+00:38:42,480 --> 00:38:47,760
+years you you you'll not see me do oh
+
+930
+00:38:45,520 --> 00:38:49,680
+tab you you have you ever seen this you
+
+931
+00:38:47,760 --> 00:38:51,359
+didn't never see it because
+
+932
+00:38:49,680 --> 00:38:53,760
+it's either hoover
+
+933
+00:38:51,359 --> 00:38:55,599
+or if it's a last window i just press
+
+934
+00:38:53,760 --> 00:38:58,560
+that key okay because
+
+935
+00:38:55,599 --> 00:39:01,040
+when you switch windows by statistics
+
+936
+00:38:58,560 --> 00:39:02,720
+the most of the time what you want you
+
+937
+00:39:01,040 --> 00:39:05,119
+are doing is switch to the last
+
+938
+00:39:02,720 --> 00:39:06,800
+application okay so that key
+
+939
+00:39:05,119 --> 00:39:08,400
+okay most of the time
+
+940
+00:39:06,800 --> 00:39:12,000
+so
+
+941
+00:39:08,400 --> 00:39:15,119
+okay so that's uh so that's some tips
+
+942
+00:39:12,000 --> 00:39:17,760
+so if you want to know uh so in browser
+
+943
+00:39:15,119 --> 00:39:19,760
+i let's go back to my keyboard do i
+
+944
+00:39:17,760 --> 00:39:21,359
+still have it here somewhere
+
+945
+00:39:19,760 --> 00:39:24,160
+okay no
+
+946
+00:39:21,359 --> 00:39:27,839
+so go to emax press the key again you
+
+947
+00:39:24,160 --> 00:39:30,079
+see close the window go back to emacs i
+
+948
+00:39:27,839 --> 00:39:31,599
+want to launch this in browser so press
+
+949
+00:39:30,079 --> 00:39:32,880
+the key you see
+
+950
+00:39:31,599 --> 00:39:34,560
+keyboard log
+
+951
+00:39:32,880 --> 00:39:37,359
+then
+
+952
+00:39:34,560 --> 00:39:40,079
+then i um let me explain hoover window
+
+953
+00:39:37,359 --> 00:39:41,280
+okay i i explained this many times so
+
+954
+00:39:40,079 --> 00:39:44,160
+here
+
+955
+00:39:41,280 --> 00:39:47,680
+some keyboard blog is every aspect you
+
+956
+00:39:44,160 --> 00:39:50,160
+want to know about efficiency in using a
+
+957
+00:39:47,680 --> 00:39:52,960
+computer keyboard including what's the
+
+958
+00:39:50,160 --> 00:39:53,839
+best keyboard ergonomic keyboards
+
+959
+00:39:52,960 --> 00:39:56,079
+or
+
+960
+00:39:53,839 --> 00:39:58,800
+do-it-yourself ergonomic keyboards
+
+961
+00:39:56,079 --> 00:39:59,760
+there's so many varieties okay
+
+962
+00:39:58,800 --> 00:40:02,160
+or
+
+963
+00:39:59,760 --> 00:40:04,240
+no more keyboards no more keyboard
+
+964
+00:40:02,160 --> 00:40:07,440
+generally if you do not touch type and
+
+965
+00:40:04,240 --> 00:40:09,520
+this is your thing okay
+
+966
+00:40:07,440 --> 00:40:11,280
+which is fine okay touch typing is kind
+
+967
+00:40:09,520 --> 00:40:12,400
+of you have to spend a month or two to
+
+968
+00:40:11,280 --> 00:40:14,720
+learn
+
+969
+00:40:12,400 --> 00:40:17,359
+and
+
+970
+00:40:14,720 --> 00:40:19,200
+it's a good thing okay but
+
+971
+00:40:17,359 --> 00:40:20,880
+depending on how you know what's your
+
+972
+00:40:19,200 --> 00:40:24,000
+need if you are a programmer maybe you
+
+973
+00:40:20,880 --> 00:40:26,000
+don't need to learn such type but if you
+
+974
+00:40:24,000 --> 00:40:28,319
+know there are a lot of programmers who
+
+975
+00:40:26,000 --> 00:40:30,800
+say oh touch type is not important touch
+
+976
+00:40:28,319 --> 00:40:34,400
+type will get you hand paint
+
+977
+00:40:30,800 --> 00:40:35,839
+that's educ okay touch type is very good
+
+978
+00:40:34,400 --> 00:40:39,599
+but it's true
+
+979
+00:40:35,839 --> 00:40:42,960
+that touch typos we are more likely to
+
+980
+00:40:39,599 --> 00:40:45,680
+develop the repetitive strain injury
+
+981
+00:40:42,960 --> 00:40:48,079
+why not because the technique well
+
+982
+00:40:45,680 --> 00:40:51,359
+simply because when you actually learned
+
+983
+00:40:48,079 --> 00:40:53,359
+touch type then you will type a lot more
+
+984
+00:40:51,359 --> 00:40:54,960
+okay like when you code
+
+985
+00:40:53,359 --> 00:40:56,800
+if you don't know touch type you you
+
+986
+00:40:54,960 --> 00:40:58,160
+know you you you have some kind of
+
+987
+00:40:56,800 --> 00:41:01,280
+method of you know
+
+988
+00:40:58,160 --> 00:41:05,440
+idiotic you know uh hunting pick which
+
+989
+00:41:01,280 --> 00:41:05,440
+gets you about 50 words per minute okay
+
+990
+00:41:05,680 --> 00:41:10,640
+but once you learn touch type you will
+
+991
+00:41:08,319 --> 00:41:12,640
+start to write documentations for your
+
+992
+00:41:10,640 --> 00:41:14,720
+for your for your programming you know
+
+993
+00:41:12,640 --> 00:41:17,359
+you will start to for example in my code
+
+994
+00:41:14,720 --> 00:41:20,000
+everywhere i have documentation detailed
+
+995
+00:41:17,359 --> 00:41:21,359
+documentation for every command i ever
+
+996
+00:41:20,000 --> 00:41:23,119
+write okay so
+
+997
+00:41:21,359 --> 00:41:24,880
+uh you know
+
+998
+00:41:23,119 --> 00:41:26,560
+complete documentation with links and
+
+999
+00:41:24,880 --> 00:41:28,800
+all that
+
+1000
+00:41:26,560 --> 00:41:31,200
+now this if you do not touch type you
+
+1001
+00:41:28,800 --> 00:41:33,920
+will not do this okay you you just put a
+
+1002
+00:41:31,200 --> 00:41:36,880
+few words okay that's a that's a problem
+
+1003
+00:41:33,920 --> 00:41:39,119
+with not knowing touch type
+
+1004
+00:41:36,880 --> 00:41:41,040
+you you you feel you are doing great but
+
+1005
+00:41:39,119 --> 00:41:44,400
+actually once you know touch type you
+
+1006
+00:41:41,040 --> 00:41:47,040
+will start to type a lot so but
+
+1007
+00:41:44,400 --> 00:41:49,440
+if you touch if you type a lot then
+
+1008
+00:41:47,040 --> 00:41:52,480
+you're likely you'll have higher chances
+
+1009
+00:41:49,440 --> 00:41:54,880
+of getting rsi okay so touch typing
+
+1010
+00:41:52,480 --> 00:41:57,440
+that's about touch typing
+
+1011
+00:41:54,880 --> 00:41:59,599
+so let me show you yeah so i have here
+
+1012
+00:41:57,440 --> 00:42:02,880
+so let me show you back let's go back to
+
+1013
+00:41:59,599 --> 00:42:06,000
+the um hoover
+
+1014
+00:42:02,880 --> 00:42:07,839
+so i have for example i have articles on
+
+1015
+00:42:06,000 --> 00:42:10,640
+all the things you want to know about
+
+1016
+00:42:07,839 --> 00:42:12,960
+typing typing habit how do you measure
+
+1017
+00:42:10,640 --> 00:42:16,800
+typing speed how do you learn
+
+1018
+00:42:12,960 --> 00:42:20,319
+and what's the proper you know ergonomic
+
+1019
+00:42:16,800 --> 00:42:22,640
+sitting posture you know and pronation
+
+1020
+00:42:20,319 --> 00:42:25,200
+is keyboard tenting important things
+
+1021
+00:42:22,640 --> 00:42:28,160
+like that so here this section is about
+
+1022
+00:42:25,200 --> 00:42:31,040
+typing and about the hoover took click
+
+1023
+00:42:28,160 --> 00:42:32,960
+is over here okay so hoover two click
+
+1024
+00:42:31,040 --> 00:42:36,480
+uh let's see
+
+1025
+00:42:32,960 --> 00:42:36,480
+keyboard shortcut mouse uh
+
+1026
+00:42:38,000 --> 00:42:43,280
+hoover to click uh trackball uh keyboard
+
+1027
+00:42:40,960 --> 00:42:45,760
+shortcut okay it's over here so for
+
+1028
+00:42:43,280 --> 00:42:47,520
+example on windows you click here it's
+
+1029
+00:42:45,760 --> 00:42:49,359
+all you everything you need to know
+
+1030
+00:42:47,520 --> 00:42:52,720
+about windows keyboard shortcuts and
+
+1031
+00:42:49,359 --> 00:42:54,480
+whatever software so some software you i
+
+1032
+00:42:52,720 --> 00:42:56,800
+highly recommend is
+
+1033
+00:42:54,480 --> 00:42:59,599
+microsoft power toys okay
+
+1034
+00:42:56,800 --> 00:43:00,880
+and also autohotkey i have a tutorial
+
+1035
+00:42:59,599 --> 00:43:04,079
+here
+
+1036
+00:43:00,880 --> 00:43:05,520
+uh a detailed tutorial including key
+
+1037
+00:43:04,079 --> 00:43:07,440
+syntax
+
+1038
+00:43:05,520 --> 00:43:09,760
+uh disabled keycaps
+
+1039
+00:43:07,440 --> 00:43:11,760
+many of the frequently needed things
+
+1040
+00:43:09,760 --> 00:43:15,920
+okay the how do you do that in auto
+
+1041
+00:43:11,760 --> 00:43:19,040
+hotkey and also uh useful scripts okay
+
+1042
+00:43:15,920 --> 00:43:20,960
+so anyway so go back so that's this this
+
+1043
+00:43:19,040 --> 00:43:23,119
+is about windows now let me show you
+
+1044
+00:43:20,960 --> 00:43:24,000
+about
+
+1045
+00:43:23,119 --> 00:43:26,880
+uh
+
+1046
+00:43:24,000 --> 00:43:29,520
+mouse hoover to activate windows so here
+
+1047
+00:43:26,880 --> 00:43:32,400
+on this page i show you how to do how to
+
+1048
+00:43:29,520 --> 00:43:34,079
+activate that okay on windows and also
+
+1049
+00:43:32,400 --> 00:43:36,880
+on the mac
+
+1050
+00:43:34,079 --> 00:43:38,960
+uh so on the mac
+
+1051
+00:43:36,880 --> 00:43:41,200
+this is what you want hoover mouse auto
+
+1052
+00:43:38,960 --> 00:43:43,200
+click
+
+1053
+00:43:41,200 --> 00:43:45,920
+mac doesn't have
+
+1054
+00:43:43,200 --> 00:43:48,319
+who you know who were to active activate
+
+1055
+00:43:45,920 --> 00:43:49,920
+window but however it has hoover click
+
+1056
+00:43:48,319 --> 00:43:52,720
+which is similar
+
+1057
+00:43:49,920 --> 00:43:54,720
+but except it will also do a click
+
+1058
+00:43:52,720 --> 00:43:57,359
+it will do a click whenever your mouse
+
+1059
+00:43:54,720 --> 00:43:59,680
+stops moving so on the mac i use this
+
+1060
+00:43:57,359 --> 00:44:02,560
+also fantastic
+
+1061
+00:43:59,680 --> 00:44:05,119
+and on linux okay on linux you also have
+
+1062
+00:44:02,560 --> 00:44:07,760
+them okay so you you have what you know
+
+1063
+00:44:05,119 --> 00:44:08,640
+linux called hoover to raise window okay
+
+1064
+00:44:07,760 --> 00:44:10,880
+so
+
+1065
+00:44:08,640 --> 00:44:13,119
+here's how you set up in you know
+
+1066
+00:44:10,880 --> 00:44:16,480
+depending on which window manager you
+
+1067
+00:44:13,119 --> 00:44:20,839
+use so i have an example for open box
+
+1068
+00:44:16,480 --> 00:44:24,000
+which is lxd and example for uh
+
+1069
+00:44:20,839 --> 00:44:25,359
+xfce uh you can also do it in gnome or
+
+1070
+00:44:24,000 --> 00:44:27,680
+whatever
+
+1071
+00:44:25,359 --> 00:44:31,040
+okay so you have hoover click i mean
+
+1072
+00:44:27,680 --> 00:44:32,720
+hoover to raise window to act not just
+
+1073
+00:44:31,040 --> 00:44:35,119
+you know to raise window okay not just
+
+1074
+00:44:32,720 --> 00:44:37,839
+focus you want race okay focus is
+
+1075
+00:44:35,119 --> 00:44:41,280
+idiotic you want to raise the window and
+
+1076
+00:44:37,839 --> 00:44:44,319
+on linux you have the another thing
+
+1077
+00:44:41,280 --> 00:44:47,119
+is hoover mouse click
+
+1078
+00:44:44,319 --> 00:44:50,720
+so anyway go read my articles i'll i'll
+
+1079
+00:44:47,119 --> 00:44:53,359
+tell you the details okay so
+
+1080
+00:44:50,720 --> 00:44:56,000
+so that's uh here so you everything you
+
+1081
+00:44:53,359 --> 00:44:58,560
+want to know on linux about key binding
+
+1082
+00:44:56,000 --> 00:45:00,720
+how to do them okay and on the mac you
+
+1083
+00:44:58,560 --> 00:45:03,040
+know what tools to use everything you
+
+1084
+00:45:00,720 --> 00:45:06,000
+want to know is here
+
+1085
+00:45:03,040 --> 00:45:08,240
+uh and of course emacs emacs everything
+
+1086
+00:45:06,000 --> 00:45:09,599
+you want to know about emacs keys how to
+
+1087
+00:45:08,240 --> 00:45:13,440
+define a key
+
+1088
+00:45:09,599 --> 00:45:15,359
+uh let's turn on javascript so we have
+
+1089
+00:45:13,440 --> 00:45:18,720
+we have the that
+
+1090
+00:45:15,359 --> 00:45:22,000
+you have key syntax major mod keys minor
+
+1091
+00:45:18,720 --> 00:45:24,240
+marquees how do you uh how do you
+
+1092
+00:45:22,000 --> 00:45:26,000
+change major mod keys minor keys
+
+1093
+00:45:24,240 --> 00:45:28,480
+everything you need to know okay about
+
+1094
+00:45:26,000 --> 00:45:31,359
+emacs keybinding and how do you define
+
+1095
+00:45:28,480 --> 00:45:34,079
+key sequences
+
+1096
+00:45:31,359 --> 00:45:36,640
+so that's about emacs you know so so
+
+1097
+00:45:34,079 --> 00:45:39,040
+let's go back again you see
+
+1098
+00:45:36,640 --> 00:45:42,240
+previous tab previous tab previous tab
+
+1099
+00:45:39,040 --> 00:45:44,960
+next tab that's how i use the browser
+
+1100
+00:45:42,240 --> 00:45:44,960
+key marquez
+
+1101
+00:45:45,520 --> 00:45:49,119
+so we
+
+1102
+00:45:46,720 --> 00:45:50,800
+were talking about this question about
+
+1103
+00:45:49,119 --> 00:45:53,280
+kinesis okay so
+
+1104
+00:45:50,800 --> 00:45:56,240
+because i type so much okay
+
+1105
+00:45:53,280 --> 00:45:58,240
+one of the tips for programmers if you
+
+1106
+00:45:56,240 --> 00:46:00,720
+thinking about you know
+
+1107
+00:45:58,240 --> 00:46:05,680
+keyboarding issues what you really want
+
+1108
+00:46:00,720 --> 00:46:05,680
+to know is let's go to uh typing okay
+
+1109
+00:46:07,680 --> 00:46:11,040
+so look at the article
+
+1110
+00:46:11,119 --> 00:46:17,119
+bad advices bad keyboard of advice from
+
+1111
+00:46:14,560 --> 00:46:19,280
+programmers you know there's a lot
+
+1112
+00:46:17,119 --> 00:46:21,520
+search
+
+1113
+00:46:19,280 --> 00:46:23,599
+what you know so you know you might
+
+1114
+00:46:21,520 --> 00:46:25,760
+wonder so why do you claim
+
+1115
+00:46:23,599 --> 00:46:27,440
+many programmers advice you hear them
+
+1116
+00:46:25,760 --> 00:46:29,520
+all over the place you know on hacker
+
+1117
+00:46:27,440 --> 00:46:31,359
+news on everything everywhere you know
+
+1118
+00:46:29,520 --> 00:46:33,920
+programmers will tell you oh you should
+
+1119
+00:46:31,359 --> 00:46:36,640
+do this you should remap control keys to
+
+1120
+00:46:33,920 --> 00:46:39,680
+the catalog your idiocy okay extreme
+
+1121
+00:46:36,640 --> 00:46:42,800
+idiocy you should do this or that
+
+1122
+00:46:39,680 --> 00:46:46,400
+you know the really easy way to the
+
+1123
+00:46:42,800 --> 00:46:48,960
+criterion to determine
+
+1124
+00:46:46,400 --> 00:46:50,480
+you know what type of people gives great
+
+1125
+00:46:48,960 --> 00:46:52,880
+advice about
+
+1126
+00:46:50,480 --> 00:46:55,920
+keyboard usage is that you want to look
+
+1127
+00:46:52,880 --> 00:46:58,800
+for people who type a lot what what so
+
+1128
+00:46:55,920 --> 00:47:02,560
+what is what does a lot means you know
+
+1129
+00:46:58,800 --> 00:47:04,720
+for example novel writers or uh
+
+1130
+00:47:02,560 --> 00:47:07,280
+you know the
+
+1131
+00:47:04,720 --> 00:47:10,000
+data entry clerks you know what's a data
+
+1132
+00:47:07,280 --> 00:47:12,480
+entry clerk their job is to type you
+
+1133
+00:47:10,000 --> 00:47:14,560
+know given a data sheet they just have
+
+1134
+00:47:12,480 --> 00:47:16,960
+to input into computer
+
+1135
+00:47:14,560 --> 00:47:19,119
+these days it you know data entry is
+
+1136
+00:47:16,960 --> 00:47:21,920
+less
+
+1137
+00:47:19,119 --> 00:47:24,400
+it becomes extinct because
+
+1138
+00:47:21,920 --> 00:47:26,480
+words recognition takes over in many
+
+1139
+00:47:24,400 --> 00:47:29,359
+cases but still there are some cases you
+
+1140
+00:47:26,480 --> 00:47:33,119
+need data entry or in code for example
+
+1141
+00:47:29,359 --> 00:47:35,119
+stenograph systems stenograph you know
+
+1142
+00:47:33,119 --> 00:47:37,040
+stenograph you need to record in real
+
+1143
+00:47:35,119 --> 00:47:38,720
+time what people say
+
+1144
+00:47:37,040 --> 00:47:41,119
+you know things like that so i also
+
+1145
+00:47:38,720 --> 00:47:42,880
+cover many different systems for input
+
+1146
+00:47:41,119 --> 00:47:45,280
+you know so there's uh
+
+1147
+00:47:42,880 --> 00:47:47,040
+several stenograph systems this is a
+
+1148
+00:47:45,280 --> 00:47:49,599
+piano based using
+
+1149
+00:47:47,040 --> 00:47:51,760
+used in italy
+
+1150
+00:47:49,599 --> 00:47:53,839
+so signal graph systems how they work
+
+1151
+00:47:51,760 --> 00:47:56,880
+standard machines they cost they cost a
+
+1152
+00:47:53,839 --> 00:47:58,800
+few thousand dollars okay so anyway back
+
+1153
+00:47:56,880 --> 00:48:01,359
+to
+
+1154
+00:47:58,800 --> 00:48:03,200
+how do you judge what's a good advice
+
+1155
+00:48:01,359 --> 00:48:05,839
+you know what type of people gives good
+
+1156
+00:48:03,200 --> 00:48:07,839
+advice for typing so you want to listen
+
+1157
+00:48:05,839 --> 00:48:10,079
+to people who
+
+1158
+00:48:07,839 --> 00:48:11,920
+either they already have hand pain you
+
+1159
+00:48:10,079 --> 00:48:12,960
+know they went to see a doctor you know
+
+1160
+00:48:11,920 --> 00:48:15,119
+there are some
+
+1161
+00:48:12,960 --> 00:48:17,440
+several famous programmers who had that
+
+1162
+00:48:15,119 --> 00:48:20,800
+you know they went to see a doctor
+
+1163
+00:48:17,440 --> 00:48:22,480
+or people who truly type a lot you know
+
+1164
+00:48:20,800 --> 00:48:25,040
+like
+
+1165
+00:48:22,480 --> 00:48:28,400
+like data entry clocks i was a data
+
+1166
+00:48:25,040 --> 00:48:32,880
+entry clerk for two years from 1991 to
+
+1167
+00:48:28,400 --> 00:48:35,119
+1992 1992 to 1993
+
+1168
+00:48:32,880 --> 00:48:37,200
+anyway two years okay all you do all i
+
+1169
+00:48:35,119 --> 00:48:38,800
+do is just type in keep typing you know
+
+1170
+00:48:37,200 --> 00:48:41,119
+you sit down computer you just type
+
+1171
+00:48:38,800 --> 00:48:44,160
+non-stop for an hour for the whole day
+
+1172
+00:48:41,119 --> 00:48:46,800
+basically now of course you take breaks
+
+1173
+00:48:44,160 --> 00:48:49,920
+so that is you know that's the magnitude
+
+1174
+00:48:46,800 --> 00:48:51,839
+more typing than programmers ten times
+
+1175
+00:48:49,920 --> 00:48:53,359
+small you know five times small
+
+1176
+00:48:51,839 --> 00:48:54,960
+you know programmers they they think
+
+1177
+00:48:53,359 --> 00:48:57,040
+they know stuff they tell you oh you
+
+1178
+00:48:54,960 --> 00:48:59,280
+should do it keymap this way that
+
+1179
+00:48:57,040 --> 00:49:01,200
+ you know because when you
+
+1180
+00:48:59,280 --> 00:49:04,319
+actually
+
+1181
+00:49:01,200 --> 00:49:06,640
+uh see people who type 10 10 times small
+
+1182
+00:49:04,319 --> 00:49:08,480
+they got you know then they actually
+
+1183
+00:49:06,640 --> 00:49:10,640
+have good advice about what's good or
+
+1184
+00:49:08,480 --> 00:49:12,319
+what's bad okay so you want to that's
+
+1185
+00:49:10,640 --> 00:49:14,960
+how you judge
+
+1186
+00:49:12,319 --> 00:49:16,800
+so i have article on that go to typing
+
+1187
+00:49:14,960 --> 00:49:19,359
+so i tell you you know some of the
+
+1188
+00:49:16,800 --> 00:49:21,440
+idiotic advice from programmers you know
+
+1189
+00:49:19,359 --> 00:49:23,599
+programmers tell you you should remap
+
+1190
+00:49:21,440 --> 00:49:25,119
+control key to the caps lock which is
+
+1191
+00:49:23,599 --> 00:49:27,280
+the edc
+
+1192
+00:49:25,119 --> 00:49:30,720
+they tell you you should not learn touch
+
+1193
+00:49:27,280 --> 00:49:33,200
+type that's an idiocy because because if
+
+1194
+00:49:30,720 --> 00:49:34,880
+you don't touch type then you cannot
+
+1195
+00:49:33,200 --> 00:49:37,040
+even you know
+
+1196
+00:49:34,880 --> 00:49:38,880
+for data entry clerk if you don't touch
+
+1197
+00:49:37,040 --> 00:49:40,160
+type you're out of the job you know you
+
+1198
+00:49:38,880 --> 00:49:42,800
+don't have a job
+
+1199
+00:49:40,160 --> 00:49:45,520
+it's like saying you know for example
+
+1200
+00:49:42,800 --> 00:49:47,920
+sports okay let's say football
+
+1201
+00:49:45,520 --> 00:49:50,559
+american football or soccer okay
+
+1202
+00:49:47,920 --> 00:49:52,000
+so programmers like is they are saying
+
+1203
+00:49:50,559 --> 00:49:53,440
+oh you shouldn't
+
+1204
+00:49:52,000 --> 00:49:56,400
+you get trained you shouldn't be a
+
+1205
+00:49:53,440 --> 00:49:58,880
+professional athlete athlete because
+
+1206
+00:49:56,400 --> 00:50:01,440
+once you become a professional athlete
+
+1207
+00:49:58,880 --> 00:50:03,520
+you're you're prone to injury
+
+1208
+00:50:01,440 --> 00:50:05,040
+yeah that's true but that's not because
+
+1209
+00:50:03,520 --> 00:50:07,359
+you are professional that's only because
+
+1210
+00:50:05,040 --> 00:50:10,720
+you do a lot more in a more professional
+
+1211
+00:50:07,359 --> 00:50:13,599
+manner it's like kung fu you know or you
+
+1212
+00:50:10,720 --> 00:50:15,920
+know karate or self defense
+
+1213
+00:50:13,599 --> 00:50:17,680
+you know those people who actually
+
+1214
+00:50:15,920 --> 00:50:19,040
+learned kung fu you know they they
+
+1215
+00:50:17,680 --> 00:50:21,200
+learned you know
+
+1216
+00:50:19,040 --> 00:50:24,319
+martial arts or they they become
+
+1217
+00:50:21,200 --> 00:50:26,559
+champions in you know martial arts uh
+
+1218
+00:50:24,319 --> 00:50:29,359
+champions they will they are prone to
+
+1219
+00:50:26,559 --> 00:50:31,839
+more injury in fact all almost the
+
+1220
+00:50:29,359 --> 00:50:34,400
+professional boxers they will they all
+
+1221
+00:50:31,839 --> 00:50:36,640
+have injuries okay many in many cases
+
+1222
+00:50:34,400 --> 00:50:38,079
+serious brain damage because of the
+
+1223
+00:50:36,640 --> 00:50:40,400
+concussion
+
+1224
+00:50:38,079 --> 00:50:42,240
+but that's not because but that doesn't
+
+1225
+00:50:40,400 --> 00:50:44,240
+mean their professional training in
+
+1226
+00:50:42,240 --> 00:50:45,520
+boxing is okay
+
+1227
+00:50:44,240 --> 00:50:47,440
+that
+
+1228
+00:50:45,520 --> 00:50:49,359
+that's very good it's only because they
+
+1229
+00:50:47,440 --> 00:50:51,040
+do it too much
+
+1230
+00:50:49,359 --> 00:50:53,119
+same thing with typing
+
+1231
+00:50:51,040 --> 00:50:55,760
+you want to learn
+
+1232
+00:50:53,119 --> 00:50:58,400
+touch typing because that will make you
+
+1233
+00:50:55,760 --> 00:51:01,520
+far more efficient given x amount of
+
+1234
+00:50:58,400 --> 00:51:03,760
+typing you will do it more faster and
+
+1235
+00:51:01,520 --> 00:51:05,920
+easier on your hands okay
+
+1236
+00:51:03,760 --> 00:51:08,240
+less strain on your on yours on your
+
+1237
+00:51:05,920 --> 00:51:10,319
+head on your shoulders because you can
+
+1238
+00:51:08,240 --> 00:51:12,720
+finish it in 10 minutes without touch
+
+1239
+00:51:10,319 --> 00:51:15,040
+typing you will finish it in one hour
+
+1240
+00:51:12,720 --> 00:51:17,920
+it's a big difference okay but why is
+
+1241
+00:51:15,040 --> 00:51:20,400
+that touch typing people are prone to
+
+1242
+00:51:17,920 --> 00:51:22,559
+injury that's because they type 10 times
+
+1243
+00:51:20,400 --> 00:51:24,400
+more okay
+
+1244
+00:51:22,559 --> 00:51:26,400
+so that's that is why not because the
+
+1245
+00:51:24,400 --> 00:51:28,079
+idiotic programmers they say oh you
+
+1246
+00:51:26,400 --> 00:51:29,599
+shouldn't learn to trapping because this
+
+1247
+00:51:28,079 --> 00:51:32,319
+hunt pack is fine
+
+1248
+00:51:29,599 --> 00:51:35,119
+and then they cook up reasons okay
+
+1249
+00:51:32,319 --> 00:51:37,440
+they will say you know they will say oh
+
+1250
+00:51:35,119 --> 00:51:39,440
+for a programmer you don't need to learn
+
+1251
+00:51:37,440 --> 00:51:41,280
+touch type because
+
+1252
+00:51:39,440 --> 00:51:43,200
+because programmer
+
+1253
+00:51:41,280 --> 00:51:44,960
+because programming
+
+1254
+00:51:43,200 --> 00:51:47,599
+most of the time you are spending
+
+1255
+00:51:44,960 --> 00:51:49,839
+thinking it's idiocy
+
+1256
+00:51:47,599 --> 00:51:52,640
+if you don't touch type then you are not
+
+1257
+00:51:49,839 --> 00:51:54,880
+likely to write full documentation which
+
+1258
+00:51:52,640 --> 00:51:56,960
+in turn damages your
+
+1259
+00:51:54,880 --> 00:51:59,599
+design flow okay when you write the
+
+1260
+00:51:56,960 --> 00:52:03,040
+function i for example for my k in my
+
+1261
+00:51:59,599 --> 00:52:05,280
+case my personal style i always i almost
+
+1262
+00:52:03,040 --> 00:52:08,319
+always basically always
+
+1263
+00:52:05,280 --> 00:52:10,559
+write full documentation first before i
+
+1264
+00:52:08,319 --> 00:52:12,800
+even code a single line of code because
+
+1265
+00:52:10,559 --> 00:52:15,040
+that way i know exactly what you know i
+
+1266
+00:52:12,800 --> 00:52:17,520
+know what i want i thought about the
+
+1267
+00:52:15,040 --> 00:52:20,000
+problem fully and write it down when you
+
+1268
+00:52:17,520 --> 00:52:23,839
+write something down it helps you know
+
+1269
+00:52:20,000 --> 00:52:26,000
+your your thought flow
+
+1270
+00:52:23,839 --> 00:52:28,559
+okay then programmers say you know they
+
+1271
+00:52:26,000 --> 00:52:30,640
+have many things to say they say oh this
+
+1272
+00:52:28,559 --> 00:52:32,640
+keyboard is better than that that
+
+1273
+00:52:30,640 --> 00:52:35,040
+keyboard is better that's okay
+
+1274
+00:52:32,640 --> 00:52:36,160
+the typical programmers then they say
+
+1275
+00:52:35,040 --> 00:52:38,800
+you know
+
+1276
+00:52:36,160 --> 00:52:41,040
+yes swap caps lock and control then they
+
+1277
+00:52:38,800 --> 00:52:43,119
+have good they have reasons like
+
+1278
+00:52:41,040 --> 00:52:45,599
+and in particular because the
+
+1279
+00:52:43,119 --> 00:52:48,240
+programmers especially the unix
+
+1280
+00:52:45,599 --> 00:52:52,160
+type the unix type the linux type the
+
+1281
+00:52:48,240 --> 00:52:54,240
+emacs the vi this edit type of hacker
+
+1282
+00:52:52,160 --> 00:52:55,280
+type of coders you know they'll tell you
+
+1283
+00:52:54,240 --> 00:52:57,040
+what to do
+
+1284
+00:52:55,280 --> 00:52:59,680
+they think they are the supreme you know
+
+1285
+00:52:57,040 --> 00:53:01,599
+they they think their their advice their
+
+1286
+00:52:59,680 --> 00:53:04,000
+thinking is the best they say oh you
+
+1287
+00:53:01,599 --> 00:53:06,000
+should swap caps lock with control key
+
+1288
+00:53:04,000 --> 00:53:09,119
+or you should use linux or you should
+
+1289
+00:53:06,000 --> 00:53:11,520
+use uh you know tidying window managers
+
+1290
+00:53:09,119 --> 00:53:12,640
+these idiots idiots
+
+1291
+00:53:11,520 --> 00:53:15,280
+you don't know what they're talking
+
+1292
+00:53:12,640 --> 00:53:17,520
+about okay when you go look into detail
+
+1293
+00:53:15,280 --> 00:53:19,359
+scientifically
+
+1294
+00:53:17,520 --> 00:53:21,359
+so basically they are saying you know
+
+1295
+00:53:19,359 --> 00:53:23,680
+you should not learn touch type the best
+
+1296
+00:53:21,359 --> 00:53:26,480
+way to avoid injury is not to go pro
+
+1297
+00:53:23,680 --> 00:53:29,520
+that's what they are saying
+
+1298
+00:53:26,480 --> 00:53:31,280
+and some will say ergonomic keyboard is
+
+1299
+00:53:29,520 --> 00:53:32,880
+useless you know you can see that on
+
+1300
+00:53:31,280 --> 00:53:35,440
+youtube if you just search for it you
+
+1301
+00:53:32,880 --> 00:53:38,400
+know they'll say ergonomic keyboard is
+
+1302
+00:53:35,440 --> 00:53:40,319
+useless or work is useless
+
+1303
+00:53:38,400 --> 00:53:43,119
+you should just hunt and pack and kodi
+
+1304
+00:53:40,319 --> 00:53:44,640
+that's idiocy so again
+
+1305
+00:53:43,119 --> 00:53:47,119
+you want to listen
+
+1306
+00:53:44,640 --> 00:53:48,079
+to people who are qualified how do you
+
+1307
+00:53:47,119 --> 00:53:49,920
+judge
+
+1308
+00:53:48,079 --> 00:53:52,640
+you want to look at those people who
+
+1309
+00:53:49,920 --> 00:53:54,480
+really type a lot like you know what do
+
+1310
+00:53:52,640 --> 00:53:56,800
+you mean by a lot
+
+1311
+00:53:54,480 --> 00:53:59,440
+what do you mean by type a lot okay
+
+1312
+00:53:56,800 --> 00:54:02,000
+scientifically that means you measure
+
+1313
+00:53:59,440 --> 00:54:04,960
+your number of keystrokes by a key log
+
+1314
+00:54:02,000 --> 00:54:07,200
+okay so this article how many words do
+
+1315
+00:54:04,960 --> 00:54:08,319
+you type a day you actually can measure
+
+1316
+00:54:07,200 --> 00:54:10,720
+it
+
+1317
+00:54:08,319 --> 00:54:12,880
+okay so for example look at key login
+
+1318
+00:54:10,720 --> 00:54:15,920
+software i have compiled the list of key
+
+1319
+00:54:12,880 --> 00:54:18,000
+login software so you can actually see
+
+1320
+00:54:15,920 --> 00:54:18,960
+how many number of keystrokes you type a
+
+1321
+00:54:18,000 --> 00:54:20,559
+day
+
+1322
+00:54:18,960 --> 00:54:23,280
+you know you do it this for a month you
+
+1323
+00:54:20,559 --> 00:54:25,200
+can average then you can see oh my god
+
+1324
+00:54:23,280 --> 00:54:27,280
+you don't type at all you're
+
+1325
+00:54:25,200 --> 00:54:30,240
+idiotic programmers compared to other
+
+1326
+00:54:27,280 --> 00:54:32,880
+people so i have a key lock so here's a
+
+1327
+00:54:30,240 --> 00:54:34,880
+key lock of my emacs you know i i lock
+
+1328
+00:54:32,880 --> 00:54:36,880
+my keys for about
+
+1329
+00:54:34,880 --> 00:54:38,799
+10 years by now
+
+1330
+00:54:36,880 --> 00:54:41,599
+beginning like 15
+
+1331
+00:54:38,799 --> 00:54:44,160
+beginning like uh 2008 something like
+
+1332
+00:54:41,599 --> 00:54:46,160
+that when i started to do ergo e-max
+
+1333
+00:54:44,160 --> 00:54:48,319
+project which is a
+
+1334
+00:54:46,160 --> 00:54:51,359
+e-max mod
+
+1335
+00:54:48,319 --> 00:54:53,599
+so you see
+
+1336
+00:54:51,359 --> 00:54:55,520
+so measure your number of keystrokes you
+
+1337
+00:54:53,599 --> 00:54:56,880
+type a date so you then you know what
+
+1338
+00:54:55,520 --> 00:54:58,640
+you're talking about okay so there are
+
+1339
+00:54:56,880 --> 00:54:59,760
+several there are some of the things i
+
+1340
+00:54:58,640 --> 00:55:02,480
+about
+
+1341
+00:54:59,760 --> 00:55:04,079
+about keyboard about typing about sub
+
+1342
+00:55:02,480 --> 00:55:05,760
+okay
+
+1343
+00:55:04,079 --> 00:55:08,400
+now did i answer the question about
+
+1344
+00:55:05,760 --> 00:55:08,400
+kinesis
+
+1345
+00:55:08,640 --> 00:55:13,599
+uh i think that i think that's it for
+
+1346
+00:55:11,280 --> 00:55:16,240
+today i'm done okay 11 o'clock we talked
+
+1347
+00:55:13,599 --> 00:55:16,240
+for an hour
+
+1348
+00:55:18,079 --> 00:55:22,880
+so about key switches about key switches
+
+1349
+00:55:21,200 --> 00:55:26,720
+okay so
+
+1350
+00:55:22,880 --> 00:55:30,880
+i recommend linear light switch
+
+1351
+00:55:26,720 --> 00:55:34,640
+so for example cherry mx red or cherry
+
+1352
+00:55:30,880 --> 00:55:36,160
+mx silent red so i recommend linear red
+
+1353
+00:55:34,640 --> 00:55:39,599
+switches i mean
+
+1354
+00:55:36,160 --> 00:55:41,040
+linear light switches the switch should
+
+1355
+00:55:39,599 --> 00:55:44,000
+not have more
+
+1356
+00:55:41,040 --> 00:55:46,720
+activation for smaller than 45 grams
+
+1357
+00:55:44,000 --> 00:55:48,559
+okay that's what i recommend now this is
+
+1358
+00:55:46,720 --> 00:55:51,280
+important i highly recommend this
+
+1359
+00:55:48,559 --> 00:55:55,280
+especially if you already have some kind
+
+1360
+00:55:51,280 --> 00:55:57,760
+of typing discomfort okay like i do
+
+1361
+00:55:55,280 --> 00:56:00,079
+it makes a big difference okay i mean if
+
+1362
+00:55:57,760 --> 00:56:03,359
+you are a beginner if you never got into
+
+1363
+00:56:00,079 --> 00:56:05,920
+ergonomics before okay and you you know
+
+1364
+00:56:03,359 --> 00:56:07,599
+maybe you are young you just start out i
+
+1365
+00:56:05,920 --> 00:56:08,960
+recommend
+
+1366
+00:56:07,599 --> 00:56:10,079
+like right now
+
+1367
+00:56:08,960 --> 00:56:11,680
+go out
+
+1368
+00:56:10,079 --> 00:56:13,920
+buy
+
+1369
+00:56:11,680 --> 00:56:15,680
+i mean if you don't even touch type okay
+
+1370
+00:56:13,920 --> 00:56:17,599
+if you don't know anything about
+
+1371
+00:56:15,680 --> 00:56:21,119
+ergonomic keyboard i recommend you go
+
+1372
+00:56:17,599 --> 00:56:24,640
+out buy a chinese cheap keyboard cheap
+
+1373
+00:56:21,119 --> 00:56:24,640
+mechanical keyboard right now
+
+1374
+00:56:25,119 --> 00:56:29,680
+you want mechanical key switches
+
+1375
+00:56:27,680 --> 00:56:31,760
+absolutely okay
+
+1376
+00:56:29,680 --> 00:56:33,920
+for example i you know i have
+
+1377
+00:56:31,760 --> 00:56:37,760
+you know i have 30 years experience
+
+1378
+00:56:33,920 --> 00:56:41,040
+because because beginning in 1991
+
+1379
+00:56:37,760 --> 00:56:43,280
+in 1991 that's before the internet i
+
+1380
+00:56:41,040 --> 00:56:46,160
+read a lot about typing you know i'm
+
+1381
+00:56:43,280 --> 00:56:49,000
+kind of typing freak so
+
+1382
+00:56:46,160 --> 00:56:50,720
+i started to touch type in
+
+1383
+00:56:49,000 --> 00:56:53,440
+1988
+
+1384
+00:56:50,720 --> 00:56:56,720
+on a maquette on a
+
+1385
+00:56:53,440 --> 00:57:01,440
+typewriter okay on electric typewriter i
+
+1386
+00:56:56,720 --> 00:57:02,400
+learned quality touch typing in 1988
+
+1387
+00:57:01,440 --> 00:57:04,960
+then
+
+1388
+00:57:02,400 --> 00:57:07,359
+in 1994
+
+1389
+00:57:04,960 --> 00:57:10,160
+so six years aft after i touched type
+
+1390
+00:57:07,359 --> 00:57:12,000
+for six years on qwerty i i switched to
+
+1391
+00:57:10,160 --> 00:57:14,960
+vorack i learned you know i learned
+
+1392
+00:57:12,000 --> 00:57:17,200
+about vorag in 1991
+
+1393
+00:57:14,960 --> 00:57:19,920
+you know so i went to the libraries you
+
+1394
+00:57:17,200 --> 00:57:22,160
+know read about research on typing and
+
+1395
+00:57:19,920 --> 00:57:23,920
+different layouts so anyway so i have
+
+1396
+00:57:22,160 --> 00:57:26,480
+actually so i know
+
+1397
+00:57:23,920 --> 00:57:28,559
+i read a lot about repetiti about
+
+1398
+00:57:26,480 --> 00:57:32,480
+keyboard about typing about layout all
+
+1399
+00:57:28,559 --> 00:57:36,079
+kind of things since 1990s okay
+
+1400
+00:57:32,480 --> 00:57:36,960
+and i switched to work in 1994
+
+1401
+00:57:36,079 --> 00:57:40,400
+and
+
+1402
+00:57:36,960 --> 00:57:42,720
+my the first time i used emacs is 1998
+
+1403
+00:57:40,400 --> 00:57:44,400
+okay so that's my basic history you can
+
+1404
+00:57:42,720 --> 00:57:45,440
+find the article i have several articles
+
+1405
+00:57:44,400 --> 00:57:47,599
+about it
+
+1406
+00:57:45,440 --> 00:57:49,839
+in detail about my
+
+1407
+00:57:47,599 --> 00:57:53,960
+rsi history just search for
+
+1408
+00:57:49,839 --> 00:57:53,960
+sally okay so
+
+1409
+00:57:54,319 --> 00:58:00,079
+uh i'm sorry isi history okay so you'll
+
+1410
+00:57:57,680 --> 00:58:00,079
+see it
+
+1411
+00:58:02,480 --> 00:58:06,160
+uh
+
+1412
+00:58:03,280 --> 00:58:08,799
+sorry isi history so somewhere here okay
+
+1413
+00:58:06,160 --> 00:58:11,040
+so it's not finding the right article
+
+1414
+00:58:08,799 --> 00:58:11,040
+uh
+
+1415
+00:58:12,240 --> 00:58:15,680
+sorry typing history
+
+1416
+00:58:18,240 --> 00:58:23,839
+anyway it's linked somewhere you'll find
+
+1417
+00:58:20,240 --> 00:58:23,839
+it okay so basically anyway
+
+1418
+00:58:24,319 --> 00:58:29,200
+so what i was going to say so yeah i
+
+1419
+00:58:26,160 --> 00:58:31,359
+recommend red linear switches
+
+1420
+00:58:29,200 --> 00:58:33,680
+if you already have rsi very important
+
+1421
+00:58:31,359 --> 00:58:34,880
+and brown switch is not good okay you
+
+1422
+00:58:33,680 --> 00:58:36,880
+know
+
+1423
+00:58:34,880 --> 00:58:39,359
+about eight years ago
+
+1424
+00:58:36,880 --> 00:58:41,680
+when i started to got into you know all
+
+1425
+00:58:39,359 --> 00:58:46,000
+these ergonomic keyboards because
+
+1426
+00:58:41,680 --> 00:58:46,000
+actually i be it began in 2006.
+
+1427
+00:58:46,079 --> 00:58:48,720
+anyway so
+
+1428
+00:58:49,839 --> 00:58:54,160
+in the beginning i don't care about you
+
+1429
+00:58:52,079 --> 00:58:56,480
+know when you look at on reddit you know
+
+1430
+00:58:54,160 --> 00:58:57,520
+the mechanical keyboard communities you
+
+1431
+00:58:56,480 --> 00:58:58,400
+will see
+
+1432
+00:58:57,520 --> 00:58:59,200
+these
+
+1433
+00:58:58,400 --> 00:59:00,240
+uh
+
+1434
+00:58:59,200 --> 00:59:02,400
+people
+
+1435
+00:59:00,240 --> 00:59:04,720
+they are very particular about key
+
+1436
+00:59:02,400 --> 00:59:07,200
+switches there are so many types okay so
+
+1437
+00:59:04,720 --> 00:59:08,799
+let me let's show you okay so keyboard
+
+1438
+00:59:07,200 --> 00:59:11,440
+design
+
+1439
+00:59:08,799 --> 00:59:13,040
+key switches okay so here you're looking
+
+1440
+00:59:11,440 --> 00:59:16,240
+at you know here's the most common
+
+1441
+00:59:13,040 --> 00:59:19,280
+rubber dome switch this is the switch on
+
+1442
+00:59:16,240 --> 00:59:21,599
+your keyboard which is no good
+
+1443
+00:59:19,280 --> 00:59:25,119
+and here's a scissor switch on your
+
+1444
+00:59:21,599 --> 00:59:27,119
+laptop it's also rubber dome no good
+
+1445
+00:59:25,119 --> 00:59:29,440
+then you have mechanical switches the
+
+1446
+00:59:27,119 --> 00:59:30,720
+most popular is cherry mx
+
+1447
+00:59:29,440 --> 00:59:34,400
+looks like that
+
+1448
+00:59:30,720 --> 00:59:37,359
+okay so all my keyboard you see it's a
+
+1449
+00:59:34,400 --> 00:59:38,480
+this it's all mechanical switch okay so
+
+1450
+00:59:37,359 --> 00:59:41,599
+this is
+
+1451
+00:59:38,480 --> 00:59:44,839
+this is uh cherry mx
+
+1452
+00:59:41,599 --> 00:59:47,280
+red silent okay and this one is
+
+1453
+00:59:44,839 --> 00:59:49,280
+um is uh
+
+1454
+00:59:47,280 --> 00:59:51,359
+this one is also red silent but it's
+
+1455
+00:59:49,280 --> 00:59:54,559
+made from china it's uh what's what's
+
+1456
+00:59:51,359 --> 00:59:57,119
+the name i have a
+
+1457
+00:59:54,559 --> 00:59:59,119
+kyle okay this is a kyle red
+
+1458
+00:59:57,119 --> 01:00:02,400
+so kyle red is actually five grams
+
+1459
+00:59:59,119 --> 01:00:04,640
+heavier than cherry mx
+
+1460
+01:00:02,400 --> 01:00:04,640
+red
+
+1461
+01:00:04,720 --> 01:00:08,640
+you know i want light as a slight as
+
+1462
+01:00:06,880 --> 01:00:10,880
+possible
+
+1463
+01:00:08,640 --> 01:00:12,960
+so anyway so i was saying
+
+1464
+01:00:10,880 --> 01:00:15,280
+you know many years ago 10 years ago
+
+1465
+01:00:12,960 --> 01:00:17,680
+when i started to get into mechanical
+
+1466
+01:00:15,280 --> 01:00:19,680
+keyboard you know i look at other people
+
+1467
+01:00:17,680 --> 01:00:22,240
+they talk about that i think you know i
+
+1468
+01:00:19,680 --> 01:00:24,480
+thought that these people are crazy
+
+1469
+01:00:22,240 --> 01:00:27,280
+these few are not jobs doesn't matter
+
+1470
+01:00:24,480 --> 01:00:29,920
+okay doesn't matter well these
+
+1471
+01:00:27,280 --> 01:00:31,680
+are you know it's it's the same okay
+
+1472
+01:00:29,920 --> 01:00:34,799
+just get one you know just get one of
+
+1473
+01:00:31,680 --> 01:00:37,839
+them and because consider vast majority
+
+1474
+01:00:34,799 --> 01:00:40,079
+of people 99 of keyboard users they are
+
+1475
+01:00:37,839 --> 01:00:43,440
+using don't robot dome which is far
+
+1476
+01:00:40,079 --> 01:00:45,359
+worse so once you switch to mechanical
+
+1477
+01:00:43,440 --> 01:00:47,760
+that's good enough okay don't be so
+
+1478
+01:00:45,359 --> 01:00:50,559
+picky you know it's not like oh i must
+
+1479
+01:00:47,760 --> 01:00:52,160
+have this one you know they get so crazy
+
+1480
+01:00:50,559 --> 01:00:53,599
+about switches
+
+1481
+01:00:52,160 --> 01:00:55,599
+and
+
+1482
+01:00:53,599 --> 01:00:57,839
+and variations you know they talk about
+
+1483
+01:00:55,599 --> 01:01:00,559
+that all day day and night
+
+1484
+01:00:57,839 --> 01:01:03,200
+i thought these people are not jobs
+
+1485
+01:01:00,559 --> 01:01:05,760
+you know so i think you know
+
+1486
+01:01:03,200 --> 01:01:08,960
+any of them one of them is good enough
+
+1487
+01:01:05,760 --> 01:01:11,200
+okay but actually now i have so much rsi
+
+1488
+01:01:08,960 --> 01:01:13,920
+you know i type so much actually i have
+
+1489
+01:01:11,200 --> 01:01:15,599
+opinions as well and a strong opinion i
+
+1490
+01:01:13,920 --> 01:01:17,599
+recommend
+
+1491
+01:01:15,599 --> 01:01:19,040
+okay here's a here's the thing
+
+1492
+01:01:17,599 --> 01:01:21,680
+assumption
+
+1493
+01:01:19,040 --> 01:01:25,200
+if you already have hand pin okay if you
+
+1494
+01:01:21,680 --> 01:01:28,240
+already have rsi or if you truly type a
+
+1495
+01:01:25,200 --> 01:01:30,160
+lot okay then i highly recommend you
+
+1496
+01:01:28,240 --> 01:01:32,079
+want to get red switches you don't want
+
+1497
+01:01:30,160 --> 01:01:33,920
+the brown okay you don't want you don't
+
+1498
+01:01:32,079 --> 01:01:35,839
+want the brown you want the red switches
+
+1499
+01:01:33,920 --> 01:01:38,400
+okay
+
+1500
+01:01:35,839 --> 01:01:41,200
+that's the recommendation i can get i
+
+1501
+01:01:38,400 --> 01:01:42,640
+can give you also if you just being
+
+1502
+01:01:41,200 --> 01:01:45,280
+if you just start out you don't know
+
+1503
+01:01:42,640 --> 01:01:47,599
+nothing about it right now you know like
+
+1504
+01:01:45,280 --> 01:01:50,160
+right now go to go to you know my
+
+1505
+01:01:47,599 --> 01:01:52,400
+website go to this
+
+1506
+01:01:50,160 --> 01:01:56,079
+this page and get a chinese cheaper
+
+1507
+01:01:52,400 --> 01:01:57,920
+forty dollars right away okay do it
+
+1508
+01:01:56,079 --> 01:01:59,839
+for just chinese cheap ones forty
+
+1509
+01:01:57,920 --> 01:02:01,680
+dollars they work fine okay they'll last
+
+1510
+01:01:59,839 --> 01:02:04,240
+you for a year or two
+
+1511
+01:02:01,680 --> 01:02:07,760
+uh important if you type a lot
+
+1512
+01:02:04,240 --> 01:02:11,440
+okay that's it for today
+
+1513
+01:02:07,760 --> 01:02:14,079
+i talked about that's it for today
+
+1514
+01:02:11,440 --> 01:02:16,640
+let's uh quickly read some comments okay
+
+1515
+01:02:14,079 --> 01:02:17,920
+donate to me okay donate go to my
+
+1516
+01:02:16,640 --> 01:02:20,640
+patreon
+
+1517
+01:02:17,920 --> 01:02:23,839
+uh you know it's you know you'll see my
+
+1518
+01:02:20,640 --> 01:02:23,839
+links on my patreon
+
+1519
+01:02:31,119 --> 01:02:35,039
+okay
+
+1520
+01:02:32,240 --> 01:02:36,880
+patreon me amazon gift card me
+
+1521
+01:02:35,039 --> 01:02:39,839
+uh you know pay me
+
+1522
+01:02:36,880 --> 01:02:39,839
+if you like nice stuff
+
+1523
+01:02:41,680 --> 01:02:45,839
+wufang language you can download so we
+
+1524
+01:02:43,920 --> 01:02:50,000
+talked about wolfen language you know go
+
+1525
+01:02:45,839 --> 01:02:52,240
+to my homepage saudi sarco saudi.info um
+
+1526
+01:02:50,000 --> 01:02:55,039
+language you can download for free and
+
+1527
+01:02:52,240 --> 01:02:59,480
+you can watch my past videos on
+
+1528
+01:02:55,039 --> 01:02:59,480
+details about the language
+
+1529
+01:03:15,440 --> 01:03:19,760
+so here's a question how do you define a
+
+1530
+01:03:17,200 --> 01:03:20,799
+limit to prevent the geometric inversion
+
+1531
+01:03:19,760 --> 01:03:23,200
+from
+
+1532
+01:03:20,799 --> 01:03:24,880
+running forever that doesn't run forever
+
+1533
+01:03:23,200 --> 01:03:27,119
+it's just a function it's just a
+
+1534
+01:03:24,880 --> 01:03:29,839
+function that takes a point and returns
+
+1535
+01:03:27,119 --> 01:03:32,720
+a phone point okay so it doesn't
+
+1536
+01:03:29,839 --> 01:03:36,079
+it's not a recursion thing so it doesn't
+
+1537
+01:03:32,720 --> 01:03:38,559
+run you know there's no such issue
+
+1538
+01:03:36,079 --> 01:03:39,839
+but of course you can repeatedly apply
+
+1539
+01:03:38,559 --> 01:03:42,319
+it
+
+1540
+01:03:39,839 --> 01:03:43,039
+you know you can you can repeat it apply
+
+1541
+01:03:42,319 --> 01:03:44,400
+the
+
+1542
+01:03:43,039 --> 01:03:46,799
+inversion
+
+1543
+01:03:44,400 --> 01:03:49,680
+but if you repeat it just revert it back
+
+1544
+01:03:46,799 --> 01:03:52,079
+to self you know because it simply swaps
+
+1545
+01:03:49,680 --> 01:03:56,319
+points outside the circle to inside if
+
+1546
+01:03:52,079 --> 01:04:00,079
+you repeat to the same points it just
+
+1547
+01:03:56,319 --> 01:04:02,480
+it it is it the function
+
+1548
+01:04:00,079 --> 01:04:07,000
+inverse function is itself so that's
+
+1549
+01:04:02,480 --> 01:04:07,000
+what the way to say it
+
+1550
+01:04:12,559 --> 01:04:17,920
+a happy hacking keyboard okay fs
+
+1551
+01:04:15,920 --> 01:04:20,000
+straight
+
+1552
+01:04:17,920 --> 01:04:22,559
+uh
+
+1553
+01:04:20,000 --> 01:04:24,960
+so do i think keycaps are important
+
+1554
+01:04:22,559 --> 01:04:27,440
+keycaps are not not really important you
+
+1555
+01:04:24,960 --> 01:04:29,680
+know keep keycaps is uh you know it's
+
+1556
+01:04:27,440 --> 01:04:32,079
+it's good for
+
+1557
+01:04:29,680 --> 01:04:35,039
+it's not really important okay keycaps
+
+1558
+01:04:32,079 --> 01:04:38,559
+so if you go to so you can see all the
+
+1559
+01:04:35,039 --> 01:04:40,640
+details about keycaps
+
+1560
+01:04:38,559 --> 01:04:42,799
+uh keycaps you know basically there are
+
+1561
+01:04:40,640 --> 01:04:44,640
+four looks you know for example there's
+
+1562
+01:04:42,799 --> 01:04:48,160
+you know different technologies for
+
+1563
+01:04:44,640 --> 01:04:50,799
+keycaps mostly the plastic material used
+
+1564
+01:04:48,160 --> 01:04:54,319
+to create a keycap but the most popular
+
+1565
+01:04:50,799 --> 01:04:56,880
+is abs plastic abs is sometimes some
+
+1566
+01:04:54,319 --> 01:04:58,079
+kind of chemistry okay so
+
+1567
+01:04:56,880 --> 01:05:01,200
+you know
+
+1568
+01:04:58,079 --> 01:05:03,359
+so if you have a key cheap microsoft or
+
+1569
+01:05:01,200 --> 01:05:05,680
+logitech keyboard
+
+1570
+01:05:03,359 --> 01:05:08,160
+that's what you have abs keycaps and you
+
+1571
+01:05:05,680 --> 01:05:12,000
+have this shine problem or you have this
+
+1572
+01:05:08,160 --> 01:05:17,200
+kind of problem you see they rub out
+
+1573
+01:05:12,000 --> 01:05:19,839
+so the better quality is pbs pbt keycaps
+
+1574
+01:05:17,200 --> 01:05:22,720
+which is more expensive so
+
+1575
+01:05:19,839 --> 01:05:25,599
+then you have also label key label
+
+1576
+01:05:22,720 --> 01:05:26,799
+technology so if you have a cheap
+
+1577
+01:05:25,599 --> 01:05:29,119
+keyboard
+
+1578
+01:05:26,799 --> 01:05:31,839
+chances are microsoft and logitech cheap
+
+1579
+01:05:29,119 --> 01:05:33,119
+ones non-gaming ones you have this kind
+
+1580
+01:05:31,839 --> 01:05:36,400
+of label
+
+1581
+01:05:33,119 --> 01:05:38,799
+technology they rub out you know after a
+
+1582
+01:05:36,400 --> 01:05:40,480
+few months after a year
+
+1583
+01:05:38,799 --> 01:05:43,039
+so the better so there are many
+
+1584
+01:05:40,480 --> 01:05:44,880
+technologies for key label so for
+
+1585
+01:05:43,039 --> 01:05:46,160
+example here's a lace
+
+1586
+01:05:44,880 --> 01:05:47,599
+laser
+
+1587
+01:05:46,160 --> 01:05:49,680
+etched one
+
+1588
+01:05:47,599 --> 01:05:52,319
+then you also you know
+
+1589
+01:05:49,680 --> 01:05:56,160
+many quite a few then you have dyes of
+
+1590
+01:05:52,319 --> 01:05:57,359
+elimination which is the best okay
+
+1591
+01:05:56,160 --> 01:06:00,720
+so
+
+1592
+01:05:57,359 --> 01:06:04,240
+here is a picture of dice of elimination
+
+1593
+01:06:00,720 --> 01:06:06,720
+technology so essentially they you know
+
+1594
+01:06:04,240 --> 01:06:09,839
+the key label is part of the plastic you
+
+1595
+01:06:06,720 --> 01:06:11,520
+know so it will never rub out
+
+1596
+01:06:09,839 --> 01:06:13,680
+so of course they are much more
+
+1597
+01:06:11,520 --> 01:06:16,319
+expensive and by the way you can buy
+
+1598
+01:06:13,680 --> 01:06:16,319
+keycaps on
+
+1599
+01:06:16,839 --> 01:06:21,839
+amazon and then there's also print in
+
+1600
+01:06:19,680 --> 01:06:24,720
+front which is great because you never
+
+1601
+01:06:21,839 --> 01:06:28,480
+touch the key label so they don't drop
+
+1602
+01:06:24,720 --> 01:06:28,480
+out so this is also a great
+
+1603
+01:06:29,039 --> 01:06:32,160
+thing
+
+1604
+01:06:30,079 --> 01:06:34,559
+but also keycaps you know they are
+
+1605
+01:06:32,160 --> 01:06:35,760
+pretty keycaps for example cute keycaps
+
+1606
+01:06:34,559 --> 01:06:40,520
+you can buy
+
+1607
+01:06:35,760 --> 01:06:40,520
+but they are just for uh for the looks
+
+1608
+01:06:47,119 --> 01:06:53,760
+so i've been using celtic orthodox says
+
+1609
+01:06:50,079 --> 01:06:56,640
+i've been using the same two gap 2gb
+
+1610
+01:06:53,760 --> 01:06:58,880
+netbook for seven years no external
+
+1611
+01:06:56,640 --> 01:07:01,039
+keyboard i work on it for hour
+
+1612
+01:06:58,880 --> 01:07:03,760
+four hours a day okay
+
+1613
+01:07:01,039 --> 01:07:05,920
+i guess you are good you know
+
+1614
+01:07:03,760 --> 01:07:09,359
+you know the injury the typing injury
+
+1615
+01:07:05,920 --> 01:07:10,880
+happens it depends on people you know uh
+
+1616
+01:07:09,359 --> 01:07:13,440
+for example
+
+1617
+01:07:10,880 --> 01:07:16,559
+it also okay so you you saying you've
+
+1618
+01:07:13,440 --> 01:07:17,920
+been using this laptop for seven years
+
+1619
+01:07:16,559 --> 01:07:20,319
+typing
+
+1620
+01:07:17,920 --> 01:07:23,200
+for hours a day but exactly how much you
+
+1621
+01:07:20,319 --> 01:07:25,920
+type like i said before key log you know
+
+1622
+01:07:23,200 --> 01:07:27,119
+tell me exactly how many keystrokes you
+
+1623
+01:07:25,920 --> 01:07:29,520
+type a day
+
+1624
+01:07:27,119 --> 01:07:31,680
+you might be surprised you don't type
+
+1625
+01:07:29,520 --> 01:07:34,640
+so in your case you don't actually type
+
+1626
+01:07:31,680 --> 01:07:36,559
+that's why you don't have a problem
+
+1627
+01:07:34,640 --> 01:07:38,400
+compared to other people
+
+1628
+01:07:36,559 --> 01:07:42,039
+so that's it for today thank you guys
+
+1629
+01:07:38,400 --> 01:07:42,039
+for watching bye
+
+1630
+01:07:45,440 --> 01:07:52,440
+okay so go back to uh wufam language go
+
+1631
+01:07:48,799 --> 01:07:52,440
+back to um
+
+1632
+01:08:19,839 --> 01:08:21,920
+you
+

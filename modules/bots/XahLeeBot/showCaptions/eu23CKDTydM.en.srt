@@ -1,0 +1,5720 @@
+1
+00:00:11,160 --> 00:00:15,719
+hello welcome to another episode of
+
+2
+00:00:14,040 --> 00:00:17,880
+guitar talk show
+
+3
+00:00:15,719 --> 00:00:21,000
+today we are going to do Wolfram
+
+4
+00:00:17,880 --> 00:00:24,480
+language coding so this is gonna be
+
+5
+00:00:21,000 --> 00:00:27,480
+relaxed session so and it's probably
+
+6
+00:00:24,480 --> 00:00:30,300
+going to be boring for you so if you
+
+7
+00:00:27,480 --> 00:00:34,380
+want a focused tutorial on Wolfram
+
+8
+00:00:30,300 --> 00:00:37,140
+language uh you probably better just go
+
+9
+00:00:34,380 --> 00:00:39,780
+to my woofam website okay wufam Language
+
+10
+00:00:37,140 --> 00:00:42,660
+tutorial and I've done a lot
+
+11
+00:00:39,780 --> 00:00:46,379
+introductions to Fan language so you go
+
+12
+00:00:42,660 --> 00:00:50,039
+there and you know search for Language
+
+13
+00:00:46,379 --> 00:00:52,079
+tutorial you go there and watch a
+
+14
+00:00:50,039 --> 00:00:55,559
+collection of my best full-time language
+
+15
+00:00:52,079 --> 00:00:58,320
+videos there that gives you an intro and
+
+16
+00:00:55,559 --> 00:01:01,320
+today I'm just going to code Wolfram
+
+17
+00:00:58,320 --> 00:01:03,539
+language uh going to so I'm going to
+
+18
+00:01:01,320 --> 00:01:06,900
+code Wolfram language and it's going to
+
+19
+00:01:03,539 --> 00:01:09,720
+be about walking or directory so you
+
+20
+00:01:06,900 --> 00:01:12,299
+want to get a list of files in all
+
+21
+00:01:09,720 --> 00:01:15,240
+directories and subdirectories and you
+
+22
+00:01:12,299 --> 00:01:18,780
+want to tally the word count and you
+
+23
+00:01:15,240 --> 00:01:21,320
+want to also work on Wolfram Association
+
+24
+00:01:18,780 --> 00:01:25,020
+data structure which is
+
+25
+00:01:21,320 --> 00:01:28,680
+like Python's dictionary Pearl or Ruby's
+
+26
+00:01:25,020 --> 00:01:31,380
+hash table or JavaScript and Java's map
+
+27
+00:01:28,680 --> 00:01:33,720
+data structure so in Wolfram language is
+
+28
+00:01:31,380 --> 00:01:36,060
+called Association
+
+29
+00:01:33,720 --> 00:01:39,079
+this data structure and in list
+
+30
+00:01:36,060 --> 00:01:42,180
+languages it's called Association list
+
+31
+00:01:39,079 --> 00:01:44,820
+so it's basically a list of key value
+
+32
+00:01:42,180 --> 00:01:47,460
+pairs so I'm just going to leisurely you
+
+33
+00:01:44,820 --> 00:01:51,420
+know today we are going to I'm going to
+
+34
+00:01:47,460 --> 00:01:54,240
+work on them live coding okay so there
+
+35
+00:01:51,420 --> 00:01:56,360
+is there it is a Wolfram language and
+
+36
+00:01:54,240 --> 00:01:59,520
+here is XR Discord
+
+37
+00:01:56,360 --> 00:02:02,759
+uh you can join this start Discord and
+
+38
+00:01:59,520 --> 00:02:04,799
+you know we have fun chat okay so we are
+
+39
+00:02:02,759 --> 00:02:08,459
+going to code Wolfram language today's
+
+40
+00:02:04,799 --> 00:02:11,300
+topic you know just live coding uh hello
+
+41
+00:02:08,459 --> 00:02:14,400
+guys hello Johan
+
+42
+00:02:11,300 --> 00:02:16,080
+and immortality and Jr
+
+43
+00:02:14,400 --> 00:02:17,640
+Okay so
+
+44
+00:02:16,080 --> 00:02:19,920
+so if you have comments and questions
+
+45
+00:02:17,640 --> 00:02:22,200
+post it okay love to see it and don't
+
+46
+00:02:19,920 --> 00:02:24,599
+forget to donate that's the most
+
+47
+00:02:22,200 --> 00:02:26,160
+critical part okay that's why you know
+
+48
+00:02:24,599 --> 00:02:28,620
+if you like my stuff
+
+49
+00:02:26,160 --> 00:02:33,720
+just do it five dollars twenty dollars
+
+50
+00:02:28,620 --> 00:02:37,260
+just do it just like Nike you know
+
+51
+00:02:33,720 --> 00:02:39,239
+okay so with my language so so let's do
+
+52
+00:02:37,260 --> 00:02:42,120
+so last time
+
+53
+00:02:39,239 --> 00:02:45,720
+a week ago uh two weeks ago
+
+54
+00:02:42,120 --> 00:02:48,239
+we did uh we did this word count so
+
+55
+00:02:45,720 --> 00:02:51,420
+let's let's start okay so let's so here
+
+56
+00:02:48,239 --> 00:02:54,540
+is Wolf and language we already started
+
+57
+00:02:51,420 --> 00:02:58,459
+uh let's magnify
+
+58
+00:02:54,540 --> 00:03:00,599
+see let's magnify and see
+
+59
+00:02:58,459 --> 00:03:03,060
+150 okay
+
+60
+00:03:00,599 --> 00:03:06,720
+and what we want to do
+
+61
+00:03:03,060 --> 00:03:09,480
+now I want to read the file and tally
+
+62
+00:03:06,720 --> 00:03:12,540
+the word count and uh
+
+63
+00:03:09,480 --> 00:03:16,800
+and also the count of every two words
+
+64
+00:03:12,540 --> 00:03:16,800
+you know the frequency so
+
+65
+00:03:17,580 --> 00:03:24,420
+okay so let's see why don't we just copy
+
+66
+00:03:20,940 --> 00:03:27,780
+the code here we added the code here
+
+67
+00:03:24,420 --> 00:03:28,680
+okay so anyway so here is today's talk
+
+68
+00:03:27,780 --> 00:03:31,319
+show
+
+69
+00:03:28,680 --> 00:03:32,220
+and let's start and let's start coding
+
+70
+00:03:31,319 --> 00:03:36,239
+okay
+
+71
+00:03:32,220 --> 00:03:39,599
+uh U fan language paste the code here
+
+72
+00:03:36,239 --> 00:03:41,819
+pop it out to a subwoofam language mod
+
+73
+00:03:39,599 --> 00:03:45,900
+this allows me to work on Wolfram
+
+74
+00:03:41,819 --> 00:03:48,659
+language uh in emacs okay and here is
+
+75
+00:03:45,900 --> 00:03:50,940
+the file last time we used this is
+
+76
+00:03:48,659 --> 00:03:54,120
+Arabian Nights it's fantastic I
+
+77
+00:03:50,940 --> 00:03:56,519
+recommend it the book of one thousand in
+
+78
+00:03:54,120 --> 00:04:01,640
+one nights the real thing not the Disney
+
+79
+00:03:56,519 --> 00:04:06,780
+version uh you will see lots of
+
+80
+00:04:01,640 --> 00:04:08,700
+amazing you know amazing uh Tales the
+
+81
+00:04:06,780 --> 00:04:12,360
+Arabian Nights
+
+82
+00:04:08,700 --> 00:04:14,340
+not the Disney thing so so we are going
+
+83
+00:04:12,360 --> 00:04:17,699
+to use the this
+
+84
+00:04:14,340 --> 00:04:21,419
+okay so here is the file we want to
+
+85
+00:04:17,699 --> 00:04:24,000
+count the words in that file so uh input
+
+86
+00:04:21,419 --> 00:04:25,740
+string so let's see
+
+87
+00:04:24,000 --> 00:04:28,320
+yeah okay so
+
+88
+00:04:25,740 --> 00:04:31,800
+so let's let's do it let me let me just
+
+89
+00:04:28,320 --> 00:04:35,840
+show you one by one actually so
+
+90
+00:04:31,800 --> 00:04:35,840
+uh delete that wait
+
+91
+00:04:37,199 --> 00:04:42,000
+did that no you need to press the DD key
+
+92
+00:04:40,500 --> 00:04:44,759
+so
+
+93
+00:04:42,000 --> 00:04:47,820
+first of all clear
+
+94
+00:04:44,759 --> 00:04:52,139
+X yeah
+
+95
+00:04:47,820 --> 00:04:56,400
+okay because I had an X there so
+
+96
+00:04:52,139 --> 00:05:00,139
+so here is the file path so we want
+
+97
+00:04:56,400 --> 00:05:00,139
+um let's just copy it then
+
+98
+00:05:04,740 --> 00:05:12,979
+okay so paste that yeah
+
+99
+00:05:09,000 --> 00:05:12,979
+delete paste that
+
+100
+00:05:14,580 --> 00:05:18,240
+copy that
+
+101
+00:05:16,259 --> 00:05:21,120
+back here
+
+102
+00:05:18,240 --> 00:05:26,220
+select all delete
+
+103
+00:05:21,120 --> 00:05:29,639
+paste okay so input read string so that
+
+104
+00:05:26,220 --> 00:05:32,759
+will read the whole files content into
+
+105
+00:05:29,639 --> 00:05:34,919
+the X input and now we want to do find
+
+106
+00:05:32,759 --> 00:05:36,320
+replace Okay so
+
+107
+00:05:34,919 --> 00:05:41,220
+find replace
+
+108
+00:05:36,320 --> 00:05:44,400
+and paste it so this wheel here's a
+
+109
+00:05:41,220 --> 00:05:46,139
+regular you know find string replace is
+
+110
+00:05:44,400 --> 00:05:50,220
+a function you want to use
+
+111
+00:05:46,139 --> 00:05:52,020
+X input is a HTML source code for
+
+112
+00:05:50,220 --> 00:05:55,979
+example let's look at the source code
+
+113
+00:05:52,020 --> 00:06:00,860
+control U so here is the source code let
+
+114
+00:05:55,979 --> 00:06:00,860
+me magnify the browser's font Okay so
+
+115
+00:06:05,160 --> 00:06:08,660
+so we can see better
+
+116
+00:06:09,060 --> 00:06:14,300
+okay so here's the source code you can
+
+117
+00:06:11,460 --> 00:06:18,660
+see lots of HTML so we want to remove
+
+118
+00:06:14,300 --> 00:06:21,240
+HTML tags so you that's why you call
+
+119
+00:06:18,660 --> 00:06:24,360
+screen replace X input first argument
+
+120
+00:06:21,240 --> 00:06:25,979
+that's a giant string and do regular
+
+121
+00:06:24,360 --> 00:06:29,220
+expression this is how you do regular
+
+122
+00:06:25,979 --> 00:06:31,860
+expression in Wolfram language you see
+
+123
+00:06:29,220 --> 00:06:34,020
+this part represents a regular
+
+124
+00:06:31,860 --> 00:06:35,759
+expression and here is a regular
+
+125
+00:06:34,020 --> 00:06:39,060
+expression you are probably familiar
+
+126
+00:06:35,759 --> 00:06:42,800
+with if you code python C Java you know
+
+127
+00:06:39,060 --> 00:06:45,419
+not C python JavaScript and so on Ruby
+
+128
+00:06:42,800 --> 00:06:48,900
+and you want to replace it by empty
+
+129
+00:06:45,419 --> 00:06:52,020
+string so so that will remove all the
+
+130
+00:06:48,900 --> 00:06:54,240
+tags HTML tags okay
+
+131
+00:06:52,020 --> 00:06:56,940
+and and now you can just simply call
+
+132
+00:06:54,240 --> 00:06:58,800
+what counts okay so let's paste it here
+
+133
+00:06:56,940 --> 00:07:02,940
+so you can see
+
+134
+00:06:58,800 --> 00:07:08,100
+World count input there it is so you see
+
+135
+00:07:02,940 --> 00:07:11,639
+so V happens 376 times n happens 319
+
+136
+00:07:08,100 --> 00:07:15,419
+times okay so that's the word count now
+
+137
+00:07:11,639 --> 00:07:16,080
+I let's say okay this is kind of long
+
+138
+00:07:15,419 --> 00:07:20,900
+um
+
+139
+00:07:16,080 --> 00:07:26,099
+we want to truncate it so now so this
+
+140
+00:07:20,900 --> 00:07:28,979
+this data you can see this thing the
+
+141
+00:07:26,099 --> 00:07:32,099
+output that is the in Wolfram language
+
+142
+00:07:28,979 --> 00:07:33,479
+it's called Association okay so let me
+
+143
+00:07:32,099 --> 00:07:36,599
+go to it
+
+144
+00:07:33,479 --> 00:07:39,060
+so this code Association list it's just
+
+145
+00:07:36,599 --> 00:07:41,819
+called Association new from language and
+
+146
+00:07:39,060 --> 00:07:44,880
+that basically means a key value pair in
+
+147
+00:07:41,819 --> 00:07:48,060
+other languages it's called hash table
+
+148
+00:07:44,880 --> 00:07:49,199
+or map or
+
+149
+00:07:48,060 --> 00:07:51,620
+um
+
+150
+00:07:49,199 --> 00:07:54,360
+in Python it's called dictionary okay
+
+151
+00:07:51,620 --> 00:07:57,000
+basically the same thing uh key value
+
+152
+00:07:54,360 --> 00:07:58,680
+pairs in an efficient way that's a key
+
+153
+00:07:57,000 --> 00:08:01,620
+point because otherwise you can just
+
+154
+00:07:58,680 --> 00:08:04,139
+have lists of pairs or array of pairs
+
+155
+00:08:01,620 --> 00:08:06,419
+but that's not efficient
+
+156
+00:08:04,139 --> 00:08:08,759
+so hash table you know the association
+
+157
+00:08:06,419 --> 00:08:12,360
+list now
+
+158
+00:08:08,759 --> 00:08:14,819
+okay so now we got an associate this is
+
+159
+00:08:12,360 --> 00:08:18,240
+the output so it it's in this data
+
+160
+00:08:14,819 --> 00:08:21,479
+structure now uh word count now you can
+
+161
+00:08:18,240 --> 00:08:24,539
+give it two that means count every two
+
+162
+00:08:21,479 --> 00:08:27,300
+word phrases okay so let's evaluate it
+
+163
+00:08:24,539 --> 00:08:29,520
+let's see what we get
+
+164
+00:08:27,300 --> 00:08:32,520
+you see one of the nice things about
+
+165
+00:08:29,520 --> 00:08:34,440
+Wolfram language is everything is so
+
+166
+00:08:32,520 --> 00:08:36,719
+um all the functions are building
+
+167
+00:08:34,440 --> 00:08:38,700
+because otherwise in Python for example
+
+168
+00:08:36,719 --> 00:08:40,680
+if you want to do there's no such
+
+169
+00:08:38,700 --> 00:08:44,339
+function for word count you have to do a
+
+170
+00:08:40,680 --> 00:08:47,040
+hash table you know you have to pass the
+
+171
+00:08:44,339 --> 00:08:50,040
+file you know read every word you know
+
+172
+00:08:47,040 --> 00:08:52,920
+split speed the big giant string by a
+
+173
+00:08:50,040 --> 00:08:56,820
+space then remove the comma and so on
+
+174
+00:08:52,920 --> 00:08:59,519
+then you Loop through every word
+
+175
+00:08:56,820 --> 00:09:02,580
+then you add them to a hash table as a
+
+176
+00:08:59,519 --> 00:09:04,740
+key and if the key already exists you
+
+177
+00:09:02,580 --> 00:09:07,080
+increment the value by one that's how
+
+178
+00:09:04,740 --> 00:09:08,760
+you do World count in Python and or
+
+179
+00:09:07,080 --> 00:09:10,200
+basically essentially every other
+
+180
+00:09:08,760 --> 00:09:12,000
+language
+
+181
+00:09:10,200 --> 00:09:14,519
+but in Wolfram language there's so many
+
+182
+00:09:12,000 --> 00:09:17,399
+things building now in this case we are
+
+183
+00:09:14,519 --> 00:09:19,860
+doing a word count but background
+
+184
+00:09:17,399 --> 00:09:22,740
+phrases okay let me show you the maybe I
+
+185
+00:09:19,860 --> 00:09:24,720
+should show you okay so I can ink
+
+186
+00:09:22,740 --> 00:09:28,860
+subwoofer mod you can search online I
+
+187
+00:09:24,720 --> 00:09:31,440
+talked about so in xavu fan mod in emacs
+
+188
+00:09:28,860 --> 00:09:33,060
+I can just press a key uh wait not that
+
+189
+00:09:31,440 --> 00:09:35,820
+key okay
+
+190
+00:09:33,060 --> 00:09:37,860
+you know I want to know what's the
+
+191
+00:09:35,820 --> 00:09:38,940
+documentation for what count function so
+
+192
+00:09:37,860 --> 00:09:42,120
+here's the key
+
+193
+00:09:38,940 --> 00:09:44,760
+we get into the Wolfram language
+
+194
+00:09:42,120 --> 00:09:47,700
+reference turn JavaScript
+
+195
+00:09:44,760 --> 00:09:50,040
+okay so here's the world count right so
+
+196
+00:09:47,700 --> 00:09:54,600
+you but you can give a second argument
+
+197
+00:09:50,040 --> 00:09:57,000
+and that will give you the end Grant so
+
+198
+00:09:54,600 --> 00:09:58,800
+if you if a is true that will give you
+
+199
+00:09:57,000 --> 00:10:00,800
+the count of
+
+200
+00:09:58,800 --> 00:10:00,800
+um
+
+201
+00:10:01,580 --> 00:10:08,700
+okay so show more uh show more you know
+
+202
+00:10:05,399 --> 00:10:12,420
+when when the output is huge like 10 000
+
+203
+00:10:08,700 --> 00:10:14,399
+lines ten thousand you know then Wolfram
+
+204
+00:10:12,420 --> 00:10:17,459
+language automatically truncate the
+
+205
+00:10:14,399 --> 00:10:19,860
+output then allows you to you know show
+
+206
+00:10:17,459 --> 00:10:20,760
+or show more show less so let's show
+
+207
+00:10:19,860 --> 00:10:23,700
+more
+
+208
+00:10:20,760 --> 00:10:27,000
+show more okay so now we got a lot so
+
+209
+00:10:23,700 --> 00:10:32,100
+you can see the king the the two World
+
+210
+00:10:27,000 --> 00:10:32,100
+phrase the king happened 13 times uh
+
+211
+00:10:32,160 --> 00:10:39,899
+the wise the the Vasa happens 11 times
+
+212
+00:10:35,940 --> 00:10:41,940
+the fish happen 12 times okay so that is
+
+213
+00:10:39,899 --> 00:10:44,820
+the um
+
+214
+00:10:41,940 --> 00:10:48,860
+now are they sorted by frequency yes
+
+215
+00:10:44,820 --> 00:10:52,500
+they are so this a something happened
+
+216
+00:10:48,860 --> 00:10:56,360
+234 times now this is probably an error
+
+217
+00:10:52,500 --> 00:10:59,579
+this is a encoding error okay
+
+218
+00:10:56,360 --> 00:11:01,500
+encoding I haven't figured out let me
+
+219
+00:10:59,579 --> 00:11:04,220
+show you what what this what does that
+
+220
+00:11:01,500 --> 00:11:09,300
+mean what's the encoding error so
+
+221
+00:11:04,220 --> 00:11:11,160
+so you can see so okay so let me type A
+
+222
+00:11:09,300 --> 00:11:16,620
+let me magnify
+
+223
+00:11:11,160 --> 00:11:19,320
+so you can see what I have here is a um
+
+224
+00:11:16,620 --> 00:11:22,200
+this character okay that's a curly quote
+
+225
+00:11:19,320 --> 00:11:24,120
+so curly quote it's called Left double
+
+226
+00:11:22,200 --> 00:11:25,560
+quotation mark you know it's called
+
+227
+00:11:24,120 --> 00:11:28,500
+equal
+
+228
+00:11:25,560 --> 00:11:30,300
+uh and this happens for example let's
+
+229
+00:11:28,500 --> 00:11:33,480
+search for it you see for every time
+
+230
+00:11:30,300 --> 00:11:36,120
+there's a quote I use a Cody quote you
+
+231
+00:11:33,480 --> 00:11:38,220
+know for example there is this is a you
+
+232
+00:11:36,120 --> 00:11:40,860
+know
+
+233
+00:11:38,220 --> 00:11:43,980
+and showing browser if we show this in
+
+234
+00:11:40,860 --> 00:11:46,680
+browser you can also see if you search
+
+235
+00:11:43,980 --> 00:11:50,120
+for curly code let's copy that
+
+236
+00:11:46,680 --> 00:11:50,120
+so search for it
+
+237
+00:11:51,959 --> 00:11:56,640
+you see there it is it's hard to see
+
+238
+00:11:55,320 --> 00:11:59,720
+because
+
+239
+00:11:56,640 --> 00:11:59,720
+you see there
+
+240
+00:12:02,399 --> 00:12:07,320
+oh it's interesting you see in the
+
+241
+00:12:04,920 --> 00:12:09,779
+browser in the Firefox when you search
+
+242
+00:12:07,320 --> 00:12:11,940
+the beginning color code it will also
+
+243
+00:12:09,779 --> 00:12:14,160
+find the N Curry quote Oh yeah that's
+
+244
+00:12:11,940 --> 00:12:16,320
+because the Unicode
+
+245
+00:12:14,160 --> 00:12:18,540
+equivalence you know that's interesting
+
+246
+00:12:16,320 --> 00:12:20,279
+so let's search again so anyway the
+
+247
+00:12:18,540 --> 00:12:23,519
+point is you know you have this curly
+
+248
+00:12:20,279 --> 00:12:25,800
+quote and they and those are not ASCII
+
+249
+00:12:23,519 --> 00:12:27,540
+characters okay so you can see lots of
+
+250
+00:12:25,800 --> 00:12:30,959
+occurrences
+
+251
+00:12:27,540 --> 00:12:34,079
+so it has to do with encoding and here
+
+252
+00:12:30,959 --> 00:12:37,500
+this is not correct you know that's
+
+253
+00:12:34,079 --> 00:12:40,500
+there's no character a hat okay there's
+
+254
+00:12:37,500 --> 00:12:42,600
+no such character in this file but
+
+255
+00:12:40,500 --> 00:12:45,300
+however you know that's because encoding
+
+256
+00:12:42,600 --> 00:12:47,700
+error I haven't figured that out why
+
+257
+00:12:45,300 --> 00:12:51,360
+that happens so
+
+258
+00:12:47,700 --> 00:12:54,180
+but that had a should be is probably
+
+259
+00:12:51,360 --> 00:12:58,940
+came from the curly quote uh encoding
+
+260
+00:12:54,180 --> 00:12:58,940
+error of the curly quote there Okay so
+
+261
+00:12:59,279 --> 00:13:05,399
+so that's about encoding so so let's
+
+262
+00:13:02,639 --> 00:13:09,000
+ignore it you know that's ignore those
+
+263
+00:13:05,399 --> 00:13:13,800
+um so let's see if V happens 33 times
+
+264
+00:13:09,000 --> 00:13:17,180
+let's search for uh V there it is there
+
+265
+00:13:13,800 --> 00:13:17,180
+it is there it is
+
+266
+00:13:17,760 --> 00:13:22,079
+okay so now
+
+267
+00:13:20,160 --> 00:13:25,320
+the
+
+268
+00:13:22,079 --> 00:13:28,079
+and they are sorted okay now we want to
+
+269
+00:13:25,320 --> 00:13:29,459
+let's say how do you truncate a hash
+
+270
+00:13:28,079 --> 00:13:32,279
+table
+
+271
+00:13:29,459 --> 00:13:34,380
+you know in other languages
+
+272
+00:13:32,279 --> 00:13:38,639
+I'm not sure you do have a function you
+
+273
+00:13:34,380 --> 00:13:39,360
+know Wolfram language table is so rich
+
+274
+00:13:38,639 --> 00:13:42,920
+um
+
+275
+00:13:39,360 --> 00:13:42,920
+so let me show you okay so
+
+276
+00:13:45,120 --> 00:13:52,200
+okay close that now let's go to talk
+
+277
+00:13:48,839 --> 00:13:53,220
+show again and let's open that new
+
+278
+00:13:52,200 --> 00:13:55,760
+windows
+
+279
+00:13:53,220 --> 00:13:55,760
+down it's big
+
+280
+00:13:59,040 --> 00:14:04,920
+let's go to talk show today's talk show
+
+281
+00:14:01,800 --> 00:14:10,760
+this one showing browser go back yeah
+
+282
+00:14:04,920 --> 00:14:10,760
+show in browser uh what we want to do is
+
+283
+00:14:15,240 --> 00:14:20,279
+oh yeah so I want to show you the wufam
+
+284
+00:14:17,639 --> 00:14:23,639
+association list so I I've been working
+
+285
+00:14:20,279 --> 00:14:27,360
+on this in the past few days so
+
+286
+00:14:23,639 --> 00:14:30,240
+all these are about Association lists so
+
+287
+00:14:27,360 --> 00:14:33,779
+you can this is how you get values and
+
+288
+00:14:30,240 --> 00:14:36,240
+this is how you add key and so on and
+
+289
+00:14:33,779 --> 00:14:38,399
+right now we want to truncate yeah
+
+290
+00:14:36,240 --> 00:14:42,660
+you know in most languages you have get
+
+291
+00:14:38,399 --> 00:14:46,459
+value check key existence let me show
+
+292
+00:14:42,660 --> 00:14:46,459
+you okay so let's go to python
+
+293
+00:14:47,760 --> 00:14:55,160
+and let's go to emac please okay so for
+
+294
+00:14:51,420 --> 00:14:57,959
+example in emac lisp you also have
+
+295
+00:14:55,160 --> 00:15:01,139
+Association list you know because wolfam
+
+296
+00:14:57,959 --> 00:15:04,500
+language is you can consider it as a
+
+297
+00:15:01,139 --> 00:15:07,680
+family of list you know very interesting
+
+298
+00:15:04,500 --> 00:15:10,440
+so you know in lisp you also have the
+
+299
+00:15:07,680 --> 00:15:13,680
+some you know the association list
+
+300
+00:15:10,440 --> 00:15:15,839
+they almost work exactly very similar to
+
+301
+00:15:13,680 --> 00:15:18,839
+Wolfram language you can see
+
+302
+00:15:15,839 --> 00:15:24,000
+you know very similar
+
+303
+00:15:18,839 --> 00:15:25,620
+uh but in lisp you also have hash table
+
+304
+00:15:24,000 --> 00:15:28,860
+which is
+
+305
+00:15:25,620 --> 00:15:31,800
+dedicated its actual hash table while
+
+306
+00:15:28,860 --> 00:15:35,339
+the least associate Association list is
+
+307
+00:15:31,800 --> 00:15:37,800
+not really a hash table it's just a list
+
+308
+00:15:35,339 --> 00:15:41,100
+of pairs so anyway
+
+309
+00:15:37,800 --> 00:15:45,959
+so in most other languages you have you
+
+310
+00:15:41,100 --> 00:15:48,660
+know how do you get get a value by a key
+
+311
+00:15:45,959 --> 00:15:52,459
+you know get value by a key then you
+
+312
+00:15:48,660 --> 00:15:56,519
+have get pairs by key check a key exist
+
+313
+00:15:52,459 --> 00:15:58,740
+get Pair by value add the element you
+
+314
+00:15:56,519 --> 00:16:00,980
+know add a key value pair
+
+315
+00:15:58,740 --> 00:16:03,720
+that's about it in most of the languages
+
+316
+00:16:00,980 --> 00:16:05,760
+similarly in Python so let's go to let's
+
+317
+00:16:03,720 --> 00:16:07,860
+show python
+
+318
+00:16:05,760 --> 00:16:09,899
+so in Python it's called dictionary so
+
+319
+00:16:07,860 --> 00:16:12,360
+you can you know create a dictionary add
+
+320
+00:16:09,899 --> 00:16:16,860
+entry delete the entry check key exist
+
+321
+00:16:12,360 --> 00:16:18,779
+get keys value get count uh get all keys
+
+322
+00:16:16,860 --> 00:16:21,600
+get all values
+
+323
+00:16:18,779 --> 00:16:23,880
+and how do you Loop them what type can
+
+324
+00:16:21,600 --> 00:16:26,339
+be used in key in this dictionary and
+
+325
+00:16:23,880 --> 00:16:28,920
+you know then you have how do you Loop
+
+326
+00:16:26,339 --> 00:16:31,920
+through a dictionary
+
+327
+00:16:28,920 --> 00:16:33,959
+uh then you have dictionary methods so
+
+328
+00:16:31,920 --> 00:16:36,180
+that that's that's all the dictionary
+
+329
+00:16:33,959 --> 00:16:38,399
+methods basically in every language
+
+330
+00:16:36,180 --> 00:16:40,980
+that's about it okay
+
+331
+00:16:38,399 --> 00:16:42,959
+but in Wolfram language it's far more
+
+332
+00:16:40,980 --> 00:16:45,019
+Rich you know you can
+
+333
+00:16:42,959 --> 00:16:45,019
+um
+
+334
+00:16:45,120 --> 00:16:49,560
+so let's go back to from language yeah
+
+335
+00:16:47,399 --> 00:16:52,980
+so
+
+336
+00:16:49,560 --> 00:16:54,899
+you can add a key delete a key uh you
+
+337
+00:16:52,980 --> 00:16:56,399
+can let me let me show you something
+
+338
+00:16:54,899 --> 00:16:59,120
+interesting okay
+
+339
+00:16:56,399 --> 00:16:59,120
+so
+
+340
+00:16:59,880 --> 00:17:06,799
+so this is add a key delete by key let's
+
+341
+00:17:04,020 --> 00:17:06,799
+see get value
+
+342
+00:17:07,260 --> 00:17:11,579
+um you see let me show you about the get
+
+343
+00:17:09,299 --> 00:17:15,540
+value function you know
+
+344
+00:17:11,579 --> 00:17:17,780
+so in Python you want to get a value you
+
+345
+00:17:15,540 --> 00:17:20,760
+just uh
+
+346
+00:17:17,780 --> 00:17:24,179
+dictionary.get okay return the value of
+
+347
+00:17:20,760 --> 00:17:26,280
+a key if it if it exists okay
+
+348
+00:17:24,179 --> 00:17:28,380
+that's basically it
+
+349
+00:17:26,280 --> 00:17:31,380
+now
+
+350
+00:17:28,380 --> 00:17:33,299
+in Wolfram language you can you know you
+
+351
+00:17:31,380 --> 00:17:38,160
+use the lookup function
+
+352
+00:17:33,299 --> 00:17:41,580
+uh but what you can do is that you can
+
+353
+00:17:38,160 --> 00:17:44,580
+specify more than one key in one shot
+
+354
+00:17:41,580 --> 00:17:47,340
+you see that's a kind of the power extra
+
+355
+00:17:44,580 --> 00:17:49,320
+power of Wolfram language and then you
+
+356
+00:17:47,340 --> 00:17:52,860
+can also specify more than one hash
+
+357
+00:17:49,320 --> 00:17:54,720
+table in in one shot so all these bunch
+
+358
+00:17:52,860 --> 00:17:57,660
+of you know suppose you have thousands
+
+359
+00:17:54,720 --> 00:17:58,980
+of hash tables you want to know all of
+
+360
+00:17:57,660 --> 00:18:02,039
+them
+
+361
+00:17:58,980 --> 00:18:03,780
+you know get the value of a key so you
+
+362
+00:18:02,039 --> 00:18:06,059
+can do it one shot you don't have to do
+
+363
+00:18:03,780 --> 00:18:07,980
+a loop typically in other languages then
+
+364
+00:18:06,059 --> 00:18:10,559
+you have to do a loop loop through a
+
+365
+00:18:07,980 --> 00:18:12,360
+bunch of hash tables you know or
+
+366
+00:18:10,559 --> 00:18:15,120
+dictionary so that's one of the power
+
+367
+00:18:12,360 --> 00:18:18,419
+okay one of the power
+
+368
+00:18:15,120 --> 00:18:22,200
+uh now I want to end this a lot more so
+
+369
+00:18:18,419 --> 00:18:24,480
+a lot a lot more so you know so for
+
+370
+00:18:22,200 --> 00:18:27,480
+example this miscellaneous I haven't
+
+371
+00:18:24,480 --> 00:18:29,039
+uh write a tutorial of them yet but I'll
+
+372
+00:18:27,480 --> 00:18:31,080
+get to them
+
+373
+00:18:29,039 --> 00:18:34,620
+you can also
+
+374
+00:18:31,080 --> 00:18:36,660
+um do Union on the key Union and
+
+375
+00:18:34,620 --> 00:18:40,020
+intersection on a key do I have them
+
+376
+00:18:36,660 --> 00:18:43,020
+here somewhere Union and intersection on
+
+377
+00:18:40,020 --> 00:18:46,380
+a key you can do a filter
+
+378
+00:18:43,020 --> 00:18:49,799
+you know you can filter a dictionary by
+
+379
+00:18:46,380 --> 00:18:54,539
+key you know uh here okay you can filter
+
+380
+00:18:49,799 --> 00:18:58,620
+a dictionary by a function on the key
+
+381
+00:18:54,539 --> 00:19:01,500
+and but you can also filter by a pattern
+
+382
+00:18:58,620 --> 00:19:04,679
+okay so lots of Rich things
+
+383
+00:19:01,500 --> 00:19:08,419
+so let me get get on okay so hello T
+
+384
+00:19:04,679 --> 00:19:08,419
+corpse thank you
+
+385
+00:19:08,700 --> 00:19:13,919
+uh so ticov says thank you for the large
+
+386
+00:19:11,520 --> 00:19:17,820
+repository of knowledge on your website
+
+387
+00:19:13,919 --> 00:19:22,559
+much better than that internet AI spam
+
+388
+00:19:17,820 --> 00:19:24,480
+that exists now where yeah exactly yeah
+
+389
+00:19:22,559 --> 00:19:28,020
+you know in the past 10 days Google
+
+390
+00:19:24,480 --> 00:19:31,980
+Facebook Twitter they poisoned the
+
+391
+00:19:28,020 --> 00:19:34,500
+internet so these days and you know then
+
+392
+00:19:31,980 --> 00:19:36,059
+the millennial and Zuma these days if
+
+393
+00:19:34,500 --> 00:19:38,700
+you search anything you won't find
+
+394
+00:19:36,059 --> 00:19:41,160
+actual information
+
+395
+00:19:38,700 --> 00:19:43,679
+doesn't matter it's programming in what
+
+396
+00:19:41,160 --> 00:19:45,179
+well basically you only thing you get is
+
+397
+00:19:43,679 --> 00:19:46,620
+stack overflow
+
+398
+00:19:45,179 --> 00:19:49,440
+so
+
+399
+00:19:46,620 --> 00:19:51,360
+you used to be you type something you
+
+400
+00:19:49,440 --> 00:19:54,120
+know especially on programming stuff you
+
+401
+00:19:51,360 --> 00:19:57,480
+will find technical blogs by nerds
+
+402
+00:19:54,120 --> 00:20:00,000
+that's reach very rich information but
+
+403
+00:19:57,480 --> 00:20:02,039
+today every page is saying the same
+
+404
+00:20:00,000 --> 00:20:04,919
+thing copy and paste you know especially
+
+405
+00:20:02,039 --> 00:20:08,100
+from spam tutorial website you know
+
+406
+00:20:04,919 --> 00:20:10,440
+tutorial point you know they copy is
+
+407
+00:20:08,100 --> 00:20:13,260
+copy there's no content
+
+408
+00:20:10,440 --> 00:20:16,200
+and part of the problem is because
+
+409
+00:20:13,260 --> 00:20:19,380
+Google you know algorithmic control they
+
+410
+00:20:16,200 --> 00:20:21,780
+you know lots of money money is uh the
+
+411
+00:20:19,380 --> 00:20:23,880
+ultimate reason
+
+412
+00:20:21,780 --> 00:20:26,520
+so anyway so uh thank you for the
+
+413
+00:20:23,880 --> 00:20:28,799
+donation and could you explain what is a
+
+414
+00:20:26,520 --> 00:20:31,919
+hash table please okay hash table is
+
+415
+00:20:28,799 --> 00:20:35,460
+just a key value pair okay
+
+416
+00:20:31,919 --> 00:20:38,460
+so hash table you know well if you if
+
+417
+00:20:35,460 --> 00:20:41,280
+you know python is in Python it's called
+
+418
+00:20:38,460 --> 00:20:44,340
+dictionary it's just key value pairs the
+
+419
+00:20:41,280 --> 00:20:46,200
+purpose of that is allows you to
+
+420
+00:20:44,340 --> 00:20:49,440
+um
+
+421
+00:20:46,200 --> 00:20:51,120
+to accumulate a bunch of key
+
+422
+00:20:49,440 --> 00:20:53,900
+and
+
+423
+00:20:51,120 --> 00:20:53,900
+for example
+
+424
+00:20:55,440 --> 00:21:00,840
+for example you have uh persons names
+
+425
+00:20:58,020 --> 00:21:03,120
+you want to know their age so it's kind
+
+426
+00:21:00,840 --> 00:21:05,100
+of like a database in some sense so you
+
+427
+00:21:03,120 --> 00:21:08,280
+can have lots of names you know John
+
+428
+00:21:05,100 --> 00:21:11,640
+Mary each name should be unique you know
+
+429
+00:21:08,280 --> 00:21:14,220
+suppose they are social security ID so a
+
+430
+00:21:11,640 --> 00:21:16,980
+unique name then each one has a value so
+
+431
+00:21:14,220 --> 00:21:19,440
+you can quickly the point is fast okay
+
+432
+00:21:16,980 --> 00:21:20,880
+that's a point the the point is that you
+
+433
+00:21:19,440 --> 00:21:24,539
+can quickly
+
+434
+00:21:20,880 --> 00:21:26,340
+query this data structure by a key and
+
+435
+00:21:24,539 --> 00:21:29,820
+get their value you know such as a
+
+436
+00:21:26,340 --> 00:21:33,600
+person's age and so on
+
+437
+00:21:29,820 --> 00:21:36,059
+now this is in contrast to a list you
+
+438
+00:21:33,600 --> 00:21:37,679
+can do the same thing by a list or array
+
+439
+00:21:36,059 --> 00:21:40,380
+you know whatever your programming
+
+440
+00:21:37,679 --> 00:21:42,480
+language is called you know basically
+
+441
+00:21:40,380 --> 00:21:43,919
+you have a giant list of
+
+442
+00:21:42,480 --> 00:21:47,400
+pairs
+
+443
+00:21:43,919 --> 00:21:49,620
+where a nest at least each element is
+
+444
+00:21:47,400 --> 00:21:52,320
+again a list of two things you know name
+
+445
+00:21:49,620 --> 00:21:54,360
+and value or key and value you can do
+
+446
+00:21:52,320 --> 00:21:57,539
+that with a list but the problem is
+
+447
+00:21:54,360 --> 00:22:01,020
+array at least every time you want to
+
+448
+00:21:57,539 --> 00:22:03,900
+check if some key exists you have to
+
+449
+00:22:01,020 --> 00:22:05,340
+literally Loop through every item okay
+
+450
+00:22:03,900 --> 00:22:08,580
+that's
+
+451
+00:22:05,340 --> 00:22:11,780
+that's what happens with the array data
+
+452
+00:22:08,580 --> 00:22:14,340
+structure or List you know
+
+453
+00:22:11,780 --> 00:22:17,400
+technique technically called linked list
+
+454
+00:22:14,340 --> 00:22:20,039
+depending on which language you know so
+
+455
+00:22:17,400 --> 00:22:23,600
+so that is the point of hash table or
+
+456
+00:22:20,039 --> 00:22:26,940
+dictionary or sometimes it's called map
+
+457
+00:22:23,600 --> 00:22:30,740
+in Java in JavaScript it's called map
+
+458
+00:22:26,940 --> 00:22:30,740
+okay so let me show you some
+
+459
+00:22:31,980 --> 00:22:34,760
+Golan
+
+460
+00:22:35,100 --> 00:22:38,000
+JavaScript
+
+461
+00:22:38,400 --> 00:22:45,720
+okay so in JavaScript for example that
+
+462
+00:22:41,640 --> 00:22:47,940
+thing is called a map object and it's
+
+463
+00:22:45,720 --> 00:22:51,980
+added um
+
+464
+00:22:47,940 --> 00:22:56,400
+there okay so in 2015 JavaScript
+
+465
+00:22:51,980 --> 00:22:59,220
+JavaScript added to several new objects
+
+466
+00:22:56,400 --> 00:23:02,400
+one of them is map now what is map map
+
+467
+00:22:59,220 --> 00:23:04,620
+is basically key value pairs now if you
+
+468
+00:23:02,400 --> 00:23:06,299
+don't know JavaScript you might ask if
+
+469
+00:23:04,620 --> 00:23:08,100
+you already know you might what's the
+
+470
+00:23:06,299 --> 00:23:10,740
+difference between object you know
+
+471
+00:23:08,100 --> 00:23:13,140
+object is already collection of key
+
+472
+00:23:10,740 --> 00:23:16,500
+value pairs well the problem with object
+
+473
+00:23:13,140 --> 00:23:21,480
+is that it's a hack map object the new
+
+474
+00:23:16,500 --> 00:23:23,400
+one added in 2015 is the actual real
+
+475
+00:23:21,480 --> 00:23:25,440
+um hash table for example you can get
+
+476
+00:23:23,400 --> 00:23:27,659
+the length you know how many items in
+
+477
+00:23:25,440 --> 00:23:29,580
+them so anyway that's the JavaScript so
+
+478
+00:23:27,659 --> 00:23:32,400
+you can you know create a new map it's
+
+479
+00:23:29,580 --> 00:23:34,140
+called map it's essentially dictionary
+
+480
+00:23:32,400 --> 00:23:36,360
+or hash table they are all the same
+
+481
+00:23:34,140 --> 00:23:38,940
+thing okay just different languages have
+
+482
+00:23:36,360 --> 00:23:42,659
+different names for them so
+
+483
+00:23:38,940 --> 00:23:43,740
+you can add a new item you can
+
+484
+00:23:42,659 --> 00:23:46,919
+um
+
+485
+00:23:43,740 --> 00:23:50,580
+you know you can delete a item by key
+
+486
+00:23:46,919 --> 00:23:54,000
+and a pair by key you can check if a key
+
+487
+00:23:50,580 --> 00:23:56,700
+exists you can you know and so on so
+
+488
+00:23:54,000 --> 00:23:59,340
+that's JavaScript called it calls them
+
+489
+00:23:56,700 --> 00:24:02,520
+map in Java it's also called map okay
+
+490
+00:23:59,340 --> 00:24:04,140
+but in Python
+
+491
+00:24:02,520 --> 00:24:08,280
+you know in Python it's called
+
+492
+00:24:04,140 --> 00:24:10,340
+dictionary okay in Golan it's called
+
+493
+00:24:08,280 --> 00:24:10,340
+um
+
+494
+00:24:11,039 --> 00:24:15,960
+uh it's called hash table I think in
+
+495
+00:24:13,500 --> 00:24:19,799
+Golan let's see array slice map okay
+
+496
+00:24:15,960 --> 00:24:22,440
+Angola is also called map so you can see
+
+497
+00:24:19,799 --> 00:24:25,500
+you know create uh you can see get value
+
+498
+00:24:22,440 --> 00:24:29,280
+that's how you get value in Golan bio
+
+499
+00:24:25,500 --> 00:24:33,240
+key you can set that you you know so on
+
+500
+00:24:29,280 --> 00:24:37,260
+okay that's what hash table is
+
+501
+00:24:33,240 --> 00:24:40,080
+uh let's see let's go back okay so
+
+502
+00:24:37,260 --> 00:24:40,860
+I want to I want to actually truncate
+
+503
+00:24:40,080 --> 00:24:42,919
+this
+
+504
+00:24:40,860 --> 00:24:42,919
+um
+
+505
+00:24:43,380 --> 00:24:48,780
+I want to truncate this uh Association
+
+506
+00:24:46,140 --> 00:24:51,240
+these so let's go back I'm gonna read
+
+507
+00:24:48,780 --> 00:24:53,360
+the comment in a minute okay so how do
+
+508
+00:24:51,240 --> 00:24:53,360
+you
+
+509
+00:24:53,700 --> 00:24:59,240
+how do you uh truncate let's see uh take
+
+510
+00:24:56,880 --> 00:24:59,240
+okay
+
+511
+00:25:03,480 --> 00:25:09,720
+okay I think Tech is what we want
+
+512
+00:25:07,440 --> 00:25:14,360
+take is a function in wufam language
+
+513
+00:25:09,720 --> 00:25:17,640
+that gives you the first n elements okay
+
+514
+00:25:14,360 --> 00:25:22,020
+and I believe it also it works on list
+
+515
+00:25:17,640 --> 00:25:24,679
+and it also works on Association uh yeah
+
+516
+00:25:22,020 --> 00:25:24,679
+exactly
+
+517
+00:25:28,440 --> 00:25:33,659
+yeah okay so let's try take so we have
+
+518
+00:25:31,799 --> 00:25:37,380
+this word count
+
+519
+00:25:33,659 --> 00:25:40,020
+okay so let's you know
+
+520
+00:25:37,380 --> 00:25:43,919
+this is very long so let's let me show
+
+521
+00:25:40,020 --> 00:25:48,360
+you okay so let's do this again welcome
+
+522
+00:25:43,919 --> 00:25:51,779
+so you got a huge list and now you want
+
+523
+00:25:48,360 --> 00:25:53,159
+to get the length Okay so now let's use
+
+524
+00:25:51,779 --> 00:25:57,480
+length
+
+525
+00:25:53,159 --> 00:25:59,360
+that's a this is a post fixed notation
+
+526
+00:25:57,480 --> 00:26:04,140
+so you have
+
+527
+00:25:59,360 --> 00:26:07,400
+4700 of them okay now you do take okay
+
+528
+00:26:04,140 --> 00:26:07,400
+so you um
+
+529
+00:26:11,100 --> 00:26:15,559
+take the first
+
+530
+00:26:13,559 --> 00:26:15,559
+um
+
+531
+00:26:15,659 --> 00:26:21,000
+100 one of them okay
+
+532
+00:26:19,260 --> 00:26:23,039
+do it
+
+533
+00:26:21,000 --> 00:26:26,659
+there it is that's the first hundred
+
+534
+00:26:23,039 --> 00:26:26,659
+let's take first 50.
+
+535
+00:26:26,880 --> 00:26:33,720
+uh let's say take the first 20 okay
+
+536
+00:26:31,200 --> 00:26:35,760
+there it is that's the output now let's
+
+537
+00:26:33,720 --> 00:26:37,260
+see how many items are there let's
+
+538
+00:26:35,760 --> 00:26:41,100
+verify
+
+539
+00:26:37,260 --> 00:26:45,059
+okay 20. so take is how you truncate a
+
+540
+00:26:41,100 --> 00:26:48,299
+Association okay so we got this okay
+
+541
+00:26:45,059 --> 00:26:51,659
+let's get let me get on to what we want
+
+542
+00:26:48,299 --> 00:26:54,720
+to do today so I want to
+
+543
+00:26:51,659 --> 00:26:56,640
+not just to the count of one single file
+
+544
+00:26:54,720 --> 00:26:59,039
+I want to go through a list of
+
+545
+00:26:56,640 --> 00:27:03,620
+directories and count all you know I
+
+546
+00:26:59,039 --> 00:27:03,620
+have 7 000 files in my um
+
+547
+00:27:04,260 --> 00:27:06,419
+what
+
+548
+00:27:05,520 --> 00:27:09,740
+um
+
+549
+00:27:06,419 --> 00:27:13,159
+let me show you so I have something like
+
+550
+00:27:09,740 --> 00:27:13,159
+study info
+
+551
+00:27:15,659 --> 00:27:20,700
+so let's go let's go to Powershell
+
+552
+00:27:19,020 --> 00:27:22,679
+and
+
+553
+00:27:20,700 --> 00:27:25,400
+the
+
+554
+00:27:22,679 --> 00:27:25,400
+the
+
+555
+00:27:26,159 --> 00:27:29,720
+uh what's going on
+
+556
+00:27:33,179 --> 00:27:36,360
+because
+
+557
+00:27:35,039 --> 00:27:39,020
+file
+
+558
+00:27:36,360 --> 00:27:39,020
+filter
+
+559
+00:27:39,900 --> 00:27:46,700
+okay filtered by I want all HTML files
+
+560
+00:27:47,460 --> 00:27:54,779
+and that's gonna be your long list okay
+
+561
+00:27:50,820 --> 00:27:57,779
+so stop let's do it again now pipe it to
+
+562
+00:27:54,779 --> 00:28:04,860
+measure so I want to know how many so I
+
+563
+00:27:57,779 --> 00:28:09,659
+have 700 7 7 700 HTML files anxiety info
+
+564
+00:28:04,860 --> 00:28:11,640
+not counting saudi.org so all these so I
+
+565
+00:28:09,659 --> 00:28:15,419
+want to do what count on all these you
+
+566
+00:28:11,640 --> 00:28:18,299
+know files that's what we are doing so
+
+567
+00:28:15,419 --> 00:28:22,140
+so we want to read the directory okay so
+
+568
+00:28:18,299 --> 00:28:25,380
+let's see how do we read the directory
+
+569
+00:28:22,140 --> 00:28:29,820
+uh so Wolfram language uh true Force
+
+570
+00:28:25,380 --> 00:28:32,400
+equality so we have read file list files
+
+571
+00:28:29,820 --> 00:28:34,020
+there it is file names file name String
+
+572
+00:28:32,400 --> 00:28:35,419
+pattern
+
+573
+00:28:34,020 --> 00:28:38,400
+um
+
+574
+00:28:35,419 --> 00:28:41,340
+directory there it is that's that's the
+
+575
+00:28:38,400 --> 00:28:44,659
+thing we want okay copy it
+
+576
+00:28:41,340 --> 00:28:44,659
+let's do it here
+
+577
+00:28:45,659 --> 00:28:53,340
+now string pattern will be
+
+578
+00:28:49,640 --> 00:28:55,260
+let's just say star HTML you can also
+
+579
+00:28:53,340 --> 00:28:58,559
+use a regular expression
+
+580
+00:28:55,260 --> 00:29:03,240
+now directory will be let's see let's
+
+581
+00:28:58,559 --> 00:29:07,200
+say directory is let's just for now
+
+582
+00:29:03,240 --> 00:29:10,740
+let's limit it to some talk show okay so
+
+583
+00:29:07,200 --> 00:29:12,120
+here is the directory Star Talk Show
+
+584
+00:29:10,740 --> 00:29:13,980
+um
+
+585
+00:29:12,120 --> 00:29:17,580
+you know so they are
+
+586
+00:29:13,980 --> 00:29:22,340
+700 files in Santa's show
+
+587
+00:29:17,580 --> 00:29:22,340
+okay copy that directory and
+
+588
+00:29:23,220 --> 00:29:29,760
+so that's the directory and this is the
+
+589
+00:29:26,100 --> 00:29:32,640
+depth okay it's you know depth you know
+
+590
+00:29:29,760 --> 00:29:36,179
+since in South talk show there's no
+
+591
+00:29:32,640 --> 00:29:39,120
+essentially no subter so I mean this
+
+592
+00:29:36,179 --> 00:29:45,200
+doesn't matter let's say 10.
+
+593
+00:29:39,120 --> 00:29:45,200
+okay evaluate it okay so it gives you
+
+594
+00:29:45,659 --> 00:29:50,580
+uh it returns
+
+595
+00:29:48,510 --> 00:29:53,100
+[Music]
+
+596
+00:29:50,580 --> 00:29:56,640
+it Returns the list of files okay it's
+
+597
+00:29:53,100 --> 00:29:58,740
+quite long so 700 files
+
+598
+00:29:56,640 --> 00:30:01,200
+yeah
+
+599
+00:29:58,740 --> 00:30:03,179
+so now we can do
+
+600
+00:30:01,200 --> 00:30:05,820
+if you say length
+
+601
+00:30:03,179 --> 00:30:09,299
+you know 400
+
+602
+00:30:05,820 --> 00:30:11,720
+oh what 440
+
+603
+00:30:09,299 --> 00:30:11,720
+4
+
+604
+00:30:12,059 --> 00:30:20,880
+waited wait shouldn't it
+
+605
+00:30:15,960 --> 00:30:20,880
+shouldn't it be 700
+
+606
+00:30:35,399 --> 00:30:39,299
+oh yeah because I have a lot of text
+
+607
+00:30:37,860 --> 00:30:40,500
+files
+
+608
+00:30:39,299 --> 00:30:43,020
+yeah
+
+609
+00:30:40,500 --> 00:30:50,039
+but here we are not counting text files
+
+610
+00:30:43,020 --> 00:30:54,380
+okay yeah so 440 uh HTML files now we
+
+611
+00:30:50,039 --> 00:30:54,380
+want to go through the directory Okay so
+
+612
+00:30:59,159 --> 00:31:03,919
+uh let's see what we want to do
+
+613
+00:31:04,860 --> 00:31:10,380
+navigate directory we want to you know
+
+614
+00:31:08,279 --> 00:31:13,559
+we can do a map
+
+615
+00:31:10,380 --> 00:31:14,640
+we want to map a function to all these
+
+616
+00:31:13,559 --> 00:31:16,860
+um
+
+617
+00:31:14,640 --> 00:31:19,399
+actually I have already written here
+
+618
+00:31:16,860 --> 00:31:19,399
+somewhere
+
+619
+00:31:19,740 --> 00:31:26,640
+so here is a script to find and replace
+
+620
+00:31:23,760 --> 00:31:30,779
+all files in your directory
+
+621
+00:31:26,640 --> 00:31:34,460
+uh so process file write string scan
+
+622
+00:31:30,779 --> 00:31:34,460
+yeah so we can use scan
+
+623
+00:31:44,279 --> 00:31:50,779
+so let's look at the scan function
+
+624
+00:31:48,299 --> 00:31:50,779
+okay
+
+625
+00:31:51,899 --> 00:31:57,840
+scan evaluate function applied to each
+
+626
+00:31:55,500 --> 00:31:59,460
+element of expression in turn okay
+
+627
+00:31:57,840 --> 00:32:04,700
+that's what we want
+
+628
+00:31:59,460 --> 00:32:04,700
+you know that we can also use map but um
+
+629
+00:32:05,460 --> 00:32:12,500
+scan is just like map except that it
+
+630
+00:32:09,240 --> 00:32:12,500
+does not return a value
+
+631
+00:32:13,500 --> 00:32:19,159
+okay let's use scan
+
+632
+00:32:16,320 --> 00:32:19,159
+so
+
+633
+00:32:20,399 --> 00:32:29,299
+actually it's much faster if I work in
+
+634
+00:32:23,700 --> 00:32:29,299
+emacs so let's do that in emacs scan
+
+635
+00:32:35,159 --> 00:32:42,659
+uh so scan yeah we want to show a list
+
+636
+00:32:39,299 --> 00:32:44,820
+of directories so here is let me let me
+
+637
+00:32:42,659 --> 00:32:47,340
+just make this clear
+
+638
+00:32:44,820 --> 00:32:48,600
+the equals to
+
+639
+00:32:47,340 --> 00:32:52,679
+uh
+
+640
+00:32:48,600 --> 00:32:53,580
+X Files so that's a bunch of files and
+
+641
+00:32:52,679 --> 00:32:58,380
+now
+
+642
+00:32:53,580 --> 00:33:02,340
+and now we want to write a function
+
+643
+00:32:58,380 --> 00:33:04,200
+okay function equals to we can do it
+
+644
+00:33:02,340 --> 00:33:07,140
+this way there are many ways to do it
+
+645
+00:33:04,200 --> 00:33:09,600
+but I'm just going to do it in the kind
+
+646
+00:33:07,140 --> 00:33:11,279
+of the simple way so function one
+
+647
+00:33:09,600 --> 00:33:14,100
+argument X
+
+648
+00:33:11,279 --> 00:33:16,980
+and the body of the function will be
+
+649
+00:33:14,100 --> 00:33:20,760
+yeah you need to read the file so read
+
+650
+00:33:16,980 --> 00:33:22,620
+string there it is
+
+651
+00:33:20,760 --> 00:33:26,580
+so function
+
+652
+00:33:22,620 --> 00:33:30,899
+X is the argument the parameter and we
+
+653
+00:33:26,580 --> 00:33:34,740
+want to read yeah X is a file name so X
+
+654
+00:33:30,899 --> 00:33:37,679
+so we want to read a string then
+
+655
+00:33:34,740 --> 00:33:40,440
+feed it to what count
+
+656
+00:33:37,679 --> 00:33:42,919
+and uh yeah and and we don't want to
+
+657
+00:33:40,440 --> 00:33:42,919
+take
+
+658
+00:33:44,159 --> 00:33:50,100
+we don't want to truncate it
+
+659
+00:33:47,279 --> 00:33:52,460
+okay so here is a function so the
+
+660
+00:33:50,100 --> 00:33:52,460
+function
+
+661
+00:33:53,519 --> 00:33:59,100
+is given a x is a file path and we read
+
+662
+00:33:57,779 --> 00:34:02,460
+it
+
+663
+00:33:59,100 --> 00:34:05,220
+and do what come and let's say what
+
+664
+00:34:02,460 --> 00:34:09,419
+count what just for Simplicity for now
+
+665
+00:34:05,220 --> 00:34:12,599
+okay so now we got a function now
+
+666
+00:34:09,419 --> 00:34:15,599
+now we want to scan
+
+667
+00:34:12,599 --> 00:34:18,899
+now remember the scan the syntax is a
+
+668
+00:34:15,599 --> 00:34:20,639
+function expression level spec okay so
+
+669
+00:34:18,899 --> 00:34:25,200
+the function is f
+
+670
+00:34:20,639 --> 00:34:29,580
+the expression is X Files
+
+671
+00:34:25,200 --> 00:34:33,179
+and level spec is the depth of the
+
+672
+00:34:29,580 --> 00:34:36,540
+expression you know in this case
+
+673
+00:34:33,179 --> 00:34:39,619
+uh in this case we just want one so by
+
+674
+00:34:36,540 --> 00:34:39,619
+default it will work
+
+675
+00:34:45,000 --> 00:34:51,540
+let's see apply to each element yeah
+
+676
+00:34:48,780 --> 00:34:54,859
+so okay so we got these three things
+
+677
+00:34:51,540 --> 00:34:54,859
+let's try this okay
+
+678
+00:34:57,359 --> 00:35:02,119
+uh
+
+679
+00:34:59,280 --> 00:35:02,119
+but now
+
+680
+00:35:05,400 --> 00:35:12,260
+so each function it will return a hash
+
+681
+00:35:09,180 --> 00:35:12,260
+table okay
+
+682
+00:35:12,720 --> 00:35:18,780
+yeah we can run this but the result will
+
+683
+00:35:15,540 --> 00:35:21,920
+will won't be uh correct
+
+684
+00:35:18,780 --> 00:35:21,920
+so let's try it
+
+685
+00:35:23,760 --> 00:35:28,980
+you know it's gonna read each file and
+
+686
+00:35:26,640 --> 00:35:30,960
+each time it's a result it's a hash
+
+687
+00:35:28,980 --> 00:35:34,260
+table but it doesn't return anything
+
+688
+00:35:30,960 --> 00:35:36,839
+because you use the scan so instead you
+
+689
+00:35:34,260 --> 00:35:42,800
+want to use map instead okay
+
+690
+00:35:36,839 --> 00:35:42,800
+so then that will return 400 hash table
+
+691
+00:35:43,619 --> 00:35:52,380
+okay so you can see and you can see
+
+692
+00:35:48,560 --> 00:35:57,060
+percentage sign stands for last output
+
+693
+00:35:52,380 --> 00:35:59,760
+so now we use a postfix operator and
+
+694
+00:35:57,060 --> 00:36:03,240
+apply the function length to it to see
+
+695
+00:35:59,760 --> 00:36:07,079
+how many items so we got 444
+
+696
+00:36:03,240 --> 00:36:09,900
+hash table okay now we want to merge all
+
+697
+00:36:07,079 --> 00:36:12,839
+of them all of the hash table each one
+
+698
+00:36:09,900 --> 00:36:15,359
+we want to you know if the word if one
+
+699
+00:36:12,839 --> 00:36:18,180
+hash table has the work saw happen four
+
+700
+00:36:15,359 --> 00:36:21,359
+times another hash table have happened
+
+701
+00:36:18,180 --> 00:36:24,240
+three times we want we want to combine
+
+702
+00:36:21,359 --> 00:36:28,380
+them okay so
+
+703
+00:36:24,240 --> 00:36:31,560
+so we uh basically merge a hash table so
+
+704
+00:36:28,380 --> 00:36:34,560
+how you do that let's see
+
+705
+00:36:31,560 --> 00:36:36,680
+so we go back to fame language
+
+706
+00:36:34,560 --> 00:36:36,680
+um
+
+707
+00:36:39,540 --> 00:36:45,800
+uh Wolfram language Association okay
+
+708
+00:36:42,599 --> 00:36:48,900
+let's look at them
+
+709
+00:36:45,800 --> 00:36:53,880
+Association key value pairs
+
+710
+00:36:48,900 --> 00:36:56,160
+merge okay there's a function merge
+
+711
+00:36:53,880 --> 00:36:58,520
+now there are probably new more
+
+712
+00:36:56,160 --> 00:37:00,900
+efficient ways but I don't know yet
+
+713
+00:36:58,520 --> 00:37:02,880
+Association you know the association
+
+714
+00:37:00,900 --> 00:37:09,359
+data structure is actually new in
+
+715
+00:37:02,880 --> 00:37:11,760
+Wolfram language around 2000 uh 16 or so
+
+716
+00:37:09,359 --> 00:37:13,440
+it's pretty new so it's very interesting
+
+717
+00:37:11,760 --> 00:37:16,079
+because
+
+718
+00:37:13,440 --> 00:37:18,060
+because you know Wolfram language began
+
+719
+00:37:16,079 --> 00:37:20,940
+in 1989
+
+720
+00:37:18,060 --> 00:37:25,079
+and the hash table data structure is not
+
+721
+00:37:20,940 --> 00:37:29,520
+there for 25 years you know only in 2016
+
+722
+00:37:25,079 --> 00:37:31,619
+so let's look let's see how uh when is
+
+723
+00:37:29,520 --> 00:37:36,359
+it added
+
+724
+00:37:31,619 --> 00:37:39,420
+you see 2014 so after 25 years
+
+725
+00:37:36,359 --> 00:37:41,820
+then we'll find language added the key
+
+726
+00:37:39,420 --> 00:37:43,680
+the hash table data structure you know I
+
+727
+00:37:41,820 --> 00:37:47,119
+can tell you why because there's a
+
+728
+00:37:43,680 --> 00:37:50,040
+design issue you know the association
+
+729
+00:37:47,119 --> 00:37:53,400
+data structure is actually kind of
+
+730
+00:37:50,040 --> 00:37:57,200
+um against the
+
+731
+00:37:53,400 --> 00:37:57,200
+the term rewriting
+
+732
+00:37:57,300 --> 00:38:03,660
+model of Wolfram language that's why
+
+733
+00:37:59,880 --> 00:38:06,240
+it's added so so late you know so why do
+
+734
+00:38:03,660 --> 00:38:08,700
+they wait until 25 years to add this
+
+735
+00:38:06,240 --> 00:38:13,079
+because because in all other languages
+
+736
+00:38:08,700 --> 00:38:15,599
+starting with pearl in 1995.
+
+737
+00:38:13,079 --> 00:38:17,400
+hash table becomes critical you know in
+
+738
+00:38:15,599 --> 00:38:20,460
+C before that you don't have you know
+
+739
+00:38:17,400 --> 00:38:23,700
+it's not in in almost every language
+
+740
+00:38:20,460 --> 00:38:25,859
+because if you want a hashtrip table do
+
+741
+00:38:23,700 --> 00:38:28,980
+it yourself you know just write it
+
+742
+00:38:25,859 --> 00:38:32,339
+yourself but as as over the decade
+
+743
+00:38:28,980 --> 00:38:34,380
+decades as a machine gets faster more
+
+744
+00:38:32,339 --> 00:38:37,619
+higher higher level languages such as
+
+745
+00:38:34,380 --> 00:38:40,680
+starting with pearl then Python and Ruby
+
+746
+00:38:37,619 --> 00:38:43,859
+you know every language has a hash table
+
+747
+00:38:40,680 --> 00:38:46,440
+data structure building you know so
+
+748
+00:38:43,859 --> 00:38:49,079
+that's so that becomes uh you know very
+
+749
+00:38:46,440 --> 00:38:51,300
+popular so all the programmers they when
+
+750
+00:38:49,079 --> 00:38:53,160
+they go to fame language they are going
+
+751
+00:38:51,300 --> 00:38:54,480
+like what you don't have hash table like
+
+752
+00:38:53,160 --> 00:38:57,119
+what's the deal
+
+753
+00:38:54,480 --> 00:38:59,700
+that you know that's I think that's a
+
+754
+00:38:57,119 --> 00:39:00,720
+major reason Wolfram language added
+
+755
+00:38:59,700 --> 00:39:03,980
+um
+
+756
+00:39:00,720 --> 00:39:03,980
+Association list
+
+757
+00:39:05,339 --> 00:39:09,839
+you know but
+
+758
+00:39:06,839 --> 00:39:12,480
+actually I'm not sure it should
+
+759
+00:39:09,839 --> 00:39:14,400
+because you know that's another topic
+
+760
+00:39:12,480 --> 00:39:17,119
+that's about the design of a language
+
+761
+00:39:14,400 --> 00:39:19,920
+you know I think it should be
+
+762
+00:39:17,119 --> 00:39:22,440
+automatically done behind the scenes
+
+763
+00:39:19,920 --> 00:39:24,300
+when you have a list of pairs okay but
+
+764
+00:39:22,440 --> 00:39:26,940
+anyway that's another topic that's about
+
+765
+00:39:24,300 --> 00:39:30,300
+design of the language and the
+
+766
+00:39:26,940 --> 00:39:32,700
+uniform syntax like one single syntax
+
+767
+00:39:30,300 --> 00:39:34,920
+represent everything because when you
+
+768
+00:39:32,700 --> 00:39:37,740
+think about hash table a list of key
+
+769
+00:39:34,920 --> 00:39:40,680
+value Pairs and when you think about a
+
+770
+00:39:37,740 --> 00:39:43,200
+list of payers they are actually the
+
+771
+00:39:40,680 --> 00:39:46,020
+same thing you know at least from an
+
+772
+00:39:43,200 --> 00:39:50,160
+interface point of view
+
+773
+00:39:46,020 --> 00:39:52,560
+from a syntax point of view and combined
+
+774
+00:39:50,160 --> 00:39:54,240
+with interface point of view they are
+
+775
+00:39:52,560 --> 00:39:56,400
+actually the same thing
+
+776
+00:39:54,240 --> 00:39:59,160
+the only difference is that hash table
+
+777
+00:39:56,400 --> 00:40:02,820
+performs much faster now that's a
+
+778
+00:39:59,160 --> 00:40:04,680
+implementation issue therefore as the
+
+779
+00:40:02,820 --> 00:40:05,880
+programming language you should you
+
+780
+00:40:04,680 --> 00:40:09,540
+should not
+
+781
+00:40:05,880 --> 00:40:12,420
+you know you your compiler should be
+
+782
+00:40:09,540 --> 00:40:14,780
+smart so that when you see a list of you
+
+783
+00:40:12,420 --> 00:40:17,520
+know 10 000 pairs it should
+
+784
+00:40:14,780 --> 00:40:20,040
+automatically automatically compile them
+
+785
+00:40:17,520 --> 00:40:21,660
+to a hash table behind the scenes you
+
+786
+00:40:20,040 --> 00:40:23,700
+know that's the power
+
+787
+00:40:21,660 --> 00:40:26,220
+so I think that Wolfram language should
+
+788
+00:40:23,700 --> 00:40:28,500
+do that but for some reason they didn't
+
+789
+00:40:26,220 --> 00:40:31,680
+of course there are other complexities
+
+790
+00:40:28,500 --> 00:40:33,839
+and considerations but
+
+791
+00:40:31,680 --> 00:40:35,880
+you know in general I think you know
+
+792
+00:40:33,839 --> 00:40:37,680
+that should be done but anyway so
+
+793
+00:40:35,880 --> 00:40:42,420
+Wolfram language now has an association
+
+794
+00:40:37,680 --> 00:40:44,820
+so it's kind of new in 2014 and uh I
+
+795
+00:40:42,420 --> 00:40:46,740
+haven't you know by 2014 however I don't
+
+796
+00:40:44,820 --> 00:40:49,079
+have Wu from language so
+
+797
+00:40:46,740 --> 00:40:52,560
+I'm not very familiar with the
+
+798
+00:40:49,079 --> 00:40:54,960
+association so right now we want to
+
+799
+00:40:52,560 --> 00:40:57,500
+merge to Association okay let's see how
+
+800
+00:40:54,960 --> 00:40:57,500
+to do that
+
+801
+00:40:58,020 --> 00:41:02,960
+uh yeah so merge okay here is the
+
+802
+00:41:01,079 --> 00:41:05,940
+documentation for much
+
+803
+00:41:02,960 --> 00:41:08,460
+uh yeah so you just give a list of
+
+804
+00:41:05,940 --> 00:41:10,980
+associations and you add a function okay
+
+805
+00:41:08,460 --> 00:41:14,940
+easy enough so
+
+806
+00:41:10,980 --> 00:41:17,000
+so let's do it so here is a map so
+
+807
+00:41:14,940 --> 00:41:17,000
+um
+
+808
+00:41:19,260 --> 00:41:27,740
+so let's see let's define this to be so
+
+809
+00:41:23,280 --> 00:41:27,740
+we got a bunch of hash tables okay
+
+810
+00:41:28,800 --> 00:41:33,440
+okay
+
+811
+00:41:30,720 --> 00:41:33,440
+now
+
+812
+00:41:34,140 --> 00:41:38,700
+now we want to map through the hash
+
+813
+00:41:36,420 --> 00:41:41,900
+table right yeah we want to merge them
+
+814
+00:41:38,700 --> 00:41:41,900
+into a single one
+
+815
+00:41:42,300 --> 00:41:49,440
+okay much is the function the first
+
+816
+00:41:45,480 --> 00:41:51,480
+argument is a list of associations the
+
+817
+00:41:49,440 --> 00:41:55,140
+second argument is the function so let's
+
+818
+00:41:51,480 --> 00:41:57,119
+write it on the spot Lambda now in this
+
+819
+00:41:55,140 --> 00:42:00,599
+in this this
+
+820
+00:41:57,119 --> 00:42:03,119
+function would be called Lambda in
+
+821
+00:42:00,599 --> 00:42:05,640
+JavaScript is called function
+
+822
+00:42:03,119 --> 00:42:07,099
+in Python it's called also Lambda but
+
+823
+00:42:05,640 --> 00:42:11,460
+python is
+
+824
+00:42:07,099 --> 00:42:13,320
+uh has a crippled Lambda so anyway so
+
+825
+00:42:11,460 --> 00:42:16,320
+function
+
+826
+00:42:13,320 --> 00:42:19,079
+so this function what this function will
+
+827
+00:42:16,320 --> 00:42:22,260
+do is it will tell you tell wolfen
+
+828
+00:42:19,079 --> 00:42:25,440
+language how do you merge to uh entries
+
+829
+00:42:22,260 --> 00:42:28,619
+of the same key okay so what does the
+
+830
+00:42:25,440 --> 00:42:31,680
+function take let's read about it
+
+831
+00:42:28,619 --> 00:42:35,040
+merge the association uh using the
+
+832
+00:42:31,680 --> 00:42:38,640
+function f to combine values when uh
+
+833
+00:42:35,040 --> 00:42:41,760
+when with the same key okay
+
+834
+00:42:38,640 --> 00:42:44,480
+so the function is fed two arguments I
+
+835
+00:42:41,760 --> 00:42:44,480
+suppose um
+
+836
+00:42:54,540 --> 00:42:58,619
+ah okay so the function only take one
+
+837
+00:42:57,359 --> 00:43:01,260
+argument
+
+838
+00:42:58,619 --> 00:43:03,180
+I mean uh two arguments and each
+
+839
+00:43:01,260 --> 00:43:06,480
+argument is the value
+
+840
+00:43:03,180 --> 00:43:09,060
+so so this merge function it will find
+
+841
+00:43:06,480 --> 00:43:12,839
+all the keys that's the same and we'll
+
+842
+00:43:09,060 --> 00:43:15,599
+merge them so each key has a value so
+
+843
+00:43:12,839 --> 00:43:17,280
+this function will take you know
+
+844
+00:43:15,599 --> 00:43:19,920
+different values from different
+
+845
+00:43:17,280 --> 00:43:22,440
+Association lists and this function will
+
+846
+00:43:19,920 --> 00:43:25,200
+tell you know this function will
+
+847
+00:43:22,440 --> 00:43:27,359
+actually take two or more arguments
+
+848
+00:43:25,200 --> 00:43:29,940
+depending on how many associations you
+
+849
+00:43:27,359 --> 00:43:32,460
+have in our case we have 440
+
+850
+00:43:29,940 --> 00:43:37,140
+associations so this function each time
+
+851
+00:43:32,460 --> 00:43:41,040
+you'll be fed 440 values of the key so
+
+852
+00:43:37,140 --> 00:43:43,380
+so but okay yeah so but what would it do
+
+853
+00:43:41,040 --> 00:43:47,040
+so
+
+854
+00:43:43,380 --> 00:43:49,859
+yeah so it should uh so this function
+
+855
+00:43:47,040 --> 00:43:52,380
+is going to take arbitrary number of
+
+856
+00:43:49,859 --> 00:43:55,200
+arguments two or more and it should
+
+857
+00:43:52,380 --> 00:43:59,339
+return one single argument one single
+
+858
+00:43:55,200 --> 00:44:02,220
+value and and in our case we just want
+
+859
+00:43:59,339 --> 00:44:03,900
+to add them together so we don't even we
+
+860
+00:44:02,220 --> 00:44:07,140
+don't even need to Define our function
+
+861
+00:44:03,900 --> 00:44:09,780
+the function we need already exists it's
+
+862
+00:44:07,140 --> 00:44:12,660
+called total okay total is just like in
+
+863
+00:44:09,780 --> 00:44:15,720
+other languages in Haskell it's Sun okay
+
+864
+00:44:12,660 --> 00:44:19,260
+you know that's what we want
+
+865
+00:44:15,720 --> 00:44:21,720
+okay so that's it so let's see copy that
+
+866
+00:44:19,260 --> 00:44:25,700
+copy that back to Fan language
+
+867
+00:44:21,720 --> 00:44:25,700
+and let's see
+
+868
+00:44:27,359 --> 00:44:35,180
+yeah so that should do it
+
+869
+00:44:30,960 --> 00:44:35,180
+that's that should be the final result
+
+870
+00:44:36,839 --> 00:44:41,280
+okay fantastic so we got 12
+
+871
+00:44:40,619 --> 00:44:43,280
+000
+
+872
+00:44:41,280 --> 00:44:43,280
+um
+
+873
+00:44:43,740 --> 00:44:50,280
+Keys we we got about 12 000 keys in
+
+874
+00:44:47,520 --> 00:44:52,460
+order associations
+
+875
+00:44:50,280 --> 00:44:52,460
+um
+
+876
+00:44:52,800 --> 00:44:57,720
+and that's just
+
+877
+00:44:54,599 --> 00:45:02,240
+um so yeah so let's now take the
+
+878
+00:44:57,720 --> 00:45:02,240
+let's let's give it a value so
+
+879
+00:45:05,460 --> 00:45:08,780
+say word come
+
+880
+00:45:13,160 --> 00:45:19,440
+equals to
+
+881
+00:45:15,720 --> 00:45:21,660
+so we assign them a to a variable so we
+
+882
+00:45:19,440 --> 00:45:25,940
+don't have to compute it again and again
+
+883
+00:45:21,660 --> 00:45:25,940
+so let's do it this way okay
+
+884
+00:45:26,040 --> 00:45:28,160
+um
+
+885
+00:45:28,920 --> 00:45:31,880
+so that's it
+
+886
+00:45:32,040 --> 00:45:36,359
+so now let's just compute it one more
+
+887
+00:45:35,160 --> 00:45:38,960
+time
+
+888
+00:45:36,359 --> 00:45:38,960
+do it
+
+889
+00:45:41,040 --> 00:45:45,720
+so how am I doing
+
+890
+00:45:42,900 --> 00:45:48,319
+four people are Jesus three people
+
+891
+00:45:45,720 --> 00:45:48,319
+watching
+
+892
+00:45:48,420 --> 00:45:54,740
+okay so here's a result let's see what
+
+893
+00:45:51,359 --> 00:46:02,339
+count and let's see how many items there
+
+894
+00:45:54,740 --> 00:46:06,839
+12 972 okay and let's say let's show the
+
+895
+00:46:02,339 --> 00:46:12,859
+top 10 uh results
+
+896
+00:46:06,839 --> 00:46:12,859
+okay so take the top 20.
+
+897
+00:46:13,619 --> 00:46:21,180
+okay so inside talk show directory the
+
+898
+00:46:17,700 --> 00:46:22,619
+word Kobo happens five times sa happens
+
+899
+00:46:21,180 --> 00:46:26,460
+200
+
+900
+00:46:22,619 --> 00:46:29,460
+uh 200 2020
+
+901
+00:46:26,460 --> 00:46:29,460
+times
+
+902
+00:46:31,740 --> 00:46:37,680
+okay and you can see we have a bunch of
+
+903
+00:46:34,680 --> 00:46:41,040
+HTML tags there now we forgot to remove
+
+904
+00:46:37,680 --> 00:46:43,920
+them so we need to modify this yeah we
+
+905
+00:46:41,040 --> 00:46:46,980
+forgot to remove them
+
+906
+00:46:43,920 --> 00:46:49,980
+yeah so let's copy the remove
+
+907
+00:46:46,980 --> 00:46:49,980
+stream
+
+908
+00:46:50,160 --> 00:46:56,599
+so here's the read stream and then you
+
+909
+00:46:53,520 --> 00:46:56,599
+want to yeah
+
+910
+00:46:57,660 --> 00:47:00,859
+do string replace
+
+911
+00:47:01,319 --> 00:47:05,119
+there it is okay let's do it again
+
+912
+00:47:08,400 --> 00:47:15,720
+so now you should get rid of the HTML
+
+913
+00:47:11,400 --> 00:47:18,359
+tags okay there it is now
+
+914
+00:47:15,720 --> 00:47:20,640
+copy that
+
+915
+00:47:18,359 --> 00:47:23,400
+paste it
+
+916
+00:47:20,640 --> 00:47:26,220
+there it is much better so
+
+917
+00:47:23,400 --> 00:47:30,380
+for some reason Kobo happened five times
+
+918
+00:47:26,220 --> 00:47:30,380
+now what why is it not sorted
+
+919
+00:47:32,280 --> 00:47:36,060
+okay it's not sorted now we need to sort
+
+920
+00:47:34,560 --> 00:47:39,540
+it
+
+921
+00:47:36,060 --> 00:47:42,900
+uh let's see how do you sort
+
+922
+00:47:39,540 --> 00:47:45,780
+um we want to sort a hash table by their
+
+923
+00:47:42,900 --> 00:47:47,400
+value okay now in other languages you
+
+924
+00:47:45,780 --> 00:47:49,319
+basically have to there's no building
+
+925
+00:47:47,400 --> 00:47:51,480
+function you have to
+
+926
+00:47:49,319 --> 00:47:54,900
+you have to
+
+927
+00:47:51,480 --> 00:47:57,480
+convert them to a list then sold it
+
+928
+00:47:54,900 --> 00:48:00,119
+that's that's what you have to do in
+
+929
+00:47:57,480 --> 00:48:03,180
+Python in Golan in all the other
+
+930
+00:48:00,119 --> 00:48:05,400
+languages but let's see how we do it in
+
+931
+00:48:03,180 --> 00:48:10,640
+Wolfram language
+
+932
+00:48:05,400 --> 00:48:10,640
+so yeah so let's go to Association
+
+933
+00:48:12,300 --> 00:48:19,099
+and uh miscellaneous I still need to
+
+934
+00:48:15,960 --> 00:48:24,780
+work on this key sort
+
+935
+00:48:19,099 --> 00:48:28,819
+uh do we have a value sort uh
+
+936
+00:48:24,780 --> 00:48:28,819
+let's see key sword
+
+937
+00:48:31,980 --> 00:48:39,540
+key sort by Keys uh oh yeah so
+
+938
+00:48:37,020 --> 00:48:41,760
+all you have to do is just say sort now
+
+939
+00:48:39,540 --> 00:48:43,800
+many functions
+
+940
+00:48:41,760 --> 00:48:46,380
+you know in Wolfram language you have
+
+941
+00:48:43,800 --> 00:48:49,859
+like tons of functions that work some at
+
+942
+00:48:46,380 --> 00:48:52,619
+least okay all these functions will also
+
+943
+00:48:49,859 --> 00:48:54,839
+work on Association list and when they
+
+944
+00:48:52,619 --> 00:48:57,480
+do when they are applied to associate
+
+945
+00:48:54,839 --> 00:49:02,339
+Association list they will automatic
+
+946
+00:48:57,480 --> 00:49:04,560
+automatically work on the values Okay so
+
+947
+00:49:02,339 --> 00:49:07,319
+so that's why you have an extra function
+
+948
+00:49:04,560 --> 00:49:09,420
+for key sort that's when you want to
+
+949
+00:49:07,319 --> 00:49:12,839
+sort by the key but otherwise just use
+
+950
+00:49:09,420 --> 00:49:17,000
+sort okay so let's do it again
+
+951
+00:49:12,839 --> 00:49:17,000
+so uh so let's sort
+
+952
+00:49:17,880 --> 00:49:20,880
+okay
+
+953
+00:49:22,260 --> 00:49:27,960
+sort World count you can see now you can
+
+954
+00:49:25,680 --> 00:49:28,980
+see okay now we want to sort in a
+
+955
+00:49:27,960 --> 00:49:31,260
+reverse
+
+956
+00:49:28,980 --> 00:49:33,960
+way because now it Source one two three
+
+957
+00:49:31,260 --> 00:49:37,760
+four okay we want to reverse
+
+958
+00:49:33,960 --> 00:49:37,760
+so how do you reverse
+
+959
+00:49:38,160 --> 00:49:44,300
+there's an option to say in reverse
+
+960
+00:49:42,119 --> 00:49:44,300
+order
+
+961
+00:49:54,480 --> 00:50:00,240
+you have sort by reverse sort okay
+
+962
+00:49:57,119 --> 00:50:02,819
+there's an actual actually a dedicated
+
+963
+00:50:00,240 --> 00:50:05,760
+function to reverse the holder that's
+
+964
+00:50:02,819 --> 00:50:08,000
+reverse sort okay so let's say reverse
+
+965
+00:50:05,760 --> 00:50:08,000
+sort
+
+966
+00:50:09,660 --> 00:50:14,280
+okay
+
+967
+00:50:11,240 --> 00:50:15,660
+evaluate it there it is so excited
+
+968
+00:50:14,280 --> 00:50:19,920
+happened two thousand something times
+
+969
+00:50:15,660 --> 00:50:22,560
+sure happens 1600 times talk happened
+
+970
+00:50:19,920 --> 00:50:24,900
+1600 times that's correct that's all the
+
+971
+00:50:22,560 --> 00:50:26,160
+things inside talk show okay
+
+972
+00:50:24,900 --> 00:50:29,099
+so now
+
+973
+00:50:26,160 --> 00:50:32,339
+we we get in there so
+
+974
+00:50:29,099 --> 00:50:35,160
+so the goal is to do all the seven
+
+975
+00:50:32,339 --> 00:50:37,140
+thousand files on my website and let's
+
+976
+00:50:35,160 --> 00:50:39,839
+see what's the word that's used most
+
+977
+00:50:37,140 --> 00:50:40,740
+frequently okay so let's add the reverse
+
+978
+00:50:39,839 --> 00:50:44,040
+sword
+
+979
+00:50:40,740 --> 00:50:46,380
+so hash table
+
+980
+00:50:44,040 --> 00:50:49,920
+so let's see
+
+981
+00:50:46,380 --> 00:50:53,940
+all the merge of all the hash table okay
+
+982
+00:50:49,920 --> 00:50:56,220
+then we want to sort it
+
+983
+00:50:53,940 --> 00:50:59,880
+yeah reverse sort we want to sort it
+
+984
+00:50:56,220 --> 00:51:04,200
+then we want to
+
+985
+00:50:59,880 --> 00:51:06,900
+uh yeah okay that's it that's that
+
+986
+00:51:04,200 --> 00:51:11,599
+yeah we can now it's all clear
+
+987
+00:51:06,900 --> 00:51:11,599
+this is our whole code do it
+
+988
+00:51:13,319 --> 00:51:21,119
+yeah so now we are going to do it to the
+
+989
+00:51:17,280 --> 00:51:23,160
+entire directory now of study info first
+
+990
+00:51:21,119 --> 00:51:26,660
+of all let's change it to let's say
+
+991
+00:51:23,160 --> 00:51:26,660
+python directory okay
+
+992
+00:51:26,700 --> 00:51:32,040
+you know the entire let me let me show
+
+993
+00:51:29,280 --> 00:51:34,760
+you go to python so you can see here's
+
+994
+00:51:32,040 --> 00:51:39,800
+my python it's only
+
+995
+00:51:34,760 --> 00:51:39,800
+140 files let's go to emacs
+
+996
+00:51:42,300 --> 00:51:49,020
+emacs directory there are 800 files okay
+
+997
+00:51:45,359 --> 00:51:50,940
+so let's let's do the my emacs directory
+
+998
+00:51:49,020 --> 00:51:52,980
+what let's see what's the most
+
+999
+00:51:50,940 --> 00:51:56,280
+frequently used word
+
+1000
+00:51:52,980 --> 00:51:58,619
+okay it's already done so there is the
+
+1001
+00:51:56,280 --> 00:52:02,280
+result wow this is
+
+1002
+00:51:58,619 --> 00:52:05,520
+800 files so emacs the word emacs
+
+1003
+00:52:02,280 --> 00:52:09,240
+happens for you for two times 44 times
+
+1004
+00:52:05,520 --> 00:52:14,780
+okay now let's do the entire study info
+
+1005
+00:52:09,240 --> 00:52:17,880
+directory of 7000 files do it
+
+1006
+00:52:14,780 --> 00:52:20,700
+fantastic but here's the result
+
+1007
+00:52:17,880 --> 00:52:25,440
+fantastic
+
+1008
+00:52:20,700 --> 00:52:30,119
+so last result let's do a take
+
+1009
+00:52:25,440 --> 00:52:31,140
+let's you know show the first 50 top 50
+
+1010
+00:52:30,119 --> 00:52:33,300
+um
+
+1011
+00:52:31,140 --> 00:52:37,880
+so I'm gonna write a function cryptic
+
+1012
+00:52:33,300 --> 00:52:37,880
+here let's say top 100
+
+1013
+00:52:41,040 --> 00:52:49,619
+so here is the final result this is the
+
+1014
+00:52:44,819 --> 00:52:53,940
+top 100 words happened in sardi.info
+
+1015
+00:52:49,619 --> 00:52:55,980
+about seven thousand files so emacs
+
+1016
+00:52:53,940 --> 00:52:57,119
+happens the most things are in
+
+1017
+00:52:55,980 --> 00:53:00,119
+JavaScript
+
+1018
+00:52:57,119 --> 00:53:02,760
+then end oh my God the word JavaScript
+
+1019
+00:53:00,119 --> 00:53:05,540
+happened more often than the conjunction
+
+1020
+00:53:02,760 --> 00:53:05,540
+end
+
+1021
+00:53:06,180 --> 00:53:12,300
+sure wait I'm not sure this is correct
+
+1022
+00:53:09,240 --> 00:53:15,119
+wait uh
+
+1023
+00:53:12,300 --> 00:53:17,520
+no I think this
+
+1024
+00:53:15,119 --> 00:53:21,140
+this is not correct this is incorrect
+
+1025
+00:53:17,520 --> 00:53:21,140
+because the word v
+
+1026
+00:53:21,359 --> 00:53:26,280
+should happen more often okay we got the
+
+1027
+00:53:24,480 --> 00:53:30,180
+error somewhere
+
+1028
+00:53:26,280 --> 00:53:31,559
+read files oxide info okay I know what
+
+1029
+00:53:30,180 --> 00:53:34,319
+to do
+
+1030
+00:53:31,559 --> 00:53:36,420
+you know I I you know I think sometimes
+
+1031
+00:53:34,319 --> 00:53:39,599
+there's a cash issue in ufam language
+
+1032
+00:53:36,420 --> 00:53:40,859
+like once you read a
+
+1033
+00:53:39,599 --> 00:53:44,300
+um
+
+1034
+00:53:40,859 --> 00:53:47,280
+you read a file somehow it stays in okay
+
+1035
+00:53:44,300 --> 00:53:50,819
+anyway the result here is incorrect I
+
+1036
+00:53:47,280 --> 00:53:52,800
+don't think so so let's let's
+
+1037
+00:53:50,819 --> 00:53:54,839
+um
+
+1038
+00:53:52,800 --> 00:53:55,680
+that's
+
+1039
+00:53:54,839 --> 00:53:59,579
+um
+
+1040
+00:53:55,680 --> 00:54:02,520
+let's try to do this again fresh okay
+
+1041
+00:53:59,579 --> 00:54:05,280
+so I'm what I'm going to do is
+
+1042
+00:54:02,520 --> 00:54:06,920
+quit wolfam language
+
+1043
+00:54:05,280 --> 00:54:10,619
+don't save
+
+1044
+00:54:06,920 --> 00:54:12,839
+and start over and that'll be it for
+
+1045
+00:54:10,619 --> 00:54:17,119
+today so of course that
+
+1046
+00:54:12,839 --> 00:54:17,119
+okay so actually close that
+
+1047
+00:54:23,400 --> 00:54:27,440
+okay so start the new
+
+1048
+00:54:28,500 --> 00:54:32,960
+evaluated
+
+1049
+00:54:31,260 --> 00:54:34,559
+okay
+
+1050
+00:54:32,960 --> 00:54:40,220
+magnify
+
+1051
+00:54:34,559 --> 00:54:40,220
+okay and uh let's do this
+
+1052
+00:54:42,000 --> 00:54:45,800
+let's make sure it's correct
+
+1053
+00:54:46,200 --> 00:54:51,960
+function X
+
+1054
+00:54:49,380 --> 00:54:54,960
+each stream
+
+1055
+00:54:51,960 --> 00:54:54,960
+expression
+
+1056
+00:54:56,760 --> 00:55:02,119
+and count
+
+1057
+00:54:59,099 --> 00:55:02,119
+will count
+
+1058
+00:55:02,240 --> 00:55:08,520
+returns a Association okay then you want
+
+1059
+00:55:06,599 --> 00:55:11,180
+to
+
+1060
+00:55:08,520 --> 00:55:11,180
+uh
+
+1061
+00:55:12,059 --> 00:55:18,020
+apply that function to all files that's
+
+1062
+00:55:15,540 --> 00:55:18,020
+correct
+
+1063
+00:55:22,160 --> 00:55:29,400
+then you want to merge the hash table by
+
+1064
+00:55:25,619 --> 00:55:34,160
+total okay then reverse sort
+
+1065
+00:55:29,400 --> 00:55:34,160
+then yeah so you do take
+
+1066
+00:55:36,300 --> 00:55:43,859
+the first argument is that then you take
+
+1067
+00:55:40,140 --> 00:55:46,400
+the first hundred items okay so that is
+
+1068
+00:55:43,859 --> 00:55:46,400
+the code
+
+1069
+00:55:46,920 --> 00:55:51,680
+paste it here
+
+1070
+00:55:48,900 --> 00:55:51,680
+do it
+
+1071
+00:55:53,280 --> 00:55:59,540
+ah this is this is this is kind of
+
+1072
+00:55:57,000 --> 00:55:59,540
+strange
+
+1073
+00:56:00,480 --> 00:56:08,300
+there is the the word
+
+1074
+00:56:03,720 --> 00:56:08,300
+now the word happens even less
+
+1075
+00:56:09,059 --> 00:56:14,819
+than e-max
+
+1076
+00:56:11,640 --> 00:56:18,300
+is that true oh yeah because every file
+
+1077
+00:56:14,819 --> 00:56:20,280
+you have the H1 header
+
+1078
+00:56:18,300 --> 00:56:21,980
+then you have the title they are or
+
+1079
+00:56:20,280 --> 00:56:26,119
+emacs
+
+1080
+00:56:21,980 --> 00:56:26,119
+actually so this is correct
+
+1081
+00:56:27,900 --> 00:56:31,579
+very interesting uh
+
+1082
+00:56:32,520 --> 00:56:38,280
+and xar happens the most often because
+
+1083
+00:56:35,520 --> 00:56:42,380
+every page you have a
+
+1084
+00:56:38,280 --> 00:56:42,380
+you know you have the footer
+
+1085
+00:56:43,200 --> 00:56:46,920
+you know
+
+1086
+00:56:44,940 --> 00:56:50,940
+yeah that makes sense in JavaScript
+
+1087
+00:56:46,920 --> 00:56:53,640
+because in JavaScript directory
+
+1088
+00:56:50,940 --> 00:56:54,900
+you have like 700
+
+1089
+00:56:53,640 --> 00:56:59,400
+um
+
+1090
+00:56:54,900 --> 00:57:00,660
+you have 900 files and almost every one
+
+1091
+00:56:59,400 --> 00:57:03,540
+of them
+
+1092
+00:57:00,660 --> 00:57:06,359
+have several words oh yeah because all
+
+1093
+00:57:03,540 --> 00:57:10,020
+the panels you see that's why yeah you
+
+1094
+00:57:06,359 --> 00:57:11,940
+see all the panels wait that
+
+1095
+00:57:10,020 --> 00:57:13,200
+yeah well because
+
+1096
+00:57:11,940 --> 00:57:15,540
+um
+
+1097
+00:57:13,200 --> 00:57:18,359
+well it does make sense because there's
+
+1098
+00:57:15,540 --> 00:57:20,579
+lots of files here JavaScript
+
+1099
+00:57:18,359 --> 00:57:24,260
+okay that's the result so let me read
+
+1100
+00:57:20,579 --> 00:57:24,260
+the comments we shut down in one minute
+
+1101
+00:57:29,700 --> 00:57:35,819
+um
+
+1102
+00:57:31,559 --> 00:57:37,680
+so there's a question from Crazy Frog is
+
+1103
+00:57:35,819 --> 00:57:40,920
+it worth paying for Wolfram rather than
+
+1104
+00:57:37,680 --> 00:57:43,980
+using this for everything yeah well
+
+1105
+00:57:40,920 --> 00:57:46,500
+one language is a magnitude Beyond lisp
+
+1106
+00:57:43,980 --> 00:57:47,880
+you know you know I talked about that
+
+1107
+00:57:46,500 --> 00:57:51,480
+many times
+
+1108
+00:57:47,880 --> 00:57:54,599
+so but the thing is you you have a free
+
+1109
+00:57:51,480 --> 00:57:56,339
+version of Wolfram engine you can start
+
+1110
+00:57:54,599 --> 00:57:58,200
+with
+
+1111
+00:57:56,339 --> 00:58:01,619
+you know just go to my website you can
+
+1112
+00:57:58,200 --> 00:58:03,780
+see download free uh free wolfam engine
+
+1113
+00:58:01,619 --> 00:58:06,440
+you know watch my video I talked about
+
+1114
+00:58:03,780 --> 00:58:06,440
+this before
+
+1115
+00:58:08,940 --> 00:58:14,339
+yes Julia is a very good language Julia
+
+1116
+00:58:12,720 --> 00:58:15,480
+is a great language I don't know it
+
+1117
+00:58:14,339 --> 00:58:18,000
+though but
+
+1118
+00:58:15,480 --> 00:58:20,940
+for my experience and here what people
+
+1119
+00:58:18,000 --> 00:58:24,420
+say I think Julia is a great language
+
+1120
+00:58:20,940 --> 00:58:26,280
+but it's not a Wolfram alternative okay
+
+1121
+00:58:24,420 --> 00:58:27,859
+depending on what you want to do you
+
+1122
+00:58:26,280 --> 00:58:31,440
+know if you want to solve equations
+
+1123
+00:58:27,859 --> 00:58:33,900
+symbolic computation you know machine
+
+1124
+00:58:31,440 --> 00:58:38,339
+learning AI you know Wolfram language is
+
+1125
+00:58:33,900 --> 00:58:42,240
+100 times you know 100 times in whatever
+
+1126
+00:58:38,339 --> 00:58:43,740
+100 times a magnitude more powerful more
+
+1127
+00:58:42,240 --> 00:58:48,380
+rich
+
+1128
+00:58:43,740 --> 00:58:51,540
+than all the whatever Julia Haskell
+
+1129
+00:58:48,380 --> 00:58:54,180
+closure what whatever fancy language
+
+1130
+00:58:51,540 --> 00:58:56,540
+that's that's just you know that's just
+
+1131
+00:58:54,180 --> 00:58:56,540
+true
+
+1132
+00:58:57,780 --> 00:59:02,119
+okay bye guys thank you guys for
+
+1133
+00:58:59,700 --> 00:59:02,119
+watching
+
+1134
+00:59:02,579 --> 00:59:09,200
+donate okay pay me
+
+1135
+00:59:06,240 --> 00:59:09,200
+um bye
+
+1136
+00:59:09,960 --> 00:59:15,599
+so I'm gonna shut down I'm gonna shut
+
+1137
+00:59:12,780 --> 00:59:17,460
+down and I'm going to
+
+1138
+00:59:15,599 --> 00:59:20,280
+um
+
+1139
+00:59:17,460 --> 00:59:21,480
+yeah so I'm shutting down clean up my
+
+1140
+00:59:20,280 --> 00:59:24,599
+files
+
+1141
+00:59:21,480 --> 00:59:29,180
+so here is what
+
+1142
+00:59:24,599 --> 00:59:29,180
+yeah this is today's talk show
+
+1143
+00:59:31,380 --> 00:59:34,339
+clean up
+
+1144
+00:59:37,319 --> 00:59:41,579
+so that's that's all you need so here is
+
+1145
+00:59:40,440 --> 00:59:44,460
+a code
+
+1146
+00:59:41,579 --> 00:59:46,160
+let me show you this so here is a code
+
+1147
+00:59:44,460 --> 00:59:50,099
+for going through
+
+1148
+00:59:46,160 --> 00:59:52,200
+7000 files and get the award count you
+
+1149
+00:59:50,099 --> 00:59:54,299
+know you can if you add you if you add
+
+1150
+00:59:52,200 --> 00:59:55,020
+this word count
+
+1151
+00:59:54,299 --> 00:59:58,680
+um
+
+1152
+00:59:55,020 --> 01:00:02,940
+you know if you say this would come
+
+1153
+00:59:58,680 --> 01:00:04,980
+here okay so if you say two then you get
+
+1154
+01:00:02,940 --> 01:00:08,160
+a list of all
+
+1155
+01:00:04,980 --> 01:00:10,260
+bigrams okay let's let's run it okay
+
+1156
+01:00:08,160 --> 01:00:13,500
+just for the sake of interesting what's
+
+1157
+01:00:10,260 --> 01:00:17,000
+the most frequent occurrences of two
+
+1158
+01:00:13,500 --> 01:00:17,000
+word sequence okay
+
+1159
+01:00:17,940 --> 01:00:27,260
+of oxali dot info website
+
+1160
+01:00:21,660 --> 01:00:30,660
+okay so start talk happens 429 times
+
+1161
+01:00:27,260 --> 01:00:33,119
+then then talk show happened 426 times
+
+1162
+01:00:30,660 --> 01:00:37,520
+yeah that makes sense
+
+1163
+01:00:33,119 --> 01:00:39,540
+blog archive their properties happened
+
+1164
+01:00:37,520 --> 01:00:40,680
+258 times
+
+1165
+01:00:39,540 --> 01:00:44,819
+uh
+
+1166
+01:00:40,680 --> 01:00:46,559
+emac this 100 happens 230 times you know
+
+1167
+01:00:44,819 --> 01:00:49,079
+that's so this is a
+
+1168
+01:00:46,559 --> 01:00:51,540
+two-word phrase programming block
+
+1169
+01:00:49,079 --> 01:00:54,299
+happens 78 times yeah that's interesting
+
+1170
+01:00:51,540 --> 01:00:56,819
+now let's change it to three
+
+1171
+01:00:54,299 --> 01:00:58,920
+now because if you change this to two or
+
+1172
+01:00:56,819 --> 01:01:01,079
+three then in other languages it's a lot
+
+1173
+01:00:58,920 --> 01:01:03,660
+more code you know because then you have
+
+1174
+01:01:01,079 --> 01:01:06,900
+to partition you know given a list of
+
+1175
+01:01:03,660 --> 01:01:08,760
+words before you simply do a split
+
+1176
+01:01:06,900 --> 01:01:11,400
+you know then you look through each
+
+1177
+01:01:08,760 --> 01:01:14,160
+words then you tally them put them into
+
+1178
+01:01:11,400 --> 01:01:16,500
+a hash table by key but now if you want
+
+1179
+01:01:14,160 --> 01:01:19,859
+a trace of two
+
+1180
+01:01:16,500 --> 01:01:22,319
+World sequences you want to you can just
+
+1181
+01:01:19,859 --> 01:01:25,200
+split them you have to sleep split them
+
+1182
+01:01:22,319 --> 01:01:27,780
+but you have to kind of a shift split
+
+1183
+01:01:25,200 --> 01:01:31,020
+you know so in other languages it gets
+
+1184
+01:01:27,780 --> 01:01:33,720
+more um work so anyway let's do three
+
+1185
+01:01:31,020 --> 01:01:35,400
+let's see what's the three word uh
+
+1186
+01:01:33,720 --> 01:01:39,119
+combination
+
+1187
+01:01:35,400 --> 01:01:42,920
+so Casa talk show happens 400 uh
+
+1188
+01:01:39,119 --> 01:01:46,380
+times curves and their properties 100
+
+1189
+01:01:42,920 --> 01:01:49,140
+258 times and their properties there it
+
+1190
+01:01:46,380 --> 01:01:54,079
+is XA emacs plug
+
+1191
+01:01:49,140 --> 01:01:54,079
+okay that's interesting and somewhat
+
+1192
+01:01:54,240 --> 01:02:00,000
+it's it's surprising because I thought
+
+1193
+01:01:56,819 --> 01:02:02,460
+it would be and that you know they are
+
+1194
+01:02:00,000 --> 01:02:04,920
+there is something like that but it
+
+1195
+01:02:02,460 --> 01:02:05,940
+turns out it's all my word
+
+1196
+01:02:04,920 --> 01:02:10,559
+um
+
+1197
+01:02:05,940 --> 01:02:14,099
+titles like file titles and so on
+
+1198
+01:02:10,559 --> 01:02:15,480
+emac this coding their properties
+
+1199
+01:02:14,099 --> 01:02:18,299
+roulette
+
+1200
+01:02:15,480 --> 01:02:21,180
+their properties spiral so that's only
+
+1201
+01:02:18,299 --> 01:02:23,520
+11 times yeah very interesting what
+
+1202
+01:02:21,180 --> 01:02:26,819
+about you know I wonder if you go to an
+
+1203
+01:02:23,520 --> 01:02:30,180
+English text then
+
+1204
+01:02:26,819 --> 01:02:33,420
+we can do it so let's see let's try now
+
+1205
+01:02:30,180 --> 01:02:36,420
+let's try Alice in Wonderland okay let's
+
+1206
+01:02:33,420 --> 01:02:39,660
+try Alice in Wonderland Wonderland okay
+
+1207
+01:02:36,420 --> 01:02:42,619
+or the Vlog let me show you
+
+1208
+01:02:39,660 --> 01:02:45,420
+so what the English
+
+1209
+01:02:42,619 --> 01:02:48,359
+literature classics
+
+1210
+01:02:45,420 --> 01:02:51,180
+then you have Alice in Wonderland let's
+
+1211
+01:02:48,359 --> 01:02:54,900
+see let's get the word Teddy let's copy
+
+1212
+01:02:51,180 --> 01:02:59,400
+the directory file path there it is
+
+1213
+01:02:54,900 --> 01:03:03,660
+uh there it is then there it is
+
+1214
+01:02:59,400 --> 01:03:05,099
+put it here okay let's do Alice in
+
+1215
+01:03:03,660 --> 01:03:07,680
+Wonderland
+
+1216
+01:03:05,099 --> 01:03:10,520
+okay and actually what count yeah so
+
+1217
+01:03:07,680 --> 01:03:10,520
+let's do it here
+
+1218
+01:03:16,740 --> 01:03:23,040
+you know if there's any if there's a
+
+1219
+01:03:19,740 --> 01:03:27,599
+flaw in wufan language I would say speed
+
+1220
+01:03:23,040 --> 01:03:31,079
+okay because the speed is not so great
+
+1221
+01:03:27,599 --> 01:03:34,619
+you know you for any task
+
+1222
+01:03:31,079 --> 01:03:36,540
+if you write in Golan in Python let's
+
+1223
+01:03:34,619 --> 01:03:39,480
+say it takes you one hour
+
+1224
+01:03:36,540 --> 01:03:41,640
+okay especially if you write it in goal
+
+1225
+01:03:39,480 --> 01:03:42,780
+and in JavaScript it might be take you
+
+1226
+01:03:41,640 --> 01:03:45,180
+two hours
+
+1227
+01:03:42,780 --> 01:03:48,420
+but it's fast you know you take two
+
+1228
+01:03:45,180 --> 01:03:51,119
+hours two hours to write it and the
+
+1229
+01:03:48,420 --> 01:03:53,880
+result come out let's say five seconds
+
+1230
+01:03:51,119 --> 01:03:57,540
+but in Wolfram it takes you one minute
+
+1231
+01:03:53,880 --> 01:04:01,440
+to code it save you 60 times the human
+
+1232
+01:03:57,540 --> 01:04:04,619
+effort but the the result is um
+
+1233
+01:04:01,440 --> 01:04:06,660
+slower you know slower than Golan or
+
+1234
+01:04:04,619 --> 01:04:10,200
+python
+
+1235
+01:04:06,660 --> 01:04:12,900
+depends for example it really depends if
+
+1236
+01:04:10,200 --> 01:04:15,359
+you have a very specialized task then
+
+1237
+01:04:12,900 --> 01:04:18,059
+Wolfram is 100 times faster than
+
+1238
+01:04:15,359 --> 01:04:20,819
+whatever language you use for example
+
+1239
+01:04:18,059 --> 01:04:22,500
+let's list pi
+
+1240
+01:04:20,819 --> 01:04:26,059
+to
+
+1241
+01:04:22,500 --> 01:04:26,059
+2000 phases okay
+
+1242
+01:04:28,579 --> 01:04:34,740
+doesn't matter what language you do you
+
+1243
+01:04:31,440 --> 01:04:37,260
+try to do this it's gonna be 100 times
+
+1244
+01:04:34,740 --> 01:04:39,299
+slower than Wolfram language okay and in
+
+1245
+01:04:37,260 --> 01:04:42,180
+wolfen language you can call this in one
+
+1246
+01:04:39,299 --> 01:04:45,660
+minute you know in in one second pi to
+
+1247
+01:04:42,180 --> 01:04:48,119
+to the 2000 places you can say
+
+1248
+01:04:45,660 --> 01:04:50,640
+five thousand ten thousand you know it
+
+1249
+01:04:48,119 --> 01:04:52,200
+depends on your memory and so on so
+
+1250
+01:04:50,640 --> 01:04:54,500
+anyway so
+
+1251
+01:04:52,200 --> 01:04:58,980
+Alice in Wonderland
+
+1252
+01:04:54,500 --> 01:05:00,960
+and uh if we count Words it's going to
+
+1253
+01:04:58,980 --> 01:05:03,540
+be
+
+1254
+01:05:00,960 --> 01:05:07,099
+wait that's two okay that's two word
+
+1255
+01:05:03,540 --> 01:05:07,099
+phrases let's just say one
+
+1256
+01:05:09,299 --> 01:05:17,700
+so the and a two that's the expect
+
+1257
+01:05:14,000 --> 01:05:22,380
+expected space of
+
+1258
+01:05:17,700 --> 01:05:26,220
+uh that's a quotation sign Alice it she
+
+1259
+01:05:22,380 --> 01:05:31,980
+okay that makes sense but let's see
+
+1260
+01:05:26,220 --> 01:05:36,140
+yeah so uh out they won this not if okay
+
+1261
+01:05:31,980 --> 01:05:36,140
+now let's see two word phrases
+
+1262
+01:05:40,980 --> 01:05:44,660
+hey Reaper thank you Reaper
+
+1263
+01:05:45,359 --> 01:05:53,579
+Ripper says to what extent do you think
+
+1264
+01:05:48,660 --> 01:05:56,220
+lisp uh expression symbolic Expressions
+
+1265
+01:05:53,579 --> 01:05:59,040
+power for most programmers is
+
+1266
+01:05:56,220 --> 01:06:02,460
+essentially serving as an association
+
+1267
+01:05:59,040 --> 01:06:04,020
+dictionary and not because of uh Macross
+
+1268
+01:06:02,460 --> 01:06:07,500
+hmm
+
+1269
+01:06:04,020 --> 01:06:08,480
+to what extent to what extent do you
+
+1270
+01:06:07,500 --> 01:06:12,299
+think
+
+1271
+01:06:08,480 --> 01:06:14,339
+lisp symbolic is expression power
+
+1272
+01:06:12,299 --> 01:06:18,859
+for most programmers is essentially
+
+1273
+01:06:14,339 --> 01:06:18,859
+serving as an association dictionary
+
+1274
+01:06:24,480 --> 01:06:29,579
+no I don't think you know I don't think
+
+1275
+01:06:27,059 --> 01:06:32,240
+that's true you know so I think you are
+
+1276
+01:06:29,579 --> 01:06:32,240
+saying that
+
+1277
+01:06:35,160 --> 01:06:40,020
+what do you mean serving as an
+
+1278
+01:06:37,079 --> 01:06:43,260
+association dictionary so let me let me
+
+1279
+01:06:40,020 --> 01:06:47,940
+just explain what I
+
+1280
+01:06:43,260 --> 01:06:50,099
+maybe maybe that's your question so lisp
+
+1281
+01:06:47,940 --> 01:06:53,339
+you know a lot at least Fanatics they
+
+1282
+01:06:50,099 --> 01:06:56,039
+love lisp because for several reasons
+
+1283
+01:06:53,339 --> 01:06:59,640
+they like the least syntax because
+
+1284
+01:06:56,039 --> 01:07:02,099
+everything is parenthesis uh
+
+1285
+01:06:59,640 --> 01:07:03,960
+and everything you know everything is
+
+1286
+01:07:02,099 --> 01:07:06,240
+just a function call so functional
+
+1287
+01:07:03,960 --> 01:07:10,940
+programming is part of it
+
+1288
+01:07:06,240 --> 01:07:15,299
+the nested fairly regular syntax
+
+1289
+01:07:10,940 --> 01:07:18,299
+and uh and you deal with symbols so that
+
+1290
+01:07:15,299 --> 01:07:20,460
+allows you to have more quotes
+
+1291
+01:07:18,299 --> 01:07:23,460
+you know which is kind of like term
+
+1292
+01:07:20,460 --> 01:07:25,920
+rewriting but basic one uh I I did the
+
+1293
+01:07:23,460 --> 01:07:29,160
+explanation of this in lots of my
+
+1294
+01:07:25,920 --> 01:07:30,720
+previous videos uh so you might check
+
+1295
+01:07:29,160 --> 01:07:33,240
+out that
+
+1296
+01:07:30,720 --> 01:07:34,819
+so for example if you go to ufam
+
+1297
+01:07:33,240 --> 01:07:36,960
+language
+
+1298
+01:07:34,819 --> 01:07:38,760
+you go to
+
+1299
+01:07:36,960 --> 01:07:42,380
+um
+
+1300
+01:07:38,760 --> 01:07:42,380
+you go to the
+
+1301
+01:07:42,539 --> 01:07:49,440
+okay let me read it okay so
+
+1302
+01:07:45,660 --> 01:07:53,640
+I mean so let me say first that I did a
+
+1303
+01:07:49,440 --> 01:07:55,319
+lot about this language
+
+1304
+01:07:53,640 --> 01:07:57,660
+um
+
+1305
+01:07:55,319 --> 01:08:00,480
+I did a loud video about this language
+
+1306
+01:07:57,660 --> 01:08:03,900
+where is it definitely no problem let me
+
+1307
+01:08:00,480 --> 01:08:06,539
+see come land serving yeah so search for
+
+1308
+01:08:03,900 --> 01:08:10,260
+that you'll find several videos
+
+1309
+01:08:06,539 --> 01:08:13,140
+talking about the lisp syntax and the
+
+1310
+01:08:10,260 --> 01:08:15,180
+and different languages why this love
+
+1311
+01:08:13,140 --> 01:08:16,259
+them you know so that's very much
+
+1312
+01:08:15,180 --> 01:08:19,160
+related
+
+1313
+01:08:16,259 --> 01:08:19,160
+so let me see
+
+1314
+01:08:22,020 --> 01:08:25,799
+okay so you are saying yeah so I think I
+
+1315
+01:08:24,660 --> 01:08:27,600
+know what you're saying so you are
+
+1316
+01:08:25,799 --> 01:08:31,520
+saying you know these programmers they
+
+1317
+01:08:27,600 --> 01:08:31,520
+love list let me show you some this code
+
+1318
+01:08:31,560 --> 01:08:36,660
+uh okay so here's a list code and then
+
+1319
+01:08:34,799 --> 01:08:39,600
+let's go to up
+
+1320
+01:08:36,660 --> 01:08:41,580
+so for example these are list code and
+
+1321
+01:08:39,600 --> 01:08:44,580
+let's go to some you know lots of you
+
+1322
+01:08:41,580 --> 01:08:46,199
+know parentheses and you know so this
+
+1323
+01:08:44,580 --> 01:08:49,620
+like you know
+
+1324
+01:08:46,199 --> 01:08:51,900
+these people they love them this
+
+1325
+01:08:49,620 --> 01:08:54,120
+for one of the big reason is that
+
+1326
+01:08:51,900 --> 01:08:57,900
+so-called um
+
+1327
+01:08:54,120 --> 01:09:01,759
+home your iconicity okay meaning that
+
+1328
+01:08:57,900 --> 01:09:01,759
+either the the syntax
+
+1329
+01:09:03,439 --> 01:09:05,120
+[Music]
+
+1330
+01:09:03,900 --> 01:09:07,259
+um
+
+1331
+01:09:05,120 --> 01:09:08,819
+corresponds to the data you know
+
+1332
+01:09:07,259 --> 01:09:11,040
+something like that that I don't think
+
+1333
+01:09:08,819 --> 01:09:13,679
+that that
+
+1334
+01:09:11,040 --> 01:09:15,839
+that's that makes sense so basically
+
+1335
+01:09:13,679 --> 01:09:17,219
+what they are saying is that let me show
+
+1336
+01:09:15,839 --> 01:09:20,279
+you okay so
+
+1337
+01:09:17,219 --> 01:09:23,239
+that's yeah so I that's a different
+
+1338
+01:09:20,279 --> 01:09:23,239
+topic so
+
+1339
+01:09:24,480 --> 01:09:31,680
+okay so you might want to read these
+
+1340
+01:09:26,640 --> 01:09:32,219
+fundamental problems of lisp okay and uh
+
+1341
+01:09:31,680 --> 01:09:32,940
+[Music]
+
+1342
+01:09:32,219 --> 01:09:37,020
+um
+
+1343
+01:09:32,940 --> 01:09:41,160
+yeah so let's see fundamental problems
+
+1344
+01:09:37,020 --> 01:09:44,940
+of these syntax irregularities
+
+1345
+01:09:41,160 --> 01:09:46,799
+uh syntax semantic correspondence okay
+
+1346
+01:09:44,940 --> 01:09:51,299
+that's what I think that's what you are
+
+1347
+01:09:46,799 --> 01:09:53,460
+talking about home your iconicity okay
+
+1348
+01:09:51,299 --> 01:09:56,940
+uh and the source code transformation
+
+1349
+01:09:53,460 --> 01:09:59,160
+okay yeah home your iconicity you know
+
+1350
+01:09:56,940 --> 01:10:02,340
+so a lot of these people you know they
+
+1351
+01:09:59,160 --> 01:10:04,140
+think of the syntax as data data data is
+
+1352
+01:10:02,340 --> 01:10:05,940
+a language language is data something
+
+1353
+01:10:04,140 --> 01:10:10,020
+like that I don't think that makes sense
+
+1354
+01:10:05,940 --> 01:10:12,060
+at all in fact what actually what they
+
+1355
+01:10:10,020 --> 01:10:14,699
+actually appreciate
+
+1356
+01:10:12,060 --> 01:10:16,679
+the gist of their appreciation is not
+
+1357
+01:10:14,699 --> 01:10:18,780
+about some data and language are the
+
+1358
+01:10:16,679 --> 01:10:21,659
+same thing that's that's incorrect the
+
+1359
+01:10:18,780 --> 01:10:25,560
+gist of their appreciation is regularity
+
+1360
+01:10:21,659 --> 01:10:28,500
+of the syntax okay not not some home
+
+1361
+01:10:25,560 --> 01:10:30,840
+iconicity crap okay
+
+1362
+01:10:28,500 --> 01:10:33,360
+these people one of the major reason
+
+1363
+01:10:30,840 --> 01:10:37,500
+these people love these languages is
+
+1364
+01:10:33,360 --> 01:10:40,860
+because the regularity of syntax okay
+
+1365
+01:10:37,500 --> 01:10:42,540
+that's my view okay that's that's my
+
+1366
+01:10:40,860 --> 01:10:45,360
+view for fighting with the least
+
+1367
+01:10:42,540 --> 01:10:48,480
+phonetics for 20 years okay regularity
+
+1368
+01:10:45,360 --> 01:10:52,560
+of Syntax for example other examples are
+
+1369
+01:10:48,480 --> 01:10:55,020
+XML and Wolfram language okay you have
+
+1370
+01:10:52,560 --> 01:10:59,159
+regularity of syntax okay I talked about
+
+1371
+01:10:55,020 --> 01:11:01,260
+this many times in my video now Okay so
+
+1372
+01:10:59,159 --> 01:11:02,340
+so that's what you know these people say
+
+1373
+01:11:01,260 --> 01:11:05,400
+about
+
+1374
+01:11:02,340 --> 01:11:07,980
+sex you know symbiotics expression
+
+1375
+01:11:05,400 --> 01:11:10,199
+so you are saying I mean somalic's
+
+1376
+01:11:07,980 --> 01:11:12,960
+expression are useful for storing data
+
+1377
+01:11:10,199 --> 01:11:16,260
+and this programming use them in a
+
+1378
+01:11:12,960 --> 01:11:18,420
+productive way like Pearl and PHP or
+
+1379
+01:11:16,260 --> 01:11:20,840
+JavaScript programmers use associative
+
+1380
+01:11:18,420 --> 01:11:20,840
+already
+
+1381
+01:11:22,739 --> 01:11:27,659
+I think I know what you are saying so so
+
+1382
+01:11:24,840 --> 01:11:30,000
+anyway so these people like that okay
+
+1383
+01:11:27,659 --> 01:11:32,120
+but really but they don't have anything
+
+1384
+01:11:30,000 --> 01:11:34,880
+to do with uh
+
+1385
+01:11:32,120 --> 01:11:38,880
+associative arrays though
+
+1386
+01:11:34,880 --> 01:11:41,520
+you know in this you do have Associated
+
+1387
+01:11:38,880 --> 01:11:44,100
+lists and hash table but that's a
+
+1388
+01:11:41,520 --> 01:11:45,900
+different thing and these people do not
+
+1389
+01:11:44,100 --> 01:11:48,179
+actually use them much
+
+1390
+01:11:45,900 --> 01:11:51,719
+these programmers they love to use just
+
+1391
+01:11:48,179 --> 01:11:54,600
+least okay and associative list is a
+
+1392
+01:11:51,719 --> 01:11:56,880
+list but hash table in this is not a
+
+1393
+01:11:54,600 --> 01:11:58,980
+list okay so for example if you're
+
+1394
+01:11:56,880 --> 01:12:02,880
+looking at the emac this you have
+
+1395
+01:11:58,980 --> 01:12:05,760
+Association list which is a list but it
+
+1396
+01:12:02,880 --> 01:12:08,219
+has a problem of inefficiency when you
+
+1397
+01:12:05,760 --> 01:12:11,340
+have more than 10 items you know if you
+
+1398
+01:12:08,219 --> 01:12:15,120
+have more than let's say 10 items of
+
+1399
+01:12:11,340 --> 01:12:18,500
+pairs key value pairs then you want to
+
+1400
+01:12:15,120 --> 01:12:21,780
+use the actual hash table which
+
+1401
+01:12:18,500 --> 01:12:25,620
+ceases to be a list because you know
+
+1402
+01:12:21,780 --> 01:12:29,820
+look at the hash table syntax it stopped
+
+1403
+01:12:25,620 --> 01:12:32,820
+having this typical symbolic expression
+
+1404
+01:12:29,820 --> 01:12:34,440
+form you see look at this here is a hash
+
+1405
+01:12:32,820 --> 01:12:37,080
+table
+
+1406
+01:12:34,440 --> 01:12:39,960
+a literal expression for hash table for
+
+1407
+01:12:37,080 --> 01:12:42,060
+emac this you can see it's not a list
+
+1408
+01:12:39,960 --> 01:12:45,659
+anymore it's kind of got this special
+
+1409
+01:12:42,060 --> 01:12:47,820
+syntax and these programmers in iMac
+
+1410
+01:12:45,659 --> 01:12:49,260
+Beasts for example you don't see this
+
+1411
+01:12:47,820 --> 01:12:52,820
+used much
+
+1412
+01:12:49,260 --> 01:12:55,860
+people go back to use Association list
+
+1413
+01:12:52,820 --> 01:12:57,960
+which you can see here the syntax is
+
+1414
+01:12:55,860 --> 01:13:00,480
+actually is a list
+
+1415
+01:12:57,960 --> 01:13:02,340
+okay so I think that's what you kind of
+
+1416
+01:13:00,480 --> 01:13:05,100
+saying
+
+1417
+01:13:02,340 --> 01:13:07,100
+so so what I'm saying is that
+
+1418
+01:13:05,100 --> 01:13:07,100
+um
+
+1419
+01:13:08,219 --> 01:13:13,020
+yeah yeah so I guess yeah a lot of
+
+1420
+01:13:11,100 --> 01:13:17,040
+people you know these people like the
+
+1421
+01:13:13,020 --> 01:13:20,280
+you know what I'm saying is that
+
+1422
+01:13:17,040 --> 01:13:23,820
+they will say they like the idea of home
+
+1423
+01:13:20,280 --> 01:13:27,360
+your iconicity or data is program
+
+1424
+01:13:23,820 --> 01:13:30,420
+program is data now I think that doesn't
+
+1425
+01:13:27,360 --> 01:13:33,960
+make much sense what they actually love
+
+1426
+01:13:30,420 --> 01:13:35,460
+the just the essence is regularity of
+
+1427
+01:13:33,960 --> 01:13:39,420
+syntax okay
+
+1428
+01:13:35,460 --> 01:13:40,860
+okay that's it for today bye
+
+1429
+01:13:39,420 --> 01:13:43,640
+it's too long
+
+1430
+01:13:40,860 --> 01:13:43,640
+bye guys
+

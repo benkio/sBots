@@ -1,0 +1,7592 @@
+1
+00:00:05,279 --> 00:00:09,760
+good morning everyone welcome to another
+
+2
+00:00:07,359 --> 00:00:12,400
+episode of star talk show today we are
+
+3
+00:00:09,760 --> 00:00:14,000
+going to do emac this let's get on get
+
+4
+00:00:12,400 --> 00:00:18,160
+on to it right away
+
+5
+00:00:14,000 --> 00:00:19,840
+so today's uh topic um
+
+6
+00:00:18,160 --> 00:00:22,160
+today you know we are going to code
+
+7
+00:00:19,840 --> 00:00:25,359
+emaclis so toggle
+
+8
+00:00:22,160 --> 00:00:26,640
+doc theme so let's make the browser
+
+9
+00:00:25,359 --> 00:00:29,760
+um
+
+10
+00:00:26,640 --> 00:00:31,840
+not dark theme so it's easier to see so
+
+11
+00:00:29,760 --> 00:00:34,719
+what we are going to do is we are going
+
+12
+00:00:31,840 --> 00:00:38,079
+to write a emac this command
+
+13
+00:00:34,719 --> 00:00:38,079
+that allows you to
+
+14
+00:00:38,559 --> 00:00:43,040
+swap
+
+15
+00:00:39,680 --> 00:00:44,480
+block of text for example i want this
+
+16
+00:00:43,040 --> 00:00:45,680
+block of text
+
+17
+00:00:44,480 --> 00:00:48,800
+to
+
+18
+00:00:45,680 --> 00:00:51,039
+to be swapped with this block of text
+
+19
+00:00:48,800 --> 00:00:52,320
+text so i can uh
+
+20
+00:00:51,039 --> 00:00:54,079
+so again
+
+21
+00:00:52,320 --> 00:00:58,640
+you know after i have this command i
+
+22
+00:00:54,079 --> 00:01:01,600
+just press a key and this block becomes
+
+23
+00:00:58,640 --> 00:01:03,280
+comes down here so you don't have to do
+
+24
+00:01:01,600 --> 00:01:04,320
+select the block
+
+25
+00:01:03,280 --> 00:01:05,280
+cut it
+
+26
+00:01:04,320 --> 00:01:07,680
+and
+
+27
+00:01:05,280 --> 00:01:10,960
+and paste it in front of the other one
+
+28
+00:01:07,680 --> 00:01:13,280
+so it just swaps okay so emax has a
+
+29
+00:01:10,960 --> 00:01:15,920
+bunch of search commands it's called
+
+30
+00:01:13,280 --> 00:01:18,080
+transpose i never used it okay so but
+
+31
+00:01:15,920 --> 00:01:20,640
+let's see
+
+32
+00:01:18,080 --> 00:01:23,360
+transpose okay so let's look at the emax
+
+33
+00:01:20,640 --> 00:01:25,600
+command so you have transpose characters
+
+34
+00:01:23,360 --> 00:01:26,560
+which swaps the current character with
+
+35
+00:01:25,600 --> 00:01:27,680
+the one
+
+36
+00:01:26,560 --> 00:01:28,020
+before it
+
+37
+00:01:27,680 --> 00:01:29,680
+um
+
+38
+00:01:28,020 --> 00:01:32,640
+[Music]
+
+39
+00:01:29,680 --> 00:01:35,600
+let's see transpose characters transpose
+
+40
+00:01:32,640 --> 00:01:37,840
+lines transpo post paragraph
+
+41
+00:01:35,600 --> 00:01:39,600
+okay transpose region oh there's already
+
+42
+00:01:37,840 --> 00:01:41,920
+transpose region okay that's great
+
+43
+00:01:39,600 --> 00:01:44,799
+transpose sex okay that's those are
+
+44
+00:01:41,920 --> 00:01:47,759
+great so let's copy that so let's put it
+
+45
+00:01:44,799 --> 00:01:50,560
+here so we can um
+
+46
+00:01:47,759 --> 00:01:50,560
+so we can see
+
+47
+00:01:50,720 --> 00:01:55,280
+uh
+
+48
+00:01:52,560 --> 00:01:57,600
+okay transpose commands these are built
+
+49
+00:01:55,280 --> 00:01:58,560
+in in emac list okay
+
+50
+00:01:57,600 --> 00:02:01,119
+so
+
+51
+00:01:58,560 --> 00:02:06,840
+let me let me make them
+
+52
+00:02:01,119 --> 00:02:06,840
+into one line and make a list out of it
+
+53
+00:02:10,959 --> 00:02:17,280
+okay so emacs already have these
+
+54
+00:02:13,040 --> 00:02:17,280
+transport transpose characters so
+
+55
+00:02:17,360 --> 00:02:22,480
+transpose characters
+
+56
+00:02:19,280 --> 00:02:24,720
+transpose lines that we're gonna use uh
+
+57
+00:02:22,480 --> 00:02:28,720
+transpose paragraph we are not going to
+
+58
+00:02:24,720 --> 00:02:31,360
+use uh because the e max paragraph emax
+
+59
+00:02:28,720 --> 00:02:34,160
+has a weird kind of sensor paragraph it
+
+60
+00:02:31,360 --> 00:02:37,519
+depends on the major mod and
+
+61
+00:02:34,160 --> 00:02:39,599
+uh usually it's unpredictable
+
+62
+00:02:37,519 --> 00:02:41,200
+so if you just have english writings for
+
+63
+00:02:39,599 --> 00:02:43,760
+example if you just have english
+
+64
+00:02:41,200 --> 00:02:46,080
+writings for example this paragraph and
+
+65
+00:02:43,760 --> 00:02:49,120
+another paragraph then you do transpose
+
+66
+00:02:46,080 --> 00:02:52,400
+paragraph that work in a plain
+
+67
+00:02:49,120 --> 00:02:54,720
+text fundamental mod or text mod but if
+
+68
+00:02:52,400 --> 00:02:57,440
+you have html or pro i mean called
+
+69
+00:02:54,720 --> 00:02:59,920
+python ruby or javascript whatever the
+
+70
+00:02:57,440 --> 00:03:02,319
+transpose paragraph
+
+71
+00:02:59,920 --> 00:03:06,159
+doesn't work because
+
+72
+00:03:02,319 --> 00:03:08,959
+the meaning of paragraph depends on
+
+73
+00:03:06,159 --> 00:03:12,080
+emacs concept of
+
+74
+00:03:08,959 --> 00:03:14,319
+chart table okay uh child class so
+
+75
+00:03:12,080 --> 00:03:16,080
+basically unpredictable so in a
+
+76
+00:03:14,319 --> 00:03:18,239
+programming language mod you cannot
+
+77
+00:03:16,080 --> 00:03:20,400
+predict what is a paragraph so it's kind
+
+78
+00:03:18,239 --> 00:03:22,879
+of weird so
+
+79
+00:03:20,400 --> 00:03:24,959
+so that's why so we are going to write
+
+80
+00:03:22,879 --> 00:03:28,720
+uh let me show you okay so hold on a
+
+81
+00:03:24,959 --> 00:03:31,200
+second so transpose sex is also good let
+
+82
+00:03:28,720 --> 00:03:33,120
+me make them colored so you can see
+
+83
+00:03:31,200 --> 00:03:34,640
+easier
+
+84
+00:03:33,120 --> 00:03:37,440
+so
+
+85
+00:03:34,640 --> 00:03:39,920
+transpose paragraph is essentially what
+
+86
+00:03:37,440 --> 00:03:43,360
+we are going to write today you know uh
+
+87
+00:03:39,920 --> 00:03:44,799
+where a paragraph is defined
+
+88
+00:03:43,360 --> 00:03:49,040
+precisely
+
+89
+00:03:44,799 --> 00:03:51,360
+as a text block separated by empty lines
+
+90
+00:03:49,040 --> 00:03:54,319
+okay so universal it doesn't matter in
+
+91
+00:03:51,360 --> 00:03:55,519
+what major modeling this code in python
+
+92
+00:03:54,319 --> 00:03:57,040
+code in
+
+93
+00:03:55,519 --> 00:03:59,439
+c programming language whatever
+
+94
+00:03:57,040 --> 00:04:01,040
+programming which is just transpose i
+
+95
+00:03:59,439 --> 00:04:03,120
+mean swap
+
+96
+00:04:01,040 --> 00:04:06,159
+block the current block uh to the
+
+97
+00:04:03,120 --> 00:04:09,360
+previous so okay so let's let's let's
+
+98
+00:04:06,159 --> 00:04:13,280
+begin to write it okay so uh e uh and oh
+
+99
+00:04:09,360 --> 00:04:16,320
+there's another one transpose words okay
+
+100
+00:04:13,280 --> 00:04:19,120
+uh make it color the wood and make it
+
+101
+00:04:16,320 --> 00:04:21,919
+that and back to browser
+
+102
+00:04:19,120 --> 00:04:25,120
+refresh okay transpose words okay and
+
+103
+00:04:21,919 --> 00:04:25,120
+transpose 6
+
+104
+00:04:25,600 --> 00:04:28,880
+6
+
+105
+00:04:26,960 --> 00:04:30,639
+s e x p
+
+106
+00:04:28,880 --> 00:04:33,199
+means a
+
+107
+00:04:30,639 --> 00:04:35,440
+symbolic expression that basically means
+
+108
+00:04:33,199 --> 00:04:35,440
+uh
+
+109
+00:04:35,600 --> 00:04:39,600
+uh
+
+110
+00:04:36,800 --> 00:04:41,280
+let me show you okay so you go to some
+
+111
+00:04:39,600 --> 00:04:44,320
+emac list code
+
+112
+00:04:41,280 --> 00:04:46,479
+ah let's go let's go up okay so emac
+
+113
+00:04:44,320 --> 00:04:49,520
+this code if you
+
+114
+00:04:46,479 --> 00:04:51,280
+say transpose sex you know this so this
+
+115
+00:04:49,520 --> 00:04:53,759
+is one sex
+
+116
+00:04:51,280 --> 00:04:55,600
+symbolic expression basically means
+
+117
+00:04:53,759 --> 00:04:57,120
+means a
+
+118
+00:04:55,600 --> 00:05:01,440
+text
+
+119
+00:04:57,120 --> 00:05:03,759
+enclosed in a bracket okay so that's one
+
+120
+00:05:01,440 --> 00:05:03,759
+sixth
+
+121
+00:05:04,000 --> 00:05:09,440
+then if you call this command transpose
+
+122
+00:05:06,000 --> 00:05:11,440
+say sex it's gonna swap this one with
+
+123
+00:05:09,440 --> 00:05:12,800
+the previous one the previous one is
+
+124
+00:05:11,440 --> 00:05:14,800
+this one
+
+125
+00:05:12,800 --> 00:05:19,520
+you know so let's try it so
+
+126
+00:05:14,800 --> 00:05:22,400
+so i put the cursor here and let's call
+
+127
+00:05:19,520 --> 00:05:22,400
+transpose
+
+128
+00:05:22,800 --> 00:05:27,360
+okay six
+
+129
+00:05:24,960 --> 00:05:27,360
+do it
+
+130
+00:05:29,919 --> 00:05:35,840
+okay what it did let's see what it did
+
+131
+00:05:33,360 --> 00:05:37,680
+yeah it's not so good
+
+132
+00:05:35,840 --> 00:05:41,120
+okay so what happened is that it
+
+133
+00:05:37,680 --> 00:05:42,880
+transfers this parenthesis with this uh
+
+134
+00:05:41,120 --> 00:05:44,560
+this
+
+135
+00:05:42,880 --> 00:05:46,720
+um
+
+136
+00:05:44,560 --> 00:05:49,600
+text block yeah that's correct okay so
+
+137
+00:05:46,720 --> 00:05:52,080
+let's try again so if i put a cursor
+
+138
+00:05:49,600 --> 00:05:54,400
+here
+
+139
+00:05:52,080 --> 00:05:57,360
+okay let's do something simple okay make
+
+140
+00:05:54,400 --> 00:06:00,720
+a backup let's do something okay so
+
+141
+00:05:57,360 --> 00:06:01,919
+because this way we can see so this is
+
+142
+00:06:00,720 --> 00:06:05,680
+uh
+
+143
+00:06:01,919 --> 00:06:08,000
+magnify this is b this is a and now we
+
+144
+00:06:05,680 --> 00:06:10,639
+put a cursor in between them so now i
+
+145
+00:06:08,000 --> 00:06:13,520
+call transpose six
+
+146
+00:06:10,639 --> 00:06:16,639
+okay do it you see a and b and swapped
+
+147
+00:06:13,520 --> 00:06:18,960
+that's what transpose sex is
+
+148
+00:06:16,639 --> 00:06:21,199
+it's useful so
+
+149
+00:06:18,960 --> 00:06:23,360
+so now we're gonna write one single
+
+150
+00:06:21,199 --> 00:06:25,199
+command that depends on who's the
+
+151
+00:06:23,360 --> 00:06:27,440
+position you'll call any one of these
+
+152
+00:06:25,199 --> 00:06:29,360
+but first of all let's write transpose
+
+153
+00:06:27,440 --> 00:06:30,240
+block
+
+154
+00:06:29,360 --> 00:06:32,080
+you know
+
+155
+00:06:30,240 --> 00:06:35,120
+if you are already
+
+156
+00:06:32,080 --> 00:06:37,280
+if you know emac this already if you are
+
+157
+00:06:35,120 --> 00:06:39,919
+you know uh already code e magnus you
+
+158
+00:06:37,280 --> 00:06:43,120
+might you might think that
+
+159
+00:06:39,919 --> 00:06:44,800
+what i'm going to do is cd because
+
+160
+00:06:43,120 --> 00:06:46,840
+you know you might think oh you should
+
+161
+00:06:44,800 --> 00:06:50,479
+do it this way because
+
+162
+00:06:46,840 --> 00:06:53,199
+anyway uh i'm going to do this for from
+
+163
+00:06:50,479 --> 00:06:55,440
+uh ground up kind of for the
+
+164
+00:06:53,199 --> 00:06:56,319
+for those of you who are new to emac
+
+165
+00:06:55,440 --> 00:06:58,560
+beast
+
+166
+00:06:56,319 --> 00:07:02,880
+so
+
+167
+00:06:58,560 --> 00:07:04,720
+so don't worry about the you know not um
+
+168
+00:07:02,880 --> 00:07:05,520
+don't complain okay if you already know
+
+169
+00:07:04,720 --> 00:07:07,680
+this
+
+170
+00:07:05,520 --> 00:07:10,080
+i'm gonna do it my way so okay let's
+
+171
+00:07:07,680 --> 00:07:14,319
+begin write the code so
+
+172
+00:07:10,080 --> 00:07:16,400
+uh create this code okay so here is our
+
+173
+00:07:14,319 --> 00:07:19,039
+template uh i mean so
+
+174
+00:07:16,400 --> 00:07:21,919
+exactly smart cause i imagine smart i'm
+
+175
+00:07:19,039 --> 00:07:23,919
+using my own mod so d for different
+
+176
+00:07:21,919 --> 00:07:26,000
+expand to a function name
+
+177
+00:07:23,919 --> 00:07:28,160
+then let's call xr
+
+178
+00:07:26,000 --> 00:07:32,240
+transpose
+
+179
+00:07:28,160 --> 00:07:35,440
+block okay so that's our function name
+
+180
+00:07:32,240 --> 00:07:37,360
+the documentation is swap the current
+
+181
+00:07:35,440 --> 00:07:40,960
+text
+
+182
+00:07:37,360 --> 00:07:43,960
+block with the previous okay
+
+183
+00:07:40,960 --> 00:07:43,960
+and
+
+184
+00:07:44,160 --> 00:07:48,800
+version keeper today's date so let's
+
+185
+00:07:46,479 --> 00:07:51,280
+start to write it
+
+186
+00:07:48,800 --> 00:07:52,720
+so first of all transpose so first of
+
+187
+00:07:51,280 --> 00:07:54,080
+all you want to determine what's the
+
+188
+00:07:52,720 --> 00:07:55,199
+current uh
+
+189
+00:07:54,080 --> 00:07:58,000
+current
+
+190
+00:07:55,199 --> 00:08:00,960
+the beginning position and end position
+
+191
+00:07:58,000 --> 00:08:03,520
+of the block okay so a block
+
+192
+00:08:00,960 --> 00:08:06,240
+a block is defined by separation of
+
+193
+00:08:03,520 --> 00:08:08,720
+empty lines essentially let me show the
+
+194
+00:08:06,240 --> 00:08:10,400
+white space
+
+195
+00:08:08,720 --> 00:08:13,520
+okay so essentially you can see it's
+
+196
+00:08:10,400 --> 00:08:16,080
+separated by essentially two
+
+197
+00:08:13,520 --> 00:08:18,479
+end of line characters
+
+198
+00:08:16,080 --> 00:08:21,120
+so for example this this would be one
+
+199
+00:08:18,479 --> 00:08:24,800
+block and this would be one block right
+
+200
+00:08:21,120 --> 00:08:27,520
+now so if you remove that end of line
+
+201
+00:08:24,800 --> 00:08:29,680
+empty line then this is one block okay
+
+202
+00:08:27,520 --> 00:08:32,000
+so in soft light keys for example i can
+
+203
+00:08:29,680 --> 00:08:35,200
+press a key to select the block you know
+
+204
+00:08:32,000 --> 00:08:38,479
+number six to select the block i go here
+
+205
+00:08:35,200 --> 00:08:39,680
+press number six that's one block okay
+
+206
+00:08:38,479 --> 00:08:41,680
+so
+
+207
+00:08:39,680 --> 00:08:43,760
+this okay so first of all
+
+208
+00:08:41,680 --> 00:08:44,399
+get the beginning position of the block
+
+209
+00:08:43,760 --> 00:08:45,920
+and
+
+210
+00:08:44,399 --> 00:08:48,080
+end position because we need those
+
+211
+00:08:45,920 --> 00:08:51,440
+positions to tell e max
+
+212
+00:08:48,080 --> 00:08:54,880
+to swap this region okay so
+
+213
+00:08:51,440 --> 00:08:57,120
+so i i already have uh you know
+
+214
+00:08:54,880 --> 00:08:59,200
+i talked i wrote this
+
+215
+00:08:57,120 --> 00:09:01,440
+many times in my past videos so if you
+
+216
+00:08:59,200 --> 00:09:03,839
+watch my videos you probably have seen
+
+217
+00:09:01,440 --> 00:09:07,279
+it so today we are just going to call a
+
+218
+00:09:03,839 --> 00:09:10,240
+command we have already written
+
+219
+00:09:07,279 --> 00:09:13,360
+and the easiest way is just look my look
+
+220
+00:09:10,240 --> 00:09:14,640
+at my existing code okay
+
+221
+00:09:13,360 --> 00:09:16,800
+for example
+
+222
+00:09:14,640 --> 00:09:20,000
+press number six select the current
+
+223
+00:09:16,800 --> 00:09:21,519
+block so now let's call
+
+224
+00:09:20,000 --> 00:09:23,440
+the pink window you can see all my
+
+225
+00:09:21,519 --> 00:09:26,000
+command codes and keystrokes okay i'm
+
+226
+00:09:23,440 --> 00:09:28,160
+using soft light keys and voila keyboard
+
+227
+00:09:26,000 --> 00:09:30,720
+so for example i press six you can see
+
+228
+00:09:28,160 --> 00:09:30,720
+the command
+
+229
+00:09:31,040 --> 00:09:36,480
+select block you see that's one block
+
+230
+00:09:35,360 --> 00:09:39,200
+so now
+
+231
+00:09:36,480 --> 00:09:40,000
+i call describe
+
+232
+00:09:39,200 --> 00:09:42,000
+key
+
+233
+00:09:40,000 --> 00:09:45,760
+then i press the key 6
+
+234
+00:09:42,000 --> 00:09:47,440
+then you get the documentation for
+
+235
+00:09:45,760 --> 00:09:49,600
+select block okay
+
+236
+00:09:47,440 --> 00:09:52,399
+then you just jump to the code so here
+
+237
+00:09:49,600 --> 00:09:55,360
+is the source code for xr select block
+
+238
+00:09:52,399 --> 00:09:57,839
+you can see it defines the block here
+
+239
+00:09:55,360 --> 00:10:00,160
+okay but um
+
+240
+00:09:57,839 --> 00:10:01,920
+okay let's let's do it quickly so i
+
+241
+00:10:00,160 --> 00:10:04,800
+don't want to waste time
+
+242
+00:10:01,920 --> 00:10:08,720
+so let's just copy that then
+
+243
+00:10:04,800 --> 00:10:08,720
+uh select block um
+
+244
+00:10:11,839 --> 00:10:15,760
+you know so um
+
+245
+00:10:13,920 --> 00:10:19,200
+yeah so okay so
+
+246
+00:10:15,760 --> 00:10:22,160
+let's go to my emacs tutorial okay so
+
+247
+00:10:19,200 --> 00:10:24,320
+you search for emacs tutorial
+
+248
+00:10:22,160 --> 00:10:27,920
+then
+
+249
+00:10:24,320 --> 00:10:31,200
+practical emac list okay then you have a
+
+250
+00:10:27,920 --> 00:10:32,959
+section that tells you how to select
+
+251
+00:10:31,200 --> 00:10:35,200
+the beginning
+
+252
+00:10:32,959 --> 00:10:38,320
+position and end position of a block
+
+253
+00:10:35,200 --> 00:10:39,519
+okay so let's go here let's see get user
+
+254
+00:10:38,320 --> 00:10:40,399
+input
+
+255
+00:10:39,519 --> 00:10:42,959
+uh
+
+256
+00:10:40,399 --> 00:10:45,279
+thing endpoint get text block okay
+
+257
+00:10:42,959 --> 00:10:47,279
+so here is a code
+
+258
+00:10:45,279 --> 00:10:49,360
+for
+
+259
+00:10:47,279 --> 00:10:52,160
+getting the position of the block okay
+
+260
+00:10:49,360 --> 00:10:54,320
+so actually so let's copy that
+
+261
+00:10:52,160 --> 00:10:56,880
+copy it
+
+262
+00:10:54,320 --> 00:10:56,880
+close that
+
+263
+00:10:58,480 --> 00:11:04,880
+what are we doing select block i want i
+
+264
+00:11:00,880 --> 00:11:04,880
+want to do this quickly
+
+265
+00:11:06,320 --> 00:11:09,920
+yeah
+
+266
+00:11:07,680 --> 00:11:12,079
+so anyway so that's my tutorial okay you
+
+267
+00:11:09,920 --> 00:11:14,959
+like my stuff if you like my stuff buy
+
+268
+00:11:12,079 --> 00:11:18,000
+it okay so for now let's just copy this
+
+269
+00:11:14,959 --> 00:11:19,279
+thing close that okay paste it here
+
+270
+00:11:18,000 --> 00:11:22,399
+uh
+
+271
+00:11:19,279 --> 00:11:24,800
+remove the white space to do that this
+
+272
+00:11:22,399 --> 00:11:27,120
+is the part we want okay
+
+273
+00:11:24,800 --> 00:11:30,000
+paste it here this different we don't
+
+274
+00:11:27,120 --> 00:11:33,839
+need any more purify shrink
+
+275
+00:11:30,000 --> 00:11:36,959
+okay so if region is active okay so
+
+276
+00:11:33,839 --> 00:11:41,640
+forget about region active uh
+
+277
+00:11:36,959 --> 00:11:41,640
+well we'll do that later okay so
+
+278
+00:11:44,000 --> 00:11:48,640
+what if the region is active do we
+
+279
+00:11:49,760 --> 00:11:55,200
+okay let's push on uh let's worry about
+
+280
+00:11:52,480 --> 00:11:58,560
+things later so okay so here's a code
+
+281
+00:11:55,200 --> 00:11:59,760
+that you know you skip character
+
+282
+00:11:58,560 --> 00:12:01,279
+forward
+
+283
+00:11:59,760 --> 00:12:04,720
+to find
+
+284
+00:12:01,279 --> 00:12:07,720
+you know the new line and
+
+285
+00:12:04,720 --> 00:12:07,720
+and
+
+286
+00:12:10,480 --> 00:12:15,440
+and the tab in space so you want to move
+
+287
+00:12:13,600 --> 00:12:17,440
+the cursor to the
+
+288
+00:12:15,440 --> 00:12:19,440
+end of the
+
+289
+00:12:17,440 --> 00:12:25,040
+block okay then
+
+290
+00:12:19,440 --> 00:12:27,920
+you re you search backward this is
+
+291
+00:12:25,040 --> 00:12:30,480
+yeah so so what it it's doing is that
+
+292
+00:12:27,920 --> 00:12:33,920
+you search forward to the
+
+293
+00:12:30,480 --> 00:12:35,040
+end of the end of a sequence of empty
+
+294
+00:12:33,920 --> 00:12:38,000
+lines
+
+295
+00:12:35,040 --> 00:12:39,839
+then you have to move backward to there
+
+296
+00:12:38,000 --> 00:12:42,880
+because that's the end of the block you
+
+297
+00:12:39,839 --> 00:12:43,680
+don't want the position to be that there
+
+298
+00:12:42,880 --> 00:12:46,399
+so
+
+299
+00:12:43,680 --> 00:12:48,720
+so that's why you research
+
+300
+00:12:46,399 --> 00:12:51,720
+backward
+
+301
+00:12:48,720 --> 00:12:51,720
+okay
+
+302
+00:12:53,440 --> 00:12:57,200
+now this this code is not
+
+303
+00:12:57,920 --> 00:13:02,160
+yeah this is better okay so actually
+
+304
+00:13:03,600 --> 00:13:08,079
+it's a it's they are pretty much the
+
+305
+00:13:05,600 --> 00:13:08,079
+same but
+
+306
+00:13:08,240 --> 00:13:12,480
+let me just do it quickly
+
+307
+00:13:10,240 --> 00:13:12,480
+so
+
+308
+00:13:16,399 --> 00:13:18,959
+paste
+
+309
+00:13:17,519 --> 00:13:21,120
+so that
+
+310
+00:13:18,959 --> 00:13:24,880
+okay there
+
+311
+00:13:21,120 --> 00:13:28,560
+so let p1 and p2 are local variables
+
+312
+00:13:24,880 --> 00:13:30,720
+save excursion uh search backward search
+
+313
+00:13:28,560 --> 00:13:33,519
+backward by
+
+314
+00:13:30,720 --> 00:13:36,800
+two or more empty lines
+
+315
+00:13:33,519 --> 00:13:38,240
+and maybe a space or tab inside it
+
+316
+00:13:36,800 --> 00:13:40,560
+then
+
+317
+00:13:38,240 --> 00:13:44,079
+you go to the
+
+318
+00:13:40,560 --> 00:13:46,720
+end of the match and
+
+319
+00:13:44,079 --> 00:13:49,680
+set the p1 that's the beginning
+
+320
+00:13:46,720 --> 00:13:53,320
+position of the
+
+321
+00:13:49,680 --> 00:13:53,320
+block okay
+
+322
+00:14:06,959 --> 00:14:10,880
+okay yeah that's right
+
+323
+00:14:08,959 --> 00:14:13,519
+so
+
+324
+00:14:10,880 --> 00:14:16,000
+if the search is not successful you know
+
+325
+00:14:13,519 --> 00:14:18,480
+if you cannot find a you know so what
+
+326
+00:14:16,000 --> 00:14:20,240
+this code search backward you know like
+
+327
+00:14:18,480 --> 00:14:22,399
+search backward here
+
+328
+00:14:20,240 --> 00:14:26,079
+so you have empty lines there right if
+
+329
+00:14:22,399 --> 00:14:28,480
+you so this line will search backward up
+
+330
+00:14:26,079 --> 00:14:31,480
+and put the cursor there
+
+331
+00:14:28,480 --> 00:14:31,480
+then
+
+332
+00:14:33,440 --> 00:14:40,240
+then you move the character there
+
+333
+00:14:36,000 --> 00:14:41,600
+and set the end position of the match
+
+334
+00:14:40,240 --> 00:14:43,600
+so you
+
+335
+00:14:41,600 --> 00:14:46,079
+you know you search
+
+336
+00:14:43,600 --> 00:14:47,440
+oh god i'm getting i'm getting kind of
+
+337
+00:14:46,079 --> 00:14:48,800
+uh
+
+338
+00:14:47,440 --> 00:14:50,160
+confused
+
+339
+00:14:48,800 --> 00:14:51,920
+good morning guys
+
+340
+00:14:50,160 --> 00:14:54,240
+so
+
+341
+00:14:51,920 --> 00:14:56,000
+so you search
+
+342
+00:14:54,240 --> 00:14:59,839
+you search backward
+
+343
+00:14:56,000 --> 00:14:59,839
+by empty lines
+
+344
+00:15:00,160 --> 00:15:03,839
+two or more empty lines so that means
+
+345
+00:15:02,480 --> 00:15:06,240
+when you do that when you call this
+
+346
+00:15:03,839 --> 00:15:08,399
+command that will move your cursor there
+
+347
+00:15:06,240 --> 00:15:11,199
+then you want to
+
+348
+00:15:08,399 --> 00:15:12,480
+go to the character match end match n0
+
+349
+00:15:11,199 --> 00:15:13,600
+means the whole
+
+350
+00:15:12,480 --> 00:15:17,680
+matched
+
+351
+00:15:13,600 --> 00:15:20,399
+text and uh that's what z in match and
+
+352
+00:15:17,680 --> 00:15:22,160
+zero means the whole matched
+
+353
+00:15:20,399 --> 00:15:24,160
+the position the end position of the
+
+354
+00:15:22,160 --> 00:15:25,760
+whole match stream so
+
+355
+00:15:24,160 --> 00:15:27,600
+that means
+
+356
+00:15:25,760 --> 00:15:29,680
+it's gonna be here because we are
+
+357
+00:15:27,600 --> 00:15:31,120
+searching a bunch of empty
+
+358
+00:15:29,680 --> 00:15:33,680
+lines so
+
+359
+00:15:31,120 --> 00:15:36,399
+the match n0 is
+
+360
+00:15:33,680 --> 00:15:39,279
+over there okay or over here
+
+361
+00:15:36,399 --> 00:15:41,680
+then you you also move the cursor there
+
+362
+00:15:39,279 --> 00:15:44,320
+go to char then you set the position
+
+363
+00:15:41,680 --> 00:15:46,560
+point is the current cruiser position
+
+364
+00:15:44,320 --> 00:15:47,440
+okay it's a number
+
+365
+00:15:46,560 --> 00:15:49,680
+so
+
+366
+00:15:47,440 --> 00:15:52,959
+that's how you set the beginning
+
+367
+00:15:49,680 --> 00:15:54,880
+position of the block okay
+
+368
+00:15:52,959 --> 00:15:57,279
+but however if you
+
+369
+00:15:54,880 --> 00:15:58,160
+if you search backward is failed you
+
+370
+00:15:57,279 --> 00:16:00,480
+know
+
+371
+00:15:58,160 --> 00:16:03,040
+this commands research backward it will
+
+372
+00:16:00,480 --> 00:16:05,440
+return true if it found if it's found if
+
+373
+00:16:03,040 --> 00:16:08,240
+otherwise it returns near so if it
+
+374
+00:16:05,440 --> 00:16:10,160
+failed then you simply set the position
+
+375
+00:16:08,240 --> 00:16:13,440
+one beginning of the block to be the
+
+376
+00:16:10,160 --> 00:16:13,440
+current cursor position
+
+377
+00:16:15,120 --> 00:16:19,440
+so when does when would this happen this
+
+378
+00:16:17,279 --> 00:16:21,440
+would happen if you your current block
+
+379
+00:16:19,440 --> 00:16:23,519
+at is the beginning of a buffer because
+
+380
+00:16:21,440 --> 00:16:26,320
+you don't have empty lines above it so
+
+381
+00:16:23,519 --> 00:16:28,320
+when you don't have empty lines above it
+
+382
+00:16:26,320 --> 00:16:30,160
+you just um
+
+383
+00:16:28,320 --> 00:16:31,839
+you know search backward will move the
+
+384
+00:16:30,160 --> 00:16:34,880
+cursor to
+
+385
+00:16:31,839 --> 00:16:37,120
+to the maximal previous position that it
+
+386
+00:16:34,880 --> 00:16:40,000
+cannot search anymore and
+
+387
+00:16:37,120 --> 00:16:42,560
+it still returns zero because no empty
+
+388
+00:16:40,000 --> 00:16:45,519
+line is found
+
+389
+00:16:42,560 --> 00:16:47,199
+okay so i'm getting it is you know this
+
+390
+00:16:45,519 --> 00:16:50,000
+is getting um
+
+391
+00:16:47,199 --> 00:16:52,320
+take too too much time to expand this so
+
+392
+00:16:50,000 --> 00:16:54,480
+anyway so once you found the beginning
+
+393
+00:16:52,320 --> 00:16:56,639
+position of the block then you do it
+
+394
+00:16:54,480 --> 00:16:58,720
+again you search the end you know you
+
+395
+00:16:56,639 --> 00:17:01,279
+search forward to search the end
+
+396
+00:16:58,720 --> 00:17:04,799
+position of the block okay so
+
+397
+00:17:01,279 --> 00:17:07,520
+so that's how we set p1 and p2 okay so
+
+398
+00:17:04,799 --> 00:17:09,439
+so then the message is we don't care a
+
+399
+00:17:07,520 --> 00:17:11,760
+vector we don't care okay
+
+400
+00:17:09,439 --> 00:17:14,959
+i i talked about this
+
+401
+00:17:11,760 --> 00:17:17,679
+uh in my previous videos many times
+
+402
+00:17:14,959 --> 00:17:19,839
+okay so now we got a beginning position
+
+403
+00:17:17,679 --> 00:17:22,240
+and end position what's the next thing
+
+404
+00:17:19,839 --> 00:17:22,240
+to do
+
+405
+00:17:25,679 --> 00:17:30,000
+the next thing to do
+
+406
+00:17:27,439 --> 00:17:32,080
+is that we need to find the beginning
+
+407
+00:17:30,000 --> 00:17:35,760
+position and end position of the
+
+408
+00:17:32,080 --> 00:17:35,760
+previous block okay
+
+409
+00:17:37,840 --> 00:17:42,640
+yeah we took a lot of time to explain
+
+410
+00:17:40,160 --> 00:17:45,039
+this one um
+
+411
+00:17:42,640 --> 00:17:47,840
+then we gonna do it again so
+
+412
+00:17:45,039 --> 00:17:51,440
+let me write it quickly so go to char
+
+413
+00:17:47,840 --> 00:17:51,440
+go to char p1
+
+414
+00:17:52,320 --> 00:17:57,360
+okay
+
+415
+00:17:53,280 --> 00:17:58,640
+so we gonna declare more variables p1 p2
+
+416
+00:17:57,360 --> 00:18:02,320
+p3
+
+417
+00:17:58,640 --> 00:18:04,960
+p4 p3 and p4 will be the beginning and
+
+418
+00:18:02,320 --> 00:18:06,559
+end position of the previous
+
+419
+00:18:04,960 --> 00:18:09,840
+block okay
+
+420
+00:18:06,559 --> 00:18:10,960
+so go to chart p1 then then do the whole
+
+421
+00:18:09,840 --> 00:18:13,600
+thing again
+
+422
+00:18:10,960 --> 00:18:16,000
+now we are doing inefficient code but
+
+423
+00:18:13,600 --> 00:18:18,080
+this is
+
+424
+00:18:16,000 --> 00:18:20,080
+because i'm doing a video i need to get
+
+425
+00:18:18,080 --> 00:18:22,720
+moving moving on
+
+426
+00:18:20,080 --> 00:18:25,200
+non-stop some action so you know i need
+
+427
+00:18:22,720 --> 00:18:29,840
+to show some action
+
+428
+00:18:25,200 --> 00:18:32,720
+so we go to the beginning of the
+
+429
+00:18:29,840 --> 00:18:35,520
+beginning position of the current block
+
+430
+00:18:32,720 --> 00:18:37,280
+then we do the whole thing again we you
+
+431
+00:18:35,520 --> 00:18:39,919
+know just like before we do the whole
+
+432
+00:18:37,280 --> 00:18:39,919
+thing again
+
+433
+00:18:40,080 --> 00:18:44,160
+that's right then then then you
+
+434
+00:18:43,280 --> 00:18:47,760
+set
+
+435
+00:18:44,160 --> 00:18:49,520
+this is gonna be p3
+
+436
+00:18:47,760 --> 00:18:51,679
+p3
+
+437
+00:18:49,520 --> 00:18:54,080
+and p4
+
+438
+00:18:51,679 --> 00:18:56,799
+p4 okay
+
+439
+00:18:54,080 --> 00:18:59,840
+okay let's just do it quickly then we
+
+440
+00:18:56,799 --> 00:19:01,840
+gonna call this command
+
+441
+00:18:59,840 --> 00:19:05,840
+trans
+
+442
+00:19:01,840 --> 00:19:05,840
+uh we're gonna call command
+
+443
+00:19:07,520 --> 00:19:11,840
+so there is a building there it is
+
+444
+00:19:09,600 --> 00:19:14,559
+transpose regions okay
+
+445
+00:19:11,840 --> 00:19:16,160
+so we're gonna call this command
+
+446
+00:19:14,559 --> 00:19:18,720
+now let's
+
+447
+00:19:16,160 --> 00:19:20,880
+describe function to see what that
+
+448
+00:19:18,720 --> 00:19:22,480
+command does okay the documentation for
+
+449
+00:19:20,880 --> 00:19:25,120
+this command
+
+450
+00:19:22,480 --> 00:19:27,200
+okay so here is the syntax transpose
+
+451
+00:19:25,120 --> 00:19:29,520
+regions
+
+452
+00:19:27,200 --> 00:19:32,400
+start position okay so
+
+453
+00:19:29,520 --> 00:19:34,960
+we are almost done so start position is
+
+454
+00:19:32,400 --> 00:19:38,080
+gonna be p1
+
+455
+00:19:34,960 --> 00:19:42,960
+n position is gonna be p2
+
+456
+00:19:38,080 --> 00:19:44,440
+and p2 okay p1 p2 p3 p4 that's
+
+457
+00:19:42,960 --> 00:19:49,280
+so we swap
+
+458
+00:19:44,440 --> 00:19:50,559
+p1p2 region 2 p3 and p4
+
+459
+00:19:49,280 --> 00:19:55,039
+and the
+
+460
+00:19:50,559 --> 00:19:57,039
+optional leave markers no okay
+
+461
+00:19:55,039 --> 00:20:00,480
+okay that's i think that's it for our
+
+462
+00:19:57,039 --> 00:20:00,480
+command it should work
+
+463
+00:20:00,559 --> 00:20:06,400
+transpose block yep
+
+464
+00:20:02,880 --> 00:20:10,640
+okay so now
+
+465
+00:20:06,400 --> 00:20:12,480
+evaluate the buffer okay you can see the
+
+466
+00:20:10,640 --> 00:20:16,720
+the command i call there
+
+467
+00:20:12,480 --> 00:20:16,720
+so now let's just try it okay so
+
+468
+00:20:16,880 --> 00:20:22,320
+okay so let's copy
+
+469
+00:20:18,880 --> 00:20:25,280
+this and create a new buffer paste it
+
+470
+00:20:22,320 --> 00:20:27,200
+there magnify so you can see
+
+471
+00:20:25,280 --> 00:20:29,039
+we have
+
+472
+00:20:27,200 --> 00:20:30,640
+something
+
+473
+00:20:29,039 --> 00:20:33,760
+here
+
+474
+00:20:30,640 --> 00:20:36,880
+and some else okay so each one of these
+
+475
+00:20:33,760 --> 00:20:39,440
+is a paragraph i mean it's a block okay
+
+476
+00:20:36,880 --> 00:20:41,360
+so first of all let's put so we're gonna
+
+477
+00:20:39,440 --> 00:20:42,559
+call the command it should swap these
+
+478
+00:20:41,360 --> 00:20:44,559
+two okay
+
+479
+00:20:42,559 --> 00:20:46,640
+so
+
+480
+00:20:44,559 --> 00:20:49,200
+transpose block
+
+481
+00:20:46,640 --> 00:20:51,440
+please
+
+482
+00:20:49,200 --> 00:20:53,919
+what
+
+483
+00:20:51,440 --> 00:20:56,640
+did it work this function
+
+484
+00:20:53,919 --> 00:20:59,760
+okay this function
+
+485
+00:20:56,640 --> 00:21:03,200
+then normally okay so it did not work
+
+486
+00:20:59,760 --> 00:21:05,120
+let's do it again exact transpose block
+
+487
+00:21:03,200 --> 00:21:08,400
+do it
+
+488
+00:21:05,120 --> 00:21:12,400
+symbols values variable is void p1 okay
+
+489
+00:21:08,400 --> 00:21:15,840
+we gotta we got error so you can see
+
+490
+00:21:12,400 --> 00:21:18,320
+that's the errors in messages buffers
+
+491
+00:21:15,840 --> 00:21:21,039
+symbols value as variable is void okay
+
+492
+00:21:18,320 --> 00:21:21,039
+let's fix it
+
+493
+00:21:26,320 --> 00:21:33,440
+oh yeah so you need to put the transpose
+
+494
+00:21:28,799 --> 00:21:33,440
+code inside the let that's why
+
+495
+00:21:35,440 --> 00:21:38,480
+there it is okay
+
+496
+00:21:39,200 --> 00:21:42,480
+comment it out so
+
+497
+00:21:43,120 --> 00:21:47,280
+okay so
+
+498
+00:21:44,480 --> 00:21:48,240
+evolve the buffer again back to the test
+
+499
+00:21:47,280 --> 00:21:51,760
+code
+
+500
+00:21:48,240 --> 00:21:52,880
+now call our command transpose block
+
+501
+00:21:51,760 --> 00:21:55,200
+do it
+
+502
+00:21:52,880 --> 00:21:55,200
+yeah
+
+503
+00:21:55,440 --> 00:22:00,400
+okay it says transpose regions overlap
+
+504
+00:21:59,120 --> 00:22:02,480
+so that means
+
+505
+00:22:00,400 --> 00:22:03,760
+we didn't get our position correctly
+
+506
+00:22:02,480 --> 00:22:06,880
+because
+
+507
+00:22:03,760 --> 00:22:11,120
+the region overlapped okay so
+
+508
+00:22:06,880 --> 00:22:11,120
+so let's go back here to fix our code
+
+509
+00:22:11,200 --> 00:22:14,159
+so first of all
+
+510
+00:22:16,400 --> 00:22:23,440
+don't save excursion okay so you you see
+
+511
+00:22:19,520 --> 00:22:26,159
+that saves excursion that means
+
+512
+00:22:23,440 --> 00:22:28,159
+whenever you move cruiser in when you
+
+513
+00:22:26,159 --> 00:22:30,400
+code emac this when you are moving
+
+514
+00:22:28,159 --> 00:22:32,880
+closer such as we are doing you know go
+
+515
+00:22:30,400 --> 00:22:35,200
+to chat and so on usually usually when
+
+516
+00:22:32,880 --> 00:22:37,200
+your command finishes you want the
+
+517
+00:22:35,200 --> 00:22:40,240
+cursor to be
+
+518
+00:22:37,200 --> 00:22:41,360
+at wherever you know before the command
+
+519
+00:22:40,240 --> 00:22:43,840
+begin
+
+520
+00:22:41,360 --> 00:22:45,440
+so that user don't confuse you know user
+
+521
+00:22:43,840 --> 00:22:47,600
+calls your command then
+
+522
+00:22:45,440 --> 00:22:50,080
+the cursor goes to somewhere else you
+
+523
+00:22:47,600 --> 00:22:52,320
+know so
+
+524
+00:22:50,080 --> 00:22:53,679
+in that situation you want to call save
+
+525
+00:22:52,320 --> 00:22:58,000
+excursion
+
+526
+00:22:53,679 --> 00:22:59,760
+what it what you'll do is that
+
+527
+00:22:58,000 --> 00:23:02,240
+you can look at the documentation save
+
+528
+00:22:59,760 --> 00:23:03,120
+excursion what you'll do is that you'll
+
+529
+00:23:02,240 --> 00:23:05,360
+run
+
+530
+00:23:03,120 --> 00:23:07,760
+whatever the code and when it's done
+
+531
+00:23:05,360 --> 00:23:09,520
+you'll return the cursor to the
+
+532
+00:23:07,760 --> 00:23:12,080
+original position
+
+533
+00:23:09,520 --> 00:23:14,640
+so in here in our case we don't need it
+
+534
+00:23:12,080 --> 00:23:14,640
+okay so
+
+535
+00:23:15,520 --> 00:23:20,080
+so let's just replace it by program n
+
+536
+00:23:18,480 --> 00:23:23,520
+that's just a
+
+537
+00:23:20,080 --> 00:23:26,720
+group okay
+
+538
+00:23:23,520 --> 00:23:29,600
+okay so what is what is going on so so
+
+539
+00:23:26,720 --> 00:23:29,600
+we are doing so
+
+540
+00:23:33,840 --> 00:23:42,720
+go to char okay then go to chart p1
+
+541
+00:23:38,880 --> 00:23:42,720
+go to chart p1
+
+542
+00:23:46,080 --> 00:23:51,840
+okay so we don't want to go to chart p1
+
+543
+00:23:48,400 --> 00:23:51,840
+we want to
+
+544
+00:23:53,840 --> 00:23:58,799
+so p1 is the beginning of the block okay
+
+545
+00:23:57,279 --> 00:24:01,679
+so
+
+546
+00:23:58,799 --> 00:24:05,400
+p1 is the beginning position of the
+
+547
+00:24:01,679 --> 00:24:05,400
+current block
+
+548
+00:24:06,880 --> 00:24:14,559
+so we got p1 and p2 is the beginning and
+
+549
+00:24:10,480 --> 00:24:14,559
+end position of the current block
+
+550
+00:24:14,720 --> 00:24:22,400
+now you want
+
+551
+00:24:16,840 --> 00:24:22,400
+to okay the easiest way is just um
+
+552
+00:24:23,440 --> 00:24:27,600
+okay once you do once you've done that
+
+553
+00:24:26,159 --> 00:24:34,400
+then you go to
+
+554
+00:24:27,600 --> 00:24:34,400
+p1 then you search backward again to
+
+555
+00:24:35,120 --> 00:24:37,840
+to the
+
+556
+00:24:41,840 --> 00:24:50,240
+to this is essentially the end of
+
+557
+00:24:45,840 --> 00:24:52,720
+previous block okay so set
+
+558
+00:24:50,240 --> 00:24:55,039
+p4 okay
+
+559
+00:24:52,720 --> 00:24:57,279
+point okay so actually we don't need
+
+560
+00:24:55,039 --> 00:24:57,279
+this
+
+561
+00:24:57,760 --> 00:25:03,039
+then you do it again search backward
+
+562
+00:25:01,200 --> 00:25:05,360
+actually uh
+
+563
+00:25:03,039 --> 00:25:05,360
+you know
+
+564
+00:25:07,200 --> 00:25:12,159
+yeah this should work okay so but the
+
+565
+00:25:10,000 --> 00:25:15,840
+problem is
+
+566
+00:25:12,159 --> 00:25:15,840
+okay so this should work okay
+
+567
+00:25:17,600 --> 00:25:23,600
+you know you go to the p1 is the
+
+568
+00:25:20,080 --> 00:25:28,720
+beginning position of the current block
+
+569
+00:25:23,600 --> 00:25:31,120
+then you search backward for empty lines
+
+570
+00:25:28,720 --> 00:25:34,159
+that will move the cursor to there then
+
+571
+00:25:31,120 --> 00:25:36,960
+you said p2 so this is this is
+
+572
+00:25:34,159 --> 00:25:40,000
+i mean you said p4 so p4 is
+
+573
+00:25:36,960 --> 00:25:43,200
+means the end position of the previous
+
+574
+00:25:40,000 --> 00:25:44,559
+block okay then you do backward search
+
+575
+00:25:43,200 --> 00:25:45,840
+again
+
+576
+00:25:44,559 --> 00:25:47,440
+for the
+
+577
+00:25:45,840 --> 00:25:51,520
+empty lines
+
+578
+00:25:47,440 --> 00:25:51,520
+then you want to set um
+
+579
+00:25:51,840 --> 00:25:56,799
+then you want to set match end okay so
+
+580
+00:25:54,640 --> 00:26:00,640
+actually i'm not i don't think i'm not
+
+581
+00:25:56,799 --> 00:26:00,640
+sure i'm doing a good explanation
+
+582
+00:26:04,000 --> 00:26:09,039
+said p3 to match n yeah so this code
+
+583
+00:26:07,360 --> 00:26:12,880
+will work but
+
+584
+00:26:09,039 --> 00:26:15,520
+it's not robust let me explain why okay
+
+585
+00:26:12,880 --> 00:26:16,480
+because this code will not work when you
+
+586
+00:26:15,520 --> 00:26:18,960
+have
+
+587
+00:26:16,480 --> 00:26:21,360
+a situation like this when you have a
+
+588
+00:26:18,960 --> 00:26:23,039
+block that doesn't have empty lines
+
+589
+00:26:21,360 --> 00:26:25,919
+above it
+
+590
+00:26:23,039 --> 00:26:27,919
+uh for example when your text is
+
+591
+00:26:25,919 --> 00:26:30,320
+at the beginning of buffer or when your
+
+592
+00:26:27,919 --> 00:26:32,799
+text is at the end of buffer where
+
+593
+00:26:30,320 --> 00:26:33,919
+there's no empty lines below it or above
+
+594
+00:26:32,799 --> 00:26:36,720
+it
+
+595
+00:26:33,919 --> 00:26:39,039
+so this code we need to fix
+
+596
+00:26:36,720 --> 00:26:42,240
+okay so go back here let's try it okay
+
+597
+00:26:39,039 --> 00:26:44,320
+first of all evaluate it go here now we
+
+598
+00:26:42,240 --> 00:26:48,880
+call the command now it should work
+
+599
+00:26:44,320 --> 00:26:51,679
+do it yeah it worked okay now undo
+
+600
+00:26:48,880 --> 00:26:53,520
+but you see if i remove if i remove the
+
+601
+00:26:51,679 --> 00:26:56,559
+empty lines at the beginning you know so
+
+602
+00:26:53,520 --> 00:26:58,640
+there's no empty lines before this block
+
+603
+00:26:56,559 --> 00:27:00,799
+then it will not work for example let's
+
+604
+00:26:58,640 --> 00:27:03,520
+try it do it
+
+605
+00:27:00,799 --> 00:27:05,520
+transpose block yeah it worked but you
+
+606
+00:27:03,520 --> 00:27:06,559
+see it got screwed up it you know the
+
+607
+00:27:05,520 --> 00:27:09,679
+two
+
+608
+00:27:06,559 --> 00:27:11,520
+paragraphs become merged
+
+609
+00:27:09,679 --> 00:27:12,720
+so
+
+610
+00:27:11,520 --> 00:27:14,960
+so let's
+
+611
+00:27:12,720 --> 00:27:16,880
+go back and fix this command okay
+
+612
+00:27:14,960 --> 00:27:18,960
+actually in order to do this we have to
+
+613
+00:27:16,880 --> 00:27:21,039
+think you know we cannot just like push
+
+614
+00:27:18,960 --> 00:27:23,360
+on and code you know give you guys
+
+615
+00:27:21,039 --> 00:27:25,840
+activity all the time we need to think
+
+616
+00:27:23,360 --> 00:27:26,559
+about it
+
+617
+00:27:25,840 --> 00:27:29,120
+so
+
+618
+00:27:26,559 --> 00:27:30,640
+uh two people watching okay so let's fix
+
+619
+00:27:29,120 --> 00:27:33,120
+this
+
+620
+00:27:30,640 --> 00:27:37,600
+transpose so let's fix this we need to
+
+621
+00:27:33,120 --> 00:27:37,600
+think about this okay p1 and p2
+
+622
+00:27:38,399 --> 00:27:43,679
+and p3 and p4 okay uh
+
+623
+00:27:41,840 --> 00:27:45,919
+so let's name them
+
+624
+00:27:43,679 --> 00:27:48,720
+instead of p1 and p2 let's then name
+
+625
+00:27:45,919 --> 00:27:52,000
+them name them something to be
+
+626
+00:27:48,720 --> 00:27:52,000
+more intuitive
+
+627
+00:28:01,440 --> 00:28:05,200
+current block end okay
+
+628
+00:28:13,600 --> 00:28:18,559
+p uh
+
+629
+00:28:15,120 --> 00:28:18,559
+current block p2
+
+630
+00:28:20,159 --> 00:28:25,960
+let's just say begin
+
+631
+00:28:22,399 --> 00:28:25,960
+end okay
+
+632
+00:28:31,600 --> 00:28:33,919
+then
+
+633
+00:28:36,559 --> 00:28:42,480
+previous block begin previous block end
+
+634
+00:28:39,520 --> 00:28:45,200
+okay that's much more readable
+
+635
+00:28:42,480 --> 00:28:48,720
+now
+
+636
+00:28:45,200 --> 00:28:48,720
+now we want to find
+
+637
+00:28:51,840 --> 00:28:56,960
+let's
+
+638
+00:28:54,159 --> 00:29:01,039
+let's remove the redundant
+
+639
+00:28:56,960 --> 00:29:01,039
+okay remove that okay
+
+640
+00:29:05,120 --> 00:29:09,840
+so current block begin current blocking
+
+641
+00:29:07,520 --> 00:29:13,840
+so first of all search backward search
+
+642
+00:29:09,840 --> 00:29:13,840
+backwards search empty lines
+
+643
+00:29:16,000 --> 00:29:20,080
+okay
+
+644
+00:29:17,360 --> 00:29:22,640
+so we have the
+
+645
+00:29:20,080 --> 00:29:22,640
+so then
+
+646
+00:29:22,880 --> 00:29:27,559
+so if it's found then
+
+647
+00:29:33,200 --> 00:29:37,120
+match beginning
+
+648
+00:29:36,000 --> 00:29:40,120
+0
+
+649
+00:29:37,120 --> 00:29:40,120
+is
+
+650
+00:29:43,440 --> 00:29:48,240
+set
+
+651
+00:29:44,640 --> 00:29:48,240
+previous block end
+
+652
+00:29:50,000 --> 00:29:56,559
+previous block end let's match beginning
+
+653
+00:29:54,320 --> 00:29:57,679
+zero yes
+
+654
+00:29:56,559 --> 00:30:00,080
+then
+
+655
+00:29:57,679 --> 00:30:00,080
+set
+
+656
+00:30:06,000 --> 00:30:11,679
+current block begin
+
+657
+00:30:08,960 --> 00:30:14,720
+that's match end
+
+658
+00:30:11,679 --> 00:30:14,720
+zero that's right
+
+659
+00:30:16,000 --> 00:30:21,039
+so that is if it's found okay so then
+
+660
+00:30:18,960 --> 00:30:24,559
+let's remove that
+
+661
+00:30:21,039 --> 00:30:25,600
+remove set point okay
+
+662
+00:30:24,559 --> 00:30:27,520
+so
+
+663
+00:30:25,600 --> 00:30:30,480
+if you found
+
+664
+00:30:27,520 --> 00:30:31,760
+the empty lines before the cursor
+
+665
+00:30:30,480 --> 00:30:34,000
+then
+
+666
+00:30:31,760 --> 00:30:36,720
+the beginning of empty lines
+
+667
+00:30:34,000 --> 00:30:39,679
+is the previous block end
+
+668
+00:30:36,720 --> 00:30:42,960
+the end of empty lines is current block
+
+669
+00:30:39,679 --> 00:30:42,960
+begin that's right
+
+670
+00:30:44,159 --> 00:30:46,240
+but
+
+671
+00:30:45,200 --> 00:30:48,080
+if
+
+672
+00:30:46,240 --> 00:30:51,840
+there is no empty lines above the
+
+673
+00:30:48,080 --> 00:30:51,840
+cruiser then
+
+674
+00:30:52,000 --> 00:30:56,159
+and then basically you just error out
+
+675
+00:30:54,159 --> 00:31:00,760
+because you you don't have the previous
+
+676
+00:30:56,159 --> 00:31:00,760
+block to swap too okay
+
+677
+00:31:06,640 --> 00:31:09,440
+so
+
+678
+00:31:07,519 --> 00:31:12,440
+you're gonna say
+
+679
+00:31:09,440 --> 00:31:12,440
+hero
+
+680
+00:31:27,840 --> 00:31:32,360
+no no previous block
+
+681
+00:31:34,960 --> 00:31:37,279
+okay
+
+682
+00:31:39,440 --> 00:31:42,000
+so that
+
+683
+00:31:42,399 --> 00:31:47,840
+is that is that okay
+
+684
+00:31:44,880 --> 00:31:47,840
+now
+
+685
+00:31:48,799 --> 00:31:54,760
+now you go to char move the cursor to
+
+686
+00:32:01,279 --> 00:32:07,120
+now you
+
+687
+00:32:03,360 --> 00:32:07,120
+you move the cursor to
+
+688
+00:32:12,720 --> 00:32:15,760
+current block begin
+
+689
+00:32:14,559 --> 00:32:18,080
+okay
+
+690
+00:32:15,760 --> 00:32:18,080
+then
+
+691
+00:32:19,519 --> 00:32:25,960
+then you search forward okay
+
+692
+00:32:22,640 --> 00:32:25,960
+then you
+
+693
+00:32:30,480 --> 00:32:35,039
+not search backwards search forward okay
+
+694
+00:32:36,399 --> 00:32:40,480
+then you search forward for empty lines
+
+695
+00:32:39,519 --> 00:32:42,399
+okay
+
+696
+00:32:40,480 --> 00:32:44,480
+so you move the cursor to the current
+
+697
+00:32:42,399 --> 00:32:47,200
+block begin then you search forward for
+
+698
+00:32:44,480 --> 00:32:47,200
+empty lines
+
+699
+00:32:47,919 --> 00:32:51,880
+okay let's add a
+
+700
+00:32:58,320 --> 00:33:02,000
+conclusive position okay
+
+701
+00:33:02,880 --> 00:33:05,200
+okay
+
+702
+00:33:05,279 --> 00:33:10,039
+so current
+
+703
+00:33:06,399 --> 00:33:10,039
+you go to
+
+704
+00:33:10,320 --> 00:33:14,880
+conclusive position
+
+705
+00:33:12,159 --> 00:33:17,360
+then you search forward
+
+706
+00:33:14,880 --> 00:33:18,880
+you want to find the current the the
+
+707
+00:33:17,360 --> 00:33:21,519
+position
+
+708
+00:33:18,880 --> 00:33:24,399
+the end position of the current block so
+
+709
+00:33:21,519 --> 00:33:26,080
+you do that by search empty lines
+
+710
+00:33:24,399 --> 00:33:30,080
+now if you found it
+
+711
+00:33:26,080 --> 00:33:30,080
+okay now if you found it then
+
+712
+00:33:35,200 --> 00:33:41,760
+then that's the current block end
+
+713
+00:33:37,840 --> 00:33:43,679
+position okay so you want to say region
+
+714
+00:33:41,760 --> 00:33:45,120
+match begin
+
+715
+00:33:43,679 --> 00:33:47,440
+zero okay
+
+716
+00:33:45,120 --> 00:33:48,880
+so that is the current
+
+717
+00:33:47,440 --> 00:33:53,039
+block end
+
+718
+00:33:48,880 --> 00:33:55,840
+now if you did not find it
+
+719
+00:33:53,039 --> 00:34:00,279
+then it's just the max position okay if
+
+720
+00:33:55,840 --> 00:34:00,279
+you did not find it then
+
+721
+00:34:10,079 --> 00:34:12,800
+point okay
+
+722
+00:34:13,599 --> 00:34:20,720
+so let's let's clean out the code so
+
+723
+00:34:16,960 --> 00:34:24,879
+let's um yeah let's let's remove this
+
+724
+00:34:20,720 --> 00:34:24,879
+uh clean out the code here
+
+725
+00:34:26,720 --> 00:34:30,200
+okay so
+
+726
+00:34:34,800 --> 00:34:39,760
+so we got now current block end and
+
+727
+00:34:41,919 --> 00:34:48,079
+yeah we set the current block in okay so
+
+728
+00:34:44,800 --> 00:34:51,359
+now we got
+
+729
+00:34:48,079 --> 00:34:55,200
+block begin we got current block end and
+
+730
+00:34:51,359 --> 00:34:58,800
+now we also have previous blocking now
+
+731
+00:34:55,200 --> 00:34:58,800
+so now we just go to
+
+732
+00:35:01,520 --> 00:35:05,520
+previous block end
+
+733
+00:35:03,920 --> 00:35:08,160
+then
+
+734
+00:35:05,520 --> 00:35:09,680
+we search backward
+
+735
+00:35:08,160 --> 00:35:12,880
+so copy
+
+736
+00:35:09,680 --> 00:35:14,320
+basically copy this
+
+737
+00:35:12,880 --> 00:35:17,680
+okay so we
+
+738
+00:35:14,320 --> 00:35:19,359
+now we move the cursor to the previous
+
+739
+00:35:17,680 --> 00:35:21,200
+block end
+
+740
+00:35:19,359 --> 00:35:24,720
+okay
+
+741
+00:35:21,200 --> 00:35:27,359
+then we search backward for empty lines
+
+742
+00:35:24,720 --> 00:35:28,839
+okay we search backward backward for
+
+743
+00:35:27,359 --> 00:35:32,640
+empty lines
+
+744
+00:35:28,839 --> 00:35:36,960
+now if you found empty lines
+
+745
+00:35:32,640 --> 00:35:36,960
+that's great then you set
+
+746
+00:35:38,640 --> 00:35:42,320
+previous block begin
+
+747
+00:35:42,839 --> 00:35:47,200
+to match end
+
+748
+00:35:45,680 --> 00:35:49,200
+zero
+
+749
+00:35:47,200 --> 00:35:51,920
+that's right
+
+750
+00:35:49,200 --> 00:35:54,560
+okay then you don't need this okay so if
+
+751
+00:35:51,920 --> 00:35:56,839
+you found empty lines
+
+752
+00:35:54,560 --> 00:35:58,400
+in the previous block
+
+753
+00:35:56,839 --> 00:36:03,520
+then
+
+754
+00:35:58,400 --> 00:36:05,920
+the end position of the match of is the
+
+755
+00:36:03,520 --> 00:36:08,480
+previous block begin that's right
+
+756
+00:36:05,920 --> 00:36:11,480
+however if you did not find it
+
+757
+00:36:08,480 --> 00:36:11,480
+then
+
+758
+00:36:14,400 --> 00:36:20,400
+then you just set the previous block
+
+759
+00:36:17,200 --> 00:36:20,400
+begin to be
+
+760
+00:36:21,040 --> 00:36:24,960
+current point position conclusive
+
+761
+00:36:22,880 --> 00:36:27,520
+position okay
+
+762
+00:36:24,960 --> 00:36:30,560
+that's it that's uh that's that's it for
+
+763
+00:36:27,520 --> 00:36:32,640
+the code eva eval buffer
+
+764
+00:36:30,560 --> 00:36:36,359
+so now we evaluate the buffer so that
+
+765
+00:36:32,640 --> 00:36:36,359
+should work okay
+
+766
+00:36:41,359 --> 00:36:46,240
+okay
+
+767
+00:36:43,520 --> 00:36:48,800
+let's go back to the test okay
+
+768
+00:36:46,240 --> 00:36:48,800
+so now
+
+769
+00:36:50,000 --> 00:36:55,520
+if there is a let's remove the empties
+
+770
+00:36:53,119 --> 00:36:57,359
+so let's call the command
+
+771
+00:36:55,520 --> 00:36:59,760
+transpose vlog
+
+772
+00:36:57,359 --> 00:37:01,599
+do it
+
+773
+00:36:59,760 --> 00:37:05,119
+symbols value is
+
+774
+00:37:01,599 --> 00:37:07,280
+void p1 okay yeah
+
+775
+00:37:05,119 --> 00:37:11,119
+where is p1 oh yeah
+
+776
+00:37:07,280 --> 00:37:11,119
+p1 p2 we need to change that
+
+777
+00:37:11,680 --> 00:37:16,079
+okay let's rename the let's rename
+
+778
+00:37:21,440 --> 00:37:27,280
+let's rename this
+
+779
+00:37:24,480 --> 00:37:32,480
+okay current block begin let's rename it
+
+780
+00:37:27,280 --> 00:37:32,480
+to bp1 okay so because it's shorter
+
+781
+00:37:32,560 --> 00:37:38,480
+okay
+
+782
+00:37:33,599 --> 00:37:40,400
+current block end let's let's name it
+
+783
+00:37:38,480 --> 00:37:42,640
+so p1
+
+784
+00:37:40,400 --> 00:37:42,640
+is
+
+785
+00:37:45,280 --> 00:37:49,520
+okay
+
+786
+00:37:46,560 --> 00:37:51,839
+current block n will be named rename p2
+
+787
+00:37:49,520 --> 00:37:51,839
+okay
+
+788
+00:37:55,280 --> 00:37:57,599
+okay
+
+789
+00:38:02,480 --> 00:38:06,560
+okay
+
+790
+00:38:03,440 --> 00:38:10,680
+and previous block begin
+
+791
+00:38:06,560 --> 00:38:10,680
+is p3 okay
+
+792
+00:38:18,160 --> 00:38:20,560
+okay
+
+793
+00:38:24,640 --> 00:38:29,720
+and previous block end is p4
+
+794
+00:38:43,680 --> 00:38:48,560
+predefine the code
+
+795
+00:38:46,720 --> 00:38:50,160
+okay
+
+796
+00:38:48,560 --> 00:38:51,920
+that's good
+
+797
+00:38:50,160 --> 00:38:54,560
+evaluate it
+
+798
+00:38:51,920 --> 00:38:56,160
+back to the test
+
+799
+00:38:54,560 --> 00:38:57,920
+page
+
+800
+00:38:56,160 --> 00:39:01,839
+move the cursor here
+
+801
+00:38:57,920 --> 00:39:01,839
+call it transpose block
+
+802
+00:39:06,000 --> 00:39:09,599
+do it
+
+803
+00:39:06,960 --> 00:39:10,640
+fantastic it works
+
+804
+00:39:09,599 --> 00:39:14,160
+undo
+
+805
+00:39:10,640 --> 00:39:16,720
+now let's remove the empty lines
+
+806
+00:39:14,160 --> 00:39:19,760
+now let's do it again call it
+
+807
+00:39:16,720 --> 00:39:19,760
+transpose block
+
+808
+00:39:20,720 --> 00:39:25,119
+it worked
+
+809
+00:39:21,920 --> 00:39:27,760
+it worked except that it
+
+810
+00:39:25,119 --> 00:39:30,400
+kind of moved the buffer i mean let's
+
+811
+00:39:27,760 --> 00:39:30,400
+try it again
+
+812
+00:39:31,839 --> 00:39:38,079
+you know actually let's just say a and
+
+813
+00:39:35,440 --> 00:39:41,640
+bbb okay so now it's
+
+814
+00:39:38,079 --> 00:39:41,640
+simpler okay
+
+815
+00:39:47,920 --> 00:39:51,680
+call it
+
+816
+00:39:49,280 --> 00:39:51,680
+do it
+
+817
+00:39:51,760 --> 00:39:57,079
+okay it move the cruiser you see it
+
+818
+00:39:57,520 --> 00:40:00,720
+let's put something
+
+819
+00:40:01,680 --> 00:40:07,839
+do it go ahead do it it worked
+
+820
+00:40:05,440 --> 00:40:09,359
+move the cursor here call it
+
+821
+00:40:07,839 --> 00:40:11,839
+it works
+
+822
+00:40:09,359 --> 00:40:13,280
+but when you don't have empty lines
+
+823
+00:40:11,839 --> 00:40:14,720
+above it
+
+824
+00:40:13,280 --> 00:40:17,119
+call it
+
+825
+00:40:14,720 --> 00:40:17,119
+do it
+
+826
+00:40:17,760 --> 00:40:21,680
+it
+
+827
+00:40:19,119 --> 00:40:26,240
+it worked but however it moved the
+
+828
+00:40:21,680 --> 00:40:26,240
+cruiser i mean it moved the
+
+829
+00:40:27,760 --> 00:40:31,040
+it moved the
+
+830
+00:40:29,090 --> 00:40:33,359
+[Music]
+
+831
+00:40:31,040 --> 00:40:35,680
+let's see what's going on so
+
+832
+00:40:33,359 --> 00:40:36,880
+let's
+
+833
+00:40:35,680 --> 00:40:39,839
+call it
+
+834
+00:40:36,880 --> 00:40:39,839
+do it
+
+835
+00:40:42,560 --> 00:40:45,440
+it worked
+
+836
+00:40:46,480 --> 00:40:52,720
+but it puts the
+
+837
+00:40:49,920 --> 00:40:57,119
+it scrolls the buffer so that your
+
+838
+00:40:52,720 --> 00:40:59,040
+cruiser position is at the top we
+
+839
+00:40:57,119 --> 00:41:00,880
+uh
+
+840
+00:40:59,040 --> 00:41:02,720
+i don't know what's going on right well
+
+841
+00:41:00,880 --> 00:41:05,119
+i mean
+
+842
+00:41:02,720 --> 00:41:06,640
+let's do it over here okay
+
+843
+00:41:05,119 --> 00:41:08,880
+do it
+
+844
+00:41:06,640 --> 00:41:11,119
+yeah you see
+
+845
+00:41:08,880 --> 00:41:13,520
+do it
+
+846
+00:41:11,119 --> 00:41:15,680
+okay that's kind of worked so now let's
+
+847
+00:41:13,520 --> 00:41:16,880
+go back okay so let's
+
+848
+00:41:15,680 --> 00:41:20,119
+let's
+
+849
+00:41:16,880 --> 00:41:20,119
+do it
+
+850
+00:41:21,280 --> 00:41:23,760
+do it
+
+851
+00:41:25,200 --> 00:41:31,760
+okay so after it transpose
+
+852
+00:41:28,160 --> 00:41:31,760
+it moves the cursor
+
+853
+00:41:32,480 --> 00:41:35,480
+it's
+
+854
+00:41:36,960 --> 00:41:43,760
+let's try this okay so this way
+
+855
+00:41:40,400 --> 00:41:43,760
+so we call it
+
+856
+00:41:44,720 --> 00:41:49,480
+what
+
+857
+00:41:45,920 --> 00:41:49,480
+we call it
+
+858
+00:41:50,880 --> 00:41:57,119
+it moves the cruiser all the way to the
+
+859
+00:41:53,599 --> 00:41:57,119
+top now why is that
+
+860
+00:41:59,200 --> 00:42:05,839
+okay so yeah so we need to save
+
+861
+00:42:02,400 --> 00:42:08,800
+excursion to save to save cursor so save
+
+862
+00:42:05,839 --> 00:42:08,800
+excursion okay
+
+863
+00:42:13,119 --> 00:42:16,880
+not
+
+864
+00:42:14,319 --> 00:42:18,400
+start moving cursor okay
+
+865
+00:42:16,880 --> 00:42:19,599
+you are region
+
+866
+00:42:18,400 --> 00:42:23,520
+back here
+
+867
+00:42:19,599 --> 00:42:23,520
+let's call it again do it
+
+868
+00:42:23,920 --> 00:42:27,760
+fantastic
+
+869
+00:42:26,640 --> 00:42:29,760
+do it
+
+870
+00:42:27,760 --> 00:42:32,079
+fantastic now do it again
+
+871
+00:42:29,760 --> 00:42:34,480
+you should swap with that
+
+872
+00:42:32,079 --> 00:42:37,440
+do it again
+
+873
+00:42:34,480 --> 00:42:39,040
+fantastic now it's now it's fantastic
+
+874
+00:42:37,440 --> 00:42:42,560
+it's complete our
+
+875
+00:42:39,040 --> 00:42:44,480
+code is working correctly and good great
+
+876
+00:42:42,560 --> 00:42:46,720
+let's try it over here
+
+877
+00:42:44,480 --> 00:42:49,520
+without empty lines
+
+878
+00:42:46,720 --> 00:42:52,880
+below okay
+
+879
+00:42:49,520 --> 00:42:55,280
+it should you know swap with that okay
+
+880
+00:42:52,880 --> 00:42:55,280
+do it
+
+881
+00:42:56,480 --> 00:43:00,720
+uh i failed
+
+882
+00:42:58,480 --> 00:43:00,720
+what
+
+883
+00:43:05,599 --> 00:43:13,400
+now if there's empty lines to it
+
+884
+00:43:09,520 --> 00:43:13,400
+it okay so
+
+885
+00:43:13,520 --> 00:43:19,280
+it failed because
+
+886
+00:43:16,240 --> 00:43:20,240
+okay so here's what happens it will fail
+
+887
+00:43:19,280 --> 00:43:22,720
+when
+
+888
+00:43:20,240 --> 00:43:25,440
+when there's more than two empty lines
+
+889
+00:43:22,720 --> 00:43:26,960
+okay let's see
+
+890
+00:43:25,440 --> 00:43:29,760
+call it
+
+891
+00:43:26,960 --> 00:43:32,880
+do it yeah it fails when there's more
+
+892
+00:43:29,760 --> 00:43:35,760
+more than two empty lines to it
+
+893
+00:43:32,880 --> 00:43:39,000
+yeah so now let's go back to the code
+
+894
+00:43:35,760 --> 00:43:39,000
+and fix
+
+895
+00:43:46,800 --> 00:43:53,800
+it failed it fails when there's more
+
+896
+00:43:49,680 --> 00:43:53,800
+than two empty lines
+
+897
+00:43:57,440 --> 00:44:01,760
+oh yeah so you need to yes that's right
+
+898
+00:44:01,839 --> 00:44:05,440
+uh
+
+899
+00:44:02,640 --> 00:44:09,760
+empty line empty line slap backslash n
+
+900
+00:44:05,440 --> 00:44:12,720
+you need to put a plus uh wait
+
+901
+00:44:09,760 --> 00:44:14,079
+yeah you need to put a z zero or more
+
+902
+00:44:12,720 --> 00:44:17,440
+that's right
+
+903
+00:44:14,079 --> 00:44:21,880
+zero or more which is uh asterisk sign
+
+904
+00:44:17,440 --> 00:44:21,880
+to make it zero or more
+
+905
+00:44:23,280 --> 00:44:28,880
+that's right
+
+906
+00:44:24,880 --> 00:44:28,880
+okay and over here it's the same
+
+907
+00:44:29,040 --> 00:44:35,280
+okay and over here it's the same
+
+908
+00:44:31,760 --> 00:44:37,359
+evaluate the code back to our test test
+
+909
+00:44:35,280 --> 00:44:39,760
+page
+
+910
+00:44:37,359 --> 00:44:41,520
+put more empty lines there
+
+911
+00:44:39,760 --> 00:44:43,920
+move the cursor here
+
+912
+00:44:41,520 --> 00:44:43,920
+try it
+
+913
+00:44:45,119 --> 00:44:47,440
+what
+
+914
+00:44:48,079 --> 00:44:54,560
+no it didn't work uh
+
+915
+00:44:51,119 --> 00:44:54,560
+so any questions
+
+916
+00:44:55,040 --> 00:44:59,359
+caught you live for the first time or
+
+917
+00:44:57,280 --> 00:45:02,560
+flamie or hey
+
+918
+00:44:59,359 --> 00:45:04,880
+why do you not use emacs as the front
+
+919
+00:45:02,560 --> 00:45:07,760
+and two of them language when you use it
+
+920
+00:45:04,880 --> 00:45:11,760
+for every other language i do
+
+921
+00:45:07,760 --> 00:45:14,960
+i do i i do often
+
+922
+00:45:11,760 --> 00:45:19,839
+except that when you um
+
+923
+00:45:14,960 --> 00:45:19,839
+when you want to plot something graphics
+
+924
+00:45:21,680 --> 00:45:26,720
+yeah let me let me digress for a minute
+
+925
+00:45:23,760 --> 00:45:29,680
+okay so
+
+926
+00:45:26,720 --> 00:45:29,680
+plus 3d
+
+927
+00:45:30,319 --> 00:45:33,319
+uh
+
+928
+00:45:41,440 --> 00:45:47,839
+plus 3d psi x y x
+
+929
+00:45:44,480 --> 00:45:47,839
+0 to 6
+
+930
+00:45:47,920 --> 00:45:55,599
+y from 0 to 6
+
+931
+00:45:51,200 --> 00:45:55,599
+you see you are plotting a you know
+
+932
+00:45:55,760 --> 00:45:58,240
+graphics
+
+933
+00:45:56,960 --> 00:46:00,400
+but
+
+934
+00:45:58,240 --> 00:46:02,640
+you don't have that feature when you use
+
+935
+00:46:00,400 --> 00:46:05,599
+emacs as front end you know because it
+
+936
+00:46:02,640 --> 00:46:07,200
+cannot display graphics that's why
+
+937
+00:46:05,599 --> 00:46:09,680
+you know when you do if you are using
+
+938
+00:46:07,200 --> 00:46:12,079
+woofing language for solving equations
+
+939
+00:46:09,680 --> 00:46:14,560
+that's fine i use the you know e max
+
+940
+00:46:12,079 --> 00:46:14,560
+from then
+
+941
+00:46:15,040 --> 00:46:19,680
+language mod okay but if you are
+
+942
+00:46:17,359 --> 00:46:21,760
+plotting something uh i go to the
+
+943
+00:46:19,680 --> 00:46:24,000
+wolfram language
+
+944
+00:46:21,760 --> 00:46:26,960
+notebook phone name okay that's that
+
+945
+00:46:24,000 --> 00:46:29,040
+answers that i think
+
+946
+00:46:26,960 --> 00:46:32,880
+what's the second best language to use
+
+947
+00:46:29,040 --> 00:46:32,880
+for cellular automata
+
+948
+00:46:34,960 --> 00:46:39,599
+that depends okay if you want to do um
+
+949
+00:46:41,440 --> 00:46:47,839
+okay i'm i'm about to digress you know
+
+950
+00:46:45,520 --> 00:46:51,599
+yeah okay let's talk uh let's talk about
+
+951
+00:46:47,839 --> 00:46:51,599
+that a little bit serious automata
+
+952
+00:46:54,079 --> 00:47:00,160
+so you go to my website okay so
+
+953
+00:46:57,599 --> 00:47:01,760
+sorry info let me show you okay so you
+
+954
+00:47:00,160 --> 00:47:04,079
+go to my website
+
+955
+00:47:01,760 --> 00:47:07,040
+you go down you go down
+
+956
+00:47:04,079 --> 00:47:09,599
+you go down uh you know there is
+
+957
+00:47:07,040 --> 00:47:12,319
+programming language tutorials
+
+958
+00:47:09,599 --> 00:47:13,440
+hacker code about programming languages
+
+959
+00:47:12,319 --> 00:47:16,319
+and stuff
+
+960
+00:47:13,440 --> 00:47:18,720
+then you there's a math section
+
+961
+00:47:16,319 --> 00:47:21,599
+then you go to
+
+962
+00:47:18,720 --> 00:47:21,599
+exci math
+
+963
+00:47:22,800 --> 00:47:27,359
+okay then you see
+
+964
+00:47:24,800 --> 00:47:29,200
+all things related to math
+
+965
+00:47:27,359 --> 00:47:33,119
+then you go down
+
+966
+00:47:29,200 --> 00:47:34,400
+and there's my notes about a cellular
+
+967
+00:47:33,119 --> 00:47:37,359
+automata
+
+968
+00:47:34,400 --> 00:47:39,760
+my notes on reading this book
+
+969
+00:47:37,359 --> 00:47:40,640
+this heavy book
+
+970
+00:47:39,760 --> 00:47:43,280
+then
+
+971
+00:47:40,640 --> 00:47:45,280
+so that's all about cellular automata so
+
+972
+00:47:43,280 --> 00:47:47,680
+that your question is
+
+973
+00:47:45,280 --> 00:47:52,280
+what's the best language to do cellular
+
+974
+00:47:47,680 --> 00:47:52,280
+automata besides language
+
+975
+00:47:52,319 --> 00:47:57,359
+uh let me put a plug for wufang language
+
+976
+00:47:54,559 --> 00:47:58,720
+okay because they are donna they donate
+
+977
+00:47:57,359 --> 00:48:00,160
+to me okay so
+
+978
+00:47:58,720 --> 00:48:02,319
+i would you know
+
+979
+00:48:00,160 --> 00:48:05,040
+my honest opinion just useful foreign
+
+980
+00:48:02,319 --> 00:48:05,040
+language you know
+
+981
+00:48:05,680 --> 00:48:09,040
+it's free you know that you know just
+
+982
+00:48:07,280 --> 00:48:10,720
+search focus on wufab i talked about
+
+983
+00:48:09,040 --> 00:48:12,720
+this all the time in my video just
+
+984
+00:48:10,720 --> 00:48:14,720
+search for wolfram engine you can
+
+985
+00:48:12,720 --> 00:48:18,960
+download it for free and follow my many
+
+986
+00:48:14,720 --> 00:48:18,960
+of my tutorials let's go to it
+
+987
+00:48:19,440 --> 00:48:24,880
+so let me show you okay so some math
+
+988
+00:48:22,160 --> 00:48:27,599
+so you go actually you go to my website
+
+989
+00:48:24,880 --> 00:48:31,200
+xrd.info
+
+990
+00:48:27,599 --> 00:48:31,200
+then you show javascript
+
+991
+00:48:31,359 --> 00:48:36,079
+then you go to there it is wufang
+
+992
+00:48:34,480 --> 00:48:39,280
+language
+
+993
+00:48:36,079 --> 00:48:42,800
+so here i did several videos of it you
+
+994
+00:48:39,280 --> 00:48:45,359
+know tutorials on wufang language and uh
+
+995
+00:48:42,800 --> 00:48:47,680
+from language tutorial you can download
+
+996
+00:48:45,359 --> 00:48:49,760
+it i mean the wolfram language is free
+
+997
+00:48:47,680 --> 00:48:52,640
+now since two years ago
+
+998
+00:48:49,760 --> 00:48:55,040
+and this page explains the differences
+
+999
+00:48:52,640 --> 00:48:57,200
+of wolfen language
+
+1000
+00:48:55,040 --> 00:48:59,920
+versus mathematica what's the difference
+
+1001
+00:48:57,200 --> 00:49:02,240
+from engine or from script
+
+1002
+00:48:59,920 --> 00:49:04,880
+and so on and then you have the wolfram
+
+1003
+00:49:02,240 --> 00:49:06,240
+language complete tutorial for beginners
+
+1004
+00:49:04,880 --> 00:49:07,440
+okay
+
+1005
+00:49:06,240 --> 00:49:08,720
+uh
+
+1006
+00:49:07,440 --> 00:49:10,160
+you know i
+
+1007
+00:49:08,720 --> 00:49:11,760
+i recommend you know of course i
+
+1008
+00:49:10,160 --> 00:49:14,880
+recommend that i've been coding wolfen
+
+1009
+00:49:11,760 --> 00:49:17,200
+language since 1990s okay
+
+1010
+00:49:14,880 --> 00:49:18,720
+so wolfen you know so you can just use
+
+1011
+00:49:17,200 --> 00:49:21,760
+fulfillment language
+
+1012
+00:49:18,720 --> 00:49:25,200
+probably the best okay but now
+
+1013
+00:49:21,760 --> 00:49:28,079
+it depends on okay it depends now
+
+1014
+00:49:25,200 --> 00:49:30,480
+now if you are going to code cellular
+
+1015
+00:49:28,079 --> 00:49:32,960
+you know there's thousands
+
+1016
+00:49:30,480 --> 00:49:34,800
+varieties you know you have 3d cellular
+
+1017
+00:49:32,960 --> 00:49:36,640
+tomtom you have one dimensional cellular
+
+1018
+00:49:34,800 --> 00:49:38,960
+tamdah you have two dimensional cellular
+
+1019
+00:49:36,640 --> 00:49:40,880
+automata you have all sorts you have and
+
+1020
+00:49:38,960 --> 00:49:43,359
+scrolling you have all sorts of graphics
+
+1021
+00:49:40,880 --> 00:49:44,800
+you know this is infinite
+
+1022
+00:49:43,359 --> 00:49:47,280
+in
+
+1023
+00:49:44,800 --> 00:49:49,440
+essentially infinite types even of
+
+1024
+00:49:47,280 --> 00:49:51,760
+cellular automata
+
+1025
+00:49:49,440 --> 00:49:53,680
+for example game of life very popular
+
+1026
+00:49:51,760 --> 00:49:55,200
+you know that's also cellular automata
+
+1027
+00:49:53,680 --> 00:49:57,280
+so
+
+1028
+00:49:55,200 --> 00:50:00,160
+cellular automata is about pure
+
+1029
+00:49:57,280 --> 00:50:03,520
+computation so you you just even you
+
+1030
+00:50:00,160 --> 00:50:05,280
+have super computers you know
+
+1031
+00:50:03,520 --> 00:50:08,319
+you cannot finish it you know this is
+
+1032
+00:50:05,280 --> 00:50:08,319
+infinite so
+
+1033
+00:50:08,640 --> 00:50:13,520
+so if you want to study so
+
+1034
+00:50:11,359 --> 00:50:16,079
+so to answer that question you know what
+
+1035
+00:50:13,520 --> 00:50:18,720
+what other language to use for celu
+
+1036
+00:50:16,079 --> 00:50:21,680
+automata depends on your goal
+
+1037
+00:50:18,720 --> 00:50:24,640
+now if your goal is to look at you know
+
+1038
+00:50:21,680 --> 00:50:27,839
+some of you know to study cellular tanda
+
+1039
+00:50:24,640 --> 00:50:27,839
+you know just
+
+1040
+00:50:29,760 --> 00:50:33,599
+yeah
+
+1041
+00:50:30,559 --> 00:50:36,559
+to study cellular automata is also the
+
+1042
+00:50:33,599 --> 00:50:39,040
+manners you know then wolfen language is
+
+1043
+00:50:36,559 --> 00:50:39,760
+the easiest it's the best okay but if
+
+1044
+00:50:39,040 --> 00:50:41,520
+you
+
+1045
+00:50:39,760 --> 00:50:45,520
+here's a particular
+
+1046
+00:50:41,520 --> 00:50:47,359
+if your goal is to study a specific like
+
+1047
+00:50:45,520 --> 00:50:49,359
+you are a researcher you know you
+
+1048
+00:50:47,359 --> 00:50:52,319
+already know about cellular automata but
+
+1049
+00:50:49,359 --> 00:50:55,359
+you are studying a specific type of
+
+1050
+00:50:52,319 --> 00:50:56,880
+cellular template such as scheme of life
+
+1051
+00:50:55,359 --> 00:51:00,240
+you know each one of them there's
+
+1052
+00:50:56,880 --> 00:51:02,400
+infinite almost infinite like
+
+1053
+00:51:00,240 --> 00:51:04,400
+infinite exploration so you can spend
+
+1054
+00:51:02,400 --> 00:51:06,720
+your even if you have a super computer
+
+1055
+00:51:04,400 --> 00:51:08,880
+it's endless okay but if you are
+
+1056
+00:51:06,720 --> 00:51:10,960
+studying a specific type of cellular
+
+1057
+00:51:08,880 --> 00:51:13,359
+automata you want to find a particular
+
+1058
+00:51:10,960 --> 00:51:14,800
+pattern meaning that you need the most
+
+1059
+00:51:13,359 --> 00:51:17,200
+efficient
+
+1060
+00:51:14,800 --> 00:51:19,760
+way to compute you know the mediant the
+
+1061
+00:51:17,200 --> 00:51:22,640
+billionth generation possible
+
+1062
+00:51:19,760 --> 00:51:24,400
+that's when that's when
+
+1063
+00:51:22,640 --> 00:51:26,800
+i would say
+
+1064
+00:51:24,400 --> 00:51:28,240
+you might want to use other languages
+
+1065
+00:51:26,800 --> 00:51:31,280
+like c or
+
+1066
+00:51:28,240 --> 00:51:34,720
+usually c go land c plus first you know
+
+1067
+00:51:31,280 --> 00:51:37,520
+this or or maybe even fortran fortran is
+
+1068
+00:51:34,720 --> 00:51:39,520
+actually faster in number crunching than
+
+1069
+00:51:37,520 --> 00:51:40,880
+c
+
+1070
+00:51:39,520 --> 00:51:42,800
+so that's when
+
+1071
+00:51:40,880 --> 00:51:45,040
+you want to use some other language and
+
+1072
+00:51:42,800 --> 00:51:46,640
+and and i would just recommend go let
+
+1073
+00:51:45,040 --> 00:51:50,000
+okay
+
+1074
+00:51:46,640 --> 00:51:53,280
+so that that answers your question
+
+1075
+00:51:50,000 --> 00:51:54,110
+so let's go back to my boring emac list
+
+1076
+00:51:53,280 --> 00:51:55,760
+so um
+
+1077
+00:51:54,110 --> 00:51:58,319
+[Music]
+
+1078
+00:51:55,760 --> 00:52:01,680
+so right now we have a bug
+
+1079
+00:51:58,319 --> 00:52:01,680
+and the bug is
+
+1080
+00:52:02,839 --> 00:52:10,400
+uh yeah the bug is it's not
+
+1081
+00:52:06,960 --> 00:52:11,920
+let's say evaluated evaluate the region
+
+1082
+00:52:10,400 --> 00:52:15,760
+call the command
+
+1083
+00:52:11,920 --> 00:52:19,839
+do it it doesn't trans it doesn't swap
+
+1084
+00:52:15,760 --> 00:52:19,839
+when there is more than one
+
+1085
+00:52:20,079 --> 00:52:24,480
+empty lines in between the blocks okay
+
+1086
+00:52:23,119 --> 00:52:27,440
+so
+
+1087
+00:52:24,480 --> 00:52:27,440
+why is that
+
+1088
+00:52:28,960 --> 00:52:33,359
+so we have to go back to our code and
+
+1089
+00:52:31,119 --> 00:52:35,599
+look at them in detail
+
+1090
+00:52:33,359 --> 00:52:35,599
+so
+
+1091
+00:52:36,640 --> 00:52:40,160
+we search backward
+
+1092
+00:52:41,760 --> 00:52:47,400
+and
+
+1093
+00:52:43,040 --> 00:52:47,400
+actually we should search forward
+
+1094
+00:52:47,520 --> 00:52:51,599
+okay then and let's just stick with this
+
+1095
+00:52:50,079 --> 00:52:54,880
+search backward
+
+1096
+00:52:51,599 --> 00:52:58,880
+we've we tried to find
+
+1097
+00:52:54,880 --> 00:52:58,880
+two or more empty lines
+
+1098
+00:52:59,599 --> 00:53:04,240
+right
+
+1099
+00:53:01,200 --> 00:53:04,570
+two or more empty lines if we found it
+
+1100
+00:53:04,240 --> 00:53:07,659
+then
+
+1101
+00:53:04,570 --> 00:53:07,659
+[Music]
+
+1102
+00:53:13,839 --> 00:53:17,880
+if we found it then
+
+1103
+00:53:28,079 --> 00:53:30,960
+block end
+
+1104
+00:53:37,119 --> 00:53:39,440
+and
+
+1105
+00:53:39,920 --> 00:53:45,280
+current block beginning okay
+
+1106
+00:53:42,400 --> 00:53:47,119
+if we did not find it then we do that
+
+1107
+00:53:45,280 --> 00:53:50,319
+then we go to
+
+1108
+00:53:47,119 --> 00:53:50,319
+closer position
+
+1109
+00:53:55,680 --> 00:54:00,640
+then we search for what you know the
+
+1110
+00:53:58,079 --> 00:54:02,960
+order is not optimal you know so i need
+
+1111
+00:54:00,640 --> 00:54:05,200
+to rewrite this
+
+1112
+00:54:02,960 --> 00:54:07,119
+and the order is not optimal anyway so
+
+1113
+00:54:05,200 --> 00:54:08,720
+we go to the current cursor position
+
+1114
+00:54:07,119 --> 00:54:11,720
+then we search
+
+1115
+00:54:08,720 --> 00:54:11,720
+forward
+
+1116
+00:54:12,400 --> 00:54:17,119
+for one or more empty lines if we found
+
+1117
+00:54:15,839 --> 00:54:20,160
+it
+
+1118
+00:54:17,119 --> 00:54:22,720
+we set to
+
+1119
+00:54:20,160 --> 00:54:24,480
+p1 to be that
+
+1120
+00:54:22,720 --> 00:54:26,240
+otherwise p
+
+1121
+00:54:24,480 --> 00:54:28,240
+2
+
+1122
+00:54:26,240 --> 00:54:29,530
+is the maximum okay
+
+1123
+00:54:28,240 --> 00:54:32,639
+then we go to
+
+1124
+00:54:29,530 --> 00:54:32,639
+[Music]
+
+1125
+00:54:36,000 --> 00:54:41,480
+p1 then we go to the previous now
+
+1126
+00:54:54,400 --> 00:54:58,720
+so i don't understand why is it
+
+1127
+00:54:59,839 --> 00:55:02,640
+not working
+
+1128
+00:55:04,079 --> 00:55:07,640
+okay so
+
+1129
+00:55:11,040 --> 00:55:17,599
+so what is your interest so are you
+
+1130
+00:55:13,359 --> 00:55:17,599
+studying cellular automata
+
+1131
+00:55:18,319 --> 00:55:21,920
+oh so you already have wolverine engine
+
+1132
+00:55:20,640 --> 00:55:25,280
+you know
+
+1133
+00:55:21,920 --> 00:55:27,839
+so cellular automatic
+
+1134
+00:55:25,280 --> 00:55:32,319
+yeah let me digress i'm stuck with this
+
+1135
+00:55:27,839 --> 00:55:32,319
+for a while so say to automata you know
+
+1136
+00:55:32,450 --> 00:55:35,200
+[Music]
+
+1137
+00:55:33,520 --> 00:55:38,559
+you cannot do everything in wufang
+
+1138
+00:55:35,200 --> 00:55:40,799
+language well i mean you can but i mean
+
+1139
+00:55:38,559 --> 00:55:43,440
+ufam language has built in cellular
+
+1140
+00:55:40,799 --> 00:55:45,440
+automata so it's
+
+1141
+00:55:43,440 --> 00:55:48,559
+but because cellular automata there's so
+
+1142
+00:55:45,440 --> 00:55:51,440
+many you know there's thousands of types
+
+1143
+00:55:48,559 --> 00:55:54,240
+so you cannot really
+
+1144
+00:55:51,440 --> 00:55:57,599
+so it's not just a function
+
+1145
+00:55:54,240 --> 00:55:59,760
+i mean okay so so let me try to rephrase
+
+1146
+00:55:57,599 --> 00:56:02,400
+wolfram language has built in cellular
+
+1147
+00:55:59,760 --> 00:56:05,359
+automata okay so let's try
+
+1148
+00:56:02,400 --> 00:56:07,280
+so cellular automation so you can see a
+
+1149
+00:56:05,359 --> 00:56:09,920
+list of functions about cellular
+
+1150
+00:56:07,280 --> 00:56:09,920
+automation
+
+1151
+00:56:10,160 --> 00:56:14,079
+okay
+
+1152
+00:56:12,000 --> 00:56:16,400
+generates a list of representing the
+
+1153
+00:56:14,079 --> 00:56:19,119
+evolution of the cellular automation
+
+1154
+00:56:16,400 --> 00:56:21,839
+with the specified rule from initial
+
+1155
+00:56:19,119 --> 00:56:23,119
+condition okay so
+
+1156
+00:56:21,839 --> 00:56:24,799
+now
+
+1157
+00:56:23,119 --> 00:56:28,480
+my question is
+
+1158
+00:56:24,799 --> 00:56:28,480
+is this general or not
+
+1159
+00:56:28,559 --> 00:56:33,599
+for example can we use the building
+
+1160
+00:56:30,880 --> 00:56:36,160
+function cellular automation to run game
+
+1161
+00:56:33,599 --> 00:56:36,160
+of life
+
+1162
+00:56:41,920 --> 00:56:44,880
+okay no
+
+1163
+00:56:43,200 --> 00:56:47,760
+so you see
+
+1164
+00:56:44,880 --> 00:56:51,040
+wufang language provides this building
+
+1165
+00:56:47,760 --> 00:56:52,240
+function that does cellular automation
+
+1166
+00:56:51,040 --> 00:56:55,280
+of
+
+1167
+00:56:52,240 --> 00:56:56,960
+one very specific type
+
+1168
+00:56:55,280 --> 00:56:59,680
+that is this
+
+1169
+00:56:56,960 --> 00:57:00,960
+this type this one-dimensional cellular
+
+1170
+00:56:59,680 --> 00:57:03,040
+automation
+
+1171
+00:57:00,960 --> 00:57:05,440
+so if you're gonna so if you are
+
+1172
+00:57:03,040 --> 00:57:08,000
+studying this type of cellular automata
+
+1173
+00:57:05,440 --> 00:57:10,960
+ufam language is obviously the most
+
+1174
+00:57:08,000 --> 00:57:13,440
+easy and useful you know
+
+1175
+00:57:10,960 --> 00:57:16,079
+but however if you are doing game of
+
+1176
+00:57:13,440 --> 00:57:17,920
+life which is two-dimensional or if you
+
+1177
+00:57:16,079 --> 00:57:21,040
+want to do three-dimensional or you want
+
+1178
+00:57:17,920 --> 00:57:22,079
+to do some something else then
+
+1179
+00:57:21,040 --> 00:57:24,079
+then
+
+1180
+00:57:22,079 --> 00:57:27,359
+you don't have the convenience of a
+
+1181
+00:57:24,079 --> 00:57:29,760
+building function so that means you have
+
+1182
+00:57:27,359 --> 00:57:31,680
+to write the code okay you have to code
+
+1183
+00:57:29,760 --> 00:57:34,160
+wufang language
+
+1184
+00:57:31,680 --> 00:57:37,040
+so at this point you can either code it
+
+1185
+00:57:34,160 --> 00:57:38,720
+in language or code it in other language
+
+1186
+00:57:37,040 --> 00:57:41,599
+now of course
+
+1187
+00:57:38,720 --> 00:57:43,839
+so now this becomes a general generic
+
+1188
+00:57:41,599 --> 00:57:45,599
+programming problem which language
+
+1189
+00:57:43,839 --> 00:57:48,000
+should you use
+
+1190
+00:57:45,599 --> 00:57:50,480
+and the wolfram language is of course
+
+1191
+00:57:48,000 --> 00:57:52,880
+much more high level one line of wolfram
+
+1192
+00:57:50,480 --> 00:57:56,319
+language equals to you know hundred or
+
+1193
+00:57:52,880 --> 00:57:57,119
+thousand golden or c or whatever
+
+1194
+00:57:56,319 --> 00:57:58,799
+so
+
+1195
+00:57:57,119 --> 00:58:01,119
+but it's slower you know that's the
+
+1196
+00:57:58,799 --> 00:58:03,599
+thing that's the thing
+
+1197
+00:58:01,119 --> 00:58:06,400
+it's slower so it allows you to in you
+
+1198
+00:58:03,599 --> 00:58:08,799
+know in one hour you can create your 2d
+
+1199
+00:58:06,400 --> 00:58:10,240
+cellular automata you know
+
+1200
+00:58:08,799 --> 00:58:12,640
+but it's slow
+
+1201
+00:58:10,240 --> 00:58:15,200
+you know maybe 100 generations per
+
+1202
+00:58:12,640 --> 00:58:17,440
+second or something
+
+1203
+00:58:15,200 --> 00:58:19,599
+but if you so but you can do it in one
+
+1204
+00:58:17,440 --> 00:58:21,119
+hour and you can see all the graphics
+
+1205
+00:58:19,599 --> 00:58:22,799
+you can see you know you can you can
+
+1206
+00:58:21,119 --> 00:58:25,200
+easily see you know you can do it in a
+
+1207
+00:58:22,799 --> 00:58:28,319
+day you can see your cellular automata
+
+1208
+00:58:25,200 --> 00:58:31,119
+of specific specific type
+
+1209
+00:58:28,319 --> 00:58:33,839
+but if you do it in another language
+
+1210
+00:58:31,119 --> 00:58:35,040
+it's gonna take you days it's gonna take
+
+1211
+00:58:33,839 --> 00:58:37,280
+you yeah
+
+1212
+00:58:35,040 --> 00:58:39,839
+weeks or days just to
+
+1213
+00:58:37,280 --> 00:58:41,839
+to to to make it work then you don't
+
+1214
+00:58:39,839 --> 00:58:43,599
+have graphics you know then you need the
+
+1215
+00:58:41,839 --> 00:58:46,240
+library for graphics that you know
+
+1216
+00:58:43,599 --> 00:58:47,040
+easily takes you a month
+
+1217
+00:58:46,240 --> 00:58:49,119
+but
+
+1218
+00:58:47,040 --> 00:58:51,280
+if you are a professional programmer you
+
+1219
+00:58:49,119 --> 00:58:53,599
+know what you are doing
+
+1220
+00:58:51,280 --> 00:58:57,200
+then after a month your program is very
+
+1221
+00:58:53,599 --> 00:59:00,640
+fast it's usually 10 times 10 times
+
+1222
+00:58:57,200 --> 00:59:02,400
+10 times or even 100 times faster than
+
+1223
+00:59:00,640 --> 00:59:04,400
+your one day prototyping movement
+
+1224
+00:59:02,400 --> 00:59:06,480
+language so that is the
+
+1225
+00:59:04,400 --> 00:59:08,960
+full answer that's a full
+
+1226
+00:59:06,480 --> 00:59:08,960
+detail
+
+1227
+00:59:15,520 --> 00:59:21,119
+so yeah you want to do computer
+
+1228
+00:59:17,920 --> 00:59:24,240
+experiments outside of academy okay
+
+1229
+00:59:21,119 --> 00:59:26,079
+yeah okay that's about that
+
+1230
+00:59:24,240 --> 00:59:28,799
+uh
+
+1231
+00:59:26,079 --> 00:59:32,480
+okay let's back to emacs so
+
+1232
+00:59:28,799 --> 00:59:34,640
+but we are stuck why is this
+
+1233
+00:59:32,480 --> 00:59:36,960
+not working we already talked for one
+
+1234
+00:59:34,640 --> 00:59:39,760
+hour already
+
+1235
+00:59:36,960 --> 00:59:39,760
+okay so
+
+1236
+00:59:42,480 --> 00:59:47,160
+we have a bug
+
+1237
+00:59:44,160 --> 00:59:47,160
+that
+
+1238
+00:59:48,720 --> 00:59:54,119
+you know i'm inclined just to rewrite
+
+1239
+00:59:51,119 --> 00:59:54,119
+this
+
+1240
+01:00:13,119 --> 01:00:16,640
+let's say current block
+
+1241
+01:00:19,359 --> 01:00:23,119
+c1 c2
+
+1242
+01:00:23,599 --> 01:00:28,000
+p1
+
+1243
+01:00:25,119 --> 01:00:32,079
+p2 okay
+
+1244
+01:00:28,000 --> 01:00:36,160
+that one that way is more intuitive
+
+1245
+01:00:32,079 --> 01:00:37,520
+so yeah i'm gonna rewrite this okay so
+
+1246
+01:00:36,160 --> 01:00:40,079
+yeah
+
+1247
+01:00:37,520 --> 01:00:43,280
+can block begin current block in
+
+1248
+01:00:40,079 --> 01:00:44,079
+previous vlog begin previous block end
+
+1249
+01:00:43,280 --> 01:00:46,160
+okay
+
+1250
+01:00:44,079 --> 01:00:48,640
+so
+
+1251
+01:00:46,160 --> 01:00:54,920
+composition
+
+1252
+01:00:48,640 --> 01:00:54,920
+so you start by search forward okay so
+
+1253
+01:01:00,480 --> 01:01:05,680
+so i'm gonna i'm just going to rewrite
+
+1254
+01:01:03,359 --> 01:01:05,680
+this
+
+1255
+01:01:06,160 --> 01:01:09,119
+search forward
+
+1256
+01:01:09,760 --> 01:01:15,520
+search for what that
+
+1257
+01:01:11,839 --> 01:01:15,520
+if it's found then
+
+1258
+01:01:23,599 --> 01:01:28,079
+c2
+
+1259
+01:01:25,040 --> 01:01:28,079
+current block end
+
+1260
+01:01:28,880 --> 01:01:33,400
+okay
+
+1261
+01:01:30,400 --> 01:01:33,400
+otherwise
+
+1262
+01:01:49,760 --> 01:01:53,839
+okay otherwise the maximum
+
+1263
+01:01:55,039 --> 01:02:01,039
+so that's the
+
+1264
+01:01:57,280 --> 01:02:03,680
+current block end so we start at the end
+
+1265
+01:02:01,039 --> 01:02:03,680
+so then
+
+1266
+01:02:04,720 --> 01:02:08,960
+then you go to
+
+1267
+01:02:06,079 --> 01:02:08,960
+closer position
+
+1268
+01:02:09,039 --> 01:02:11,280
+then
+
+1269
+01:02:14,559 --> 01:02:18,000
+you search backward
+
+1270
+01:02:18,640 --> 01:02:21,839
+for that okay
+
+1271
+01:02:22,000 --> 01:02:24,960
+if it's found
+
+1272
+01:02:28,480 --> 01:02:33,799
+if it's found
+
+1273
+01:02:30,799 --> 01:02:33,799
+then
+
+1274
+01:02:40,799 --> 01:02:48,720
+and c1 is match and
+
+1275
+01:02:45,039 --> 01:02:50,480
+current because the beginning and
+
+1276
+01:02:48,720 --> 01:02:52,880
+set
+
+1277
+01:02:50,480 --> 01:02:55,680
+p2
+
+1278
+01:02:52,880 --> 01:02:58,319
+match beginning okay
+
+1279
+01:02:55,680 --> 01:02:58,319
+that's right
+
+1280
+01:02:59,200 --> 01:03:03,839
+if it's found if it's not found
+
+1281
+01:03:13,119 --> 01:03:15,280
+then that
+
+1282
+01:03:14,319 --> 01:03:17,599
+okay
+
+1283
+01:03:15,280 --> 01:03:18,720
+so we got
+
+1284
+01:03:17,599 --> 01:03:19,520
+c2
+
+1285
+01:03:18,720 --> 01:03:21,200
+then
+
+1286
+01:03:19,520 --> 01:03:24,079
+we work from
+
+1287
+01:03:21,200 --> 01:03:28,000
+below to upwards
+
+1288
+01:03:24,079 --> 01:03:29,520
+this order is more efficient so c2
+
+1289
+01:03:28,000 --> 01:03:30,799
+c1
+
+1290
+01:03:29,520 --> 01:03:33,119
+p2
+
+1291
+01:03:30,799 --> 01:03:35,680
+then we go to
+
+1292
+01:03:33,119 --> 01:03:35,680
+go to
+
+1293
+01:03:43,280 --> 01:03:48,799
+p2 okay then we go to p2
+
+1294
+01:03:46,559 --> 01:03:48,799
+then
+
+1295
+01:03:53,280 --> 01:03:58,760
+then we search backward
+
+1296
+01:03:55,200 --> 01:03:58,760
+if it's found
+
+1297
+01:04:00,720 --> 01:04:04,160
+then p1 will be
+
+1298
+01:04:04,880 --> 01:04:11,319
+match end that's right
+
+1299
+01:04:06,880 --> 01:04:11,319
+then but if it's not found
+
+1300
+01:04:13,280 --> 01:04:16,319
+if it's not found
+
+1301
+01:04:16,960 --> 01:04:21,920
+then it's just a maximum point
+
+1302
+01:04:19,680 --> 01:04:21,920
+okay
+
+1303
+01:04:23,520 --> 01:04:27,839
+okay
+
+1304
+01:04:24,319 --> 01:04:27,839
+evolve the buffer
+
+1305
+01:04:39,280 --> 01:04:41,839
+do it
+
+1306
+01:04:42,240 --> 01:04:50,520
+symbols value is void p3 oh yeah okay
+
+1307
+01:04:47,119 --> 01:04:50,520
+so p1p2
+
+1308
+01:05:00,400 --> 01:05:02,799
+okay
+
+1309
+01:05:04,640 --> 01:05:07,680
+give out the buffer
+
+1310
+01:05:06,319 --> 01:05:09,200
+go back here
+
+1311
+01:05:07,680 --> 01:05:10,559
+call the command
+
+1312
+01:05:09,200 --> 01:05:13,359
+do it
+
+1313
+01:05:10,559 --> 01:05:14,559
+same problem same problem
+
+1314
+01:05:13,359 --> 01:05:16,720
+do it
+
+1315
+01:05:14,559 --> 01:05:19,599
+do it
+
+1316
+01:05:16,720 --> 01:05:22,599
+and it's even worse than before because
+
+1317
+01:05:19,599 --> 01:05:22,599
+now
+
+1318
+01:05:32,720 --> 01:05:36,119
+search forward
+
+1319
+01:05:44,079 --> 01:05:48,240
+oh
+
+1320
+01:05:44,880 --> 01:05:51,280
+oh i know yeah instead of the asterisk
+
+1321
+01:05:48,240 --> 01:05:52,720
+we need plus one or more not zero or
+
+1322
+01:05:51,280 --> 01:05:55,680
+more
+
+1323
+01:05:52,720 --> 01:05:59,680
+ idiotic error
+
+1324
+01:05:55,680 --> 01:06:00,640
+so asterisk we need a plus
+
+1325
+01:05:59,680 --> 01:06:01,520
+there
+
+1326
+01:06:00,640 --> 01:06:02,960
+there
+
+1327
+01:06:01,520 --> 01:06:06,799
+there yeah
+
+1328
+01:06:02,960 --> 01:06:09,280
+evaluate the region okay back here
+
+1329
+01:06:06,799 --> 01:06:09,280
+call it
+
+1330
+01:06:11,359 --> 01:06:15,880
+what evaluate region
+
+1331
+01:06:18,480 --> 01:06:23,359
+plus right m plus evaluate the region
+
+1332
+01:06:22,160 --> 01:06:26,359
+evaluate
+
+1333
+01:06:23,359 --> 01:06:26,359
+buffer
+
+1334
+01:06:43,760 --> 01:06:50,400
+oh god i think i thought
+
+1335
+01:06:46,480 --> 01:06:50,400
+this is much easier
+
+1336
+01:06:51,680 --> 01:06:56,400
+tastes right it was a stage to render
+
+1337
+01:07:02,880 --> 01:07:05,520
+okay so
+
+1338
+01:07:06,559 --> 01:07:10,000
+do it
+
+1339
+01:07:07,760 --> 01:07:12,400
+it worked okay
+
+1340
+01:07:10,000 --> 01:07:12,400
+do it
+
+1341
+01:07:12,799 --> 01:07:19,200
+do it it didn't work
+
+1342
+01:07:15,760 --> 01:07:23,440
+do it so you have when you have multiple
+
+1343
+01:07:19,200 --> 01:07:23,440
+empty lines it does not work
+
+1344
+01:07:27,200 --> 01:07:30,359
+and straight
+
+1345
+01:07:42,720 --> 01:07:49,240
+when you have multiple empty lines it
+
+1346
+01:07:45,440 --> 01:07:49,240
+did not work
+
+1347
+01:08:01,440 --> 01:08:03,599
+and
+
+1348
+01:08:04,079 --> 01:08:06,480
+do it
+
+1349
+01:08:08,799 --> 01:08:13,960
+you it any error
+
+1350
+01:08:10,960 --> 01:08:13,960
+now
+
+1351
+01:08:32,799 --> 01:08:38,839
+stuck
+
+1352
+01:08:35,120 --> 01:08:38,839
+i'm going to
+
+1353
+01:08:39,600 --> 01:08:43,040
+you know i think i'm going to delete
+
+1354
+01:08:41,679 --> 01:08:45,759
+this
+
+1355
+01:08:43,040 --> 01:08:47,520
+ddd stream because
+
+1356
+01:08:45,759 --> 01:08:49,839
+it's
+
+1357
+01:08:47,520 --> 01:08:52,640
+it's going nowhere
+
+1358
+01:08:49,839 --> 01:08:54,799
+where i'm done
+
+1359
+01:08:52,640 --> 01:08:58,080
+uh so
+
+1360
+01:08:54,799 --> 01:09:00,159
+because i've done much better emac these
+
+1361
+01:08:58,080 --> 01:09:03,120
+tutorials before you know you can watch
+
+1362
+01:09:00,159 --> 01:09:05,440
+my previous video
+
+1363
+01:09:03,120 --> 01:09:08,239
+what do you use to mine the web right
+
+1364
+01:09:05,440 --> 01:09:10,159
+now i don't mind the web
+
+1365
+01:09:08,239 --> 01:09:12,719
+putting a group maybe
+
+1366
+01:09:10,159 --> 01:09:12,719
+what group
+
+1367
+01:09:19,520 --> 01:09:24,319
+so double check
+
+1368
+01:09:22,159 --> 01:09:25,040
+double check
+
+1369
+01:09:24,319 --> 01:09:28,159
+it
+
+1370
+01:09:25,040 --> 01:09:28,159
+should be right
+
+1371
+01:09:30,480 --> 01:09:36,799
+so i have to think about this the coding
+
+1372
+01:09:33,440 --> 01:09:41,759
+the coding is like that it's like that
+
+1373
+01:09:36,799 --> 01:09:44,719
+so search forward search for word for
+
+1374
+01:09:41,759 --> 01:09:46,319
+for at least two empty lines
+
+1375
+01:09:44,719 --> 01:09:48,640
+okay
+
+1376
+01:09:46,319 --> 01:09:52,319
+and uh
+
+1377
+01:09:48,640 --> 01:09:52,319
+and this neo means
+
+1378
+01:09:53,199 --> 01:09:58,800
+this new means not bound okay
+
+1379
+01:09:56,880 --> 01:10:01,360
+and this move
+
+1380
+01:09:58,800 --> 01:10:04,159
+means if it's not found move the cursor
+
+1381
+01:10:01,360 --> 01:10:06,800
+to the maximum position okay
+
+1382
+01:10:04,159 --> 01:10:09,360
+so you search forward to the end
+
+1383
+01:10:06,800 --> 01:10:10,880
+search forward for empty two or more
+
+1384
+01:10:09,360 --> 01:10:13,679
+empty lines
+
+1385
+01:10:10,880 --> 01:10:13,679
+that's correct
+
+1386
+01:10:13,840 --> 01:10:17,940
+then if it's found
+
+1387
+01:10:17,440 --> 01:10:19,040
+then
+
+1388
+01:10:17,940 --> 01:10:23,440
+[Music]
+
+1389
+01:10:19,040 --> 01:10:23,440
+when if it's found you say
+
+1390
+01:10:23,920 --> 01:10:27,600
+the match beginning okay the beginning
+
+1391
+01:10:26,320 --> 01:10:28,800
+position
+
+1392
+01:10:27,600 --> 01:10:30,640
+of the
+
+1393
+01:10:28,800 --> 01:10:32,880
+match text
+
+1394
+01:10:30,640 --> 01:10:32,880
+okay
+
+1395
+01:10:33,600 --> 01:10:36,640
+and you set it to
+
+1396
+01:10:34,920 --> 01:10:41,520
+[Music]
+
+1397
+01:10:36,640 --> 01:10:44,400
+c2 that's right the end of current block
+
+1398
+01:10:41,520 --> 01:10:47,520
+because we are searching forward okay so
+
+1399
+01:10:44,400 --> 01:10:50,400
+if you found these empty lines
+
+1400
+01:10:47,520 --> 01:10:52,960
+below cursor
+
+1401
+01:10:50,400 --> 01:10:55,440
+you set the beginning match position to
+
+1402
+01:10:52,960 --> 01:10:55,440
+be the
+
+1403
+01:10:55,679 --> 01:11:00,960
+to be the position of the current block
+
+1404
+01:10:58,880 --> 01:11:04,000
+the you know the end
+
+1405
+01:11:00,960 --> 01:11:04,000
+of the current block
+
+1406
+01:11:07,920 --> 01:11:10,960
+okay i'm just gonna
+
+1407
+01:11:11,280 --> 01:11:16,080
+put a parenthesis around things that you
+
+1408
+01:11:13,280 --> 01:11:20,159
+want to find then oh
+
+1409
+01:11:16,080 --> 01:11:20,159
+oh you mean regular expression group
+
+1410
+01:11:21,120 --> 01:11:26,800
+no you don't you shouldn't need it
+
+1411
+01:11:24,640 --> 01:11:28,640
+because we
+
+1412
+01:11:26,800 --> 01:11:32,080
+yeah you can do that but you shouldn't
+
+1413
+01:11:28,640 --> 01:11:32,080
+you know you shouldn't need it
+
+1414
+01:11:35,520 --> 01:11:40,120
+i'm pretty sure so
+
+1415
+01:11:44,800 --> 01:11:48,880
+rejects rejects group right
+
+1416
+01:11:49,760 --> 01:11:52,480
+okay so
+
+1417
+01:11:50,550 --> 01:11:55,840
+[Music]
+
+1418
+01:11:52,480 --> 01:11:55,840
+we can try but
+
+1419
+01:12:00,640 --> 01:12:04,480
+right so
+
+1420
+01:12:02,000 --> 01:12:08,159
+so okay let's look into the regular
+
+1421
+01:12:04,480 --> 01:12:12,080
+expression so we have an empty line then
+
+1422
+01:12:08,159 --> 01:12:15,920
+we have either space or tab
+
+1423
+01:12:12,080 --> 01:12:18,640
+zero or more zero or more space tab okay
+
+1424
+01:12:15,920 --> 01:12:23,480
+then another empty line at least one of
+
+1425
+01:12:18,640 --> 01:12:23,480
+it so that means empty line
+
+1426
+01:12:23,920 --> 01:12:27,760
+oh you know what
+
+1427
+01:12:25,760 --> 01:12:30,960
+i know what's the problem yeah i know
+
+1428
+01:12:27,760 --> 01:12:33,679
+what's the problem the problem is with
+
+1429
+01:12:30,960 --> 01:12:36,400
+the problem is the emacs technical
+
+1430
+01:12:33,679 --> 01:12:37,360
+details emac these technical details
+
+1431
+01:12:36,400 --> 01:12:39,600
+because
+
+1432
+01:12:37,360 --> 01:12:43,920
+i've been into that before
+
+1433
+01:12:39,600 --> 01:12:43,920
+you see when you search backward
+
+1434
+01:12:44,000 --> 01:12:48,640
+yeah i think i know what's the problem
+
+1435
+01:12:46,239 --> 01:12:52,159
+instead of using search bar code you
+
+1436
+01:12:48,640 --> 01:12:52,159
+want to use skip chart
+
+1437
+01:12:54,000 --> 01:12:57,120
+yeah that's right
+
+1438
+01:12:58,640 --> 01:13:02,159
+yeah that's that's pretty
+
+1439
+01:13:03,679 --> 01:13:08,480
+you know the problem is when you search
+
+1440
+01:13:05,520 --> 01:13:10,400
+backward you know like here when you are
+
+1441
+01:13:08,480 --> 01:13:12,640
+searching backward you know we are
+
+1442
+01:13:10,400 --> 01:13:16,320
+searching an empty line
+
+1443
+01:13:12,640 --> 01:13:20,080
+then spacer tabs zero or more then
+
+1444
+01:13:16,320 --> 01:13:22,719
+another empty line at least one of it
+
+1445
+01:13:20,080 --> 01:13:24,400
+so when you search backward when you
+
+1446
+01:13:22,719 --> 01:13:26,400
+search backward with this regular
+
+1447
+01:13:24,400 --> 01:13:29,280
+expression
+
+1448
+01:13:26,400 --> 01:13:29,280
+it does not
+
+1449
+01:13:31,520 --> 01:13:35,520
+it does not work exactly like when you
+
+1450
+01:13:33,679 --> 01:13:37,760
+search forward even though the regular
+
+1451
+01:13:35,520 --> 01:13:38,880
+expression are exactly the same
+
+1452
+01:13:37,760 --> 01:13:41,199
+so
+
+1453
+01:13:38,880 --> 01:13:41,920
+you know this is hard to explain i mean
+
+1454
+01:13:41,199 --> 01:13:44,239
+it
+
+1455
+01:13:41,920 --> 01:13:46,719
+emax does not move the cursor all the
+
+1456
+01:13:44,239 --> 01:13:48,880
+way basically
+
+1457
+01:13:46,719 --> 01:13:51,679
+you know i you know so
+
+1458
+01:13:48,880 --> 01:13:52,480
+we can fix this by
+
+1459
+01:13:51,679 --> 01:13:55,120
+okay
+
+1460
+01:13:52,480 --> 01:13:57,440
+saying make a backup and we can fix this
+
+1461
+01:13:55,120 --> 01:13:57,440
+by
+
+1462
+01:13:57,920 --> 01:14:02,239
+okay so yeah let's fix this spine
+
+1463
+01:14:04,800 --> 01:14:08,719
+so now go to char
+
+1464
+01:14:06,800 --> 01:14:12,440
+go subscription
+
+1465
+01:14:08,719 --> 01:14:12,440
+then skip chart
+
+1466
+01:14:14,800 --> 01:14:18,320
+so search backward
+
+1467
+01:14:18,560 --> 01:14:24,440
+yeah this i think this is pretty much
+
+1468
+01:14:21,120 --> 01:14:24,440
+the problem
+
+1469
+01:14:35,199 --> 01:14:42,480
+yeah that is why so i think okay
+
+1470
+01:14:39,120 --> 01:14:45,120
+i'm pretty sure so um
+
+1471
+01:14:42,480 --> 01:14:45,510
+but what are we going to do now
+
+1472
+01:14:45,120 --> 01:14:48,640
+so
+
+1473
+01:14:45,510 --> 01:14:48,640
+[Music]
+
+1474
+01:14:49,120 --> 01:14:53,080
+search char backwards
+
+1475
+01:15:02,560 --> 01:15:07,600
+so the problem is it doesn't move the
+
+1476
+01:15:04,719 --> 01:15:08,960
+cursor or the way of the matched
+
+1477
+01:15:07,600 --> 01:15:11,840
+expression
+
+1478
+01:15:08,960 --> 01:15:11,840
+so that means
+
+1479
+01:15:13,440 --> 01:15:17,679
+so that means this part the p1 the
+
+1480
+01:15:16,320 --> 01:15:18,960
+previous
+
+1481
+01:15:17,679 --> 01:15:23,480
+block
+
+1482
+01:15:18,960 --> 01:15:23,480
+end is going to be wrong
+
+1483
+01:15:24,000 --> 01:15:28,719
+yeah so
+
+1484
+01:15:25,920 --> 01:15:31,360
+so what we can do to fix that is comment
+
+1485
+01:15:28,719 --> 01:15:31,360
+this out
+
+1486
+01:15:31,920 --> 01:15:35,199
+then we say
+
+1487
+01:15:33,360 --> 01:15:36,560
+skip char
+
+1488
+01:15:35,199 --> 01:15:38,640
+skip
+
+1489
+01:15:36,560 --> 01:15:41,600
+chart backward okay
+
+1490
+01:15:38,640 --> 01:15:44,560
+we want to skip any of
+
+1491
+01:15:41,600 --> 01:15:46,640
+empty space or t
+
+1492
+01:15:44,560 --> 01:15:49,360
+tab okay empty line
+
+1493
+01:15:46,640 --> 01:15:52,560
+or space or tab
+
+1494
+01:15:49,360 --> 01:15:54,800
+and no limit okay
+
+1495
+01:15:52,560 --> 01:15:54,800
+so
+
+1496
+01:15:56,000 --> 01:16:02,159
+so you skip chart then
+
+1497
+01:15:59,040 --> 01:16:02,159
+you set point
+
+1498
+01:16:04,239 --> 01:16:10,159
+p2
+
+1499
+01:16:06,960 --> 01:16:12,239
+okay so instead of that line we replace
+
+1500
+01:16:10,159 --> 01:16:15,840
+it with these two
+
+1501
+01:16:12,239 --> 01:16:18,159
+like we force we kind of force e max to
+
+1502
+01:16:15,840 --> 01:16:21,120
+move the cursor
+
+1503
+01:16:18,159 --> 01:16:22,080
+backward and skipping skipping those
+
+1504
+01:16:21,120 --> 01:16:24,960
+empty
+
+1505
+01:16:22,080 --> 01:16:24,960
+white spaces
+
+1506
+01:16:29,760 --> 01:16:32,640
+i think that that's it
+
+1507
+01:16:31,840 --> 01:16:36,560
+and
+
+1508
+01:16:32,640 --> 01:16:39,040
+probably similar things happen here
+
+1509
+01:16:36,560 --> 01:16:42,640
+no this this is fine i mean the problem
+
+1510
+01:16:39,040 --> 01:16:44,320
+only happens when you want to
+
+1511
+01:16:42,640 --> 01:16:46,320
+you see when you search backward with a
+
+1512
+01:16:44,320 --> 01:16:48,960
+regular expression and if the regular
+
+1513
+01:16:46,320 --> 01:16:51,199
+expression involves some kind of
+
+1514
+01:16:48,960 --> 01:16:53,840
+white space you know continuation it
+
+1515
+01:16:51,199 --> 01:16:55,120
+doesn't emax does not move it all the
+
+1516
+01:16:53,840 --> 01:16:57,760
+way
+
+1517
+01:16:55,120 --> 01:17:00,159
+this is a bit tricky and
+
+1518
+01:16:57,760 --> 01:17:02,719
+complex you know i
+
+1519
+01:17:00,159 --> 01:17:05,600
+i cannot give you an example right now
+
+1520
+01:17:02,719 --> 01:17:08,320
+uh actually we can we can actually so
+
+1521
+01:17:05,600 --> 01:17:08,320
+for example
+
+1522
+01:17:08,480 --> 01:17:12,560
+let's run this code okay
+
+1523
+01:17:10,640 --> 01:17:15,199
+run it you see
+
+1524
+01:17:12,560 --> 01:17:17,120
+you see that's a problem you see
+
+1525
+01:17:15,199 --> 01:17:19,440
+our cursor is here
+
+1526
+01:17:17,120 --> 01:17:21,920
+you know you look at you know this is
+
+1527
+01:17:19,440 --> 01:17:24,080
+our cursor so we're gonna call the
+
+1528
+01:17:21,920 --> 01:17:24,880
+command
+
+1529
+01:17:24,080 --> 01:17:26,480
+uh
+
+1530
+01:17:24,880 --> 01:17:29,520
+eval s6
+
+1531
+01:17:26,480 --> 01:17:32,880
+so we're gonna run this line of emac
+
+1532
+01:17:29,520 --> 01:17:37,120
+this right now if we run it
+
+1533
+01:17:32,880 --> 01:17:39,440
+this says you know research backward
+
+1534
+01:17:37,120 --> 01:17:41,920
+empty line
+
+1535
+01:17:39,440 --> 01:17:43,280
+followed by spatial tab
+
+1536
+01:17:41,920 --> 01:17:45,199
+zero more
+
+1537
+01:17:43,280 --> 01:17:49,360
+followed by
+
+1538
+01:17:45,199 --> 01:17:51,280
+one or more empty lines so intuitively
+
+1539
+01:17:49,360 --> 01:17:52,880
+you might think you know
+
+1540
+01:17:51,280 --> 01:17:54,960
+let's show white space you know we're
+
+1541
+01:17:52,880 --> 01:17:56,719
+gonna skip those those so the cruiser
+
+1542
+01:17:54,960 --> 01:17:59,120
+should be here
+
+1543
+01:17:56,719 --> 01:18:01,679
+so if we evaluate this line
+
+1544
+01:17:59,120 --> 01:18:04,000
+when the cursor is at the end
+
+1545
+01:18:01,679 --> 01:18:06,640
+the result is it should move the cursor
+
+1546
+01:18:04,000 --> 01:18:09,280
+there but it doesn't you see let's try
+
+1547
+01:18:06,640 --> 01:18:11,120
+it okay run the code you see
+
+1548
+01:18:09,280 --> 01:18:13,520
+that is the problem
+
+1549
+01:18:11,120 --> 01:18:16,880
+that so you see
+
+1550
+01:18:13,520 --> 01:18:20,719
+there is a asymmetry between the search
+
+1551
+01:18:16,880 --> 01:18:20,719
+for word and search backward
+
+1552
+01:18:21,679 --> 01:18:25,760
+you know even though your regular
+
+1553
+01:18:23,440 --> 01:18:28,480
+expression is exactly the same you know
+
+1554
+01:18:25,760 --> 01:18:29,840
+if your cruiser is here
+
+1555
+01:18:28,480 --> 01:18:31,520
+then you do the
+
+1556
+01:18:29,840 --> 01:18:32,960
+the same code you know but you search
+
+1557
+01:18:31,520 --> 01:18:35,120
+forward
+
+1558
+01:18:32,960 --> 01:18:36,000
+it will move your cruiser to
+
+1559
+01:18:35,120 --> 01:18:38,239
+here
+
+1560
+01:18:36,000 --> 01:18:38,239
+okay
+
+1561
+01:18:38,480 --> 01:18:42,719
+but if your cursor is here you do the
+
+1562
+01:18:40,400 --> 01:18:46,800
+same code it doesn't doesn't move all
+
+1563
+01:18:42,719 --> 01:18:46,800
+the way back there it stops there
+
+1564
+01:18:46,880 --> 01:18:52,400
+so this problem
+
+1565
+01:18:48,880 --> 01:18:55,280
+i haven't looked into detail why
+
+1566
+01:18:52,400 --> 01:18:58,400
+why does that occur uh but i mean that's
+
+1567
+01:18:55,280 --> 01:19:01,440
+that's that's the behavior of emac lisp
+
+1568
+01:18:58,400 --> 01:19:03,120
+and the documentation doesn't really say
+
+1569
+01:19:01,440 --> 01:19:05,440
+you know the documentation doesn't
+
+1570
+01:19:03,120 --> 01:19:05,440
+really
+
+1571
+01:19:06,159 --> 01:19:11,120
+you see there it is okay search backward
+
+1572
+01:19:09,679 --> 01:19:13,280
+from point
+
+1573
+01:19:11,120 --> 01:19:15,600
+for regular expression
+
+1574
+01:19:13,280 --> 01:19:19,199
+okay it's search backward okay this
+
+1575
+01:19:15,600 --> 01:19:22,400
+function is almost identical to research
+
+1576
+01:19:19,199 --> 01:19:25,840
+forward except that by default it
+
+1577
+01:19:22,400 --> 01:19:29,040
+searches backward instead of forward
+
+1578
+01:19:25,840 --> 01:19:30,480
+and the sign of count also indicates
+
+1579
+01:19:29,040 --> 01:19:33,040
+exactly the opposite search and
+
+1580
+01:19:30,480 --> 01:19:33,040
+direction
+
+1581
+01:19:34,800 --> 01:19:39,280
+you see there there okay there it is
+
+1582
+01:19:36,960 --> 01:19:42,719
+note you see this is a
+
+1583
+01:19:39,280 --> 01:19:43,840
+very tricky technical detail
+
+1584
+01:19:42,719 --> 01:19:46,640
+note
+
+1585
+01:19:43,840 --> 01:19:48,159
+note that searching backward may give a
+
+1586
+01:19:46,640 --> 01:19:50,000
+shorter match
+
+1587
+01:19:48,159 --> 01:19:54,080
+than expected
+
+1588
+01:19:50,000 --> 01:19:58,000
+because regular expression is still
+
+1589
+01:19:54,080 --> 01:19:58,000
+match in the forward direction
+
+1590
+01:19:58,480 --> 01:20:03,480
+yeah you know it's it's a bit um
+
+1591
+01:20:04,480 --> 01:20:08,000
+oh now now they have a reference they
+
+1592
+01:20:06,400 --> 01:20:10,800
+have a link
+
+1593
+01:20:08,000 --> 01:20:13,600
+now they have a link to the emac list
+
+1594
+01:20:10,800 --> 01:20:17,280
+manual let's see
+
+1595
+01:20:13,600 --> 01:20:21,920
+god this is this is one of my bug report
+
+1596
+01:20:17,280 --> 01:20:25,280
+10 years ago 15 years ago nowadays
+
+1597
+01:20:21,920 --> 01:20:28,000
+now they actually did it
+
+1598
+01:20:25,280 --> 01:20:29,440
+you see now they have a link
+
+1599
+01:20:28,000 --> 01:20:33,040
+to the
+
+1600
+01:20:29,440 --> 01:20:36,159
+documentation for this function at the
+
+1601
+01:20:33,040 --> 01:20:39,840
+emacs this manual you know i suggested
+
+1602
+01:20:36,159 --> 01:20:42,320
+that 15 some some like 11 years ago and
+
+1603
+01:20:39,840 --> 01:20:44,960
+finally
+
+1604
+01:20:42,320 --> 01:20:48,719
+you know i it's funny okay they talk
+
+1605
+01:20:44,960 --> 01:20:48,719
+random you know it's funny that
+
+1606
+01:20:49,440 --> 01:20:55,920
+let's go to e my emacs blog you know
+
+1607
+01:20:52,960 --> 01:20:57,600
+the gnu bug report you know i reported
+
+1608
+01:20:55,920 --> 01:20:58,840
+some bug
+
+1609
+01:20:57,600 --> 01:21:01,760
+in
+
+1610
+01:20:58,840 --> 01:21:03,840
+2008 and after 10 years
+
+1611
+01:21:01,760 --> 01:21:06,400
+you know they say not email oh this one
+
+1612
+01:21:03,840 --> 01:21:08,800
+is gonna we're not gonna we are not
+
+1613
+01:21:06,400 --> 01:21:11,280
+going to fix it or it's fixed you know
+
+1614
+01:21:08,800 --> 01:21:13,920
+in 10 years
+
+1615
+01:21:11,280 --> 01:21:15,600
+fixed after 13 years that's that's one
+
+1616
+01:21:13,920 --> 01:21:19,199
+example but
+
+1617
+01:21:15,600 --> 01:21:21,760
+but right now this is another example
+
+1618
+01:21:19,199 --> 01:21:23,840
+you know i can search for the bug report
+
+1619
+01:21:21,760 --> 01:21:26,480
+to find my original report i have i
+
+1620
+01:21:23,840 --> 01:21:30,239
+probably have it
+
+1621
+01:21:26,480 --> 01:21:30,239
+on my blog somewhere but anyway
+
+1622
+01:21:31,520 --> 01:21:34,719
+so
+
+1623
+01:21:32,560 --> 01:21:36,880
+this emacs manual talks about regular
+
+1624
+01:21:34,719 --> 01:21:38,960
+expressions okay so anyway so that's
+
+1625
+01:21:36,880 --> 01:21:43,080
+that's a problem okay so
+
+1626
+01:21:38,960 --> 01:21:43,080
+so we now know the problem
+
+1627
+01:21:43,280 --> 01:21:47,679
+so what is the most efficient way to
+
+1628
+01:21:45,840 --> 01:21:50,000
+solve this you know we already have a
+
+1629
+01:21:47,679 --> 01:21:53,679
+solution you know let's evaluate let's
+
+1630
+01:21:50,000 --> 01:21:53,679
+try it i think it will work
+
+1631
+01:21:54,000 --> 01:21:57,679
+you see it worked
+
+1632
+01:21:56,719 --> 01:21:58,960
+you know
+
+1633
+01:21:57,679 --> 01:22:01,840
+it worked
+
+1634
+01:21:58,960 --> 01:22:04,480
+now let's say if there's no
+
+1635
+01:22:01,840 --> 01:22:06,320
+no empty lines there do it
+
+1636
+01:22:04,480 --> 01:22:08,960
+it worked
+
+1637
+01:22:06,320 --> 01:22:11,600
+do it okay now let's say there's no
+
+1638
+01:22:08,960 --> 01:22:12,560
+empty lines at the bottom
+
+1639
+01:22:11,600 --> 01:22:14,080
+do it
+
+1640
+01:22:12,560 --> 01:22:17,679
+it works okay
+
+1641
+01:22:14,080 --> 01:22:18,880
+fantastic now our code works
+
+1642
+01:22:17,679 --> 01:22:21,040
+now
+
+1643
+01:22:18,880 --> 01:22:24,480
+remove this okay now
+
+1644
+01:22:21,040 --> 01:22:25,679
+we want to add a key to repeat it
+
+1645
+01:22:24,480 --> 01:22:28,400
+because
+
+1646
+01:22:25,679 --> 01:22:28,400
+for example
+
+1647
+01:22:35,040 --> 01:22:39,440
+d is it okay so
+
+1648
+01:22:37,360 --> 01:22:42,239
+you see once you
+
+1649
+01:22:39,440 --> 01:22:42,239
+call the command
+
+1650
+01:22:42,960 --> 01:22:48,239
+usually you want put the cursor at
+
+1651
+01:22:49,440 --> 01:22:54,000
+at the
+
+1652
+01:22:50,840 --> 01:22:56,159
+position yeah you want to cr
+
+1653
+01:22:54,000 --> 01:22:59,280
+there okay so let's let's
+
+1654
+01:22:56,159 --> 01:23:02,280
+let's try to move this inside
+
+1655
+01:22:59,280 --> 01:23:02,280
+oops
+
+1656
+01:23:06,800 --> 01:23:13,040
+let's put it inside save excursion okay
+
+1657
+01:23:09,760 --> 01:23:17,120
+this transpose okay eval the region
+
+1658
+01:23:13,040 --> 01:23:17,120
+evolve the buffer back here
+
+1659
+01:23:18,000 --> 01:23:22,159
+do it
+
+1660
+01:23:18,960 --> 01:23:23,920
+yeah so you want the cruiser to stick
+
+1661
+01:23:22,159 --> 01:23:26,800
+with the paragraph
+
+1662
+01:23:23,920 --> 01:23:29,679
+you are on so that you can call it again
+
+1663
+01:23:26,800 --> 01:23:33,520
+and you'll move that block up you see
+
+1664
+01:23:29,679 --> 01:23:36,239
+this is very convenient way to move a
+
+1665
+01:23:33,520 --> 01:23:39,440
+block you know like up
+
+1666
+01:23:36,239 --> 01:23:42,400
+do it do it do it okay now we are going
+
+1667
+01:23:39,440 --> 01:23:42,400
+to add a key
+
+1668
+01:23:42,800 --> 01:23:45,679
+to this okay
+
+1669
+01:23:45,920 --> 01:23:50,880
+so let's say
+
+1670
+01:23:47,600 --> 01:23:55,040
+f11 what is eleven
+
+1671
+01:23:50,880 --> 01:23:55,040
+yeah okay let's say f11 okay
+
+1672
+01:23:56,880 --> 01:24:00,840
+global set key
+
+1673
+01:24:04,320 --> 01:24:09,679
+and let's see what is ctrl t
+
+1674
+01:24:08,320 --> 01:24:12,960
+ctrl t
+
+1675
+01:24:09,679 --> 01:24:17,239
+hit expand okay
+
+1676
+01:24:12,960 --> 01:24:17,239
+control n yeah
+
+1677
+01:24:18,480 --> 01:24:21,360
+control m
+
+1678
+01:24:23,679 --> 01:24:26,800
+control w
+
+1679
+01:24:27,040 --> 01:24:31,440
+control
+
+1680
+01:24:29,040 --> 01:24:33,600
+d okay let's see
+
+1681
+01:24:31,440 --> 01:24:33,600
+d
+
+1682
+01:24:36,080 --> 01:24:39,760
+okay let's give it a key
+
+1683
+01:24:41,440 --> 01:24:46,239
+transpose block okay evaluate it
+
+1684
+01:24:48,239 --> 01:24:53,920
+ctrl d do it do it do it fantastic do it
+
+1685
+01:24:52,639 --> 01:24:55,920
+do it
+
+1686
+01:24:53,920 --> 01:24:57,280
+do it
+
+1687
+01:24:55,920 --> 01:25:01,520
+oh okay
+
+1688
+01:24:57,280 --> 01:25:01,520
+so when let's see do it
+
+1689
+01:25:01,600 --> 01:25:04,000
+do it
+
+1690
+01:25:05,600 --> 01:25:09,600
+do it do it okay so there's another
+
+1691
+01:25:08,080 --> 01:25:10,639
+problem
+
+1692
+01:25:09,600 --> 01:25:13,760
+when
+
+1693
+01:25:10,639 --> 01:25:15,440
+when the current block does not have
+
+1694
+01:25:13,760 --> 01:25:16,320
+ending
+
+1695
+01:25:15,440 --> 01:25:17,920
+uh
+
+1696
+01:25:16,320 --> 01:25:20,480
+empty lines
+
+1697
+01:25:17,920 --> 01:25:24,159
+then when you call the command
+
+1698
+01:25:20,480 --> 01:25:24,159
+it does not move your cursor up
+
+1699
+01:25:24,960 --> 01:25:28,719
+okay i think that's it for today
+
+1700
+01:25:36,080 --> 01:25:42,400
+storm story
+
+1701
+01:25:38,800 --> 01:25:44,159
+this episode is worth keeping oh okay
+
+1702
+01:25:42,400 --> 01:25:46,880
+it's nice to know that people are
+
+1703
+01:25:44,159 --> 01:25:46,880
+listening what
+
+1704
+01:25:52,400 --> 01:25:57,639
+i think that's it for today thank you
+
+1705
+01:25:54,159 --> 01:25:57,639
+guys for coming
+
+1706
+01:26:19,280 --> 01:26:25,199
+evil mod for keystrokes okay even much
+
+1707
+01:26:22,639 --> 01:26:26,880
+evil much sure well wait hold on a
+
+1708
+01:26:25,199 --> 01:26:29,280
+second you know you
+
+1709
+01:26:26,880 --> 01:26:32,320
+you're gonna mention evil mod
+
+1710
+01:26:29,280 --> 01:26:33,840
+in in front of some fly keys i challenge
+
+1711
+01:26:32,320 --> 01:26:36,560
+you
+
+1712
+01:26:33,840 --> 01:26:39,040
+you so you say four key strokes right no
+
+1713
+01:26:36,560 --> 01:26:41,920
+ink some fly keys it's the same okay
+
+1714
+01:26:39,040 --> 01:26:45,520
+watch okay so first of all let's let's
+
+1715
+01:26:41,920 --> 01:26:49,280
+make them in the right order okay so
+
+1716
+01:26:45,520 --> 01:26:50,400
+abcd right so i want to move this block
+
+1717
+01:26:49,280 --> 01:26:53,040
+up okay
+
+1718
+01:26:50,400 --> 01:26:54,960
+watch my key count okay without without
+
+1719
+01:26:53,040 --> 01:26:56,480
+using the command we just wrote today
+
+1720
+01:26:54,960 --> 01:26:58,320
+okay
+
+1721
+01:26:56,480 --> 01:27:02,480
+one key stroke
+
+1722
+01:26:58,320 --> 01:27:04,960
+another keystroke one two three four
+
+1723
+01:27:02,480 --> 01:27:07,520
+five six okay
+
+1724
+01:27:04,960 --> 01:27:08,560
+six okay let's try it again okay let's
+
+1725
+01:27:07,520 --> 01:27:09,840
+okay
+
+1726
+01:27:08,560 --> 01:27:12,159
+do it
+
+1727
+01:27:09,840 --> 01:27:12,159
+do it
+
+1728
+01:27:12,320 --> 01:27:14,560
+one two
+
+1729
+01:27:13,520 --> 01:27:16,560
+three
+
+1730
+01:27:14,560 --> 01:27:17,600
+four five
+
+1731
+01:27:16,560 --> 01:27:20,960
+okay
+
+1732
+01:27:17,600 --> 01:27:23,120
+five and you you got um
+
+1733
+01:27:20,960 --> 01:27:25,040
+let's do it like okay let's start let's
+
+1734
+01:27:23,120 --> 01:27:26,000
+not start from this okay
+
+1735
+01:27:25,040 --> 01:27:29,760
+one
+
+1736
+01:27:26,000 --> 01:27:32,480
+two three four four key strokes okay
+
+1737
+01:27:29,760 --> 01:27:33,760
+let's see let's let's swap the first two
+
+1738
+01:27:32,480 --> 01:27:34,960
+okay
+
+1739
+01:27:33,760 --> 01:27:36,800
+one
+
+1740
+01:27:34,960 --> 01:27:39,360
+two three four
+
+1741
+01:27:36,800 --> 01:27:41,840
+okay that's stuff like keys and you are
+
+1742
+01:27:39,360 --> 01:27:44,000
+you what you are saying
+
+1743
+01:27:41,840 --> 01:27:46,639
+evil mod
+
+1744
+01:27:44,000 --> 01:27:49,600
+except like he's is more efficient than
+
+1745
+01:27:46,639 --> 01:27:50,639
+evil mod even without this command but
+
+1746
+01:27:49,600 --> 01:27:52,400
+today
+
+1747
+01:27:50,639 --> 01:27:54,480
+after this talk show i'm going to add
+
+1748
+01:27:52,400 --> 01:27:59,880
+this to sapphire keys so it's even more
+
+1749
+01:27:54,480 --> 01:27:59,880
+efficient than than evo model v
+
+1750
+01:28:05,280 --> 01:28:08,719
+okay so
+
+1751
+01:28:06,400 --> 01:28:08,719
+um
+
+1752
+01:28:08,880 --> 01:28:13,679
+okay so
+
+1753
+01:28:11,520 --> 01:28:16,480
+yeah so i've been talking for one and a
+
+1754
+01:28:13,679 --> 01:28:18,960
+half hours okay that's it bye guys bye
+
+1755
+01:28:16,480 --> 01:28:22,159
+my emacs tutorial okay
+
+1756
+01:28:18,960 --> 01:28:23,600
+bye my emacs tutorial and emac this
+
+1757
+01:28:22,159 --> 01:28:26,600
+tutorial
+
+1758
+01:28:23,600 --> 01:28:26,600
+bye
+
+1759
+01:28:33,360 --> 01:28:36,480
+hey diocado
+
+1760
+01:28:36,719 --> 01:28:41,040
+okay we shut down in one minute so you
+
+1761
+01:28:39,280 --> 01:28:42,560
+know
+
+1762
+01:28:41,040 --> 01:28:45,120
+so fantastic
+
+1763
+01:28:42,560 --> 01:28:47,920
+actually should we just go on you know
+
+1764
+01:28:45,120 --> 01:28:50,560
+dragon why not you know live
+
+1765
+01:28:47,920 --> 01:28:52,719
+live stream coding
+
+1766
+01:28:50,560 --> 01:28:55,600
+so i'm going to so this actually a lot
+
+1767
+01:28:52,719 --> 01:28:58,560
+to do so you know we kind of stuck today
+
+1768
+01:28:55,600 --> 01:29:01,440
+and spend 90 minutes on this
+
+1769
+01:28:58,560 --> 01:29:02,880
+so once you have transpose block
+
+1770
+01:29:01,440 --> 01:29:04,960
+you know there's a lot to do let me tell
+
+1771
+01:29:02,880 --> 01:29:08,159
+you okay so now we have the command
+
+1772
+01:29:04,960 --> 01:29:10,480
+right we can just like transpose easily
+
+1773
+01:29:08,159 --> 01:29:13,280
+you know except we need to fix the
+
+1774
+01:29:10,480 --> 01:29:13,280
+problem when
+
+1775
+01:29:14,159 --> 01:29:18,080
+when
+
+1776
+01:29:15,520 --> 01:29:21,040
+when you are at the end
+
+1777
+01:29:18,080 --> 01:29:23,920
+when your current block is here at the
+
+1778
+01:29:21,040 --> 01:29:25,520
+end of a buffer when there is no empty
+
+1779
+01:29:23,920 --> 01:29:28,719
+lines below it
+
+1780
+01:29:25,520 --> 01:29:31,040
+then when you do the transpose block
+
+1781
+01:29:28,719 --> 01:29:33,679
+it does not move your cruiser it works
+
+1782
+01:29:31,040 --> 01:29:37,320
+but it does not you move cursor to
+
+1783
+01:29:33,679 --> 01:29:37,320
+to with the block
+
+1784
+01:29:38,080 --> 01:29:43,520
+how do you fix that so that's one thing
+
+1785
+01:29:40,719 --> 01:29:43,520
+we need to fix
+
+1786
+01:29:45,360 --> 01:29:47,600
+um
+
+1787
+01:29:49,120 --> 01:29:54,719
+why is that
+
+1788
+01:29:51,840 --> 01:29:59,840
+know basically save excursion got
+
+1789
+01:29:54,719 --> 01:30:00,800
+confused save excursion got confused
+
+1790
+01:29:59,840 --> 01:30:04,560
+yeah
+
+1791
+01:30:00,800 --> 01:30:04,560
+save excursion got confused
+
+1792
+01:30:05,199 --> 01:30:13,040
+so the end of block can block in c2 so
+
+1793
+01:30:09,280 --> 01:30:13,040
+something about c2 there
+
+1794
+01:30:18,239 --> 01:30:23,520
+c2 so where is c2 c2 is here
+
+1795
+01:30:21,440 --> 01:30:26,560
+so
+
+1796
+01:30:23,520 --> 01:30:28,960
+you search forward
+
+1797
+01:30:26,560 --> 01:30:33,400
+and if you found it
+
+1798
+01:30:28,960 --> 01:30:33,400
+then c2 is good otherwise
+
+1799
+01:30:34,960 --> 01:30:41,719
+otherwise you set c2 to
+
+1800
+01:30:38,480 --> 01:30:41,719
+the point
+
+1801
+01:30:48,480 --> 01:30:53,440
+but but why would that not work i don't
+
+1802
+01:30:51,440 --> 01:30:55,600
+understand so anyway
+
+1803
+01:30:53,440 --> 01:30:57,040
+so once you have the transpose block
+
+1804
+01:30:55,600 --> 01:31:00,000
+written right
+
+1805
+01:30:57,040 --> 01:31:01,440
+you what you want to do is that
+
+1806
+01:31:00,000 --> 01:31:04,000
+you know sometimes we don't want
+
+1807
+01:31:01,440 --> 01:31:05,920
+transpose block you know sometimes we
+
+1808
+01:31:04,000 --> 01:31:07,760
+want to actually
+
+1809
+01:31:05,920 --> 01:31:09,520
+transpose lines
+
+1810
+01:31:07,760 --> 01:31:12,560
+so
+
+1811
+01:31:09,520 --> 01:31:14,480
+so the design is that if your cursor is
+
+1812
+01:31:12,560 --> 01:31:17,040
+at the beginning of a line
+
+1813
+01:31:14,480 --> 01:31:22,480
+then it will transpose lines so you can
+
+1814
+01:31:17,040 --> 01:31:22,480
+call for example transpose line okay
+
+1815
+01:31:25,520 --> 01:31:29,040
+you see if your cursor is at beginning
+
+1816
+01:31:27,520 --> 01:31:31,840
+of the line then you want to call
+
+1817
+01:31:29,040 --> 01:31:34,000
+transpose lines but if your cursor is at
+
+1818
+01:31:31,840 --> 01:31:36,880
+end of line you want to
+
+1819
+01:31:34,000 --> 01:31:38,639
+call transpose block you know like
+
+1820
+01:31:36,880 --> 01:31:42,560
+like that
+
+1821
+01:31:38,639 --> 01:31:42,560
+yeah okay so this still
+
+1822
+01:31:43,600 --> 01:31:46,480
+why is it not
+
+1823
+01:31:46,960 --> 01:31:52,480
+ah god
+
+1824
+01:31:49,840 --> 01:31:55,040
+okay so there is an issue when basically
+
+1825
+01:31:52,480 --> 01:31:56,480
+the issue is that when there is no empty
+
+1826
+01:31:55,040 --> 01:31:57,520
+lines
+
+1827
+01:31:56,480 --> 01:31:59,840
+it
+
+1828
+01:31:57,520 --> 01:32:01,199
+it's not satisfactory because when you
+
+1829
+01:31:59,840 --> 01:32:05,920
+transpose
+
+1830
+01:32:01,199 --> 01:32:05,920
+then emax scrolls the buffer yeah
+
+1831
+01:32:06,639 --> 01:32:10,400
+you don't want emacs to scroll the
+
+1832
+01:32:08,400 --> 01:32:12,800
+buffer because it's confusing because
+
+1833
+01:32:10,400 --> 01:32:18,440
+where did my other line go well it's
+
+1834
+01:32:12,800 --> 01:32:18,440
+above the you know it's you know it um
+
+1835
+01:32:27,199 --> 01:32:33,120
+wait no no it does now it works
+
+1836
+01:32:31,120 --> 01:32:37,880
+right
+
+1837
+01:32:33,120 --> 01:32:37,880
+so why is that sometimes it doesn't
+
+1838
+01:32:45,440 --> 01:32:51,360
+i don't know when is the condition it
+
+1839
+01:32:48,159 --> 01:32:54,480
+does is it scrolls above over there okay
+
+1840
+01:32:51,360 --> 01:32:56,560
+so when your cursor is here then you
+
+1841
+01:32:54,480 --> 01:33:00,000
+call the command oh okay so maybe when
+
+1842
+01:32:56,560 --> 01:33:01,760
+when there is more than one
+
+1843
+01:33:00,000 --> 01:33:05,120
+empty lines between
+
+1844
+01:33:01,760 --> 01:33:05,120
+then you call the command
+
+1845
+01:33:05,199 --> 01:33:09,840
+okay that works
+
+1846
+01:33:07,040 --> 01:33:09,840
+that works
+
+1847
+01:33:10,560 --> 01:33:13,199
+that works
+
+1848
+01:33:13,360 --> 01:33:17,520
+that works
+
+1849
+01:33:15,040 --> 01:33:18,719
+that works
+
+1850
+01:33:17,520 --> 01:33:20,960
+that works
+
+1851
+01:33:18,719 --> 01:33:23,440
+that works
+
+1852
+01:33:20,960 --> 01:33:25,679
+there
+
+1853
+01:33:23,440 --> 01:33:31,120
+that doesn't work okay so
+
+1854
+01:33:25,679 --> 01:33:31,120
+you see if your cursor is at the end
+
+1855
+01:33:31,520 --> 01:33:35,760
+of the current block then you call the
+
+1856
+01:33:34,320 --> 01:33:39,360
+command
+
+1857
+01:33:35,760 --> 01:33:41,520
+it works but however it
+
+1858
+01:33:39,360 --> 01:33:44,000
+it's scrolled up
+
+1859
+01:33:41,520 --> 01:33:47,520
+or scroll down your cruise your your
+
+1860
+01:33:44,000 --> 01:33:49,520
+your buffer okay do it you see scroll up
+
+1861
+01:33:47,520 --> 01:33:51,600
+do it scroll up
+
+1862
+01:33:49,520 --> 01:33:54,000
+do it scroll up yeah
+
+1863
+01:33:51,600 --> 01:33:56,000
+so when your cruiser is in in a block
+
+1864
+01:33:54,000 --> 01:33:59,199
+anyway
+
+1865
+01:33:56,000 --> 01:34:02,239
+i need to fix this so this is a tdm of
+
+1866
+01:33:59,199 --> 01:34:05,360
+real-life coding you know like in theory
+
+1867
+01:34:02,239 --> 01:34:08,239
+we solved it but this is just like a
+
+1868
+01:34:05,360 --> 01:34:11,920
+bunch of minor you know issues edge
+
+1869
+01:34:08,239 --> 01:34:11,920
+cases edge cases
+
+1870
+01:34:12,080 --> 01:34:15,840
+uh
+
+1871
+01:34:14,080 --> 01:34:19,360
+so you have to figure out you know
+
+1872
+01:34:15,840 --> 01:34:21,600
+before we had that little problem
+
+1873
+01:34:19,360 --> 01:34:24,239
+then now but now we have to figure out
+
+1874
+01:34:21,600 --> 01:34:27,440
+why is this doing this so anyway
+
+1875
+01:34:24,239 --> 01:34:30,880
+when this is fixed what i want is that
+
+1876
+01:34:27,440 --> 01:34:34,800
+depending on your cruiser location
+
+1877
+01:34:30,880 --> 01:34:35,760
+it may swap the current line or it may
+
+1878
+01:34:34,800 --> 01:34:37,440
+swap
+
+1879
+01:34:35,760 --> 01:34:40,480
+current block
+
+1880
+01:34:37,440 --> 01:34:42,480
+and if your cruiser position is on a
+
+1881
+01:34:40,480 --> 01:34:44,320
+bracket for example
+
+1882
+01:34:42,480 --> 01:34:47,360
+like right here
+
+1883
+01:34:44,320 --> 01:34:49,520
+then it should swap the six you know
+
+1884
+01:34:47,360 --> 01:34:51,760
+swap like
+
+1885
+01:34:49,520 --> 01:34:54,000
+like that
+
+1886
+01:34:51,760 --> 01:34:55,679
+you know so
+
+1887
+01:34:54,000 --> 01:34:58,840
+you will have just one single command
+
+1888
+01:34:55,679 --> 01:35:02,400
+depends on where your cursor position is
+
+1889
+01:34:58,840 --> 01:35:05,440
+then saves you a lot
+
+1890
+01:35:02,400 --> 01:35:08,080
+uh tdm when you do editing okay that's
+
+1891
+01:35:05,440 --> 01:35:09,280
+it for today
+
+1892
+01:35:08,080 --> 01:35:11,840
+so
+
+1893
+01:35:09,280 --> 01:35:14,480
+put this back here
+
+1894
+01:35:11,840 --> 01:35:16,880
+color it show showing browser
+
+1895
+01:35:14,480 --> 01:35:20,560
+so that's today's talk show and that's
+
+1896
+01:35:16,880 --> 01:35:20,560
+today's code kind of
+
+1897
+01:35:20,880 --> 01:35:23,880
+bye
+
+1898
+01:35:41,199 --> 01:35:43,840
+uh
+

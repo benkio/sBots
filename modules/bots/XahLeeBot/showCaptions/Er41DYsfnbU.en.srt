@@ -1,0 +1,5948 @@
+1
+00:00:01,920 --> 00:00:08,480
+Good morning, good evening, good night
+
+2
+00:00:04,720 --> 00:00:11,440
+everyone. Welcome to another episode of
+
+3
+00:00:08,480 --> 00:00:12,960
+Excel talk show. We are going to cover
+
+4
+00:00:11,440 --> 00:00:16,240
+JavaScript.
+
+5
+00:00:12,960 --> 00:00:22,800
+I'm going to do a tutorial on JavaScript
+
+6
+00:00:16,240 --> 00:00:26,160
+module system. The fantastic and complex
+
+7
+00:00:22,800 --> 00:00:29,119
+uh crap. Well, not exactly crap, but
+
+8
+00:00:26,160 --> 00:00:32,480
+very complex. Not very good. So,
+
+9
+00:00:29,119 --> 00:00:35,680
+JavaScript module system introduced
+
+10
+00:00:32,480 --> 00:00:37,600
+10 years ago, 2015.
+
+11
+00:00:35,680 --> 00:00:40,000
+Took me a long time to get it to work
+
+12
+00:00:37,600 --> 00:00:44,079
+because there's complications because
+
+13
+00:00:40,000 --> 00:00:47,039
+they actually banned local modules. You
+
+14
+00:00:44,079 --> 00:00:48,800
+know, it requires HTTPS to run. So,
+
+15
+00:00:47,039 --> 00:00:51,520
+we're going to talk about JavaScript,
+
+16
+00:00:48,800 --> 00:00:54,960
+which is technical for you guy hackers,
+
+17
+00:00:51,520 --> 00:00:57,760
+coders, okay? And okay, JavaScript
+
+18
+00:00:54,960 --> 00:00:59,520
+module system. That's today's topic. And
+
+19
+00:00:57,760 --> 00:01:02,559
+and right now let me show you my
+
+20
+00:00:59,520 --> 00:01:05,280
+keyboard. This is glove 80. Now if you
+
+21
+00:01:02,559 --> 00:01:09,040
+are watching this offline, play at 1.5
+
+22
+00:01:05,280 --> 00:01:11,600
+speed minimum. If you are watching this
+
+23
+00:01:09,040 --> 00:01:14,880
+here live, say hi. Love to see your
+
+24
+00:01:11,600 --> 00:01:18,400
+comments. Okay. So this keyboard glove
+
+25
+00:01:14,880 --> 00:01:24,479
+80 I mean sorry this is ultimate hacking
+
+26
+00:01:18,400 --> 00:01:28,560
+keyboard 80 UHK 80. I did a video review
+
+27
+00:01:24,479 --> 00:01:32,000
+in depth one hour alone 50 minutes about
+
+28
+00:01:28,560 --> 00:01:34,720
+10 10 days ago two weeks ago glove 80.
+
+29
+00:01:32,000 --> 00:01:36,560
+Okay, fantastic. So go check it out on
+
+30
+00:01:34,720 --> 00:01:41,360
+YouTube
+
+31
+00:01:36,560 --> 00:01:45,759
+and Nia Track Ball and the Logitech M
+
+32
+00:01:41,360 --> 00:01:47,680
+G50. Okay, th those are good. Nia Track
+
+33
+00:01:45,759 --> 00:01:50,640
+Ball. I love the track ball. Okay, track
+
+34
+00:01:47,680 --> 00:01:54,000
+ball is fantastic. Okay. And and notice
+
+35
+00:01:50,640 --> 00:01:56,720
+the my Hoover. Let me switch back. Okay.
+
+36
+00:01:54,000 --> 00:02:00,159
+My keyboards and Hoover to activate
+
+37
+00:01:56,720 --> 00:02:02,719
+Windows. So I don't ever have to click.
+
+38
+00:02:00,159 --> 00:02:04,960
+You know, one of the thing with mouse is
+
+39
+00:02:02,719 --> 00:02:08,319
+that when you buy a mouse after a year
+
+40
+00:02:04,960 --> 00:02:11,440
+or two, it broke because every time you
+
+41
+00:02:08,319 --> 00:02:13,920
+right click or you left click, you drag
+
+42
+00:02:11,440 --> 00:02:16,800
+it, it you know, the button got
+
+43
+00:02:13,920 --> 00:02:19,760
+problems. Especially with Logitech
+
+44
+00:02:16,800 --> 00:02:23,200
+mouse. It's a commonly reported problem.
+
+45
+00:02:19,760 --> 00:02:26,720
+So they force you to buy a new mouse
+
+46
+00:02:23,200 --> 00:02:30,640
+almost every year. So that's very bad
+
+47
+00:02:26,720 --> 00:02:34,640
+Logitech mouse. But now with the Hoover
+
+48
+00:02:30,640 --> 00:02:36,640
+to activate Windows system, you I almost
+
+49
+00:02:34,640 --> 00:02:39,360
+never do click. Can you see? Can you see
+
+50
+00:02:36,640 --> 00:02:44,239
+my screen? Yeah. You see I almost never
+
+51
+00:02:39,360 --> 00:02:45,920
+click. So it's fantastic. Okay.
+
+52
+00:02:44,239 --> 00:02:48,959
+Okay. So let's let's talk about
+
+53
+00:02:45,920 --> 00:02:51,680
+JavaScript. So uh uh is there anyone?
+
+54
+00:02:48,959 --> 00:02:54,160
+Nobody is here. Okay. The poverty of the
+
+55
+00:02:51,680 --> 00:02:57,280
+Kasar talk show. It's nasty. You know
+
+56
+00:02:54,160 --> 00:03:01,519
+every time you know I want to do live
+
+57
+00:02:57,280 --> 00:03:06,080
+stream but usually my videos everyone is
+
+58
+00:03:01,519 --> 00:03:08,480
+about 300 views typically. 300 what am I
+
+59
+00:03:06,080 --> 00:03:11,519
+what am I doing it for?
+
+60
+00:03:08,480 --> 00:03:14,560
+You know. So you want to make it popular
+
+61
+00:03:11,519 --> 00:03:16,800
+of course but how do you how to make it
+
+62
+00:03:14,560 --> 00:03:19,920
+popular? I know because I've been
+
+63
+00:03:16,800 --> 00:03:23,200
+studying the social issues, the
+
+64
+00:03:19,920 --> 00:03:27,440
+marketing, the brainwashing, the
+
+65
+00:03:23,200 --> 00:03:31,120
+influencing, the um persuasion, all
+
+66
+00:03:27,440 --> 00:03:33,920
+these are related topics, psychological
+
+67
+00:03:31,120 --> 00:03:36,000
+involve psychology. How do you persuade
+
+68
+00:03:33,920 --> 00:03:38,319
+your friend? How do you for example
+
+69
+00:03:36,000 --> 00:03:41,200
+salesman Steve Jobs the greatest
+
+70
+00:03:38,319 --> 00:03:43,840
+salesman? How do you you know how how
+
+71
+00:03:41,200 --> 00:03:46,239
+can you talk to people? So they or
+
+72
+00:03:43,840 --> 00:03:48,560
+negotiation when you you know for
+
+73
+00:03:46,239 --> 00:03:51,519
+example job interview you want to
+
+74
+00:03:48,560 --> 00:03:57,519
+negotiate how much you get paid you know
+
+75
+00:03:51,519 --> 00:04:00,080
+negotiation marketing and al uh
+
+76
+00:03:57,519 --> 00:04:03,680
+and trends and fat and fashion they are
+
+77
+00:04:00,080 --> 00:04:06,159
+all related about the psychology fat and
+
+78
+00:04:03,680 --> 00:04:09,680
+fashion. what makes some something
+
+79
+00:04:06,159 --> 00:04:13,360
+popular at for some period of time or
+
+80
+00:04:09,680 --> 00:04:16,000
+what makes some posts go viral you know
+
+81
+00:04:13,360 --> 00:04:18,799
+so and also marketing that's a billion
+
+82
+00:04:16,000 --> 00:04:21,919
+dollar research you know marketing so
+
+83
+00:04:18,799 --> 00:04:24,960
+all these are related it's about
+
+84
+00:04:21,919 --> 00:04:27,120
+how it's it's about influence and also
+
+85
+00:04:24,960 --> 00:04:29,919
+brainwashing is a heavy you know
+
+86
+00:04:27,120 --> 00:04:33,280
+government um research they want to know
+
+87
+00:04:29,919 --> 00:04:36,320
+how to control people's mind control
+
+88
+00:04:33,280 --> 00:04:41,040
+also part of Okay. All these are related
+
+89
+00:04:36,320 --> 00:04:43,680
+related topics. So I had a f fascination
+
+90
+00:04:41,040 --> 00:04:48,639
+fascination. I've been kind of studying
+
+91
+00:04:43,680 --> 00:04:53,120
+these related topics for you know like
+
+92
+00:04:48,639 --> 00:04:56,880
+like on you know casually my adult life.
+
+93
+00:04:53,120 --> 00:04:58,960
+So for example YouTube how do you make
+
+94
+00:04:56,880 --> 00:05:02,000
+yourself popular? You know I only have
+
+95
+00:04:58,960 --> 00:05:03,520
+300 viewers. That's a problem, you know,
+
+96
+00:05:02,000 --> 00:05:05,919
+because you spend a lot of time. For
+
+97
+00:05:03,520 --> 00:05:08,479
+example, it took me
+
+98
+00:05:05,919 --> 00:05:11,919
+uh two weeks actually to go through the
+
+99
+00:05:08,479 --> 00:05:14,000
+the JavaScript module to finally have a
+
+100
+00:05:11,919 --> 00:05:17,520
+complete understanding.
+
+101
+00:05:14,000 --> 00:05:20,720
+Okay. But then I do a YouTube video 300
+
+102
+00:05:17,520 --> 00:05:22,720
+views. So that's not good, right? So
+
+103
+00:05:20,720 --> 00:05:26,000
+that's a problem. How do you solve this
+
+104
+00:05:22,720 --> 00:05:28,000
+problem? That's a like for a nerd. It's
+
+105
+00:05:26,000 --> 00:05:29,759
+a problem, logical problem we need to
+
+106
+00:05:28,000 --> 00:05:33,440
+solve. Of course, I know how to solve
+
+107
+00:05:29,759 --> 00:05:36,160
+it. But it's it became the condition of
+
+108
+00:05:33,440 --> 00:05:39,360
+society today. It's very nasty, you
+
+109
+00:05:36,160 --> 00:05:43,840
+know. So, let me explain. Hello uh
+
+110
+00:05:39,360 --> 00:05:46,479
+Spencer Pope. Hello Damski.
+
+111
+00:05:43,840 --> 00:05:49,520
+Happy to Tuesday. What what is toad
+
+112
+00:05:46,479 --> 00:05:51,199
+Tuesday? Cheers. This is red wine and
+
+113
+00:05:49,520 --> 00:05:53,680
+juice.
+
+114
+00:05:51,199 --> 00:05:56,400
+So, so we we will start to talk about
+
+115
+00:05:53,680 --> 00:05:59,759
+JavaScript module system. Okay. So but
+
+116
+00:05:56,400 --> 00:06:02,000
+so we were saying about how do you make
+
+117
+00:05:59,759 --> 00:06:04,560
+yourself popular on YouTube of course
+
+118
+00:06:02,000 --> 00:06:06,960
+there are many ways I know first of all
+
+119
+00:06:04,560 --> 00:06:10,240
+don't do live stream okay you don't
+
+120
+00:06:06,960 --> 00:06:13,039
+because live stream YouTube do not does
+
+121
+00:06:10,240 --> 00:06:16,240
+not promote it instead you want to do a
+
+122
+00:06:13,039 --> 00:06:20,000
+recorded video you wanted to make it
+
+123
+00:06:16,240 --> 00:06:22,080
+short like 10 minutes 15 minutes you
+
+124
+00:06:20,000 --> 00:06:25,919
+know something like that and you want to
+
+125
+00:06:22,080 --> 00:06:29,840
+make it like focused for example
+
+126
+00:06:25,919 --> 00:06:32,160
+create a you know do a video about a
+
+127
+00:06:29,840 --> 00:06:34,720
+lecture on JavaScript module in fact not
+
+128
+00:06:32,160 --> 00:06:37,600
+lecture because lecture is associated
+
+129
+00:06:34,720 --> 00:06:39,919
+with old professors you know people
+
+130
+00:06:37,600 --> 00:06:41,840
+don't want that today's people young
+
+131
+00:06:39,919 --> 00:06:43,520
+people zoomers they want something in
+
+132
+00:06:41,840 --> 00:06:46,960
+five minutes they want to understand you
+
+133
+00:06:43,520 --> 00:06:48,960
+know they don't want like formality okay
+
+134
+00:06:46,960 --> 00:06:52,000
+so you want to do a short video 10
+
+135
+00:06:48,960 --> 00:06:54,720
+minutes 15 minutes focus on the problem
+
+136
+00:06:52,000 --> 00:06:56,800
+and you want to focus on the beginners
+
+137
+00:06:54,720 --> 00:06:58,720
+Because the millions of people they they
+
+138
+00:06:56,800 --> 00:07:00,800
+they are all beginners. They don't know
+
+139
+00:06:58,720 --> 00:07:02,880
+a thing. They may not even know how to
+
+140
+00:07:00,800 --> 00:07:05,919
+program. But they heard JavaScript can
+
+141
+00:07:02,880 --> 00:07:08,240
+make you money. So that's most people.
+
+142
+00:07:05,919 --> 00:07:10,560
+That's why you go to go to YouTube,
+
+143
+00:07:08,240 --> 00:07:12,800
+there's like tons of JavaScript, you
+
+144
+00:07:10,560 --> 00:07:16,800
+know, for beginners, you know. So
+
+145
+00:07:12,800 --> 00:07:19,599
+anyway, short, focused, well packaged,
+
+146
+00:07:16,800 --> 00:07:22,319
+you know, like put it on a in a lunchbox
+
+147
+00:07:19,599 --> 00:07:25,120
+like the American way. capitalism, you
+
+148
+00:07:22,319 --> 00:07:26,880
+know, come with a nice packaging, you
+
+149
+00:07:25,120 --> 00:07:29,919
+know, like when you go to a shopping,
+
+150
+00:07:26,880 --> 00:07:31,919
+you know, you go to your local
+
+151
+00:07:29,919 --> 00:07:34,960
+supermarket, you know, let's say you
+
+152
+00:07:31,919 --> 00:07:37,199
+want to buy a shampoo or soap or
+
+153
+00:07:34,960 --> 00:07:39,840
+whatever, you know, the packaging is all
+
+154
+00:07:37,199 --> 00:07:42,639
+nice, you know, or beautiful. You don't
+
+155
+00:07:39,840 --> 00:07:44,240
+know what's inside though, but but you
+
+156
+00:07:42,639 --> 00:07:47,199
+know, you can just judge by the
+
+157
+00:07:44,240 --> 00:07:50,800
+packaging, right? So you want to make
+
+158
+00:07:47,199 --> 00:07:55,840
+your video short and so nice lunch back
+
+159
+00:07:50,800 --> 00:07:57,599
+lunchbox it and you want to um you know
+
+160
+00:07:55,840 --> 00:07:59,520
+don't don't babble about random things
+
+161
+00:07:57,599 --> 00:08:02,080
+like what I'm doing now like today's
+
+162
+00:07:59,520 --> 00:08:04,000
+video is about JavaScript module but
+
+163
+00:08:02,080 --> 00:08:06,560
+first of all let me tell you about what
+
+164
+00:08:04,000 --> 00:08:08,160
+I thought about brainwashing you know
+
+165
+00:08:06,560 --> 00:08:12,639
+you don't want to you don't want to do
+
+166
+00:08:08,160 --> 00:08:15,599
+that okay so you you you want you want
+
+167
+00:08:12,639 --> 00:08:19,120
+to do your things for the mass as the
+
+168
+00:08:15,599 --> 00:08:22,319
+masses, the idiotic, brainless masses,
+
+169
+00:08:19,120 --> 00:08:25,120
+okay? Like even grandpa, grandma, you
+
+170
+00:08:22,319 --> 00:08:27,759
+don't know who is watching. And then
+
+171
+00:08:25,120 --> 00:08:30,639
+package it. Don't swear, you know, don't
+
+172
+00:08:27,759 --> 00:08:32,719
+like, oh, randomly starting to say, "Oh,
+
+173
+00:08:30,639 --> 00:08:36,399
+this is the most idiotic design I've
+
+174
+00:08:32,719 --> 00:08:40,959
+ever seen." Don't do that. And uh you
+
+175
+00:08:36,399 --> 00:08:43,919
+know so nice and and also don't remember
+
+176
+00:08:40,959 --> 00:08:46,320
+create a great thumbnail like learn
+
+177
+00:08:43,919 --> 00:08:49,320
+JavaScript module system in five
+
+178
+00:08:46,320 --> 00:08:49,320
+minutes.
+
+179
+00:08:49,680 --> 00:08:55,680
+This this is the best JavaScript tuto
+
+180
+00:08:52,240 --> 00:08:58,480
+tutorial you've ever seen.
+
+181
+00:08:55,680 --> 00:09:01,600
+I was shocked by this tutorial how
+
+182
+00:08:58,480 --> 00:09:04,640
+concise and perfect it is you know big
+
+183
+00:09:01,600 --> 00:09:08,880
+red title then people will be attracted
+
+184
+00:09:04,640 --> 00:09:12,640
+to it you know so and or you put you
+
+185
+00:09:08,880 --> 00:09:14,160
+know your face oh my god
+
+186
+00:09:12,640 --> 00:09:17,360
+you know like I I learned this
+
+187
+00:09:14,160 --> 00:09:20,959
+JavaScript trick in five minutes.
+
+188
+00:09:17,360 --> 00:09:24,160
+So all these are tactic tactics to make
+
+189
+00:09:20,959 --> 00:09:27,160
+your YouTube popular
+
+190
+00:09:24,160 --> 00:09:27,160
+but
+
+191
+00:09:27,600 --> 00:09:34,640
+it's pretty sad because
+
+192
+00:09:31,279 --> 00:09:36,800
+that is why when you go to YouTube today
+
+193
+00:09:34,640 --> 00:09:39,600
+the all the contents millions and
+
+194
+00:09:36,800 --> 00:09:42,640
+millions of YouTube videos you watch
+
+195
+00:09:39,600 --> 00:09:47,040
+them and after a while you find it's
+
+196
+00:09:42,640 --> 00:09:48,720
+empty it's empty of humanity there's
+
+197
+00:09:47,040 --> 00:09:51,360
+nothing in them. There's a [ __ ]
+
+198
+00:09:48,720 --> 00:09:53,760
+nothing in them. These [ __ ] million
+
+199
+00:09:51,360 --> 00:09:55,519
+beautiful JavaScript tutorials will show
+
+200
+00:09:53,760 --> 00:09:57,600
+you, you know, keyboard or mouse
+
+201
+00:09:55,519 --> 00:10:00,080
+reviews, you know, beautiful beautiful
+
+202
+00:09:57,600 --> 00:10:06,080
+face talking men or women, you know,
+
+203
+00:10:00,080 --> 00:10:10,240
+they all happy this devoid of humanity.
+
+204
+00:10:06,080 --> 00:10:15,200
+You you know, you started to feel that.
+
+205
+00:10:10,240 --> 00:10:17,839
+So that is the state of the
+
+206
+00:10:15,200 --> 00:10:21,200
+what how shall we say it corrupt
+
+207
+00:10:17,839 --> 00:10:23,600
+American capitalism system you know
+
+208
+00:10:21,200 --> 00:10:25,760
+everything is focused on money. Why do
+
+209
+00:10:23,600 --> 00:10:28,880
+people do that? You know, nice tutorials
+
+210
+00:10:25,760 --> 00:10:31,839
+and short and concise and happy face
+
+211
+00:10:28,880 --> 00:10:34,480
+because money. Because YouTube offer
+
+212
+00:10:31,839 --> 00:10:37,360
+money. This is how you become popular.
+
+213
+00:10:34,480 --> 00:10:39,600
+Follow it this way. You'll be popular.
+
+214
+00:10:37,360 --> 00:10:44,959
+You know, you'll be influencer. You
+
+215
+00:10:39,600 --> 00:10:48,480
+know, like the Mr. Beast [ __ ] face.
+
+216
+00:10:44,959 --> 00:10:52,600
+One of the gravest Mr. Beast, you know.
+
+217
+00:10:48,480 --> 00:10:52,600
+He's the most popular YouTuber.
+
+218
+00:10:55,007 --> 00:10:57,027
+>> [sighs]
+
+219
+00:11:00,959 --> 00:11:05,920
+>> So is that interesting? So shall we
+
+220
+00:11:03,600 --> 00:11:08,079
+start to do
+
+221
+00:11:05,920 --> 00:11:11,279
+JavaScript tutorial? I guess I've
+
+222
+00:11:08,079 --> 00:11:14,079
+already driven off those whoever who
+
+223
+00:11:11,279 --> 00:11:17,040
+wanted actually saw oh I wanted to learn
+
+224
+00:11:14,079 --> 00:11:19,680
+JavaScript module system
+
+225
+00:11:17,040 --> 00:11:22,079
+but they saw the first five minutes.
+
+226
+00:11:19,680 --> 00:11:25,600
+What the [ __ ] is this? they already went
+
+227
+00:11:22,079 --> 00:11:28,560
+away. Okay. So now for the rest of you,
+
+228
+00:11:25,600 --> 00:11:31,839
+are you guys still here? Let's uh do the
+
+229
+00:11:28,560 --> 00:11:34,079
+JavaScript module system. Okay. Yeah,
+
+230
+00:11:31,839 --> 00:11:37,040
+that's enough introduction. Okay. And
+
+231
+00:11:34,079 --> 00:11:39,600
+I'm using Emacs, of course. Can you see
+
+232
+00:11:37,040 --> 00:11:41,200
+this is the most powerful editor in the
+
+233
+00:11:39,600 --> 00:11:42,800
+universe.
+
+234
+00:11:41,200 --> 00:11:45,279
+Plus,
+
+235
+00:11:42,800 --> 00:11:48,959
+especially when you are using it with
+
+236
+00:11:45,279 --> 00:11:51,920
+fly key system. This is my package. It's
+
+237
+00:11:48,959 --> 00:11:53,760
+free and you can use it for yourself.
+
+238
+00:11:51,920 --> 00:11:57,519
+Let's remove the backup. You see how
+
+239
+00:11:53,760 --> 00:12:02,640
+Emacs, how powerful is ESMAX? I, for
+
+240
+00:11:57,519 --> 00:12:08,720
+example, let me show you. Um, what
+
+241
+00:12:02,640 --> 00:12:10,720
+I press a key. Wait. Okay. I press a key
+
+242
+00:12:08,720 --> 00:12:14,880
+and all the backup files are
+
+243
+00:12:10,720 --> 00:12:17,920
+highlighted. Then I just press a key. Do
+
+244
+00:12:14,880 --> 00:12:20,880
+you want to delete them? Yes. So all
+
+245
+00:12:17,920 --> 00:12:22,959
+backup files are deleted. And let me
+
+246
+00:12:20,880 --> 00:12:24,720
+demonstrate another thing about Emacs.
+
+247
+00:12:22,959 --> 00:12:26,800
+For example, this is a directory. By the
+
+248
+00:12:24,720 --> 00:12:30,639
+way, if you guys don't know, this is
+
+249
+00:12:26,800 --> 00:12:32,560
+actually directory you. Let's show in
+
+250
+00:12:30,639 --> 00:12:34,160
+Windows
+
+251
+00:12:32,560 --> 00:12:36,880
+Explorer.
+
+252
+00:12:34,160 --> 00:12:39,600
+Let's see. Control magnify. Control
+
+253
+00:12:36,880 --> 00:12:42,800
+magnify. Control magnify. So they become
+
+254
+00:12:39,600 --> 00:12:44,959
+icons. Can you see?
+
+255
+00:12:42,800 --> 00:12:51,680
+So this is actually files, but you can
+
+256
+00:12:44,959 --> 00:12:57,680
+view it in Emacs. So now I uh select by
+
+257
+00:12:51,680 --> 00:13:00,800
+regular expression eel dollar sign do it
+
+258
+00:12:57,680 --> 00:13:03,200
+enter so they selected I can press B2 by
+
+259
+00:13:00,800 --> 00:13:07,120
+compile but actually I don't want to
+
+260
+00:13:03,200 --> 00:13:11,600
+compile this these are working uh files
+
+261
+00:13:07,120 --> 00:13:17,399
+for my code so press B to bite compile
+
+262
+00:13:11,600 --> 00:13:17,399
+by compile 34 files yes or no yes
+
+263
+00:13:18,000 --> 00:13:22,800
+You see the computer is doing work heavy
+
+264
+00:13:20,480 --> 00:13:25,120
+work
+
+265
+00:13:22,800 --> 00:13:27,440
+and what is this uh miscommand
+
+266
+00:13:25,120 --> 00:13:31,440
+miscellaneous commands assignment to
+
+267
+00:13:27,440 --> 00:13:34,880
+free variable is shell history ring uh
+
+268
+00:13:31,440 --> 00:13:40,519
+ring why is that
+
+269
+00:13:34,880 --> 00:13:40,519
+shell history ring that shouldn't um
+
+270
+00:13:40,800 --> 00:13:49,600
+okay describe variable what
+
+271
+00:13:45,279 --> 00:13:55,399
+copy P now describe variable E is shall
+
+272
+00:13:49,600 --> 00:13:55,399
+his wait what why am I not copying
+
+273
+00:13:56,480 --> 00:14:03,120
+oh there's some delay for some reason
+
+274
+00:13:59,040 --> 00:14:07,279
+okay is history ring let's look at that
+
+275
+00:14:03,120 --> 00:14:12,320
+so is history ring is defined in this
+
+276
+00:14:07,279 --> 00:14:14,480
+its value is new em history okay so
+
+277
+00:14:12,320 --> 00:14:17,360
+anyway let's go back to let's start to
+
+278
+00:14:14,480 --> 00:14:21,760
+do the emac Okay, I mean let's start to
+
+279
+00:14:17,360 --> 00:14:24,320
+do the JavaScript. Let's not um
+
+280
+00:14:21,760 --> 00:14:27,839
+anyway the point is I'm using Emacs.
+
+281
+00:14:24,320 --> 00:14:30,560
+Okay. Uh for you coders, you probably
+
+282
+00:14:27,839 --> 00:14:35,440
+have heard of it.
+
+283
+00:14:30,560 --> 00:14:38,639
+But um for you guys who have not used
+
+284
+00:14:35,440 --> 00:14:41,839
+Kasafly keys, let me just quickly
+
+285
+00:14:38,639 --> 00:14:45,360
+introduce you keys. So it's a key
+
+286
+00:14:41,839 --> 00:14:47,760
+binding system for Emacs. It's free on
+
+287
+00:14:45,360 --> 00:14:50,320
+GitHub. You can see GitHub. Download on
+
+288
+00:14:47,760 --> 00:14:54,480
+GitHub. Download it and you'll be more
+
+289
+00:14:50,320 --> 00:14:57,600
+efficient than VI or Vim or Neoim. Okay,
+
+290
+00:14:54,480 --> 00:15:00,880
+the most efficient then there's tens of
+
+291
+00:14:57,600 --> 00:15:03,519
+videos I did in past six years. Okay,
+
+292
+00:15:00,880 --> 00:15:05,600
+that's a introduction
+
+293
+00:15:03,519 --> 00:15:07,680
+keys. That's what I'm using like right
+
+294
+00:15:05,600 --> 00:15:10,240
+now. Okay.
+
+295
+00:15:07,680 --> 00:15:14,000
+And Okay. Close. Close. Okay. So, copy
+
+296
+00:15:10,240 --> 00:15:16,880
+the URL back. Close. Close. Close. And
+
+297
+00:15:14,000 --> 00:15:19,920
+what is this Kasar talk show? Uh yeah
+
+298
+00:15:16,880 --> 00:15:23,519
+today's talk show. So paste the link fly
+
+299
+00:15:19,920 --> 00:15:26,160
+linkify make a list show in browser
+
+300
+00:15:23,519 --> 00:15:29,040
+there. Okay so okay let's talk about
+
+301
+00:15:26,160 --> 00:15:32,720
+JavaScript module. So JavaScript
+
+302
+00:15:29,040 --> 00:15:35,279
+JavaScript begin let me do this just um
+
+303
+00:15:32,720 --> 00:15:37,360
+off the top of my head. Okay say
+
+304
+00:15:35,279 --> 00:15:39,600
+something. Hi hi guys. Introduce
+
+305
+00:15:37,360 --> 00:15:41,920
+yourself.
+
+306
+00:15:39,600 --> 00:15:46,000
+Let's double check. Sometimes I talk to
+
+307
+00:15:41,920 --> 00:15:47,680
+myself like in my video or voice is off.
+
+308
+00:15:46,000 --> 00:15:51,680
+Okay, JavaScript. Let me just talk about
+
+309
+00:15:47,680 --> 00:15:54,800
+it. JavaScript began life in 1995.
+
+310
+00:15:51,680 --> 00:15:57,920
+Okay, long story short. So anyway, for
+
+311
+00:15:54,800 --> 00:16:02,160
+the first 20 years of JavaScript, there
+
+312
+00:15:57,920 --> 00:16:03,839
+is no module system. What does a module
+
+313
+00:16:02,160 --> 00:16:05,920
+mean? like a library, you know, like
+
+314
+00:16:03,839 --> 00:16:08,639
+when you program, if you know any
+
+315
+00:16:05,920 --> 00:16:11,759
+programming language, Python, Golan, C,
+
+316
+00:16:08,639 --> 00:16:14,720
+Javas, uh C, uh whatever language,
+
+317
+00:16:11,759 --> 00:16:17,440
+programming language, um you have the
+
+318
+00:16:14,720 --> 00:16:20,720
+library concept, you know, you can put
+
+319
+00:16:17,440 --> 00:16:22,880
+part of a code in a file as a library
+
+320
+00:16:20,720 --> 00:16:25,600
+because, you know, those are commonly
+
+321
+00:16:22,880 --> 00:16:28,639
+used. So whenever you want to use them
+
+322
+00:16:25,600 --> 00:16:31,839
+you load them you know like require
+
+323
+00:16:28,639 --> 00:16:35,920
+something something or sometimes called
+
+324
+00:16:31,839 --> 00:16:38,639
+uh load something something library
+
+325
+00:16:35,920 --> 00:16:41,360
+okay but JavaScript is pretty lousy
+
+326
+00:16:38,639 --> 00:16:46,240
+language for the first 20 years there's
+
+327
+00:16:41,360 --> 00:16:49,839
+no library so so you so people get very
+
+328
+00:16:46,240 --> 00:16:55,440
+frustrated okay now long it's long story
+
+329
+00:16:49,839 --> 00:16:58,880
+short in 2015 JavaScript finally created
+
+330
+00:16:55,440 --> 00:17:00,800
+a module system called module which is a
+
+331
+00:16:58,880 --> 00:17:03,680
+library system. What is JavaScript
+
+332
+00:17:00,800 --> 00:17:07,600
+module? JavaScript module are JavaScript
+
+333
+00:17:03,680 --> 00:17:09,760
+files designed to be used as a library.
+
+334
+00:17:07,600 --> 00:17:12,959
+So when you need it, you load it you
+
+335
+00:17:09,760 --> 00:17:15,520
+know uh and any JavaScript file that
+
+336
+00:17:12,959 --> 00:17:18,000
+imports module is also a library. Okay,
+
+337
+00:17:15,520 --> 00:17:19,280
+this is slightly complicated and
+
+338
+00:17:18,000 --> 00:17:22,720
+different from other programming
+
+339
+00:17:19,280 --> 00:17:26,319
+languages because if if you have a
+
+340
+00:17:22,720 --> 00:17:28,640
+JavaScript code and you call you load
+
+341
+00:17:26,319 --> 00:17:31,440
+another library then this JavaScript
+
+342
+00:17:28,640 --> 00:17:34,880
+code itself is considered a module.
+
+343
+00:17:31,440 --> 00:17:37,760
+Okay, so this is a bit complication.
+
+344
+00:17:34,880 --> 00:17:42,080
+So anyway in 2025
+
+345
+00:17:37,760 --> 00:17:45,039
+ECMAS script 2025 ECMAS script is the
+
+346
+00:17:42,080 --> 00:17:47,760
+standard standardized JavaScript name.
+
+347
+00:17:45,039 --> 00:17:52,720
+Okay, very complicated [ __ ] ECMAS
+
+348
+00:17:47,760 --> 00:17:55,679
+script. So anyway in 201 uh 15 they
+
+349
+00:17:52,720 --> 00:17:58,559
+introduced the module system into
+
+350
+00:17:55,679 --> 00:18:00,080
+JavaScript. Okay, so it's it's good.
+
+351
+00:17:58,559 --> 00:18:03,280
+Okay,
+
+352
+00:18:00,080 --> 00:18:06,559
+now um okay so uh we're gonna go through
+
+353
+00:18:03,280 --> 00:18:09,360
+this. So are you guys following me? Is
+
+354
+00:18:06,559 --> 00:18:11,760
+this so good? Hello again. Hello. Okay,
+
+355
+00:18:09,360 --> 00:18:14,720
+so JavaScript module.
+
+356
+00:18:11,760 --> 00:18:17,840
+So let me uh think about how we going to
+
+357
+00:18:14,720 --> 00:18:19,679
+approach this. Am I like doing a
+
+358
+00:18:17,840 --> 00:18:22,880
+tutorial? Are you guys have you guys
+
+359
+00:18:19,679 --> 00:18:25,919
+been coding JavaScript before?
+
+360
+00:18:22,880 --> 00:18:29,280
+Um let let me see uh how do I approach
+
+361
+00:18:25,919 --> 00:18:31,520
+this? Okay, let's go slowly. Okay, if
+
+362
+00:18:29,280 --> 00:18:35,039
+you are watching this offline, play at
+
+363
+00:18:31,520 --> 00:18:35,039
+1.5 speed.
+
+364
+00:18:39,360 --> 00:18:45,440
+Okay, JavaScript module. So in 2015 they
+
+365
+00:18:43,760 --> 00:18:47,520
+introduced it. Okay, let me just start
+
+366
+00:18:45,440 --> 00:18:50,720
+to talk about it.
+
+367
+00:18:47,520 --> 00:18:53,840
+So how is the JavaScript? You know, I
+
+368
+00:18:50,720 --> 00:18:56,880
+assume you have some experience with
+
+369
+00:18:53,840 --> 00:18:59,039
+JavaScript like half a year because
+
+370
+00:18:56,880 --> 00:19:02,000
+otherwise you wouldn't know what I'm
+
+371
+00:18:59,039 --> 00:19:05,200
+talking about. Okay. Uh so if you don't
+
+372
+00:19:02,000 --> 00:19:06,880
+have like have a year experience coding
+
+373
+00:19:05,200 --> 00:19:11,200
+JavaScript
+
+374
+00:19:06,880 --> 00:19:13,360
+this video is not for you but I have you
+
+375
+00:19:11,200 --> 00:19:15,760
+search for oxali JavaScript in depth.
+
+376
+00:19:13,360 --> 00:19:18,559
+Okay let's see if I just search for
+
+377
+00:19:15,760 --> 00:19:21,120
+JavaScript in depth let's see if you it
+
+378
+00:19:18,559 --> 00:19:23,520
+will show my tutorial
+
+379
+00:19:21,120 --> 00:19:27,520
+JavaScript inepth that's the one you
+
+380
+00:19:23,520 --> 00:19:29,520
+want kalei.info info. Okay, go there.
+
+381
+00:19:27,520 --> 00:19:31,919
+Okay, that is my tutorial. So, if you
+
+382
+00:19:29,520 --> 00:19:35,039
+never coded JavaScript, you can begin
+
+383
+00:19:31,919 --> 00:19:37,840
+there. It's for beginners, but it's also
+
+384
+00:19:35,039 --> 00:19:41,679
+for those professionals. Let's say you
+
+385
+00:19:37,840 --> 00:19:44,880
+work at Google coding JavaScript
+
+386
+00:19:41,679 --> 00:19:46,720
+for a couple of years. You'll still
+
+387
+00:19:44,880 --> 00:19:49,679
+learn something from this JavaScript in
+
+388
+00:19:46,720 --> 00:19:53,280
+depth because JavaScript is a very
+
+389
+00:19:49,679 --> 00:19:55,280
+complicated language. Very complicated.
+
+390
+00:19:53,280 --> 00:19:57,520
+There's lots of things you don't know.
+
+391
+00:19:55,280 --> 00:19:59,679
+Okay, you thought you know, but you are
+
+392
+00:19:57,520 --> 00:20:01,679
+mistaken.
+
+393
+00:19:59,679 --> 00:20:05,600
+So anyway, JavaScript. So for you
+
+394
+00:20:01,679 --> 00:20:07,840
+beginners, check it out. Okay. Uh
+
+395
+00:20:05,600 --> 00:20:10,480
+interest to hear your perspective on it.
+
+396
+00:20:07,840 --> 00:20:13,919
+Fantastic. Okay. JavaScript is my main
+
+397
+00:20:10,480 --> 00:20:17,003
+language at work. Oh my god. Now, now
+
+398
+00:20:13,919 --> 00:20:17,760
+I'm um now I'm nervous because I I
+
+399
+00:20:17,003 --> 00:20:20,320
+[laughter]
+
+400
+00:20:17,760 --> 00:20:22,720
+I'm talking to a professional JavaScript
+
+401
+00:20:20,320 --> 00:20:26,400
+code coder. Anyway, let let me let me
+
+402
+00:20:22,720 --> 00:20:29,200
+just go ahead go through it. Okay. So,
+
+403
+00:20:26,400 --> 00:20:31,360
+so JavaScript in Yeah. So, so you can
+
+404
+00:20:29,200 --> 00:20:34,000
+check out my tutorial and actually you
+
+405
+00:20:31,360 --> 00:20:37,360
+can you know it's um
+
+406
+00:20:34,000 --> 00:20:41,280
+how many pages? Uh 500 pages by now
+
+407
+00:20:37,360 --> 00:20:46,080
+actually uh 1,00 okay this is there's
+
+408
+00:20:41,280 --> 00:20:51,840
+1,000 files but half of it is
+
+409
+00:20:46,080 --> 00:20:54,000
+CSS and HTML. Okay. CSS anyway few
+
+410
+00:20:51,840 --> 00:20:57,440
+hundred pages and if you like it if you
+
+411
+00:20:54,000 --> 00:21:00,080
+guys like it you can oh [ __ ] uh
+
+412
+00:20:57,440 --> 00:21:03,520
+skipped you know the
+
+413
+00:21:00,080 --> 00:21:06,240
+Firefox been like updating frequently
+
+414
+00:21:03,520 --> 00:21:08,960
+very annoying so if you guys like it you
+
+415
+00:21:06,240 --> 00:21:12,640
+can actually buy my entire tutorial in
+
+416
+00:21:08,960 --> 00:21:15,840
+uh as a zip file I'll send it to you 35
+
+417
+00:21:12,640 --> 00:21:19,600
+bucks send me Amazon gift card or uh
+
+418
+00:21:15,840 --> 00:21:23,280
+PayPal okay then I'll email use a zip
+
+419
+00:21:19,600 --> 00:21:26,640
+file. Okay, just zip file of the
+
+420
+00:21:23,280 --> 00:21:30,080
+basically the whole JavaScript and and
+
+421
+00:21:26,640 --> 00:21:34,720
+go go up and the entire tutorial for
+
+422
+00:21:30,080 --> 00:21:38,480
+HTML and CSS and JavaScript in depth and
+
+423
+00:21:34,720 --> 00:21:40,880
+JavaScript object reference and DOM
+
+424
+00:21:38,480 --> 00:21:43,600
+which is actually what you do when you
+
+425
+00:21:40,880 --> 00:21:46,080
+actually code JavaScript every day. this
+
+426
+00:21:43,600 --> 00:21:49,120
+uh most of the time you are dealing with
+
+427
+00:21:46,080 --> 00:21:53,120
+dome which is much more complicated than
+
+428
+00:21:49,120 --> 00:21:55,679
+JavaScript the language but there's SVG
+
+429
+00:21:53,120 --> 00:21:58,320
+so if you buy it you get the whole thing
+
+430
+00:21:55,679 --> 00:22:01,600
+okay so anyway let let's go back let's
+
+431
+00:21:58,320 --> 00:22:05,840
+go back to the um let's go back to the
+
+432
+00:22:01,600 --> 00:22:09,760
+uh uh module okay so 2015 they
+
+433
+00:22:05,840 --> 00:22:14,960
+introduced it by now it's 10 years ago
+
+434
+00:22:09,760 --> 00:22:17,039
+okay um so okay So,
+
+435
+00:22:14,960 --> 00:22:18,960
+you know, I'm going to skip part of it
+
+436
+00:22:17,039 --> 00:22:20,960
+because, you know, less important. I'm
+
+437
+00:22:18,960 --> 00:22:22,640
+just going to skip. Okay. So, how do you
+
+438
+00:22:20,960 --> 00:22:26,799
+load them? So, let me show you a
+
+439
+00:22:22,640 --> 00:22:28,880
+JavaScript module. Okay. So, uh uh so go
+
+440
+00:22:26,799 --> 00:22:33,679
+to
+
+441
+00:22:28,880 --> 00:22:36,000
+go to my module page. Uh yeah. So, there
+
+442
+00:22:33,679 --> 00:22:38,480
+it is. My tutorial JavaScript module. Go
+
+443
+00:22:36,000 --> 00:22:42,000
+back and go to the top. You can see
+
+444
+00:22:38,480 --> 00:22:44,240
+actually there's a there's my module. So
+
+445
+00:22:42,000 --> 00:22:48,320
+you see this is how you load a
+
+446
+00:22:44,240 --> 00:22:50,159
+JavaScript module in HTML as you know
+
+447
+00:22:48,320 --> 00:22:53,760
+when you you know you need when you want
+
+448
+00:22:50,159 --> 00:22:57,440
+to load a JavaScript file in HTML you
+
+449
+00:22:53,760 --> 00:22:59,679
+use this script tag but if it's a module
+
+450
+00:22:57,440 --> 00:23:01,840
+you need to add this type equals to
+
+451
+00:22:59,679 --> 00:23:04,880
+module okay that's what you need to do
+
+452
+00:23:01,840 --> 00:23:09,600
+and there's another thing is that your
+
+453
+00:23:04,880 --> 00:23:11,919
+source value for the source attribute
+
+454
+00:23:09,600 --> 00:23:15,200
+must begin with a dot slash hash. Okay,
+
+455
+00:23:11,919 --> 00:23:18,480
+it cannot be just uh just that that
+
+456
+00:23:15,200 --> 00:23:21,600
+won't work. You'll get error. You'll get
+
+457
+00:23:18,480 --> 00:23:26,240
+error. Let's see. Uh let me show you.
+
+458
+00:23:21,600 --> 00:23:29,840
+Okay, this is that value is called
+
+459
+00:23:26,240 --> 00:23:34,559
+module specifier. Okay. So, if you don't
+
+460
+00:23:29,840 --> 00:23:38,159
+include the dot slash in front,
+
+461
+00:23:34,559 --> 00:23:41,360
+you'll get an error that says
+
+462
+00:23:38,159 --> 00:23:45,039
+type error. Module specifier does not
+
+463
+00:23:41,360 --> 00:23:47,039
+start with slash or dot slash or dot dot
+
+464
+00:23:45,039 --> 00:23:49,440
+slash, you know. So, that's a
+
+465
+00:23:47,039 --> 00:23:51,600
+complication. So, you need a dot slash.
+
+466
+00:23:49,440 --> 00:23:54,400
+Okay. So, let me show you a module. So,
+
+467
+00:23:51,600 --> 00:23:57,200
+this is what your module looks like.
+
+468
+00:23:54,400 --> 00:23:59,520
+Okay. So you know it's just just
+
+469
+00:23:57,200 --> 00:24:03,200
+JavaScript code except you got this
+
+470
+00:23:59,520 --> 00:24:05,840
+import statement or export statement. So
+
+471
+00:24:03,200 --> 00:24:09,440
+for example this import from that file
+
+472
+00:24:05,840 --> 00:24:12,080
+open that file then this file got export
+
+473
+00:24:09,440 --> 00:24:16,640
+statement. So [snorts] any JavaScript
+
+474
+00:24:12,080 --> 00:24:19,760
+file if it got import statement or it
+
+475
+00:24:16,640 --> 00:24:22,080
+got export statement then they are
+
+476
+00:24:19,760 --> 00:24:24,640
+considered module. Okay that's the
+
+477
+00:24:22,080 --> 00:24:26,799
+difference. You know what what's the
+
+478
+00:24:24,640 --> 00:24:29,760
+difference between a module and just a
+
+479
+00:24:26,799 --> 00:24:32,559
+JavaScript code? Well, if the file
+
+480
+00:24:29,760 --> 00:24:34,880
+contains export statement or import
+
+481
+00:24:32,559 --> 00:24:37,840
+statement, that's a module. Okay? If it
+
+482
+00:24:34,880 --> 00:24:41,039
+is a module, then when you load it in
+
+483
+00:24:37,840 --> 00:24:43,440
+HTML, you must
+
+484
+00:24:41,039 --> 00:24:45,760
+include a type equals module. Okay?
+
+485
+00:24:43,440 --> 00:24:49,039
+Otherwise, it won't work. It won't load.
+
+486
+00:24:45,760 --> 00:24:55,120
+Okay? So that's the first thing to how
+
+487
+00:24:49,039 --> 00:24:57,600
+to load JavaScript module in HTML file.
+
+488
+00:24:55,120 --> 00:24:59,440
+Now once you load one of the file let's
+
+489
+00:24:57,600 --> 00:25:03,279
+say you know for example this JavaScript
+
+490
+00:24:59,440 --> 00:25:06,640
+module main once you load it and and in
+
+491
+00:25:03,279 --> 00:25:10,080
+this main file you can actually load
+
+492
+00:25:06,640 --> 00:25:12,320
+other modules for example here import
+
+493
+00:25:10,080 --> 00:25:15,679
+these two function names from this
+
+494
+00:25:12,320 --> 00:25:19,679
+module name you know so in this this
+
+495
+00:25:15,679 --> 00:25:22,799
+module name this JS module add is not
+
+496
+00:25:19,679 --> 00:25:25,200
+loaded from HTML you know in HTML you
+
+497
+00:25:22,799 --> 00:25:29,520
+basic you you can just load the main
+
+498
+00:25:25,200 --> 00:25:32,480
+file. Okay. Then then the main can load
+
+499
+00:25:29,520 --> 00:25:36,080
+imports code import other modules. Okay.
+
+500
+00:25:32,480 --> 00:25:39,760
+That's basically how you load it.
+
+501
+00:25:36,080 --> 00:25:42,799
+Now so there's another complication. Now
+
+502
+00:25:39,760 --> 00:25:46,240
+remember we said that this this module
+
+503
+00:25:42,799 --> 00:25:49,440
+file name must start with a dot slash.
+
+504
+00:25:46,240 --> 00:25:51,520
+Okay. There's another complication.
+
+505
+00:25:49,440 --> 00:25:54,720
+If you are running things locally like
+
+506
+00:25:51,520 --> 00:25:56,960
+right now I am you know like file SL
+
+507
+00:25:54,720 --> 00:26:00,279
+it's local files you know this is my
+
+508
+00:25:56,960 --> 00:26:00,279
+local directory
+
+509
+00:26:00,880 --> 00:26:07,679
+modules does not work over local files
+
+510
+00:26:04,559 --> 00:26:13,600
+so in order to actually have this line
+
+511
+00:26:07,679 --> 00:26:16,960
+work your file must be served over HTTPS
+
+512
+00:26:13,600 --> 00:26:19,279
+I mean I'm sorry HTTP server okay
+
+513
+00:26:16,960 --> 00:26:22,559
+Another
+
+514
+00:26:19,279 --> 00:26:25,679
+complication very bad it's idiotic. This
+
+515
+00:26:22,559 --> 00:26:29,840
+is one of the flaw of JavaScript module
+
+516
+00:26:25,679 --> 00:26:33,679
+since 10 years ago 2015. You must load
+
+517
+00:26:29,840 --> 00:26:37,039
+it over um
+
+518
+00:26:33,679 --> 00:26:39,440
+uh over HTTP server for example let me
+
+519
+00:26:37,039 --> 00:26:43,039
+show you. So for examp I got a module
+
+520
+00:26:39,440 --> 00:26:46,960
+here let's say console log and let's say
+
+521
+00:26:43,039 --> 00:26:50,960
+console let's alert alert
+
+522
+00:26:46,960 --> 00:26:54,559
+a e t alert something okay alert is old
+
+523
+00:26:50,960 --> 00:26:58,480
+something bad
+
+524
+00:26:54,559 --> 00:27:02,240
+okay now save it close it run this in
+
+525
+00:26:58,480 --> 00:27:05,200
+browser did I get alert no why because
+
+526
+00:27:02,240 --> 00:27:10,559
+this line actually doesn't work never
+
+527
+00:27:05,200 --> 00:27:14,320
+load because I'm not running uh HTTP
+
+528
+00:27:10,559 --> 00:27:17,440
+server. So I need to uh run it in HTTP
+
+529
+00:27:14,320 --> 00:27:20,799
+server. So let's do it. Okay. So how do
+
+530
+00:27:17,440 --> 00:27:23,120
+you do it? So if you don't know you um
+
+531
+00:27:20,799 --> 00:27:25,760
+you can install Python. I mean if you
+
+532
+00:27:23,120 --> 00:27:27,840
+work in JavaScript professionally,
+
+533
+00:27:25,760 --> 00:27:30,880
+you know, you know what to do. But if
+
+534
+00:27:27,840 --> 00:27:35,360
+you are a beginner, what you do is that
+
+535
+00:27:30,880 --> 00:27:38,240
+you go to uh you install Python and you
+
+536
+00:27:35,360 --> 00:27:40,400
+can uh start the HTTP server like that.
+
+537
+00:27:38,240 --> 00:27:44,559
+Okay, but first of all, you need to go
+
+538
+00:27:40,400 --> 00:27:48,600
+to your directory. Okay, so let's see.
+
+539
+00:27:44,559 --> 00:27:48,600
+Let me just do it. Okay,
+
+540
+00:27:51,919 --> 00:27:56,799
+magnify.
+
+541
+00:27:53,440 --> 00:28:01,200
+Okay. So this is this is the PowerShell.
+
+542
+00:27:56,799 --> 00:28:05,200
+So we need to cd
+
+543
+00:28:01,200 --> 00:28:10,000
+uh cd web
+
+544
+00:28:05,200 --> 00:28:15,200
+info. Okay. Go there. Then paste. Okay.
+
+545
+00:28:10,000 --> 00:28:19,039
+So paste python-m http server. That will
+
+546
+00:28:15,200 --> 00:28:21,360
+start the http server from this
+
+547
+00:28:19,039 --> 00:28:27,840
+directory kasali.info. Okay. Let's do
+
+548
+00:28:21,360 --> 00:28:32,640
+it. Fantastic. It's running. Now, um
+
+549
+00:28:27,840 --> 00:28:35,279
+now to view this page, you need um
+
+550
+00:28:32,640 --> 00:28:38,240
+uh you need to use this URL. Okay. So,
+
+551
+00:28:35,279 --> 00:28:43,039
+let's let me show you. Okay. So, copy
+
+552
+00:28:38,240 --> 00:28:46,039
+the file path. So, localhost 8,000 and
+
+553
+00:28:43,039 --> 00:28:46,039
+uh
+
+554
+00:28:47,039 --> 00:28:53,840
+okay, that is the
+
+555
+00:28:49,679 --> 00:28:59,720
+so open it. Wait, can I open it? Open
+
+556
+00:28:53,840 --> 00:28:59,720
+it. Error response. Uh.
+
+557
+00:29:00,159 --> 00:29:06,240
+Oh, okay. So, I know. Wait. Why is that?
+
+558
+00:29:03,279 --> 00:29:08,640
+Uh because you because that's you don't
+
+559
+00:29:06,240 --> 00:29:13,120
+need that. Okay. Run it. Open it. So,
+
+560
+00:29:08,640 --> 00:29:16,559
+you see now I'm viewing this source
+
+561
+00:29:13,120 --> 00:29:20,960
+code, this HTML source code in the
+
+562
+00:29:16,559 --> 00:29:24,880
+browser via HTTP.
+
+563
+00:29:20,960 --> 00:29:28,080
+uh and you can see the log you know so
+
+564
+00:29:24,880 --> 00:29:31,760
+it's it's saying that someone is
+
+565
+00:29:28,080 --> 00:29:34,880
+visiting this page someone visiting a
+
+566
+00:29:31,760 --> 00:29:38,320
+page that's not found
+
+567
+00:29:34,880 --> 00:29:41,279
+excuse me so anyway so remember for
+
+568
+00:29:38,320 --> 00:29:43,679
+beginners you just download Python and
+
+569
+00:29:41,279 --> 00:29:46,399
+start it like that first of all go to
+
+570
+00:29:43,679 --> 00:29:50,880
+your directory you want to be the web l
+
+571
+00:29:46,399 --> 00:29:55,440
+web root okay so Now
+
+572
+00:29:50,880 --> 00:29:57,760
+this is um this is running. Okay. So now
+
+573
+00:29:55,440 --> 00:30:02,840
+can you do the alert? Wait, why is the
+
+574
+00:29:57,760 --> 00:30:02,840
+alert isn't isn't isn't showing.
+
+575
+00:30:02,960 --> 00:30:07,679
+Did did they uh deprecate alert? Let's
+
+576
+00:30:06,000 --> 00:30:10,799
+refresh.
+
+577
+00:30:07,679 --> 00:30:15,360
+Yeah, it's not showing. So let's control
+
+578
+00:30:10,799 --> 00:30:19,200
+shift I to see the console log
+
+579
+00:30:15,360 --> 00:30:23,480
+and uh go to console
+
+580
+00:30:19,200 --> 00:30:23,480
+and uh let's refresh.
+
+581
+00:30:24,080 --> 00:30:29,600
+Uh
+
+582
+00:30:26,320 --> 00:30:34,919
+so I loaded the module
+
+583
+00:30:29,600 --> 00:30:34,919
+and uh is there a uh error?
+
+584
+00:30:37,200 --> 00:30:45,200
+So it's wait warnings loading failed for
+
+585
+00:30:41,360 --> 00:30:47,279
+the module resource.
+
+586
+00:30:45,200 --> 00:30:50,559
+Okay.
+
+587
+00:30:47,279 --> 00:30:55,520
+Loading failed for script resource. Why
+
+588
+00:30:50,559 --> 00:30:58,520
+is it failed? I don't know. So
+
+589
+00:30:55,520 --> 00:30:58,520
+control.
+
+590
+00:30:58,720 --> 00:31:03,240
+Wait, can I magnify this?
+
+591
+00:31:09,440 --> 00:31:13,320
+Wait, what is this?
+
+592
+00:31:22,720 --> 00:31:29,480
+So, why is this module failed?
+
+593
+00:31:26,480 --> 00:31:29,480
+Um,
+
+594
+00:31:30,240 --> 00:31:35,919
+do you guys know?
+
+595
+00:31:32,799 --> 00:31:41,279
+Okay. Uh, so loading failed for the
+
+596
+00:31:35,919 --> 00:31:45,039
+module source http localhost 8,000
+
+597
+00:31:41,279 --> 00:31:47,679
+jsjs module main.js.
+
+598
+00:31:45,039 --> 00:31:50,159
+Okay. And loading failed for the script
+
+599
+00:31:47,679 --> 00:31:52,880
+with source.
+
+600
+00:31:50,159 --> 00:31:58,679
+I don't understand why are they failing.
+
+601
+00:31:52,880 --> 00:31:58,679
+Okay. Actually I don't know.
+
+602
+00:32:01,039 --> 00:32:05,159
+Yeah, this is very bad.
+
+603
+00:32:10,799 --> 00:32:19,120
+So um what we going to do? So even that
+
+604
+00:32:15,440 --> 00:32:22,000
+highlight script is not working. This is
+
+605
+00:32:19,120 --> 00:32:24,240
+the highlight of the current link page
+
+606
+00:32:22,000 --> 00:32:27,200
+you are in.
+
+607
+00:32:24,240 --> 00:32:30,919
+So it says loading failed. I don't I
+
+608
+00:32:27,200 --> 00:32:30,919
+don't understand it.
+
+609
+00:32:31,519 --> 00:32:37,000
+What the [ __ ]
+
+610
+00:32:34,000 --> 00:32:37,000
+So
+
+611
+00:32:37,200 --> 00:32:43,480
+So even highlighting is not working. Why
+
+612
+00:32:40,240 --> 00:32:43,480
+is that?
+
+613
+00:32:45,679 --> 00:32:51,279
+So file name extension. So normally this
+
+614
+00:32:48,880 --> 00:32:53,679
+will be pink because this is a current
+
+615
+00:32:51,279 --> 00:32:57,360
+page.
+
+616
+00:32:53,679 --> 00:33:01,600
+And if you uh click on comment you see
+
+617
+00:32:57,360 --> 00:33:04,960
+this should be highlighted but
+
+618
+00:33:01,600 --> 00:33:06,880
+actually am I actually seeing uh this
+
+619
+00:33:04,960 --> 00:33:10,440
+update
+
+620
+00:33:06,880 --> 00:33:10,440
+so let's
+
+621
+00:33:15,279 --> 00:33:21,440
+value type yes it's the log says you are
+
+622
+00:33:19,120 --> 00:33:25,039
+loading that page
+
+623
+00:33:21,440 --> 00:33:28,799
+But um
+
+624
+00:33:25,039 --> 00:33:31,039
+yeah, JavaScript value type. Now control
+
+625
+00:33:28,799 --> 00:33:35,399
+shift I
+
+626
+00:33:31,039 --> 00:33:35,399
+loading failed. So
+
+627
+00:33:35,440 --> 00:33:40,880
+okay, this is a frustration. This is
+
+628
+00:33:38,880 --> 00:33:45,080
+unexpected.
+
+629
+00:33:40,880 --> 00:33:45,080
+I do not know why.
+
+630
+00:33:45,600 --> 00:33:52,399
+Is it in a directory? Oh, I know. That's
+
+631
+00:33:49,440 --> 00:33:56,240
+why. Thank you. Thank you guys
+
+632
+00:33:52,399 --> 00:34:00,480
+because Okay. So, Ctrl C to cancel the
+
+633
+00:33:56,240 --> 00:34:04,320
+server. Is it Ctrl C? Yeah. Ctrl C to
+
+634
+00:34:00,480 --> 00:34:06,640
+exit the server. Okay. Yeah. So, thank
+
+635
+00:34:04,320 --> 00:34:08,240
+you Spencer
+
+636
+00:34:06,640 --> 00:34:10,960
+because I started in the wrong
+
+637
+00:34:08,240 --> 00:34:13,280
+directory. Okay. So, because that
+
+638
+00:34:10,960 --> 00:34:18,399
+JavaScript file is actually in a
+
+639
+00:34:13,280 --> 00:34:20,960
+directory in front of it. Um,
+
+640
+00:34:18,399 --> 00:34:24,320
+but okay. So let's check. So so you see
+
+641
+00:34:20,960 --> 00:34:26,639
+this highlight link direct open it go to
+
+642
+00:34:24,320 --> 00:34:31,800
+the directory this highlight link go to
+
+643
+00:34:26,639 --> 00:34:31,800
+the top it's info wait
+
+644
+00:34:32,240 --> 00:34:37,240
+so why is it not um
+
+645
+00:34:44,720 --> 00:34:51,440
+it's ininfo
+
+646
+00:34:46,800 --> 00:34:55,720
+right is it So, um anyway, let's let's
+
+647
+00:34:51,440 --> 00:34:55,720
+let's um
+
+648
+00:34:57,520 --> 00:35:04,880
+let's cd to a directory before because
+
+649
+00:35:00,400 --> 00:35:07,839
+that's how I usually do it. Uh so now
+
+650
+00:35:04,880 --> 00:35:11,839
+let's start a server. Okay, now let's
+
+651
+00:35:07,839 --> 00:35:13,440
+try it again. Let's close that. Uh now
+
+652
+00:35:11,839 --> 00:35:16,720
+refresh
+
+653
+00:35:13,440 --> 00:35:21,599
+arrow. Okay, now you need the ininfo.
+
+654
+00:35:16,720 --> 00:35:24,800
+Okay. So, close that. Close that. Uh,
+
+655
+00:35:21,599 --> 00:35:29,599
+yeah. Now you need.info.
+
+656
+00:35:24,800 --> 00:35:32,720
+So, open that. Fantastic. Now, click on
+
+657
+00:35:29,599 --> 00:35:34,960
+file name extension. That still doesn't
+
+658
+00:35:32,720 --> 00:35:37,960
+work.
+
+659
+00:35:34,960 --> 00:35:37,960
+God.
+
+660
+00:35:38,480 --> 00:35:45,200
+Okay. This is bad. Now, what to do? He
+
+661
+00:35:41,680 --> 00:35:48,880
+can we can either move on
+
+662
+00:35:45,200 --> 00:35:52,880
+or we can
+
+663
+00:35:48,880 --> 00:35:56,400
+stick to solve this problem.
+
+664
+00:35:52,880 --> 00:36:01,320
+uh very frustrating because
+
+665
+00:35:56,400 --> 00:36:01,320
+so the page is loading but
+
+666
+00:36:01,839 --> 00:36:09,599
+but it's not so control alt I control
+
+667
+00:36:07,680 --> 00:36:14,560
+alt I
+
+668
+00:36:09,599 --> 00:36:17,599
+wait control uh control shift I
+
+669
+00:36:14,560 --> 00:36:21,760
+so why is the loading failed now how do
+
+670
+00:36:17,599 --> 00:36:28,200
+you magnify this this page
+
+671
+00:36:21,760 --> 00:36:28,200
+Uh let's see control first.
+
+672
+00:36:34,160 --> 00:36:41,760
+Okay, that's the biggest you can go.
+
+673
+00:36:38,640 --> 00:36:44,160
+Loading failed for the script with
+
+674
+00:36:41,760 --> 00:36:49,200
+source.
+
+675
+00:36:44,160 --> 00:36:52,079
+So why is that loading failed?
+
+676
+00:36:49,200 --> 00:36:54,880
+This is how to run JavaScript.
+
+677
+00:36:52,079 --> 00:36:57,040
+So if you look at the source code, you
+
+678
+00:36:54,880 --> 00:37:01,760
+can see
+
+679
+00:36:57,040 --> 00:37:05,520
+uh so this is CSS inspector
+
+680
+00:37:01,760 --> 00:37:08,800
+and you can see the file is at the
+
+681
+00:37:05,520 --> 00:37:13,960
+bottom right there. Okay. So can we
+
+682
+00:37:08,800 --> 00:37:13,960
+magnify this? Oh god.
+
+683
+00:37:15,040 --> 00:37:21,520
+Control plus I I don't think I can. This
+
+684
+00:37:18,240 --> 00:37:25,200
+is the biggest it will go
+
+685
+00:37:21,520 --> 00:37:27,119
+stupid. Okay. So anyway, so you can you
+
+686
+00:37:25,200 --> 00:37:30,400
+can see it's loading that JavaScript
+
+687
+00:37:27,119 --> 00:37:32,800
+file but it's not
+
+688
+00:37:30,400 --> 00:37:36,160
+allowing it.
+
+689
+00:37:32,800 --> 00:37:39,359
+Is it because
+
+690
+00:37:36,160 --> 00:37:43,800
+Oh god. When I run a server,
+
+691
+00:37:39,359 --> 00:37:43,800
+it's all not working.
+
+692
+00:37:47,839 --> 00:37:54,359
+Does it say any error? Warning info.
+
+693
+00:37:56,320 --> 00:38:01,160
+So do you guys know
+
+694
+00:38:02,320 --> 00:38:09,839
+[ __ ] close that? So you see is this file
+
+695
+00:38:05,760 --> 00:38:12,560
+right? So showing browser again
+
+696
+00:38:09,839 --> 00:38:15,599
+now it's
+
+697
+00:38:12,560 --> 00:38:17,680
+oh wait this is working. So let's click
+
+698
+00:38:15,599 --> 00:38:20,000
+that.
+
+699
+00:38:17,680 --> 00:38:24,400
+It is working because you can see it's
+
+700
+00:38:20,000 --> 00:38:25,920
+pink. The current page is pink
+
+701
+00:38:24,400 --> 00:38:29,680
+because
+
+702
+00:38:25,920 --> 00:38:35,359
+because of this highlight link
+
+703
+00:38:29,680 --> 00:38:38,000
+JavaScript. So it is indeed working. So
+
+704
+00:38:35,359 --> 00:38:41,599
+go back to module now. Why does the Oh,
+
+705
+00:38:38,000 --> 00:38:45,839
+now now this part is working too. Wait.
+
+706
+00:38:41,599 --> 00:38:47,520
+Oh well, because this is a local file.
+
+707
+00:38:45,839 --> 00:38:53,359
+[ __ ]
+
+708
+00:38:47,520 --> 00:38:55,760
+Now this is the HTTP file. So HTTP file,
+
+709
+00:38:53,359 --> 00:38:59,359
+you click on file name extension. It's
+
+710
+00:38:55,760 --> 00:39:02,320
+not working. You go to module and go
+
+711
+00:38:59,359 --> 00:39:07,200
+down. You see it's not pink. And so
+
+712
+00:39:02,320 --> 00:39:11,599
+that's not working. And uh I really
+
+713
+00:39:07,200 --> 00:39:14,599
+do not know why. control shift I
+
+714
+00:39:11,599 --> 00:39:14,599
+um
+
+715
+00:39:17,599 --> 00:39:23,119
+uh very annoying. Okay. So, what we
+
+716
+00:39:19,760 --> 00:39:27,760
+going to do so we can keep talking of
+
+717
+00:39:23,119 --> 00:39:29,760
+mod? Let Okay. So, what
+
+718
+00:39:27,760 --> 00:39:32,320
+Okay. Let me let me quickly try to
+
+719
+00:39:29,760 --> 00:39:37,040
+finish what I want to say about module.
+
+720
+00:39:32,320 --> 00:39:39,680
+This this this video is kind of [ __ ]
+
+721
+00:39:37,040 --> 00:39:41,920
+with this problem. But so maybe we'll go
+
+722
+00:39:39,680 --> 00:39:45,680
+back to that problem. Okay. So, let me
+
+723
+00:39:41,920 --> 00:39:48,240
+just then quickly talk about module. So,
+
+724
+00:39:45,680 --> 00:39:51,760
+you can load it. You can load the module
+
+725
+00:39:48,240 --> 00:39:55,040
+in HTML. You need you know use a script
+
+726
+00:39:51,760 --> 00:39:58,960
+tag and type module type equals to
+
+727
+00:39:55,040 --> 00:40:01,359
+module and then the source the value for
+
+728
+00:39:58,960 --> 00:40:03,040
+the source is called module specifier.
+
+729
+00:40:01,359 --> 00:40:05,839
+Okay.
+
+730
+00:40:03,040 --> 00:40:08,079
+The module specifier you uh there's some
+
+731
+00:40:05,839 --> 00:40:13,040
+there's some uh so there are some
+
+732
+00:40:08,079 --> 00:40:16,720
+examples. This is HTML example and uh
+
+733
+00:40:13,040 --> 00:40:19,760
+HTML example. HTML example. all these.
+
+734
+00:40:16,720 --> 00:40:25,280
+So they can be a full URL starting with
+
+735
+00:40:19,760 --> 00:40:28,480
+HTTP or they can be uh slash which is a
+
+736
+00:40:25,280 --> 00:40:32,800
+relative link or they can start with
+
+737
+00:40:28,480 --> 00:40:36,240
+slash slash which is what's called um I
+
+738
+00:40:32,800 --> 00:40:38,400
+think it's called protocol
+
+739
+00:40:36,240 --> 00:40:43,680
+protocol link anyway that defaults
+
+740
+00:40:38,400 --> 00:40:48,960
+whatever http or https from the root of
+
+741
+00:40:43,680 --> 00:40:52,880
+the web okay or It can be uh it can be a
+
+742
+00:40:48,960 --> 00:40:56,160
+relative path with slash in it. Okay. Or
+
+743
+00:40:52,880 --> 00:40:59,040
+so these are examples of loading a
+
+744
+00:40:56,160 --> 00:41:03,440
+module from HTML.
+
+745
+00:40:59,040 --> 00:41:06,319
+But also you can load that load them in
+
+746
+00:41:03,440 --> 00:41:09,200
+JavaScript code itself like that. Okay.
+
+747
+00:41:06,319 --> 00:41:12,720
+Same syntax. So all these source they
+
+748
+00:41:09,200 --> 00:41:16,079
+are called module specifier. Okay.
+
+749
+00:41:12,720 --> 00:41:19,440
+So that's one thing. So we yeah uh the
+
+750
+00:41:16,079 --> 00:41:23,520
+slash slash is called http I mean
+
+751
+00:41:19,440 --> 00:41:26,960
+protocol relative URL. It will just
+
+752
+00:41:23,520 --> 00:41:33,200
+slash slash is the shortcut for either
+
+753
+00:41:26,960 --> 00:41:36,640
+http slash or https slash slash
+
+754
+00:41:33,200 --> 00:41:39,760
+depending on whatever current page is
+
+755
+00:41:36,640 --> 00:41:43,119
+using you know which either one. So you
+
+756
+00:41:39,760 --> 00:41:46,319
+can have slash slash. Okay. So anyway,
+
+757
+00:41:43,119 --> 00:41:49,520
+so the these are the syntax for the
+
+758
+00:41:46,319 --> 00:41:52,640
+module specifiers. That's what it means.
+
+759
+00:41:49,520 --> 00:41:56,000
+This the value for the source. Okay. Uh
+
+760
+00:41:52,640 --> 00:41:59,920
+then there's more
+
+761
+00:41:56,000 --> 00:42:03,359
+um there's a new feature in 2020 which
+
+762
+00:41:59,920 --> 00:42:05,119
+is called import map. So usually a
+
+763
+00:42:03,359 --> 00:42:07,520
+module
+
+764
+00:42:05,119 --> 00:42:10,640
+URI or file path may be long. For
+
+765
+00:42:07,520 --> 00:42:14,800
+example, here's a module specifier your
+
+766
+00:42:10,640 --> 00:42:16,400
+URL, a very long one. So, and usually in
+
+767
+00:42:14,800 --> 00:42:18,880
+real life, you may have different
+
+768
+00:42:16,400 --> 00:42:22,640
+versions. So, it's complicated long
+
+769
+00:42:18,880 --> 00:42:26,079
+line. So, you can make it simpler by
+
+770
+00:42:22,640 --> 00:42:29,520
+creating a what's called import map like
+
+771
+00:42:26,079 --> 00:42:31,040
+this. So, so import map. So, it's
+
+772
+00:42:29,520 --> 00:42:34,640
+getting complicated. This is the
+
+773
+00:42:31,040 --> 00:42:38,720
+complexity of JavaScript. So you you say
+
+774
+00:42:34,640 --> 00:42:41,359
+you in HTML you say you know script type
+
+775
+00:42:38,720 --> 00:42:46,160
+equal equals to import map this is new
+
+776
+00:42:41,359 --> 00:42:49,280
+in 2020 then code okay and what's this
+
+777
+00:42:46,160 --> 00:42:51,520
+code import mat that's a JSON file and
+
+778
+00:42:49,280 --> 00:42:53,599
+the JSON file must have this format you
+
+779
+00:42:51,520 --> 00:42:57,839
+know the import
+
+780
+00:42:53,599 --> 00:43:01,440
+is a key imports okay a string then the
+
+781
+00:42:57,839 --> 00:43:05,760
+value must be a another object which is
+
+782
+00:43:01,440 --> 00:43:08,640
+key value pairs. So the keys are kind of
+
+783
+00:43:05,760 --> 00:43:13,839
+the name you want for the module and the
+
+784
+00:43:08,640 --> 00:43:17,520
+value is the actual URL or
+
+785
+00:43:13,839 --> 00:43:21,040
+relative directory you know
+
+786
+00:43:17,520 --> 00:43:23,280
+you know or a path or a path actually
+
+787
+00:43:21,040 --> 00:43:26,319
+this part is wrong. This part should
+
+788
+00:43:23,280 --> 00:43:30,400
+should begin with a dot slash remember.
+
+789
+00:43:26,319 --> 00:43:34,240
+So let me fix that. So close that. Open
+
+790
+00:43:30,400 --> 00:43:38,720
+that. Uh okay. So you cannot open that.
+
+791
+00:43:34,240 --> 00:43:41,920
+Jesus. Uh because of this local. You see
+
+792
+00:43:38,720 --> 00:43:44,640
+this is this is one of the very annoying
+
+793
+00:43:41,920 --> 00:43:49,119
+thing about module because they require
+
+794
+00:43:44,640 --> 00:43:52,079
+you to run things over uh HTTP server.
+
+795
+00:43:49,119 --> 00:43:55,200
+So you can no longer run
+
+796
+00:43:52,079 --> 00:43:57,040
+things locally. So what that means? Let
+
+797
+00:43:55,200 --> 00:43:59,119
+me talk about this. This is a major
+
+798
+00:43:57,040 --> 00:44:03,200
+problem with the JavaSc with the module.
+
+799
+00:43:59,119 --> 00:44:07,520
+Okay, because before that you know the
+
+800
+00:44:03,200 --> 00:44:11,440
+HTML with CSS and JavaScript they serve
+
+801
+00:44:07,520 --> 00:44:15,119
+as a documentation system extremely
+
+802
+00:44:11,440 --> 00:44:17,920
+powerful you know like I can zip I can
+
+803
+00:44:15,119 --> 00:44:21,119
+zip my entire for example Python
+
+804
+00:44:17,920 --> 00:44:23,520
+directory I can mail it to you and you
+
+805
+00:44:21,119 --> 00:44:26,560
+can you know it's like a EUB you know
+
+806
+00:44:23,520 --> 00:44:29,440
+like a digital book so you have the
+
+807
+00:44:26,560 --> 00:44:31,680
+power of JavaScript and CSS and HTML ML
+
+808
+00:44:29,440 --> 00:44:33,680
+you can format it you can do things
+
+809
+00:44:31,680 --> 00:44:36,319
+interactively
+
+810
+00:44:33,680 --> 00:44:38,480
+you know like number highlighted comment
+
+811
+00:44:36,319 --> 00:44:40,560
+comment is the current page string is
+
+812
+00:44:38,480 --> 00:44:42,240
+the current page you know Python string
+
+813
+00:44:40,560 --> 00:44:45,680
+so
+
+814
+00:44:42,240 --> 00:44:48,960
+uh local documentation system
+
+815
+00:44:45,680 --> 00:44:52,960
+but now with a JavaScript module
+
+816
+00:44:48,960 --> 00:44:55,760
+requiring requiring HTTP server that's
+
+817
+00:44:52,960 --> 00:44:58,640
+all [ __ ] up
+
+818
+00:44:55,760 --> 00:45:01,599
+because if you want to use module then
+
+819
+00:44:58,640 --> 00:45:04,640
+It cannot run locally like if I sent you
+
+820
+00:45:01,599 --> 00:45:07,520
+my zip file of the entire JavaScript
+
+821
+00:45:04,640 --> 00:45:10,480
+tutorial or whatever mathematics
+
+822
+00:45:07,520 --> 00:45:13,520
+you can't just unzip it and view it
+
+823
+00:45:10,480 --> 00:45:16,319
+because then you need to like otherwise
+
+824
+00:45:13,520 --> 00:45:18,960
+because the JavaScript won't work you
+
+825
+00:45:16,319 --> 00:45:22,720
+know this highlighting doesn't work you
+
+826
+00:45:18,960 --> 00:45:24,720
+need to like start HTTP server most
+
+827
+00:45:22,720 --> 00:45:28,960
+people have no idea what the [ __ ] that
+
+828
+00:45:24,720 --> 00:45:33,520
+is noncoders right So
+
+829
+00:45:28,960 --> 00:45:36,560
+this module system [ __ ] up the local
+
+830
+00:45:33,520 --> 00:45:40,240
+file documentation. The concept of
+
+831
+00:45:36,560 --> 00:45:43,440
+JavaScript, HTML, CSS as a local
+
+832
+00:45:40,240 --> 00:45:45,440
+documentation or ebook format, they
+
+833
+00:45:43,440 --> 00:45:49,280
+[ __ ] it up.
+
+834
+00:45:45,440 --> 00:45:50,800
+So that's very bad.
+
+835
+00:45:49,280 --> 00:45:53,440
+you know, I've been working with this,
+
+836
+00:45:50,800 --> 00:45:57,839
+you know, the HTML, JavaScript for like
+
+837
+00:45:53,440 --> 00:46:01,040
+30 years, but starting a, you know, the
+
+838
+00:45:57,839 --> 00:46:04,319
+the requirement to start a web web
+
+839
+00:46:01,040 --> 00:46:07,440
+server is is pretty nasty because then
+
+840
+00:46:04,319 --> 00:46:09,839
+you have to deal with this. Um, so
+
+841
+00:46:07,440 --> 00:46:13,280
+that's a okay that so in summary that's
+
+842
+00:46:09,839 --> 00:46:16,079
+one of my major criticism
+
+843
+00:46:13,280 --> 00:46:20,079
+of the of the JavaScript module system
+
+844
+00:46:16,079 --> 00:46:22,400
+introduced in 2015. Okay, because
+
+845
+00:46:20,079 --> 00:46:25,359
+because it you know you you can't
+
+846
+00:46:22,400 --> 00:46:29,359
+develop it locally unless you start a
+
+847
+00:46:25,359 --> 00:46:31,520
+HTTP server very bad. So that's a one of
+
+848
+00:46:29,359 --> 00:46:33,200
+my criticism. Okay, so let's go back to
+
+849
+00:46:31,520 --> 00:46:36,400
+module.
+
+850
+00:46:33,200 --> 00:46:41,119
+Wait, so is this Yeah. So this is still
+
+851
+00:46:36,400 --> 00:46:43,920
+running HTTPS. You can see
+
+852
+00:46:41,119 --> 00:46:48,319
+I don't think there's a way to magnify
+
+853
+00:46:43,920 --> 00:46:51,200
+this UR URL field is there. I don't
+
+854
+00:46:48,319 --> 00:46:55,680
+think so.
+
+855
+00:46:51,200 --> 00:46:58,880
+Uh dev tool. So uh is it in directory?
+
+856
+00:46:55,680 --> 00:47:02,880
+So does it show a response in network
+
+857
+00:46:58,880 --> 00:47:05,200
+tab of dev tools? Okay, let's see.
+
+858
+00:47:02,880 --> 00:47:09,200
+So
+
+859
+00:47:05,200 --> 00:47:14,560
+uh control shift I to start the
+
+860
+00:47:09,200 --> 00:47:18,560
+console log. Then click on um click on
+
+861
+00:47:14,560 --> 00:47:20,640
+network. Okay. And reload this page.
+
+862
+00:47:18,560 --> 00:47:23,280
+Okay. So does it show response in
+
+863
+00:47:20,640 --> 00:47:26,640
+network? So let's reload this page. F5
+
+864
+00:47:23,280 --> 00:47:29,839
+to reload. Now let's look at
+
+865
+00:47:26,640 --> 00:47:33,280
+Oh, okay. Great tip. Thank you.
+
+866
+00:47:29,839 --> 00:47:36,960
+Oh, blocked by you. Block origin.
+
+867
+00:47:33,280 --> 00:47:39,680
+[ __ ] stupid. [laughter]
+
+868
+00:47:36,960 --> 00:47:42,560
+Blocked. Blocked by you. Block or
+
+869
+00:47:39,680 --> 00:47:44,960
+engine. I forgot about this. Yeah,
+
+870
+00:47:42,560 --> 00:47:47,839
+that's right.
+
+871
+00:47:44,960 --> 00:47:52,079
+Oh, you block our engine. [ __ ]
+
+872
+00:47:47,839 --> 00:47:55,520
+idiotic. Okay, lock it. Okay. In fact,
+
+873
+00:47:52,079 --> 00:47:58,560
+turn it off.
+
+874
+00:47:55,520 --> 00:48:01,680
+Stupid. Okay, so let's try again now.
+
+875
+00:47:58,560 --> 00:48:05,040
+refresh. Fantastic.
+
+876
+00:48:01,680 --> 00:48:09,040
+Finally. Thank Thank you.
+
+877
+00:48:05,040 --> 00:48:13,480
+It pays to be a professional uh Jav
+
+878
+00:48:09,040 --> 00:48:13,480
+JavaScript dev. So, you are right.
+
+879
+00:48:14,960 --> 00:48:20,560
+Why are you sending JavaScript file to
+
+880
+00:48:17,040 --> 00:48:23,359
+not non-coders, you know, for people?
+
+881
+00:48:20,560 --> 00:48:26,000
+It's it's not JavaScript like I have a
+
+882
+00:48:23,359 --> 00:48:29,119
+JavaScript tutorial, but I have some
+
+883
+00:48:26,000 --> 00:48:31,520
+other things like Alice in Wonderland
+
+884
+00:48:29,119 --> 00:48:34,520
+for example.
+
+885
+00:48:31,520 --> 00:48:34,520
+Uh
+
+886
+00:48:35,760 --> 00:48:40,559
+Alice in Wonderland.
+
+887
+00:48:38,079 --> 00:48:43,119
+Okay, that's that's literature, you
+
+888
+00:48:40,559 --> 00:48:46,000
+know. Uh I don't want that. Okay. So,
+
+889
+00:48:43,119 --> 00:48:48,400
+where do I go? That is in in Wonderland
+
+890
+00:48:46,000 --> 00:48:53,280
+in Through the Looking Glass. So, that's
+
+891
+00:48:48,400 --> 00:48:56,400
+literature. And you this Arabian Knights
+
+892
+00:48:53,280 --> 00:48:58,640
+uh 1,000 years old literature, you know.
+
+893
+00:48:56,400 --> 00:49:01,599
+So, so I can, you know, people might so
+
+894
+00:48:58,640 --> 00:49:03,760
+like EUB EUB is for anything, not just
+
+895
+00:49:01,599 --> 00:49:06,960
+code. So, if you send this to other
+
+896
+00:49:03,760 --> 00:49:09,280
+people, they can run it because now the
+
+897
+00:49:06,960 --> 00:49:12,240
+JavaScript requires, you know, HTTP
+
+898
+00:49:09,280 --> 00:49:16,559
+server, right?
+
+899
+00:49:12,240 --> 00:49:20,000
+The reason these clowns I'll just be
+
+900
+00:49:16,559 --> 00:49:23,200
+assump you know I'll be I'll just be
+
+901
+00:49:20,000 --> 00:49:26,319
+pres presumptuous about these people the
+
+902
+00:49:23,200 --> 00:49:28,640
+JavaScript standard this you know lead
+
+903
+00:49:26,319 --> 00:49:31,920
+we lead the technology group JavaScript
+
+904
+00:49:28,640 --> 00:49:34,480
+standard why do they want why do they
+
+905
+00:49:31,920 --> 00:49:37,760
+have this feature by the way this is
+
+906
+00:49:34,480 --> 00:49:41,040
+great uh debugging thank you Spencer you
+
+907
+00:49:37,760 --> 00:49:44,960
+know why why do they decided that
+
+908
+00:49:41,040 --> 00:49:48,960
+this module must run over HTTPS because
+
+909
+00:49:44,960 --> 00:49:50,720
+they think it's a security thing because
+
+910
+00:49:48,960 --> 00:49:53,680
+this way it's more secure. They don't
+
+911
+00:49:50,720 --> 00:49:57,040
+want random files to load on your
+
+912
+00:49:53,680 --> 00:50:00,000
+computer, local files to run arbitrary
+
+913
+00:49:57,040 --> 00:50:02,640
+JavaScript. That's what they think.
+
+914
+00:50:00,000 --> 00:50:05,359
+However, JavaScript has always been that
+
+915
+00:50:02,640 --> 00:50:07,920
+way. you know like if I don't use module
+
+916
+00:50:05,359 --> 00:50:11,760
+I can load any file I want you know like
+
+917
+00:50:07,920 --> 00:50:13,760
+um like right now for example
+
+918
+00:50:11,760 --> 00:50:16,400
+this JavaScript file open it you know
+
+919
+00:50:13,760 --> 00:50:18,880
+showing browser showing browser it's
+
+920
+00:50:16,400 --> 00:50:20,800
+loading it's loading this this
+
+921
+00:50:18,880 --> 00:50:24,240
+highlighting you know you don't see it
+
+922
+00:50:20,800 --> 00:50:26,480
+it's loading it anyway so why is that
+
+923
+00:50:24,240 --> 00:50:30,960
+when you started with a module you you
+
+924
+00:50:26,480 --> 00:50:33,839
+you prevent it you don't you know
+
+925
+00:50:30,960 --> 00:50:38,559
+it's city you know So the the way they
+
+926
+00:50:33,839 --> 00:50:40,720
+think might be okay moving forward
+
+927
+00:50:38,559 --> 00:50:42,720
+people will start to use module instead
+
+928
+00:50:40,720 --> 00:50:44,400
+of just you know this local you know
+
+929
+00:50:42,720 --> 00:50:46,960
+JavaScript file loading a local
+
+930
+00:50:44,400 --> 00:50:50,240
+JavaScript file people will just start
+
+931
+00:50:46,960 --> 00:50:53,760
+to use module then
+
+932
+00:50:50,240 --> 00:50:56,960
+then it prevents you know random local
+
+933
+00:50:53,760 --> 00:50:58,800
+HTML file from loading JavaScript that's
+
+934
+00:50:56,960 --> 00:51:01,760
+idiotic
+
+935
+00:50:58,800 --> 00:51:04,000
+you know but you you still have this you
+
+936
+00:51:01,760 --> 00:51:06,079
+know this They didn't ban this. This is
+
+937
+00:51:04,000 --> 00:51:09,119
+not going away, you know. They didn't
+
+938
+00:51:06,079 --> 00:51:11,839
+ban like from now on you you cannot load
+
+939
+00:51:09,119 --> 00:51:14,640
+JavaScript locally. They didn't ban it.
+
+940
+00:51:11,839 --> 00:51:17,920
+So what's the point of you know for the
+
+941
+00:51:14,640 --> 00:51:19,760
+module system to have like the [ __ ]
+
+942
+00:51:17,920 --> 00:51:22,720
+idiots, you know? They have like they
+
+943
+00:51:19,760 --> 00:51:26,000
+have the word cross origin
+
+944
+00:51:22,720 --> 00:51:27,760
+error [ __ ]
+
+945
+00:51:26,000 --> 00:51:31,200
+you know? They that's what they call it,
+
+946
+00:51:27,760 --> 00:51:34,559
+you know, was origin, you know. They're
+
+947
+00:51:31,200 --> 00:51:36,400
+[ __ ] idiots. is you know like for if
+
+948
+00:51:34,559 --> 00:51:38,559
+you don't know JavaScript or if you
+
+949
+00:51:36,400 --> 00:51:42,240
+haven't been in the software software
+
+950
+00:51:38,559 --> 00:51:45,920
+industry for like for long like me 30
+
+951
+00:51:42,240 --> 00:51:48,000
+years 30 years in software industry I've
+
+952
+00:51:45,920 --> 00:51:50,480
+seen you know many languages in
+
+953
+00:51:48,000 --> 00:51:52,559
+different communities
+
+954
+00:51:50,480 --> 00:51:55,839
+you might think oh this is you know just
+
+955
+00:51:52,559 --> 00:52:00,400
+technical this is very you know advanced
+
+956
+00:51:55,839 --> 00:52:03,200
+cross origin resource sharing cos you
+
+957
+00:52:00,400 --> 00:52:05,760
+know is a browser security mechanism
+
+958
+00:52:03,200 --> 00:52:08,720
+that controls how a web application runs
+
+959
+00:52:05,760 --> 00:52:10,319
+in on one or engine defined by domain
+
+960
+00:52:08,720 --> 00:52:12,480
+protocol port. You know you think this
+
+961
+00:52:10,319 --> 00:52:15,599
+is you know absolutely
+
+962
+00:52:12,480 --> 00:52:18,960
+you know so so advanced designed by
+
+963
+00:52:15,599 --> 00:52:20,720
+these great knowledgeable people
+
+964
+00:52:18,960 --> 00:52:23,359
+but
+
+965
+00:52:20,720 --> 00:52:27,520
+my opinion is like totally [ __ ]
+
+966
+00:52:23,359 --> 00:52:30,000
+[ __ ] [ __ ] them. Not totally wrong.
+
+967
+00:52:27,520 --> 00:52:33,440
+There's some reasons for certain certain
+
+968
+00:52:30,000 --> 00:52:35,760
+things and naming of the jarens but but
+
+969
+00:52:33,440 --> 00:52:38,880
+overall they they are like they are like
+
+970
+00:52:35,760 --> 00:52:42,480
+they are just like in in you know they
+
+971
+00:52:38,880 --> 00:52:45,280
+they are the they are the result of
+
+972
+00:52:42,480 --> 00:52:47,359
+corporate corporate interest you know
+
+973
+00:52:45,280 --> 00:52:50,480
+different browsers they they have
+
+974
+00:52:47,359 --> 00:52:52,960
+interest you know they uh or JavaScript
+
+975
+00:52:50,480 --> 00:52:56,079
+standards organization they have their
+
+976
+00:52:52,960 --> 00:52:58,000
+interest you know the programmers or who
+
+977
+00:52:56,079 --> 00:53:01,680
+whoever wrote JavaScript or you know
+
+978
+00:52:58,000 --> 00:53:04,240
+there's different like programmer
+
+979
+00:53:01,680 --> 00:53:08,319
+communities they have their interest.
+
+980
+00:53:04,240 --> 00:53:11,200
+So, so usually that's so usually the
+
+981
+00:53:08,319 --> 00:53:14,480
+things we work on every day, the
+
+982
+00:53:11,200 --> 00:53:17,920
+standards, the protocols, the jargon,
+
+983
+00:53:14,480 --> 00:53:20,480
+the cross origin fact is a result of
+
+984
+00:53:17,920 --> 00:53:22,480
+this combination of forces. They are
+
+985
+00:53:20,480 --> 00:53:25,599
+almost never
+
+986
+00:53:22,480 --> 00:53:29,920
+well designed. Okay? And they are almost
+
+987
+00:53:25,599 --> 00:53:32,880
+never like necessary out of like you
+
+988
+00:53:29,920 --> 00:53:37,440
+know be because mathematics
+
+989
+00:53:32,880 --> 00:53:40,079
+you see the complexity of mathematics is
+
+990
+00:53:37,440 --> 00:53:43,520
+necessary because they came from nature.
+
+991
+00:53:40,079 --> 00:53:45,359
+You can never change 1 + one or real
+
+992
+00:53:43,520 --> 00:53:47,680
+numbers or what's a complex number or
+
+993
+00:53:45,359 --> 00:53:50,880
+what's a fraction. Why can't you have
+
+994
+00:53:47,680 --> 00:53:53,040
+like a you know a rational number? Why
+
+995
+00:53:50,880 --> 00:53:54,720
+can't you know why why is rational
+
+996
+00:53:53,040 --> 00:53:56,400
+number different from real number? Why
+
+997
+00:53:54,720 --> 00:53:59,520
+have you why do you have so many
+
+998
+00:53:56,400 --> 00:54:02,240
+complexities? Why do you have infinity?
+
+999
+00:53:59,520 --> 00:54:05,599
+Why do you have one divided by zero? You
+
+1000
+00:54:02,240 --> 00:54:07,920
+know why can't you make it go away? It's
+
+1001
+00:54:05,599 --> 00:54:11,280
+not going away because that's that's the
+
+1002
+00:54:07,920 --> 00:54:14,160
+nature we are in. You have to ask God.
+
+1003
+00:54:11,280 --> 00:54:17,680
+Okay. But this cross origin, you know,
+
+1004
+00:54:14,160 --> 00:54:21,359
+this [ __ ] that's humanmade man-made
+
+1005
+00:54:17,680 --> 00:54:24,880
+complexity just like the C and Unix
+
+1006
+00:54:21,359 --> 00:54:28,000
+[ __ ] make them all the time. Okay,
+
+1007
+00:54:24,880 --> 00:54:29,920
+that's my rant. [laughter]
+
+1008
+00:54:28,000 --> 00:54:32,720
+You know
+
+1009
+00:54:29,920 --> 00:54:36,440
+that's that's basically the case. Okay,
+
+1010
+00:54:32,720 --> 00:54:36,440
+the cross origin.
+
+1011
+00:54:38,960 --> 00:54:44,720
+So for now for example let me give you
+
+1012
+00:54:41,680 --> 00:54:46,720
+practical reasons
+
+1013
+00:54:44,720 --> 00:54:50,640
+you know practical reasons you know I
+
+1014
+00:54:46,720 --> 00:54:53,680
+work on my website you know I you know I
+
+1015
+00:54:50,640 --> 00:54:56,880
+do tutorials I dive into programming
+
+1016
+00:54:53,680 --> 00:54:59,359
+language right so I want you know so now
+
+1017
+00:54:56,880 --> 00:55:03,119
+there's JavaScript module yeah I want to
+
+1018
+00:54:59,359 --> 00:55:05,440
+use it I want to turn my
+
+1019
+00:55:03,119 --> 00:55:08,160
+JavaScript into modules because I want
+
+1020
+00:55:05,440 --> 00:55:13,119
+modular code you know for example let's
+
+1021
+00:55:08,160 --> 00:55:16,240
+see Unix fire instantaneous. You see all
+
+1022
+00:55:13,119 --> 00:55:17,839
+characters of Unicode characters
+
+1023
+00:55:16,240 --> 00:55:20,960
+containing
+
+1024
+00:55:17,839 --> 00:55:25,760
+whose name contains the word fire or I
+
+1025
+00:55:20,960 --> 00:55:29,280
+can type water w a t
+
+1026
+00:55:25,760 --> 00:55:36,240
+and it shows dynamic dynamically as I
+
+1027
+00:55:29,280 --> 00:55:40,160
+type or I can type l a t i n. all unic
+
+1028
+00:55:36,240 --> 00:55:42,880
+code characters containing the whose
+
+1029
+00:55:40,160 --> 00:55:45,280
+name contains the word Latin. So they
+
+1030
+00:55:42,880 --> 00:55:47,440
+are Latin characters. You can you can
+
+1031
+00:55:45,280 --> 00:55:49,440
+see hundreds of them. So this is a
+
+1032
+00:55:47,440 --> 00:55:51,920
+JavaScript application. Let's look at
+
+1033
+00:55:49,440 --> 00:55:54,240
+the source code. Okay. Open open open.
+
+1034
+00:55:51,920 --> 00:55:57,440
+So showing browser. This is source code.
+
+1035
+00:55:54,240 --> 00:56:01,839
+Back to Emacs. Search for.js.
+
+1036
+00:55:57,440 --> 00:56:03,599
+So there it is. Uh search data popup
+
+1037
+00:56:01,839 --> 00:56:06,559
+three files. So this is a search. This
+
+1038
+00:56:03,599 --> 00:56:09,200
+is the code JavaScript. So I'm loading
+
+1039
+00:56:06,559 --> 00:56:11,359
+them traditionally without being a
+
+1040
+00:56:09,200 --> 00:56:13,119
+module. But now there's a module. It
+
+1041
+00:56:11,359 --> 00:56:14,640
+would be nice. I want to make my code
+
+1042
+00:56:13,119 --> 00:56:18,640
+module,
+
+1043
+00:56:14,640 --> 00:56:20,880
+right? Module rise. But I cannot because
+
+1044
+00:56:18,640 --> 00:56:22,640
+if I do that, actually I can do that,
+
+1045
+00:56:20,880 --> 00:56:24,960
+you know. Actually, actually I can start
+
+1046
+00:56:22,640 --> 00:56:29,760
+to do that, you know.
+
+1047
+00:56:24,960 --> 00:56:32,079
+But if I do that, I can no longer
+
+1048
+00:56:29,760 --> 00:56:35,680
+do let's say let's try something else.
+
+1049
+00:56:32,079 --> 00:56:38,559
+Smile. Okay. Let's say heart. H E A R T.
+
+1050
+00:56:35,680 --> 00:56:41,119
+Okay. All characters whose name contains
+
+1051
+00:56:38,559 --> 00:56:43,520
+the word heart.
+
+1052
+00:56:41,119 --> 00:56:47,680
+If I turn them into modules, this no
+
+1053
+00:56:43,520 --> 00:56:50,400
+longer works. It [ __ ] up my system. I
+
+1054
+00:56:47,680 --> 00:56:53,920
+have to go to Python, go go install
+
+1055
+00:56:50,400 --> 00:56:56,960
+Python, start HTTP server, whatever [ __ ]
+
+1056
+00:56:53,920 --> 00:57:00,160
+that is. They have then then do this
+
+1057
+00:56:56,960 --> 00:57:04,319
+because they say this this standard
+
+1058
+00:57:00,160 --> 00:57:08,960
+organization this priest says oh it's a
+
+1059
+00:57:04,319 --> 00:57:11,760
+cross origin security [ __ ]
+
+1060
+00:57:08,960 --> 00:57:14,960
+yeah this [ __ ] I'll just call them
+
+1061
+00:57:11,760 --> 00:57:17,359
+[ __ ] out of my 30 years of of
+
+1062
+00:57:14,960 --> 00:57:20,319
+coding experience they yeah they are
+
+1063
+00:57:17,359 --> 00:57:22,480
+[ __ ]
+
+1064
+00:57:20,319 --> 00:57:26,319
+it's things are this way not because
+
+1065
+00:57:22,480 --> 00:57:28,720
+it's necessarily so But it is because
+
+1066
+00:57:26,319 --> 00:57:31,119
+it's a product of different interests of
+
+1067
+00:57:28,720 --> 00:57:34,079
+different corporations. It's a kind of a
+
+1068
+00:57:31,119 --> 00:57:37,119
+mess and there's some require there's
+
+1069
+00:57:34,079 --> 00:57:39,200
+some security requirement but overall
+
+1070
+00:57:37,119 --> 00:57:41,760
+it's just like overly bloated
+
+1071
+00:57:39,200 --> 00:57:46,119
+complexity. [clears throat]
+
+1072
+00:57:41,760 --> 00:57:46,119
+Okay, that's what I have to say.
+
+1073
+00:57:46,240 --> 00:57:51,680
+Uh
+
+1074
+00:57:49,040 --> 00:57:53,920
+so uh why are you saying JavaScript? So
+
+1075
+00:57:51,680 --> 00:57:57,359
+why does this page need JavaScript load?
+
+1076
+00:57:53,920 --> 00:58:00,319
+It's a static content. Well, you missed
+
+1077
+00:57:57,359 --> 00:58:03,119
+you missed what I was saying. Okay. So,
+
+1078
+00:58:00,319 --> 00:58:07,200
+for example, let me explain. So, for
+
+1079
+00:58:03,119 --> 00:58:09,839
+example, this module file or any file uh
+
+1080
+00:58:07,200 --> 00:58:13,359
+like any file actually, let me show you
+
+1081
+00:58:09,839 --> 00:58:16,640
+any file. So, let me go to a local file.
+
+1082
+00:58:13,359 --> 00:58:20,079
+Okay. Uh let's see this. Okay. This is
+
+1083
+00:58:16,640 --> 00:58:24,000
+loaded locally. Any file. So I want to
+
+1084
+00:58:20,079 --> 00:58:27,359
+highlight you know the the current you
+
+1085
+00:58:24,000 --> 00:58:29,680
+know this here is the topic box. So
+
+1086
+00:58:27,359 --> 00:58:33,200
+these are all pages related to the
+
+1087
+00:58:29,680 --> 00:58:36,720
+JavaScript module system. So you can go
+
+1088
+00:58:33,200 --> 00:58:39,520
+to the next one examples. You can go to
+
+1089
+00:58:36,720 --> 00:58:42,400
+the next one. What are exports? What are
+
+1090
+00:58:39,520 --> 00:58:45,839
+the different syntax? How do you what is
+
+1091
+00:58:42,400 --> 00:58:48,079
+export? So there are two exports. One is
+
+1092
+00:58:45,839 --> 00:58:50,559
+called default export and one is called
+
+1093
+00:58:48,079 --> 00:58:53,359
+named export. They're very different.
+
+1094
+00:58:50,559 --> 00:58:56,640
+Okay. So anyway, here's the topic box at
+
+1095
+00:58:53,359 --> 00:58:59,520
+the bottom. Every page about module
+
+1096
+00:58:56,640 --> 00:59:01,280
+subsections. Okay. So you see they are
+
+1097
+00:58:59,520 --> 00:59:04,240
+pink. You see the current one is
+
+1098
+00:59:01,280 --> 00:59:07,040
+highlighted pink. How is that done? I
+
+1099
+00:59:04,240 --> 00:59:10,000
+explained before.
+
+1100
+00:59:07,040 --> 00:59:13,119
+I explained before. That's because this
+
+1101
+00:59:10,000 --> 00:59:15,839
+highlight link JavaScript code. Okay.
+
+1102
+00:59:13,119 --> 00:59:19,200
+You open it. You go to the top you can
+
+1103
+00:59:15,839 --> 00:59:21,839
+see um windows.loation location path
+
+1104
+00:59:19,200 --> 00:59:25,680
+name highlight link of current page uh
+
+1105
+00:59:21,839 --> 00:59:28,640
+document query select all panel and
+
+1106
+00:59:25,680 --> 00:59:31,520
+topic and dotd
+
+1107
+00:59:28,640 --> 00:59:34,480
+that's relative links so or with the
+
+1108
+00:59:31,520 --> 00:59:39,119
+anchor link so you basically select all
+
+1109
+00:59:34,480 --> 00:59:41,839
+the topic box or the panel box
+
+1110
+00:59:39,119 --> 00:59:45,520
+and you look at them if the current file
+
+1111
+00:59:41,839 --> 00:59:48,559
+if the current link is the same as the
+
+1112
+00:59:45,520 --> 00:59:53,520
+current URL then you hide highlighted
+
+1113
+00:59:48,559 --> 00:59:56,000
+pink. Okay, JavaScript
+
+1114
+00:59:53,520 --> 00:59:59,599
+that's why you need it, you know, even
+
+1115
+00:59:56,000 --> 01:00:02,720
+for whatever page, you know, about not
+
+1116
+00:59:59,599 --> 01:00:04,559
+about programming,
+
+1117
+01:00:02,720 --> 01:00:07,839
+you know, like just like what do you
+
+1118
+01:00:04,559 --> 01:00:10,960
+need JavaScript in EUB for EUB, you
+
+1119
+01:00:07,839 --> 01:00:12,960
+know, the Amazon digital book or or
+
+1120
+01:00:10,960 --> 01:00:16,240
+whatever digital book different format
+
+1121
+01:00:12,960 --> 01:00:19,280
+you you need them
+
+1122
+01:00:16,240 --> 01:00:21,760
+to even take notes or whatever. Okay.
+
+1123
+01:00:19,280 --> 01:00:23,280
+So, JavaScript that's general purpose,
+
+1124
+01:00:21,760 --> 01:00:25,680
+you know, you need you need a
+
+1125
+01:00:23,280 --> 01:00:28,960
+programming language in a documentation
+
+1126
+01:00:25,680 --> 01:00:32,400
+system. That's why you have them.
+
+1127
+01:00:28,960 --> 01:00:34,400
+Okay. So, so uh it's static content. So,
+
+1128
+01:00:32,400 --> 01:00:38,559
+you don't need Okay. So, I think I
+
+1129
+01:00:34,400 --> 01:00:41,520
+explained that branches holder.
+
+1130
+01:00:38,559 --> 01:00:47,119
+Okay. I think that's it for that today.
+
+1131
+01:00:41,520 --> 01:00:50,119
+uh you know so we haven't explained
+
+1132
+01:00:47,119 --> 01:00:50,119
+um
+
+1133
+01:00:51,760 --> 01:00:58,319
+we I I ranted a bunch but we haven't g
+
+1134
+01:00:55,520 --> 01:01:01,520
+actually go over
+
+1135
+01:00:58,319 --> 01:01:04,640
+as a tutorial of the JavaScript import
+
+1136
+01:01:01,520 --> 01:01:06,880
+export you know module system but I
+
+1137
+01:01:04,640 --> 01:01:10,559
+think that's okay that's it for today I
+
+1138
+01:01:06,880 --> 01:01:14,799
+think I think
+
+1139
+01:01:10,559 --> 01:01:17,119
+can be done in CSS? No, it can. Yes, it
+
+1140
+01:01:14,799 --> 01:01:19,119
+can. It can. Let me show you. Okay. So,
+
+1141
+01:01:17,119 --> 01:01:22,319
+go to CSS.
+
+1142
+01:01:19,119 --> 01:01:25,680
+So, what you are talking about is
+
+1143
+01:01:22,319 --> 01:01:30,240
+using CSS to highlight the current page.
+
+1144
+01:01:25,680 --> 01:01:33,040
+Okay. And you can see that in uh tabs,
+
+1145
+01:01:30,240 --> 01:01:36,640
+okay, tab A, tab B, tab C. So, let's go
+
+1146
+01:01:33,040 --> 01:01:38,799
+to tab C. So, let's go to tab A. Uh
+
+1147
+01:01:36,640 --> 01:01:42,000
+actually, they changed, you know. So,
+
+1148
+01:01:38,799 --> 01:01:45,280
+tab A, tab B, tab C. Okay. Now, this is
+
+1149
+01:01:42,000 --> 01:01:48,160
+implemented without JavaScript. No
+
+1150
+01:01:45,280 --> 01:01:51,280
+JavaScript. Okay. How do you do that? I
+
+1151
+01:01:48,160 --> 01:01:52,880
+explain here. Okay. This is written in
+
+1152
+01:01:51,280 --> 01:01:55,280
+2006,
+
+1153
+01:01:52,880 --> 01:01:58,799
+20 years ago.
+
+1154
+01:01:55,280 --> 01:02:01,920
+You don't need need it. However, you
+
+1155
+01:01:58,799 --> 01:02:04,480
+don't know a [ __ ] Okay? because you can
+
+1156
+01:02:01,920 --> 01:02:07,680
+do that but then it becomes it becomes
+
+1157
+01:02:04,480 --> 01:02:11,040
+very complex because for because I have
+
+1158
+01:02:07,680 --> 01:02:13,200
+hundreds of topic boxes. Okay. Anyway
+
+1159
+01:02:11,040 --> 01:02:16,960
+just in general you you you can you
+
+1160
+01:02:13,200 --> 01:02:21,280
+cannot do whatever JavaScript can do by
+
+1161
+01:02:16,960 --> 01:02:23,760
+just CSS. Okay. In some in some
+
+1162
+01:02:21,280 --> 01:02:25,920
+situations like the tab or the current
+
+1163
+01:02:23,760 --> 01:02:28,079
+page. Yeah, you can do it with CSS, but
+
+1164
+01:02:25,920 --> 01:02:32,160
+then you need to manually you need to
+
+1165
+01:02:28,079 --> 01:02:35,520
+what you so I need to for every topic
+
+1166
+01:02:32,160 --> 01:02:39,280
+box of my 10,000
+
+1167
+01:02:35,520 --> 01:02:42,799
+manually crafted HTML pages. For every
+
+1168
+01:02:39,280 --> 01:02:45,200
+topic box, for example, let's go to um
+
+1169
+01:02:42,799 --> 01:02:49,359
+is there a topic box there? Okay, so
+
+1170
+01:02:45,200 --> 01:02:51,760
+let's let's copy that and search topic
+
+1171
+01:02:49,359 --> 01:02:55,119
+box. Let's see how many I have in
+
+1172
+01:02:51,760 --> 01:02:58,079
+sarali.info. Okay, you get a 100 of them
+
+1173
+01:02:55,119 --> 01:03:01,359
+basically. So you wait, you know, you
+
+1174
+01:02:58,079 --> 01:03:03,760
+take 10 seconds to show. So for every
+
+1175
+01:03:01,359 --> 01:03:07,839
+topic box then you need to craft you
+
+1176
+01:03:03,760 --> 01:03:10,480
+create this CSS CSS. That's no good
+
+1177
+01:03:07,839 --> 01:03:12,640
+because then you can't work dynamically.
+
+1178
+01:03:10,480 --> 01:03:16,400
+Every time you create a new page, you
+
+1179
+01:03:12,640 --> 01:03:18,319
+have to consider, oh, what what topic,
+
+1180
+01:03:16,400 --> 01:03:20,640
+you know, what other pages is going to
+
+1181
+01:03:18,319 --> 01:03:22,960
+be used in conjunction with the current
+
+1182
+01:03:20,640 --> 01:03:24,640
+page I'm writing or in the future, I'm
+
+1183
+01:03:22,960 --> 01:03:27,039
+going to have another page that's
+
+1184
+01:03:24,640 --> 01:03:28,400
+related to what I'm writing today. So, I
+
+1185
+01:03:27,039 --> 01:03:31,760
+need to think about that. That's not
+
+1186
+01:03:28,400 --> 01:03:34,640
+going to work. Okay. So, and in general,
+
+1187
+01:03:31,760 --> 01:03:37,760
+CSS cannot replace JavaScript. Okay?
+
+1188
+01:03:34,640 --> 01:03:41,680
+Right now, it's still searching.
+
+1189
+01:03:37,760 --> 01:03:41,680
+Okay? I think that's it for today.
+
+1190
+01:03:44,480 --> 01:03:52,079
+Does that Does that make sense? Use the
+
+1191
+01:03:48,240 --> 01:03:54,559
+attribute equals to syntax.
+
+1192
+01:03:52,079 --> 01:03:57,440
+No, I don't think you I don't think you
+
+1193
+01:03:54,559 --> 01:04:01,400
+make much sense. Are you like are you
+
+1194
+01:03:57,440 --> 01:04:01,400
+are you like a CSX
+
+1195
+01:04:01,920 --> 01:04:04,920
+expert?
+
+1196
+01:04:07,039 --> 01:04:12,839
+So, let's see how long have I been
+
+1197
+01:04:09,839 --> 01:04:12,839
+talking.
+
+1198
+01:04:12,880 --> 01:04:20,480
+Uh, so I this video has been going on
+
+1199
+01:04:16,319 --> 01:04:24,000
+for an hour. Okay. So, now it's time to
+
+1200
+01:04:20,480 --> 01:04:26,319
+shut up. So, let's consider what you are
+
+1201
+01:04:24,000 --> 01:04:29,200
+saying. So, right now it's still
+
+1202
+01:04:26,319 --> 01:04:33,280
+searching my website. Yeah, it takes a
+
+1203
+01:04:29,200 --> 01:04:35,839
+while because loading the disks
+
+1204
+01:04:33,280 --> 01:04:39,359
+but
+
+1205
+01:04:35,839 --> 01:04:42,240
+but you are saying uh you just Google
+
+1206
+01:04:39,359 --> 01:04:46,160
+it. Yeah, you don't know. Okay. So, but
+
+1207
+01:04:42,240 --> 01:04:49,920
+you know like because in I mean like I
+
+1208
+01:04:46,160 --> 01:04:52,799
+said in general you cannot use CSS to
+
+1209
+01:04:49,920 --> 01:04:55,520
+replace whatever JavaScript do. Okay,
+
+1210
+01:04:52,799 --> 01:04:58,640
+it's too many. So here is all my topic
+
+1211
+01:04:55,520 --> 01:05:03,200
+boxes. You can see there are thousands.
+
+1212
+01:04:58,640 --> 01:05:07,839
+Okay, they are like 47,000 lines, you
+
+1213
+01:05:03,200 --> 01:05:09,440
+know, divided by 10, then you got
+
+1214
+01:05:07,839 --> 01:05:13,760
+4,700
+
+1215
+01:05:09,440 --> 01:05:17,440
+about then you divide it by the
+
+1216
+01:05:13,760 --> 01:05:19,920
+by the duplicate you know
+
+1217
+01:05:17,440 --> 01:05:23,760
+you remove you make them unique you have
+
+1218
+01:05:19,920 --> 01:05:29,000
+like I would say few hundred 100 or 200
+
+1219
+01:05:23,760 --> 01:05:29,000
+300 topic boxes Okay.
+
+1220
+01:05:30,720 --> 01:05:36,559
+Yeah. Okay. So, I think that's it. Uh
+
+1221
+01:05:33,280 --> 01:05:39,359
+let's see what else.
+
+1222
+01:05:36,559 --> 01:05:44,480
+Okay. So, I've done today. So, it's kind
+
+1223
+01:05:39,359 --> 01:05:49,039
+of a rant on the um so close that show
+
+1224
+01:05:44,480 --> 01:05:51,440
+in browser module. So, we didn't really
+
+1225
+01:05:49,039 --> 01:05:55,920
+go through everything.
+
+1226
+01:05:51,440 --> 01:05:59,359
+So, but we criticize this, you know, the
+
+1227
+01:05:55,920 --> 01:06:01,280
+module system is not very good. Not
+
+1228
+01:05:59,359 --> 01:06:03,599
+good. Okay.
+
+1229
+01:06:01,280 --> 01:06:06,319
+It's got lots, it's quite got quite a
+
+1230
+01:06:03,599 --> 01:06:11,520
+few issues. One of them, the most
+
+1231
+01:06:06,319 --> 01:06:14,319
+fundamental is the requirement of HTTP
+
+1232
+01:06:11,520 --> 01:06:17,039
+server to use it. Okay, in my opinion,
+
+1233
+01:06:14,319 --> 01:06:21,200
+that's one of the worst.
+
+1234
+01:06:17,039 --> 01:06:24,799
+The second um worst problem is that when
+
+1235
+01:06:21,200 --> 01:06:28,160
+you export so let's go to the topic box
+
+1236
+01:06:24,799 --> 01:06:30,400
+when you uh export.
+
+1237
+01:06:28,160 --> 01:06:32,799
+So let me let me show you guys what's
+
+1238
+01:06:30,400 --> 01:06:34,799
+the syntax you know just just quickly.
+
+1239
+01:06:32,799 --> 01:06:37,760
+So this part you can see this is an
+
+1240
+01:06:34,799 --> 01:06:41,039
+example. So you have a module file a
+
+1241
+01:06:37,760 --> 01:06:43,839
+library then you can say you know so
+
+1242
+01:06:41,039 --> 01:06:47,200
+this is a file you have two functions f1
+
+1243
+01:06:43,839 --> 01:06:50,559
+f_sub_2 then you can export them by this
+
+1244
+01:06:47,200 --> 01:06:53,599
+export statement okay so that's a module
+
+1245
+01:06:50,559 --> 01:06:58,079
+then in your main javascript file you
+
+1246
+01:06:53,599 --> 01:07:01,440
+can say import okay from this javas you
+
+1247
+01:06:58,079 --> 01:07:04,559
+know this module file name relative file
+
+1248
+01:07:01,440 --> 01:07:07,599
+dot slash okay then you can call the
+
+1249
+01:07:04,559 --> 01:07:09,920
+function f1 But you can use it now for
+
+1250
+01:07:07,599 --> 01:07:13,440
+the main file. You can load it again.
+
+1251
+01:07:09,920 --> 01:07:16,559
+Remember you you load with a script tag
+
+1252
+01:07:13,440 --> 01:07:20,079
+with the type equals to module
+
+1253
+01:07:16,559 --> 01:07:23,119
+and the file path must dot slash. Okay,
+
+1254
+01:07:20,079 --> 01:07:26,079
+this is a simple example of module. This
+
+1255
+01:07:23,119 --> 01:07:30,000
+is this is
+
+1256
+01:07:26,079 --> 01:07:32,799
+of importing named
+
+1257
+01:07:30,000 --> 01:07:34,319
+named export. Okay. Now when you export
+
+1258
+01:07:32,799 --> 01:07:36,160
+there's a different another thing
+
+1259
+01:07:34,319 --> 01:07:39,520
+there's called another thing called
+
+1260
+01:07:36,160 --> 01:07:42,079
+default export. Okay. So in that case
+
+1261
+01:07:39,520 --> 01:07:45,760
+you do it this way. So this is a module
+
+1262
+01:07:42,079 --> 01:07:48,960
+file. You say export default then a
+
+1263
+01:07:45,760 --> 01:07:52,400
+value. It's not a name but a value like
+
+1264
+01:07:48,960 --> 01:07:55,680
+a object. Then the import you say import
+
+1265
+01:07:52,400 --> 01:07:59,440
+something G from that. Okay. So anyway,
+
+1266
+01:07:55,680 --> 01:08:02,079
+so the the thing here is that when you
+
+1267
+01:07:59,440 --> 01:08:06,000
+have a module, when you write a module,
+
+1268
+01:08:02,079 --> 01:08:08,480
+you need to export, right? So to export
+
+1269
+01:08:06,000 --> 01:08:11,200
+there are two different kind of export.
+
+1270
+01:08:08,480 --> 01:08:14,000
+One is called default export, one is
+
+1271
+01:08:11,200 --> 01:08:16,239
+called named export.
+
+1272
+01:08:14,000 --> 01:08:18,880
+Okay. So this is a major problem. This
+
+1273
+01:08:16,239 --> 01:08:20,960
+is a major idiocy in the JavaScript
+
+1274
+01:08:18,880 --> 01:08:23,199
+language design.
+
+1275
+01:08:20,960 --> 01:08:26,799
+They dis you know they have these two
+
+1276
+01:08:23,199 --> 01:08:29,199
+kinds which is not necessary at all
+
+1277
+01:08:26,799 --> 01:08:31,759
+because so what does a default export
+
+1278
+01:08:29,199 --> 01:08:35,600
+do? Basically they just export one
+
+1279
+01:08:31,759 --> 01:08:37,920
+single value. This value can be a object
+
+1280
+01:08:35,600 --> 01:08:39,520
+can be a array can be whatever can be a
+
+1281
+01:08:37,920 --> 01:08:42,319
+function
+
+1282
+01:08:39,520 --> 01:08:44,799
+or it can be a name like a name of a
+
+1283
+01:08:42,319 --> 01:08:48,480
+function name of a like a variable name
+
+1284
+01:08:44,799 --> 01:08:51,759
+like variable name. So basically the
+
+1285
+01:08:48,480 --> 01:08:54,560
+essence of this export is it export one
+
+1286
+01:08:51,759 --> 01:08:58,480
+single thing could be a name variable
+
+1287
+01:08:54,560 --> 01:09:01,359
+name or a value. Okay. Then you have
+
+1288
+01:08:58,480 --> 01:09:04,080
+named export which is more kind of
+
+1289
+01:09:01,359 --> 01:09:06,400
+logical and normal in all the other
+
+1290
+01:09:04,080 --> 01:09:08,560
+programming languages. You know you just
+
+1291
+01:09:06,400 --> 01:09:11,759
+export whatever functions you want or
+
+1292
+01:09:08,560 --> 01:09:14,640
+variable you know in your package. You
+
+1293
+01:09:11,759 --> 01:09:16,960
+say I want to export this name, export
+
+1294
+01:09:14,640 --> 01:09:19,520
+that name, this this, you know, a bunch
+
+1295
+01:09:16,960 --> 01:09:21,359
+of names. But in JavaScript, they have
+
+1296
+01:09:19,520 --> 01:09:23,839
+these two, you know, they have now they
+
+1297
+01:09:21,359 --> 01:09:26,880
+combine these two. I mean, they created
+
+1298
+01:09:23,839 --> 01:09:28,960
+this idiocy like, oh, you have the
+
+1299
+01:09:26,880 --> 01:09:31,920
+default export, then you also you have
+
+1300
+01:09:28,960 --> 01:09:34,719
+name export. The default export is not
+
+1301
+01:09:31,920 --> 01:09:37,520
+necessary at all. Why? Because if you
+
+1302
+01:09:34,719 --> 01:09:40,640
+just want to export a value, just give a
+
+1303
+01:09:37,520 --> 01:09:45,759
+name and use a name export. export this
+
+1304
+01:09:40,640 --> 01:09:48,560
+variable name. Simple, logical.
+
+1305
+01:09:45,759 --> 01:09:51,759
+Why do you need a special like there's a
+
+1306
+01:09:48,560 --> 01:09:54,800
+special export called default export?
+
+1307
+01:09:51,759 --> 01:09:57,440
+What an idiocy.
+
+1308
+01:09:54,800 --> 01:10:00,080
+And if you are thinking, you know, we
+
+1309
+01:09:57,440 --> 01:10:02,400
+need to def we need some kind of default
+
+1310
+01:10:00,080 --> 01:10:06,320
+export so people don't have to think
+
+1311
+01:10:02,400 --> 01:10:09,600
+about names. That's very easy to solve.
+
+1312
+01:10:06,320 --> 01:10:12,880
+just have a named export with one of the
+
+1313
+01:10:09,600 --> 01:10:15,360
+variable name special this variable
+
+1314
+01:10:12,880 --> 01:10:17,840
+value will be just called default. So
+
+1315
+01:10:15,360 --> 01:10:21,280
+everything is the is you know you do the
+
+1316
+01:10:17,840 --> 01:10:24,000
+same single syntax with named export
+
+1317
+01:10:21,280 --> 01:10:27,679
+then you have a default name that means
+
+1318
+01:10:24,000 --> 01:10:31,280
+the default export very simple too but
+
+1319
+01:10:27,679 --> 01:10:35,360
+JavaScript they created two like
+
+1320
+01:10:31,280 --> 01:10:38,719
+completely different export one is
+
+1321
+01:10:35,360 --> 01:10:40,960
+called default one is named and you when
+
+1322
+01:10:38,719 --> 01:10:43,679
+you import there's more complexity more
+
+1323
+01:10:40,960 --> 01:10:46,880
+than that when you import you can import
+
+1324
+01:10:43,679 --> 01:10:51,760
+just the default export. You can also
+
+1325
+01:10:46,880 --> 01:10:56,320
+import one named export or more than one
+
+1326
+01:10:51,760 --> 01:11:00,320
+named export or all of the named export.
+
+1327
+01:10:56,320 --> 01:11:03,760
+And you can also import the default
+
+1328
+01:11:00,320 --> 01:11:06,320
+export and you know one or more of the
+
+1329
+01:11:03,760 --> 01:11:08,320
+named export. So it's like [ __ ]
+
+1330
+01:11:06,320 --> 01:11:10,800
+complexity
+
+1331
+01:11:08,320 --> 01:11:14,320
+idiots the JavaScript committee you know
+
+1332
+01:11:10,800 --> 01:11:18,560
+that whoever created them you know. So,
+
+1333
+01:11:14,320 --> 01:11:25,040
+so that's what I'm talking about is um
+
+1334
+01:11:18,560 --> 01:11:28,640
+uh let's see where do I talk about um
+
+1335
+01:11:25,040 --> 01:11:31,760
+export expand okay so here there are two
+
+1336
+01:11:28,640 --> 01:11:34,080
+kind of export default and named okay
+
+1337
+01:11:31,760 --> 01:11:37,120
+now when people import they you can
+
+1338
+01:11:34,080 --> 01:11:40,159
+import one or more than one or all of
+
+1339
+01:11:37,120 --> 01:11:42,640
+named export or you can import just the
+
+1340
+01:11:40,159 --> 01:11:47,679
+default export or you
+
+1341
+01:11:42,640 --> 01:11:49,600
+import both of the above. Very complex
+
+1342
+01:11:47,679 --> 01:11:52,560
+idiocy.
+
+1343
+01:11:49,600 --> 01:11:55,760
+But that's not all. Then you know then
+
+1344
+01:11:52,560 --> 01:11:59,440
+when you export may it be default export
+
+1345
+01:11:55,760 --> 01:12:01,084
+or named export you have 1,00 syntax for
+
+1346
+01:11:59,440 --> 01:12:02,000
+it
+
+1347
+01:12:01,084 --> 01:12:05,280
+[laughter]
+
+1348
+01:12:02,000 --> 01:12:07,679
+do the doing the same thing you know for
+
+1349
+01:12:05,280 --> 01:12:09,520
+example you can have export all the name
+
+1350
+01:12:07,679 --> 01:12:12,480
+here. This is the most simple you know
+
+1351
+01:12:09,520 --> 01:12:16,320
+just export at least you know name one
+
+1352
+01:12:12,480 --> 01:12:20,560
+name two this is the best export syntax
+
+1353
+01:12:16,320 --> 01:12:23,280
+for named export this is the best
+
+1354
+01:12:20,560 --> 01:12:26,239
+okay but then you can also put the
+
+1355
+01:12:23,280 --> 01:12:28,640
+export at each location of the variable
+
+1356
+01:12:26,239 --> 01:12:31,440
+or function declaration
+
+1357
+01:12:28,640 --> 01:12:35,679
+so now you have two syntax to do exactly
+
+1358
+01:12:31,440 --> 01:12:38,560
+the same thing the JavaScript committee
+
+1359
+01:12:35,679 --> 01:12:41,679
+idiots the industrial idiots They did
+
+1360
+01:12:38,560 --> 01:12:44,239
+this. Okay
+
+1361
+01:12:41,679 --> 01:12:48,239
+then. Okay. So these are we are talking
+
+1362
+01:12:44,239 --> 01:12:50,320
+about the syntax for named export. Okay.
+
+1363
+01:12:48,239 --> 01:12:56,800
+There are many
+
+1364
+01:12:50,320 --> 01:12:59,760
+then you you can also export from
+
+1365
+01:12:56,800 --> 01:13:03,360
+symbols that you import imported from
+
+1366
+01:12:59,760 --> 01:13:06,640
+another module. Okay. So that's that.
+
+1367
+01:13:03,360 --> 01:13:08,400
+Well this is useful. Okay.
+
+1368
+01:13:06,640 --> 01:13:10,400
+Then you have the different thing that
+
+1369
+01:13:08,400 --> 01:13:13,280
+you know the default export thing which
+
+1370
+01:13:10,400 --> 01:13:16,719
+is entirely entirely different from the
+
+1371
+01:13:13,280 --> 01:13:20,480
+named export. So then they have a set of
+
+1372
+01:13:16,719 --> 01:13:23,360
+their own syntaxes. Okay. So this is the
+
+1373
+01:13:20,480 --> 01:13:26,239
+whole thing is just extremely idiotic in
+
+1374
+01:13:23,360 --> 01:13:30,400
+my opinion. Okay. So that's the import
+
+1375
+01:13:26,239 --> 01:13:33,360
+export. Okay. So uh so I kind of so I
+
+1376
+01:13:30,400 --> 01:13:37,840
+explained my criticism.
+
+1377
+01:13:33,360 --> 01:13:41,120
+Uh then okay. So then you have static
+
+1378
+01:13:37,840 --> 01:13:43,600
+import. Let's see.
+
+1379
+01:13:41,120 --> 01:13:46,480
+Uhic
+
+1380
+01:13:43,600 --> 01:13:50,640
+AI can write my code now. No, it cannot.
+
+1381
+01:13:46,480 --> 01:13:53,679
+Okay. Skeletor delight. You know AI
+
+1382
+01:13:50,640 --> 01:13:56,880
+helps a lot but they so far they cannot
+
+1383
+01:13:53,679 --> 01:14:00,239
+write they can write toy code you know
+
+1384
+01:13:56,880 --> 01:14:03,520
+10 lines of a code solving a puzzle but
+
+1385
+01:14:00,239 --> 01:14:06,239
+if you ask it to to write anything
+
+1386
+01:14:03,520 --> 01:14:09,920
+that's more than few hundred lines it's
+
+1387
+01:14:06,239 --> 01:14:13,280
+always never works it doesn't work
+
+1388
+01:14:09,920 --> 01:14:16,159
+you know mo I would say more than 200
+
+1389
+01:14:13,280 --> 01:14:18,719
+lines it just don't work okay you have
+
+1390
+01:14:16,159 --> 01:14:22,320
+to know what you're doing AI so anyway
+
+1391
+01:14:18,719 --> 01:14:25,840
+so there's It's also
+
+1392
+01:14:22,320 --> 01:14:30,080
+so we need to explain static import but
+
+1393
+01:14:25,840 --> 01:14:32,080
+then in 2020 they created dynamic import
+
+1394
+01:14:30,080 --> 01:14:36,400
+okay I'm not going to explain because
+
+1395
+01:14:32,080 --> 01:14:39,199
+it's going to then in 2020
+
+1396
+01:14:36,400 --> 01:14:43,280
+wait this is they they created import
+
+1397
+01:14:39,199 --> 01:14:46,960
+map okay complex and more complex um
+
+1398
+01:14:43,280 --> 01:14:51,280
+then there's history of it common JS and
+
+1399
+01:14:46,960 --> 01:14:53,280
+uh AMDJS Okay, common DS. That's kind of
+
+1400
+01:14:51,280 --> 01:14:55,120
+history. Okay, I think that's it for
+
+1401
+01:14:53,280 --> 01:14:58,560
+today.
+
+1402
+01:14:55,120 --> 01:15:01,360
+Cheers. Hope you have uh you guys have a
+
+1403
+01:14:58,560 --> 01:15:04,960
+good life.
+
+1404
+01:15:01,360 --> 01:15:07,199
+I hate default export, you know. So, why
+
+1405
+01:15:04,960 --> 01:15:09,840
+do they create that? Do you have any
+
+1406
+01:15:07,199 --> 01:15:14,400
+idea? I kind of [clears throat]
+
+1407
+01:15:09,840 --> 01:15:17,520
+I asked you know I well I think
+
+1408
+01:15:14,400 --> 01:15:20,080
+the reason they create default export is
+
+1409
+01:15:17,520 --> 01:15:23,199
+because back then you know JavaScript
+
+1410
+01:15:20,080 --> 01:15:25,840
+does not have a module system for for
+
+1411
+01:15:23,199 --> 01:15:28,800
+like since 1990
+
+1412
+01:15:25,840 --> 01:15:34,239
+since 1995.
+
+1413
+01:15:28,800 --> 01:15:36,880
+So 95 and 2005 and 2000. So for 20 years
+
+1414
+01:15:34,239 --> 01:15:40,080
+JavaScript does not have any module
+
+1415
+01:15:36,880 --> 01:15:42,960
+system. So people started to you know
+
+1416
+01:15:40,080 --> 01:15:45,920
+coders when you create large product
+
+1417
+01:15:42,960 --> 01:15:48,320
+large project you need libraries right.
+
+1418
+01:15:45,920 --> 01:15:50,960
+So they started to create their own
+
+1419
+01:15:48,320 --> 01:15:54,960
+convention. So there's common JS
+
+1420
+01:15:50,960 --> 01:15:57,920
+beginning in 2009 very popular. So okay
+
+1421
+01:15:54,960 --> 01:16:00,719
+even before common JS you know you walk
+
+1422
+01:15:57,920 --> 01:16:05,040
+around. So before this common JS you
+
+1423
+01:16:00,719 --> 01:16:08,159
+walk around the no module system by
+
+1424
+01:16:05,040 --> 01:16:10,080
+by including let's say you have a file
+
+1425
+01:16:08,159 --> 01:16:13,360
+you know let's say this file is all
+
+1426
+01:16:10,080 --> 01:16:16,960
+related to let's say about creating
+
+1427
+01:16:13,360 --> 01:16:18,719
+random numbers or cryptoraphy
+
+1428
+01:16:16,960 --> 01:16:21,199
+or whatever
+
+1429
+01:16:18,719 --> 01:16:23,440
+let's say for drawing for drawing okay
+
+1430
+01:16:21,199 --> 01:16:28,000
+so you have a library it's all about
+
+1431
+01:16:23,440 --> 01:16:30,000
+drawing circles or squares in SVG Okay,
+
+1432
+01:16:28,000 --> 01:16:32,159
+but JavaScript doesn't have a module
+
+1433
+01:16:30,000 --> 01:16:34,880
+system. So what you can do? So what you
+
+1434
+01:16:32,159 --> 01:16:39,040
+do is that you put all the code inside
+
+1435
+01:16:34,880 --> 01:16:41,600
+the object inside the object. I mean so
+
+1436
+01:16:39,040 --> 01:16:43,120
+yeah
+
+1437
+01:16:41,600 --> 01:16:45,600
+um
+
+1438
+01:16:43,120 --> 01:16:49,760
+wait you you put the all the code inside
+
+1439
+01:16:45,600 --> 01:16:52,480
+a function because back then before 2015
+
+1440
+01:16:49,760 --> 01:16:55,120
+JavaScript doesn't even have like you
+
+1441
+01:16:52,480 --> 01:16:57,679
+can't have local variables in a block.
+
+1442
+01:16:55,120 --> 01:17:00,800
+the only local variable you can have
+
+1443
+01:16:57,679 --> 01:17:03,760
+must be inside a function. So you have a
+
+1444
+01:17:00,800 --> 01:17:07,040
+whole bunch of files you know functions
+
+1445
+01:17:03,760 --> 01:17:11,120
+you put all of them inside a function
+
+1446
+01:17:07,040 --> 01:17:14,000
+and this function serves as as kind of a
+
+1447
+01:17:11,120 --> 01:17:18,400
+block of code serve serve as a your
+
+1448
+01:17:14,000 --> 01:17:20,560
+module scope. Okay. So this function. So
+
+1449
+01:17:18,400 --> 01:17:22,800
+then when you want to load the library,
+
+1450
+01:17:20,560 --> 01:17:26,480
+you basically load this function just
+
+1451
+01:17:22,800 --> 01:17:30,080
+one single function name. Um
+
+1452
+01:17:26,480 --> 01:17:34,800
+um yeah kind of like that. Okay. So so
+
+1453
+01:17:30,080 --> 01:17:37,199
+that's why you have this default
+
+1454
+01:17:34,800 --> 01:17:40,000
+module system because basically what
+
+1455
+01:17:37,199 --> 01:17:44,159
+people were doing before this system is
+
+1456
+01:17:40,000 --> 01:17:47,040
+that they are just loading a single uh
+
+1457
+01:17:44,159 --> 01:17:47,040
+object
+
+1458
+01:17:47,679 --> 01:17:52,880
+something like that. Okay. So that
+
+1459
+01:17:49,440 --> 01:17:56,480
+that's so that's why for kind of tr like
+
+1460
+01:17:52,880 --> 01:18:00,239
+traditional like for habit reasons they
+
+1461
+01:17:56,480 --> 01:18:04,000
+added um they created this default
+
+1462
+01:18:00,239 --> 01:18:07,600
+export that is my guess okay actually I
+
+1463
+01:18:04,000 --> 01:18:10,719
+should ask Gro about
+
+1464
+01:18:07,600 --> 01:18:14,360
+why maybe Gro you know AI can tell me
+
+1465
+01:18:10,719 --> 01:18:14,360
+okay that's it
+
+1466
+01:18:16,320 --> 01:18:21,120
+I'm not sure off hand I I guess is
+
+1467
+01:18:18,880 --> 01:18:24,560
+legacy thing. Okay, thank you guys for
+
+1468
+01:18:21,120 --> 01:18:27,920
+watching. Now, if you guys like my
+
+1469
+01:18:24,560 --> 01:18:30,239
+tutorial again, you can buy
+
+1470
+01:18:27,920 --> 01:18:34,239
+my entire JavaScript tutorial. In fact,
+
+1471
+01:18:30,239 --> 01:18:37,040
+I should um so we didn't go in detail
+
+1472
+01:18:34,239 --> 01:18:39,760
+about this um history and stuff, but
+
+1473
+01:18:37,040 --> 01:18:43,440
+that's it for today. Okay, so JavaScript
+
+1474
+01:18:39,760 --> 01:18:46,080
+in depth if you want the entire thing,
+
+1475
+01:18:43,440 --> 01:18:48,080
+you know how well which plugin have you
+
+1476
+01:18:46,080 --> 01:18:49,760
+used to do this thing?
+
+1477
+01:18:48,080 --> 01:18:52,800
+None.
+
+1478
+01:18:49,760 --> 01:18:55,840
+So my entire JavaScript is without any
+
+1479
+01:18:52,800 --> 01:18:58,560
+framework. You don't need any framework
+
+1480
+01:18:55,840 --> 01:19:00,560
+you know or just pure
+
+1481
+01:18:58,560 --> 01:19:04,480
+building in browser you know all just
+
+1482
+01:19:00,560 --> 01:19:09,920
+works you know. So you can if you like
+
+1483
+01:19:04,480 --> 01:19:12,800
+it go there s JavaScript in depth and
+
+1484
+01:19:09,920 --> 01:19:15,760
+send me money and I'll send you uh the
+
+1485
+01:19:12,800 --> 01:19:21,520
+zip file. I can read it online. Why
+
+1486
+01:19:15,760 --> 01:19:26,520
+should I pay? Because you are beautiful.
+
+1487
+01:19:21,520 --> 01:19:26,520
+Thank you. Thank you guys. Bye.
+

@@ -1,0 +1,4676 @@
+1
+00:00:03,720 --> 00:00:08,820
+good morning everyone welcome to another
+
+2
+00:00:06,180 --> 00:00:10,559
+episode of sound talk show good morning
+
+3
+00:00:08,820 --> 00:00:15,059
+everyone welcome to another episode of
+
+4
+00:00:10,559 --> 00:00:19,100
+excel talk show today is 2021st April
+
+5
+00:00:15,059 --> 00:00:23,460
+April 9th and today I'm going to do a
+
+6
+00:00:19,100 --> 00:00:28,320
+emac emacs list coding okay so I'm gonna
+
+7
+00:00:23,460 --> 00:00:30,720
+go quick this is a sub talk show live
+
+8
+00:00:28,320 --> 00:00:34,079
+stream extempo
+
+9
+00:00:30,720 --> 00:00:36,660
+I just decided to do this so nobody is
+
+10
+00:00:34,079 --> 00:00:38,940
+here three people two people so I'm just
+
+11
+00:00:36,660 --> 00:00:41,100
+going to start to code okay so today's
+
+12
+00:00:38,940 --> 00:00:43,680
+problem let me show you what is the
+
+13
+00:00:41,100 --> 00:00:47,160
+problem I'm going to code it's so let's
+
+14
+00:00:43,680 --> 00:00:50,100
+go to my emacs blog so you can see
+
+15
+00:00:47,160 --> 00:00:51,300
+what is the problem we are I'm trying to
+
+16
+00:00:50,100 --> 00:00:55,399
+solve okay
+
+17
+00:00:51,300 --> 00:00:55,399
+so you can see over here
+
+18
+00:00:55,800 --> 00:01:01,079
+uh
+
+19
+00:00:57,660 --> 00:01:04,439
+uh let me let me show you some some okay
+
+20
+00:01:01,079 --> 00:01:08,820
+so here is the article emacs undo redo
+
+21
+00:01:04,439 --> 00:01:11,280
+Saga okay uh I wrote this uh 10 years
+
+22
+00:01:08,820 --> 00:01:15,540
+ago and updated recently I did a video
+
+23
+00:01:11,280 --> 00:01:19,200
+talk a few days ago so what I want to do
+
+24
+00:01:15,540 --> 00:01:21,180
+is to write a emacs command such that
+
+25
+00:01:19,200 --> 00:01:22,140
+let me show you okay for example here's
+
+26
+00:01:21,180 --> 00:01:25,979
+a link
+
+27
+00:01:22,140 --> 00:01:29,820
+okay then let's go to that page
+
+28
+00:01:25,979 --> 00:01:32,159
+emacs blog go to the top section so can
+
+29
+00:01:29,820 --> 00:01:36,180
+you see my screen okay and on the pink
+
+30
+00:01:32,159 --> 00:01:37,740
+window is uh or every command I call is
+
+31
+00:01:36,180 --> 00:01:41,640
+shown on the pink window on the left
+
+32
+00:01:37,740 --> 00:01:45,960
+okay move Cruiser right backward by Char
+
+33
+00:01:41,640 --> 00:01:48,000
+backward by Char down up or by the
+
+34
+00:01:45,960 --> 00:01:50,579
+paragraph you so so you can see all the
+
+35
+00:01:48,000 --> 00:01:53,399
+commands I call in emacs and the
+
+36
+00:01:50,579 --> 00:01:56,579
+corresponding keys I'm using stuff like
+
+37
+00:01:53,399 --> 00:02:00,479
+this and I'm using vorac keyboard so
+
+38
+00:01:56,579 --> 00:02:03,540
+those keys correspond to vorac keys
+
+39
+00:02:00,479 --> 00:02:06,420
+but you know you can notice there's no
+
+40
+00:02:03,540 --> 00:02:08,759
+control key because something like Keys
+
+41
+00:02:06,420 --> 00:02:10,619
+is a moto mod so let me let me talk
+
+42
+00:02:08,759 --> 00:02:12,840
+about what is the problem if you have
+
+43
+00:02:10,619 --> 00:02:15,360
+comments questions a little bit posted
+
+44
+00:02:12,840 --> 00:02:16,440
+it okay and donate okay patreon me
+
+45
+00:02:15,360 --> 00:02:18,840
+donate
+
+46
+00:02:16,440 --> 00:02:22,260
+okay so what is the problem the problem
+
+47
+00:02:18,840 --> 00:02:25,920
+is for example this uh wait so wait uh
+
+48
+00:02:22,260 --> 00:02:29,280
+go to my emacs blog section so you can
+
+49
+00:02:25,920 --> 00:02:32,280
+see over this page
+
+50
+00:02:29,280 --> 00:02:35,879
+you know it says this is a link Emax and
+
+51
+00:02:32,280 --> 00:02:39,360
+do Saga and corresponding corresponding
+
+52
+00:02:35,879 --> 00:02:42,420
+to uh this link in the browser
+
+53
+00:02:39,360 --> 00:02:47,700
+right so the problem is sometimes I want
+
+54
+00:02:42,420 --> 00:02:50,640
+to move a block of text that involves a
+
+55
+00:02:47,700 --> 00:02:52,980
+link into another page for example
+
+56
+00:02:50,640 --> 00:02:56,220
+for example if I move this for example
+
+57
+00:02:52,980 --> 00:02:59,580
+okay so if I copy that okay
+
+58
+00:02:56,220 --> 00:03:02,940
+copy that split the window now go to my
+
+59
+00:02:59,580 --> 00:03:06,360
+programming blog show in browser
+
+60
+00:03:02,940 --> 00:03:08,580
+you can see this is my programming blog
+
+61
+00:03:06,360 --> 00:03:10,739
+and they are in a different directory
+
+62
+00:03:08,580 --> 00:03:14,220
+okay so let me show you again so
+
+63
+00:03:10,739 --> 00:03:17,099
+programming blog emacs block you can see
+
+64
+00:03:14,220 --> 00:03:19,080
+they um you know they are in different
+
+65
+00:03:17,099 --> 00:03:22,560
+domains so this is my local file system
+
+66
+00:03:19,080 --> 00:03:26,159
+but they are in different directory
+
+67
+00:03:22,560 --> 00:03:28,860
+so if I copy these uh you know these
+
+68
+00:03:26,159 --> 00:03:31,319
+emacs and do redo section and I want to
+
+69
+00:03:28,860 --> 00:03:33,540
+copy it and I want to move you know
+
+70
+00:03:31,319 --> 00:03:36,360
+sometimes I want to
+
+71
+00:03:33,540 --> 00:03:39,959
+create a new section paste it here
+
+72
+00:03:36,360 --> 00:03:42,060
+now go go back to the browser now look
+
+73
+00:03:39,959 --> 00:03:45,360
+if I refresh it's gonna show up here
+
+74
+00:03:42,060 --> 00:03:48,299
+okay refresh you see it shows up there
+
+75
+00:03:45,360 --> 00:03:52,920
+but however if I click it
+
+76
+00:03:48,299 --> 00:03:56,519
+it won't work because you moved a
+
+77
+00:03:52,920 --> 00:04:00,180
+so why does it not work because we moved
+
+78
+00:03:56,519 --> 00:04:01,799
+a relative link from One Directory
+
+79
+00:04:00,180 --> 00:04:05,040
+location to another
+
+80
+00:04:01,799 --> 00:04:07,920
+so obviously the relative link no longer
+
+81
+00:04:05,040 --> 00:04:10,140
+work so what I want is actually
+
+82
+00:04:07,920 --> 00:04:13,860
+I want to be I mean automatically I want
+
+83
+00:04:10,140 --> 00:04:17,340
+to be able to copy a block of text and
+
+84
+00:04:13,860 --> 00:04:21,780
+paste it in some other HTML page
+
+85
+00:04:17,340 --> 00:04:23,699
+and have emacs automatically fix the you
+
+86
+00:04:21,780 --> 00:04:26,639
+know all the relative links all the
+
+87
+00:04:23,699 --> 00:04:29,160
+local links okay that is the
+
+88
+00:04:26,639 --> 00:04:33,240
+uh what we want to do okay let's write
+
+89
+00:04:29,160 --> 00:04:36,300
+it out okay so let's go uh let's wait
+
+90
+00:04:33,240 --> 00:04:39,240
+okay so let's go to talk show Page open
+
+91
+00:04:36,300 --> 00:04:42,060
+my emacs bookmark so here's today's talk
+
+92
+00:04:39,240 --> 00:04:46,020
+show page you can see
+
+93
+00:04:42,060 --> 00:04:49,259
+uh and let's write it down
+
+94
+00:04:46,020 --> 00:04:51,180
+yeah so well it's already there so
+
+95
+00:04:49,259 --> 00:04:54,360
+so you can see
+
+96
+00:04:51,180 --> 00:04:56,699
+here's what we want to do write a emacs
+
+97
+00:04:54,360 --> 00:05:00,060
+man to copy current text block
+
+98
+00:04:56,699 --> 00:05:03,600
+but change all local links to full path
+
+99
+00:05:00,060 --> 00:05:06,020
+okay so so I separate the job into two
+
+100
+00:05:03,600 --> 00:05:06,020
+steps
+
+101
+00:05:06,300 --> 00:05:11,639
+so that it's easier for me to Live code
+
+102
+00:05:09,360 --> 00:05:13,080
+it and show you something useful you can
+
+103
+00:05:11,639 --> 00:05:15,360
+learn so
+
+104
+00:05:13,080 --> 00:05:17,120
+one of the tasks is write the emacs
+
+105
+00:05:15,360 --> 00:05:20,400
+command to copy current text block
+
+106
+00:05:17,120 --> 00:05:23,100
+however when you copy it the local links
+
+107
+00:05:20,400 --> 00:05:25,620
+should become full path instead of a
+
+108
+00:05:23,100 --> 00:05:29,220
+relative link now the second problem is
+
+109
+00:05:25,620 --> 00:05:31,800
+uh write the Emax command to change all
+
+110
+00:05:29,220 --> 00:05:33,060
+local links that's full path to relative
+
+111
+00:05:31,800 --> 00:05:34,919
+link
+
+112
+00:05:33,060 --> 00:05:39,539
+so in this way
+
+113
+00:05:34,919 --> 00:05:43,020
+in this way if I have for example a okay
+
+114
+00:05:39,539 --> 00:05:45,300
+let's let's go to my emacs block in this
+
+115
+00:05:43,020 --> 00:05:48,120
+way if I copy
+
+116
+00:05:45,300 --> 00:05:50,280
+you know so in this way I can let me
+
+117
+00:05:48,120 --> 00:05:52,680
+show you what I want to do so I you know
+
+118
+00:05:50,280 --> 00:05:56,340
+so this text block
+
+119
+00:05:52,680 --> 00:05:59,460
+I want it to become let me show you okay
+
+120
+00:05:56,340 --> 00:06:00,419
+I want it to become that okay so let me
+
+121
+00:05:59,460 --> 00:06:04,080
+show you
+
+122
+00:06:00,419 --> 00:06:09,180
+so the first job that I'm going to do
+
+123
+00:06:04,080 --> 00:06:12,960
+now live code is that given any region
+
+124
+00:06:09,180 --> 00:06:16,620
+I want to copy it but for any local link
+
+125
+00:06:12,960 --> 00:06:18,960
+like that it should be changed to full
+
+126
+00:06:16,620 --> 00:06:20,699
+path okay relative path to full path
+
+127
+00:06:18,960 --> 00:06:22,740
+that's what I want to write okay let's
+
+128
+00:06:20,699 --> 00:06:24,600
+begin
+
+129
+00:06:22,740 --> 00:06:27,180
+uh
+
+130
+00:06:24,600 --> 00:06:32,039
+let's begin okay so so let's begin
+
+131
+00:06:27,180 --> 00:06:35,400
+coding it so let's go to my abreve this
+
+132
+00:06:32,039 --> 00:06:37,979
+is my this is my emacs um kind of my
+
+133
+00:06:35,400 --> 00:06:38,819
+emacs in it let's just create a file
+
+134
+00:06:37,979 --> 00:06:41,400
+here
+
+135
+00:06:38,819 --> 00:06:46,340
+and magnify
+
+136
+00:06:41,400 --> 00:06:48,960
+and let's say okay so save it as
+
+137
+00:06:46,340 --> 00:06:52,099
+let's give a name
+
+138
+00:06:48,960 --> 00:06:55,919
+some uh
+
+139
+00:06:52,099 --> 00:07:01,880
+copy change relative link
+
+140
+00:06:55,919 --> 00:07:01,880
+so this actually HTML copy relative link
+
+141
+00:07:01,919 --> 00:07:07,259
+okay that should be that should be the
+
+142
+00:07:04,259 --> 00:07:08,580
+command name okay I mean
+
+143
+00:07:07,259 --> 00:07:12,360
+um
+
+144
+00:07:08,580 --> 00:07:15,060
+yeah okay so copy that save it paste it
+
+145
+00:07:12,360 --> 00:07:19,800
+dot El okay
+
+146
+00:07:15,060 --> 00:07:21,660
+now close it reopen magnify
+
+147
+00:07:19,800 --> 00:07:26,580
+uh
+
+148
+00:07:21,660 --> 00:07:29,699
+cut Define function and string back back
+
+149
+00:07:26,580 --> 00:07:32,720
+D for defined function press enter
+
+150
+00:07:29,699 --> 00:07:35,580
+I'm using SAR emacs this mod okay
+
+151
+00:07:32,720 --> 00:07:38,720
+sidechain now copy change relative link
+
+152
+00:07:35,580 --> 00:07:38,720
+okay dark string
+
+153
+00:07:39,419 --> 00:07:44,220
+let's write the doc string so go back to
+
+154
+00:07:41,940 --> 00:07:46,680
+talk show page I'm gonna I'm gonna need
+
+155
+00:07:44,220 --> 00:07:49,319
+to try to code this fast good morning
+
+156
+00:07:46,680 --> 00:07:52,259
+Cherry Ramis hello first time on stream
+
+157
+00:07:49,319 --> 00:07:55,319
+cheers from Brazil hey
+
+158
+00:07:52,259 --> 00:07:58,620
+uh so wait what are we doing so this is
+
+159
+00:07:55,319 --> 00:08:00,000
+the first task okay and uh this is
+
+160
+00:07:58,620 --> 00:08:02,039
+probably
+
+161
+00:08:00,000 --> 00:08:05,340
+the only thing I'll be able to do today
+
+162
+00:08:02,039 --> 00:08:08,039
+I I need to go in an hour so 15 minutes
+
+163
+00:08:05,340 --> 00:08:10,440
+and we should be able to uh do this so
+
+164
+00:08:08,039 --> 00:08:12,720
+write a emacs command
+
+165
+00:08:10,440 --> 00:08:15,360
+so this command will
+
+166
+00:08:12,720 --> 00:08:17,419
+copy context block
+
+167
+00:08:15,360 --> 00:08:21,020
+of HTML
+
+168
+00:08:17,419 --> 00:08:21,020
+HTML but
+
+169
+00:08:21,479 --> 00:08:27,120
+but change all local links to full path
+
+170
+00:08:24,599 --> 00:08:30,840
+okay that's what we want
+
+171
+00:08:27,120 --> 00:08:33,959
+version I always give you a version for
+
+172
+00:08:30,840 --> 00:08:37,500
+my commands Okay let's begin to write it
+
+173
+00:08:33,959 --> 00:08:40,800
+so first task is let's see the first
+
+174
+00:08:37,500 --> 00:08:44,099
+text is um
+
+175
+00:08:40,800 --> 00:08:46,800
+uh the first task is first of all find
+
+176
+00:08:44,099 --> 00:08:49,500
+the beginning selection point and end
+
+177
+00:08:46,800 --> 00:08:51,540
+selection Point okay the beginning I
+
+178
+00:08:49,500 --> 00:08:53,899
+mean the beginning region and end region
+
+179
+00:08:51,540 --> 00:08:53,899
+so
+
+180
+00:08:54,899 --> 00:09:00,300
+let's just say region okay let's start
+
+181
+00:08:57,959 --> 00:09:02,100
+from simple okay
+
+182
+00:09:00,300 --> 00:09:05,700
+so
+
+183
+00:09:02,100 --> 00:09:08,580
+P1 P2 and let's not use the dollar sign
+
+184
+00:09:05,700 --> 00:09:09,360
+so because let's go with the traditional
+
+185
+00:09:08,580 --> 00:09:14,399
+way
+
+186
+00:09:09,360 --> 00:09:18,779
+P1 P2 position 1 position 2 set q p one
+
+187
+00:09:14,399 --> 00:09:24,839
+position one region beginning okay good
+
+188
+00:09:18,779 --> 00:09:28,560
+set qp2 region end okay so now
+
+189
+00:09:24,839 --> 00:09:31,019
+predify it we got a region P1 and P2 are
+
+190
+00:09:28,560 --> 00:09:34,140
+the beginning and end of the region okay
+
+191
+00:09:31,019 --> 00:09:37,019
+so that that is you know use the select
+
+192
+00:09:34,140 --> 00:09:39,300
+the region and and we can work on it
+
+193
+00:09:37,019 --> 00:09:41,100
+so the next step is
+
+194
+00:09:39,300 --> 00:09:44,160
+um
+
+195
+00:09:41,100 --> 00:09:46,620
+oh my God this is not going to be easy
+
+196
+00:09:44,160 --> 00:09:50,160
+uh
+
+197
+00:09:46,620 --> 00:09:52,320
+live coding is always uh you know always
+
+198
+00:09:50,160 --> 00:09:54,660
+uh
+
+199
+00:09:52,320 --> 00:09:57,240
+because I need to do it fast and in real
+
+200
+00:09:54,660 --> 00:10:02,640
+time and I need to explain why my code
+
+201
+00:09:57,240 --> 00:10:06,899
+so the next step is to find all the
+
+202
+00:10:02,640 --> 00:10:09,120
+link location okay you find you know
+
+203
+00:10:06,899 --> 00:10:12,959
+basically you find all the occurrences
+
+204
+00:10:09,120 --> 00:10:18,620
+occurrences of href let's write it down
+
+205
+00:10:12,959 --> 00:10:18,620
+find occurrence of href
+
+206
+00:10:19,079 --> 00:10:22,220
+grab the
+
+207
+00:10:22,620 --> 00:10:29,120
+grab the relative link
+
+208
+00:10:25,980 --> 00:10:29,120
+if it is
+
+209
+00:10:33,060 --> 00:10:36,540
+if it is relative link let's shrink a
+
+210
+00:10:35,640 --> 00:10:39,720
+little bit
+
+211
+00:10:36,540 --> 00:10:42,680
+shrink so if it's relay if it is
+
+212
+00:10:39,720 --> 00:10:42,680
+relative link
+
+213
+00:10:42,779 --> 00:10:49,200
+uh
+
+214
+00:10:44,220 --> 00:10:53,339
+grab it and okay just say change
+
+215
+00:10:49,200 --> 00:10:56,000
+it to full path okay
+
+216
+00:10:53,339 --> 00:10:56,000
+then
+
+217
+00:10:56,760 --> 00:11:00,440
+okay change it to full path
+
+218
+00:11:01,380 --> 00:11:10,860
+repeat for all HF href values okay so we
+
+219
+00:11:08,040 --> 00:11:12,740
+are trying to find this such a relative
+
+220
+00:11:10,860 --> 00:11:16,279
+link repeat for all
+
+221
+00:11:12,740 --> 00:11:16,279
+href values
+
+222
+00:11:19,380 --> 00:11:26,300
+then
+
+223
+00:11:21,899 --> 00:11:31,040
+then we want to copy that to the
+
+224
+00:11:26,300 --> 00:11:31,040
+emacs qrim basically copy that
+
+225
+00:11:32,880 --> 00:11:36,500
+yeah
+
+226
+00:11:33,839 --> 00:11:36,500
+then
+
+227
+00:11:36,959 --> 00:11:43,380
+okay let's not let's forget let's make
+
+228
+00:11:39,420 --> 00:11:47,040
+it simple let's just say that okay
+
+229
+00:11:43,380 --> 00:11:48,839
+find occurrence of href then if it's
+
+230
+00:11:47,040 --> 00:11:51,079
+relative link change it to full path
+
+231
+00:11:48,839 --> 00:11:53,760
+repeat for or
+
+232
+00:11:51,079 --> 00:11:56,300
+href values okay let's begin that's the
+
+233
+00:11:53,760 --> 00:11:56,300
+algorithm
+
+234
+00:12:00,800 --> 00:12:06,660
+outline okay
+
+235
+00:12:03,180 --> 00:12:09,480
+so let's start coding so uh first of all
+
+236
+00:12:06,660 --> 00:12:11,459
+narrow to region narrow to region
+
+237
+00:12:09,480 --> 00:12:14,899
+narrow to region will
+
+238
+00:12:11,459 --> 00:12:18,000
+make emacs think that's the only
+
+239
+00:12:14,899 --> 00:12:20,220
+content in a buffer ignore the rest of
+
+240
+00:12:18,000 --> 00:12:22,560
+it okay now whenever you do narrow to
+
+241
+00:12:20,220 --> 00:12:25,760
+region you you need to also say save
+
+242
+00:12:22,560 --> 00:12:25,760
+restriction okay
+
+243
+00:12:27,360 --> 00:12:31,200
+okay so here's our code and we're gonna
+
+244
+00:12:30,180 --> 00:12:34,399
+start
+
+245
+00:12:31,200 --> 00:12:37,560
+so first of all search forward
+
+246
+00:12:34,399 --> 00:12:40,860
+search forward for
+
+247
+00:12:37,560 --> 00:12:43,320
+for things like that
+
+248
+00:12:40,860 --> 00:12:43,980
+uh yeah so for
+
+249
+00:12:43,320 --> 00:12:45,060
+um
+
+250
+00:12:43,980 --> 00:12:47,519
+well
+
+251
+00:12:45,060 --> 00:12:50,040
+search for word
+
+252
+00:12:47,519 --> 00:12:53,880
+let's say that okay
+
+253
+00:12:50,040 --> 00:12:57,260
+now I'm assuming I'm working on my
+
+254
+00:12:53,880 --> 00:13:00,240
+you know I'm working on my own
+
+255
+00:12:57,260 --> 00:13:03,060
+HTML code because
+
+256
+00:13:00,240 --> 00:13:06,120
+in other people's HTML code you might
+
+257
+00:13:03,060 --> 00:13:08,700
+have a class here and or you might have
+
+258
+00:13:06,120 --> 00:13:11,519
+you know be like that but let's make it
+
+259
+00:13:08,700 --> 00:13:14,639
+simple so all my HTML links have this
+
+260
+00:13:11,519 --> 00:13:16,560
+kind of links have this form so let's
+
+261
+00:13:14,639 --> 00:13:18,000
+just search that this is just command
+
+262
+00:13:16,560 --> 00:13:22,019
+for me
+
+263
+00:13:18,000 --> 00:13:26,100
+so search for forward that then okay we
+
+264
+00:13:22,019 --> 00:13:27,959
+don't care option bound new
+
+265
+00:13:26,100 --> 00:13:30,839
+no Arrow
+
+266
+00:13:27,959 --> 00:13:33,120
+true we don't care if it cannot find it
+
+267
+00:13:30,839 --> 00:13:37,860
+you know if it cannot find it that means
+
+268
+00:13:33,120 --> 00:13:41,360
+we are done there's no local links okay
+
+269
+00:13:37,860 --> 00:13:44,459
+search for what uh that then
+
+270
+00:13:41,360 --> 00:13:46,579
+okay once you search for what emacs will
+
+271
+00:13:44,459 --> 00:13:50,579
+put the cruiser like somewhere here okay
+
+272
+00:13:46,579 --> 00:13:54,180
+then then you just grab this thing and
+
+273
+00:13:50,579 --> 00:13:57,079
+how do you do that you can do it by
+
+274
+00:13:54,180 --> 00:13:57,079
+uh
+
+275
+00:13:58,139 --> 00:14:03,720
+uh seeing it Point okay
+
+276
+00:14:01,680 --> 00:14:06,120
+thing
+
+277
+00:14:03,720 --> 00:14:08,639
+bounds of thing at Point okay let me let
+
+278
+00:14:06,120 --> 00:14:10,019
+me just let me do these bounds of thing
+
+279
+00:14:08,639 --> 00:14:11,399
+at Point
+
+280
+00:14:10,019 --> 00:14:16,940
+okay
+
+281
+00:14:11,399 --> 00:14:16,940
+so that is so we want a file name
+
+282
+00:14:18,839 --> 00:14:25,500
+wait before we now we need to actually
+
+283
+00:14:21,300 --> 00:14:27,899
+test if this is a local link or not so
+
+284
+00:14:25,500 --> 00:14:32,100
+in other words if it's uh starting with
+
+285
+00:14:27,899 --> 00:14:35,880
+HTTP such as that one we want to
+
+286
+00:14:32,100 --> 00:14:40,920
+ignore for now okay so
+
+287
+00:14:35,880 --> 00:14:46,019
+so how do you do that we can test
+
+288
+00:14:40,920 --> 00:14:48,660
+if the next few characters is http
+
+289
+00:14:46,019 --> 00:14:51,260
+okay let me show you how you do it okay
+
+290
+00:14:48,660 --> 00:14:51,260
+now
+
+291
+00:14:51,600 --> 00:14:58,380
+uh search for word then if if
+
+292
+00:15:03,180 --> 00:15:09,480
+that's not a word let's not worry about
+
+293
+00:15:05,279 --> 00:15:13,079
+the you know the the a you know let's
+
+294
+00:15:09,480 --> 00:15:16,519
+just assume for now all links are local
+
+295
+00:15:13,079 --> 00:15:16,519
+links okay let's assume
+
+296
+00:15:20,639 --> 00:15:26,880
+okay then we say pounds of thing of
+
+297
+00:15:24,540 --> 00:15:29,360
+points okay now we need to have another
+
+298
+00:15:26,880 --> 00:15:29,360
+variable
+
+299
+00:15:30,060 --> 00:15:33,019
+bounce okay
+
+300
+00:15:33,839 --> 00:15:37,860
+yeah let's just say
+
+301
+00:15:35,639 --> 00:15:40,079
+yeah
+
+302
+00:15:37,860 --> 00:15:42,120
+link
+
+303
+00:15:40,079 --> 00:15:44,180
+boundaries
+
+304
+00:15:42,120 --> 00:15:47,100
+ah
+
+305
+00:15:44,180 --> 00:15:50,279
+link begin end okay
+
+306
+00:15:47,100 --> 00:15:53,279
+the naming of things is one of the most
+
+307
+00:15:50,279 --> 00:15:55,019
+difficult thing okay set queue link
+
+308
+00:15:53,279 --> 00:15:57,420
+begin and
+
+309
+00:15:55,019 --> 00:15:59,880
+uh that's gonna that's what this
+
+310
+00:15:57,420 --> 00:16:02,459
+function is going to return so this is
+
+311
+00:15:59,880 --> 00:16:06,779
+going to be a file name remove the
+
+312
+00:16:02,459 --> 00:16:08,339
+remove okay then put it here
+
+313
+00:16:06,779 --> 00:16:12,920
+so
+
+314
+00:16:08,339 --> 00:16:12,920
+so link beginning and end then
+
+315
+00:16:14,519 --> 00:16:19,820
+then let's add more variables okay link
+
+316
+00:16:20,279 --> 00:16:26,759
+position one okay P1 okay link position
+
+317
+00:16:24,240 --> 00:16:28,740
+two okay
+
+318
+00:16:26,759 --> 00:16:31,620
+um
+
+319
+00:16:28,740 --> 00:16:34,560
+then we say set queue
+
+320
+00:16:31,620 --> 00:16:37,880
+link P1
+
+321
+00:16:34,560 --> 00:16:37,880
+equals to
+
+322
+00:16:38,040 --> 00:16:44,180
+car that okay
+
+323
+00:16:41,399 --> 00:16:44,180
+set Q
+
+324
+00:16:44,220 --> 00:16:48,180
+link
+
+325
+00:16:46,199 --> 00:16:52,320
+P2
+
+326
+00:16:48,180 --> 00:16:56,160
+equals to Cutter okay cutter
+
+327
+00:16:52,320 --> 00:16:58,019
+that okay so what does that mean so
+
+328
+00:16:56,160 --> 00:17:01,079
+so this boundary thing at Point
+
+329
+00:16:58,019 --> 00:17:05,100
+basically when your Cruiser is
+
+330
+00:17:01,079 --> 00:17:07,679
+on a file path okay then you can call
+
+331
+00:17:05,100 --> 00:17:10,559
+this command bound bounce of thing at
+
+332
+00:17:07,679 --> 00:17:13,799
+point it will find the beginning
+
+333
+00:17:10,559 --> 00:17:16,319
+position where where the file path
+
+334
+00:17:13,799 --> 00:17:19,620
+begins and you'll find it'll find the
+
+335
+00:17:16,319 --> 00:17:22,339
+end position of the fire path then it
+
+336
+00:17:19,620 --> 00:17:26,100
+will return them as a
+
+337
+00:17:22,339 --> 00:17:28,980
+conspire so basically it will return
+
+338
+00:17:26,100 --> 00:17:31,640
+something like this okay let me write it
+
+339
+00:17:28,980 --> 00:17:31,640
+cons
+
+340
+00:17:38,640 --> 00:17:43,860
+that's what it returns
+
+341
+00:17:41,520 --> 00:17:46,320
+so you can you know you can do describe
+
+342
+00:17:43,860 --> 00:17:48,179
+function on this and you can see
+
+343
+00:17:46,320 --> 00:17:49,620
+you know here's the full documentation
+
+344
+00:17:48,179 --> 00:17:52,080
+of the
+
+345
+00:17:49,620 --> 00:17:54,299
+of the of these function bounds
+
+346
+00:17:52,080 --> 00:17:58,140
+everything at Point
+
+347
+00:17:54,299 --> 00:18:00,660
+okay so let's see comments greetings
+
+348
+00:17:58,140 --> 00:18:02,220
+Buffalo meal this is emac session you
+
+349
+00:18:00,660 --> 00:18:04,980
+are not interested
+
+350
+00:18:02,220 --> 00:18:08,520
+morning guys scream uh we are nothing
+
+351
+00:18:04,980 --> 00:18:11,820
+here at least uh hey good morning zitron
+
+352
+00:18:08,520 --> 00:18:15,200
+crazy this trunk crazy and bought
+
+353
+00:18:11,820 --> 00:18:18,720
+bathroom you uh the pair
+
+354
+00:18:15,200 --> 00:18:20,340
+the con conspire the cons fair in
+
+355
+00:18:18,720 --> 00:18:23,340
+Germany
+
+356
+00:18:20,340 --> 00:18:27,840
+so okay so let's continue the code
+
+357
+00:18:23,340 --> 00:18:31,200
+so we now we have the uh positions
+
+358
+00:18:27,840 --> 00:18:33,360
+beginning and end and now we can extract
+
+359
+00:18:31,200 --> 00:18:36,660
+the beginning position
+
+360
+00:18:33,360 --> 00:18:38,580
+uh let's rename okay let's just rename
+
+361
+00:18:36,660 --> 00:18:41,700
+for the sake of so people can understand
+
+362
+00:18:38,580 --> 00:18:44,039
+it instead of instead of P1 P2 let's
+
+363
+00:18:41,700 --> 00:18:46,620
+just say link begin Link in
+
+364
+00:18:44,039 --> 00:18:49,039
+yeah so more people can understand what
+
+365
+00:18:46,620 --> 00:18:49,039
+that is
+
+366
+00:18:50,039 --> 00:18:54,600
+uh link
+
+367
+00:18:52,559 --> 00:18:56,580
+begin
+
+368
+00:18:54,600 --> 00:18:59,880
+position okay
+
+369
+00:18:56,580 --> 00:19:03,900
+and P2 is is going to be
+
+370
+00:18:59,880 --> 00:19:06,120
+link and position okay
+
+371
+00:19:03,900 --> 00:19:08,700
+so you can see the code now we you know
+
+372
+00:19:06,120 --> 00:19:10,799
+we start we start by
+
+373
+00:19:08,700 --> 00:19:12,120
+find the region beginning and region end
+
+374
+00:19:10,799 --> 00:19:15,480
+uh
+
+375
+00:19:12,120 --> 00:19:18,799
+am I am I am I doing good let's see
+
+376
+00:19:15,480 --> 00:19:18,799
+so we start by
+
+377
+00:19:19,500 --> 00:19:24,299
+we start by finding the regions
+
+378
+00:19:21,240 --> 00:19:28,500
+beginning and end that's that's these
+
+379
+00:19:24,299 --> 00:19:32,720
+two lines okay then we start to we want
+
+380
+00:19:28,500 --> 00:19:32,720
+to find the first occurrence of hif
+
+381
+00:19:32,940 --> 00:19:37,440
+that's that
+
+382
+00:19:34,679 --> 00:19:40,620
+and then we want to find the beginning
+
+383
+00:19:37,440 --> 00:19:43,500
+and end position of the link okay
+
+384
+00:19:40,620 --> 00:19:46,559
+that's these three lines okay now we are
+
+385
+00:19:43,500 --> 00:19:48,600
+good to go now let's see
+
+386
+00:19:46,559 --> 00:19:52,200
+um
+
+387
+00:19:48,600 --> 00:19:54,780
+yeah now let's do so what's next so once
+
+388
+00:19:52,200 --> 00:19:57,360
+once you have this
+
+389
+00:19:54,780 --> 00:19:59,340
+relative link you just want to turn it
+
+390
+00:19:57,360 --> 00:20:03,620
+into a full path how do you do that
+
+391
+00:19:59,340 --> 00:20:03,620
+there's a emacs command for that
+
+392
+00:20:03,780 --> 00:20:06,620
+file
+
+393
+00:20:07,080 --> 00:20:13,500
+full path no file creative link okay
+
+394
+00:20:10,320 --> 00:20:16,380
+file okay I don't remember so let's
+
+395
+00:20:13,500 --> 00:20:20,520
+so when when this happens I just go to
+
+396
+00:20:16,380 --> 00:20:24,840
+my emacs this tutorial okay so you just
+
+397
+00:20:20,520 --> 00:20:26,640
+go online go to emacs tutorial practical
+
+398
+00:20:24,840 --> 00:20:28,320
+emac list
+
+399
+00:20:26,640 --> 00:20:30,419
+and uh
+
+400
+00:20:28,320 --> 00:20:31,500
+right now you want to find a function
+
+401
+00:20:30,419 --> 00:20:35,400
+that
+
+402
+00:20:31,500 --> 00:20:36,419
+takes a relative path and return a full
+
+403
+00:20:35,400 --> 00:20:42,720
+path
+
+404
+00:20:36,419 --> 00:20:42,720
+so here okay file directory path magnify
+
+405
+00:20:43,980 --> 00:20:50,400
+okay so functions on directory uh
+
+406
+00:20:47,820 --> 00:20:52,799
+file path functions file name directory
+
+407
+00:20:50,400 --> 00:20:56,100
+file name number three file name
+
+408
+00:20:52,799 --> 00:20:59,580
+extension file name sense extension file
+
+409
+00:20:56,100 --> 00:21:02,280
+related name and expand file name that's
+
+410
+00:20:59,580 --> 00:21:04,200
+the one okay expand file name convert
+
+411
+00:21:02,280 --> 00:21:06,240
+file name to Absolute that's that's
+
+412
+00:21:04,200 --> 00:21:11,780
+right expand file name that's the
+
+413
+00:21:06,240 --> 00:21:11,780
+function we want so back to emac disp
+
+414
+00:21:12,960 --> 00:21:19,620
+it's 8 P.M there it's I was lucky to
+
+415
+00:21:16,140 --> 00:21:20,760
+find some like 8 P.M uh 8 P.M so where
+
+416
+00:21:19,620 --> 00:21:23,480
+are you
+
+417
+00:21:20,760 --> 00:21:28,520
+let's see let me digress a little bit
+
+418
+00:21:23,480 --> 00:21:28,520
+426 uh you are in
+
+419
+00:21:32,580 --> 00:21:37,460
+oh APM is just New York New York time
+
+420
+00:21:35,520 --> 00:21:43,320
+cherry
+
+421
+00:21:37,460 --> 00:21:47,340
+ronatus ramatis okay right 8pm is New
+
+422
+00:21:43,320 --> 00:21:49,919
+York let's see four five six seven no
+
+423
+00:21:47,340 --> 00:21:51,840
+I I don't I don't know maybe probably
+
+424
+00:21:49,919 --> 00:21:55,200
+probably New York
+
+425
+00:21:51,840 --> 00:21:58,580
+because there's no or maybe in maybe in
+
+426
+00:21:55,200 --> 00:21:58,580
+uh Nova Scotia
+
+427
+00:21:58,980 --> 00:22:05,520
+uh or Iceland probably not anyway so
+
+428
+00:22:02,640 --> 00:22:08,760
+back to the this code so what are we
+
+429
+00:22:05,520 --> 00:22:12,000
+uh practical emac this close that back
+
+430
+00:22:08,760 --> 00:22:13,200
+to the emac Beast code talk show close
+
+431
+00:22:12,000 --> 00:22:15,419
+that
+
+432
+00:22:13,200 --> 00:22:18,559
+oh yeah so we are back to the emac this
+
+433
+00:22:15,419 --> 00:22:18,559
+code so we want
+
+434
+00:22:18,780 --> 00:22:24,659
+so now we want let's see let's let's do
+
+435
+00:22:22,860 --> 00:22:28,860
+this okay let's
+
+436
+00:22:24,659 --> 00:22:32,220
+let's have a bigger window okay so now
+
+437
+00:22:28,860 --> 00:22:34,980
+expand file name okay that's the one we
+
+438
+00:22:32,220 --> 00:22:37,740
+want and uh
+
+439
+00:22:34,980 --> 00:22:43,460
+oh before we do that
+
+440
+00:22:37,740 --> 00:22:43,460
+we don't have the fire path yet
+
+441
+00:22:43,679 --> 00:22:49,400
+uh yeah we don't have the file path yet
+
+442
+00:22:46,380 --> 00:22:49,400
+let me let me show you
+
+443
+00:22:52,440 --> 00:22:58,500
+let's let me show you okay
+
+444
+00:22:55,980 --> 00:23:01,520
+now remember
+
+445
+00:22:58,500 --> 00:23:01,520
+okay hold on a second
+
+446
+00:23:02,820 --> 00:23:06,900
+okay we don't need it do you speak
+
+447
+00:23:04,440 --> 00:23:10,020
+remember remember we want to grab the
+
+448
+00:23:06,900 --> 00:23:11,580
+file path okay that's easy so how do you
+
+449
+00:23:10,020 --> 00:23:14,280
+do so because we have the beginning
+
+450
+00:23:11,580 --> 00:23:16,500
+position we have the end position so
+
+451
+00:23:14,280 --> 00:23:17,100
+what you do is
+
+452
+00:23:16,500 --> 00:23:21,299
+um
+
+453
+00:23:17,100 --> 00:23:24,480
+buffer substring no properties okay you
+
+454
+00:23:21,299 --> 00:23:27,059
+see okay that's right and given two
+
+455
+00:23:24,480 --> 00:23:30,919
+positions and the position is going to
+
+456
+00:23:27,059 --> 00:23:30,919
+be link begin
+
+457
+00:23:31,200 --> 00:23:38,480
+position right and the link and position
+
+458
+00:23:35,340 --> 00:23:42,240
+okay so this thing will return the
+
+459
+00:23:38,480 --> 00:23:44,900
+string that's the actual file path okay
+
+460
+00:23:42,240 --> 00:23:44,900
+so
+
+461
+00:23:44,940 --> 00:23:53,240
+so
+
+462
+00:23:46,919 --> 00:23:53,240
+um so let's name it okay set queue can
+
+463
+00:23:53,279 --> 00:23:59,279
+h i h i e f value okay
+
+464
+00:23:58,140 --> 00:24:02,460
+then
+
+465
+00:23:59,279 --> 00:24:06,120
+that's going to be that okay now this is
+
+466
+00:24:02,460 --> 00:24:09,720
+a new variable we want to add it
+
+467
+00:24:06,120 --> 00:24:12,659
+we want to add it to our you know these
+
+468
+00:24:09,720 --> 00:24:14,460
+are variables let's um
+
+469
+00:24:12,659 --> 00:24:17,820
+okay
+
+470
+00:24:14,460 --> 00:24:22,279
+predefy the code now let's go down
+
+471
+00:24:17,820 --> 00:24:22,279
+uh now okay let's let's
+
+472
+00:24:23,700 --> 00:24:27,360
+um
+
+473
+00:24:24,720 --> 00:24:29,840
+previous code and it's not to have too
+
+474
+00:24:27,360 --> 00:24:29,840
+many lines
+
+475
+00:24:30,059 --> 00:24:35,279
+yeah
+
+476
+00:24:31,279 --> 00:24:38,779
+indecision indecision okay so anyway so
+
+477
+00:24:35,279 --> 00:24:40,740
+now we have the current current
+
+478
+00:24:38,779 --> 00:24:43,740
+href value
+
+479
+00:24:40,740 --> 00:24:48,659
+which is you know which is which is this
+
+480
+00:24:43,740 --> 00:24:50,659
+string okay now the next thing to do is
+
+481
+00:24:48,659 --> 00:24:50,659
+um
+
+482
+00:24:51,240 --> 00:24:54,980
+the next thing to do is
+
+483
+00:24:57,000 --> 00:24:59,279
+is
+
+484
+00:24:58,440 --> 00:25:02,279
+um
+
+485
+00:24:59,279 --> 00:25:06,000
+yeah so we have current uh hif value
+
+486
+00:25:02,279 --> 00:25:08,940
+okay copy that we want to get the full
+
+487
+00:25:06,000 --> 00:25:10,799
+path Okay so
+
+488
+00:25:08,940 --> 00:25:14,039
+expand file name
+
+489
+00:25:10,799 --> 00:25:15,960
+that's good so we want to expand this
+
+490
+00:25:14,039 --> 00:25:18,240
+relative path okay optional relative
+
+491
+00:25:15,960 --> 00:25:20,880
+directory we don't need it because by
+
+492
+00:25:18,240 --> 00:25:24,600
+default it's relative to the current
+
+493
+00:25:20,880 --> 00:25:26,400
+directory so whatever this file is it's
+
+494
+00:25:24,600 --> 00:25:27,240
+relative to that directory so that's
+
+495
+00:25:26,400 --> 00:25:31,320
+good
+
+496
+00:25:27,240 --> 00:25:32,700
+so here is the full path okay
+
+497
+00:25:31,320 --> 00:25:34,200
+set
+
+498
+00:25:32,700 --> 00:25:38,700
+full path
+
+499
+00:25:34,200 --> 00:25:41,820
+equals to that okay so cut it put it
+
+500
+00:25:38,700 --> 00:25:44,820
+here make it pretty and here's a new
+
+501
+00:25:41,820 --> 00:25:47,600
+variable local variable we need to add
+
+502
+00:25:44,820 --> 00:25:47,600
+it to the top
+
+503
+00:25:48,659 --> 00:25:54,419
+there okay so now we got the full path
+
+504
+00:25:52,260 --> 00:25:55,260
+now we got the full path what do we do
+
+505
+00:25:54,419 --> 00:25:57,179
+next
+
+506
+00:25:55,260 --> 00:25:59,820
+now we
+
+507
+00:25:57,179 --> 00:26:04,320
+we need to
+
+508
+00:25:59,820 --> 00:26:07,260
+just replace the old relative path by
+
+509
+00:26:04,320 --> 00:26:09,360
+the full path okay so that's also easy
+
+510
+00:26:07,260 --> 00:26:13,159
+how do you do that
+
+511
+00:26:09,360 --> 00:26:13,159
+uh you do it by
+
+512
+00:26:13,260 --> 00:26:16,220
+uh
+
+513
+00:26:16,380 --> 00:26:24,299
+D for delete oh wait
+
+514
+00:26:20,179 --> 00:26:27,120
+there's no okay delete region okay
+
+515
+00:26:24,299 --> 00:26:30,480
+that's the command delete region
+
+516
+00:26:27,120 --> 00:26:34,740
+uh and you know you give two positions
+
+517
+00:26:30,480 --> 00:26:36,960
+so the position is going to be
+
+518
+00:26:34,740 --> 00:26:39,600
+link beginning and Link and position
+
+519
+00:26:36,960 --> 00:26:41,159
+okay copy that
+
+520
+00:26:39,600 --> 00:26:44,700
+here
+
+521
+00:26:41,159 --> 00:26:47,820
+okay delete region then
+
+522
+00:26:44,700 --> 00:26:50,460
+you just say insert
+
+523
+00:26:47,820 --> 00:26:54,240
+full path okay
+
+524
+00:26:50,460 --> 00:26:57,059
+purify so right now our code the whole
+
+525
+00:26:54,240 --> 00:27:00,600
+thing is pretty much complete okay it's
+
+526
+00:26:57,059 --> 00:27:03,240
+pretty much complete we first of all we
+
+527
+00:27:00,600 --> 00:27:05,880
+find you know user gives uh you know
+
+528
+00:27:03,240 --> 00:27:09,299
+first of all user gives a region
+
+529
+00:27:05,880 --> 00:27:12,659
+like a text block uh way for example
+
+530
+00:27:09,299 --> 00:27:15,000
+whatever however big region so we get
+
+531
+00:27:12,659 --> 00:27:18,539
+the P1 P2 is the region beginning and
+
+532
+00:27:15,000 --> 00:27:18,539
+region end then
+
+533
+00:27:18,720 --> 00:27:22,520
+then we uh
+
+534
+00:27:22,640 --> 00:27:27,179
+narrow to region
+
+535
+00:27:24,840 --> 00:27:29,700
+then we search for the first occurrence
+
+536
+00:27:27,179 --> 00:27:32,640
+of hif the link
+
+537
+00:27:29,700 --> 00:27:35,100
+then once we found it we get the
+
+538
+00:27:32,640 --> 00:27:36,539
+beginning position and end position of
+
+539
+00:27:35,100 --> 00:27:38,520
+the fire path
+
+540
+00:27:36,539 --> 00:27:41,100
+then we
+
+541
+00:27:38,520 --> 00:27:44,880
+then we grab it as a string
+
+542
+00:27:41,100 --> 00:27:46,799
+then we change it to full path then we
+
+543
+00:27:44,880 --> 00:27:50,940
+delete that region and insert the full
+
+544
+00:27:46,799 --> 00:27:54,320
+path so if we do it on this block of
+
+545
+00:27:50,940 --> 00:27:54,320
+text it should work
+
+546
+00:27:54,419 --> 00:27:58,740
+now this only works for the first
+
+547
+00:27:56,340 --> 00:28:01,799
+current occurrence we need to do a loop
+
+548
+00:27:58,740 --> 00:28:04,080
+so that it changes every uh you know
+
+549
+00:28:01,799 --> 00:28:05,820
+link so anyway but that you know this
+
+550
+00:28:04,080 --> 00:28:06,620
+seems great let's
+
+551
+00:28:05,820 --> 00:28:09,480
+um
+
+552
+00:28:06,620 --> 00:28:11,640
+let's let's let's begin to uh let's
+
+553
+00:28:09,480 --> 00:28:14,460
+evaluate this code let's see how we do
+
+554
+00:28:11,640 --> 00:28:17,960
+okay let me let me shrink let me get rid
+
+555
+00:28:14,460 --> 00:28:17,960
+of the Extra Spaces
+
+556
+00:28:18,120 --> 00:28:25,260
+okay evaluate the code now the code is
+
+557
+00:28:21,380 --> 00:28:28,500
+evaluated now let's go back to this
+
+558
+00:28:25,260 --> 00:28:30,179
+copy paste and let's work on this block
+
+559
+00:28:28,500 --> 00:28:32,159
+let's try it okay
+
+560
+00:28:30,179 --> 00:28:36,299
+so what's what is the command name so
+
+561
+00:28:32,159 --> 00:28:39,360
+let's try it selected call Meta X sound
+
+562
+00:28:36,299 --> 00:28:41,880
+HTML copy
+
+563
+00:28:39,360 --> 00:28:43,620
+change relative link
+
+564
+00:28:41,880 --> 00:28:46,260
+okay
+
+565
+00:28:43,620 --> 00:28:49,740
+do it oops
+
+566
+00:28:46,260 --> 00:28:52,380
+symbols value as variable is void P1
+
+567
+00:28:49,740 --> 00:28:57,059
+okay we got something okay yeah
+
+568
+00:28:52,380 --> 00:29:02,220
+obviously because the whole LED block
+
+569
+00:28:57,059 --> 00:29:04,980
+the whole let block of take of you know
+
+570
+00:29:02,220 --> 00:29:08,340
+we basically we mismatch the parent
+
+571
+00:29:04,980 --> 00:29:10,200
+because the whole LED block is this but
+
+572
+00:29:08,340 --> 00:29:12,899
+however our code is outside of it
+
+573
+00:29:10,200 --> 00:29:16,799
+outside of it so we need to move the
+
+574
+00:29:12,899 --> 00:29:19,980
+code inside the local variables cut
+
+575
+00:29:16,799 --> 00:29:24,720
+paste predified that's it
+
+576
+00:29:19,980 --> 00:29:26,100
+okay Eva the buffer now we try again
+
+577
+00:29:24,720 --> 00:29:27,860
+selected
+
+578
+00:29:26,100 --> 00:29:31,980
+meta X
+
+579
+00:29:27,860 --> 00:29:35,340
+HTML copy change relative link enter
+
+580
+00:29:31,980 --> 00:29:38,039
+okay your own type argument integer or
+
+581
+00:29:35,340 --> 00:29:40,080
+marker P Neo
+
+582
+00:29:38,039 --> 00:29:43,679
+what the
+
+583
+00:29:40,080 --> 00:29:45,679
+your own type of argument yeah okay
+
+584
+00:29:43,679 --> 00:29:45,679
+um
+
+585
+00:29:49,200 --> 00:29:52,460
+what uh
+
+586
+00:29:53,880 --> 00:30:01,440
+John type of argument integer or
+
+587
+00:29:58,320 --> 00:30:03,720
+uh why is that let's turn on let's call
+
+588
+00:30:01,440 --> 00:30:06,779
+the command
+
+589
+00:30:03,720 --> 00:30:10,559
+let's call the command toggle
+
+590
+00:30:06,779 --> 00:30:12,899
+emac this you know this command toggle
+
+591
+00:30:10,559 --> 00:30:15,419
+debug on Arrow
+
+592
+00:30:12,899 --> 00:30:18,480
+okay now let's try it again because now
+
+593
+00:30:15,419 --> 00:30:21,419
+if I do it again when this Arrow Emax
+
+594
+00:30:18,480 --> 00:30:24,299
+will pop up the full Arrow detail so do
+
+595
+00:30:21,419 --> 00:30:28,200
+it do it so there it is
+
+596
+00:30:24,299 --> 00:30:30,179
+uh debugger enter this error
+
+597
+00:30:28,200 --> 00:30:32,820
+um then it says
+
+598
+00:30:30,179 --> 00:30:35,760
+your own type and
+
+599
+00:30:32,820 --> 00:30:38,460
+okay magnified run type argument integer
+
+600
+00:30:35,760 --> 00:30:41,760
+or marker okay but for substring no
+
+601
+00:30:38,460 --> 00:30:43,980
+properties okay that's why so e-max this
+
+602
+00:30:41,760 --> 00:30:45,720
+when they when it is calling this
+
+603
+00:30:43,980 --> 00:30:47,340
+function bubbles so substrate no
+
+604
+00:30:45,720 --> 00:30:51,240
+properties
+
+605
+00:30:47,340 --> 00:30:53,279
+it's receiving two new arguments that is
+
+606
+00:30:51,240 --> 00:30:54,779
+the problem
+
+607
+00:30:53,279 --> 00:30:57,840
+so
+
+608
+00:30:54,779 --> 00:30:59,820
+so here you can see this line is the
+
+609
+00:30:57,840 --> 00:31:02,600
+problem why is it a problem let's try
+
+610
+00:30:59,820 --> 00:31:02,600
+again let's see
+
+611
+00:31:02,640 --> 00:31:08,519
+uh but for substring no properties link
+
+612
+00:31:05,580 --> 00:31:11,220
+begin position link and position did I
+
+613
+00:31:08,519 --> 00:31:14,340
+spell it incorrectly no I did it
+
+614
+00:31:11,220 --> 00:31:17,460
+correctly did I spell this incorrectly
+
+615
+00:31:14,340 --> 00:31:20,700
+no I it's spelled correctly
+
+616
+00:31:17,460 --> 00:31:24,299
+uh so link beginning position and Link
+
+617
+00:31:20,700 --> 00:31:26,820
+and position they are Neo
+
+618
+00:31:24,299 --> 00:31:31,140
+which is incorrect they shouldn't be
+
+619
+00:31:26,820 --> 00:31:33,419
+near so the problem is probably oh there
+
+620
+00:31:31,140 --> 00:31:36,419
+you see when we call this function
+
+621
+00:31:33,419 --> 00:31:39,380
+bounds of thing at point we are
+
+622
+00:31:36,419 --> 00:31:39,380
+wait what
+
+623
+00:31:46,919 --> 00:31:53,279
+okay here's uh here's what we need to do
+
+624
+00:31:49,860 --> 00:31:56,399
+okay let me I know I kind of know
+
+625
+00:31:53,279 --> 00:32:00,179
+I know an arrow already but I don't know
+
+626
+00:31:56,399 --> 00:32:02,760
+it's if that is all there is to it but
+
+627
+00:32:00,179 --> 00:32:04,320
+anyway you see we started to search
+
+628
+00:32:02,760 --> 00:32:06,240
+forward
+
+629
+00:32:04,320 --> 00:32:09,779
+okay let me let me let me let me show
+
+630
+00:32:06,240 --> 00:32:13,559
+you this okay let me go to the
+
+631
+00:32:09,779 --> 00:32:14,640
+yeah okay so so we started to search for
+
+632
+00:32:13,559 --> 00:32:16,860
+word
+
+633
+00:32:14,640 --> 00:32:18,899
+but before we do that we need to move
+
+634
+00:32:16,860 --> 00:32:20,460
+the cruiser to the beginning of the
+
+635
+00:32:18,899 --> 00:32:24,899
+region you see
+
+636
+00:32:20,460 --> 00:32:26,519
+so so first of all you need to say go to
+
+637
+00:32:24,899 --> 00:32:29,059
+go to char
+
+638
+00:32:26,519 --> 00:32:31,860
+region uh
+
+639
+00:32:29,059 --> 00:32:35,340
+buffer minimum okay
+
+640
+00:32:31,860 --> 00:32:37,440
+but Point minimum okay
+
+641
+00:32:35,340 --> 00:32:39,299
+that means move the cursor to the
+
+642
+00:32:37,440 --> 00:32:42,120
+beginning of the buffer okay
+
+643
+00:32:39,299 --> 00:32:44,580
+then we start to search okay
+
+644
+00:32:42,120 --> 00:32:47,100
+and actually we need to do a if
+
+645
+00:32:44,580 --> 00:32:51,000
+statement because what what if there is
+
+646
+00:32:47,100 --> 00:32:54,059
+uh nothing found you see
+
+647
+00:32:51,000 --> 00:32:57,200
+if it tries to search it and if there is
+
+648
+00:32:54,059 --> 00:33:00,720
+no local link like that there's no href
+
+649
+00:32:57,200 --> 00:33:04,620
+then you don't find it right
+
+650
+00:33:00,720 --> 00:33:06,779
+but however then we assume there we you
+
+651
+00:33:04,620 --> 00:33:09,600
+know we are assuming we found it because
+
+652
+00:33:06,779 --> 00:33:13,200
+we are starting to grab the file name so
+
+653
+00:33:09,600 --> 00:33:17,519
+so actually you need the if statement
+
+654
+00:33:13,200 --> 00:33:19,080
+so if you see a if statement if this
+
+655
+00:33:17,519 --> 00:33:21,899
+okay
+
+656
+00:33:19,080 --> 00:33:24,600
+put it here if that
+
+657
+00:33:21,899 --> 00:33:28,019
+then do something otherwise do nothing
+
+658
+00:33:24,600 --> 00:33:30,539
+in that case we can just say when okay
+
+659
+00:33:28,019 --> 00:33:33,360
+so when this is true
+
+660
+00:33:30,539 --> 00:33:36,799
+when search forward when you call the
+
+661
+00:33:33,360 --> 00:33:40,200
+search forward function it will return a
+
+662
+00:33:36,799 --> 00:33:42,659
+value that that that can be interpreted
+
+663
+00:33:40,200 --> 00:33:45,659
+is either true or false so when when
+
+664
+00:33:42,659 --> 00:33:49,679
+search is successful then you do these
+
+665
+00:33:45,659 --> 00:33:52,740
+things otherwise do nothing okay purify
+
+666
+00:33:49,679 --> 00:33:55,019
+uh let's try again so we fixed two
+
+667
+00:33:52,740 --> 00:33:58,500
+arrows
+
+668
+00:33:55,019 --> 00:34:00,240
+okay so we don't need that okay so right
+
+669
+00:33:58,500 --> 00:34:03,720
+okay
+
+670
+00:34:00,240 --> 00:34:05,640
+so now evaluate the buffer now go back
+
+671
+00:34:03,720 --> 00:34:08,099
+to this part
+
+672
+00:34:05,640 --> 00:34:11,460
+okay now select the region let's call it
+
+673
+00:34:08,099 --> 00:34:12,919
+again see what happens go ahead
+
+674
+00:34:11,460 --> 00:34:15,359
+do it
+
+675
+00:34:12,919 --> 00:34:20,760
+fantastic success
+
+676
+00:34:15,359 --> 00:34:24,060
+you can see it has changed you see
+
+677
+00:34:20,760 --> 00:34:26,879
+it was a relative link here
+
+678
+00:34:24,060 --> 00:34:28,560
+and now wait can you see it let me
+
+679
+00:34:26,879 --> 00:34:32,099
+scroll up okay
+
+680
+00:34:28,560 --> 00:34:35,760
+so it was a relative link there but now
+
+681
+00:34:32,099 --> 00:34:38,700
+it changed to a full path that is what
+
+682
+00:34:35,760 --> 00:34:41,179
+we want okay that is what we want we are
+
+683
+00:34:38,700 --> 00:34:41,179
+success
+
+684
+00:34:41,879 --> 00:34:48,300
+so I so uh now it's we I've been talking
+
+685
+00:34:45,720 --> 00:34:50,220
+for 40 minutes basically we can stop
+
+686
+00:34:48,300 --> 00:34:53,940
+here that is what
+
+687
+00:34:50,220 --> 00:34:56,460
+uh we have achieved obtained the goal
+
+688
+00:34:53,940 --> 00:34:59,400
+Today part of it anyway
+
+689
+00:34:56,460 --> 00:35:02,579
+which you know which is teaching you I
+
+690
+00:34:59,400 --> 00:35:03,780
+hope so I I hope I did some you know
+
+691
+00:35:02,579 --> 00:35:07,440
+basic
+
+692
+00:35:03,780 --> 00:35:09,599
+uh emac this practical tutorial you know
+
+693
+00:35:07,440 --> 00:35:12,480
+this is very practical because this is a
+
+694
+00:35:09,599 --> 00:35:14,400
+function I need you know like I talked
+
+695
+00:35:12,480 --> 00:35:19,560
+in the beginning of my video I need to
+
+696
+00:35:14,400 --> 00:35:23,220
+you know move a block of text of HTML
+
+697
+00:35:19,560 --> 00:35:25,560
+from one HTML file to another and I need
+
+698
+00:35:23,220 --> 00:35:28,800
+to get you know I need to get the
+
+699
+00:35:25,560 --> 00:35:32,099
+relative links fixed
+
+700
+00:35:28,800 --> 00:35:34,740
+so this is one of the steps you know I I
+
+701
+00:35:32,099 --> 00:35:36,780
+change a block of text of all the
+
+702
+00:35:34,740 --> 00:35:40,980
+relative links change them to full path
+
+703
+00:35:36,780 --> 00:35:44,099
+then then you know then I copy this or
+
+704
+00:35:40,980 --> 00:35:46,920
+cut it then I go to some other HTML file
+
+705
+00:35:44,099 --> 00:35:49,619
+I paste it there then I need another
+
+706
+00:35:46,920 --> 00:35:51,599
+command which is kind of reverse of this
+
+707
+00:35:49,619 --> 00:35:54,359
+you know it will just go through the
+
+708
+00:35:51,599 --> 00:35:56,760
+links and change all the full paths to
+
+709
+00:35:54,359 --> 00:36:00,060
+the relative link
+
+710
+00:35:56,760 --> 00:36:02,160
+so that is um I hope um
+
+711
+00:36:00,060 --> 00:36:04,500
+oh okay so there's a question what's the
+
+712
+00:36:02,160 --> 00:36:07,140
+difference between Chi and Qatar
+
+713
+00:36:04,500 --> 00:36:10,560
+okay that's about
+
+714
+00:36:07,140 --> 00:36:14,160
+um okay so let me explain okay
+
+715
+00:36:10,560 --> 00:36:15,440
+let's go to talk show okay uh
+
+716
+00:36:14,160 --> 00:36:19,260
+yeah yeah
+
+717
+00:36:15,440 --> 00:36:23,400
+let me just write it okay
+
+718
+00:36:19,260 --> 00:36:27,420
+what is the difference between
+
+719
+00:36:23,400 --> 00:36:31,579
+what's difference between yeah
+
+720
+00:36:27,420 --> 00:36:34,500
+what is the difference between
+
+721
+00:36:31,579 --> 00:36:37,619
+I have a brief the problem is I forgot
+
+722
+00:36:34,500 --> 00:36:40,440
+what what is the brief
+
+723
+00:36:37,619 --> 00:36:41,579
+what's the difference between there it
+
+724
+00:36:40,440 --> 00:36:44,420
+is okay
+
+725
+00:36:41,579 --> 00:36:47,640
+but it's a bit difference between car
+
+726
+00:36:44,420 --> 00:36:50,339
+and cutter Okay so
+
+727
+00:36:47,640 --> 00:36:53,400
+in order to do to understand that you
+
+728
+00:36:50,339 --> 00:36:57,200
+need to understand e-max this I mean the
+
+729
+00:36:53,400 --> 00:36:57,200
+how least
+
+730
+00:36:57,420 --> 00:37:07,260
+is in lisp language Okay so
+
+731
+00:37:03,240 --> 00:37:14,940
+let me write it a list in this
+
+732
+00:37:07,260 --> 00:37:18,359
+is a is actually a nested con sales
+
+733
+00:37:14,940 --> 00:37:22,980
+what is a console
+
+734
+00:37:18,359 --> 00:37:24,660
+a cons uh concept okay so cons not con
+
+735
+00:37:22,980 --> 00:37:26,940
+so because
+
+736
+00:37:24,660 --> 00:37:28,980
+cell
+
+737
+00:37:26,940 --> 00:37:31,099
+is a
+
+738
+00:37:28,980 --> 00:37:37,880
+it is
+
+739
+00:37:31,099 --> 00:37:37,880
+this let's say it is okay code like this
+
+740
+00:37:38,760 --> 00:37:45,960
+cause
+
+741
+00:37:40,920 --> 00:37:48,119
+item one item two okay so this is a
+
+742
+00:37:45,960 --> 00:37:50,220
+concept you know you can do it in emac
+
+743
+00:37:48,119 --> 00:37:52,339
+list too so for example
+
+744
+00:37:50,220 --> 00:37:56,460
+cons
+
+745
+00:37:52,339 --> 00:37:59,000
+let's say three four okay const three
+
+746
+00:37:56,460 --> 00:38:03,540
+four and actually I can evaluate this
+
+747
+00:37:59,000 --> 00:38:05,880
+evaluate it you know let me show you the
+
+748
+00:38:03,540 --> 00:38:08,280
+uh let me show you the messages buffer
+
+749
+00:38:05,880 --> 00:38:10,200
+so you can see the message buffer Okay
+
+750
+00:38:08,280 --> 00:38:12,839
+so
+
+751
+00:38:10,200 --> 00:38:14,400
+so I go here now watch I'm gonna
+
+752
+00:38:12,839 --> 00:38:17,339
+evaluate this
+
+753
+00:38:14,400 --> 00:38:20,040
+evaluate and in the message buffer you
+
+754
+00:38:17,339 --> 00:38:21,480
+can see 3.4 that's uh that's a shorthand
+
+755
+00:38:20,040 --> 00:38:24,359
+notation
+
+756
+00:38:21,480 --> 00:38:26,280
+so what is the console you know just in
+
+757
+00:38:24,359 --> 00:38:30,300
+other languages you have array you know
+
+758
+00:38:26,280 --> 00:38:34,320
+think of it as a array a data structure
+
+759
+00:38:30,300 --> 00:38:36,060
+like array of two items okay so it's a
+
+760
+00:38:34,320 --> 00:38:38,220
+it's a couple
+
+761
+00:38:36,060 --> 00:38:41,280
+so in for example in Python you have
+
+762
+00:38:38,220 --> 00:38:44,579
+tuples you can have a tuple of two items
+
+763
+00:38:41,280 --> 00:38:48,180
+or type of three items and and so on so
+
+764
+00:38:44,579 --> 00:38:51,599
+account cell is basically just a tuple a
+
+765
+00:38:48,180 --> 00:38:55,460
+a array of two items and no more and no
+
+766
+00:38:51,599 --> 00:38:57,599
+less okay it's always it's a build in
+
+767
+00:38:55,460 --> 00:38:58,859
+data structure
+
+768
+00:38:57,599 --> 00:39:02,040
+in
+
+769
+00:38:58,859 --> 00:39:04,560
+email address in scheme disk and in
+
+770
+00:39:02,040 --> 00:39:08,099
+common lisp in fact it's it's kind of
+
+771
+00:39:04,560 --> 00:39:12,020
+the core of this idea okay so council is
+
+772
+00:39:08,099 --> 00:39:12,020
+a building data structure of two items
+
+773
+00:39:12,119 --> 00:39:19,020
+okay let me write it down it is a field
+
+774
+00:39:15,480 --> 00:39:21,540
+in data structure
+
+775
+00:39:19,020 --> 00:39:24,599
+of two items
+
+776
+00:39:21,540 --> 00:39:30,480
+no more and no less
+
+777
+00:39:24,599 --> 00:39:32,579
+can be thought of as python Turbo
+
+778
+00:39:30,480 --> 00:39:34,079
+okay
+
+779
+00:39:32,579 --> 00:39:35,400
+okay
+
+780
+00:39:34,079 --> 00:39:40,920
+so
+
+781
+00:39:35,400 --> 00:39:43,260
+so in in emacs every list okay is
+
+782
+00:39:40,920 --> 00:39:45,380
+actually made of Concepts okay let me
+
+783
+00:39:43,260 --> 00:39:45,380
+explain
+
+784
+00:39:50,940 --> 00:39:56,720
+is actually made of Khan's cells
+
+785
+00:39:57,420 --> 00:40:03,599
+for example
+
+786
+00:40:00,060 --> 00:40:05,579
+for example let's say you have list one
+
+787
+00:40:03,599 --> 00:40:07,619
+two three
+
+788
+00:40:05,579 --> 00:40:10,200
+but
+
+789
+00:40:07,619 --> 00:40:12,060
+it is actually
+
+790
+00:40:10,200 --> 00:40:13,260
+but
+
+791
+00:40:12,060 --> 00:40:15,839
+two
+
+792
+00:40:13,260 --> 00:40:18,480
+but internally
+
+793
+00:40:15,839 --> 00:40:21,900
+it is actually
+
+794
+00:40:18,480 --> 00:40:25,760
+like this okay
+
+795
+00:40:21,900 --> 00:40:25,760
+so are you seeing this
+
+796
+00:40:27,420 --> 00:40:32,520
+yeah car encoder so yeah so so
+
+797
+00:40:30,420 --> 00:40:35,280
+internally it actually like this okay
+
+798
+00:40:32,520 --> 00:40:37,920
+let me show you cons uh
+
+799
+00:40:35,280 --> 00:40:43,880
+let's let me just do this okay let me
+
+800
+00:40:37,920 --> 00:40:43,880
+type it quickly so const one cons two
+
+801
+00:40:49,920 --> 00:40:55,020
+okay so you can see we have a list of
+
+802
+00:40:52,980 --> 00:40:58,440
+three elements one two three but
+
+803
+00:40:55,020 --> 00:41:01,079
+actually in e-mac B's and commonly and
+
+804
+00:40:58,440 --> 00:41:02,700
+skim this or racket this
+
+805
+00:41:01,079 --> 00:41:07,980
+actually
+
+806
+00:41:02,700 --> 00:41:12,000
+it is stored like a nested Concepts
+
+807
+00:41:07,980 --> 00:41:14,160
+so it actually looks like this
+
+808
+00:41:12,000 --> 00:41:16,560
+so uh
+
+809
+00:41:14,160 --> 00:41:19,319
+so you know I can you know we can
+
+810
+00:41:16,560 --> 00:41:20,220
+actually test it test it okay so for
+
+811
+00:41:19,319 --> 00:41:24,440
+example
+
+812
+00:41:20,220 --> 00:41:24,440
+uh let's say equal
+
+813
+00:41:27,480 --> 00:41:34,200
+uh list okay so list
+
+814
+00:41:31,140 --> 00:41:36,859
+one two three
+
+815
+00:41:34,200 --> 00:41:36,859
+versus
+
+816
+00:41:36,900 --> 00:41:43,619
+concept okay so you see that let's try
+
+817
+00:41:39,900 --> 00:41:45,359
+to evaluate it and see what uh emac says
+
+818
+00:41:43,619 --> 00:41:46,440
+okay so you can see here's a message
+
+819
+00:41:45,359 --> 00:41:49,380
+buffer
+
+820
+00:41:46,440 --> 00:41:50,460
+your print in that in over there okay so
+
+821
+00:41:49,380 --> 00:41:52,079
+let's see
+
+822
+00:41:50,460 --> 00:41:53,400
+evaluated
+
+823
+00:41:52,079 --> 00:41:56,960
+you see
+
+824
+00:41:53,400 --> 00:41:56,960
+he says true you see
+
+825
+00:41:57,359 --> 00:42:02,400
+so
+
+826
+00:41:59,160 --> 00:42:05,700
+so that is how
+
+827
+00:42:02,400 --> 00:42:10,079
+that's what con sales are
+
+828
+00:42:05,700 --> 00:42:12,420
+and this is a very very important
+
+829
+00:42:10,079 --> 00:42:15,119
+um thing you need to understand when you
+
+830
+00:42:12,420 --> 00:42:16,920
+code emac beasts not for beginners
+
+831
+00:42:15,119 --> 00:42:19,020
+because for beginners you don't you know
+
+832
+00:42:16,920 --> 00:42:21,060
+this is actually not important because
+
+833
+00:42:19,020 --> 00:42:22,619
+you can just you know you you know at
+
+834
+00:42:21,060 --> 00:42:24,900
+least it's just a list you can get the
+
+835
+00:42:22,619 --> 00:42:27,240
+first element and second element and so
+
+836
+00:42:24,900 --> 00:42:29,700
+on but however as you started to code
+
+837
+00:42:27,240 --> 00:42:32,220
+more and more this this is one of the
+
+838
+00:42:29,700 --> 00:42:35,780
+fundamental this is a very essential
+
+839
+00:42:32,220 --> 00:42:35,780
+fundamental thing you need to understand
+
+840
+00:42:35,819 --> 00:42:42,660
+a list data structure in lisp languages
+
+841
+00:42:39,359 --> 00:42:45,420
+actually do not have you know it's not
+
+842
+00:42:42,660 --> 00:42:48,180
+just by itself it's actually made of you
+
+843
+00:42:45,420 --> 00:42:49,500
+know made of cons cells
+
+844
+00:42:48,180 --> 00:42:51,420
+now
+
+845
+00:42:49,500 --> 00:42:54,060
+you might you might wonder why is that
+
+846
+00:42:51,420 --> 00:42:56,099
+you know in short it's just historical
+
+847
+00:42:54,060 --> 00:42:59,280
+okay that's just the way it is because
+
+848
+00:42:56,099 --> 00:43:03,900
+in order to implement it back in 40
+
+849
+00:42:59,280 --> 00:43:06,300
+years ago you have to use a linked list
+
+850
+00:43:03,900 --> 00:43:10,680
+data structure because for memory
+
+851
+00:43:06,300 --> 00:43:13,859
+efficiencies and so on so anyway
+
+852
+00:43:10,680 --> 00:43:16,680
+so that is why
+
+853
+00:43:13,859 --> 00:43:19,859
+you know in lisp you don't actually have
+
+854
+00:43:16,680 --> 00:43:22,319
+a you know list is not the fundamental
+
+855
+00:43:19,859 --> 00:43:24,380
+data structure every list is made of
+
+856
+00:43:22,319 --> 00:43:26,880
+Concepts and remember
+
+857
+00:43:24,380 --> 00:43:29,819
+the last concept
+
+858
+00:43:26,880 --> 00:43:33,660
+you know concept is a fixed
+
+859
+00:43:29,819 --> 00:43:36,720
+two items you know remember in the in
+
+860
+00:43:33,660 --> 00:43:39,960
+the deepest concept the second element
+
+861
+00:43:36,720 --> 00:43:42,060
+must be your Neo otherwise it's not it's
+
+862
+00:43:39,960 --> 00:43:46,020
+not really a proper list so called
+
+863
+00:43:42,060 --> 00:43:48,540
+properties okay so if you go to my emac
+
+864
+00:43:46,020 --> 00:43:50,940
+this tutorial
+
+865
+00:43:48,540 --> 00:43:52,140
+there is an explanation you know you
+
+866
+00:43:50,940 --> 00:43:55,140
+study
+
+867
+00:43:52,140 --> 00:43:56,520
+emac this space basic then you go down
+
+868
+00:43:55,140 --> 00:43:59,099
+you scroll down
+
+869
+00:43:56,520 --> 00:44:01,859
+you started you know as you have more
+
+870
+00:43:59,099 --> 00:44:04,319
+experience you started to learn least
+
+871
+00:44:01,859 --> 00:44:08,040
+data type
+
+872
+00:44:04,319 --> 00:44:10,260
+uh then you'll see explanations okay uh
+
+873
+00:44:08,040 --> 00:44:13,140
+listing vectors
+
+874
+00:44:10,260 --> 00:44:16,200
+yeah it's uh yeah so that's what console
+
+875
+00:44:13,140 --> 00:44:18,540
+is now once you understand console then
+
+876
+00:44:16,200 --> 00:44:19,560
+you want to understand car and cutter
+
+877
+00:44:18,540 --> 00:44:22,260
+okay
+
+878
+00:44:19,560 --> 00:44:25,040
+car and cutter
+
+879
+00:44:22,260 --> 00:44:25,040
+because
+
+880
+00:44:29,220 --> 00:44:36,000
+car and car basically just means return
+
+881
+00:44:33,540 --> 00:44:38,400
+the first element in a concept okay
+
+882
+00:44:36,000 --> 00:44:40,740
+return the first element new console
+
+883
+00:44:38,400 --> 00:44:43,200
+Qatar basically means return the second
+
+884
+00:44:40,740 --> 00:44:45,300
+element in a concept so that's what they
+
+885
+00:44:43,200 --> 00:44:47,099
+are
+
+886
+00:44:45,300 --> 00:44:50,460
+okay I think maybe that's it for today
+
+887
+00:44:47,099 --> 00:44:53,460
+I'm gonna uh random chat
+
+888
+00:44:50,460 --> 00:44:56,300
+uh for a few minutes five minutes and
+
+889
+00:44:53,460 --> 00:44:56,300
+we're gonna shut down
+
+890
+00:44:58,980 --> 00:45:03,720
+uh I miss most stream because of the
+
+891
+00:45:01,260 --> 00:45:06,420
+time zone differences yeah so I I
+
+892
+00:45:03,720 --> 00:45:09,180
+probably need to start to do some you
+
+893
+00:45:06,420 --> 00:45:11,099
+know live talk show in different time
+
+894
+00:45:09,180 --> 00:45:13,380
+zone what is the difference okay between
+
+895
+00:45:11,099 --> 00:45:15,420
+car and cutter so that's a full
+
+896
+00:45:13,380 --> 00:45:17,880
+explanation
+
+897
+00:45:15,420 --> 00:45:19,920
+and card Returns the first component of
+
+898
+00:45:17,880 --> 00:45:22,380
+a pair Qatar Returns the second
+
+899
+00:45:19,920 --> 00:45:25,680
+component exactly Alex
+
+900
+00:45:22,380 --> 00:45:28,440
+so Alex says do you think this list
+
+901
+00:45:25,680 --> 00:45:31,020
+implementation using cons sales is good
+
+902
+00:45:28,440 --> 00:45:33,720
+bad language design
+
+903
+00:45:31,020 --> 00:45:37,260
+it is a terrible terrible language
+
+904
+00:45:33,720 --> 00:45:39,599
+design it's an extremely lousy okay it
+
+905
+00:45:37,260 --> 00:45:43,560
+is in fact it's one of my complaints
+
+906
+00:45:39,599 --> 00:45:46,920
+about this for for about 20 years now
+
+907
+00:45:43,560 --> 00:45:49,339
+okay uh you know for example I can show
+
+908
+00:45:46,920 --> 00:45:51,660
+you my articles okay so you go to my
+
+909
+00:45:49,339 --> 00:45:56,660
+programming blog
+
+910
+00:45:51,660 --> 00:45:59,880
+you go down to this section
+
+911
+00:45:56,660 --> 00:46:03,200
+programming this let me show you this
+
+912
+00:45:59,880 --> 00:46:06,900
+image okay this image is funny
+
+913
+00:46:03,200 --> 00:46:09,540
+programming my list Reinventing Wheels
+
+914
+00:46:06,900 --> 00:46:12,660
+by using Marcos you know this this
+
+915
+00:46:09,540 --> 00:46:15,660
+person are phonetic this phonetics are
+
+916
+00:46:12,660 --> 00:46:18,900
+always talking thinking about macros
+
+917
+00:46:15,660 --> 00:46:22,440
+because they think this macros is the
+
+918
+00:46:18,900 --> 00:46:24,900
+best thing since sliced bread
+
+919
+00:46:22,440 --> 00:46:27,300
+you know I talked about this in terms of
+
+920
+00:46:24,900 --> 00:46:29,339
+my videos you you actually you should go
+
+921
+00:46:27,300 --> 00:46:33,060
+watch it because for example you see
+
+922
+00:46:29,339 --> 00:46:34,859
+here I have two videos that's full talk
+
+923
+00:46:33,060 --> 00:46:38,099
+about
+
+924
+00:46:34,859 --> 00:46:40,560
+about this about the nature about nature
+
+925
+00:46:38,099 --> 00:46:43,800
+of lisp about their history and so on
+
+926
+00:46:40,560 --> 00:46:45,960
+okay because that's one of my you know
+
+927
+00:46:43,800 --> 00:46:48,240
+I'm at least you know you could you
+
+928
+00:46:45,960 --> 00:46:51,359
+could say I'm a this expert for the you
+
+929
+00:46:48,240 --> 00:46:55,200
+know I've been coding this in the past
+
+930
+00:46:51,359 --> 00:46:59,339
+20 years not just emac in fact 30 years
+
+931
+00:46:55,200 --> 00:47:02,460
+emac beasts starting from 2005. so I
+
+932
+00:46:59,339 --> 00:47:05,220
+have 15 years of coding emac this but I
+
+933
+00:47:02,460 --> 00:47:08,640
+also code Mathematica which is
+
+934
+00:47:05,220 --> 00:47:11,099
+um which is kind of a variant of lisp I
+
+935
+00:47:08,640 --> 00:47:12,180
+mean code you know I did also I did also
+
+936
+00:47:11,099 --> 00:47:15,119
+did
+
+937
+00:47:12,180 --> 00:47:18,000
+four videos about Mathematica
+
+938
+00:47:15,119 --> 00:47:20,400
+uh you should actually you should watch
+
+939
+00:47:18,000 --> 00:47:22,980
+those ones I show on my website because
+
+940
+00:47:20,400 --> 00:47:25,440
+they are the you know what I consider
+
+941
+00:47:22,980 --> 00:47:27,480
+better my better live streams you know
+
+942
+00:47:25,440 --> 00:47:29,760
+where I talk about lots of things in a
+
+943
+00:47:27,480 --> 00:47:30,660
+condensed fashion each one is about an
+
+944
+00:47:29,760 --> 00:47:35,099
+hour
+
+945
+00:47:30,660 --> 00:47:38,280
+so if you are into the history of lisp
+
+946
+00:47:35,099 --> 00:47:41,940
+or if you are into Mathematica which is
+
+947
+00:47:38,280 --> 00:47:44,339
+a you can say it's a list but but very
+
+948
+00:47:41,940 --> 00:47:46,740
+kind of very different however shares
+
+949
+00:47:44,339 --> 00:47:48,059
+all the characteristics of lisp you can
+
+950
+00:47:46,740 --> 00:47:50,940
+watch them
+
+951
+00:47:48,059 --> 00:47:52,440
+so anyway back to uh lisp you know so
+
+952
+00:47:50,940 --> 00:47:54,300
+this article
+
+953
+00:47:52,440 --> 00:47:57,359
+I mean this section there's two videos
+
+954
+00:47:54,300 --> 00:48:00,119
+about this about this this syntax and so
+
+955
+00:47:57,359 --> 00:48:03,000
+on then you can see
+
+956
+00:48:00,119 --> 00:48:07,260
+this article which is dramatically
+
+957
+00:48:03,000 --> 00:48:08,880
+titled fundamental problems of lisp you
+
+958
+00:48:07,260 --> 00:48:12,180
+know this kind of title is so-called
+
+959
+00:48:08,880 --> 00:48:14,819
+click click clickbait today okay
+
+960
+00:48:12,180 --> 00:48:17,880
+fundamental problems of lisp
+
+961
+00:48:14,819 --> 00:48:20,280
+so in this article I give you two major
+
+962
+00:48:17,880 --> 00:48:21,660
+problems and one of them is the cons
+
+963
+00:48:20,280 --> 00:48:24,839
+okay
+
+964
+00:48:21,660 --> 00:48:28,079
+which we just explained uh let's see
+
+965
+00:48:24,839 --> 00:48:30,960
+where uh two sections
+
+966
+00:48:28,079 --> 00:48:33,780
+the cons okay so you scroll down you can
+
+967
+00:48:30,960 --> 00:48:36,720
+see the this cons so here is a
+
+968
+00:48:33,780 --> 00:48:39,960
+screenshot of emac lisp documentation
+
+969
+00:48:36,720 --> 00:48:40,800
+about what are con sales you know emac
+
+970
+00:48:39,960 --> 00:48:43,559
+this
+
+971
+00:48:40,800 --> 00:48:45,900
+so here is the emac this documentation
+
+972
+00:48:43,559 --> 00:48:49,500
+you know you can see they have a diagram
+
+973
+00:48:45,900 --> 00:48:53,099
+talking about how you know car and
+
+974
+00:48:49,500 --> 00:48:54,839
+cutter are nested so that they forms a
+
+975
+00:48:53,099 --> 00:48:56,880
+list okay
+
+976
+00:48:54,839 --> 00:48:59,700
+so anyway if you are interested go read
+
+977
+00:48:56,880 --> 00:49:02,160
+my article fundamental problems of this
+
+978
+00:48:59,700 --> 00:49:06,180
+you search it you'll find it
+
+979
+00:49:02,160 --> 00:49:09,480
+so why is it so you know two you know so
+
+980
+00:49:06,180 --> 00:49:14,940
+because this was invented uh 40 years
+
+981
+00:49:09,480 --> 00:49:18,119
+ago uh 1960s by Zhang magakathi right so
+
+982
+00:49:14,940 --> 00:49:20,040
+you know 40 years ago the hardware the
+
+983
+00:49:18,119 --> 00:49:21,300
+context of computation is very different
+
+984
+00:49:20,040 --> 00:49:24,180
+from today
+
+985
+00:49:21,300 --> 00:49:26,700
+so basically back then you have you
+
+986
+00:49:24,180 --> 00:49:29,040
+basically have to have costs in order to
+
+987
+00:49:26,700 --> 00:49:31,079
+make it fast in order you know it's a
+
+988
+00:49:29,040 --> 00:49:33,559
+implementation what I would say
+
+989
+00:49:31,079 --> 00:49:36,119
+implementation is a computer engineering
+
+990
+00:49:33,559 --> 00:49:39,300
+byproduct okay
+
+991
+00:49:36,119 --> 00:49:44,640
+but today for example in Python in Ruby
+
+992
+00:49:39,300 --> 00:49:47,640
+in every language in Python Ruby Golan
+
+993
+00:49:44,640 --> 00:49:50,400
+um I'm trying I'm trying to only list
+
+994
+00:49:47,640 --> 00:49:53,339
+the ones I really know okay
+
+995
+00:49:50,400 --> 00:49:57,140
+like I can solidly tell you
+
+996
+00:49:53,339 --> 00:50:02,700
+what still what's not in Python in Golan
+
+997
+00:49:57,140 --> 00:50:05,700
+in in Ruby in Mathematica in PHP Ruby
+
+998
+00:50:02,700 --> 00:50:08,460
+PHP in Java you don't have this like
+
+999
+00:50:05,700 --> 00:50:10,680
+what the can't sell what the I mean
+
+1000
+00:50:08,460 --> 00:50:12,900
+why do you need why do you need like
+
+1001
+00:50:10,680 --> 00:50:16,319
+what do you need to base your list on a
+
+1002
+00:50:12,900 --> 00:50:17,700
+you know fixed two element thing why do
+
+1003
+00:50:16,319 --> 00:50:20,220
+you need that you don't see that anymore
+
+1004
+00:50:17,700 --> 00:50:23,579
+because you don't need it because the
+
+1005
+00:50:20,220 --> 00:50:26,040
+cons sales was there because it was 40
+
+1006
+00:50:23,579 --> 00:50:27,720
+years ago you know in order to do it you
+
+1007
+00:50:26,040 --> 00:50:30,900
+know to make it fancy and so on you have
+
+1008
+00:50:27,720 --> 00:50:33,480
+to have that but you don't have you
+
+1009
+00:50:30,900 --> 00:50:35,760
+don't need that since you know 1990s
+
+1010
+00:50:33,480 --> 00:50:38,220
+but however it's just history you know
+
+1011
+00:50:35,760 --> 00:50:41,819
+that's that's you know just like unix
+
+1012
+00:50:38,220 --> 00:50:44,760
+commands why is it this way or that way
+
+1013
+00:50:41,819 --> 00:50:47,460
+uh you know you have lots of baggages in
+
+1014
+00:50:44,760 --> 00:50:49,980
+programming languages so console is kind
+
+1015
+00:50:47,460 --> 00:50:52,260
+of a fundamental it's kind of the
+
+1016
+00:50:49,980 --> 00:50:56,460
+fundamental core
+
+1017
+00:50:52,260 --> 00:50:58,260
+of this programming languages with one
+
+1018
+00:50:56,460 --> 00:51:01,040
+exception
+
+1019
+00:50:58,260 --> 00:51:01,040
+closure
+
+1020
+00:51:01,920 --> 00:51:08,819
+remove that eliminated the concept so
+
+1021
+00:51:05,040 --> 00:51:11,700
+enclosure closure you know which is uh
+
+1022
+00:51:08,819 --> 00:51:14,040
+you know enclosure lisp they don't have
+
+1023
+00:51:11,700 --> 00:51:16,500
+the concepts anymore they kicked that
+
+1024
+00:51:14,040 --> 00:51:20,819
+out you know they don't we are not going
+
+1025
+00:51:16,500 --> 00:51:24,000
+to have this crap that is why for some
+
+1026
+00:51:20,819 --> 00:51:26,280
+of the common lisp fanatics
+
+1027
+00:51:24,000 --> 00:51:28,740
+they don't consider closure to be at
+
+1028
+00:51:26,280 --> 00:51:30,960
+least because it bothered them because
+
+1029
+00:51:28,740 --> 00:51:33,839
+you know the common you know the the
+
+1030
+00:51:30,960 --> 00:51:36,920
+traditional these phonetics they they
+
+1031
+00:51:33,839 --> 00:51:40,260
+they are used to the concept of Concepts
+
+1032
+00:51:36,920 --> 00:51:44,460
+lists are made of made up of Concepts
+
+1033
+00:51:40,260 --> 00:51:47,520
+but closure just kicked it out
+
+1034
+00:51:44,460 --> 00:51:49,619
+so so that that is some of the laws or
+
+1035
+00:51:47,520 --> 00:51:52,579
+you know uh history about this okay
+
+1036
+00:51:49,619 --> 00:51:52,579
+that's it for today
+
+1037
+00:51:54,059 --> 00:52:01,619
+okay thank you guys so if you like my
+
+1038
+00:51:57,240 --> 00:52:05,099
+emac this store stuff you know you go
+
+1039
+00:52:01,619 --> 00:52:08,460
+buy buy my email list tutorials okay
+
+1040
+00:52:05,099 --> 00:52:10,380
+thank you and patreon or PayPal donate
+
+1041
+00:52:08,460 --> 00:52:15,300
+me thank you
+
+1042
+00:52:10,380 --> 00:52:18,420
+so we we I'm gonna uh you know turn shut
+
+1043
+00:52:15,300 --> 00:52:21,660
+down the stream in one minute and what
+
+1044
+00:52:18,420 --> 00:52:25,980
+I'm going to do now is to copy
+
+1045
+00:52:21,660 --> 00:52:29,099
+what we did today to my talk show page
+
+1046
+00:52:25,980 --> 00:52:33,720
+so this is like
+
+1047
+00:52:29,099 --> 00:52:39,059
+what I have to do in post talk show
+
+1048
+00:52:33,720 --> 00:52:41,220
+so you can watch my walk here so let's
+
+1049
+00:52:39,059 --> 00:52:44,059
+not
+
+1050
+00:52:41,220 --> 00:52:48,380
+so that's today's talk show page
+
+1051
+00:52:44,059 --> 00:52:48,380
+and paste it here
+
+1052
+00:52:48,599 --> 00:52:56,099
+okay so let's make these
+
+1053
+00:52:53,099 --> 00:52:56,099
+uh
+
+1054
+00:52:56,339 --> 00:53:03,059
+let's make it a paragraph
+
+1055
+00:53:00,180 --> 00:53:05,640
+okay wait
+
+1056
+00:53:03,059 --> 00:53:08,059
+so you are looking at how I work on my
+
+1057
+00:53:05,640 --> 00:53:08,059
+website
+
+1058
+00:53:12,839 --> 00:53:19,920
+okay showing browser now you can see
+
+1059
+00:53:16,440 --> 00:53:21,960
+magnify so we have just written what is
+
+1060
+00:53:19,920 --> 00:53:23,780
+the difference between car and cutter
+
+1061
+00:53:21,960 --> 00:53:25,800
+and so on
+
+1062
+00:53:23,780 --> 00:53:29,280
+and uh
+
+1063
+00:53:25,800 --> 00:53:31,619
+okay so I'm gonna
+
+1064
+00:53:29,280 --> 00:53:34,440
+what's up but
+
+1065
+00:53:31,619 --> 00:53:36,660
+but another great screen is about to end
+
+1066
+00:53:34,440 --> 00:53:37,980
+thank you very much thank you Bart for
+
+1067
+00:53:36,660 --> 00:53:40,680
+coming by
+
+1068
+00:53:37,980 --> 00:53:45,200
+for being my loyal fan
+
+1069
+00:53:40,680 --> 00:53:45,200
+uh okay let's um
+
+1070
+00:53:52,020 --> 00:53:57,200
+uh cute question and answers okay Q
+
+1071
+00:54:08,099 --> 00:54:12,920
+need to show the pink window so I
+
+1072
+00:54:10,740 --> 00:54:12,920
+actually
+
+1073
+00:54:17,460 --> 00:54:25,859
+okay so that and let's go to my emacs
+
+1074
+00:54:21,180 --> 00:54:29,579
+blog let's see let's go to the dot El
+
+1075
+00:54:25,859 --> 00:54:33,780
+so we so this is a bunch of cons so this
+
+1076
+00:54:29,579 --> 00:54:38,520
+part copy it cut it we want to paste it
+
+1077
+00:54:33,780 --> 00:54:42,900
+here so to illustrate you can see then
+
+1078
+00:54:38,520 --> 00:54:47,520
+make it a emac this tree
+
+1079
+00:54:42,900 --> 00:54:49,980
+and color by it and show in browser
+
+1080
+00:54:47,520 --> 00:54:52,500
+so you can go to the bottom you can see
+
+1081
+00:54:49,980 --> 00:54:56,099
+it you know this is the explanation
+
+1082
+00:54:52,500 --> 00:54:58,260
+about con sales and car encoder
+
+1083
+00:54:56,099 --> 00:55:00,260
+and that's just
+
+1084
+00:54:58,260 --> 00:55:00,260
+um
+
+1085
+00:55:03,000 --> 00:55:06,619
+make that
+
+1086
+00:55:09,000 --> 00:55:12,079
+okay actually
+
+1087
+00:55:17,280 --> 00:55:23,839
+okay make that and let me just uh add
+
+1088
+00:55:29,339 --> 00:55:35,900
+no I forgot to show the pink window
+
+1089
+00:55:32,220 --> 00:55:35,900
+can't be cut cut cut cut cut cut cut
+
+1090
+00:55:36,380 --> 00:55:42,119
+paste show in browser
+
+1091
+00:55:39,540 --> 00:55:44,460
+so now we have kind of a nice section
+
+1092
+00:55:42,119 --> 00:55:46,920
+about what's the difference between car
+
+1093
+00:55:44,460 --> 00:55:49,619
+and cutter what is the console
+
+1094
+00:55:46,920 --> 00:55:52,799
+I showed explanation
+
+1095
+00:55:49,619 --> 00:55:55,200
+and now we need to
+
+1096
+00:55:52,799 --> 00:55:57,780
+oh yeah we need to grab then we need to
+
+1097
+00:55:55,200 --> 00:56:01,040
+grab the list code here
+
+1098
+00:55:57,780 --> 00:56:04,559
+which is the code we did today
+
+1099
+00:56:01,040 --> 00:56:08,599
+uh where do I want it so copy the whole
+
+1100
+00:56:04,559 --> 00:56:08,599
+thing go back to this page
+
+1101
+00:56:08,760 --> 00:56:14,160
+so actually we did explain we did code
+
+1102
+00:56:11,880 --> 00:56:16,880
+the first part but the second part would
+
+1103
+00:56:14,160 --> 00:56:20,700
+be easy so let's put the code here
+
+1104
+00:56:16,880 --> 00:56:23,099
+uh emac this paste it here
+
+1105
+00:56:20,700 --> 00:56:26,099
+showing browser
+
+1106
+00:56:23,099 --> 00:56:27,420
+you can see here's the code
+
+1107
+00:56:26,099 --> 00:56:29,520
+then
+
+1108
+00:56:27,420 --> 00:56:33,380
+predefy
+
+1109
+00:56:29,520 --> 00:56:33,380
+wait I did something wrong
+
+1110
+00:56:36,780 --> 00:56:41,579
+I did something wrong because oh yeah
+
+1111
+00:56:39,059 --> 00:56:43,880
+it's good okay so here's the code we did
+
+1112
+00:56:41,579 --> 00:56:43,880
+today
+
+1113
+00:56:43,980 --> 00:56:50,339
+so we wanted to write a emacs command to
+
+1114
+00:56:47,460 --> 00:56:53,280
+copy current text block but change all
+
+1115
+00:56:50,339 --> 00:56:55,200
+local links to full path we did that but
+
+1116
+00:56:53,280 --> 00:56:58,500
+you know but actually there's more to do
+
+1117
+00:56:55,200 --> 00:57:01,500
+because we have assumed that every link
+
+1118
+00:56:58,500 --> 00:57:04,680
+is a local link
+
+1119
+00:57:01,500 --> 00:57:07,559
+so for me I need to you know after I go
+
+1120
+00:57:04,680 --> 00:57:09,960
+off stream I need to modify so this
+
+1121
+00:57:07,559 --> 00:57:12,480
+function becomes useful to myself
+
+1122
+00:57:09,960 --> 00:57:15,660
+because you need to check if a link is
+
+1123
+00:57:12,480 --> 00:57:17,040
+you know actually starting with HTTP if
+
+1124
+00:57:15,660 --> 00:57:21,119
+that's the case that's not the local
+
+1125
+00:57:17,040 --> 00:57:23,400
+link then your code will you know emacs
+
+1126
+00:57:21,119 --> 00:57:25,440
+will say error you know uh something
+
+1127
+00:57:23,400 --> 00:57:27,599
+went wrong because when you try to
+
+1128
+00:57:25,440 --> 00:57:31,079
+convert it
+
+1129
+00:57:27,599 --> 00:57:33,599
+convert it to full uh path it will fail
+
+1130
+00:57:31,079 --> 00:57:37,319
+because you know the paths start with
+
+1131
+00:57:33,599 --> 00:57:39,540
+HTTP it will say file cannot be found
+
+1132
+00:57:37,319 --> 00:57:41,940
+so you need to check if it's you know
+
+1133
+00:57:39,540 --> 00:57:44,880
+local link or not then you start to um
+
+1134
+00:57:41,940 --> 00:57:47,520
+you know things I have to do so
+
+1135
+00:57:44,880 --> 00:57:49,380
+so the second problem right the e-max
+
+1136
+00:57:47,520 --> 00:57:52,500
+command to change your local links
+
+1137
+00:57:49,380 --> 00:57:56,160
+that's full path to relative link
+
+1138
+00:57:52,500 --> 00:57:58,799
+which is you know it's just like uh what
+
+1139
+00:57:56,160 --> 00:58:04,640
+we did today is easy to do okay that's
+
+1140
+00:57:58,799 --> 00:58:04,640
+it I hope you guys uh find it useful bye
+
+1141
+00:58:04,799 --> 00:58:12,799
+copy oh yeah I need to copy the uh
+
+1142
+00:58:08,700 --> 00:58:12,799
+you know I log I kind of log
+
+1143
+00:58:13,200 --> 00:58:19,579
+so uh you know today's uh
+
+1144
+00:58:16,380 --> 00:58:19,579
+people's chat
+
+1145
+00:58:22,500 --> 00:58:30,299
+create a new file cut that paste it here
+
+1146
+00:58:25,680 --> 00:58:34,020
+save close close and make a link make a
+
+1147
+00:58:30,299 --> 00:58:36,540
+paragraph show in browser magnify and
+
+1148
+00:58:34,020 --> 00:58:39,200
+you go down at the bottom you can see
+
+1149
+00:58:36,540 --> 00:58:42,079
+today's talk show
+
+1150
+00:58:39,200 --> 00:58:45,900
+messages you know some people get
+
+1151
+00:58:42,079 --> 00:58:48,119
+nervous about this but guys you guys all
+
+1152
+00:58:45,900 --> 00:58:51,180
+the chat is public okay
+
+1153
+00:58:48,119 --> 00:58:53,819
+uh you know sometimes occasionally I get
+
+1154
+00:58:51,180 --> 00:58:57,359
+people to tell me can you please delete
+
+1155
+00:58:53,819 --> 00:58:58,980
+my chat because you know
+
+1156
+00:58:57,359 --> 00:59:00,960
+if you really
+
+1157
+00:58:58,980 --> 00:59:03,200
+you know care about that don't use the
+
+1158
+00:59:00,960 --> 00:59:05,760
+real name or something you know I cannot
+
+1159
+00:59:03,200 --> 00:59:07,559
+you know I I
+
+1160
+00:59:05,760 --> 00:59:11,299
+um yeah
+
+1161
+00:59:07,559 --> 00:59:11,299
+okay bye bye bye
+
+1162
+00:59:11,640 --> 00:59:16,020
+go to obs
+
+1163
+00:59:13,680 --> 00:59:18,599
+my Windows machine now it's fantastic
+
+1164
+00:59:16,020 --> 00:59:23,520
+everything works fine
+
+1165
+00:59:18,599 --> 00:59:27,299
+see GPU usage good memory usage
+
+1166
+00:59:23,520 --> 00:59:28,880
+half of it 6 out of 16 so not even half
+
+1167
+00:59:27,299 --> 00:59:32,040
+of it
+
+1168
+00:59:28,880 --> 00:59:34,880
+GPU good
+
+1169
+00:59:32,040 --> 00:59:34,880
+and stream
+

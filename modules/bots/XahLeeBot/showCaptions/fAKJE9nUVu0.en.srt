@@ -1,0 +1,7508 @@
+1
+00:00:03,480 --> 00:00:07,120
+Good morning, everyone.
+
+2
+00:00:05,000 --> 00:00:08,040
+Welcome to another episode of Sandok
+
+3
+00:00:07,120 --> 00:00:10,160
+Show.
+
+4
+00:00:08,040 --> 00:00:13,120
+Today is 2019,
+
+5
+00:00:10,160 --> 00:00:14,480
+November 22nd, Friday,
+
+6
+00:00:13,120 --> 00:00:19,320
+6:
+
+7
+00:00:14,480 --> 00:00:21,800
+47 p.m. San Francisco time.
+
+8
+00:00:19,320 --> 00:00:22,920
+And good morning, welcome
+
+9
+00:00:21,800 --> 00:00:25,280
+Emily.
+
+10
+00:00:22,920 --> 00:00:29,160
+Good morning, Nabi.
+
+11
+00:00:25,280 --> 00:00:31,600
+So, we got five people watching and
+
+12
+00:00:29,160 --> 00:00:35,440
+two of them are in the chat.
+
+13
+00:00:31,600 --> 00:00:39,240
+So, Emily says, now Emily is a e is a
+
+14
+00:00:35,440 --> 00:00:42,680
+Emacs hacker and the Lisp hacker.
+
+15
+00:00:39,240 --> 00:00:46,760
+So, now since she's here, I'm thinking
+
+16
+00:00:42,680 --> 00:00:48,760
+maybe we should do some Emac Lisp.
+
+17
+00:00:46,760 --> 00:00:51,520
+And Nabi has a question. Nabi is
+
+18
+00:00:48,760 --> 00:00:54,520
+wondering whether Emacs Lisp, how is it
+
+19
+00:00:51,520 --> 00:00:55,920
+different from Lisp?
+
+20
+00:00:54,520 --> 00:00:58,800
+Uh well,
+
+21
+00:00:55,920 --> 00:00:58,800
+that's uh
+
+22
+00:00:58,960 --> 00:01:03,320
+that depends on what you mean. Like,
+
+23
+00:01:00,400 --> 00:01:05,239
+okay, so Emac Lisp So, in Lisp, so I can
+
+24
+00:01:03,320 --> 00:01:07,840
+explain that a little bit.
+
+25
+00:01:05,239 --> 00:01:11,880
+The Lisp family of languages, the
+
+26
+00:01:07,840 --> 00:01:14,920
+lineage of Lisp. So, let's see what does
+
+27
+00:01:11,880 --> 00:01:14,920
+uh Emily says.
+
+28
+00:01:15,400 --> 00:01:21,120
+From certain implementations, yes.
+
+29
+00:01:18,720 --> 00:01:23,920
+Emac Lisp has all the Emacs functions
+
+30
+00:01:21,120 --> 00:01:27,600
+for buffers, act building.
+
+31
+00:01:23,920 --> 00:01:29,760
+And I believe it's Lisp 1.5 based. So,
+
+32
+00:01:27,600 --> 00:01:32,120
+basically, variables and functions have
+
+33
+00:01:29,760 --> 00:01:34,560
+the same name space.
+
+34
+00:01:32,120 --> 00:01:37,840
+Yes, that is true.
+
+35
+00:01:34,560 --> 00:01:40,320
+Good morning. So, um
+
+36
+00:01:37,840 --> 00:01:40,960
+So, I am Let me give you
+
+37
+00:01:40,320 --> 00:01:43,080
+uh
+
+38
+00:01:40,960 --> 00:01:47,160
+you know, Emily probably already knows,
+
+39
+00:01:43,080 --> 00:01:50,480
+but let me let me talk about uh the Lisp
+
+40
+00:01:47,160 --> 00:01:51,880
+family of languages. Okay, well,
+
+41
+00:01:50,480 --> 00:01:52,720
+okay, let's talk about that a little
+
+42
+00:01:51,880 --> 00:01:56,840
+bit.
+
+43
+00:01:52,720 --> 00:01:59,040
+Then, good morning, Zumwelt.
+
+44
+00:01:56,840 --> 00:02:01,320
+Some topics you might cover, philosophy,
+
+45
+00:01:59,040 --> 00:02:03,360
+keyboard stuff, JavaScript, uh
+
+46
+00:02:01,320 --> 00:02:05,360
+millennium problems, your thoughts on C
+
+47
+00:02:03,360 --> 00:02:07,920
+and C++, okay.
+
+48
+00:02:05,360 --> 00:02:09,640
+Okay, in general, you just like
+
+49
+00:02:07,920 --> 00:02:11,560
+uh come in, just post one thing, like
+
+50
+00:02:09,640 --> 00:02:12,640
+one thing you want to ask instead of
+
+51
+00:02:11,560 --> 00:02:14,440
+like,
+
+52
+00:02:12,640 --> 00:02:18,320
+you know, like I I I got people
+
+53
+00:02:14,440 --> 00:02:19,520
+suggesting me suggesting to me topics,
+
+54
+00:02:18,320 --> 00:02:21,680
+you know, it's not like I don't have
+
+55
+00:02:19,520 --> 00:02:23,520
+topics. I mean I mean like I do have all
+
+56
+00:02:21,680 --> 00:02:26,040
+those topics, but like it's at the
+
+57
+00:02:23,520 --> 00:02:29,000
+moment you want one specific thing,
+
+58
+00:02:26,040 --> 00:02:32,120
+that's what I need, like if you I mean
+
+59
+00:02:29,000 --> 00:02:35,720
+it's more in particular, if you guys are
+
+60
+00:02:32,120 --> 00:02:36,440
+interested in one specific topic, then
+
+61
+00:02:35,720 --> 00:02:37,880
+uh
+
+62
+00:02:36,440 --> 00:02:39,600
+then, you know, we can
+
+63
+00:02:37,880 --> 00:02:43,280
+then the
+
+64
+00:02:39,600 --> 00:02:46,920
+my mouth starts to fly.
+
+65
+00:02:43,280 --> 00:02:49,400
+But but as opposed to like, oh, Sandok
+
+66
+00:02:46,920 --> 00:02:51,080
+needs a topic, then let's let's suggest
+
+67
+00:02:49,400 --> 00:02:51,640
+some general, you know,
+
+68
+00:02:51,080 --> 00:02:53,800
+uh
+
+69
+00:02:51,640 --> 00:02:54,480
+you know, that that that doesn't really
+
+70
+00:02:53,800 --> 00:02:55,680
+uh
+
+71
+00:02:54,480 --> 00:02:58,000
+help.
+
+72
+00:02:55,680 --> 00:03:02,640
+So, anyway, so yeah, so let's go to so
+
+73
+00:02:58,000 --> 00:03:06,440
+Sandok Lee prolifer- proliferation
+
+74
+00:03:02,640 --> 00:03:08,760
+of languages. So, that is the topic.
+
+75
+00:03:06,440 --> 00:03:11,680
+Well, that is the article where I have
+
+76
+00:03:08,760 --> 00:03:14,520
+the Lisp lineage.
+
+77
+00:03:11,680 --> 00:03:17,440
+Okay, so here you can see a history
+
+78
+00:03:14,520 --> 00:03:19,200
+historical chart of Lisp families of
+
+79
+00:03:17,440 --> 00:03:22,120
+languages.
+
+80
+00:03:19,200 --> 00:03:25,400
+Uh so, in the beginning, you have Lisp 1
+
+81
+00:03:22,120 --> 00:03:28,200
+and 1.5, then Mac Lisp, then InterLisp,
+
+82
+00:03:25,400 --> 00:03:31,160
+then Lisp Machine Lisp, Scheme,
+
+83
+00:03:28,200 --> 00:03:32,560
+and Neo and Common Lisp and Lisp and so
+
+84
+00:03:31,160 --> 00:03:35,440
+on.
+
+85
+00:03:32,560 --> 00:03:38,280
+So, but in general, in today,
+
+86
+00:03:35,440 --> 00:03:41,400
+let's say from year 2000, okay, that's a
+
+87
+00:03:38,280 --> 00:03:44,920
+good time to begin for today's people.
+
+88
+00:03:41,400 --> 00:03:48,240
+Uh so, in general, you have Common Lisp,
+
+89
+00:03:44,920 --> 00:03:52,120
+okay, and Scheme
+
+90
+00:03:48,240 --> 00:03:55,320
+Lisp, okay, and then you have Emac Lisp,
+
+91
+00:03:52,120 --> 00:03:57,640
+okay, and then you have
+
+92
+00:03:55,320 --> 00:04:00,120
+in the past 10 years, you have Closure.
+
+93
+00:03:57,640 --> 00:04:03,480
+That's basically the four
+
+94
+00:04:00,120 --> 00:04:04,560
+that is still mostly used, okay.
+
+95
+00:04:03,480 --> 00:04:06,480
+Let me
+
+96
+00:04:04,560 --> 00:04:08,000
+repeat. Common Lisp,
+
+97
+00:04:06,480 --> 00:04:09,560
+Scheme Lisp,
+
+98
+00:04:08,000 --> 00:04:13,040
+Emac Lisp,
+
+99
+00:04:09,560 --> 00:04:16,320
+and Closure Lisp. Okay, these four.
+
+100
+00:04:13,040 --> 00:04:19,320
+That's relevant to today's people.
+
+101
+00:04:16,320 --> 00:04:22,680
+And Closure is industrial. Closure Lisp
+
+102
+00:04:19,320 --> 00:04:25,720
+is Java based on JVM. I talked about
+
+103
+00:04:22,680 --> 00:04:27,400
+Closure Lisp many times. So, in order to
+
+104
+00:04:25,720 --> 00:04:29,400
+run Closure, you have to start, you
+
+105
+00:04:27,400 --> 00:04:31,840
+know, you have to install the Java, the
+
+106
+00:04:29,400 --> 00:04:33,560
+Java Enterprise Edition, the Java
+
+107
+00:04:31,840 --> 00:04:36,880
+something Standard Edition, the Java
+
+108
+00:04:33,560 --> 00:04:40,000
+ And the and then Closure is
+
+109
+00:04:36,880 --> 00:04:42,600
+intimately intertwined with Java.
+
+110
+00:04:40,000 --> 00:04:44,240
+And Closure Lisp is
+
+111
+00:04:42,600 --> 00:04:46,160
+by far
+
+112
+00:04:44,240 --> 00:04:48,560
+it's one of the Lisp that's different
+
+113
+00:04:46,160 --> 00:04:51,400
+from all the other Lisps. In in in fact,
+
+114
+00:04:48,560 --> 00:04:54,000
+you you could say it doesn't respect
+
+115
+00:04:51,400 --> 00:04:57,960
+much of the Lisp tradition.
+
+116
+00:04:54,000 --> 00:04:59,920
+So, in in many aspects, it dev- deviates
+
+117
+00:04:57,960 --> 00:05:02,920
+uh greatly. For example, you don't even
+
+118
+00:04:59,920 --> 00:05:05,040
+have cons anymore. You don't have, you
+
+119
+00:05:02,920 --> 00:05:07,840
+know, cons. You don't have vectors
+
+120
+00:05:05,040 --> 00:05:10,480
+versus Lisp.
+
+121
+00:05:07,840 --> 00:05:12,760
+Typically, in Common Lisp, Scheme Lisp,
+
+122
+00:05:10,480 --> 00:05:16,160
+Emac Lisp, you have vectors, you have
+
+123
+00:05:12,760 --> 00:05:18,240
+lists, you have But in Closure, you
+
+124
+00:05:16,160 --> 00:05:19,440
+don't have that anymore. You you have
+
+125
+00:05:18,240 --> 00:05:21,320
+instead of
+
+126
+00:05:19,440 --> 00:05:23,560
+instead of that, you have interfaces,
+
+127
+00:05:21,320 --> 00:05:25,920
+then you have
+
+128
+00:05:23,560 --> 00:05:29,360
+Anyway, Closure. So, but if you want to
+
+129
+00:05:25,920 --> 00:05:31,560
+get a job, if you want to eat,
+
+130
+00:05:29,360 --> 00:05:33,600
+if you want to put butter and bread on
+
+131
+00:05:31,560 --> 00:05:35,960
+your table,
+
+132
+00:05:33,600 --> 00:05:38,080
+Closure is the one
+
+133
+00:05:35,960 --> 00:05:40,560
+you need to go to, okay. Not Common
+
+134
+00:05:38,080 --> 00:05:42,600
+Lisp, no money no money there. Scheme
+
+135
+00:05:40,560 --> 00:05:44,720
+Lisp, no money there.
+
+136
+00:05:42,600 --> 00:05:47,320
+Emac Lisp,
+
+137
+00:05:44,720 --> 00:05:49,120
+you're going to be a hobo if you do Emac
+
+138
+00:05:47,320 --> 00:05:52,720
+Lisp, okay.
+
+139
+00:05:49,120 --> 00:05:53,840
+So, so Closure is your go-to language if
+
+140
+00:05:52,720 --> 00:05:55,800
+you want to
+
+141
+00:05:53,840 --> 00:05:58,120
+make a living
+
+142
+00:05:55,800 --> 00:06:00,560
+uh coding Lisp.
+
+143
+00:05:58,120 --> 00:06:04,160
+Okay, let me check check on myself. Am I
+
+144
+00:06:00,560 --> 00:06:06,440
+alive? Okay, I'm alive and I'm well.
+
+145
+00:06:04,160 --> 00:06:07,360
+Alive and seems I'm well. Okay, that's
+
+146
+00:06:06,440 --> 00:06:10,400
+good.
+
+147
+00:06:07,360 --> 00:06:12,960
+So, that's Closure Lisp. Now,
+
+148
+00:06:10,400 --> 00:06:16,520
+let's talk about Common Lisp, Scheme
+
+149
+00:06:12,960 --> 00:06:18,520
+Lisp, and Emac Lisp.
+
+150
+00:06:16,520 --> 00:06:22,200
+Uh let's first of all, let's talk about
+
+151
+00:06:18,520 --> 00:06:25,760
+Scheme Lisp. Scheme Lisp is
+
+152
+00:06:22,200 --> 00:06:28,400
+Now, Scheme Lisp has a few
+
+153
+00:06:25,760 --> 00:06:29,840
+branches, okay. The most basically, if
+
+154
+00:06:28,400 --> 00:06:30,760
+you want to
+
+155
+00:06:29,840 --> 00:06:34,080
+uh
+
+156
+00:06:30,760 --> 00:06:36,080
+there's Racket, okay. Racket
+
+157
+00:06:34,080 --> 00:06:38,240
+uh basically, just Racket. You know,
+
+158
+00:06:36,080 --> 00:06:40,280
+there's also GNU Guile, there's new
+
+159
+00:06:38,240 --> 00:06:42,080
+Lisp, you know,
+
+160
+00:06:40,280 --> 00:06:44,480
+you can ignore basically ignore all
+
+161
+00:06:42,080 --> 00:06:47,400
+that. So, in Scheme Lisp, basically, you
+
+162
+00:06:44,480 --> 00:06:49,480
+just have Scheme R
+
+163
+00:06:47,400 --> 00:06:51,520
+R6RS,
+
+164
+00:06:49,480 --> 00:06:51,520
+um
+
+165
+00:06:51,640 --> 00:06:55,080
+Scheme
+
+166
+00:06:52,920 --> 00:06:58,360
+R
+
+167
+00:06:55,080 --> 00:07:01,040
+R6RS, something like that, okay. That's
+
+168
+00:06:58,360 --> 00:07:02,880
+that's the name for the Scheme standard,
+
+169
+00:07:01,040 --> 00:07:04,400
+okay. They they call it
+
+170
+00:07:02,880 --> 00:07:07,520
+um
+
+171
+00:07:04,400 --> 00:07:11,360
+R6RS, yes, indeed. Every version. So,
+
+172
+00:07:07,520 --> 00:07:15,920
+before it's R4RS, then R5RS,
+
+173
+00:07:11,360 --> 00:07:17,040
+then R6RS. R6RS is the current Scheme
+
+174
+00:07:15,920 --> 00:07:18,880
+Lisp
+
+175
+00:07:17,040 --> 00:07:21,680
+st- standard.
+
+176
+00:07:18,880 --> 00:07:24,960
+Okay, and you can read the spec.
+
+177
+00:07:21,680 --> 00:07:27,000
+The full name of R R something RS is the
+
+178
+00:07:24,960 --> 00:07:29,720
+revised
+
+179
+00:07:27,000 --> 00:07:33,080
+report on the algorithmic language
+
+180
+00:07:29,720 --> 00:07:35,840
+Scheme. Uh idiotic name, but it's a
+
+181
+00:07:33,080 --> 00:07:37,160
+it that that name stuck, okay. That name
+
+182
+00:07:35,840 --> 00:07:40,600
+is um
+
+183
+00:07:37,160 --> 00:07:43,560
+is part became part of the code.
+
+184
+00:07:40,600 --> 00:07:46,080
+You know, you just say R6RS or it's kind
+
+185
+00:07:43,560 --> 00:07:48,800
+of a pun in the beginning because
+
+186
+00:07:46,080 --> 00:07:51,840
+I forgot what this based on the revised,
+
+187
+00:07:48,800 --> 00:07:53,440
+you know, report on the language Scheme.
+
+188
+00:07:51,840 --> 00:07:57,560
+Anyway,
+
+189
+00:07:53,440 --> 00:07:59,000
+so back in year 2K, back in 1999,
+
+190
+00:07:57,560 --> 00:08:00,000
+I read
+
+191
+00:07:59,000 --> 00:08:05,520
+um
+
+192
+00:08:00,000 --> 00:08:07,040
+like 60% of the R4RS Scheme spec,
+
+193
+00:08:05,520 --> 00:08:09,120
+you know, back then. So, this is 20
+
+194
+00:08:07,040 --> 00:08:10,600
+years ago. And now they have uh you
+
+195
+00:08:09,120 --> 00:08:13,840
+know,
+
+196
+00:08:10,600 --> 00:08:15,360
+the history of Scheme is one big topic
+
+197
+00:08:13,840 --> 00:08:17,600
+because you know, in the sense of
+
+198
+00:08:15,360 --> 00:08:20,520
+there's lots of war and fight, you know,
+
+199
+00:08:17,600 --> 00:08:24,400
+that like each each one
+
+200
+00:08:20,520 --> 00:08:27,360
+clawing each other's eyes out.
+
+201
+00:08:24,400 --> 00:08:30,320
+Bloody history of the Scheme language in
+
+202
+00:08:27,360 --> 00:08:32,000
+the past 20 years, you know, when
+
+203
+00:08:30,320 --> 00:08:35,520
+when R5
+
+204
+00:08:32,000 --> 00:08:37,400
+R6 uh R5RS, the Scheme standard came
+
+205
+00:08:35,520 --> 00:08:39,719
+out, the people fight, you know, there's
+
+206
+00:08:37,400 --> 00:08:41,479
+big issues, you know, like um
+
+207
+00:08:39,719 --> 00:08:43,320
+you know, if you guys are nerds, you
+
+208
+00:08:41,479 --> 00:08:45,360
+guys are familiar with the situation,
+
+209
+00:08:43,320 --> 00:08:47,800
+you know, people fight all over the
+
+210
+00:08:45,360 --> 00:08:49,040
+place. Hello, beautiful people. Good
+
+211
+00:08:47,800 --> 00:08:52,200
+morning.
+
+212
+00:08:49,040 --> 00:08:55,960
+Uh thank you for coming by. It's late in
+
+213
+00:08:52,200 --> 00:08:57,960
+Germany and UK and Emily and hello,
+
+214
+00:08:55,960 --> 00:09:01,440
+beautiful people. So, it's What time is
+
+215
+00:08:57,960 --> 00:09:04,080
+it there? Let's see. Let's see. 6:00.
+
+216
+00:09:01,440 --> 00:09:06,520
+It's 3:00 in the morning. 4:00 in the
+
+217
+00:09:04,080 --> 00:09:06,520
+morning.
+
+218
+00:09:06,680 --> 00:09:11,080
+And Emily is not sleepy yet. Good
+
+219
+00:09:09,280 --> 00:09:13,240
+morning, Alan.
+
+220
+00:09:11,080 --> 00:09:17,520
+Good morning to California. Good morning
+
+221
+00:09:13,240 --> 00:09:20,080
+to Irvine. Good morning to Florida. Good
+
+222
+00:09:17,520 --> 00:09:22,440
+morning to United Kingdom and good
+
+223
+00:09:20,080 --> 00:09:25,800
+morning to
+
+224
+00:09:22,440 --> 00:09:28,320
+uh not Germany, but it's the
+
+225
+00:09:25,800 --> 00:09:30,520
+Prague.
+
+226
+00:09:28,320 --> 00:09:31,680
+Check.
+
+227
+00:09:30,520 --> 00:09:34,120
+Check
+
+228
+00:09:31,680 --> 00:09:36,440
+uh Czech Republic.
+
+229
+00:09:34,120 --> 00:09:37,960
+So, anyway, Scheme Lisp, okay. Scheme
+
+230
+00:09:36,440 --> 00:09:40,840
+Lisp,
+
+231
+00:09:37,960 --> 00:09:44,360
+the two major branch of Scheme Lisp
+
+232
+00:09:40,840 --> 00:09:47,920
+relevant for today's people is
+
+233
+00:09:44,360 --> 00:09:50,720
+you have R6RS or you have the Racket
+
+234
+00:09:47,920 --> 00:09:53,520
+Racket Scheme, okay.
+
+235
+00:09:50,720 --> 00:09:55,640
+Racket Scheme. Uh let's go here, okay.
+
+236
+00:09:53,520 --> 00:09:59,200
+So, uh
+
+237
+00:09:55,640 --> 00:09:59,200
+There, you have the racket.
+
+238
+00:09:59,240 --> 00:10:02,440
+Scheme.
+
+239
+00:10:00,480 --> 00:10:04,600
+Um anyway, that's Scheme. If you do
+
+240
+00:10:02,440 --> 00:10:08,640
+Scheme, Scheme is pretty much used
+
+241
+00:10:04,600 --> 00:10:11,920
+limited to academia. So, if you are
+
+242
+00:10:08,640 --> 00:10:14,520
+you know, if you are a PhD student
+
+243
+00:10:11,920 --> 00:10:16,720
+living in poverty, or if you are a
+
+244
+00:10:14,520 --> 00:10:19,120
+professor, uh
+
+245
+00:10:16,720 --> 00:10:23,160
+that kind of, you know, you do Scheme.
+
+246
+00:10:19,120 --> 00:10:26,600
+Uh no way else. Is Scheme
+
+247
+00:10:23,160 --> 00:10:29,360
+Scheme is telekinesis in some remote
+
+248
+00:10:26,600 --> 00:10:30,760
+planet, okay, since 20 years ago and
+
+249
+00:10:29,360 --> 00:10:33,840
+they still are.
+
+250
+00:10:30,760 --> 00:10:36,480
+Nobody give a about Scheme.
+
+251
+00:10:33,840 --> 00:10:37,560
+Now, Common Lisp is dead.
+
+252
+00:10:36,480 --> 00:10:40,720
+Okay.
+
+253
+00:10:37,560 --> 00:10:43,080
+Except Emily. Emily is using it. Common
+
+254
+00:10:40,720 --> 00:10:45,960
+Lisp, you will go nowhere. Common Lisp
+
+255
+00:10:43,080 --> 00:10:47,560
+is dead. It's been dead for a while. It
+
+256
+00:10:45,960 --> 00:10:50,720
+um
+
+257
+00:10:47,560 --> 00:10:50,720
+So, Common Lisp
+
+258
+00:10:50,800 --> 00:10:55,720
+And and and and Common Lisp is crap,
+
+259
+00:10:53,440 --> 00:10:58,840
+okay. Common Lisp is crap. It's the
+
+260
+00:10:55,720 --> 00:11:01,640
+worst Lisp among
+
+261
+00:10:58,840 --> 00:11:05,680
+the Lisp among you know, between Common
+
+262
+00:11:01,640 --> 00:11:07,760
+Lisp, Scheme Lisp, or Closure.
+
+263
+00:11:05,680 --> 00:11:10,280
+Kind of, okay. I don't like Closure
+
+264
+00:11:07,760 --> 00:11:13,240
+because Closure is, you know, tied with
+
+265
+00:11:10,280 --> 00:11:16,280
+Java. So, it would be hard to
+
+266
+00:11:13,240 --> 00:11:18,800
+But, if you if you ask my opinion on the
+
+267
+00:11:16,280 --> 00:11:20,640
+language design itself, you know,
+
+268
+00:11:18,800 --> 00:11:23,240
+regardless of the environment, the
+
+269
+00:11:20,640 --> 00:11:24,280
+community, the people, and so on. Scheme
+
+270
+00:11:23,240 --> 00:11:27,120
+Lisp,
+
+271
+00:11:24,280 --> 00:11:29,440
+Closure is
+
+272
+00:11:27,120 --> 00:11:31,200
+Closure is very good, okay. Anyway, it's
+
+273
+00:11:29,440 --> 00:11:32,800
+it's hard to say because depends on what
+
+274
+00:11:31,200 --> 00:11:36,240
+you mean. So, anyway, Common Lisp is
+
+275
+00:11:32,800 --> 00:11:38,600
+dead, Scheme is dead. Now, there is
+
+276
+00:11:36,240 --> 00:11:40,680
+Emacs Lisp and Closure is good for if
+
+277
+00:11:38,600 --> 00:11:43,120
+you want to make money, you know,
+
+278
+00:11:40,680 --> 00:11:45,560
+you might have a chance. For each
+
+279
+00:11:43,120 --> 00:11:47,480
+Closure job, there are some Closure jobs
+
+280
+00:11:45,560 --> 00:11:48,680
+in San Francisco and, you know, there
+
+281
+00:11:47,480 --> 00:11:52,160
+are some.
+
+282
+00:11:48,680 --> 00:11:56,320
+But, for each Closure job, you have
+
+283
+00:11:52,160 --> 00:12:00,920
+1,000 Python jobs, 1,000 Ruby jobs,
+
+284
+00:11:56,320 --> 00:12:03,320
+1,000 GoLang jobs, 1,000 C++ jobs, okay.
+
+285
+00:12:00,920 --> 00:12:04,600
+That's that's the situation of Closure
+
+286
+00:12:03,320 --> 00:12:07,560
+Lisp.
+
+287
+00:12:04,600 --> 00:12:09,240
+Anyway, what about Emacs Lisp? Emacs
+
+288
+00:12:07,560 --> 00:12:13,120
+Lisp is
+
+289
+00:12:09,240 --> 00:12:15,760
+um it came from Mac Lisp, okay. Emacs
+
+290
+00:12:13,120 --> 00:12:17,600
+Lisp, the if you talk about the lineage,
+
+291
+00:12:15,760 --> 00:12:19,040
+it came from
+
+292
+00:12:17,600 --> 00:12:20,360
+Mac Lisp,
+
+293
+00:12:19,040 --> 00:12:21,320
+which
+
+294
+00:12:20,360 --> 00:12:24,160
+So,
+
+295
+00:12:21,320 --> 00:12:24,839
+for for today's people, it's kind of
+
+296
+00:12:24,160 --> 00:12:26,600
+uh
+
+297
+00:12:24,839 --> 00:12:28,200
+uh s-
+
+298
+00:12:26,600 --> 00:12:30,880
+share
+
+299
+00:12:28,200 --> 00:12:33,200
+many characteristics with Common Lisp,
+
+300
+00:12:30,880 --> 00:12:37,960
+okay. Not Scheme Lisp, but share with
+
+301
+00:12:33,200 --> 00:12:40,080
+many characteristics of Common Lisp.
+
+302
+00:12:37,960 --> 00:12:41,880
+But, however, Emacs Lisp is just a
+
+303
+00:12:40,080 --> 00:12:44,120
+scripting language. It's not a
+
+304
+00:12:41,880 --> 00:12:46,880
+full-featured programming language. It's
+
+305
+00:12:44,120 --> 00:12:49,080
+in fact, you compare to
+
+306
+00:12:46,880 --> 00:12:51,200
+you know, all the other Lisps, Closure,
+
+307
+00:12:49,080 --> 00:12:54,240
+Common Lisp, Scheme, you can write
+
+308
+00:12:51,200 --> 00:12:56,920
+real-world applications
+
+309
+00:12:54,240 --> 00:12:59,280
+for millions of people to use. In fact,
+
+310
+00:12:56,920 --> 00:13:01,640
+there are, you know, there are systems
+
+311
+00:12:59,280 --> 00:13:04,800
+written in Common Lisp still used today
+
+312
+00:13:01,640 --> 00:13:06,680
+and there are systems written in Scheme
+
+313
+00:13:04,800 --> 00:13:09,200
+Lisp
+
+314
+00:13:06,680 --> 00:13:11,920
+still used today, but
+
+315
+00:13:09,200 --> 00:13:14,280
+yes, they are. And there are systems
+
+316
+00:13:11,920 --> 00:13:16,600
+used in Closure in many companies today,
+
+317
+00:13:14,280 --> 00:13:19,720
+quite a few companies.
+
+318
+00:13:16,600 --> 00:13:20,600
+So, but for Emacs Lisp, there's no such
+
+319
+00:13:19,720 --> 00:13:22,880
+thing.
+
+320
+00:13:20,600 --> 00:13:24,280
+Emacs Lisp, for Emacs Lisp, it's it's
+
+321
+00:13:22,880 --> 00:13:27,240
+basically a
+
+322
+00:13:24,280 --> 00:13:29,120
+small scripting language. If you use
+
+323
+00:13:27,240 --> 00:13:31,160
+Emacs, you code in Emacs, you write
+
+324
+00:13:29,120 --> 00:13:33,960
+Emacs Lisp, that's it.
+
+325
+00:13:31,160 --> 00:13:36,280
+Uh don't listen to the Emacs phonetic
+
+326
+00:13:33,960 --> 00:13:38,240
+say, okay. Emacs, if you listen if you
+
+327
+00:13:36,280 --> 00:13:41,520
+do Emacs, you live in the Emacs
+
+328
+00:13:38,240 --> 00:13:43,280
+phonetic, the well of the Emacs
+
+329
+00:13:41,520 --> 00:13:46,760
+phonetics.
+
+330
+00:13:43,280 --> 00:13:50,080
+Then then you will hear you will begin
+
+331
+00:13:46,760 --> 00:13:52,360
+to believe, oh, Emacs Lisp, it's it's
+
+332
+00:13:50,080 --> 00:13:55,200
+used everywhere. It's used to make a
+
+333
+00:13:52,360 --> 00:13:58,680
+coffee machine. It's used to control two
+
+334
+00:13:55,200 --> 00:14:00,480
+doors. It's used to do IRC. It's you can
+
+335
+00:13:58,680 --> 00:14:02,600
+do chat. You can you can this all that
+
+336
+00:14:00,480 --> 00:14:05,120
+that crap, okay.
+
+337
+00:14:02,600 --> 00:14:07,760
+In real life, if you want to actually be
+
+338
+00:14:05,120 --> 00:14:10,080
+concerned concerned about the reality,
+
+339
+00:14:07,760 --> 00:14:13,440
+Emacs Lisp is nothing. It's it's
+
+340
+00:14:10,080 --> 00:14:16,640
+nothing. It's it's like uh nothing. Not
+
+341
+00:14:13,440 --> 00:14:19,880
+in terms of real-world applications.
+
+342
+00:14:16,640 --> 00:14:22,920
+If Emacs Lisp is score is 10, then
+
+343
+00:14:19,880 --> 00:14:25,440
+Common Lisp, Scheme Lisp, Closure, their
+
+344
+00:14:22,920 --> 00:14:28,360
+score will be 1,000, okay. So, Emacs
+
+345
+00:14:25,440 --> 00:14:28,360
+Lisp is nothing.
+
+346
+00:14:29,000 --> 00:14:36,360
+So, that is my opinion about
+
+347
+00:14:33,560 --> 00:14:36,360
+that topic.
+
+348
+00:14:38,240 --> 00:14:42,240
+What is this GNU Guile? Okay, GNU Guile,
+
+349
+00:14:40,760 --> 00:14:43,000
+well,
+
+350
+00:14:42,240 --> 00:14:44,079
+uh
+
+351
+00:14:43,000 --> 00:14:46,880
+you know,
+
+352
+00:14:44,079 --> 00:14:49,440
+Nabi, Nabi Young,
+
+353
+00:14:46,880 --> 00:14:49,440
+uh
+
+354
+00:14:51,240 --> 00:14:58,520
+you are being seduced into the dark
+
+355
+00:14:54,480 --> 00:14:58,520
+universe of the Lisp.
+
+356
+00:14:58,920 --> 00:15:03,240
+All these questions matters a
+
+357
+00:15:01,920 --> 00:15:06,560
+really.
+
+358
+00:15:03,240 --> 00:15:08,280
+Um but, okay, but if you want to know,
+
+359
+00:15:06,560 --> 00:15:11,040
+you know, so if you are, you know, I
+
+360
+00:15:08,280 --> 00:15:13,000
+know you know, you told us you are like
+
+361
+00:15:11,040 --> 00:15:14,920
+trying to get into, I mean,
+
+362
+00:15:13,000 --> 00:15:16,560
+you you working a game gaming company,
+
+363
+00:15:14,920 --> 00:15:18,320
+but you are you
+
+364
+00:15:16,560 --> 00:15:21,320
+you are a beginner programmer, so you
+
+365
+00:15:18,320 --> 00:15:22,760
+are trying to get into to become a real
+
+366
+00:15:21,320 --> 00:15:24,480
+programmer, something like that, right?
+
+367
+00:15:22,760 --> 00:15:26,440
+So,
+
+368
+00:15:24,480 --> 00:15:27,880
+so these questions, you know, doesn't,
+
+369
+00:15:26,440 --> 00:15:29,800
+you know,
+
+370
+00:15:27,880 --> 00:15:32,480
+you know, you just just study Python,
+
+371
+00:15:29,800 --> 00:15:35,160
+okay. Python, GoLang,
+
+372
+00:15:32,480 --> 00:15:37,640
+uh C++,
+
+373
+00:15:35,160 --> 00:15:38,959
+or or C, okay. You study one of those or
+
+374
+00:15:37,640 --> 00:15:41,680
+even Java.
+
+375
+00:15:38,959 --> 00:15:45,400
+Then then you good to go.
+
+376
+00:15:41,680 --> 00:15:48,280
+Uh Lisp is going nowhere, okay. Well, if
+
+377
+00:15:45,400 --> 00:15:50,880
+you want to hang out with us, yeah.
+
+378
+00:15:48,280 --> 00:15:53,880
+Lisp. Okay, so but the question about
+
+379
+00:15:50,880 --> 00:15:56,640
+GNU Guile, what is it? GNU Guile is a
+
+380
+00:15:53,880 --> 00:16:00,120
+implementation of Scheme, okay,
+
+381
+00:15:56,640 --> 00:16:02,280
+basically. It's uh so it's it's GNU
+
+382
+00:16:00,120 --> 00:16:05,120
+Guile is Scheme, basically. It's a
+
+383
+00:16:02,280 --> 00:16:08,480
+implementation of Scheme. And it's one
+
+384
+00:16:05,120 --> 00:16:10,880
+of the worst implementation of Scheme.
+
+385
+00:16:08,480 --> 00:16:13,760
+That is what GNU Guile is. Okay, I think
+
+386
+00:16:10,880 --> 00:16:16,000
+that's about the Lisp.
+
+387
+00:16:13,760 --> 00:16:19,079
+So, you know, I have tons of Lisp
+
+388
+00:16:16,000 --> 00:16:20,640
+articles and I I did two full video
+
+389
+00:16:19,079 --> 00:16:22,959
+about Lisp,
+
+390
+00:16:20,640 --> 00:16:25,120
+which is, you know, a kind of
+
+391
+00:16:22,959 --> 00:16:27,320
+So, I mean, for those people who are
+
+392
+00:16:25,120 --> 00:16:29,520
+interested in Lisp,
+
+393
+00:16:27,320 --> 00:16:31,520
+uh I would recommend watch those two
+
+394
+00:16:29,520 --> 00:16:33,880
+videos because
+
+395
+00:16:31,520 --> 00:16:36,360
+each one is like
+
+396
+00:16:33,880 --> 00:16:39,000
+uh 90 minutes.
+
+397
+00:16:36,360 --> 00:16:40,680
+And those are pretty good. So, that's if
+
+398
+00:16:39,000 --> 00:16:44,800
+you, you know, really are really
+
+399
+00:16:40,680 --> 00:16:48,120
+interested in Lisp. So, sorry.
+
+400
+00:16:44,800 --> 00:16:51,520
+There are two videos.
+
+401
+00:16:48,120 --> 00:16:53,720
+You know, I talk in depth about
+
+402
+00:16:51,520 --> 00:16:55,920
+uh Lisp. Let let let me just show it,
+
+403
+00:16:53,720 --> 00:16:58,200
+okay. So,
+
+404
+00:16:55,920 --> 00:17:01,560
+there is one, but they can't they are
+
+405
+00:16:58,200 --> 00:17:04,000
+kind of advanced. They are for
+
+406
+00:17:01,560 --> 00:17:06,400
+uh Lisp
+
+407
+00:17:04,000 --> 00:17:08,320
+fans, okay. So, one of them is this one.
+
+408
+00:17:06,400 --> 00:17:11,160
+Let's go to
+
+409
+00:17:08,320 --> 00:17:14,199
+uh more on YouTube. Let's go to YouTube.
+
+410
+00:17:11,160 --> 00:17:14,199
+Yeah. Wait.
+
+411
+00:17:14,959 --> 00:17:20,959
+So, anyway, so I
+
+412
+00:17:17,839 --> 00:17:24,439
+So, we end up talking about Lisp,
+
+413
+00:17:20,959 --> 00:17:26,439
+which is a topic I talk too often. I
+
+414
+00:17:24,439 --> 00:17:28,280
+wasn't
+
+415
+00:17:26,439 --> 00:17:30,720
+you know, the
+
+416
+00:17:28,280 --> 00:17:30,720
+it's
+
+417
+00:17:31,600 --> 00:17:36,200
+So, we are talking about Lisp, which is
+
+418
+00:17:33,640 --> 00:17:38,440
+a topic I talk too often.
+
+419
+00:17:36,200 --> 00:17:41,000
+Uh anyway, so I have two videos and
+
+420
+00:17:38,440 --> 00:17:44,679
+those are kind of for Lisp programmers.
+
+421
+00:17:41,000 --> 00:17:47,280
+That is, if you already program Lisp
+
+422
+00:17:44,679 --> 00:17:49,640
+for a year or two, then you might find
+
+423
+00:17:47,280 --> 00:17:53,120
+it interesting.
+
+424
+00:17:49,640 --> 00:17:55,880
+Uh so, one of them is this one, 2019
+
+425
+00:17:53,120 --> 00:17:58,920
+July 19th.
+
+426
+00:17:55,880 --> 00:18:00,640
+On Lisp syntax, S-expression,
+
+427
+00:17:58,920 --> 00:18:04,040
+meta-expression, Mathematica, and
+
+428
+00:18:00,640 --> 00:18:04,040
+meaning of sugar syntax.
+
+429
+00:18:04,120 --> 00:18:09,640
+Okay, so Emily, did you watch that one?
+
+430
+00:18:07,880 --> 00:18:12,720
+So, that's one of them. And the other
+
+431
+00:18:09,640 --> 00:18:12,720
+one is
+
+432
+00:18:23,560 --> 00:18:30,960
+Okay, this one Well, I actually I I did
+
+433
+00:18:26,520 --> 00:18:33,520
+so many so many Lisp YouTube videos, so
+
+434
+00:18:30,960 --> 00:18:35,640
+let's stop. But, usually
+
+435
+00:18:33,520 --> 00:18:38,640
+I'm addressing people who already
+
+436
+00:18:35,640 --> 00:18:38,640
+program Lisp.
+
+437
+00:18:41,960 --> 00:18:44,720
+Hold on a second.
+
+438
+00:18:46,520 --> 00:18:51,679
+So, anyway, I did a lot videos on on
+
+439
+00:18:48,600 --> 00:18:55,320
+Lisp and I also have a beginner
+
+440
+00:18:51,679 --> 00:18:59,600
+beginner's introduction to Emacs Lisp.
+
+441
+00:18:55,320 --> 00:18:59,600
+You can find it on my on my YouTube.
+
+442
+00:18:59,800 --> 00:19:05,120
+So, that's about Lisp. That's kind of
+
+443
+00:19:02,120 --> 00:19:07,960
+the non-technical intro to the Lisp
+
+444
+00:19:05,120 --> 00:19:07,960
+families.
+
+445
+00:19:08,320 --> 00:19:13,000
+Okay, I use Python and C# every day at
+
+446
+00:19:10,679 --> 00:19:15,080
+work. Okay, yeah, great.
+
+447
+00:19:13,000 --> 00:19:18,240
+Yes, Emacs Lisp, this is all new to me.
+
+448
+00:19:15,080 --> 00:19:20,400
+Okay, we avoid GNU Guile. Oh, yeah, GNU
+
+449
+00:19:18,240 --> 00:19:22,760
+Guile, you don't need to do it. Learn
+
+450
+00:19:20,400 --> 00:19:24,120
+Yeah, Emacs Lisp is kind of
+
+451
+00:19:22,760 --> 00:19:25,200
+um
+
+452
+00:19:24,120 --> 00:19:26,560
+Okay.
+
+453
+00:19:25,200 --> 00:19:30,000
+Anyway, so
+
+454
+00:19:26,560 --> 00:19:32,400
+this is is is this is this is this is a
+
+455
+00:19:30,000 --> 00:19:36,640
+talk show, okay.
+
+456
+00:19:32,400 --> 00:19:36,640
+Not not very serious stuff.
+
+457
+00:19:37,120 --> 00:19:43,200
+So, let's see what what what are people
+
+458
+00:19:40,200 --> 00:19:45,520
+saying. So, some topics you might So,
+
+459
+00:19:43,200 --> 00:19:47,440
+Zoom world, I don't know. Naming random
+
+460
+00:19:45,520 --> 00:19:49,600
+things off top of my head, okay. So,
+
+461
+00:19:47,440 --> 00:19:50,480
+Unix philosophy, okay, that talked about
+
+462
+00:19:49,600 --> 00:19:52,560
+that
+
+463
+00:19:50,480 --> 00:19:55,120
+uh too many times.
+
+464
+00:19:52,560 --> 00:19:59,080
+But, I use Emacs Lisp and I'm not a
+
+465
+00:19:55,120 --> 00:20:00,680
+hobo, so road. Okay, yeah, Emacs Emacs
+
+466
+00:19:59,080 --> 00:20:03,280
+is special.
+
+467
+00:20:00,680 --> 00:20:06,040
+Of course, you know, it's many of these
+
+468
+00:20:03,280 --> 00:20:09,400
+pro- coders, they also
+
+469
+00:20:06,040 --> 00:20:11,200
+you know, they do uh they have a job.
+
+470
+00:20:09,400 --> 00:20:13,680
+Uh
+
+471
+00:20:11,200 --> 00:20:17,720
+and okay, this
+
+472
+00:20:13,680 --> 00:20:20,400
+So, I was talking we were talking in
+
+473
+00:20:17,720 --> 00:20:23,840
+on YouTube about
+
+474
+00:20:20,400 --> 00:20:25,880
+national anthems. Okay, yep, in Germany
+
+475
+00:20:23,840 --> 00:20:28,000
+is the same time as in the country I'm
+
+476
+00:20:25,880 --> 00:20:31,320
+from.
+
+477
+00:20:28,000 --> 00:20:31,320
+Czech Republic.
+
+478
+00:20:31,720 --> 00:20:36,520
+Dobrý dobrý den. What does that mean,
+
+479
+00:20:34,200 --> 00:20:40,080
+dobrý den?
+
+480
+00:20:36,520 --> 00:20:42,320
+Punches for the feels.
+
+481
+00:20:40,080 --> 00:20:44,840
+Uh and you have 1 million job in
+
+482
+00:20:42,320 --> 00:20:49,680
+JavaScript. Yeah, indeed, resistance is
+
+483
+00:20:44,840 --> 00:20:49,680
+futile. You will be assimilated.
+
+484
+00:20:50,200 --> 00:20:54,720
+That's a perfect
+
+485
+00:20:52,520 --> 00:20:57,400
+That's a per- perfection. That's a bug
+
+486
+00:20:54,720 --> 00:21:00,360
+perfection.
+
+487
+00:20:57,400 --> 00:21:04,400
+Uh drawing the horde. What is this new
+
+488
+00:21:00,360 --> 00:21:04,400
+guy? Okay, so Okay, so
+
+489
+00:21:04,560 --> 00:21:08,960
+So, what is the next topic? Shall we
+
+490
+00:21:07,040 --> 00:21:10,400
+like what uh
+
+491
+00:21:08,960 --> 00:21:11,760
+Shall we do
+
+492
+00:21:10,400 --> 00:21:13,360
+random
+
+493
+00:21:11,760 --> 00:21:15,000
+or
+
+494
+00:21:13,360 --> 00:21:18,640
+you know, we we have lots of random
+
+495
+00:21:15,000 --> 00:21:22,600
+things on the chat. Fascinating stuff.
+
+496
+00:21:18,640 --> 00:21:25,080
+Panera Panera has coffee refills and
+
+497
+00:21:22,600 --> 00:21:29,640
+and Wi-Fi. Okay, that's a chain
+
+498
+00:21:25,080 --> 00:21:34,200
+restaurant in Florida area, I suppose.
+
+499
+00:21:29,640 --> 00:21:37,080
+Uh and you can see they make this food.
+
+500
+00:21:34,200 --> 00:21:39,160
+What is this thing?
+
+501
+00:21:37,080 --> 00:21:42,720
+This is kind of half sandwich, half
+
+502
+00:21:39,160 --> 00:21:46,440
+Subway. Okay, I cannot tell.
+
+503
+00:21:42,720 --> 00:21:48,200
+But it's like Mexican based.
+
+504
+00:21:46,440 --> 00:21:50,400
+Uh
+
+505
+00:21:48,200 --> 00:21:52,960
+and we were talking about national
+
+506
+00:21:50,400 --> 00:21:56,160
+anthems. Actually, I was talking about
+
+507
+00:21:52,960 --> 00:21:58,200
+national anthem anthems.
+
+508
+00:21:56,160 --> 00:21:59,560
+So, I was saying Russian anthem is
+
+509
+00:21:58,200 --> 00:22:03,320
+beautiful.
+
+510
+00:21:59,560 --> 00:22:04,679
+And China China's national anthem is
+
+511
+00:22:03,320 --> 00:22:07,920
+crap.
+
+512
+00:22:04,679 --> 00:22:10,600
+Taiwan's national anthem is even more
+
+513
+00:22:07,920 --> 00:22:13,160
+crap. It's worst It's the worst
+
+514
+00:22:10,600 --> 00:22:15,480
+tune in the in the universe.
+
+515
+00:22:13,160 --> 00:22:18,760
+And French's national anthem is
+
+516
+00:22:15,480 --> 00:22:21,640
+beautiful. Okay, French.
+
+517
+00:22:18,760 --> 00:22:24,320
+Um You know, how I know French national
+
+518
+00:22:21,640 --> 00:22:28,040
+anthem? Because back in 19
+
+519
+00:22:24,320 --> 00:22:30,080
+81 or so, 1978 or or something like
+
+520
+00:22:28,040 --> 00:22:32,160
+that. 19, you know,
+
+521
+00:22:30,080 --> 00:22:34,720
+you have video games, arcade video
+
+522
+00:22:32,160 --> 00:22:36,840
+games. And one of the game
+
+523
+00:22:34,720 --> 00:22:39,120
+they
+
+524
+00:22:36,840 --> 00:22:41,560
+They they they they begin by playing
+
+525
+00:22:39,120 --> 00:22:45,080
+this tune. And later on I learned that's
+
+526
+00:22:41,560 --> 00:22:47,679
+French French's national anthem.
+
+527
+00:22:45,080 --> 00:22:50,120
+There's a space, you know, space inva-
+
+528
+00:22:47,679 --> 00:22:52,720
+invader, you know, shooting game. Should
+
+529
+00:22:50,120 --> 00:22:55,400
+I bring that up? Should I actually find
+
+530
+00:22:52,720 --> 00:22:57,560
+that uh arcade video? So,
+
+531
+00:22:55,400 --> 00:22:59,920
+uh French national anthem, how does it
+
+532
+00:22:57,560 --> 00:22:59,920
+go?
+
+533
+00:23:01,400 --> 00:23:05,520
+Uh anyway,
+
+534
+00:23:03,120 --> 00:23:09,560
+and American's national anthem anthem,
+
+535
+00:23:05,520 --> 00:23:11,920
+the stars and stripes, it's pretty good.
+
+536
+00:23:09,560 --> 00:23:14,560
+Canadian is okay.
+
+537
+00:23:11,920 --> 00:23:17,440
+O Canada
+
+538
+00:23:14,560 --> 00:23:21,200
+da da da da da da
+
+539
+00:23:17,440 --> 00:23:24,160
+Then, United United Kingdom, God saves
+
+540
+00:23:21,200 --> 00:23:27,080
+the queen. God saves the queen.
+
+541
+00:23:24,160 --> 00:23:30,560
+Or something like that. Save or saves?
+
+542
+00:23:27,080 --> 00:23:33,440
+God saves. It must be saves or save.
+
+543
+00:23:30,560 --> 00:23:36,560
+Okay, this is So, God is considered
+
+544
+00:23:33,440 --> 00:23:40,920
+plural or something like that.
+
+545
+00:23:36,560 --> 00:23:43,760
+Or uncountable uncountable infinity.
+
+546
+00:23:40,920 --> 00:23:46,360
+God save the queen.
+
+547
+00:23:43,760 --> 00:23:48,800
+Okay, that tune I didn't, you know,
+
+548
+00:23:46,360 --> 00:23:51,760
+never get into me. I don't remember the
+
+549
+00:23:48,800 --> 00:23:53,120
+UK's national anthem, but Oh my god,
+
+550
+00:23:51,760 --> 00:23:54,840
+Russian.
+
+551
+00:23:53,120 --> 00:23:56,960
+Now, you have to look now. Let's hear
+
+552
+00:23:54,840 --> 00:23:59,960
+the Russian
+
+553
+00:23:56,960 --> 00:24:04,200
+national anthem.
+
+554
+00:23:59,960 --> 00:24:07,560
+Okay, dobrý dobrý den means good day and
+
+555
+00:24:04,200 --> 00:24:10,400
+is used as a greeting in Czech Republic.
+
+556
+00:24:07,560 --> 00:24:12,840
+Okay, dobrý den.
+
+557
+00:24:10,400 --> 00:24:16,520
+Okay, how do you Well, I have to look up
+
+558
+00:24:12,840 --> 00:24:16,520
+how do you pronounce that, dobrý den?
+
+559
+00:24:18,400 --> 00:24:23,880
+Config technical question, how do you
+
+560
+00:24:20,600 --> 00:24:26,880
+set up your direct directories of
+
+561
+00:24:23,880 --> 00:24:29,480
+miscellaneous script? Bash it is.
+
+562
+00:24:26,880 --> 00:24:29,480
+Um
+
+563
+00:24:30,280 --> 00:24:34,480
+Well, the
+
+564
+00:24:31,360 --> 00:24:36,560
+you I don't have a particular
+
+565
+00:24:34,480 --> 00:24:38,600
+system or anything like that. How do you
+
+566
+00:24:36,560 --> 00:24:40,640
+set up your directories of miscellaneous
+
+567
+00:24:38,600 --> 00:24:42,520
+script? Yeah, it's just over over the
+
+568
+00:24:40,640 --> 00:24:44,040
+place.
+
+569
+00:24:42,520 --> 00:24:46,640
+You know, those kind of things, every
+
+570
+00:24:44,040 --> 00:24:47,880
+time you try to organize
+
+571
+00:24:46,640 --> 00:24:49,960
+um
+
+572
+00:24:47,880 --> 00:24:53,400
+it tends to fall apart, you know, you
+
+573
+00:24:49,960 --> 00:24:54,760
+There's really no one way to organize
+
+574
+00:24:53,400 --> 00:24:55,800
+you know, like
+
+575
+00:24:54,760 --> 00:24:57,720
+I mean, I
+
+576
+00:24:55,800 --> 00:24:59,640
+you know, I think you are saying, you
+
+577
+00:24:57,720 --> 00:25:01,679
+know, what how do you organize all your
+
+578
+00:24:59,640 --> 00:25:04,280
+miscellaneous scripts?
+
+579
+00:25:01,679 --> 00:25:07,240
+I don't think there's a way. In general,
+
+580
+00:25:04,280 --> 00:25:09,360
+there is no way to organize your files.
+
+581
+00:25:07,240 --> 00:25:11,240
+Like each person, your mom, everyone,
+
+582
+00:25:09,360 --> 00:25:13,320
+you know, non-programmers, you have a
+
+583
+00:25:11,240 --> 00:25:15,120
+bunch of files. And then programmers,
+
+584
+00:25:13,320 --> 00:25:16,679
+you also have a bunch of files in your
+
+585
+00:25:15,120 --> 00:25:20,920
+life.
+
+586
+00:25:16,679 --> 00:25:20,920
+So, from what what I see,
+
+587
+00:25:20,960 --> 00:25:25,679
+more for most people, there's no just
+
+588
+00:25:22,840 --> 00:25:28,120
+there's no way just to organize it.
+
+589
+00:25:25,679 --> 00:25:30,120
+And so, therefore, today the most
+
+590
+00:25:28,120 --> 00:25:31,880
+popular way is like just random. You
+
+591
+00:25:30,120 --> 00:25:34,200
+just put in a directory.
+
+592
+00:25:31,880 --> 00:25:37,840
+You rely on, you know, starting like 10
+
+593
+00:25:34,200 --> 00:25:40,560
+years ago, you rely on the Apple
+
+594
+00:25:37,840 --> 00:25:42,640
+Spotlight search, which I never used. I
+
+595
+00:25:40,560 --> 00:25:45,120
+turned off, okay? So, the same thing
+
+596
+00:25:42,640 --> 00:25:49,160
+with Microsoft. They started to have
+
+597
+00:25:45,120 --> 00:25:51,840
+search box that will search all your
+
+598
+00:25:49,160 --> 00:25:54,800
+files on your system on the whole entire
+
+599
+00:25:51,840 --> 00:25:56,400
+hard disk. The way they do that Okay,
+
+600
+00:25:54,800 --> 00:26:00,480
+maybe we can talk about the history of
+
+601
+00:25:56,400 --> 00:26:03,560
+that. So, in the 1990s or early 2000,
+
+602
+00:26:00,480 --> 00:26:05,440
+yeah, 1990s and 2000s,
+
+603
+00:26:03,560 --> 00:26:08,240
+for a programmer,
+
+604
+00:26:05,440 --> 00:26:11,560
+you organize your files into directories
+
+605
+00:26:08,240 --> 00:26:12,760
+hierarchy. You you at least you try to,
+
+606
+00:26:11,560 --> 00:26:14,640
+okay?
+
+607
+00:26:12,760 --> 00:26:17,280
+Well, compared to back then compared to
+
+608
+00:26:14,640 --> 00:26:19,640
+today, you know, today you have 100
+
+609
+00:26:17,280 --> 00:26:21,880
+times more files. But anyway, back then
+
+610
+00:26:19,640 --> 00:26:24,800
+you you try to organize into hierarchy.
+
+611
+00:26:21,880 --> 00:26:26,679
+So, if you go to programmers forum, you
+
+612
+00:26:24,800 --> 00:26:29,760
+know, programmers make us,
+
+613
+00:26:26,679 --> 00:26:33,040
+they people tends to tell you how to try
+
+614
+00:26:29,760 --> 00:26:34,400
+how to do that, things like that.
+
+615
+00:26:33,040 --> 00:26:37,679
+And uh
+
+616
+00:26:34,400 --> 00:26:40,000
+and if you want, usually you use grep,
+
+617
+00:26:37,679 --> 00:26:43,000
+you know, the Unix tool grep
+
+618
+00:26:40,000 --> 00:26:46,520
+to find a particular word or phrase in
+
+619
+00:26:43,000 --> 00:26:50,600
+your files to find the file you want.
+
+620
+00:26:46,520 --> 00:26:52,320
+Now, this is in 1990s and and and uh
+
+621
+00:26:50,600 --> 00:26:54,160
+2000s.
+
+622
+00:26:52,320 --> 00:26:57,200
+Uh which is what I still do, you know?
+
+623
+00:26:54,160 --> 00:26:59,679
+So, I have script to find Okay, let me
+
+624
+00:26:57,200 --> 00:27:02,720
+show you. Well, I can use either I can
+
+625
+00:26:59,679 --> 00:27:05,640
+either use grep, you know, in shell,
+
+626
+00:27:02,720 --> 00:27:08,720
+grep uh grep for something that you
+
+627
+00:27:05,640 --> 00:27:11,240
+know, you Okay, so you need you need to
+
+628
+00:27:08,720 --> 00:27:14,880
+call this command start interactive or
+
+629
+00:27:11,240 --> 00:27:18,200
+brief, then type grep. Okay? So, now you
+
+630
+00:27:14,880 --> 00:27:19,880
+get this syntax, which is grep
+
+631
+00:27:18,200 --> 00:27:21,600
+recursively
+
+632
+00:27:19,880 --> 00:27:23,160
+or the idiotics
+
+633
+00:27:21,600 --> 00:27:25,720
+uh face. It
+
+634
+00:27:23,160 --> 00:27:31,000
+grep recursively {dash}r.
+
+635
+00:27:25,720 --> 00:27:33,480
+Then then f f for capital f is for
+
+636
+00:27:31,000 --> 00:27:36,320
+um
+
+637
+00:27:33,480 --> 00:27:37,960
+use the power syntax or use the power
+
+638
+00:27:36,320 --> 00:27:41,120
+regular expression, I think something
+
+639
+00:27:37,960 --> 00:27:44,280
+like that, okay? Then you type a string,
+
+640
+00:27:41,120 --> 00:27:47,040
+then {dash} {dash} include
+
+641
+00:27:44,280 --> 00:27:50,120
+uh then star.html. That means you grep
+
+642
+00:27:47,040 --> 00:27:53,280
+for all files ending html. Then you give
+
+643
+00:27:50,120 --> 00:27:55,760
+a directory. So, this is the syntax to
+
+644
+00:27:53,280 --> 00:27:57,679
+find all strings in a directory. That's
+
+645
+00:27:55,760 --> 00:28:00,320
+a grep syntax.
+
+646
+00:27:57,679 --> 00:28:02,240
+Uh you can do Okay, you can do that.
+
+647
+00:28:00,320 --> 00:28:04,600
+So, let's change the directory to the
+
+648
+00:28:02,240 --> 00:28:06,520
+current directory and let's change, you
+
+649
+00:28:04,600 --> 00:28:09,320
+know, let's just grep Haskell. Let's see
+
+650
+00:28:06,520 --> 00:28:11,040
+what we found. Okay, you got you got
+
+651
+00:28:09,320 --> 00:28:13,520
+answers here.
+
+652
+00:28:11,040 --> 00:28:16,360
+Uh okay, switch here. So, you got
+
+653
+00:28:13,520 --> 00:28:18,360
+answers, you know, you got
+
+654
+00:28:16,360 --> 00:28:19,840
+They don't highlight it properly. So,
+
+655
+00:28:18,360 --> 00:28:22,440
+for example,
+
+656
+00:28:19,840 --> 00:28:25,159
+uh search Haskell. So, you got Haskell
+
+657
+00:28:22,440 --> 00:28:27,720
+Haskell, so that's the occurrence. So, I
+
+658
+00:28:25,159 --> 00:28:31,720
+So, in my talk show, apparently Haskell
+
+659
+00:28:27,720 --> 00:28:33,720
+is mentioned frequently.
+
+660
+00:28:31,720 --> 00:28:34,919
+And then let's do it again. I mean,
+
+661
+00:28:33,720 --> 00:28:37,840
+Haskell.
+
+662
+00:28:34,919 --> 00:28:41,440
+Okay. You see, in my talk show, Haskell
+
+663
+00:28:37,840 --> 00:28:45,720
+is mentioned frequently as a dramatic
+
+664
+00:28:41,440 --> 00:28:48,600
+word to diss the nerds.
+
+665
+00:28:45,720 --> 00:28:51,080
+Okay, not because I love Haskell. So,
+
+666
+00:28:48,600 --> 00:28:52,800
+every time I mention Haskell is is
+
+667
+00:28:51,080 --> 00:28:55,720
+representative
+
+668
+00:28:52,800 --> 00:28:58,400
+representation of the idiocy of the tech
+
+669
+00:28:55,720 --> 00:29:00,720
+geeky nerds.
+
+670
+00:28:58,400 --> 00:29:03,880
+Okay, that's one way to do it. Grep.
+
+671
+00:29:00,720 --> 00:29:06,280
+Then Okay, then you close this. Then you
+
+672
+00:29:03,880 --> 00:29:07,400
+can do I can do.
+
+673
+00:29:06,280 --> 00:29:10,800
+So,
+
+674
+00:29:07,400 --> 00:29:13,960
+the saw list mod, okay? So, I call it
+
+675
+00:29:10,800 --> 00:29:16,919
+the command is called
+
+676
+00:29:13,960 --> 00:29:17,960
+You can see it here. Saw find text,
+
+677
+00:29:16,919 --> 00:29:21,240
+okay?
+
+678
+00:29:17,960 --> 00:29:23,960
+So, I call it and type Haskell and press
+
+679
+00:29:21,240 --> 00:29:27,120
+enter and type a directory
+
+680
+00:29:23,960 --> 00:29:31,240
+directory path and type the file name
+
+681
+00:29:27,120 --> 00:29:34,560
+regular expression .html, okay?
+
+682
+00:29:31,240 --> 00:29:37,280
+Then there it is. Magnify.
+
+683
+00:29:34,560 --> 00:29:39,720
+It's the same result, but presented in a
+
+684
+00:29:37,280 --> 00:29:41,240
+different format. So, you can see in
+
+685
+00:29:39,720 --> 00:29:43,360
+this file
+
+686
+00:29:41,240 --> 00:29:46,200
+in this file I have
+
+687
+00:29:43,360 --> 00:29:47,400
+one mention of Haskell. And And in this
+
+688
+00:29:46,200 --> 00:29:49,760
+file
+
+689
+00:29:47,400 --> 00:29:51,960
+I have, you know, in this file I have
+
+690
+00:29:49,760 --> 00:29:53,800
+like several three mentions of Haskell.
+
+691
+00:29:51,960 --> 00:29:55,880
+So I can just
+
+692
+00:29:53,800 --> 00:29:58,920
+So that's occurrences of Haskell in
+
+693
+00:29:55,880 --> 00:30:02,360
+Microsoft talk show.
+
+694
+00:29:58,920 --> 00:30:06,040
+And that command C sharp find dot EL is
+
+695
+00:30:02,360 --> 00:30:08,920
+written in Lisp entirely, pure Lisp. So
+
+696
+00:30:06,040 --> 00:30:12,280
+you can use it on Windows, on Mac, on
+
+697
+00:30:08,920 --> 00:30:14,960
+Linux. It does not depend on the Unix
+
+698
+00:30:12,280 --> 00:30:14,960
+script tool.
+
+699
+00:30:15,760 --> 00:30:21,400
+Uh so actually I talked about this a few
+
+700
+00:30:17,880 --> 00:30:23,320
+times. So let's see. Um
+
+701
+00:30:21,400 --> 00:30:26,640
+So you can see the source code right
+
+702
+00:30:23,320 --> 00:30:29,520
+here. So here is the command
+
+703
+00:30:26,640 --> 00:30:31,400
+C sharp find text and here is the source
+
+704
+00:30:29,520 --> 00:30:34,040
+code.
+
+705
+00:30:31,400 --> 00:30:36,760
+And this package you can download on
+
+706
+00:30:34,040 --> 00:30:39,080
+Melpa. So you just go here.
+
+707
+00:30:36,760 --> 00:30:40,520
+That's my website for it.
+
+708
+00:30:39,080 --> 00:30:43,080
+And you can go there and you can
+
+709
+00:30:40,520 --> 00:30:47,240
+download on Melpa and you know, so so
+
+710
+00:30:43,080 --> 00:30:50,640
+that's done in Emacs Lisp. And then
+
+711
+00:30:47,240 --> 00:30:52,760
+I if I want to I can call this Go land
+
+712
+00:30:50,640 --> 00:30:54,720
+script. So type
+
+713
+00:30:52,760 --> 00:30:58,080
+uh find Go.
+
+714
+00:30:54,720 --> 00:31:02,840
+So this is a Go land script. And it's
+
+715
+00:30:58,080 --> 00:31:05,200
+187 lines. So I want to search So for
+
+716
+00:31:02,840 --> 00:31:07,440
+example, let's do the same thing. I want
+
+717
+00:31:05,200 --> 00:31:10,200
+to search Haskell.
+
+718
+00:31:07,440 --> 00:31:12,840
+Now this has the feature where you can
+
+719
+00:31:10,200 --> 00:31:16,680
+search for mul- multiple words or
+
+720
+00:31:12,840 --> 00:31:18,960
+regular expression at one in one shot.
+
+721
+00:31:16,680 --> 00:31:20,320
+So let's type Haskell there.
+
+722
+00:31:18,960 --> 00:31:24,000
+Uh
+
+723
+00:31:20,320 --> 00:31:25,720
+and I want to search in the directory
+
+724
+00:31:24,000 --> 00:31:27,880
+C sharp talk show directory. So let's
+
+725
+00:31:25,720 --> 00:31:30,400
+put the path here. So
+
+726
+00:31:27,880 --> 00:31:31,600
+uh C sharp talk show, copy the path,
+
+727
+00:31:30,400 --> 00:31:33,120
+close it.
+
+728
+00:31:31,600 --> 00:31:34,520
+Select all.
+
+729
+00:31:33,120 --> 00:31:37,160
+Paste.
+
+730
+00:31:34,520 --> 00:31:39,680
+And and okay, here's the path I want to
+
+731
+00:31:37,160 --> 00:31:40,800
+search. I want to search for this word
+
+732
+00:31:39,680 --> 00:31:43,160
+Haskell.
+
+733
+00:31:40,800 --> 00:31:46,120
+Okay, run it.
+
+734
+00:31:43,160 --> 00:31:48,040
+So this is Go land script running. So
+
+735
+00:31:46,120 --> 00:31:50,960
+here's the result.
+
+736
+00:31:48,040 --> 00:31:54,840
+Magnify. Go to the top.
+
+737
+00:31:50,960 --> 00:31:56,560
+It's not colored. Now let's call C sharp
+
+738
+00:31:54,840 --> 00:31:58,679
+output
+
+739
+00:31:56,560 --> 00:32:01,800
+C sharp find output mod.
+
+740
+00:31:58,679 --> 00:32:05,040
+Now so I have them colored just like the
+
+741
+00:32:01,800 --> 00:32:06,920
+output in my Emacs
+
+742
+00:32:05,040 --> 00:32:10,040
+uh find
+
+743
+00:32:06,920 --> 00:32:12,760
+C sharp find dot EL Emacs Lisp script.
+
+744
+00:32:10,040 --> 00:32:14,800
+So this is the output of Go land.
+
+745
+00:32:12,760 --> 00:32:16,760
+Uh so you see
+
+746
+00:32:14,800 --> 00:32:18,360
+So that's grep. That's
+
+747
+00:32:16,760 --> 00:32:22,000
+that's, you know, find the string.
+
+748
+00:32:18,360 --> 00:32:27,480
+That's how people used to find
+
+749
+00:32:22,000 --> 00:32:30,240
+a word in your thousands of files.
+
+750
+00:32:27,480 --> 00:32:32,640
+So this this way, this method is used
+
+751
+00:32:30,240 --> 00:32:34,240
+throughout 1990s and uh
+
+752
+00:32:32,640 --> 00:32:37,240
+2000s.
+
+753
+00:32:34,240 --> 00:32:41,679
+However, beginning around 2005
+
+754
+00:32:37,240 --> 00:32:43,840
+Apple began the Spotlight. Okay.
+
+755
+00:32:41,679 --> 00:32:46,880
+So that means you type any word, it just
+
+756
+00:32:43,840 --> 00:32:48,240
+it's kind of like grep but actually
+
+757
+00:32:46,880 --> 00:32:50,320
+better. Okay.
+
+758
+00:32:48,240 --> 00:32:52,600
+Uh let me go let me explain why it's
+
+759
+00:32:50,320 --> 00:32:54,679
+better. So you type a word, you can type
+
+760
+00:32:52,600 --> 00:32:57,320
+Haskell here. I don't want to do it, you
+
+761
+00:32:54,679 --> 00:32:59,640
+know, I I don't want to use the
+
+762
+00:32:57,320 --> 00:33:01,560
+I In fact, I turned it off. So anyway,
+
+763
+00:32:59,640 --> 00:33:03,760
+but you can
+
+764
+00:33:01,560 --> 00:33:07,000
+I don't want to do it. Okay, so cancel.
+
+765
+00:33:03,760 --> 00:33:09,960
+Cancel. So Mac began this first,
+
+766
+00:33:07,000 --> 00:33:12,760
+Spotlight. Then it came to Windows. So
+
+767
+00:33:09,960 --> 00:33:14,640
+on Windows you hit the Windows key, then
+
+768
+00:33:12,760 --> 00:33:16,800
+you can start to type something. That
+
+769
+00:33:14,640 --> 00:33:18,560
+searches your entire drive, something
+
+770
+00:33:16,800 --> 00:33:21,679
+like that.
+
+771
+00:33:18,560 --> 00:33:24,480
+How does the Apple do it? How does
+
+772
+00:33:21,679 --> 00:33:25,560
+Spotlight or Windows search do? Well,
+
+773
+00:33:24,480 --> 00:33:28,000
+they
+
+774
+00:33:25,560 --> 00:33:30,160
+unlike grep, okay? Grep is searching
+
+775
+00:33:28,000 --> 00:33:32,720
+real time. So it actually when you try
+
+776
+00:33:30,160 --> 00:33:36,160
+to search Haskell, it actually actually
+
+777
+00:33:32,720 --> 00:33:39,080
+opens every and each and every file to
+
+778
+00:33:36,160 --> 00:33:41,200
+see that word is in it, then
+
+779
+00:33:39,080 --> 00:33:43,600
+show the result.
+
+780
+00:33:41,200 --> 00:33:45,320
+But that is not the case with the
+
+781
+00:33:43,600 --> 00:33:47,480
+Spotlight.
+
+782
+00:33:45,320 --> 00:33:49,840
+What the Spotlight do is that first of
+
+783
+00:33:47,480 --> 00:33:52,240
+all, it
+
+784
+00:33:49,840 --> 00:33:54,640
+it
+
+785
+00:33:52,240 --> 00:33:57,280
+In short, it pre-greps everything,
+
+786
+00:33:54,640 --> 00:33:59,679
+pre-grep. So it searches, you know, all
+
+787
+00:33:57,280 --> 00:34:02,200
+your entire Every time you create a file
+
+788
+00:33:59,679 --> 00:34:05,560
+there's a a process in the background
+
+789
+00:34:02,200 --> 00:34:07,480
+that that runs that checks that that
+
+790
+00:34:05,560 --> 00:34:11,600
+you know, in in database
+
+791
+00:34:07,480 --> 00:34:13,240
+technology you say it index. It it index
+
+792
+00:34:11,600 --> 00:34:16,440
+your files. So what does that mean?
+
+793
+00:34:13,240 --> 00:34:18,760
+Basically, it read every file
+
+794
+00:34:16,440 --> 00:34:21,320
+you ever created
+
+795
+00:34:18,760 --> 00:34:25,359
+at the same time when you create them.
+
+796
+00:34:21,320 --> 00:34:27,960
+So you it reads a file and it
+
+797
+00:34:25,359 --> 00:34:30,720
+basically
+
+798
+00:34:27,960 --> 00:34:33,560
+index every word in the in the file.
+
+799
+00:34:30,720 --> 00:34:35,200
+Then it's kind of like a database. So it
+
+800
+00:34:33,560 --> 00:34:39,080
+organize, you know, it creates a
+
+801
+00:34:35,200 --> 00:34:41,640
+basically a kind of a a structure. So
+
+802
+00:34:39,080 --> 00:34:44,000
+for example, Haskell word
+
+803
+00:34:41,640 --> 00:34:46,320
+it creates a database kind of structure.
+
+804
+00:34:44,000 --> 00:34:48,080
+For example, the Haskell word appears in
+
+805
+00:34:46,320 --> 00:34:50,440
+this file, this file, this file, this
+
+806
+00:34:48,080 --> 00:34:52,240
+file. You know, it does this. This is
+
+807
+00:34:50,440 --> 00:34:54,000
+called indexing.
+
+808
+00:34:52,240 --> 00:34:57,040
+So it just do it in the background
+
+809
+00:34:54,000 --> 00:34:58,040
+without you even begin to use Spotlight.
+
+810
+00:34:57,040 --> 00:35:01,080
+So
+
+811
+00:34:58,040 --> 00:35:03,160
+then for example, the word Lisp appears
+
+812
+00:35:01,080 --> 00:35:05,440
+in this file, this this this this file,
+
+813
+00:35:03,160 --> 00:35:07,680
+you know, things like that. The word mom
+
+814
+00:35:05,440 --> 00:35:09,920
+appears in this this files. Okay, the
+
+815
+00:35:07,680 --> 00:35:12,440
+word something your your bedroom photos
+
+816
+00:35:09,920 --> 00:35:14,080
+appears in this this this files.
+
+817
+00:35:12,440 --> 00:35:15,400
+So it does this in the background,
+
+818
+00:35:14,080 --> 00:35:17,400
+index.
+
+819
+00:35:15,400 --> 00:35:19,760
+So when you actually want to search
+
+820
+00:35:17,400 --> 00:35:21,520
+something, you type it it it it shows
+
+821
+00:35:19,760 --> 00:35:23,320
+the result right away, like almost
+
+822
+00:35:21,520 --> 00:35:26,040
+instantaneously.
+
+823
+00:35:23,320 --> 00:35:27,960
+You you type Haskell, all the files that
+
+824
+00:35:26,040 --> 00:35:30,640
+contains the word shows
+
+825
+00:35:27,960 --> 00:35:33,600
+instantaneously. So it it's like So you
+
+826
+00:35:30,640 --> 00:35:37,080
+don't have to wait for it to open each
+
+827
+00:35:33,600 --> 00:35:40,359
+and every of your gigabytes of files.
+
+828
+00:35:37,080 --> 00:35:42,560
+So that is what this Spotlight
+
+829
+00:35:40,359 --> 00:35:44,600
+do.
+
+830
+00:35:42,560 --> 00:35:46,280
+You know, I'm simplifying things. It it
+
+831
+00:35:44,600 --> 00:35:49,400
+actually it is more going behind the
+
+832
+00:35:46,280 --> 00:35:53,359
+scenes because for example, Spotlight,
+
+833
+00:35:49,400 --> 00:35:55,480
+this kind of technology they will not um
+
+834
+00:35:53,359 --> 00:35:56,800
+they will not just search for text
+
+835
+00:35:55,480 --> 00:35:58,760
+files.
+
+836
+00:35:56,800 --> 00:36:01,120
+So for example, if you have a video
+
+837
+00:35:58,760 --> 00:36:02,960
+file, typically you also have keywords
+
+838
+00:36:01,120 --> 00:36:06,560
+and stuff.
+
+839
+00:36:02,960 --> 00:36:09,359
+And and what if you have HTML files?
+
+840
+00:36:06,560 --> 00:36:13,040
+You know, for for example, if you
+
+841
+00:36:09,359 --> 00:36:15,040
+if I search if I grep for HTML, if I
+
+842
+00:36:13,040 --> 00:36:17,120
+grep for the word title
+
+843
+00:36:15,040 --> 00:36:21,200
+then almost every
+
+844
+00:36:17,120 --> 00:36:24,040
+HTML file will contain it, you know.
+
+845
+00:36:21,200 --> 00:36:25,640
+But that may not be what I want because
+
+846
+00:36:24,040 --> 00:36:27,880
+you know, let's say for example, I
+
+847
+00:36:25,640 --> 00:36:29,800
+search for the word body. You know, I
+
+848
+00:36:27,880 --> 00:36:32,200
+want to find a document where I was
+
+849
+00:36:29,800 --> 00:36:34,120
+talking about, let's say, body parts.
+
+850
+00:36:32,200 --> 00:36:37,000
+Okay.
+
+851
+00:36:34,120 --> 00:36:39,000
+So I want to find a file. I want to find
+
+852
+00:36:37,000 --> 00:36:42,520
+I I remember last year I wrote something
+
+853
+00:36:39,000 --> 00:36:44,960
+about body, somebody something. Okay.
+
+854
+00:36:42,520 --> 00:36:48,120
+I want to find it. Yeah, and I remember
+
+855
+00:36:44,960 --> 00:36:50,720
+it's a HTML file. So if I do grep, you
+
+856
+00:36:48,120 --> 00:36:52,800
+know, like I did before, then every HTML
+
+857
+00:36:50,720 --> 00:36:55,640
+file will show up because every HTML
+
+858
+00:36:52,800 --> 00:36:58,000
+file contains the word body. You see.
+
+859
+00:36:55,640 --> 00:36:59,200
+Well, because body is part of the HTML
+
+860
+00:36:58,000 --> 00:37:02,840
+tag.
+
+861
+00:36:59,200 --> 00:37:06,160
+So that's that is that is a problem.
+
+862
+00:37:02,840 --> 00:37:07,840
+So but so in the Yuan Wang, oh, good
+
+863
+00:37:06,160 --> 00:37:10,280
+morning and good morning George. We
+
+864
+00:37:07,840 --> 00:37:12,000
+started to have you know, people from
+
+865
+00:37:10,280 --> 00:37:14,720
+different
+
+866
+00:37:12,000 --> 00:37:16,600
+region in the globe coming on. That's a
+
+867
+00:37:14,720 --> 00:37:18,040
+good thing. Good morning all these
+
+868
+00:37:16,600 --> 00:37:20,600
+people
+
+869
+00:37:18,040 --> 00:37:22,760
+uh from China and everywhere. You Where
+
+870
+00:37:20,600 --> 00:37:26,359
+are you guys from? China?
+
+871
+00:37:22,760 --> 00:37:28,359
+China and Taiwan or Japan or Perth in
+
+872
+00:37:26,359 --> 00:37:30,880
+Australia or
+
+873
+00:37:28,359 --> 00:37:32,520
+uh Monad. Okay, I actually I don't know
+
+874
+00:37:30,880 --> 00:37:36,520
+what is a Monad.
+
+875
+00:37:32,520 --> 00:37:38,840
+Not in a way I can do a explanation.
+
+876
+00:37:36,520 --> 00:37:42,359
+Yeah, Spotlight was Quicksilver,
+
+877
+00:37:38,840 --> 00:37:44,440
+exactly. It it is Quicksilver that began
+
+878
+00:37:42,359 --> 00:37:46,440
+this movement. Anyway, let's let's let
+
+879
+00:37:44,440 --> 00:37:48,600
+me finish the Spotlight
+
+880
+00:37:46,440 --> 00:37:51,440
+how they do things. So Spotlight, they
+
+881
+00:37:48,600 --> 00:37:54,400
+index your files. But when they index,
+
+882
+00:37:51,440 --> 00:37:56,880
+they don't just do a dumb, you know,
+
+883
+00:37:54,400 --> 00:38:00,080
+grep like just by words. They, for
+
+884
+00:37:56,880 --> 00:38:02,720
+example, they have a
+
+885
+00:38:00,080 --> 00:38:06,359
+For example, when they when when they
+
+886
+00:38:02,720 --> 00:38:09,880
+see when Spotlight indexer sees a HTML
+
+887
+00:38:06,359 --> 00:38:11,160
+file it will be smart enough to index
+
+888
+00:38:09,880 --> 00:38:13,680
+only
+
+889
+00:38:11,160 --> 00:38:16,120
+the content of the file. For example, in
+
+890
+00:38:13,680 --> 00:38:18,480
+this file HTML, I just index these
+
+891
+00:38:16,120 --> 00:38:21,280
+words. Not
+
+892
+00:38:18,480 --> 00:38:23,800
+not the tags, you know, not the tags,
+
+893
+00:38:21,280 --> 00:38:26,320
+not the JavaScript code.
+
+894
+00:38:23,800 --> 00:38:28,640
+You know, not the, you know, ad code,
+
+895
+00:38:26,320 --> 00:38:31,920
+things like that.
+
+896
+00:38:28,640 --> 00:38:33,760
+So similarly for image files, for PDF
+
+897
+00:38:31,920 --> 00:38:38,040
+files, for, you know,
+
+898
+00:38:33,760 --> 00:38:41,040
+PDF file is very complex, the format. So
+
+899
+00:38:38,040 --> 00:38:43,840
+for Word Microsoft Word files, for Excel
+
+900
+00:38:41,040 --> 00:38:46,359
+files, for image, movie files, audio
+
+901
+00:38:43,840 --> 00:38:48,320
+audio files, each one of them, you know,
+
+902
+00:38:46,359 --> 00:38:50,080
+you have like hundreds of different file
+
+903
+00:38:48,320 --> 00:38:52,800
+formats.
+
+904
+00:38:50,080 --> 00:38:55,120
+Uh so each one of them they have kind of
+
+905
+00:38:52,800 --> 00:38:57,840
+a spec, you know, they they have a way
+
+906
+00:38:55,120 --> 00:39:00,359
+to tell which part is actual content,
+
+907
+00:38:57,840 --> 00:39:02,880
+which part is, you know, the markup or
+
+908
+00:39:00,359 --> 00:39:06,840
+the meta info or things like that.
+
+909
+00:39:02,880 --> 00:39:10,200
+So so the Spotlight indexer
+
+910
+00:39:06,840 --> 00:39:12,840
+has a set of all these, you know,
+
+911
+00:39:10,200 --> 00:39:14,720
+complex file formats. So it understand,
+
+912
+00:39:12,840 --> 00:39:16,840
+you know, when it tries to index file,
+
+913
+00:39:14,720 --> 00:39:19,800
+it will know, okay, what to
+
+914
+00:39:16,840 --> 00:39:24,200
+actually index, what to ignore.
+
+915
+00:39:19,800 --> 00:39:25,560
+So it is actually a fairly complex
+
+916
+00:39:24,200 --> 00:39:27,480
+um
+
+917
+00:39:25,560 --> 00:39:29,800
+system, you know, because you have
+
+918
+00:39:27,480 --> 00:39:31,440
+literally you have to know hundreds of
+
+919
+00:39:29,800 --> 00:39:33,520
+file formats
+
+920
+00:39:31,440 --> 00:39:35,040
+on how to index them.
+
+921
+00:39:33,520 --> 00:39:37,560
+You know, that's Spotlight. So
+
+922
+00:39:35,040 --> 00:39:39,640
+Microsoft, I believe Microsoft kind of
+
+923
+00:39:37,560 --> 00:39:41,240
+just copied it. Well, I don't know, you
+
+924
+00:39:39,640 --> 00:39:43,400
+know, technically.
+
+925
+00:39:41,240 --> 00:39:45,480
+I mean, I don't mean they copy it the
+
+926
+00:39:43,400 --> 00:39:48,240
+code. I mean, they copy the idea. I
+
+927
+00:39:45,480 --> 00:39:50,040
+mean, the idea is not
+
+928
+00:39:48,240 --> 00:39:52,120
+very complex, you know.
+
+929
+00:39:50,040 --> 00:39:54,400
+Basically, when you want to do this
+
+930
+00:39:52,120 --> 00:39:56,800
+indexing all your files, basically, you
+
+931
+00:39:54,400 --> 00:40:00,560
+automatically think of this
+
+932
+00:39:56,800 --> 00:40:03,520
+you know, so so it begin
+
+933
+00:40:00,560 --> 00:40:05,360
+in Quicksilver. I don't think Well,
+
+934
+00:40:03,520 --> 00:40:08,040
+Quicksilver doesn't actually index
+
+935
+00:40:05,360 --> 00:40:10,680
+files, uh does it?
+
+936
+00:40:08,040 --> 00:40:11,680
+Anyway, the idea But anyway,
+
+937
+00:40:10,680 --> 00:40:14,320
+so
+
+938
+00:40:11,680 --> 00:40:16,400
+Spotlight on the Apple is the
+
+939
+00:40:14,320 --> 00:40:18,640
+I believe it's kind of the first or at
+
+940
+00:40:16,400 --> 00:40:20,760
+least the first
+
+941
+00:40:18,640 --> 00:40:23,560
+you know, file uh
+
+942
+00:40:20,760 --> 00:40:26,320
+global, you know, file system indexing
+
+943
+00:40:23,560 --> 00:40:28,880
+utility. Then it came to to Windows.
+
+944
+00:40:26,320 --> 00:40:31,520
+Then the Linux, of course, it
+
+945
+00:40:28,880 --> 00:40:36,240
+come to Linux, too.
+
+946
+00:40:31,520 --> 00:40:36,240
+Linux, the most innovative system.
+
+947
+00:40:37,000 --> 00:40:41,200
+Uh okay, yeah, that's about that.
+
+948
+00:40:42,040 --> 00:40:48,920
+Emily, Emily, are you still here?
+
+949
+00:40:44,880 --> 00:40:50,800
+Are you Are you like turned off?
+
+950
+00:40:48,920 --> 00:40:53,400
+What's your opinion on the career in
+
+951
+00:40:50,800 --> 00:40:56,520
+cybersecurity?
+
+952
+00:40:53,400 --> 00:40:59,600
+Jintian Zhongwen Jintian hao duo. Yeah,
+
+953
+00:40:56,520 --> 00:41:02,080
+Jintian bu shao. Saga, good morning.
+
+954
+00:40:59,600 --> 00:41:04,880
+Castle Woo. You know, I wanted to do a
+
+955
+00:41:02,080 --> 00:41:07,880
+Chinese version. Zhongwen
+
+956
+00:41:04,880 --> 00:41:10,880
+Sa Sa pinglun.
+
+957
+00:41:07,880 --> 00:41:13,280
+Sa Sa pinglun tianxia.
+
+958
+00:41:10,880 --> 00:41:15,720
+I wanted to do a Chinese, but for the
+
+959
+00:41:13,280 --> 00:41:18,920
+past 3 months or 4 months, I've been
+
+960
+00:41:15,720 --> 00:41:21,720
+stuck in a morning schedule
+
+961
+00:41:18,920 --> 00:41:22,960
+because of Bart.
+
+962
+00:41:21,720 --> 00:41:25,880
+Well, you know,
+
+963
+00:41:22,960 --> 00:41:28,240
+it's which is great, you know, I so
+
+964
+00:41:25,880 --> 00:41:31,280
+it so happens I spoke stuck with the
+
+965
+00:41:28,240 --> 00:41:33,040
+morning schedule and you know, uh and so
+
+966
+00:41:31,280 --> 00:41:35,760
+it's very convenient for European
+
+967
+00:41:33,040 --> 00:41:38,560
+peoples, but I noticed
+
+968
+00:41:35,760 --> 00:41:41,240
+you know, I noticed the Russian people,
+
+969
+00:41:38,560 --> 00:41:44,240
+Russian and many I used to have a lot
+
+970
+00:41:41,240 --> 00:41:45,640
+Australian for some reason, Australian
+
+971
+00:41:44,240 --> 00:41:48,200
+people, they
+
+972
+00:41:45,640 --> 00:41:51,560
+you don't see them anymore.
+
+973
+00:41:48,200 --> 00:41:54,240
+So yeah, I think, you know, I I might um
+
+974
+00:41:51,560 --> 00:41:55,600
+do variety of schedules, that would be
+
+975
+00:41:54,240 --> 00:41:59,840
+good.
+
+976
+00:41:55,600 --> 00:41:59,840
+Uh so Alan and uh
+
+977
+00:42:00,440 --> 00:42:07,160
+So actually, I just rambled to myself
+
+978
+00:42:04,200 --> 00:42:09,040
+for 40 minutes, I think. Yes, I'm you
+
+979
+00:42:07,160 --> 00:42:11,440
+know, I'm getting good at time. I can
+
+980
+00:42:09,040 --> 00:42:14,040
+guess how long I've been talking.
+
+981
+00:42:11,440 --> 00:42:16,720
+I mean, just like ramble for 40 minutes.
+
+982
+00:42:14,040 --> 00:42:19,480
+So is is am I doing something
+
+983
+00:42:16,720 --> 00:42:19,480
+interesting?
+
+984
+00:42:19,560 --> 00:42:22,880
+Uh and uh
+
+985
+00:42:21,760 --> 00:42:24,840
+Bart.
+
+986
+00:42:22,880 --> 00:42:26,000
+Well, Bart is probably going to complain
+
+987
+00:42:24,840 --> 00:42:30,960
+tomorrow.
+
+988
+00:42:26,000 --> 00:42:32,600
+Sa Sa, did you do that on purpose? You
+
+989
+00:42:30,960 --> 00:42:35,440
+Anyway, Bart.
+
+990
+00:42:32,600 --> 00:42:36,120
+Bart is great. Bart is great, okay.
+
+991
+00:42:35,440 --> 00:42:39,560
+Um
+
+992
+00:42:36,120 --> 00:42:41,840
+Anyway, you know, I uh so
+
+993
+00:42:39,560 --> 00:42:45,600
+So what?
+
+994
+00:42:41,840 --> 00:42:45,600
+So I was going to do
+
+995
+00:42:46,480 --> 00:42:50,400
+Okay, so
+
+996
+00:42:47,800 --> 00:42:51,960
+uh did I miss anything? Like anything I
+
+997
+00:42:50,400 --> 00:42:54,680
+wanted Okay, so I
+
+998
+00:42:51,960 --> 00:42:56,760
+I was talking about Spotlight and the
+
+999
+00:42:54,680 --> 00:43:00,320
+Microsoft search because I was talking
+
+1000
+00:42:56,760 --> 00:43:02,200
+about how people organize files.
+
+1001
+00:43:00,320 --> 00:43:03,480
+Yeah, so Alan was, you know, asking,
+
+1002
+00:43:02,200 --> 00:43:06,000
+mentioning, you know, how do you
+
+1003
+00:43:03,480 --> 00:43:10,200
+organize your miscellaneous script. Then
+
+1004
+00:43:06,000 --> 00:43:12,920
+I generalized that question into how do
+
+1005
+00:43:10,200 --> 00:43:17,040
+people organize their files? You know,
+
+1006
+00:43:12,920 --> 00:43:18,640
+do do you put related related things
+
+1007
+00:43:17,040 --> 00:43:21,440
+you know, in a directory? Like, for
+
+1008
+00:43:18,640 --> 00:43:23,600
+example, about your personal love life,
+
+1009
+00:43:21,440 --> 00:43:26,080
+everything in your directory. Or do you
+
+1010
+00:43:23,600 --> 00:43:28,640
+put them in like videos are in one
+
+1011
+00:43:26,080 --> 00:43:31,120
+directory, music is in one directory.
+
+1012
+00:43:28,640 --> 00:43:33,680
+Like, how do you how do people do?
+
+1013
+00:43:31,120 --> 00:43:36,400
+So my answer to that question
+
+1014
+00:43:33,680 --> 00:43:39,280
+is from my observation,
+
+1015
+00:43:36,400 --> 00:43:40,800
+there's no general solution. In fact,
+
+1016
+00:43:39,280 --> 00:43:43,080
+if you look at what people do,
+
+1017
+00:43:40,800 --> 00:43:46,480
+basically, it's just chaos.
+
+1018
+00:43:43,080 --> 00:43:49,120
+Now, among programmers, I would say 90%
+
+1019
+00:43:46,480 --> 00:43:51,800
+99% it's also chaos.
+
+1020
+00:43:49,120 --> 00:43:53,680
+You know, you just put file wherever.
+
+1021
+00:43:51,800 --> 00:43:57,040
+But there are like, I think, one in
+
+1022
+00:43:53,680 --> 00:43:59,760
+1,000 one in 10,000 programmers,
+
+1023
+00:43:57,040 --> 00:44:01,680
+you know, some of them like, possibly,
+
+1024
+00:43:59,760 --> 00:44:04,520
+Emily, okay?
+
+1025
+00:44:01,680 --> 00:44:07,120
+You So you you might have a system like
+
+1026
+00:44:04,520 --> 00:44:09,400
+you stick to a some kind of your, you
+
+1027
+00:44:07,120 --> 00:44:11,840
+know, system to organize your files. I
+
+1028
+00:44:09,400 --> 00:44:15,480
+used to do that as well. And another
+
+1029
+00:44:11,840 --> 00:44:18,680
+person I know to doing that is uh John
+
+1030
+00:44:15,480 --> 00:44:21,440
+Wiegley, who is the current Emacs
+
+1031
+00:44:18,680 --> 00:44:23,320
+maintainer, okay? John Wiegley. He is
+
+1032
+00:44:21,440 --> 00:44:25,720
+very popular. He's on YouTube, you know,
+
+1033
+00:44:23,320 --> 00:44:28,880
+he's very popular. You can see him.
+
+1034
+00:44:25,720 --> 00:44:33,000
+So and he's also a Haskell coder and
+
+1035
+00:44:28,880 --> 00:44:35,400
+he's also doing Coq, the proof as you
+
+1036
+00:44:33,000 --> 00:44:37,200
+know, so-called assistant proof system,
+
+1037
+00:44:35,400 --> 00:44:40,720
+you know, math.
+
+1038
+00:44:37,200 --> 00:44:43,560
+So John Wiegley, he also is a person who
+
+1039
+00:44:40,720 --> 00:44:45,920
+organized all his files in certain
+
+1040
+00:44:43,560 --> 00:44:49,520
+strict manner according to, you know,
+
+1041
+00:44:45,920 --> 00:44:51,240
+he's he's got his own system.
+
+1042
+00:44:49,520 --> 00:44:53,960
+You know, I'm I'm kind I'm that type,
+
+1043
+00:44:51,240 --> 00:44:57,480
+too. I used to do that, but
+
+1044
+00:44:53,960 --> 00:44:59,840
+uh but but I I don't do it now because
+
+1045
+00:44:57,480 --> 00:45:01,520
+many reasons.
+
+1046
+00:44:59,840 --> 00:45:03,080
+Uh anyway, so
+
+1047
+00:45:01,520 --> 00:45:06,400
+so we were talking about how people
+
+1048
+00:45:03,080 --> 00:45:08,680
+organize organize files and uh then
+
+1049
+00:45:06,400 --> 00:45:11,960
+then I started to talk about Spotlight
+
+1050
+00:45:08,680 --> 00:45:14,480
+technology and Microsoft search. So
+
+1051
+00:45:11,960 --> 00:45:17,440
+for vast majority of people, you know,
+
+1052
+00:45:14,480 --> 00:45:19,359
+you just use that because that
+
+1053
+00:45:17,440 --> 00:45:21,600
+that is actually more natural because
+
+1054
+00:45:19,359 --> 00:45:24,040
+most people, you don't think for 100
+
+1055
+00:45:21,600 --> 00:45:26,560
+hours to about how to organize things.
+
+1056
+00:45:24,040 --> 00:45:28,080
+You just leave. You just leave and you
+
+1057
+00:45:26,560 --> 00:45:30,040
+know, when you have a file, just put it
+
+1058
+00:45:28,080 --> 00:45:32,480
+somewhere somewhere.
+
+1059
+00:45:30,040 --> 00:45:32,480
+Um
+
+1060
+00:45:32,640 --> 00:45:36,840
+Yeah, that's what I do. So at least
+
+1061
+00:45:34,200 --> 00:45:38,720
+that's my answer to that
+
+1062
+00:45:36,840 --> 00:45:40,920
+question.
+
+1063
+00:45:38,720 --> 00:45:44,160
+Okay, that's one topic. I guess uh okay,
+
+1064
+00:45:40,920 --> 00:45:48,040
+so you know, that's one
+
+1065
+00:45:44,160 --> 00:45:50,880
+that's some one topic of my thoughts.
+
+1066
+00:45:48,040 --> 00:45:52,600
+So let's see. Alan, hello beautiful
+
+1067
+00:45:50,880 --> 00:45:53,280
+people and
+
+1068
+00:45:52,600 --> 00:45:56,040
+uh
+
+1069
+00:45:53,280 --> 00:45:58,160
+Nabi, can you explain what is monad is
+
+1070
+00:45:56,040 --> 00:46:01,120
+on stream? No, I cannot because I don't
+
+1071
+00:45:58,160 --> 00:46:02,000
+really know that well to really explain
+
+1072
+00:46:01,120 --> 00:46:03,280
+it.
+
+1073
+00:46:02,000 --> 00:46:06,680
+Um
+
+1074
+00:46:03,280 --> 00:46:10,880
+I did flame it multiple times, but
+
+1075
+00:46:06,680 --> 00:46:13,760
+you you can only go so far.
+
+1076
+00:46:10,880 --> 00:46:16,040
+Monad. What is monad? Monad is something
+
+1077
+00:46:13,760 --> 00:46:18,920
+the Haskell Haskellers
+
+1078
+00:46:16,040 --> 00:46:20,200
+talk about every day nonstop.
+
+1079
+00:46:18,920 --> 00:46:22,640
+Uh
+
+1080
+00:46:20,200 --> 00:46:24,200
+So good morning, George. Uh
+
+1081
+00:46:22,640 --> 00:46:26,240
+Yue Wang.
+
+1082
+00:46:24,200 --> 00:46:27,960
+Yue Wang.
+
+1083
+00:46:26,240 --> 00:46:32,520
+Bobby Hill.
+
+1084
+00:46:27,960 --> 00:46:34,320
+Uh hello from Cole Mr. Lee. Bobby Hill,
+
+1085
+00:46:32,520 --> 00:46:36,800
+where you from?
+
+1086
+00:46:34,320 --> 00:46:39,040
+Castle Woo, good morning.
+
+1087
+00:46:36,800 --> 00:46:40,640
+Yue Wang, China. So Yue Wang is from
+
+1088
+00:46:39,040 --> 00:46:43,640
+China.
+
+1089
+00:46:40,640 --> 00:46:46,880
+And uh Bobby Hill, what's your opinion
+
+1090
+00:46:43,640 --> 00:46:50,600
+on a career in cybersecurity?
+
+1091
+00:46:46,880 --> 00:46:53,840
+So cybersecurity or in Well,
+
+1092
+00:46:50,600 --> 00:46:56,160
+in Well, in general,
+
+1093
+00:46:53,840 --> 00:46:58,000
+people just say security. So what What
+
+1094
+00:46:56,160 --> 00:47:00,160
+Where are you from, Bobby?
+
+1095
+00:46:58,000 --> 00:47:03,680
+So security, you know, it's a kind of a
+
+1096
+00:47:00,160 --> 00:47:04,920
+new profession starting around 2000s,
+
+1097
+00:47:03,680 --> 00:47:08,680
+basically.
+
+1098
+00:47:04,920 --> 00:47:10,160
+Uh I don't know much about it. So, you
+
+1099
+00:47:08,680 --> 00:47:14,120
+know, yeah, of course, you can you can
+
+1100
+00:47:10,160 --> 00:47:16,680
+make a living with that and cryptography
+
+1101
+00:47:14,120 --> 00:47:19,560
+cryptoanalysis
+
+1102
+00:47:16,680 --> 00:47:24,120
+and along with that, Bitcoin uh you
+
+1103
+00:47:19,560 --> 00:47:24,120
+know, the lots of, you know, and uh
+
+1104
+00:47:24,359 --> 00:47:29,240
+uh
+
+1105
+00:47:26,520 --> 00:47:33,520
+And Bitcoin and uh what's that called?
+
+1106
+00:47:29,240 --> 00:47:33,520
+The new technology where you
+
+1107
+00:47:34,280 --> 00:47:39,680
+uh
+
+1108
+00:47:36,040 --> 00:47:41,760
+chain. Blockchain. Blockchain.
+
+1109
+00:47:39,680 --> 00:47:45,640
+So that's, you know, the emerging
+
+1110
+00:47:41,760 --> 00:47:47,280
+technology and I think it's
+
+1111
+00:47:45,640 --> 00:47:49,120
+I think, you know, Bitcoin,
+
+1112
+00:47:47,280 --> 00:47:50,880
+cryptocurrency and things like that,
+
+1113
+00:47:49,120 --> 00:47:54,080
+they are going to stay
+
+1114
+00:47:50,880 --> 00:47:55,880
+uh for sure and they are going to
+
+1115
+00:47:54,080 --> 00:47:58,600
+I think they are critical. I you know,
+
+1116
+00:47:55,880 --> 00:48:00,960
+so I think they are pretty big.
+
+1117
+00:47:58,600 --> 00:48:03,960
+And the security, you know, one of the
+
+1118
+00:48:00,960 --> 00:48:05,680
+reasons security becomes big is because,
+
+1119
+00:48:03,960 --> 00:48:07,359
+you know, it becomes a profession and
+
+1120
+00:48:05,680 --> 00:48:10,240
+more than a profession,
+
+1121
+00:48:07,359 --> 00:48:12,320
+it's big because hacking, because you
+
+1122
+00:48:10,240 --> 00:48:14,240
+because security becomes becomes
+
+1123
+00:48:12,320 --> 00:48:15,920
+basically more and more and more
+
+1124
+00:48:14,240 --> 00:48:17,600
+important.
+
+1125
+00:48:15,920 --> 00:48:22,400
+You know, you can hack into government
+
+1126
+00:48:17,600 --> 00:48:25,600
+systems, company secret uh basically
+
+1127
+00:48:22,400 --> 00:48:26,960
+the gist of that is money. It all comes
+
+1128
+00:48:25,600 --> 00:48:28,320
+down to money.
+
+1129
+00:48:26,960 --> 00:48:31,240
+You know, so you can
+
+1130
+00:48:28,320 --> 00:48:33,240
+bank, for example, bank security, you
+
+1131
+00:48:31,240 --> 00:48:36,000
+know, it's all related to that. That's
+
+1132
+00:48:33,240 --> 00:48:37,760
+why security becomes bigger and bigger.
+
+1133
+00:48:36,000 --> 00:48:41,640
+Now, security
+
+1134
+00:48:37,760 --> 00:48:44,200
+is a general term. Okay, there's no
+
+1135
+00:48:41,640 --> 00:48:46,960
+one definition. It's very broad. So
+
+1136
+00:48:44,200 --> 00:48:48,359
+almost every everything becomes security
+
+1137
+00:48:46,960 --> 00:48:51,840
+issue now.
+
+1138
+00:48:48,359 --> 00:48:55,880
+You can call anything security.
+
+1139
+00:48:51,840 --> 00:48:57,680
+Uh so it's kind of abused, you know, so
+
+1140
+00:48:55,880 --> 00:48:59,480
+yeah, you can get a career in that, you
+
+1141
+00:48:57,680 --> 00:49:01,600
+know, you study that.
+
+1142
+00:48:59,480 --> 00:49:02,840
+Shen Bao, oh my god, another Chinese
+
+1143
+00:49:01,600 --> 00:49:04,800
+guy.
+
+1144
+00:49:02,840 --> 00:49:06,359
+Hi Ksa, what do you think of Andrew
+
+1145
+00:49:04,800 --> 00:49:08,480
+Yang?
+
+1146
+00:49:06,359 --> 00:49:11,000
+Andrew Yang.
+
+1147
+00:49:08,480 --> 00:49:12,760
+You know, I don't really
+
+1148
+00:49:11,000 --> 00:49:15,240
+You know, among the
+
+1149
+00:49:12,760 --> 00:49:17,880
+he's okay, I guess. He's okay, but his
+
+1150
+00:49:15,240 --> 00:49:21,440
+idea, okay, among the
+
+1151
+00:49:17,880 --> 00:49:23,280
+United States presidential candidates
+
+1152
+00:49:21,440 --> 00:49:27,240
+2020.
+
+1153
+00:49:23,280 --> 00:49:29,600
+So you have, of course, you have Trump,
+
+1154
+00:49:27,240 --> 00:49:30,800
+which is which is probably likely to
+
+1155
+00:49:29,600 --> 00:49:34,480
+win.
+
+1156
+00:49:30,800 --> 00:49:36,480
+Then you have the Democratic Party.
+
+1157
+00:49:34,480 --> 00:49:38,840
+And uh it's kind of a mess, you know,
+
+1158
+00:49:36,480 --> 00:49:40,440
+the Democratic Party with their social
+
+1159
+00:49:38,840 --> 00:49:42,920
+justice
+
+1160
+00:49:40,440 --> 00:49:44,960
+It's extreme mess, okay?
+
+1161
+00:49:42,920 --> 00:49:48,600
+And so among these people, among the
+
+1162
+00:49:44,960 --> 00:49:51,040
+candidate, my favorite
+
+1163
+00:49:48,600 --> 00:49:54,120
+Okay, I I can say my favorite. I know I
+
+1164
+00:49:51,040 --> 00:49:56,840
+know one I'm I can I will sanction I
+
+1165
+00:49:54,120 --> 00:49:59,080
+approve for sure, absolutely. In fact,
+
+1166
+00:49:56,840 --> 00:50:04,160
+not just I approve, I
+
+1167
+00:49:59,080 --> 00:50:05,160
+I wholeheartedly heartily support is
+
+1168
+00:50:04,160 --> 00:50:08,600
+uh
+
+1169
+00:50:05,160 --> 00:50:11,320
+Gabbard, okay? Tulsi Gabbard.
+
+1170
+00:50:08,600 --> 00:50:13,680
+She is a great person.
+
+1171
+00:50:11,320 --> 00:50:16,640
+She is um
+
+1172
+00:50:13,680 --> 00:50:19,680
+she she's she love her country, my
+
+1173
+00:50:16,640 --> 00:50:22,520
+country, okay? She
+
+1174
+00:50:19,680 --> 00:50:25,280
+she has, you know, she she's honest. She
+
+1175
+00:50:22,520 --> 00:50:27,440
+has experience in military and in
+
+1176
+00:50:25,280 --> 00:50:30,360
+government, you know, she's been
+
+1177
+00:50:27,440 --> 00:50:32,520
+a senator or something in for Hawaii at
+
+1178
+00:50:30,360 --> 00:50:35,000
+least for like 10 years or five or 10
+
+1179
+00:50:32,520 --> 00:50:37,600
+years. And she's in the military serving
+
+1180
+00:50:35,000 --> 00:50:40,320
+in the country, you know, for for 10
+
+1181
+00:50:37,600 --> 00:50:44,760
+years or so. And she's pretty honest.
+
+1182
+00:50:40,320 --> 00:50:47,120
+She is for the people, us.
+
+1183
+00:50:44,760 --> 00:50:50,360
+And uh she is what you know, one of her
+
+1184
+00:50:47,120 --> 00:50:53,360
+theme is to stop the war machine, you
+
+1185
+00:50:50,360 --> 00:50:56,840
+know, America for reasons, okay? For
+
+1186
+00:50:53,360 --> 00:50:59,680
+reasons it it's not
+
+1187
+00:50:56,840 --> 00:51:03,640
+you cannot explain simply. America for
+
+1188
+00:50:59,680 --> 00:51:07,120
+reasons is a country where we invade and
+
+1189
+00:51:03,640 --> 00:51:10,240
+rob any other country, you know?
+
+1190
+00:51:07,120 --> 00:51:12,080
+That's what we do. We we bomb them to
+
+1191
+00:51:10,240 --> 00:51:14,120
+free them. That's what we do, you know?
+
+1192
+00:51:12,080 --> 00:51:16,000
+Are they democracy? Oh, they are not
+
+1193
+00:51:14,120 --> 00:51:19,240
+democracy, bomb them.
+
+1194
+00:51:16,000 --> 00:51:22,120
+Grab their oil. That's what we do.
+
+1195
+00:51:19,240 --> 00:51:23,880
+America. So Tulsi is trying to change
+
+1196
+00:51:22,120 --> 00:51:26,440
+that, you know, stop spending billion
+
+1197
+00:51:23,880 --> 00:51:28,120
+dollars to do that, you know, kill
+
+1198
+00:51:26,440 --> 00:51:31,040
+600,000
+
+1199
+00:51:28,120 --> 00:51:33,240
+people in Iraq. That's what we did. Iraq
+
+1200
+00:51:31,040 --> 00:51:38,000
+war, 600,000
+
+1201
+00:51:33,240 --> 00:51:38,000
+civilians dead. Who do they cry to?
+
+1202
+00:51:38,200 --> 00:51:43,440
+You know, so that's that's America,
+
+1203
+00:51:40,280 --> 00:51:45,320
+okay? And uh among Americans, you know,
+
+1204
+00:51:43,440 --> 00:51:47,120
+in particular
+
+1205
+00:51:45,320 --> 00:51:49,440
+white Americans. You know, when you talk
+
+1206
+00:51:47,120 --> 00:51:51,920
+about America, it's pretty much you're
+
+1207
+00:51:49,440 --> 00:51:54,760
+talking about white American, okay? Even
+
+1208
+00:51:51,920 --> 00:51:57,360
+though technically oh, we have like 40%
+
+1209
+00:51:54,760 --> 00:52:00,200
+blacks and and we are actually uh
+
+1210
+00:51:57,360 --> 00:52:01,800
+multicultural. I'm Chinese, you know, we
+
+1211
+00:52:00,200 --> 00:52:04,520
+are actually you know, multicultural is
+
+1212
+00:52:01,800 --> 00:52:06,400
+crap, okay? Crap crap.
+
+1213
+00:52:04,520 --> 00:52:07,400
+America you talk about America. You
+
+1214
+00:52:06,400 --> 00:52:10,000
+know, like
+
+1215
+00:52:07,400 --> 00:52:12,000
+you can ask, you know, one way to judge
+
+1216
+00:52:10,000 --> 00:52:14,480
+what I you know, one way to
+
+1217
+00:52:12,000 --> 00:52:17,520
+think whether I said what I said is true
+
+1218
+00:52:14,480 --> 00:52:19,880
+is by simply asking foreign people like
+
+1219
+00:52:17,520 --> 00:52:21,280
+all the people around outside America.
+
+1220
+00:52:19,880 --> 00:52:22,680
+You ask them
+
+1221
+00:52:21,280 --> 00:52:24,120
+what do you think about America?
+
+1222
+00:52:22,680 --> 00:52:26,440
+Typically, you know,
+
+1223
+00:52:24,120 --> 00:52:27,720
+you you you don't you know, they they're
+
+1224
+00:52:26,440 --> 00:52:29,960
+basically they are thinking white
+
+1225
+00:52:27,720 --> 00:52:31,240
+people. They don't think when when it
+
+1226
+00:52:29,960 --> 00:52:34,440
+when they think America, they don't
+
+1227
+00:52:31,240 --> 00:52:36,800
+think oh black or or Chinese or or or
+
+1228
+00:52:34,440 --> 00:52:38,680
+some or Indian, you know, that's that's
+
+1229
+00:52:36,800 --> 00:52:40,840
+not the case. It's just just white
+
+1230
+00:52:38,680 --> 00:52:42,720
+people.
+
+1231
+00:52:40,840 --> 00:52:45,520
+And today
+
+1232
+00:52:42,720 --> 00:52:47,920
+the white people gang, the are
+
+1233
+00:52:45,520 --> 00:52:50,960
+the social justice type of people, the
+
+1234
+00:52:47,920 --> 00:52:53,000
+social justice and the Democratic Party
+
+1235
+00:52:50,960 --> 00:52:56,080
+people, most you know, some at least
+
+1236
+00:52:53,000 --> 00:52:57,720
+some of them. The extreme ones such as
+
+1237
+00:52:56,080 --> 00:52:59,480
+the Elizabeth
+
+1238
+00:52:57,720 --> 00:53:02,360
+ the AOC
+
+1239
+00:52:59,480 --> 00:53:04,400
+AOC the you know, they talk about
+
+1240
+00:53:02,360 --> 00:53:06,920
+immigration and stuff. They talk about
+
+1241
+00:53:04,400 --> 00:53:09,280
+race race every day. You know, they
+
+1242
+00:53:06,920 --> 00:53:10,360
+and women women oh women we must help
+
+1243
+00:53:09,280 --> 00:53:12,320
+women.
+
+1244
+00:53:10,360 --> 00:53:14,080
+They talk about that so that they become
+
+1245
+00:53:12,320 --> 00:53:16,160
+more and more powerful. That basically
+
+1246
+00:53:14,080 --> 00:53:18,480
+that's it, okay?
+
+1247
+00:53:16,160 --> 00:53:20,320
+They are the today.
+
+1248
+00:53:18,480 --> 00:53:22,160
+Of course, on the other side you also
+
+1249
+00:53:20,320 --> 00:53:24,960
+have, you know, hawks.
+
+1250
+00:53:22,160 --> 00:53:29,320
+You you you used to be American
+
+1251
+00:53:24,960 --> 00:53:32,000
+conservatives like George W. Bush.
+
+1252
+00:53:29,320 --> 00:53:34,000
+But but today they they they has less
+
+1253
+00:53:32,000 --> 00:53:36,400
+power.
+
+1254
+00:53:34,000 --> 00:53:38,000
+Uh you know, the the most power power is
+
+1255
+00:53:36,400 --> 00:53:39,680
+from the you know, the Google.
+
+1256
+00:53:38,000 --> 00:53:41,640
+Basically, they are tied with Google,
+
+1257
+00:53:39,680 --> 00:53:44,160
+Facebook, Twitter, they are all tied.
+
+1258
+00:53:41,640 --> 00:53:47,040
+And with all the major publications, New
+
+1259
+00:53:44,160 --> 00:53:47,640
+New York Times, New York Times,
+
+1260
+00:53:47,040 --> 00:53:49,840
+uh
+
+1261
+00:53:47,640 --> 00:53:51,840
+basically every
+
+1262
+00:53:49,840 --> 00:53:53,359
+you know, news
+
+1263
+00:53:51,840 --> 00:53:55,720
+publications.
+
+1264
+00:53:53,359 --> 00:53:57,520
+They rule, they control, you know, the
+
+1265
+00:53:55,720 --> 00:53:59,680
+thought flow. They start to do
+
+1266
+00:53:57,520 --> 00:54:02,000
+censorship. It's kind of amazing, you
+
+1267
+00:53:59,680 --> 00:54:04,359
+know, they you know, America imagine the
+
+1268
+00:54:02,000 --> 00:54:05,440
+free speech, you know, freedom of
+
+1269
+00:54:04,359 --> 00:54:06,840
+speech.
+
+1270
+00:54:05,440 --> 00:54:09,160
+It's the
+
+1271
+00:54:06,840 --> 00:54:11,840
+fundamental principle, the founding
+
+1272
+00:54:09,160 --> 00:54:14,120
+principle, one of the founding principle
+
+1273
+00:54:11,840 --> 00:54:16,800
+of America. And now the
+
+1274
+00:54:14,120 --> 00:54:19,320
+Democratic the social justice
+
+1275
+00:54:16,800 --> 00:54:22,200
+ they
+
+1276
+00:54:19,320 --> 00:54:23,880
+directly and explicitly say that they
+
+1277
+00:54:22,200 --> 00:54:25,960
+don't want that. You know, they their
+
+1278
+00:54:23,880 --> 00:54:28,240
+excuse is oh, we don't want we don't
+
+1279
+00:54:25,960 --> 00:54:31,040
+want hate speech. We we want free speech
+
+1280
+00:54:28,240 --> 00:54:33,520
+is good but we don't want hate speech.
+
+1281
+00:54:31,040 --> 00:54:35,400
+The
+
+1282
+00:54:33,520 --> 00:54:36,520
+They they they you know, I I think we
+
+1283
+00:54:35,400 --> 00:54:38,840
+should
+
+1284
+00:54:36,520 --> 00:54:41,280
+do what we can to eliminate those
+
+1285
+00:54:38,840 --> 00:54:41,280
+people.
+
+1286
+00:54:41,560 --> 00:54:46,880
+You know, so so that so that we get a
+
+1287
+00:54:44,680 --> 00:54:50,960
+better society. That is
+
+1288
+00:54:46,880 --> 00:54:53,440
+me, Chinese, Mexican, black people
+
+1289
+00:54:50,960 --> 00:54:56,560
+poor people
+
+1290
+00:54:53,440 --> 00:54:58,080
+including woman, okay? Woman the not not
+
+1291
+00:54:56,560 --> 00:55:00,760
+the white, you know,
+
+1292
+00:54:58,080 --> 00:55:04,000
+rich billion dollar white women, okay?
+
+1293
+00:55:00,760 --> 00:55:06,440
+But but the poor people everyday woman.
+
+1294
+00:55:04,000 --> 00:55:07,760
+We all get a better life. That's my
+
+1295
+00:55:06,440 --> 00:55:10,120
+opinion.
+
+1296
+00:55:07,760 --> 00:55:12,520
+Uh to
+
+1297
+00:55:10,120 --> 00:55:14,920
+to not support and you know,
+
+1298
+00:55:12,520 --> 00:55:16,320
+basically put criminals in jail. And I
+
+1299
+00:55:14,920 --> 00:55:18,280
+believe those
+
+1300
+00:55:16,320 --> 00:55:21,400
+many of today's, you know, Democratic
+
+1301
+00:55:18,280 --> 00:55:23,120
+Party leaders are that that
+
+1302
+00:55:21,400 --> 00:55:25,520
+are criminals.
+
+1303
+00:55:23,120 --> 00:55:27,040
+That that is my opinion, okay? Political
+
+1304
+00:55:25,520 --> 00:55:29,520
+opinion, okay? So
+
+1305
+00:55:27,040 --> 00:55:32,160
+politics. So anyway, back to the topic
+
+1306
+00:55:29,520 --> 00:55:35,560
+about the
+
+1307
+00:55:32,160 --> 00:55:37,400
+about the so presidential candidates,
+
+1308
+00:55:35,560 --> 00:55:43,040
+you know, we have several people. So
+
+1309
+00:55:37,400 --> 00:55:43,040
+Tulsi Gabbard I support very much.
+
+1310
+00:55:43,440 --> 00:55:49,040
+Uh she is basically the only one I truly
+
+1311
+00:55:46,680 --> 00:55:51,560
+support because I I mean I truly
+
+1312
+00:55:49,040 --> 00:55:53,960
+believe, you know, the all the all
+
+1313
+00:55:51,560 --> 00:55:55,720
+things considered, you know, I want to
+
+1314
+00:55:53,960 --> 00:55:57,640
+you know, that's typically I try to do.
+
+1315
+00:55:55,720 --> 00:56:00,880
+I want I consider from all things, not
+
+1316
+00:55:57,640 --> 00:56:02,960
+just you know, hot button topics or or
+
+1317
+00:56:00,880 --> 00:56:05,120
+do you support abortion? Do you are you
+
+1318
+00:56:02,960 --> 00:56:07,960
+pro-life or are you
+
+1319
+00:56:05,120 --> 00:56:10,400
+you know, the pro-choice?
+
+1320
+00:56:07,960 --> 00:56:13,400
+Stupid jargons, you know.
+
+1321
+00:56:10,400 --> 00:56:16,720
+And or or are you pro pro pro pro racism
+
+1322
+00:56:13,400 --> 00:56:18,920
+or you are you not pro racism? You know.
+
+1323
+00:56:16,720 --> 00:56:20,960
+Political hot topic. Are you pro-gun or
+
+1324
+00:56:18,920 --> 00:56:23,080
+are you not pro-gun? Do you think we
+
+1325
+00:56:20,960 --> 00:56:26,680
+should kill people?
+
+1326
+00:56:23,080 --> 00:56:29,640
+The idiocy of American
+
+1327
+00:56:26,680 --> 00:56:31,080
+way, you know, it has become that and
+
+1328
+00:56:29,640 --> 00:56:33,840
+worse.
+
+1329
+00:56:31,080 --> 00:56:36,600
+So anyway, so all things considered,
+
+1330
+00:56:33,840 --> 00:56:39,800
+Tuls- Tulsi Gabbard I've
+
+1331
+00:56:36,600 --> 00:56:42,640
+I fully believe she is great, okay? She
+
+1332
+00:56:39,800 --> 00:56:44,640
+is a great for for us, for people and
+
+1333
+00:56:42,640 --> 00:56:47,040
+she will she's also great for the world,
+
+1334
+00:56:44,640 --> 00:56:47,040
+okay?
+
+1335
+00:56:47,240 --> 00:56:52,840
+Now, other candidates. Now,
+
+1336
+00:56:49,960 --> 00:56:56,680
+Andrew Yang, okay? Andrew Yang
+
+1337
+00:56:52,840 --> 00:56:58,240
+he I don't like I don't I don't find his
+
+1338
+00:56:56,680 --> 00:57:00,600
+you know, his
+
+1339
+00:56:58,240 --> 00:57:03,880
+ideas or
+
+1340
+00:57:00,600 --> 00:57:05,720
+uh any any I don't find any interest in
+
+1341
+00:57:03,880 --> 00:57:08,000
+whatever he does. You know, he's just
+
+1342
+00:57:05,720 --> 00:57:10,880
+another candidate running for president
+
+1343
+00:57:08,000 --> 00:57:12,560
+running for president. He think
+
+1344
+00:57:10,880 --> 00:57:15,440
+you know, just like every candidate he
+
+1345
+00:57:12,560 --> 00:57:17,680
+think he's got some better ideas but I
+
+1346
+00:57:15,440 --> 00:57:19,160
+don't think so. He why okay, let me tell
+
+1347
+00:57:17,680 --> 00:57:22,160
+you why.
+
+1348
+00:57:19,160 --> 00:57:23,520
+Andrew Yang, his thing
+
+1349
+00:57:22,160 --> 00:57:26,960
+you know, for
+
+1350
+00:57:23,520 --> 00:57:29,359
+for his his marketing, his idea, his
+
+1351
+00:57:26,960 --> 00:57:31,320
+his
+
+1352
+00:57:29,359 --> 00:57:33,960
+you know, the the thing that he tries to
+
+1353
+00:57:31,320 --> 00:57:35,600
+sell is is basically
+
+1354
+00:57:33,960 --> 00:57:38,440
+you know, he's a nerd, okay? He's like
+
+1355
+00:57:35,600 --> 00:57:41,440
+us. He's a programmer. He came from, you
+
+1356
+00:57:38,440 --> 00:57:44,760
+know, the tech industry background, AI.
+
+1357
+00:57:41,440 --> 00:57:46,920
+So in his brain, you know, I know nerds,
+
+1358
+00:57:44,760 --> 00:57:48,160
+okay? I'm a nerd. I criticize nerds
+
+1359
+00:57:46,920 --> 00:57:49,920
+often. So
+
+1360
+00:57:48,160 --> 00:57:52,120
+so from what I see, you know, Andrew
+
+1361
+00:57:49,920 --> 00:57:54,720
+Yang, his brain
+
+1362
+00:57:52,120 --> 00:57:58,000
+it's got nothing. You know, he he's very
+
+1363
+00:57:54,720 --> 00:58:01,320
+typical of technology tech nerds. He
+
+1364
+00:57:58,000 --> 00:58:03,080
+thinks just like tech nerds thinks. Tech
+
+1365
+00:58:01,320 --> 00:58:05,320
+nerds in my opinion don't know nothing
+
+1366
+00:58:03,080 --> 00:58:07,520
+about society. Don't know how society
+
+1367
+00:58:05,320 --> 00:58:08,760
+grows. Don't know what people do. They
+
+1368
+00:58:07,520 --> 00:58:10,120
+don't know they don't know understand
+
+1369
+00:58:08,760 --> 00:58:13,080
+nothing.
+
+1370
+00:58:10,120 --> 00:58:16,960
+Okay, so Andrew Yang in my eyes is
+
+1371
+00:58:13,080 --> 00:58:20,520
+exactly that. No different from from any
+
+1372
+00:58:16,960 --> 00:58:22,720
+other Joe nerds among us, okay?
+
+1373
+00:58:20,520 --> 00:58:24,800
+That's my opinion. So Andrew Yang, his
+
+1374
+00:58:22,720 --> 00:58:27,400
+opinion, you know, I've seen his videos.
+
+1375
+00:58:24,800 --> 00:58:31,200
+He talk about his ideas. He's you know,
+
+1376
+00:58:27,400 --> 00:58:33,400
+his his his $1,000, you know,
+
+1377
+00:58:31,200 --> 00:58:35,440
+free you know, his one of the his
+
+1378
+00:58:33,400 --> 00:58:39,160
+selling point is that he wants to give
+
+1379
+00:58:35,440 --> 00:58:42,680
+each person $1,000 a month.
+
+1380
+00:58:39,160 --> 00:58:45,840
+He because he believes that AI the AI
+
+1381
+00:58:42,680 --> 00:58:48,120
+technology will take jobs away. He
+
+1382
+00:58:45,840 --> 00:58:52,680
+believes so therefore we should start to
+
+1383
+00:58:48,120 --> 00:58:57,400
+move into the idea of this this idea of
+
+1384
+00:58:52,680 --> 00:58:59,280
+free wage free wage. There's a term I
+
+1385
+00:58:57,400 --> 00:59:01,760
+forgot what what was that. Basically,
+
+1386
+00:58:59,280 --> 00:59:04,640
+the idea is that you know, sometimes in
+
+1387
+00:59:01,760 --> 00:59:06,440
+the future every citizen nobody has to
+
+1388
+00:59:04,640 --> 00:59:07,960
+work. You know, you just get money for
+
+1389
+00:59:06,440 --> 00:59:11,080
+free. You you know,
+
+1390
+00:59:07,960 --> 00:59:13,480
+because this the technology I mean at
+
+1391
+00:59:11,080 --> 00:59:15,880
+least from a utopian point of view, the
+
+1392
+00:59:13,480 --> 00:59:18,000
+technology is good enough so that it
+
+1393
+00:59:15,880 --> 00:59:20,680
+provides food for everyone. Every you
+
+1394
+00:59:18,000 --> 00:59:22,760
+know, nobody have to work. You just
+
+1395
+00:59:20,680 --> 00:59:24,880
+well, you do things to better society in
+
+1396
+00:59:22,760 --> 00:59:27,840
+some way. So but you don't have to for
+
+1397
+00:59:24,880 --> 00:59:31,160
+basic needs like food, you don't have to
+
+1398
+00:59:27,840 --> 00:59:34,960
+work anymore. That's the utopian idea.
+
+1399
+00:59:31,160 --> 00:59:37,800
+So Andrew Yang, Andrew Yang is start to
+
+1400
+00:59:34,960 --> 00:59:42,400
+you know, that start to push that idea
+
+1401
+00:59:37,800 --> 00:59:44,960
+beginning by giving every person $1,000
+
+1402
+00:59:42,400 --> 00:59:44,960
+a month.
+
+1403
+00:59:45,080 --> 00:59:50,520
+Uh in in my opinion, it's idiotic, okay?
+
+1404
+00:59:48,480 --> 00:59:52,240
+It's not and I don't think it's not
+
+1405
+00:59:50,520 --> 00:59:55,200
+going to
+
+1406
+00:59:52,240 --> 00:59:56,880
+um work. Well, I don't know for you
+
+1407
+00:59:55,200 --> 01:00:00,520
+know, nobody know for sure, you know,
+
+1408
+00:59:56,880 --> 01:00:03,000
+this kind of thing. No Nobody on Earth
+
+1409
+01:00:00,520 --> 01:00:05,200
+can know this whether it will work well
+
+1410
+01:00:03,000 --> 01:00:06,920
+for sure or not. Nobody, okay? I can
+
+1411
+01:00:05,200 --> 01:00:08,400
+tell you for sure.
+
+1412
+01:00:06,920 --> 01:00:11,120
+I can tell you does it you know, you
+
+1413
+01:00:08,400 --> 01:00:13,920
+might watch some AI experts, some oh
+
+1414
+01:00:11,120 --> 01:00:16,600
+academia professor on AI's, you know,
+
+1415
+01:00:13,920 --> 01:00:18,160
+they they all have opinions, but
+
+1416
+01:00:16,600 --> 01:00:20,880
+this kind of things nobody know for
+
+1417
+01:00:18,160 --> 01:00:24,280
+sure. So, anyway, Andrew Yang, so his
+
+1418
+01:00:20,880 --> 01:00:26,160
+idea, you know, his idea about how AI is
+
+1419
+01:00:24,280 --> 01:00:29,080
+going to take over, therefore we need to
+
+1420
+01:00:26,160 --> 01:00:30,160
+do something, we need to you know,
+
+1421
+01:00:29,080 --> 01:00:32,040
+uh
+
+1422
+01:00:30,160 --> 01:00:34,000
+try to do something so the automation
+
+1423
+01:00:32,040 --> 01:00:37,120
+doesn't make the country chaotic. You
+
+1424
+01:00:34,000 --> 01:00:40,560
+know, that's basically his idea. He's
+
+1425
+01:00:37,120 --> 01:00:43,200
+he's you know, he's he's perception.
+
+1426
+01:00:40,560 --> 01:00:45,440
+And to me, it's you know, that's
+
+1427
+01:00:43,200 --> 01:00:48,000
+idiotic. That's typical nerd's
+
+1428
+01:00:45,440 --> 01:00:50,760
+perception of the world.
+
+1429
+01:00:48,000 --> 01:00:53,600
+I don't think, okay? Well, so you know,
+
+1430
+01:00:50,760 --> 01:00:55,760
+so so that's that's my opinion about
+
+1431
+01:00:53,600 --> 01:00:58,640
+Andrew Yang. I don't
+
+1432
+01:00:55,760 --> 01:01:01,240
+you know, okay, maybe it will work, but
+
+1433
+01:00:58,640 --> 01:01:03,280
+so I don't see nothing special. I don't
+
+1434
+01:01:01,240 --> 01:01:05,560
+find Andrew Yang particularly
+
+1435
+01:01:03,280 --> 01:01:08,120
+interesting to me, okay?
+
+1436
+01:01:05,560 --> 01:01:10,360
+So,
+
+1437
+01:01:08,120 --> 01:01:12,440
+but anyway, there are some other
+
+1438
+01:01:10,360 --> 01:01:15,320
+lots of other Democratic candidates. I
+
+1439
+01:01:12,440 --> 01:01:17,920
+think it's far far worse. Andrew Yang at
+
+1440
+01:01:15,320 --> 01:01:20,840
+least is neutral in the in the sense
+
+1441
+01:01:17,920 --> 01:01:22,800
+that he doesn't he's not a like evil or
+
+1442
+01:01:20,840 --> 01:01:25,360
+bad person.
+
+1443
+01:01:22,800 --> 01:01:27,920
+You know, he's not here to you know, I'm
+
+1444
+01:01:25,360 --> 01:01:30,280
+going to secretly I'm going to become
+
+1445
+01:01:27,920 --> 01:01:32,040
+very rich and control become the US
+
+1446
+01:01:30,280 --> 01:01:33,680
+president and I'm going to you know,
+
+1447
+01:01:32,040 --> 01:01:36,680
+become rich. He's not like that, okay?
+
+1448
+01:01:33,680 --> 01:01:39,080
+Andrew Yang is at least I think honest,
+
+1449
+01:01:36,680 --> 01:01:41,240
+you know, nerd like like a nerd, typical
+
+1450
+01:01:39,080 --> 01:01:42,000
+nerd, okay? He had the I think he's kind
+
+1451
+01:01:41,240 --> 01:01:45,680
+of
+
+1452
+01:01:42,000 --> 01:01:46,920
+honest, okay? Uh as compared to many of
+
+1453
+01:01:45,680 --> 01:01:49,200
+the
+
+1454
+01:01:46,920 --> 01:01:51,360
+uh Democratic candidates like Elizabeth
+
+1455
+01:01:49,200 --> 01:01:53,200
+and who are the others?
+
+1456
+01:01:51,360 --> 01:01:55,280
+Okay, there's also Bernie, okay? Bernie
+
+1457
+01:01:53,200 --> 01:01:57,120
+is kind of different, okay? Let me maybe
+
+1458
+01:01:55,280 --> 01:01:59,280
+we can talk about that, but but it is a
+
+1459
+01:01:57,120 --> 01:02:02,560
+bad and and the
+
+1460
+01:01:59,280 --> 01:02:05,360
+Kamala Harris, okay? These are scumbags.
+
+1461
+01:02:02,560 --> 01:02:06,400
+Kamala Harris, Elizabeth Beth something,
+
+1462
+01:02:05,360 --> 01:02:09,200
+okay?
+
+1463
+01:02:06,400 --> 01:02:10,840
+Uh what's his her name? Elizabeth.
+
+1464
+01:02:09,200 --> 01:02:13,440
+Okay, I'm kind of like talking to
+
+1465
+01:02:10,840 --> 01:02:15,720
+myself, you know, just like let me I I
+
+1466
+01:02:13,440 --> 01:02:18,760
+need to get some feedback and see what
+
+1467
+01:02:15,720 --> 01:02:18,760
+you guys are saying.
+
+1468
+01:02:21,880 --> 01:02:25,680
+Uh
+
+1469
+01:02:23,560 --> 01:02:27,760
+Okay, so so that's my opinion about
+
+1470
+01:02:25,680 --> 01:02:30,040
+Andrew Yang. He's kind of a nerd. I
+
+1471
+01:02:27,760 --> 01:02:32,960
+don't find his
+
+1472
+01:02:30,040 --> 01:02:34,520
+ideals ideas very interesting, but at
+
+1473
+01:02:32,960 --> 01:02:37,520
+least he's
+
+1474
+01:02:34,520 --> 01:02:39,680
+he's okay. I think he's okay, okay?
+
+1475
+01:02:37,520 --> 01:02:42,080
+If I don't have any particular candidate
+
+1476
+01:02:39,680 --> 01:02:44,360
+candidates, then maybe you know, I I'll
+
+1477
+01:02:42,080 --> 01:02:46,360
+vote for Andrew Yang. That's my opinion
+
+1478
+01:02:44,360 --> 01:02:48,240
+about him. On the other hand, I must
+
+1479
+01:02:46,360 --> 01:02:49,600
+mention there's the other some of the
+
+1480
+01:02:48,240 --> 01:02:52,280
+other
+
+1481
+01:02:49,600 --> 01:02:54,400
+uh Democratic Party candidate
+
+1482
+01:02:52,280 --> 01:02:57,960
+candidates, Elizabeth
+
+1483
+01:02:54,400 --> 01:03:00,680
+that uh Hunchapota, the Hunchapota.
+
+1484
+01:02:57,960 --> 01:03:03,160
+Elizabeth, they these people these white
+
+1485
+01:03:00,680 --> 01:03:07,600
+women, okay? They lie. Lie
+
+1486
+01:03:03,160 --> 01:03:09,880
+through their mouth. Scumbags.
+
+1487
+01:03:07,600 --> 01:03:12,960
+And then then you have the AOC, this
+
+1488
+01:03:09,880 --> 01:03:14,800
+young girl, this young you know,
+
+1489
+01:03:12,960 --> 01:03:17,920
+self-centric, you know,
+
+1490
+01:03:14,800 --> 01:03:21,120
+lie and you know, creating drama just
+
+1491
+01:03:17,920 --> 01:03:23,920
+just so that she can become more famous.
+
+1492
+01:03:21,120 --> 01:03:25,120
+Then there's this Oh, yeah, Hillary.
+
+1493
+01:03:23,920 --> 01:03:29,080
+Hillary is the
+
+1494
+01:03:25,120 --> 01:03:31,120
+the worst criminal on in in in on Earth.
+
+1495
+01:03:29,080 --> 01:03:32,560
+Hillary Clinton, the worst criminal on
+
+1496
+01:03:31,120 --> 01:03:35,880
+Earth.
+
+1497
+01:03:32,560 --> 01:03:40,200
+Then you have you know, the
+
+1498
+01:03:35,880 --> 01:03:43,000
+Bulky Beto or something. A scumbag. This
+
+1499
+01:03:40,200 --> 01:03:45,320
+I think he's from Texas.
+
+1500
+01:03:43,000 --> 01:03:48,040
+Anyways, that is my opinion about those
+
+1501
+01:03:45,320 --> 01:03:48,040
+candidates.
+
+1502
+01:03:49,640 --> 01:03:54,480
+So, okay, so I you know, so that's a lot
+
+1503
+01:03:52,520 --> 01:03:58,240
+politics.
+
+1504
+01:03:54,480 --> 01:03:58,240
+Uh 10 people watching.
+
+1505
+01:03:58,400 --> 01:04:02,720
+Uh okay, so what?
+
+1506
+01:04:03,240 --> 01:04:10,240
+So, maybe that's it for today.
+
+1507
+01:04:06,880 --> 01:04:13,680
+Oh, Yuan Wang Yuan Wang uh a you are a
+
+1508
+01:04:10,240 --> 01:04:16,240
+security researcher, now. Okay.
+
+1509
+01:04:13,680 --> 01:04:16,240
+Uh
+
+1510
+01:04:16,560 --> 01:04:22,480
+Message deleted by Xardi.
+
+1511
+01:04:20,000 --> 01:04:22,480
+What?
+
+1512
+01:04:23,320 --> 01:04:25,760
+What?
+
+1513
+01:04:34,840 --> 01:04:39,280
+Why is the message deleted by Xardi?
+
+1514
+01:04:44,359 --> 01:04:50,600
+Okay, I think I'm talking kind of loud.
+
+1515
+01:04:47,120 --> 01:04:50,600
+Now it's 7:58.
+
+1516
+01:04:50,840 --> 01:04:57,040
+George, why is why is your message is
+
+1517
+01:04:53,600 --> 01:04:57,040
+deleted by Xardi?
+
+1518
+01:04:59,720 --> 01:05:02,600
+That's
+
+1519
+01:05:05,080 --> 01:05:10,800
+very
+
+1520
+01:05:07,040 --> 01:05:12,920
+strange, okay?
+
+1521
+01:05:10,800 --> 01:05:15,640
+Now, is someone hacking my Google
+
+1522
+01:05:12,920 --> 01:05:15,640
+account?
+
+1523
+01:05:19,160 --> 01:05:26,160
+George, why is all your messages says
+
+1524
+01:05:22,320 --> 01:05:26,160
+message deleted by Xardi?
+
+1525
+01:05:53,720 --> 01:05:57,520
+Are you guys seeing that?
+
+1526
+01:06:01,760 --> 01:06:08,520
+Okay, so so uh Gasso Wu Gasso Wu where
+
+1527
+01:06:05,480 --> 01:06:10,080
+from? Do you know about keyboard.io?
+
+1528
+01:06:08,520 --> 01:06:12,080
+Yeah, of course. You haven't read my
+
+1529
+01:06:10,080 --> 01:06:13,520
+blogs.
+
+1530
+01:06:12,080 --> 01:06:16,000
+Uh
+
+1531
+01:06:13,520 --> 01:06:18,960
+Yeah, you can use to control electrons
+
+1532
+01:06:16,000 --> 01:06:18,960
+uh elections.
+
+1533
+01:06:19,240 --> 01:06:24,720
+Okay, I think maybe that's it for today.
+
+1534
+01:06:22,720 --> 01:06:27,880
+Neat books.
+
+1535
+01:06:24,720 --> 01:06:29,440
+Neat books, that's how you call that
+
+1536
+01:06:27,880 --> 01:06:31,200
+Andrew Yang
+
+1537
+01:06:29,440 --> 01:06:33,880
+platform.
+
+1538
+01:06:31,200 --> 01:06:36,520
+Uh Dems talking points, free stuff,
+
+1539
+01:06:33,880 --> 01:06:40,320
+orange man bad, yeah.
+
+1540
+01:06:36,520 --> 01:06:42,320
+Oppose the globalist neoliberal agenda.
+
+1541
+01:06:40,320 --> 01:06:44,880
+Tulsi would be better, okay? I like
+
+1542
+01:06:42,320 --> 01:06:47,400
+Tulsi, but
+
+1543
+01:06:44,880 --> 01:06:50,600
+Okay, Andrew Yang what's uh Andrew Yang
+
+1544
+01:06:47,400 --> 01:06:51,640
+was groomed as a rich lawyer person. I
+
+1545
+01:06:50,600 --> 01:06:54,280
+see.
+
+1546
+01:06:51,640 --> 01:06:55,600
+Has a tech utopian nerd leftist
+
+1547
+01:06:54,280 --> 01:06:57,560
+platform.
+
+1548
+01:06:55,600 --> 01:07:01,120
+Out of touch.
+
+1549
+01:06:57,560 --> 01:07:03,840
+Uh so, George says
+
+1550
+01:07:01,120 --> 01:07:06,160
+if I can't have Tulsi, I'll have Trump
+
+1551
+01:07:03,840 --> 01:07:09,000
+for the entertainment value.
+
+1552
+01:07:06,160 --> 01:07:11,359
+Uh but George, you are in Australia, so
+
+1553
+01:07:09,000 --> 01:07:14,359
+you can't vote.
+
+1554
+01:07:11,359 --> 01:07:17,640
+Uh speaking the truth. Glad Xardi isn't
+
+1555
+01:07:14,359 --> 01:07:20,920
+racist voting for Yang just he's Asian.
+
+1556
+01:07:17,640 --> 01:07:23,200
+Uh Democratic love race, gender, yeah.
+
+1557
+01:07:20,920 --> 01:07:26,720
+That's the you know, the reason the
+
+1558
+01:07:23,200 --> 01:07:29,359
+social justice things ideas rise, you
+
+1559
+01:07:26,720 --> 01:07:31,960
+know, about race, gender is because
+
+1560
+01:07:29,359 --> 01:07:33,800
+those kind of thing are
+
+1561
+01:07:31,960 --> 01:07:36,200
+if you look at things, okay? Those are
+
+1562
+01:07:33,800 --> 01:07:38,000
+the topic those are the subject matters
+
+1563
+01:07:36,200 --> 01:07:40,040
+where you can
+
+1564
+01:07:38,000 --> 01:07:41,920
+that's one of the way those are the
+
+1565
+01:07:40,040 --> 01:07:44,880
+topics where you can get everyone
+
+1566
+01:07:41,920 --> 01:07:47,600
+involved. That is a key thing why it
+
+1567
+01:07:44,880 --> 01:07:50,560
+becomes, you know, why the Democratic
+
+1568
+01:07:47,600 --> 01:07:53,480
+the social justice extreme extremist
+
+1569
+01:07:50,560 --> 01:07:55,880
+become so much evolved around gender and
+
+1570
+01:07:53,480 --> 01:07:58,480
+race. Because those are the
+
+1571
+01:07:55,880 --> 01:08:00,440
+if you subject, you know, if you like
+
+1572
+01:07:58,480 --> 01:08:03,280
+forget about politics, if you just think
+
+1573
+01:08:00,440 --> 01:08:06,120
+about what kind of subject that I can
+
+1574
+01:08:03,280 --> 01:08:08,800
+get everyone on Earth involved, that
+
+1575
+01:08:06,120 --> 01:08:09,720
+would be gender and race, okay? Because
+
+1576
+01:08:08,800 --> 01:08:11,720
+you know,
+
+1577
+01:08:09,720 --> 01:08:13,800
+everyone has a gender and race and and
+
+1578
+01:08:11,720 --> 01:08:15,320
+sex, basically.
+
+1579
+01:08:13,800 --> 01:08:16,719
+When it comes to
+
+1580
+01:08:15,320 --> 01:08:19,920
+uh you know,
+
+1581
+01:08:16,719 --> 01:08:23,319
+you know, race race is a eternal
+
+1582
+01:08:19,920 --> 01:08:25,880
+problem. So is gender, sex, okay? Forget
+
+1583
+01:08:23,319 --> 01:08:27,759
+about the word gender, just say sex. Sex
+
+1584
+01:08:25,880 --> 01:08:31,960
+is the proper word.
+
+1585
+01:08:27,759 --> 01:08:35,799
+Race and sex is the eternal fundamental
+
+1586
+01:08:31,960 --> 01:08:38,160
+of human animals. It's a problem that
+
+1587
+01:08:35,799 --> 01:08:39,040
+you know, depends on perspective.
+
+1588
+01:08:38,160 --> 01:08:40,759
+You know,
+
+1589
+01:08:39,040 --> 01:08:43,759
+you may call it a problem or it's not a
+
+1590
+01:08:40,759 --> 01:08:45,719
+problem. But it's the fundamental it is
+
+1591
+01:08:43,759 --> 01:08:49,040
+like you it's something you cannot
+
+1592
+01:08:45,719 --> 01:08:50,600
+escape. Like you know, like eating.
+
+1593
+01:08:49,040 --> 01:08:52,759
+You know, you can stop eating, you know,
+
+1594
+01:08:50,600 --> 01:08:55,520
+it's like eating food, you know, if you
+
+1595
+01:08:52,759 --> 01:08:57,400
+don't do that, you you die. That is why
+
+1596
+01:08:55,520 --> 01:08:58,480
+religion
+
+1597
+01:08:57,400 --> 01:09:00,480
+always
+
+1598
+01:08:58,480 --> 01:09:02,319
+revolve around eating. For example, in
+
+1599
+01:09:00,480 --> 01:09:05,600
+religion you have oh, certain things you
+
+1600
+01:09:02,319 --> 01:09:08,359
+cannot eat, certain day you cannot eat,
+
+1601
+01:09:05,600 --> 01:09:10,200
+you are not not allowed to eat. And
+
+1602
+01:09:08,359 --> 01:09:12,240
+whenever before you eat, you need to
+
+1603
+01:09:10,200 --> 01:09:14,400
+pray, you know, this is
+
+1604
+01:09:12,240 --> 01:09:16,480
+why why does religion has something to
+
+1605
+01:09:14,400 --> 01:09:18,880
+do with eating often? Like different
+
+1606
+01:09:16,480 --> 01:09:21,880
+religions often have to do that. Because
+
+1607
+01:09:18,880 --> 01:09:22,799
+eating is a fundamental it's a core part
+
+1608
+01:09:21,880 --> 01:09:25,400
+of
+
+1609
+01:09:22,799 --> 01:09:27,960
+human animals. You cannot escape it.
+
+1610
+01:09:25,400 --> 01:09:29,720
+Therefore, you know, just like race and
+
+1611
+01:09:27,960 --> 01:09:32,440
+gender, okay, sex.
+
+1612
+01:09:29,720 --> 01:09:35,720
+Therefore, eating so so if you can
+
+1613
+01:09:32,440 --> 01:09:37,080
+tie your ideas or whatever to eating,
+
+1614
+01:09:35,720 --> 01:09:39,240
+then
+
+1615
+01:09:37,080 --> 01:09:41,480
+you get everyone involved, you know,
+
+1616
+01:09:39,240 --> 01:09:44,640
+then you know
+
+1617
+01:09:41,480 --> 01:09:46,440
+So, that is one way, religion becomes
+
+1618
+01:09:44,640 --> 01:09:48,600
+revolved around, you know, you have
+
+1619
+01:09:46,440 --> 01:09:51,040
+like, you know, this
+
+1620
+01:09:48,600 --> 01:09:53,000
+uh uh you know, be pray before eating,
+
+1621
+01:09:51,040 --> 01:09:55,240
+things like that. And uh something you
+
+1622
+01:09:53,000 --> 01:09:57,240
+can you are not allowed to eat and some
+
+1623
+01:09:55,240 --> 01:09:59,720
+other day you you may be allowed to eat
+
+1624
+01:09:57,240 --> 01:10:01,200
+and and you have fasting, you know,
+
+1625
+01:09:59,720 --> 01:10:04,120
+certain days you have to fast, things
+
+1626
+01:10:01,200 --> 01:10:06,400
+like that. Because it controls
+
+1627
+01:10:04,120 --> 01:10:09,240
+you know, eating is a fundamental
+
+1628
+01:10:06,400 --> 01:10:12,440
+thing and and and uh as a consequence
+
+1629
+01:10:09,240 --> 01:10:15,320
+it's a also fundamental desire.
+
+1630
+01:10:12,440 --> 01:10:18,960
+You need you want to eat. Then comes
+
+1631
+01:10:15,320 --> 01:10:21,360
+this certain thought that tells you, oh,
+
+1632
+01:10:18,960 --> 01:10:23,800
+you you can only do certain certain you
+
+1633
+01:10:21,360 --> 01:10:27,600
+it controls, you see, it meshes with
+
+1634
+01:10:23,800 --> 01:10:29,240
+eating. So, it influences you. That is
+
+1635
+01:10:27,600 --> 01:10:31,400
+why religion is
+
+1636
+01:10:29,240 --> 01:10:34,040
+a lot religions, you know,
+
+1637
+01:10:31,400 --> 01:10:37,840
+they evolve around eating.
+
+1638
+01:10:34,040 --> 01:10:38,800
+In the same way, race and sex
+
+1639
+01:10:37,840 --> 01:10:41,600
+it it it
+
+1640
+01:10:38,800 --> 01:10:44,080
+it's the same uh the same same same
+
+1641
+01:10:41,600 --> 01:10:46,320
+situation. You know, sex, nobody can
+
+1642
+01:10:44,080 --> 01:10:48,200
+avoid.
+
+1643
+01:10:46,320 --> 01:10:50,520
+Unless you are a monk, you know, which
+
+1644
+01:10:48,200 --> 01:10:52,800
+is one in a million, you know, if if we
+
+1645
+01:10:50,520 --> 01:10:57,080
+all become monks, we die, basically,
+
+1646
+01:10:52,800 --> 01:10:59,400
+human race extinct, okay. So, but for
+
+1647
+01:10:57,080 --> 01:11:01,000
+basically everyone, you have to have
+
+1648
+01:10:59,400 --> 01:11:02,920
+sex.
+
+1649
+01:11:01,000 --> 01:11:05,360
+You cannot stop it. You cannot help it.
+
+1650
+01:11:02,920 --> 01:11:06,840
+And in fact, it's built in. It's built
+
+1651
+01:11:05,360 --> 01:11:10,000
+in because
+
+1652
+01:11:06,840 --> 01:11:12,040
+because those who don't care about sex,
+
+1653
+01:11:10,000 --> 01:11:14,840
+who don't want sex, doesn't matter male
+
+1654
+01:11:12,040 --> 01:11:16,440
+or female or or those people who are gay
+
+1655
+01:11:14,840 --> 01:11:17,720
+or you know, doesn't matter what
+
+1656
+01:11:16,440 --> 01:11:19,360
+whatever.
+
+1657
+01:11:17,720 --> 01:11:21,440
+If you don't really care about sex, you
+
+1658
+01:11:19,360 --> 01:11:22,560
+die. You Those people died long time
+
+1659
+01:11:21,440 --> 01:11:24,200
+ago.
+
+1660
+01:11:22,560 --> 01:11:27,280
+This is called evolution because you
+
+1661
+01:11:24,200 --> 01:11:30,440
+don't reproduce. You you you die. So,
+
+1662
+01:11:27,280 --> 01:11:33,000
+it's only those people in particular,
+
+1663
+01:11:30,440 --> 01:11:35,640
+those people all the time.
+
+1664
+01:11:33,000 --> 01:11:38,320
+Guys who all every girl,
+
+1665
+01:11:35,640 --> 01:11:40,600
+they get more children. They So,
+
+1666
+01:11:38,320 --> 01:11:42,400
+therefore, every man becomes like that.
+
+1667
+01:11:40,600 --> 01:11:44,560
+Same thing for women, but a bit
+
+1668
+01:11:42,400 --> 01:11:47,520
+different. Women, they want they need to
+
+1669
+01:11:44,560 --> 01:11:49,160
+choose the guy who is the most powerful
+
+1670
+01:11:47,520 --> 01:11:51,040
+so they can support their children.
+
+1671
+01:11:49,160 --> 01:11:53,400
+Therefore,
+
+1672
+01:11:51,040 --> 01:11:55,040
+women likes
+
+1673
+01:11:53,400 --> 01:11:56,920
+basically.
+
+1674
+01:11:55,040 --> 01:11:59,560
+Uh because, you know, women cannot, you
+
+1675
+01:11:56,920 --> 01:12:01,840
+know, have one baby every every time
+
+1676
+01:11:59,560 --> 01:12:04,920
+they have sex. They only can have one
+
+1677
+01:12:01,840 --> 01:12:07,480
+per year, basically. So, that is uh so,
+
+1678
+01:12:04,920 --> 01:12:08,680
+they have different strategies to
+
+1679
+01:12:07,480 --> 01:12:12,400
+to
+
+1680
+01:12:08,680 --> 01:12:12,400
+to increase, you know, to
+
+1681
+01:12:12,960 --> 01:12:16,360
+uh to multiply
+
+1682
+01:12:17,440 --> 01:12:22,400
+uh themselves. So, that is, you know,
+
+1683
+01:12:19,840 --> 01:12:23,440
+this this So, sex, you know, gender,
+
+1684
+01:12:22,400 --> 01:12:25,320
+that's
+
+1685
+01:12:23,440 --> 01:12:27,960
+biological fundamental.
+
+1686
+01:12:25,320 --> 01:12:29,320
+And race is similar, okay, race is kind
+
+1687
+01:12:27,960 --> 01:12:31,640
+of similar. You know, when you think
+
+1688
+01:12:29,320 --> 01:12:35,680
+about race, where does race come from?
+
+1689
+01:12:31,640 --> 01:12:39,920
+Race came from sex, okay. Race is
+
+1690
+01:12:35,680 --> 01:12:39,920
+intimately tied with sex.
+
+1691
+01:12:40,240 --> 01:12:46,240
+I have sex with some girl, we have
+
+1692
+01:12:43,240 --> 01:12:49,400
+children, we become a family. That's
+
+1693
+01:12:46,240 --> 01:12:52,120
+race in the most smallest scale. You
+
+1694
+01:12:49,400 --> 01:12:54,360
+have a race, okay. You have
+
+1695
+01:12:52,120 --> 01:12:56,680
+you know, you married a guy, let's say,
+
+1696
+01:12:54,360 --> 01:12:58,720
+you married a guy, you have a family.
+
+1697
+01:12:56,680 --> 01:13:02,600
+Then you have a family. You you have you
+
+1698
+01:12:58,720 --> 01:13:04,520
+have a unit of race. So, I want to
+
+1699
+01:13:02,600 --> 01:13:06,920
+you know,
+
+1700
+01:13:04,520 --> 01:13:08,640
+So, we but but
+
+1701
+01:13:06,920 --> 01:13:11,160
+but we may have a conflict whenever
+
+1702
+01:13:08,640 --> 01:13:13,320
+there's a food scarcity or when, you
+
+1703
+01:13:11,160 --> 01:13:15,320
+know, things like that. So, that's race,
+
+1704
+01:13:13,320 --> 01:13:17,640
+you know, so racial race issues is
+
+1705
+01:13:15,320 --> 01:13:20,360
+fundamental. It's it's something not
+
+1706
+01:13:17,640 --> 01:13:22,520
+that you cannot escape, okay.
+
+1707
+01:13:20,360 --> 01:13:24,760
+Um
+
+1708
+01:13:22,520 --> 01:13:27,600
+So, so, you know, if you want to get
+
+1709
+01:13:24,760 --> 01:13:29,200
+every everyone
+
+1710
+01:13:27,600 --> 01:13:31,960
+involved, you know,
+
+1711
+01:13:29,200 --> 01:13:34,080
+sex, race, and food, that's kind of the
+
+1712
+01:13:31,960 --> 01:13:37,520
+things that the subject matter you want
+
+1713
+01:13:34,080 --> 01:13:40,600
+to tie into your propaganda or whatever
+
+1714
+01:13:37,520 --> 01:13:43,280
+you want to say, marketing. So, that is
+
+1715
+01:13:40,600 --> 01:13:46,440
+why and and race issue, okay,
+
+1716
+01:13:43,280 --> 01:13:48,120
+these issues, sex, race, sex and race,
+
+1717
+01:13:46,440 --> 01:13:49,720
+okay,
+
+1718
+01:13:48,120 --> 01:13:52,640
+and even food,
+
+1719
+01:13:49,720 --> 01:13:55,360
+they are not something that you that can
+
+1720
+01:13:52,640 --> 01:13:57,680
+be solved, okay, it's not it's not it's
+
+1721
+01:13:55,360 --> 01:13:59,720
+not something you can solve it for good
+
+1722
+01:13:57,680 --> 01:14:02,840
+for for for for good.
+
+1723
+01:13:59,720 --> 01:14:02,840
+Because it's
+
+1724
+01:14:03,720 --> 01:14:09,400
+you know, it's because it's tied to your
+
+1725
+01:14:05,440 --> 01:14:11,680
+DNA, okay, it's it's tied to your DNA.
+
+1726
+01:14:09,400 --> 01:14:13,640
+So, again, it depends on how you look at
+
+1727
+01:14:11,680 --> 01:14:15,560
+the problem. You know, if you go by
+
+1728
+01:14:13,640 --> 01:14:17,520
+Eastern philosophy,
+
+1729
+01:14:15,560 --> 01:14:19,760
+you know, Buddhism, you don't really
+
+1730
+01:14:17,520 --> 01:14:22,320
+look at this problem as a problem. You
+
+1731
+01:14:19,760 --> 01:14:26,480
+know, in life you don't For example, as
+
+1732
+01:14:22,320 --> 01:14:28,280
+a human animal, you need it's necessary.
+
+1733
+01:14:26,480 --> 01:14:30,720
+You eat every day.
+
+1734
+01:14:28,280 --> 01:14:32,800
+You know, maybe it's it's necessary. You
+
+1735
+01:14:30,720 --> 01:14:35,280
+cannot You know, you then then you might
+
+1736
+01:14:32,800 --> 01:14:36,840
+think, oh, oh my god, I have to eat.
+
+1737
+01:14:35,280 --> 01:14:38,640
+What? Um
+
+1738
+01:14:36,840 --> 01:14:40,520
+My god, this is a problem. I don't
+
+1739
+01:14:38,640 --> 01:14:42,800
+really, you know, why do we have to, you
+
+1740
+01:14:40,520 --> 01:14:45,120
+know, have to eat? Why why is the
+
+1741
+01:14:42,800 --> 01:14:47,480
+situation that we human have to eat? And
+
+1742
+01:14:45,120 --> 01:14:50,040
+why is it that we have to become old?
+
+1743
+01:14:47,480 --> 01:14:52,080
+Oh, this is a problem. We can't I cannot
+
+1744
+01:14:50,040 --> 01:14:53,920
+deal with it.
+
+1745
+01:14:52,080 --> 01:14:55,640
+See, it's a matter of perspective. If
+
+1746
+01:14:53,920 --> 01:14:56,840
+you really think of that There there are
+
+1747
+01:14:55,640 --> 01:14:58,960
+some people
+
+1748
+01:14:56,840 --> 01:15:01,600
+basically psychological
+
+1749
+01:14:58,960 --> 01:15:03,920
+uh psychologically sick people, they
+
+1750
+01:15:01,600 --> 01:15:07,760
+do think too much like that and they
+
+1751
+01:15:03,920 --> 01:15:08,840
+kind of perish. They become unhealthy.
+
+1752
+01:15:07,760 --> 01:15:10,720
+So,
+
+1753
+01:15:08,840 --> 01:15:12,120
+the world of things it it, you know,
+
+1754
+01:15:10,720 --> 01:15:14,200
+whether it's a problem or not, you
+
+1755
+01:15:12,120 --> 01:15:17,320
+don't, you know, you depends on your
+
+1756
+01:15:14,200 --> 01:15:21,240
+perspective. So, if you want to
+
+1757
+01:15:17,320 --> 01:15:23,760
+look at gender or or race as a problem,
+
+1758
+01:15:21,240 --> 01:15:26,280
+then it it becomes worse and worse
+
+1759
+01:15:23,760 --> 01:15:27,360
+problem. It becomes a real problem. You
+
+1760
+01:15:26,280 --> 01:15:29,440
+know, it's
+
+1761
+01:15:27,360 --> 01:15:31,840
+you know, so, that is what the social
+
+1762
+01:15:29,440 --> 01:15:33,400
+justice can are doing. They are trying
+
+1763
+01:15:31,840 --> 01:15:34,400
+to use that to
+
+1764
+01:15:33,400 --> 01:15:37,600
+uh
+
+1765
+01:15:34,400 --> 01:15:37,600
+sell themselves.
+
+1766
+01:15:40,000 --> 01:15:45,320
+Okay, so, that's it for today, okay. So,
+
+1767
+01:15:42,560 --> 01:15:48,120
+I'm not sure I'm going to be banned on
+
+1768
+01:15:45,320 --> 01:15:49,840
+YouTube for this.
+
+1769
+01:15:48,120 --> 01:15:51,560
+It is a possibility. Maybe no
+
+1770
+01:15:49,840 --> 01:15:52,720
+monetization.
+
+1771
+01:15:51,560 --> 01:15:53,800
+Uh
+
+1772
+01:15:52,720 --> 01:15:56,200
+yeah.
+
+1773
+01:15:53,800 --> 01:15:58,200
+And maybe that
+
+1774
+01:15:56,200 --> 01:16:00,320
+I'm afraid, you know,
+
+1775
+01:15:58,200 --> 01:16:02,080
+Oh, thank you, George,
+
+1776
+01:16:00,320 --> 01:16:04,920
+for the uh
+
+1777
+01:16:02,080 --> 01:16:07,960
+fist check Discord, okay. So, thank you,
+
+1778
+01:16:04,920 --> 01:16:10,760
+George, for the super chat.
+
+1779
+01:16:07,960 --> 01:16:13,760
+Let's check Discord. Oh, I need to play
+
+1780
+01:16:10,760 --> 01:16:15,120
+this. I was going to play this.
+
+1781
+01:16:13,760 --> 01:16:18,400
+Oh, thank you,
+
+1782
+01:16:15,120 --> 01:16:20,400
+jeez. I have money, ching ching. I have
+
+1783
+01:16:18,400 --> 01:16:23,720
+money coming.
+
+1784
+01:16:20,400 --> 01:16:23,720
+Uh and who is that?
+
+1785
+01:16:27,920 --> 01:16:32,440
+George, why is your uh
+
+1786
+01:16:30,760 --> 01:16:34,120
+why is your
+
+1787
+01:16:32,440 --> 01:16:37,960
+post all like
+
+1788
+01:16:34,120 --> 01:16:37,960
+says deleted by X star?
+
+1789
+01:16:39,280 --> 01:16:42,880
+I am people around the world we are
+
+1790
+01:16:40,800 --> 01:16:44,720
+flooding the buckets. Naby Why would
+
+1791
+01:16:42,880 --> 01:16:46,600
+they send a message? YouTube is weird.
+
+1792
+01:16:44,720 --> 01:16:49,240
+Naby weird weird some. Why is X star
+
+1793
+01:16:46,600 --> 01:16:52,160
+deleting my comments? Yeah, I don't
+
+1794
+01:16:49,240 --> 01:16:52,160
+know. Uh
+
+1795
+01:16:53,160 --> 01:16:59,280
+You have been placed in timeout by owner
+
+1796
+01:16:55,680 --> 01:16:59,280
+of the video moderator.
+
+1797
+01:17:00,800 --> 01:17:07,600
+Is it fixed now? Uh and uh
+
+1798
+01:17:04,200 --> 01:17:09,880
+Naby Young, thank you, guys. So, let me
+
+1799
+01:17:07,600 --> 01:17:13,080
+check, okay. Maybe I
+
+1800
+01:17:09,880 --> 01:17:13,080
+bumped into it.
+
+1801
+01:17:14,920 --> 01:17:19,760
+Wait. George, uh what?
+
+1802
+01:17:25,800 --> 01:17:30,640
+Naby Young, we are testing how much
+
+1803
+01:17:27,600 --> 01:17:32,200
+money takes to float message on top.
+
+1804
+01:17:30,640 --> 01:17:35,360
+Okay, so,
+
+1805
+01:17:32,200 --> 01:17:38,120
+let's see.
+
+1806
+01:17:35,360 --> 01:17:40,600
+George, go to channel,
+
+1807
+01:17:38,120 --> 01:17:43,000
+report, remove,
+
+1808
+01:17:40,600 --> 01:17:45,680
+put in user put user Let let me try
+
+1809
+01:17:43,000 --> 01:17:45,680
+this, okay.
+
+1810
+01:17:46,200 --> 01:17:49,720
+Put user in timeout.
+
+1811
+01:17:51,160 --> 01:17:55,040
+Okay, let's try it again.
+
+1812
+01:17:55,920 --> 01:18:03,040
+Oh, I think I might maybe that's why.
+
+1813
+01:18:00,120 --> 01:18:04,760
+Ah, sorry, George. It's happened again.
+
+1814
+01:18:03,040 --> 01:18:07,080
+I think that's why. So,
+
+1815
+01:18:04,760 --> 01:18:09,160
+so, this
+
+1816
+01:18:07,080 --> 01:18:10,920
+Oh, so, you cannot post for the next 5
+
+1817
+01:18:09,160 --> 01:18:13,240
+minutes. I think that's what what what
+
+1818
+01:18:10,920 --> 01:18:15,560
+is this about, okay. So, when you put
+
+1819
+01:18:13,240 --> 01:18:18,880
+somebody in timeout, that means
+
+1820
+01:18:15,560 --> 01:18:22,400
+you prevent them for from posting for
+
+1821
+01:18:18,880 --> 01:18:22,400
+the next 5 minutes.
+
+1822
+01:18:27,719 --> 01:18:33,080
+Yeah, I think that's why.
+
+1823
+01:18:30,880 --> 01:18:34,400
+Okay, I think that's it. Anything else?
+
+1824
+01:18:33,080 --> 01:18:38,400
+Post, okay.
+
+1825
+01:18:34,400 --> 01:18:41,960
+Type it or type in the Discord and uh I
+
+1826
+01:18:38,400 --> 01:18:45,680
+think that's it for today.
+
+1827
+01:18:41,960 --> 01:18:47,960
+Now Now, this video, will I get banned
+
+1828
+01:18:45,680 --> 01:18:50,600
+by Google? Hmm.
+
+1829
+01:18:47,960 --> 01:18:50,600
+I don't know.
+
+1830
+01:18:54,000 --> 01:18:58,560
+Okay, so, but George, you are now in
+
+1831
+01:18:55,960 --> 01:19:00,840
+timeout again for 5 minutes.
+
+1832
+01:18:58,560 --> 01:19:02,800
+So, just wait for it to
+
+1833
+01:19:00,840 --> 01:19:04,200
+clear, okay. Uh
+
+1834
+01:19:02,800 --> 01:19:06,680
+I think that's it for today. Anything
+
+1835
+01:19:04,200 --> 01:19:06,680
+else?
+
+1836
+01:19:09,760 --> 01:19:12,840
+Thank you, Alan.
+
+1837
+01:19:16,760 --> 01:19:22,840
+Rate you, fear mongers. Oh, hi with rate
+
+1838
+01:19:20,400 --> 01:19:22,840
+to you.
+
+1839
+01:19:24,200 --> 01:19:29,040
+Okay, I think let's avoid those
+
+1840
+01:19:26,480 --> 01:19:31,240
+sensitive words because I really don't
+
+1841
+01:19:29,040 --> 01:19:36,040
+want to be
+
+1842
+01:19:31,240 --> 01:19:36,040
+uh you know, banned by Google. So, uh
+
+1843
+01:19:40,400 --> 01:19:45,080
+Okay, that's it for today, I think.
+
+1844
+01:20:02,920 --> 01:20:09,080
+Bye, guys. Hi, Michael Edwards. Pin on
+
+1845
+01:20:05,960 --> 01:20:09,080
+comment above.
+
+1846
+01:20:11,640 --> 01:20:17,640
+Okay, sorry, George. Um you know, that
+
+1847
+01:20:14,120 --> 01:20:17,640
+for that time up, but uh
+
+1848
+01:20:18,040 --> 01:20:22,160
+Okay, let's see how long I've been
+
+1849
+01:20:19,840 --> 01:20:24,520
+talking now.
+
+1850
+01:20:22,160 --> 01:20:27,120
+Uh
+
+1851
+01:20:24,520 --> 01:20:30,280
+1 hour and 20 minutes. Let's wait for 2
+
+1852
+01:20:27,120 --> 01:20:32,960
+minutes. 2 minutes and we close. Okay.
+
+1853
+01:20:30,280 --> 01:20:34,720
+And meanwhile, there is this Russian
+
+1854
+01:20:32,960 --> 01:20:39,040
+girl
+
+1855
+01:20:34,720 --> 01:20:43,000
+who is playing the Russian anthem.
+
+1856
+01:20:39,040 --> 01:20:43,000
+Beautiful. Wait, did I close it?
+
+1857
+01:20:45,200 --> 01:20:50,640
+Good morning, Louise Hendrick Perez.
+
+1858
+01:20:55,440 --> 01:21:01,360
+Hey, IPM. Hey, wow, I have a lot of
+
+1859
+01:20:58,360 --> 01:21:04,400
+people today. So, I'm going to shut down
+
+1860
+01:21:01,360 --> 01:21:05,960
+in in 5 minutes or so, in in 2 minutes
+
+1861
+01:21:04,400 --> 01:21:08,200
+in 3 minutes.
+
+1862
+01:21:05,960 --> 01:21:12,240
+So, let me play this Russian girl
+
+1863
+01:21:08,200 --> 01:21:12,240
+playing Russian anthem.
+
+1864
+01:21:25,760 --> 01:21:28,120
+Ciao.
+
+1865
+01:22:26,560 --> 01:22:32,840
+Okay, I think that's it. I don't want to
+
+1866
+01:22:28,640 --> 01:22:34,960
+play the whole thing in uh in case the
+
+1867
+01:22:32,840 --> 01:22:37,920
+you know, the the copyright, you know,
+
+1868
+01:22:34,960 --> 01:22:40,080
+Google copyright bot
+
+1869
+01:22:37,920 --> 01:22:42,680
+gets on to me. So, thank you guys for
+
+1870
+01:22:40,080 --> 01:22:43,760
+coming and that's it for today. Bye,
+
+1871
+01:22:42,680 --> 01:22:46,280
+guys.
+
+1872
+01:22:43,760 --> 01:22:49,880
+So, if you haven't already, join my
+
+1873
+01:22:46,280 --> 01:22:51,560
+Discord. Okay, you can find my Discord
+
+1874
+01:22:49,880 --> 01:22:55,400
+channel um
+
+1875
+01:22:51,560 --> 01:22:57,920
+the URL everywhere on my YouTube, on my
+
+1876
+01:22:55,400 --> 01:23:02,040
+uh Tsar Talk Show page. Just search for
+
+1877
+01:22:57,920 --> 01:23:02,040
+Tsar D Discord. Bye, guys.
+

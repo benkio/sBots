@@ -1,0 +1,2840 @@
+1
+00:00:06,799 --> 00:00:10,160
+good morning everyone
+
+2
+00:00:07,839 --> 00:00:10,960
+welcome to another episode of sound talk
+
+3
+00:00:10,160 --> 00:00:13,280
+show
+
+4
+00:00:10,960 --> 00:00:15,120
+so today i'm going to code wufang
+
+5
+00:00:13,280 --> 00:00:19,359
+language mathematica
+
+6
+00:00:15,120 --> 00:00:23,760
+and i'm going to code i'm going to code
+
+7
+00:00:19,359 --> 00:00:26,160
+this hyperbola hyperboloid of one sheet
+
+8
+00:00:23,760 --> 00:00:27,519
+so i'm actually going to generate this
+
+9
+00:00:26,160 --> 00:00:30,880
+image okay
+
+10
+00:00:27,519 --> 00:00:33,920
+the rotation of a bar
+
+11
+00:00:30,880 --> 00:00:34,880
+and possibly also this one this one this
+
+12
+00:00:33,920 --> 00:00:38,079
+one
+
+13
+00:00:34,880 --> 00:00:40,000
+this one and the silhouette of a cube
+
+14
+00:00:38,079 --> 00:00:43,440
+when you spin it like a dice
+
+15
+00:00:40,000 --> 00:00:47,120
+here's a photo is a hyper
+
+16
+00:00:43,440 --> 00:00:49,200
+hyperboloid is is that figure okay so
+
+17
+00:00:47,120 --> 00:00:50,879
+this is what i we are going to do and
+
+18
+00:00:49,200 --> 00:00:54,399
+here is an interesting
+
+19
+00:00:50,879 --> 00:00:57,360
+uh 3d printed toy you can make
+
+20
+00:00:54,399 --> 00:00:58,320
+someone else made it this curve is
+
+21
+00:00:57,360 --> 00:01:01,920
+interesting
+
+22
+00:00:58,320 --> 00:01:05,040
+because it's made of one
+
+23
+00:01:01,920 --> 00:01:08,640
+line that is it it's it can be generated
+
+24
+00:01:05,040 --> 00:01:12,080
+by simply rotating a single line
+
+25
+00:01:08,640 --> 00:01:14,000
+and such a surface
+
+26
+00:01:12,080 --> 00:01:15,520
+is called the rule surface you know
+
+27
+00:01:14,000 --> 00:01:18,640
+mathematically you say
+
+28
+00:01:15,520 --> 00:01:20,960
+for every point on a curve on a surface
+
+29
+00:01:18,640 --> 00:01:21,840
+there is a line on the surface passing
+
+30
+00:01:20,960 --> 00:01:24,479
+through it for
+
+31
+00:01:21,840 --> 00:01:25,200
+every and each and every point on the
+
+32
+00:01:24,479 --> 00:01:27,600
+curve
+
+33
+00:01:25,200 --> 00:01:29,040
+and here is there are a lot of
+
+34
+00:01:27,600 --> 00:01:32,400
+architectures
+
+35
+00:01:29,040 --> 00:01:35,600
+towers uh you know using this idea
+
+36
+00:01:32,400 --> 00:01:38,159
+concepts very popular in architecture
+
+37
+00:01:35,600 --> 00:01:40,479
+so this is called road surface and this
+
+38
+00:01:38,159 --> 00:01:44,079
+this happens also to be a
+
+39
+00:01:40,479 --> 00:01:45,840
+one of the conic section uh surfaces
+
+40
+00:01:44,079 --> 00:01:47,840
+that is the cross section of this
+
+41
+00:01:45,840 --> 00:01:51,680
+surface if you cut it you know
+
+42
+00:01:47,840 --> 00:01:54,079
+uh horizontally then it's going to be
+
+43
+00:01:51,680 --> 00:01:55,759
+a circle if you cut it vertically then
+
+44
+00:01:54,079 --> 00:01:58,159
+it's a parabola it's a
+
+45
+00:01:55,759 --> 00:02:00,560
+surface of revolution of a parabola so
+
+46
+00:01:58,159 --> 00:02:03,920
+there are several ways to generate this
+
+47
+00:02:00,560 --> 00:02:06,320
+curve you can rotate a parabola around
+
+48
+00:02:03,920 --> 00:02:07,040
+one of the axis and form this surface or
+
+49
+00:02:06,320 --> 00:02:10,959
+you can
+
+50
+00:02:07,040 --> 00:02:12,879
+simply you know rotate the line
+
+51
+00:02:10,959 --> 00:02:14,720
+so this is very interesting you know
+
+52
+00:02:12,879 --> 00:02:16,319
+this is fascinating because there's a
+
+53
+00:02:14,720 --> 00:02:18,879
+whole family of these
+
+54
+00:02:16,319 --> 00:02:21,120
+similar things for example this surface
+
+55
+00:02:18,879 --> 00:02:25,599
+is a hyperbolic paraboloid
+
+56
+00:02:21,120 --> 00:02:28,080
+it's also made of one single line um
+
+57
+00:02:25,599 --> 00:02:29,760
+okay so we are going to code this today
+
+58
+00:02:28,080 --> 00:02:31,840
+let's start coding okay good morning
+
+59
+00:02:29,760 --> 00:02:34,160
+everyone if you are here say hi okay
+
+60
+00:02:31,840 --> 00:02:36,319
+comment and uh
+
+61
+00:02:34,160 --> 00:02:39,120
+you know comment and ask me questions
+
+62
+00:02:36,319 --> 00:02:41,200
+okay so let's code it so
+
+63
+00:02:39,120 --> 00:02:42,879
+so first of all we need to do what we
+
+64
+00:02:41,200 --> 00:02:45,599
+need to do is to uh gen
+
+65
+00:02:42,879 --> 00:02:46,480
+uh generate the tube okay so let's go to
+
+66
+00:02:45,599 --> 00:02:48,080
+mathematica
+
+67
+00:02:46,480 --> 00:02:50,160
+and by the way let me show you this one
+
+68
+00:02:48,080 --> 00:02:53,040
+okay hilbert curve
+
+69
+00:02:50,160 --> 00:02:54,000
+fantastic beautiful okay so you generate
+
+70
+00:02:53,040 --> 00:02:57,599
+this
+
+71
+00:02:54,000 --> 00:02:58,640
+by by this command hubert curve okay so
+
+72
+00:02:57,599 --> 00:03:02,239
+let me show you
+
+73
+00:02:58,640 --> 00:03:04,560
+huber curve let's magnify let's hold on
+
+74
+00:03:02,239 --> 00:03:09,599
+second magnify 200
+
+75
+00:03:04,560 --> 00:03:09,599
+and remove that let's say one
+
+76
+00:03:10,480 --> 00:03:13,680
+okay so you got that
+
+77
+00:03:14,080 --> 00:03:21,760
+then if you say two you got that
+
+78
+00:03:18,159 --> 00:03:24,319
+if you say three you got that if you say
+
+79
+00:03:21,760 --> 00:03:26,319
+four you got that so you got an idea
+
+80
+00:03:24,319 --> 00:03:29,440
+it's a recursive it's a
+
+81
+00:03:26,319 --> 00:03:31,440
+it's a space fee it's a
+
+82
+00:03:29,440 --> 00:03:32,480
+space feeding curve it's called space
+
+83
+00:03:31,440 --> 00:03:34,879
+feeding curve
+
+84
+00:03:32,480 --> 00:03:37,040
+because you know this is a shocking
+
+85
+00:03:34,879 --> 00:03:40,640
+discovery in mathematics about
+
+86
+00:03:37,040 --> 00:03:43,440
+200 years ago because when you see
+
+87
+00:03:40,640 --> 00:03:47,680
+this is a single line let me show you a
+
+88
+00:03:43,440 --> 00:03:52,159
+table okay let me show you uh
+
+89
+00:03:47,680 --> 00:03:52,159
+table n then
+
+90
+00:03:53,040 --> 00:04:01,120
+okay so so a table of this expression
+
+91
+00:03:56,959 --> 00:04:04,400
+then n goes from one to
+
+92
+00:04:01,120 --> 00:04:08,239
+one to uh seven
+
+93
+00:04:04,400 --> 00:04:10,560
+okay so let's face so let's do that
+
+94
+00:04:08,239 --> 00:04:12,480
+so you can see a progressive
+
+95
+00:04:10,560 --> 00:04:15,680
+progressively more complex curve
+
+96
+00:04:12,480 --> 00:04:18,799
+it's uh you know using a simple rule
+
+97
+00:04:15,680 --> 00:04:21,919
+you know from one line becomes that and
+
+98
+00:04:18,799 --> 00:04:22,880
+and you apply this rule for each line
+
+99
+00:04:21,919 --> 00:04:25,520
+segment again
+
+100
+00:04:22,880 --> 00:04:26,400
+and it becomes that and that that that
+
+101
+00:04:25,520 --> 00:04:28,800
+so eventually
+
+102
+00:04:26,400 --> 00:04:29,680
+if you go infinite number of steps it
+
+103
+00:04:28,800 --> 00:04:32,800
+will
+
+104
+00:04:29,680 --> 00:04:33,440
+fill out the plan so what's interesting
+
+105
+00:04:32,800 --> 00:04:35,199
+well
+
+106
+00:04:33,440 --> 00:04:36,479
+first of all first of all it's
+
+107
+00:04:35,199 --> 00:04:38,880
+artistically it's
+
+108
+00:04:36,479 --> 00:04:39,600
+extremely interesting okay this this is
+
+109
+00:04:38,880 --> 00:04:42,400
+a
+
+110
+00:04:39,600 --> 00:04:43,520
+beautiful thing for example let's copy
+
+111
+00:04:42,400 --> 00:04:47,360
+that
+
+112
+00:04:43,520 --> 00:04:50,160
+let's paste it here and let's magnify
+
+113
+00:04:47,360 --> 00:04:51,840
+this is fantastic you can use this for a
+
+114
+00:04:50,160 --> 00:04:55,680
+background
+
+115
+00:04:51,840 --> 00:04:58,160
+okay for you know website background
+
+116
+00:04:55,680 --> 00:04:59,840
+or your desktop background actually i
+
+117
+00:04:58,160 --> 00:05:02,400
+might do that
+
+118
+00:04:59,840 --> 00:05:04,240
+and but mathematically it's also very
+
+119
+00:05:02,400 --> 00:05:06,800
+interesting because a line
+
+120
+00:05:04,240 --> 00:05:08,960
+originally you have a line is a
+
+121
+00:05:06,800 --> 00:05:12,000
+one-dimensional curve
+
+122
+00:05:08,960 --> 00:05:12,560
+but now if you do if you have this this
+
+123
+00:05:12,000 --> 00:05:16,240
+thing
+
+124
+00:05:12,560 --> 00:05:19,680
+infinite number of steps you know you
+
+125
+00:05:16,240 --> 00:05:22,639
+so is that you know the it it
+
+126
+00:05:19,680 --> 00:05:23,520
+can be proven that this actually fills
+
+127
+00:05:22,639 --> 00:05:26,639
+out the
+
+128
+00:05:23,520 --> 00:05:28,960
+square completely so
+
+129
+00:05:26,639 --> 00:05:30,400
+so the question is then is this a thing
+
+130
+00:05:28,960 --> 00:05:32,320
+you know how do you define your
+
+131
+00:05:30,400 --> 00:05:32,639
+dimension you know is it two-dimensional
+
+132
+00:05:32,320 --> 00:05:35,919
+or
+
+133
+00:05:32,639 --> 00:05:35,919
+uh sync one dimension
+
+134
+00:05:36,000 --> 00:05:39,600
+then later on you started to have the
+
+135
+00:05:38,000 --> 00:05:43,520
+idea of fractal dimensions
+
+136
+00:05:39,600 --> 00:05:46,240
+okay so anyway that's digression
+
+137
+00:05:43,520 --> 00:05:46,639
+i'm gonna do this uh i'm gonna code on
+
+138
+00:05:46,240 --> 00:05:49,680
+that
+
+139
+00:05:46,639 --> 00:05:53,840
+now let's uh let's see the pop-up window
+
+140
+00:05:49,680 --> 00:05:53,840
+hey ronnie
+
+141
+00:05:55,440 --> 00:05:59,120
+okay let's let's code this thing okay so
+
+142
+00:05:58,240 --> 00:06:04,000
+let's go to
+
+143
+00:05:59,120 --> 00:06:04,000
+uh wolfen language close that um
+
+144
+00:06:04,319 --> 00:06:10,560
+let's call this thing um
+
+145
+00:06:07,440 --> 00:06:11,680
+okay let's start here so first of all so
+
+146
+00:06:10,560 --> 00:06:14,960
+how do you do this
+
+147
+00:06:11,680 --> 00:06:17,440
+so first of all you you want the tube
+
+148
+00:06:14,960 --> 00:06:19,360
+okay let's mean get the pin so you want
+
+149
+00:06:17,440 --> 00:06:22,160
+a tube
+
+150
+00:06:19,360 --> 00:06:22,800
+you okay first of all you want to rotate
+
+151
+00:06:22,160 --> 00:06:25,680
+the tube
+
+152
+00:06:22,800 --> 00:06:27,120
+i mean now yeah make a copy of the tube
+
+153
+00:06:25,680 --> 00:06:29,440
+and rotate it make it
+
+154
+00:06:27,120 --> 00:06:30,400
+uh make a cylinder okay before we
+
+155
+00:06:29,440 --> 00:06:35,039
+actually
+
+156
+00:06:30,400 --> 00:06:37,840
+tear the uh tube so let's do that
+
+157
+00:06:35,039 --> 00:06:39,280
+so tube in wufang language it's a
+
+158
+00:06:37,840 --> 00:06:42,319
+building graphics
+
+159
+00:06:39,280 --> 00:06:45,520
+primitive okay so you can see so
+
+160
+00:06:42,319 --> 00:06:49,840
+here is a tube okay so
+
+161
+00:06:45,520 --> 00:06:49,840
+tube you got say let's see
+
+162
+00:06:53,039 --> 00:07:01,440
+okay so let's see starts and end
+
+163
+00:06:56,319 --> 00:07:04,800
+okay so hold on a second so let's see
+
+164
+00:07:01,440 --> 00:07:04,800
+start point
+
+165
+00:07:05,280 --> 00:07:11,919
+start point uh equals two so we want to
+
+166
+00:07:09,120 --> 00:07:11,919
+give it a point
+
+167
+00:07:14,240 --> 00:07:21,120
+uh this point will be three numbers
+
+168
+00:07:17,360 --> 00:07:21,120
+this will be let's say
+
+169
+00:07:22,400 --> 00:07:26,000
+now let's not say start point let's say
+
+170
+00:07:25,360 --> 00:07:31,759
+length
+
+171
+00:07:26,000 --> 00:07:36,000
+okay l e n equals to
+
+172
+00:07:31,759 --> 00:07:38,880
+two okay then we want to
+
+173
+00:07:36,000 --> 00:07:38,880
+how do you do this
+
+174
+00:07:43,039 --> 00:07:48,319
+let's let's do it the easy way okay
+
+175
+00:07:46,319 --> 00:07:50,800
+let's forget about elegance let's just
+
+176
+00:07:48,319 --> 00:07:51,680
+do the easy way so you want start point
+
+177
+00:07:50,800 --> 00:07:55,199
+okay
+
+178
+00:07:51,680 --> 00:07:59,840
+start point equals to uh
+
+179
+00:07:55,199 --> 00:07:59,840
+three three numbers
+
+180
+00:08:02,319 --> 00:08:05,360
+our tube's a building feature in a
+
+181
+00:08:04,000 --> 00:08:08,240
+language yes
+
+182
+00:08:05,360 --> 00:08:09,280
+it's a built-in graphics primitive for
+
+183
+00:08:08,240 --> 00:08:12,240
+example two
+
+184
+00:08:09,280 --> 00:08:13,360
+uh print to show a tube or this is all
+
+185
+00:08:12,240 --> 00:08:16,960
+you have to do
+
+186
+00:08:13,360 --> 00:08:16,960
+you know that's all you have to do
+
+187
+00:08:18,160 --> 00:08:24,879
+so you just say graphics 3d then
+
+188
+00:08:21,360 --> 00:08:27,680
+tube tube takes uh
+
+189
+00:08:24,879 --> 00:08:28,160
+two arguments the first arguments is two
+
+190
+00:08:27,680 --> 00:08:31,759
+points
+
+191
+00:08:28,160 --> 00:08:35,279
+beginning and end position of the of the
+
+192
+00:08:31,759 --> 00:08:38,080
+of the tube uh then the coordinates
+
+193
+00:08:35,279 --> 00:08:39,599
+then the second argument is the
+
+194
+00:08:38,080 --> 00:08:42,800
+thickness
+
+195
+00:08:39,599 --> 00:08:43,200
+is it yes the thickness of the tube okay
+
+196
+00:08:42,800 --> 00:08:47,040
+so
+
+197
+00:08:43,200 --> 00:08:49,920
+as simple as that so
+
+198
+00:08:47,040 --> 00:08:51,279
+so okay so we want to do so first of all
+
+199
+00:08:49,920 --> 00:08:54,160
+a tube
+
+200
+00:08:51,279 --> 00:08:55,040
+two points start in end start point okay
+
+201
+00:08:54,160 --> 00:08:59,519
+start point
+
+202
+00:08:55,040 --> 00:09:04,320
+uh will be let's say
+
+203
+00:08:59,519 --> 00:09:04,320
+zero zero negative one okay
+
+204
+00:09:06,839 --> 00:09:09,839
+and
+
+205
+00:09:11,279 --> 00:09:14,560
+let's say end point
+
+206
+00:09:16,560 --> 00:09:22,399
+and let's say 0 0 1 okay actually so
+
+207
+00:09:19,920 --> 00:09:24,160
+length so let's do this this way yeah so
+
+208
+00:09:22,399 --> 00:09:27,600
+i discovered
+
+209
+00:09:24,160 --> 00:09:27,600
+uh why don't we do this
+
+210
+00:09:29,279 --> 00:09:32,720
+so we got start point we got endpoint
+
+211
+00:09:32,000 --> 00:09:35,760
+now let's
+
+212
+00:09:32,720 --> 00:09:36,959
+uh let's evaluate it let's just try it
+
+213
+00:09:35,760 --> 00:09:42,320
+okay
+
+214
+00:09:36,959 --> 00:09:42,320
+then then then graphics 3d
+
+215
+00:09:43,120 --> 00:09:48,080
+that's a wrapper whatever inside should
+
+216
+00:09:45,760 --> 00:09:51,600
+be graphics primitives
+
+217
+00:09:48,080 --> 00:09:55,279
+so graphic primitives are like points
+
+218
+00:09:51,600 --> 00:09:58,480
+line a rectangle cube
+
+219
+00:09:55,279 --> 00:10:05,760
+polyhedron anything you know so inside
+
+220
+00:09:58,480 --> 00:10:08,880
+this will be a tube and
+
+221
+00:10:05,760 --> 00:10:11,200
+okay start point end point
+
+222
+00:10:08,880 --> 00:10:11,200
+okay
+
+223
+00:10:12,240 --> 00:10:15,920
+okay we got a problem oh yeah so start
+
+224
+00:10:14,720 --> 00:10:19,839
+point end point they
+
+225
+00:10:15,920 --> 00:10:19,839
+need to be inside a
+
+226
+00:10:20,800 --> 00:10:24,640
+curved brace curved bracket there we
+
+227
+00:10:23,920 --> 00:10:28,160
+have it
+
+228
+00:10:24,640 --> 00:10:30,880
+so we got a tube
+
+229
+00:10:28,160 --> 00:10:32,079
+centered around our engine going up and
+
+230
+00:10:30,880 --> 00:10:35,200
+down
+
+231
+00:10:32,079 --> 00:10:35,200
+one unit okay
+
+232
+00:10:35,440 --> 00:10:42,640
+uh yeah okay so so
+
+233
+00:10:38,800 --> 00:10:46,399
+so you see so then we need to
+
+234
+00:10:42,640 --> 00:10:49,600
+um okay so
+
+235
+00:10:46,399 --> 00:10:53,120
+so once we have it we want
+
+236
+00:10:49,600 --> 00:10:56,399
+to now we want to rotate the uh
+
+237
+00:10:53,120 --> 00:10:59,519
+tube okay okay
+
+238
+00:10:56,399 --> 00:11:02,959
+you see our goal is to generate this
+
+239
+00:10:59,519 --> 00:11:05,200
+so we before we rotate let's
+
+240
+00:11:02,959 --> 00:11:07,920
+translate let's move the tube to the
+
+241
+00:11:05,200 --> 00:11:10,480
+side then make a copy so it goes one
+
+242
+00:11:07,920 --> 00:11:10,480
+round okay
+
+243
+00:11:12,839 --> 00:11:15,839
+so
+
+244
+00:11:15,920 --> 00:11:20,000
+so what we want to in order to move
+
+245
+00:11:18,160 --> 00:11:20,880
+there is a building function called
+
+246
+00:11:20,000 --> 00:11:26,320
+translate
+
+247
+00:11:20,880 --> 00:11:26,320
+transform okay let's see translate
+
+248
+00:11:26,640 --> 00:11:30,000
+okay let's look at the documentation
+
+249
+00:11:28,560 --> 00:11:32,399
+translate string
+
+250
+00:11:30,000 --> 00:11:34,079
+uh attempt to translate the string into
+
+251
+00:11:32,399 --> 00:11:36,720
+the specified uh
+
+252
+00:11:34,079 --> 00:11:38,720
+translate okay that's not okay that's
+
+253
+00:11:36,720 --> 00:11:41,680
+the english translate we want the
+
+254
+00:11:38,720 --> 00:11:44,720
+mathematical translate
+
+255
+00:11:41,680 --> 00:11:45,279
+oh wait actually we got transliterate so
+
+256
+00:11:44,720 --> 00:11:49,839
+we got
+
+257
+00:11:45,279 --> 00:11:49,839
+we actually what we want is translate
+
+258
+00:11:50,800 --> 00:11:54,720
+okay let's look up the documentation
+
+259
+00:11:53,360 --> 00:11:58,880
+translate
+
+260
+00:11:54,720 --> 00:12:02,079
+g x y so g is a graphics primitive
+
+261
+00:11:58,880 --> 00:12:05,360
+uh translated by a vector okay so
+
+262
+00:12:02,079 --> 00:12:11,839
+so so now let's define a
+
+263
+00:12:05,360 --> 00:12:11,839
+another variable offset
+
+264
+00:12:12,639 --> 00:12:19,519
+let's say girth girth
+
+265
+00:12:15,839 --> 00:12:22,560
+equals to uh
+
+266
+00:12:19,519 --> 00:12:22,959
+girth radius okay equals to let's say
+
+267
+00:12:22,560 --> 00:12:26,800
+one
+
+268
+00:12:22,959 --> 00:12:27,920
+okay so we got so evaluate that girth
+
+269
+00:12:26,800 --> 00:12:31,760
+radius
+
+270
+00:12:27,920 --> 00:12:31,760
+so now we want to translate
+
+271
+00:12:34,079 --> 00:12:44,079
+this thing
+
+272
+00:12:38,880 --> 00:12:44,079
+translate this tube thing by
+
+273
+00:12:45,200 --> 00:12:53,839
+by girth radius
+
+274
+00:12:54,720 --> 00:12:59,600
+okay that is done and let's slap on a
+
+275
+00:12:57,680 --> 00:13:03,200
+graphics 3d
+
+276
+00:12:59,600 --> 00:13:03,200
+so it actually shows it
+
+277
+00:13:03,600 --> 00:13:09,360
+okay we got an error
+
+278
+00:13:06,959 --> 00:13:11,200
+oh yeah we forgot to wait translate
+
+279
+00:13:09,360 --> 00:13:13,760
+girth radius okay hold on a second
+
+280
+00:13:11,200 --> 00:13:15,040
+translate good radius this needs to be a
+
+281
+00:13:13,760 --> 00:13:19,440
+point
+
+282
+00:13:15,040 --> 00:13:22,720
+so so a point
+
+283
+00:13:19,440 --> 00:13:26,320
+that would be zero zero yeah zero
+
+284
+00:13:22,720 --> 00:13:28,639
+zero girth radius let's do it
+
+285
+00:13:26,320 --> 00:13:30,480
+fantastic now what's the difference
+
+286
+00:13:28,639 --> 00:13:31,200
+between these two well let me show you
+
+287
+00:13:30,480 --> 00:13:34,320
+you'll see
+
+288
+00:13:31,200 --> 00:13:37,600
+if i show the um
+
+289
+00:13:34,320 --> 00:13:41,120
+let me show you this okay graphics
+
+290
+00:13:37,600 --> 00:13:42,000
+3d okay that's the that's the graphics
+
+291
+00:13:41,120 --> 00:13:44,800
+wrapper
+
+292
+00:13:42,000 --> 00:13:49,120
+and here we want to specify options we
+
+293
+00:13:44,800 --> 00:13:53,199
+want to show axis
+
+294
+00:13:49,120 --> 00:13:54,160
+okay x is true so we can actually see
+
+295
+00:13:53,199 --> 00:13:58,000
+the text
+
+296
+00:13:54,160 --> 00:14:01,360
+okay now put the whole thing
+
+297
+00:13:58,000 --> 00:14:04,880
+inside okay
+
+298
+00:14:01,360 --> 00:14:08,959
+run it so now you can see the axis
+
+299
+00:14:04,880 --> 00:14:13,519
+so zero zero zero zero right
+
+300
+00:14:08,959 --> 00:14:13,519
+did it translate it didn't translate
+
+301
+00:14:14,240 --> 00:14:17,839
+zero zero zero zero
+
+302
+00:14:19,279 --> 00:14:22,880
+one two one twos okay so let's change
+
+303
+00:14:22,079 --> 00:14:25,519
+the length
+
+304
+00:14:22,880 --> 00:14:25,519
+to one
+
+305
+00:14:27,839 --> 00:14:34,079
+okay then let's also put axis true here
+
+306
+00:14:37,600 --> 00:14:44,639
+let's let's add another variable one
+
+307
+00:14:40,880 --> 00:14:47,440
+tube equals to
+
+308
+00:14:44,639 --> 00:14:47,440
+that okay
+
+309
+00:14:50,160 --> 00:14:53,760
+so we don't have to uh
+
+310
+00:14:53,839 --> 00:15:00,320
+type the whole thing okay so you forgot
+
+311
+00:14:57,519 --> 00:15:04,160
+to evaluate one tube now we did
+
+312
+00:15:00,320 --> 00:15:09,279
+evaluate so now we got the
+
+313
+00:15:04,160 --> 00:15:09,279
+the tube okay so um
+
+314
+00:15:11,360 --> 00:15:17,600
+so check the coordinate zero zero
+
+315
+00:15:14,560 --> 00:15:20,639
+zero zero so x y and zero
+
+316
+00:15:17,600 --> 00:15:24,560
+zero and z is one unit u
+
+317
+00:15:20,639 --> 00:15:27,839
+uh one unit in each direction okay
+
+318
+00:15:24,560 --> 00:15:27,839
+so far so good
+
+319
+00:15:28,560 --> 00:15:34,880
+now now let's try the translate thing
+
+320
+00:15:36,959 --> 00:15:44,160
+he said right translate okay translate
+
+321
+00:15:40,160 --> 00:15:47,199
+one tube by zero zero girth radius
+
+322
+00:15:44,160 --> 00:15:50,880
+r a d i u r a d
+
+323
+00:15:47,199 --> 00:15:50,880
+i n radius
+
+324
+00:15:52,480 --> 00:15:58,079
+okay yeah we okay so let's
+
+325
+00:15:55,600 --> 00:16:00,880
+let's get the spelling correct radius
+
+326
+00:15:58,079 --> 00:16:00,880
+not radio
+
+327
+00:16:02,240 --> 00:16:09,199
+okay so we what is going on so that's
+
+328
+00:16:05,920 --> 00:16:13,920
+zero zero that's again zero
+
+329
+00:16:09,199 --> 00:16:13,920
+zero it did not translate
+
+330
+00:16:14,560 --> 00:16:18,800
+translate graphic can represent okay
+
+331
+00:16:16,639 --> 00:16:20,480
+translate graphic community represent a
+
+332
+00:16:18,800 --> 00:16:22,720
+multiple copy of g
+
+333
+00:16:20,480 --> 00:16:23,600
+translated by a collection of vectors
+
+334
+00:16:22,720 --> 00:16:25,920
+okay
+
+335
+00:16:23,600 --> 00:16:25,920
+so
+
+336
+00:16:27,920 --> 00:16:32,399
+so here is is an example translate
+
+337
+00:16:31,199 --> 00:16:38,079
+circle from 0
+
+338
+00:16:32,399 --> 00:16:41,279
+0 to 1 0 yeah so that works
+
+339
+00:16:38,079 --> 00:16:44,720
+and here is a
+
+340
+00:16:41,279 --> 00:16:47,759
+uh sphere translated
+
+341
+00:16:44,720 --> 00:16:51,279
+by oh i see
+
+342
+00:16:47,759 --> 00:16:52,399
+so the vertical axis yeah so actually we
+
+343
+00:16:51,279 --> 00:16:55,680
+moved it up
+
+344
+00:16:52,399 --> 00:16:57,199
+by by this much by girth radius unit
+
+345
+00:16:55,680 --> 00:17:00,320
+that's a mistake
+
+346
+00:16:57,199 --> 00:17:04,559
+it should be uh x okay so
+
+347
+00:17:00,320 --> 00:17:07,520
+girth radius yeah so do it
+
+348
+00:17:04,559 --> 00:17:08,319
+now you can see you see the x-axis is
+
+349
+00:17:07,520 --> 00:17:11,199
+one
+
+350
+00:17:08,319 --> 00:17:11,600
+so we have moved this vertical bar to
+
+351
+00:17:11,199 --> 00:17:16,640
+the
+
+352
+00:17:11,600 --> 00:17:16,640
+to the x-axis one unit okay
+
+353
+00:17:16,839 --> 00:17:21,199
+now
+
+354
+00:17:18,720 --> 00:17:22,799
+now we want to rotate it okay wait wait
+
+355
+00:17:21,199 --> 00:17:25,919
+before we rotate it let's
+
+356
+00:17:22,799 --> 00:17:29,840
+um okay how do you
+
+357
+00:17:25,919 --> 00:17:32,080
+do that you want to rotate
+
+358
+00:17:29,840 --> 00:17:33,200
+yeah let's rotate this thing around the
+
+359
+00:17:32,080 --> 00:17:36,240
+center
+
+360
+00:17:33,200 --> 00:17:39,280
+and every time we rotate we make a copy
+
+361
+00:17:36,240 --> 00:17:43,200
+so so eventually we have a kind of a
+
+362
+00:17:39,280 --> 00:17:47,200
+cylinder okay
+
+363
+00:17:43,200 --> 00:17:51,200
+so so there is a function for that
+
+364
+00:17:47,200 --> 00:17:54,559
+rotate okay let's look at
+
+365
+00:17:51,200 --> 00:17:59,280
+the documentation rotate graphics
+
+366
+00:17:54,559 --> 00:18:03,520
+primitive uh given an angle
+
+367
+00:17:59,280 --> 00:18:03,520
+okay so how do you want to rotate
+
+368
+00:18:07,840 --> 00:18:12,240
+so you so this is a three-dimensional
+
+369
+00:18:10,080 --> 00:18:13,520
+thing you want to rotate it around the
+
+370
+00:18:12,240 --> 00:18:17,280
+origin
+
+371
+00:18:13,520 --> 00:18:20,960
+and around the axis z axis okay
+
+372
+00:18:17,280 --> 00:18:25,200
+so rotate about the point
+
+373
+00:18:20,960 --> 00:18:28,559
+x y so so rotate okay so that's a 2d
+
+374
+00:18:25,200 --> 00:18:29,200
+case rotate about a point x y so this is
+
+375
+00:18:28,559 --> 00:18:34,720
+a 2d
+
+376
+00:18:29,200 --> 00:18:36,320
+case so this is a 3d case rotate
+
+377
+00:18:34,720 --> 00:18:38,400
+the first argument is a graphic
+
+378
+00:18:36,320 --> 00:18:41,760
+primitive whatever graphics
+
+379
+00:18:38,400 --> 00:18:44,640
+then the sec second argument is
+
+380
+00:18:41,760 --> 00:18:45,440
+vectors a pair of vectors each vector is
+
+381
+00:18:44,640 --> 00:18:49,200
+a
+
+382
+00:18:45,440 --> 00:18:51,440
+maybe 2d or 3d so it transforms
+
+383
+00:18:49,200 --> 00:18:54,320
+the the vector from you know the first
+
+384
+00:18:51,440 --> 00:18:59,679
+vector to the second vector so
+
+385
+00:18:54,320 --> 00:19:01,840
+that's right okay so we can do that
+
+386
+00:18:59,679 --> 00:19:05,039
+now let's forgot forget about elegance
+
+387
+00:19:01,840 --> 00:19:11,840
+let's just get this to work for now okay
+
+388
+00:19:05,039 --> 00:19:11,840
+so um
+
+389
+00:19:12,000 --> 00:19:17,280
+so we want to rotate and translate
+
+390
+00:19:20,960 --> 00:19:25,760
+so what are the other ways so to rotate
+
+391
+00:19:23,520 --> 00:19:29,440
+3d graphics primitives by
+
+392
+00:19:25,760 --> 00:19:32,960
+theta radians around 3d vector w
+
+393
+00:19:29,440 --> 00:19:35,679
+anchored at origin okay this is the
+
+394
+00:19:32,960 --> 00:19:36,000
+this is the yeah this is the form we
+
+395
+00:19:35,679 --> 00:19:39,120
+like
+
+396
+00:19:36,000 --> 00:19:42,400
+better so
+
+397
+00:19:39,120 --> 00:19:43,679
+okay let's do that so copy the above
+
+398
+00:19:42,400 --> 00:19:46,799
+code
+
+399
+00:19:43,679 --> 00:19:50,000
+we first of all uh wait
+
+400
+00:19:46,799 --> 00:19:53,200
+we first of all translate it okay
+
+401
+00:19:50,000 --> 00:19:55,919
+we translated
+
+402
+00:19:53,200 --> 00:19:56,960
+there that's the code but now we want to
+
+403
+00:19:55,919 --> 00:20:01,280
+rotate
+
+404
+00:19:56,960 --> 00:20:01,280
+it okay rotate
+
+405
+00:20:01,760 --> 00:20:09,840
+this thing
+
+406
+00:20:06,000 --> 00:20:13,200
+by how many degrees 30 degrees okay
+
+407
+00:20:09,840 --> 00:20:13,200
+let's say 30 degrees
+
+408
+00:20:19,039 --> 00:20:26,720
+okay we rotate it by 30 degrees
+
+409
+00:20:22,320 --> 00:20:26,720
+and around what axis around the vector
+
+410
+00:20:28,640 --> 00:20:35,520
+zero zero one
+
+411
+00:20:31,760 --> 00:20:38,799
+okay so let's see if that
+
+412
+00:20:35,520 --> 00:20:41,520
+works okay so now let's check the
+
+413
+00:20:38,799 --> 00:20:41,520
+coordinate
+
+414
+00:20:41,919 --> 00:20:49,840
+now let's look from the top down
+
+415
+00:20:50,799 --> 00:20:59,280
+okay it's hard to see uh
+
+416
+00:20:54,320 --> 00:20:59,280
+it's hard to see so if we rotate it by
+
+417
+00:20:59,679 --> 00:21:05,039
+let's say 45 degrees
+
+418
+00:21:06,720 --> 00:21:13,440
+yep you can see we are looking at
+
+419
+00:21:10,240 --> 00:21:14,320
+from the top and the bottom axis is
+
+420
+00:21:13,440 --> 00:21:17,360
+x-axis
+
+421
+00:21:14,320 --> 00:21:19,840
+and the vertical axis is y here and you
+
+422
+00:21:17,360 --> 00:21:19,840
+can see
+
+423
+00:21:20,000 --> 00:21:28,640
+what and and you can see
+
+424
+00:21:24,960 --> 00:21:30,640
+you see this this thing is not
+
+425
+00:21:28,640 --> 00:21:32,720
+you know it should originally it should
+
+426
+00:21:30,640 --> 00:21:34,559
+be one over here
+
+427
+00:21:32,720 --> 00:21:36,880
+and one over there it should be there
+
+428
+00:21:34,559 --> 00:21:37,840
+but because we rotate it should be
+
+429
+00:21:36,880 --> 00:21:40,559
+somewhere yeah
+
+430
+00:21:37,840 --> 00:21:41,360
+one here you see here one and you see
+
+431
+00:21:40,559 --> 00:21:45,679
+here one
+
+432
+00:21:41,360 --> 00:21:48,400
+so it should be here now because we
+
+433
+00:21:45,679 --> 00:21:50,000
+you know on the lower left is the origin
+
+434
+00:21:48,400 --> 00:21:53,039
+so we rotate it so this
+
+435
+00:21:50,000 --> 00:21:53,039
+this looks correct
+
+436
+00:21:53,760 --> 00:22:00,400
+so we can i can let me show you
+
+437
+00:21:57,039 --> 00:22:00,400
+with technology
+
+438
+00:22:00,720 --> 00:22:05,600
+[Laughter]
+
+439
+00:22:02,480 --> 00:22:08,720
+so you can see if we look at this as an
+
+440
+00:22:05,600 --> 00:22:13,120
+act wait this should be a curve
+
+441
+00:22:08,720 --> 00:22:14,000
+right okay wait this is a bad drawing
+
+442
+00:22:13,120 --> 00:22:19,200
+okay so
+
+443
+00:22:14,000 --> 00:22:19,200
+delete delete so this is the
+
+444
+00:22:23,360 --> 00:22:28,240
+origin this is one
+
+445
+00:22:28,480 --> 00:22:32,720
+and that is one but anyways it is
+
+446
+00:22:31,840 --> 00:22:35,679
+something like that
+
+447
+00:22:32,720 --> 00:22:35,679
+okay we rotate it
+
+448
+00:22:36,799 --> 00:22:41,280
+uh to be to know for sure we can just
+
+449
+00:22:39,919 --> 00:22:44,080
+make a table of it
+
+450
+00:22:41,280 --> 00:22:45,200
+like make many copy of it let's let me
+
+451
+00:22:44,080 --> 00:22:47,840
+show you okay
+
+452
+00:22:45,200 --> 00:22:48,640
+so let's create a table let's put the
+
+453
+00:22:47,840 --> 00:22:51,200
+expression
+
+454
+00:22:48,640 --> 00:22:51,200
+inside
+
+455
+00:22:51,919 --> 00:22:58,480
+paste it here and and
+
+456
+00:22:55,280 --> 00:23:02,720
+here we say n goes
+
+457
+00:22:58,480 --> 00:23:06,320
+from 0 to uh
+
+458
+00:23:02,720 --> 00:23:10,640
+to 360 in steps
+
+459
+00:23:06,320 --> 00:23:11,200
+of 30 okay so now we change the 45
+
+460
+00:23:10,640 --> 00:23:14,320
+degrees
+
+461
+00:23:11,200 --> 00:23:16,080
+to n okay so now we should have several
+
+462
+00:23:14,320 --> 00:23:19,360
+copies fantastic
+
+463
+00:23:16,080 --> 00:23:19,360
+did you see that
+
+464
+00:23:19,760 --> 00:23:24,720
+our scheme is working
+
+465
+00:23:22,820 --> 00:23:28,480
+[Laughter]
+
+466
+00:23:24,720 --> 00:23:28,880
+fantastic one shot coding okay no trial
+
+467
+00:23:28,480 --> 00:23:32,400
+and error
+
+468
+00:23:28,880 --> 00:23:33,120
+error this is the the thinking method of
+
+469
+00:23:32,400 --> 00:23:35,600
+coding
+
+470
+00:23:33,120 --> 00:23:37,760
+the mathematician's way well actually
+
+471
+00:23:35,600 --> 00:23:40,159
+mathematicians
+
+472
+00:23:37,760 --> 00:23:41,200
+has many different kind of styles some
+
+473
+00:23:40,159 --> 00:23:44,080
+of them actually do
+
+474
+00:23:41,200 --> 00:23:44,080
+try and error
+
+475
+00:23:44,720 --> 00:23:50,799
+so anyway so we got this now
+
+476
+00:23:48,799 --> 00:23:53,200
+so we got this multiple copy there's one
+
+477
+00:23:50,799 --> 00:23:54,559
+more thing we want okay let's do more so
+
+478
+00:23:53,200 --> 00:23:57,279
+let's actually it's
+
+479
+00:23:54,559 --> 00:23:58,640
+in every in steps of 10 degrees so we
+
+480
+00:23:57,279 --> 00:24:01,679
+got the
+
+481
+00:23:58,640 --> 00:24:02,640
+serious thing so let's actually in
+
+482
+00:24:01,679 --> 00:24:05,440
+degrees of fight
+
+483
+00:24:02,640 --> 00:24:06,039
+in steps of 5 degrees okay so we got
+
+484
+00:24:05,440 --> 00:24:09,520
+this
+
+485
+00:24:06,039 --> 00:24:09,520
+fantastic thing
+
+486
+00:24:15,840 --> 00:24:23,240
+lots of tubes this is uh fantastic
+
+487
+00:24:19,279 --> 00:24:25,600
+okay now actually now let's add some
+
+488
+00:24:23,240 --> 00:24:27,360
+specularity color let's add some
+
+489
+00:24:25,600 --> 00:24:30,159
+coloring okay
+
+490
+00:24:27,360 --> 00:24:30,159
+let's um
+
+491
+00:24:30,480 --> 00:24:47,840
+let's add some fantastic color in here
+
+492
+00:25:02,240 --> 00:25:06,880
+okay we got it this wrong oh yeah
+
+493
+00:25:08,000 --> 00:25:18,080
+it should be inside
+
+494
+00:25:15,760 --> 00:25:18,080
+what
+
+495
+00:25:26,840 --> 00:25:43,840
+yeah what
+
+496
+00:25:28,799 --> 00:25:43,840
+what is the graphics options
+
+497
+00:25:46,799 --> 00:25:49,919
+what is the error
+
+498
+00:25:52,880 --> 00:25:58,159
+an improperly formed option head
+
+499
+00:25:55,559 --> 00:26:00,159
+specularity encountered okay this
+
+500
+00:25:58,159 --> 00:26:01,679
+this is actually wrong okay let's forget
+
+501
+00:26:00,159 --> 00:26:05,360
+about that let's
+
+502
+00:26:01,679 --> 00:26:05,360
+let's add that data okay
+
+503
+00:26:08,159 --> 00:26:15,039
+okay so now let's go to the next step
+
+504
+00:26:12,480 --> 00:26:15,679
+now we want to tilt each of the tube a
+
+505
+00:26:15,039 --> 00:26:20,240
+little bit
+
+506
+00:26:15,679 --> 00:26:23,440
+so so we begin here one tube
+
+507
+00:26:20,240 --> 00:26:26,480
+let's rotate this one tube okay
+
+508
+00:26:23,440 --> 00:26:39,760
+yeah so let's rotate this one tube
+
+509
+00:26:26,480 --> 00:26:44,159
+let's put let's put here okay so
+
+510
+00:26:39,760 --> 00:26:47,200
+let's work here so we want to rotate
+
+511
+00:26:44,159 --> 00:26:47,200
+just like before
+
+512
+00:26:48,720 --> 00:26:56,480
+where is it we want to rotate it
+
+513
+00:26:54,159 --> 00:26:56,480
+and
+
+514
+00:26:57,360 --> 00:27:02,880
+we want to rotate the one tube
+
+515
+00:27:00,480 --> 00:27:02,880
+here
+
+516
+00:27:05,600 --> 00:27:09,360
+and by
+
+517
+00:27:12,640 --> 00:27:20,080
+by the x-axis okay now by the x-axis
+
+518
+00:27:16,720 --> 00:27:23,919
+one zero zero we want to rotate
+
+519
+00:27:20,080 --> 00:27:24,720
+it so now so we want to rotate it by how
+
+520
+00:27:23,919 --> 00:27:27,279
+many degrees
+
+521
+00:27:24,720 --> 00:27:27,279
+by ten
+
+522
+00:27:33,039 --> 00:27:40,880
+by a by a number two level okay
+
+523
+00:27:37,120 --> 00:27:49,840
+so let's copy that let's modify this uh
+
+524
+00:27:40,880 --> 00:27:49,840
+one tube code
+
+525
+00:27:51,840 --> 00:28:00,240
+so we can comment that out so we
+
+526
+00:27:55,919 --> 00:28:00,240
+and we need to define a tiered level
+
+527
+00:28:00,840 --> 00:28:07,200
+okay
+
+528
+00:28:02,000 --> 00:28:07,200
+tier level equals to um
+
+529
+00:28:12,559 --> 00:28:21,200
+degree okay
+
+530
+00:28:17,679 --> 00:28:21,200
+tier level 10 degree
+
+531
+00:28:24,159 --> 00:28:33,919
+okay so we rotate this
+
+532
+00:28:30,399 --> 00:28:36,320
+tube by tier level 10 degrees
+
+533
+00:28:33,919 --> 00:28:38,559
+around the vertical vector okay let's
+
+534
+00:28:36,320 --> 00:28:45,840
+try that
+
+535
+00:28:38,559 --> 00:28:45,840
+oh what
+
+536
+00:28:50,720 --> 00:28:59,840
+no this this does not look right
+
+537
+00:29:04,399 --> 00:29:11,360
+this is rotated by
+
+538
+00:29:08,279 --> 00:29:15,120
+x-axis this should be
+
+539
+00:29:11,360 --> 00:29:16,000
+three dimensional start point end point
+
+540
+00:29:15,120 --> 00:29:20,559
+what's going on
+
+541
+00:29:16,000 --> 00:29:20,559
+so let's let's do this
+
+542
+00:29:20,880 --> 00:29:28,000
+well it works somehow it prints that
+
+543
+00:29:24,159 --> 00:29:31,520
+uh this is it you know i'm i was thrown
+
+544
+00:29:28,000 --> 00:29:33,600
+i was kind of surprised by this printout
+
+545
+00:29:31,520 --> 00:29:35,679
+because it doesn't make sense it
+
+546
+00:29:33,600 --> 00:29:39,520
+actually rotated the text
+
+547
+00:29:35,679 --> 00:29:42,880
+but actually it didn't work
+
+548
+00:29:39,520 --> 00:29:46,720
+it seems to work you see so
+
+549
+00:29:42,880 --> 00:29:51,679
+actually it worked
+
+550
+00:29:46,720 --> 00:29:55,279
+now if we try this fantastic
+
+551
+00:29:51,679 --> 00:29:58,320
+we got it so actually we are complete
+
+552
+00:29:55,279 --> 00:29:59,840
+we completed what we want now all we
+
+553
+00:29:58,320 --> 00:30:02,640
+have to do is just uh
+
+554
+00:29:59,840 --> 00:30:05,039
+adjust the tier level okay so let's
+
+555
+00:30:02,640 --> 00:30:08,320
+remove the intermediate
+
+556
+00:30:05,039 --> 00:30:10,480
+steps you know so when people look at
+
+557
+00:30:08,320 --> 00:30:13,039
+this oh my god this is amazing how did
+
+558
+00:30:10,480 --> 00:30:16,480
+you do it
+
+559
+00:30:13,039 --> 00:30:17,200
+so to your level it will be let's say 30
+
+560
+00:30:16,480 --> 00:30:20,840
+degrees
+
+561
+00:30:17,200 --> 00:30:23,919
+do it and do it
+
+562
+00:30:20,840 --> 00:30:26,960
+fantastic not enough let's say
+
+563
+00:30:23,919 --> 00:30:29,200
+tier level wait why is it not enough 45
+
+564
+00:30:26,960 --> 00:30:29,200
+that's
+
+565
+00:30:34,320 --> 00:30:42,799
+wait so wait i okay we got something to
+
+566
+00:30:38,000 --> 00:30:42,799
+fix actually this is not perfect okay
+
+567
+00:30:43,679 --> 00:30:51,840
+so this is not perfect now um
+
+568
+00:30:52,559 --> 00:30:57,279
+the the tilting is not correct okay
+
+569
+00:30:58,159 --> 00:31:05,840
+which way should you tilt
+
+570
+00:31:09,279 --> 00:31:17,039
+no the tlt is actually correct but um
+
+571
+00:31:13,519 --> 00:31:20,480
+so let's adjust the let's make them one
+
+572
+00:31:17,039 --> 00:31:24,080
+shot okay let's make them
+
+573
+00:31:20,480 --> 00:31:26,480
+one single
+
+574
+00:31:24,080 --> 00:31:26,480
+code
+
+575
+00:31:30,320 --> 00:31:35,919
+okay let's tiered 45 degree let's
+
+576
+00:31:32,960 --> 00:31:39,039
+increase the length
+
+577
+00:31:35,919 --> 00:31:42,799
+length two okay let's see
+
+578
+00:31:39,039 --> 00:31:46,320
+there it is beautiful fantastic
+
+579
+00:31:42,799 --> 00:31:49,760
+car too many
+
+580
+00:31:46,320 --> 00:31:54,480
+okay let's number okay number uh
+
+581
+00:31:49,760 --> 00:31:58,320
+uh number of bars number of
+
+582
+00:31:54,480 --> 00:32:03,679
+tubes okay let's say
+
+583
+00:31:58,320 --> 00:32:03,679
+90 okay so number of tubes will be
+
+584
+00:32:04,960 --> 00:32:08,640
+how many how many of them how many
+
+585
+00:32:06,640 --> 00:32:12,840
+copies of them so
+
+586
+00:32:08,640 --> 00:32:18,480
+and all we have to do is uh adjust this
+
+587
+00:32:12,840 --> 00:32:18,480
+360 divided by
+
+588
+00:32:23,120 --> 00:32:28,960
+i think so okay number of tubes let's
+
+589
+00:32:26,240 --> 00:32:32,960
+say 40.
+
+590
+00:32:28,960 --> 00:32:36,399
+fantastic okay that did okay there is a
+
+591
+00:32:32,960 --> 00:32:39,799
+we got a problem because
+
+592
+00:32:36,399 --> 00:32:42,799
+a circle has got 360 degrees not
+
+593
+00:32:39,799 --> 00:32:43,440
+365. i got confused with number of days
+
+594
+00:32:42,799 --> 00:32:46,480
+in a year
+
+595
+00:32:43,440 --> 00:32:48,000
+so it's 360. you see you see this
+
+596
+00:32:46,480 --> 00:32:57,039
+problem you see these two
+
+597
+00:32:48,000 --> 00:33:00,159
+so now we fix that do it fantastic
+
+598
+00:32:57,039 --> 00:33:02,559
+so here is the whole code now
+
+599
+00:33:00,159 --> 00:33:05,600
+we can do something more fancy okay let
+
+600
+00:33:02,559 --> 00:33:05,600
+me let me show you
+
+601
+00:33:06,399 --> 00:33:14,159
+so what we are going to do
+
+602
+00:33:11,039 --> 00:33:14,799
+yeah so so yeah so what are we going to
+
+603
+00:33:14,159 --> 00:33:18,799
+do now
+
+604
+00:33:14,799 --> 00:33:22,320
+is to see what is the effect of the tilt
+
+605
+00:33:18,799 --> 00:33:25,679
+to the overall shape okay
+
+606
+00:33:22,320 --> 00:33:28,799
+so you see we can make it very
+
+607
+00:33:25,679 --> 00:33:32,399
+very uh think in the middle like
+
+608
+00:33:28,799 --> 00:33:34,159
+young girl's body this is sexy
+
+609
+00:33:32,399 --> 00:33:36,840
+you know but it's not not too much then
+
+610
+00:33:34,159 --> 00:33:39,679
+it becomes a
+
+611
+00:33:36,840 --> 00:33:42,960
+b you know it is
+
+612
+00:33:39,679 --> 00:33:46,240
+so there's a term for that wasp
+
+613
+00:33:42,960 --> 00:33:48,399
+waste or something like that so we can
+
+614
+00:33:46,240 --> 00:33:51,200
+make it the whole thing into one
+
+615
+00:33:48,399 --> 00:33:52,080
+single expression and see their effects
+
+616
+00:33:51,200 --> 00:33:55,440
+by
+
+617
+00:33:52,080 --> 00:33:58,799
+manipulate the whole thing
+
+618
+00:33:55,440 --> 00:34:02,080
+um what okay
+
+619
+00:33:58,799 --> 00:34:04,159
+so we got you know mathematic
+
+620
+00:34:02,080 --> 00:34:05,360
+the wolf and language notebook is not a
+
+621
+00:34:04,159 --> 00:34:08,480
+great um
+
+622
+00:34:05,360 --> 00:34:09,919
+editor so you know i'd rather code this
+
+623
+00:34:08,480 --> 00:34:14,320
+in emacs
+
+624
+00:34:09,919 --> 00:34:14,320
+so you do the whole thing
+
+625
+00:34:15,280 --> 00:34:21,839
+then let's say d okay d from
+
+626
+00:34:18,560 --> 00:34:21,839
+so tie tiot level
+
+627
+00:34:22,560 --> 00:34:26,079
+tiered x from
+
+628
+00:34:29,119 --> 00:34:36,240
+from 0 to 45
+
+629
+00:34:32,960 --> 00:34:39,919
+and in steps of five
+
+630
+00:34:36,240 --> 00:34:49,839
+okay so copy the tilt and replace the
+
+631
+00:34:39,919 --> 00:34:49,839
+tier by
+
+632
+00:34:56,560 --> 00:35:03,839
+okay so we got we gonna we gotta do this
+
+633
+00:35:01,040 --> 00:35:03,839
+tier level
+
+634
+00:35:25,760 --> 00:35:33,599
+okay i think that's that does that
+
+635
+00:35:30,079 --> 00:35:33,599
+so let's
+
+636
+00:35:34,079 --> 00:35:36,400
+play
+
+637
+00:35:40,320 --> 00:35:45,839
+okay so let's play back and forth can we
+
+638
+00:35:43,119 --> 00:35:45,839
+do that
+
+639
+00:35:49,839 --> 00:35:53,760
+so that is the effect of tier level now
+
+640
+00:35:52,480 --> 00:35:57,119
+let's do one more thing
+
+641
+00:35:53,760 --> 00:35:59,599
+uh let's let's fix the
+
+642
+00:35:57,119 --> 00:36:00,320
+let's fix the viewpoint so the graphics
+
+643
+00:35:59,599 --> 00:36:03,680
+doesn't
+
+644
+00:36:00,320 --> 00:36:03,680
+doesn't jump up and down
+
+645
+00:36:03,920 --> 00:36:13,839
+so great let's save the notebook
+
+646
+00:36:13,920 --> 00:36:22,720
+okay let's uh do let's change the
+
+647
+00:36:17,200 --> 00:36:22,720
+let's fix the viewpoint okay so graphics
+
+648
+00:36:24,839 --> 00:36:27,839
+3d
+
+649
+00:36:30,880 --> 00:36:41,839
+let's say front okay do it
+
+650
+00:36:44,960 --> 00:36:50,079
+okay it's still you know the size
+
+651
+00:36:47,280 --> 00:36:54,079
+changes let's fix the size
+
+652
+00:36:50,079 --> 00:36:54,480
+so viewpoint let's not say front okay
+
+653
+00:36:54,079 --> 00:36:57,119
+let's
+
+654
+00:36:54,480 --> 00:36:57,119
+magnify
+
+655
+00:37:06,839 --> 00:37:09,839
+viewpoint
+
+656
+00:37:11,440 --> 00:37:15,599
+let's see viewpoint where do you want to
+
+657
+00:37:13,599 --> 00:37:17,839
+view this thing
+
+658
+00:37:15,599 --> 00:37:17,839
+so
+
+659
+00:37:19,359 --> 00:37:26,320
+x is
+
+660
+00:37:22,560 --> 00:37:29,440
+five y is
+
+661
+00:37:26,320 --> 00:37:29,440
+negative five
+
+662
+00:37:31,359 --> 00:37:37,839
+z is five okay let's try that
+
+663
+00:37:41,280 --> 00:37:51,839
+okay and view distance
+
+664
+00:37:54,079 --> 00:38:03,040
+uh view angle viewpoint view angle usage
+
+665
+00:37:58,560 --> 00:38:03,040
+actually yeah
+
+666
+00:38:03,359 --> 00:38:19,839
+part range let me let me get this
+
+667
+00:38:07,280 --> 00:38:19,839
+to show
+
+668
+00:38:40,640 --> 00:38:44,880
+so view plot range negative five to five
+
+669
+00:38:44,320 --> 00:38:48,240
+for
+
+670
+00:38:44,880 --> 00:38:48,240
+x and y and z
+
+671
+00:38:48,720 --> 00:39:01,839
+okay let's do it
+
+672
+00:39:10,720 --> 00:39:19,680
+okay now they look um
+
+673
+00:39:14,800 --> 00:39:19,680
+now let's change let's lower the
+
+674
+00:39:21,599 --> 00:39:25,359
+three four
+
+675
+00:39:26,839 --> 00:39:43,839
+four
+
+676
+00:39:28,720 --> 00:39:43,839
+four four yeah
+
+677
+00:39:50,079 --> 00:39:57,280
+do it yeah
+
+678
+00:39:53,839 --> 00:39:59,839
+plot ranges um
+
+679
+00:39:57,280 --> 00:40:03,200
+yeah i'm so tired of wufang language
+
+680
+00:39:59,839 --> 00:40:11,839
+editor so let's do this in e-max
+
+681
+00:40:03,200 --> 00:40:11,839
+it's much faster
+
+682
+00:40:28,640 --> 00:40:37,359
+okay that's it that's it for today 744
+
+683
+00:40:33,599 --> 00:40:40,480
+thank you for watching uh
+
+684
+00:40:37,359 --> 00:40:43,599
+if you like my stuff donate okay
+
+685
+00:40:40,480 --> 00:40:47,040
+donate by my emacs tutorial uh
+
+686
+00:40:43,599 --> 00:40:49,760
+you know paypal me patreon me
+
+687
+00:40:47,040 --> 00:40:50,839
+so that's what we want to do and we did
+
+688
+00:40:49,760 --> 00:40:53,839
+it
+
+689
+00:40:50,839 --> 00:40:53,839
+fantastic
+
+690
+00:40:54,079 --> 00:40:57,599
+thank you guys for watching and you know
+
+691
+00:40:56,560 --> 00:40:59,680
+next
+
+692
+00:40:57,599 --> 00:41:01,680
+in the coming days i'm going to also
+
+693
+00:40:59,680 --> 00:41:03,680
+also this will be interesting now you
+
+694
+00:41:01,680 --> 00:41:06,240
+know this
+
+695
+00:41:03,680 --> 00:41:08,160
+and also we can pretty we can pretty
+
+696
+00:41:06,240 --> 00:41:08,960
+find the code actually you know we
+
+697
+00:41:08,160 --> 00:41:12,240
+there's a lot
+
+698
+00:41:08,960 --> 00:41:15,599
+code 235 so maybe
+
+699
+00:41:12,240 --> 00:41:15,599
+let me do this um
+
+700
+00:41:15,680 --> 00:41:21,119
+you know we can pretty find the code
+
+701
+00:41:19,280 --> 00:41:23,119
+because now there's a lot of parameters
+
+702
+00:41:21,119 --> 00:41:25,520
+we can make it a function of programming
+
+703
+00:41:23,119 --> 00:41:27,920
+into one single line
+
+704
+00:41:25,520 --> 00:41:29,359
+so right now you see it's using a bunch
+
+705
+00:41:27,920 --> 00:41:31,599
+of variables
+
+706
+00:41:29,359 --> 00:41:32,480
+uh you don't have to you can make them
+
+707
+00:41:31,599 --> 00:41:36,480
+all just
+
+708
+00:41:32,480 --> 00:41:49,839
+one single line but
+
+709
+00:41:36,480 --> 00:41:49,839
+i'm gonna play offline okay so bye guys
+
+710
+00:41:54,480 --> 00:41:56,880
+uh
+

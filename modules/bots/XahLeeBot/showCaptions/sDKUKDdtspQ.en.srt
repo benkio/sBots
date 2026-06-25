@@ -1,0 +1,8968 @@
+1
+00:00:07,920 --> 00:00:11,720
+Good morning, everyone. Welcome to
+
+2
+00:00:09,520 --> 00:00:14,840
+another episode of Sand Talk Show.
+
+3
+00:00:11,720 --> 00:00:17,720
+Today, we are going to cover Emacs Lisp
+
+4
+00:00:14,840 --> 00:00:21,040
+from the ground up for beginners.
+
+5
+00:00:17,720 --> 00:00:23,280
+Okay, so this is going to be 1 hour.
+
+6
+00:00:21,040 --> 00:00:25,720
+Uh let's check video video check audio
+
+7
+00:00:23,280 --> 00:00:29,160
+check. I I'm good to go.
+
+8
+00:00:25,720 --> 00:00:31,760
+So, it's going to be 1 hour and uh
+
+9
+00:00:29,160 --> 00:00:34,800
+and the the prerequisite. So, this is
+
+10
+00:00:31,760 --> 00:00:37,600
+for people I assume you have already
+
+11
+00:00:34,800 --> 00:00:39,840
+used Emacs for a month or two. So, you
+
+12
+00:00:37,600 --> 00:00:43,200
+are familiar with Emacs a little bit at
+
+13
+00:00:39,840 --> 00:00:46,400
+least because Emacs Lisp is is going to
+
+14
+00:00:43,200 --> 00:00:49,240
+be used in Emacs. So, if you don't do
+
+15
+00:00:46,400 --> 00:00:50,200
+Emacs, then it's useless for you. Okay,
+
+16
+00:00:49,240 --> 00:00:52,640
+so
+
+17
+00:00:50,200 --> 00:00:55,360
+uh I assume you already used Emacs for a
+
+18
+00:00:52,640 --> 00:00:57,040
+month or two. And I also assume you
+
+19
+00:00:55,360 --> 00:00:58,760
+already you are familiar with
+
+20
+00:00:57,040 --> 00:01:01,600
+programming languages at least one of
+
+21
+00:00:58,760 --> 00:01:03,640
+them. You know, some familiarity. So, I
+
+22
+00:01:01,600 --> 00:01:06,480
+don't have to explain what's a variable,
+
+23
+00:01:03,640 --> 00:01:08,000
+what's a function, uh you know, what's
+
+24
+00:01:06,480 --> 00:01:10,040
+what's the data type, you know, what's a
+
+25
+00:01:08,000 --> 00:01:13,080
+string, you know, so you I assume you
+
+26
+00:01:10,040 --> 00:01:15,200
+already know that. So, that's the
+
+27
+00:01:13,080 --> 00:01:18,840
+prerequisite. So, this is for beginners.
+
+28
+00:01:15,200 --> 00:01:21,240
+You never know any Lisp before.
+
+29
+00:01:18,840 --> 00:01:22,040
+Okay? And so, we're going to
+
+30
+00:01:21,240 --> 00:01:24,240
+uh
+
+31
+00:01:22,040 --> 00:01:26,640
+Uh yeah, so let's go to my website. So,
+
+32
+00:01:24,240 --> 00:01:29,440
+everything I talk about today is already
+
+33
+00:01:26,640 --> 00:01:31,880
+written as a tutorial. Xahlee.info. So,
+
+34
+00:01:29,440 --> 00:01:33,520
+you just go to Xahlee.info or just
+
+35
+00:01:31,880 --> 00:01:35,600
+search my name
+
+36
+00:01:33,520 --> 00:01:37,680
+Xahlee Emacs
+
+37
+00:01:35,600 --> 00:01:40,840
+you'll find my Emacs Lisp tutorial. So,
+
+38
+00:01:37,680 --> 00:01:43,680
+that's my website. So, you go down and
+
+39
+00:01:40,840 --> 00:01:45,800
+you can find Emacs Lisp.
+
+40
+00:01:43,680 --> 00:01:47,840
+Okay? So, Emacs Lisp, that's what we're
+
+41
+00:01:45,800 --> 00:01:51,080
+going to cover.
+
+42
+00:01:47,840 --> 00:01:52,520
+And uh let me tell you the So, what So,
+
+43
+00:01:51,080 --> 00:01:54,440
+let me tell you some background about
+
+44
+00:01:52,520 --> 00:01:57,520
+Emacs Lisp the language. So, what you're
+
+45
+00:01:54,440 --> 00:02:00,240
+going to get, you know, so
+
+46
+00:01:57,520 --> 00:02:02,200
+if you are Emacs user and if if
+
+47
+00:02:00,240 --> 00:02:03,840
+programming is your profession or any
+
+48
+00:02:02,200 --> 00:02:06,560
+kind of technical
+
+49
+00:02:03,840 --> 00:02:08,840
+uh security, you know, uh computer
+
+50
+00:02:06,560 --> 00:02:11,280
+computing is your profession
+
+51
+00:02:08,840 --> 00:02:13,120
+and and if you choose to use Emacs,
+
+52
+00:02:11,280 --> 00:02:14,600
+which is very powerful, you know, you
+
+53
+00:02:13,120 --> 00:02:17,080
+want to
+
+54
+00:02:14,600 --> 00:02:18,960
+you want to master a editor, text
+
+55
+00:02:17,080 --> 00:02:20,680
+editor, because that's that's that's
+
+56
+00:02:18,960 --> 00:02:23,200
+your life, you know.
+
+57
+00:02:20,680 --> 00:02:25,760
+And Emacs is a good choice. And if you
+
+58
+00:02:23,200 --> 00:02:28,640
+use Emacs, Emacs Lisp is great to know
+
+59
+00:02:25,760 --> 00:02:30,760
+because it allows you to for example,
+
+60
+00:02:28,640 --> 00:02:33,600
+this is a HTML
+
+61
+00:02:30,760 --> 00:02:36,080
+you are looking at HTML file and showing
+
+62
+00:02:33,600 --> 00:02:38,880
+browser. That's today's talk show. So, I
+
+63
+00:02:36,080 --> 00:02:40,600
+can do a lot editing for example, here
+
+64
+00:02:38,880 --> 00:02:42,720
+is the Google Ads, you know, I can
+
+65
+00:02:40,600 --> 00:02:45,360
+select them by by, you know, matching a
+
+66
+00:02:42,720 --> 00:02:46,760
+tag and delete them if I want to, you
+
+67
+00:02:45,360 --> 00:02:49,840
+know, and
+
+68
+00:02:46,760 --> 00:02:51,760
+uh for example, I can for example, here
+
+69
+00:02:49,840 --> 00:02:53,760
+this block of code, you see, I just
+
+70
+00:02:51,760 --> 00:02:56,720
+press one key. Okay, hold on a second.
+
+71
+00:02:53,760 --> 00:02:57,360
+Let me magnify. I forgot to
+
+72
+00:02:56,720 --> 00:02:59,720
+uh
+
+73
+00:02:57,360 --> 00:03:02,000
+do some preparation. I need to magnify
+
+74
+00:02:59,720 --> 00:03:03,560
+my buffer. So, for example, this command
+
+75
+00:03:02,000 --> 00:03:06,280
+I'm calling
+
+76
+00:03:03,560 --> 00:03:07,560
+you see, it allows me to change my font
+
+77
+00:03:06,280 --> 00:03:09,240
+size.
+
+78
+00:03:07,560 --> 00:03:11,320
+Let's say 20.
+
+79
+00:03:09,240 --> 00:03:13,000
+Okay, so now it's easier to see. I
+
+80
+00:03:11,320 --> 00:03:15,120
+forgot to
+
+81
+00:03:13,000 --> 00:03:18,520
+uh do the preparation. So, let's also
+
+82
+00:03:15,120 --> 00:03:18,520
+magnify the browser.
+
+83
+00:03:19,200 --> 00:03:25,600
+Okay, so now it's uh easier to see.
+
+84
+00:03:22,960 --> 00:03:27,640
+Uh okay, I forgot to
+
+85
+00:03:25,600 --> 00:03:30,160
+Okay, so hold on a second. So,
+
+86
+00:03:27,640 --> 00:03:32,960
+So, but anyway, so that command I just
+
+87
+00:03:30,160 --> 00:03:34,960
+called to magnify uh to enlarge the font
+
+88
+00:03:32,960 --> 00:03:37,880
+is the one of the command I wrote. So,
+
+89
+00:03:34,960 --> 00:03:39,720
+if you are Emacs So, if you know Lisp
+
+90
+00:03:37,880 --> 00:03:42,000
+uh it's going to be uh
+
+91
+00:03:39,720 --> 00:03:44,520
+great benefit to you. Okay? So, showing
+
+92
+00:03:42,000 --> 00:03:46,440
+browser and let me uh enlarge this
+
+93
+00:03:44,520 --> 00:03:49,800
+window.
+
+94
+00:03:46,440 --> 00:03:53,760
+Uh I forgot to do do preparation. So, I
+
+95
+00:03:49,800 --> 00:03:55,880
+need to make sure nothing is blocked.
+
+96
+00:03:53,760 --> 00:03:59,320
+Okay? So, hold on a second. So, let me
+
+97
+00:03:55,880 --> 00:03:59,320
+also um
+
+98
+00:04:00,400 --> 00:04:07,320
+start my command log mod so you can see
+
+99
+00:04:03,560 --> 00:04:10,080
+all the keystrokes I type and all the
+
+100
+00:04:07,320 --> 00:04:14,080
+command I call. So, for example, you see
+
+101
+00:04:10,080 --> 00:04:17,120
+this text, I can make it a
+
+102
+00:04:14,080 --> 00:04:20,160
+paragraph. You see, that added the P
+
+103
+00:04:17,120 --> 00:04:22,960
+tags there there. You see, undo. Do it.
+
+104
+00:04:20,160 --> 00:04:25,240
+You see? So, that command I just called
+
+105
+00:04:22,960 --> 00:04:28,480
+is
+
+106
+00:04:25,240 --> 00:04:30,560
+Xah HTML blocks to paragraph. You see,
+
+107
+00:04:28,480 --> 00:04:32,200
+so this is the power of knowing Emacs
+
+108
+00:04:30,560 --> 00:04:33,720
+Lisp. And especially if you are
+
+109
+00:04:32,200 --> 00:04:36,880
+programmer, you can do, you know, you
+
+110
+00:04:33,720 --> 00:04:39,760
+can do your refactoring your code in any
+
+111
+00:04:36,880 --> 00:04:43,000
+language, you know, it's very powerful.
+
+112
+00:04:39,760 --> 00:04:45,720
+Okay? So, that's the benefit you get for
+
+113
+00:04:43,000 --> 00:04:48,280
+Emac Emacs. Of course, you know, there
+
+114
+00:04:45,720 --> 00:04:50,400
+are thousands of packages already, but
+
+115
+00:04:48,280 --> 00:04:52,960
+you can enhance them. You know, knowing
+
+116
+00:04:50,400 --> 00:04:54,800
+a little bit Emacs Lisp will help you
+
+117
+00:04:52,960 --> 00:04:56,880
+understand lots of things in Emacs
+
+118
+00:04:54,800 --> 00:04:59,200
+because the whole Emacs is actually just
+
+119
+00:04:56,880 --> 00:05:01,640
+a Emacs Lisp environment. For example,
+
+120
+00:04:59,200 --> 00:05:03,760
+all your init files.
+
+121
+00:05:01,640 --> 00:05:06,680
+For example, I have uh lots of init
+
+122
+00:05:03,760 --> 00:05:08,760
+files. For example, all your init files
+
+123
+00:05:06,680 --> 00:05:10,960
+all all all those all those are just
+
+124
+00:05:08,760 --> 00:05:12,800
+Emacs Lisp code, you know, it's just
+
+125
+00:05:10,960 --> 00:05:15,640
+programming language code.
+
+126
+00:05:12,800 --> 00:05:18,680
+Okay? So, that's the benefit of Emacs
+
+127
+00:05:15,640 --> 00:05:19,840
+Lisp. So, let's make this one line. Uh
+
+128
+00:05:18,680 --> 00:05:21,840
+so,
+
+129
+00:05:19,840 --> 00:05:25,120
+Okay, prerequisite.
+
+130
+00:05:21,840 --> 00:05:27,160
+And uh okay, I showed you my Emacs
+
+131
+00:05:25,120 --> 00:05:30,160
+website. We're going to go through uh
+
+132
+00:05:27,160 --> 00:05:32,840
+some of them. And let me tell you there
+
+133
+00:05:30,160 --> 00:05:36,880
+are two major parts to Emacs Lisp the
+
+134
+00:05:32,840 --> 00:05:39,120
+language. Okay? One part is that Emacs
+
+135
+00:05:36,880 --> 00:05:44,080
+Lisp you have all the things every other
+
+136
+00:05:39,120 --> 00:05:45,640
+language have such as string, variable,
+
+137
+00:05:44,080 --> 00:05:46,840
+how do you do how do you define a
+
+138
+00:05:45,640 --> 00:05:49,160
+function,
+
+139
+00:05:46,840 --> 00:05:51,920
+how do you define local variable, global
+
+140
+00:05:49,160 --> 00:05:54,040
+variable, how do you do a loop, for
+
+141
+00:05:51,920 --> 00:05:57,600
+loop, while loop, things like that, you
+
+142
+00:05:54,040 --> 00:05:59,520
+know, those are the basic concepts in
+
+143
+00:05:57,600 --> 00:06:03,880
+every programming language, Perl,
+
+144
+00:05:59,520 --> 00:06:06,720
+Python, Java, Ruby, JavaScript, C, C#,
+
+145
+00:06:03,880 --> 00:06:07,840
+Golang, you know, and so on.
+
+146
+00:06:06,720 --> 00:06:10,560
+So,
+
+147
+00:06:07,840 --> 00:06:12,720
+and and uh okay, variable, functions,
+
+148
+00:06:10,560 --> 00:06:15,920
+string, comments, how do you do a
+
+149
+00:06:12,720 --> 00:06:18,560
+comments in in Emacs Lisp? So, all these
+
+150
+00:06:15,920 --> 00:06:21,160
+things uh formatting string, arithmetic,
+
+151
+00:06:18,560 --> 00:06:24,440
+how do you do 1 + 1, uh converting
+
+152
+00:06:21,160 --> 00:06:27,240
+string to int or float to to or string,
+
+153
+00:06:24,440 --> 00:06:32,200
+two different types of the language,
+
+154
+00:06:27,240 --> 00:06:34,880
+uh and variables and loop, if then else,
+
+155
+00:06:32,200 --> 00:06:37,520
+and then you have data structures. In
+
+156
+00:06:34,880 --> 00:06:39,640
+the Emacs Lisp case, you have list and
+
+157
+00:06:37,520 --> 00:06:41,240
+vector. Vector is just like a tuple
+
+158
+00:06:39,640 --> 00:06:43,040
+tuple in Python.
+
+159
+00:06:41,240 --> 00:06:45,080
+Uh then you have, you know, sequence
+
+160
+00:06:43,040 --> 00:06:48,000
+types getting technical detail,
+
+161
+00:06:45,080 --> 00:06:49,400
+association list, property list. So,
+
+162
+00:06:48,000 --> 00:06:52,720
+that's the data structure, you know,
+
+163
+00:06:49,400 --> 00:06:54,080
+built-in data types in the language. And
+
+164
+00:06:52,720 --> 00:06:56,080
+then you have functions. How do you
+
+165
+00:06:54,080 --> 00:06:58,960
+define them? How do you
+
+166
+00:06:56,080 --> 00:07:00,960
+you know, define very various forms of
+
+167
+00:06:58,960 --> 00:07:03,880
+function parameters. For example, named
+
+168
+00:07:00,960 --> 00:07:05,720
+parameters, optional parameters, default
+
+169
+00:07:03,880 --> 00:07:07,640
+values for parameter.
+
+170
+00:07:05,720 --> 00:07:09,160
+In this, you know, in in the Emacs Lisp
+
+171
+00:07:07,640 --> 00:07:10,920
+case, you actually don't have that. But
+
+172
+00:07:09,160 --> 00:07:13,040
+anyway, this uh function, what's a
+
+173
+00:07:10,920 --> 00:07:15,120
+lambda function, and uh
+
+174
+00:07:13,040 --> 00:07:17,360
+then in the Emacs Lisp you have the
+
+175
+00:07:15,120 --> 00:07:20,680
+concept of symbol, you know, maybe I'll
+
+176
+00:07:17,360 --> 00:07:23,040
+go uh we'll go over that. Then Okay, so
+
+177
+00:07:20,680 --> 00:07:25,080
+these elements all these elements are
+
+178
+00:07:23,040 --> 00:07:28,200
+basic concepts in every programming
+
+179
+00:07:25,080 --> 00:07:30,800
+language. Okay? So, this is one part of
+
+180
+00:07:28,200 --> 00:07:33,440
+learning Emacs Lisp.
+
+181
+00:07:30,800 --> 00:07:37,200
+Okay? So, this is the Emacs Lisp, you
+
+182
+00:07:33,440 --> 00:07:39,240
+know, I I call Lisp basics. Lisp basics
+
+183
+00:07:37,200 --> 00:07:42,600
+because these are concepts available in
+
+184
+00:07:39,240 --> 00:07:45,400
+every Lisp, Common Lisp, Scheme Lisp,
+
+185
+00:07:42,600 --> 00:07:49,320
+Racket Scheme Lisp, or Closure, you
+
+186
+00:07:45,400 --> 00:07:50,920
+know, those are the major Lisps today.
+
+187
+00:07:49,320 --> 00:07:52,760
+So, uh
+
+188
+00:07:50,920 --> 00:07:54,600
+yeah, so this is one part of Lisp
+
+189
+00:07:52,760 --> 00:07:56,480
+concepts that's available in every
+
+190
+00:07:54,600 --> 00:07:58,400
+language. So, once you learn this, you
+
+191
+00:07:56,480 --> 00:08:00,840
+can just, you know,
+
+192
+00:07:58,400 --> 00:08:03,240
+do uh programming with it. Now, the
+
+193
+00:08:00,840 --> 00:08:07,600
+other part, which is more practical and
+
+194
+00:08:03,240 --> 00:08:11,160
+more important to Emacs Lisp, is
+
+195
+00:08:07,600 --> 00:08:13,680
+uh is Emacs specific
+
+196
+00:08:11,160 --> 00:08:17,040
+Emacs Lisp. So, what are those? Those
+
+197
+00:08:13,680 --> 00:08:19,080
+are things like how do you um
+
+198
+00:08:17,040 --> 00:08:21,720
+uh how do you manipulate the buffer, you
+
+199
+00:08:19,080 --> 00:08:23,880
+know, so in Emacs Lisp, you know, in in
+
+200
+00:08:21,720 --> 00:08:26,240
+Emacs we have the buffer, we have the
+
+201
+00:08:23,880 --> 00:08:28,480
+window, we have the frame, we have the
+
+202
+00:08:26,240 --> 00:08:30,080
+background color, we have the syntax
+
+203
+00:08:28,480 --> 00:08:32,479
+coloring, you see the current line is
+
+204
+00:08:30,080 --> 00:08:35,039
+colored. How do you do that? You have
+
+205
+00:08:32,479 --> 00:08:37,400
+also uh cuz you have also
+
+206
+00:08:35,039 --> 00:08:39,240
+buttons, you know, how for example, this
+
+207
+00:08:37,400 --> 00:08:42,880
+is uh you know, one of the feature of
+
+208
+00:08:39,240 --> 00:08:46,480
+Emacs that lets you customize
+
+209
+00:08:42,880 --> 00:08:48,680
+Emacs without, you know, knowing uh much
+
+210
+00:08:46,480 --> 00:08:50,800
+Emacs Lisp code. So, you know, you see
+
+211
+00:08:48,680 --> 00:08:53,360
+those are buttons that allows you to
+
+212
+00:08:50,800 --> 00:08:55,720
+search. For example, let's say
+
+213
+00:08:53,360 --> 00:08:57,600
+uh
+
+214
+00:08:55,720 --> 00:09:00,680
+You know, anyway, so buttons, you know,
+
+215
+00:08:57,600 --> 00:09:02,440
+syntax coloring, and major mod Let's
+
+216
+00:09:00,680 --> 00:09:04,880
+close it, you know, close buffer, how do
+
+217
+00:09:02,440 --> 00:09:08,720
+you do that? You see, these concepts,
+
+218
+00:09:04,880 --> 00:09:13,120
+buffer buffer cursor position, um
+
+219
+00:09:08,720 --> 00:09:15,480
+deleting deleting text, inserting text.
+
+220
+00:09:13,120 --> 00:09:18,000
+For example, I copy that and copy and
+
+221
+00:09:15,480 --> 00:09:20,160
+paste. All these concepts are not
+
+222
+00:09:18,000 --> 00:09:23,800
+available in a general general purpose
+
+223
+00:09:20,160 --> 00:09:25,880
+languages such as Python, Java, C,
+
+224
+00:09:23,800 --> 00:09:29,920
+because, you know, so these these are
+
+225
+00:09:25,880 --> 00:09:32,560
+concept these are Emacs specific Emacs
+
+226
+00:09:29,920 --> 00:09:34,200
+Lisp. Okay? And this part is the most
+
+227
+00:09:32,560 --> 00:09:36,520
+practical.
+
+228
+00:09:34,200 --> 00:09:38,400
+Uh and in my past videos, I've done a
+
+229
+00:09:36,520 --> 00:09:40,120
+lot of that, quite a lot, more than 10
+
+230
+00:09:38,400 --> 00:09:42,040
+videos. So,
+
+231
+00:09:40,120 --> 00:09:45,560
+but I've never done
+
+232
+00:09:42,040 --> 00:09:47,280
+uh I never done a tutorial of Emacs Lisp
+
+233
+00:09:45,560 --> 00:09:49,280
+fundamentals from the ground up. That's
+
+234
+00:09:47,280 --> 00:09:51,120
+So, that that's what we are going to do
+
+235
+00:09:49,280 --> 00:09:54,400
+do today.
+
+236
+00:09:51,120 --> 00:09:56,520
+So, Emacs specific Emacs Lisp, you know,
+
+237
+00:09:54,400 --> 00:09:59,400
+and how do you write a major mod? So,
+
+238
+00:09:56,520 --> 00:10:01,800
+maybe you have, you know, cursor uh
+
+239
+00:09:59,400 --> 00:10:03,480
+cursor text editing. How do you insert
+
+240
+00:10:01,800 --> 00:10:06,280
+and what is the interactive? How do you
+
+241
+00:10:03,480 --> 00:10:10,120
+query user? For example,
+
+242
+00:10:06,280 --> 00:10:10,120
+let's say I want to
+
+243
+00:10:12,720 --> 00:10:17,440
+you know, in Emacs control X control F,
+
+244
+00:10:15,800 --> 00:10:20,640
+open a new file.
+
+245
+00:10:17,440 --> 00:10:22,840
+How do you prompt user to get user to,
+
+246
+00:10:20,640 --> 00:10:25,000
+you know, enter some path? You know,
+
+247
+00:10:22,840 --> 00:10:27,360
+that's a prompt. So, how do you do that?
+
+248
+00:10:25,000 --> 00:10:29,320
+You know, usually these things are not
+
+249
+00:10:27,360 --> 00:10:31,480
+available in other languages. You know,
+
+250
+00:10:29,320 --> 00:10:33,480
+how do you do prompt? How do you ask,
+
+251
+00:10:31,480 --> 00:10:34,240
+you know, user to input
+
+252
+00:10:33,480 --> 00:10:36,240
+uh
+
+253
+00:10:34,240 --> 00:10:39,080
+file path, file names, or regular
+
+254
+00:10:36,240 --> 00:10:41,120
+expressions for searching, or or what a
+
+255
+00:10:39,080 --> 00:10:45,120
+number or whatever.
+
+256
+00:10:41,120 --> 00:10:48,760
+And so, Emacs specific things. Then, how
+
+257
+00:10:45,120 --> 00:10:51,760
+do you run Emac Lisp code in a shell run
+
+258
+00:10:48,760 --> 00:10:55,360
+Emac Lisp script in a shell? So, Emac
+
+259
+00:10:51,760 --> 00:10:57,320
+Lisp can also allow you to run
+
+260
+00:10:55,360 --> 00:10:59,000
+For example, in Python, you can type
+
+261
+00:10:57,320 --> 00:10:59,880
+Python A
+
+262
+00:10:59,000 --> 00:11:03,080
+uh
+
+263
+00:10:59,880 --> 00:11:03,080
+Python script.
+
+264
+00:11:04,160 --> 00:11:08,280
+Something like that, py, right? You'll
+
+265
+00:11:06,040 --> 00:11:09,720
+run it. You can also do that in Emac
+
+266
+00:11:08,280 --> 00:11:10,880
+Lisp.
+
+267
+00:11:09,720 --> 00:11:12,440
+Okay, so
+
+268
+00:11:10,880 --> 00:11:14,680
+So, all these
+
+269
+00:11:12,440 --> 00:11:17,400
+Okay, so
+
+270
+00:11:14,680 --> 00:11:20,000
+So, this concept is more specific to
+
+271
+00:11:17,400 --> 00:11:20,880
+Emacs. Okay, so
+
+272
+00:11:20,000 --> 00:11:22,640
+uh
+
+273
+00:11:20,880 --> 00:11:24,360
+we're going to cover some of that. So,
+
+274
+00:11:22,640 --> 00:11:26,720
+let's move on because we have a lot to
+
+275
+00:11:24,360 --> 00:11:30,200
+do. We already talked for 10 minutes.
+
+276
+00:11:26,720 --> 00:11:32,200
+Okay, so let's let's let's let's try to
+
+277
+00:11:30,200 --> 00:11:34,880
+move on.
+
+278
+00:11:32,200 --> 00:11:37,960
+Uh we have a lot people today.
+
+279
+00:11:34,880 --> 00:11:40,960
+So, if you have a question for me
+
+280
+00:11:37,960 --> 00:11:42,760
+related to this talk, just ask me and
+
+281
+00:11:40,960 --> 00:11:44,680
+post my name there, okay, so I can
+
+282
+00:11:42,760 --> 00:11:47,360
+easily see it.
+
+283
+00:11:44,680 --> 00:11:48,600
+So, two parts of Emac Lisp, one is
+
+284
+00:11:47,360 --> 00:11:50,560
+generic,
+
+285
+00:11:48,600 --> 00:11:54,240
+uh similar to every language. The other
+
+286
+00:11:50,560 --> 00:11:56,960
+part is Emacs specific, such as cursor,
+
+287
+00:11:54,240 --> 00:12:00,240
+text manipulation, cursor buffer, major
+
+288
+00:11:56,960 --> 00:12:02,800
+minor mode, syntax coloring, GUI, how do
+
+289
+00:12:00,240 --> 00:12:05,120
+you create a new window, uh you know,
+
+290
+00:12:02,800 --> 00:12:07,720
+new frame, or you know, things like
+
+291
+00:12:05,120 --> 00:12:09,320
+that. That's Emacs specific.
+
+292
+00:12:07,720 --> 00:12:11,280
+Okay. Now,
+
+293
+00:12:09,320 --> 00:12:14,080
+Now, they actually Okay, so for the
+
+294
+00:12:11,280 --> 00:12:18,000
+Emacs specific Emac Lisp,
+
+295
+00:12:14,080 --> 00:12:20,839
+they are also kind of two parts. One is
+
+296
+00:12:18,000 --> 00:12:22,640
+all about text processing. And this is
+
+297
+00:12:20,839 --> 00:12:25,000
+the most practical. This is the most
+
+298
+00:12:22,640 --> 00:12:27,880
+practical. Because, for example, every
+
+299
+00:12:25,000 --> 00:12:30,080
+every time you see me using Emacs, all
+
+300
+00:12:27,880 --> 00:12:33,040
+these, you know, selection,
+
+301
+00:12:30,080 --> 00:12:34,600
+uh delete, or cut, paste,
+
+302
+00:12:33,040 --> 00:12:36,400
+uh let me show the pink window so you
+
+303
+00:12:34,600 --> 00:12:38,280
+can see my command. You see, I want to
+
+304
+00:12:36,400 --> 00:12:40,960
+select the whole list.
+
+305
+00:12:38,280 --> 00:12:43,320
+You know, so that command is such HTML
+
+306
+00:12:40,960 --> 00:12:45,360
+select element. So, let me show you the
+
+307
+00:12:43,320 --> 00:12:48,839
+code, okay? So, for example, let me show
+
+308
+00:12:45,360 --> 00:12:51,080
+you some Emac Lisp source code.
+
+309
+00:12:48,839 --> 00:12:54,160
+Okay, so you jump to it. So, there it
+
+310
+00:12:51,080 --> 00:12:56,240
+is. This This is what
+
+311
+00:12:54,160 --> 00:12:59,240
+does that. So, it's not too big, okay?
+
+312
+00:12:56,240 --> 00:13:02,960
+So, copy that. So, copy new buffer,
+
+313
+00:12:59,240 --> 00:13:06,000
+paste, only 60 lines, okay?
+
+314
+00:13:02,960 --> 00:13:08,760
+And make it syntax color. So,
+
+315
+00:13:06,000 --> 00:13:08,760
+So, anyway, so
+
+316
+00:13:09,280 --> 00:13:14,839
+uh So, okay, close that. So, let's let's
+
+317
+00:13:13,000 --> 00:13:17,240
+let's go on, okay?
+
+318
+00:13:14,839 --> 00:13:20,839
+Two parts to Emac Lisp. So, yeah, so the
+
+319
+00:13:17,240 --> 00:13:22,200
+for the Emac Lisp Emacs specific
+
+320
+00:13:20,839 --> 00:13:24,280
+Lisp,
+
+321
+00:13:22,200 --> 00:13:26,800
+they are again, you can divide it into
+
+322
+00:13:24,280 --> 00:13:28,560
+two parts. One is text manipulation,
+
+323
+00:13:26,800 --> 00:13:31,240
+which is the most
+
+324
+00:13:28,560 --> 00:13:33,160
+uh common commonly needed, the most
+
+325
+00:13:31,240 --> 00:13:35,080
+practical. For example, everything I do
+
+326
+00:13:33,160 --> 00:13:37,640
+today. And
+
+327
+00:13:35,080 --> 00:13:39,240
+uh you know, that's for example, delete,
+
+328
+00:13:37,640 --> 00:13:42,040
+or
+
+329
+00:13:39,240 --> 00:13:44,839
+that's related to that's that's part of
+
+330
+00:13:42,040 --> 00:13:47,080
+text processing. Now, the other
+
+331
+00:13:44,839 --> 00:13:48,680
+part is about how do you control font?
+
+332
+00:13:47,080 --> 00:13:51,200
+How do you
+
+333
+00:13:48,680 --> 00:13:54,600
+uh How do you For example, you see the
+
+334
+00:13:51,200 --> 00:13:57,560
+color here is purple. How does that
+
+335
+00:13:54,600 --> 00:14:01,040
+How is it How does it work? How do you
+
+336
+00:13:57,560 --> 00:14:03,880
+make Emacs to color part of text purple,
+
+337
+00:14:01,040 --> 00:14:07,000
+for example? And you see here is a line.
+
+338
+00:14:03,880 --> 00:14:10,320
+How do you do that? So, so these are not
+
+339
+00:14:07,000 --> 00:14:13,000
+text processing. These are related to
+
+340
+00:14:10,320 --> 00:14:15,920
+syntax coloring, font,
+
+341
+00:14:13,000 --> 00:14:17,920
+minor mode, which is Emacs specific
+
+342
+00:14:15,920 --> 00:14:20,000
+concept, minor mode, major mode. How do
+
+343
+00:14:17,920 --> 00:14:22,160
+you create a major mode? How do you
+
+344
+00:14:20,000 --> 00:14:24,760
+manipulate window frame size? How do you
+
+345
+00:14:22,160 --> 00:14:25,800
+write a directory viewer, for example?
+
+346
+00:14:24,760 --> 00:14:28,000
+You see,
+
+347
+00:14:25,800 --> 00:14:30,600
+uh let me shrink the You see, here's a
+
+348
+00:14:28,000 --> 00:14:32,760
+directory. So, Emacs can be used for
+
+349
+00:14:30,600 --> 00:14:35,959
+directory. For example, I can make a
+
+350
+00:14:32,760 --> 00:14:38,360
+backup list of this file. Do it. You
+
+351
+00:14:35,959 --> 00:14:41,880
+see, there it is. Here's a backup. And
+
+352
+00:14:38,360 --> 00:14:45,000
+the command I just called is that. So,
+
+353
+00:14:41,880 --> 00:14:46,480
+So, this is not text processing, but
+
+354
+00:14:45,000 --> 00:14:49,800
+rather more
+
+355
+00:14:46,480 --> 00:14:52,240
+Emacs specific. For example, and how do
+
+356
+00:14:49,800 --> 00:14:54,520
+you write a image viewer? For example,
+
+357
+00:14:52,240 --> 00:14:57,320
+let's go to some image directory so I
+
+358
+00:14:54,520 --> 00:15:00,120
+can actually view
+
+359
+00:14:57,320 --> 00:15:02,880
+some images. You know, this is our
+
+360
+00:15:00,120 --> 00:15:03,800
+study forum.
+
+361
+00:15:02,880 --> 00:15:07,079
+Uh
+
+362
+00:15:03,800 --> 00:15:09,520
+view image, PDF viewer, and so on, okay?
+
+363
+00:15:07,079 --> 00:15:12,680
+So, okay, so let's begin the the Emacs
+
+364
+00:15:09,520 --> 00:15:15,040
+fundamentals, the general purpose Emacs,
+
+365
+00:15:12,680 --> 00:15:15,040
+okay?
+
+366
+00:15:15,160 --> 00:15:18,320
+Uh let's see. Okay, so let's begin to do
+
+367
+00:15:17,160 --> 00:15:21,240
+that.
+
+368
+00:15:18,320 --> 00:15:23,640
+So, in Emacs So, what do you do is
+
+369
+00:15:21,240 --> 00:15:24,360
+in any Emacs buffer,
+
+370
+00:15:23,640 --> 00:15:27,040
+we
+
+371
+00:15:24,360 --> 00:15:29,520
+you can start to write Emacs code
+
+372
+00:15:27,040 --> 00:15:30,880
+anywhere, okay? But, typically, you open
+
+373
+00:15:29,520 --> 00:15:33,400
+a new buffer
+
+374
+00:15:30,880 --> 00:15:35,000
+you open a new empty buffer. That's too
+
+375
+00:15:33,400 --> 00:15:37,720
+big, okay? That's
+
+376
+00:15:35,000 --> 00:15:37,720
+Hold on a second.
+
+377
+00:15:44,200 --> 00:15:49,760
+So, in general, let's let's just do
+
+378
+00:15:46,280 --> 00:15:51,440
+this. Plus two three, okay? Evaluate it.
+
+379
+00:15:49,760 --> 00:15:53,920
+You can see
+
+380
+00:15:51,440 --> 00:15:56,880
+that's the answer, five. So, we just
+
+381
+00:15:53,920 --> 00:15:59,200
+typed some Emac Lisp code and evaluated
+
+382
+00:15:56,880 --> 00:16:01,400
+it. And you can also do it here in any
+
+383
+00:15:59,200 --> 00:16:03,959
+buffer. Any buffer you can you can just
+
+384
+00:16:01,400 --> 00:16:06,760
+type start to type Emac Lisp code, and
+
+385
+00:16:03,959 --> 00:16:09,560
+you call a function, and you can see the
+
+386
+00:16:06,760 --> 00:16:11,959
+bottom is your your result, okay? So,
+
+387
+00:16:09,560 --> 00:16:13,680
+you can see the command I called is eval
+
+388
+00:16:11,959 --> 00:16:16,680
+last sex.
+
+389
+00:16:13,680 --> 00:16:20,800
+Okay, sex stand for
+
+390
+00:16:16,680 --> 00:16:22,480
+this word S-E-X-P stand for symbolic
+
+391
+00:16:20,800 --> 00:16:25,680
+expression, okay? That's that's a
+
+392
+00:16:22,480 --> 00:16:27,839
+tradition of Lisp name. Symbolic
+
+393
+00:16:25,680 --> 00:16:29,760
+expression, that's what this syntax is
+
+394
+00:16:27,839 --> 00:16:31,839
+called, okay? So, you can you can start
+
+395
+00:16:29,760 --> 00:16:35,560
+to type, you know, just usually you open
+
+396
+00:16:31,839 --> 00:16:38,400
+a new file and you can do it.
+
+397
+00:16:35,560 --> 00:16:38,400
+Okay, so what
+
+398
+00:16:39,480 --> 00:16:43,839
+Okay, so the Yeah, so that's how you
+
+399
+00:16:42,280 --> 00:16:47,120
+start to
+
+400
+00:16:43,839 --> 00:16:49,520
+type Emac Lisp. And now, let me show
+
+401
+00:16:47,120 --> 00:16:53,320
+you. So, Emac Lisp the whole language
+
+402
+00:16:49,520 --> 00:16:58,160
+syntax is uniform, okay? Unlike Python,
+
+403
+00:16:53,320 --> 00:17:00,000
+C, Java, JavaScript, or Ruby, or PHP,
+
+404
+00:16:58,160 --> 00:17:03,040
+any other languages. You know, the
+
+405
+00:17:00,000 --> 00:17:04,920
+syntax like each each construct have a
+
+406
+00:17:03,040 --> 00:17:07,959
+different syntax. You have to learn it
+
+407
+00:17:04,920 --> 00:17:10,079
+learn it. So, for loop has a particular
+
+408
+00:17:07,959 --> 00:17:11,600
+syntax, while loop,
+
+409
+00:17:10,079 --> 00:17:14,400
+you know, you have a different syntax.
+
+410
+00:17:11,600 --> 00:17:15,920
+You have parenthesis in somewhere else.
+
+411
+00:17:14,400 --> 00:17:18,439
+Then, variable assignment, you have a
+
+412
+00:17:15,920 --> 00:17:21,160
+different syntax. You know, that's most
+
+413
+00:17:18,439 --> 00:17:23,000
+languages are like that, but in Lisp
+
+414
+00:17:21,160 --> 00:17:26,160
+languages,
+
+415
+00:17:23,000 --> 00:17:28,800
+everything you see everything you see is
+
+416
+00:17:26,160 --> 00:17:30,280
+basically parenthesized form, okay? Like
+
+417
+00:17:28,800 --> 00:17:32,560
+that.
+
+418
+00:17:30,280 --> 00:17:35,800
+Okay, I need to go faster because this
+
+419
+00:17:32,560 --> 00:17:38,200
+way we're going to not going to
+
+420
+00:17:35,800 --> 00:17:40,160
+go anywhere. So, for example, you have a
+
+421
+00:17:38,200 --> 00:17:42,480
+Now, you have a nested expression, okay?
+
+422
+00:17:40,160 --> 00:17:44,600
+So, if you evaluate this one, you see
+
+423
+00:17:42,480 --> 00:17:47,679
+the answer is six because you are doing
+
+424
+00:17:44,600 --> 00:17:49,280
+three plus one, then plus two, okay? So,
+
+425
+00:17:47,679 --> 00:17:51,040
+in Emac Lisp, everything is an
+
+426
+00:17:49,280 --> 00:17:53,800
+expression.
+
+427
+00:17:51,040 --> 00:17:55,679
+Okay, so maybe actually should we write
+
+428
+00:17:53,800 --> 00:17:57,720
+it down? Okay, so maybe let's write it
+
+429
+00:17:55,679 --> 00:18:01,520
+down.
+
+430
+00:17:57,720 --> 00:18:03,800
+Everything is a expression.
+
+431
+00:18:01,520 --> 00:18:05,920
+No
+
+432
+00:18:03,800 --> 00:18:07,720
+statements, okay? In other languages,
+
+433
+00:18:05,920 --> 00:18:09,200
+you have things like statements, and
+
+434
+00:18:07,720 --> 00:18:11,120
+sometimes you have statements,
+
+435
+00:18:09,200 --> 00:18:13,840
+expressions different. Sometimes you
+
+436
+00:18:11,120 --> 00:18:16,160
+have directives, which is another thing.
+
+437
+00:18:13,840 --> 00:18:19,560
+For example, in JavaScript,
+
+438
+00:18:16,160 --> 00:18:19,560
+in JavaScript, you have
+
+439
+00:18:21,320 --> 00:18:25,520
+you have this string use strict. That's
+
+440
+00:18:23,720 --> 00:18:27,800
+That's a directive that's called a
+
+441
+00:18:25,520 --> 00:18:31,480
+directive because that changes the
+
+442
+00:18:27,800 --> 00:18:32,240
+language's interpretation, you know? So,
+
+443
+00:18:31,480 --> 00:18:33,720
+no
+
+444
+00:18:32,240 --> 00:18:36,040
+In Emac Lisp, everything is an
+
+445
+00:18:33,720 --> 00:18:39,159
+expression. No exceptions, and no
+
+446
+00:18:36,040 --> 00:18:41,720
+statements, no directives,
+
+447
+00:18:39,159 --> 00:18:45,600
+no anything else, okay? So, that makes
+
+448
+00:18:41,720 --> 00:18:47,800
+it simple, uniform. So, So, Emac Lisp
+
+449
+00:18:45,600 --> 00:18:50,200
+Lisp family of languages is such that
+
+450
+00:18:47,800 --> 00:18:53,040
+you learn one concept, it applies to the
+
+451
+00:18:50,200 --> 00:18:54,520
+whole language. So, there are only, you
+
+452
+00:18:53,040 --> 00:18:56,880
+know,
+
+453
+00:18:54,520 --> 00:18:59,400
+uh handful of concept you have to learn,
+
+454
+00:18:56,880 --> 00:19:00,120
+then you already know the entirety of
+
+455
+00:18:59,400 --> 00:19:02,840
+the
+
+456
+00:19:00,120 --> 00:19:05,159
+of the language, okay? That's a Lisp,
+
+457
+00:19:02,840 --> 00:19:07,120
+including Emac Lisp, okay?
+
+458
+00:19:05,159 --> 00:19:08,919
+So, everything is an expression. So,
+
+459
+00:19:07,120 --> 00:19:11,679
+what does that mean? That means
+
+460
+00:19:08,919 --> 00:19:14,400
+everything returns a value. So, for
+
+461
+00:19:11,679 --> 00:19:16,360
+example, this two is an expression, this
+
+462
+00:19:14,400 --> 00:19:18,720
+three is an expression, this whole thing
+
+463
+00:19:16,360 --> 00:19:21,400
+is an expression. You can call it
+
+464
+00:19:18,720 --> 00:19:24,520
+compound expression, you know? So,
+
+465
+00:19:21,400 --> 00:19:26,640
+everything is an expression. Okay, then
+
+466
+00:19:24,520 --> 00:19:29,320
+So, let me tell you about atomic
+
+467
+00:19:26,640 --> 00:19:31,679
+expression. So, this two, for example,
+
+468
+00:19:29,320 --> 00:19:34,480
+that's an expression, too.
+
+469
+00:19:31,679 --> 00:19:36,360
+That's This expression is called atomic
+
+470
+00:19:34,480 --> 00:19:38,880
+expression because it's an expression
+
+471
+00:19:36,360 --> 00:19:40,960
+that cannot be taken apart. That's
+
+472
+00:19:38,880 --> 00:19:43,720
+the kind of the smallest expression
+
+473
+00:19:40,960 --> 00:19:46,159
+possible. So, you can also evaluate this
+
+474
+00:19:43,720 --> 00:19:49,760
+one. For example, I can call just like
+
+475
+00:19:46,159 --> 00:19:51,919
+before eval last sex. So, you can see
+
+476
+00:19:49,760 --> 00:19:54,120
+the answer in the mini buffer, too,
+
+477
+00:19:51,919 --> 00:19:56,840
+okay? Now, let me tell you in Emacs
+
+478
+00:19:54,120 --> 00:19:58,640
+Lisp, everything is
+
+479
+00:19:56,840 --> 00:20:01,240
+you know, for beginners, everything is
+
+480
+00:19:58,640 --> 00:20:03,080
+printed into the a buffer. Every output
+
+481
+00:20:01,240 --> 00:20:05,280
+is printed into a buffer called the
+
+482
+00:20:03,080 --> 00:20:08,000
+messages buffer. So, you can see the
+
+483
+00:20:05,280 --> 00:20:10,720
+name here. So, you can switch to that
+
+484
+00:20:08,000 --> 00:20:13,440
+the messages buffer by
+
+485
+00:20:10,720 --> 00:20:15,440
+by control H E. Okay? That's how we do
+
+486
+00:20:13,440 --> 00:20:18,960
+it. So, for example, let's do it again.
+
+487
+00:20:15,440 --> 00:20:21,560
+Control H E. So, that pops up this
+
+488
+00:20:18,960 --> 00:20:24,680
+messages buffer, and you can expand it.
+
+489
+00:20:21,560 --> 00:20:26,720
+So, every output will be there. Okay?
+
+490
+00:20:24,680 --> 00:20:28,440
+So, you have to know this.
+
+491
+00:20:26,720 --> 00:20:30,040
+Okay, so everything is an expression.
+
+492
+00:20:28,440 --> 00:20:32,080
+Then, you have atomic
+
+493
+00:20:30,040 --> 00:20:34,800
+expression, which is expressions that
+
+494
+00:20:32,080 --> 00:20:36,280
+cannot that cannot be taken apart. Then,
+
+495
+00:20:34,800 --> 00:20:38,840
+you have more compound. Compound
+
+496
+00:20:36,280 --> 00:20:40,640
+expression is always nested parenthesis,
+
+497
+00:20:38,840 --> 00:20:43,720
+okay?
+
+498
+00:20:40,640 --> 00:20:46,240
+Now, that's it. That's essentially all
+
+499
+00:20:43,720 --> 00:20:47,200
+syntax you need to know about Emacs
+
+500
+00:20:46,240 --> 00:20:50,240
+Lisp.
+
+501
+00:20:47,200 --> 00:20:52,680
+So, again, let me show you some
+
+502
+00:20:50,240 --> 00:20:56,240
+uh let me show you some Emacs Lisp Lisp
+
+503
+00:20:52,680 --> 00:20:57,600
+source code. For example, you see this
+
+504
+00:20:56,240 --> 00:21:01,400
+this
+
+505
+00:20:57,600 --> 00:21:04,640
+uh my HTML mode, okay? So, HTML mode,
+
+506
+00:21:01,400 --> 00:21:07,120
+which is 5,000 lines. You see all the
+
+507
+00:21:04,640 --> 00:21:08,520
+parenthesis. All those are expressions.
+
+508
+00:21:07,120 --> 00:21:11,280
+So, what does the expression mean?
+
+509
+00:21:08,520 --> 00:21:12,880
+Expression, again, it means it returns a
+
+510
+00:21:11,280 --> 00:21:15,040
+value.
+
+511
+00:21:12,880 --> 00:21:17,920
+You know, unlike some other languages,
+
+512
+00:21:15,040 --> 00:21:20,440
+Python, you know, X maybe not Python in
+
+513
+00:21:17,920 --> 00:21:23,000
+other many in C, for example,
+
+514
+00:21:20,440 --> 00:21:25,080
+X equals to three, that's a statement,
+
+515
+00:21:23,000 --> 00:21:27,480
+and it doesn't return anything. You
+
+516
+00:21:25,080 --> 00:21:29,240
+know, or maybe you call it void. You
+
+517
+00:21:27,480 --> 00:21:31,000
+know, there's nothing like that in you
+
+518
+00:21:29,240 --> 00:21:33,080
+know, in Emacs Lisp, everything is
+
+519
+00:21:31,000 --> 00:21:35,160
+expression, okay?
+
+520
+00:21:33,080 --> 00:21:37,200
+So, make sure I'm
+
+521
+00:21:35,160 --> 00:21:39,640
+on the page with you guys. So,
+
+522
+00:21:37,200 --> 00:21:41,400
+everything is good.
+
+523
+00:21:39,640 --> 00:21:44,720
+Okay, so everything is expression. So,
+
+524
+00:21:41,400 --> 00:21:46,440
+let's go back to next we we need to go
+
+525
+00:21:44,720 --> 00:21:48,920
+much faster.
+
+526
+00:21:46,440 --> 00:21:51,240
+Um
+
+527
+00:21:48,920 --> 00:21:54,440
+Okay, so but they are
+
+528
+00:21:51,240 --> 00:21:57,160
+they are like a five exceptions.
+
+529
+00:21:54,440 --> 00:21:59,040
+Okay, so how do you do comment in Emacs
+
+530
+00:21:57,160 --> 00:22:01,120
+Lisp? Comment is
+
+531
+00:21:59,040 --> 00:22:04,080
+uh wait.
+
+532
+00:22:01,120 --> 00:22:07,080
+Comment is that, okay? Comment is the
+
+533
+00:22:04,080 --> 00:22:10,360
+semicolon to the end of the line. This
+
+534
+00:22:07,080 --> 00:22:10,360
+is a comment, okay?
+
+535
+00:22:10,480 --> 00:22:13,600
+So,
+
+536
+00:22:11,600 --> 00:22:16,760
+so now there's a question. Now, this
+
+537
+00:22:13,600 --> 00:22:17,960
+apparently this syntax for comment is
+
+538
+00:22:16,760 --> 00:22:19,600
+not
+
+539
+00:22:17,960 --> 00:22:22,240
+parenthesized.
+
+540
+00:22:19,600 --> 00:22:24,200
+So, you know, it's like, "Oh, this is a
+
+541
+00:22:22,240 --> 00:22:27,800
+new syntax I have to learn." Yeah,
+
+542
+00:22:24,200 --> 00:22:29,800
+that's true. So, but so there are few,
+
+543
+00:22:27,800 --> 00:22:30,960
+you know, maybe five a total of five or
+
+544
+00:22:29,800 --> 00:22:34,000
+so
+
+545
+00:22:30,960 --> 00:22:36,240
+uh special syntax. Comment is one of
+
+546
+00:22:34,000 --> 00:22:38,600
+them. And but usually you don't have to
+
+547
+00:22:36,240 --> 00:22:42,240
+worry about it. For example, another
+
+548
+00:22:38,600 --> 00:22:44,679
+another one is this uh apostrophe,
+
+549
+00:22:42,240 --> 00:22:46,560
+which stand for
+
+550
+00:22:44,679 --> 00:22:48,120
+uh let me just go over, okay? So, this
+
+551
+00:22:46,560 --> 00:22:50,720
+is not
+
+552
+00:22:48,120 --> 00:22:54,480
+uh critical, you know, you you will know
+
+553
+00:22:50,720 --> 00:22:57,360
+it once you get to know Emacs Lisp.
+
+554
+00:22:54,480 --> 00:22:58,760
+So, for example, this line is equivalent
+
+555
+00:22:57,360 --> 00:23:00,880
+to that
+
+556
+00:22:58,760 --> 00:23:02,040
+to this line, okay? Quote something
+
+557
+00:23:00,880 --> 00:23:04,520
+something.
+
+558
+00:23:02,040 --> 00:23:06,240
+But, however, this you have a special
+
+559
+00:23:04,520 --> 00:23:08,679
+syntax of a quote in front, you know,
+
+560
+00:23:06,240 --> 00:23:11,120
+that's a special syntax. They are only
+
+561
+00:23:08,679 --> 00:23:13,400
+five or so of them.
+
+562
+00:23:11,120 --> 00:23:17,360
+But, the all the rest are just either
+
+563
+00:23:13,400 --> 00:23:18,440
+parenthesis or just atomic, okay?
+
+564
+00:23:17,360 --> 00:23:22,360
+Okay,
+
+565
+00:23:18,440 --> 00:23:24,160
+so let me so let's move on. So,
+
+566
+00:23:22,360 --> 00:23:26,120
+text Okay, so text processing,
+
+567
+00:23:24,160 --> 00:23:28,240
+everything is expression.
+
+568
+00:23:26,120 --> 00:23:30,160
+Syntax shortcuts, yeah, so there are a
+
+569
+00:23:28,240 --> 00:23:31,720
+few exceptions, but you don't have to
+
+570
+00:23:30,160 --> 00:23:34,640
+worry about them, you know, when you
+
+571
+00:23:31,720 --> 00:23:36,320
+start to learn Emacs Lisp. You you know,
+
+572
+00:23:34,640 --> 00:23:36,960
+okay. So,
+
+573
+00:23:36,320 --> 00:23:39,440
+um
+
+574
+00:23:36,960 --> 00:23:40,720
+yeah, so let me cover how to evaluate
+
+575
+00:23:39,440 --> 00:23:43,920
+code.
+
+576
+00:23:40,720 --> 00:23:45,560
+Actually, we did before. So,
+
+577
+00:23:43,920 --> 00:23:48,400
+there are many ways, okay? You can also
+
+578
+00:23:45,560 --> 00:23:51,520
+evaluate a file, you know, you can say,
+
+579
+00:23:48,400 --> 00:23:54,360
+for example, load. You know, meta X load
+
+580
+00:23:51,520 --> 00:23:55,760
+load file, okay? Then, Emacs will ask
+
+581
+00:23:54,360 --> 00:23:58,480
+you to
+
+582
+00:23:55,760 --> 00:24:01,040
+uh type of file path for Emacs Lisp
+
+583
+00:23:58,480 --> 00:24:02,520
+file, you know, a script.
+
+584
+00:24:01,040 --> 00:24:05,520
+So, cancel that. So, there are many
+
+585
+00:24:02,520 --> 00:24:08,040
+ways. So, again, in my tutorial, it's
+
+586
+00:24:05,520 --> 00:24:11,160
+everything is covered here, okay?
+
+587
+00:24:08,040 --> 00:24:12,920
+How to evaluate Emacs Lisp code.
+
+588
+00:24:11,160 --> 00:24:14,480
+And the two most important thing you
+
+589
+00:24:12,920 --> 00:24:16,000
+want to know is this one,
+
+590
+00:24:14,480 --> 00:24:18,080
+eval-last-sexp.
+
+591
+00:24:16,000 --> 00:24:19,920
+That's the most convenient.
+
+592
+00:24:18,080 --> 00:24:22,720
+Uh and what you do is you move the
+
+593
+00:24:19,920 --> 00:24:24,600
+cursor to the end of the expression,
+
+594
+00:24:22,720 --> 00:24:26,880
+then just call it. For example, let's
+
+595
+00:24:24,600 --> 00:24:29,320
+let's say I want to evaluate that. I can
+
+596
+00:24:26,880 --> 00:24:31,679
+put the cursor here or here or anywhere
+
+597
+00:24:29,320 --> 00:24:33,720
+here, you know, just after it. So, I
+
+598
+00:24:31,679 --> 00:24:38,560
+just do it.
+
+599
+00:24:33,720 --> 00:24:40,679
+Uh control X E, that's the default key.
+
+600
+00:24:38,560 --> 00:24:43,400
+Oh, okay, I removed it. Okay, so let me
+
+601
+00:24:40,679 --> 00:24:45,520
+just use C-a I'm using C-a by key. So,
+
+602
+00:24:43,400 --> 00:24:47,360
+anyway, let me do it. So, you see five.
+
+603
+00:24:45,520 --> 00:24:50,200
+So, show the messages buffer, you see
+
+604
+00:24:47,360 --> 00:24:53,920
+five. That's the result.
+
+605
+00:24:50,200 --> 00:24:57,120
+Okay, and uh the and again, the you see
+
+606
+00:24:53,920 --> 00:24:58,800
+the command is that, eval-last-sexp.
+
+607
+00:24:57,120 --> 00:25:01,320
+Okay, that's one of the most important
+
+608
+00:24:58,800 --> 00:25:04,040
+command to evaluate
+
+609
+00:25:01,320 --> 00:25:04,600
+Emacs Lisp code. The other one is called
+
+610
+00:25:04,040 --> 00:25:07,480
+uh
+
+611
+00:25:04,600 --> 00:25:09,480
+eval-region. So, for example, if you
+
+612
+00:25:07,480 --> 00:25:12,800
+want to evaluate this part and this
+
+613
+00:25:09,480 --> 00:25:15,520
+part, you select select them first, then
+
+614
+00:25:12,800 --> 00:25:18,000
+you meta X eval
+
+615
+00:25:15,520 --> 00:25:20,080
+region, okay? Do it.
+
+616
+00:25:18,000 --> 00:25:22,720
+Then, you can go to the messages buffer,
+
+617
+00:25:20,080 --> 00:25:24,840
+and when you eval-region, it doesn't
+
+618
+00:25:22,720 --> 00:25:25,720
+show the output. I don't think so. So,
+
+619
+00:25:24,840 --> 00:25:27,800
+let's
+
+620
+00:25:25,720 --> 00:25:30,200
+yeah, I don't think so. So, eval-region
+
+621
+00:25:27,800 --> 00:25:32,640
+again, yeah, when you eval the region,
+
+622
+00:25:30,200 --> 00:25:35,280
+it doesn't show the output.
+
+623
+00:25:32,640 --> 00:25:37,320
+But, you told Emacs, you know, Emacs has
+
+624
+00:25:35,280 --> 00:25:40,920
+already evaluated them, okay? So, that's
+
+625
+00:25:37,320 --> 00:25:43,000
+how you evaluate Emacs Lisp code.
+
+626
+00:25:40,920 --> 00:25:44,440
+Uh okay, so let's go let's see next
+
+627
+00:25:43,000 --> 00:25:47,000
+what's next.
+
+628
+00:25:44,440 --> 00:25:50,560
+Okay, so basically that's you know,
+
+629
+00:25:47,000 --> 00:25:54,040
+that's the beginners introduction.
+
+630
+00:25:50,560 --> 00:25:56,600
+So, we covered So, we covered comments
+
+631
+00:25:54,040 --> 00:25:59,400
+and let me show you So, you know, I hope
+
+632
+00:25:56,600 --> 00:26:01,480
+you guys, you know, after so far, I hope
+
+633
+00:25:59,400 --> 00:26:04,240
+you guys already know you can start to
+
+634
+00:26:01,480 --> 00:26:07,160
+code Emacs Lisp already, you know, like
+
+635
+00:26:04,240 --> 00:26:09,080
+you know, I hope you guys, you know,
+
+636
+00:26:07,160 --> 00:26:10,360
+take this seriously. So, you can start
+
+637
+00:26:09,080 --> 00:26:12,120
+to code it.
+
+638
+00:26:10,360 --> 00:26:13,560
+You can already
+
+639
+00:26:12,120 --> 00:26:15,679
+from what we covered, you can already
+
+640
+00:26:13,560 --> 00:26:17,240
+start to code Emacs Lisp, you know, try
+
+641
+00:26:15,679 --> 00:26:20,720
+try
+
+642
+00:26:17,240 --> 00:26:22,720
+try to do some arithmetics, okay?
+
+643
+00:26:20,720 --> 00:26:25,240
+And uh we covered comments, we covered
+
+644
+00:26:22,720 --> 00:26:28,640
+how to evaluate Emacs Lisp code, we
+
+645
+00:26:25,240 --> 00:26:31,360
+covered the basic syntax of Emacs Lisp,
+
+646
+00:26:28,640 --> 00:26:33,120
+okay? That's that's a lot, you know. We
+
+647
+00:26:31,360 --> 00:26:34,360
+are already beginning
+
+648
+00:26:33,120 --> 00:26:37,080
+uh Emacs
+
+649
+00:26:34,360 --> 00:26:37,080
+experts.
+
+650
+00:26:42,160 --> 00:26:47,560
+I power drink with some lime soda.
+
+651
+00:26:45,320 --> 00:26:47,560
+Yeah.
+
+652
+00:26:49,040 --> 00:26:52,040
+Okay.
+
+653
+00:26:50,120 --> 00:26:53,679
+So, it's very hot today. It's uh
+
+654
+00:26:52,040 --> 00:26:56,480
+California
+
+655
+00:26:53,679 --> 00:26:59,560
+heat wave today. Okay, so what we going
+
+656
+00:26:56,480 --> 00:27:02,560
+to do for the rest of about the rest of
+
+657
+00:26:59,560 --> 00:27:05,520
+the um another 30 minutes is cover all
+
+658
+00:27:02,560 --> 00:27:07,560
+the language details, like
+
+659
+00:27:05,520 --> 00:27:09,040
+Okay, so we covered comments. How do you
+
+660
+00:27:07,560 --> 00:27:11,800
+print? So,
+
+661
+00:27:09,040 --> 00:27:14,600
+okay, let me show you. How do you print?
+
+662
+00:27:11,800 --> 00:27:16,880
+So, the again, there are many ways to
+
+663
+00:27:14,600 --> 00:27:18,880
+print. There's insert, there's messages
+
+664
+00:27:16,880 --> 00:27:20,440
+function, there's print.
+
+665
+00:27:18,880 --> 00:27:21,920
+Okay?
+
+666
+00:27:20,440 --> 00:27:24,360
+Before we go further, let me tell you,
+
+667
+00:27:21,920 --> 00:27:26,800
+you know, so syntax is all parenthesis,
+
+668
+00:27:24,360 --> 00:27:28,920
+right? And with the way you evaluate
+
+669
+00:27:26,800 --> 00:27:31,200
+something is always always a function
+
+670
+00:27:28,920 --> 00:27:33,000
+call.
+
+671
+00:27:31,200 --> 00:27:35,840
+So, in Lisp,
+
+672
+00:27:33,000 --> 00:27:38,400
+when you you know, the syntax is always
+
+673
+00:27:35,840 --> 00:27:39,320
+F um
+
+674
+00:27:38,400 --> 00:27:43,120
+F
+
+675
+00:27:39,320 --> 00:27:45,600
+A B C. Uh
+
+676
+00:27:43,120 --> 00:27:48,200
+something like that. And the way you do
+
+677
+00:27:45,600 --> 00:27:51,240
+computation, the computational model of
+
+678
+00:27:48,200 --> 00:27:53,640
+Lisp is always a function call. So,
+
+679
+00:27:51,240 --> 00:27:56,800
+there is no
+
+680
+00:27:53,640 --> 00:27:59,400
+for loop, you know, you know, for loop
+
+681
+00:27:56,800 --> 00:28:02,720
+in C, in JavaScript, you have a special
+
+682
+00:27:59,400 --> 00:28:05,120
+syntax, and it does it's not a function,
+
+683
+00:28:02,720 --> 00:28:07,640
+you know, but in Emacs Lisp, everything
+
+684
+00:28:05,120 --> 00:28:10,480
+is of this form, parenthesis, function
+
+685
+00:28:07,640 --> 00:28:11,960
+name, and arguments, okay? Parameters. A
+
+686
+00:28:10,480 --> 00:28:14,880
+function call. That's how you do
+
+687
+00:28:11,960 --> 00:28:19,000
+computation. That's the computation
+
+688
+00:28:14,880 --> 00:28:21,880
+model of Lisp languages in general.
+
+689
+00:28:19,000 --> 00:28:24,320
+Okay, so this is So, you the input are
+
+690
+00:28:21,880 --> 00:28:27,240
+the parameters, the the arguments. You
+
+691
+00:28:24,320 --> 00:28:29,840
+pass whatever data you want to change,
+
+692
+00:28:27,240 --> 00:28:32,080
+then you call the function. The function
+
+693
+00:28:29,840 --> 00:28:33,840
+you know, outputs some value,
+
+694
+00:28:32,080 --> 00:28:36,280
+a new value. So, this is how you do
+
+695
+00:28:33,840 --> 00:28:38,560
+computation in Lisp, okay?
+
+696
+00:28:36,280 --> 00:28:41,240
+In Emacs Lisp, in Common Lisp, in Scheme
+
+697
+00:28:38,560 --> 00:28:43,480
+Lisp, in Racket, in Closure, this is the
+
+698
+00:28:41,240 --> 00:28:45,320
+computational model. Very simple.
+
+699
+00:28:43,480 --> 00:28:48,240
+There's nothing else. There's no special
+
+700
+00:28:45,320 --> 00:28:50,800
+thing. There's no iterators, you know,
+
+701
+00:28:48,240 --> 00:28:53,200
+there's no generators that return
+
+702
+00:28:50,800 --> 00:28:54,720
+something mysterious that
+
+703
+00:28:53,200 --> 00:28:56,640
+you know,
+
+704
+00:28:54,720 --> 00:28:58,880
+no such thing. Everything is just a
+
+705
+00:28:56,640 --> 00:29:01,080
+value, function call, input, output,
+
+706
+00:28:58,880 --> 00:29:04,040
+okay?
+
+707
+00:29:01,080 --> 00:29:06,159
+So, function. Okay, so now
+
+708
+00:29:04,040 --> 00:29:07,960
+So, how do you print? The you know, most
+
+709
+00:29:06,159 --> 00:29:10,280
+important thing every language, okay?
+
+710
+00:29:07,960 --> 00:29:12,400
+So, so there are many ways. Again, a
+
+711
+00:29:10,280 --> 00:29:14,560
+function call. So, you call messages,
+
+712
+00:29:12,400 --> 00:29:18,600
+okay? A string, okay?
+
+713
+00:29:14,560 --> 00:29:21,320
+Hello hello world.
+
+714
+00:29:18,600 --> 00:29:22,080
+Factorial, okay? You can function of a I
+
+715
+00:29:21,320 --> 00:29:24,440
+mean,
+
+716
+00:29:22,080 --> 00:29:27,280
+so this is how you print. So, let's
+
+717
+00:29:24,440 --> 00:29:29,480
+evaluate it. Let's show the pink window.
+
+718
+00:29:27,280 --> 00:29:31,440
+Evaluate it, you can see the bottom.
+
+719
+00:29:29,480 --> 00:29:32,280
+That's the output, okay? So, let me show
+
+720
+00:29:31,440 --> 00:29:34,120
+you.
+
+721
+00:29:32,280 --> 00:29:35,800
+You see there.
+
+722
+00:29:34,120 --> 00:29:38,720
+So, this is um
+
+723
+00:29:35,800 --> 00:29:40,360
+how you print. The most frequently
+
+724
+00:29:38,720 --> 00:29:42,760
+uh used version, okay? There are other
+
+725
+00:29:40,360 --> 00:29:45,040
+ways, but we are not going to go over.
+
+726
+00:29:42,760 --> 00:29:48,120
+Okay, let me go show you another one.
+
+727
+00:29:45,040 --> 00:29:50,360
+The other way is insert, Okay.
+
+728
+00:29:48,120 --> 00:29:53,560
+Insert when you call it, it will just
+
+729
+00:29:50,360 --> 00:29:55,640
+insert the string into the buffer.
+
+730
+00:29:53,560 --> 00:29:58,960
+Wherever it is. Okay, so for example,
+
+731
+00:29:55,640 --> 00:30:02,040
+let's evaluate this. Okay, there it is.
+
+732
+00:29:58,960 --> 00:30:06,200
+Okay, let's try let's try something
+
+733
+00:30:02,040 --> 00:30:08,080
+something more fancy.
+
+734
+00:30:06,200 --> 00:30:11,080
+And uh
+
+735
+00:30:08,080 --> 00:30:14,520
+backslash n for new line.
+
+736
+00:30:11,080 --> 00:30:17,520
+Okay. Okay, now let's delete that
+
+737
+00:30:14,520 --> 00:30:20,480
+evaluate this. Okay, let's insert. So
+
+738
+00:30:17,520 --> 00:30:22,720
+this is how you print message and insert
+
+739
+00:30:20,480 --> 00:30:23,920
+most important.
+
+740
+00:30:22,720 --> 00:30:27,120
+Okay.
+
+741
+00:30:23,920 --> 00:30:30,480
+Now let's go back. Okay, so now string
+
+742
+00:30:27,120 --> 00:30:33,280
+string very simple in Emacs Lisp.
+
+743
+00:30:30,480 --> 00:30:35,480
+Uh again in Python, in Ruby, in you
+
+744
+00:30:33,280 --> 00:30:38,080
+know, in in other languages you have
+
+745
+00:30:35,480 --> 00:30:40,440
+double quote, you might have single
+
+746
+00:30:38,080 --> 00:30:43,000
+quote.
+
+747
+00:30:40,440 --> 00:30:43,000
+Uh
+
+748
+00:30:43,200 --> 00:30:51,360
+you know, and and uh in in in Python for
+
+749
+00:30:47,000 --> 00:30:53,880
+example, you have triple quote. And in
+
+750
+00:30:51,360 --> 00:30:55,400
+Python you have
+
+751
+00:30:53,880 --> 00:30:57,480
+Okay, let's
+
+752
+00:30:55,400 --> 00:30:59,520
+let's go over these. Then you have a
+
+753
+00:30:57,480 --> 00:31:02,480
+triple single quote. You know, that's
+
+754
+00:30:59,520 --> 00:31:05,080
+the Python case. In JavaScript, then in
+
+755
+00:31:02,480 --> 00:31:07,520
+JavaScript you have these
+
+756
+00:31:05,080 --> 00:31:08,520
+template quote.
+
+757
+00:31:07,520 --> 00:31:10,560
+Okay,
+
+758
+00:31:08,520 --> 00:31:12,360
+different syntax. So in Emacs Lisp,
+
+759
+00:31:10,560 --> 00:31:15,240
+there's only one
+
+760
+00:31:12,360 --> 00:31:19,240
+uh quote creating string quote syntax,
+
+761
+00:31:15,240 --> 00:31:21,080
+double quote. Okay, nothing else. Okay.
+
+762
+00:31:19,240 --> 00:31:23,280
+So let's see that. Okay, let's leave
+
+763
+00:31:21,080 --> 00:31:25,880
+them there. So for um
+
+764
+00:31:23,280 --> 00:31:28,160
+Okay, just just just double quote. Okay,
+
+765
+00:31:25,880 --> 00:31:30,480
+and uh here is how you get the length of
+
+766
+00:31:28,160 --> 00:31:33,720
+the string. So let's magnify. So this is
+
+767
+00:31:30,480 --> 00:31:35,920
+again, remember everything is a value,
+
+768
+00:31:33,720 --> 00:31:38,120
+everything is a expression in Lisp.
+
+769
+00:31:35,920 --> 00:31:40,520
+Everything is a expression, and the only
+
+770
+00:31:38,120 --> 00:31:42,960
+way you do computation, the
+
+771
+00:31:40,520 --> 00:31:45,000
+computational model of this is call a
+
+772
+00:31:42,960 --> 00:31:48,240
+function.
+
+773
+00:31:45,000 --> 00:31:49,600
+Give it input and get output to change
+
+774
+00:31:48,240 --> 00:31:54,320
+the value. That's how you do
+
+775
+00:31:49,600 --> 00:31:57,679
+computation. So right now we want to um
+
+776
+00:31:54,320 --> 00:32:00,000
+get the length of a string. What to do?
+
+777
+00:31:57,679 --> 00:32:05,120
+A function.
+
+778
+00:32:00,000 --> 00:32:07,960
+Okay, there for example, length ABC.
+
+779
+00:32:05,120 --> 00:32:09,920
+Now show the pink window and evaluate
+
+780
+00:32:07,960 --> 00:32:12,280
+it. You can see three at the bottom.
+
+781
+00:32:09,920 --> 00:32:16,640
+Okay, because you got three characters.
+
+782
+00:32:12,280 --> 00:32:19,400
+And uh okay, and this can be
+
+783
+00:32:16,640 --> 00:32:21,360
+can have Unicode characters. Okay, let's
+
+784
+00:32:19,400 --> 00:32:24,920
+you know, for example,
+
+785
+00:32:21,360 --> 00:32:28,160
+let's say that one. Okay.
+
+786
+00:32:24,920 --> 00:32:29,760
+Can Okay, so evaluate it, you can see
+
+787
+00:32:28,160 --> 00:32:31,920
+character one because you have one
+
+788
+00:32:29,760 --> 00:32:34,800
+character. So you can have Unicode, too.
+
+789
+00:32:31,920 --> 00:32:37,960
+It work. In JavaScript, in Java, you'll
+
+790
+00:32:34,800 --> 00:32:41,640
+get two. You know, that's because
+
+791
+00:32:37,960 --> 00:32:43,679
+very complicated Unicode UTF-16
+
+792
+00:32:41,640 --> 00:32:44,760
+encoding, you know, because you are not
+
+793
+00:32:43,679 --> 00:32:46,080
+actually
+
+794
+00:32:44,760 --> 00:32:48,000
+Anyway, so
+
+795
+00:32:46,080 --> 00:32:50,280
+Emacs Lisp. Okay.
+
+796
+00:32:48,000 --> 00:32:53,080
+String. So
+
+797
+00:32:50,280 --> 00:32:55,679
+So now you know how to create a string.
+
+798
+00:32:53,080 --> 00:32:58,640
+And uh everything and because everything
+
+799
+00:32:55,679 --> 00:33:01,360
+you do, everything is a expression, and
+
+800
+00:32:58,640 --> 00:33:02,920
+the any time you do want to do some
+
+801
+00:33:01,360 --> 00:33:05,720
+computation, it's always a function
+
+802
+00:33:02,920 --> 00:33:08,240
+call. So now you already know everything
+
+803
+00:33:05,720 --> 00:33:09,320
+you need to know about manipulating
+
+804
+00:33:08,240 --> 00:33:11,960
+string.
+
+805
+00:33:09,320 --> 00:33:13,800
+Almost in in this.
+
+806
+00:33:11,960 --> 00:33:15,240
+That's that's that's basically
+
+807
+00:33:13,800 --> 00:33:18,400
+everything. Okay.
+
+808
+00:33:15,240 --> 00:33:20,440
+So everything so so then of course that
+
+809
+00:33:18,400 --> 00:33:22,600
+yeah, so you have some escape. For
+
+810
+00:33:20,440 --> 00:33:24,560
+example, how do you have a double quote
+
+811
+00:33:22,600 --> 00:33:26,080
+inside the string? So you need to escape
+
+812
+00:33:24,560 --> 00:33:28,880
+it. You know, that's that's a
+
+813
+00:33:26,080 --> 00:33:30,800
+fundamental. So you and how do you uh
+
+814
+00:33:28,880 --> 00:33:33,520
+include a new line?
+
+815
+00:33:30,800 --> 00:33:35,920
+So that's how you do them. Okay.
+
+816
+00:33:33,520 --> 00:33:37,520
+But other than that, so there's you
+
+817
+00:33:35,920 --> 00:33:40,360
+know, there are there are some detailed
+
+818
+00:33:37,520 --> 00:33:43,320
+complexities. For example, how do you
+
+819
+00:33:40,360 --> 00:33:45,960
+how do you include a Unicode or emoji,
+
+820
+00:33:43,320 --> 00:33:47,840
+but without literal emoji? Sometimes
+
+821
+00:33:45,960 --> 00:33:49,560
+that's needed because for some
+
+822
+00:33:47,840 --> 00:33:52,280
+characters that's invisible. For
+
+823
+00:33:49,560 --> 00:33:55,400
+example, uh
+
+824
+00:33:52,280 --> 00:33:57,280
+uh unbreakable line break.
+
+825
+00:33:55,400 --> 00:33:59,120
+Uh for example, there's this character
+
+826
+00:33:57,280 --> 00:34:01,560
+in Unicode called
+
+827
+00:33:59,120 --> 00:34:01,560
+uh
+
+828
+00:34:02,400 --> 00:34:07,679
+non-breaking space. Okay, for let me
+
+829
+00:34:05,400 --> 00:34:09,840
+show you. Okay, so you can see
+
+830
+00:34:07,679 --> 00:34:11,919
+you cannot see it. You know, in Emacs it
+
+831
+00:34:09,840 --> 00:34:13,760
+shows a tiny underbar to indicate
+
+832
+00:34:11,919 --> 00:34:16,120
+there's a character. But now you can
+
+833
+00:34:13,760 --> 00:34:20,359
+call describe-char. Okay, let's call
+
+834
+00:34:16,120 --> 00:34:20,359
+describe-char. So you can see
+
+835
+00:34:20,760 --> 00:34:26,960
+So you can see the code the the name is
+
+836
+00:34:23,840 --> 00:34:30,480
+no-breaking space. So So that is used as
+
+837
+00:34:26,960 --> 00:34:34,000
+a space, but it indicates to the editor
+
+838
+00:34:30,480 --> 00:34:36,359
+or browser or whatever to not
+
+839
+00:34:34,000 --> 00:34:38,280
+not have a line wrap. You know, anyway,
+
+840
+00:34:36,359 --> 00:34:40,359
+so that's a invisible kind of invisible
+
+841
+00:34:38,280 --> 00:34:42,040
+Unicode. So for those characters,
+
+842
+00:34:40,359 --> 00:34:43,840
+sometimes you need to
+
+843
+00:34:42,040 --> 00:34:46,120
+um
+
+844
+00:34:43,840 --> 00:34:50,040
+you need to uh
+
+845
+00:34:46,120 --> 00:34:51,919
+use a you know, the ID for the character
+
+846
+00:34:50,040 --> 00:34:54,200
+instead instead of the literal. But
+
+847
+00:34:51,919 --> 00:34:55,800
+anyway, that's a detail. Okay, you won't
+
+848
+00:34:54,200 --> 00:34:58,000
+most of the time you won't need need
+
+849
+00:34:55,800 --> 00:34:59,400
+this. Anyway, let's get back to string.
+
+850
+00:34:58,000 --> 00:35:03,000
+So
+
+851
+00:34:59,400 --> 00:35:04,680
+So string so string so string functions,
+
+852
+00:35:03,000 --> 00:35:07,440
+that's the most important. So you know,
+
+853
+00:35:04,680 --> 00:35:09,440
+you we already showed length. You here's
+
+854
+00:35:07,440 --> 00:35:12,040
+how you get substring.
+
+855
+00:35:09,440 --> 00:35:14,520
+Here is how you join string, concat.
+
+856
+00:35:12,040 --> 00:35:16,800
+Here is how you split string, uh turn a
+
+857
+00:35:14,520 --> 00:35:18,960
+string into a list. Okay.
+
+858
+00:35:16,800 --> 00:35:20,880
+And and there are many others. There are
+
+859
+00:35:18,960 --> 00:35:25,720
+also regular expressions and so on.
+
+860
+00:35:20,880 --> 00:35:27,560
+Okay. But the thing I want to say again
+
+861
+00:35:25,720 --> 00:35:29,680
+everything is a expression.
+
+862
+00:35:27,560 --> 00:35:32,359
+And in this there's only one way to
+
+863
+00:35:29,680 --> 00:35:33,760
+quote string, double quote. Okay.
+
+864
+00:35:32,359 --> 00:35:36,240
+So
+
+865
+00:35:33,760 --> 00:35:38,720
+So anything everything you need to do
+
+866
+00:35:36,240 --> 00:35:40,720
+with string is just a function call. So
+
+867
+00:35:38,720 --> 00:35:43,480
+we have a list of all string functions
+
+868
+00:35:40,720 --> 00:35:46,560
+here. That's this page contains them
+
+869
+00:35:43,480 --> 00:35:48,359
+all. That's there there are about 20 of
+
+870
+00:35:46,560 --> 00:35:50,400
+them. Okay.
+
+871
+00:35:48,359 --> 00:35:51,960
+So let me show you a few. Let's show a
+
+872
+00:35:50,400 --> 00:35:53,760
+few. Okay, so
+
+873
+00:35:51,960 --> 00:35:54,680
+so length so
+
+874
+00:35:53,760 --> 00:35:58,280
+um
+
+875
+00:35:54,680 --> 00:36:00,920
+Let's let's comment it out those those
+
+876
+00:35:58,280 --> 00:36:02,800
+Python and JavaScript things.
+
+877
+00:36:00,920 --> 00:36:04,400
+Uh let's write it out. This is
+
+878
+00:36:02,800 --> 00:36:07,000
+JavaScript
+
+879
+00:36:04,400 --> 00:36:08,120
+template quote. Okay, there's something
+
+880
+00:36:07,000 --> 00:36:10,440
+like that.
+
+881
+00:36:08,120 --> 00:36:13,400
+I have a tutorial on that. I have By the
+
+882
+00:36:10,440 --> 00:36:14,920
+way, I also Okay, let me mention I have
+
+883
+00:36:13,400 --> 00:36:18,600
+um
+
+884
+00:36:14,920 --> 00:36:20,440
+So if you are new to my videos, I have
+
+885
+00:36:18,600 --> 00:36:22,359
+you know, I write tutorials. That's my
+
+886
+00:36:20,440 --> 00:36:25,400
+hobby. That's my obsession. Programming
+
+887
+00:36:22,359 --> 00:36:28,160
+languages, study of design of
+
+888
+00:36:25,400 --> 00:36:31,480
+programming languages is my hobby. In
+
+889
+00:36:28,160 --> 00:36:35,400
+particular, the syntax of programming
+
+890
+00:36:31,480 --> 00:36:38,280
+language design. So I have tutorials for
+
+891
+00:36:35,400 --> 00:36:40,560
+beginners or even for advanced people,
+
+892
+00:36:38,280 --> 00:36:42,560
+advanced programmers. Uh all the
+
+893
+00:36:40,560 --> 00:36:45,000
+tutorials for different languages. You
+
+894
+00:36:42,560 --> 00:36:47,560
+know, Lisp full form language, HTML,
+
+895
+00:36:45,000 --> 00:36:50,359
+CSS, JavaScript, SVG, and so on.
+
+896
+00:36:47,560 --> 00:36:53,520
+PowerShell and Python and Go lang.
+
+897
+00:36:50,359 --> 00:36:56,600
+Um and uh so
+
+898
+00:36:53,520 --> 00:36:58,840
+So yeah, so I have a um tutorial on all
+
+899
+00:36:56,600 --> 00:37:01,160
+of these in detail if you want to read
+
+900
+00:36:58,840 --> 00:37:01,160
+them.
+
+901
+00:37:01,880 --> 00:37:07,040
+Uh so Okay, so here are some uh example
+
+902
+00:37:04,560 --> 00:37:09,720
+of strings in different languages. So
+
+903
+00:37:07,040 --> 00:37:12,320
+here is how you print. Uh what's next?
+
+904
+00:37:09,720 --> 00:37:14,400
+Okay, so let's go let's move on to uh
+
+905
+00:37:12,320 --> 00:37:17,160
+next. So string substring. Let me show
+
+906
+00:37:14,400 --> 00:37:18,720
+you how to do substring example. Okay.
+
+907
+00:37:17,160 --> 00:37:21,920
+Substring.
+
+908
+00:37:18,720 --> 00:37:25,280
+Uh move the comment and and print to the
+
+909
+00:37:21,920 --> 00:37:28,440
+top. Okay, so so some evaluations there.
+
+910
+00:37:25,280 --> 00:37:32,640
+Okay, let's go here and save this file.
+
+911
+00:37:28,440 --> 00:37:34,720
+Let's save it xx today's date.el.
+
+912
+00:37:32,640 --> 00:37:36,840
+By the way, the Emacs Lisp file name
+
+913
+00:37:34,720 --> 00:37:38,880
+extension is .el.
+
+914
+00:37:36,840 --> 00:37:40,920
+So if you want to save it, name it
+
+915
+00:37:38,880 --> 00:37:42,359
+something something.el.
+
+916
+00:37:40,920 --> 00:37:44,400
+Okay.
+
+917
+00:37:42,359 --> 00:37:46,160
+Okay, so now we save this file. Yeah,
+
+918
+00:37:44,400 --> 00:37:47,720
+substring. So
+
+919
+00:37:46,160 --> 00:37:50,160
+substring.
+
+920
+00:37:47,720 --> 00:37:50,160
+Uh
+
+921
+00:37:51,320 --> 00:37:55,080
+Uh I have a shortcut.
+
+922
+00:37:55,120 --> 00:38:00,800
+Okay, yeah, there. So substring. So here
+
+923
+00:37:58,560 --> 00:38:02,200
+is the syntax.
+
+924
+00:38:00,800 --> 00:38:03,880
+Okay.
+
+925
+00:38:02,200 --> 00:38:05,440
+What about how do you look up the
+
+926
+00:38:03,880 --> 00:38:07,840
+documentation for a function? For
+
+927
+00:38:05,440 --> 00:38:09,880
+example, substring. For if you are not,
+
+928
+00:38:07,840 --> 00:38:13,160
+you know, right now I'm using Emacs Lisp
+
+929
+00:38:09,880 --> 00:38:16,120
+mode, my own customized
+
+930
+00:38:13,160 --> 00:38:18,400
+major mode in Emacs for coding Emacs
+
+931
+00:38:16,120 --> 00:38:21,560
+Lisp. But there's a building Emacs Lisp
+
+932
+00:38:18,400 --> 00:38:23,880
+modes. Okay. So if you want to So I want
+
+933
+00:38:21,560 --> 00:38:26,080
+to So you know, I learned yeah, I can
+
+934
+00:38:23,880 --> 00:38:29,120
+use substring, but what is the syntax?
+
+935
+00:38:26,080 --> 00:38:30,920
+What is the argument? So you can So So
+
+936
+00:38:29,120 --> 00:38:32,760
+what you want to do is
+
+937
+00:38:30,920 --> 00:38:34,720
+describe-function.
+
+938
+00:38:32,760 --> 00:38:38,880
+Meta-x describe-function. So the
+
+939
+00:38:34,720 --> 00:38:38,880
+shortcut is control h.
+
+940
+00:38:38,960 --> 00:38:42,040
+f.
+
+941
+00:38:40,280 --> 00:38:43,880
+Okay, so it asks you for
+
+942
+00:38:42,040 --> 00:38:46,000
+describe-function and default to
+
+943
+00:38:43,880 --> 00:38:48,880
+substring because the cursor is on it.
+
+944
+00:38:46,000 --> 00:38:51,320
+So enter. So here is the in the
+
+945
+00:38:48,880 --> 00:38:54,640
+documentation for and the syntax for
+
+946
+00:38:51,320 --> 00:38:57,240
+this function. Uh let me shut down my
+
+947
+00:38:54,640 --> 00:39:00,120
+phone alarm. Okay. Okay.
+
+948
+00:38:57,240 --> 00:39:02,520
+Okay, never mind. My phone alarm is uh
+
+949
+00:39:00,120 --> 00:39:02,520
+on.
+
+950
+00:39:03,080 --> 00:39:07,560
+Uh okay, so we have a lot to cover. Uh
+
+951
+00:39:05,840 --> 00:39:09,200
+if you are on Saturday Discord, I can
+
+952
+00:39:07,560 --> 00:39:12,760
+send you. Okay, yeah.
+
+953
+00:39:09,200 --> 00:39:12,760
+Uh thank you, guys. So
+
+954
+00:39:13,240 --> 00:39:17,760
+Okay, so so substring. So So how do you
+
+955
+00:39:16,200 --> 00:39:20,000
+use it? So let let's demo. Okay,
+
+956
+00:39:17,760 --> 00:39:22,560
+substring a string. Okay, let's say
+
+957
+00:39:20,000 --> 00:39:26,160
+ABCDEFG.
+
+958
+00:39:22,560 --> 00:39:28,800
+From let's say from the first character
+
+959
+00:39:26,160 --> 00:39:30,720
+uh two is optional, so we don't need it.
+
+960
+00:39:28,800 --> 00:39:33,800
+That means from the first character to
+
+961
+00:39:30,720 --> 00:39:36,760
+the end. Evaluate it.
+
+962
+00:39:33,800 --> 00:39:39,320
+What? Wrong type argument integer one.
+
+963
+00:39:36,760 --> 00:39:42,240
+Okay, the second argument Sorry. Okay,
+
+964
+00:39:39,320 --> 00:39:44,360
+so here is a example of syntax error or
+
+965
+00:39:42,240 --> 00:39:46,520
+some error. So,
+
+966
+00:39:44,360 --> 00:39:48,560
+you you So, when you see it next time,
+
+967
+00:39:46,520 --> 00:39:50,640
+you know, okay? So, you all you have to
+
+968
+00:39:48,560 --> 00:39:51,640
+do is just,
+
+969
+00:39:50,640 --> 00:39:54,000
+you know,
+
+970
+00:39:51,640 --> 00:39:56,520
+type Q to
+
+971
+00:39:54,000 --> 00:39:58,840
+to uh cancel that. So, because the
+
+972
+00:39:56,520 --> 00:40:01,840
+second second argument here should be a
+
+973
+00:39:58,840 --> 00:40:03,400
+number, not a string, okay? So, let's uh
+
+974
+00:40:01,840 --> 00:40:06,200
+give it a number.
+
+975
+00:40:03,400 --> 00:40:07,920
+One, okay? Now, let's evaluate it.
+
+976
+00:40:06,200 --> 00:40:10,320
+Okay, so you can see in the mini buffer
+
+977
+00:40:07,920 --> 00:40:13,120
+that's a So, let's go show. You see?
+
+978
+00:40:10,320 --> 00:40:14,320
+It's It says b c d e f. So, the one is
+
+979
+00:40:13,120 --> 00:40:16,520
+gone. So, that's how you do it, okay?
+
+980
+00:40:14,320 --> 00:40:18,080
+Let's do another example.
+
+981
+00:40:16,520 --> 00:40:20,400
+Let's say three.
+
+982
+00:40:18,080 --> 00:40:22,760
+And let's eval. So, you can see now it
+
+983
+00:40:20,400 --> 00:40:24,120
+is d e f g. And let's do another
+
+984
+00:40:22,760 --> 00:40:26,200
+example.
+
+985
+00:40:24,120 --> 00:40:29,000
+This time,
+
+986
+00:40:26,200 --> 00:40:31,360
+uh you know, just to show some Emacs
+
+987
+00:40:29,000 --> 00:40:33,560
+Lisp coding. So, we want to check if
+
+988
+00:40:31,360 --> 00:40:34,720
+they are equal. So,
+
+989
+00:40:33,560 --> 00:40:37,960
+uh
+
+990
+00:40:34,720 --> 00:40:40,200
+d e f g. So, now we are checking if this
+
+991
+00:40:37,960 --> 00:40:41,560
+two this evaluate to that. Okay,
+
+992
+00:40:40,200 --> 00:40:44,480
+evaluate it.
+
+993
+00:40:41,560 --> 00:40:46,560
+T, okay? So, you can see to go to the
+
+994
+00:40:44,480 --> 00:40:48,480
+mini buffer, you can see T means true,
+
+995
+00:40:46,560 --> 00:40:51,120
+okay?
+
+996
+00:40:48,480 --> 00:40:53,320
+So, we covered string we covered string
+
+997
+00:40:51,120 --> 00:40:57,600
+and uh format string we're going to
+
+998
+00:40:53,320 --> 00:41:00,200
+skip, okay? Okay, format string
+
+999
+00:40:57,600 --> 00:41:02,320
+format string is a very frequently used
+
+1000
+00:41:00,200 --> 00:41:03,360
+function. So, actually So, let's show
+
+1001
+00:41:02,320 --> 00:41:06,600
+it.
+
+1002
+00:41:03,360 --> 00:41:08,760
+So, hello, we already showed this. So,
+
+1003
+00:41:06,600 --> 00:41:11,760
+you know, that prints hello. But, you
+
+1004
+00:41:08,760 --> 00:41:17,480
+can If you have some arguments,
+
+1005
+00:41:11,760 --> 00:41:20,680
+uh let's say 34, okay? So, hello, I have
+
+1006
+00:41:17,480 --> 00:41:23,520
+something as cats.
+
+1007
+00:41:20,680 --> 00:41:26,400
+Evaluate it. You can see the output is
+
+1008
+00:41:23,520 --> 00:41:27,360
+hello, I have 34 cats. So, this is how
+
+1009
+00:41:26,400 --> 00:41:30,480
+you
+
+1010
+00:41:27,360 --> 00:41:32,520
+So, this is a uh template kind of. So,
+
+1011
+00:41:30,480 --> 00:41:34,640
+this means you have a
+
+1012
+00:41:32,520 --> 00:41:36,360
+you want to turn something into a string
+
+1013
+00:41:34,640 --> 00:41:38,320
+and you put the argument there, okay?
+
+1014
+00:41:36,360 --> 00:41:42,280
+So, that's the
+
+1015
+00:41:38,320 --> 00:41:44,200
+that's the format function. Okay? And
+
+1016
+00:41:42,280 --> 00:41:47,160
+And if you want to see the doc, again,
+
+1017
+00:41:44,200 --> 00:41:48,680
+describe function, okay?
+
+1018
+00:41:47,160 --> 00:41:50,960
+There it is.
+
+1019
+00:41:48,680 --> 00:41:53,280
+Describe function. So, it shows uh it
+
+1020
+00:41:50,960 --> 00:41:54,360
+shows what
+
+1021
+00:41:53,280 --> 00:41:56,720
+uh
+
+1022
+00:41:54,360 --> 00:41:59,000
+Hold on a second.
+
+1023
+00:41:56,720 --> 00:42:01,400
+Yeah, so it shows the inline
+
+1024
+00:41:59,000 --> 00:42:03,040
+documentation for this function with
+
+1025
+00:42:01,400 --> 00:42:05,920
+full explanation
+
+1026
+00:42:03,040 --> 00:42:08,080
+of what S means, you know, percentage S,
+
+1027
+00:42:05,920 --> 00:42:09,160
+percentage, you know.
+
+1028
+00:42:08,080 --> 00:42:11,320
+Okay.
+
+1029
+00:42:09,160 --> 00:42:13,520
+So, that's format string important. So,
+
+1030
+00:42:11,320 --> 00:42:16,200
+arithmetics, let's skip. So, it's you
+
+1031
+00:42:13,520 --> 00:42:18,960
+know, very simple. Plus for addition,
+
+1032
+00:42:16,200 --> 00:42:22,080
+minus for subtraction, okay? And then
+
+1033
+00:42:18,960 --> 00:42:23,760
+you have multiplication and division.
+
+1034
+00:42:22,080 --> 00:42:26,560
+Okay, that's uh
+
+1035
+00:42:23,760 --> 00:42:29,880
+arithmetics.
+
+1036
+00:42:26,560 --> 00:42:33,600
+Now, now let me uh pay attention to this
+
+1037
+00:42:29,880 --> 00:42:37,320
+one, okay? So, um yeah, here. So, if you
+
+1038
+00:42:33,600 --> 00:42:40,480
+divide two integers, 7 / 2, you'll get
+
+1039
+00:42:37,320 --> 00:42:43,440
+three because
+
+1040
+00:42:40,480 --> 00:42:44,760
+not 3.5 because integer, you know,
+
+1041
+00:42:43,440 --> 00:42:46,480
+because
+
+1042
+00:42:44,760 --> 00:42:48,400
+when both of them are integers, it
+
+1043
+00:42:46,480 --> 00:42:51,000
+returns the integer, okay? So, this is
+
+1044
+00:42:48,400 --> 00:42:53,520
+something you might have to watch out.
+
+1045
+00:42:51,000 --> 00:42:55,320
+You know, in Python 2, it's similar.
+
+1046
+00:42:53,520 --> 00:42:56,760
+But, in Python 3,
+
+1047
+00:42:55,320 --> 00:42:57,840
+they changed it.
+
+1048
+00:42:56,760 --> 00:43:00,680
+You know, they change it to
+
+1049
+00:42:57,840 --> 00:43:04,720
+automatically return a
+
+1050
+00:43:00,680 --> 00:43:07,480
+floating point, you know, 3.5, 7 / 2.
+
+1051
+00:43:04,720 --> 00:43:11,400
+Because this default behavior is quite
+
+1052
+00:43:07,480 --> 00:43:13,120
+quite uh unintuitive, you know, and uh
+
+1053
+00:43:11,400 --> 00:43:15,560
+two people.
+
+1054
+00:43:13,120 --> 00:43:19,720
+So, anyway, arithmetics in Emacs Lisp,
+
+1055
+00:43:15,560 --> 00:43:22,000
+okay? Converting int to float.
+
+1056
+00:43:19,720 --> 00:43:24,320
+Okay, this is how you convert a number a
+
+1057
+00:43:22,000 --> 00:43:26,400
+integer or floating number, decimal
+
+1058
+00:43:24,320 --> 00:43:28,440
+number to
+
+1059
+00:43:26,400 --> 00:43:30,160
+uh a string. So, this is how you do it.
+
+1060
+00:43:28,440 --> 00:43:32,160
+So, you call the function string to
+
+1061
+00:43:30,160 --> 00:43:33,280
+number and number to string.
+
+1062
+00:43:32,160 --> 00:43:36,360
+Okay, we can
+
+1063
+00:43:33,280 --> 00:43:38,360
+you know, we don't need to demo it, but
+
+1064
+00:43:36,360 --> 00:43:41,280
+Okay, so let's show the message buffer.
+
+1065
+00:43:38,360 --> 00:43:44,960
+Watch it here. So, I evaluated you can
+
+1066
+00:43:41,280 --> 00:43:47,160
+see it's three. You see? Now, originally
+
+1067
+00:43:44,960 --> 00:43:50,120
+it's a string. Now, it's a number. Now,
+
+1068
+00:43:47,160 --> 00:43:52,160
+in this case, I evaluated you can see
+
+1069
+00:43:50,120 --> 00:43:54,440
+now it's a string. Okay, so
+
+1070
+00:43:52,160 --> 00:43:56,359
+string to number, number to string. That
+
+1071
+00:43:54,440 --> 00:44:00,160
+That converts string to number. Or, you
+
+1072
+00:43:56,359 --> 00:44:02,440
+can use format. Format will convert a
+
+1073
+00:44:00,160 --> 00:44:04,960
+Let me show you, okay?
+
+1074
+00:44:02,440 --> 00:44:07,200
+Format will let you convert a number to
+
+1075
+00:44:04,960 --> 00:44:10,120
+string, you know, do it. Same thing. You
+
+1076
+00:44:07,200 --> 00:44:12,880
+see? 34 is a number. The output is a
+
+1077
+00:44:10,120 --> 00:44:16,960
+string, okay?
+
+1078
+00:44:12,880 --> 00:44:19,359
+So, let's So, we covered string um then
+
+1079
+00:44:16,960 --> 00:44:20,480
+Okay, boolean. Boolean.
+
+1080
+00:44:19,359 --> 00:44:23,520
+Now, boo
+
+1081
+00:44:20,480 --> 00:44:23,520
+boolean uh
+
+1082
+00:44:26,640 --> 00:44:30,480
+Yeah, okay, let's talk about boolean.
+
+1083
+00:44:28,320 --> 00:44:33,359
+But, let let me first of all talk about
+
+1084
+00:44:30,480 --> 00:44:36,200
+the types in Lisp, okay?
+
+1085
+00:44:33,359 --> 00:44:38,160
+For example, many uh languages such as
+
+1086
+00:44:36,200 --> 00:44:40,040
+Java, C,
+
+1087
+00:44:38,160 --> 00:44:44,359
+C++,
+
+1088
+00:44:40,040 --> 00:44:46,000
+C#, you know, and Haskell,
+
+1089
+00:44:44,359 --> 00:44:49,960
+each
+
+1090
+00:44:46,000 --> 00:44:52,480
+value has a strict type, you know, for
+
+1091
+00:44:49,960 --> 00:44:54,920
+you know, typically int, float, double,
+
+1092
+00:44:52,480 --> 00:44:57,080
+long, things like that.
+
+1093
+00:44:54,920 --> 00:45:00,400
+Now, in Emacs Lisp, you also have those
+
+1094
+00:44:57,080 --> 00:45:03,080
+types, but they are not so significant.
+
+1095
+00:45:00,400 --> 00:45:05,280
+So, like if you For the first year
+
+1096
+00:45:03,080 --> 00:45:06,960
+coding Emacs Lisp, like you don't have
+
+1097
+00:45:05,280 --> 00:45:10,320
+to really know about them, okay? You
+
+1098
+00:45:06,960 --> 00:45:13,800
+just just be aware that
+
+1099
+00:45:10,320 --> 00:45:15,240
+that integer int and float are different
+
+1100
+00:45:13,800 --> 00:45:17,520
+types. For example, we have
+
+1101
+00:45:15,240 --> 00:45:19,440
+demonstrated. For For example, let's
+
+1102
+00:45:17,520 --> 00:45:23,359
+let's do it.
+
+1103
+00:45:19,440 --> 00:45:24,600
+7 / 2, okay? Evaluate it.
+
+1104
+00:45:23,359 --> 00:45:29,680
+It's three.
+
+1105
+00:45:24,600 --> 00:45:31,560
+Okay? Now, let's try again. 7 7 / 2.
+
+1106
+00:45:29,680 --> 00:45:33,040
+Evaluate it.
+
+1107
+00:45:31,560 --> 00:45:34,720
+Okay, you have to
+
+1108
+00:45:33,040 --> 00:45:38,400
+point is not enough. You have to say
+
+1109
+00:45:34,720 --> 00:45:39,440
+2.0. That makes it a
+
+1110
+00:45:38,400 --> 00:45:41,880
+uh
+
+1111
+00:45:39,440 --> 00:45:45,600
+float type, okay? So, if you do it,
+
+1112
+00:45:41,880 --> 00:45:47,520
+evaluate it. 3.5, you see? So, why is it
+
+1113
+00:45:45,600 --> 00:45:50,400
+different? Because Emacs Lisp actually
+
+1114
+00:45:47,520 --> 00:45:54,320
+have a data type concept. So, because
+
+1115
+00:45:50,400 --> 00:45:57,200
+the two is in int type and the 2.0
+
+1116
+00:45:54,320 --> 00:45:58,359
+is a float type. So,
+
+1117
+00:45:57,200 --> 00:46:00,880
+So, that's why you get different
+
+1118
+00:45:58,359 --> 00:46:04,640
+results. So, Emacs So, the point is that
+
+1119
+00:46:00,880 --> 00:46:07,120
+Emacs Lisp do have the concept of types.
+
+1120
+00:46:04,640 --> 00:46:08,520
+But, it's not
+
+1121
+00:46:07,120 --> 00:46:10,600
+you know, other than knowing int and
+
+1122
+00:46:08,520 --> 00:46:13,120
+float and other than knowing these
+
+1123
+00:46:10,600 --> 00:46:15,440
+cases, almost just one or two cases like
+
+1124
+00:46:13,120 --> 00:46:17,240
+I just showed you.
+
+1125
+00:46:15,440 --> 00:46:18,720
+You usually don't have to worry about
+
+1126
+00:46:17,240 --> 00:46:20,920
+it, okay?
+
+1127
+00:46:18,720 --> 00:46:22,520
+Like converting string to number two.
+
+1128
+00:46:20,920 --> 00:46:23,800
+Yeah, so usually you don't have to worry
+
+1129
+00:46:22,520 --> 00:46:26,359
+about it.
+
+1130
+00:46:23,800 --> 00:46:30,240
+So, I'm going I'm not going I'm not
+
+1131
+00:46:26,359 --> 00:46:32,520
+covering them because usually
+
+1132
+00:46:30,240 --> 00:46:35,000
+you know, it's not something you have to
+
+1133
+00:46:32,520 --> 00:46:36,680
+specifically specifically to spend time
+
+1134
+00:46:35,000 --> 00:46:38,400
+to learn it.
+
+1135
+00:46:36,680 --> 00:46:41,240
+You will just come to You will just know
+
+1136
+00:46:38,400 --> 00:46:44,520
+it, okay? Then, when you need to, you
+
+1137
+00:46:41,240 --> 00:46:47,480
+can uh always go to the Lisp reference.
+
+1138
+00:46:44,520 --> 00:46:49,440
+For example, let's click on arithmetics.
+
+1139
+00:46:47,480 --> 00:46:50,280
+Then, there's a
+
+1140
+00:46:49,440 --> 00:46:53,960
+uh
+
+1141
+00:46:50,280 --> 00:46:57,600
+link to the Emacs Lisp manual, which is
+
+1142
+00:46:53,960 --> 00:46:59,359
+1,000 pages, okay? More than 1,000 pages
+
+1143
+00:46:57,600 --> 00:47:01,040
+if you print it out, you know, it's a
+
+1144
+00:46:59,359 --> 00:47:04,240
+thick book.
+
+1145
+00:47:01,040 --> 00:47:07,040
+So, here they will tell you uh
+
+1146
+00:47:04,240 --> 00:47:09,440
+the details about the number types and
+
+1147
+00:47:07,040 --> 00:47:11,000
+whatever types. Usually, it's uh hard to
+
+1148
+00:47:09,440 --> 00:47:13,000
+understand.
+
+1149
+00:47:11,000 --> 00:47:17,160
+So, you have integer basics, you know,
+
+1150
+00:47:13,000 --> 00:47:19,240
+you can see, you know, lots of um
+
+1151
+00:47:17,160 --> 00:47:22,000
+So, you have integer basics, you have
+
+1152
+00:47:19,240 --> 00:47:27,600
+floating point basics, you know, then
+
+1153
+00:47:22,000 --> 00:47:27,600
+you it mentions IEEE standard 754-2019.
+
+1154
+00:47:28,560 --> 00:47:32,280
+Then, you have
+
+1155
+00:47:29,720 --> 00:47:36,120
+types like double and you know, it
+
+1156
+00:47:32,280 --> 00:47:37,520
+mentions C data type double and yeah.
+
+1157
+00:47:36,120 --> 00:47:39,520
+You know, don't worry about them. You
+
+1158
+00:47:37,520 --> 00:47:41,760
+know, if you want to get get on, you
+
+1159
+00:47:39,520 --> 00:47:45,120
+know. So, my goal I hope to show you
+
+1160
+00:47:41,760 --> 00:47:48,440
+that is that you can learn Emacs Lisp
+
+1161
+00:47:45,120 --> 00:47:51,280
+and be productive be productive.
+
+1162
+00:47:48,440 --> 00:47:53,560
+You know, you could learn Emacs Lisp for
+
+1163
+00:47:51,280 --> 00:47:55,240
+the sake of programming language study.
+
+1164
+00:47:53,560 --> 00:47:57,320
+Yeah, that's one thing. That's good.
+
+1165
+00:47:55,240 --> 00:47:59,400
+But,
+
+1166
+00:47:57,320 --> 00:48:02,680
+if you want to do that, your time is
+
+1167
+00:47:59,400 --> 00:48:04,320
+better spent on Haskell, okay? Haskell
+
+1168
+00:48:02,680 --> 00:48:06,440
+or Camel.
+
+1169
+00:48:04,320 --> 00:48:08,280
+Uh
+
+1170
+00:48:06,440 --> 00:48:11,040
+Erlang.
+
+1171
+00:48:08,280 --> 00:48:13,320
+Uh you know, those kind of languages or
+
+1172
+00:48:11,040 --> 00:48:15,720
+Common Lisp or or Racket Lisp, okay? You
+
+1173
+00:48:13,320 --> 00:48:18,560
+don't You don't do that in
+
+1174
+00:48:15,720 --> 00:48:21,160
+For Emacs Lisp, your goal is to
+
+1175
+00:48:18,560 --> 00:48:23,600
+be able to start to write your own
+
+1176
+00:48:21,160 --> 00:48:25,560
+custom functions for Emacs Lisp. So,
+
+1177
+00:48:23,600 --> 00:48:27,960
+you'll enhance your
+
+1178
+00:48:25,560 --> 00:48:30,760
+uh Emacs using capabilities. You can do
+
+1179
+00:48:27,960 --> 00:48:32,520
+lots of things custom, you know, only to
+
+1180
+00:48:30,760 --> 00:48:34,160
+you is useful.
+
+1181
+00:48:32,520 --> 00:48:36,120
+That's the goal, okay? So, don't worry
+
+1182
+00:48:34,160 --> 00:48:37,480
+about the little details. You You will
+
+1183
+00:48:36,120 --> 00:48:38,840
+learn them uh
+
+1184
+00:48:37,480 --> 00:48:41,720
+eventually.
+
+1185
+00:48:38,840 --> 00:48:43,640
+If you uh keep at it. Okay? So far, so
+
+1186
+00:48:41,720 --> 00:48:46,359
+good? Am I doing good? Give me a high.
+
+1187
+00:48:43,640 --> 00:48:48,560
+Give me a high five or something. Seven
+
+1188
+00:48:46,359 --> 00:48:51,320
+people watching.
+
+1189
+00:48:48,560 --> 00:48:53,320
+I hope I'm not too slow, okay? So, 50
+
+1190
+00:48:51,320 --> 00:48:55,480
+minutes. Um okay, let's go on. So,
+
+1191
+00:48:53,320 --> 00:48:57,560
+there's few more things we're going to
+
+1192
+00:48:55,480 --> 00:49:01,080
+1 hour today.
+
+1193
+00:48:57,560 --> 00:49:03,080
+Okay, so uh string arithmetics uh
+
+1194
+00:49:01,080 --> 00:49:04,800
+So, boolean. So, boolean type. So, in
+
+1195
+00:49:03,080 --> 00:49:07,480
+Emacs Lisp, you don't actually have a
+
+1196
+00:49:04,800 --> 00:49:09,400
+type that's boolean. You know, boolean
+
+1197
+00:49:07,480 --> 00:49:11,120
+means true and false.
+
+1198
+00:49:09,400 --> 00:49:14,560
+So, instead So, you don't have a
+
+1199
+00:49:11,120 --> 00:49:18,960
+dedicated type of that. Instead,
+
+1200
+00:49:14,560 --> 00:49:18,960
+in Emacs Lisp, just remember
+
+1201
+00:49:21,560 --> 00:49:26,640
+this value, there's a special value
+
+1202
+00:49:23,840 --> 00:49:29,960
+literal called nil, okay?
+
+1203
+00:49:26,640 --> 00:49:32,480
+This value is false.
+
+1204
+00:49:29,960 --> 00:49:35,200
+Anything else is true. But, also this
+
+1205
+00:49:32,480 --> 00:49:37,080
+value is equivalent to a empty list,
+
+1206
+00:49:35,200 --> 00:49:38,920
+okay?
+
+1207
+00:49:37,080 --> 00:49:40,600
+Uh empty list. We we haven't covered
+
+1208
+00:49:38,920 --> 00:49:42,760
+list yet, but we are covered. But
+
+1209
+00:49:40,600 --> 00:49:44,920
+anyway, just remember these two are
+
+1210
+00:49:42,760 --> 00:49:48,120
+same, okay? So, for example, we can type
+
+1211
+00:49:44,920 --> 00:49:51,080
+equal empty list.
+
+1212
+00:49:48,120 --> 00:49:54,400
+You know, versus nil and evaluated, you
+
+1213
+00:49:51,080 --> 00:49:57,480
+can see it returns T. T means true. So,
+
+1214
+00:49:54,400 --> 00:50:00,120
+remember nil is false.
+
+1215
+00:49:57,480 --> 00:50:02,560
+And empty list is equivalent to nil. So,
+
+1216
+00:50:00,120 --> 00:50:04,800
+empty list is also false. And by the
+
+1217
+00:50:02,560 --> 00:50:08,440
+way, another way
+
+1218
+00:50:04,800 --> 00:50:13,000
+to write the syntax for empty list is
+
+1219
+00:50:08,440 --> 00:50:15,560
+this, okay? It's apostrophe parentheses.
+
+1220
+00:50:13,000 --> 00:50:18,240
+That's equivalent to this
+
+1221
+00:50:15,560 --> 00:50:21,400
+empty list, okay? So, if you evaluate if
+
+1222
+00:50:18,240 --> 00:50:21,400
+we evaluate this,
+
+1223
+00:50:21,600 --> 00:50:26,200
+it's also true. You can see in the mini
+
+1224
+00:50:24,200 --> 00:50:29,280
+you can see in the mini buffer, okay?
+
+1225
+00:50:26,200 --> 00:50:31,640
+It's also true. So, so nil and empty
+
+1226
+00:50:29,280 --> 00:50:34,160
+list, that's false.
+
+1227
+00:50:31,640 --> 00:50:35,400
+Anything else is true, okay? Just
+
+1228
+00:50:34,160 --> 00:50:38,200
+remember that.
+
+1229
+00:50:35,400 --> 00:50:40,840
+There's no delegate dedicated boolean
+
+1230
+00:50:38,200 --> 00:50:42,840
+type in the Emacs Lisp, but you know,
+
+1231
+00:50:40,840 --> 00:50:44,920
+true or false is determined this way,
+
+1232
+00:50:42,840 --> 00:50:48,480
+okay?
+
+1233
+00:50:44,920 --> 00:50:50,520
+That's about it. So, but what So,
+
+1234
+00:50:48,480 --> 00:50:53,640
+and so, let me tell you what is nil,
+
+1235
+00:50:50,520 --> 00:50:57,520
+okay? So, nil
+
+1236
+00:50:53,640 --> 00:50:59,600
+nil is a variable and the value of this
+
+1237
+00:50:57,520 --> 00:51:02,160
+it's a building variable, meaning that
+
+1238
+00:50:59,600 --> 00:51:04,600
+by default it's already there.
+
+1239
+00:51:02,160 --> 00:51:08,520
+And the value of this variable is a
+
+1240
+00:51:04,600 --> 00:51:09,480
+symbol called nil, okay?
+
+1241
+00:51:08,520 --> 00:51:12,000
+Now,
+
+1242
+00:51:09,480 --> 00:51:14,520
+symbol is a special thing in Emacs Lisp.
+
+1243
+00:51:12,000 --> 00:51:16,040
+Again, for beginners,
+
+1244
+00:51:14,520 --> 00:51:17,920
+uh you don't have don't worry about it
+
+1245
+00:51:16,040 --> 00:51:19,840
+too much, okay? Just just know that
+
+1246
+00:51:17,920 --> 00:51:22,240
+there's a thing called symbol. Maybe
+
+1247
+00:51:19,840 --> 00:51:25,080
+we'll cover it today.
+
+1248
+00:51:22,240 --> 00:51:26,920
+So, nil is a building variable.
+
+1249
+00:51:25,080 --> 00:51:28,760
+Sometimes it's called automatic
+
+1250
+00:51:26,920 --> 00:51:30,960
+variable. Anyway, it's building it's
+
+1251
+00:51:28,760 --> 00:51:32,680
+it's it's already there. And the value
+
+1252
+00:51:30,960 --> 00:51:34,760
+of nil is the
+
+1253
+00:51:32,680 --> 00:51:36,840
+the symbol nil.
+
+1254
+00:51:34,760 --> 00:51:38,720
+Essentially, it just means false, okay?
+
+1255
+00:51:36,840 --> 00:51:40,520
+That's that's all it matters, okay? It
+
+1256
+00:51:38,720 --> 00:51:42,280
+just false.
+
+1257
+00:51:40,520 --> 00:51:44,440
+So, you can use either one of them. So,
+
+1258
+00:51:42,280 --> 00:51:48,280
+for example, we can also do
+
+1259
+00:51:44,440 --> 00:51:50,800
+nil equals to nil. Is that true or not?
+
+1260
+00:51:48,280 --> 00:51:52,560
+True, you see? It's just the same thing.
+
+1261
+00:51:50,800 --> 00:51:54,560
+Okay? And the
+
+1262
+00:51:52,560 --> 00:51:56,320
+So, nil is false, okay? That's just a
+
+1263
+00:51:54,560 --> 00:51:58,840
+building variable. And true, anything
+
+1264
+00:51:56,320 --> 00:52:00,840
+else is true. So, how do you represent
+
+1265
+00:51:58,840 --> 00:52:02,320
+true? For example, one is true. For
+
+1266
+00:52:00,840 --> 00:52:05,720
+let's say
+
+1267
+00:52:02,320 --> 00:52:08,240
+uh let's say two, okay?
+
+1268
+00:52:05,720 --> 00:52:11,040
+Uh let's say and, okay? So, in Emacs,
+
+1269
+00:52:08,240 --> 00:52:12,240
+and is a logical and, okay? So, for
+
+1270
+00:52:11,040 --> 00:52:14,600
+example,
+
+1271
+00:52:12,240 --> 00:52:17,320
+nil and three
+
+1272
+00:52:14,600 --> 00:52:19,840
+returns true because one of them is
+
+1273
+00:52:17,320 --> 00:52:20,640
+true. So, let's evaluate it.
+
+1274
+00:52:19,840 --> 00:52:23,320
+Wait.
+
+1275
+00:52:20,640 --> 00:52:24,320
+Oh, yeah. Oh, so you have to say or
+
+1276
+00:52:23,320 --> 00:52:25,320
+uh
+
+1277
+00:52:24,320 --> 00:52:27,360
+or
+
+1278
+00:52:25,320 --> 00:52:30,520
+Okay, evaluate it. You can you can see
+
+1279
+00:52:27,360 --> 00:52:32,840
+the result is three, meaning it's true.
+
+1280
+00:52:30,520 --> 00:52:35,040
+So, um
+
+1281
+00:52:32,840 --> 00:52:37,760
+Anyway, nil is false. Anything else is
+
+1282
+00:52:35,040 --> 00:52:40,800
+true, okay? Nil and the empty
+
+1283
+00:52:37,760 --> 00:52:42,800
+list is false, okay?
+
+1284
+00:52:40,800 --> 00:52:45,080
+Now, so
+
+1285
+00:52:42,800 --> 00:52:46,880
+but by by convention,
+
+1286
+00:52:45,080 --> 00:52:50,320
+when you want something to be true,
+
+1287
+00:52:46,880 --> 00:52:53,120
+usually you use a symbol T, okay? Again,
+
+1288
+00:52:50,320 --> 00:52:55,240
+T let me show you, okay? T or T so,
+
+1289
+00:52:53,120 --> 00:52:57,640
+okay? Let me show you this.
+
+1290
+00:52:55,240 --> 00:52:58,840
+Okay? This thing, okay?
+
+1291
+00:52:57,640 --> 00:53:01,040
+T
+
+1292
+00:52:58,840 --> 00:53:04,160
+is a building variable and the value of
+
+1293
+00:53:01,040 --> 00:53:06,040
+that building variable is just a symbol
+
+1294
+00:53:04,160 --> 00:53:08,680
+apostrophe T. You know, it's just a
+
+1295
+00:53:06,040 --> 00:53:10,400
+symbol T. So,
+
+1296
+00:53:08,680 --> 00:53:11,920
+it just means true, okay? That's it.
+
+1297
+00:53:10,400 --> 00:53:16,120
+That's all. That's all. That So, by
+
+1298
+00:53:11,920 --> 00:53:18,520
+convention, this T is used for true.
+
+1299
+00:53:16,120 --> 00:53:22,400
+Okay, that's that's all about it.
+
+1300
+00:53:18,520 --> 00:53:25,080
+So, empty empty vector, empty string
+
+1301
+00:53:22,400 --> 00:53:28,400
+and the value is zero, they are they all
+
+1302
+00:53:25,080 --> 00:53:30,560
+return true, okay? Let me show you.
+
+1303
+00:53:28,400 --> 00:53:32,840
+Uh actually uh we should go faster,
+
+1304
+00:53:30,560 --> 00:53:34,240
+okay? So, for example, evaluate it, you
+
+1305
+00:53:32,840 --> 00:53:36,880
+know, so
+
+1306
+00:53:34,240 --> 00:53:39,160
+evaluate that one, yes. Evaluate that
+
+1307
+00:53:36,880 --> 00:53:43,320
+one, yes. Evaluate that one, so we got a
+
+1308
+00:53:39,160 --> 00:53:43,320
+bunch of yes yes four times, you see?
+
+1309
+00:53:43,840 --> 00:53:49,960
+Okay, so that's true and false. And then
+
+1310
+00:53:47,400 --> 00:53:52,280
+and then you have comparison of numbers
+
+1311
+00:53:49,960 --> 00:53:54,920
+greater than uh less than, that's how
+
+1312
+00:53:52,280 --> 00:53:56,120
+you do it. And greater or equal,
+
+1313
+00:53:54,920 --> 00:53:58,160
+okay?
+
+1314
+00:53:56,120 --> 00:54:01,840
+Uh
+
+1315
+00:53:58,160 --> 00:54:03,880
+then test equality.
+
+1316
+00:54:01,840 --> 00:54:06,480
+Okay, this is also
+
+1317
+00:54:03,880 --> 00:54:10,920
+slightly tricky, okay? There are many
+
+1318
+00:54:06,480 --> 00:54:13,960
+functions that test equality.
+
+1319
+00:54:10,920 --> 00:54:16,200
+So, if you have two numbers,
+
+1320
+00:54:13,960 --> 00:54:19,359
+you want to use a equal sign to compare
+
+1321
+00:54:16,200 --> 00:54:22,400
+them, okay? So, if they are
+
+1322
+00:54:19,359 --> 00:54:25,040
+the same, it returns T. T means true.
+
+1323
+00:54:22,400 --> 00:54:28,840
+So, you can also use them to compare to
+
+1324
+00:54:25,040 --> 00:54:31,200
+test equality between an integer type
+
+1325
+00:54:28,840 --> 00:54:33,160
+and a float type, you know, three and
+
+1326
+00:54:31,200 --> 00:54:35,040
+3.0.
+
+1327
+00:54:33,160 --> 00:54:38,480
+It's also true.
+
+1328
+00:54:35,040 --> 00:54:41,960
+Uh and if you have strings, you can use
+
+1329
+00:54:38,480 --> 00:54:44,480
+string equal to test equality.
+
+1330
+00:54:41,960 --> 00:54:46,840
+Uh and otherwise, you can use equal to
+
+1331
+00:54:44,480 --> 00:54:49,520
+test equality. That
+
+1332
+00:54:46,840 --> 00:54:52,560
+So, this is the most frequently used
+
+1333
+00:54:49,520 --> 00:54:54,000
+function to test equality is the equal
+
+1334
+00:54:52,560 --> 00:54:56,800
+function, okay?
+
+1335
+00:54:54,000 --> 00:54:58,880
+Um because it covers various different
+
+1336
+00:54:56,800 --> 00:55:01,120
+types of data.
+
+1337
+00:54:58,880 --> 00:55:05,160
+Then you have something more
+
+1338
+00:55:01,120 --> 00:55:07,240
+uh advanced, EQ and EQL.
+
+1339
+00:55:05,160 --> 00:55:09,920
+We are not going to cover them today.
+
+1340
+00:55:07,240 --> 00:55:11,480
+Usually you you know, you almost never
+
+1341
+00:55:09,920 --> 00:55:14,000
+need to use it
+
+1342
+00:55:11,480 --> 00:55:16,520
+until after maybe, you know, um
+
+1343
+00:55:14,000 --> 00:55:17,720
+until 1 year of Emacs Lisp coding or
+
+1344
+00:55:16,520 --> 00:55:19,720
+something.
+
+1345
+00:55:17,720 --> 00:55:21,880
+Okay, so anyway,
+
+1346
+00:55:19,720 --> 00:55:24,000
+for numbers, use the equal sign. For
+
+1347
+00:55:21,880 --> 00:55:26,720
+strings, use string equal. And for
+
+1348
+00:55:24,000 --> 00:55:28,840
+anything else, generic generic, just use
+
+1349
+00:55:26,720 --> 00:55:31,200
+equal to test equality.
+
+1350
+00:55:28,840 --> 00:55:31,200
+Okay?
+
+1351
+00:55:31,280 --> 00:55:36,359
+Uh variables, okay? So,
+
+1352
+00:55:33,680 --> 00:55:38,040
+uh God, it's already 1 hour. It's kind
+
+1353
+00:55:36,359 --> 00:55:39,840
+of too slow. I think we are going too
+
+1354
+00:55:38,040 --> 00:55:41,880
+slow.
+
+1355
+00:55:39,840 --> 00:55:46,200
+Um
+
+1356
+00:55:41,880 --> 00:55:47,680
+So, we covered equality. We covered um
+
+1357
+00:55:46,200 --> 00:55:50,359
+Okay,
+
+1358
+00:55:47,680 --> 00:55:54,320
+let's talk about if then else, okay? So,
+
+1359
+00:55:50,359 --> 00:55:56,120
+here's a basic syntax for if expression.
+
+1360
+00:55:54,320 --> 00:55:58,720
+Uh so, yeah, we already, you know,
+
+1361
+00:55:56,120 --> 00:56:02,160
+showed many of them.
+
+1362
+00:55:58,720 --> 00:56:04,520
+So, uh let me talk about so
+
+1363
+00:56:02,160 --> 00:56:07,960
+let's talk about variables, okay?
+
+1364
+00:56:04,520 --> 00:56:07,960
+Variables, so
+
+1365
+00:56:10,200 --> 00:56:16,000
+So, in very uh in Emacs Lisp, you do not
+
+1366
+00:56:13,240 --> 00:56:18,160
+have to declare a variable. You can use
+
+1367
+00:56:16,000 --> 00:56:24,440
+uh a variable right away. And to assign
+
+1368
+00:56:18,160 --> 00:56:24,440
+a variable, just say setq x 3, okay?
+
+1369
+00:56:24,760 --> 00:56:31,280
+Evaluate it. Okay, that's three. That's
+
+1370
+00:56:27,680 --> 00:56:33,880
+good. Now, if you type x and evaluate
+
+1371
+00:56:31,280 --> 00:56:35,040
+it, three. So, we got
+
+1372
+00:56:33,880 --> 00:56:37,440
+x.
+
+1373
+00:56:35,040 --> 00:56:41,520
+You know, x value is now three. And now
+
+1374
+00:56:37,440 --> 00:56:42,560
+we can do equal x three. Evaluate it,
+
+1375
+00:56:41,520 --> 00:56:44,480
+true.
+
+1376
+00:56:42,560 --> 00:56:46,359
+Okay? So, this is how you set a
+
+1377
+00:56:44,480 --> 00:56:48,320
+variable. And
+
+1378
+00:56:46,359 --> 00:56:50,080
+and variables by default, if you do it
+
+1379
+00:56:48,320 --> 00:56:52,200
+this way, it's always global, okay?
+
+1380
+00:56:50,080 --> 00:56:55,040
+That's always global. Know, you know,
+
+1381
+00:56:52,200 --> 00:56:56,960
+globally known in every buffer.
+
+1382
+00:56:55,040 --> 00:56:58,160
+Okay, let's close that. Let's go back
+
+1383
+00:56:56,960 --> 00:56:59,040
+here.
+
+1384
+00:56:58,160 --> 00:57:02,040
+Uh
+
+1385
+00:56:59,040 --> 00:57:05,320
+Yeah, so let's do it here.
+
+1386
+00:57:02,040 --> 00:57:07,600
+Okay, so what else? So, that's variable.
+
+1387
+00:57:05,320 --> 00:57:09,600
+Let's move on. So, what about local
+
+1388
+00:57:07,600 --> 00:57:12,680
+variables, okay? Local variable, the way
+
+1389
+00:57:09,600 --> 00:57:15,400
+you do it is you use the
+
+1390
+00:57:12,680 --> 00:57:18,840
+let function, okay? So, that this is the
+
+1391
+00:57:15,400 --> 00:57:22,320
+syntax. So, if you want x to be a local
+
+1392
+00:57:18,840 --> 00:57:24,560
+variable, you put here. Then here you
+
+1393
+00:57:22,320 --> 00:57:25,960
+put something something body, okay?
+
+1394
+00:57:24,560 --> 00:57:28,440
+That's the
+
+1395
+00:57:25,960 --> 00:57:32,240
+whatever this code here.
+
+1396
+00:57:28,440 --> 00:57:35,280
+So, this variable x will be local to to
+
+1397
+00:57:32,240 --> 00:57:39,359
+this parenthesized expression, okay? So,
+
+1398
+00:57:35,280 --> 00:57:42,080
+for example, let's say message
+
+1399
+00:57:39,359 --> 00:57:44,520
+x, okay? That will print x.
+
+1400
+00:57:42,080 --> 00:57:44,520
+Do it.
+
+1401
+00:57:44,720 --> 00:57:50,880
+Uh let's go to the mini buffer. Wait,
+
+1402
+00:57:47,520 --> 00:57:53,359
+nil. Okay, nil because
+
+1403
+00:57:50,880 --> 00:57:56,120
+Yeah, it's nil because globally x is
+
+1404
+00:57:53,359 --> 00:57:57,720
+three, but locally,
+
+1405
+00:57:56,120 --> 00:57:59,720
+you know, that's the local variable.
+
+1406
+00:57:57,720 --> 00:58:00,880
+There's no value to it yet. So, that's
+
+1407
+00:57:59,720 --> 00:58:03,640
+why it's
+
+1408
+00:58:00,880 --> 00:58:05,920
+nil. But now you can set let's set x
+
+1409
+00:58:03,640 --> 00:58:07,640
+equals to four, okay? Now, let's
+
+1410
+00:58:05,920 --> 00:58:10,400
+evaluate this
+
+1411
+00:58:07,640 --> 00:58:11,720
+block of expression. Do it.
+
+1412
+00:58:10,400 --> 00:58:13,080
+You can see
+
+1413
+00:58:11,720 --> 00:58:15,760
+it's four.
+
+1414
+00:58:13,080 --> 00:58:18,359
+Now, but globally, it's still three.
+
+1415
+00:58:15,760 --> 00:58:19,200
+Let's evaluate this expression, okay? Do
+
+1416
+00:58:18,359 --> 00:58:20,880
+it.
+
+1417
+00:58:19,200 --> 00:58:23,040
+You see? True.
+
+1418
+00:58:20,880 --> 00:58:25,040
+So, that's local variable and global
+
+1419
+00:58:23,040 --> 00:58:26,800
+variable. So, this is how you do local
+
+1420
+00:58:25,040 --> 00:58:28,120
+variable. Let,
+
+1421
+00:58:26,800 --> 00:58:29,960
+okay?
+
+1422
+00:58:28,120 --> 00:58:32,560
+So, let's move on. So, there are some
+
+1423
+00:58:29,960 --> 00:58:35,000
+variations of the syntax I won't cover
+
+1424
+00:58:32,560 --> 00:58:36,960
+here, but not not now
+
+1425
+00:58:35,000 --> 00:58:39,400
+uh because we got other things to do.
+
+1426
+00:58:36,960 --> 00:58:43,080
+So, let me show you about this uh
+
+1427
+00:58:39,400 --> 00:58:43,080
+a block of expressions.
+
+1428
+00:58:43,800 --> 00:58:48,600
+So, if I have if
+
+1429
+00:58:46,520 --> 00:58:50,160
+let's say if, okay?
+
+1430
+00:58:48,600 --> 00:58:55,160
+Uh
+
+1431
+00:58:50,160 --> 00:58:58,520
+let's say if x is greater than two,
+
+1432
+00:58:55,160 --> 00:59:00,720
+okay? Then do something here. Else do
+
+1433
+00:58:58,520 --> 00:59:03,720
+something here. You know,
+
+1434
+00:59:00,720 --> 00:59:06,560
+so if x is equal than two, let's say
+
+1435
+00:59:03,720 --> 00:59:06,560
+message
+
+1436
+00:59:06,960 --> 00:59:12,720
+yes, bigger than two, okay?
+
+1437
+00:59:10,560 --> 00:59:15,520
+Otherwise,
+
+1438
+00:59:12,720 --> 00:59:16,800
+otherwise, let's say
+
+1439
+00:59:15,520 --> 00:59:19,640
+no,
+
+1440
+00:59:16,800 --> 00:59:22,760
+not bigger than two, okay?
+
+1441
+00:59:19,640 --> 00:59:22,760
+Let's say no.
+
+1442
+00:59:23,080 --> 00:59:28,320
+No, it
+
+1443
+00:59:25,560 --> 00:59:30,400
+is smaller than two, okay?
+
+1444
+00:59:28,320 --> 00:59:32,560
+Now, let's evaluate that.
+
+1445
+00:59:30,400 --> 00:59:34,240
+You can see the answer is yes, it's
+
+1446
+00:59:32,560 --> 00:59:36,400
+bigger than two.
+
+1447
+00:59:34,240 --> 00:59:39,080
+Now, what if
+
+1448
+00:59:36,400 --> 00:59:41,200
+if it's true, I want to do more than
+
+1449
+00:59:39,080 --> 00:59:44,480
+more than that. I want to
+
+1450
+00:59:41,200 --> 00:59:46,000
+I want to print something and I want to
+
+1451
+00:59:44,480 --> 00:59:49,920
+insert
+
+1452
+00:59:46,000 --> 00:59:51,520
+insert a text into my buffer, okay? So,
+
+1453
+00:59:49,920 --> 00:59:57,160
+let's say
+
+1454
+00:59:51,520 --> 00:59:57,160
+so I let's say insert, okay? insert
+
+1455
+00:59:57,520 --> 01:00:01,520
+world
+
+1456
+00:59:59,440 --> 01:00:03,840
+You know that we will insert
+
+1457
+01:00:01,520 --> 01:00:05,760
+the world to my buffer. If we do it
+
+1458
+01:00:03,840 --> 01:00:09,080
+here,
+
+1459
+01:00:05,760 --> 01:00:12,400
+it doesn't work. Why? Because the first
+
+1460
+01:00:09,080 --> 01:00:15,760
+expression is taken to be true, then do
+
+1461
+01:00:12,400 --> 01:00:18,360
+this expression. Otherwise, this is
+
+1462
+01:00:15,760 --> 01:00:21,280
+this will be done only when it's false.
+
+1463
+01:00:18,360 --> 01:00:22,880
+You know, that's how the if statement
+
+1464
+01:00:21,280 --> 01:00:24,880
+works.
+
+1465
+01:00:22,880 --> 01:00:27,600
+Where is it?
+
+1466
+01:00:24,880 --> 01:00:31,080
+You see, that's how if statement works.
+
+1467
+01:00:27,600 --> 01:00:34,960
+It only basically only takes
+
+1468
+01:00:31,080 --> 01:00:37,160
+uh three arguments, test, true body, and
+
+1469
+01:00:34,960 --> 01:00:40,800
+false body.
+
+1470
+01:00:37,160 --> 01:00:43,120
+So, if you So, well, my what I want to
+
+1471
+01:00:40,800 --> 01:00:45,600
+do is that actually I just want to show
+
+1472
+01:00:43,120 --> 01:00:49,400
+you this
+
+1473
+01:00:45,600 --> 01:00:52,160
+p r o g n, okay? p r o g n construct,
+
+1474
+01:00:49,400 --> 01:00:54,600
+okay? So, that will
+
+1475
+01:00:52,160 --> 01:00:56,960
+cut that, put it here. Let's prettify,
+
+1476
+01:00:54,600 --> 01:01:00,200
+okay? Now, you can see.
+
+1477
+01:00:56,960 --> 01:01:04,320
+So, this p r o g n will group a bunch of
+
+1478
+01:01:00,200 --> 01:01:07,240
+expressions into one as one single unit.
+
+1479
+01:01:04,320 --> 01:01:09,680
+So, now, if I evaluate this if
+
+1480
+01:01:07,240 --> 01:01:12,880
+expression, it works, okay? Let's do it.
+
+1481
+01:01:09,680 --> 01:01:16,560
+You see? You see? It inserted world
+
+1482
+01:01:12,880 --> 01:01:20,200
+here. You see? Because it evaluated this
+
+1483
+01:01:16,560 --> 01:01:24,560
+whole expression, okay? So, this is that
+
+1484
+01:01:20,200 --> 01:01:27,080
+is why you need this p r o g n grouping
+
+1485
+01:01:24,560 --> 01:01:30,320
+of expressions.
+
+1486
+01:01:27,080 --> 01:01:32,720
+Okay, so that is explained
+
+1487
+01:01:30,320 --> 01:01:35,320
+block of expressions here.
+
+1488
+01:01:32,720 --> 01:01:35,320
+So,
+
+1489
+01:01:36,080 --> 01:01:42,520
+this p r o g n is most useful when you
+
+1490
+01:01:39,920 --> 01:01:45,200
+have a expression. It's almost always
+
+1491
+01:01:42,520 --> 01:01:47,360
+used inside
+
+1492
+01:01:45,200 --> 01:01:49,920
+used inside the if statement if
+
+1493
+01:01:47,360 --> 01:01:51,960
+expression, okay?
+
+1494
+01:01:49,920 --> 01:01:54,360
+Okay, so
+
+1495
+01:01:51,960 --> 01:01:57,520
+actually we got more to cover. So, let's
+
+1496
+01:01:54,360 --> 01:01:59,680
+do 15 more minutes. We haven't covered
+
+1497
+01:01:57,520 --> 01:02:00,680
+defining functions and we have to cover
+
+1498
+01:01:59,680 --> 01:02:04,640
+some
+
+1499
+01:02:00,680 --> 01:02:06,560
+uh some basic basic data Emacs Lisp data
+
+1500
+01:02:04,640 --> 01:02:09,120
+structure. We're going to cover list and
+
+1501
+01:02:06,560 --> 01:02:11,320
+vector, and that's it, okay? The others,
+
+1502
+01:02:09,120 --> 01:02:12,760
+you don't have to worry about it. You
+
+1503
+01:02:11,320 --> 01:02:14,800
+know, you can worry about them later.
+
+1504
+01:02:12,760 --> 01:02:17,840
+So, we're going to cover list
+
+1505
+01:02:14,800 --> 01:02:22,320
+and vector, then we're going to cover
+
+1506
+01:02:17,840 --> 01:02:25,000
+defining a function, okay? Then lambda.
+
+1507
+01:02:22,320 --> 01:02:27,160
+And that will be it. That That would be
+
+1508
+01:02:25,000 --> 01:02:29,760
+it. That's all you need to know to begin
+
+1509
+01:02:27,160 --> 01:02:31,760
+coding to be you know,
+
+1510
+01:02:29,760 --> 01:02:33,640
+to you already know a lot. That's you
+
+1511
+01:02:31,760 --> 01:02:35,840
+know, the fundamentals.
+
+1512
+01:02:33,640 --> 01:02:38,640
+After we covered function and list,
+
+1513
+01:02:35,840 --> 01:02:40,320
+okay? Let me have a drink. Have a minute
+
+1514
+01:02:38,640 --> 01:02:42,960
+break.
+
+1515
+01:02:40,320 --> 01:02:47,680
+Um
+
+1516
+01:02:42,960 --> 01:02:47,680
+So, so far so good? Any questions?
+
+1517
+01:03:05,600 --> 01:03:09,880
+Okay, there's a question. Can you say
+
+1518
+01:03:07,800 --> 01:03:13,960
+about differences between lexical and
+
+1519
+01:03:09,880 --> 01:03:15,400
+dynamic scope in Emacs Lisp?
+
+1520
+01:03:13,960 --> 01:03:17,920
+Um
+
+1521
+01:03:15,400 --> 01:03:20,240
+that question Okay, that question is
+
+1522
+01:03:17,920 --> 01:03:24,960
+actually hard to explain. Um
+
+1523
+01:03:20,240 --> 01:03:24,960
+but let me Okay, so let me explain. So,
+
+1524
+01:03:26,080 --> 01:03:30,200
+So, let me put it here. So, um
+
+1525
+01:03:32,720 --> 01:03:39,840
+that's lexical scope versus
+
+1526
+01:03:37,760 --> 01:03:42,320
+Okay?
+
+1527
+01:03:39,840 --> 01:03:45,960
+So,
+
+1528
+01:03:42,320 --> 01:03:48,400
+let me explain that. Um this is actually
+
+1529
+01:03:45,960 --> 01:03:50,720
+a little bit difficult to demonstrate.
+
+1530
+01:03:48,400 --> 01:03:54,000
+But, I have some
+
+1531
+01:03:50,720 --> 01:03:55,960
+thing interesting to tell you
+
+1532
+01:03:54,000 --> 01:03:58,480
+that I think you will find it useful
+
+1533
+01:03:55,960 --> 01:03:59,600
+because there's a lot misconceptions in
+
+1534
+01:03:58,480 --> 01:04:02,480
+the
+
+1535
+01:03:59,600 --> 01:04:06,520
+in the in particular in particularly in
+
+1536
+01:04:02,480 --> 01:04:08,480
+the Lisp community about these things.
+
+1537
+01:04:06,520 --> 01:04:10,680
+Okay, so first of all, let me tell you
+
+1538
+01:04:08,480 --> 01:04:12,480
+that's an impractical question.
+
+1539
+01:04:10,680 --> 01:04:14,520
+Useless.
+
+1540
+01:04:12,480 --> 01:04:17,240
+Fairly impractical question, okay? It's
+
+1541
+01:04:14,520 --> 01:04:19,560
+like this is one of the dramatic
+
+1542
+01:04:17,240 --> 01:04:22,000
+question in programming languages. Very
+
+1543
+01:04:19,560 --> 01:04:24,240
+dramatic. You'll see this thing, this
+
+1544
+01:04:22,000 --> 01:04:26,440
+question, you know, why are they how do
+
+1545
+01:04:24,240 --> 01:04:28,120
+are they different? What's the benefit?
+
+1546
+01:04:26,440 --> 01:04:30,800
+What's the pros and cons? You know,
+
+1547
+01:04:28,120 --> 01:04:32,760
+dynamic scope versus lexical scope
+
+1548
+01:04:30,800 --> 01:04:35,000
+scope. You know, this is one of the one
+
+1549
+01:04:32,760 --> 01:04:36,840
+one of the dramatic thing among
+
+1550
+01:04:35,000 --> 01:04:39,000
+programming languages.
+
+1551
+01:04:36,840 --> 01:04:41,560
+All the people will talk about it. But
+
+1552
+01:04:39,000 --> 01:04:43,800
+actually, in practice, it's not a
+
+1553
+01:04:41,560 --> 01:04:46,280
+question, okay? Either you your language
+
+1554
+01:04:43,800 --> 01:04:49,240
+has one way, you stick with it, things
+
+1555
+01:04:46,280 --> 01:04:51,080
+will be fine. Or your language doesn't
+
+1556
+01:04:49,240 --> 01:04:52,920
+support one or the other, it things are
+
+1557
+01:04:51,080 --> 01:04:54,200
+totally fine. I mean, it's not a
+
+1558
+01:04:52,920 --> 01:04:55,359
+question
+
+1559
+01:04:54,200 --> 01:04:57,600
+where
+
+1560
+01:04:55,359 --> 01:04:59,920
+as a practical programmer or
+
+1561
+01:04:57,600 --> 01:05:02,320
+professional programmer, you have to
+
+1562
+01:04:59,920 --> 01:05:04,560
+ask about it. Like the the question
+
+1563
+01:05:02,320 --> 01:05:05,960
+never comes up. Almost never come never
+
+1564
+01:05:04,560 --> 01:05:08,200
+comes up.
+
+1565
+01:05:05,960 --> 01:05:10,040
+Okay, so it's not it's not a practical
+
+1566
+01:05:08,200 --> 01:05:11,440
+question, you know? I hope this is
+
+1567
+01:05:10,040 --> 01:05:13,400
+something new
+
+1568
+01:05:11,440 --> 01:05:15,160
+you know, I'm telling you. Because you
+
+1569
+01:05:13,400 --> 01:05:16,680
+hear you If you are a beginner
+
+1570
+01:05:15,160 --> 01:05:19,280
+programmer, you'll hear this all the
+
+1571
+01:05:16,680 --> 01:05:20,960
+time. And then you'll hear people debate
+
+1572
+01:05:19,280 --> 01:05:24,040
+debate about it. It's a dramatic
+
+1573
+01:05:20,960 --> 01:05:25,960
+question. Why is it dramatic? Defined by
+
+1574
+01:05:24,040 --> 01:05:27,160
+because it's a question that actually
+
+1575
+01:05:25,960 --> 01:05:29,640
+never
+
+1576
+01:05:27,160 --> 01:05:32,200
+comes up, okay? Unless when you are
+
+1577
+01:05:29,640 --> 01:05:33,760
+designing the language.
+
+1578
+01:05:32,200 --> 01:05:35,080
+Unless you are designing a programming
+
+1579
+01:05:33,760 --> 01:05:37,480
+language, okay?
+
+1580
+01:05:35,080 --> 01:05:41,480
+Now, the second the other thing I want
+
+1581
+01:05:37,480 --> 01:05:41,480
+to talk about is that the um
+
+1582
+01:05:42,120 --> 01:05:47,200
+If you are a functional programmer,
+
+1583
+01:05:45,120 --> 01:05:50,359
+you'll never actually see any difference
+
+1584
+01:05:47,200 --> 01:05:52,720
+between these two uh scopes. You'll
+
+1585
+01:05:50,359 --> 01:05:55,520
+never actually see any difference at
+
+1586
+01:05:52,720 --> 01:05:57,240
+all. If you are a functional If you
+
+1587
+01:05:55,520 --> 01:05:59,400
+stick to a functional programming
+
+1588
+01:05:57,240 --> 01:06:02,520
+principles, that means if you every your
+
+1589
+01:05:59,400 --> 01:06:04,800
+function has no side effect, okay? And
+
+1590
+01:06:02,520 --> 01:06:06,520
+you do not use closure, okay? Because
+
+1591
+01:06:04,800 --> 01:06:08,760
+when you have a closure, your function
+
+1592
+01:06:06,520 --> 01:06:11,080
+is no longer a function. Your function
+
+1593
+01:06:08,760 --> 01:06:13,040
+has the possibility of side effects,
+
+1594
+01:06:11,080 --> 01:06:15,480
+okay? So, don't use closure. You know,
+
+1595
+01:06:13,040 --> 01:06:17,640
+closure is another dramatic thing. So,
+
+1596
+01:06:15,480 --> 01:06:19,600
+anyway, I'm getting very
+
+1597
+01:06:17,640 --> 01:06:22,200
+I'm getting quite um
+
+1598
+01:06:19,600 --> 01:06:24,760
+out of out of scope for today's talk
+
+1599
+01:06:22,200 --> 01:06:26,720
+because this is a fairly advanced topic,
+
+1600
+01:06:24,760 --> 01:06:27,720
+okay? Let me get get back to practical.
+
+1601
+01:06:26,720 --> 01:06:30,600
+So,
+
+1602
+01:06:27,720 --> 01:06:34,359
+in Emacs Lisp,
+
+1603
+01:06:30,600 --> 01:06:37,520
+before 2015 or so, everything is dynamic
+
+1604
+01:06:34,359 --> 01:06:40,120
+scope, okay? But after 2015, they
+
+1605
+01:06:37,520 --> 01:06:42,280
+introduced a
+
+1606
+01:06:40,120 --> 01:06:44,280
+They introduced actually a directive,
+
+1607
+01:06:42,280 --> 01:06:47,560
+okay? So, I made a mistake before. There
+
+1608
+01:06:44,280 --> 01:06:49,680
+is a directive in Emacs Lisp, okay? So,
+
+1609
+01:06:47,560 --> 01:06:52,400
+let me show you, okay?
+
+1610
+01:06:49,680 --> 01:06:52,400
+Uh
+
+1611
+01:06:53,560 --> 01:06:58,920
+So,
+
+1612
+01:06:55,440 --> 01:07:01,680
+about 2015, in Emacs Lisp, every
+
+1613
+01:06:58,920 --> 01:07:05,440
+variable is dynamic scope. But after
+
+1614
+01:07:01,680 --> 01:07:08,040
+2015, I think it's 2000 maybe 2010,
+
+1615
+01:07:05,440 --> 01:07:11,280
+okay? Then they introduced lexical
+
+1616
+01:07:08,040 --> 01:07:13,359
+scope, but you have to specify it by
+
+1617
+01:07:11,280 --> 01:07:16,600
+Let's go to the E Lisp file, okay? So,
+
+1618
+01:07:13,359 --> 01:07:19,280
+you have to specify
+
+1619
+01:07:16,600 --> 01:07:21,240
+what's the variable? Um Okay, let's go
+
+1620
+01:07:19,280 --> 01:07:23,560
+to one of my packages. That's the
+
+1621
+01:07:21,240 --> 01:07:27,000
+easiest way to find out, okay? Go to the
+
+1622
+01:07:23,560 --> 01:07:30,160
+top, you can see. Close it. There it is.
+
+1623
+01:07:27,000 --> 01:07:33,160
+There it is. You see that keyword? Um
+
+1624
+01:07:30,160 --> 01:07:35,200
+There it is. You see? Lexical binding
+
+1625
+01:07:33,160 --> 01:07:38,080
+true. So, that is a variable, okay? So,
+
+1626
+01:07:35,200 --> 01:07:39,760
+let's put it here. So,
+
+1627
+01:07:38,080 --> 01:07:42,560
+There. So, that's a variable. So, you
+
+1628
+01:07:39,760 --> 01:07:44,800
+can now describe variable,
+
+1629
+01:07:42,560 --> 01:07:47,200
+okay? Enter, then you'll see the
+
+1630
+01:07:44,800 --> 01:07:50,880
+documentation for the variable lexical
+
+1631
+01:07:47,200 --> 01:07:53,800
+binding, okay? So, basically this line
+
+1632
+01:07:50,880 --> 01:07:57,080
+as a comma as as a comment at the
+
+1633
+01:07:53,800 --> 01:08:00,880
+beginning of a Emacs Lisp file will tell
+
+1634
+01:07:57,080 --> 01:08:03,600
+Emacs Lisp that for this whole file or
+
+1635
+01:08:00,880 --> 01:08:07,600
+the Lisp code, they should be lexical
+
+1636
+01:08:03,600 --> 01:08:09,760
+binding, not dynamic, okay? But
+
+1637
+01:08:07,600 --> 01:08:12,240
+Okay, mostly. There are still some
+
+1638
+01:08:09,760 --> 01:08:14,320
+exceptions that's always dynamic
+
+1639
+01:08:12,240 --> 01:08:16,640
+binding, okay? Anyway, so you can see
+
+1640
+01:08:14,320 --> 01:08:19,600
+the documentation. So,
+
+1641
+01:08:16,640 --> 01:08:21,759
+so it says, you know, the value is nil
+
+1642
+01:08:19,600 --> 01:08:24,240
+globally, you know, whether to use
+
+1643
+01:08:21,759 --> 01:08:26,600
+lexical binding when evalu- evaluating
+
+1644
+01:08:24,240 --> 01:08:27,880
+code. And then nil means that the code
+
+1645
+01:08:26,600 --> 01:08:30,640
+in the current buffer should be
+
+1646
+01:08:27,880 --> 01:08:33,240
+evaluated with lexical binding, okay?
+
+1647
+01:08:30,640 --> 01:08:34,920
+This variable is a automatically set
+
+1648
+01:08:33,240 --> 01:08:37,880
+from the file variables of an
+
+1649
+01:08:34,920 --> 01:08:40,440
+interpreted Lisp file, blah blah blah.
+
+1650
+01:08:37,880 --> 01:08:42,160
+Okay? So, anyway, you know, it doesn't
+
+1651
+01:08:40,440 --> 01:08:44,560
+even explain it. But it's hard to
+
+1652
+01:08:42,160 --> 01:08:46,839
+explain it because
+
+1653
+01:08:44,560 --> 01:08:48,640
+uh basically lexical binding is
+
+1654
+01:08:46,839 --> 01:08:51,280
+text-based
+
+1655
+01:08:48,640 --> 01:08:53,799
+variable. So, that is what I like to
+
+1656
+01:08:51,280 --> 01:08:55,799
+say, what you see is what you get.
+
+1657
+01:08:53,799 --> 01:08:58,440
+That's lexical binding, and that's the
+
+1658
+01:08:55,799 --> 01:09:02,520
+proper language design.
+
+1659
+01:08:58,440 --> 01:09:05,880
+It is so. It speak It began the language
+
+1660
+01:09:02,520 --> 01:09:08,120
+that began this lexical binding is
+
+1661
+01:09:05,880 --> 01:09:11,560
+Scheme Lisp, okay?
+
+1662
+01:09:08,120 --> 01:09:13,000
+Then other languages adopted Common
+
+1663
+01:09:11,560 --> 01:09:15,319
+Lisp,
+
+1664
+01:09:13,000 --> 01:09:17,040
+Emacs Lisp today eventually, you know?
+
+1665
+01:09:15,319 --> 01:09:19,359
+But you have to say you have to put this
+
+1666
+01:09:17,040 --> 01:09:21,319
+line at the beginning of your Lisp file,
+
+1667
+01:09:19,359 --> 01:09:22,960
+okay? You Actually, I recommend it,
+
+1668
+01:09:21,319 --> 01:09:24,680
+okay? Put this line in the beginning of
+
+1669
+01:09:22,960 --> 01:09:28,080
+your file.
+
+1670
+01:09:24,680 --> 01:09:30,120
+And so anyway, so
+
+1671
+01:09:28,080 --> 01:09:33,040
+basically lexical binding Okay, let me
+
+1672
+01:09:30,120 --> 01:09:33,040
+explain. Okay.
+
+1673
+01:09:33,359 --> 01:09:37,680
+Uh you know, it's best if we actually
+
+1674
+01:09:35,600 --> 01:09:38,799
+demonstrate their differences in code,
+
+1675
+01:09:37,680 --> 01:09:41,799
+but it's
+
+1676
+01:09:38,799 --> 01:09:43,319
+it's it's really hard to do. It's fairly
+
+1677
+01:09:41,799 --> 01:09:46,040
+advanced. Okay.
+
+1678
+01:09:43,319 --> 01:09:48,440
+Lex- lex- lexical scope
+
+1679
+01:09:46,040 --> 01:09:53,240
+basically means
+
+1680
+01:09:48,440 --> 01:09:53,240
+text-based variable scope.
+
+1681
+01:09:53,680 --> 01:09:56,440
+Meaning
+
+1682
+01:09:57,000 --> 01:10:03,240
+what you see is what you get. Okay.
+
+1683
+01:10:01,640 --> 01:10:08,520
+Meaning
+
+1684
+01:10:03,240 --> 01:10:09,920
+that a variable scope is inside a
+
+1685
+01:10:08,520 --> 01:10:12,480
+paren
+
+1686
+01:10:09,920 --> 01:10:15,360
+inside a syntactic
+
+1687
+01:10:12,480 --> 01:10:17,760
+unit of the language
+
+1688
+01:10:15,360 --> 01:10:21,200
+such as paren
+
+1689
+01:10:17,760 --> 01:10:23,520
+or bracket in C or JavaScript, you know,
+
+1690
+01:10:21,200 --> 01:10:25,560
+so So, that's lexical binding. What you
+
+1691
+01:10:23,520 --> 01:10:27,440
+see is what you get. Okay. So, for
+
+1692
+01:10:25,560 --> 01:10:29,160
+example, let
+
+1693
+01:10:27,440 --> 01:10:32,520
+So, for example, we have defined a
+
+1694
+01:10:29,160 --> 01:10:32,520
+variable let here
+
+1695
+01:10:33,240 --> 01:10:37,240
+that is
+
+1696
+01:10:35,040 --> 01:10:41,000
+you know, if it's lexical scope, that
+
+1697
+01:10:37,240 --> 01:10:44,200
+means whatever this X is does not escape
+
+1698
+01:10:41,000 --> 01:10:46,760
+this parenthesis. Okay. That's lexical
+
+1699
+01:10:44,200 --> 01:10:46,760
+scope.
+
+1700
+01:10:48,120 --> 01:10:53,600
+Uh but
+
+1701
+01:10:50,600 --> 01:10:56,960
+dynamic scope
+
+1702
+01:10:53,600 --> 01:10:56,960
+is basically
+
+1703
+01:10:57,520 --> 01:11:04,960
+a time-based scope. Okay. So, this this
+
+1704
+01:11:01,560 --> 01:11:09,280
+is a time-based scope. Meaning that
+
+1705
+01:11:04,960 --> 01:11:12,280
+the value of X a variable the value of X
+
+1706
+01:11:09,280 --> 01:11:15,200
+a variable depends on
+
+1707
+01:11:12,280 --> 01:11:17,280
+when it is wh- when when the value
+
+1708
+01:11:15,200 --> 01:11:18,760
+changed last time. You know, it doesn't
+
+1709
+01:11:17,280 --> 01:11:20,960
+depend on your
+
+1710
+01:11:18,760 --> 01:11:23,520
+how your code looks
+
+1711
+01:11:20,960 --> 01:11:25,720
+or the order of the text in your buffer.
+
+1712
+01:11:23,520 --> 01:11:28,600
+It doesn't depend on that.
+
+1713
+01:11:25,720 --> 01:11:31,400
+The order of you know, all the brackets,
+
+1714
+01:11:28,600 --> 01:11:32,560
+the scope, the nesting of your source
+
+1715
+01:11:31,400 --> 01:11:35,160
+code.
+
+1716
+01:11:32,560 --> 01:11:36,920
+But rather it just depends on time. When
+
+1717
+01:11:35,160 --> 01:11:39,360
+is something last
+
+1718
+01:11:36,920 --> 01:11:40,600
+changed, you know, that value remains.
+
+1719
+01:11:39,360 --> 01:11:43,240
+Okay.
+
+1720
+01:11:40,600 --> 01:11:44,360
+So, that's what dynamic scope means.
+
+1721
+01:11:43,240 --> 01:11:46,360
+Okay.
+
+1722
+01:11:44,360 --> 01:11:47,520
+And
+
+1723
+01:11:46,360 --> 01:11:49,200
+um
+
+1724
+01:11:47,520 --> 01:11:51,680
+you know, it it would be best to
+
+1725
+01:11:49,200 --> 01:11:55,200
+actually demonstrate code to show their
+
+1726
+01:11:51,680 --> 01:11:57,200
+difference, but that's difficult because
+
+1727
+01:11:55,200 --> 01:11:59,440
+because that will involve some you know,
+
+1728
+01:11:57,200 --> 01:12:02,400
+you you have to define a function, then
+
+1729
+01:11:59,440 --> 01:12:04,480
+you have to let it leak.
+
+1730
+01:12:02,400 --> 01:12:06,560
+So, basically, it's not a practical
+
+1731
+01:12:04,480 --> 01:12:08,640
+question. Okay. So, if if you always
+
+1732
+01:12:06,560 --> 01:12:11,120
+write your function, you should always
+
+1733
+01:12:08,640 --> 01:12:14,440
+write your function such that it doesn't
+
+1734
+01:12:11,120 --> 01:12:17,160
+have any side effect. That That is In
+
+1735
+01:12:14,440 --> 01:12:19,120
+other words, your function the input
+
+1736
+01:12:17,160 --> 01:12:21,400
+the output always depends on the input,
+
+1737
+01:12:19,120 --> 01:12:23,680
+nothing else. The same input will
+
+1738
+01:12:21,400 --> 01:12:26,040
+generate the same output. That's a
+
+1739
+01:12:23,680 --> 01:12:29,720
+function without side effects.
+
+1740
+01:12:26,040 --> 01:12:32,320
+For those functions, it is impossible
+
+1741
+01:12:29,720 --> 01:12:35,160
+to have these dynamic scope or lexical
+
+1742
+01:12:32,320 --> 01:12:36,720
+scope differences. It's impossible to to
+
+1743
+01:12:35,160 --> 01:12:38,280
+have those differences. Okay. Always
+
+1744
+01:12:36,720 --> 01:12:40,440
+just do that.
+
+1745
+01:12:38,280 --> 01:12:43,760
+Okay, I'm not going to go through
+
+1746
+01:12:40,440 --> 01:12:46,120
+uh it's hard to do so.
+
+1747
+01:12:43,760 --> 01:12:46,120
+Okay.
+
+1748
+01:12:49,760 --> 01:12:56,400
+Uh fantastic. Thank you.
+
+1749
+01:12:53,080 --> 01:12:58,400
+Okay, so so so
+
+1750
+01:12:56,400 --> 01:13:00,680
+So, okay. Another 10 minutes. So, we
+
+1751
+01:12:58,400 --> 01:13:01,240
+kind of digressed. Let Let me show you
+
+1752
+01:13:00,680 --> 01:13:02,600
+uh
+
+1753
+01:13:01,240 --> 01:13:06,280
+list and vector. That's the most
+
+1754
+01:13:02,600 --> 01:13:08,680
+important. Okay. So, So, now we covered
+
+1755
+01:13:06,280 --> 01:13:11,360
+if then else. Okay, there's one more
+
+1756
+01:13:08,680 --> 01:13:13,640
+thing, loop. Okay, this is This is how
+
+1757
+01:13:11,360 --> 01:13:16,680
+you do a loop. In every language, you
+
+1758
+01:13:13,640 --> 01:13:19,800
+have a loop construct. Okay.
+
+1759
+01:13:16,680 --> 01:13:22,960
+Uh Okay, so how do you do a loop? Okay.
+
+1760
+01:13:19,800 --> 01:13:25,520
+So, loop. So, the most common is while
+
+1761
+01:13:22,960 --> 01:13:28,800
+loop. Okay. So
+
+1762
+01:13:25,520 --> 01:13:31,360
+uh I have templates. Just don't Okay, so
+
+1763
+01:13:28,800 --> 01:13:33,640
+here's test. Here's body. Okay, that's
+
+1764
+01:13:31,360 --> 01:13:37,480
+how you do a loop.
+
+1765
+01:13:33,640 --> 01:13:39,240
+So, let's test if uh let's say if
+
+1766
+01:13:37,480 --> 01:13:41,000
+while
+
+1767
+01:13:39,240 --> 01:13:44,600
+uh
+
+1768
+01:13:41,000 --> 01:13:47,680
+while uh while let's put it here
+
+1769
+01:13:44,600 --> 01:13:49,560
+less than while X
+
+1770
+01:13:47,680 --> 01:13:51,360
+is less than
+
+1771
+01:13:49,560 --> 01:13:56,280
+three.
+
+1772
+01:13:51,360 --> 01:13:59,160
+Okay. Then body message
+
+1773
+01:13:56,280 --> 01:14:03,440
+X. Okay. Then but we also want to
+
+1774
+01:13:59,160 --> 01:14:07,200
+increase X. So, we can say set
+
+1775
+01:14:03,440 --> 01:14:07,200
+X equals to
+
+1776
+01:14:08,160 --> 01:14:13,280
+plus X one. Okay. That's one easy way to
+
+1777
+01:14:11,960 --> 01:14:15,960
+do it.
+
+1778
+01:14:13,280 --> 01:14:19,760
+Simple way to do it. Okay. So, we test
+
+1779
+01:14:15,960 --> 01:14:23,880
+if X is less than three. If If so,
+
+1780
+01:14:19,760 --> 01:14:26,600
+we print the value of X, then we add one
+
+1781
+01:14:23,880 --> 01:14:28,600
+to X. Okay.
+
+1782
+01:14:26,600 --> 01:14:31,400
+And uh we want to know what is the
+
+1783
+01:14:28,600 --> 01:14:34,200
+current value of X. So, we can do that
+
+1784
+01:14:31,400 --> 01:14:37,080
+by moving the cursor here and call eval
+
+1785
+01:14:34,200 --> 01:14:38,240
+last expression. Okay, let's do it.
+
+1786
+01:14:37,080 --> 01:14:41,960
+Three.
+
+1787
+01:14:38,240 --> 01:14:41,960
+So, right now X is three.
+
+1788
+01:14:42,200 --> 01:14:48,040
+Okay, so if we run this, it won't print
+
+1789
+01:14:44,600 --> 01:14:51,680
+anything. Do it. Nil. Okay. So, we have
+
+1790
+01:14:48,040 --> 01:14:53,880
+to say let's say nine. Okay.
+
+1791
+01:14:51,680 --> 01:14:55,560
+Now, let's do it.
+
+1792
+01:14:53,880 --> 01:14:58,600
+Okay, now let's look at the message
+
+1793
+01:14:55,560 --> 01:15:01,280
+buffer. There it is. It print It prints
+
+1794
+01:14:58,600 --> 01:15:04,760
+3 4 5 6 7 8. Okay.
+
+1795
+01:15:01,280 --> 01:15:08,000
+So, this is the most fundamental loop
+
+1796
+01:15:04,760 --> 01:15:11,800
+construct in Emacs Lisp. Okay. This is
+
+1797
+01:15:08,000 --> 01:15:15,080
+the most basic one. There is no for loop
+
+1798
+01:15:11,800 --> 01:15:17,000
+in Emacs Lisp. Basically, this is
+
+1799
+01:15:15,080 --> 01:15:20,520
+it. Okay.
+
+1800
+01:15:17,000 --> 01:15:21,480
+When you want a loop in Emacs Lisp.
+
+1801
+01:15:20,520 --> 01:15:24,200
+Now
+
+1802
+01:15:21,480 --> 01:15:27,960
+of course, there are other kind of kind
+
+1803
+01:15:24,200 --> 01:15:32,000
+of equivalent uh ways to do a loop. Loop
+
+1804
+01:15:27,960 --> 01:15:35,400
+for such as for map um and you can also
+
+1805
+01:15:32,000 --> 01:15:37,920
+do uh two times.
+
+1806
+01:15:35,400 --> 01:15:39,800
+Uh but we are not going to cover it.
+
+1807
+01:15:37,920 --> 01:15:42,800
+Yeah, do listen two times. Okay, so
+
+1808
+01:15:39,800 --> 01:15:44,960
+let's not let's let's skip them. Okay,
+
+1809
+01:15:42,800 --> 01:15:47,600
+let's Now, let's talk about list. Okay,
+
+1810
+01:15:44,960 --> 01:15:49,600
+list is a fundamental structure. So,
+
+1811
+01:15:47,600 --> 01:15:54,080
+Lisp
+
+1812
+01:15:49,600 --> 01:15:57,320
+uh stand for list processor. Okay.
+
+1813
+01:15:54,080 --> 01:15:57,320
+The Lisp language.
+
+1814
+01:15:59,800 --> 01:16:04,080
+Originally stand for
+
+1815
+01:16:02,280 --> 01:16:07,520
+list
+
+1816
+01:16:04,080 --> 01:16:10,720
+processor. Okay, that's what
+
+1817
+01:16:07,520 --> 01:16:13,080
+L I S P stand for. So, that's why So,
+
+1818
+01:16:10,720 --> 01:16:16,760
+all these are a list. So, that's why the
+
+1819
+01:16:13,080 --> 01:16:19,280
+whole syntax is all parentheses. That's
+
+1820
+01:16:16,760 --> 01:16:21,240
+That's a list or everything is a list.
+
+1821
+01:16:19,280 --> 01:16:23,760
+So, the list is the most fundamental
+
+1822
+01:16:21,240 --> 01:16:25,960
+data structure in Lisp. Okay. And the
+
+1823
+01:16:23,760 --> 01:16:29,000
+way you do a you generate made a list is
+
+1824
+01:16:25,960 --> 01:16:31,200
+this. Okay. This is a syntax.
+
+1825
+01:16:29,000 --> 01:16:34,120
+Okay. That's a list. Simple enough.
+
+1826
+01:16:31,200 --> 01:16:36,160
+Again, remember let me emphasize what we
+
+1827
+01:16:34,120 --> 01:16:38,880
+covered before. Everything is a
+
+1828
+01:16:36,160 --> 01:16:40,560
+expression. And the only way you do
+
+1829
+01:16:38,880 --> 01:16:44,040
+computation
+
+1830
+01:16:40,560 --> 01:16:46,480
+in Lisp the computational model of Lisp
+
+1831
+01:16:44,040 --> 01:16:48,720
+is by calling a function.
+
+1832
+01:16:46,480 --> 01:16:52,080
+So, we call a function. So, again, we
+
+1833
+01:16:48,720 --> 01:16:54,320
+call a function um and uh
+
+1834
+01:16:52,080 --> 01:16:56,120
+and you got 3 4 5. That's a list. That's
+
+1835
+01:16:54,320 --> 01:16:58,400
+how you generate the list.
+
+1836
+01:16:56,120 --> 01:17:00,320
+So, this is the syntax for list. Okay.
+
+1837
+01:16:58,400 --> 01:17:01,520
+And you can you can nest them. For
+
+1838
+01:17:00,320 --> 01:17:02,240
+example,
+
+1839
+01:17:01,520 --> 01:17:05,120
+uh
+
+1840
+01:17:02,240 --> 01:17:07,240
+that. Okay. Evaluated, you see, you got
+
+1841
+01:17:05,120 --> 01:17:09,800
+a nested list. You can
+
+1842
+01:17:07,240 --> 01:17:12,440
+you can nest them in any way.
+
+1843
+01:17:09,800 --> 01:17:12,440
+Okay, so
+
+1844
+01:17:12,720 --> 01:17:15,920
+So, that's the
+
+1845
+01:17:16,400 --> 01:17:21,200
+Okay, I'm going to skip some other
+
+1846
+01:17:18,720 --> 01:17:23,800
+things. Okay, so if you want to you
+
+1847
+01:17:21,200 --> 01:17:25,600
+know, you can read my tutorial later for
+
+1848
+01:17:23,800 --> 01:17:29,120
+for a bit more information, but I'm
+
+1849
+01:17:25,600 --> 01:17:31,600
+going to skip lots of these things. So,
+
+1850
+01:17:29,120 --> 01:17:35,360
+So, get a link So, the length
+
+1851
+01:17:31,600 --> 01:17:38,520
+the count of elements is length. Okay.
+
+1852
+01:17:35,360 --> 01:17:40,920
+So, for example, let's count this list.
+
+1853
+01:17:38,520 --> 01:17:40,920
+Okay.
+
+1854
+01:17:41,000 --> 01:17:47,240
+So, you see the result is three.
+
+1855
+01:17:43,760 --> 01:17:49,880
+Um So, that's list. Okay. Now, once you
+
+1856
+01:17:47,240 --> 01:17:52,840
+So, you already know how to do a list.
+
+1857
+01:17:49,880 --> 01:17:55,520
+The the syntax. And then
+
+1858
+01:17:52,840 --> 01:17:56,480
+then you again you call a function to
+
+1859
+01:17:55,520 --> 01:17:58,320
+get
+
+1860
+01:17:56,480 --> 01:18:02,440
+to do anything with it. So, for example,
+
+1861
+01:17:58,320 --> 01:18:04,680
+you can get a sublist. You can get um
+
+1862
+01:18:02,440 --> 01:18:07,400
+And here are examples. You can get You
+
+1863
+01:18:04,680 --> 01:18:09,760
+can prepend. You can append. You can
+
+1864
+01:18:07,400 --> 01:18:11,880
+join list. Okay, let me show you a a
+
+1865
+01:18:09,760 --> 01:18:14,480
+few. Okay.
+
+1866
+01:18:11,880 --> 01:18:14,480
+Uh
+
+1867
+01:18:16,440 --> 01:18:21,719
+Okay, so here is a list. And here is
+
+1868
+01:18:20,160 --> 01:18:23,719
+another list.
+
+1869
+01:18:21,719 --> 01:18:24,880
+Uh let's say
+
+1870
+01:18:23,719 --> 01:18:26,800
+A
+
+1871
+01:18:24,880 --> 01:18:28,719
+B.
+
+1872
+01:18:26,800 --> 01:18:31,520
+Okay. Now, let's say you want to join
+
+1873
+01:18:28,719 --> 01:18:35,360
+them. Okay. So, you say concat.
+
+1874
+01:18:31,520 --> 01:18:35,360
+I believe that's the function.
+
+1875
+01:18:35,480 --> 01:18:38,800
+Uh append. Okay.
+
+1876
+01:18:39,440 --> 01:18:45,800
+Okay, copy that.
+
+1877
+01:18:42,160 --> 01:18:48,000
+Okay, so there. So, evaluated, you can
+
+1878
+01:18:45,800 --> 01:18:50,280
+see here's the result. Okay, that's how
+
+1879
+01:18:48,000 --> 01:18:52,280
+you join two lists. And then you can
+
+1880
+01:18:50,280 --> 01:18:54,120
+take a sublist and other things. You can
+
+1881
+01:18:52,280 --> 01:18:55,920
+take the first elements, the last
+
+1882
+01:18:54,120 --> 01:18:59,440
+elements, and so on.
+
+1883
+01:18:55,920 --> 01:19:01,560
+Uh and to check equality
+
+1884
+01:18:59,440 --> 01:19:04,480
+Yeah, you can Okay, so you can use equal
+
+1885
+01:19:01,560 --> 01:19:08,960
+to check if two lists have the same
+
+1886
+01:19:04,480 --> 01:19:08,960
+number of element same items. Okay.
+
+1887
+01:19:09,120 --> 01:19:15,840
+So, for example, um
+
+1888
+01:19:12,440 --> 01:19:15,840
+Okay, let's copy that.
+
+1889
+01:19:21,880 --> 01:19:28,960
+Uh E Q A L. Okay. Evaluated, you see, it
+
+1890
+01:19:26,240 --> 01:19:31,400
+returns t for true.
+
+1891
+01:19:28,960 --> 01:19:34,680
+Uh, and it can be nested, okay? So, for
+
+1892
+01:19:31,400 --> 01:19:34,680
+example, let's see.
+
+1893
+01:19:36,680 --> 01:19:41,600
+You see?
+
+1894
+01:19:38,960 --> 01:19:45,440
+You see? The result is also true. Now,
+
+1895
+01:19:41,600 --> 01:19:47,280
+this is not so for JavaScript.
+
+1896
+01:19:45,440 --> 01:19:49,560
+When you have a nested list, there's no
+
+1897
+01:19:47,280 --> 01:19:52,560
+way actually there's no way to test the
+
+1898
+01:19:49,560 --> 01:19:55,160
+content of a list in JavaScript.
+
+1899
+01:19:52,560 --> 01:19:57,400
+You have to write a function to do that.
+
+1900
+01:19:55,160 --> 01:19:59,320
+So, uh, then you have other functions
+
+1901
+01:19:57,400 --> 01:20:01,600
+like push, pop, okay? I'm not going to
+
+1902
+01:19:59,320 --> 01:20:03,800
+cover Okay, so that's list, okay? Now,
+
+1903
+01:20:01,600 --> 01:20:06,880
+let me tell you how to map a function to
+
+1904
+01:20:03,800 --> 01:20:09,000
+list because this is important.
+
+1905
+01:20:06,880 --> 01:20:11,760
+Uh, okay, so that's how you do it, okay?
+
+1906
+01:20:09,000 --> 01:20:13,520
+So, so if you want to let's say you want
+
+1907
+01:20:11,760 --> 01:20:15,920
+to add a number
+
+1908
+01:20:13,520 --> 01:20:20,000
+add one to this list, okay? So, what you
+
+1909
+01:20:15,920 --> 01:20:20,920
+do is you say map car
+
+1910
+01:20:20,000 --> 01:20:22,600
+Okay?
+
+1911
+01:20:20,920 --> 01:20:25,320
+You know, never mind the name. The name
+
+1912
+01:20:22,600 --> 01:20:26,040
+is a bit weird because history.
+
+1913
+01:20:25,320 --> 01:20:29,400
+Um,
+
+1914
+01:20:26,040 --> 01:20:30,880
+but anyway, so you say map car
+
+1915
+01:20:29,400 --> 01:20:33,400
+and the
+
+1916
+01:20:30,880 --> 01:20:35,720
+and the the map car takes two arguments.
+
+1917
+01:20:33,400 --> 01:20:38,600
+One is a function, one is the list,
+
+1918
+01:20:35,720 --> 01:20:40,480
+okay? So, this part is the list and this
+
+1919
+01:20:38,600 --> 01:20:42,600
+part is uh
+
+1920
+01:20:40,480 --> 01:20:44,200
+let's say add one, okay? So, lambda is a
+
+1921
+01:20:42,600 --> 01:20:46,880
+function.
+
+1922
+01:20:44,200 --> 01:20:48,040
+And the now we want to add one. So, how
+
+1923
+01:20:46,880 --> 01:20:49,560
+do you
+
+1924
+01:20:48,040 --> 01:20:51,720
+So, we can say
+
+1925
+01:20:49,560 --> 01:20:51,720
+uh
+
+1926
+01:20:52,480 --> 01:20:58,680
+Okay? First x
+
+1927
+01:20:55,240 --> 01:21:00,920
+one, okay? Now, if we evaluate this,
+
+1928
+01:20:58,680 --> 01:21:02,760
+we're going to get
+
+1929
+01:21:00,920 --> 01:21:04,000
+4 5 6, okay?
+
+1930
+01:21:02,760 --> 01:21:05,440
+Do it. Uh,
+
+1931
+01:21:04,000 --> 01:21:06,480
+do it.
+
+1932
+01:21:05,440 --> 01:21:08,720
+You see?
+
+1933
+01:21:06,480 --> 01:21:13,360
+Okay, that's that's how you map a
+
+1934
+01:21:08,720 --> 01:21:13,360
+function to every element in a list.
+
+1935
+01:21:13,840 --> 01:21:17,640
+Okay? So, that's it for that. Let's, you
+
+1936
+01:21:16,880 --> 01:21:21,200
+know,
+
+1937
+01:21:17,640 --> 01:21:23,200
+uh, I'm going to skip vector for now.
+
+1938
+01:21:21,200 --> 01:21:24,720
+Now, vector is just like a list, okay?
+
+1939
+01:21:23,200 --> 01:21:27,360
+Except that
+
+1940
+01:21:24,720 --> 01:21:29,840
+the number of items is fixed. You cannot
+
+1941
+01:21:27,360 --> 01:21:33,960
+add to it. So, it's similar to the
+
+1942
+01:21:29,840 --> 01:21:36,680
+concept of tuple in Python. Okay, that's
+
+1943
+01:21:33,960 --> 01:21:38,360
+that's what vector is.
+
+1944
+01:21:36,680 --> 01:21:40,640
+Um,
+
+1945
+01:21:38,360 --> 01:21:43,520
+Okay, so
+
+1946
+01:21:40,640 --> 01:21:45,680
+So, let's Let me show you how to define
+
+1947
+01:21:43,520 --> 01:21:48,160
+a function and that's it for today. Uh,
+
+1948
+01:21:45,680 --> 01:21:51,240
+that's it for today.
+
+1949
+01:21:48,160 --> 01:21:53,000
+Okay, I'm not going to cover symbols.
+
+1950
+01:21:51,240 --> 01:21:54,800
+Okay, let let let's see. Any other
+
+1951
+01:21:53,000 --> 01:21:57,400
+questions?
+
+1952
+01:21:54,800 --> 01:22:00,280
+We're going to shut down in 5 minutes, I
+
+1953
+01:21:57,400 --> 01:22:01,560
+think, okay? So, define a function. So,
+
+1954
+01:22:00,280 --> 01:22:03,320
+you can
+
+1955
+01:22:01,560 --> 01:22:06,600
+to define a function, you say defun,
+
+1956
+01:22:03,320 --> 01:22:09,400
+okay? So, you say defun
+
+1957
+01:22:06,600 --> 01:22:10,480
+Uh, basically, here is a basic template,
+
+1958
+01:22:09,400 --> 01:22:11,960
+okay?
+
+1959
+01:22:10,480 --> 01:22:15,040
+So, here first of all, you have a
+
+1960
+01:22:11,960 --> 01:22:17,960
+function name, let's say ff, okay? Then
+
+1961
+01:22:15,040 --> 01:22:20,240
+you have a parameter, let's say x.
+
+1962
+01:22:17,960 --> 01:22:22,080
+Okay? Then you have docstring, excuse
+
+1963
+01:22:20,240 --> 01:22:24,840
+me. Let's say uh,
+
+1964
+01:22:22,080 --> 01:22:29,040
+let's say add one to
+
+1965
+01:22:24,840 --> 01:22:32,520
+x, okay? Then let is again a local
+
+1966
+01:22:29,040 --> 01:22:36,360
+variable definition we covered before.
+
+1967
+01:22:32,520 --> 01:22:38,000
+And here, let's say x +
+
+1968
+01:22:36,360 --> 01:22:40,520
+x one.
+
+1969
+01:22:38,000 --> 01:22:42,120
+Uh, let's say add two to x, okay? So,
+
+1970
+01:22:40,520 --> 01:22:45,040
+that's how you define a function. So,
+
+1971
+01:22:42,120 --> 01:22:46,760
+now we have to evaluate this.
+
+1972
+01:22:45,040 --> 01:22:48,920
+Do it.
+
+1973
+01:22:46,760 --> 01:22:51,720
+Okay, so now Emacs knows about this
+
+1974
+01:22:48,920 --> 01:22:53,000
+function. Now, we can call this function
+
+1975
+01:22:51,720 --> 01:22:55,000
+ff
+
+1976
+01:22:53,000 --> 01:22:56,560
+uh
+
+1977
+01:22:55,000 --> 01:22:59,520
+ff
+
+1978
+01:22:56,560 --> 01:23:02,960
+three, okay? Let's evaluate it.
+
+1979
+01:22:59,520 --> 01:23:05,160
+You can see the result is five.
+
+1980
+01:23:02,960 --> 01:23:07,120
+Okay, I think that's that's how you
+
+1981
+01:23:05,160 --> 01:23:11,080
+define a function.
+
+1982
+01:23:07,120 --> 01:23:15,040
+And uh, I think you know, we have
+
+1983
+01:23:11,080 --> 01:23:19,080
+covered all the fundamental elements of
+
+1984
+01:23:15,040 --> 01:23:20,840
+Lisp, the language. And now you can, you
+
+1985
+01:23:19,080 --> 01:23:24,040
+know, we covered Now, you can put them
+
+1986
+01:23:20,840 --> 01:23:27,560
+together to create however arbitrarily
+
+1987
+01:23:24,040 --> 01:23:30,040
+complex programs
+
+1988
+01:23:27,560 --> 01:23:32,480
+because we already know how to do so. We
+
+1989
+01:23:30,040 --> 01:23:35,120
+covered, you know, the
+
+1990
+01:23:32,480 --> 01:23:38,120
+the comments, how do you add a comments,
+
+1991
+01:23:35,120 --> 01:23:40,600
+how the basics of printing something, we
+
+1992
+01:23:38,120 --> 01:23:42,840
+covered how to how to create a string,
+
+1993
+01:23:40,600 --> 01:23:44,880
+and all the functions that manipulate
+
+1994
+01:23:42,840 --> 01:23:48,520
+string.
+
+1995
+01:23:44,880 --> 01:23:51,880
+Uh, we covered uh
+
+1996
+01:23:48,520 --> 01:23:55,280
+then we have covered arithmetics.
+
+1997
+01:23:51,880 --> 01:23:57,960
+We covered, you know, some basics of
+
+1998
+01:23:55,280 --> 01:24:01,160
+value type in Emacs Lisp.
+
+1999
+01:23:57,960 --> 01:24:02,640
+In particular, we have int, float, and
+
+2000
+01:24:01,160 --> 01:24:05,280
+string.
+
+2001
+01:24:02,640 --> 01:24:08,920
+Uh, then we covered boolean, you know,
+
+2002
+01:24:05,280 --> 01:24:12,200
+nil is false, everything else is true.
+
+2003
+01:24:08,920 --> 01:24:15,040
+We covered test equality.
+
+2004
+01:24:12,200 --> 01:24:17,840
+We covered how to you how do you define
+
+2005
+01:24:15,040 --> 01:24:19,800
+a variable, global variable, setq, and
+
+2006
+01:24:17,840 --> 01:24:23,040
+local variable, let.
+
+2007
+01:24:19,800 --> 01:24:24,920
+And we covered a block of expressions to
+
+2008
+01:24:23,040 --> 01:24:26,880
+group them together
+
+2009
+01:24:24,920 --> 01:24:30,000
+for the purpose
+
+2010
+01:24:26,880 --> 01:24:32,200
+of if then else. This is uh,
+
+2011
+01:24:30,000 --> 01:24:33,480
+conditional, you know, flow control, if
+
+2012
+01:24:32,200 --> 01:24:35,560
+then else.
+
+2013
+01:24:33,480 --> 01:24:38,480
+Critical in every programming language.
+
+2014
+01:24:35,560 --> 01:24:41,600
+The most this this part, the if
+
+2015
+01:24:38,480 --> 01:24:44,640
+statement or if expression
+
+2016
+01:24:41,600 --> 01:24:48,000
+is the most fundamental
+
+2017
+01:24:44,640 --> 01:24:50,880
+uh, construct and the most fundamental
+
+2018
+01:24:48,000 --> 01:24:53,440
+concept in any programming language.
+
+2019
+01:24:50,880 --> 01:24:56,000
+This This is prob- This
+
+2020
+01:24:53,440 --> 01:24:59,520
+is the most because without this
+
+2021
+01:24:56,000 --> 01:25:02,160
+basically, you fail Turing machine.
+
+2022
+01:24:59,520 --> 01:25:04,280
+You don't have a transistor in a CPU.
+
+2023
+01:25:02,160 --> 01:25:07,040
+So, if statement, okay? This that's
+
+2024
+01:25:04,280 --> 01:25:09,920
+that's how you do.
+
+2025
+01:25:07,040 --> 01:25:13,200
+And uh, okay, so then we also covered
+
+2026
+01:25:09,920 --> 01:25:16,360
+how to do loop. The most basic in this
+
+2027
+01:25:13,200 --> 01:25:19,080
+is while loop in Emacs Lisp, okay?
+
+2028
+01:25:16,360 --> 01:25:20,920
+Then you have variations like do list
+
+2029
+01:25:19,080 --> 01:25:25,440
+and do times.
+
+2030
+01:25:20,920 --> 01:25:27,720
+Then we covered we covered list.
+
+2031
+01:25:25,440 --> 01:25:31,320
+You know, the most fundamental data
+
+2032
+01:25:27,720 --> 01:25:34,000
+structure in Emacs Lisp or any Lisp.
+
+2033
+01:25:31,320 --> 01:25:37,080
+It's most fundamental because the very
+
+2034
+01:25:34,000 --> 01:25:41,240
+name, programming language Lisp, means
+
+2035
+01:25:37,080 --> 01:25:42,880
+list processing. So, in Lisp
+
+2036
+01:25:41,240 --> 01:25:45,760
+everything you you're basically you are
+
+2037
+01:25:42,880 --> 01:25:47,880
+just processing lists, okay? And
+
+2038
+01:25:45,760 --> 01:25:52,240
+everything is a expression. Everything
+
+2039
+01:25:47,880 --> 01:25:54,320
+has a value. And the only computation
+
+2040
+01:25:52,240 --> 01:25:56,440
+the only way you do computation is by
+
+2041
+01:25:54,320 --> 01:25:57,760
+calling a function, you know, a head of
+
+2042
+01:25:56,440 --> 01:26:00,840
+a list to
+
+2043
+01:25:57,760 --> 01:26:03,080
+to get its return value, okay? So, list
+
+2044
+01:26:00,840 --> 01:26:04,880
+we covered the most fundamental data
+
+2045
+01:26:03,080 --> 01:26:08,680
+structure.
+
+2046
+01:26:04,880 --> 01:26:10,480
+Then you can have a lot of
+
+2047
+01:26:08,680 --> 01:26:12,840
+you know, these are kind of details.
+
+2048
+01:26:10,480 --> 01:26:14,400
+Then you can have lots of
+
+2049
+01:26:12,840 --> 01:26:17,160
+functions
+
+2050
+01:26:14,400 --> 01:26:20,400
+that manipulate list such as get a
+
+2051
+01:26:17,160 --> 01:26:21,600
+sublist, get the first item, get the nth
+
+2052
+01:26:20,400 --> 01:26:25,800
+item
+
+2053
+01:26:21,600 --> 01:26:28,800
+uh, push an item to it
+
+2054
+01:26:25,800 --> 01:26:31,680
+or take one item from the last from the
+
+2055
+01:26:28,800 --> 01:26:35,360
+first element and remove it, things like
+
+2056
+01:26:31,680 --> 01:26:37,880
+that, push and pop, very uh, frequently
+
+2057
+01:26:35,360 --> 01:26:40,520
+used construct.
+
+2058
+01:26:37,880 --> 01:26:44,040
+Uh, and lots of more, lots of, you know,
+
+2059
+01:26:40,520 --> 01:26:47,680
+reverse a list, reverse list elements,
+
+2060
+01:26:44,040 --> 01:26:50,360
+and check if a element exist, a value
+
+2061
+01:26:47,680 --> 01:26:53,800
+exist in a list, things like that.
+
+2062
+01:26:50,360 --> 01:26:56,760
+So, all these are list functions, okay?
+
+2063
+01:26:53,800 --> 01:27:00,960
+Then uh, so we covered some of these. I
+
+2064
+01:26:56,760 --> 01:27:03,120
+mean, well we covered the list concept.
+
+2065
+01:27:00,960 --> 01:27:04,360
+Then we covered how to define a
+
+2066
+01:27:03,120 --> 01:27:06,400
+function.
+
+2067
+01:27:04,360 --> 01:27:09,960
+Okay? So, we, you know, this is the
+
+2068
+01:27:06,400 --> 01:27:12,720
+skeleton of a function. The most
+
+2069
+01:27:09,960 --> 01:27:15,360
+fundamental basic template. Then in the
+
+2070
+01:27:12,720 --> 01:27:17,600
+body, you can put any code we covered
+
+2071
+01:27:15,360 --> 01:27:20,120
+before, you know, the let variable
+
+2072
+01:27:17,600 --> 01:27:22,480
+scope, you know, and you know
+
+2073
+01:27:20,120 --> 01:27:25,560
+to create
+
+2074
+01:27:22,480 --> 01:27:27,680
+arbitrary programs, okay?
+
+2075
+01:27:25,560 --> 01:27:30,280
+That's defining a function.
+
+2076
+01:27:27,680 --> 01:27:33,240
+Uh, we showed some, you know, we
+
+2077
+01:27:30,280 --> 01:27:37,040
+demonstrated the use of lambda.
+
+2078
+01:27:33,240 --> 01:27:40,520
+Then Okay, I think that's it for today.
+
+2079
+01:27:37,040 --> 01:27:43,520
+Uh, so thank you guys for watching.
+
+2080
+01:27:40,520 --> 01:27:43,520
+So,
+
+2081
+01:27:47,400 --> 01:27:52,520
+So, when you use uh So, there's a
+
+2082
+01:27:48,920 --> 01:27:54,960
+question. So, when you use um
+
+2083
+01:27:52,520 --> 01:27:58,400
+when you use setq
+
+2084
+01:27:54,960 --> 01:28:01,160
+uh, local variable inside a let
+
+2085
+01:27:58,400 --> 01:28:03,960
+expression, does that create a global
+
+2086
+01:28:01,160 --> 01:28:06,160
+variable? No. Okay, so let's go to it
+
+2087
+01:28:03,960 --> 01:28:08,920
+and see, okay?
+
+2088
+01:28:06,160 --> 01:28:10,800
+So, variable. So, when you have a let,
+
+2089
+01:28:08,920 --> 01:28:12,640
+you know, whatever variable you declare
+
+2090
+01:28:10,800 --> 01:28:17,200
+there, it's going to be local. So,
+
+2091
+01:28:12,640 --> 01:28:20,600
+inside that So, the set the set
+
+2092
+01:28:17,200 --> 01:28:25,000
+function just sets the value. It doesn't
+
+2093
+01:28:20,600 --> 01:28:25,000
+actually create a variable. Well, I mean
+
+2094
+01:28:25,400 --> 01:28:31,240
+I mean, tech- technically, it does not
+
+2095
+01:28:27,840 --> 01:28:31,240
+actually create a variable.
+
+2096
+01:28:31,400 --> 01:28:36,400
+Um,
+
+2097
+01:28:33,520 --> 01:28:38,640
+yeah. The variable is created Let's see.
+
+2098
+01:28:36,400 --> 01:28:41,120
+Let me try something.
+
+2099
+01:28:38,640 --> 01:28:44,040
+Yeah, well
+
+2100
+01:28:41,120 --> 01:28:46,280
+Anyway, that's kind of you know, the
+
+2101
+01:28:44,040 --> 01:28:48,400
+some of the technical details, it takes
+
+2102
+01:28:46,280 --> 01:28:50,640
+some time to explain. It's and it's hard
+
+2103
+01:28:48,400 --> 01:28:54,640
+to explain, but in practice, you don't
+
+2104
+01:28:50,640 --> 01:28:56,840
+have to worry about it. So, anyway, set
+
+2105
+01:28:54,640 --> 01:28:59,800
+the you know, set just set the value,
+
+2106
+01:28:56,840 --> 01:29:03,480
+but if if you use it outside of the let,
+
+2107
+01:28:59,800 --> 01:29:03,480
+then it does create a variable.
+
+2108
+01:29:03,920 --> 01:29:08,120
+Yeah, but it's not really the purpose,
+
+2109
+01:29:06,120 --> 01:29:10,360
+you know, for example, it's not really
+
+2110
+01:29:08,120 --> 01:29:12,120
+the purpose of set. For example, let's
+
+2111
+01:29:10,360 --> 01:29:15,040
+look at the
+
+2112
+01:29:12,120 --> 01:29:17,520
+uh, documentation for setq to see if it
+
+2113
+01:29:15,040 --> 01:29:22,280
+actually
+
+2114
+01:29:17,520 --> 01:29:25,400
+say uh, to see if it actually mention
+
+2115
+01:29:22,280 --> 01:29:26,560
+it actually create a variable. Um
+
+2116
+01:29:25,400 --> 01:29:29,200
+set
+
+2117
+01:29:26,560 --> 01:29:31,280
+each symbol to the value. The symbols
+
+2118
+01:29:29,200 --> 01:29:33,480
+seem are variables. They are literal,
+
+2119
+01:29:31,280 --> 01:29:35,880
+okay? The value, yeah, they don't they
+
+2120
+01:29:33,480 --> 01:29:37,760
+don't mention anything about creating a
+
+2121
+01:29:35,880 --> 01:29:40,840
+global variable. That's just a side
+
+2122
+01:29:37,760 --> 01:29:40,840
+effect. That's
+
+2123
+01:29:44,400 --> 01:29:46,560
+Uh
+
+2124
+01:29:47,320 --> 01:29:49,760
+Yeah.
+
+2125
+01:29:52,720 --> 01:29:56,000
+Yeah, they don't they they didn't
+
+2126
+01:29:54,120 --> 01:29:59,040
+mention about
+
+2127
+01:29:56,000 --> 01:30:01,200
+about it creating a global variable, but
+
+2128
+01:29:59,040 --> 01:30:02,960
+it actually does.
+
+2129
+01:30:01,200 --> 01:30:04,800
+But that's not
+
+2130
+01:30:02,960 --> 01:30:08,080
+its job.
+
+2131
+01:30:04,800 --> 01:30:08,080
+Okay, so um
+
+2132
+01:30:08,240 --> 01:30:13,360
+That's it. I think that's it.
+
+2133
+01:30:11,560 --> 01:30:14,640
+Okay, so everything we talked about
+
+2134
+01:30:13,360 --> 01:30:16,280
+today is already, you know, in my
+
+2135
+01:30:14,640 --> 01:30:19,000
+tutorial, of course. If you like my
+
+2136
+01:30:16,280 --> 01:30:21,360
+stuff, sponsor me, okay? Pay me. Buy my
+
+2137
+01:30:19,000 --> 01:30:22,920
+tutorial as a donation. You get the
+
+2138
+01:30:21,360 --> 01:30:26,680
+whole
+
+2139
+01:30:22,920 --> 01:30:30,160
+you know, 7,000 700 pages of tutorial,
+
+2140
+01:30:26,680 --> 01:30:33,400
+you know, on your hard drive, so.
+
+2141
+01:30:30,160 --> 01:30:36,080
+Okay, that's it for today. 90 minutes.
+
+2142
+01:30:33,400 --> 01:30:36,080
+Bye, guys.
+
+2143
+01:30:46,520 --> 01:30:50,480
+Okay, there's a question about byte
+
+2144
+01:30:48,240 --> 01:30:52,560
+compile list.
+
+2145
+01:30:50,480 --> 01:30:55,320
+Okay, let me let me talk about that.
+
+2146
+01:30:52,560 --> 01:30:57,560
+So So, let's look at our list code,
+
+2147
+01:30:55,320 --> 01:31:00,800
+okay? So, we got a bunch of list code
+
+2148
+01:30:57,560 --> 01:31:03,800
+here. That's what we talked talked
+
+2149
+01:31:00,800 --> 01:31:05,960
+today. Some of them are just
+
+2150
+01:31:03,800 --> 01:31:08,600
+not actually valid, for example, that
+
+2151
+01:31:05,960 --> 01:31:10,880
+one because F is not defined. So, let's
+
+2152
+01:31:08,600 --> 01:31:14,280
+comment those out
+
+2153
+01:31:10,880 --> 01:31:18,320
+and comment those out. So, we are going
+
+2154
+01:31:14,280 --> 01:31:19,680
+to create a valid Emacs Lisp file here.
+
+2155
+01:31:18,320 --> 01:31:22,120
+Okay?
+
+2156
+01:31:19,680 --> 01:31:24,520
+So, we're going to So, this is
+
+2157
+01:31:22,120 --> 01:31:27,240
+this is a valid Emacs Lisp file. All
+
+2158
+01:31:24,520 --> 01:31:29,280
+those are valid Emacs Lisp
+
+2159
+01:31:27,240 --> 01:31:32,000
+code.
+
+2160
+01:31:29,280 --> 01:31:34,520
+And all that all that all that all that,
+
+2161
+01:31:32,000 --> 01:31:37,720
+okay? So, here's a valid
+
+2162
+01:31:34,520 --> 01:31:40,960
+Lisp file. So, you can see
+
+2163
+01:31:37,720 --> 01:31:42,280
+that's a file. We can compile it. So, in
+
+2164
+01:31:40,960 --> 01:31:44,560
+Dired
+
+2165
+01:31:42,280 --> 01:31:46,200
+So, let me let me show you. So,
+
+2166
+01:31:44,560 --> 01:31:51,280
+you know, if you know Emacs, this is
+
+2167
+01:31:46,200 --> 01:31:53,280
+Dired, okay? So, I can press capital B.
+
+2168
+01:31:51,280 --> 01:31:54,600
+Then Emacs ask me, do you want to byte
+
+2169
+01:31:53,280 --> 01:31:58,080
+compile it?
+
+2170
+01:31:54,600 --> 01:32:00,360
+Yes. Yes. Type Y for yes, okay?
+
+2171
+01:31:58,080 --> 01:32:01,680
+Then it gives gives me a bunch of
+
+2172
+01:32:00,360 --> 01:32:02,840
+warnings.
+
+2173
+01:32:01,680 --> 01:32:03,880
+Um
+
+2174
+01:32:02,840 --> 01:32:06,360
+Okay.
+
+2175
+01:32:03,880 --> 01:32:08,840
+Warning, value returned is not used.
+
+2176
+01:32:06,360 --> 01:32:10,960
+Yeah, value returned is not used is not
+
+2177
+01:32:08,840 --> 01:32:14,000
+used. Something something is not used is
+
+2178
+01:32:10,960 --> 01:32:15,080
+not Yeah, because this this is kind of
+
+2179
+01:32:14,000 --> 01:32:17,840
+silly
+
+2180
+01:32:15,080 --> 01:32:18,920
+examples of tutorial. You we are not
+
+2181
+01:32:17,840 --> 01:32:20,720
+actually
+
+2182
+01:32:18,920 --> 01:32:23,200
+you know, the the code does not actually
+
+2183
+01:32:20,720 --> 01:32:25,760
+do anything. It just return a value
+
+2184
+01:32:23,200 --> 01:32:28,160
+that's never used. So, it gives you a
+
+2185
+01:32:25,760 --> 01:32:31,000
+bunch of warnings
+
+2186
+01:32:28,160 --> 01:32:35,600
+when you compile. Press B to compile in
+
+2187
+01:32:31,000 --> 01:32:38,720
+Dired, okay? Or you can meta X and say
+
+2188
+01:32:35,600 --> 01:32:41,440
+byte compile file, okay? Call that
+
+2189
+01:32:38,720 --> 01:32:42,840
+command. Then you'll ask you to type a
+
+2190
+01:32:41,440 --> 01:32:45,520
+file path.
+
+2191
+01:32:42,840 --> 01:32:48,360
+Then you'll com- compile it, okay?
+
+2192
+01:32:45,520 --> 01:32:50,360
+So, Emacs Lisp So, you have a byte you
+
+2193
+01:32:48,360 --> 01:32:53,320
+can byte compile
+
+2194
+01:32:50,360 --> 01:32:54,920
+the Emacs Lisp code. So, why do you need
+
+2195
+01:32:53,320 --> 01:32:58,160
+to do that? You don't need to do that,
+
+2196
+01:32:54,920 --> 01:33:01,080
+but if you do that, Emacs you can load
+
+2197
+01:32:58,160 --> 01:33:03,720
+the byte byte compiled version.
+
+2198
+01:33:01,080 --> 01:33:06,720
+And it will be faster, okay? Emacs will
+
+2199
+01:33:03,720 --> 01:33:08,080
+be able to run it faster and also load
+
+2200
+01:33:06,720 --> 01:33:09,480
+it faster.
+
+2201
+01:33:08,080 --> 01:33:12,480
+Um
+
+2202
+01:33:09,480 --> 01:33:15,000
+That's basically the only advantage,
+
+2203
+01:33:12,480 --> 01:33:17,080
+okay? Other than that So, if you we can
+
+2204
+01:33:15,000 --> 01:33:19,280
+open it, this is how it looks like.
+
+2205
+01:33:17,080 --> 01:33:22,680
+It's, you know, it's a sequence of
+
+2206
+01:33:19,280 --> 01:33:24,880
+bytes. So, this is intermediate code,
+
+2207
+01:33:22,680 --> 01:33:25,880
+you know, the
+
+2208
+01:33:24,880 --> 01:33:28,000
+in compu-
+
+2209
+01:33:25,880 --> 01:33:29,640
+in computer science, you know, it's part
+
+2210
+01:33:28,000 --> 01:33:31,720
+of it in in in in in in in in in in in
+
+2211
+01:33:29,640 --> 01:33:35,840
+in in essence
+
+2212
+01:33:31,720 --> 01:33:37,640
+the byte compiled file is a side effect
+
+2213
+01:33:35,840 --> 01:33:39,600
+of computer
+
+2214
+01:33:37,640 --> 01:33:41,240
+engineering, okay?
+
+2215
+01:33:39,600 --> 01:33:43,320
+Mathematically
+
+2216
+01:33:41,240 --> 01:33:45,960
+practically, you know, it's useless,
+
+2217
+01:33:43,320 --> 01:33:48,600
+okay? Technically, you don't need it.
+
+2218
+01:33:45,960 --> 01:33:50,600
+But however, it's because engineering
+
+2219
+01:33:48,600 --> 01:33:53,840
+you have lots of technicalities and
+
+2220
+01:33:50,600 --> 01:33:56,480
+details and the way to make things fast,
+
+2221
+01:33:53,840 --> 01:33:59,000
+use less memory and so on. That's why
+
+2222
+01:33:56,480 --> 01:34:01,080
+you have this intermediate concept of
+
+2223
+01:33:59,000 --> 01:34:03,840
+byte compiled thing.
+
+2224
+01:34:01,080 --> 01:34:05,280
+Which is a hindrance.
+
+2225
+01:34:03,840 --> 01:34:06,680
+Technically, it's a hindrance. You
+
+2226
+01:34:05,280 --> 01:34:08,320
+shouldn't have it.
+
+2227
+01:34:06,680 --> 01:34:09,960
+But because of
+
+2228
+01:34:08,320 --> 01:34:11,920
+you know, reality, the real world
+
+2229
+01:34:09,960 --> 01:34:14,600
+situation, so you have the byte compiled
+
+2230
+01:34:11,920 --> 01:34:17,000
+thing. So, you can byte compile any
+
+2231
+01:34:14,600 --> 01:34:19,520
+Emacs Lisp source code to create a byte
+
+2232
+01:34:17,000 --> 01:34:22,680
+compiled file and it will load faster
+
+2233
+01:34:19,520 --> 01:34:24,400
+and run faster. Okay, that's it.
+
+2234
+01:34:22,680 --> 01:34:26,800
+I think about five times, you know,
+
+2235
+01:34:24,400 --> 01:34:28,640
+according to Emacs Lisp manual, which
+
+2236
+01:34:26,800 --> 01:34:32,280
+haven't been updated for a long time, it
+
+2237
+01:34:28,640 --> 01:34:35,680
+says like six times faster or something.
+
+2238
+01:34:32,280 --> 01:34:35,680
+Um but um
+
+2239
+01:34:35,800 --> 01:34:39,960
+Anyway, I'm not Yeah, anyway, that's it.
+
+2240
+01:34:38,200 --> 01:34:42,160
+Bye, guys.
+
+2241
+01:34:39,960 --> 01:34:44,760
+Buy my tutorial, okay?
+
+2242
+01:34:42,160 --> 01:34:44,760
+Bye, guys.
+

@@ -1,0 +1,7748 @@
+1
+00:00:05,200 --> 00:00:12,160
+Hello, good morning everyone. Welcome to
+
+2
+00:00:08,320 --> 00:00:16,000
+another episode of Kadan Talk Show. We
+
+3
+00:00:12,160 --> 00:00:20,600
+are going to do advent of code 2025 day
+
+4
+00:00:16,000 --> 00:00:20,600
+7 in wam language.
+
+5
+00:00:30,560 --> 00:00:37,760
+Sorry there's some cough. So wam
+
+6
+00:00:34,000 --> 00:00:40,079
+language we did this many times. Uh if
+
+7
+00:00:37,760 --> 00:00:42,079
+you are here say hi love to see your
+
+8
+00:00:40,079 --> 00:00:45,680
+comments. If you are watching this
+
+9
+00:00:42,079 --> 00:00:48,000
+offline play at 1.5 speed. Okay show in
+
+10
+00:00:45,680 --> 00:00:51,280
+browser. So this is today's talk show
+
+11
+00:00:48,000 --> 00:00:54,559
+page. Now I need to add links to my
+
+12
+00:00:51,280 --> 00:00:57,600
+previous wam language talk. So for
+
+13
+00:00:54,559 --> 00:01:02,399
+advant of code. So search for wuam.
+
+14
+00:00:57,600 --> 00:01:04,479
+There it is. Go to the link URL. Search
+
+15
+00:01:02,399 --> 00:01:08,400
+for topic.
+
+16
+00:01:04,479 --> 00:01:10,880
+Copy. Paste. Actually, uh, go back.
+
+17
+00:01:08,400 --> 00:01:13,360
+Search for Wrame.
+
+18
+00:01:10,880 --> 00:01:17,600
+Uh, wra search. Search search. Search
+
+19
+00:01:13,360 --> 00:01:22,280
+search. Okay, that's today episode 741.
+
+20
+00:01:17,600 --> 00:01:22,280
+And, uh, copy the file link.
+
+21
+00:01:22,799 --> 00:01:29,680
+And, uh, so this is the topic box. We
+
+22
+00:01:26,080 --> 00:01:31,280
+just need to add
+
+23
+00:01:29,680 --> 00:01:35,119
+today's.
+
+24
+00:01:31,280 --> 00:01:38,799
+So there it is. And update all the topic
+
+25
+00:01:35,119 --> 00:01:42,640
+boxes. So you can see
+
+26
+00:01:38,799 --> 00:01:46,799
+we have updated all the topic boxes for
+
+27
+00:01:42,640 --> 00:01:49,600
+advent of code 2025. Close. Showing
+
+28
+00:01:46,799 --> 00:01:53,280
+browser. Back to Emacs. Close. Showing
+
+29
+00:01:49,600 --> 00:01:57,040
+browser. So today episode 741 and we
+
+30
+00:01:53,280 --> 00:01:59,840
+have the past advent of code topic
+
+31
+00:01:57,040 --> 00:02:03,040
+boxes.
+
+32
+00:01:59,840 --> 00:02:05,920
+Okay. Now let's begin. Now problem
+
+33
+00:02:03,040 --> 00:02:11,160
+number seven is becoming difficult. So
+
+34
+00:02:05,920 --> 00:02:11,160
+we'll see. I'll try to do it fast. Okay.
+
+35
+00:02:11,760 --> 00:02:16,959
+Oh, you got a tree. Uh can you see it?
+
+36
+00:02:14,480 --> 00:02:22,560
+Not really. So uh at the end of code
+
+37
+00:02:16,959 --> 00:02:24,800
+very annoying. So let's Um move is here
+
+38
+00:02:22,560 --> 00:02:26,800
+and
+
+39
+00:02:24,800 --> 00:02:30,720
+day seven
+
+40
+00:02:26,800 --> 00:02:34,480
+start wra language
+
+41
+00:02:30,720 --> 00:02:38,400
+and observe the beautiful logo. This is
+
+42
+00:02:34,480 --> 00:02:40,400
+regular polyhedrin. This is stellated
+
+43
+00:02:38,400 --> 00:02:43,840
+uh
+
+44
+00:02:40,400 --> 00:02:47,519
+stellated octahhedron. No not octahedron
+
+45
+00:02:43,840 --> 00:02:50,640
+doahedron I believe. Okay. Each each one
+
+46
+00:02:47,519 --> 00:02:55,680
+of them has a special name. So, wam
+
+47
+00:02:50,640 --> 00:02:58,959
+language version 14. Pop this out and
+
+48
+00:02:55,680 --> 00:03:00,879
+three shift enter to start the kernel
+
+49
+00:02:58,959 --> 00:03:04,400
+and magnify
+
+50
+00:03:00,879 --> 00:03:07,440
+the screen. Okay.
+
+51
+00:03:04,400 --> 00:03:10,560
+Now, advanc code like I said before is
+
+52
+00:03:07,440 --> 00:03:13,360
+very lousy website. You see they have
+
+53
+00:03:10,560 --> 00:03:15,280
+fixed layout so that when your font is
+
+54
+00:03:13,360 --> 00:03:18,159
+large
+
+55
+00:03:15,280 --> 00:03:22,480
+they The text went off the window. So
+
+56
+00:03:18,159 --> 00:03:25,680
+why don't we copy your copy and uh read
+
+57
+00:03:22,480 --> 00:03:28,680
+it in Emacs.
+
+58
+00:03:25,680 --> 00:03:28,680
+So
+
+59
+00:03:29,120 --> 00:03:36,720
+there it is. Okay. Vom code day seven
+
+60
+00:03:33,200 --> 00:03:42,640
+sponsor Jen Street their sponsor delete.
+
+61
+00:03:36,720 --> 00:03:44,720
+Okay. Uh now I want to make this to have
+
+62
+00:03:42,640 --> 00:03:48,080
+a margin.
+
+63
+00:03:44,720 --> 00:03:51,040
+You see, Emacs does a wrap. So, you can
+
+64
+00:03:48,080 --> 00:03:52,319
+see the text. It doesn't scroll off to
+
+65
+00:03:51,040 --> 00:03:55,360
+the right. You don't have to scroll
+
+66
+00:03:52,319 --> 00:03:58,319
+left, right. However,
+
+67
+00:03:55,360 --> 00:04:03,200
+I so but however, it still wraps. So, I
+
+68
+00:03:58,319 --> 00:04:07,120
+wanted to make um let me do this. Okay.
+
+69
+00:04:03,200 --> 00:04:11,920
+Field column is a variable. Okay. Right
+
+70
+00:04:07,120 --> 00:04:17,600
+now, it's set to 30. So
+
+71
+00:04:11,920 --> 00:04:23,919
+uh so you want to set it to let's say 60
+
+72
+00:04:17,600 --> 00:04:27,120
+uh 6. Okay. Evaluate it. Now describe
+
+73
+00:04:23,919 --> 00:04:30,400
+variable view colon.
+
+74
+00:04:27,120 --> 00:04:32,479
+Now you can see the value is 60. Okay.
+
+75
+00:04:30,400 --> 00:04:35,680
+Now the ping window shows all my command
+
+76
+00:04:32,479 --> 00:04:39,759
+calls and the keystrokes as I type such
+
+77
+00:04:35,680 --> 00:04:42,880
+as move down, move back, forward, word,
+
+78
+00:04:39,759 --> 00:04:45,040
+backward, word. So you can see they are
+
+79
+00:04:42,880 --> 00:04:48,240
+on the pink window. I'm using Emacs, the
+
+80
+00:04:45,040 --> 00:04:51,360
+most powerful editor.
+
+81
+00:04:48,240 --> 00:04:53,919
+Okay. So
+
+82
+00:04:51,360 --> 00:04:57,280
+code. Okay. So we set this field column
+
+83
+00:04:53,919 --> 00:05:00,880
+to 60. Now I can, you know, let's say
+
+84
+00:04:57,280 --> 00:05:02,960
+press a key. Press a key. press press uh
+
+85
+00:05:00,880 --> 00:05:04,560
+when you need to do Yeah, that's good.
+
+86
+00:05:02,960 --> 00:05:08,320
+Okay,
+
+87
+00:05:04,560 --> 00:05:10,960
+that's good. That's good. Or you can do
+
+88
+00:05:08,320 --> 00:05:14,800
+this alternatively. One sentence per
+
+89
+00:05:10,960 --> 00:05:17,440
+line. This is another way to format. But
+
+90
+00:05:14,800 --> 00:05:21,680
+I want it um
+
+91
+00:05:17,440 --> 00:05:28,199
+let's just Okay. Well, let's make it
+
+92
+00:05:21,680 --> 00:05:28,199
+that. Make it that. Okay. Now
+
+93
+00:05:29,199 --> 00:05:34,240
+you thank the Lafo parts for the help
+
+94
+00:05:31,919 --> 00:05:36,320
+and exit the trash compactor. Something
+
+95
+00:05:34,240 --> 00:05:39,600
+something something based on a large
+
+96
+00:05:36,320 --> 00:05:42,560
+sign that says teleporter hub. They seem
+
+97
+00:05:39,600 --> 00:05:46,000
+to be researching teleportation.
+
+98
+00:05:42,560 --> 00:05:49,280
+Teleportation. Very interesting topic
+
+99
+00:05:46,000 --> 00:05:50,960
+because that is the um press press press
+
+100
+00:05:49,280 --> 00:05:53,520
+press.
+
+101
+00:05:50,960 --> 00:05:56,880
+Let's go to Wikipedia. So I'm going to
+
+102
+00:05:53,520 --> 00:05:58,800
+read this like every few years uh I read
+
+103
+00:05:56,880 --> 00:06:01,759
+these kind of articles. This is
+
+104
+00:05:58,800 --> 00:06:06,240
+teleportation is an concept from science
+
+105
+00:06:01,759 --> 00:06:09,759
+fiction and has fascinating
+
+106
+00:06:06,240 --> 00:06:14,639
+consequences in philosophy in for
+
+107
+00:06:09,759 --> 00:06:19,120
+example the the meaning of the soul uh
+
+108
+00:06:14,639 --> 00:06:22,000
+and also physics of course
+
+109
+00:06:19,120 --> 00:06:25,360
+uh and uh according to quantum mechanics
+
+110
+00:06:22,000 --> 00:06:28,720
+it seems we cannot do that even in
+
+111
+00:06:25,360 --> 00:06:30,639
+theory be wait well I I mean, I don't
+
+112
+00:06:28,720 --> 00:06:33,520
+know much about this topic. So, anyway,
+
+113
+00:06:30,639 --> 00:06:35,759
+it's interesting. So, suddenly you find
+
+114
+00:06:33,520 --> 00:06:37,680
+yourself in a familiar unfamiliar room.
+
+115
+00:06:35,759 --> 00:06:39,280
+The room has no doors. The only way out
+
+116
+00:06:37,680 --> 00:06:42,080
+is teleporter. Unfortunately, your
+
+117
+00:06:39,280 --> 00:06:46,479
+teleporter seems to be leaking magic
+
+118
+00:06:42,080 --> 00:06:50,319
+smoke. Since this is a teleporter lab,
+
+119
+00:06:46,479 --> 00:06:53,759
+there are lots of spare parts, manuals,
+
+120
+00:06:50,319 --> 00:06:55,600
+and diagnostic equipments lying around.
+
+121
+00:06:53,759 --> 00:06:59,039
+After connecting one of the diagnostic
+
+122
+00:06:55,600 --> 00:07:05,240
+tools, it help for the displays error
+
+123
+00:06:59,039 --> 00:07:05,240
+code zero H dash N0.
+
+124
+00:07:07,120 --> 00:07:15,039
+Okay, so let me just uh
+
+125
+00:07:11,039 --> 00:07:17,440
+read it silently. Tachon manifolds.
+
+126
+00:07:15,039 --> 00:07:19,759
+There's an issue with one of the tachium
+
+127
+00:07:17,440 --> 00:07:22,639
+manifolds.
+
+128
+00:07:19,759 --> 00:07:26,479
+Manifold is just mean a surface in
+
+129
+00:07:22,639 --> 00:07:29,840
+higher dimension. Okay.
+
+130
+00:07:26,479 --> 00:07:32,240
+So in two dimensional it's a line mean
+
+131
+00:07:29,840 --> 00:07:34,720
+in in one dimensional one dimensional
+
+132
+00:07:32,240 --> 00:07:37,120
+manifold is a curve or line. Two
+
+133
+00:07:34,720 --> 00:07:39,919
+dimensional it's a surface. Think of a
+
+134
+00:07:37,120 --> 00:07:42,400
+flag surface or paper.
+
+135
+00:07:39,919 --> 00:07:44,639
+Uh then you got
+
+136
+00:07:42,400 --> 00:07:46,080
+three-dimensional manifold
+
+137
+00:07:44,639 --> 00:07:49,120
+and four dimensional or higher
+
+138
+00:07:46,080 --> 00:07:53,240
+dimension. Now, Takian is a science
+
+139
+00:07:49,120 --> 00:07:53,240
+fiction concept.
+
+140
+00:08:03,120 --> 00:08:08,160
+Potion particle is a hypothetical
+
+141
+00:08:05,759 --> 00:08:10,960
+particle that always travels faster than
+
+142
+00:08:08,160 --> 00:08:14,319
+light. Oh
+
+143
+00:08:10,960 --> 00:08:16,479
+at the end of code. Okay, you quickly
+
+144
+00:08:14,319 --> 00:08:19,360
+locate a diagram of the tachium
+
+145
+00:08:16,479 --> 00:08:23,680
+manifold, your personal input. A tachium
+
+146
+00:08:19,360 --> 00:08:27,199
+beam enters the manifold at a at the
+
+147
+00:08:23,680 --> 00:08:30,199
+location marked S.
+
+148
+00:08:27,199 --> 00:08:30,199
+Okay.
+
+149
+00:08:30,960 --> 00:08:38,000
+Tachium beans always move downward.
+
+150
+00:08:34,479 --> 00:08:40,880
+Okay. So the S will move downward.
+
+151
+00:08:38,000 --> 00:08:43,440
+Tachium beam passes freely through empty
+
+152
+00:08:40,880 --> 00:08:46,720
+space. dot.
+
+153
+00:08:43,440 --> 00:08:48,320
+However, if a tachium beam encounters a
+
+154
+00:08:46,720 --> 00:08:52,399
+splitter
+
+155
+00:08:48,320 --> 00:08:56,640
+correct correct correct symbol, the beam
+
+156
+00:08:52,399 --> 00:08:59,279
+is stopped. Instead, a new tachium beam
+
+157
+00:08:56,640 --> 00:09:01,839
+continues from the immediate left and
+
+158
+00:08:59,279 --> 00:09:04,160
+from the immediate right of the
+
+159
+00:09:01,839 --> 00:09:07,600
+splitter. Okay,
+
+160
+00:09:04,160 --> 00:09:11,760
+seems like a fun puzzle problem. So you
+
+161
+00:09:07,600 --> 00:09:15,279
+got this S that's going to fall down and
+
+162
+00:09:11,760 --> 00:09:18,720
+the the dots are spaces and whenever
+
+163
+00:09:15,279 --> 00:09:22,399
+there is a nail
+
+164
+00:09:18,720 --> 00:09:24,000
+or splitter or the correct
+
+165
+00:09:22,399 --> 00:09:27,120
+symbol
+
+166
+00:09:24,000 --> 00:09:30,240
+circumlex accent
+
+167
+00:09:27,120 --> 00:09:32,880
+character. Okay. Then it became two of
+
+168
+00:09:30,240 --> 00:09:35,360
+them split.
+
+169
+00:09:32,880 --> 00:09:38,240
+Okay. So what is the problem? Okay. For
+
+170
+00:09:35,360 --> 00:09:42,000
+example this. Okay, in this example, the
+
+171
+00:09:38,240 --> 00:09:48,440
+incoming tachium beam
+
+172
+00:09:42,000 --> 00:09:48,440
+extends down downward from S until
+
+173
+00:09:49,519 --> 00:09:54,040
+until it reaches the first splitter.
+
+174
+00:09:57,680 --> 00:10:04,120
+Okay,
+
+175
+00:10:00,480 --> 00:10:04,120
+then what happens?
+
+176
+00:10:06,160 --> 00:10:12,399
+At that point, the original beam stops
+
+177
+00:10:09,040 --> 00:10:16,200
+and two new beams are emitted from the
+
+178
+00:10:12,399 --> 00:10:16,200
+splitter. Okay.
+
+179
+00:10:16,880 --> 00:10:22,519
+Okay. S is the starting position. Okay.
+
+180
+00:10:48,160 --> 00:10:54,120
+So they split or they may merge. Okay.
+
+181
+00:10:59,920 --> 00:11:06,399
+This process continues until all of the
+
+182
+00:11:02,959 --> 00:11:10,240
+tachium beams reach a splitter or exit
+
+183
+00:11:06,399 --> 00:11:15,200
+the manifold. Okay, too fancy a word
+
+184
+00:11:10,240 --> 00:11:19,560
+manifold. You shouldn't use it because
+
+185
+00:11:15,200 --> 00:11:19,560
+uh anyway,
+
+186
+00:11:20,880 --> 00:11:27,200
+okay, it's split split and okay, to
+
+187
+00:11:24,160 --> 00:11:29,519
+repair the teleporter, you need you
+
+188
+00:11:27,200 --> 00:11:31,120
+first need to understand the beam
+
+189
+00:11:29,519 --> 00:11:35,600
+splitting
+
+190
+00:11:31,120 --> 00:11:38,959
+properties of the tachon manifold. In
+
+191
+00:11:35,600 --> 00:11:43,600
+this example, attackum beam is split a
+
+192
+00:11:38,959 --> 00:11:46,399
+total of 21 times.
+
+193
+00:11:43,600 --> 00:11:48,079
+Okay, they may split and they may merge.
+
+194
+00:11:46,399 --> 00:11:50,320
+You don't count the merge, you just
+
+195
+00:11:48,079 --> 00:11:53,360
+count the split.
+
+196
+00:11:50,320 --> 00:11:55,760
+Seems like a tough problem. Analyze your
+
+197
+00:11:53,360 --> 00:11:58,959
+manifold diagram. How many times will
+
+198
+00:11:55,760 --> 00:12:02,000
+the beam be split to begin? Get your
+
+199
+00:11:58,959 --> 00:12:04,880
+personal input. Okay.
+
+200
+00:12:02,000 --> 00:12:08,800
+Oh god, I have no idea. seems like a
+
+201
+00:12:04,880 --> 00:12:11,440
+non-trivial problem. We need to
+
+202
+00:12:08,800 --> 00:12:15,200
+study this
+
+203
+00:12:11,440 --> 00:12:19,920
+diagram quite a bit.
+
+204
+00:12:15,200 --> 00:12:24,000
+Now let's save this um
+
+205
+00:12:19,920 --> 00:12:27,040
+so open it. Search for text. I already
+
+206
+00:12:24,000 --> 00:12:31,360
+got my personal input. So this this is
+
+207
+00:12:27,040 --> 00:12:34,079
+my personal input. There are
+
+208
+00:12:31,360 --> 00:12:39,880
+142 lines.
+
+209
+00:12:34,079 --> 00:12:39,880
+Okay. And each line how many characters?
+
+210
+00:12:41,279 --> 00:12:48,320
+141 characters. So is that is that
+
+211
+00:12:44,639 --> 00:12:51,320
+right? 141 characters for each line.
+
+212
+00:12:48,320 --> 00:12:51,320
+Wait.
+
+213
+00:12:52,639 --> 00:13:02,839
+Yeah. 141
+
+214
+00:12:56,079 --> 00:13:02,839
+characters each line. And you got 142.
+
+215
+00:13:07,040 --> 00:13:14,240
+Oh, the last line is all empty.
+
+216
+00:13:11,839 --> 00:13:21,000
+Okay. So, make a backup. Go to the
+
+217
+00:13:14,240 --> 00:13:21,000
+directory and uh let's name this uh
+
+218
+00:13:21,760 --> 00:13:24,760
+problem.
+
+219
+00:13:26,880 --> 00:13:34,720
+Okay. Open it. Select all. Delete.
+
+220
+00:13:29,920 --> 00:13:41,200
+Shrink. Go back to this uh problem.
+
+221
+00:13:34,720 --> 00:13:46,000
+Cut. Close. Close. Close. Close. Close.
+
+222
+00:13:41,200 --> 00:13:49,279
+741. Problem. Paste there. Okay.
+
+223
+00:13:46,000 --> 00:13:53,959
+Input. Close.
+
+224
+00:13:49,279 --> 00:13:53,959
+Day seven problem. Okay.
+
+225
+00:14:06,160 --> 00:14:12,399
+Okay.
+
+226
+00:14:08,880 --> 00:14:16,360
+Oh, okay. So, let's uh actually copy the
+
+227
+00:14:12,399 --> 00:14:16,360
+problem page. Copy
+
+228
+00:14:16,399 --> 00:14:21,360
+and
+
+229
+00:14:18,240 --> 00:14:23,440
+link by
+
+230
+00:14:21,360 --> 00:14:25,839
+showing browser.
+
+231
+00:14:23,440 --> 00:14:28,839
+There we have it. Day seven problem
+
+232
+00:14:25,839 --> 00:14:28,839
+description.
+
+233
+00:14:31,040 --> 00:14:36,040
+Okay. So, let's see. So,
+
+234
+00:14:36,240 --> 00:14:42,880
+so we're going to look at this. Uh I
+
+235
+00:14:38,800 --> 00:14:47,959
+have no no idea how to solve this.
+
+236
+00:14:42,880 --> 00:14:47,959
+You want to count the number of split.
+
+237
+00:15:09,199 --> 00:15:15,360
+So you got this grid, you got this
+
+238
+00:15:12,720 --> 00:15:20,480
+starting position.
+
+239
+00:15:15,360 --> 00:15:23,600
+So at every line you may have one or
+
+240
+00:15:20,480 --> 00:15:27,199
+more of these beams.
+
+241
+00:15:23,600 --> 00:15:30,880
+Okay. So you basically compare the
+
+242
+00:15:27,199 --> 00:15:33,680
+current beam with the previous beam. In
+
+243
+00:15:30,880 --> 00:15:37,959
+the beginning you got one beam. So you
+
+244
+00:15:33,680 --> 00:15:37,959
+have to set up a counter.
+
+245
+00:15:38,160 --> 00:15:43,600
+Then it may become two or may become
+
+246
+00:15:41,199 --> 00:15:47,920
+three.
+
+247
+00:15:43,600 --> 00:15:51,440
+And the two beams might merge. So it may
+
+248
+00:15:47,920 --> 00:15:55,040
+decrease or increase. Okay.
+
+249
+00:15:51,440 --> 00:15:58,880
+But is there a possible possibility it
+
+250
+00:15:55,040 --> 00:16:01,759
+becomes zero? No. Because there is no
+
+251
+00:15:58,880 --> 00:16:04,079
+because when you decrease that happens
+
+252
+00:16:01,759 --> 00:16:08,800
+only when you have two beams becoming
+
+253
+00:16:04,079 --> 00:16:12,480
+one. So you must have two beams at least
+
+254
+00:16:08,800 --> 00:16:15,440
+in order to reduce it to one to decrease
+
+255
+00:16:12,480 --> 00:16:17,040
+decrease one number you can't from so
+
+256
+00:16:15,440 --> 00:16:21,800
+you only have one beam you cannot
+
+257
+00:16:17,040 --> 00:16:21,800
+decrease to zero.
+
+258
+00:16:24,720 --> 00:16:32,000
+So you got you got a bing counter. So
+
+259
+00:16:28,399 --> 00:16:35,839
+they may increase or decrease but never
+
+260
+00:16:32,000 --> 00:16:38,560
+to one never to zero. And basically you
+
+261
+00:16:35,839 --> 00:16:42,480
+just want to compare lines previous
+
+262
+00:16:38,560 --> 00:16:44,800
+line, current line, next line.
+
+263
+00:16:42,480 --> 00:16:47,680
+Okay. Uh let's think about the
+
+264
+00:16:44,800 --> 00:16:50,000
+terminology. Current line and next line
+
+265
+00:16:47,680 --> 00:16:52,959
+or
+
+266
+00:16:50,000 --> 00:16:55,759
+current line and previous line. Okay.
+
+267
+00:16:52,959 --> 00:16:58,480
+Well, you have to stick to one else it
+
+268
+00:16:55,759 --> 00:17:01,199
+become confusing. Okay. Let's say
+
+269
+00:16:58,480 --> 00:17:04,880
+current one next line. Current line next
+
+270
+00:17:01,199 --> 00:17:07,760
+line. Okay. Then uh so you compare
+
+271
+00:17:04,880 --> 00:17:10,720
+current line with the next line
+
+272
+00:17:07,760 --> 00:17:15,799
+and uh and you also have to keep track
+
+273
+00:17:10,720 --> 00:17:15,799
+of the current position of the beam
+
+274
+00:17:16,400 --> 00:17:23,039
+current position of the beam
+
+275
+00:17:19,360 --> 00:17:25,039
+and if the current position so okay
+
+276
+00:17:23,039 --> 00:17:28,640
+let's we can start to write a
+
+277
+00:17:25,039 --> 00:17:32,240
+description of I mean the analysis of
+
+278
+00:17:28,640 --> 00:17:38,679
+the problem Okay.
+
+279
+00:17:32,240 --> 00:17:38,679
+Uh uh taking this slowly. Okay. Code
+
+280
+00:17:42,320 --> 00:17:45,960
+problem analysis.
+
+281
+00:17:46,880 --> 00:17:51,320
+Uh we can start to write it.
+
+282
+00:18:03,520 --> 00:18:13,960
+Need to keep a counter of the count of
+
+283
+00:18:10,960 --> 00:18:13,960
+beams.
+
+284
+00:18:15,200 --> 00:18:22,000
+It may increase or
+
+285
+00:18:19,200 --> 00:18:25,880
+decrease
+
+286
+00:18:22,000 --> 00:18:25,880
+when it merge.
+
+287
+00:18:27,360 --> 00:18:31,320
+Increase split
+
+288
+00:18:32,880 --> 00:18:41,280
+but never become zero because
+
+289
+00:18:38,160 --> 00:18:46,240
+it takes two
+
+290
+00:18:41,280 --> 00:18:49,919
+beams at least to decrease when they
+
+291
+00:18:46,240 --> 00:18:52,160
+merge. Okay. Need to keep count counter
+
+292
+00:18:49,919 --> 00:18:56,640
+of the beams.
+
+293
+00:18:52,160 --> 00:19:00,840
+Start with one beam.
+
+294
+00:18:56,640 --> 00:19:00,840
+Okay. And
+
+295
+00:19:02,400 --> 00:19:06,919
+and uh then
+
+296
+00:19:10,559 --> 00:19:16,160
+you need to compare
+
+297
+00:19:13,679 --> 00:19:19,600
+current
+
+298
+00:19:16,160 --> 00:19:22,240
+line with next line.
+
+299
+00:19:19,600 --> 00:19:27,200
+And
+
+300
+00:19:22,240 --> 00:19:30,000
+you need to keep a keep a tracker or
+
+301
+00:19:27,200 --> 00:19:31,760
+keep track
+
+302
+00:19:30,000 --> 00:19:34,160
+of
+
+303
+00:19:31,760 --> 00:19:38,720
+position
+
+304
+00:19:34,160 --> 00:19:41,919
+of the beams of current
+
+305
+00:19:38,720 --> 00:19:45,520
+line. Okay.
+
+306
+00:19:41,919 --> 00:19:48,000
+you and you need to
+
+307
+00:19:45,520 --> 00:19:52,880
+know the positions
+
+308
+00:19:48,000 --> 00:19:57,440
+of the splitters
+
+309
+00:19:52,880 --> 00:20:01,720
+of a line or next line.
+
+310
+00:19:57,440 --> 00:20:01,720
+Let's say next line. Okay.
+
+311
+00:20:04,880 --> 00:20:10,360
+So you given each time in each loop
+
+312
+00:20:11,440 --> 00:20:17,320
+uh in a loop you
+
+313
+00:20:18,240 --> 00:20:26,600
+compare
+
+314
+00:20:20,559 --> 00:20:26,600
+current line with next line
+
+315
+00:20:27,280 --> 00:20:31,600
+compare. So what do you want to compare?
+
+316
+00:20:29,440 --> 00:20:35,120
+You want to compare the splitter's
+
+317
+00:20:31,600 --> 00:20:38,159
+position versus the uh I mean the beam
+
+318
+00:20:35,120 --> 00:20:42,120
+position versus the splitter. If they
+
+319
+00:20:38,159 --> 00:20:42,120
+are on the same position.
+
+320
+00:20:51,840 --> 00:20:58,919
+Okay. So if they are on the same
+
+321
+00:20:53,840 --> 00:20:58,919
+position it becomes split.
+
+322
+00:21:00,640 --> 00:21:06,400
+But uh meanwhile if they are on these
+
+323
+00:21:04,159 --> 00:21:09,840
+two
+
+324
+00:21:06,400 --> 00:21:12,640
+what happens when they merge
+
+325
+00:21:09,840 --> 00:21:15,919
+also?
+
+326
+00:21:12,640 --> 00:21:19,520
+Merge will happen only if they are on
+
+327
+00:21:15,919 --> 00:21:23,120
+the same position. Okay.
+
+328
+00:21:19,520 --> 00:21:26,960
+much happens when two when the two when
+
+329
+00:21:23,120 --> 00:21:29,960
+a new when two new beam positions
+
+330
+00:21:26,960 --> 00:21:29,960
+collide.
+
+331
+00:21:30,080 --> 00:21:35,320
+Okay, you start I started to know what
+
+332
+00:21:32,159 --> 00:21:35,320
+to do.
+
+333
+00:21:42,400 --> 00:21:47,559
+God.
+
+334
+00:21:44,559 --> 00:21:47,559
+So
+
+335
+00:21:53,600 --> 00:21:59,679
+go through line by line. Each time check
+
+336
+00:21:56,480 --> 00:22:03,840
+the next line. Compare the positions of
+
+337
+00:21:59,679 --> 00:22:08,320
+the beams versus the
+
+338
+00:22:03,840 --> 00:22:10,320
+correct the speeders.
+
+339
+00:22:08,320 --> 00:22:16,080
+If they
+
+340
+00:22:10,320 --> 00:22:20,400
+match then the beam position become two
+
+341
+00:22:16,080 --> 00:22:23,400
+and uh so they are basically indexes.
+
+342
+00:22:20,400 --> 00:22:23,400
+Okay.
+
+343
+00:22:26,880 --> 00:22:31,559
+So you basically just delete duplicate.
+
+344
+00:22:33,120 --> 00:22:40,039
+So delete duplicate means you can merge
+
+345
+00:22:36,080 --> 00:22:40,039
+the beans. Okay.
+
+346
+00:22:40,480 --> 00:22:45,760
+So, go through it. Compare positions.
+
+347
+00:22:43,600 --> 00:22:48,320
+Now, I I know what to do. Now, go
+
+348
+00:22:45,760 --> 00:22:52,799
+through it line by line. Compare
+
+349
+00:22:48,320 --> 00:22:56,559
+neighboring lines. And uh whenever you
+
+350
+00:22:52,799 --> 00:22:58,720
+see the index of the current beam, you
+
+351
+00:22:56,559 --> 00:23:01,520
+you keep a track of the current beam
+
+352
+00:22:58,720 --> 00:23:04,960
+positions when they are so it's
+
+353
+00:23:01,520 --> 00:23:09,679
+basically a list of indexes.
+
+354
+00:23:04,960 --> 00:23:14,480
+So when they are the same you um when
+
+355
+00:23:09,679 --> 00:23:18,559
+they are the same you split the beams.
+
+356
+00:23:14,480 --> 00:23:22,080
+So so for example if you have beam at
+
+357
+00:23:18,559 --> 00:23:26,880
+position three then it becomes two
+
+358
+00:23:22,080 --> 00:23:32,559
+beams. So a list of three becomes two
+
+359
+00:23:26,880 --> 00:23:36,400
+and four. Okay. Minus one + one.
+
+360
+00:23:32,559 --> 00:23:40,799
+Okay. Minus one + one. Okay. And so what
+
+361
+00:23:36,400 --> 00:23:42,880
+happens if you have on the on the edge?
+
+362
+00:23:40,799 --> 00:23:46,320
+That's interesting.
+
+363
+00:23:42,880 --> 00:23:49,840
+So does it the problem didn't say
+
+364
+00:23:46,320 --> 00:23:52,480
+anything about that. But you see my
+
+365
+00:23:49,840 --> 00:23:54,880
+personal problem do have that situation.
+
+366
+00:23:52,480 --> 00:23:57,200
+Does it?
+
+367
+00:23:54,880 --> 00:23:59,600
+You just need to check the first line.
+
+368
+00:23:57,200 --> 00:23:59,600
+Okay.
+
+369
+00:24:04,880 --> 00:24:10,039
+toggle truncate lines. Okay. So now
+
+370
+00:24:11,039 --> 00:24:20,520
+So now you can uh you can kind of you
+
+371
+00:24:15,360 --> 00:24:20,520
+see now you can kind of Oh god.
+
+372
+00:24:22,240 --> 00:24:28,640
+So you can see now you can see kind of a
+
+373
+00:24:25,360 --> 00:24:28,640
+tree shape.
+
+374
+00:24:28,720 --> 00:24:37,279
+Okay. Does but does it ever occur on the
+
+375
+00:24:32,559 --> 00:24:40,400
+first um part of the line? Nope.
+
+376
+00:24:37,279 --> 00:24:44,240
+You see the last the second to last line
+
+377
+00:24:40,400 --> 00:24:46,480
+is it occur on the position. So it never
+
+378
+00:24:44,240 --> 00:24:52,200
+happens at boundary. What about at the
+
+379
+00:24:46,480 --> 00:24:52,200
+end? It never happens at the end. Okay.
+
+380
+00:24:53,120 --> 00:24:58,080
+Yeah.
+
+381
+00:24:55,200 --> 00:25:00,720
+Okay. So anyway, so that's a personal
+
+382
+00:24:58,080 --> 00:25:05,960
+input close.
+
+383
+00:25:00,720 --> 00:25:05,960
+So you do not have to worry
+
+384
+00:25:06,720 --> 00:25:10,600
+when it goes off.
+
+385
+00:25:14,799 --> 00:25:20,480
+For example, if you have a beam here and
+
+386
+00:25:17,279 --> 00:25:24,400
+you have a splitter here,
+
+387
+00:25:20,480 --> 00:25:27,039
+it will not happen supposedly.
+
+388
+00:25:24,400 --> 00:25:29,279
+Since our personal input doesn't have
+
+389
+00:25:27,039 --> 00:25:32,840
+that situation, we can ignore it. But
+
+390
+00:25:29,279 --> 00:25:32,840
+that's the lousy
+
+391
+00:25:33,279 --> 00:25:39,279
+problem because it did not say it does
+
+392
+00:25:35,919 --> 00:25:44,039
+not happen. Okay, that's the nature of
+
+393
+00:25:39,279 --> 00:25:44,039
+advancable code under specified.
+
+394
+00:25:45,360 --> 00:25:50,559
+Okay, so
+
+395
+00:25:47,279 --> 00:25:52,720
+so you then then what? So you compare
+
+396
+00:25:50,559 --> 00:25:55,520
+then you each time you adjust your
+
+397
+00:25:52,720 --> 00:25:58,880
+number of indexes that are the positions
+
+398
+00:25:55,520 --> 00:26:02,799
+of the beams and then you reach then
+
+399
+00:25:58,880 --> 00:26:08,440
+then then then that's it that's it.
+
+400
+00:26:02,799 --> 00:26:08,440
+Okay. So we can start to write um
+
+401
+00:26:09,279 --> 00:26:18,600
+compare the positions positions of the
+
+402
+00:26:13,679 --> 00:26:18,600
+beams and the positions
+
+403
+00:26:19,840 --> 00:26:27,799
+of the splitters.
+
+404
+00:26:23,120 --> 00:26:27,799
+If they collide
+
+405
+00:26:27,919 --> 00:26:34,480
+the
+
+406
+00:26:30,240 --> 00:26:36,720
+adjust the position of
+
+407
+00:26:34,480 --> 00:26:42,919
+just
+
+408
+00:26:36,720 --> 00:26:42,919
+that position of the beam into
+
+409
+00:26:43,039 --> 00:26:47,240
+two new positions
+
+410
+00:26:48,480 --> 00:26:56,559
+that is first minus
+
+411
+00:26:52,240 --> 00:26:59,559
+one and plus
+
+412
+00:26:56,559 --> 00:26:59,559
+one
+
+413
+00:27:02,799 --> 00:27:06,440
+basic algorithm.
+
+414
+00:27:07,279 --> 00:27:14,440
+Okay, that's a basic analysis. Okay, now
+
+415
+00:27:10,480 --> 00:27:14,440
+let's write algorithm.
+
+416
+00:27:20,880 --> 00:27:32,720
+Turn the X block into a matrix
+
+417
+00:27:27,360 --> 00:27:36,799
+because matrix is easier to work with.
+
+418
+00:27:32,720 --> 00:27:39,120
+Yes, absolutely.
+
+419
+00:27:36,799 --> 00:27:44,000
+Then
+
+420
+00:27:39,120 --> 00:27:48,159
+write a loop that go
+
+421
+00:27:44,000 --> 00:27:51,159
+through the lines the rows. Change of
+
+422
+00:27:48,159 --> 00:27:51,159
+terminology.
+
+423
+00:27:51,440 --> 00:28:00,720
+Each time compare the current row with
+
+424
+00:27:57,440 --> 00:28:03,520
+next row.
+
+425
+00:28:00,720 --> 00:28:06,159
+Turn that into a block of ne matrix.
+
+426
+00:28:03,520 --> 00:28:08,960
+Start with
+
+427
+00:28:06,159 --> 00:28:11,960
+a state
+
+428
+00:28:08,960 --> 00:28:11,960
+which
+
+429
+00:28:13,120 --> 00:28:17,880
+is a list of indexes
+
+430
+00:28:18,960 --> 00:28:22,399
+representing
+
+431
+00:28:20,480 --> 00:28:25,279
+the
+
+432
+00:28:22,399 --> 00:28:27,039
+beams. Okay. Write a loop that go
+
+433
+00:28:25,279 --> 00:28:30,520
+through the rows each time compare the
+
+434
+00:28:27,039 --> 00:28:30,520
+current row.
+
+435
+00:28:32,480 --> 00:28:36,120
+If the
+
+436
+00:28:37,760 --> 00:28:43,919
+if the beam
+
+437
+00:28:42,000 --> 00:28:47,559
+collide
+
+438
+00:28:43,919 --> 00:28:47,559
+with splitter
+
+439
+00:28:49,679 --> 00:28:56,200
+change
+
+440
+00:28:52,559 --> 00:28:56,200
+that beam
+
+441
+00:28:56,880 --> 00:29:07,159
+position into
+
+442
+00:29:00,080 --> 00:29:07,159
+minus one And verse one
+
+443
+00:29:09,760 --> 00:29:14,480
+warning
+
+444
+00:29:11,520 --> 00:29:18,360
+edge case of
+
+445
+00:29:14,480 --> 00:29:18,360
+beam and
+
+446
+00:29:19,200 --> 00:29:23,279
+split
+
+447
+00:29:21,039 --> 00:29:25,200
+on the edge,
+
+448
+00:29:23,279 --> 00:29:29,000
+but it
+
+449
+00:29:25,200 --> 00:29:29,000
+does not
+
+450
+00:29:31,760 --> 00:29:34,760
+occur
+
+451
+00:29:35,679 --> 00:29:39,399
+in puzzle
+
+452
+00:29:40,399 --> 00:29:46,320
+input.
+
+453
+00:29:43,279 --> 00:29:49,039
+Okay, that's a algorithm
+
+454
+00:29:46,320 --> 00:29:52,720
+and this in woofer language is just
+
+455
+00:29:49,039 --> 00:29:57,120
+going to be one single line.
+
+456
+00:29:52,720 --> 00:29:59,679
+Okay, if you are watching comment. Okay,
+
+457
+00:29:57,120 --> 00:30:04,760
+in wolfin language this is one single
+
+458
+00:29:59,679 --> 00:30:04,760
+line. So let's start to code it.
+
+459
+00:30:05,760 --> 00:30:09,240
+Wolf language.
+
+460
+00:30:19,440 --> 00:30:25,840
+Okay. Now, but first of all, you need
+
+461
+00:30:21,919 --> 00:30:28,080
+the input of course
+
+462
+00:30:25,840 --> 00:30:31,080
+that
+
+463
+00:30:28,080 --> 00:30:31,080
+wait
+
+464
+00:30:31,120 --> 00:30:37,520
+copy.
+
+465
+00:30:33,840 --> 00:30:41,000
+Okay. So, input
+
+466
+00:30:37,520 --> 00:30:41,000
+is a string
+
+467
+00:30:43,360 --> 00:30:50,440
+of course
+
+468
+00:30:45,279 --> 00:30:50,440
+and turn that into matrix. So,
+
+469
+00:30:51,120 --> 00:30:58,120
+string split x input split by
+
+470
+00:30:58,960 --> 00:31:07,200
+back space back slash in split by a new
+
+471
+00:31:03,679 --> 00:31:11,440
+line. Okay, then
+
+472
+00:31:07,200 --> 00:31:14,480
+you map
+
+473
+00:31:11,440 --> 00:31:20,080
+this function to
+
+474
+00:31:14,480 --> 00:31:21,600
+this rows. Okay, character will turn
+
+475
+00:31:20,080 --> 00:31:24,799
+each
+
+476
+00:31:21,600 --> 00:31:28,480
+character. This function will turn a
+
+477
+00:31:24,799 --> 00:31:30,480
+string into a list of each characters.
+
+478
+00:31:28,480 --> 00:31:33,039
+Okay, now is that character or
+
+479
+00:31:30,480 --> 00:31:34,640
+characters?
+
+480
+00:31:33,039 --> 00:31:37,200
+Characters.
+
+481
+00:31:34,640 --> 00:31:39,919
+Okay, there's s
+
+482
+00:31:37,200 --> 00:31:42,559
+show uh show the documentation. There it
+
+483
+00:31:39,919 --> 00:31:45,360
+is. Give gives a list of the characters
+
+484
+00:31:42,559 --> 00:31:49,039
+in string. Okay.
+
+485
+00:31:45,360 --> 00:31:53,159
+And we can run it
+
+486
+00:31:49,039 --> 00:31:53,159
+and you'll see the result.
+
+487
+00:32:00,240 --> 00:32:03,240
+Fantastic.
+
+488
+00:32:03,279 --> 00:32:07,960
+Format it. See?
+
+489
+00:32:09,760 --> 00:32:17,399
+Okay. And uh copy that. And let's do
+
+490
+00:32:12,640 --> 00:32:17,399
+this in Wufam notebook. Paste
+
+491
+00:32:19,679 --> 00:32:27,679
+shift enter. Fantastic. And uh percent
+
+492
+00:32:24,240 --> 00:32:33,519
+for stand for last output
+
+493
+00:32:27,679 --> 00:32:36,240
+slash slash stand for postfix notation
+
+494
+00:32:33,519 --> 00:32:40,919
+matrix form.
+
+495
+00:32:36,240 --> 00:32:40,919
+Okay. So now it shows it nicely.
+
+496
+00:32:43,919 --> 00:32:47,480
+screenshot that.
+
+497
+00:32:50,240 --> 00:32:56,519
+Okay. So now,
+
+498
+00:32:53,519 --> 00:32:56,519
+fantastic.
+
+499
+00:32:57,600 --> 00:33:05,600
+Now, very easy. So, we want to loop
+
+500
+00:33:01,919 --> 00:33:09,120
+through these rows and we going to do
+
+501
+00:33:05,600 --> 00:33:12,640
+functional programming. So there is no
+
+502
+00:33:09,120 --> 00:33:14,799
+like no loop and update the state. So
+
+503
+00:33:12,640 --> 00:33:18,320
+but which function we're going to use?
+
+504
+00:33:14,799 --> 00:33:22,080
+So if so you know if you don't know go
+
+505
+00:33:18,320 --> 00:33:24,720
+to saw wam language
+
+506
+00:33:22,080 --> 00:33:28,080
+tutorial website search for it you'll
+
+507
+00:33:24,720 --> 00:33:29,600
+find it wam language for programmers.
+
+508
+00:33:28,080 --> 00:33:33,120
+Okay.
+
+509
+00:33:29,600 --> 00:33:36,640
+Then you go down there is a section. You
+
+510
+00:33:33,120 --> 00:33:39,440
+got basics, comments, print, string. You
+
+511
+00:33:36,640 --> 00:33:42,159
+got a section number, boolean, list.
+
+512
+00:33:39,440 --> 00:33:47,679
+Okay. Then you have a section on list
+
+513
+00:33:42,159 --> 00:33:51,440
+operations. Okay. This is a guide to to
+
+514
+00:33:47,679 --> 00:33:55,760
+operations in uh functional programming.
+
+515
+00:33:51,440 --> 00:33:58,640
+So you you never do like loop.
+
+516
+00:33:55,760 --> 00:34:01,440
+So what you want? you want you want to
+
+517
+00:33:58,640 --> 00:34:03,519
+uh basically map
+
+518
+00:34:01,440 --> 00:34:08,440
+block.
+
+519
+00:34:03,519 --> 00:34:08,440
+Okay, let me show you. So you can see
+
+520
+00:34:14,399 --> 00:34:19,760
+uh you don't you don't want to map block
+
+521
+00:34:16,720 --> 00:34:21,839
+because this is procedural
+
+522
+00:34:19,760 --> 00:34:25,040
+you know you don't want to map every
+
+523
+00:34:21,839 --> 00:34:26,720
+neighbor neighboring rows in one shot
+
+524
+00:34:25,040 --> 00:34:30,800
+because you wouldn't know what happens
+
+525
+00:34:26,720 --> 00:34:34,079
+here before you process the rows before.
+
+526
+00:34:30,800 --> 00:34:37,119
+So you can't just map them every two
+
+527
+00:34:34,079 --> 00:34:39,520
+rows. You have to
+
+528
+00:34:37,119 --> 00:34:43,320
+so you have to nest you do a you have to
+
+529
+00:34:39,520 --> 00:34:43,320
+do some kind of recursion.
+
+530
+00:34:44,960 --> 00:34:52,079
+So each time you basically take two okay
+
+531
+00:34:50,399 --> 00:34:55,280
+tedious.
+
+532
+00:34:52,079 --> 00:34:57,839
+So and you need to keep a state. So uh
+
+533
+00:34:55,280 --> 00:35:00,960
+first of all let's see uh for example
+
+534
+00:34:57,839 --> 00:35:04,880
+how do you
+
+535
+00:35:00,960 --> 00:35:07,040
+let's say that's what we have okay uh so
+
+536
+00:35:04,880 --> 00:35:10,800
+let's see
+
+537
+00:35:07,040 --> 00:35:12,880
+okay so let let's let's define them x
+
+538
+00:35:10,800 --> 00:35:17,240
+matrix
+
+539
+00:35:12,880 --> 00:35:17,240
+equals to so that
+
+540
+00:35:18,720 --> 00:35:29,079
+so we have a variable to work with shift
+
+541
+00:35:22,560 --> 00:35:29,079
+enter Now let's say uh take
+
+542
+00:35:29,119 --> 00:35:34,320
+take
+
+543
+00:35:31,040 --> 00:35:39,359
+x matrix
+
+544
+00:35:34,320 --> 00:35:41,760
+and take the first two I first two rows.
+
+545
+00:35:39,359 --> 00:35:46,520
+So if you begin with that what you're
+
+546
+00:35:41,760 --> 00:35:46,520
+going to do let's take um
+
+547
+00:35:48,560 --> 00:35:55,520
+you want to compute so first of all you
+
+548
+00:35:52,320 --> 00:35:59,520
+need to compute the position
+
+549
+00:35:55,520 --> 00:36:01,760
+current beam state okay so let's let me
+
+550
+00:35:59,520 --> 00:36:01,760
+do
+
+551
+00:36:12,640 --> 00:36:21,200
+So beam state equals to a list of
+
+552
+00:36:15,680 --> 00:36:23,599
+indexes. So it began with uh that. So
+
+553
+00:36:21,200 --> 00:36:26,960
+you want to so you know you begin with
+
+554
+00:36:23,599 --> 00:36:30,320
+that and what you want to do is that you
+
+555
+00:36:26,960 --> 00:36:34,359
+want to know each one of of them are
+
+556
+00:36:30,320 --> 00:36:34,359
+strings you want to know.
+
+557
+00:36:40,880 --> 00:36:49,359
+So you know to make the problem coding
+
+558
+00:36:44,079 --> 00:36:55,359
+simpler let's turn the dot into zero and
+
+559
+00:36:49,359 --> 00:36:59,520
+uh and the correct into one so that that
+
+560
+00:36:55,359 --> 00:37:01,040
+makes easier. So so we do before we
+
+561
+00:36:59,520 --> 00:37:04,240
+split
+
+562
+00:37:01,040 --> 00:37:07,119
+we do
+
+563
+00:37:04,240 --> 00:37:09,599
+string replace.
+
+564
+00:37:07,119 --> 00:37:14,359
+Okay let's look up the documentation.
+
+565
+00:37:09,599 --> 00:37:14,359
+string replace. Okay, that's easy.
+
+566
+00:37:14,400 --> 00:37:22,880
+String replace input
+
+567
+00:37:17,760 --> 00:37:26,480
+and we want to replace several things
+
+568
+00:37:22,880 --> 00:37:30,560
+and uh the first thing is dot they
+
+569
+00:37:26,480 --> 00:37:33,560
+become zero and
+
+570
+00:37:30,560 --> 00:37:33,560
+correct.
+
+571
+00:37:34,160 --> 00:37:41,160
+This is what grave accent
+
+572
+00:37:38,160 --> 00:37:41,160
+circumlex
+
+573
+00:37:41,760 --> 00:37:47,520
+circumlex accent. Okay. Circumflex
+
+574
+00:37:45,680 --> 00:37:49,680
+accent
+
+575
+00:37:47,520 --> 00:37:53,200
+becomes
+
+576
+00:37:49,680 --> 00:37:55,680
+one because numbers are much easier to
+
+577
+00:37:53,200 --> 00:37:59,560
+work with more efficient than string.
+
+578
+00:37:55,680 --> 00:37:59,560
+Okay. In programming languages.
+
+579
+00:38:00,400 --> 00:38:06,720
+Christian samp I'm watching. Hey, thank
+
+580
+00:38:03,760 --> 00:38:11,119
+you. Hi.
+
+581
+00:38:06,720 --> 00:38:14,960
+Okay, we change the string dot to zero
+
+582
+00:38:11,119 --> 00:38:18,400
+and uh the splitter to one. So, we don't
+
+583
+00:38:14,960 --> 00:38:21,920
+need that. So,
+
+584
+00:38:18,400 --> 00:38:24,560
+make it one line.
+
+585
+00:38:21,920 --> 00:38:26,400
+Copy.
+
+586
+00:38:24,560 --> 00:38:31,960
+Paste.
+
+587
+00:38:26,400 --> 00:38:31,960
+Eval. Okay, we got something wrong. Uh,
+
+588
+00:38:33,119 --> 00:38:36,119
+whoops.
+
+589
+00:38:46,079 --> 00:38:49,079
+What?
+
+590
+00:38:52,160 --> 00:39:00,359
+X input.
+
+591
+00:38:55,040 --> 00:39:00,359
+Yes. So why string replace?
+
+592
+00:39:01,119 --> 00:39:08,800
+Oh, because zero um
+
+593
+00:39:05,359 --> 00:39:13,119
+yeah, you got a problem because you
+
+594
+00:39:08,800 --> 00:39:17,599
+can't replace a string into a number.
+
+595
+00:39:13,119 --> 00:39:20,000
+So you need to first of all um
+
+596
+00:39:17,599 --> 00:39:26,160
+okay so you need to do this step later.
+
+597
+00:39:20,000 --> 00:39:28,640
+Okay. So, so um we have to do it like
+
+598
+00:39:26,160 --> 00:39:32,760
+first of all you get that then you do
+
+599
+00:39:28,640 --> 00:39:32,760
+the replace. Okay.
+
+600
+00:39:34,320 --> 00:39:39,720
+Replace
+
+601
+00:39:36,720 --> 00:39:39,720
+or
+
+602
+00:39:39,920 --> 00:39:47,079
+okay you do it here. So let me just copy
+
+603
+00:39:42,960 --> 00:39:47,079
+the code. Let me show you.
+
+604
+00:39:48,560 --> 00:39:55,280
+So that's that's our matrix.
+
+605
+00:39:52,160 --> 00:39:58,960
+Then you replace all that. Okay, that
+
+606
+00:39:55,280 --> 00:40:03,119
+will do. So copy that. Copy that. Copy
+
+607
+00:39:58,960 --> 00:40:07,839
+that to verify we are correct. Let's
+
+608
+00:40:03,119 --> 00:40:11,040
+test it here. You see? Fantastic. And
+
+609
+00:40:07,839 --> 00:40:14,320
+beautiful. And that S needs something to
+
+610
+00:40:11,040 --> 00:40:17,680
+do about that. What you going to turn
+
+611
+00:40:14,320 --> 00:40:17,680
+the S into?
+
+612
+00:40:20,240 --> 00:40:26,000
+Okay, let's leave it for now. Okay.
+
+613
+00:40:24,480 --> 00:40:33,720
+Uh,
+
+614
+00:40:26,000 --> 00:40:33,720
+so let's uh so so this is going to be
+
+615
+00:40:36,000 --> 00:40:45,119
+okay. That's going to be that line.
+
+616
+00:40:39,599 --> 00:40:50,440
+Show it again. Paste shift enter.
+
+617
+00:40:45,119 --> 00:40:50,440
+Fantastic. Okay. Now,
+
+618
+00:40:50,720 --> 00:40:55,560
+uh what does it return? So now
+
+619
+00:40:55,680 --> 00:41:00,760
+uh so we can actually copy that.
+
+620
+00:41:13,280 --> 00:41:19,920
+kind of boring. Okay, but that's what it
+
+621
+00:41:16,319 --> 00:41:22,640
+is. Okay, so
+
+622
+00:41:19,920 --> 00:41:26,240
+that's the output.
+
+623
+00:41:22,640 --> 00:41:29,119
+Now the beam state will be very easy.
+
+624
+00:41:26,240 --> 00:41:32,119
+You just need to extract position. Okay.
+
+625
+00:41:29,119 --> 00:41:32,119
+So,
+
+626
+00:41:37,520 --> 00:41:41,920
+position
+
+627
+00:41:39,040 --> 00:41:46,760
+X matrix
+
+628
+00:41:41,920 --> 00:41:46,760
+uh the first element
+
+629
+00:41:50,640 --> 00:41:58,160
+at
+
+630
+00:41:52,480 --> 00:42:02,800
+X matrix and you want to find that.
+
+631
+00:41:58,160 --> 00:42:05,800
+Okay, that will return the index of this
+
+632
+00:42:02,800 --> 00:42:05,800
+S
+
+633
+00:42:10,800 --> 00:42:14,680
+eight. Fantastic.
+
+634
+00:42:16,720 --> 00:42:24,000
+And we know it occurs only once. Okay,
+
+635
+00:42:20,000 --> 00:42:26,480
+so we know for sure it occur only once.
+
+636
+00:42:24,000 --> 00:42:29,200
+So we just get the first one. Okay, that
+
+637
+00:42:26,480 --> 00:42:32,200
+we'll return the list of a single
+
+638
+00:42:29,200 --> 00:42:32,200
+number.
+
+639
+00:42:32,720 --> 00:42:36,440
+So that's a state.
+
+640
+00:42:36,720 --> 00:42:42,319
+Now each time we take two
+
+641
+00:42:39,920 --> 00:42:47,160
+uh let's say
+
+642
+00:42:42,319 --> 00:42:47,160
+you see this S is tricky.
+
+643
+00:42:47,280 --> 00:42:53,960
+I don't like S, you know. Let's change
+
+644
+00:42:49,760 --> 00:42:53,960
+it to uh two
+
+645
+00:43:00,800 --> 00:43:04,480
+something like eight. Change it to
+
+646
+00:43:02,720 --> 00:43:10,480
+eight.
+
+647
+00:43:04,480 --> 00:43:13,359
+We can it's not necessary but um so that
+
+648
+00:43:10,480 --> 00:43:16,240
+you know if we change it it's going to
+
+649
+00:43:13,359 --> 00:43:20,000
+be just all numbers kind of easier to
+
+650
+00:43:16,240 --> 00:43:23,240
+work with. So capital S equal change it
+
+651
+00:43:20,000 --> 00:43:23,240
+to eight.
+
+652
+00:43:28,240 --> 00:43:33,160
+You see
+
+653
+00:43:30,160 --> 00:43:33,160
+um
+
+654
+00:43:37,680 --> 00:43:44,119
+which is this is kind of redundant.
+
+655
+00:43:40,480 --> 00:43:44,119
+Let's not do it.
+
+656
+00:43:44,560 --> 00:43:53,160
+Okay. Let's just let that be. Okay. So,
+
+657
+00:43:48,000 --> 00:43:53,160
+and now let's let's remove this.
+
+658
+00:43:53,839 --> 00:43:57,800
+Okay. So, they are aligned.
+
+659
+00:44:02,160 --> 00:44:12,599
+Okay. This so that's the current state.
+
+660
+00:44:05,280 --> 00:44:12,599
+Um then you are given let's say given
+
+661
+00:44:13,920 --> 00:44:18,160
+then you start to go through them.
+
+662
+00:44:23,359 --> 00:44:30,760
+In fact, the first row, let's take it
+
+663
+00:44:25,920 --> 00:44:30,760
+out. Okay, so let me show you
+
+664
+00:44:34,240 --> 00:44:41,960
+start row. Okay. Start row equals to
+
+665
+00:44:38,960 --> 00:44:41,960
+first.
+
+666
+00:44:50,079 --> 00:44:55,280
+Okay. So, let's do this. Okay. Let me
+
+667
+00:44:52,560 --> 00:44:57,920
+show you.
+
+668
+00:44:55,280 --> 00:45:00,920
+Start row
+
+669
+00:44:57,920 --> 00:45:00,920
+and
+
+670
+00:45:01,359 --> 00:45:06,000
+matrix equals to
+
+671
+00:45:42,160 --> 00:45:49,960
+Okay. So what this will do it will split
+
+672
+00:45:45,839 --> 00:45:49,960
+the first um
+
+673
+00:46:06,720 --> 00:46:11,319
+It will just split into two
+
+674
+00:46:12,400 --> 00:46:15,400
+H.
+
+675
+00:46:16,960 --> 00:46:20,680
+This is incorrect.
+
+676
+00:46:21,280 --> 00:46:28,280
+Yeah. So you forgot to have the argument
+
+677
+00:46:25,280 --> 00:46:28,280
+here.
+
+678
+00:46:35,200 --> 00:46:40,680
+Okay, so that's the first result. Wait.
+
+679
+00:46:50,560 --> 00:47:01,200
+Yeah. So if you say X first row you get
+
+680
+00:46:56,640 --> 00:47:04,480
+that X matrix you get that okay you
+
+681
+00:47:01,200 --> 00:47:09,079
+remove that S the starting row because
+
+682
+00:47:04,480 --> 00:47:09,079
+that's actually special
+
+683
+00:47:09,200 --> 00:47:17,319
+okay so you so you do that
+
+684
+00:47:12,960 --> 00:47:17,319
+you know again
+
+685
+00:47:21,040 --> 00:47:27,880
+can do that. Okay. And this is just um
+
+686
+00:47:28,400 --> 00:47:35,880
+then we go through the matrix then for
+
+687
+00:47:31,520 --> 00:47:35,880
+each one you want to
+
+688
+00:47:35,920 --> 00:47:40,520
+let's see how we want to do this.
+
+689
+00:47:59,440 --> 00:48:05,440
+Okay. So then
+
+690
+00:48:02,800 --> 00:48:07,040
+you want to go through the matrix each
+
+691
+00:48:05,440 --> 00:48:10,240
+time
+
+692
+00:48:07,040 --> 00:48:12,800
+you want to know the positions. Okay. So
+
+693
+00:48:10,240 --> 00:48:17,520
+you want to get the positions of the
+
+694
+00:48:12,800 --> 00:48:21,119
+matrix. Okay. So X matrix
+
+695
+00:48:17,520 --> 00:48:22,960
+X matrix let's say
+
+696
+00:48:21,119 --> 00:48:25,359
+first
+
+697
+00:48:22,960 --> 00:48:31,160
+okay then you want to check the
+
+698
+00:48:25,359 --> 00:48:31,160
+positions of one okay
+
+699
+00:48:31,760 --> 00:48:37,359
+then
+
+700
+00:48:33,760 --> 00:48:40,599
+there are lots of them so let's see what
+
+701
+00:48:37,359 --> 00:48:40,599
+you It
+
+702
+00:48:46,960 --> 00:48:51,079
+empty. Are you kidding?
+
+703
+00:48:51,920 --> 00:48:58,240
+Oh, yeah. Not the first. Well, the
+
+704
+00:48:55,920 --> 00:49:01,440
+Yeah, the first one is all zero. Okay.
+
+705
+00:48:58,240 --> 00:49:04,960
+So, you got to check the second. So,
+
+706
+00:49:01,440 --> 00:49:07,440
+yeah. Annoying. So, let's So, you need
+
+707
+00:49:04,960 --> 00:49:10,440
+to do this.
+
+708
+00:49:07,440 --> 00:49:10,440
+two
+
+709
+00:49:13,680 --> 00:49:20,079
+two and remove the first
+
+710
+00:49:17,359 --> 00:49:23,079
+that means second.
+
+711
+00:49:20,079 --> 00:49:23,079
+What?
+
+712
+00:49:26,960 --> 00:49:31,839
+Oh, not string, my friend. It's not
+
+713
+00:49:29,760 --> 00:49:34,839
+string anymore. It's just a number.
+
+714
+00:49:31,839 --> 00:49:34,839
+Okay.
+
+715
+00:49:40,800 --> 00:49:49,920
+Paste shift enter eight. Exactly.
+
+716
+00:49:46,480 --> 00:49:52,920
+That is because the first splitter also
+
+717
+00:49:49,920 --> 00:49:52,920
+occur
+
+718
+00:49:53,599 --> 00:49:59,760
+position eight. So let's say one, two,
+
+719
+00:49:56,079 --> 00:50:01,760
+three, four, five, six. Let's get the
+
+720
+00:49:59,760 --> 00:50:05,440
+sixth
+
+721
+00:50:01,760 --> 00:50:05,440
+element. Okay.
+
+722
+00:50:09,680 --> 00:50:14,800
+Uh, no. Oh, you don't want the first.
+
+723
+00:50:13,119 --> 00:50:17,440
+Okay.
+
+724
+00:50:14,800 --> 00:50:19,920
+Okay. Not
+
+725
+00:50:17,440 --> 00:50:22,880
+you don't want the first. You want all
+
+726
+00:50:19,920 --> 00:50:28,319
+show all. Shift enter. There you have
+
+727
+00:50:22,880 --> 00:50:32,319
+it. 6 8 10. That is because
+
+728
+00:50:28,319 --> 00:50:34,160
+this is position six. Let's say 1 2 3 4
+
+729
+00:50:32,319 --> 00:50:38,800
+5 6
+
+730
+00:50:34,160 --> 00:50:42,000
+7 8 9 10. Perfect.
+
+731
+00:50:38,800 --> 00:50:48,440
+Okay. So, what what this let me show
+
+732
+00:50:42,000 --> 00:50:48,440
+you. Okay. So, this this is the U.
+
+733
+00:50:53,200 --> 00:50:59,960
+Okay. We don't want the eight. We don't
+
+734
+00:50:54,960 --> 00:50:59,960
+want first. Okay. Hold on a second.
+
+735
+00:51:03,119 --> 00:51:11,160
+This is not beam state. This is split
+
+736
+00:51:08,160 --> 00:51:11,160
+state.
+
+737
+00:51:11,920 --> 00:51:15,960
+Splitter pers.
+
+738
+00:51:17,119 --> 00:51:25,880
+Okay, let's try this again. Let me show
+
+739
+00:51:19,599 --> 00:51:25,880
+you. So let's say if this is six
+
+740
+00:51:28,480 --> 00:51:32,040
+theme state
+
+741
+00:51:32,319 --> 00:51:36,800
+eight correct
+
+742
+00:51:34,720 --> 00:51:39,800
+splitter
+
+743
+00:51:36,800 --> 00:51:39,800
+state
+
+744
+00:51:41,200 --> 00:51:47,839
+correct. Now all you have to do is you
+
+745
+00:51:44,559 --> 00:51:51,559
+want to compare them to see if they
+
+746
+00:51:47,839 --> 00:51:51,559
+share any
+
+747
+00:51:52,880 --> 00:51:55,880
+elements.
+
+748
+00:51:56,240 --> 00:52:03,000
+Okay.
+
+749
+00:51:58,720 --> 00:52:03,000
+Now why is this a nested?
+
+750
+00:52:04,880 --> 00:52:11,960
+So matrix six that means
+
+751
+00:52:08,640 --> 00:52:11,960
+row six
+
+752
+00:52:12,400 --> 00:52:19,280
+right. So why is that?
+
+753
+00:52:16,160 --> 00:52:21,680
+Oh yeah. So because position may be a a
+
+754
+00:52:19,280 --> 00:52:24,000
+nested element. So that's why it always
+
+755
+00:52:21,680 --> 00:52:25,920
+return a list. You see this is
+
+756
+00:52:24,000 --> 00:52:30,000
+interesting in normal programming
+
+757
+00:52:25,920 --> 00:52:31,680
+languages such as Python, JavaScript,
+
+758
+00:52:30,000 --> 00:52:35,200
+Golan
+
+759
+00:52:31,680 --> 00:52:39,040
+or just about any programming language.
+
+760
+00:52:35,200 --> 00:52:41,839
+you the index of a list is a single
+
+761
+00:52:39,040 --> 00:52:44,800
+integer. Okay.
+
+762
+00:52:41,839 --> 00:52:47,119
+But in wuam language it returns a list.
+
+763
+00:52:44,800 --> 00:52:49,280
+Why? Because
+
+764
+00:52:47,119 --> 00:52:54,880
+because wuam language always work on
+
+765
+00:52:49,280 --> 00:52:57,680
+trees. So your list may be nested. So
+
+766
+00:52:54,880 --> 00:52:59,920
+the first index is the first element.
+
+767
+00:52:57,680 --> 00:53:02,720
+You know the element
+
+768
+00:52:59,920 --> 00:53:05,359
+then in that element it might be a list
+
+769
+00:53:02,720 --> 00:53:08,160
+again. So you need another index. So to
+
+770
+00:53:05,359 --> 00:53:11,599
+refer to arbitrary
+
+771
+00:53:08,160 --> 00:53:13,520
+element in a nested list you need a list
+
+772
+00:53:11,599 --> 00:53:15,920
+of indexes
+
+773
+00:53:13,520 --> 00:53:19,760
+and that is called position
+
+774
+00:53:15,920 --> 00:53:22,880
+specification. So each one each position
+
+775
+00:53:19,760 --> 00:53:26,720
+is a list. So that's why you got this
+
+776
+00:53:22,880 --> 00:53:31,119
+six you know at least even though in our
+
+777
+00:53:26,720 --> 00:53:34,400
+case the matrix is this you know this
+
+778
+00:53:31,119 --> 00:53:36,319
+row of matrix is flat. Okay do you see
+
+779
+00:53:34,400 --> 00:53:40,160
+what I mean? Okay. So anyway, that
+
+780
+00:53:36,319 --> 00:53:43,119
+explains why you got nested here because
+
+781
+00:53:40,160 --> 00:53:47,640
+each each thing is like uh supposed to
+
+782
+00:53:43,119 --> 00:53:47,640
+be several indexes possibly.
+
+783
+00:53:48,720 --> 00:53:57,559
+Uh almost 100 a.m. Okay, thank you for
+
+784
+00:53:53,520 --> 00:53:57,559
+watching. Yeah, good luck.
+
+785
+00:54:01,119 --> 00:54:06,880
+Now 1:00 a.m. That's in United Kingdom
+
+786
+00:54:04,319 --> 00:54:10,680
+or Germany something
+
+787
+00:54:06,880 --> 00:54:10,680
+or South Africa.
+
+788
+00:54:18,880 --> 00:54:22,440
+Okay. Fantastic.
+
+789
+00:54:23,839 --> 00:54:32,319
+So splitter positions did did we um
+
+790
+00:54:28,880 --> 00:54:36,280
+Yeah. So copy that.
+
+791
+00:54:32,319 --> 00:54:36,280
+So this is a sample
+
+792
+00:54:36,400 --> 00:54:39,800
+sample output.
+
+793
+00:54:41,839 --> 00:54:50,200
+Then you compare them. Okay. So what do
+
+794
+00:54:45,119 --> 00:54:50,200
+you do? You compare them by um
+
+795
+00:54:53,280 --> 00:55:00,280
+let's see.
+
+796
+00:54:55,200 --> 00:55:00,280
+Want to make sure. Okay. So
+
+797
+00:55:07,920 --> 00:55:13,280
+you need to know
+
+798
+00:55:10,960 --> 00:55:15,680
+if they collide.
+
+799
+00:55:13,280 --> 00:55:19,680
+That means you have the same index in
+
+800
+00:55:15,680 --> 00:55:22,720
+both. But you also need to know which
+
+801
+00:55:19,680 --> 00:55:26,319
+one. Okay? Because you need to know
+
+802
+00:55:22,720 --> 00:55:29,599
+which which one this
+
+803
+00:55:26,319 --> 00:55:31,760
+beam collide with which
+
+804
+00:55:29,599 --> 00:55:33,760
+splitter.
+
+805
+00:55:31,760 --> 00:55:38,079
+Well, basically you need to know which
+
+806
+00:55:33,760 --> 00:55:41,040
+beam collides. Okay. So you for this for
+
+807
+00:55:38,079 --> 00:55:45,319
+each of these beam position you need to
+
+808
+00:55:41,040 --> 00:55:45,319
+know if it occurs here.
+
+809
+00:56:12,960 --> 00:56:15,960
+Okay.
+
+810
+00:56:17,200 --> 00:56:22,440
+So what you want to do is that
+
+811
+00:56:23,440 --> 00:56:31,040
+so we can go back here.
+
+812
+00:56:26,720 --> 00:56:34,960
+So we these are all list operations
+
+813
+00:56:31,040 --> 00:56:39,920
+you what do you want to do first? Well
+
+814
+00:56:34,960 --> 00:56:45,880
+think about it. So for
+
+815
+00:56:39,920 --> 00:56:45,880
+you want to know so given two lists
+
+816
+00:56:46,880 --> 00:56:51,880
+each one list of positions.
+
+817
+00:56:52,720 --> 00:56:58,559
+So you want to know
+
+818
+00:56:55,440 --> 00:57:02,559
+if the beam state
+
+819
+00:56:58,559 --> 00:57:05,520
+any element in beam state occurs in that
+
+820
+00:57:02,559 --> 00:57:08,520
+and you want to know which one of them
+
+821
+00:57:05,520 --> 00:57:08,520
+occurred.
+
+822
+00:57:12,000 --> 00:57:18,880
+So one way to do it is do a union. No
+
+823
+00:57:15,839 --> 00:57:21,520
+not uh intersection.
+
+824
+00:57:18,880 --> 00:57:24,720
+Okay. So you can easily do intersection.
+
+825
+00:57:21,520 --> 00:57:27,359
+Of course,
+
+826
+00:57:24,720 --> 00:57:31,880
+um
+
+827
+00:57:27,359 --> 00:57:31,880
+you can easily do intersection.
+
+828
+00:57:43,200 --> 00:57:47,400
+Then we'll just return eight.
+
+829
+00:57:50,799 --> 00:57:55,520
+See? So
+
+830
+00:57:53,599 --> 00:58:00,000
+that's right. So you can do that. So
+
+831
+00:57:55,520 --> 00:58:02,000
+once you got that then you split.
+
+832
+00:58:00,000 --> 00:58:04,400
+Okay. Then
+
+833
+00:58:02,000 --> 00:58:07,839
+split.
+
+834
+00:58:04,400 --> 00:58:11,200
+What do you do is you do a intersection
+
+835
+00:58:07,839 --> 00:58:14,079
+then for each element. So let's put this
+
+836
+00:58:11,200 --> 00:58:17,599
+here so that we can see the kind of the
+
+837
+00:58:14,079 --> 00:58:21,040
+result. Okay.
+
+838
+00:58:17,599 --> 00:58:24,319
+Then you split. What? What? What do to
+
+839
+00:58:21,040 --> 00:58:27,319
+do to split? You you
+
+840
+00:58:24,319 --> 00:58:27,319
+map
+
+841
+00:58:28,000 --> 00:58:34,559
+the intersection
+
+842
+00:58:31,760 --> 00:58:38,799
+by a function. Of course, always map is
+
+843
+00:58:34,559 --> 00:58:43,720
+is should be a function. So function.
+
+844
+00:58:38,799 --> 00:58:43,720
+Uh so actually let's
+
+845
+00:58:45,440 --> 00:58:50,760
+modify
+
+846
+00:58:47,440 --> 00:58:50,760
+my woofam
+
+847
+00:58:51,760 --> 00:58:56,440
+uh wam language mode
+
+848
+00:58:57,920 --> 00:59:00,920
+abbreviation
+
+849
+00:59:02,480 --> 00:59:06,280
+to Um,
+
+850
+00:59:10,400 --> 00:59:16,559
+yeah, let's not do it. Actually, let's
+
+851
+00:59:14,000 --> 00:59:19,559
+do it. It's so easy. It's actually quite
+
+852
+00:59:16,559 --> 00:59:19,559
+easy.
+
+853
+00:59:21,599 --> 00:59:24,599
+So
+
+854
+00:59:25,839 --> 00:59:28,839
+map.
+
+855
+00:59:36,319 --> 00:59:43,960
+Yeah. Here. So all you have to do just
+
+856
+00:59:39,839 --> 00:59:43,960
+add the function. Okay.
+
+857
+00:59:51,200 --> 00:59:57,680
+evaluate it.
+
+858
+00:59:53,359 --> 01:00:01,880
+Close. So now when you say map,
+
+859
+00:59:57,680 --> 01:00:01,880
+it didn't um
+
+860
+01:00:02,960 --> 01:00:11,599
+map. There it is. You see? Fantastic.
+
+861
+01:00:08,640 --> 01:00:17,040
+And saver.
+
+862
+01:00:11,599 --> 01:00:17,040
+Okay. But you you want to map uh so
+
+863
+01:00:18,640 --> 01:00:28,079
+So now given eight you a list of eight
+
+864
+01:00:24,240 --> 01:00:31,200
+then um
+
+865
+01:00:28,079 --> 01:00:34,200
+that's a position okay then you map
+
+866
+01:00:31,200 --> 01:00:34,200
+again
+
+867
+01:00:38,160 --> 01:00:41,160
+Okay.
+
+868
+01:01:01,119 --> 01:01:09,480
+Okay. You just return a list. Okay. So
+
+869
+01:01:06,480 --> 01:01:09,480
+uh
+
+870
+01:01:14,319 --> 01:01:18,040
+-1 One
+
+871
+01:01:28,000 --> 01:01:31,000
+one
+
+872
+01:01:33,920 --> 01:01:41,480
+we do.
+
+873
+01:01:36,400 --> 01:01:41,480
+Okay, we can run this demo.
+
+874
+01:01:42,319 --> 01:01:46,079
+Are you sure? Yes.
+
+875
+01:01:47,920 --> 01:01:57,640
+It'll be a list of seven and nine.
+
+876
+01:01:54,640 --> 01:01:57,640
+Perfect.
+
+877
+01:02:08,960 --> 01:02:14,720
+Okay. So, there's something we need to
+
+878
+01:02:11,760 --> 01:02:17,720
+worry about here.
+
+879
+01:02:14,720 --> 01:02:17,720
+Because
+
+880
+01:02:18,480 --> 01:02:25,920
+because this needs to go into the
+
+881
+01:02:23,599 --> 01:02:30,359
+you know this seven and nine each one
+
+882
+01:02:25,920 --> 01:02:30,359
+should be separate. So,
+
+883
+01:02:53,200 --> 01:02:58,960
+so let's say the intersection is
+
+884
+01:02:56,000 --> 01:03:03,000
+something else. Let's say the
+
+885
+01:02:58,960 --> 01:03:03,000
+intersection is
+
+886
+01:03:06,559 --> 01:03:12,040
+8
+
+887
+01:03:09,040 --> 01:03:12,040
+9
+
+888
+01:03:17,119 --> 01:03:23,359
+8 9 8 10
+
+889
+01:03:21,440 --> 01:03:27,440
+say
+
+890
+01:03:23,359 --> 01:03:31,920
+and uh so that's the intersection
+
+891
+01:03:27,440 --> 01:03:36,520
+And what you what happens? Okay, wait.
+
+892
+01:03:31,920 --> 01:03:36,520
+First of all, a simple case
+
+893
+01:03:37,119 --> 01:03:43,680
+when you do that,
+
+894
+01:03:40,319 --> 01:03:47,799
+the result is that. Okay. Now, what
+
+895
+01:03:43,680 --> 01:03:47,799
+happens when you do that?
+
+896
+01:03:50,000 --> 01:03:58,640
+The result is that. Okay.
+
+897
+01:03:53,599 --> 01:03:58,640
+And uh that's not what you want.
+
+898
+01:04:04,720 --> 01:04:09,400
+Yeah. So you you need
+
+899
+01:04:11,760 --> 01:04:15,640
+let's check sequence.
+
+900
+01:04:17,520 --> 01:04:26,200
+Okay. I think that's what you want. Do I
+
+901
+01:04:21,039 --> 01:04:26,200
+make sense? I think this is
+
+902
+01:04:43,280 --> 01:04:48,160
+It's getting complicated now
+
+903
+01:04:46,400 --> 01:04:50,640
+because
+
+904
+01:04:48,160 --> 01:04:53,640
+okay sequence
+
+905
+01:04:50,640 --> 01:04:53,640
+C.
+
+906
+01:04:54,160 --> 01:04:58,680
+No, that's not what you want.
+
+907
+01:05:07,520 --> 01:05:11,880
+Yeah. So, let's say apply
+
+908
+01:05:20,480 --> 01:05:26,960
+make it more logical. the syntax avoid
+
+909
+01:05:24,720 --> 01:05:30,799
+shortcut syntax
+
+910
+01:05:26,960 --> 01:05:34,160
+so that people understand
+
+911
+01:05:30,799 --> 01:05:37,520
+okay so that
+
+912
+01:05:34,160 --> 01:05:40,920
+we'll return what I want 7 91
+
+913
+01:05:37,520 --> 01:05:40,920
+okay That's
+
+914
+01:05:52,880 --> 01:05:57,720
+close but not exactly.
+
+915
+01:06:53,920 --> 01:06:59,240
+Okay, let's not do this complicated
+
+916
+01:06:56,240 --> 01:06:59,240
+thing.
+
+917
+01:06:59,839 --> 01:07:04,599
+Let's just say flatten it.
+
+918
+01:07:11,680 --> 01:07:17,440
+Yeah.
+
+919
+01:07:14,079 --> 01:07:21,520
+Then do you want to start with the
+
+920
+01:07:17,440 --> 01:07:24,520
+flattened list or not?
+
+921
+01:07:21,520 --> 01:07:24,520
+Uh
+
+922
+01:07:27,520 --> 01:07:32,520
+because they are always
+
+923
+01:07:32,720 --> 01:07:38,280
+nested. Why don't you always say
+
+924
+01:07:35,280 --> 01:07:38,280
+flatten?
+
+925
+01:07:38,559 --> 01:07:45,559
+Flatten. Each row is always just um
+
+926
+01:07:52,880 --> 01:08:01,079
+okay so one one
+
+927
+01:07:56,079 --> 01:08:01,079
+let's always work with flattened
+
+928
+01:08:02,079 --> 01:08:09,839
+you can do that okay
+
+929
+01:08:06,079 --> 01:08:12,559
+so for example this first row is this
+
+930
+01:08:09,839 --> 01:08:16,280
+thing.
+
+931
+01:08:12,559 --> 01:08:16,280
+Okay. So,
+
+932
+01:08:22,880 --> 01:08:30,719
+so that we can run the code here.
+
+933
+01:08:26,480 --> 01:08:33,719
+This row that's s
+
+934
+01:08:30,719 --> 01:08:33,719
+okay.
+
+935
+01:08:33,839 --> 01:08:36,839
+So
+
+936
+01:08:42,560 --> 01:08:53,839
+that's going to be just that. Okay.
+
+937
+01:08:47,600 --> 01:08:56,799
+Then here also you uh just add flatten
+
+938
+01:08:53,839 --> 01:09:00,480
+and the matrix
+
+939
+01:08:56,799 --> 01:09:03,520
+row six. Let's say let's see one two
+
+940
+01:09:00,480 --> 01:09:08,560
+three four five six. Okay. It's that
+
+941
+01:09:03,520 --> 01:09:10,560
+one. So let's make it
+
+942
+01:09:08,560 --> 01:09:12,640
+clear.
+
+943
+01:09:10,560 --> 01:09:17,719
+I mean so that doesn't depend on
+
+944
+01:09:12,640 --> 01:09:17,719
+variables. Okay. It
+
+945
+01:09:18,000 --> 01:09:26,080
+okay 6 8 10. Fantastic. So we always
+
+946
+01:09:22,159 --> 01:09:29,880
+work with flattened list
+
+947
+01:09:26,080 --> 01:09:29,880
+and the intersection.
+
+948
+01:09:30,239 --> 01:09:36,839
+Now the intersection of these two is
+
+949
+01:09:32,880 --> 01:09:36,839
+just uh that
+
+950
+01:09:47,279 --> 01:09:51,520
+eight.
+
+951
+01:09:49,839 --> 01:09:56,000
+All right.
+
+952
+01:09:51,520 --> 01:09:59,719
+Good. And uh then then you Yeah. Then
+
+953
+01:09:56,000 --> 01:09:59,719
+you um
+
+954
+01:10:00,159 --> 01:10:03,719
+then you split.
+
+955
+01:10:04,480 --> 01:10:09,159
+Uh that doesn't work.
+
+956
+01:10:19,760 --> 01:10:26,080
+Yeah. Of course.
+
+957
+01:10:21,840 --> 01:10:29,440
+Of course. Now because you reduced uh
+
+958
+01:10:26,080 --> 01:10:32,440
+nesting, you don't need the position one
+
+959
+01:10:29,440 --> 01:10:32,440
+anymore.
+
+960
+01:10:37,520 --> 01:10:45,080
+That's what you get.
+
+961
+01:10:40,320 --> 01:10:45,080
+Wait, is it still um
+
+962
+01:10:45,199 --> 01:10:51,719
+Oh, yeah. So you need you need to do
+
+963
+01:10:47,920 --> 01:10:51,719
+flatt and split.
+
+964
+01:11:07,120 --> 01:11:12,760
+Okay.
+
+965
+01:11:09,760 --> 01:11:12,760
+Then
+
+966
+01:11:14,640 --> 01:11:22,320
+and then you again flatten
+
+967
+01:11:20,560 --> 01:11:24,000
+it.
+
+968
+01:11:22,320 --> 01:11:26,239
+Wait,
+
+969
+01:11:24,000 --> 01:11:28,719
+wait. You don't want again. You don't
+
+970
+01:11:26,239 --> 01:11:32,480
+want that anymore.
+
+971
+01:11:28,719 --> 01:11:34,560
+And this is now you work with flattened
+
+972
+01:11:32,480 --> 01:11:37,560
+list, right?
+
+973
+01:11:34,560 --> 01:11:37,560
+So
+
+974
+01:11:38,320 --> 01:11:43,560
+split on a single
+
+975
+01:11:45,520 --> 01:11:55,920
+on a beam state of a single beam.
+
+976
+01:11:52,080 --> 01:11:58,159
+That's what it is. Okay. And this one is
+
+977
+01:11:55,920 --> 01:12:00,480
+split on
+
+978
+01:11:58,159 --> 01:12:03,360
+on a beam
+
+979
+01:12:00,480 --> 01:12:08,880
+on a bean state of
+
+980
+01:12:03,360 --> 01:12:12,320
+two beams. Okay, make it clear.
+
+981
+01:12:08,880 --> 01:12:16,719
+You see? And this is when a merge
+
+982
+01:12:12,320 --> 01:12:20,239
+happens. Then you just need to do unique
+
+983
+01:12:16,719 --> 01:12:24,440
+uh not unique intersection union
+
+984
+01:12:20,239 --> 01:12:24,440
+intersection um
+
+985
+01:12:30,480 --> 01:12:35,480
+remove duplicate delete duplicate.
+
+986
+01:12:36,080 --> 01:12:39,080
+Okay,
+
+987
+01:12:42,560 --> 01:12:45,560
+fantastic.
+
+988
+01:12:47,280 --> 01:12:52,320
+In fact, the duplicate only happens
+
+989
+01:12:49,679 --> 01:12:55,360
+around neighbors. So you you can use
+
+990
+01:12:52,320 --> 01:12:57,440
+some more efficient um
+
+991
+01:12:55,360 --> 01:12:59,760
+function because it always happens
+
+992
+01:12:57,440 --> 01:13:01,280
+around neighbors. Let's never mind.
+
+993
+01:12:59,760 --> 01:13:06,840
+Okay.
+
+994
+01:13:01,280 --> 01:13:06,840
+So you see split on a beam state
+
+995
+01:13:08,159 --> 01:13:13,719
+deal with merge
+
+996
+01:13:10,719 --> 01:13:13,719
+beam.
+
+997
+01:13:14,960 --> 01:13:22,719
+So far so good.
+
+998
+01:13:17,120 --> 01:13:27,480
+What's a fa sith? Hi there. Okay. Wam
+
+999
+01:13:22,719 --> 01:13:27,480
+language. Okay. So
+
+1000
+01:13:28,560 --> 01:13:32,480
+so fantastic.
+
+1001
+01:13:35,600 --> 01:13:42,840
+new beam state. Okay,
+
+1002
+01:13:39,600 --> 01:13:42,840
+that's it.
+
+1003
+01:13:43,840 --> 01:13:51,199
+So, we just go through this process.
+
+1004
+01:13:47,040 --> 01:13:54,960
+This this this and uh it should
+
+1005
+01:13:51,199 --> 01:13:59,280
+give us result. Okay, here's a sample
+
+1006
+01:13:54,960 --> 01:14:02,159
+code. So, let's put it back. This is a
+
+1007
+01:13:59,280 --> 01:14:06,199
+sample
+
+1008
+01:14:02,159 --> 01:14:06,199
+test case.
+
+1009
+01:14:06,880 --> 01:14:11,520
+Okay. Now let's start to code the real
+
+1010
+01:14:09,760 --> 01:14:14,320
+algorithm.
+
+1011
+01:14:11,520 --> 01:14:16,159
+Now you can't you know you can't do this
+
+1012
+01:14:14,320 --> 01:14:18,640
+get a solution because you need to go
+
+1013
+01:14:16,159 --> 01:14:20,320
+through each you need you need to make
+
+1014
+01:14:18,640 --> 01:14:23,040
+these
+
+1015
+01:14:20,320 --> 01:14:27,440
+uh into like one function then you do a
+
+1016
+01:14:23,040 --> 01:14:30,400
+recursion trivial. Okay.
+
+1017
+01:14:27,440 --> 01:14:32,960
+So let's begin to code it. Okay. So
+
+1018
+01:14:30,400 --> 01:14:40,040
+let's see. Uh you got the first row, you
+
+1019
+01:14:32,960 --> 01:14:40,040
+got matrix. Okay. So and um
+
+1020
+01:14:49,280 --> 01:14:53,719
+so you need to write a function
+
+1021
+01:15:11,360 --> 01:15:16,320
+beam state
+
+1022
+01:15:13,679 --> 01:15:19,320
+and uh
+
+1023
+01:15:16,320 --> 01:15:19,320
+current
+
+1024
+01:15:23,920 --> 01:15:30,840
+beam state and and a row. Okay. So
+
+1025
+01:15:33,679 --> 01:15:38,080
+return
+
+1026
+01:15:35,920 --> 01:15:41,520
+a new
+
+1027
+01:15:38,080 --> 01:15:44,239
+beam state something like that.
+
+1028
+01:15:41,520 --> 01:15:48,080
+You need to write this function.
+
+1029
+01:15:44,239 --> 01:15:50,719
+Given a beam state takes a row returns a
+
+1030
+01:15:48,080 --> 01:15:53,040
+new beam state.
+
+1031
+01:15:50,719 --> 01:15:56,000
+That's right. Then you can call any of
+
+1032
+01:15:53,040 --> 01:15:57,840
+the reduce or whatever. Yeah, reduce
+
+1033
+01:15:56,000 --> 01:16:00,239
+will do.
+
+1034
+01:15:57,840 --> 01:16:03,920
+Mhm.
+
+1035
+01:16:00,239 --> 01:16:05,600
+Because to solve this problem, you have
+
+1036
+01:16:03,920 --> 01:16:09,360
+to
+
+1037
+01:16:05,600 --> 01:16:11,600
+do a loop. You cannot do them in
+
+1038
+01:16:09,360 --> 01:16:15,199
+parallel. Because in order to find out
+
+1039
+01:16:11,600 --> 01:16:17,520
+what happens at bottom, you have to know
+
+1040
+01:16:15,199 --> 01:16:22,080
+the preceding state. You have to like in
+
+1041
+01:16:17,520 --> 01:16:26,320
+order, this is classic example of
+
+1042
+01:16:22,080 --> 01:16:31,239
+uh what Stefan Wuam calls computation.
+
+1043
+01:16:26,320 --> 01:16:31,239
+um principle of
+
+1044
+01:16:31,360 --> 01:16:36,320
+computational irreducibility.
+
+1045
+01:16:34,719 --> 01:16:38,159
+Okay,
+
+1046
+01:16:36,320 --> 01:16:39,920
+principle of computational
+
+1047
+01:16:38,159 --> 01:16:43,760
+irreducibility
+
+1048
+01:16:39,920 --> 01:16:45,760
+because there is no it is not possible
+
+1049
+01:16:43,760 --> 01:16:48,400
+to have some kind of mathematical
+
+1050
+01:16:45,760 --> 01:16:51,360
+formula to find out
+
+1051
+01:16:48,400 --> 01:16:53,120
+what is the final result
+
+1052
+01:16:51,360 --> 01:16:55,840
+without
+
+1053
+01:16:53,120 --> 01:16:58,719
+actually just like do them one by one
+
+1054
+01:16:55,840 --> 01:17:02,239
+step by one step because this is like a
+
+1055
+01:16:58,719 --> 01:17:02,239
+cellular automata basically.
+
+1056
+01:17:05,520 --> 01:17:11,520
+Well kind kind of this is like a special
+
+1057
+01:17:08,159 --> 01:17:13,760
+case of cellular automa. Okay. So anyway
+
+1058
+01:17:11,520 --> 01:17:16,320
+so principle of computational
+
+1059
+01:17:13,760 --> 01:17:19,520
+irreducibility.
+
+1060
+01:17:16,320 --> 01:17:21,600
+Okay. So anyway so let's so
+
+1061
+01:17:19,520 --> 01:17:26,440
+so you need to write these functions.
+
+1062
+01:17:21,600 --> 01:17:26,440
+It's easy. Okay. So let's uh
+
+1063
+01:17:27,040 --> 01:17:33,440
+okay let's just write a functional
+
+1064
+01:17:29,360 --> 01:17:35,920
+style. Okay. Equals to
+
+1065
+01:17:33,440 --> 01:17:40,159
+uh function
+
+1066
+01:17:35,920 --> 01:17:43,120
+functional style. So
+
+1067
+01:17:40,159 --> 01:17:47,520
+wait that that that that that that that
+
+1068
+01:17:43,120 --> 01:17:52,960
+that takes two arguments and what you do
+
+1069
+01:17:47,520 --> 01:17:56,800
+here. Okay. What you do is that you
+
+1070
+01:17:52,960 --> 01:18:01,960
+beam state and row. Okay. So beam state.
+
+1071
+01:17:56,800 --> 01:18:01,960
+So now we need to start. So
+
+1072
+01:18:06,239 --> 01:18:12,840
+takes a beam state. Okay, the beam state
+
+1073
+01:18:08,880 --> 01:18:12,840
+is like uh
+
+1074
+01:18:13,040 --> 01:18:21,360
+you got a beam state and the row.
+
+1075
+01:18:16,719 --> 01:18:25,920
+So you you need this. So let's create a
+
+1076
+01:18:21,360 --> 01:18:29,120
+local variable that's width. Okay.
+
+1077
+01:18:25,920 --> 01:18:35,679
+So local variable
+
+1078
+01:18:29,120 --> 01:18:38,640
+and this part is the row. Okay. Delete.
+
+1079
+01:18:35,679 --> 01:18:40,880
+That's a row. Okay. Position flatten.
+
+1080
+01:18:38,640 --> 01:18:44,840
+You want to find all the positions of
+
+1081
+01:18:40,880 --> 01:18:44,840
+one. That's a splitter.
+
+1082
+01:18:44,960 --> 01:18:53,120
+Okay. Once you got the splitter, then
+
+1083
+01:18:48,000 --> 01:18:58,239
+you need to compare their intersection
+
+1084
+01:18:53,120 --> 01:19:00,880
+which we have the code um
+
+1085
+01:18:58,239 --> 01:19:04,000
+here.
+
+1086
+01:19:00,880 --> 01:19:07,800
+Okay. And delete duplicate. Okay. Split
+
+1087
+01:19:04,000 --> 01:19:07,800
+on. So
+
+1088
+01:19:14,400 --> 01:19:19,280
+you need to do intersect. Okay, you need
+
+1089
+01:19:16,480 --> 01:19:22,239
+to do actually all these.
+
+1090
+01:19:19,280 --> 01:19:25,199
+Okay, let's let's do them. Let's do
+
+1091
+01:19:22,239 --> 01:19:27,760
+them. Put them into a function. So first
+
+1092
+01:19:25,199 --> 01:19:31,120
+of all intersection
+
+1093
+01:19:27,760 --> 01:19:34,000
+of beam state
+
+1094
+01:19:31,120 --> 01:19:38,400
+versus
+
+1095
+01:19:34,000 --> 01:19:41,440
+splitter position. Okay.
+
+1096
+01:19:38,400 --> 01:19:44,440
+Then once you have the intersection you
+
+1097
+01:19:41,440 --> 01:19:44,440
+do
+
+1098
+01:19:46,320 --> 01:19:50,040
+you split them.
+
+1099
+01:19:57,760 --> 01:20:06,800
+That's right. Is that right? Yes. Then
+
+1100
+01:20:03,760 --> 01:20:10,239
+once you split them then you want to uh
+
+1101
+01:20:06,800 --> 01:20:13,920
+Yeah. It's split already. So
+
+1102
+01:20:10,239 --> 01:20:19,000
+yeah, yeah, yeah,
+
+1103
+01:20:13,920 --> 01:20:19,000
+yeah. Then you delete duplicate.
+
+1104
+01:20:21,840 --> 01:20:26,199
+Mhm. Mhm. Mhm.
+
+1105
+01:20:31,040 --> 01:20:35,280
+That's it. That's our function.
+
+1106
+01:20:33,440 --> 01:20:37,920
+Beautiful.
+
+1107
+01:20:35,280 --> 01:20:41,840
+Very short.
+
+1108
+01:20:37,920 --> 01:20:45,840
+And to solve the solution, to solve it,
+
+1109
+01:20:41,840 --> 01:20:48,239
+all you have to do is
+
+1110
+01:20:45,840 --> 01:20:51,040
+No, we don't need all these. Okay,
+
+1111
+01:20:48,239 --> 01:20:56,120
+that's our code. So, let's remove the
+
+1112
+01:20:51,040 --> 01:20:56,120
+comments. You see how beautiful it is.
+
+1113
+01:20:58,640 --> 01:21:04,800
+Then to solve the solve the problem you
+
+1114
+01:21:01,600 --> 01:21:09,440
+just do
+
+1115
+01:21:04,800 --> 01:21:13,120
+fold the most general purpose powerful
+
+1116
+01:21:09,440 --> 01:21:20,239
+functional programming loop.
+
+1117
+01:21:13,120 --> 01:21:25,120
+So you fold you need to fold on uh uh
+
+1118
+01:21:20,239 --> 01:21:27,600
+you need fold a function
+
+1119
+01:21:25,120 --> 01:21:29,920
+and the initial state. What is the
+
+1120
+01:21:27,600 --> 01:21:35,040
+initial state?
+
+1121
+01:21:29,920 --> 01:21:39,360
+Initial state is the first row.
+
+1122
+01:21:35,040 --> 01:21:42,800
+Yeah. So initial state is you want to
+
+1123
+01:21:39,360 --> 01:21:46,840
+know the position of the first row. So
+
+1124
+01:21:42,800 --> 01:21:46,840
+it's something like that.
+
+1125
+01:21:47,679 --> 01:21:50,679
+position
+
+1126
+01:21:51,520 --> 01:21:59,520
+first row and uh
+
+1127
+01:21:56,639 --> 01:22:01,520
+position first row and you want to find
+
+1128
+01:21:59,520 --> 01:22:03,520
+capital s
+
+1129
+01:22:01,520 --> 01:22:07,840
+that returns the position then you
+
+1130
+01:22:03,520 --> 01:22:12,400
+flatten it okay and what is uh then okay
+
+1131
+01:22:07,840 --> 01:22:15,440
+so you don't want that so that
+
+1132
+01:22:12,400 --> 01:22:19,679
+okay that's the initial state
+
+1133
+01:22:15,440 --> 01:22:22,679
+then the list is just going to be this x
+
+1134
+01:22:19,679 --> 01:22:22,679
+matrix.
+
+1135
+01:22:22,880 --> 01:22:30,320
+Okay, that would be the final solution.
+
+1136
+01:22:27,280 --> 01:22:32,880
+Uh, in fact, we can run this. It should
+
+1137
+01:22:30,320 --> 01:22:37,040
+give us the answer.
+
+1138
+01:22:32,880 --> 01:22:43,360
+I think so. Wait.
+
+1139
+01:22:37,040 --> 01:22:45,840
+Well, this will return a final
+
+1140
+01:22:43,360 --> 01:22:48,000
+state of the beams.
+
+1141
+01:22:45,840 --> 01:22:51,000
+Then all you have to do is you count
+
+1142
+01:22:48,000 --> 01:22:51,000
+them.
+
+1143
+01:22:53,040 --> 01:22:59,600
+In fact, you don't need to duplicate
+
+1144
+01:22:55,679 --> 01:23:02,560
+because this intersection does it. So I
+
+1145
+01:22:59,600 --> 01:23:06,320
+don't think you even need that.
+
+1146
+01:23:02,560 --> 01:23:11,639
+Okay, let's leave it. So
+
+1147
+01:23:06,320 --> 01:23:11,639
+So all you have to do is just length.
+
+1148
+01:23:14,080 --> 01:23:19,440
+I think that's the whole program.
+
+1149
+01:23:17,520 --> 01:23:21,600
+Run it
+
+1150
+01:23:19,440 --> 01:23:27,560
+may not work.
+
+1151
+01:23:21,600 --> 01:23:27,560
+No. Okay. So, you got a issue. So,
+
+1152
+01:23:29,920 --> 01:23:35,800
+what is the problem?
+
+1153
+01:23:32,400 --> 01:23:35,800
+didn't say
+
+1154
+01:23:40,639 --> 01:23:46,199
+actually it's it returns zero which is
+
+1155
+01:23:43,199 --> 01:23:46,199
+incorrect.
+
+1156
+01:23:48,320 --> 01:23:53,840
+Okay. Why does it return zero? Let's see
+
+1157
+01:23:50,800 --> 01:23:56,639
+what is the thing it returns. It returns
+
+1158
+01:23:53,840 --> 01:24:00,960
+a expression
+
+1159
+01:23:56,639 --> 01:24:04,880
+there. See? So search. Oh yeah, of
+
+1160
+01:24:00,960 --> 01:24:11,000
+course we forgot to define our function.
+
+1161
+01:24:04,880 --> 01:24:11,000
+You need to say this function should be
+
+1162
+01:24:11,440 --> 01:24:17,000
+f new state,
+
+1163
+01:24:13,760 --> 01:24:17,000
+run it.
+
+1164
+01:24:18,239 --> 01:24:25,960
+Okay, incorrect because we got a empty
+
+1165
+01:24:21,040 --> 01:24:25,960
+list is not correct.
+
+1166
+01:24:26,000 --> 01:24:33,520
+Now did we the new state the function
+
+1167
+01:24:29,920 --> 01:24:36,080
+new state did we have the argument
+
+1168
+01:24:33,520 --> 01:24:39,639
+like
+
+1169
+01:24:36,080 --> 01:24:39,639
+order correct
+
+1170
+01:24:41,840 --> 01:24:46,280
+just make sure Okay.
+
+1171
+01:24:55,840 --> 01:25:00,120
+It's very simple function
+
+1172
+01:25:01,120 --> 01:25:06,760
+in state split position state.
+
+1173
+01:25:14,800 --> 01:25:18,360
+Be states.
+
+1174
+01:25:32,480 --> 01:25:36,679
+Okay. Very close.
+
+1175
+01:26:02,719 --> 01:26:08,520
+You don't need that width.
+
+1176
+01:26:05,520 --> 01:26:08,520
+Okay.
+
+1177
+01:27:05,360 --> 01:27:11,600
+That should work now. I don't know why
+
+1178
+01:27:08,400 --> 01:27:13,840
+it's not working, but let me just make a
+
+1179
+01:27:11,600 --> 01:27:17,040
+few changes. I don't want this
+
+1180
+01:27:13,840 --> 01:27:21,600
+complicated thing. Let's remove the
+
+1181
+01:27:17,040 --> 01:27:24,600
+first row thing. It's just a matrix.
+
+1182
+01:27:21,600 --> 01:27:24,600
+Okay.
+
+1183
+01:27:25,360 --> 01:27:30,560
+first rest.
+
+1184
+01:27:27,840 --> 01:27:34,159
+Okay,
+
+1185
+01:27:30,560 --> 01:27:38,520
+just do that. Simple. Okay, now I don't
+
+1186
+01:27:34,159 --> 01:27:38,520
+want the first row. So,
+
+1187
+01:27:39,199 --> 01:27:43,320
+so that will be
+
+1188
+01:27:49,040 --> 01:27:55,400
+okay.
+
+1189
+01:27:50,560 --> 01:27:55,400
+And uh this will be rest.
+
+1190
+01:28:02,800 --> 01:28:07,080
+This will be first.
+
+1191
+01:28:12,960 --> 01:28:20,400
+Okay, this will run. Yes, but it's still
+
+1192
+01:28:18,400 --> 01:28:23,520
+incorrect.
+
+1193
+01:28:20,400 --> 01:28:26,320
+Okay, it returns empty.
+
+1194
+01:28:23,520 --> 01:28:28,400
+Now I don't know why
+
+1195
+01:28:26,320 --> 01:28:32,960
+but
+
+1196
+01:28:28,400 --> 01:28:37,760
+we will all know list. Okay, we we all
+
+1197
+01:28:32,960 --> 01:28:40,480
+know did we did the fold? Okay, so here
+
+1198
+01:28:37,760 --> 01:28:42,639
+is it become
+
+1199
+01:28:40,480 --> 01:28:49,040
+you know it start with eight then it
+
+1200
+01:28:42,639 --> 01:28:53,199
+just become zero empty. Did we get the
+
+1201
+01:28:49,040 --> 01:28:55,360
+init initial state function should be
+
+1202
+01:28:53,199 --> 01:28:58,480
+right.
+
+1203
+01:28:55,360 --> 01:29:01,040
+I was just thinking
+
+1204
+01:28:58,480 --> 01:29:02,560
+maybe we got the argument order
+
+1205
+01:29:01,040 --> 01:29:08,920
+incorrect
+
+1206
+01:29:02,560 --> 01:29:08,920
+function initial state list. Okay.
+
+1207
+01:29:10,080 --> 01:29:15,920
+So,
+
+1208
+01:29:12,800 --> 01:29:20,040
+so function first reads. Yeah. So
+
+1209
+01:29:15,920 --> 01:29:20,040
+actually you can drop that
+
+1210
+01:29:20,719 --> 01:29:24,360
+first rest.
+
+1211
+01:29:32,560 --> 01:29:39,639
+Okay. I don't know where it is wrong. So
+
+1212
+01:29:36,080 --> 01:29:39,639
+we need to
+
+1213
+01:29:41,440 --> 01:29:49,880
+we need to
+
+1214
+01:29:44,719 --> 01:29:49,880
+debug actually. So copy all
+
+1215
+01:29:54,800 --> 01:30:01,280
+copy all let's go to wam language here
+
+1216
+01:29:58,320 --> 01:30:06,159
+and let's
+
+1217
+01:30:01,280 --> 01:30:09,440
+run it. Now this new state
+
+1218
+01:30:06,159 --> 01:30:13,320
+is a function right?
+
+1219
+01:30:09,440 --> 01:30:13,320
+Okay. Shift enter.
+
+1220
+01:30:18,320 --> 01:30:22,280
+Interesting union.
+
+1221
+01:30:30,320 --> 01:30:38,040
+Yeah. Something wrong here.
+
+1222
+01:30:32,800 --> 01:30:38,040
+So beam state row
+
+1223
+01:30:40,560 --> 01:30:47,800
+print we can like print can we print?
+
+1224
+01:30:44,800 --> 01:30:47,800
+Yes.
+
+1225
+01:31:23,040 --> 01:31:26,280
+do it.
+
+1226
+01:31:32,639 --> 01:31:38,719
+So that's the input that is a function.
+
+1227
+01:31:36,239 --> 01:31:44,080
+This is the first step.
+
+1228
+01:31:38,719 --> 01:31:48,159
+Beam state is eight. row is all zero.
+
+1229
+01:31:44,080 --> 01:31:51,440
+Oh, we have a algorithmic mistake.
+
+1230
+01:31:48,159 --> 01:31:54,239
+Our logic is incorrect. So when they
+
+1231
+01:31:51,440 --> 01:31:56,960
+don't collide, you have to keep them.
+
+1232
+01:31:54,239 --> 01:32:00,400
+Not, you know, when they don't collide,
+
+1233
+01:31:56,960 --> 01:32:03,400
+you have to Yeah. So if the union is
+
+1234
+01:32:00,400 --> 01:32:03,400
+empty,
+
+1235
+01:32:04,639 --> 01:32:10,080
+Yeah. If the union is empty, you just
+
+1236
+01:32:08,159 --> 01:32:12,639
+keep the beam state. return the beam
+
+1237
+01:32:10,080 --> 01:32:14,639
+state. If the union I mean intersection
+
+1238
+01:32:12,639 --> 01:32:19,199
+if the intersection
+
+1239
+01:32:14,639 --> 01:32:23,679
+is empty return the beam state. If they
+
+1240
+01:32:19,199 --> 01:32:27,159
+are not empty then you split. Okay. We
+
+1241
+01:32:23,679 --> 01:32:27,159
+we are
+
+1242
+01:32:29,679 --> 01:32:38,440
+there. Okay. So this is split. Okay.
+
+1243
+01:32:33,360 --> 01:32:38,440
+This this se this part is split.
+
+1244
+01:32:38,560 --> 01:32:44,840
+Okay, let me show you. Easy to fix.
+
+1245
+01:32:57,920 --> 01:33:01,239
+I did
+
+1246
+01:33:07,520 --> 01:33:11,080
+Clash list.
+
+1247
+01:33:11,199 --> 01:33:17,840
+Should it be collide or clash?
+
+1248
+01:33:14,239 --> 01:33:20,800
+Properly it should be collide. But clash
+
+1249
+01:33:17,840 --> 01:33:24,320
+is shorter. Let's just say collide
+
+1250
+01:33:20,800 --> 01:33:28,639
+because to keep with the scientific
+
+1251
+01:33:24,320 --> 01:33:33,000
+jargon. So collide list equals to that.
+
+1252
+01:33:28,639 --> 01:33:33,000
+So now
+
+1253
+01:33:34,719 --> 01:33:39,920
+now
+
+1254
+01:33:37,360 --> 01:33:42,920
+if
+
+1255
+01:33:39,920 --> 01:33:42,920
+length
+
+1256
+01:33:43,920 --> 01:33:50,360
+at collide list equals to zero
+
+1257
+01:33:51,520 --> 01:33:58,239
+then just return
+
+1258
+01:33:54,000 --> 01:34:00,960
+X beam state. Otherwise
+
+1259
+01:33:58,239 --> 01:34:03,960
+you need to
+
+1260
+01:34:00,960 --> 01:34:03,960
+map
+
+1261
+01:34:04,320 --> 01:34:07,960
+you need to split.
+
+1262
+01:34:13,280 --> 01:34:16,280
+Yeah.
+
+1263
+01:34:20,960 --> 01:34:25,600
+Mhm.
+
+1264
+01:34:22,880 --> 01:34:28,560
+Perfect. Perfect.
+
+1265
+01:34:25,600 --> 01:34:33,719
+Oh yeah. So this part is nested
+
+1266
+01:34:28,560 --> 01:34:33,719
+expression. This part needs to go here.
+
+1267
+01:34:34,719 --> 01:34:40,280
+Okay. Does that make sense? Perfect.
+
+1268
+01:34:40,960 --> 01:34:47,040
+Now we can just fold. Let's run the
+
+1269
+01:34:43,840 --> 01:34:50,719
+whole thing.
+
+1270
+01:34:47,040 --> 01:34:52,400
+Okay. Invalid. Invalid.
+
+1271
+01:34:50,719 --> 01:34:56,679
+Comma.
+
+1272
+01:34:52,400 --> 01:34:56,679
+I don't want something invalid.
+
+1273
+01:35:00,880 --> 01:35:09,639
+What? What? Invalid.
+
+1274
+01:35:03,920 --> 01:35:09,639
+Oh, print. Okay. Run it.
+
+1275
+01:35:10,239 --> 01:35:19,320
+Inval invalid syntax. In or before with
+
+1276
+01:35:16,320 --> 01:35:19,320
+Oh,
+
+1277
+01:35:19,920 --> 01:35:28,400
+in or or before width. So
+
+1278
+01:35:24,960 --> 01:35:33,000
+why is this in back? Oh
+
+1279
+01:35:28,400 --> 01:35:33,000
+wait, we got this.
+
+1280
+01:35:34,800 --> 01:35:41,600
+What
+
+1281
+01:35:36,639 --> 01:35:45,320
+we got? We got the parentheses I
+
+1282
+01:35:41,600 --> 01:35:45,320
+think. God.
+
+1283
+01:35:45,520 --> 01:35:53,960
+No, better. Okay, we got Yeah, we we got
+
+1284
+01:35:50,000 --> 01:35:53,960
+ put in.
+
+1285
+01:35:57,360 --> 01:36:01,880
+Yeah. Now it's better, right?
+
+1286
+01:36:10,719 --> 01:36:18,840
+Okay. Now, can you guys see?
+
+1287
+01:36:15,280 --> 01:36:18,840
+Just run it.
+
+1288
+01:36:20,080 --> 01:36:24,280
+Superb and beautiful
+
+1289
+01:36:24,639 --> 01:36:30,840
+length at
+
+1290
+01:36:27,600 --> 01:36:30,840
+run it
+
+1291
+01:36:31,760 --> 01:36:38,239
+seven. Is that the right answer? So we
+
+1292
+01:36:34,960 --> 01:36:41,760
+can trace you. You can see we can
+
+1293
+01:36:38,239 --> 01:36:43,679
+actually trace out all the splitter
+
+1294
+01:36:41,760 --> 01:36:46,400
+situation.
+
+1295
+01:36:43,679 --> 01:36:49,440
+Split split split. They become larger.
+
+1296
+01:36:46,400 --> 01:36:52,480
+Of course seven. Is that the right
+
+1297
+01:36:49,440 --> 01:36:55,719
+answer at the end of code?
+
+1298
+01:36:52,480 --> 01:36:55,719
+Let's see.
+
+1299
+01:36:55,760 --> 01:37:02,600
+Scroll down. Scroll down. Scroll down.
+
+1300
+01:36:59,600 --> 01:37:02,600
+21.
+
+1301
+01:37:04,960 --> 01:37:12,960
+Uh to repair the teleporter, you first
+
+1302
+01:37:09,280 --> 01:37:15,840
+need to understand the beam splitting
+
+1303
+01:37:12,960 --> 01:37:18,560
+properties of the tachium manifold. In
+
+1304
+01:37:15,840 --> 01:37:21,920
+this example, attacking beam is split a
+
+1305
+01:37:18,560 --> 01:37:26,560
+total of 21 times.
+
+1306
+01:37:21,920 --> 01:37:29,920
+You see, it only wants to count split.
+
+1307
+01:37:26,560 --> 01:37:31,840
+It doesn't want to know what's the final
+
+1308
+01:37:29,920 --> 01:37:34,800
+number of beams. It just want to know
+
+1309
+01:37:31,840 --> 01:37:38,239
+how many times it been split. And also
+
+1310
+01:37:34,800 --> 01:37:40,800
+it doesn't count about merge. So we
+
+1311
+01:37:38,239 --> 01:37:45,119
+overengineered
+
+1312
+01:37:40,800 --> 01:37:47,600
+problem. We went over we you know we are
+
+1313
+01:37:45,119 --> 01:37:49,760
+trying to we actually that might be in
+
+1314
+01:37:47,600 --> 01:37:52,000
+puzzle two.
+
+1315
+01:37:49,760 --> 01:37:53,679
+So we might have already solved puzzle
+
+1316
+01:37:52,000 --> 01:37:55,760
+two.
+
+1317
+01:37:53,679 --> 01:37:57,440
+If you are here comment okay if you are
+
+1318
+01:37:55,760 --> 01:37:59,040
+watching this find it interesting
+
+1319
+01:37:57,440 --> 01:38:03,600
+comment.
+
+1320
+01:37:59,040 --> 01:38:07,760
+So so well all they want to know is
+
+1321
+01:38:03,600 --> 01:38:11,600
+split. So that's easy to fix.
+
+1322
+01:38:07,760 --> 01:38:15,080
+Uh that's so easy to fix. So the uh
+
+1323
+01:38:11,600 --> 01:38:15,080
+collide list.
+
+1324
+01:38:17,679 --> 01:38:23,520
+So that's just the length of the collide
+
+1325
+01:38:20,159 --> 01:38:26,400
+list. Okay, it's so trivial. Let's just
+
+1326
+01:38:23,520 --> 01:38:29,400
+update a global variable.
+
+1327
+01:38:26,400 --> 01:38:29,400
+Uh
+
+1328
+01:38:32,320 --> 01:38:40,080
+total splits.
+
+1329
+01:38:35,360 --> 01:38:42,880
+Okay. Total split equals to zero. global
+
+1330
+01:38:40,080 --> 01:38:46,320
+variable. I wouldn't have coded that,
+
+1331
+01:38:42,880 --> 01:38:50,760
+but this is just a hack to to make this
+
+1332
+01:38:46,320 --> 01:38:50,760
+work. So,
+
+1333
+01:38:51,520 --> 01:38:57,679
+so
+
+1334
+01:38:53,760 --> 01:39:01,520
+collect list total list equals to
+
+1335
+01:38:57,679 --> 01:39:05,119
+actually you can do equal plus
+
+1336
+01:39:01,520 --> 01:39:09,119
+following the C++ convention. Wat
+
+1337
+01:39:05,119 --> 01:39:12,000
+language actually support it.
+
+1338
+01:39:09,119 --> 01:39:14,000
+But
+
+1339
+01:39:12,000 --> 01:39:15,679
+yeah, I'm pretty sure because for
+
+1340
+01:39:14,000 --> 01:39:18,960
+example
+
+1341
+01:39:15,679 --> 01:39:21,960
+uh x = 5
+
+1342
+01:39:18,960 --> 01:39:21,960
+x=
+
+1343
+01:39:22,880 --> 01:39:31,760
+uh let's say two let's say two
+
+1344
+01:39:27,520 --> 01:39:36,920
+and then x
+
+1345
+01:39:31,760 --> 01:39:36,920
+it will be seven it
+
+1346
+01:39:37,600 --> 01:39:41,600
+uh What
+
+1347
+01:39:39,600 --> 01:39:43,440
+a two.
+
+1348
+01:39:41,600 --> 01:39:46,880
+What?
+
+1349
+01:39:43,440 --> 01:39:48,639
+X = 5 X=
+
+1350
+01:39:46,880 --> 01:39:52,119
++
+
+1351
+01:39:48,639 --> 01:39:52,119
+uh what?
+
+1352
+01:39:53,440 --> 01:40:01,560
+It should be 7 2. What is it? Was it
+
+1353
+01:39:58,080 --> 01:40:01,560
+plus equal?
+
+1354
+01:40:04,560 --> 01:40:10,280
+Yeah, plus equal. Oh god.
+
+1355
+01:40:10,320 --> 01:40:17,119
+C hack
+
+1356
+01:40:13,840 --> 01:40:21,760
+I'm not going to do that. Okay, let's do
+
+1357
+01:40:17,119 --> 01:40:25,440
+the proper mathematical way. So plus uh
+
+1358
+01:40:21,760 --> 01:40:29,760
+then plus you just plus the what does it
+
+1359
+01:40:25,440 --> 01:40:34,480
+uh wait this part should be zero.
+
+1360
+01:40:29,760 --> 01:40:36,000
+Okay, you need to do it here. So
+
+1361
+01:40:34,480 --> 01:40:40,119
+plus
+
+1362
+01:40:36,000 --> 01:40:40,119
+length at
+
+1363
+01:40:40,880 --> 01:40:45,360
+collide list.
+
+1364
+01:40:42,960 --> 01:40:47,199
+Is that right? So every time they
+
+1365
+01:40:45,360 --> 01:40:49,679
+collide
+
+1366
+01:40:47,199 --> 01:40:54,239
+they split.
+
+1367
+01:40:49,679 --> 01:40:58,159
+Okay. Then then you just need to know
+
+1368
+01:40:54,239 --> 01:41:00,320
+this number. Okay. Now let's put a comma
+
+1369
+01:40:58,159 --> 01:41:02,800
+here so it doesn't print the function
+
+1370
+01:41:00,320 --> 01:41:05,199
+every time.
+
+1371
+01:41:02,800 --> 01:41:08,080
+Okay.
+
+1372
+01:41:05,199 --> 01:41:11,080
+21, please.
+
+1373
+01:41:08,080 --> 01:41:11,080
+No.
+
+1374
+01:41:11,920 --> 01:41:14,920
+No.
+
+1375
+01:41:15,040 --> 01:41:19,920
+Oh, wait.
+
+1376
+01:41:16,960 --> 01:41:25,639
+You got this. This this this should be
+
+1377
+01:41:19,920 --> 01:41:25,639
+that. Yeah. Right.
+
+1378
+01:41:26,320 --> 01:41:30,280
+21. Perfect.
+
+1379
+01:41:31,920 --> 01:41:35,880
+Somehow I got angry,
+
+1380
+01:41:36,639 --> 01:41:44,080
+you know, because I overengineered the
+
+1381
+01:41:39,840 --> 01:41:46,880
+problem. Maybe I solved the day two.
+
+1382
+01:41:44,080 --> 01:41:52,440
+Okay, so there it is. At least the
+
+1383
+01:41:46,880 --> 01:41:52,440
+solution. Wait, let's put the 21 back.
+
+1384
+01:41:52,719 --> 01:41:57,159
+Okay, so there is 21.
+
+1385
+01:41:57,280 --> 01:42:02,639
+Go back here.
+
+1386
+01:41:59,119 --> 01:42:04,159
+20 20 uh copy
+
+1387
+01:42:02,639 --> 01:42:07,159
+21.
+
+1388
+01:42:04,159 --> 01:42:07,159
+Fantastic.
+
+1389
+01:42:11,280 --> 01:42:17,840
+Let's leave it. Leave it like Okay. So
+
+1390
+01:42:15,280 --> 01:42:22,960
+now fantastic.
+
+1391
+01:42:17,840 --> 01:42:26,639
+Uh this cut this belong here. Okay.
+
+1392
+01:42:22,960 --> 01:42:30,880
+Yeah. Put it back syntax color
+
+1393
+01:42:26,639 --> 01:42:35,679
+everything showing browser.
+
+1394
+01:42:30,880 --> 01:42:38,960
+Fantastic problem analysis and the code
+
+1395
+01:42:35,679 --> 01:42:41,520
+and the first time
+
+1396
+01:42:38,960 --> 01:42:44,560
+the first code.
+
+1397
+01:42:41,520 --> 01:42:47,679
+Yeah, we are we are trying to take it
+
+1398
+01:42:44,560 --> 01:42:51,920
+apart to explain how it works each of
+
+1399
+01:42:47,679 --> 01:42:55,040
+the the things we do. Then the second
+
+1400
+01:42:51,920 --> 01:42:59,520
+part is just the final solution. Make
+
+1401
+01:42:55,040 --> 01:43:04,400
+them work. Now
+
+1402
+01:42:59,520 --> 01:43:07,360
+cut paste. Paste again. Pop it out. Now
+
+1403
+01:43:04,400 --> 01:43:10,159
+let's work on our personal solution.
+
+1404
+01:43:07,360 --> 01:43:11,760
+Search for txt
+
+1405
+01:43:10,159 --> 01:43:15,440
+there.
+
+1406
+01:43:11,760 --> 01:43:23,400
+Input. Copy. Close.
+
+1407
+01:43:15,440 --> 01:43:23,400
+Back here. Select or paste. Just run it.
+
+1408
+01:43:26,000 --> 01:43:29,000
+907.
+
+1409
+01:43:31,280 --> 01:43:36,239
+Submit.
+
+1410
+01:43:33,679 --> 01:43:39,960
+That's not the right answer. Your answer
+
+1411
+01:43:36,239 --> 01:43:39,960
+is too low.
+
+1412
+01:43:44,639 --> 01:43:47,639
+What?
+
+1413
+01:43:57,520 --> 01:44:00,520
+What?
+
+1414
+01:44:05,840 --> 01:44:12,199
+This is annoying. So, we didn't solve
+
+1415
+01:44:08,960 --> 01:44:12,199
+the problem.
+
+1416
+01:44:13,600 --> 01:44:19,719
+What is that? 34.
+
+1417
+01:44:16,719 --> 01:44:19,719
+Close.
+
+1418
+01:44:20,480 --> 01:44:27,119
+This is the total number of beams.
+
+1419
+01:44:24,080 --> 01:44:32,280
+That's what not what it want.
+
+1420
+01:44:27,119 --> 01:44:32,280
+It wants to know the total split.
+
+1421
+01:44:33,840 --> 01:44:41,400
+So why is that not correct? Length
+
+1422
+01:44:37,840 --> 01:44:41,400
+collide beast.
+
+1423
+01:44:47,199 --> 01:44:53,600
+Okay, this is becoming painful now. I
+
+1424
+01:44:51,040 --> 01:44:57,119
+don't feel like
+
+1425
+01:44:53,600 --> 01:44:58,960
+I don't feel good about this.
+
+1426
+01:44:57,119 --> 01:45:02,639
+Oh,
+
+1427
+01:44:58,960 --> 01:45:05,520
+when a beam split into two, that counts
+
+1428
+01:45:02,639 --> 01:45:09,560
+as one split, right?
+
+1429
+01:45:05,520 --> 01:45:09,560
+To make sure this
+
+1430
+01:45:11,360 --> 01:45:15,760
+Okay. To repair the teleporter, you
+
+1431
+01:45:14,080 --> 01:45:18,400
+first need to understand the beam
+
+1432
+01:45:15,760 --> 01:45:21,679
+splitting properties of the tachang
+
+1433
+01:45:18,400 --> 01:45:26,320
+manifold. In this example, a takian beam
+
+1434
+01:45:21,679 --> 01:45:32,000
+is split a total of 21 times. Okay. So,
+
+1435
+01:45:26,320 --> 01:45:35,000
+how does it count? So, let's see. That's
+
+1436
+01:45:32,000 --> 01:45:35,000
+one,
+
+1437
+01:45:35,199 --> 01:45:38,600
+two, three.
+
+1438
+01:45:44,400 --> 01:45:48,199
+Oh, five six
+
+1439
+01:45:49,840 --> 01:45:54,719
+7 8
+
+1440
+01:45:52,400 --> 01:45:59,880
+9
+
+1441
+01:45:54,719 --> 01:45:59,880
+10 11 12 13
+
+1442
+01:46:00,560 --> 01:46:04,320
+14
+
+1443
+01:46:02,159 --> 01:46:06,800
+15
+
+1444
+01:46:04,320 --> 01:46:11,119
+16
+
+1445
+01:46:06,800 --> 01:46:12,800
+17 18 19 20
+
+1446
+01:46:11,119 --> 01:46:17,159
+21.
+
+1447
+01:46:12,800 --> 01:46:17,159
+So every time they collide,
+
+1448
+01:46:18,320 --> 01:46:23,920
+right? Whenever a beam collide with the
+
+1449
+01:46:22,159 --> 01:46:25,600
+correct
+
+1450
+01:46:23,920 --> 01:46:29,920
+splits.
+
+1451
+01:46:25,600 --> 01:46:32,719
+So you want to count is the number of
+
+1452
+01:46:29,920 --> 01:46:36,239
+collisions.
+
+1453
+01:46:32,719 --> 01:46:40,600
+So why a is our code not correct? Beam
+
+1454
+01:46:36,239 --> 01:46:40,600
+state of flen position.
+
+1455
+01:47:09,199 --> 01:47:13,880
+Why is not um
+
+1456
+01:47:25,119 --> 01:47:31,080
+Why is this line not correct? Collide at
+
+1457
+01:47:28,080 --> 01:47:31,080
+least.
+
+1458
+01:48:01,280 --> 01:48:04,280
+Oops.
+
+1459
+01:48:34,800 --> 01:48:40,840
+Maybe is that
+
+1460
+01:48:37,840 --> 01:48:40,840
+minute?
+
+1461
+01:48:41,920 --> 01:48:44,920
+907.
+
+1462
+01:48:45,040 --> 01:48:48,360
+It's 907.
+
+1463
+01:48:48,800 --> 01:48:54,800
+Not correct.
+
+1464
+01:48:51,360 --> 01:48:54,800
+Not the right answer.
+
+1465
+01:48:55,360 --> 01:48:58,360
+Okay.
+
+1466
+01:49:35,520 --> 01:49:43,119
+Wait. But uh if you run it on the test
+
+1467
+01:49:39,760 --> 01:49:45,280
+input, it works
+
+1468
+01:49:43,119 --> 01:49:48,840
+right.
+
+1469
+01:49:45,280 --> 01:49:48,840
+You got 21.
+
+1470
+01:49:53,119 --> 01:50:01,199
+You end up with seven beams. But there
+
+1471
+01:49:57,199 --> 01:50:03,840
+were total of 21 splits. So is that
+
+1472
+01:50:01,199 --> 01:50:08,239
+true? Seven beans. One, two, three,
+
+1473
+01:50:03,840 --> 01:50:11,440
+four, five, six, 7, 8, nine.
+
+1474
+01:50:08,239 --> 01:50:15,119
+Okay, that is even incorrect.
+
+1475
+01:50:11,440 --> 01:50:18,639
+So there lies the problem.
+
+1476
+01:50:15,119 --> 01:50:22,000
+So even on the toy inputs
+
+1477
+01:50:18,639 --> 01:50:26,719
+you got the number of collision correct
+
+1478
+01:50:22,000 --> 01:50:30,320
+the number of time they split. However
+
+1479
+01:50:26,719 --> 01:50:34,000
+we also computed the final number of
+
+1480
+01:50:30,320 --> 01:50:37,199
+beams we have seven which is not
+
+1481
+01:50:34,000 --> 01:50:41,000
+correct. One two three four five six
+
+1482
+01:50:37,199 --> 01:50:41,000
+seven eight nine.
+
+1483
+01:50:43,760 --> 01:50:51,199
+So there is something wrong in our logic
+
+1484
+01:50:49,119 --> 01:50:56,360
+something.
+
+1485
+01:50:51,199 --> 01:50:56,360
+It's okay. So we need to just check.
+
+1486
+01:51:00,719 --> 01:51:07,679
+So what what's with this collision list?
+
+1487
+01:51:04,080 --> 01:51:12,159
+Okay, let's just check. So we got this
+
+1488
+01:51:07,679 --> 01:51:15,360
+function. Fantastic function.
+
+1489
+01:51:12,159 --> 01:51:22,000
+We local variable
+
+1490
+01:51:15,360 --> 01:51:28,119
+it takes two arguments bin state and row
+
+1491
+01:51:22,000 --> 01:51:28,119
+and uh fold new state
+
+1492
+01:51:37,280 --> 01:51:44,639
+position first matrix.
+
+1493
+01:51:41,280 --> 01:51:49,320
+So can you see the position
+
+1494
+01:51:44,639 --> 01:51:49,320
+of the matrix the first
+
+1495
+01:51:49,440 --> 01:51:58,239
+row you want to get X that would be
+
+1496
+01:51:54,960 --> 01:52:00,080
+then you flatten it the rest of the
+
+1497
+01:51:58,239 --> 01:52:02,320
+matrix
+
+1498
+01:52:00,080 --> 01:52:05,320
+then you go through the rest of the
+
+1499
+01:52:02,320 --> 01:52:05,320
+matrix.
+
+1500
+01:52:05,520 --> 01:52:08,520
+Okay.
+
+1501
+01:52:08,639 --> 01:52:14,000
+And uh
+
+1502
+01:52:11,280 --> 01:52:16,880
+so that is the fold
+
+1503
+01:52:14,000 --> 01:52:20,080
+that's the fold algorithm
+
+1504
+01:52:16,880 --> 01:52:23,040
+but the key is this new state our
+
+1505
+01:52:20,080 --> 01:52:25,840
+function new state
+
+1506
+01:52:23,040 --> 01:52:31,199
+so it takes two arguments beam state and
+
+1507
+01:52:25,840 --> 01:52:34,199
+row beam state is a list of indexes
+
+1508
+01:52:31,199 --> 01:52:34,199
+okay
+
+1509
+01:52:38,000 --> 01:52:44,159
+problem.
+
+1510
+01:52:40,480 --> 01:52:47,840
+Okay. Then the important thing is you
+
+1511
+01:52:44,159 --> 01:52:51,040
+find the collision list intersection of
+
+1512
+01:52:47,840 --> 01:52:54,159
+the beam state which you flattened.
+
+1513
+01:52:51,040 --> 01:52:59,360
+Important you flattened it. Then you
+
+1514
+01:52:54,159 --> 01:53:03,760
+also uh flatten the position of the row
+
+1515
+01:52:59,360 --> 01:53:06,760
+that contains one. Okay.
+
+1516
+01:53:03,760 --> 01:53:06,760
+So,
+
+1517
+01:53:06,960 --> 01:53:12,159
+so yeah. So, get all positions of the
+
+1518
+01:53:10,480 --> 01:53:15,199
+one.
+
+1519
+01:53:12,159 --> 01:53:19,080
+If they collide,
+
+1520
+01:53:15,199 --> 01:53:19,080
+that means they have
+
+1521
+01:53:22,159 --> 01:53:26,040
+identical indexes.
+
+1522
+01:53:39,280 --> 01:53:44,719
+That's right.
+
+1523
+01:53:42,320 --> 01:53:47,599
+If they collide, that means they have
+
+1524
+01:53:44,719 --> 01:53:51,040
+have identical indexes.
+
+1525
+01:53:47,599 --> 01:53:55,000
+So therefore, you do a intersection.
+
+1526
+01:53:51,040 --> 01:53:55,000
+What is wrong with that?
+
+1527
+01:54:01,440 --> 01:54:07,560
+You want to know some item that appear
+
+1528
+01:54:04,239 --> 01:54:07,560
+in both.
+
+1529
+01:54:15,040 --> 01:54:21,760
+That's right. Intersection.
+
+1530
+01:54:17,840 --> 01:54:26,000
+I don't see anything wrong with that.
+
+1531
+01:54:21,760 --> 01:54:28,800
+Intersection is a collide list.
+
+1532
+01:54:26,000 --> 01:54:31,800
+and both of the input are already
+
+1533
+01:54:28,800 --> 01:54:31,800
+flattened.
+
+1534
+01:54:32,880 --> 01:54:39,520
+Okay.
+
+1535
+01:54:34,560 --> 01:54:43,320
+So then the length of the collide list
+
+1536
+01:54:39,520 --> 01:54:43,320
+first total splits
+
+1537
+01:54:48,080 --> 01:54:53,480
+should be the answer of total number of
+
+1538
+01:54:50,480 --> 01:54:53,480
+splits.
+
+1539
+01:55:15,520 --> 01:55:20,520
+Okay. I don't see anything wrong with
+
+1540
+01:55:17,520 --> 01:55:20,520
+it.
+
+1541
+01:55:21,360 --> 01:55:31,560
+I cannot see anything wrong with it.
+
+1542
+01:55:26,159 --> 01:55:31,560
+So, how long has this video been going?
+
+1543
+01:55:32,560 --> 01:55:38,000
+two hours.
+
+1544
+01:55:35,119 --> 01:55:42,239
+Uh but
+
+1545
+01:55:38,000 --> 01:55:45,440
+how many people watching? Three
+
+1546
+01:55:42,239 --> 01:55:49,760
+concurrent views. View viewers. Three.
+
+1547
+01:55:45,440 --> 01:55:54,520
+Me plus you and me. Three. Three is a
+
+1548
+01:55:49,760 --> 01:55:54,520
+crowd. Hi guys.
+
+1549
+01:55:55,360 --> 01:56:02,960
+So we are suffering from code which is a
+
+1550
+01:55:58,560 --> 01:56:04,800
+pleasure for computer scientists and
+
+1551
+01:56:02,960 --> 01:56:09,360
+mathematicians.
+
+1552
+01:56:04,800 --> 01:56:12,480
+This is a grand pleasure but however
+
+1553
+01:56:09,360 --> 01:56:15,719
+I need a break really sitting here for
+
+1554
+01:56:12,480 --> 01:56:15,719
+two hours.
+
+1555
+01:56:15,760 --> 01:56:23,199
+Uh we need to debug
+
+1556
+01:56:19,520 --> 01:56:25,920
+but so far I did not identify any
+
+1557
+01:56:23,199 --> 01:56:29,040
+logical problems. Let's run this in wam
+
+1558
+01:56:25,920 --> 01:56:33,760
+language and start a new one. Here's the
+
+1559
+01:56:29,040 --> 01:56:35,760
+code. Look, look how beautiful they are
+
+1560
+01:56:33,760 --> 01:56:38,639
+formatted. Let me demonstrate this
+
+1561
+01:56:35,760 --> 01:56:40,639
+again. You see automatic formatting on
+
+1562
+01:56:38,639 --> 01:56:42,800
+the fly
+
+1563
+01:56:40,639 --> 01:56:47,040
+as you type.
+
+1564
+01:56:42,800 --> 01:56:48,960
+Okay, let's run it. Shift enter.
+
+1565
+01:56:47,040 --> 01:56:53,040
+21.
+
+1566
+01:56:48,960 --> 01:56:56,719
+Okay, so I don't see anything wrong. And
+
+1567
+01:56:53,040 --> 01:57:00,400
+also you see they they formatted with
+
+1568
+01:56:56,719 --> 01:57:02,320
+the mathematical t type set union and
+
+1569
+01:57:00,400 --> 01:57:03,840
+intersection
+
+1570
+01:57:02,320 --> 01:57:06,880
+symbol.
+
+1571
+01:57:03,840 --> 01:57:10,719
+Can you see that there? Fantastic and
+
+1572
+01:57:06,880 --> 01:57:15,280
+beautiful. In fact we can put your
+
+1573
+01:57:10,719 --> 01:57:19,360
+cursor here and control shiftn
+
+1574
+01:57:15,280 --> 01:57:23,199
+to make it mathematically type set.
+
+1575
+01:57:19,360 --> 01:57:26,639
+Oh okay. they also combined that
+
+1576
+01:57:23,199 --> 01:57:31,199
+uh that text input
+
+1577
+01:57:26,639 --> 01:57:34,159
+I mean into the you know backslash n so
+
+1578
+01:57:31,199 --> 01:57:37,520
+anyway so but you can see the union here
+
+1579
+01:57:34,159 --> 01:57:40,960
+so variables become green
+
+1580
+01:57:37,520 --> 01:57:43,199
+and uh you can still do this
+
+1581
+01:57:40,960 --> 01:57:45,199
+automatic formatting on the fly
+
+1582
+01:57:43,199 --> 01:57:47,760
+fantastic
+
+1583
+01:57:45,199 --> 01:57:50,320
+okay now let's copy this and see what we
+
+1584
+01:57:47,760 --> 01:57:52,159
+get state function
+
+1585
+01:57:50,320 --> 01:57:54,080
+Select
+
+1586
+01:57:52,159 --> 01:57:57,280
+copy.
+
+1587
+01:57:54,080 --> 01:57:59,920
+We'll get a formatted version. Okay.
+
+1588
+01:57:57,280 --> 01:58:03,040
+Somewhat better.
+
+1589
+01:57:59,920 --> 01:58:05,760
+Yeah. Somewhat better than now.
+
+1590
+01:58:03,040 --> 01:58:07,760
+You see you can compare this section and
+
+1591
+01:58:05,760 --> 01:58:09,520
+this section.
+
+1592
+01:58:07,760 --> 01:58:11,599
+So
+
+1593
+01:58:09,520 --> 01:58:14,000
+after formatting is a bit better. But
+
+1594
+01:58:11,599 --> 01:58:17,520
+they but what one thing I don't like is
+
+1595
+01:58:14,000 --> 01:58:21,599
+they added you see this intersection
+
+1596
+01:58:17,520 --> 01:58:24,320
+that's that's the symbol that's called
+
+1597
+01:58:21,599 --> 01:58:27,920
+named character for this
+
+1598
+01:58:24,320 --> 01:58:30,320
+math symbol. So wam language doesn't
+
+1599
+01:58:27,920 --> 01:58:33,679
+actually use unic code. It actually
+
+1600
+01:58:30,320 --> 01:58:35,920
+encode any math symbol into its own
+
+1601
+01:58:33,679 --> 01:58:38,320
+programming language.
+
+1602
+01:58:35,920 --> 01:58:41,599
+So you can see
+
+1603
+01:58:38,320 --> 01:58:45,040
+this part you see intersection.
+
+1604
+01:58:41,599 --> 01:58:48,719
+I don't like that if you are doing uh
+
+1605
+01:58:45,040 --> 01:58:53,920
+pure ask code because this this because
+
+1606
+01:58:48,719 --> 01:58:56,239
+this backslash is very nasty in Unix
+
+1607
+01:58:53,920 --> 01:59:00,719
+because they they function as escape
+
+1608
+01:58:56,239 --> 01:59:02,960
+characters. So it will screw up emacs
+
+1609
+01:59:00,719 --> 01:59:04,639
+par matching. You see it doesn't work
+
+1610
+01:59:02,960 --> 01:59:08,639
+anymore.
+
+1611
+01:59:04,639 --> 01:59:10,960
+Uh so I don't like this auto format so I
+
+1612
+01:59:08,639 --> 01:59:13,199
+I like to keep it just just say
+
+1613
+01:59:10,960 --> 01:59:14,719
+intersection the standard you see the
+
+1614
+01:59:13,199 --> 01:59:17,199
+standard
+
+1615
+01:59:14,719 --> 01:59:19,360
+you know function name bracket instead
+
+1616
+01:59:17,199 --> 01:59:21,679
+of this
+
+1617
+01:59:19,360 --> 01:59:24,480
+this um
+
+1618
+01:59:21,679 --> 01:59:27,440
+infix notation with a special
+
+1619
+01:59:24,480 --> 01:59:31,040
+mathematical symbol that
+
+1620
+01:59:27,440 --> 01:59:33,040
+screws screws up your paran matching in
+
+1621
+01:59:31,040 --> 01:59:36,040
+EMAC.
+
+1622
+01:59:33,040 --> 01:59:36,040
+So,
+
+1623
+01:59:37,119 --> 01:59:45,119
+okay, it's I don't want that.
+
+1624
+01:59:41,440 --> 01:59:48,520
+But you can you can undo
+
+1625
+01:59:45,119 --> 01:59:48,520
+then copy
+
+1626
+01:59:49,760 --> 01:59:56,400
+and paste there. That's good. You see
+
+1627
+01:59:52,639 --> 01:59:58,719
+intersection is unchanged. Now, this is
+
+1628
+01:59:56,400 --> 02:00:02,320
+more beautiful. This is formatted more
+
+1629
+01:59:58,719 --> 02:00:05,199
+beautiful than way I have it. So, delete
+
+1630
+02:00:02,320 --> 02:00:07,040
+delete
+
+1631
+02:00:05,199 --> 02:00:09,280
+indented.
+
+1632
+02:00:07,040 --> 02:00:14,119
+Okay.
+
+1633
+02:00:09,280 --> 02:00:14,119
+Yeah, the code is here, but it's wrong.
+
+1634
+02:00:15,360 --> 02:00:19,920
+And uh so far, I haven't figured out
+
+1635
+02:00:17,760 --> 02:00:22,800
+what's wrong. I need a break. Okay. So,
+
+1636
+02:00:19,920 --> 02:00:26,280
+let me take a break.
+
+1637
+02:00:22,800 --> 02:00:26,280
+Why don't we
+
+1638
+02:00:27,119 --> 02:00:33,679
+uh you know the state of code advent of
+
+1639
+02:00:30,320 --> 02:00:37,840
+code we know it's going to take a while
+
+1640
+02:00:33,679 --> 02:00:40,080
+two three hours is common
+
+1641
+02:00:37,840 --> 02:00:42,400
+you know people might think I don't want
+
+1642
+02:00:40,080 --> 02:00:45,520
+to do it because if I do it it's going
+
+1643
+02:00:42,400 --> 02:00:48,000
+to take me few hours looks bad actually
+
+1644
+02:00:45,520 --> 02:00:51,440
+that's normal okay
+
+1645
+02:00:48,000 --> 02:00:56,280
+so uh but
+
+1646
+02:00:51,440 --> 02:00:56,280
+So, be right back.
+
+1647
+02:00:58,560 --> 02:01:04,520
+Be right back. How come I don't have a
+
+1648
+02:01:01,520 --> 02:01:04,520
+brief?
+
+1649
+02:01:07,679 --> 02:01:13,639
+Okay, I lost viewer. Now it's just one
+
+1650
+02:01:10,639 --> 02:01:13,639
+person.
+
+1651
+02:01:14,000 --> 02:01:17,480
+Okay, so
+
+1652
+02:01:28,639 --> 02:01:33,480
+Yeah, I'll be right back in 10 minutes.
+
+1653
+02:01:41,760 --> 02:01:45,719
+Stop my video.
+
+1654
+02:09:06,719 --> 02:09:12,480
+Okay,
+
+1655
+02:09:09,280 --> 02:09:16,280
+I'm back.
+
+1656
+02:09:12,480 --> 02:09:16,280
+So, two hours.
+
+1657
+02:09:19,440 --> 02:09:27,159
+Now at each stage we can actually print
+
+1658
+02:09:23,119 --> 02:09:27,159
+the whole matrix.
+
+1659
+02:09:33,360 --> 02:09:38,040
+Can we not really?
+
+1660
+02:09:40,719 --> 02:09:43,719
+Yeah.
+
+1661
+02:09:44,239 --> 02:09:48,760
+Let's let's see what we get.
+
+1662
+02:10:25,280 --> 02:10:29,320
+Okay. So now
+
+1663
+02:11:03,920 --> 02:11:10,840
+means beam state is row is okay let's
+
+1664
+02:11:50,159 --> 02:11:53,159
+Okay.
+
+1665
+02:12:08,639 --> 02:12:13,159
+Okay, it's cleaning it up.
+
+1666
+02:13:18,560 --> 02:13:25,159
+Okay, now let's
+
+1667
+02:13:21,840 --> 02:13:25,159
+do not
+
+1668
+02:13:25,440 --> 02:13:30,719
+print the function.
+
+1669
+02:13:27,760 --> 02:13:33,960
+Run it.
+
+1670
+02:13:30,719 --> 02:13:33,960
+Run it.
+
+1671
+02:13:58,560 --> 02:14:06,320
+So at the end there is one, two, three,
+
+1672
+02:14:02,239 --> 02:14:08,639
+four, five, six, seven. But according to
+
+1673
+02:14:06,320 --> 02:14:11,440
+the
+
+1674
+02:14:08,639 --> 02:14:20,199
+end of code,
+
+1675
+02:14:11,440 --> 02:14:20,199
+one 2 3 4 5 6 7 8 9.
+
+1676
+02:14:26,400 --> 02:14:35,360
+I got seven, but the result is not. Did
+
+1677
+02:14:29,760 --> 02:14:38,920
+we did we miss the uh the input? Is the
+
+1678
+02:14:35,360 --> 02:14:38,920
+input incorrect?
+
+1679
+02:14:40,320 --> 02:14:48,040
+One uh one, two, three, four, five, six.
+
+1680
+02:14:48,719 --> 02:14:57,079
+One, two, three, four, five, six.
+
+1681
+02:14:52,480 --> 02:14:57,079
+Input should be correct.
+
+1682
+02:15:01,599 --> 02:15:05,719
+Okay. But um
+
+1683
+02:15:16,560 --> 02:15:22,719
+now if we remove that the result should
+
+1684
+02:15:19,280 --> 02:15:25,280
+be same 721
+
+1685
+02:15:22,719 --> 02:15:30,840
+right
+
+1686
+02:15:25,280 --> 02:15:30,840
+because the last row is all empty
+
+1687
+02:15:32,880 --> 02:15:41,239
+now. So where where did we go wrong?
+
+1688
+02:15:37,679 --> 02:15:41,239
+I don't know.
+
+1689
+02:15:48,239 --> 02:15:54,560
+Does any know
+
+1690
+02:15:51,040 --> 02:15:57,880
+is there anyone here? No.
+
+1691
+02:15:54,560 --> 02:15:57,880
+Oh god.
+
+1692
+02:16:00,480 --> 02:16:05,199
+So,
+
+1693
+02:16:02,400 --> 02:16:08,079
+so you need to print
+
+1694
+02:16:05,199 --> 02:16:11,920
+the beam state. Okay. Why don't you just
+
+1695
+02:16:08,079 --> 02:16:14,719
+print out the beam state?
+
+1696
+02:16:11,920 --> 02:16:19,560
+I mean, print out the
+
+1697
+02:16:14,719 --> 02:16:19,560
+diagram of the beam state.
+
+1698
+02:16:26,159 --> 02:16:30,360
+with the current row.
+
+1699
+02:16:30,560 --> 02:16:35,559
+So wait, each time it happens,
+
+1700
+02:16:36,880 --> 02:16:41,479
+you see they they prolonged
+
+1701
+02:16:45,359 --> 02:16:51,719
+they doubled the number of rows. Is that
+
+1702
+02:16:48,719 --> 02:16:51,719
+right?
+
+1703
+02:16:52,240 --> 02:17:00,719
+Oh, it's interspersed with empty rows
+
+1704
+02:16:57,679 --> 02:17:04,599
+presumably to make the problem easier.
+
+1705
+02:17:00,719 --> 02:17:04,599
+You see, they intersperse
+
+1706
+02:17:08,399 --> 02:17:13,639
+the splitters with empty rows.
+
+1707
+02:17:20,719 --> 02:17:27,120
+they intersperse it. So to make it more
+
+1708
+02:17:24,399 --> 02:17:30,519
+efficient, you can remove all the empty
+
+1709
+02:17:27,120 --> 02:17:30,519
+rows actually.
+
+1710
+02:17:33,280 --> 02:17:37,280
+But now I'm tired. I don't want to work
+
+1711
+02:17:35,519 --> 02:17:40,280
+on this
+
+1712
+02:17:37,280 --> 02:17:40,280
+anymore.
+
+1713
+02:17:45,040 --> 02:17:52,120
+The result of that is seven.
+
+1714
+02:17:49,120 --> 02:17:52,120
+Okay.
+
+1715
+02:18:04,719 --> 02:18:09,319
+So when beam states
+
+1716
+02:18:09,760 --> 02:18:14,760
+intersperse with the row let's see
+
+1717
+02:18:45,359 --> 02:18:52,319
+Oh, you need to also
+
+1718
+02:18:49,760 --> 02:18:56,679
+once they collide,
+
+1719
+02:18:52,319 --> 02:18:56,679
+you need to split them.
+
+1720
+02:18:59,120 --> 02:19:03,080
+If they don't collide,
+
+1721
+02:19:05,200 --> 02:19:10,000
+then just return the beam state. If they
+
+1722
+02:19:07,840 --> 02:19:13,800
+collide,
+
+1723
+02:19:10,000 --> 02:19:13,800
+you need to
+
+1724
+02:19:18,399 --> 02:19:25,280
+Oh, yeah. You need to add I forgot.
+
+1725
+02:19:23,200 --> 02:19:28,639
+Ah,
+
+1726
+02:19:25,280 --> 02:19:32,160
+Intersection. Okay.
+
+1727
+02:19:28,639 --> 02:19:35,719
+intersection of the beam state and the
+
+1728
+02:19:32,160 --> 02:19:35,719
+collide list.
+
+1729
+02:19:37,040 --> 02:19:41,639
+That's right, right?
+
+1730
+02:19:41,679 --> 02:19:47,439
+Okay,
+
+1731
+02:19:43,280 --> 02:19:50,960
+that's the Yeah, you forgot.
+
+1732
+02:19:47,439 --> 02:19:54,960
+If they collide, you need to return
+
+1733
+02:19:50,960 --> 02:19:57,760
+their new split position, but you also
+
+1734
+02:19:54,960 --> 02:19:59,359
+need to return
+
+1735
+02:19:57,760 --> 02:20:02,720
+the
+
+1736
+02:19:59,359 --> 02:20:07,040
+beams that did not collide because they
+
+1737
+02:20:02,720 --> 02:20:09,760
+keep going. So, uh, so let's make sure
+
+1738
+02:20:07,040 --> 02:20:14,080
+this part is correct. Okay, so it's not
+
+1739
+02:20:09,760 --> 02:20:17,600
+that. No, it's um,
+
+1740
+02:20:14,080 --> 02:20:21,359
+so hold on a second. So,
+
+1741
+02:20:17,600 --> 02:20:23,760
+so that should be
+
+1742
+02:20:21,359 --> 02:20:26,560
+intersection
+
+1743
+02:20:23,760 --> 02:20:32,600
+of
+
+1744
+02:20:26,560 --> 02:20:32,600
+of the beam state and
+
+1745
+02:20:33,200 --> 02:20:38,800
+this. Okay.
+
+1746
+02:20:35,520 --> 02:20:41,800
+So, let's
+
+1747
+02:20:38,800 --> 02:20:41,800
+there
+
+1748
+02:20:41,920 --> 02:20:47,600
+does that make sense?
+
+1749
+02:20:44,720 --> 02:20:50,560
+Yeah,
+
+1750
+02:20:47,600 --> 02:20:52,880
+if they do not collide, just return the
+
+1751
+02:20:50,560 --> 02:20:56,240
+beam state. Otherwise, you need to
+
+1752
+02:20:52,880 --> 02:21:01,200
+return the original beam state
+
+1753
+02:20:56,240 --> 02:21:03,120
+and the splitted result.
+
+1754
+02:21:01,200 --> 02:21:09,000
+Run it.
+
+1755
+02:21:03,120 --> 02:21:09,000
+It should be nine. No, it wait. God,
+
+1756
+02:21:09,040 --> 02:21:14,800
+now this is wrong.
+
+1757
+02:21:11,920 --> 02:21:17,800
+Okay. But we think I think we know the
+
+1758
+02:21:14,800 --> 02:21:17,800
+problem.
+
+1759
+02:21:18,160 --> 02:21:24,960
+No, not intersection. Okay.
+
+1760
+02:21:21,840 --> 02:21:30,240
+Undo. Undo. Undo. Undo. Undo. Okay. Be
+
+1761
+02:21:24,960 --> 02:21:32,160
+careful. You don't want up here.
+
+1762
+02:21:30,240 --> 02:21:34,720
+Okay.
+
+1763
+02:21:32,160 --> 02:21:37,720
+So if they collide, if they do not
+
+1764
+02:21:34,720 --> 02:21:37,720
+collide,
+
+1765
+02:21:39,200 --> 02:21:46,760
+just return the beam state as is. Now if
+
+1766
+02:21:43,200 --> 02:21:46,760
+they did collide,
+
+1767
+02:21:47,680 --> 02:21:56,040
+you need to
+
+1768
+02:21:51,760 --> 02:21:56,040
+union not intersection.
+
+1769
+02:21:57,280 --> 02:22:09,080
+Okay. Union of the beam state and this
+
+1770
+02:22:03,840 --> 02:22:09,080
+map the split. Okay.
+
+1771
+02:22:09,280 --> 02:22:14,880
+Fantastic and beautiful. I'm sure it is
+
+1772
+02:22:11,680 --> 02:22:18,080
+correct now.
+
+1773
+02:22:14,880 --> 02:22:21,479
+Isn't it? So it should be 921.
+
+1774
+02:22:18,080 --> 02:22:21,479
+Oh 1522.
+
+1775
+02:22:25,840 --> 02:22:37,000
+Now it's incorrect. Now it's like 15 22.
+
+1776
+02:22:30,640 --> 02:22:37,000
+It should be 21. Okay. Almost. Al almost
+
+1777
+02:22:37,359 --> 02:22:48,280
+15. Let's see. 1 2 3 4 5 6 7 8 9. Not
+
+1778
+02:22:42,640 --> 02:22:48,280
+15. Okay. So it's not union.
+
+1779
+02:22:48,720 --> 02:22:56,520
+Uh so what is it then?
+
+1780
+02:22:52,479 --> 02:22:56,520
+So if they collide,
+
+1781
+02:22:56,560 --> 02:23:01,880
+if they do not collide, return that.
+
+1782
+02:23:06,800 --> 02:23:11,479
+Oh, you need to flatten it.
+
+1783
+02:23:15,680 --> 02:23:23,640
+720 9:21
+
+1784
+02:23:18,399 --> 02:23:23,640
+1522. No. God,
+
+1785
+02:23:27,840 --> 02:23:33,240
+what's uh something here? Okay,
+
+1786
+02:23:43,920 --> 02:23:49,399
+Union.
+
+1787
+02:23:46,399 --> 02:23:49,399
+Okay.
+
+1788
+02:23:54,479 --> 02:24:01,640
+3 4 let's say
+
+1789
+02:23:57,280 --> 02:24:01,640
+3 4 5
+
+1790
+02:24:03,040 --> 02:24:11,040
+it returns 345 right. So if it does it
+
+1791
+02:24:08,240 --> 02:24:12,880
+does it remove duplicate? Yes I think
+
+1792
+02:24:11,040 --> 02:24:15,520
+so.
+
+1793
+02:24:12,880 --> 02:24:19,439
+Right.
+
+1794
+02:24:15,520 --> 02:24:22,760
+And the order does not matter, right?
+
+1795
+02:24:19,439 --> 02:24:22,760
+Pretty sure,
+
+1796
+02:24:24,960 --> 02:24:31,520
+right? So
+
+1797
+02:24:29,120 --> 02:24:34,399
+almost that it's just a little logic
+
+1798
+02:24:31,520 --> 02:24:37,760
+problem, logistics.
+
+1799
+02:24:34,399 --> 02:24:40,880
+So if they don't collide, just return
+
+1800
+02:24:37,760 --> 02:24:44,520
+the beam state. They flow through. If
+
+1801
+02:24:40,880 --> 02:24:44,520
+they do collide.
+
+1802
+02:24:47,920 --> 02:24:55,600
+Oh, they if they do collide, you need to
+
+1803
+02:24:53,520 --> 02:24:57,520
+split
+
+1804
+02:24:55,600 --> 02:25:01,040
+those
+
+1805
+02:24:57,520 --> 02:25:05,080
+that has collision. You need to split at
+
+1806
+02:25:01,040 --> 02:25:05,080
+those collision points.
+
+1807
+02:25:07,840 --> 02:25:10,840
+But
+
+1808
+02:25:13,040 --> 02:25:20,720
+you also need to remove
+
+1809
+02:25:16,880 --> 02:25:25,720
+the collision points. Okay.
+
+1810
+02:25:20,720 --> 02:25:25,720
+Then you need to add back.
+
+1811
+02:25:26,319 --> 02:25:31,800
+Yeah. So I know what to do here. So
+
+1812
+02:25:34,399 --> 02:25:40,120
+So this line. Okay. If they collide,
+
+1813
+02:25:43,359 --> 02:25:49,760
+you
+
+1814
+02:25:44,880 --> 02:25:53,560
+you compute their split positions
+
+1815
+02:25:49,760 --> 02:25:53,560
+and uh
+
+1816
+02:25:58,160 --> 02:26:02,600
+minus. Okay. Complement
+
+1817
+02:26:11,600 --> 02:26:19,680
+Okay. Complement is like a minus one set
+
+1818
+02:26:15,359 --> 02:26:24,840
+minus the other. Okay. So,
+
+1819
+02:26:19,680 --> 02:26:24,840
+so this is the split.
+
+1820
+02:26:25,200 --> 02:26:28,200
+So,
+
+1821
+02:26:29,040 --> 02:26:34,319
+complement minus the collide list.
+
+1822
+02:26:34,960 --> 02:26:42,399
+Right. So you want that.
+
+1823
+02:26:39,520 --> 02:26:46,080
+Wait, wait.
+
+1824
+02:26:42,399 --> 02:26:51,399
+You want that?
+
+1825
+02:26:46,080 --> 02:26:51,399
+That's the split beams
+
+1826
+02:26:51,760 --> 02:27:00,680
+minus the collide list.
+
+1827
+02:26:55,120 --> 02:27:00,680
+Then you want the union
+
+1828
+02:27:00,720 --> 02:27:03,600
+of
+
+1829
+02:27:05,439 --> 02:27:12,280
+Now, a little bit complicated.
+
+1830
+02:27:08,000 --> 02:27:12,280
+here. A little bit complicated.
+
+1831
+02:27:37,840 --> 02:27:45,160
+that okay I'm pretty sure so this is
+
+1832
+02:27:42,160 --> 02:27:45,160
+incorrect
+
+1833
+02:27:45,439 --> 02:27:48,439
+complement
+
+1834
+02:27:49,120 --> 02:27:54,080
+of
+
+1835
+02:27:52,000 --> 02:27:56,800
+the union
+
+1836
+02:27:54,080 --> 02:28:00,560
+of beam state original beam beam state
+
+1837
+02:27:56,800 --> 02:28:02,080
+plus the splitter
+
+1838
+02:28:00,560 --> 02:28:06,760
+beams
+
+1839
+02:28:02,080 --> 02:28:06,760
+minus the collision list
+
+1840
+02:28:09,120 --> 02:28:15,840
+beam state first the split minus the
+
+1841
+02:28:12,240 --> 02:28:19,040
+collision. So each collision point they
+
+1842
+02:28:15,840 --> 02:28:22,080
+got removed the beam disappeared they
+
+1843
+02:28:19,040 --> 02:28:24,800
+become two new positions. Right? So this
+
+1844
+02:28:22,080 --> 02:28:31,840
+is correct.
+
+1845
+02:28:24,800 --> 02:28:34,560
+So this will give us 921. So let's see.
+
+1846
+02:28:31,840 --> 02:28:40,200
+One, two, three, four, five, six, seven,
+
+1847
+02:28:34,560 --> 02:28:40,200
+eight, nine. Yeah, these do it.
+
+1848
+02:28:40,640 --> 02:28:45,960
+Correct.
+
+1849
+02:28:42,960 --> 02:28:45,960
+Beautiful.
+
+1850
+02:28:46,160 --> 02:28:54,479
+Two hours done.
+
+1851
+02:28:49,439 --> 02:28:59,200
+Okay, now put it back carefully.
+
+1852
+02:28:54,479 --> 02:29:03,359
+syntax correct show in browser.
+
+1853
+02:28:59,200 --> 02:29:06,359
+So what what what is is we compute it.
+
+1854
+02:29:03,359 --> 02:29:06,359
+So
+
+1855
+02:29:08,080 --> 02:29:12,040
+this part we remove
+
+1856
+02:29:12,880 --> 02:29:22,560
+huge input list. Okay.
+
+1857
+02:29:16,319 --> 02:29:26,160
+So layer 921. Okay. Now go to next. Now
+
+1858
+02:29:22,560 --> 02:29:31,200
+delete that part. Now
+
+1859
+02:29:26,160 --> 02:29:35,200
+refresh. Good. Good.
+
+1860
+02:29:31,200 --> 02:29:38,800
+Okay. Now cut. Paste. Paste one more
+
+1861
+02:29:35,200 --> 02:29:42,840
+time. Copy it out. Go back to the page.
+
+1862
+02:29:38,800 --> 02:29:42,840
+Search for the input.
+
+1863
+02:29:42,960 --> 02:29:50,560
+Copy the input. Close.
+
+1864
+02:29:46,800 --> 02:29:52,960
+Go to the code. Select the this input
+
+1865
+02:29:50,560 --> 02:29:55,760
+list.
+
+1866
+02:29:52,960 --> 02:29:59,000
+Okay, now
+
+1867
+02:29:55,760 --> 02:29:59,000
+run it.
+
+1868
+02:30:00,000 --> 02:30:07,160
+So 87
+
+1869
+02:30:03,439 --> 02:30:07,160
+and uh
+
+1870
+02:30:07,280 --> 02:30:16,200
+and uh 1516. So total split is 1516. Is
+
+1871
+02:30:12,960 --> 02:30:16,200
+that correct?
+
+1872
+02:30:18,160 --> 02:30:23,280
+Submit.
+
+1873
+02:30:19,760 --> 02:30:26,960
+That's the right answer. Finally.
+
+1874
+02:30:23,280 --> 02:30:29,439
+Jesus. Put it back. Syntax color
+
+1875
+02:30:26,960 --> 02:30:34,040
+everything.
+
+1876
+02:30:29,439 --> 02:30:34,040
+Now personal input.
+
+1877
+02:30:36,960 --> 02:30:45,520
+Okay. So that concludes today's talk
+
+1878
+02:30:40,080 --> 02:30:48,880
+show. Uh took two hours and 30 minutes
+
+1879
+02:30:45,520 --> 02:30:52,640
+but we finished.
+
+1880
+02:30:48,880 --> 02:30:57,280
+So the problem we took so long is
+
+1881
+02:30:52,640 --> 02:30:59,200
+because we there's a logic issue in our
+
+1882
+02:30:57,280 --> 02:31:02,319
+algorithm
+
+1883
+02:30:59,200 --> 02:31:07,359
+in our computation of the final beam
+
+1884
+02:31:02,319 --> 02:31:09,359
+positions because we forgot to
+
+1885
+02:31:07,359 --> 02:31:13,200
+remove
+
+1886
+02:31:09,359 --> 02:31:15,920
+the beam position when it became split
+
+1887
+02:31:13,200 --> 02:31:18,800
+and also we forgot
+
+1888
+02:31:15,920 --> 02:31:24,520
+to remain. So let's let's write down why
+
+1889
+02:31:18,800 --> 02:31:24,520
+we spend so long to conclude this video.
+
+1890
+02:31:30,640 --> 02:31:39,280
+Two
+
+1891
+02:31:32,960 --> 02:31:45,840
+logical errors in our AR rhythm.
+
+1892
+02:31:39,280 --> 02:31:50,840
+One, we forgot to keep the beams
+
+1893
+02:31:45,840 --> 02:31:50,840
+that did not collide.
+
+1894
+02:31:50,880 --> 02:31:53,880
+Two,
+
+1895
+02:31:58,000 --> 02:32:01,640
+we uh
+
+1896
+02:32:02,399 --> 02:32:08,680
+remove the beam
+
+1897
+02:32:05,040 --> 02:32:08,680
+that did collide.
+
+1898
+02:32:15,359 --> 02:32:20,359
+Seems these two sentences contradictory.
+
+1899
+02:32:28,560 --> 02:32:34,000
+Yeah, this you know now there's a
+
+1900
+02:32:30,560 --> 02:32:36,000
+logical issue of interpretation of this
+
+1901
+02:32:34,000 --> 02:32:38,640
+sentence.
+
+1902
+02:32:36,000 --> 02:32:41,600
+These two sentence seems contradictory
+
+1903
+02:32:38,640 --> 02:32:46,160
+to each other. One and two. We forgot to
+
+1904
+02:32:41,600 --> 02:32:51,560
+keep. One is keep, one is remove. One is
+
+1905
+02:32:46,160 --> 02:32:51,560
+keep the beams that did not collide.
+
+1906
+02:32:53,920 --> 02:33:00,640
+Collide means run into a splitter. Okay.
+
+1907
+02:32:57,920 --> 02:33:03,280
+And we forgot to remove the beams that
+
+1908
+02:33:00,640 --> 02:33:06,720
+did collide. So
+
+1909
+02:33:03,280 --> 02:33:08,800
+it makes sense to this problem. But for
+
+1910
+02:33:06,720 --> 02:33:13,120
+someone who did not read the problem,
+
+1911
+02:33:08,800 --> 02:33:15,920
+who let's say a alien from Mars, they
+
+1912
+02:33:13,120 --> 02:33:20,359
+just look at these two sentences. Does
+
+1913
+02:33:15,920 --> 02:33:20,359
+that make sense? Keep the beams.
+
+1914
+02:33:20,479 --> 02:33:28,880
+So either they collided or not collide.
+
+1915
+02:33:24,640 --> 02:33:31,880
+So when they did not collide,
+
+1916
+02:33:28,880 --> 02:33:31,880
+keep
+
+1917
+02:33:32,560 --> 02:33:37,920
+right. That makes sense. When when they
+
+1918
+02:33:35,120 --> 02:33:40,160
+did not collide, you keep them. When
+
+1919
+02:33:37,920 --> 02:33:44,240
+they did collide, you need to remove
+
+1920
+02:33:40,160 --> 02:33:47,040
+them. Makes sense. Even when you are an
+
+1921
+02:33:44,240 --> 02:33:49,040
+alien who just read these two sentences
+
+1922
+02:33:47,040 --> 02:33:52,920
+without the problem, without the
+
+1923
+02:33:49,040 --> 02:33:52,920
+context, still makes sense.
+
+1924
+02:33:55,120 --> 02:34:02,120
+Okay, that's it for today. Thank you
+
+1925
+02:33:57,359 --> 02:34:02,120
+guys for watching. Bye, guys.
+
+1926
+02:34:04,000 --> 02:34:09,359
+We got three people watching.
+
+1927
+02:34:06,880 --> 02:34:14,240
+Okay. Take a long time. Take a long
+
+1928
+02:34:09,359 --> 02:34:18,240
+time. So, no request for donation today
+
+1929
+02:34:14,240 --> 02:34:20,960
+because this is not really good.
+
+1930
+02:34:18,240 --> 02:34:27,160
+Almost three hours to solve this thing.
+
+1931
+02:34:20,960 --> 02:34:27,160
+Oh god. Okay. But it's done. Bye.
+
+1932
+02:34:30,640 --> 02:34:36,399
+And we can run this in wra language of
+
+1933
+02:34:33,359 --> 02:34:40,760
+course. Let's run it. Let's uh let's run
+
+1934
+02:34:36,399 --> 02:34:40,760
+it. Copy.
+
+1935
+02:34:41,520 --> 02:34:47,760
+Select or paste.
+
+1936
+02:34:44,240 --> 02:34:52,280
+Shift enter.
+
+1937
+02:34:47,760 --> 02:34:52,280
+9 and 21. That's right.
+

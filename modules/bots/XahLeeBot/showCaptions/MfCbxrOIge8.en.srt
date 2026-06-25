@@ -1,0 +1,7860 @@
+1
+00:00:04,549 --> 00:00:12,150
+welcome to another episode of excel talk
+
+2
+00:00:08,309 --> 00:00:16,080
+show today is September 9th Monday 2
+
+3
+00:00:12,150 --> 00:00:24,449
+o'clock p.m. San Francisco time and good
+
+4
+00:00:16,080 --> 00:00:27,150
+mornings e-tron crazy good mornings
+
+5
+00:00:24,449 --> 00:00:30,300
+e-tron crazy and good morning bathroom
+
+6
+00:00:27,150 --> 00:00:34,500
+you so different crazy is doing homework
+
+7
+00:00:30,300 --> 00:00:41,129
+math homework about FX equals 2x squared
+
+8
+00:00:34,500 --> 00:00:45,120
+plus e ok that's a polynomial so is that
+
+9
+00:00:41,129 --> 00:00:51,149
+calculus or okay so what is the topic
+
+10
+00:00:45,120 --> 00:00:54,660
+today topics guys topics so okay so
+
+11
+00:00:51,149 --> 00:00:58,140
+let's prepare this this this window is
+
+12
+00:00:54,660 --> 00:01:02,100
+is JavaScript by the way and I might
+
+13
+00:00:58,140 --> 00:01:03,629
+want to convert it to typescript and it
+
+14
+00:01:02,100 --> 00:01:06,409
+could be your topic today you know
+
+15
+00:01:03,629 --> 00:01:10,650
+convert this script to typescript
+
+16
+00:01:06,409 --> 00:01:12,840
+sophist walks our start command log mod
+
+17
+00:01:10,650 --> 00:01:16,530
+okay if you like to see that conversion
+
+18
+00:01:12,840 --> 00:01:20,009
+to typescript say it so this window on
+
+19
+00:01:16,530 --> 00:01:22,710
+the left is my Emacs commands oh my max
+
+20
+00:01:20,009 --> 00:01:26,640
+commands you can see it there like down
+
+21
+00:01:22,710 --> 00:01:31,740
+arrow up up arrow right for word word
+
+22
+00:01:26,640 --> 00:01:36,180
+right back word word and so on so
+
+23
+00:01:31,740 --> 00:01:40,020
+comments guys what is today's topic wait
+
+24
+00:01:36,180 --> 00:01:47,189
+the the letter C so today's topics
+
+25
+00:01:40,020 --> 00:01:51,689
+includes the bathroom you say is 11 life
+
+26
+00:01:47,189 --> 00:01:54,270
+and death of Flash well I don't have
+
+27
+00:01:51,689 --> 00:01:56,820
+that much to talk about that well unless
+
+28
+00:01:54,270 --> 00:01:57,299
+we get into started to talk about some
+
+29
+00:01:56,820 --> 00:02:01,850
+history
+
+30
+00:01:57,299 --> 00:02:08,009
+okay so flash as you know fresh was
+
+31
+00:02:01,850 --> 00:02:13,580
+Macromedia flash Macromedia let's type
+
+32
+00:02:08,009 --> 00:02:16,950
+it macr ome dia that's a company
+
+33
+00:02:13,580 --> 00:02:22,040
+Macromedia fresh that's their technology
+
+34
+00:02:16,950 --> 00:02:28,110
+which is like today's let's go to
+
+35
+00:02:22,040 --> 00:02:31,440
+Wikipedia which is like today's which is
+
+36
+00:02:28,110 --> 00:02:36,000
+like today's JavaScript process VG okay
+
+37
+00:02:31,440 --> 00:02:38,760
+Oh cameras so there it is Adobe Flash
+
+38
+00:02:36,000 --> 00:02:39,180
+okay it was Macromedia in Adobe bought
+
+39
+00:02:38,760 --> 00:02:43,290
+it
+
+40
+00:02:39,180 --> 00:02:47,670
+now Adobe Macromedia in Adobe both
+
+41
+00:02:43,290 --> 00:02:54,090
+companies they are they are the pioneer
+
+42
+00:02:47,670 --> 00:02:57,690
+of software on Apple's platform in 1990s
+
+43
+00:02:54,090 --> 00:03:01,410
+you know in 1990s there's a huge amount
+
+44
+00:02:57,690 --> 00:03:04,050
+of pioneering software on the Apple
+
+45
+00:03:01,410 --> 00:03:07,340
+platform for example joining software
+
+46
+00:03:04,050 --> 00:03:09,660
+like Adobe Photoshop is one of them
+
+47
+00:03:07,340 --> 00:03:12,000
+freehand is one of them
+
+48
+00:03:09,660 --> 00:03:15,650
+Adobe Illustrator is one of one of them
+
+49
+00:03:12,000 --> 00:03:19,230
+and you have Macromedia you have
+
+50
+00:03:15,650 --> 00:03:24,120
+Macromedia you have fractal which is
+
+51
+00:03:19,230 --> 00:03:26,900
+painting software factor paint and quite
+
+52
+00:03:24,120 --> 00:03:30,740
+a lot you know many many of these
+
+53
+00:03:26,900 --> 00:03:34,200
+pioneering software's start on the Mac
+
+54
+00:03:30,740 --> 00:03:38,780
+then you know as you know Mac users are
+
+55
+00:03:34,200 --> 00:03:43,620
+typically 10% of all computer users so
+
+56
+00:03:38,780 --> 00:03:49,020
+eventually by the late 1990s or early
+
+57
+00:03:43,620 --> 00:03:52,230
+2000s they all switched to Windows that
+
+58
+00:03:49,020 --> 00:03:54,780
+is originally they most of them or many
+
+59
+00:03:52,230 --> 00:03:57,300
+of them they produce only Mac only
+
+60
+00:03:54,780 --> 00:04:00,120
+software in the beginning then they
+
+61
+00:03:57,300 --> 00:04:00,810
+switch to then they become both Mac and
+
+62
+00:04:00,120 --> 00:04:03,420
+Windows
+
+63
+00:04:00,810 --> 00:04:07,860
+typically Mac first you know they are
+
+64
+00:04:03,420 --> 00:04:10,290
+primarily mag then you know around year
+
+65
+00:04:07,860 --> 00:04:12,180
+2000 they are switched to Windows like
+
+66
+00:04:10,290 --> 00:04:14,130
+Windows Windows is their primary
+
+67
+00:04:12,180 --> 00:04:17,100
+platform windows first
+
+68
+00:04:14,130 --> 00:04:20,760
+they Mac because Mac you know you know
+
+69
+00:04:17,100 --> 00:04:24,650
+in the history of Mac Apple there's a
+
+70
+00:04:20,760 --> 00:04:27,340
+large struggles you know around 1997
+
+71
+00:04:24,650 --> 00:04:31,060
+Apple is about to die you know
+
+72
+00:04:27,340 --> 00:04:33,190
+reading breathing and you know people
+
+73
+00:04:31,060 --> 00:04:35,340
+say Apple is gonna be so too much sun
+
+74
+00:04:33,190 --> 00:04:38,820
+microsystems and so on but eventually
+
+75
+00:04:35,340 --> 00:04:42,550
+Steve Jobs came back to Apple and he
+
+76
+00:04:38,820 --> 00:04:45,610
+revived Apple he is really truly one of
+
+77
+00:04:42,550 --> 00:04:50,680
+the greatest mock marketer and innovator
+
+78
+00:04:45,610 --> 00:04:54,870
+so Steve Jobs came back to Apple in 1998
+
+79
+00:04:50,680 --> 00:04:58,930
+around 1998 and he is known as the I CEO
+
+80
+00:04:54,870 --> 00:05:03,340
+why I CEO because you know at that time
+
+81
+00:04:58,930 --> 00:05:05,860
+you have iMac you have i something i I
+
+82
+00:05:03,340 --> 00:05:09,340
+something something you know everything
+
+83
+00:05:05,860 --> 00:05:13,240
+is I something something ipod yeah I I
+
+84
+00:05:09,340 --> 00:05:18,280
+pod then so Steve Jobs became known as
+
+85
+00:05:13,240 --> 00:05:21,100
+AI CEO the AI is supposed to stand for
+
+86
+00:05:18,280 --> 00:05:24,550
+interim CEO but eventually he's just the
+
+87
+00:05:21,100 --> 00:05:29,889
+CEO yes no no other guy have to you know
+
+88
+00:05:24,550 --> 00:05:33,130
+actually take take place then around
+
+89
+00:05:29,889 --> 00:05:35,620
+2008 also Steve job died okay so let's
+
+90
+00:05:33,130 --> 00:05:39,729
+look at you know I have some articles on
+
+91
+00:05:35,620 --> 00:05:42,810
+Steve Jobs death so hold on a second let
+
+92
+00:05:39,729 --> 00:05:42,810
+me close the door
+
+93
+00:05:55,509 --> 00:06:05,659
+so Steve Jobs died around 2008 okay so
+
+94
+00:06:01,789 --> 00:06:10,340
+and then going to show you the bathroom
+
+95
+00:06:05,659 --> 00:06:13,610
+you talk and g-tron talk and who else is
+
+96
+00:06:10,340 --> 00:06:14,719
+here talk type your opinions and stuff
+
+97
+00:06:13,610 --> 00:06:20,270
+comments
+
+98
+00:06:14,719 --> 00:06:23,599
+okay let's such folks sorry Steve Jobs
+
+99
+00:06:20,270 --> 00:06:26,389
+you know is that is this a topic we're
+
+100
+00:06:23,599 --> 00:06:28,789
+gonna talk about so because once we
+
+101
+00:06:26,389 --> 00:06:32,509
+begin it's gonna be endless it's gonna
+
+102
+00:06:28,789 --> 00:06:34,789
+be 30 minutes 40 minutes and we won't
+
+103
+00:06:32,509 --> 00:06:40,669
+have time to do technical programming
+
+104
+00:06:34,789 --> 00:06:44,629
+stuff so Donald Knuth Steve Jobs and the
+
+105
+00:06:40,669 --> 00:06:48,430
+idiocy of typography and this one
+
+106
+00:06:44,629 --> 00:06:52,099
+Richard Stallman on Steve Jobs death and
+
+107
+00:06:48,430 --> 00:06:55,490
+this one death of Steve Jobs versus
+
+108
+00:06:52,099 --> 00:07:03,009
+Dennis Ritchie John McAfee now those
+
+109
+00:06:55,490 --> 00:07:05,930
+those are the UNIX philosophy idiots and
+
+110
+00:07:03,009 --> 00:07:09,860
+so you want to change the world that's
+
+111
+00:07:05,930 --> 00:07:11,960
+Steve Jobs on keyboard okay I'm gonna
+
+112
+00:07:09,860 --> 00:07:15,169
+show you each of these articles and
+
+113
+00:07:11,960 --> 00:07:19,610
+let's also search for Steve Jobs photos
+
+114
+00:07:15,169 --> 00:07:22,639
+I have photos of Steve Jobs I personally
+
+115
+00:07:19,610 --> 00:07:25,159
+took for example this one this one this
+
+116
+00:07:22,639 --> 00:07:28,550
+one this one all these these are my
+
+117
+00:07:25,159 --> 00:07:34,520
+photos so this okay except except this
+
+118
+00:07:28,550 --> 00:07:38,210
+the last row here my personal photos of
+
+119
+00:07:34,520 --> 00:07:43,310
+Steve Jobs Steve Jobs 1995 to 2011 okay
+
+120
+00:07:38,210 --> 00:07:48,259
+he died in 2011 okay so are we gonna
+
+121
+00:07:43,310 --> 00:07:54,490
+talk about these topics good morning
+
+122
+00:07:48,259 --> 00:07:58,399
+good morning so good morning web table
+
+123
+00:07:54,490 --> 00:08:02,330
+potami says I read that Richard Stallman
+
+124
+00:07:58,399 --> 00:08:04,219
+had a talk at Microsoft oh yeah I'm not
+
+125
+00:08:02,330 --> 00:08:06,649
+sure what's going on but apparently he's
+
+126
+00:08:04,219 --> 00:08:08,030
+giving a talk at Microsoft
+
+127
+00:08:06,649 --> 00:08:11,030
+he would never do that
+
+128
+00:08:08,030 --> 00:08:12,830
+before I don't know so you know a lot of
+
+129
+00:08:11,030 --> 00:08:16,400
+people are thinking something's going
+
+130
+00:08:12,830 --> 00:08:18,370
+young you know maybe he got paid oh well
+
+131
+00:08:16,400 --> 00:08:21,680
+he always get paid I mean I think
+
+132
+00:08:18,370 --> 00:08:26,480
+whenever Richard Stallman gives a talk I
+
+133
+00:08:21,680 --> 00:08:30,650
+think he get paid but you know possibly
+
+134
+00:08:26,480 --> 00:08:33,320
+there is some kind of a issue because he
+
+135
+00:08:30,650 --> 00:08:36,800
+would you know normally Richard Stallman
+
+136
+00:08:33,320 --> 00:08:41,719
+would never give a talk at Microsoft you
+
+137
+00:08:36,800 --> 00:08:44,210
+know and he did yeah that's what they
+
+138
+00:08:41,719 --> 00:08:45,560
+say you know Microsoft is forced now you
+
+139
+00:08:44,210 --> 00:08:48,290
+know open source and free software
+
+140
+00:08:45,560 --> 00:08:50,810
+foundation yeah that's what they say you
+
+141
+00:08:48,290 --> 00:08:53,360
+know it's like Mac Microsoft is now is
+
+142
+00:08:50,810 --> 00:08:58,150
+the biggest open source of which self
+
+143
+00:08:53,360 --> 00:09:01,150
+you know force rather mostly open source
+
+144
+00:08:58,150 --> 00:09:04,970
+supporters because for example github I
+
+145
+00:09:01,150 --> 00:09:09,140
+mean Microsoft bought github right but
+
+146
+00:09:04,970 --> 00:09:11,300
+even before that Microsoft is one I mean
+
+147
+00:09:09,140 --> 00:09:14,000
+if you count lines of code or project
+
+148
+00:09:11,300 --> 00:09:16,100
+number of projects Microsoft actually at
+
+149
+00:09:14,000 --> 00:09:18,700
+some point like two years ago or
+
+150
+00:09:16,100 --> 00:09:22,660
+something Microsoft was the number one
+
+151
+00:09:18,700 --> 00:09:25,670
+contributor to open source
+
+152
+00:09:22,660 --> 00:09:27,620
+you know so I don't know what you guys
+
+153
+00:09:25,670 --> 00:09:30,020
+open source phonetics you know some some
+
+154
+00:09:27,620 --> 00:09:31,730
+of you not necessarily you guys but all
+
+155
+00:09:30,020 --> 00:09:33,980
+the people watching my video some of you
+
+156
+00:09:31,730 --> 00:09:36,410
+many of you are open source phonetics
+
+157
+00:09:33,980 --> 00:09:38,480
+or free software phonetics I don't know
+
+158
+00:09:36,410 --> 00:09:42,200
+what do you guys think of it you know
+
+159
+00:09:38,480 --> 00:09:47,380
+but to me that that just shows that how
+
+160
+00:09:42,200 --> 00:09:51,580
+much this open source is just is just
+
+161
+00:09:47,380 --> 00:09:55,010
+ideology went wrong you know ideology
+
+162
+00:09:51,580 --> 00:09:56,960
+induced you know all these problems are
+
+163
+00:09:55,010 --> 00:10:01,070
+ideology induced you know they are not
+
+164
+00:09:56,960 --> 00:10:03,440
+good they are doing nobody good except
+
+165
+00:10:01,070 --> 00:10:05,030
+they are doing Microsoft good they are
+
+166
+00:10:03,440 --> 00:10:08,030
+doing Google good they are doing
+
+167
+00:10:05,030 --> 00:10:12,130
+Facebook good they are doing you know
+
+168
+00:10:08,030 --> 00:10:12,130
+all these evil companies good
+
+169
+00:10:16,850 --> 00:10:24,600
+okay show that what I'm gonna lick Z
+
+170
+00:10:22,290 --> 00:10:29,880
+transferred sieve and my groceries going
+
+171
+00:10:24,600 --> 00:10:31,560
+for us okay didn't you hear okay so yeah
+
+172
+00:10:29,880 --> 00:10:35,060
+that's about Microsoft you know that
+
+173
+00:10:31,560 --> 00:10:40,590
+that's so my general that's my you know
+
+174
+00:10:35,060 --> 00:10:44,730
+that to me is a proof you know that how
+
+175
+00:10:40,590 --> 00:10:50,820
+open source is X the or the open source
+
+176
+00:10:44,730 --> 00:10:53,070
+is just no good okay it's okay
+
+177
+00:10:50,820 --> 00:10:58,760
+let's switch topic let's not talk about
+
+178
+00:10:53,070 --> 00:10:58,760
+open source well it's an inevitability
+
+179
+00:11:00,980 --> 00:11:09,270
+so web dog says I agree with you sir
+
+180
+00:11:04,020 --> 00:11:13,590
+open source is welfare for F Aang what
+
+181
+00:11:09,270 --> 00:11:14,850
+does that stand for and SaaS startups
+
+182
+00:11:13,590 --> 00:11:19,890
+what does that stand for
+
+183
+00:11:14,850 --> 00:11:22,470
+so type it so that's you know III heard
+
+184
+00:11:19,890 --> 00:11:25,770
+like I would like to do some technical
+
+185
+00:11:22,470 --> 00:11:29,100
+stuff you know I mean instead of instead
+
+186
+00:11:25,770 --> 00:11:32,040
+of talking about this you know
+
+187
+00:11:29,100 --> 00:11:37,500
+philosophy I mean kind of thing random
+
+188
+00:11:32,040 --> 00:11:39,270
+chat oh my god angie is here again Angie
+
+189
+00:11:37,500 --> 00:11:43,350
+says can I do a logarithmic frequency
+
+190
+00:11:39,270 --> 00:11:47,930
+spectrum ng P Vai Jess what's the deal
+
+191
+00:11:43,350 --> 00:11:52,050
+Andrey like you have to say okay I mean
+
+192
+00:11:47,930 --> 00:11:54,630
+what do you want like like are you are
+
+193
+00:11:52,050 --> 00:11:56,370
+you are you doing are you did you write
+
+194
+00:11:54,630 --> 00:11:59,580
+that what's the reason you want me to
+
+195
+00:11:56,370 --> 00:12:01,350
+talk about that and did you hear last
+
+196
+00:11:59,580 --> 00:12:04,110
+time you mentioned that I talked about
+
+197
+00:12:01,350 --> 00:12:05,850
+it for a few minutes because I and I
+
+198
+00:12:04,110 --> 00:12:08,340
+said I don't know nothing about it I
+
+199
+00:12:05,850 --> 00:12:11,880
+went to the website I don't know nothing
+
+200
+00:12:08,340 --> 00:12:15,860
+about about that
+
+201
+00:12:11,880 --> 00:12:18,510
+you know frequency spectrum JavaScript
+
+202
+00:12:15,860 --> 00:12:20,100
+project it looks nice but I don't know
+
+203
+00:12:18,510 --> 00:12:22,020
+nothing about it what what do you want
+
+204
+00:12:20,100 --> 00:12:24,050
+me to talk about it what's the deal with
+
+205
+00:12:22,020 --> 00:12:24,050
+that
+
+206
+00:12:25,880 --> 00:12:31,220
+okay so let's go back to the flash okay
+
+207
+00:12:32,810 --> 00:12:38,430
+this let's talk let's go back to flash
+
+208
+00:12:35,880 --> 00:12:41,190
+okay Adobe Flash so I was saying you
+
+209
+00:12:38,430 --> 00:12:49,560
+know Apple in the 1990s many great
+
+210
+00:12:41,190 --> 00:12:52,590
+software began on the Apple platform you
+
+211
+00:12:49,560 --> 00:12:54,510
+know so then Adobe bought it you know
+
+212
+00:12:52,590 --> 00:12:58,020
+things changed like all these companies
+
+213
+00:12:54,510 --> 00:13:00,990
+you if you lived long enough you can
+
+214
+00:12:58,020 --> 00:13:03,420
+observe their history you know that like
+
+215
+00:13:00,990 --> 00:13:05,910
+this company was good but now it's bad
+
+216
+00:13:03,420 --> 00:13:08,700
+or that company was bad it did something
+
+217
+00:13:05,910 --> 00:13:11,430
+evil extremely bad everyone knows and
+
+218
+00:13:08,700 --> 00:13:13,110
+now it becomes good but the thing is you
+
+219
+00:13:11,430 --> 00:13:16,470
+see the younger generation they don't
+
+220
+00:13:13,110 --> 00:13:18,720
+know like you you know you saw it like
+
+221
+00:13:16,470 --> 00:13:20,940
+yesterday this company is so bad but the
+
+222
+00:13:18,720 --> 00:13:22,800
+young people they are saying oh you know
+
+223
+00:13:20,940 --> 00:13:25,770
+you should support company X because
+
+224
+00:13:22,800 --> 00:13:27,660
+they are so great this or that but if
+
+225
+00:13:25,770 --> 00:13:30,060
+you lived long enough you know that's
+
+226
+00:13:27,660 --> 00:13:33,570
+and there's nothing almost nothing you
+
+227
+00:13:30,060 --> 00:13:35,940
+can do because you know that's that's
+
+228
+00:13:33,570 --> 00:13:41,070
+what happens in society that's that's in
+
+229
+00:13:35,940 --> 00:13:44,250
+general the situation of humanity okay
+
+230
+00:13:41,070 --> 00:13:48,690
+so this article is about typography now
+
+231
+00:13:44,250 --> 00:13:51,060
+I hate typography I'm I'm not sure I
+
+232
+00:13:48,690 --> 00:13:54,510
+want to talk about this topic because
+
+233
+00:13:51,060 --> 00:13:57,570
+this topic is gonna be 30 minutes at
+
+234
+00:13:54,510 --> 00:14:04,190
+least so you have typography and you
+
+235
+00:13:57,570 --> 00:14:08,040
+have you have how the tech gurus tech
+
+236
+00:14:04,190 --> 00:14:11,220
+sucks donkey ass I'm now going to talk
+
+237
+00:14:08,040 --> 00:14:13,440
+about this let's talk about Richard
+
+238
+00:14:11,220 --> 00:14:16,710
+Stallman ok so let me finish these
+
+239
+00:14:13,440 --> 00:14:21,000
+subjects quickly so Richard Stallman or
+
+240
+00:14:16,710 --> 00:14:24,720
+Steve Jobs dead death so he says I'm not
+
+241
+00:14:21,000 --> 00:14:28,100
+glad he's dead but I'm glad he's gone so
+
+242
+00:14:24,720 --> 00:14:28,100
+this is around 2011
+
+243
+00:14:31,110 --> 00:14:38,490
+when this happened you know Steve Jobs
+
+244
+00:14:35,310 --> 00:14:41,910
+he's a you know very famous popular guy
+
+245
+00:14:38,490 --> 00:14:43,230
+and he has a lot of supporters even even
+
+246
+00:14:41,910 --> 00:14:46,440
+in the free software
+
+247
+00:14:43,230 --> 00:14:48,660
+I mean well yes it is some in the free
+
+248
+00:14:46,440 --> 00:14:52,950
+software community and also allowing
+
+249
+00:14:48,660 --> 00:14:57,780
+open source because Steve Jobs he I mean
+
+250
+00:14:52,950 --> 00:15:01,470
+as far as I mean he did he said truly
+
+251
+00:14:57,780 --> 00:15:03,630
+truly a one of the greatest innovator ok
+
+252
+00:15:01,470 --> 00:15:06,330
+whatever you want to say about other
+
+253
+00:15:03,630 --> 00:15:08,600
+aspect but at one thing for sure is that
+
+254
+00:15:06,330 --> 00:15:14,640
+he is truly one of the greatest
+
+255
+00:15:08,600 --> 00:15:16,800
+innovator he introduced especially ample
+
+256
+00:15:14,640 --> 00:15:19,920
+in of early days he introduced lots of
+
+257
+00:15:16,800 --> 00:15:23,370
+things into the population you know for
+
+258
+00:15:19,920 --> 00:15:27,480
+example Mouse he popular popularized it
+
+259
+00:15:23,370 --> 00:15:30,480
+for example music you know digital music
+
+260
+00:15:27,480 --> 00:15:33,360
+he made it legal I mean he made it so
+
+261
+00:15:30,480 --> 00:15:36,690
+that it's big he made digital music
+
+262
+00:15:33,360 --> 00:15:40,380
+popular right beep yes because around
+
+263
+00:15:36,690 --> 00:15:43,140
+early 2000s people are pirating music
+
+264
+00:15:40,380 --> 00:15:45,600
+you know they live you know there's a
+
+265
+00:15:43,140 --> 00:15:50,370
+term ripped from CDs you buy CD you rip
+
+266
+00:15:45,600 --> 00:15:53,160
+it use you know you you share it with
+
+267
+00:15:50,370 --> 00:15:56,100
+your friends and so he see it he's he
+
+268
+00:15:53,160 --> 00:15:59,280
+Steve Jobs see this is a problem that a
+
+269
+00:15:56,100 --> 00:16:02,550
+social problem that it can be solved you
+
+270
+00:15:59,280 --> 00:16:04,500
+know like nobody all these music
+
+271
+00:16:02,550 --> 00:16:07,920
+companies they are not selling digital
+
+272
+00:16:04,500 --> 00:16:10,410
+copies yes they are selling CDs and when
+
+273
+00:16:07,920 --> 00:16:12,540
+people are pirating over and this
+
+274
+00:16:10,410 --> 00:16:14,850
+company's behavior typically they are
+
+275
+00:16:12,540 --> 00:16:16,560
+trying to see you you know doing all
+
+276
+00:16:14,850 --> 00:16:19,440
+kind of that kind of thing and Steve
+
+277
+00:16:16,560 --> 00:16:22,110
+Jobs sees that you know this is this is
+
+278
+00:16:19,440 --> 00:16:24,090
+not right you know society as technology
+
+279
+00:16:22,110 --> 00:16:27,090
+progresses you know there is actually we
+
+280
+00:16:24,090 --> 00:16:30,570
+need to do something so he did he made
+
+281
+00:16:27,090 --> 00:16:34,410
+digital music the selling of digital
+
+282
+00:16:30,570 --> 00:16:37,770
+music popular you know it's you know you
+
+283
+00:16:34,410 --> 00:16:39,270
+have like he's interruption or like you
+
+284
+00:16:37,770 --> 00:16:41,840
+have to go out and do it you know you
+
+285
+00:16:39,270 --> 00:16:45,320
+know you have to talk to the
+
+286
+00:16:41,840 --> 00:16:46,910
+the people of the music companies you
+
+287
+00:16:45,320 --> 00:16:49,040
+know you have to make them you know open
+
+288
+00:16:46,910 --> 00:16:51,880
+a company and do it and start to you
+
+289
+00:16:49,040 --> 00:16:54,290
+know and talk about in this law you know
+
+290
+00:16:51,880 --> 00:16:57,279
+legality legal issues you have to solve
+
+291
+00:16:54,290 --> 00:17:02,110
+those issues so see jobs did that and
+
+292
+00:16:57,279 --> 00:17:04,880
+his iPod of course the iPod the first
+
+293
+00:17:02,110 --> 00:17:06,980
+mainstream music player becomes very
+
+294
+00:17:04,880 --> 00:17:08,900
+popular so that's all Steve Jobs and
+
+295
+00:17:06,980 --> 00:17:14,060
+before you know you have USB you have
+
+296
+00:17:08,900 --> 00:17:18,920
+firewire you have CD on a PC USB CD you
+
+297
+00:17:14,060 --> 00:17:21,920
+have DVD also you have Wireless also
+
+298
+00:17:18,920 --> 00:17:24,380
+they are all they all began on Apple you
+
+299
+00:17:21,920 --> 00:17:27,470
+know on the Apple platform
+
+300
+00:17:24,380 --> 00:17:29,540
+yep opposed computers on the PC on the
+
+301
+00:17:27,470 --> 00:17:32,210
+other on the other hand on the PC
+
+302
+00:17:29,540 --> 00:17:34,790
+Windows typically they wait they wait
+
+303
+00:17:32,210 --> 00:17:38,240
+and see you know is usually typically
+
+304
+00:17:34,790 --> 00:17:40,370
+half after Apple you know made it you
+
+305
+00:17:38,240 --> 00:17:43,490
+know out of the box on the Mac you know
+
+306
+00:17:40,370 --> 00:17:46,610
+a CD player on the Mac or USB you know
+
+307
+00:17:43,490 --> 00:17:49,000
+on the Mac or all these other things you
+
+308
+00:17:46,610 --> 00:17:51,679
+know or a wireless on the Mac or
+
+309
+00:17:49,000 --> 00:17:54,890
+wireless Wi-Fi on the Mac you know it's
+
+310
+00:17:51,679 --> 00:17:57,830
+all first on the Mac then you typically
+
+311
+00:17:54,890 --> 00:18:00,679
+after two years at least a minimum of
+
+312
+00:17:57,830 --> 00:18:03,740
+two years then it becomes you know they
+
+313
+00:18:00,679 --> 00:18:06,530
+appears on the PC you know Windows then
+
+314
+00:18:03,740 --> 00:18:11,960
+it becomes like popular and same thing
+
+315
+00:18:06,530 --> 00:18:15,620
+for mouse for GUI it's all Apple yeah so
+
+316
+00:18:11,960 --> 00:18:18,080
+Apple has tremendous innovation and that
+
+317
+00:18:15,620 --> 00:18:24,290
+is also why I use Apple is my main
+
+318
+00:18:18,080 --> 00:18:26,030
+machine from 1990s up to 2008 also 2011
+
+319
+00:18:24,290 --> 00:18:31,160
+2009 something like that
+
+320
+00:18:26,030 --> 00:18:38,510
+and why do I use a Mac because you know
+
+321
+00:18:31,160 --> 00:18:41,270
+in my first Mac is 1992 Mac Mac - si Mac
+
+322
+00:18:38,510 --> 00:18:46,580
+- si okay I have article on my website
+
+323
+00:18:41,270 --> 00:18:48,290
+but for example you can see here so I
+
+324
+00:18:46,580 --> 00:18:51,190
+guess today is just random chatting
+
+325
+00:18:48,290 --> 00:18:51,190
+random chatting
+
+326
+00:19:06,750 --> 00:19:12,990
+so yeah and J I don't know what's your
+
+327
+00:19:09,570 --> 00:19:18,900
+issue you know you you you are wasting
+
+328
+00:19:12,990 --> 00:19:21,390
+your time let's see if I have any way
+
+329
+00:19:18,900 --> 00:19:26,309
+let's let me finish about so this is Mac
+
+330
+00:19:21,390 --> 00:19:29,250
+- si this is this came out in 1990 now I
+
+331
+00:19:26,309 --> 00:19:29,610
+bought my first computer with my own
+
+332
+00:19:29,250 --> 00:19:35,190
+money
+
+333
+00:19:29,610 --> 00:19:40,950
+in 1992 I think it's 1992 so that's what
+
+334
+00:19:35,190 --> 00:19:47,780
+I have Mac - si you have it's running
+
+335
+00:19:40,950 --> 00:19:50,820
+Mac OS classic you know system 6.0 and
+
+336
+00:19:47,780 --> 00:19:53,400
+let me tell you what's memory memory is
+
+337
+00:19:50,820 --> 00:19:55,830
+1 megabyte okay that's you know that's
+
+338
+00:19:53,400 --> 00:19:58,710
+that's a lot you know back then one
+
+339
+00:19:55,830 --> 00:20:05,490
+megabyte of memory and the CPU is
+
+340
+00:19:58,710 --> 00:20:07,710
+motorola 68000 20 megahertz imagine that
+
+341
+00:20:05,490 --> 00:20:12,419
+today you have two jjigae hertz fiji
+
+342
+00:20:07,710 --> 00:20:16,559
+guards so is the cpu is 20 megahertz 1
+
+343
+00:20:12,419 --> 00:20:21,809
+megabyte ran and the hard disk I think
+
+344
+00:20:16,559 --> 00:20:25,950
+it's 20 mega byte 20 megabyte hunter
+
+345
+00:20:21,809 --> 00:20:28,730
+disk 40 megabyte okay 40 megabyte hard
+
+346
+00:20:25,950 --> 00:20:31,620
+disk hard drive
+
+347
+00:20:28,730 --> 00:20:35,970
+so that's Mac - si that's my first
+
+348
+00:20:31,620 --> 00:20:38,460
+computer ok so let's go back to Richard
+
+349
+00:20:35,970 --> 00:20:41,220
+Stallman on Steve Jobs death so Steve
+
+350
+00:20:38,460 --> 00:20:44,309
+Jobs many people respect then Richard
+
+351
+00:20:41,220 --> 00:20:48,480
+Stallman says you know he he posted this
+
+352
+00:20:44,309 --> 00:20:51,780
+on his own blog you know which Stallman
+
+353
+00:20:48,480 --> 00:20:57,480
+dog he says Steve Jobs the pioneer of
+
+354
+00:20:51,780 --> 00:21:00,179
+computer as a jail mate cool design - so
+
+355
+00:20:57,480 --> 00:21:05,120
+designed to serve a force from their
+
+356
+00:21:00,179 --> 00:21:08,429
+freedom has died as Chicago Mayor Harold
+
+357
+00:21:05,120 --> 00:21:11,789
+Washington said of a of the corrupt
+
+358
+00:21:08,429 --> 00:21:15,149
+former Mayor Daley I'm not glad he's
+
+359
+00:21:11,789 --> 00:21:18,750
+dead but I'm glad he's gone nobody
+
+360
+00:21:15,149 --> 00:21:20,590
+deserved to have to die not jobs not mr.
+
+361
+00:21:18,750 --> 00:21:23,470
+Beale not even
+
+362
+00:21:20,590 --> 00:21:27,009
+people guilty of bigger Evo's than
+
+363
+00:21:23,470 --> 00:21:29,799
+theirs but we all deserve the end of
+
+364
+00:21:27,009 --> 00:21:31,230
+jobs malign influence on people's
+
+365
+00:21:29,799 --> 00:21:34,419
+computing
+
+366
+00:21:31,230 --> 00:21:37,899
+unfortunately that influence continues
+
+367
+00:21:34,419 --> 00:21:40,570
+despite his absence we can only hope his
+
+368
+00:21:37,899 --> 00:21:44,230
+successes as they attempt to carry on
+
+369
+00:21:40,570 --> 00:21:46,960
+his legacy will be less effective now
+
+370
+00:21:44,230 --> 00:21:52,029
+this is from Richard Stallman what a
+
+371
+00:21:46,960 --> 00:21:54,940
+[ __ ] you know so anyway so Richard
+
+372
+00:21:52,029 --> 00:21:58,299
+Stallman made this statement so a that a
+
+373
+00:21:54,940 --> 00:22:00,669
+lot of time at that time a lot of free
+
+374
+00:21:58,299 --> 00:22:02,950
+software foundation members you know
+
+375
+00:22:00,669 --> 00:22:05,379
+meaning that people who donated you know
+
+376
+00:22:02,950 --> 00:22:07,749
+you donate you become a member they quit
+
+377
+00:22:05,379 --> 00:22:10,149
+you know they got angry because Richard
+
+378
+00:22:07,749 --> 00:22:14,320
+Stallman says it's a sleaze now there
+
+379
+00:22:10,149 --> 00:22:17,169
+are many aspect to it ok people become
+
+380
+00:22:14,320 --> 00:22:20,320
+angry partly because Steve Jobs just
+
+381
+00:22:17,169 --> 00:22:23,019
+died and they here they see this Richard
+
+382
+00:22:20,320 --> 00:22:26,049
+Stallman and they they went crazy you
+
+383
+00:22:23,019 --> 00:22:29,110
+know they they cannot tolerate this
+
+384
+00:22:26,049 --> 00:22:31,649
+behavior you know they so they quit you
+
+385
+00:22:29,110 --> 00:22:34,960
+know there are some angry posts on
+
+386
+00:22:31,649 --> 00:22:38,710
+Twitter or elsewhere they say you know
+
+387
+00:22:34,960 --> 00:22:40,509
+you know you know I'm tearing up my free
+
+388
+00:22:38,710 --> 00:22:49,360
+software foundation in the membership
+
+389
+00:22:40,509 --> 00:22:51,610
+you know so but to me you know a people
+
+390
+00:22:49,360 --> 00:22:53,830
+instead you know you you should not
+
+391
+00:22:51,610 --> 00:22:54,460
+change your opinion just because someone
+
+392
+00:22:53,830 --> 00:22:57,340
+is dead
+
+393
+00:22:54,460 --> 00:23:00,039
+ok I don't I'm you know as as you know
+
+394
+00:22:57,340 --> 00:23:02,590
+I'm a schizoid so I don't I don't have
+
+395
+00:23:00,039 --> 00:23:04,649
+much emotion you know emotional kind of
+
+396
+00:23:02,590 --> 00:23:09,610
+thing I don't have that thing I'm rather
+
+397
+00:23:04,649 --> 00:23:11,860
+like mr. data ok more logical code so
+
+398
+00:23:09,610 --> 00:23:13,720
+when Steve job ties and I see these
+
+399
+00:23:11,860 --> 00:23:17,169
+switches home and saying these things I
+
+400
+00:23:13,720 --> 00:23:19,059
+don't think it's wrong ok yeah because
+
+401
+00:23:17,169 --> 00:23:21,179
+you should not change your opinion just
+
+402
+00:23:19,059 --> 00:23:23,889
+because someone died is you know you
+
+403
+00:23:21,179 --> 00:23:26,379
+these people emotional people they are
+
+404
+00:23:23,889 --> 00:23:28,450
+like Oh at the moment someone tired you
+
+405
+00:23:26,379 --> 00:23:31,119
+shouldn't say it you know if you know
+
+406
+00:23:28,450 --> 00:23:32,860
+something like maybe until later then
+
+407
+00:23:31,119 --> 00:23:33,370
+you can say that that's that's that's
+
+408
+00:23:32,860 --> 00:23:36,100
+not
+
+409
+00:23:33,370 --> 00:23:40,630
+that's that's incorrect that's that's
+
+410
+00:23:36,100 --> 00:23:47,670
+not a good thing
+
+411
+00:23:40,630 --> 00:23:50,470
+that's the map invalid thinking you see
+
+412
+00:23:47,670 --> 00:23:53,320
+you know your opinion on someone should
+
+413
+00:23:50,470 --> 00:23:54,340
+not change just because someone just
+
+414
+00:23:53,320 --> 00:23:57,100
+died you know
+
+415
+00:23:54,340 --> 00:23:59,440
+so Richard Stallman said these things I
+
+416
+00:23:57,100 --> 00:23:59,890
+don't I don't mind but however in
+
+417
+00:23:59,440 --> 00:24:02,080
+general
+
+418
+00:23:59,890 --> 00:24:05,260
+Richard Stallman is just wrong you know
+
+419
+00:24:02,080 --> 00:24:11,800
+he is just he's he's this is his
+
+420
+00:24:05,260 --> 00:24:14,260
+ideology doing evil showing yeah I mean
+
+421
+00:24:11,800 --> 00:24:18,760
+if we if we want to ask my judgment of
+
+422
+00:24:14,260 --> 00:24:22,570
+Richard Stallman he is just first of all
+
+423
+00:24:18,760 --> 00:24:24,880
+he is very honest and to what he
+
+424
+00:24:22,570 --> 00:24:27,640
+believes you know that in that sense I'd
+
+425
+00:24:24,880 --> 00:24:30,370
+respect as opposed to a lot of this free
+
+426
+00:24:27,640 --> 00:24:32,470
+software open-source [ __ ] you know
+
+427
+00:24:30,370 --> 00:24:34,450
+on one hand they seen the song of open
+
+428
+00:24:32,470 --> 00:24:37,630
+source and free software but however
+
+429
+00:24:34,450 --> 00:24:41,470
+they work for Apple Google Facebook and
+
+430
+00:24:37,630 --> 00:24:44,560
+they own they own all the new Apple
+
+431
+00:24:41,470 --> 00:24:47,320
+computers toys these [ __ ] these are
+
+432
+00:24:44,560 --> 00:24:49,630
+these are the true hypocrites these
+
+433
+00:24:47,320 --> 00:24:52,180
+people are more evil than Richard
+
+434
+00:24:49,630 --> 00:24:54,700
+Stallman at least you know Richard
+
+435
+00:24:52,180 --> 00:24:58,420
+Stallman is someone I believe that he
+
+436
+00:24:54,700 --> 00:25:01,350
+you know he's just someone he went into
+
+437
+00:24:58,420 --> 00:25:05,860
+the wrong way like totally ignorant of
+
+438
+00:25:01,350 --> 00:25:09,130
+economics ignorant of reality you know
+
+439
+00:25:05,860 --> 00:25:11,860
+like ignorant of any practical issues he
+
+440
+00:25:09,130 --> 00:25:15,520
+only focus on this ideology you know
+
+441
+00:25:11,860 --> 00:25:17,890
+share basically that's a that's a bottom
+
+442
+00:25:15,520 --> 00:25:23,560
+line of communism that's what you know
+
+443
+00:25:17,890 --> 00:25:27,310
+but however he's rather so far as I know
+
+444
+00:25:23,560 --> 00:25:30,340
+honest guy you know because he you know
+
+445
+00:25:27,310 --> 00:25:32,380
+you he doesn't own any computers not
+
+446
+00:25:30,340 --> 00:25:34,960
+these days not even not even he doesn't
+
+447
+00:25:32,380 --> 00:25:37,210
+even use Linux because even Linux you
+
+448
+00:25:34,960 --> 00:25:39,550
+have lots of problems you know that lots
+
+449
+00:25:37,210 --> 00:25:42,850
+of political issues so you know in the
+
+450
+00:25:39,550 --> 00:25:44,890
+beginning he's for Debian Linux you know
+
+451
+00:25:42,850 --> 00:25:46,840
+it's strange when you look at you know
+
+452
+00:25:44,890 --> 00:25:48,309
+the history of things you know
+
+453
+00:25:46,840 --> 00:25:51,519
+in a beginning you have Debian Linux
+
+454
+00:25:48,309 --> 00:25:52,779
+which is very Pro you know free software
+
+455
+00:25:51,519 --> 00:25:54,700
+is sanctioned by Free Software
+
+456
+00:25:52,779 --> 00:25:58,029
+Foundation by Richard Stallman
+
+457
+00:25:54,700 --> 00:25:59,830
+but then they have Kouros you know they
+
+458
+00:25:58,029 --> 00:26:03,700
+have clothes they have arguments every
+
+459
+00:25:59,830 --> 00:26:05,590
+day about Oh documentation license you
+
+460
+00:26:03,700 --> 00:26:08,649
+know minor details they disagree they
+
+461
+00:26:05,590 --> 00:26:11,080
+fight you know this this this to me is
+
+462
+00:26:08,649 --> 00:26:13,600
+actually the reality the the human
+
+463
+00:26:11,080 --> 00:26:18,309
+nature you know you you fight for your
+
+464
+00:26:13,600 --> 00:26:20,259
+own your own political values well on
+
+465
+00:26:18,309 --> 00:26:22,029
+the whole you are just [ __ ] up
+
+466
+00:26:20,259 --> 00:26:24,279
+everyone else you know just look at the
+
+467
+00:26:22,029 --> 00:26:26,799
+Linux community you know Richard
+
+468
+00:26:24,279 --> 00:26:29,710
+Stallman with versus or the you know
+
+469
+00:26:26,799 --> 00:26:31,690
+Debian so in a beginning in a beginning
+
+470
+00:26:29,710 --> 00:26:33,820
+vicious storm and you know sanction
+
+471
+00:26:31,690 --> 00:26:35,409
+approved Debian you know he pushes fort
+
+472
+00:26:33,820 --> 00:26:37,330
+a being which you know it's this is good
+
+473
+00:26:35,409 --> 00:26:37,690
+we like you know I like it you know we
+
+474
+00:26:37,330 --> 00:26:40,600
+should
+
+475
+00:26:37,690 --> 00:26:43,210
+but then there's lots of chorus they
+
+476
+00:26:40,600 --> 00:26:45,999
+kicked you know order basically ordered
+
+477
+00:26:43,210 --> 00:26:47,919
+which all the Linux communities they
+
+478
+00:26:45,999 --> 00:26:49,960
+kicked out which has doorman because
+
+479
+00:26:47,919 --> 00:26:51,700
+they disagree on so many things you know
+
+480
+00:26:49,960 --> 00:26:54,519
+the minute
+
+481
+00:26:51,700 --> 00:26:58,929
+Soto did details on licensing and stuff
+
+482
+00:26:54,519 --> 00:27:02,139
+and to me okay to me that is that is the
+
+483
+00:26:58,929 --> 00:27:05,159
+reality of human nature of communism of
+
+484
+00:27:02,139 --> 00:27:07,749
+the sharing attitude because in reality
+
+485
+00:27:05,159 --> 00:27:09,909
+you don't share a [ __ ] you don't share
+
+486
+00:27:07,749 --> 00:27:12,249
+nothing oh you care is you you just want
+
+487
+00:27:09,909 --> 00:27:14,950
+to push your idea you your you know
+
+488
+00:27:12,249 --> 00:27:17,289
+whatever you like you know we should so
+
+489
+00:27:14,950 --> 00:27:19,960
+men or you know you guys you just want
+
+490
+00:27:17,289 --> 00:27:21,759
+to push whatever that that that is you
+
+491
+00:27:19,960 --> 00:27:23,710
+know benefit to you that's your your
+
+492
+00:27:21,759 --> 00:27:28,499
+opinion your color you know whatever
+
+493
+00:27:23,710 --> 00:27:31,389
+color you like that's what happens and
+
+494
+00:27:28,499 --> 00:27:34,779
+look at today so to me look at today
+
+495
+00:27:31,389 --> 00:27:37,629
+Microsoft you know Microsoft Google you
+
+496
+00:27:34,779 --> 00:27:40,119
+know Facebook they are all they are they
+
+497
+00:27:37,629 --> 00:27:42,279
+are they are the people who made
+
+498
+00:27:40,119 --> 00:27:45,159
+open-source popular in fact they are the
+
+499
+00:27:42,279 --> 00:27:48,789
+they are the main contributors of
+
+500
+00:27:45,159 --> 00:27:51,879
+open-source okay they it is they that
+
+501
+00:27:48,789 --> 00:27:54,279
+put money that made open-source survive
+
+502
+00:27:51,879 --> 00:27:58,119
+it is they and they and who are they
+
+503
+00:27:54,279 --> 00:28:00,490
+they have 1000 patent lawyers suing each
+
+504
+00:27:58,119 --> 00:28:03,610
+other [ __ ] this Google
+
+505
+00:28:00,490 --> 00:28:07,890
+book and and and you know Google
+
+506
+00:28:03,610 --> 00:28:10,630
+Facebook Apple Apple the [ __ ] Apple
+
+507
+00:28:07,890 --> 00:28:10,990
+100,000 patent suing each other every
+
+508
+00:28:10,630 --> 00:28:14,590
+day
+
+509
+00:28:10,990 --> 00:28:16,960
+and then you have you know these typical
+
+510
+00:28:14,590 --> 00:28:22,170
+many of my followers the open-source
+
+511
+00:28:16,960 --> 00:28:23,830
+chanting facts it's all it's all just
+
+512
+00:28:22,170 --> 00:28:26,530
+[ __ ] okay
+
+513
+00:28:23,830 --> 00:28:28,630
+so the so this is Richard Stallman this
+
+514
+00:28:26,530 --> 00:28:34,330
+is a story about Richard Stallman or
+
+515
+00:28:28,630 --> 00:28:36,429
+Steve Jobs death okay so that's one
+
+516
+00:28:34,330 --> 00:28:39,150
+story hold on a second let me copy that
+
+517
+00:28:36,429 --> 00:28:43,750
+to today's talk show so we're gonna
+
+518
+00:28:39,150 --> 00:28:45,420
+we're gonna log what we talked today so
+
+519
+00:28:43,750 --> 00:28:49,570
+copy that
+
+520
+00:28:45,420 --> 00:28:53,530
+so curse that then we have these UNIX
+
+521
+00:28:49,570 --> 00:28:54,790
+philosophy [ __ ] this happened in
+
+522
+00:28:53,530 --> 00:29:01,300
+2011
+
+523
+00:28:54,790 --> 00:29:06,910
+- okay so so this so in 2011 Steve Jobs
+
+524
+00:29:01,300 --> 00:29:09,370
+died and this UNIX sky this unit sky was
+
+525
+00:29:06,910 --> 00:29:12,970
+his name Denise Ricci also died okay
+
+526
+00:29:09,370 --> 00:29:13,960
+then you have this mean you know that
+
+527
+00:29:12,970 --> 00:29:16,660
+went viral
+
+528
+00:29:13,960 --> 00:29:19,840
+like you know medium billions millions
+
+529
+00:29:16,660 --> 00:29:22,510
+of shares this this photo this picture
+
+530
+00:29:19,840 --> 00:29:25,090
+went viral it says you know becomes a
+
+531
+00:29:22,510 --> 00:29:28,300
+hipster sell stolen ideas Steve Jobs
+
+532
+00:29:25,090 --> 00:29:30,820
+traced by media as Jesus of computing
+
+533
+00:29:28,300 --> 00:29:34,120
+then on the other side you have inventor
+
+534
+00:29:30,820 --> 00:29:38,500
+invented C and UNIX Denis which II
+
+535
+00:29:34,120 --> 00:29:41,500
+ignored so this went viral you know all
+
+536
+00:29:38,500 --> 00:29:44,530
+this idiot in this UNIX philosophy you
+
+537
+00:29:41,500 --> 00:29:47,920
+know the Linux loving [ __ ] you know
+
+538
+00:29:44,530 --> 00:29:49,630
+they they love this they even on my
+
+539
+00:29:47,920 --> 00:29:53,170
+friends I've seen you know my friends
+
+540
+00:29:49,630 --> 00:29:55,240
+yeah post this share this you know what
+
+541
+00:29:53,170 --> 00:29:57,790
+what you know what are these people
+
+542
+00:29:55,240 --> 00:30:01,240
+thinking you know so they are saying
+
+543
+00:29:57,790 --> 00:30:03,820
+okay Steve Jobs you know he he is you
+
+544
+00:30:01,240 --> 00:30:06,400
+know not for free software he's just an
+
+545
+00:30:03,820 --> 00:30:08,890
+innovator okay and he died and he is
+
+546
+00:30:06,400 --> 00:30:11,110
+praised by you know he's on every media
+
+547
+00:30:08,890 --> 00:30:13,450
+like every publication you know
+
+548
+00:30:11,110 --> 00:30:14,410
+mainstream media praises him Oh Steve
+
+549
+00:30:13,450 --> 00:30:16,540
+job tag
+
+550
+00:30:14,410 --> 00:30:20,740
+but meanwhile the denis vici you know
+
+551
+00:30:16,540 --> 00:30:23,740
+the one of the founder of unix creator
+
+552
+00:30:20,740 --> 00:30:26,130
+of unix you know he died but there's not
+
+553
+00:30:23,740 --> 00:30:30,940
+much media attention
+
+554
+00:30:26,130 --> 00:30:34,660
+why do you know why what what about
+
+555
+00:30:30,940 --> 00:30:37,480
+Michael Michael Jackson when he died he
+
+556
+00:30:34,660 --> 00:30:38,770
+you know all the media is in these ten
+
+557
+00:30:37,480 --> 00:30:40,630
+times hundred times
+
+558
+00:30:38,770 --> 00:30:43,570
+you know publishing about Michael
+
+559
+00:30:40,630 --> 00:30:46,180
+Jackson's death more than Steve Jobs and
+
+560
+00:30:43,570 --> 00:30:49,350
+what about let me ask you this do you
+
+561
+00:30:46,180 --> 00:30:53,140
+know do you know what's the greatest
+
+562
+00:30:49,350 --> 00:30:57,790
+mathematician that died around 2011 do
+
+563
+00:30:53,140 --> 00:30:59,260
+you know like can you name one the UNIX
+
+564
+00:30:57,790 --> 00:31:02,200
+philosophy [ __ ]
+
+565
+00:30:59,260 --> 00:31:04,020
+they cannot name a single one okay let
+
+566
+00:31:02,200 --> 00:31:07,960
+me show you
+
+567
+00:31:04,020 --> 00:31:12,490
+Denise Ricci John McCarthy John McCarthy
+
+568
+00:31:07,960 --> 00:31:18,720
+also died in in what in what year around
+
+569
+00:31:12,490 --> 00:31:22,000
+2011 let's see what year 2011 indeed
+
+570
+00:31:18,720 --> 00:31:26,320
+John McCarthy the creator of lists
+
+571
+00:31:22,000 --> 00:31:28,690
+he also died in 2000 2011 but nobody
+
+572
+00:31:26,320 --> 00:31:31,710
+knows nobody knows okay what about
+
+573
+00:31:28,690 --> 00:31:35,590
+mathematicians they are quite a few
+
+574
+00:31:31,710 --> 00:31:38,800
+great mathematicians who died around
+
+575
+00:31:35,590 --> 00:31:41,560
+2011 if you consider their work that's
+
+576
+00:31:38,800 --> 00:31:45,940
+far more important than this [ __ ]
+
+577
+00:31:41,560 --> 00:31:49,540
+Denise Ricci okay so who are they for
+
+578
+00:31:45,940 --> 00:31:55,540
+example the fractal guy but the noid
+
+579
+00:31:49,540 --> 00:31:58,900
+Mandelbrot he died he died in in 2010
+
+580
+00:31:55,540 --> 00:32:01,570
+okay but not Mandelbrot the creator the
+
+581
+00:31:58,900 --> 00:32:04,690
+inventor of the fractal far more [ __ ]
+
+582
+00:32:01,570 --> 00:32:07,030
+important with respect to human history
+
+583
+00:32:04,690 --> 00:32:12,610
+then the [ __ ] Denis Richie the UNIX
+
+584
+00:32:07,030 --> 00:32:18,720
+guy okay who else Joe McCarthy Bernard
+
+585
+00:32:12,610 --> 00:32:21,880
+Mandelbrot disco disco DRA this guy is a
+
+586
+00:32:18,720 --> 00:32:24,700
+computer scientist okay he is a very
+
+587
+00:32:21,880 --> 00:32:28,169
+theoretical moral theory theoretical
+
+588
+00:32:24,700 --> 00:32:30,269
+computer scientist he died in 2002
+
+589
+00:32:28,169 --> 00:32:32,789
+buddy knows the [ __ ] UNIX philosophy
+
+590
+00:32:30,269 --> 00:32:36,720
+[ __ ] heads they don't know they don't
+
+591
+00:32:32,789 --> 00:32:41,519
+know about this guy who else let me show
+
+592
+00:32:36,720 --> 00:32:46,879
+you examples Harris Scott this
+
+593
+00:32:41,519 --> 00:32:50,609
+mathematician HSM coxster okay he's no
+
+594
+00:32:46,879 --> 00:32:53,190
+he is known by the abbreviation HSM
+
+595
+00:32:50,609 --> 00:32:57,929
+coxster he is the one of the great
+
+596
+00:32:53,190 --> 00:33:02,369
+geometers he died in 2003 he lived up
+
+597
+00:32:57,929 --> 00:33:05,190
+like 96 years old he you know many
+
+598
+00:33:02,369 --> 00:33:09,570
+mathematicians lives long so he died in
+
+599
+00:33:05,190 --> 00:33:13,499
+2003 no nobody nobody say the thing so
+
+600
+00:33:09,570 --> 00:33:16,440
+so I mean my point is my point is why
+
+601
+00:33:13,499 --> 00:33:18,600
+are these UNIX [ __ ] what made them
+
+602
+00:33:16,440 --> 00:33:21,090
+think you know what made them post this
+
+603
+00:33:18,600 --> 00:33:23,100
+and they think they are justified what
+
+604
+00:33:21,090 --> 00:33:25,859
+the [ __ ] is their mentality you know
+
+605
+00:33:23,100 --> 00:33:28,950
+thinking you guys can you guys defend
+
+606
+00:33:25,859 --> 00:33:31,559
+you know this UNIX philosophers what's
+
+607
+00:33:28,950 --> 00:33:36,539
+their problem you know
+
+608
+00:33:31,559 --> 00:33:39,200
+what's your problem incredible you know
+
+609
+00:33:36,539 --> 00:33:41,759
+to them you know you can see that they
+
+610
+00:33:39,200 --> 00:33:43,529
+post this you know meme viral you know
+
+611
+00:33:41,759 --> 00:33:47,100
+it went viral and you have a lot of
+
+612
+00:33:43,529 --> 00:33:49,080
+comments you can kind of tell okay so if
+
+613
+00:33:47,100 --> 00:33:52,200
+I were to guess their mindset it's like
+
+614
+00:33:49,080 --> 00:33:54,330
+they feel oh they feel so wronged you
+
+615
+00:33:52,200 --> 00:33:56,399
+know they feel like it's so wrong oh my
+
+616
+00:33:54,330 --> 00:33:58,460
+god Steve Jobs you know he didn't really
+
+617
+00:33:56,399 --> 00:34:01,859
+do something important to humanity
+
+618
+00:33:58,460 --> 00:34:04,080
+but everyone is talking about it like me
+
+619
+00:34:01,859 --> 00:34:07,169
+you know me more real about Steve Jobs
+
+620
+00:34:04,080 --> 00:34:09,210
+but but well then I love this guy you
+
+621
+00:34:07,169 --> 00:34:11,940
+nice guy but he died nobody knows oh my
+
+622
+00:34:09,210 --> 00:34:18,540
+god this is injustice the [ __ ] UNIX
+
+623
+00:34:11,940 --> 00:34:21,389
+philosophy [ __ ] so okay that's
+
+624
+00:34:18,540 --> 00:34:24,329
+about that okay that's my rant
+
+625
+00:34:21,389 --> 00:34:28,829
+you know that's my rant so technically
+
+626
+00:34:24,329 --> 00:34:33,299
+this would be classified as the subject
+
+627
+00:34:28,829 --> 00:34:35,790
+matter would be the programmers culture
+
+628
+00:34:33,299 --> 00:34:38,490
+okay this is a critters criticism of
+
+629
+00:34:35,790 --> 00:34:41,929
+programmer culture in particular UNIX
+
+630
+00:34:38,490 --> 00:34:41,929
+people culture
+
+631
+00:34:42,140 --> 00:34:50,580
+okay that's about that topic okay so so
+
+632
+00:34:47,640 --> 00:34:54,750
+Mendel brought he's an inventor of
+
+633
+00:34:50,580 --> 00:34:58,320
+fractal tremendous you know tremendous
+
+634
+00:34:54,750 --> 00:35:01,740
+this is a matter this is a creation in
+
+635
+00:34:58,320 --> 00:35:06,060
+science one of the great discovery in
+
+636
+00:35:01,740 --> 00:35:08,340
+science okay defacto you know to most
+
+637
+00:35:06,060 --> 00:35:11,760
+people when you think of factor you
+
+638
+00:35:08,340 --> 00:35:14,250
+think of pictures like this but that's
+
+639
+00:35:11,760 --> 00:35:18,960
+much deeper in I mean this is part of
+
+640
+00:35:14,250 --> 00:35:21,480
+mathematics okay this is chaos theory
+
+641
+00:35:18,960 --> 00:35:26,460
+and part of chaos theory complex
+
+642
+00:35:21,480 --> 00:35:32,840
+analysis and dynamical systems okay that
+
+643
+00:35:26,460 --> 00:35:32,840
+that's the topic okay fractals
+
+644
+00:35:33,270 --> 00:35:40,490
+so they meet time DUI dynamical systems
+
+645
+00:35:41,180 --> 00:35:54,960
+complex analysis and you know the end
+
+646
+00:35:49,980 --> 00:35:58,260
+and it has far-reaching consequences in
+
+647
+00:35:54,960 --> 00:36:00,300
+the study of fractal okay so he you know
+
+648
+00:35:58,260 --> 00:36:02,550
+and besides it's just visually
+
+649
+00:36:00,300 --> 00:36:07,320
+spectacular anyway that's one of the
+
+650
+00:36:02,550 --> 00:36:10,070
+great I probably won we won probably top
+
+651
+00:36:07,320 --> 00:36:14,550
+ten one of the top ten greatest
+
+652
+00:36:10,070 --> 00:36:18,330
+scientific discovery in this century
+
+653
+00:36:14,550 --> 00:36:21,300
+okay fractals far more important
+
+654
+00:36:18,330 --> 00:36:23,850
+critical than the UNIX [ __ ] the the UNIX
+
+655
+00:36:21,300 --> 00:36:29,190
+operating system [ __ ] and C programming
+
+656
+00:36:23,850 --> 00:36:30,480
+CD C language and this is the disco
+
+657
+00:36:29,190 --> 00:36:35,130
+disco chart
+
+658
+00:36:30,480 --> 00:36:38,250
+many of you especially lispers know he
+
+659
+00:36:35,130 --> 00:36:41,550
+is a computer scientist he usually
+
+660
+00:36:38,250 --> 00:36:44,100
+theoretical and he often likes to he
+
+661
+00:36:41,550 --> 00:36:47,250
+talks a lot and you know like control
+
+662
+00:36:44,100 --> 00:36:51,360
+many people like in today's today's
+
+663
+00:36:47,250 --> 00:36:55,170
+jargon today's you know you just you
+
+664
+00:36:51,360 --> 00:37:04,470
+just say he's a true ok these guys
+
+665
+00:36:55,170 --> 00:37:10,320
+this guy an HSM coxster he's a great
+
+666
+00:37:04,470 --> 00:37:12,930
+geometry and he studies usually things
+
+667
+00:37:10,320 --> 00:37:18,300
+like visual like polyhedron for the
+
+668
+00:37:12,930 --> 00:37:21,990
+polyhedron polytopes you know very pure
+
+669
+00:37:18,300 --> 00:37:27,870
+pure math pure and pure math and pure
+
+670
+00:37:21,990 --> 00:37:30,120
+geometry you know so usually a lot of
+
+671
+00:37:27,870 --> 00:37:38,820
+people like you know that you might like
+
+672
+00:37:30,120 --> 00:37:42,390
+his stuff HMS HSM coxster okay so he's a
+
+673
+00:37:38,820 --> 00:37:47,130
+one of the greatest mathematician okay
+
+674
+00:37:42,390 --> 00:37:49,890
+so that's about that okay then then some
+
+675
+00:37:47,130 --> 00:37:52,440
+other topics now I'm going to read ok
+
+676
+00:37:49,890 --> 00:37:58,790
+Steve Jobs now here's some of the photos
+
+677
+00:37:52,440 --> 00:38:02,700
+of Steve Jobs I took so this is 2000
+
+678
+00:37:58,790 --> 00:38:08,640
+2001 in Palo Alto you know about
+
+679
+00:38:02,700 --> 00:38:10,890
+Colorado is about 20 minutes drive where
+
+680
+00:38:08,640 --> 00:38:13,050
+from where I live you know this this
+
+681
+00:38:10,890 --> 00:38:18,000
+photo is actually taken back my friend
+
+682
+00:38:13,050 --> 00:38:19,740
+trying a nakamoto so you have Steve Jobs
+
+683
+00:38:18,000 --> 00:38:23,160
+here you know I'm right there you know
+
+684
+00:38:19,740 --> 00:38:26,520
+I'm right there and Steve Jobs talking
+
+685
+00:38:23,160 --> 00:38:29,490
+to another guy this is Apple parado when
+
+686
+00:38:26,520 --> 00:38:33,480
+Apple just opened the store so around
+
+687
+00:38:29,490 --> 00:38:35,850
+2010 that is when Apple started to open
+
+688
+00:38:33,480 --> 00:38:39,800
+stores Apple Store you know around
+
+689
+00:38:35,850 --> 00:38:44,880
+around USA and later around the world
+
+690
+00:38:39,800 --> 00:38:46,770
+Apple store and also this is when you
+
+691
+00:38:44,880 --> 00:38:49,310
+know people are thinking all the
+
+692
+00:38:46,770 --> 00:38:52,710
+frequent and war stores are closing down
+
+693
+00:38:49,310 --> 00:38:56,070
+you see so Steve Jobs is a innovator
+
+694
+00:38:52,710 --> 00:39:00,390
+because he sees differently like think
+
+695
+00:38:56,070 --> 00:39:02,310
+different you see around 2001 the
+
+696
+00:39:00,390 --> 00:39:04,500
+thinking is that you know the brick and
+
+697
+00:39:02,310 --> 00:39:07,650
+wall all the stores is gonna shut down
+
+698
+00:39:04,500 --> 00:39:08,940
+you know we have digital stores instead
+
+699
+00:39:07,650 --> 00:39:11,640
+like Amazon
+
+700
+00:39:08,940 --> 00:39:15,720
+but Steve Jobs think you know instead he
+
+701
+00:39:11,640 --> 00:39:17,670
+is gonna he's open in stores and that
+
+702
+00:39:15,720 --> 00:39:21,780
+turns out to be successful too you know
+
+703
+00:39:17,670 --> 00:39:25,710
+so he's you know he's a genius in in in
+
+704
+00:39:21,780 --> 00:39:31,320
+what he does so Steve Jobs the Palo Alto
+
+705
+00:39:25,710 --> 00:39:33,300
+apples Apple Store grand opening you
+
+706
+00:39:31,320 --> 00:39:36,410
+know more photo and this this is my
+
+707
+00:39:33,300 --> 00:39:42,830
+photo you know I I I took photo of him
+
+708
+00:39:36,410 --> 00:39:49,110
+he's talking he's talking Steve Jobs the
+
+709
+00:39:42,830 --> 00:39:50,610
+last time I saw him is around 2008 you
+
+710
+00:39:49,110 --> 00:39:53,610
+know I saw me on the street outside
+
+711
+00:39:50,610 --> 00:39:57,600
+outside of a conference some some Apple
+
+712
+00:39:53,610 --> 00:40:00,060
+you know a neo Apple conference and you
+
+713
+00:39:57,600 --> 00:40:03,360
+know I I was outside of it and I saw him
+
+714
+00:40:00,060 --> 00:40:05,880
+standing outside you know I I didn't say
+
+715
+00:40:03,360 --> 00:40:10,440
+hi this is so that's that's the last
+
+716
+00:40:05,880 --> 00:40:13,290
+time I saw him 2008 so you see these are
+
+717
+00:40:10,440 --> 00:40:16,650
+Emacs this are extremely popular back
+
+718
+00:40:13,290 --> 00:40:22,620
+then and also it was a innovation you
+
+719
+00:40:16,650 --> 00:40:25,580
+know Apple made this iMac computers okay
+
+720
+00:40:22,620 --> 00:40:33,270
+so that's photos of Steve Steve Jobs and
+
+721
+00:40:25,580 --> 00:40:35,870
+they're small and let me show you some
+
+722
+00:40:33,270 --> 00:40:35,870
+more okay so
+
+723
+00:40:46,350 --> 00:40:54,300
+so this is Steve Jobs just about few
+
+724
+00:40:51,180 --> 00:41:01,620
+months before he died this is Steve Jobs
+
+725
+00:40:54,300 --> 00:41:03,780
+oh this is Steve Jobs in 2007 you know
+
+726
+00:41:01,620 --> 00:41:04,260
+he looks he don't look he doesn't look
+
+727
+00:41:03,780 --> 00:41:05,910
+good
+
+728
+00:41:04,260 --> 00:41:08,600
+you know he's look he looks like that
+
+729
+00:41:05,910 --> 00:41:08,600
+let me pay it
+
+730
+00:41:21,130 --> 00:41:25,940
+so you know by by this time 2007 he is
+
+731
+00:41:25,010 --> 00:41:32,600
+pretty thing
+
+732
+00:41:25,940 --> 00:41:35,980
+he's already you know you know gaunt how
+
+733
+00:41:32,600 --> 00:41:35,980
+you say that quad can't
+
+734
+00:41:36,190 --> 00:41:45,710
+yes discard this Dijkstra is a guy who
+
+735
+00:41:42,860 --> 00:41:50,360
+said you know who made popular the Alico
+
+736
+00:41:45,710 --> 00:41:54,790
+go-to considered humph oh yeah Steve
+
+737
+00:41:50,360 --> 00:41:58,790
+Jobs anyway so okay let's close that
+
+738
+00:41:54,790 --> 00:42:01,540
+back to as I close that so you want to
+
+739
+00:41:58,790 --> 00:42:01,540
+change the world
+
+740
+00:42:02,830 --> 00:42:09,410
+okay let me read the comments and let's
+
+741
+00:42:05,390 --> 00:42:12,620
+see what people say comments comments
+
+742
+00:42:09,410 --> 00:42:14,450
+comments guys comments and how long
+
+743
+00:42:12,620 --> 00:42:21,400
+we've been talking about today so we've
+
+744
+00:42:14,450 --> 00:42:21,400
+been talking what
+
+745
+00:42:25,710 --> 00:42:37,200
+doesn't say what [ __ ] this is wrong I
+
+746
+00:42:30,259 --> 00:42:39,559
+need to go to okay so look at here 42
+
+747
+00:42:37,200 --> 00:42:39,559
+minutes
+
+748
+00:42:50,050 --> 00:42:58,520
+software-as-a-service okay and codeine
+
+749
+00:42:55,130 --> 00:43:04,280
+train whatever congratulations on your
+
+750
+00:42:58,520 --> 00:43:08,020
+first streamed troll fash bad s pas good
+
+751
+00:43:04,280 --> 00:43:08,020
+what is s pas Oh
+
+752
+00:43:08,560 --> 00:43:18,530
+SaaS nest and for software-as-a-service
+
+753
+00:43:12,680 --> 00:43:25,310
+and FA a and G stand for Facebook Apple
+
+754
+00:43:18,530 --> 00:43:38,119
+Amazon Netflix Google ok the fan ok the
+
+755
+00:43:25,310 --> 00:43:44,420
+fan of the evil flash bad s pas good so
+
+756
+00:43:38,119 --> 00:43:47,600
+what is s pas all these acronyms SP is
+
+757
+00:43:44,420 --> 00:43:50,180
+still not good web assembly is better
+
+758
+00:43:47,600 --> 00:43:57,800
+they are both bad I hope web assembly
+
+759
+00:43:50,180 --> 00:44:00,050
+never takes off may explain why there is
+
+760
+00:43:57,800 --> 00:44:03,140
+already enough blowed delivered through
+
+761
+00:44:00,050 --> 00:44:05,240
+my browser so what's your solution to
+
+762
+00:44:03,140 --> 00:44:08,330
+that Andrey says can you make a youtube
+
+763
+00:44:05,240 --> 00:44:16,430
+video about shut up no I cannot make a
+
+764
+00:44:08,330 --> 00:44:25,460
+video about p5.js I don't know what's
+
+765
+00:44:16,430 --> 00:44:29,780
+your issue p5.js so web dog says native
+
+766
+00:44:25,460 --> 00:44:34,420
+applications no electron either just
+
+767
+00:44:29,780 --> 00:44:34,420
+real programs I execute vo assembly
+
+768
+00:44:39,450 --> 00:44:53,619
+so sabatham you says you should make me
+
+769
+00:44:46,119 --> 00:44:56,490
+moderator okay well I could this hold
+
+770
+00:44:53,619 --> 00:44:56,490
+hold on second
+
+771
+00:44:58,680 --> 00:45:06,580
+Sophie oh just just ignore it okay guys
+
+772
+00:45:02,320 --> 00:45:09,580
+ignore it ignore is the best thing like
+
+773
+00:45:06,580 --> 00:45:13,240
+usually I don't like to ban stuff I mean
+
+774
+00:45:09,580 --> 00:45:15,609
+and Ray you know you have to say your
+
+775
+00:45:13,240 --> 00:45:17,380
+reason stop just repeating whatever you
+
+776
+00:45:15,609 --> 00:45:20,170
+know just sweep stop repeating yes
+
+777
+00:45:17,380 --> 00:45:20,710
+that's some library you know what's the
+
+778
+00:45:20,170 --> 00:45:23,290
+point
+
+779
+00:45:20,710 --> 00:45:27,160
+like what do you want me to do about
+
+780
+00:45:23,290 --> 00:45:37,810
+that I don't know that thing I don't
+
+781
+00:45:27,160 --> 00:45:41,550
+know I think so fire a fire ends up fire
+
+782
+00:45:37,810 --> 00:45:45,070
+hands up says IMS is an extremist yeah
+
+783
+00:45:41,550 --> 00:45:48,250
+feel they feel they read is the best
+
+784
+00:45:45,070 --> 00:45:48,910
+French operating system extremists what
+
+785
+00:45:48,250 --> 00:45:51,850
+is that
+
+786
+00:45:48,910 --> 00:45:53,590
+ok I don't know I'm just starting to get
+
+787
+00:45:51,850 --> 00:45:58,260
+into BSD ok
+
+788
+00:45:53,590 --> 00:46:00,760
+we've dog says I want to see you browse
+
+789
+00:45:58,260 --> 00:46:03,940
+canoes and give your thoughts on what
+
+790
+00:46:00,760 --> 00:46:08,830
+you see there that would be interesting
+
+791
+00:46:03,940 --> 00:46:17,290
+and the consequence would be I would be
+
+792
+00:46:08,830 --> 00:46:23,680
+swearing every minute yes I was born in
+
+793
+00:46:17,290 --> 00:46:28,150
+1968 correct SP a equals two single page
+
+794
+00:46:23,680 --> 00:46:31,330
+application okay okay bathroom is a
+
+795
+00:46:28,150 --> 00:46:34,869
+famous quote for 20 ignore is the best
+
+796
+00:46:31,330 --> 00:46:39,609
+thing okay what else guys so I think we
+
+797
+00:46:34,869 --> 00:46:42,520
+wasted today's talk I you know we talked
+
+798
+00:46:39,609 --> 00:46:45,400
+about Steve Jobs that's a you know
+
+799
+00:46:42,520 --> 00:46:49,359
+random chat and Richard Stallman that's
+
+800
+00:46:45,400 --> 00:46:51,670
+another day of framing the UNIX people
+
+801
+00:46:49,359 --> 00:46:56,290
+and the open source
+
+802
+00:46:51,670 --> 00:47:01,480
+it's you know it's old news I don't look
+
+803
+00:46:56,290 --> 00:47:04,240
+old well but you get old you know I am
+
+804
+00:47:01,480 --> 00:47:07,690
+you know your your your lots of things
+
+805
+00:47:04,240 --> 00:47:12,460
+went bad once you realize that beginning
+
+806
+00:47:07,690 --> 00:47:15,580
+in early 40s okay for example my for
+
+807
+00:47:12,460 --> 00:47:18,160
+example I'm 51 and I cannot see I cannot
+
+808
+00:47:15,580 --> 00:47:20,380
+focus you know it just happens like you
+
+809
+00:47:18,160 --> 00:47:23,860
+remember when you were a child your
+
+810
+00:47:20,380 --> 00:47:26,530
+grandma you know asked you to put a
+
+811
+00:47:23,860 --> 00:47:28,690
+threading a needle I do remember my
+
+812
+00:47:26,530 --> 00:47:30,970
+grandma asked me to do that when I was
+
+813
+00:47:28,690 --> 00:47:34,570
+like I don't know eight years old you
+
+814
+00:47:30,970 --> 00:47:38,650
+know but now I can I cannot see I cannot
+
+815
+00:47:34,570 --> 00:47:41,170
+see anything close and you know yeah it
+
+816
+00:47:38,650 --> 00:47:45,900
+happens yeah well you know it had it's
+
+817
+00:47:41,170 --> 00:47:45,900
+called aging it happens to everyone
+
+818
+00:47:46,380 --> 00:47:54,520
+you know besides beside your head going
+
+819
+00:47:49,480 --> 00:47:58,210
+bored you start to look ugly yeah that's
+
+820
+00:47:54,520 --> 00:48:02,950
+and that's eternal problem of humanity
+
+821
+00:47:58,210 --> 00:48:05,770
+everyone wishes to be young so anyway so
+
+822
+00:48:02,950 --> 00:48:08,800
+that's that anything else
+
+823
+00:48:05,770 --> 00:48:11,710
+so framing in ever wasted framing is
+
+824
+00:48:08,800 --> 00:48:13,840
+never never wasted okay so actually I
+
+825
+00:48:11,710 --> 00:48:17,910
+always I wanted to talk about some
+
+826
+00:48:13,840 --> 00:48:21,070
+coding stuff okay so I guess not today
+
+827
+00:48:17,910 --> 00:48:23,590
+hacker news let's go to hacker news okay
+
+828
+00:48:21,070 --> 00:48:28,960
+let's go to let me tell you some story
+
+829
+00:48:23,590 --> 00:48:31,030
+about hacker news okay that's gonna be
+
+830
+00:48:28,960 --> 00:48:35,020
+more swearing you know that's just be
+
+831
+00:48:31,030 --> 00:48:40,590
+more me swearing hacker news
+
+832
+00:48:35,020 --> 00:48:46,720
+sorry org and what is politics okay
+
+833
+00:48:40,590 --> 00:48:49,660
+and the idiocy of hacker keyboards you
+
+834
+00:48:46,720 --> 00:48:52,060
+know my site Mike you know my name now
+
+835
+00:48:49,660 --> 00:48:54,550
+and then went on to hacker news every
+
+836
+00:48:52,060 --> 00:48:57,220
+every two years or so some of my
+
+837
+00:48:54,550 --> 00:49:01,930
+articles went you know goes to hacker
+
+838
+00:48:57,220 --> 00:49:03,190
+knows about II about least my dis
+
+839
+00:49:01,930 --> 00:49:05,140
+aughtta goes oh my
+
+840
+00:49:03,190 --> 00:49:07,569
+MX Allah goes oh my MA
+
+841
+00:49:05,140 --> 00:49:12,760
+these are logos or my keyboard articles
+
+842
+00:49:07,569 --> 00:49:15,130
+or sometimes programming related
+
+843
+00:49:12,760 --> 00:49:17,430
+articles such as you know idioms in
+
+844
+00:49:15,130 --> 00:49:17,430
+stuff
+
+845
+00:49:27,670 --> 00:49:37,180
+you are happy you are still young yeah
+
+846
+00:49:30,580 --> 00:49:39,640
+that's good okay so how can you ask
+
+847
+00:49:37,180 --> 00:49:43,120
+Sally okay and what is politics you know
+
+848
+00:49:39,640 --> 00:49:45,790
+I don't use Haqqani hacker news because
+
+849
+00:49:43,120 --> 00:49:49,360
+I don't use hacker news I don't use
+
+850
+00:49:45,790 --> 00:49:53,500
+reddit well actually I do use reddit
+
+851
+00:49:49,360 --> 00:49:55,960
+like you know now and then now but when
+
+852
+00:49:53,500 --> 00:49:58,450
+it began in the first five years so 10
+
+853
+00:49:55,960 --> 00:50:01,750
+years of reddit I don't use it and you
+
+854
+00:49:58,450 --> 00:50:04,450
+know because I know you know latest
+
+855
+00:50:01,750 --> 00:50:06,730
+began around 2004 or something like that
+
+856
+00:50:04,450 --> 00:50:08,980
+the similar for hacker news because I
+
+857
+00:50:06,730 --> 00:50:11,920
+know from these forums online forums
+
+858
+00:50:08,980 --> 00:50:14,590
+that's near platform you know they they
+
+859
+00:50:11,920 --> 00:50:17,980
+are so purpose is to make money is to
+
+860
+00:50:14,590 --> 00:50:19,870
+squeeze money maybe now maybe maybe not
+
+861
+00:50:17,980 --> 00:50:24,580
+when this began but eventually you know
+
+862
+00:50:19,870 --> 00:50:26,920
+they just like Reddit and hacker news
+
+863
+00:50:24,580 --> 00:50:29,650
+today is all like it's all social
+
+864
+00:50:26,920 --> 00:50:32,020
+justice okay well anyway reddit you know
+
+865
+00:50:29,650 --> 00:50:34,890
+and all these platforms basically that's
+
+866
+00:50:32,020 --> 00:50:38,230
+their that's other people's stuff rather
+
+867
+00:50:34,890 --> 00:50:42,010
+what I want to do or you want to do is
+
+868
+00:50:38,230 --> 00:50:44,080
+to create your own websites so you have
+
+869
+00:50:42,010 --> 00:50:46,600
+opinion put you on your own website and
+
+870
+00:50:44,080 --> 00:50:50,080
+create a comment you know so people can
+
+871
+00:50:46,600 --> 00:50:54,340
+comment it that's discussion things like
+
+872
+00:50:50,080 --> 00:50:57,160
+hacker news reddit Stack Overflow you
+
+873
+00:50:54,340 --> 00:50:59,500
+know they oh they are in a way they are
+
+874
+00:50:57,160 --> 00:51:01,990
+all a lie okay what they what are they
+
+875
+00:50:59,500 --> 00:51:04,690
+about you know first of all they are
+
+876
+00:51:01,990 --> 00:51:06,940
+they are all from the open source they
+
+877
+00:51:04,690 --> 00:51:09,850
+are all like oh we are the open source
+
+878
+00:51:06,940 --> 00:51:12,660
+we are the people we you know we are the
+
+879
+00:51:09,850 --> 00:51:16,870
+programmers we are these so that we help
+
+880
+00:51:12,660 --> 00:51:19,380
+humanity [ __ ] you know but but in
+
+881
+00:51:16,870 --> 00:51:22,840
+reality they are just another
+
+882
+00:51:19,380 --> 00:51:25,390
+corporation okay and and as a
+
+883
+00:51:22,840 --> 00:51:31,330
+corporation in America ultimately what
+
+884
+00:51:25,390 --> 00:51:34,780
+they want is to make money and hold on a
+
+885
+00:51:31,330 --> 00:51:37,390
+second and ultimately this company do is
+
+886
+00:51:34,780 --> 00:51:41,120
+to you know in order to make money
+
+887
+00:51:37,390 --> 00:51:45,990
+eventually basically they
+
+888
+00:51:41,120 --> 00:51:49,470
+it conflicts with the idea of open
+
+889
+00:51:45,990 --> 00:51:55,620
+source and it conflicts with many ideas
+
+890
+00:51:49,470 --> 00:51:58,320
+of morality or ethics okay not not
+
+891
+00:51:55,620 --> 00:52:00,360
+always but in a sense okay
+
+892
+00:51:58,320 --> 00:52:02,670
+in particular they conflict with the
+
+893
+00:52:00,360 --> 00:52:05,340
+idea of open source or free software
+
+894
+00:52:02,670 --> 00:52:07,830
+okay so the you so you have you got this
+
+895
+00:52:05,340 --> 00:52:12,090
+Stack Overflow you got this you got
+
+896
+00:52:07,830 --> 00:52:12,960
+these hacker news you know let's go to
+
+897
+00:52:12,090 --> 00:52:15,180
+hacker news
+
+898
+00:52:12,960 --> 00:52:17,460
+you know let's see what day today I
+
+899
+00:52:15,180 --> 00:52:20,040
+never you know I actually never went to
+
+900
+00:52:17,460 --> 00:52:23,400
+howl canoes maybe not even once in a
+
+901
+00:52:20,040 --> 00:52:26,180
+year I the the times I went to hack a
+
+902
+00:52:23,400 --> 00:52:29,220
+news like front page is about maybe
+
+903
+00:52:26,180 --> 00:52:32,250
+maybe once every three years typically
+
+904
+00:52:29,220 --> 00:52:34,560
+whenever my name is mentioned or my
+
+905
+00:52:32,250 --> 00:52:39,270
+article is posted on a canoes I go there
+
+906
+00:52:34,560 --> 00:52:43,110
+okay but I almost never you know look
+
+907
+00:52:39,270 --> 00:52:45,000
+look at what what's hacker news except
+
+908
+00:52:43,110 --> 00:52:48,570
+sometimes I saw it on Twitter you know
+
+909
+00:52:45,000 --> 00:52:54,570
+when some some someone else shared it so
+
+910
+00:52:48,570 --> 00:52:56,340
+I never use hacker news and so yeah so
+
+911
+00:52:54,570 --> 00:53:02,100
+back to these companies how can you
+
+912
+00:52:56,340 --> 00:53:04,950
+stack overflow stack overflow including
+
+913
+00:53:02,100 --> 00:53:08,370
+github and also you know reddit they are
+
+914
+00:53:04,950 --> 00:53:11,580
+all just companies seen seeing you know
+
+915
+00:53:08,370 --> 00:53:17,850
+fake news yeah we are open source and so
+
+916
+00:53:11,580 --> 00:53:20,040
+on you know they get you to use them you
+
+917
+00:53:17,850 --> 00:53:22,370
+know and if you follow this news for
+
+918
+00:53:20,040 --> 00:53:24,360
+example they are there are so many
+
+919
+00:53:22,370 --> 00:53:26,820
+controversies about each of these
+
+920
+00:53:24,360 --> 00:53:29,220
+companies like you wouldn't know unless
+
+921
+00:53:26,820 --> 00:53:32,370
+you follow them I'm pretty sure some of
+
+922
+00:53:29,220 --> 00:53:36,690
+you know some of these like I'm pretty
+
+923
+00:53:32,370 --> 00:53:38,940
+sure some of you follow reddit all the
+
+924
+00:53:36,690 --> 00:53:41,070
+time you know even since they begin this
+
+925
+00:53:38,940 --> 00:53:43,230
+instance in the beginning some of you
+
+926
+00:53:41,070 --> 00:53:47,390
+follow hacker news you know since the
+
+927
+00:53:43,230 --> 00:53:51,200
+beginning or some of you follow you know
+
+928
+00:53:47,390 --> 00:53:54,150
+Stack Overflow or github or you know and
+
+929
+00:53:51,200 --> 00:53:57,499
+over the years over the past ten
+
+930
+00:53:54,150 --> 00:53:59,880
+by now 15 years you see many many
+
+931
+00:53:57,499 --> 00:54:04,200
+controversies like oh they did you know
+
+932
+00:53:59,880 --> 00:54:07,019
+some evil things they did you know but
+
+933
+00:54:04,200 --> 00:54:10,710
+pretty much all these news is that what
+
+934
+00:54:07,019 --> 00:54:13,559
+happened is that after you know after a
+
+935
+00:54:10,710 --> 00:54:16,430
+week nobody nobody remembers a thing you
+
+936
+00:54:13,559 --> 00:54:18,960
+know like but you you know only those
+
+937
+00:54:16,430 --> 00:54:21,329
+like you might remember all the things
+
+938
+00:54:18,960 --> 00:54:24,029
+happened but nobody nobody knows like
+
+939
+00:54:21,329 --> 00:54:26,940
+you cannot even start to write them out
+
+940
+00:54:24,029 --> 00:54:32,339
+because because it takes a lot of time
+
+941
+00:54:26,940 --> 00:54:35,069
+to you know you know to to dig out all
+
+942
+00:54:32,339 --> 00:54:38,009
+the information in the past and and or
+
+943
+00:54:35,069 --> 00:54:41,460
+unless you block all the time but even
+
+944
+00:54:38,009 --> 00:54:45,420
+if I if you blog such as I do you know
+
+945
+00:54:41,460 --> 00:54:48,390
+you know like for example I you know
+
+946
+00:54:45,420 --> 00:54:52,680
+it's it takes tremendous amount of time
+
+947
+00:54:48,390 --> 00:54:55,259
+to blog you know like usually I recalled
+
+948
+00:54:52,680 --> 00:54:58,609
+things like record of history of
+
+949
+00:54:55,259 --> 00:55:02,400
+whatever things I see for example
+
+950
+00:54:58,609 --> 00:55:06,119
+suppose I saw some controversy of hacker
+
+951
+00:55:02,400 --> 00:55:08,759
+news some extreme Evo let's say I saw
+
+952
+00:55:06,119 --> 00:55:11,160
+let's say there's a news that hacker
+
+953
+00:55:08,759 --> 00:55:13,440
+news sales or your data to all the
+
+954
+00:55:11,160 --> 00:55:16,079
+companies and there's proof
+
+955
+00:55:13,440 --> 00:55:18,509
+you know leaked memo leaked
+
+956
+00:55:16,079 --> 00:55:22,019
+documentation from program and things
+
+957
+00:55:18,509 --> 00:55:25,049
+like that suppose I see that I may not
+
+958
+00:55:22,019 --> 00:55:27,450
+blog it you know because even if I block
+
+959
+00:55:25,049 --> 00:55:29,970
+it I'll just say okay oh I saw this news
+
+960
+00:55:27,450 --> 00:55:33,029
+you know maybe there's a link you know
+
+961
+00:55:29,970 --> 00:55:36,329
+by by by panacea the link will be
+
+962
+00:55:33,029 --> 00:55:38,910
+conceived we've gone dead it's like no
+
+963
+00:55:36,329 --> 00:55:41,009
+use the you know if you really want to
+
+964
+00:55:38,910 --> 00:55:43,400
+plug it you have to spend one hour two
+
+965
+00:55:41,009 --> 00:55:46,710
+hours to get you know to to actually
+
+966
+00:55:43,400 --> 00:55:48,839
+archive in some sort of a way you know
+
+967
+00:55:46,710 --> 00:55:50,940
+to to explain what's going on okay he
+
+968
+00:55:48,839 --> 00:55:53,700
+you know usually these controversies
+
+969
+00:55:50,940 --> 00:55:56,460
+it's not easy it's not like one sentence
+
+970
+00:55:53,700 --> 00:55:59,430
+summary usually there's like this CEO
+
+971
+00:55:56,460 --> 00:56:01,859
+did this then it that happens then then
+
+972
+00:55:59,430 --> 00:56:04,170
+then you know who said what you know you
+
+973
+00:56:01,859 --> 00:56:06,359
+have to spend like days to dig out all
+
+974
+00:56:04,170 --> 00:56:07,810
+this information then you have to write
+
+975
+00:56:06,359 --> 00:56:11,110
+it out so it's not easy
+
+976
+00:56:07,810 --> 00:56:15,130
+it takes states to actually document one
+
+977
+00:56:11,110 --> 00:56:17,230
+incident so you know occasionally when I
+
+978
+00:56:15,130 --> 00:56:19,540
+see something you know I might just
+
+979
+00:56:17,230 --> 00:56:24,130
+write one sentence but that's not good
+
+980
+00:56:19,540 --> 00:56:26,650
+enough and even for each one sentence I
+
+981
+00:56:24,130 --> 00:56:30,370
+wrote about these companies you know
+
+982
+00:56:26,650 --> 00:56:33,130
+this controversy incidents there are ten
+
+983
+00:56:30,370 --> 00:56:34,270
+that I didn't blog because you don't you
+
+984
+00:56:33,130 --> 00:56:36,190
+don't have time you know you don't
+
+985
+00:56:34,270 --> 00:56:40,030
+follow each one you know you don't you
+
+986
+00:56:36,190 --> 00:56:42,490
+don't have time so so typically you know
+
+987
+00:56:40,030 --> 00:56:45,220
+it's like they say history the
+
+988
+00:56:42,490 --> 00:56:47,590
+population has no memory they say you
+
+989
+00:56:45,220 --> 00:56:50,200
+know there's a phrase the population has
+
+990
+00:56:47,590 --> 00:56:52,150
+no memory you know whatever Google did
+
+991
+00:56:50,200 --> 00:56:55,770
+bad people don't remember young people
+
+992
+00:56:52,150 --> 00:56:58,180
+don't know you know but you it's hard to
+
+993
+00:56:55,770 --> 00:57:00,550
+communicate you know to tell young
+
+994
+00:56:58,180 --> 00:57:02,890
+people like today if you tell young
+
+995
+00:57:00,550 --> 00:57:05,020
+people you know all the things you know
+
+996
+00:57:02,890 --> 00:57:09,310
+about reddit for example all the bad
+
+997
+00:57:05,020 --> 00:57:10,030
+things controversy you know they don't
+
+998
+00:57:09,310 --> 00:57:12,730
+believe you
+
+999
+00:57:10,030 --> 00:57:15,930
+like you use you need to say you know
+
+1000
+00:57:12,730 --> 00:57:18,760
+you need to put post proofs and
+
+1001
+00:57:15,930 --> 00:57:21,130
+explanations because otherwise you don't
+
+1002
+00:57:18,760 --> 00:57:23,830
+know it's like it's like WikiLeaks you
+
+1003
+00:57:21,130 --> 00:57:28,420
+know WikiLeaks they have produced
+
+1004
+00:57:23,830 --> 00:57:30,190
+tremendous tons of documentation but but
+
+1005
+00:57:28,420 --> 00:57:31,600
+do you know actually what's really going
+
+1006
+00:57:30,190 --> 00:57:34,030
+on you don't know and you don't have
+
+1007
+00:57:31,600 --> 00:57:35,800
+time to read WikiLeaks do you actually
+
+1008
+00:57:34,030 --> 00:57:38,440
+go read what you know what
+
+1009
+00:57:35,800 --> 00:57:40,900
+WikiLeaks actually found out no because
+
+1010
+00:57:38,440 --> 00:57:43,690
+they they are in a form that's not even
+
+1011
+00:57:40,900 --> 00:57:45,940
+readable to understand them you know you
+
+1012
+00:57:43,690 --> 00:57:47,800
+need to know all the politicians what
+
+1013
+00:57:45,940 --> 00:57:50,350
+you know you need to know other
+
+1014
+00:57:47,800 --> 00:57:52,930
+politicians what's their role what's the
+
+1015
+00:57:50,350 --> 00:57:54,540
+International thing you know you need to
+
+1016
+00:57:52,930 --> 00:57:57,010
+know that otherwise it's like
+
+1017
+00:57:54,540 --> 00:58:00,100
+meaningless to you oh you hear is that
+
+1018
+00:57:57,010 --> 00:58:03,040
+oh someone did bad that that's you know
+
+1019
+00:58:00,100 --> 00:58:06,790
+that's all you know and so that's that's
+
+1020
+00:58:03,040 --> 00:58:08,920
+a problem so people don't know and you
+
+1021
+00:58:06,790 --> 00:58:11,350
+know we got all fake news like fake news
+
+1022
+00:58:08,920 --> 00:58:14,560
+spread on hacker news for example on
+
+1023
+00:58:11,350 --> 00:58:17,800
+Hacker News you know all the idioms and
+
+1024
+00:58:14,560 --> 00:58:19,420
+bad information misinformation about for
+
+1025
+00:58:17,800 --> 00:58:21,640
+example I talked about yesterday about
+
+1026
+00:58:19,420 --> 00:58:24,670
+currying about Mona
+
+1027
+00:58:21,640 --> 00:58:26,890
+about lambda calculus is Lisa lambda
+
+1028
+00:58:24,670 --> 00:58:29,829
+calculus you know they spread on hacker
+
+1029
+00:58:26,890 --> 00:58:34,269
+news every day every day for the past 15
+
+1030
+00:58:29,829 --> 00:58:38,259
+years this crap information idiotic you
+
+1031
+00:58:34,269 --> 00:58:41,710
+know and why you know okay so for
+
+1032
+00:58:38,259 --> 00:58:45,549
+example 784 points 300 points whatever
+
+1033
+00:58:41,710 --> 00:58:49,509
+300 points 300 points okay why because
+
+1034
+00:58:45,549 --> 00:58:52,989
+most people are not learned men okay
+
+1035
+00:58:49,509 --> 00:58:54,819
+most people they are used and also most
+
+1036
+00:58:52,989 --> 00:58:56,559
+of them are young people you know young
+
+1037
+00:58:54,819 --> 00:58:59,499
+people you don't have nothing to do I
+
+1038
+00:58:56,559 --> 00:59:01,059
+mean that's it is actually true for
+
+1039
+00:58:59,499 --> 00:59:04,569
+young people you know you go to college
+
+1040
+00:59:01,059 --> 00:59:06,880
+you don't as opposed to older people you
+
+1041
+00:59:04,569 --> 00:59:09,339
+have a life you have family you need to
+
+1042
+00:59:06,880 --> 00:59:11,710
+take care of you go to work you have
+
+1043
+00:59:09,339 --> 00:59:13,509
+children you had you know you got things
+
+1044
+00:59:11,710 --> 00:59:15,489
+to do you don't have time to go read
+
+1045
+00:59:13,509 --> 00:59:17,829
+hacker news you know typically it's
+
+1046
+00:59:15,489 --> 00:59:21,460
+younger people in college you know they
+
+1047
+00:59:17,829 --> 00:59:22,900
+don't have nothing to do and in general
+
+1048
+00:59:21,460 --> 00:59:24,160
+young people are less you know they
+
+1049
+00:59:22,900 --> 00:59:26,289
+don't have the experience they don't
+
+1050
+00:59:24,160 --> 00:59:29,619
+have knowledge comparatively speaking
+
+1051
+00:59:26,289 --> 00:59:33,339
+that is true and and you know 10 years
+
+1052
+00:59:29,619 --> 00:59:35,589
+older 10 years after today you will have
+
+1053
+00:59:33,339 --> 00:59:38,109
+more experience you will know more than
+
+1054
+00:59:35,589 --> 00:59:41,349
+what you know now you know everyone
+
+1055
+00:59:38,109 --> 00:59:44,230
+grows older so 10 years will come to you
+
+1056
+00:59:41,349 --> 00:59:46,269
+20 years will come to you and when you
+
+1057
+00:59:44,230 --> 00:59:47,529
+think back Oh 10 years ago I don't know
+
+1058
+00:59:46,269 --> 00:59:50,769
+I don't know nothing
+
+1059
+00:59:47,529 --> 00:59:53,680
+but so most young people you know visit
+
+1060
+00:59:50,769 --> 00:59:55,359
+hacker news and read it so young people
+
+1061
+00:59:53,680 --> 00:59:57,579
+like when I was young you know you don't
+
+1062
+00:59:55,359 --> 00:59:59,859
+know you just like oh oh you know for
+
+1063
+00:59:57,579 --> 01:00:02,529
+example when I saw lambda you know
+
+1064
+00:59:59,859 --> 01:00:05,079
+calculus oh yeah that's great article
+
+1065
+01:00:02,529 --> 01:00:06,970
+about lambda calculus why because I
+
+1066
+01:00:05,079 --> 01:00:09,460
+don't know nothing about lambda calculus
+
+1067
+01:00:06,970 --> 01:00:11,799
+I don't know nothing about computer you
+
+1068
+01:00:09,460 --> 01:00:14,619
+know theoretical computer science oh I
+
+1069
+01:00:11,799 --> 01:00:17,109
+know it's like oh this is I heard on the
+
+1070
+01:00:14,619 --> 01:00:19,480
+hacker news this is actually your you
+
+1071
+01:00:17,109 --> 01:00:22,539
+know important thing lambda calculus Wow
+
+1072
+01:00:19,480 --> 01:00:25,450
+is so cool you know I like it you know
+
+1073
+01:00:22,539 --> 01:00:28,989
+the end but what I do not know is that
+
+1074
+01:00:25,450 --> 01:00:30,430
+maybe that Arco is like bad quality you
+
+1075
+01:00:28,989 --> 01:00:31,390
+know it's like you don't know what
+
+1076
+01:00:30,430 --> 01:00:35,050
+you're talking about
+
+1077
+01:00:31,390 --> 01:00:37,450
+you know so you use so in this
+
+1078
+01:00:35,050 --> 01:00:41,950
+is the general situation of humanity it
+
+1079
+01:00:37,450 --> 01:00:45,130
+is not it's not something you actually
+
+1080
+01:00:41,950 --> 01:00:48,640
+can fix and it's not something it's not
+
+1081
+01:00:45,130 --> 01:00:51,100
+necessarily a problem it's you see now
+
+1082
+01:00:48,640 --> 01:00:54,160
+remember this is not necessarily like a
+
+1083
+01:00:51,100 --> 01:00:56,770
+problem or a bug it's not it's just this
+
+1084
+01:00:54,160 --> 01:01:01,930
+is the way life is you know young people
+
+1085
+01:00:56,770 --> 01:01:06,850
+order and misinformation in in a world
+
+1086
+01:01:01,930 --> 01:01:08,620
+like even before before internet you
+
+1087
+01:01:06,850 --> 01:01:11,740
+know today we have internet the
+
+1088
+01:01:08,620 --> 01:01:15,040
+communication technology you know if you
+
+1089
+01:01:11,740 --> 01:01:17,290
+actually want to know the truth you can
+
+1090
+01:01:15,040 --> 01:01:19,750
+find out if you spend time you can
+
+1091
+01:01:17,290 --> 01:01:22,000
+actually find out about every article
+
+1092
+01:01:19,750 --> 01:01:25,030
+you know every article you spend one
+
+1093
+01:01:22,000 --> 01:01:27,820
+hour to actually you know I want you for
+
+1094
+01:01:25,030 --> 01:01:32,020
+example let pick randomly pick one
+
+1095
+01:01:27,820 --> 01:01:34,240
+article and spend one hour you know try
+
+1096
+01:01:32,020 --> 01:01:37,060
+to find out what is true what is weather
+
+1097
+01:01:34,240 --> 01:01:39,790
+you know like like spend one hour to
+
+1098
+01:01:37,060 --> 01:01:41,860
+church like if you are going to if you
+
+1099
+01:01:39,790 --> 01:01:44,680
+have a church and you are going to score
+
+1100
+01:01:41,860 --> 01:01:47,020
+this article like 1 to 100 what score
+
+1101
+01:01:44,680 --> 01:01:50,350
+you would give and you have to spend one
+
+1102
+01:01:47,020 --> 01:01:54,880
+hour on it then you look you you know a
+
+1103
+01:01:50,350 --> 01:01:59,590
+lot you learn a lot you know so so what
+
+1104
+01:01:54,880 --> 01:02:03,790
+was I talking about you know so so
+
+1105
+01:01:59,590 --> 01:02:07,300
+anyway so there is a lot oh yeah so I
+
+1106
+01:02:03,790 --> 01:02:09,640
+was saying this is not necessarily a
+
+1107
+01:02:07,300 --> 01:02:13,540
+problem or a bug you know because this
+
+1108
+01:02:09,640 --> 01:02:17,640
+is just how things are and also consider
+
+1109
+01:02:13,540 --> 01:02:20,190
+if you compare so today you know we have
+
+1110
+01:02:17,640 --> 01:02:22,560
+internet and phones you know
+
+1111
+01:02:20,190 --> 01:02:25,660
+communication technology is very
+
+1112
+01:02:22,560 --> 01:02:29,140
+advanced so you can actually find out
+
+1113
+01:02:25,660 --> 01:02:31,810
+truth about any of these articles or
+
+1114
+01:02:29,140 --> 01:02:38,350
+about political articles for example
+
+1115
+01:02:31,810 --> 01:02:40,540
+this one says this one says ok United
+
+1116
+01:02:38,350 --> 01:02:41,320
+States Court of Appeals for the Ninth
+
+1117
+01:02:40,540 --> 01:02:43,360
+Circuit
+
+1118
+01:02:41,320 --> 01:02:46,150
+you know appeal from the United States
+
+1119
+01:02:43,360 --> 01:02:48,750
+say something something something argued
+
+1120
+01:02:46,150 --> 01:02:52,410
+something something what is they talking
+
+1121
+01:02:48,750 --> 01:02:55,590
+about okay I don't know you have to
+
+1122
+01:02:52,410 --> 01:02:59,340
+spend time to read it so he says it's
+
+1123
+01:02:55,590 --> 01:03:03,470
+nice nice circuit holds that scraping a
+
+1124
+01:02:59,340 --> 01:03:06,570
+public website does not violate the CFAA
+
+1125
+01:03:03,470 --> 01:03:10,740
+okay anyway that's a that's that's a
+
+1126
+01:03:06,570 --> 01:03:12,600
+political topic so today what I was
+
+1127
+01:03:10,740 --> 01:03:14,580
+saying is that today with other
+
+1128
+01:03:12,600 --> 01:03:17,100
+technology you can actually know the
+
+1129
+01:03:14,580 --> 01:03:21,120
+truth if you spend enough time on any
+
+1130
+01:03:17,100 --> 01:03:24,380
+issue maybe you know Trump something
+
+1131
+01:03:21,120 --> 01:03:28,140
+Trump something social just is something
+
+1132
+01:03:24,380 --> 01:03:30,240
+incident or Hong Kong people or China
+
+1133
+01:03:28,140 --> 01:03:31,830
+this incident or Russia something
+
+1134
+01:03:30,240 --> 01:03:33,780
+something oh me though is something
+
+1135
+01:03:31,830 --> 01:03:36,540
+something you can actually know the
+
+1136
+01:03:33,780 --> 01:03:38,370
+truth you just spent one day to do
+
+1137
+01:03:36,540 --> 01:03:41,810
+research you can know you can actually
+
+1138
+01:03:38,370 --> 01:03:44,100
+find out what you whatever is your
+
+1139
+01:03:41,810 --> 01:03:47,040
+methodology you can find the truth
+
+1140
+01:03:44,100 --> 01:03:48,900
+that's today but most people you know
+
+1141
+01:03:47,040 --> 01:03:50,640
+you don't you don't you know because
+
+1142
+01:03:48,900 --> 01:03:54,140
+most of you are you got other things to
+
+1143
+01:03:50,640 --> 01:03:58,530
+do you gotta go play games you gotta go
+
+1144
+01:03:54,140 --> 01:04:00,120
+you know to programming and stuff that's
+
+1145
+01:03:58,530 --> 01:04:04,740
+why misinformation
+
+1146
+01:04:00,120 --> 01:04:07,590
+misinformation spread but even before
+
+1147
+01:04:04,740 --> 01:04:12,380
+internet technology before the Internet
+
+1148
+01:04:07,590 --> 01:04:16,520
+let's say 20 years ago misinformation
+
+1149
+01:04:12,380 --> 01:04:19,440
+also spread you know but they kind of
+
+1150
+01:04:16,520 --> 01:04:23,460
+they spread slower it's much slower than
+
+1151
+01:04:19,440 --> 01:04:27,720
+today and in fact in a sense that's
+
+1152
+01:04:23,460 --> 01:04:29,850
+actually better than today because in
+
+1153
+01:04:27,720 --> 01:04:32,640
+some sense you know I'm not sure which
+
+1154
+01:04:29,850 --> 01:04:34,620
+is actually was because before when you
+
+1155
+01:04:32,640 --> 01:04:37,830
+do not have you know this internet
+
+1156
+01:04:34,620 --> 01:04:40,590
+communication technology when there is
+
+1157
+01:04:37,830 --> 01:04:42,510
+an information well this TV ok TV is the
+
+1158
+01:04:40,590 --> 01:04:46,350
+main source of misinformation
+
+1159
+01:04:42,510 --> 01:04:49,050
+you know propaganda but you know things
+
+1160
+01:04:46,350 --> 01:04:53,450
+do not spread quickly so if you don't
+
+1161
+01:04:49,050 --> 01:04:56,850
+watch TV you know you cannot easily
+
+1162
+01:04:53,450 --> 01:04:59,070
+spread misinformation back then so
+
+1163
+01:04:56,850 --> 01:05:01,410
+information doesn't spread quickly
+
+1164
+01:04:59,070 --> 01:05:02,309
+doesn't matter is good information or
+
+1165
+01:05:01,410 --> 01:05:04,890
+bad doesn't
+
+1166
+01:05:02,309 --> 01:05:07,619
+read quickly so it tends to be local
+
+1167
+01:05:04,890 --> 01:05:11,130
+localized you know it's just regional
+
+1168
+01:05:07,619 --> 01:05:13,170
+localized but now with communication
+
+1169
+01:05:11,130 --> 01:05:14,579
+technology you can know so much you can
+
+1170
+01:05:13,170 --> 01:05:18,059
+know like you are bombarded with
+
+1171
+01:05:14,579 --> 01:05:21,209
+information but the thing is most people
+
+1172
+01:05:18,059 --> 01:05:23,640
+do not really care about truth they just
+
+1173
+01:05:21,209 --> 01:05:27,390
+you know they sit they sit you know at
+
+1174
+01:05:23,640 --> 01:05:29,339
+home they read Twitter they just they
+
+1175
+01:05:27,390 --> 01:05:32,150
+hear what they like to hear you know
+
+1176
+01:05:29,339 --> 01:05:35,759
+like oh UNIX or UNIX is great oh you
+
+1177
+01:05:32,150 --> 01:05:38,219
+know Denise which she died and the Steve
+
+1178
+01:05:35,759 --> 01:05:41,099
+Jobs is bad you know oh yeah that's
+
+1179
+01:05:38,219 --> 01:05:43,559
+great you know then you don't do not
+
+1180
+01:05:41,099 --> 01:05:45,869
+research that that's it use you you'll
+
+1181
+01:05:43,559 --> 01:05:49,109
+be treated you know Steve job died oh
+
+1182
+01:05:45,869 --> 01:05:51,930
+but but Denise vici you know the UNIX
+
+1183
+01:05:49,109 --> 01:05:54,059
+founder died nobody knows that so that's
+
+1184
+01:05:51,930 --> 01:05:57,869
+injustice you just retreated it you
+
+1185
+01:05:54,059 --> 01:05:59,699
+shared so that's how many information
+
+1186
+01:05:57,869 --> 01:06:02,130
+spread you don't spend the time even
+
+1187
+01:05:59,699 --> 01:06:05,579
+today you can know the truth you can
+
+1188
+01:06:02,130 --> 01:06:10,859
+think but you don't so I think Engle I
+
+1189
+01:06:05,579 --> 01:06:12,900
+think you know today the situation maybe
+
+1190
+01:06:10,859 --> 01:06:15,380
+was you know I don't know actually is
+
+1191
+01:06:12,900 --> 01:06:18,839
+worse or better actually maybe worse
+
+1192
+01:06:15,380 --> 01:06:23,130
+okay so anyway that's that's about my
+
+1193
+01:06:18,839 --> 01:06:25,709
+take on these corporations you know and
+
+1194
+01:06:23,130 --> 01:06:27,779
+also you know what is hacker news about
+
+1195
+01:06:25,709 --> 01:06:30,839
+hacker news you know as you know it
+
+1196
+01:06:27,779 --> 01:06:34,589
+started by Paul Graham the Y Combinator
+
+1197
+01:06:30,839 --> 01:06:37,319
+by the way this page is written this
+
+1198
+01:06:34,589 --> 01:06:41,489
+hack annuity is returning och list
+
+1199
+01:06:37,319 --> 01:06:44,489
+och Lisp it's a new lease language
+
+1200
+01:06:41,489 --> 01:06:47,069
+invented by Paul Graham okay which
+
+1201
+01:06:44,489 --> 01:06:49,949
+nobody uses except you know a few
+
+1202
+01:06:47,069 --> 01:06:52,589
+handful of people so this is written in
+
+1203
+01:06:49,949 --> 01:06:55,459
+a crisp so that's that's something
+
+1204
+01:06:52,589 --> 01:07:00,869
+interesting with respect to tech and
+
+1205
+01:06:55,459 --> 01:07:07,140
+also hacker news the hacker news page is
+
+1206
+01:07:00,869 --> 01:07:09,269
+if you look at let me show you the okay
+
+1207
+01:07:07,140 --> 01:07:11,839
+so today actually let me show you the
+
+1208
+01:07:09,269 --> 01:07:11,839
+source code
+
+1209
+01:07:15,329 --> 01:07:19,619
+more tools okay
+
+1210
+01:07:20,730 --> 01:07:32,040
+developer tools I want to show you the
+
+1211
+01:07:28,990 --> 01:07:32,040
+source code okay
+
+1212
+01:07:33,240 --> 01:07:41,680
+it used to be control you or command you
+
+1213
+01:07:38,369 --> 01:07:49,140
+to show the source code but now you know
+
+1214
+01:07:41,680 --> 01:07:58,000
+things changed that command is no longer
+
+1215
+01:07:49,140 --> 01:07:59,800
+one second okay view source okay so if
+
+1216
+01:07:58,000 --> 01:08:00,220
+you look at the source code of hacking
+
+1217
+01:07:59,800 --> 01:08:11,970
+news
+
+1218
+01:08:00,220 --> 01:08:11,970
+oh they improved okay so they improved
+
+1219
+01:08:14,940 --> 01:08:23,100
+okay let's copy the whole page copy it
+
+1220
+01:08:18,370 --> 01:08:29,739
+wait this is this is what year this is
+
+1221
+01:08:23,100 --> 01:08:36,790
+2016 so open open a new buffer paste it
+
+1222
+01:08:29,739 --> 01:08:44,799
+save it xx dot HTML and and let's look
+
+1223
+01:08:36,790 --> 01:08:47,409
+at the code okay yeah so if you look at
+
+1224
+01:08:44,799 --> 01:08:53,620
+the hacker news source code you can see
+
+1225
+01:08:47,409 --> 01:08:56,889
+this is like 1990 this is HTML 1999 okay
+
+1226
+01:08:53,620 --> 01:09:00,730
+hacker news is still using HTML like
+
+1227
+01:08:56,889 --> 01:09:03,639
+1999 well they actually improved a lot
+
+1228
+01:09:00,730 --> 01:09:08,920
+you see font you see this font tag
+
+1229
+01:09:03,639 --> 01:09:12,670
+that's 1999 HTML they actually improved
+
+1230
+01:09:08,920 --> 01:09:15,370
+a lot so this page we are looking at is
+
+1231
+01:09:12,670 --> 01:09:18,850
+from nineteen from 2006
+
+1232
+01:09:15,370 --> 01:09:24,270
+so they actually started to use spam you
+
+1233
+01:09:18,850 --> 01:09:28,150
+see spam in class class you know class
+
+1234
+01:09:24,270 --> 01:09:34,000
+so spam head so those are you know CSS
+
+1235
+01:09:28,150 --> 01:09:36,960
+but so this is so sometimes before 2016
+
+1236
+01:09:34,000 --> 01:09:41,170
+they did some improvement but still
+
+1237
+01:09:36,960 --> 01:09:43,779
+still you can see the font tag before
+
+1238
+01:09:41,170 --> 01:09:46,270
+that you know before 2016 sometimes
+
+1239
+01:09:43,779 --> 01:09:49,210
+before it's all found hot tag you know
+
+1240
+01:09:46,270 --> 01:09:52,870
+every everything is font font family
+
+1241
+01:09:49,210 --> 01:09:55,719
+font size on every element and also the
+
+1242
+01:09:52,870 --> 01:09:58,590
+whole page is a table let's see
+
+1243
+01:09:55,719 --> 01:10:03,449
+you see you see this TR let me show you
+
+1244
+01:09:58,590 --> 01:10:07,449
+you see this TR t is a row TD is a
+
+1245
+01:10:03,449 --> 01:10:13,420
+column sale and table you see the whole
+
+1246
+01:10:07,449 --> 01:10:16,659
+page is a table and that is 1999 style
+
+1247
+01:10:13,420 --> 01:10:20,110
+of HTML so hacker news you know they
+
+1248
+01:10:16,659 --> 01:10:22,659
+program I suppose originally this is
+
+1249
+01:10:20,110 --> 01:10:28,849
+this is written by program so they are
+
+1250
+01:10:22,659 --> 01:10:36,440
+still like from 1999 for example image
+
+1251
+01:10:28,849 --> 01:10:42,710
+sorry hacker news HTML okay I documented
+
+1252
+01:10:36,440 --> 01:10:49,190
+so here this page this page and this
+
+1253
+01:10:42,710 --> 01:10:53,570
+page let me open that so HTML style 1999
+
+1254
+01:10:49,190 --> 01:10:57,860
+hacker news so this I wrote in 2003 so
+
+1255
+01:10:53,570 --> 01:11:02,270
+you can see in 2003 they our page is
+
+1256
+01:10:57,860 --> 01:11:05,119
+still very you know very 1999 they don't
+
+1257
+01:11:02,270 --> 01:11:07,940
+use they don't use class they don't use
+
+1258
+01:11:05,119 --> 01:11:14,480
+CSS class you see they are they are cell
+
+1259
+01:11:07,940 --> 01:11:16,579
+using style or inline styles no class so
+
+1260
+01:11:14,480 --> 01:11:20,480
+this is back in 2003
+
+1261
+01:11:16,579 --> 01:11:28,270
+so between 2003 and 2006 teen they they
+
+1262
+01:11:20,480 --> 01:11:30,949
+they improved and you know poor granham
+
+1263
+01:11:28,270 --> 01:11:34,730
+program is website they are still using
+
+1264
+01:11:30,949 --> 01:11:38,119
+image maps this is quite funny image
+
+1265
+01:11:34,730 --> 01:11:42,500
+maps that's you know this is again mm
+
+1266
+01:11:38,119 --> 01:11:44,510
+you know 1999 HTML tag anyway
+
+1267
+01:11:42,500 --> 01:11:54,020
+let's see what is this hacker news
+
+1268
+01:11:44,510 --> 01:11:58,840
+traffic effect okay anyway so what else
+
+1269
+01:11:54,020 --> 01:11:58,840
+guys any any any other comments
+
+1270
+01:12:02,210 --> 01:12:10,850
+so yeah web dog says I remember image
+
+1271
+01:12:05,330 --> 01:12:13,220
+maps medium - yeah medium you know
+
+1272
+01:12:10,850 --> 01:12:18,800
+medium is quite funny because medium
+
+1273
+01:12:13,220 --> 01:12:23,120
+began medium began around 2006 was it
+
+1274
+01:12:18,800 --> 01:12:27,080
+2006 2005 medium you see
+
+1275
+01:12:23,120 --> 01:12:29,930
+by 2005 blogging is or dead you know
+
+1276
+01:12:27,080 --> 01:12:32,120
+there's no more blogging but over sudden
+
+1277
+01:12:29,930 --> 01:12:34,340
+you know medium becomes very popular I
+
+1278
+01:12:32,120 --> 01:12:37,310
+was quite surprised you know so I look
+
+1279
+01:12:34,340 --> 01:12:39,830
+into you know my blogging has been dead
+
+1280
+01:12:37,310 --> 01:12:41,600
+for many years well for a decade you
+
+1281
+01:12:39,830 --> 01:12:45,500
+know nobody is blogging anymore
+
+1282
+01:12:41,600 --> 01:12:49,340
+but all of a sudden around 2016 or 2015
+
+1283
+01:12:45,500 --> 01:12:51,590
+or was it 2017 I've I forgot medium
+
+1284
+01:12:49,340 --> 01:12:53,810
+becomes very popular and it's you know
+
+1285
+01:12:51,590 --> 01:12:57,350
+it's it's a blog basically a blogging
+
+1286
+01:12:53,810 --> 01:12:59,720
+platform you know I was so I was quite
+
+1287
+01:12:57,350 --> 01:13:01,750
+surprised so I looked into it turns out
+
+1288
+01:12:59,720 --> 01:13:06,400
+you know medium became popular because
+
+1289
+01:13:01,750 --> 01:13:11,480
+the people who created medium are from
+
+1290
+01:13:06,400 --> 01:13:15,980
+the same people who created Twitter they
+
+1291
+01:13:11,480 --> 01:13:19,880
+are these type of people so called CBO's
+
+1292
+01:13:15,980 --> 01:13:21,470
+see with CBO and entrepreneurs okay that
+
+1293
+01:13:19,880 --> 01:13:24,020
+that's kind of their jargon you know
+
+1294
+01:13:21,470 --> 01:13:27,530
+meaning that they just do startups one
+
+1295
+01:13:24,020 --> 01:13:29,810
+afternoon another you know they they are
+
+1296
+01:13:27,530 --> 01:13:31,790
+you know they are so rich you know this
+
+1297
+01:13:29,810 --> 01:13:34,280
+is there becomes their thing you know
+
+1298
+01:13:31,790 --> 01:13:36,800
+they just do stop but startups every few
+
+1299
+01:13:34,280 --> 01:13:39,530
+years they just do you know lots of
+
+1300
+01:13:36,800 --> 01:13:42,080
+startups so so they are from they are by
+
+1301
+01:13:39,530 --> 01:13:44,360
+the people you know one or two guys from
+
+1302
+01:13:42,080 --> 01:13:47,660
+the Twitter who originally did the
+
+1303
+01:13:44,360 --> 01:13:49,190
+treatise so they have connection you
+
+1304
+01:13:47,660 --> 01:13:51,080
+know they have connection they have you
+
+1305
+01:13:49,190 --> 01:13:52,880
+know connection to Twitter and all the
+
+1306
+01:13:51,080 --> 01:13:56,020
+money and they don't you know what to do
+
+1307
+01:13:52,880 --> 01:13:58,850
+so that's how medium became popular and
+
+1308
+01:13:56,020 --> 01:14:01,850
+media is one of the evo you know crap
+
+1309
+01:13:58,850 --> 01:14:04,130
+they they have they track they track
+
+1310
+01:14:01,850 --> 01:14:06,410
+your you know when when you pause and
+
+1311
+01:14:04,130 --> 01:14:09,410
+they do everything they do is nasty
+
+1312
+01:14:06,410 --> 01:14:12,950
+things and also medium is very strongly
+
+1313
+01:14:09,410 --> 01:14:15,920
+social justice affiliated very strongly
+
+1314
+01:14:12,950 --> 01:14:19,730
+like I remember I you know
+
+1315
+01:14:15,920 --> 01:14:22,160
+usually when this side come up often I
+
+1316
+01:14:19,730 --> 01:14:24,650
+go and login you know I create account
+
+1317
+01:14:22,160 --> 01:14:29,210
+just to look at them you know see what
+
+1318
+01:14:24,650 --> 01:14:31,270
+they are like so I I noticed medium when
+
+1319
+01:14:29,210 --> 01:14:34,250
+you're logging is all social justice
+
+1320
+01:14:31,270 --> 01:14:40,660
+articles like Oh women this that oh you
+
+1321
+01:14:34,250 --> 01:14:46,550
+know this that heavily social justice
+
+1322
+01:14:40,660 --> 01:14:50,180
+inclined anything else guys so we've
+
+1323
+01:14:46,550 --> 01:14:54,650
+been talking for one hour and seventy
+
+1324
+01:14:50,180 --> 01:14:57,440
+five minutes so I don't know if it's
+
+1325
+01:14:54,650 --> 01:15:02,660
+good or bad it's like random chat and
+
+1326
+01:14:57,440 --> 01:15:04,820
+rant about companies I you know I'm not
+
+1327
+01:15:02,660 --> 01:15:07,850
+sure about that because I've had I
+
+1328
+01:15:04,820 --> 01:15:16,130
+rather do coding and you know something
+
+1329
+01:15:07,850 --> 01:15:17,440
+more something more solid you know
+
+1330
+01:15:16,130 --> 01:15:21,470
+things like that
+
+1331
+01:15:17,440 --> 01:15:26,770
+close that copy that close it back to
+
+1332
+01:15:21,470 --> 01:15:33,770
+Emacs pace it link of I showing browser
+
+1333
+01:15:26,770 --> 01:15:38,480
+back to chrome close it hecka news close
+
+1334
+01:15:33,770 --> 01:15:39,830
+this source code go back here so this is
+
+1335
+01:15:38,480 --> 01:15:42,080
+one of my article
+
+1336
+01:15:39,830 --> 01:15:45,830
+hacker news the idiocy of hacker
+
+1337
+01:15:42,080 --> 01:15:48,710
+keyboards indeed so that's about
+
+1338
+01:15:45,830 --> 01:15:51,770
+keyboard I'm not sure we want to talk
+
+1339
+01:15:48,710 --> 01:15:53,810
+about that if you want if you guys want
+
+1340
+01:15:51,770 --> 01:15:55,490
+me to you know just say it you you
+
+1341
+01:15:53,810 --> 01:15:58,790
+comment you have to come and then we
+
+1342
+01:15:55,490 --> 01:16:00,320
+talk about that I think that we're gonna
+
+1343
+01:15:58,790 --> 01:16:04,040
+shut down in five minutes
+
+1344
+01:16:00,320 --> 01:16:07,460
+yeah we should because it's already like
+
+1345
+01:16:04,040 --> 01:16:10,520
+80 minutes so bathroom you says I
+
+1346
+01:16:07,460 --> 01:16:12,140
+created an account our medium in the
+
+1347
+01:16:10,520 --> 01:16:14,990
+beginning when it came out
+
+1348
+01:16:12,140 --> 01:16:19,220
+then I logged in lockdown never logging
+
+1349
+01:16:14,990 --> 01:16:24,850
+again yeah I still as you have a medium
+
+1350
+01:16:19,220 --> 01:16:24,850
+I never post let's see sorry medium
+
+1351
+01:16:33,100 --> 01:16:47,360
+okay media McSally and see if I can find
+
+1352
+01:16:37,010 --> 01:16:52,880
+that there it is okay
+
+1353
+01:16:47,360 --> 01:16:55,340
+did i ever post something media McSally
+
+1354
+01:16:52,880 --> 01:16:57,530
+you know there's another thing let's
+
+1355
+01:16:55,340 --> 01:17:00,890
+talk about that okay there is another
+
+1356
+01:16:57,530 --> 01:17:04,400
+thing you see you see this sign sign
+
+1357
+01:17:00,890 --> 01:17:07,940
+into medium with google this [ __ ] this
+
+1358
+01:17:04,400 --> 01:17:10,520
+open source comes open source and free
+
+1359
+01:17:07,940 --> 01:17:13,040
+software foundation scumbags hypocrites
+
+1360
+01:17:10,520 --> 01:17:18,920
+let me tell you the story about logging
+
+1361
+01:17:13,040 --> 01:17:23,750
+okay now in the 1990s to to to early
+
+1362
+01:17:18,920 --> 01:17:27,110
+2000s you have log in each website has a
+
+1363
+01:17:23,750 --> 01:17:32,860
+log in starting beginning with slash
+
+1364
+01:17:27,110 --> 01:17:32,860
+start now stashed at is the oldest
+
+1365
+01:17:33,910 --> 01:17:40,070
+website for online discussion forums
+
+1366
+01:17:37,100 --> 01:17:43,010
+slash dot it's kind of a news news
+
+1367
+01:17:40,070 --> 01:17:45,350
+aggregate you know they post news like
+
+1368
+01:17:43,010 --> 01:17:48,200
+king or twenty news every day and you
+
+1369
+01:17:45,350 --> 01:17:51,410
+can comment on it kind of like Reddit
+
+1370
+01:17:48,200 --> 01:17:55,610
+and hacker news okay Cerreta slash Todd
+
+1371
+01:17:51,410 --> 01:18:01,730
+is the oldest backing it begin 1999 I
+
+1372
+01:17:55,610 --> 01:18:05,660
+think and four four four one year I was
+
+1373
+01:18:01,730 --> 01:18:10,340
+reading slash dot every day / start is
+
+1374
+01:18:05,660 --> 01:18:12,290
+the maker of the UNIX the UNIX fan okay
+
+1375
+01:18:10,340 --> 01:18:16,120
+every every day the UNIX people they
+
+1376
+01:18:12,290 --> 01:18:19,190
+loved it slash that and anti Microsoft
+
+1377
+01:18:16,120 --> 01:18:21,350
+but you know now it's twenty years you
+
+1378
+01:18:19,190 --> 01:18:24,650
+know the owner changed hand though or
+
+1379
+01:18:21,350 --> 01:18:27,170
+even though original coders they they
+
+1380
+01:18:24,650 --> 01:18:29,300
+did they move down and then they move
+
+1381
+01:18:27,170 --> 01:18:32,630
+down like five to ten years ago long ago
+
+1382
+01:18:29,300 --> 01:18:35,690
+the you know commander taco and you know
+
+1383
+01:18:32,630 --> 01:18:39,650
+three guys two or three guys they moved
+
+1384
+01:18:35,690 --> 01:18:41,870
+on and the company has changed owners
+
+1385
+01:18:39,650 --> 01:18:45,050
+several times so it's you know it's just
+
+1386
+01:18:41,870 --> 01:18:49,190
+the business it's a commercial you know
+
+1387
+01:18:45,050 --> 01:18:52,400
+behind you have the big boss with PDS or
+
+1388
+01:18:49,190 --> 01:18:54,350
+millions of money dollars they cooking
+
+1389
+01:18:52,400 --> 01:18:55,670
+these things you know you don't know you
+
+1390
+01:18:54,350 --> 01:18:59,540
+know you don't know who is running it
+
+1391
+01:18:55,670 --> 01:19:02,230
+you you you as a nerd as a geek as a
+
+1392
+01:18:59,540 --> 01:19:04,820
+geek you are just a small guy you know
+
+1393
+01:19:02,230 --> 01:19:06,380
+thinking oh this is great side you know
+
+1394
+01:19:04,820 --> 01:19:09,200
+things like that the same thing with
+
+1395
+01:19:06,380 --> 01:19:10,250
+hacker news hacker news and read it you
+
+1396
+01:19:09,200 --> 01:19:15,350
+know you don't know who is running
+
+1397
+01:19:10,250 --> 01:19:17,630
+behind it's things like that that's why
+
+1398
+01:19:15,350 --> 01:19:20,390
+I don't support and never like any of
+
+1399
+01:19:17,630 --> 01:19:23,060
+these you know you want you want power
+
+1400
+01:19:20,390 --> 01:19:25,760
+to the people you know like like the
+
+1401
+01:19:23,060 --> 01:19:28,820
+free software idea or open source idea
+
+1402
+01:19:25,760 --> 01:19:30,950
+power to the people not the corporations
+
+1403
+01:19:28,820 --> 01:19:33,680
+all these corporations they are just
+
+1404
+01:19:30,950 --> 01:19:36,710
+they are just a facade they are just a
+
+1405
+01:19:33,680 --> 01:19:39,410
+front end of face they are just selling
+
+1406
+01:19:36,710 --> 01:19:42,320
+they are just there to make money that
+
+1407
+01:19:39,410 --> 01:19:46,100
+is all day two and the Richard Stallman
+
+1408
+01:19:42,320 --> 01:19:48,620
+today what'd he do well he's not here to
+
+1409
+01:19:46,100 --> 01:19:51,020
+make money but rather he's here to sell
+
+1410
+01:19:48,620 --> 01:19:56,330
+his ideology he don't really actually
+
+1411
+01:19:51,020 --> 01:19:57,050
+care about the real goodness of society
+
+1412
+01:19:56,330 --> 01:20:01,250
+you don't care
+
+1413
+01:19:57,050 --> 01:20:04,370
+he only care about he he sell his
+
+1414
+01:20:01,250 --> 01:20:06,740
+ideology that he see the ideology
+
+1415
+01:20:04,370 --> 01:20:10,220
+becomes successful that's what he cares
+
+1416
+01:20:06,740 --> 01:20:12,830
+Richard Stallman and same thing with the
+
+1417
+01:20:10,220 --> 01:20:14,900
+open source phonetics you know you don't
+
+1418
+01:20:12,830 --> 01:20:17,660
+really care about whether something is
+
+1419
+01:20:14,900 --> 01:20:19,600
+good for the people you know all the
+
+1420
+01:20:17,660 --> 01:20:23,020
+people in the world you just care that
+
+1421
+01:20:19,600 --> 01:20:28,120
+open source succeeds because that's your
+
+1422
+01:20:23,020 --> 01:20:31,130
+you know religion so anyways slash start
+
+1423
+01:20:28,120 --> 01:20:34,030
+so what was I going to talk about yeah I
+
+1424
+01:20:31,130 --> 01:20:37,640
+was talking about the login system like
+
+1425
+01:20:34,030 --> 01:20:40,750
+I'm going to give you a glimpse a survey
+
+1426
+01:20:37,640 --> 01:20:44,540
+of the login system in the past 20 years
+
+1427
+01:20:40,750 --> 01:20:46,430
+okay so in 1999 you have yes you begin
+
+1428
+01:20:44,540 --> 01:20:49,430
+to have a login system you know you have
+
+1429
+01:20:46,430 --> 01:20:51,640
+a website people can log in and and by
+
+1430
+01:20:49,430 --> 01:20:56,180
+the way login system is kind of like
+
+1431
+01:20:51,640 --> 01:20:58,879
+it's rather is kind of the thing that
+
+1432
+01:20:56,180 --> 01:21:02,179
+has to do with commercialization
+
+1433
+01:20:58,879 --> 01:21:05,149
+because once you have a la login that's
+
+1434
+01:21:02,179 --> 01:21:09,109
+one of the way to make more money and
+
+1435
+01:21:05,149 --> 01:21:11,269
+it's also one of way to keep keep your
+
+1436
+01:21:09,109 --> 01:21:13,760
+audience you know keep your website
+
+1437
+01:21:11,269 --> 01:21:17,559
+popular one of the way to make your
+
+1438
+01:21:13,760 --> 01:21:20,719
+website very popular and and also
+
+1439
+01:21:17,559 --> 01:21:23,629
+eventually it's one of a way to gather
+
+1440
+01:21:20,719 --> 01:21:25,729
+user data to sell sell sell the data
+
+1441
+01:21:23,629 --> 01:21:29,329
+like Google Facebook Twitter they are
+
+1442
+01:21:25,729 --> 01:21:31,820
+doing so login system first first of all
+
+1443
+01:21:29,329 --> 01:21:33,889
+it's you know this the very idea of
+
+1444
+01:21:31,820 --> 01:21:35,899
+login you go to a website you have to
+
+1445
+01:21:33,889 --> 01:21:39,469
+log in it's actually tied to making
+
+1446
+01:21:35,899 --> 01:21:42,499
+money okay Patri okay not not all but
+
+1447
+01:21:39,469 --> 01:21:45,439
+but it has a lot to do with making money
+
+1448
+01:21:42,499 --> 01:21:48,439
+growing your site you know marketing
+
+1449
+01:21:45,439 --> 01:21:52,340
+things like that it has less to do with
+
+1450
+01:21:48,439 --> 01:21:58,429
+with it has less to do with benefiting
+
+1451
+01:21:52,340 --> 01:22:01,129
+your users well for for webstore like
+
+1452
+01:21:58,429 --> 01:22:02,989
+Amazon then it's necessary you know when
+
+1453
+01:22:01,129 --> 01:22:10,639
+you have a web store it's a nice it's
+
+1454
+01:22:02,989 --> 01:22:12,919
+kind of it's necessary okay so so we are
+
+1455
+01:22:10,639 --> 01:22:15,769
+talking about login system okay so in
+
+1456
+01:22:12,919 --> 01:22:19,789
+general in 1999 you have login system
+
+1457
+01:22:15,769 --> 01:22:26,599
+now as time goes by after five years in
+
+1458
+01:22:19,789 --> 01:22:29,749
+mean let's say 2005 2005 to 2010 there
+
+1459
+01:22:26,599 --> 01:22:31,729
+is a problem you have so many websites
+
+1460
+01:22:29,749 --> 01:22:33,939
+you know the web you know the internet
+
+1461
+01:22:31,729 --> 01:22:38,389
+grows and grow you know it's like almost
+
+1462
+01:22:33,939 --> 01:22:41,209
+exponentially so basically now each
+
+1463
+01:22:38,389 --> 01:22:44,059
+person you go to the Internet you have
+
+1464
+01:22:41,209 --> 01:22:46,280
+10 20 websites you have to remember the
+
+1465
+01:22:44,059 --> 01:22:48,889
+login key you know each one you need a
+
+1466
+01:22:46,280 --> 01:22:52,820
+login and password so that becomes a
+
+1467
+01:22:48,889 --> 01:22:55,010
+problem and there are many solutions to
+
+1468
+01:22:52,820 --> 01:22:59,149
+other years one solution is basically
+
+1469
+01:22:55,010 --> 01:23:04,189
+the browser or the operating system like
+
+1470
+01:22:59,149 --> 01:23:07,159
+a Mac they provide a master key password
+
+1471
+01:23:04,189 --> 01:23:09,649
+database so basically like on a Mac for
+
+1472
+01:23:07,159 --> 01:23:12,139
+example you log in one time using your
+
+1473
+01:23:09,649 --> 01:23:14,389
+Mac password then
+
+1474
+01:23:12,139 --> 01:23:16,610
+you have a database that stores all the
+
+1475
+01:23:14,389 --> 01:23:19,579
+password and login for all the website
+
+1476
+01:23:16,610 --> 01:23:22,729
+you visit so that's one way to solve it
+
+1477
+01:23:19,579 --> 01:23:25,249
+okay that's you know with since Apple
+
+1478
+01:23:22,729 --> 01:23:27,919
+Apple I think Apple is the first one to
+
+1479
+01:23:25,249 --> 01:23:31,099
+do that then Microsoft also do that
+
+1480
+01:23:27,919 --> 01:23:33,800
+Linux also do that okay that's one way
+
+1481
+01:23:31,099 --> 01:23:36,499
+another way in the is browser
+
+1482
+01:23:33,800 --> 01:23:39,469
+you know browsers also start to do that
+
+1483
+01:23:36,499 --> 01:23:42,019
+I forgot which one came first but anyway
+
+1484
+01:23:39,469 --> 01:23:45,939
+browser same idea for example if I use
+
+1485
+01:23:42,019 --> 01:23:49,369
+Google Chrome Google Chrome has a master
+
+1486
+01:23:45,939 --> 01:23:51,979
+password database you know so it
+
+1487
+01:23:49,369 --> 01:23:54,110
+remembers all the website you visit the
+
+1488
+01:23:51,979 --> 01:23:57,280
+login and password they can remember so
+
+1489
+01:23:54,110 --> 01:24:01,070
+you only remember one login for Google
+
+1490
+01:23:57,280 --> 01:24:04,309
+browser you know so you know that's
+
+1491
+01:24:01,070 --> 01:24:10,209
+Google is Google does that ok so that's
+
+1492
+01:24:04,309 --> 01:24:13,699
+one solution OS or browser but but then
+
+1493
+01:24:10,209 --> 01:24:19,699
+the web developers they begin to realize
+
+1494
+01:24:13,699 --> 01:24:22,989
+the idea called open ID okay you guys
+
+1495
+01:24:19,699 --> 01:24:22,989
+remember that open ID
+
+1496
+01:24:25,030 --> 01:24:28,849
+basically it's dead
+
+1497
+01:24:26,780 --> 01:24:32,899
+okay it's a dead technology you see that
+
+1498
+01:24:28,849 --> 01:24:36,320
+logo so open ID came along the idea is
+
+1499
+01:24:32,899 --> 01:24:38,630
+that okay you know we want to we need to
+
+1500
+01:24:36,320 --> 01:24:41,419
+solve the problem where each person has
+
+1501
+01:24:38,630 --> 01:24:45,439
+to remember tens of passwords so they
+
+1502
+01:24:41,419 --> 01:24:49,519
+they created this open ID the idea is
+
+1503
+01:24:45,439 --> 01:24:52,550
+you know everyone can use one single
+
+1504
+01:24:49,519 --> 01:24:55,820
+password and log in password just one
+
+1505
+01:24:52,550 --> 01:24:59,959
+single login password pair for all sites
+
+1506
+01:24:55,820 --> 01:25:06,229
+and basically for the so if you the
+
+1507
+01:24:59,959 --> 01:25:09,309
+website you can implement open ID so I
+
+1508
+01:25:06,229 --> 01:25:12,320
+think this is a distributed system
+
+1509
+01:25:09,309 --> 01:25:16,389
+decentralized yes so basically all the
+
+1510
+01:25:12,320 --> 01:25:16,389
+website they will use of an ID so
+
+1511
+01:25:20,670 --> 01:25:26,349
+so anyway so open ID is kind of the
+
+1512
+01:25:23,800 --> 01:25:29,230
+solution you know it's a solution cooked
+
+1513
+01:25:26,349 --> 01:25:31,630
+up by a open source fence or free
+
+1514
+01:25:29,230 --> 01:25:34,480
+software fence though they may cooked up
+
+1515
+01:25:31,630 --> 01:25:37,360
+with this system so you only each user
+
+1516
+01:25:34,480 --> 01:25:41,560
+only remember one pair of login password
+
+1517
+01:25:37,360 --> 01:25:43,619
+but each website can implement you know
+
+1518
+01:25:41,560 --> 01:25:47,590
+use the opens ID system so they are
+
+1519
+01:25:43,619 --> 01:25:52,659
+distributed so that so it works you know
+
+1520
+01:25:47,590 --> 01:25:54,760
+so one one password for all websites so
+
+1521
+01:25:52,659 --> 01:25:56,679
+that's a beginning but it failed
+
+1522
+01:25:54,760 --> 01:25:59,080
+basically it failed after you know for
+
+1523
+01:25:56,679 --> 01:26:02,190
+for for a year or two for three years it
+
+1524
+01:25:59,080 --> 01:26:05,770
+became very popular but it failed so
+
+1525
+01:26:02,190 --> 01:26:09,400
+open IDs is like one chapter of the log
+
+1526
+01:26:05,770 --> 01:26:11,880
+in thing on the web now there's another
+
+1527
+01:26:09,400 --> 01:26:15,610
+thing another thing they meet you know
+
+1528
+01:26:11,880 --> 01:26:18,070
+at the at one point when open ID was you
+
+1529
+01:26:15,610 --> 01:26:20,560
+know was everywhere popular you know or
+
+1530
+01:26:18,070 --> 01:26:23,080
+the program was like fashionable like
+
+1531
+01:26:20,560 --> 01:26:26,170
+like on Hacker News and reddit they talk
+
+1532
+01:26:23,080 --> 01:26:28,719
+about all day like you see oh oh you
+
+1533
+01:26:26,170 --> 01:26:31,449
+know oh new system of an ID distributed
+
+1534
+01:26:28,719 --> 01:26:34,619
+Oh everyone is like 1,000 points you
+
+1535
+01:26:31,449 --> 01:26:39,940
+know 3 3 million points the [ __ ]
+
+1536
+01:26:34,619 --> 01:26:42,699
+programmers it's so is so just anyway
+
+1537
+01:26:39,940 --> 01:26:49,690
+that's the idea of opens ID the idea is
+
+1538
+01:26:42,699 --> 01:26:51,909
+not bad ok you know but what people
+
+1539
+01:26:49,690 --> 01:26:53,980
+don't realize is usually there are a lot
+
+1540
+01:26:51,909 --> 01:26:58,210
+things behind it you know for example
+
+1541
+01:26:53,980 --> 01:27:00,639
+the old open ID organization these
+
+1542
+01:26:58,210 --> 01:27:02,679
+standard suppose the standard
+
+1543
+01:27:00,639 --> 01:27:06,880
+organizations typically they are not
+
+1544
+01:27:02,679 --> 01:27:08,409
+they are not you know the ideal good
+
+1545
+01:27:06,880 --> 01:27:10,510
+people they don't you know they don't
+
+1546
+01:27:08,409 --> 01:27:12,520
+want no money they just want to for the
+
+1547
+01:27:10,510 --> 01:27:15,639
+good of society that's not true ok
+
+1548
+01:27:12,520 --> 01:27:17,830
+usually when you look into things then
+
+1549
+01:27:15,639 --> 01:27:20,050
+you realize you know the people who
+
+1550
+01:27:17,830 --> 01:27:24,790
+created this standard you know the open
+
+1551
+01:27:20,050 --> 01:27:27,099
+ID or whatever yeah usually ok often
+
+1552
+01:27:24,790 --> 01:27:29,710
+this is a case you you start to find
+
+1553
+01:27:27,099 --> 01:27:30,970
+that they they are just greedy you know
+
+1554
+01:27:29,710 --> 01:27:33,670
+they have this stand
+
+1555
+01:27:30,970 --> 01:27:35,590
+they want to do all things possible so
+
+1556
+01:27:33,670 --> 01:27:37,750
+that they can squeeze money out of it
+
+1557
+01:27:35,590 --> 01:27:42,510
+that that is basically what's going on
+
+1558
+01:27:37,750 --> 01:27:42,510
+with all these open-source [ __ ]
+
+1559
+01:27:42,630 --> 01:27:48,640
+but anyway so open or open idea tired
+
+1560
+01:27:45,910 --> 01:27:51,940
+but back back then you can see you know
+
+1561
+01:27:48,640 --> 01:27:52,870
+oh you know Google says you know Google
+
+1562
+01:27:51,940 --> 01:27:54,790
+is a board member
+
+1563
+01:27:52,870 --> 01:27:57,550
+yeah yeah there you go board members you
+
+1564
+01:27:54,790 --> 01:27:59,170
+have to pay you have to pay to be a
+
+1565
+01:27:57,550 --> 01:28:01,570
+board member
+
+1566
+01:27:59,170 --> 01:28:04,240
+probably okay I'm not I'm not sure about
+
+1567
+01:28:01,570 --> 01:28:06,370
+details I'm talking about general you
+
+1568
+01:28:04,240 --> 01:28:09,430
+can always look into the details
+
+1569
+01:28:06,370 --> 01:28:12,100
+yourself anyway you so you have board
+
+1570
+01:28:09,430 --> 01:28:15,880
+name members corporate board members
+
+1571
+01:28:12,100 --> 01:28:18,990
+Google Microsoft Oracle yeah the big
+
+1572
+01:28:15,880 --> 01:28:23,080
+companies Symantec is evil they're doing
+
+1573
+01:28:18,990 --> 01:28:27,730
+Symantec they they do fake certificates
+
+1574
+01:28:23,080 --> 01:28:29,230
+fake it you know h ssl certificates you
+
+1575
+01:28:27,730 --> 01:28:31,780
+know the google they are fighting with
+
+1576
+01:28:29,230 --> 01:28:34,570
+Google because Google was plain plain
+
+1577
+01:28:31,780 --> 01:28:39,490
+plain mean semantics they they check out
+
+1578
+01:28:34,570 --> 01:28:42,940
+fake certificates because you know bad
+
+1579
+01:28:39,490 --> 01:28:45,100
+guys or government pay them you know
+
+1580
+01:28:42,940 --> 01:28:49,060
+Symantec they are doing fake fake
+
+1581
+01:28:45,100 --> 01:28:54,040
+certificates VMware Verizon you know
+
+1582
+01:28:49,060 --> 01:28:58,060
+these giants anyway so open ID failed
+
+1583
+01:28:54,040 --> 01:29:01,210
+but anyway another P so open ID is one
+
+1584
+01:28:58,060 --> 01:29:04,330
+chapter of the online login then there's
+
+1585
+01:29:01,210 --> 01:29:07,690
+another thing which is which is you see
+
+1586
+01:29:04,330 --> 01:29:10,720
+here our medium you see it says sign
+
+1587
+01:29:07,690 --> 01:29:14,320
+into medium.com using Google with Google
+
+1588
+01:29:10,720 --> 01:29:17,290
+okay so what so this idea is that most
+
+1589
+01:29:14,320 --> 01:29:18,910
+people most vast majority people you
+
+1590
+01:29:17,290 --> 01:29:22,600
+have you already have a Google account
+
+1591
+01:29:18,910 --> 01:29:25,960
+or Facebook account you know with this
+
+1592
+01:29:22,600 --> 01:29:28,840
+big online companies so the idea is that
+
+1593
+01:29:25,960 --> 01:29:32,920
+you can so Google and Facebook they
+
+1594
+01:29:28,840 --> 01:29:33,490
+create a system similar similar to open
+
+1595
+01:29:32,920 --> 01:29:36,040
+ID
+
+1596
+01:29:33,490 --> 01:29:38,470
+except it's not distributed you know
+
+1597
+01:29:36,040 --> 01:29:42,190
+it's just their own so Google create a
+
+1598
+01:29:38,470 --> 01:29:44,860
+system so that Google made their login
+
+1599
+01:29:42,190 --> 01:29:46,750
+you know their password login system
+
+1600
+01:29:44,860 --> 01:29:50,080
+so that you know they made the API so
+
+1601
+01:29:46,750 --> 01:29:54,850
+that other website can use it so for
+
+1602
+01:29:50,080 --> 01:29:57,250
+example if I burn medium you know I need
+
+1603
+01:29:54,850 --> 01:30:00,910
+the password logging I can I can make it
+
+1604
+01:29:57,250 --> 01:30:05,200
+so that I can use Google's API so users
+
+1605
+01:30:00,910 --> 01:30:09,990
+can just log in with Google Google's you
+
+1606
+01:30:05,200 --> 01:30:13,420
+know login so that's the thing you know
+
+1607
+01:30:09,990 --> 01:30:18,160
+so that's you know Google does side of
+
+1608
+01:30:13,420 --> 01:30:20,350
+course it gives more power to Google you
+
+1609
+01:30:18,160 --> 01:30:22,690
+know whoever has more you know logging
+
+1610
+01:30:20,350 --> 01:30:25,240
+users basically you got you have more
+
+1611
+01:30:22,690 --> 01:30:28,300
+power so everyone wants that so Google
+
+1612
+01:30:25,240 --> 01:30:31,120
+wants is doing that Google encourages
+
+1613
+01:30:28,300 --> 01:30:34,120
+all the website other website to use you
+
+1614
+01:30:31,120 --> 01:30:36,810
+know their login system and Facebook you
+
+1615
+01:30:34,120 --> 01:30:39,520
+know wants to grow their you know
+
+1616
+01:30:36,810 --> 01:30:41,980
+popularity so Facebook has their own you
+
+1617
+01:30:39,520 --> 01:30:43,660
+know logging with Facebook and you also
+
+1618
+01:30:41,980 --> 01:30:46,810
+I think you also have logging with
+
+1619
+01:30:43,660 --> 01:30:50,470
+Twitter I'm not sure but anyway that's a
+
+1620
+01:30:46,810 --> 01:30:51,930
+story okay but there is a tryst after
+
+1621
+01:30:50,470 --> 01:30:56,110
+you know this is bad enough
+
+1622
+01:30:51,930 --> 01:30:58,810
+well it's I want it so bad or not it's
+
+1623
+01:30:56,110 --> 01:31:02,470
+you can judge that okay but then later
+
+1624
+01:30:58,810 --> 01:31:06,100
+on there's a trade tryst okay after a
+
+1625
+01:31:02,470 --> 01:31:08,890
+few years of these then today's website
+
+1626
+01:31:06,100 --> 01:31:11,890
+you know like today you if you go to
+
+1627
+01:31:08,890 --> 01:31:13,750
+some website you you will see I'm not
+
+1628
+01:31:11,890 --> 01:31:15,910
+sure that's the case with medium but you
+
+1629
+01:31:13,750 --> 01:31:18,640
+will see this you know signing with
+
+1630
+01:31:15,910 --> 01:31:21,730
+Google okay so suppose you type in your
+
+1631
+01:31:18,640 --> 01:31:26,320
+Google account login password okay you
+
+1632
+01:31:21,730 --> 01:31:29,710
+signed in but but after that they they
+
+1633
+01:31:26,320 --> 01:31:32,410
+still ask you they still ask you to
+
+1634
+01:31:29,710 --> 01:31:40,090
+create a new account name and password
+
+1635
+01:31:32,410 --> 01:31:42,820
+for their website you see so this is
+
+1636
+01:31:40,090 --> 01:31:44,710
+like this is like scum you know so so
+
+1637
+01:31:42,820 --> 01:31:47,350
+why are you asking me for my Google
+
+1638
+01:31:44,710 --> 01:31:50,020
+account has over anymore you see so the
+
+1639
+01:31:47,350 --> 01:31:54,400
+point here so the situation is that they
+
+1640
+01:31:50,020 --> 01:31:58,150
+ask you to type your Google account name
+
+1641
+01:31:54,400 --> 01:32:00,400
+and password not for the purpose of
+
+1642
+01:31:58,150 --> 01:32:02,620
+you know making you using one account
+
+1643
+01:32:00,400 --> 01:32:04,719
+you know convenience convenience to the
+
+1644
+01:32:02,620 --> 01:32:07,540
+users no that's in our case because
+
+1645
+01:32:04,719 --> 01:32:10,929
+after that after they asked that they
+
+1646
+01:32:07,540 --> 01:32:13,449
+they asked you to create a username and
+
+1647
+01:32:10,929 --> 01:32:17,170
+password to sign into the account you
+
+1648
+01:32:13,449 --> 01:32:20,350
+see so so why are they asking who your
+
+1649
+01:32:17,170 --> 01:32:23,080
+Google name and password because that
+
+1650
+01:32:20,350 --> 01:32:26,290
+way they are gathering extra information
+
+1651
+01:32:23,080 --> 01:32:28,570
+so they are they may not only require
+
+1652
+01:32:26,290 --> 01:32:31,690
+you to create an account for their
+
+1653
+01:32:28,570 --> 01:32:34,449
+website they only they also have extra
+
+1654
+01:32:31,690 --> 01:32:37,810
+information they now know your Google's
+
+1655
+01:32:34,449 --> 01:32:39,730
+you know password and you know login so
+
+1656
+01:32:37,810 --> 01:32:42,610
+they can connect you know data and sell
+
+1657
+01:32:39,730 --> 01:32:46,000
+more information this [ __ ] this
+
+1658
+01:32:42,610 --> 01:32:48,699
+extremely [ __ ] oh this the older
+
+1659
+01:32:46,000 --> 01:32:51,400
+open-source [ __ ] you know all this
+
+1660
+01:32:48,699 --> 01:32:54,969
+website math as much but majority of
+
+1661
+01:32:51,400 --> 01:32:57,640
+them like they have a code of conduct we
+
+1662
+01:32:54,969 --> 01:33:01,870
+are good for the you know we are we
+
+1663
+01:32:57,640 --> 01:33:04,300
+respect our users privacy [ __ ] and and
+
+1664
+01:33:01,870 --> 01:33:08,890
+one particular website I remember doing
+
+1665
+01:33:04,300 --> 01:33:11,290
+this is is the picture website for women
+
+1666
+01:33:08,890 --> 01:33:14,110
+you know the printer Pinterest okay I
+
+1667
+01:33:11,290 --> 01:33:17,380
+remember that Pinterest all the way up
+
+1668
+01:33:14,110 --> 01:33:19,600
+said are doing that you know like if you
+
+1669
+01:33:17,380 --> 01:33:21,820
+are a programmer like me then you know
+
+1670
+01:33:19,600 --> 01:33:23,980
+but most people don't know like more
+
+1671
+01:33:21,820 --> 01:33:25,900
+average fewer people they don't know
+
+1672
+01:33:23,980 --> 01:33:28,300
+nothing about programming you know they
+
+1673
+01:33:25,900 --> 01:33:30,340
+just they see this website oh I like I
+
+1674
+01:33:28,300 --> 01:33:32,290
+like Pinterest you know I like to see
+
+1675
+01:33:30,340 --> 01:33:35,380
+all these pictures so they log in they
+
+1676
+01:33:32,290 --> 01:33:38,380
+see they Co type yo Google so they type
+
+1677
+01:33:35,380 --> 01:33:41,380
+it you know password an account and they
+
+1678
+01:33:38,380 --> 01:33:43,030
+say they see oh oh oh you need to create
+
+1679
+01:33:41,380 --> 01:33:45,730
+an account then just they just type it
+
+1680
+01:33:43,030 --> 01:33:48,040
+you know they don't know nothing but if
+
+1681
+01:33:45,730 --> 01:33:50,440
+you are programmer you guys know just as
+
+1682
+01:33:48,040 --> 01:33:52,630
+I do you know this why are they doing
+
+1683
+01:33:50,440 --> 01:33:56,070
+that because they are becoming so evil
+
+1684
+01:33:52,630 --> 01:33:56,070
+this sucks
+
+1685
+01:33:59,169 --> 01:34:06,249
+hey good money Justine okay so actually
+
+1686
+01:34:03,610 --> 01:34:09,249
+we are about to end yeah that's the end
+
+1687
+01:34:06,249 --> 01:34:14,949
+of it actually so today's whole talk is
+
+1688
+01:34:09,249 --> 01:34:17,829
+basically event okay so let me write
+
+1689
+01:34:14,949 --> 01:34:24,749
+down write down just what we just talked
+
+1690
+01:34:17,829 --> 01:34:30,309
+about the last item open ID and and
+
+1691
+01:34:24,749 --> 01:34:35,739
+Google login open ID and using Google
+
+1692
+01:34:30,309 --> 01:34:40,959
+login and a short account of the history
+
+1693
+01:34:35,739 --> 01:34:44,409
+of web login okay so today we talked
+
+1694
+01:34:40,959 --> 01:34:45,760
+about this other topic we talked about
+
+1695
+01:34:44,409 --> 01:34:48,489
+is basically or rent
+
+1696
+01:34:45,760 --> 01:34:51,669
+it's like random chat so Richard
+
+1697
+01:34:48,489 --> 01:34:54,280
+Stallman and on Steve Jobs death death
+
+1698
+01:34:51,669 --> 01:34:57,419
+death of Steve Jobs and Dennis Ritchie
+
+1699
+01:34:54,280 --> 01:35:00,999
+and and John McAfee and and
+
+1700
+01:34:57,419 --> 01:35:04,719
+mathematicians okay my personal photos
+
+1701
+01:35:00,999 --> 01:35:08,380
+of Steve Jobs and we talked about hacker
+
+1702
+01:35:04,719 --> 01:35:10,929
+news reddit how evil they are we talked
+
+1703
+01:35:08,380 --> 01:35:12,840
+about hacker news traffic effect oh that
+
+1704
+01:35:10,929 --> 01:35:16,260
+when we didn't talk about so that
+
+1705
+01:35:12,840 --> 01:35:19,809
+actually that one is not too important
+
+1706
+01:35:16,260 --> 01:35:22,329
+then we talked about open ID Google
+
+1707
+01:35:19,809 --> 01:35:26,760
+login and a short account of the history
+
+1708
+01:35:22,329 --> 01:35:33,399
+of web login basically it's all today's
+
+1709
+01:35:26,760 --> 01:35:37,479
+talk like how long we've been talking 90
+
+1710
+01:35:33,399 --> 01:35:41,889
+minutes is or rent organist again is
+
+1711
+01:35:37,479 --> 01:35:43,599
+these corporations and again is open
+
+1712
+01:35:41,889 --> 01:35:48,340
+source and free software foundation
+
+1713
+01:35:43,599 --> 01:35:51,639
+ideology okay so that's it for today
+
+1714
+01:35:48,340 --> 01:35:53,380
+thank you guys for watching so anything
+
+1715
+01:35:51,639 --> 01:35:59,289
+else comment we shouldn't we shut down
+
+1716
+01:35:53,380 --> 01:36:01,840
+in one minute google has a hash for
+
+1717
+01:35:59,289 --> 01:36:04,449
+every person in the world yeah you bet I
+
+1718
+01:36:01,840 --> 01:36:08,469
+mean not just that you Google has your
+
+1719
+01:36:04,449 --> 01:36:12,280
+entire your entire life story including
+
+1720
+01:36:08,469 --> 01:36:12,819
+your photos your you know like when did
+
+1721
+01:36:12,280 --> 01:36:18,519
+you
+
+1722
+01:36:12,819 --> 01:36:21,249
+your wife in their database and you know
+
+1723
+01:36:18,519 --> 01:36:24,339
+even if you did even if you didn't take
+
+1724
+01:36:21,249 --> 01:36:27,219
+take selfies of that they know they can
+
+1725
+01:36:24,339 --> 01:36:38,019
+guess they can guess fairly accurately
+
+1726
+01:36:27,219 --> 01:36:41,799
+if you use Google services so sqrl so
+
+1727
+01:36:38,019 --> 01:36:45,039
+what is sqi secure and quick reliable
+
+1728
+01:36:41,799 --> 01:36:46,479
+Auggie I don't trust those you know a
+
+1729
+01:36:45,039 --> 01:36:49,539
+lot of you geeks
+
+1730
+01:36:46,479 --> 01:36:54,459
+you know you probably say you know like
+
+1731
+01:36:49,539 --> 01:36:57,010
+come up with technical solutions like oh
+
+1732
+01:36:54,459 --> 01:37:01,199
+something new distributed and and
+
+1733
+01:36:57,010 --> 01:37:05,949
+cryptographic you know encrypted so this
+
+1734
+01:37:01,199 --> 01:37:08,260
+sqrl is secure quick reliable login is a
+
+1735
+01:37:05,949 --> 01:37:12,010
+draft open source standard for secure
+
+1736
+01:37:08,260 --> 01:37:14,349
+web login I don't think you go it will
+
+1737
+01:37:12,010 --> 01:37:17,709
+walk you know all this if the problem is
+
+1738
+01:37:14,349 --> 01:37:20,199
+not technology okay you know most most
+
+1739
+01:37:17,709 --> 01:37:22,409
+you know people in Silicon Valley they
+
+1740
+01:37:20,199 --> 01:37:24,819
+they are programmer idiots you know
+
+1741
+01:37:22,409 --> 01:37:27,939
+basically programmers don't know nothing
+
+1742
+01:37:24,819 --> 01:37:29,949
+about actual how the world works but
+
+1743
+01:37:27,939 --> 01:37:32,349
+they think they do they think they are
+
+1744
+01:37:29,949 --> 01:37:34,449
+the engineer they think they see the
+
+1745
+01:37:32,349 --> 01:37:37,030
+world you know as mathematics they think
+
+1746
+01:37:34,449 --> 01:37:40,019
+they know so much they think we are
+
+1747
+01:37:37,030 --> 01:37:43,299
+going to have a utopia you know today's
+
+1748
+01:37:40,019 --> 01:37:45,219
+all these bad situations we talk about
+
+1749
+01:37:43,299 --> 01:37:47,289
+where they came from they came from
+
+1750
+01:37:45,219 --> 01:37:50,139
+programmers basically they came from
+
+1751
+01:37:47,289 --> 01:37:51,999
+these tech heads you know programmers
+
+1752
+01:37:50,139 --> 01:37:53,559
+think they know I think programmers are
+
+1753
+01:37:51,999 --> 01:37:56,409
+the worst so you know programmer
+
+1754
+01:37:53,559 --> 01:37:58,089
+solution you always have you know oh you
+
+1755
+01:37:56,409 --> 01:38:00,669
+know we're gonna have new distributed
+
+1756
+01:37:58,089 --> 01:38:02,679
+system distributed system or in quick
+
+1757
+01:38:00,669 --> 01:38:05,799
+cryptocurrency or whatever is gonna
+
+1758
+01:38:02,679 --> 01:38:08,829
+solve the problem no it's not so we are
+
+1759
+01:38:05,799 --> 01:38:12,819
+doing this for the past 20 years all the
+
+1760
+01:38:08,829 --> 01:38:17,559
+notes all the notes even before me okay
+
+1761
+01:38:12,819 --> 01:38:18,969
+well you know you know are chanting
+
+1762
+01:38:17,559 --> 01:38:21,819
+these kind of things we've been doing
+
+1763
+01:38:18,969 --> 01:38:25,029
+this for 20 years it's going nowhere and
+
+1764
+01:38:21,819 --> 01:38:26,469
+in fact it's going Wars so what is the
+
+1765
+01:38:25,029 --> 01:38:29,739
+solution the solution is
+
+1766
+01:38:26,469 --> 01:38:33,719
+not about new you know spy versus spy
+
+1767
+01:38:29,739 --> 01:38:36,460
+okay so let me show you this article
+
+1768
+01:38:33,719 --> 01:38:45,340
+actually there is a lock Oh Haqqani oh
+
+1769
+01:38:36,460 --> 01:38:47,860
+sorry okay and what is politics and you
+
+1770
+01:38:45,340 --> 01:38:50,010
+know it's like spy versus spy there it
+
+1771
+01:38:47,860 --> 01:38:50,010
+is
+
+1772
+01:38:50,039 --> 01:38:57,840
+you know that's that's the technique oh
+
+1773
+01:38:53,530 --> 01:39:00,820
+that's not solution to to the spammers -
+
+1774
+01:38:57,840 --> 01:39:03,610
+you know it's like I'm gonna create some
+
+1775
+01:39:00,820 --> 01:39:06,550
+new technology that's gonna thought you
+
+1776
+01:39:03,610 --> 01:39:08,610
+and the bad guy is gonna create new some
+
+1777
+01:39:06,550 --> 01:39:11,530
+new other technology that's gonna
+
+1778
+01:39:08,610 --> 01:39:14,170
+reverse trap you you know that's spy
+
+1779
+01:39:11,530 --> 01:39:17,019
+versus spy you know like the spammers
+
+1780
+01:39:14,170 --> 01:39:21,059
+then then the geek the Nerds have you
+
+1781
+01:39:17,019 --> 01:39:24,729
+know theaters cue fire you know this
+
+1782
+01:39:21,059 --> 01:39:27,369
+although the the [ __ ] the from
+
+1783
+01:39:24,729 --> 01:39:33,269
+program the program hand [ __ ] idiot
+
+1784
+01:39:27,369 --> 01:39:36,489
+there's a statistical turn and stated
+
+1785
+01:39:33,269 --> 01:39:38,619
+statistical term for fioating email spam
+
+1786
+01:39:36,489 --> 01:39:47,079
+what's the name that like there's a
+
+1787
+01:39:38,619 --> 01:39:50,340
+state jargon up from Statistics it's a
+
+1788
+01:39:47,079 --> 01:39:50,340
+search for email okay
+
+1789
+01:39:53,840 --> 01:40:00,540
+you know Paul Graham for a period of
+
+1790
+01:39:57,990 --> 01:40:04,710
+time for one for one year so he's like
+
+1791
+01:40:00,540 --> 01:40:09,180
+he is champion champion II this email
+
+1792
+01:40:04,710 --> 01:40:11,730
+spam filter he just wrote like you know
+
+1793
+01:40:09,180 --> 01:40:14,630
+there's a jargon some statistical chaga
+
+1794
+01:40:11,730 --> 01:40:14,630
+anyone remember
+
+1795
+01:40:15,350 --> 01:40:21,210
+so anyway program a typical program
+
+1796
+01:40:18,420 --> 01:40:24,120
+nerds so you you know underground you're
+
+1797
+01:40:21,210 --> 01:40:25,590
+all 4chan type of people their reaction
+
+1798
+01:40:24,120 --> 01:40:27,930
+is that Oh we're gonna use
+
+1799
+01:40:25,590 --> 01:40:30,230
+cryptocurrency we're gonna use we're
+
+1800
+01:40:27,930 --> 01:40:32,760
+gonna create distributed system that's
+
+1801
+01:40:30,230 --> 01:40:35,520
+you know that's been going on for twenty
+
+1802
+01:40:32,760 --> 01:40:39,230
+years and where are you you are still
+
+1803
+01:40:35,520 --> 01:40:41,700
+you are becoming niche and more niche
+
+1804
+01:40:39,230 --> 01:40:43,770
+and Google and Facebook and Microsoft
+
+1805
+01:40:41,700 --> 01:40:46,620
+they are become me more and more
+
+1806
+01:40:43,770 --> 01:40:49,800
+powerful look at like today we talked
+
+1807
+01:40:46,620 --> 01:40:53,520
+about Microsoft example they are now the
+
+1808
+01:40:49,800 --> 01:40:56,430
+great more actually I you know two years
+
+1809
+01:40:53,520 --> 01:41:00,900
+ago I checked they are actually bigger
+
+1810
+01:40:56,430 --> 01:41:03,960
+than Google in terms of I think in terms
+
+1811
+01:41:00,900 --> 01:41:06,630
+of net income or revenue Microsoft okay
+
+1812
+01:41:03,960 --> 01:41:09,630
+although you don't hear it much you know
+
+1813
+01:41:06,630 --> 01:41:11,730
+you cannot just search things from what
+
+1814
+01:41:09,630 --> 01:41:14,850
+you hear on Hacker News I mean if you
+
+1815
+01:41:11,730 --> 01:41:17,310
+really want to know you mean I looked
+
+1816
+01:41:14,850 --> 01:41:23,430
+you know you gotta be heavy at PD I look
+
+1817
+01:41:17,310 --> 01:41:27,150
+at their net income or or that the the
+
+1818
+01:41:23,430 --> 01:41:30,360
+the gross income you know all the money
+
+1819
+01:41:27,150 --> 01:41:32,640
+transaction I think two years ago I
+
+1820
+01:41:30,360 --> 01:41:35,700
+checked Microsoft is still bigger than
+
+1821
+01:41:32,640 --> 01:41:37,980
+Google even though we tend to think
+
+1822
+01:41:35,700 --> 01:41:39,810
+Google is bigger you know anyway so you
+
+1823
+01:41:37,980 --> 01:41:41,990
+see look look at what happened today
+
+1824
+01:41:39,810 --> 01:41:45,390
+after 20 years
+
+1825
+01:41:41,990 --> 01:41:47,580
+Microsoft is even bigger than bigger far
+
+1826
+01:41:45,390 --> 01:41:49,710
+more bigger and then you have a Google
+
+1827
+01:41:47,580 --> 01:41:52,080
+doing censorship all that censorship and
+
+1828
+01:41:49,710 --> 01:41:54,120
+they are all social justice [ __ ] they
+
+1829
+01:41:52,080 --> 01:41:56,940
+are on our social justice and now you
+
+1830
+01:41:54,120 --> 01:42:00,510
+have code of conduct which is a kind of
+
+1831
+01:41:56,940 --> 01:42:06,050
+a political documentation so that they
+
+1832
+01:42:00,510 --> 01:42:08,150
+can they can you know they can hit you
+
+1833
+01:42:06,050 --> 01:42:10,130
+anytime they want whenever you know they
+
+1834
+01:42:08,150 --> 01:42:13,250
+don't like you they can pick you up and
+
+1835
+01:42:10,130 --> 01:42:17,030
+erase you that's what the code Conduct
+
+1836
+01:42:13,250 --> 01:42:20,210
+is about so that's what happens to to
+
+1837
+01:42:17,030 --> 01:42:22,580
+the society and then gende and you guys
+
+1838
+01:42:20,210 --> 01:42:25,190
+open so schmuck open source every day
+
+1839
+01:42:22,580 --> 01:42:28,280
+well you know I have my I have lots of
+
+1840
+01:42:25,190 --> 01:42:30,620
+friends not you know not not just you
+
+1841
+01:42:28,280 --> 01:42:31,790
+guys but generally you know because I
+
+1842
+01:42:30,620 --> 01:42:34,520
+mean open source Oh
+
+1843
+01:42:31,790 --> 01:42:36,470
+basically most or vast majority of my
+
+1844
+01:42:34,520 --> 01:42:39,020
+followers you know they asked your
+
+1845
+01:42:36,470 --> 01:42:40,940
+chanting open source it it'll free
+
+1846
+01:42:39,020 --> 01:42:41,920
+software you know they chanting about it
+
+1847
+01:42:40,940 --> 01:42:44,870
+every day
+
+1848
+01:42:41,920 --> 01:42:47,330
+it's like democracy you know to the
+
+1849
+01:42:44,870 --> 01:42:49,750
+point today you really don't know what
+
+1850
+01:42:47,330 --> 01:42:53,060
+it means anymore it's just a chant
+
+1851
+01:42:49,750 --> 01:42:55,340
+democracy democracy yeah oh we must have
+
+1852
+01:42:53,060 --> 01:43:02,930
+democracy we must have open source you
+
+1853
+01:42:55,340 --> 01:43:05,210
+don't know what it means anymore so what
+
+1854
+01:43:02,930 --> 01:43:08,870
+is the solution so the solution is you
+
+1855
+01:43:05,210 --> 01:43:11,210
+want to you want to get people to think
+
+1856
+01:43:08,870 --> 01:43:14,120
+you know like Bertrand Russell and many
+
+1857
+01:43:11,210 --> 01:43:17,000
+great philosophers philosophers has said
+
+1858
+01:43:14,120 --> 01:43:18,740
+about this you want the people to
+
+1859
+01:43:17,000 --> 01:43:24,110
+actually think about things
+
+1860
+01:43:18,740 --> 01:43:24,670
+Oh in other words awareness or education
+
+1861
+01:43:24,110 --> 01:43:27,920
+okay
+
+1862
+01:43:24,670 --> 01:43:30,320
+education awareness or thinking you know
+
+1863
+01:43:27,920 --> 01:43:35,060
+you want two people to be free thinkers
+
+1864
+01:43:30,320 --> 01:43:37,370
+to think about things and that you know
+
+1865
+01:43:35,060 --> 01:43:39,380
+that seems to be going away you know is
+
+1866
+01:43:37,370 --> 01:43:47,450
+you know in the past ten years or so
+
+1867
+01:43:39,380 --> 01:43:49,820
+it's going away yeah exactly
+
+1868
+01:43:47,450 --> 01:43:52,700
+code so just in say it's code of conduct
+
+1869
+01:43:49,820 --> 01:43:55,250
+means you can exclude people you don't
+
+1870
+01:43:52,700 --> 01:43:58,840
+like oh you don't like the politics or
+
+1871
+01:43:55,250 --> 01:44:01,610
+religion code conduct code of conduct is
+
+1872
+01:43:58,840 --> 01:44:03,890
+extremely evil okay I have so many I
+
+1873
+01:44:01,610 --> 01:44:07,310
+have a last story to tell because I've
+
+1874
+01:44:03,890 --> 01:44:10,010
+looked into many you know they they are
+
+1875
+01:44:07,310 --> 01:44:14,510
+people you know like I mentioned before
+
+1876
+01:44:10,010 --> 01:44:16,640
+you know if I talked about this this is
+
+1877
+01:44:14,510 --> 01:44:21,230
+gonna be a topic about social justice
+
+1878
+01:44:16,640 --> 01:44:24,010
+scan they are so much evil because there
+
+1879
+01:44:21,230 --> 01:44:27,650
+are people you know the whole thing the
+
+1880
+01:44:24,010 --> 01:44:29,720
+entirety of social justice movement they
+
+1881
+01:44:27,650 --> 01:44:33,620
+are philosophy I mentioned these people
+
+1882
+01:44:29,720 --> 01:44:35,420
+the entirety I've studied this for for
+
+1883
+01:44:33,620 --> 01:44:38,650
+the past in the past four years I spent
+
+1884
+01:44:35,420 --> 01:44:42,110
+about one hour studying in detail
+
+1885
+01:44:38,650 --> 01:44:45,200
+academia in academia in philosophy in
+
+1886
+01:44:42,110 --> 01:44:48,050
+post-modernism you know I looked their
+
+1887
+01:44:45,200 --> 01:44:51,320
+engine and also people the social just
+
+1888
+01:44:48,050 --> 01:44:53,270
+just is people on Twitter you know
+
+1889
+01:44:51,320 --> 01:44:55,040
+elsewhere I look at you know what they
+
+1890
+01:44:53,270 --> 01:44:57,170
+do you know I've been studying these
+
+1891
+01:44:55,040 --> 01:45:01,570
+small-ass for the past four years they
+
+1892
+01:44:57,170 --> 01:45:04,340
+are they are just extremely evil ok
+
+1893
+01:45:01,570 --> 01:45:06,950
+without going detailed into detail
+
+1894
+01:45:04,340 --> 01:45:10,460
+that's what I say but but that topic is
+
+1895
+01:45:06,950 --> 01:45:16,670
+itself is gonna be ours and code of
+
+1896
+01:45:10,460 --> 01:45:20,660
+conduct is just any anyway it's just
+
+1897
+01:45:16,670 --> 01:45:24,350
+extreme evil ok it it's extreme evil is
+
+1898
+01:45:20,660 --> 01:45:26,000
+not descriptive enough because that's so
+
+1899
+01:45:24,350 --> 01:45:31,970
+general what do you mean extremely evil
+
+1900
+01:45:26,000 --> 01:45:34,850
+the code of conduct is a kind of a kind
+
+1901
+01:45:31,970 --> 01:45:38,210
+of a weapon okay you know like today you
+
+1902
+01:45:34,850 --> 01:45:39,860
+say weaponized something you know you
+
+1903
+01:45:38,210 --> 01:45:41,470
+weapon you know today people say
+
+1904
+01:45:39,860 --> 01:45:45,040
+weaponized
+
+1905
+01:45:41,470 --> 01:45:49,990
+weaponized sex for example weaponized
+
+1906
+01:45:45,040 --> 01:45:52,610
+gun control issues weaponized you know
+
+1907
+01:45:49,990 --> 01:45:55,520
+abortion issues you know that's what
+
+1908
+01:45:52,610 --> 01:45:59,539
+they say yeah that's a term but code of
+
+1909
+01:45:55,520 --> 01:46:01,699
+conduct so yeah indeed it's kind of a
+
+1910
+01:45:59,539 --> 01:46:03,469
+it's just a weapon you know I don't like
+
+1911
+01:46:01,699 --> 01:46:07,610
+to use that phrase because that's kind
+
+1912
+01:46:03,469 --> 01:46:11,349
+of like it's it's just it's just a
+
+1913
+01:46:07,610 --> 01:46:18,110
+method it's a method specifically
+
+1914
+01:46:11,349 --> 01:46:22,219
+created by certain very intentionally
+
+1915
+01:46:18,110 --> 01:46:26,590
+evil person not not innocently you know
+
+1916
+01:46:22,219 --> 01:46:29,690
+people like you know people who simply
+
+1917
+01:46:26,590 --> 01:46:33,559
+believed in something and turns out they
+
+1918
+01:46:29,690 --> 01:46:36,110
+are wrong not those I you know it's it's
+
+1919
+01:46:33,559 --> 01:46:40,639
+by certain people who are intentionally
+
+1920
+01:46:36,110 --> 01:46:44,809
+trying to do bad trying to make themself
+
+1921
+01:46:40,639 --> 01:46:48,079
+more powerful they created code of
+
+1922
+01:46:44,809 --> 01:46:53,090
+conduct okay it's very exact code count
+
+1923
+01:46:48,079 --> 01:46:55,010
+of conduct you know you look into you
+
+1924
+01:46:53,090 --> 01:46:57,739
+know the lay of formation
+
+1925
+01:46:55,010 --> 01:47:00,530
+you know why they create such you know
+
+1926
+01:46:57,739 --> 01:47:02,659
+document document and not just the
+
+1927
+01:47:00,530 --> 01:47:05,570
+writing style I'm not talking about just
+
+1928
+01:47:02,659 --> 01:47:08,030
+writing style I mean even more more
+
+1929
+01:47:05,570 --> 01:47:10,340
+fundamental that so what I'm saying is
+
+1930
+01:47:08,030 --> 01:47:12,940
+that code of conduct is the document
+
+1931
+01:47:10,340 --> 01:47:19,480
+that is intentionally intentionally
+
+1932
+01:47:12,940 --> 01:47:22,340
+created by by bad people okay by
+
+1933
+01:47:19,480 --> 01:47:25,190
+intentionally bad people so that they
+
+1934
+01:47:22,340 --> 01:47:28,489
+became become more powerful it was a
+
+1935
+01:47:25,190 --> 01:47:35,269
+weapon some kind of a system so that
+
+1936
+01:47:28,489 --> 01:47:39,260
+they can they can they can you know they
+
+1937
+01:47:35,269 --> 01:47:41,989
+can damage you know put you in jail or
+
+1938
+01:47:39,260 --> 01:47:44,570
+fire you things like that any people
+
+1939
+01:47:41,989 --> 01:47:46,969
+they don't like that's that's my opinion
+
+1940
+01:47:44,570 --> 01:47:49,550
+about code of conduct you know that's a
+
+1941
+01:47:46,969 --> 01:47:51,829
+big topic I can go I can go on for one
+
+1942
+01:47:49,550 --> 01:47:55,039
+hour about that with you know with
+
+1943
+01:47:51,829 --> 01:47:58,070
+stories and websites and details and the
+
+1944
+01:47:55,039 --> 01:48:01,670
+person there's one specific person a
+
+1945
+01:47:58,070 --> 01:48:04,639
+girl a woman who created that code of
+
+1946
+01:48:01,670 --> 01:48:07,699
+conduct there's one specific person okay
+
+1947
+01:48:04,639 --> 01:48:10,400
+and I can talk I can get I can tell you
+
+1948
+01:48:07,699 --> 01:48:11,780
+her history you know you can look at
+
+1949
+01:48:10,400 --> 01:48:13,429
+what she has done
+
+1950
+01:48:11,780 --> 01:48:16,310
+it's a [ __ ]
+
+1951
+01:48:13,429 --> 01:48:18,620
+yes okay those people I mean you you
+
+1952
+01:48:16,310 --> 01:48:23,449
+look at their history you know they are
+
+1953
+01:48:18,620 --> 01:48:27,350
+not you know they have a history of bad
+
+1954
+01:48:23,449 --> 01:48:29,679
+things okay that that's it for today
+
+1955
+01:48:27,350 --> 01:48:35,600
+thank you guys for watching that's
+
+1956
+01:48:29,679 --> 01:48:41,480
+that's like 100 minutes of rent almost
+
+1957
+01:48:35,600 --> 01:48:44,000
+two two hours of rent okay 30 minutes
+
+1958
+01:48:41,480 --> 01:48:48,890
+I'm gonna shut in down 30 minutes in 30
+
+1959
+01:48:44,000 --> 01:48:53,230
+minutes just live in the woods live in
+
+1960
+01:48:48,890 --> 01:48:53,230
+the woods yeah
+
+1961
+01:49:02,870 --> 01:49:12,030
+yes that's what I mean
+
+1962
+01:49:05,430 --> 01:49:14,900
+Skeeter Skeeter Skeeter cell but I don't
+
+1963
+01:49:12,030 --> 01:49:19,110
+want to post that whatever you wrote
+
+1964
+01:49:14,900 --> 01:49:23,750
+because Google is going to censor me you
+
+1965
+01:49:19,110 --> 01:49:23,750
+know anyway bye guys
+

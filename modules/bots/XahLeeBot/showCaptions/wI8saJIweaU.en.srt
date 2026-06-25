@@ -1,0 +1,6544 @@
+1
+00:00:06,000 --> 00:00:10,320
+good morning good morning guys welcome
+
+2
+00:00:07,919 --> 00:00:12,400
+to another episode of star talk show
+
+3
+00:00:10,320 --> 00:00:13,719
+today is 2000
+
+4
+00:00:12,400 --> 00:00:17,199
+21st
+
+5
+00:00:13,719 --> 00:00:20,000
+2021 november 22nd
+
+6
+00:00:17,199 --> 00:00:21,680
+so today we are going to do
+
+7
+00:00:20,000 --> 00:00:23,600
+i'm not sure you know
+
+8
+00:00:21,680 --> 00:00:25,599
+today we are going to do a walk-in
+
+9
+00:00:23,600 --> 00:00:28,320
+session okay i'm just going to work on
+
+10
+00:00:25,599 --> 00:00:30,880
+my website and whatever i'm going to
+
+11
+00:00:28,320 --> 00:00:33,440
+basically coding okay lots of coding and
+
+12
+00:00:30,880 --> 00:00:34,399
+meanwhile i tried to
+
+13
+00:00:33,440 --> 00:00:37,520
+tell you
+
+14
+00:00:34,399 --> 00:00:40,000
+uh interesting things about emac lisp
+
+15
+00:00:37,520 --> 00:00:42,640
+about emacs images powershell from
+
+16
+00:00:40,000 --> 00:00:45,360
+language or javascript
+
+17
+00:00:42,640 --> 00:00:48,079
+so i love to see your comments if you
+
+18
+00:00:45,360 --> 00:00:50,320
+are here comments okay and tell me what
+
+19
+00:00:48,079 --> 00:00:52,000
+uh subject
+
+20
+00:00:50,320 --> 00:00:54,960
+matter you know related to what i'm
+
+21
+00:00:52,000 --> 00:00:56,879
+doing you know ask any questions or uh
+
+22
+00:00:54,960 --> 00:01:00,719
+such a thing
+
+23
+00:00:56,879 --> 00:01:02,640
+hello immortality okay let's begin so uh
+
+24
+00:01:00,719 --> 00:01:04,640
+so there are some of the things i want i
+
+25
+00:01:02,640 --> 00:01:08,799
+need to do so
+
+26
+00:01:04,640 --> 00:01:10,479
+why don't we do a uh emax workflow demo
+
+27
+00:01:08,799 --> 00:01:12,640
+first okay because there's something i
+
+28
+00:01:10,479 --> 00:01:15,600
+need to do okay let me show you so here
+
+29
+00:01:12,640 --> 00:01:17,840
+you are looking at my emacs screen
+
+30
+00:01:15,600 --> 00:01:20,000
+of course and on the pink window is all
+
+31
+00:01:17,840 --> 00:01:23,040
+my command cores and keystrokes for
+
+32
+00:01:20,000 --> 00:01:27,200
+example if i move cursor up and down or
+
+33
+00:01:23,040 --> 00:01:29,920
+eleven right by by word or by character
+
+34
+00:01:27,200 --> 00:01:32,400
+or i jump by paragraph you can see all
+
+35
+00:01:29,920 --> 00:01:35,280
+the command cores above on the pink
+
+36
+00:01:32,400 --> 00:01:38,400
+window for example i can delete these
+
+37
+00:01:35,280 --> 00:01:39,759
+several paragraphs and undo undo undo
+
+38
+00:01:38,400 --> 00:01:41,200
+you can see
+
+39
+00:01:39,759 --> 00:01:43,600
+the
+
+40
+00:01:41,200 --> 00:01:44,479
+let's turn on global high line you can
+
+41
+00:01:43,600 --> 00:01:47,520
+see
+
+42
+00:01:44,479 --> 00:01:50,000
+the command line i called the command
+
+43
+00:01:47,520 --> 00:01:51,040
+name i called and the keystroke so i'm
+
+44
+00:01:50,000 --> 00:01:53,040
+using
+
+45
+00:01:51,040 --> 00:01:55,759
+let me show you what i'm using i'm using
+
+46
+00:01:53,040 --> 00:01:58,799
+soft light keys okay
+
+47
+00:01:55,759 --> 00:02:02,240
+so uh if you haven't already go use it
+
+48
+00:01:58,799 --> 00:02:03,520
+fantastic emax key binding system soft
+
+49
+00:02:02,240 --> 00:02:06,079
+light keys
+
+50
+00:02:03,520 --> 00:02:09,119
+and there's a kind of intro video very
+
+51
+00:02:06,079 --> 00:02:11,440
+old i'm gonna i need to redo this this
+
+52
+00:02:09,119 --> 00:02:14,879
+is probably a year old video
+
+53
+00:02:11,440 --> 00:02:16,640
+uh stuff like keys okay
+
+54
+00:02:14,879 --> 00:02:18,560
+that's the key binding
+
+55
+00:02:16,640 --> 00:02:21,599
+uh efficient keybinding to work with
+
+56
+00:02:18,560 --> 00:02:24,000
+emacs and i'm using vorack keyboard
+
+57
+00:02:21,599 --> 00:02:26,560
+layout so you can you go to soft
+
+58
+00:02:24,000 --> 00:02:28,959
+flykey's website you can click on vorack
+
+59
+00:02:26,560 --> 00:02:31,840
+layout and it shows you the command
+
+60
+00:02:28,959 --> 00:02:35,200
+quality they are very clear comic player
+
+61
+00:02:31,840 --> 00:02:36,560
+comac dh workman and also supports neo
+
+62
+00:02:35,200 --> 00:02:41,040
+and others
+
+63
+00:02:36,560 --> 00:02:42,480
+neo uh some of the german layouts neo2
+
+64
+00:02:41,040 --> 00:02:44,959
+bop
+
+65
+00:02:42,480 --> 00:02:48,560
+uh and also car parks
+
+66
+00:02:44,959 --> 00:02:50,879
+layouts okay stuff like keys fantastic
+
+67
+00:02:48,560 --> 00:02:53,760
+it's on github
+
+68
+00:02:50,879 --> 00:02:55,760
+uh okay so emacs so first of all let's
+
+69
+00:02:53,760 --> 00:02:58,239
+go to to do so
+
+70
+00:02:55,760 --> 00:02:58,959
+i just call the command so yeah let me
+
+71
+00:02:58,239 --> 00:03:01,440
+so
+
+72
+00:02:58,959 --> 00:03:03,360
+again i'm going to do working on my
+
+73
+00:03:01,440 --> 00:03:04,400
+website and meanwhile i'm going to
+
+74
+00:03:03,360 --> 00:03:07,280
+explain
+
+75
+00:03:04,400 --> 00:03:08,319
+hope you hopefully giving you some tips
+
+76
+00:03:07,280 --> 00:03:12,000
+about
+
+77
+00:03:08,319 --> 00:03:14,879
+uh efficiency of using emacs and
+
+78
+00:03:12,000 --> 00:03:18,319
+and also my you know my packages so
+
+79
+00:03:14,879 --> 00:03:20,800
+first of all open the to-do file so this
+
+80
+00:03:18,319 --> 00:03:23,760
+is the file start to do on my website
+
+81
+00:03:20,800 --> 00:03:26,400
+you can see the url there
+
+82
+00:03:23,760 --> 00:03:29,200
+sorry.info and you
+
+83
+00:03:26,400 --> 00:03:30,239
+and you know like i have tons of to-do's
+
+84
+00:03:29,200 --> 00:03:31,120
+you know
+
+85
+00:03:30,239 --> 00:03:33,200
+uh
+
+86
+00:03:31,120 --> 00:03:36,400
+like go down go down you know the things
+
+87
+00:03:33,200 --> 00:03:39,280
+on my website you know 6 000 articles i
+
+88
+00:03:36,400 --> 00:03:41,440
+have to fix maintain and stuff so one of
+
+89
+00:03:39,280 --> 00:03:43,120
+the to do is you can so first of all let
+
+90
+00:03:41,440 --> 00:03:44,319
+me show you one of them for example this
+
+91
+00:03:43,120 --> 00:03:46,720
+one
+
+92
+00:03:44,319 --> 00:03:50,080
+this one is one of my website you can
+
+93
+00:03:46,720 --> 00:03:52,080
+see the ui out there and i want i need
+
+94
+00:03:50,080 --> 00:03:56,239
+to replace this
+
+95
+00:03:52,080 --> 00:03:57,280
+bitmap image by a interactive javascript
+
+96
+00:03:56,239 --> 00:03:59,120
+so
+
+97
+00:03:57,280 --> 00:04:00,720
+you know one of these days i'm gonna do
+
+98
+00:03:59,120 --> 00:04:04,319
+a youtube
+
+99
+00:04:00,720 --> 00:04:07,280
+talk show and uh you know live coding
+
+100
+00:04:04,319 --> 00:04:09,760
+this application javascript of two
+
+101
+00:04:07,280 --> 00:04:12,720
+letter diagrams in english
+
+102
+00:04:09,760 --> 00:04:15,040
+so replacing that bitmap so that's one
+
+103
+00:04:12,720 --> 00:04:16,720
+of the to do for example and several
+
+104
+00:04:15,040 --> 00:04:18,959
+others so
+
+105
+00:04:16,720 --> 00:04:21,199
+so right now what i'm going to do is
+
+106
+00:04:18,959 --> 00:04:23,280
+show you some workflow so i have for
+
+107
+00:04:21,199 --> 00:04:25,440
+example you can see
+
+108
+00:04:23,280 --> 00:04:28,400
+let's magnify okay you can see some of
+
+109
+00:04:25,440 --> 00:04:29,440
+the words are underlined with the red
+
+110
+00:04:28,400 --> 00:04:30,639
+uh
+
+111
+00:04:29,440 --> 00:04:33,440
+underline
+
+112
+00:04:30,639 --> 00:04:36,160
+so you can see you can let's see where
+
+113
+00:04:33,440 --> 00:04:37,919
+is you can see underline with red line
+
+114
+00:04:36,160 --> 00:04:39,919
+here
+
+115
+00:04:37,919 --> 00:04:41,520
+here
+
+116
+00:04:39,919 --> 00:04:44,560
+here
+
+117
+00:04:41,520 --> 00:04:46,160
+here okay now go back to the page search
+
+118
+00:04:44,560 --> 00:04:49,280
+for to do
+
+119
+00:04:46,160 --> 00:04:51,199
+and you can see that underline is caused
+
+120
+00:04:49,280 --> 00:04:53,040
+by let me let me just go to the top let
+
+121
+00:04:51,199 --> 00:04:55,759
+me show you a new one
+
+122
+00:04:53,040 --> 00:04:58,160
+so i type to do space and it
+
+123
+00:04:55,759 --> 00:04:59,919
+automatically become span
+
+124
+00:04:58,160 --> 00:05:02,720
+class to do
+
+125
+00:04:59,919 --> 00:05:06,160
+and i i give a date then something
+
+126
+00:05:02,720 --> 00:05:07,600
+something i need to do okay now show in
+
+127
+00:05:06,160 --> 00:05:09,440
+browser
+
+128
+00:05:07,600 --> 00:05:12,080
+you can see
+
+129
+00:05:09,440 --> 00:05:15,120
+we just added that and that is red
+
+130
+00:05:12,080 --> 00:05:17,600
+because of the class to do
+
+131
+00:05:15,120 --> 00:05:20,000
+so why do i so let me show you the css
+
+132
+00:05:17,600 --> 00:05:24,160
+okay so split the window go go to the
+
+133
+00:05:20,000 --> 00:05:27,120
+top open the css file search for to do
+
+134
+00:05:24,160 --> 00:05:30,000
+and you can see this line
+
+135
+00:05:27,120 --> 00:05:31,919
+is what's causing it to be read you know
+
+136
+00:05:30,000 --> 00:05:33,840
+underline so this is uh
+
+137
+00:05:31,919 --> 00:05:37,039
+to do so why do i have that because i
+
+138
+00:05:33,840 --> 00:05:42,240
+write blogs sometimes i write blogs
+
+139
+00:05:37,039 --> 00:05:45,919
+and uh it's not complete so i add these
+
+140
+00:05:42,240 --> 00:05:48,080
+you know i just i just type to do then
+
+141
+00:05:45,919 --> 00:05:49,039
+usually
+
+142
+00:05:48,080 --> 00:05:51,280
+oops
+
+143
+00:05:49,039 --> 00:05:52,479
+yeah let's do it again to do
+
+144
+00:05:51,280 --> 00:05:54,320
+usually
+
+145
+00:05:52,479 --> 00:05:55,759
+add a date
+
+146
+00:05:54,320 --> 00:05:57,120
+and
+
+147
+00:05:55,759 --> 00:05:59,680
+some notes
+
+148
+00:05:57,120 --> 00:06:00,560
+so and they are underlined in red so i
+
+149
+00:05:59,680 --> 00:06:03,600
+can
+
+150
+00:06:00,560 --> 00:06:05,759
+make them visually standing out so i can
+
+151
+00:06:03,600 --> 00:06:06,880
+see oh this is to do
+
+152
+00:06:05,759 --> 00:06:10,000
+but now
+
+153
+00:06:06,880 --> 00:06:12,400
+i have moved lots of these to do
+
+154
+00:06:10,000 --> 00:06:13,520
+you know in random places of my blog
+
+155
+00:06:12,400 --> 00:06:16,240
+into
+
+156
+00:06:13,520 --> 00:06:17,360
+into this one file so collect them
+
+157
+00:06:16,240 --> 00:06:20,160
+together
+
+158
+00:06:17,360 --> 00:06:23,440
+so since they are all here i no longer
+
+159
+00:06:20,160 --> 00:06:26,160
+needs i no longer needs the to do tag so
+
+160
+00:06:23,440 --> 00:06:27,440
+where is it so let's go back here so you
+
+161
+00:06:26,160 --> 00:06:29,840
+see
+
+162
+00:06:27,440 --> 00:06:32,639
+we i don't need the to-do tag anymore so
+
+163
+00:06:29,840 --> 00:06:35,520
+i want to remove them so how do i do
+
+164
+00:06:32,639 --> 00:06:36,960
+i just press a key so
+
+165
+00:06:35,520 --> 00:06:39,039
+do it you see
+
+166
+00:06:36,960 --> 00:06:40,560
+now let's do it on this one if you look
+
+167
+00:06:39,039 --> 00:06:44,319
+at the pink window you can see that
+
+168
+00:06:40,560 --> 00:06:48,000
+command is html tv tag pair it will
+
+169
+00:06:44,319 --> 00:06:50,880
+delete the whatever is a tag pair that
+
+170
+00:06:48,000 --> 00:06:54,639
+is under the cruiser position so my
+
+171
+00:06:50,880 --> 00:06:57,599
+cursor can be here do it you see undo or
+
+172
+00:06:54,639 --> 00:07:01,280
+i can my cursor can be at the at the end
+
+173
+00:06:57,599 --> 00:07:04,560
+of the tag do it you see undo or my
+
+174
+00:07:01,280 --> 00:07:07,120
+cursor can be in the middle do it undo
+
+175
+00:07:04,560 --> 00:07:08,000
+so let's demonstrate for example right
+
+176
+00:07:07,120 --> 00:07:10,479
+now
+
+177
+00:07:08,000 --> 00:07:12,400
+here is the image tag open it that's
+
+178
+00:07:10,479 --> 00:07:15,599
+this um
+
+179
+00:07:12,400 --> 00:07:17,440
+diagram image close it shrink the window
+
+180
+00:07:15,599 --> 00:07:20,000
+so i open it
+
+181
+00:07:17,440 --> 00:07:22,720
+enter to open it close it so if i want
+
+182
+00:07:20,000 --> 00:07:24,639
+to remove for example this figure
+
+183
+00:07:22,720 --> 00:07:26,720
+caption you see this
+
+184
+00:07:24,639 --> 00:07:29,360
+okay let's press the key to highlight
+
+185
+00:07:26,720 --> 00:07:32,319
+them you see figure caption tag
+
+186
+00:07:29,360 --> 00:07:35,759
+so that's what this
+
+187
+00:07:32,319 --> 00:07:38,720
+uh that's what this is a kind of
+
+188
+00:07:35,759 --> 00:07:41,199
+annotation for the image so if i don't
+
+189
+00:07:38,720 --> 00:07:43,120
+want this figure caption tag i can just
+
+190
+00:07:41,199 --> 00:07:45,199
+press a key you see
+
+191
+00:07:43,120 --> 00:07:48,000
+again they deleted it then i can press
+
+192
+00:07:45,199 --> 00:07:50,560
+that then go back to browser reload you
+
+193
+00:07:48,000 --> 00:07:54,000
+don't see that anymore so you see so
+
+194
+00:07:50,560 --> 00:07:57,280
+that is the so undo undo undo so
+
+195
+00:07:54,000 --> 00:07:58,560
+that command is the
+
+196
+00:07:57,280 --> 00:08:01,680
+uh
+
+197
+00:07:58,560 --> 00:08:04,720
+html dd tag pair okay
+
+198
+00:08:01,680 --> 00:08:06,240
+so if you like my uh html mod you can
+
+199
+00:08:04,720 --> 00:08:08,800
+buy it
+
+200
+00:08:06,240 --> 00:08:12,000
+so describe let's let's let's go to the
+
+201
+00:08:08,800 --> 00:08:16,319
+source code of html mod and this is one
+
+202
+00:08:12,000 --> 00:08:19,919
+of the most efficient way to jump to any
+
+203
+00:08:16,319 --> 00:08:22,240
+uh emac list package file location okay
+
+204
+00:08:19,919 --> 00:08:23,280
+so what you do is you call describe
+
+205
+00:08:22,240 --> 00:08:26,160
+function
+
+206
+00:08:23,280 --> 00:08:27,199
+i mean this you call meta x describe key
+
+207
+00:08:26,160 --> 00:08:29,120
+which is
+
+208
+00:08:27,199 --> 00:08:30,720
+ctrl h
+
+209
+00:08:29,120 --> 00:08:34,560
+uh k
+
+210
+00:08:30,720 --> 00:08:38,000
+then you press the key that activates
+
+211
+00:08:34,560 --> 00:08:40,880
+the function so in my case it's
+
+212
+00:08:38,000 --> 00:08:43,279
+space uh let's try it again describe key
+
+213
+00:08:40,880 --> 00:08:47,120
+space space m
+
+214
+00:08:43,279 --> 00:08:49,279
+h h for html mod m for march so space
+
+215
+00:08:47,120 --> 00:08:51,120
+ship space space
+
+216
+00:08:49,279 --> 00:08:55,360
+mh
+
+217
+00:08:51,120 --> 00:08:57,600
+that's the key to invoke some html mod
+
+218
+00:08:55,360 --> 00:09:01,200
+so i press describe key then press that
+
+219
+00:08:57,600 --> 00:09:03,680
+key then emac show me this uh
+
+220
+00:09:01,200 --> 00:09:06,959
+docs string then i can
+
+221
+00:09:03,680 --> 00:09:10,080
+press tab to jump to the file so
+
+222
+00:09:06,959 --> 00:09:12,640
+unsplit so we you see i'm right at the
+
+223
+00:09:10,080 --> 00:09:16,720
+command where the definition is defined
+
+224
+00:09:12,640 --> 00:09:19,680
+html mod so and you can press a key
+
+225
+00:09:16,720 --> 00:09:21,760
+direct jump okay this is a very
+
+226
+00:09:19,680 --> 00:09:25,600
+extremely convenient command press the
+
+227
+00:09:21,760 --> 00:09:28,240
+key direct jump to go to the directory
+
+228
+00:09:25,600 --> 00:09:30,959
+of this file is located with the cursor
+
+229
+00:09:28,240 --> 00:09:34,480
+on the file name you see so you can see
+
+230
+00:09:30,959 --> 00:09:36,640
+there it is style jump so that jump
+
+231
+00:09:34,480 --> 00:09:38,880
+by default there's no key in dire jump
+
+232
+00:09:36,640 --> 00:09:41,600
+so you you want to give it a key
+
+233
+00:09:38,880 --> 00:09:43,519
+uh if you are using stuff like keys then
+
+234
+00:09:41,600 --> 00:09:45,760
+it's just space
+
+235
+00:09:43,519 --> 00:09:48,399
+m okay
+
+236
+00:09:45,760 --> 00:09:51,519
+okay so this is the file go to the top
+
+237
+00:09:48,399 --> 00:09:52,480
+and here is and you can see the url open
+
+238
+00:09:51,519 --> 00:09:55,040
+it
+
+239
+00:09:52,480 --> 00:09:56,959
+and open it the command is uh again
+
+240
+00:09:55,040 --> 00:09:58,880
+three keys so
+
+241
+00:09:56,959 --> 00:10:01,040
+so that command is
+
+242
+00:09:58,880 --> 00:10:03,920
+open file at cursor
+
+243
+00:10:01,040 --> 00:10:06,240
+so now showing browser so that's a mod
+
+244
+00:10:03,920 --> 00:10:07,519
+if you like it buy it okay
+
+245
+00:10:06,240 --> 00:10:09,279
+thank you
+
+246
+00:10:07,519 --> 00:10:11,120
+that's open source
+
+247
+00:10:09,279 --> 00:10:13,440
+okay close it
+
+248
+00:10:11,120 --> 00:10:16,560
+so close it so i should i just showed
+
+249
+00:10:13,440 --> 00:10:18,079
+you you know the command to remove tags
+
+250
+00:10:16,560 --> 00:10:20,880
+so
+
+251
+00:10:18,079 --> 00:10:24,240
+so let me uh do it again so show in
+
+252
+00:10:20,880 --> 00:10:28,079
+browser so this is my to-do file
+
+253
+00:10:24,240 --> 00:10:31,440
+and in this file i want to remove all
+
+254
+00:10:28,079 --> 00:10:33,519
+those to do's for example here here okay
+
+255
+00:10:31,440 --> 00:10:36,079
+let's do it
+
+256
+00:10:33,519 --> 00:10:39,760
+so there so first so let's uh
+
+257
+00:10:36,079 --> 00:10:41,440
+interactive search okay search
+
+258
+00:10:39,760 --> 00:10:44,800
+to do okay
+
+259
+00:10:41,440 --> 00:10:47,360
+skip that skip that skip that skip that
+
+260
+00:10:44,800 --> 00:10:50,079
+okay this is the part i want because
+
+261
+00:10:47,360 --> 00:10:52,640
+it's got the class to do so
+
+262
+00:10:50,079 --> 00:10:54,399
+uh select that search
+
+263
+00:10:52,640 --> 00:10:57,040
+search backwards so this is the first
+
+264
+00:10:54,399 --> 00:10:58,320
+occurrence so search it
+
+265
+00:10:57,040 --> 00:11:00,399
+okay
+
+266
+00:10:58,320 --> 00:11:02,320
+delete it
+
+267
+00:11:00,399 --> 00:11:04,000
+search
+
+268
+00:11:02,320 --> 00:11:07,360
+delete search
+
+269
+00:11:04,000 --> 00:11:10,320
+next delete yes you see is do you see
+
+270
+00:11:07,360 --> 00:11:10,660
+what i'm doing okay so actually
+
+271
+00:11:10,320 --> 00:11:12,399
+um
+
+272
+00:11:10,660 --> 00:11:14,160
+[Music]
+
+273
+00:11:12,399 --> 00:11:16,959
+so you see what i'm saying
+
+274
+00:11:14,160 --> 00:11:19,200
+do you see what i'm doing so
+
+275
+00:11:16,959 --> 00:11:21,040
+let's make a backup so there is a
+
+276
+00:11:19,200 --> 00:11:22,480
+command i just made a backup of the
+
+277
+00:11:21,040 --> 00:11:25,760
+current file
+
+278
+00:11:22,480 --> 00:11:28,240
+uh by this key on the ping window now i
+
+279
+00:11:25,760 --> 00:11:31,519
+want to okay i made a backup now i want
+
+280
+00:11:28,240 --> 00:11:33,680
+to remove all these to do uh tag i don't
+
+281
+00:11:31,519 --> 00:11:37,120
+want to remove the content just the tag
+
+282
+00:11:33,680 --> 00:11:37,120
+like that okay but
+
+283
+00:11:38,720 --> 00:11:42,800
+but i just discovered a problem because
+
+284
+00:11:41,120 --> 00:11:46,160
+if you remove the tag there's no
+
+285
+00:11:42,800 --> 00:11:48,320
+containing tag i mean yeah so
+
+286
+00:11:46,160 --> 00:11:50,639
+when there's no con containing tag it
+
+287
+00:11:48,320 --> 00:11:52,800
+shows up kind of
+
+288
+00:11:50,639 --> 00:11:54,160
+like that kind of
+
+289
+00:11:52,800 --> 00:11:58,160
+uh
+
+290
+00:11:54,160 --> 00:12:00,639
+squeezed together with other parts so
+
+291
+00:11:58,160 --> 00:12:03,279
+anyway so
+
+292
+00:12:00,639 --> 00:12:05,839
+so anyway let's let's continue removing
+
+293
+00:12:03,279 --> 00:12:07,519
+removing these to do okay so
+
+294
+00:12:05,839 --> 00:12:12,800
+what i do is
+
+295
+00:12:07,519 --> 00:12:12,800
+query i mean interactive search then
+
+296
+00:12:13,920 --> 00:12:17,760
+type a quote
+
+297
+00:12:15,279 --> 00:12:21,120
+to do quote okay that's what i want to
+
+298
+00:12:17,760 --> 00:12:25,760
+find okay now enter to exit
+
+299
+00:12:21,120 --> 00:12:28,000
+exit it okay now try again search
+
+300
+00:12:25,760 --> 00:12:30,160
+right then i press a key to search the
+
+301
+00:12:28,000 --> 00:12:32,240
+next item you know by default you'll
+
+302
+00:12:30,160 --> 00:12:33,440
+search whatever you last searched so i'm
+
+303
+00:12:32,240 --> 00:12:35,839
+on it
+
+304
+00:12:33,440 --> 00:12:38,720
+press enter to get out of it
+
+305
+00:12:35,839 --> 00:12:41,200
+out of the i search mod then
+
+306
+00:12:38,720 --> 00:12:42,639
+call the command
+
+307
+00:12:41,200 --> 00:12:45,519
+start delete
+
+308
+00:12:42,639 --> 00:12:48,079
+tag pair okay because html dvd text okay
+
+309
+00:12:45,519 --> 00:12:51,120
+done now search again
+
+310
+00:12:48,079 --> 00:12:52,480
+press arrow for next
+
+311
+00:12:51,120 --> 00:12:54,399
+enter
+
+312
+00:12:52,480 --> 00:12:57,600
+to exit i search
+
+313
+00:12:54,399 --> 00:12:59,440
+then do it okay fantastic
+
+314
+00:12:57,600 --> 00:13:03,200
+now search again
+
+315
+00:12:59,440 --> 00:13:05,600
+right arrow for next enter to exit
+
+316
+00:13:03,200 --> 00:13:07,839
+delete the tag okay
+
+317
+00:13:05,600 --> 00:13:10,079
+so you see there are so
+
+318
+00:13:07,839 --> 00:13:12,560
+so that's what we need to do there are a
+
+319
+00:13:10,079 --> 00:13:14,880
+lot of repetitions now let's
+
+320
+00:13:12,560 --> 00:13:16,720
+let's do them in a way that's uh
+
+321
+00:13:14,880 --> 00:13:19,440
+faster okay
+
+322
+00:13:16,720 --> 00:13:21,920
+so let's do a macro so emax keyboard
+
+323
+00:13:19,440 --> 00:13:23,839
+macro so what i do is like
+
+324
+00:13:21,920 --> 00:13:25,519
+show you okay let me show you now watch
+
+325
+00:13:23,839 --> 00:13:28,399
+the pink window so
+
+326
+00:13:25,519 --> 00:13:28,399
+i press a key
+
+327
+00:13:28,800 --> 00:13:35,440
+key marker start macro okay now search
+
+328
+00:13:32,880 --> 00:13:37,120
+okay quote
+
+329
+00:13:35,440 --> 00:13:40,480
+to do
+
+330
+00:13:37,120 --> 00:13:42,720
+quote okay now enter
+
+331
+00:13:40,480 --> 00:13:42,720
+now
+
+332
+00:13:43,040 --> 00:13:47,120
+press the key to delete delete the tag
+
+333
+00:13:45,600 --> 00:13:49,040
+pair then
+
+334
+00:13:47,120 --> 00:13:51,120
+now
+
+335
+00:13:49,040 --> 00:13:53,440
+that's it okay that's it for the marker
+
+336
+00:13:51,120 --> 00:13:54,800
+now i want to end macro so
+
+337
+00:13:53,440 --> 00:13:55,600
+press the key
+
+338
+00:13:54,800 --> 00:13:59,199
+so
+
+339
+00:13:55,600 --> 00:14:01,760
+you got key marker in macro so i got one
+
+340
+00:13:59,199 --> 00:14:02,880
+marker recorded
+
+341
+00:14:01,760 --> 00:14:06,160
+now
+
+342
+00:14:02,880 --> 00:14:07,519
+i want to execute the macro okay we just
+
+343
+00:14:06,160 --> 00:14:09,279
+record it so
+
+344
+00:14:07,519 --> 00:14:11,680
+i do at least
+
+345
+00:14:09,279 --> 00:14:13,360
+you see it's actually done now it's just
+
+346
+00:14:11,680 --> 00:14:17,360
+you know now you just press three keys
+
+347
+00:14:13,360 --> 00:14:18,480
+it does the whole thing you see
+
+348
+00:14:17,360 --> 00:14:21,519
+and
+
+349
+00:14:18,480 --> 00:14:24,000
+i do this again you see
+
+350
+00:14:21,519 --> 00:14:24,959
+it happen again
+
+351
+00:14:24,000 --> 00:14:27,120
+and
+
+352
+00:14:24,959 --> 00:14:29,120
+i do this again you see the next
+
+353
+00:14:27,120 --> 00:14:31,120
+occurrence happen again so let me show
+
+354
+00:14:29,120 --> 00:14:33,519
+you an example so you see
+
+355
+00:14:31,120 --> 00:14:37,360
+now you can see there is a to do okay
+
+356
+00:14:33,519 --> 00:14:40,480
+right there is one right here
+
+357
+00:14:37,360 --> 00:14:42,800
+now let's put the cursor above it now
+
+358
+00:14:40,480 --> 00:14:46,320
+i'm going to call the marker okay by the
+
+359
+00:14:42,800 --> 00:14:49,279
+way the macro is the the name of the the
+
+360
+00:14:46,320 --> 00:14:51,680
+calling the last macro is
+
+361
+00:14:49,279 --> 00:14:53,680
+let me show you describe key
+
+362
+00:14:51,680 --> 00:14:55,040
+then press the key
+
+363
+00:14:53,680 --> 00:14:57,519
+so
+
+364
+00:14:55,040 --> 00:15:00,480
+the command i'm actually calling is
+
+365
+00:14:57,519 --> 00:15:03,519
+called last keyboard macro okay
+
+366
+00:15:00,480 --> 00:15:05,279
+so let me demonstrate so
+
+367
+00:15:03,519 --> 00:15:07,760
+again
+
+368
+00:15:05,279 --> 00:15:10,240
+i'm on this line so the next line we
+
+369
+00:15:07,760 --> 00:15:13,440
+need to delete is this to do right so
+
+370
+00:15:10,240 --> 00:15:16,320
+i'm above it so i'm just going to call
+
+371
+00:15:13,440 --> 00:15:17,120
+corelast keyboard macro by a key press
+
+372
+00:15:16,320 --> 00:15:20,240
+okay
+
+373
+00:15:17,120 --> 00:15:25,839
+now you you will see that this to do
+
+374
+00:15:20,240 --> 00:15:28,079
+will be removed okay so do it you see
+
+375
+00:15:25,839 --> 00:15:29,759
+now i'm gonna do this many times so you
+
+376
+00:15:28,079 --> 00:15:32,240
+see there's another occurrence now let
+
+377
+00:15:29,759 --> 00:15:35,120
+me show you another trick okay now i
+
+378
+00:15:32,240 --> 00:15:37,680
+want to highlight all these to do tags
+
+379
+00:15:35,120 --> 00:15:38,800
+by a color so what i do
+
+380
+00:15:37,680 --> 00:15:42,320
+call
+
+381
+00:15:38,800 --> 00:15:44,480
+highlight phrase okay highlight phrase
+
+382
+00:15:42,320 --> 00:15:48,639
+then
+
+383
+00:15:44,480 --> 00:15:50,000
+then just paste it okay to do
+
+384
+00:15:48,639 --> 00:15:52,000
+okay enter
+
+385
+00:15:50,000 --> 00:15:55,040
+highlight yellow okay
+
+386
+00:15:52,000 --> 00:15:57,279
+so now you can see
+
+387
+00:15:55,040 --> 00:15:58,720
+all these to do's are highlighted as i
+
+388
+00:15:57,279 --> 00:16:01,680
+scroll down you see
+
+389
+00:15:58,720 --> 00:16:04,079
+page down page down page down you see uh
+
+390
+00:16:01,680 --> 00:16:08,160
+you see lots of to-do's now let's go
+
+391
+00:16:04,079 --> 00:16:10,399
+back to top let's go back to
+
+392
+00:16:08,160 --> 00:16:10,399
+uh
+
+393
+00:16:10,720 --> 00:16:15,519
+let's go back to here so i'm gonna call
+
+394
+00:16:13,680 --> 00:16:18,240
+the keyboard marker okay
+
+395
+00:16:15,519 --> 00:16:19,440
+class keyboard micro do it
+
+396
+00:16:18,240 --> 00:16:20,800
+do it
+
+397
+00:16:19,440 --> 00:16:23,839
+do it
+
+398
+00:16:20,800 --> 00:16:26,639
+okay that's so i just keep pressing that
+
+399
+00:16:23,839 --> 00:16:29,120
+and that will remove all these to do's
+
+400
+00:16:26,639 --> 00:16:32,480
+so that's a power of emacs keyboard
+
+401
+00:16:29,120 --> 00:16:34,480
+macro but it's actually a more
+
+402
+00:16:32,480 --> 00:16:37,360
+one level up
+
+403
+00:16:34,480 --> 00:16:38,079
+efficiency improvement okay let me show
+
+404
+00:16:37,360 --> 00:16:42,800
+you
+
+405
+00:16:38,079 --> 00:16:42,800
+any comments and questions hello alan
+
+406
+00:16:43,279 --> 00:16:49,440
+hey let me get my pens i need to spin my
+
+407
+00:16:46,560 --> 00:16:53,519
+pens to soothe my hands hello alan and
+
+408
+00:16:49,440 --> 00:16:55,440
+friends hello said taga muti
+
+409
+00:16:53,519 --> 00:16:59,600
+tagi muti
+
+410
+00:16:55,440 --> 00:17:01,759
+immortality great names you guys have
+
+411
+00:16:59,600 --> 00:17:02,959
+uh huang hero
+
+412
+00:17:01,759 --> 00:17:05,039
+okay
+
+413
+00:17:02,959 --> 00:17:06,000
+so today's
+
+414
+00:17:05,039 --> 00:17:07,679
+uh
+
+415
+00:17:06,000 --> 00:17:08,799
+working on
+
+416
+00:17:07,679 --> 00:17:11,439
+website
+
+417
+00:17:08,799 --> 00:17:12,799
+uh coding emacs workflow and lots of
+
+418
+00:17:11,439 --> 00:17:14,480
+other things
+
+419
+00:17:12,799 --> 00:17:17,360
+so if you have questions you know
+
+420
+00:17:14,480 --> 00:17:19,039
+related to programming tech
+
+421
+00:17:17,360 --> 00:17:20,480
+technology you know related to
+
+422
+00:17:19,039 --> 00:17:21,760
+programming uh
+
+423
+00:17:20,480 --> 00:17:23,919
+stuff uh
+
+424
+00:17:21,760 --> 00:17:26,319
+ask me okay
+
+425
+00:17:23,919 --> 00:17:27,600
+so i'm going to show you another way so
+
+426
+00:17:26,319 --> 00:17:30,080
+let me
+
+427
+00:17:27,600 --> 00:17:32,880
+of of improving the keyboard marker
+
+428
+00:17:30,080 --> 00:17:35,280
+improving efficiency okay so you see i
+
+429
+00:17:32,880 --> 00:17:39,200
+recorded a keyboard marker like i can
+
+430
+00:17:35,280 --> 00:17:42,559
+just call it code code code you see undo
+
+431
+00:17:39,200 --> 00:17:46,160
+and do undo undo okay but i'm gonna even
+
+432
+00:17:42,559 --> 00:17:48,160
+improve on that okay so what i do so
+
+433
+00:17:46,160 --> 00:17:50,000
+what i'm going to do is that
+
+434
+00:17:48,160 --> 00:17:52,480
+every time i call a keyboard marker
+
+435
+00:17:50,000 --> 00:17:53,679
+called keyboard marker that's three keys
+
+436
+00:17:52,480 --> 00:17:56,160
+because
+
+437
+00:17:53,679 --> 00:17:58,559
+i have you know this just anyway it's
+
+438
+00:17:56,160 --> 00:18:01,039
+three keys okay now i want to make it
+
+439
+00:17:58,559 --> 00:18:03,520
+what just one key one simple key okay
+
+440
+00:18:01,039 --> 00:18:05,520
+undo undo so what i do is i call the
+
+441
+00:18:03,520 --> 00:18:06,960
+emax command
+
+442
+00:18:05,520 --> 00:18:08,400
+um
+
+443
+00:18:06,960 --> 00:18:09,840
+let's see what's the command name
+
+444
+00:18:08,400 --> 00:18:12,640
+describe key
+
+445
+00:18:09,840 --> 00:18:14,960
+the command name is called repeat okay
+
+446
+00:18:12,640 --> 00:18:16,480
+simply simply the command name is simply
+
+447
+00:18:14,960 --> 00:18:18,880
+called repeat
+
+448
+00:18:16,480 --> 00:18:21,440
+that will repeat
+
+449
+00:18:18,880 --> 00:18:24,320
+my key press for the keyboard markup
+
+450
+00:18:21,440 --> 00:18:26,480
+okay so let me show you
+
+451
+00:18:24,320 --> 00:18:26,480
+so
+
+452
+00:18:26,799 --> 00:18:31,760
+coalesce keyboard macro done now i'm
+
+453
+00:18:29,600 --> 00:18:32,799
+gonna call the repeat command by a key
+
+454
+00:18:31,760 --> 00:18:34,640
+okay
+
+455
+00:18:32,799 --> 00:18:37,200
+do it you see
+
+456
+00:18:34,640 --> 00:18:40,320
+now it just did the core last keyboard
+
+457
+00:18:37,200 --> 00:18:42,640
+marker but now i just press one single
+
+458
+00:18:40,320 --> 00:18:44,640
+key to repeat the whole thing you see
+
+459
+00:18:42,640 --> 00:18:45,919
+now watch my for example watch my
+
+460
+00:18:44,640 --> 00:18:51,200
+keyboard
+
+461
+00:18:45,919 --> 00:18:51,200
+do it do it do it do it do it
+
+462
+00:18:53,120 --> 00:18:58,640
+hold down the
+
+463
+00:18:54,840 --> 00:18:58,640
+key it's done
+
+464
+00:18:58,960 --> 00:19:02,640
+so now
+
+465
+00:19:01,200 --> 00:19:05,360
+show in browser
+
+466
+00:19:02,640 --> 00:19:07,919
+you will see that all these to do red
+
+467
+00:19:05,360 --> 00:19:10,799
+under underline is gone you will not see
+
+468
+00:19:07,919 --> 00:19:12,160
+it we did it
+
+469
+00:19:10,799 --> 00:19:14,320
+and now
+
+470
+00:19:12,160 --> 00:19:17,600
+we can verify
+
+471
+00:19:14,320 --> 00:19:20,320
+to check if what we did you know
+
+472
+00:19:17,600 --> 00:19:24,720
+is it actually true that there's no more
+
+473
+00:19:20,320 --> 00:19:26,799
+to do tax okay so you what you do is
+
+474
+00:19:24,720 --> 00:19:29,760
+these matching lines
+
+475
+00:19:26,799 --> 00:19:32,320
+and by default you can see
+
+476
+00:19:29,760 --> 00:19:34,880
+in the um
+
+477
+00:19:32,320 --> 00:19:38,000
+you can see in the mini buffer by
+
+478
+00:19:34,880 --> 00:19:41,039
+default your search for the to do spam
+
+479
+00:19:38,000 --> 00:19:43,679
+tag okay just do it
+
+480
+00:19:41,039 --> 00:19:46,960
+then you say search one buffer no match
+
+481
+00:19:43,679 --> 00:19:49,120
+no match is found okay so
+
+482
+00:19:46,960 --> 00:19:51,120
+we have just
+
+483
+00:19:49,120 --> 00:19:52,400
+finished the task
+
+484
+00:19:51,120 --> 00:19:54,960
+buy
+
+485
+00:19:52,400 --> 00:19:57,200
+a keyboard marker and buy a repeat
+
+486
+00:19:54,960 --> 00:19:59,280
+command so okay so
+
+487
+00:19:57,200 --> 00:20:01,919
+go to the talk show page let's write
+
+488
+00:19:59,280 --> 00:20:04,240
+down what we did
+
+489
+00:20:01,919 --> 00:20:05,280
+okay so show in browser that's today's
+
+490
+00:20:04,240 --> 00:20:08,559
+talk show
+
+491
+00:20:05,280 --> 00:20:10,320
+delete this stream information
+
+492
+00:20:08,559 --> 00:20:12,640
+and let's say
+
+493
+00:20:10,320 --> 00:20:17,080
+and to do okay i mean keyboard marker
+
+494
+00:20:12,640 --> 00:20:17,080
+okay let me show you so
+
+495
+00:20:20,240 --> 00:20:24,640
+okay let's write down emax work
+
+496
+00:20:23,440 --> 00:20:26,320
+flow
+
+497
+00:20:24,640 --> 00:20:28,400
+efficiency
+
+498
+00:20:26,320 --> 00:20:29,679
+tip this is what we have just
+
+499
+00:20:28,400 --> 00:20:34,120
+demonstrated
+
+500
+00:20:29,679 --> 00:20:34,120
+so the first command is
+
+501
+00:20:35,440 --> 00:20:40,960
+that command keyboard microsoft macro
+
+502
+00:20:38,640 --> 00:20:40,960
+then
+
+503
+00:20:41,600 --> 00:20:47,520
+then we have this command
+
+504
+00:20:44,240 --> 00:20:49,679
+keyboard marco and markup then i
+
+505
+00:20:47,520 --> 00:20:52,480
+demonstrated
+
+506
+00:20:49,679 --> 00:20:52,480
+this command
+
+507
+00:20:52,559 --> 00:20:57,679
+core last keyboard macro okay so you
+
+508
+00:20:55,440 --> 00:21:01,720
+just call that and you repeat your
+
+509
+00:20:57,679 --> 00:21:01,720
+marker then we demonstrated
+
+510
+00:21:05,200 --> 00:21:11,440
+the repeat command itself okay
+
+511
+00:21:08,000 --> 00:21:12,799
+now look i press a key so okay so hold
+
+512
+00:21:11,440 --> 00:21:13,919
+on a second so
+
+513
+00:21:12,799 --> 00:21:15,919
+um
+
+514
+00:21:13,919 --> 00:21:16,960
+let's make a paragraph okay show in
+
+515
+00:21:15,919 --> 00:21:20,480
+browser
+
+516
+00:21:16,960 --> 00:21:21,679
+so you can see emacs workflow efficiency
+
+517
+00:21:20,480 --> 00:21:24,480
+tip tip
+
+518
+00:21:21,679 --> 00:21:27,840
+or this emacs command now i want to make
+
+519
+00:21:24,480 --> 00:21:30,799
+them syntax color because these are emax
+
+520
+00:21:27,840 --> 00:21:33,760
+func commands okay press the key
+
+521
+00:21:30,799 --> 00:21:36,400
+they become the code tag
+
+522
+00:21:33,760 --> 00:21:39,280
+go to the browser refresh you see we
+
+523
+00:21:36,400 --> 00:21:42,480
+demonstrated those and
+
+524
+00:21:39,280 --> 00:21:45,200
+now go to now in so i actually have a
+
+525
+00:21:42,480 --> 00:21:48,320
+emacs tutorial on keyboard marker so you
+
+526
+00:21:45,200 --> 00:21:50,720
+can read about it kind of a summary of
+
+527
+00:21:48,320 --> 00:21:53,840
+today's like
+
+528
+00:21:50,720 --> 00:21:53,840
+tips okay so
+
+529
+00:21:54,159 --> 00:22:00,799
+press a key to open bookmark
+
+530
+00:21:57,280 --> 00:22:02,480
+by keystroke so it asks me open bookmark
+
+531
+00:22:00,799 --> 00:22:05,200
+i just type
+
+532
+00:22:02,480 --> 00:22:05,200
+emacs
+
+533
+00:22:05,360 --> 00:22:12,400
+okay in fact actually i just type eb
+
+534
+00:22:08,880 --> 00:22:15,039
+okay so that opens my emacs blog
+
+535
+00:22:12,400 --> 00:22:16,240
+showing browser there it is now you go
+
+536
+00:22:15,039 --> 00:22:18,960
+to
+
+537
+00:22:16,240 --> 00:22:21,280
+practical emacs tutorial
+
+538
+00:22:18,960 --> 00:22:24,559
+then down somewhere here on the left
+
+539
+00:22:21,280 --> 00:22:27,679
+panel there is a e max marker okay so
+
+540
+00:22:24,559 --> 00:22:30,159
+where is it too many so just search in
+
+541
+00:22:27,679 --> 00:22:30,159
+browser
+
+542
+00:22:30,320 --> 00:22:36,320
+okay keyboard marker emax efficiency
+
+543
+00:22:33,520 --> 00:22:38,840
+keyboard click on that
+
+544
+00:22:36,320 --> 00:22:41,760
+so here is a
+
+545
+00:22:38,840 --> 00:22:44,480
+tutorial on keyboard marker which we
+
+546
+00:22:41,760 --> 00:22:46,480
+just demonstrated copy the url back to
+
+547
+00:22:44,480 --> 00:22:49,200
+emacs
+
+548
+00:22:46,480 --> 00:22:50,720
+close that paste it here
+
+549
+00:22:49,200 --> 00:22:52,159
+so that's a
+
+550
+00:22:50,720 --> 00:22:54,720
+that's a
+
+551
+00:22:52,159 --> 00:22:56,159
+path of url you see this is very
+
+552
+00:22:54,720 --> 00:22:59,919
+annoying file
+
+553
+00:22:56,159 --> 00:23:03,039
+colon slash slash slash and on windows
+
+554
+00:22:59,919 --> 00:23:05,440
+then you have c colon then slash
+
+555
+00:23:03,039 --> 00:23:06,480
+this is actually very annoying painful
+
+556
+00:23:05,440 --> 00:23:08,480
+because
+
+557
+00:23:06,480 --> 00:23:11,120
+depending on browser some browser when
+
+558
+00:23:08,480 --> 00:23:12,159
+you when you open a local file
+
+559
+00:23:11,120 --> 00:23:14,240
+it
+
+560
+00:23:12,159 --> 00:23:17,039
+requires you i mean
+
+561
+00:23:14,240 --> 00:23:19,360
+it requires you to have this file colon
+
+562
+00:23:17,039 --> 00:23:20,240
+slash slash slash
+
+563
+00:23:19,360 --> 00:23:22,880
+because
+
+564
+00:23:20,240 --> 00:23:24,640
+that part is actually part of the url
+
+565
+00:23:22,880 --> 00:23:27,360
+specification
+
+566
+00:23:24,640 --> 00:23:28,320
+so without that without the file colon
+
+567
+00:23:27,360 --> 00:23:30,320
+slash
+
+568
+00:23:28,320 --> 00:23:34,400
+slash
+
+569
+00:23:30,320 --> 00:23:37,280
+this file path is not considered a url
+
+570
+00:23:34,400 --> 00:23:39,360
+you know which originally stands for
+
+571
+00:23:37,280 --> 00:23:42,000
+universal resource
+
+572
+00:23:39,360 --> 00:23:42,000
+locator
+
+573
+00:23:42,559 --> 00:23:46,000
+anyway so that's a kind of
+
+574
+00:23:45,200 --> 00:23:48,159
+some
+
+575
+00:23:46,000 --> 00:23:50,400
+in tech detail about
+
+576
+00:23:48,159 --> 00:23:51,760
+web technology so anyway
+
+577
+00:23:50,400 --> 00:23:54,480
+so i got this
+
+578
+00:23:51,760 --> 00:23:57,200
+path make a link so now it becomes a
+
+579
+00:23:54,480 --> 00:23:59,520
+relative link and also a list showing
+
+580
+00:23:57,200 --> 00:24:01,120
+browser so you got
+
+581
+00:23:59,520 --> 00:24:03,120
+a link to
+
+582
+00:24:01,120 --> 00:24:06,320
+this tutorial
+
+583
+00:24:03,120 --> 00:24:09,440
+about emacs keyboard marker so i tell
+
+584
+00:24:06,320 --> 00:24:10,559
+you all about it how to do and in fact
+
+585
+00:24:09,440 --> 00:24:13,600
+there are
+
+586
+00:24:10,559 --> 00:24:15,919
+you know there are a total of six also
+
+587
+00:24:13,600 --> 00:24:19,600
+articles on keyboard macro
+
+588
+00:24:15,919 --> 00:24:22,240
+so you can see a variety of actual real
+
+589
+00:24:19,600 --> 00:24:25,360
+world examples of using keyboard macro
+
+590
+00:24:22,240 --> 00:24:27,679
+to speed up your work
+
+591
+00:24:25,360 --> 00:24:29,760
+okay let's keep on macro now what about
+
+592
+00:24:27,679 --> 00:24:31,679
+repeat did i talk about repeat the
+
+593
+00:24:29,760 --> 00:24:34,720
+command
+
+594
+00:24:31,679 --> 00:24:38,159
+maybe not here completion hippie expand
+
+595
+00:24:34,720 --> 00:24:40,320
+uh repeat last prompt command okay so
+
+596
+00:24:38,159 --> 00:24:42,799
+there is
+
+597
+00:24:40,320 --> 00:24:44,240
+yeah so i explained the repeat here okay
+
+598
+00:24:42,799 --> 00:24:45,360
+let's copy it
+
+599
+00:24:44,240 --> 00:24:47,520
+let's
+
+600
+00:24:45,360 --> 00:24:49,919
+paste it here
+
+601
+00:24:47,520 --> 00:24:51,919
+make a link and list
+
+602
+00:24:49,919 --> 00:24:54,880
+combine the last two links
+
+603
+00:24:51,919 --> 00:24:57,679
+showing browser there it is okay that
+
+604
+00:24:54,880 --> 00:24:58,640
+completes one thing let's go back to to
+
+605
+00:24:57,679 --> 00:25:01,360
+do
+
+606
+00:24:58,640 --> 00:25:03,279
+that completes one thing of what i need
+
+607
+00:25:01,360 --> 00:25:04,240
+to do on my website
+
+608
+00:25:03,279 --> 00:25:06,880
+so
+
+609
+00:25:04,240 --> 00:25:09,840
+now let's see what you guys are saying
+
+610
+00:25:06,880 --> 00:25:12,240
+you guys are saying nothing
+
+611
+00:25:09,840 --> 00:25:14,400
+so i'm going to do the next task
+
+612
+00:25:12,240 --> 00:25:18,240
+let's see
+
+613
+00:25:14,400 --> 00:25:18,240
+so i've been talking for
+
+614
+00:25:18,799 --> 00:25:25,840
+30 minutes so i'm going to go uh do the
+
+615
+00:25:21,679 --> 00:25:27,840
+next task okay uh in fact actually
+
+616
+00:25:25,840 --> 00:25:31,760
+so this is start to
+
+617
+00:25:27,840 --> 00:25:33,200
+let's see let's actually go to talk show
+
+618
+00:25:31,760 --> 00:25:35,760
+notes
+
+619
+00:25:33,200 --> 00:25:37,760
+so if you guys see anything here let me
+
+620
+00:25:35,760 --> 00:25:40,240
+know what you want to do next i'm going
+
+621
+00:25:37,760 --> 00:25:42,799
+to do so today we just finished doing
+
+622
+00:25:40,240 --> 00:25:45,919
+that emacs workflow delete the to-do
+
+623
+00:25:42,799 --> 00:25:49,200
+text so let's move it
+
+624
+00:25:45,919 --> 00:25:52,080
+so this is my talk show topic notes so
+
+625
+00:25:49,200 --> 00:25:52,080
+let's open that
+
+626
+00:25:52,400 --> 00:25:55,360
+yeah so uh
+
+627
+00:25:54,240 --> 00:25:57,600
+to do
+
+628
+00:25:55,360 --> 00:25:58,960
+so there is it is
+
+629
+00:25:57,600 --> 00:26:00,240
+that line
+
+630
+00:25:58,960 --> 00:26:01,279
+delete it
+
+631
+00:26:00,240 --> 00:26:05,760
+and
+
+632
+00:26:01,279 --> 00:26:05,760
+go to today's talk show paste it there
+
+633
+00:26:06,000 --> 00:26:12,240
+okay now remove the li tag
+
+634
+00:26:09,520 --> 00:26:14,559
+and make it a whole list okay showing
+
+635
+00:26:12,240 --> 00:26:17,120
+browser
+
+636
+00:26:14,559 --> 00:26:19,039
+that's the main topic i mean that's the
+
+637
+00:26:17,120 --> 00:26:20,559
+first thing we did okay
+
+638
+00:26:19,039 --> 00:26:23,279
+now
+
+639
+00:26:20,559 --> 00:26:25,679
+what's next so
+
+640
+00:26:23,279 --> 00:26:28,720
+go back to the notes show in browser
+
+641
+00:26:25,679 --> 00:26:28,720
+yeah topic notes
+
+642
+00:26:33,679 --> 00:26:38,400
+no
+
+643
+00:26:34,559 --> 00:26:40,320
+no questions no answers no comments
+
+644
+00:26:38,400 --> 00:26:42,559
+so i'm going to do a next thing let's
+
+645
+00:26:40,320 --> 00:26:42,559
+see
+
+646
+00:26:46,159 --> 00:26:51,679
+question huang do you like to read 4chan
+
+647
+00:26:49,120 --> 00:26:56,240
+reddit or hacker news no i don't like to
+
+648
+00:26:51,679 --> 00:26:56,240
+read them and i almost never read them
+
+649
+00:26:59,440 --> 00:27:03,760
+4chan okay let me tell you okay so
+
+650
+00:27:04,240 --> 00:27:08,960
+what should i say uh you know they they
+
+651
+00:27:07,200 --> 00:27:11,440
+i don't read them
+
+652
+00:27:08,960 --> 00:27:13,600
+i think i think they rot
+
+653
+00:27:11,440 --> 00:27:16,720
+they wrought your brain
+
+654
+00:27:13,600 --> 00:27:21,120
+now this is coming from my you know 30
+
+655
+00:27:16,720 --> 00:27:24,320
+years experience as an adult now i'm 50
+
+656
+00:27:21,120 --> 00:27:27,360
+something in my early 50s so as a
+
+657
+00:27:24,320 --> 00:27:29,520
+nerd as a tech geeker as a programmer
+
+658
+00:27:27,360 --> 00:27:32,000
+you know in an industry
+
+659
+00:27:29,520 --> 00:27:35,600
+you know i'm not you know well yeah as a
+
+660
+00:27:32,000 --> 00:27:38,720
+programmer in the industry for 30 years
+
+661
+00:27:35,600 --> 00:27:41,120
+just like you guys like many of you guys
+
+662
+00:27:38,720 --> 00:27:43,919
+i read you know all the discussions
+
+663
+00:27:41,120 --> 00:27:46,720
+online you know even before you know
+
+664
+00:27:43,919 --> 00:27:48,480
+before the web there's um there's of
+
+665
+00:27:46,720 --> 00:27:52,080
+course this irc
+
+666
+00:27:48,480 --> 00:27:53,760
+there is uh news groups you know you you
+
+667
+00:27:52,080 --> 00:27:56,399
+younger people probably don't know what
+
+668
+00:27:53,760 --> 00:27:57,840
+the is news group but anyway so
+
+669
+00:27:56,399 --> 00:28:00,399
+this
+
+670
+00:27:57,840 --> 00:28:01,120
+let me give you a history okay a kind of
+
+671
+00:28:00,399 --> 00:28:03,919
+a
+
+672
+00:28:01,120 --> 00:28:07,279
+summary of the online discussion
+
+673
+00:28:03,919 --> 00:28:09,840
+technology in the past 30 years starting
+
+674
+00:28:07,279 --> 00:28:13,200
+from 1990s okay
+
+675
+00:28:09,840 --> 00:28:13,200
+so there's news groups
+
+676
+00:28:13,679 --> 00:28:19,679
+1990 1980 new this okay i'm just gonna
+
+677
+00:28:17,440 --> 00:28:21,039
+you know i'm not gonna be like formal
+
+678
+00:28:19,679 --> 00:28:22,159
+and whatever
+
+679
+00:28:21,039 --> 00:28:24,880
+you know
+
+680
+00:28:22,159 --> 00:28:28,640
+so anyway so there's news groups
+
+681
+00:28:24,880 --> 00:28:31,039
+uh there is then then there is a
+
+682
+00:28:28,640 --> 00:28:32,960
+compuserve
+
+683
+00:28:31,039 --> 00:28:35,840
+compuserve okay you you don't know what
+
+684
+00:28:32,960 --> 00:28:35,840
+is compu serve
+
+685
+00:28:36,159 --> 00:28:41,120
+okay basically it's a online service
+
+686
+00:28:38,720 --> 00:28:43,360
+okay back then this is even before the
+
+687
+00:28:41,120 --> 00:28:45,760
+internet before the you know before web
+
+688
+00:28:43,360 --> 00:28:48,080
+pages there's no web pages back then so
+
+689
+00:28:45,760 --> 00:28:50,480
+there's a compuserve where you
+
+690
+00:28:48,080 --> 00:28:53,279
+you buy a modem you you connect the
+
+691
+00:28:50,480 --> 00:28:55,200
+modem to your phone your you know your
+
+692
+00:28:53,279 --> 00:28:58,240
+not your cell phone cell phone wasn't
+
+693
+00:28:55,200 --> 00:29:01,120
+invented until 15 years later you
+
+694
+00:28:58,240 --> 00:29:02,080
+connect it to your you know uh
+
+695
+00:29:01,120 --> 00:29:05,120
+line
+
+696
+00:29:02,080 --> 00:29:06,080
+it's called lan land line you know from
+
+697
+00:29:05,120 --> 00:29:08,530
+you know
+
+698
+00:29:06,080 --> 00:29:09,679
+kind of hook them up more than
+
+699
+00:29:08,530 --> 00:29:11,120
+[Music]
+
+700
+00:29:09,679 --> 00:29:14,000
+okay let me
+
+701
+00:29:11,120 --> 00:29:16,880
+show you some of the history okay you
+
+702
+00:29:14,000 --> 00:29:20,640
+yeah so i'm getting old so
+
+703
+00:29:16,880 --> 00:29:23,679
+i can talk about history some history
+
+704
+00:29:20,640 --> 00:29:25,200
+so you go to okay talk show topics okay
+
+705
+00:29:23,679 --> 00:29:27,840
+you go to
+
+706
+00:29:25,200 --> 00:29:30,480
+but rather today i want to finish some
+
+707
+00:29:27,840 --> 00:29:34,399
+of the you know i want to do
+
+708
+00:29:30,480 --> 00:29:35,360
+work on my website not talking random
+
+709
+00:29:34,399 --> 00:29:38,480
+crap
+
+710
+00:29:35,360 --> 00:29:42,240
+you know when doing a talk show
+
+711
+00:29:38,480 --> 00:29:44,159
+like right now you know it's very fun
+
+712
+00:29:42,240 --> 00:29:46,880
+and usually people like it when i
+
+713
+00:29:44,159 --> 00:29:49,200
+started to talk like rent when i started
+
+714
+00:29:46,880 --> 00:29:51,679
+to get into a rant on unix and people
+
+715
+00:29:49,200 --> 00:29:55,200
+like it because it's dramatic or some
+
+716
+00:29:51,679 --> 00:29:57,279
+other kind of thing or on politics
+
+717
+00:29:55,200 --> 00:29:59,039
+because it doesn't require brand you
+
+718
+00:29:57,279 --> 00:30:02,640
+just enjoy the show you know
+
+719
+00:29:59,039 --> 00:30:03,919
+it's showtime america
+
+720
+00:30:02,640 --> 00:30:06,720
+but
+
+721
+00:30:03,919 --> 00:30:09,919
+all things considered just like reading
+
+722
+00:30:06,720 --> 00:30:12,720
+4chan reddit hacker news they provide
+
+723
+00:30:09,919 --> 00:30:14,640
+entertainment for a while but there's no
+
+724
+00:30:12,720 --> 00:30:16,399
+substance okay they don't they don't
+
+725
+00:30:14,640 --> 00:30:18,240
+they don't you know there's no substance
+
+726
+00:30:16,399 --> 00:30:20,960
+they don't last
+
+727
+00:30:18,240 --> 00:30:24,000
+so but anyway we digress so let me show
+
+728
+00:30:20,960 --> 00:30:25,679
+you some of the um
+
+729
+00:30:24,000 --> 00:30:28,880
+where is it
+
+730
+00:30:25,679 --> 00:30:31,120
+technology in the past 30 years okay
+
+731
+00:30:28,880 --> 00:30:33,120
+yeah since we talking about modem let me
+
+732
+00:30:31,120 --> 00:30:35,760
+just mention that
+
+733
+00:30:33,120 --> 00:30:38,399
+technology past and future let me show
+
+734
+00:30:35,760 --> 00:30:41,360
+you guys one thing okay
+
+735
+00:30:38,399 --> 00:30:45,039
+so these are you know my commentaries on
+
+736
+00:30:41,360 --> 00:30:47,520
+the technologies i've used and or love
+
+737
+00:30:45,039 --> 00:30:48,840
+you know this is my heartbeat watch i
+
+738
+00:30:47,520 --> 00:30:53,520
+bought in
+
+739
+00:30:48,840 --> 00:30:56,080
+1987 around there 250 dollars before you
+
+740
+00:30:53,520 --> 00:31:00,159
+before you guys whatever you know hobby
+
+741
+00:30:56,080 --> 00:31:00,960
+phone today so i bought this you know
+
+742
+00:31:00,159 --> 00:31:04,559
+uh
+
+743
+00:31:00,960 --> 00:31:06,559
+30 years ago 35 years ago so in my first
+
+744
+00:31:04,559 --> 00:31:10,880
+graphing calculator also my first
+
+745
+00:31:06,559 --> 00:31:14,880
+programming language hp 28
+
+746
+00:31:10,880 --> 00:31:16,080
+chess chinese chess abacus siri
+
+747
+00:31:14,880 --> 00:31:19,039
+you know
+
+748
+00:31:16,080 --> 00:31:22,000
+cortana
+
+749
+00:31:19,039 --> 00:31:24,640
+okay google you know this ai technology
+
+750
+00:31:22,000 --> 00:31:27,600
+okay anyway i want to show you yeah the
+
+751
+00:31:24,640 --> 00:31:29,679
+sound of obsolete technology so you know
+
+752
+00:31:27,600 --> 00:31:33,200
+you know so that you are seeing this is
+
+753
+00:31:29,679 --> 00:31:35,880
+this is a modem so in 1990s
+
+754
+00:31:33,200 --> 00:31:37,519
+you know this is a
+
+755
+00:31:35,880 --> 00:31:39,679
+14.4
+
+756
+00:31:37,519 --> 00:31:41,360
+kilobits modem
+
+757
+00:31:39,679 --> 00:31:44,080
+every every two years there's a new
+
+758
+00:31:41,360 --> 00:31:45,919
+modem modem coming out faster you know
+
+759
+00:31:44,080 --> 00:31:48,080
+so anyway i bought you know every two or
+
+760
+00:31:45,919 --> 00:31:50,240
+three years i bought the i bought the
+
+761
+00:31:48,080 --> 00:31:53,039
+latest one because you in order to
+
+762
+00:31:50,240 --> 00:31:53,039
+connect to the
+
+763
+00:31:53,360 --> 00:31:56,799
+you would you don't even call it
+
+764
+00:31:54,640 --> 00:31:58,559
+internet you know like i said compuserve
+
+765
+00:31:56,799 --> 00:32:02,159
+did i finish talking about that yeah
+
+766
+00:31:58,559 --> 00:32:05,360
+computer you know it's a service that
+
+767
+00:32:02,159 --> 00:32:08,720
+provides a good gateway to internet as
+
+768
+00:32:05,360 --> 00:32:12,480
+well as to the computer online servers
+
+769
+00:32:08,720 --> 00:32:15,360
+so besides computer there's also prodigy
+
+770
+00:32:12,480 --> 00:32:17,919
+and american online now the last one
+
+771
+00:32:15,360 --> 00:32:20,159
+probably a lot of you heard of or if you
+
+772
+00:32:17,919 --> 00:32:23,200
+haven't asked your dad you know as your
+
+773
+00:32:20,159 --> 00:32:24,960
+parents they probably have
+
+774
+00:32:23,200 --> 00:32:29,519
+you know these are online services
+
+775
+00:32:24,960 --> 00:32:31,440
+around 19 1900s you know so
+
+776
+00:32:29,519 --> 00:32:33,600
+okay let me finish one thing at the time
+
+777
+00:32:31,440 --> 00:32:36,320
+so and then we're gonna go back to look
+
+778
+00:32:33,600 --> 00:32:38,240
+at that um
+
+779
+00:32:36,320 --> 00:32:43,000
+that modem okay let me show you this
+
+780
+00:32:38,240 --> 00:32:43,000
+modem okay this is how it sounds like
+
+781
+00:32:43,279 --> 00:32:46,159
+you dial up
+
+782
+00:32:47,440 --> 00:32:51,320
+then you hear this sound
+
+783
+00:32:53,240 --> 00:32:56,380
+[Music]
+
+784
+00:33:01,470 --> 00:33:05,670
+[Music]
+
+785
+00:33:06,480 --> 00:33:11,600
+okay now you are connected so that's
+
+786
+00:33:09,200 --> 00:33:14,960
+what this every time you connect to
+
+787
+00:33:11,600 --> 00:33:14,960
+internet that's what happens
+
+788
+00:33:15,840 --> 00:33:19,840
+okay so that's modem so
+
+789
+00:33:18,000 --> 00:33:23,760
+we're talking about modem you know so
+
+790
+00:33:19,840 --> 00:33:26,080
+i'm giving you a outline of the
+
+791
+00:33:23,760 --> 00:33:29,039
+technology of communication okay
+
+792
+00:33:26,080 --> 00:33:31,519
+especially online online uh
+
+793
+00:33:29,039 --> 00:33:35,679
+online discussion okay so
+
+794
+00:33:31,519 --> 00:33:36,880
+so there's irc there's the news group
+
+795
+00:33:35,679 --> 00:33:38,960
+okay you don't know what is the news
+
+796
+00:33:36,880 --> 00:33:42,240
+school but i'm not going to show it
+
+797
+00:33:38,960 --> 00:33:46,559
+anyway then this computer these services
+
+798
+00:33:42,240 --> 00:33:49,760
+prodigy aol online like you got mail you
+
+799
+00:33:46,559 --> 00:33:50,840
+know this this is also funny
+
+800
+00:33:49,760 --> 00:33:52,399
+you've got
+
+801
+00:33:50,840 --> 00:33:56,320
+mail
+
+802
+00:33:52,399 --> 00:33:56,320
+okay nokia is also a classic
+
+803
+00:33:58,799 --> 00:34:04,000
+uh then where's the okay windows boot up
+
+804
+00:34:02,640 --> 00:34:07,840
+sound okay
+
+805
+00:34:04,000 --> 00:34:12,000
+you've got mail okay that's the aol what
+
+806
+00:34:07,840 --> 00:34:14,320
+very popular because they spam every uh
+
+807
+00:34:12,000 --> 00:34:14,320
+mail
+
+808
+00:34:17,359 --> 00:34:22,480
+yeah so um
+
+809
+00:34:19,760 --> 00:34:25,599
+so you know all technology so
+
+810
+00:34:22,480 --> 00:34:28,639
+irc news groups aol
+
+811
+00:34:25,599 --> 00:34:30,720
+you know compuserve then you have then
+
+812
+00:34:28,639 --> 00:34:33,520
+you started to have web you know like
+
+813
+00:34:30,720 --> 00:34:37,440
+world wide web and the term is
+
+814
+00:34:33,520 --> 00:34:40,159
+cyberspace okay worldwide web considered
+
+815
+00:34:37,440 --> 00:34:42,639
+considered a cyberspace today you don't
+
+816
+00:34:40,159 --> 00:34:45,760
+you know nobody's called cyberspace it's
+
+817
+00:34:42,639 --> 00:34:49,520
+just the web okay but back then it was
+
+818
+00:34:45,760 --> 00:34:52,399
+the cyber space and all these links they
+
+819
+00:34:49,520 --> 00:34:54,480
+are called hyperlink okay not just link
+
+820
+00:34:52,399 --> 00:34:55,839
+it's a called hyperlink it's a new
+
+821
+00:34:54,480 --> 00:34:57,359
+technology
+
+822
+00:34:55,839 --> 00:35:01,119
+hyperlink
+
+823
+00:34:57,359 --> 00:35:04,480
+cyberspace hyperlink then you have then
+
+824
+00:35:01,119 --> 00:35:05,839
+okay so web began then you started you
+
+825
+00:35:04,480 --> 00:35:08,320
+started to have
+
+826
+00:35:05,839 --> 00:35:10,880
+mailing lists okay mailing list i don't
+
+827
+00:35:08,320 --> 00:35:13,440
+know if you guys know
+
+828
+00:35:10,880 --> 00:35:15,760
+email okay before all these you know use
+
+829
+00:35:13,440 --> 00:35:17,920
+you have email somewhere before so then
+
+830
+00:35:15,760 --> 00:35:19,760
+you have mailing list which is like
+
+831
+00:35:17,920 --> 00:35:23,359
+email but you
+
+832
+00:35:19,760 --> 00:35:24,720
+but a group of people altogether using
+
+833
+00:35:23,359 --> 00:35:27,440
+these
+
+834
+00:35:24,720 --> 00:35:29,839
+you know this this central servers where
+
+835
+00:35:27,440 --> 00:35:32,320
+you send email to it and all the people
+
+836
+00:35:29,839 --> 00:35:34,800
+subscribe to the mail will see it
+
+837
+00:35:32,320 --> 00:35:37,680
+then they can reply so it kind of
+
+838
+00:35:34,800 --> 00:35:39,760
+serves us a online forum
+
+839
+00:35:37,680 --> 00:35:44,079
+via email
+
+840
+00:35:39,760 --> 00:35:46,640
+so that's called mailing list okay so
+
+841
+00:35:44,079 --> 00:35:50,640
+so if you search for it there is a
+
+842
+00:35:46,640 --> 00:35:53,200
+wikipedia i'm pretty sure articles on it
+
+843
+00:35:50,640 --> 00:35:57,240
+yeah you know i think python
+
+844
+00:35:53,200 --> 00:35:57,240
+still have a mailing list
+
+845
+00:36:00,160 --> 00:36:04,720
+okay there it is mainly this wikipedia
+
+846
+00:36:02,560 --> 00:36:08,079
+okay that describes the history and and
+
+847
+00:36:04,720 --> 00:36:11,760
+so on then you have faq automatic you
+
+848
+00:36:08,079 --> 00:36:15,760
+know faq faq is popular since the news
+
+849
+00:36:11,760 --> 00:36:18,000
+groups news group days in the 1980s very
+
+850
+00:36:15,760 --> 00:36:21,839
+faq
+
+851
+00:36:18,000 --> 00:36:24,000
+is basically a collection compendium of
+
+852
+00:36:21,839 --> 00:36:25,280
+all the questions people you know of
+
+853
+00:36:24,000 --> 00:36:28,079
+certain topic
+
+854
+00:36:25,280 --> 00:36:30,720
+for example computer programming
+
+855
+00:36:28,079 --> 00:36:33,599
+how to play a piano how to buy a piano
+
+856
+00:36:30,720 --> 00:36:35,839
+how to buy a house what about
+
+857
+00:36:33,599 --> 00:36:38,400
+adult videos you know
+
+858
+00:36:35,839 --> 00:36:41,280
+adult entertainment industry what they
+
+859
+00:36:38,400 --> 00:36:44,000
+do how do you become an actor you know
+
+860
+00:36:41,280 --> 00:36:46,400
+how they how much they get paid uh list
+
+861
+00:36:44,000 --> 00:36:47,920
+of the phone stars that's all part of
+
+862
+00:36:46,400 --> 00:36:49,920
+the faq
+
+863
+00:36:47,920 --> 00:36:52,640
+you know how to do
+
+864
+00:36:49,920 --> 00:36:55,040
+uh how to do computational geometry how
+
+865
+00:36:52,640 --> 00:36:58,160
+to program in c language you know all
+
+866
+00:36:55,040 --> 00:37:00,240
+the frequently the most frequently
+
+867
+00:36:58,160 --> 00:37:01,920
+asked questions about c programming
+
+868
+00:37:00,240 --> 00:37:03,200
+language you know people want to know
+
+869
+00:37:01,920 --> 00:37:04,320
+you know how to
+
+870
+00:37:03,200 --> 00:37:05,520
+you know
+
+871
+00:37:04,320 --> 00:37:08,160
+so
+
+872
+00:37:05,520 --> 00:37:09,280
+those faqr compendium
+
+873
+00:37:08,160 --> 00:37:12,720
+or
+
+874
+00:37:09,280 --> 00:37:15,359
+compilation of all the past discussion
+
+875
+00:37:12,720 --> 00:37:18,720
+and experiences and their answers so
+
+876
+00:37:15,359 --> 00:37:21,839
+they are faq for all sort of
+
+877
+00:37:18,720 --> 00:37:24,960
+subjects for thousands of subjects on
+
+878
+00:37:21,839 --> 00:37:27,520
+news groups so piano playing poem
+
+879
+00:37:24,960 --> 00:37:30,880
+programming c language computational
+
+880
+00:37:27,520 --> 00:37:34,079
+geometry you know like also all sorts of
+
+881
+00:37:30,880 --> 00:37:37,920
+things mathematics um dynamical systems
+
+882
+00:37:34,079 --> 00:37:40,720
+you know lots of and many are uh very um
+
+883
+00:37:37,920 --> 00:37:43,119
+specialized in math or programming
+
+884
+00:37:40,720 --> 00:37:45,200
+especially those because most people go
+
+885
+00:37:43,119 --> 00:37:46,880
+online back then news groups they are
+
+886
+00:37:45,200 --> 00:37:49,680
+nerds you know
+
+887
+00:37:46,880 --> 00:37:52,800
+so you have faq so faq back then is kind
+
+888
+00:37:49,680 --> 00:37:54,079
+of analogous to today's wikipedia so
+
+889
+00:37:52,800 --> 00:37:56,960
+when you have a question something you
+
+890
+00:37:54,079 --> 00:37:59,040
+go to the faq of that subject you know
+
+891
+00:37:56,960 --> 00:38:01,280
+because all the people have
+
+892
+00:37:59,040 --> 00:38:02,880
+asked ask the questions and people
+
+893
+00:38:01,280 --> 00:38:05,280
+collect them you know
+
+894
+00:38:02,880 --> 00:38:06,400
+and format them into a nice uh
+
+895
+00:38:05,280 --> 00:38:07,920
+article
+
+896
+00:38:06,400 --> 00:38:09,599
+so faq
+
+897
+00:38:07,920 --> 00:38:11,680
+okay then you have new script then you
+
+898
+00:38:09,599 --> 00:38:13,599
+then you started to have the web then
+
+899
+00:38:11,680 --> 00:38:14,480
+you have the mailing list then you
+
+900
+00:38:13,599 --> 00:38:17,680
+started
+
+901
+00:38:14,480 --> 00:38:19,839
+started to have faq automatic what that
+
+902
+00:38:17,680 --> 00:38:23,200
+means is that
+
+903
+00:38:19,839 --> 00:38:23,200
+it's a perl script
+
+904
+00:38:23,839 --> 00:38:28,960
+placed on a website a web server
+
+905
+00:38:27,040 --> 00:38:33,920
+that
+
+906
+00:38:28,960 --> 00:38:36,720
+that allows you people to create faq in
+
+907
+00:38:33,920 --> 00:38:38,640
+a somewhat automatic way
+
+908
+00:38:36,720 --> 00:38:40,400
+you know because before
+
+909
+00:38:38,640 --> 00:38:41,359
+you know remember before it was mailing
+
+910
+00:38:40,400 --> 00:38:42,880
+list
+
+911
+00:38:41,359 --> 00:38:45,119
+and news groups
+
+912
+00:38:42,880 --> 00:38:47,200
+where
+
+913
+00:38:45,119 --> 00:38:48,880
+you know just like today's discord for
+
+914
+00:38:47,200 --> 00:38:50,720
+example we have the discord you know
+
+915
+00:38:48,880 --> 00:38:53,520
+today you are familiar with discord
+
+916
+00:38:50,720 --> 00:38:56,320
+right you go there a bunch of people you
+
+917
+00:38:53,520 --> 00:38:57,839
+are a regular there after a year or two
+
+918
+00:38:56,320 --> 00:39:00,800
+you have seen many
+
+919
+00:38:57,839 --> 00:39:03,280
+same questions popping up and the answer
+
+920
+00:39:00,800 --> 00:39:05,440
+so you start to compile them you know it
+
+921
+00:39:03,280 --> 00:39:06,400
+takes takes a lot of time you know you
+
+922
+00:39:05,440 --> 00:39:08,880
+are the
+
+923
+00:39:06,400 --> 00:39:10,400
+you start to you know collect all the
+
+924
+00:39:08,880 --> 00:39:12,480
+questions same questions and their
+
+925
+00:39:10,400 --> 00:39:14,560
+answers so people
+
+926
+00:39:12,480 --> 00:39:16,960
+can just read them you know without
+
+927
+00:39:14,560 --> 00:39:19,359
+asking again and again you know like
+
+928
+00:39:16,960 --> 00:39:20,560
+every three every few weeks
+
+929
+00:39:19,359 --> 00:39:22,480
+every
+
+930
+00:39:20,560 --> 00:39:24,720
+every few months we have a question
+
+931
+00:39:22,480 --> 00:39:28,720
+about
+
+932
+00:39:24,720 --> 00:39:31,760
+tienem the tank man of china every every
+
+933
+00:39:28,720 --> 00:39:34,000
+every month so that's a frequently asked
+
+934
+00:39:31,760 --> 00:39:35,040
+question so i have to compile and i have
+
+935
+00:39:34,000 --> 00:39:36,800
+to
+
+936
+00:39:35,040 --> 00:39:38,720
+you know give the answer
+
+937
+00:39:36,800 --> 00:39:40,240
+so um
+
+938
+00:39:38,720 --> 00:39:42,800
+so many so
+
+939
+00:39:40,240 --> 00:39:46,400
+so it's it's very tedious to create
+
+940
+00:39:42,800 --> 00:39:49,119
+those faqs so someone started to write a
+
+941
+00:39:46,400 --> 00:39:52,480
+perl script called faq omatic i'm not
+
+942
+00:39:49,119 --> 00:39:54,160
+sure if you we can still search find it
+
+943
+00:39:52,480 --> 00:39:57,359
+faq
+
+944
+00:39:54,160 --> 00:39:59,040
+or matic okay let's try to find kind of
+
+945
+00:39:57,359 --> 00:40:01,680
+old history
+
+946
+00:39:59,040 --> 00:40:02,920
+there it is faq automatic so this is
+
+947
+00:40:01,680 --> 00:40:06,560
+around
+
+948
+00:40:02,920 --> 00:40:09,760
+1997. okay there it is faq automatic
+
+949
+00:40:06,560 --> 00:40:12,079
+download sourceforge search sourceforge
+
+950
+00:40:09,760 --> 00:40:14,560
+is one of the earliest like today's
+
+951
+00:40:12,079 --> 00:40:15,760
+github you know like
+
+952
+00:40:14,560 --> 00:40:17,760
+like the
+
+953
+00:40:15,760 --> 00:40:21,200
+centralized collection of
+
+954
+00:40:17,760 --> 00:40:24,480
+open source software for sourceforge is
+
+955
+00:40:21,200 --> 00:40:27,680
+the very first around year 2000
+
+956
+00:40:24,480 --> 00:40:31,119
+okay so every qmatic began
+
+957
+00:40:27,680 --> 00:40:33,920
+which is a perl script that
+
+958
+00:40:31,119 --> 00:40:36,319
+that is placed on a server a website
+
+959
+00:40:33,920 --> 00:40:38,480
+that allows any people to just go there
+
+960
+00:40:36,319 --> 00:40:39,599
+and edit their red right there you know
+
+961
+00:40:38,480 --> 00:40:41,440
+without
+
+962
+00:40:39,599 --> 00:40:44,640
+one single
+
+963
+00:40:41,440 --> 00:40:47,119
+editor who works on you know maybe emacs
+
+964
+00:40:44,640 --> 00:40:48,160
+or or vi you know
+
+965
+00:40:47,119 --> 00:40:51,200
+do it
+
+966
+00:40:48,160 --> 00:40:54,720
+so you so every now everyone can just go
+
+967
+00:40:51,200 --> 00:40:57,040
+to this website faq automatic about
+
+968
+00:40:54,720 --> 00:40:59,680
+let's say about keyboard
+
+969
+00:40:57,040 --> 00:41:04,400
+then everyone can just edit it
+
+970
+00:40:59,680 --> 00:41:07,280
+okay so faq omatic is the father of wiki
+
+971
+00:41:04,400 --> 00:41:09,359
+okay now i'm telling you a history
+
+972
+00:41:07,280 --> 00:41:13,440
+this is a history okay
+
+973
+00:41:09,359 --> 00:41:16,319
+faq automatic is the forerunner of the
+
+974
+00:41:13,440 --> 00:41:18,160
+wiki concept like wikipedia
+
+975
+00:41:16,319 --> 00:41:20,240
+you know today we have wikipedia you see
+
+976
+00:41:18,160 --> 00:41:21,760
+you can anyone can go and edit it where
+
+977
+00:41:20,240 --> 00:41:23,040
+does it come from
+
+978
+00:41:21,760 --> 00:41:25,760
+it began
+
+979
+00:41:23,040 --> 00:41:29,599
+with the idea of
+
+980
+00:41:25,760 --> 00:41:30,560
+you know with the faq automatic
+
+981
+00:41:29,599 --> 00:41:33,520
+so
+
+982
+00:41:30,560 --> 00:41:34,400
+so then okay so then you have wikipedia
+
+983
+00:41:33,520 --> 00:41:37,680
+then
+
+984
+00:41:34,400 --> 00:41:41,680
+wikipedia began around year 2002 okay
+
+985
+00:41:37,680 --> 00:41:44,160
+before wikipedia so you have faq matic
+
+986
+00:41:41,680 --> 00:41:47,160
+then you also started to have instant
+
+987
+00:41:44,160 --> 00:41:47,160
+messages
+
+988
+00:41:49,680 --> 00:41:54,960
+so is instant messaging okay let's go to
+
+989
+00:41:52,480 --> 00:41:57,599
+wikipedia let's see what they say let's
+
+990
+00:41:54,960 --> 00:42:01,119
+see today today show yahoo
+
+991
+00:41:57,599 --> 00:42:03,839
+uh there it is so this is pidgin
+
+992
+00:42:01,119 --> 00:42:05,520
+you know they scum pg is a linux version
+
+993
+00:42:03,839 --> 00:42:07,280
+but that's not
+
+994
+00:42:05,520 --> 00:42:10,079
+shouldn't be here they should show
+
+995
+00:42:07,280 --> 00:42:13,599
+because if we are talking about history
+
+996
+00:42:10,079 --> 00:42:15,680
+of instant messaging the prominent ones
+
+997
+00:42:13,599 --> 00:42:18,319
+it's not pidgin pitching is just the you
+
+998
+00:42:15,680 --> 00:42:20,319
+know that's just the the push for open
+
+999
+00:42:18,319 --> 00:42:22,319
+source by the open source
+
+1000
+00:42:20,319 --> 00:42:24,960
+heads you know they put it here
+
+1001
+00:42:22,319 --> 00:42:26,880
+prominently a picture a buddy list on
+
+1002
+00:42:24,960 --> 00:42:28,720
+pidgin but that's not the
+
+1003
+00:42:26,880 --> 00:42:31,119
+in in terms of history pitching is
+
+1004
+00:42:28,720 --> 00:42:32,800
+nowhere here okay shouldn't be on this
+
+1005
+00:42:31,119 --> 00:42:34,079
+shouldn't have a screenshot prominent
+
+1006
+00:42:32,800 --> 00:42:37,680
+screenshot here
+
+1007
+00:42:34,079 --> 00:42:41,440
+instead you you should have um
+
+1008
+00:42:37,680 --> 00:42:43,119
+you should have aol instant messenger
+
+1009
+00:42:41,440 --> 00:42:45,839
+you know they are mentioned here
+
+1010
+00:42:43,119 --> 00:42:45,839
+somewhere
+
+1011
+00:42:46,079 --> 00:42:49,280
+uh
+
+1012
+00:42:47,119 --> 00:42:51,760
+classic instrument this
+
+1013
+00:42:49,280 --> 00:42:53,359
+computer what do they say did they say
+
+1014
+00:42:51,760 --> 00:42:56,800
+gossip okay
+
+1015
+00:42:53,359 --> 00:42:59,040
+i don't msn okay okay this is again open
+
+1016
+00:42:56,800 --> 00:43:01,760
+source you know this is
+
+1017
+00:42:59,040 --> 00:43:03,599
+you see this is this is propaganda okay
+
+1018
+00:43:01,760 --> 00:43:04,880
+so they show this because it's open
+
+1019
+00:43:03,599 --> 00:43:07,839
+source that you know they should they
+
+1020
+00:43:04,880 --> 00:43:09,599
+are showing these application this this
+
+1021
+00:43:07,839 --> 00:43:11,920
+is a linux you know like
+
+1022
+00:43:09,599 --> 00:43:14,319
+i'm pretty sure it's a linux application
+
+1023
+00:43:11,920 --> 00:43:16,560
+that they communicate to different
+
+1024
+00:43:14,319 --> 00:43:19,440
+instant messengers you know
+
+1025
+00:43:16,560 --> 00:43:21,680
+propaganda okay the real history of
+
+1026
+00:43:19,440 --> 00:43:23,920
+instant messaging not not nothing about
+
+1027
+00:43:21,680 --> 00:43:26,800
+it's not about these linux things okay
+
+1028
+00:43:23,920 --> 00:43:28,560
+that's a
+
+1029
+00:43:26,800 --> 00:43:32,720
+yeah you know you can find it okay so
+
+1030
+00:43:28,560 --> 00:43:35,760
+this irc icq then then then um
+
+1031
+00:43:32,720 --> 00:43:37,760
+then there is uh aol
+
+1032
+00:43:35,760 --> 00:43:41,200
+instant messenger yahoo instant
+
+1033
+00:43:37,760 --> 00:43:44,079
+messenger and uh microsoft instant
+
+1034
+00:43:41,200 --> 00:43:46,160
+messenger okay because they are
+
+1035
+00:43:44,079 --> 00:43:49,520
+they are widely used you know they are
+
+1036
+00:43:46,160 --> 00:43:51,359
+used by almost everyone
+
+1037
+00:43:49,520 --> 00:43:53,599
+you know they mention them somewhere but
+
+1038
+00:43:51,359 --> 00:43:55,920
+i'm not gonna check okay so so you
+
+1039
+00:43:53,599 --> 00:43:57,040
+started to have these instant messengers
+
+1040
+00:43:55,920 --> 00:44:00,240
+then
+
+1041
+00:43:57,040 --> 00:44:02,400
+then you start to have video you know
+
+1042
+00:44:00,240 --> 00:44:04,800
+voice you know real time voice instant
+
+1043
+00:44:02,400 --> 00:44:06,560
+messaging and also video you know that
+
+1044
+00:44:04,800 --> 00:44:08,880
+so this is year
+
+1045
+00:44:06,560 --> 00:44:11,040
+year 2000 you have to buy
+
+1046
+00:44:08,880 --> 00:44:12,640
+you know webcam not like well today's
+
+1047
+00:44:11,040 --> 00:44:14,880
+webcam you know
+
+1048
+00:44:12,640 --> 00:44:17,920
+20 years technology but but back then
+
+1049
+00:44:14,880 --> 00:44:20,400
+you also have webcam which is
+
+1050
+00:44:17,920 --> 00:44:22,560
+pretty lousy compared to today of course
+
+1051
+00:44:20,400 --> 00:44:24,000
+and you know lots of interruptions you
+
+1052
+00:44:22,560 --> 00:44:26,960
+know the
+
+1053
+00:44:24,000 --> 00:44:29,200
+you also require uh you know internet
+
+1054
+00:44:26,960 --> 00:44:32,000
+bandwidth right
+
+1055
+00:44:29,200 --> 00:44:35,040
+so instant instant messaging then you
+
+1056
+00:44:32,000 --> 00:44:38,640
+started to have wikipedia then facebook
+
+1057
+00:44:35,040 --> 00:44:39,520
+came up facebook is also a revolutionary
+
+1058
+00:44:38,640 --> 00:44:42,160
+okay
+
+1059
+00:44:39,520 --> 00:44:45,040
+even i think the mark zuckerberg is a
+
+1060
+00:44:42,160 --> 00:44:47,839
+scum human animal is one of the biggest
+
+1061
+00:44:45,040 --> 00:44:49,200
+scum of human animal it's a
+
+1062
+00:44:47,839 --> 00:44:52,640
+you know i don't think he's a good
+
+1063
+00:44:49,200 --> 00:44:54,400
+person he's a bad person
+
+1064
+00:44:52,640 --> 00:44:57,920
+but facebook did
+
+1065
+00:44:54,400 --> 00:45:00,240
+actually despite you know
+
+1066
+00:44:57,920 --> 00:45:03,200
+mark zuckerberg being a scum
+
+1067
+00:45:00,240 --> 00:45:06,160
+it has it actually did revolutionize
+
+1068
+00:45:03,200 --> 00:45:09,200
+internet because for for this aspect
+
+1069
+00:45:06,160 --> 00:45:11,680
+what is the aspect it is the first
+
+1070
+00:45:09,200 --> 00:45:14,319
+revolution in internet where people
+
+1071
+00:45:11,680 --> 00:45:16,000
+started to show their actual face okay
+
+1072
+00:45:14,319 --> 00:45:17,920
+facebook
+
+1073
+00:45:16,000 --> 00:45:20,160
+you know due to sub due to reasons
+
+1074
+00:45:17,920 --> 00:45:23,280
+because facebook was a you know the
+
+1075
+00:45:20,160 --> 00:45:25,760
+college you know in the elite college
+
+1076
+00:45:23,280 --> 00:45:27,599
+dome which mark zuckerberg is one of the
+
+1077
+00:45:25,760 --> 00:45:30,240
+scum you know they are rich you know
+
+1078
+00:45:27,599 --> 00:45:32,480
+they want to show girls you know college
+
+1079
+00:45:30,240 --> 00:45:34,640
+girls you know which one is more
+
+1080
+00:45:32,480 --> 00:45:36,400
+ you know compared to two girls
+
+1081
+00:45:34,640 --> 00:45:38,880
+you know click which one is more
+
+1082
+00:45:36,400 --> 00:45:41,119
+ things like that or compared to
+
+1083
+00:45:38,880 --> 00:45:45,200
+a cup things like that that's a origin
+
+1084
+00:45:41,119 --> 00:45:45,200
+of facebook mark zuckerberg
+
+1085
+00:45:45,680 --> 00:45:50,960
+but anyway facebook then it grew up it
+
+1086
+00:45:48,480 --> 00:45:53,440
+grew it grew and grew it was back then
+
+1087
+00:45:50,960 --> 00:45:55,920
+in harvard i think and it grew to other
+
+1088
+00:45:53,440 --> 00:45:57,200
+colleges you know because zuckerberg so
+
+1089
+00:45:55,920 --> 00:45:58,160
+he's
+
+1090
+00:45:57,200 --> 00:46:02,240
+you know
+
+1091
+00:45:58,160 --> 00:46:05,280
+he's a he's a scum but however he's a uh
+
+1092
+00:46:02,240 --> 00:46:08,800
+entrepreneur that is true okay so he he
+
+1093
+00:46:05,280 --> 00:46:12,240
+he pushed the idea to all the colleges
+
+1094
+00:46:08,800 --> 00:46:16,560
+then he expanded to outside colleges so
+
+1095
+00:46:12,240 --> 00:46:19,599
+it becomes a kind of widely used
+
+1096
+00:46:16,560 --> 00:46:21,599
+uh website facebook and because of the
+
+1097
+00:46:19,599 --> 00:46:23,839
+name facebook because the ranger is in
+
+1098
+00:46:21,599 --> 00:46:26,880
+college you know you have the college
+
+1099
+00:46:23,839 --> 00:46:29,200
+you know yearbook with faces so that's
+
+1100
+00:46:26,880 --> 00:46:30,000
+how it's facebook
+
+1101
+00:46:29,200 --> 00:46:31,040
+so
+
+1102
+00:46:30,000 --> 00:46:33,599
+and
+
+1103
+00:46:31,040 --> 00:46:36,640
+facebook is the
+
+1104
+00:46:33,599 --> 00:46:39,119
+kind of the the the milestone
+
+1105
+00:46:36,640 --> 00:46:41,119
+of internet because it is the one
+
+1106
+00:46:39,119 --> 00:46:43,359
+that people started to actually show
+
+1107
+00:46:41,119 --> 00:46:45,200
+their face online because before that
+
+1108
+00:46:43,359 --> 00:46:47,839
+never okay
+
+1109
+00:46:45,200 --> 00:46:50,800
+because of these hacker idiots they they
+
+1110
+00:46:47,839 --> 00:46:53,839
+have a tendency they want to re
+
+1111
+00:46:50,800 --> 00:46:54,960
+remain anonymous so facebook made the
+
+1112
+00:46:53,839 --> 00:46:57,760
+actual
+
+1113
+00:46:54,960 --> 00:47:00,079
+milestone revolutionary change one of
+
+1114
+00:46:57,760 --> 00:47:02,079
+okay all these others are before it you
+
+1115
+00:47:00,079 --> 00:47:03,119
+know so one of the revolution change
+
+1116
+00:47:02,079 --> 00:47:05,680
+that is
+
+1117
+00:47:03,119 --> 00:47:07,520
+people started to show actual face
+
+1118
+00:47:05,680 --> 00:47:08,720
+online and
+
+1119
+00:47:07,520 --> 00:47:11,040
+also
+
+1120
+00:47:08,720 --> 00:47:13,200
+the people who use online who go online
+
+1121
+00:47:11,040 --> 00:47:15,599
+who uses web is no longer just the
+
+1122
+00:47:13,200 --> 00:47:17,040
+handful of nuts you know you started to
+
+1123
+00:47:15,599 --> 00:47:19,119
+have actual
+
+1124
+00:47:17,040 --> 00:47:21,359
+people like your mom you know
+
+1125
+00:47:19,119 --> 00:47:23,440
+like your mom back in back then you know
+
+1126
+00:47:21,359 --> 00:47:25,680
+they started to use
+
+1127
+00:47:23,440 --> 00:47:27,680
+uh internet
+
+1128
+00:47:25,680 --> 00:47:29,839
+so you have facebook
+
+1129
+00:47:27,680 --> 00:47:31,760
+then the rest like i guess you know then
+
+1130
+00:47:29,839 --> 00:47:33,839
+you have twitter and you have google you
+
+1131
+00:47:31,760 --> 00:47:35,440
+have google google tried several you
+
+1132
+00:47:33,839 --> 00:47:38,000
+know they then you have the social
+
+1133
+00:47:35,440 --> 00:47:39,119
+justice
+
+1134
+00:47:38,000 --> 00:47:41,760
+yeah
+
+1135
+00:47:39,119 --> 00:47:44,240
+then the rest you know
+
+1136
+00:47:41,760 --> 00:47:47,520
+okay so that's some of the history of uh
+
+1137
+00:47:44,240 --> 00:47:51,800
+internet i digressed far
+
+1138
+00:47:47,520 --> 00:47:51,800
+uh okay so what else
+
+1139
+00:47:58,240 --> 00:48:02,200
+mono man says
+
+1140
+00:48:07,359 --> 00:48:10,400
+so
+
+1141
+00:48:08,160 --> 00:48:13,760
+a question about whether i'm going to
+
+1142
+00:48:10,400 --> 00:48:14,960
+create a course on
+
+1143
+00:48:13,760 --> 00:48:16,800
+udemy
+
+1144
+00:48:14,960 --> 00:48:18,800
+i don't think so
+
+1145
+00:48:16,800 --> 00:48:21,839
+because
+
+1146
+00:48:18,800 --> 00:48:21,839
+you know so
+
+1147
+00:48:23,920 --> 00:48:30,640
+yeah so create a course on udemy
+
+1148
+00:48:27,920 --> 00:48:33,040
+no i'm not gonna do it udemy you know
+
+1149
+00:48:30,640 --> 00:48:35,599
+udemy is one of those
+
+1150
+00:48:33,040 --> 00:48:38,000
+startups shall we say you know they they
+
+1151
+00:48:35,599 --> 00:48:39,040
+care about nothing except money they do
+
+1152
+00:48:38,000 --> 00:48:43,040
+whatever
+
+1153
+00:48:39,040 --> 00:48:44,960
+they can to maximize
+
+1154
+00:48:43,040 --> 00:48:47,200
+the money they make just like just like
+
+1155
+00:48:44,960 --> 00:48:49,839
+google twitter and so much others you
+
+1156
+00:48:47,200 --> 00:48:52,079
+know and there are several of them udemy
+
+1157
+00:48:49,839 --> 00:48:54,720
+you know for online course
+
+1158
+00:48:52,079 --> 00:48:57,119
+they do whatever they can they they all
+
+1159
+00:48:54,720 --> 00:48:59,920
+and they say nice things you know oh we
+
+1160
+00:48:57,119 --> 00:49:01,200
+provided this service to help humanity
+
+1161
+00:48:59,920 --> 00:49:02,400
+or whatever
+
+1162
+00:49:01,200 --> 00:49:04,480
+but
+
+1163
+00:49:02,400 --> 00:49:06,640
+the bottom line is they they don't care
+
+1164
+00:49:04,480 --> 00:49:08,000
+about anything else they only care the
+
+1165
+00:49:06,640 --> 00:49:10,880
+only
+
+1166
+00:49:08,000 --> 00:49:12,000
+the yeah it's true to say the only thing
+
+1167
+00:49:10,880 --> 00:49:14,839
+they care
+
+1168
+00:49:12,000 --> 00:49:18,240
+is to make money from themselves
+
+1169
+00:49:14,839 --> 00:49:20,240
+and as a consequence of that fact they
+
+1170
+00:49:18,240 --> 00:49:22,640
+become corrupt in many
+
+1171
+00:49:20,240 --> 00:49:24,160
+their decisions their choices their you
+
+1172
+00:49:22,640 --> 00:49:25,359
+create account and then something
+
+1173
+00:49:24,160 --> 00:49:27,760
+happened you know
+
+1174
+00:49:25,359 --> 00:49:30,079
+every decision is
+
+1175
+00:49:27,760 --> 00:49:31,680
+is based on you know making more money
+
+1176
+00:49:30,079 --> 00:49:33,599
+for themselves just like twitter
+
+1177
+00:49:31,680 --> 00:49:36,480
+facebook and all that
+
+1178
+00:49:33,599 --> 00:49:38,800
+so they be they i don't know about udemy
+
+1179
+00:49:36,480 --> 00:49:41,440
+itself i've heard you know controversies
+
+1180
+00:49:38,800 --> 00:49:42,880
+lots of uh but i don't
+
+1181
+00:49:41,440 --> 00:49:44,960
+so
+
+1182
+00:49:42,880 --> 00:49:46,880
+i'm not going to use it because usually
+
+1183
+00:49:44,960 --> 00:49:48,559
+you get okay
+
+1184
+00:49:46,880 --> 00:49:49,520
+well it depends on you know you know
+
+1185
+00:49:48,559 --> 00:49:52,240
+like
+
+1186
+00:49:49,520 --> 00:49:55,280
+not for me because
+
+1187
+00:49:52,240 --> 00:49:58,160
+if you are average person you know
+
+1188
+00:49:55,280 --> 00:50:00,400
+let's say if you are average person then
+
+1189
+00:49:58,160 --> 00:50:02,480
+you know about programming certain topic
+
+1190
+00:50:00,400 --> 00:50:05,040
+of programming yeah sure you're gonna
+
+1191
+00:50:02,480 --> 00:50:07,520
+create a video you know you see oh this
+
+1192
+00:50:05,040 --> 00:50:08,800
+udemy so oh yeah i can make money with
+
+1193
+00:50:07,520 --> 00:50:10,960
+it so you're gonna
+
+1194
+00:50:08,800 --> 00:50:13,440
+create a nice tutorial you know lesson
+
+1195
+00:50:10,960 --> 00:50:16,000
+one lesson two and uh
+
+1196
+00:50:13,440 --> 00:50:18,640
+and go read udemy's rules or whatever
+
+1197
+00:50:16,000 --> 00:50:21,040
+then you can publish there then you'll
+
+1198
+00:50:18,640 --> 00:50:23,359
+make money and they will also make money
+
+1199
+00:50:21,040 --> 00:50:24,880
+you know they take some percentage if
+
+1200
+00:50:23,359 --> 00:50:25,680
+you are a normal person that's what you
+
+1201
+00:50:24,880 --> 00:50:28,400
+do
+
+1202
+00:50:25,680 --> 00:50:30,240
+and for a normal person you
+
+1203
+00:50:28,400 --> 00:50:32,960
+only have one goal too
+
+1204
+00:50:30,240 --> 00:50:35,680
+you have one and one single goal to make
+
+1205
+00:50:32,960 --> 00:50:37,680
+money that's vast majority of whoever
+
+1206
+00:50:35,680 --> 00:50:39,680
+doing things like udemy
+
+1207
+00:50:37,680 --> 00:50:42,640
+you have one single goal you don't you
+
+1208
+00:50:39,680 --> 00:50:44,640
+don't care about philosophy or what
+
+1209
+00:50:42,640 --> 00:50:46,400
+history of internet you know all you
+
+1210
+00:50:44,640 --> 00:50:48,079
+care is oh i know this programming
+
+1211
+00:50:46,400 --> 00:50:50,559
+language i want to make money oh this
+
+1212
+00:50:48,079 --> 00:50:52,720
+udemy i'm gonna make it nice and nice
+
+1213
+00:50:50,559 --> 00:50:54,720
+you know no swearing and everything and
+
+1214
+00:50:52,720 --> 00:50:56,400
+put it there so i can make money and
+
+1215
+00:50:54,720 --> 00:50:58,480
+udemy can make money that's what you
+
+1216
+00:50:56,400 --> 00:51:01,200
+that's what you want
+
+1217
+00:50:58,480 --> 00:51:02,640
+for if you are the kind of average
+
+1218
+00:51:01,200 --> 00:51:04,800
+people
+
+1219
+00:51:02,640 --> 00:51:07,040
+that's not for me okay because it
+
+1220
+00:51:04,800 --> 00:51:09,760
+doesn't work doesn't work you know even
+
+1221
+00:51:07,040 --> 00:51:12,800
+if i need it it doesn't just
+
+1222
+00:51:09,760 --> 00:51:14,480
+doesn't it it doesn't fit me it doesn't
+
+1223
+00:51:12,800 --> 00:51:15,920
+work out
+
+1224
+00:51:14,480 --> 00:51:17,920
+because
+
+1225
+00:51:15,920 --> 00:51:21,280
+first of all i don't have a you know i'm
+
+1226
+00:51:17,920 --> 00:51:23,599
+i'm i'm not you know i'm not
+
+1227
+00:51:21,280 --> 00:51:25,520
+that type of person so
+
+1228
+00:51:23,599 --> 00:51:26,319
+when i do videos you know tutorial i
+
+1229
+00:51:25,520 --> 00:51:28,720
+don't
+
+1230
+00:51:26,319 --> 00:51:29,599
+focus on you know one
+
+1231
+00:51:28,720 --> 00:51:31,839
+nice
+
+1232
+00:51:29,599 --> 00:51:34,400
+focus lesson like lesson one two three
+
+1233
+00:51:31,839 --> 00:51:37,280
+four you know whatever
+
+1234
+00:51:34,400 --> 00:51:39,119
+you know and you know i'm not into that
+
+1235
+00:51:37,280 --> 00:51:40,800
+that you know at heart
+
+1236
+00:51:39,119 --> 00:51:42,640
+so it doesn't work out
+
+1237
+00:51:40,800 --> 00:51:44,160
+you know for me
+
+1238
+00:51:42,640 --> 00:51:45,520
+then you have to follow the rules
+
+1239
+00:51:44,160 --> 00:51:47,760
+whatever you know
+
+1240
+00:51:45,520 --> 00:51:49,599
+then then they put up you know then they
+
+1241
+00:51:47,760 --> 00:51:51,839
+put up you know uh
+
+1242
+00:51:49,599 --> 00:51:51,839
+um
+
+1243
+00:51:52,319 --> 00:51:58,400
+code of conduct you know that's
+
+1244
+00:51:55,520 --> 00:52:01,760
+very offensive to me that is contrary to
+
+1245
+00:51:58,400 --> 00:52:04,800
+my ethical principles i think only scum
+
+1246
+00:52:01,760 --> 00:52:06,800
+do that so if one day you i don't know
+
+1247
+00:52:04,800 --> 00:52:08,160
+they probably already did code of
+
+1248
+00:52:06,800 --> 00:52:09,359
+conduct you know blah blah blah blah
+
+1249
+00:52:08,160 --> 00:52:11,440
+blah blah
+
+1250
+00:52:09,359 --> 00:52:13,839
+i i disagree that's offensive to me
+
+1251
+00:52:11,440 --> 00:52:15,280
+that's a i believe that's a skunk you
+
+1252
+00:52:13,839 --> 00:52:17,040
+know people on earth
+
+1253
+00:52:15,280 --> 00:52:17,839
+you know they want to control they want
+
+1254
+00:52:17,040 --> 00:52:20,800
+to
+
+1255
+00:52:17,839 --> 00:52:22,240
+do things you know bad things
+
+1256
+00:52:20,800 --> 00:52:25,119
+so
+
+1257
+00:52:22,240 --> 00:52:25,119
+that's not for me
+
+1258
+00:52:31,359 --> 00:52:37,200
+okay deus voice you seem quite hostile
+
+1259
+00:52:34,559 --> 00:52:39,520
+to open source can you go over why or do
+
+1260
+00:52:37,200 --> 00:52:42,559
+you have an article on that
+
+1261
+00:52:39,520 --> 00:52:44,880
+i have 10 000 articles on that seriously
+
+1262
+00:52:42,559 --> 00:52:48,160
+well maybe well not 10 000 but i have
+
+1263
+00:52:44,880 --> 00:52:50,000
+like over 10 20 articles on that and in
+
+1264
+00:52:48,160 --> 00:52:51,599
+the past two years i've talked about
+
+1265
+00:52:50,000 --> 00:52:54,400
+that in depth
+
+1266
+00:52:51,599 --> 00:52:56,720
+so many times you know this is
+
+1267
+00:52:54,400 --> 00:52:58,640
+this is the faq this is a repeating
+
+1268
+00:52:56,720 --> 00:53:01,359
+occurrence you know
+
+1269
+00:52:58,640 --> 00:53:03,760
+like i can for example i can spend the
+
+1270
+00:53:01,359 --> 00:53:05,839
+next hour to address your question i can
+
+1271
+00:53:03,760 --> 00:53:08,640
+give my
+
+1272
+00:53:05,839 --> 00:53:12,000
+i can try to give a coherent
+
+1273
+00:53:08,640 --> 00:53:13,359
+uh criticism of open source why i'm not
+
+1274
+00:53:12,000 --> 00:53:15,920
+why i'm not
+
+1275
+00:53:13,359 --> 00:53:18,960
+into it why i think it's
+
+1276
+00:53:15,920 --> 00:53:21,839
+evil you know i can do that but then by
+
+1277
+00:53:18,960 --> 00:53:23,920
+tomorrow there's there's 10 000 people
+
+1278
+00:53:21,839 --> 00:53:25,839
+gonna ask me the same thing because
+
+1279
+00:53:23,920 --> 00:53:28,400
+that's exactly what i did you know in
+
+1280
+00:53:25,839 --> 00:53:30,559
+the past two years so many videos giving
+
+1281
+00:53:28,400 --> 00:53:32,160
+you a detailed account why open source
+
+1282
+00:53:30,559 --> 00:53:33,680
+is so harmful
+
+1283
+00:53:32,160 --> 00:53:36,480
+but that's the thing that's the thing
+
+1284
+00:53:33,680 --> 00:53:38,160
+about code and propaganda
+
+1285
+00:53:36,480 --> 00:53:41,359
+you know it's not just because you know
+
+1286
+00:53:38,160 --> 00:53:43,119
+you actually put up a answer then people
+
+1287
+00:53:41,359 --> 00:53:45,680
+are going to read it no propaganda is
+
+1288
+00:53:43,119 --> 00:53:46,960
+that the way propaganda works is that
+
+1289
+00:53:45,680 --> 00:53:49,040
+they
+
+1290
+00:53:46,960 --> 00:53:51,920
+quote in propaganda is that they spread
+
+1291
+00:53:49,040 --> 00:53:54,640
+to the massive number of people you know
+
+1292
+00:53:51,920 --> 00:53:54,640
+it's like this
+
+1293
+00:53:55,040 --> 00:54:01,040
+okay so that's my that's digression okay
+
+1294
+00:53:58,160 --> 00:54:03,599
+now whether you believe in open source
+
+1295
+00:54:01,040 --> 00:54:04,720
+whether you believe in what i say
+
+1296
+00:54:03,599 --> 00:54:07,440
+whether you
+
+1297
+00:54:04,720 --> 00:54:10,480
+believe i have my reasons against open
+
+1298
+00:54:07,440 --> 00:54:12,480
+source if if you actually read it
+
+1299
+00:54:10,480 --> 00:54:15,040
+it's good or not it's up to you okay so
+
+1300
+00:54:12,480 --> 00:54:16,960
+but you know so in my opinion open
+
+1301
+00:54:15,040 --> 00:54:19,839
+source is
+
+1302
+00:54:16,960 --> 00:54:23,280
+it's not a bad idea but it turned out to
+
+1303
+00:54:19,839 --> 00:54:26,000
+be super you know it's it's it became
+
+1304
+00:54:23,280 --> 00:54:28,880
+extremely evil
+
+1305
+00:54:26,000 --> 00:54:31,119
+perhaps analogous to communism the idea
+
+1306
+00:54:28,880 --> 00:54:33,680
+of communism okay
+
+1307
+00:54:31,119 --> 00:54:35,920
+now that's getting very complex uh
+
+1308
+00:54:33,680 --> 00:54:38,400
+subject
+
+1309
+00:54:35,920 --> 00:54:41,280
+okay that's it that's it for today maybe
+
+1310
+00:54:38,400 --> 00:54:41,280
+i think um
+
+1311
+00:54:45,680 --> 00:54:50,480
+okay so how long have i been talking uh
+
+1312
+00:54:50,559 --> 00:54:54,880
+almost an hour so it's 10 more minutes
+
+1313
+00:54:53,200 --> 00:54:57,280
+let's shut down okay
+
+1314
+00:54:54,880 --> 00:54:59,359
+i wanted to
+
+1315
+00:54:57,280 --> 00:55:01,680
+yeah maybe we can go back to some
+
+1316
+00:54:59,359 --> 00:55:03,920
+technical stuff i wanted to do some of
+
+1317
+00:55:01,680 --> 00:55:03,920
+these
+
+1318
+00:55:04,240 --> 00:55:07,839
+but maybe that's it for today
+
+1319
+00:55:08,079 --> 00:55:12,559
+refresh
+
+1320
+00:55:10,079 --> 00:55:14,559
+so i need to redo site map and i'm going
+
+1321
+00:55:12,559 --> 00:55:17,040
+to give a tutorial
+
+1322
+00:55:14,559 --> 00:55:19,680
+and i need to write this emacs command
+
+1323
+00:55:17,040 --> 00:55:22,480
+those are short and clean emacs commands
+
+1324
+00:55:19,680 --> 00:55:24,960
+i can talk and do it live
+
+1325
+00:55:22,480 --> 00:55:25,839
+and you can learn some emac bisp
+
+1326
+00:55:24,960 --> 00:55:28,720
+and
+
+1327
+00:55:25,839 --> 00:55:31,760
+yeah so one of the star talk show i'm
+
+1328
+00:55:28,720 --> 00:55:32,559
+gonna talk about a complete tutorial on
+
+1329
+00:55:31,760 --> 00:55:35,440
+the
+
+1330
+00:55:32,559 --> 00:55:38,720
+syntax and operator
+
+1331
+00:55:35,440 --> 00:55:39,680
+aspects of wufam language in comparison
+
+1332
+00:55:38,720 --> 00:55:42,880
+to
+
+1333
+00:55:39,680 --> 00:55:45,760
+lisp for example the lisp
+
+1334
+00:55:42,880 --> 00:55:48,000
+symbolic expression very similar okay so
+
+1335
+00:55:45,760 --> 00:55:51,359
+that's one of one of the days i'm gonna
+
+1336
+00:55:48,000 --> 00:55:54,000
+do and this again i'm gonna rewrite this
+
+1337
+00:55:51,359 --> 00:55:55,839
+live i'm gonna code this live in wufang
+
+1338
+00:55:54,000 --> 00:55:59,599
+language and you can see the whole thing
+
+1339
+00:55:55,839 --> 00:56:01,760
+rotate rotation of it dynamic rotation
+
+1340
+00:55:59,599 --> 00:56:04,240
+this is mathematics this is called
+
+1341
+00:56:01,760 --> 00:56:05,359
+stereographic projection
+
+1342
+00:56:04,240 --> 00:56:08,160
+and
+
+1343
+00:56:05,359 --> 00:56:11,839
+the jargon you want to look up is
+
+1344
+00:56:08,160 --> 00:56:15,680
+raymond sphere and complex analysis you
+
+1345
+00:56:11,839 --> 00:56:18,720
+know have to do with complex numbers and
+
+1346
+00:56:15,680 --> 00:56:18,720
+and if you are into
+
+1347
+00:56:18,960 --> 00:56:24,640
+physics relativity you know you need to
+
+1348
+00:56:21,520 --> 00:56:27,520
+understand all these so i was thinking
+
+1349
+00:56:24,640 --> 00:56:31,520
+so i did this like 20 years ago so i was
+
+1350
+00:56:27,520 --> 00:56:33,440
+thinking 2006 okay i did this 2006 with
+
+1351
+00:56:31,520 --> 00:56:34,319
+wufam language
+
+1352
+00:56:33,440 --> 00:56:35,440
+um
+
+1353
+00:56:34,319 --> 00:56:37,839
+and uh
+
+1354
+00:56:35,440 --> 00:56:40,400
+you know i can you know it's been 15
+
+1355
+00:56:37,839 --> 00:56:43,200
+years so wufam language has improved a
+
+1356
+00:56:40,400 --> 00:56:45,520
+lot in different ways so i can redo this
+
+1357
+00:56:43,200 --> 00:56:47,440
+live and i you know so
+
+1358
+00:56:45,520 --> 00:56:49,760
+what you are seeing here is a
+
+1359
+00:56:47,440 --> 00:56:52,640
+stereographic projection
+
+1360
+00:56:49,760 --> 00:56:54,880
+meaning that you map a plane
+
+1361
+00:56:52,640 --> 00:56:56,000
+whatever figures on a plane onto a
+
+1362
+00:56:54,880 --> 00:56:58,880
+sphere
+
+1363
+00:56:56,000 --> 00:57:00,559
+so that's what you are seeing here
+
+1364
+00:56:58,880 --> 00:57:03,040
+and uh
+
+1365
+00:57:00,559 --> 00:57:04,400
+yeah so i'm gonna do this live coding of
+
+1366
+00:57:03,040 --> 00:57:05,680
+these
+
+1367
+00:57:04,400 --> 00:57:08,319
+uh
+
+1368
+00:57:05,680 --> 00:57:09,760
+yes and okay so that's it for today any
+
+1369
+00:57:08,319 --> 00:57:13,640
+any
+
+1370
+00:57:09,760 --> 00:57:13,640
+any last words
+
+1371
+00:57:20,160 --> 00:57:25,359
+so open source to me it's a code okay of
+
+1372
+00:57:23,119 --> 00:57:27,520
+course many of you are believe it you
+
+1373
+00:57:25,359 --> 00:57:29,839
+know because that's because i'm
+
+1374
+00:57:27,520 --> 00:57:32,400
+you know i'm part of the open source i'm
+
+1375
+00:57:29,839 --> 00:57:34,319
+you know that's why you guys
+
+1376
+00:57:32,400 --> 00:57:36,160
+find me interesting because that's been
+
+1377
+00:57:34,319 --> 00:57:37,440
+i spent my whole life in the open source
+
+1378
+00:57:36,160 --> 00:57:41,280
+community
+
+1379
+00:57:37,440 --> 00:57:43,680
+more specifically unix linux unix linux
+
+1380
+00:57:41,280 --> 00:57:46,880
+perl python apache
+
+1381
+00:57:43,680 --> 00:57:49,119
+bash that's that's the technology i know
+
+1382
+00:57:46,880 --> 00:57:50,400
+why because i that's what because i
+
+1383
+00:57:49,119 --> 00:57:52,480
+don't like
+
+1384
+00:57:50,400 --> 00:57:55,480
+i don't like big corporations such as
+
+1385
+00:57:52,480 --> 00:57:55,480
+microsoft
+
+1386
+00:57:55,520 --> 00:58:00,640
+apple is a different story you know but
+
+1387
+00:57:57,920 --> 00:58:02,400
+apple tends to have extremely uh good
+
+1388
+00:58:00,640 --> 00:58:05,680
+design but anyway i don't like big
+
+1389
+00:58:02,400 --> 00:58:09,359
+corporations so so in many aspects and i
+
+1390
+00:58:05,680 --> 00:58:10,160
+have the same mentality as many of you
+
+1391
+00:58:09,359 --> 00:58:12,000
+or
+
+1392
+00:58:10,160 --> 00:58:15,119
+nerds and hacker
+
+1393
+00:58:12,000 --> 00:58:17,599
+mentality you know against big old
+
+1394
+00:58:15,119 --> 00:58:20,000
+organization have kind of the conspiracy
+
+1395
+00:58:17,599 --> 00:58:20,880
+minded you know looking for
+
+1396
+00:58:20,000 --> 00:58:24,240
+you know
+
+1397
+00:58:20,880 --> 00:58:25,520
+and uh not in mainstream so i like the
+
+1398
+00:58:24,240 --> 00:58:27,280
+unix
+
+1399
+00:58:25,520 --> 00:58:29,839
+you know i share a lot
+
+1400
+00:58:27,280 --> 00:58:32,160
+uh mentality with the unix you know type
+
+1401
+00:58:29,839 --> 00:58:33,599
+of people hacker types
+
+1402
+00:58:32,160 --> 00:58:36,079
+but
+
+1403
+00:58:33,599 --> 00:58:39,040
+the unix technology and open source in
+
+1404
+00:58:36,079 --> 00:58:41,760
+general yes especially open source open
+
+1405
+00:58:39,040 --> 00:58:43,040
+source is uh became a political it's one
+
+1406
+00:58:41,760 --> 00:58:45,599
+of the worst
+
+1407
+00:58:43,040 --> 00:58:46,640
+does the worst harm to computing
+
+1408
+00:58:45,599 --> 00:58:50,160
+industry
+
+1409
+00:58:46,640 --> 00:58:51,839
+so so bad you know i cannot you know
+
+1410
+00:58:50,160 --> 00:58:53,520
+i keep talking about this i'm going to
+
+1411
+00:58:51,839 --> 00:58:54,720
+swear
+
+1412
+00:58:53,520 --> 00:58:56,000
+the most
+
+1413
+00:58:54,720 --> 00:59:00,480
+severest
+
+1414
+00:58:56,000 --> 00:59:04,240
+swear you know possible but um that's it
+
+1415
+00:59:00,480 --> 00:59:06,880
+so so open source yeah so
+
+1416
+00:59:04,240 --> 00:59:08,240
+open source uh and you know i think it's
+
+1417
+00:59:06,880 --> 00:59:10,079
+a code
+
+1418
+00:59:08,240 --> 00:59:12,480
+and uh
+
+1419
+00:59:10,079 --> 00:59:15,119
+uh and uh you know for you guys you know
+
+1420
+00:59:12,480 --> 00:59:15,119
+i cannot
+
+1421
+00:59:15,200 --> 00:59:18,000
+um
+
+1422
+00:59:16,000 --> 00:59:22,160
+change your mind you know usually you
+
+1423
+00:59:18,000 --> 00:59:23,680
+know you you maybe you you might um
+
+1424
+00:59:22,160 --> 00:59:26,319
+think about it but
+
+1425
+00:59:23,680 --> 00:59:26,319
+not likely
+
+1426
+00:59:28,880 --> 00:59:32,440
+okay bye guys
+
+1427
+00:59:36,480 --> 00:59:41,599
+yeah source of conduct you know the
+
+1428
+00:59:38,559 --> 00:59:43,839
+entire you know they changed the name
+
+1429
+00:59:41,599 --> 00:59:46,480
+master you know git you know they
+
+1430
+00:59:43,839 --> 00:59:48,480
+changed lots of things you know we're
+
+1431
+00:59:46,480 --> 00:59:50,400
+starting to talk about that we get into
+
+1432
+00:59:48,480 --> 00:59:52,880
+politics very fast
+
+1433
+00:59:50,400 --> 00:59:55,040
+then google is gonna ban me you know so
+
+1434
+00:59:52,880 --> 00:59:57,359
+why is google gonna ban me you know why
+
+1435
+00:59:55,040 --> 00:59:59,200
+today we are in a situation where we
+
+1436
+00:59:57,359 --> 01:00:02,799
+have to be i have to be very very
+
+1437
+00:59:59,200 --> 01:00:05,520
+careful you know not not to mention
+
+1438
+01:00:02,799 --> 01:00:07,440
+many of the you know like twitter social
+
+1439
+01:00:05,520 --> 01:00:09,359
+justice things you know
+
+1440
+01:00:07,440 --> 01:00:12,000
+if i talk about it
+
+1441
+01:00:09,359 --> 01:00:14,480
+or gender oh my god i i said the
+
+1442
+01:00:12,000 --> 01:00:16,720
+forbidden word you know
+
+1443
+01:00:14,480 --> 01:00:19,359
+what's wrong what's going on i get like
+
+1444
+01:00:16,720 --> 01:00:21,599
+why can't we talk about it if i do
+
+1445
+01:00:19,359 --> 01:00:24,240
+google is gonna ban me you know google
+
+1446
+01:00:21,599 --> 01:00:25,920
+is gonna say oh your your video is not
+
+1447
+01:00:24,240 --> 01:00:28,480
+suitable for
+
+1448
+01:00:25,920 --> 01:00:30,640
+google ads or they're gonna just ban
+
+1449
+01:00:28,480 --> 01:00:33,440
+your account
+
+1450
+01:00:30,640 --> 01:00:35,680
+you know happen so also so many
+
+1451
+01:00:33,440 --> 01:00:37,359
+in to so many uh
+
+1452
+01:00:35,680 --> 01:00:39,599
+people
+
+1453
+01:00:37,359 --> 01:00:41,839
+why are we why do we have that such
+
+1454
+01:00:39,599 --> 01:00:44,480
+situation i would impart blame it to
+
+1455
+01:00:41,839 --> 01:00:45,440
+soap and open source okay you you asked
+
+1456
+01:00:44,480 --> 01:00:48,240
+me why
+
+1457
+01:00:45,440 --> 01:00:51,280
+part of it is very significant okay it's
+
+1458
+01:00:48,240 --> 01:00:53,839
+not it's not separate very significant
+
+1459
+01:00:51,280 --> 01:00:56,720
+part of the reason why this happened is
+
+1460
+01:00:53,839 --> 01:00:59,280
+the open source phoneticism
+
+1461
+01:00:56,720 --> 01:01:01,119
+okay it's a it's it's it's a trend it's
+
+1462
+01:00:59,280 --> 01:01:03,200
+a heavy trend juggernaut you know the
+
+1463
+01:01:01,119 --> 01:01:04,960
+classic word
+
+1464
+01:01:03,200 --> 01:01:06,880
+i don't know if millennial
+
+1465
+01:01:04,960 --> 01:01:08,559
+millennial generation or the zoomers
+
+1466
+01:01:06,880 --> 01:01:10,079
+know know what that word means
+
+1467
+01:01:08,559 --> 01:01:12,319
+juggernaut
+
+1468
+01:01:10,079 --> 01:01:13,839
+it's like so juggernaut means you know
+
+1469
+01:01:12,319 --> 01:01:15,839
+you should you can look up you know it's
+
+1470
+01:01:13,839 --> 01:01:20,240
+like a
+
+1471
+01:01:15,839 --> 01:01:22,400
+strong powerful coat you know that that
+
+1472
+01:01:20,240 --> 01:01:24,079
+you know not
+
+1473
+01:01:22,400 --> 01:01:26,079
+you know like a heavy train you cannot
+
+1474
+01:01:24,079 --> 01:01:28,720
+stop it you know it just
+
+1475
+01:01:26,079 --> 01:01:31,440
+it just run over whatever it creates
+
+1476
+01:01:28,720 --> 01:01:34,079
+creates a wreck that's what i believe
+
+1477
+01:01:31,440 --> 01:01:36,559
+that you know open source is part of it
+
+1478
+01:01:34,079 --> 01:01:38,480
+and part of you know also free software
+
+1479
+01:01:36,559 --> 01:01:39,599
+foundation they are connected
+
+1480
+01:01:38,480 --> 01:01:42,559
+anyway
+
+1481
+01:01:39,599 --> 01:01:42,559
+that's it for today
+
+1482
+01:01:44,880 --> 01:01:50,799
+okay so i'm just gonna copy some and we
+
+1483
+01:01:48,240 --> 01:01:52,880
+shut down in two minutes or so i'm just
+
+1484
+01:01:50,799 --> 01:01:56,960
+gonna
+
+1485
+01:01:52,880 --> 01:01:56,960
+instant messages we talked about
+
+1486
+01:01:57,920 --> 01:02:00,799
+history of
+
+1487
+01:01:59,599 --> 01:02:03,680
+online
+
+1488
+01:02:00,799 --> 01:02:04,839
+communication tech
+
+1489
+01:02:03,680 --> 01:02:07,520
+news
+
+1490
+01:02:04,839 --> 01:02:10,480
+groups irc
+
+1491
+01:02:07,520 --> 01:02:12,720
+instant messages
+
+1492
+01:02:10,480 --> 01:02:13,839
+faq
+
+1493
+01:02:12,720 --> 01:02:17,400
+oh
+
+1494
+01:02:13,839 --> 01:02:17,400
+matt tick
+
+1495
+01:02:21,760 --> 01:02:27,599
+wiki
+
+1496
+01:02:23,359 --> 01:02:27,599
+wiki then you have wikipedia
+
+1497
+01:02:28,000 --> 01:02:33,000
+so before there's faq somewhere
+
+1498
+01:02:34,880 --> 01:02:40,480
+history of online online communication
+
+1499
+01:02:36,960 --> 01:02:41,680
+tech news groups irc faq instance
+
+1500
+01:02:40,480 --> 01:02:43,599
+then
+
+1501
+01:02:41,680 --> 01:02:46,880
+the web
+
+1502
+01:02:43,599 --> 01:02:49,280
+world wide web
+
+1503
+01:02:46,880 --> 01:02:53,920
+cyber space
+
+1504
+01:02:49,280 --> 01:02:57,200
+hyperlink this is around 1995 1994
+
+1505
+01:02:53,920 --> 01:03:00,319
+the instant instant messages faq matic
+
+1506
+01:02:57,200 --> 01:03:04,880
+more or less or in this uh sequence of
+
+1507
+01:03:00,319 --> 01:03:06,559
+of technology wiki wikipedia
+
+1508
+01:03:04,880 --> 01:03:08,480
+facebook
+
+1509
+01:03:06,559 --> 01:03:10,079
+twitter
+
+1510
+01:03:08,480 --> 01:03:13,440
+you know i might forget a few for
+
+1511
+01:03:10,079 --> 01:03:15,359
+example there's myspace okay myspace
+
+1512
+01:03:13,440 --> 01:03:17,200
+is before facebook
+
+1513
+01:03:15,359 --> 01:03:19,280
+okay um
+
+1514
+01:03:17,200 --> 01:03:22,160
+but i'm giving you the general online
+
+1515
+01:03:19,280 --> 01:03:24,880
+facebook twitter then
+
+1516
+01:03:22,160 --> 01:03:26,079
+then you know the rest okay
+
+1517
+01:03:24,880 --> 01:03:30,079
+basically
+
+1518
+01:03:26,079 --> 01:03:32,960
+this so this is up to 2010
+
+1519
+01:03:30,079 --> 01:03:32,960
+show in browser
+
+1520
+01:03:33,440 --> 01:03:38,160
+so what else we talked about close that
+
+1521
+01:03:35,839 --> 01:03:41,119
+instant messaging gene close and faq
+
+1522
+01:03:38,160 --> 01:03:43,760
+matic yeah okay this one this is the
+
+1523
+01:03:41,119 --> 01:03:44,559
+very first one this is original okay
+
+1524
+01:03:43,760 --> 01:03:47,520
+this
+
+1525
+01:03:44,559 --> 01:03:50,160
+faq automatic written in pearl because i
+
+1526
+01:03:47,520 --> 01:03:52,480
+was a great i was a per programmer for
+
+1527
+01:03:50,160 --> 01:03:55,839
+four years working on the doing the dot
+
+1528
+01:03:52,480 --> 01:03:57,599
+com this is the very first
+
+1529
+01:03:55,839 --> 01:04:00,799
+uh faq
+
+1530
+01:03:57,599 --> 01:04:02,640
+matic the father of wiki which is the
+
+1531
+01:04:00,799 --> 01:04:04,880
+father of wikipedia
+
+1532
+01:04:02,640 --> 01:04:08,400
+it it's a you know it's a script written
+
+1533
+01:04:04,880 --> 01:04:11,680
+in perl as a online form that allows
+
+1534
+01:04:08,400 --> 01:04:14,720
+anyone to start to write faq you know
+
+1535
+01:04:11,680 --> 01:04:17,039
+like questions and answers
+
+1536
+01:04:14,720 --> 01:04:19,520
+anyone can edit
+
+1537
+01:04:17,039 --> 01:04:21,680
+and you remember this icon that you know
+
+1538
+01:04:19,520 --> 01:04:22,720
+so this is very classic
+
+1539
+01:04:21,680 --> 01:04:27,119
+so let's
+
+1540
+01:04:22,720 --> 01:04:28,559
+copy that i'm amazed that this is still
+
+1541
+01:04:27,119 --> 01:04:30,720
+here
+
+1542
+01:04:28,559 --> 01:04:33,839
+so who wrote this i forgot who is the
+
+1543
+01:04:30,720 --> 01:04:35,920
+person you know you want to know
+
+1544
+01:04:33,839 --> 01:04:37,520
+you know sometimes it's interesting to
+
+1545
+01:04:35,920 --> 01:04:39,680
+see
+
+1546
+01:04:37,520 --> 01:04:42,960
+have what you know what have people been
+
+1547
+01:04:39,680 --> 01:04:44,760
+doing so you see that link
+
+1548
+01:04:42,960 --> 01:04:47,359
+so
+
+1549
+01:04:44,760 --> 01:04:50,160
+kent.john.net i haven't gotten around to
+
+1550
+01:04:47,359 --> 01:04:53,039
+looking up the virtual host directives
+
+1551
+01:04:50,160 --> 01:04:55,359
+in apache yet so you just have to pick
+
+1552
+01:04:53,039 --> 01:04:58,880
+your destination yourself
+
+1553
+01:04:55,359 --> 01:05:00,400
+this is a now this guy is very old
+
+1554
+01:04:58,880 --> 01:05:02,880
+how old is he
+
+1555
+01:05:00,400 --> 01:05:02,880
+let's say
+
+1556
+01:05:03,839 --> 01:05:09,440
+you know 50 something or 60 you know
+
+1557
+01:05:07,440 --> 01:05:10,799
+you know maybe you know they usually
+
+1558
+01:05:09,440 --> 01:05:12,160
+have a family
+
+1559
+01:05:10,799 --> 01:05:14,720
+they don't you know
+
+1560
+01:05:12,160 --> 01:05:17,280
+though they became managers they become
+
+1561
+01:05:14,720 --> 01:05:20,880
+become the boss of some
+
+1562
+01:05:17,280 --> 01:05:21,680
+big you know companies or whatever
+
+1563
+01:05:20,880 --> 01:05:24,960
+so
+
+1564
+01:05:21,680 --> 01:05:30,319
+this is back in like um
+
+1565
+01:05:24,960 --> 01:05:32,640
+1997 also okay faq matic is a cgi based
+
+1566
+01:05:30,319 --> 01:05:35,039
+system you know cgi if you don't know
+
+1567
+01:05:32,640 --> 01:05:37,039
+cgi is the first technology
+
+1568
+01:05:35,039 --> 01:05:40,559
+that allows you to have
+
+1569
+01:05:37,039 --> 01:05:42,240
+dynamic information dynamic web pages
+
+1570
+01:05:40,559 --> 01:05:45,359
+that you know
+
+1571
+01:05:42,240 --> 01:05:47,920
+instead of static you know just
+
+1572
+01:05:45,359 --> 01:05:49,680
+static web page dynamic web page where
+
+1573
+01:05:47,920 --> 01:05:51,599
+you know so you can interact with it
+
+1574
+01:05:49,680 --> 01:05:54,000
+like you can submit you can change
+
+1575
+01:05:51,599 --> 01:05:56,559
+things you know you can
+
+1576
+01:05:54,000 --> 01:06:00,720
+faq automatic so
+
+1577
+01:05:56,559 --> 01:06:00,720
+so that is this guy okay i guess
+
+1578
+01:06:00,799 --> 01:06:06,240
+uh copy that go here
+
+1579
+01:06:03,359 --> 01:06:08,960
+paste paste his link okay
+
+1580
+01:06:06,240 --> 01:06:10,880
+so actually i don't want to link
+
+1581
+01:06:08,960 --> 01:06:12,160
+because when you have lots of links on
+
+1582
+01:06:10,880 --> 01:06:15,760
+your website
+
+1583
+01:06:12,160 --> 01:06:18,960
+then it became a maintenance hell
+
+1584
+01:06:15,760 --> 01:06:22,640
+now what is this now this this is a
+
+1585
+01:06:18,960 --> 01:06:26,160
+later thing faq automatic.net you know
+
+1586
+01:06:22,640 --> 01:06:26,160
+this is what crap
+
+1587
+01:06:26,880 --> 01:06:30,960
+because that mailing list okay we talked
+
+1588
+01:06:29,119 --> 01:06:34,960
+about many english so yeah we forgot to
+
+1589
+01:06:30,960 --> 01:06:34,960
+write about it instant messages
+
+1590
+01:06:35,280 --> 01:06:38,079
+mailing list
+
+1591
+01:06:40,640 --> 01:06:45,359
+okay
+
+1592
+01:06:41,920 --> 01:06:47,839
+then ops the technologies let's post it
+
+1593
+01:06:45,359 --> 01:06:47,839
+here
+
+1594
+01:06:51,039 --> 01:06:56,440
+aol prodigy okay so there
+
+1595
+01:07:02,960 --> 01:07:07,280
+you know i still have archive of my
+
+1596
+01:07:05,599 --> 01:07:08,640
+compuserve
+
+1597
+01:07:07,280 --> 01:07:14,400
+posts
+
+1598
+01:07:08,640 --> 01:07:16,640
+back in from 1992 to 1994. back in i was
+
+1599
+01:07:14,400 --> 01:07:18,960
+in college you know community college
+
+1600
+01:07:16,640 --> 01:07:21,760
+and i was very into math
+
+1601
+01:07:18,960 --> 01:07:24,000
+so on compuserve i joined you know
+
+1602
+01:07:21,760 --> 01:07:26,160
+there's a math forum you know basically
+
+1603
+01:07:24,000 --> 01:07:28,400
+a group like today's
+
+1604
+01:07:26,160 --> 01:07:30,799
+you know in in disco you call it a
+
+1605
+01:07:28,400 --> 01:07:32,319
+server you know like they have different
+
+1606
+01:07:30,799 --> 01:07:35,920
+terminologies
+
+1607
+01:07:32,319 --> 01:07:38,559
+of each technology you know on irc you
+
+1608
+01:07:35,920 --> 01:07:41,520
+call it a room is called a channel on
+
+1609
+01:07:38,559 --> 01:07:43,680
+instant messages a room is called a room
+
+1610
+01:07:41,520 --> 01:07:46,880
+you know you enter a room you know
+
+1611
+01:07:43,680 --> 01:07:47,680
+uh like a group of subject the topic of
+
+1612
+01:07:46,880 --> 01:07:50,240
+that
+
+1613
+01:07:47,680 --> 01:07:51,760
+discussion you know on instant messages
+
+1614
+01:07:50,240 --> 01:07:55,039
+it's a room
+
+1615
+01:07:51,760 --> 01:07:57,359
+on discord you have servers then each
+
+1616
+01:07:55,039 --> 01:07:58,319
+server each one is called a channel you
+
+1617
+01:07:57,359 --> 01:08:00,720
+know
+
+1618
+01:07:58,319 --> 01:08:01,520
+idiotic it should be just called a room
+
+1619
+01:08:00,720 --> 01:08:02,960
+okay
+
+1620
+01:08:01,520 --> 01:08:05,680
+so uh
+
+1621
+01:08:02,960 --> 01:08:07,920
+compuserve can be served so there is a
+
+1622
+01:08:05,680 --> 01:08:10,240
+you know what what they call it i forgot
+
+1623
+01:08:07,920 --> 01:08:13,119
+the room or whatever basically they have
+
+1624
+01:08:10,240 --> 01:08:15,839
+a group they talk about math so i was
+
+1625
+01:08:13,119 --> 01:08:18,080
+very much into math so i was there
+
+1626
+01:08:15,839 --> 01:08:20,080
+posting a lot asking a lot of questions
+
+1627
+01:08:18,080 --> 01:08:22,960
+and learning a lot of things
+
+1628
+01:08:20,080 --> 01:08:27,120
+i still have archive of my computer
+
+1629
+01:08:22,960 --> 01:08:27,120
+posts 30 years ago
+
+1630
+01:08:33,759 --> 01:08:39,359
+close that repeat last command did we
+
+1631
+01:08:36,159 --> 01:08:40,960
+copy that here yes close that
+
+1632
+01:08:39,359 --> 01:08:44,239
+that's it thank you guys
+
+1633
+01:08:40,960 --> 01:08:44,239
+pay me dominate me okay
+
+1634
+01:08:46,640 --> 01:08:50,440
+html mod
+
+1635
+01:08:54,400 --> 01:08:57,400
+okay
+
+1636
+01:09:07,120 --> 01:09:10,120
+bye
+

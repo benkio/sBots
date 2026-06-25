@@ -1,0 +1,2996 @@
+1
+00:00:01,680 --> 00:00:07,919
+Hello guys, good morning, good evening
+
+2
+00:00:04,240 --> 00:00:11,120
+everyone. Welcome to another episode of
+
+3
+00:00:07,919 --> 00:00:14,559
+Star Talk Show. We are going to code
+
+4
+00:00:11,120 --> 00:00:16,640
+JavaScript today. Advanced JavaScript.
+
+5
+00:00:14,559 --> 00:00:19,439
+Fantastic.
+
+6
+00:00:16,640 --> 00:00:23,039
+And have some wine and relax. Just
+
+7
+00:00:19,439 --> 00:00:25,039
+JavaScript coding. Okay. Meanwhile, I'm
+
+8
+00:00:23,039 --> 00:00:27,840
+going to tell you something about
+
+9
+00:00:25,039 --> 00:00:31,760
+JavaScript and maybe you can learn
+
+10
+00:00:27,840 --> 00:00:35,120
+something from it. This is red wine
+
+11
+00:00:31,760 --> 00:00:37,840
+about 200 ml
+
+12
+00:00:35,120 --> 00:00:41,600
+for soothing my soul. This is my
+
+13
+00:00:37,840 --> 00:00:44,239
+ultimate hacking keyboard UHK80.
+
+14
+00:00:41,600 --> 00:00:46,480
+There's a review on my YouTube. I
+
+15
+00:00:44,239 --> 00:00:49,600
+recommend it.
+
+16
+00:00:46,480 --> 00:00:55,160
+Okay, let's switch my screen to the real
+
+17
+00:00:49,600 --> 00:00:55,160
+screen and have a zip wine. Let's see.
+
+18
+00:00:58,960 --> 00:01:04,479
+Okay, fantastic.
+
+19
+00:01:02,000 --> 00:01:08,080
+So, if you are watching this offline,
+
+20
+00:01:04,479 --> 00:01:10,560
+play at 1.5 speed. If you are watching
+
+21
+00:01:08,080 --> 00:01:14,320
+here, say hi.
+
+22
+00:01:10,560 --> 00:01:18,240
+So, let's pop out this window,
+
+23
+00:01:14,320 --> 00:01:21,280
+this chat window, so I can be notified
+
+24
+00:01:18,240 --> 00:01:23,759
+of your comments.
+
+25
+00:01:21,280 --> 00:01:26,240
+Okay. So what I want to do today's talk
+
+26
+00:01:23,759 --> 00:01:28,560
+show let's go to JavaScript in depth
+
+27
+00:01:26,240 --> 00:01:30,720
+search for it you will find it in-depth
+
+28
+00:01:28,560 --> 00:01:33,280
+tutorial of the best tutorial on
+
+29
+00:01:30,720 --> 00:01:37,360
+JavaScript everything you want to know
+
+30
+00:01:33,280 --> 00:01:40,799
+on sardi.info x ah hl.info info. That's
+
+31
+00:01:37,360 --> 00:01:43,439
+my website. Uh if you got security
+
+32
+00:01:40,799 --> 00:01:45,920
+error, ignore it because my website do
+
+33
+00:01:43,439 --> 00:01:49,680
+not ask you for credit card. So you
+
+34
+00:01:45,920 --> 00:01:52,079
+don't have to worry about oh security.
+
+35
+00:01:49,680 --> 00:01:54,159
+So uh what I want to do so I'm just
+
+36
+00:01:52,079 --> 00:01:58,159
+going to code uh some JavaScript. Okay.
+
+37
+00:01:54,159 --> 00:02:02,159
+So first step is uh JavaScript. Go to um
+
+38
+00:01:58,159 --> 00:02:05,040
+JavaScript blog. So search for webdev
+
+39
+00:02:02,159 --> 00:02:07,680
+blog. You'll find it. Tremendous update
+
+40
+00:02:05,040 --> 00:02:10,479
+on JavaScript. Okay. Now I want to go to
+
+41
+00:02:07,680 --> 00:02:14,560
+the sort um
+
+42
+00:02:10,479 --> 00:02:18,640
+array sort. Okay. Array prototype sort.
+
+43
+00:02:14,560 --> 00:02:21,599
+Now here that's a method to sort array.
+
+44
+00:02:18,640 --> 00:02:24,319
+Okay. What I want to do is just add a
+
+45
+00:02:21,599 --> 00:02:28,239
+example of sorting
+
+46
+00:02:24,319 --> 00:02:31,040
+uh sorting um
+
+47
+00:02:28,239 --> 00:02:34,160
+objects. Okay. Now so where do I want
+
+48
+00:02:31,040 --> 00:02:36,720
+it? Uh so this is actually so okay. So
+
+49
+00:02:34,160 --> 00:02:40,560
+let's expand the window because this is
+
+50
+00:02:36,720 --> 00:02:43,120
+I have huge font. Um
+
+51
+00:02:40,560 --> 00:02:45,599
+so let's expand the window so you can
+
+52
+00:02:43,120 --> 00:02:48,000
+see more. Okay. So this is a sort
+
+53
+00:02:45,599 --> 00:02:51,280
+method. I want to add a example of
+
+54
+00:02:48,000 --> 00:02:54,879
+sorting array because I mean sorting um
+
+55
+00:02:51,280 --> 00:02:56,959
+objects because that's uh often needed.
+
+56
+00:02:54,879 --> 00:02:58,800
+Now so there's a custom sort order
+
+57
+00:02:56,959 --> 00:03:02,720
+function. Okay. So let's add there.
+
+58
+00:02:58,800 --> 00:03:08,000
+Okay. Now again
+
+59
+00:03:02,720 --> 00:03:12,840
+uh pre okay uh custom okay so let's add
+
+60
+00:03:08,000 --> 00:03:12,840
+a example here okay so
+
+61
+00:03:15,120 --> 00:03:23,159
+okay uh all the all the um objects okay
+
+62
+00:03:23,440 --> 00:03:29,840
+okay so let's just write a uh like just
+
+63
+00:03:27,599 --> 00:03:33,840
+an example okay so let's Say first of
+
+64
+00:03:29,840 --> 00:03:37,680
+all you need uh several uh objects
+
+65
+00:03:33,840 --> 00:03:41,280
+comments there. Okay. So uh let's say so
+
+66
+00:03:37,680 --> 00:03:45,599
+first of all my
+
+67
+00:03:41,280 --> 00:03:51,200
+x array. Okay. So uh constants
+
+68
+00:03:45,599 --> 00:03:55,599
+x array equals to uh array and inside
+
+69
+00:03:51,200 --> 00:03:57,120
+this array you got several objects named
+
+70
+00:03:55,599 --> 00:04:02,319
+John
+
+71
+00:03:57,120 --> 00:04:04,640
+something. Okay. and the edge age uh
+
+72
+00:04:02,319 --> 00:04:08,239
+let's say
+
+73
+00:04:04,640 --> 00:04:12,400
+83 that's uh that's too old. Okay. So
+
+74
+00:04:08,239 --> 00:04:17,040
+let's pick a number 40. Okay. So name
+
+75
+00:04:12,400 --> 00:04:20,400
+John age 40. Okay. Let's let's have
+
+76
+00:04:17,040 --> 00:04:26,080
+that. Okay. Copy that. And here is let's
+
+77
+00:04:20,400 --> 00:04:27,919
+say Mary age uh let's say 12. Well 12 is
+
+78
+00:04:26,080 --> 00:04:30,400
+not good. And then you know you know
+
+79
+00:04:27,919 --> 00:04:33,360
+because uh people think about something
+
+80
+00:04:30,400 --> 00:04:37,600
+let's say 19. Okay.
+
+81
+00:04:33,360 --> 00:04:40,960
+Well okay. Okay. Anyway so we got a
+
+82
+00:04:37,600 --> 00:04:43,440
+object of two things name. Let's you
+
+83
+00:04:40,960 --> 00:04:48,479
+know make the name string you know. Um
+
+84
+00:04:43,440 --> 00:04:51,440
+yeah you have to so so you got uh
+
+85
+00:04:48,479 --> 00:04:56,160
+array of objects. You want to sort them.
+
+86
+00:04:51,440 --> 00:04:57,840
+Okay. Uh so you want to uh sort object
+
+87
+00:04:56,160 --> 00:05:01,639
+uh
+
+88
+00:04:57,840 --> 00:05:01,639
+sort objects
+
+89
+00:05:05,360 --> 00:05:11,120
+in array. Okay. So that's that's what
+
+90
+00:05:08,080 --> 00:05:13,840
+you want to do. That's the declaration
+
+91
+00:05:11,120 --> 00:05:16,720
+of your intention.
+
+92
+00:05:13,840 --> 00:05:19,759
+Am I going video check? Audio check. Am
+
+93
+00:05:16,720 --> 00:05:22,639
+I alive? Yes. Say hi guys. Okay. We're
+
+94
+00:05:19,759 --> 00:05:24,400
+doing random JavaScript doodling. Okay,
+
+95
+00:05:22,639 --> 00:05:26,800
+JavaScript coding. If you have questions
+
+96
+00:05:24,400 --> 00:05:29,360
+about JavaScript, you can ask me. I can
+
+97
+00:05:26,800 --> 00:05:31,919
+tell you all about it. Okay, so now
+
+98
+00:05:29,360 --> 00:05:34,240
+we're going to sort. So you see, we need
+
+99
+00:05:31,919 --> 00:05:37,520
+to write a custom function. You know,
+
+100
+00:05:34,240 --> 00:05:39,199
+sort in JavaScript is very lousy. You
+
+101
+00:05:37,520 --> 00:05:42,560
+know, if you don't know, let me show
+
+102
+00:05:39,199 --> 00:05:46,600
+you. Okay, sort sorted in JavaScript is
+
+103
+00:05:42,560 --> 00:05:46,600
+idiotic to the extreme.
+
+104
+00:05:47,520 --> 00:05:54,080
+If you don't know, let me show you.
+
+105
+00:05:49,199 --> 00:05:55,600
+Okay, let's say three four uh let's say
+
+106
+00:05:54,080 --> 00:05:58,320
+uh
+
+107
+00:05:55,600 --> 00:06:01,520
+eight. Okay, that's array and you want
+
+108
+00:05:58,320 --> 00:06:04,720
+to sort it, right? So you want console
+
+109
+00:06:01,520 --> 00:06:08,880
+uh log array. So let's let's uh move it
+
+110
+00:06:04,720 --> 00:06:13,759
+to the top. Okay, so
+
+111
+00:06:08,880 --> 00:06:15,840
+the idiocy of sort in JavaScript, that's
+
+112
+00:06:13,759 --> 00:06:18,560
+what I'm demonstrating. Okay. The ed
+
+113
+00:06:15,840 --> 00:06:20,080
+idiocy of sort.
+
+114
+00:06:18,560 --> 00:06:22,240
+So
+
+115
+00:06:20,080 --> 00:06:25,280
+you know so you got you know you you you
+
+116
+00:06:22,240 --> 00:06:27,360
+got array 834. You want to sort it
+
+117
+00:06:25,280 --> 00:06:32,080
+right? Sort is a method. So you get you
+
+118
+00:06:27,360 --> 00:06:34,319
+know a par. Okay. Run it. You got three
+
+119
+00:06:32,080 --> 00:06:36,319
+uh 348.
+
+120
+00:06:34,319 --> 00:06:39,280
+What the [ __ ] is going on? Okay. Well,
+
+121
+00:06:36,319 --> 00:06:41,680
+that is correct. But what I really what
+
+122
+00:06:39,280 --> 00:06:44,960
+I meant is that
+
+123
+00:06:41,680 --> 00:06:48,400
+okay uh wait
+
+124
+00:06:44,960 --> 00:06:52,800
+what I meant is um
+
+125
+00:06:48,400 --> 00:06:54,720
+let's say 30 and 40. Okay. 8 30 and 40.
+
+126
+00:06:52,800 --> 00:06:59,199
+You want to sort it. What do you get?
+
+127
+00:06:54,720 --> 00:07:00,720
+You get 30 40 then 8. That's idiotic.
+
+128
+00:06:59,199 --> 00:07:02,479
+Okay. Do you do you guys see what I
+
+129
+00:07:00,720 --> 00:07:06,319
+mean? Do you do do you do you guys see
+
+130
+00:07:02,479 --> 00:07:09,199
+this idiocy of the sword in JavaScript?
+
+131
+00:07:06,319 --> 00:07:13,440
+Now why does it do that? It's because
+
+132
+00:07:09,199 --> 00:07:16,560
+JavaScript if you don't give a function
+
+133
+00:07:13,440 --> 00:07:19,120
+your custom function to
+
+134
+00:07:16,560 --> 00:07:22,479
+to specify the ordering of things. By
+
+135
+00:07:19,120 --> 00:07:25,520
+default it turns every element in your
+
+136
+00:07:22,479 --> 00:07:28,560
+array into a string. Then they compare
+
+137
+00:07:25,520 --> 00:07:30,960
+the string using um
+
+138
+00:07:28,560 --> 00:07:34,880
+you know dictionary order. actually no
+
+139
+00:07:30,960 --> 00:07:39,440
+they compare the string using the uh
+
+140
+00:07:34,880 --> 00:07:43,039
+the um code unit which means the 16
+
+141
+00:07:39,440 --> 00:07:48,440
+bits. So they take a character they take
+
+142
+00:07:43,039 --> 00:07:48,440
+the first 16 bits of the UTF16
+
+143
+00:07:48,639 --> 00:07:55,840
+encoding then they order by the 16 bits.
+
+144
+00:07:53,199 --> 00:07:58,639
+Okay, do you guys understand? Probably
+
+145
+00:07:55,840 --> 00:08:02,319
+not because it's fairly complicated.
+
+146
+00:07:58,639 --> 00:08:05,199
+Okay. So that's why you get this 3048.
+
+147
+00:08:02,319 --> 00:08:08,000
+Okay. The idiocy of sword in JavaScript.
+
+148
+00:08:05,199 --> 00:08:13,360
+Okay. Let's um Okay. So let's put this
+
+149
+00:08:08,000 --> 00:08:16,960
+back. Uh let's copy that. Let's go to
+
+150
+00:08:13,360 --> 00:08:19,199
+today's talk show. Uh what is this? Go
+
+151
+00:08:16,960 --> 00:08:22,960
+to today's today's talk show. Showing
+
+152
+00:08:19,199 --> 00:08:25,599
+browser. Go back and uh section. Go to
+
+153
+00:08:22,960 --> 00:08:30,800
+the last end section. add the new
+
+154
+00:08:25,599 --> 00:08:34,835
+section and uh paste uh in wait what and
+
+155
+00:08:30,800 --> 00:08:35,760
+make it JavaScript. Okay. And uh
+
+156
+00:08:34,835 --> 00:08:39,120
+[clears throat]
+
+157
+00:08:35,760 --> 00:08:42,719
+syntax code show in browser. So we show
+
+158
+00:08:39,120 --> 00:08:45,519
+the idiocy of sort in JavaScript.
+
+159
+00:08:42,719 --> 00:08:48,640
+Now why is it doing that? Well, it's
+
+160
+00:08:45,519 --> 00:08:53,360
+fully explained in here. Okay. Sort
+
+161
+00:08:48,640 --> 00:08:55,519
+array in place. Okay. Um
+
+162
+00:08:53,360 --> 00:08:57,440
+and the default function okay sort you
+
+163
+00:08:55,519 --> 00:09:00,720
+know sort element by convert each
+
+164
+00:08:57,440 --> 00:09:04,399
+element to string and compare their code
+
+165
+00:09:00,720 --> 00:09:08,160
+unit order. Okay that's what it's doing.
+
+166
+00:09:04,399 --> 00:09:10,720
+So copy that go back and paste the link
+
+167
+00:09:08,160 --> 00:09:13,920
+in the showing browser so people who
+
+168
+00:09:10,720 --> 00:09:17,360
+watch my show can can check it out. Okay
+
+169
+00:09:13,920 --> 00:09:19,760
+that's the side demo of the idiocy of
+
+170
+00:09:17,360 --> 00:09:23,760
+the JavaScript sort. JavaScript has
+
+171
+00:09:19,760 --> 00:09:27,519
+1,000 idiosc. Okay. So, close that.
+
+172
+00:09:23,760 --> 00:09:31,760
+Wait, what did we close? Uh, okay.
+
+173
+00:09:27,519 --> 00:09:35,040
+Uh, X2 close talk show index page.
+
+174
+00:09:31,760 --> 00:09:37,519
+Close. Back to Emacs. Close. And this is
+
+175
+00:09:35,040 --> 00:09:41,440
+today's talk show. Fantastic. Go back to
+
+176
+00:09:37,519 --> 00:09:44,399
+Emacs. Switch uh panel. This is dev
+
+177
+00:09:41,440 --> 00:09:47,519
+webdev. Fantastic webdev. Okay. It's
+
+178
+00:09:44,399 --> 00:09:51,519
+fantastic blog. You should read it.
+
+179
+00:09:47,519 --> 00:09:53,680
+Let's linkify it there. Fantastic. Okay.
+
+180
+00:09:51,519 --> 00:09:55,839
+And by the way, those links are my
+
+181
+00:09:53,680 --> 00:10:00,399
+keyboards. Ultimate hacking keyboard.
+
+182
+00:09:55,839 --> 00:10:03,440
+Okay. Fantastic. Full detailed uh
+
+183
+00:10:00,399 --> 00:10:06,800
+photos and video reviews and unboxing.
+
+184
+00:10:03,440 --> 00:10:09,920
+Okay, that's my keyboard. And go back.
+
+185
+00:10:06,800 --> 00:10:13,279
+And then there there it is my trackboard
+
+186
+00:10:09,920 --> 00:10:16,560
+right there. Okay. And go back. And
+
+187
+00:10:13,279 --> 00:10:21,079
+there is my
+
+188
+00:10:16,560 --> 00:10:21,079
+drawing tablet. Okay. Cheers.
+
+189
+00:10:24,399 --> 00:10:29,360
+So these are great. You can go there and
+
+190
+00:10:26,480 --> 00:10:32,320
+buy them. Boom. My links on my website.
+
+191
+00:10:29,360 --> 00:10:35,040
+And what I'm using is Emacs, the most
+
+192
+00:10:32,320 --> 00:10:38,399
+advanced powerful editing system using
+
+193
+00:10:35,040 --> 00:10:40,880
+softly keys.
+
+194
+00:10:38,399 --> 00:10:45,440
+The most advanced more advanced than Vim
+
+195
+00:10:40,880 --> 00:10:47,600
+or Neo Vim. Okay, by key strokes
+
+196
+00:10:45,440 --> 00:10:50,560
+less keystrokes. Okay, now let's go back
+
+197
+00:10:47,600 --> 00:10:53,519
+to Emacs and let's go back to do what we
+
+198
+00:10:50,560 --> 00:10:56,399
+were doing. So we were doing actually
+
+199
+00:10:53,519 --> 00:10:59,760
+yeah we was writing a example of sort
+
+200
+00:10:56,399 --> 00:11:02,160
+object in array. Okay so so you need a
+
+201
+00:10:59,760 --> 00:11:04,640
+function here. So here so if you don't
+
+202
+00:11:02,160 --> 00:11:07,640
+know what I'm doing um let me show you.
+
+203
+00:11:04,640 --> 00:11:07,640
+Okay.
+
+204
+00:11:10,160 --> 00:11:16,240
+Uh this JavaScript idiac. Okay. So let
+
+205
+00:11:13,040 --> 00:11:19,760
+me put that there.
+
+206
+00:11:16,240 --> 00:11:22,160
+So sort here you need a paren then you
+
+207
+00:11:19,760 --> 00:11:26,399
+need to say a function. Okay. You need
+
+208
+00:11:22,160 --> 00:11:28,079
+to give a function and uh you know so we
+
+209
+00:11:26,399 --> 00:11:30,640
+are doing kind of like functional
+
+210
+00:11:28,079 --> 00:11:32,800
+programming. Okay. So but no so to make
+
+211
+00:11:30,640 --> 00:11:37,519
+it easier to understand we can just
+
+212
+00:11:32,800 --> 00:11:40,519
+define the function here. So, um,
+
+213
+00:11:37,519 --> 00:11:40,519
+sort
+
+214
+00:11:41,200 --> 00:11:46,000
+uh let's say
+
+215
+00:11:44,320 --> 00:11:48,240
+predicate.
+
+216
+00:11:46,000 --> 00:11:52,000
+Okay, wait. Let's let's do this. Sort
+
+217
+00:11:48,240 --> 00:11:54,320
+predicateut. That's a classic name. Uh,
+
+218
+00:11:52,000 --> 00:11:57,920
+classic style of naming because
+
+219
+00:11:54,320 --> 00:11:59,279
+predicate is what people say when you,
+
+220
+00:11:57,920 --> 00:12:01,600
+you know, when you when you pass a
+
+221
+00:11:59,279 --> 00:12:04,720
+function that returns true or false, you
+
+222
+00:12:01,600 --> 00:12:06,880
+call it predicate. Okay. But today with
+
+223
+00:12:04,720 --> 00:12:08,880
+Zuma generation you guys don't know you
+
+224
+00:12:06,880 --> 00:12:11,643
+know you guys don't know what the [ __ ]
+
+225
+00:12:08,880 --> 00:12:12,800
+what what the [ __ ] is you know
+
+226
+00:12:11,643 --> 00:12:16,399
+[laughter]
+
+227
+00:12:12,800 --> 00:12:19,360
+Zuma Zuma idiots they they would say uh
+
+228
+00:12:16,399 --> 00:12:25,680
+you know what the Zuma generate okay let
+
+229
+00:12:19,360 --> 00:12:28,880
+me explain the Zuma idiots would say
+
+230
+00:12:25,680 --> 00:12:30,959
+sort call back okay that's what they
+
+231
+00:12:28,880 --> 00:12:32,603
+call that's what they say call back
+
+232
+00:12:30,959 --> 00:12:34,623
+function
+
+233
+00:12:32,603 --> 00:12:34,623
+>> [laughter]
+
+234
+00:12:35,760 --> 00:12:42,240
+>> the Zuma idiots. The [ __ ] extreme
+
+235
+00:12:38,560 --> 00:12:45,560
+idiots like oh Jesus I so despise them
+
+236
+00:12:42,240 --> 00:12:45,560
+so much.
+
+237
+00:12:45,760 --> 00:12:51,040
+Okay, so anyway, so let's just let's
+
+238
+00:12:49,040 --> 00:12:55,120
+leave that comment there. Okay, so
+
+239
+00:12:51,040 --> 00:13:00,120
+anyway, the the classic way the classic
+
+240
+00:12:55,120 --> 00:13:00,120
+way to name sort function
+
+241
+00:13:01,040 --> 00:13:07,600
+is predicate. Okay,
+
+242
+00:13:05,440 --> 00:13:10,000
+predicate came from logic, you know,
+
+243
+00:13:07,600 --> 00:13:11,760
+came from logic. Predicate means any
+
+244
+00:13:10,000 --> 00:13:15,040
+function that returns either true or
+
+245
+00:13:11,760 --> 00:13:17,120
+false. Okay, so so to make it easier to
+
+246
+00:13:15,040 --> 00:13:18,800
+understand, so you can define a function
+
+247
+00:13:17,120 --> 00:13:21,920
+like that, we are doing functional
+
+248
+00:13:18,800 --> 00:13:24,000
+programming. Okay. So you want to say so
+
+249
+00:13:21,920 --> 00:13:27,279
+x is a object. So you want you know
+
+250
+00:13:24,000 --> 00:13:30,720
+given an object you you know so and here
+
+251
+00:13:27,279 --> 00:13:33,680
+we can just say sort predicate you know
+
+252
+00:13:30,720 --> 00:13:38,240
+we pass the function name
+
+253
+00:13:33,680 --> 00:13:42,800
+okay and uh and here we we uh let's
+
+254
+00:13:38,240 --> 00:13:45,600
+rename this array of objects okay let's
+
+255
+00:13:42,800 --> 00:13:49,040
+make it make it more uh understandable
+
+256
+00:13:45,600 --> 00:13:52,160
+so not so here is just array of objects
+
+257
+00:13:49,040 --> 00:13:55,360
+you see we want to sort
+
+258
+00:13:52,160 --> 00:13:58,959
+this array of objects by this sort
+
+259
+00:13:55,360 --> 00:14:00,800
+predicate. Fantastic. Okay, now we just
+
+260
+00:13:58,959 --> 00:14:02,639
+need to write this sort predicate. So
+
+261
+00:14:00,800 --> 00:14:04,720
+what are you guys saying? Good morning,
+
+262
+00:14:02,639 --> 00:14:08,320
+good evening. Hey, great. JavaScript is
+
+263
+00:14:04,720 --> 00:14:10,959
+basically a lisp. Yes, kind of. It's
+
+264
+00:14:08,320 --> 00:14:14,720
+based on scheme list. Fantastic. Well, I
+
+265
+00:14:10,959 --> 00:14:17,839
+mean, well, I I think it's it's wrong to
+
+266
+00:14:14,720 --> 00:14:20,399
+say JavaScript is basically a list
+
+267
+00:14:17,839 --> 00:14:22,720
+because if you say that basically what
+
+268
+00:14:20,399 --> 00:14:26,320
+you mean is that JavaScript is you know
+
+269
+00:14:22,720 --> 00:14:28,560
+basically what you effectively means is
+
+270
+00:14:26,320 --> 00:14:32,000
+that JavaScript is a functional
+
+271
+00:14:28,560 --> 00:14:33,839
+programming language but not pure is
+
+272
+00:14:32,000 --> 00:14:37,199
+like mostly functional programming
+
+273
+00:14:33,839 --> 00:14:39,760
+language. Okay. So that
+
+274
+00:14:37,199 --> 00:14:42,079
+that is what people mean when when
+
+275
+00:14:39,760 --> 00:14:45,120
+people say JavaScript is basically a
+
+276
+00:14:42,079 --> 00:14:47,680
+lisp. People have been saying that for
+
+277
+00:14:45,120 --> 00:14:50,720
+people actually said that for Python and
+
+278
+00:14:47,680 --> 00:14:53,199
+for Ruby, you know, like Python is just
+
+279
+00:14:50,720 --> 00:14:55,440
+a better lisp. Ruby is just a better
+
+280
+00:14:53,199 --> 00:14:58,560
+lisp, you know, back then. Actually the
+
+281
+00:14:55,440 --> 00:15:01,040
+people they even said that for Pearl. So
+
+282
+00:14:58,560 --> 00:15:03,040
+so this is going back to history. Okay?
+
+283
+00:15:01,040 --> 00:15:06,880
+If you actually go back to history, if
+
+284
+00:15:03,040 --> 00:15:09,279
+you lived in the 1990s, in the 2000s,
+
+285
+00:15:06,880 --> 00:15:12,399
+you know, people actually say that
+
+286
+00:15:09,279 --> 00:15:14,800
+because when Pearl became super popular,
+
+287
+00:15:12,399 --> 00:15:17,600
+there's nothing like it. It's just and
+
+288
+00:15:14,800 --> 00:15:19,760
+it's super convenient. Just like lisp,
+
+289
+00:15:17,600 --> 00:15:22,160
+you have lists, you know, you can add
+
+290
+00:15:19,760 --> 00:15:26,639
+elements to a list. It's so convenient
+
+291
+00:15:22,160 --> 00:15:30,639
+unlike C where where you can move a [ __ ]
+
+292
+00:15:26,639 --> 00:15:34,800
+without spending an hour you know like C
+
+293
+00:15:30,639 --> 00:15:38,160
+or C++ first. So, so technically it is
+
+294
+00:15:34,800 --> 00:15:40,639
+incorrect to say JavaScript is basically
+
+295
+00:15:38,160 --> 00:15:44,560
+a lisp because people actually said that
+
+296
+00:15:40,639 --> 00:15:47,279
+about pearl and and about Python and
+
+297
+00:15:44,560 --> 00:15:51,680
+about Ruby and Python actually from
+
+298
+00:15:47,279 --> 00:15:57,240
+people uh expert top expert of lisp
+
+299
+00:15:51,680 --> 00:15:57,240
+common lisp uh that guy is Peter Novik
+
+300
+00:15:57,279 --> 00:16:04,720
+he's a big promoter of Python back in
+
+301
+00:16:00,720 --> 00:16:07,120
+2002 around there for for five years you
+
+302
+00:16:04,720 --> 00:16:10,160
+know 2002 is when Google was you know
+
+303
+00:16:07,120 --> 00:16:14,800
+Python people don't know Python back
+
+304
+00:16:10,160 --> 00:16:18,320
+then Google was using it Peter Novik is
+
+305
+00:16:14,800 --> 00:16:22,320
+a well-known very well-known common dis
+
+306
+00:16:18,320 --> 00:16:26,000
+expert uh and also in the AI field okay
+
+307
+00:16:22,320 --> 00:16:31,120
+Peter Novik okay so he's 69 years old
+
+308
+00:16:26,000 --> 00:16:35,440
+today so back in 200 uh so in 2001 he
+
+309
+00:16:31,120 --> 00:16:40,639
+won A ai fellow okay small awards anyway
+
+310
+00:16:35,440 --> 00:16:43,360
+so he works at Google so in 2001 2002
+
+311
+00:16:40,639 --> 00:16:45,759
+he's promoting Python he's he's he's
+
+312
+00:16:43,360 --> 00:16:50,000
+well known in lisp
+
+313
+00:16:45,759 --> 00:16:53,519
+AI field common lisp okay so but in 2001
+
+314
+00:16:50,000 --> 00:16:55,920
+2002 he's promoting Python he's saying
+
+315
+00:16:53,519 --> 00:16:59,519
+python is just just a lisp okay python
+
+316
+00:16:55,920 --> 00:17:01,680
+is like the lisp you know because on the
+
+317
+00:16:59,519 --> 00:17:04,480
+other hand lisp is kind have already
+
+318
+00:17:01,680 --> 00:17:06,880
+dying at that time because you you you
+
+319
+00:17:04,480 --> 00:17:09,520
+know like people don't know what is this
+
+320
+00:17:06,880 --> 00:17:11,760
+you know like oh this advanced fancy
+
+321
+00:17:09,520 --> 00:17:15,520
+thing I don't know what is you know too
+
+322
+00:17:11,760 --> 00:17:19,120
+complicated seems too advanced so anyway
+
+323
+00:17:15,520 --> 00:17:20,959
+in 2002 this guy is promoting lisp okay
+
+324
+00:17:19,120 --> 00:17:23,839
+and he's promoting I mean promoting
+
+325
+00:17:20,959 --> 00:17:27,679
+python he's like saying like he actually
+
+326
+00:17:23,839 --> 00:17:30,480
+said it python is like a lisp
+
+327
+00:17:27,679 --> 00:17:34,080
+um you can find the blog okay so can can
+
+328
+00:17:30,480 --> 00:17:36,320
+we find the blog. Yeah, I I think so. Uh
+
+329
+00:17:34,080 --> 00:17:39,520
+so if you have to, you know, so I'm
+
+330
+00:17:36,320 --> 00:17:44,720
+talking about some coding history here.
+
+331
+00:17:39,520 --> 00:17:47,760
+Uh Peter Novik, Python is a lisp.
+
+332
+00:17:44,720 --> 00:17:50,640
+Okay, let's see if we can find some uh
+
+333
+00:17:47,760 --> 00:17:55,280
+Peter Novik. Okay, it's a AI slob. Now
+
+334
+00:17:50,640 --> 00:17:58,080
+AI is going to say something about it.
+
+335
+00:17:55,280 --> 00:18:01,120
+Okay, hacker news. Peter Novik a serious
+
+336
+00:17:58,080 --> 00:18:05,120
+listener calls Python something. This is
+
+337
+00:18:01,120 --> 00:18:08,240
+2018. This by Zoomer idiots. Okay, we
+
+338
+00:18:05,120 --> 00:18:11,120
+are talking about the year 2001 2002.
+
+339
+00:18:08,240 --> 00:18:15,520
+Okay, so Peter Novik here I came to
+
+340
+00:18:11,120 --> 00:18:17,760
+Python not this is 2010. Okay. Okay. So
+
+341
+00:18:15,520 --> 00:18:20,960
+yeah in the 2000s okay so anyway let's
+
+342
+00:18:17,760 --> 00:18:23,280
+see what Peter uh AI says. Fionovic, a
+
+343
+00:18:20,960 --> 00:18:27,120
+prominent computer scientist and former
+
+344
+00:18:23,280 --> 00:18:29,280
+Visp advocate has described Python as an
+
+345
+00:18:27,120 --> 00:18:32,720
+acceptable lisp. That's right, that's
+
+346
+00:18:29,280 --> 00:18:35,039
+the word he used. Uh sentiment he has
+
+347
+00:18:32,720 --> 00:18:38,320
+expressed both in public talks and
+
+348
+00:18:35,039 --> 00:18:40,880
+online discussions. His view stem from
+
+349
+00:18:38,320 --> 00:18:44,080
+uh Python's steep alignment with core
+
+350
+00:18:40,880 --> 00:18:45,840
+list principles such as everything being
+
+351
+00:18:44,080 --> 00:18:49,440
+an object, first class functions,
+
+352
+00:18:45,840 --> 00:18:53,360
+dynamic typing and blah blah blah d.
+
+353
+00:18:49,440 --> 00:18:56,160
+Okay, in my opinion, he's incorrect.
+
+354
+00:18:53,360 --> 00:18:59,200
+Anyway, so I want, you know, I wanted to
+
+355
+00:18:56,160 --> 00:19:02,880
+tell you guys some history. Hello, Solar
+
+356
+00:18:59,200 --> 00:19:05,039
+and hello the Informaticist.
+
+357
+00:19:02,880 --> 00:19:09,440
+Okay, so I digress into some history
+
+358
+00:19:05,039 --> 00:19:14,559
+about Peter Novik, a big huge famous guy
+
+359
+00:19:09,440 --> 00:19:17,360
+in AI community and this and uh you know
+
+360
+00:19:14,559 --> 00:19:21,440
+a history a snippet of history how he
+
+361
+00:19:17,360 --> 00:19:24,400
+promoted Python. Okay. But lisp is not
+
+362
+00:19:21,440 --> 00:19:27,039
+but Python is not a lisp. Okay. Python,
+
+363
+00:19:24,400 --> 00:19:30,080
+Ruby, they are like totally not a lisp.
+
+364
+00:19:27,039 --> 00:19:31,919
+In order to be like at least to even be
+
+365
+00:19:30,080 --> 00:19:35,039
+like lisp,
+
+366
+00:19:31,919 --> 00:19:37,120
+you need a few uh characteristics.
+
+367
+00:19:35,039 --> 00:19:39,600
+First of all, you need a par. Okay, you
+
+368
+00:19:37,120 --> 00:19:41,520
+need to have lots of
+
+369
+00:19:39,600 --> 00:19:44,640
+uh
+
+370
+00:19:41,520 --> 00:19:48,240
+parents. Okay, so here's a list code. Uh
+
+371
+00:19:44,640 --> 00:19:51,039
+so let's go let's go to some uh here's
+
+372
+00:19:48,240 --> 00:19:53,120
+list code. Okay, you need uh you need to
+
+373
+00:19:51,039 --> 00:19:55,840
+have parents like heavy nesting. That's
+
+374
+00:19:53,120 --> 00:19:57,520
+the characteristics of this good or for
+
+375
+00:19:55,840 --> 00:20:02,240
+good or bad. You need to have this.
+
+376
+00:19:57,520 --> 00:20:05,039
+Okay, you need symbols. You know, every
+
+377
+00:20:02,240 --> 00:20:07,679
+of your function name of your variable
+
+378
+00:20:05,039 --> 00:20:12,240
+name, they are actually symbols. Okay,
+
+379
+00:20:07,679 --> 00:20:15,760
+that means they can be held unevaluated.
+
+380
+00:20:12,240 --> 00:20:18,559
+Okay, so you need parenthesis syntax.
+
+381
+00:20:15,760 --> 00:20:21,520
+You need symbols. Every every name is
+
+382
+00:20:18,559 --> 00:20:23,440
+symbols not like JavaScript
+
+383
+00:20:21,520 --> 00:20:26,080
+you know that like what the [ __ ] is this
+
+384
+00:20:23,440 --> 00:20:29,280
+const you know it's it's a keyword it's
+
+385
+00:20:26,080 --> 00:20:31,200
+not a symbol you can't you know you need
+
+386
+00:20:29,280 --> 00:20:33,280
+to have symbols okay you need to have
+
+387
+00:20:31,200 --> 00:20:36,799
+par nesting parent you need to have
+
+388
+00:20:33,280 --> 00:20:39,520
+symbols and then you need to have mostly
+
+389
+00:20:36,799 --> 00:20:42,080
+functional programming okay that
+
+390
+00:20:39,520 --> 00:20:44,799
+JavaScript qualifies but Python does not
+
+391
+00:20:42,080 --> 00:20:47,760
+qualify okay you need to have the
+
+392
+00:20:44,799 --> 00:20:50,080
+language must be mostly predominantly
+
+393
+00:20:47,760 --> 00:20:52,480
+functional programming JavaScript
+
+394
+00:20:50,080 --> 00:20:56,320
+qualifies because JavaScript is a
+
+395
+00:20:52,480 --> 00:20:59,360
+derivative of scheme lisp by design
+
+396
+00:20:56,320 --> 00:21:02,559
+JavaScript by Brenda Ike
+
+397
+00:20:59,360 --> 00:21:04,559
+specifically he wanted to create a lisp
+
+398
+00:21:02,559 --> 00:21:07,840
+scheme dispect
+
+399
+00:21:04,559 --> 00:21:11,840
+that's JavaScript okay qualifies Python
+
+400
+00:21:07,840 --> 00:21:15,120
+no because the GO van idiots he hates
+
+401
+00:21:11,840 --> 00:21:18,880
+functional programming he hates lisp he
+
+402
+00:21:15,120 --> 00:21:21,120
+hates scheme his the lambda in Python is
+
+403
+00:21:18,880 --> 00:21:23,520
+even broken. You can't have like full
+
+404
+00:21:21,120 --> 00:21:26,000
+function in lambda you know python it's
+
+405
+00:21:23,520 --> 00:21:28,080
+a long story I have lots of articles on
+
+406
+00:21:26,000 --> 00:21:30,320
+that but anyway so python does not
+
+407
+00:21:28,080 --> 00:21:33,280
+qualify it's not predominant functional
+
+408
+00:21:30,320 --> 00:21:35,679
+programming python is actually py if you
+
+409
+00:21:33,280 --> 00:21:38,400
+code python they want you to do like uh
+
+410
+00:21:35,679 --> 00:21:40,720
+objectoriented programming so if you are
+
+411
+00:21:38,400 --> 00:21:44,720
+a functional guy you run into lots of
+
+412
+00:21:40,720 --> 00:21:48,000
+frustrations in python okay so pi so so
+
+413
+00:21:44,720 --> 00:21:52,960
+so Peter novik you know saying that
+
+414
+00:21:48,000 --> 00:21:56,640
+python is like accept acceptable list in
+
+415
+00:21:52,960 --> 00:22:00,559
+my opinion that's like a home homework
+
+416
+00:21:56,640 --> 00:22:02,559
+you get a fail okay you get a fail I
+
+417
+00:22:00,559 --> 00:22:05,520
+mean well I mean tech you know
+
+418
+00:22:02,559 --> 00:22:08,880
+technically this is not a like a
+
+419
+00:22:05,520 --> 00:22:12,400
+scientific publish you know publication
+
+420
+00:22:08,880 --> 00:22:15,440
+if you if he published this as a
+
+421
+00:22:12,400 --> 00:22:18,159
+scientific scientific paper in computer
+
+422
+00:22:15,440 --> 00:22:21,280
+science saying that Python is an
+
+423
+00:22:18,159 --> 00:22:26,080
+acceptable at least he won't he won't
+
+424
+00:22:21,280 --> 00:22:28,320
+get qualified. you know, he won't get um
+
+425
+00:22:26,080 --> 00:22:31,440
+uh uh you know what they how how they
+
+426
+00:22:28,320 --> 00:22:34,320
+say um
+
+427
+00:22:31,440 --> 00:22:36,400
+um
+
+428
+00:22:34,320 --> 00:22:39,280
+what's the word you know the scientific
+
+429
+00:22:36,400 --> 00:22:41,919
+publication so you guys are quiet are
+
+430
+00:22:39,280 --> 00:22:44,400
+you guys are still hearing what I'm
+
+431
+00:22:41,919 --> 00:22:47,440
+saying so you know the among the science
+
+432
+00:22:44,400 --> 00:22:51,360
+scientific publication they have a peer
+
+433
+00:22:47,440 --> 00:22:52,400
+review system you know if if Peter Novik
+
+434
+00:22:51,360 --> 00:22:55,840
+actually
+
+435
+00:22:52,400 --> 00:22:57,919
+trying to publish this as a paper. I'm
+
+436
+00:22:55,840 --> 00:22:59,840
+not sure it's going to go well. But
+
+437
+00:22:57,919 --> 00:23:03,120
+actually, he's going to fly because his
+
+438
+00:22:59,840 --> 00:23:06,159
+big name usually you see scientific
+
+439
+00:23:03,120 --> 00:23:09,840
+papers in the past 20 years has kind of
+
+440
+00:23:06,159 --> 00:23:13,760
+collapsed a lot along with the general
+
+441
+00:23:09,840 --> 00:23:16,320
+USA politics. So they become, you know,
+
+442
+00:23:13,760 --> 00:23:18,880
+they become like collapsed. Anyway, so
+
+443
+00:23:16,320 --> 00:23:22,320
+that's a side note about Peter Novik.
+
+444
+00:23:18,880 --> 00:23:24,480
+Okay. So now remember characteristics of
+
+445
+00:23:22,320 --> 00:23:28,080
+lisp. Let me write this down. I actually
+
+446
+00:23:24,480 --> 00:23:30,159
+I did a live stream about this like
+
+447
+00:23:28,080 --> 00:23:33,840
+three four years ago. So let me write
+
+448
+00:23:30,159 --> 00:23:35,760
+this down. Okay, this is critical. In
+
+449
+00:23:33,840 --> 00:23:37,679
+order to for a programming language to
+
+450
+00:23:35,760 --> 00:23:42,400
+be like list you have to have these
+
+451
+00:23:37,679 --> 00:23:44,799
+characteristics. Okay. So uh
+
+452
+00:23:42,400 --> 00:23:47,360
+characterist
+
+453
+00:23:44,799 --> 00:23:51,880
+uh characteristics
+
+454
+00:23:47,360 --> 00:23:51,880
+um well that's
+
+455
+00:23:55,039 --> 00:23:58,039
+charact
+
+456
+00:24:00,559 --> 00:24:05,600
+I got a shortcut characteristics
+
+457
+00:24:03,360 --> 00:24:08,320
+of this
+
+458
+00:24:05,600 --> 00:24:10,400
+you must have
+
+459
+00:24:08,320 --> 00:24:13,679
+symbols
+
+460
+00:24:10,400 --> 00:24:17,120
+nested syntax. Okay. Wuam language also
+
+461
+00:24:13,679 --> 00:24:20,720
+qualify. Wuam language, common lisp,
+
+462
+00:24:17,120 --> 00:24:23,200
+scheme list, emac lisp, auto listp,
+
+463
+00:24:20,720 --> 00:24:26,240
+closure lisp. They all qualify. Okay.
+
+464
+00:24:23,200 --> 00:24:28,159
+Then you got to have symbols.
+
+465
+00:24:26,240 --> 00:24:31,279
+Same thing with closure list. You got
+
+466
+00:24:28,159 --> 00:24:35,919
+symbols. Okay. Then you need to have uh
+
+467
+00:24:31,279 --> 00:24:38,640
+maros. Okay. That's a feature. The dear
+
+468
+00:24:35,919 --> 00:24:42,400
+to the lispus. Okay. dear to the heart
+
+469
+00:24:38,640 --> 00:24:46,400
+of Lisbus but I despise it okay but but
+
+470
+00:24:42,400 --> 00:24:48,799
+still it seem maros okay maros is like
+
+471
+00:24:46,400 --> 00:24:53,600
+fundamental so there are two maros
+
+472
+00:24:48,799 --> 00:24:56,799
+actually um this maros and there is the
+
+473
+00:24:53,600 --> 00:24:59,840
+uh reader maros reader marquos is kind
+
+474
+00:24:56,799 --> 00:25:02,400
+of esoteric but this maros more people
+
+475
+00:24:59,840 --> 00:25:05,400
+understand okay I got to shut down my
+
+476
+00:25:02,400 --> 00:25:05,400
+alarm.
+
+477
+00:25:19,600 --> 00:25:24,880
+Okay. Characteristics of lisp.
+
+478
+00:25:22,960 --> 00:25:27,039
+Okay. I think how long have I been
+
+479
+00:25:24,880 --> 00:25:32,200
+talking? So, yes guys, thank you guys.
+
+480
+00:25:27,039 --> 00:25:32,200
+Yeah. Cheers. Um,
+
+481
+00:25:34,480 --> 00:25:39,840
+is this digression interesting?
+
+482
+00:25:38,000 --> 00:25:43,600
+So, you guys have to give me some
+
+483
+00:25:39,840 --> 00:25:45,520
+feedback, you know, like sometimes, you
+
+484
+00:25:43,600 --> 00:25:48,720
+know, I have, you know, because I talk
+
+485
+00:25:45,520 --> 00:25:51,360
+random, my character, my personality, my
+
+486
+00:25:48,720 --> 00:25:53,919
+live stream. So, I have all kind of all
+
+487
+00:25:51,360 --> 00:25:55,520
+sort of people watching me, you know,
+
+488
+00:25:53,919 --> 00:25:58,400
+like
+
+489
+00:25:55,520 --> 00:26:00,720
+a lot of you guys are young people. Uh,
+
+490
+00:25:58,400 --> 00:26:03,120
+and a lot of you guys into lisp. A lot
+
+491
+00:26:00,720 --> 00:26:06,480
+of you guys into crazy like you think
+
+492
+00:26:03,120 --> 00:26:09,360
+I'm a nut job like the the the the you
+
+493
+00:26:06,480 --> 00:26:12,400
+know the the the the god operating
+
+494
+00:26:09,360 --> 00:26:14,559
+system you know that guy what's his name
+
+495
+00:26:12,400 --> 00:26:17,520
+and and some of you are you know
+
+496
+00:26:14,559 --> 00:26:20,400
+mathematicians you know professors so
+
+497
+00:26:17,520 --> 00:26:23,360
+because I go over so
+
+498
+00:26:20,400 --> 00:26:26,000
+anyway so we were coding JavaScript and
+
+499
+00:26:23,360 --> 00:26:29,120
+we uh digress into this. So the
+
+500
+00:26:26,000 --> 00:26:32,000
+characteristics of this you have uh
+
+501
+00:26:29,120 --> 00:26:35,120
+let's see what else you need. Oh yeah
+
+502
+00:26:32,000 --> 00:26:38,120
+predominantly functional programming. So
+
+503
+00:26:35,120 --> 00:26:38,120
+um
+
+504
+00:26:41,919 --> 00:26:47,600
+okay so that's important characteristics
+
+505
+00:26:44,880 --> 00:26:51,279
+in fact that should be here. Okay so
+
+506
+00:26:47,600 --> 00:26:54,880
+this is kind of older in their um in
+
+507
+00:26:51,279 --> 00:26:57,200
+their importance. So in lisp for for a
+
+508
+00:26:54,880 --> 00:26:59,840
+programming language to be uh
+
+509
+00:26:57,200 --> 00:27:03,520
+characterized as like lisp you have to
+
+510
+00:26:59,840 --> 00:27:06,559
+have nested syntax well to to be to be a
+
+511
+00:27:03,520 --> 00:27:08,480
+lisp you must have nested syntax symbols
+
+512
+00:27:06,559 --> 00:27:12,080
+predominantly functional programming
+
+513
+00:27:08,480 --> 00:27:14,559
+which is not python python failed here
+
+514
+00:27:12,080 --> 00:27:17,279
+this macros and reader mark macros and
+
+515
+00:27:14,559 --> 00:27:19,760
+um that's about it okay if you want to
+
+516
+00:27:17,279 --> 00:27:22,640
+claim your lisp your programming
+
+517
+00:27:19,760 --> 00:27:25,600
+language is a lisp you must have is
+
+518
+00:27:22,640 --> 00:27:28,400
+okay. Now if you want to claim your
+
+519
+00:27:25,600 --> 00:27:31,360
+program is like lisp, you know, like the
+
+520
+00:27:28,400 --> 00:27:34,240
+Peter Novik would say acceptable lisp.
+
+521
+00:27:31,360 --> 00:27:36,720
+Well, what does it mean acceptable? It's
+
+522
+00:27:34,240 --> 00:27:38,960
+not a list. Okay.
+
+523
+00:27:36,720 --> 00:27:42,960
+And you got some you you need some other
+
+524
+00:27:38,960 --> 00:27:47,840
+things like less less important but but
+
+525
+00:27:42,960 --> 00:27:50,559
+uh but it's um implicitly
+
+526
+00:27:47,840 --> 00:27:54,520
+required such as
+
+527
+00:27:50,559 --> 00:27:54,520
+auto memory
+
+528
+00:27:54,640 --> 00:28:02,399
+management. Okay, that's like or also
+
+529
+00:27:57,919 --> 00:28:06,000
+known as aa garbage collection by the C
+
+530
+00:28:02,399 --> 00:28:07,919
+and C++ idiots. The industrial
+
+531
+00:28:06,000 --> 00:28:10,480
+programming idiots when they hear the
+
+532
+00:28:07,919 --> 00:28:12,320
+word garbage collection they get excited
+
+533
+00:28:10,480 --> 00:28:16,159
+you know. Oh, garbage collection. No
+
+534
+00:28:12,320 --> 00:28:19,279
+way. Memory like, you know, [ __ ] them.
+
+535
+00:28:16,159 --> 00:28:23,279
+[ __ ] C, C C++
+
+536
+00:28:19,279 --> 00:28:25,600
+this type of and rust bitless. Okay, I
+
+537
+00:28:23,279 --> 00:28:28,799
+despise them.
+
+538
+00:28:25,600 --> 00:28:31,039
+You know, if you say automatic memory
+
+539
+00:28:28,799 --> 00:28:32,799
+management, you know, they they don't,
+
+540
+00:28:31,039 --> 00:28:36,640
+you know, they don't feel nothing. You
+
+541
+00:28:32,799 --> 00:28:38,799
+know, these people so funny means the
+
+542
+00:28:36,640 --> 00:28:40,720
+same thing. But but you have to say
+
+543
+00:28:38,799 --> 00:28:42,159
+garbage collection. they they they get
+
+544
+00:28:40,720 --> 00:28:44,559
+excited, you know, they're going to tell
+
+545
+00:28:42,159 --> 00:28:46,000
+you why you need it, why you not, you
+
+546
+00:28:44,559 --> 00:28:48,399
+know, you shouldn't need it. You know,
+
+547
+00:28:46,000 --> 00:28:51,520
+most of them they hate it. Okay? Like
+
+548
+00:28:48,399 --> 00:28:54,559
+the C idiots.
+
+549
+00:28:51,520 --> 00:28:57,039
+Okay? So anyway, so to be to be like
+
+550
+00:28:54,559 --> 00:28:59,760
+Lisp, you must have auto automemory
+
+551
+00:28:57,039 --> 00:29:01,840
+management. Okay?
+
+552
+00:28:59,760 --> 00:29:03,840
+Uh
+
+553
+00:29:01,840 --> 00:29:06,720
+okay that that's you know and and of
+
+554
+00:29:03,840 --> 00:29:14,880
+course and of course you you must have
+
+555
+00:29:06,720 --> 00:29:17,279
+built in list or array uh uh data type
+
+556
+00:29:14,880 --> 00:29:22,320
+otherwise you can say you can say your
+
+557
+00:29:17,279 --> 00:29:24,799
+language is like lisp. Okay. So, so some
+
+558
+00:29:22,320 --> 00:29:27,799
+other implicit
+
+559
+00:29:24,799 --> 00:29:27,799
+require
+
+560
+00:29:29,120 --> 00:29:34,320
+requirements are okay now showing
+
+561
+00:29:32,000 --> 00:29:37,039
+browser. So you can see so this is the
+
+562
+00:29:34,320 --> 00:29:38,960
+meaning of lisp. Okay.
+
+563
+00:29:37,039 --> 00:29:41,919
+Hello man. What are we learning? We are
+
+564
+00:29:38,960 --> 00:29:44,880
+learning talking about computer science
+
+565
+00:29:41,919 --> 00:29:48,159
+um computer scientist history. Peter
+
+566
+00:29:44,880 --> 00:29:50,480
+Novik uh and Python programming language
+
+567
+00:29:48,159 --> 00:29:54,000
+history and lisp. Okay. And JavaScript.
+
+568
+00:29:50,480 --> 00:29:56,320
+Okay. Anyway, I I think I talked too
+
+569
+00:29:54,000 --> 00:29:58,640
+long. Now, let's just go back and finish
+
+570
+00:29:56,320 --> 00:30:02,240
+my JavaScript program. So, I was talking
+
+571
+00:29:58,640 --> 00:30:04,399
+about the terminology predicate. Uh
+
+572
+00:30:02,240 --> 00:30:06,480
+okay. So, let's finish the program.
+
+573
+00:30:04,399 --> 00:30:09,279
+Okay. So, we digress. So, let's write
+
+574
+00:30:06,480 --> 00:30:12,880
+this function. So, this here you need
+
+575
+00:30:09,279 --> 00:30:15,360
+two variables a and bb. the predicate
+
+576
+00:30:12,880 --> 00:30:18,000
+sort for sort they need to compare.
+
+577
+00:30:15,360 --> 00:30:20,880
+Okay. So for the JavaScript it's funny
+
+578
+00:30:18,000 --> 00:30:25,440
+because in JavaScript you know the
+
+579
+00:30:20,880 --> 00:30:28,640
+JavaScript sort you need to return
+
+580
+00:30:25,440 --> 00:30:31,600
+uh negative one or zero or one that's
+
+581
+00:30:28,640 --> 00:30:34,720
+how uh that's how it determines you know
+
+582
+00:30:31,600 --> 00:30:37,919
+your predicate function needs to return
+
+583
+00:30:34,720 --> 00:30:40,159
+these three possible values. Okay, funny
+
+584
+00:30:37,919 --> 00:30:43,600
+in JavaScript that by the way this
+
+585
+00:30:40,159 --> 00:30:45,760
+feature came from Pearl. So Brenda Ike
+
+586
+00:30:43,600 --> 00:30:48,240
+the creator of JavaScript they borrow he
+
+587
+00:30:45,760 --> 00:30:50,159
+borrowed you know this from Pearl. This
+
+588
+00:30:48,240 --> 00:30:53,200
+is how Pearl's
+
+589
+00:30:50,159 --> 00:30:56,000
+uh sort function works. You know you
+
+590
+00:30:53,200 --> 00:30:58,720
+need you if you want a custom sort you
+
+591
+00:30:56,000 --> 00:31:00,720
+need to pass a function and your
+
+592
+00:30:58,720 --> 00:31:03,440
+function must return negative one or
+
+593
+00:31:00,720 --> 00:31:08,320
+zero or one to indicate which you know
+
+594
+00:31:03,440 --> 00:31:12,480
+element is is preceding or su succeeding
+
+595
+00:31:08,320 --> 00:31:16,000
+okay that's the math jargon for order
+
+596
+00:31:12,480 --> 00:31:19,760
+okay so anyway so so so uh so uh what we
+
+597
+00:31:16,000 --> 00:31:22,559
+are doing yeah so we want to so aa so if
+
+598
+00:31:19,760 --> 00:31:28,960
+if uh let's say this is what we want to
+
+599
+00:31:22,559 --> 00:31:31,279
+do if aa dot name. Okay, so uh is uh
+
+600
+00:31:28,960 --> 00:31:34,240
+less than
+
+601
+00:31:31,279 --> 00:31:36,799
+bb.name will actually age not name.
+
+602
+00:31:34,240 --> 00:31:40,880
+Okay, because we want to sort this
+
+603
+00:31:36,799 --> 00:31:43,360
+object remember. So, so if that is that
+
+604
+00:31:40,880 --> 00:31:46,720
+then return that okay something like
+
+605
+00:31:43,360 --> 00:31:48,799
+that. Copy paste paste. Okay, so we can
+
+606
+00:31:46,720 --> 00:31:52,559
+like
+
+607
+00:31:48,799 --> 00:31:58,159
+uh do that and that. Okay. So if that
+
+608
+00:31:52,559 --> 00:32:02,399
+equals to uh equals to BBH then that
+
+609
+00:31:58,159 --> 00:32:05,360
+okay if then it's the greater wait.
+
+610
+00:32:02,399 --> 00:32:08,960
+Yeah. So this is what you have to do.
+
+611
+00:32:05,360 --> 00:32:11,679
+Okay. This is the sort predicate.
+
+612
+00:32:08,960 --> 00:32:15,440
+What the Zoomer idiots would say. This
+
+613
+00:32:11,679 --> 00:32:18,240
+is the uh uh sort for uh call back
+
+614
+00:32:15,440 --> 00:32:22,640
+function. Okay.
+
+615
+00:32:18,240 --> 00:32:25,039
+So you got a object array of objects
+
+616
+00:32:22,640 --> 00:32:27,919
+then you got the pair cut function then
+
+617
+00:32:25,039 --> 00:32:32,640
+you want to sort them
+
+618
+00:32:27,919 --> 00:32:35,360
+so sort it okay that's the output and
+
+619
+00:32:32,640 --> 00:32:37,679
+this part is uh from previous we don't
+
+620
+00:32:35,360 --> 00:32:42,320
+need it okay now double check one more
+
+621
+00:32:37,679 --> 00:32:44,559
+time is the whole code correct
+
+622
+00:32:42,320 --> 00:32:47,120
+uh check yeah I'm pretty sure sort
+
+623
+00:32:44,559 --> 00:32:48,720
+bracket yeah array of objects okay so
+
+624
+00:32:47,120 --> 00:32:51,840
+let's run
+
+625
+00:32:48,720 --> 00:32:55,840
+Press, press. Okay, wait. Press, press,
+
+626
+00:32:51,840 --> 00:32:59,039
+press. Let's see. Uh, we got this result
+
+627
+00:32:55,840 --> 00:33:03,039
+now. Is this result correct?
+
+628
+00:32:59,039 --> 00:33:05,120
+Mary, age 19. John, age 40. Is it
+
+629
+00:33:03,039 --> 00:33:07,120
+correct? Correct. It actually reverse
+
+630
+00:33:05,120 --> 00:33:11,840
+them. You see? So, we can actually uh
+
+631
+00:33:07,120 --> 00:33:16,000
+add another thing. Uh, Mary John Joe.
+
+632
+00:33:11,840 --> 00:33:18,159
+Okay. Joe age. How how old is Joe? Uh uh
+
+633
+00:33:16,000 --> 00:33:21,519
+let's say
+
+634
+00:33:18,159 --> 00:33:25,519
+you know let's say okay 15 well yeah
+
+635
+00:33:21,519 --> 00:33:31,880
+okay Joe but then let's say David uh
+
+636
+00:33:25,519 --> 00:33:31,880
+David age uh that's random number okay
+
+637
+00:33:36,640 --> 00:33:46,080
+David what d a vid okay
+
+638
+00:33:41,360 --> 00:33:49,200
+let's just say Dave Joe Mary John. Okay.
+
+639
+00:33:46,080 --> 00:33:51,440
+John, John, Mary, Joe, Dave. Okay.
+
+640
+00:33:49,200 --> 00:33:54,320
+Something like that. So, did you see?
+
+641
+00:33:51,440 --> 00:33:57,519
+So, yeah. So, we run it. So, you got
+
+642
+00:33:54,320 --> 00:34:01,919
+that. You got that.
+
+643
+00:33:57,519 --> 00:34:04,720
+Copy and paste it
+
+644
+00:34:01,919 --> 00:34:07,840
+here.
+
+645
+00:34:04,720 --> 00:34:10,399
+Fantastic. Did we did do well? Yes, we
+
+646
+00:34:07,840 --> 00:34:14,320
+did do well. Fantastic. And beautiful.
+
+647
+00:34:10,399 --> 00:34:17,520
+So, we succeeded. Put it back. syntax
+
+648
+00:34:14,320 --> 00:34:21,520
+color the whole page show in browser. So
+
+649
+00:34:17,520 --> 00:34:25,119
+we completed today's task
+
+650
+00:34:21,520 --> 00:34:27,760
+of updating adding a example to my
+
+651
+00:34:25,119 --> 00:34:30,480
+JavaScript indepth tutorial on
+
+652
+00:34:27,760 --> 00:34:34,879
+array.prototype.sort
+
+653
+00:34:30,480 --> 00:34:38,879
+by adding a example of a frequently
+
+654
+00:34:34,879 --> 00:34:42,560
+needed example of how do you sort
+
+655
+00:34:38,879 --> 00:34:45,040
+uh objects array of objects. Okay. So we
+
+656
+00:34:42,560 --> 00:34:47,760
+added the example. Now previously I mean
+
+657
+00:34:45,040 --> 00:34:50,480
+I had other examples. So this example
+
+658
+00:34:47,760 --> 00:34:53,760
+for example this one is more complex.
+
+659
+00:34:50,480 --> 00:34:56,159
+You see you have a array of strings and
+
+660
+00:34:53,760 --> 00:35:00,560
+in each string you got you know some
+
+661
+00:34:56,159 --> 00:35:03,040
+letters then followed by a number. So to
+
+662
+00:35:00,560 --> 00:35:05,760
+sort these strings you want to extract
+
+663
+00:35:03,040 --> 00:35:08,320
+the number after the first character. So
+
+664
+00:35:05,760 --> 00:35:11,920
+that's u you know so that's a you know
+
+665
+00:35:08,320 --> 00:35:13,760
+little example of custom function.
+
+666
+00:35:11,920 --> 00:35:16,079
+Then we explain other things. The
+
+667
+00:35:13,760 --> 00:35:19,280
+default order function which is the you
+
+668
+00:35:16,079 --> 00:35:24,160
+know we have in this example to showcase
+
+669
+00:35:19,280 --> 00:35:27,720
+the default sort order which is by the
+
+670
+00:35:24,160 --> 00:35:27,720
+uh the
+
+671
+00:35:27,920 --> 00:35:36,640
+code unit idiocy which is the first 16
+
+672
+00:35:32,560 --> 00:35:40,720
+bits of a character's
+
+673
+00:35:36,640 --> 00:35:43,920
+character UTF16 encoding. So what
+
+674
+00:35:40,720 --> 00:35:47,599
+JavaScript do JavaS what JavaScript does
+
+675
+00:35:43,920 --> 00:35:51,200
+is first of all it converts the elements
+
+676
+00:35:47,599 --> 00:35:54,400
+in your array into a string. Then for
+
+677
+00:35:51,200 --> 00:35:56,960
+each character I mean index in the
+
+678
+00:35:54,400 --> 00:36:00,240
+string it takes I mean for each element
+
+679
+00:35:56,960 --> 00:36:03,839
+the first character it turns into the 16
+
+680
+00:36:00,240 --> 00:36:07,119
+bits of UTF16 encoding and compare that.
+
+681
+00:36:03,839 --> 00:36:09,359
+So that's extreme idiocy
+
+682
+00:36:07,119 --> 00:36:12,000
+and uh that's a default sort order
+
+683
+00:36:09,359 --> 00:36:14,800
+that's illustrated here. Okay. Anyway,
+
+684
+00:36:12,000 --> 00:36:19,359
+so that's it for today. So if you guys
+
+685
+00:36:14,800 --> 00:36:22,720
+uh like my stuff, okay. Hey.
+
+686
+00:36:19,359 --> 00:36:24,720
+Okay. Is that is that good? Is that you
+
+687
+00:36:22,720 --> 00:36:28,079
+know reasonable? Is that you know? So
+
+688
+00:36:24,720 --> 00:36:30,720
+you go to like go to kasali.info.
+
+689
+00:36:28,079 --> 00:36:32,880
+Uh you know pay me $100 if you have a
+
+690
+00:36:30,720 --> 00:36:35,760
+job.
+
+691
+00:36:32,880 --> 00:36:40,160
+uh kasad.info
+
+692
+00:36:35,760 --> 00:36:43,200
+http no s and all the way down then you
+
+693
+00:36:40,160 --> 00:36:46,720
+can just pay patreon or amazon gift card
+
+694
+00:36:43,200 --> 00:36:50,320
+or pay paypal me. Okay. Okay. That's it
+
+695
+00:36:46,720 --> 00:36:53,880
+guys. Uh I think that's it. Bye. Uh no
+
+696
+00:36:50,320 --> 00:36:53,880
+questions anyone.
+
+697
+00:37:01,440 --> 00:37:07,920
+Okay. We shut down in a minute. So, we
+
+698
+00:37:04,320 --> 00:37:10,880
+did this sort fantastic
+
+699
+00:37:07,920 --> 00:37:15,119
+order objects example order objects.
+
+700
+00:37:10,880 --> 00:37:18,000
+Yeah, the classic way. Oh, wait. No, you
+
+701
+00:37:15,119 --> 00:37:21,359
+see, let's copy this to my tutorial
+
+702
+00:37:18,000 --> 00:37:25,040
+because here is my official, you know,
+
+703
+00:37:21,359 --> 00:37:27,839
+here is my JavaScript um wait where is
+
+704
+00:37:25,040 --> 00:37:30,560
+it object reference. Yeah. So, so this
+
+705
+00:37:27,839 --> 00:37:32,480
+is my JavaScript in-depth tutorial,
+
+706
+00:37:30,560 --> 00:37:34,640
+right?
+
+707
+00:37:32,480 --> 00:37:37,200
+You don't want you know in in this in
+
+708
+00:37:34,640 --> 00:37:40,079
+this JavaScript tutorial array class
+
+709
+00:37:37,200 --> 00:37:42,320
+then you go to array prototype then you
+
+710
+00:37:40,079 --> 00:37:46,000
+go down you go you you know so many
+
+711
+00:37:42,320 --> 00:37:49,280
+methods you go to sort you don't want
+
+712
+00:37:46,000 --> 00:37:51,359
+you don't want to say uh zoomer idiots
+
+713
+00:37:49,280 --> 00:37:56,079
+here
+
+714
+00:37:51,359 --> 00:37:59,920
+so actually uh let's copy that actually
+
+715
+00:37:56,079 --> 00:38:04,560
+copy that go to my talk show put that
+
+716
+00:37:59,920 --> 00:38:09,680
+into my talk show. Okay. Okay. Then
+
+717
+00:38:04,560 --> 00:38:14,000
+but in my but in my um here don't don't
+
+718
+00:38:09,680 --> 00:38:16,720
+don't say this thing. Okay. Uh and let's
+
+719
+00:38:14,000 --> 00:38:18,640
+let's clarify for the right audience.
+
+720
+00:38:16,720 --> 00:38:22,000
+Okay.
+
+721
+00:38:18,640 --> 00:38:26,240
+So let's say example of sold objects in
+
+722
+00:38:22,000 --> 00:38:28,560
+array. Okay. So don't say that people
+
+723
+00:38:26,240 --> 00:38:33,560
+don't need to know that and in fact we
+
+724
+00:38:28,560 --> 00:38:33,560
+don't need this um
+
+725
+00:38:34,320 --> 00:38:39,440
+this uh well you can you can kind of you
+
+726
+00:38:37,200 --> 00:38:41,760
+know like you can put this so this is a
+
+727
+00:38:39,440 --> 00:38:43,920
+function functional programming you can
+
+728
+00:38:41,760 --> 00:38:47,200
+just put that here you don't need it to
+
+729
+00:38:43,920 --> 00:38:49,359
+be separate so typically
+
+730
+00:38:47,200 --> 00:38:51,760
+for real life functional programming you
+
+731
+00:38:49,359 --> 00:38:55,520
+know you if you are familiar usually
+
+732
+00:38:51,760 --> 00:38:57,920
+usually you Don't you don't create it in
+
+733
+00:38:55,520 --> 00:39:00,640
+a separate function. You just put it
+
+734
+00:38:57,920 --> 00:39:04,320
+there part of it. Okay. So now you can
+
+735
+00:39:00,640 --> 00:39:08,960
+see the code is more compact. This is
+
+736
+00:39:04,320 --> 00:39:12,400
+more like real you know production code
+
+737
+00:39:08,960 --> 00:39:15,680
+of sorting. Okay. So you can see you run
+
+738
+00:39:12,400 --> 00:39:17,280
+it same result. Okay. So now put it back
+
+739
+00:39:15,680 --> 00:39:20,880
+syntax
+
+740
+00:39:17,280 --> 00:39:24,560
+show in browser and uh today's date. Did
+
+741
+00:39:20,880 --> 00:39:27,200
+we update today's date? 2000 February 6.
+
+742
+00:39:24,560 --> 00:39:29,040
+Okay. Showing browser. Fantastic.
+
+743
+00:39:27,200 --> 00:39:32,320
+Fantastic.
+
+744
+00:39:29,040 --> 00:39:35,839
+Older object. Fantastic. Okay. Now go
+
+745
+00:39:32,320 --> 00:39:39,359
+back. Close that. Close that. Uh flag
+
+746
+00:39:35,839 --> 00:39:42,079
+keys most advanced key binding. Let's go
+
+747
+00:39:39,359 --> 00:39:45,599
+back to talk show. Show show in browser.
+
+748
+00:39:42,079 --> 00:39:51,680
+Uh did we syntax color? Yes. And here we
+
+749
+00:39:45,599 --> 00:39:51,680
+mention this funny things. Okay. Bye.
+

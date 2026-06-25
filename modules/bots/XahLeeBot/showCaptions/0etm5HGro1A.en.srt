@@ -1,0 +1,5376 @@
+1
+00:00:03,890 --> 00:00:11,639
+good morning everyone welcome to another
+
+2
+00:00:07,740 --> 00:00:16,820
+episode of our top show today is August
+
+3
+00:00:11,639 --> 00:00:20,609
+5th 2019 now it's 9 o clock p.m.
+
+4
+00:00:16,820 --> 00:00:24,949
+California time and today I'm going to
+
+5
+00:00:20,609 --> 00:00:28,019
+teach you how to write a Emacs major mod
+
+6
+00:00:24,949 --> 00:00:31,740
+and I'm going to write it I'm going to
+
+7
+00:00:28,019 --> 00:00:33,649
+do a live demo and code it and I'm gonna
+
+8
+00:00:31,740 --> 00:00:38,129
+explain how it works
+
+9
+00:00:33,649 --> 00:00:43,320
+so let's if you go to my Emacs blog my
+
+10
+00:00:38,129 --> 00:00:47,579
+Emacs tutorial you go to write a major
+
+11
+00:00:43,320 --> 00:00:50,219
+mod so check out this tutorial you know
+
+12
+00:00:47,579 --> 00:00:52,530
+this has this contains everything you
+
+13
+00:00:50,219 --> 00:00:56,850
+need to know about writing a major mod
+
+14
+00:00:52,530 --> 00:00:59,940
+now if you are impatient of watching
+
+15
+00:00:56,850 --> 00:01:01,410
+videos you can just read these but I'm
+
+16
+00:00:59,940 --> 00:01:04,409
+going to go through them I mean
+
+17
+00:01:01,410 --> 00:01:07,010
+basically just one you know I'm going
+
+18
+00:01:04,409 --> 00:01:10,140
+just going to show you the basics today
+
+19
+00:01:07,010 --> 00:01:14,250
+let's see how many people I have so I
+
+20
+00:01:10,140 --> 00:01:18,030
+have no nobody's here yet and I'm going
+
+21
+00:01:14,250 --> 00:01:22,140
+to wait for five minutes so I'll be back
+
+22
+00:01:18,030 --> 00:01:24,869
+in five minutes you know maybe people
+
+23
+00:01:22,140 --> 00:01:28,790
+will come maybe you'll be better it's
+
+24
+00:01:24,869 --> 00:01:34,700
+better even there are a lot of people so
+
+25
+00:01:28,790 --> 00:01:34,700
+be right back in five minutes okay
+
+26
+00:01:37,800 --> 00:01:56,560
+start at 9:08 okay and there you go guys
+
+27
+00:01:51,960 --> 00:02:12,990
+I'll be back in five minutes and we'll
+
+28
+00:01:56,560 --> 00:02:12,990
+do a Emacs ninja mod okay so
+
+29
+00:06:35,720 --> 00:06:44,310
+and back morning everyone so today we
+
+30
+00:06:39,720 --> 00:06:47,250
+are going to write a major mod tutorial
+
+31
+00:06:44,310 --> 00:06:52,080
+live coding first tutorial on how to
+
+32
+00:06:47,250 --> 00:06:55,710
+write a Emacs major mod for you know for
+
+33
+00:06:52,080 --> 00:06:58,139
+programming languages for anything it's
+
+34
+00:06:55,710 --> 00:07:06,780
+you know major mod is very powerful
+
+35
+00:06:58,139 --> 00:07:07,610
+hi good morning Alessi aversives recives
+
+36
+00:07:06,780 --> 00:07:11,070
+where you from
+
+37
+00:07:07,610 --> 00:07:14,699
+so let's see how many people are
+
+38
+00:07:11,070 --> 00:07:21,080
+watching three people good so let me put
+
+39
+00:07:14,699 --> 00:07:27,500
+my full my drink and we'll start this is
+
+40
+00:07:21,080 --> 00:07:33,690
+raspberry and berry juice sugar free and
+
+41
+00:07:27,500 --> 00:07:36,120
+energy drink mix so how to write a major
+
+42
+00:07:33,690 --> 00:07:38,389
+mod so you know major mod is very very
+
+43
+00:07:36,120 --> 00:07:38,389
+powerful
+
+44
+00:07:49,319 --> 00:08:00,910
+okay let's begin begin at the beginning
+
+45
+00:07:54,419 --> 00:08:05,139
+so let's go through my my Emacs blog my
+
+46
+00:08:00,910 --> 00:08:07,539
+Emacs tutorial and in this section Emacs
+
+47
+00:08:05,139 --> 00:08:11,410
+Lisp and down below here write the major
+
+48
+00:08:07,539 --> 00:08:13,349
+mod you will see you know all the
+
+49
+00:08:11,410 --> 00:08:15,580
+tutorials about writing a major mod and
+
+50
+00:08:13,349 --> 00:08:19,599
+today I'm going to give you a basic
+
+51
+00:08:15,580 --> 00:08:22,270
+basic introduction on how to do that so
+
+52
+00:08:19,599 --> 00:08:26,050
+a major mod it's opened a new buffer and
+
+53
+00:08:22,270 --> 00:08:28,630
+on the Left window here you can see all
+
+54
+00:08:26,050 --> 00:08:31,960
+the Emacs commands I call for example
+
+55
+00:08:28,630 --> 00:08:35,200
+hope for world world backward word for
+
+56
+00:08:31,960 --> 00:08:37,240
+word cha backward cha previous line you
+
+57
+00:08:35,200 --> 00:08:39,849
+know so if I'm doing something you are
+
+58
+00:08:37,240 --> 00:08:41,950
+not familiar you can always look up on
+
+59
+00:08:39,849 --> 00:08:45,160
+the Left window he will show the command
+
+60
+00:08:41,950 --> 00:08:47,080
+name and you you know you then you can
+
+61
+00:08:45,160 --> 00:08:50,470
+look up the web search the web and
+
+62
+00:08:47,080 --> 00:08:54,040
+you'll find it so let's open a new
+
+63
+00:08:50,470 --> 00:09:00,070
+buffer so let's save save this as X X
+
+64
+00:08:54,040 --> 00:09:03,279
+let's say X X yeah so that's you know
+
+65
+00:09:00,070 --> 00:09:08,290
+that's Emacs Lisp so writing a major
+
+66
+00:09:03,279 --> 00:09:15,339
+model so so this is my Emacs blog let's
+
+67
+00:09:08,290 --> 00:09:18,300
+create a new section writing a major mod
+
+68
+00:09:15,339 --> 00:09:27,270
+okay that's what we cannot do and so
+
+69
+00:09:18,300 --> 00:09:30,339
+okay so so major mod making a major bot
+
+70
+00:09:27,270 --> 00:09:33,300
+so major mod involves several things
+
+71
+00:09:30,339 --> 00:09:36,279
+first of all it involves colouring
+
+72
+00:09:33,300 --> 00:09:38,050
+syntax coloring for example you see how
+
+73
+00:09:36,279 --> 00:09:41,680
+you know my buffer are colored you know
+
+74
+00:09:38,050 --> 00:09:43,510
+that's the most useful when you do a
+
+75
+00:09:41,680 --> 00:09:45,190
+programming language you know you want a
+
+76
+00:09:43,510 --> 00:09:54,040
+major major mode for that programming
+
+77
+00:09:45,190 --> 00:09:58,300
+language so so a major mod components of
+
+78
+00:09:54,040 --> 00:09:59,310
+major mod not components but features of
+
+79
+00:09:58,300 --> 00:10:01,690
+major mod ok
+
+80
+00:09:59,310 --> 00:10:05,920
+they include
+
+81
+00:10:01,690 --> 00:10:09,880
+the syntax coloring you know currents
+
+82
+00:10:05,920 --> 00:10:14,610
+and words and and this is what we are
+
+83
+00:10:09,880 --> 00:10:14,610
+going to do today syntax coloring then
+
+84
+00:10:15,420 --> 00:10:25,540
+comment command okay
+
+85
+00:10:17,470 --> 00:10:28,450
+then comment uncommon command so what
+
+86
+00:10:25,540 --> 00:10:32,050
+are they for example this is a Maglis
+
+87
+00:10:28,450 --> 00:10:34,780
+let's say d fun let's say define a
+
+88
+00:10:32,050 --> 00:10:36,280
+function you know we have we are trying
+
+89
+00:10:34,780 --> 00:10:38,320
+to define a function and let's say I
+
+90
+00:10:36,280 --> 00:10:41,740
+don't want this you know I can't come I
+
+91
+00:10:38,320 --> 00:10:46,330
+can come and it out you see this is
+
+92
+00:10:41,740 --> 00:10:48,430
+common comment or uncommon oh I can
+
+93
+00:10:46,330 --> 00:10:50,290
+comment the whole thing so you need a
+
+94
+00:10:48,430 --> 00:10:52,510
+command to do this you know you need to
+
+95
+00:10:50,290 --> 00:10:55,840
+write a command to comment on comments
+
+96
+00:10:52,510 --> 00:11:00,580
+so that that is one of the thing feature
+
+97
+00:10:55,840 --> 00:11:09,130
+for major mod so syntax Korean common in
+
+98
+00:11:00,580 --> 00:11:11,620
+comment and that is basically it that is
+
+99
+00:11:09,130 --> 00:11:14,980
+the call I mean that's typically that's
+
+100
+00:11:11,620 --> 00:11:17,770
+the 90% features of major ma that's what
+
+101
+00:11:14,980 --> 00:11:20,590
+you want was what you need there are
+
+102
+00:11:17,770 --> 00:11:25,570
+other things such as you know you might
+
+103
+00:11:20,590 --> 00:11:28,210
+have command to format the buffer to to
+
+104
+00:11:25,570 --> 00:11:32,740
+look up the documentation of a function
+
+105
+00:11:28,210 --> 00:11:34,390
+of that language or - oh and key binding
+
+106
+00:11:32,740 --> 00:11:37,510
+you know typically in a major mod you
+
+107
+00:11:34,390 --> 00:11:42,460
+have specialized key bindings to code
+
+108
+00:11:37,510 --> 00:11:44,980
+your commands for your niche major map
+
+109
+00:11:42,460 --> 00:11:46,960
+you know so that depends on the language
+
+110
+00:11:44,980 --> 00:11:49,540
+you know depending on the language for
+
+111
+00:11:46,960 --> 00:11:53,830
+example different major mod :
+
+112
+00:11:49,540 --> 00:11:56,950
+Ruby Python you know JavaScript maybe or
+
+113
+00:11:53,830 --> 00:11:59,770
+C you know a Java C++ maybe you need a
+
+114
+00:11:56,950 --> 00:12:05,860
+command to compile the file maybe you
+
+115
+00:11:59,770 --> 00:12:07,990
+need a command to to you know they are
+
+116
+00:12:05,860 --> 00:12:10,240
+depending on the language so other
+
+117
+00:12:07,990 --> 00:12:13,570
+features there are many other features
+
+118
+00:12:10,240 --> 00:12:14,920
+but the most two important feature is
+
+119
+00:12:13,570 --> 00:12:19,350
+syntax colouring
+
+120
+00:12:14,920 --> 00:12:22,899
+and a command to comment and uncomment
+
+121
+00:12:19,350 --> 00:12:25,149
+so what we're going to do is we are
+
+122
+00:12:22,899 --> 00:12:29,139
+going to write a major mod 4 syntax
+
+123
+00:12:25,149 --> 00:12:34,509
+coloring and that should be it for today
+
+124
+00:12:29,139 --> 00:12:37,389
+for this lesson and since we cover
+
+125
+00:12:34,509 --> 00:12:40,569
+syntax current that will also cover the
+
+126
+00:12:37,389 --> 00:12:43,299
+basic fundamental structure of a mate of
+
+127
+00:12:40,569 --> 00:12:48,089
+writing creating a major mod so let's
+
+128
+00:12:43,299 --> 00:12:52,859
+let's begin so if you go to my Emacs
+
+129
+00:12:48,089 --> 00:12:52,859
+tutorial you can see I battuto here
+
+130
+00:12:54,059 --> 00:13:00,160
+let's let's just follow the tutorial so
+
+131
+00:12:56,949 --> 00:13:02,379
+this is kind of like the textbook so
+
+132
+00:13:00,160 --> 00:13:04,509
+guys if you have comments opinions
+
+133
+00:13:02,379 --> 00:13:06,239
+questions posted ok the more you post
+
+134
+00:13:04,509 --> 00:13:14,350
+the better it is
+
+135
+00:13:06,239 --> 00:13:16,749
+recive yeah hi so posting comments ok so
+
+136
+00:13:14,350 --> 00:13:19,089
+so let's say you have this language now
+
+137
+00:13:16,749 --> 00:13:21,519
+this is this is actually mathematical
+
+138
+00:13:19,089 --> 00:13:24,819
+language okay suppose you have this
+
+139
+00:13:21,519 --> 00:13:27,579
+language you know this is math sine
+
+140
+00:13:24,819 --> 00:13:30,519
+squared cosine squared equals 1 you know
+
+141
+00:13:27,579 --> 00:13:33,429
+this is the code and you want to color
+
+142
+00:13:30,519 --> 00:13:38,199
+the sine you want to color the cosine
+
+143
+00:13:33,429 --> 00:13:41,769
+you want to color the pie and some you
+
+144
+00:13:38,199 --> 00:13:43,540
+know some and also infinity so cosine
+
+145
+00:13:41,769 --> 00:13:46,569
+and sine are function names you want to
+
+146
+00:13:43,540 --> 00:13:49,809
+and some function names you want to
+
+147
+00:13:46,569 --> 00:13:52,059
+color it in let's say blue then pi and
+
+148
+00:13:49,809 --> 00:13:54,100
+infinity are constants let's say you
+
+149
+00:13:52,059 --> 00:13:57,910
+want to color in green there's something
+
+150
+00:13:54,100 --> 00:13:59,559
+some other color so so this is your you
+
+151
+00:13:57,910 --> 00:14:02,289
+know your language your code you know
+
+152
+00:13:59,559 --> 00:14:06,279
+you want to color it so how do we do it
+
+153
+00:14:02,289 --> 00:14:08,649
+so we start by it's very easy ok so this
+
+154
+00:14:06,279 --> 00:14:11,289
+is the code that's all you need
+
+155
+00:14:08,649 --> 00:14:16,749
+let me show you let's just copy and
+
+156
+00:14:11,289 --> 00:14:24,309
+paste and you know let's show how it
+
+157
+00:14:16,749 --> 00:14:27,869
+works so let's go back to on our second
+
+158
+00:14:24,309 --> 00:14:27,869
+let me paste that here
+
+159
+00:14:29,000 --> 00:14:38,190
+sample code of your language okay
+
+160
+00:14:35,240 --> 00:14:42,900
+sample code of your language is this
+
+161
+00:14:38,190 --> 00:14:45,180
+okay and code okay showing browser
+
+162
+00:14:42,900 --> 00:14:47,730
+see that's the sample code then you
+
+163
+00:14:45,180 --> 00:14:50,850
+let's write the major mod for it so
+
+164
+00:14:47,730 --> 00:14:57,120
+let's go back to Emacs Lisp but for here
+
+165
+00:14:50,850 --> 00:14:59,460
+here's a code let's see set and defined
+
+166
+00:14:57,120 --> 00:15:01,890
+we've mark okay that that is it that's
+
+167
+00:14:59,460 --> 00:15:04,320
+you know just these few lines will do
+
+168
+00:15:01,890 --> 00:15:09,560
+now what we do is going to we are going
+
+169
+00:15:04,320 --> 00:15:13,950
+to save this file as my maths mod okay
+
+170
+00:15:09,560 --> 00:15:16,980
+so I go to the directory we name it my
+
+171
+00:15:13,950 --> 00:15:23,310
+math mod yeah you see this line okay
+
+172
+00:15:16,980 --> 00:15:26,580
+save it my math where did it go okay
+
+173
+00:15:23,310 --> 00:15:32,670
+it's here so open it so this file is
+
+174
+00:15:26,580 --> 00:15:38,700
+saved as my math - mod dot dot year now
+
+175
+00:15:32,670 --> 00:15:41,280
+we run it eval buffer we want to you can
+
+176
+00:15:38,700 --> 00:15:44,100
+call the command give a buffer to ran
+
+177
+00:15:41,280 --> 00:15:46,650
+the code now Emacs actually now know the
+
+178
+00:15:44,100 --> 00:15:51,090
+code because now I can't because I we
+
+179
+00:15:46,650 --> 00:15:56,850
+just evaluated it and now we can for
+
+180
+00:15:51,090 --> 00:16:02,940
+example I can do MX and my math you see
+
+181
+00:15:56,850 --> 00:16:08,640
+there's a command my my math mod so now
+
+182
+00:16:02,940 --> 00:16:15,990
+let's go back to the file let's go back
+
+183
+00:16:08,640 --> 00:16:21,330
+to the file where's my Emacs blog okay
+
+184
+00:16:15,990 --> 00:16:29,550
+so let's go back to the file and save
+
+185
+00:16:21,330 --> 00:16:34,830
+this as my math dot text okay let's say
+
+186
+00:16:29,550 --> 00:16:39,480
+this is and now in this buffer now we
+
+187
+00:16:34,830 --> 00:16:46,860
+call the command meta X my
+
+188
+00:16:39,480 --> 00:16:49,680
+math - mod enter you see you see how
+
+189
+00:16:46,860 --> 00:16:52,139
+they are colored you see sine cosine are
+
+190
+00:16:49,680 --> 00:16:55,410
+colored and some is also colored blue
+
+191
+00:16:52,139 --> 00:16:57,329
+and pi is you know pi and infinity are
+
+192
+00:16:55,410 --> 00:17:04,650
+colored green because they are constants
+
+193
+00:16:57,329 --> 00:17:07,079
+you know so that works so so what does
+
+194
+00:17:04,650 --> 00:17:10,110
+this mean for you practically so that
+
+195
+00:17:07,079 --> 00:17:13,169
+means you can copy it is just this six
+
+196
+00:17:10,110 --> 00:17:17,220
+lines of code and now you can change
+
+197
+00:17:13,169 --> 00:17:20,549
+these words sine cosine change the PI
+
+198
+00:17:17,220 --> 00:17:24,299
+infinity to any words you want you
+
+199
+00:17:20,549 --> 00:17:27,360
+basically now have your own custom major
+
+200
+00:17:24,299 --> 00:17:29,190
+mark and when you are in any file you
+
+201
+00:17:27,360 --> 00:17:33,210
+want those words colored you can just
+
+202
+00:17:29,190 --> 00:17:39,169
+meet our eggs you know and my math mod
+
+203
+00:17:33,210 --> 00:17:39,169
+can do walk okay so so far so good
+
+204
+00:17:41,340 --> 00:17:56,340
+so guys comments okay comment post say
+
+205
+00:17:44,160 --> 00:17:58,820
+hi hey green dick great thank you so
+
+206
+00:17:56,340 --> 00:18:03,630
+comments okay keep the comments coming
+
+207
+00:17:58,820 --> 00:18:05,790
+then you'll be better so now you see so
+
+208
+00:18:03,630 --> 00:18:08,640
+this is the basic of writing a major mod
+
+209
+00:18:05,790 --> 00:18:12,840
+it's so simple you know just this lines
+
+210
+00:18:08,640 --> 00:18:17,809
+now now let's go back to the Emacs
+
+211
+00:18:12,840 --> 00:18:25,910
+tutorial so so all the code you need
+
+212
+00:18:17,809 --> 00:18:25,910
+sample simple major mod code okay and
+
+213
+00:18:26,570 --> 00:18:32,309
+put it here
+
+214
+00:18:28,290 --> 00:18:34,799
+color it show in browser so this is what
+
+215
+00:18:32,309 --> 00:18:37,200
+we have covered so far you know so we've
+
+216
+00:18:34,799 --> 00:18:40,650
+this is a sample code we want to color
+
+217
+00:18:37,200 --> 00:18:45,120
+and this is the Emacs Lisp code that
+
+218
+00:18:40,650 --> 00:18:49,860
+actually creates the majima okay now let
+
+219
+00:18:45,120 --> 00:18:53,130
+me explain how this works okay so you
+
+220
+00:18:49,860 --> 00:18:56,180
+see so first of all we set you
+
+221
+00:18:53,130 --> 00:18:58,650
+we said variable mass my math highlights
+
+222
+00:18:56,180 --> 00:19:02,220
+you know that's just a variable name
+
+223
+00:18:58,650 --> 00:19:06,780
+then we in this the value of this
+
+224
+00:19:02,220 --> 00:19:11,660
+variable is a list you can see the
+
+225
+00:19:06,780 --> 00:19:18,350
+structure if I do it this way one second
+
+226
+00:19:11,660 --> 00:19:18,350
+you see it's simply a list of two items
+
+227
+00:19:20,570 --> 00:19:28,920
+one two a list of two items and now now
+
+228
+00:19:25,080 --> 00:19:33,750
+list this list is a invert list meaning
+
+229
+00:19:28,920 --> 00:19:37,230
+that the value is not evaluated okay so
+
+230
+00:19:33,750 --> 00:19:41,180
+so so we in this whenever you have
+
+231
+00:19:37,230 --> 00:19:47,280
+something like that some thing okay
+
+232
+00:19:41,180 --> 00:19:51,840
+let's say a PC this is exactly equal to
+
+233
+00:19:47,280 --> 00:19:54,660
+that okay these two are exactly the same
+
+234
+00:19:51,840 --> 00:19:58,260
+what basically what what it means is
+
+235
+00:19:54,660 --> 00:20:02,670
+that it does not evaluate the items in
+
+236
+00:19:58,260 --> 00:20:05,280
+the list and this is called quoted list
+
+237
+00:20:02,670 --> 00:20:07,470
+it's called quote so and this is a
+
+238
+00:20:05,280 --> 00:20:14,700
+variant syntax they mean exactly the
+
+239
+00:20:07,470 --> 00:20:16,680
+same thing so let's go back here so we
+
+240
+00:20:14,700 --> 00:20:19,560
+create the variable and the value is the
+
+241
+00:20:16,680 --> 00:20:28,320
+list we don't want to evaluate anything
+
+242
+00:20:19,560 --> 00:20:32,010
+inside so this each item is a each item
+
+243
+00:20:28,320 --> 00:20:35,360
+is conspire this is called constant pair
+
+244
+00:20:32,010 --> 00:20:35,360
+can spare
+
+245
+00:20:39,840 --> 00:20:46,330
+okay I'm not going to explain what
+
+246
+00:20:42,639 --> 00:20:48,460
+conspire is but basically just follow
+
+247
+00:20:46,330 --> 00:20:50,159
+the syntax it basically just means a
+
+248
+00:20:48,460 --> 00:20:54,429
+pair of two things
+
+249
+00:20:50,159 --> 00:20:58,149
+counts pair you know least in disp is
+
+250
+00:20:54,429 --> 00:21:01,360
+made of cons pairs actually but that's
+
+251
+00:20:58,149 --> 00:21:04,360
+any anyway that's a language detail you
+
+252
+00:21:01,360 --> 00:21:07,990
+don't really need to know if you are you
+
+253
+00:21:04,360 --> 00:21:10,750
+know just started with Lisp so anyway in
+
+254
+00:21:07,990 --> 00:21:14,950
+this list you have two items each item
+
+255
+00:21:10,750 --> 00:21:17,110
+is is called a conspire and the syntax
+
+256
+00:21:14,950 --> 00:21:20,409
+is you know you have a thought in the
+
+257
+00:21:17,110 --> 00:21:23,529
+middle like the first part then last
+
+258
+00:21:20,409 --> 00:21:26,320
+part and the thought in the middle so
+
+259
+00:21:23,529 --> 00:21:29,710
+what does this mean so this this mean in
+
+260
+00:21:26,320 --> 00:21:33,450
+this context is you know the first part
+
+261
+00:21:29,710 --> 00:21:37,210
+is actually a regular expression so
+
+262
+00:21:33,450 --> 00:21:41,019
+essentially here we want to say whenever
+
+263
+00:21:37,210 --> 00:21:45,879
+you see the word sine cosine or Sun you
+
+264
+00:21:41,019 --> 00:21:49,480
+want to use this this font value you
+
+265
+00:21:45,879 --> 00:21:52,600
+know font lock you know it means color
+
+266
+00:21:49,480 --> 00:21:54,580
+and font size and so on so basically
+
+267
+00:21:52,600 --> 00:21:56,470
+whenever you see these words you want to
+
+268
+00:21:54,580 --> 00:21:59,320
+use this font
+
+269
+00:21:56,470 --> 00:22:02,590
+you know font lock font font face it's
+
+270
+00:21:59,320 --> 00:22:04,809
+called face in Emacs face and when you
+
+271
+00:22:02,590 --> 00:22:07,840
+whenever you see these towards Spiro
+
+272
+00:22:04,809 --> 00:22:10,240
+infinity you want to use this face okay
+
+273
+00:22:07,840 --> 00:22:14,379
+so anyway so this is the variable we
+
+274
+00:22:10,240 --> 00:22:19,659
+define the value there and now we have
+
+275
+00:22:14,379 --> 00:22:24,870
+this function define derived mod now
+
+276
+00:22:19,659 --> 00:22:27,789
+define derived mod is a list macro that
+
+277
+00:22:24,870 --> 00:22:30,610
+kind of that helps you create a major
+
+278
+00:22:27,789 --> 00:22:33,700
+mod don't worry about the details
+
+279
+00:22:30,610 --> 00:22:37,870
+you know like for now just just code it
+
+280
+00:22:33,700 --> 00:22:42,009
+like this so so define the derived mod
+
+281
+00:22:37,870 --> 00:22:48,429
+it takes three arguments the first
+
+282
+00:22:42,009 --> 00:22:51,960
+argument is the major mod name the major
+
+283
+00:22:48,429 --> 00:22:56,110
+mark name you should include the word -
+
+284
+00:22:51,960 --> 00:22:58,600
+after it's a major mark name the second
+
+285
+00:22:56,110 --> 00:23:02,140
+second argument we have fundamental mod
+
+286
+00:22:58,600 --> 00:23:06,040
+here what that means is that from which
+
+287
+00:23:02,140 --> 00:23:08,260
+mod you wanted to inherit from you know
+
+288
+00:23:06,040 --> 00:23:11,080
+basically so the second argument is a
+
+289
+00:23:08,260 --> 00:23:15,480
+parent mod you can say you can specify a
+
+290
+00:23:11,080 --> 00:23:15,480
+paramount so you can say for example
+
+291
+00:23:17,130 --> 00:23:24,310
+Java Script mod ok please if your
+
+292
+00:23:22,090 --> 00:23:27,730
+language is similar to Java Script then
+
+293
+00:23:24,310 --> 00:23:30,300
+you can you know say the parents pyramid
+
+294
+00:23:27,730 --> 00:23:34,420
+is JavaScript mod that way you will
+
+295
+00:23:30,300 --> 00:23:36,370
+inherit many of the features from the
+
+296
+00:23:34,420 --> 00:23:39,880
+parent mod so that's a six second
+
+297
+00:23:36,370 --> 00:23:44,320
+argument but if you do not want it to
+
+298
+00:23:39,880 --> 00:23:47,790
+inherit it you inherit from anything
+
+299
+00:23:44,320 --> 00:23:51,450
+then you just say fundamental mod
+
+300
+00:23:47,790 --> 00:23:55,300
+fundamental mod because in emacs
+
+301
+00:23:51,450 --> 00:23:57,670
+fundamental mod is the most basic mod it
+
+302
+00:23:55,300 --> 00:24:02,590
+you know it doesn't have any features it
+
+303
+00:23:57,670 --> 00:24:05,050
+just mod so that's the second argument
+
+304
+00:24:02,590 --> 00:24:08,470
+second argument is the parent mod the
+
+305
+00:24:05,050 --> 00:24:13,630
+third argument is a string and this is a
+
+306
+00:24:08,470 --> 00:24:16,720
+string that shows up in the in the mud
+
+307
+00:24:13,630 --> 00:24:19,750
+line you see there is this bar here like
+
+308
+00:24:16,720 --> 00:24:22,600
+when you start a Emacs you will see this
+
+309
+00:24:19,750 --> 00:24:27,640
+spa at the bottom that shows the
+
+310
+00:24:22,600 --> 00:24:30,190
+information like like the file name you
+
+311
+00:24:27,640 --> 00:24:32,410
+know what mod what is the major mod
+
+312
+00:24:30,190 --> 00:24:37,690
+can't mean too much information like
+
+313
+00:24:32,410 --> 00:24:42,040
+that this spa it's called mod why okay
+
+314
+00:24:37,690 --> 00:24:44,620
+let me write it out mod like that that's
+
+315
+00:24:42,040 --> 00:24:47,140
+the name of the you know technique or
+
+316
+00:24:44,620 --> 00:24:50,080
+name you know sometimes you call status
+
+317
+00:24:47,140 --> 00:24:51,970
+spa you know because test satisfies the
+
+318
+00:24:50,080 --> 00:24:54,790
+most popular name in browsers you know
+
+319
+00:24:51,970 --> 00:24:57,820
+status you know he gives you status but
+
+320
+00:24:54,790 --> 00:24:59,890
+anyway it's called mod line so Amala
+
+321
+00:24:57,820 --> 00:25:04,720
+you notice right now in this buffer you
+
+322
+00:24:59,890 --> 00:25:05,950
+say is text here now that that thing
+
+323
+00:25:04,720 --> 00:25:09,190
+that means
+
+324
+00:25:05,950 --> 00:25:12,010
+right now I'm making a major mod that's
+
+325
+00:25:09,190 --> 00:25:16,120
+called text summation text that that is
+
+326
+00:25:12,010 --> 00:25:18,490
+actually my my own techsmartt so for
+
+327
+00:25:16,120 --> 00:25:25,270
+example let's switch to fundamental mark
+
+328
+00:25:18,490 --> 00:25:28,960
+so so let's do meta X matrix fundamental
+
+329
+00:25:25,270 --> 00:25:33,900
+mod you see notice how it changes to
+
+330
+00:25:28,960 --> 00:25:39,280
+fundamental we can also let's switch to
+
+331
+00:25:33,900 --> 00:25:44,860
+text mod okay you see how it changes so
+
+332
+00:25:39,280 --> 00:25:48,880
+this text indicates to the user what is
+
+333
+00:25:44,860 --> 00:25:52,690
+the current major mod but however this
+
+334
+00:25:48,880 --> 00:25:56,230
+text is not the actual mod name this
+
+335
+00:25:52,690 --> 00:25:59,650
+text is just a display to tell user what
+
+336
+00:25:56,230 --> 00:26:04,300
+mady's so it's like a label okay so this
+
+337
+00:25:59,650 --> 00:26:07,360
+text is this third argument here the
+
+338
+00:26:04,300 --> 00:26:09,940
+define derived mod third argument you
+
+339
+00:26:07,360 --> 00:26:13,270
+give it a string and you can put
+
+340
+00:26:09,940 --> 00:26:17,050
+whatever string you want so when that
+
+341
+00:26:13,270 --> 00:26:19,570
+when people call meta X you know call
+
+342
+00:26:17,050 --> 00:26:23,100
+you know switch to your major mod that
+
+343
+00:26:19,570 --> 00:26:28,150
+text will be displayed in the mod line
+
+344
+00:26:23,100 --> 00:26:30,030
+okay so that's the third argument then
+
+345
+00:26:28,150 --> 00:26:32,050
+the fourth argument is just a
+
+346
+00:26:30,030 --> 00:26:35,700
+documentation string you know you can
+
+347
+00:26:32,050 --> 00:26:35,700
+say version or whatever
+
+348
+00:26:35,910 --> 00:26:42,880
+okay now the heart the heart of the
+
+349
+00:26:40,360 --> 00:26:47,830
+function is in this slide you see it
+
+350
+00:26:42,880 --> 00:26:51,100
+only has one line the body version okay
+
+351
+00:26:47,830 --> 00:26:54,070
+so the body is this single line now this
+
+352
+00:26:51,100 --> 00:27:01,540
+line it says set set the variable font
+
+353
+00:26:54,070 --> 00:27:04,570
+lock defaults to to a list of one
+
+354
+00:27:01,540 --> 00:27:09,400
+element and this element is what we just
+
+355
+00:27:04,570 --> 00:27:11,920
+defined you know my math highlights so
+
+356
+00:27:09,400 --> 00:27:15,400
+what does this do you see it seems also
+
+357
+00:27:11,920 --> 00:27:17,140
+simple and but but so what what does
+
+358
+00:27:15,400 --> 00:27:21,309
+this do so
+
+359
+00:27:17,140 --> 00:27:25,200
+so in emacs when you write the major in
+
+360
+00:27:21,309 --> 00:27:27,970
+Emacs you have this you have this
+
+361
+00:27:25,200 --> 00:27:34,750
+building variable that is called font
+
+362
+00:27:27,970 --> 00:27:38,500
+lock defaults okay this variable this
+
+363
+00:27:34,750 --> 00:27:44,760
+variables values should be a list okay
+
+364
+00:27:38,500 --> 00:27:44,760
+and lists this list will determine
+
+365
+00:27:45,420 --> 00:27:52,780
+essentially or it tells Emacs how the
+
+366
+00:27:49,540 --> 00:27:56,350
+how to color the buffer basically you
+
+367
+00:27:52,780 --> 00:27:58,360
+know so let me let me summarize let me
+
+368
+00:27:56,350 --> 00:28:00,280
+repeat that so he max you have this
+
+369
+00:27:58,360 --> 00:28:03,610
+building variable called fun dog
+
+370
+00:28:00,280 --> 00:28:08,410
+defaults now this variable came from the
+
+371
+00:28:03,610 --> 00:28:11,770
+font log mod ok fun font lock mod is a
+
+372
+00:28:08,410 --> 00:28:15,640
+bo Dean package so what does that mean
+
+373
+00:28:11,770 --> 00:28:19,080
+font lock mod it's it's a minor mod it's
+
+374
+00:28:15,640 --> 00:28:23,620
+a mod that color syntax color the buffer
+
+375
+00:28:19,080 --> 00:28:26,230
+so Emacs has this font lock mod it's a
+
+376
+00:28:23,620 --> 00:28:28,960
+minor mod so in any buffer when you turn
+
+377
+00:28:26,230 --> 00:28:31,840
+font lock mark on your color the whole
+
+378
+00:28:28,960 --> 00:28:35,230
+profit like right now you see but if you
+
+379
+00:28:31,840 --> 00:28:38,980
+turn front lock mud off then there will
+
+380
+00:28:35,230 --> 00:28:43,710
+be no syntax coloring for example let's
+
+381
+00:28:38,980 --> 00:28:46,840
+turn it off so meta X front lock mod
+
+382
+00:28:43,710 --> 00:28:50,679
+enter you see all the colors are gone
+
+383
+00:28:46,840 --> 00:28:53,919
+because the font log mod is not on now
+
+384
+00:28:50,679 --> 00:28:56,410
+let's go it again font loud mod now the
+
+385
+00:28:53,919 --> 00:29:00,190
+color is back because fun lock mod he's
+
+386
+00:28:56,410 --> 00:29:03,549
+on that's a minor mod meaning that being
+
+387
+00:29:00,190 --> 00:29:05,980
+any buffer you can have it on or off in
+
+388
+00:29:03,549 --> 00:29:09,340
+a buffer basically you have a major mod
+
+389
+00:29:05,980 --> 00:29:11,260
+and you have many minor mods you can
+
+390
+00:29:09,340 --> 00:29:15,370
+turn on and off but each buffer is
+
+391
+00:29:11,260 --> 00:29:19,270
+associated with one major mod major mod
+
+392
+00:29:15,370 --> 00:29:21,790
+means you know the primary language you
+
+393
+00:29:19,270 --> 00:29:23,910
+know a bunch of commands and features
+
+394
+00:29:21,790 --> 00:29:26,820
+that's designed for working with a
+
+395
+00:29:23,910 --> 00:29:29,640
+programming language Java JavaScript
+
+396
+00:29:26,820 --> 00:29:32,280
+Python so on
+
+397
+00:29:29,640 --> 00:29:35,100
+okay so I met so am I getting confusing
+
+398
+00:29:32,280 --> 00:29:36,059
+okay so so you got these font lock mod
+
+399
+00:29:35,100 --> 00:29:38,790
+okay
+
+400
+00:29:36,059 --> 00:29:41,400
+that turns think that that does syntax
+
+401
+00:29:38,790 --> 00:29:42,420
+coloring you can turn it on and you can
+
+402
+00:29:41,400 --> 00:29:46,049
+turn it off
+
+403
+00:29:42,420 --> 00:29:49,679
+it is the font lock mod that does the
+
+404
+00:29:46,049 --> 00:29:54,260
+syntax claim now in front lock mod it
+
+405
+00:29:49,679 --> 00:29:57,000
+has a variable called font lock defaults
+
+406
+00:29:54,260 --> 00:30:01,080
+essentially it's a convenient way for
+
+407
+00:29:57,000 --> 00:30:05,520
+you for any coder to specify how do you
+
+408
+00:30:01,080 --> 00:30:07,860
+want the syntax coloring to be done so
+
+409
+00:30:05,520 --> 00:30:11,090
+the fun lock defaults is a variable it's
+
+410
+00:30:07,860 --> 00:30:13,770
+it's a value its value is a list and
+
+411
+00:30:11,090 --> 00:30:15,840
+depending on what's in this list that's
+
+412
+00:30:13,770 --> 00:30:20,130
+that's how he max know how to color the
+
+413
+00:30:15,840 --> 00:30:23,490
+buffer okay so in this code we have we
+
+414
+00:30:20,130 --> 00:30:25,230
+are setting you know this value to the
+
+415
+00:30:23,490 --> 00:30:28,890
+you know this list to the fun log
+
+416
+00:30:25,230 --> 00:30:36,059
+defaults so that's how it works so you
+
+417
+00:30:28,890 --> 00:30:36,900
+see do you so so is that the is that
+
+418
+00:30:36,059 --> 00:30:42,080
+clear
+
+419
+00:30:36,900 --> 00:30:46,169
+am I making sense green deck and as if
+
+420
+00:30:42,080 --> 00:30:49,230
+let me know okay so you see so we we are
+
+421
+00:30:46,169 --> 00:30:53,370
+calling this defined the right mod that
+
+422
+00:30:49,230 --> 00:30:56,940
+defines this command my math - mod okay
+
+423
+00:30:53,370 --> 00:31:00,990
+and when this command mod this command
+
+424
+00:30:56,940 --> 00:31:03,090
+is called you know do whatever it's in
+
+425
+00:31:00,990 --> 00:31:05,880
+the body and in this body there is only
+
+426
+00:31:03,090 --> 00:31:09,570
+one lie it just sets the font lock
+
+427
+00:31:05,880 --> 00:31:15,540
+defaults so when you call this command
+
+428
+00:31:09,570 --> 00:31:19,530
+my math - mod Emacs will set the value
+
+429
+00:31:15,540 --> 00:31:24,270
+to the fun lock defaults and when that
+
+430
+00:31:19,530 --> 00:31:26,940
+happens the buffer you know we are real
+
+431
+00:31:24,270 --> 00:31:30,179
+colors will start to color you or your
+
+432
+00:31:26,940 --> 00:31:32,929
+words you know because you have fun like
+
+433
+00:31:30,179 --> 00:31:32,929
+ma mano
+
+434
+00:31:35,270 --> 00:31:42,480
+so I'm hoping that makes sense
+
+435
+00:31:38,370 --> 00:31:48,990
+and now this is the this is not the only
+
+436
+00:31:42,480 --> 00:31:53,550
+way to syntax color buffer okay but this
+
+437
+00:31:48,990 --> 00:31:56,190
+is the most used way this is the kind of
+
+438
+00:31:53,550 --> 00:32:00,480
+the conventional way you see the font
+
+439
+00:31:56,190 --> 00:32:03,390
+lock mod the fun log mod you know it's a
+
+440
+00:32:00,480 --> 00:32:07,830
+minor mod that the syntax coloring and
+
+441
+00:32:03,390 --> 00:32:09,270
+you can think of it as an API
+
+442
+00:32:07,830 --> 00:32:13,110
+you know application programmers
+
+443
+00:32:09,270 --> 00:32:17,340
+interface to control how a buffer colors
+
+444
+00:32:13,110 --> 00:32:19,830
+words but it's not the only way in fact
+
+445
+00:32:17,340 --> 00:32:23,270
+it's actually a high-level way in Emacs
+
+446
+00:32:19,830 --> 00:32:27,600
+you can you can actually color any text
+
+447
+00:32:23,270 --> 00:32:33,300
+in a lower level command by by giving a
+
+448
+00:32:27,600 --> 00:32:35,160
+property to any text in a buffer so you
+
+449
+00:32:33,300 --> 00:32:38,190
+can say you know I want to give this
+
+450
+00:32:35,160 --> 00:32:42,030
+property to this sequence of characters
+
+451
+00:32:38,190 --> 00:32:44,070
+and you know the property can be you
+
+452
+00:32:42,030 --> 00:32:47,010
+know color red or something or can be
+
+453
+00:32:44,070 --> 00:32:51,900
+any other thing then you'll be red so
+
+454
+00:32:47,010 --> 00:32:56,700
+Emacs has a you know call a fundamental
+
+455
+00:32:51,900 --> 00:32:59,120
+way to color text in a buffer and that
+
+456
+00:32:56,700 --> 00:33:03,650
+is code
+
+457
+00:32:59,120 --> 00:33:11,160
+let me show you how that is called okay
+
+458
+00:33:03,650 --> 00:33:13,500
+that is called text properties okay
+
+459
+00:33:11,160 --> 00:33:21,930
+let's see if I have it covered here
+
+460
+00:33:13,500 --> 00:33:24,750
+create key Maps syntax table I I think I
+
+461
+00:33:21,930 --> 00:33:27,420
+have a curve have it somewhere here but
+
+462
+00:33:24,750 --> 00:33:29,610
+anyway that's so anyway let me let me
+
+463
+00:33:27,420 --> 00:33:33,230
+try to summarize again let me write it
+
+464
+00:33:29,610 --> 00:33:33,230
+out so maybe now be clear
+
+465
+00:33:35,030 --> 00:33:52,820
+emacs has two basic way to color text in
+
+466
+00:33:42,860 --> 00:34:01,610
+a buffer okay and one is called text
+
+467
+00:33:52,820 --> 00:34:04,370
+properties okay - is called text overlay
+
+468
+00:34:01,610 --> 00:34:07,039
+okay yeah text property I cover text
+
+469
+00:34:04,370 --> 00:34:10,070
+properties here and I let me show you
+
+470
+00:34:07,039 --> 00:34:13,820
+okay you can read it and I cover text
+
+471
+00:34:10,070 --> 00:34:18,760
+overlay here let me write it out text
+
+472
+00:34:13,820 --> 00:34:25,270
+overlay okay now these are the
+
+473
+00:34:18,760 --> 00:34:28,879
+mechanisms how Emacs Emacs Lisp color
+
+474
+00:34:25,270 --> 00:34:32,060
+buffer oh you know any font properties
+
+475
+00:34:28,879 --> 00:34:36,740
+like font size bold underline things
+
+476
+00:34:32,060 --> 00:34:41,359
+like that so so that's that the pate the
+
+477
+00:34:36,740 --> 00:34:41,990
+fundamental to Co way to to color text
+
+478
+00:34:41,359 --> 00:34:51,550
+in buffer
+
+479
+00:34:41,990 --> 00:35:02,800
+now however Emacs provides the font log
+
+480
+00:34:51,550 --> 00:35:10,869
+mod it is a minor mod that does that is
+
+481
+00:35:02,800 --> 00:35:14,480
+like a API - syntax color a buffer
+
+482
+00:35:10,869 --> 00:35:22,839
+okay so front lock mod is building in
+
+483
+00:35:14,480 --> 00:35:30,849
+Emacs so if you are writing a major mod
+
+484
+00:35:22,839 --> 00:35:35,109
+to do syntax coloring you can use font
+
+485
+00:35:30,849 --> 00:35:35,109
+log mod
+
+486
+00:35:36,210 --> 00:35:44,080
+okay you can use fun lock mark front
+
+487
+00:35:39,490 --> 00:35:46,510
+lock mod that's what we did and that's
+
+488
+00:35:44,080 --> 00:35:49,510
+why things are so simple you see in just
+
+489
+00:35:46,510 --> 00:35:55,530
+these six lines we we have a major mod
+
+490
+00:35:49,510 --> 00:36:00,820
+that color syntax and okay let's show
+
+491
+00:35:55,530 --> 00:36:02,710
+you see we colored it and all you have
+
+492
+00:36:00,820 --> 00:36:04,780
+to do is you know all you have to do is
+
+493
+00:36:02,710 --> 00:36:07,330
+space all basically all you have to do
+
+494
+00:36:04,780 --> 00:36:13,810
+is you just have to set a value to the
+
+495
+00:36:07,330 --> 00:36:18,070
+font log defaults that is all okay so
+
+496
+00:36:13,810 --> 00:36:22,480
+that that is the explanation of the
+
+497
+00:36:18,070 --> 00:36:25,150
+basic structure you know the you know
+
+498
+00:36:22,480 --> 00:36:33,220
+just a real basic introduction of how
+
+499
+00:36:25,150 --> 00:36:35,430
+color you know Cullerton in Emacs so far
+
+500
+00:36:33,220 --> 00:36:35,430
+so good
+
+501
+00:36:43,320 --> 00:36:49,860
+so okay so now you know how to write a
+
+502
+00:36:46,410 --> 00:36:53,640
+major mod for basic syntax coloring now
+
+503
+00:36:49,860 --> 00:36:55,650
+if if you are you know if you're writing
+
+504
+00:36:53,640 --> 00:36:59,460
+this for real programming language you
+
+505
+00:36:55,650 --> 00:37:01,590
+might have hundreds of keywords so I
+
+506
+00:36:59,460 --> 00:37:05,820
+show you you know some practical way to
+
+507
+00:37:01,590 --> 00:37:08,010
+do that you know we when you do a when
+
+508
+00:37:05,820 --> 00:37:11,190
+you write a a major mod it's actually
+
+509
+00:37:08,010 --> 00:37:15,330
+you know it you know because I've been
+
+510
+00:37:11,190 --> 00:37:17,940
+you know because I know these so that's
+
+511
+00:37:15,330 --> 00:37:20,970
+why everything seems so simple but when
+
+512
+00:37:17,940 --> 00:37:23,100
+you actually to do it and you try to you
+
+513
+00:37:20,970 --> 00:37:24,960
+know code it for your own purposes you
+
+514
+00:37:23,100 --> 00:37:28,310
+know your own programming language or
+
+515
+00:37:24,960 --> 00:37:30,900
+whatever you need it you know you might
+
+516
+00:37:28,310 --> 00:37:36,300
+you know take few hours and several
+
+517
+00:37:30,900 --> 00:37:37,770
+tries because because so I'm giving out
+
+518
+00:37:36,300 --> 00:37:39,410
+a warning you know it's actually not
+
+519
+00:37:37,770 --> 00:37:42,060
+that simple
+
+520
+00:37:39,410 --> 00:37:45,710
+that's for example let's look at the
+
+521
+00:37:42,060 --> 00:37:52,020
+font log defaults documentation so
+
+522
+00:37:45,710 --> 00:37:55,520
+described variable you can see here it's
+
+523
+00:37:52,020 --> 00:37:55,520
+called describe variable
+
+524
+00:38:02,280 --> 00:38:12,290
+okay describe there let's do it again
+
+525
+00:38:05,840 --> 00:38:15,150
+describe variable font lock defaults and
+
+526
+00:38:12,290 --> 00:38:19,770
+that will show the documentation for
+
+527
+00:38:15,150 --> 00:38:23,490
+phone log defaults so let's let's see
+
+528
+00:38:19,770 --> 00:38:26,840
+why it says phone log defaults is a
+
+529
+00:38:23,490 --> 00:38:33,270
+variable defined in front lock in font
+
+530
+00:38:26,840 --> 00:38:36,450
+Cordia its value is this list local
+
+531
+00:38:33,270 --> 00:38:39,450
+imperfect probable value is new okay and
+
+532
+00:38:36,450 --> 00:38:42,420
+it says automatically becomes buffalo
+
+533
+00:38:39,450 --> 00:38:44,550
+core when set this variable may be risky
+
+534
+00:38:42,420 --> 00:38:50,910
+if used as a fire local variable and
+
+535
+00:38:44,550 --> 00:38:52,950
+that's not critical information so
+
+536
+00:38:50,910 --> 00:38:55,800
+basically this variable this fan log
+
+537
+00:38:52,950 --> 00:38:58,440
+defaults is a local it's a buffer local
+
+538
+00:38:55,800 --> 00:39:00,720
+variable meaning that each buffer you
+
+539
+00:38:58,440 --> 00:39:05,070
+know each person in emacs will have its
+
+540
+00:39:00,720 --> 00:39:10,290
+own value you know each buffer will have
+
+541
+00:39:05,070 --> 00:39:13,200
+its own value and it can be different so
+
+542
+00:39:10,290 --> 00:39:18,270
+whenever you say the value to fund lock
+
+543
+00:39:13,200 --> 00:39:20,490
+default that automatically becomes you
+
+544
+00:39:18,270 --> 00:39:22,260
+know whatever the buffer you are in you
+
+545
+00:39:20,490 --> 00:39:23,100
+know just for that buffer you know not
+
+546
+00:39:22,260 --> 00:39:25,500
+nowhere else
+
+547
+00:39:23,100 --> 00:39:28,350
+that's what before local variable means
+
+548
+00:39:25,500 --> 00:39:30,810
+now this variable you know it also says
+
+549
+00:39:28,350 --> 00:39:36,300
+this river may be risky if uses the fire
+
+550
+00:39:30,810 --> 00:39:38,400
+local variable that's that's not too
+
+551
+00:39:36,300 --> 00:39:41,580
+important that that means you know in
+
+552
+00:39:38,400 --> 00:39:44,700
+Emacs you can set a variable so that you
+
+553
+00:39:41,580 --> 00:39:47,310
+can you can have some syntax in English
+
+554
+00:39:44,700 --> 00:39:51,030
+I'll at the end or in the beginning
+
+555
+00:39:47,310 --> 00:39:55,350
+such that when Emacs open that file some
+
+556
+00:39:51,030 --> 00:39:58,200
+Emacs code will run so so this line is
+
+557
+00:39:55,350 --> 00:40:00,480
+telling you that font lock defaults is
+
+558
+00:39:58,200 --> 00:40:03,840
+not a safe variable meaning that if you
+
+559
+00:40:00,480 --> 00:40:10,620
+if you you know put code to to set that
+
+560
+00:40:03,840 --> 00:40:12,960
+value potentially it can be you can do
+
+561
+00:40:10,620 --> 00:40:16,079
+do a lot of things basically it's just
+
+562
+00:40:12,960 --> 00:40:18,299
+warning you that like when you open
+
+563
+00:40:16,079 --> 00:40:20,549
+fire if it came from someone you don't
+
+564
+00:40:18,299 --> 00:40:23,279
+trust you don't want to when you open it
+
+565
+00:40:20,549 --> 00:40:24,630
+Emacs we're wrong we'll tell you you
+
+566
+00:40:23,279 --> 00:40:27,420
+know there's some in this code do you
+
+567
+00:40:24,630 --> 00:40:31,160
+want to run it if you don't trust that
+
+568
+00:40:27,420 --> 00:40:33,209
+the source you don't want to run it
+
+569
+00:40:31,160 --> 00:40:34,949
+that's what it means you know this
+
+570
+00:40:33,209 --> 00:40:37,170
+variable may be whiskey if you use a
+
+571
+00:40:34,949 --> 00:40:39,660
+sapphire local variable so anyway that's
+
+572
+00:40:37,170 --> 00:40:42,509
+fun Locke defaults okay but what exactly
+
+573
+00:40:39,660 --> 00:40:45,809
+I mean so let's get to the main point
+
+574
+00:40:42,509 --> 00:40:48,719
+so documentation says defaults it says
+
+575
+00:40:45,809 --> 00:40:57,150
+defaults for font lock mod specified by
+
+576
+00:40:48,719 --> 00:40:59,699
+the major mod ok it it means it means
+
+577
+00:40:57,150 --> 00:41:03,959
+it's a thief it's a variable that came
+
+578
+00:40:59,699 --> 00:41:07,289
+from the font log mod and typically it
+
+579
+00:41:03,959 --> 00:41:10,829
+is a major mod that sets a value of that
+
+580
+00:41:07,289 --> 00:41:13,049
+variable that's what this line is so so
+
+581
+00:41:10,829 --> 00:41:17,849
+now it tells you you know default should
+
+582
+00:41:13,049 --> 00:41:21,599
+be of the form so this so this this line
+
+583
+00:41:17,849 --> 00:41:25,469
+here that is the remember the value
+
+584
+00:41:21,599 --> 00:41:29,969
+should be a list so this line tells you
+
+585
+00:41:25,469 --> 00:41:36,059
+exactly how the structure of the list
+
+586
+00:41:29,969 --> 00:41:37,829
+and what the elements mean and so you
+
+587
+00:41:36,059 --> 00:41:40,709
+can you can read that you know when you
+
+588
+00:41:37,829 --> 00:41:43,829
+when you try this you know it's kind of
+
+589
+00:41:40,709 --> 00:41:46,650
+long and so you know I would not say
+
+590
+00:41:43,829 --> 00:41:48,839
+it's very simple you know you you if you
+
+591
+00:41:46,650 --> 00:41:51,329
+want to read your mod you might have to
+
+592
+00:41:48,839 --> 00:41:54,630
+do a few tries it's a bit tricky
+
+593
+00:41:51,329 --> 00:41:59,429
+it's especially tricky because this list
+
+594
+00:41:54,630 --> 00:42:06,059
+is not simply you know a flat list it
+
+595
+00:41:59,429 --> 00:42:09,299
+can be heavily nested you know so so
+
+596
+00:42:06,059 --> 00:42:12,179
+anyway we are just going to show you the
+
+597
+00:42:09,299 --> 00:42:14,369
+basics you know the most basic is basic
+
+598
+00:42:12,179 --> 00:42:18,509
+uses like that you know you just set it
+
+599
+00:42:14,369 --> 00:42:23,420
+to a list and the value you know you
+
+600
+00:42:18,509 --> 00:42:24,739
+sell it here okay hey Battle of MU
+
+601
+00:42:23,420 --> 00:42:28,199
+greetings
+
+602
+00:42:24,739 --> 00:42:29,520
+pattern of MU I can stay okay I'm on my
+
+603
+00:42:28,199 --> 00:42:31,710
+way to work now
+
+604
+00:42:29,520 --> 00:42:32,820
+have a nice stream see you next stream
+
+605
+00:42:31,710 --> 00:42:37,349
+okay
+
+606
+00:42:32,820 --> 00:42:42,359
+thank you for coming back what do I
+
+607
+00:42:37,349 --> 00:42:45,599
+think about helm I don't use helm for my
+
+608
+00:42:42,359 --> 00:42:51,859
+personal taste I think it's rather
+
+609
+00:42:45,599 --> 00:42:51,859
+complicated and so so I don't use helm
+
+610
+00:42:52,310 --> 00:42:59,070
+let's see how long I've been talking 42
+
+611
+00:42:56,190 --> 00:43:06,240
+minutes I'm thinking you know I'm
+
+612
+00:42:59,070 --> 00:43:09,390
+thinking I want to maybe do I want to
+
+613
+00:43:06,240 --> 00:43:13,160
+cover some of these things so we get
+
+614
+00:43:09,390 --> 00:43:15,930
+this done with or maybe we talk about
+
+615
+00:43:13,160 --> 00:43:18,750
+something else you know I don't I don't
+
+616
+00:43:15,930 --> 00:43:20,040
+use her mod you know I can't I can you
+
+617
+00:43:18,750 --> 00:43:23,250
+know I can do it
+
+618
+00:43:20,040 --> 00:43:27,000
+Chad you know chat about the history of
+
+619
+00:43:23,250 --> 00:43:30,180
+helm you know it begins around 2008 you
+
+620
+00:43:27,000 --> 00:43:36,660
+know in 2008 or actually maybe earlier
+
+621
+00:43:30,180 --> 00:43:38,310
+2005 there is a great Mac utility called
+
+622
+00:43:36,660 --> 00:43:45,570
+quick quick Silva
+
+623
+00:43:38,310 --> 00:43:47,970
+do you know that so green deck were you
+
+624
+00:43:45,570 --> 00:43:50,580
+for my Forgotten child like to say wait
+
+625
+00:43:47,970 --> 00:43:54,180
+you tell me where you from Quicksilver
+
+626
+00:43:50,580 --> 00:43:57,240
+okay so there is a here so this is the
+
+627
+00:43:54,180 --> 00:43:59,640
+application they used they have a
+
+628
+00:43:57,240 --> 00:44:02,550
+Wikipedia page I don't know maybe they
+
+629
+00:43:59,640 --> 00:44:07,770
+removed it Oh Russia okay great yeah I
+
+630
+00:44:02,550 --> 00:44:13,349
+think I know that city right that that
+
+631
+00:44:07,770 --> 00:44:16,890
+city to the west of to the east of
+
+632
+00:44:13,349 --> 00:44:20,720
+Moscow right I think so anyways so so
+
+633
+00:44:16,890 --> 00:44:23,780
+around 2005 there is this Quicksilver
+
+634
+00:44:20,720 --> 00:44:28,670
+utility for mac OS and it is fantastic
+
+635
+00:44:23,780 --> 00:44:33,240
+so what does that do you know it kind of
+
+636
+00:44:28,670 --> 00:44:36,750
+revolutionized the user interface in the
+
+637
+00:44:33,240 --> 00:44:38,940
+industry okay so what does it do so what
+
+638
+00:44:36,750 --> 00:44:42,930
+they do is they do you press a key and
+
+639
+00:44:38,940 --> 00:44:45,750
+it will pop up a box like this
+
+640
+00:44:42,930 --> 00:44:50,040
+then you can type something like Emacs
+
+641
+00:44:45,750 --> 00:44:52,349
+okay then you can you know then you
+
+642
+00:44:50,040 --> 00:44:55,890
+press ENTER if it's an application
+
+643
+00:44:52,349 --> 00:44:58,859
+you're launch it now or it will search
+
+644
+00:44:55,890 --> 00:45:03,599
+all your files for that word you know so
+
+645
+00:44:58,859 --> 00:45:07,980
+so this is like one stop utility for you
+
+646
+00:45:03,599 --> 00:45:10,859
+to launch files for you to find specific
+
+647
+00:45:07,980 --> 00:45:13,140
+text or your contacts things like that
+
+648
+00:45:10,859 --> 00:45:16,040
+you know just one you know you just type
+
+649
+00:45:13,140 --> 00:45:18,630
+you know as you know as you type
+
+650
+00:45:16,040 --> 00:45:24,000
+interactively you know you can launch
+
+651
+00:45:18,630 --> 00:45:27,750
+applications or find some files so
+
+652
+00:45:24,000 --> 00:45:31,710
+that's that's Quicksilver around 2005
+
+653
+00:45:27,750 --> 00:45:35,579
+and that is the that revolutionized the
+
+654
+00:45:31,710 --> 00:45:39,780
+user interface you know then you know
+
+655
+00:45:35,579 --> 00:45:42,780
+once you have this then the you know
+
+656
+00:45:39,780 --> 00:45:46,079
+then then windows pick it up you know so
+
+657
+00:45:42,780 --> 00:45:48,869
+for Windows Microsoft Windows you can
+
+658
+00:45:46,079 --> 00:45:52,170
+press the start button no then you start
+
+659
+00:45:48,869 --> 00:45:54,599
+you can type then you know if you see
+
+660
+00:45:52,170 --> 00:45:57,299
+before this so this is how people do
+
+661
+00:45:54,599 --> 00:45:57,990
+things now and also on Linux on Ubuntu
+
+662
+00:45:57,299 --> 00:45:59,849
+and so on
+
+663
+00:45:57,990 --> 00:46:01,799
+you know you when you want to launch an
+
+664
+00:45:59,849 --> 00:46:05,099
+application you just type the name and
+
+665
+00:46:01,799 --> 00:46:08,910
+you can launch it browser Safari Firefox
+
+666
+00:46:05,099 --> 00:46:11,579
+and so on but however it's not like that
+
+667
+00:46:08,910 --> 00:46:12,990
+before you know it it's not like that
+
+668
+00:46:11,579 --> 00:46:15,480
+before quick suburbs
+
+669
+00:46:12,990 --> 00:46:19,470
+so before Quicksilver typically you have
+
+670
+00:46:15,480 --> 00:46:22,770
+shortcuts to launch applications then
+
+671
+00:46:19,470 --> 00:46:25,710
+you have another shortcut to launch an
+
+672
+00:46:22,770 --> 00:46:31,559
+application to find find locate you know
+
+673
+00:46:25,710 --> 00:46:33,660
+files you know each one is different so
+
+674
+00:46:31,559 --> 00:46:37,470
+so anyway so this becomes very popular
+
+675
+00:46:33,660 --> 00:46:40,799
+the Quicksilver way so then so it came
+
+676
+00:46:37,470 --> 00:46:44,099
+to Emacs in a beginning so around 2008 I
+
+677
+00:46:40,799 --> 00:46:49,230
+think it's called everything you know
+
+678
+00:46:44,099 --> 00:46:52,559
+someone wrote a Emacs package I think
+
+679
+00:46:49,230 --> 00:46:54,869
+it's called everything you know oh I
+
+680
+00:46:52,559 --> 00:46:56,940
+think it's called anything yeah anything
+
+681
+00:46:54,869 --> 00:46:58,950
+you know because that
+
+682
+00:46:56,940 --> 00:47:01,790
+kind of what it does you can you know
+
+683
+00:46:58,950 --> 00:47:07,220
+open files or do anything with it yeah
+
+684
+00:47:01,790 --> 00:47:09,480
+through via this one unified interface
+
+685
+00:47:07,220 --> 00:47:13,050
+so in the beginning it's called I think
+
+686
+00:47:09,480 --> 00:47:14,970
+anything then over the past 10 years it
+
+687
+00:47:13,050 --> 00:47:16,349
+then you know anything it's not a good
+
+688
+00:47:14,970 --> 00:47:19,079
+name because what do you mean anything
+
+689
+00:47:16,349 --> 00:47:24,630
+you know so eventually they they named
+
+690
+00:47:19,079 --> 00:47:26,609
+it helm I don't use it okay I I don't
+
+691
+00:47:24,630 --> 00:47:30,420
+use it because I don't like this
+
+692
+00:47:26,609 --> 00:47:35,310
+interface IP you know I for example this
+
+693
+00:47:30,420 --> 00:47:38,460
+this this spotlight search its which is
+
+694
+00:47:35,310 --> 00:47:41,670
+similar on the Mac you know I do not use
+
+695
+00:47:38,460 --> 00:47:43,619
+it I don't like it I do not like to
+
+696
+00:47:41,670 --> 00:47:46,230
+launch my application this way at you
+
+697
+00:47:43,619 --> 00:47:49,220
+know because I want full control you
+
+698
+00:47:46,230 --> 00:47:49,220
+know I know exactly
+
+699
+00:47:49,700 --> 00:47:55,589
+for example the applications I know
+
+700
+00:47:53,640 --> 00:47:58,650
+their names I know exactly what where
+
+701
+00:47:55,589 --> 00:48:00,240
+they are you know I want to be extremely
+
+702
+00:47:58,650 --> 00:48:05,190
+efficient you know if I want to launch
+
+703
+00:48:00,240 --> 00:48:07,380
+Emacs I do not want to type II M a CS
+
+704
+00:48:05,190 --> 00:48:09,420
+you know five keys I don't want that I
+
+705
+00:48:07,380 --> 00:48:12,690
+want to press one key launch in Emacs
+
+706
+00:48:09,420 --> 00:48:15,060
+okay I you know because I used you know
+
+707
+00:48:12,690 --> 00:48:17,940
+I'm a computer nerd side you know I use
+
+708
+00:48:15,060 --> 00:48:19,950
+it all the time so I want more control
+
+709
+00:48:17,940 --> 00:48:24,480
+because it you know it means less
+
+710
+00:48:19,950 --> 00:48:26,880
+keystrokes I know where things are and
+
+711
+00:48:24,480 --> 00:48:30,930
+the way I want to find a file I don't
+
+712
+00:48:26,880 --> 00:48:33,270
+want to you know I don't want it to just
+
+713
+00:48:30,930 --> 00:48:35,460
+globally try to find file behind the
+
+714
+00:48:33,270 --> 00:48:38,640
+scenes I know exactly where my fire sub
+
+715
+00:48:35,460 --> 00:48:41,730
+files are so I do not like the these
+
+716
+00:48:38,640 --> 00:48:43,589
+kind of the type something interface so
+
+717
+00:48:41,730 --> 00:48:48,119
+I let that that is why I don't use it
+
+718
+00:48:43,589 --> 00:48:51,300
+and in in Emacs yeah I don't use it
+
+719
+00:48:48,119 --> 00:48:54,300
+either because well partly because you
+
+720
+00:48:51,300 --> 00:48:57,720
+know I I also called Emacs Lisp for you
+
+721
+00:48:54,300 --> 00:48:59,609
+know for me years now so I have I have
+
+722
+00:48:57,720 --> 00:49:02,579
+what I want you know what I want I can
+
+723
+00:48:59,609 --> 00:49:06,660
+just write it you know most of the time
+
+724
+00:49:02,579 --> 00:49:08,730
+so and in helm becomes I tried helm you
+
+725
+00:49:06,660 --> 00:49:09,700
+know for a couple of times it becomes
+
+726
+00:49:08,730 --> 00:49:12,640
+very
+
+727
+00:49:09,700 --> 00:49:15,970
+elaborate and you know as you know you
+
+728
+00:49:12,640 --> 00:49:18,430
+could bloated you know it's trying to be
+
+729
+00:49:15,970 --> 00:49:23,470
+smart you know like in the user
+
+730
+00:49:18,430 --> 00:49:25,870
+interface space you know there's a train
+
+731
+00:49:23,470 --> 00:49:28,720
+to evolve into smartness you know it
+
+732
+00:49:25,870 --> 00:49:30,550
+like you don't have to do much you know
+
+733
+00:49:28,720 --> 00:49:32,260
+the computer will find things for you
+
+734
+00:49:30,550 --> 00:49:37,180
+and do you know do things for you behind
+
+735
+00:49:32,260 --> 00:49:42,790
+the scenes which is in general good for
+
+736
+00:49:37,180 --> 00:49:45,700
+most people but I think for nerds you
+
+737
+00:49:42,790 --> 00:49:47,560
+know if you are programmer you really
+
+738
+00:49:45,700 --> 00:49:50,280
+like you know know things you know where
+
+739
+00:49:47,560 --> 00:49:53,650
+they are you you you rather prefer
+
+740
+00:49:50,280 --> 00:49:58,900
+control you know better control so so
+
+741
+00:49:53,650 --> 00:50:05,740
+that that is why I don't use help okay
+
+742
+00:49:58,900 --> 00:50:10,450
+that that is about helm so let's see how
+
+743
+00:50:05,740 --> 00:50:15,340
+long have I been talking 15 minutes so I
+
+744
+00:50:10,450 --> 00:50:17,590
+think maybe that's wrap up about how to
+
+745
+00:50:15,340 --> 00:50:22,290
+write a major mod there is something
+
+746
+00:50:17,590 --> 00:50:25,360
+okay did we didn't cover much of the
+
+747
+00:50:22,290 --> 00:50:29,500
+practical things about writing a major
+
+748
+00:50:25,360 --> 00:50:36,700
+mounted a we we talked about basically
+
+749
+00:50:29,500 --> 00:50:39,550
+the infrastructure today and you know
+
+750
+00:50:36,700 --> 00:50:42,730
+for example if you want to write a major
+
+751
+00:50:39,550 --> 00:50:46,180
+mod a typical programming language has
+
+752
+00:50:42,730 --> 00:50:51,070
+hundreds of keywords so how do you do
+
+753
+00:50:46,180 --> 00:50:54,370
+that you know how do you so there are
+
+754
+00:50:51,070 --> 00:51:01,360
+some so in this file I show you how to
+
+755
+00:50:54,370 --> 00:51:05,370
+do that yeah okay so let's let's have a
+
+756
+00:51:01,360 --> 00:51:05,370
+look at the file so
+
+757
+00:51:07,989 --> 00:51:15,410
+so let me show you so okay so guys keep
+
+758
+00:51:12,229 --> 00:51:19,219
+the comments coming type type it so does
+
+759
+00:51:15,410 --> 00:51:25,989
+that so do you use green deck do you use
+
+760
+00:51:19,219 --> 00:51:25,989
+helm I suppose you use helm right
+
+761
+00:51:37,010 --> 00:51:47,780
+okay so so anyway so let's look at this
+
+762
+00:51:43,220 --> 00:51:51,470
+code so this this code is just the same
+
+763
+00:51:47,780 --> 00:51:54,040
+thing like before it's creating a major
+
+764
+00:51:51,470 --> 00:52:02,810
+mod let me show you where
+
+765
+00:51:54,040 --> 00:52:06,619
+so here oops here you see this this this
+
+766
+00:52:02,810 --> 00:52:11,660
+code is it's just create a major mod and
+
+767
+00:52:06,619 --> 00:52:15,200
+it's called my LSA or mod it's created
+
+768
+00:52:11,660 --> 00:52:18,859
+for this language now this is a sample
+
+769
+00:52:15,200 --> 00:52:21,440
+source code of our SAR language or ESL
+
+770
+00:52:18,859 --> 00:52:24,230
+is a Linden scripting language it's a
+
+771
+00:52:21,440 --> 00:52:28,730
+part of the second light so anyway so
+
+772
+00:52:24,230 --> 00:52:32,510
+this code has like a C syntax similar to
+
+773
+00:52:28,730 --> 00:52:37,160
+C us you know C++ so we want to write
+
+774
+00:52:32,510 --> 00:52:40,150
+the major mod for this language and here
+
+775
+00:52:37,160 --> 00:52:43,400
+is a sample code for writing you know
+
+776
+00:52:40,150 --> 00:52:46,160
+the major mod for that language you know
+
+777
+00:52:43,400 --> 00:52:49,490
+and this is how it colors you know it
+
+778
+00:52:46,160 --> 00:52:54,260
+colors integer string vector list all
+
+779
+00:52:49,490 --> 00:52:57,170
+these are type keywords then you have
+
+780
+00:52:54,260 --> 00:53:00,590
+you know function names where function
+
+781
+00:52:57,170 --> 00:53:03,859
+names you have you know several building
+
+782
+00:53:00,590 --> 00:53:06,650
+keywords function names function names
+
+783
+00:53:03,859 --> 00:53:09,460
+and so on you know so you want to color
+
+784
+00:53:06,650 --> 00:53:12,109
+oh and you have comments so you want to
+
+785
+00:53:09,460 --> 00:53:15,430
+write a major mod that colors that and
+
+786
+00:53:12,109 --> 00:53:18,890
+this here is the code here's the result
+
+787
+00:53:15,430 --> 00:53:22,369
+and you see that's only like ten lines
+
+788
+00:53:18,890 --> 00:53:25,690
+you know most of it is comments but let
+
+789
+00:53:22,369 --> 00:53:28,400
+me go over to tell you some some some
+
+790
+00:53:25,690 --> 00:53:30,859
+important things about that so if you
+
+791
+00:53:28,400 --> 00:53:34,280
+write a major ma typically you want this
+
+792
+00:53:30,859 --> 00:53:39,080
+header you know especially if you want
+
+793
+00:53:34,280 --> 00:53:43,750
+to share your mod to the public you know
+
+794
+00:53:39,080 --> 00:53:47,090
+if you want to put it to the maple yeah
+
+795
+00:53:43,750 --> 00:53:50,570
+Mel paw you know Mel pop repository so
+
+796
+00:53:47,090 --> 00:53:51,020
+you need the first line and it needs to
+
+797
+00:53:50,570 --> 00:53:55,340
+be
+
+798
+00:53:51,020 --> 00:53:58,550
+this format three semicolons then the
+
+799
+00:53:55,340 --> 00:54:02,210
+file name tweet then followed by three -
+
+800
+00:53:58,550 --> 00:54:08,630
+then one short very short sentence about
+
+801
+00:54:02,210 --> 00:54:12,620
+what this fire is about then optionally
+
+802
+00:54:08,630 --> 00:54:15,470
+you can declare the encoding and lexical
+
+803
+00:54:12,620 --> 00:54:17,660
+bandying true okay so you need typically
+
+804
+00:54:15,470 --> 00:54:20,360
+you want this line then you have some
+
+805
+00:54:17,660 --> 00:54:23,020
+copyright information then you have some
+
+806
+00:54:20,360 --> 00:54:26,480
+standard header for author version
+
+807
+00:54:23,020 --> 00:54:31,520
+creation date and keywords and you are
+
+808
+00:54:26,480 --> 00:54:33,770
+things like that then typically so so
+
+809
+00:54:31,520 --> 00:54:36,920
+this is a kind of a standard header you
+
+810
+00:54:33,770 --> 00:54:40,550
+can find that in many places online like
+
+811
+00:54:36,920 --> 00:54:45,590
+Emacs wiki and so on and oh you can copy
+
+812
+00:54:40,550 --> 00:54:47,750
+my header okay so those are headers you
+
+813
+00:54:45,590 --> 00:54:52,640
+know this this this is a convention this
+
+814
+00:54:47,750 --> 00:54:54,830
+is yeah so if you want your major model
+
+815
+00:54:52,640 --> 00:54:58,730
+package to be used by others you you
+
+816
+00:54:54,830 --> 00:55:02,330
+kind of you have to follow this this
+
+817
+00:54:58,730 --> 00:55:04,580
+syntax this convention then when you
+
+818
+00:55:02,330 --> 00:55:08,660
+have this code that's that's how you
+
+819
+00:55:04,580 --> 00:55:11,530
+your code began so just like before we
+
+820
+00:55:08,660 --> 00:55:15,980
+set the variable for log keywords okay
+
+821
+00:55:11,530 --> 00:55:20,120
+and you can see we have lots of
+
+822
+00:55:15,980 --> 00:55:24,110
+variables you know for our language as
+
+823
+00:55:20,120 --> 00:55:27,110
+well you have you have language keywords
+
+824
+00:55:24,110 --> 00:55:31,460
+you have types you know string integer
+
+825
+00:55:27,110 --> 00:55:34,810
+vector list then you have constants then
+
+826
+00:55:31,460 --> 00:55:39,080
+then you have events events is you know
+
+827
+00:55:34,810 --> 00:55:42,980
+specific to second life linden scripting
+
+828
+00:55:39,080 --> 00:55:47,030
+language then you have function names so
+
+829
+00:55:42,980 --> 00:55:49,280
+anyway so so just like before this the
+
+830
+00:55:47,030 --> 00:55:51,890
+value of this variable is just a list
+
+831
+00:55:49,280 --> 00:55:56,030
+you know here we are just setting up at
+
+832
+00:55:51,890 --> 00:55:59,570
+least then we call you know we we use
+
+833
+00:55:56,030 --> 00:56:03,590
+the define derived mod to define the mod
+
+834
+00:55:59,570 --> 00:56:04,930
+and basically the whole body of the mod
+
+835
+00:56:03,590 --> 00:56:07,000
+is just is
+
+836
+00:56:04,930 --> 00:56:16,020
+just setting that variable font lock
+
+837
+00:56:07,000 --> 00:56:19,150
+defaults now notice this auto load thing
+
+838
+00:56:16,020 --> 00:56:25,270
+that is also part of the convention that
+
+839
+00:56:19,150 --> 00:56:28,720
+has Emacs that that helps Emacs whenever
+
+840
+00:56:25,270 --> 00:56:32,859
+Emacs read this file whenever there's a
+
+841
+00:56:28,720 --> 00:56:36,550
+function you know it's the preceded by
+
+842
+00:56:32,859 --> 00:56:40,030
+the line auto load in this format
+
+843
+00:56:36,550 --> 00:56:43,059
+specifically three semicolons followed
+
+844
+00:56:40,030 --> 00:56:46,420
+by three pound signs then the world auto
+
+845
+00:56:43,059 --> 00:56:54,970
+load so when we max it sees that sees
+
+846
+00:56:46,420 --> 00:56:57,460
+that it will it will make a record of
+
+847
+00:56:54,970 --> 00:56:59,710
+the function name and the file name you
+
+848
+00:56:57,460 --> 00:57:02,309
+know so that you can actually call it
+
+849
+00:56:59,710 --> 00:57:06,309
+even though Emacs does not actually
+
+850
+00:57:02,309 --> 00:57:10,089
+evaluate the code you see eMac that's
+
+851
+00:57:06,309 --> 00:57:11,920
+not you know Emacs is this Emacs will
+
+852
+00:57:10,089 --> 00:57:15,520
+make a record of the function name in
+
+853
+00:57:11,920 --> 00:57:17,260
+the file name so so that you can meet
+
+854
+00:57:15,520 --> 00:57:19,569
+her X you know you can call the function
+
+855
+00:57:17,260 --> 00:57:23,740
+as if it's available even though if
+
+856
+00:57:19,569 --> 00:57:26,140
+Emacs haven't evaluated yet so once you
+
+857
+00:57:23,740 --> 00:57:29,349
+call it Emacs know the file location so
+
+858
+00:57:26,140 --> 00:57:32,500
+Emacs can you know run the code so white
+
+859
+00:57:29,349 --> 00:57:35,140
+what do you need is because this way
+
+860
+00:57:32,500 --> 00:57:38,230
+saves the startup time you know that's
+
+861
+00:57:35,140 --> 00:57:41,819
+the that's about auto load I have a
+
+862
+00:57:38,230 --> 00:57:45,760
+tutorial about auto load you can you
+
+863
+00:57:41,819 --> 00:57:48,130
+know about all those things
+
+864
+00:57:45,760 --> 00:57:51,430
+somewhere here load load file auto load
+
+865
+00:57:48,130 --> 00:57:55,299
+there so that's about that so anyway so
+
+866
+00:57:51,430 --> 00:57:58,809
+then you need to say provide that's kind
+
+867
+00:57:55,299 --> 00:58:02,740
+of like a package mechanism so if you
+
+868
+00:57:58,809 --> 00:58:07,049
+say provide then the more name that
+
+869
+00:58:02,740 --> 00:58:13,890
+helps Emacs that okay we have this
+
+870
+00:58:07,049 --> 00:58:19,390
+symbol available so that so for example
+
+871
+00:58:13,890 --> 00:58:23,650
+when you're in it file somewhere it says
+
+872
+00:58:19,390 --> 00:58:25,900
+you know require this mod the Emacs can
+
+873
+00:58:23,650 --> 00:58:28,570
+know that it's already loaded or not you
+
+874
+00:58:25,900 --> 00:58:31,599
+know saves no time things like that so
+
+875
+00:58:28,570 --> 00:58:36,040
+you know all things considered you know
+
+876
+00:58:31,599 --> 00:58:38,200
+writing a major mod although it's very
+
+877
+00:58:36,040 --> 00:58:40,180
+simple you know if you are doing it for
+
+878
+00:58:38,200 --> 00:58:42,369
+yourself you know you just need ten
+
+879
+00:58:40,180 --> 00:58:44,770
+lines that's all you need but if you
+
+880
+00:58:42,369 --> 00:58:47,230
+want to publish it you need to learn
+
+881
+00:58:44,770 --> 00:58:50,380
+about all these various details
+
+882
+00:58:47,230 --> 00:58:52,690
+including including the end ending here
+
+883
+00:58:50,380 --> 00:58:56,260
+you know that tells in Emacs you know
+
+884
+00:58:52,690 --> 00:59:00,760
+this is where the package ends you know
+
+885
+00:58:56,260 --> 00:59:03,220
+all these are little conventions so so I
+
+886
+00:59:00,760 --> 00:59:05,440
+you know I covered them in my tutorial
+
+887
+00:59:03,220 --> 00:59:11,109
+here so you can you know this much more
+
+888
+00:59:05,440 --> 00:59:13,119
+details there yeah there is another
+
+889
+00:59:11,109 --> 00:59:16,300
+thing I want to mention that's kind of
+
+890
+00:59:13,119 --> 00:59:21,010
+important because so far we have cut we
+
+891
+00:59:16,300 --> 00:59:22,900
+have covered the coloring of words you
+
+892
+00:59:21,010 --> 00:59:26,010
+know in a buffer you know we have
+
+893
+00:59:22,900 --> 00:59:26,010
+covered how to do that
+
+894
+00:59:26,140 --> 00:59:33,970
+cover coloring of the words but however
+
+895
+00:59:30,690 --> 00:59:37,330
+this is important this is critical when
+
+896
+00:59:33,970 --> 00:59:45,099
+you have a stream such as this this is a
+
+897
+00:59:37,330 --> 00:59:48,490
+stream and when you have a comment this
+
+898
+00:59:45,099 --> 00:59:52,060
+is a comment now
+
+899
+00:59:48,490 --> 00:59:57,510
+the coloring of a stream and the
+
+900
+00:59:52,060 --> 01:00:02,280
+coloring of concept is not handled by
+
+901
+00:59:57,510 --> 01:00:06,780
+the way we just explained for example
+
+902
+01:00:02,280 --> 01:00:09,490
+where is our code where so you know is
+
+903
+01:00:06,780 --> 01:00:12,700
+so coloring of string and coloring of a
+
+904
+01:00:09,490 --> 01:00:15,070
+comment you are not handle are not
+
+905
+01:00:12,700 --> 01:00:17,020
+covered by the way we are doing here so
+
+906
+01:00:15,070 --> 01:00:22,210
+you see the way we are doing here is are
+
+907
+01:00:17,020 --> 01:00:25,990
+actually just coloring words so how do
+
+908
+01:00:22,210 --> 01:00:27,460
+you how do you write your major mod so
+
+909
+01:00:25,990 --> 01:00:34,020
+that we are colors
+
+910
+01:00:27,460 --> 01:00:34,020
+for example like that or comment that is
+
+911
+01:00:34,170 --> 01:00:43,210
+that in order to do that there is you
+
+912
+01:00:39,790 --> 01:00:44,890
+need the the primary thing for that to
+
+913
+01:00:43,210 --> 01:00:56,670
+happen in order to do that you have to
+
+914
+01:00:44,890 --> 01:01:02,920
+learn about syntax table okay let's see
+
+915
+01:00:56,670 --> 01:01:06,160
+define phase syntax syntax table so I
+
+916
+01:01:02,920 --> 01:01:14,440
+call it a cupboard syntax table over
+
+917
+01:01:06,160 --> 01:01:17,260
+here and see so anyway oh this detail I
+
+918
+01:01:14,440 --> 01:01:20,770
+explained in my tutorial so so let me
+
+919
+01:01:17,260 --> 01:01:25,329
+summarize so to do syntax colouring of
+
+920
+01:01:20,770 --> 01:01:26,079
+words we have covered it's as simple as
+
+921
+01:01:25,329 --> 01:01:30,630
+that
+
+922
+01:01:26,079 --> 01:01:34,359
+now if you want also color string and
+
+923
+01:01:30,630 --> 01:01:36,339
+the comment which is almost always
+
+924
+01:01:34,359 --> 01:01:42,730
+necessary you know you want them colored
+
+925
+01:01:36,339 --> 01:01:44,650
+then you have to set up syntax table and
+
+926
+01:01:42,730 --> 01:01:46,720
+I'll explain about that another day
+
+927
+01:01:44,650 --> 01:01:50,200
+because you know that's getting too much
+
+928
+01:01:46,720 --> 01:01:54,069
+and also in between you see so many
+
+929
+01:01:50,200 --> 01:01:57,339
+other topics we you know so writing a
+
+930
+01:01:54,069 --> 01:02:00,130
+full-featured major mod may not be that
+
+931
+01:01:57,339 --> 01:02:03,280
+easy okay but you know you have to start
+
+932
+01:02:00,130 --> 01:02:06,040
+somewhere you can begin trivially just
+
+933
+01:02:03,280 --> 01:02:11,140
+like that I think that's what we want to
+
+934
+01:02:06,040 --> 01:02:13,960
+cover today let me read the comments so
+
+935
+01:02:11,140 --> 01:02:17,020
+quick green deck says I just discovered
+
+936
+01:02:13,960 --> 01:02:20,799
+it it looks cool for for finding files
+
+937
+01:02:17,020 --> 01:02:25,329
+by name yeah yeah yeah a lot of people
+
+938
+01:02:20,799 --> 01:02:27,549
+use it you know I can you know yeah yeah
+
+939
+01:02:25,329 --> 01:02:33,099
+so you know if you like it you know you
+
+940
+01:02:27,549 --> 01:02:36,700
+like so it's a good tool I recommend it
+
+941
+01:02:33,099 --> 01:02:39,039
+it's what I I'm fairly sure it's well
+
+942
+01:02:36,700 --> 01:02:41,920
+written by this guy
+
+943
+01:02:39,039 --> 01:02:44,319
+and it's it's huge you know that the
+
+944
+01:02:41,920 --> 01:02:46,839
+code you know that I think I'm guessing
+
+945
+01:02:44,319 --> 01:02:48,609
+it's like mod it's few thousand more
+
+946
+01:02:46,839 --> 01:02:53,079
+than ten thousand lines for sure because
+
+947
+01:02:48,609 --> 01:02:55,210
+it's large and also yeah so it's a good
+
+948
+01:02:53,079 --> 01:02:58,599
+tool if you like it you know use it but
+
+949
+01:02:55,210 --> 01:03:00,130
+they are a lot you know like typically
+
+950
+01:02:58,599 --> 01:03:01,869
+in the Emacs world there are many
+
+951
+01:03:00,130 --> 01:03:05,019
+alternatives you know some people like
+
+952
+01:03:01,869 --> 01:03:09,450
+helm there's also IV you know this IV
+
+953
+01:03:05,019 --> 01:03:12,670
+you can look up iby there's IV there's
+
+954
+01:03:09,450 --> 01:03:15,849
+you know there's quite a few and you
+
+955
+01:03:12,670 --> 01:03:18,279
+know the workflow Emacs is you know very
+
+956
+01:03:15,849 --> 01:03:20,859
+flexible and customizable so everyone
+
+957
+01:03:18,279 --> 01:03:24,279
+has different preferences and workflow
+
+958
+01:03:20,859 --> 01:03:25,930
+so so but if you look at Emacs community
+
+959
+01:03:24,279 --> 01:03:28,989
+for example you could read it you know
+
+960
+01:03:25,930 --> 01:03:32,410
+some people will say oh I love helm some
+
+961
+01:03:28,989 --> 01:03:36,339
+people say oh but no I like I be better
+
+962
+01:03:32,410 --> 01:03:38,980
+okay so you know you have choices from
+
+963
+01:03:36,339 --> 01:03:45,069
+for me I don't I don't use it neither of
+
+964
+01:03:38,980 --> 01:03:47,680
+them so green deck says it looks very
+
+965
+01:03:45,069 --> 01:03:50,440
+complicated really change change the way
+
+966
+01:03:47,680 --> 01:03:54,279
+you use Emacs yes yeah that's the major
+
+967
+01:03:50,440 --> 01:03:56,559
+point about helm you know helm is you
+
+968
+01:03:54,279 --> 01:03:58,779
+know this idea that you know you know
+
+969
+01:03:56,559 --> 01:04:05,410
+like based on you know typing some
+
+970
+01:03:58,779 --> 01:04:09,089
+things interface it and to be fair I
+
+971
+01:04:05,410 --> 01:04:11,140
+have not made a full study of that
+
+972
+01:04:09,089 --> 01:04:13,809
+interface you know because I'm
+
+973
+01:04:11,140 --> 01:04:15,910
+interested in efficiency like how many
+
+974
+01:04:13,809 --> 01:04:18,210
+kids like scientifically you know I want
+
+975
+01:04:15,910 --> 01:04:20,529
+to find what's the most efficient way
+
+976
+01:04:18,210 --> 01:04:23,079
+what's the most efficient workflow
+
+977
+01:04:20,529 --> 01:04:25,509
+what's the most efficient way to switch
+
+978
+01:04:23,079 --> 01:04:27,519
+windows so should you have one window or
+
+979
+01:04:25,509 --> 01:04:29,529
+should you have you know multiple
+
+980
+01:04:27,519 --> 01:04:32,650
+windows and should you have you know
+
+981
+01:04:29,529 --> 01:04:34,989
+split pane so what I mean to that kind
+
+982
+01:04:32,650 --> 01:04:39,069
+of thing but I have not made a thorough
+
+983
+01:04:34,989 --> 01:04:41,940
+study of the helm kind of interface so
+
+984
+01:04:39,069 --> 01:04:41,940
+yeah it's up to you
+
+985
+01:04:43,170 --> 01:04:48,690
+so green deck says I have directory with
+
+986
+01:04:45,870 --> 01:04:49,710
+many directories and lots of images in
+
+987
+01:04:48,690 --> 01:04:52,020
+them okay
+
+988
+01:04:49,710 --> 01:04:54,990
+directory with many directories and lots
+
+989
+01:04:52,020 --> 01:04:58,470
+of images in them same thing here so for
+
+990
+01:04:54,990 --> 01:05:05,310
+example I go to my Emacs directory I can
+
+991
+01:04:58,470 --> 01:05:09,860
+go to you know here is all my images let
+
+992
+01:05:05,310 --> 01:05:14,610
+me show you this directory is you know
+
+993
+01:05:09,860 --> 01:05:16,770
+you see four hundred images so if you
+
+994
+01:05:14,610 --> 01:05:19,260
+have that situation directly with many
+
+995
+01:05:16,770 --> 01:05:22,820
+directories and images I don't know
+
+996
+01:05:19,260 --> 01:05:25,970
+what's the best way to search them oh
+
+997
+01:05:22,820 --> 01:05:29,130
+okay so if you want to search text
+
+998
+01:05:25,970 --> 01:05:32,400
+that's very easy you know there are so
+
+999
+01:05:29,130 --> 01:05:35,420
+many okay so there are so many ways
+
+1000
+01:05:32,400 --> 01:05:40,860
+again the way I use you know my way is
+
+1001
+01:05:35,420 --> 01:05:43,650
+so find sapphire fire okay so we put a
+
+1002
+01:05:40,860 --> 01:05:45,960
+plug of my own package so for example
+
+1003
+01:05:43,650 --> 01:05:48,630
+let's go to my Emacs blog showing
+
+1004
+01:05:45,960 --> 01:05:51,770
+browser now let's say you know so in
+
+1005
+01:05:48,630 --> 01:05:54,660
+this directory I have like 800 files
+
+1006
+01:05:51,770 --> 01:05:56,280
+okay I want to find all files that
+
+1007
+01:05:54,660 --> 01:06:00,050
+contains the world Haskell
+
+1008
+01:05:56,280 --> 01:06:04,080
+so I call the command so fine text
+
+1009
+01:06:00,050 --> 01:06:06,200
+Haskell enter and it asked me what
+
+1010
+01:06:04,080 --> 01:06:12,000
+directory okay in this directory and
+
+1011
+01:06:06,200 --> 01:06:14,490
+asked me what file extension ok HTML you
+
+1012
+01:06:12,000 --> 01:06:18,270
+see then here are all the occurrences I
+
+1013
+01:06:14,490 --> 01:06:22,230
+can press arrow keys to navigate you
+
+1014
+01:06:18,270 --> 01:06:25,580
+know or I can press up/down arrow to
+
+1015
+01:06:22,230 --> 01:06:30,720
+navigate around the files you know down
+
+1016
+01:06:25,580 --> 01:06:33,960
+or next occurrence then if I press ENTER
+
+1017
+01:06:30,720 --> 01:06:39,510
+your open file in that location you see
+
+1018
+01:06:33,960 --> 01:06:42,090
+this this file and show in browser okay
+
+1019
+01:06:39,510 --> 01:06:45,480
+so this is an essay is lisps objects
+
+1020
+01:06:42,090 --> 01:06:50,450
+concepts necessary you know so so yeah
+
+1021
+01:06:45,480 --> 01:06:53,120
+so that so that is my package saw find
+
+1022
+01:06:50,450 --> 01:06:55,920
+let me show you
+
+1023
+01:06:53,120 --> 01:06:58,920
+so here's the command the command I just
+
+1024
+01:06:55,920 --> 01:07:03,330
+called his cell fine text and it's in
+
+1025
+01:06:58,920 --> 01:07:05,310
+this package sapphire DL and let's go to
+
+1026
+01:07:03,330 --> 01:07:09,960
+the source code so this is the source
+
+1027
+01:07:05,310 --> 01:07:14,430
+code about 800 lines and I have a
+
+1028
+01:07:09,960 --> 01:07:16,410
+website that shows you know experience
+
+1029
+01:07:14,430 --> 01:07:20,340
+you know so you can you can use that so
+
+1030
+01:07:16,410 --> 01:07:22,860
+and this is one of the way to find a
+
+1031
+01:07:20,340 --> 01:07:26,400
+string in a directory it can be nested
+
+1032
+01:07:22,860 --> 01:07:29,280
+directory you know and some people like
+
+1033
+01:07:26,400 --> 01:07:34,340
+other ways actually so if you go to my
+
+1034
+01:07:29,280 --> 01:07:38,130
+Emacs tutorial you will find a section
+
+1035
+01:07:34,340 --> 01:07:44,790
+Emacs find/replace and this section
+
+1036
+01:07:38,130 --> 01:07:50,510
+covers all the ways in mx2 to such a
+
+1037
+01:07:44,790 --> 01:07:54,120
+string you know so and you know so I
+
+1038
+01:07:50,510 --> 01:07:57,300
+happened to eventually write my own way
+
+1039
+01:07:54,120 --> 01:08:00,120
+because I think it's better you know but
+
+1040
+01:07:57,300 --> 01:08:04,800
+but but if you are not using you know if
+
+1041
+01:08:00,120 --> 01:08:08,520
+you don't want to use any packages you
+
+1042
+01:08:04,800 --> 01:08:11,550
+can see such texting or directory so
+
+1043
+01:08:08,520 --> 01:08:14,070
+this this page explains the different
+
+1044
+01:08:11,550 --> 01:08:16,170
+ways to search text you know directory
+
+1045
+01:08:14,070 --> 01:08:22,500
+and it's very good you know I've been
+
+1046
+01:08:16,170 --> 01:08:24,450
+using it for several years so you know a
+
+1047
+01:08:22,500 --> 01:08:26,460
+lot of people these days you know they
+
+1048
+01:08:24,450 --> 01:08:29,040
+like to use all the mods you know they
+
+1049
+01:08:26,460 --> 01:08:30,900
+go to my Appa you know they they want to
+
+1050
+01:08:29,040 --> 01:08:32,970
+do something they search for mail pi and
+
+1051
+01:08:30,900 --> 01:08:36,510
+they there are so many packages so you
+
+1052
+01:08:32,970 --> 01:08:41,670
+should use helm IV and you know that but
+
+1053
+01:08:36,510 --> 01:08:44,220
+to me I think many building Emacs
+
+1054
+01:08:41,670 --> 01:08:47,580
+commands people for God you know since
+
+1055
+01:08:44,220 --> 01:08:50,760
+about five years ago since kind of the
+
+1056
+01:08:47,580 --> 01:08:52,799
+the the the bloat of the social network
+
+1057
+01:08:50,760 --> 01:08:57,710
+you know quick baits and all that so
+
+1058
+01:08:52,799 --> 01:09:01,700
+people stopped people stopped studying
+
+1059
+01:08:57,710 --> 01:09:04,859
+studying the core functions of a
+
+1060
+01:09:01,700 --> 01:09:06,510
+programming language you know instead of
+
+1061
+01:09:04,859 --> 01:09:09,150
+studying the program
+
+1062
+01:09:06,510 --> 01:09:11,340
+which language they just you know go
+
+1063
+01:09:09,150 --> 01:09:13,530
+find a library oh I need to trim the
+
+1064
+01:09:11,340 --> 01:09:15,300
+screen find the library but actually you
+
+1065
+01:09:13,530 --> 01:09:17,160
+know it's ready in the language it's you
+
+1066
+01:09:15,300 --> 01:09:19,890
+know that's what the language is
+
+1067
+01:09:17,160 --> 01:09:21,780
+designed for you know similar way you
+
+1068
+01:09:19,890 --> 01:09:24,860
+know Emacs when you want to do something
+
+1069
+01:09:21,780 --> 01:09:28,320
+you just go to my Appa and find you know
+
+1070
+01:09:24,860 --> 01:09:31,230
+something that does that but actually in
+
+1071
+01:09:28,320 --> 01:09:35,100
+often is often the case you can imagine
+
+1072
+01:09:31,230 --> 01:09:37,530
+Emacs can do it and it's typically you
+
+1073
+01:09:35,100 --> 01:09:41,520
+know several times faster than whatever
+
+1074
+01:09:37,530 --> 01:09:44,540
+library you are using you know and so so
+
+1075
+01:09:41,520 --> 01:09:50,400
+I use this you know Emacs default way
+
+1076
+01:09:44,540 --> 01:09:52,620
+the Koran is code okay so you know they
+
+1077
+01:09:50,400 --> 01:09:56,220
+are there person cons you know because
+
+1078
+01:09:52,620 --> 01:10:00,120
+in the if you use the Emacs default way
+
+1079
+01:09:56,220 --> 01:10:04,410
+it requires two it requires you to have
+
+1080
+01:10:00,120 --> 01:10:07,500
+the grep UNIX utility it's required you
+
+1081
+01:10:04,410 --> 01:10:09,120
+know so if you are on Windows and you
+
+1082
+01:10:07,500 --> 01:10:12,330
+don't have that installed that's a
+
+1083
+01:10:09,120 --> 01:10:13,920
+problem you know in our case you can use
+
+1084
+01:10:12,330 --> 01:10:16,800
+my package you know case are fine
+
+1085
+01:10:13,920 --> 01:10:19,320
+because my package is pure this it's
+
+1086
+01:10:16,800 --> 01:10:23,250
+written in pure Lee's so one of the
+
+1087
+01:10:19,320 --> 01:10:25,170
+advantage of you know sapphire is that
+
+1088
+01:10:23,250 --> 01:10:27,750
+it runs everywhere every you know you
+
+1089
+01:10:25,170 --> 01:10:29,910
+just download the package it's Lisp you
+
+1090
+01:10:27,750 --> 01:10:33,770
+know it's building is you know you don't
+
+1091
+01:10:29,910 --> 01:10:36,060
+have to download is external utilities
+
+1092
+01:10:33,770 --> 01:10:38,280
+you know for some people that's an
+
+1093
+01:10:36,060 --> 01:10:40,920
+advantage because on Windows then you
+
+1094
+01:10:38,280 --> 01:10:43,770
+have many it gets complex complicated
+
+1095
+01:10:40,920 --> 01:10:46,080
+you know you have many sequin you have
+
+1096
+01:10:43,770 --> 01:10:53,490
+you know several other alternatives you
+
+1097
+01:10:46,080 --> 01:10:55,560
+know yeah so if and so if you want to
+
+1098
+01:10:53,490 --> 01:10:58,140
+use Emacs building you have you know you
+
+1099
+01:10:55,560 --> 01:11:01,620
+can you can do that but you need the
+
+1100
+01:10:58,140 --> 01:11:04,500
+crap UNIX utility which is you know on
+
+1101
+01:11:01,620 --> 01:11:08,490
+Linux it's already there and our Mac is
+
+1102
+01:11:04,500 --> 01:11:10,050
+also already there and and and like it
+
+1103
+01:11:08,490 --> 01:11:12,180
+you know so there are many many
+
+1104
+01:11:10,050 --> 01:11:15,660
+varieties then today you have people
+
+1105
+01:11:12,180 --> 01:11:18,460
+using arc AG I think you know there are
+
+1106
+01:11:15,660 --> 01:11:22,210
+several great replacements
+
+1107
+01:11:18,460 --> 01:11:24,040
+that is faster than grab you know grab
+
+1108
+01:11:22,210 --> 01:11:29,469
+is pretty old so they are safer that's
+
+1109
+01:11:24,040 --> 01:11:31,510
+suppose that's faster typically the
+
+1110
+01:11:29,469 --> 01:11:34,510
+speed doesn't matter to me because when
+
+1111
+01:11:31,510 --> 01:11:37,840
+you search 1000 of 2000 files you cannot
+
+1112
+01:11:34,510 --> 01:11:39,610
+see the speed difference that's you know
+
+1113
+01:11:37,840 --> 01:11:43,060
+you'll see the speed defense only when
+
+1114
+01:11:39,610 --> 01:11:45,400
+you have like maybe you tenth you know
+
+1115
+01:11:43,060 --> 01:11:48,640
+fifty thousand files or something like
+
+1116
+01:11:45,400 --> 01:11:50,350
+that and also much of the time when you
+
+1117
+01:11:48,640 --> 01:11:53,140
+try to find a firing indirectly much
+
+1118
+01:11:50,350 --> 01:11:57,010
+about time is spent on the hard disk
+
+1119
+01:11:53,140 --> 01:12:00,580
+spinning yes you know was because once
+
+1120
+01:11:57,010 --> 01:12:03,670
+you search the first time the operating
+
+1121
+01:12:00,580 --> 01:12:06,580
+system today typically put all the files
+
+1122
+01:12:03,670 --> 01:12:08,800
+into cache memory cache so once you do
+
+1123
+01:12:06,580 --> 01:12:10,180
+it the first time then the second time
+
+1124
+01:12:08,800 --> 01:12:13,450
+it's very fast you know it doesn't
+
+1125
+01:12:10,180 --> 01:12:15,489
+matter 10,000 files or not so the time
+
+1126
+01:12:13,450 --> 01:12:18,219
+the most time span is actually the disk
+
+1127
+01:12:15,489 --> 01:12:21,040
+so you want to get you know fresh disk
+
+1128
+01:12:18,219 --> 01:12:23,560
+if you don't have that you know yes so
+
+1129
+01:12:21,040 --> 01:12:24,460
+there are a lot of pros and cons of
+
+1130
+01:12:23,560 --> 01:12:31,660
+different ways
+
+1131
+01:12:24,460 --> 01:12:35,590
+oh if you only need to such file names
+
+1132
+01:12:31,660 --> 01:12:40,300
+then the typical solution I do is just
+
+1133
+01:12:35,590 --> 01:12:43,300
+UNIX utility find okay this is what I do
+
+1134
+01:12:40,300 --> 01:12:46,260
+so find name and Esther is let's say
+
+1135
+01:12:43,300 --> 01:12:49,150
+house call so this command so a me-yow
+
+1136
+01:12:46,260 --> 01:12:51,550
+this command will find all filenames
+
+1137
+01:12:49,150 --> 01:12:52,230
+that contains the word has come let's
+
+1138
+01:12:51,550 --> 01:12:55,900
+try it
+
+1139
+01:12:52,230 --> 01:13:00,000
+none okay let's go to previous directory
+
+1140
+01:12:55,900 --> 01:13:00,000
+do it again oops
+
+1141
+01:13:00,070 --> 01:13:08,070
+close it okay let's do it again okay
+
+1142
+01:13:08,280 --> 01:13:13,690
+there is no file name named Haskell with
+
+1143
+01:13:11,920 --> 01:13:16,360
+the world Haskell let's go to my
+
+1144
+01:13:13,690 --> 01:13:21,360
+programming block okay go to the
+
+1145
+01:13:16,360 --> 01:13:25,140
+directory go to a directory there it is
+
+1146
+01:13:21,360 --> 01:13:29,179
+so I have actually several image files
+
+1147
+01:13:25,140 --> 01:13:32,249
+with the name has cow
+
+1148
+01:13:29,179 --> 01:13:35,999
+open it okay this is Haskell
+
+1149
+01:13:32,249 --> 01:13:41,880
+documentation open it this is a Haskell
+
+1150
+01:13:35,999 --> 01:13:44,760
+documentation this is yeah Unicode in
+
+1151
+01:13:41,880 --> 01:13:48,479
+Haskell this article I talk about
+
+1152
+01:13:44,760 --> 01:13:52,739
+Unicode yes has cow in math symbols you
+
+1153
+01:13:48,479 --> 01:13:55,289
+know like summation sign then you have
+
+1154
+01:13:52,739 --> 01:13:59,039
+this this this this one is about the Oh
+
+1155
+01:13:55,289 --> 01:14:01,920
+engine of the Haskell syntax you know
+
+1156
+01:13:59,039 --> 01:14:05,010
+Haskell syntax where does it came from
+
+1157
+01:14:01,920 --> 01:14:09,389
+that is that about so you know I have
+
+1158
+01:14:05,010 --> 01:14:12,179
+several files about Haskell and okay
+
+1159
+01:14:09,389 --> 01:14:15,269
+okay and then you have this article
+
+1160
+01:14:12,179 --> 01:14:18,929
+history of Oh Cameron Haskell syntax the
+
+1161
+01:14:15,269 --> 01:14:21,479
+next 700 programming languages now this
+
+1162
+01:14:18,929 --> 01:14:24,900
+is interesting because in Haskell DoCoMo
+
+1163
+01:14:21,479 --> 01:14:27,630
+they are syntax you know like most
+
+1164
+01:14:24,900 --> 01:14:30,630
+languages today Java JavaScript C press
+
+1165
+01:14:27,630 --> 01:14:36,090
+first c-sharp you know they are all
+
+1166
+01:14:30,630 --> 01:14:38,189
+based on C language syntax and then you
+
+1167
+01:14:36,090 --> 01:14:41,489
+have this family but where does Haskell
+
+1168
+01:14:38,189 --> 01:14:44,159
+ok mode and f-sharp you know their
+
+1169
+01:14:41,489 --> 01:14:48,479
+syntax is similar where do their syntax
+
+1170
+01:14:44,159 --> 01:14:50,429
+came from not more mathematics okay
+
+1171
+01:14:48,479 --> 01:14:55,889
+where did it came from they came from
+
+1172
+01:14:50,429 --> 01:15:02,010
+this article this article in 1966 by
+
+1173
+01:14:55,889 --> 01:15:05,579
+this guy PJ London that's very funny
+
+1174
+01:15:02,010 --> 01:15:07,530
+because you can read this article if you
+
+1175
+01:15:05,579 --> 01:15:11,519
+go through my website let me show you
+
+1176
+01:15:07,530 --> 01:15:20,459
+okay so this is the URL that's let's
+
+1177
+01:15:11,519 --> 01:15:26,639
+this is your let's go look at file wait
+
+1178
+01:15:20,459 --> 01:15:30,229
+wait for loading so this essay 1966
+
+1179
+01:15:26,639 --> 01:15:33,659
+basically he published this article
+
+1180
+01:15:30,229 --> 01:15:37,709
+titled the next 700 programming
+
+1181
+01:15:33,659 --> 01:15:39,749
+languages now this is the father of
+
+1182
+01:15:37,709 --> 01:15:42,150
+clickbait okay
+
+1183
+01:15:39,749 --> 01:15:45,870
+the next 700 programming languages
+
+1184
+01:15:42,150 --> 01:15:47,910
+and it appears to me you know I'm doing
+
+1185
+01:15:45,870 --> 01:15:50,820
+my research so it appears to me this
+
+1186
+01:15:47,910 --> 01:15:57,960
+article this this this is publishing
+
+1187
+01:15:50,820 --> 01:16:08,490
+we're in one of the let's see let's
+
+1188
+01:15:57,960 --> 01:16:10,530
+magnify this is published in I forgot it
+
+1189
+01:16:08,490 --> 01:16:14,400
+doesn't say here it's publishing some
+
+1190
+01:16:10,530 --> 01:16:16,500
+programming you know research journal or
+
+1191
+01:16:14,400 --> 01:16:18,870
+something like that the next 700
+
+1192
+01:16:16,500 --> 01:16:21,870
+programming languages so this this
+
+1193
+01:16:18,870 --> 01:16:25,620
+article seems to be very popular it cat
+
+1194
+01:16:21,870 --> 01:16:27,450
+caught programmers fancy you know it
+
+1195
+01:16:25,620 --> 01:16:29,430
+seems to me that this article is
+
+1196
+01:16:27,450 --> 01:16:33,180
+supposed to be you know this is the
+
+1197
+01:16:29,430 --> 01:16:36,780
+final say about syntax you know oh you
+
+1198
+01:16:33,180 --> 01:16:40,080
+guys arguing about syntax you know get
+
+1199
+01:16:36,780 --> 01:16:42,840
+out this is the you know the ultimate
+
+1200
+01:16:40,080 --> 01:16:48,060
+answer about see that how you should
+
+1201
+01:16:42,840 --> 01:16:50,880
+design a language is syntax so it so it
+
+1202
+01:16:48,060 --> 01:16:54,000
+turns out you know this is very
+
+1203
+01:16:50,880 --> 01:16:57,300
+influential paper and that's how oak mo
+
+1204
+01:16:54,000 --> 01:17:00,480
+got its syntax then Haskell basically
+
+1205
+01:16:57,300 --> 01:17:03,150
+kind of copied it you know so you have
+
+1206
+01:17:00,480 --> 01:17:09,260
+the family you know the ML language meta
+
+1207
+01:17:03,150 --> 01:17:12,890
+language or camo meta language camo
+
+1208
+01:17:09,260 --> 01:17:17,070
+standard camo SML the oak mo f-sharp
+
+1209
+01:17:12,890 --> 01:17:19,140
+Haskell Miranda I think also Miranda and
+
+1210
+01:17:17,070 --> 01:17:21,360
+cream you know this functional and
+
+1211
+01:17:19,140 --> 01:17:25,400
+languages they they kind of all just
+
+1212
+01:17:21,360 --> 01:17:28,830
+copy copycat you know from this article
+
+1213
+01:17:25,400 --> 01:17:30,840
+now this alko is actually I don't like
+
+1214
+01:17:28,830 --> 01:17:35,130
+it because I try to read it the writing
+
+1215
+01:17:30,840 --> 01:17:39,150
+style is pretty it's it's the writing
+
+1216
+01:17:35,130 --> 01:17:41,040
+style is very unclear its convoluted
+
+1217
+01:17:39,150 --> 01:17:45,030
+okay I don't like the writing style and
+
+1218
+01:17:41,040 --> 01:17:46,950
+also this is like 1966 so maybe there's
+
+1219
+01:17:45,030 --> 01:17:49,350
+some change in writing style but anyway
+
+1220
+01:17:46,950 --> 01:17:53,640
+you try to write it you try to read it
+
+1221
+01:17:49,350 --> 01:17:55,650
+it's difficult to understand and you
+
+1222
+01:17:53,640 --> 01:17:56,099
+know then you look at you know what he
+
+1223
+01:17:55,650 --> 01:17:59,730
+say
+
+1224
+01:17:56,099 --> 01:18:04,079
+you know and I don't agree okay I know I
+
+1225
+01:17:59,730 --> 01:18:07,739
+don't think it's in any way you know you
+
+1226
+01:18:04,079 --> 01:18:11,449
+know good essay you know good discussion
+
+1227
+01:18:07,739 --> 01:18:15,750
+you know i but but actually I haven't
+
+1228
+01:18:11,449 --> 01:18:23,250
+fully digested the the essay because how
+
+1229
+01:18:15,750 --> 01:18:25,440
+to read so okay so let's so so yeah so
+
+1230
+01:18:23,250 --> 01:18:29,579
+we were trying to find four or five our
+
+1231
+01:18:25,440 --> 01:18:32,040
+names you know other we want to find a
+
+1232
+01:18:29,579 --> 01:18:34,710
+file with a specific string in the name
+
+1233
+01:18:32,040 --> 01:18:37,739
+so that's what I do
+
+1234
+01:18:34,710 --> 01:18:42,389
+you know the classic eunuch UNIX utility
+
+1235
+01:18:37,739 --> 01:18:49,349
+fine and if you want case-insensitive
+
+1236
+01:18:42,389 --> 01:18:52,110
+you use the option i name and this is
+
+1237
+01:18:49,349 --> 01:18:57,170
+the you know this is building every UNIX
+
+1238
+01:18:52,110 --> 01:18:57,170
+and Mac OS you know and it's pretty fast
+
+1239
+01:19:00,199 --> 01:19:12,300
+okay so that's about it then anything
+
+1240
+01:19:03,119 --> 01:19:17,429
+else green deck yeah that's it for today
+
+1241
+01:19:12,300 --> 01:19:21,510
+so so if you like my stuff you like my
+
+1242
+01:19:17,429 --> 01:19:28,739
+tutorials you can you know go by my you
+
+1243
+01:19:21,510 --> 01:19:31,020
+can buy my Emacs tutorial or you can you
+
+1244
+01:19:28,739 --> 01:19:36,929
+know patreon patreon me you know five
+
+1245
+01:19:31,020 --> 01:19:38,190
+bucks a month you know like coffee a cup
+
+1246
+01:19:36,929 --> 01:19:42,960
+of coffee
+
+1247
+01:19:38,190 --> 01:19:45,119
+a month or something so thank you thank
+
+1248
+01:19:42,960 --> 01:19:51,150
+you green deck thank you green deck
+
+1249
+01:19:45,119 --> 01:19:54,000
+demetri demetri matt of wave hey sy I
+
+1250
+01:19:51,150 --> 01:19:57,570
+find finally got you type greetings from
+
+1251
+01:19:54,000 --> 01:20:03,840
+Moscow great so we got two Russians from
+
+1252
+01:19:57,570 --> 01:20:06,270
+Moscow from LA from Russian so that you
+
+1253
+01:20:03,840 --> 01:20:09,780
+know wherever I see Russian that reminds
+
+1254
+01:20:06,270 --> 01:20:14,929
+me of the James Bond movie
+
+1255
+01:20:09,780 --> 01:20:14,929
+what do you what is the name that we
+
+1256
+01:20:16,789 --> 01:20:26,219
+love from Russia or something okay so
+
+1257
+01:20:23,460 --> 01:20:28,409
+great so I think that's it for today so
+
+1258
+01:20:26,219 --> 01:20:31,099
+anything else anything chat let's you
+
+1259
+01:20:28,409 --> 01:20:39,539
+know let's chat for me a few minutes
+
+1260
+01:20:31,099 --> 01:20:44,010
+anything interesting your stuff so
+
+1261
+01:20:39,539 --> 01:20:47,159
+writing a major mod which is a fantastic
+
+1262
+01:20:44,010 --> 01:20:51,030
+journey into Emacs Lisp and very
+
+1263
+01:20:47,159 --> 01:20:52,530
+practical useful and actually there are
+
+1264
+01:20:51,030 --> 01:20:55,050
+many things to go over
+
+1265
+01:20:52,530 --> 01:20:57,360
+you know when used you know you can so I
+
+1266
+01:20:55,050 --> 01:20:59,340
+hope you know today you can get started
+
+1267
+01:20:57,360 --> 01:21:01,499
+to write your own major body it's
+
+1268
+01:20:59,340 --> 01:21:04,110
+actually you know it's it's fun and
+
+1269
+01:21:01,499 --> 01:21:06,119
+practical you know like today like if
+
+1270
+01:21:04,110 --> 01:21:08,429
+you don't if you called Python or
+
+1271
+01:21:06,119 --> 01:21:10,710
+something javascript or Golan you don't
+
+1272
+01:21:08,429 --> 01:21:12,150
+like the you know default you can you
+
+1273
+01:21:10,710 --> 01:21:16,019
+know start to write your own you know
+
+1274
+01:21:12,150 --> 01:21:18,960
+just by starting to copy these six lines
+
+1275
+01:21:16,019 --> 01:21:20,699
+and you you'll be on your way then you
+
+1276
+01:21:18,960 --> 01:21:24,210
+can read you know you can learn details
+
+1277
+01:21:20,699 --> 01:21:27,479
+about font mod you can learn details
+
+1278
+01:21:24,210 --> 01:21:29,639
+about define defining your face like you
+
+1279
+01:21:27,479 --> 01:21:31,889
+can customize your you know you can
+
+1280
+01:21:29,639 --> 01:21:37,320
+customize your font size color and the
+
+1281
+01:21:31,889 --> 01:21:39,329
+score and so on then you can you know
+
+1282
+01:21:37,320 --> 01:21:42,900
+then you can create features you know
+
+1283
+01:21:39,329 --> 01:21:45,449
+that's that's only useful to you you
+
+1284
+01:21:42,900 --> 01:21:51,559
+know and you can also there are things
+
+1285
+01:21:45,449 --> 01:21:55,320
+like how do you define how do you define
+
+1286
+01:21:51,559 --> 01:21:57,239
+your own keys yeah this is a major thing
+
+1287
+01:21:55,320 --> 01:21:59,610
+you know you have to add your own key
+
+1288
+01:21:57,239 --> 01:22:01,650
+bindings to a major mod then you can
+
+1289
+01:21:59,610 --> 01:22:06,239
+define a brief this is also fantastic
+
+1290
+01:22:01,650 --> 01:22:12,630
+for example in Emacs Lisp you know for
+
+1291
+01:22:06,239 --> 01:22:14,940
+example because that in email is you
+
+1292
+01:22:12,630 --> 01:22:19,889
+know that Nimisha for example right type
+
+1293
+01:22:14,940 --> 01:22:22,530
+T Enter I gotta fun then space I got the
+
+1294
+01:22:19,889 --> 01:22:23,670
+whole shebang you know as you know I
+
+1295
+01:22:22,530 --> 01:22:27,480
+want to set
+
+1296
+01:22:23,670 --> 01:22:30,060
+variable that have s said Q oh the whole
+
+1297
+01:22:27,480 --> 01:22:34,590
+thing cutter you know that's a brief you
+
+1298
+01:22:30,060 --> 01:22:38,100
+know am using Emacs Lisp mod so let me
+
+1299
+01:22:34,590 --> 01:22:40,710
+show you the you know saw him actually
+
+1300
+01:22:38,100 --> 01:22:45,410
+smart that's what I'm using let's go to
+
+1301
+01:22:40,710 --> 01:22:48,690
+the source code and you see so it's
+
+1302
+01:22:45,410 --> 01:22:52,469
+three thousand and six hundred lines of
+
+1303
+01:22:48,690 --> 01:22:54,500
+code you um you begin small you know you
+
+1304
+01:22:52,469 --> 01:22:59,070
+begin with just ten lines name
+
+1305
+01:22:54,500 --> 01:23:03,210
+eventually you you grow it so you know
+
+1306
+01:22:59,070 --> 01:23:08,190
+so you have a brief you have you know
+
+1307
+01:23:03,210 --> 01:23:10,830
+you start to add up features you know so
+
+1308
+01:23:08,190 --> 01:23:13,550
+that's a you know good journey to and
+
+1309
+01:23:10,830 --> 01:23:15,750
+also besides when you think of major mod
+
+1310
+01:23:13,550 --> 01:23:19,400
+typically we are thinking of you know
+
+1311
+01:23:15,750 --> 01:23:22,500
+programming language but actually look
+
+1312
+01:23:19,400 --> 01:23:25,800
+right now we are in tired you know these
+
+1313
+01:23:22,500 --> 01:23:29,370
+showing directories and let me show you
+
+1314
+01:23:25,800 --> 01:23:36,900
+this for example let's go back here
+
+1315
+01:23:29,370 --> 01:23:39,449
+let's go back to you know so this is a
+
+1316
+01:23:36,900 --> 01:23:42,560
+tired tired is the major mod is a
+
+1317
+01:23:39,449 --> 01:23:46,820
+directories and we can open an image
+
+1318
+01:23:42,560 --> 01:23:50,090
+okay this is the laptop that gave me
+
+1319
+01:23:46,820 --> 01:23:54,360
+repetitive repetitive strain injury in
+
+1320
+01:23:50,090 --> 01:23:56,670
+2005 so because I typed on this one for
+
+1321
+01:23:54,360 --> 01:24:00,870
+like eight hours a day for two years
+
+1322
+01:23:56,670 --> 01:24:03,090
+that that is my arrow began so you know
+
+1323
+01:24:00,870 --> 01:24:06,270
+you can open the image file and what is
+
+1324
+01:24:03,090 --> 01:24:08,699
+this this is a major mod you know so you
+
+1325
+01:24:06,270 --> 01:24:10,770
+have a major mod that reads you know
+
+1326
+01:24:08,699 --> 01:24:14,130
+image files and displayed you know so
+
+1327
+01:24:10,770 --> 01:24:17,190
+that's a major mod and you have issue we
+
+1328
+01:24:14,130 --> 01:24:19,949
+have shown issue you know II shall you
+
+1329
+01:24:17,190 --> 01:24:21,780
+know that's also a major mod you know so
+
+1330
+01:24:19,949 --> 01:24:25,020
+you can start to write that so it major
+
+1331
+01:24:21,780 --> 01:24:27,390
+mod you know typically you you you it's
+
+1332
+01:24:25,020 --> 01:24:29,730
+for programming languages but then you
+
+1333
+01:24:27,390 --> 01:24:35,040
+can much you can write a shell you can
+
+1334
+01:24:29,730 --> 01:24:36,330
+write a you know directory interface you
+
+1335
+01:24:35,040 --> 01:24:43,440
+can write you know
+
+1336
+01:24:36,330 --> 01:24:45,270
+many things that's those so Dimitri says
+
+1337
+01:24:43,440 --> 01:24:47,010
+my problem with major mod is that
+
+1338
+01:24:45,270 --> 01:24:54,030
+everything I need is already written
+
+1339
+01:24:47,010 --> 01:24:57,870
+that's true yeah you know so Matthew is
+
+1340
+01:24:54,030 --> 01:25:00,620
+salsa hey good evening Matthews so yeah
+
+1341
+01:24:57,870 --> 01:25:05,340
+we are actually yeah we are done today
+
+1342
+01:25:00,620 --> 01:25:08,030
+so yeah okay so thank you thank you guys
+
+1343
+01:25:05,340 --> 01:25:12,770
+for coming that's so that's that's it
+
+1344
+01:25:08,030 --> 01:25:12,770
+thanks bye
+

@@ -1,0 +1,7016 @@
+1
+00:00:00,400 --> 00:00:06,960
+Hello guys, welcome to another episode
+
+2
+00:00:02,879 --> 00:00:08,720
+of talk show. We are going to code uh
+
+3
+00:00:06,960 --> 00:00:12,400
+Goland. We're going to code several
+
+4
+00:00:08,720 --> 00:00:15,040
+languages today. Go language and eaglist
+
+5
+00:00:12,400 --> 00:00:16,880
+and wam language. So what we're going to
+
+6
+00:00:15,040 --> 00:00:18,240
+do is we're going to create a hash
+
+7
+00:00:16,880 --> 00:00:22,720
+table. We're going to go through a
+
+8
+00:00:18,240 --> 00:00:26,400
+directory a directory of about 30,000
+
+9
+00:00:22,720 --> 00:00:28,560
+files. So for each file you know uh
+
+10
+00:00:26,400 --> 00:00:31,679
+create a hash table. The key is going to
+
+11
+00:00:28,560 --> 00:00:34,719
+be the full file path.
+
+12
+00:00:31,679 --> 00:00:37,520
+Uh full p file path like that. And the
+
+13
+00:00:34,719 --> 00:00:39,680
+value uh we're gonna ignore the value.
+
+14
+00:00:37,520 --> 00:00:41,520
+The value is just going to be one. Okay.
+
+15
+00:00:39,680 --> 00:00:44,800
+So we're going to do this in goline. But
+
+16
+00:00:41,520 --> 00:00:46,559
+also another important thing is that um
+
+17
+00:00:44,800 --> 00:00:49,280
+let me let me show you. Okay. Another
+
+18
+00:00:46,559 --> 00:00:52,719
+important thing is that we want to have
+
+19
+00:00:49,280 --> 00:00:54,480
+a list of directories to skip. So for
+
+20
+00:00:52,719 --> 00:00:56,879
+example, typically you have the git
+
+21
+00:00:54,480 --> 00:01:00,800
+directory and in that directory you have
+
+22
+00:00:56,879 --> 00:01:02,480
+like thousands of files. Um so you want
+
+23
+00:01:00,800 --> 00:01:04,879
+to you know given a list of a
+
+24
+00:01:02,480 --> 00:01:07,200
+directories you want to skip them. So
+
+25
+00:01:04,879 --> 00:01:09,360
+anyway you create a hash table then what
+
+26
+00:01:07,200 --> 00:01:12,159
+you do is that you go through each key
+
+27
+00:01:09,360 --> 00:01:15,439
+in the hash table you check if the keys
+
+28
+00:01:12,159 --> 00:01:18,159
+exist. Of course it it will it does but
+
+29
+00:01:15,439 --> 00:01:20,560
+we are we we'll do that to test the
+
+30
+00:01:18,159 --> 00:01:24,640
+speed. Okay. So we we write that in
+
+31
+00:01:20,560 --> 00:01:26,799
+Golam. Um then we write that in uh EMAC
+
+32
+00:01:24,640 --> 00:01:29,280
+list. Then we write that in Wufa
+
+33
+00:01:26,799 --> 00:01:33,600
+language. I hope we can finish this in
+
+34
+00:01:29,280 --> 00:01:35,600
+like 40 minutes or or more. Um
+
+35
+00:01:33,600 --> 00:01:38,400
+if you are watching offline, watch at
+
+36
+00:01:35,600 --> 00:01:42,240
+1.5 speed because I ramble. If you are
+
+37
+00:01:38,400 --> 00:01:46,200
+watching here, say hi. Hi. I don't know.
+
+38
+00:01:42,240 --> 00:01:46,200
+Fantastic. Okay.
+
+39
+00:01:50,079 --> 00:01:55,680
+Play at 1.5 speed and speak skip around
+
+40
+00:01:53,200 --> 00:01:59,399
+when you are watching offline. I'm just
+
+41
+00:01:55,680 --> 00:01:59,399
+going to go easy.
+
+42
+00:02:02,960 --> 00:02:08,560
+Happy July 4th. Today is July 4th. So
+
+43
+00:02:06,079 --> 00:02:11,760
+this is my tea
+
+44
+00:02:08,560 --> 00:02:13,760
+and uh red light. Why red light? You
+
+45
+00:02:11,760 --> 00:02:18,560
+know, I recommend, highly recommend you
+
+46
+00:02:13,760 --> 00:02:21,520
+go by red light because red light um
+
+47
+00:02:18,560 --> 00:02:25,280
+they uh they sooththe is your eye,
+
+48
+00:02:21,520 --> 00:02:27,760
+soothe is your brain. So after the sun
+
+49
+00:02:25,280 --> 00:02:33,440
+is set, turn on red light. It's very
+
+50
+00:02:27,760 --> 00:02:36,000
+good for you. Okay, so let's go back. Um
+
+51
+00:02:33,440 --> 00:02:38,879
+okay, so let's begin coding. Okay, let's
+
+52
+00:02:36,000 --> 00:02:41,840
+see. I you know I hope we can do this
+
+53
+00:02:38,879 --> 00:02:44,319
+like finish in 30 minutes or so. Okay.
+
+54
+00:02:41,840 --> 00:02:47,360
+So keyboard block we don't care. So okay
+
+55
+00:02:44,319 --> 00:02:50,000
+so um so this is uh keyboard block
+
+56
+00:02:47,360 --> 00:02:52,160
+close. Okay. So here is a code. So what
+
+57
+00:02:50,000 --> 00:02:53,920
+we are doing is that I have this code
+
+58
+00:02:52,160 --> 00:02:58,080
+already.
+
+59
+00:02:53,920 --> 00:03:01,360
+This is validate uh this this code in go
+
+60
+00:02:58,080 --> 00:03:06,319
+language is validate a website. So my
+
+61
+00:03:01,360 --> 00:03:08,560
+website is about uh 10,000 HTML files.
+
+62
+00:03:06,319 --> 00:03:14,000
+If you count image files, it's going to
+
+63
+00:03:08,560 --> 00:03:17,920
+be um it's gonna be like um 30,000 files
+
+64
+00:03:14,000 --> 00:03:19,519
+or more. Okay. So, so you go through bas
+
+65
+00:03:17,920 --> 00:03:23,120
+basically what you want to do is you
+
+66
+00:03:19,519 --> 00:03:25,519
+want you you want to find um you want to
+
+67
+00:03:23,120 --> 00:03:28,000
+find bad links for example a link like
+
+68
+00:03:25,519 --> 00:03:31,599
+that. Uh so let's de let let me
+
+69
+00:03:28,000 --> 00:03:35,360
+demonstrate that. Okay. So um so copy
+
+70
+00:03:31,599 --> 00:03:37,840
+the file path and go to my script. Uh
+
+71
+00:03:35,360 --> 00:03:40,799
+okay, close that. Okay, so here is the
+
+72
+00:03:37,840 --> 00:03:43,519
+script and go down and here you say
+
+73
+00:03:40,799 --> 00:03:46,000
+where do you want the uh the directory
+
+74
+00:03:43,519 --> 00:03:49,440
+to start checking. Okay, so let's put
+
+75
+00:03:46,000 --> 00:03:51,920
+that and remove that. So input directory
+
+76
+00:03:49,440 --> 00:03:56,159
+is going to be you know just let's just
+
+77
+00:03:51,920 --> 00:04:00,959
+check uh files in Goland. So run it. So
+
+78
+00:03:56,159 --> 00:04:03,519
+now done. So done in 0.3 seconds you
+
+79
+00:04:00,959 --> 00:04:07,840
+know it's checking this directory check
+
+80
+00:04:03,519 --> 00:04:10,400
+all HTML and XML files done in 0.3
+
+81
+00:04:07,840 --> 00:04:12,799
+seconds if there's any bad link you will
+
+82
+00:04:10,400 --> 00:04:16,400
+print it but so let's so there's no bad
+
+83
+00:04:12,799 --> 00:04:20,079
+link but let's try to create one okay so
+
+84
+00:04:16,400 --> 00:04:24,320
+um so what is this today's talk show uh
+
+85
+00:04:20,079 --> 00:04:27,360
+let's say uh something okay something
+
+86
+00:04:24,320 --> 00:04:31,759
+something a file
+
+87
+00:04:27,360 --> 00:04:34,080
+uh some file no exist. Okay, try to open
+
+88
+00:04:31,759 --> 00:04:36,639
+it. It doesn't exist. Okay, showing
+
+89
+00:04:34,080 --> 00:04:40,320
+browser. So there it is. So copy the
+
+90
+00:04:36,639 --> 00:04:42,320
+file path. Now go to the goland
+
+91
+00:04:40,320 --> 00:04:44,880
+uh close that. Go to the goline
+
+92
+00:04:42,320 --> 00:04:48,680
+directory. So paste the talk show
+
+93
+00:04:44,880 --> 00:04:48,680
+directory. Run it.
+
+94
+00:04:49,280 --> 00:04:54,240
+Uh okay. So now it says uh you know
+
+95
+00:04:52,240 --> 00:04:56,479
+finish in one second. Back links are
+
+96
+00:04:54,240 --> 00:04:59,600
+printed above. So this is a back link.
+
+97
+00:04:56,479 --> 00:05:02,960
+Now let's color it. Uh color it. So now
+
+98
+00:04:59,600 --> 00:05:04,720
+you can see. Oh god.
+
+99
+00:05:02,960 --> 00:05:07,120
+So you can see you can jump to it. Open
+
+100
+00:05:04,720 --> 00:05:10,320
+it. So it shows right there. So that
+
+101
+00:05:07,120 --> 00:05:14,720
+links does not it doesn't exist. So that
+
+102
+00:05:10,320 --> 00:05:17,120
+that is the um this goland script. So
+
+103
+00:05:14,720 --> 00:05:19,520
+can you know if you can go to my website
+
+104
+00:05:17,120 --> 00:05:22,240
+and you can find it. I just update it.
+
+105
+00:05:19,520 --> 00:05:25,520
+But this script is pretty slow. If I do
+
+106
+00:05:22,240 --> 00:05:27,600
+this on my website, uh it takes 40
+
+107
+00:05:25,520 --> 00:05:29,280
+seconds,
+
+108
+00:05:27,600 --> 00:05:30,880
+you know, the first run will take a
+
+109
+00:05:29,280 --> 00:05:33,360
+minute because the first run whenever
+
+110
+00:05:30,880 --> 00:05:37,039
+you do write whenever you write a script
+
+111
+00:05:33,360 --> 00:05:40,320
+that is disk heavy that access reads
+
+112
+00:05:37,039 --> 00:05:42,720
+file then it'll take a long time because
+
+113
+00:05:40,320 --> 00:05:45,840
+uh disk is very slow even if you have a
+
+114
+00:05:42,720 --> 00:05:48,080
+flash drive or have a flash drive. Uh
+
+115
+00:05:45,840 --> 00:05:50,320
+but the second time you run it then
+
+116
+00:05:48,080 --> 00:05:52,720
+everything is in memory so you can kind
+
+117
+00:05:50,320 --> 00:05:55,919
+of see it. So the second time will be
+
+118
+00:05:52,720 --> 00:05:59,039
+fast. So even in in uh if everything is
+
+119
+00:05:55,919 --> 00:06:02,800
+in memory uh this script will still take
+
+120
+00:05:59,039 --> 00:06:06,319
+like 40 sec 30 seconds. I saved 10
+
+121
+00:06:02,800 --> 00:06:08,479
+seconds. So I was trying to uh speed it
+
+122
+00:06:06,319 --> 00:06:11,199
+up. So anyway, let's go to what we have
+
+123
+00:06:08,479 --> 00:06:13,680
+to do today. Okay. So let's uh let's
+
+124
+00:06:11,199 --> 00:06:16,160
+let's just uh
+
+125
+00:06:13,680 --> 00:06:18,479
+that is the reason you know trying to
+
+126
+00:06:16,160 --> 00:06:21,120
+why are we creating a hashmap? because
+
+127
+00:06:18,479 --> 00:06:25,759
+I'm trying to speed up because one of
+
+128
+00:06:21,120 --> 00:06:27,759
+the issue in Goland is that uh in Goland
+
+129
+00:06:25,759 --> 00:06:30,800
+uh let me show you. So there is no
+
+130
+00:06:27,759 --> 00:06:33,360
+function that checks if file exist. You
+
+131
+00:06:30,800 --> 00:06:35,680
+have to write your own and basically the
+
+132
+00:06:33,360 --> 00:06:39,120
+way basically there's no function that
+
+133
+00:06:35,680 --> 00:06:42,880
+checks if a file exist. This function
+
+134
+00:06:39,120 --> 00:06:45,520
+exists in emacis in python and in wan
+
+135
+00:06:42,880 --> 00:06:48,080
+language in others but not in golan. So,
+
+136
+00:06:45,520 --> 00:06:49,919
+but if you want to check if a a file
+
+137
+00:06:48,080 --> 00:06:52,639
+path, you know, the file exists, you
+
+138
+00:06:49,919 --> 00:06:55,120
+have to write a function yourself like
+
+139
+00:06:52,639 --> 00:06:58,000
+this. And and basically, you just you
+
+140
+00:06:55,120 --> 00:07:00,639
+just try to, you know,
+
+141
+00:06:58,000 --> 00:07:04,479
+try to uh get the information from that
+
+142
+00:07:00,639 --> 00:07:07,039
+file and if that file doesn't exist, you
+
+143
+00:07:04,479 --> 00:07:09,280
+get error. Then if there's an error, you
+
+144
+00:07:07,039 --> 00:07:11,440
+return, you know, you return it says,
+
+145
+00:07:09,280 --> 00:07:14,000
+you know, so basically there's no way to
+
+146
+00:07:11,440 --> 00:07:17,520
+check file exist. I don't know why. uh
+
+147
+00:07:14,000 --> 00:07:20,400
+that's a technical details for uh imp
+
+148
+00:07:17,520 --> 00:07:22,720
+you know uh programming file system
+
+149
+00:07:20,400 --> 00:07:25,039
+implementation
+
+150
+00:07:22,720 --> 00:07:27,360
+I don't know why so anyway so I was
+
+151
+00:07:25,039 --> 00:07:29,919
+wondering if this this thing you know
+
+152
+00:07:27,360 --> 00:07:32,880
+check file exists is slowing things down
+
+153
+00:07:29,919 --> 00:07:36,080
+because every HTML page you have 10 or
+
+154
+00:07:32,880 --> 00:07:38,319
+20 30 links to other file for each link
+
+155
+00:07:36,080 --> 00:07:40,960
+you have to find the full path and check
+
+156
+00:07:38,319 --> 00:07:45,039
+that file exist so you are coding this
+
+157
+00:07:40,960 --> 00:07:47,599
+like you know uh 30 100,000 times. So I
+
+158
+00:07:45,039 --> 00:07:50,319
+was wondering if it's faster if you just
+
+159
+00:07:47,599 --> 00:07:52,800
+create a hash table of of all files in
+
+160
+00:07:50,319 --> 00:07:55,520
+your directory then just check the hash
+
+161
+00:07:52,800 --> 00:07:58,240
+key exist. So you know that's my guess.
+
+162
+00:07:55,520 --> 00:08:00,960
+I don't know for sure. So this is one of
+
+163
+00:07:58,240 --> 00:08:03,199
+the possibility this file is slow. So
+
+164
+00:08:00,960 --> 00:08:06,319
+anyway let's but but let's start to
+
+165
+00:08:03,199 --> 00:08:09,840
+write uh what we have to do. Okay. So
+
+166
+00:08:06,319 --> 00:08:13,759
+let's start a goland. Uh and uh and
+
+167
+00:08:09,840 --> 00:08:17,039
+basically yeah so let's start a goland
+
+168
+00:08:13,759 --> 00:08:20,639
+go. Uh so what are we doing is we are
+
+169
+00:08:17,039 --> 00:08:24,319
+doing this copy. Uh any questions
+
+170
+00:08:20,639 --> 00:08:28,879
+comments say it. Okay. Hello GCS. Okay.
+
+171
+00:08:24,319 --> 00:08:31,199
+So so this is
+
+172
+00:08:28,879 --> 00:08:34,240
+um
+
+173
+00:08:31,199 --> 00:08:36,479
+okay. So uh so create a hash table.
+
+174
+00:08:34,240 --> 00:08:38,640
+Okay. So let's begin to code it. So we
+
+175
+00:08:36,479 --> 00:08:41,440
+want to create a hash table. Uh I
+
+176
+00:08:38,640 --> 00:08:45,040
+haven't coding I haven't been coding uh
+
+177
+00:08:41,440 --> 00:08:48,480
+Goland for like um several years. So I
+
+178
+00:08:45,040 --> 00:08:51,440
+don't remember. So Goland,
+
+179
+00:08:48,480 --> 00:08:54,240
+but I have a tutorial. So let's see uh
+
+180
+00:08:51,440 --> 00:08:57,680
+search for it. You'll find it.info.
+
+181
+00:08:54,240 --> 00:09:00,560
+Goland tutorial. So how uh so we want to
+
+182
+00:08:57,680 --> 00:09:03,600
+check go to data structure. So we copy
+
+183
+00:09:00,560 --> 00:09:06,240
+it. Go to data structure map. in Golan.
+
+184
+00:09:03,600 --> 00:09:11,120
+It's called map. Close that. Uh go to
+
+185
+00:09:06,240 --> 00:09:13,040
+talk show. Uh yeah. So link it. Okay. So
+
+186
+00:09:11,120 --> 00:09:15,519
+we're gonna do Goland and we're going to
+
+187
+00:09:13,040 --> 00:09:18,720
+do Wuam language later on. Okay. So
+
+188
+00:09:15,519 --> 00:09:22,880
+Wufam language tutorial. Search for it.
+
+189
+00:09:18,720 --> 00:09:24,800
+You'll find it on.info and uh and wam
+
+190
+00:09:22,880 --> 00:09:26,880
+language for programmers. There's also a
+
+191
+00:09:24,800 --> 00:09:29,680
+hasht.
+
+192
+00:09:26,880 --> 00:09:32,160
+So close that. Uh so wam language and
+
+193
+00:09:29,680 --> 00:09:35,519
+we're going to do emac. Okay. So
+
+194
+00:09:32,160 --> 00:09:39,040
+actually why don't we uh go to the hash
+
+195
+00:09:35,519 --> 00:09:44,200
+table directly. So Golan map. So in
+
+196
+00:09:39,040 --> 00:09:44,200
+Golan hash table is called map
+
+197
+00:09:44,640 --> 00:09:48,920
+now in uh
+
+198
+00:09:49,120 --> 00:09:53,839
+wait
+
+199
+00:09:50,959 --> 00:09:56,240
+ah god we got to do this faster. Okay.
+
+200
+00:09:53,839 --> 00:09:58,959
+So, so now in wolfen language it's
+
+201
+00:09:56,240 --> 00:10:03,519
+called association list. Data structure
+
+202
+00:09:58,959 --> 00:10:05,760
+associ association list. Okay. And in
+
+203
+00:10:03,519 --> 00:10:09,440
+eac list
+
+204
+00:10:05,760 --> 00:10:13,120
+it's called um it's called hasht. Okay.
+
+205
+00:10:09,440 --> 00:10:16,399
+So uh vector sequences hasht. Okay. So
+
+206
+00:10:13,120 --> 00:10:19,120
+we going to uh write in all these
+
+207
+00:10:16,399 --> 00:10:22,800
+languages. Can I finish it? I hope so.
+
+208
+00:10:19,120 --> 00:10:26,720
+Uh let's let's do quickly uh master
+
+209
+00:10:22,800 --> 00:10:31,279
+coding fast. We need to master coding
+
+210
+00:10:26,720 --> 00:10:34,560
+this. Okay. So uh yeah. So anyway, so uh
+
+211
+00:10:31,279 --> 00:10:39,440
+okay go uh yeah. So that's why. Okay. So
+
+212
+00:10:34,560 --> 00:10:42,480
+now Golan here and go language hasht go
+
+213
+00:10:39,440 --> 00:10:45,360
+language. Uh
+
+214
+00:10:42,480 --> 00:10:48,240
+God, why why are we
+
+215
+00:10:45,360 --> 00:10:51,120
+uh
+
+216
+00:10:48,240 --> 00:10:54,000
+okay? I need to reorder the links. Okay,
+
+217
+00:10:51,120 --> 00:10:57,839
+that's why I'm a bit fussy. Okay, so
+
+218
+00:10:54,000 --> 00:11:01,600
+Golan map this hasht wam language
+
+219
+00:10:57,839 --> 00:11:04,480
+association. Um okay, so now wait. So go
+
+220
+00:11:01,600 --> 00:11:09,519
+to So how do you do map in Golan? All
+
+221
+00:11:04,480 --> 00:11:13,200
+you have to do is um just that.
+
+222
+00:11:09,519 --> 00:11:14,800
+Okay. So, uh create a mash uh create a
+
+223
+00:11:13,200 --> 00:11:18,000
+hasht
+
+224
+00:11:14,800 --> 00:11:20,560
+uh hasht map of key string and integer.
+
+225
+00:11:18,000 --> 00:11:22,480
+Okay, that's fine. And now we want to
+
+226
+00:11:20,560 --> 00:11:24,880
+traverse a directory. So, how do you
+
+227
+00:11:22,480 --> 00:11:28,320
+traverse a directory? I don't remember.
+
+228
+00:11:24,880 --> 00:11:31,680
+So, let's see. Uh walk directory. Okay,
+
+229
+00:11:28,320 --> 00:11:33,760
+in in Golang walking d uh directory is
+
+230
+00:11:31,680 --> 00:11:36,079
+fairly complicated. Okay, so you can
+
+231
+00:11:33,760 --> 00:11:38,320
+check out my tutorial. But basically
+
+232
+00:11:36,079 --> 00:11:40,800
+what you need to do is you need to it's
+
+233
+00:11:38,320 --> 00:11:43,519
+it's fairly complicated. Okay. So let me
+
+234
+00:11:40,800 --> 00:11:47,040
+just copy the code here.
+
+235
+00:11:43,519 --> 00:11:50,800
+Uh well god
+
+236
+00:11:47,040 --> 00:11:54,000
+okay so so goland worker directory. So
+
+237
+00:11:50,800 --> 00:11:56,640
+let's see. So you need uh oh god you
+
+238
+00:11:54,000 --> 00:12:00,399
+need okay. So
+
+239
+00:11:56,640 --> 00:12:04,640
+package main then you need to import um
+
+240
+00:12:00,399 --> 00:12:07,279
+you need to import all that. Okay. So we
+
+241
+00:12:04,640 --> 00:12:10,560
+are dealing with static languages which
+
+242
+00:12:07,279 --> 00:12:14,720
+is always a bit tedious. Okay. So this
+
+243
+00:12:10,560 --> 00:12:16,800
+is input direct directory um input
+
+244
+00:12:14,720 --> 00:12:19,440
+directory go through a directory and
+
+245
+00:12:16,800 --> 00:12:24,040
+print a file name extension. Okay. So we
+
+246
+00:12:19,440 --> 00:12:24,040
+don't need this men.
+
+247
+00:12:24,720 --> 00:12:31,120
+Okay. So delete that delete that. So
+
+248
+00:12:28,079 --> 00:12:34,160
+that is the global variable extra. Okay.
+
+249
+00:12:31,120 --> 00:12:36,720
+So this is how you work a directory. So
+
+250
+00:12:34,160 --> 00:12:38,880
+this is a hash table. Let's comment it
+
+251
+00:12:36,720 --> 00:12:43,920
+out yet.
+
+252
+00:12:38,880 --> 00:12:46,720
+Uh do function. So let's rename it uh do
+
+253
+00:12:43,920 --> 00:12:50,399
+file.
+
+254
+00:12:46,720 --> 00:12:52,639
+Uh let's change it to file. Okay. So so
+
+255
+00:12:50,399 --> 00:12:58,480
+work directory to worker directory. So
+
+256
+00:12:52,639 --> 00:13:00,720
+here is our main. Okay. So uh got this.
+
+257
+00:12:58,480 --> 00:13:04,240
+Okay. We need to finish this fast. So
+
+258
+00:13:00,720 --> 00:13:08,880
+you can you can see here is a main and
+
+259
+00:13:04,240 --> 00:13:11,279
+uh and this is a function to uh so in
+
+260
+00:13:08,880 --> 00:13:15,839
+order to walk a directory what you need
+
+261
+00:13:11,279 --> 00:13:18,480
+is uh is basically this block and uh
+
+262
+00:13:15,839 --> 00:13:22,639
+this this this is the line. Okay, file
+
+263
+00:13:18,480 --> 00:13:26,959
+path work you file path is a
+
+264
+00:13:22,639 --> 00:13:29,959
+is is a uh package you load. Okay. So,
+
+265
+00:13:26,959 --> 00:13:29,959
+um
+
+266
+00:13:31,040 --> 00:13:34,040
+what
+
+267
+00:13:34,320 --> 00:13:40,240
+is going on? Cancel that.
+
+268
+00:13:37,839 --> 00:13:43,680
+Yeah. File path is a package you load.
+
+269
+00:13:40,240 --> 00:13:46,399
+So, you say file path work and you give
+
+270
+00:13:43,680 --> 00:13:48,240
+a directory path and you give a
+
+271
+00:13:46,399 --> 00:13:50,639
+function. Now, you have to write this
+
+272
+00:13:48,240 --> 00:13:52,959
+function. Now the complicated part is
+
+273
+00:13:50,639 --> 00:13:54,880
+that this function
+
+274
+00:13:52,959 --> 00:13:58,320
+uh what
+
+275
+00:13:54,880 --> 00:14:01,279
+this function uh okay do file this
+
+276
+00:13:58,320 --> 00:14:03,519
+function is uh takes three arguments and
+
+277
+00:14:01,279 --> 00:14:08,480
+they meet they needs to be this type
+
+278
+00:14:03,519 --> 00:14:14,320
+string info uh of the type file system
+
+279
+00:14:08,480 --> 00:14:16,399
+entry and x and error okay so uh goline
+
+280
+00:14:14,320 --> 00:14:20,639
+is a compile language that's why so you
+
+281
+00:14:16,399 --> 00:14:25,199
+need to declare io slash FS file system
+
+282
+00:14:20,639 --> 00:14:30,480
+to get this the entry type. So anyway,
+
+283
+00:14:25,199 --> 00:14:34,720
+so if error is neo so um
+
+284
+00:14:30,480 --> 00:14:37,440
+so let's write this quickly. So okay
+
+285
+00:14:34,720 --> 00:14:40,800
+so walk the and you need this function.
+
+286
+00:14:37,440 --> 00:14:43,920
+This function takes um three argument
+
+287
+00:14:40,800 --> 00:14:47,600
+the file path the
+
+288
+00:14:43,920 --> 00:14:51,279
+the info the entry info and errors. So
+
+289
+00:14:47,600 --> 00:14:54,399
+this work will pass the argument to this
+
+290
+00:14:51,279 --> 00:14:57,120
+do file function. Okay. Uh so check
+
+291
+00:14:54,399 --> 00:15:01,440
+error. So if there's a error then just
+
+292
+00:14:57,120 --> 00:15:03,600
+print and exit. Okay. Otherwise uh
+
+293
+00:15:01,440 --> 00:15:07,360
+otherwise say we are traversing this
+
+294
+00:15:03,600 --> 00:15:09,839
+path then find out then find out if it's
+
+295
+00:15:07,360 --> 00:15:11,839
+a directory or file. So if it's a
+
+296
+00:15:09,839 --> 00:15:15,040
+directory just print is the okay
+
+297
+00:15:11,839 --> 00:15:16,959
+otherwise print the file name extension.
+
+298
+00:15:15,040 --> 00:15:19,440
+Okay that's how you do it. So can we run
+
+299
+00:15:16,959 --> 00:15:22,240
+it? Yes, I think so. So right now this
+
+300
+00:15:19,440 --> 00:15:24,320
+just traverse a directory. Okay. So now
+
+301
+00:15:22,240 --> 00:15:26,079
+where's the directory? Uh right now
+
+302
+00:15:24,320 --> 00:15:28,320
+that's JavaScript. Let's just run it.
+
+303
+00:15:26,079 --> 00:15:32,480
+Okay. Fantastic.
+
+304
+00:15:28,320 --> 00:15:34,720
+Okay. So for each file you got the path
+
+305
+00:15:32,480 --> 00:15:36,959
+then this is the directory name file
+
+306
+00:15:34,720 --> 00:15:40,000
+name extension the path directory name
+
+307
+00:15:36,959 --> 00:15:43,040
+file. So this is working perfect. Okay.
+
+308
+00:15:40,000 --> 00:15:45,760
+So now but we don't need uh to print all
+
+309
+00:15:43,040 --> 00:15:51,440
+that. We need the hash table. So now
+
+310
+00:15:45,760 --> 00:15:54,959
+declare a hasht uh file um
+
+311
+00:15:51,440 --> 00:15:57,680
+table. Okay, let's name it e x file
+
+312
+00:15:54,959 --> 00:16:02,800
+table.
+
+313
+00:15:57,680 --> 00:16:07,040
+Uh okay. Okay. So that's a hash table.
+
+314
+00:16:02,800 --> 00:16:09,680
+Then then how do you add hasht? So okay.
+
+315
+00:16:07,040 --> 00:16:14,639
+So let's go to talk show.
+
+316
+00:16:09,680 --> 00:16:18,000
+Uh today's talk show Golan
+
+317
+00:16:14,639 --> 00:16:21,040
+uh that's yeah okay so hasht is right
+
+318
+00:16:18,000 --> 00:16:24,000
+there so
+
+319
+00:16:21,040 --> 00:16:28,320
+so how do you add a hash table you just
+
+320
+00:16:24,000 --> 00:16:32,480
+create map with make uh so
+
+321
+00:16:28,320 --> 00:16:35,120
+syntax for wait concentrate syntax for
+
+322
+00:16:32,480 --> 00:16:37,360
+map type uh create map literal
+
+323
+00:16:35,120 --> 00:16:38,800
+expression okay so you can create you
+
+324
+00:16:37,360 --> 00:16:43,199
+know you can do it with literal
+
+325
+00:16:38,800 --> 00:16:45,199
+expression Then uh create map with make
+
+326
+00:16:43,199 --> 00:16:47,920
+um
+
+327
+00:16:45,199 --> 00:16:51,920
+then okay so this is how you add an
+
+328
+00:16:47,920 --> 00:16:55,120
+entry. Okay close that
+
+329
+00:16:51,920 --> 00:16:57,360
+uh go to our code
+
+330
+00:16:55,120 --> 00:17:00,560
+go to our code.
+
+331
+00:16:57,360 --> 00:17:04,000
+So this is how you add. So okay cut
+
+332
+00:17:00,560 --> 00:17:06,079
+that. So for this function if it's a
+
+333
+00:17:04,000 --> 00:17:09,120
+directory do we do we want to add the
+
+334
+00:17:06,079 --> 00:17:11,919
+directory? No. Okay. So if if it's a
+
+335
+00:17:09,120 --> 00:17:17,280
+directory ignore otherwise
+
+336
+00:17:11,919 --> 00:17:19,120
+we want to add it. Okay. So um x file
+
+337
+00:17:17,280 --> 00:17:22,120
+table
+
+338
+00:17:19,120 --> 00:17:22,120
+um
+
+339
+00:17:22,720 --> 00:17:32,080
+then uh then use uh then directory file
+
+340
+00:17:27,120 --> 00:17:35,080
+path. Okay. Uh no directory
+
+341
+00:17:32,080 --> 00:17:35,080
+name.
+
+342
+00:17:37,360 --> 00:17:42,039
+Okay. So, which one is it?
+
+343
+00:17:47,520 --> 00:17:55,240
+Okay. I
+
+344
+00:17:50,080 --> 00:17:55,240
+don't know what is it. Okay. So
+
+345
+00:17:58,720 --> 00:18:05,000
+I think S show in desktop doesn't work
+
+346
+00:18:01,200 --> 00:18:05,000
+when there are
+
+347
+00:18:05,840 --> 00:18:13,840
+when there are spaces in a file path.
+
+348
+00:18:09,440 --> 00:18:16,960
+Oh, okay. So you need to um
+
+349
+00:18:13,840 --> 00:18:19,679
+uh you know if you file a bug report
+
+350
+00:18:16,960 --> 00:18:24,080
+that's about Emacs then then we'll fix
+
+351
+00:18:19,679 --> 00:18:26,880
+it or or contact me in Discord.
+
+352
+00:18:24,080 --> 00:18:29,520
+But let's but let's focus on this right
+
+353
+00:18:26,880 --> 00:18:34,320
+now. So
+
+354
+00:18:29,520 --> 00:18:37,880
+so file path X path the file name. So
+
+355
+00:18:34,320 --> 00:18:37,880
+okay. So
+
+356
+00:18:39,440 --> 00:18:46,160
+X path.
+
+357
+00:18:42,799 --> 00:18:49,280
+Okay. So
+
+358
+00:18:46,160 --> 00:18:54,080
+no. Okay. So X path is the entry. Okay.
+
+359
+00:18:49,280 --> 00:18:59,039
+So now add the entry to uh
+
+360
+00:18:54,080 --> 00:19:01,679
+so we don't want this print. Cut it.
+
+361
+00:18:59,039 --> 00:19:05,280
+Find out it's a directory or file. So if
+
+362
+00:19:01,679 --> 00:19:09,039
+it's a directory ignore. Now how do you
+
+363
+00:19:05,280 --> 00:19:12,000
+ignore I forgot how when you ignore how
+
+364
+00:19:09,039 --> 00:19:14,080
+do you um like what value do we have to
+
+365
+00:19:12,000 --> 00:19:17,120
+put there empty just you can leave it
+
+366
+00:19:14,080 --> 00:19:20,960
+empty that's right this is not emac this
+
+367
+00:19:17,120 --> 00:19:27,039
+or functional programming so anyway so
+
+368
+00:19:20,960 --> 00:19:31,919
+so if it's a file then you add
+
+369
+00:19:27,039 --> 00:19:34,000
+the file path and just value one okay so
+
+370
+00:19:31,919 --> 00:19:36,960
+comment that out you don't want that.
+
+371
+00:19:34,000 --> 00:19:39,200
+Okay. So,
+
+372
+00:19:36,960 --> 00:19:41,840
+okay. And the directory, we don't care.
+
+373
+00:19:39,200 --> 00:19:44,240
+File name,
+
+374
+00:19:41,840 --> 00:19:46,720
+uh, remove it. That's how you get the
+
+375
+00:19:44,240 --> 00:19:49,720
+name and the extension. Okay, we don't
+
+376
+00:19:46,720 --> 00:19:49,720
+care.
+
+377
+00:19:50,960 --> 00:19:57,919
+Okay, that's right. Uh, undefined X file
+
+378
+00:19:54,960 --> 00:20:01,039
+table. What?
+
+379
+00:19:57,919 --> 00:20:03,360
+Oh, we commented out. That's right. So,
+
+380
+00:20:01,039 --> 00:20:07,360
+this the the name is not so good. Let's
+
+381
+00:20:03,360 --> 00:20:09,520
+see. Uh X table. Okay. Let's just say X
+
+382
+00:20:07,360 --> 00:20:12,480
+table.
+
+383
+00:20:09,520 --> 00:20:15,039
+Uh
+
+384
+00:20:12,480 --> 00:20:18,559
+okay. Run it.
+
+385
+00:20:15,039 --> 00:20:22,120
+Okay. You got arrow uh
+
+386
+00:20:18,559 --> 00:20:22,120
+means something
+
+387
+00:20:25,760 --> 00:20:34,400
+X table path. So why is the it's a map
+
+388
+00:20:31,840 --> 00:20:37,960
+stream int.
+
+389
+00:20:34,400 --> 00:20:37,960
+It's a
+
+390
+00:20:44,320 --> 00:20:47,320
+what
+
+391
+00:21:05,120 --> 00:21:14,080
+Go um line 32 I guess. So this is
+
+392
+00:21:10,240 --> 00:21:18,640
+creating a problem. Why why is that?
+
+393
+00:21:14,080 --> 00:21:21,840
+So wait is it because of that?
+
+394
+00:21:18,640 --> 00:21:27,520
+Uh no
+
+395
+00:21:21,840 --> 00:21:30,080
+uh panic assignment to entry in neo map.
+
+396
+00:21:27,520 --> 00:21:33,600
+Assignment to entry in neo map. So how
+
+397
+00:21:30,080 --> 00:21:36,600
+do you do a hasht?
+
+398
+00:21:33,600 --> 00:21:36,600
+What?
+
+399
+00:21:42,000 --> 00:21:45,000
+Oh.
+
+400
+00:21:45,520 --> 00:21:52,240
+Oh, that's right. Wait, how did I uh Oh,
+
+401
+00:21:49,280 --> 00:21:56,360
+yeah. We forgot the We got it wrong.
+
+402
+00:21:52,240 --> 00:21:56,360
+Okay, so this should be
+
+403
+00:21:56,559 --> 00:22:02,559
+That's right. Run it.
+
+404
+00:21:59,039 --> 00:22:05,200
+Okay, so this is Easter.
+
+405
+00:22:02,559 --> 00:22:08,240
+Remove it.
+
+406
+00:22:05,200 --> 00:22:12,640
+Remove it.
+
+407
+00:22:08,240 --> 00:22:14,880
+Run it. Fantastic. Now we created hasht.
+
+408
+00:22:12,640 --> 00:22:18,799
+Now how do you print hasht? Let's print
+
+409
+00:22:14,880 --> 00:22:22,720
+hash table. Okay. Um,
+
+410
+00:22:18,799 --> 00:22:26,159
+uh, what is this? Uh, okay. So, so leave
+
+411
+00:22:22,720 --> 00:22:30,480
+that. Okay. So, now print hasht. So, now
+
+412
+00:22:26,159 --> 00:22:34,840
+we need to, uh, loop through hasht.
+
+413
+00:22:30,480 --> 00:22:34,840
+Okay. So, copy that.
+
+414
+00:22:34,960 --> 00:22:40,720
+You know, static languages got this main
+
+415
+00:22:38,480 --> 00:22:42,799
+thing and got this package. you know
+
+416
+00:22:40,720 --> 00:22:45,360
+those are annoying
+
+417
+00:22:42,799 --> 00:22:46,880
+because you have like so-called boiler
+
+418
+00:22:45,360 --> 00:22:48,799
+templates.
+
+419
+00:22:46,880 --> 00:22:52,159
+So okay how do you print hash table?
+
+420
+00:22:48,799 --> 00:22:56,000
+Okay so for key value in hash table x
+
+421
+00:22:52,159 --> 00:22:59,280
+table then uh then that's how you print
+
+422
+00:22:56,000 --> 00:23:02,480
+it. Okay. So,
+
+423
+00:22:59,280 --> 00:23:06,520
+so yeah. So, we got key and value. Okay.
+
+424
+00:23:02,480 --> 00:23:06,520
+So, that's how you print hasht.
+
+425
+00:23:06,960 --> 00:23:14,080
+Fantastic. Okay. Fantastic. So, this is
+
+426
+00:23:10,720 --> 00:23:18,720
+all these are all my JavaScript files.
+
+427
+00:23:14,080 --> 00:23:20,880
+Uh that's right. So, we
+
+428
+00:23:18,720 --> 00:23:23,760
+basically we done. So, oh there's one
+
+429
+00:23:20,880 --> 00:23:28,640
+more thing. So we need to uh specify
+
+430
+00:23:23,760 --> 00:23:31,760
+what uh file path names to
+
+431
+00:23:28,640 --> 00:23:34,480
+skip. Okay. So I already have the code
+
+432
+00:23:31,760 --> 00:23:36,640
+somewhere here. So let's copy it. So
+
+433
+00:23:34,480 --> 00:23:41,799
+let's use this
+
+434
+00:23:36,640 --> 00:23:41,799
+to skip. Okay. So you need that.
+
+435
+00:23:41,919 --> 00:23:49,919
+So if the file name matches one of
+
+436
+00:23:45,520 --> 00:23:53,200
+these, skip it. Okay. Uh yeah.
+
+437
+00:23:49,919 --> 00:23:57,200
+Okay. So how do you do it? Um you have
+
+438
+00:23:53,200 --> 00:23:59,919
+to write a function. So let me just um
+
+439
+00:23:57,200 --> 00:24:02,720
+find it. Okay.
+
+440
+00:23:59,919 --> 00:24:05,360
+Kind of. Yeah. So you have to write it
+
+441
+00:24:02,720 --> 00:24:08,320
+is string in array. So let's just copy
+
+442
+00:24:05,360 --> 00:24:11,360
+that.
+
+443
+00:24:08,320 --> 00:24:14,640
+Okay. So here is a function
+
+444
+00:24:11,360 --> 00:24:18,600
+string in array given a string and given
+
+445
+00:24:14,640 --> 00:24:18,600
+array. So if
+
+446
+00:24:19,039 --> 00:24:27,159
+return true if x equals to any of y
+
+447
+00:24:24,159 --> 00:24:27,159
+uh
+
+448
+00:24:29,600 --> 00:24:35,039
+okay so then so it's just the directory
+
+449
+00:24:32,559 --> 00:24:37,919
+name.
+
+450
+00:24:35,039 --> 00:24:40,240
+So you need to
+
+451
+00:24:37,919 --> 00:24:43,679
+yeah you need to so you need to get the
+
+452
+00:24:40,240 --> 00:24:48,679
+directory. Okay. So let's go to my file
+
+453
+00:24:43,679 --> 00:24:48,679
+string in array um
+
+454
+00:24:50,720 --> 00:24:54,279
+okay local
+
+455
+00:24:54,320 --> 00:25:01,120
+string array where is it used so you
+
+456
+00:24:57,760 --> 00:25:04,960
+need to get the uh directory name that's
+
+457
+00:25:01,120 --> 00:25:08,159
+that's the space thing uh yeah okay so
+
+458
+00:25:04,960 --> 00:25:12,159
+that's how you call it
+
+459
+00:25:08,159 --> 00:25:14,080
+I haven't called it Um I haven't coded
+
+460
+00:25:12,159 --> 00:25:17,279
+um
+
+461
+00:25:14,080 --> 00:25:21,440
+Goland for like 3 years or something.
+
+462
+00:25:17,279 --> 00:25:25,360
+Okay. So close it. So So now let's go to
+
+463
+00:25:21,440 --> 00:25:29,679
+the traverse. So if is a directory.
+
+464
+00:25:25,360 --> 00:25:32,400
+Yeah. So if it's a directory
+
+465
+00:25:29,679 --> 00:25:35,440
+then if
+
+466
+00:25:32,400 --> 00:25:39,840
+the directory name
+
+467
+00:25:35,440 --> 00:25:42,159
+is one of these the two skip
+
+468
+00:25:39,840 --> 00:25:46,960
+then
+
+469
+00:25:42,159 --> 00:25:50,400
+simply return this. Okay. So so where is
+
+470
+00:25:46,960 --> 00:25:55,320
+this? Okay. So you need to be careful.
+
+471
+00:25:50,400 --> 00:25:55,320
+So file path. So
+
+472
+00:25:57,919 --> 00:26:00,919
+um
+
+473
+00:26:04,720 --> 00:26:13,720
+so where is this? What is this file
+
+474
+00:26:08,000 --> 00:26:13,720
+path? So this file path is from
+
+475
+00:26:13,919 --> 00:26:21,440
+oh that's the package name. No. Okay. So
+
+476
+00:26:17,279 --> 00:26:23,760
+good. Um so close that. So this file
+
+477
+00:26:21,440 --> 00:26:26,320
+path is just a package name package
+
+478
+00:26:23,760 --> 00:26:28,640
+name.base.
+
+479
+00:26:26,320 --> 00:26:31,760
+So if it's a directory and it's one of
+
+480
+00:26:28,640 --> 00:26:34,760
+these the to skip and just skip it.
+
+481
+00:26:31,760 --> 00:26:34,760
+Okay.
+
+482
+00:26:35,039 --> 00:26:42,880
+Okay. So
+
+483
+00:26:38,400 --> 00:26:45,039
+before we do that okay and uh
+
+484
+00:26:42,880 --> 00:26:48,080
+let's run it.
+
+485
+00:26:45,039 --> 00:26:51,279
+Okay. Now check if there is a a
+
+486
+00:26:48,080 --> 00:26:54,960
+directory. Yes. Because this I
+
+487
+00:26:51,279 --> 00:26:57,200
+is all images. You see this I is all
+
+488
+00:26:54,960 --> 00:27:01,520
+image. This is image directory for my
+
+489
+00:26:57,200 --> 00:27:05,120
+JavaScript. So when you so and it's
+
+490
+00:27:01,520 --> 00:27:08,120
+actually got you know so there's a lot
+
+491
+00:27:05,120 --> 00:27:08,120
+of
+
+492
+00:27:09,039 --> 00:27:13,760
+um there's a lot of you know it it went
+
+493
+00:27:11,679 --> 00:27:17,640
+through all the image directories for
+
+494
+00:27:13,760 --> 00:27:17,640
+example uh
+
+495
+00:27:18,320 --> 00:27:28,000
+you know so so but now we if it's a if
+
+496
+00:27:25,279 --> 00:27:29,840
+it's Um,
+
+497
+00:27:28,000 --> 00:27:32,640
+yeah. So, we can kind of check that.
+
+498
+00:27:29,840 --> 00:27:35,760
+Okay. Okay. Let's let's test test this.
+
+499
+00:27:32,640 --> 00:27:40,000
+Okay. Go to talk show. Copy the file
+
+500
+00:27:35,760 --> 00:27:44,600
+path. Close it. And now, uh, let's test
+
+501
+00:27:40,000 --> 00:27:44,600
+this talk show file path.
+
+502
+00:27:45,039 --> 00:27:52,080
+Okay. Now, okay. Remove that. So, run
+
+503
+00:27:48,159 --> 00:27:55,080
+it. Okay. So we see
+
+504
+00:27:52,080 --> 00:27:55,080
+um
+
+505
+00:27:57,520 --> 00:28:03,200
+uh 2,00 lines of you know 2,000 lines
+
+506
+00:28:00,399 --> 00:28:06,720
+and uh this backslash let's change it to
+
+507
+00:28:03,200 --> 00:28:11,240
+forward slash that like be um you know
+
+508
+00:28:06,720 --> 00:28:11,240
+on the windows um
+
+509
+00:28:12,000 --> 00:28:19,679
+let's change it to forward slash okay so
+
+510
+00:28:16,640 --> 00:28:25,679
+how do you change the slash there is
+
+511
+00:28:19,679 --> 00:28:28,559
+this uh function. Okay. So, let's go.
+
+512
+00:28:25,679 --> 00:28:30,159
+Uh did we just close it? Yes. Okay.
+
+513
+00:28:28,559 --> 00:28:34,279
+Damn.
+
+514
+00:28:30,159 --> 00:28:34,279
+So, we want to
+
+515
+00:28:37,440 --> 00:28:41,840
+So,
+
+516
+00:28:39,360 --> 00:28:44,000
+right now, fireworks is going. Happy
+
+517
+00:28:41,840 --> 00:28:46,960
+July 4th.
+
+518
+00:28:44,000 --> 00:28:50,000
+Uh right now it's 9:00, 9:30 in
+
+519
+00:28:46,960 --> 00:28:55,120
+California. So fireworks is going. So
+
+520
+00:28:50,000 --> 00:28:58,440
+file path uh two slash okay then clean
+
+521
+00:28:55,120 --> 00:28:58,440
+uh clean.
+
+522
+00:29:01,760 --> 00:29:08,080
+Now clean just means you know remove
+
+523
+00:29:05,279 --> 00:29:10,159
+remove extra dot dot slash you know
+
+524
+00:29:08,080 --> 00:29:13,200
+remove redundant you know clean the file
+
+525
+00:29:10,159 --> 00:29:16,000
+path. But however the file path is what
+
+526
+00:29:13,200 --> 00:29:18,480
+whatever the native
+
+527
+00:29:16,000 --> 00:29:21,039
+uh file path syntax for example on
+
+528
+00:29:18,480 --> 00:29:23,039
+Windows it's backslash.
+
+529
+00:29:21,039 --> 00:29:25,120
+So you want to change it to slash
+
+530
+00:29:23,039 --> 00:29:27,120
+because that unifies it. You know the
+
+531
+00:29:25,120 --> 00:29:29,200
+backslash and slash is very annoying
+
+532
+00:29:27,120 --> 00:29:30,799
+because when you run this on Windows on
+
+533
+00:29:29,200 --> 00:29:32,720
+the Mac you know it doesn't work on
+
+534
+00:29:30,799 --> 00:29:36,480
+Linux doesn't work. You have to you know
+
+535
+00:29:32,720 --> 00:29:38,399
+like your input you know you know
+
+536
+00:29:36,480 --> 00:29:42,720
+doesn't work. So you want to make it so
+
+537
+00:29:38,399 --> 00:29:47,279
+that it's always just slash. Okay.
+
+538
+00:29:42,720 --> 00:29:51,200
+So that's why so we we want to do this
+
+539
+00:29:47,279 --> 00:29:54,880
+to the file path. Okay.
+
+540
+00:29:51,200 --> 00:29:58,559
+And also since you know this just uh
+
+541
+00:29:54,880 --> 00:30:02,080
+let's make some uh clean up so that you
+
+542
+00:29:58,559 --> 00:30:05,360
+know so that in case if I give backslash
+
+543
+00:30:02,080 --> 00:30:08,240
+it will um
+
+544
+00:30:05,360 --> 00:30:13,320
+you know clean it up. Okay. So let's say
+
+545
+00:30:08,240 --> 00:30:13,320
+x do equals to um
+
+546
+00:30:15,600 --> 00:30:20,640
+uh
+
+547
+00:30:17,200 --> 00:30:25,600
+I don't want to name so this this way
+
+548
+00:30:20,640 --> 00:30:27,440
+just uh make sure it's always slash
+
+549
+00:30:25,600 --> 00:30:34,760
+uh
+
+550
+00:30:27,440 --> 00:30:34,760
+so this change extra to input the okay
+
+551
+00:30:36,399 --> 00:30:42,039
+uh change it to X input.
+
+552
+00:30:42,559 --> 00:30:51,120
+Okay, so now run it.
+
+553
+00:30:47,120 --> 00:30:54,240
+Okay, so we got talk show slash correct.
+
+554
+00:30:51,120 --> 00:30:57,360
+Now we want to skip the I directory. So
+
+555
+00:30:54,240 --> 00:31:03,039
+let's try it to see if this skip
+
+556
+00:30:57,360 --> 00:31:05,520
+mechanism works. I Okay, run it.
+
+557
+00:31:03,039 --> 00:31:09,120
+Okay, you don't see the slash I anymore.
+
+558
+00:31:05,520 --> 00:31:12,240
+Fantastic. So it's working. Fantastic.
+
+559
+00:31:09,120 --> 00:31:15,760
+Great. So we finished the goland part.
+
+560
+00:31:12,240 --> 00:31:18,799
+Now put it back. Syntax collect showing
+
+561
+00:31:15,760 --> 00:31:20,960
+browser. We finished the goland. Uh we
+
+562
+00:31:18,799 --> 00:31:23,440
+haven't tested. We need to go through
+
+563
+00:31:20,960 --> 00:31:28,120
+the script and to see if it exist
+
+564
+00:31:23,440 --> 00:31:28,120
+actually. So um
+
+565
+00:31:29,760 --> 00:31:35,360
+so but we can change that. Okay. Then we
+
+566
+00:31:32,159 --> 00:31:38,480
+need to measure the speed. Okay.
+
+567
+00:31:35,360 --> 00:31:40,960
+So you can see uh what we need to do is
+
+568
+00:31:38,480 --> 00:31:44,960
+described here
+
+569
+00:31:40,960 --> 00:31:47,120
+uh and also here. So the last part is to
+
+570
+00:31:44,960 --> 00:31:51,440
+go through the hash table. So go to the
+
+571
+00:31:47,120 --> 00:31:54,399
+bottom uh hash table for each key. Uh we
+
+572
+00:31:51,440 --> 00:31:57,440
+don't care about the value. We want to
+
+573
+00:31:54,399 --> 00:32:00,640
+check if it it exist. It's kind of
+
+574
+00:31:57,440 --> 00:32:04,240
+redundant but we are doing it for the uh
+
+575
+00:32:00,640 --> 00:32:07,600
+for the sake of testing speed. So,
+
+576
+00:32:04,240 --> 00:32:11,120
+Goland map, how do you check an item
+
+577
+00:32:07,600 --> 00:32:14,880
+exist? Okay. Uh, set value delete key.
+
+578
+00:32:11,120 --> 00:32:17,279
+Uh, where is it? Syntax for map type
+
+579
+00:32:14,880 --> 00:32:21,960
+create map little expression create map
+
+580
+00:32:17,279 --> 00:32:21,960
+with make get value.
+
+581
+00:32:24,720 --> 00:32:32,760
+When a key does not exist, the f first
+
+582
+00:32:27,279 --> 00:32:32,760
+value is the maps type zero value. Okay.
+
+583
+00:32:42,240 --> 00:32:50,640
+So that's just the syntax.
+
+584
+00:32:46,159 --> 00:32:53,840
+Okay. So that's so basically we just um
+
+585
+00:32:50,640 --> 00:32:57,039
+so key
+
+586
+00:32:53,840 --> 00:33:00,440
+X table
+
+587
+00:32:57,039 --> 00:33:00,440
+that key
+
+588
+00:33:01,120 --> 00:33:04,120
+if
+
+589
+00:33:04,320 --> 00:33:07,320
+that
+
+590
+00:33:07,760 --> 00:33:16,799
+equals to one
+
+591
+00:33:11,519 --> 00:33:21,799
+then good. Okay then then good just
+
+592
+00:33:16,799 --> 00:33:21,799
+print key don't print the value okay
+
+593
+00:33:25,919 --> 00:33:34,000
+else do nothing okay so so pify the code
+
+594
+00:33:31,679 --> 00:33:39,039
+fantastic okay
+
+595
+00:33:34,000 --> 00:33:42,399
+if the key value equals to one do that
+
+596
+00:33:39,039 --> 00:33:45,840
+it's okay so you know it's always exist
+
+597
+00:33:42,399 --> 00:33:48,640
+Good. Okay, that's fantastic. Now, how
+
+598
+00:33:45,840 --> 00:33:52,000
+do you check? How do you test the speed?
+
+599
+00:33:48,640 --> 00:33:54,559
+Uh, you know, we can God, it's already
+
+600
+00:33:52,000 --> 00:33:58,000
+40 minutes. Um,
+
+601
+00:33:54,559 --> 00:34:01,760
+uh, okay, let's, you know, let's, um,
+
+602
+00:33:58,000 --> 00:34:05,200
+keep going. So, uh, to check the speed,
+
+603
+00:34:01,760 --> 00:34:07,440
+we just do that. Okay. So,
+
+604
+00:34:05,200 --> 00:34:16,040
+so split the window. Go back to our
+
+605
+00:34:07,440 --> 00:34:16,040
+code. Uh so there start time and uh
+
+606
+00:34:16,159 --> 00:34:22,919
+uh I already have the code here. So
+
+607
+00:34:18,240 --> 00:34:22,919
+let's just use it here. Okay.
+
+608
+00:34:26,720 --> 00:34:34,000
+So start time is there and then at the
+
+609
+00:34:30,079 --> 00:34:37,040
+bottom you say end time equals time dot
+
+610
+00:34:34,000 --> 00:34:40,399
+now end time difference is end time sub
+
+611
+00:34:37,040 --> 00:34:45,119
+dot subtubract start time in seconds
+
+612
+00:34:40,399 --> 00:34:47,760
+then time span okay so run it run
+
+613
+00:34:45,119 --> 00:34:51,520
+okay so you undefined time oh you need
+
+614
+00:34:47,760 --> 00:34:53,839
+to load time so one of the
+
+615
+00:34:51,520 --> 00:34:57,680
+uh issues
+
+616
+00:34:53,839 --> 00:35:00,880
+okay fantastic time spent and 0.3
+
+617
+00:34:57,680 --> 00:35:03,680
+seconds. Fantastic. Okay, so put it
+
+618
+00:35:00,880 --> 00:35:06,720
+back. Syntax color. That's it for Golad.
+
+619
+00:35:03,680 --> 00:35:09,720
+Now, let's do emac this.
+
+620
+00:35:06,720 --> 00:35:09,720
+Oh,
+
+621
+00:35:12,960 --> 00:35:19,680
+increase the volume on my mic.
+
+622
+00:35:16,480 --> 00:35:23,359
+uh you know I think because of the
+
+623
+00:35:19,680 --> 00:35:27,119
+there's a upgrade of the um upgrade of
+
+624
+00:35:23,359 --> 00:35:30,560
+the OBS software I'm using and it seems
+
+625
+00:35:27,119 --> 00:35:33,200
+the volume decreased a little bit but
+
+626
+00:35:30,560 --> 00:35:36,400
+it's already at maximum and also my
+
+627
+00:35:33,200 --> 00:35:38,480
+microphone I already turned it to to
+
+628
+00:35:36,400 --> 00:35:42,640
+maximum and also actually it's very
+
+629
+00:35:38,480 --> 00:35:47,520
+close to my mouse so I think you know
+
+630
+00:35:42,640 --> 00:35:47,520
+maybe you need you can you try to
+
+631
+00:35:49,599 --> 00:35:54,400
+Check. Check.
+
+632
+00:35:51,920 --> 00:35:57,119
+You know,
+
+633
+00:35:54,400 --> 00:36:01,920
+I think I'm already at maximum, but I
+
+634
+00:35:57,119 --> 00:36:04,800
+can make it louder. But that's going to,
+
+635
+00:36:01,920 --> 00:36:07,800
+you know, that's like doing advanced
+
+636
+00:36:04,800 --> 00:36:07,800
+stuff.
+
+637
+00:36:11,599 --> 00:36:16,400
+I like the light in the background.
+
+638
+00:36:13,680 --> 00:36:20,720
+Okay. So anyway, so we we finished
+
+639
+00:36:16,400 --> 00:36:25,040
+Goland. Now let's um
+
+640
+00:36:20,720 --> 00:36:27,920
+let's do let's let's do the whole info.
+
+641
+00:36:25,040 --> 00:36:29,599
+Let's see how long it takes. Uh it
+
+642
+00:36:27,920 --> 00:36:32,480
+shouldn't print. I don't want it to
+
+643
+00:36:29,599 --> 00:36:36,320
+print. 3.5 seconds. Wow. So it's
+
+644
+00:36:32,480 --> 00:36:41,160
+actually very fast. Um
+
+645
+00:36:36,320 --> 00:36:41,160
+so where is it printing all that?
+
+646
+00:36:44,960 --> 00:36:51,960
+Oh, because of the hash table. Yeah, I
+
+647
+00:36:48,640 --> 00:36:51,960
+don't want it.
+
+648
+00:36:52,079 --> 00:36:59,280
+Uh, so if we don't do that, can we can
+
+649
+00:36:55,440 --> 00:37:01,920
+we do that? Yep. Oh, it's even faster if
+
+650
+00:36:59,280 --> 00:37:04,480
+you don't print it. Okay. So, anyway,
+
+651
+00:37:01,920 --> 00:37:08,760
+that's the uh that's the goland. Let's
+
+652
+00:37:04,480 --> 00:37:08,760
+do emac list. Okay.
+
+653
+00:37:09,920 --> 00:37:15,520
+Uh god emac this is you know I've been
+
+654
+00:37:12,800 --> 00:37:18,400
+doing emacs a lot so let's why not we
+
+655
+00:37:15,520 --> 00:37:20,880
+why don't we try wra language
+
+656
+00:37:18,400 --> 00:37:23,680
+uh that would be interesting okay uh
+
+657
+00:37:20,880 --> 00:37:25,839
+because emacs I I've done like tens of
+
+658
+00:37:23,680 --> 00:37:30,160
+videos about creating a hash table so
+
+659
+00:37:25,839 --> 00:37:35,400
+let's do wra language okay so um
+
+660
+00:37:30,160 --> 00:37:35,400
+so what we want to do is this okay
+
+661
+00:37:36,640 --> 00:37:45,000
+uh what
+
+662
+00:37:39,040 --> 00:37:45,000
+Oh uh wam language. Okay. So actually
+
+663
+00:37:45,200 --> 00:37:52,320
+create a hash table each key is that
+
+664
+00:37:47,599 --> 00:37:55,040
+then uh okay so hash table. So um so uh
+
+665
+00:37:52,320 --> 00:37:58,640
+what is the directory this? Let's let's
+
+666
+00:37:55,040 --> 00:38:01,920
+try that. Okay. So directory and also
+
+667
+00:37:58,640 --> 00:38:04,160
+another important thing is this uh to
+
+668
+00:38:01,920 --> 00:38:08,880
+skip
+
+669
+00:38:04,160 --> 00:38:12,359
+and okay. So so how do you Okay. So I
+
+670
+00:38:08,880 --> 00:38:12,359
+don't remember.
+
+671
+00:38:13,200 --> 00:38:20,079
+So let's see language tutorial. How do
+
+672
+00:38:17,040 --> 00:38:23,280
+you um so first of all you want to walk
+
+673
+00:38:20,079 --> 00:38:26,000
+directory. Okay. So walking a directory
+
+674
+00:38:23,280 --> 00:38:28,960
+is going to be
+
+675
+00:38:26,000 --> 00:38:32,800
+um data structure directory. So that
+
+676
+00:38:28,960 --> 00:38:36,079
+would be uh god I need to walk
+
+677
+00:38:32,800 --> 00:38:38,880
+um read file load file uh shell task
+
+678
+00:38:36,079 --> 00:38:41,599
+shell task. Okay, file path functions
+
+679
+00:38:38,880 --> 00:38:44,480
+work directory there.
+
+680
+00:38:41,599 --> 00:38:47,040
+Uh, so it's very simple. Okay, just file
+
+681
+00:38:44,480 --> 00:38:48,640
+names return a list of all files and
+
+682
+00:38:47,040 --> 00:38:54,200
+directories in the current directory.
+
+683
+00:38:48,640 --> 00:38:54,200
+Okay, that's so extremely um
+
+684
+00:38:54,400 --> 00:39:05,359
+simple. Okay, file names.
+
+685
+00:38:58,800 --> 00:39:06,880
+Uh, yeah. Uh, okay. So um input
+
+686
+00:39:05,359 --> 00:39:10,640
+the
+
+687
+00:39:06,880 --> 00:39:15,160
+okay so this this is input directory
+
+688
+00:39:10,640 --> 00:39:15,160
+then you just say file names
+
+689
+00:39:17,440 --> 00:39:23,280
+file list equals file list equals to
+
+690
+00:39:20,640 --> 00:39:26,079
+file names input directory and but we
+
+691
+00:39:23,280 --> 00:39:28,640
+want to filter some of them out. Okay.
+
+692
+00:39:26,079 --> 00:39:33,560
+So let's see string pattern. We want
+
+693
+00:39:28,640 --> 00:39:33,560
+every file except um
+
+694
+00:39:34,480 --> 00:39:40,640
+any of the patterns. So oh that would be
+
+695
+00:39:38,400 --> 00:39:43,599
+interesting. So
+
+696
+00:39:40,640 --> 00:39:49,040
+so there are several way to do it. One
+
+697
+00:39:43,599 --> 00:39:52,320
+way is simply just do this. Okay. So we
+
+698
+00:39:49,040 --> 00:39:58,680
+so simply do this and it should create a
+
+699
+00:39:52,320 --> 00:39:58,680
+list of files. So let's see. Uh yeah. So
+
+700
+00:39:58,880 --> 00:40:02,680
+let's just run it.
+
+701
+00:40:03,440 --> 00:40:09,599
+Starting wam language. It'll take a a
+
+702
+00:40:06,160 --> 00:40:13,599
+while for the first time.
+
+703
+00:40:09,599 --> 00:40:15,280
+Okay. So it says done. So uh does it why
+
+704
+00:40:13,599 --> 00:40:20,440
+doesn't it print? Okay. Yeah. Because
+
+705
+00:40:15,280 --> 00:40:20,440
+you put a semicolon. So now run again.
+
+706
+00:40:20,720 --> 00:40:25,040
+Uh
+
+707
+00:40:22,480 --> 00:40:27,440
+it's just one file. So input directory
+
+708
+00:40:25,040 --> 00:40:32,599
+file names input directory. So why is it
+
+709
+00:40:27,440 --> 00:40:32,599
+just one single file? Uh
+
+710
+00:40:32,960 --> 00:40:37,520
+file name string pattern. These files of
+
+711
+00:40:35,119 --> 00:40:39,200
+current whose name?
+
+712
+00:40:37,520 --> 00:40:42,000
+Uh
+
+713
+00:40:39,200 --> 00:40:47,079
+okay. Yeah. Oh yeah. So uh so you need
+
+714
+00:40:42,000 --> 00:40:47,079
+the string pattern and uh
+
+715
+00:40:48,320 --> 00:40:58,960
+Okay. So, so all you need to do is
+
+716
+00:40:52,079 --> 00:41:03,599
+actually say or here. Okay. Wait. Uh,
+
+717
+00:40:58,960 --> 00:41:06,000
+lower case there. Okay. There.
+
+718
+00:41:03,599 --> 00:41:08,720
+Okay. So, now you got like all the
+
+719
+00:41:06,000 --> 00:41:12,079
+names. Copy the buffer. New buffer.
+
+720
+00:41:08,720 --> 00:41:15,200
+Paste it. Now make it one line each. So
+
+721
+00:41:12,079 --> 00:41:18,319
+you can see it includes all files. Now
+
+722
+00:41:15,200 --> 00:41:22,640
+you you got this one key. the um
+
+723
+00:41:18,319 --> 00:41:25,520
+backslash and slash. Okay. So,
+
+724
+00:41:22,640 --> 00:41:27,920
+for example, that's a thumbnail to my
+
+725
+00:41:25,520 --> 00:41:31,520
+wait, for example, that's a thumbnail to
+
+726
+00:41:27,920 --> 00:41:35,040
+my YouTube. Um so, but that's how you do
+
+727
+00:41:31,520 --> 00:41:41,040
+it. So, it's done. Uh you know, 1,000
+
+728
+00:41:35,040 --> 00:41:44,319
+files, uh 1500 files. So, so you get the
+
+729
+00:41:41,040 --> 00:41:48,800
+close that. Now you now you can change
+
+730
+00:41:44,319 --> 00:41:55,119
+this all to a pattern to to the files
+
+731
+00:41:48,800 --> 00:41:57,599
+you want to skip pattern. Okay. So uh
+
+732
+00:41:55,119 --> 00:42:03,560
+you know
+
+733
+00:41:57,599 --> 00:42:03,560
+so you want to some kind of like um
+
+734
+00:42:04,000 --> 00:42:10,400
+you know skip those. So you need to um
+
+735
+00:42:08,160 --> 00:42:13,920
+let's see the documentation again. file
+
+736
+00:42:10,400 --> 00:42:16,240
+name string pattern. So you want a
+
+737
+00:42:13,920 --> 00:42:18,800
+string pattern
+
+738
+00:42:16,240 --> 00:42:21,280
+that
+
+739
+00:42:18,800 --> 00:42:24,319
+okay you want a negation of a string
+
+740
+00:42:21,280 --> 00:42:28,319
+pattern we can do that okay so let's do
+
+741
+00:42:24,319 --> 00:42:30,560
+that um so for example if you want to do
+
+742
+00:42:28,319 --> 00:42:33,760
+by extension that's all you have to do
+
+743
+00:42:30,560 --> 00:42:35,440
+but we want string pattern so let's do
+
+744
+00:42:33,760 --> 00:42:38,000
+that
+
+745
+00:42:35,440 --> 00:42:41,119
+string pattern can be regular expression
+
+746
+00:42:38,000 --> 00:42:45,359
+too I think the pattern can be wild card
+
+747
+00:42:41,119 --> 00:42:48,800
+pattern or regular expression. Okay. Um
+
+748
+00:42:45,359 --> 00:42:52,760
+Okay, let's try regular expression.
+
+749
+00:42:48,800 --> 00:42:52,760
+So copy
+
+750
+00:42:52,880 --> 00:42:55,880
+uh
+
+751
+00:42:58,240 --> 00:43:06,640
+okay so let's go to talk show uh today's
+
+752
+00:43:01,760 --> 00:43:09,640
+talk show and uh go to the top
+
+753
+00:43:06,640 --> 00:43:09,640
+uh
+
+754
+00:43:09,760 --> 00:43:16,359
+frame language traversal directory.
+
+755
+00:43:12,319 --> 00:43:16,359
+Okay. So,
+
+756
+00:43:28,319 --> 00:43:34,720
+okay. So, so what we going to do? What
+
+757
+00:43:31,440 --> 00:43:37,520
+we doing is that uh this is this is
+
+758
+00:43:34,720 --> 00:43:40,160
+check local links close. So, wam
+
+759
+00:43:37,520 --> 00:43:42,079
+language we are getting a list of file
+
+760
+00:43:40,160 --> 00:43:46,160
+names. Yeah, we want to do a string
+
+761
+00:43:42,079 --> 00:43:48,720
+pattern and uh uh list files
+
+762
+00:43:46,160 --> 00:43:51,119
+association. So how do you do string
+
+763
+00:43:48,720 --> 00:43:54,960
+pattern regular expression?
+
+764
+00:43:51,119 --> 00:43:59,040
+Uh so you can use string expression. So
+
+765
+00:43:54,960 --> 00:44:02,720
+let's use string expression to be u to
+
+766
+00:43:59,040 --> 00:44:06,079
+be um you know to be different. So, wuam
+
+767
+00:44:02,720 --> 00:44:08,560
+language supports regular expression
+
+768
+00:44:06,079 --> 00:44:11,520
+like the normal regular expression but
+
+769
+00:44:08,560 --> 00:44:13,920
+it also supports its own basically its
+
+770
+00:44:11,520 --> 00:44:16,720
+own syntax for regular expression. So
+
+771
+00:44:13,920 --> 00:44:20,160
+let's do this because not because this
+
+772
+00:44:16,720 --> 00:44:21,920
+is um would be interesting. It would be
+
+773
+00:44:20,160 --> 00:44:24,800
+novel.
+
+774
+00:44:21,920 --> 00:44:28,319
+So you want a string expression. Okay.
+
+775
+00:44:24,800 --> 00:44:34,880
+And uh okay. So this that's what you
+
+776
+00:44:28,319 --> 00:44:37,760
+want. Okay. So here you want string
+
+777
+00:44:34,880 --> 00:44:42,960
+expression. Okay. And what expression
+
+778
+00:44:37,760 --> 00:44:44,640
+you want? Uh you want some kind of not
+
+779
+00:44:42,960 --> 00:44:46,800
+uh wait.
+
+780
+00:44:44,640 --> 00:44:49,119
+Okay. So you got the pattern syntax
+
+781
+00:44:46,800 --> 00:44:53,200
+here.
+
+782
+00:44:49,119 --> 00:44:56,800
+Uh, and so what we want is we want a
+
+783
+00:44:53,200 --> 00:44:59,800
+expression that says not any one of
+
+784
+00:44:56,800 --> 00:44:59,800
+these.
+
+785
+00:45:01,119 --> 00:45:07,240
+Okay, not any one of these.
+
+786
+00:45:04,240 --> 00:45:07,240
+So
+
+787
+00:45:18,160 --> 00:45:23,040
+uh that would be interesting. So what so
+
+788
+00:45:21,359 --> 00:45:25,599
+uh
+
+789
+00:45:23,040 --> 00:45:29,839
+so let's just try a simple one. Let's
+
+790
+00:45:25,599 --> 00:45:33,640
+just say we we don't want the I
+
+791
+00:45:29,839 --> 00:45:33,640
+directory. So
+
+792
+00:45:48,800 --> 00:45:55,319
+okay, let's try that string expression
+
+793
+00:45:52,319 --> 00:45:55,319
+except
+
+794
+00:45:58,480 --> 00:46:04,160
+maybe a walk. Let's
+
+795
+00:46:02,560 --> 00:46:07,359
+uh
+
+796
+00:46:04,160 --> 00:46:10,720
+first of all let's try that.
+
+797
+00:46:07,359 --> 00:46:14,760
+Okay. So
+
+798
+00:46:10,720 --> 00:46:14,760
+then Okay. So
+
+799
+00:46:20,640 --> 00:46:24,200
+what the
+
+800
+00:46:25,520 --> 00:46:33,119
+What?
+
+801
+00:46:28,319 --> 00:46:37,119
+Okay. So you got the I directory
+
+802
+00:46:33,119 --> 00:46:40,000
+and uh wait what you are the I
+
+803
+00:46:37,119 --> 00:46:43,520
+directory.
+
+804
+00:46:40,000 --> 00:46:46,160
+Oh so it didn't it didn't dive into the
+
+805
+00:46:43,520 --> 00:46:49,119
+I directory. So
+
+806
+00:46:46,160 --> 00:46:53,280
+okay so it did not dive into so you want
+
+807
+00:46:49,119 --> 00:46:56,240
+to include subdirectories. So move from
+
+808
+00:46:53,280 --> 00:46:58,000
+list files.
+
+809
+00:46:56,240 --> 00:47:02,000
+Okay. So you want to dive into
+
+810
+00:46:58,000 --> 00:47:04,560
+subdirectories. So that's what you want.
+
+811
+00:47:02,000 --> 00:47:08,000
+Oh yeah, you need to specify a level.
+
+812
+00:47:04,560 --> 00:47:12,480
+Okay. So that's very interesting.
+
+813
+00:47:08,000 --> 00:47:16,000
+So instead of that here is the depth. So
+
+814
+00:47:12,480 --> 00:47:19,000
+you can say two or three or you can say
+
+815
+00:47:16,000 --> 00:47:19,000
+infinity.
+
+816
+00:47:21,680 --> 00:47:28,800
+Okay. Yeah.
+
+817
+00:47:25,359 --> 00:47:32,960
+Now run it.
+
+818
+00:47:28,800 --> 00:47:35,200
+Okay. Now make it each line uh you know
+
+819
+00:47:32,960 --> 00:47:37,520
+one item per line. So you can now you
+
+820
+00:47:35,200 --> 00:47:41,119
+can see all these
+
+821
+00:47:37,520 --> 00:47:44,880
+uh files in the I directory. So there's
+
+822
+00:47:41,119 --> 00:47:47,440
+a lot of you know JPEG files for example
+
+823
+00:47:44,880 --> 00:47:52,480
+SAS coid.
+
+824
+00:47:47,440 --> 00:47:56,960
+Okay. So, but now we want to skip the uh
+
+825
+00:47:52,480 --> 00:48:01,119
+I okay so which is
+
+826
+00:47:56,960 --> 00:48:06,040
+instead of all we use that instead okay
+
+827
+00:48:01,119 --> 00:48:06,040
+let's try run it
+
+828
+00:48:06,480 --> 00:48:14,200
+empty okay so this expression is not
+
+829
+00:48:09,839 --> 00:48:14,200
+correct um
+
+830
+00:48:15,359 --> 00:48:20,880
+uh except that.
+
+831
+00:48:19,119 --> 00:48:23,839
+So,
+
+832
+00:48:20,880 --> 00:48:27,319
+oh god, this is gonna take a long time.
+
+833
+00:48:23,839 --> 00:48:27,319
+This is not
+
+834
+00:48:28,480 --> 00:48:40,839
+uh because it's using backslash. Oh god.
+
+835
+00:48:33,839 --> 00:48:40,839
+So try this uh try that. Okay.
+
+836
+00:48:41,839 --> 00:48:47,200
+Empty. So
+
+837
+00:48:45,440 --> 00:48:51,160
+uh this
+
+838
+00:48:47,200 --> 00:48:51,160
+Why is that empty?
+
+839
+00:48:52,800 --> 00:48:59,400
+So, back slash
+
+840
+00:48:56,400 --> 00:48:59,400
+backslash.
+
+841
+00:49:00,480 --> 00:49:06,960
+Oh, so it only check the file name. It
+
+842
+00:49:03,760 --> 00:49:09,599
+doesn't check the um
+
+843
+00:49:06,960 --> 00:49:15,400
+is that right?
+
+844
+00:49:09,599 --> 00:49:15,400
+So this the first argument here
+
+845
+00:49:17,280 --> 00:49:22,960
+can be a pattern but that pattern only
+
+846
+00:49:19,839 --> 00:49:25,119
+match the file name.
+
+847
+00:49:22,960 --> 00:49:27,040
+These files of current whose name match
+
+848
+00:49:25,119 --> 00:49:30,000
+your string pattern. The pattern can be
+
+849
+00:49:27,040 --> 00:49:32,960
+a wild card or regular expression.
+
+850
+00:49:30,000 --> 00:49:37,040
+Right? So,
+
+851
+00:49:32,960 --> 00:49:39,520
+so the pattern is not checking against
+
+852
+00:49:37,040 --> 00:49:42,160
+the full file path. In other words, it
+
+853
+00:49:39,520 --> 00:49:45,520
+doesn't check the directory part. That's
+
+854
+00:49:42,160 --> 00:49:48,640
+why that's why this, you know, doesn't
+
+855
+00:49:45,520 --> 00:49:50,559
+work because it's not seeing
+
+856
+00:49:48,640 --> 00:49:53,559
+the directory.
+
+857
+00:49:50,559 --> 00:49:53,559
+So,
+
+858
+00:49:55,920 --> 00:50:02,480
+okay, that's, you know, that's fine. Uh
+
+859
+00:49:59,440 --> 00:50:05,440
+let's just do filter. Okay, now you got
+
+860
+00:50:02,480 --> 00:50:07,680
+a list of files. Now you just uh you
+
+861
+00:50:05,440 --> 00:50:11,440
+just want to filter. Okay, so how do you
+
+862
+00:50:07,680 --> 00:50:15,119
+filter? You can use cases
+
+863
+00:50:11,440 --> 00:50:18,319
+uh and others. So let's have a look. W
+
+864
+00:50:15,119 --> 00:50:21,839
+language. Uh okay, at this rate we're
+
+865
+00:50:18,319 --> 00:50:24,880
+not going to finish, but let's try. So
+
+866
+00:50:21,839 --> 00:50:29,680
+you want you got a list of things you
+
+867
+00:50:24,880 --> 00:50:33,119
+want to filter them out. So um
+
+868
+00:50:29,680 --> 00:50:37,599
+so that would go to that would be list
+
+869
+00:50:33,119 --> 00:50:41,520
+and list. Okay. So list you got list
+
+870
+00:50:37,599 --> 00:50:45,119
+position list level list operations.
+
+871
+00:50:41,520 --> 00:50:47,920
+Then you got filter. Okay. So you can
+
+872
+00:50:45,119 --> 00:50:52,079
+filter by a function
+
+873
+00:50:47,920 --> 00:50:57,040
+or you can filter by a pattern.
+
+874
+00:50:52,079 --> 00:51:02,079
+Uh filter list by pattern. Let's see.
+
+875
+00:50:57,040 --> 00:51:05,280
+uh this is symbolic pattern. Okay. So
+
+876
+00:51:02,079 --> 00:51:08,880
+yeah in the in our case our list every
+
+877
+00:51:05,280 --> 00:51:10,800
+item is a string. So
+
+878
+00:51:08,880 --> 00:51:13,680
+uh can this actually use a string
+
+879
+00:51:10,800 --> 00:51:16,800
+pattern? I'm not sure
+
+880
+00:51:13,680 --> 00:51:18,559
+literal expression uh filter element by
+
+881
+00:51:16,800 --> 00:51:22,520
+pattern. So let's look up the
+
+882
+00:51:18,559 --> 00:51:22,520
+documentation for cases.
+
+883
+00:51:30,800 --> 00:51:34,839
+So is this interesting?
+
+884
+00:51:49,760 --> 00:51:56,319
+So ACP's question why did you uh add a
+
+885
+00:51:52,880 --> 00:52:00,559
+path to a map? Because map is what we
+
+886
+00:51:56,319 --> 00:52:03,599
+want because we I uh because we need to
+
+887
+00:52:00,559 --> 00:52:06,079
+check if uh because many reasons. So
+
+888
+00:52:03,599 --> 00:52:09,440
+first of all in Golan there's no
+
+889
+00:52:06,079 --> 00:52:11,200
+function to check if a file exist there
+
+890
+00:52:09,440 --> 00:52:13,680
+basically none. you have to write your
+
+891
+00:52:11,200 --> 00:52:16,160
+own. But even if you write your own, you
+
+892
+00:52:13,680 --> 00:52:18,160
+rely on the error message. You check the
+
+893
+00:52:16,160 --> 00:52:20,400
+error. If the error is true, then you
+
+894
+00:52:18,160 --> 00:52:24,240
+know the file doesn't exist. So that's
+
+895
+00:52:20,400 --> 00:52:26,319
+kind of I don't know why is that.
+
+896
+00:52:24,240 --> 00:52:28,960
+Uh so
+
+897
+00:52:26,319 --> 00:52:32,240
+you can create a hashmap for list of
+
+898
+00:52:28,960 --> 00:52:36,160
+files and just check the key exist. That
+
+899
+00:52:32,240 --> 00:52:39,040
+way is you know a workar around to check
+
+900
+00:52:36,160 --> 00:52:41,359
+if a file exist without you know
+
+901
+00:52:39,040 --> 00:52:43,040
+checking the error trying to access the
+
+902
+00:52:41,359 --> 00:52:46,400
+file and get an error and check the
+
+903
+00:52:43,040 --> 00:52:50,160
+error. So that way it might be faster
+
+904
+00:52:46,400 --> 00:52:53,920
+too. So that's one of the reason you
+
+905
+00:52:50,160 --> 00:52:56,079
+create a hash table of files in all in
+
+906
+00:52:53,920 --> 00:52:58,319
+all directories instead of just a list.
+
+907
+00:52:56,079 --> 00:53:00,800
+Okay.
+
+908
+00:52:58,319 --> 00:53:03,119
+The other reason we want a hash table is
+
+909
+00:53:00,800 --> 00:53:05,119
+because we are writing a program auto
+
+910
+00:53:03,119 --> 00:53:09,200
+ultimately I'm writing a program to
+
+911
+00:53:05,119 --> 00:53:13,599
+check all file links in 10,000 HTML
+
+912
+00:53:09,200 --> 00:53:16,480
+files. Each HTML file has 10 or 30
+
+913
+00:53:13,599 --> 00:53:19,920
+links. Each link is a file path you know
+
+914
+00:53:16,480 --> 00:53:22,079
+pointing to another file. So you are
+
+915
+00:53:19,920 --> 00:53:27,599
+essentially checking file existence
+
+916
+00:53:22,079 --> 00:53:29,119
+10,000 you know 100,000 times.
+
+917
+00:53:27,599 --> 00:53:31,760
+So
+
+918
+00:53:29,119 --> 00:53:34,559
+when you have a hash table you know it's
+
+919
+00:53:31,760 --> 00:53:36,800
+very fast to check if the if if the file
+
+920
+00:53:34,559 --> 00:53:39,680
+path is already there. So you don't have
+
+921
+00:53:36,800 --> 00:53:42,319
+to check file existence. Okay that's so
+
+922
+00:53:39,680 --> 00:53:45,599
+that is the reason we are building hash
+
+923
+00:53:42,319 --> 00:53:48,640
+table. So anyway back to wufam language.
+
+924
+00:53:45,599 --> 00:53:51,440
+So uh so we are we want to know if you
+
+925
+00:53:48,640 --> 00:53:56,000
+know we got the list of strings we want
+
+926
+00:53:51,440 --> 00:53:58,240
+to know we want to filter the list. So
+
+927
+00:53:56,000 --> 00:54:00,720
+there are many ways you know. So one way
+
+928
+00:53:58,240 --> 00:54:03,760
+is you know one way is just filter by a
+
+929
+00:54:00,720 --> 00:54:06,079
+function. This is familiar to most
+
+930
+00:54:03,760 --> 00:54:08,880
+people in Python, in JavaScript, in
+
+931
+00:54:06,079 --> 00:54:11,839
+every language you create, you know you
+
+932
+00:54:08,880 --> 00:54:13,839
+can filter by a function. Okay. Uh
+
+933
+00:54:11,839 --> 00:54:17,119
+that's boring.
+
+934
+00:54:13,839 --> 00:54:20,240
+So I'm trying to see if we can use this
+
+935
+00:54:17,119 --> 00:54:21,760
+pattern matching uh in w language, you
+
+936
+00:54:20,240 --> 00:54:24,480
+know, just to demonstrate something
+
+937
+00:54:21,760 --> 00:54:26,880
+different. That's why I'm looking into
+
+938
+00:54:24,480 --> 00:54:29,680
+uh you know this. But the question now
+
+939
+00:54:26,880 --> 00:54:34,160
+is can this pattern be a textual
+
+940
+00:54:29,680 --> 00:54:37,160
+pattern? I don't think so. Okay.
+
+941
+00:54:34,160 --> 00:54:37,160
+Uh
+
+942
+00:54:37,280 --> 00:54:41,839
+yeah that's that pattern is symbolic
+
+943
+00:54:39,680 --> 00:54:45,119
+pattern which means basically your
+
+944
+00:54:41,839 --> 00:54:47,200
+syntax basically your expression. So so
+
+945
+00:54:45,119 --> 00:54:51,839
+let's not use that. Okay. So let's just
+
+946
+00:54:47,200 --> 00:54:56,319
+say select. Okay. Select um
+
+947
+00:54:51,839 --> 00:54:59,680
+okay select then file list okay so wait
+
+948
+00:54:56,319 --> 00:55:01,920
+so let's rename it because
+
+949
+00:54:59,680 --> 00:55:04,720
+when you have something in English it's
+
+950
+00:55:01,920 --> 00:55:08,480
+easier to complete and so on okay now
+
+951
+00:55:04,720 --> 00:55:11,599
+you need a function uh you need a
+
+952
+00:55:08,480 --> 00:55:18,119
+function and uh and this function will
+
+953
+00:55:11,599 --> 00:55:18,119
+be um we'll try to match the string okay
+
+954
+00:55:18,400 --> 00:55:24,640
+uh So you need a function. The function
+
+955
+00:55:21,599 --> 00:55:27,040
+the function takes okay so where is it
+
+956
+00:55:24,640 --> 00:55:31,440
+the function takes argument then the
+
+957
+00:55:27,040 --> 00:55:33,760
+expression is if that match okay string
+
+958
+00:55:31,440 --> 00:55:36,800
+match something string match or match
+
+959
+00:55:33,760 --> 00:55:42,000
+string okay so we need to go back to wam
+
+960
+00:55:36,800 --> 00:55:45,119
+language to to check for string function
+
+961
+00:55:42,000 --> 00:55:48,240
+we want to check match string string
+
+962
+00:55:45,119 --> 00:55:53,839
+match okay string start string ends
+
+963
+00:55:48,240 --> 00:55:56,079
+string match two. Okay. So that's you
+
+964
+00:55:53,839 --> 00:56:00,920
+know that's an example of using regular
+
+965
+00:55:56,079 --> 00:56:00,920
+expression. Okay. So
+
+966
+00:56:05,200 --> 00:56:11,760
+string match
+
+967
+00:56:07,760 --> 00:56:14,319
+function X. Okay. So that's X. So here's
+
+968
+00:56:11,760 --> 00:56:18,920
+a regular expression. regular expression
+
+969
+00:56:14,319 --> 00:56:18,920
+if it's I let's say
+
+970
+00:56:20,720 --> 00:56:30,359
+uh then you want to negate it okay so
+
+971
+00:56:25,200 --> 00:56:30,359
+uh stream match and uh not
+
+972
+00:56:32,000 --> 00:56:40,920
+okay basically so new list something
+
+973
+00:56:35,920 --> 00:56:40,920
+okay let's let me just try it okay
+
+974
+00:56:41,200 --> 00:56:46,079
+so now you just need to print new. Let's
+
+975
+00:56:43,520 --> 00:56:48,720
+try it.
+
+976
+00:56:46,079 --> 00:56:53,319
+Uh, okay. Regular expression something
+
+977
+00:56:48,720 --> 00:56:53,319
+missing. God, what?
+
+978
+00:56:56,160 --> 00:57:03,280
+Oh, so wait.
+
+979
+00:56:58,799 --> 00:57:06,000
+So wait, string match Q
+
+980
+00:57:03,280 --> 00:57:09,520
+string and pattern. Okay, regular
+
+981
+00:57:06,000 --> 00:57:13,079
+expression pattern. Okay. So, why is
+
+982
+00:57:09,520 --> 00:57:13,079
+that missing?
+
+983
+00:57:13,760 --> 00:57:21,559
+This backslash is always very annoying.
+
+984
+00:57:17,359 --> 00:57:21,559
+Okay. Run it.
+
+985
+00:57:21,680 --> 00:57:26,240
+Okay. I don't want it. I don't want
+
+986
+00:57:23,520 --> 00:57:29,440
+that. So, let's say
+
+987
+00:57:26,240 --> 00:57:32,559
+so if it says at the end of code then
+
+988
+00:57:29,440 --> 00:57:36,760
+remove it. Okay. So, just for testing
+
+989
+00:57:32,559 --> 00:57:36,760
+purposes now. Okay.
+
+990
+00:57:40,880 --> 00:57:43,880
+it.
+
+991
+00:57:44,799 --> 00:57:52,359
+So, it's still got a vin of a code.
+
+992
+00:57:49,359 --> 00:57:52,359
+Uh,
+
+993
+00:57:52,400 --> 00:57:56,839
+did we filter? Wait,
+
+994
+00:57:56,960 --> 00:58:03,040
+are we printing the right things? So,
+
+995
+00:57:59,440 --> 00:58:04,559
+this is what we want to print. So
+
+996
+00:58:03,040 --> 00:58:07,559
+function
+
+997
+00:58:04,559 --> 00:58:07,559
+select
+
+998
+00:58:08,720 --> 00:58:15,520
+let's not not stream match
+
+999
+00:58:12,160 --> 00:58:20,280
+function stream match that regular
+
+1000
+00:58:15,520 --> 00:58:20,280
+expression available code
+
+1001
+00:58:22,000 --> 00:58:27,400
+uh what is this string pattern regular
+
+1002
+00:58:24,400 --> 00:58:27,400
+expression
+
+1003
+00:58:30,480 --> 00:58:33,480
+Yeah,
+
+1004
+00:58:36,319 --> 00:58:41,240
+empty. Okay. So,
+
+1005
+00:58:43,119 --> 00:58:46,839
+is that because
+
+1006
+00:58:49,359 --> 00:58:54,160
+Yeah. Okay. So, that is why. So, now you
+
+1007
+00:58:52,240 --> 00:58:58,079
+can see now it's all just advent of
+
+1008
+00:58:54,160 --> 00:59:01,079
+code. Okay. So, but what we want is we
+
+1009
+00:58:58,079 --> 00:59:01,079
+want
+
+1010
+00:59:06,160 --> 00:59:14,319
+I okay and we want to negate it.
+
+1011
+00:59:12,720 --> 00:59:20,359
+So
+
+1012
+00:59:14,319 --> 00:59:20,359
+if it contains I remove it.
+
+1013
+00:59:23,440 --> 00:59:31,599
+Okay. No, but this regular expression
+
+1014
+00:59:29,200 --> 00:59:36,599
+is it because you need four of it
+
+1015
+00:59:31,599 --> 00:59:36,599
+ annoying the back, you know?
+
+1016
+00:59:44,079 --> 00:59:47,079
+What?
+
+1017
+00:59:48,319 --> 00:59:55,200
+What?
+
+1018
+00:59:51,280 --> 00:59:59,079
+Oh, wait. Wait. This knot needs to be
+
+1019
+00:59:55,200 --> 00:59:59,079
+here. That's right.
+
+1020
+01:00:00,400 --> 01:00:06,880
+Okay. So now,
+
+1021
+01:00:02,720 --> 01:00:09,880
+now it's still right there.
+
+1022
+01:00:06,880 --> 01:00:09,880
+So
+
+1023
+01:00:15,520 --> 01:00:21,040
+uh so you actually need uh this is quite
+
+1024
+01:00:18,880 --> 01:00:23,680
+annoying.
+
+1025
+01:00:21,040 --> 01:00:26,559
+This is not the right way to do it. But
+
+1026
+01:00:23,680 --> 01:00:34,280
+uh
+
+1027
+01:00:26,559 --> 01:00:34,280
+but we uh Okay, that's pretty bad.
+
+1028
+01:00:36,960 --> 01:00:41,680
+Okay, maybe that's enough of wam
+
+1029
+01:00:39,280 --> 01:00:44,400
+language. Um
+
+1030
+01:00:41,680 --> 01:00:47,440
+you know because I haven't,
+
+1031
+01:00:44,400 --> 01:00:50,160
+you know, wam language. I haven't
+
+1032
+01:00:47,440 --> 01:00:53,119
+been using wuam. I have not used wam
+
+1033
+01:00:50,160 --> 01:00:55,520
+language to do this uh kind of text
+
+1034
+01:00:53,119 --> 01:00:58,520
+processing much.
+
+1035
+01:00:55,520 --> 01:00:58,520
+So,
+
+1036
+01:00:58,960 --> 01:01:06,799
+so, so now it's not smooth and we are
+
+1037
+01:01:03,119 --> 01:01:09,440
+just like all screwed up. We are trying
+
+1038
+01:01:06,799 --> 01:01:11,359
+to so let's get a file list and we are
+
+1039
+01:01:09,440 --> 01:01:16,160
+trying to it should be very simple.
+
+1040
+01:01:11,359 --> 01:01:18,880
+Okay. So and uh we were trying to use
+
+1041
+01:01:16,160 --> 01:01:22,720
+string expression then we switch to
+
+1042
+01:01:18,880 --> 01:01:25,520
+regular expression and uh you know this
+
+1043
+01:01:22,720 --> 01:01:27,520
+should be string contains okay not
+
+1044
+01:01:25,520 --> 01:01:30,799
+string match because I'm not paying
+
+1045
+01:01:27,520 --> 01:01:35,280
+attention I'm not concentrating
+
+1046
+01:01:30,799 --> 01:01:36,960
+uh okay not strand string
+
+1047
+01:01:35,280 --> 01:01:40,880
+contain
+
+1048
+01:01:36,960 --> 01:01:43,200
+there it is not str match okay so if
+
+1049
+01:01:40,880 --> 01:01:48,720
+string contains
+
+1050
+01:01:43,200 --> 01:01:51,200
+uh in this case string contains x
+
+1051
+01:01:48,720 --> 01:01:54,640
+uh and we don't even need regular
+
+1052
+01:01:51,200 --> 01:01:59,520
+expression anymore. So you know if we
+
+1053
+01:01:54,640 --> 01:02:03,400
+just say string contains then maybe that
+
+1054
+01:01:59,520 --> 01:02:03,400
+can can we do that
+
+1055
+01:02:07,440 --> 01:02:13,520
+successful? You see it doesn't have
+
+1056
+01:02:11,680 --> 01:02:18,640
+you know if I go to the talk show
+
+1057
+01:02:13,520 --> 01:02:21,280
+directory uh not here delete the um if I
+
+1058
+01:02:18,640 --> 01:02:23,760
+go to the talksh show directory
+
+1059
+01:02:21,280 --> 01:02:25,280
+talk show you see there's a image
+
+1060
+01:02:23,760 --> 01:02:30,160
+directory
+
+1061
+01:02:25,280 --> 01:02:33,720
+uh you know and there's got you know 500
+
+1062
+01:02:30,160 --> 01:02:33,720
+files there.
+
+1063
+01:02:35,359 --> 01:02:40,400
+Uh and now
+
+1064
+01:02:38,079 --> 01:02:42,160
+they are not shown
+
+1065
+01:02:40,400 --> 01:02:45,839
+because
+
+1066
+01:02:42,160 --> 01:02:49,640
+because of this. So we successfully
+
+1067
+01:02:45,839 --> 01:02:49,640
+filter them out.
+
+1068
+01:02:50,319 --> 01:02:56,000
+Uh but right now it's just one of these.
+
+1069
+01:02:53,359 --> 01:02:59,280
+We want to filter them out for all these
+
+1070
+01:02:56,000 --> 01:03:02,799
+of all of that. So in order to do that,
+
+1071
+01:02:59,280 --> 01:03:08,319
+you can just map. Okay. So
+
+1072
+01:03:02,799 --> 01:03:13,200
+uh do I need to Okay, I'm just um
+
+1073
+01:03:08,319 --> 01:03:17,440
+okay to skip equals to then this make it
+
+1074
+01:03:13,200 --> 01:03:21,920
+into a list. Okay, you want a list of
+
+1075
+01:03:17,440 --> 01:03:26,880
+directory to skip. Okay. And uh yeah.
+
+1076
+01:03:21,920 --> 01:03:32,079
+Yeah. So each one is a directory. Okay.
+
+1077
+01:03:26,880 --> 01:03:37,119
+uh then we going to so so then the new
+
+1078
+01:03:32,079 --> 01:03:41,839
+list will equals to you want to map this
+
+1079
+01:03:37,119 --> 01:03:44,079
+to this. Okay. So basically
+
+1080
+01:03:41,839 --> 01:03:47,760
+um
+
+1081
+01:03:44,079 --> 01:03:51,359
+basically new list
+
+1082
+01:03:47,760 --> 01:03:54,799
+equals to map. Okay. You want to map
+
+1083
+01:03:51,359 --> 01:04:00,000
+function to
+
+1084
+01:03:54,799 --> 01:04:04,240
+you want to map a function to uh
+
+1085
+01:04:00,000 --> 01:04:05,839
+to file list. Okay. Then the here is a
+
+1086
+01:04:04,240 --> 01:04:09,119
+function
+
+1087
+01:04:05,839 --> 01:04:13,359
+and what this function do is that this
+
+1088
+01:04:09,119 --> 01:04:19,079
+function will uh
+
+1089
+01:04:13,359 --> 01:04:19,079
+will um basically will
+
+1090
+01:04:22,160 --> 01:04:28,799
+recurse. Okay. So wait. So for each one
+
+1091
+01:04:24,960 --> 01:04:31,280
+of these you want to go through reduce
+
+1092
+01:04:28,799 --> 01:04:34,480
+fold. Okay. So actually you need to use
+
+1093
+01:04:31,280 --> 01:04:37,280
+fold functional programming
+
+1094
+01:04:34,480 --> 01:04:39,359
+uh fold
+
+1095
+01:04:37,280 --> 01:04:43,520
+fold
+
+1096
+01:04:39,359 --> 01:04:48,960
+the to skip. Okay. Now you need apply a
+
+1097
+01:04:43,520 --> 01:04:52,680
+function to it and uh and then you need
+
+1098
+01:04:48,960 --> 01:04:52,680
+the first item
+
+1099
+01:04:55,680 --> 01:04:59,960
+in netit value.
+
+1100
+01:05:00,079 --> 01:05:09,599
+Okay, let's look up the documentation.
+
+1101
+01:05:03,039 --> 01:05:12,240
+Fold fx list. Okay. So, so, so initial
+
+1102
+01:05:09,599 --> 01:05:14,640
+value that's just, uh, so anyway, what
+
+1103
+01:05:12,240 --> 01:05:18,280
+you're going to do, so for each one, you
+
+1104
+01:05:14,640 --> 01:05:18,280
+want to select
+
+1105
+01:05:18,720 --> 01:05:22,839
+uh, this is getting complicated.
+
+1106
+01:05:22,880 --> 01:05:28,240
+Select from file list
+
+1107
+01:05:25,920 --> 01:05:31,599
+by this function.
+
+1108
+01:05:28,240 --> 01:05:35,359
+Uh actually you don't you know you can
+
+1109
+01:05:31,599 --> 01:05:38,359
+just pass it multiple criterians in
+
+1110
+01:05:35,359 --> 01:05:38,359
+select
+
+1111
+01:05:46,559 --> 01:05:51,039
+what what
+
+1112
+01:05:49,440 --> 01:05:53,839
+god
+
+1113
+01:05:51,039 --> 01:05:57,280
+I need to code wuam language more
+
+1114
+01:05:53,839 --> 01:06:00,400
+because right now it's not it's not
+
+1115
+01:05:57,280 --> 01:06:03,400
+going so Well,
+
+1116
+01:06:00,400 --> 01:06:03,400
+uh
+
+1117
+01:06:04,960 --> 01:06:14,520
+can so you know like one
+
+1118
+01:06:08,240 --> 01:06:14,520
+we you know one idea after another. So
+
+1119
+01:06:16,240 --> 01:06:20,880
+so I guess uh should I stop? There's
+
+1120
+01:06:18,480 --> 01:06:24,880
+seven people watching. Is it interesting
+
+1121
+01:06:20,880 --> 01:06:26,720
+or should I switch to uh EMACP?
+
+1122
+01:06:24,880 --> 01:06:30,520
+But eag this, you know, I've been doing
+
+1123
+01:06:26,720 --> 01:06:30,520
+it so much.
+
+1124
+01:06:46,400 --> 01:06:51,039
+So actually the trick is to you really
+
+1125
+01:06:48,960 --> 01:06:53,280
+just need to think about it. You cannot
+
+1126
+01:06:51,039 --> 01:06:56,400
+just like
+
+1127
+01:06:53,280 --> 01:07:00,240
+trial and error and doing pot shots. So
+
+1128
+01:06:56,400 --> 01:07:03,720
+let me you know let me relax and then
+
+1129
+01:07:00,240 --> 01:07:03,720
+take it slowly.
+
+1130
+01:07:13,359 --> 01:07:19,160
+Am I doing fine? Yes. Star Wars
+
+1131
+01:07:35,119 --> 01:07:41,200
+Okay. So, let's get back to what we need
+
+1132
+01:07:38,480 --> 01:07:44,000
+to do. So, we got a directory. We got a
+
+1133
+01:07:41,200 --> 01:07:45,760
+input directory. We got a input
+
+1134
+01:07:44,000 --> 01:07:50,000
+directory.
+
+1135
+01:07:45,760 --> 01:07:55,039
+We want to um we want to go through
+
+1136
+01:07:50,000 --> 01:07:58,559
+every file in a directory but skip this
+
+1137
+01:07:55,039 --> 01:08:01,680
+directories if the name match. Okay. And
+
+1138
+01:07:58,559 --> 01:08:05,680
+one way so this should be over here. So
+
+1139
+01:08:01,680 --> 01:08:08,799
+above that is all parameters kind of
+
+1140
+01:08:05,680 --> 01:08:11,280
+good coding practice. So input directory
+
+1141
+01:08:08,799 --> 01:08:14,079
+and directory to skip that's a
+
+1142
+01:08:11,280 --> 01:08:17,759
+specification then you start your code
+
+1143
+01:08:14,079 --> 01:08:19,679
+here. So this file names gets all files
+
+1144
+01:08:17,759 --> 01:08:23,199
+in a directory
+
+1145
+01:08:19,679 --> 01:08:26,159
+to the depth of infinity.
+
+1146
+01:08:23,199 --> 01:08:30,080
+Okay. Then um
+
+1147
+01:08:26,159 --> 01:08:32,640
+now it it can also take from nth level
+
+1148
+01:08:30,080 --> 01:08:34,799
+to mth level and it can also take
+
+1149
+01:08:32,640 --> 01:08:37,799
+multiple directories.
+
+1150
+01:08:34,799 --> 01:08:37,799
+So
+
+1151
+01:08:40,000 --> 01:08:44,120
+yeah. So it can
+
+1152
+01:08:55,279 --> 01:09:00,640
+Okay. And you also you can also even
+
+1153
+01:08:58,239 --> 01:09:03,040
+specifically specify
+
+1154
+01:09:00,640 --> 01:09:05,359
+nth level of a directory. So if a
+
+1155
+01:09:03,040 --> 01:09:08,319
+directory is nested you know three
+
+1156
+01:09:05,359 --> 01:09:10,719
+levels deep only that
+
+1157
+01:09:08,319 --> 01:09:14,000
+files in those directories. So you can
+
+1158
+01:09:10,719 --> 01:09:17,359
+do that. Uh
+
+1159
+01:09:14,000 --> 01:09:20,480
+okay. So so this gives you a list of
+
+1160
+01:09:17,359 --> 01:09:24,960
+file names. What pattern all of it
+
+1161
+01:09:20,480 --> 01:09:27,679
+doesn't? Uh so do I care actually?
+
+1162
+01:09:24,960 --> 01:09:30,560
+So the pattern only matches file name
+
+1163
+01:09:27,679 --> 01:09:35,480
+not directory name. So this is useless
+
+1164
+01:09:30,560 --> 01:09:35,480
+for me. Better double check.
+
+1165
+01:09:43,359 --> 01:09:50,400
+Yeah. So
+
+1166
+01:09:46,880 --> 01:09:53,040
+another so you know the thing is we are
+
+1167
+01:09:50,400 --> 01:09:56,480
+trying to figure out how to do this you
+
+1168
+01:09:53,040 --> 01:09:59,120
+know wam language is normally used for
+
+1169
+01:09:56,480 --> 01:10:01,040
+you know mathematics mathematics physics
+
+1170
+01:09:59,120 --> 01:10:04,320
+engineering
+
+1171
+01:10:01,040 --> 01:10:09,840
+uh but this traversing directory is
+
+1172
+01:10:04,320 --> 01:10:12,480
+usually cis admin text processing so
+
+1173
+01:10:09,840 --> 01:10:14,320
+you know so I rarely I haven't used this
+
+1174
+01:10:12,480 --> 01:10:17,320
+much
+
+1175
+01:10:14,320 --> 01:10:17,320
+um
+
+1176
+01:10:18,080 --> 01:10:23,679
+and you can also you know give it
+
+1177
+01:10:20,000 --> 01:10:27,840
+several directories. So but we but we
+
+1178
+01:10:23,679 --> 01:10:31,040
+want to skip some of these. Okay. So one
+
+1179
+01:10:27,840 --> 01:10:32,880
+of the you know
+
+1180
+01:10:31,040 --> 01:10:35,600
+so
+
+1181
+01:10:32,880 --> 01:10:38,719
+so one of the thing we can think about
+
+1182
+01:10:35,600 --> 01:10:42,719
+is there some fix some function building
+
+1183
+01:10:38,719 --> 01:10:45,520
+function that just do it one shot like
+
+1184
+01:10:42,719 --> 01:10:48,520
+we don't have to do map or filter or
+
+1185
+01:10:45,520 --> 01:10:48,520
+select
+
+1186
+01:10:48,640 --> 01:10:53,719
+uh you know that's a you know so
+
+1187
+01:10:53,760 --> 01:10:59,280
+so we want to skip these directories so
+
+1188
+01:10:56,640 --> 01:11:01,520
+If if one of the parent directories want
+
+1189
+01:10:59,280 --> 01:11:05,280
+contains you know is one of these we
+
+1190
+01:11:01,520 --> 01:11:09,199
+want to skip it. Okay suppose there's no
+
+1191
+01:11:05,280 --> 01:11:11,679
+search direct function. Okay then
+
+1192
+01:11:09,199 --> 01:11:16,000
+then what we do is we can do a filter
+
+1193
+01:11:11,679 --> 01:11:18,320
+you know we get everything first. Uh but
+
+1194
+01:11:16,000 --> 01:11:21,120
+that's not efficient because for example
+
+1195
+01:11:18,320 --> 01:11:24,239
+if you have git directory usually
+
+1196
+01:11:21,120 --> 01:11:26,880
+there's like hundreds of files in it and
+
+1197
+01:11:24,239 --> 01:11:28,800
+lots of sub subd directories. So you
+
+1198
+01:11:26,880 --> 01:11:32,560
+don't want
+
+1199
+01:11:28,800 --> 01:11:35,679
+you don't want get all names first then
+
+1200
+01:11:32,560 --> 01:11:38,719
+filter out the git you know whatever
+
+1201
+01:11:35,679 --> 01:11:41,360
+contains the git path.
+
+1202
+01:11:38,719 --> 01:11:43,760
+That's a that's an issue. Okay that that
+
+1203
+01:11:41,360 --> 01:11:47,679
+is a issue.
+
+1204
+01:11:43,760 --> 01:11:50,480
+So now there's a question. So if we are
+
+1205
+01:11:47,679 --> 01:11:53,760
+doing this for real you know real life
+
+1206
+01:11:50,480 --> 01:11:56,640
+problem using wolfam language how do you
+
+1207
+01:11:53,760 --> 01:12:00,239
+solve this? You know we can we can get
+
+1208
+01:11:56,640 --> 01:12:02,560
+all files first then filter it but
+
+1209
+01:12:00,239 --> 01:12:06,600
+that's not efficient when you have like
+
+1210
+01:12:02,560 --> 01:12:06,600
+um kit.
+
+1211
+01:12:06,719 --> 01:12:11,719
+So another way is you can
+
+1212
+01:12:11,840 --> 01:12:17,920
+Yeah. So what so you know it must you
+
+1213
+01:12:14,400 --> 01:12:20,480
+know this this must be a way
+
+1214
+01:12:17,920 --> 01:12:23,040
+uh so we have to just carefully read the
+
+1215
+01:12:20,480 --> 01:12:26,080
+documentation. Okay. There's no way
+
+1216
+01:12:23,040 --> 01:12:29,360
+around it.
+
+1217
+01:12:26,080 --> 01:12:31,600
+So file names form list all files in the
+
+1218
+01:12:29,360 --> 01:12:34,239
+current working directory whose name
+
+1219
+01:12:31,600 --> 01:12:36,640
+match the string pattern form. But the
+
+1220
+01:12:34,239 --> 01:12:39,679
+problem is it only match the file name
+
+1221
+01:12:36,640 --> 01:12:42,000
+part not the directory. If it matches
+
+1222
+01:12:39,679 --> 01:12:47,120
+directory then we are solved. Okay. So
+
+1223
+01:12:42,000 --> 01:12:49,199
+let's read in detail. Um
+
+1224
+01:12:47,120 --> 01:12:51,840
+file names can be given as literal
+
+1225
+01:12:49,199 --> 01:12:55,199
+strings or string expression or regular
+
+1226
+01:12:51,840 --> 01:12:58,560
+expression. Okay. In abbreviated string
+
+1227
+01:12:55,199 --> 01:13:03,679
+patterns star stand for any sequence of
+
+1228
+01:12:58,560 --> 01:13:05,280
+zero. So that's wild card pattern. Okay.
+
+1229
+01:13:03,679 --> 01:13:11,080
+Uh
+
+1230
+01:13:05,280 --> 01:13:11,080
+you know so yeah so let's see next
+
+1231
+01:13:11,600 --> 01:13:18,239
+so verbatim specify the string should be
+
+1232
+01:13:15,280 --> 01:13:22,320
+matched with wild cards. Okay so that is
+
+1233
+01:13:18,239 --> 01:13:25,440
+like verbatim you know wild card.
+
+1234
+01:13:22,320 --> 01:13:30,239
+uh then you can say infinity
+
+1235
+01:13:25,440 --> 01:13:33,360
+for so-called recursive you know idiotic
+
+1236
+01:13:30,239 --> 01:13:35,920
+jargon in Unix recursive
+
+1237
+01:13:33,360 --> 01:13:39,280
+in fact it doesn't mean recursive at all
+
+1238
+01:13:35,920 --> 01:13:42,800
+because recursive means implementation
+
+1239
+01:13:39,280 --> 01:13:45,600
+it does not mean
+
+1240
+01:13:42,800 --> 01:13:47,760
+you know it it just list you know it
+
+1241
+01:13:45,600 --> 01:13:50,880
+does not
+
+1242
+01:13:47,760 --> 01:13:53,360
+specify subdirectory and all its
+
+1243
+01:13:50,880 --> 01:13:56,400
+subdirectories is for example let me let
+
+1244
+01:13:53,360 --> 01:14:00,000
+me say it this way it's simpler so for
+
+1245
+01:13:56,400 --> 01:14:03,840
+example if you have a tree you know you
+
+1246
+01:14:00,000 --> 01:14:06,560
+don't say if you want all the leaves of
+
+1247
+01:14:03,840 --> 01:14:09,520
+a tree you don't say recursively get the
+
+1248
+01:14:06,560 --> 01:14:11,360
+leaves recursively that's what that's
+
+1249
+01:14:09,520 --> 01:14:15,520
+not what you say you simply say all the
+
+1250
+01:14:11,360 --> 01:14:18,080
+leaves or all the branches of a tree you
+
+1251
+01:14:15,520 --> 01:14:19,760
+don't say all you know all branches
+
+1252
+01:14:18,080 --> 01:14:21,760
+recursively
+
+1253
+01:14:19,760 --> 01:14:25,920
+because recursive
+
+1254
+01:14:21,760 --> 01:14:28,640
+is mostly a verb that that's related to
+
+1255
+01:14:25,920 --> 01:14:31,040
+implementation. So if you want to get
+
+1256
+01:14:28,640 --> 01:14:34,080
+all the leaves of a tree, you can
+
+1257
+01:14:31,040 --> 01:14:37,040
+implement your program in a recursive
+
+1258
+01:14:34,080 --> 01:14:39,520
+way by writing a recursive function that
+
+1259
+01:14:37,040 --> 01:14:42,800
+calls itself
+
+1260
+01:14:39,520 --> 01:14:45,199
+or you can use nested loop. So when you
+
+1261
+01:14:42,800 --> 01:14:47,760
+say get all things in a directory and
+
+1262
+01:14:45,199 --> 01:14:51,199
+subdirectory and all their subdirectory
+
+1263
+01:14:47,760 --> 01:14:54,719
+it is you know the word recursive is
+
+1264
+01:14:51,199 --> 01:14:58,159
+irrelevant but the Unix and C idiots
+
+1265
+01:14:54,719 --> 01:14:59,840
+they don't know. So for example in wuam
+
+1266
+01:14:58,159 --> 01:15:01,920
+language they don't say you know when
+
+1267
+01:14:59,840 --> 01:15:04,960
+you have infinity you know the third
+
+1268
+01:15:01,920 --> 01:15:08,159
+argument specify how deep you want to
+
+1269
+01:15:04,960 --> 01:15:11,840
+go. So you can say infinity which is
+
+1270
+01:15:08,159 --> 01:15:15,760
+represented by a symbol you know it just
+
+1271
+01:15:11,840 --> 01:15:18,800
+means all levels all levels and then you
+
+1272
+01:15:15,760 --> 01:15:21,679
+know ex it explains that it looks for
+
+1273
+01:15:18,800 --> 01:15:24,400
+files in all subdirectories of the it
+
+1274
+01:15:21,679 --> 01:15:27,440
+doesn't say recursively
+
+1275
+01:15:24,400 --> 01:15:30,960
+like the Unix idiots
+
+1276
+01:15:27,440 --> 01:15:34,239
+Unix and Linux and basically that you
+
+1277
+01:15:30,960 --> 01:15:37,280
+know bad concept bad thinking spread to
+
+1278
+01:15:34,239 --> 01:15:39,679
+All programming languages, industrial
+
+1279
+01:15:37,280 --> 01:15:42,640
+coders, you know, they they always just
+
+1280
+01:15:39,679 --> 01:15:46,480
+say recursively. Anyway, that's a
+
+1281
+01:15:42,640 --> 01:15:48,560
+digression. Okay. So, so we are reading
+
+1282
+01:15:46,480 --> 01:15:51,360
+this. So, file name. So, list of files
+
+1283
+01:15:48,560 --> 01:15:54,800
+returned by file names is sorted. Okay.
+
+1284
+01:15:51,360 --> 01:15:58,080
+That's kind of make it slow. Um, then
+
+1285
+01:15:54,800 --> 01:16:01,120
+file name form. Then you can add a
+
+1286
+01:15:58,080 --> 01:16:04,640
+braces to to the third argument so that
+
+1287
+01:16:01,120 --> 01:16:07,520
+it only includes that
+
+1288
+01:16:04,640 --> 01:16:10,320
+level of depth.
+
+1289
+01:16:07,520 --> 01:16:14,400
+Okay. The forms can can include relative
+
+1290
+01:16:10,320 --> 01:16:17,840
+or abs. Oh wait here
+
+1291
+01:16:14,400 --> 01:16:22,880
+the forms can include relative or
+
+1292
+01:16:17,840 --> 01:16:26,640
+absolute directory specifications there.
+
+1293
+01:16:22,880 --> 01:16:29,520
+Okay. So that is the key.
+
+1294
+01:16:26,640 --> 01:16:31,040
+So we can specify our patterns here.
+
+1295
+01:16:29,520 --> 01:16:37,560
+Okay.
+
+1296
+01:16:31,040 --> 01:16:37,560
+Yeah. Um yes or no. Yes.
+
+1297
+01:16:41,920 --> 01:16:45,840
+Okay.
+
+1298
+01:16:43,520 --> 01:16:47,840
+The question is how but that's a detail
+
+1299
+01:16:45,840 --> 01:16:50,239
+we'll see.
+
+1300
+01:16:47,840 --> 01:16:53,920
+Okay. Setting the option ignore case
+
+1301
+01:16:50,239 --> 01:16:58,040
+true. Okay. That's ignore case. Okay. Uh
+
+1302
+01:16:53,920 --> 01:16:58,040
+then Okay. Then
+
+1303
+01:16:58,080 --> 01:17:01,080
+fantastic.
+
+1304
+01:17:01,280 --> 01:17:08,800
+Okay. So, so the form can be
+
+1305
+01:17:06,800 --> 01:17:11,360
+can include absolute directory
+
+1306
+01:17:08,800 --> 01:17:16,600
+specification. Now we need a example.
+
+1307
+01:17:11,360 --> 01:17:16,600
+Okay. Jesus, they don't have example.
+
+1308
+01:17:18,000 --> 01:17:24,000
+You see in this case there's only one
+
+1309
+01:17:21,120 --> 01:17:28,000
+example because
+
+1310
+01:17:24,000 --> 01:17:31,600
+because this is not typically you know
+
+1311
+01:17:28,000 --> 01:17:34,560
+mathematics or physics so not many
+
+1312
+01:17:31,600 --> 01:17:37,560
+people is using this
+
+1313
+01:17:34,560 --> 01:17:37,560
+uh
+
+1314
+01:17:38,320 --> 01:17:45,679
+okay so but now but you see this this
+
+1315
+01:17:42,239 --> 01:17:49,280
+sentence is most important the form can
+
+1316
+01:17:45,679 --> 01:17:55,239
+include relative for absolute directory
+
+1317
+01:17:49,280 --> 01:17:55,239
+specification. Okay. But how
+
+1318
+01:18:03,280 --> 01:18:10,719
+match the form.
+
+1319
+01:18:06,159 --> 01:18:12,960
+So this needs to be a pattern.
+
+1320
+01:18:10,719 --> 01:18:16,000
+But
+
+1321
+01:18:12,960 --> 01:18:20,960
+how do you specify? You need a negation
+
+1322
+01:18:16,000 --> 01:18:23,280
+pattern. Okay. So this so if we um let's
+
+1323
+01:18:20,960 --> 01:18:28,520
+try this again.
+
+1324
+01:18:23,280 --> 01:18:28,520
+Let's let's forget about that. Okay.
+
+1325
+01:18:28,640 --> 01:18:31,640
+So,
+
+1326
+01:18:32,080 --> 01:18:40,600
+so this part can be
+
+1327
+01:18:36,960 --> 01:18:40,600
+uh let's say
+
+1328
+01:18:44,800 --> 01:18:53,679
+what? Oh, we need to do that.
+
+1329
+01:18:50,320 --> 01:18:56,880
+Okay. So, now it's just all a vin of
+
+1330
+01:18:53,679 --> 01:18:59,880
+code because it it only match that. You
+
+1331
+01:18:56,880 --> 01:18:59,880
+see,
+
+1332
+01:19:05,199 --> 01:19:11,520
+you see because we searched for advent.
+
+1333
+01:19:07,679 --> 01:19:15,440
+Okay. But we want a negation of this.
+
+1334
+01:19:11,520 --> 01:19:19,600
+Okay. So let's try first of all let's
+
+1335
+01:19:15,440 --> 01:19:25,679
+try to see how to how to how to get uh
+
+1336
+01:19:19,600 --> 01:19:28,880
+negation work. Okay. So, so file name is
+
+1337
+01:19:25,679 --> 01:19:34,239
+a pattern. So, instead of using wild
+
+1338
+01:19:28,880 --> 01:19:37,840
+card, we we now use string expression.
+
+1339
+01:19:34,239 --> 01:19:41,120
+Okay. Uh and in this case string
+
+1340
+01:19:37,840 --> 01:19:44,080
+expression, let's just say event. Okay.
+
+1341
+01:19:41,120 --> 01:19:50,239
+Now, let's do that. Let's see.
+
+1342
+01:19:44,080 --> 01:19:54,480
+Run it. None. Okay. now. Um,
+
+1343
+01:19:50,239 --> 01:19:59,960
+okay. Maybe let's not try uh that yet.
+
+1344
+01:19:54,480 --> 01:19:59,960
+So, let's just try that. Okay.
+
+1345
+01:20:00,719 --> 01:20:05,920
+And it
+
+1346
+01:20:03,840 --> 01:20:08,920
+empty.
+
+1347
+01:20:05,920 --> 01:20:08,920
+Uh,
+
+1348
+01:20:09,760 --> 01:20:16,159
+wait. So, this form
+
+1349
+01:20:13,120 --> 01:20:19,120
+can they be string expression? Yes, they
+
+1350
+01:20:16,159 --> 01:20:22,640
+can. says right here file names can be
+
+1351
+01:20:19,120 --> 01:20:24,719
+given as literal strings
+
+1352
+01:20:22,640 --> 01:20:28,400
+string expression string patterns
+
+1353
+01:20:24,719 --> 01:20:30,719
+regular expression object.
+
+1354
+01:20:28,400 --> 01:20:33,679
+Okay.
+
+1355
+01:20:30,719 --> 01:20:36,320
+So,
+
+1356
+01:20:33,679 --> 01:20:41,239
+oh yeah, but you need to the problem is
+
+1357
+01:20:36,320 --> 01:20:41,239
+you need to match all part of it,
+
+1358
+01:20:42,560 --> 01:20:48,640
+not just advent because the event won't
+
+1359
+01:20:45,760 --> 01:20:52,320
+match. You need to match all part of it.
+
+1360
+01:20:48,640 --> 01:20:56,880
+So, so let's go back. So, let's get this
+
+1361
+01:20:52,320 --> 01:21:00,960
+to work. Okay, I'm just pressing on.
+
+1362
+01:20:56,880 --> 01:21:06,520
+So you get back to about string
+
+1363
+01:21:00,960 --> 01:21:06,520
+expression. Okay. So a string expression
+
+1364
+01:21:06,719 --> 01:21:16,280
+uh any single character character class.
+
+1365
+01:21:10,800 --> 01:21:16,280
+Okay. So let So
+
+1366
+01:21:47,440 --> 01:21:53,760
+Uh so character class little character
+
+1367
+01:21:51,199 --> 01:21:59,159
+any single character.
+
+1368
+01:21:53,760 --> 01:21:59,159
+Okay. So character class
+
+1369
+01:21:59,280 --> 01:22:03,400
+character class exclusion.
+
+1370
+01:22:03,520 --> 01:22:08,719
+Okay
+
+1371
+01:22:06,239 --> 01:22:11,520
+match boundary.
+
+1372
+01:22:08,719 --> 01:22:14,639
+Okay we don't care.
+
+1373
+01:22:11,520 --> 01:22:18,639
+And repeat.
+
+1374
+01:22:14,639 --> 01:22:25,159
+Okay. So repeat you just say dot dot one
+
+1375
+01:22:18,639 --> 01:22:25,159
+or more times. Okay. So let's say
+
+1376
+01:22:30,000 --> 01:22:34,320
+let me let me show you how this works.
+
+1377
+01:22:32,800 --> 01:22:37,920
+Okay,
+
+1378
+01:22:34,320 --> 01:22:41,560
+so string expression.
+
+1379
+01:22:37,920 --> 01:22:41,560
+Okay, so
+
+1380
+01:22:44,960 --> 01:22:50,199
+letter character dot dot
+
+1381
+01:22:51,280 --> 01:22:59,600
+So that means one or more letters.
+
+1382
+01:22:55,040 --> 01:23:02,320
+Okay. Then something advanc.
+
+1383
+01:22:59,600 --> 01:23:05,120
+But actually we want to include the
+
+1384
+01:23:02,320 --> 01:23:07,280
+slash or backslash.
+
+1385
+01:23:05,120 --> 01:23:10,960
+Okay.
+
+1386
+01:23:07,280 --> 01:23:15,600
+Uh but let's say that
+
+1387
+01:23:10,960 --> 01:23:18,159
+okay. So now we if we run it that won't
+
+1388
+01:23:15,600 --> 01:23:21,199
+work because we don't have any slash
+
+1389
+01:23:18,159 --> 01:23:24,000
+character. Okay. What about any
+
+1390
+01:23:21,199 --> 01:23:27,440
+character? So underscore is any
+
+1391
+01:23:24,000 --> 01:23:30,000
+character. So let's just say underscore
+
+1392
+01:23:27,440 --> 01:23:34,000
+underscore any character one or more
+
+1393
+01:23:30,000 --> 01:23:38,040
+times then event then any character one
+
+1394
+01:23:34,000 --> 01:23:38,040
+or more times. Do it.
+
+1395
+01:23:41,920 --> 01:23:51,239
+Oh yeah, we missing a comma.
+
+1396
+01:23:45,520 --> 01:23:51,239
+I mean uh yeah, comma do it.
+
+1397
+01:23:51,520 --> 01:23:55,800
+Uh invalid syntax.
+
+1398
+01:23:56,400 --> 01:23:59,400
+Uh
+
+1399
+01:24:03,040 --> 01:24:09,760
+wait any character.
+
+1400
+01:24:06,960 --> 01:24:12,760
+So underscore means any single
+
+1401
+01:24:09,760 --> 01:24:12,760
+character.
+
+1402
+01:24:21,920 --> 01:24:26,920
+Okay. So why is that? Uh
+
+1403
+01:24:33,840 --> 01:24:39,719
+pattern one or more times. zero or more
+
+1404
+01:24:36,719 --> 01:24:39,719
+times
+
+1405
+01:24:43,760 --> 01:24:48,360
+alternatives.
+
+1406
+01:24:45,360 --> 01:24:48,360
+Jesus
+
+1407
+01:24:57,920 --> 01:25:05,880
+starting to get annoying
+
+1408
+01:25:01,679 --> 01:25:05,880
+this when
+
+1409
+01:25:09,360 --> 01:25:19,520
+I don't think so. Okay.
+
+1410
+01:25:13,280 --> 01:25:21,920
+Oh. Oh, right. You need par Jesus. Okay.
+
+1411
+01:25:19,520 --> 01:25:24,960
+So, now
+
+1412
+01:25:21,920 --> 01:25:28,880
+fantastic. You see,
+
+1413
+01:25:24,960 --> 01:25:32,159
+so what we done is that we
+
+1414
+01:25:28,880 --> 01:25:34,639
+we are using file names one single
+
+1415
+01:25:32,159 --> 01:25:38,560
+function call. Okay. Now you know let's
+
+1416
+01:25:34,639 --> 01:25:41,679
+you know let's brag about this. You see
+
+1417
+01:25:38,560 --> 01:25:46,239
+we want all files in this directory but
+
+1418
+01:25:41,679 --> 01:25:49,120
+skip this and now we only one single
+
+1419
+01:25:46,239 --> 01:25:51,440
+function call gives you give us the
+
+1420
+01:25:49,120 --> 01:25:54,639
+result. Okay let's remove that. Okay one
+
+1421
+01:25:51,440 --> 01:25:58,000
+single function call and this function
+
+1422
+01:25:54,639 --> 01:26:02,400
+is just file names and takes three
+
+1423
+01:25:58,000 --> 01:26:05,360
+arguments. Okay, a pattern
+
+1424
+01:26:02,400 --> 01:26:09,920
+of the file path full path then the
+
+1425
+01:26:05,360 --> 01:26:12,639
+input directory then depth. Okay, now
+
+1426
+01:26:09,920 --> 01:26:16,239
+the pattern is the tricky new thing
+
+1427
+01:26:12,639 --> 01:26:18,320
+here. The pattern we can use a regular
+
+1428
+01:26:16,239 --> 01:26:21,199
+expression. We can you know I can try a
+
+1429
+01:26:18,320 --> 01:26:25,520
+regular expression or we can use string
+
+1430
+01:26:21,199 --> 01:26:28,320
+expression which is a new kind of syntax
+
+1431
+01:26:25,520 --> 01:26:31,600
+similar you know almost similar very
+
+1432
+01:26:28,320 --> 01:26:34,560
+very similar same purpose as regular
+
+1433
+01:26:31,600 --> 01:26:36,159
+regular expression. Okay. And here we
+
+1434
+01:26:34,560 --> 01:26:39,040
+say
+
+1435
+01:26:36,159 --> 01:26:42,159
+you know it the the string expression
+
+1436
+01:26:39,040 --> 01:26:45,120
+can take any number of arguments.
+
+1437
+01:26:42,159 --> 01:26:47,360
+They basically just join them. Okay,
+
+1438
+01:26:45,120 --> 01:26:49,760
+remember this represent a string pattern
+
+1439
+01:26:47,360 --> 01:26:51,600
+like a regular expression. Okay, so the
+
+1440
+01:26:49,760 --> 01:26:54,400
+first thing you say is that any
+
+1441
+01:26:51,600 --> 01:26:58,239
+character one or more times then
+
+1442
+01:26:54,400 --> 01:27:01,840
+followed by event then followed by any
+
+1443
+01:26:58,239 --> 01:27:04,480
+character one or more times. Okay. So
+
+1444
+01:27:01,840 --> 01:27:08,960
+one single function call
+
+1445
+01:27:04,480 --> 01:27:11,040
+you get a list of
+
+1446
+01:27:08,960 --> 01:27:16,080
+of of
+
+1447
+01:27:11,040 --> 01:27:19,520
+all file path full name and skip and o
+
+1448
+01:27:16,080 --> 01:27:22,239
+only match this pattern. Okay. So what
+
+1449
+01:27:19,520 --> 01:27:26,560
+we want to do now is we want to like
+
+1450
+01:27:22,239 --> 01:27:30,639
+negate it. We want to check if it does
+
+1451
+01:27:26,560 --> 01:27:34,960
+not match any of these
+
+1452
+01:27:30,639 --> 01:27:37,960
+Okay. And uh
+
+1453
+01:27:34,960 --> 01:27:37,960
+and
+
+1454
+01:27:38,000 --> 01:27:44,560
+so negation um negation is you know
+
+1455
+01:27:42,400 --> 01:27:47,840
+here.
+
+1456
+01:27:44,560 --> 01:27:49,600
+So literal character sequence any single
+
+1457
+01:27:47,840 --> 01:27:55,440
+character you just have to read it
+
+1458
+01:27:49,600 --> 01:27:59,480
+carefully and think you cannot rush. So
+
+1459
+01:27:55,440 --> 01:27:59,480
+is anyone still here?
+
+1460
+01:28:00,719 --> 01:28:05,760
+So okay any single character character
+
+1461
+01:28:03,920 --> 01:28:08,159
+classes
+
+1462
+01:28:05,760 --> 01:28:10,400
+uh
+
+1463
+01:28:08,159 --> 01:28:11,920
+okay
+
+1464
+01:28:10,400 --> 01:28:15,120
+uh
+
+1465
+01:28:11,920 --> 01:28:18,800
+character classes then
+
+1466
+01:28:15,120 --> 01:28:21,199
+character class exclusion. So you got
+
+1467
+01:28:18,800 --> 01:28:25,760
+except.
+
+1468
+01:28:21,199 --> 01:28:28,760
+Okay. So except allows you to
+
+1469
+01:28:25,760 --> 01:28:28,760
+um
+
+1470
+01:28:32,560 --> 01:28:39,120
+we want to try to have a except
+
+1471
+01:28:37,600 --> 01:28:42,920
+so
+
+1472
+01:28:39,120 --> 01:28:42,920
+accept this.
+
+1473
+01:28:44,400 --> 01:28:50,960
+So except a pattern.
+
+1474
+01:28:47,840 --> 01:28:54,400
+Okay. So actually we can do this. Let's
+
+1475
+01:28:50,960 --> 01:28:59,520
+see. Except a pattern. Okay.
+
+1476
+01:28:54,400 --> 01:29:05,679
+Um so copy that. Make a copy. Then
+
+1477
+01:28:59,520 --> 01:29:08,679
+except it instead of event we say except
+
+1478
+01:29:05,679 --> 01:29:08,679
+advent.
+
+1479
+01:29:09,840 --> 01:29:17,239
+Okay. Now comment that out.
+
+1480
+01:29:13,760 --> 01:29:17,239
+Uh, wait.
+
+1481
+01:29:22,159 --> 01:29:25,400
+Run it.
+
+1482
+01:29:25,760 --> 01:29:31,480
+No.
+
+1483
+01:29:28,480 --> 01:29:31,480
+Uh,
+
+1484
+01:29:32,159 --> 01:29:39,480
+except or.
+
+1485
+01:29:34,719 --> 01:29:39,480
+Okay. So, you know, except
+
+1486
+01:29:44,880 --> 01:29:51,840
+Why? Why is it Why is it that except
+
+1487
+01:29:47,840 --> 01:29:54,560
+doesn't work? I don't understand,
+
+1488
+01:29:51,840 --> 01:29:56,320
+isn't it?
+
+1489
+01:29:54,560 --> 01:29:58,560
+No.
+
+1490
+01:29:56,320 --> 01:30:03,239
+Uh,
+
+1491
+01:29:58,560 --> 01:30:03,239
+okay. I think maybe I should stop
+
+1492
+01:30:06,159 --> 01:30:14,440
+zero or more times. Okay, let's try
+
+1493
+01:30:09,440 --> 01:30:14,440
+instead of one or more times, let's say,
+
+1494
+01:30:23,120 --> 01:30:27,239
+wait. So,
+
+1495
+01:30:28,000 --> 01:30:35,960
+I don't think this works.
+
+1496
+01:30:32,080 --> 01:30:35,960
+This is embarrassing.
+
+1497
+01:30:40,320 --> 01:30:46,639
+Alternatives
+
+1498
+01:30:43,280 --> 01:30:51,960
+named capture. Okay.
+
+1499
+01:30:46,639 --> 01:30:51,960
+Conditional check on pattern. That's it.
+
+1500
+01:30:53,360 --> 01:31:00,840
+So what we want is anything one or more
+
+1501
+01:31:02,719 --> 01:31:05,719
+uh
+
+1502
+01:31:16,560 --> 01:31:23,280
+Okay, probably everyone is gone.
+
+1503
+01:31:21,440 --> 01:31:25,120
+God
+
+1504
+01:31:23,280 --> 01:31:28,120
+uh this
+
+1505
+01:31:25,120 --> 01:31:28,120
+god.
+
+1506
+01:31:29,040 --> 01:31:36,440
+So pattern god
+
+1507
+01:31:32,080 --> 01:31:36,440
+need to get this to work.
+
+1508
+01:31:37,760 --> 01:31:45,520
+So we are trying to match your pattern
+
+1509
+01:31:40,800 --> 01:31:47,040
+and this is the text pattern one one or
+
+1510
+01:31:45,520 --> 01:31:50,719
+more
+
+1511
+01:31:47,040 --> 01:31:54,400
+but except how do you express
+
+1512
+01:31:50,719 --> 01:31:56,239
+how do you express except a sequence of
+
+1513
+01:31:54,400 --> 01:32:00,480
+characters.
+
+1514
+01:31:56,239 --> 01:32:02,080
+Okay, you just have to think carefully.
+
+1515
+01:32:00,480 --> 01:32:05,120
+Uh
+
+1516
+01:32:02,080 --> 01:32:10,199
+so you got
+
+1517
+01:32:05,120 --> 01:32:10,199
+uh string expression pattern syntax.
+
+1518
+01:32:10,480 --> 01:32:17,520
+Okay. So here is a sample code literal
+
+1519
+01:32:14,719 --> 01:32:23,960
+character sequence.
+
+1520
+01:32:17,520 --> 01:32:23,960
+Okay. Except Oh, except
+
+1521
+01:32:24,960 --> 01:32:32,000
+except a pattern that is not pattern. A
+
+1522
+01:32:29,040 --> 01:32:35,000
+pattern that is not pattern.
+
+1523
+01:32:32,000 --> 01:32:35,000
+So,
+
+1524
+01:32:36,080 --> 01:32:45,719
+so this pattern
+
+1525
+01:32:39,840 --> 01:32:45,719
+why can this work except advant
+
+1526
+01:32:47,600 --> 01:32:50,600
+um
+
+1527
+01:32:53,040 --> 01:32:58,560
+the argument to accept can be a string,
+
+1528
+01:32:56,719 --> 01:33:01,760
+right?
+
+1529
+01:32:58,560 --> 01:33:06,719
+You know, here's a example showing the
+
+1530
+01:33:01,760 --> 01:33:08,880
+argument is a single character string.
+
+1531
+01:33:06,719 --> 01:33:11,600
+Okay.
+
+1532
+01:33:08,880 --> 01:33:15,440
+But it could be more than one character,
+
+1533
+01:33:11,600 --> 01:33:19,199
+too. Right now, do we have a link to
+
+1534
+01:33:15,440 --> 01:33:22,080
+documentation? No. I need to add
+
+1535
+01:33:19,199 --> 01:33:24,239
+it.
+
+1536
+01:33:22,080 --> 01:33:27,760
+Uh, no. I don't have link to
+
+1537
+01:33:24,239 --> 01:33:30,760
+documentation. So
+
+1538
+01:33:27,760 --> 01:33:30,760
+what?
+
+1539
+01:33:31,679 --> 01:33:39,679
+Oh, that is because Oh. Oh, this is
+
+1540
+01:33:35,199 --> 01:33:44,480
+incomplete. My tutorial here is
+
+1541
+01:33:39,679 --> 01:33:46,560
+incomplete. That is why. So, let's go to
+
+1542
+01:33:44,480 --> 01:33:49,440
+string expression
+
+1543
+01:33:46,560 --> 01:33:54,800
+and let's go to wam language. Okay.
+
+1544
+01:33:49,440 --> 01:34:00,679
+Yeah. So, woofer language got the full
+
+1545
+01:33:54,800 --> 01:34:00,679
+thing except that you guys cannot see.
+
+1546
+01:34:06,400 --> 01:34:09,880
+Okay. So,
+
+1547
+01:34:11,280 --> 01:34:20,080
+so let's go to example and ignore case.
+
+1548
+01:34:16,239 --> 01:34:25,000
+Let's go to FM language documentation
+
+1549
+01:34:20,080 --> 01:34:25,000
+for the string expression. Okay.
+
+1550
+01:34:27,280 --> 01:34:35,440
+So this is spectacular and
+
+1551
+01:34:32,000 --> 01:34:37,280
+very complicated.
+
+1552
+01:34:35,440 --> 01:34:41,440
+Um
+
+1553
+01:34:37,280 --> 01:34:45,679
+so you can see so what we need to do is
+
+1554
+01:34:41,440 --> 01:34:49,199
+that we want
+
+1555
+01:34:45,679 --> 01:34:52,320
+we have a list of strings we don't want
+
+1556
+01:34:49,199 --> 01:34:55,760
+to match any of it.
+
+1557
+01:34:52,320 --> 01:34:58,639
+Okay. So you got pattern any order fixed
+
+1558
+01:34:55,760 --> 01:35:02,000
+order pattern condition
+
+1559
+01:34:58,639 --> 01:35:05,440
+number in string uh
+
+1560
+01:35:02,000 --> 01:35:08,080
+and you can you can also include regular
+
+1561
+01:35:05,440 --> 01:35:11,360
+expression you can embed regular
+
+1562
+01:35:08,080 --> 01:35:13,840
+expression in it.
+
+1563
+01:35:11,360 --> 01:35:15,679
+Oh yeah you got characters and character
+
+1564
+01:35:13,840 --> 01:35:19,600
+range
+
+1565
+01:35:15,679 --> 01:35:24,040
+uh hexa decimal character.
+
+1566
+01:35:19,600 --> 01:35:24,040
+So but except
+
+1567
+01:35:24,239 --> 01:35:31,639
+so any character except once. Okay. So
+
+1568
+01:35:28,000 --> 01:35:31,639
+except is
+
+1569
+01:35:32,080 --> 01:35:35,639
+okay. So
+
+1570
+01:35:39,040 --> 01:35:45,159
+shortest and longest.
+
+1571
+01:35:42,159 --> 01:35:45,159
+Um
+
+1572
+01:35:47,280 --> 01:35:51,400
+okay. So but
+
+1573
+01:35:56,159 --> 01:36:02,400
+date pattern number string wh okay I
+
+1574
+01:36:00,000 --> 01:36:05,520
+haven't found
+
+1575
+01:36:02,400 --> 01:36:08,480
+so here is a patterns
+
+1576
+01:36:05,520 --> 01:36:11,040
+here at least match one of these
+
+1577
+01:36:08,480 --> 01:36:16,040
+patterns okay
+
+1578
+01:36:11,040 --> 01:36:16,040
+uh but how do you negate it.
+
+1579
+01:36:18,320 --> 01:36:26,400
+You see right now this pattern
+
+1580
+01:36:22,400 --> 01:36:30,880
+how do you say you know you can
+
+1581
+01:36:26,400 --> 01:36:35,120
+so you can construct a syntax using all
+
+1582
+01:36:30,880 --> 01:36:37,840
+these elements to represent a text
+
+1583
+01:36:35,120 --> 01:36:41,040
+pattern. Okay. But once you have a
+
+1584
+01:36:37,840 --> 01:36:43,600
+pattern, how do you say
+
+1585
+01:36:41,040 --> 01:36:48,440
+you know anything that does not match
+
+1586
+01:36:43,600 --> 01:36:48,440
+this pattern? In other words, negation.
+
+1587
+01:36:50,880 --> 01:36:56,560
+So that is tricky even in regular
+
+1588
+01:36:53,440 --> 01:36:59,360
+expression because in regular expression
+
+1589
+01:36:56,560 --> 01:37:01,760
+you cannot negate it. You can only you
+
+1590
+01:36:59,360 --> 01:37:07,520
+know the you cannot negate the pattern
+
+1591
+01:37:01,760 --> 01:37:10,159
+except except in a you know uh a class
+
+1592
+01:37:07,520 --> 01:37:13,119
+of characters
+
+1593
+01:37:10,159 --> 01:37:15,679
+but you cannot negate you know you
+
+1594
+01:37:13,119 --> 01:37:20,080
+cannot say whatever does not match this
+
+1595
+01:37:15,679 --> 01:37:23,360
+pattern. You can sometimes do that
+
+1596
+01:37:20,080 --> 01:37:25,679
+via the function that uses a regular
+
+1597
+01:37:23,360 --> 01:37:27,600
+expression. So the function can say you
+
+1598
+01:37:25,679 --> 01:37:30,960
+know grab
+
+1599
+01:37:27,600 --> 01:37:34,880
+print only if it does not match you know
+
+1600
+01:37:30,960 --> 01:37:36,480
+this pattern. So the function
+
+1601
+01:37:34,880 --> 01:37:38,480
+that
+
+1602
+01:37:36,480 --> 01:37:43,040
+use the regular expression as argument
+
+1603
+01:37:38,480 --> 01:37:46,000
+the function may be able to say you know
+
+1604
+01:37:43,040 --> 01:37:48,560
+return only if it doesn't match.
+
+1605
+01:37:46,000 --> 01:37:51,040
+Okay. But the but the regular expression
+
+1606
+01:37:48,560 --> 01:37:54,719
+itself
+
+1607
+01:37:51,040 --> 01:37:56,880
+does it have a way to say you know
+
+1608
+01:37:54,719 --> 01:37:58,639
+negate the whole pattern? No, I don't
+
+1609
+01:37:56,880 --> 01:38:00,800
+think so.
+
+1610
+01:37:58,639 --> 01:38:04,560
+Okay.
+
+1611
+01:38:00,800 --> 01:38:06,880
+So, but what about wam language string
+
+1612
+01:38:04,560 --> 01:38:09,840
+expression? So, wuam language string
+
+1613
+01:38:06,880 --> 01:38:12,719
+expression is like an alternative to
+
+1614
+01:38:09,840 --> 01:38:16,400
+regular expression. So regular
+
+1615
+01:38:12,719 --> 01:38:19,639
+expression does not have a way to negate
+
+1616
+01:38:16,400 --> 01:38:19,639
+a pattern
+
+1617
+01:38:20,480 --> 01:38:25,840
+because I I think because by the very
+
+1618
+01:38:23,119 --> 01:38:28,880
+semantic of regular expression is is
+
+1619
+01:38:25,840 --> 01:38:30,880
+supposed to match. It's not supposed to
+
+1620
+01:38:28,880 --> 01:38:32,560
+express express something does not
+
+1621
+01:38:30,880 --> 01:38:35,560
+match.
+
+1622
+01:38:32,560 --> 01:38:35,560
+uh
+
+1623
+01:38:37,199 --> 01:38:42,320
+but it should be possible to negate you
+
+1624
+01:38:39,440 --> 01:38:46,000
+know the you know but it just I think
+
+1625
+01:38:42,320 --> 01:38:49,119
+historically it just never happened. So
+
+1626
+01:38:46,000 --> 01:38:50,719
+anyway in in string expression of wra
+
+1627
+01:38:49,119 --> 01:38:52,880
+language
+
+1628
+01:38:50,719 --> 01:38:56,320
+does it
+
+1629
+01:38:52,880 --> 01:38:59,199
+allow you to negate a whole pattern?
+
+1630
+01:38:56,320 --> 01:39:01,040
+Okay. So that is the question. So that
+
+1631
+01:38:59,199 --> 01:39:04,840
+for that question we have to read the
+
+1632
+01:39:01,040 --> 01:39:04,840
+documentation carefully.
+
+1633
+01:39:05,920 --> 01:39:12,560
+Uh any order fixed order
+
+1634
+01:39:10,000 --> 01:39:15,600
+pattern and condition
+
+1635
+01:39:12,560 --> 01:39:19,199
+pattern for which condition evaluate to
+
+1636
+01:39:15,600 --> 01:39:22,560
+true. Um
+
+1637
+01:39:19,199 --> 01:39:27,119
+you know that is like
+
+1638
+01:39:22,560 --> 01:39:29,760
+extra test. um
+
+1639
+01:39:27,119 --> 01:39:32,800
+character object an object representing
+
+1640
+01:39:29,760 --> 01:39:35,360
+a character class.
+
+1641
+01:39:32,800 --> 01:39:38,159
+Okay, so string expression arbitrary
+
+1642
+01:39:35,360 --> 01:39:40,639
+string expression. So you can embed
+
+1643
+01:39:38,159 --> 01:39:44,080
+string expression inside string
+
+1644
+01:39:40,639 --> 01:39:46,719
+expression. By the way, woofam language
+
+1645
+01:39:44,080 --> 01:39:48,880
+the implementation of string expression
+
+1646
+01:39:46,719 --> 01:39:50,400
+is that it converted to regular
+
+1647
+01:39:48,880 --> 01:39:54,480
+expression.
+
+1648
+01:39:50,400 --> 01:39:57,280
+So it's kind of funny. Uh so anyway
+
+1649
+01:39:54,480 --> 01:40:00,800
+character characters
+
+1650
+01:39:57,280 --> 01:40:03,440
+so that's any you know you can specify a
+
+1651
+01:40:00,800 --> 01:40:06,800
+character class by this and character
+
+1652
+01:40:03,440 --> 01:40:09,280
+range by this and hexad decimal
+
+1653
+01:40:06,800 --> 01:40:10,960
+characters digital characters little
+
+1654
+01:40:09,280 --> 01:40:13,760
+characters
+
+1655
+01:40:10,960 --> 01:40:16,880
+whaleace characters what so what about
+
+1656
+01:40:13,760 --> 01:40:20,440
+the except that looks really promising
+
+1657
+01:40:16,880 --> 01:40:20,440
+that should be
+
+1658
+01:40:20,960 --> 01:40:25,199
+that
+
+1659
+01:40:22,639 --> 01:40:27,840
+really this should be is a pattern
+
+1660
+01:40:25,199 --> 01:40:31,600
+object which represent any expression
+
+1661
+01:40:27,840 --> 01:40:37,239
+except one that matches.
+
+1662
+01:40:31,600 --> 01:40:37,239
+So this is what we want really.
+
+1663
+01:40:38,800 --> 01:40:45,960
+Okay. But um but how do you you see but
+
+1664
+01:40:42,719 --> 01:40:45,960
+you see
+
+1665
+01:40:47,040 --> 01:40:54,000
+oh okay so let's use it outside. Okay.
+
+1666
+01:40:50,800 --> 01:40:55,679
+So let's you know Let's let's try this.
+
+1667
+01:40:54,000 --> 01:40:58,679
+Okay.
+
+1668
+01:40:55,679 --> 01:40:58,679
+Um,
+
+1669
+01:41:00,560 --> 01:41:04,679
+wait. Except takes.
+
+1670
+01:41:05,119 --> 01:41:11,520
+Okay. So, this is a bit complicated, but
+
+1671
+01:41:08,080 --> 01:41:17,080
+let me show you. Okay. So, we have
+
+1672
+01:41:11,520 --> 01:41:17,080
+nested string expressions, I think.
+
+1673
+01:41:19,920 --> 01:41:25,679
+Okay. string expression then inside it
+
+1674
+01:41:23,440 --> 01:41:30,000
+it's a except
+
+1675
+01:41:25,679 --> 01:41:34,880
+then inside except is string expression
+
+1676
+01:41:30,000 --> 01:41:38,760
+and here is just advent okay so that is
+
+1677
+01:41:34,880 --> 01:41:38,760
+what we're going to try
+
+1678
+01:41:38,800 --> 01:41:46,760
+very advanced okay so we got like now we
+
+1679
+01:41:42,000 --> 01:41:46,760
+have nested string expression okay
+
+1680
+01:41:47,679 --> 01:41:54,480
+please make it book
+
+1681
+01:41:51,600 --> 01:41:58,880
+warning comma. Okay. Oh yeah, we got
+
+1682
+01:41:54,480 --> 01:42:03,639
+extra comma. We don't want.
+
+1683
+01:41:58,880 --> 01:42:03,639
+Okay, now do it again.
+
+1684
+01:42:04,239 --> 01:42:08,920
+None, which is incorrect.
+
+1685
+01:42:09,600 --> 01:42:15,600
+Okay, this idea failed.
+
+1686
+01:42:13,520 --> 01:42:21,080
+Wait.
+
+1687
+01:42:15,600 --> 01:42:21,080
+Uh, but now you don't need this.
+
+1688
+01:42:26,880 --> 01:42:33,800
+Maybe we are making it far more
+
+1689
+01:42:29,600 --> 01:42:33,800
+complicated than necessary.
+
+1690
+01:42:38,080 --> 01:42:43,840
+No.
+
+1691
+01:42:40,400 --> 01:42:49,239
+Uh you see the thing is that you really
+
+1692
+01:42:43,840 --> 01:42:49,239
+do needs to match the hole.
+
+1693
+01:42:53,520 --> 01:42:57,639
+Okay. So no
+
+1694
+01:42:57,760 --> 01:43:03,159
+god
+
+1695
+01:43:00,159 --> 01:43:03,159
+what?
+
+1696
+01:43:05,840 --> 01:43:11,920
+Okay. So
+
+1697
+01:43:08,560 --> 01:43:16,159
+wait you know let me try another idea.
+
+1698
+01:43:11,920 --> 01:43:20,000
+So this except not working
+
+1699
+01:43:16,159 --> 01:43:25,520
+what about alternative. Okay so we can
+
+1700
+01:43:20,000 --> 01:43:28,480
+use alternative can we? Yes. Okay. So
+
+1701
+01:43:25,520 --> 01:43:31,480
+that
+
+1702
+01:43:28,480 --> 01:43:31,480
+um
+
+1703
+01:43:32,800 --> 01:43:40,480
+no we really want negation.
+
+1704
+01:43:37,119 --> 01:43:45,159
+We really want negation but now but we
+
+1705
+01:43:40,480 --> 01:43:45,159
+don't know how it works.
+
+1706
+01:43:45,840 --> 01:43:54,480
+What Emacs theme do you use? Just search
+
+1707
+01:43:48,880 --> 01:43:57,520
+for Kali Emacs theme. you'll find it.
+
+1708
+01:43:54,480 --> 01:44:03,000
+Okay, I think maybe that's it. We This
+
+1709
+01:43:57,520 --> 01:44:03,000
+is uh this is not working out.
+
+1710
+01:44:03,600 --> 01:44:06,600
+So,
+
+1711
+01:44:07,199 --> 01:44:14,600
+so the real question is except
+
+1712
+01:44:11,600 --> 01:44:14,600
+but
+
+1713
+01:44:14,639 --> 01:44:24,560
+it seems to you know but
+
+1714
+01:44:20,320 --> 01:44:28,080
+did we look at all the examples
+
+1715
+01:44:24,560 --> 01:44:30,800
+except works in string expression. Okay,
+
+1716
+01:44:28,080 --> 01:44:33,679
+this is what what we want is a pattern
+
+1717
+01:44:30,800 --> 01:44:36,639
+object with which represents any
+
+1718
+01:44:33,679 --> 01:44:42,040
+expression except one that matches C.
+
+1719
+01:44:36,639 --> 01:44:42,040
+Okay, that's what we want. But
+
+1720
+01:44:53,360 --> 01:44:59,719
+though but but there is no good example.
+
+1721
+01:45:00,960 --> 01:45:04,199
+You see,
+
+1722
+01:45:07,600 --> 01:45:14,679
+you know, this there's no good example.
+
+1723
+01:45:10,480 --> 01:45:14,679
+We we want um
+
+1724
+01:45:16,320 --> 01:45:23,320
+you know, right? You know, over here
+
+1725
+01:45:18,639 --> 01:45:23,320
+it's using it as a
+
+1726
+01:45:25,119 --> 01:45:30,719
+you know, that's basically a character
+
+1727
+01:45:27,440 --> 01:45:34,520
+class. That's not what we want. We want
+
+1728
+01:45:30,719 --> 01:45:34,520
+the character sequence.
+
+1729
+01:45:35,040 --> 01:45:43,920
+And here it's using it as a symbolic
+
+1730
+01:45:38,560 --> 01:45:46,880
+pattern for integers, not string match.
+
+1731
+01:45:43,920 --> 01:45:50,159
+And here it's using okay, here is a
+
+1732
+01:45:46,880 --> 01:45:52,560
+string, but it's except digit
+
+1733
+01:45:50,159 --> 01:45:55,119
+characters. So digit character is a
+
+1734
+01:45:52,560 --> 01:45:58,119
+sequence of characters. Okay.
+
+1735
+01:45:55,119 --> 01:45:58,119
+Uh
+
+1736
+01:45:59,600 --> 01:46:05,840
+right. What we want what we want is a
+
+1737
+01:46:03,119 --> 01:46:08,840
+you know negation of a sequence of
+
+1738
+01:46:05,840 --> 01:46:08,840
+characters
+
+1739
+01:46:08,880 --> 01:46:12,840
+not not this.
+
+1740
+01:46:14,719 --> 01:46:21,360
+So here's another example. This is
+
+1741
+01:46:17,679 --> 01:46:23,920
+symbolic you know integer. Now use a
+
+1742
+01:46:21,360 --> 01:46:27,679
+text pattern matching that doesn't work.
+
+1743
+01:46:23,920 --> 01:46:29,840
+I mean, except um
+
+1744
+01:46:27,679 --> 01:46:32,960
+Oh, wait.
+
+1745
+01:46:29,840 --> 01:46:35,199
+My mouse is out of battery. My track
+
+1746
+01:46:32,960 --> 01:46:37,760
+ball.
+
+1747
+01:46:35,199 --> 01:46:43,880
+Okay. Applications.
+
+1748
+01:46:37,760 --> 01:46:43,880
+Um applications. No. Okay. So,
+
+1749
+01:46:47,760 --> 01:46:54,719
+so you see uh it's not,
+
+1750
+01:46:51,600 --> 01:46:57,280
+you know, it's not right. So I think
+
+1751
+01:46:54,719 --> 01:46:58,960
+actually we stopped today. We stopped
+
+1752
+01:46:57,280 --> 01:47:02,639
+now.
+
+1753
+01:46:58,960 --> 01:47:05,960
+Okay. Needs needs more work. Okay. Okay.
+
+1754
+01:47:02,639 --> 01:47:05,960
+Bye guys.
+

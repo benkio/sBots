@@ -1,0 +1,6196 @@
+1
+00:00:05,839 --> 00:00:10,240
+good morning guys welcome to another
+
+2
+00:00:08,000 --> 00:00:12,080
+episode of talk show
+
+3
+00:00:10,240 --> 00:00:13,920
+today we are going to code wufang
+
+4
+00:00:12,080 --> 00:00:17,359
+language live
+
+5
+00:00:13,920 --> 00:00:19,439
+so this is mostly going to be me working
+
+6
+00:00:17,359 --> 00:00:20,800
+on my wolfram language
+
+7
+00:00:19,439 --> 00:00:23,279
+package
+
+8
+00:00:20,800 --> 00:00:24,480
+and probably is going to be boring for
+
+9
+00:00:23,279 --> 00:00:26,320
+you
+
+10
+00:00:24,480 --> 00:00:29,359
+unless you are interested in wufang
+
+11
+00:00:26,320 --> 00:00:31,439
+language which is the fantastic
+
+12
+00:00:29,359 --> 00:00:32,559
+good you know my favorite language
+
+13
+00:00:31,439 --> 00:00:35,040
+um
+
+14
+00:00:32,559 --> 00:00:36,800
+and uh yeah so
+
+15
+00:00:35,040 --> 00:00:39,280
+i'm going to
+
+16
+00:00:36,800 --> 00:00:41,680
+you know this is a wufam language coding
+
+17
+00:00:39,280 --> 00:00:45,280
+session uh for myself you know working
+
+18
+00:00:41,680 --> 00:00:46,160
+on my packages and in in this one hour
+
+19
+00:00:45,280 --> 00:00:48,480
+or so
+
+20
+00:00:46,160 --> 00:00:50,800
+i'm going to um
+
+21
+00:00:48,480 --> 00:00:54,160
+you know as i work i'm going to explain
+
+22
+00:00:50,800 --> 00:00:55,680
+some things about wolfram language and
+
+23
+00:00:54,160 --> 00:00:58,320
+and that's it but first of all let me
+
+24
+00:00:55,680 --> 00:01:00,480
+give you a short introduction
+
+25
+00:00:58,320 --> 00:01:02,399
+so if you just search for some woofing
+
+26
+00:01:00,480 --> 00:01:05,119
+language tutorial you can see my
+
+27
+00:01:02,399 --> 00:01:07,760
+tutorial and i've done several videos
+
+28
+00:01:05,119 --> 00:01:11,200
+about it like over 10 20 videos in the
+
+29
+00:01:07,760 --> 00:01:14,640
+past year uh introduction and you can
+
+30
+00:01:11,200 --> 00:01:16,799
+get it for free download for free and uh
+
+31
+00:01:14,640 --> 00:01:19,840
+then you can learn the language you know
+
+32
+00:01:16,799 --> 00:01:21,920
+language basics and uh and wufam
+
+33
+00:01:19,840 --> 00:01:23,680
+language you know families research
+
+34
+00:01:21,920 --> 00:01:27,680
+website they have
+
+35
+00:01:23,680 --> 00:01:29,040
+like a million pages of documentation
+
+36
+00:01:27,680 --> 00:01:30,960
+so
+
+37
+00:01:29,040 --> 00:01:33,520
+okay so
+
+38
+00:01:30,960 --> 00:01:35,920
+okay so let's uh so
+
+39
+00:01:33,520 --> 00:01:36,880
+i'm just going to work on my we'll film
+
+40
+00:01:35,920 --> 00:01:39,600
+uh
+
+41
+00:01:36,880 --> 00:01:44,640
+language now okay so this today's talk
+
+42
+00:01:39,600 --> 00:01:44,640
+show uh language tutorial um
+
+43
+00:01:45,280 --> 00:01:49,680
+so you know where to get it for free and
+
+44
+00:01:47,439 --> 00:01:51,840
+explain the note notebook format okay
+
+45
+00:01:49,680 --> 00:01:53,920
+first of all let me explain the notebook
+
+46
+00:01:51,840 --> 00:01:55,200
+the wolfram language notebook format
+
+47
+00:01:53,920 --> 00:01:59,040
+okay
+
+48
+00:01:55,200 --> 00:02:01,680
+okay so so let's okay so you know uh you
+
+49
+00:01:59,040 --> 00:02:05,520
+start woofing language desktop a new
+
+50
+00:02:01,680 --> 00:02:08,720
+notebook and let's say three plus two
+
+51
+00:02:05,520 --> 00:02:10,560
+three plus seven okay enter ten and
+
+52
+00:02:08,720 --> 00:02:14,239
+let's magnify
+
+53
+00:02:10,560 --> 00:02:16,959
+so you got a big um
+
+54
+00:02:14,239 --> 00:02:19,200
+so this is a notebook now a notebook is
+
+55
+00:02:16,959 --> 00:02:21,680
+just like um
+
+56
+00:02:19,200 --> 00:02:22,959
+let me show you okay so if i save this
+
+57
+00:02:21,680 --> 00:02:26,239
+file
+
+58
+00:02:22,959 --> 00:02:29,760
+save okay untitled
+
+59
+00:02:26,239 --> 00:02:34,800
+let's save in desktop okay untitled
+
+60
+00:02:29,760 --> 00:02:34,800
+one save now let's go to desktop
+
+61
+00:02:35,440 --> 00:02:42,319
+so you can see refresh here is the file
+
+62
+00:02:39,040 --> 00:02:42,319
+now you can open the file
+
+63
+00:02:42,480 --> 00:02:49,200
+you see wufang language is um the
+
+64
+00:02:45,360 --> 00:02:49,200
+notebook you know this is a notebook
+
+65
+00:02:49,360 --> 00:02:52,800
+file
+
+66
+00:02:50,720 --> 00:02:54,800
+you know the raw it's basically
+
+67
+00:02:52,800 --> 00:02:56,319
+essentially just ascii you know just
+
+68
+00:02:54,800 --> 00:02:59,680
+text files
+
+69
+00:02:56,319 --> 00:03:01,280
+and the content of the file is just pure
+
+70
+00:02:59,680 --> 00:03:04,720
+wolfram language
+
+71
+00:03:01,280 --> 00:03:05,840
+code okay so for example this thing
+
+72
+00:03:04,720 --> 00:03:08,800
+this
+
+73
+00:03:05,840 --> 00:03:10,159
+this uh parenthesis
+
+74
+00:03:08,800 --> 00:03:13,280
+parenthesis
+
+75
+00:03:10,159 --> 00:03:13,280
+uh star
+
+76
+00:03:13,599 --> 00:03:19,200
+something let's say common okay that's a
+
+77
+00:03:16,159 --> 00:03:21,760
+kind of nested syntax for comments so
+
+78
+00:03:19,200 --> 00:03:23,519
+you can delete that so first of all they
+
+79
+00:03:21,760 --> 00:03:25,599
+have a bunch of comments they tell you
+
+80
+00:03:23,519 --> 00:03:28,159
+what's what's the content type wolfram
+
+81
+00:03:25,599 --> 00:03:30,959
+notebook file uh wolfram research
+
+82
+00:03:28,159 --> 00:03:32,879
+website created by wolfram desktop
+
+83
+00:03:30,959 --> 00:03:34,959
+that's the that's the
+
+84
+00:03:32,879 --> 00:03:37,440
+software i'm using
+
+85
+00:03:34,959 --> 00:03:39,360
+uh you know it's kind of confusing you
+
+86
+00:03:37,440 --> 00:03:41,599
+have woofum
+
+87
+00:03:39,360 --> 00:03:44,959
+so you have
+
+88
+00:03:41,599 --> 00:03:47,519
+let's see download for free
+
+89
+00:03:44,959 --> 00:03:49,599
+uh download for free wolfram engine by
+
+90
+00:03:47,519 --> 00:03:51,680
+mathematica and what's the difference
+
+91
+00:03:49,599 --> 00:03:53,840
+between wolfram language mathematica or
+
+92
+00:03:51,680 --> 00:03:55,599
+from engine or from script you know it's
+
+93
+00:03:53,840 --> 00:03:57,200
+a bit confusing so
+
+94
+00:03:55,599 --> 00:04:00,000
+but essentially they are all the same
+
+95
+00:03:57,200 --> 00:04:02,959
+they are you know wolfram research they
+
+96
+00:04:00,000 --> 00:04:04,879
+pretty much have just one main product
+
+97
+00:04:02,959 --> 00:04:07,519
+you know that's
+
+98
+00:04:04,879 --> 00:04:09,360
+that was called mathematica but
+
+99
+00:04:07,519 --> 00:04:11,280
+now they call it wufam language not
+
+100
+00:04:09,360 --> 00:04:13,519
+referring to the language you know the
+
+101
+00:04:11,280 --> 00:04:15,280
+language is just like a lisp okay let's
+
+102
+00:04:13,519 --> 00:04:17,280
+get back so
+
+103
+00:04:15,280 --> 00:04:18,160
+essentially it's just one thing okay one
+
+104
+00:04:17,280 --> 00:04:20,320
+thing
+
+105
+00:04:18,160 --> 00:04:22,320
+but this page explains
+
+106
+00:04:20,320 --> 00:04:24,639
+who from language will find engine
+
+107
+00:04:22,320 --> 00:04:27,840
+wolfram language refers to the language
+
+108
+00:04:24,639 --> 00:04:30,320
+like javascript pearl python ruby refers
+
+109
+00:04:27,840 --> 00:04:31,520
+to the language you know syntax and so
+
+110
+00:04:30,320 --> 00:04:33,840
+on
+
+111
+00:04:31,520 --> 00:04:36,320
+and wolfram engine is the software that
+
+112
+00:04:33,840 --> 00:04:38,400
+actually do the computation uh you might
+
+113
+00:04:36,320 --> 00:04:40,639
+think of it as a compiler you know
+
+114
+00:04:38,400 --> 00:04:42,400
+that's a wolfram engine you know as you
+
+115
+00:04:40,639 --> 00:04:43,360
+as you know when you type three plus
+
+116
+00:04:42,400 --> 00:04:44,960
+seven
+
+117
+00:04:43,360 --> 00:04:48,320
+it sends
+
+118
+00:04:44,960 --> 00:04:50,240
+you know the notebook sends this text
+
+119
+00:04:48,320 --> 00:04:52,400
+expression to the wolfram engine the
+
+120
+00:04:50,240 --> 00:04:54,639
+wolfram engine
+
+121
+00:04:52,400 --> 00:04:57,840
+do compilation do passing compilation
+
+122
+00:04:54,639 --> 00:05:00,240
+whatever return the result result and
+
+123
+00:04:57,840 --> 00:05:01,840
+send it back to the
+
+124
+00:05:00,240 --> 00:05:03,840
+notebook and the
+
+125
+00:05:01,840 --> 00:05:07,600
+notebook displays 10.
+
+126
+00:05:03,840 --> 00:05:07,600
+so that's what wolfram engine is
+
+127
+00:05:07,759 --> 00:05:12,960
+and the wolfram scripts woofing script
+
+128
+00:05:10,560 --> 00:05:16,080
+is just woofing language where you run
+
+129
+00:05:12,960 --> 00:05:18,160
+it in share so let me show you
+
+130
+00:05:16,080 --> 00:05:21,120
+uh okay i you know i have you know i
+
+131
+00:05:18,160 --> 00:05:22,840
+have it all set up for example let's say
+
+132
+00:05:21,120 --> 00:05:27,360
+three
+
+133
+00:05:22,840 --> 00:05:27,690
+let's okay let's save this file xx dot
+
+134
+00:05:27,360 --> 00:05:30,199
+uh
+
+135
+00:05:27,690 --> 00:05:36,160
+[Music]
+
+136
+00:05:30,199 --> 00:05:38,720
+wls okay so you can see here is the file
+
+137
+00:05:36,160 --> 00:05:40,560
+xx wrw
+
+138
+00:05:38,720 --> 00:05:43,440
+that's one of the extension file name
+
+139
+00:05:40,560 --> 00:05:45,840
+extension for for wufam language
+
+140
+00:05:43,440 --> 00:05:48,639
+so let's see let's say let's do
+
+141
+00:05:45,840 --> 00:05:50,240
+something more okay let's do three plus
+
+142
+00:05:48,639 --> 00:05:53,600
+uh four okay
+
+143
+00:05:50,240 --> 00:05:55,840
+and i can run it
+
+144
+00:05:53,600 --> 00:05:58,880
+you know i'm using uh
+
+145
+00:05:55,840 --> 00:05:58,880
+saufa mod
+
+146
+00:06:00,639 --> 00:06:03,759
+opening output file permission denied
+
+147
+00:06:02,880 --> 00:06:07,000
+what
+
+148
+00:06:03,759 --> 00:06:07,000
+let's see
+
+149
+00:06:08,240 --> 00:06:12,720
+seven so you can see that you see the
+
+150
+00:06:10,880 --> 00:06:14,720
+result is seven let's do something more
+
+151
+00:06:12,720 --> 00:06:17,440
+fancy okay
+
+152
+00:06:14,720 --> 00:06:17,440
+expand
+
+153
+00:06:18,840 --> 00:06:24,319
+x squared x
+
+154
+00:06:22,240 --> 00:06:26,319
+squared times y
+
+155
+00:06:24,319 --> 00:06:27,919
+let's magnify
+
+156
+00:06:26,319 --> 00:06:29,199
+plus
+
+157
+00:06:27,919 --> 00:06:31,600
+z
+
+158
+00:06:29,199 --> 00:06:36,080
+third power okay
+
+159
+00:06:31,600 --> 00:06:36,080
+let's say square root of
+
+160
+00:06:37,840 --> 00:06:40,000
+z
+
+161
+00:06:40,960 --> 00:06:45,199
+plus y okay let's say something like
+
+162
+00:06:43,039 --> 00:06:49,440
+that
+
+163
+00:06:45,199 --> 00:06:53,599
+z uh let's not let's say x plus y
+
+164
+00:06:49,440 --> 00:06:53,599
+okay then square the whole thing
+
+165
+00:06:54,160 --> 00:06:57,120
+by
+
+166
+00:06:55,360 --> 00:06:58,720
+four okay
+
+167
+00:06:57,120 --> 00:07:00,639
+now let's remove that
+
+168
+00:06:58,720 --> 00:07:02,880
+and run this
+
+169
+00:07:00,639 --> 00:07:04,639
+run it
+
+170
+00:07:02,880 --> 00:07:07,440
+okay so you can see the answer in the
+
+171
+00:07:04,639 --> 00:07:09,440
+mini buffer so here is a result and you
+
+172
+00:07:07,440 --> 00:07:12,400
+can do the same thing in a notebook
+
+173
+00:07:09,440 --> 00:07:12,400
+let's do it here
+
+174
+00:07:12,960 --> 00:07:18,800
+you see fantastic and you can you know
+
+175
+00:07:16,080 --> 00:07:20,560
+let's copy the copy it and you can press
+
+176
+00:07:18,800 --> 00:07:21,840
+ctrl shift n
+
+177
+00:07:20,560 --> 00:07:24,639
+to make it
+
+178
+00:07:21,840 --> 00:07:27,039
+you know a two-dimensional format
+
+179
+00:07:24,639 --> 00:07:29,440
+mathematical type setting evaluate you
+
+180
+00:07:27,039 --> 00:07:30,960
+know same answer so that's
+
+181
+00:07:29,440 --> 00:07:33,520
+the notebook
+
+182
+00:07:30,960 --> 00:07:35,919
+and what i'm doing here in emacs because
+
+183
+00:07:33,520 --> 00:07:38,319
+i have a sao woofing mod okay let me
+
+184
+00:07:35,919 --> 00:07:38,319
+show you
+
+185
+00:07:42,960 --> 00:07:45,840
+uh
+
+186
+00:07:49,680 --> 00:07:54,720
+there some wolf and mod so you can go to
+
+187
+00:07:52,160 --> 00:07:57,280
+the source code so this is a
+
+188
+00:07:54,720 --> 00:07:58,960
+emac list major mod i wrote for for the
+
+189
+00:07:57,280 --> 00:08:00,479
+wolfram language
+
+190
+00:07:58,960 --> 00:08:03,039
+you can get it
+
+191
+00:08:00,479 --> 00:08:05,280
+you can get it it's free
+
+192
+00:08:03,039 --> 00:08:08,400
+it's sponsored by wufan research you
+
+193
+00:08:05,280 --> 00:08:11,199
+know so it allows you to code wufang
+
+194
+00:08:08,400 --> 00:08:13,840
+language in emacs
+
+195
+00:08:11,199 --> 00:08:15,840
+and uh it's on github so you can you
+
+196
+00:08:13,840 --> 00:08:19,039
+know so i have an introduction video you
+
+197
+00:08:15,840 --> 00:08:21,520
+it's on github you can get it there
+
+198
+00:08:19,039 --> 00:08:23,599
+on github
+
+199
+00:08:21,520 --> 00:08:26,160
+okay
+
+200
+00:08:23,599 --> 00:08:29,599
+so that's how i run uh let's let's not
+
+201
+00:08:26,160 --> 00:08:33,279
+close it so okay so close that
+
+202
+00:08:29,599 --> 00:08:35,279
+okay let's show it and close that
+
+203
+00:08:33,279 --> 00:08:36,719
+reopen close
+
+204
+00:08:35,279 --> 00:08:38,000
+close
+
+205
+00:08:36,719 --> 00:08:40,640
+okay so
+
+206
+00:08:38,000 --> 00:08:42,479
+here's the e-max buffer and it contains
+
+207
+00:08:40,640 --> 00:08:46,080
+wufang language code
+
+208
+00:08:42,479 --> 00:08:48,160
+and i can run it run
+
+209
+00:08:46,080 --> 00:08:50,720
+you see the result is in the mini buffer
+
+210
+00:08:48,160 --> 00:08:54,000
+can you magnify the mini buffer
+
+211
+00:08:50,720 --> 00:08:56,399
+mini buffer is hard to magnify
+
+212
+00:08:54,000 --> 00:08:57,519
+yeah so it you know it's better just to
+
+213
+00:08:56,399 --> 00:08:59,839
+open the
+
+214
+00:08:57,519 --> 00:09:02,000
+messages buffer so to see the results so
+
+215
+00:08:59,839 --> 00:09:05,519
+you can see there is a result
+
+216
+00:09:02,000 --> 00:09:05,519
+okay close it so
+
+217
+00:09:05,600 --> 00:09:11,920
+so i was talking about wolf language you
+
+218
+00:09:08,959 --> 00:09:14,000
+know that's that's wufam language
+
+219
+00:09:11,920 --> 00:09:14,959
+and that's wufam language that's wufam
+
+220
+00:09:14,000 --> 00:09:17,760
+language
+
+221
+00:09:14,959 --> 00:09:22,880
+ufam engine is what computes these
+
+222
+00:09:17,760 --> 00:09:24,240
+things and you can actually get the um
+
+223
+00:09:22,880 --> 00:09:27,200
+yeah
+
+224
+00:09:24,240 --> 00:09:30,399
+you can you can get uh for example i can
+
+225
+00:09:27,200 --> 00:09:31,680
+show you where is the actual wolfram uh
+
+226
+00:09:30,399 --> 00:09:32,959
+engine
+
+227
+00:09:31,680 --> 00:09:33,760
+file path
+
+228
+00:09:32,959 --> 00:09:37,040
+so
+
+229
+00:09:33,760 --> 00:09:38,480
+gcm gcm is powershell it stands for get
+
+230
+00:09:37,040 --> 00:09:41,600
+commands
+
+231
+00:09:38,480 --> 00:09:43,760
+okay getting complex let's say let me
+
+232
+00:09:41,600 --> 00:09:45,040
+let me show you okay so
+
+233
+00:09:43,760 --> 00:09:46,959
+powershell
+
+234
+00:09:45,040 --> 00:09:50,880
+help gcm
+
+235
+00:09:46,959 --> 00:09:55,200
+gcm is the alias for get command okay so
+
+236
+00:09:50,880 --> 00:09:57,839
+i can type gcm gcm
+
+237
+00:09:55,200 --> 00:09:57,839
+ufram
+
+238
+00:09:58,399 --> 00:10:03,440
+okay ufam script executable so you can
+
+239
+00:10:01,120 --> 00:10:05,760
+see it's an application and does it show
+
+240
+00:10:03,440 --> 00:10:07,440
+the path no
+
+241
+00:10:05,760 --> 00:10:09,200
+so you uh
+
+242
+00:10:07,440 --> 00:10:14,000
+let's do
+
+243
+00:10:09,200 --> 00:10:16,000
+format list fl is a shortcut fpl is a
+
+244
+00:10:14,000 --> 00:10:19,440
+powershell ads to
+
+245
+00:10:16,000 --> 00:10:21,519
+for to the command format list
+
+246
+00:10:19,440 --> 00:10:25,040
+so git command will find language so you
+
+247
+00:10:21,519 --> 00:10:27,120
+can see it's located here you know see
+
+248
+00:10:25,040 --> 00:10:29,519
+i'm on windows so it's on c program
+
+249
+00:10:27,120 --> 00:10:32,160
+files wolfram research who from script
+
+250
+00:10:29,519 --> 00:10:33,839
+so let's go to that uh directory so you
+
+251
+00:10:32,160 --> 00:10:35,440
+know so i can show you some of the
+
+252
+00:10:33,839 --> 00:10:39,200
+wolfram language
+
+253
+00:10:35,440 --> 00:10:42,240
+uh compilers and executable
+
+254
+00:10:39,200 --> 00:10:43,600
+so let's paste the path here let's okay
+
+255
+00:10:42,240 --> 00:10:45,760
+let's
+
+256
+00:10:43,600 --> 00:10:47,839
+you know one of the problem of the
+
+257
+00:10:45,760 --> 00:10:50,720
+powershell i don't like is that it
+
+258
+00:10:47,839 --> 00:10:53,920
+output this readable format but however
+
+259
+00:10:50,720 --> 00:10:55,120
+it's not so useful if you are coding
+
+260
+00:10:53,920 --> 00:10:57,839
+because it
+
+261
+00:10:55,120 --> 00:11:00,480
+you know you have to reconnect the lines
+
+262
+00:10:57,839 --> 00:11:02,800
+so anyway here's the file path so let's
+
+263
+00:11:00,480 --> 00:11:04,240
+go to the directory actually so let's go
+
+264
+00:11:02,800 --> 00:11:06,320
+to the directory
+
+265
+00:11:04,240 --> 00:11:07,519
+so you can see here's the wolfram
+
+266
+00:11:06,320 --> 00:11:11,120
+language
+
+267
+00:11:07,519 --> 00:11:13,920
+of script directory go up a directory
+
+268
+00:11:11,120 --> 00:11:16,800
+so you can see c program files i don't
+
+269
+00:11:13,920 --> 00:11:18,240
+know if you can see that
+
+270
+00:11:16,800 --> 00:11:20,959
+okay
+
+271
+00:11:18,240 --> 00:11:23,279
+so program files will from desktop
+
+272
+00:11:20,959 --> 00:11:26,320
+that's a product they send it to me and
+
+273
+00:11:23,279 --> 00:11:27,200
+wolfram script is free
+
+274
+00:11:26,320 --> 00:11:28,959
+uh
+
+275
+00:11:27,200 --> 00:11:31,440
+so you know that's the executable so
+
+276
+00:11:28,959 --> 00:11:33,600
+close that go to the ufam desktop and
+
+277
+00:11:31,440 --> 00:11:34,640
+version 12.2
+
+278
+00:11:33,600 --> 00:11:37,360
+open
+
+279
+00:11:34,640 --> 00:11:40,320
+uh then you have you know from desktop
+
+280
+00:11:37,360 --> 00:11:42,640
+executable ufm.exe so let me tell you
+
+281
+00:11:40,320 --> 00:11:44,320
+what these are okay
+
+282
+00:11:42,640 --> 00:11:46,480
+it's a bit confusing actually you don't
+
+283
+00:11:44,320 --> 00:11:48,720
+need to know so but basically the
+
+284
+00:11:46,480 --> 00:11:50,320
+wolfram desktop
+
+285
+00:11:48,720 --> 00:11:51,120
+the wolfram desktop you are seeing
+
+286
+00:11:50,320 --> 00:11:53,279
+that's
+
+287
+00:11:51,120 --> 00:11:55,200
+that's what runs the notebook you know
+
+288
+00:11:53,279 --> 00:11:57,279
+that's the application for example let's
+
+289
+00:11:55,200 --> 00:11:58,720
+open it let's try to open it you know
+
+290
+00:11:57,279 --> 00:12:01,279
+open it
+
+291
+00:11:58,720 --> 00:12:01,279
+there it is
+
+292
+00:12:07,440 --> 00:12:13,360
+and i can now open a new notebook you
+
+293
+00:12:09,279 --> 00:12:14,160
+know that's a wolfram desktop close that
+
+294
+00:12:13,360 --> 00:12:16,240
+uh
+
+295
+00:12:14,160 --> 00:12:18,240
+i want to make sure i only want have one
+
+296
+00:12:16,240 --> 00:12:19,760
+instance running yeah okay so that's a
+
+297
+00:12:18,240 --> 00:12:23,440
+wolfram desktop
+
+298
+00:12:19,760 --> 00:12:27,279
+and this is just a config file and woven
+
+299
+00:12:23,440 --> 00:12:27,279
+dot exe that's um
+
+300
+00:12:29,279 --> 00:12:34,880
+you know these two are similar basically
+
+301
+00:12:31,760 --> 00:12:37,279
+they these these are the actual kernel
+
+302
+00:12:34,880 --> 00:12:39,279
+the compilers that computes wufang
+
+303
+00:12:37,279 --> 00:12:41,839
+language so
+
+304
+00:12:39,279 --> 00:12:43,360
+in notebook when you press enter when
+
+305
+00:12:41,839 --> 00:12:45,279
+you press shift enter to do some
+
+306
+00:12:43,360 --> 00:12:48,160
+computation it actually sends the
+
+307
+00:12:45,279 --> 00:12:49,440
+expression to the wolfram to this woofam
+
+308
+00:12:48,160 --> 00:12:52,480
+kernel
+
+309
+00:12:49,440 --> 00:12:55,519
+so it it works kind of like a server
+
+310
+00:12:52,480 --> 00:12:57,040
+client uh model so the notebook is a
+
+311
+00:12:55,519 --> 00:12:59,279
+client
+
+312
+00:12:57,040 --> 00:13:01,600
+since the expression to the server the
+
+313
+00:12:59,279 --> 00:13:04,079
+the kernel the the kernel the wolfram
+
+314
+00:13:01,600 --> 00:13:07,680
+kernel can be local on my machine or it
+
+315
+00:13:04,079 --> 00:13:10,480
+can be far away you know 10 000 miles
+
+316
+00:13:07,680 --> 00:13:14,639
+or it can be a super computer you know
+
+317
+00:13:10,480 --> 00:13:14,639
+machine farm you know things like that
+
+318
+00:13:14,880 --> 00:13:19,120
+and the the wolfram kernel returns a
+
+319
+00:13:16,800 --> 00:13:21,760
+result and it's displayed in notebook
+
+320
+00:13:19,120 --> 00:13:24,000
+and similarly in emacs for example we've
+
+321
+00:13:21,760 --> 00:13:24,000
+done
+
+322
+00:13:25,760 --> 00:13:30,880
+uh with language you know for example we
+
+323
+00:13:28,160 --> 00:13:32,639
+have done let's comment this out
+
+324
+00:13:30,880 --> 00:13:34,959
+common itself for example we have done
+
+325
+00:13:32,639 --> 00:13:36,959
+this computation
+
+326
+00:13:34,959 --> 00:13:38,880
+you know it's doing similar things it
+
+327
+00:13:36,959 --> 00:13:41,519
+sends the expression to the kernel and
+
+328
+00:13:38,880 --> 00:13:44,639
+kernel replies and emacs receive it and
+
+329
+00:13:41,519 --> 00:13:44,639
+display the result
+
+330
+00:13:44,800 --> 00:13:51,760
+okay so let's go back to the
+
+331
+00:13:48,639 --> 00:13:51,760
+to the directory
+
+332
+00:13:53,440 --> 00:13:58,240
+yeah okay so that's woofam kernel and
+
+333
+00:13:55,839 --> 00:14:02,560
+wufram script is i haven't showed
+
+334
+00:13:58,240 --> 00:14:05,680
+wolfham script woofam script is the
+
+335
+00:14:02,560 --> 00:14:07,199
+ufam script is the the front end that
+
+336
+00:14:05,680 --> 00:14:09,600
+allows you to
+
+337
+00:14:07,199 --> 00:14:11,760
+do firm language in a terminal so for
+
+338
+00:14:09,600 --> 00:14:13,839
+example let's let me show you
+
+339
+00:14:11,760 --> 00:14:15,920
+so wolfen
+
+340
+00:14:13,839 --> 00:14:19,920
+you know let's start it you know it's
+
+341
+00:14:15,920 --> 00:14:22,560
+just like any python python you know uh
+
+342
+00:14:19,920 --> 00:14:23,920
+command line interface so for example
+
+343
+00:14:22,560 --> 00:14:26,240
+let's
+
+344
+00:14:23,920 --> 00:14:28,480
+let's um
+
+345
+00:14:26,240 --> 00:14:32,000
+for example let's
+
+346
+00:14:28,480 --> 00:14:33,120
+let's send this expression to it
+
+347
+00:14:32,000 --> 00:14:35,440
+paste
+
+348
+00:14:33,120 --> 00:14:36,880
+do it you know so it you know that's the
+
+349
+00:14:35,440 --> 00:14:39,360
+wolfram
+
+350
+00:14:36,880 --> 00:14:39,360
+script
+
+351
+00:14:39,760 --> 00:14:43,440
+so wolfham script is the command line
+
+352
+00:14:42,079 --> 00:14:45,839
+interface
+
+353
+00:14:43,440 --> 00:14:47,199
+ulfram notebook is the graphical
+
+354
+00:14:45,839 --> 00:14:49,920
+interface
+
+355
+00:14:47,199 --> 00:14:52,240
+and you can also run it in emacs i'm
+
+356
+00:14:49,920 --> 00:14:53,839
+using saufa mod
+
+357
+00:14:52,240 --> 00:14:56,480
+okay
+
+358
+00:14:53,839 --> 00:14:58,480
+so that's about
+
+359
+00:14:56,480 --> 00:15:00,240
+that's about the difference is what's
+
+360
+00:14:58,480 --> 00:15:02,480
+you know the wolfram language from
+
+361
+00:15:00,240 --> 00:15:04,880
+engineer from scripture from notebook
+
+362
+00:15:02,480 --> 00:15:07,040
+you know what you know kind of uh a bit
+
+363
+00:15:04,880 --> 00:15:09,199
+confusing and wolfram player is
+
+364
+00:15:07,040 --> 00:15:11,600
+basically just a free
+
+365
+00:15:09,199 --> 00:15:13,680
+notebook like application that allows
+
+366
+00:15:11,600 --> 00:15:16,639
+you to see you know if you downloaded
+
+367
+00:15:13,680 --> 00:15:18,639
+some woofing notebook file online and
+
+368
+00:15:16,639 --> 00:15:20,480
+you don't have wufang language installed
+
+369
+00:15:18,639 --> 00:15:23,279
+you know you then you can download fun
+
+370
+00:15:20,480 --> 00:15:25,360
+player just to see you know product
+
+371
+00:15:23,279 --> 00:15:28,240
+to see it but you cannot actually
+
+372
+00:15:25,360 --> 00:15:29,839
+compute it so wolfram player is kind of
+
+373
+00:15:28,240 --> 00:15:32,000
+like um
+
+374
+00:15:29,839 --> 00:15:33,839
+kind of marking in tool okay not
+
+375
+00:15:32,000 --> 00:15:35,680
+recommended you know you rather you know
+
+376
+00:15:33,839 --> 00:15:37,040
+i recommend you just download wufang
+
+377
+00:15:35,680 --> 00:15:38,880
+language
+
+378
+00:15:37,040 --> 00:15:40,959
+get the engine free get the wolfram
+
+379
+00:15:38,880 --> 00:15:42,800
+script free and if you want the
+
+380
+00:15:40,959 --> 00:15:45,360
+graphical user interface it you know it
+
+381
+00:15:42,800 --> 00:15:47,839
+can show fantastic graphics
+
+382
+00:15:45,360 --> 00:15:50,160
+you can download you know from github
+
+383
+00:15:47,839 --> 00:15:52,959
+it's open source download the
+
+384
+00:15:50,160 --> 00:15:56,800
+julia so did i mention it here
+
+385
+00:15:52,959 --> 00:15:58,639
+yeah so uh jupiter not julia so jupiter
+
+386
+00:15:56,800 --> 00:16:02,320
+you download jupiter you know you run
+
+387
+00:15:58,639 --> 00:16:02,320
+the jupyter notebook then you can
+
+388
+00:16:02,399 --> 00:16:06,240
+you know so that's another interface to
+
+389
+00:16:04,399 --> 00:16:08,480
+firm language you know you run the
+
+390
+00:16:06,240 --> 00:16:09,839
+notebook in the jupyter
+
+391
+00:16:08,480 --> 00:16:12,720
+you know
+
+392
+00:16:09,839 --> 00:16:14,000
+in a jupyter notebook
+
+393
+00:16:12,720 --> 00:16:16,000
+software
+
+394
+00:16:14,000 --> 00:16:17,759
+and whenever you want to do some
+
+395
+00:16:16,000 --> 00:16:18,959
+computation you know wolfen language
+
+396
+00:16:17,759 --> 00:16:21,279
+expression
+
+397
+00:16:18,959 --> 00:16:22,880
+you press enter it sends the expression
+
+398
+00:16:21,279 --> 00:16:25,120
+to the wolfram kernel you know the
+
+399
+00:16:22,880 --> 00:16:28,240
+woofer engine like we talked about
+
+400
+00:16:25,120 --> 00:16:30,320
+before and send it back to the uh
+
+401
+00:16:28,240 --> 00:16:33,120
+jupiter notebook and you can display the
+
+402
+00:16:30,320 --> 00:16:36,560
+graphics you can rotate it i believe
+
+403
+00:16:33,120 --> 00:16:37,839
+so anyway that's uh introduction to uh
+
+404
+00:16:36,560 --> 00:16:40,480
+you know these
+
+405
+00:16:37,839 --> 00:16:42,720
+things okay
+
+406
+00:16:40,480 --> 00:16:45,120
+and
+
+407
+00:16:42,720 --> 00:16:47,199
+and now
+
+408
+00:16:45,120 --> 00:16:49,759
+now i want to talk about the notebook i
+
+409
+00:16:47,199 --> 00:16:52,800
+want to show you what is the notebook
+
+410
+00:16:49,759 --> 00:16:54,959
+file format made up okay so you can see
+
+411
+00:16:52,800 --> 00:16:59,839
+here's a notebook
+
+412
+00:16:54,959 --> 00:16:59,839
+let's um let's save it okay let's
+
+413
+00:17:00,000 --> 00:17:03,120
+let's open a new one
+
+414
+00:17:03,440 --> 00:17:09,280
+three plus seven okay three plus uh two
+
+415
+00:17:07,039 --> 00:17:09,280
+um
+
+416
+00:17:10,000 --> 00:17:15,120
+okay
+
+417
+00:17:10,959 --> 00:17:15,120
+five let's save this as
+
+418
+00:17:16,959 --> 00:17:22,959
+xx dot mb
+
+419
+00:17:19,439 --> 00:17:22,959
+test notebook okay
+
+420
+00:17:23,360 --> 00:17:26,000
+okay
+
+421
+00:17:24,160 --> 00:17:29,280
+now we go to
+
+422
+00:17:26,000 --> 00:17:31,520
+go to the directory so there is the test
+
+423
+00:17:29,280 --> 00:17:33,919
+notebook so open it so like i said
+
+424
+00:17:31,520 --> 00:17:36,240
+before all these are just simply from
+
+425
+00:17:33,919 --> 00:17:39,120
+language expressions you know these are
+
+426
+00:17:36,240 --> 00:17:41,440
+wolfram language syntax so all these are
+
+427
+00:17:39,120 --> 00:17:43,120
+comments you know these are comments you
+
+428
+00:17:41,440 --> 00:17:44,960
+can delete it
+
+429
+00:17:43,120 --> 00:17:46,400
+you can actually delete it you know the
+
+430
+00:17:44,960 --> 00:17:48,480
+cash id
+
+431
+00:17:46,400 --> 00:17:51,039
+internal cash information
+
+432
+00:17:48,480 --> 00:17:52,799
+uh you know notebook data position you
+
+433
+00:17:51,039 --> 00:17:56,640
+know those are cash you know
+
+434
+00:17:52,799 --> 00:17:58,559
+any comment you see in this file
+
+435
+00:17:56,640 --> 00:18:01,200
+is wolfram language
+
+436
+00:17:58,559 --> 00:18:02,559
+you know no nothing extra it's just pure
+
+437
+00:18:01,200 --> 00:18:04,559
+wufang language
+
+438
+00:18:02,559 --> 00:18:06,799
+so you know when you see your comment
+
+439
+00:18:04,559 --> 00:18:08,559
+you can actually just delete it so let
+
+440
+00:18:06,799 --> 00:18:11,440
+me close the notebook
+
+441
+00:18:08,559 --> 00:18:13,679
+close it okay and let's edit the
+
+442
+00:18:11,440 --> 00:18:14,720
+notebook let's do like surgery you know
+
+443
+00:18:13,679 --> 00:18:16,480
+some
+
+444
+00:18:14,720 --> 00:18:18,320
+like programming engineering you know
+
+445
+00:18:16,480 --> 00:18:19,200
+software called this is surgery you know
+
+446
+00:18:18,320 --> 00:18:22,559
+we
+
+447
+00:18:19,200 --> 00:18:25,679
+we edit we modify the notebook directly
+
+448
+00:18:22,559 --> 00:18:29,280
+by just using language okay so it says
+
+449
+00:18:25,679 --> 00:18:31,919
+beginning of notebook content deleted
+
+450
+00:18:29,280 --> 00:18:33,840
+and then end of a notebook content
+
+451
+00:18:31,919 --> 00:18:36,160
+deleted internal cache information
+
+452
+00:18:33,840 --> 00:18:38,799
+deleted sale tag you know
+
+453
+00:18:36,160 --> 00:18:40,880
+those are cash for
+
+454
+00:18:38,799 --> 00:18:42,799
+for whether the sales are closed or not
+
+455
+00:18:40,880 --> 00:18:45,840
+you know things like that
+
+456
+00:18:42,799 --> 00:18:47,360
+so we can also delete it delete it so
+
+457
+00:18:45,840 --> 00:18:49,360
+here
+
+458
+00:18:47,360 --> 00:18:51,600
+you are actually seeing the raw uh
+
+459
+00:18:49,360 --> 00:18:54,080
+wolfram language for the
+
+460
+00:18:51,600 --> 00:18:57,280
+for for the simple the you know for the
+
+461
+00:18:54,080 --> 00:19:00,000
+most simple computation three plus two
+
+462
+00:18:57,280 --> 00:19:02,240
+okay let me explain how this uh is you
+
+463
+00:19:00,000 --> 00:19:05,039
+know it's kind of confusing but let me
+
+464
+00:19:02,240 --> 00:19:07,520
+explain your understand
+
+465
+00:19:05,039 --> 00:19:10,799
+so you can see the notebook
+
+466
+00:19:07,520 --> 00:19:13,679
+that this notebook is a function okay so
+
+467
+00:19:10,799 --> 00:19:13,679
+that's a function
+
+468
+00:19:16,400 --> 00:19:21,039
+notebook
+
+469
+00:19:18,400 --> 00:19:24,480
+yeah so that's just a function like that
+
+470
+00:19:21,039 --> 00:19:26,720
+and the notebook takes uh what
+
+471
+00:19:24,480 --> 00:19:29,360
+it takes two arguments so you can see
+
+472
+00:19:26,720 --> 00:19:31,039
+the first argument is this part you know
+
+473
+00:19:29,360 --> 00:19:33,600
+it's just one
+
+474
+00:19:31,039 --> 00:19:36,000
+kerdi bracket that's the first argument
+
+475
+00:19:33,600 --> 00:19:36,960
+then it takes several more arguments
+
+476
+00:19:36,000 --> 00:19:39,280
+rest
+
+477
+00:19:36,960 --> 00:19:41,520
+arguments you know so it says window
+
+478
+00:19:39,280 --> 00:19:43,440
+size you know window size is you know
+
+479
+00:19:41,520 --> 00:19:46,240
+it's the window size
+
+480
+00:19:43,440 --> 00:19:47,760
+not important information so window size
+
+481
+00:19:46,240 --> 00:19:50,720
+window margin
+
+482
+00:19:47,760 --> 00:19:52,720
+magnifi magnification 1.4 because we
+
+483
+00:19:50,720 --> 00:19:54,880
+magnified you know we magnified the
+
+484
+00:19:52,720 --> 00:19:57,760
+notebook
+
+485
+00:19:54,880 --> 00:20:02,320
+then front end version you know 1.2.2
+
+486
+00:19:57,760 --> 00:20:04,799
+for microsoft windows 16 64 bits
+
+487
+00:20:02,320 --> 00:20:06,640
+style definition default
+
+488
+00:20:04,799 --> 00:20:08,799
+you know style definition that you know
+
+489
+00:20:06,640 --> 00:20:10,240
+notebook is so it's like
+
+490
+00:20:08,799 --> 00:20:12,799
+you can use
+
+491
+00:20:10,240 --> 00:20:15,039
+kind of like css thing to control the
+
+492
+00:20:12,799 --> 00:20:17,679
+look you know you can have headers
+
+493
+00:20:15,039 --> 00:20:20,400
+subheadings you know sex subsections and
+
+494
+00:20:17,679 --> 00:20:23,520
+so on i'm gonna go over okay
+
+495
+00:20:20,400 --> 00:20:27,360
+then expression you know expression uidu
+
+496
+00:20:23,520 --> 00:20:29,520
+id is a universal identification that
+
+497
+00:20:27,360 --> 00:20:31,760
+you know they just give a random number
+
+498
+00:20:29,520 --> 00:20:34,640
+for for this particular notebook so let
+
+499
+00:20:31,760 --> 00:20:37,600
+me so let's modify this notebook okay so
+
+500
+00:20:34,640 --> 00:20:39,679
+first of all notebook then this window
+
+501
+00:20:37,600 --> 00:20:41,360
+size we don't care okay so remove all
+
+502
+00:20:39,679 --> 00:20:42,400
+that
+
+503
+00:20:41,360 --> 00:20:44,799
+so now
+
+504
+00:20:42,400 --> 00:20:47,200
+the first argument is the actual real
+
+505
+00:20:44,799 --> 00:20:51,039
+content of the notebook so let me let me
+
+506
+00:20:47,200 --> 00:20:53,919
+dissect how this uh works okay this cell
+
+507
+00:20:51,039 --> 00:20:55,760
+this this cell group is very annoying so
+
+508
+00:20:53,919 --> 00:20:58,480
+you can see
+
+509
+00:20:55,760 --> 00:21:00,799
+so this is the first argument and and
+
+510
+00:20:58,480 --> 00:21:02,799
+this argument is at least
+
+511
+00:21:00,799 --> 00:21:03,760
+how do i know because at least you know
+
+512
+00:21:02,799 --> 00:21:07,120
+that
+
+513
+00:21:03,760 --> 00:21:10,400
+curly braces that's a syntax for a list
+
+514
+00:21:07,120 --> 00:21:13,039
+so this list has only one element
+
+515
+00:21:10,400 --> 00:21:15,120
+yeah only one element cell
+
+516
+00:21:13,039 --> 00:21:17,520
+now you see it's all nested just like
+
+517
+00:21:15,120 --> 00:21:20,320
+this you know this is woofing language
+
+518
+00:21:17,520 --> 00:21:21,120
+is just this okay it's wonderful you
+
+519
+00:21:20,320 --> 00:21:24,799
+know
+
+520
+00:21:21,120 --> 00:21:27,520
+it's just a a lisp so it's all
+
+521
+00:21:24,799 --> 00:21:29,280
+nested so you so this
+
+522
+00:21:27,520 --> 00:21:31,760
+so this
+
+523
+00:21:29,280 --> 00:21:33,840
+notebook takes one argument the first
+
+524
+00:21:31,760 --> 00:21:36,559
+argument okay so you cannot have extra
+
+525
+00:21:33,840 --> 00:21:39,360
+comma here so you need to remove that so
+
+526
+00:21:36,559 --> 00:21:42,400
+one argument at least and this list
+
+527
+00:21:39,360 --> 00:21:44,720
+consists of just one element cell
+
+528
+00:21:42,400 --> 00:21:46,640
+so one single cell so what is a cell
+
+529
+00:21:44,720 --> 00:21:48,720
+cell is this
+
+530
+00:21:46,640 --> 00:21:50,960
+this thing so if you
+
+531
+00:21:48,720 --> 00:21:52,880
+type that you know it creates this
+
+532
+00:21:50,960 --> 00:21:55,280
+that's a cell
+
+533
+00:21:52,880 --> 00:21:57,280
+okay so this so that notebook has only
+
+534
+00:21:55,280 --> 00:21:58,960
+one cell not this one but the one we
+
+535
+00:21:57,280 --> 00:22:01,120
+just closed
+
+536
+00:21:58,960 --> 00:22:02,880
+uh can we be open let's see control
+
+537
+00:22:01,120 --> 00:22:06,320
+shift tab
+
+538
+00:22:02,880 --> 00:22:08,240
+uh we're gonna reopen later okay
+
+539
+00:22:06,320 --> 00:22:10,799
+actually we can actually let's reopen
+
+540
+00:22:08,240 --> 00:22:13,520
+now so save this file
+
+541
+00:22:10,799 --> 00:22:16,240
+go back you know go back to the uh you
+
+542
+00:22:13,520 --> 00:22:18,559
+see we reduce the file size by a lot and
+
+543
+00:22:16,240 --> 00:22:21,120
+open it
+
+544
+00:22:18,559 --> 00:22:24,320
+you see there is there is our notebook
+
+545
+00:22:21,120 --> 00:22:26,720
+again so but let's delete it it's um
+
+546
+00:22:24,320 --> 00:22:28,720
+you know again let's work on
+
+547
+00:22:26,720 --> 00:22:31,760
+let's modify the
+
+548
+00:22:28,720 --> 00:22:35,200
+you know the the source code the raw uh
+
+549
+00:22:31,760 --> 00:22:35,200
+content of the notebook
+
+550
+00:22:36,400 --> 00:22:40,000
+you know i'm i'm get you know so and you
+
+551
+00:22:38,159 --> 00:22:41,640
+can also program the notebook you can
+
+552
+00:22:40,000 --> 00:22:43,280
+generate the notebook
+
+553
+00:22:41,640 --> 00:22:45,679
+programmatically you know you can
+
+554
+00:22:43,280 --> 00:22:47,679
+generate lot you know lots of notebook
+
+555
+00:22:45,679 --> 00:22:50,480
+so anyway cell
+
+556
+00:22:47,679 --> 00:22:53,840
+so this list has one element and that
+
+557
+00:22:50,480 --> 00:22:56,400
+element is a cell and this cell has how
+
+558
+00:22:53,840 --> 00:22:58,960
+many elements uh two elements okay so
+
+559
+00:22:56,400 --> 00:23:01,919
+this cell is another function
+
+560
+00:22:58,960 --> 00:23:02,880
+uh it takes two arguments here so let's
+
+561
+00:23:01,919 --> 00:23:05,200
+say
+
+562
+00:23:02,880 --> 00:23:08,320
+oh just one argument so you see
+
+563
+00:23:05,200 --> 00:23:11,200
+this cell is just one argument and that
+
+564
+00:23:08,320 --> 00:23:13,120
+argument is the cell group data you know
+
+565
+00:23:11,200 --> 00:23:16,159
+it gets a bit tedious
+
+566
+00:23:13,120 --> 00:23:18,799
+the cell group data takes two arguments
+
+567
+00:23:16,159 --> 00:23:21,600
+so the first argument is at least again
+
+568
+00:23:18,799 --> 00:23:23,600
+the second argument is open
+
+569
+00:23:21,600 --> 00:23:25,679
+so what does open mean open means you
+
+570
+00:23:23,600 --> 00:23:28,000
+know if you have a cell here
+
+571
+00:23:25,679 --> 00:23:31,200
+that's open this is close you see you
+
+572
+00:23:28,000 --> 00:23:32,640
+can expand it that's open close open
+
+573
+00:23:31,200 --> 00:23:35,360
+close
+
+574
+00:23:32,640 --> 00:23:37,840
+you know this one close open you know
+
+575
+00:23:35,360 --> 00:23:40,559
+just just like oak mod you know you have
+
+576
+00:23:37,840 --> 00:23:43,919
+hierarchy of headers header heading one
+
+577
+00:23:40,559 --> 00:23:46,400
+heading two subheading three heading sub
+
+578
+00:23:43,919 --> 00:23:49,120
+heading four you can expand them
+
+579
+00:23:46,400 --> 00:23:50,799
+or you know open them or close them
+
+580
+00:23:49,120 --> 00:23:53,760
+similar you know very similar for
+
+581
+00:23:50,799 --> 00:23:53,760
+example let me show you
+
+582
+00:23:54,080 --> 00:23:59,440
+so heading let's see heading
+
+583
+00:23:56,720 --> 00:24:01,600
+one okay heading one
+
+584
+00:23:59,440 --> 00:24:04,960
+heading two
+
+585
+00:24:01,600 --> 00:24:07,600
+heading three so you create a cell you
+
+586
+00:24:04,960 --> 00:24:09,120
+select it you go to the
+
+587
+00:24:07,600 --> 00:24:13,039
+format
+
+588
+00:24:09,120 --> 00:24:13,039
+and you can go to um
+
+589
+00:24:13,360 --> 00:24:16,880
+style
+
+590
+00:24:14,640 --> 00:24:18,640
+so you can see you can choose title old
+
+591
+00:24:16,880 --> 00:24:20,480
+one
+
+592
+00:24:18,640 --> 00:24:21,279
+then it becomes that
+
+593
+00:24:20,480 --> 00:24:22,720
+then
+
+594
+00:24:21,279 --> 00:24:24,000
+o2
+
+595
+00:24:22,720 --> 00:24:27,360
+is the
+
+596
+00:24:24,000 --> 00:24:27,360
+subtitle let's uh
+
+597
+00:24:28,480 --> 00:24:33,520
+yeah o2 subtitle all three is chapter so
+
+598
+00:24:31,840 --> 00:24:35,360
+you know they they give different names
+
+599
+00:24:33,520 --> 00:24:37,200
+but you can think of it just heading one
+
+600
+00:24:35,360 --> 00:24:41,760
+head into heading three
+
+601
+00:24:37,200 --> 00:24:41,760
+so let's see let's make this all three
+
+602
+00:24:42,640 --> 00:24:47,240
+so the way they named it is
+
+603
+00:24:48,240 --> 00:24:54,480
+old one is titled uh
+
+604
+00:24:51,440 --> 00:24:58,080
+old one is title o2 is subtitle o3 is
+
+605
+00:24:54,480 --> 00:24:58,080
+chapter 04 is section
+
+606
+00:24:58,799 --> 00:25:04,919
+title subtitle chapter section
+
+607
+00:25:01,039 --> 00:25:04,919
+subsection so
+
+608
+00:25:19,440 --> 00:25:22,080
+so let's
+
+609
+00:25:22,400 --> 00:25:29,279
+hold three let's see all three
+
+610
+00:25:25,840 --> 00:25:30,960
+then this is four
+
+611
+00:25:29,279 --> 00:25:33,440
+then
+
+612
+00:25:30,960 --> 00:25:37,200
+heading five
+
+613
+00:25:33,440 --> 00:25:39,039
+old five let's do old five
+
+614
+00:25:37,200 --> 00:25:41,600
+so you can see
+
+615
+00:25:39,039 --> 00:25:44,159
+so now you have them you know because i
+
+616
+00:25:41,600 --> 00:25:45,760
+we we we set their style so you have
+
+617
+00:25:44,159 --> 00:25:48,720
+heading one heading two you know they
+
+618
+00:25:45,760 --> 00:25:50,320
+are they become a hierarchy so you can
+
+619
+00:25:48,720 --> 00:25:53,360
+collapse the whole thing
+
+620
+00:25:50,320 --> 00:25:55,760
+you can class collapse any um
+
+621
+00:25:53,360 --> 00:25:57,760
+you know root of the tree
+
+622
+00:25:55,760 --> 00:26:00,880
+so it's kind of it's you know it's just
+
+623
+00:25:57,760 --> 00:26:03,360
+like oak mod but but let me go back here
+
+624
+00:26:00,880 --> 00:26:05,279
+to explain okay so so this cell group
+
+625
+00:26:03,360 --> 00:26:06,320
+data you have open
+
+626
+00:26:05,279 --> 00:26:08,960
+then
+
+627
+00:26:06,320 --> 00:26:11,840
+then you have you know the set the first
+
+628
+00:26:08,960 --> 00:26:14,720
+argument is at least
+
+629
+00:26:11,840 --> 00:26:17,200
+here the second argument is just open
+
+630
+00:26:14,720 --> 00:26:19,120
+meaning the cell is open okay so you
+
+631
+00:26:17,200 --> 00:26:21,840
+have cell group data then you have
+
+632
+00:26:19,120 --> 00:26:25,679
+actually started to have a cell
+
+633
+00:26:21,840 --> 00:26:28,159
+okay cell takes
+
+634
+00:26:25,679 --> 00:26:29,440
+okay two arguments so you have the first
+
+635
+00:26:28,159 --> 00:26:32,320
+one is the box
+
+636
+00:26:29,440 --> 00:26:35,440
+the second one is uh box data
+
+637
+00:26:32,320 --> 00:26:37,120
+uh so it gets complex it gets tedious so
+
+638
+00:26:35,440 --> 00:26:39,360
+let me just simply explain what are
+
+639
+00:26:37,120 --> 00:26:41,440
+these you don't need this okay this
+
+640
+00:26:39,360 --> 00:26:43,200
+so what are these box data let me
+
+641
+00:26:41,440 --> 00:26:44,799
+explain okay so
+
+642
+00:26:43,200 --> 00:26:46,000
+when you have something simple like a
+
+643
+00:26:44,799 --> 00:26:46,960
+number
+
+644
+00:26:46,000 --> 00:26:49,120
+then
+
+645
+00:26:46,960 --> 00:26:51,279
+then then you're gonna have for example
+
+646
+00:26:49,120 --> 00:26:53,600
+let me show
+
+647
+00:26:51,279 --> 00:26:57,279
+for example we can create an entire new
+
+648
+00:26:53,600 --> 00:26:57,279
+notebook let's do it
+
+649
+00:26:58,000 --> 00:27:03,440
+by you know we're gonna
+
+650
+00:27:01,360 --> 00:27:06,480
+we're gonna manually create an entire
+
+651
+00:27:03,440 --> 00:27:07,919
+new notebook you know like that okay so
+
+652
+00:27:06,480 --> 00:27:11,760
+let's um
+
+653
+00:27:07,919 --> 00:27:14,240
+so first of all switch it to um
+
+654
+00:27:11,760 --> 00:27:15,039
+wufang language mod sao from language
+
+655
+00:27:14,240 --> 00:27:15,919
+mod
+
+656
+00:27:15,039 --> 00:27:19,360
+then
+
+657
+00:27:15,919 --> 00:27:21,919
+completion notebook okay so notebook is
+
+658
+00:27:19,360 --> 00:27:25,760
+represent the notebook then you have a
+
+659
+00:27:21,919 --> 00:27:25,760
+cell so let's create a cell
+
+660
+00:27:26,080 --> 00:27:30,799
+then in this cell let's say three plus
+
+661
+00:27:31,919 --> 00:27:37,840
+four plus five okay
+
+662
+00:27:35,360 --> 00:27:42,240
+so that's it that's that's uh that's
+
+663
+00:27:37,840 --> 00:27:45,440
+that's one notebook so we can save it
+
+664
+00:27:42,240 --> 00:27:48,080
+test2 test2.nb
+
+665
+00:27:45,440 --> 00:27:49,679
+okay so you can see here is our file
+
+666
+00:27:48,080 --> 00:27:51,679
+test2.nb
+
+667
+00:27:49,679 --> 00:27:53,840
+so that's that's it
+
+668
+00:27:51,679 --> 00:27:57,039
+now let's open this file so you know
+
+669
+00:27:53,840 --> 00:27:59,520
+let's open in desktop test2
+
+670
+00:27:57,039 --> 00:27:59,520
+open it
+
+671
+00:28:01,600 --> 00:28:08,480
+okay i got the syntax wrong that's why
+
+672
+00:28:04,880 --> 00:28:10,799
+it's not showing so let's modify it
+
+673
+00:28:08,480 --> 00:28:14,159
+uh i think this should be strings no
+
+674
+00:28:10,799 --> 00:28:14,159
+they shouldn't be strings
+
+675
+00:28:14,640 --> 00:28:17,640
+and
+
+676
+00:28:18,480 --> 00:28:24,159
+let's let's say
+
+677
+00:28:20,880 --> 00:28:26,000
+cell group let's just do whatever the
+
+678
+00:28:24,159 --> 00:28:27,440
+other thing is doing
+
+679
+00:28:26,000 --> 00:28:30,480
+let's see
+
+680
+00:28:27,440 --> 00:28:31,440
+cell cell group data
+
+681
+00:28:30,480 --> 00:28:34,320
+this is
+
+682
+00:28:31,440 --> 00:28:34,320
+complicated
+
+683
+00:28:35,200 --> 00:28:39,360
+and let's just do a put them into a
+
+684
+00:28:37,760 --> 00:28:41,520
+string let's see what
+
+685
+00:28:39,360 --> 00:28:45,399
+happens
+
+686
+00:28:41,520 --> 00:28:45,399
+okay save it
+
+687
+00:28:45,919 --> 00:28:52,559
+open it
+
+688
+00:28:48,480 --> 00:28:52,559
+okay it's not showing okay so
+
+689
+00:28:52,640 --> 00:28:57,520
+close it it's
+
+690
+00:28:54,559 --> 00:29:00,240
+it's okay so
+
+691
+00:28:57,520 --> 00:29:02,559
+okay so maybe you need cell uh you
+
+692
+00:29:00,240 --> 00:29:05,440
+notebook okay notebook you know book oh
+
+693
+00:29:02,559 --> 00:29:07,200
+yeah you need the list i said i suppose
+
+694
+00:29:05,440 --> 00:29:10,080
+let's see
+
+695
+00:29:07,200 --> 00:29:12,880
+let's look at the documentation okay
+
+696
+00:29:10,080 --> 00:29:15,200
+wolfram language notebook documentation
+
+697
+00:29:12,880 --> 00:29:17,840
+the notebook function
+
+698
+00:29:15,200 --> 00:29:17,840
+refresh
+
+699
+00:29:18,559 --> 00:29:24,000
+yeah so you see notebook the syntax you
+
+700
+00:29:21,279 --> 00:29:25,039
+need at least that's why we got it wrong
+
+701
+00:29:24,000 --> 00:29:27,440
+so you
+
+702
+00:29:25,039 --> 00:29:30,799
+gotta have a list here and put the cell
+
+703
+00:29:27,440 --> 00:29:30,799
+there okay save it
+
+704
+00:29:31,120 --> 00:29:34,720
+open it
+
+705
+00:29:32,799 --> 00:29:36,799
+fantastic
+
+706
+00:29:34,720 --> 00:29:39,520
+you can see
+
+707
+00:29:36,799 --> 00:29:41,679
+345 there you see we
+
+708
+00:29:39,520 --> 00:29:42,799
+essentially we manually created a
+
+709
+00:29:41,679 --> 00:29:45,600
+notebook
+
+710
+00:29:42,799 --> 00:29:47,840
+you know so close it so
+
+711
+00:29:45,600 --> 00:29:51,440
+the main point i want to make here is
+
+712
+00:29:47,840 --> 00:29:53,120
+that the the notebook format is just
+
+713
+00:29:51,440 --> 00:29:58,080
+you know the content of the notebook is
+
+714
+00:29:53,120 --> 00:30:01,279
+just pure ascii test test test
+
+715
+00:29:58,080 --> 00:30:03,840
+text okay pure ascii text
+
+716
+00:30:01,279 --> 00:30:05,120
+and the content is purely woofing
+
+717
+00:30:03,840 --> 00:30:07,440
+language
+
+718
+00:30:05,120 --> 00:30:10,000
+expressions nothing else you know you
+
+719
+00:30:07,440 --> 00:30:12,559
+don't have binary you know
+
+720
+00:30:10,000 --> 00:30:15,279
+special format or you know maybe
+
+721
+00:30:12,559 --> 00:30:17,600
+backslash you know maybe backslash for
+
+722
+00:30:15,279 --> 00:30:19,120
+both you don't have nothing like that
+
+723
+00:30:17,600 --> 00:30:21,279
+the
+
+724
+00:30:19,120 --> 00:30:23,679
+you know the whole thing syntax is the
+
+725
+00:30:21,279 --> 00:30:24,640
+notebook syntax is just wolfram language
+
+726
+00:30:23,679 --> 00:30:26,399
+okay
+
+727
+00:30:24,640 --> 00:30:28,960
+now in wolfram language you have things
+
+728
+00:30:26,399 --> 00:30:30,799
+like this you know notebook cell that
+
+729
+00:30:28,960 --> 00:30:32,640
+represent you know this
+
+730
+00:30:30,799 --> 00:30:33,520
+this kind you know this
+
+731
+00:30:32,640 --> 00:30:34,880
+thing
+
+732
+00:30:33,520 --> 00:30:37,360
+and when you
+
+733
+00:30:34,880 --> 00:30:38,320
+evaluate this in a
+
+734
+00:30:37,360 --> 00:30:40,080
+um
+
+735
+00:30:38,320 --> 00:30:43,120
+i mean when you open this
+
+736
+00:30:40,080 --> 00:30:45,679
+upframe expression in a notebook then it
+
+737
+00:30:43,120 --> 00:30:48,399
+format them nicely and also you can
+
+738
+00:30:45,679 --> 00:30:50,320
+actually run this code
+
+739
+00:30:48,399 --> 00:30:54,799
+you know i can actually run this code
+
+740
+00:30:50,320 --> 00:30:56,960
+right now but before we do that let's um
+
+741
+00:30:54,799 --> 00:30:58,960
+let's make sure my syntax is correct
+
+742
+00:30:56,960 --> 00:31:01,360
+okay so notebook
+
+743
+00:30:58,960 --> 00:31:04,799
+the notebook requires one argument of a
+
+744
+00:31:01,360 --> 00:31:08,000
+list okay and then inside the list each
+
+745
+00:31:04,799 --> 00:31:10,480
+element is a cell so what exactly should
+
+746
+00:31:08,000 --> 00:31:13,120
+the cell be
+
+747
+00:31:10,480 --> 00:31:15,840
+notebook file contains explicit notebook
+
+748
+00:31:13,120 --> 00:31:18,559
+expressions written out in a textual
+
+749
+00:31:15,840 --> 00:31:20,799
+form you can manipulate open notebooks
+
+750
+00:31:18,559 --> 00:31:22,640
+in the front end using standard commands
+
+751
+00:31:20,799 --> 00:31:26,960
+in the front end using the open
+
+752
+00:31:22,640 --> 00:31:26,960
+inspector and so on okay so
+
+753
+00:31:28,720 --> 00:31:33,679
+so okay let's look at the cell
+
+754
+00:31:31,279 --> 00:31:36,240
+function
+
+755
+00:31:33,679 --> 00:31:38,799
+so you see it says cell is a low level
+
+756
+00:31:36,240 --> 00:31:42,600
+representation of a cell inside a
+
+757
+00:31:38,799 --> 00:31:42,600
+wolfram system notebook
+
+758
+00:31:49,200 --> 00:31:54,159
+okay so contents and style okay so we
+
+759
+00:31:52,320 --> 00:31:56,480
+need a style so
+
+760
+00:31:54,159 --> 00:31:58,480
+okay what uh
+
+761
+00:31:56,480 --> 00:32:01,600
+so we need a style here
+
+762
+00:31:58,480 --> 00:32:03,519
+because otherwise when we you know
+
+763
+00:32:01,600 --> 00:32:07,120
+because otherwise we open a notebook
+
+764
+00:32:03,519 --> 00:32:09,600
+it's kind uh it's you know it's
+
+765
+00:32:07,120 --> 00:32:12,880
+can can we actually evaluate this you
+
+766
+00:32:09,600 --> 00:32:15,600
+cannot you see so
+
+767
+00:32:12,880 --> 00:32:17,840
+you see normally you press shift return
+
+768
+00:32:15,600 --> 00:32:20,640
+to evaluate but this is what's called
+
+769
+00:32:17,840 --> 00:32:22,480
+inactive cell inactive cell is just for
+
+770
+00:32:20,640 --> 00:32:25,120
+representation you cannot actually
+
+771
+00:32:22,480 --> 00:32:26,960
+evaluate so in other words
+
+772
+00:32:25,120 --> 00:32:28,799
+you have tags
+
+773
+00:32:26,960 --> 00:32:31,120
+to represent which part is the
+
+774
+00:32:28,799 --> 00:32:34,720
+expression that actually
+
+775
+00:32:31,120 --> 00:32:36,320
+is hot you know like code for example in
+
+776
+00:32:34,720 --> 00:32:38,480
+in oakmod
+
+777
+00:32:36,320 --> 00:32:41,600
+you know you have certain text that
+
+778
+00:32:38,480 --> 00:32:43,919
+to signify this part is actual code so
+
+779
+00:32:41,600 --> 00:32:45,039
+when you run it part of the
+
+780
+00:32:43,919 --> 00:32:47,760
+org mod
+
+781
+00:32:45,039 --> 00:32:48,960
+uh section we are actually running some
+
+782
+00:32:47,760 --> 00:32:51,279
+code
+
+783
+00:32:48,960 --> 00:32:53,840
+in the same way wolfen language has that
+
+784
+00:32:51,279 --> 00:32:56,559
+so you have you see this cell
+
+785
+00:32:53,840 --> 00:32:59,840
+represent represents a cell
+
+786
+00:32:56,559 --> 00:33:02,320
+but however you need
+
+787
+00:32:59,840 --> 00:33:04,799
+you need uh you need to say style you
+
+788
+00:33:02,320 --> 00:33:07,600
+know like indicate whether it's um
+
+789
+00:33:04,799 --> 00:33:11,279
+active you know expression or not so
+
+790
+00:33:07,600 --> 00:33:14,320
+so what is the um
+
+791
+00:33:11,279 --> 00:33:17,279
+let's see what is the
+
+792
+00:33:14,320 --> 00:33:19,120
+uh what is the syntax for the
+
+793
+00:33:17,279 --> 00:33:22,840
+i don't know so let's
+
+794
+00:33:19,120 --> 00:33:24,559
+so what we can do is we can let's say
+
+795
+00:33:22,840 --> 00:33:26,640
+options
+
+796
+00:33:24,559 --> 00:33:30,159
+so we want to see all the options for
+
+797
+00:33:26,640 --> 00:33:30,159
+the function cell okay
+
+798
+00:33:36,840 --> 00:33:44,399
+okay oh god sale has a thousand options
+
+799
+00:33:41,840 --> 00:33:46,159
+what the hell
+
+800
+00:33:44,399 --> 00:33:48,240
+geez geez
+
+801
+00:33:46,159 --> 00:33:50,720
+you see the sale
+
+802
+00:33:48,240 --> 00:33:53,600
+it's funny because cell is
+
+803
+00:33:50,720 --> 00:33:55,840
+it's a function but it's i mean it's
+
+804
+00:33:53,600 --> 00:33:56,960
+it's a represent representational
+
+805
+00:33:55,840 --> 00:33:58,159
+function
+
+806
+00:33:56,960 --> 00:34:01,600
+you know
+
+807
+00:33:58,159 --> 00:34:04,159
+so let me show you this um
+
+808
+00:34:01,600 --> 00:34:05,519
+yeah this this is interesting because
+
+809
+00:34:04,159 --> 00:34:08,079
+the the
+
+810
+00:34:05,519 --> 00:34:10,800
+connection between language and lisp
+
+811
+00:34:08,079 --> 00:34:14,240
+gets into lots of interesting things and
+
+812
+00:34:10,800 --> 00:34:17,119
+also html and xml
+
+813
+00:34:14,240 --> 00:34:19,359
+so let's see
+
+814
+00:34:17,119 --> 00:34:22,480
+sunday html5
+
+815
+00:34:19,359 --> 00:34:22,480
+so i have an article
+
+816
+00:34:28,399 --> 00:34:32,879
+yeah and i don't know where is this html
+
+817
+00:34:31,200 --> 00:34:36,720
+tutorial
+
+818
+00:34:32,879 --> 00:34:39,119
+so go to my website saudi
+
+819
+00:34:36,720 --> 00:34:39,119
+code
+
+820
+00:34:40,800 --> 00:34:45,079
+and click on search
+
+821
+00:34:43,280 --> 00:34:48,440
+and type
+
+822
+00:34:45,079 --> 00:34:51,679
+html6 not five right that's right
+
+823
+00:34:48,440 --> 00:34:54,960
+html6 okay
+
+824
+00:34:51,679 --> 00:34:56,800
+so this is the article html json xml
+
+825
+00:34:54,960 --> 00:34:59,520
+simplified so
+
+826
+00:34:56,800 --> 00:34:59,520
+so you can see
+
+827
+00:34:59,920 --> 00:35:05,280
+you know list is just list
+
+828
+00:35:03,839 --> 00:35:10,440
+this
+
+829
+00:35:05,280 --> 00:35:14,560
+list syntax is nested list and html and
+
+830
+00:35:10,440 --> 00:35:17,680
+xml is also nested so in some sense they
+
+831
+00:35:14,560 --> 00:35:22,000
+are the same you know they are just
+
+832
+00:35:17,680 --> 00:35:22,000
+nesting you know nested syntax
+
+833
+00:35:22,640 --> 00:35:25,520
+so in the same way wolfen language is
+
+834
+00:35:24,480 --> 00:35:28,000
+the same
+
+835
+00:35:25,520 --> 00:35:30,560
+now in lisp
+
+836
+00:35:28,000 --> 00:35:32,400
+you know in this usually when you have
+
+837
+00:35:30,560 --> 00:35:35,440
+um
+
+838
+00:35:32,400 --> 00:35:36,320
+you know let me i i explain part of it
+
+839
+00:35:35,440 --> 00:35:38,800
+here
+
+840
+00:35:36,320 --> 00:35:40,720
+so for example there are there are many
+
+841
+00:35:38,800 --> 00:35:43,200
+formats existing
+
+842
+00:35:40,720 --> 00:35:46,240
+in scheme list
+
+843
+00:35:43,200 --> 00:35:48,079
+yeah in particular in scheme racket they
+
+844
+00:35:46,240 --> 00:35:51,280
+use lisp
+
+845
+00:35:48,079 --> 00:35:52,960
+expression to represent html so this is
+
+846
+00:35:51,280 --> 00:35:55,040
+how you represent
+
+847
+00:35:52,960 --> 00:35:56,800
+um
+
+848
+00:35:55,040 --> 00:35:58,960
+h1 header
+
+849
+00:35:56,800 --> 00:36:00,720
+you see so
+
+850
+00:35:58,960 --> 00:36:03,920
+if you represent
+
+851
+00:36:00,720 --> 00:36:07,200
+html in this in this way
+
+852
+00:36:03,920 --> 00:36:09,119
+you'll see that this h1
+
+853
+00:36:07,200 --> 00:36:10,880
+you know this h1 technically is a
+
+854
+00:36:09,119 --> 00:36:13,760
+function but this function actually
+
+855
+00:36:10,880 --> 00:36:15,920
+doesn't do any computation
+
+856
+00:36:13,760 --> 00:36:18,320
+except that when you have a program that
+
+857
+00:36:15,920 --> 00:36:19,599
+renders this
+
+858
+00:36:18,320 --> 00:36:23,040
+you know
+
+859
+00:36:19,599 --> 00:36:25,040
+this thing for example a browser then h1
+
+860
+00:36:23,040 --> 00:36:27,359
+became meaningful
+
+861
+00:36:25,040 --> 00:36:28,560
+what it means is that the you know
+
+862
+00:36:27,359 --> 00:36:31,359
+whatever
+
+863
+00:36:28,560 --> 00:36:33,599
+inside the h1 should be represented
+
+864
+00:36:31,359 --> 00:36:36,240
+rendered in certain way you know because
+
+865
+00:36:33,599 --> 00:36:38,880
+h1 is a header so this is how you
+
+866
+00:36:36,240 --> 00:36:38,880
+represent
+
+867
+00:36:39,040 --> 00:36:44,960
+html in lisp syntax
+
+868
+00:36:42,720 --> 00:36:47,440
+okay and this is actually part of the
+
+869
+00:36:44,960 --> 00:36:48,640
+standard it's called scheme
+
+870
+00:36:47,440 --> 00:36:50,800
+um
+
+871
+00:36:48,640 --> 00:36:53,359
+you know did i mention you know it's
+
+872
+00:36:50,800 --> 00:36:56,800
+just it's a standard it's like
+
+873
+00:36:53,359 --> 00:36:58,400
+it's like very popular among the skin
+
+874
+00:36:56,800 --> 00:37:01,359
+phonetics
+
+875
+00:36:58,400 --> 00:37:02,640
+you know the the associated word is like
+
+876
+00:37:01,359 --> 00:37:05,520
+semantic
+
+877
+00:37:02,640 --> 00:37:07,119
+web you know if you search for semantic
+
+878
+00:37:05,520 --> 00:37:08,560
+web
+
+879
+00:37:07,119 --> 00:37:10,560
+and this
+
+880
+00:37:08,560 --> 00:37:11,440
+semantic web list you'll find you know
+
+881
+00:37:10,560 --> 00:37:13,760
+the
+
+882
+00:37:11,440 --> 00:37:15,040
+lots of standard documentations and
+
+883
+00:37:13,760 --> 00:37:18,320
+proposals
+
+884
+00:37:15,040 --> 00:37:19,520
+uh from the mostly the scheme this
+
+885
+00:37:18,320 --> 00:37:22,720
+community
+
+886
+00:37:19,520 --> 00:37:25,119
+uh especially during the year 2000s
+
+887
+00:37:22,720 --> 00:37:27,760
+lots of it because that's that's the
+
+888
+00:37:25,119 --> 00:37:28,640
+time when the semantic web idea is very
+
+889
+00:37:27,760 --> 00:37:30,079
+hot
+
+890
+00:37:28,640 --> 00:37:35,119
+so anyway
+
+891
+00:37:30,079 --> 00:37:38,320
+but if you represent html in this this
+
+892
+00:37:35,119 --> 00:37:40,320
+you know in this syntax
+
+893
+00:37:38,320 --> 00:37:42,480
+you'll see that some functions they
+
+894
+00:37:40,320 --> 00:37:46,000
+don't have a
+
+895
+00:37:42,480 --> 00:37:47,920
+like you know some functions such as h1
+
+896
+00:37:46,000 --> 00:37:48,880
+they don't have a like computational
+
+897
+00:37:47,920 --> 00:37:50,880
+purpose
+
+898
+00:37:48,880 --> 00:37:53,839
+rather they have you know so they are
+
+899
+00:37:50,880 --> 00:37:56,000
+inert in some way so if you run this in
+
+900
+00:37:53,839 --> 00:37:58,880
+this you know compile it doesn't do
+
+901
+00:37:56,000 --> 00:38:01,520
+nothing it just returned itself
+
+902
+00:37:58,880 --> 00:38:04,400
+but if you
+
+903
+00:38:01,520 --> 00:38:06,880
+use some application like a browser
+
+904
+00:38:04,400 --> 00:38:09,119
+or pdf you know to to
+
+905
+00:38:06,880 --> 00:38:11,280
+to load this document then h1 is
+
+906
+00:38:09,119 --> 00:38:13,680
+meaningful it it means that the
+
+907
+00:38:11,280 --> 00:38:16,960
+following expression should be
+
+908
+00:38:13,680 --> 00:38:19,119
+involved in in larger font and so on
+
+909
+00:38:16,960 --> 00:38:22,079
+because it's a header
+
+910
+00:38:19,119 --> 00:38:24,800
+so the point here is that
+
+911
+00:38:22,079 --> 00:38:27,520
+you have some functions that's inert in
+
+912
+00:38:24,800 --> 00:38:32,160
+actually that happens in this
+
+913
+00:38:27,520 --> 00:38:34,160
+right now too for example let's um
+
+914
+00:38:32,160 --> 00:38:37,280
+so we have emac this
+
+915
+00:38:34,160 --> 00:38:39,599
+so we have cons you know
+
+916
+00:38:37,280 --> 00:38:41,680
+cons let's say three
+
+917
+00:38:39,599 --> 00:38:43,200
+four okay
+
+918
+00:38:41,680 --> 00:38:45,200
+cons is a
+
+919
+00:38:43,200 --> 00:38:46,960
+data structure it's a fundamental data
+
+920
+00:38:45,200 --> 00:38:49,040
+structure in this
+
+921
+00:38:46,960 --> 00:38:50,720
+but the cons doesn't do anything i mean
+
+922
+00:38:49,040 --> 00:38:54,000
+it doesn't actually
+
+923
+00:38:50,720 --> 00:38:56,240
+compute it just represent a structure
+
+924
+00:38:54,000 --> 00:38:58,400
+so in the same way
+
+925
+00:38:56,240 --> 00:39:01,119
+if you represent htm
+
+926
+00:38:58,400 --> 00:39:03,119
+ml in this you know you have this kind
+
+927
+00:39:01,119 --> 00:39:05,440
+of thing you know it represents
+
+928
+00:39:03,119 --> 00:39:06,560
+structure by the way these these are
+
+929
+00:39:05,440 --> 00:39:08,560
+alternatives you know there are
+
+930
+00:39:06,560 --> 00:39:11,920
+different syntax for
+
+931
+00:39:08,560 --> 00:39:13,200
+uh different proposals to represent xml
+
+932
+00:39:11,920 --> 00:39:16,400
+in this
+
+933
+00:39:13,200 --> 00:39:18,000
+so this is one of them
+
+934
+00:39:16,400 --> 00:39:20,400
+and this is another one you know they
+
+935
+00:39:18,000 --> 00:39:23,839
+have competing proposals
+
+936
+00:39:20,400 --> 00:39:26,720
+to represent xml in this
+
+937
+00:39:23,839 --> 00:39:28,880
+so but my point i want to make is that
+
+938
+00:39:26,720 --> 00:39:31,200
+you some functions you you'll have some
+
+939
+00:39:28,880 --> 00:39:32,480
+functions that's rather in earth such as
+
+940
+00:39:31,200 --> 00:39:34,240
+the cons
+
+941
+00:39:32,480 --> 00:39:34,960
+in the same way here
+
+942
+00:39:34,240 --> 00:39:37,920
+so
+
+943
+00:39:34,960 --> 00:39:40,880
+that brings up to the wolfram language
+
+944
+00:39:37,920 --> 00:39:42,480
+so this notebook that's a function but
+
+945
+00:39:40,880 --> 00:39:44,800
+it doesn't do anything that's a point
+
+946
+00:39:42,480 --> 00:39:46,960
+okay that's a point i'm making
+
+947
+00:39:44,800 --> 00:39:48,400
+this cell is a function but it actually
+
+948
+00:39:46,960 --> 00:39:51,680
+doesn't do anything
+
+949
+00:39:48,400 --> 00:39:53,040
+it only represents some some format some
+
+950
+00:39:51,680 --> 00:39:54,480
+structure
+
+951
+00:39:53,040 --> 00:39:57,200
+but if you
+
+952
+00:39:54,480 --> 00:39:58,000
+open this thing you know open this thing
+
+953
+00:39:57,200 --> 00:39:59,280
+in
+
+954
+00:39:58,000 --> 00:40:02,079
+uh
+
+955
+00:39:59,280 --> 00:40:02,079
+let's save it
+
+956
+00:40:02,240 --> 00:40:06,079
+uh oh permission deny because i have
+
+957
+00:40:04,960 --> 00:40:07,599
+this open
+
+958
+00:40:06,079 --> 00:40:09,680
+close it
+
+959
+00:40:07,599 --> 00:40:12,319
+you know on windows if you have some
+
+960
+00:40:09,680 --> 00:40:13,599
+thing open you cannot modify it until
+
+961
+00:40:12,319 --> 00:40:14,800
+that's closed
+
+962
+00:40:13,599 --> 00:40:18,560
+so now
+
+963
+00:40:14,800 --> 00:40:18,560
+saved okay now if i open
+
+964
+00:40:23,119 --> 00:40:27,920
+there it is okay so
+
+965
+00:40:25,520 --> 00:40:29,280
+so actually it gives me an error so we
+
+966
+00:40:27,920 --> 00:40:32,480
+can see
+
+967
+00:40:29,280 --> 00:40:34,160
+an improperly formatted directive with
+
+968
+00:40:32,480 --> 00:40:37,440
+head symbol
+
+969
+00:40:34,160 --> 00:40:39,839
+was encountered error occur cell on line
+
+970
+00:40:37,440 --> 00:40:39,839
+three
+
+971
+00:40:40,160 --> 00:40:46,480
+yeah it's it's telling me that this is
+
+972
+00:40:42,960 --> 00:40:49,280
+oh there you see i got the style you see
+
+973
+00:40:46,480 --> 00:40:52,480
+the style this is your own syntax
+
+974
+00:40:49,280 --> 00:40:55,040
+so let's do it again
+
+975
+00:40:52,480 --> 00:40:55,040
+close it
+
+976
+00:40:59,440 --> 00:41:03,760
+close it
+
+977
+00:41:00,640 --> 00:41:07,160
+so now we can open this file open
+
+978
+00:41:03,760 --> 00:41:07,160
+open it
+
+979
+00:41:11,599 --> 00:41:15,839
+and what output error information denied
+
+980
+00:41:14,400 --> 00:41:19,079
+what
+
+981
+00:41:15,839 --> 00:41:19,079
+did we
+
+982
+00:41:21,920 --> 00:41:26,800
+opening our profile permission denied
+
+983
+00:41:26,079 --> 00:41:29,280
+oh
+
+984
+00:41:26,800 --> 00:41:31,599
+oh yeah we are opening a wrong file
+
+985
+00:41:29,280 --> 00:41:34,800
+jesus what
+
+986
+00:41:31,599 --> 00:41:37,359
+test 2
+
+987
+00:41:34,800 --> 00:41:40,800
+untitled one
+
+988
+00:41:37,359 --> 00:41:43,359
+so anyway let's save this okay save this
+
+989
+00:41:40,800 --> 00:41:43,359
+save this
+
+990
+00:41:44,319 --> 00:41:51,839
+and back to
+
+991
+00:41:47,280 --> 00:41:51,839
+ah that's why i see yeah never mind
+
+992
+00:41:52,079 --> 00:41:57,520
+what what what was going on was that i
+
+993
+00:41:54,160 --> 00:41:59,359
+have auto save in emacs so that it's
+
+994
+00:41:57,520 --> 00:42:02,240
+trying it's actually trying to save this
+
+995
+00:41:59,359 --> 00:42:04,319
+file
+
+996
+00:42:02,240 --> 00:42:08,000
+you know because we opened it before but
+
+997
+00:42:04,319 --> 00:42:08,000
+i just closed it but anyway so
+
+998
+00:42:09,760 --> 00:42:15,200
+no so let's open it let's go to untitled
+
+999
+00:42:13,119 --> 00:42:19,520
+close that
+
+1000
+00:42:15,200 --> 00:42:22,240
+yeah so we open this file and
+
+1001
+00:42:19,520 --> 00:42:24,720
+you know so let's close it so we get rid
+
+1002
+00:42:22,240 --> 00:42:26,000
+of that error
+
+1003
+00:42:24,720 --> 00:42:27,760
+okay so
+
+1004
+00:42:26,000 --> 00:42:30,560
+let's open this again
+
+1005
+00:42:27,760 --> 00:42:32,800
+there it is okay
+
+1006
+00:42:30,560 --> 00:42:36,480
+now
+
+1007
+00:42:32,800 --> 00:42:36,480
+now i want to add a style
+
+1008
+00:42:40,160 --> 00:42:47,599
+i'm not sure what is the format because
+
+1009
+00:42:44,960 --> 00:42:50,720
+because we just tried the option cell
+
+1010
+00:42:47,599 --> 00:42:54,760
+and there are
+
+1011
+00:42:50,720 --> 00:42:54,760
+like a thousand options
+
+1012
+00:42:58,240 --> 00:43:04,240
+so let's cheat and let's look at
+
+1013
+00:43:01,760 --> 00:43:06,960
+let's just look at the other notebook
+
+1014
+00:43:04,240 --> 00:43:06,960
+what is the
+
+1015
+00:43:09,599 --> 00:43:13,280
+so let's cheat and let's see what
+
+1016
+00:43:12,400 --> 00:43:17,040
+what
+
+1017
+00:43:13,280 --> 00:43:21,280
+style it's using expression id
+
+1018
+00:43:17,040 --> 00:43:21,280
+cell box data raw
+
+1019
+00:43:23,839 --> 00:43:29,280
+this robux you know
+
+1020
+00:43:27,200 --> 00:43:32,480
+so anyway so you see what you are seeing
+
+1021
+00:43:29,280 --> 00:43:34,400
+here is the content of this notebook now
+
+1022
+00:43:32,480 --> 00:43:37,280
+it's getting too too big okay let's
+
+1023
+00:43:34,400 --> 00:43:40,560
+let's close this
+
+1024
+00:43:37,280 --> 00:43:42,079
+what's going on
+
+1025
+00:43:40,560 --> 00:43:44,319
+yeah
+
+1026
+00:43:42,079 --> 00:43:46,880
+don't save
+
+1027
+00:43:44,319 --> 00:43:46,880
+close it
+
+1028
+00:43:49,920 --> 00:43:55,480
+and
+
+1029
+00:43:51,040 --> 00:43:55,480
+because i have auto save
+
+1030
+00:44:08,240 --> 00:44:13,440
+okay finally
+
+1031
+00:44:10,880 --> 00:44:14,800
+so now let's
+
+1032
+00:44:13,440 --> 00:44:15,680
+close this
+
+1033
+00:44:14,800 --> 00:44:18,319
+thing
+
+1034
+00:44:15,680 --> 00:44:21,520
+now let's just save that okay
+
+1035
+00:44:18,319 --> 00:44:22,640
+let's close these two
+
+1036
+00:44:21,520 --> 00:44:25,839
+close
+
+1037
+00:44:22,640 --> 00:44:29,040
+make them simpler save it
+
+1038
+00:44:25,839 --> 00:44:29,040
+now open it
+
+1039
+00:44:29,839 --> 00:44:32,839
+right
+
+1040
+00:44:36,079 --> 00:44:39,780
+oh untitled there
+
+1041
+00:44:39,280 --> 00:44:42,979
+so
+
+1042
+00:44:39,780 --> 00:44:42,979
+[Music]
+
+1043
+00:44:44,000 --> 00:44:47,520
+so there is one cell
+
+1044
+00:44:49,040 --> 00:44:55,359
+oh there there okay so now i got it
+
+1045
+00:44:52,720 --> 00:44:59,440
+so now what you need to do
+
+1046
+00:44:55,359 --> 00:45:02,800
+not style but um what what is it input
+
+1047
+00:44:59,440 --> 00:45:03,520
+okay so that's what you need
+
+1048
+00:45:02,800 --> 00:45:06,000
+so
+
+1049
+00:45:03,520 --> 00:45:08,240
+this cell needs two arguments the first
+
+1050
+00:45:06,000 --> 00:45:11,200
+argument is the expression the second
+
+1051
+00:45:08,240 --> 00:45:13,359
+argument is what type of cell like we
+
+1052
+00:45:11,200 --> 00:45:15,599
+mentioned before active or inactive or
+
+1053
+00:45:13,359 --> 00:45:16,640
+whatever so input
+
+1054
+00:45:15,599 --> 00:45:19,440
+make it
+
+1055
+00:45:16,640 --> 00:45:21,040
+a input cell so that's when you want to
+
+1056
+00:45:19,440 --> 00:45:24,160
+evaluate something
+
+1057
+00:45:21,040 --> 00:45:25,359
+and this you don't need to be a string
+
+1058
+00:45:24,160 --> 00:45:28,560
+yeah so
+
+1059
+00:45:25,359 --> 00:45:30,560
+save it so remove that you cannot have a
+
+1060
+00:45:28,560 --> 00:45:34,000
+hand in parentheses
+
+1061
+00:45:30,560 --> 00:45:35,520
+you cannot have you know trading commas
+
+1062
+00:45:34,000 --> 00:45:37,839
+in from language
+
+1063
+00:45:35,520 --> 00:45:42,000
+so there it is okay
+
+1064
+00:45:37,839 --> 00:45:45,040
+so let's uh save it okay
+
+1065
+00:45:42,000 --> 00:45:45,040
+open this file
+
+1066
+00:45:45,440 --> 00:45:51,839
+okay arrow
+
+1067
+00:45:48,079 --> 00:45:51,839
+arrow okay i think i need
+
+1068
+00:45:55,200 --> 00:46:01,680
+why is it arrow i think i need uh
+
+1069
+00:45:58,400 --> 00:46:05,440
+improperly formatted directive
+
+1070
+00:46:01,680 --> 00:46:07,359
+with head symbol is encountered
+
+1071
+00:46:05,440 --> 00:46:10,359
+line three okay
+
+1072
+00:46:07,359 --> 00:46:10,359
+improperly
+
+1073
+00:46:20,079 --> 00:46:23,839
+yeah okay
+
+1074
+00:46:22,000 --> 00:46:27,640
+so let's
+
+1075
+00:46:23,839 --> 00:46:27,640
+let's make this
+
+1076
+00:46:28,480 --> 00:46:34,960
+i think it needs to be a string then
+
+1077
+00:46:31,760 --> 00:46:34,960
+let's make this
+
+1078
+00:46:38,000 --> 00:46:44,240
+okay save it
+
+1079
+00:46:39,680 --> 00:46:44,240
+let's close that close that close that
+
+1080
+00:46:45,599 --> 00:46:48,400
+okay
+
+1081
+00:46:47,040 --> 00:46:51,920
+open it
+
+1082
+00:46:48,400 --> 00:46:54,480
+there it is fantastic you can see wufang
+
+1083
+00:46:51,920 --> 00:46:57,839
+language
+
+1084
+00:46:54,480 --> 00:46:59,440
+let's see yeah so
+
+1085
+00:46:57,839 --> 00:47:01,599
+so
+
+1086
+00:46:59,440 --> 00:47:03,680
+so this
+
+1087
+00:47:01,599 --> 00:47:07,440
+let's make a backup so this
+
+1088
+00:47:03,680 --> 00:47:07,440
+is what it looks like over there
+
+1089
+00:47:08,240 --> 00:47:11,839
+uh i want to
+
+1090
+00:47:12,160 --> 00:47:17,359
+so let's let me show you something uh
+
+1091
+00:47:14,640 --> 00:47:19,760
+here okay so let's
+
+1092
+00:47:17,359 --> 00:47:22,559
+delete this
+
+1093
+00:47:19,760 --> 00:47:25,680
+and delete this let's just save this and
+
+1094
+00:47:22,559 --> 00:47:29,119
+okay and let's say three plus four here
+
+1095
+00:47:25,680 --> 00:47:31,040
+okay and evaluate it okay so this is uh
+
+1096
+00:47:29,119 --> 00:47:34,160
+kind of hierarchy
+
+1097
+00:47:31,040 --> 00:47:38,119
+so save this
+
+1098
+00:47:34,160 --> 00:47:38,119
+now let's open untitled
+
+1099
+00:47:39,680 --> 00:47:42,880
+okay so it looks like that so you can
+
+1100
+00:47:42,000 --> 00:47:44,559
+see
+
+1101
+00:47:42,880 --> 00:47:49,359
+it's a notebook
+
+1102
+00:47:44,559 --> 00:47:54,319
+then you got a bunch of sales so this is
+
+1103
+00:47:49,359 --> 00:47:54,319
+oh yeah okay this is one giant cell
+
+1104
+00:47:56,079 --> 00:48:03,280
+okay so the notebook so
+
+1105
+00:47:59,359 --> 00:48:03,280
+the notebook so that they
+
+1106
+00:48:05,520 --> 00:48:10,880
+oh yeah so they created one giant cell
+
+1107
+00:48:08,240 --> 00:48:14,000
+to hold all these things so you can see
+
+1108
+00:48:10,880 --> 00:48:15,760
+the heading one here this one
+
+1109
+00:48:14,000 --> 00:48:17,520
+is this part
+
+1110
+00:48:15,760 --> 00:48:20,839
+so heading one
+
+1111
+00:48:17,520 --> 00:48:20,839
+then title
+
+1112
+00:48:20,960 --> 00:48:26,559
+yeah title is the style of this heading
+
+1113
+00:48:24,240 --> 00:48:30,000
+then you know cell change time you know
+
+1114
+00:48:26,559 --> 00:48:34,000
+it records when you make change to it
+
+1115
+00:48:30,000 --> 00:48:37,200
+so because it has a
+
+1116
+00:48:34,000 --> 00:48:39,440
+stepwise backup systems you know you can
+
+1117
+00:48:37,200 --> 00:48:44,240
+like mini software today you can revert
+
+1118
+00:48:39,440 --> 00:48:44,240
+to specific date you modified it
+
+1119
+00:48:44,640 --> 00:48:48,880
+uh
+
+1120
+00:48:45,599 --> 00:48:50,640
+okay so the details are a bit tedious
+
+1121
+00:48:48,880 --> 00:48:52,720
+but basically that's you know that
+
+1122
+00:48:50,640 --> 00:48:55,359
+that's what i'm trying to tell you
+
+1123
+00:48:52,720 --> 00:48:56,559
+so in summary a notebook
+
+1124
+00:48:55,359 --> 00:48:57,599
+content
+
+1125
+00:48:56,559 --> 00:49:00,079
+is just
+
+1126
+00:48:57,599 --> 00:49:03,200
+text file ascii test text file of
+
+1127
+00:49:00,079 --> 00:49:05,280
+wolfram expressions and you are looking
+
+1128
+00:49:03,200 --> 00:49:07,920
+at the content so these expressions are
+
+1129
+00:49:05,280 --> 00:49:11,359
+just wolfen language and wolfen language
+
+1130
+00:49:07,920 --> 00:49:12,480
+has many functions that's
+
+1131
+00:49:11,359 --> 00:49:15,280
+like these
+
+1132
+00:49:12,480 --> 00:49:16,400
+cons or like how you represent
+
+1133
+00:49:15,280 --> 00:49:18,400
+html
+
+1134
+00:49:16,400 --> 00:49:21,440
+in
+
+1135
+00:49:18,400 --> 00:49:23,200
+this syntax you have many functions
+
+1136
+00:49:21,440 --> 00:49:25,440
+that's
+
+1137
+00:49:23,200 --> 00:49:27,599
+not for computational purposes but
+
+1138
+00:49:25,440 --> 00:49:28,839
+rather they represent a
+
+1139
+00:49:27,599 --> 00:49:33,040
+structure
+
+1140
+00:49:28,839 --> 00:49:34,160
+or particular formatting of expressions
+
+1141
+00:49:33,040 --> 00:49:38,960
+so
+
+1142
+00:49:34,160 --> 00:49:41,920
+for example this notebook and cell okay
+
+1143
+00:49:38,960 --> 00:49:41,920
+okay so then
+
+1144
+00:49:42,079 --> 00:49:47,359
+what i want to show you is that
+
+1145
+00:49:45,359 --> 00:49:50,640
+okay what i want to show you is this
+
+1146
+00:49:47,359 --> 00:49:50,640
+part okay so
+
+1147
+00:49:50,880 --> 00:49:54,000
+input let's say
+
+1148
+00:49:57,520 --> 00:50:05,760
+did we uh
+
+1149
+00:50:00,559 --> 00:50:05,760
+okay so i want to have some fancy thing
+
+1150
+00:50:07,119 --> 00:50:10,160
+let's do that okay
+
+1151
+00:50:10,240 --> 00:50:14,559
+so let's
+
+1152
+00:50:12,880 --> 00:50:17,440
+paste that here
+
+1153
+00:50:14,559 --> 00:50:19,119
+okay let's make a several copies of it
+
+1154
+00:50:17,440 --> 00:50:22,160
+now i want to show you
+
+1155
+00:50:19,119 --> 00:50:24,720
+some formats okay for the first one
+
+1156
+00:50:22,160 --> 00:50:28,400
+ctrl shift r
+
+1157
+00:50:24,720 --> 00:50:32,000
+means raw okay that means don't format
+
+1158
+00:50:28,400 --> 00:50:33,680
+you know anything just um
+
+1159
+00:50:32,000 --> 00:50:37,440
+ctrl shift r
+
+1160
+00:50:33,680 --> 00:50:38,640
+and wait ctrl shift r okay
+
+1161
+00:50:37,440 --> 00:50:41,359
+uh
+
+1162
+00:50:38,640 --> 00:50:46,800
+then this one
+
+1163
+00:50:41,359 --> 00:50:46,800
+control shift i for standard input what
+
+1164
+00:50:47,760 --> 00:50:51,240
+why is it
+
+1165
+00:50:56,880 --> 00:51:00,160
+you can just shift ah
+
+1166
+00:51:00,880 --> 00:51:06,839
+i don't know why it adds a space there
+
+1167
+00:51:10,640 --> 00:51:16,319
+ctrl shift r
+
+1168
+00:51:12,880 --> 00:51:16,319
+and it adds a space
+
+1169
+00:51:18,000 --> 00:51:23,839
+mindset
+
+1170
+00:51:19,920 --> 00:51:23,839
+ctrl shift i
+
+1171
+00:51:23,920 --> 00:51:28,960
+it shouldn't add a space ctrl shift n
+
+1172
+00:51:31,599 --> 00:51:36,400
+okay i haven't
+
+1173
+00:51:33,280 --> 00:51:38,960
+wow a lot comment wow thank you guys
+
+1174
+00:51:36,400 --> 00:51:41,280
+and thank you ofamio i haven't seen the
+
+1175
+00:51:38,960 --> 00:51:44,240
+comments i think that's it for today i
+
+1176
+00:51:41,280 --> 00:51:48,520
+was gonna work on
+
+1177
+00:51:44,240 --> 00:51:48,520
+my wolfram language and
+
+1178
+00:51:51,440 --> 00:51:56,000
+so i'm going to read comments
+
+1179
+00:51:54,480 --> 00:51:59,760
+you can read the wolfram language
+
+1180
+00:51:56,000 --> 00:52:01,359
+notebook in emacs with that mod yes of
+
+1181
+00:51:59,760 --> 00:52:03,440
+course you you you mean the wolfram
+
+1182
+00:52:01,359 --> 00:52:05,760
+language mod kassaw from language mod
+
+1183
+00:52:03,440 --> 00:52:08,400
+yes that's your that's what you are
+
+1184
+00:52:05,760 --> 00:52:08,400
+seeing here
+
+1185
+00:52:14,960 --> 00:52:19,760
+uh latest wolfram version i have to talk
+
+1186
+00:52:17,599 --> 00:52:22,640
+to them because i don't you know i
+
+1187
+00:52:19,760 --> 00:52:25,920
+realized i have the version 12.
+
+1188
+00:52:22,640 --> 00:52:28,640
+right now they are on version 13.
+
+1189
+00:52:25,920 --> 00:52:31,200
+so i need to talk to them to you know to
+
+1190
+00:52:28,640 --> 00:52:32,720
+get me the latest version but it should
+
+1191
+00:52:31,200 --> 00:52:34,960
+be the same by the way you know the
+
+1192
+00:52:32,720 --> 00:52:37,040
+wolfen language basically you can expect
+
+1193
+00:52:34,960 --> 00:52:38,960
+10 years
+
+1194
+00:52:37,040 --> 00:52:41,960
+without any change any code you know
+
+1195
+00:52:38,960 --> 00:52:41,960
+compatibility
+
+1196
+00:52:42,000 --> 00:52:48,400
+uh you can read and write wolfram
+
+1197
+00:52:44,000 --> 00:52:48,400
+language notebook in e-max with that mod
+
+1198
+00:52:52,480 --> 00:52:58,760
+opening clubhouse shaped 10 iq points
+
+1199
+00:52:55,760 --> 00:52:58,760
+what
+
+1200
+00:53:02,400 --> 00:53:09,359
+so german says is it possible to run a
+
+1201
+00:53:05,839 --> 00:53:12,800
+program like a keystroke counter
+
+1202
+00:53:09,359 --> 00:53:15,680
+outside mathematica while writing a web
+
+1203
+00:53:12,800 --> 00:53:17,680
+or docs
+
+1204
+00:53:15,680 --> 00:53:20,079
+yeah of course i mean you have you know
+
+1205
+00:53:17,680 --> 00:53:20,079
+you have
+
+1206
+00:53:20,400 --> 00:53:24,880
+how long have i been talking
+
+1207
+00:53:22,800 --> 00:53:25,760
+50 minutes i think that's it for today
+
+1208
+00:53:24,880 --> 00:53:28,400
+so
+
+1209
+00:53:25,760 --> 00:53:30,240
+you know i was going to work on
+
+1210
+00:53:28,400 --> 00:53:33,359
+my packages but
+
+1211
+00:53:30,240 --> 00:53:35,520
+explain explaining the notebook format
+
+1212
+00:53:33,359 --> 00:53:37,359
+took took an hour
+
+1213
+00:53:35,520 --> 00:53:42,119
+uh but it's a good thing because i
+
+1214
+00:53:37,359 --> 00:53:42,119
+wanted to explain this for a while um
+
+1215
+00:53:43,040 --> 00:53:46,160
+but
+
+1216
+00:53:43,920 --> 00:53:48,480
+you know there's a there's a major point
+
+1217
+00:53:46,160 --> 00:53:51,839
+i want to get to i want to show you some
+
+1218
+00:53:48,480 --> 00:53:51,839
+of the difference between
+
+1219
+00:53:51,920 --> 00:53:56,960
+uh let's see
+
+1220
+00:53:54,160 --> 00:53:59,280
+let's try it again okay let's
+
+1221
+00:53:56,960 --> 00:54:00,880
+ctrl shift
+
+1222
+00:53:59,280 --> 00:54:02,880
+r
+
+1223
+00:54:00,880 --> 00:54:05,359
+ctrl shift i
+
+1224
+00:54:02,880 --> 00:54:08,319
+ctrl shift n
+
+1225
+00:54:05,359 --> 00:54:12,000
+this is a major part i want to show you
+
+1226
+00:54:08,319 --> 00:54:13,359
+show you guys okay so let's do it again
+
+1227
+00:54:12,000 --> 00:54:14,800
+close that
+
+1228
+00:54:13,359 --> 00:54:17,040
+so new
+
+1229
+00:54:14,800 --> 00:54:20,400
+save
+
+1230
+00:54:17,040 --> 00:54:21,760
+test three mb okay so i'm gonna show you
+
+1231
+00:54:20,400 --> 00:54:25,440
+this
+
+1232
+00:54:21,760 --> 00:54:27,440
+three plus one 3 plus 1 okay let's make
+
+1233
+00:54:25,440 --> 00:54:30,640
+some copies of these
+
+1234
+00:54:27,440 --> 00:54:36,599
+three copies okay wait
+
+1235
+00:54:30,640 --> 00:54:36,599
+let's say 3 plus x squared okay
+
+1236
+00:54:39,839 --> 00:54:45,680
+copy copy and the first one
+
+1237
+00:54:42,960 --> 00:54:47,920
+ctrl shift
+
+1238
+00:54:45,680 --> 00:54:49,680
+r let me show you what that is okay you
+
+1239
+00:54:47,920 --> 00:54:52,640
+go to the cell
+
+1240
+00:54:49,680 --> 00:54:55,200
+and you can say convert to basically you
+
+1241
+00:54:52,640 --> 00:54:57,760
+specify what kind of representation or
+
+1242
+00:54:55,200 --> 00:55:01,680
+style okay so you have
+
+1243
+00:54:57,760 --> 00:55:04,240
+ctrl shift r for raw input form that
+
+1244
+00:55:01,680 --> 00:55:06,960
+means represent this expression
+
+1245
+00:55:04,240 --> 00:55:10,079
+in plain ascii no
+
+1246
+00:55:06,960 --> 00:55:12,079
+no fancy rendering nothing just plain
+
+1247
+00:55:10,079 --> 00:55:15,760
+the most basic wolfram language
+
+1248
+00:55:12,079 --> 00:55:18,880
+expression that's this raw input form
+
+1249
+00:55:15,760 --> 00:55:23,280
+okay so ctrl shift r then you also have
+
+1250
+00:55:18,880 --> 00:55:23,280
+ctrl shift i for input form that's
+
+1251
+00:55:23,440 --> 00:55:28,400
+that's that's um that's also ascii but
+
+1252
+00:55:27,040 --> 00:55:31,920
+less raw
+
+1253
+00:55:28,400 --> 00:55:34,000
+raw is the most you know the most simple
+
+1254
+00:55:31,920 --> 00:55:36,960
+then you have the input form then you
+
+1255
+00:55:34,000 --> 00:55:38,720
+have the standard form ctrl shift n
+
+1256
+00:55:36,960 --> 00:55:39,760
+okay so let me let me show you one by
+
+1257
+00:55:38,720 --> 00:55:41,520
+one
+
+1258
+00:55:39,760 --> 00:55:43,440
+ctrl shift r
+
+1259
+00:55:41,520 --> 00:55:45,599
+so that's the raw
+
+1260
+00:55:43,440 --> 00:55:48,720
+input form the first one
+
+1261
+00:55:45,599 --> 00:55:49,520
+ctrl shift i so the second one is input
+
+1262
+00:55:48,720 --> 00:55:52,480
+form
+
+1263
+00:55:49,520 --> 00:55:53,680
+then the third one is let's to control
+
+1264
+00:55:52,480 --> 00:55:56,480
+shift
+
+1265
+00:55:53,680 --> 00:55:58,480
+n that's a standard form so that's why
+
+1266
+00:55:56,480 --> 00:56:01,760
+you you started to see
+
+1267
+00:55:58,480 --> 00:56:03,680
+this expression you know the raised
+
+1268
+00:56:01,760 --> 00:56:04,559
+so let me let me
+
+1269
+00:56:03,680 --> 00:56:06,720
+let me
+
+1270
+00:56:04,559 --> 00:56:09,520
+also type some text
+
+1271
+00:56:06,720 --> 00:56:09,520
+o7
+
+1272
+00:56:12,559 --> 00:56:19,920
+this is raw input form okay
+
+1273
+00:56:17,119 --> 00:56:19,920
+o7
+
+1274
+00:56:22,559 --> 00:56:28,200
+this is
+
+1275
+00:56:24,640 --> 00:56:28,200
+input form
+
+1276
+00:56:30,160 --> 00:56:35,280
+then all seven
+
+1277
+00:56:32,799 --> 00:56:35,280
+this is
+
+1278
+00:56:35,520 --> 00:56:39,599
+standard form
+
+1279
+00:56:38,079 --> 00:56:43,280
+and
+
+1280
+00:56:39,599 --> 00:56:47,280
+let's just say standard form okay so now
+
+1281
+00:56:43,280 --> 00:56:50,000
+save this now let's open them in
+
+1282
+00:56:47,280 --> 00:56:50,960
+uh raw let's see what they are so test
+
+1283
+00:56:50,000 --> 00:56:53,680
+three
+
+1284
+00:56:50,960 --> 00:56:53,680
+so you can see
+
+1285
+00:56:55,440 --> 00:56:59,680
+so you can see here it says this is raw
+
+1286
+00:56:57,680 --> 00:57:01,599
+input from text
+
+1287
+00:56:59,680 --> 00:57:03,200
+then you have the cell
+
+1288
+00:57:01,599 --> 00:57:06,160
+you can see cell
+
+1289
+00:57:03,200 --> 00:57:09,760
+3 plus x squared input okay
+
+1290
+00:57:06,160 --> 00:57:11,599
+blah blah blah then you have this
+
+1291
+00:57:09,760 --> 00:57:13,359
+so this input form that's the first one
+
+1292
+00:57:11,599 --> 00:57:16,799
+this uh this is
+
+1293
+00:57:13,359 --> 00:57:19,359
+this is raw input form okay that's this
+
+1294
+00:57:16,799 --> 00:57:21,599
+one that's what this one okay
+
+1295
+00:57:19,359 --> 00:57:23,440
+raw input form so you can see
+
+1296
+00:57:21,599 --> 00:57:25,920
+the expression is here
+
+1297
+00:57:23,440 --> 00:57:26,960
+you know very the most simple possible
+
+1298
+00:57:25,920 --> 00:57:28,160
+okay
+
+1299
+00:57:26,960 --> 00:57:30,400
+then
+
+1300
+00:57:28,160 --> 00:57:32,640
+let's look at the second one the input
+
+1301
+00:57:30,400 --> 00:57:36,000
+form
+
+1302
+00:57:32,640 --> 00:57:38,960
+uh this one okay so
+
+1303
+00:57:36,000 --> 00:57:42,079
+so go down so you see it says this is
+
+1304
+00:57:38,960 --> 00:57:45,680
+input form then then you you started to
+
+1305
+00:57:42,079 --> 00:57:49,359
+see you see notice this box data
+
+1306
+00:57:45,680 --> 00:57:52,640
+this box data then you have row box
+
+1307
+00:57:49,359 --> 00:57:55,760
+then your box is a list your box is a
+
+1308
+00:57:52,640 --> 00:57:57,280
+list of many elements you have you know
+
+1309
+00:57:55,760 --> 00:57:59,599
+a string three
+
+1310
+00:57:57,280 --> 00:58:01,760
+then a string empty space then a string
+
+1311
+00:57:59,599 --> 00:58:03,839
+plus in an empty space
+
+1312
+00:58:01,760 --> 00:58:06,319
+then another row box
+
+1313
+00:58:03,839 --> 00:58:09,520
+uh you know three blah blah blah you
+
+1314
+00:58:06,319 --> 00:58:11,920
+know that's input
+
+1315
+00:58:09,520 --> 00:58:14,480
+so that's the second one
+
+1316
+00:58:11,920 --> 00:58:16,160
+okay that's this one but you know they
+
+1317
+00:58:14,480 --> 00:58:19,760
+look the same but you might wonder so
+
+1318
+00:58:16,160 --> 00:58:21,280
+what why what's with this raw box
+
+1319
+00:58:19,760 --> 00:58:25,520
+and so on because
+
+1320
+00:58:21,280 --> 00:58:25,520
+it allows you to you see when i click
+
+1321
+00:58:25,680 --> 00:58:30,559
+it's
+
+1322
+00:58:26,799 --> 00:58:32,720
+syntax aware you know it's it
+
+1323
+00:58:30,559 --> 00:58:36,640
+because of these raw boxes
+
+1324
+00:58:32,720 --> 00:58:37,680
+i can click and select by semantic unit
+
+1325
+00:58:36,640 --> 00:58:39,440
+you know
+
+1326
+00:58:37,680 --> 00:58:41,920
+for example click
+
+1327
+00:58:39,440 --> 00:58:44,000
+twice three times four times you know
+
+1328
+00:58:41,920 --> 00:58:46,160
+but here i cannot do it you know it's
+
+1329
+00:58:44,000 --> 00:58:46,160
+just
+
+1330
+00:58:46,880 --> 00:58:52,640
+it's just like the whole thing
+
+1331
+00:58:50,559 --> 00:58:55,920
+you can see this when you have more
+
+1332
+00:58:52,640 --> 00:59:00,880
+complicated expressions uh anyway so so
+
+1333
+00:58:55,920 --> 00:59:03,119
+let's get let's go on to look at the um
+
+1334
+00:59:00,880 --> 00:59:04,400
+the standard form there it gets more
+
+1335
+00:59:03,119 --> 00:59:06,880
+complex okay
+
+1336
+00:59:04,400 --> 00:59:08,160
+so you go down and you can see standard
+
+1337
+00:59:06,880 --> 00:59:09,680
+form
+
+1338
+00:59:08,160 --> 00:59:12,880
+then you can see
+
+1339
+00:59:09,680 --> 00:59:16,000
+you know box data roblox
+
+1340
+00:59:12,880 --> 00:59:18,240
+superscript box
+
+1341
+00:59:16,000 --> 00:59:20,480
+oh still pretty simple okay so this is
+
+1342
+00:59:18,240 --> 00:59:22,640
+this is actually what you want
+
+1343
+00:59:20,480 --> 00:59:23,760
+anyway so that
+
+1344
+00:59:22,640 --> 00:59:25,440
+this
+
+1345
+00:59:23,760 --> 00:59:28,079
+that's what i'm trying to do is to
+
+1346
+00:59:25,440 --> 00:59:30,000
+explain what are these raw box
+
+1347
+00:59:28,079 --> 00:59:32,079
+and box data are for
+
+1348
+00:59:30,000 --> 00:59:35,040
+they are essentially you know like tech
+
+1349
+00:59:32,079 --> 00:59:37,839
+you know la tech tech they represent you
+
+1350
+00:59:35,040 --> 00:59:40,720
+know they kind of capture the position
+
+1351
+00:59:37,839 --> 00:59:42,400
+you know for example roblox is just a
+
+1352
+00:59:40,720 --> 00:59:43,599
+box of things
+
+1353
+00:59:42,400 --> 00:59:45,760
+it's
+
+1354
+00:59:43,599 --> 00:59:47,760
+it doesn't represent any computation it
+
+1355
+00:59:45,760 --> 00:59:50,079
+it's it's trying to
+
+1356
+00:59:47,760 --> 00:59:52,079
+it's trying to represent the position of
+
+1357
+00:59:50,079 --> 00:59:54,160
+things that's why you have these rule
+
+1358
+00:59:52,079 --> 00:59:56,480
+box so in other words
+
+1359
+00:59:54,160 --> 00:59:59,359
+you are trying to
+
+1360
+00:59:56,480 --> 01:00:03,040
+have a format that specify
+
+1361
+00:59:59,359 --> 01:00:03,040
+arbitrarily complicated
+
+1362
+01:00:03,200 --> 01:00:09,280
+expressions like that
+
+1363
+01:00:05,440 --> 01:00:11,680
+in a nested syntax
+
+1364
+01:00:09,280 --> 01:00:14,000
+and also represent the position that so
+
+1365
+01:00:11,680 --> 01:00:17,680
+that's why you have this row roblox and
+
+1366
+01:00:14,000 --> 01:00:18,400
+superscript box things
+
+1367
+01:00:17,680 --> 01:00:20,640
+but
+
+1368
+01:00:18,400 --> 01:00:22,480
+but my point the point i want to make is
+
+1369
+01:00:20,640 --> 01:00:25,280
+that if you want the things to be the
+
+1370
+01:00:22,480 --> 01:00:27,040
+most simple possible just make them
+
+1371
+01:00:25,280 --> 01:00:31,680
+raw input form
+
+1372
+01:00:27,040 --> 01:00:33,760
+but you miss a lot you miss a lot
+
+1373
+01:00:31,680 --> 01:00:38,160
+features for example
+
+1374
+01:00:33,760 --> 01:00:38,160
+for example this is the input form
+
+1375
+01:00:38,640 --> 01:00:44,000
+this is the input form this is the
+
+1376
+01:00:40,319 --> 01:00:46,319
+standard form i can click on that and
+
+1377
+01:00:44,000 --> 01:00:48,079
+and subsequently depending on where my
+
+1378
+01:00:46,319 --> 01:00:52,400
+crews are
+
+1379
+01:00:48,079 --> 01:00:52,400
+subsequently expand the expression
+
+1380
+01:00:53,040 --> 01:00:58,000
+by semantic unit for example i can click
+
+1381
+01:00:55,680 --> 01:01:02,000
+on that then i got the whole thing oh if
+
+1382
+01:00:58,000 --> 01:01:03,119
+i click start here with the plus sign
+
+1383
+01:01:02,000 --> 01:01:05,839
+see
+
+1384
+01:01:03,119 --> 01:01:09,280
+so this is a standard form this is the
+
+1385
+01:01:05,839 --> 01:01:11,680
+the most normal now over here is the
+
+1386
+01:01:09,280 --> 01:01:12,880
+input form i can also do that you can
+
+1387
+01:01:11,680 --> 01:01:14,799
+see
+
+1388
+01:01:12,880 --> 01:01:19,359
+i can start here
+
+1389
+01:01:14,799 --> 01:01:20,400
+or i can start here or i can start here
+
+1390
+01:01:19,359 --> 01:01:22,319
+but
+
+1391
+01:01:20,400 --> 01:01:24,799
+over here it's the
+
+1392
+01:01:22,319 --> 01:01:26,160
+raw input form you don't have that you
+
+1393
+01:01:24,799 --> 01:01:29,440
+just
+
+1394
+01:01:26,160 --> 01:01:33,920
+you know you just select the whole line
+
+1395
+01:01:29,440 --> 01:01:33,920
+okay that's uh anyway so that's it
+
+1396
+01:01:36,480 --> 01:01:41,599
+oh so how do you filter an array to
+
+1397
+01:01:39,359 --> 01:01:44,000
+exclude numbers less than 50 that's the
+
+1398
+01:01:41,599 --> 01:01:45,839
+most simple okay so let me answer
+
+1399
+01:01:44,000 --> 01:01:48,480
+that's a good question that's that's the
+
+1400
+01:01:45,839 --> 01:01:48,480
+most simple
+
+1401
+01:01:50,079 --> 01:01:54,799
+so let's do a let's do a random uh
+
+1402
+01:01:55,200 --> 01:02:00,880
+random integer okay random integer
+
+1403
+01:01:58,319 --> 01:02:02,079
+uh let's say
+
+1404
+01:02:00,880 --> 01:02:03,760
+10
+
+1405
+01:02:02,079 --> 01:02:04,839
+let's say 10 okay
+
+1406
+01:02:03,760 --> 01:02:10,880
+10 of
+
+1407
+01:02:04,839 --> 01:02:10,880
+them uh random integer under 100 okay
+
+1408
+01:02:11,359 --> 01:02:18,839
+from from 1 to 100 or 0 to 100 so we got
+
+1409
+01:02:14,720 --> 01:02:22,480
+10 of them so now let's say that
+
+1410
+01:02:18,839 --> 01:02:24,720
+2x uh x
+
+1411
+01:02:22,480 --> 01:02:25,760
+you know one thing i don't like is the
+
+1412
+01:02:24,720 --> 01:02:28,400
+wolfram
+
+1413
+01:02:25,760 --> 01:02:30,640
+notebook doesn't have good
+
+1414
+01:02:28,400 --> 01:02:34,000
+text editing abilities
+
+1415
+01:02:30,640 --> 01:02:36,960
+that's why i you know working emacs
+
+1416
+01:02:34,000 --> 01:02:39,200
+so okay so x is this bunch of numbers so
+
+1417
+01:02:36,960 --> 01:02:41,440
+you want to filter out so
+
+1418
+01:02:39,200 --> 01:02:43,599
+you can do it in many ways you can
+
+1419
+01:02:41,440 --> 01:02:46,240
+so when you have at least this this is a
+
+1420
+01:02:43,599 --> 01:02:48,799
+huge topic you know
+
+1421
+01:02:46,240 --> 01:02:50,240
+so when you have a list you can filter
+
+1422
+01:02:48,799 --> 01:02:53,200
+by a function
+
+1423
+01:02:50,240 --> 01:02:55,680
+or by a pattern
+
+1424
+01:02:53,200 --> 01:02:58,799
+yeah in general so basically the the
+
+1425
+01:02:55,680 --> 01:02:58,799
+cases is
+
+1426
+01:02:59,839 --> 01:03:05,760
+is is by a pattern okay so uh not case
+
+1427
+01:03:03,280 --> 01:03:05,760
+cases
+
+1428
+01:03:06,640 --> 01:03:11,839
+yeah so so we if you want to do it by a
+
+1429
+01:03:09,680 --> 01:03:13,599
+pattern then you just say
+
+1430
+01:03:11,839 --> 01:03:16,319
+cases
+
+1431
+01:03:13,599 --> 01:03:18,720
+x then give a pattern so the pattern
+
+1432
+01:03:16,319 --> 01:03:18,720
+should be
+
+1433
+01:03:19,839 --> 01:03:23,760
+you know in this case pattern is not
+
+1434
+01:03:21,760 --> 01:03:27,119
+suitable it's more suitable if you give
+
+1435
+01:03:23,760 --> 01:03:30,319
+a function but however you can represent
+
+1436
+01:03:27,119 --> 01:03:33,599
+the function in a bio pattern so the way
+
+1437
+01:03:30,319 --> 01:03:33,599
+the way you do that is
+
+1438
+01:03:33,760 --> 01:03:36,720
+you can represent the function by your
+
+1439
+01:03:35,520 --> 01:03:38,400
+pattern
+
+1440
+01:03:36,720 --> 01:03:40,640
+uh
+
+1441
+01:03:38,400 --> 01:03:45,839
+yeah okay so i haven't
+
+1442
+01:03:40,640 --> 01:03:45,839
+so i need to look up the patterns syntax
+
+1443
+01:03:49,200 --> 01:03:55,440
+yeah okay let's just do select okay
+
+1444
+01:03:51,680 --> 01:03:58,400
+let's first of all let's do select um
+
+1445
+01:03:55,440 --> 01:04:01,599
+select is allow is what allows you to
+
+1446
+01:03:58,400 --> 01:04:04,319
+filter the by a function okay so select
+
+1447
+01:04:01,599 --> 01:04:05,200
+x then we just write the function
+
+1448
+01:04:04,319 --> 01:04:06,640
+uh
+
+1449
+01:04:05,200 --> 01:04:09,119
+say x
+
+1450
+01:04:06,640 --> 01:04:13,359
+uh the function will be
+
+1451
+01:04:09,119 --> 01:04:14,319
+argument less than 50 true okay
+
+1452
+01:04:13,359 --> 01:04:17,119
+then
+
+1453
+01:04:14,319 --> 01:04:18,480
+that okay that should do it there there
+
+1454
+01:04:17,119 --> 01:04:20,880
+it is
+
+1455
+01:04:18,480 --> 01:04:23,359
+so if it's so this is a function you
+
+1456
+01:04:20,880 --> 01:04:26,960
+know this is a function shortcut
+
+1457
+01:04:23,359 --> 01:04:28,880
+so it uh yeah it removes elements beyond
+
+1458
+01:04:26,960 --> 01:04:29,760
+you know more than 50.
+
+1459
+01:04:28,880 --> 01:04:32,079
+and
+
+1460
+01:04:29,760 --> 01:04:35,359
+the full syntax for that you can another
+
+1461
+01:04:32,079 --> 01:04:38,319
+way to write this is is like this
+
+1462
+01:04:35,359 --> 01:04:41,520
+more understandable function
+
+1463
+01:04:38,319 --> 01:04:43,599
+so function argument let's say x
+
+1464
+01:04:41,520 --> 01:04:44,559
+let's say let's use some other symbols
+
+1465
+01:04:43,599 --> 01:04:47,039
+so
+
+1466
+01:04:44,559 --> 01:04:47,039
+uh y
+
+1467
+01:04:47,839 --> 01:04:52,160
+less than 50.
+
+1468
+01:04:50,079 --> 01:04:53,440
+you know this is another way to do it
+
+1469
+01:04:52,160 --> 01:04:57,599
+same result
+
+1470
+01:04:53,440 --> 01:04:57,599
+but you can also use cases so
+
+1471
+01:05:00,000 --> 01:05:01,520
+the
+
+1472
+01:05:00,720 --> 01:05:04,160
+so
+
+1473
+01:05:01,520 --> 01:05:07,520
+if you so the difference is that if you
+
+1474
+01:05:04,160 --> 01:05:10,480
+use select you use a function to filter
+
+1475
+01:05:07,520 --> 01:05:13,839
+out so the function returns true
+
+1476
+01:05:10,480 --> 01:05:17,920
+it stays it returns force the item is
+
+1477
+01:05:13,839 --> 01:05:20,640
+removed or you can use cases cases you
+
+1478
+01:05:17,920 --> 01:05:23,599
+give a user pattern if the pattern match
+
+1479
+01:05:20,640 --> 01:05:23,599
+the element states
+
+1480
+01:05:23,920 --> 01:05:28,240
+so
+
+1481
+01:05:25,359 --> 01:05:30,400
+if we want to use a pattern
+
+1482
+01:05:28,240 --> 01:05:33,200
+we need a pattern to represent any
+
+1483
+01:05:30,400 --> 01:05:34,720
+number that's less than 50. now this is
+
+1484
+01:05:33,200 --> 01:05:37,039
+you know this is generally not
+
+1485
+01:05:34,720 --> 01:05:39,280
+represented by a pattern
+
+1486
+01:05:37,039 --> 01:05:41,359
+you know because
+
+1487
+01:05:39,280 --> 01:05:42,240
+a number less than 50 that's you know
+
+1488
+01:05:41,359 --> 01:05:46,160
+that's
+
+1489
+01:05:42,240 --> 01:05:46,160
+but however the pattern allows you to
+
+1490
+01:05:46,240 --> 01:05:50,079
+represent a function by a pattern but i
+
+1491
+01:05:48,240 --> 01:05:51,200
+don't i don't remember the syntax of
+
+1492
+01:05:50,079 --> 01:05:54,960
+hand
+
+1493
+01:05:51,200 --> 01:05:54,960
+but i believe it's like this okay
+
+1494
+01:05:57,039 --> 01:06:02,480
+so you just say anything let's just try
+
+1495
+01:05:59,440 --> 01:06:03,280
+it okay so you just say anything
+
+1496
+01:06:02,480 --> 01:06:05,599
+and
+
+1497
+01:06:03,280 --> 01:06:07,920
+and question mark
+
+1498
+01:06:05,599 --> 01:06:12,079
+then followed by the function i think
+
+1499
+01:06:07,920 --> 01:06:13,280
+that's how you do it let's just try okay
+
+1500
+01:06:12,079 --> 01:06:14,799
+do it
+
+1501
+01:06:13,280 --> 01:06:16,240
+no
+
+1502
+01:06:14,799 --> 01:06:18,720
+uh
+
+1503
+01:06:16,240 --> 01:06:21,520
+so what is so we need to look at the
+
+1504
+01:06:18,720 --> 01:06:24,720
+patterns okay we should be able to do
+
+1505
+01:06:21,520 --> 01:06:24,720
+quick quickly
+
+1506
+01:06:26,160 --> 01:06:32,760
+you know there's so many like so many
+
+1507
+01:06:28,720 --> 01:06:32,760
+different ways to do this
+
+1508
+01:06:36,160 --> 01:06:40,559
+okay i think that's it
+
+1509
+01:06:38,400 --> 01:06:45,400
+pattern matching functions rules and
+
+1510
+01:06:40,559 --> 01:06:45,400
+patterns uh unimaginable functions
+
+1511
+01:06:55,359 --> 01:06:59,760
+so what is the
+
+1512
+01:06:56,960 --> 01:07:04,000
+what what is the way to represent god i
+
+1513
+01:06:59,760 --> 01:07:07,119
+forgot let's see let's try that
+
+1514
+01:07:04,000 --> 01:07:10,400
+patterns in transformation rules there
+
+1515
+01:07:07,119 --> 01:07:14,799
+okay so here's a summary of the patterns
+
+1516
+01:07:10,400 --> 01:07:17,359
+uh we want yeah so
+
+1517
+01:07:14,799 --> 01:07:19,520
+so yeah that is the function
+
+1518
+01:07:17,359 --> 01:07:22,319
+oh yeah so the function needs to return
+
+1519
+01:07:19,520 --> 01:07:22,319
+true or false
+
+1520
+01:07:25,599 --> 01:07:34,160
+so why why is uh why is this not correct
+
+1521
+01:07:30,720 --> 01:07:35,359
+maybe we need a parenthesis no
+
+1522
+01:07:34,160 --> 01:07:37,200
+i know
+
+1523
+01:07:35,359 --> 01:07:38,160
+oh you need a parenthesis that's why
+
+1524
+01:07:37,200 --> 01:07:39,280
+okay
+
+1525
+01:07:38,160 --> 01:07:42,720
+here it is
+
+1526
+01:07:39,280 --> 01:07:44,240
+so here is how you represent
+
+1527
+01:07:42,720 --> 01:07:46,079
+a function
+
+1528
+01:07:44,240 --> 01:07:47,599
+by a pattern
+
+1529
+01:07:46,079 --> 01:07:50,640
+you know this you know
+
+1530
+01:07:47,599 --> 01:07:51,520
+so this expression means it's a pattern
+
+1531
+01:07:50,640 --> 01:07:53,680
+okay
+
+1532
+01:07:51,520 --> 01:07:55,680
+it's a pattern the underscore means a
+
+1533
+01:07:53,680 --> 01:07:57,839
+pattern okay
+
+1534
+01:07:55,680 --> 01:08:00,160
+the underscore means a pattern followed
+
+1535
+01:07:57,839 --> 01:08:01,599
+by a question mark so that means
+
+1536
+01:08:00,160 --> 01:08:03,920
+this pattern
+
+1537
+01:08:01,599 --> 01:08:05,680
+underscore it means anything okay so
+
+1538
+01:08:03,920 --> 01:08:06,799
+it'll match anything
+
+1539
+01:08:05,680 --> 01:08:10,079
+except
+
+1540
+01:08:06,799 --> 01:08:11,599
+only only if this function returns true
+
+1541
+01:08:10,079 --> 01:08:15,520
+so
+
+1542
+01:08:11,599 --> 01:08:15,520
+you know so it's quite flexible
+
+1543
+01:08:16,799 --> 01:08:22,159
+cases yeah okay so
+
+1544
+01:08:19,839 --> 01:08:24,640
+okay okay thank you guys
+
+1545
+01:08:22,159 --> 01:08:27,600
+bye guys
+
+1546
+01:08:24,640 --> 01:08:29,359
+right guys i i you know i rambled over
+
+1547
+01:08:27,600 --> 01:08:32,000
+this hour
+
+1548
+01:08:29,359 --> 01:08:36,679
+uh trying to explain the notebook format
+
+1549
+01:08:32,000 --> 01:08:36,679
+but it's not a good one okay bye guys
+

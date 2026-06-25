@@ -1,0 +1,6320 @@
+1
+00:00:06,259 --> 00:00:10,950
+good morning everyone
+
+2
+00:00:08,099 --> 00:00:14,150
+welcome to another episode of our talk
+
+3
+00:00:10,950 --> 00:00:20,400
+show today's 2019
+
+4
+00:00:14,150 --> 00:00:25,740
+November 10th Sunday 3 o clock p.m. San
+
+5
+00:00:20,400 --> 00:00:28,080
+Francisco time and we need to talk we
+
+6
+00:00:25,740 --> 00:00:31,080
+have a lot to talk and today's main
+
+7
+00:00:28,080 --> 00:00:34,610
+topic is live coding plus tutorial of
+
+8
+00:00:31,080 --> 00:00:38,940
+Emacs Lisp so let's start brave and
+
+9
+00:00:34,610 --> 00:00:49,620
+let's see what's going on in saudi
+
+10
+00:00:38,940 --> 00:00:52,530
+discord Saudi fan club you know so I
+
+11
+00:00:49,620 --> 00:00:59,390
+want to thank to Emily and a lot of
+
+12
+00:00:52,530 --> 00:01:07,650
+people there who you know who helped
+
+13
+00:00:59,390 --> 00:01:10,560
+making the discord channel thrive and so
+
+14
+00:01:07,650 --> 00:01:13,100
+there's there's a lot interesting stuff
+
+15
+00:01:10,560 --> 00:01:17,070
+there's a lot photos of keyboards and
+
+16
+00:01:13,100 --> 00:01:20,520
+keyboards and real life pictures of
+
+17
+00:01:17,070 --> 00:01:26,159
+different cities and stuff so if you are
+
+18
+00:01:20,520 --> 00:01:29,490
+not there join up so discord you can
+
+19
+00:01:26,159 --> 00:01:32,579
+find the URL at let's go to my exit out
+
+20
+00:01:29,490 --> 00:01:36,210
+page show and you know sound Hawk show
+
+21
+00:01:32,579 --> 00:01:41,790
+page and you can see the discord channel
+
+22
+00:01:36,210 --> 00:01:48,329
+where is it okay here so join up it's
+
+23
+00:01:41,790 --> 00:01:50,880
+fun you know so good morning Matic so
+
+24
+00:01:48,329 --> 00:01:52,500
+technically it's like a fan club
+
+25
+00:01:50,880 --> 00:01:56,850
+you know how I asked you would you call
+
+26
+00:01:52,500 --> 00:02:00,149
+it but but you know you guys you know we
+
+27
+00:01:56,850 --> 00:02:02,490
+are we have certain interest you know
+
+28
+00:02:00,149 --> 00:02:04,170
+that converge together so you guys can
+
+29
+00:02:02,490 --> 00:02:07,740
+talk about that people can talk about
+
+30
+00:02:04,170 --> 00:02:09,390
+that you know whenever I have I you know
+
+31
+00:02:07,740 --> 00:02:13,280
+I've been thinking of starting something
+
+32
+00:02:09,390 --> 00:02:15,260
+like channels like that
+
+33
+00:02:13,280 --> 00:02:17,329
+in the past years there's always the
+
+34
+00:02:15,260 --> 00:02:20,930
+question you know how much how involved
+
+35
+00:02:17,329 --> 00:02:24,319
+should I be you know because if I'm too
+
+36
+00:02:20,930 --> 00:02:26,510
+involved then it just becomes a place
+
+37
+00:02:24,319 --> 00:02:28,819
+where everyone just go there and ask me
+
+38
+00:02:26,510 --> 00:02:31,310
+questions I think you know I cannot do
+
+39
+00:02:28,819 --> 00:02:34,269
+that because then is all the questions
+
+40
+00:02:31,310 --> 00:02:38,150
+just gonna ask me questions about Emax
+
+41
+00:02:34,269 --> 00:02:41,299
+you know things like that so and the
+
+42
+00:02:38,150 --> 00:02:43,909
+other thing is you know I you know it's
+
+43
+00:02:41,299 --> 00:02:50,000
+I thought you know it's always with me I
+
+44
+00:02:43,909 --> 00:02:52,370
+didn't want to like intrude too much so
+
+45
+00:02:50,000 --> 00:02:56,659
+on the on the other hand on the opposite
+
+46
+00:02:52,370 --> 00:03:00,829
+extreme the idea is that people just get
+
+47
+00:02:56,659 --> 00:03:05,000
+there and talk about you know well my
+
+48
+00:03:00,829 --> 00:03:07,939
+life string and my stuff that is that is
+
+49
+00:03:05,000 --> 00:03:10,849
+I don't think that is reasonable as well
+
+50
+00:03:07,939 --> 00:03:13,099
+so anyway so you know when you have a
+
+51
+00:03:10,849 --> 00:03:14,599
+question like that in your life you have
+
+52
+00:03:13,099 --> 00:03:16,790
+a lot of questions you know
+
+53
+00:03:14,599 --> 00:03:19,340
+so I usually look up so what do other
+
+54
+00:03:16,790 --> 00:03:22,040
+people do you know apparently there are
+
+55
+00:03:19,340 --> 00:03:26,049
+a lot many famous youtubers they all
+
+56
+00:03:22,040 --> 00:03:28,639
+program programmers celebrities and they
+
+57
+00:03:26,049 --> 00:03:32,000
+you know they they are far more popular
+
+58
+00:03:28,639 --> 00:03:35,209
+than me you know hundred thousand
+
+59
+00:03:32,000 --> 00:03:38,479
+followers or something and they so what
+
+60
+00:03:35,209 --> 00:03:41,239
+do they do so you know some youtubers
+
+61
+00:03:38,479 --> 00:03:46,419
+program youtubers they also have like
+
+62
+00:03:41,239 --> 00:03:50,829
+reddit channel dedicated to their stuff
+
+63
+00:03:46,419 --> 00:03:54,470
+and what they do well they they just
+
+64
+00:03:50,829 --> 00:03:58,129
+they are kind of they they they just be
+
+65
+00:03:54,470 --> 00:03:59,959
+normal okay I guess you know this is my
+
+66
+00:03:58,129 --> 00:04:02,629
+channel so you guys can talk about it
+
+67
+00:03:59,959 --> 00:04:06,379
+and go there you know that that's how
+
+68
+00:04:02,629 --> 00:04:08,090
+they do I guess so anyway so today's our
+
+69
+00:04:06,379 --> 00:04:08,720
+talk show we cannot talk about we gonna
+
+70
+00:04:08,090 --> 00:04:12,829
+do this
+
+71
+00:04:08,720 --> 00:04:17,539
+Emacs least the Wonderland of Lisp and
+
+72
+00:04:12,829 --> 00:04:22,969
+Emacs so let's start magnify and go over
+
+73
+00:04:17,539 --> 00:04:25,650
+here start saw start command log mod and
+
+74
+00:04:22,969 --> 00:04:29,550
+you can see all my Emacs commands
+
+75
+00:04:25,650 --> 00:04:31,470
+on the left window here if you guys have
+
+76
+00:04:29,550 --> 00:04:34,500
+questions comments comments and
+
+77
+00:04:31,470 --> 00:04:38,310
+questions okay so Emily says maybe it
+
+78
+00:04:34,500 --> 00:04:41,610
+always is after you wake up
+
+79
+00:04:38,310 --> 00:04:45,389
+the crazy cannot work where it's always
+
+80
+00:04:41,610 --> 00:04:46,110
+morning yes good morning hello beautiful
+
+81
+00:04:45,389 --> 00:04:52,229
+people
+
+82
+00:04:46,110 --> 00:04:59,160
+hello to Jack Zack Republic and hello to
+
+83
+00:04:52,229 --> 00:05:03,840
+London and Germany and London where he
+
+84
+00:04:59,160 --> 00:05:07,110
+is but we missing part bodies getting
+
+85
+00:05:03,840 --> 00:05:10,110
+pissed about my random schedule yeah my
+
+86
+00:05:07,110 --> 00:05:14,250
+random schedule is a problem so cuz our
+
+87
+00:05:10,110 --> 00:05:18,440
+talk show so let's let's start saw snot
+
+88
+00:05:14,250 --> 00:05:23,010
+hawk show today's state is a new page
+
+89
+00:05:18,440 --> 00:05:26,340
+link it as a list footage here remove
+
+90
+00:05:23,010 --> 00:05:30,389
+that open it show in browser okay and
+
+91
+00:05:26,340 --> 00:05:33,900
+we're gonna talk about we gonna talk
+
+92
+00:05:30,389 --> 00:05:37,410
+about fantastic stuff and here is a
+
+93
+00:05:33,900 --> 00:05:42,300
+wonderful song you can check it out well
+
+94
+00:05:37,410 --> 00:05:44,070
+yeah in the link is in discord Alice in
+
+95
+00:05:42,300 --> 00:05:47,820
+Wonderland looking through the and
+
+96
+00:05:44,070 --> 00:05:51,780
+through the looking-glass this this was
+
+97
+00:05:47,820 --> 00:05:58,710
+my favorite book I read it several times
+
+98
+00:05:51,780 --> 00:06:01,229
+over over different years I would say it
+
+99
+00:05:58,710 --> 00:06:07,530
+was my favorite book of all times was
+
+100
+00:06:01,229 --> 00:06:10,320
+not today because because after all this
+
+101
+00:06:07,530 --> 00:06:15,210
+is just kind of like a nonsense I mean
+
+102
+00:06:10,320 --> 00:06:22,039
+so anyways our talk show so this is what
+
+103
+00:06:15,210 --> 00:06:25,020
+we're gonna do we are going to write a
+
+104
+00:06:22,039 --> 00:06:28,849
+command we're gonna do live coding of
+
+105
+00:06:25,020 --> 00:06:31,889
+emag based write a command to open a
+
+106
+00:06:28,849 --> 00:06:34,560
+buffer in browser for example this page
+
+107
+00:06:31,889 --> 00:06:35,159
+right now I can press a button let me
+
+108
+00:06:34,560 --> 00:06:37,500
+show you that
+
+109
+00:06:35,159 --> 00:06:39,449
+okay so press a button it shows in
+
+110
+00:06:37,500 --> 00:06:46,379
+browser and I can hold
+
+111
+00:06:39,449 --> 00:06:50,759
+Sokol command you see some opened in
+
+112
+00:06:46,379 --> 00:06:54,689
+brave okay enter it shows the page in
+
+113
+00:06:50,759 --> 00:07:00,749
+brave browser okay
+
+114
+00:06:54,689 --> 00:07:08,969
+and then I have another command let's
+
+115
+00:07:00,749 --> 00:07:13,080
+see this command is open link in brave
+
+116
+00:07:08,969 --> 00:07:17,430
+it will open the current the the URL
+
+117
+00:07:13,080 --> 00:07:22,620
+under the cruiser so let's call it open
+
+118
+00:07:17,430 --> 00:07:24,930
+link in brave okay so it opens that
+
+119
+00:07:22,620 --> 00:07:26,550
+linking browser so there are two
+
+120
+00:07:24,930 --> 00:07:28,259
+different commands one is open the
+
+121
+00:07:26,550 --> 00:07:32,460
+current buffer in browser the other one
+
+122
+00:07:28,259 --> 00:07:35,490
+is open the link under cruiser in the
+
+123
+00:07:32,460 --> 00:07:38,009
+browser and today we're gonna we are
+
+124
+00:07:35,490 --> 00:07:42,389
+going to try to merge these two commands
+
+125
+00:07:38,009 --> 00:07:46,699
+into one okay so this is this kind of
+
+126
+00:07:42,389 --> 00:07:46,699
+our topic zone to talk about actually so
+
+127
+00:07:47,300 --> 00:07:55,740
+related to these two topics so let's go
+
+128
+00:07:50,819 --> 00:07:59,009
+back to where - here and so you see I
+
+129
+00:07:55,740 --> 00:08:02,069
+have two commands to open open buffering
+
+130
+00:07:59,009 --> 00:08:05,610
+brave and open linking brave you see
+
+131
+00:08:02,069 --> 00:08:07,800
+they are browser specific that is you
+
+132
+00:08:05,610 --> 00:08:11,039
+don't just open the default browser you
+
+133
+00:08:07,800 --> 00:08:14,189
+I want to specifically open you know
+
+134
+00:08:11,039 --> 00:08:16,020
+this buffer or link in gray browser now
+
+135
+00:08:14,189 --> 00:08:20,180
+they are there are variations of that
+
+136
+00:08:16,020 --> 00:08:23,089
+command you can see let me show you here
+
+137
+00:08:20,180 --> 00:08:26,249
+variations of the command so you can see
+
+138
+00:08:23,089 --> 00:08:27,270
+open in google chrome so we have open in
+
+139
+00:08:26,249 --> 00:08:30,330
+Google Chrome browser
+
+140
+00:08:27,270 --> 00:08:33,269
+the current buffer or open link in
+
+141
+00:08:30,330 --> 00:08:36,269
+chrome so that's Google Chrome then you
+
+142
+00:08:33,269 --> 00:08:39,990
+also have Firefox versions you also have
+
+143
+00:08:36,269 --> 00:08:43,110
+great browsers versions then you also
+
+144
+00:08:39,990 --> 00:08:44,760
+have Safari versions wait and missing
+
+145
+00:08:43,110 --> 00:08:47,640
+ones open link in Safari
+
+146
+00:08:44,760 --> 00:08:49,800
+but anyways for each browser you have
+
+147
+00:08:47,640 --> 00:08:53,850
+two versions of open the background
+
+148
+00:08:49,800 --> 00:08:56,080
+buffer or open the link under crew
+
+149
+00:08:53,850 --> 00:08:59,320
+so what we're gonna do is we're gonna
+
+150
+00:08:56,080 --> 00:09:01,210
+write this command from scratch you know
+
+151
+00:08:59,320 --> 00:09:04,890
+the code is already here you can just go
+
+152
+00:09:01,210 --> 00:09:08,380
+there and copy it and use it if you like
+
+153
+00:09:04,890 --> 00:09:10,210
+but since we are doing live code into
+
+154
+00:09:08,380 --> 00:09:13,770
+Tokyo I'm gonna teach something about
+
+155
+00:09:10,210 --> 00:09:19,290
+each email beast so you can learn from
+
+156
+00:09:13,770 --> 00:09:19,290
+but Emma Emily is a massive Emacs Lisp
+
+157
+00:09:21,420 --> 00:09:27,310
+good morning but you are late so hello
+
+158
+00:09:25,690 --> 00:09:30,490
+beautiful people hello beautiful people
+
+159
+00:09:27,310 --> 00:09:35,260
+says Zachary public is pronounced Czech
+
+160
+00:09:30,490 --> 00:09:40,410
+Republic yes that's right Czech Czech
+
+161
+00:09:35,260 --> 00:09:46,840
+Republic good morning George George from
+
+162
+00:09:40,410 --> 00:09:49,420
+Australia and currently in Taiwan so ok
+
+163
+00:09:46,840 --> 00:09:50,860
+comments or questions on today today's
+
+164
+00:09:49,420 --> 00:09:55,510
+topics so let's do it
+
+165
+00:09:50,860 --> 00:09:57,970
+so I'm going to so let's let us write it
+
+166
+00:09:55,510 --> 00:10:01,360
+down you know when you are confused you
+
+167
+00:09:57,970 --> 00:10:02,290
+write it down so I write it down I'm
+
+168
+00:10:01,360 --> 00:10:09,550
+confused
+
+169
+00:10:02,290 --> 00:10:12,880
+ok so we are we okay here so magnify and
+
+170
+00:10:09,550 --> 00:10:22,470
+showing browsers show this command
+
+171
+00:10:12,880 --> 00:10:29,820
+window so so we're gonna code a ellipse
+
+172
+00:10:22,470 --> 00:10:32,440
+elyse command to open current buffer in
+
+173
+00:10:29,820 --> 00:10:37,440
+in what browser in chrome let's say
+
+174
+00:10:32,440 --> 00:10:40,680
+Chrome ok then we're gonna modify it
+
+175
+00:10:37,440 --> 00:10:45,340
+coda release command to open current
+
+176
+00:10:40,680 --> 00:10:48,220
+link and cruiser in quo in chrome okay
+
+177
+00:10:45,340 --> 00:10:53,650
+so that's two commands then we are going
+
+178
+00:10:48,220 --> 00:10:57,850
+to merge these two commands let me show
+
+179
+00:10:53,650 --> 00:11:02,560
+you so so again you can see here so code
+
+180
+00:10:57,850 --> 00:11:04,480
+let's see okay open in Chrome so you
+
+181
+00:11:02,560 --> 00:11:06,640
+this one command to open buffer one
+
+182
+00:11:04,480 --> 00:11:12,440
+command to open link now
+
+183
+00:11:06,640 --> 00:11:15,290
+ideally it's not necessarily ideally but
+
+184
+00:11:12,440 --> 00:11:17,840
+but you could have these two commands in
+
+185
+00:11:15,290 --> 00:11:19,880
+one so you sir have to do not have to
+
+186
+00:11:17,840 --> 00:11:22,820
+worry about think about which one to
+
+187
+00:11:19,880 --> 00:11:25,940
+call because you can call the command so
+
+188
+00:11:22,820 --> 00:11:29,840
+that if the current if the cursor is
+
+189
+00:11:25,940 --> 00:11:33,820
+under a link such as you know over here
+
+190
+00:11:29,840 --> 00:11:36,830
+under this link then it opens that link
+
+191
+00:11:33,820 --> 00:11:39,110
+otherwise you if if the cursor under
+
+192
+00:11:36,830 --> 00:11:41,870
+cuza is not a link you just open the
+
+193
+00:11:39,110 --> 00:11:45,800
+buffer so we're gonna merge these two
+
+194
+00:11:41,870 --> 00:11:48,830
+commands and that code has not been done
+
+195
+00:11:45,800 --> 00:11:53,510
+yet that's what we're gonna do let's see
+
+196
+00:11:48,830 --> 00:11:55,670
+how much time I've been talking cuz this
+
+197
+00:11:53,510 --> 00:12:00,890
+will be okay we talked about for you
+
+198
+00:11:55,670 --> 00:12:02,960
+ever minutes but sparked so join this
+
+199
+00:12:00,890 --> 00:12:05,180
+course you know lots of things going on
+
+200
+00:12:02,960 --> 00:12:10,160
+there you know join this course we miss
+
+201
+00:12:05,180 --> 00:12:12,200
+you yeah because you know and your you
+
+202
+00:12:10,160 --> 00:12:13,850
+know your project you know you can you
+
+203
+00:12:12,200 --> 00:12:17,510
+can create another project you know
+
+204
+00:12:13,850 --> 00:12:19,280
+that's you know this project is probably
+
+205
+00:12:17,510 --> 00:12:21,880
+gonna be dead because since now I
+
+206
+00:12:19,280 --> 00:12:24,650
+started to have this code and it's busy
+
+207
+00:12:21,880 --> 00:12:31,340
+so you can probably do something you
+
+208
+00:12:24,650 --> 00:12:35,600
+know that's also useful so it okay so
+
+209
+00:12:31,340 --> 00:12:44,860
+let's get to the Emacs shall we Oh shall
+
+210
+00:12:35,600 --> 00:12:44,860
+we digress more okay so we're gonna do
+
+211
+00:12:45,820 --> 00:12:50,510
+we're gonna write the command from
+
+212
+00:12:48,320 --> 00:12:59,930
+scratch then we're gonna try to open a
+
+213
+00:12:50,510 --> 00:13:02,330
+link okay so let's do that then okay let
+
+214
+00:12:59,930 --> 00:13:04,460
+me also mention you know in Emacs so you
+
+215
+00:13:02,330 --> 00:13:08,780
+see I have so many commands to open
+
+216
+00:13:04,460 --> 00:13:11,060
+different you know to open in specific
+
+217
+00:13:08,780 --> 00:13:13,760
+different browsers there's also command
+
+218
+00:13:11,060 --> 00:13:16,130
+to open the current browser you know for
+
+219
+00:13:13,760 --> 00:13:18,890
+example I press a button right now for
+
+220
+00:13:16,130 --> 00:13:20,000
+example you see if I press a button it
+
+221
+00:13:18,890 --> 00:13:23,300
+will just launch the
+
+222
+00:13:20,000 --> 00:13:26,150
+in whatever is a default browser you
+
+223
+00:13:23,300 --> 00:13:28,460
+know according to the operating system
+
+224
+00:13:26,150 --> 00:13:30,740
+the preference is for the what whatever
+
+225
+00:13:28,460 --> 00:13:34,850
+you said so for example I press a button
+
+226
+00:13:30,740 --> 00:13:37,970
+it opens in Firefox and that command is
+
+227
+00:13:34,850 --> 00:13:43,820
+called you see I just caught that
+
+228
+00:13:37,970 --> 00:13:49,550
+command this one excite tml browse URL
+
+229
+00:13:43,820 --> 00:13:53,540
+of buffer now if I go to soft Mac OS and
+
+230
+00:13:49,550 --> 00:13:57,260
+change the default browser and C go to
+
+231
+00:13:53,540 --> 00:14:02,270
+general and change the default browser
+
+232
+00:13:57,260 --> 00:14:04,880
+let's say to brave okay then I call the
+
+233
+00:14:02,270 --> 00:14:06,140
+same command I press okey then you see
+
+234
+00:14:04,880 --> 00:14:08,000
+it opens in brave
+
+235
+00:14:06,140 --> 00:14:10,370
+it just opens in whatever default
+
+236
+00:14:08,000 --> 00:14:16,040
+browser so there are quite a few
+
+237
+00:14:10,370 --> 00:14:21,830
+variations of these commands so that
+
+238
+00:14:16,040 --> 00:14:24,950
+command is called HTML browse URL of
+
+239
+00:14:21,830 --> 00:14:27,110
+buffer so why so many browsers I mean
+
+240
+00:14:24,950 --> 00:14:30,140
+usually you don't need to but if you are
+
+241
+00:14:27,110 --> 00:14:33,260
+web developers then you might need that
+
+242
+00:14:30,140 --> 00:14:34,910
+so that's that's the reason I needed you
+
+243
+00:14:33,260 --> 00:14:36,470
+know for my own purposes I need
+
+244
+00:14:34,910 --> 00:14:38,680
+different browsers for different
+
+245
+00:14:36,470 --> 00:14:43,010
+purposes but if you are web dev that
+
+246
+00:14:38,680 --> 00:14:45,170
+that might be useful so let's start
+
+247
+00:14:43,010 --> 00:14:47,330
+coding yeah so let's just okay so before
+
+248
+00:14:45,170 --> 00:14:50,030
+we do that let me mention though Emacs
+
+249
+00:14:47,330 --> 00:14:51,920
+itself has speeding all these commands
+
+250
+00:14:50,030 --> 00:14:53,360
+Emacs has been building so let's call
+
+251
+00:14:51,920 --> 00:14:57,410
+you let me show you
+
+252
+00:14:53,360 --> 00:15:04,450
+so which caused a proposed command okay
+
+253
+00:14:57,410 --> 00:15:08,390
+then you type browse PR o w s okay enter
+
+254
+00:15:04,450 --> 00:15:11,180
+so you can see in this window Emacs has
+
+255
+00:15:08,390 --> 00:15:14,930
+tons of these commands you see browser
+
+256
+00:15:11,180 --> 00:15:16,670
+URL chrome that is similar to that that
+
+257
+00:15:14,930 --> 00:15:17,660
+basically means open up current buffer
+
+258
+00:15:16,670 --> 00:15:20,480
+in Chrome browser
+
+259
+00:15:17,660 --> 00:15:23,330
+okay then browser URL chromium okay
+
+260
+00:15:20,480 --> 00:15:26,990
+chromium is the open source version of
+
+261
+00:15:23,330 --> 00:15:30,200
+Google Chrome the engine the browser URL
+
+262
+00:15:26,990 --> 00:15:33,410
+conqueror + URL D for Mac OS browser
+
+263
+00:15:30,200 --> 00:15:33,740
+browser URL window browser browser you
+
+264
+00:15:33,410 --> 00:15:36,740
+are
+
+265
+00:15:33,740 --> 00:15:42,320
+a link I don't know what that is buzz
+
+266
+00:15:36,740 --> 00:15:45,260
+URL Emax this sense to Emax browser okay
+
+267
+00:15:42,320 --> 00:15:47,840
+it's stupid you know so so you know it's
+
+268
+00:15:45,260 --> 00:15:51,110
+let me finish and then we talked about
+
+269
+00:15:47,840 --> 00:15:54,820
+that the stupidity of all the
+
+270
+00:15:51,110 --> 00:15:57,830
+open-source Emacs things so brass URL
+
+271
+00:15:54,820 --> 00:16:00,160
+epiphany you know epiphany you know then
+
+272
+00:15:57,830 --> 00:16:05,060
+you have passed your five out scallion
+
+273
+00:16:00,160 --> 00:16:08,570
+generic no mods browser AG no mas but
+
+274
+00:16:05,060 --> 00:16:11,990
+URL KDE then browse through our mosaic
+
+275
+00:16:08,570 --> 00:16:14,900
+browser via Bosnia Mozilla and browse
+
+276
+00:16:11,990 --> 00:16:17,300
+your Netscape crap you know bunch of you
+
+277
+00:16:14,900 --> 00:16:19,610
+know what so when when I need a command
+
+278
+00:16:17,300 --> 00:16:22,640
+like that I look at him acts oh it's all
+
+279
+00:16:19,610 --> 00:16:25,130
+building until you try them nothing
+
+280
+00:16:22,640 --> 00:16:27,680
+works none of them works and most of
+
+281
+00:16:25,130 --> 00:16:31,220
+these are long time dead like Epiphany
+
+282
+00:16:27,680 --> 00:16:34,760
+so you are looking at the history of the
+
+283
+00:16:31,220 --> 00:16:36,020
+internet over the trend over the past 20
+
+284
+00:16:34,760 --> 00:16:38,690
+years that's what you are looking at
+
+285
+00:16:36,020 --> 00:16:42,110
+this scallion you this KDE
+
+286
+00:16:38,690 --> 00:16:44,240
+this you know Guardian browser anyone
+
+287
+00:16:42,110 --> 00:16:47,900
+know still the anyone still using that
+
+288
+00:16:44,240 --> 00:16:51,400
+Guardian like who knows what Guardian
+
+289
+00:16:47,900 --> 00:16:56,390
+browser is anyone
+
+290
+00:16:51,400 --> 00:16:58,790
+good morning turn your landlords so
+
+291
+00:16:56,390 --> 00:17:01,550
+Guardian you see so and epiphany you
+
+292
+00:16:58,790 --> 00:17:06,020
+know these are kind of I think these are
+
+293
+00:17:01,550 --> 00:17:09,080
+like in the in mm you know they have on
+
+294
+00:17:06,020 --> 00:17:10,910
+Linux is you have these browsers they
+
+295
+00:17:09,080 --> 00:17:16,070
+come and go then then you have browse
+
+296
+00:17:10,910 --> 00:17:19,010
+URL Netscape it's kept it stayed for 20
+
+297
+00:17:16,070 --> 00:17:22,550
+years and it's still in Emacs browse URL
+
+298
+00:17:19,010 --> 00:17:25,310
+Netscape and for example they have brass
+
+299
+00:17:22,550 --> 00:17:28,730
+URL Firefox let me show you the idiocy
+
+300
+00:17:25,310 --> 00:17:31,520
+let me demonstrate the fact I mean let
+
+301
+00:17:28,730 --> 00:17:35,660
+me prove it to you how the the idiocy of
+
+302
+00:17:31,520 --> 00:17:38,060
+the Emacs you know the fanaticism okay
+
+303
+00:17:35,660 --> 00:17:40,700
+so you have you have we have here browse
+
+304
+00:17:38,060 --> 00:17:43,640
+URL Firefox okay let's try it I love it
+
+305
+00:17:40,700 --> 00:17:47,780
+oh you will say me days of coding my own
+
+306
+00:17:43,640 --> 00:17:50,360
+commands and and save me from the Emacs
+
+307
+00:17:47,780 --> 00:17:52,400
+phonetics who doesn't like me who walks
+
+308
+00:17:50,360 --> 00:17:54,470
+Isis TRO he doesn't know nothing it's
+
+309
+00:17:52,400 --> 00:18:00,680
+opium but he spent time to create his
+
+310
+00:17:54,470 --> 00:18:01,660
+own versions this this phonetics
+
+311
+00:18:00,680 --> 00:18:06,200
+I'm sorry
+
+312
+00:18:01,660 --> 00:18:09,890
+it's avoid this avoid you know going
+
+313
+00:18:06,200 --> 00:18:11,870
+crazy so browse URL Firefox okay let's I
+
+314
+00:18:09,890 --> 00:18:24,890
+want to do that yeah lovely so let's try
+
+315
+00:18:11,870 --> 00:18:27,980
+it meta X browse URL Firefox okay you
+
+316
+00:18:24,890 --> 00:18:30,430
+asked me to type a URL what the vac okay
+
+317
+00:18:27,980 --> 00:18:35,200
+you asked me to type a URL let's say
+
+318
+00:18:30,430 --> 00:18:38,330
+sorry that info enter whoops
+
+319
+00:18:35,200 --> 00:18:38,930
+searching for program no such file or
+
+320
+00:18:38,330 --> 00:18:47,630
+directory
+
+321
+00:18:38,930 --> 00:18:49,670
+Firefox idiocy infuriating let's try
+
+322
+00:18:47,630 --> 00:18:51,980
+this brass UI out Chrome ok same thing
+
+323
+00:18:49,670 --> 00:18:55,970
+you know a browser Chrome
+
+324
+00:18:51,980 --> 00:18:58,010
+nothing no such file or directory so so
+
+325
+00:18:55,970 --> 00:19:00,830
+what so what does that mean so if you
+
+326
+00:18:58,010 --> 00:19:02,540
+are Emacs phonetics that means oh oh you
+
+327
+00:19:00,830 --> 00:19:04,580
+you start you know you need to look at
+
+328
+00:19:02,540 --> 00:19:08,870
+documentation okay let's look at the
+
+329
+00:19:04,580 --> 00:19:13,790
+documentation brass URL Firefox okay
+
+330
+00:19:08,870 --> 00:19:17,180
+what does it say let's see ok magnify so
+
+331
+00:19:13,790 --> 00:19:21,830
+browser on Firefox and this this and as
+
+332
+00:19:17,180 --> 00:19:24,410
+Firefox www browser you see that
+
+333
+00:19:21,830 --> 00:19:27,170
+terminology is he the history of
+
+334
+00:19:24,410 --> 00:19:33,470
+Internet you don't call a www anymore
+
+335
+00:19:27,170 --> 00:19:37,150
+that's 1990s so so as the Firefox www to
+
+336
+00:19:33,470 --> 00:19:41,420
+load URL default URL around OB for point
+
+337
+00:19:37,150 --> 00:19:45,140
+ok passes the string to the variable
+
+338
+00:19:41,420 --> 00:19:48,200
+browser URL Firefox arguments to Firefox
+
+339
+00:19:45,140 --> 00:19:51,940
+okay so interactively Brava Brava you
+
+340
+00:19:48,200 --> 00:19:54,260
+know loads of document in Firefox window
+
+341
+00:19:51,940 --> 00:19:55,820
+matter of fact they saying you know you
+
+342
+00:19:54,260 --> 00:19:58,820
+have to like you have to you know you
+
+343
+00:19:55,820 --> 00:19:59,750
+you have to now think what's going what
+
+344
+00:19:58,820 --> 00:20:03,890
+is the ye
+
+345
+00:19:59,750 --> 00:20:06,260
+technique jargons is talking about that
+
+346
+00:20:03,890 --> 00:20:08,750
+you have to like you have to spend two
+
+347
+00:20:06,260 --> 00:20:11,630
+hours just to understand what what he
+
+348
+00:20:08,750 --> 00:20:14,090
+see it's saying okay interactively if
+
+349
+00:20:11,630 --> 00:20:17,150
+the variable brows you are our new
+
+350
+00:20:14,090 --> 00:20:19,760
+window flag is n'l loads the
+
+351
+00:20:17,150 --> 00:20:20,450
+documentation in a new Firefox window by
+
+352
+00:20:19,760 --> 00:20:23,900
+bah-bah-bah
+
+353
+00:20:20,450 --> 00:20:28,549
+you know this is the the complexity of
+
+354
+00:20:23,900 --> 00:20:29,990
+the general generality of Emacs Emacs
+
+355
+00:20:28,549 --> 00:20:33,320
+supposed to be o you can configure
+
+356
+00:20:29,990 --> 00:20:35,390
+everything yeah but it doesn't walk so
+
+357
+00:20:33,320 --> 00:20:38,510
+you pass on your 5 bucks a new window is
+
+358
+00:20:35,390 --> 00:20:40,070
+tab isn't a neo then whenever a document
+
+359
+00:20:38,510 --> 00:20:43,840
+would be otherwise be loaded in window
+
+360
+00:20:40,070 --> 00:20:46,429
+windows it is loaded in you in a world
+
+361
+00:20:43,840 --> 00:20:47,679
+use the optional second argue a new
+
+362
+00:20:46,429 --> 00:20:50,330
+window instead of okay
+
+363
+00:20:47,679 --> 00:20:56,030
+nothing nothing about setting a file
+
+364
+00:20:50,330 --> 00:20:57,710
+path a max fanatism you did this doesn't
+
+365
+00:20:56,030 --> 00:20:59,360
+say nothing you know right now so I
+
+366
+00:20:57,710 --> 00:21:02,690
+tried I just tried to command doesn't
+
+367
+00:20:59,360 --> 00:21:04,400
+work he says I need a path then okay I
+
+368
+00:21:02,690 --> 00:21:07,370
+read the doc this is no doc this is
+
+369
+00:21:04,400 --> 00:21:09,830
+nothing about it what are you supposed
+
+370
+00:21:07,370 --> 00:21:13,270
+to do yeah so you if you are a Linux fan
+
+371
+00:21:09,830 --> 00:21:15,980
+you're gonna spend hours digging it and
+
+372
+00:21:13,270 --> 00:21:20,990
+you know and you say oh ye max is
+
+373
+00:21:15,980 --> 00:21:23,480
+fantastic in anyway so so I'm so that
+
+374
+00:21:20,990 --> 00:21:26,090
+that is about that so Emacs has these
+
+375
+00:21:23,480 --> 00:21:28,130
+you know hundreds of these pass you are
+
+376
+00:21:26,090 --> 00:21:30,890
+and most of them are outdated you know
+
+377
+00:21:28,130 --> 00:21:35,299
+they don't work in fact I tried this
+
+378
+00:21:30,890 --> 00:21:38,659
+like 10 years ago exactly like 2002 2008
+
+379
+00:21:35,299 --> 00:21:42,440
+you know I tried it on it was only on
+
+380
+00:21:38,659 --> 00:21:44,870
+Windows I don't remember if I tried it
+
+381
+00:21:42,440 --> 00:21:46,909
+on Linux maybe it's you know some of
+
+382
+00:21:44,870 --> 00:21:49,940
+them working you know some of them for
+
+383
+00:21:46,909 --> 00:21:52,190
+sure because scallion and Mozilla you
+
+384
+00:21:49,940 --> 00:21:59,780
+know many of them you know they just
+
+385
+00:21:52,190 --> 00:22:03,409
+beat rot and so anyway so let's start
+
+386
+00:21:59,780 --> 00:22:06,950
+right out okay so let's begin that Emacs
+
+387
+00:22:03,409 --> 00:22:10,190
+Lisp okay we create a window so you Mak
+
+388
+00:22:06,950 --> 00:22:12,460
+this so let's do fun we already start
+
+389
+00:22:10,190 --> 00:22:16,669
+coding
+
+390
+00:22:12,460 --> 00:22:19,760
+let's say open in let's just say five
+
+391
+00:22:16,669 --> 00:22:22,280
+bucks okay this the the browser you can
+
+392
+00:22:19,760 --> 00:22:25,159
+change yourself like like brave five
+
+393
+00:22:22,280 --> 00:22:30,140
+bucks Chrome Safari you can change it
+
+394
+00:22:25,159 --> 00:22:34,210
+the the name you see okay so we are
+
+395
+00:22:30,140 --> 00:22:34,210
+starting to write this function now
+
+396
+00:22:34,990 --> 00:22:41,600
+there are two main issues about writing
+
+397
+00:22:39,289 --> 00:22:46,100
+a function the to two main difficulties
+
+398
+00:22:41,600 --> 00:22:47,990
+difficulties one is Emacs Lisp okay like
+
+399
+00:22:46,100 --> 00:22:50,450
+if you are beginner then you don't know
+
+400
+00:22:47,990 --> 00:22:53,860
+what to do right so so that's one of the
+
+401
+00:22:50,450 --> 00:23:00,250
+difficulty now the second difficulty is
+
+402
+00:22:53,860 --> 00:23:03,830
+about about actually finding out how to
+
+403
+00:23:00,250 --> 00:23:06,559
+launch a browser in different operating
+
+404
+00:23:03,830 --> 00:23:10,570
+systems for example on the Mac on
+
+405
+00:23:06,559 --> 00:23:13,159
+Windows Linux they all have different
+
+406
+00:23:10,570 --> 00:23:15,679
+mechanisms to open a browser to launch
+
+407
+00:23:13,159 --> 00:23:18,370
+your browser I mean you have to do this
+
+408
+00:23:15,679 --> 00:23:23,450
+program programmatically
+
+409
+00:23:18,370 --> 00:23:27,049
+so that is kind of kind of nasty because
+
+410
+00:23:23,450 --> 00:23:28,970
+that's because the email is party is in
+
+411
+00:23:27,049 --> 00:23:32,330
+a sense simple because you just study
+
+412
+00:23:28,970 --> 00:23:35,090
+eMac B's everything is where document it
+
+413
+00:23:32,330 --> 00:23:38,179
+where document did it and you know it's
+
+414
+00:23:35,090 --> 00:23:40,460
+a language you learn and I you know so I
+
+415
+00:23:38,179 --> 00:23:43,100
+know you Mac base you know where also I
+
+416
+00:23:40,460 --> 00:23:47,000
+have no problem writing these commands
+
+417
+00:23:43,100 --> 00:23:51,140
+but the difficult part is the how do you
+
+418
+00:23:47,000 --> 00:23:53,960
+actually you know from eMac list you
+
+419
+00:23:51,140 --> 00:23:57,940
+have to talk to the operating system to
+
+420
+00:23:53,960 --> 00:24:01,970
+tell it to launch your browser and also
+
+421
+00:23:57,940 --> 00:24:04,309
+feed it arguments like what URL things I
+
+422
+00:24:01,970 --> 00:24:09,250
+got or whether to open a new tab or
+
+423
+00:24:04,309 --> 00:24:11,659
+default code or the current window or
+
+424
+00:24:09,250 --> 00:24:15,100
+you you wanted to launch your new
+
+425
+00:24:11,659 --> 00:24:17,750
+instance or just use the existing
+
+426
+00:24:15,100 --> 00:24:20,120
+instance if it's already there so that
+
+427
+00:24:17,750 --> 00:24:25,640
+so this part you know about talking to
+
+428
+00:24:20,120 --> 00:24:28,850
+us that is actually I will say that the
+
+429
+00:24:25,640 --> 00:24:30,650
+the nasty the more nasty part because
+
+430
+00:24:28,850 --> 00:24:34,460
+these kind of things they change over
+
+431
+00:24:30,650 --> 00:24:35,990
+the years and it's gets really complex
+
+432
+00:24:34,460 --> 00:24:38,840
+different operating systems they have
+
+433
+00:24:35,990 --> 00:24:43,670
+different ways and especially on Linux
+
+434
+00:24:38,840 --> 00:24:45,620
+you know on Linux so let's just start to
+
+435
+00:24:43,670 --> 00:24:48,710
+code it and let's show let's see what's
+
+436
+00:24:45,620 --> 00:24:51,920
+what happens okay so 24 minutes I'm
+
+437
+00:24:48,710 --> 00:24:55,640
+doing okay so today it's probably gonna
+
+438
+00:24:51,920 --> 00:25:01,549
+be 90 minutes hello beautiful people
+
+439
+00:24:55,640 --> 00:25:05,630
+thank you so much for the for the father
+
+440
+00:25:01,549 --> 00:25:08,780
+for the super chat good morning sink 2
+
+441
+00:25:05,630 --> 00:25:12,970
+sin 2 is from China I think are you from
+
+442
+00:25:08,780 --> 00:25:16,130
+China good morning George Jones
+
+443
+00:25:12,970 --> 00:25:19,340
+so Guardian is a genome desktop it's a
+
+444
+00:25:16,130 --> 00:25:25,400
+gecko base is is its new around or is it
+
+445
+00:25:19,340 --> 00:25:28,040
+like long dead epiphany is standard
+
+446
+00:25:25,400 --> 00:25:30,080
+browser in elementary OS I think so
+
+447
+00:25:28,040 --> 00:25:32,299
+elementary is a windowing system right
+
+448
+00:25:30,080 --> 00:25:35,600
+down on the Linux you know back then
+
+449
+00:25:32,299 --> 00:25:38,240
+this is 2005 or so you know Linux is
+
+450
+00:25:35,600 --> 00:25:40,490
+like oh god all these things thriving
+
+451
+00:25:38,240 --> 00:25:43,309
+and they are showing you know fancy
+
+452
+00:25:40,490 --> 00:25:51,710
+windowing systems with you know shiny
+
+453
+00:25:43,309 --> 00:25:54,350
+fires and transparency and but actually
+
+454
+00:25:51,710 --> 00:25:57,049
+technically it's crap it's a it's the
+
+455
+00:25:54,350 --> 00:26:00,320
+worst crap but if you don't use Linux
+
+456
+00:25:57,049 --> 00:26:01,910
+like like during mm I don't use Linux
+
+457
+00:26:00,320 --> 00:26:03,950
+well I have I've looked you know I
+
+458
+00:26:01,910 --> 00:26:07,130
+observed they they have a website of
+
+459
+00:26:03,950 --> 00:26:10,130
+calories all of the screenshots you know
+
+460
+00:26:07,130 --> 00:26:11,870
+of this KDE with whatever window
+
+461
+00:26:10,130 --> 00:26:15,010
+management system there's a new one
+
+462
+00:26:11,870 --> 00:26:17,390
+looked like back then where they show
+
+463
+00:26:15,010 --> 00:26:21,559
+composition you know transparency and
+
+464
+00:26:17,390 --> 00:26:23,150
+you know and and 3d visual effects like
+
+465
+00:26:21,559 --> 00:26:27,530
+when you switch window for example I
+
+466
+00:26:23,150 --> 00:26:33,919
+switch between my Emacs and crump then
+
+467
+00:26:27,530 --> 00:26:36,530
+they show a 3d box like usual 2008 and
+
+468
+00:26:33,919 --> 00:26:38,700
+there was you use it Scrappy's worst
+
+469
+00:26:36,530 --> 00:26:43,960
+crap in Linux
+
+470
+00:26:38,700 --> 00:26:49,299
+truly infuriating idiocy good morning
+
+471
+00:26:43,960 --> 00:26:51,789
+Miranda Miranda waiver okay let's get
+
+472
+00:26:49,299 --> 00:26:53,769
+back to e Magna spend your money works
+
+473
+00:26:51,789 --> 00:26:57,059
+if you have fire files in share path
+
+474
+00:26:53,769 --> 00:26:59,919
+that's yes that and that's you know
+
+475
+00:26:57,059 --> 00:27:02,970
+that's true you know because I've you
+
+476
+00:26:59,919 --> 00:27:08,500
+know I've tried to use it I've done that
+
+477
+00:27:02,970 --> 00:27:10,480
+but you see ultimately you know so so
+
+478
+00:27:08,500 --> 00:27:13,000
+like I have to choice you know so I
+
+479
+00:27:10,480 --> 00:27:16,510
+if I want a command to open a specific
+
+480
+00:27:13,000 --> 00:27:18,490
+browser I have two choices one just
+
+481
+00:27:16,510 --> 00:27:22,929
+write your own like like what I've done
+
+482
+00:27:18,490 --> 00:27:25,570
+you know Reggio to use the Emacs you
+
+483
+00:27:22,929 --> 00:27:28,120
+know those fielding ones but try to you
+
+484
+00:27:25,570 --> 00:27:29,590
+know find a proper way to fix it you
+
+485
+00:27:28,120 --> 00:27:33,730
+know I find out what you need to do like
+
+486
+00:27:29,590 --> 00:27:38,080
+say the path and so and use that you
+
+487
+00:27:33,730 --> 00:27:40,690
+know I so you know many maybe many many
+
+488
+00:27:38,080 --> 00:27:45,809
+of them will choose that choice because
+
+489
+00:27:40,690 --> 00:27:49,480
+that is more kind of you know more
+
+490
+00:27:45,809 --> 00:27:51,970
+conventional I mean more more you know
+
+491
+00:27:49,480 --> 00:27:55,299
+approved by the Emacs community because
+
+492
+00:27:51,970 --> 00:27:57,850
+see that's what you want to do but you
+
+493
+00:27:55,299 --> 00:28:02,700
+know to me actually writing your own is
+
+494
+00:27:57,850 --> 00:28:02,700
+actually simpler and works better you
+
+495
+00:28:03,269 --> 00:28:09,820
+yeah in my opinion because you know why
+
+496
+00:28:06,399 --> 00:28:11,889
+because if you well if you don't know
+
+497
+00:28:09,820 --> 00:28:14,289
+least maybe not but if you already know
+
+498
+00:28:11,889 --> 00:28:16,659
+least writing your own is keys but it's
+
+499
+00:28:14,289 --> 00:28:19,240
+probably better because you have control
+
+500
+00:28:16,659 --> 00:28:21,370
+because right now you know for example I
+
+501
+00:28:19,240 --> 00:28:22,510
+have all these commands it just works it
+
+502
+00:28:21,370 --> 00:28:26,460
+works in Windows
+
+503
+00:28:22,510 --> 00:28:30,760
+it works in Mac it works in Linux okay
+
+504
+00:28:26,460 --> 00:28:32,679
+and it's pretty simple it just works it
+
+505
+00:28:30,760 --> 00:28:34,720
+you know you don't have to install you
+
+506
+00:28:32,679 --> 00:28:36,639
+you don't have dependencies you don't
+
+507
+00:28:34,720 --> 00:28:39,070
+have to install you don't have to trick
+
+508
+00:28:36,639 --> 00:28:42,940
+you know you don't have to have another
+
+509
+00:28:39,070 --> 00:28:45,460
+code that sets a path you know you make
+
+510
+00:28:42,940 --> 00:28:47,590
+things simple that's the thing but if
+
+511
+00:28:45,460 --> 00:28:50,980
+you follow you know if you've tried the
+
+512
+00:28:47,590 --> 00:28:52,360
+Emacs standard way like we showed before
+
+513
+00:28:50,980 --> 00:28:56,830
+you know like
+
+514
+00:28:52,360 --> 00:29:02,470
+let's say describe function describe
+
+515
+00:28:56,830 --> 00:29:06,520
+function okay you know for example we
+
+516
+00:29:02,470 --> 00:29:08,230
+showed this browse URL Firefox you know
+
+517
+00:29:06,520 --> 00:29:12,190
+you read the doc you and you have all
+
+518
+00:29:08,230 --> 00:29:14,620
+these options options flags people wants
+
+519
+00:29:12,190 --> 00:29:16,480
+to control it you know with a new tab or
+
+520
+00:29:14,620 --> 00:29:19,750
+not new tab you know think things like
+
+521
+00:29:16,480 --> 00:29:23,710
+that and just make it anyway let's start
+
+522
+00:29:19,750 --> 00:29:28,380
+coding let's start coding with it so we
+
+523
+00:29:23,710 --> 00:29:31,480
+yeah this it's let's just start coding
+
+524
+00:29:28,380 --> 00:29:35,320
+let's try to do this fast because let's
+
+525
+00:29:31,480 --> 00:29:41,170
+yeah because I already spend 30 minutes
+
+526
+00:29:35,320 --> 00:29:43,330
+flaming so so what we so this is this is
+
+527
+00:29:41,170 --> 00:29:47,530
+kind of a default template opening fire
+
+528
+00:29:43,330 --> 00:29:49,390
+Firefox okay not fire Firefox okay open
+
+529
+00:29:47,530 --> 00:29:54,070
+your Firefox so we want to open the
+
+530
+00:29:49,390 --> 00:29:57,100
+current buffer open but let me try to do
+
+531
+00:29:54,070 --> 00:29:59,500
+this quickly if I can open perfect in
+
+532
+00:29:57,100 --> 00:30:03,640
+Firefox so what we want to do we want to
+
+533
+00:29:59,500 --> 00:30:08,020
+first of all get the buffer path file
+
+534
+00:30:03,640 --> 00:30:09,940
+path okay and okay let me do let me do
+
+535
+00:30:08,020 --> 00:30:13,210
+this in the simplest kind of way so
+
+536
+00:30:09,940 --> 00:30:15,430
+don't worry about the proper style I
+
+537
+00:30:13,210 --> 00:30:17,860
+mean if you are you know you make this
+
+538
+00:30:15,430 --> 00:30:20,050
+coda you're criticized so this is no you
+
+539
+00:30:17,860 --> 00:30:23,320
+should do it that way but let's just let
+
+540
+00:30:20,050 --> 00:30:27,100
+me just do this you know let me just
+
+541
+00:30:23,320 --> 00:30:29,770
+show you know the basics of emag B's so
+
+542
+00:30:27,100 --> 00:30:34,770
+people knew about Emacs Lisp you can
+
+543
+00:30:29,770 --> 00:30:37,570
+learn how to do it so set path file path
+
+544
+00:30:34,770 --> 00:30:40,540
+so you want to find a current buffers
+
+545
+00:30:37,570 --> 00:30:44,200
+path and and how you do that is that
+
+546
+00:30:40,540 --> 00:30:48,400
+command is buffer name buffer file name
+
+547
+00:30:44,200 --> 00:30:50,380
+okay I think that's it let's see so
+
+548
+00:30:48,400 --> 00:30:50,860
+describe function to look at what it
+
+549
+00:30:50,380 --> 00:30:53,110
+does
+
+550
+00:30:50,860 --> 00:30:57,940
+okay buffer found returned the name of
+
+551
+00:30:53,110 --> 00:31:00,640
+returned name of file buffer is visiting
+
+552
+00:30:57,940 --> 00:31:05,260
+right okay so that sure it should be it
+
+553
+00:31:00,640 --> 00:31:08,139
+for example I can evaluate this and
+
+554
+00:31:05,260 --> 00:31:10,600
+the answer is indeed you see in the mini
+
+555
+00:31:08,139 --> 00:31:13,419
+buffer it says you know the current path
+
+556
+00:31:10,600 --> 00:31:16,899
+of the fire so buff a file name will
+
+557
+00:31:13,419 --> 00:31:19,059
+return the current path of the of the
+
+558
+00:31:16,899 --> 00:31:21,789
+fire location associated with this
+
+559
+00:31:19,059 --> 00:31:26,860
+buffer now if this buffer is not a file
+
+560
+00:31:21,789 --> 00:31:30,159
+they returns nil okay so so we said the
+
+561
+00:31:26,860 --> 00:31:33,850
+file path and now we just call shell
+
+562
+00:31:30,159 --> 00:31:38,710
+command okay shell command shell command
+
+563
+00:31:33,850 --> 00:31:41,080
+okay shell command we want to okay here
+
+564
+00:31:38,710 --> 00:31:42,700
+is a tricky tricky part you know
+
+565
+00:31:41,080 --> 00:31:45,250
+remember I said there are two parts to
+
+566
+00:31:42,700 --> 00:31:48,070
+ready in the command one is knowing eMac
+
+567
+00:31:45,250 --> 00:31:51,580
+this the other one is about knowing how
+
+568
+00:31:48,070 --> 00:31:54,370
+to call how to how to talk to a marine
+
+569
+00:31:51,580 --> 00:31:58,630
+system to launch launch a browser or any
+
+570
+00:31:54,370 --> 00:32:01,840
+app so this part is operate operating
+
+571
+00:31:58,630 --> 00:32:04,480
+system specific so right now I am on a
+
+572
+00:32:01,840 --> 00:32:06,760
+Mac I know what to do just by experience
+
+573
+00:32:04,480 --> 00:32:09,159
+so let me just do that then we will talk
+
+574
+00:32:06,760 --> 00:32:12,539
+about how do how to do on Windows and
+
+575
+00:32:09,159 --> 00:32:15,340
+stuff and you you also have to determine
+
+576
+00:32:12,539 --> 00:32:17,799
+find out like whether you are on the Mac
+
+577
+00:32:15,340 --> 00:32:20,519
+or Windows zone or Linux but let's just
+
+578
+00:32:17,799 --> 00:32:23,740
+do this get it to work so shell command
+
+579
+00:32:20,519 --> 00:32:26,860
+so what you do is you do you call open
+
+580
+00:32:23,740 --> 00:32:32,529
+so what is open open is a building Mac
+
+581
+00:32:26,860 --> 00:32:37,330
+OS command so for example okay so let's
+
+582
+00:32:32,529 --> 00:32:43,419
+open a new buffer I mean new new
+
+583
+00:32:37,330 --> 00:32:48,090
+terminal here so you can see magnify
+
+584
+00:32:43,419 --> 00:32:48,090
+okay so let's see if I can magnify
+
+585
+00:32:52,710 --> 00:33:01,529
+so open-open is a bo d mac commands okay
+
+586
+00:32:56,879 --> 00:33:05,159
+let's say open firefox okay so actually
+
+587
+00:33:01,529 --> 00:33:08,999
+you have to say - a means application
+
+588
+00:33:05,159 --> 00:33:12,389
+and we want to open using firefox and
+
+589
+00:33:08,999 --> 00:33:18,269
+let's say open a URL so let's say sorry
+
+590
+00:33:12,389 --> 00:33:23,369
+dot info okay oh sorry that info does
+
+591
+00:33:18,269 --> 00:33:26,279
+not exist I guess okay so let's say
+
+592
+00:33:23,369 --> 00:33:29,159
+let's say the current directory yeah
+
+593
+00:33:26,279 --> 00:33:31,019
+let's just say con directory dot okay
+
+594
+00:33:29,159 --> 00:33:33,149
+there you have it you know you open the
+
+595
+00:33:31,019 --> 00:33:36,509
+Condor tree in dot now if you want to
+
+596
+00:33:33,149 --> 00:33:39,779
+open URL or something you have to this
+
+597
+00:33:36,509 --> 00:33:43,740
+here's what we do so man open we look at
+
+598
+00:33:39,779 --> 00:33:46,379
+the open documentation you know so then
+
+599
+00:33:43,740 --> 00:33:50,879
+you can read about how to pass the
+
+600
+00:33:46,379 --> 00:33:54,629
+argument to the application you know so
+
+601
+00:33:50,879 --> 00:33:57,600
+there it is so this is actually one way
+
+602
+00:33:54,629 --> 00:34:01,070
+to do it another way is is you call
+
+603
+00:33:57,600 --> 00:34:07,529
+Firefox directory so let's see which
+
+604
+00:34:01,070 --> 00:34:13,079
+Firefox okay so let's try it again
+
+605
+00:34:07,529 --> 00:34:18,569
+which Firefox capital F okay so which
+
+606
+00:34:13,079 --> 00:34:23,609
+Firefox start app okay so let's try it
+
+607
+00:34:18,569 --> 00:34:25,159
+again Firefox app come on not found
+
+608
+00:34:23,609 --> 00:34:30,480
+let's try it again
+
+609
+00:34:25,159 --> 00:34:32,760
+capital F Firefox app not found this is
+
+610
+00:34:30,480 --> 00:34:35,970
+easy this is what I mean by the tricky
+
+611
+00:34:32,760 --> 00:34:38,669
+part of operating system this is all OS
+
+612
+00:34:35,970 --> 00:34:41,879
+specific now actually I know how to call
+
+613
+00:34:38,669 --> 00:34:46,379
+that command I think the full name it
+
+614
+00:34:41,879 --> 00:34:49,619
+would be this okay so let's try it let's
+
+615
+00:34:46,379 --> 00:34:55,950
+just try it blindly so you know this
+
+616
+00:34:49,619 --> 00:35:00,299
+this is trial and error methodology it
+
+617
+00:34:55,950 --> 00:35:03,630
+works universally so sash application
+
+618
+00:35:00,299 --> 00:35:06,070
+slash Firefox start apps sash contents
+
+619
+00:35:03,630 --> 00:35:12,010
+sash Mac OS let's just try it
+
+620
+00:35:06,070 --> 00:35:15,460
+then fire fox okay there we have it
+
+621
+00:35:12,010 --> 00:35:17,980
+there you go so so you see there are
+
+622
+00:35:15,460 --> 00:35:20,140
+many you know this is kind of many ways
+
+623
+00:35:17,980 --> 00:35:23,260
+to do it you can Co fire fox directly or
+
+624
+00:35:20,140 --> 00:35:25,660
+you can call the Mac OS open command I
+
+625
+00:35:23,260 --> 00:35:28,840
+think the open command is better it's
+
+626
+00:35:25,660 --> 00:35:32,790
+more you know it's designed to open apps
+
+627
+00:35:28,840 --> 00:35:40,000
+so we can just do this email Emacs
+
+628
+00:35:32,790 --> 00:35:43,359
+Firefox okay open Firefox then then then
+
+629
+00:35:40,000 --> 00:35:46,630
+then fire fire path okay so show command
+
+630
+00:35:43,359 --> 00:35:50,920
+so we have we need fire path here
+
+631
+00:35:46,630 --> 00:35:53,200
+optional we don't care okay but this
+
+632
+00:35:50,920 --> 00:35:57,130
+doesn't work because the fire path needs
+
+633
+00:35:53,200 --> 00:36:02,950
+to be evaluated so what you do is you
+
+634
+00:35:57,130 --> 00:36:06,000
+can contact so here is what you do okay
+
+635
+00:36:02,950 --> 00:36:06,000
+so contact
+
+636
+00:36:16,970 --> 00:36:24,340
+not contact oh yeah contact kongou looks
+
+637
+00:36:20,150 --> 00:36:24,340
+fine so open firefox
+
+638
+00:36:24,730 --> 00:36:35,500
+filepath let's let's try it let's
+
+639
+00:36:27,560 --> 00:36:38,810
+evaluate this code yeah that works so
+
+640
+00:36:35,500 --> 00:36:42,820
+contact that's what we want put it here
+
+641
+00:36:38,810 --> 00:36:45,980
+and remove that and make it pretty
+
+642
+00:36:42,820 --> 00:36:48,620
+so that should be it let's double-check
+
+643
+00:36:45,980 --> 00:36:51,500
+shell command we will Emacs show command
+
+644
+00:36:48,620 --> 00:36:54,350
+command will call will basically cause
+
+645
+00:36:51,500 --> 00:36:57,860
+shell you know use the shell to code so
+
+646
+00:36:54,350 --> 00:37:01,430
+open Firefox the in fact file path so
+
+647
+00:36:57,860 --> 00:37:05,840
+evaluate this buffer done let's go back
+
+648
+00:37:01,430 --> 00:37:10,090
+to some HTML and now let's call open
+
+649
+00:37:05,840 --> 00:37:12,110
+buffer in Firefox okay let's call open
+
+650
+00:37:10,090 --> 00:37:15,760
+buffer in Firefox
+
+651
+00:37:12,110 --> 00:37:19,220
+let's see please make it work please
+
+652
+00:37:15,760 --> 00:37:22,150
+symbols value as variable is invalid
+
+653
+00:37:19,220 --> 00:37:24,890
+file path okay
+
+654
+00:37:22,150 --> 00:37:27,380
+symbols value is invalid why is he
+
+655
+00:37:24,890 --> 00:37:31,700
+invited oh because we are doing it
+
+656
+00:37:27,380 --> 00:37:39,830
+outside of the let you see it must be
+
+657
+00:37:31,700 --> 00:37:43,550
+inside the length okay eval buffer okay
+
+658
+00:37:39,830 --> 00:37:50,120
+now go back to some HTML page then call
+
+659
+00:37:43,550 --> 00:37:53,750
+open buffer in Firefox the fire barber
+
+660
+00:37:50,120 --> 00:37:56,270
+bra top show Firefox does not exist okay
+
+661
+00:37:53,750 --> 00:38:00,820
+so let me show you the message buffer so
+
+662
+00:37:56,270 --> 00:38:07,880
+you can see the error message buffer
+
+663
+00:38:00,820 --> 00:38:11,110
+magnify make it one window so what is it
+
+664
+00:38:07,880 --> 00:38:11,110
+saying so it is saying
+
+665
+00:38:15,569 --> 00:38:29,649
+so the user talk show Firefox does the
+
+666
+00:38:21,669 --> 00:38:31,599
+the file the file does not exist okay
+
+667
+00:38:29,649 --> 00:38:37,119
+what do you mean the file does not exist
+
+668
+00:38:31,599 --> 00:38:41,499
+so let file path set queue file path
+
+669
+00:38:37,119 --> 00:38:44,229
+equals to buffer file path name
+
+670
+00:38:41,499 --> 00:38:48,549
+then let's go show command so what do
+
+671
+00:38:44,229 --> 00:38:49,269
+you mean why is the fire path does not
+
+672
+00:38:48,549 --> 00:38:54,639
+exist
+
+673
+00:38:49,269 --> 00:38:58,089
+okay let's try to find out print okay
+
+674
+00:38:54,639 --> 00:39:02,919
+with you know this is the the best way
+
+675
+00:38:58,089 --> 00:39:07,449
+to debug print statement avow it go back
+
+676
+00:39:02,919 --> 00:39:11,289
+to the on HTML file and let's look let's
+
+677
+00:39:07,449 --> 00:39:17,649
+watch the messages buffer and now let's
+
+678
+00:39:11,289 --> 00:39:23,199
+call the command call it so it is
+
+679
+00:39:17,649 --> 00:39:26,409
+actually passing this I mean so our file
+
+680
+00:39:23,199 --> 00:39:28,689
+path value is actually this which is
+
+681
+00:39:26,409 --> 00:39:32,619
+different from the error message it's
+
+682
+00:39:28,689 --> 00:39:37,329
+trying to say some talk show so it's
+
+683
+00:39:32,619 --> 00:39:48,729
+dropping the okay so there is something
+
+684
+00:39:37,329 --> 00:39:50,909
+strange we okay I think I think oh okay
+
+685
+00:39:48,729 --> 00:39:50,909
+because
+
+686
+00:39:57,170 --> 00:40:04,010
+okay so here's what we need to do so
+
+687
+00:40:00,240 --> 00:40:07,190
+let's add a new command so this is
+
+688
+00:40:04,010 --> 00:40:17,180
+command string so this is we are showing
+
+689
+00:40:07,190 --> 00:40:26,190
+debugging skills we want to set SEC you
+
+690
+00:40:17,180 --> 00:40:34,500
+command string and so we can you know
+
+691
+00:40:26,190 --> 00:40:36,630
+see what our commands is and let's there
+
+692
+00:40:34,500 --> 00:40:39,200
+we have it so we are going to print out
+
+693
+00:40:36,630 --> 00:40:43,470
+command string let's see what we have
+
+694
+00:40:39,200 --> 00:40:47,550
+and comment that out avow the buffer go
+
+695
+00:40:43,470 --> 00:40:51,060
+back to HTML code a command let's see so
+
+696
+00:40:47,550 --> 00:40:56,600
+the command we are calling is open fire
+
+697
+00:40:51,060 --> 00:40:56,600
+oh we missing the - a what an idiocy
+
+698
+00:40:58,430 --> 00:41:10,710
+open open - a yeah well the idea c eval
+
+699
+00:41:04,800 --> 00:41:15,210
+the buffer go back try it open buffer in
+
+700
+00:41:10,710 --> 00:41:18,690
+vivax and indeed it's going to call this
+
+701
+00:41:15,210 --> 00:41:22,950
+command seems correct now let's let's
+
+702
+00:41:18,690 --> 00:41:25,920
+actually make it a shell command and you
+
+703
+00:41:22,950 --> 00:41:28,400
+know run it here we're actually called a
+
+704
+00:41:25,920 --> 00:41:36,990
+shell command so now let's try it again
+
+705
+00:41:28,400 --> 00:41:40,920
+yay yay fantastic success ok successful
+
+706
+00:41:36,990 --> 00:41:43,609
+so we need to oh thank you seen to
+
+707
+00:41:40,920 --> 00:41:48,960
+should've should have checked my
+
+708
+00:41:43,609 --> 00:41:52,080
+comments that would be enlightenment
+
+709
+00:41:48,960 --> 00:41:58,680
+desktop environment best room is clean
+
+710
+00:41:52,080 --> 00:42:02,220
+tidy room there's a message attached
+
+711
+00:41:58,680 --> 00:42:05,540
+this room is a green tidy room now I
+
+712
+00:42:02,220 --> 00:42:05,540
+need to clean my you
+
+713
+00:42:05,760 --> 00:42:11,800
+okay okay I'll give it I give it a shot
+
+714
+00:42:09,579 --> 00:42:18,160
+how clean I'll swing there our doing
+
+715
+00:42:11,800 --> 00:42:21,430
+that today so its own destroy best on
+
+716
+00:42:18,160 --> 00:42:25,180
+Ubuntu it's visually reminds me of voice
+
+717
+00:42:21,430 --> 00:42:27,940
+OS X okay so we are talking about
+
+718
+00:42:25,180 --> 00:42:31,630
+enlightenment I don't think it was a
+
+719
+00:42:27,940 --> 00:42:38,980
+distro back then maybe you know maybe
+
+720
+00:42:31,630 --> 00:42:43,210
+you are right it was okay so okay so
+
+721
+00:42:38,980 --> 00:42:46,960
+Emily complains why are you putting the
+
+722
+00:42:43,210 --> 00:42:51,119
+sake you hear and as opposed as as
+
+723
+00:42:46,960 --> 00:42:51,119
+opposed to let's see
+
+724
+00:42:51,480 --> 00:43:02,859
+so like that that's a good that's a good
+
+725
+00:42:59,099 --> 00:43:04,060
+question well only because you know I'm
+
+726
+00:43:02,859 --> 00:43:06,670
+trying to do it fast
+
+727
+00:43:04,060 --> 00:43:09,400
+you know because you see we when you put
+
+728
+00:43:06,670 --> 00:43:12,400
+it here then you have more complex
+
+729
+00:43:09,400 --> 00:43:16,000
+issues like right now if we let's try
+
+730
+00:43:12,400 --> 00:43:18,420
+that so we you know so let so you can
+
+731
+00:43:16,000 --> 00:43:22,000
+you know if you want to set the value to
+
+732
+00:43:18,420 --> 00:43:23,740
+a variable you can directly put a let if
+
+733
+00:43:22,000 --> 00:43:26,560
+you already know the value like this
+
+734
+00:43:23,740 --> 00:43:30,700
+symbol so you can do that but then we
+
+735
+00:43:26,560 --> 00:43:32,829
+need also to put a command here you can
+
+736
+00:43:30,700 --> 00:43:35,859
+you know so we can also do it put a
+
+737
+00:43:32,829 --> 00:43:40,960
+value here and in that case the value
+
+738
+00:43:35,859 --> 00:43:43,480
+will be this you know contact but then
+
+739
+00:43:40,960 --> 00:43:47,800
+then there's complexities because now
+
+740
+00:43:43,480 --> 00:43:51,490
+the file path depends on this value
+
+741
+00:43:47,800 --> 00:43:56,050
+before then you cannot use let then you
+
+742
+00:43:51,490 --> 00:43:58,300
+have to use let star so the difference
+
+743
+00:43:56,050 --> 00:44:03,790
+between let star and let is that let's
+
+744
+00:43:58,300 --> 00:44:06,400
+start we are you know the the Oder you
+
+745
+00:44:03,790 --> 00:44:10,359
+know the latter variable values can
+
+746
+00:44:06,400 --> 00:44:14,260
+depend a value that you know that said
+
+747
+00:44:10,359 --> 00:44:16,990
+before like that so you know so this me
+
+748
+00:44:14,260 --> 00:44:18,850
+some details you know how so I was
+
+749
+00:44:16,990 --> 00:44:21,100
+thinking too
+
+750
+00:44:18,850 --> 00:44:23,820
+you know not talk about that but yeah
+
+751
+00:44:21,100 --> 00:44:28,150
+but this you know so by Emax convention
+
+752
+00:44:23,820 --> 00:44:30,430
+typically you want to do it this way but
+
+753
+00:44:28,150 --> 00:44:33,220
+again you know as my typical and you can
+
+754
+00:44:30,430 --> 00:44:38,080
+use your opinion I I don't think that's
+
+755
+00:44:33,220 --> 00:44:40,900
+necessarily good because why because if
+
+756
+00:44:38,080 --> 00:44:42,960
+you just stick with this format you know
+
+757
+00:44:40,900 --> 00:44:46,450
+where let is just a bunch of variables
+
+758
+00:44:42,960 --> 00:44:51,250
+then you have a bunch of set you know
+
+759
+00:44:46,450 --> 00:44:55,450
+this way this format will be universal
+
+760
+00:44:51,250 --> 00:45:00,100
+because if you do things this way you
+
+761
+00:44:55,450 --> 00:45:05,170
+wouldn't have variations like let then
+
+762
+00:45:00,100 --> 00:45:05,560
+sometimes let's star let me try to do
+
+763
+00:45:05,170 --> 00:45:08,230
+that
+
+764
+00:45:05,560 --> 00:45:10,630
+Oh sometimes like even if you use it
+
+765
+00:45:08,230 --> 00:45:13,450
+this way even if you do this way then
+
+766
+00:45:10,630 --> 00:45:17,410
+you see some variables you don't know
+
+767
+00:45:13,450 --> 00:45:20,590
+the value until you run some complicated
+
+768
+00:45:17,410 --> 00:45:22,660
+code you see so so some of it some
+
+769
+00:45:20,590 --> 00:45:25,960
+variables you will have a value directly
+
+770
+00:45:22,660 --> 00:45:28,450
+like that but some others then you
+
+771
+00:45:25,960 --> 00:45:30,520
+either have a big chunk of code but uh
+
+772
+00:45:28,450 --> 00:45:32,620
+but sometimes you just cannot you have
+
+773
+00:45:30,520 --> 00:45:35,710
+to do it you know you have to use set
+
+774
+00:45:32,620 --> 00:45:39,310
+cue in the body of the code so what I'm
+
+775
+00:45:35,710 --> 00:45:42,280
+saying is that if you try to use this
+
+776
+00:45:39,310 --> 00:45:45,840
+form this form of let you know where you
+
+777
+00:45:42,280 --> 00:45:51,070
+set of value to variables then you have
+
+778
+00:45:45,840 --> 00:45:54,010
+kind of various formations like you know
+
+779
+00:45:51,070 --> 00:45:56,500
+you and it's necessarily so you know you
+
+780
+00:45:54,010 --> 00:45:58,990
+know you cannot just enforce one format
+
+781
+00:45:56,500 --> 00:46:01,060
+it's like sometimes you have let then
+
+782
+00:45:58,990 --> 00:46:05,590
+you have let's star then you have you
+
+783
+00:46:01,060 --> 00:46:07,930
+know let with with some has values some
+
+784
+00:46:05,590 --> 00:46:11,440
+doesn't that happens in the body so you
+
+785
+00:46:07,930 --> 00:46:20,010
+know you see what I'm saying so that is
+
+786
+00:46:11,440 --> 00:46:24,460
+my complaints about about the idea where
+
+787
+00:46:20,010 --> 00:46:26,590
+you know some some Emacs the issue of
+
+788
+00:46:24,460 --> 00:46:29,320
+style you know some acts conventional
+
+789
+00:46:26,590 --> 00:46:31,950
+issue of style so what what do you think
+
+790
+00:46:29,320 --> 00:46:31,950
+about that
+
+791
+00:46:35,940 --> 00:46:46,720
+so what do you think about that my
+
+792
+00:46:39,510 --> 00:46:51,430
+retort yeah so what you know my so my
+
+793
+00:46:46,720 --> 00:46:55,810
+opinion about how using a simple let of
+
+794
+00:46:51,430 --> 00:46:57,880
+these formalities has has advantages you
+
+795
+00:46:55,810 --> 00:47:01,360
+know let's say you know you know the
+
+796
+00:46:57,880 --> 00:47:03,640
+other thing is when you you know when
+
+797
+00:47:01,360 --> 00:47:08,200
+you use this LED format where you have
+
+798
+00:47:03,640 --> 00:47:10,540
+variables value together you see the
+
+799
+00:47:08,200 --> 00:47:13,720
+thing about Emacs is that emag Lisp is
+
+800
+00:47:10,540 --> 00:47:17,350
+not a typed language not strongly typed
+
+801
+00:47:13,720 --> 00:47:20,560
+and there is no concept concept of
+
+802
+00:47:17,350 --> 00:47:23,320
+constant in images so even if you do
+
+803
+00:47:20,560 --> 00:47:27,790
+that you can still change the value of
+
+804
+00:47:23,320 --> 00:47:28,480
+the variable in your body so it kind of
+
+805
+00:47:27,790 --> 00:47:33,100
+so-so
+
+806
+00:47:28,480 --> 00:47:36,430
+so this way of this style does not carry
+
+807
+00:47:33,100 --> 00:47:40,350
+the same semantic advantage of declaring
+
+808
+00:47:36,430 --> 00:47:46,810
+constants so rather it's kind of just
+
+809
+00:47:40,350 --> 00:47:50,470
+the advantage of it if any is just kind
+
+810
+00:47:46,810 --> 00:47:52,570
+of visual you know it helps you maybe
+
+811
+00:47:50,470 --> 00:47:58,150
+organized you know it makes the code
+
+812
+00:47:52,570 --> 00:48:01,150
+easier to understand so it's not really
+
+813
+00:47:58,150 --> 00:48:03,760
+significant so that you know so so
+
+814
+00:48:01,150 --> 00:48:06,760
+that's my video details about coding
+
+815
+00:48:03,760 --> 00:48:09,970
+style in eMac list of the various forms
+
+816
+00:48:06,760 --> 00:48:11,830
+of let you know so a little bit history
+
+817
+00:48:09,970 --> 00:48:15,640
+like personal history like in the
+
+818
+00:48:11,830 --> 00:48:20,590
+beginning you know three or four years
+
+819
+00:48:15,640 --> 00:48:23,050
+of my MX based coding I always stick
+
+820
+00:48:20,590 --> 00:48:28,620
+with this format like always I'll never
+
+821
+00:48:23,050 --> 00:48:31,900
+I'll never do this I never do this and
+
+822
+00:48:28,620 --> 00:48:34,300
+never never let start neither you know I
+
+823
+00:48:31,900 --> 00:48:36,820
+always just stick with that because for
+
+824
+00:48:34,300 --> 00:48:40,030
+the reason I just kept you know I don't
+
+825
+00:48:36,820 --> 00:48:42,190
+think those others are better you know I
+
+826
+00:48:40,030 --> 00:48:44,200
+don't think there are better that's the
+
+827
+00:48:42,190 --> 00:48:45,220
+first for like five years of my you
+
+828
+00:48:44,200 --> 00:48:48,220
+Magnus coding
+
+829
+00:48:45,220 --> 00:48:52,720
+but today if you look at my code I do
+
+830
+00:48:48,220 --> 00:48:57,280
+use a lot of these and when I do this
+
+831
+00:48:52,720 --> 00:49:00,609
+it's usually because the variable I
+
+832
+00:48:57,280 --> 00:49:02,980
+consider it constant like if you see in
+
+833
+00:49:00,609 --> 00:49:06,160
+my code if you see this form that means
+
+834
+00:49:02,980 --> 00:49:08,230
+I never change we'll never change the
+
+835
+00:49:06,160 --> 00:49:14,560
+value of this fire path in the body of
+
+836
+00:49:08,230 --> 00:49:16,750
+code so I started to do that and that's
+
+837
+00:49:14,560 --> 00:49:18,760
+not ideal either because like like I
+
+838
+00:49:16,750 --> 00:49:21,670
+said Emacs does not have constant
+
+839
+00:49:18,760 --> 00:49:27,280
+concept so it's this is merely kind of a
+
+840
+00:49:21,670 --> 00:49:30,400
+convention so so I've been thinking
+
+841
+00:49:27,280 --> 00:49:34,660
+actually going back to this so you know
+
+842
+00:49:30,400 --> 00:49:36,730
+I've emphasized about this you know I
+
+843
+00:49:34,660 --> 00:49:38,530
+think about this a lot I worry about it
+
+844
+00:49:36,730 --> 00:49:41,440
+every day like whether you should use
+
+845
+00:49:38,530 --> 00:49:44,109
+camel case or you should use snake case
+
+846
+00:49:41,440 --> 00:49:47,080
+or vision or whatever or - case you know
+
+847
+00:49:44,109 --> 00:49:47,470
+I worried about every day obsess about
+
+848
+00:49:47,080 --> 00:49:53,410
+it
+
+849
+00:49:47,470 --> 00:49:57,310
+and going back and forth okay so that's
+
+850
+00:49:53,410 --> 00:50:01,260
+about that so so Emily says I can send
+
+851
+00:49:57,310 --> 00:50:08,520
+messages and that's the one message that
+
+852
+00:50:01,260 --> 00:50:11,650
+posed through oh okay yeah so so YouTube
+
+853
+00:50:08,520 --> 00:50:15,580
+yeah YouTube they start to they have a
+
+854
+00:50:11,650 --> 00:50:19,320
+mechanism that hold on okay so let me do
+
+855
+00:50:15,580 --> 00:50:23,140
+this let me copy that okay I think we
+
+856
+00:50:19,320 --> 00:50:28,170
+been talking a lot and not doing it much
+
+857
+00:50:23,140 --> 00:50:28,170
+in my list but I mean let me do this
+
+858
+00:50:29,160 --> 00:50:35,880
+because they also actually allowed to do
+
+859
+00:50:32,080 --> 00:50:42,960
+a lot to continue with that eMac this
+
+860
+00:50:35,880 --> 00:50:42,960
+actually so
+
+861
+00:50:48,650 --> 00:50:56,430
+so that's a comment for today I'm I'm
+
+862
+00:50:52,650 --> 00:51:03,270
+saving it right now because I'm about to
+
+863
+00:50:56,430 --> 00:51:09,480
+switch to live chat when you do that
+
+864
+00:51:03,270 --> 00:51:10,980
+often it cuts off some of the talk so is
+
+865
+00:51:09,480 --> 00:51:13,740
+that that's what you mean right you
+
+866
+00:51:10,980 --> 00:51:19,010
+cannot post messages anyway opposed to
+
+867
+00:51:13,740 --> 00:51:19,010
+this code then I'm programming
+
+868
+00:51:21,440 --> 00:51:31,080
+okay so Emily says I see use of set cue
+
+869
+00:51:25,530 --> 00:51:33,540
+like use of go-to okay yeah but it's not
+
+870
+00:51:31,080 --> 00:51:36,590
+going to right so like it breaks the
+
+871
+00:51:33,540 --> 00:51:44,580
+nice functional aspect
+
+872
+00:51:36,590 --> 00:51:47,310
+hmm okay so okay I see what you're
+
+873
+00:51:44,580 --> 00:51:51,450
+saying but still it's it's kind of it's
+
+874
+00:51:47,310 --> 00:51:54,360
+it's really it's rather all about just
+
+875
+00:51:51,450 --> 00:51:57,870
+visual style I mean it has nothing to do
+
+876
+00:51:54,360 --> 00:52:00,480
+with semantics you know right so but you
+
+877
+00:51:57,870 --> 00:52:03,660
+you use each walk well yeah so okay so
+
+878
+00:52:00,480 --> 00:52:06,800
+let's listen it's just to let's continue
+
+879
+00:52:03,660 --> 00:52:06,800
+with our commands
+
+880
+00:52:10,789 --> 00:52:17,999
+okay so so we did this okay it's now it
+
+881
+00:52:16,229 --> 00:52:20,339
+works now what what's the next problem
+
+882
+00:52:17,999 --> 00:52:22,680
+so next problem we need to get this
+
+883
+00:52:20,339 --> 00:52:26,249
+command to work on Windows and Linux and
+
+884
+00:52:22,680 --> 00:52:29,279
+how do you do that so you have to so
+
+885
+00:52:26,249 --> 00:52:31,979
+there's a variable called I don't
+
+886
+00:52:29,279 --> 00:52:34,499
+remember okay so let's go to you know
+
+887
+00:52:31,979 --> 00:52:39,089
+let's just go to my code so we can save
+
+888
+00:52:34,499 --> 00:52:39,660
+time so there's a variable called where
+
+889
+00:52:39,089 --> 00:52:46,200
+is that
+
+890
+00:52:39,660 --> 00:52:49,079
+so let's magnify opening vs code system
+
+891
+00:52:46,200 --> 00:52:51,049
+type okay so here is a variable system
+
+892
+00:52:49,079 --> 00:52:59,789
+type okay
+
+893
+00:52:51,049 --> 00:53:03,390
+system system type now system type is a
+
+894
+00:52:59,789 --> 00:53:04,859
+building variable that tells you what
+
+895
+00:53:03,390 --> 00:53:09,569
+what operating system
+
+896
+00:53:04,859 --> 00:53:11,759
+you are in so we want to check you know
+
+897
+00:53:09,569 --> 00:53:13,680
+which operating system we are in because
+
+898
+00:53:11,759 --> 00:53:20,729
+we need this command to work on Windows
+
+899
+00:53:13,680 --> 00:53:24,210
+and Linux so we need a condition so
+
+900
+00:53:20,729 --> 00:53:34,829
+condition if so this is the form for
+
+901
+00:53:24,210 --> 00:53:37,049
+condition so if string equal why don't I
+
+902
+00:53:34,829 --> 00:53:42,960
+have string equal okay oh there it is
+
+903
+00:53:37,049 --> 00:53:49,890
+string Co so if string equal system type
+
+904
+00:53:42,960 --> 00:53:52,799
+if the string is Darwin now Darwin is
+
+905
+00:53:49,890 --> 00:53:54,089
+new Emacs name for Mac OS okay that's
+
+906
+00:53:52,799 --> 00:53:56,609
+idiotic
+
+907
+00:53:54,089 --> 00:53:59,729
+okay for political reasons so anyway
+
+908
+00:53:56,609 --> 00:54:06,809
+because story is the kind of the open
+
+909
+00:53:59,729 --> 00:54:10,469
+source core of Mac OS okay so anyway so
+
+910
+00:54:06,809 --> 00:54:13,499
+if it's if we are on a Mac then we do
+
+911
+00:54:10,469 --> 00:54:20,339
+something okay then if we are on Windows
+
+912
+00:54:13,499 --> 00:54:23,279
+now Windows is windows name is Windows
+
+913
+00:54:20,339 --> 00:54:24,720
+NT then we do something else
+
+914
+00:54:23,279 --> 00:54:28,860
+if we are on
+
+915
+00:54:24,720 --> 00:54:33,720
+Linux you know then Cunha wants to
+
+916
+00:54:28,860 --> 00:54:35,430
+correct new Linux politics okay then we
+
+917
+00:54:33,720 --> 00:54:40,820
+do something okay this is how you do it
+
+918
+00:54:35,430 --> 00:54:40,820
+then otherwise we can say otherwise
+
+919
+00:54:43,850 --> 00:54:50,370
+arrow okay
+
+920
+00:54:47,360 --> 00:54:54,150
+now Eric the arrow command is just like
+
+921
+00:54:50,370 --> 00:54:57,060
+messages you know it's it it prints on
+
+922
+00:54:54,150 --> 00:55:05,930
+arrow and stops the program so otherwise
+
+923
+00:54:57,060 --> 00:55:12,750
+arrow use good logic problem
+
+924
+00:55:05,930 --> 00:55:14,130
+you got a logic problem okay well
+
+925
+00:55:12,750 --> 00:55:16,620
+actually it's not a logic problem
+
+926
+00:55:14,130 --> 00:55:20,240
+because it's possible is someone else is
+
+927
+00:55:16,620 --> 00:55:29,100
+on Solaris or some of the you know weird
+
+928
+00:55:20,240 --> 00:55:41,190
+green system your OS is crap isn't it is
+
+929
+00:55:29,100 --> 00:55:44,400
+not pop there for not supported okay
+
+930
+00:55:41,190 --> 00:55:48,720
+something like that okay so we write a
+
+931
+00:55:44,400 --> 00:55:52,380
+condition let's make it pretty and so if
+
+932
+00:55:48,720 --> 00:55:55,620
+we are on the Mac so let's now let's
+
+933
+00:55:52,380 --> 00:55:58,370
+clean the whole thing here we actually
+
+934
+00:55:55,620 --> 00:55:58,370
+need to
+
+935
+00:56:04,940 --> 00:56:13,019
+okay let's just clean them up clean them
+
+936
+00:56:08,279 --> 00:56:17,160
+up she'll come and clean clean then so
+
+937
+00:56:13,019 --> 00:56:20,069
+if it's on the Mac then you say that so
+
+938
+00:56:17,160 --> 00:56:22,170
+if he's on Windows then you have to do
+
+939
+00:56:20,069 --> 00:56:23,640
+something something then if it's on
+
+940
+00:56:22,170 --> 00:56:26,759
+Linux you have to do something something
+
+941
+00:56:23,640 --> 00:56:28,920
+now since I'm on a Mac I cannot test on
+
+942
+00:56:26,759 --> 00:56:31,920
+Windows so let's just copy the code we
+
+943
+00:56:28,920 --> 00:56:37,819
+have here so this code is open in
+
+944
+00:56:31,920 --> 00:56:40,710
+Firefox so we have where I don't have I
+
+945
+00:56:37,819 --> 00:56:53,029
+don't have the version in Firefox so
+
+946
+00:56:40,710 --> 00:56:53,029
+let's just let's look at my source code
+
+947
+00:56:53,210 --> 00:56:59,609
+okay so let's paste the whole thing here
+
+948
+00:56:56,700 --> 00:57:04,529
+now this is a code for opening Chrome
+
+949
+00:56:59,609 --> 00:57:07,979
+and but you can see it's just copy the
+
+950
+00:57:04,529 --> 00:57:11,489
+condition part okay so you can see the
+
+951
+00:57:07,979 --> 00:57:14,759
+condition part so if it's on the Mac
+
+952
+00:57:11,489 --> 00:57:17,969
+then it does something more complex
+
+953
+00:57:14,759 --> 00:57:21,390
+because it's trying to because that
+
+954
+00:57:17,969 --> 00:57:25,619
+command we are open several files in
+
+955
+00:57:21,390 --> 00:57:27,269
+tired you know if you are in tired you
+
+956
+00:57:25,619 --> 00:57:32,460
+can do that for example let me show you
+
+957
+00:57:27,269 --> 00:57:37,079
+so I want to open okay this is too big a
+
+958
+00:57:32,460 --> 00:57:40,440
+window so I want to open this file and
+
+959
+00:57:37,079 --> 00:57:46,799
+this file and this file in Chrome
+
+960
+00:57:40,440 --> 00:57:51,749
+browser I can do that so Chrome okay so
+
+961
+00:57:46,799 --> 00:57:56,670
+let's try again open Chrome so kesaji
+
+962
+00:57:51,749 --> 00:58:05,969
+TMA are opening Chrome browser do it you
+
+963
+00:57:56,670 --> 00:58:10,780
+see you open all three pages okay so you
+
+964
+00:58:05,969 --> 00:58:13,690
+see that's kind of useful sometimes
+
+965
+00:58:10,780 --> 00:58:19,990
+so that is why you see this map thing
+
+966
+00:58:13,690 --> 00:58:22,960
+but bit but basically what well what we
+
+967
+00:58:19,990 --> 00:58:25,300
+need is to find how to you call on
+
+968
+00:58:22,960 --> 00:58:29,830
+Windows how do you call how do you
+
+969
+00:58:25,300 --> 00:58:34,780
+launch your command so we can see the
+
+970
+00:58:29,830 --> 00:58:36,730
+windows code here this is what how we do
+
+971
+00:58:34,780 --> 00:58:39,340
+it there there are many ways to do it
+
+972
+00:58:36,730 --> 00:58:41,710
+okay like I said before but you know
+
+973
+00:58:39,340 --> 00:58:47,230
+this is the way I happen to do it so
+
+974
+00:58:41,710 --> 00:58:50,620
+actually we don't need the map you know
+
+975
+00:58:47,230 --> 00:58:55,660
+so so this is how we do it we call start
+
+976
+00:58:50,620 --> 00:58:58,270
+process then we call PowerShell then we
+
+977
+00:58:55,660 --> 00:59:00,250
+say pop start process again that's part
+
+978
+00:58:58,270 --> 00:59:04,210
+of PowerShell commands start process
+
+979
+00:59:00,250 --> 00:59:06,820
+then you say Chrome
+
+980
+00:59:04,210 --> 00:59:10,950
+in this case since we are doing Firefox
+
+981
+00:59:06,820 --> 00:59:14,410
+so that should be Firefox I think a walk
+
+982
+00:59:10,950 --> 00:59:17,080
+so this is how you how you know if it's
+
+983
+00:59:14,410 --> 00:59:23,440
+Windows this is how you do it now if
+
+984
+00:59:17,080 --> 00:59:27,160
+it's Linux it's more complex okay so so
+
+985
+00:59:23,440 --> 00:59:29,860
+if it's Linux let's see okay so string
+
+986
+00:59:27,160 --> 00:59:36,150
+equals to Linux okay so here is how you
+
+987
+00:59:29,860 --> 00:59:36,150
+do it that's let's just okay so
+
+988
+00:59:39,950 --> 00:59:47,829
+so you share command then Firefox yeah
+
+989
+00:59:45,559 --> 00:59:54,260
+that should be it that's how you do it
+
+990
+00:59:47,829 --> 00:59:56,630
+okay so so we we spend a lot time to
+
+991
+00:59:54,260 --> 00:59:59,930
+write this simple function but basic
+
+992
+00:59:56,630 --> 01:00:02,809
+okay so it it does illustrate what we
+
+993
+00:59:59,930 --> 01:00:05,170
+want to do so the file path this is
+
+994
+01:00:02,809 --> 01:00:05,170
+wrong
+
+995
+01:00:06,280 --> 01:00:12,130
+that should work okay evaluated
+
+996
+01:00:09,260 --> 01:00:20,750
+I cannot test it you know window so
+
+997
+01:00:12,130 --> 01:00:22,970
+Firefox but okay yeah so my keyboards
+
+998
+01:00:20,750 --> 01:00:26,480
+Canisius advantage I showed that in many
+
+999
+01:00:22,970 --> 01:00:29,150
+of my videos like almost many many of
+
+1000
+01:00:26,480 --> 01:00:31,700
+them and you just search for Saudi
+
+1001
+01:00:29,150 --> 01:00:35,480
+Kinesis you'll find my website with a
+
+1002
+01:00:31,700 --> 01:00:40,220
+video full review of it okay I think I
+
+1003
+01:00:35,480 --> 01:00:43,750
+you know we we did this but we there's
+
+1004
+01:00:40,220 --> 01:00:43,750
+actually a lot to talk about
+
+1005
+01:00:44,079 --> 01:00:51,410
+okay we did this function the next
+
+1006
+01:00:46,869 --> 01:00:55,790
+problem is to open the link under
+
+1007
+01:00:51,410 --> 01:00:58,640
+cruiser in a specific browser now how to
+
+1008
+01:00:55,790 --> 01:01:01,130
+open you know a specific browser is over
+
+1009
+01:00:58,640 --> 01:01:06,290
+here already we cover that so the
+
+1010
+01:01:01,130 --> 01:01:11,780
+problem is about how do you get the URL
+
+1011
+01:01:06,290 --> 01:01:15,559
+under the cruiser so that's the next
+
+1012
+01:01:11,780 --> 01:01:18,290
+command we can do and also after that
+
+1013
+01:01:15,559 --> 01:01:21,799
+then we can you know we can merge these
+
+1014
+01:01:18,290 --> 01:01:24,980
+two command okay so I don't know maybe
+
+1015
+01:01:21,799 --> 01:01:26,690
+this is you know maybe this is good
+
+1016
+01:01:24,980 --> 01:01:29,680
+enough for today so let's look at the
+
+1017
+01:01:26,690 --> 01:01:32,780
+comments so you guys have comments
+
+1018
+01:01:29,680 --> 01:01:36,799
+questions should I should I continue to
+
+1019
+01:01:32,780 --> 01:01:39,319
+the next one about writing a command
+
+1020
+01:01:36,799 --> 01:01:45,799
+that opens the URL and a coozer
+
+1021
+01:01:39,319 --> 01:01:49,010
+in a browser should we do that or or
+
+1022
+01:01:45,799 --> 01:01:52,160
+maybe that should be it today or maybe
+
+1023
+01:01:49,010 --> 01:01:53,690
+we talked about some other things so let
+
+1024
+01:01:52,160 --> 01:01:56,500
+me know okay so
+
+1025
+01:01:53,690 --> 01:02:02,240
+comments let me know let me get a drink
+
+1026
+01:01:56,500 --> 01:02:05,390
+okay tea so do I look okay yeah I look
+
+1027
+01:02:02,240 --> 01:02:10,820
+okay because it's quite dark here
+
+1028
+01:02:05,390 --> 01:02:13,460
+actually let me turn on the light and
+
+1029
+01:02:10,820 --> 01:02:16,990
+the Kooza is interesting okay let's do
+
+1030
+01:02:13,460 --> 01:02:16,990
+that let me turn on the right
+
+1031
+01:02:35,710 --> 01:02:47,900
+okay yeah Emily Emily is a lisp expert
+
+1032
+01:02:44,809 --> 01:02:54,980
+Emory has coded you know lots of Lisp
+
+1033
+01:02:47,900 --> 01:02:59,239
+code so did you try the stunt WP or WN
+
+1034
+01:02:54,980 --> 01:03:02,029
+sub stump WM that's Linux window manager
+
+1035
+01:02:59,239 --> 01:03:05,410
+written tiling window manager written in
+
+1036
+01:03:02,029 --> 01:03:05,410
+Common Lisp have you tried it
+
+1037
+01:03:17,690 --> 01:03:29,670
+okay so let's do the okay so so let's
+
+1038
+01:03:27,180 --> 01:03:33,360
+open so let's just do this okay so let's
+
+1039
+01:03:29,670 --> 01:03:36,770
+copy that base our code on previous code
+
+1040
+01:03:33,360 --> 01:03:39,690
+copy paste is the most powerful
+
+1041
+01:03:36,770 --> 01:03:47,190
+methodology in programming truly in
+
+1042
+01:03:39,690 --> 01:03:52,620
+practice right so yeah so let's do open
+
+1043
+01:03:47,190 --> 01:03:58,740
+buffer in open link in Firefox okay so
+
+1044
+01:03:52,620 --> 01:04:04,710
+it says open link and open the URL or
+
+1045
+01:03:58,740 --> 01:04:07,740
+file path and who's in Firefox okay
+
+1046
+01:04:04,710 --> 01:04:09,780
+that's our dark string and here you
+
+1047
+01:04:07,740 --> 01:04:19,380
+always you need doc string okay open
+
+1048
+01:04:09,780 --> 01:04:21,180
+buffer okay so doc string open URL file
+
+1049
+01:04:19,380 --> 01:04:27,900
+path and the kusa in firefox that's
+
+1050
+01:04:21,180 --> 01:04:29,460
+great Doc's string is great but it
+
+1051
+01:04:27,900 --> 01:04:32,240
+doesn't do nothing you have to write
+
+1052
+01:04:29,460 --> 01:04:35,490
+code okay so you need to write code so
+
+1053
+01:04:32,240 --> 01:04:39,930
+so file path we need that just like
+
+1054
+01:04:35,490 --> 01:04:44,040
+before then open the URL okay so now the
+
+1055
+01:04:39,930 --> 01:04:46,710
+problem is how do you grab the path and
+
+1056
+01:04:44,040 --> 01:04:53,010
+the kusa okay that's the you can do that
+
+1057
+01:04:46,710 --> 01:04:55,770
+by there are so many ways okay so let's
+
+1058
+01:04:53,010 --> 01:05:00,870
+let's try to let's let's go with the
+
+1059
+01:04:55,770 --> 01:05:05,280
+easiest conventional Emacs default way
+
+1060
+01:05:00,870 --> 01:05:07,620
+so there is a thing there's this piolin
+
+1061
+01:05:05,280 --> 01:05:11,610
+package called thing at point so let's
+
+1062
+01:05:07,620 --> 01:05:16,310
+use let's use that thing at point okay
+
+1063
+01:05:11,610 --> 01:05:21,510
+so you can look at the documentation
+
+1064
+01:05:16,310 --> 01:05:24,000
+basically basically what it will do is
+
+1065
+01:05:21,510 --> 01:05:26,000
+that you'll get for example let's for
+
+1066
+01:05:24,000 --> 01:05:31,120
+example let me show you it's easier than
+
+1067
+01:05:26,000 --> 01:05:36,290
+okay so that means we remove all that
+
+1068
+01:05:31,120 --> 01:05:40,340
+okay remove all that so thing at point
+
+1069
+01:05:36,290 --> 01:05:42,230
+URL what that means is that it will grab
+
+1070
+01:05:40,340 --> 01:05:47,930
+the text around the cursor
+
+1071
+01:05:42,230 --> 01:05:50,980
+that's a URL and so for example let's
+
+1072
+01:05:47,930 --> 01:05:58,730
+let's do this path okay
+
+1073
+01:05:50,980 --> 01:06:00,650
+so set path to that okay so we're gonna
+
+1074
+01:05:58,730 --> 01:06:03,170
+set path so that's what it does it
+
+1075
+01:06:00,650 --> 01:06:06,230
+returns the URL under the kusa so this
+
+1076
+01:06:03,170 --> 01:06:10,750
+is actually the is easiest way but it's
+
+1077
+01:06:06,230 --> 01:06:15,800
+got problems we we might talk about it
+
+1078
+01:06:10,750 --> 01:06:19,820
+today but it you know you can search for
+
+1079
+01:06:15,800 --> 01:06:22,280
+saudi king at point Robin then you'll
+
+1080
+01:06:19,820 --> 01:06:27,230
+find my article you know it's a bit
+
+1081
+01:06:22,280 --> 01:06:30,430
+technical but but this so one of the
+
+1082
+01:06:27,230 --> 01:06:33,170
+problem is that you see for this command
+
+1083
+01:06:30,430 --> 01:06:36,050
+sometimes the thing is a URL for example
+
+1084
+01:06:33,170 --> 01:06:38,270
+google.com or some you know some website
+
+1085
+01:06:36,050 --> 01:06:41,090
+you want to that's under the cruiser you
+
+1086
+01:06:38,270 --> 01:06:44,420
+want to open but some other times you
+
+1087
+01:06:41,090 --> 01:06:48,440
+have a link that's not a you know that's
+
+1088
+01:06:44,420 --> 01:06:51,260
+a local file path you also want that you
+
+1089
+01:06:48,440 --> 01:06:56,090
+know so you want to be able to use this
+
+1090
+01:06:51,260 --> 01:06:59,510
+command doesn't matter if the let me
+
+1091
+01:06:56,090 --> 01:07:03,230
+show you okay so you want to be able to
+
+1092
+01:06:59,510 --> 01:07:11,210
+use the command that whether the URL is
+
+1093
+01:07:03,230 --> 01:07:13,250
+a you know maybe it's a URL or it's just
+
+1094
+01:07:11,210 --> 01:07:15,770
+a local file path you want to be able to
+
+1095
+01:07:13,250 --> 01:07:20,380
+call the command I know you know need
+
+1096
+01:07:15,770 --> 01:07:24,050
+either one of them but if you do use the
+
+1097
+01:07:20,380 --> 01:07:29,210
+if you to if you use the thing appoint
+
+1098
+01:07:24,050 --> 01:07:31,700
+URL then if but if your cruiser is under
+
+1099
+01:07:29,210 --> 01:07:34,190
+file path you'll be screwed you won't
+
+1100
+01:07:31,700 --> 01:07:36,800
+walk so that's kind of the problem what
+
+1101
+01:07:34,190 --> 01:07:38,210
+what I'm talking about thing at point of
+
+1102
+01:07:36,800 --> 01:07:40,160
+course there are solutions but let's
+
+1103
+01:07:38,210 --> 01:07:45,030
+just go with this
+
+1104
+01:07:40,160 --> 01:07:47,670
+let's just go with this okay so so so
+
+1105
+01:07:45,030 --> 01:07:50,580
+path is seeing at the end point and okay
+
+1106
+01:07:47,670 --> 01:07:54,599
+so we already done no actually cheese
+
+1107
+01:07:50,580 --> 01:07:57,720
+this is so simple so let's say yeah this
+
+1108
+01:07:54,599 --> 01:08:03,060
+this should be it let's let's try it
+
+1109
+01:07:57,720 --> 01:08:07,140
+okay so give out the buffer copy the
+
+1110
+01:08:03,060 --> 01:08:09,300
+command name go back to a UI our page I
+
+1111
+01:08:07,140 --> 01:08:13,320
+mean the HTML page
+
+1112
+01:08:09,300 --> 01:08:17,100
+let's move kusa into a URL somewhere
+
+1113
+01:08:13,320 --> 01:08:22,710
+like here okay so we move it okay there
+
+1114
+01:08:17,100 --> 01:08:25,859
+then code a command paste the name open
+
+1115
+01:08:22,710 --> 01:08:28,790
+link in Firefox yeah that's right so do
+
+1116
+01:08:25,859 --> 01:08:31,770
+it there it is
+
+1117
+01:08:28,790 --> 01:08:35,520
+open firing external app this is you see
+
+1118
+01:08:31,770 --> 01:08:38,549
+this you see this URL that's that's this
+
+1119
+01:08:35,520 --> 01:08:42,170
+uija that's what we want so it worked so
+
+1120
+01:08:38,549 --> 01:08:44,489
+it's so simple oh it's my god this is
+
+1121
+01:08:42,170 --> 01:08:49,080
+simpler than I thought because I thought
+
+1122
+01:08:44,489 --> 01:08:51,390
+I was going to do something and but but
+
+1123
+01:08:49,080 --> 01:08:54,180
+this won't work let me just show you it
+
+1124
+01:08:51,390 --> 01:08:56,790
+won't work if you have a fire path so
+
+1125
+01:08:54,180 --> 01:08:59,520
+let's try it so now my cursor is under
+
+1126
+01:08:56,790 --> 01:09:03,890
+fire path so I'm just going to call the
+
+1127
+01:08:59,520 --> 01:09:05,430
+command again open link in Firefox enter
+
+1128
+01:09:03,890 --> 01:09:08,190
+wait
+
+1129
+01:09:05,430 --> 01:09:11,370
+close that let's try it again I don't
+
+1130
+01:09:08,190 --> 01:09:15,120
+know what's going on so open link in
+
+1131
+01:09:11,370 --> 01:09:19,350
+Firefox you see it doesn't work it
+
+1132
+01:09:15,120 --> 01:09:21,330
+doesn't work because you can see it
+
+1133
+01:09:19,350 --> 01:09:22,920
+doesn't say you know it doesn't it
+
+1134
+01:09:21,330 --> 01:09:28,680
+doesn't even give you give you error
+
+1135
+01:09:22,920 --> 01:09:31,650
+messages it doesn't work because you see
+
+1136
+01:09:28,680 --> 01:09:34,620
+that thing at point let me show you that
+
+1137
+01:09:31,650 --> 01:09:38,520
+thing at point this thing at point
+
+1138
+01:09:34,620 --> 01:09:41,640
+command if you give their URL it will
+
+1139
+01:09:38,520 --> 01:09:47,569
+try to consider you know whatever is
+
+1140
+01:09:41,640 --> 01:09:50,219
+under kusa is a URL and so it's kind of
+
+1141
+01:09:47,569 --> 01:09:53,700
+unpredictable what it actually returns
+
+1142
+01:09:50,219 --> 01:09:57,240
+it does not return you know because I've
+
+1143
+01:09:53,700 --> 01:09:59,760
+noticed sometimes the wheel add htdp in
+
+1144
+01:09:57,240 --> 01:10:01,890
+front of it it's very annoying so for
+
+1145
+01:09:59,760 --> 01:10:06,630
+example it's you know let's see what's
+
+1146
+01:10:01,890 --> 01:10:09,450
+going on so let's go here messages fire
+
+1147
+01:10:06,630 --> 01:10:12,600
+path let's just print it okay
+
+1148
+01:10:09,450 --> 01:10:13,980
+eval buffer go back to this buffer and
+
+1149
+01:10:12,600 --> 01:10:18,510
+try it again
+
+1150
+01:10:13,980 --> 01:10:19,790
+Kodaka man do it okay now let's go back
+
+1151
+01:10:18,510 --> 01:10:23,190
+to Emacs
+
+1152
+01:10:19,790 --> 01:10:28,680
+open the messages buffer and see what is
+
+1153
+01:10:23,190 --> 01:10:35,460
+says go to the bottom we just print it
+
+1154
+01:10:28,680 --> 01:10:38,060
+it where is it I don't know what let's
+
+1155
+01:10:35,460 --> 01:10:38,060
+try it again
+
+1156
+01:10:39,080 --> 01:10:49,370
+message is xxx this one okay
+
+1157
+01:10:43,970 --> 01:10:49,370
+ivar buffer go here
+
+1158
+01:10:51,920 --> 01:10:59,540
+try it open okay
+
+1159
+01:10:55,400 --> 01:11:03,140
+now go back to Emacs you see it says
+
+1160
+01:10:59,540 --> 01:11:05,960
+Neil so when the you apparently when
+
+1161
+01:11:03,140 --> 01:11:09,890
+when the thing under cosa is not you IR
+
+1162
+01:11:05,960 --> 01:11:12,440
+it returns Neil about seven years ago I
+
+1163
+01:11:09,890 --> 01:11:17,110
+have noticed it actually sometimes it
+
+1164
+01:11:12,440 --> 01:11:20,240
+adds HTTP like it it couldn't
+
+1165
+01:11:17,110 --> 01:11:24,140
+concatenate a string HGTV's you know
+
+1166
+01:11:20,240 --> 01:11:26,450
+colon slash slash in front I hate so I
+
+1167
+01:11:24,140 --> 01:11:27,550
+blog I wrote a rant about it I don't
+
+1168
+01:11:26,450 --> 01:11:30,230
+know
+
+1169
+01:11:27,550 --> 01:11:31,910
+you know maybe they they fixed it or
+
+1170
+01:11:30,230 --> 01:11:35,150
+they changed behavior something like
+
+1171
+01:11:31,910 --> 01:11:38,500
+that anyway we see this problem here you
+
+1172
+01:11:35,150 --> 01:11:41,150
+know we have this problem so
+
+1173
+01:11:38,500 --> 01:11:44,420
+alternatively for example there is you
+
+1174
+01:11:41,150 --> 01:11:47,470
+can also do this by our past I think I
+
+1175
+01:11:44,420 --> 01:11:53,590
+think path or something let's see the
+
+1176
+01:11:47,470 --> 01:11:59,200
+thing at point ok so you can another
+
+1177
+01:11:53,590 --> 01:12:03,050
+file name yeah so you can do file name
+
+1178
+01:11:59,200 --> 01:12:04,940
+but if you do file name then the dua or
+
+1179
+01:12:03,050 --> 01:12:08,680
+if you are you under you are that then
+
+1180
+01:12:04,940 --> 01:12:11,930
+that doesn't work so that's a problem so
+
+1181
+01:12:08,680 --> 01:12:12,620
+the way I solve this problem let yeah
+
+1182
+01:12:11,930 --> 01:12:16,690
+let's do that
+
+1183
+01:12:12,620 --> 01:12:16,690
+and maybe that there'll be it for today
+
+1184
+01:12:16,840 --> 01:12:26,270
+yes we can complete this yeah we will
+
+1185
+01:12:24,410 --> 01:12:29,210
+try out tomorrow being a busy ok so
+
+1186
+01:12:26,270 --> 01:12:33,880
+isn't using Ultima hacking keyboard now
+
+1187
+01:12:29,210 --> 01:12:36,680
+this why I'm using both ok so anyway so
+
+1188
+01:12:33,880 --> 01:12:38,870
+so how do you solve this problem so the
+
+1189
+01:12:36,680 --> 01:12:43,220
+way I do is you just manually code your
+
+1190
+01:12:38,870 --> 01:12:45,890
+own that graphs for example let's just
+
+1191
+01:12:43,220 --> 01:12:48,950
+do it okay so so comment this out
+
+1192
+01:12:45,890 --> 01:12:52,400
+comment this out so we want to grab kind
+
+1193
+01:12:48,950 --> 01:12:55,880
+of the you are under cruiser so one way
+
+1194
+01:12:52,400 --> 01:12:58,010
+we can do it let me just begin this is
+
+1195
+01:12:55,880 --> 01:13:00,830
+this is not the final solution but let
+
+1196
+01:12:58,010 --> 01:13:05,030
+me show you you can see my my own
+
+1197
+01:13:00,830 --> 01:13:05,390
+solution the final solution in my you
+
+1198
+01:13:05,030 --> 01:13:08,960
+know
+
+1199
+01:13:05,390 --> 01:13:13,970
+this page is already already there but
+
+1200
+01:13:08,960 --> 01:13:18,320
+now I'm trying to like teach you know
+
+1201
+01:13:13,970 --> 01:13:18,770
+you know some emag based stuff so let's
+
+1202
+01:13:18,320 --> 01:13:22,550
+do it
+
+1203
+01:13:18,770 --> 01:13:25,910
+so open fire yeah so you want to grab
+
+1204
+01:13:22,550 --> 01:13:29,390
+the stream okay so one first solution is
+
+1205
+01:13:25,910 --> 01:13:33,680
+we want to we want to move the cursor to
+
+1206
+01:13:29,390 --> 01:13:37,580
+the beginning of the double coil then we
+
+1207
+01:13:33,680 --> 01:13:40,760
+know the beginning location of the file
+
+1208
+01:13:37,580 --> 01:13:42,740
+path or URL then we move it to the end
+
+1209
+01:13:40,760 --> 01:13:45,200
+of the double quote then we know the end
+
+1210
+01:13:42,740 --> 01:13:47,570
+position then we grab that so that's one
+
+1211
+01:13:45,200 --> 01:13:51,710
+solution to begin with okay so let's do
+
+1212
+01:13:47,570 --> 01:13:55,370
+that so say excursion okay so they do
+
+1213
+01:13:51,710 --> 01:14:03,920
+not search for such backward okay
+
+1214
+01:13:55,370 --> 01:14:05,960
+such backward search backward for a for
+
+1215
+01:14:03,920 --> 01:14:10,870
+a double quote
+
+1216
+01:14:05,960 --> 01:14:17,720
+okay that will move closer to it okay so
+
+1217
+01:14:10,870 --> 01:14:21,590
+okay let's do that then set point p1
+
+1218
+01:14:17,720 --> 01:14:28,460
+that's a beginning position okay then
+
+1219
+01:14:21,590 --> 01:14:30,860
+you search forward for a quote okay we
+
+1220
+01:14:28,460 --> 01:14:34,490
+don't need the rest of it then you set
+
+1221
+01:14:30,860 --> 01:14:40,540
+set p2 that's the end position so we
+
+1222
+01:14:34,490 --> 01:14:48,940
+have two new variables P 1 P 2 okay then
+
+1223
+01:14:40,540 --> 01:14:55,460
+then both then okay so okay so then set
+
+1224
+01:14:48,940 --> 01:15:00,500
+file path to perfe substring no
+
+1225
+01:14:55,460 --> 01:15:03,620
+properties okay P 1 P 2 so the buffers
+
+1226
+01:15:00,500 --> 01:15:05,900
+substring no properties will take two
+
+1227
+01:15:03,620 --> 01:15:08,930
+positions then you'll return the string
+
+1228
+01:15:05,900 --> 01:15:11,630
+between those positions then we set that
+
+1229
+01:15:08,930 --> 01:15:14,060
+value to fire path that's how we do it
+
+1230
+01:15:11,630 --> 01:15:18,020
+now there's a little detail we need to
+
+1231
+01:15:14,060 --> 01:15:19,159
+fix because when you search backward it
+
+1232
+01:15:18,020 --> 01:15:26,719
+will move couse
+
+1233
+01:15:19,159 --> 01:15:29,090
+- before the before the stream but the
+
+1234
+01:15:26,719 --> 01:15:34,730
+actual position is after the stream so
+
+1235
+01:15:29,090 --> 01:15:39,139
+so what we want to do is for watch ah
+
+1236
+01:15:34,730 --> 01:15:44,530
+okay for a child what then we set a
+
+1237
+01:15:39,139 --> 01:15:44,530
+point beginning position okay it so that
+
+1238
+01:15:45,760 --> 01:15:56,409
+bring the template information what
+
+1239
+01:15:49,429 --> 01:15:59,920
+template template information like what
+
+1240
+01:15:56,409 --> 01:16:05,000
+you mean the message is buffer Oh
+
+1241
+01:15:59,920 --> 01:16:07,310
+what do you mean Emily so we so we set
+
+1242
+01:16:05,000 --> 01:16:10,580
+point okay for a child then we set point
+
+1243
+01:16:07,310 --> 01:16:13,340
+and there is another thing we want to do
+
+1244
+01:16:10,580 --> 01:16:17,570
+because when if if you're Emacs Lisp
+
+1245
+01:16:13,340 --> 01:16:19,250
+code move the cursor you better restore
+
+1246
+01:16:17,570 --> 01:16:22,360
+it when your command is done because
+
+1247
+01:16:19,250 --> 01:16:26,030
+otherwise when user cause your command
+
+1248
+01:16:22,360 --> 01:16:28,670
+then the cruiser ends up you know
+
+1249
+01:16:26,030 --> 01:16:31,520
+somewhere erratic you know user don't
+
+1250
+01:16:28,670 --> 01:16:34,100
+want that so you want to restore users
+
+1251
+01:16:31,520 --> 01:16:34,639
+cursor position so there is a convenient
+
+1252
+01:16:34,100 --> 01:16:39,679
+command
+
+1253
+01:16:34,639 --> 01:16:41,239
+that's called save excursion okay so
+
+1254
+01:16:39,679 --> 01:16:45,170
+what do you do is you call save
+
+1255
+01:16:41,239 --> 01:16:48,440
+excursion and do whatever you do so by
+
+1256
+01:16:45,170 --> 01:16:51,080
+the end of save when you know by the end
+
+1257
+01:16:48,440 --> 01:16:53,210
+of save excursion it will restore the
+
+1258
+01:16:51,080 --> 01:16:57,560
+users who's the position so that's what
+
+1259
+01:16:53,210 --> 01:17:02,120
+you want to do okay so actually so that
+
+1260
+01:16:57,560 --> 01:17:04,850
+is that is done that is that is I think
+
+1261
+01:17:02,120 --> 01:17:08,330
+that's that is it let's double check so
+
+1262
+01:17:04,850 --> 01:17:12,800
+that's our first approach to solve these
+
+1263
+01:17:08,330 --> 01:17:16,190
+problems of the finger-point problem p1
+
+1264
+01:17:12,800 --> 01:17:21,620
+p2 so fire path buffer so I think that
+
+1265
+01:17:16,190 --> 01:17:27,290
+should be it so Eva buffer go to some
+
+1266
+01:17:21,620 --> 01:17:31,280
+HTML page put cursor on a fire path okay
+
+1267
+01:17:27,290 --> 01:17:32,989
+then it's call open linking Firefox it
+
+1268
+01:17:31,280 --> 01:17:39,320
+should open the hawk
+
+1269
+01:17:32,989 --> 01:17:43,969
+a text file do it Oh God wrong so it
+
+1270
+01:17:39,320 --> 01:17:48,949
+says let binding can only have one value
+
+1271
+01:17:43,969 --> 01:17:51,139
+oh ok so I got some syntax error here so
+
+1272
+01:17:48,949 --> 01:17:54,949
+here's a message and it's just some
+
+1273
+01:17:51,139 --> 01:17:55,929
+basic syntax here oh yeah so so this is
+
+1274
+01:17:54,949 --> 01:17:59,780
+wrong
+
+1275
+01:17:55,929 --> 01:18:05,599
+yeah let's avow it again back here
+
+1276
+01:17:59,780 --> 01:18:10,730
+try it again do it okay unexpected end
+
+1277
+01:18:05,599 --> 01:18:13,909
+of firewire looking for matching ok yeah
+
+1278
+01:18:10,730 --> 01:18:18,920
+so so here's the arrows
+
+1279
+01:18:13,909 --> 01:18:22,130
+it says unexpected and a fire arrow why
+
+1280
+01:18:18,920 --> 01:18:26,989
+are looking for the double quote so
+
+1281
+01:18:22,130 --> 01:18:27,769
+basically what that means is that I know
+
+1282
+01:18:26,989 --> 01:18:29,210
+what it means
+
+1283
+01:18:27,769 --> 01:18:31,429
+but you don't you may not know what it
+
+1284
+01:18:29,210 --> 01:18:36,469
+means because I know it because I spent
+
+1285
+01:18:31,429 --> 01:18:38,630
+10 years so this is kind of you you know
+
+1286
+01:18:36,469 --> 01:18:41,239
+you get experience from the error
+
+1287
+01:18:38,630 --> 01:18:43,880
+messages so that error messages came
+
+1288
+01:18:41,239 --> 01:18:47,630
+from such forward basically it cannot
+
+1289
+01:18:43,880 --> 01:18:55,249
+find a string well the reason is that
+
+1290
+01:18:47,630 --> 01:19:00,039
+sees such backward then then forward cha
+
+1291
+01:18:55,249 --> 01:19:03,999
+then set a point there in such forward
+
+1292
+01:19:00,039 --> 01:19:12,170
+then you need to move backward okay so
+
+1293
+01:19:03,999 --> 01:19:16,760
+for watch ah negative 1 then P 2 P 2 P 1
+
+1294
+01:19:12,170 --> 01:19:18,400
+P 2 then then we set the path that's
+
+1295
+01:19:16,760 --> 01:19:24,309
+correct okay
+
+1296
+01:19:18,400 --> 01:19:27,920
+eval buffer and go back here let's see
+
+1297
+01:19:24,309 --> 01:19:33,130
+okay so that's I think that's okay let's
+
+1298
+01:19:27,920 --> 01:19:40,039
+try it now I'm not sure what is arrow
+
+1299
+01:19:33,130 --> 01:19:42,519
+but anyway let's try it again try our an
+
+1300
+01:19:40,039 --> 01:19:45,949
+arrow so Kodaka man do it
+
+1301
+01:19:42,519 --> 01:19:49,400
+there it is fantastic it works
+
+1302
+01:19:45,949 --> 01:19:54,320
+so we now let's try the URL so let's go
+
+1303
+01:19:49,400 --> 01:19:57,440
+to some URL this one go to command do it
+
+1304
+01:19:54,320 --> 01:20:01,969
+yay so now it's you know it's great it's
+
+1305
+01:19:57,440 --> 01:20:05,270
+close it close it fantastic it works so
+
+1306
+01:20:01,969 --> 01:20:08,840
+that is about how you know kind of
+
+1307
+01:20:05,270 --> 01:20:12,739
+custom solution now this is our first
+
+1308
+01:20:08,840 --> 01:20:15,199
+step but it's not optimal why because
+
+1309
+01:20:12,739 --> 01:20:19,100
+for example if you are in a text file
+
+1310
+01:20:15,199 --> 01:20:22,699
+for something you have a google.com so
+
+1311
+01:20:19,100 --> 01:20:27,830
+for example HTTP you know you have a you
+
+1312
+01:20:22,699 --> 01:20:33,679
+you know let's say someone said go to
+
+1313
+01:20:27,830 --> 01:20:35,300
+this to fine info okay so you know you
+
+1314
+01:20:33,679 --> 01:20:37,489
+have a fire out there so you want to
+
+1315
+01:20:35,300 --> 01:20:41,480
+move the kusa here you want to call a
+
+1316
+01:20:37,489 --> 01:20:43,940
+command and visit that URL so in this
+
+1317
+01:20:41,480 --> 01:20:46,900
+case our command won't work because it's
+
+1318
+01:20:43,940 --> 01:20:49,699
+trying to search for the double quotes
+
+1319
+01:20:46,900 --> 01:20:54,679
+so in this case you can add you know
+
+1320
+01:20:49,699 --> 01:20:57,530
+such backward double quote or space you
+
+1321
+01:20:54,679 --> 01:20:59,989
+know basically the problem the issue is
+
+1322
+01:20:57,530 --> 01:21:04,550
+we want to find what we want to know
+
+1323
+01:20:59,989 --> 01:21:10,070
+what are the delimiter you know that
+
+1324
+01:21:04,550 --> 01:21:16,130
+brackets the URL so Emily what what do
+
+1325
+01:21:10,070 --> 01:21:19,460
+you mean templates templates but you
+
+1326
+01:21:16,130 --> 01:21:22,100
+YouTube kept deleting my messages stupid
+
+1327
+01:21:19,460 --> 01:21:24,050
+YouTube what did you use to put the
+
+1328
+01:21:22,100 --> 01:21:29,000
+template information of a function in
+
+1329
+01:21:24,050 --> 01:21:33,830
+your buffer oh that's that's just my own
+
+1330
+01:21:29,000 --> 01:21:38,440
+eMac list mod so let me show you okay so
+
+1331
+01:21:33,830 --> 01:21:38,440
+it's that's Chris quickly to answer so
+
+1332
+01:21:38,890 --> 01:21:46,190
+so if you look so is this is my only Mac
+
+1333
+01:21:42,469 --> 01:21:50,540
+this mod when I press tab it calls this
+
+1334
+01:21:46,190 --> 01:21:53,960
+command if the cursor is afterward then
+
+1335
+01:21:50,540 --> 01:21:56,510
+you do completion if the cursor is
+
+1336
+01:21:53,960 --> 01:22:00,200
+before a word then it will do
+
+1337
+01:21:56,510 --> 01:22:05,030
+indentation now when it does come
+
+1338
+01:22:00,200 --> 01:22:08,450
+it will complete the emag list function
+
+1339
+01:22:05,030 --> 01:22:12,650
+name and if you press again it will
+
+1340
+01:22:08,450 --> 01:22:17,270
+expand it to a template you know and and
+
+1341
+01:22:12,650 --> 01:22:20,600
+and and that part is done by a brief so
+
+1342
+01:22:17,270 --> 01:22:22,340
+you can see here is our Omega brief so
+
+1343
+01:22:20,600 --> 01:22:26,330
+you can see this defining a brief table
+
+1344
+01:22:22,340 --> 01:22:27,500
+so that's all Maya brief so if I type
+
+1345
+01:22:26,330 --> 01:22:30,320
+for example you know
+
+1346
+01:22:27,500 --> 01:22:35,750
+so that's Oh Maya brief then you see the
+
+1347
+01:22:30,320 --> 01:22:39,440
+templates for example if I type append
+
+1348
+01:22:35,750 --> 01:22:41,510
+then space it expand to append you know
+
+1349
+01:22:39,440 --> 01:22:43,910
+with a bracket that that's how I do it
+
+1350
+01:22:41,510 --> 01:22:48,560
+so it's kind of manual yeah you know you
+
+1351
+01:22:43,910 --> 01:22:50,710
+can just grab this if you want you know
+
+1352
+01:22:48,560 --> 01:22:53,240
+if you want to do that if you like that
+
+1353
+01:22:50,710 --> 01:22:56,500
+you know you know it's a manually
+
+1354
+01:22:53,240 --> 01:23:01,240
+created it covers basically the most
+
+1355
+01:22:56,500 --> 01:23:05,110
+frequently used Emacs these functions
+
+1356
+01:23:01,240 --> 01:23:07,930
+because I actually did a statistical
+
+1357
+01:23:05,110 --> 01:23:16,280
+analysis I grabbed all the source code
+
+1358
+01:23:07,930 --> 01:23:19,640
+so so if you search focus on sorry Emacs
+
+1359
+01:23:16,280 --> 01:23:22,450
+okay so Elise it's on github and it's
+
+1360
+01:23:19,640 --> 01:23:22,450
+also a OPA
+
+1361
+01:23:25,540 --> 01:23:31,060
+yeah so it's on github and also on my
+
+1362
+01:23:28,340 --> 01:23:35,030
+Appa you can just get it you you know
+
+1363
+01:23:31,060 --> 01:23:38,690
+you know feel free to you know get the
+
+1364
+01:23:35,030 --> 01:23:44,060
+you know the briefs then you can have
+
+1365
+01:23:38,690 --> 01:23:47,360
+that okay so so we covered you know so
+
+1366
+01:23:44,060 --> 01:23:51,260
+we are so our current problem is what if
+
+1367
+01:23:47,360 --> 01:23:54,050
+the URL is not bracketed by double quote
+
+1368
+01:23:51,260 --> 01:23:56,810
+or what if what if it's bracketed by a
+
+1369
+01:23:54,050 --> 01:24:01,810
+single quote and then let me show you
+
+1370
+01:23:56,810 --> 01:24:06,230
+okay so what so what if it's like that
+
+1371
+01:24:01,810 --> 01:24:08,450
+or what if it's like that because some
+
+1372
+01:24:06,230 --> 01:24:12,800
+sometimes you people a lot of people use
+
+1373
+01:24:08,450 --> 01:24:13,610
+this one so the solution basically you
+
+1374
+01:24:12,800 --> 01:24:19,480
+can you know
+
+1375
+01:24:13,610 --> 01:24:19,480
+already coded it you can see stop that
+
+1376
+01:24:19,900 --> 01:24:31,250
+let's magnify so showing desktop open in
+
+1377
+01:24:28,130 --> 01:24:35,270
+terminal opening Google Chrome so open
+
+1378
+01:24:31,250 --> 01:24:38,270
+in Google Chrome then here is open HT
+
+1379
+01:24:35,270 --> 01:24:42,350
+open link in Google Chrome so you can
+
+1380
+01:24:38,270 --> 01:24:46,340
+see the code here so you know I'm giving
+
+1381
+01:24:42,350 --> 01:24:50,989
+it several pairs of delimiters they can
+
+1382
+01:24:46,340 --> 01:24:54,380
+be spaced tab return new line or any of
+
+1383
+01:24:50,989 --> 01:24:58,340
+these brackets or double quote or curly
+
+1384
+01:24:54,380 --> 01:25:01,159
+quote you know so you use them as the
+
+1385
+01:24:58,340 --> 01:25:03,460
+delimiter you know you you know then
+
+1386
+01:25:01,159 --> 01:25:06,110
+then the rest of the code is similar so
+
+1387
+01:25:03,460 --> 01:25:11,750
+that's how I solve that problem so I
+
+1388
+01:25:06,110 --> 01:25:16,820
+think that's it for today yeah so thank
+
+1389
+01:25:11,750 --> 01:25:22,340
+you guys for coming by any any other
+
+1390
+01:25:16,820 --> 01:25:28,420
+questions any questions thank you hello
+
+1391
+01:25:22,340 --> 01:25:28,420
+beautiful people for the folder donation
+
+1392
+01:25:32,590 --> 01:25:37,939
+okay so that's that's it for Emacs Lee's
+
+1393
+01:25:35,659 --> 01:25:42,550
+now maybe we can talk about random
+
+1394
+01:25:37,939 --> 01:25:50,719
+things for for a minute or two so
+
+1395
+01:25:42,550 --> 01:25:56,439
+discord discord and against akhira he's
+
+1396
+01:25:50,719 --> 01:26:01,039
+flexible yeah so what what is the oh
+
+1397
+01:25:56,439 --> 01:26:03,679
+yeah let's let's look at how many one
+
+1398
+01:26:01,039 --> 01:26:08,510
+hour in 25 minutes we are right on time
+
+1399
+01:26:03,679 --> 01:26:10,789
+oh there's one more thing when what one
+
+1400
+01:26:08,510 --> 01:26:16,130
+more thing guys you know as the Steve
+
+1401
+01:26:10,789 --> 01:26:20,119
+Jobs says you know before you remember
+
+1402
+01:26:16,130 --> 01:26:22,340
+we had a problem of you know it's right
+
+1403
+01:26:20,119 --> 01:26:27,260
+now we have two commands you know open
+
+1404
+01:26:22,340 --> 01:26:29,659
+buffer and versus open dink so so it's
+
+1405
+01:26:27,260 --> 01:26:31,130
+inconvenient like like what like every
+
+1406
+01:26:29,659 --> 01:26:33,769
+time you have to think whether you want
+
+1407
+01:26:31,130 --> 01:26:35,840
+to open the buffer or open the link it
+
+1408
+01:26:33,769 --> 01:26:39,649
+happens to me because you know sometimes
+
+1409
+01:26:35,840 --> 01:26:41,539
+I call command but but it's open
+
+1410
+01:26:39,649 --> 01:26:46,729
+improved the buffer instead of the link
+
+1411
+01:26:41,539 --> 01:26:51,079
+so you'll be nice if you know if the
+
+1412
+01:26:46,729 --> 01:26:53,300
+cursor is under a link or file path then
+
+1413
+01:26:51,079 --> 01:26:56,749
+you open the link otherwise just open
+
+1414
+01:26:53,300 --> 01:26:59,209
+the buffer so how do you do that so we
+
+1415
+01:26:56,749 --> 01:27:01,099
+so that's how you know we want to merge
+
+1416
+01:26:59,209 --> 01:27:03,289
+these two commands you know these two
+
+1417
+01:27:01,099 --> 01:27:09,309
+commands are basically the same you know
+
+1418
+01:27:03,289 --> 01:27:09,309
+the the poke of it is the same so
+
+1419
+01:27:12,890 --> 01:27:19,880
+so how do you solve that okay so the way
+
+1420
+01:27:15,530 --> 01:27:22,520
+you solve that is that now you actually
+
+1421
+01:27:19,880 --> 01:27:29,120
+you have you know have to think about
+
+1422
+01:27:22,520 --> 01:27:31,280
+that so the problem is you know what we
+
+1423
+01:27:29,120 --> 01:27:33,140
+are trying to use the delimiters you
+
+1424
+01:27:31,280 --> 01:27:36,920
+know we have a bunch of diameters to
+
+1425
+01:27:33,140 --> 01:27:42,260
+grab a URL so but if the Cuza is not
+
+1426
+01:27:36,920 --> 01:27:46,100
+under the URL the possibility the result
+
+1427
+01:27:42,260 --> 01:27:49,010
+is that it might be a huge chunk of text
+
+1428
+01:27:46,100 --> 01:27:53,870
+you know from arbitrary point maybe from
+
+1429
+01:27:49,010 --> 01:27:55,580
+here to you know to here you know so
+
+1430
+01:27:53,870 --> 01:28:01,250
+that's one possibility
+
+1431
+01:27:55,580 --> 01:28:07,190
+arbitrary chunk of big text the other
+
+1432
+01:28:01,250 --> 01:28:09,650
+possibility yeah that's yeah I think
+
+1433
+01:28:07,190 --> 01:28:18,050
+that that is a result do you typically
+
+1434
+01:28:09,650 --> 01:28:20,930
+be arbitrary chunk of big text so so how
+
+1435
+01:28:18,050 --> 01:28:23,890
+do you yeah so the problem is how do you
+
+1436
+01:28:20,930 --> 01:28:28,580
+know if your Cuza is under file path or
+
+1437
+01:28:23,890 --> 01:28:30,980
+URL so I think we can go by some
+
+1438
+01:28:28,580 --> 01:28:35,450
+heuristics I think that's what you have
+
+1439
+01:28:30,980 --> 01:28:41,660
+to do there is no one simple absolute
+
+1440
+01:28:35,450 --> 01:28:44,150
+precise solution so by heuristic it
+
+1441
+01:28:41,660 --> 01:28:47,750
+means that we first of all we check
+
+1442
+01:28:44,150 --> 01:28:50,150
+maybe the string length for example if
+
+1443
+01:28:47,750 --> 01:28:53,630
+the string length is 1,000 then
+
+1444
+01:28:50,150 --> 01:28:58,100
+obviously it's not a file path it's not
+
+1445
+01:28:53,630 --> 01:29:02,000
+a URL so the string length is if it's
+
+1446
+01:28:58,100 --> 01:29:03,950
+less than 300 then okay then then we
+
+1447
+01:29:02,000 --> 01:29:09,890
+also check well if the strings start
+
+1448
+01:29:03,950 --> 01:29:12,950
+with HTTP or you know FTP or you know
+
+1449
+01:29:09,890 --> 01:29:16,820
+some other URL schema then we know okay
+
+1450
+01:29:12,950 --> 01:29:23,150
+it's a URL or file you know file colon
+
+1451
+01:29:16,820 --> 01:29:26,530
+slash slash and and also if the whole
+
+1452
+01:29:23,150 --> 01:29:30,490
+string does not contain any space
+
+1453
+01:29:26,530 --> 01:29:33,910
+then it's likely to be a URL or fire
+
+1454
+01:29:30,490 --> 01:29:36,310
+path yeah that that that is actually a
+
+1455
+01:29:33,910 --> 01:29:41,260
+strong heuristic that's probably
+
+1456
+01:29:36,310 --> 01:29:43,600
+something we want to check first yeah so
+
+1457
+01:29:41,260 --> 01:29:48,850
+the stream needs to be short the string
+
+1458
+01:29:43,600 --> 01:29:51,880
+should not contain any space and the
+
+1459
+01:29:48,850 --> 01:29:55,150
+string typically we are either have to
+
+1460
+01:29:51,880 --> 01:30:00,460
+slash slash we are either have like
+
+1461
+01:29:55,150 --> 01:30:03,700
+colon slash slash or a bunch of sashes
+
+1462
+01:30:00,460 --> 01:30:08,470
+oh okay yeah well there's also a
+
+1463
+01:30:03,700 --> 01:30:11,020
+possibility of no sash at all yeah so
+
+1464
+01:30:08,470 --> 01:30:13,150
+okay so you know so that's how I go
+
+1465
+01:30:11,020 --> 01:30:16,990
+about solving that you know a bunch of
+
+1466
+01:30:13,150 --> 01:30:20,710
+heuristics okay so that's it for today
+
+1467
+01:30:16,990 --> 01:30:22,600
+so thank you guys for type so how much
+
+1468
+01:30:20,710 --> 01:30:26,650
+how fast do I type I don't type very
+
+1469
+01:30:22,600 --> 01:30:28,450
+fast so let's go to let's do that and
+
+1470
+01:30:26,650 --> 01:30:30,940
+that's it you know finish the typing
+
+1471
+01:30:28,450 --> 01:30:38,760
+test and that will be it for today
+
+1472
+01:30:30,940 --> 01:30:42,220
+that's two a type speed demo sorry
+
+1473
+01:30:38,760 --> 01:30:46,060
+typing tutorial okay so you go to my
+
+1474
+01:30:42,220 --> 01:30:49,810
+tutorial your thought about this code
+
+1475
+01:30:46,060 --> 01:30:53,100
+compared to IRC I don't think IRC IRC is
+
+1476
+01:30:49,810 --> 01:30:57,190
+too old basically 30 30 years old
+
+1477
+01:30:53,100 --> 01:31:00,580
+obviously this code is modern and you
+
+1478
+01:30:57,190 --> 01:31:04,630
+got video you got voice chat we had fun
+
+1479
+01:31:00,580 --> 01:31:07,900
+with Emily and guys and I had overview
+
+1480
+01:31:04,630 --> 01:31:14,050
+for people chatting voice chat on this
+
+1481
+01:31:07,900 --> 01:31:16,090
+code yesterday IRC you know our IRC is a
+
+1482
+01:31:14,050 --> 01:31:18,460
+nerds thing you know and it's it's kind
+
+1483
+01:31:16,090 --> 01:31:21,820
+of its time it's 30 years old in its
+
+1484
+01:31:18,460 --> 01:31:24,070
+time it's replaced by slack and you know
+
+1485
+01:31:21,820 --> 01:31:27,670
+and also the newer generation you know
+
+1486
+01:31:24,070 --> 01:31:29,740
+the Millennials and post Millennials X Z
+
+1487
+01:31:27,670 --> 01:31:33,280
+generation you know they they wouldn't
+
+1488
+01:31:29,740 --> 01:31:36,990
+use it it you know older people died and
+
+1489
+01:31:33,280 --> 01:31:36,990
+died out so I a see is going away
+
+1490
+01:31:38,409 --> 01:31:44,199
+so typing games so here we have a bunch
+
+1491
+01:31:41,380 --> 01:31:49,179
+of cell my typing speed 91 for me okay
+
+1492
+01:31:44,199 --> 01:31:50,770
+if if without practice if with practice
+
+1493
+01:31:49,179 --> 01:31:53,260
+maybe maybe more
+
+1494
+01:31:50,770 --> 01:31:53,829
+you see when they talk about typing
+
+1495
+01:31:53,260 --> 01:31:57,219
+speaked
+
+1496
+01:31:53,829 --> 01:32:02,590
+speed it's very specific to the website
+
+1497
+01:31:57,219 --> 01:32:05,050
+because it's it can vary from 10 to 20
+
+1498
+01:32:02,590 --> 01:32:07,840
+word per minute depending on website but
+
+1499
+01:32:05,050 --> 01:32:10,119
+depending on the word they use for
+
+1500
+01:32:07,840 --> 01:32:14,679
+example this website they use the most
+
+1501
+01:32:10,119 --> 01:32:17,679
+simple words no capitalization you know
+
+1502
+01:32:14,679 --> 01:32:20,670
+most you know common English words no
+
+1503
+01:32:17,679 --> 01:32:24,040
+period even nope no coma no punctuation
+
+1504
+01:32:20,670 --> 01:32:26,349
+you know so if you dude have that then
+
+1505
+01:32:24,040 --> 01:32:29,349
+it's gonna be fast on the other hand
+
+1506
+01:32:26,349 --> 01:32:33,820
+like when I was you know I was at a data
+
+1507
+01:32:29,349 --> 01:32:36,909
+entry clerk I was a secretary in 1991 so
+
+1508
+01:32:33,820 --> 01:32:38,920
+I have to go to a temp agency you know
+
+1509
+01:32:36,909 --> 01:32:43,230
+wait they hire people you have to do
+
+1510
+01:32:38,920 --> 01:32:45,369
+standard typing test okay I think
+
+1511
+01:32:43,230 --> 01:32:48,070
+electric either you like Trinko
+
+1512
+01:32:45,369 --> 01:32:52,300
+mechanical typewriter so I did that but
+
+1513
+01:32:48,070 --> 01:32:53,980
+but so back then you have a letter you
+
+1514
+01:32:52,300 --> 01:32:57,010
+know D or something something you know
+
+1515
+01:32:53,980 --> 01:32:59,530
+that's 1991 style of writing businessman
+
+1516
+01:32:57,010 --> 01:33:02,380
+you know salesman people you know tea or
+
+1517
+01:32:59,530 --> 01:33:05,260
+something something we something
+
+1518
+01:33:02,380 --> 01:33:07,420
+something you know it's kind of foam so
+
+1519
+01:33:05,260 --> 01:33:09,520
+you know that's back then the style back
+
+1520
+01:33:07,420 --> 01:33:12,040
+then so you given that you have to type
+
+1521
+01:33:09,520 --> 01:33:13,780
+that and that is obviously very
+
+1522
+01:33:12,040 --> 01:33:15,969
+different from just a bunch of most
+
+1523
+01:33:13,780 --> 01:33:18,520
+frequently used words which is a case
+
+1524
+01:33:15,969 --> 01:33:24,790
+with this let's go there typing speed
+
+1525
+01:33:18,520 --> 01:33:30,429
+test so which side is this one time in
+
+1526
+01:33:24,790 --> 01:33:32,949
+speed test nu dot-eu okay that other
+
+1527
+01:33:30,429 --> 01:33:38,940
+that's that one okay so that one you go
+
+1528
+01:33:32,949 --> 01:33:38,940
+there and let's turn on JavaScript
+
+1529
+01:33:41,239 --> 01:33:47,369
+so the world matters okay so I mean that
+
+1530
+01:33:45,060 --> 01:33:49,530
+it depends on a website look at this one
+
+1531
+01:33:47,369 --> 01:33:52,619
+you know much dog found true or Beauty
+
+1532
+01:33:49,530 --> 01:33:54,780
+wood is the most very simple words most
+
+1533
+01:33:52,619 --> 01:33:57,090
+frequently used words but on the other
+
+1534
+01:33:54,780 --> 01:34:00,060
+hand if you are gonna type you know we
+
+1535
+01:33:57,090 --> 01:34:03,510
+are formulated that's that would be a
+
+1536
+01:34:00,060 --> 01:34:06,360
+difference between I would say ten words
+
+1537
+01:34:03,510 --> 01:34:08,280
+per minute I would say so it really
+
+1538
+01:34:06,360 --> 01:34:10,530
+heavily depends on you know your score
+
+1539
+01:34:08,280 --> 01:34:14,850
+really depends on the websites
+
+1540
+01:34:10,530 --> 01:34:17,330
+specifically also well let's just do
+
+1541
+01:34:14,850 --> 01:34:19,889
+this and then we will say goodbye I
+
+1542
+01:34:17,330 --> 01:34:21,810
+really like ten fast fingers for the
+
+1543
+01:34:19,889 --> 01:34:24,389
+simple testing for that simple testing
+
+1544
+01:34:21,810 --> 01:34:30,600
+okay let's go to ten fast fingers okay
+
+1545
+01:34:24,389 --> 01:34:33,290
+ten fast fingers let's try and also our
+
+1546
+01:34:30,600 --> 01:34:38,280
+my Canisius keyboard you'll be slower
+
+1547
+01:34:33,290 --> 01:34:41,520
+you know so you'll be faster on the
+
+1548
+01:34:38,280 --> 01:34:43,619
+laptop keyboard and another thing
+
+1549
+01:34:41,520 --> 01:34:47,699
+interesting about speed typing speed is
+
+1550
+01:34:43,619 --> 01:34:50,310
+that there's a difference between you
+
+1551
+01:34:47,699 --> 01:34:53,130
+know one minute test and two minute head
+
+1552
+01:34:50,310 --> 01:34:55,139
+test and thirty minute test you know
+
+1553
+01:34:53,130 --> 01:34:56,880
+it's like granny it's a different you
+
+1554
+01:34:55,139 --> 01:35:00,030
+know when you do if you are a champion
+
+1555
+01:34:56,880 --> 01:35:03,360
+of sprint you will not absolutely be the
+
+1556
+01:35:00,030 --> 01:35:04,820
+champion of marathon in fact if you you
+
+1557
+01:35:03,360 --> 01:35:07,590
+know champion about sprint you know
+
+1558
+01:35:04,820 --> 01:35:10,440
+hundred meters you will be the last one
+
+1559
+01:35:07,590 --> 01:35:12,600
+to finish in a marathon and likewise so
+
+1560
+01:35:10,440 --> 01:35:14,909
+you know same thing with swimming the
+
+1561
+01:35:12,600 --> 01:35:17,119
+distance you know the deviation matters
+
+1562
+01:35:14,909 --> 01:35:20,130
+these different techniques that you know
+
+1563
+01:35:17,119 --> 01:35:22,889
+so so what I want to say is that
+
+1564
+01:35:20,130 --> 01:35:24,929
+typically this typing speed website you
+
+1565
+01:35:22,889 --> 01:35:28,260
+know they focus on like one minute which
+
+1566
+01:35:24,929 --> 01:35:31,199
+is impractical I mean that's not real
+
+1567
+01:35:28,260 --> 01:35:32,880
+life yeah they focus on why made it
+
+1568
+01:35:31,199 --> 01:35:35,610
+because that's fun you know that's short
+
+1569
+01:35:32,880 --> 01:35:39,239
+and people can say oh my God look at
+
+1570
+01:35:35,610 --> 01:35:41,820
+this one this guy 204 let's let me just
+
+1571
+01:35:39,239 --> 01:35:44,300
+do it okay I'm not going to be I I would
+
+1572
+01:35:41,820 --> 01:35:48,469
+say maybe seventy okay let's do it
+
+1573
+01:35:44,300 --> 01:35:48,469
+and we all shut down
+
+1574
+01:35:50,159 --> 01:35:58,469
+found should him later
+
+1575
+01:35:54,300 --> 01:35:58,469
+move a hand
+
+1576
+01:36:48,710 --> 01:37:06,420
+not okay so it's 81 yay bye guys
+
+1577
+01:37:01,850 --> 01:37:09,449
+now Ducati now if I do worry it's gonna
+
+1578
+01:37:06,420 --> 01:37:12,830
+be it's gonna be 20 words per minute
+
+1579
+01:37:09,449 --> 01:37:12,830
+actually you're less
+
+1580
+01:37:19,350 --> 01:37:24,000
+[Laughter]
+

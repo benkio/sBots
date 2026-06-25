@@ -1,0 +1,4824 @@
+1
+00:00:09,000 --> 00:00:15,059
+hello guys welcome to another episode of
+
+2
+00:00:12,000 --> 00:00:17,340
+sound talk show so we are going to start
+
+3
+00:00:15,059 --> 00:00:19,800
+we are going to do today Wolfram
+
+4
+00:00:17,340 --> 00:00:22,859
+language coding okay so I'm just going
+
+5
+00:00:19,800 --> 00:00:26,400
+to code wufan language graphics and we
+
+6
+00:00:22,859 --> 00:00:29,599
+are going to do this geometric inversion
+
+7
+00:00:26,400 --> 00:00:33,239
+uh last time we did this we did a video
+
+8
+00:00:29,599 --> 00:00:35,460
+on geometric inversion so it's a
+
+9
+00:00:33,239 --> 00:00:38,340
+geometric process basically you apply a
+
+10
+00:00:35,460 --> 00:00:41,579
+function so you can turn this squid into
+
+11
+00:00:38,340 --> 00:00:44,399
+that okay so this is a geometric
+
+12
+00:00:41,579 --> 00:00:46,800
+inversion and this is a two-dimensional
+
+13
+00:00:44,399 --> 00:00:49,200
+case very simple you just
+
+14
+00:00:46,800 --> 00:00:51,480
+you know map a function to another Point
+
+15
+00:00:49,200 --> 00:00:54,300
+giving a point on the plane you map it
+
+16
+00:00:51,480 --> 00:00:56,280
+to another Point by this function this
+
+17
+00:00:54,300 --> 00:00:59,160
+function is called geometric inversion
+
+18
+00:00:56,280 --> 00:01:02,820
+okay so it can this function is
+
+19
+00:00:59,160 --> 00:01:06,659
+available in uh in Vector space of any
+
+20
+00:01:02,820 --> 00:01:09,479
+Dimension so you can be 2D you know or
+
+21
+00:01:06,659 --> 00:01:12,240
+it can be so all these are 2D case you
+
+22
+00:01:09,479 --> 00:01:16,439
+start with a different grid this is 2D
+
+23
+00:01:12,240 --> 00:01:18,780
+case and here's another 2D case you
+
+24
+00:01:16,439 --> 00:01:21,960
+begin with a
+
+25
+00:01:18,780 --> 00:01:24,780
+regular polygon polygon instead of
+
+26
+00:01:21,960 --> 00:01:28,439
+squares you know squares is a regular
+
+27
+00:01:24,780 --> 00:01:30,720
+polygon of four sides so you start with
+
+28
+00:01:28,439 --> 00:01:33,180
+the regular polygon of six sides then
+
+29
+00:01:30,720 --> 00:01:36,119
+you get six or seven then you get this
+
+30
+00:01:33,180 --> 00:01:38,939
+you know so that's all these are two
+
+31
+00:01:36,119 --> 00:01:42,000
+dimensional case then you can
+
+32
+00:01:38,939 --> 00:01:44,880
+then you can augment the 2D Case by
+
+33
+00:01:42,000 --> 00:01:48,119
+adding a thickness so you got this
+
+34
+00:01:44,880 --> 00:01:50,340
+beautiful Tire tile geometric inversion
+
+35
+00:01:48,119 --> 00:01:53,640
+so here is a code for example let's
+
+36
+00:01:50,340 --> 00:01:55,740
+let's copy the code and let's just start
+
+37
+00:01:53,640 --> 00:01:58,979
+to show it
+
+38
+00:01:55,740 --> 00:02:01,500
+uh what we are going to do today is to
+
+39
+00:01:58,979 --> 00:02:05,820
+do a tube version so starting with a
+
+40
+00:02:01,500 --> 00:02:07,560
+language a new uh new new notebook
+
+41
+00:02:05,820 --> 00:02:10,380
+run it
+
+42
+00:02:07,560 --> 00:02:13,980
+okay uh hold on a second so let me put
+
+43
+00:02:10,380 --> 00:02:18,060
+this into the right place my windows
+
+44
+00:02:13,980 --> 00:02:23,040
+so let's put here and let's magnify then
+
+45
+00:02:18,060 --> 00:02:25,940
+say 150 150 is good so we can see here's
+
+46
+00:02:23,040 --> 00:02:29,520
+the code and this is a beginning
+
+47
+00:02:25,940 --> 00:02:33,239
+configuration so after transformation by
+
+48
+00:02:29,520 --> 00:02:35,520
+the geometric inversion you get you get
+
+49
+00:02:33,239 --> 00:02:38,640
+these two 2D case
+
+50
+00:02:35,520 --> 00:02:41,879
+now you see it's still on the plane it's
+
+51
+00:02:38,640 --> 00:02:46,319
+two-dimensional then you just add more
+
+52
+00:02:41,879 --> 00:02:50,280
+code to add a thickness to it so you get
+
+53
+00:02:46,319 --> 00:02:53,280
+this so we did the video uh about a year
+
+54
+00:02:50,280 --> 00:02:55,920
+ago so if you go to YouTube search for
+
+55
+00:02:53,280 --> 00:02:58,080
+Sally you know YouTube geometric version
+
+56
+00:02:55,920 --> 00:03:00,660
+you'll see the video we did actually I
+
+57
+00:02:58,080 --> 00:03:02,220
+have a link here somewhere
+
+58
+00:03:00,660 --> 00:03:06,060
+um
+
+59
+00:03:02,220 --> 00:03:10,140
+so anyway so that's a 2d case okay so we
+
+60
+00:03:06,060 --> 00:03:13,560
+did the 2D case then we then then you
+
+61
+00:03:10,140 --> 00:03:15,659
+see the tiles when they are near the
+
+62
+00:03:13,560 --> 00:03:16,800
+center they be they become infinitely
+
+63
+00:03:15,659 --> 00:03:20,580
+small
+
+64
+00:03:16,800 --> 00:03:23,400
+so if you are going to plan to do this
+
+65
+00:03:20,580 --> 00:03:25,680
+as a garden tile then that wouldn't be
+
+66
+00:03:23,400 --> 00:03:30,000
+good because you cannot have infinitely
+
+67
+00:03:25,680 --> 00:03:32,940
+small squares so you want to
+
+68
+00:03:30,000 --> 00:03:34,500
+modify the function such that when the
+
+69
+00:03:32,940 --> 00:03:36,900
+points gets to the middle they don't
+
+70
+00:03:34,500 --> 00:03:39,900
+become infinite it's infinitely small
+
+71
+00:03:36,900 --> 00:03:42,540
+rather you want constant shape but
+
+72
+00:03:39,900 --> 00:03:46,440
+however you want to remain the kind of
+
+73
+00:03:42,540 --> 00:03:49,980
+the style of of this you know nesting
+
+74
+00:03:46,440 --> 00:03:52,500
+circles this pattern so what you do is
+
+75
+00:03:49,980 --> 00:03:54,900
+you change the function so this involves
+
+76
+00:03:52,500 --> 00:03:57,599
+mathematics if you have studied calculus
+
+77
+00:03:54,900 --> 00:04:00,420
+well then you would know how to change
+
+78
+00:03:57,599 --> 00:04:04,340
+the function so we did that so we change
+
+79
+00:04:00,420 --> 00:04:06,840
+the function and we begin
+
+80
+00:04:04,340 --> 00:04:09,720
+rather you don't change the function you
+
+81
+00:04:06,840 --> 00:04:12,000
+change the beginning configuration so if
+
+82
+00:04:09,720 --> 00:04:14,599
+you begin with this configuration on
+
+83
+00:04:12,000 --> 00:04:16,919
+left then you apply the geometric
+
+84
+00:04:14,599 --> 00:04:19,320
+geometric transformation then you got
+
+85
+00:04:16,919 --> 00:04:22,320
+this uh figure on the right side
+
+86
+00:04:19,320 --> 00:04:24,960
+beautiful okay to me this is one of the
+
+87
+00:04:22,320 --> 00:04:27,060
+work I'm very proud of you know so you
+
+88
+00:04:24,960 --> 00:04:30,240
+can see you can still see the many
+
+89
+00:04:27,060 --> 00:04:33,900
+circular patterns nested circles however
+
+90
+00:04:30,240 --> 00:04:35,520
+each of the tile is kind of the same
+
+91
+00:04:33,900 --> 00:04:39,780
+size okay
+
+92
+00:04:35,520 --> 00:04:41,699
+so and here is a so again we add a
+
+93
+00:04:39,780 --> 00:04:44,699
+height to it so we got this beautiful
+
+94
+00:04:41,699 --> 00:04:47,400
+tile so let's try it so here is the code
+
+95
+00:04:44,699 --> 00:04:49,740
+the code is pretty short okay so so
+
+96
+00:04:47,400 --> 00:04:52,259
+let's go back to wufam language so you
+
+97
+00:04:49,740 --> 00:04:54,780
+see this is previous this is
+
+98
+00:04:52,259 --> 00:04:58,199
+transformation of a bunch of squares on
+
+99
+00:04:54,780 --> 00:05:02,040
+the plane and now let's paste this code
+
+100
+00:04:58,199 --> 00:05:04,979
+and run it so this is we begin with this
+
+101
+00:05:02,040 --> 00:05:07,919
+figure then we apply transformation we
+
+102
+00:05:04,979 --> 00:05:10,320
+get that then all we have to do is we
+
+103
+00:05:07,919 --> 00:05:11,820
+are we want to add
+
+104
+00:05:10,320 --> 00:05:14,580
+uh
+
+105
+00:05:11,820 --> 00:05:18,960
+oh the code is not here you know it's
+
+106
+00:05:14,580 --> 00:05:21,419
+still 2D so we want a 3D case yeah so 3D
+
+107
+00:05:18,960 --> 00:05:24,860
+case Okay so the code is here
+
+108
+00:05:21,419 --> 00:05:24,860
+so let's copy it
+
+109
+00:05:25,320 --> 00:05:31,560
+copy the code
+
+110
+00:05:27,240 --> 00:05:35,460
+go down here paste it okay the code is
+
+111
+00:05:31,560 --> 00:05:39,539
+not you know about 50 lines now let's
+
+112
+00:05:35,460 --> 00:05:43,979
+you can press Ctrl shift n to turn them
+
+113
+00:05:39,539 --> 00:05:46,919
+into a uh to turn them into a
+
+114
+00:05:43,979 --> 00:05:50,160
+traditional formula for example
+
+115
+00:05:46,919 --> 00:05:52,320
+let's do it okay so let me make a copy
+
+116
+00:05:50,160 --> 00:05:56,220
+so we can see the difference before and
+
+117
+00:05:52,320 --> 00:05:59,699
+after so select it Ctrl shift n so you
+
+118
+00:05:56,220 --> 00:06:02,520
+see this is a automatic type setting in
+
+119
+00:05:59,699 --> 00:06:04,740
+Wolfram language and uh you know it's
+
+120
+00:06:02,520 --> 00:06:09,960
+fantastic and you can shrink if you
+
+121
+00:06:04,740 --> 00:06:13,620
+window size is smaller or wider the
+
+122
+00:06:09,960 --> 00:06:16,259
+formatting changes accordingly even with
+
+123
+00:06:13,620 --> 00:06:19,440
+complicated fractions and nested
+
+124
+00:06:16,259 --> 00:06:21,539
+fractions and radicals you see you see
+
+125
+00:06:19,440 --> 00:06:24,060
+there's a radical there so this is the
+
+126
+00:06:21,539 --> 00:06:26,039
+Wolfram language fantastic okay and you
+
+127
+00:06:24,060 --> 00:06:28,199
+can download it free
+
+128
+00:06:26,039 --> 00:06:30,840
+you know if you watch my video I talked
+
+129
+00:06:28,199 --> 00:06:33,720
+about it many times so today's you know
+
+130
+00:06:30,840 --> 00:06:36,539
+here's today's talk show I'm Gonna Keep
+
+131
+00:06:33,720 --> 00:06:38,580
+notes here so later on you can click on
+
+132
+00:06:36,539 --> 00:06:41,460
+the YouTube description and go to this
+
+133
+00:06:38,580 --> 00:06:44,160
+page and you can see all the code so
+
+134
+00:06:41,460 --> 00:06:47,520
+here's a link to the geometric inversion
+
+135
+00:06:44,160 --> 00:06:50,280
+which we were talking about and click on
+
+136
+00:06:47,520 --> 00:06:52,860
+this to go to Star Warframe Language
+
+137
+00:06:50,280 --> 00:06:55,380
+tutorial you can search it and you'll
+
+138
+00:06:52,860 --> 00:06:57,840
+find that find it so here's a download
+
+139
+00:06:55,380 --> 00:06:59,580
+for free so you can download and you can
+
+140
+00:06:57,840 --> 00:07:02,639
+have this
+
+141
+00:06:59,580 --> 00:07:05,580
+free okay so now and actually so now
+
+142
+00:07:02,639 --> 00:07:07,080
+let's actually run the code okay so put
+
+143
+00:07:05,580 --> 00:07:09,560
+a cruiser here
+
+144
+00:07:07,080 --> 00:07:13,139
+shift enter to run it okay shift enter
+
+145
+00:07:09,560 --> 00:07:14,460
+so you see let's magnify okay like
+
+146
+00:07:13,139 --> 00:07:17,220
+actually
+
+147
+00:07:14,460 --> 00:07:20,340
+so you see we got that we begin with
+
+148
+00:07:17,220 --> 00:07:22,680
+this figure then apply the geometry
+
+149
+00:07:20,340 --> 00:07:26,759
+geometric transformation we got this
+
+150
+00:07:22,680 --> 00:07:31,940
+figure beautiful then we extend it we
+
+151
+00:07:26,759 --> 00:07:35,639
+add a z coordinate to it so we got a 3D
+
+152
+00:07:31,940 --> 00:07:38,940
+uh configuration of that planar figure
+
+153
+00:07:35,639 --> 00:07:41,160
+okay now all we have to do is we add you
+
+154
+00:07:38,940 --> 00:07:45,080
+know thickness to it
+
+155
+00:07:41,160 --> 00:07:48,539
+so all this is graphical you know
+
+156
+00:07:45,080 --> 00:07:51,000
+graphical programming uh very
+
+157
+00:07:48,539 --> 00:07:54,180
+interesting and very different in nature
+
+158
+00:07:51,000 --> 00:07:57,300
+from from what typical industrial
+
+159
+00:07:54,180 --> 00:08:01,560
+programmer are excited about which is
+
+160
+00:07:57,300 --> 00:08:03,840
+game programming opengl webgl those are
+
+161
+00:08:01,560 --> 00:08:07,380
+very different nature and those are very
+
+162
+00:08:03,840 --> 00:08:10,080
+cumbersome so if you want to do this so
+
+163
+00:08:07,380 --> 00:08:14,460
+you know we created this thing
+
+164
+00:08:10,080 --> 00:08:17,400
+let's see if we can let's magnify okay
+
+165
+00:08:14,460 --> 00:08:18,720
+so we created this thing
+
+166
+00:08:17,400 --> 00:08:22,199
+uh
+
+167
+00:08:18,720 --> 00:08:25,440
+how many lines of code about 50 okay
+
+168
+00:08:22,199 --> 00:08:28,259
+about 50 lines of code
+
+169
+00:08:25,440 --> 00:08:30,419
+uh if you want to do this in opengl or
+
+170
+00:08:28,259 --> 00:08:31,860
+something that's going to be 1000 lines
+
+171
+00:08:30,419 --> 00:08:35,719
+of code
+
+172
+00:08:31,860 --> 00:08:38,640
+so that's the that is the
+
+173
+00:08:35,719 --> 00:08:40,979
+advantage of Wolfram language it allows
+
+174
+00:08:38,640 --> 00:08:44,339
+you to quickly see
+
+175
+00:08:40,979 --> 00:08:46,080
+you know visualization or concept very
+
+176
+00:08:44,339 --> 00:08:50,580
+fast
+
+177
+00:08:46,080 --> 00:08:52,140
+okay and the language is uh fairly easy
+
+178
+00:08:50,580 --> 00:08:55,140
+to learn you know you know it's it's
+
+179
+00:08:52,140 --> 00:08:57,660
+very different from C or Java or python
+
+180
+00:08:55,140 --> 00:09:00,899
+if you came from those but
+
+181
+00:08:57,660 --> 00:09:03,420
+but if you don't have those you know
+
+182
+00:09:00,899 --> 00:09:06,720
+experienced Wolfram language is actually
+
+183
+00:09:03,420 --> 00:09:09,180
+rather very easy you you may find it
+
+184
+00:09:06,720 --> 00:09:13,200
+hard to learn because it's very
+
+185
+00:09:09,180 --> 00:09:15,360
+different from java CC plus plus python
+
+186
+00:09:13,200 --> 00:09:18,420
+Golan you know very different from them
+
+187
+00:09:15,360 --> 00:09:22,320
+so so so here's how you download Wolfram
+
+188
+00:09:18,420 --> 00:09:25,740
+language and you go back and you can see
+
+189
+00:09:22,320 --> 00:09:29,040
+I did many videos you know over 20 so
+
+190
+00:09:25,740 --> 00:09:32,279
+you go to this page these are some of
+
+191
+00:09:29,040 --> 00:09:34,860
+the best videos so if you are learning
+
+192
+00:09:32,279 --> 00:09:36,959
+wufan language watch them okay
+
+193
+00:09:34,860 --> 00:09:38,940
+comments and questions relevant
+
+194
+00:09:36,959 --> 00:09:42,180
+questions about Wolfram language posted
+
+195
+00:09:38,940 --> 00:09:44,760
+there okay and I'm gonna answer later so
+
+196
+00:09:42,180 --> 00:09:49,399
+watch this video okay so now today
+
+197
+00:09:44,760 --> 00:09:53,040
+let's go back today uh let's go back so
+
+198
+00:09:49,399 --> 00:09:55,740
+we talked about geometric inversion
+
+199
+00:09:53,040 --> 00:09:58,140
+which is the function applied to a
+
+200
+00:09:55,740 --> 00:10:01,440
+two-dimensional grid you know
+
+201
+00:09:58,140 --> 00:10:03,360
+two-dimensional version okay then all
+
+202
+00:10:01,440 --> 00:10:06,300
+these are two dimensional you know
+
+203
+00:10:03,360 --> 00:10:08,519
+although this looks like 3D but it
+
+204
+00:10:06,300 --> 00:10:11,180
+actually is just a height the function
+
+205
+00:10:08,519 --> 00:10:15,420
+is still two dimensional
+
+206
+00:10:11,180 --> 00:10:17,940
+uh then the function the geometric
+
+207
+00:10:15,420 --> 00:10:21,000
+function is also a three-dimensional
+
+208
+00:10:17,940 --> 00:10:24,180
+function you know in in fact geometric
+
+209
+00:10:21,000 --> 00:10:26,220
+inversion Works in any Vector space of
+
+210
+00:10:24,180 --> 00:10:28,860
+any Dimension so here we have a
+
+211
+00:10:26,220 --> 00:10:31,500
+three-dimensional example very uh
+
+212
+00:10:28,860 --> 00:10:34,200
+beautiful okay so and here's a code the
+
+213
+00:10:31,500 --> 00:10:37,380
+code is even shorter so what let me
+
+214
+00:10:34,200 --> 00:10:39,660
+explain what it what this is so you know
+
+215
+00:10:37,380 --> 00:10:42,420
+before we begin with a two-dimensional
+
+216
+00:10:39,660 --> 00:10:44,660
+grid you know if you scroll the you know
+
+217
+00:10:42,420 --> 00:10:48,899
+we start with a bunch of
+
+218
+00:10:44,660 --> 00:10:52,500
+squares right now in a 3D case we begin
+
+219
+00:10:48,899 --> 00:10:54,779
+with a bunch of Cubes okay then we do
+
+220
+00:10:52,500 --> 00:10:57,540
+the geometric transformation then you
+
+221
+00:10:54,779 --> 00:10:59,459
+got this figure okay so let's render the
+
+222
+00:10:57,540 --> 00:11:01,440
+code and
+
+223
+00:10:59,459 --> 00:11:03,300
+let's run the code
+
+224
+00:11:01,440 --> 00:11:07,019
+okay
+
+225
+00:11:03,300 --> 00:11:10,920
+so you can see fantastic let's magnify
+
+226
+00:11:07,019 --> 00:11:13,860
+and let's see the full Glory of it
+
+227
+00:11:10,920 --> 00:11:16,320
+okay so you got this piece you know you
+
+228
+00:11:13,860 --> 00:11:19,560
+can see you know the nested Circle
+
+229
+00:11:16,320 --> 00:11:22,079
+structure beautiful you know as they get
+
+230
+00:11:19,560 --> 00:11:24,420
+closer to the center they each of the
+
+231
+00:11:22,079 --> 00:11:27,360
+cube becomes smaller infinitely small
+
+232
+00:11:24,420 --> 00:11:29,640
+when they reach the center so but but
+
+233
+00:11:27,360 --> 00:11:31,560
+anyway you can see it's you know so this
+
+234
+00:11:29,640 --> 00:11:34,079
+is the three-dimensional case of
+
+235
+00:11:31,560 --> 00:11:37,079
+geometric inversion
+
+236
+00:11:34,079 --> 00:11:41,040
+now if you are studying math geometric
+
+237
+00:11:37,079 --> 00:11:43,920
+inversion is is related for example in
+
+238
+00:11:41,040 --> 00:11:47,040
+complex analysis if you study complex
+
+239
+00:11:43,920 --> 00:11:49,920
+numbers then 1 over
+
+240
+00:11:47,040 --> 00:11:53,100
+X where okay
+
+241
+00:11:49,920 --> 00:11:56,160
+1 over X where X is a complex number
+
+242
+00:11:53,100 --> 00:11:58,440
+that is a geometric inversion okay
+
+243
+00:11:56,160 --> 00:12:01,980
+that's exactly the same thing well
+
+244
+00:11:58,440 --> 00:12:04,380
+except except that it flips the plane
+
+245
+00:12:01,980 --> 00:12:07,320
+okay anyway it's basically the same
+
+246
+00:12:04,380 --> 00:12:11,040
+thing 1 over X
+
+247
+00:12:07,320 --> 00:12:13,440
+where X is a complex number okay
+
+248
+00:12:11,040 --> 00:12:16,140
+okay so that's a geometric inversion
+
+249
+00:12:13,440 --> 00:12:18,660
+actually we did the video so you can you
+
+250
+00:12:16,140 --> 00:12:20,220
+can find the video and uh and what we're
+
+251
+00:12:18,660 --> 00:12:24,180
+gonna do today
+
+252
+00:12:20,220 --> 00:12:27,480
+is to apply geometric inversions similar
+
+253
+00:12:24,180 --> 00:12:30,120
+idea but a variation computer Graphics
+
+254
+00:12:27,480 --> 00:12:32,640
+you know Graphics programming so you can
+
+255
+00:12:30,120 --> 00:12:33,660
+see what we want to do today is that you
+
+256
+00:12:32,640 --> 00:12:36,720
+can see
+
+257
+00:12:33,660 --> 00:12:39,660
+you know before we begin with a grid
+
+258
+00:12:36,720 --> 00:12:41,700
+then each line becomes kind of a circle
+
+259
+00:12:39,660 --> 00:12:45,540
+kind you know it becomes you know you
+
+260
+00:12:41,700 --> 00:12:49,519
+transform each point on the grid right
+
+261
+00:12:45,540 --> 00:12:53,040
+now instead of the you know line
+
+262
+00:12:49,519 --> 00:12:55,740
+we are going to use a tube so we got a
+
+263
+00:12:53,040 --> 00:12:58,920
+bunch of tubes so this is kind of like a
+
+264
+00:12:55,740 --> 00:13:01,800
+3D case but still 2D but you know so we
+
+265
+00:12:58,920 --> 00:13:05,160
+got a grid of tubes then we do the
+
+266
+00:13:01,800 --> 00:13:07,320
+geometric inversion then it becomes
+
+267
+00:13:05,160 --> 00:13:09,779
+you know it should be tubes so we can
+
+268
+00:13:07,320 --> 00:13:12,360
+rotate it and see so let's see how it
+
+269
+00:13:09,779 --> 00:13:14,820
+looks you know you know I'm hoping it's
+
+270
+00:13:12,360 --> 00:13:16,920
+gonna be beautiful uh just like this
+
+271
+00:13:14,820 --> 00:13:19,019
+case that's what we are going to do so
+
+272
+00:13:16,920 --> 00:13:21,480
+we already spent 10 minutes to talk
+
+273
+00:13:19,019 --> 00:13:25,440
+about all these uh
+
+274
+00:13:21,480 --> 00:13:27,899
+Prelude so I hope we can you know it'll
+
+275
+00:13:25,440 --> 00:13:32,760
+take a while I I would say another 40
+
+276
+00:13:27,899 --> 00:13:35,459
+minutes okay at least 50 minutes even
+
+277
+00:13:32,760 --> 00:13:37,740
+so I'm I'm going to try to do
+
+278
+00:13:35,459 --> 00:13:39,600
+as fast as we can
+
+279
+00:13:37,740 --> 00:13:42,240
+so first of all start the Wolfram
+
+280
+00:13:39,600 --> 00:13:44,700
+language now I'm coding wufam language
+
+281
+00:13:42,240 --> 00:13:48,620
+in um
+
+282
+00:13:44,700 --> 00:13:52,740
+in for example let's say range
+
+283
+00:13:48,620 --> 00:13:56,579
+uh let's say 10 the net
+
+284
+00:13:52,740 --> 00:13:59,160
+okay uh actually run it
+
+285
+00:13:56,579 --> 00:14:01,139
+you can see the answer is you know one
+
+286
+00:13:59,160 --> 00:14:04,440
+two three four five you know we generate
+
+287
+00:14:01,139 --> 00:14:06,779
+a list of numbers so I'm running wufam
+
+288
+00:14:04,440 --> 00:14:09,839
+language in emacs
+
+289
+00:14:06,779 --> 00:14:15,000
+because in emacs you know I have my
+
+290
+00:14:09,839 --> 00:14:18,060
+system it allows me to edit modify work
+
+291
+00:14:15,000 --> 00:14:21,360
+with the code much faster so
+
+292
+00:14:18,060 --> 00:14:24,360
+I'm using Wolfram language star Warframe
+
+293
+00:14:21,360 --> 00:14:27,060
+language mod so it's free it's on GitHub
+
+294
+00:14:24,360 --> 00:14:29,700
+it's open source and it's sponsored by
+
+295
+00:14:27,060 --> 00:14:33,260
+wolfam language wufam research the
+
+296
+00:14:29,700 --> 00:14:33,260
+company so let me show you the code
+
+297
+00:14:34,579 --> 00:14:42,180
+okay so you just describe function uh
+
+298
+00:14:39,360 --> 00:14:45,300
+wolf and mod then you can jump to the
+
+299
+00:14:42,180 --> 00:14:47,180
+source code so here is a source code the
+
+300
+00:14:45,300 --> 00:14:51,300
+whole thing is about
+
+301
+00:14:47,180 --> 00:14:54,420
+2600 lines of code and if you go to the
+
+302
+00:14:51,300 --> 00:14:57,540
+beginning go to the beginning then
+
+303
+00:14:54,420 --> 00:15:00,779
+here's the URL go to it open it show in
+
+304
+00:14:57,540 --> 00:15:05,639
+browser uh you can search for it Subway
+
+305
+00:15:00,779 --> 00:15:07,920
+from mod and you can get it for free so
+
+306
+00:15:05,639 --> 00:15:11,459
+you can download it's on GitHub yeah so
+
+307
+00:15:07,920 --> 00:15:14,519
+here is a video where we last time we we
+
+308
+00:15:11,459 --> 00:15:17,399
+were coding this geometric inversion
+
+309
+00:15:14,519 --> 00:15:19,800
+so you can download it on GitHub okay so
+
+310
+00:15:17,399 --> 00:15:22,500
+it's a GitHub you know it's there
+
+311
+00:15:19,800 --> 00:15:24,839
+so download wolfam engine you know it's
+
+312
+00:15:22,500 --> 00:15:27,779
+free and download this and if you are
+
+313
+00:15:24,839 --> 00:15:30,839
+using emacs you you are good to go
+
+314
+00:15:27,779 --> 00:15:33,839
+so question uh
+
+315
+00:15:30,839 --> 00:15:36,000
+your name your name Paul
+
+316
+00:15:33,839 --> 00:15:37,860
+real Nepal
+
+317
+00:15:36,000 --> 00:15:40,139
+how much math background do you
+
+318
+00:15:37,860 --> 00:15:43,019
+recommend before learning wufam language
+
+319
+00:15:40,139 --> 00:15:46,800
+or can it be used as a math learning
+
+320
+00:15:43,019 --> 00:15:48,600
+tool okay so yes you know you don't need
+
+321
+00:15:46,800 --> 00:15:50,459
+any background let me explain let me
+
+322
+00:15:48,600 --> 00:15:51,360
+spend two minutes weeks answer that
+
+323
+00:15:50,459 --> 00:15:54,420
+question
+
+324
+00:15:51,360 --> 00:15:57,660
+wolfam language is a programming
+
+325
+00:15:54,420 --> 00:16:00,720
+language that originated from doing
+
+326
+00:15:57,660 --> 00:16:04,019
+computer algebra you know it's it's it's
+
+327
+00:16:00,720 --> 00:16:08,760
+it's called computer algebra system okay
+
+328
+00:16:04,019 --> 00:16:11,480
+so originally about 35 or about 40 you
+
+329
+00:16:08,760 --> 00:16:15,000
+know wolfam language beginning in
+
+330
+00:16:11,480 --> 00:16:17,519
+1986 I think so about
+
+331
+00:16:15,000 --> 00:16:21,180
+35 years ago
+
+332
+00:16:17,519 --> 00:16:23,940
+uh 35 years ago wolfam language began as
+
+333
+00:16:21,180 --> 00:16:25,500
+a tool for mathematicians in physics
+
+334
+00:16:23,940 --> 00:16:29,220
+physicists
+
+335
+00:16:25,500 --> 00:16:32,100
+to do mathematics okay so you you know
+
+336
+00:16:29,220 --> 00:16:34,199
+you know physics mathematicians and
+
+337
+00:16:32,100 --> 00:16:37,759
+Engineers you know you need to do a lot
+
+338
+00:16:34,199 --> 00:16:41,220
+a lot mathematics for example Space X
+
+339
+00:16:37,759 --> 00:16:44,040
+NASA you know if you are designing a jet
+
+340
+00:16:41,220 --> 00:16:47,339
+a rocket you know going to space you
+
+341
+00:16:44,040 --> 00:16:49,740
+need to huge amount of calculus and you
+
+342
+00:16:47,339 --> 00:16:52,320
+know engineering so you need to solve a
+
+343
+00:16:49,740 --> 00:16:54,120
+lot of equations integrals so in the
+
+344
+00:16:52,320 --> 00:16:56,940
+beginning movement language was created
+
+345
+00:16:54,120 --> 00:16:59,759
+it was the product is called Mathematica
+
+346
+00:16:56,940 --> 00:17:02,399
+okay like math you know Mathematica
+
+347
+00:16:59,759 --> 00:17:05,280
+because it's a tool to to help you do
+
+348
+00:17:02,399 --> 00:17:07,980
+mathematics solve all the equations or
+
+349
+00:17:05,280 --> 00:17:10,620
+theoretical physics you know black hole
+
+350
+00:17:07,980 --> 00:17:13,020
+how far is you know how you know you
+
+351
+00:17:10,620 --> 00:17:15,360
+know things like that
+
+352
+00:17:13,020 --> 00:17:18,839
+so
+
+353
+00:17:15,360 --> 00:17:21,959
+is the product is called Mathematica and
+
+354
+00:17:18,839 --> 00:17:23,220
+the and the the it's a tool okay to do
+
+355
+00:17:21,959 --> 00:17:24,780
+mathematics
+
+356
+00:17:23,220 --> 00:17:27,299
+however
+
+357
+00:17:24,780 --> 00:17:28,980
+what does the tool looks like the tool
+
+358
+00:17:27,299 --> 00:17:30,540
+is actually just a programming language
+
+359
+00:17:28,980 --> 00:17:33,240
+you know so
+
+360
+00:17:30,540 --> 00:17:35,520
+if you have seen the code here you know
+
+361
+00:17:33,240 --> 00:17:38,039
+just like uh you know like in the say
+
+362
+00:17:35,520 --> 00:17:41,100
+python JavaScript you know you type some
+
+363
+00:17:38,039 --> 00:17:44,640
+code each code has specific you know
+
+364
+00:17:41,100 --> 00:17:47,640
+arguments you know then then then your
+
+365
+00:17:44,640 --> 00:17:50,640
+output as you have seen I can also run
+
+366
+00:17:47,640 --> 00:17:52,799
+it in here
+
+367
+00:17:50,640 --> 00:17:55,799
+so you know just like python let's close
+
+368
+00:17:52,799 --> 00:17:58,200
+this for example I run this you can see
+
+369
+00:17:55,799 --> 00:18:00,480
+the answer at the bottom you know I can
+
+370
+00:17:58,200 --> 00:18:03,660
+actually make it more complicated let's
+
+371
+00:18:00,480 --> 00:18:08,039
+say uh table
+
+372
+00:18:03,660 --> 00:18:11,580
+uh table x squared okay so X from 1 to
+
+373
+00:18:08,039 --> 00:18:13,559
+let's say five when it
+
+374
+00:18:11,580 --> 00:18:16,020
+you know so you got the answer at the
+
+375
+00:18:13,559 --> 00:18:18,080
+bottom so you can see it's there
+
+376
+00:18:16,020 --> 00:18:22,919
+so
+
+377
+00:18:18,080 --> 00:18:25,260
+Mathematica is a product 35 years ago he
+
+378
+00:18:22,919 --> 00:18:28,320
+was intended intended to do mathematics
+
+379
+00:18:25,260 --> 00:18:31,380
+and how do you use it what you know it's
+
+380
+00:18:28,320 --> 00:18:33,419
+a programming language basically it's a
+
+381
+00:18:31,380 --> 00:18:36,059
+very full featured you know highly
+
+382
+00:18:33,419 --> 00:18:38,340
+Advanced beyond all others because you
+
+383
+00:18:36,059 --> 00:18:40,919
+can see here you have Graphics there
+
+384
+00:18:38,340 --> 00:18:45,660
+most computer language you look you
+
+385
+00:18:40,919 --> 00:18:48,240
+cannot Java C C plus plus C sharp python
+
+386
+00:18:45,660 --> 00:18:50,580
+JavaScript there's no Graphics you know
+
+387
+00:18:48,240 --> 00:18:54,539
+this is not you can talk about Graphics
+
+388
+00:18:50,580 --> 00:18:57,419
+yeah if you want Graphics you need to
+
+389
+00:18:54,539 --> 00:18:59,580
+have external package that generate
+
+390
+00:18:57,419 --> 00:19:01,799
+graphic very complex okay
+
+391
+00:18:59,580 --> 00:19:04,260
+so Wolfram language is a programming
+
+392
+00:19:01,799 --> 00:19:06,660
+language that has all these features and
+
+393
+00:19:04,260 --> 00:19:10,320
+also you know symbolic you know type
+
+394
+00:19:06,660 --> 00:19:13,080
+setting symbolic computation okay
+
+395
+00:19:10,320 --> 00:19:15,660
+so originally it's designed to do math
+
+396
+00:19:13,080 --> 00:19:18,059
+but it's not just math it's just any
+
+397
+00:19:15,660 --> 00:19:20,100
+kind of programming any programming
+
+398
+00:19:18,059 --> 00:19:23,100
+okay except low level you know you don't
+
+399
+00:19:20,100 --> 00:19:25,740
+really for example you don't use wufem
+
+400
+00:19:23,100 --> 00:19:28,380
+language to write a operating system
+
+401
+00:19:25,740 --> 00:19:30,120
+kernel like Linux you know that that
+
+402
+00:19:28,380 --> 00:19:32,520
+that is not not
+
+403
+00:19:30,120 --> 00:19:35,220
+you can you you cannot because it would
+
+404
+00:19:32,520 --> 00:19:38,580
+be too slow it would be not it doesn't
+
+405
+00:19:35,220 --> 00:19:41,520
+fit there okay so if you want to do
+
+406
+00:19:38,580 --> 00:19:44,760
+embedded systems you know drivers you
+
+407
+00:19:41,520 --> 00:19:45,780
+know like programming microchips on your
+
+408
+00:19:44,760 --> 00:19:48,900
+micro
+
+409
+00:19:45,780 --> 00:19:51,720
+on your microwave oven or on your watch
+
+410
+00:19:48,900 --> 00:19:53,660
+that's not ufam language okay if you
+
+411
+00:19:51,720 --> 00:19:56,760
+want to do high level mathematics
+
+412
+00:19:53,660 --> 00:19:59,760
+physics you know Advanced protocol
+
+413
+00:19:56,760 --> 00:20:02,280
+designer keyboard uh design a car
+
+414
+00:19:59,760 --> 00:20:05,039
+engineering you know or audio systems
+
+415
+00:20:02,280 --> 00:20:07,799
+synthesizers you know you can you can do
+
+416
+00:20:05,039 --> 00:20:09,299
+that with Wolfram language actually I
+
+417
+00:20:07,799 --> 00:20:11,760
+talk too much about this you know watch
+
+418
+00:20:09,299 --> 00:20:13,799
+my previous video uh introduction to fun
+
+419
+00:20:11,760 --> 00:20:15,419
+language okay so anyway to answer your
+
+420
+00:20:13,799 --> 00:20:17,880
+question so Wolfram language is a
+
+421
+00:20:15,419 --> 00:20:21,360
+programming language and is also do math
+
+422
+00:20:17,880 --> 00:20:23,520
+so you do you need to do no math no just
+
+423
+00:20:21,360 --> 00:20:25,679
+like python just like python JavaScript
+
+424
+00:20:23,520 --> 00:20:27,660
+do you need to know math to do them not
+
+425
+00:20:25,679 --> 00:20:30,419
+really you know you can code you can
+
+426
+00:20:27,660 --> 00:20:33,960
+manipulate streams you can generate list
+
+427
+00:20:30,419 --> 00:20:36,480
+you know turbos vectors you know uh hash
+
+428
+00:20:33,960 --> 00:20:39,600
+table you know programming so you don't
+
+429
+00:20:36,480 --> 00:20:42,000
+need any mathematics at all on the other
+
+430
+00:20:39,600 --> 00:20:45,480
+hand if you are already a mathematician
+
+431
+00:20:42,000 --> 00:20:47,520
+fantastic okay fantastic tool or if you
+
+432
+00:20:45,480 --> 00:20:50,220
+are a student you are interested in
+
+433
+00:20:47,520 --> 00:20:52,140
+mathematics but you don't know much
+
+434
+00:20:50,220 --> 00:20:54,600
+mathematics yet
+
+435
+00:20:52,140 --> 00:20:57,960
+language helps you for example you want
+
+436
+00:20:54,600 --> 00:20:59,820
+to do calculus let's say limit okay so
+
+437
+00:20:57,960 --> 00:21:03,620
+limit
+
+438
+00:20:59,820 --> 00:21:03,620
+let's say 1 over X
+
+439
+00:21:04,020 --> 00:21:14,360
+X then X goes to uh let's let's say x
+
+440
+00:21:09,240 --> 00:21:18,120
+what let's go to x goes to Infinity
+
+441
+00:21:14,360 --> 00:21:20,820
+in Infinity okay so let's see what is
+
+442
+00:21:18,120 --> 00:21:23,340
+the limit so that limit is zero
+
+443
+00:21:20,820 --> 00:21:26,220
+so that's calculus you know and
+
+444
+00:21:23,340 --> 00:21:29,580
+derivatives you know differential
+
+445
+00:21:26,220 --> 00:21:31,919
+equations linear algebra you know uh
+
+446
+00:21:29,580 --> 00:21:34,500
+integrals and all that
+
+447
+00:21:31,919 --> 00:21:36,059
+so you don't need to know any math to
+
+448
+00:21:34,500 --> 00:21:38,520
+use it because it's a programming
+
+449
+00:21:36,059 --> 00:21:40,559
+language if you're a mathematician you
+
+450
+00:21:38,520 --> 00:21:42,840
+can use it to help you a lot or the
+
+451
+00:21:40,559 --> 00:21:45,659
+physics or engineer and if you're a math
+
+452
+00:21:42,840 --> 00:21:48,480
+student it will help you significantly
+
+453
+00:21:45,659 --> 00:21:50,520
+learn mathematics because you can you
+
+454
+00:21:48,480 --> 00:21:52,559
+know just for example if you want to
+
+455
+00:21:50,520 --> 00:21:55,679
+expand let me show you just another
+
+456
+00:21:52,559 --> 00:22:01,919
+example and we start to code Okay so
+
+457
+00:21:55,679 --> 00:22:05,580
+ uh let's say x X Plus y
+
+458
+00:22:01,919 --> 00:22:07,980
+let's say 40th power okay let's say you
+
+459
+00:22:05,580 --> 00:22:11,039
+know we can make it more complex minus
+
+460
+00:22:07,980 --> 00:22:13,440
+two okay
+
+461
+00:22:11,039 --> 00:22:15,600
+you know so this you know this you
+
+462
+00:22:13,440 --> 00:22:18,179
+cannot do in Python although it's pretty
+
+463
+00:22:15,600 --> 00:22:20,580
+simple you know you want to multiply
+
+464
+00:22:18,179 --> 00:22:22,799
+this by itself 40 times you cannot do it
+
+465
+00:22:20,580 --> 00:22:25,440
+in Python but in Wolfram language you
+
+466
+00:22:22,799 --> 00:22:28,200
+know that helps you
+
+467
+00:22:25,440 --> 00:22:31,380
+uh uh learn math a lot
+
+468
+00:22:28,200 --> 00:22:34,320
+and you can simplify you know given this
+
+469
+00:22:31,380 --> 00:22:36,659
+huge output you can say you know like
+
+470
+00:22:34,320 --> 00:22:38,400
+you have no idea what those are so you
+
+471
+00:22:36,659 --> 00:22:40,140
+can say simplify
+
+472
+00:22:38,400 --> 00:22:42,240
+and
+
+473
+00:22:40,140 --> 00:22:45,659
+the Ampersand stand for previous
+
+474
+00:22:42,240 --> 00:22:46,500
+expression or you can press Ctrl L you
+
+475
+00:22:45,659 --> 00:22:50,280
+know
+
+476
+00:22:46,500 --> 00:22:53,220
+so actually let's do Ctrl shift l so we
+
+477
+00:22:50,280 --> 00:22:56,400
+get the whole thing so you see
+
+478
+00:22:53,220 --> 00:22:58,140
+so suppose you are a physicist or a
+
+479
+00:22:56,400 --> 00:23:00,840
+mathematician you got this expression
+
+480
+00:22:58,140 --> 00:23:04,080
+you have no idea what it is you know so
+
+481
+00:23:00,840 --> 00:23:07,500
+you have to do is you just say simplify
+
+482
+00:23:04,080 --> 00:23:10,440
+okay so let's run it
+
+483
+00:23:07,500 --> 00:23:13,500
+okay here's the output you know it
+
+484
+00:23:10,440 --> 00:23:14,880
+factors it factors a polynomial that's
+
+485
+00:23:13,500 --> 00:23:17,580
+what
+
+486
+00:23:14,880 --> 00:23:19,559
+happening okay
+
+487
+00:23:17,580 --> 00:23:22,620
+uh thank you thank you guys for watching
+
+488
+00:23:19,559 --> 00:23:24,840
+uh so now let's let's let's start to
+
+489
+00:23:22,620 --> 00:23:27,360
+code this thing uh the the thing we
+
+490
+00:23:24,840 --> 00:23:29,100
+wanted to code okay so let's start to
+
+491
+00:23:27,360 --> 00:23:32,820
+code
+
+492
+00:23:29,100 --> 00:23:35,880
+uh so we talked about uh we we actually
+
+493
+00:23:32,820 --> 00:23:37,559
+gave us a small intro to fam language
+
+494
+00:23:35,880 --> 00:23:40,919
+and now
+
+495
+00:23:37,559 --> 00:23:43,380
+uh now that's the subwoof Emma let's
+
+496
+00:23:40,919 --> 00:23:45,360
+start to code there's a lot to code it's
+
+497
+00:23:43,380 --> 00:23:47,940
+gonna be 40 minutes okay close let's
+
+498
+00:23:45,360 --> 00:23:49,980
+begin to do it okay let's code so what
+
+499
+00:23:47,940 --> 00:23:53,520
+so what we want to do okay so actually
+
+500
+00:23:49,980 --> 00:23:56,760
+copy this go back here and paste this
+
+501
+00:23:53,520 --> 00:23:59,340
+link here so the so we have a record of
+
+502
+00:23:56,760 --> 00:24:01,919
+what we talked about okay close close so
+
+503
+00:23:59,340 --> 00:24:03,900
+we're gonna code this now
+
+504
+00:24:01,919 --> 00:24:06,679
+so
+
+505
+00:24:03,900 --> 00:24:09,720
+so uh so
+
+506
+00:24:06,679 --> 00:24:11,820
+we haven't even um well I haven't I
+
+507
+00:24:09,720 --> 00:24:13,799
+haven't explained what's a geometric
+
+508
+00:24:11,820 --> 00:24:16,080
+inversion I mean what does the function
+
+509
+00:24:13,799 --> 00:24:19,440
+actually do so but this is a function
+
+510
+00:24:16,080 --> 00:24:22,620
+okay so in you know you you probably
+
+511
+00:24:19,440 --> 00:24:25,200
+don't understand what that is but
+
+512
+00:24:22,620 --> 00:24:27,299
+uh okay I would say just watch my
+
+513
+00:24:25,200 --> 00:24:29,880
+previous video okay you watch you know I
+
+514
+00:24:27,299 --> 00:24:32,520
+showed it before watch my previous video
+
+515
+00:24:29,880 --> 00:24:35,340
+I expand you know for 20 minutes on what
+
+516
+00:24:32,520 --> 00:24:39,240
+what is of geometric immersion so so
+
+517
+00:24:35,340 --> 00:24:42,419
+basically so we defined it you see we
+
+518
+00:24:39,240 --> 00:24:45,240
+defined it here and the base but let me
+
+519
+00:24:42,419 --> 00:24:46,980
+just show you how it uh runs so you
+
+520
+00:24:45,240 --> 00:24:49,919
+given
+
+521
+00:24:46,980 --> 00:24:53,640
+given a point let's say
+
+522
+00:24:49,919 --> 00:24:55,860
+three four you know that's x equals to
+
+523
+00:24:53,640 --> 00:24:58,740
+three y equals to four so you run it
+
+524
+00:24:55,860 --> 00:25:00,659
+that's the result so it takes a point it
+
+525
+00:24:58,740 --> 00:25:02,760
+returns another Point okay that's
+
+526
+00:25:00,659 --> 00:25:04,620
+basically us that's what it is that's
+
+527
+00:25:02,760 --> 00:25:07,320
+all
+
+528
+00:25:04,620 --> 00:25:11,340
+okay so I'm now going to explain exactly
+
+529
+00:25:07,320 --> 00:25:14,880
+what it does actually you know that
+
+530
+00:25:11,340 --> 00:25:17,700
+is very extremely interesting okay so
+
+531
+00:25:14,880 --> 00:25:21,059
+for example all these are geometric let
+
+532
+00:25:17,700 --> 00:25:24,000
+me just go briefly go to it
+
+533
+00:25:21,059 --> 00:25:27,779
+so all these are geometric inversion and
+
+534
+00:25:24,000 --> 00:25:33,059
+if you want to understand it uh
+
+535
+00:25:27,779 --> 00:25:36,059
+you know and it's also there is a uh
+
+536
+00:25:33,059 --> 00:25:37,740
+there is a Wikipedia article on it of
+
+537
+00:25:36,059 --> 00:25:43,159
+course just search for geometric
+
+538
+00:25:37,740 --> 00:25:43,159
+inversion uh okay so where is the
+
+539
+00:25:43,740 --> 00:25:47,960
+okay so you can see it here
+
+540
+00:25:48,980 --> 00:25:58,200
+uh geometric version Oh yeah this page
+
+541
+00:25:52,799 --> 00:26:01,260
+okay so so it explains
+
+542
+00:25:58,200 --> 00:26:03,240
+here okay yeah you know watch my
+
+543
+00:26:01,260 --> 00:26:06,779
+previous video we explained that before
+
+544
+00:26:03,240 --> 00:26:08,940
+all you have to do no now is is that it
+
+545
+00:26:06,779 --> 00:26:12,000
+takes a point and returns another Point
+
+546
+00:26:08,940 --> 00:26:17,179
+okay just the function
+
+547
+00:26:12,000 --> 00:26:21,360
+so now we want to begin to do tubes okay
+
+548
+00:26:17,179 --> 00:26:22,799
+uh okay where are we we want to you know
+
+549
+00:26:21,360 --> 00:26:26,700
+remember
+
+550
+00:26:22,799 --> 00:26:29,120
+let's let's DD this output this huge
+
+551
+00:26:26,700 --> 00:26:29,120
+output
+
+552
+00:26:30,299 --> 00:26:35,820
+delete okay now remember we begin with
+
+553
+00:26:34,260 --> 00:26:40,020
+um
+
+554
+00:26:35,820 --> 00:26:42,840
+we begin with a grid or squares so now
+
+555
+00:26:40,020 --> 00:26:44,400
+we want tubes
+
+556
+00:26:42,840 --> 00:26:47,340
+so
+
+557
+00:26:44,400 --> 00:26:50,460
+so first of all how do you create a
+
+558
+00:26:47,340 --> 00:26:53,700
+graphics of troops okay let's see
+
+559
+00:26:50,460 --> 00:26:57,659
+uh I don't I don't remember
+
+560
+00:26:53,700 --> 00:27:00,960
+Now wufam language has 7 000 functions
+
+561
+00:26:57,659 --> 00:27:03,380
+building by default okay so here is how
+
+562
+00:27:00,960 --> 00:27:06,240
+you represent a tube okay
+
+563
+00:27:03,380 --> 00:27:08,100
+so let's go to
+
+564
+00:27:06,240 --> 00:27:12,600
+um let's copy that
+
+565
+00:27:08,100 --> 00:27:15,000
+okay so let's start to code here
+
+566
+00:27:12,600 --> 00:27:19,260
+Cube okay so let's
+
+567
+00:27:15,000 --> 00:27:22,740
+press Ctrl H no press tab Edge to look
+
+568
+00:27:19,260 --> 00:27:25,039
+up the tubes documentation so here's the
+
+569
+00:27:22,740 --> 00:27:28,740
+Wolfram language website
+
+570
+00:27:25,039 --> 00:27:31,260
+documentation on tube okay so here is
+
+571
+00:27:28,740 --> 00:27:34,679
+how do you represent the tube so it's
+
+572
+00:27:31,260 --> 00:27:36,740
+just that uh actually not that
+
+573
+00:27:34,679 --> 00:27:36,740
+um
+
+574
+00:27:38,400 --> 00:27:43,140
+you know it because it generates this
+
+575
+00:27:41,039 --> 00:27:47,179
+now this is annoying
+
+576
+00:27:43,140 --> 00:27:47,179
+so actually you just copy it
+
+577
+00:27:50,820 --> 00:27:56,100
+tube okay given given a
+
+578
+00:27:53,760 --> 00:27:58,039
+three-dimensional point oh it requires
+
+579
+00:27:56,100 --> 00:28:01,559
+three-dimensional point
+
+580
+00:27:58,039 --> 00:28:04,620
+uh you know a bunch of Representative 3D
+
+581
+00:28:01,559 --> 00:28:07,500
+tube around the line joining a sequence
+
+582
+00:28:04,620 --> 00:28:11,039
+of points okay so the arguments is the
+
+583
+00:28:07,500 --> 00:28:14,520
+least and each component of least is a
+
+584
+00:28:11,039 --> 00:28:16,740
+point in 3D space
+
+585
+00:28:14,520 --> 00:28:19,980
+you know three numbers these are three
+
+586
+00:28:16,740 --> 00:28:20,820
+numbers so you have a bunch of points in
+
+587
+00:28:19,980 --> 00:28:23,580
+space
+
+588
+00:28:20,820 --> 00:28:26,279
+then it generates a tube connecting
+
+589
+00:28:23,580 --> 00:28:29,120
+around those points okay that's how you
+
+590
+00:28:26,279 --> 00:28:29,120
+represent the two
+
+591
+00:28:29,640 --> 00:28:36,360
+okay and then you can give a second
+
+592
+00:28:33,179 --> 00:28:39,960
+argument that's the radius okay so first
+
+593
+00:28:36,360 --> 00:28:44,279
+first thing we want to do is let's say
+
+594
+00:28:39,960 --> 00:28:46,140
+uh so each one of the element is a
+
+595
+00:28:44,279 --> 00:28:48,720
+three-dimensional thing okay let's
+
+596
+00:28:46,140 --> 00:28:51,320
+generate the tube let's generate a
+
+597
+00:28:48,720 --> 00:28:51,320
+circle okay
+
+598
+00:28:51,779 --> 00:28:57,080
+so circle is sine cosine okay cosine
+
+599
+00:28:57,840 --> 00:29:03,720
+PSI okay
+
+600
+00:28:59,940 --> 00:29:08,460
+cosine PSI let's say x and the third
+
+601
+00:29:03,720 --> 00:29:13,080
+component zero zero is a z we don't want
+
+602
+00:29:08,460 --> 00:29:17,039
+it to move so zero so cosine sine so let
+
+603
+00:29:13,080 --> 00:29:20,640
+me let me do this table okay table takes
+
+604
+00:29:17,039 --> 00:29:22,980
+true argument cosine sine and zero then
+
+605
+00:29:20,640 --> 00:29:27,480
+X goes from
+
+606
+00:29:22,980 --> 00:29:29,880
+0 to 6 let's say in steps of
+
+607
+00:29:27,480 --> 00:29:34,140
+6 divided by
+
+608
+00:29:29,880 --> 00:29:37,159
+20 okay so that will return
+
+609
+00:29:34,140 --> 00:29:37,159
+let's let's
+
+610
+00:29:37,559 --> 00:29:42,600
+that will return this thing
+
+611
+00:29:41,279 --> 00:29:45,960
+okay
+
+612
+00:29:42,600 --> 00:29:49,740
+so you return a list
+
+613
+00:29:45,960 --> 00:29:52,140
+each element is a list again and in the
+
+614
+00:29:49,740 --> 00:29:55,140
+at least in that list is three numbers
+
+615
+00:29:52,140 --> 00:30:01,200
+basically the whole thing is the list of
+
+616
+00:29:55,140 --> 00:30:03,899
+points in 3D okay so that is the um
+
+617
+00:30:01,200 --> 00:30:07,440
+okay that is a bunch of points now we
+
+618
+00:30:03,899 --> 00:30:09,480
+just say tube okay
+
+619
+00:30:07,440 --> 00:30:13,140
+then gives that
+
+620
+00:30:09,480 --> 00:30:15,720
+okay so copy that back to Fan language
+
+621
+00:30:13,140 --> 00:30:17,460
+paste it
+
+622
+00:30:15,720 --> 00:30:20,940
+paste it
+
+623
+00:30:17,460 --> 00:30:24,480
+run it okay anyway shift return
+
+624
+00:30:20,940 --> 00:30:26,760
+okay so we got we got this okay now we
+
+625
+00:30:24,480 --> 00:30:28,980
+just say Graphics we want to put
+
+626
+00:30:26,760 --> 00:30:33,000
+graphics
+
+627
+00:30:28,980 --> 00:30:35,880
+3D in front of it okay it's three
+
+628
+00:30:33,000 --> 00:30:40,100
+okay then
+
+629
+00:30:35,880 --> 00:30:40,100
+the last expression okay
+
+630
+00:30:40,820 --> 00:30:48,240
+fantastic we got a tube a circle
+
+631
+00:30:45,200 --> 00:30:51,080
+represented by a tube not just you know
+
+632
+00:30:48,240 --> 00:30:51,080
+line
+
+633
+00:30:51,419 --> 00:30:58,919
+okay so that's basically how you get a
+
+634
+00:30:54,659 --> 00:31:00,240
+tube okay and now what we want is we
+
+635
+00:30:58,919 --> 00:31:02,240
+want this
+
+636
+00:31:00,240 --> 00:31:02,240
+um
+
+637
+00:31:02,399 --> 00:31:07,340
+you know here's a bunch of squares but
+
+638
+00:31:04,440 --> 00:31:11,520
+we actually what we want is a grid
+
+639
+00:31:07,340 --> 00:31:14,820
+represented by a tube okay
+
+640
+00:31:11,520 --> 00:31:18,299
+okay let's do this quickly oh God it's
+
+641
+00:31:14,820 --> 00:31:19,620
+gonna be 30 minutes more
+
+642
+00:31:18,299 --> 00:31:22,200
+um
+
+643
+00:31:19,620 --> 00:31:25,020
+so we want a tube now remember the
+
+644
+00:31:22,200 --> 00:31:27,179
+syntax forward tube so we got
+
+645
+00:31:25,020 --> 00:31:30,179
+first of all we generate a bunch of
+
+646
+00:31:27,179 --> 00:31:30,899
+points of the grid you know point point
+
+647
+00:31:30,179 --> 00:31:33,200
+point point point point point point
+
+648
+00:31:30,899 --> 00:31:37,799
+point point
+
+649
+00:31:33,200 --> 00:31:40,140
+okay then between each point we we use a
+
+650
+00:31:37,799 --> 00:31:43,380
+tube to connect them to represent the
+
+651
+00:31:40,140 --> 00:31:46,620
+tube so there's a tube tube tube okay
+
+652
+00:31:43,380 --> 00:31:49,860
+tube tube tube and also vertically two
+
+653
+00:31:46,620 --> 00:31:52,980
+okay so we got you know each you know
+
+654
+00:31:49,860 --> 00:31:55,919
+each each between points is a segment of
+
+655
+00:31:52,980 --> 00:31:57,899
+a tube okay then we apply the
+
+656
+00:31:55,919 --> 00:32:01,320
+transformation the geometric
+
+657
+00:31:57,899 --> 00:32:04,020
+transformation okay that
+
+658
+00:32:01,320 --> 00:32:05,520
+that changes all the endpoints or the
+
+659
+00:32:04,020 --> 00:32:08,700
+vertices
+
+660
+00:32:05,520 --> 00:32:10,860
+then then the tube will accordingly
+
+661
+00:32:08,700 --> 00:32:12,179
+change you know so that's what we want
+
+662
+00:32:10,860 --> 00:32:16,679
+to do
+
+663
+00:32:12,179 --> 00:32:19,500
+uh so far so good am I doing good
+
+664
+00:32:16,679 --> 00:32:22,860
+so okay I thought you're gonna use glove
+
+665
+00:32:19,500 --> 00:32:24,840
+80. not yet you know I have to set it up
+
+666
+00:32:22,860 --> 00:32:27,000
+so uh
+
+667
+00:32:24,840 --> 00:32:29,640
+you know I was thinking of using it but
+
+668
+00:32:27,000 --> 00:32:32,880
+then you know sometimes I you know I
+
+669
+00:32:29,640 --> 00:32:35,340
+don't know the key I have to you know I
+
+670
+00:32:32,880 --> 00:32:37,860
+want to focus so
+
+671
+00:32:35,340 --> 00:32:41,299
+it's stayed focused on you know this
+
+672
+00:32:37,860 --> 00:32:41,299
+video is just Wolfram language
+
+673
+00:32:45,480 --> 00:32:51,179
+we have a lot to do so um so let's start
+
+674
+00:32:48,419 --> 00:32:55,740
+to um generate um
+
+675
+00:32:51,179 --> 00:32:57,419
+so this one is example of a tube of
+
+676
+00:32:55,740 --> 00:33:01,080
+circle okay
+
+677
+00:32:57,419 --> 00:33:03,539
+so let's put it back to um
+
+678
+00:33:01,080 --> 00:33:05,220
+okay that's and and we're missing
+
+679
+00:33:03,539 --> 00:33:07,760
+Graphics okay
+
+680
+00:33:05,220 --> 00:33:07,760
+and
+
+681
+00:33:09,419 --> 00:33:16,860
+yeah okay so get that there there okay
+
+682
+00:33:13,620 --> 00:33:18,620
+so that is the you know you can open it
+
+683
+00:33:16,860 --> 00:33:22,620
+you know see
+
+684
+00:33:18,620 --> 00:33:26,880
+uh oh we spelled it wrong
+
+685
+00:33:22,620 --> 00:33:31,700
+it's not graph it's graphics 3D
+
+686
+00:33:26,880 --> 00:33:34,919
+okay so that that okay copy
+
+687
+00:33:31,700 --> 00:33:37,500
+magnify this
+
+688
+00:33:34,919 --> 00:33:40,980
+paste it there
+
+689
+00:33:37,500 --> 00:33:43,440
+doing it you know okay so this is the
+
+690
+00:33:40,980 --> 00:33:46,679
+example of tube of circle okay so put it
+
+691
+00:33:43,440 --> 00:33:50,460
+back here now let's start a new one
+
+692
+00:33:46,679 --> 00:33:53,159
+a new one is what we're gonna do
+
+693
+00:33:50,460 --> 00:33:56,100
+um okay so now we know how to do a tube
+
+694
+00:33:53,159 --> 00:33:59,940
+now we we now the first thing we're
+
+695
+00:33:56,100 --> 00:34:02,399
+gonna do now is generate a bunch of
+
+696
+00:33:59,940 --> 00:34:06,419
+um grid points okay
+
+697
+00:34:02,399 --> 00:34:09,000
+so that is going to be table
+
+698
+00:34:06,419 --> 00:34:12,419
+uh table
+
+699
+00:34:09,000 --> 00:34:15,300
+okay this table is going to be
+
+700
+00:34:12,419 --> 00:34:18,960
+X and Y
+
+701
+00:34:15,300 --> 00:34:22,560
+uh and Z so you need three points okay Z
+
+702
+00:34:18,960 --> 00:34:25,379
+is zero always okay then the second
+
+703
+00:34:22,560 --> 00:34:29,159
+element for the the second argument for
+
+704
+00:34:25,379 --> 00:34:32,940
+the table is going to be X going from
+
+705
+00:34:29,159 --> 00:34:38,040
+negative let's say five to five instead
+
+706
+00:34:32,940 --> 00:34:40,980
+in step of one okay then y goes from
+
+707
+00:34:38,040 --> 00:34:43,859
+same thing negative five to five instead
+
+708
+00:34:40,980 --> 00:34:45,179
+in steps of one this will this will
+
+709
+00:34:43,859 --> 00:34:49,700
+create
+
+710
+00:34:45,179 --> 00:34:49,700
+a list of numbers okay let me show you
+
+711
+00:34:56,220 --> 00:35:01,080
+okay this is a three-dimensional nested
+
+712
+00:34:59,160 --> 00:35:03,660
+list of numbers
+
+713
+00:35:01,080 --> 00:35:05,339
+so that is essentially the grid points
+
+714
+00:35:03,660 --> 00:35:06,960
+okay
+
+715
+00:35:05,339 --> 00:35:09,300
+yeah you can see
+
+716
+00:35:06,960 --> 00:35:11,700
+you see zero five zero negative I
+
+717
+00:35:09,300 --> 00:35:14,099
+negative five negative five negative
+
+718
+00:35:11,700 --> 00:35:17,280
+four negative five negative three you
+
+719
+00:35:14,099 --> 00:35:18,720
+know okay so we got these points now we
+
+720
+00:35:17,280 --> 00:35:20,720
+need to
+
+721
+00:35:18,720 --> 00:35:20,720
+um
+
+722
+00:35:21,119 --> 00:35:26,280
+for each
+
+723
+00:35:23,040 --> 00:35:29,339
+between every two points we need to put
+
+724
+00:35:26,280 --> 00:35:34,079
+a q tube so if between every two points
+
+725
+00:35:29,339 --> 00:35:39,320
+it would be it needs to be tube and and
+
+726
+00:35:34,079 --> 00:35:39,320
+those two arguments okay okay so God
+
+727
+00:35:40,440 --> 00:35:42,560
+um
+
+728
+00:35:47,880 --> 00:35:54,839
+okay why don't we okay why don't we do
+
+729
+00:35:50,640 --> 00:35:58,260
+this okay so instead of that okay so
+
+730
+00:35:54,839 --> 00:36:00,180
+let's say let's just let's just say uh
+
+731
+00:35:58,260 --> 00:36:02,300
+tube here okay
+
+732
+00:36:00,180 --> 00:36:05,720
+yeah not step
+
+733
+00:36:02,300 --> 00:36:07,560
+tube and not stub
+
+734
+00:36:05,720 --> 00:36:11,280
+Cube
+
+735
+00:36:07,560 --> 00:36:13,800
+there okay so tube
+
+736
+00:36:11,280 --> 00:36:17,400
+takes at least
+
+737
+00:36:13,800 --> 00:36:20,839
+okay one point and two points and the
+
+738
+00:36:17,400 --> 00:36:20,839
+second point will be
+
+739
+00:36:21,660 --> 00:36:26,420
+you know from one point to the next
+
+740
+00:36:24,060 --> 00:36:26,420
+point
+
+741
+00:36:29,099 --> 00:36:34,520
+so the second point will be let's say X
+
+742
+00:36:31,859 --> 00:36:34,520
+plus one
+
+743
+00:36:34,560 --> 00:36:43,800
+okay so that's one tube okay so actually
+
+744
+00:36:40,200 --> 00:36:47,040
+we're gonna generate a list okay so the
+
+745
+00:36:43,800 --> 00:36:51,480
+list will contain two tubes okay like
+
+746
+00:36:47,040 --> 00:36:56,220
+that so the second tube will be X then
+
+747
+00:36:51,480 --> 00:37:00,000
+two y plus one okay I think that's it
+
+748
+00:36:56,220 --> 00:37:02,119
+this this will give us a bunch of tubes
+
+749
+00:37:00,000 --> 00:37:06,660
+let's just try it okay
+
+750
+00:37:02,119 --> 00:37:09,480
+uh does that make sense to you guys Ctrl
+
+751
+00:37:06,660 --> 00:37:12,380
+shift n let's make it okay it doesn't do
+
+752
+00:37:09,480 --> 00:37:15,599
+anything it's run it okay so you can see
+
+753
+00:37:12,380 --> 00:37:18,320
+Cube so that's one tube you know that
+
+754
+00:37:15,599 --> 00:37:18,320
+goes like that
+
+755
+00:37:18,359 --> 00:37:23,579
+and the second tube
+
+756
+00:37:21,540 --> 00:37:25,619
+is going vertical
+
+757
+00:37:23,579 --> 00:37:29,820
+okay let's double check
+
+758
+00:37:25,619 --> 00:37:32,160
+zero five x negative 5 then 2 negative
+
+759
+00:37:29,820 --> 00:37:35,099
+four that's correct
+
+760
+00:37:32,160 --> 00:37:37,920
+the Y and Z are the same okay now the
+
+761
+00:37:35,099 --> 00:37:39,859
+second Cube negative five negative five
+
+762
+00:37:37,920 --> 00:37:44,160
+that's one point
+
+763
+00:37:39,859 --> 00:37:46,140
+negative five negative four Y is one
+
+764
+00:37:44,160 --> 00:37:49,680
+less
+
+765
+00:37:46,140 --> 00:37:53,040
+you know one more so so we got kind of Q
+
+766
+00:37:49,680 --> 00:37:55,079
+like that okay then the next part is
+
+767
+00:37:53,040 --> 00:37:57,720
+just the next one so we got a bunch of
+
+768
+00:37:55,079 --> 00:38:00,119
+that that's what we want fantastic we
+
+769
+00:37:57,720 --> 00:38:02,820
+got you know this is not efficient code
+
+770
+00:38:00,119 --> 00:38:04,920
+because you can see the arithmetics they
+
+771
+00:38:02,820 --> 00:38:07,560
+kind of repeat it but let's just push up
+
+772
+00:38:04,920 --> 00:38:09,599
+you know the the the the thing about
+
+773
+00:38:07,560 --> 00:38:11,160
+Wolfram language is that you get you
+
+774
+00:38:09,599 --> 00:38:13,560
+know you do things
+
+775
+00:38:11,160 --> 00:38:16,260
+that you spent the minimal amount of
+
+776
+00:38:13,560 --> 00:38:19,079
+time to to to have a product a protocol
+
+777
+00:38:16,260 --> 00:38:21,900
+you know to to to create something then
+
+778
+00:38:19,079 --> 00:38:24,720
+you worry about Computing speed later
+
+779
+00:38:21,900 --> 00:38:27,960
+okay that's I mean that's the proper
+
+780
+00:38:24,720 --> 00:38:30,060
+that's the most proper taking advantage
+
+781
+00:38:27,960 --> 00:38:32,420
+of the wufan language
+
+782
+00:38:30,060 --> 00:38:35,820
+uh you worry about
+
+783
+00:38:32,420 --> 00:38:38,460
+optimization later
+
+784
+00:38:35,820 --> 00:38:40,740
+so you got that so so actually we can
+
+785
+00:38:38,460 --> 00:38:42,119
+show the tube so actually so let's say
+
+786
+00:38:40,740 --> 00:38:44,700
+uh
+
+787
+00:38:42,119 --> 00:38:47,599
+tube segments okay
+
+788
+00:38:44,700 --> 00:38:47,599
+uh
+
+789
+00:38:49,619 --> 00:38:55,920
+let's say lots tubes
+
+790
+00:38:52,619 --> 00:38:58,619
+you know let's just be brain is let's
+
+791
+00:38:55,920 --> 00:39:00,060
+just say lots of tubes okay so we Define
+
+792
+00:38:58,619 --> 00:39:03,240
+that
+
+793
+00:39:00,060 --> 00:39:05,880
+then we say okay then we don't need this
+
+794
+00:39:03,240 --> 00:39:11,359
+uh whole thing anymore then we just say
+
+795
+00:39:05,880 --> 00:39:11,359
+Graphics okay and lots of tubes
+
+796
+00:39:12,900 --> 00:39:18,000
+okay I think that we will okay
+
+797
+00:39:15,540 --> 00:39:22,560
+let's remove that copy the whole thing
+
+798
+00:39:18,000 --> 00:39:24,359
+back to Wolfram language okay I got this
+
+799
+00:39:22,560 --> 00:39:27,200
+okay select all
+
+800
+00:39:24,359 --> 00:39:27,200
+paste
+
+801
+00:39:28,020 --> 00:39:31,460
+shift enter
+
+802
+00:39:29,760 --> 00:39:37,700
+run it
+
+803
+00:39:31,460 --> 00:39:37,700
+please show me the beautiful graphics
+
+804
+00:39:38,400 --> 00:39:41,180
+success
+
+805
+00:39:43,320 --> 00:39:49,260
+successful beautiful is it is that
+
+806
+00:39:46,619 --> 00:39:52,920
+beautiful how many lines
+
+807
+00:39:49,260 --> 00:39:55,920
+how many lines of code oh two
+
+808
+00:39:52,920 --> 00:39:55,920
+fantastic
+
+809
+00:39:57,300 --> 00:40:04,560
+and you can rotate it in real time
+
+810
+00:40:01,560 --> 00:40:06,140
+try to do that in python or skim this
+
+811
+00:40:04,560 --> 00:40:09,660
+okay
+
+812
+00:40:06,140 --> 00:40:11,820
+okay fantastic now we're going we are
+
+813
+00:40:09,660 --> 00:40:15,000
+going to now we have this it's extremely
+
+814
+00:40:11,820 --> 00:40:18,060
+easy all we have to do is apply our
+
+815
+00:40:15,000 --> 00:40:20,940
+geometric transformation function
+
+816
+00:40:18,060 --> 00:40:23,520
+which is just this line to all the
+
+817
+00:40:20,940 --> 00:40:26,579
+points to all the points
+
+818
+00:40:23,520 --> 00:40:29,400
+so easy so easy
+
+819
+00:40:26,579 --> 00:40:32,760
+I thought I'm going to oh my God 30
+
+820
+00:40:29,400 --> 00:40:35,880
+minutes something but never now
+
+821
+00:40:32,760 --> 00:40:38,160
+okay no no no let's do this is a
+
+822
+00:40:35,880 --> 00:40:39,720
+function we Define it okay geometric
+
+823
+00:40:38,160 --> 00:40:44,160
+inversion
+
+824
+00:40:39,720 --> 00:40:47,900
+then okay this this function yeah this
+
+825
+00:40:44,160 --> 00:40:47,900
+is good so this function
+
+826
+00:40:48,300 --> 00:40:54,660
+we need to apply that function to to all
+
+827
+00:40:52,440 --> 00:40:57,960
+these points okay
+
+828
+00:40:54,660 --> 00:41:00,240
+now it's very easy to do so here is a
+
+829
+00:40:57,960 --> 00:41:03,420
+structure okay so all you have to so we
+
+830
+00:41:00,240 --> 00:41:06,800
+are going to use pattern matching so
+
+831
+00:41:03,420 --> 00:41:06,800
+here's what we are going to do
+
+832
+00:41:06,960 --> 00:41:14,940
+how imagine now imagine doing that in C
+
+833
+00:41:09,720 --> 00:41:14,940
+plus plus you said it first true
+
+834
+00:41:15,079 --> 00:41:20,520
+zebras was the worst the worst damage to
+
+835
+00:41:18,960 --> 00:41:23,400
+Computing industry
+
+836
+00:41:20,520 --> 00:41:25,680
+you know starting with C and Unix you
+
+837
+00:41:23,400 --> 00:41:29,040
+know they begin then they spread the
+
+838
+00:41:25,680 --> 00:41:31,619
+virus then it rots every program of
+
+839
+00:41:29,040 --> 00:41:33,720
+Sprint because when you show these to
+
+840
+00:41:31,619 --> 00:41:36,720
+the to the programmers in the industry
+
+841
+00:41:33,720 --> 00:41:38,099
+they don't understand they all say oh oh
+
+842
+00:41:36,720 --> 00:41:40,680
+that's nice
+
+843
+00:41:38,099 --> 00:41:44,220
+but tomorrow they forgot all about it
+
+844
+00:41:40,680 --> 00:41:45,839
+they are back to memory rust you know or
+
+845
+00:41:44,220 --> 00:41:48,900
+memory
+
+846
+00:41:45,839 --> 00:41:51,359
+malloc you know memory that's that's
+
+847
+00:41:48,900 --> 00:41:53,940
+what the C references you know pointers
+
+848
+00:41:51,359 --> 00:41:56,400
+oh oh they're gonna do that that you
+
+849
+00:41:53,940 --> 00:41:58,500
+know that's what the most industrial
+
+850
+00:41:56,400 --> 00:42:01,440
+programmers are like you know because
+
+851
+00:41:58,500 --> 00:42:04,260
+they accustomed they they they their
+
+852
+00:42:01,440 --> 00:42:06,420
+brain for the past 40 years their brain
+
+853
+00:42:04,260 --> 00:42:09,060
+is kind of like
+
+854
+00:42:06,420 --> 00:42:11,760
+being trained into that way of looking
+
+855
+00:42:09,060 --> 00:42:14,280
+at things you know they when they see
+
+856
+00:42:11,760 --> 00:42:17,339
+these they say oh that's nice but after
+
+857
+00:42:14,280 --> 00:42:21,300
+five minutes they forgot they forgot all
+
+858
+00:42:17,339 --> 00:42:23,040
+about it they did and yeah most
+
+859
+00:42:21,300 --> 00:42:24,420
+programmers they are not interested in
+
+860
+00:42:23,040 --> 00:42:27,060
+math neither
+
+861
+00:42:24,420 --> 00:42:28,859
+so anyway so let's go back so let me
+
+862
+00:42:27,060 --> 00:42:31,560
+show you what we are going to do very
+
+863
+00:42:28,859 --> 00:42:34,260
+easy okay just one line one line we'll
+
+864
+00:42:31,560 --> 00:42:36,839
+have it we'll have we'll have this
+
+865
+00:42:34,260 --> 00:42:40,320
+geometry you know we'll have this
+
+866
+00:42:36,839 --> 00:42:44,339
+geometric inversion of a bunch of tubes
+
+867
+00:42:40,320 --> 00:42:49,320
+okay how are we gonna do so we going to
+
+868
+00:42:44,339 --> 00:42:52,020
+so right now I'll um the task is that
+
+869
+00:42:49,320 --> 00:42:56,579
+you have this data structure you want to
+
+870
+00:42:52,020 --> 00:43:00,060
+apply a function to each of these
+
+871
+00:42:56,579 --> 00:43:03,660
+points okay each of these points you
+
+872
+00:43:00,060 --> 00:43:06,480
+want to apply this this geometric
+
+873
+00:43:03,660 --> 00:43:09,060
+inversion function how do you do very
+
+874
+00:43:06,480 --> 00:43:12,240
+many ways okay but we are going to use a
+
+875
+00:43:09,060 --> 00:43:15,780
+pattern matching so this is unusual this
+
+876
+00:43:12,240 --> 00:43:18,079
+you will not see in this python see you
+
+877
+00:43:15,780 --> 00:43:21,240
+know you will not see anywhere you know
+
+878
+00:43:18,079 --> 00:43:24,240
+you'll see it a little bit in ascal
+
+879
+00:43:21,240 --> 00:43:24,240
+language
+
+880
+00:43:25,200 --> 00:43:29,460
+okay you'll see okay or camel for
+
+881
+00:43:27,660 --> 00:43:31,260
+example a little bit but nothing like
+
+882
+00:43:29,460 --> 00:43:33,240
+uframe language okay I'm gonna show you
+
+883
+00:43:31,260 --> 00:43:35,280
+so that's what we're gonna do apply this
+
+884
+00:43:33,240 --> 00:43:37,140
+function to each of these
+
+885
+00:43:35,280 --> 00:43:39,900
+points okay
+
+886
+00:43:37,140 --> 00:43:42,480
+then you'll be done okay so we are going
+
+887
+00:43:39,900 --> 00:43:44,520
+to use pattern matching so what we do is
+
+888
+00:43:42,480 --> 00:43:47,040
+that we
+
+889
+00:43:44,520 --> 00:43:50,300
+suppose uh
+
+890
+00:43:47,040 --> 00:43:50,300
+tube uh
+
+891
+00:43:50,359 --> 00:43:53,900
+tube graphics
+
+892
+00:43:54,780 --> 00:43:59,520
+okay we Define you know first of all we
+
+893
+00:43:57,480 --> 00:44:02,400
+Define lots of tubes
+
+894
+00:43:59,520 --> 00:44:05,640
+okay then we Define two Graphics you
+
+895
+00:44:02,400 --> 00:44:09,420
+know then we Define this function we
+
+896
+00:44:05,640 --> 00:44:11,520
+need to apply to those points then
+
+897
+00:44:09,420 --> 00:44:13,980
+then we just say
+
+898
+00:44:11,520 --> 00:44:18,780
+tube graphics
+
+899
+00:44:13,980 --> 00:44:21,119
+replace this means replace okay let me
+
+900
+00:44:18,780 --> 00:44:23,520
+let me use let me use the easy to
+
+901
+00:44:21,119 --> 00:44:25,859
+understand way okay so let's say replace
+
+902
+00:44:23,520 --> 00:44:28,260
+or
+
+903
+00:44:25,859 --> 00:44:30,180
+okay that's small
+
+904
+00:44:28,260 --> 00:44:32,339
+I'm going to use you know this is a
+
+905
+00:44:30,180 --> 00:44:33,240
+shortcut notation but let's not you do
+
+906
+00:44:32,339 --> 00:44:35,940
+that
+
+907
+00:44:33,240 --> 00:44:38,520
+normally if you are programming wufan
+
+908
+00:44:35,940 --> 00:44:41,280
+language that's what you wanna that's
+
+909
+00:44:38,520 --> 00:44:45,240
+what you usually type but let's let's
+
+910
+00:44:41,280 --> 00:44:47,220
+use the easy to understand uh syntax so
+
+911
+00:44:45,240 --> 00:44:49,859
+what you say is you could replace or
+
+912
+00:44:47,220 --> 00:44:51,900
+function it takes two arguments the
+
+913
+00:44:49,859 --> 00:44:54,480
+first argument is whatever expression
+
+914
+00:44:51,900 --> 00:44:58,079
+you want to do the replace then the
+
+915
+00:44:54,480 --> 00:44:59,760
+second argument is a rule basically uh
+
+916
+00:44:58,079 --> 00:45:01,560
+that find
+
+917
+00:44:59,760 --> 00:45:03,900
+you know what kind of pattern you want
+
+918
+00:45:01,560 --> 00:45:07,880
+to find and what to replace it with okay
+
+919
+00:45:03,900 --> 00:45:07,880
+so you can say find
+
+920
+00:45:08,280 --> 00:45:13,920
+uh replace
+
+921
+00:45:11,940 --> 00:45:17,579
+okay that's basically that's a Syntax
+
+922
+00:45:13,920 --> 00:45:19,680
+for the replacer so okay so fine so what
+
+923
+00:45:17,579 --> 00:45:23,880
+do you want to find I want to find a
+
+924
+00:45:19,680 --> 00:45:26,520
+list of three things okay and each one
+
+925
+00:45:23,880 --> 00:45:31,220
+of them is um
+
+926
+00:45:26,520 --> 00:45:31,220
+actually I want to find a tube
+
+927
+00:45:32,220 --> 00:45:38,400
+so let's just let's put it here so I
+
+928
+00:45:34,920 --> 00:45:42,780
+want to find these things so let's let's
+
+929
+00:45:38,400 --> 00:45:43,579
+okay so I want to find a pattern where
+
+930
+00:45:42,780 --> 00:45:49,200
+um
+
+931
+00:45:43,579 --> 00:45:53,579
+here is you know 3D points okay P1 let's
+
+932
+00:45:49,200 --> 00:45:56,040
+just say P1 anything P1 okay anything we
+
+933
+00:45:53,579 --> 00:45:58,859
+give it a name P1
+
+934
+00:45:56,040 --> 00:46:02,040
+and here similar
+
+935
+00:45:58,859 --> 00:46:04,380
+P2 so two points okay now you want what
+
+936
+00:46:02,040 --> 00:46:07,520
+you want to replace actually let's
+
+937
+00:46:04,380 --> 00:46:13,140
+change this Arrow to
+
+938
+00:46:07,520 --> 00:46:16,980
+to colon arrow that way it's delayed
+
+939
+00:46:13,140 --> 00:46:20,099
+anyway that that means we you know
+
+940
+00:46:16,980 --> 00:46:22,680
+uh that means
+
+941
+00:46:20,099 --> 00:46:23,640
+don't evaluate the right hand side right
+
+942
+00:46:22,680 --> 00:46:26,400
+away
+
+943
+00:46:23,640 --> 00:46:29,700
+only evaluated only when you find the
+
+944
+00:46:26,400 --> 00:46:31,980
+pattern why because the right hand side
+
+945
+00:46:29,700 --> 00:46:33,119
+we are need we need to apply this
+
+946
+00:46:31,980 --> 00:46:35,700
+function
+
+947
+00:46:33,119 --> 00:46:37,800
+because otherwise if you evaluate right
+
+948
+00:46:35,700 --> 00:46:40,260
+away when the function don't have any
+
+949
+00:46:37,800 --> 00:46:42,240
+arguments yet you know it doesn't work
+
+950
+00:46:40,260 --> 00:46:46,319
+you need to
+
+951
+00:46:42,240 --> 00:46:47,520
+replace this data by this pattern tube
+
+952
+00:46:46,319 --> 00:46:51,720
+something
+
+953
+00:46:47,520 --> 00:46:54,180
+and and by so what's the result you want
+
+954
+00:46:51,720 --> 00:46:57,980
+so let me show you so what you want is
+
+955
+00:46:54,180 --> 00:46:57,980
+you want this okay
+
+956
+00:46:58,200 --> 00:47:04,319
+geometric inversion applied to P1 okay
+
+957
+00:47:01,859 --> 00:47:08,099
+and same thing here
+
+958
+00:47:04,319 --> 00:47:13,400
+okay that that should be it
+
+959
+00:47:08,099 --> 00:47:13,400
+that should be it so actually we just
+
+960
+00:47:13,500 --> 00:47:16,400
+copy all
+
+961
+00:47:17,160 --> 00:47:28,440
+new new uh new notebook
+
+962
+00:47:22,319 --> 00:47:33,119
+okay let's magnify 150 that's it run it
+
+963
+00:47:28,440 --> 00:47:36,440
+okay dude please show me
+
+964
+00:47:33,119 --> 00:47:36,440
+okay it didn't work
+
+965
+00:47:37,380 --> 00:47:40,380
+uh
+
+966
+00:47:44,940 --> 00:47:51,980
+so oh oh I know why because our function
+
+967
+00:47:49,319 --> 00:47:51,980
+wait
+
+968
+00:47:52,980 --> 00:47:55,680
+wait
+
+969
+00:47:53,900 --> 00:47:59,579
+I don't know
+
+970
+00:47:55,680 --> 00:48:00,740
+um let's try so if we call our function
+
+971
+00:47:59,579 --> 00:48:01,020
+with
+
+972
+00:48:00,740 --> 00:48:03,020
+[Music]
+
+973
+00:48:01,020 --> 00:48:03,020
+um
+
+974
+00:48:05,040 --> 00:48:08,540
+let's see tube
+
+975
+00:48:10,560 --> 00:48:18,960
+tube takes at least
+
+976
+00:48:15,119 --> 00:48:23,119
+uh let's let's see what happens if we
+
+977
+00:48:18,960 --> 00:48:23,119
+call our function like that
+
+978
+00:48:24,180 --> 00:48:26,839
+okay
+
+979
+00:48:26,880 --> 00:48:31,040
+okay that returns that
+
+980
+00:48:32,099 --> 00:48:38,280
+now what if that's a function that's a
+
+981
+00:48:35,220 --> 00:48:42,060
+geometric inversion okay yeah that's
+
+982
+00:48:38,280 --> 00:48:44,099
+correct so it works in any Dimension you
+
+983
+00:48:42,060 --> 00:48:45,800
+know so
+
+984
+00:48:44,099 --> 00:48:47,339
+uh weight
+
+985
+00:48:45,800 --> 00:48:50,180
+[Music]
+
+986
+00:48:47,339 --> 00:48:53,880
+do you actually need the bracket or not
+
+987
+00:48:50,180 --> 00:48:57,769
+yes you do I think
+
+988
+00:48:53,880 --> 00:48:57,769
+[Music]
+
+989
+00:48:58,140 --> 00:49:01,220
+uh what
+
+990
+00:49:02,940 --> 00:49:08,280
+yeah you do need the bracket so why is
+
+991
+00:49:06,359 --> 00:49:12,319
+it not working
+
+992
+00:49:08,280 --> 00:49:12,319
+let's try one two three
+
+993
+00:49:15,000 --> 00:49:24,960
+okay so you actually do need the braces
+
+994
+00:49:20,520 --> 00:49:27,359
+one two yeah so that's the number one
+
+995
+00:49:24,960 --> 00:49:30,020
+two five you know that's the number you
+
+996
+00:49:27,359 --> 00:49:33,359
+do need the
+
+997
+00:49:30,020 --> 00:49:36,300
+uh curly brake brackets
+
+998
+00:49:33,359 --> 00:49:40,260
+Okay so
+
+999
+00:49:36,300 --> 00:49:42,599
+so why is it you know these pattern
+
+1000
+00:49:40,260 --> 00:49:46,380
+transformation didn't
+
+1001
+00:49:42,599 --> 00:49:46,380
+work so
+
+1002
+00:49:53,099 --> 00:49:59,460
+oh I got the syntax wrongs instead of
+
+1003
+00:49:56,280 --> 00:50:01,200
+underscore P1 it should be P1 underscore
+
+1004
+00:49:59,460 --> 00:50:04,980
+what
+
+1005
+00:50:01,200 --> 00:50:08,700
+yeah P1 underscore okay I got the syntax
+
+1006
+00:50:04,980 --> 00:50:11,040
+wrong it should be like that okay
+
+1007
+00:50:08,700 --> 00:50:12,480
+all
+
+1008
+00:50:11,040 --> 00:50:14,520
+select all
+
+1009
+00:50:12,480 --> 00:50:17,540
+paste
+
+1010
+00:50:14,520 --> 00:50:17,540
+run it
+
+1011
+00:50:19,680 --> 00:50:24,079
+yeah
+
+1012
+00:50:21,359 --> 00:50:24,079
+Arrow
+
+1013
+00:50:26,280 --> 00:50:32,579
+oh we got Pi wait yeah
+
+1014
+00:50:29,760 --> 00:50:36,060
+type Arrow so we got we wrote Pi instead
+
+1015
+00:50:32,579 --> 00:50:39,060
+of P1 so let's try it again copy all
+
+1016
+00:50:36,060 --> 00:50:39,060
+Senegal
+
+1017
+00:50:43,200 --> 00:50:49,200
+paste it run it
+
+1018
+00:50:46,260 --> 00:50:52,200
+go down go down go down go down
+
+1019
+00:50:49,200 --> 00:50:52,200
+fantastic
+
+1020
+00:50:55,079 --> 00:50:59,880
+fantastic
+
+1021
+00:50:57,900 --> 00:51:03,180
+so I think
+
+1022
+00:50:59,880 --> 00:51:05,700
+I'm glad I think okay so we did just one
+
+1023
+00:51:03,180 --> 00:51:07,800
+hour for 15 minutes we did this
+
+1024
+00:51:05,700 --> 00:51:09,839
+fantastic and
+
+1025
+00:51:07,800 --> 00:51:11,700
+that's it for today
+
+1026
+00:51:09,839 --> 00:51:14,700
+um yeah I don't want that you know let's
+
+1027
+00:51:11,700 --> 00:51:19,020
+keep it short you know and let's not put
+
+1028
+00:51:14,700 --> 00:51:21,720
+on so this is what the final result
+
+1029
+00:51:19,020 --> 00:51:23,099
+okay the final result that's what we
+
+1030
+00:51:21,720 --> 00:51:24,540
+want that's
+
+1031
+00:51:23,099 --> 00:51:28,319
+successful
+
+1032
+00:51:24,540 --> 00:51:29,520
+okay you can see the image is not too
+
+1033
+00:51:28,319 --> 00:51:33,420
+symmetric
+
+1034
+00:51:29,520 --> 00:51:36,540
+you know why well the reason is that
+
+1035
+00:51:33,420 --> 00:51:39,599
+because you see remember the way we
+
+1036
+00:51:36,540 --> 00:51:42,059
+generated the grid you know we have
+
+1037
+00:51:39,599 --> 00:51:45,119
+these things poking out
+
+1038
+00:51:42,059 --> 00:51:47,780
+that can be easily fixed
+
+1039
+00:51:45,119 --> 00:51:47,780
+you know
+
+1040
+00:51:49,559 --> 00:51:55,079
+you know you can fix it in several ways
+
+1041
+00:51:51,839 --> 00:51:58,520
+so okay let's do five more minutes to to
+
+1042
+00:51:55,079 --> 00:51:58,520
+make it nice okay
+
+1043
+00:51:58,559 --> 00:52:02,099
+yeah but this is a result actually I'm
+
+1044
+00:52:00,960 --> 00:52:04,020
+happy
+
+1045
+00:52:02,099 --> 00:52:06,619
+uh
+
+1046
+00:52:04,020 --> 00:52:06,619
+you know
+
+1047
+00:52:06,960 --> 00:52:13,380
+so one way to you know yeah we can fix
+
+1048
+00:52:11,099 --> 00:52:16,079
+it you you just add you know more
+
+1049
+00:52:13,380 --> 00:52:18,960
+segments at the end
+
+1050
+00:52:16,079 --> 00:52:21,359
+uh but that would be yeah you can't do
+
+1051
+00:52:18,960 --> 00:52:24,780
+that there are many ways but this is one
+
+1052
+00:52:21,359 --> 00:52:27,780
+of those case where you have off by one
+
+1053
+00:52:24,780 --> 00:52:29,280
+case you know when you have nested at
+
+1054
+00:52:27,780 --> 00:52:32,700
+least
+
+1055
+00:52:29,280 --> 00:52:36,839
+you know you have the special issue
+
+1056
+00:52:32,700 --> 00:52:38,579
+special case of the end point so you
+
+1057
+00:52:36,839 --> 00:52:41,520
+know you can
+
+1058
+00:52:38,579 --> 00:52:43,740
+you can manually fix it by adding you
+
+1059
+00:52:41,520 --> 00:52:46,319
+know or you can do more elegant way you
+
+1060
+00:52:43,740 --> 00:52:48,780
+know it's it's a bit you know it's a
+
+1061
+00:52:46,319 --> 00:52:51,900
+kind of tedious thing
+
+1062
+00:52:48,780 --> 00:52:54,420
+another way to alternatively to fix this
+
+1063
+00:52:51,900 --> 00:52:57,420
+is that instead of line segment we can
+
+1064
+00:52:54,420 --> 00:52:59,700
+just make them each a square that way
+
+1065
+00:52:57,420 --> 00:53:02,160
+you don't have the poking out thing
+
+1066
+00:52:59,700 --> 00:53:04,260
+but it wouldn't be exactly the same as
+
+1067
+00:53:02,160 --> 00:53:07,980
+that we can do the square let's let's
+
+1068
+00:53:04,260 --> 00:53:09,900
+try Okay okay so this is done
+
+1069
+00:53:07,980 --> 00:53:12,180
+you know this code you know just
+
+1070
+00:53:09,900 --> 00:53:14,760
+actually four lines of code you know
+
+1071
+00:53:12,180 --> 00:53:18,960
+three lines it's done okay so let's pop
+
+1072
+00:53:14,760 --> 00:53:21,540
+it back copy it paste it again now let's
+
+1073
+00:53:18,960 --> 00:53:24,059
+this time we're gonna do the enclosed
+
+1074
+00:53:21,540 --> 00:53:25,740
+you know we start with squares instead
+
+1075
+00:53:24,059 --> 00:53:27,720
+of in squares
+
+1076
+00:53:25,740 --> 00:53:32,940
+instead of the
+
+1077
+00:53:27,720 --> 00:53:35,520
+grid okay so to have a square
+
+1078
+00:53:32,940 --> 00:53:38,940
+you know we just we just do four cubes
+
+1079
+00:53:35,520 --> 00:53:41,339
+okay one two three four four
+
+1080
+00:53:38,940 --> 00:53:43,859
+tubes
+
+1081
+00:53:41,339 --> 00:53:46,700
+uh yeah actually we don't need actually
+
+1082
+00:53:43,859 --> 00:53:50,819
+we can just have one single tube okay
+
+1083
+00:53:46,700 --> 00:53:54,059
+one single tube you know it will go
+
+1084
+00:53:50,819 --> 00:53:56,339
+around like that so you need one two
+
+1085
+00:53:54,059 --> 00:54:00,660
+three four four points you know this
+
+1086
+00:53:56,339 --> 00:54:02,760
+Cube this this tube one single tube will
+
+1087
+00:54:00,660 --> 00:54:04,200
+represent a square
+
+1088
+00:54:02,760 --> 00:54:09,000
+okay
+
+1089
+00:54:04,200 --> 00:54:11,960
+so tube takes one argument and in this
+
+1090
+00:54:09,000 --> 00:54:17,160
+argument it will be I mean it's a list
+
+1091
+00:54:11,960 --> 00:54:19,800
+and and it's going to be this list will
+
+1092
+00:54:17,160 --> 00:54:20,760
+have four components okay one two three
+
+1093
+00:54:19,800 --> 00:54:24,839
+four
+
+1094
+00:54:20,760 --> 00:54:26,099
+so the first point is 0 0 x y zero okay
+
+1095
+00:54:24,839 --> 00:54:29,280
+now
+
+1096
+00:54:26,099 --> 00:54:32,119
+X Plus 1 y 0.
+
+1097
+00:54:29,280 --> 00:54:32,119
+then
+
+1098
+00:54:32,160 --> 00:54:40,079
+X Plus 1
+
+1099
+00:54:34,980 --> 00:54:40,079
+y plus 1 0 then
+
+1100
+00:54:40,280 --> 00:54:49,579
+X and the Y plus one zero so okay so you
+
+1101
+00:54:44,640 --> 00:54:49,579
+got going around forming a square okay
+
+1102
+00:54:49,680 --> 00:54:57,720
+and that's it that's it let's try it
+
+1103
+00:54:54,960 --> 00:54:58,440
+is that is that it I think so let's try
+
+1104
+00:54:57,720 --> 00:55:01,680
+it
+
+1105
+00:54:58,440 --> 00:55:05,880
+yeah we got no
+
+1106
+00:55:01,680 --> 00:55:08,520
+uh what's the new one okay so tube uh
+
+1107
+00:55:05,880 --> 00:55:11,420
+okay so I know what's going on so there
+
+1108
+00:55:08,520 --> 00:55:11,420
+is a tube
+
+1109
+00:55:11,520 --> 00:55:18,420
+okay so there is a tube now you got this
+
+1110
+00:55:15,000 --> 00:55:21,359
+new it won't be correct the reason is
+
+1111
+00:55:18,420 --> 00:55:24,059
+because your data structure changed
+
+1112
+00:55:21,359 --> 00:55:26,760
+remember before the it's a tube of two
+
+1113
+00:55:24,059 --> 00:55:29,819
+points now you got tube of Four Points
+
+1114
+00:55:26,760 --> 00:55:32,579
+so what you have to do is easy okay
+
+1115
+00:55:29,819 --> 00:55:34,859
+change the pattern here so now the
+
+1116
+00:55:32,579 --> 00:55:36,780
+pattern is you know we can actually just
+
+1117
+00:55:34,859 --> 00:55:38,119
+do this P3
+
+1118
+00:55:36,780 --> 00:55:41,819
+uh
+
+1119
+00:55:38,119 --> 00:55:44,280
+P4 this is kind of manual
+
+1120
+00:55:41,819 --> 00:55:45,960
+you can alternatively you can do it in
+
+1121
+00:55:44,280 --> 00:55:48,540
+one shot doesn't matter how many points
+
+1122
+00:55:45,960 --> 00:55:52,800
+let's just do it manual because
+
+1123
+00:55:48,540 --> 00:55:54,660
+for Simplicity you know so
+
+1124
+00:55:52,800 --> 00:55:57,359
+so P3
+
+1125
+00:55:54,660 --> 00:56:00,480
+P4 this is not efficient code but anyway
+
+1126
+00:55:57,359 --> 00:56:02,819
+that's the allows you to do things very
+
+1127
+00:56:00,480 --> 00:56:05,059
+fast okay let's paste it I think that's
+
+1128
+00:56:02,819 --> 00:56:05,059
+it
+
+1129
+00:56:05,339 --> 00:56:10,200
+isn't it
+
+1130
+00:56:06,839 --> 00:56:12,859
+yeah no okay
+
+1131
+00:56:10,200 --> 00:56:16,500
+P1 P2 so
+
+1132
+00:56:12,859 --> 00:56:18,559
+least iterator no okay why am I getting
+
+1133
+00:56:16,500 --> 00:56:22,559
+a new
+
+1134
+00:56:18,559 --> 00:56:22,559
+okay sounds
+
+1135
+00:56:22,680 --> 00:56:25,680
+p1p2p3p4
+
+1136
+00:56:31,020 --> 00:56:40,400
+PMB to HPV for what
+
+1137
+00:56:35,880 --> 00:56:40,400
+so we got a tube
+
+1138
+00:56:42,900 --> 00:56:47,819
+we got tube right okay let's just let's
+
+1139
+00:56:46,140 --> 00:56:50,579
+let's
+
+1140
+00:56:47,819 --> 00:56:54,540
+double check our code
+
+1141
+00:56:50,579 --> 00:56:57,180
+huh we got a new one somewhere
+
+1142
+00:56:54,540 --> 00:57:00,180
+yeah we got you see the problem is we
+
+1143
+00:56:57,180 --> 00:57:02,400
+got extra comma repeated comma
+
+1144
+00:57:00,180 --> 00:57:04,260
+Wu fam language doesn't like that you
+
+1145
+00:57:02,400 --> 00:57:07,140
+see one comma here one comma here
+
+1146
+00:57:04,260 --> 00:57:10,800
+repeated comma okay who fan language
+
+1147
+00:57:07,140 --> 00:57:14,460
+doesn't like that so that copy it
+
+1148
+00:57:10,800 --> 00:57:17,040
+select all paste it run it
+
+1149
+00:57:14,460 --> 00:57:20,040
+fantastic scroll down
+
+1150
+00:57:17,040 --> 00:57:20,040
+fantastic
+
+1151
+00:57:21,359 --> 00:57:27,359
+okay that's it for today thank you guys
+
+1152
+00:57:23,880 --> 00:57:30,660
+for watching now uh
+
+1153
+00:57:27,359 --> 00:57:32,040
+yeah there is still not perfectly fixed
+
+1154
+00:57:30,660 --> 00:57:35,280
+you can see
+
+1155
+00:57:32,040 --> 00:57:38,480
+you know the reason it's not
+
+1156
+00:57:35,280 --> 00:57:38,480
+wait we're missing
+
+1157
+00:57:39,000 --> 00:57:45,480
+oh one two three
+
+1158
+00:57:42,839 --> 00:57:47,819
+four you need to connect it back okay so
+
+1159
+00:57:45,480 --> 00:57:51,119
+what
+
+1160
+00:57:47,819 --> 00:57:54,140
+yeah okay so let's just re uh let's just
+
+1161
+00:57:51,119 --> 00:57:54,140
+repeat that okay
+
+1162
+00:57:54,540 --> 00:57:59,579
+okay this is not efficient code but
+
+1163
+00:57:57,540 --> 00:58:04,040
+let's just do it
+
+1164
+00:57:59,579 --> 00:58:04,040
+copy it okay oh wait five
+
+1165
+00:58:06,839 --> 00:58:12,680
+copy it
+
+1166
+00:58:08,520 --> 00:58:12,680
+select or paste red
+
+1167
+00:58:13,880 --> 00:58:19,220
+fantastic beautiful that's it that's it
+
+1168
+00:58:16,740 --> 00:58:19,220
+for today
+
+1169
+00:58:21,180 --> 00:58:29,579
+uh wait this is still wrong because
+
+1170
+00:58:24,980 --> 00:58:33,839
+the whole thing is now not centered okay
+
+1171
+00:58:29,579 --> 00:58:36,059
+so we can we can fix that by
+
+1172
+00:58:33,839 --> 00:58:39,839
+by starting at
+
+1173
+00:58:36,059 --> 00:58:42,380
+5.5 5.5
+
+1174
+00:58:39,839 --> 00:58:42,380
+to
+
+1175
+00:58:43,440 --> 00:58:49,700
+to
+
+1176
+00:58:44,420 --> 00:58:53,520
+uh instead in step of one okay so 5.5
+
+1177
+00:58:49,700 --> 00:58:58,760
+instead of one okay select all
+
+1178
+00:58:53,520 --> 00:59:01,440
+Circle paste run it okay let's
+
+1179
+00:58:58,760 --> 00:59:06,799
+suppress the output by putting a
+
+1180
+00:59:01,440 --> 00:59:06,799
+semicolon okay select or paste run it
+
+1181
+00:59:07,079 --> 00:59:14,540
+fantastic
+
+1182
+00:59:09,420 --> 00:59:14,540
+no is that right yes that is correct
+
+1183
+00:59:15,059 --> 00:59:21,980
+okay that's it for today this is is this
+
+1184
+00:59:18,299 --> 00:59:21,980
+correct yes this is beautiful
+
+1185
+00:59:23,819 --> 00:59:27,740
+thank you guys for watching bye
+
+1186
+00:59:28,440 --> 00:59:31,819
+fam language okay
+
+1187
+00:59:33,660 --> 00:59:40,140
+please make a video on g502 it's a macro
+
+1188
+00:59:37,980 --> 00:59:45,119
+and each Mark will you use for
+
+1189
+00:59:40,140 --> 00:59:47,880
+efficiency well 358 g502 you are talking
+
+1190
+00:59:45,119 --> 00:59:49,799
+about this mouse right you're talking
+
+1191
+00:59:47,880 --> 00:59:52,680
+about this mouse there's not much to it
+
+1192
+00:59:49,799 --> 00:59:55,880
+you know there's tons of other people
+
+1193
+00:59:52,680 --> 00:59:55,880
+doing that so
+
+1194
+00:59:57,240 --> 01:00:01,859
+okay that's it for today I'm shutting
+
+1195
+00:59:59,339 --> 01:00:03,839
+down I'm shutting down
+
+1196
+01:00:01,859 --> 01:00:07,740
+I'm shutting down now
+
+1197
+01:00:03,839 --> 01:00:10,980
+uh and if you like my video you know go
+
+1198
+01:00:07,740 --> 01:00:13,859
+to you know go to
+
+1199
+01:00:10,980 --> 01:00:16,319
+go to my website donate to me okay so
+
+1200
+01:00:13,859 --> 01:00:17,880
+you can see you can patreon me or Amazon
+
+1201
+01:00:16,319 --> 01:00:20,040
+gift card me
+
+1202
+01:00:17,880 --> 01:00:24,420
+five dollars five dollars a month
+
+1203
+01:00:20,040 --> 01:00:25,200
+support me or uh you know 20 bucks one
+
+1204
+01:00:24,420 --> 01:00:27,359
+shot
+
+1205
+01:00:25,200 --> 01:00:29,960
+thank you
+
+1206
+01:00:27,359 --> 01:00:29,960
+bye
+

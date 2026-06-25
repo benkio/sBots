@@ -1,0 +1,6004 @@
+1
+00:00:04,160 --> 00:00:11,610
+good morning everyone welcome to another
+
+2
+00:00:07,440 --> 00:00:17,330
+episode of Santa's Show today we are
+
+3
+00:00:11,610 --> 00:00:20,340
+going to do the today's topic is
+
+4
+00:00:17,330 --> 00:00:23,189
+ontology of dot notation versus pipe
+
+5
+00:00:20,340 --> 00:00:26,070
+versus function chaining so this is a
+
+6
+00:00:23,189 --> 00:00:30,929
+technical topic this is related to
+
+7
+00:00:26,070 --> 00:00:34,920
+programming language design stuff okay
+
+8
+00:00:30,929 --> 00:00:38,100
+so that is the topic for today and let's
+
+9
+00:00:34,920 --> 00:00:42,030
+get on so close this window kibo blog
+
+10
+00:00:38,100 --> 00:00:45,000
+close okay that I need to block my
+
+11
+00:00:42,030 --> 00:00:48,600
+keyboards terms of walk you see these
+
+12
+00:00:45,000 --> 00:00:52,020
+gorgeous pictures these pictures
+
+13
+00:00:48,600 --> 00:00:54,379
+actually I collected quite a while ago a
+
+14
+00:00:52,020 --> 00:00:58,100
+year or two ago
+
+15
+00:00:54,379 --> 00:01:02,070
+so anyway today's topic is dot notation
+
+16
+00:00:58,100 --> 00:01:05,430
+pipes chain function chaining in
+
+17
+00:01:02,070 --> 00:01:11,130
+programming languages and today's 2019
+
+18
+00:01:05,430 --> 00:01:13,290
+January 2020 January 2nd Thursday 4
+
+19
+00:01:11,130 --> 00:01:18,689
+o'clock in the afternoon oh I'm actually
+
+20
+00:01:13,290 --> 00:01:20,939
+early I'm 5 minutes early so good
+
+21
+00:01:18,689 --> 00:01:25,590
+morning Justin good morning Emily and
+
+22
+00:01:20,939 --> 00:01:29,000
+great to see you Kathy Kathy H Kathy H
+
+23
+00:01:25,590 --> 00:01:34,100
+and Emily are in United Kingdom's
+
+24
+00:01:29,000 --> 00:01:38,100
+I hope one day I can meet you guys I
+
+25
+00:01:34,100 --> 00:01:42,000
+don't know how remote that chances are
+
+26
+00:01:38,100 --> 00:01:44,659
+and good morning just interesting is in
+
+27
+00:01:42,000 --> 00:01:47,070
+British Columbia Canada
+
+28
+00:01:44,659 --> 00:01:48,890
+what an interesting name British
+
+29
+00:01:47,070 --> 00:01:54,600
+Columbia Canada
+
+30
+00:01:48,890 --> 00:01:57,420
+so in Vancouver Vancouver so today's
+
+31
+00:01:54,600 --> 00:01:59,369
+topic so let's do today's topic and but
+
+32
+00:01:57,420 --> 00:02:01,979
+before we begin it's digress
+
+33
+00:01:59,369 --> 00:02:06,680
+we love digressions okay so let's
+
+34
+00:02:01,979 --> 00:02:09,869
+digress and and it's to Emacs
+
+35
+00:02:06,680 --> 00:02:12,800
+let's get this Emacs command to have
+
+36
+00:02:09,869 --> 00:02:12,800
+Emily's color
+
+37
+00:02:13,420 --> 00:02:19,070
+so I'm going to start command log mod
+
+38
+00:02:16,880 --> 00:02:21,650
+okay which is this command you are
+
+39
+00:02:19,070 --> 00:02:25,610
+seeing right there okay I'm gonna start
+
+40
+00:02:21,650 --> 00:02:30,520
+a command some meta xxxx our common log
+
+41
+00:02:25,610 --> 00:02:34,370
+mod okay Mina X sub command start
+
+42
+00:02:30,520 --> 00:02:36,350
+command lock okay you see now this
+
+43
+00:02:34,370 --> 00:02:38,720
+window on the left you can see all my
+
+44
+00:02:36,350 --> 00:02:42,040
+Emacs commands whenever I move cruiser
+
+45
+00:02:38,720 --> 00:02:44,900
+or delete things or copy and paste
+
+46
+00:02:42,040 --> 00:02:48,230
+things all the commands on the Left
+
+47
+00:02:44,900 --> 00:02:51,740
+window but however I wanted to be
+
+48
+00:02:48,230 --> 00:02:55,460
+colored you see I wanted to set
+
+49
+00:02:51,740 --> 00:02:59,480
+background color 3 so this o is Emily's
+
+50
+00:02:55,460 --> 00:03:01,640
+color so this color I want okay and so
+
+51
+00:02:59,480 --> 00:03:04,070
+let's do it instead of calling the
+
+52
+00:03:01,640 --> 00:03:09,890
+command and fix it manually every time
+
+53
+00:03:04,070 --> 00:03:18,080
+let's do it make the command change the
+
+54
+00:03:09,890 --> 00:03:20,630
+color so let's restart Emacs you cakes
+
+55
+00:03:18,080 --> 00:03:21,980
+are can meet up right
+
+56
+00:03:20,630 --> 00:03:27,130
+are you are you guys going to have a
+
+57
+00:03:21,980 --> 00:03:31,280
+meet-up Kathy Kathy and Emily and Vulcan
+
+58
+00:03:27,130 --> 00:03:34,100
+so if you have not already these people
+
+59
+00:03:31,280 --> 00:03:39,470
+in Saudi discord okay join this code and
+
+60
+00:03:34,100 --> 00:03:43,580
+let me send out you know let's send out
+
+61
+00:03:39,470 --> 00:03:46,720
+its let's do it okay Santosh okay
+
+62
+00:03:43,580 --> 00:03:50,060
+go to the top search for this code and
+
+63
+00:03:46,720 --> 00:03:54,020
+there it is the discord ID the
+
+64
+00:03:50,060 --> 00:03:55,630
+invitation you need a invitation to join
+
+65
+00:03:54,020 --> 00:03:59,660
+him
+
+66
+00:03:55,630 --> 00:04:03,500
+so that's Saudis code and let's stop
+
+67
+00:03:59,660 --> 00:04:05,990
+this we are doing pre dude to today's
+
+68
+00:04:03,500 --> 00:04:08,920
+talk show then we are going to get on to
+
+69
+00:04:05,990 --> 00:04:13,480
+the topic about our notation the
+
+70
+00:04:08,920 --> 00:04:16,070
+fantastic that the the great topic of
+
+71
+00:04:13,480 --> 00:04:18,380
+programming language design in all the
+
+72
+00:04:16,070 --> 00:04:20,479
+issues all the issues near you you never
+
+73
+00:04:18,380 --> 00:04:22,940
+seen you never heard of you from these
+
+74
+00:04:20,479 --> 00:04:25,790
+hacker types they tell you about rust
+
+75
+00:04:22,940 --> 00:04:32,690
+rust in Haskell Rosen Haskell every
+
+76
+00:04:25,790 --> 00:04:38,450
+de las cadenas PDS d-33 VST but they
+
+77
+00:04:32,690 --> 00:04:43,340
+Annie Max and wim but their their vision
+
+78
+00:04:38,450 --> 00:04:49,130
+their perspective is limited if I may
+
+79
+00:04:43,340 --> 00:04:52,610
+say so okay you know how do you get your
+
+80
+00:04:49,130 --> 00:04:55,160
+how do you widen your perspective well
+
+81
+00:04:52,610 --> 00:04:58,010
+the first thing you do is you eliminate
+
+82
+00:04:55,160 --> 00:05:00,410
+any mainstream information no pain no
+
+83
+00:04:58,010 --> 00:05:05,000
+gain any information that comes to you
+
+84
+00:05:00,410 --> 00:05:08,960
+easily you don't want that okay you want
+
+85
+00:05:05,000 --> 00:05:11,840
+information only you strive hard to dig
+
+86
+00:05:08,960 --> 00:05:13,850
+to find it then your thoughts your ideas
+
+87
+00:05:11,840 --> 00:05:16,760
+will be fresh
+
+88
+00:05:13,850 --> 00:05:18,590
+otherwise your ideas your thoughts your
+
+89
+00:05:16,760 --> 00:05:22,210
+opinions about programming languages
+
+90
+00:05:18,590 --> 00:05:26,750
+about urban systems about politics is is
+
+91
+00:05:22,210 --> 00:05:29,060
+is is is is the same as your friends you
+
+92
+00:05:26,750 --> 00:05:35,240
+know this is your neighborhood whatever
+
+93
+00:05:29,060 --> 00:05:38,210
+it's a same so so here is a summary of
+
+94
+00:05:35,240 --> 00:05:40,970
+the of the advice you want whenever
+
+95
+00:05:38,210 --> 00:05:43,760
+there is is information you know today
+
+96
+00:05:40,970 --> 00:05:45,410
+we say our society is information
+
+97
+00:05:43,760 --> 00:05:47,330
+overload right
+
+98
+00:05:45,410 --> 00:05:49,340
+too much information we cannot we don't
+
+99
+00:05:47,330 --> 00:05:51,380
+have time to digest they are thousands
+
+100
+00:05:49,340 --> 00:05:54,050
+of books your friends recommend to you
+
+101
+00:05:51,380 --> 00:05:58,760
+about operating systems about Haskell
+
+102
+00:05:54,050 --> 00:06:00,500
+about programming languages about about
+
+103
+00:05:58,760 --> 00:06:02,060
+mathematics you know you don't have time
+
+104
+00:06:00,500 --> 00:06:04,100
+you do know you know all the great books
+
+105
+00:06:02,060 --> 00:06:06,410
+in Wikipedia you can read Wikipedia all
+
+106
+00:06:04,100 --> 00:06:09,710
+day every day so much information but
+
+107
+00:06:06,410 --> 00:06:11,570
+you don't have time to digest it even
+
+108
+00:06:09,710 --> 00:06:13,460
+though many of these information are
+
+109
+00:06:11,570 --> 00:06:15,830
+great you know for example your friends
+
+110
+00:06:13,460 --> 00:06:19,630
+will tell you about great books in math
+
+111
+00:06:15,830 --> 00:06:22,340
+or programming but you don't have time
+
+112
+00:06:19,630 --> 00:06:26,030
+anyway my point is so information
+
+113
+00:06:22,340 --> 00:06:28,070
+overload especially the current events
+
+114
+00:06:26,030 --> 00:06:31,100
+like politics Twitter you know everyday
+
+115
+00:06:28,070 --> 00:06:35,060
+this [ __ ] news everyday mainstream
+
+116
+00:06:31,100 --> 00:06:37,190
+fake news so information and and and on
+
+117
+00:06:35,060 --> 00:06:38,889
+social networks on discord on Twitter
+
+118
+00:06:37,190 --> 00:06:42,520
+you know you get information from
+
+119
+00:06:38,889 --> 00:06:44,229
+friends information overload so okay I'm
+
+120
+00:06:42,520 --> 00:06:48,999
+digressing but what I'm saying is that
+
+121
+00:06:44,229 --> 00:06:51,279
+you want any okay here here is a summary
+
+122
+00:06:48,999 --> 00:06:54,310
+here is the gist okay any information
+
+123
+00:06:51,279 --> 00:06:56,650
+that comes to you easily without you
+
+124
+00:06:54,310 --> 00:07:00,159
+spending effort without you having pain
+
+125
+00:06:56,650 --> 00:07:03,699
+to get it those information you should
+
+126
+00:07:00,159 --> 00:07:06,099
+try to ignore it like almost like
+
+127
+00:07:03,699 --> 00:07:07,689
+completely like that's what I do
+
+128
+00:07:06,099 --> 00:07:09,999
+actually that's what I've been doing for
+
+129
+00:07:07,689 --> 00:07:13,509
+you know 20 years so I have weird
+
+130
+00:07:09,999 --> 00:07:16,689
+opinions okay so you know whether it's
+
+131
+00:07:13,509 --> 00:07:19,090
+good or not it's up to you to decide but
+
+132
+00:07:16,689 --> 00:07:21,069
+the the the one thing for sure is my
+
+133
+00:07:19,090 --> 00:07:23,560
+opinion are usually a bit weird okay
+
+134
+00:07:21,069 --> 00:07:30,159
+yeah and many of you too many of you
+
+135
+00:07:23,560 --> 00:07:31,900
+guys so so so my what I want to say is
+
+136
+00:07:30,159 --> 00:07:35,680
+that any information here's the thing
+
+137
+00:07:31,900 --> 00:07:37,180
+any information may be you know poor I
+
+138
+00:07:35,680 --> 00:07:40,050
+mean technical stuff you learn
+
+139
+00:07:37,180 --> 00:07:43,089
+mathematics or may it be news or
+
+140
+00:07:40,050 --> 00:07:45,580
+political opinions or geography or
+
+141
+00:07:43,089 --> 00:07:49,599
+history whatever any information that
+
+142
+00:07:45,580 --> 00:07:51,879
+comes to you easy such that you didn't
+
+143
+00:07:49,599 --> 00:07:53,919
+spend much effort to gain it such as on
+
+144
+00:07:51,879 --> 00:07:56,500
+Twitter on social networks Oh news news
+
+145
+00:07:53,919 --> 00:07:58,569
+news arco sometime posted oh this is a
+
+146
+00:07:56,500 --> 00:08:01,509
+great news article Oh news article on
+
+147
+00:07:58,569 --> 00:08:04,000
+Hacker News hacker news [ __ ] one 1000
+
+148
+00:08:01,509 --> 00:08:06,849
+thumbs ups you know those those
+
+149
+00:08:04,000 --> 00:08:10,060
+information they come to you easily you
+
+150
+00:08:06,849 --> 00:08:12,069
+you didn't spend days or one hour or so
+
+151
+00:08:10,060 --> 00:08:13,930
+or even 10 minutes through to actually
+
+152
+00:08:12,069 --> 00:08:16,210
+learn something you just read it you
+
+153
+00:08:13,930 --> 00:08:18,729
+know on Hacker News you know every every
+
+154
+00:08:16,210 --> 00:08:21,250
+[ __ ] hacker types go to hacker news
+
+155
+00:08:18,729 --> 00:08:23,649
+you read it oh all the different you
+
+156
+00:08:21,250 --> 00:08:25,899
+know great things so Google is doing
+
+157
+00:08:23,649 --> 00:08:29,919
+something oh they have a a I new AI
+
+158
+00:08:25,899 --> 00:08:31,990
+library you know whatever [ __ ] so those
+
+159
+00:08:29,919 --> 00:08:34,180
+are information you know you you get you
+
+160
+00:08:31,990 --> 00:08:37,510
+know if almost every one of most of us
+
+161
+00:08:34,180 --> 00:08:39,399
+unless you are very you know most of us
+
+162
+00:08:37,510 --> 00:08:44,410
+you get those those information every
+
+163
+00:08:39,399 --> 00:08:47,380
+day they come to you easily so ignore
+
+164
+00:08:44,410 --> 00:08:50,319
+them why because they came to you easy
+
+165
+00:08:47,380 --> 00:08:52,180
+you didn't have pain you didn't suffer
+
+166
+00:08:50,319 --> 00:08:54,970
+to get it okay
+
+167
+00:08:52,180 --> 00:08:57,100
+so what you want is information that you
+
+168
+00:08:54,970 --> 00:08:59,770
+know like like you know the bodybuilders
+
+169
+00:08:57,100 --> 00:09:05,530
+you know bodybuilding so we have a we
+
+170
+00:08:59,770 --> 00:09:07,330
+have a member who is Ripper I think he's
+
+171
+00:09:05,530 --> 00:09:10,150
+into bodybuilding you know he do
+
+172
+00:09:07,330 --> 00:09:12,880
+bodybuilding although I don't know what
+
+173
+00:09:10,150 --> 00:09:16,000
+he do exactly but he seems he's into
+
+174
+00:09:12,880 --> 00:09:18,010
+bodybuilding when I was younger I read a
+
+175
+00:09:16,000 --> 00:09:21,340
+lot about bodybuilding because I was
+
+176
+00:09:18,010 --> 00:09:24,160
+kind of like a street performer juggler
+
+177
+00:09:21,340 --> 00:09:26,650
+you know I want to be one of the goal my
+
+178
+00:09:24,160 --> 00:09:30,100
+goal is to be the greatest juggler he's
+
+179
+00:09:26,650 --> 00:09:33,340
+kind of funny anyway so bodybuilding you
+
+180
+00:09:30,100 --> 00:09:35,260
+know in bodybuilding they have a saying
+
+181
+00:09:33,340 --> 00:09:38,680
+no pain no gain
+
+182
+00:09:35,260 --> 00:09:39,490
+okay so if you didn't you know like you
+
+183
+00:09:38,680 --> 00:09:42,610
+do push-ups
+
+184
+00:09:39,490 --> 00:09:45,700
+oh the the trenches push-up you cannot
+
+185
+00:09:42,610 --> 00:09:47,560
+not do it but you have to do it then you
+
+186
+00:09:45,700 --> 00:09:51,280
+can then your muscle go because that's
+
+187
+00:09:47,560 --> 00:09:54,280
+actually physiology that's true if you
+
+188
+00:09:51,280 --> 00:09:56,860
+you know to weights and you don't you
+
+189
+00:09:54,280 --> 00:09:59,920
+you you know you don't you don't you
+
+190
+00:09:56,860 --> 00:10:03,310
+don't your muscles don't get to the
+
+191
+00:09:59,920 --> 00:10:04,960
+point of some sort of pain then your
+
+192
+00:10:03,310 --> 00:10:07,570
+muscle doesn't doesn't grow you know
+
+193
+00:10:04,960 --> 00:10:09,550
+because it's already used to it so
+
+194
+00:10:07,570 --> 00:10:12,600
+anyway no pain no gain that's the same
+
+195
+00:10:09,550 --> 00:10:16,300
+so it's the same thing with information
+
+196
+00:10:12,600 --> 00:10:21,040
+in my kind of dramatic way of saying it
+
+197
+00:10:16,300 --> 00:10:24,010
+okay you know I might be exaggerating a
+
+198
+00:10:21,040 --> 00:10:25,600
+bit but but that is a thing so any
+
+199
+00:10:24,010 --> 00:10:30,310
+information that comes to you without
+
+200
+00:10:25,600 --> 00:10:33,400
+you go through a lot to get it that's no
+
+201
+00:10:30,310 --> 00:10:36,100
+good tends to be no good okay so you can
+
+202
+00:10:33,400 --> 00:10:38,980
+owe them so what what do you mean by
+
+203
+00:10:36,100 --> 00:10:46,240
+that so what do I mean by that for
+
+204
+00:10:38,980 --> 00:10:50,860
+example you want to you know okay in
+
+205
+00:10:46,240 --> 00:10:54,880
+anyway I'm digressing about that but I
+
+206
+00:10:50,860 --> 00:11:00,490
+should give an example though for
+
+207
+00:10:54,880 --> 00:11:04,060
+example you yeah anyway I'm digressing
+
+208
+00:11:00,490 --> 00:11:05,920
+so let's get back to Emacs then so good
+
+209
+00:11:04,060 --> 00:11:09,370
+morning Matt hola and
+
+210
+00:11:05,920 --> 00:11:11,950
+moaning crash hacker from Japan great to
+
+211
+00:11:09,370 --> 00:11:13,990
+see you and Matt is right now Matt is in
+
+212
+00:11:11,950 --> 00:11:19,120
+Central America what country was at
+
+213
+00:11:13,990 --> 00:11:20,980
+Central America great so okay so let's
+
+214
+00:11:19,120 --> 00:11:25,029
+start the command let's start modifying
+
+215
+00:11:20,980 --> 00:11:28,540
+Emacs first okay so let's go the command
+
+216
+00:11:25,029 --> 00:11:31,000
+okay sauce start command log mod you see
+
+217
+00:11:28,540 --> 00:11:38,110
+that you see the name at a mini poverty
+
+218
+00:11:31,000 --> 00:11:43,449
+button so now I press ctrl H F that
+
+219
+00:11:38,110 --> 00:11:45,670
+shows me the the describe function the
+
+220
+00:11:43,449 --> 00:11:48,339
+functions documentation of this command
+
+221
+00:11:45,670 --> 00:11:52,240
+so it says South start command log is an
+
+222
+00:11:48,339 --> 00:11:55,510
+interactive disclosure in in that file
+
+223
+00:11:52,240 --> 00:11:57,670
+okay so by the way so you can do this
+
+224
+00:11:55,510 --> 00:12:02,740
+too okay normally you code describe
+
+225
+00:11:57,670 --> 00:12:04,240
+function describe describe function ok
+
+226
+00:12:02,740 --> 00:12:06,399
+normally that's what you do you code
+
+227
+00:12:04,240 --> 00:12:10,360
+description function and you type the
+
+228
+00:12:06,399 --> 00:12:13,329
+function name saw start command lock mod
+
+229
+00:12:10,360 --> 00:12:18,459
+that's how you get to the that's how you
+
+230
+00:12:13,329 --> 00:12:20,140
+get this in inline documentation for the
+
+231
+00:12:18,459 --> 00:12:22,810
+function described function that's a
+
+232
+00:12:20,140 --> 00:12:26,459
+command name but another way to do it is
+
+233
+00:12:22,810 --> 00:12:29,649
+that if you have Smacks installed okay
+
+234
+00:12:26,459 --> 00:12:33,510
+let's see where wait how we okay so
+
+235
+00:12:29,649 --> 00:12:36,220
+actually this is not the page we want
+
+236
+00:12:33,510 --> 00:12:39,070
+let's go to today's today's talk show
+
+237
+00:12:36,220 --> 00:12:42,940
+page ok so if you have Smacks installed
+
+238
+00:12:39,070 --> 00:12:45,490
+let me show you what source mix SME X so
+
+239
+00:12:42,940 --> 00:12:52,449
+that's what I'm using it's a it's an
+
+240
+00:12:45,490 --> 00:12:55,149
+enhanced version of meta X ok ok I'm
+
+241
+00:12:52,449 --> 00:12:58,269
+sorry to talk about the basics of Emacs
+
+242
+00:12:55,149 --> 00:13:01,209
+so anyway met IX the full name for meta
+
+243
+00:12:58,269 --> 00:13:05,829
+X is let me tell you how to find it so
+
+244
+00:13:01,209 --> 00:13:08,170
+if you know a key and you want to find
+
+245
+00:13:05,829 --> 00:13:11,529
+you want to know what is a command bound
+
+246
+00:13:08,170 --> 00:13:15,149
+to that key what you do is you call
+
+247
+00:13:11,529 --> 00:13:18,069
+describe key okay so let's let's do it
+
+248
+00:13:15,149 --> 00:13:19,580
+this swipe key you see that command
+
+249
+00:13:18,069 --> 00:13:23,180
+describe key metrics
+
+250
+00:13:19,580 --> 00:13:27,370
+spikey so I press it enter now it asked
+
+251
+00:13:23,180 --> 00:13:31,790
+me to type a key so now I type meta X
+
+252
+00:13:27,370 --> 00:13:35,090
+okay you see so now now this window pops
+
+253
+00:13:31,790 --> 00:13:40,220
+up now this window pops up and this
+
+254
+00:13:35,090 --> 00:13:44,420
+window so it says M X runs the command
+
+255
+00:13:40,220 --> 00:13:46,940
+execute extended command there it is let
+
+256
+00:13:44,420 --> 00:13:50,090
+me repeat so if you know if you know a
+
+257
+00:13:46,940 --> 00:13:53,330
+key and you want to know what is a
+
+258
+00:13:50,090 --> 00:13:56,780
+function bound to the key the way you do
+
+259
+00:13:53,330 --> 00:14:00,590
+it is you call em X describe key then
+
+260
+00:13:56,780 --> 00:14:02,630
+type the key then Emacs will tell you so
+
+261
+00:14:00,590 --> 00:14:07,970
+we have found that you know this command
+
+262
+00:14:02,630 --> 00:14:12,020
+is so MX the the key MX is the command
+
+263
+00:14:07,970 --> 00:14:14,900
+is execute extended command and I was
+
+264
+00:14:12,020 --> 00:14:17,570
+saying what about snacks snacks is a in
+
+265
+00:14:14,900 --> 00:14:20,270
+hand is a package that is enhanced
+
+266
+00:14:17,570 --> 00:14:23,330
+version of execute extended command
+
+267
+00:14:20,270 --> 00:14:26,060
+which is what I use and why am i
+
+268
+00:14:23,330 --> 00:14:30,800
+mentioning smacks because smacks allows
+
+269
+00:14:26,060 --> 00:14:34,100
+you to okay I am getting big complex
+
+270
+00:14:30,800 --> 00:14:37,370
+more advanced okay this makes allows you
+
+271
+00:14:34,100 --> 00:14:42,950
+to for example I cost mix and I type
+
+272
+00:14:37,370 --> 00:14:46,450
+start saw start command log mod so I'm
+
+273
+00:14:42,950 --> 00:14:49,280
+about to hit enter to run that command
+
+274
+00:14:46,450 --> 00:14:52,280
+but before I run a command I want to
+
+275
+00:14:49,280 --> 00:14:59,780
+know what I forgot what it does so at
+
+276
+00:14:52,280 --> 00:15:03,680
+this point you can press ctrl H F then
+
+277
+00:14:59,780 --> 00:15:08,090
+it will it will show the in line dock so
+
+278
+00:15:03,680 --> 00:15:11,120
+it's kind of a shortcut to describe
+
+279
+00:15:08,090 --> 00:15:13,100
+function okay into that do I make sense
+
+280
+00:15:11,120 --> 00:15:16,880
+I think this is a bit complex
+
+281
+00:15:13,100 --> 00:15:18,530
+complicated advanced you know the thing
+
+282
+00:15:16,880 --> 00:15:21,140
+is when you are doing a talk show most
+
+283
+00:15:18,530 --> 00:15:25,940
+people they just want you know they are
+
+284
+00:15:21,140 --> 00:15:28,220
+in tune for only the basic stuff because
+
+285
+00:15:25,940 --> 00:15:31,420
+you know of course many of you guys know
+
+286
+00:15:28,220 --> 00:15:31,420
+what I'm doing but
+
+287
+00:15:31,600 --> 00:15:36,730
+but but you narrowed your audience is
+
+288
+00:15:34,600 --> 00:15:38,950
+significantly like most of them they
+
+289
+00:15:36,730 --> 00:15:41,650
+don't know like you know that's the
+
+290
+00:15:38,950 --> 00:15:44,410
+typical way things are
+
+291
+00:15:41,650 --> 00:15:47,740
+most people are beginners in everything
+
+292
+00:15:44,410 --> 00:15:50,080
+including including us you know because
+
+293
+00:15:47,740 --> 00:15:53,770
+when we are doing programming we are
+
+294
+00:15:50,080 --> 00:15:56,230
+advanced or Emacs but when but vast
+
+295
+00:15:53,770 --> 00:16:00,160
+majority of other things in life we know
+
+296
+00:15:56,230 --> 00:16:03,160
+nothing about such as business not room
+
+297
+00:16:00,160 --> 00:16:05,170
+a business law restaurants restaurant
+
+298
+00:16:03,160 --> 00:16:07,480
+industry we know nothing about you know
+
+299
+00:16:05,170 --> 00:16:09,850
+there are 1000 1 million things in the
+
+300
+00:16:07,480 --> 00:16:12,760
+world and we know one of them that is
+
+301
+00:16:09,850 --> 00:16:15,160
+programming the the rest nine hundred
+
+302
+00:16:12,760 --> 00:16:17,740
+ninety nine hundred ninety thousand
+
+303
+00:16:15,160 --> 00:16:22,090
+things we don't know so in the same way
+
+304
+00:16:17,740 --> 00:16:25,890
+in general on YouTube you know the most
+
+305
+00:16:22,090 --> 00:16:30,370
+people are always beginners including us
+
+306
+00:16:25,890 --> 00:16:32,380
+so anyway let's let's get back to let's
+
+307
+00:16:30,370 --> 00:16:34,840
+get back to modify this command okay
+
+308
+00:16:32,380 --> 00:16:38,200
+start exhaust start command log mod so
+
+309
+00:16:34,840 --> 00:16:43,690
+I'm going to call describe function on
+
+310
+00:16:38,200 --> 00:16:46,810
+it okay and it shows me the you see the
+
+311
+00:16:43,690 --> 00:16:50,980
+inline dock and I want to jump to the
+
+312
+00:16:46,810 --> 00:16:54,940
+file so here is the code here is decode
+
+313
+00:16:50,980 --> 00:16:59,080
+and I want to modify it so I want to do
+
+314
+00:16:54,940 --> 00:17:05,010
+is to add a color to the background so
+
+315
+00:16:59,080 --> 00:17:05,010
+what I do is let's see where okay
+
+316
+00:17:09,409 --> 00:17:18,240
+okay at the end so in here set
+
+317
+00:17:13,529 --> 00:17:25,649
+background color okay what is the
+
+318
+00:17:18,240 --> 00:17:27,929
+command set background color okay
+
+319
+00:17:25,649 --> 00:17:30,450
+actually we are digressing a lot but we
+
+320
+00:17:27,929 --> 00:17:36,929
+gonna begin soon so set background color
+
+321
+00:17:30,450 --> 00:17:40,409
+and I want feasel so th I okay I forgot
+
+322
+00:17:36,929 --> 00:17:49,580
+what's the name so let's open a new
+
+323
+00:17:40,409 --> 00:17:49,580
+buffer set background color th is TL e
+
+324
+00:17:49,700 --> 00:17:57,960
+there it is
+
+325
+00:17:52,519 --> 00:18:00,450
+so type that here and done okay and now
+
+326
+00:17:57,960 --> 00:18:05,010
+I'd run the command now it's evaluated
+
+327
+00:18:00,450 --> 00:18:07,260
+now I close this window now I move to
+
+328
+00:18:05,010 --> 00:18:11,970
+this let me show you okay let me show
+
+329
+00:18:07,260 --> 00:18:18,320
+you here so you can see so I so I now I
+
+330
+00:18:11,970 --> 00:18:20,220
+call sauce start command lock mod enter
+
+331
+00:18:18,320 --> 00:18:23,460
+fantastic its workings
+
+332
+00:18:20,220 --> 00:18:26,340
+you see it's working so now I don't I
+
+333
+00:18:23,460 --> 00:18:28,559
+run any command you can see it shows on
+
+334
+00:18:26,340 --> 00:18:30,360
+the left actually there's one more thing
+
+335
+00:18:28,559 --> 00:18:32,639
+I want to do because the other thing I
+
+336
+00:18:30,360 --> 00:18:36,510
+want to do is I want to make it narrow
+
+337
+00:18:32,639 --> 00:18:39,230
+like that so we can add it to the
+
+338
+00:18:36,510 --> 00:18:42,260
+command should we do that
+
+339
+00:18:39,230 --> 00:18:46,049
+nobody is saying anything guys comment
+
+340
+00:18:42,260 --> 00:18:50,600
+so actually let's begin today's topic
+
+341
+00:18:46,049 --> 00:18:55,139
+today's the ontology of dot notation
+
+342
+00:18:50,600 --> 00:18:59,490
+UNIX pipe and function chaining okay so
+
+343
+00:18:55,139 --> 00:19:03,000
+this is programming language design
+
+344
+00:18:59,490 --> 00:19:06,210
+related issue so before we begin on that
+
+345
+00:19:03,000 --> 00:19:10,380
+let me just finish this command change
+
+346
+00:19:06,210 --> 00:19:15,320
+today states version number okay and
+
+347
+00:19:10,380 --> 00:19:15,320
+save it and close
+
+348
+00:19:19,639 --> 00:19:24,649
+okay now let's talk about dot notation
+
+349
+00:19:27,919 --> 00:19:34,109
+CISOs are everyone's favorite food is
+
+350
+00:19:31,769 --> 00:19:37,139
+this so what is thisis anyway I don't
+
+351
+00:19:34,109 --> 00:19:43,710
+even know what he feels I thought it's a
+
+352
+00:19:37,139 --> 00:19:46,529
+plant like thorny plant th is PL e so
+
+353
+00:19:43,710 --> 00:19:51,239
+there it is let's call the command and
+
+354
+00:19:46,529 --> 00:19:53,749
+look up with such feasel Sophie so is
+
+355
+00:19:51,239 --> 00:19:56,759
+the common name of a group of flowering
+
+356
+00:19:53,749 --> 00:19:59,909
+flowering plants characterized by
+
+357
+00:19:56,759 --> 00:20:09,109
+thieves with sharp prickles on the
+
+358
+00:19:59,909 --> 00:20:09,109
+margins indeed oh that looks like that
+
+359
+00:20:09,680 --> 00:20:22,889
+[Laughter]
+
+360
+00:20:14,269 --> 00:20:26,999
+okay Jesus everyone is a donkey from the
+
+361
+00:20:22,889 --> 00:20:29,609
+weenie poo oh I don't know what does
+
+362
+00:20:26,999 --> 00:20:32,299
+that reference to I mean well I know
+
+363
+00:20:29,609 --> 00:20:36,239
+it's winnie pooh it's a cartoon but i
+
+364
+00:20:32,299 --> 00:20:38,249
+haven't watched it so let's let's talk
+
+365
+00:20:36,239 --> 00:20:46,080
+about today's thing okay so let me show
+
+366
+00:20:38,249 --> 00:20:47,850
+you today's Opie notation okay let me
+
+367
+00:20:46,080 --> 00:20:49,769
+talk let me tell you about the Opie
+
+368
+00:20:47,850 --> 00:20:54,200
+notation this so we're gonna talk about
+
+369
+00:20:49,769 --> 00:21:00,090
+this for 30 minutes or something and
+
+370
+00:20:54,200 --> 00:21:03,690
+this is Cathy oh my god Cathy London
+
+371
+00:21:00,090 --> 00:21:11,330
+Emacs hacking guys London Emacs hacking
+
+372
+00:21:03,690 --> 00:21:16,859
+Meetup okay you guys gonna go yes indeed
+
+373
+00:21:11,330 --> 00:21:20,100
+London London guys guys okay so there it
+
+374
+00:21:16,859 --> 00:21:23,460
+is a meet-up okay so let me post that
+
+375
+00:21:20,100 --> 00:21:25,739
+YouTube is censoring us okay so then
+
+376
+00:21:23,460 --> 00:21:26,099
+only I can post things something like
+
+377
+00:21:25,739 --> 00:21:28,190
+that
+
+378
+00:21:26,099 --> 00:21:31,850
+so that's London
+
+379
+00:21:28,190 --> 00:21:37,220
+emacs meet up so great thing so you guys
+
+380
+00:21:31,850 --> 00:21:39,440
+you know you guys in UK okay meet up so
+
+381
+00:21:37,220 --> 00:21:42,769
+okay let me talk about our notation so
+
+382
+00:21:39,440 --> 00:21:50,330
+let's begin and we gonna talk about this
+
+383
+00:21:42,769 --> 00:21:52,970
+the JavaScript Ruby the oh you know it's
+
+384
+00:21:50,330 --> 00:21:56,659
+Dom notation is a very popular notation
+
+385
+00:21:52,970 --> 00:21:58,519
+in mostly object-oriented languages okay
+
+386
+00:21:56,659 --> 00:22:00,559
+so first of all so I have several
+
+387
+00:21:58,519 --> 00:22:02,659
+articles about that about the ontology
+
+388
+00:22:00,559 --> 00:22:06,440
+and by the way do you know what I mean
+
+389
+00:22:02,659 --> 00:22:08,480
+by ontology because ontology is well I
+
+390
+00:22:06,440 --> 00:22:13,070
+did a video on that it's not going to
+
+391
+00:22:08,480 --> 00:22:16,210
+but okay but let's just go go one by one
+
+392
+00:22:13,070 --> 00:22:20,360
+about them down notation taught before
+
+393
+00:22:16,210 --> 00:22:22,759
+dot o P dot notation dot before data or
+
+394
+00:22:20,360 --> 00:22:23,889
+after okay let me let me tell you about
+
+395
+00:22:22,759 --> 00:22:27,529
+that
+
+396
+00:22:23,889 --> 00:22:32,179
+so normally so let's see
+
+397
+00:22:27,529 --> 00:22:34,940
+Python okay let's do a Python example so
+
+398
+00:22:32,179 --> 00:22:39,970
+Python okay hold on a second so python
+
+399
+00:22:34,940 --> 00:22:44,389
+you have I have encoded Python for years
+
+400
+00:22:39,970 --> 00:22:52,100
+so xx okay so I need to magnify xx
+
+401
+00:22:44,389 --> 00:22:59,750
+equals to something okay and then let's
+
+402
+00:22:52,100 --> 00:23:08,990
+say SS start split okay split okay split
+
+403
+00:22:59,750 --> 00:23:13,850
+on space you see so now let's print YY
+
+404
+00:23:08,990 --> 00:23:19,279
+okay let's run it there it is the here
+
+405
+00:23:13,850 --> 00:23:23,360
+is the output okay so it splits a string
+
+406
+00:23:19,279 --> 00:23:27,500
+into two parts into a array list okay so
+
+407
+00:23:23,360 --> 00:23:30,950
+you can see here is add a notation now
+
+408
+00:23:27,500 --> 00:23:33,379
+the SS is a string it's a meat you know
+
+409
+00:23:30,950 --> 00:23:36,409
+it's a primary so data we want to work
+
+410
+00:23:33,379 --> 00:23:41,570
+on so you have data then taught then a
+
+411
+00:23:36,409 --> 00:23:42,380
+speed method which is a function so so
+
+412
+00:23:41,570 --> 00:23:45,320
+in this exam
+
+413
+00:23:42,380 --> 00:23:48,130
+the important thing is the data so it's
+
+414
+00:23:45,320 --> 00:23:50,419
+in front its before before the dot but
+
+415
+00:23:48,130 --> 00:23:53,450
+however that's not always the case
+
+416
+00:23:50,419 --> 00:23:56,600
+there are quite a few complications in
+
+417
+00:23:53,450 --> 00:23:59,029
+in this start notation Opie dot notation
+
+418
+00:23:56,600 --> 00:24:04,399
+you know this notation is used in Java
+
+419
+00:23:59,029 --> 00:24:08,320
+in Java Script in in Java JavaScript in
+
+420
+00:24:04,399 --> 00:24:11,600
+Python ok it's one [ __ ] up where the Oh
+
+421
+00:24:08,320 --> 00:24:15,980
+object-oriented programming is one [ __ ]
+
+422
+00:24:11,600 --> 00:24:18,799
+up through out inside out and today we
+
+423
+00:24:15,980 --> 00:24:21,250
+are going to show let me tell you my
+
+424
+00:24:18,799 --> 00:24:29,299
+opinions about one of the [ __ ]
+
+425
+00:24:21,250 --> 00:24:31,039
+major so so so so in this example you
+
+426
+00:24:29,299 --> 00:24:34,460
+have a ton notation that's what it is
+
+427
+00:24:31,039 --> 00:24:37,850
+and the data comes before the dot you
+
+428
+00:24:34,460 --> 00:24:41,870
+see usually so this is SS this part is
+
+429
+00:24:37,850 --> 00:24:44,809
+the in JavaScript in Python it's an
+
+430
+00:24:41,870 --> 00:24:48,820
+object in Ruby its object JavaScript
+
+431
+00:24:44,809 --> 00:24:53,059
+Python Ruby object okay in in Java
+
+432
+00:24:48,820 --> 00:24:56,000
+yeah it's also object in Java so object
+
+433
+00:24:53,059 --> 00:24:59,480
+you know which is the data then thought
+
+434
+00:24:56,000 --> 00:25:03,980
+and method you applied the method on the
+
+435
+00:24:59,480 --> 00:25:05,990
+data that's how it's supposed to me you
+
+436
+00:25:03,980 --> 00:25:08,870
+know the table notation opie
+
+437
+00:25:05,990 --> 00:25:11,360
+object-oriented programming now but it's
+
+438
+00:25:08,870 --> 00:25:13,519
+not always the case that the the the
+
+439
+00:25:11,360 --> 00:25:17,059
+data comes before the dot for example
+
+440
+00:25:13,519 --> 00:25:20,000
+let me show you this Python okay I
+
+441
+00:25:17,059 --> 00:25:23,929
+haven't coded Python so I need to get
+
+442
+00:25:20,000 --> 00:25:27,649
+into I need to copy and code paste code
+
+443
+00:25:23,929 --> 00:25:31,279
+okay so hold on a second let's let's put
+
+444
+00:25:27,649 --> 00:25:34,250
+that here okay so we have a Python
+
+445
+00:25:31,279 --> 00:25:36,230
+example now let's show another example
+
+446
+00:25:34,250 --> 00:25:38,750
+here okay I'm gonna show you another
+
+447
+00:25:36,230 --> 00:25:41,409
+example this is Python regular
+
+448
+00:25:38,750 --> 00:25:41,409
+expressions
+
+449
+00:25:44,539 --> 00:25:53,340
+okay so here we have a Python regular
+
+450
+00:25:49,500 --> 00:25:58,110
+expression that knits now let me show
+
+451
+00:25:53,340 --> 00:26:00,390
+you okay so I'm not going to go into
+
+452
+00:25:58,110 --> 00:26:03,149
+programming details I'm just going to
+
+453
+00:26:00,390 --> 00:26:06,179
+talk about the dot notation so here you
+
+454
+00:26:03,149 --> 00:26:10,860
+see okay so so here here you have a
+
+455
+00:26:06,179 --> 00:26:13,590
+string so this code we is a regular
+
+456
+00:26:10,860 --> 00:26:16,769
+expression matching email address okay
+
+457
+00:26:13,590 --> 00:26:20,220
+so actually I okay so so here is a
+
+458
+00:26:16,769 --> 00:26:23,250
+string and you want to you want to get
+
+459
+00:26:20,220 --> 00:26:24,929
+the email address in that string so what
+
+460
+00:26:23,250 --> 00:26:29,130
+you do is you have this regular
+
+461
+00:26:24,929 --> 00:26:32,580
+expression this import V that's I is a
+
+462
+00:26:29,130 --> 00:26:33,809
+regular expression package okay so you
+
+463
+00:26:32,580 --> 00:26:38,639
+call Ari
+
+464
+00:26:33,809 --> 00:26:42,179
+you see we that is a macho name you know
+
+465
+00:26:38,639 --> 00:26:45,630
+the regular expression module then you
+
+466
+00:26:42,179 --> 00:26:48,690
+dot such okay then you dot such that's a
+
+467
+00:26:45,630 --> 00:26:51,389
+function then then you give option you
+
+468
+00:26:48,690 --> 00:26:55,110
+know so the first argument is a regular
+
+469
+00:26:51,389 --> 00:26:59,399
+expression here that pattern matches the
+
+470
+00:26:55,110 --> 00:27:02,399
+email address in general then that the
+
+471
+00:26:59,399 --> 00:27:06,179
+text is the string so you want to match
+
+472
+00:27:02,399 --> 00:27:08,429
+this string by by this regular
+
+473
+00:27:06,179 --> 00:27:12,000
+expression and the way you do it you
+
+474
+00:27:08,429 --> 00:27:15,120
+know you [ __ ] such but you see that
+
+475
+00:27:12,000 --> 00:27:18,720
+dot notation in this example that we is
+
+476
+00:27:15,120 --> 00:27:21,480
+not data right that that we is a package
+
+477
+00:27:18,720 --> 00:27:25,110
+name in other words is it serves as a
+
+478
+00:27:21,480 --> 00:27:27,720
+namespace it's not data okay so
+
+479
+00:27:25,110 --> 00:27:31,740
+typically in OB you think you know like
+
+480
+00:27:27,720 --> 00:27:35,370
+data dot methods but here it's different
+
+481
+00:27:31,740 --> 00:27:40,019
+it's inconsistent you have a package
+
+482
+00:27:35,370 --> 00:27:42,210
+name that they method then then they
+
+483
+00:27:40,019 --> 00:27:43,980
+inside the parentheses you have you know
+
+484
+00:27:42,210 --> 00:27:49,350
+whatever you want to do you know your
+
+485
+00:27:43,980 --> 00:27:51,210
+your text your data or so so it's here
+
+486
+00:27:49,350 --> 00:27:55,770
+is the example that's showing that it is
+
+487
+00:27:51,210 --> 00:27:57,250
+inconsistent okay so that's that's what
+
+488
+00:27:55,770 --> 00:28:01,600
+I want to show
+
+489
+00:27:57,250 --> 00:28:05,020
+so we have you know the inconsistency
+
+490
+00:28:01,600 --> 00:28:10,000
+here now let me show you let's talk
+
+491
+00:28:05,020 --> 00:28:14,080
+about okay so I have showed example in
+
+492
+00:28:10,000 --> 00:28:17,710
+Python where the data come before the
+
+493
+00:28:14,080 --> 00:28:20,260
+dot and another example comes after the
+
+494
+00:28:17,710 --> 00:28:20,830
+dot now this happens in JavaScript as
+
+495
+00:28:20,260 --> 00:28:24,280
+well
+
+496
+00:28:20,830 --> 00:28:24,940
+you have many examples and it happens in
+
+497
+00:28:24,280 --> 00:28:30,010
+Java
+
+498
+00:28:24,940 --> 00:28:32,230
+in fact this happens in in general in I
+
+499
+00:28:30,010 --> 00:28:36,100
+think almost all fee languages
+
+500
+00:28:32,230 --> 00:28:40,000
+it happens in Python in JavaScript in
+
+501
+00:28:36,100 --> 00:28:42,460
+Java okay how does it happen in Java for
+
+502
+00:28:40,000 --> 00:28:46,270
+example one of the most common example
+
+503
+00:28:42,460 --> 00:28:46,840
+is math starts something so let me show
+
+504
+00:28:46,270 --> 00:28:49,929
+you
+
+505
+00:28:46,840 --> 00:28:52,750
+JavaScript math method methods okay so
+
+506
+00:28:49,929 --> 00:28:56,340
+here is the JavaScript you have all
+
+507
+00:28:52,750 --> 00:28:59,710
+these math methods so you have math dot
+
+508
+00:28:56,340 --> 00:29:04,330
+function name then parenthesis whatever
+
+509
+00:28:59,710 --> 00:29:07,360
+so you owe this method you see the the
+
+510
+00:29:04,330 --> 00:29:10,630
+thing that comes before the dot is not a
+
+511
+00:29:07,360 --> 00:29:13,360
+object okay even in JavaScript it's not
+
+512
+00:29:10,630 --> 00:29:16,210
+even technically it's not a object it's
+
+513
+00:29:13,360 --> 00:29:18,400
+just you know because I've read the
+
+514
+00:29:16,210 --> 00:29:21,340
+JavaScript suspect it's not even an
+
+515
+00:29:18,400 --> 00:29:25,570
+object it's a you know it's just the
+
+516
+00:29:21,340 --> 00:29:29,789
+purpose of that is just a namespace okay
+
+517
+00:29:25,570 --> 00:29:29,789
+so so that's that's some of the examples
+
+518
+00:29:31,860 --> 00:29:38,409
+okay that's the main thing I want to say
+
+519
+00:29:35,140 --> 00:29:41,350
+about that dot notation so you can see
+
+520
+00:29:38,409 --> 00:29:43,780
+so the the point here is that sometimes
+
+521
+00:29:41,350 --> 00:29:48,159
+the dot the data comes before the dot
+
+522
+00:29:43,780 --> 00:29:50,260
+sometimes after okay so they mean maybe
+
+523
+00:29:48,159 --> 00:29:52,510
+I should go faster am I getting boring
+
+524
+00:29:50,260 --> 00:29:56,530
+like sometimes I'm kind of slow and
+
+525
+00:29:52,510 --> 00:29:59,080
+repetitive ten viewers
+
+526
+00:29:56,530 --> 00:30:01,809
+try okay 30 minutes okay let's go faster
+
+527
+00:29:59,080 --> 00:30:05,070
+so that's one example okay now let me
+
+528
+00:30:01,809 --> 00:30:08,620
+show you another example dot not dot J's
+
+529
+00:30:05,070 --> 00:30:11,440
+if you don't know not RJ is a JavaScript
+
+530
+00:30:08,620 --> 00:30:14,800
+engine you can run
+
+531
+00:30:11,440 --> 00:30:19,930
+in your in your terminal for example I
+
+532
+00:30:14,800 --> 00:30:22,120
+can start not okay for example not so
+
+533
+00:30:19,930 --> 00:30:26,200
+you see so now I can start to type
+
+534
+00:30:22,120 --> 00:30:31,240
+JavaScript three plus two okay let's do
+
+535
+00:30:26,200 --> 00:30:36,790
+a ray okay two three four so we have an
+
+536
+00:30:31,240 --> 00:30:42,070
+array you know so let's let's do some
+
+537
+00:30:36,790 --> 00:30:46,000
+more so x equals two okay so now X is
+
+538
+00:30:42,070 --> 00:30:51,130
+array and let's get the first element
+
+539
+00:30:46,000 --> 00:30:54,010
+index 0 2 so you see so not jeaious is a
+
+540
+00:30:51,130 --> 00:30:55,660
+basically a JavaScript engine so you can
+
+541
+00:30:54,010 --> 00:30:58,960
+install so you can run JavaScript
+
+542
+00:30:55,660 --> 00:31:00,360
+without you know learning it inside the
+
+543
+00:30:58,960 --> 00:31:06,310
+browser that's what I do
+
+544
+00:31:00,360 --> 00:31:08,530
+so not yes so not just in not yes you of
+
+545
+00:31:06,310 --> 00:31:13,720
+course you also have this start notation
+
+546
+00:31:08,530 --> 00:31:17,530
+but it turns out in notches the the dot
+
+547
+00:31:13,720 --> 00:31:20,650
+every dot you know it's used the when
+
+548
+00:31:17,530 --> 00:31:25,240
+you have a X start Y the X part is
+
+549
+00:31:20,650 --> 00:31:29,320
+always just a namespace it's never it's
+
+550
+00:31:25,240 --> 00:31:31,660
+never a you know data object it's just a
+
+551
+00:31:29,320 --> 00:31:34,900
+namespace for example here is a typical
+
+552
+00:31:31,660 --> 00:31:37,510
+example code integer in not yes okay
+
+553
+00:31:34,900 --> 00:31:43,450
+you have required something you assign
+
+554
+00:31:37,510 --> 00:31:46,240
+it to a name then you call that you know
+
+555
+00:31:43,450 --> 00:31:53,140
+then you code P dot something you know
+
+556
+00:31:46,240 --> 00:31:55,720
+that that p is just namespace so the
+
+557
+00:31:53,140 --> 00:31:58,450
+point of this Arco is just showing that
+
+558
+00:31:55,720 --> 00:32:02,530
+is just showing you that this dot
+
+559
+00:31:58,450 --> 00:32:05,740
+notation the semantics of the dot
+
+560
+00:32:02,530 --> 00:32:09,240
+notation differs okay
+
+561
+00:32:05,740 --> 00:32:12,240
+sometimes it's data sometimes it's a
+
+562
+00:32:09,240 --> 00:32:12,240
+namespace
+
+563
+00:32:14,500 --> 00:32:20,090
+okay so that's that's that's about this
+
+564
+00:32:17,390 --> 00:32:22,460
+is easy right now it's very simple it's
+
+565
+00:32:20,090 --> 00:32:24,919
+but it's going to get complex this is
+
+566
+00:32:22,460 --> 00:32:28,460
+because this is about you see this is
+
+567
+00:32:24,919 --> 00:32:30,890
+about when you okay why are we talking
+
+568
+00:32:28,460 --> 00:32:33,200
+about this because as a programmer you
+
+569
+00:32:30,890 --> 00:32:34,909
+will see every day program must talk
+
+570
+00:32:33,200 --> 00:32:38,059
+about programming issues like they
+
+571
+00:32:34,909 --> 00:32:40,549
+complain oh I like training functions oh
+
+572
+00:32:38,059 --> 00:32:43,279
+I don't like you know function chain oh
+
+573
+00:32:40,549 --> 00:32:46,870
+I like dot notation no I don't like that
+
+574
+00:32:43,279 --> 00:32:50,960
+on that notation so program I must argue
+
+575
+00:32:46,870 --> 00:32:56,570
+so everyone has opinions but I do too so
+
+576
+00:32:50,960 --> 00:32:59,450
+but but I think one of the good thing
+
+577
+00:32:56,570 --> 00:33:02,419
+you want to do is you want to dive into
+
+578
+00:32:59,450 --> 00:33:05,899
+details because you see it can get this
+
+579
+00:33:02,419 --> 00:33:08,299
+this seemingly you know it's a fun topic
+
+580
+00:33:05,899 --> 00:33:10,970
+you know every like this this is talked
+
+581
+00:33:08,299 --> 00:33:11,510
+often about that notation about function
+
+582
+00:33:10,970 --> 00:33:13,970
+chaining
+
+583
+00:33:11,510 --> 00:33:15,919
+because it's a dramatic issue about
+
+584
+00:33:13,970 --> 00:33:18,140
+programming style you know some
+
+585
+00:33:15,919 --> 00:33:18,740
+programmers they they like function
+
+586
+00:33:18,140 --> 00:33:22,429
+chaining
+
+587
+00:33:18,740 --> 00:33:24,559
+like typically in JavaScript Python Ruby
+
+588
+00:33:22,429 --> 00:33:26,330
+you have something dot something start
+
+589
+00:33:24,559 --> 00:33:29,330
+something you know thought about that
+
+590
+00:33:26,330 --> 00:33:30,919
+people think oh this is so great but
+
+591
+00:33:29,330 --> 00:33:34,659
+some people don't like it because they
+
+592
+00:33:30,919 --> 00:33:37,370
+think you know some people don't like it
+
+593
+00:33:34,659 --> 00:33:40,480
+because you know white people talk about
+
+594
+00:33:37,370 --> 00:33:43,250
+this often programmers because this is
+
+595
+00:33:40,480 --> 00:33:45,110
+eventually it's a programming style you
+
+596
+00:33:43,250 --> 00:33:47,299
+know programmers love talking about
+
+597
+00:33:45,110 --> 00:33:49,970
+programming style because it's the most
+
+598
+00:33:47,299 --> 00:33:52,700
+fundamental basic brainless thing
+
+599
+00:33:49,970 --> 00:33:56,480
+everyone can talk about you know it's
+
+600
+00:33:52,700 --> 00:33:59,230
+like the bike shade shade pop you know
+
+601
+00:33:56,480 --> 00:34:01,789
+what color should the bike shade be
+
+602
+00:33:59,230 --> 00:34:03,980
+meanwhile the difficult problems nobody
+
+603
+00:34:01,789 --> 00:34:08,510
+understands so nobody has opinions on
+
+604
+00:34:03,980 --> 00:34:13,070
+that but the basic most useless issues
+
+605
+00:34:08,510 --> 00:34:14,720
+everyone has opinion like you know like
+
+606
+00:34:13,070 --> 00:34:18,050
+you know programming style stuff you
+
+607
+00:34:14,720 --> 00:34:21,109
+programming idioms and is poor in style
+
+608
+00:34:18,050 --> 00:34:23,149
+and as especially you know the dumb
+
+609
+00:34:21,109 --> 00:34:27,650
+notation that's why a lot of people talk
+
+610
+00:34:23,149 --> 00:34:30,170
+about it but what I want to say is that
+
+611
+00:34:27,650 --> 00:34:32,780
+they are you you know for issues like
+
+612
+00:34:30,170 --> 00:34:36,320
+this you can dive deeper ok dive deeper
+
+613
+00:34:32,780 --> 00:34:39,530
+then you'll find so what what were you
+
+614
+00:34:36,320 --> 00:34:42,770
+were you find you see this this will
+
+615
+00:34:39,530 --> 00:34:46,570
+relate depending on how philosophical
+
+616
+00:34:42,770 --> 00:34:50,210
+how deep you want to go it relates to
+
+617
+00:34:46,570 --> 00:34:53,060
+programming language syntax design human
+
+618
+00:34:50,210 --> 00:34:55,880
+captain cognition system you know
+
+619
+00:34:53,060 --> 00:35:02,690
+numeral science there is a big branch of
+
+620
+00:34:55,880 --> 00:35:05,180
+science about human [ __ ] [ __ ] [ __ ] on
+
+621
+00:35:02,690 --> 00:35:06,950
+ization functions how do we perceive how
+
+622
+00:35:05,180 --> 00:35:09,590
+do we understand things you know which
+
+623
+00:35:06,950 --> 00:35:11,840
+which way we can understand the fastest
+
+624
+00:35:09,590 --> 00:35:13,940
+which way is the fastest to learn you
+
+625
+00:35:11,840 --> 00:35:17,960
+know there are big research about that
+
+626
+00:35:13,940 --> 00:35:21,350
+it's a subfield of psychotic so called
+
+627
+00:35:17,960 --> 00:35:25,070
+multi discipline field psychology new
+
+628
+00:35:21,350 --> 00:35:26,900
+neuroscience education educational
+
+629
+00:35:25,070 --> 00:35:29,720
+science or whatever you may have micro
+
+630
+00:35:26,900 --> 00:35:32,870
+ed you know oh experimental you know all
+
+631
+00:35:29,720 --> 00:35:35,270
+you to statistics research survey survey
+
+632
+00:35:32,870 --> 00:35:37,250
+for example camel case versus snake case
+
+633
+00:35:35,270 --> 00:35:39,020
+which one is better there are few
+
+634
+00:35:37,250 --> 00:35:41,030
+articles about that you know research
+
+635
+00:35:39,020 --> 00:35:43,850
+papers so people measured your eye
+
+636
+00:35:41,030 --> 00:35:45,800
+movements you know to see whether camel
+
+637
+00:35:43,850 --> 00:35:49,670
+case or snake cases which one is
+
+638
+00:35:45,800 --> 00:35:58,100
+actually easier to read you know things
+
+639
+00:35:49,670 --> 00:35:59,290
+like that so so my roommate just left I
+
+640
+00:35:58,100 --> 00:36:02,090
+think so
+
+641
+00:35:59,290 --> 00:36:05,180
+so what does this pertain to so it
+
+642
+00:36:02,090 --> 00:36:09,050
+pertains to syntax language design
+
+643
+00:36:05,180 --> 00:36:11,480
+syntax design human cognition systems
+
+644
+00:36:09,050 --> 00:36:16,130
+you know how we perceive how we you know
+
+645
+00:36:11,480 --> 00:36:19,340
+and in the history of math notations
+
+646
+00:36:16,130 --> 00:36:22,940
+and also how notations influenced
+
+647
+00:36:19,340 --> 00:36:27,410
+thought so it it it can get into
+
+648
+00:36:22,940 --> 00:36:29,830
+linguistics deep linguistics how how
+
+649
+00:36:27,410 --> 00:36:32,870
+writing systems influence your thought
+
+650
+00:36:29,830 --> 00:36:34,790
+for example we know foreign languages
+
+651
+00:36:32,870 --> 00:36:38,660
+different in your list with lots of
+
+652
+00:36:34,790 --> 00:36:40,220
+parentheses or versus Java you look at
+
+653
+00:36:38,660 --> 00:36:41,540
+the program you have different ways of
+
+654
+00:36:40,220 --> 00:36:44,780
+solving problems
+
+655
+00:36:41,540 --> 00:36:48,020
+and in fact it has to do with syntax
+
+656
+00:36:44,780 --> 00:36:52,040
+okay syntax has a lot to do with it so
+
+657
+00:36:48,020 --> 00:36:54,440
+how does syntax influence your the way
+
+658
+00:36:52,040 --> 00:37:01,070
+you look at problems it's related okay
+
+659
+00:36:54,440 --> 00:37:03,590
+it's not it syntax does not dictate how
+
+660
+00:37:01,070 --> 00:37:06,920
+you think but however it does influence
+
+661
+00:37:03,590 --> 00:37:09,530
+how you look at problems you you know
+
+662
+00:37:06,920 --> 00:37:11,240
+this if you have studied the history of
+
+663
+00:37:09,530 --> 00:37:13,369
+mathematics how notation
+
+664
+00:37:11,240 --> 00:37:17,510
+you know notation the math notations
+
+665
+00:37:13,369 --> 00:37:20,930
+they have driven the the the the future
+
+666
+00:37:17,510 --> 00:37:23,180
+path of mathematics of especially matrix
+
+667
+00:37:20,930 --> 00:37:26,350
+you know the matrix notation they have
+
+668
+00:37:23,180 --> 00:37:31,220
+driven you know in some cases they have
+
+669
+00:37:26,350 --> 00:37:32,540
+created a complete new branch of vibrant
+
+670
+00:37:31,220 --> 00:37:36,200
+verdant mathematics
+
+671
+00:37:32,540 --> 00:37:38,480
+okay so notation so what that's what I'm
+
+672
+00:37:36,200 --> 00:37:41,450
+saying you want to dive deeper that's
+
+673
+00:37:38,480 --> 00:37:43,640
+that's why that's my interest okay let's
+
+674
+00:37:41,450 --> 00:37:46,130
+just say that's that that is I happen to
+
+675
+00:37:43,640 --> 00:37:48,680
+be interested so I have I have quite a
+
+676
+00:37:46,130 --> 00:37:52,070
+few articles on these dot notation
+
+677
+00:37:48,680 --> 00:37:55,430
+verses pipe notation thing now I'm gonna
+
+678
+00:37:52,070 --> 00:37:58,640
+talk about pipe notation in a bit but
+
+679
+00:37:55,430 --> 00:38:02,090
+but this is why I think you know this is
+
+680
+00:37:58,640 --> 00:38:04,580
+why I find this interesting not okay
+
+681
+00:38:02,090 --> 00:38:06,230
+this is not your common Python style
+
+682
+00:38:04,580 --> 00:38:08,420
+guide [ __ ] idiots
+
+683
+00:38:06,230 --> 00:38:10,430
+you know the Ruby style guide you know
+
+684
+00:38:08,420 --> 00:38:13,490
+that there are some Emacs people I know
+
+685
+00:38:10,430 --> 00:38:17,330
+who like to you know post oh this is the
+
+686
+00:38:13,490 --> 00:38:19,190
+Emacs community a agreed upon style
+
+687
+00:38:17,330 --> 00:38:22,040
+guide everyone we should follow the
+
+688
+00:38:19,190 --> 00:38:24,560
+fuck-fuck heads this people you know
+
+689
+00:38:22,040 --> 00:38:27,560
+Ruby Python style guide Ruby style guide
+
+690
+00:38:24,560 --> 00:38:29,060
+emag misfit style guide [ __ ] them you
+
+691
+00:38:27,560 --> 00:38:30,560
+know you read them they didn't they
+
+692
+00:38:29,060 --> 00:38:35,560
+never did they don't know that they
+
+693
+00:38:30,560 --> 00:38:39,500
+don't have depth okay that's my rent
+
+694
+00:38:35,560 --> 00:38:43,730
+okay so let me talk about that this okay
+
+695
+00:38:39,500 --> 00:38:46,750
+so let's talk about the next thing pipe
+
+696
+00:38:43,730 --> 00:38:52,330
+notation okay
+
+697
+00:38:46,750 --> 00:38:52,330
+he just means to ossify so cough I
+
+698
+00:38:52,380 --> 00:39:00,859
+so let's see what is the difference
+
+699
+00:38:56,640 --> 00:39:02,430
+between camel case and snake case oh
+
+700
+00:39:00,859 --> 00:39:11,249
+that's easy
+
+701
+00:39:02,430 --> 00:39:14,279
+so camel case is like this okay let me
+
+702
+00:39:11,249 --> 00:39:16,799
+get it to it okay so no no second so
+
+703
+00:39:14,279 --> 00:39:20,579
+camel case camel case
+
+704
+00:39:16,799 --> 00:39:27,479
+okay equals to three okay and the snake
+
+705
+00:39:20,579 --> 00:39:30,059
+case is like that you see so that's the
+
+706
+00:39:27,479 --> 00:39:39,470
+camel case was a snake case in fact I
+
+707
+00:39:30,059 --> 00:39:44,369
+have an article on that I have read all
+
+708
+00:39:39,470 --> 00:39:47,940
+articles there is exist about camel case
+
+709
+00:39:44,369 --> 00:39:51,289
+versus snake case because I have this is
+
+710
+00:39:47,940 --> 00:39:51,289
+one of my obsession
+
+711
+00:39:51,479 --> 00:39:57,779
+I have argon this written in 2015 and
+
+712
+00:39:55,079 --> 00:40:02,430
+basically I've read quite a few articles
+
+713
+00:39:57,779 --> 00:40:05,039
+about oh you know research papers or or
+
+714
+00:40:02,430 --> 00:40:08,999
+blogs other programmers blogs about
+
+715
+00:40:05,039 --> 00:40:12,299
+camel case versus snake case and a bunch
+
+716
+00:40:08,999 --> 00:40:15,869
+of style guides you know from different
+
+717
+00:40:12,299 --> 00:40:19,469
+languages so that's that's about camel
+
+718
+00:40:15,869 --> 00:40:23,779
+case versus snake case okay let me post
+
+719
+00:40:19,469 --> 00:40:29,489
+it to today's talk show okay so just
+
+720
+00:40:23,779 --> 00:40:31,769
+code and okay there we have it that's
+
+721
+00:40:29,489 --> 00:40:34,529
+today's talk show topics camel case
+
+722
+00:40:31,769 --> 00:40:41,700
+versus snake is so next thing let's talk
+
+723
+00:40:34,529 --> 00:40:45,420
+about UNIX pipe notation the [ __ ]
+
+724
+00:40:41,700 --> 00:40:47,460
+UNIX pipes notation the the UNIX revos
+
+725
+00:40:45,420 --> 00:40:49,920
+let me tell you what is the pipe
+
+726
+00:40:47,460 --> 00:40:55,529
+notation okay so maybe the best thing to
+
+727
+00:40:49,920 --> 00:40:59,609
+do is by example so do I have anything
+
+728
+00:40:55,529 --> 00:41:01,950
+sensitive here no okay so let's do LS so
+
+729
+00:40:59,609 --> 00:41:06,160
+you see this is a typical UNIX command
+
+730
+00:41:01,950 --> 00:41:11,230
+that shows my directory so LS
+
+731
+00:41:06,160 --> 00:41:15,400
+- al incomprehensible [ __ ] okay so now I
+
+732
+00:41:11,230 --> 00:41:19,630
+have this all my directories a means
+
+733
+00:41:15,400 --> 00:41:27,220
+show all and all means long form okay so
+
+734
+00:41:19,630 --> 00:41:30,069
+so this is you know LS - al and now
+
+735
+00:41:27,220 --> 00:41:32,289
+let's say I want to find all my file
+
+736
+00:41:30,069 --> 00:41:37,440
+name or directories that contains the
+
+737
+00:41:32,289 --> 00:41:42,240
+word Google let's just say ok so - al
+
+738
+00:41:37,440 --> 00:41:46,660
+pipe ok but but vertical bar and grep
+
+739
+00:41:42,240 --> 00:41:50,559
+Google ok empty because I need to
+
+740
+00:41:46,660 --> 00:41:52,960
+capitalize school ok G okay so you see
+
+741
+00:41:50,559 --> 00:41:56,079
+so now I have shown all the files that
+
+742
+00:41:52,960 --> 00:41:59,799
+contains the word Google by using great
+
+743
+00:41:56,079 --> 00:42:02,060
+you know that's UNIX command so let's
+
+744
+00:41:59,799 --> 00:42:03,359
+let's do another one let's see
+
+745
+00:42:02,060 --> 00:42:05,529
+[Music]
+
+746
+00:42:03,359 --> 00:42:13,450
+actually let's go through my Emacs
+
+747
+00:42:05,529 --> 00:42:20,230
+directory so CD web ago Emacs okay and L
+
+748
+00:42:13,450 --> 00:42:23,619
+and do LS - al ok so that's my Emacs
+
+749
+00:42:20,230 --> 00:42:28,390
+directory actually CD to Emacs okay and
+
+750
+00:42:23,619 --> 00:42:32,559
+do a L so we got a whole bunch of stuff
+
+751
+00:42:28,390 --> 00:42:36,369
+so you got like thousands of fine you
+
+752
+00:42:32,559 --> 00:42:41,740
+know 700 files so let's do so let's do
+
+753
+00:42:36,369 --> 00:42:46,599
+LS ok LS - al type - I want to know how
+
+754
+00:42:41,740 --> 00:42:52,109
+many files are there so pipe to count WC
+
+755
+00:42:46,599 --> 00:42:58,660
+WC is what count okay so it says I have
+
+756
+00:42:52,109 --> 00:43:01,329
+895 files ok 895 files but but but the
+
+757
+00:42:58,660 --> 00:43:03,819
+important thing here is that I am using
+
+758
+00:43:01,329 --> 00:43:05,859
+the word vertical line that that stand
+
+759
+00:43:03,819 --> 00:43:10,450
+for pipe it shows you know I'm showing
+
+760
+00:43:05,859 --> 00:43:12,759
+you some examples so I want to let's
+
+761
+00:43:10,450 --> 00:43:15,670
+let's do it again so let's I want to
+
+762
+00:43:12,759 --> 00:43:20,079
+grab all files that contains the word
+
+763
+00:43:15,670 --> 00:43:24,429
+Emacs okay so you know s - eh
+
+764
+00:43:20,079 --> 00:43:29,739
+pipe grab Emax there it is a lot fires
+
+765
+00:43:24,429 --> 00:43:33,880
+again and I want to now I want to know
+
+766
+00:43:29,739 --> 00:43:39,039
+how many are there so I pipe again WC
+
+767
+00:43:33,880 --> 00:43:41,679
+you see now it says I have 400 in one
+
+768
+00:43:39,039 --> 00:43:44,739
+files containing whose file name
+
+769
+00:43:41,679 --> 00:43:47,049
+contains the word Emacs okay but anyway
+
+770
+00:43:44,739 --> 00:43:51,150
+that is an example of pipe you see this
+
+771
+00:43:47,049 --> 00:43:54,099
+this is a out thing
+
+772
+00:43:51,150 --> 00:43:59,679
+so that's pipe pipe that you know that's
+
+773
+00:43:54,099 --> 00:44:03,489
+a very common UNIX command-line syntax
+
+774
+00:43:59,679 --> 00:44:06,729
+and this pipe syntax you can it's you
+
+775
+00:44:03,489 --> 00:44:08,769
+can think of it as a postfix notation in
+
+776
+00:44:06,729 --> 00:44:11,259
+other words it's similar to the table
+
+777
+00:44:08,769 --> 00:44:14,019
+notation that's why we are talking about
+
+778
+00:44:11,259 --> 00:44:15,969
+it you see for many programmers star
+
+779
+00:44:14,019 --> 00:44:17,890
+notation is convenient you know because
+
+780
+00:44:15,969 --> 00:44:20,859
+it's like function Cheney that's a
+
+781
+00:44:17,890 --> 00:44:22,959
+proper word function Chet you make a
+
+782
+00:44:20,859 --> 00:44:25,150
+chain of functions you know you know you
+
+783
+00:44:22,959 --> 00:44:27,339
+have data pass it to this function
+
+784
+00:44:25,150 --> 00:44:30,039
+passes to that function then pass fast
+
+785
+00:44:27,339 --> 00:44:30,279
+fast then you get a result in a similar
+
+786
+00:44:30,039 --> 00:44:34,299
+way
+
+787
+00:44:30,279 --> 00:44:40,509
+that's UNIX pipe now the proper word is
+
+788
+00:44:34,299 --> 00:44:43,900
+you call it post so it's a postfix
+
+789
+00:44:40,509 --> 00:44:46,869
+notation because the function name comes
+
+790
+00:44:43,900 --> 00:44:50,259
+after the argument you see you have data
+
+791
+00:44:46,869 --> 00:44:52,589
+then the function name then function
+
+792
+00:44:50,259 --> 00:44:56,829
+name you know function comes after the
+
+793
+00:44:52,589 --> 00:45:03,519
+the meet the data so that's that's UNIX
+
+794
+00:44:56,829 --> 00:45:07,089
+pipe okay and in fact the Alfred aho
+
+795
+00:45:03,519 --> 00:45:13,630
+okay Alfred aho guy he designed oke oke
+
+796
+00:45:07,089 --> 00:45:17,819
+is one of the important tool in UNIX 30
+
+797
+00:45:13,630 --> 00:45:21,400
+years ago so he is he and he so Alfred
+
+798
+00:45:17,819 --> 00:45:26,920
+aho he is also the author of this book
+
+799
+00:45:21,400 --> 00:45:29,229
+compiler book this book Emily yes so he
+
+800
+00:45:26,920 --> 00:45:31,329
+you know he did an interview and people
+
+801
+00:45:29,229 --> 00:45:34,030
+are asking him you know what do you
+
+802
+00:45:31,329 --> 00:45:35,560
+think you know when you designed pipe
+
+803
+00:45:34,030 --> 00:45:37,210
+you thinking about functional
+
+804
+00:45:35,560 --> 00:45:40,540
+programming you see this is all related
+
+805
+00:45:37,210 --> 00:45:43,750
+guys it's important so those of you
+
+806
+00:45:40,540 --> 00:45:48,850
+chanting Haskell monad you know this is
+
+807
+00:45:43,750 --> 00:45:50,980
+all related you know get information not
+
+808
+00:45:48,850 --> 00:45:54,460
+from those phases that easily come to
+
+809
+00:45:50,980 --> 00:45:57,700
+you but you from only only you know
+
+810
+00:45:54,460 --> 00:46:00,400
+value information that you actually dig
+
+811
+00:45:57,700 --> 00:46:03,730
+and to find it that that those are
+
+812
+00:46:00,400 --> 00:46:06,760
+valuable information so here I'm showing
+
+813
+00:46:03,730 --> 00:46:09,820
+the relation about functional
+
+814
+00:46:06,760 --> 00:46:13,780
+programming about that notation about
+
+815
+00:46:09,820 --> 00:46:16,870
+UNIX pipe they are all related and this
+
+816
+00:46:13,780 --> 00:46:19,060
+is about and you know it's ready to like
+
+817
+00:46:16,870 --> 00:46:21,970
+I mentioned before language function
+
+818
+00:46:19,060 --> 00:46:24,220
+design syntax then pretty soon it
+
+819
+00:46:21,970 --> 00:46:28,330
+becomes formal languages formal
+
+820
+00:46:24,220 --> 00:46:30,570
+languages huge the fundamental actually
+
+821
+00:46:28,330 --> 00:46:34,030
+the most important branch of computer
+
+822
+00:46:30,570 --> 00:46:36,190
+theoretical computer science formal
+
+823
+00:46:34,030 --> 00:46:39,670
+languages okay look at look it up on
+
+824
+00:46:36,190 --> 00:46:42,220
+Wikipedia formal languages that that
+
+825
+00:46:39,670 --> 00:46:43,210
+formal languages is all about syntax
+
+826
+00:46:42,220 --> 00:46:47,350
+nothing else
+
+827
+00:46:43,210 --> 00:46:50,410
+syntax syntax alone so anyway so this
+
+828
+00:46:47,350 --> 00:46:52,360
+guy offered aho he talks about he's
+
+829
+00:46:50,410 --> 00:46:55,510
+saying you know when he created oak and
+
+830
+00:46:52,360 --> 00:46:58,090
+the the UNIX pipe I mean he's talking
+
+831
+00:46:55,510 --> 00:47:01,180
+about the UNIX pipes in tax actually
+
+832
+00:46:58,090 --> 00:47:03,430
+that idea came from functional
+
+833
+00:47:01,180 --> 00:47:05,350
+programming you know function for I mean
+
+834
+00:47:03,430 --> 00:47:08,650
+where does that idea came from it came
+
+835
+00:47:05,350 --> 00:47:11,830
+from mathematics he's saying that UNIX
+
+836
+00:47:08,650 --> 00:47:15,490
+pipe came from math okay not monad [ __ ]
+
+837
+00:47:11,830 --> 00:47:17,080
+the UNIX pipe when he designed it I mean
+
+838
+00:47:15,490 --> 00:47:19,150
+the the when his friend you know
+
+839
+00:47:17,080 --> 00:47:22,300
+whatever when he designed that the UNIX
+
+840
+00:47:19,150 --> 00:47:27,400
+5is came from function in mathematics
+
+841
+00:47:22,300 --> 00:47:28,090
+okay that is what this article is about
+
+842
+00:47:27,400 --> 00:47:31,990
+okay
+
+843
+00:47:28,090 --> 00:47:34,450
+function but however the UNIX [ __ ]
+
+844
+00:47:31,990 --> 00:47:36,310
+the you that the UNIX philosophy the
+
+845
+00:47:34,450 --> 00:47:39,940
+UNIX idiots you know chanting about
+
+846
+00:47:36,310 --> 00:47:41,950
+Linux today Linux and you know before
+
+847
+00:47:39,940 --> 00:47:43,960
+it's Unix you know H&E they don't they
+
+848
+00:47:41,950 --> 00:47:46,030
+don't know nothing about it you see do
+
+849
+00:47:43,960 --> 00:47:47,869
+you see they are just they are just
+
+850
+00:47:46,030 --> 00:47:49,430
+following fats
+
+851
+00:47:47,869 --> 00:47:52,190
+they are just getting their information
+
+852
+00:47:49,430 --> 00:47:54,650
+from hacker news from slash dot slash
+
+853
+00:47:52,190 --> 00:47:56,420
+dot you know that's before hacker news
+
+854
+00:47:54,650 --> 00:47:59,059
+you know they they don't they don't have
+
+855
+00:47:56,420 --> 00:48:01,940
+a brain they don't think so when these
+
+856
+00:47:59,059 --> 00:48:04,539
+people when the UNIX these [ __ ]
+
+857
+00:48:01,940 --> 00:48:08,180
+then when they talk about IP
+
+858
+00:48:04,539 --> 00:48:09,980
+they don't know about this history ok
+
+859
+00:48:08,180 --> 00:48:12,049
+they don't know they don't they don't
+
+860
+00:48:09,980 --> 00:48:13,789
+know anything about math although they
+
+861
+00:48:12,049 --> 00:48:15,410
+idolized math but then they know nothing
+
+862
+00:48:13,789 --> 00:48:18,349
+about math but every day they are just
+
+863
+00:48:15,410 --> 00:48:20,480
+chanting chanting about UNIX or UNIX
+
+864
+00:48:18,349 --> 00:48:23,990
+shell or bash you know this that this or
+
+865
+00:48:20,480 --> 00:48:27,140
+that but they so they when they talk
+
+866
+00:48:23,990 --> 00:48:29,509
+about type you know they it's a code ok
+
+867
+00:48:27,140 --> 00:48:31,789
+it's like hope I be UNIX fab is a great
+
+868
+00:48:29,509 --> 00:48:36,140
+things but they did never know a thing
+
+869
+00:48:31,789 --> 00:48:38,420
+and in fact in fact the pipe as we know
+
+870
+00:48:36,140 --> 00:48:41,619
+it in UNIX system is the one of the most
+
+871
+00:48:38,420 --> 00:48:47,240
+[ __ ] up [ __ ] in the universe okay in
+
+872
+00:48:41,619 --> 00:48:49,940
+programming UNIX pipe so in this alcove
+
+873
+00:48:47,240 --> 00:48:53,839
+I'm explaining it you know a bit why is
+
+874
+00:48:49,940 --> 00:48:56,930
+it [ __ ] up let me show you okay some
+
+875
+00:48:53,839 --> 00:49:00,049
+examples for example LS you know so we
+
+876
+00:48:56,930 --> 00:49:03,950
+did LS - al right actually hold on a
+
+877
+00:49:00,049 --> 00:49:10,160
+second let me do a screenshot of this
+
+878
+00:49:03,950 --> 00:49:14,239
+window so that puts up a screenshot and
+
+879
+00:49:10,160 --> 00:49:16,640
+I can go here you see this is this is
+
+880
+00:49:14,239 --> 00:49:20,119
+today's talk show page and I go here and
+
+881
+00:49:16,640 --> 00:49:22,190
+I make a screenshot I hold on let me
+
+882
+00:49:20,119 --> 00:49:27,019
+show you the command okay so I press two
+
+883
+00:49:22,190 --> 00:49:30,920
+keys and say okay and say okay so let's
+
+884
+00:49:27,019 --> 00:49:34,880
+see what is is there it is you see
+
+885
+00:49:30,920 --> 00:49:36,859
+showing browser we have a screenshot I
+
+886
+00:49:34,880 --> 00:49:40,029
+don't even have to go to desktop okay
+
+887
+00:49:36,859 --> 00:49:43,160
+for so those those of you Emacs users
+
+888
+00:49:40,029 --> 00:49:46,700
+you might look into what I'm I did you
+
+889
+00:49:43,160 --> 00:49:49,249
+know these commands on my website so
+
+890
+00:49:46,700 --> 00:49:54,589
+there it is a screenshot okay so anyway
+
+891
+00:49:49,249 --> 00:49:57,289
+so we did so we so we you see so let me
+
+892
+00:49:54,589 --> 00:50:01,310
+explain the pipe okay why why the UNIX
+
+893
+00:49:57,289 --> 00:50:07,060
+pipe is one [ __ ] [ __ ] or factor
+
+894
+00:50:01,310 --> 00:50:10,370
+[ __ ] and that is my hatred of eunuchs
+
+895
+00:50:07,060 --> 00:50:12,800
+contrary to you know most of you heard
+
+896
+00:50:10,370 --> 00:50:17,000
+and I know most of you love Linux in
+
+897
+00:50:12,800 --> 00:50:21,590
+open-source you know you know but you
+
+898
+00:50:17,000 --> 00:50:25,570
+know anyway so so yes - al you know
+
+899
+00:50:21,590 --> 00:50:29,600
+that's that means show all and long form
+
+900
+00:50:25,570 --> 00:50:33,770
+but the - al is actually a shortcut so
+
+901
+00:50:29,600 --> 00:50:38,450
+the the the alternative is - a - ÿà okay
+
+902
+00:50:33,770 --> 00:50:40,160
+is you see you see there so let's enter
+
+903
+00:50:38,450 --> 00:50:43,340
+you see let's do it again
+
+904
+00:50:40,160 --> 00:50:48,800
+- ALS - 8 - L they are equivalent
+
+905
+00:50:43,340 --> 00:50:51,260
+because the syntax is such that when you
+
+906
+00:50:48,800 --> 00:50:53,030
+you know typically you're - is an option
+
+907
+00:50:51,260 --> 00:50:55,880
+but you have when you have multiple of
+
+908
+00:50:53,030 --> 00:50:58,880
+them you you can usually combine them so
+
+909
+00:50:55,880 --> 00:51:01,660
+you instead of - a - well you can just
+
+910
+00:50:58,880 --> 00:51:05,030
+say - al you can combine the options
+
+911
+00:51:01,660 --> 00:51:07,430
+usually that's that's a that's a key
+
+912
+00:51:05,030 --> 00:51:13,100
+that's a problem do not always it's an
+
+913
+00:51:07,430 --> 00:51:15,290
+entirely inconsistent [ __ ] why because
+
+914
+00:51:13,100 --> 00:51:17,330
+for example - al so what what do you
+
+915
+00:51:15,290 --> 00:51:21,140
+mean usually so let me show you an
+
+916
+00:51:17,330 --> 00:51:24,350
+example where you cannot you cannot just
+
+917
+00:51:21,140 --> 00:51:27,530
+combine the option names so I have
+
+918
+00:51:24,350 --> 00:51:31,910
+example I have quite quite a lot 1,000
+
+919
+00:51:27,530 --> 00:51:33,920
+examples here okay there it is
+
+920
+00:51:31,910 --> 00:51:36,620
+perversion okay let me let me show you
+
+921
+00:51:33,920 --> 00:51:40,880
+okay let me let me show you this Emacs
+
+922
+00:51:36,620 --> 00:51:45,650
+okay let's show Perl - version you see
+
+923
+00:51:40,880 --> 00:51:49,700
+that / - version in fact it's - Ruby -
+
+924
+00:51:45,650 --> 00:51:53,900
+version can we do that Ruby - version it
+
+925
+00:51:49,700 --> 00:51:58,250
+is let's say Python - version there is
+
+926
+00:51:53,900 --> 00:52:04,280
+you see - version it oh wait look there
+
+927
+00:51:58,250 --> 00:52:07,820
+it is the problem I thought - [ __ ]
+
+928
+00:52:04,280 --> 00:52:09,380
+a new option - e you see so what is the
+
+929
+00:52:07,820 --> 00:52:12,590
+problem you guys know what's the problem
+
+930
+00:52:09,380 --> 00:52:15,109
+I'm getting into right Oh am i - so you
+
+931
+00:52:12,590 --> 00:52:17,059
+see normally the -
+
+932
+00:52:15,109 --> 00:52:20,509
+is supposed to be combination of options
+
+933
+00:52:17,059 --> 00:52:26,239
+but not always it depends it depends on
+
+934
+00:52:20,509 --> 00:52:29,390
+each and every program so here so for
+
+935
+00:52:26,239 --> 00:52:32,839
+some of them you know the dash version
+
+936
+00:52:29,390 --> 00:52:38,029
+works okay works in Perl works in Ruby
+
+937
+00:52:32,839 --> 00:52:40,249
+but not Python because Python the
+
+938
+00:52:38,029 --> 00:52:43,849
+problem is when you know some command
+
+939
+00:52:40,249 --> 00:52:45,859
+they - several letters that's one option
+
+940
+00:52:43,849 --> 00:52:48,880
+that's not combination that's a problem
+
+941
+00:52:45,859 --> 00:52:52,460
+so it's inconsistent the syntax is
+
+942
+00:52:48,880 --> 00:52:54,950
+ad-hoc you know it's case by case basis
+
+943
+00:52:52,460 --> 00:52:57,259
+that means every time you call any UNIX
+
+944
+00:52:54,950 --> 00:53:00,049
+command you have to know what that
+
+945
+00:52:57,259 --> 00:53:02,420
+command specifically do you know the
+
+946
+00:53:00,049 --> 00:53:05,059
+syntax so so for every command you have
+
+947
+00:53:02,420 --> 00:53:08,239
+to learn a new syntax that's what it is
+
+948
+00:53:05,059 --> 00:53:11,210
+it's a factor of system and this is just
+
+949
+00:53:08,239 --> 00:53:14,480
+one of the example one of the problems
+
+950
+00:53:11,210 --> 00:53:17,390
+that there's a lot more ok so let me
+
+951
+00:53:14,480 --> 00:53:19,430
+show you ok so so so let's do Python
+
+952
+00:53:17,390 --> 00:53:23,749
+again let me show you the proper way to
+
+953
+00:53:19,430 --> 00:53:30,619
+code the Python one for some reason my
+
+954
+00:53:23,749 --> 00:53:33,940
+Shou is stuck ok so I don't know why my
+
+955
+00:53:30,619 --> 00:53:33,940
+my Shou is stuck
+
+956
+00:53:44,820 --> 00:53:53,850
+my shower is stuck for some reason this
+
+957
+00:53:48,960 --> 00:53:56,420
+happened to me recently I'm trying to
+
+958
+00:53:53,850 --> 00:53:56,420
+close it now
+
+959
+00:54:05,950 --> 00:54:14,030
+okay there it is so Python - - version
+
+960
+00:54:11,770 --> 00:54:17,240
+there it is that works
+
+961
+00:54:14,030 --> 00:54:19,760
+okay the - - is another thing the - - is
+
+962
+00:54:17,240 --> 00:54:22,400
+created by free software foundation by
+
+963
+00:54:19,760 --> 00:54:25,340
+the GNU project because they they think
+
+964
+00:54:22,400 --> 00:54:29,510
+they can improve it but it end up in the
+
+965
+00:54:25,340 --> 00:54:31,310
+more complexity so anyway so this
+
+966
+00:54:29,510 --> 00:54:33,560
+article is a bit long they are quite a
+
+967
+00:54:31,310 --> 00:54:35,990
+lot more and the most interesting thing
+
+968
+00:54:33,560 --> 00:54:42,260
+is the PS okay let me show you another
+
+969
+00:54:35,990 --> 00:54:45,680
+example PS a you wwx you see this
+
+970
+00:54:42,260 --> 00:54:47,630
+command shows all your processes against
+
+971
+00:54:45,680 --> 00:54:53,570
+PS space
+
+972
+00:54:47,630 --> 00:54:57,590
+uw-w x notice that there is no - so my
+
+973
+00:54:53,570 --> 00:55:01,700
+point here is that it's there's no that
+
+974
+00:54:57,590 --> 00:55:05,090
+the syntax is not consistent every
+
+975
+00:55:01,700 --> 00:55:09,109
+basically in practice okay this is not
+
+976
+00:55:05,090 --> 00:55:11,750
+in theory in practice every unix command
+
+977
+00:55:09,109 --> 00:55:15,200
+when you call them you have to learn
+
+978
+00:55:11,750 --> 00:55:18,050
+it's specific to syntax okay so you have
+
+979
+00:55:15,200 --> 00:55:19,880
+one you have few thousand unix commands
+
+980
+00:55:18,050 --> 00:55:23,990
+every one they have slightly different
+
+981
+00:55:19,880 --> 00:55:26,150
+syntax is one [ __ ] up okay that's that's
+
+982
+00:55:23,990 --> 00:55:28,490
+a UNIX philosophy I mean that's yeah
+
+983
+00:55:26,150 --> 00:55:31,400
+that's what UNIX philosophy is you know
+
+984
+00:55:28,490 --> 00:55:34,460
+the UNIX philosophy they tell you oh SMO
+
+985
+00:55:31,400 --> 00:55:36,859
+it's beautiful Oh each each program in
+
+986
+00:55:34,460 --> 00:55:38,690
+UNIX is so small and if they do it
+
+987
+00:55:36,859 --> 00:55:40,940
+perfect you know they do one thing well
+
+988
+00:55:38,690 --> 00:55:43,850
+well where are my ass okay
+
+989
+00:55:40,940 --> 00:55:47,210
+I haven't get into why he said yet okay
+
+990
+00:55:43,850 --> 00:55:49,630
+good but but this Oliver I discuss those
+
+991
+00:55:47,210 --> 00:55:52,780
+issues the bottom line is that is just
+
+992
+00:55:49,630 --> 00:55:56,060
+inconsistent it's one [ __ ] up [ __ ]
+
+993
+00:55:52,780 --> 00:55:58,550
+that's your UNIX philosophy you probably
+
+994
+00:55:56,060 --> 00:56:00,560
+don't know because you you all you know
+
+995
+00:55:58,550 --> 00:56:02,660
+is that it's beautiful its UNIX programs
+
+996
+00:56:00,560 --> 00:56:06,260
+it's most beautiful they are UNIX is
+
+997
+00:56:02,660 --> 00:56:11,270
+just beautiful beautiful period it in
+
+998
+00:56:06,260 --> 00:56:14,859
+fact is the most ugly [ __ ] possible okay
+
+999
+00:56:11,270 --> 00:56:19,330
+that that's about that UNIX pipe okay so
+
+1000
+00:56:14,859 --> 00:56:19,330
+yeah so we
+
+1001
+00:56:19,340 --> 00:56:23,450
+two things here one thing is about UNIX
+
+1002
+00:56:21,260 --> 00:56:27,020
+pipe then the other thing is about the
+
+1003
+00:56:23,450 --> 00:56:30,770
+UNIX UNIX Pipers functional programming
+
+1004
+00:56:27,020 --> 00:56:32,570
+the UNIX options it's inconsistent okay
+
+1005
+00:56:30,770 --> 00:56:34,670
+that's about that alcove then we're
+
+1006
+00:56:32,570 --> 00:56:38,320
+gonna talk about method chaining okay
+
+1007
+00:56:34,670 --> 00:56:42,940
+it's starting to get more complex
+
+1008
+00:56:38,320 --> 00:56:46,450
+actually how long have I been talking of
+
+1009
+00:56:42,940 --> 00:56:53,570
+fifty-six minutes
+
+1010
+00:56:46,450 --> 00:56:57,740
+okay so Newton versus Lebanese okay
+
+1011
+00:56:53,570 --> 00:57:00,530
+that's a great topic Nabi says no you
+
+1012
+00:56:57,740 --> 00:57:02,750
+sounds like a joke it's a punchline but
+
+1013
+00:57:00,530 --> 00:57:07,430
+if you are seriously asking this camel
+
+1014
+00:57:02,750 --> 00:57:13,970
+case and the snake case thanks okay so a
+
+1015
+00:57:07,430 --> 00:57:16,250
+a says C versus C plus Q I haven't run
+
+1016
+00:57:13,970 --> 00:57:20,350
+into you know the I haven't run into
+
+1017
+00:57:16,250 --> 00:57:24,710
+those syntaxes you know the UNIX shell
+
+1018
+00:57:20,350 --> 00:57:26,950
+syntax they change they changed they did
+
+1019
+00:57:24,710 --> 00:57:35,530
+change in the past thirty years and
+
+1020
+00:57:26,950 --> 00:57:38,840
+there is no one there is no one
+
+1021
+00:57:35,530 --> 00:57:46,700
+consistent old vision you know there is
+
+1022
+00:57:38,840 --> 00:57:48,890
+no one way you know they change is just
+
+1023
+00:57:46,700 --> 00:57:52,400
+randomly because that's how Unix Linux
+
+1024
+00:57:48,890 --> 00:57:56,420
+today Linux you know since year 2000 to
+
+1025
+00:57:52,400 --> 00:57:59,270
+year 2000 Linux took over and and in the
+
+1026
+00:57:56,420 --> 00:58:02,870
+past 20 years Linux you know has their
+
+1027
+00:57:59,270 --> 00:58:06,520
+own direction of change in the
+
+1028
+00:58:02,870 --> 00:58:09,740
+command-line syntax for example today a
+
+1029
+00:58:06,520 --> 00:58:13,460
+new generation let me show you okay so a
+
+1030
+00:58:09,740 --> 00:58:16,040
+new generation today you have get ok let
+
+1031
+00:58:13,460 --> 00:58:19,850
+me show you kiddies one of the exemplar
+
+1032
+00:58:16,040 --> 00:58:24,640
+theory of the syntax changes the command
+
+1033
+00:58:19,850 --> 00:58:28,160
+command line syntax changes that happens
+
+1034
+00:58:24,640 --> 00:58:31,720
+happened in the Linux you know world in
+
+1035
+00:58:28,160 --> 00:58:34,720
+the past 20 years this this begin about
+
+1036
+00:58:31,720 --> 00:58:34,720
+2007
+
+1037
+00:58:34,890 --> 00:58:39,869
+you know many Unix commands they have
+
+1038
+00:58:37,799 --> 00:58:44,940
+now this syntax and let me show you so
+
+1039
+00:58:39,869 --> 00:58:46,680
+get help okay you see it works I can you
+
+1040
+00:58:44,940 --> 00:58:52,470
+know we can do this in terminal as well
+
+1041
+00:58:46,680 --> 00:58:54,210
+you see get help you see but you see the
+
+1042
+00:58:52,470 --> 00:58:58,019
+interesting thing to note here is that
+
+1043
+00:58:54,210 --> 00:59:01,680
+get help like what the [ __ ] you know
+
+1044
+00:58:58,019 --> 00:59:03,569
+normally by the traditional unix way you
+
+1045
+00:59:01,680 --> 00:59:08,970
+don't do command like that like that you
+
+1046
+00:59:03,569 --> 00:59:11,519
+you must have - like you should be get -
+
+1047
+00:59:08,970 --> 00:59:16,559
+- help that's a new way
+
+1048
+00:59:11,519 --> 00:59:19,789
+Oh get - edge ok that's a tradition okay
+
+1049
+00:59:16,559 --> 00:59:24,569
+that's a UNIX tradition beginning about
+
+1050
+00:59:19,789 --> 00:59:27,420
+2007 or so okay it changed because this
+
+1051
+00:59:24,569 --> 00:59:30,359
+David there became a lot programs that I
+
+1052
+00:59:27,420 --> 00:59:32,970
+started to have this new kind of syntax
+
+1053
+00:59:30,359 --> 00:59:35,869
+that is skit you know like a command
+
+1054
+00:59:32,970 --> 00:59:38,579
+name then a sub command name then
+
+1055
+00:59:35,869 --> 00:59:42,989
+options okay this is new okay I'm
+
+1056
+00:59:38,579 --> 00:59:47,759
+telling you guys this is kind of new in
+
+1057
+00:59:42,989 --> 00:59:52,920
+fact I have a arc on that too somewhere
+
+1058
+00:59:47,759 --> 00:59:54,869
+let's see if I can find it because why
+
+1059
+00:59:52,920 --> 00:59:58,140
+am because I'm observing you know I
+
+1060
+00:59:54,869 --> 01:00:02,069
+study these kind of things I'm obsessed
+
+1061
+00:59:58,140 --> 01:00:07,999
+you know and I study and I then I blog
+
+1062
+01:00:02,069 --> 01:00:10,319
+about it so sorry UNIX command-line
+
+1063
+01:00:07,999 --> 01:00:12,680
+syntax let's see if I can find an
+
+1064
+01:00:10,319 --> 01:00:12,680
+article
+
+1065
+01:00:29,259 --> 01:00:35,450
+that alko is buried somewhere somewhere
+
+1066
+01:00:32,469 --> 01:00:46,029
+evolution okay command-line syntax
+
+1067
+01:00:35,450 --> 01:00:48,469
+evolution yeah anyway that's not
+
+1068
+01:00:46,029 --> 01:00:52,670
+important article I mean you just said
+
+1069
+01:00:48,469 --> 01:00:55,640
+you know the starting around 2007 you
+
+1070
+01:00:52,670 --> 01:00:59,420
+you started to have commands that takes
+
+1071
+01:00:55,640 --> 01:01:01,819
+this form and for example in Ruby okay
+
+1072
+01:00:59,420 --> 01:01:06,709
+let me show you Ruby okay so for example
+
+1073
+01:01:01,819 --> 01:01:09,410
+you newbie so you go to Luke sorry Ruby
+
+1074
+01:01:06,709 --> 01:01:13,150
+website then you can find let me show
+
+1075
+01:01:09,410 --> 01:01:16,749
+you okay so for example I think it's
+
+1076
+01:01:13,150 --> 01:01:20,109
+Ruby is one of the primary reason that
+
+1077
+01:01:16,749 --> 01:01:23,749
+started to have this change in UNIX
+
+1078
+01:01:20,109 --> 01:01:27,079
+command-line interface I think use Ruby
+
+1079
+01:01:23,749 --> 01:01:29,150
+is one of the primary cause okay so in
+
+1080
+01:01:27,079 --> 01:01:30,920
+Ruby if you are in Ruby if you are Ruby
+
+1081
+01:01:29,150 --> 01:01:33,319
+community programmer
+
+1082
+01:01:30,920 --> 01:01:37,190
+you you know Ruby has this bunch of
+
+1083
+01:01:33,319 --> 01:01:41,089
+tools IRB is Ruby interactive you know
+
+1084
+01:01:37,190 --> 01:01:45,170
+Ruby so you have I which is Ruby stock
+
+1085
+01:01:41,089 --> 01:01:49,359
+reader okay it's like a man page so then
+
+1086
+01:01:45,170 --> 01:01:51,979
+you have ruby gem you know gem is to
+
+1087
+01:01:49,359 --> 01:01:55,640
+install you know package manager ruby
+
+1088
+01:01:51,979 --> 01:01:58,369
+gem then you have rake rake is similar
+
+1089
+01:01:55,640 --> 01:02:00,049
+to make okay Ruby's version of make so
+
+1090
+01:01:58,369 --> 01:02:04,640
+you have a bunch of this Ruby
+
+1091
+01:02:00,049 --> 01:02:06,739
+command-line tools and usually they you
+
+1092
+01:02:04,640 --> 01:02:12,979
+know they are written they are you know
+
+1093
+01:02:06,739 --> 01:02:15,019
+they are written in Ruby and they they I
+
+1094
+01:02:12,979 --> 01:02:17,890
+think they didn't follow the UNIX
+
+1095
+01:02:15,019 --> 01:02:20,829
+tradition way exactly for some reason
+
+1096
+01:02:17,890 --> 01:02:23,719
+you know it's not it may not be a
+
+1097
+01:02:20,829 --> 01:02:26,299
+intentional change it just happens it
+
+1098
+01:02:23,719 --> 01:02:31,190
+just happened so you see for example you
+
+1099
+01:02:26,299 --> 01:02:34,339
+have this ruby bundle Ruby bundle okay
+
+1100
+01:02:31,190 --> 01:02:37,700
+that's a command command in Ruby so the
+
+1101
+01:02:34,339 --> 01:02:41,150
+way you run it is bundle then command
+
+1102
+01:02:37,700 --> 01:02:43,130
+then options then argument you know just
+
+1103
+01:02:41,150 --> 01:02:48,140
+like the get help thing the gets
+
+1104
+01:02:43,130 --> 01:02:51,410
+something kid commit kid get add you
+
+1105
+01:02:48,140 --> 01:02:53,180
+know get you know just like it so you
+
+1106
+01:02:51,410 --> 01:02:56,660
+have all these bunch of Ruby commands
+
+1107
+01:02:53,180 --> 01:03:00,410
+that takes this new form so that's what
+
+1108
+01:02:56,660 --> 01:03:01,790
+I'm saying so Ruby I think and and I'm
+
+1109
+01:03:00,410 --> 01:03:04,520
+not sure Ruby began
+
+1110
+01:03:01,790 --> 01:03:08,450
+or was it Python I don't know but anyway
+
+1111
+01:03:04,520 --> 01:03:10,990
+that's some example okay so let me post
+
+1112
+01:03:08,450 --> 01:03:17,119
+that so we have today's talk show topics
+
+1113
+01:03:10,990 --> 01:03:19,309
+Ruby okay so next thing so yeah so
+
+1114
+01:03:17,119 --> 01:03:23,329
+that's about the evolutions of unix
+
+1115
+01:03:19,309 --> 01:03:26,690
+shell commands next thing method
+
+1116
+01:03:23,329 --> 01:03:31,609
+chaining postfix operator and opie okay
+
+1117
+01:03:26,690 --> 01:03:34,069
+so actually you know those three three
+
+1118
+01:03:31,609 --> 01:03:39,859
+or four five more topics that's gonna
+
+1119
+01:03:34,069 --> 01:03:44,359
+take another hour so I'm not sure I'm
+
+1120
+01:03:39,859 --> 01:03:54,619
+not sure I we got 14 people watching oh
+
+1121
+01:03:44,359 --> 01:03:56,750
+god okay my energy drink is gone and do
+
+1122
+01:03:54,619 --> 01:04:05,480
+I have more energy drink I don't think
+
+1123
+01:03:56,750 --> 01:04:07,900
+so hmm sad and now we drink tea I guess
+
+1124
+01:04:05,480 --> 01:04:07,900
+tea
+
+1125
+01:04:28,349 --> 01:04:35,920
+so a a says a has a counter-argument you
+
+1126
+01:04:33,490 --> 01:04:39,640
+said you are going to demonstrate that
+
+1127
+01:04:35,920 --> 01:04:43,030
+types are not good then you jumped to
+
+1128
+01:04:39,640 --> 01:04:48,300
+arguments which are mere data so any
+
+1129
+01:04:43,030 --> 01:04:51,130
+program handles them as as it wants
+
+1130
+01:04:48,300 --> 01:04:53,200
+therefore you stress nothing here
+
+1131
+01:04:51,130 --> 01:04:56,890
+the only convention is having are
+
+1132
+01:04:53,200 --> 01:05:01,349
+exposed to programmers programs through
+
+1133
+01:04:56,890 --> 01:05:07,210
+lips start meant to me if you are using
+
+1134
+01:05:01,349 --> 01:05:10,780
+Pepsi no I haven't begin yet okay those
+
+1135
+01:05:07,210 --> 01:05:14,500
+are just what I've talked a sofa
+
+1136
+01:05:10,780 --> 01:05:20,710
+I just pre dude we have not started to
+
+1137
+01:05:14,500 --> 01:05:23,440
+talk about the the kind of well this is
+
+1138
+01:05:20,710 --> 01:05:25,150
+a lot more okay so so I'm going the next
+
+1139
+01:05:23,440 --> 01:05:29,700
+thing we're gonna talk about is about
+
+1140
+01:05:25,150 --> 01:05:31,420
+method chaining postfix operator and
+
+1141
+01:05:29,700 --> 01:05:34,060
+object-oriented programming
+
+1142
+01:05:31,420 --> 01:05:37,980
+object-oriented programming so I you
+
+1143
+01:05:34,060 --> 01:05:37,980
+know this there's a lot I want to say
+
+1144
+01:05:38,970 --> 01:05:46,810
+are you guys sport so hand
+
+1145
+01:05:41,800 --> 01:05:55,060
+okay so I should continue I guess I need
+
+1146
+01:05:46,810 --> 01:05:58,180
+to i okay so so this video is getting
+
+1147
+01:05:55,060 --> 01:06:06,490
+long so I have to think about what am I
+
+1148
+01:05:58,180 --> 01:06:08,770
+gonna do okay let's let me push on okay
+
+1149
+01:06:06,490 --> 01:06:12,190
+push on for maybe 20 minutes let's see
+
+1150
+01:06:08,770 --> 01:06:17,950
+where we are we're gonna try to finish
+
+1151
+01:06:12,190 --> 01:06:19,089
+this topic in one video so method
+
+1152
+01:06:17,950 --> 01:06:24,430
+chaining postfix
+
+1153
+01:06:19,089 --> 01:06:30,220
+operators in okay okay let me this is
+
+1154
+01:06:24,430 --> 01:06:33,660
+written four years ago so let me remind
+
+1155
+01:06:30,220 --> 01:06:33,660
+myself what I'm talking about
+
+1156
+01:06:39,330 --> 01:06:42,390
+okay so
+
+1157
+01:06:50,850 --> 01:06:58,050
+okay so let me tell you what this
+
+1158
+01:06:53,430 --> 01:07:03,240
+article is about let's go to now let's
+
+1159
+01:06:58,050 --> 01:07:09,170
+use a JavaScript example okay so let's
+
+1160
+01:07:03,240 --> 01:07:13,470
+do that okay so open the new one and
+
+1161
+01:07:09,170 --> 01:07:16,550
+magnify and JavaScript and let's do a
+
+1162
+01:07:13,470 --> 01:07:22,650
+JavaScript let's say SS okay constant
+
+1163
+01:07:16,550 --> 01:07:25,110
+constant X okay so s is a stream okay
+
+1164
+01:07:22,650 --> 01:07:29,790
+let's say some okay so we got a string
+
+1165
+01:07:25,110 --> 01:07:34,610
+and what we want to do let's do a split
+
+1166
+01:07:29,790 --> 01:07:39,870
+just like Python K xx split okay
+
+1167
+01:07:34,610 --> 01:07:46,860
+separator some thing okay split into a
+
+1168
+01:07:39,870 --> 01:07:55,940
+array so split by a space and that's it
+
+1169
+01:07:46,860 --> 01:07:55,940
+okay so constant Y y equals to that okay
+
+1170
+01:07:57,920 --> 01:08:05,280
+so this is JavaScript now we need to
+
+1171
+01:08:00,750 --> 01:08:09,660
+print it why why okay run it there is a
+
+1172
+01:08:05,280 --> 01:08:15,980
+result okay that's that's this is
+
+1173
+01:08:09,660 --> 01:08:15,980
+JavaScript now in order for this to work
+
+1174
+01:08:16,880 --> 01:08:25,130
+the nummy-nummy think let me let me try
+
+1175
+01:08:22,200 --> 01:08:25,130
+let me think about
+
+1176
+01:08:29,490 --> 01:08:37,750
+you see the you see the dot notation the
+
+1177
+01:08:34,359 --> 01:08:42,609
+dot notation is convenient in the sense
+
+1178
+01:08:37,750 --> 01:08:47,560
+that it is like UNIX pipes or function
+
+1179
+01:08:42,609 --> 01:08:49,240
+chaining or postfix notation why is it
+
+1180
+01:08:47,560 --> 01:08:51,040
+convenient because you know you just
+
+1181
+01:08:49,240 --> 01:08:54,670
+have dot something dot something so it
+
+1182
+01:08:51,040 --> 01:08:56,740
+like forms a sequence like a flow flow
+
+1183
+01:08:54,670 --> 01:09:00,970
+of the data like pipes you know water
+
+1184
+01:08:56,740 --> 01:09:04,720
+pipes so dot notation in object-oriented
+
+1185
+01:09:00,970 --> 01:09:07,210
+programming is many of you of people
+
+1186
+01:09:04,720 --> 01:09:10,900
+like it because it's like function
+
+1187
+01:09:07,210 --> 01:09:13,089
+chaining or piping or postfix notation
+
+1188
+01:09:10,900 --> 01:09:16,990
+that these are different ways to
+
+1189
+01:09:13,089 --> 01:09:19,660
+describe it you know it's a stream but
+
+1190
+01:09:16,990 --> 01:09:22,330
+let me show you let me show you some
+
+1191
+01:09:19,660 --> 01:09:24,279
+examples about how you know like more
+
+1192
+01:09:22,330 --> 01:09:26,880
+than one dot let's see if I have some
+
+1193
+01:09:24,279 --> 01:09:26,880
+examples
+
+1194
+01:09:35,240 --> 01:09:43,020
+so what what are some examples of darts
+
+1195
+01:09:38,760 --> 01:09:45,690
+okay so I mean I want a sequence of dots
+
+1196
+01:09:43,020 --> 01:09:48,900
+we need to come up with the example
+
+1197
+01:09:45,690 --> 01:09:51,450
+quickly a sequence of dots so split into
+
+1198
+01:09:48,900 --> 01:10:00,150
+a strain then okay trim okay so let's
+
+1199
+01:09:51,450 --> 01:10:05,120
+needs to trim do I have trimmed yes we
+
+1200
+01:10:00,150 --> 01:10:08,400
+do so split okay let's do this okay
+
+1201
+01:10:05,120 --> 01:10:11,970
+so we begin with a stream with a space
+
+1202
+01:10:08,400 --> 01:10:15,060
+before and after with a coma there then
+
+1203
+01:10:11,970 --> 01:10:19,230
+we try to split by a comma then we try
+
+1204
+01:10:15,060 --> 01:10:22,410
+to trim it remove the empty spaces so
+
+1205
+01:10:19,230 --> 01:10:27,000
+let's run it okay I got a problem
+
+1206
+01:10:22,410 --> 01:10:29,520
+trim is not there okay let's go to
+
+1207
+01:10:27,000 --> 01:10:32,550
+JavaScript tutorial my JavaScript
+
+1208
+01:10:29,520 --> 01:10:36,090
+tutorial in depth now if you guys like
+
+1209
+01:10:32,550 --> 01:10:39,780
+my stuff by myself okay by myself I have
+
+1210
+01:10:36,090 --> 01:10:43,380
+a link at the bottom where you can buy
+
+1211
+01:10:39,780 --> 01:10:47,340
+my JavaScript you know I have a links
+
+1212
+01:10:43,380 --> 01:10:51,810
+somewhere here you know where is my by
+
+1213
+01:10:47,340 --> 01:10:57,320
+JavaScript link [ __ ] I need to I need to
+
+1214
+01:10:51,810 --> 01:11:01,110
+promote myself okay there is there is my
+
+1215
+01:10:57,320 --> 01:11:04,470
+patreon okay and and by JavaScript
+
+1216
+01:11:01,110 --> 01:11:06,870
+tutorial I have the best the JavaScript
+
+1217
+01:11:04,470 --> 01:11:10,850
+tutorial so you can support me you know
+
+1218
+01:11:06,870 --> 01:11:13,530
+just make a token a gesture of
+
+1219
+01:11:10,850 --> 01:11:18,120
+appreciation if you like my stuff buy it
+
+1220
+01:11:13,530 --> 01:11:20,510
+okay so anyway so um so what I want to
+
+1221
+01:11:18,120 --> 01:11:24,450
+do so let's we need to look at
+
+1222
+01:11:20,510 --> 01:11:27,810
+JavaScript reference stream stream
+
+1223
+01:11:24,450 --> 01:11:29,970
+prototype we want the function that you
+
+1224
+01:11:27,810 --> 01:11:33,930
+know various function trim okay so there
+
+1225
+01:11:29,970 --> 01:11:42,450
+is a trim so why is it not walking here
+
+1226
+01:11:33,930 --> 01:11:46,020
+so trim returns a new stream wait this
+
+1227
+01:11:42,450 --> 01:11:48,120
+page is bad because I fail to say when
+
+1228
+01:11:46,020 --> 01:11:52,920
+is this function added I think
+
+1229
+01:11:48,120 --> 01:11:59,310
+this function is in JavaScript es mm mm
+
+1230
+01:11:52,920 --> 01:12:04,890
+oh yeah script
+
+1231
+01:11:59,310 --> 01:12:08,580
+yes 2019 so it's not in not jazz yet
+
+1232
+01:12:04,890 --> 01:12:13,670
+maybe okay so train star let's see if we
+
+1233
+01:12:08,580 --> 01:12:13,670
+can have that dream starts
+
+1234
+01:12:20,910 --> 01:12:28,210
+it's not in JavaScript I mean it's not
+
+1235
+01:12:23,770 --> 01:12:33,670
+in the the not J's version I mean so for
+
+1236
+01:12:28,210 --> 01:12:37,420
+example not - version a bad option
+
+1237
+01:12:33,670 --> 01:12:39,580
+version you see this annoying [ __ ] this
+
+1238
+01:12:37,420 --> 01:12:41,800
+you see this is a practical this you
+
+1239
+01:12:39,580 --> 01:12:44,950
+know when so we talked about the UNIX
+
+1240
+01:12:41,800 --> 01:12:46,900
+syntax inconsistency it's not just so in
+
+1241
+01:12:44,950 --> 01:12:50,350
+theory it's practical because sometimes
+
+1242
+01:12:46,900 --> 01:12:53,350
+it's one - virtual sentences - - version
+
+1243
+01:12:50,350 --> 01:12:56,020
+and as we have seen in Python sometimes
+
+1244
+01:12:53,350 --> 01:12:59,250
+it doesn't work you have to use - V it's
+
+1245
+01:12:56,020 --> 01:13:02,920
+a practical [ __ ]
+
+1246
+01:12:59,250 --> 01:13:04,870
+so stop chanting about the UNIX
+
+1247
+01:13:02,920 --> 01:13:11,320
+philosophy or how great it is it is
+
+1248
+01:13:04,870 --> 01:13:13,540
+actually not that great okay it's you
+
+1249
+01:13:11,320 --> 01:13:15,070
+know when you are chanting it you are -
+
+1250
+01:13:13,540 --> 01:13:17,560
+you are doing you are spreading
+
+1251
+01:13:15,070 --> 01:13:21,670
+propaganda you are spreading fake news
+
+1252
+01:13:17,560 --> 01:13:24,220
+and and in turn it doesn't benefit you
+
+1253
+01:13:21,670 --> 01:13:26,940
+okay it creates problem it creates like
+
+1254
+01:13:24,220 --> 01:13:29,950
+today's problem where Google Microsoft
+
+1255
+01:13:26,940 --> 01:13:32,290
+they are the greatest power in promoting
+
+1256
+01:13:29,950 --> 01:13:34,660
+open source but meanwhile they are
+
+1257
+01:13:32,290 --> 01:13:36,790
+actually the most evil you know the you
+
+1258
+01:13:34,660 --> 01:13:39,190
+they rob you you have no power you know
+
+1259
+01:13:36,790 --> 01:13:41,350
+if you don't work for them you cannot
+
+1260
+01:13:39,190 --> 01:13:46,530
+make a living you have nothing that's
+
+1261
+01:13:41,350 --> 01:13:49,420
+that's what happens when you chant
+
+1262
+01:13:46,530 --> 01:13:51,190
+propaganda you know code that you think
+
+1263
+01:13:49,420 --> 01:13:56,260
+it's good but you actually it's not
+
+1264
+01:13:51,190 --> 01:14:00,280
+Wayne's force so anyway so so what we
+
+1265
+01:13:56,260 --> 01:14:02,530
+want to show ok so not so anyway so trim
+
+1266
+01:14:00,280 --> 01:14:05,670
+string doesn't work I don't have it so
+
+1267
+01:14:02,530 --> 01:14:05,670
+let's try something else
+
+1268
+01:14:06,240 --> 01:14:13,930
+slice ok Java JavaScript is fairly bad
+
+1269
+01:14:10,140 --> 01:14:23,310
+so ok so we cannot use stream slice ok
+
+1270
+01:14:13,930 --> 01:14:27,720
+slice 3 ok let's see doing it starts end
+
+1271
+01:14:23,310 --> 01:14:27,720
+ok so I don't know what's going on
+
+1272
+01:14:34,790 --> 01:14:45,320
+oh okay so so split stream returns on
+
+1273
+01:14:41,180 --> 01:14:48,800
+array so you cannot you know it returns
+
+1274
+01:14:45,320 --> 01:14:52,820
+an array of two elements then if you
+
+1275
+01:14:48,800 --> 01:14:56,570
+want to take a substring you have to map
+
+1276
+01:14:52,820 --> 01:15:00,410
+it to you have to map okay so so there
+
+1277
+01:14:56,570 --> 01:15:09,470
+is we we are doing multiple dots now so
+
+1278
+01:15:00,410 --> 01:15:12,040
+map stream photo type slice okay stream
+
+1279
+01:15:09,470 --> 01:15:12,040
+photo type
+
+1280
+01:15:12,250 --> 01:15:20,960
+okay so it's becoming complex this is
+
+1281
+01:15:17,870 --> 01:15:23,720
+one reason some people object the DAR
+
+1282
+01:15:20,960 --> 01:15:27,110
+notation because then you have a one
+
+1283
+01:15:23,720 --> 01:15:28,820
+long line so and and by the way if you
+
+1284
+01:15:27,110 --> 01:15:30,770
+don't know what this is it's a bit
+
+1285
+01:15:28,820 --> 01:15:35,330
+complex okay that's the way JavaScript
+
+1286
+01:15:30,770 --> 01:15:39,140
+is so split returns a array now so you
+
+1287
+01:15:35,330 --> 01:15:42,620
+now you want to take a substring for of
+
+1288
+01:15:39,140 --> 01:15:43,610
+each element so now you have to call map
+
+1289
+01:15:42,620 --> 01:15:47,720
+okay
+
+1290
+01:15:43,610 --> 01:15:50,510
+map is a method of array and when you
+
+1291
+01:15:47,720 --> 01:15:53,870
+map you want to code the function slice
+
+1292
+01:15:50,510 --> 01:15:58,040
+and you have to say stream prototype
+
+1293
+01:15:53,870 --> 01:16:05,090
+slice okay start start at let's say it's
+
+1294
+01:15:58,040 --> 01:16:07,640
+not at one okay so we basically we are
+
+1295
+01:16:05,090 --> 01:16:13,030
+taking a sub stream by dropping the
+
+1296
+01:16:07,640 --> 01:16:13,030
+first character okay let's run it
+
+1297
+01:16:16,990 --> 01:16:26,470
+why is why Smith not Jeanette
+
+1298
+01:16:26,540 --> 01:16:32,179
+map array Maps
+
+1299
+01:16:40,920 --> 01:16:49,770
+Eero something is not a function ah god
+
+1300
+01:16:47,280 --> 01:16:52,590
+this is getting more complex but it's
+
+1301
+01:16:49,770 --> 01:16:55,080
+sure you okay so the error is that it's
+
+1302
+01:16:52,590 --> 01:16:58,590
+complaining so you see map takes one
+
+1303
+01:16:55,080 --> 01:17:02,070
+argument one or more that needs to be a
+
+1304
+01:16:58,590 --> 01:17:04,199
+function and here that is not a function
+
+1305
+01:17:02,070 --> 01:17:06,570
+because that what we have there is an
+
+1306
+01:17:04,199 --> 01:17:09,120
+expression we are doing a function call
+
+1307
+01:17:06,570 --> 01:17:11,160
+strained out prototype does slice you
+
+1308
+01:17:09,120 --> 01:17:14,850
+know what so we need that to be a
+
+1309
+01:17:11,160 --> 01:17:16,949
+function so in order to do that you need
+
+1310
+01:17:14,850 --> 01:17:24,989
+an arrow function so this is how you do
+
+1311
+01:17:16,949 --> 01:17:28,070
+it okay so let me show you okay so this
+
+1312
+01:17:24,989 --> 01:17:31,110
+is the this is actually the proper way
+
+1313
+01:17:28,070 --> 01:17:33,270
+okay so let's I'm now going to explain
+
+1314
+01:17:31,110 --> 01:17:35,699
+so well so anyway so here is the arrow
+
+1315
+01:17:33,270 --> 01:17:38,969
+function in so lambda it's a function it
+
+1316
+01:17:35,699 --> 01:17:43,199
+takes one argument then you know the X
+
+1317
+01:17:38,969 --> 01:17:46,920
+is a string you slice it by dropping the
+
+1318
+01:17:43,199 --> 01:17:49,250
+first character okay run it there we
+
+1319
+01:17:46,920 --> 01:17:49,250
+have it
+
+1320
+01:17:50,480 --> 01:18:04,040
+so let's change the example here okay
+
+1321
+01:18:00,530 --> 01:18:04,040
+let's run it
+
+1322
+01:18:05,540 --> 01:18:15,210
+okay so okay so X sum X thing we
+
+1323
+01:18:12,810 --> 01:18:17,460
+dropping the X you know so that's how
+
+1324
+01:18:15,210 --> 01:18:20,490
+you how it works so you you here's an
+
+1325
+01:18:17,460 --> 01:18:25,440
+example of this is actually a real world
+
+1326
+01:18:20,490 --> 01:18:30,200
+example of dar notation in practice you
+
+1327
+01:18:25,440 --> 01:18:36,230
+see so you see dot then dot something
+
+1328
+01:18:30,200 --> 01:18:40,560
+map then actually we can start again so
+
+1329
+01:18:36,230 --> 01:18:42,830
+we can dot again you know anyway we are
+
+1330
+01:18:40,560 --> 01:18:49,290
+getting more complex
+
+1331
+01:18:42,830 --> 01:18:53,490
+okay so copy that to here and color it
+
+1332
+01:18:49,290 --> 01:18:56,760
+showing browser there it is okay that's
+
+1333
+01:18:53,490 --> 01:18:59,130
+the example of dot notation so what what
+
+1334
+01:18:56,760 --> 01:19:04,830
+is my point my point I want to mention
+
+1335
+01:18:59,130 --> 01:19:07,110
+is that you know dot notation is
+
+1336
+01:19:04,830 --> 01:19:10,800
+convenient because it's like a sequence
+
+1337
+01:19:07,110 --> 01:19:13,800
+of things a chain function chain oh it's
+
+1338
+01:19:10,800 --> 01:19:16,380
+a function chain or UNIX pipe or postfix
+
+1339
+01:19:13,800 --> 01:19:19,350
+notation because you think of the dart
+
+1340
+01:19:16,380 --> 01:19:22,020
+as a postfix notation argument comes
+
+1341
+01:19:19,350 --> 01:19:25,680
+before the function so you know it's
+
+1342
+01:19:22,020 --> 01:19:29,400
+convenient but however in the old Veta
+
+1343
+01:19:25,680 --> 01:19:32,730
+notation there is one requirement it
+
+1344
+01:19:29,400 --> 01:19:39,210
+does not always work in order for our
+
+1345
+01:19:32,730 --> 01:19:43,590
+notation to work the whatever before the
+
+1346
+01:19:39,210 --> 01:19:46,680
+dot must be your object and whatever the
+
+1347
+01:19:43,590 --> 01:19:51,590
+method you call must be a method of that
+
+1348
+01:19:46,680 --> 01:19:56,340
+object so when you have a dot B dot C a
+
+1349
+01:19:51,590 --> 01:19:58,890
+must have the method B and whatever that
+
+1350
+01:19:56,340 --> 01:20:01,230
+returns must have the method C you see
+
+1351
+01:19:58,890 --> 01:20:04,290
+every time you toss something it returns
+
+1352
+01:20:01,230 --> 01:20:08,960
+something and that something must be a
+
+1353
+01:20:04,290 --> 01:20:11,910
+object then the next method must be a
+
+1354
+01:20:08,960 --> 01:20:15,990
+method of that object you see it needs
+
+1355
+01:20:11,910 --> 01:20:19,050
+to have this object method relation for
+
+1356
+01:20:15,990 --> 01:20:20,699
+each of your data dot something if
+
+1357
+01:20:19,050 --> 01:20:23,520
+there's no such relation your thought
+
+1358
+01:20:20,699 --> 01:20:26,429
+doesn't work so what I'm saying is that
+
+1359
+01:20:23,520 --> 01:20:29,849
+it's not a general way it's not our
+
+1360
+01:20:26,429 --> 01:20:32,070
+actual postfix notation it's tied to a
+
+1361
+01:20:29,849 --> 01:20:34,260
+semantics you see so here's the thing
+
+1362
+01:20:32,070 --> 01:20:37,159
+you see we are talking about the
+
+1363
+01:20:34,260 --> 01:20:43,290
+connection between programming language
+
+1364
+01:20:37,159 --> 01:20:45,059
+semantics and its syntax you see when we
+
+1365
+01:20:43,290 --> 01:20:47,400
+look at that notation we think oh this
+
+1366
+01:20:45,059 --> 01:20:51,739
+is great syntax you know this is just
+
+1367
+01:20:47,400 --> 01:20:55,320
+the syntax very convenient syntax but no
+
+1368
+01:20:51,739 --> 01:20:58,980
+that's not totally it peace
+
+1369
+01:20:55,320 --> 01:21:02,040
+you know this syntax works if and only
+
+1370
+01:20:58,980 --> 01:21:04,110
+if you know whatever your dot that thing
+
+1371
+01:21:02,040 --> 01:21:06,300
+must be object and it must have a
+
+1372
+01:21:04,110 --> 01:21:08,719
+relation with a method otherwise it
+
+1373
+01:21:06,300 --> 01:21:08,719
+doesn't work
+
+1374
+01:21:08,869 --> 01:21:14,639
+that is my point okay that is my point
+
+1375
+01:21:12,000 --> 01:21:18,449
+that that is the point of this article
+
+1376
+01:21:14,639 --> 01:21:24,239
+method chaining postfix operator and ol
+
+1377
+01:21:18,449 --> 01:21:25,800
+P so so what was so why so so what's
+
+1378
+01:21:24,239 --> 01:21:28,139
+what's a big deal what's the big deal
+
+1379
+01:21:25,800 --> 01:21:30,809
+the big deal is that you cannot if you
+
+1380
+01:21:28,139 --> 01:21:33,570
+have two arbitrary functions you can now
+
+1381
+01:21:30,809 --> 01:21:35,969
+simply chain them they must have a
+
+1382
+01:21:33,570 --> 01:21:38,010
+relation they must have a object method
+
+1383
+01:21:35,969 --> 01:21:41,130
+you know relation then you can chain
+
+1384
+01:21:38,010 --> 01:21:45,360
+them so this is kind of a limitation in
+
+1385
+01:21:41,130 --> 01:21:48,360
+Oh P now you might say oh yeah but why
+
+1386
+01:21:45,360 --> 01:21:50,460
+do you need to change some you know some
+
+1387
+01:21:48,360 --> 01:21:55,820
+method that's unrelated to the object
+
+1388
+01:21:50,460 --> 01:21:58,739
+right because oh he's designed you know
+
+1389
+01:21:55,820 --> 01:22:01,349
+whatever data are the object always have
+
+1390
+01:21:58,739 --> 01:22:03,960
+its method you want to call you don't
+
+1391
+01:22:01,349 --> 01:22:05,969
+need a method outside of that object
+
+1392
+01:22:03,960 --> 01:22:08,940
+that's not true that's not totally true
+
+1393
+01:22:05,969 --> 01:22:11,790
+because in many situations in all people
+
+1394
+01:22:08,940 --> 01:22:14,190
+I mean you do want sometimes you want a
+
+1395
+01:22:11,790 --> 01:22:16,949
+method that's not in this object but you
+
+1396
+01:22:14,190 --> 01:22:19,260
+do want to call it for example we we
+
+1397
+01:22:16,949 --> 01:22:23,849
+almost show the example that string dot
+
+1398
+01:22:19,260 --> 01:22:27,449
+prototype but anyway so some so even in
+
+1399
+01:22:23,849 --> 01:22:31,770
+well-designed opie languages it does
+
+1400
+01:22:27,449 --> 01:22:32,970
+occur and actually often okay where you
+
+1401
+01:22:31,770 --> 01:22:35,970
+have a situation you
+
+1402
+01:22:32,970 --> 01:22:39,090
+to call a method unlike only data but
+
+1403
+01:22:35,970 --> 01:22:41,910
+however that method is not a method of
+
+1404
+01:22:39,090 --> 01:22:46,800
+the data that method it belongs to some
+
+1405
+01:22:41,910 --> 01:22:48,960
+other object so you got a problem when
+
+1406
+01:22:46,800 --> 01:22:50,970
+that happens you cannot simply dot
+
+1407
+01:22:48,960 --> 01:22:53,310
+something you can you know this this
+
+1408
+01:22:50,970 --> 01:22:58,740
+chain notation this star notation breaks
+
+1409
+01:22:53,310 --> 01:23:01,140
+you don't you cannot use it anymore but
+
+1410
+01:22:58,740 --> 01:23:04,770
+if you are in a functional programming
+
+1411
+01:23:01,140 --> 01:23:07,380
+language or in UNIX pipe for example it
+
+1412
+01:23:04,770 --> 01:23:10,320
+always works you see when you pipe you
+
+1413
+01:23:07,380 --> 01:23:13,230
+know when you pipe air a start - air to
+
+1414
+01:23:10,320 --> 01:23:17,070
+grab - something to what count it does
+
+1415
+01:23:13,230 --> 01:23:21,420
+not require a object method relation
+
+1416
+01:23:17,070 --> 01:23:24,390
+between the things it's just data you
+
+1417
+01:23:21,420 --> 01:23:29,250
+know it's just pass through but in the
+
+1418
+01:23:24,390 --> 01:23:35,640
+dot notation it actually it's different
+
+1419
+01:23:29,250 --> 01:23:39,300
+it requires this relation to work okay I
+
+1420
+01:23:35,640 --> 01:23:41,940
+think maybe I'm it might like babbling
+
+1421
+01:23:39,300 --> 01:23:51,030
+too much I don't think I'm getting tired
+
+1422
+01:23:41,940 --> 01:23:56,010
+and I should stop and so we talked about
+
+1423
+01:23:51,030 --> 01:23:58,500
+that I hope I hope I hope I conveyed
+
+1424
+01:23:56,010 --> 01:24:02,160
+this thing even though it's pretty
+
+1425
+01:23:58,500 --> 01:24:09,650
+verbose velocity but velocity is good
+
+1426
+01:24:02,160 --> 01:24:09,650
+for you know driving in the point
+
+1427
+01:24:09,770 --> 01:24:16,950
+so just in sci-fi so let me see just in
+
+1428
+01:24:13,680 --> 01:24:23,910
+scoff I say stock size using a virtual
+
+1429
+01:24:16,950 --> 01:24:26,610
+editor Emacs live in Windows now I mean
+
+1430
+01:24:23,910 --> 01:24:33,090
+II max this is not virtual editor this
+
+1431
+01:24:26,610 --> 01:24:36,140
+is Emacs so let me see what what are you
+
+1432
+01:24:33,090 --> 01:24:36,140
+guys saying okay so
+
+1433
+01:24:44,920 --> 01:24:50,230
+so crash hacker says good morning for
+
+1434
+01:24:47,920 --> 01:24:53,310
+convenience underscore but I'm using
+
+1435
+01:24:50,230 --> 01:24:56,410
+spaces for privacy related stuff okay
+
+1436
+01:24:53,310 --> 01:24:57,370
+you are not using trim on string here
+
+1437
+01:24:56,410 --> 01:25:01,290
+that's right yeah
+
+1438
+01:24:57,370 --> 01:25:04,870
+so I corrected that trim it first right
+
+1439
+01:25:01,290 --> 01:25:08,620
+dream okay so crash hacker says I still
+
+1440
+01:25:04,870 --> 01:25:14,500
+don't see the advantage over pipes right
+
+1441
+01:25:08,620 --> 01:25:19,900
+so town notation justine says what was
+
+1442
+01:25:14,500 --> 01:25:24,580
+window written Emacs by Bill Gates was
+
+1443
+01:25:19,900 --> 01:25:33,070
+windows written in Emacs by Bill Gates
+
+1444
+01:25:24,580 --> 01:25:36,900
+I don't think Bo Gates uses Emacs okay
+
+1445
+01:25:33,070 --> 01:25:41,620
+Pablo okay so what editor did Pio gates
+
+1446
+01:25:36,900 --> 01:25:46,330
+right windows in I don't think it's
+
+1447
+01:25:41,620 --> 01:25:49,750
+Emacs Q because if it is we I must have
+
+1448
+01:25:46,330 --> 01:25:57,070
+heard over the past 30 years yeah I
+
+1449
+01:25:49,750 --> 01:25:59,230
+don't think he used Emacs and and when
+
+1450
+01:25:57,070 --> 01:26:03,280
+the time at the time when he began
+
+1451
+01:25:59,230 --> 01:26:09,070
+Windows I don't think there is a Emacs
+
+1452
+01:26:03,280 --> 01:26:11,470
+editor I mean there's no Emacs in you
+
+1453
+01:26:09,070 --> 01:26:13,690
+know in whatever operating system he is
+
+1454
+01:26:11,470 --> 01:26:16,480
+using you know that's the beginning of
+
+1455
+01:26:13,690 --> 01:26:19,290
+personal computers he essentially
+
+1456
+01:26:16,480 --> 01:26:19,290
+created it
+
+1457
+01:26:27,349 --> 01:26:38,270
+okay I think maybe that's it okay so
+
+1458
+01:26:36,170 --> 01:26:43,099
+actually I have some more things about
+
+1459
+01:26:38,270 --> 01:26:46,099
+pipes so actually I explained most of it
+
+1460
+01:26:43,099 --> 01:26:50,449
+what I want to talk about pipes so we
+
+1461
+01:26:46,099 --> 01:26:52,610
+explained this wait we didn't explain
+
+1462
+01:26:50,449 --> 01:26:57,409
+that yet so we explain method chaining
+
+1463
+01:26:52,610 --> 01:27:02,659
+postfix operator NOP okay in summary the
+
+1464
+01:26:57,409 --> 01:27:05,960
+Oita notation seen technically it is a
+
+1465
+01:27:02,659 --> 01:27:13,210
+form of chaining functions or postfix
+
+1466
+01:27:05,960 --> 01:27:18,560
+operator but but but actually it it it
+
+1467
+01:27:13,210 --> 01:27:21,230
+it is the it depends on the function it
+
+1468
+01:27:18,560 --> 01:27:27,219
+depends on the object method relation
+
+1469
+01:27:21,230 --> 01:27:35,050
+for this syntax to walk okay then then
+
+1470
+01:27:27,219 --> 01:27:39,250
+then then my roommates
+
+1471
+01:27:35,050 --> 01:27:39,250
+Honus economic risotto
+
+1472
+01:27:52,620 --> 01:28:05,260
+then the okay my roommates I gotta go I
+
+1473
+01:27:56,560 --> 01:28:07,660
+think I gotta go we're gonna there's a
+
+1474
+01:28:05,260 --> 01:28:11,230
+this another big topic I want to talk
+
+1475
+01:28:07,660 --> 01:28:16,200
+about that is the relation of function
+
+1476
+01:28:11,230 --> 01:28:16,200
+composition versus postfix notation
+
+1477
+01:28:16,800 --> 01:28:23,700
+another day I guess so thank you guys
+
+1478
+01:28:19,630 --> 01:28:23,700
+for watching bye guys
+
+1479
+01:28:27,210 --> 01:28:34,540
+and act like actually there are kind of
+
+1480
+01:28:31,930 --> 01:28:35,260
+a few things I want to talk about maybe
+
+1481
+01:28:34,540 --> 01:28:38,100
+next time
+
+1482
+01:28:35,260 --> 01:28:43,290
+so there's also closure you know closure
+
+1483
+01:28:38,100 --> 01:28:46,930
+a dialect of this you can it has
+
+1484
+01:28:43,290 --> 01:28:50,980
+function Chinese syntax like that and
+
+1485
+01:28:46,930 --> 01:28:55,480
+also I want to show you this JavaScript
+
+1486
+01:28:50,980 --> 01:28:58,510
+code I wrote which allows you to have
+
+1487
+01:28:55,480 --> 01:29:03,580
+the function chaining pipe you know the
+
+1488
+01:28:58,510 --> 01:29:06,250
+UNIX pipe without requiring the object
+
+1489
+01:29:03,580 --> 01:29:09,370
+method relation between the things so
+
+1490
+01:29:06,250 --> 01:29:13,570
+this is you know I am pretty proud of
+
+1491
+01:29:09,370 --> 01:29:17,860
+this like one day I realized I can write
+
+1492
+01:29:13,570 --> 01:29:20,500
+this it's pretty easy JavaScript so this
+
+1493
+01:29:17,860 --> 01:29:23,080
+is a function that allows you that
+
+1494
+01:29:20,500 --> 01:29:28,150
+creates a pipe you know creates a
+
+1495
+01:29:23,080 --> 01:29:32,230
+function chaining notation basically a
+
+1496
+01:29:28,150 --> 01:29:38,710
+function pipe without requiring the
+
+1497
+01:29:32,230 --> 01:29:43,420
+object method relation Thank You Kathy
+
+1498
+01:29:38,710 --> 01:29:46,140
+Thank You Kathy Kathy and thank you all
+
+1499
+01:29:43,420 --> 01:29:46,140
+bye guys
+
+1500
+01:29:49,310 --> 01:29:54,580
+long video we did today long the video
+
+1501
+01:29:51,530 --> 01:29:54,580
+90 minutes
+

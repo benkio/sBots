@@ -1,0 +1,4064 @@
+1
+00:00:06,420 --> 00:00:11,580
+hello guys welcome to another episode of
+
+2
+00:00:08,940 --> 00:00:15,780
+some talk show so today we are going to
+
+3
+00:00:11,580 --> 00:00:18,600
+code emac this emac Beast writing a
+
+4
+00:00:15,780 --> 00:00:21,240
+major mod python mod from from the
+
+5
+00:00:18,600 --> 00:00:23,340
+ground up from scratch okay and I'm just
+
+6
+00:00:21,240 --> 00:00:24,960
+going to begin and the keyboard you are
+
+7
+00:00:23,340 --> 00:00:28,740
+looking at
+
+8
+00:00:24,960 --> 00:00:31,740
+um is expose okay I have shown here you
+
+9
+00:00:28,740 --> 00:00:33,860
+just search for Sally keyboard and
+
+10
+00:00:31,740 --> 00:00:37,980
+you'll see my ergonomic keyboard reviews
+
+11
+00:00:33,860 --> 00:00:40,559
+and uh as you know I reviewed them and
+
+12
+00:00:37,980 --> 00:00:43,920
+today this one is exposed it's excellent
+
+13
+00:00:40,559 --> 00:00:47,640
+okay that's this one okay I'm going just
+
+14
+00:00:43,920 --> 00:00:50,579
+going to start to uh code so write a
+
+15
+00:00:47,640 --> 00:00:53,120
+major mod from the ground up for python
+
+16
+00:00:50,579 --> 00:00:56,820
+why do I want to write that because
+
+17
+00:00:53,120 --> 00:00:58,800
+let's start python okay the python mod
+
+18
+00:00:56,820 --> 00:01:02,520
+uh I don't like it
+
+19
+00:00:58,800 --> 00:01:04,440
+that is why so uh so you're gonna learn
+
+20
+00:01:02,520 --> 00:01:07,740
+from you know you can write your own mod
+
+21
+00:01:04,440 --> 00:01:09,479
+uh whatever new language or uh for
+
+22
+00:01:07,740 --> 00:01:12,420
+golang or for JavaScript you can write
+
+23
+00:01:09,479 --> 00:01:15,659
+your own so I'm gonna show you and if
+
+24
+00:01:12,420 --> 00:01:19,020
+you you know I'm so I'm gonna do this
+
+25
+00:01:15,659 --> 00:01:22,860
+live but you can find all the details
+
+26
+00:01:19,020 --> 00:01:26,640
+how to do it just by uh going to my
+
+27
+00:01:22,860 --> 00:01:29,640
+website sorry dot info emacs how to
+
+28
+00:01:26,640 --> 00:01:31,799
+write a major mod so you know syntax
+
+29
+00:01:29,640 --> 00:01:35,700
+current beginning with this one syntax
+
+30
+00:01:31,799 --> 00:01:37,560
+coloring font lock what does it do uh
+
+31
+00:01:35,700 --> 00:01:40,619
+you know how do you code it Define face
+
+32
+00:01:37,560 --> 00:01:43,560
+color comments color uh writing your
+
+33
+00:01:40,619 --> 00:01:46,619
+command to comment or uncommon
+
+34
+00:01:43,560 --> 00:01:48,299
+and keyboard completion you know you
+
+35
+00:01:46,619 --> 00:01:50,759
+want to complete names
+
+36
+00:01:48,299 --> 00:01:53,399
+you know so you can read them and you
+
+37
+00:01:50,759 --> 00:01:56,100
+can learn it so but I'm going to do a
+
+38
+00:01:53,399 --> 00:01:59,399
+live one but I actually I did this in
+
+39
+00:01:56,100 --> 00:02:02,759
+2001 so last year almost exactly a year
+
+40
+00:01:59,399 --> 00:02:05,579
+ago I did one write the major mod and
+
+41
+00:02:02,759 --> 00:02:08,759
+the last time a year ago this is uh
+
+42
+00:02:05,579 --> 00:02:11,760
+writing a major amount for go land
+
+43
+00:02:08,759 --> 00:02:13,319
+you know fantastic in fact if I code
+
+44
+00:02:11,760 --> 00:02:16,739
+Golan let's see
+
+45
+00:02:13,319 --> 00:02:20,099
+in in fact if I called Golan I'm using
+
+46
+00:02:16,739 --> 00:02:22,080
+my my own mod so you see so you can see
+
+47
+00:02:20,099 --> 00:02:24,120
+go you see
+
+48
+00:02:22,080 --> 00:02:27,599
+heck you know this is a Golan template
+
+49
+00:02:24,120 --> 00:02:30,300
+every Gold Line needs all these lines of
+
+50
+00:02:27,599 --> 00:02:32,819
+code uh you know so I can start to cook
+
+51
+00:02:30,300 --> 00:02:37,860
+let's say uh print
+
+52
+00:02:32,819 --> 00:02:41,879
+uh two plus three okay and I want to
+
+53
+00:02:37,860 --> 00:02:46,260
+format them very nicely I just press uh
+
+54
+00:02:41,879 --> 00:02:47,700
+tab F you see I can in fact let me Demo
+
+55
+00:02:46,260 --> 00:02:51,980
+okay
+
+56
+00:02:47,700 --> 00:02:56,220
+uh let's let's Munch all these together
+
+57
+00:02:51,980 --> 00:02:58,560
+and demonstrate the power of golan's go
+
+58
+00:02:56,220 --> 00:03:01,500
+format okay so you see the whole code is
+
+59
+00:02:58,560 --> 00:03:04,620
+not one line but I press the key
+
+60
+00:03:01,500 --> 00:03:06,800
+bam you know it reformat them and I run
+
+61
+00:03:04,620 --> 00:03:06,800
+it
+
+62
+00:03:07,019 --> 00:03:10,620
+you know when when you run go online for
+
+63
+00:03:08,879 --> 00:03:14,159
+the first time it it takes a while so
+
+64
+00:03:10,620 --> 00:03:19,019
+you see result is five uh two plus three
+
+65
+00:03:14,159 --> 00:03:22,440
+and now let's delete this and the unit
+
+66
+00:03:19,019 --> 00:03:24,480
+5 okay and now reformat again so you can
+
+67
+00:03:22,440 --> 00:03:27,000
+have arbitrary
+
+68
+00:03:24,480 --> 00:03:29,159
+complex code in big format okay anyway
+
+69
+00:03:27,000 --> 00:03:31,220
+let's go land so
+
+70
+00:03:29,159 --> 00:03:31,220
+um
+
+71
+00:03:31,980 --> 00:03:38,819
+and we are going to write python okay so
+
+72
+00:03:36,019 --> 00:03:41,459
+so right now I'm using the default
+
+73
+00:03:38,819 --> 00:03:43,319
+python mod how do you find out the mod
+
+74
+00:03:41,459 --> 00:03:47,760
+name of the current mod of course you
+
+75
+00:03:43,319 --> 00:03:50,400
+can look at the status bar the mod line
+
+76
+00:03:47,760 --> 00:03:52,860
+in emacs this line is called my line so
+
+77
+00:03:50,400 --> 00:03:54,540
+you know it says python but that's not
+
+78
+00:03:52,860 --> 00:03:56,760
+the technical name so if you want to
+
+79
+00:03:54,540 --> 00:04:00,299
+know what's the current mod you just say
+
+80
+00:03:56,760 --> 00:04:01,739
+major mod okay you want to say describe
+
+81
+00:04:00,299 --> 00:04:04,560
+function on
+
+82
+00:04:01,739 --> 00:04:07,319
+on this variable major mod so let's call
+
+83
+00:04:04,560 --> 00:04:09,840
+describe function and type major mod
+
+84
+00:04:07,319 --> 00:04:12,360
+it's already there press enter so now
+
+85
+00:04:09,840 --> 00:04:15,000
+you can see major mod is a variable
+
+86
+00:04:12,360 --> 00:04:17,940
+defined in somewhere and its value is
+
+87
+00:04:15,000 --> 00:04:20,519
+python mod so this string python Dash
+
+88
+00:04:17,940 --> 00:04:22,199
+mod that is the technical name
+
+89
+00:04:20,519 --> 00:04:25,199
+you know meaningful to the images
+
+90
+00:04:22,199 --> 00:04:27,900
+language of the major model okay so
+
+91
+00:04:25,199 --> 00:04:30,960
+right now I'm using my python mod let's
+
+92
+00:04:27,900 --> 00:04:32,400
+import this so what I want to do is say
+
+93
+00:04:30,960 --> 00:04:34,500
+import
+
+94
+00:04:32,400 --> 00:04:36,800
+yeah you see this is what I don't like
+
+95
+00:04:34,500 --> 00:04:39,000
+the about the python Mark let's restart
+
+96
+00:04:36,800 --> 00:04:42,060
+I want to say
+
+97
+00:04:39,000 --> 00:04:45,000
+import sys
+
+98
+00:04:42,060 --> 00:04:47,100
+okay but if I type that it's gonna it's
+
+99
+00:04:45,000 --> 00:04:50,100
+gonna transform my typing to something
+
+100
+00:04:47,100 --> 00:04:54,720
+else to another syntax I don't want so
+
+101
+00:04:50,100 --> 00:04:57,960
+let me type it slowly import okay space
+
+102
+00:04:54,720 --> 00:04:59,639
+then you see it changes it to form
+
+103
+00:04:57,960 --> 00:05:03,600
+something I don't want from something
+
+104
+00:04:59,639 --> 00:05:06,540
+but let's say sis okay and you see each
+
+105
+00:05:03,600 --> 00:05:08,160
+it makes you type in the mini buffer I
+
+106
+00:05:06,540 --> 00:05:10,440
+don't want to type in mini buffer you
+
+107
+00:05:08,160 --> 00:05:12,660
+know it's crammed
+
+108
+00:05:10,440 --> 00:05:16,139
+you know into a little space so okay
+
+109
+00:05:12,660 --> 00:05:17,759
+she's enter Then from this import a
+
+110
+00:05:16,139 --> 00:05:20,400
+function I don't I don't know what the
+
+111
+00:05:17,759 --> 00:05:22,620
+[ __ ] function name I want you know
+
+112
+00:05:20,400 --> 00:05:24,300
+identifier so let's press enter so
+
+113
+00:05:22,620 --> 00:05:26,820
+there's no completion
+
+114
+00:05:24,300 --> 00:05:30,060
+how the [ __ ] do I know what functions in
+
+115
+00:05:26,820 --> 00:05:32,400
+that package you know this is sucks so I
+
+116
+00:05:30,060 --> 00:05:35,100
+so I don't like the default mod
+
+117
+00:05:32,400 --> 00:05:38,759
+okay so let's go to python mod the swipe
+
+118
+00:05:35,100 --> 00:05:41,039
+function uh you know so python mod so
+
+119
+00:05:38,759 --> 00:05:42,780
+now you can see here is the python man
+
+120
+00:05:41,039 --> 00:05:46,139
+you can you can jump to the source code
+
+121
+00:05:42,780 --> 00:05:48,780
+okay we are in a source code and five
+
+122
+00:05:46,139 --> 00:05:53,060
+thousand seven seven thousand five
+
+123
+00:05:48,780 --> 00:05:53,060
+almost six thousand lines of code
+
+124
+00:05:53,280 --> 00:06:00,419
+uh okay let's let's start from scratch
+
+125
+00:05:56,280 --> 00:06:03,720
+let's just write out oh okay so pop this
+
+126
+00:06:00,419 --> 00:06:04,919
+back uh let's print
+
+127
+00:06:03,720 --> 00:06:09,120
+um
+
+128
+00:06:04,919 --> 00:06:11,520
+uh let's print uh this version I think
+
+129
+00:06:09,120 --> 00:06:15,300
+that's the how you print version you see
+
+130
+00:06:11,520 --> 00:06:18,960
+I got python 3.9 okay so let's let's
+
+131
+00:06:15,300 --> 00:06:21,919
+start to write let's begin to write the
+
+132
+00:06:18,960 --> 00:06:24,419
+python mod Okay so
+
+133
+00:06:21,919 --> 00:06:28,979
+start a new code block
+
+134
+00:06:24,419 --> 00:06:31,620
+block emac this that's right and pop it
+
+135
+00:06:28,979 --> 00:06:35,240
+out okay so
+
+136
+00:06:31,620 --> 00:06:35,240
+python mod okay
+
+137
+00:06:36,900 --> 00:06:42,660
+so okay so you know what we can do is
+
+138
+00:06:41,160 --> 00:06:46,139
+just copy paste
+
+139
+00:06:42,660 --> 00:06:48,660
+uh all the informations here so emac
+
+140
+00:06:46,139 --> 00:06:50,699
+based writing a major mod for syntax
+
+141
+00:06:48,660 --> 00:06:52,979
+calling there are many things involved
+
+142
+00:06:50,699 --> 00:06:56,039
+there are many features of a major mod
+
+143
+00:06:52,979 --> 00:06:58,020
+syntax coloring is the most primary
+
+144
+00:06:56,039 --> 00:06:59,759
+fundamental you know when you go to a
+
+145
+00:06:58,020 --> 00:07:01,680
+programming language the first thing you
+
+146
+00:06:59,759 --> 00:07:03,060
+want is syntax coloring
+
+147
+00:07:01,680 --> 00:07:06,000
+then
+
+148
+00:07:03,060 --> 00:07:08,160
+okay let me explain what what what are
+
+149
+00:07:06,000 --> 00:07:11,220
+the major elements what are the major
+
+150
+00:07:08,160 --> 00:07:12,539
+features of of using a major mod if you
+
+151
+00:07:11,220 --> 00:07:14,880
+have questions in
+
+152
+00:07:12,539 --> 00:07:17,819
+comments post it okay
+
+153
+00:07:14,880 --> 00:07:19,740
+I'm doing well thank you
+
+154
+00:07:17,819 --> 00:07:23,340
+so major Mart the first thing you want
+
+155
+00:07:19,740 --> 00:07:26,220
+is syntax coloring most of the time then
+
+156
+00:07:23,340 --> 00:07:28,979
+okay then front lock mod is related to
+
+157
+00:07:26,220 --> 00:07:31,680
+syntax coloring about details of it
+
+158
+00:07:28,979 --> 00:07:34,800
+Define phase is also detail
+
+159
+00:07:31,680 --> 00:07:37,319
+could a comment is also part of it
+
+160
+00:07:34,800 --> 00:07:38,699
+syntax coloring but there's a different
+
+161
+00:07:37,319 --> 00:07:42,479
+mechanism
+
+162
+00:07:38,699 --> 00:07:44,940
+so okay then what you want is you want a
+
+163
+00:07:42,479 --> 00:07:47,099
+command to comment and uncomment you see
+
+164
+00:07:44,940 --> 00:07:49,919
+that's part of the major mod because
+
+165
+00:07:47,099 --> 00:07:53,340
+every language has different Syntax for
+
+166
+00:07:49,919 --> 00:07:56,280
+common so comment and uncommon syntax
+
+167
+00:07:53,340 --> 00:07:59,460
+coding then you have keyword completion
+
+168
+00:07:56,280 --> 00:08:02,699
+okay now let's see so for example in
+
+169
+00:07:59,460 --> 00:08:07,139
+emacs so I want to say different I can
+
+170
+00:08:02,699 --> 00:08:10,080
+say d e and press tab you know I got all
+
+171
+00:08:07,139 --> 00:08:13,020
+the words in emac this so I can complete
+
+172
+00:08:10,080 --> 00:08:14,759
+so I can say F different okay that one
+
+173
+00:08:13,020 --> 00:08:17,880
+okay that's
+
+174
+00:08:14,759 --> 00:08:21,120
+keyword completion so you need that
+
+175
+00:08:17,880 --> 00:08:25,740
+you know so synex schooling
+
+176
+00:08:21,120 --> 00:08:28,080
+uh comment command comment and comment
+
+177
+00:08:25,740 --> 00:08:31,319
+keyword completion you want
+
+178
+00:08:28,080 --> 00:08:33,060
+then key map of course key map is you
+
+179
+00:08:31,319 --> 00:08:35,940
+know because in emacs everything is
+
+180
+00:08:33,060 --> 00:08:38,159
+keystrokes so you you need to know how
+
+181
+00:08:35,940 --> 00:08:40,200
+to create your own how to define you
+
+182
+00:08:38,159 --> 00:08:43,979
+know what key spine to what command Okay
+
+183
+00:08:40,200 --> 00:08:46,200
+key map then the other elements is a
+
+184
+00:08:43,979 --> 00:08:48,660
+brief template this is quick this is
+
+185
+00:08:46,200 --> 00:08:52,279
+fantastic okay this is like this one
+
+186
+00:08:48,660 --> 00:08:55,620
+this feature is actually
+
+187
+00:08:52,279 --> 00:08:58,019
+uh not often used in other major mods in
+
+188
+00:08:55,620 --> 00:09:00,420
+all the building mods in emacs for
+
+189
+00:08:58,019 --> 00:09:03,600
+whatever language they don't use this
+
+190
+00:09:00,420 --> 00:09:06,420
+much but I find this is the most useful
+
+191
+00:09:03,600 --> 00:09:08,220
+emac is a brief template for major mod
+
+192
+00:09:06,420 --> 00:09:10,580
+for example if I want to define a
+
+193
+00:09:08,220 --> 00:09:10,580
+function
+
+194
+00:09:10,920 --> 00:09:16,440
+um you know I can just say press D press
+
+195
+00:09:14,160 --> 00:09:19,080
+space it becomes different and press
+
+196
+00:09:16,440 --> 00:09:23,880
+space again it becomes the whole thing
+
+197
+00:09:19,080 --> 00:09:26,760
+and I can say insert I space
+
+198
+00:09:23,880 --> 00:09:29,339
+again you know it it creates the whole
+
+199
+00:09:26,760 --> 00:09:33,180
+syntax template for that function so
+
+200
+00:09:29,339 --> 00:09:35,760
+let's see something more uh more complex
+
+201
+00:09:33,180 --> 00:09:38,459
+let's say while loop okay press enter
+
+202
+00:09:35,760 --> 00:09:41,760
+you see I got this whole thing this
+
+203
+00:09:38,459 --> 00:09:45,000
+allows me to this is one of the idiom in
+
+204
+00:09:41,760 --> 00:09:46,920
+emacs it allows you to search and
+
+205
+00:09:45,000 --> 00:09:49,380
+replace
+
+206
+00:09:46,920 --> 00:09:52,740
+you know and if you don't want that you
+
+207
+00:09:49,380 --> 00:09:57,779
+can of course you can change it uh when
+
+208
+00:09:52,740 --> 00:10:02,040
+while okay so for example ylx
+
+209
+00:09:57,779 --> 00:10:04,620
+greater than okay so greater than x
+
+210
+00:10:02,040 --> 00:10:08,040
+let's say less than uh
+
+211
+00:10:04,620 --> 00:10:11,640
+less than lt space it becomes you know
+
+212
+00:10:08,040 --> 00:10:15,000
+the syntax so less than x less than 10
+
+213
+00:10:11,640 --> 00:10:18,120
+then you do something here
+
+214
+00:10:15,000 --> 00:10:20,339
+something let's say insert X
+
+215
+00:10:18,120 --> 00:10:24,180
+for example that's a while loop and you
+
+216
+00:10:20,339 --> 00:10:26,820
+can press tab two times it reformat the
+
+217
+00:10:24,180 --> 00:10:28,920
+whole thing for you so anyway formatting
+
+218
+00:10:26,820 --> 00:10:32,279
+that's another feature so anyway so the
+
+219
+00:10:28,920 --> 00:10:35,040
+brief template is a tremendous useful
+
+220
+00:10:32,279 --> 00:10:37,680
+then you have text properties that's
+
+221
+00:10:35,040 --> 00:10:40,920
+kind of the internal thing you need to
+
+222
+00:10:37,680 --> 00:10:43,860
+know over like overlay highlighting
+
+223
+00:10:40,920 --> 00:10:45,600
+that's another internal thing uh you
+
+224
+00:10:43,860 --> 00:10:47,220
+know usually part of major mod for
+
+225
+00:10:45,600 --> 00:10:50,100
+example I want to
+
+226
+00:10:47,220 --> 00:10:53,279
+highlight all the words let's go to a
+
+227
+00:10:50,100 --> 00:10:56,279
+big uh emac this code so you see this
+
+228
+00:10:53,279 --> 00:10:59,760
+file has a few thousand lines stuff like
+
+229
+00:10:56,279 --> 00:11:02,240
+keys I want to highlight all the um
+
+230
+00:10:59,760 --> 00:11:04,860
+let's go up
+
+231
+00:11:02,240 --> 00:11:07,140
+uh let's say I want to highlight all
+
+232
+00:11:04,860 --> 00:11:10,640
+functions that contains the word save
+
+233
+00:11:07,140 --> 00:11:10,640
+okay so I can
+
+234
+00:11:10,680 --> 00:11:17,940
+press that it calls highlight commander
+
+235
+00:11:13,860 --> 00:11:20,700
+and then I say save and enter it asks me
+
+236
+00:11:17,940 --> 00:11:24,060
+what color so high yellow okay so you
+
+237
+00:11:20,700 --> 00:11:26,519
+can see now all the words in the buffer
+
+238
+00:11:24,060 --> 00:11:28,320
+that contains the function names you
+
+239
+00:11:26,519 --> 00:11:31,920
+know contains the word save is all
+
+240
+00:11:28,320 --> 00:11:33,360
+colored this is extremely useful this is
+
+241
+00:11:31,920 --> 00:11:35,519
+um because when you work with code
+
+242
+00:11:33,360 --> 00:11:39,980
+sometimes you just want to see
+
+243
+00:11:35,519 --> 00:11:43,920
+where a certain function occur in a easy
+
+244
+00:11:39,980 --> 00:11:48,300
+in a very uh apparent manner
+
+245
+00:11:43,920 --> 00:11:50,880
+so you can see uh anyway so that's
+
+246
+00:11:48,300 --> 00:11:53,519
+highlight okay and and how do how does
+
+247
+00:11:50,880 --> 00:11:56,519
+it work you know you see this highlight
+
+248
+00:11:53,519 --> 00:11:58,079
+yellow how does it work well that works
+
+249
+00:11:56,519 --> 00:12:02,940
+by
+
+250
+00:11:58,079 --> 00:12:05,820
+that works by using the mechanism in
+
+251
+00:12:02,940 --> 00:12:08,399
+emacs called overlay highlighting so
+
+252
+00:12:05,820 --> 00:12:12,480
+there are two mechanisms to highlight
+
+253
+00:12:08,399 --> 00:12:14,459
+the word uh you know uh and I have
+
+254
+00:12:12,480 --> 00:12:17,519
+covered in the past
+
+255
+00:12:14,459 --> 00:12:19,680
+yeah I've covered this one in the past
+
+256
+00:12:17,519 --> 00:12:21,720
+so and look up doc that's another
+
+257
+00:12:19,680 --> 00:12:24,360
+feature you want in a major mod for
+
+258
+00:12:21,720 --> 00:12:27,000
+example in
+
+259
+00:12:24,360 --> 00:12:30,920
+so in for example right now in email
+
+260
+00:12:27,000 --> 00:12:34,500
+list emac this is Trivial because
+
+261
+00:12:30,920 --> 00:12:37,019
+emacs come with emac lisp so if you want
+
+262
+00:12:34,500 --> 00:12:38,880
+to have a function like look up the
+
+263
+00:12:37,019 --> 00:12:41,640
+documentation of the current function
+
+264
+00:12:38,880 --> 00:12:44,760
+you can just say describe function you
+
+265
+00:12:41,640 --> 00:12:47,040
+know it's oh you see so you can so right
+
+266
+00:12:44,760 --> 00:12:48,600
+now you are looking at the documentation
+
+267
+00:12:47,040 --> 00:12:51,720
+for the
+
+268
+00:12:48,600 --> 00:12:55,320
+both a file name function so you know it
+
+269
+00:12:51,720 --> 00:12:57,779
+says Returns the name of file buffer is
+
+270
+00:12:55,320 --> 00:13:00,360
+visiting O'Neill if not you know you can
+
+271
+00:12:57,779 --> 00:13:02,579
+look up any word for example interactive
+
+272
+00:13:00,360 --> 00:13:05,399
+describe function
+
+273
+00:13:02,579 --> 00:13:08,880
+interactive so you can see interactive
+
+274
+00:13:05,399 --> 00:13:11,639
+is you know a special form in C code in
+
+275
+00:13:08,880 --> 00:13:13,560
+csos code and blah blah blah
+
+276
+00:13:11,639 --> 00:13:18,500
+but if you are in another language
+
+277
+00:13:13,560 --> 00:13:22,920
+JavaScript PHP python Ruby
+
+278
+00:13:18,500 --> 00:13:25,440
+Golan C plus you know you can you need
+
+279
+00:13:22,920 --> 00:13:28,440
+to have a feature so that user can press
+
+280
+00:13:25,440 --> 00:13:32,279
+a button and it will take them to the
+
+281
+00:13:28,440 --> 00:13:34,740
+documentation for example let's go to
+
+282
+00:13:32,279 --> 00:13:37,920
+wolfam language you know wolfam language
+
+283
+00:13:34,740 --> 00:13:40,019
+let's say I want to list
+
+284
+00:13:37,920 --> 00:13:43,260
+all file names in your directory
+
+285
+00:13:40,019 --> 00:13:48,060
+recursively so what I can do is I can
+
+286
+00:13:43,260 --> 00:13:50,399
+just um file name here okay press tab
+
+287
+00:13:48,060 --> 00:13:51,720
+for completion okay that's the one I
+
+288
+00:13:50,399 --> 00:13:54,060
+want enter
+
+289
+00:13:51,720 --> 00:13:56,220
+and I got this
+
+290
+00:13:54,060 --> 00:14:00,000
+you know I that's that's how you get all
+
+291
+00:13:56,220 --> 00:14:02,160
+file names so so what what what does
+
+292
+00:14:00,000 --> 00:14:03,959
+this function do you know so I can press
+
+293
+00:14:02,160 --> 00:14:05,820
+a key
+
+294
+00:14:03,959 --> 00:14:08,220
+tab Edge
+
+295
+00:14:05,820 --> 00:14:10,860
+you know it goes to the browser the
+
+296
+00:14:08,220 --> 00:14:12,720
+appropriate location to show the
+
+297
+00:14:10,860 --> 00:14:16,079
+documentation of the current function
+
+298
+00:14:12,720 --> 00:14:19,200
+okay so that is a feature
+
+299
+00:14:16,079 --> 00:14:21,240
+you want to add to your major mod very
+
+300
+00:14:19,200 --> 00:14:23,519
+convenient
+
+301
+00:14:21,240 --> 00:14:26,279
+and very easy too you see you can see
+
+302
+00:14:23,519 --> 00:14:29,399
+it's only like 10 lines you know the so
+
+303
+00:14:26,279 --> 00:14:32,880
+the trick is you know you want to
+
+304
+00:14:29,399 --> 00:14:35,760
+you know spend time you want to you know
+
+305
+00:14:32,880 --> 00:14:37,920
+the a lot of people use emacs but they
+
+306
+00:14:35,760 --> 00:14:41,459
+never learned emac bisp
+
+307
+00:14:37,920 --> 00:14:42,839
+uh so you do want to
+
+308
+00:14:41,459 --> 00:14:46,380
+uh
+
+309
+00:14:42,839 --> 00:14:48,180
+sit set yourself a goal that you want to
+
+310
+00:14:46,380 --> 00:14:50,220
+maybe create a major amount let's say
+
+311
+00:14:48,180 --> 00:14:53,459
+some some programming language you work
+
+312
+00:14:50,220 --> 00:14:56,760
+most often so that that way we'll get
+
+313
+00:14:53,459 --> 00:14:58,680
+you started in learning emac bisp
+
+314
+00:14:56,760 --> 00:15:00,240
+because you don't actually need to
+
+315
+00:14:58,680 --> 00:15:04,160
+because there's a lot of packages
+
+316
+00:15:00,240 --> 00:15:06,420
+already thousands thousands of them but
+
+317
+00:15:04,160 --> 00:15:08,600
+oftentimes you need some feature it's
+
+318
+00:15:06,420 --> 00:15:11,279
+not there then also when you install
+
+319
+00:15:08,600 --> 00:15:13,139
+packages sometimes you are frustrated
+
+320
+00:15:11,279 --> 00:15:16,260
+because this package you know for
+
+321
+00:15:13,139 --> 00:15:17,540
+example might for example the python
+
+322
+00:15:16,260 --> 00:15:21,240
+close
+
+323
+00:15:17,540 --> 00:15:25,500
+for example on C go back to python okay
+
+324
+00:15:21,240 --> 00:15:29,100
+so let's go to meta X
+
+325
+00:15:25,500 --> 00:15:31,320
+python mod Okay so
+
+326
+00:15:29,100 --> 00:15:34,019
+you know I'm using python mod I want to
+
+327
+00:15:31,320 --> 00:15:36,300
+import something and need
+
+328
+00:15:34,019 --> 00:15:38,459
+[ __ ] change me to some other thing I
+
+329
+00:15:36,300 --> 00:15:40,740
+don't want that okay but if you don't
+
+330
+00:15:38,459 --> 00:15:42,660
+want that how do you fix it well you
+
+331
+00:15:40,740 --> 00:15:43,800
+have to look into
+
+332
+00:15:42,660 --> 00:15:46,680
+um
+
+333
+00:15:43,800 --> 00:15:50,760
+so how do I for example import
+
+334
+00:15:46,680 --> 00:15:53,339
+space so apparently it has some kind of
+
+335
+00:15:50,760 --> 00:15:55,380
+a trigger
+
+336
+00:15:53,339 --> 00:15:59,040
+so when you trigger when you press space
+
+337
+00:15:55,380 --> 00:16:01,380
+it looks looks at the
+
+338
+00:15:59,040 --> 00:16:03,959
+it's very annoying I don't I really
+
+339
+00:16:01,380 --> 00:16:06,420
+don't like this Behavior so when you
+
+340
+00:16:03,959 --> 00:16:09,540
+press space the python mod probably
+
+341
+00:16:06,420 --> 00:16:12,360
+looks up on the word before it and check
+
+342
+00:16:09,540 --> 00:16:14,820
+to see if it's some of the keyword if it
+
+343
+00:16:12,360 --> 00:16:17,279
+is then it calls a function
+
+344
+00:16:14,820 --> 00:16:19,920
+it then it delete that you know it
+
+345
+00:16:17,279 --> 00:16:22,199
+delete what you typed and it cause a
+
+346
+00:16:19,920 --> 00:16:24,779
+function you know import it deletes that
+
+347
+00:16:22,199 --> 00:16:26,760
+change it to form then call a function
+
+348
+00:16:24,779 --> 00:16:30,839
+then pop up and ask you a bunch of
+
+349
+00:16:26,760 --> 00:16:33,180
+questions idiotic so you can
+
+350
+00:16:30,839 --> 00:16:35,399
+for example let's go to python one okay
+
+351
+00:16:33,180 --> 00:16:38,399
+describe function
+
+352
+00:16:35,399 --> 00:16:44,160
+python mod okay so let's go to the so
+
+353
+00:16:38,399 --> 00:16:44,160
+here's a documentation the uh the
+
+354
+00:16:44,519 --> 00:16:49,560
+the dark string for python mod function
+
+355
+00:16:47,100 --> 00:16:51,660
+you know basically the documentation for
+
+356
+00:16:49,560 --> 00:16:55,320
+the major mod so let's go to the source
+
+357
+00:16:51,660 --> 00:16:58,980
+code and then we can look
+
+358
+00:16:55,320 --> 00:17:01,680
+look at uh where does it change
+
+359
+00:16:58,980 --> 00:17:03,420
+for example so for example if I want to
+
+360
+00:17:01,680 --> 00:17:07,020
+fix this problem
+
+361
+00:17:03,420 --> 00:17:09,120
+of python changing changing things so I
+
+362
+00:17:07,020 --> 00:17:11,939
+have to look at the source code
+
+363
+00:17:09,120 --> 00:17:15,179
+and in order to do this you have to know
+
+364
+00:17:11,939 --> 00:17:19,740
+IMAX so that's why that's why I'm saying
+
+365
+00:17:15,179 --> 00:17:22,980
+that you should set yourself a goal of
+
+366
+00:17:19,740 --> 00:17:24,740
+some you know small project that will
+
+367
+00:17:22,980 --> 00:17:28,919
+get you
+
+368
+00:17:24,740 --> 00:17:32,280
+stick to learning emac bisp and uh you
+
+369
+00:17:28,919 --> 00:17:36,419
+know iMac is very powerful if you are
+
+370
+00:17:32,280 --> 00:17:39,960
+emacs user if you know some images
+
+371
+00:17:36,419 --> 00:17:43,320
+so Peter mod and so I want to fix it you
+
+372
+00:17:39,960 --> 00:17:45,360
+know the the thing is oftentimes if you
+
+373
+00:17:43,320 --> 00:17:49,020
+know a lot emac Beast you know I've been
+
+374
+00:17:45,360 --> 00:17:52,100
+coding Mac this for 15 years so if you
+
+375
+00:17:49,020 --> 00:17:55,620
+know a lot emac this it would be faster
+
+376
+00:17:52,100 --> 00:17:58,440
+to fix the problem by just writing it
+
+377
+00:17:55,620 --> 00:18:00,720
+from scratch that's one that's why I
+
+378
+00:17:58,440 --> 00:18:03,000
+want to do it today you know right in
+
+379
+00:18:00,720 --> 00:18:05,940
+the python mod from scratch
+
+380
+00:18:03,000 --> 00:18:08,820
+instead of looking into
+
+381
+00:18:05,940 --> 00:18:10,200
+you know the python mod and see if there
+
+382
+00:18:08,820 --> 00:18:12,660
+is a
+
+383
+00:18:10,200 --> 00:18:14,940
+you know a variable a setting I can
+
+384
+00:18:12,660 --> 00:18:17,760
+change it to the way I like and let's
+
+385
+00:18:14,940 --> 00:18:20,220
+let's look at uh
+
+386
+00:18:17,760 --> 00:18:23,039
+let's look at the
+
+387
+00:18:20,220 --> 00:18:25,799
+least matching lines and let's look at
+
+388
+00:18:23,039 --> 00:18:28,500
+all the defined variables to see if
+
+389
+00:18:25,799 --> 00:18:31,679
+maybe there's some some of them
+
+390
+00:18:28,500 --> 00:18:34,320
+that can turn off that smart feature
+
+391
+00:18:31,679 --> 00:18:37,260
+uh I don't know let's see let's look for
+
+392
+00:18:34,320 --> 00:18:39,900
+the word smart okay it's not there let's
+
+393
+00:18:37,260 --> 00:18:41,820
+look for the word smart okay let's look
+
+394
+00:18:39,900 --> 00:18:43,860
+for the word Auto
+
+395
+00:18:41,820 --> 00:18:47,280
+you know
+
+396
+00:18:43,860 --> 00:18:49,440
+in the indentation okay this in you know
+
+397
+00:18:47,280 --> 00:18:53,460
+the default python mod indentation I
+
+398
+00:18:49,440 --> 00:18:55,320
+also don't like uh Auto load Auto or
+
+399
+00:18:53,460 --> 00:18:57,960
+something
+
+400
+00:18:55,320 --> 00:19:01,080
+okay I don't know so close that let's
+
+401
+00:18:57,960 --> 00:19:02,700
+look for the word import it must be
+
+402
+00:19:01,080 --> 00:19:06,240
+there somewhere because it's looking
+
+403
+00:19:02,700 --> 00:19:10,380
+it's changing my
+
+404
+00:19:06,240 --> 00:19:13,080
+my typing users typing of import uh
+
+405
+00:19:10,380 --> 00:19:15,600
+python skeleton I don't like it
+
+406
+00:19:13,080 --> 00:19:18,000
+skeleton is a
+
+407
+00:19:15,600 --> 00:19:20,760
+yeah so I don't like you know
+
+408
+00:19:18,000 --> 00:19:24,360
+you know once you know a language then
+
+409
+00:19:20,760 --> 00:19:26,220
+you develop your own style and ways and
+
+410
+00:19:24,360 --> 00:19:28,799
+certain things you just don't like I
+
+411
+00:19:26,220 --> 00:19:32,160
+don't like this a bunch of coding
+
+412
+00:19:28,799 --> 00:19:35,520
+skeletons to do things skeletons is a
+
+413
+00:19:32,160 --> 00:19:36,900
+package in emac building in here like
+
+414
+00:19:35,520 --> 00:19:39,360
+this that
+
+415
+00:19:36,900 --> 00:19:41,880
+helps you create templates basically
+
+416
+00:19:39,360 --> 00:19:44,220
+it's a template system
+
+417
+00:19:41,880 --> 00:19:47,580
+so how is it different from just using
+
+418
+00:19:44,220 --> 00:19:49,820
+emac lisp well the thing is the skeleton
+
+419
+00:19:47,580 --> 00:19:53,220
+package it kind of
+
+420
+00:19:49,820 --> 00:19:55,440
+helps you create templates you know for
+
+421
+00:19:53,220 --> 00:19:57,780
+example let's say
+
+422
+00:19:55,440 --> 00:20:00,000
+just like different you know help you
+
+423
+00:19:57,780 --> 00:20:04,799
+create templates without having to know
+
+424
+00:20:00,000 --> 00:20:08,100
+emac disp that is the that is a key for
+
+425
+00:20:04,799 --> 00:20:10,440
+the skeleton package
+
+426
+00:20:08,100 --> 00:20:12,360
+okay but I don't like it because I
+
+427
+00:20:10,440 --> 00:20:15,120
+compare to a brief we don't need it okay
+
+428
+00:20:12,360 --> 00:20:18,539
+in my opinion by the way that's why you
+
+429
+00:20:15,120 --> 00:20:21,240
+also have you know the com you know the
+
+430
+00:20:18,539 --> 00:20:23,400
+there's a lot completions yeah they kind
+
+431
+00:20:21,240 --> 00:20:26,160
+of or not necessary
+
+432
+00:20:23,400 --> 00:20:28,260
+so anyway so the reason I don't like the
+
+433
+00:20:26,160 --> 00:20:30,900
+skeleton is because you don't need it if
+
+434
+00:20:28,260 --> 00:20:34,500
+you know emac this they don't you know
+
+435
+00:20:30,900 --> 00:20:38,179
+they emac this by playing emac this is
+
+436
+00:20:34,500 --> 00:20:38,179
+much more powerful and uh
+
+437
+00:20:39,780 --> 00:20:47,220
+and uh and you know for what skeleton
+
+438
+00:20:43,200 --> 00:20:49,260
+can do without knowing lisp you can do
+
+439
+00:20:47,220 --> 00:20:53,700
+that with a brief
+
+440
+00:20:49,260 --> 00:20:56,880
+okay for what scale skeleton package can
+
+441
+00:20:53,700 --> 00:20:59,820
+do with a little emac this
+
+442
+00:20:56,880 --> 00:21:03,780
+then you can do that with emac this
+
+443
+00:20:59,820 --> 00:21:08,100
+itself without knowing to more than what
+
+444
+00:21:03,780 --> 00:21:11,640
+skeleton requires so skeleton package is
+
+445
+00:21:08,100 --> 00:21:14,280
+uh it's not too useful in my opinion and
+
+446
+00:21:11,640 --> 00:21:18,539
+it's it was created some 20 or 30 years
+
+447
+00:21:14,280 --> 00:21:20,700
+ago but why is that in Python mod it's
+
+448
+00:21:18,539 --> 00:21:23,940
+using skeleton you know it looks like
+
+449
+00:21:20,700 --> 00:21:25,860
+you know just by facing judging by the
+
+450
+00:21:23,940 --> 00:21:27,720
+naming of things so let's look at what
+
+451
+00:21:25,860 --> 00:21:31,140
+exactly it's using
+
+452
+00:21:27,720 --> 00:21:34,799
+python skeleton class oh maybe it's not
+
+453
+00:21:31,140 --> 00:21:36,600
+okay I was wrong so I cannot find a name
+
+454
+00:21:34,799 --> 00:21:39,120
+of that
+
+455
+00:21:36,600 --> 00:21:40,860
+um skeleton definition okay there it is
+
+456
+00:21:39,120 --> 00:21:45,299
+oh yeah
+
+457
+00:21:40,860 --> 00:21:49,020
+yeah it's using skeleton no good you see
+
+458
+00:21:45,299 --> 00:21:51,780
+you see here python skeleton Define you
+
+459
+00:21:49,020 --> 00:21:55,440
+see these things strings that's a
+
+460
+00:21:51,780 --> 00:21:58,980
+template that's the template Syntax for
+
+461
+00:21:55,440 --> 00:22:01,679
+us for the skeleton package
+
+462
+00:21:58,980 --> 00:22:04,919
+you know it's trying to
+
+463
+00:22:01,679 --> 00:22:07,440
+the goal you know it's trying to
+
+464
+00:22:04,919 --> 00:22:09,960
+think that you know you don't have to to
+
+465
+00:22:07,440 --> 00:22:12,480
+know too much least because you see it's
+
+466
+00:22:09,960 --> 00:22:15,120
+all just a bunch of strings but it
+
+467
+00:22:12,480 --> 00:22:17,539
+allows you to insert templates but it's
+
+468
+00:22:15,120 --> 00:22:17,539
+not good
+
+469
+00:22:17,700 --> 00:22:23,400
+because if you learn skeleton
+
+470
+00:22:20,820 --> 00:22:25,740
+you see you you still have some some
+
+471
+00:22:23,400 --> 00:22:28,580
+lists you see this part is the actual
+
+472
+00:22:25,740 --> 00:22:30,360
+kind of
+
+473
+00:22:28,580 --> 00:22:32,940
+code
+
+474
+00:22:30,360 --> 00:22:35,280
+uh so anyway so let's look at the
+
+475
+00:22:32,940 --> 00:22:37,320
+skeleton and we are digressing of course
+
+476
+00:22:35,280 --> 00:22:40,440
+we are digressing a lot
+
+477
+00:22:37,320 --> 00:22:43,320
+so there it is Define macro okay again I
+
+478
+00:22:40,440 --> 00:22:47,340
+don't like macro so another random
+
+479
+00:22:43,320 --> 00:22:48,659
+comment to you these people you know if
+
+480
+00:22:47,340 --> 00:22:50,880
+you are beginner
+
+481
+00:22:48,659 --> 00:22:53,940
+never ever
+
+482
+00:22:50,880 --> 00:22:56,780
+when you called emac this or any other I
+
+483
+00:22:53,940 --> 00:23:00,419
+would say otherly skim these companies
+
+484
+00:22:56,780 --> 00:23:02,580
+never use the macro feature you know
+
+485
+00:23:00,419 --> 00:23:05,159
+because the way when you hear about
+
+486
+00:23:02,580 --> 00:23:05,960
+people talking about this why it is so
+
+487
+00:23:05,159 --> 00:23:09,120
+good
+
+488
+00:23:05,960 --> 00:23:11,940
+these phonetics will say oh it's this
+
+489
+00:23:09,120 --> 00:23:16,260
+macro you know in there
+
+490
+00:23:11,940 --> 00:23:19,620
+opinion in their you know is is is like
+
+491
+00:23:16,260 --> 00:23:22,559
+the macro is the god of God feature of
+
+492
+00:23:19,620 --> 00:23:24,900
+languages but actually this Marco is one
+
+493
+00:23:22,559 --> 00:23:27,539
+of the circus okay
+
+494
+00:23:24,900 --> 00:23:30,780
+and then people start because of the the
+
+495
+00:23:27,539 --> 00:23:33,600
+this fat just like oop you know you in
+
+496
+00:23:30,780 --> 00:23:35,460
+oop you have you know people insist
+
+497
+00:23:33,600 --> 00:23:39,299
+everything must be your object you know
+
+498
+00:23:35,460 --> 00:23:41,880
+so so oftentimes for example in Python
+
+499
+00:23:39,299 --> 00:23:44,400
+you have lots of python code that's oop
+
+500
+00:23:41,880 --> 00:23:47,159
+but it's just bloat you know you can do
+
+501
+00:23:44,400 --> 00:23:48,419
+it with one single function but in op
+
+502
+00:23:47,159 --> 00:23:51,780
+it's
+
+503
+00:23:48,419 --> 00:23:54,240
+10 classes in what what not [ __ ] you
+
+504
+00:23:51,780 --> 00:23:57,419
+know it so in some sense sometimes
+
+505
+00:23:54,240 --> 00:24:00,179
+sometimes it's blowed bloat and that
+
+506
+00:23:57,419 --> 00:24:02,520
+happens when you have a coat like thing
+
+507
+00:24:00,179 --> 00:24:04,679
+you know oops the best thing therefore
+
+508
+00:24:02,520 --> 00:24:06,360
+everything must be op therefore this
+
+509
+00:24:04,679 --> 00:24:10,320
+single function I'm going to change it
+
+510
+00:24:06,360 --> 00:24:13,020
+into a op model it's EDS idiocy in the
+
+511
+00:24:10,320 --> 00:24:17,780
+same way in lisp code
+
+512
+00:24:13,020 --> 00:24:17,780
+you know there's a lot um
+
+513
+00:24:18,539 --> 00:24:22,440
+I don't know a second my
+
+514
+00:24:20,520 --> 00:24:25,320
+my alarm clock
+
+515
+00:24:22,440 --> 00:24:27,960
+so in this code there is this there is
+
+516
+00:24:25,320 --> 00:24:30,059
+this fantasy this code that oh this
+
+517
+00:24:27,960 --> 00:24:34,140
+Marco is the best thing you need to
+
+518
+00:24:30,059 --> 00:24:36,659
+Marco so that's why you are looking you
+
+519
+00:24:34,140 --> 00:24:38,100
+are seeing a marker so this so This
+
+520
+00:24:36,659 --> 00:24:41,640
+python mod
+
+521
+00:24:38,100 --> 00:24:44,159
+is trying to Define your macro based on
+
+522
+00:24:41,640 --> 00:24:48,020
+the skeleton package let's look at let
+
+523
+00:24:44,159 --> 00:24:48,020
+me show you the skeleton package okay
+
+524
+00:24:48,120 --> 00:24:53,460
+uh
+
+525
+00:24:50,280 --> 00:24:56,240
+okay anyway it must be on top so you can
+
+526
+00:24:53,460 --> 00:25:01,159
+just see require you search for require
+
+527
+00:24:56,240 --> 00:25:01,159
+USC skeleton uh where is it
+
+528
+00:25:03,559 --> 00:25:08,220
+s-k-e-l-e
+
+529
+00:25:05,520 --> 00:25:13,559
+okay
+
+530
+00:25:08,220 --> 00:25:13,559
+okay they didn't even what
+
+531
+00:25:15,179 --> 00:25:19,640
+you can see color [ __ ] shell
+
+532
+00:25:24,000 --> 00:25:31,200
+is surprised if uh so who who wrote this
+
+533
+00:25:27,380 --> 00:25:34,679
+Fabian e Galina I don't know who he is
+
+534
+00:25:31,200 --> 00:25:38,120
+and he's got the GitHub so I look
+
+535
+00:25:34,679 --> 00:25:38,120
+Okay so
+
+536
+00:25:38,520 --> 00:25:44,400
+you know usually I look you know I look
+
+537
+00:25:40,860 --> 00:25:46,440
+who wrote them and why and you know look
+
+538
+00:25:44,400 --> 00:25:48,539
+at the history of things
+
+539
+00:25:46,440 --> 00:25:51,179
+you know today I'm kind of
+
+540
+00:25:48,539 --> 00:25:53,940
+distracted into other things because I
+
+541
+00:25:51,179 --> 00:25:55,440
+meant to write a python uh major mod
+
+542
+00:25:53,940 --> 00:25:57,059
+from the scratch
+
+543
+00:25:55,440 --> 00:25:59,940
+but again
+
+544
+00:25:57,059 --> 00:26:02,100
+like I said I have already done this
+
+545
+00:25:59,940 --> 00:26:03,900
+last year so you can you know if you
+
+546
+00:26:02,100 --> 00:26:06,120
+really want to
+
+547
+00:26:03,900 --> 00:26:08,940
+learn about how to write a major mod
+
+548
+00:26:06,120 --> 00:26:11,760
+from scratch you can look at last year's
+
+549
+00:26:08,940 --> 00:26:15,860
+video or just look at my um
+
+550
+00:26:11,760 --> 00:26:15,860
+you know tutorial already written
+
+551
+00:26:15,900 --> 00:26:20,159
+so what are we doing now so this guy
+
+552
+00:26:18,299 --> 00:26:23,990
+wrote python so right now we want to
+
+553
+00:26:20,159 --> 00:26:25,080
+find the skeleton why s-k-e-l-e-t
+
+554
+00:26:23,990 --> 00:26:28,039
+[Music]
+
+555
+00:26:25,080 --> 00:26:28,039
+Okay so
+
+556
+00:26:29,159 --> 00:26:35,700
+so skeletons so skeletons are provided
+
+557
+00:26:33,299 --> 00:26:39,600
+for simple inserting of things like
+
+558
+00:26:35,700 --> 00:26:42,779
+class Definition for import if why okay
+
+559
+00:26:39,600 --> 00:26:45,360
+so now I'm guessing it is this Skeleton
+
+560
+00:26:42,779 --> 00:26:47,640
+thing that's [ __ ] up
+
+561
+00:26:45,360 --> 00:26:50,460
+things when I type import you know it's
+
+562
+00:26:47,640 --> 00:26:53,520
+trying to be smart okay these skeletons
+
+563
+00:26:50,460 --> 00:26:55,860
+are integrated with a brief okay if you
+
+564
+00:26:53,520 --> 00:26:59,640
+have a pre-mod activated in Python
+
+565
+00:26:55,860 --> 00:27:01,980
+skeleton Auto insert is set to true then
+
+566
+00:26:59,640 --> 00:27:03,900
+whenever you type the name of any of
+
+567
+00:27:01,980 --> 00:27:07,140
+those defined hit space they will
+
+568
+00:27:03,900 --> 00:27:09,360
+automatically expand okay as an
+
+569
+00:27:07,140 --> 00:27:12,539
+alternative you can use the defined
+
+570
+00:27:09,360 --> 00:27:15,480
+skeleton command python skirt okay
+
+571
+00:27:12,539 --> 00:27:17,640
+so I don't know so I don't know where
+
+572
+00:27:15,480 --> 00:27:20,100
+the
+
+573
+00:27:17,640 --> 00:27:22,919
+so I think they are they implemented
+
+574
+00:27:20,100 --> 00:27:26,960
+skeleton by themselves without using the
+
+575
+00:27:22,919 --> 00:27:26,960
+skeletons package is that true
+
+576
+00:27:36,779 --> 00:27:43,200
+yeah so but you see these are templates
+
+577
+00:27:39,600 --> 00:27:46,940
+these are templates which I
+
+578
+00:27:43,200 --> 00:27:46,940
+which I think is no good
+
+579
+00:27:48,179 --> 00:27:52,919
+you see
+
+580
+00:27:49,500 --> 00:27:56,279
+you see this this line probably this
+
+581
+00:27:52,919 --> 00:27:59,059
+part is [ __ ] up my typing of import
+
+582
+00:27:56,279 --> 00:28:02,340
+you know why why do they do that because
+
+583
+00:27:59,059 --> 00:28:03,360
+python is one of the language that has a
+
+584
+00:28:02,340 --> 00:28:05,820
+code
+
+585
+00:28:03,360 --> 00:28:08,760
+so meaning that
+
+586
+00:28:05,820 --> 00:28:10,860
+you know they they want to tell you how
+
+587
+00:28:08,760 --> 00:28:14,880
+your code should be
+
+588
+00:28:10,860 --> 00:28:18,840
+your code style they they have a
+
+589
+00:28:14,880 --> 00:28:21,120
+uh passion or Obsession of how your
+
+590
+00:28:18,840 --> 00:28:24,480
+coding style should be in python or how
+
+591
+00:28:21,120 --> 00:28:26,940
+you code things so according to them you
+
+592
+00:28:24,480 --> 00:28:28,559
+should use import I mean you should use
+
+593
+00:28:26,940 --> 00:28:31,860
+the phone
+
+594
+00:28:28,559 --> 00:28:34,919
+instead of the import something
+
+595
+00:28:31,860 --> 00:28:36,779
+um syntax let me let me show you
+
+596
+00:28:34,919 --> 00:28:39,059
+so um
+
+597
+00:28:36,779 --> 00:28:42,720
+you know python is one of the worst
+
+598
+00:28:39,059 --> 00:28:44,640
+language one today is is is actually the
+
+599
+00:28:42,720 --> 00:28:47,760
+worst a month because there are so many
+
+600
+00:28:44,640 --> 00:28:49,620
+new languages which with great features
+
+601
+00:28:47,760 --> 00:28:52,020
+colon and
+
+602
+00:28:49,620 --> 00:28:54,900
+Ruby is much better than Python and
+
+603
+00:28:52,020 --> 00:28:57,539
+Ruby's even older than python by by uh
+
+604
+00:28:54,900 --> 00:29:00,779
+half a year or something
+
+605
+00:28:57,539 --> 00:29:02,940
+or maybe the other way around uh Ruby is
+
+606
+00:29:00,779 --> 00:29:05,520
+much better much more elegant much more
+
+607
+00:29:02,940 --> 00:29:08,600
+consistent and much more
+
+608
+00:29:05,520 --> 00:29:11,460
+thirst in Python and much more
+
+609
+00:29:08,600 --> 00:29:14,820
+understandable Ruby okay
+
+610
+00:29:11,460 --> 00:29:16,740
+the the only reason why so why is pet
+
+611
+00:29:14,820 --> 00:29:18,779
+you know python today is one of the most
+
+612
+00:29:16,740 --> 00:29:22,500
+popular language among the top three
+
+613
+00:29:18,779 --> 00:29:27,539
+also why because Google for two reasons
+
+614
+00:29:22,500 --> 00:29:30,720
+one is in around 2000 year 2000 Google
+
+615
+00:29:27,539 --> 00:29:33,600
+made it popular because Google choose it
+
+616
+00:29:30,720 --> 00:29:35,460
+as their in-house scripting language to
+
+617
+00:29:33,600 --> 00:29:37,799
+year 2000 okay
+
+618
+00:29:35,460 --> 00:29:40,260
+that is the time when programmers
+
+619
+00:29:37,799 --> 00:29:42,659
+started to hear about python oh python
+
+620
+00:29:40,260 --> 00:29:45,600
+Google is using it or therefore you know
+
+621
+00:29:42,659 --> 00:29:48,120
+I'm gonna use it to Google 2000 year
+
+622
+00:29:45,600 --> 00:29:52,020
+2000. then
+
+623
+00:29:48,120 --> 00:29:56,039
+year 2008 or so Ruby became extremely
+
+624
+00:29:52,020 --> 00:29:59,100
+popular because Ruby on Rails oh in year
+
+625
+00:29:56,039 --> 00:30:01,740
+2008 that's like Ruby on Rails then
+
+626
+00:29:59,100 --> 00:30:04,620
+python the language that pylon language
+
+627
+00:30:01,740 --> 00:30:06,960
+truly sucks okay it's falling out you
+
+628
+00:30:04,620 --> 00:30:07,980
+know for it's getting less lit and less
+
+629
+00:30:06,960 --> 00:30:12,059
+popular
+
+630
+00:30:07,980 --> 00:30:14,220
+but then around 2010 Google once again
+
+631
+00:30:12,059 --> 00:30:17,100
+because the machine learning the neural
+
+632
+00:30:14,220 --> 00:30:19,500
+networks Google is pumping up pumping
+
+633
+00:30:17,100 --> 00:30:22,020
+out python code you know
+
+634
+00:30:19,500 --> 00:30:24,419
+python because python is too slow it can
+
+635
+00:30:22,020 --> 00:30:27,539
+actually do any machine learning code
+
+636
+00:30:24,419 --> 00:30:30,419
+those codes are better in C's C plus
+
+637
+00:30:27,539 --> 00:30:33,000
+plus but python is just the front end
+
+638
+00:30:30,419 --> 00:30:35,520
+you know the the interface
+
+639
+00:30:33,000 --> 00:30:36,960
+so Google is pumping doing lots of
+
+640
+00:30:35,520 --> 00:30:39,600
+machine learning you know Google is
+
+641
+00:30:36,960 --> 00:30:42,480
+advertising their power you know and so
+
+642
+00:30:39,600 --> 00:30:44,279
+on you know and well and Google is using
+
+643
+00:30:42,480 --> 00:30:46,740
+python for this scripting language so
+
+644
+00:30:44,279 --> 00:30:50,340
+they all their libraries the front end
+
+645
+00:30:46,740 --> 00:30:53,220
+is you know python so this this is why
+
+646
+00:30:50,340 --> 00:30:54,179
+this is the second time python becomes
+
+647
+00:30:53,220 --> 00:30:56,700
+popular
+
+648
+00:30:54,179 --> 00:31:00,779
+you know that essentially that's the
+
+649
+00:30:56,700 --> 00:31:04,200
+only reason this pattern is truly sucky
+
+650
+00:31:00,779 --> 00:31:07,500
+the worst and the guide of van Rossum
+
+651
+00:31:04,200 --> 00:31:10,980
+among all programming language creators
+
+652
+00:31:07,500 --> 00:31:14,039
+I studied I looked into you know Wolfram
+
+653
+00:31:10,980 --> 00:31:17,640
+language step from Wolfram this you know
+
+654
+00:31:14,039 --> 00:31:20,640
+the McCarthy this uh Gola and Rob Pike
+
+655
+00:31:17,640 --> 00:31:24,360
+and Ken Thompson I think but Rob Pike
+
+656
+00:31:20,640 --> 00:31:26,580
+you know which is a Unix phonetics
+
+657
+00:31:24,360 --> 00:31:29,220
+you know of all the perimeter you know
+
+658
+00:31:26,580 --> 00:31:31,380
+Pearl Larry War which uh which is a
+
+659
+00:31:29,220 --> 00:31:32,940
+crack part you know about the
+
+660
+00:31:31,380 --> 00:31:38,240
+programming language
+
+661
+00:31:32,940 --> 00:31:38,240
+in JavaScript JavaScript by the um
+
+662
+00:31:38,940 --> 00:31:44,100
+Ike you know Brenda Brenda Brendan Ike
+
+663
+00:31:42,659 --> 00:31:46,140
+JavaScript
+
+664
+00:31:44,100 --> 00:31:48,240
+you look at all the creators of
+
+665
+00:31:46,140 --> 00:31:50,220
+programming languages you look at their
+
+666
+00:31:48,240 --> 00:31:51,500
+you know you you try to look into their
+
+667
+00:31:50,220 --> 00:31:55,320
+IQ
+
+668
+00:31:51,500 --> 00:31:58,080
+or how much do they know in Java you
+
+669
+00:31:55,320 --> 00:32:00,720
+know Java is from Gosling you know who
+
+670
+00:31:58,080 --> 00:32:03,179
+is very smart and wrote one of the first
+
+671
+00:32:00,720 --> 00:32:06,419
+emacs
+
+672
+00:32:03,179 --> 00:32:09,299
+you look at so of all these people guide
+
+673
+00:32:06,419 --> 00:32:12,600
+over Anderson is the most idiotic the
+
+674
+00:32:09,299 --> 00:32:14,940
+most low IQ among them all in my
+
+675
+00:32:12,600 --> 00:32:19,380
+judgment okay
+
+676
+00:32:14,940 --> 00:32:20,880
+but then but but he but among them you
+
+677
+00:32:19,380 --> 00:32:23,340
+know the different people have different
+
+678
+00:32:20,880 --> 00:32:24,779
+personalities some are talkative you
+
+679
+00:32:23,340 --> 00:32:27,000
+know they're talking all the time or
+
+680
+00:32:24,779 --> 00:32:29,580
+giving confidences you know they are
+
+681
+00:32:27,000 --> 00:32:32,399
+under the Limelight all the time such as
+
+682
+00:32:29,580 --> 00:32:34,860
+Richard Stoneman you know why are some
+
+683
+00:32:32,399 --> 00:32:37,440
+are just quiet they don't talk too much
+
+684
+00:32:34,860 --> 00:32:42,059
+TCR for example the creator of TCR
+
+685
+00:32:37,440 --> 00:32:45,380
+language today is kind of died out TCL
+
+686
+00:32:42,059 --> 00:32:48,120
+but back in year 2000 is a very popular
+
+687
+00:32:45,380 --> 00:32:51,779
+uh and
+
+688
+00:32:48,120 --> 00:32:54,899
+um you know alongside Pearl TCL so the
+
+689
+00:32:51,779 --> 00:32:58,440
+guy who created TCL his kind of academic
+
+690
+00:32:54,899 --> 00:33:01,500
+that academic guy he's not you know like
+
+691
+00:32:58,440 --> 00:33:05,940
+talking drama all the time like jwz
+
+692
+00:33:01,500 --> 00:33:08,399
+[ __ ] Jamie zielinski [ __ ] who is
+
+693
+00:33:05,940 --> 00:33:10,559
+famous for you know hacker you know
+
+694
+00:33:08,399 --> 00:33:12,600
+creating the Netscape you know for the
+
+695
+00:33:10,559 --> 00:33:14,700
+Unix version you know he talked he
+
+696
+00:33:12,600 --> 00:33:18,059
+babbles all the time you know but then
+
+697
+00:33:14,700 --> 00:33:21,179
+dramatically and also lead us to word
+
+698
+00:33:18,059 --> 00:33:23,340
+you know he created Linux he's also the
+
+699
+00:33:21,179 --> 00:33:25,679
+dramatic guy you know he's like flaming
+
+700
+00:33:23,340 --> 00:33:28,500
+you you are idiot that you know the you
+
+701
+00:33:25,679 --> 00:33:31,140
+know Linux covered
+
+702
+00:33:28,500 --> 00:33:34,140
+but but some of the you know language
+
+703
+00:33:31,140 --> 00:33:37,320
+created they are more quiet Rob Pike for
+
+704
+00:33:34,140 --> 00:33:40,380
+example who created lots of utf-8 he
+
+705
+00:33:37,320 --> 00:33:44,279
+created utf-8 uh last week I did a video
+
+706
+00:33:40,380 --> 00:33:47,100
+on unicode watch that okay so rap hike
+
+707
+00:33:44,279 --> 00:33:51,240
+he created utf-8 and lots of Unix things
+
+708
+00:33:47,100 --> 00:33:52,919
+and and and plan Nai and he also and he
+
+709
+00:33:51,240 --> 00:33:55,620
+basically also created
+
+710
+00:33:52,919 --> 00:33:58,320
+um go land with other with another guy I
+
+711
+00:33:55,620 --> 00:34:00,360
+forgot Ken Thompson I think or maybe
+
+712
+00:33:58,320 --> 00:34:02,340
+another I I forgot but anyway so rap
+
+713
+00:34:00,360 --> 00:34:06,120
+hack is also one of the
+
+714
+00:34:02,340 --> 00:34:08,280
+uh chatty guy and dramatic dramatic he
+
+715
+00:34:06,120 --> 00:34:10,919
+write a lot you know like me you know
+
+716
+00:34:08,280 --> 00:34:14,820
+I'm you can you can class it by me as
+
+717
+00:34:10,919 --> 00:34:17,580
+one of the more chatty and dramatic
+
+718
+00:34:14,820 --> 00:34:19,980
+but anyway my I was going to say the um
+
+719
+00:34:17,580 --> 00:34:23,879
+of all the programming language creators
+
+720
+00:34:19,980 --> 00:34:27,020
+I know the guy kidovan rosam is most the
+
+721
+00:34:23,879 --> 00:34:30,599
+most slow IQ okay
+
+722
+00:34:27,020 --> 00:34:33,359
+but but he also have a personality that
+
+723
+00:34:30,599 --> 00:34:36,540
+he think he's the he's the best designer
+
+724
+00:34:33,359 --> 00:34:40,020
+you know he he created python he want to
+
+725
+00:34:36,540 --> 00:34:41,820
+revolutionize Revolution
+
+726
+00:34:40,020 --> 00:34:45,419
+uh
+
+727
+00:34:41,820 --> 00:34:48,599
+nice the agent programming education you
+
+728
+00:34:45,419 --> 00:34:52,159
+know he in his vision python 3000 he won
+
+729
+00:34:48,599 --> 00:34:55,080
+everyone every school to use Python
+
+730
+00:34:52,159 --> 00:34:58,440
+worst language the reason I learned
+
+731
+00:34:55,080 --> 00:35:00,900
+python is because in in 2006 you know
+
+732
+00:34:58,440 --> 00:35:02,640
+Pearl is the reigning language for
+
+733
+00:35:00,900 --> 00:35:05,760
+scripting you know priorities everywhere
+
+734
+00:35:02,640 --> 00:35:07,859
+and pearl is just a Unix code very
+
+735
+00:35:05,760 --> 00:35:10,680
+strong code you know more than one thing
+
+736
+00:35:07,859 --> 00:35:13,700
+to do it you know the postmodern the
+
+737
+00:35:10,680 --> 00:35:17,700
+first post-modern language Pro you know
+
+738
+00:35:13,700 --> 00:35:19,440
+full of Unix code in crap so I thought
+
+739
+00:35:17,700 --> 00:35:23,400
+pattern is better
+
+740
+00:35:19,440 --> 00:35:26,700
+but python is kind of opposite but not
+
+741
+00:35:23,400 --> 00:35:29,339
+but it's like it's a trap okay it's it's
+
+742
+00:35:26,700 --> 00:35:31,800
+got this
+
+743
+00:35:29,339 --> 00:35:35,940
+as if aggressive it's a passive
+
+744
+00:35:31,800 --> 00:35:38,820
+aggressive coat Python and the python
+
+745
+00:35:35,940 --> 00:35:40,619
+people you know of course because of
+
+746
+00:35:38,820 --> 00:35:42,119
+Guido and rosam you know they are all
+
+747
+00:35:40,619 --> 00:35:45,300
+kind of
+
+748
+00:35:42,119 --> 00:35:46,400
+telling you what to do but in in some uh
+
+749
+00:35:45,300 --> 00:35:49,079
+you know
+
+750
+00:35:46,400 --> 00:35:51,900
+implicit way like you should do it this
+
+751
+00:35:49,079 --> 00:35:54,300
+way or that way so anyway python
+
+752
+00:35:51,900 --> 00:35:56,940
+so we we were talking about that because
+
+753
+00:35:54,300 --> 00:36:02,040
+we were talking about the import syntax
+
+754
+00:35:56,940 --> 00:36:04,619
+the most most idiotic design okay filled
+
+755
+00:36:02,040 --> 00:36:08,460
+with it either let me show you the
+
+756
+00:36:04,619 --> 00:36:11,160
+import okay the import situation
+
+757
+00:36:08,460 --> 00:36:13,740
+so there it is import module okay so we
+
+758
+00:36:11,160 --> 00:36:16,920
+import uh
+
+759
+00:36:13,740 --> 00:36:21,900
+recently I updated this function this
+
+760
+00:36:16,920 --> 00:36:21,900
+section so you see uh
+
+761
+00:36:22,460 --> 00:36:28,740
+yeah so you see so you have
+
+762
+00:36:26,220 --> 00:36:31,140
+two Syntax for you know more than you
+
+763
+00:36:28,740 --> 00:36:33,780
+have two you know primarily two syntax
+
+764
+00:36:31,140 --> 00:36:36,720
+to import some modules so one is just
+
+765
+00:36:33,780 --> 00:36:41,280
+import module name then the other one is
+
+766
+00:36:36,720 --> 00:36:43,380
+form module name import name keyword you
+
+767
+00:36:41,280 --> 00:36:47,400
+know function name one two three
+
+768
+00:36:43,380 --> 00:36:51,119
+[ __ ] IDI ID idiotic [ __ ] python
+
+769
+00:36:47,400 --> 00:36:52,440
+this so why so first so first of all you
+
+770
+00:36:51,119 --> 00:36:54,420
+see
+
+771
+00:36:52,440 --> 00:36:57,119
+and there are other ways okay but
+
+772
+00:36:54,420 --> 00:37:00,119
+anyways so these two major way why is it
+
+773
+00:36:57,119 --> 00:37:02,579
+not good because you can see first of
+
+774
+00:37:00,119 --> 00:37:05,820
+all you have two two different syntax
+
+775
+00:37:02,579 --> 00:37:08,040
+you know these two syntax are not the
+
+776
+00:37:05,820 --> 00:37:11,460
+same thing it's not like one is just
+
+777
+00:37:08,040 --> 00:37:14,040
+part of the other no they are like two
+
+778
+00:37:11,460 --> 00:37:16,020
+completely statement completely
+
+779
+00:37:14,040 --> 00:37:19,560
+different statements
+
+780
+00:37:16,020 --> 00:37:21,599
+that are basically doing about the same
+
+781
+00:37:19,560 --> 00:37:23,220
+thing
+
+782
+00:37:21,599 --> 00:37:25,020
+yet
+
+783
+00:37:23,220 --> 00:37:27,480
+one of the you know part of the
+
+784
+00:37:25,020 --> 00:37:30,480
+statement of the you know this one is
+
+785
+00:37:27,480 --> 00:37:33,480
+appears happens as part of the syntax of
+
+786
+00:37:30,480 --> 00:37:35,940
+the other completely different statement
+
+787
+00:37:33,480 --> 00:37:37,740
+so you see
+
+788
+00:37:35,940 --> 00:37:40,380
+let me explain this one okay because
+
+789
+00:37:37,740 --> 00:37:43,440
+when I you know syntax is one of the
+
+790
+00:37:40,380 --> 00:37:45,180
+thing I focus the most is in programming
+
+791
+00:37:43,440 --> 00:37:47,880
+languages in my study of programming
+
+792
+00:37:45,180 --> 00:37:50,579
+languages and syntax is more important
+
+793
+00:37:47,880 --> 00:37:53,640
+than semantics you know some some some
+
+794
+00:37:50,579 --> 00:37:56,160
+computer scientists idiots they write a
+
+795
+00:37:53,640 --> 00:37:58,560
+book they say oh syntax is not important
+
+796
+00:37:56,160 --> 00:38:02,760
+it's a cement that those are idiots okay
+
+797
+00:37:58,560 --> 00:38:05,760
+so let me explain why this python import
+
+798
+00:38:02,760 --> 00:38:08,099
+syntax is sucks okay
+
+799
+00:38:05,760 --> 00:38:10,260
+you see first of all you have import
+
+800
+00:38:08,099 --> 00:38:11,820
+something that's a syntax meaning that
+
+801
+00:38:10,260 --> 00:38:14,220
+that's something you type it has a
+
+802
+00:38:11,820 --> 00:38:17,460
+meaning to the Python language okay
+
+803
+00:38:14,220 --> 00:38:18,599
+import uh then something match your name
+
+804
+00:38:17,460 --> 00:38:22,980
+okay
+
+805
+00:38:18,599 --> 00:38:25,800
+now now now look at this syntax firm
+
+806
+00:38:22,980 --> 00:38:28,880
+module name import name one name two now
+
+807
+00:38:25,800 --> 00:38:33,660
+you can see the import something happens
+
+808
+00:38:28,880 --> 00:38:35,880
+exactly here to put in in two places you
+
+809
+00:38:33,660 --> 00:38:39,300
+know import something that has a meaning
+
+810
+00:38:35,880 --> 00:38:42,300
+but then but then this forms something
+
+811
+00:38:39,300 --> 00:38:44,820
+import something the second part import
+
+812
+00:38:42,300 --> 00:38:46,440
+something happened there
+
+813
+00:38:44,820 --> 00:38:48,720
+but here
+
+814
+00:38:46,440 --> 00:38:51,119
+their meaning is completely different
+
+815
+00:38:48,720 --> 00:38:53,760
+okay in the first
+
+816
+00:38:51,119 --> 00:38:57,060
+example I mean in the first syntax the
+
+817
+00:38:53,760 --> 00:38:59,760
+import something the argument or you
+
+818
+00:38:57,060 --> 00:39:01,980
+know it import is not a function so
+
+819
+00:38:59,760 --> 00:39:03,420
+technically it's not correct to call it
+
+820
+00:39:01,980 --> 00:39:05,700
+an argument
+
+821
+00:39:03,420 --> 00:39:09,540
+but you know it's a statement so import
+
+822
+00:39:05,700 --> 00:39:12,320
+something that thing
+
+823
+00:39:09,540 --> 00:39:15,480
+what you call is non-terminal in in
+
+824
+00:39:12,320 --> 00:39:18,359
+passing context
+
+825
+00:39:15,480 --> 00:39:21,240
+so this is an internal module name is it
+
+826
+00:39:18,359 --> 00:39:23,400
+should be your module name but in the
+
+827
+00:39:21,240 --> 00:39:25,500
+alternative syntax this Imports
+
+828
+00:39:23,400 --> 00:39:27,780
+something those names are not module
+
+829
+00:39:25,500 --> 00:39:29,880
+names okay those those names are
+
+830
+00:39:27,780 --> 00:39:34,680
+identifiers or function and variable
+
+831
+00:39:29,880 --> 00:39:36,720
+names in the module okay so in the asset
+
+832
+00:39:34,680 --> 00:39:38,220
+you have a problem what is the problem
+
+833
+00:39:36,720 --> 00:39:40,140
+it's confusing
+
+834
+00:39:38,220 --> 00:39:42,240
+because if if you are a programming you
+
+835
+00:39:40,140 --> 00:39:45,300
+know you see exactly the same thing
+
+836
+00:39:42,240 --> 00:39:48,599
+import something input ABC in one place
+
+837
+00:39:45,300 --> 00:39:51,900
+the ABC means one thing the in the other
+
+838
+00:39:48,599 --> 00:39:54,480
+place it means something else okay
+
+839
+00:39:51,900 --> 00:39:57,780
+so that's why
+
+840
+00:39:54,480 --> 00:40:02,220
+this design is just idiotic
+
+841
+00:39:57,780 --> 00:40:04,740
+who do you blame Guido Von Rossum idiot
+
+842
+00:40:02,220 --> 00:40:07,020
+and by the way it's let me get to
+
+843
+00:40:04,740 --> 00:40:09,540
+political political stuff you know Guido
+
+844
+00:40:07,020 --> 00:40:11,940
+Von Rosen also joined the social justice
+
+845
+00:40:09,540 --> 00:40:14,579
+Warrior again you know there's a video
+
+846
+00:40:11,940 --> 00:40:17,220
+of him talking about oh I'm not going to
+
+847
+00:40:14,579 --> 00:40:21,480
+teach programming to any males I'm going
+
+848
+00:40:17,220 --> 00:40:25,200
+to exclusively teaching girls Mentor you
+
+849
+00:40:21,480 --> 00:40:28,640
+know I'm gonna just Mentor women because
+
+850
+00:40:25,200 --> 00:40:31,680
+this that [ __ ]
+
+851
+00:40:28,640 --> 00:40:35,760
+not not a good
+
+852
+00:40:31,680 --> 00:40:39,420
+uh not a good thing to do okay so
+
+853
+00:40:35,760 --> 00:40:42,240
+but I don't think kidama and rosam is
+
+854
+00:40:39,420 --> 00:40:45,720
+not a bad person okay I don't think he's
+
+855
+00:40:42,240 --> 00:40:48,000
+a he's a bad person and even as a social
+
+856
+00:40:45,720 --> 00:40:50,760
+justice Warrior I don't think he's not
+
+857
+00:40:48,000 --> 00:40:52,980
+really doing something harmful meanwhile
+
+858
+00:40:50,760 --> 00:40:54,599
+there's a lot of them doing very bad
+
+859
+00:40:52,980 --> 00:40:57,900
+things but
+
+860
+00:40:54,599 --> 00:41:02,460
+I'm not going to talk about that
+
+861
+00:40:57,900 --> 00:41:04,619
+here and but anyway so man I don't I
+
+862
+00:41:02,460 --> 00:41:06,359
+don't think he's a
+
+863
+00:41:04,619 --> 00:41:10,680
+I don't
+
+864
+00:41:06,359 --> 00:41:12,780
+he he doesn't have a heist status in my
+
+865
+00:41:10,680 --> 00:41:15,780
+in my mind okay to me
+
+866
+00:41:12,780 --> 00:41:19,020
+uh so anyway let's back to the you know
+
+867
+00:41:15,780 --> 00:41:21,960
+technical thing uh syntax so he created
+
+868
+00:41:19,020 --> 00:41:23,820
+this you know but then you see
+
+869
+00:41:21,960 --> 00:41:26,040
+these two are different because one is
+
+870
+00:41:23,820 --> 00:41:29,520
+just importing of module okay the other
+
+871
+00:41:26,040 --> 00:41:33,000
+one is let's use select the names but
+
+872
+00:41:29,520 --> 00:41:36,060
+stupid stupid syntax you know
+
+873
+00:41:33,000 --> 00:41:38,900
+and it's you know he likes to you know
+
+874
+00:41:36,060 --> 00:41:42,599
+the Python language look look at the way
+
+875
+00:41:38,900 --> 00:41:44,700
+this this syntax is designed you know
+
+876
+00:41:42,599 --> 00:41:48,800
+it's like English you know almost like
+
+877
+00:41:44,700 --> 00:41:48,800
+firm a module name they import
+
+878
+00:41:49,020 --> 00:41:54,420
+it's idiot okay just idiot you see then
+
+879
+00:41:51,660 --> 00:41:58,460
+you can see this you know this part it
+
+880
+00:41:54,420 --> 00:41:58,460
+allows you to use the asterisk
+
+881
+00:41:59,700 --> 00:42:04,260
+and now if you do this then it's it's
+
+882
+00:42:02,220 --> 00:42:07,440
+what's the difference between that and
+
+883
+00:42:04,260 --> 00:42:09,480
+this you know I'm not sure even there's
+
+884
+00:42:07,440 --> 00:42:12,359
+a technical difference
+
+885
+00:42:09,480 --> 00:42:15,660
+uh maybe maybe there is but it's just
+
+886
+00:42:12,359 --> 00:42:17,640
+idiotic so anyway so we digressed a lot
+
+887
+00:42:15,660 --> 00:42:21,119
+and uh
+
+888
+00:42:17,640 --> 00:42:25,920
+uh maybe we are not going to write a
+
+889
+00:42:21,119 --> 00:42:28,440
+python mod from from scratch today
+
+890
+00:42:25,920 --> 00:42:32,180
+let's see where we want to go yeah so we
+
+891
+00:42:28,440 --> 00:42:32,180
+were talking about the skeleton
+
+892
+00:42:32,820 --> 00:42:39,780
+Skeleton thing
+
+893
+00:42:36,000 --> 00:42:42,240
+okay so I think the python mod this
+
+894
+00:42:39,780 --> 00:42:44,520
+major mod written by this guy he
+
+895
+00:42:42,240 --> 00:42:48,900
+actually created his own skeleton
+
+896
+00:42:44,520 --> 00:42:51,780
+without using the skeleton package uh if
+
+897
+00:42:48,900 --> 00:42:54,540
+you let me show you what I mean so in
+
+898
+00:42:51,780 --> 00:42:59,099
+emacs lisp you have a skeleton package
+
+899
+00:42:54,540 --> 00:43:05,180
+you can see it by let's see
+
+900
+00:42:59,099 --> 00:43:05,180
+by calling a purpose okay so let's see
+
+901
+00:43:05,400 --> 00:43:12,660
+propose you call Meta x a purpose
+
+902
+00:43:07,920 --> 00:43:17,160
+command then you type skeleton
+
+903
+00:43:12,660 --> 00:43:20,220
+okay so you can see okay that's not what
+
+904
+00:43:17,160 --> 00:43:23,359
+we want okay so here this one
+
+905
+00:43:20,220 --> 00:43:26,640
+yeah so you see here is a package
+
+906
+00:43:23,359 --> 00:43:29,240
+skeleton.el so let's go to the directory
+
+907
+00:43:26,640 --> 00:43:33,060
+you know this package
+
+908
+00:43:29,240 --> 00:43:37,619
+skeleton.el is part of emacs
+
+909
+00:43:33,060 --> 00:43:41,700
+okay and you open it and this is the
+
+910
+00:43:37,619 --> 00:43:44,520
+package 600 lines that
+
+911
+00:43:41,700 --> 00:43:46,920
+that lets you define templates
+
+912
+00:43:44,520 --> 00:43:49,319
+without knowing too much emac bisp
+
+913
+00:43:46,920 --> 00:43:52,079
+that's what we were talking about but
+
+914
+00:43:49,319 --> 00:43:55,020
+the python mod is also using skeleton
+
+915
+00:43:52,079 --> 00:43:56,940
+but the issue is I don't think it's
+
+916
+00:43:55,020 --> 00:43:59,640
+actually using
+
+917
+00:43:56,940 --> 00:44:02,760
+you know the package but it's
+
+918
+00:43:59,640 --> 00:44:05,220
+it's emulating it's doing it's doing
+
+919
+00:44:02,760 --> 00:44:09,540
+what's skeleton is
+
+920
+00:44:05,220 --> 00:44:12,380
+doing but the guy created it himself
+
+921
+00:44:09,540 --> 00:44:12,380
+something like maybe
+
+922
+00:44:16,740 --> 00:44:22,280
+so let's see skeleton read and okay
+
+923
+00:44:19,920 --> 00:44:22,280
+anyway
+
+924
+00:44:25,200 --> 00:44:30,599
+so lots of digression uh I think we are
+
+925
+00:44:28,560 --> 00:44:33,480
+not going to code it because to code
+
+926
+00:44:30,599 --> 00:44:37,500
+that to code the python mod from scratch
+
+927
+00:44:33,480 --> 00:44:40,640
+we'll take half an hour
+
+928
+00:44:37,500 --> 00:44:40,640
+um but we can
+
+929
+00:44:43,980 --> 00:44:50,579
+yeah if I start from if I do it right
+
+930
+00:44:46,920 --> 00:44:54,300
+now even if I do them the fastest as I
+
+931
+00:44:50,579 --> 00:44:57,540
+can it will take 20
+
+932
+00:44:54,300 --> 00:44:59,160
+minutes yeah so let's not do it we can
+
+933
+00:44:57,540 --> 00:45:01,980
+do it another day
+
+934
+00:44:59,160 --> 00:45:05,599
+okay I'm gonna going to read comments
+
+935
+00:45:01,980 --> 00:45:05,599
+and that will be it for today
+
+936
+00:45:08,880 --> 00:45:12,660
+uh hello immortality
+
+937
+00:45:12,720 --> 00:45:16,339
+Christian sample
+
+938
+00:45:21,240 --> 00:45:23,839
+okay
+
+939
+00:45:33,720 --> 00:45:36,800
+what's going on
+
+940
+00:45:43,859 --> 00:45:46,859
+magnify
+
+941
+00:45:57,359 --> 00:46:03,240
+uh
+
+942
+00:45:58,619 --> 00:46:06,480
+uh so look like Ludwig a question so
+
+943
+00:46:03,240 --> 00:46:08,040
+Marcus can grow into too many categories
+
+944
+00:46:06,480 --> 00:46:09,599
+in a workflow
+
+945
+00:46:08,040 --> 00:46:11,510
+I'm
+
+946
+00:46:09,599 --> 00:46:15,119
+not sure what you mean
+
+947
+00:46:11,510 --> 00:46:15,119
+[Music]
+
+948
+00:46:22,319 --> 00:46:24,319
+um
+
+949
+00:46:34,079 --> 00:46:38,760
+okay that's it for today as for the
+
+950
+00:46:36,599 --> 00:46:41,220
+keyboard you know so
+
+951
+00:46:38,760 --> 00:46:44,040
+let's let's just talk random then let's
+
+952
+00:46:41,220 --> 00:46:46,940
+turn your fantastic keyboard let me show
+
+953
+00:46:44,040 --> 00:46:46,940
+you can you see
+
+954
+00:46:47,640 --> 00:46:52,560
+yeah so we have color red and let's
+
+955
+00:46:49,980 --> 00:46:54,359
+change it to that's it for today so I'm
+
+956
+00:46:52,560 --> 00:46:55,859
+gonna do some random
+
+957
+00:46:54,359 --> 00:46:58,980
+green
+
+958
+00:46:55,859 --> 00:47:00,000
+now because I got the lousy camera so I
+
+959
+00:46:58,980 --> 00:47:02,220
+got two
+
+960
+00:47:00,000 --> 00:47:04,980
+forty dollars so this large attack
+
+961
+00:47:02,220 --> 00:47:07,859
+eighty dollars idiot [ __ ] you know this
+
+962
+00:47:04,980 --> 00:47:09,900
+stupid camera so you cannot see well I
+
+963
+00:47:07,859 --> 00:47:13,319
+need to buy so donate okay time to
+
+964
+00:47:09,900 --> 00:47:14,579
+donate buy me a camera Amazon go to my
+
+965
+00:47:13,319 --> 00:47:18,180
+Amazon
+
+966
+00:47:14,579 --> 00:47:20,280
+right and you know send me a gift card
+
+967
+00:47:18,180 --> 00:47:23,119
+and you can see
+
+968
+00:47:20,280 --> 00:47:23,119
+foam
+
+969
+00:47:24,000 --> 00:47:29,460
+yeah so let's let me let me let's talk
+
+970
+00:47:26,819 --> 00:47:32,660
+let me talk about some keyboard a little
+
+971
+00:47:29,460 --> 00:47:32,660
+bit so um
+
+972
+00:47:34,619 --> 00:47:43,880
+and what are we doing so pop this back
+
+973
+00:47:38,760 --> 00:47:43,880
+so sorry first walk sorry info
+
+974
+00:47:47,160 --> 00:47:52,859
+so go to my website sorry.info and you
+
+975
+00:47:50,460 --> 00:47:57,660
+can donate all the way to the bottom
+
+976
+00:47:52,859 --> 00:48:00,839
+donate patreon Amazon gift card PayPal
+
+977
+00:47:57,660 --> 00:48:03,560
+okay and we are going to yeah about
+
+978
+00:48:00,839 --> 00:48:03,560
+keyboard
+
+979
+00:48:04,680 --> 00:48:07,680
+so
+
+980
+00:48:09,420 --> 00:48:13,980
+you know I'm not giving up Kinesis
+
+981
+00:48:12,359 --> 00:48:17,760
+advantage
+
+982
+00:48:13,980 --> 00:48:19,140
+I'm using X but both are great okay uh
+
+983
+00:48:17,760 --> 00:48:21,960
+the
+
+984
+00:48:19,140 --> 00:48:24,240
+Kinesis Advantage you know these two are
+
+985
+00:48:21,960 --> 00:48:27,060
+my top favorite
+
+986
+00:48:24,240 --> 00:48:29,700
+uh but I've been using the Kinesis
+
+987
+00:48:27,060 --> 00:48:33,060
+Advantage for like four years five years
+
+988
+00:48:29,700 --> 00:48:35,460
+so I mean so for a change I'm using the
+
+989
+00:48:33,060 --> 00:48:39,900
+expose uh
+
+990
+00:48:35,460 --> 00:48:42,420
+and it so happens my Kinesis advantage
+
+991
+00:48:39,900 --> 00:48:44,640
+it has a
+
+992
+00:48:42,420 --> 00:48:46,560
+Cherry MX
+
+993
+00:48:44,640 --> 00:48:49,260
+silent red
+
+994
+00:48:46,560 --> 00:48:52,440
+switch meaning it's linear okay it's
+
+995
+00:48:49,260 --> 00:48:56,880
+linear and Light which is great however
+
+996
+00:48:52,440 --> 00:49:00,119
+my expose it's got a gatron red get one
+
+997
+00:48:56,880 --> 00:49:01,819
+red and it's even lighter you know it's
+
+998
+00:49:00,119 --> 00:49:06,780
+linear and even lighter much
+
+999
+00:49:01,819 --> 00:49:09,780
+significantly so so I prefer the X you
+
+1000
+00:49:06,780 --> 00:49:12,660
+know the the gator and Ketone red switch
+
+1001
+00:49:09,780 --> 00:49:15,420
+is much more you know because when if I
+
+1002
+00:49:12,660 --> 00:49:17,339
+have to type a lot this this lighter
+
+1003
+00:49:15,420 --> 00:49:20,240
+linear switches
+
+1004
+00:49:17,339 --> 00:49:23,520
+much more you know the the Cherry MX red
+
+1005
+00:49:20,240 --> 00:49:25,440
+silent is already very good but this one
+
+1006
+00:49:23,520 --> 00:49:27,359
+is even lighter so for a change you know
+
+1007
+00:49:25,440 --> 00:49:31,460
+I just want to
+
+1008
+00:49:27,359 --> 00:49:31,460
+you know change my keyboard for a while
+
+1009
+00:49:34,020 --> 00:49:40,500
+con keyboard you know that's that's one
+
+1010
+00:49:36,540 --> 00:49:41,460
+of those 40 it's crap okay that's it for
+
+1011
+00:49:40,500 --> 00:49:44,520
+today
+
+1012
+00:49:41,460 --> 00:49:47,180
+um yeah yeah I think so
+
+1013
+00:49:44,520 --> 00:49:47,180
+let's see
+
+1014
+00:49:50,280 --> 00:49:54,000
+no I don't miss making mistakes if they
+
+1015
+00:49:52,619 --> 00:49:57,980
+are like no
+
+1016
+00:49:54,000 --> 00:49:57,980
+okay that's it for today bye guys
+

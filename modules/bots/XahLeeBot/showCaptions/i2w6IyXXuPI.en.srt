@@ -1,0 +1,5320 @@
+1
+00:00:09,420 --> 00:00:15,000
+hello guys welcome to another episode of
+
+2
+00:00:12,059 --> 00:00:17,640
+excel talk show today we are going to do
+
+3
+00:00:15,000 --> 00:00:21,359
+this uh we are going to write a
+
+4
+00:00:17,640 --> 00:00:24,060
+JavaScript application to do these
+
+5
+00:00:21,359 --> 00:00:25,199
+interesting things for example inverted
+
+6
+00:00:24,060 --> 00:00:28,019
+text
+
+7
+00:00:25,199 --> 00:00:30,119
+same thing you see that's very
+
+8
+00:00:28,019 --> 00:00:33,480
+interesting so we are going to write
+
+9
+00:00:30,119 --> 00:00:35,160
+this in scratch okay I'm gonna show you
+
+10
+00:00:33,480 --> 00:00:40,500
+I'm gonna teach you how to write that
+
+11
+00:00:35,160 --> 00:00:44,100
+JavaScript with a Dom and there is also
+
+12
+00:00:40,500 --> 00:00:47,520
+this thing interesting for example
+
+13
+00:00:44,100 --> 00:00:50,940
+some things so you can have like this
+
+14
+00:00:47,520 --> 00:00:53,399
+fan Fantastic mathematical font you can
+
+15
+00:00:50,940 --> 00:00:57,780
+have double stroke you can have math
+
+16
+00:00:53,399 --> 00:00:58,879
+board let's try double stroke okay and
+
+17
+00:00:57,780 --> 00:01:04,080
+uh
+
+18
+00:00:58,879 --> 00:01:06,840
+you can paste it to uh to Twitter
+
+19
+00:01:04,080 --> 00:01:10,380
+you know and they will show up as double
+
+20
+00:01:06,840 --> 00:01:13,080
+stroke or both I don't have I'm not
+
+21
+00:01:10,380 --> 00:01:17,520
+logged into Twitter so not gonna do it
+
+22
+00:01:13,080 --> 00:01:19,799
+but you can do it in for example uh
+
+23
+00:01:17,520 --> 00:01:22,560
+let's try and Discord
+
+24
+00:01:19,799 --> 00:01:26,460
+you see something
+
+25
+00:01:22,560 --> 00:01:29,939
+and the double stroke okay math bold
+
+26
+00:01:26,460 --> 00:01:33,119
+and let's paste it again
+
+27
+00:01:29,939 --> 00:01:37,020
+okay it's a very interesting and there
+
+28
+00:01:33,119 --> 00:01:39,479
+is also run you know this you can think
+
+29
+00:01:37,020 --> 00:01:42,540
+you can you know this is very fun this
+
+30
+00:01:39,479 --> 00:01:45,119
+one is fun let's see
+
+31
+00:01:42,540 --> 00:01:48,060
+uh Delete and let's say
+
+32
+00:01:45,119 --> 00:01:50,939
+something magical
+
+33
+00:01:48,060 --> 00:01:53,579
+so you can then copy that
+
+34
+00:01:50,939 --> 00:01:56,280
+showing the window go to Discord or
+
+35
+00:01:53,579 --> 00:01:58,259
+Facebook or Twitter and you can paste
+
+36
+00:01:56,280 --> 00:02:02,180
+that something magical
+
+37
+00:01:58,259 --> 00:02:04,140
+run so this is a Asian alphabet used in
+
+38
+00:02:02,180 --> 00:02:06,780
+1500s also
+
+39
+00:02:04,140 --> 00:02:10,020
+and then you can convert it back to
+
+40
+00:02:06,780 --> 00:02:14,459
+Latin for example if I copy that copy
+
+41
+00:02:10,020 --> 00:02:17,280
+that and say to that and and I post then
+
+42
+00:02:14,459 --> 00:02:18,680
+post that then that becomes that
+
+43
+00:02:17,280 --> 00:02:21,239
+you know
+
+44
+00:02:18,680 --> 00:02:24,900
+so that's what we are going to do okay
+
+45
+00:02:21,239 --> 00:02:27,480
+let's begin okay uh yeah run then there
+
+46
+00:02:24,900 --> 00:02:29,099
+is another one Braille very interesting
+
+47
+00:02:27,480 --> 00:02:30,540
+you can do
+
+48
+00:02:29,099 --> 00:02:33,599
+same
+
+49
+00:02:30,540 --> 00:02:36,360
+here okay and so you can when you have a
+
+50
+00:02:33,599 --> 00:02:38,459
+puzzle uh you know you want to share
+
+51
+00:02:36,360 --> 00:02:40,260
+with your friends and but you don't you
+
+52
+00:02:38,459 --> 00:02:44,580
+want to hide the answer
+
+53
+00:02:40,260 --> 00:02:46,680
+you can use one of these Braille or run
+
+54
+00:02:44,580 --> 00:02:49,500
+uh
+
+55
+00:02:46,680 --> 00:02:53,340
+which adds a little uh
+
+56
+00:02:49,500 --> 00:02:55,739
+Mr season to your post okay so let's
+
+57
+00:02:53,340 --> 00:02:57,720
+let's write it okay
+
+58
+00:02:55,739 --> 00:03:02,819
+so I'm gonna show you how to write from
+
+59
+00:02:57,720 --> 00:03:04,920
+scratch okay so let's go to uh
+
+60
+00:03:02,819 --> 00:03:08,160
+okay that's that's right from scratch
+
+61
+00:03:04,920 --> 00:03:12,120
+okay so actually so let's create a new
+
+62
+00:03:08,160 --> 00:03:15,840
+HTML and by the way so I'm using emacs
+
+63
+00:03:12,120 --> 00:03:19,200
+I'm using soft light keys
+
+64
+00:03:15,840 --> 00:03:20,659
+okay search for it you'll find it and
+
+65
+00:03:19,200 --> 00:03:24,140
+I'm using
+
+66
+00:03:20,659 --> 00:03:24,140
+exposed keyboard
+
+67
+00:03:25,440 --> 00:03:29,959
+search exposed study you'll find it
+
+68
+00:03:30,540 --> 00:03:36,300
+for example
+
+69
+00:03:33,060 --> 00:03:39,959
+there it is exposed keyboard
+
+70
+00:03:36,300 --> 00:03:42,599
+uh my review so you know I recommend it
+
+71
+00:03:39,959 --> 00:03:45,299
+because of my keys I'm using volarag
+
+72
+00:03:42,599 --> 00:03:50,340
+layout and on the Ping window you can
+
+73
+00:03:45,299 --> 00:03:52,620
+see all my commands course you see
+
+74
+00:03:50,340 --> 00:03:57,120
+you see all my command commands course
+
+75
+00:03:52,620 --> 00:03:59,760
+and the keystroke okay so now let's
+
+76
+00:03:57,120 --> 00:04:05,040
+start HTML so let's start to write this
+
+77
+00:03:59,760 --> 00:04:07,280
+from scratch HTML that's HTML mod so
+
+78
+00:04:05,040 --> 00:04:11,480
+save it as
+
+79
+00:04:07,280 --> 00:04:14,159
+xxhtml temporary name okay
+
+80
+00:04:11,480 --> 00:04:17,400
+and show this in browser right now it
+
+81
+00:04:14,159 --> 00:04:18,979
+looks like that so now we want to title
+
+82
+00:04:17,400 --> 00:04:20,639
+test
+
+83
+00:04:18,979 --> 00:04:25,820
+convert
+
+84
+00:04:20,639 --> 00:04:25,820
+text to upside down
+
+85
+00:04:26,880 --> 00:04:32,460
+okay so that changed the title and the
+
+86
+00:04:30,240 --> 00:04:35,759
+header
+
+87
+00:04:32,460 --> 00:04:38,280
+see change two places now so we're gonna
+
+88
+00:04:35,759 --> 00:04:40,500
+write a um so
+
+89
+00:04:38,280 --> 00:04:46,020
+first of all you need a JavaScript Okay
+
+90
+00:04:40,500 --> 00:04:49,160
+so make a backup drop to directory
+
+91
+00:04:46,020 --> 00:04:49,160
+rename this
+
+92
+00:04:49,199 --> 00:04:54,960
+JS okay
+
+93
+00:04:51,600 --> 00:04:58,259
+so we got a JS file open it
+
+94
+00:04:54,960 --> 00:05:02,000
+DD them okay nothing copy the file path
+
+95
+00:04:58,259 --> 00:05:05,220
+close it close it paste the file path
+
+96
+00:05:02,000 --> 00:05:07,800
+linkify so now this
+
+97
+00:05:05,220 --> 00:05:11,460
+now this HTML file will call that
+
+98
+00:05:07,800 --> 00:05:12,540
+JavaScript code okay now before so you
+
+99
+00:05:11,460 --> 00:05:16,740
+know
+
+100
+00:05:12,540 --> 00:05:18,720
+and if you are here hello rat rat hello
+
+101
+00:05:16,740 --> 00:05:23,240
+rad good morning good afternoon good
+
+102
+00:05:18,720 --> 00:05:23,240
+evening good evening to UK
+
+103
+00:05:27,139 --> 00:05:32,520
+okay this font
+
+104
+00:05:30,060 --> 00:05:36,840
+I don't like the iPhone that is the
+
+105
+00:05:32,520 --> 00:05:38,220
+default Siri font so let's create
+
+106
+00:05:36,840 --> 00:05:42,120
+um
+
+107
+00:05:38,220 --> 00:05:47,699
+let's make a backup rename it
+
+108
+00:05:42,120 --> 00:05:50,820
+CSS okay open the CSS DD though and then
+
+109
+00:05:47,699 --> 00:05:53,400
+say paragraph let's say body
+
+110
+00:05:50,820 --> 00:05:59,280
+magnify
+
+111
+00:05:53,400 --> 00:06:03,780
+uh 18 okay let's say body magnify font
+
+112
+00:05:59,280 --> 00:06:07,380
+family okay Farm family area okay that's
+
+113
+00:06:03,780 --> 00:06:09,919
+what we want close it close it show in
+
+114
+00:06:07,380 --> 00:06:13,620
+browser again oh you forgot to link
+
+115
+00:06:09,919 --> 00:06:17,400
+reopen copy the file path show the Ping
+
+116
+00:06:13,620 --> 00:06:21,060
+window copy the file path close
+
+117
+00:06:17,400 --> 00:06:23,220
+paste the file path here link it to CSS
+
+118
+00:06:21,060 --> 00:06:27,800
+now
+
+119
+00:06:23,220 --> 00:06:30,240
+to refresh fantastic sense serif
+
+120
+00:06:27,800 --> 00:06:34,620
+programmers font
+
+121
+00:06:30,240 --> 00:06:37,500
+okay now we are going to remember we are
+
+122
+00:06:34,620 --> 00:06:40,800
+going to write these Unicode things so
+
+123
+00:06:37,500 --> 00:06:44,280
+we need some interface let's see which
+
+124
+00:06:40,800 --> 00:06:47,160
+one do we start uh let's let's do this
+
+125
+00:06:44,280 --> 00:06:49,340
+mathematical font one okay let's do this
+
+126
+00:06:47,160 --> 00:06:49,340
+one
+
+127
+00:06:49,919 --> 00:06:58,380
+so we want uh let's say let's say bold
+
+128
+00:06:54,660 --> 00:07:01,500
+okay now how does this work you see the
+
+129
+00:06:58,380 --> 00:07:04,080
+JavaScript will simply take this input
+
+130
+00:07:01,500 --> 00:07:07,199
+whatever you type there or paste it
+
+131
+00:07:04,080 --> 00:07:10,860
+there he'll take the input hello or
+
+132
+00:07:07,199 --> 00:07:12,919
+flamio you take the input and they
+
+133
+00:07:10,860 --> 00:07:16,680
+basically do string replace
+
+134
+00:07:12,919 --> 00:07:19,380
+each replace each character by the
+
+135
+00:07:16,680 --> 00:07:22,020
+corresponding character you see these
+
+136
+00:07:19,380 --> 00:07:24,840
+characters are Unicode characters you
+
+137
+00:07:22,020 --> 00:07:27,660
+can see as I move the mouse overhead you
+
+138
+00:07:24,840 --> 00:07:30,180
+can see the Unicode okay if you don't
+
+139
+00:07:27,660 --> 00:07:33,360
+know Unicode you can
+
+140
+00:07:30,180 --> 00:07:37,380
+go to my website I have a for example
+
+141
+00:07:33,360 --> 00:07:39,180
+Emoji they are all Unicode or
+
+142
+00:07:37,380 --> 00:07:42,360
+for example
+
+143
+00:07:39,180 --> 00:07:43,860
+math symbols you know it's made possible
+
+144
+00:07:42,360 --> 00:07:47,960
+by unicode
+
+145
+00:07:43,860 --> 00:07:52,319
+and uh you know and as well as many
+
+146
+00:07:47,960 --> 00:07:56,220
+Stars you know or uh
+
+147
+00:07:52,319 --> 00:08:00,360
+many cultural symbols cross uh Greek
+
+148
+00:07:56,220 --> 00:08:02,220
+cross Latin cross various kind of costs
+
+149
+00:08:00,360 --> 00:08:05,340
+um you know so these are characters
+
+150
+00:08:02,220 --> 00:08:07,800
+these are in this Chinese Trigon
+
+151
+00:08:05,340 --> 00:08:09,780
+background very interesting
+
+152
+00:08:07,800 --> 00:08:13,680
+hexagram
+
+153
+00:08:09,780 --> 00:08:17,400
+okay so that's uh so so so what the the
+
+154
+00:08:13,680 --> 00:08:20,400
+application will do is simply let's go
+
+155
+00:08:17,400 --> 00:08:23,699
+back let's go back go back it simply
+
+156
+00:08:20,400 --> 00:08:27,180
+take the input string replace each
+
+157
+00:08:23,699 --> 00:08:30,840
+character by the corresponding one
+
+158
+00:08:27,180 --> 00:08:32,640
+you can see you can see so and this
+
+159
+00:08:30,840 --> 00:08:37,339
+corresponding character the character
+
+160
+00:08:32,640 --> 00:08:37,339
+you want to replace are just uh they are
+
+161
+00:08:38,120 --> 00:08:43,440
+much like Emoji okay
+
+162
+00:08:40,979 --> 00:08:45,600
+so that's what we want to do so first of
+
+163
+00:08:43,440 --> 00:08:49,980
+all we need to create an interface like
+
+164
+00:08:45,600 --> 00:08:52,440
+that okay so so let's see uh so you need
+
+165
+00:08:49,980 --> 00:08:55,500
+a output
+
+166
+00:08:52,440 --> 00:08:58,440
+element where the output will show and
+
+167
+00:08:55,500 --> 00:09:01,500
+you need the input element where a user
+
+168
+00:08:58,440 --> 00:09:04,440
+can type things then you need some bunch
+
+169
+00:09:01,500 --> 00:09:06,300
+of these are called radio buttons
+
+170
+00:09:04,440 --> 00:09:08,940
+you know why are they called radio
+
+171
+00:09:06,300 --> 00:09:11,339
+buttons so first of all radio button is
+
+172
+00:09:08,940 --> 00:09:14,040
+such that only one of them can be
+
+173
+00:09:11,339 --> 00:09:16,260
+selected if you select one the other one
+
+174
+00:09:14,040 --> 00:09:17,700
+will be canceled so that's multiple
+
+175
+00:09:16,260 --> 00:09:20,399
+choice basically
+
+176
+00:09:17,700 --> 00:09:23,459
+so why are they called radio buttons you
+
+177
+00:09:20,399 --> 00:09:25,320
+guys may not know and I I barely you
+
+178
+00:09:23,459 --> 00:09:28,519
+know am old enough to know because back
+
+179
+00:09:25,320 --> 00:09:28,519
+in the days let me show you
+
+180
+00:09:30,240 --> 00:09:37,279
+back in the days on the car
+
+181
+00:09:33,839 --> 00:09:37,279
+okay you need JavaScript
+
+182
+00:09:39,959 --> 00:09:46,019
+uh on a car
+
+183
+00:09:41,880 --> 00:09:47,940
+you see oh God this this is modern they
+
+184
+00:09:46,019 --> 00:09:51,120
+are not radio buttons
+
+185
+00:09:47,940 --> 00:09:54,560
+okay let me show you all uh here is the
+
+186
+00:09:51,120 --> 00:09:54,560
+old radio buttons okay
+
+187
+00:09:55,440 --> 00:10:01,200
+yeah yeah exactly so this is a radio
+
+188
+00:09:58,560 --> 00:10:04,200
+button because when you push one button
+
+189
+00:10:01,200 --> 00:10:06,779
+down it pops up the other one when you
+
+190
+00:10:04,200 --> 00:10:09,420
+push it down it'll be it will stay you
+
+191
+00:10:06,779 --> 00:10:11,459
+know in a lower position but when you
+
+192
+00:10:09,420 --> 00:10:12,600
+press another button it'll pop all the
+
+193
+00:10:11,459 --> 00:10:15,600
+others out
+
+194
+00:10:12,600 --> 00:10:18,180
+so and this is used in a radio you know
+
+195
+00:10:15,600 --> 00:10:21,360
+in old cars you you twist the knob to
+
+196
+00:10:18,180 --> 00:10:24,300
+tune it's not digital so yeah like that
+
+197
+00:10:21,360 --> 00:10:26,519
+for example this one is more uh
+
+198
+00:10:24,300 --> 00:10:29,660
+pronounced
+
+199
+00:10:26,519 --> 00:10:33,480
+for example there's also radio buttons
+
+200
+00:10:29,660 --> 00:10:36,180
+uh yeah so and classic radio buttons you
+
+201
+00:10:33,480 --> 00:10:38,220
+press one down the other ones pop out so
+
+202
+00:10:36,180 --> 00:10:42,540
+one choice at a time
+
+203
+00:10:38,220 --> 00:10:44,700
+so that is why this interface
+
+204
+00:10:42,540 --> 00:10:47,399
+uh where is it
+
+205
+00:10:44,700 --> 00:10:49,680
+that that is why this UI interface is
+
+206
+00:10:47,399 --> 00:10:51,660
+called radio buttons okay
+
+207
+00:10:49,680 --> 00:10:56,180
+now we need to implement these radio
+
+208
+00:10:51,660 --> 00:10:59,040
+buttons input text and display uh
+
+209
+00:10:56,180 --> 00:11:01,560
+user interface so let's let's make the
+
+210
+00:10:59,040 --> 00:11:05,459
+display first
+
+211
+00:11:01,560 --> 00:11:08,000
+so what we do is we just create a dive
+
+212
+00:11:05,459 --> 00:11:08,000
+tag
+
+213
+00:11:08,339 --> 00:11:17,880
+type with a ID and class okay
+
+214
+00:11:13,920 --> 00:11:19,560
+so let's say uh I'll put let's just name
+
+215
+00:11:17,880 --> 00:11:21,980
+the
+
+216
+00:11:19,560 --> 00:11:21,980
+the
+
+217
+00:11:22,399 --> 00:11:29,279
+this element as output okay
+
+218
+00:11:26,279 --> 00:11:32,160
+that's where the JavaScript will find it
+
+219
+00:11:29,279 --> 00:11:36,360
+using this ID and display output in this
+
+220
+00:11:32,160 --> 00:11:38,820
+type okay then we need the text input so
+
+221
+00:11:36,360 --> 00:11:41,700
+that would be
+
+222
+00:11:38,820 --> 00:11:43,320
+input tag okay input tag looks like that
+
+223
+00:11:41,700 --> 00:11:47,760
+now I don't remember what are the
+
+224
+00:11:43,320 --> 00:11:50,700
+options so let's look up
+
+225
+00:11:47,760 --> 00:11:54,000
+so you can go to Sally JavaScript search
+
+226
+00:11:50,700 --> 00:11:58,620
+for it JavaScript in depth then you go
+
+227
+00:11:54,000 --> 00:12:01,260
+to Dom here is all the fundamental
+
+228
+00:11:58,620 --> 00:12:06,200
+things you need to understand to the web
+
+229
+00:12:01,260 --> 00:12:10,920
+dev okay then there is a HTML input
+
+230
+00:12:06,200 --> 00:12:14,300
+and here we need a text area Okay so
+
+231
+00:12:10,920 --> 00:12:14,300
+text area looks like that
+
+232
+00:12:14,459 --> 00:12:21,300
+you can see as you type
+
+233
+00:12:18,480 --> 00:12:24,300
+the output are shown there
+
+234
+00:12:21,300 --> 00:12:27,660
+the output you see so this is how you do
+
+235
+00:12:24,300 --> 00:12:29,760
+it and here is the HTML code you need
+
+236
+00:12:27,660 --> 00:12:33,720
+and here's the JavaScript code okay
+
+237
+00:12:29,760 --> 00:12:37,200
+let's just copy them copy and copy paste
+
+238
+00:12:33,720 --> 00:12:39,360
+time copy paste Advanced programming
+
+239
+00:12:37,200 --> 00:12:40,640
+technique
+
+240
+00:12:39,360 --> 00:12:44,880
+okay
+
+241
+00:12:40,640 --> 00:12:47,220
+so so here's the element that correspond
+
+242
+00:12:44,880 --> 00:12:50,579
+to this text input
+
+243
+00:12:47,220 --> 00:12:53,100
+sorry the element is called text area so
+
+244
+00:12:50,579 --> 00:12:56,760
+we don't need that input anymore so here
+
+245
+00:12:53,100 --> 00:12:59,060
+okay let's say Let's uh
+
+246
+00:12:56,760 --> 00:13:02,940
+let's let's call it
+
+247
+00:12:59,060 --> 00:13:06,959
+input box okay
+
+248
+00:13:02,940 --> 00:13:09,360
+input box some number okay real column
+
+249
+00:13:06,959 --> 00:13:13,320
+okay type text here
+
+250
+00:13:09,360 --> 00:13:14,820
+okay so that is that okay now
+
+251
+00:13:13,320 --> 00:13:16,440
+now
+
+252
+00:13:14,820 --> 00:13:19,320
+um
+
+253
+00:13:16,440 --> 00:13:21,660
+now let's this is a JavaScript we don't
+
+254
+00:13:19,320 --> 00:13:24,200
+need now showing browser
+
+255
+00:13:21,660 --> 00:13:24,200
+okay
+
+256
+00:13:24,240 --> 00:13:31,800
+we
+
+257
+00:13:25,800 --> 00:13:35,399
+got a text input area fantastic next
+
+258
+00:13:31,800 --> 00:13:38,660
+we need the radio button
+
+259
+00:13:35,399 --> 00:13:38,660
+yeah where is it
+
+260
+00:13:41,399 --> 00:13:49,380
+okay I don't know where did it go it's
+
+261
+00:13:45,000 --> 00:13:49,380
+go to a talk show again and
+
+262
+00:13:49,740 --> 00:13:55,980
+comments and questions okay
+
+263
+00:13:52,380 --> 00:14:00,260
+so let's go back to
+
+264
+00:13:55,980 --> 00:14:00,260
+upside down my thumb okay
+
+265
+00:14:00,899 --> 00:14:08,100
+so so now you have a text area and you
+
+266
+00:14:05,339 --> 00:14:10,380
+have the display area let's not do the
+
+267
+00:14:08,100 --> 00:14:14,220
+radio button yet let's start to do the
+
+268
+00:14:10,380 --> 00:14:17,399
+JavaScript so we can have results as we
+
+269
+00:14:14,220 --> 00:14:21,420
+code okay so now open the Javascript
+
+270
+00:14:17,399 --> 00:14:24,240
+file so those interface are sufficient
+
+271
+00:14:21,420 --> 00:14:27,420
+now open Javascript file
+
+272
+00:14:24,240 --> 00:14:31,019
+so first of all you need to get this
+
+273
+00:14:27,420 --> 00:14:34,019
+item X output okay so that will be
+
+274
+00:14:31,019 --> 00:14:34,019
+document
+
+275
+00:14:34,040 --> 00:14:41,040
+uh get element by ID okay get element by
+
+276
+00:14:39,480 --> 00:14:45,620
+ID
+
+277
+00:14:41,040 --> 00:14:45,620
+okay let's see do we have it
+
+278
+00:14:46,680 --> 00:14:51,480
+okay
+
+279
+00:14:48,120 --> 00:14:54,180
+and this needs to be document okay
+
+280
+00:14:51,480 --> 00:14:56,760
+so first of all we need a constant okay
+
+281
+00:14:54,180 --> 00:15:01,680
+a constant
+
+282
+00:14:56,760 --> 00:15:05,519
+let's say output okay equals to
+
+283
+00:15:01,680 --> 00:15:09,620
+get that element and the element ID is
+
+284
+00:15:05,519 --> 00:15:09,620
+that okay fantastic
+
+285
+00:15:09,720 --> 00:15:16,500
+so whenever we have a output we just
+
+286
+00:15:12,899 --> 00:15:18,540
+insert it to this element we'll get to
+
+287
+00:15:16,500 --> 00:15:21,839
+that okay first of all we need to get it
+
+288
+00:15:18,540 --> 00:15:25,320
+so the second thing is the
+
+289
+00:15:21,839 --> 00:15:28,500
+text area input Okay so
+
+290
+00:15:25,320 --> 00:15:30,139
+so select element by ID because this is
+
+291
+00:15:28,500 --> 00:15:34,920
+an ID okay
+
+292
+00:15:30,139 --> 00:15:39,680
+and X input okay I just name I name them
+
+293
+00:15:34,920 --> 00:15:39,680
+starting with x so it's easier to search
+
+294
+00:15:43,680 --> 00:15:49,260
+hello then pureec
+
+295
+00:15:46,860 --> 00:15:51,180
+what switches do you have on that
+
+296
+00:15:49,260 --> 00:15:54,480
+keyboard I have
+
+297
+00:15:51,180 --> 00:15:59,339
+red switches this is gate gate around
+
+298
+00:15:54,480 --> 00:16:02,459
+red and its lightest I I prefer light I
+
+299
+00:15:59,339 --> 00:16:04,139
+must have light because even if you you
+
+300
+00:16:02,459 --> 00:16:07,500
+know that's very interesting point
+
+301
+00:16:04,139 --> 00:16:10,320
+Cherry MX you know you have Cherry MX
+
+302
+00:16:07,500 --> 00:16:12,260
+red in the beginning then you have a
+
+303
+00:16:10,320 --> 00:16:15,120
+bunch of Chinese
+
+304
+00:16:12,260 --> 00:16:17,820
+manufacturers you know they also because
+
+305
+00:16:15,120 --> 00:16:21,120
+the of the Cherry MX switch mechanism
+
+306
+00:16:17,820 --> 00:16:24,779
+they the paint the patent is expired
+
+307
+00:16:21,120 --> 00:16:28,199
+about about 10 years ago
+
+308
+00:16:24,779 --> 00:16:30,959
+so you have a lot of Chinese makers they
+
+309
+00:16:28,199 --> 00:16:32,760
+make you know Cherry MX compatible key
+
+310
+00:16:30,959 --> 00:16:34,560
+switch
+
+311
+00:16:32,760 --> 00:16:37,019
+um and uh
+
+312
+00:16:34,560 --> 00:16:38,880
+it turns out they are they are they are
+
+313
+00:16:37,019 --> 00:16:41,220
+very good okay the Chinese ones the
+
+314
+00:16:38,880 --> 00:16:44,880
+different ones and they also make new
+
+315
+00:16:41,220 --> 00:16:47,579
+ones you know Improvement but anyway so
+
+316
+00:16:44,880 --> 00:16:50,100
+all of them you know by different makers
+
+317
+00:16:47,579 --> 00:16:52,440
+they all call they name they try to be
+
+318
+00:16:50,100 --> 00:16:55,920
+compatible so they have this they use
+
+319
+00:16:52,440 --> 00:16:59,880
+the same naming scheme so linear
+
+320
+00:16:55,920 --> 00:17:02,339
+light switches they all call it red I
+
+321
+00:16:59,880 --> 00:17:03,540
+mean color code you know there's lineage
+
+322
+00:17:02,339 --> 00:17:07,079
+so
+
+323
+00:17:03,540 --> 00:17:09,540
+linear light switches so from Cherry the
+
+324
+00:17:07,079 --> 00:17:12,780
+corporation in Germany Cherry they they
+
+325
+00:17:09,540 --> 00:17:15,120
+have Cherry MX red
+
+326
+00:17:12,780 --> 00:17:17,579
+and another corporate company in China
+
+327
+00:17:15,120 --> 00:17:21,419
+Gate wrong they also have
+
+328
+00:17:17,579 --> 00:17:24,660
+red linear switch red okay so and uh
+
+329
+00:17:21,419 --> 00:17:26,579
+however here's the thing however all
+
+330
+00:17:24,660 --> 00:17:29,660
+this red switches from different makers
+
+331
+00:17:26,579 --> 00:17:32,340
+they they are sensitivity their
+
+332
+00:17:29,660 --> 00:17:34,919
+resistance to Keepers is actually
+
+333
+00:17:32,340 --> 00:17:36,419
+slightly different noticeably
+
+334
+00:17:34,919 --> 00:17:38,039
+so
+
+335
+00:17:36,419 --> 00:17:42,240
+cherry red
+
+336
+00:17:38,039 --> 00:17:46,260
+Cherry MX red I like very much good one
+
+337
+00:17:42,240 --> 00:17:49,860
+red I like it very much but not Kyle
+
+338
+00:17:46,260 --> 00:17:52,919
+thread Kyle thread is like 5g's uh
+
+339
+00:17:49,860 --> 00:17:55,200
+heavier so I cannot it actually matters
+
+340
+00:17:52,919 --> 00:17:58,380
+a lot to me
+
+341
+00:17:55,200 --> 00:18:00,480
+uh so have you so we are getting off
+
+342
+00:17:58,380 --> 00:18:02,580
+topic okay I don't want to actually I
+
+343
+00:18:00,480 --> 00:18:06,240
+want to go back to um
+
+344
+00:18:02,580 --> 00:18:09,000
+to today's uh
+
+345
+00:18:06,240 --> 00:18:12,539
+stuff okay and JR says do you know how
+
+346
+00:18:09,000 --> 00:18:14,760
+to program a TI calculator no
+
+347
+00:18:12,539 --> 00:18:16,500
+so we're getting off topic for if you
+
+348
+00:18:14,760 --> 00:18:20,700
+but if you want to know all about
+
+349
+00:18:16,500 --> 00:18:24,600
+mechanical keyboards you can go to
+
+350
+00:18:20,700 --> 00:18:27,840
+design and you have design flaws of the
+
+351
+00:18:24,600 --> 00:18:31,559
+keyboard and you have key switches here
+
+352
+00:18:27,840 --> 00:18:34,559
+is an introduction to All Keys keyboard
+
+353
+00:18:31,559 --> 00:18:37,559
+key switch mechanisms you know the most
+
+354
+00:18:34,559 --> 00:18:40,679
+popular is the rubber Dome you know this
+
+355
+00:18:37,559 --> 00:18:44,220
+is on your laptop and on cheap keyboards
+
+356
+00:18:40,679 --> 00:18:46,919
+very cheap to make but bad then of
+
+357
+00:18:44,220 --> 00:18:51,120
+course you have the topper which is
+
+358
+00:18:46,919 --> 00:18:56,220
+actually also robotom but it is
+
+359
+00:18:51,120 --> 00:18:56,220
+uh it has a capacitance
+
+360
+00:18:56,840 --> 00:19:02,100
+electromechanical switch
+
+361
+00:18:59,120 --> 00:19:04,740
+electronic switch mechanism so even
+
+362
+00:19:02,100 --> 00:19:07,260
+though it's rubber dome but it it's not
+
+363
+00:19:04,740 --> 00:19:09,860
+the same
+
+364
+00:19:07,260 --> 00:19:13,320
+feel and quality
+
+365
+00:19:09,860 --> 00:19:15,539
+than the cheap robotom so you know so
+
+366
+00:19:13,320 --> 00:19:18,120
+that's super switch so anyway so you go
+
+367
+00:19:15,539 --> 00:19:21,660
+to this page and you'll see then you
+
+368
+00:19:18,120 --> 00:19:24,900
+have the classic Cherry MX which
+
+369
+00:19:21,660 --> 00:19:27,240
+this is what it looks like and this is
+
+370
+00:19:24,900 --> 00:19:29,880
+how it looks like when you you know you
+
+371
+00:19:27,240 --> 00:19:33,419
+can just plug it the keycaps out in your
+
+372
+00:19:29,880 --> 00:19:36,059
+seat you know before before I got into
+
+373
+00:19:33,419 --> 00:19:38,220
+keyboards so this is like this article
+
+374
+00:19:36,059 --> 00:19:39,240
+is written in
+
+375
+00:19:38,220 --> 00:19:43,260
+um
+
+376
+00:19:39,240 --> 00:19:46,320
+uh the article is written in 2011.
+
+377
+00:19:43,260 --> 00:19:49,020
+so about 10 years ago before I really
+
+378
+00:19:46,320 --> 00:19:53,400
+get got into keyboards you know the
+
+379
+00:19:49,020 --> 00:19:55,260
+first time I see this I was thinking why
+
+380
+00:19:53,400 --> 00:19:57,360
+do these people you know when they take
+
+381
+00:19:55,260 --> 00:20:00,780
+a photo of keyboard they always always
+
+382
+00:19:57,360 --> 00:20:03,620
+like pick up one of the key that's ugly
+
+383
+00:20:00,780 --> 00:20:07,320
+and idiotic I mean why do you have to
+
+384
+00:20:03,620 --> 00:20:08,760
+then you know then of course I realized
+
+385
+00:20:07,320 --> 00:20:11,340
+that's because
+
+386
+00:20:08,760 --> 00:20:14,820
+you want to show the key switch because
+
+387
+00:20:11,340 --> 00:20:16,679
+in a sense key switch of a keyboard is
+
+388
+00:20:14,820 --> 00:20:20,460
+the most important
+
+389
+00:20:16,679 --> 00:20:22,500
+part of the keyboard as far as your uh
+
+390
+00:20:20,460 --> 00:20:26,640
+the quality of the key and keyboard and
+
+391
+00:20:22,500 --> 00:20:28,980
+how you feel that's critical so
+
+392
+00:20:26,640 --> 00:20:32,820
+so anyway here's how the key switches
+
+393
+00:20:28,980 --> 00:20:35,640
+looks like like and here's a classic you
+
+394
+00:20:32,820 --> 00:20:36,720
+know blueprint the design of the Cherry
+
+395
+00:20:35,640 --> 00:20:40,620
+MX
+
+396
+00:20:36,720 --> 00:20:44,059
+red and brown brown is creaky they call
+
+397
+00:20:40,620 --> 00:20:47,340
+it tactile then blue is really clicky
+
+398
+00:20:44,059 --> 00:20:49,740
+and makes a click noise when you press
+
+399
+00:20:47,340 --> 00:20:51,900
+down click crack then you have Optical
+
+400
+00:20:49,740 --> 00:20:54,720
+so anyway
+
+401
+00:20:51,900 --> 00:20:56,280
+so what I'm trying what I'm saying is
+
+402
+00:20:54,720 --> 00:21:00,240
+that so there are you know quite a few
+
+403
+00:20:56,280 --> 00:21:04,320
+uh switches especially today but what I
+
+404
+00:21:00,240 --> 00:21:07,559
+want to say of the Cherry MX
+
+405
+00:21:04,320 --> 00:21:10,340
+you know even if I expect
+
+406
+00:21:07,559 --> 00:21:14,520
+but I expect there or say they are 45
+
+407
+00:21:10,340 --> 00:21:16,260
+grams of force to activate the key but
+
+408
+00:21:14,520 --> 00:21:19,020
+however they are different okay so I
+
+409
+00:21:16,260 --> 00:21:24,059
+know so I've used skaterang
+
+410
+00:21:19,020 --> 00:21:28,140
+I like red you see it says 45. okay but
+
+411
+00:21:24,059 --> 00:21:30,840
+however you have chaos Kyle switch
+
+412
+00:21:28,140 --> 00:21:32,659
+you see it looks the same but you see
+
+413
+00:21:30,840 --> 00:21:37,020
+the red one
+
+414
+00:21:32,659 --> 00:21:39,480
+uh box red okay not okay so anyway this
+
+415
+00:21:37,020 --> 00:21:43,799
+red one they also say 45 but actually
+
+416
+00:21:39,480 --> 00:21:46,380
+it's it's heavy it's much heavier
+
+417
+00:21:43,799 --> 00:21:48,440
+um I know because on the ultimate
+
+418
+00:21:46,380 --> 00:21:53,360
+hacking keyboard there that one you see
+
+419
+00:21:48,440 --> 00:21:53,360
+this you know this one and on the side
+
+420
+00:21:54,179 --> 00:21:58,140
+you know the the keyboard above like you
+
+421
+00:21:56,520 --> 00:22:00,659
+cannot see it but
+
+422
+00:21:58,140 --> 00:22:03,000
+I see you need to get a camera so this
+
+423
+00:22:00,659 --> 00:22:05,100
+is the ultimate hacking keyboard
+
+424
+00:22:03,000 --> 00:22:08,299
+okay that one
+
+425
+00:22:05,100 --> 00:22:10,980
+so on this keyboard it's using Kyle red
+
+426
+00:22:08,299 --> 00:22:13,440
+and that's just too strong for me I
+
+427
+00:22:10,980 --> 00:22:16,080
+cannot type you know if I'm gonna type
+
+428
+00:22:13,440 --> 00:22:19,380
+thousands words I don't want to use this
+
+429
+00:22:16,080 --> 00:22:22,140
+because then I'm gonna have uh
+
+430
+00:22:19,380 --> 00:22:25,140
+hand strain like right now actually here
+
+431
+00:22:22,140 --> 00:22:30,539
+okay that's digression I'm gonna let's
+
+432
+00:22:25,140 --> 00:22:32,100
+go back to JavaScript okay you guys code
+
+433
+00:22:30,539 --> 00:22:35,460
+uh
+
+434
+00:22:32,100 --> 00:22:38,880
+let's go back to JavaScript
+
+435
+00:22:35,460 --> 00:22:44,159
+okay close the keyboard yeah let's so we
+
+436
+00:22:38,880 --> 00:22:47,100
+got the input and uh okay so now
+
+437
+00:22:44,159 --> 00:22:49,880
+let's JavaScript
+
+438
+00:22:47,100 --> 00:22:49,880
+close it
+
+439
+00:22:51,900 --> 00:22:57,179
+okay
+
+440
+00:22:53,100 --> 00:23:00,539
+so now we got the input okay now
+
+441
+00:22:57,179 --> 00:23:05,100
+now let's do
+
+442
+00:23:00,539 --> 00:23:09,120
+let's let's make whatever we typed
+
+443
+00:23:05,100 --> 00:23:11,580
+to show up in the output area okay
+
+444
+00:23:09,120 --> 00:23:12,600
+so what you have to do is you have to
+
+445
+00:23:11,580 --> 00:23:14,520
+write
+
+446
+00:23:12,600 --> 00:23:17,640
+um
+
+447
+00:23:14,520 --> 00:23:20,120
+show output okay function
+
+448
+00:23:17,640 --> 00:23:20,120
+say
+
+449
+00:23:20,480 --> 00:23:27,440
+constant Arrow function so we're gonna
+
+450
+00:23:22,980 --> 00:23:27,440
+Define a function show output
+
+451
+00:23:28,020 --> 00:23:35,460
+okay show output and what does it do it
+
+452
+00:23:31,559 --> 00:23:39,659
+takes no argument and but what it's does
+
+453
+00:23:35,460 --> 00:23:42,799
+it do you take the X input
+
+454
+00:23:39,659 --> 00:23:42,799
+dot value
+
+455
+00:23:46,940 --> 00:23:50,179
+I guess
+
+456
+00:23:51,440 --> 00:23:58,400
+so yeah okay so here is what you have to
+
+457
+00:23:55,260 --> 00:24:01,510
+do X output value
+
+458
+00:23:58,400 --> 00:24:01,860
+equals to X
+
+459
+00:24:01,510 --> 00:24:03,860
+[Music]
+
+460
+00:24:01,860 --> 00:24:03,860
+um
+
+461
+00:24:05,039 --> 00:24:08,780
+something like that I think
+
+462
+00:24:09,120 --> 00:24:17,460
+okay so here's a function you know the
+
+463
+00:24:14,039 --> 00:24:21,900
+the X output refers to
+
+464
+00:24:17,460 --> 00:24:24,120
+refers to this box okay and its value
+
+465
+00:24:21,900 --> 00:24:27,600
+will be
+
+466
+00:24:24,120 --> 00:24:28,860
+equals to X input value which is the
+
+467
+00:24:27,600 --> 00:24:34,980
+input box
+
+468
+00:24:28,860 --> 00:24:36,539
+here okay then then we have to right now
+
+469
+00:24:34,980 --> 00:24:39,240
+this doesn't work
+
+470
+00:24:36,539 --> 00:24:43,039
+because
+
+471
+00:24:39,240 --> 00:24:43,039
+okay you have to call the function
+
+472
+00:24:43,500 --> 00:24:48,419
+okay call the function let's see if it
+
+473
+00:24:45,600 --> 00:24:50,700
+works refresh it doesn't work we
+
+474
+00:24:48,419 --> 00:24:53,520
+probably have some syntax error here so
+
+475
+00:24:50,700 --> 00:24:55,980
+let's see how it is done
+
+476
+00:24:53,520 --> 00:25:00,360
+let's go back to the
+
+477
+00:24:55,980 --> 00:25:03,360
+yeah where is my so go to kasabi.info
+
+478
+00:25:00,360 --> 00:25:03,360
+info
+
+479
+00:25:04,020 --> 00:25:09,840
+then
+
+480
+00:25:06,000 --> 00:25:11,780
+yeah that's my website go down then you
+
+481
+00:25:09,840 --> 00:25:15,059
+go to
+
+482
+00:25:11,780 --> 00:25:17,460
+JavaScript in depth
+
+483
+00:25:15,059 --> 00:25:22,440
+okay then Dom
+
+484
+00:25:17,460 --> 00:25:26,520
+then you go scroll down HTML input
+
+485
+00:25:22,440 --> 00:25:27,840
+text area there so let's see how do you
+
+486
+00:25:26,520 --> 00:25:30,720
+get the
+
+487
+00:25:27,840 --> 00:25:34,799
+oh text content yeah okay so text
+
+488
+00:25:30,720 --> 00:25:38,760
+content is unknown is what we want so X
+
+489
+00:25:34,799 --> 00:25:41,720
+output text content equals to that then
+
+490
+00:25:38,760 --> 00:25:46,279
+here we call the function okay now
+
+491
+00:25:41,720 --> 00:25:46,279
+format clean up the code now
+
+492
+00:25:46,520 --> 00:25:52,740
+Shilling browser there it is you see
+
+493
+00:25:50,400 --> 00:25:55,380
+you see that
+
+494
+00:25:52,740 --> 00:25:58,860
+okay now we need to add some space
+
+495
+00:25:55,380 --> 00:26:02,760
+between these boxes okay now you want to
+
+496
+00:25:58,860 --> 00:26:05,340
+add a space okay now so you modify the
+
+497
+00:26:02,760 --> 00:26:08,600
+CSS
+
+498
+00:26:05,340 --> 00:26:08,600
+you want to say
+
+499
+00:26:08,880 --> 00:26:15,840
+X output ID
+
+500
+00:26:12,419 --> 00:26:18,960
+you want to put the margin
+
+501
+00:26:15,840 --> 00:26:21,980
+okay now go back here
+
+502
+00:26:18,960 --> 00:26:21,980
+you fish
+
+503
+00:26:22,159 --> 00:26:25,140
+fantastic
+
+504
+00:26:24,000 --> 00:26:28,500
+okay
+
+505
+00:26:25,140 --> 00:26:32,039
+now and and you can
+
+506
+00:26:28,500 --> 00:26:34,020
+close that now you say let's move it
+
+507
+00:26:32,039 --> 00:26:38,340
+down
+
+508
+00:26:34,020 --> 00:26:41,059
+and let's add a break and let's say
+
+509
+00:26:38,340 --> 00:26:41,059
+output
+
+510
+00:26:41,460 --> 00:26:46,860
+make it H2 show in browser so there it
+
+511
+00:26:45,960 --> 00:26:49,200
+is
+
+512
+00:26:46,860 --> 00:26:53,640
+but when you type more it doesn't show
+
+513
+00:26:49,200 --> 00:26:57,419
+because it's not updating it you see
+
+514
+00:26:53,640 --> 00:26:59,640
+only when you refresh then it's there so
+
+515
+00:26:57,419 --> 00:27:03,260
+we need a way we need to tell the
+
+516
+00:26:59,640 --> 00:27:08,100
+browser to update it whenever user types
+
+517
+00:27:03,260 --> 00:27:12,419
+whenever this text area change okay so
+
+518
+00:27:08,100 --> 00:27:16,260
+let's go to JavaScript again JavaScript
+
+519
+00:27:12,419 --> 00:27:18,600
+event that's called event okay whenever
+
+520
+00:27:16,260 --> 00:27:22,080
+the event of user type something
+
+521
+00:27:18,600 --> 00:27:23,940
+happened then call this function okay so
+
+522
+00:27:22,080 --> 00:27:26,880
+event
+
+523
+00:27:23,940 --> 00:27:29,100
+uh how do you assign a sign event I
+
+524
+00:27:26,880 --> 00:27:31,140
+don't remember uh yeah add event
+
+525
+00:27:29,100 --> 00:27:33,720
+listener so the way you do it in
+
+526
+00:27:31,140 --> 00:27:38,900
+JavaScript you know with the
+
+527
+00:27:33,720 --> 00:27:38,900
+Doms op model is that you say
+
+528
+00:27:39,000 --> 00:27:43,020
+X input
+
+529
+00:27:41,039 --> 00:27:46,020
+Dot
+
+530
+00:27:43,020 --> 00:27:48,980
+X input is the element is object so it
+
+531
+00:27:46,020 --> 00:27:52,799
+has a method add event listener okay
+
+532
+00:27:48,980 --> 00:27:55,559
+then then
+
+533
+00:27:52,799 --> 00:27:58,559
+then the first argument is what type of
+
+534
+00:27:55,559 --> 00:28:01,440
+event let's just say input that
+
+535
+00:27:58,559 --> 00:28:05,400
+basically means whenever the input
+
+536
+00:28:01,440 --> 00:28:06,600
+changes okay then the second argument is
+
+537
+00:28:05,400 --> 00:28:10,080
+a function
+
+538
+00:28:06,600 --> 00:28:12,960
+so whenever this event occur you want
+
+539
+00:28:10,080 --> 00:28:16,440
+this function will be called so in our
+
+540
+00:28:12,960 --> 00:28:19,919
+case it's F show output okay
+
+541
+00:28:16,440 --> 00:28:22,440
+then the third argument is kind of Asian
+
+542
+00:28:19,919 --> 00:28:23,100
+and obsolete let's just leave it you
+
+543
+00:28:22,440 --> 00:28:24,659
+know
+
+544
+00:28:23,100 --> 00:28:26,760
+you know you can look up you know you
+
+545
+00:28:24,659 --> 00:28:30,900
+can look up add event listener if you
+
+546
+00:28:26,760 --> 00:28:33,140
+want to see the documentation okay let's
+
+547
+00:28:30,900 --> 00:28:33,140
+try
+
+548
+00:28:35,279 --> 00:28:41,760
+you see the Mozilla you know event is a
+
+549
+00:28:38,640 --> 00:28:44,100
+very complicated Dom okay so if you
+
+550
+00:28:41,760 --> 00:28:49,020
+don't know web dev if you want to learn
+
+551
+00:28:44,100 --> 00:28:50,700
+Dom your uh try my tutorial okay
+
+552
+00:28:49,020 --> 00:28:51,240
+try my
+
+553
+00:28:50,700 --> 00:28:54,000
+um
+
+554
+00:28:51,240 --> 00:28:57,419
+just search for Sally JavaScript in
+
+555
+00:28:54,000 --> 00:29:00,360
+depth you'll find it very
+
+556
+00:28:57,419 --> 00:29:02,940
+I you know you
+
+557
+00:29:00,360 --> 00:29:05,100
+teaches you the fundamentals of it
+
+558
+00:29:02,940 --> 00:29:08,120
+critical parts and you don't need any
+
+559
+00:29:05,100 --> 00:29:08,120
+framework or Library
+
+560
+00:29:08,820 --> 00:29:14,460
+okay sounds good fantastic now let's
+
+561
+00:29:12,600 --> 00:29:16,080
+so we have that
+
+562
+00:29:14,460 --> 00:29:18,179
+now let's
+
+563
+00:29:16,080 --> 00:29:20,539
+okay that should work and double check
+
+564
+00:29:18,179 --> 00:29:20,539
+okay
+
+565
+00:29:20,880 --> 00:29:29,120
+okay so X input and even this now okay
+
+566
+00:29:24,899 --> 00:29:29,120
+let's close it show in browser
+
+567
+00:29:29,820 --> 00:29:35,820
+oh it worked
+
+568
+00:29:31,980 --> 00:29:39,140
+well it worked fantastic
+
+569
+00:29:35,820 --> 00:29:39,140
+okay now next
+
+570
+00:29:39,179 --> 00:29:44,600
+next we are going to add the radio box
+
+571
+00:29:44,940 --> 00:29:51,059
+you see we want you know the
+
+572
+00:29:48,240 --> 00:29:54,480
+the radio box okay
+
+573
+00:29:51,059 --> 00:29:57,480
+okay so that gets a bit more complex
+
+574
+00:29:54,480 --> 00:30:01,080
+let's go back to the
+
+575
+00:29:57,480 --> 00:30:03,179
+to the Dome reference let's see the
+
+576
+00:30:01,080 --> 00:30:07,200
+radio box how do you
+
+577
+00:30:03,179 --> 00:30:10,380
+uh button okay radio button
+
+578
+00:30:07,200 --> 00:30:16,880
+cat dog bird
+
+579
+00:30:10,380 --> 00:30:16,880
+okay so the HTML is like that copy it
+
+580
+00:30:17,700 --> 00:30:26,940
+here okay so basically a dive okay then
+
+581
+00:30:23,220 --> 00:30:28,320
+a label okay label is uh
+
+582
+00:30:26,940 --> 00:30:31,320
+well
+
+583
+00:30:28,320 --> 00:30:32,460
+it's a bit complex okay so let's just do
+
+584
+00:30:31,320 --> 00:30:35,760
+it
+
+585
+00:30:32,460 --> 00:30:38,460
+so you use the input and then you have
+
+586
+00:30:35,760 --> 00:30:41,279
+to say type radio
+
+587
+00:30:38,460 --> 00:30:43,140
+hello My Chosen
+
+588
+00:30:41,279 --> 00:30:45,960
+I just want to say hi I don't remember
+
+589
+00:30:43,140 --> 00:30:50,340
+who you are though long time ago must be
+
+590
+00:30:45,960 --> 00:30:53,820
+yeah hello guys great to see you guys
+
+591
+00:30:50,340 --> 00:30:56,899
+concurrent the viewers too Jesus
+
+592
+00:30:53,820 --> 00:30:56,899
+oh God
+
+593
+00:30:58,320 --> 00:31:05,880
+okay so so let's get back to these radio
+
+594
+00:31:02,220 --> 00:31:07,919
+buttons okay so what we want to do the
+
+595
+00:31:05,880 --> 00:31:11,580
+radio button so type you have to say
+
+596
+00:31:07,919 --> 00:31:13,500
+type radio then name
+
+597
+00:31:11,580 --> 00:31:16,200
+uh
+
+598
+00:31:13,500 --> 00:31:20,220
+fun to use okay
+
+599
+00:31:16,200 --> 00:31:23,419
+let's say x font okay
+
+600
+00:31:20,220 --> 00:31:23,419
+then value
+
+601
+00:31:24,539 --> 00:31:29,340
+okay so what what kind of font do we
+
+602
+00:31:27,059 --> 00:31:33,620
+want so
+
+603
+00:31:29,340 --> 00:31:33,620
+double stroke bold okay
+
+604
+00:31:44,880 --> 00:31:47,659
+okay
+
+605
+00:31:48,980 --> 00:31:55,980
+copy that paste it here
+
+606
+00:31:51,840 --> 00:32:00,380
+then you don't need that okay
+
+607
+00:31:55,980 --> 00:32:00,380
+and here let's just say bold
+
+608
+00:32:02,340 --> 00:32:07,580
+and let's just say that okay
+
+609
+00:32:12,659 --> 00:32:16,980
+okay so we have two choices okay here is
+
+610
+00:32:15,600 --> 00:32:21,380
+a boat
+
+611
+00:32:16,980 --> 00:32:21,380
+here's double stroke
+
+612
+00:32:24,360 --> 00:32:30,240
+showing browser so we have two radio
+
+613
+00:32:27,360 --> 00:32:32,460
+buttons now do you want one of them to
+
+614
+00:32:30,240 --> 00:32:37,100
+be default yes
+
+615
+00:32:32,460 --> 00:32:37,100
+so in that case you have to do
+
+616
+00:32:37,559 --> 00:32:43,940
+uh
+
+617
+00:32:40,140 --> 00:32:43,940
+default and C
+
+618
+00:32:45,720 --> 00:32:50,640
+checked okay so if you want the one of
+
+619
+00:32:48,600 --> 00:32:55,440
+them to be default checked you have to
+
+620
+00:32:50,640 --> 00:32:59,159
+say checked now this this HTML is very
+
+621
+00:32:55,440 --> 00:33:03,179
+inconsistent you know this this input
+
+622
+00:32:59,159 --> 00:33:05,340
+tag are Asian they are from 1990s so
+
+623
+00:33:03,179 --> 00:33:09,980
+notice that they don't have a closing
+
+624
+00:33:05,340 --> 00:33:09,980
+tag you see let me let me show you okay
+
+625
+00:33:11,159 --> 00:33:19,140
+so it's very ugly so you see this input
+
+626
+00:33:14,159 --> 00:33:22,320
+there's no closing input and also
+
+627
+00:33:19,140 --> 00:33:23,940
+this board you know it's just a text uh
+
+628
+00:33:22,320 --> 00:33:28,019
+display you see
+
+629
+00:33:23,940 --> 00:33:30,059
+very healthy is Asian so okay now you
+
+630
+00:33:28,019 --> 00:33:32,399
+have two radio buttons let's add one
+
+631
+00:33:30,059 --> 00:33:35,760
+okay so we need to actually we need to
+
+632
+00:33:32,399 --> 00:33:39,440
+go faster uh already 30 minutes okay so
+
+633
+00:33:35,760 --> 00:33:39,440
+let's say script okay
+
+634
+00:33:39,480 --> 00:33:43,640
+front let's say Factor okay
+
+635
+00:33:43,860 --> 00:33:46,580
+uh
+
+636
+00:33:47,100 --> 00:33:52,580
+so copy that
+
+637
+00:33:49,740 --> 00:33:52,580
+so
+
+638
+00:33:56,519 --> 00:34:01,860
+Frank tour whatever that means Frankton
+
+639
+00:34:00,360 --> 00:34:05,220
+okay
+
+640
+00:34:01,860 --> 00:34:08,639
+okay so we have just three choices okay
+
+641
+00:34:05,220 --> 00:34:10,859
+show in browser fantastic now they do
+
+642
+00:34:08,639 --> 00:34:12,780
+nothing they just show the interface now
+
+643
+00:34:10,859 --> 00:34:14,460
+we need to
+
+644
+00:34:12,780 --> 00:34:17,399
+um
+
+645
+00:34:14,460 --> 00:34:21,440
+do them add them to the JavaScript okay
+
+646
+00:34:17,399 --> 00:34:21,440
+so where is the JavaScript here
+
+647
+00:34:22,500 --> 00:34:29,280
+okay so we need to go faster so how do
+
+648
+00:34:25,980 --> 00:34:32,339
+you get the code so radio box is a bit
+
+649
+00:34:29,280 --> 00:34:34,940
+involved actually
+
+650
+00:34:32,339 --> 00:34:34,940
+uh
+
+651
+00:34:35,280 --> 00:34:40,500
+oh God we need to do this you know it's
+
+652
+00:34:37,980 --> 00:34:41,820
+much easier if I just copy my code the
+
+653
+00:34:40,500 --> 00:34:45,240
+existing code
+
+654
+00:34:41,820 --> 00:34:48,179
+okay so anyway so here is a code
+
+655
+00:34:45,240 --> 00:34:52,080
+let's put them inside like that
+
+656
+00:34:48,179 --> 00:34:54,119
+it's uh in radio pets equals true Okay
+
+657
+00:34:52,080 --> 00:34:59,580
+so
+
+658
+00:34:54,119 --> 00:34:59,580
+we want to select the radio buttons
+
+659
+00:34:59,940 --> 00:35:05,540
+yeah
+
+660
+00:35:02,220 --> 00:35:05,540
+Okay so
+
+661
+00:35:05,580 --> 00:35:10,339
+so the name is X font okay
+
+662
+00:35:11,460 --> 00:35:15,780
+and how do we select we use document
+
+663
+00:35:14,040 --> 00:35:17,520
+query select all
+
+664
+00:35:15,780 --> 00:35:19,980
+we want to
+
+665
+00:35:17,520 --> 00:35:23,300
+pick out what's the current radio box
+
+666
+00:35:19,980 --> 00:35:23,300
+that's what we are doing
+
+667
+00:35:23,940 --> 00:35:27,619
+it's radio buttons
+
+668
+00:35:27,660 --> 00:35:33,480
+yeah we want to you know
+
+669
+00:35:30,420 --> 00:35:37,520
+we want to know what did user pick what
+
+670
+00:35:33,480 --> 00:35:37,520
+is the current Okay so
+
+671
+00:35:40,440 --> 00:35:47,160
+so actually so but here is actually get
+
+672
+00:35:44,400 --> 00:35:53,300
+all this radio box elements
+
+673
+00:35:47,160 --> 00:35:53,300
+so it returns a list of elements
+
+674
+00:35:53,940 --> 00:35:57,800
+okay so shoebox
+
+675
+00:35:59,460 --> 00:36:06,619
+so this will be X fund Okay so
+
+676
+00:36:04,079 --> 00:36:06,619
+yep
+
+677
+00:36:06,780 --> 00:36:12,560
+so and uh and how do you
+
+678
+00:36:10,079 --> 00:36:17,579
+how do you know what is a current
+
+679
+00:36:12,560 --> 00:36:21,660
+current radio box radio buttons item the
+
+680
+00:36:17,579 --> 00:36:25,440
+way you do it is here okay so
+
+681
+00:36:21,660 --> 00:36:25,440
+you do document.queryselector
+
+682
+00:36:25,560 --> 00:36:35,820
+and select that radio this is the syntax
+
+683
+00:36:29,940 --> 00:36:40,320
+that selects all input elements who who
+
+684
+00:36:35,820 --> 00:36:43,460
+whose attribute name is xfont so it will
+
+685
+00:36:40,320 --> 00:36:45,839
+select all those basically all these
+
+686
+00:36:43,460 --> 00:36:48,540
+radiobox elements
+
+687
+00:36:45,839 --> 00:36:51,300
+then you have also this checked that
+
+688
+00:36:48,540 --> 00:36:54,839
+means those elements that has a value
+
+689
+00:36:51,300 --> 00:36:57,980
+that it that is checked okay so for
+
+690
+00:36:54,839 --> 00:37:01,320
+example let's go back here
+
+691
+00:36:57,980 --> 00:37:02,339
+uh you see here you see that one is
+
+692
+00:37:01,320 --> 00:37:05,280
+checked
+
+693
+00:37:02,339 --> 00:37:10,220
+so in this case we'll select this one
+
+694
+00:37:05,280 --> 00:37:13,680
+but it will select this element okay
+
+695
+00:37:10,220 --> 00:37:16,020
+and then dot value the value will be
+
+696
+00:37:13,680 --> 00:37:17,300
+exposed okay
+
+697
+00:37:16,020 --> 00:37:21,420
+so
+
+698
+00:37:17,300 --> 00:37:24,420
+selected value equals to expose now
+
+699
+00:37:21,420 --> 00:37:24,420
+Showbox
+
+700
+00:37:26,099 --> 00:37:33,540
+okay so now
+
+701
+00:37:28,940 --> 00:37:38,780
+let's say x output
+
+702
+00:37:33,540 --> 00:37:38,780
+text content okay equals to that
+
+703
+00:37:38,820 --> 00:37:45,420
+okay and then
+
+704
+00:37:42,480 --> 00:37:48,020
+let me show you what else okay so let's
+
+705
+00:37:45,420 --> 00:37:48,020
+update
+
+706
+00:37:56,359 --> 00:38:03,540
+so cut that
+
+707
+00:37:59,700 --> 00:38:06,660
+here is all the radio
+
+708
+00:38:03,540 --> 00:38:09,480
+button elements
+
+709
+00:38:06,660 --> 00:38:11,880
+that is assigned to X font
+
+710
+00:38:09,480 --> 00:38:15,380
+okay then
+
+711
+00:38:11,880 --> 00:38:15,380
+this update function
+
+712
+00:38:15,839 --> 00:38:25,500
+TD that TD that needs to be
+
+713
+00:38:20,579 --> 00:38:28,800
+should output so instead of show output
+
+714
+00:38:25,500 --> 00:38:31,220
+let's rename this function to be update
+
+715
+00:38:28,800 --> 00:38:31,220
+okay
+
+716
+00:38:32,339 --> 00:38:36,020
+that means update the page
+
+717
+00:38:36,300 --> 00:38:38,599
+okay
+
+718
+00:38:39,180 --> 00:38:45,359
+so instead of updating the
+
+719
+00:38:43,740 --> 00:38:48,180
+the text here
+
+720
+00:38:45,359 --> 00:38:52,140
+I mean instead of just displaying the
+
+721
+00:38:48,180 --> 00:38:56,460
+input text here let's display the
+
+722
+00:38:52,140 --> 00:38:58,980
+currently selected radio box here okay
+
+723
+00:38:56,460 --> 00:39:00,780
+so here's how you
+
+724
+00:38:58,980 --> 00:39:02,339
+do it
+
+725
+00:39:00,780 --> 00:39:07,320
+you
+
+726
+00:39:02,339 --> 00:39:08,579
+this lines select the current radio box
+
+727
+00:39:07,320 --> 00:39:09,900
+button
+
+728
+00:39:08,579 --> 00:39:13,859
+then
+
+729
+00:39:09,900 --> 00:39:16,200
+you say x output text content equals to
+
+730
+00:39:13,859 --> 00:39:17,640
+selected value okay that's that's how
+
+731
+00:39:16,200 --> 00:39:19,440
+you do it
+
+732
+00:39:17,640 --> 00:39:22,619
+okay
+
+733
+00:39:19,440 --> 00:39:27,119
+I think that's it okay so and what is
+
+734
+00:39:22,619 --> 00:39:29,160
+this let's see ignore it for now okay
+
+735
+00:39:27,119 --> 00:39:33,960
+so let's refresh
+
+736
+00:39:29,160 --> 00:39:38,339
+there it is Frank Franklin now let's
+
+737
+00:39:33,960 --> 00:39:40,920
+click bold oh didn't work
+
+738
+00:39:38,339 --> 00:39:43,500
+well didn't work because
+
+739
+00:39:40,920 --> 00:39:45,000
+you didn't call the command I mean you
+
+740
+00:39:43,500 --> 00:39:48,839
+need to
+
+741
+00:39:45,000 --> 00:39:51,780
+set a event listener so that when the
+
+742
+00:39:48,839 --> 00:39:55,740
+event for the radio box changed
+
+743
+00:39:51,780 --> 00:39:57,000
+happened it will call the update command
+
+744
+00:39:55,740 --> 00:39:59,820
+Okay so
+
+745
+00:39:57,000 --> 00:40:02,160
+because right now if you refresh you'll
+
+746
+00:39:59,820 --> 00:40:06,060
+show double double stroke because that's
+
+747
+00:40:02,160 --> 00:40:11,160
+currently selected let's do it you see
+
+748
+00:40:06,060 --> 00:40:15,320
+but it doesn't change dynamically so we
+
+749
+00:40:11,160 --> 00:40:15,320
+need that's what this line is for
+
+750
+00:40:15,359 --> 00:40:19,800
+uh let's
+
+751
+00:40:17,099 --> 00:40:23,579
+reformat the code so it's easier to read
+
+752
+00:40:19,800 --> 00:40:27,540
+okay so this means array from
+
+753
+00:40:23,579 --> 00:40:29,460
+array from okay so here is X fund array
+
+754
+00:40:27,540 --> 00:40:30,960
+from this
+
+755
+00:40:29,460 --> 00:40:34,200
+radio
+
+756
+00:40:30,960 --> 00:40:35,760
+box radio button element and for each
+
+757
+00:40:34,200 --> 00:40:37,140
+one of them
+
+758
+00:40:35,760 --> 00:40:41,040
+X
+
+759
+00:40:37,140 --> 00:40:44,640
+and event listener input call update so
+
+760
+00:40:41,040 --> 00:40:46,619
+that means every time every time any of
+
+761
+00:40:44,640 --> 00:40:49,920
+this is clicked
+
+762
+00:40:46,619 --> 00:40:54,599
+it will update it will call the F update
+
+763
+00:40:49,920 --> 00:40:56,400
+okay so now refresh refresh Okay click
+
+764
+00:40:54,599 --> 00:41:01,320
+fantastic
+
+765
+00:40:56,400 --> 00:41:04,200
+click fantastic click fantastic okay so
+
+766
+00:41:01,320 --> 00:41:06,660
+we have the fundamental structure
+
+767
+00:41:04,200 --> 00:41:07,920
+of this app
+
+768
+00:41:06,660 --> 00:41:10,320
+now
+
+769
+00:41:07,920 --> 00:41:13,619
+now the next thing is the main thing
+
+770
+00:41:10,320 --> 00:41:14,460
+that is we want to text take this input
+
+771
+00:41:13,619 --> 00:41:18,480
+text
+
+772
+00:41:14,460 --> 00:41:21,839
+and actually replace them to these
+
+773
+00:41:18,480 --> 00:41:25,079
+to these fonts okay
+
+774
+00:41:21,839 --> 00:41:27,540
+okay so let's try it and let's just copy
+
+775
+00:41:25,079 --> 00:41:31,680
+that okay so
+
+776
+00:41:27,540 --> 00:41:34,579
+so that's what these this of of f update
+
+777
+00:41:31,680 --> 00:41:34,579
+will do okay
+
+778
+00:41:40,020 --> 00:41:46,440
+hold on a second so that's the
+
+779
+00:41:43,260 --> 00:41:48,619
+so this selected value let's change the
+
+780
+00:41:46,440 --> 00:41:48,619
+name
+
+781
+00:41:52,079 --> 00:41:57,480
+let's change it to unicode
+
+782
+00:41:55,800 --> 00:42:00,300
+uh
+
+783
+00:41:57,480 --> 00:42:04,140
+you know it's incorrect it's incorrect
+
+784
+00:42:00,300 --> 00:42:06,780
+to call call this font because they are
+
+785
+00:42:04,140 --> 00:42:09,140
+not font they are actually Unicode
+
+786
+00:42:06,780 --> 00:42:09,140
+characters
+
+787
+00:42:10,320 --> 00:42:13,140
+so
+
+788
+00:42:12,180 --> 00:42:17,940
+um
+
+789
+00:42:13,140 --> 00:42:20,460
+so this name X fund is actually wrong
+
+790
+00:42:17,940 --> 00:42:22,680
+so let's use yeah let's use the proper
+
+791
+00:42:20,460 --> 00:42:24,720
+name so instead of calling them font
+
+792
+00:42:22,680 --> 00:42:28,200
+because it's not found is different
+
+793
+00:42:24,720 --> 00:42:31,040
+typeface these are these are actual uh
+
+794
+00:42:28,200 --> 00:42:31,040
+Unicode characters
+
+795
+00:42:34,200 --> 00:42:38,720
+so okay so let's do it uh
+
+796
+00:42:43,079 --> 00:42:48,380
+so how do you call it so instead of font
+
+797
+00:42:45,599 --> 00:42:48,380
+you call it
+
+798
+00:42:49,800 --> 00:42:52,220
+foreign
+
+799
+00:43:10,800 --> 00:43:15,960
+yeah let's just call it font okay
+
+800
+00:43:12,900 --> 00:43:16,590
+because there's no proper way
+
+801
+00:43:15,960 --> 00:43:19,200
+to
+
+802
+00:43:16,590 --> 00:43:22,200
+[Music]
+
+803
+00:43:19,200 --> 00:43:24,960
+you know each one of these is just a set
+
+804
+00:43:22,200 --> 00:43:29,400
+of characters so the proper
+
+805
+00:43:24,960 --> 00:43:32,700
+the the proper name to describe this set
+
+806
+00:43:29,400 --> 00:43:34,260
+of characters is Unicode mathematical
+
+807
+00:43:32,700 --> 00:43:35,940
+Factor
+
+808
+00:43:34,260 --> 00:43:38,460
+characters
+
+809
+00:43:35,940 --> 00:43:40,980
+okay and the proper name to describe
+
+810
+00:43:38,460 --> 00:43:45,260
+this set of characters is Unicode
+
+811
+00:43:40,980 --> 00:43:45,260
+mathematical double struct characters
+
+812
+00:43:45,839 --> 00:43:52,260
+so and uh
+
+813
+00:43:48,800 --> 00:43:55,079
+similar for others so what about a
+
+814
+00:43:52,260 --> 00:43:58,200
+proper name to describe all each one of
+
+815
+00:43:55,079 --> 00:44:02,579
+these different sets that will be
+
+816
+00:43:58,200 --> 00:44:02,579
+uh unicode
+
+817
+00:44:05,760 --> 00:44:11,220
+math character Style
+
+818
+00:44:09,000 --> 00:44:15,119
+so Unicode math character style
+
+819
+00:44:11,220 --> 00:44:19,680
+something Unicode math
+
+820
+00:44:15,119 --> 00:44:23,099
+uh yeah so it the name is quite hard
+
+821
+00:44:19,680 --> 00:44:26,839
+so okay let's just say fun because fun
+
+822
+00:44:23,099 --> 00:44:26,839
+conveys the idea somewhat
+
+823
+00:44:26,880 --> 00:44:31,800
+okay current font and it's just say
+
+824
+00:44:29,040 --> 00:44:34,339
+selected value is just let's name it
+
+825
+00:44:31,800 --> 00:44:34,339
+current found
+
+826
+00:44:38,819 --> 00:44:49,140
+okay so now we know our font we need to
+
+827
+00:44:45,720 --> 00:44:50,760
+replace each and every character by one
+
+828
+00:44:49,140 --> 00:44:56,420
+of these okay
+
+829
+00:44:50,760 --> 00:44:56,420
+so yeah so let's just do it so
+
+830
+00:44:56,640 --> 00:45:03,380
+so given the text we want to replace
+
+831
+00:45:00,060 --> 00:45:07,020
+each letter by one of these okay
+
+832
+00:45:03,380 --> 00:45:09,140
+God this is not tedious then then I
+
+833
+00:45:07,020 --> 00:45:09,140
+thought
+
+834
+00:45:11,220 --> 00:45:19,339
+so let's define a function
+
+835
+00:45:13,980 --> 00:45:19,339
+Arrow function and let's call them
+
+836
+00:45:20,819 --> 00:45:27,560
+okay
+
+837
+00:45:22,020 --> 00:45:27,560
+so replace text so given a string
+
+838
+00:45:33,060 --> 00:45:37,140
+by the Unicode
+
+839
+00:45:35,099 --> 00:45:38,700
+cha
+
+840
+00:45:37,140 --> 00:45:42,119
+by
+
+841
+00:45:38,700 --> 00:45:44,520
+the corresponding Unicode chart okay
+
+842
+00:45:42,119 --> 00:45:46,740
+something like that
+
+843
+00:45:44,520 --> 00:45:49,200
+and so
+
+844
+00:45:46,740 --> 00:45:52,619
+so now the problem is how do you do find
+
+845
+00:45:49,200 --> 00:45:54,780
+and replace in JavaScript okay
+
+846
+00:45:52,619 --> 00:45:57,420
+uh uh I don't remember because
+
+847
+00:45:54,780 --> 00:46:00,300
+JavaScript is very complex there are
+
+848
+00:45:57,420 --> 00:46:02,460
+quite a few functions to do that you
+
+849
+00:46:00,300 --> 00:46:06,180
+don't know which one is the most
+
+850
+00:46:02,460 --> 00:46:08,640
+appropriate appropriate therefore you go
+
+851
+00:46:06,180 --> 00:46:10,680
+to JavaScript reference
+
+852
+00:46:08,640 --> 00:46:14,220
+and uh
+
+853
+00:46:10,680 --> 00:46:15,980
+string object so here you can see all
+
+854
+00:46:14,220 --> 00:46:20,339
+the
+
+855
+00:46:15,980 --> 00:46:23,720
+objects let's see replace oh okay
+
+856
+00:46:20,339 --> 00:46:23,720
+probably this one yeah
+
+857
+00:46:24,180 --> 00:46:30,900
+okay JavaScript
+
+858
+00:46:26,280 --> 00:46:35,900
+stream replace also X is a string then
+
+859
+00:46:30,900 --> 00:46:35,900
+you wanna say replace all
+
+860
+00:46:38,400 --> 00:46:45,900
+okay then the first thing is what you
+
+861
+00:46:42,960 --> 00:46:47,940
+want to replace by oh God we have a list
+
+862
+00:46:45,900 --> 00:46:52,800
+of them
+
+863
+00:46:47,940 --> 00:46:56,240
+so basically you want to replace a by
+
+864
+00:46:52,800 --> 00:46:56,240
+here's what you want to do
+
+865
+00:46:56,819 --> 00:46:59,300
+see
+
+866
+00:46:59,460 --> 00:47:07,640
+and but you want to do this for each and
+
+867
+00:47:03,240 --> 00:47:07,640
+every one of them yeah God so we
+
+868
+00:47:11,819 --> 00:47:15,500
+so you need the array
+
+869
+00:47:19,079 --> 00:47:25,960
+so you need um let's see
+
+870
+00:47:22,740 --> 00:47:25,960
+[Music]
+
+871
+00:47:28,920 --> 00:47:32,420
+let's see characters
+
+872
+00:47:33,319 --> 00:47:37,339
+let's see I breathe
+
+873
+00:47:40,800 --> 00:47:48,859
+you know this is taking too long
+
+874
+00:47:43,800 --> 00:47:48,859
+and I'm thinking let's cheat
+
+875
+00:47:49,260 --> 00:47:56,880
+let's cheat by
+
+876
+00:47:51,660 --> 00:47:59,220
+instead instead of just code coding this
+
+877
+00:47:56,880 --> 00:48:01,859
+from scratch
+
+878
+00:47:59,220 --> 00:48:05,040
+let's just
+
+879
+00:48:01,859 --> 00:48:07,859
+copy and paste my existing code
+
+880
+00:48:05,040 --> 00:48:10,619
+because this will take a long time to do
+
+881
+00:48:07,859 --> 00:48:14,880
+so anyway so here is a string
+
+882
+00:48:10,619 --> 00:48:17,280
+above a bit and here is a string of the
+
+883
+00:48:14,880 --> 00:48:21,920
+things you need to replace
+
+884
+00:48:17,280 --> 00:48:21,920
+so replace Space by nothing okay
+
+885
+00:48:22,920 --> 00:48:27,680
+okay so you need to go through
+
+886
+00:48:28,260 --> 00:48:31,260
+so
+
+887
+00:48:31,560 --> 00:48:38,720
+so we can do four each
+
+888
+00:48:34,740 --> 00:48:38,720
+for each a function
+
+889
+00:48:53,660 --> 00:48:58,460
+then you grab this inside
+
+890
+00:48:59,880 --> 00:49:07,160
+yeah this is this is a bit complex
+
+891
+00:49:04,560 --> 00:49:10,140
+I hope you can understand
+
+892
+00:49:07,160 --> 00:49:15,800
+I don't expect you to
+
+893
+00:49:10,140 --> 00:49:15,800
+because JavaScript is very complex so
+
+894
+00:49:24,300 --> 00:49:27,300
+okay
+
+895
+00:49:29,280 --> 00:49:33,720
+now replace or what does the function
+
+896
+00:49:32,160 --> 00:49:37,680
+take
+
+897
+00:49:33,720 --> 00:49:37,680
+the function takes
+
+898
+00:49:39,900 --> 00:49:45,960
+for each
+
+899
+00:49:43,079 --> 00:49:50,339
+yeah so now we need to look up for each
+
+900
+00:49:45,960 --> 00:49:53,520
+okay so the area is replace so
+
+901
+00:49:50,339 --> 00:49:55,140
+and let's go to
+
+902
+00:49:53,520 --> 00:49:57,180
+array
+
+903
+00:49:55,140 --> 00:49:58,980
+then array
+
+904
+00:49:57,180 --> 00:50:01,460
+for each
+
+905
+00:49:58,980 --> 00:50:03,420
+so the function I want to know what
+
+906
+00:50:01,460 --> 00:50:05,520
+arguments are passed through the
+
+907
+00:50:03,420 --> 00:50:06,780
+function current element current index
+
+908
+00:50:05,520 --> 00:50:10,819
+okay
+
+909
+00:50:06,780 --> 00:50:10,819
+so the current elements
+
+910
+00:50:11,819 --> 00:50:14,819
+index
+
+911
+00:50:17,220 --> 00:50:21,079
+so current elements
+
+912
+00:50:21,420 --> 00:50:26,700
+current index
+
+913
+00:50:24,480 --> 00:50:29,940
+okay
+
+914
+00:50:26,700 --> 00:50:32,780
+so that's the current element
+
+915
+00:50:29,940 --> 00:50:32,780
+and
+
+916
+00:50:36,359 --> 00:50:40,460
+the current index okay
+
+917
+00:50:40,680 --> 00:50:42,680
+um
+
+918
+00:50:43,500 --> 00:50:47,339
+so constant
+
+919
+00:50:53,040 --> 00:50:59,180
+okay
+
+920
+00:50:55,460 --> 00:51:02,540
+copy that Define that here
+
+921
+00:50:59,180 --> 00:51:02,540
+the actually
+
+922
+00:51:06,780 --> 00:51:11,700
+let me show you don't worry about too
+
+923
+00:51:10,260 --> 00:51:14,420
+much
+
+924
+00:51:11,700 --> 00:51:14,420
+okay
+
+925
+00:51:15,059 --> 00:51:17,059
+okay
+
+926
+00:51:17,240 --> 00:51:21,920
+like that so we got letters
+
+927
+00:51:21,960 --> 00:51:30,660
+okay so here is just letters letters
+
+928
+00:51:27,079 --> 00:51:34,260
+start for each
+
+929
+00:51:30,660 --> 00:51:37,740
+for each then we have a function okay
+
+930
+00:51:34,260 --> 00:51:42,440
+and the function takes two arguments
+
+931
+00:51:37,740 --> 00:51:42,440
+so x e is alphabet
+
+932
+00:51:44,339 --> 00:51:48,720
+okay
+
+933
+00:51:45,660 --> 00:51:52,319
+so that way it's easier to understand if
+
+934
+00:51:48,720 --> 00:51:54,480
+we name it that way and the second thing
+
+935
+00:51:52,319 --> 00:51:55,640
+is index
+
+936
+00:51:54,480 --> 00:51:57,380
+okay
+
+937
+00:51:55,640 --> 00:51:59,880
+so
+
+938
+00:51:57,380 --> 00:52:03,559
+and uh
+
+939
+00:51:59,880 --> 00:52:03,559
+X Frank
+
+940
+00:52:08,640 --> 00:52:14,579
+okay now I hope that's let's clean clean
+
+941
+00:52:12,119 --> 00:52:16,980
+up the code maybe that you know be clear
+
+942
+00:52:14,579 --> 00:52:19,380
+okay so
+
+943
+00:52:16,980 --> 00:52:23,160
+here
+
+944
+00:52:19,380 --> 00:52:26,640
+okay so let's clean up one more time so
+
+945
+00:52:23,160 --> 00:52:29,099
+now I think this is right okay so we
+
+946
+00:52:26,640 --> 00:52:32,880
+have a replace text function
+
+947
+00:52:29,099 --> 00:52:36,240
+no it's uh I want to name it
+
+948
+00:52:32,880 --> 00:52:37,740
+function names start with f my own
+
+949
+00:52:36,240 --> 00:52:39,559
+convention okay
+
+950
+00:52:37,740 --> 00:52:41,760
+so
+
+951
+00:52:39,559 --> 00:52:44,400
+Okay so
+
+952
+00:52:41,760 --> 00:52:47,520
+underscore
+
+953
+00:52:44,400 --> 00:52:49,440
+so this function takes a string
+
+954
+00:52:47,520 --> 00:52:53,640
+and uh
+
+955
+00:52:49,440 --> 00:52:56,579
+then for each letter A B C D E F G
+
+956
+00:52:53,640 --> 00:52:57,960
+for each letter for each one of them
+
+957
+00:52:56,579 --> 00:53:00,660
+you
+
+958
+00:52:57,960 --> 00:53:03,540
+apply this function
+
+959
+00:53:00,660 --> 00:53:05,819
+this Arrow function
+
+960
+00:53:03,540 --> 00:53:10,460
+okay and this error function takes two
+
+961
+00:53:05,819 --> 00:53:10,460
+arguments the the letter
+
+962
+00:53:11,880 --> 00:53:16,260
+okay so actually let's rename it a
+
+963
+00:53:14,460 --> 00:53:18,359
+little bit so this should be called
+
+964
+00:53:16,260 --> 00:53:19,500
+alphabet
+
+965
+00:53:18,359 --> 00:53:23,780
+okay
+
+966
+00:53:19,500 --> 00:53:23,780
+and this should be
+
+967
+00:53:29,640 --> 00:53:37,020
+something like that okay so
+
+968
+00:53:32,819 --> 00:53:38,220
+for each letter in alphabet call this
+
+969
+00:53:37,020 --> 00:53:41,640
+function
+
+970
+00:53:38,220 --> 00:53:43,280
+and letter index and here's the input
+
+971
+00:53:41,640 --> 00:53:45,900
+string
+
+972
+00:53:43,280 --> 00:53:48,960
+replaceable by
+
+973
+00:53:45,900 --> 00:53:53,460
+replace the letter by
+
+974
+00:53:48,960 --> 00:53:55,200
+the Frank uh character
+
+975
+00:53:53,460 --> 00:53:59,599
+uh
+
+976
+00:53:55,200 --> 00:53:59,599
+with the corresponding index okay
+
+977
+00:54:00,420 --> 00:54:06,839
+so this function is fantastic okay so
+
+978
+00:54:04,079 --> 00:54:10,140
+now let's call that function
+
+979
+00:54:06,839 --> 00:54:13,680
+in the update body in the function core
+
+980
+00:54:10,140 --> 00:54:16,520
+of date party so let's just say let's
+
+981
+00:54:13,680 --> 00:54:20,640
+just put here so
+
+982
+00:54:16,520 --> 00:54:24,319
+current font it's not too good one it's
+
+983
+00:54:20,640 --> 00:54:24,319
+just equals to
+
+984
+00:54:27,540 --> 00:54:30,740
+Collide function
+
+985
+00:54:31,319 --> 00:54:34,940
+okay and
+
+986
+00:54:38,460 --> 00:54:43,680
+X input value okay that part we don't
+
+987
+00:54:42,359 --> 00:54:48,440
+even care
+
+988
+00:54:43,680 --> 00:54:48,440
+so this update function will just
+
+989
+00:54:49,859 --> 00:54:53,059
+take the input
+
+990
+00:54:53,880 --> 00:54:57,839
+which is this
+
+991
+00:54:55,680 --> 00:55:00,440
+which is a text
+
+992
+00:54:57,839 --> 00:55:04,380
+and replace text
+
+993
+00:55:00,440 --> 00:55:07,079
+to this francophone
+
+994
+00:55:04,380 --> 00:55:08,880
+okay actually let's copy it move it down
+
+995
+00:55:07,079 --> 00:55:11,880
+that way it's easier
+
+996
+00:55:08,880 --> 00:55:14,220
+it's more intuitive so replace each
+
+997
+00:55:11,880 --> 00:55:15,839
+letter by the corresponding Factor
+
+998
+00:55:14,220 --> 00:55:18,780
+character
+
+999
+00:55:15,839 --> 00:55:20,579
+okay and set it to the output okay
+
+1000
+00:55:18,780 --> 00:55:22,740
+refresh
+
+1001
+00:55:20,579 --> 00:55:24,480
+and we should have
+
+1002
+00:55:22,740 --> 00:55:26,700
+hit
+
+1003
+00:55:24,480 --> 00:55:27,960
+ah
+
+1004
+00:55:26,700 --> 00:55:29,400
+nothing happens
+
+1005
+00:55:27,960 --> 00:55:32,460
+[Music]
+
+1006
+00:55:29,400 --> 00:55:35,040
+okay this is when
+
+1007
+00:55:32,460 --> 00:55:36,660
+this is when you need to press Ctrl
+
+1008
+00:55:35,040 --> 00:55:39,720
+shift I
+
+1009
+00:55:36,660 --> 00:55:43,440
+to show the
+
+1010
+00:55:39,720 --> 00:55:46,559
+debug console the JavaScript Java
+
+1011
+00:55:43,440 --> 00:55:50,040
+JavaScript browser account so
+
+1012
+00:55:46,559 --> 00:55:52,980
+so here's his uncle type area alphabet
+
+1013
+00:55:50,040 --> 00:55:55,380
+for each is not a function okay
+
+1014
+00:55:52,980 --> 00:56:00,319
+something something it's
+
+1015
+00:55:55,380 --> 00:56:00,319
+pop this in how do I pop this thing in
+
+1016
+00:56:01,319 --> 00:56:06,500
+back to the right okay dot to the right
+
+1017
+00:56:10,079 --> 00:56:15,359
+okay
+
+1018
+00:56:12,359 --> 00:56:15,359
+uh
+
+1019
+00:56:15,540 --> 00:56:20,040
+alphabet for each is not a function
+
+1020
+00:56:18,280 --> 00:56:23,720
+[Music]
+
+1021
+00:56:20,040 --> 00:56:23,720
+technology is not a function
+
+1022
+00:56:25,859 --> 00:56:31,079
+oh yeah
+
+1023
+00:56:27,300 --> 00:56:33,859
+obviously it's a string string alphabet
+
+1024
+00:56:31,079 --> 00:56:37,140
+is a string character string data type
+
+1025
+00:56:33,859 --> 00:56:40,140
+and it does not have
+
+1026
+00:56:37,140 --> 00:56:44,579
+the method for each because the method
+
+1027
+00:56:40,140 --> 00:56:47,300
+for each belongs to array object
+
+1028
+00:56:44,579 --> 00:56:50,640
+okay that's uh
+
+1029
+00:56:47,300 --> 00:56:57,740
+JavaScript technicality
+
+1030
+00:56:50,640 --> 00:56:57,740
+so you can turn a string to a array by
+
+1031
+00:56:59,819 --> 00:57:04,500
+by
+
+1032
+00:57:01,280 --> 00:57:08,300
+string two array okay so that's pretty
+
+1033
+00:57:04,500 --> 00:57:08,300
+easy you just do
+
+1034
+00:57:08,420 --> 00:57:14,420
+uh string through arrays basically you
+
+1035
+00:57:11,819 --> 00:57:14,420
+need the
+
+1036
+00:57:15,240 --> 00:57:20,900
+I think this this this is how you do it
+
+1037
+00:57:17,940 --> 00:57:20,900
+okay let me show you
+
+1038
+00:57:24,660 --> 00:57:28,619
+this is the dot dot dot operator I
+
+1039
+00:57:27,780 --> 00:57:33,000
+believe
+
+1040
+00:57:28,619 --> 00:57:36,319
+so in fact we can just do it here
+
+1041
+00:57:33,000 --> 00:57:36,319
+okay let's just try
+
+1042
+00:57:37,500 --> 00:57:42,900
+back to here
+
+1043
+00:57:39,900 --> 00:57:42,900
+refresh
+
+1044
+00:57:44,819 --> 00:57:51,180
+XX alphabet Oh yeah so yeah I believe so
+
+1045
+00:57:49,440 --> 00:57:53,640
+but
+
+1046
+00:57:51,180 --> 00:57:57,780
+but we are still wrong
+
+1047
+00:57:53,640 --> 00:58:00,140
+refresh what is going on no output
+
+1048
+00:57:57,780 --> 00:58:00,140
+what
+
+1049
+00:58:00,500 --> 00:58:09,980
+and let's see JavaScript console
+
+1050
+00:58:04,760 --> 00:58:09,980
+refresh what not even error
+
+1051
+00:58:15,800 --> 00:58:21,440
+we should at least say there's an error
+
+1052
+00:58:27,059 --> 00:58:33,720
+what no error what is going on close
+
+1053
+00:58:30,000 --> 00:58:36,440
+that close that close that close that
+
+1054
+00:58:33,720 --> 00:58:39,180
+show in browser
+
+1055
+00:58:36,440 --> 00:58:42,180
+Ctrl shift I
+
+1056
+00:58:39,180 --> 00:58:42,180
+console
+
+1057
+00:58:44,280 --> 00:58:47,299
+not even
+
+1058
+00:58:47,819 --> 00:58:52,799
+what let's print something okay when
+
+1059
+00:58:50,280 --> 00:58:55,440
+that happens all you have to do
+
+1060
+00:58:52,799 --> 00:58:58,520
+open the JavaScript and it just say
+
+1061
+00:58:55,440 --> 00:58:58,520
+console log
+
+1062
+00:58:58,680 --> 00:59:08,339
+something okay and here refresh there it
+
+1063
+00:59:03,780 --> 00:59:11,640
+is so at least our code is running
+
+1064
+00:59:08,339 --> 00:59:14,220
+but no output what why is it no output
+
+1065
+00:59:11,640 --> 00:59:17,420
+oh yeah that's because your function
+
+1066
+00:59:14,220 --> 00:59:17,420
+didn't return nothing
+
+1067
+00:59:17,460 --> 00:59:23,119
+wait
+
+1068
+00:59:19,740 --> 00:59:25,980
+yeah the the replace needs to return
+
+1069
+00:59:23,119 --> 00:59:27,839
+yeah yeah of course we are doing for
+
+1070
+00:59:25,980 --> 00:59:31,079
+each so
+
+1071
+00:59:27,839 --> 00:59:35,660
+you need to actually return it so
+
+1072
+00:59:31,079 --> 00:59:35,660
+instead for each let's just say map
+
+1073
+00:59:36,240 --> 00:59:41,940
+okay so wait so he said right
+
+1074
+00:59:42,380 --> 00:59:47,780
+yeah so map is the thing we want
+
+1075
+00:59:54,260 --> 01:00:04,200
+so wait what
+
+1076
+00:59:57,780 --> 01:00:06,540
+so each letter and each index replace or
+
+1077
+01:00:04,200 --> 01:00:12,440
+wait
+
+1078
+01:00:06,540 --> 01:00:12,440
+okay so let's define a result okay
+
+1079
+01:00:18,000 --> 01:00:27,240
+let's just say x output equals to empty
+
+1080
+01:00:22,920 --> 01:00:29,940
+string okay let's say empty array
+
+1081
+01:00:27,240 --> 01:00:31,380
+and yeah
+
+1082
+01:00:29,940 --> 01:00:36,079
+so
+
+1083
+01:00:31,380 --> 01:00:36,079
+for each time you replace it you
+
+1084
+01:00:37,140 --> 01:00:43,380
+yeah okay okay so this should be a
+
+1085
+01:00:39,660 --> 01:00:45,420
+string so X output equals to
+
+1086
+01:00:43,380 --> 01:00:49,440
+it's an empty string
+
+1087
+01:00:45,420 --> 01:00:53,160
+okay then you do this each time you
+
+1088
+01:00:49,440 --> 01:00:54,420
+set the output to oh yeah so
+
+1089
+01:00:53,160 --> 01:00:57,420
+um
+
+1090
+01:00:54,420 --> 01:00:59,839
+actually so you actually just change the
+
+1091
+01:00:57,420 --> 01:00:59,839
+string
+
+1092
+01:01:04,559 --> 01:01:06,839
+okay
+
+1093
+01:01:05,819 --> 01:01:08,460
+yep
+
+1094
+01:01:06,839 --> 01:01:11,460
+it's
+
+1095
+01:01:08,460 --> 01:01:11,460
+refresh
+
+1096
+01:01:12,839 --> 01:01:18,780
+yeah nothing
+
+1097
+01:01:15,420 --> 01:01:21,059
+wait we change the string oh yeah we and
+
+1098
+01:01:18,780 --> 01:01:24,119
+then we need to return it
+
+1099
+01:01:21,059 --> 01:01:27,799
+right he needs to return
+
+1100
+01:01:24,119 --> 01:01:27,799
+don't forget to return
+
+1101
+01:01:27,960 --> 01:01:34,799
+okay
+
+1102
+01:01:30,480 --> 01:01:39,319
+refresh there it is
+
+1103
+01:01:34,799 --> 01:01:39,319
+there it is except we got this
+
+1104
+01:01:40,020 --> 01:01:51,000
+Bond problem
+
+1105
+01:01:42,660 --> 01:01:52,200
+what a that's okay a b c d e f
+
+1106
+01:01:51,000 --> 01:01:54,359
+G
+
+1107
+01:01:52,200 --> 01:01:57,420
+oh okay
+
+1108
+01:01:54,359 --> 01:02:01,079
+you see that's a bit strange now let's
+
+1109
+01:01:57,420 --> 01:02:08,180
+do it again carefully okay so a
+
+1110
+01:02:01,079 --> 01:02:08,180
+space you know a b c d
+
+1111
+01:02:08,640 --> 01:02:13,200
+you see it uh
+
+1112
+01:02:11,040 --> 01:02:16,140
+somehow it takes two characters to
+
+1113
+01:02:13,200 --> 01:02:19,220
+become one character and the reason for
+
+1114
+01:02:16,140 --> 01:02:19,220
+that is because
+
+1115
+01:02:19,400 --> 01:02:25,440
+the JavaScript idiocy okay the
+
+1116
+01:02:22,799 --> 01:02:29,720
+JavaScript has a lot of idioces
+
+1117
+01:02:25,440 --> 01:02:29,720
+uh for example I can show you
+
+1118
+01:02:34,140 --> 01:02:39,440
+okay for example you have this emoji
+
+1119
+01:02:41,460 --> 01:02:46,940
+okay so and let's say
+
+1120
+01:02:48,420 --> 01:02:54,079
+that's a stream and let's say length
+
+1121
+01:02:55,020 --> 01:02:59,400
+okay
+
+1122
+01:02:56,400 --> 01:03:02,640
+yeah copy that
+
+1123
+01:02:59,400 --> 01:03:05,460
+so if we run this paste it you can see
+
+1124
+01:03:02,640 --> 01:03:08,520
+it says two even though you just want
+
+1125
+01:03:05,460 --> 01:03:11,359
+you got one single character and the the
+
+1126
+01:03:08,520 --> 01:03:14,220
+reason because for that is because
+
+1127
+01:03:11,359 --> 01:03:18,720
+JavaScript string
+
+1128
+01:03:14,220 --> 01:03:21,500
+is not just a sequence of characters
+
+1129
+01:03:18,720 --> 01:03:24,599
+it's actually a sequence of
+
+1130
+01:03:21,500 --> 01:03:29,400
+utf-16 bytes
+
+1131
+01:03:24,599 --> 01:03:34,020
+okay now if you want to know the it's
+
+1132
+01:03:29,400 --> 01:03:36,960
+very very complex okay not many not that
+
+1133
+01:03:34,020 --> 01:03:40,799
+many JavaScript professional JavaScript
+
+1134
+01:03:36,960 --> 01:03:42,780
+programmers even understand it so but if
+
+1135
+01:03:40,799 --> 01:03:44,040
+you want to understand what does it
+
+1136
+01:03:42,780 --> 01:03:46,319
+really mean
+
+1137
+01:03:44,040 --> 01:03:49,440
+you go to
+
+1138
+01:03:46,319 --> 01:03:52,559
+JavaScript in depth
+
+1139
+01:03:49,440 --> 01:03:54,540
+okay then you go to string
+
+1140
+01:03:52,559 --> 01:04:00,480
+string overview
+
+1141
+01:03:54,540 --> 01:04:05,400
+okay then you can see there is a section
+
+1142
+01:04:00,480 --> 01:04:08,720
+string is a 16 bits unit sequence okay
+
+1143
+01:04:05,400 --> 01:04:11,960
+so you can open that
+
+1144
+01:04:08,720 --> 01:04:15,660
+then you'll know the detail
+
+1145
+01:04:11,960 --> 01:04:17,700
+it's very fairly complex okay
+
+1146
+01:04:15,660 --> 01:04:20,640
+so anyway
+
+1147
+01:04:17,700 --> 01:04:25,760
+so our purpose for our purposes
+
+1148
+01:04:20,640 --> 01:04:25,760
+what are we doing so how do we fix this
+
+1149
+01:04:27,540 --> 01:04:30,319
+hmm
+
+1150
+01:04:31,260 --> 01:04:37,460
+so we already did one hour
+
+1151
+01:04:35,040 --> 01:04:37,460
+uh
+
+1152
+01:04:37,559 --> 01:04:45,119
+for so we want so yeah so the problem
+
+1153
+01:04:41,280 --> 01:04:48,619
+right now is it takes two key strokes to
+
+1154
+01:04:45,119 --> 01:04:48,619
+return one thing why is that
+
+1155
+01:05:11,839 --> 01:05:16,099
+so you replaced all
+
+1156
+01:05:17,460 --> 01:05:24,140
+I think I know because the yeah
+
+1157
+01:05:20,160 --> 01:05:24,140
+JavaScript is really painful
+
+1158
+01:05:24,619 --> 01:05:28,280
+because wait
+
+1159
+01:05:30,059 --> 01:05:35,160
+prototype replacer
+
+1160
+01:05:32,940 --> 01:05:38,160
+uh
+
+1161
+01:05:35,160 --> 01:05:38,160
+so
+
+1162
+01:05:38,339 --> 01:05:45,200
+it replaces all currencies that's right
+
+1163
+01:05:42,359 --> 01:05:45,200
+and
+
+1164
+01:05:46,140 --> 01:05:51,660
+so for each letter
+
+1165
+01:05:48,780 --> 01:05:53,940
+and we are doing this very efficiently
+
+1166
+01:05:51,660 --> 01:05:57,559
+him are we
+
+1167
+01:05:53,940 --> 01:05:57,559
+oh not necessarily
+
+1168
+01:05:58,079 --> 01:06:04,200
+so for each letter we
+
+1169
+01:06:01,619 --> 01:06:09,200
+yeah that's right we do that we do more
+
+1170
+01:06:04,200 --> 01:06:09,200
+we replace all and set it to that
+
+1171
+01:06:09,540 --> 01:06:14,579
+that's right
+
+1172
+01:06:11,819 --> 01:06:17,339
+uh and uh
+
+1173
+01:06:14,579 --> 01:06:18,480
+is that correct let's look
+
+1174
+01:06:17,339 --> 01:06:22,640
+okay
+
+1175
+01:06:18,480 --> 01:06:22,640
+Go to JavaScript in depth
+
+1176
+01:06:23,700 --> 01:06:32,280
+then you want to go to those uh itrobos
+
+1177
+01:06:28,799 --> 01:06:34,220
+so in about five years ago seven years
+
+1178
+01:06:32,280 --> 01:06:36,559
+ago 2015
+
+1179
+01:06:34,220 --> 01:06:40,859
+JavaScript
+
+1180
+01:06:36,559 --> 01:06:45,299
+introduced the iterable concept
+
+1181
+01:06:40,859 --> 01:06:47,819
+so that the string is now iterable okay
+
+1182
+01:06:45,299 --> 01:06:50,720
+in the technique technical detail is
+
+1183
+01:06:47,819 --> 01:06:50,720
+fairly complex
+
+1184
+01:06:52,619 --> 01:07:00,240
+uh so so string is iterable and how do
+
+1185
+01:06:57,180 --> 01:07:04,980
+you convert a string to array so you can
+
+1186
+01:07:00,240 --> 01:07:07,200
+look here spread operator
+
+1187
+01:07:04,980 --> 01:07:09,180
+spread the value of each one into an
+
+1188
+01:07:07,200 --> 01:07:12,839
+array okay so that
+
+1189
+01:07:09,180 --> 01:07:16,880
+yes so that converts a
+
+1190
+01:07:12,839 --> 01:07:16,880
+so for example we can show
+
+1191
+01:07:20,039 --> 01:07:29,520
+okay for example that uh yeah so
+
+1192
+01:07:24,720 --> 01:07:33,839
+so we can say let's say that okay
+
+1193
+01:07:29,520 --> 01:07:33,839
+and we can say print
+
+1194
+01:07:34,680 --> 01:07:40,099
+dot dot dot okay
+
+1195
+01:07:37,079 --> 01:07:40,099
+copy that
+
+1196
+01:07:40,859 --> 01:07:47,339
+new tab
+
+1197
+01:07:43,200 --> 01:07:49,920
+Ctrl shift I paste
+
+1198
+01:07:47,339 --> 01:07:51,720
+you see we got the array fantastic
+
+1199
+01:07:49,920 --> 01:07:55,440
+fantastic
+
+1200
+01:07:51,720 --> 01:07:58,859
+so that part is correct
+
+1201
+01:07:55,440 --> 01:08:02,220
+oh I know what I know why it's uh wrong
+
+1202
+01:07:58,859 --> 01:08:08,760
+because this second part is incorrect
+
+1203
+01:08:02,220 --> 01:08:08,760
+because here the factor is not array so
+
+1204
+01:08:09,240 --> 01:08:15,599
+you know this is a zeroth index
+
+1205
+01:08:13,140 --> 01:08:18,120
+but this is not the first index the
+
+1206
+01:08:15,599 --> 01:08:20,279
+first index is actually
+
+1207
+01:08:18,120 --> 01:08:24,000
+okay so let me explain
+
+1208
+01:08:20,279 --> 01:08:27,779
+in this string the Unicode you know
+
+1209
+01:08:24,000 --> 01:08:32,580
+you know normally you might think the a
+
+1210
+01:08:27,779 --> 01:08:36,179
+is index 0 B is index one C is index
+
+1211
+01:08:32,580 --> 01:08:39,120
+three actually that's not true
+
+1212
+01:08:36,179 --> 01:08:42,179
+you know we can test it let me show you
+
+1213
+01:08:39,120 --> 01:08:45,839
+okay so for example
+
+1214
+01:08:42,179 --> 01:08:48,799
+let's say that let's say the index one
+
+1215
+01:08:45,839 --> 01:08:48,799
+let's say
+
+1216
+01:08:49,020 --> 01:08:58,339
+let's say the index one it will not be
+
+1217
+01:08:52,380 --> 01:08:58,339
+any of these okay so let me show you
+
+1218
+01:08:59,759 --> 01:09:05,219
+okay let's save it
+
+1219
+01:09:01,739 --> 01:09:07,739
+comment those out okay let's run it
+
+1220
+01:09:05,219 --> 01:09:10,259
+print okay
+
+1221
+01:09:07,739 --> 01:09:13,140
+so what is the result the result is
+
+1222
+01:09:10,259 --> 01:09:17,120
+going to be
+
+1223
+01:09:13,140 --> 01:09:17,120
+the second half
+
+1224
+01:09:17,239 --> 01:09:23,580
+utf-16 by encoding for that a character
+
+1225
+01:09:20,880 --> 01:09:24,900
+so it's gonna come out gibberish okay
+
+1226
+01:09:23,580 --> 01:09:26,520
+run it
+
+1227
+01:09:24,900 --> 01:09:29,819
+you can see
+
+1228
+01:09:26,520 --> 01:09:32,279
+that's output you see
+
+1229
+01:09:29,819 --> 01:09:34,799
+so that's a problem this is a problem of
+
+1230
+01:09:32,279 --> 01:09:37,380
+JavaScript again if you want to
+
+1231
+01:09:34,799 --> 01:09:39,380
+understand it you know go read
+
+1232
+01:09:37,380 --> 01:09:39,380
+um
+
+1233
+01:09:43,020 --> 01:09:48,480
+did I already close it again
+
+1234
+01:09:46,199 --> 01:09:51,719
+yeah now here
+
+1235
+01:09:48,480 --> 01:09:53,219
+you know JavaScript code unit you have
+
+1236
+01:09:51,719 --> 01:09:56,280
+to understand
+
+1237
+01:09:53,219 --> 01:09:59,400
+JavaScript stream okay
+
+1238
+01:09:56,280 --> 01:10:01,860
+so how do you fix that well you can so
+
+1239
+01:09:59,400 --> 01:10:05,100
+if you want the index to correspond to
+
+1240
+01:10:01,860 --> 01:10:06,719
+the letters what you can do is uh you
+
+1241
+01:10:05,100 --> 01:10:10,020
+first of all
+
+1242
+01:10:06,719 --> 01:10:14,040
+turn this francophone thing
+
+1243
+01:10:10,020 --> 01:10:16,860
+using the dot dot dot operator to turn
+
+1244
+01:10:14,040 --> 01:10:19,980
+them into an array
+
+1245
+01:10:16,860 --> 01:10:22,940
+and that will
+
+1246
+01:10:19,980 --> 01:10:25,920
+put each of the character into a element
+
+1247
+01:10:22,940 --> 01:10:28,800
+as a element in Array
+
+1248
+01:10:25,920 --> 01:10:32,640
+then you say one that would be the first
+
+1249
+01:10:28,800 --> 01:10:36,179
+one a okay so let's try it
+
+1250
+01:10:32,640 --> 01:10:36,960
+oh B yeah B is because zero index you
+
+1251
+01:10:36,179 --> 01:10:41,219
+see
+
+1252
+01:10:36,960 --> 01:10:46,699
+fantastic so that's what you want okay
+
+1253
+01:10:41,219 --> 01:10:46,699
+okay so now let's go back so here
+
+1254
+01:10:48,260 --> 01:10:56,219
+so actually so
+
+1255
+01:10:52,320 --> 01:10:59,480
+just copy that dot dot dot that okay
+
+1256
+01:10:56,219 --> 01:10:59,480
+that should do it
+
+1257
+01:11:00,600 --> 01:11:06,120
+let's go back to our app here
+
+1258
+01:11:03,600 --> 01:11:08,280
+refresh
+
+1259
+01:11:06,120 --> 01:11:12,540
+fantastic
+
+1260
+01:11:08,280 --> 01:11:14,330
+a b c d e f g
+
+1261
+01:11:12,540 --> 01:11:16,199
+something morning
+
+1262
+01:11:14,330 --> 01:11:17,520
+[Music]
+
+1263
+01:11:16,199 --> 01:11:19,800
+okay
+
+1264
+01:11:17,520 --> 01:11:24,540
+I think that's it for today we've been
+
+1265
+01:11:19,800 --> 01:11:27,179
+coding this for an hour over hour now I
+
+1266
+01:11:24,540 --> 01:11:28,199
+think you guys get an idea how it is
+
+1267
+01:11:27,179 --> 01:11:31,860
+done
+
+1268
+01:11:28,199 --> 01:11:34,800
+uh and that'll be it for today
+
+1269
+01:11:31,860 --> 01:11:37,620
+I hope you learned some JavaScript some
+
+1270
+01:11:34,800 --> 01:11:40,440
+web dev real web dev
+
+1271
+01:11:37,620 --> 01:11:42,659
+you know we have written a entire
+
+1272
+01:11:40,440 --> 01:11:44,460
+application
+
+1273
+01:11:42,659 --> 01:11:47,460
+in browser
+
+1274
+01:11:44,460 --> 01:11:51,860
+of flamio says why is Javascript so fast
+
+1275
+01:11:47,460 --> 01:11:51,860
+if it does all of this crazy stuff
+
+1276
+01:11:51,920 --> 01:11:57,960
+yeah well
+
+1277
+01:11:54,900 --> 01:12:02,040
+JavaScript is very fast I mean not not
+
+1278
+01:11:57,960 --> 01:12:04,679
+not that fast I mean but it's very com
+
+1279
+01:12:02,040 --> 01:12:08,040
+the JavaScript compiler
+
+1280
+01:12:04,679 --> 01:12:09,900
+by all these by these giant corporations
+
+1281
+01:12:08,040 --> 01:12:13,980
+by Google
+
+1282
+01:12:09,900 --> 01:12:17,820
+you know Chrome browser by Microsoft
+
+1283
+01:12:13,980 --> 01:12:20,159
+is also using Chrome and also in um
+
+1284
+01:12:17,820 --> 01:12:22,739
+you know in in Firefox they have their
+
+1285
+01:12:20,159 --> 01:12:26,280
+own JavaScript compiler so they are
+
+1286
+01:12:22,739 --> 01:12:27,960
+highly very competitive
+
+1287
+01:12:26,280 --> 01:12:30,239
+that is why
+
+1288
+01:12:27,960 --> 01:12:32,760
+they are fast because they have you know
+
+1289
+01:12:30,239 --> 01:12:35,219
+each of the JavaScript
+
+1290
+01:12:32,760 --> 01:12:37,679
+compiler developer in the browser they
+
+1291
+01:12:35,219 --> 01:12:39,659
+get paid you know twenty thousand
+
+1292
+01:12:37,679 --> 01:12:42,120
+dollars a month something
+
+1293
+01:12:39,659 --> 01:12:44,100
+uh
+
+1294
+01:12:42,120 --> 01:12:45,600
+yeah
+
+1295
+01:12:44,100 --> 01:12:49,080
+so
+
+1296
+01:12:45,600 --> 01:12:51,540
+um or more I would say uh so they so
+
+1297
+01:12:49,080 --> 01:12:53,820
+JavaScript is you know browsers is very
+
+1298
+01:12:51,540 --> 01:12:56,219
+competitive so
+
+1299
+01:12:53,820 --> 01:12:59,760
+okay that's it for today so so if you
+
+1300
+01:12:56,219 --> 01:13:02,460
+like my stuff okay buy my you can buy my
+
+1301
+01:12:59,760 --> 01:13:06,780
+JavaScript tutorial
+
+1302
+01:13:02,460 --> 01:13:11,159
+you go to it then you can click on
+
+1303
+01:13:06,780 --> 01:13:14,640
+JavaScript in depth and uh you know I
+
+1304
+01:13:11,159 --> 01:13:17,820
+can read it online why should I pay
+
+1305
+01:13:14,640 --> 01:13:22,159
+um because you are beautiful
+
+1306
+01:13:17,820 --> 01:13:27,000
+okay so and uh go to my home page
+
+1307
+01:13:22,159 --> 01:13:30,719
+gossadi.info and all the way down you
+
+1308
+01:13:27,000 --> 01:13:34,520
+can see how to support me
+
+1309
+01:13:30,719 --> 01:13:34,520
+okay that's it for today
+
+1310
+01:13:40,620 --> 01:13:43,280
+bye guys
+
+1311
+01:13:56,580 --> 01:14:02,940
+okay shut shutting down okay let me just
+
+1312
+01:14:00,360 --> 01:14:05,239
+copy the stuff we talked about and put
+
+1313
+01:14:02,940 --> 01:14:09,739
+into
+
+1314
+01:14:05,239 --> 01:14:09,739
+put into our talk show page
+
+1315
+01:14:27,960 --> 01:14:34,800
+spread operator
+
+1316
+01:14:30,420 --> 01:14:36,199
+Java stream immutability in the code
+
+1317
+01:14:34,800 --> 01:14:39,320
+unit
+
+1318
+01:14:36,199 --> 01:14:41,040
+extreme complexity
+
+1319
+01:14:39,320 --> 01:14:44,219
+seedingly
+
+1320
+01:14:41,040 --> 01:14:48,000
+and JavaScript prototype replace all
+
+1321
+01:14:44,219 --> 01:14:49,860
+that is actually new added about three
+
+1322
+01:14:48,000 --> 01:14:55,140
+years ago you see
+
+1323
+01:14:49,860 --> 01:14:58,640
+new in 220 JavaScript 2021 this is added
+
+1324
+01:14:55,140 --> 01:14:58,640
+a year ago actually
+
+1325
+01:14:59,460 --> 01:15:05,940
+before that if you want to replace or
+
+1326
+01:15:02,699 --> 01:15:10,100
+string a substring or string you want to
+
+1327
+01:15:05,940 --> 01:15:10,100
+do all of them it's more complex
+
+1328
+01:15:10,560 --> 01:15:15,000
+um
+
+1329
+01:15:12,420 --> 01:15:19,159
+event listener yeah that's right we
+
+1330
+01:15:15,000 --> 01:15:19,159
+don't care okay bye guys
+

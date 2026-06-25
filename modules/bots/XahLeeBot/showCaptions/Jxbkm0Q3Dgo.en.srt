@@ -1,0 +1,3132 @@
+1
+00:00:01,600 --> 00:00:07,279
+Hello, good evening everyone. Welcome to
+
+2
+00:00:04,319 --> 00:00:11,599
+another episode of Pasad talk show. We
+
+3
+00:00:07,279 --> 00:00:14,880
+are going to do code emacisp today.
+
+4
+00:00:11,599 --> 00:00:18,400
+So this is technical session for emac
+
+5
+00:00:14,880 --> 00:00:20,480
+lisp coders or I'm going to teach you uh
+
+6
+00:00:18,400 --> 00:00:23,760
+if you are watching this offline play at
+
+7
+00:00:20,480 --> 00:00:26,080
+1.5 speed minimum. If you are watching
+
+8
+00:00:23,760 --> 00:00:29,039
+live say hi love to see your comments.
+
+9
+00:00:26,080 --> 00:00:33,120
+Okay so let's begin. So uh I'm going to
+
+10
+00:00:29,039 --> 00:00:36,160
+cover some of the things I've done. Um
+
+11
+00:00:33,120 --> 00:00:38,559
+so let's begin. Okay. So so for example
+
+12
+00:00:36,160 --> 00:00:44,079
+when you learn a programming language
+
+13
+00:00:38,559 --> 00:00:47,840
+it's good to know the top 100 most used
+
+14
+00:00:44,079 --> 00:00:50,879
+functions. Okay. So here is an example.
+
+15
+00:00:47,840 --> 00:00:54,399
+So I just updated so you can see if you
+
+16
+00:00:50,879 --> 00:00:58,079
+are learning eaglist these are the top
+
+17
+00:00:54,399 --> 00:01:01,039
+top 300 functions. you can go up to 100,
+
+18
+00:00:58,079 --> 00:01:03,359
+you know. So anyway, so this is like
+
+19
+00:01:01,039 --> 00:01:06,880
+English, like when you learn a foreign
+
+20
+00:01:03,359 --> 00:01:09,439
+language like French, uh, German,
+
+21
+00:01:06,880 --> 00:01:13,040
+Russian, Chinese, you want to know the
+
+22
+00:01:09,439 --> 00:01:15,920
+top 1,000 most used, most frequently
+
+23
+00:01:13,040 --> 00:01:18,159
+used words because that's the things you
+
+24
+00:01:15,920 --> 00:01:21,040
+want to learn first. That's those are
+
+25
+00:01:18,159 --> 00:01:24,159
+the priority. Hello, KPX,
+
+26
+00:01:21,040 --> 00:01:26,640
+KBT, XXZ.
+
+27
+00:01:24,159 --> 00:01:31,520
+What does that mean? Hello hungry man.
+
+28
+00:01:26,640 --> 00:01:34,000
+Now an announce fantastic an
+
+29
+00:01:31,520 --> 00:01:36,159
+[ __ ] announce. So you want to learn
+
+30
+00:01:34,000 --> 00:01:38,560
+the most frequently used words. So here
+
+31
+00:01:36,159 --> 00:01:40,720
+is a list of them. Okay, it's on my blog
+
+32
+00:01:38,560 --> 00:01:43,439
+on kasali.info
+
+33
+00:01:40,720 --> 00:01:46,720
+emac. Okay, search for it, you will find
+
+34
+00:01:43,439 --> 00:01:49,520
+it. So this is for Emacs 30 updated.
+
+35
+00:01:46,720 --> 00:01:52,000
+Emacs 30 is released this year. But how
+
+36
+00:01:49,520 --> 00:01:56,640
+do you get this list? Okay, so here is
+
+37
+00:01:52,000 --> 00:01:58,719
+the code. Okay. So, uh here is emac this
+
+38
+00:01:56,640 --> 00:02:01,920
+code so you can actually learn it. Okay.
+
+39
+00:01:58,719 --> 00:02:04,159
+So, let me let me just demo. Okay. So, I
+
+40
+00:02:01,920 --> 00:02:07,759
+I already have the code here. Let's just
+
+41
+00:02:04,159 --> 00:02:10,720
+copy. Okay. So, copy copy.
+
+42
+00:02:07,759 --> 00:02:12,319
+Make a new buffer. Paste it. Save it.
+
+43
+00:02:10,720 --> 00:02:16,239
+xx.el.
+
+44
+00:02:12,319 --> 00:02:21,040
+Okay. Let's just say that. Okay. And uh
+
+45
+00:02:16,239 --> 00:02:24,800
+fantastic. This is this is uh 56 lines
+
+46
+00:02:21,040 --> 00:02:26,800
+of code. Now let's just run it. Done. So
+
+47
+00:02:24,800 --> 00:02:30,080
+you see, so here's the result. Number
+
+48
+00:02:26,800 --> 00:02:32,640
+one. So now let's show the line numbers.
+
+49
+00:02:30,080 --> 00:02:34,480
+Press press press press.
+
+50
+00:02:32,640 --> 00:02:38,000
+Fantastic. Now you can see the line
+
+51
+00:02:34,480 --> 00:02:40,480
+numbers. Can you see it?
+
+52
+00:02:38,000 --> 00:02:43,120
+Yes. Okay. So you can see this this is
+
+53
+00:02:40,480 --> 00:02:47,760
+the most frequently used uh functions.
+
+54
+00:02:43,120 --> 00:02:50,959
+In fact, all of them uh 5,400 of them.
+
+55
+00:02:47,760 --> 00:02:53,519
+So So that's a script. Okay. So you can
+
+56
+00:02:50,959 --> 00:02:55,760
+study it. I won't go through it. Okay.
+
+57
+00:02:53,519 --> 00:02:58,720
+So let's delete it. We don't care
+
+58
+00:02:55,760 --> 00:03:04,159
+anymore. Delete it. So there it is that.
+
+59
+00:02:58,720 --> 00:03:07,680
+Okay. So that is uh demo emac script
+
+60
+00:03:04,159 --> 00:03:11,840
+count function frequency and the emac
+
+61
+00:03:07,680 --> 00:03:14,400
+30's most frequently used functions. Set
+
+62
+00:03:11,840 --> 00:03:17,040
+Q. Obviously when you want to set a
+
+63
+00:03:14,400 --> 00:03:21,040
+variable if something something if
+
+64
+00:03:17,040 --> 00:03:23,519
+statement the foundation of a
+
+65
+00:03:21,040 --> 00:03:27,120
+chewing complete programming language
+
+66
+00:03:23,519 --> 00:03:29,680
+that's the most essential if
+
+67
+00:03:27,120 --> 00:03:32,080
+define a function define you know let
+
+68
+00:03:29,680 --> 00:03:35,280
+declare variables you know and so on.
+
+69
+00:03:32,080 --> 00:03:38,319
+Okay. So that is that. So let's today's
+
+70
+00:03:35,280 --> 00:03:41,360
+talk show uh let's search for frequency.
+
+71
+00:03:38,319 --> 00:03:45,599
+So we talked about that.
+
+72
+00:03:41,360 --> 00:03:50,319
+Uh so cut move go to go to the top and
+
+73
+00:03:45,599 --> 00:03:53,680
+uh and uh let's paste it there and okay
+
+74
+00:03:50,319 --> 00:03:55,599
+so we talked about this and in the past
+
+75
+00:03:53,680 --> 00:04:00,640
+years you know I've done for Emacs
+
+76
+00:03:55,599 --> 00:04:02,319
+version 23 year 2020 and Emacs version
+
+77
+00:04:00,640 --> 00:04:05,680
+23
+
+78
+00:04:02,319 --> 00:04:08,480
+uh 23 is year 2010 that's when I begin
+
+79
+00:04:05,680 --> 00:04:11,120
+to it in the beginning I was using a
+
+80
+00:04:08,480 --> 00:04:18,400
+python script so you can see where Is
+
+81
+00:04:11,120 --> 00:04:21,040
+it? Uh, okay. Yeah. So, so here is
+
+82
+00:04:18,400 --> 00:04:23,680
+the Python script because back then I
+
+83
+00:04:21,040 --> 00:04:27,040
+was more familiar with Python. So, you
+
+84
+00:04:23,680 --> 00:04:29,440
+know, I did uh with Python script.
+
+85
+00:04:27,040 --> 00:04:31,280
+So, anyway, so that's that's that that's
+
+86
+00:04:29,440 --> 00:04:35,520
+that. Okay. So, let's go to the next
+
+87
+00:04:31,280 --> 00:04:38,479
+topic. Uh next topic, let's see hasht to
+
+88
+00:04:35,520 --> 00:04:41,919
+list. Okay. So, let me Okay, let me
+
+89
+00:04:38,479 --> 00:04:46,080
+organize a little bit. So
+
+90
+00:04:41,919 --> 00:04:49,120
+uh generic map functions let's combine
+
+91
+00:04:46,080 --> 00:04:52,000
+the list combine the list okay combine
+
+92
+00:04:49,120 --> 00:04:55,440
+so all those are about hash tables okay
+
+93
+00:04:52,000 --> 00:04:58,000
+combine then okay so this section is
+
+94
+00:04:55,440 --> 00:05:02,000
+about hashts but let me talk about this
+
+95
+00:04:58,000 --> 00:05:04,639
+thing first okay now in Emacs uh uh not
+
+96
+00:05:02,000 --> 00:05:07,840
+this one okay so actually so let me get
+
+97
+00:05:04,639 --> 00:05:10,880
+the link correctly so you can look at my
+
+98
+00:05:07,840 --> 00:05:13,680
+emac blog I've been busy working on it.
+
+99
+00:05:10,880 --> 00:05:17,039
+Just search for it on kasali.info
+
+100
+00:05:13,680 --> 00:05:20,000
+kasal emacs blog. You'll find it.
+
+101
+00:05:17,039 --> 00:05:22,960
+So you got a few region problems. Okay.
+
+102
+00:05:20,000 --> 00:05:27,479
+Not that one. Uh yeah. Okay. This one.
+
+103
+00:05:22,960 --> 00:05:27,479
+Okay. This article. So
+
+104
+00:05:30,080 --> 00:05:34,919
+So hold on a second. Let me check
+
+105
+00:05:31,919 --> 00:05:34,919
+something.
+
+106
+00:05:37,520 --> 00:05:41,479
+Let me close the door.
+
+107
+00:05:45,520 --> 00:05:51,600
+Okay. So you see in EMAC this you have
+
+108
+00:05:48,880 --> 00:05:54,479
+this thing called field region which is
+
+109
+00:05:51,600 --> 00:05:56,400
+a very idiotic name. So what does what
+
+110
+00:05:54,479 --> 00:05:59,199
+does it do? So for example when you have
+
+111
+00:05:56,400 --> 00:06:01,759
+a paragraph. So for example this
+
+112
+00:05:59,199 --> 00:06:03,600
+paragraph. Let's copy it. New buffer.
+
+113
+00:06:01,759 --> 00:06:05,440
+Paste it
+
+114
+00:06:03,600 --> 00:06:09,280
+on the pink window. You can see all my
+
+115
+00:06:05,440 --> 00:06:11,520
+command uh command core names and the
+
+116
+00:06:09,280 --> 00:06:14,000
+keystroke on the left. I'm using softly
+
+117
+00:06:11,520 --> 00:06:17,440
+keys and I'm using a vora keyboard
+
+118
+00:06:14,000 --> 00:06:19,199
+layout. Okay. So for example few region.
+
+119
+00:06:17,440 --> 00:06:21,120
+So usually you have a you know you type
+
+120
+00:06:19,199 --> 00:06:24,639
+and type have a long paragraph right
+
+121
+00:06:21,120 --> 00:06:27,840
+like this. So usually you want to
+
+122
+00:06:24,639 --> 00:06:30,080
+like in the old days like 1990s you want
+
+123
+00:06:27,840 --> 00:06:33,120
+to truncate them like no more than 80
+
+124
+00:06:30,080 --> 00:06:35,600
+lines. So let's turn on ruler mode.
+
+125
+00:06:33,120 --> 00:06:39,039
+ruler mode. Okay. So you can see how
+
+126
+00:06:35,600 --> 00:06:42,960
+many number of characters.
+
+127
+00:06:39,039 --> 00:06:47,120
+So let's Okay. So one line. So you can
+
+128
+00:06:42,960 --> 00:06:51,440
+call command feel paragraph. Okay. Do
+
+129
+00:06:47,120 --> 00:06:54,800
+it. So you can you see it cuts each line
+
+130
+00:06:51,440 --> 00:06:58,319
+no longer than 80 characters. So you see
+
+131
+00:06:54,800 --> 00:07:01,520
+undo. You see before it's like hundreds
+
+132
+00:06:58,319 --> 00:07:05,599
+characters. Now you call it field
+
+133
+00:07:01,520 --> 00:07:08,240
+paragraph then then it becomes multiple
+
+134
+00:07:05,599 --> 00:07:11,680
+lines. Okay, that's a EMAC command.
+
+135
+00:07:08,240 --> 00:07:16,639
+However, there's no way to go back. So
+
+136
+00:07:11,680 --> 00:07:18,720
+if you begin with a uh uh let's say let
+
+137
+00:07:16,639 --> 00:07:20,639
+let's let's put let's make them very
+
+138
+00:07:18,720 --> 00:07:23,120
+short. Okay, so if you begin with
+
+139
+00:07:20,639 --> 00:07:25,280
+multiple lines, there's no way there's
+
+140
+00:07:23,120 --> 00:07:29,680
+no command to turn this back into one
+
+141
+00:07:25,280 --> 00:07:31,840
+line. Okay, like like that
+
+142
+00:07:29,680 --> 00:07:35,360
+I can do it because I'm using Starfly
+
+143
+00:07:31,840 --> 00:07:39,360
+keys and I have this for reformat lines.
+
+144
+00:07:35,360 --> 00:07:44,240
+Okay, so this this is uh in the back in
+
+145
+00:07:39,360 --> 00:07:47,120
+the starting in 1980s because the Unix
+
+146
+00:07:44,240 --> 00:07:49,759
+idiots, the Unix [ __ ] [ __ ] because
+
+147
+00:07:47,120 --> 00:07:53,440
+back then their their their system their
+
+148
+00:07:49,759 --> 00:07:58,400
+programs cannot process long lines.
+
+149
+00:07:53,440 --> 00:08:00,879
+And when when does the convention of 80
+
+150
+00:07:58,400 --> 00:08:05,240
+characters per line came from? They it
+
+151
+00:08:00,879 --> 00:08:05,240
+came from punch cards. Okay,
+
+152
+00:08:07,199 --> 00:08:14,479
+this is uh you know like Asian
+
+153
+00:08:11,280 --> 00:08:19,400
+computing history. So in the 1960s
+
+154
+00:08:14,479 --> 00:08:19,400
+punch cards, okay, it looks like that
+
+155
+00:08:19,440 --> 00:08:24,319
+you know this is like before I think
+
+156
+00:08:21,840 --> 00:08:27,280
+even before digital computer era. So you
+
+157
+00:08:24,319 --> 00:08:29,599
+got this card and this is actually code
+
+158
+00:08:27,280 --> 00:08:31,840
+you know the the programming code and
+
+159
+00:08:29,599 --> 00:08:34,800
+you got holes on it you know this is the
+
+160
+00:08:31,840 --> 00:08:38,080
+way this is like a storage system like
+
+161
+00:08:34,800 --> 00:08:41,839
+your flash drive you know whatever. So
+
+162
+00:08:38,080 --> 00:08:46,000
+back then this is what year? Um
+
+163
+00:08:41,839 --> 00:08:50,080
+1960s n 1890
+
+164
+00:08:46,000 --> 00:08:54,800
+1890 okay long ago 100 years ago. So
+
+165
+00:08:50,080 --> 00:08:56,880
+this 80 characters per line convention
+
+166
+00:08:54,800 --> 00:08:59,760
+came from these punch cards you know
+
+167
+00:08:56,880 --> 00:09:01,360
+because because convention and habit you
+
+168
+00:08:59,760 --> 00:09:03,519
+know every generation you change
+
+169
+00:09:01,360 --> 00:09:05,920
+slightly but you know so we trace it
+
+170
+00:09:03,519 --> 00:09:08,800
+trace it back like who the [ __ ]
+
+171
+00:09:05,920 --> 00:09:13,519
+started to say that you know we we need
+
+172
+00:09:08,800 --> 00:09:15,680
+to like manually you know put a uh line
+
+173
+00:09:13,519 --> 00:09:18,480
+wrap line return at every characters
+
+174
+00:09:15,680 --> 00:09:21,279
+that's the punch cards okay but the
+
+175
+00:09:18,480 --> 00:09:23,680
+idiocy persisted especially because of
+
+176
+00:09:21,279 --> 00:09:26,240
+the Unix [ __ ] Okay, I talked about
+
+177
+00:09:23,680 --> 00:09:29,839
+this many times.
+
+178
+00:09:26,240 --> 00:09:32,959
+Uh and uh so let me quickly show you. So
+
+179
+00:09:29,839 --> 00:09:35,120
+let's let's quickly show um let's go to
+
+180
+00:09:32,959 --> 00:09:37,200
+search
+
+181
+00:09:35,120 --> 00:09:41,360
+uh
+
+182
+00:09:37,200 --> 00:09:46,000
+Unix email protocol for example. Unix
+
+183
+00:09:41,360 --> 00:09:50,080
+Unix has this email protocol. Okay.
+
+184
+00:09:46,000 --> 00:09:52,399
+And in this protocol uh RFCA something
+
+185
+00:09:50,080 --> 00:09:54,320
+something not not that one. Okay. So
+
+186
+00:09:52,399 --> 00:09:56,800
+let's see
+
+187
+00:09:54,320 --> 00:09:59,120
+um
+
+188
+00:09:56,800 --> 00:10:01,440
+okay so actually you need to search for
+
+189
+00:09:59,120 --> 00:10:04,160
+RFC
+
+190
+00:10:01,440 --> 00:10:07,120
+Unix RFC.
+
+191
+00:10:04,160 --> 00:10:10,320
+Uh
+
+192
+00:10:07,120 --> 00:10:12,959
+RFC yeah really [ __ ] common. That's
+
+193
+00:10:10,320 --> 00:10:17,120
+what it stand for. RFC Unix RFC and
+
+194
+00:10:12,959 --> 00:10:20,720
+Pearl email library 2010. Unix IFC line
+
+195
+00:10:17,120 --> 00:10:25,040
+truncation that is the one. Okay. So I
+
+196
+00:10:20,720 --> 00:10:27,040
+document it the damage the history that
+
+197
+00:10:25,040 --> 00:10:28,720
+you don't usually read it you know it's
+
+198
+00:10:27,040 --> 00:10:32,320
+there but they they they don't talk
+
+199
+00:10:28,720 --> 00:10:35,680
+about it. Um things like that. So so
+
+200
+00:10:32,320 --> 00:10:39,399
+where is it? Uh
+
+201
+00:10:35,680 --> 00:10:39,399
+where is the article?
+
+202
+00:10:39,839 --> 00:10:45,600
+Yeah Unix IFC. So this is my previous
+
+203
+00:10:42,880 --> 00:10:49,120
+like four years ago I talked about it.
+
+204
+00:10:45,600 --> 00:10:54,640
+Okay. U Unix RFC line truncation. So in
+
+205
+00:10:49,120 --> 00:10:56,720
+Unix Unix RFC 22 2822 that's for email I
+
+206
+00:10:54,640 --> 00:11:01,200
+believe that yeah for email protocol
+
+207
+00:10:56,720 --> 00:11:03,440
+they they say every email sent must be
+
+208
+00:11:01,200 --> 00:11:06,800
+line must be truncated no more than 80
+
+209
+00:11:03,440 --> 00:11:08,560
+characters because the Unix idiotic
+
+210
+00:11:06,800 --> 00:11:11,600
+operating system they cannot process
+
+211
+00:11:08,560 --> 00:11:13,680
+long lines and even back then even today
+
+212
+00:11:11,600 --> 00:11:15,920
+I think when you do ps command they
+
+213
+00:11:13,680 --> 00:11:19,920
+automatically truncate lines like
+
+214
+00:11:15,920 --> 00:11:23,120
+silently okay so very that. So anyway,
+
+215
+00:11:19,920 --> 00:11:25,920
+that's where this came from. So and one
+
+216
+00:11:23,120 --> 00:11:29,959
+of the Emacs so so Emacs has a feature
+
+217
+00:11:25,920 --> 00:11:29,959
+called field paragraph,
+
+218
+00:11:30,560 --> 00:11:36,640
+you know, that that automatically
+
+219
+00:11:33,279 --> 00:11:39,519
+uh reformat it, you know, like field par
+
+220
+00:11:36,640 --> 00:11:41,680
+uh wait yeah few paragraph, right? So,
+
+221
+00:11:39,519 --> 00:11:43,600
+but there's no way to go back to long
+
+222
+00:11:41,680 --> 00:11:47,920
+line. And what typically what they tell
+
+223
+00:11:43,600 --> 00:11:51,839
+you is that you have to uh set Q
+
+224
+00:11:47,920 --> 00:11:54,320
+you have to set the field column to like
+
+225
+00:11:51,839 --> 00:11:57,600
+1 million then call field paragraph
+
+226
+00:11:54,320 --> 00:12:01,519
+again because every time the command
+
+227
+00:11:57,600 --> 00:12:04,480
+works by a by a variable called field
+
+228
+00:12:01,519 --> 00:12:07,480
+column. Okay.
+
+229
+00:12:04,480 --> 00:12:07,480
+uh
+
+230
+00:12:08,000 --> 00:12:14,800
+field column there it is okay so by
+
+231
+00:12:11,760 --> 00:12:17,040
+default it's 70
+
+232
+00:12:14,800 --> 00:12:20,399
+okay so anyway so how do you get back so
+
+233
+00:12:17,040 --> 00:12:23,680
+you you you you basically you set Q fo
+
+234
+00:12:20,399 --> 00:12:25,680
+column to let's say 1 million then you
+
+235
+00:12:23,680 --> 00:12:28,000
+call field paragraph again so that's how
+
+236
+00:12:25,680 --> 00:12:30,240
+you do it but that's idiotic so so I
+
+237
+00:12:28,000 --> 00:12:33,360
+have a command that just uh just
+
+238
+00:12:30,240 --> 00:12:37,120
+truncated for you okay so wait what what
+
+239
+00:12:33,360 --> 00:12:42,560
+is I uh
+
+240
+00:12:37,120 --> 00:12:45,200
+Okay. So this this font is really large.
+
+241
+00:12:42,560 --> 00:12:48,200
+So you can see I call the command. So
+
+242
+00:12:45,200 --> 00:12:48,200
+anyway,
+
+243
+00:12:49,360 --> 00:12:54,320
+so that's the field paragraph idiosacy.
+
+244
+00:12:52,079 --> 00:12:56,399
+Now I have a question. So let's see. So
+
+245
+00:12:54,320 --> 00:12:58,079
+I have a lots of articles on that. So if
+
+246
+00:12:56,399 --> 00:13:02,000
+you want to code, I have several
+
+247
+00:12:58,079 --> 00:13:04,160
+versions. Uh reformat to long line
+
+248
+00:13:02,000 --> 00:13:07,360
+region. So you got unfill region and
+
+249
+00:13:04,160 --> 00:13:09,360
+unfill paragraph and you also got the uh
+
+250
+00:13:07,360 --> 00:13:12,959
+command that just toggle if the current
+
+251
+00:13:09,360 --> 00:13:14,720
+line is very long it just do feel if the
+
+252
+00:13:12,959 --> 00:13:17,200
+current line is multiple lines it just
+
+253
+00:13:14,720 --> 00:13:19,680
+do an feel okay and also you don't have
+
+254
+00:13:17,200 --> 00:13:21,760
+to make a selection first because this
+
+255
+00:13:19,680 --> 00:13:23,760
+this field region you have to make a
+
+256
+00:13:21,760 --> 00:13:26,240
+selection first so these are very
+
+257
+00:13:23,760 --> 00:13:29,200
+convenient and but there is another
+
+258
+00:13:26,240 --> 00:13:34,320
+problem when you are in source code such
+
+259
+00:13:29,200 --> 00:13:38,240
+as such as eacisp or Goland or C or C++
+
+260
+00:13:34,320 --> 00:13:41,279
+or or others. Usually you don't want you
+
+261
+00:13:38,240 --> 00:13:43,519
+know you want to treat sequences of
+
+262
+00:13:41,279 --> 00:13:46,079
+white spaces to be equivalent. So in
+
+263
+00:13:43,519 --> 00:13:49,440
+other words when you do feel you don't
+
+264
+00:13:46,079 --> 00:13:52,079
+want it you don't want the command to
+
+265
+00:13:49,440 --> 00:13:54,800
+mysteriously add some characters or
+
+266
+00:13:52,079 --> 00:13:57,279
+remove some characters. Okay. But
+
+267
+00:13:54,800 --> 00:14:00,880
+unfortunately
+
+268
+00:13:57,279 --> 00:14:04,000
+that's the emac field command does that.
+
+269
+00:14:00,880 --> 00:14:07,120
+Okay. So I have a documentation of it of
+
+270
+00:14:04,000 --> 00:14:09,839
+the fact uh this is written like 10
+
+271
+00:14:07,120 --> 00:14:12,639
+years ago but the article I just made it
+
+272
+00:14:09,839 --> 00:14:17,600
+uh independent article this year. So
+
+273
+00:14:12,639 --> 00:14:20,079
+anyway so it it it automatically adds
+
+274
+00:14:17,600 --> 00:14:23,040
+whites space when when there was none.
+
+275
+00:14:20,079 --> 00:14:27,920
+Okay. So what's the example? know the
+
+276
+00:14:23,040 --> 00:14:30,160
+extra white space in um
+
+277
+00:14:27,920 --> 00:14:34,320
+yeah for example you can see here it
+
+278
+00:14:30,160 --> 00:14:37,120
+adds automatically add a white space
+
+279
+00:14:34,320 --> 00:14:40,959
+before and it also some you know in a
+
+280
+00:14:37,120 --> 00:14:43,839
+situation like that it will add uh it
+
+281
+00:14:40,959 --> 00:14:45,680
+will remove asterisk you see when you
+
+282
+00:14:43,839 --> 00:14:49,839
+have multiple lines it will just remove
+
+283
+00:14:45,680 --> 00:14:51,920
+it so if if this is programming code you
+
+284
+00:14:49,839 --> 00:14:53,279
+don't want that okay in because most
+
+285
+00:14:51,920 --> 00:14:56,320
+programming
+
+286
+00:14:53,279 --> 00:14:59,360
+language syntax they their whites space
+
+287
+00:14:56,320 --> 00:15:01,760
+is equivalent. So but you you you can
+
+288
+00:14:59,360 --> 00:15:03,519
+not allow to add extra character you
+
+289
+00:15:01,760 --> 00:15:06,399
+know non whitespace characters things
+
+290
+00:15:03,519 --> 00:15:08,560
+like that. So that's why so field this
+
+291
+00:15:06,399 --> 00:15:10,480
+field command does not work well if you
+
+292
+00:15:08,560 --> 00:15:12,880
+are working with a programming language
+
+293
+00:15:10,480 --> 00:15:17,040
+that's why
+
+294
+00:15:12,880 --> 00:15:20,959
+that's why you want to uh let's uh
+
+295
+00:15:17,040 --> 00:15:24,480
+that's why you want to um have a special
+
+296
+00:15:20,959 --> 00:15:27,199
+command. So that's what that's what my
+
+297
+00:15:24,480 --> 00:15:30,959
+command do. Okay. So that command name
+
+298
+00:15:27,199 --> 00:15:33,600
+is kasa format reformat lines. Okay. So
+
+299
+00:15:30,959 --> 00:15:38,240
+let's see where where is the code. So
+
+300
+00:15:33,600 --> 00:15:41,120
+you can get the code on sard.info
+
+301
+00:15:38,240 --> 00:15:44,480
+uh field region problems few paragraph
+
+302
+00:15:41,120 --> 00:15:46,959
+problems. You can get the code uh reform
+
+303
+00:15:44,480 --> 00:15:50,480
+reformat lines for source code. Okay.
+
+304
+00:15:46,959 --> 00:15:53,199
+It's so you know just copy and uh put in
+
+305
+00:15:50,480 --> 00:15:55,680
+your Emacs in it and you got it. And
+
+306
+00:15:53,199 --> 00:15:59,839
+here is a explanation in detail what
+
+307
+00:15:55,680 --> 00:16:03,519
+exactly this function how exactly how it
+
+308
+00:15:59,839 --> 00:16:07,360
+differs from the FE emac field paragraph
+
+309
+00:16:03,519 --> 00:16:10,079
+you know ex explains here in this
+
+310
+00:16:07,360 --> 00:16:14,160
+function it treats all sequence of white
+
+311
+00:16:10,079 --> 00:16:17,120
+spaces as equivalent and it will never
+
+312
+00:16:14,160 --> 00:16:19,199
+add extra non white space characters or
+
+313
+00:16:17,120 --> 00:16:23,120
+remove any sequence of whites space.
+
+314
+00:16:19,199 --> 00:16:28,160
+Okay. So, that's the key.
+
+315
+00:16:23,120 --> 00:16:30,480
+So, hello uh from South Korea. JSG.
+
+316
+00:16:28,160 --> 00:16:32,000
+Uh great to have you here. South Korea.
+
+317
+00:16:30,480 --> 00:16:35,920
+Fantastic.
+
+318
+00:16:32,000 --> 00:16:40,480
+Elusive destroyer. What? Okay. So, let's
+
+319
+00:16:35,920 --> 00:16:42,800
+go back. So, we talked about
+
+320
+00:16:40,480 --> 00:16:45,199
+field column field region. Okay. So, let
+
+321
+00:16:42,800 --> 00:16:47,759
+me let me just grab the other code. So
+
+322
+00:16:45,199 --> 00:16:50,720
+that um
+
+323
+00:16:47,759 --> 00:16:54,000
+copy cut.
+
+324
+00:16:50,720 --> 00:16:57,680
+Okay. And paste link
+
+325
+00:16:54,000 --> 00:17:01,360
+list. Okay. So we talked about this
+
+326
+00:16:57,680 --> 00:17:04,360
+field issues. Okay. Cut it. Move it to
+
+327
+00:17:01,360 --> 00:17:04,360
+top.
+
+328
+00:17:04,400 --> 00:17:09,679
+Fantastic. Now next topic and last
+
+329
+00:17:07,520 --> 00:17:11,679
+topic.
+
+330
+00:17:09,679 --> 00:17:13,600
+Let's talk about map function. Well,
+
+331
+00:17:11,679 --> 00:17:17,439
+maybe that's it for today because my
+
+332
+00:17:13,600 --> 00:17:20,559
+wife is back. Uh, it's dinner time.
+
+333
+00:17:17,439 --> 00:17:23,760
+Oh, there's a duplicate. So, test hasht
+
+334
+00:17:20,559 --> 00:17:27,360
+equality. Okay. So,
+
+335
+00:17:23,760 --> 00:17:30,640
+let's show all the duplicate. Okay. So,
+
+336
+00:17:27,360 --> 00:17:34,080
+delete that. Delete that. Fantastic.
+
+337
+00:17:30,640 --> 00:17:36,160
+Refresh. Fantastic. Now, let's ask Gro,
+
+338
+00:17:34,080 --> 00:17:39,120
+you know, why is it called field? Okay.
+
+339
+00:17:36,160 --> 00:17:43,400
+So, let's let's demo. You know today AI
+
+340
+00:17:39,120 --> 00:17:43,400
+technology it's amazing.
+
+341
+00:17:44,480 --> 00:17:51,120
+So guac
+
+342
+00:17:46,640 --> 00:17:53,039
+why is Emacs FO region command called FO
+
+343
+00:17:51,120 --> 00:17:55,679
+okay let's
+
+344
+00:17:53,039 --> 00:17:57,840
+have a say
+
+345
+00:17:55,679 --> 00:18:00,240
+I think that's it for today you know the
+
+346
+00:17:57,840 --> 00:18:02,240
+other question uh I mean on the hash
+
+347
+00:18:00,240 --> 00:18:06,400
+table let's talk about it next time
+
+348
+00:18:02,240 --> 00:18:09,120
+maybe wait we only talked for uh 20
+
+349
+00:18:06,400 --> 00:18:12,240
+minutes okay we got some more time so
+
+350
+00:18:09,120 --> 00:18:17,039
+right now it's this is Gawk 4 just came
+
+351
+00:18:12,240 --> 00:18:20,400
+out last month So in expert
+
+352
+00:18:17,039 --> 00:18:22,880
+mode, so it takes like a minute or two
+
+353
+00:18:20,400 --> 00:18:26,679
+for accuracy.
+
+354
+00:18:22,880 --> 00:18:26,679
+Let's see what it says.
+
+355
+00:18:27,280 --> 00:18:33,360
+You know, AI is amazing today because
+
+356
+00:18:30,240 --> 00:18:35,919
+here's what I recommend.
+
+357
+00:18:33,360 --> 00:18:37,360
+Anytime if you are on Twitter talking to
+
+358
+00:18:35,919 --> 00:18:39,039
+people, you know, there are billions,
+
+359
+00:18:37,360 --> 00:18:41,360
+you know, uh millions and millions of
+
+360
+00:18:39,039 --> 00:18:43,919
+people like they talk about politics or
+
+361
+00:18:41,360 --> 00:18:47,360
+coding or whatever. Okay,
+
+362
+00:18:43,919 --> 00:18:49,760
+ignore them like every person like
+
+363
+00:18:47,360 --> 00:18:52,400
+whatever you they are talking about if
+
+364
+00:18:49,760 --> 00:18:57,440
+you are interested in what they in that
+
+365
+00:18:52,400 --> 00:19:01,280
+topic ask. Okay, ask or other AI bots
+
+366
+00:18:57,440 --> 00:19:05,280
+because the AI bots are like one one
+
+367
+00:19:01,280 --> 00:19:07,760
+billion times superior more correct uh
+
+368
+00:19:05,280 --> 00:19:10,559
+than whatever human animals are talking.
+
+369
+00:19:07,760 --> 00:19:14,880
+Okay, so this is tremendous. This is
+
+370
+00:19:10,559 --> 00:19:17,919
+like like you have 100 professors around
+
+371
+00:19:14,880 --> 00:19:21,200
+the clock for you. You can ask any
+
+372
+00:19:17,919 --> 00:19:24,799
+questions of any field like chemistry I
+
+373
+00:19:21,200 --> 00:19:27,280
+don't know much physics electronics uh
+
+374
+00:19:24,799 --> 00:19:30,000
+micro electronics what is microwave
+
+375
+00:19:27,280 --> 00:19:32,240
+what's a radio frequency how they are
+
+376
+00:19:30,000 --> 00:19:34,559
+distributed what's the governance you
+
+377
+00:19:32,240 --> 00:19:36,799
+know what what laws you know controls
+
+378
+00:19:34,559 --> 00:19:40,400
+them what's signal processing or
+
+379
+00:19:36,799 --> 00:19:43,360
+mathematics psycho scientry topology
+
+380
+00:19:40,400 --> 00:19:45,760
+like any any question or any or politics
+
+381
+00:19:43,360 --> 00:19:48,720
+okay like who is the president who is
+
+382
+00:19:45,760 --> 00:19:52,160
+the 10th president of USA or what
+
+383
+00:19:48,720 --> 00:19:54,960
+happens during the 10th president like
+
+384
+00:19:52,160 --> 00:19:58,240
+list the the most important events you
+
+385
+00:19:54,960 --> 00:20:01,919
+know like anything everything so here's
+
+386
+00:19:58,240 --> 00:20:04,160
+what I my recommendation like whatever
+
+387
+00:20:01,919 --> 00:20:06,160
+you see even talking to your friends you
+
+388
+00:20:04,160 --> 00:20:08,640
+know like of course usually you talk to
+
+389
+00:20:06,160 --> 00:20:11,520
+your friends you want to just chat right
+
+390
+00:20:08,640 --> 00:20:13,440
+know get to know the person whatever but
+
+391
+00:20:11,520 --> 00:20:15,919
+whenever you want to actually know
+
+392
+00:20:13,440 --> 00:20:17,919
+something like such as on Twitter like
+
+393
+00:20:15,919 --> 00:20:23,440
+you have like millions of people talking
+
+394
+00:20:17,919 --> 00:20:25,919
+about all sort of things ask AI instead
+
+395
+00:20:23,440 --> 00:20:28,799
+then then then you will know the truth
+
+396
+00:20:25,919 --> 00:20:31,600
+you'll know you you you will you know
+
+397
+00:20:28,799 --> 00:20:35,360
+you do it this as a habit you know like
+
+398
+00:20:31,600 --> 00:20:37,520
+a year you will know you will not be
+
+399
+00:20:35,360 --> 00:20:41,440
+misled okay you you will know a lot you
+
+400
+00:20:37,520 --> 00:20:45,520
+know uh a lot better about everything
+
+401
+00:20:41,440 --> 00:20:48,559
+but of course this does not mean you are
+
+402
+00:20:45,520 --> 00:20:51,840
+just going to be brainless. Okay, this
+
+403
+00:20:48,559 --> 00:20:53,679
+is for people who really want to know. I
+
+404
+00:20:51,840 --> 00:20:55,840
+am an example of such people. You know,
+
+405
+00:20:53,679 --> 00:20:59,280
+I really want to know like if this is
+
+406
+00:20:55,840 --> 00:21:02,640
+this true, you know, before Grog
+
+407
+00:20:59,280 --> 00:21:05,520
+the there is the Wikipedia evolution.
+
+408
+00:21:02,640 --> 00:21:07,520
+You you know you go to Wikip Wikipedia
+
+409
+00:21:05,520 --> 00:21:10,240
+then you spend an hour or half hour to
+
+410
+00:21:07,520 --> 00:21:13,520
+read about math, engineering or politics
+
+411
+00:21:10,240 --> 00:21:15,360
+or history like like history of China.
+
+412
+00:21:13,520 --> 00:21:20,000
+Most Americans don't know nothing about
+
+413
+00:21:15,360 --> 00:21:23,039
+it. You know, they just know CCP CCP CCP
+
+414
+00:21:20,000 --> 00:21:26,880
+don't know not a thing.
+
+415
+00:21:23,039 --> 00:21:31,600
+Uh and you know, so China history like
+
+416
+00:21:26,880 --> 00:21:35,280
+you know China's like 4,000 3,000 years
+
+417
+00:21:31,600 --> 00:21:37,679
+recorded history. Um so you can ask you
+
+418
+00:21:35,280 --> 00:21:41,440
+know so so you can ask all sort of
+
+419
+00:21:37,679 --> 00:21:44,080
+things. Um but you have to but this is
+
+420
+00:21:41,440 --> 00:21:47,919
+not for someone who does not wish to
+
+421
+00:21:44,080 --> 00:21:51,200
+know. Okay. One such example are college
+
+422
+00:21:47,919 --> 00:21:53,679
+students. The college idiots. You know
+
+423
+00:21:51,200 --> 00:21:56,080
+they got paid by their parents. You know
+
+424
+00:21:53,679 --> 00:21:57,600
+you must go to school and they just go
+
+425
+00:21:56,080 --> 00:21:59,360
+to school and [ __ ] around. They don't
+
+426
+00:21:57,600 --> 00:22:01,360
+really care what's going on. Oh there's
+
+427
+00:21:59,360 --> 00:22:05,280
+homework. If I don't do it I'm not going
+
+428
+00:22:01,360 --> 00:22:07,679
+to I'm going to fail. Oh let's ask AI.
+
+429
+00:22:05,280 --> 00:22:09,840
+That's what they do. Okay. So that
+
+430
+00:22:07,679 --> 00:22:11,679
+that's that's a situation when the
+
+431
+00:22:09,840 --> 00:22:14,799
+people they they don't you know the
+
+432
+00:22:11,679 --> 00:22:17,440
+person actually not interested
+
+433
+00:22:14,799 --> 00:22:21,200
+when you do that when you use AI in such
+
+434
+00:22:17,440 --> 00:22:24,799
+a way then it will rot your brain you
+
+435
+00:22:21,200 --> 00:22:28,799
+know after five years you will become
+
+436
+00:22:24,799 --> 00:22:30,080
+incomp incapacitated you become a [ __ ]
+
+437
+00:22:28,799 --> 00:22:32,320
+like you don't know you don't know how
+
+438
+00:22:30,080 --> 00:22:35,320
+to think anymore okay that's the
+
+439
+00:22:32,320 --> 00:22:35,320
+difference
+
+440
+00:22:35,600 --> 00:22:42,320
+hello Hank thank you So much ching $5.
+
+441
+00:22:39,120 --> 00:22:48,640
+Have you tried an embedded database like
+
+442
+00:22:42,320 --> 00:22:50,320
+SQ Lite? Um or HSQLDB?
+
+443
+00:22:48,640 --> 00:22:52,960
+Oh, that's a new one. I haven't heard of
+
+444
+00:22:50,320 --> 00:22:56,960
+that. Uh no, actually I haven't tried
+
+445
+00:22:52,960 --> 00:23:00,720
+embedded database. Um SQL light is
+
+446
+00:22:56,960 --> 00:23:03,679
+fantastic. I can highly recommend it
+
+447
+00:23:00,720 --> 00:23:07,280
+especially because the SQL light person
+
+448
+00:23:03,679 --> 00:23:10,559
+I forgot who is the guy um he is
+
+449
+00:23:07,280 --> 00:23:15,520
+anti-corruption SQL
+
+450
+00:23:10,559 --> 00:23:20,559
+light okay um he is very anti-corruption
+
+451
+00:23:15,520 --> 00:23:24,559
+he fought against the social justice
+
+452
+00:23:20,559 --> 00:23:27,520
+warrior code of conduct fox okay it's a
+
+453
+00:23:24,559 --> 00:23:29,520
+great guy and the technology is also
+
+454
+00:23:27,520 --> 00:23:33,919
+Great because it's a embedded database
+
+455
+00:23:29,520 --> 00:23:36,320
+you know it just make it like very uh
+
+456
+00:23:33,919 --> 00:23:39,280
+you know condensed so you don't have to
+
+457
+00:23:36,320 --> 00:23:41,600
+be elaborate like typically SQL database
+
+458
+00:23:39,280 --> 00:23:45,200
+are very elaborate
+
+459
+00:23:41,600 --> 00:23:47,440
+uh so so they have a section on code of
+
+460
+00:23:45,200 --> 00:23:50,960
+conduct that's related to politics you
+
+461
+00:23:47,440 --> 00:23:54,080
+know code of conduct is a crime okay so
+
+462
+00:23:50,960 --> 00:23:57,039
+anyway the technology is a great is
+
+463
+00:23:54,080 --> 00:24:00,080
+fantastic and the person I believe he's
+
+464
+00:23:57,039 --> 00:24:03,520
+a great guy and he's a great coder
+
+465
+00:24:00,080 --> 00:24:05,440
+because this SQL light is very popular
+
+466
+00:24:03,520 --> 00:24:09,200
+like it's like one of the top most
+
+467
+00:24:05,440 --> 00:24:12,320
+popular u application for programmers so
+
+468
+00:24:09,200 --> 00:24:16,640
+I highly recommend it but I myself never
+
+469
+00:24:12,320 --> 00:24:19,279
+uh actually used it
+
+470
+00:24:16,640 --> 00:24:22,799
+uh okay so what is it uh C language
+
+471
+00:24:19,279 --> 00:24:25,440
+libraries I mean I mean okay do they
+
+472
+00:24:22,799 --> 00:24:28,960
+have uh do they still have like code of
+
+473
+00:24:25,440 --> 00:24:31,919
+conduct stuff. I mean they they they
+
+474
+00:24:28,960 --> 00:24:34,320
+created their own code of conduct.
+
+475
+00:24:31,919 --> 00:24:36,960
+So anyway, so I never had the
+
+476
+00:24:34,320 --> 00:24:40,320
+experience. Uh and database is usually
+
+477
+00:24:36,960 --> 00:24:43,440
+boring. So I actually never
+
+478
+00:24:40,320 --> 00:24:46,159
+got so much into but I was I was the
+
+479
+00:24:43,440 --> 00:24:50,240
+mysql expert
+
+480
+00:24:46,159 --> 00:24:54,159
+uh in the 2000s because I read their
+
+481
+00:24:50,240 --> 00:24:57,760
+documentation 1,000 pages cover to cover
+
+482
+00:24:54,159 --> 00:25:02,000
+every word MySQL and I've been using it
+
+483
+00:24:57,760 --> 00:25:06,559
+for for for like six years or something
+
+484
+00:25:02,000 --> 00:25:08,320
+but that was a while ago 10 years ago.
+
+485
+00:25:06,559 --> 00:25:11,520
+Does your wife have any programming
+
+486
+00:25:08,320 --> 00:25:16,720
+knowledge? No. Uh, not at all. My wife
+
+487
+00:25:11,520 --> 00:25:19,679
+is just a a country woman.
+
+488
+00:25:16,720 --> 00:25:22,159
+What do think about prologue? Uh,
+
+489
+00:25:19,679 --> 00:25:25,039
+prologue is a logical language. That's
+
+490
+00:25:22,159 --> 00:25:28,640
+very interesting. I looked into a little
+
+491
+00:25:25,039 --> 00:25:30,559
+bit for like a week or two with some
+
+492
+00:25:28,640 --> 00:25:35,039
+friends in China. They they are telling
+
+493
+00:25:30,559 --> 00:25:37,840
+me about it. Also, Emily. Emily, a great
+
+494
+00:25:35,039 --> 00:25:41,200
+I think she's the top programmer. She's
+
+495
+00:25:37,840 --> 00:25:44,080
+the OB on Discord.
+
+496
+00:25:41,200 --> 00:25:47,440
+Okay. But she doesn't post often today.
+
+497
+00:25:44,080 --> 00:25:51,120
+So Emily, she she is the I would say
+
+498
+00:25:47,440 --> 00:25:55,279
+she's the top programmer
+
+499
+00:25:51,120 --> 00:25:59,840
+of all discord history of the past five
+
+500
+00:25:55,279 --> 00:26:03,279
+years. So she is very now prologue is
+
+501
+00:25:59,840 --> 00:26:05,760
+her latest hottest heart language. She
+
+502
+00:26:03,279 --> 00:26:09,360
+she recommended very much. I I don't
+
+503
+00:26:05,760 --> 00:26:12,240
+know much about it.
+
+504
+00:26:09,360 --> 00:26:19,039
+Hank, if you are dishon dishoned, you
+
+505
+00:26:12,240 --> 00:26:22,159
+will be misled uh by chatbots. Uh yes,
+
+506
+00:26:19,039 --> 00:26:26,880
+re uh Dr. Richard Hip. Okay, that's
+
+507
+00:26:22,159 --> 00:26:26,880
+that's a SQL light guy.
+
+508
+00:26:27,600 --> 00:26:34,159
+Uh why do I why did I read entire MySQL
+
+509
+00:26:30,720 --> 00:26:38,080
+manual? Two reasons. Okay, reading
+
+510
+00:26:34,159 --> 00:26:41,120
+manual is my habit. I'm obsessive. You
+
+511
+00:26:38,080 --> 00:26:43,279
+know it it is one of my obsession. Read
+
+512
+00:26:41,120 --> 00:26:46,159
+manuals because
+
+513
+00:26:43,279 --> 00:26:49,279
+long story but you know I like to read.
+
+514
+00:26:46,159 --> 00:26:52,799
+So not just read just read them. I read
+
+515
+00:26:49,279 --> 00:26:56,559
+them from cover to cover. Every single
+
+516
+00:26:52,799 --> 00:26:59,520
+word, every punctuation I if there's a
+
+517
+00:26:56,559 --> 00:27:02,880
+punctuation mistake, I must know. Okay,
+
+518
+00:26:59,520 --> 00:27:05,360
+that was my mentality back in the 1980s
+
+519
+00:27:02,880 --> 00:27:07,120
+and 1990s.
+
+520
+00:27:05,360 --> 00:27:09,039
+And that's how I learned English too,
+
+521
+00:27:07,120 --> 00:27:11,919
+you know, by reading dictionaries. Any
+
+522
+00:27:09,039 --> 00:27:14,320
+anyway, so
+
+523
+00:27:11,919 --> 00:27:17,120
+reading manuals is my habit. Okay. So,
+
+524
+00:27:14,320 --> 00:27:19,840
+it's my obsession in in the past, not
+
+525
+00:27:17,120 --> 00:27:22,799
+not so much today because it's actually
+
+526
+00:27:19,840 --> 00:27:25,200
+kind of waste of time because so here's
+
+527
+00:27:22,799 --> 00:27:28,000
+a tip, okay? When you read a manual,
+
+528
+00:27:25,200 --> 00:27:30,640
+your goal is not to read every word, you
+
+529
+00:27:28,000 --> 00:27:32,720
+know, find every, you know, spelling
+
+530
+00:27:30,640 --> 00:27:34,799
+errors or grammatical errors and get
+
+531
+00:27:32,720 --> 00:27:37,600
+every nuance of every sentence. That's
+
+532
+00:27:34,799 --> 00:27:39,520
+not the goal. when you read a technical
+
+533
+00:27:37,600 --> 00:27:41,919
+manual documentation like programming
+
+534
+00:27:39,520 --> 00:27:44,559
+language documentation your goal is
+
+535
+00:27:41,919 --> 00:27:48,400
+simply to understand it as fast as
+
+536
+00:27:44,559 --> 00:27:51,919
+possible so I would recommend also for
+
+537
+00:27:48,400 --> 00:27:54,000
+reading books non-fiction books okay you
+
+538
+00:27:51,919 --> 00:27:57,039
+when you read just you know your goal is
+
+539
+00:27:54,000 --> 00:27:59,200
+to understand what it's saying and you
+
+540
+00:27:57,039 --> 00:28:02,720
+scan okay when you don't when you see
+
+541
+00:27:59,200 --> 00:28:05,440
+something not interesting skip it scan
+
+542
+00:28:02,720 --> 00:28:07,600
+skip you know go back and forth okay
+
+543
+00:28:05,440 --> 00:28:10,480
+that's your goal. You want to just
+
+544
+00:28:07,600 --> 00:28:12,720
+understand what it's saying. That's the
+
+545
+00:28:10,480 --> 00:28:15,840
+most important thing about reading
+
+546
+00:28:12,720 --> 00:28:17,360
+books. Okay? Not about, you know, I I
+
+547
+00:28:15,840 --> 00:28:20,399
+must start from the beginning. Like
+
+548
+00:28:17,360 --> 00:28:25,159
+usually usually a book, you know, like
+
+549
+00:28:20,399 --> 00:28:25,159
+they have prologue, epological
+
+550
+00:28:30,480 --> 00:28:36,159
+jargon for a book, you know, like I I
+
+551
+00:28:33,279 --> 00:28:41,200
+know every one of them. uh you know
+
+552
+00:28:36,159 --> 00:28:44,080
+preface prologue epilogue um postcript
+
+553
+00:28:41,200 --> 00:28:47,039
+and uh and there's another thing called
+
+554
+00:28:44,080 --> 00:28:50,159
+that's like what's it called that's like
+
+555
+00:28:47,039 --> 00:28:52,480
+how is the book made you know what found
+
+556
+00:28:50,159 --> 00:28:56,240
+what type setting you know what's that
+
+557
+00:28:52,480 --> 00:28:59,200
+called someone someone mention it
+
+558
+00:28:56,240 --> 00:29:02,880
+and uh then preface table of content
+
+559
+00:28:59,200 --> 00:29:04,559
+contents table of figures index uh
+
+560
+00:29:02,880 --> 00:29:07,200
+bbiography
+
+561
+00:29:04,559 --> 00:29:12,320
+And uh uh there's another word similar
+
+562
+00:29:07,200 --> 00:29:15,120
+to index um called uh I for I forgot
+
+563
+00:29:12,320 --> 00:29:18,559
+uh in fact I was just uh using it in my
+
+564
+00:29:15,120 --> 00:29:21,200
+EMAC tutorial. So what's the word? So
+
+565
+00:29:18,559 --> 00:29:24,799
+let's see
+
+566
+00:29:21,200 --> 00:29:26,480
+uh uh glossaryy. That's right. So anyway
+
+567
+00:29:24,799 --> 00:29:28,559
+there's this jarens. How do I know?
+
+568
+00:29:26,480 --> 00:29:30,399
+Because I'm obsessed obsessed about
+
+569
+00:29:28,559 --> 00:29:32,960
+reading, you know, knowing all these,
+
+570
+00:29:30,399 --> 00:29:35,440
+you know, back then. This is like ' 90s.
+
+571
+00:29:32,960 --> 00:29:38,000
+So and I like to I must read every word
+
+572
+00:29:35,440 --> 00:29:39,600
+you know every preface every every
+
+573
+00:29:38,000 --> 00:29:43,919
+usually sometimes there are several
+
+574
+00:29:39,600 --> 00:29:46,960
+preface several introduction or like um
+
+575
+00:29:43,919 --> 00:29:49,520
+uh you know like usually another author
+
+576
+00:29:46,960 --> 00:29:52,080
+introduces you recommend the book you
+
+577
+00:29:49,520 --> 00:29:53,840
+know you sometimes there are few so I
+
+578
+00:29:52,080 --> 00:29:56,720
+must start from there you know I must
+
+579
+00:29:53,840 --> 00:29:59,440
+for I must know everything so that was
+
+580
+00:29:56,720 --> 00:30:02,480
+my habit and turns out that's not a good
+
+581
+00:29:59,440 --> 00:30:05,360
+one okay don't do that
+
+582
+00:30:02,480 --> 00:30:09,279
+So why am I reading MySQL? Because I was
+
+583
+00:30:05,360 --> 00:30:12,640
+using it. So when um I was using it. So
+
+584
+00:30:09,279 --> 00:30:16,720
+in two year 2000s I was using Oracle
+
+585
+00:30:12,640 --> 00:30:20,720
+database. So but in year 2005 I think
+
+586
+00:30:16,720 --> 00:30:24,640
+around 2005 I was working for a project
+
+587
+00:30:20,720 --> 00:30:27,200
+for Hoover Institution
+
+588
+00:30:24,640 --> 00:30:30,799
+over at Stanford University. I happened
+
+589
+00:30:27,200 --> 00:30:34,799
+to work for them for a project. So to
+
+590
+00:30:30,799 --> 00:30:37,120
+create a website, so I used MySQL. So I
+
+591
+00:30:34,799 --> 00:30:41,520
+read the documentation. Uh by the way, I
+
+592
+00:30:37,120 --> 00:30:43,679
+think MySQL is one of the Unix scum
+
+593
+00:30:41,520 --> 00:30:46,320
+[ __ ]
+
+594
+00:30:43,679 --> 00:30:49,840
+Uh anyway,
+
+595
+00:30:46,320 --> 00:30:52,960
+okay. I think that's it for today. So is
+
+596
+00:30:49,840 --> 00:30:55,120
+that right? So what are the other topics
+
+597
+00:30:52,960 --> 00:30:58,960
+I have here?
+
+598
+00:30:55,120 --> 00:31:01,120
+Uh field power. Okay. map functions.
+
+599
+00:30:58,960 --> 00:31:03,919
+Let's talk about that some other time.
+
+600
+00:31:01,120 --> 00:31:06,240
+So yeah. So okay, let's go back to why
+
+601
+00:31:03,919 --> 00:31:08,559
+is Emacs field region command called
+
+602
+00:31:06,240 --> 00:31:11,919
+field? Let's see. The field region
+
+603
+00:31:08,559 --> 00:31:13,840
+command in EMAC is named field.
+
+604
+00:31:11,919 --> 00:31:16,159
+Excuse me.
+
+605
+00:31:13,840 --> 00:31:18,720
+too much cigarette
+
+606
+00:31:16,159 --> 00:31:22,000
+because it reformats the text in a
+
+607
+00:31:18,720 --> 00:31:26,399
+selected region by breaking it into
+
+608
+00:31:22,000 --> 00:31:28,880
+lines that fit a spec specified width
+
+609
+00:31:26,399 --> 00:31:31,919
+defined by the field column variable.
+
+610
+00:31:28,880 --> 00:31:36,640
+That's correct. Effectively
+
+611
+00:31:31,919 --> 00:31:38,159
+filling each line with words up to that
+
+612
+00:31:36,640 --> 00:31:40,880
+margin
+
+613
+00:31:38,159 --> 00:31:42,960
+while handling wrapping and optional
+
+614
+00:31:40,880 --> 00:31:45,360
+justification.
+
+615
+00:31:42,960 --> 00:31:49,679
+That's that doesn't make sense. Yeah.
+
+616
+00:31:45,360 --> 00:31:51,840
+What? But how is that feeling? Oh, okay.
+
+617
+00:31:49,679 --> 00:31:53,919
+So, you you have an empty line. Let's
+
+618
+00:31:51,840 --> 00:31:56,480
+say you begin with the empty line. Then
+
+619
+00:31:53,919 --> 00:31:58,480
+you feel it. Feel each word. It's a
+
+620
+00:31:56,480 --> 00:32:02,600
+[ __ ] idiotic
+
+621
+00:31:58,480 --> 00:32:02,600
+idiotic perspective.
+
+622
+00:32:02,720 --> 00:32:07,679
+This terminology originates from Oh,
+
+623
+00:32:05,360 --> 00:32:12,000
+okay. So it originates from early
+
+624
+00:32:07,679 --> 00:32:13,919
+computer text formatting programs
+
+625
+00:32:12,000 --> 00:32:16,240
+in the 1960s.
+
+626
+00:32:13,919 --> 00:32:18,000
+Okay, that's the payload. That's the
+
+627
+00:32:16,240 --> 00:32:20,480
+reason
+
+628
+00:32:18,000 --> 00:32:23,039
+Emacs code field that that's not the
+
+629
+00:32:20,480 --> 00:32:26,240
+reason. Well, actually it's because from
+
+630
+00:32:23,039 --> 00:32:29,360
+it's a convention from 60s. So in the
+
+631
+00:32:26,240 --> 00:32:32,960
+1960s they view it
+
+632
+00:32:29,360 --> 00:32:35,120
+not as reformat but they view it as like
+
+633
+00:32:32,960 --> 00:32:40,960
+begin with empty line then you feel
+
+634
+00:32:35,120 --> 00:32:43,919
+words okay such as run off one of such
+
+635
+00:32:40,960 --> 00:32:47,679
+one of the first search tools where
+
+636
+00:32:43,919 --> 00:32:50,000
+feeling describe the process oh of
+
+637
+00:32:47,679 --> 00:32:53,600
+extracting words from input and
+
+638
+00:32:50,000 --> 00:32:58,000
+assembling them into output lines of a
+
+639
+00:32:53,600 --> 00:33:00,799
+predefined length That's why I see the
+
+640
+00:32:58,000 --> 00:33:05,519
+concept carried over to later systems
+
+641
+00:33:00,799 --> 00:33:09,679
+like enro trough Unix fox with commands
+
+642
+00:33:05,519 --> 00:33:12,320
+like fi for field field mod mode and
+
+643
+00:33:09,679 --> 00:33:14,799
+influence editors like emacs which
+
+644
+00:33:12,320 --> 00:33:17,760
+adopted similar language for text
+
+645
+00:33:14,799 --> 00:33:20,720
+reformatting features. Okay, I learned
+
+646
+00:33:17,760 --> 00:33:22,720
+something and thank you guac. Thank you
+
+647
+00:33:20,720 --> 00:33:24,799
+AI.
+
+648
+00:33:22,720 --> 00:33:27,519
+Amazing. You know, I've been using Emacs
+
+649
+00:33:24,799 --> 00:33:30,240
+for 30 years. I kind of had this
+
+650
+00:33:27,519 --> 00:33:33,519
+question vaguely, never bothered to look
+
+651
+00:33:30,240 --> 00:33:35,519
+up. And usually these kind of questions,
+
+652
+00:33:33,519 --> 00:33:37,519
+I know if I search a web, usually you
+
+653
+00:33:35,519 --> 00:33:40,799
+don't get answers, you know, then you
+
+654
+00:33:37,519 --> 00:33:42,720
+have to dig like chat forums, then you
+
+655
+00:33:40,799 --> 00:33:46,720
+got to, you know, dig, you know, because
+
+656
+00:33:42,720 --> 00:33:49,919
+this is like history from 1960s.
+
+657
+00:33:46,720 --> 00:33:53,760
+But today, AI just answer it, you know,
+
+658
+00:33:49,919 --> 00:33:56,000
+in in in one minute. Fantast amazing. So
+
+659
+00:33:53,760 --> 00:33:59,120
+this is amazing demonstration of the
+
+660
+00:33:56,000 --> 00:34:01,519
+value of AI. It's not just the value
+
+661
+00:33:59,120 --> 00:34:03,679
+they are changing humanity. They are
+
+662
+00:34:01,519 --> 00:34:07,760
+they are like in such a system they are
+
+663
+00:34:03,679 --> 00:34:09,919
+changing how we um and we are kind of
+
+664
+00:34:07,760 --> 00:34:12,159
+too slow to understand to catch up
+
+665
+00:34:09,919 --> 00:34:15,040
+what's going on. They are changing our
+
+666
+00:34:12,159 --> 00:34:18,040
+behavior like like
+
+667
+00:34:15,040 --> 00:34:18,040
+incredibly
+
+668
+00:34:20,079 --> 00:34:26,079
+uh typography. No, that's not the right
+
+669
+00:34:22,960 --> 00:34:29,119
+word. Okay. How do you uh toggle
+
+670
+00:34:26,079 --> 00:34:31,760
+justification with field region? You
+
+671
+00:34:29,119 --> 00:34:34,320
+can't. Okay. You basic that guy talked
+
+672
+00:34:31,760 --> 00:34:37,599
+about are you late? So you have to set
+
+673
+00:34:34,320 --> 00:34:41,000
+the variable field column. Okay. So you
+
+674
+00:34:37,599 --> 00:34:41,000
+can call
+
+675
+00:34:41,440 --> 00:34:49,200
+Customize set. Okay. Then
+
+676
+00:34:45,440 --> 00:34:52,399
+save value. No. Um.
+
+677
+00:34:49,200 --> 00:34:55,679
+Okay. Customize variable. Okay. You call
+
+678
+00:34:52,399 --> 00:34:57,839
+that command. Then you say you type
+
+679
+00:34:55,679 --> 00:35:00,160
+field column.
+
+680
+00:34:57,839 --> 00:35:02,960
+Then you give it a different value.
+
+681
+00:35:00,160 --> 00:35:04,960
+That's how you do it. Okay. Then you
+
+682
+00:35:02,960 --> 00:35:07,760
+call the field command like field
+
+683
+00:35:04,960 --> 00:35:11,680
+region, field paragraph.
+
+684
+00:35:07,760 --> 00:35:16,920
+Then we'll use that width. Or
+
+685
+00:35:11,680 --> 00:35:16,920
+alternatively, you just go to a eag
+
+686
+00:35:22,960 --> 00:35:28,079
+uh wait,
+
+687
+00:35:25,599 --> 00:35:30,880
+you know, you just you just you just
+
+688
+00:35:28,079 --> 00:35:34,000
+type this and evaluate it. Okay, which
+
+689
+00:35:30,880 --> 00:35:37,000
+is what I do. I don't use the custom
+
+690
+00:35:34,000 --> 00:35:37,000
+thing.
+
+691
+00:35:37,200 --> 00:35:43,280
+Have you tried two monitor? No, I never
+
+692
+00:35:40,880 --> 00:35:48,119
+tried it. I believe I prefer one
+
+693
+00:35:43,280 --> 00:35:48,119
+monitor, but I never tried two monitors.
+
+694
+00:35:49,440 --> 00:35:55,359
+Lag behind on chat. What? What? Okay, I
+
+695
+00:35:53,119 --> 00:35:57,680
+think that's it. Anything else? Okay,
+
+696
+00:35:55,359 --> 00:36:00,000
+donate to me. Okay, if you guys like my
+
+697
+00:35:57,680 --> 00:36:03,000
+stuff, go to kasali.info.
+
+698
+00:36:00,000 --> 00:36:03,000
+kasali.info.
+
+699
+00:36:04,240 --> 00:36:13,280
+go to it
+
+700
+00:36:06,720 --> 00:36:15,760
+and lots of stuff and programming like
+
+701
+00:36:13,280 --> 00:36:21,440
+uh how many pages are there? Uh there
+
+702
+00:36:15,760 --> 00:36:23,680
+are there are like 4,000 I think 8,000
+
+703
+00:36:21,440 --> 00:36:26,480
+pages on this
+
+704
+00:36:23,680 --> 00:36:28,800
+8,000 articles, okay, on programming on
+
+705
+00:36:26,480 --> 00:36:32,800
+mathematics. So go all the way down.
+
+706
+00:36:28,800 --> 00:36:36,119
+Patreon me, Amazon gift card me, PayPal
+
+707
+00:36:32,800 --> 00:36:36,119
+me. Okay.
+
+708
+00:36:37,119 --> 00:36:42,640
+Okay, I think that's it. Let's see. I
+
+709
+00:36:40,400 --> 00:36:44,560
+think my microphone is set too loud.
+
+710
+00:36:42,640 --> 00:36:46,800
+Actually, it's hitting the red bar. I
+
+711
+00:36:44,560 --> 00:36:51,599
+think that's it.
+
+712
+00:36:46,800 --> 00:36:56,160
+So why AI? Why is it called field? Let's
+
+713
+00:36:51,599 --> 00:37:00,400
+copy it. So now paste it. Lingify make a
+
+714
+00:36:56,160 --> 00:37:04,000
+list and uh ask AI. Okay, so there is
+
+715
+00:37:00,400 --> 00:37:09,359
+the answer. Fantastic. And the other
+
+716
+00:37:04,000 --> 00:37:12,960
+things I'll be next day uh hasht. Okay,
+
+717
+00:37:09,359 --> 00:37:17,359
+actually next next live stream I think
+
+718
+00:37:12,960 --> 00:37:21,079
+I'm going to do wam language.
+
+719
+00:37:17,359 --> 00:37:21,079
+Okay, bye guys.
+
+720
+00:37:30,240 --> 00:37:36,200
+That's my wife talking. She speaks
+
+721
+00:37:33,200 --> 00:37:36,200
+Cantonese.
+
+722
+00:37:53,440 --> 00:37:59,920
+What is the word that describe how uh
+
+723
+00:37:57,040 --> 00:38:03,280
+how a book is made like what kind of
+
+724
+00:37:59,920 --> 00:38:10,280
+font how type setting what m machine is
+
+725
+00:38:03,280 --> 00:38:10,280
+used? Uh what's uh it's it's um
+
+726
+00:38:10,480 --> 00:38:13,839
+it's called
+
+727
+00:38:14,000 --> 00:38:18,520
+I forgot. Let's ask AI.
+
+728
+00:38:18,880 --> 00:38:26,079
+What's the word that
+
+729
+00:38:22,880 --> 00:38:32,480
+word in a book
+
+730
+00:38:26,079 --> 00:38:36,520
+that talks about how the book was type
+
+731
+00:38:32,480 --> 00:38:36,520
+set or printed
+
+732
+00:38:41,119 --> 00:38:48,720
+col uh colon?
+
+733
+00:38:44,640 --> 00:38:51,920
+Oh yeah, caller phone. That's right.
+
+734
+00:38:48,720 --> 00:38:55,359
+Okay. So let's list uh these words we
+
+735
+00:38:51,920 --> 00:38:59,520
+talked about. Colon
+
+736
+00:38:55,359 --> 00:39:01,359
+pre preace
+
+737
+00:38:59,520 --> 00:39:05,640
+intro
+
+738
+00:39:01,359 --> 00:39:05,640
+table of contents
+
+739
+00:39:07,760 --> 00:39:12,079
+bibliography
+
+740
+00:39:09,839 --> 00:39:14,160
+index.
+
+741
+00:39:12,079 --> 00:39:15,920
+grocery
+
+742
+00:39:14,160 --> 00:39:19,200
+uh
+
+743
+00:39:15,920 --> 00:39:23,400
+Apple log.
+
+744
+00:39:19,200 --> 00:39:23,400
+Sometimes there's pre-log.
+
+745
+00:39:23,440 --> 00:39:31,440
+Uh what else? The the and there is a
+
+746
+00:39:26,480 --> 00:39:35,119
+blur. Blur is like a little uh like
+
+747
+00:39:31,440 --> 00:39:38,160
+usually marketing material at the front
+
+748
+00:39:35,119 --> 00:39:44,000
+cover or back cover. usually at the back
+
+749
+00:39:38,160 --> 00:39:47,839
+and there is um jacket you know
+
+750
+00:39:44,000 --> 00:39:52,960
+it's a funny funny you know book uh book
+
+751
+00:39:47,839 --> 00:39:55,839
+uh jarens let's see I'm I'm pretty sure
+
+752
+00:39:52,960 --> 00:39:59,160
+there's a Wikipedia article on that
+
+753
+00:39:55,839 --> 00:39:59,160
+let's see
+
+754
+00:39:59,839 --> 00:40:06,200
+book jarens is the
+
+755
+00:40:03,200 --> 00:40:06,200
+Uh,
+
+756
+00:40:09,359 --> 00:40:15,599
+the book of jargon. No, the the ultimate
+
+757
+00:40:12,240 --> 00:40:18,320
+guide to business jarens. No, that's not
+
+758
+00:40:15,599 --> 00:40:23,480
+what I'm talking about.
+
+759
+00:40:18,320 --> 00:40:23,480
+Grocery of book terms. Let's see.
+
+760
+00:40:24,880 --> 00:40:33,440
+Advanced reading copy. No advertisements
+
+761
+00:40:28,560 --> 00:40:35,440
+or edge or edges guild. Okay. appendix.
+
+762
+00:40:33,440 --> 00:40:40,480
+Oh yeah, the appendix right there's
+
+763
+00:40:35,440 --> 00:40:43,520
+appendix and uh there is
+
+764
+00:40:40,480 --> 00:40:50,119
+and there's inserts
+
+765
+00:40:43,520 --> 00:40:50,119
+uh the uh uh uh yeah so um
+
+766
+00:40:53,760 --> 00:41:01,280
+so these are kind of topics appendix um
+
+767
+00:40:58,400 --> 00:41:04,240
+uh
+
+768
+00:41:01,280 --> 00:41:07,240
+inserts is usually like in the middle.
+
+769
+00:41:04,240 --> 00:41:07,240
+Um,
+
+770
+00:41:11,200 --> 00:41:19,040
+a new audio book blah blah blah biblio
+
+771
+00:41:14,480 --> 00:41:22,800
+bio class biblio maniac biblio file.
+
+772
+00:41:19,040 --> 00:41:26,720
+What the [ __ ] Uh, no that's not uh
+
+773
+00:41:22,800 --> 00:41:29,599
+breakers cloth broadside breaker. A
+
+774
+00:41:26,720 --> 00:41:33,200
+person who breaks up books so to sell
+
+775
+00:41:29,599 --> 00:41:36,880
+the plates separately.
+
+776
+00:41:33,200 --> 00:41:40,880
+Okay, this is more advanced
+
+777
+00:41:36,880 --> 00:41:44,000
+conjugate leaf. Yeah, there's a leaf
+
+778
+00:41:40,880 --> 00:41:47,040
+uh leaf.
+
+779
+00:41:44,000 --> 00:41:49,920
+This is a uh this colophone
+
+780
+00:41:47,040 --> 00:41:55,359
+comp binding conjugate leaf. What the
+
+781
+00:41:49,920 --> 00:42:00,040
+[ __ ] is that? The un unsevered second
+
+782
+00:41:55,359 --> 00:42:00,040
+half of a printed page
+
+783
+00:42:02,800 --> 00:42:06,880
+corners. Okay. Bye.
+

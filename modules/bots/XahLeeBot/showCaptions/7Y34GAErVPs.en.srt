@@ -1,0 +1,8188 @@
+1
+00:00:04,500 --> 00:00:07,160
+foreign
+
+2
+00:00:10,519 --> 00:00:18,660
+show so today we are going to continue
+
+3
+00:00:14,059 --> 00:00:20,160
+doing the Advent of code live coding day
+
+4
+00:00:18,660 --> 00:00:23,939
+five
+
+5
+00:00:20,160 --> 00:00:27,539
+in wufam language then after that I'm
+
+6
+00:00:23,939 --> 00:00:30,480
+going to do a uh efficient stack
+
+7
+00:00:27,539 --> 00:00:34,500
+Implement a efficient stack data
+
+8
+00:00:30,480 --> 00:00:36,540
+structure in Python in JavaScript and if
+
+9
+00:00:34,500 --> 00:00:39,480
+we have time we're gonna do it in wufam
+
+10
+00:00:36,540 --> 00:00:40,500
+language and we're gonna time it so
+
+11
+00:00:39,480 --> 00:00:43,340
+we're gonna
+
+12
+00:00:40,500 --> 00:00:47,399
+I'm going to find finally resolve the
+
+13
+00:00:43,340 --> 00:00:50,399
+issue of whether the Python's smart
+
+14
+00:00:47,399 --> 00:00:54,300
+array python Ruby JavaScript they all
+
+15
+00:00:50,399 --> 00:00:57,059
+have a array Or List type that grows as
+
+16
+00:00:54,300 --> 00:01:01,020
+you add more items so we are going to
+
+17
+00:00:57,059 --> 00:01:03,300
+test to see if that data structure is a
+
+18
+00:01:01,020 --> 00:01:05,400
+efficient stack
+
+19
+00:01:03,300 --> 00:01:09,780
+you know versus our only implementation
+
+20
+00:01:05,400 --> 00:01:13,020
+using linked list so so that is the what
+
+21
+00:01:09,780 --> 00:01:15,780
+we're gonna do so yesterday we did uh
+
+22
+00:01:13,020 --> 00:01:16,560
+two hours you know Advent of code day
+
+23
+00:01:15,780 --> 00:01:20,939
+five
+
+24
+00:01:16,560 --> 00:01:25,320
+uh and uh uh wait yeah yesterday we did
+
+25
+00:01:20,939 --> 00:01:29,000
+two hours at the window of code day five
+
+26
+00:01:25,320 --> 00:01:32,640
+and uh we I went into attention about
+
+27
+00:01:29,000 --> 00:01:35,640
+how do you implement a efficient stack
+
+28
+00:01:32,640 --> 00:01:37,920
+in functional programming languages Okay
+
+29
+00:01:35,640 --> 00:01:40,380
+so
+
+30
+00:01:37,920 --> 00:01:42,720
+So today we're gonna just quickly finish
+
+31
+00:01:40,380 --> 00:01:45,299
+the Advent of code day five then we're
+
+32
+00:01:42,720 --> 00:01:48,420
+gonna do the stack okay lots of to do so
+
+33
+00:01:45,299 --> 00:01:51,600
+if you like my stuff pay me okay donate
+
+34
+00:01:48,420 --> 00:01:56,420
+patreon PayPal on my website you'll see
+
+35
+00:01:51,600 --> 00:02:00,420
+and uh happy to see your comment okay
+
+36
+00:01:56,420 --> 00:02:04,920
+so here is my coffee
+
+37
+00:02:00,420 --> 00:02:10,459
+ready to code begin coffee coffee with
+
+38
+00:02:04,920 --> 00:02:10,459
+milk coffee powder and honey
+
+39
+00:02:21,420 --> 00:02:24,739
+this is apple juice
+
+40
+00:02:25,379 --> 00:02:30,620
+and this is tea I'm ready to code
+
+41
+00:02:30,980 --> 00:02:34,280
+serious stuff
+
+42
+00:02:43,260 --> 00:02:46,340
+and the tea
+
+43
+00:02:50,580 --> 00:02:55,200
+okay I'm gonna blast through the Advent
+
+44
+00:02:53,099 --> 00:02:57,780
+of code yesterday so okay
+
+45
+00:02:55,200 --> 00:03:01,260
+so let's begin let's begin
+
+46
+00:02:57,780 --> 00:03:02,400
+so start a wolfam language
+
+47
+00:03:01,260 --> 00:03:07,080
+um
+
+48
+00:03:02,400 --> 00:03:09,480
+code and go to the talk show and that
+
+49
+00:03:07,080 --> 00:03:12,420
+the pink window shows all my stuff like
+
+50
+00:03:09,480 --> 00:03:14,640
+his command names and the keystroke I'm
+
+51
+00:03:12,420 --> 00:03:17,340
+using exposed keyboard
+
+52
+00:03:14,640 --> 00:03:20,519
+and I'm using some flag keys with
+
+53
+00:03:17,340 --> 00:03:22,080
+volrack layout this is the Expos I
+
+54
+00:03:20,519 --> 00:03:23,700
+recommend it okay
+
+55
+00:03:22,080 --> 00:03:26,459
+so day five
+
+56
+00:03:23,700 --> 00:03:29,700
+let's show day five I mean day five
+
+57
+00:03:26,459 --> 00:03:31,920
+yesterday so we got the we need to get
+
+58
+00:03:29,700 --> 00:03:34,519
+the problem input
+
+59
+00:03:31,920 --> 00:03:34,519
+uh
+
+60
+00:03:34,920 --> 00:03:41,220
+yeah okay so let's copy that
+
+61
+00:03:38,159 --> 00:03:44,400
+let's just quickly do it finish it it
+
+62
+00:03:41,220 --> 00:03:46,799
+should be in 20 minutes okay
+
+63
+00:03:44,400 --> 00:03:50,280
+so wait
+
+64
+00:03:46,799 --> 00:03:52,920
+what are we doing okay copy that
+
+65
+00:03:50,280 --> 00:03:55,080
+go here today's talk show and post the
+
+66
+00:03:52,920 --> 00:03:58,500
+link to yesterday so we can easily
+
+67
+00:03:55,080 --> 00:04:01,920
+access it and then
+
+68
+00:03:58,500 --> 00:04:04,220
+who fam language we need the code from
+
+69
+00:04:01,920 --> 00:04:04,220
+yesterday
+
+70
+00:04:06,180 --> 00:04:13,459
+okay that's not it
+
+71
+00:04:09,480 --> 00:04:13,459
+okay I think that's it
+
+72
+00:04:13,799 --> 00:04:17,420
+yeah let's copy that
+
+73
+00:04:17,820 --> 00:04:24,720
+Okay so
+
+74
+00:04:20,579 --> 00:04:27,840
+okay so uh paste the code here remove
+
+75
+00:04:24,720 --> 00:04:31,020
+that and pop it out okay let's begin
+
+76
+00:04:27,840 --> 00:04:33,900
+from yesterday so yes so the problem to
+
+77
+00:04:31,020 --> 00:04:36,660
+recap the problem is that you give you
+
+78
+00:04:33,900 --> 00:04:39,840
+are given this input
+
+79
+00:04:36,660 --> 00:04:43,620
+uh the first part shows Three Stacks
+
+80
+00:04:39,840 --> 00:04:46,979
+Stacks like in stack of books it's a
+
+81
+00:04:43,620 --> 00:04:49,620
+data structure so you
+
+82
+00:04:46,979 --> 00:04:50,699
+so you are given that input and you want
+
+83
+00:04:49,620 --> 00:04:52,919
+to move
+
+84
+00:04:50,699 --> 00:04:56,900
+one item from
+
+85
+00:04:52,919 --> 00:05:00,240
+stack two to stack one so stack two is
+
+86
+00:04:56,900 --> 00:05:03,180
+MCD so you move the D to stack one two
+
+87
+00:05:00,240 --> 00:05:05,520
+over here then the second thing you want
+
+88
+00:05:03,180 --> 00:05:08,759
+to do is move three from one two three
+
+89
+00:05:05,520 --> 00:05:12,900
+so stack one is here then you know each
+
+90
+00:05:08,759 --> 00:05:15,660
+time you can only move the topmost item
+
+91
+00:05:12,900 --> 00:05:17,520
+so but so you do this three times then
+
+92
+00:05:15,660 --> 00:05:19,500
+you then you do this one then you do
+
+93
+00:05:17,520 --> 00:05:23,759
+this one the
+
+94
+00:05:19,500 --> 00:05:26,699
+problem is to find out at the end what
+
+95
+00:05:23,759 --> 00:05:29,100
+is the result what's the topmost uh
+
+96
+00:05:26,699 --> 00:05:31,979
+letter okay so that is the input so
+
+97
+00:05:29,100 --> 00:05:35,759
+first of all we gonna rewrite this
+
+98
+00:05:31,979 --> 00:05:38,940
+we did yesterday so you know
+
+99
+00:05:35,759 --> 00:05:41,699
+uh now after a day you know I have
+
+100
+00:05:38,940 --> 00:05:45,300
+better much more better way okay so
+
+101
+00:05:41,699 --> 00:05:47,340
+string input Split That Into You know
+
+102
+00:05:45,300 --> 00:05:50,520
+first of all we want to split this
+
+103
+00:05:47,340 --> 00:05:53,400
+string into two parts the first part is
+
+104
+00:05:50,520 --> 00:05:56,520
+the actual input of this configuration
+
+105
+00:05:53,400 --> 00:06:00,080
+of the stacks the second part is the
+
+106
+00:05:56,520 --> 00:06:04,919
+procedure okay so split
+
+107
+00:06:00,080 --> 00:06:09,060
+then this is lines
+
+108
+00:06:04,919 --> 00:06:12,840
+lines of Stack which
+
+109
+00:06:09,060 --> 00:06:16,520
+lines of Stack config okay let's go
+
+110
+00:06:12,840 --> 00:06:19,979
+elaborate in the naming of things okay
+
+111
+00:06:16,520 --> 00:06:24,560
+so then you split by the
+
+112
+00:06:19,979 --> 00:06:24,560
+by the line ending character so you get
+
+113
+00:06:25,020 --> 00:06:29,520
+you know first of all you split this
+
+114
+00:06:26,940 --> 00:06:32,940
+string into two parts the first part and
+
+115
+00:06:29,520 --> 00:06:37,440
+the second part then you get the lines
+
+116
+00:06:32,940 --> 00:06:40,620
+of Stack config you do it by split
+
+117
+00:06:37,440 --> 00:06:43,380
+uh with end of line so each line you got
+
+118
+00:06:40,620 --> 00:06:45,840
+a list of strings each
+
+119
+00:06:43,380 --> 00:06:50,220
+each string is a line like that that
+
+120
+00:06:45,840 --> 00:06:52,560
+okay then here string split again
+
+121
+00:06:50,220 --> 00:06:54,539
+of X1
+
+122
+00:06:52,560 --> 00:06:57,800
+which is the
+
+123
+00:06:54,539 --> 00:06:57,800
+um list of lines
+
+124
+00:06:58,259 --> 00:07:02,699
+uh what
+
+125
+00:07:00,840 --> 00:07:04,860
+okay
+
+126
+00:07:02,699 --> 00:07:06,300
+let me do this okay good morning Greg
+
+127
+00:07:04,860 --> 00:07:11,699
+and dark okay
+
+128
+00:07:06,300 --> 00:07:14,280
+so strange speed X1 X1 is list of lines
+
+129
+00:07:11,699 --> 00:07:15,960
+then we string split
+
+130
+00:07:14,280 --> 00:07:19,020
+X1
+
+131
+00:07:15,960 --> 00:07:21,120
+the first part so yeah so this becomes
+
+132
+00:07:19,020 --> 00:07:24,840
+at least of two strings
+
+133
+00:07:21,120 --> 00:07:27,360
+a list of two string blocks okay so this
+
+134
+00:07:24,840 --> 00:07:28,979
+is the first part of the string we split
+
+135
+00:07:27,360 --> 00:07:32,759
+it by
+
+136
+00:07:28,979 --> 00:07:34,919
+a line character then you we get the
+
+137
+00:07:32,759 --> 00:07:36,960
+list of lines which is the stack
+
+138
+00:07:34,919 --> 00:07:38,460
+configuration
+
+139
+00:07:36,960 --> 00:07:41,460
+then
+
+140
+00:07:38,460 --> 00:07:44,940
+then the second part of X1 which is the
+
+141
+00:07:41,460 --> 00:07:47,220
+procedure procedural part in English we
+
+142
+00:07:44,940 --> 00:07:49,280
+split by the so we got the list of lines
+
+143
+00:07:47,220 --> 00:07:53,039
+procedure
+
+144
+00:07:49,280 --> 00:07:58,080
+uh let's see
+
+145
+00:07:53,039 --> 00:08:02,460
+lines okay least supplies then we want
+
+146
+00:07:58,080 --> 00:08:05,160
+to get the total count of columns so you
+
+147
+00:08:02,460 --> 00:08:08,759
+can do that easily by
+
+148
+00:08:05,160 --> 00:08:10,620
+by get the last item of the lines of
+
+149
+00:08:08,759 --> 00:08:14,220
+Stack config
+
+150
+00:08:10,620 --> 00:08:17,180
+the last item which is the last row then
+
+151
+00:08:14,220 --> 00:08:17,180
+you take the
+
+152
+00:08:17,280 --> 00:08:25,139
+then you split a string splitted by a
+
+153
+00:08:21,539 --> 00:08:28,620
+space so you got a list of
+
+154
+00:08:25,139 --> 00:08:29,879
+strings each string is one two three and
+
+155
+00:08:28,620 --> 00:08:32,039
+so on
+
+156
+00:08:29,879 --> 00:08:34,680
+okay so then
+
+157
+00:08:32,039 --> 00:08:35,760
+you take the last one of that which is
+
+158
+00:08:34,680 --> 00:08:38,039
+three
+
+159
+00:08:35,760 --> 00:08:40,380
+then you two expression you turn that
+
+160
+00:08:38,039 --> 00:08:42,000
+into a number to you know string two
+
+161
+00:08:40,380 --> 00:08:45,240
+numbers so
+
+162
+00:08:42,000 --> 00:08:49,440
+so you get the column count okay then
+
+163
+00:08:45,240 --> 00:08:53,700
+this line is a bit complex let's redo it
+
+164
+00:08:49,440 --> 00:08:54,420
+so it's much more simpler okay let's say
+
+165
+00:08:53,700 --> 00:08:57,800
+um
+
+166
+00:08:54,420 --> 00:08:57,800
+so let me do that
+
+167
+00:08:58,519 --> 00:09:02,600
+stream partition okay
+
+168
+00:09:03,600 --> 00:09:09,860
+x two
+
+169
+00:09:06,600 --> 00:09:09,860
+equals to
+
+170
+00:09:09,959 --> 00:09:15,060
+so
+
+171
+00:09:12,060 --> 00:09:15,060
+we
+
+172
+00:09:20,459 --> 00:09:25,220
+so the x lines is actually
+
+173
+00:09:26,880 --> 00:09:32,180
+lines of config okay
+
+174
+00:09:29,399 --> 00:09:32,180
+so
+
+175
+00:09:33,959 --> 00:09:38,240
+so you want to
+
+176
+00:09:38,940 --> 00:09:43,380
+let me simplify this okay string
+
+177
+00:09:41,940 --> 00:09:46,040
+partition
+
+178
+00:09:43,380 --> 00:09:46,040
+and
+
+179
+00:09:47,100 --> 00:09:50,660
+this is incorrect
+
+180
+00:09:55,860 --> 00:10:03,360
+okay let me let me do this
+
+181
+00:09:59,420 --> 00:10:07,080
+uh lines of Stack config
+
+182
+00:10:03,360 --> 00:10:11,160
+which is the list of lines here what you
+
+183
+00:10:07,080 --> 00:10:14,000
+want to do is you want to
+
+184
+00:10:11,160 --> 00:10:14,000
+pad it
+
+185
+00:10:17,100 --> 00:10:22,800
+yeah you want to pad it so that
+
+186
+00:10:20,220 --> 00:10:26,760
+you know you want to pad extra space
+
+187
+00:10:22,800 --> 00:10:28,800
+like add space so that later on you can
+
+188
+00:10:26,760 --> 00:10:32,339
+chunk it by
+
+189
+00:10:28,800 --> 00:10:35,580
+every four characters then you get a
+
+190
+00:10:32,339 --> 00:10:39,720
+list of rows of the crates then you do a
+
+191
+00:10:35,580 --> 00:10:42,600
+transpose so columns becomes rows so
+
+192
+00:10:39,720 --> 00:10:44,820
+each row represents a stack you know
+
+193
+00:10:42,600 --> 00:10:46,560
+which is the original vertical lines
+
+194
+00:10:44,820 --> 00:10:51,240
+okay
+
+195
+00:10:46,560 --> 00:10:54,959
+so you want to uh string pad here is the
+
+196
+00:10:51,240 --> 00:10:57,180
+let's write this so so right now you
+
+197
+00:10:54,959 --> 00:11:00,920
+want to pad the string so what you do is
+
+198
+00:10:57,180 --> 00:11:00,920
+you want to map that's right
+
+199
+00:11:13,880 --> 00:11:17,360
+Okay so
+
+200
+00:11:25,980 --> 00:11:30,779
+so that's column count then
+
+201
+00:11:33,420 --> 00:11:38,959
+then what you want to do uh
+
+202
+00:11:36,839 --> 00:11:38,959
+okay
+
+203
+00:11:42,360 --> 00:11:46,940
+you want to Pat it okay so map
+
+204
+00:11:49,680 --> 00:11:54,600
+forget about that Maps takes two
+
+205
+00:11:52,019 --> 00:11:57,600
+arguments the first part is a function
+
+206
+00:11:54,600 --> 00:12:01,380
+the second part is a beast so you want
+
+207
+00:11:57,600 --> 00:12:05,640
+to map this you Pat it here
+
+208
+00:12:01,380 --> 00:12:08,940
+so Maps string pad right
+
+209
+00:12:05,640 --> 00:12:11,459
+arguments and
+
+210
+00:12:08,940 --> 00:12:13,980
+so here is a function that Ampersand
+
+211
+00:12:11,459 --> 00:12:16,620
+stand is a shortcut for functions so
+
+212
+00:12:13,980 --> 00:12:19,399
+this is a function so you want to map
+
+213
+00:12:16,620 --> 00:12:19,399
+this function
+
+214
+00:12:20,880 --> 00:12:24,620
+let's do this
+
+215
+00:12:25,019 --> 00:12:29,279
+you might want to map this function to
+
+216
+00:12:27,300 --> 00:12:33,600
+this list of lines and this function
+
+217
+00:12:29,279 --> 00:12:35,760
+will just pad right by how much by to
+
+218
+00:12:33,600 --> 00:12:38,820
+make sure that there is number of
+
+219
+00:12:35,760 --> 00:12:42,480
+columns count times four
+
+220
+00:12:38,820 --> 00:12:46,980
+4 because each of the credit is one two
+
+221
+00:12:42,480 --> 00:12:49,860
+three four four characters
+
+222
+00:12:46,980 --> 00:12:52,320
+we want to do that because
+
+223
+00:12:49,860 --> 00:12:54,139
+so later on you know this empty we have
+
+224
+00:12:52,320 --> 00:12:59,060
+things to work with
+
+225
+00:12:54,139 --> 00:12:59,060
+so X2 is pad then
+
+226
+00:12:59,399 --> 00:13:02,779
+you want to
+
+227
+00:13:04,980 --> 00:13:10,380
+then then you partition it okay
+
+228
+00:13:08,279 --> 00:13:12,480
+that is
+
+229
+00:13:10,380 --> 00:13:15,779
+given a string
+
+230
+00:13:12,480 --> 00:13:20,820
+you want to separate the string into a
+
+231
+00:13:15,779 --> 00:13:23,519
+list of items each one is a string how
+
+232
+00:13:20,820 --> 00:13:26,940
+do you separate them by every four
+
+233
+00:13:23,519 --> 00:13:29,100
+characters okay so that is the string
+
+234
+00:13:26,940 --> 00:13:32,579
+partition
+
+235
+00:13:29,100 --> 00:13:34,860
+this function okay takes two arguments
+
+236
+00:13:32,579 --> 00:13:37,019
+the first argument is the string the
+
+237
+00:13:34,860 --> 00:13:39,000
+second argument is how many
+
+238
+00:13:37,019 --> 00:13:41,399
+you know how many characters you want to
+
+239
+00:13:39,000 --> 00:13:43,620
+chunk
+
+240
+00:13:41,399 --> 00:13:46,800
+so
+
+241
+00:13:43,620 --> 00:13:51,660
+yeah so the first argument is a uh
+
+242
+00:13:46,800 --> 00:13:55,139
+string partition uses string so X2 right
+
+243
+00:13:51,660 --> 00:13:58,700
+oh then you you need to map actually so
+
+244
+00:13:55,139 --> 00:13:58,700
+because you have
+
+245
+00:14:00,660 --> 00:14:08,760
+again a function
+
+246
+00:14:03,480 --> 00:14:13,519
+and X2 X2 is a beast
+
+247
+00:14:08,760 --> 00:14:13,519
+padded list okay so let's rename it
+
+248
+00:14:16,860 --> 00:14:25,019
+and let's let's just X X2 okay so X2 is
+
+249
+00:14:20,940 --> 00:14:29,220
+a pattern list then we partition it for
+
+250
+00:14:25,019 --> 00:14:32,579
+each of this line we partition it by
+
+251
+00:14:29,220 --> 00:14:34,320
+every four characters okay
+
+252
+00:14:32,579 --> 00:14:38,180
+then
+
+253
+00:14:34,320 --> 00:14:38,180
+uh then we
+
+254
+00:14:40,680 --> 00:14:48,959
+we want to do a trim so let's say X4 we
+
+255
+00:14:45,600 --> 00:14:51,480
+want to do a trim because you see these
+
+256
+00:14:48,959 --> 00:14:52,380
+four characters then there's a space at
+
+257
+00:14:51,480 --> 00:14:56,180
+the end
+
+258
+00:14:52,380 --> 00:14:56,180
+right so we want to trim it
+
+259
+00:14:56,399 --> 00:15:01,500
+and we also want to remove the square
+
+260
+00:14:59,100 --> 00:15:06,120
+brackets Okay so
+
+261
+00:15:01,500 --> 00:15:10,220
+X4 is Stream So you need a function here
+
+262
+00:15:06,120 --> 00:15:10,220
+this will be uh
+
+263
+00:15:11,360 --> 00:15:16,920
+string
+
+264
+00:15:13,199 --> 00:15:19,860
+trim okay stream trim takes
+
+265
+00:15:16,920 --> 00:15:23,339
+takes two arguments
+
+266
+00:15:19,860 --> 00:15:27,360
+uh no string trim
+
+267
+00:15:23,339 --> 00:15:30,600
+we just need to trim it that's all
+
+268
+00:15:27,360 --> 00:15:35,279
+so once you trim it
+
+269
+00:15:30,600 --> 00:15:38,639
+then to every line a list of lines once
+
+270
+00:15:35,279 --> 00:15:41,820
+you trim it so each
+
+271
+00:15:38,639 --> 00:15:45,540
+item is like that a string so you want
+
+272
+00:15:41,820 --> 00:15:48,360
+to replace string replace okay you want
+
+273
+00:15:45,540 --> 00:15:49,380
+to string replace
+
+274
+00:15:48,360 --> 00:15:53,519
+um
+
+275
+00:15:49,380 --> 00:15:57,000
+here a function you map you so we don't
+
+276
+00:15:53,519 --> 00:16:00,120
+need the trim here so
+
+277
+00:15:57,000 --> 00:16:02,820
+we'll simplify the code later but now we
+
+278
+00:16:00,120 --> 00:16:06,079
+want to focus on the clarity of what's
+
+279
+00:16:02,820 --> 00:16:09,000
+going on so you want to string replace
+
+280
+00:16:06,079 --> 00:16:10,680
+of the left bracket by nothing right
+
+281
+00:16:09,000 --> 00:16:14,760
+bracket by nothing
+
+282
+00:16:10,680 --> 00:16:20,519
+uh and applies to X4
+
+283
+00:16:14,760 --> 00:16:23,579
+right okay here is should be X3 Okay so
+
+284
+00:16:20,519 --> 00:16:26,940
+okay so far so good
+
+285
+00:16:23,579 --> 00:16:31,760
+yeah so in fact let's show it let's show
+
+286
+00:16:26,940 --> 00:16:31,760
+some Wolfram language code paste it here
+
+287
+00:16:36,959 --> 00:16:44,279
+okay so that's the code evaluated
+
+288
+00:16:42,120 --> 00:16:48,480
+okay we got something wrong stream
+
+289
+00:16:44,279 --> 00:16:52,320
+partition string expected yeah
+
+290
+00:16:48,480 --> 00:16:54,779
+we can finish this in 30 minutes for
+
+291
+00:16:52,320 --> 00:16:57,380
+sure so something wrong there so let's
+
+292
+00:16:54,779 --> 00:16:57,380
+double check
+
+293
+00:16:57,839 --> 00:17:03,060
+uh what what is the
+
+294
+00:17:00,720 --> 00:17:05,640
+string partition okay string partition
+
+295
+00:17:03,060 --> 00:17:08,299
+is wrong where I did here
+
+296
+00:17:05,640 --> 00:17:08,299
+so
+
+297
+00:17:08,339 --> 00:17:14,120
+a string pad right
+
+298
+00:17:10,620 --> 00:17:17,360
+we add we we make sure
+
+299
+00:17:14,120 --> 00:17:17,360
+there are
+
+300
+00:17:17,400 --> 00:17:22,799
+each line of the crates string has this
+
+301
+00:17:21,059 --> 00:17:26,640
+number of characters
+
+302
+00:17:22,799 --> 00:17:28,980
+then we string partition
+
+303
+00:17:26,640 --> 00:17:31,860
+oh yeah so this string partition here
+
+304
+00:17:28,980 --> 00:17:35,640
+this needs this part the first argument
+
+305
+00:17:31,860 --> 00:17:37,320
+needs to be a function remember so the
+
+306
+00:17:35,640 --> 00:17:40,200
+function since you are using the
+
+307
+00:17:37,320 --> 00:17:43,080
+Ampersand Ampersand whatever previous
+
+308
+00:17:40,200 --> 00:17:46,860
+mix that a function or Lambda function
+
+309
+00:17:43,080 --> 00:17:49,679
+and the the pound sign is a shortcut to
+
+310
+00:17:46,860 --> 00:17:51,960
+stand for the argument so
+
+311
+00:17:49,679 --> 00:17:53,460
+this string partition
+
+312
+00:17:51,960 --> 00:17:56,940
+uh
+
+313
+00:17:53,460 --> 00:18:00,360
+is a function okay yeah so now let's
+
+314
+00:17:56,940 --> 00:18:03,140
+let's do it again
+
+315
+00:18:00,360 --> 00:18:03,140
+copy it
+
+316
+00:18:03,419 --> 00:18:07,280
+paste run it
+
+317
+00:18:07,980 --> 00:18:15,380
+that's what we want you see now we do
+
+318
+00:18:11,039 --> 00:18:15,380
+have empty elements for example
+
+319
+00:18:15,660 --> 00:18:24,539
+I'll put 19 show it in input form okay
+
+320
+00:18:19,940 --> 00:18:26,760
+slash slash is a like the Unix pipe it's
+
+321
+00:18:24,539 --> 00:18:31,200
+a post fixed notation so you see we got
+
+322
+00:18:26,760 --> 00:18:34,460
+empty strings so we need to remove that
+
+323
+00:18:31,200 --> 00:18:34,460
+Okay so
+
+324
+00:18:35,039 --> 00:18:41,820
+so X six
+
+325
+00:18:37,440 --> 00:18:45,240
+remove the empty string so uh again you
+
+326
+00:18:41,820 --> 00:18:47,760
+need to map and what what is the
+
+327
+00:18:45,240 --> 00:18:48,780
+function you need to use
+
+328
+00:18:47,760 --> 00:18:51,660
+um
+
+329
+00:18:48,780 --> 00:18:52,679
+you don't need the parentheses so you
+
+330
+00:18:51,660 --> 00:18:56,600
+want to
+
+331
+00:18:52,679 --> 00:18:56,600
+delete cases okay
+
+332
+00:19:07,080 --> 00:19:14,280
+delete cases take a list okay
+
+333
+00:19:10,440 --> 00:19:18,080
+uh take a list so that is our argument
+
+334
+00:19:14,280 --> 00:19:18,080
+for each of the line
+
+335
+00:19:18,860 --> 00:19:25,320
+then the what do you want to delete
+
+336
+00:19:21,539 --> 00:19:30,440
+empty string okay that we are deleted
+
+337
+00:19:25,320 --> 00:19:30,440
+and let's try it so here should be X5
+
+338
+00:19:34,500 --> 00:19:42,360
+fantastic okay now once we delete so so
+
+339
+00:19:39,179 --> 00:19:44,460
+so far this represent the stack and we
+
+340
+00:19:42,360 --> 00:19:47,460
+need to remove that one two three
+
+341
+00:19:44,460 --> 00:19:50,600
+because you know that that is just a
+
+342
+00:19:47,460 --> 00:19:50,600
+indicator so
+
+343
+00:19:50,780 --> 00:19:59,039
+X7 uh
+
+344
+00:19:53,820 --> 00:20:01,640
+okay so actually so I don't need that so
+
+345
+00:19:59,039 --> 00:20:01,640
+drop
+
+346
+00:20:04,799 --> 00:20:10,440
+it takes two arguments the first
+
+347
+00:20:07,500 --> 00:20:13,440
+argument is the argument I mean is a
+
+348
+00:20:10,440 --> 00:20:18,020
+list and you want to drop the first item
+
+349
+00:20:13,440 --> 00:20:18,020
+okay so that's how you do it
+
+350
+00:20:19,380 --> 00:20:23,940
+now you want to drop the last item so
+
+351
+00:20:22,080 --> 00:20:27,380
+not first
+
+352
+00:20:23,940 --> 00:20:27,380
+so let's do it again
+
+353
+00:20:30,660 --> 00:20:38,340
+fantastic this is this represents the
+
+354
+00:20:33,780 --> 00:20:38,340
+stack NZ DCM
+
+355
+00:20:40,440 --> 00:20:48,780
+oh oh we forgot the step we forgot the
+
+356
+00:20:46,260 --> 00:20:52,140
+yeah so right now they are rows they are
+
+357
+00:20:48,780 --> 00:20:55,799
+you know so you can see zmp
+
+358
+00:20:52,140 --> 00:20:57,900
+zmp we forgot to do the transposition so
+
+359
+00:20:55,799 --> 00:20:58,940
+we need to do the transposition before
+
+360
+00:20:57,900 --> 00:21:04,520
+we
+
+361
+00:20:58,940 --> 00:21:04,520
+do the delete cases the empty string so
+
+362
+00:21:05,100 --> 00:21:07,220
+um
+
+363
+00:21:13,799 --> 00:21:22,080
+so I think you do the transposition
+
+364
+00:21:17,700 --> 00:21:24,480
+transpose okay not plot range trends
+
+365
+00:21:22,080 --> 00:21:26,820
+pose okay
+
+366
+00:21:24,480 --> 00:21:28,919
+yeah so you just say
+
+367
+00:21:26,820 --> 00:21:30,900
+let's put it here
+
+368
+00:21:28,919 --> 00:21:31,919
+so that we don't have to change all the
+
+369
+00:21:30,900 --> 00:21:35,159
+variable
+
+370
+00:21:31,919 --> 00:21:38,340
+so transpose takes a square
+
+371
+00:21:35,159 --> 00:21:41,220
+Matrix which is at least at least then
+
+372
+00:21:38,340 --> 00:21:45,320
+rows becomes columns okay
+
+373
+00:21:41,220 --> 00:21:45,320
+so let's try that X3
+
+374
+00:21:46,980 --> 00:21:51,679
+that's right you see that is what we
+
+375
+00:21:49,500 --> 00:21:51,679
+want
+
+376
+00:21:52,380 --> 00:22:00,360
+and now you can remove all the brackets
+
+377
+00:21:55,280 --> 00:22:02,840
+okay then you delete
+
+378
+00:22:00,360 --> 00:22:06,720
+you delete cases
+
+379
+00:22:02,840 --> 00:22:11,640
+uh yeah you remove the empty lines
+
+380
+00:22:06,720 --> 00:22:14,700
+then you you want to drop the last item
+
+381
+00:22:11,640 --> 00:22:18,240
+Okay so
+
+382
+00:22:14,700 --> 00:22:20,220
+in fact we can drop the last item before
+
+383
+00:22:18,240 --> 00:22:23,299
+we do transpose
+
+384
+00:22:20,220 --> 00:22:23,299
+so here
+
+385
+00:22:23,820 --> 00:22:31,260
+so here we want to add a function here
+
+386
+00:22:27,720 --> 00:22:36,000
+and apply it to that to that so the
+
+387
+00:22:31,260 --> 00:22:39,900
+function will be this drop okay at the
+
+388
+00:22:36,000 --> 00:22:42,299
+add Ampersand to make a function and the
+
+389
+00:22:39,900 --> 00:22:45,900
+pound sign stand for the argument so
+
+390
+00:22:42,299 --> 00:22:49,980
+this line it works like U map string
+
+391
+00:22:45,900 --> 00:22:52,400
+trim to X3 then you apply this function
+
+392
+00:22:49,980 --> 00:22:55,919
+drop
+
+393
+00:22:52,400 --> 00:22:57,720
+to to drop the row
+
+394
+00:22:55,919 --> 00:23:01,080
+one two three
+
+395
+00:22:57,720 --> 00:23:03,320
+then you do transpose okay so let's test
+
+396
+00:23:01,080 --> 00:23:03,320
+that
+
+397
+00:23:09,539 --> 00:23:18,059
+that's right you see NZ DCM p n z d c m
+
+398
+00:23:14,640 --> 00:23:21,179
+p yeah so
+
+399
+00:23:18,059 --> 00:23:25,440
+and now we remove the brackets okay
+
+400
+00:23:21,179 --> 00:23:29,159
+remove the brackets and now we
+
+401
+00:23:25,440 --> 00:23:34,320
+delete the cases empty string okay so
+
+402
+00:23:29,159 --> 00:23:36,720
+basically we so what is this X4 so X5
+
+403
+00:23:34,320 --> 00:23:38,100
+and X6
+
+404
+00:23:36,720 --> 00:23:40,640
+try it
+
+405
+00:23:38,100 --> 00:23:45,179
+fantastic NZ
+
+406
+00:23:40,640 --> 00:23:49,799
+dcmp nzdcmp so we got our stack
+
+407
+00:23:45,179 --> 00:23:51,360
+okay so let's shrink the lines so let's
+
+408
+00:23:49,799 --> 00:23:53,760
+shrink the lines
+
+409
+00:23:51,360 --> 00:23:55,620
+okay so that's a bunch of lines we don't
+
+410
+00:23:53,760 --> 00:23:58,799
+need you know we can make it into one
+
+411
+00:23:55,620 --> 00:24:00,840
+line like yesterday but let's not
+
+412
+00:23:58,799 --> 00:24:04,080
+so remove that
+
+413
+00:24:00,840 --> 00:24:05,760
+so now we need to apply this English
+
+414
+00:24:04,080 --> 00:24:07,860
+procedure
+
+415
+00:24:05,760 --> 00:24:09,059
+to our stack
+
+416
+00:24:07,860 --> 00:24:13,500
+so
+
+417
+00:24:09,059 --> 00:24:18,360
+what we can do is we first of all we
+
+418
+00:24:13,500 --> 00:24:21,720
+extract we remove the move from two you
+
+419
+00:24:18,360 --> 00:24:24,720
+know things like that remove them so
+
+420
+00:24:21,720 --> 00:24:28,500
+so we just want a list of numbers okay
+
+421
+00:24:24,720 --> 00:24:31,260
+so one two one three one three two two
+
+422
+00:24:28,500 --> 00:24:33,740
+one one one two things like that so
+
+423
+00:24:31,260 --> 00:24:33,740
+first of all
+
+424
+00:24:34,919 --> 00:24:42,600
+string replace okay takes two arguments
+
+425
+00:24:39,059 --> 00:24:44,880
+the first argument is the meet the
+
+426
+00:24:42,600 --> 00:24:49,320
+second argument is how you want it to
+
+427
+00:24:44,880 --> 00:24:53,460
+replace so we want to replace by
+
+428
+00:24:49,320 --> 00:24:56,700
+okay let's just type it so we want to
+
+429
+00:24:53,460 --> 00:24:59,220
+replace move
+
+430
+00:24:56,700 --> 00:25:01,200
+space
+
+431
+00:24:59,220 --> 00:25:03,120
+to
+
+432
+00:25:01,200 --> 00:25:07,980
+empty
+
+433
+00:25:03,120 --> 00:25:12,120
+empty string okay that's one thing
+
+434
+00:25:07,980 --> 00:25:15,299
+then second thing third thing the second
+
+435
+00:25:12,120 --> 00:25:20,039
+thing is gonna be form
+
+436
+00:25:15,299 --> 00:25:24,179
+space form space okay to empty then
+
+437
+00:25:20,039 --> 00:25:28,640
+space two space to empty okay so let's
+
+438
+00:25:24,179 --> 00:25:28,640
+see let's say X7 okay
+
+439
+00:25:35,039 --> 00:25:41,120
+oh and what is uh yeah so let's try it
+
+440
+00:25:38,940 --> 00:25:46,620
+fantastic
+
+441
+00:25:41,120 --> 00:25:48,659
+X7 pivot 2 input form so we can see the
+
+442
+00:25:46,620 --> 00:25:49,860
+quote there it is
+
+443
+00:25:48,659 --> 00:25:53,580
+okay
+
+444
+00:25:49,860 --> 00:25:57,240
+so actually we should leave the space
+
+445
+00:25:53,580 --> 00:25:59,340
+so that we can string split
+
+446
+00:25:57,240 --> 00:26:00,720
+yeah let's leave the space okay leave
+
+447
+00:25:59,340 --> 00:26:03,679
+one space
+
+448
+00:26:00,720 --> 00:26:03,679
+so move
+
+449
+00:26:05,720 --> 00:26:12,240
+so we want to remove the move space yeah
+
+450
+00:26:09,360 --> 00:26:13,559
+then
+
+451
+00:26:12,240 --> 00:26:17,700
+form
+
+452
+00:26:13,559 --> 00:26:20,960
+okay then and then let's do that okay
+
+453
+00:26:17,700 --> 00:26:20,960
+let's try it again
+
+454
+00:26:21,659 --> 00:26:29,480
+okay that's that's
+
+455
+00:26:24,600 --> 00:26:29,480
+you know that's uh so for example
+
+456
+00:26:34,919 --> 00:26:39,360
+any guys watching comments okay so we
+
+457
+00:26:37,440 --> 00:26:42,779
+got that very nice
+
+458
+00:26:39,360 --> 00:26:44,600
+one to one yeah very nice now we just do
+
+459
+00:26:42,779 --> 00:26:50,659
+X8
+
+460
+00:26:44,600 --> 00:26:50,659
+equals to we want to split string again
+
+461
+00:26:56,340 --> 00:27:03,240
+okay two arguments the first one is X7
+
+462
+00:27:00,779 --> 00:27:06,539
+and how do you want to split you just
+
+463
+00:27:03,240 --> 00:27:10,520
+want to split by space by default that
+
+464
+00:27:06,539 --> 00:27:10,520
+that is split by space
+
+465
+00:27:11,820 --> 00:27:18,260
+okay so we got a list of least
+
+466
+00:27:14,460 --> 00:27:22,380
+so each one of the element the sublist
+
+467
+00:27:18,260 --> 00:27:23,940
+represents a procedure okay
+
+468
+00:27:22,380 --> 00:27:27,960
+uh
+
+469
+00:27:23,940 --> 00:27:30,659
+so for example let's take uh this the
+
+470
+00:27:27,960 --> 00:27:34,260
+first one one two one you know this one
+
+471
+00:27:30,659 --> 00:27:37,340
+two one so that means
+
+472
+00:27:34,260 --> 00:27:37,340
+that means
+
+473
+00:27:39,299 --> 00:27:47,220
+pop from stack two
+
+474
+00:27:42,000 --> 00:27:49,679
+pop one item out then add that item to
+
+475
+00:27:47,220 --> 00:27:51,960
+stack number one
+
+476
+00:27:49,679 --> 00:27:54,720
+and do this
+
+477
+00:27:51,960 --> 00:27:56,700
+one times okay
+
+478
+00:27:54,720 --> 00:28:03,200
+Okay so
+
+479
+00:27:56,700 --> 00:28:03,200
+so a X8 will be let's name them uh
+
+480
+00:28:06,539 --> 00:28:11,640
+procedure
+
+481
+00:28:08,760 --> 00:28:14,039
+uh gist okay
+
+482
+00:28:11,640 --> 00:28:16,860
+so
+
+483
+00:28:14,039 --> 00:28:20,159
+so that's just a list of numbers you
+
+484
+00:28:16,860 --> 00:28:22,860
+know it's a list of three numbers now we
+
+485
+00:28:20,159 --> 00:28:27,120
+are going to write a function that takes
+
+486
+00:28:22,860 --> 00:28:30,059
+these These are three numbers as input
+
+487
+00:28:27,120 --> 00:28:31,020
+then we just apply this function to our
+
+488
+00:28:30,059 --> 00:28:33,539
+stack
+
+489
+00:28:31,020 --> 00:28:37,380
+you know to our to to the
+
+490
+00:28:33,539 --> 00:28:38,520
+to the to this to the stacks we created
+
+491
+00:28:37,380 --> 00:28:41,220
+there
+
+492
+00:28:38,520 --> 00:28:43,380
+then we got the result okay let's write
+
+493
+00:28:41,220 --> 00:28:46,080
+a procedure the procedure is going to be
+
+494
+00:28:43,380 --> 00:28:48,480
+something like that we did yesterday so
+
+495
+00:28:46,080 --> 00:28:51,419
+in Python it's very easy
+
+496
+00:28:48,480 --> 00:28:55,140
+but because Wolfram language do not have
+
+497
+00:28:51,419 --> 00:28:56,340
+drop and push for at least
+
+498
+00:28:55,140 --> 00:28:58,620
+so
+
+499
+00:28:56,340 --> 00:29:03,740
+so let me explain this one okay so
+
+500
+00:28:58,620 --> 00:29:03,740
+yesterday we did uh let's see python
+
+501
+00:29:04,620 --> 00:29:11,279
+so for example here is the example in
+
+502
+00:29:07,500 --> 00:29:14,700
+Python all you have to do for X in range
+
+503
+00:29:11,279 --> 00:29:16,740
+one to p p is the first
+
+504
+00:29:14,700 --> 00:29:20,220
+how many times move
+
+505
+00:29:16,740 --> 00:29:24,960
+you know to do it so for range exiting
+
+506
+00:29:20,220 --> 00:29:29,340
+A2 1 to P you just stack list and Dot
+
+507
+00:29:24,960 --> 00:29:31,740
+push then stack list m dot pop so you
+
+508
+00:29:29,340 --> 00:29:35,460
+know here is the move p number of times
+
+509
+00:29:31,740 --> 00:29:39,059
+from M to n
+
+510
+00:29:35,460 --> 00:29:42,059
+so in Python that's what you have to do
+
+511
+00:29:39,059 --> 00:29:46,320
+so you just write a function that takes
+
+512
+00:29:42,059 --> 00:29:48,600
+p m n okay so we are doing we are going
+
+513
+00:29:46,320 --> 00:29:51,539
+to do the same thing
+
+514
+00:29:48,600 --> 00:29:56,899
+but in Wolfram language
+
+515
+00:29:51,539 --> 00:29:56,899
+pop you know let me write this out
+
+516
+00:30:00,059 --> 00:30:04,799
+okay I already returned yesterday so
+
+517
+00:30:02,100 --> 00:30:07,260
+push and pop in Wolfram language now
+
+518
+00:30:04,799 --> 00:30:08,820
+there is no direct analog of push and
+
+519
+00:30:07,260 --> 00:30:12,840
+pop
+
+520
+00:30:08,820 --> 00:30:15,360
+by the way pop means takes at least
+
+521
+00:30:12,840 --> 00:30:18,240
+pop that at least means return the first
+
+522
+00:30:15,360 --> 00:30:20,580
+element of the list but also drop that
+
+523
+00:30:18,240 --> 00:30:23,760
+element from the list in the variable
+
+524
+00:30:20,580 --> 00:30:27,659
+and Save in a variable so there's no
+
+525
+00:30:23,760 --> 00:30:31,380
+direct analog in from language of Pop
+
+526
+00:30:27,659 --> 00:30:33,840
+however what you do is you do first that
+
+527
+00:30:31,380 --> 00:30:37,559
+extract the first element then you call
+
+528
+00:30:33,840 --> 00:30:40,620
+drop that remove the first element in a
+
+529
+00:30:37,559 --> 00:30:42,840
+list then you call set because we from
+
+530
+00:30:40,620 --> 00:30:45,179
+language is a functional language so
+
+531
+00:30:42,840 --> 00:30:47,100
+whenever you do something to a list it
+
+532
+00:30:45,179 --> 00:30:49,860
+doesn't change nothing
+
+533
+00:30:47,100 --> 00:30:53,100
+if you want to change the list variable
+
+534
+00:30:49,860 --> 00:30:56,820
+that that stores the list you have to
+
+535
+00:30:53,100 --> 00:31:00,179
+reset it back to the list just like lisp
+
+536
+00:30:56,820 --> 00:31:03,419
+this also works this way except in this
+
+537
+00:31:00,179 --> 00:31:05,460
+you do have push and pop because this is
+
+538
+00:31:03,419 --> 00:31:07,260
+based on linked list
+
+539
+00:31:05,460 --> 00:31:10,440
+so in Wolfram language you don't have
+
+540
+00:31:07,260 --> 00:31:13,260
+that so you so we know you know the
+
+541
+00:31:10,440 --> 00:31:15,779
+operation pop is equivalent to these
+
+542
+00:31:13,260 --> 00:31:19,100
+three operations that's why
+
+543
+00:31:15,779 --> 00:31:22,620
+yesterday we went into a tangent about
+
+544
+00:31:19,100 --> 00:31:24,000
+90 minutes on how to implement stack
+
+545
+00:31:22,620 --> 00:31:27,120
+efficiently
+
+546
+00:31:24,000 --> 00:31:29,820
+now the way I'm going to do it here now
+
+547
+00:31:27,120 --> 00:31:33,659
+is not efficient you know meaning that
+
+548
+00:31:29,820 --> 00:31:36,960
+if you you have 1 million Stacks each
+
+549
+00:31:33,659 --> 00:31:39,240
+stack has 1 million items
+
+550
+00:31:36,960 --> 00:31:42,059
+so when when you have that situation in
+
+551
+00:31:39,240 --> 00:31:45,000
+real life you know process Twitter
+
+552
+00:31:42,059 --> 00:31:48,059
+input up you know that's not efficient
+
+553
+00:31:45,000 --> 00:31:51,059
+but for this toy problem even 10 000
+
+554
+00:31:48,059 --> 00:31:53,039
+input ten thousand eight Stacks that's
+
+555
+00:31:51,059 --> 00:31:55,559
+not not a problem it's gonna be done in
+
+556
+00:31:53,039 --> 00:31:59,220
+one second okay but so let's just
+
+557
+00:31:55,559 --> 00:32:02,580
+quickly finish this then we go on to
+
+558
+00:31:59,220 --> 00:32:05,640
+about Implement implementing a efficient
+
+559
+00:32:02,580 --> 00:32:07,620
+stack in Python in JavaScript in Wolfram
+
+560
+00:32:05,640 --> 00:32:10,260
+language to see there's any actual
+
+561
+00:32:07,620 --> 00:32:12,720
+difference you know how many
+
+562
+00:32:10,260 --> 00:32:14,279
+how many stack items let's say one
+
+563
+00:32:12,720 --> 00:32:17,580
+million does it actually make a
+
+564
+00:32:14,279 --> 00:32:19,380
+difference you know let's check okay but
+
+565
+00:32:17,580 --> 00:32:21,240
+first of all let's write this simple
+
+566
+00:32:19,380 --> 00:32:25,140
+thing
+
+567
+00:32:21,240 --> 00:32:28,620
+so do so in order to do this in one step
+
+568
+00:32:25,140 --> 00:32:33,000
+I mean if we're gonna do this so
+
+569
+00:32:28,620 --> 00:32:34,500
+move p number of items from stack M to
+
+570
+00:32:33,000 --> 00:32:36,840
+Stack n
+
+571
+00:32:34,500 --> 00:32:38,820
+okay I don't like the M and N because
+
+572
+00:32:36,840 --> 00:32:42,020
+they uh
+
+573
+00:32:38,820 --> 00:32:42,020
+uh they they
+
+574
+00:32:44,100 --> 00:32:51,600
+let's change should we let's
+
+575
+00:32:47,580 --> 00:32:52,919
+okay let's use M and
+
+576
+00:32:51,600 --> 00:32:56,539
+n
+
+577
+00:32:52,919 --> 00:32:56,539
+mountain and uh
+
+578
+00:32:56,940 --> 00:32:59,480
+no
+
+579
+00:33:00,360 --> 00:33:05,340
+so far so good how is going Craig and
+
+580
+00:33:02,880 --> 00:33:10,679
+Doc where are you from the Greg and dog
+
+581
+00:33:05,340 --> 00:33:14,039
+report age sex location so I get to know
+
+582
+00:33:10,679 --> 00:33:15,659
+you like you know roughly you are 10 you
+
+583
+00:33:14,039 --> 00:33:18,720
+are 20 something you are 30 something
+
+584
+00:33:15,659 --> 00:33:21,740
+you are probably young people I mean you
+
+585
+00:33:18,720 --> 00:33:21,740
+are probably a young guy
+
+586
+00:33:22,500 --> 00:33:25,279
+God
+
+587
+00:33:27,779 --> 00:33:30,740
+apple juice
+
+588
+00:33:35,059 --> 00:33:41,720
+and tea okay fantastic
+
+589
+00:33:39,059 --> 00:33:41,720
+uh
+
+590
+00:33:42,299 --> 00:33:44,659
+okay
+
+591
+00:33:48,380 --> 00:33:54,360
+procedure numbers okay let's name that
+
+592
+00:33:51,659 --> 00:33:57,559
+procedure numbers
+
+593
+00:33:54,360 --> 00:34:02,220
+um so this is
+
+594
+00:33:57,559 --> 00:34:05,399
+let's document its document a little bit
+
+595
+00:34:02,220 --> 00:34:08,720
+so that people watching these
+
+596
+00:34:05,399 --> 00:34:08,720
+kind of have a sense
+
+597
+00:34:10,800 --> 00:34:15,599
+okay
+
+598
+00:34:12,599 --> 00:34:19,260
+and X7
+
+599
+00:34:15,599 --> 00:34:24,619
+let's say what is X7
+
+600
+00:34:19,260 --> 00:34:24,619
+X7 is like that okay let's copy that
+
+601
+00:34:30,540 --> 00:34:36,000
+so people know what's going on here
+
+602
+00:34:34,200 --> 00:34:41,000
+uh
+
+603
+00:34:36,000 --> 00:34:41,000
+yeah and X6 let's do X6
+
+604
+00:34:41,940 --> 00:34:46,460
+okay
+
+605
+00:34:43,560 --> 00:34:46,460
+copy that
+
+606
+00:34:47,639 --> 00:34:55,320
+so it's clear okay so that's X6 is
+
+607
+00:34:51,659 --> 00:34:58,560
+Stacks X7 is the
+
+608
+00:34:55,320 --> 00:35:02,220
+list of strings then procedure numbers
+
+609
+00:34:58,560 --> 00:35:05,900
+X8 is this okay
+
+610
+00:35:02,220 --> 00:35:05,900
+uh then
+
+611
+00:35:06,420 --> 00:35:11,400
+then we write a function yeah so what
+
+612
+00:35:09,540 --> 00:35:16,740
+the function do
+
+613
+00:35:11,400 --> 00:35:21,300
+so you first item is you take the first
+
+614
+00:35:16,740 --> 00:35:26,300
+item of list of stacks of M
+
+615
+00:35:21,300 --> 00:35:26,300
+then for the list of stacks of M
+
+616
+00:35:26,660 --> 00:35:31,740
+stack U
+
+617
+00:35:29,339 --> 00:35:35,160
+drop it
+
+618
+00:35:31,740 --> 00:35:40,380
+yeah you drop it
+
+619
+00:35:35,160 --> 00:35:44,579
+drop the first item then assign it back
+
+620
+00:35:40,380 --> 00:35:47,119
+and for the nth item you prepend which
+
+621
+00:35:44,579 --> 00:35:47,119
+is push
+
+622
+00:35:47,520 --> 00:35:51,300
+okay
+
+623
+00:35:48,660 --> 00:35:54,000
+you push the first item so the first
+
+624
+00:35:51,300 --> 00:35:55,680
+item can you don't need a variable there
+
+625
+00:35:54,000 --> 00:35:59,480
+so
+
+626
+00:35:55,680 --> 00:35:59,480
+let's let's just write it
+
+627
+00:36:03,300 --> 00:36:07,380
+you don't you don't need a variable
+
+628
+00:36:04,859 --> 00:36:08,339
+there so but you need to reverse the
+
+629
+00:36:07,380 --> 00:36:12,320
+order
+
+630
+00:36:08,339 --> 00:36:12,320
+you need to do this first
+
+631
+00:36:13,339 --> 00:36:19,980
+okay so we can be getting
+
+632
+00:36:17,220 --> 00:36:23,520
+hope you guys see what I'm doing so you
+
+633
+00:36:19,980 --> 00:36:26,180
+see that's that's kind of simpler
+
+634
+00:36:23,520 --> 00:36:26,180
+so
+
+635
+00:36:26,220 --> 00:36:33,660
+so for the stack in
+
+636
+00:36:29,400 --> 00:36:37,560
+you have to assign it by prepending it
+
+637
+00:36:33,660 --> 00:36:40,200
+uh an item from M the first item then
+
+638
+00:36:37,560 --> 00:36:42,540
+for the stack M you drop it drop the
+
+639
+00:36:40,200 --> 00:36:44,880
+first item okay so that that is what you
+
+640
+00:36:42,540 --> 00:36:48,300
+have to do
+
+641
+00:36:44,880 --> 00:36:50,820
+and you have to do these P times okay so
+
+642
+00:36:48,300 --> 00:36:54,900
+now let's write a function that takes
+
+643
+00:36:50,820 --> 00:36:57,500
+the argument n m p just to do this okay
+
+644
+00:36:54,900 --> 00:36:57,500
+so
+
+645
+00:37:01,740 --> 00:37:07,920
+so how do you call this move
+
+646
+00:37:04,980 --> 00:37:12,240
+okay let's just say move
+
+647
+00:37:07,920 --> 00:37:14,880
+okay move f move that's a function
+
+648
+00:37:12,240 --> 00:37:16,260
+so the function body will basically be
+
+649
+00:37:14,880 --> 00:37:21,140
+that
+
+650
+00:37:16,260 --> 00:37:21,140
+okay uh f move
+
+651
+00:37:22,680 --> 00:37:28,619
+okay something like that so f move takes
+
+652
+00:37:26,280 --> 00:37:31,160
+three arguments okay
+
+653
+00:37:28,619 --> 00:37:31,160
+p
+
+654
+00:37:31,800 --> 00:37:34,160
+p
+
+655
+00:37:34,260 --> 00:37:38,240
+m
+
+656
+00:37:35,820 --> 00:37:38,240
+n
+
+657
+00:37:42,060 --> 00:37:44,599
+okay
+
+658
+00:37:46,560 --> 00:37:53,760
+now by the way this is a procedural
+
+659
+00:37:50,900 --> 00:37:56,579
+programming style which is not
+
+660
+00:37:53,760 --> 00:37:59,099
+recommended in Wolfram language you know
+
+661
+00:37:56,579 --> 00:38:02,579
+this these two whenever you you know
+
+662
+00:37:59,099 --> 00:38:06,599
+typically you never used to
+
+663
+00:38:02,579 --> 00:38:09,359
+so so I can do it you know I can
+
+664
+00:38:06,599 --> 00:38:11,700
+I can use a functional style to do this
+
+665
+00:38:09,359 --> 00:38:14,780
+but let's push on you know we don't want
+
+666
+00:38:11,700 --> 00:38:14,780
+to end up three hours
+
+667
+00:38:15,300 --> 00:38:20,040
+so this function
+
+668
+00:38:17,640 --> 00:38:22,920
+is using pattern matching
+
+669
+00:38:20,040 --> 00:38:25,260
+so this this definition means whenever
+
+670
+00:38:22,920 --> 00:38:28,619
+Wolfram language sees something like
+
+671
+00:38:25,260 --> 00:38:32,640
+that f move square bracket
+
+672
+00:38:28,619 --> 00:38:35,119
+curly braces then three items then it
+
+673
+00:38:32,640 --> 00:38:37,800
+will automatically replace that
+
+674
+00:38:35,119 --> 00:38:39,000
+symbiotic sequence
+
+675
+00:38:37,800 --> 00:38:42,780
+by
+
+676
+00:38:39,000 --> 00:38:45,780
+this symbolic sequence and execute that
+
+677
+00:38:42,780 --> 00:38:49,560
+symbolic sequence this is what timely
+
+678
+00:38:45,780 --> 00:38:53,160
+writing means or in this
+
+679
+00:38:49,560 --> 00:38:54,240
+if you are familiar with this this is
+
+680
+00:38:53,160 --> 00:38:57,180
+um
+
+681
+00:38:54,240 --> 00:38:59,820
+if you are familiar with this this is a
+
+682
+00:38:57,180 --> 00:39:01,140
+macro you know this is actually at least
+
+683
+00:38:59,820 --> 00:39:02,940
+macro
+
+684
+00:39:01,140 --> 00:39:05,160
+you know these people don't know but
+
+685
+00:39:02,940 --> 00:39:08,520
+this is this is a
+
+686
+00:39:05,160 --> 00:39:12,060
+in fact is this macro okay
+
+687
+00:39:08,520 --> 00:39:13,320
+the very simple one just like this okay
+
+688
+00:39:12,060 --> 00:39:15,180
+so but
+
+689
+00:39:13,320 --> 00:39:18,420
+um
+
+690
+00:39:15,180 --> 00:39:20,640
+okay so when you define your
+
+691
+00:39:18,420 --> 00:39:22,500
+pattern like that usually you want to
+
+692
+00:39:20,640 --> 00:39:24,540
+say clear
+
+693
+00:39:22,500 --> 00:39:28,980
+because you might have defined other
+
+694
+00:39:24,540 --> 00:39:31,980
+markers or other rules for the f move
+
+695
+00:39:28,980 --> 00:39:34,380
+so you know when you define this it
+
+696
+00:39:31,980 --> 00:39:36,960
+doesn't override whatever previous it
+
+697
+00:39:34,380 --> 00:39:39,720
+just adds another rule so that's why you
+
+698
+00:39:36,960 --> 00:39:43,200
+is a good always a good idea to
+
+699
+00:39:39,720 --> 00:39:47,520
+uh do a clear first when you
+
+700
+00:39:43,200 --> 00:39:49,200
+use a pattern to define a function okay
+
+701
+00:39:47,520 --> 00:39:53,420
+so let's double check one more time
+
+702
+00:39:49,200 --> 00:39:53,420
+where is our list of stacks
+
+703
+00:39:55,280 --> 00:39:58,640
+let's see
+
+704
+00:40:02,520 --> 00:40:06,960
+yeah so
+
+705
+00:40:04,500 --> 00:40:10,520
+where uh
+
+706
+00:40:06,960 --> 00:40:10,520
+so list of stacks
+
+707
+00:40:12,720 --> 00:40:20,940
+yeah so let's let's name this f x 6 is
+
+708
+00:40:18,300 --> 00:40:23,339
+as list of stacks okay
+
+709
+00:40:20,940 --> 00:40:24,540
+so that's all these sub Stacks that's
+
+710
+00:40:23,339 --> 00:40:27,839
+right
+
+711
+00:40:24,540 --> 00:40:31,680
+okay then once we Define this function
+
+712
+00:40:27,839 --> 00:40:33,839
+all we have to do is call it we want to
+
+713
+00:40:31,680 --> 00:40:35,280
+X
+
+714
+00:40:33,839 --> 00:40:39,440
+answer
+
+715
+00:40:35,280 --> 00:40:39,440
+okay equals to
+
+716
+00:40:41,640 --> 00:40:46,859
+map a function
+
+717
+00:40:44,040 --> 00:40:50,760
+what you want to map it to you want to
+
+718
+00:40:46,859 --> 00:40:54,420
+map to this list of procedural procedure
+
+719
+00:40:50,760 --> 00:40:56,700
+numbers okay that's a list of
+
+720
+00:40:54,420 --> 00:40:59,160
+numbers like that
+
+721
+00:40:56,700 --> 00:41:03,660
+oh actually it's a string so let's
+
+722
+00:40:59,160 --> 00:41:07,680
+change those string into a number so you
+
+723
+00:41:03,660 --> 00:41:10,260
+have to do is say two expression
+
+724
+00:41:07,680 --> 00:41:14,760
+okay two expression
+
+725
+00:41:10,260 --> 00:41:18,180
+then we put this inside okay but you
+
+726
+00:41:14,760 --> 00:41:19,920
+know but but there's a simpler way to do
+
+727
+00:41:18,180 --> 00:41:24,119
+that
+
+728
+00:41:19,920 --> 00:41:27,839
+you can just say add sign remember SI is
+
+729
+00:41:24,119 --> 00:41:31,680
+a syntactical shortcut so instead of
+
+730
+00:41:27,839 --> 00:41:35,240
+writing F square bracket something you
+
+731
+00:41:31,680 --> 00:41:38,820
+can just say F add something
+
+732
+00:41:35,240 --> 00:41:42,320
+100 it's a syntactical shortcut in
+
+733
+00:41:38,820 --> 00:41:46,380
+Wolfram language now in classic lisp
+
+734
+00:41:42,320 --> 00:41:49,560
+McCarthy's lisp he have the idea this
+
+735
+00:41:46,380 --> 00:41:54,180
+synthetical shortcut he calls it meta
+
+736
+00:41:49,560 --> 00:41:56,359
+expression or m-e-x-p
+
+737
+00:41:54,180 --> 00:42:00,960
+that's the original
+
+738
+00:41:56,359 --> 00:42:03,119
+John McCarthy's this it's called meta
+
+739
+00:42:00,960 --> 00:42:06,180
+expression look up on Wikipedia you'll
+
+740
+00:42:03,119 --> 00:42:07,500
+find it okay so who from language is the
+
+741
+00:42:06,180 --> 00:42:10,400
+actual
+
+742
+00:42:07,500 --> 00:42:13,200
+the actual list that Implement
+
+743
+00:42:10,400 --> 00:42:16,980
+implemented that language that this meta
+
+744
+00:42:13,200 --> 00:42:19,380
+expression the other list didn't do this
+
+745
+00:42:16,980 --> 00:42:22,800
+they just have reader markers which is
+
+746
+00:42:19,380 --> 00:42:24,660
+somewhat similar but immature much
+
+747
+00:42:22,800 --> 00:42:27,540
+smaller scale
+
+748
+00:42:24,660 --> 00:42:30,839
+so so we can do that okay
+
+749
+00:42:27,540 --> 00:42:32,760
+so let's evaluate this again so we can
+
+750
+00:42:30,839 --> 00:42:37,320
+actually see it
+
+751
+00:42:32,760 --> 00:42:37,320
+okay now let's try X8
+
+752
+00:42:37,500 --> 00:42:43,320
+uh
+
+753
+00:42:39,359 --> 00:42:45,960
+okay now input form so you can actually
+
+754
+00:42:43,320 --> 00:42:49,200
+see there are numbers because you don't
+
+755
+00:42:45,960 --> 00:42:51,540
+see the double quote Okay so
+
+756
+00:42:49,200 --> 00:42:55,260
+so now copy that
+
+757
+00:42:51,540 --> 00:42:58,800
+and copy that and put it here
+
+758
+00:42:55,260 --> 00:43:00,960
+so it's no longer a string it's actual
+
+759
+00:42:58,800 --> 00:43:04,020
+numbers okay delete that
+
+760
+00:43:00,960 --> 00:43:07,079
+okay so procedural numbers
+
+761
+00:43:04,020 --> 00:43:09,420
+you want to map a function to
+
+762
+00:43:07,079 --> 00:43:13,220
+these procedural numbers and what this
+
+763
+00:43:09,420 --> 00:43:13,220
+function the function is f move
+
+764
+00:43:13,619 --> 00:43:20,540
+okay I think that's it so let's try this
+
+765
+00:43:16,920 --> 00:43:20,540
+let's just try this part
+
+766
+00:43:25,800 --> 00:43:28,800
+incorrect
+
+767
+00:43:32,579 --> 00:43:38,119
+pass specification
+
+768
+00:43:34,740 --> 00:43:38,119
+list of stacks
+
+769
+00:43:38,579 --> 00:43:42,660
+did we
+
+770
+00:43:40,020 --> 00:43:45,420
+um oh yeah we didn't Define it that's
+
+771
+00:43:42,660 --> 00:43:48,599
+right that's right piece of stacks you
+
+772
+00:43:45,420 --> 00:43:50,880
+see we change we renamed our X8 so now
+
+773
+00:43:48,599 --> 00:43:53,339
+we have to do it
+
+774
+00:43:50,880 --> 00:43:55,500
+so let's do it
+
+775
+00:43:53,339 --> 00:43:57,599
+copied it
+
+776
+00:43:55,500 --> 00:44:01,579
+paste here
+
+777
+00:43:57,599 --> 00:44:01,579
+run it run it
+
+778
+00:44:03,240 --> 00:44:11,700
+so far so good fantastic and let me show
+
+779
+00:44:06,599 --> 00:44:15,800
+you a extra trick you see this input
+
+780
+00:44:11,700 --> 00:44:15,800
+you see this this cell
+
+781
+00:44:16,560 --> 00:44:22,740
+you know this code we can make it look
+
+782
+00:44:19,380 --> 00:44:26,099
+prettier you see now notice this right
+
+783
+00:44:22,740 --> 00:44:28,560
+arrow Dash great and greater than equal
+
+784
+00:44:26,099 --> 00:44:31,619
+sign we can predify
+
+785
+00:44:28,560 --> 00:44:33,960
+that it will become an arrow and also
+
+786
+00:44:31,619 --> 00:44:36,780
+things like this double square bracket
+
+787
+00:44:33,960 --> 00:44:39,119
+okay so let me do it
+
+788
+00:44:36,780 --> 00:44:40,740
+Ctrl shift n
+
+789
+00:44:39,119 --> 00:44:43,740
+there it is
+
+790
+00:44:40,740 --> 00:44:46,440
+now this is another B format okay too
+
+791
+00:44:43,740 --> 00:44:49,319
+bad too bad it changed that into you
+
+792
+00:44:46,440 --> 00:44:51,359
+know it changed this part into that but
+
+793
+00:44:49,319 --> 00:44:54,119
+however you see
+
+794
+00:44:51,359 --> 00:44:56,280
+now this this means the first part the
+
+795
+00:44:54,119 --> 00:44:59,040
+first element of X1 this means the
+
+796
+00:44:56,280 --> 00:45:01,560
+second element you see and the arrows
+
+797
+00:44:59,040 --> 00:45:04,260
+becomes arrows
+
+798
+00:45:01,560 --> 00:45:07,380
+now if you have square roots or Square
+
+799
+00:45:04,260 --> 00:45:08,940
+or third power or square root nested
+
+800
+00:45:07,380 --> 00:45:11,400
+square root they become you know
+
+801
+00:45:08,940 --> 00:45:14,460
+mathematical formula or integration or
+
+802
+00:45:11,400 --> 00:45:18,780
+you know pretty
+
+803
+00:45:14,460 --> 00:45:21,480
+uh okay and also uh see the numbers the
+
+804
+00:45:18,780 --> 00:45:26,040
+number sign the pound sign the hash sign
+
+805
+00:45:21,480 --> 00:45:29,040
+they become hash one because the hash
+
+806
+00:45:26,040 --> 00:45:31,740
+is equivalent to Hash one which stands
+
+807
+00:45:29,040 --> 00:45:33,960
+for the first argument so if you have a
+
+808
+00:45:31,740 --> 00:45:37,319
+function of two arguments you then you
+
+809
+00:45:33,960 --> 00:45:38,339
+can say hash one hash two in whatever
+
+810
+00:45:37,319 --> 00:45:40,619
+order
+
+811
+00:45:38,339 --> 00:45:43,260
+you see remember this
+
+812
+00:45:40,619 --> 00:45:45,420
+this Ampersand is a shortcut to
+
+813
+00:45:43,260 --> 00:45:48,540
+represent a function
+
+814
+00:45:45,420 --> 00:45:52,099
+the the full form of writing a function
+
+815
+00:45:48,540 --> 00:45:52,099
+let me show you okay
+
+816
+00:45:52,400 --> 00:45:59,400
+let's say we want to write function of
+
+817
+00:45:55,740 --> 00:46:03,480
+adding one okay so first of all one
+
+818
+00:45:59,400 --> 00:46:06,000
+variable X and return
+
+819
+00:46:03,480 --> 00:46:08,460
+X plus one okay that's how you write a
+
+820
+00:46:06,000 --> 00:46:10,980
+function then you can assign it by F
+
+821
+00:46:08,460 --> 00:46:13,020
+something okay now
+
+822
+00:46:10,980 --> 00:46:15,420
+there's a shortcut for that
+
+823
+00:46:13,020 --> 00:46:19,579
+you can just say
+
+824
+00:46:15,420 --> 00:46:19,579
+uh let's let me do it okay
+
+825
+00:46:21,359 --> 00:46:27,359
+there that's the shortcut you see the
+
+826
+00:46:24,839 --> 00:46:30,480
+pound sign stands for the argument
+
+827
+00:46:27,359 --> 00:46:34,020
+and so this means the argument plus one
+
+828
+00:46:30,480 --> 00:46:38,099
+and that Ampersand just means whatever
+
+829
+00:46:34,020 --> 00:46:41,040
+whatever previous is a function
+
+830
+00:46:38,099 --> 00:46:44,400
+you know so you can put the parent there
+
+831
+00:46:41,040 --> 00:46:49,260
+but it's not necessary because the
+
+832
+00:46:44,400 --> 00:46:53,760
+operated precedence the equal has a
+
+833
+00:46:49,260 --> 00:46:56,280
+lower presidents so so this will become
+
+834
+00:46:53,760 --> 00:47:00,440
+one thing then you assign that thing to
+
+835
+00:46:56,280 --> 00:47:00,440
+F okay that's uh
+
+836
+00:47:00,480 --> 00:47:05,940
+explanation of the shortcut there are
+
+837
+00:47:03,060 --> 00:47:09,720
+many many more but I'm not going to go
+
+838
+00:47:05,940 --> 00:47:12,780
+over I have the
+
+839
+00:47:09,720 --> 00:47:14,960
+okay for those of you interested just go
+
+840
+00:47:12,780 --> 00:47:14,960
+to
+
+841
+00:47:15,260 --> 00:47:19,640
+Language tutorial you can find it by
+
+842
+00:47:18,480 --> 00:47:23,640
+searching
+
+843
+00:47:19,640 --> 00:47:29,099
+then you can just you can see all
+
+844
+00:47:23,640 --> 00:47:32,040
+syntax shortcuts or in lisp jargon The
+
+845
+00:47:29,099 --> 00:47:36,119
+Meta expression of Wolfram language you
+
+846
+00:47:32,040 --> 00:47:39,920
+can see all of them by
+
+847
+00:47:36,119 --> 00:47:39,920
+here okay so
+
+848
+00:47:40,500 --> 00:47:46,859
+Advanced symbol principles syntax there
+
+849
+00:47:44,339 --> 00:47:51,359
+you click on that I did a full video
+
+850
+00:47:46,859 --> 00:47:53,280
+talk on that so you can see explanation
+
+851
+00:47:51,359 --> 00:47:57,599
+of
+
+852
+00:47:53,280 --> 00:47:59,040
+the you see every possible syntactical
+
+853
+00:47:57,599 --> 00:48:02,040
+shortcut
+
+854
+00:47:59,040 --> 00:48:03,839
+also known as meta expression is listed
+
+855
+00:48:02,040 --> 00:48:06,180
+here
+
+856
+00:48:03,839 --> 00:48:08,220
+so you can see all of them so for
+
+857
+00:48:06,180 --> 00:48:11,760
+example the
+
+858
+00:48:08,220 --> 00:48:13,740
+the percent the percent sign actually
+
+859
+00:48:11,760 --> 00:48:17,099
+stands for out
+
+860
+00:48:13,740 --> 00:48:20,099
+out is like a function takes one
+
+861
+00:48:17,099 --> 00:48:21,839
+argument a number so out negative one
+
+862
+00:48:20,099 --> 00:48:23,460
+means the last
+
+863
+00:48:21,839 --> 00:48:26,700
+output
+
+864
+00:48:23,460 --> 00:48:29,280
+two percentage sign is a shortcut for
+
+865
+00:48:26,700 --> 00:48:31,260
+out negative two you know very
+
+866
+00:48:29,280 --> 00:48:34,440
+convenient so
+
+867
+00:48:31,260 --> 00:48:38,099
+again if you go back you see every input
+
+868
+00:48:34,440 --> 00:48:42,180
+output is the is is numbered
+
+869
+00:48:38,099 --> 00:48:44,220
+so this output is not just a display it
+
+870
+00:48:42,180 --> 00:48:48,300
+is actually assigned
+
+871
+00:48:44,220 --> 00:48:50,220
+to a function out square bracket 24.
+
+872
+00:48:48,300 --> 00:48:53,819
+you know that's that's the Wolfram
+
+873
+00:48:50,220 --> 00:48:57,540
+language okay so you know before we were
+
+874
+00:48:53,819 --> 00:49:00,839
+talking about function you see the slash
+
+875
+00:48:57,540 --> 00:49:04,880
+slash is a post-fixed notation so when
+
+876
+00:49:00,839 --> 00:49:08,940
+you have X slash slash F that stands for
+
+877
+00:49:04,880 --> 00:49:11,339
+f square bracket X okay so you have the
+
+878
+00:49:08,940 --> 00:49:15,060
+post-fix notation just like the Unix
+
+879
+00:49:11,339 --> 00:49:18,900
+pipe you also have a prefix notation
+
+880
+00:49:15,060 --> 00:49:22,560
+the add sign then you have the slash ad
+
+881
+00:49:18,900 --> 00:49:26,640
+which is which is equivalent hundred
+
+882
+00:49:22,560 --> 00:49:29,579
+percent equivalent to the map FX
+
+883
+00:49:26,640 --> 00:49:32,579
+and before we talked about function so
+
+884
+00:49:29,579 --> 00:49:34,020
+you also have function composition uh
+
+885
+00:49:32,579 --> 00:49:35,940
+for example before we talk about
+
+886
+00:49:34,020 --> 00:49:38,579
+function you see
+
+887
+00:49:35,940 --> 00:49:42,260
+the ampersand
+
+888
+00:49:38,579 --> 00:49:42,260
+sign it's magnify
+
+889
+00:49:45,060 --> 00:49:51,420
+you see prefix postfix you also have
+
+890
+00:49:48,660 --> 00:49:54,180
+infix then you have the pound sign
+
+891
+00:49:51,420 --> 00:49:56,640
+standing for the argument so the full
+
+892
+00:49:54,180 --> 00:49:59,400
+name the full form for the pound sign is
+
+893
+00:49:56,640 --> 00:50:01,859
+actually slot one
+
+894
+00:49:59,400 --> 00:50:05,400
+so you can say you can have also a pound
+
+895
+00:50:01,859 --> 00:50:08,700
+sign your number you know we we did that
+
+896
+00:50:05,400 --> 00:50:10,440
+okay so you know so this page is a
+
+897
+00:50:08,700 --> 00:50:13,920
+complete detail about the Wolfram
+
+898
+00:50:10,440 --> 00:50:16,680
+language syntax or The Meta syntax or
+
+899
+00:50:13,920 --> 00:50:18,960
+shortcut form you know you move from
+
+900
+00:50:16,680 --> 00:50:21,480
+language it's called input form
+
+901
+00:50:18,960 --> 00:50:24,180
+full form you know you can read it and
+
+902
+00:50:21,480 --> 00:50:27,300
+watch that video
+
+903
+00:50:24,180 --> 00:50:29,960
+go hit the gym I'm pretty fit
+
+904
+00:50:27,300 --> 00:50:29,960
+actually
+
+905
+00:50:30,180 --> 00:50:35,880
+so
+
+906
+00:50:32,220 --> 00:50:39,680
+so what is the next okay
+
+907
+00:50:35,880 --> 00:50:44,099
+so so far so good we so so far so good
+
+908
+00:50:39,680 --> 00:50:46,680
+yes then we just um
+
+909
+00:50:44,099 --> 00:50:48,839
+need to compute
+
+910
+00:50:46,680 --> 00:50:51,000
+these
+
+911
+00:50:48,839 --> 00:50:55,099
+let's try it
+
+912
+00:50:51,000 --> 00:50:55,099
+we Define the procedure
+
+913
+00:50:55,440 --> 00:51:01,380
+and uh
+
+914
+00:50:57,900 --> 00:51:04,200
+okay incorrect no
+
+915
+00:51:01,380 --> 00:51:07,800
+oh actually that's correct you see
+
+916
+00:51:04,200 --> 00:51:09,780
+because this procedure f move it doesn't
+
+917
+00:51:07,800 --> 00:51:11,940
+it doesn't actually return anything
+
+918
+00:51:09,780 --> 00:51:15,079
+because I put the same icon it doesn't
+
+919
+00:51:11,940 --> 00:51:18,180
+return anything like I said this is a
+
+920
+00:51:15,079 --> 00:51:21,000
+procedural programming
+
+921
+00:51:18,180 --> 00:51:23,579
+while in functional programming every
+
+922
+00:51:21,000 --> 00:51:27,180
+function always returns something you
+
+923
+00:51:23,579 --> 00:51:29,640
+need input output input applied to a
+
+924
+00:51:27,180 --> 00:51:31,800
+function to it return the output and use
+
+925
+00:51:29,640 --> 00:51:34,500
+the output that's how functional that's
+
+926
+00:51:31,800 --> 00:51:37,380
+the essence of functional programming
+
+927
+00:51:34,500 --> 00:51:41,099
+doesn't matter it's lisp Haskell wolfam
+
+928
+00:51:37,380 --> 00:51:44,780
+language erlan doesn't matter the what
+
+929
+00:51:41,099 --> 00:51:47,880
+what is the single most fundamental
+
+930
+00:51:44,780 --> 00:51:49,440
+criteria for functional programming
+
+931
+00:51:47,880 --> 00:51:51,780
+that would be
+
+932
+00:51:49,440 --> 00:51:55,140
+every computation
+
+933
+00:51:51,780 --> 00:51:56,940
+is done by a function call where you
+
+934
+00:51:55,140 --> 00:52:00,660
+take the input and you take the output
+
+935
+00:51:56,940 --> 00:52:03,119
+every computation okay if you don't do
+
+936
+00:52:00,660 --> 00:52:05,700
+that if you use you know if you your
+
+937
+00:52:03,119 --> 00:52:07,380
+function do things with side effects
+
+938
+00:52:05,700 --> 00:52:09,180
+such as here
+
+939
+00:52:07,380 --> 00:52:11,220
+you know you are doing something you
+
+940
+00:52:09,180 --> 00:52:13,020
+don't care about the return value for
+
+941
+00:52:11,220 --> 00:52:16,020
+example in JavaScript
+
+942
+00:52:13,020 --> 00:52:18,300
+often it's a case you take array then
+
+943
+00:52:16,020 --> 00:52:19,920
+you dot
+
+944
+00:52:18,300 --> 00:52:22,380
+for each
+
+945
+00:52:19,920 --> 00:52:24,359
+in Python you also have that or you use
+
+946
+00:52:22,380 --> 00:52:26,640
+the four you know four
+
+947
+00:52:24,359 --> 00:52:28,859
+in range something
+
+948
+00:52:26,640 --> 00:52:31,319
+you know you you don't actually care
+
+949
+00:52:28,859 --> 00:52:33,480
+about output you just want to do
+
+950
+00:52:31,319 --> 00:52:36,900
+something in a loop that's not
+
+951
+00:52:33,480 --> 00:52:39,240
+functional programming okay so in the
+
+952
+00:52:36,900 --> 00:52:41,520
+more pure a functional programming the
+
+953
+00:52:39,240 --> 00:52:44,040
+more or less of that so in fact Haskell
+
+954
+00:52:41,520 --> 00:52:46,079
+you don't have that at all
+
+955
+00:52:44,040 --> 00:52:48,059
+so anyway so here is a functional
+
+956
+00:52:46,079 --> 00:52:51,839
+procedure
+
+957
+00:52:48,059 --> 00:52:55,740
+but now we can check our stack to see if
+
+958
+00:52:51,839 --> 00:52:59,520
+it changed anything so our stack is here
+
+959
+00:52:55,740 --> 00:53:02,599
+so we just say the value of M
+
+960
+00:52:59,520 --> 00:53:04,220
+list of stacks let's see
+
+961
+00:53:02,599 --> 00:53:10,260
+fantastic
+
+962
+00:53:04,220 --> 00:53:13,400
+CMZ c m z n d p let's check if that
+
+963
+00:53:10,260 --> 00:53:13,400
+answer is correct
+
+964
+00:53:18,559 --> 00:53:24,420
+fantastic so success
+
+965
+00:53:22,260 --> 00:53:27,500
+okay
+
+966
+00:53:24,420 --> 00:53:31,859
+solved the problem number
+
+967
+00:53:27,500 --> 00:53:33,059
+you know day five number one okay so the
+
+968
+00:53:31,859 --> 00:53:36,980
+answer is
+
+969
+00:53:33,059 --> 00:53:36,980
+um let's modify these
+
+970
+00:53:38,579 --> 00:53:45,540
+we we call that function and the answer
+
+971
+00:53:42,240 --> 00:53:48,000
+is actually just
+
+972
+00:53:45,540 --> 00:53:50,520
+we don't need actually so it just
+
+973
+00:53:48,000 --> 00:53:52,680
+modified the list of stacks so that's
+
+974
+00:53:50,520 --> 00:53:56,160
+not functional programming which is not
+
+975
+00:53:52,680 --> 00:53:59,839
+good but because of this problem
+
+976
+00:53:56,160 --> 00:54:02,160
+you know it actually kind of requires
+
+977
+00:53:59,839 --> 00:54:06,559
+procedural programming because that's
+
+978
+00:54:02,160 --> 00:54:06,559
+what these instructions are
+
+979
+00:54:07,559 --> 00:54:15,660
+but can we do it in a functional way yes
+
+980
+00:54:10,859 --> 00:54:17,339
+by by not setting things so we so we
+
+981
+00:54:15,660 --> 00:54:19,500
+don't want to do push and we don't want
+
+982
+00:54:17,339 --> 00:54:22,980
+to do pop
+
+983
+00:54:19,500 --> 00:54:25,859
+instead instead when you do push or pop
+
+984
+00:54:22,980 --> 00:54:29,040
+you just want to want the function to
+
+985
+00:54:25,859 --> 00:54:31,319
+return the new thing and work on that
+
+986
+00:54:29,040 --> 00:54:33,240
+new thing you never change you never
+
+987
+00:54:31,319 --> 00:54:35,940
+change your value of a variable that's
+
+988
+00:54:33,240 --> 00:54:38,160
+functional programming okay but we we
+
+989
+00:54:35,940 --> 00:54:41,000
+already got lots of things on you know
+
+990
+00:54:38,160 --> 00:54:43,380
+we need to implement efficient way to do
+
+991
+00:54:41,000 --> 00:54:47,099
+pushing the
+
+992
+00:54:43,380 --> 00:54:48,180
+pop of efficient stack data structure so
+
+993
+00:54:47,099 --> 00:54:51,680
+let's
+
+994
+00:54:48,180 --> 00:54:51,680
+not worry too much about
+
+995
+00:54:52,200 --> 00:54:58,740
+these now okay so here is a solution
+
+996
+00:54:56,400 --> 00:55:01,700
+now we want to solve the real problem
+
+997
+00:54:58,740 --> 00:55:03,780
+okay so the real input so first of all
+
+998
+00:55:01,700 --> 00:55:05,040
+paste it here
+
+999
+00:55:03,780 --> 00:55:06,559
+okay
+
+1000
+00:55:05,040 --> 00:55:11,339
+and
+
+1001
+00:55:06,559 --> 00:55:14,640
+Ctrl shift n to make it pretty
+
+1002
+00:55:11,339 --> 00:55:18,359
+so now we just need to change this part
+
+1003
+00:55:14,640 --> 00:55:20,700
+to the real input okay let's get them
+
+1004
+00:55:18,359 --> 00:55:23,160
+pump this back
+
+1005
+00:55:20,700 --> 00:55:25,740
+and
+
+1006
+00:55:23,160 --> 00:55:29,700
+go to yesterday's talk show
+
+1007
+00:55:25,740 --> 00:55:29,700
+search for input
+
+1008
+00:55:30,660 --> 00:55:39,180
+so a domain of code so this is the input
+
+1009
+00:55:34,980 --> 00:55:42,960
+500 lines copy it
+
+1010
+00:55:39,180 --> 00:55:47,300
+back to roof and paste it okay now press
+
+1011
+00:55:42,960 --> 00:55:47,300
+shift enter you'll get the result
+
+1012
+00:55:48,059 --> 00:55:53,040
+oh we forgot to suppress the output so
+
+1013
+00:55:50,579 --> 00:55:55,220
+it's gonna be long okay so here is a
+
+1014
+00:55:53,040 --> 00:55:55,220
+result
+
+1015
+00:55:56,880 --> 00:56:02,640
+so what does it
+
+1016
+00:56:00,359 --> 00:56:04,859
+uh
+
+1017
+00:56:02,640 --> 00:56:06,000
+so here's the results
+
+1018
+00:56:04,859 --> 00:56:08,280
+um
+
+1019
+00:56:06,000 --> 00:56:10,440
+close that
+
+1020
+00:56:08,280 --> 00:56:13,079
+so but
+
+1021
+00:56:10,440 --> 00:56:15,960
+what does the what does it
+
+1022
+00:56:13,079 --> 00:56:19,079
+it need required results so you just
+
+1023
+00:56:15,960 --> 00:56:22,740
+conjoin you just join in the string so
+
+1024
+00:56:19,079 --> 00:56:25,380
+you need at least two string okay so
+
+1025
+00:56:22,740 --> 00:56:28,940
+this two string is easy so let's do it
+
+1026
+00:56:25,380 --> 00:56:28,940
+cool fan language
+
+1027
+00:56:29,099 --> 00:56:34,880
+okay we want to
+
+1028
+00:56:32,760 --> 00:56:34,880
+um
+
+1029
+00:56:36,660 --> 00:56:41,160
+is at least two string
+
+1030
+00:56:39,420 --> 00:56:43,980
+no
+
+1031
+00:56:41,160 --> 00:56:47,819
+so what is the proper function
+
+1032
+00:56:43,980 --> 00:56:50,460
+what do you what you want is uh you know
+
+1033
+00:56:47,819 --> 00:56:51,599
+a bunch of nested lists to a single
+
+1034
+00:56:50,460 --> 00:56:56,660
+string
+
+1035
+00:56:51,599 --> 00:56:56,660
+so let's go look at string functions
+
+1036
+00:57:01,380 --> 00:57:07,559
+if you are watching say hi okay
+
+1037
+00:57:05,280 --> 00:57:11,839
+tell me how am I doing am I
+
+1038
+00:57:07,559 --> 00:57:11,839
+communicative am I doing good
+
+1039
+00:57:15,260 --> 00:57:21,180
+least to string so Wolfram language very
+
+1040
+00:57:19,380 --> 00:57:22,740
+interesting they have a kind of a
+
+1041
+00:57:21,180 --> 00:57:24,420
+strange
+
+1042
+00:57:22,740 --> 00:57:28,140
+function name
+
+1043
+00:57:24,420 --> 00:57:30,480
+string rifle or stream rifle
+
+1044
+00:57:28,140 --> 00:57:32,040
+as this basically this function is list
+
+1045
+00:57:30,480 --> 00:57:33,900
+to string
+
+1046
+00:57:32,040 --> 00:57:37,079
+uh
+
+1047
+00:57:33,900 --> 00:57:41,220
+so and this function is actually new so
+
+1048
+00:57:37,079 --> 00:57:43,020
+it was it is introduced in 2015.
+
+1049
+00:57:41,220 --> 00:57:46,319
+know I've been coding Wolfram language
+
+1050
+00:57:43,020 --> 00:57:49,859
+since 1993.
+
+1051
+00:57:46,319 --> 00:57:53,339
+so up to 2004 you know I haven't been
+
+1052
+00:57:49,859 --> 00:57:55,740
+using it for like 15 years but
+
+1053
+00:57:53,339 --> 00:57:57,960
+anyway this function is introduced in
+
+1054
+00:57:55,740 --> 00:58:02,099
+2015.
+
+1055
+00:57:57,960 --> 00:58:05,780
+uh kind of strange name like I I don't
+
+1056
+00:58:02,099 --> 00:58:05,780
+know what rifo means before
+
+1057
+00:58:09,000 --> 00:58:14,940
+refill
+
+1058
+00:58:10,940 --> 00:58:18,300
+Iraqi show or Sandbar lying just below
+
+1059
+00:58:14,940 --> 00:58:21,420
+the surface of an Ocean Way a stretch of
+
+1060
+00:58:18,300 --> 00:58:22,859
+choppy water caused by such a Shore or
+
+1061
+00:58:21,420 --> 00:58:24,780
+sandbar
+
+1062
+00:58:22,859 --> 00:58:28,260
+a rapid
+
+1063
+00:58:24,780 --> 00:58:30,720
+a wave or Reaper in such water very
+
+1064
+00:58:28,260 --> 00:58:33,800
+strange why do they call it
+
+1065
+00:58:30,720 --> 00:58:33,800
+um string refill
+
+1066
+00:58:38,099 --> 00:58:41,900
+you see it creates a string by
+
+1067
+00:58:40,020 --> 00:58:45,660
+concoction
+
+1068
+00:58:41,900 --> 00:58:48,839
+concatenating or the you know at least
+
+1069
+00:58:45,660 --> 00:58:52,079
+all the elements in at least
+
+1070
+00:58:48,839 --> 00:58:55,040
+with his spaces insert between them okay
+
+1071
+00:58:52,079 --> 00:58:55,040
+I don't want space
+
+1072
+00:58:55,619 --> 00:58:59,420
+okay let's just do it then
+
+1073
+00:59:00,180 --> 00:59:06,240
+so does anyone know
+
+1074
+00:59:02,640 --> 00:59:10,040
+why is it called string refill
+
+1075
+00:59:06,240 --> 00:59:10,040
+let's see there must be some
+
+1076
+00:59:11,700 --> 00:59:17,339
+digression let's go to dictionary this
+
+1077
+00:59:14,760 --> 00:59:20,220
+is my favorite dictionary I'm very
+
+1078
+00:59:17,339 --> 00:59:22,260
+obsessive and picky about dictionary
+
+1079
+00:59:20,220 --> 00:59:26,220
+because I literally
+
+1080
+00:59:22,260 --> 00:59:31,079
+look up dictionary a few hundred times a
+
+1081
+00:59:26,220 --> 00:59:32,579
+day in the 90s in an 80 1800s and 90s
+
+1082
+00:59:31,079 --> 00:59:35,640
+literally
+
+1083
+00:59:32,579 --> 00:59:38,400
+few hundred times a day by a paper
+
+1084
+00:59:35,640 --> 00:59:42,359
+dictionary of this thick Chinese English
+
+1085
+00:59:38,400 --> 00:59:44,280
+to Chinese so then I switched to all
+
+1086
+00:59:42,359 --> 00:59:47,099
+English dictionary but the Habit
+
+1087
+00:59:44,280 --> 00:59:48,839
+remained for with me for like 30 years
+
+1088
+00:59:47,099 --> 00:59:52,319
+even today I
+
+1089
+00:59:48,839 --> 00:59:54,359
+I look up often so I've looked you know
+
+1090
+00:59:52,319 --> 00:59:57,359
+I've read I literally read lots of
+
+1091
+00:59:54,359 --> 00:59:58,680
+dictionaries like almost cover to cover
+
+1092
+00:59:57,359 --> 01:00:02,579
+so
+
+1093
+00:59:58,680 --> 01:00:04,920
+I have particular taste and judgment on
+
+1094
+01:00:02,579 --> 01:00:07,920
+which one is better and so on
+
+1095
+01:00:04,920 --> 01:00:10,200
+and let me just say the Miriam Miriam
+
+1096
+01:00:07,920 --> 01:00:13,559
+West Webster which is most popular
+
+1097
+01:00:10,200 --> 01:00:17,400
+online today that's the worst okay that
+
+1098
+01:00:13,559 --> 01:00:19,619
+is the worst dictionary because it's a
+
+1099
+01:00:17,400 --> 01:00:22,260
+you know what you see the
+
+1100
+01:00:19,619 --> 01:00:24,720
+Merriam-Webster online dictionary which
+
+1101
+01:00:22,260 --> 01:00:26,760
+is the most popular today that is
+
+1102
+01:00:24,720 --> 01:00:30,900
+actually that came from
+
+1103
+01:00:26,760 --> 01:00:33,599
+Miriam Webster's concise dictionary of
+
+1104
+01:00:30,900 --> 01:00:37,140
+English or in other words Collegiate
+
+1105
+01:00:33,599 --> 01:00:41,220
+also known as Collegiate dictionary so
+
+1106
+01:00:37,140 --> 01:00:42,720
+it's a Abridged dictionary so
+
+1107
+01:00:41,220 --> 01:00:45,599
+when you look up you know with
+
+1108
+01:00:42,720 --> 01:00:49,260
+Merriam-Webster like the definition are
+
+1109
+01:00:45,599 --> 01:00:51,599
+very tough Concepts a brief Abridged you
+
+1110
+01:00:49,260 --> 01:00:52,440
+know you know that's a proper word so
+
+1111
+01:00:51,599 --> 01:00:55,559
+it's
+
+1112
+01:00:52,440 --> 01:00:56,819
+so often oftentimes when you have a word
+
+1113
+01:00:55,559 --> 01:00:58,740
+you don't know
+
+1114
+01:00:56,819 --> 01:01:01,380
+hit
+
+1115
+01:00:58,740 --> 01:01:06,599
+it does it does not properly give you
+
+1116
+01:01:01,380 --> 01:01:09,119
+the the the context the the nuances of
+
+1117
+01:01:06,599 --> 01:01:11,880
+the world anyway I can tell you it's the
+
+1118
+01:01:09,119 --> 01:01:16,079
+worst okay because and also they
+
+1119
+01:01:11,880 --> 01:01:18,780
+then also for political reasons they
+
+1120
+01:01:16,079 --> 01:01:20,819
+tend to be you know they Market that's
+
+1121
+01:01:18,780 --> 01:01:24,480
+why they are the most popular you know
+
+1122
+01:01:20,819 --> 01:01:26,400
+they Market widely aggressively
+
+1123
+01:01:24,480 --> 01:01:29,220
+but it's a worst dictionary okay
+
+1124
+01:01:26,400 --> 01:01:32,220
+Merriam-Webster
+
+1125
+01:01:29,220 --> 01:01:35,220
+but the full unabridged Merriam-Webster
+
+1126
+01:01:32,220 --> 01:01:38,760
+now if you actually buy it you know it's
+
+1127
+01:01:35,220 --> 01:01:41,880
+like this thick big book that's good
+
+1128
+01:01:38,760 --> 01:01:44,400
+okay that that is good not not the
+
+1129
+01:01:41,880 --> 01:01:45,900
+online the concise or Collegiate one is
+
+1130
+01:01:44,400 --> 01:01:49,200
+the worst
+
+1131
+01:01:45,900 --> 01:01:52,319
+so if you have a knack on writing on
+
+1132
+01:01:49,200 --> 01:01:53,579
+literature on English you know uh you
+
+1133
+01:01:52,319 --> 01:01:56,160
+want to
+
+1134
+01:01:53,579 --> 01:01:57,960
+do not read Merriam-Webster you know
+
+1135
+01:01:56,160 --> 01:02:01,440
+it's the worst lousy one what's the best
+
+1136
+01:01:57,960 --> 01:02:03,119
+one American Heritage dictionary okay
+
+1137
+01:02:01,440 --> 01:02:06,799
+that's
+
+1138
+01:02:03,119 --> 01:02:06,799
+okay let me show you an article
+
+1139
+01:02:08,280 --> 01:02:12,380
+so if you just go through
+
+1140
+01:02:12,480 --> 01:02:17,880
+sunny.org
+
+1141
+01:02:15,240 --> 01:02:20,400
+okay then you have this same this
+
+1142
+01:02:17,880 --> 01:02:23,220
+section worthy English
+
+1143
+01:02:20,400 --> 01:02:26,579
+then you have this section dictionary
+
+1144
+01:02:23,220 --> 01:02:29,819
+geeking okay so I have
+
+1145
+01:02:26,579 --> 01:02:32,280
+one two three four more than four I have
+
+1146
+01:02:29,819 --> 01:02:34,859
+also entire vocabulary you know so
+
+1147
+01:02:32,280 --> 01:02:38,460
+anyway there's four articles
+
+1148
+01:02:34,859 --> 01:02:42,299
+that reviews dictionaries so if you read
+
+1149
+01:02:38,460 --> 01:02:43,680
+this page this page is in detail you'll
+
+1150
+01:02:42,299 --> 01:02:46,500
+know
+
+1151
+01:02:43,680 --> 01:02:50,960
+you know you know why uh the
+
+1152
+01:02:46,500 --> 01:02:50,960
+Merriam-Webster is the worst one okay
+
+1153
+01:02:51,299 --> 01:02:57,299
+uh you know
+
+1154
+01:02:53,700 --> 01:03:01,319
+okay so go check them out I give you
+
+1155
+01:02:57,299 --> 01:03:04,500
+lots of definitions comparisons and you
+
+1156
+01:03:01,319 --> 01:03:07,020
+okay and by the way there's also open
+
+1157
+01:03:04,500 --> 01:03:09,900
+source one that's that's even worse
+
+1158
+01:03:07,020 --> 01:03:13,020
+okay I mean the all the Linux people
+
+1159
+01:03:09,900 --> 01:03:16,099
+they get excited about
+
+1160
+01:03:13,020 --> 01:03:19,859
+dick dog dick
+
+1161
+01:03:16,099 --> 01:03:23,940
+.org lots of problems
+
+1162
+01:03:19,859 --> 01:03:23,940
+uh incompetent
+
+1163
+01:03:27,780 --> 01:03:34,579
+okay that's a digression of our
+
+1164
+01:03:29,700 --> 01:03:34,579
+dictionary yeah so but what is refill
+
+1165
+01:03:34,740 --> 01:03:41,819
+uh let's see games to shuffle playing
+
+1166
+01:03:37,980 --> 01:03:44,280
+cards by holding part of a deck in each
+
+1167
+01:03:41,819 --> 01:03:47,099
+hand and raising up the edges before
+
+1168
+01:03:44,280 --> 01:03:48,420
+releasing them to fall alternatively in
+
+1169
+01:03:47,099 --> 01:03:50,640
+one stack
+
+1170
+01:03:48,420 --> 01:03:52,799
+no Shuffle yeah
+
+1171
+01:03:50,640 --> 01:03:56,180
+you call it refo okay
+
+1172
+01:03:52,799 --> 01:03:56,180
+go to thumb through
+
+1173
+01:03:57,420 --> 01:04:02,579
+so yeah so I don't get it you know
+
+1174
+01:03:59,819 --> 01:04:03,599
+usually the Wolfram language function
+
+1175
+01:04:02,579 --> 01:04:05,819
+names
+
+1176
+01:04:03,599 --> 01:04:09,599
+I very much agree on
+
+1177
+01:04:05,819 --> 01:04:12,119
+but I don't get why joining stream from
+
+1178
+01:04:09,599 --> 01:04:15,319
+at least is called rifle
+
+1179
+01:04:12,119 --> 01:04:15,319
+does anyone know
+
+1180
+01:04:22,200 --> 01:04:28,980
+yeah I cannot see why is this called
+
+1181
+01:04:26,099 --> 01:04:32,839
+string riffle
+
+1182
+01:04:28,980 --> 01:04:32,839
+okay but let's let's do it
+
+1183
+01:04:33,660 --> 01:04:39,559
+so okay hold on a second so we have the
+
+1184
+01:04:37,140 --> 01:04:39,559
+input
+
+1185
+01:04:45,420 --> 01:04:48,380
+okay
+
+1186
+01:04:56,760 --> 01:04:59,599
+run it
+
+1187
+01:05:03,480 --> 01:05:07,819
+what is the what is that
+
+1188
+01:05:10,200 --> 01:05:17,220
+yeah okay just add empty lines
+
+1189
+01:05:13,680 --> 01:05:18,960
+why does it add empty lines oh yeah
+
+1190
+01:05:17,220 --> 01:05:22,920
+because you want to say
+
+1191
+01:05:18,960 --> 01:05:22,920
+no separator
+
+1192
+01:05:33,720 --> 01:05:51,250
+oh okay so you actually need to
+
+1193
+01:05:37,480 --> 01:05:51,250
+[Music]
+
+1194
+01:05:56,280 --> 01:06:00,440
+oh so it actually refills
+
+1195
+01:06:02,220 --> 01:06:08,460
+you see when you have a nested list it
+
+1196
+01:06:05,760 --> 01:06:10,880
+actually add the first one followed by
+
+1197
+01:06:08,460 --> 01:06:13,559
+the first element of the second list
+
+1198
+01:06:10,880 --> 01:06:17,339
+then the second element from the first
+
+1199
+01:06:13,559 --> 01:06:19,619
+one then second so they actually refers
+
+1200
+01:06:17,339 --> 01:06:22,440
+okay so that's that's not what we want
+
+1201
+01:06:19,619 --> 01:06:25,400
+so we want let's see
+
+1202
+01:06:22,440 --> 01:06:25,400
+DQ
+
+1203
+01:06:25,740 --> 01:06:30,300
+uh
+
+1204
+01:06:26,890 --> 01:06:30,300
+[Music]
+
+1205
+01:06:33,720 --> 01:06:41,220
+let's just try this okay
+
+1206
+01:06:37,440 --> 01:06:44,599
+empty string empty string
+
+1207
+01:06:41,220 --> 01:06:44,599
+maybe now walk
+
+1208
+01:06:45,000 --> 01:06:49,980
+that's what we want
+
+1209
+01:06:47,579 --> 01:06:51,660
+select it
+
+1210
+01:06:49,980 --> 01:06:54,319
+copy it
+
+1211
+01:06:51,660 --> 01:06:57,780
+are you sure I think I'm pretty sure
+
+1212
+01:06:54,319 --> 01:07:02,480
+it's submit
+
+1213
+01:06:57,780 --> 01:07:02,480
+yo then well it's it's got a string
+
+1214
+01:07:03,780 --> 01:07:06,980
+so actually
+
+1215
+01:07:07,380 --> 01:07:13,460
+copy that
+
+1216
+01:07:09,859 --> 01:07:13,460
+Senegal paste
+
+1217
+01:07:15,180 --> 01:07:19,079
+are you sure yes
+
+1218
+01:07:20,880 --> 01:07:28,030
+the right answer
+
+1219
+01:07:23,160 --> 01:07:28,030
+[Music]
+
+1220
+01:07:30,059 --> 01:07:37,500
+I'm doing this because I have isi so too
+
+1221
+01:07:34,260 --> 01:07:40,559
+much typing for the past
+
+1222
+01:07:37,500 --> 01:07:42,480
+10 or 30 years in particular past 10
+
+1223
+01:07:40,559 --> 01:07:47,160
+years
+
+1224
+01:07:42,480 --> 01:07:49,079
+what is the oh wait you need you
+
+1225
+01:07:47,160 --> 01:07:51,839
+just need the top one
+
+1226
+01:07:49,079 --> 01:07:54,059
+that's obviously
+
+1227
+01:07:51,839 --> 01:07:56,460
+you just you don't need all the stack
+
+1228
+01:07:54,059 --> 01:07:59,460
+you just need the
+
+1229
+01:07:56,460 --> 01:08:00,900
+the yeah the first element of each stack
+
+1230
+01:07:59,460 --> 01:08:02,339
+okay
+
+1231
+01:08:00,900 --> 01:08:04,079
+of course
+
+1232
+01:08:02,339 --> 01:08:06,240
+so let's
+
+1233
+01:08:04,079 --> 01:08:11,579
+put this back
+
+1234
+01:08:06,240 --> 01:08:16,620
+and in fact let's delete that let's copy
+
+1235
+01:08:11,579 --> 01:08:21,239
+that and let's work on our code again
+
+1236
+01:08:16,620 --> 01:08:24,239
+so what you want to do is you
+
+1237
+01:08:21,239 --> 01:08:26,520
+you have a list of stacks you want to
+
+1238
+01:08:24,239 --> 01:08:29,580
+map
+
+1239
+01:08:26,520 --> 01:08:33,839
+okay map
+
+1240
+01:08:29,580 --> 01:08:36,060
+two arguments the second uh you want to
+
+1241
+01:08:33,839 --> 01:08:38,759
+apply a function the first argument a
+
+1242
+01:08:36,060 --> 01:08:41,400
+function to list of stacks and the
+
+1243
+01:08:38,759 --> 01:08:45,500
+function will be just first you know
+
+1244
+01:08:41,400 --> 01:08:48,359
+that takes the first item then
+
+1245
+01:08:45,500 --> 01:08:52,400
+uh then you just
+
+1246
+01:08:48,359 --> 01:08:52,400
+then you just um
+
+1247
+01:08:54,060 --> 01:09:00,920
+do that okay
+
+1248
+01:08:56,940 --> 01:09:00,920
+then you just refill Okay so
+
+1249
+01:09:03,120 --> 01:09:06,679
+yeah okay so
+
+1250
+01:09:08,940 --> 01:09:15,140
+copy all
+
+1251
+01:09:11,219 --> 01:09:15,140
+paste run it
+
+1252
+01:09:16,440 --> 01:09:22,259
+what's CMZ
+
+1253
+01:09:19,140 --> 01:09:26,759
+are you kidding me
+
+1254
+01:09:22,259 --> 01:09:29,219
+oh I forgot the the
+
+1255
+01:09:26,759 --> 01:09:32,279
+full input
+
+1256
+01:09:29,219 --> 01:09:34,940
+not the example input
+
+1257
+01:09:32,279 --> 01:09:34,940
+so
+
+1258
+01:09:37,080 --> 01:09:42,540
+talk show yesterday you want to get the
+
+1259
+01:09:40,799 --> 01:09:44,819
+input so
+
+1260
+01:09:42,540 --> 01:09:47,719
+copy the input
+
+1261
+01:09:44,819 --> 01:09:47,719
+and
+
+1262
+01:09:51,000 --> 01:09:54,840
+put it here
+
+1263
+01:09:53,100 --> 01:09:58,760
+granite
+
+1264
+01:09:54,840 --> 01:09:58,760
+go down go down
+
+1265
+01:09:59,820 --> 01:10:04,880
+okay
+
+1266
+01:10:02,340 --> 01:10:04,880
+hang on
+
+1267
+01:10:05,640 --> 01:10:11,520
+oh god there it is
+
+1268
+01:10:09,780 --> 01:10:14,060
+copy it
+
+1269
+01:10:11,520 --> 01:10:14,060
+close
+
+1270
+01:10:15,060 --> 01:10:17,600
+close
+
+1271
+01:10:17,820 --> 01:10:23,659
+go here
+
+1272
+01:10:19,800 --> 01:10:23,659
+let's actually the answer
+
+1273
+01:10:26,699 --> 01:10:31,140
+the mid
+
+1274
+01:10:28,440 --> 01:10:33,239
+that is the right answer you are one
+
+1275
+01:10:31,140 --> 01:10:34,320
+gold star okay let's continue to part
+
+1276
+01:10:33,239 --> 01:10:39,000
+two
+
+1277
+01:10:34,320 --> 01:10:41,960
+so we talked for 80 minutes already
+
+1278
+01:10:39,000 --> 01:10:41,960
+70 minutes
+
+1279
+01:10:45,860 --> 01:10:53,699
+okay who now who is watching me are you
+
+1280
+01:10:50,580 --> 01:10:56,420
+still guys there are five people four
+
+1281
+01:10:53,699 --> 01:10:56,420
+say something
+
+1282
+01:10:57,540 --> 01:11:02,520
+five okay
+
+1283
+01:10:59,460 --> 01:11:05,179
+now second problem it should be easy as
+
+1284
+01:11:02,520 --> 01:11:08,219
+you watch the crane operator expertly
+
+1285
+01:11:05,179 --> 01:11:11,940
+rearrange the crates you notice the
+
+1286
+01:11:08,219 --> 01:11:16,140
+process isn't following your prediction
+
+1287
+01:11:11,940 --> 01:11:19,340
+some mud was covering the writing on the
+
+1288
+01:11:16,140 --> 01:11:23,219
+side of the crane some mud
+
+1289
+01:11:19,340 --> 01:11:28,080
+and you quickly wipe it away the crane
+
+1290
+01:11:23,219 --> 01:11:30,239
+isn't a great mover 9000. it's a great
+
+1291
+01:11:28,080 --> 01:11:33,179
+mover 9001.
+
+1292
+01:11:30,239 --> 01:11:36,620
+no what what is that what what's uh is
+
+1293
+01:11:33,179 --> 01:11:36,620
+there a Insider joke
+
+1294
+01:11:36,840 --> 01:11:43,500
+so the crate mover 9001 is notable for
+
+1295
+01:11:40,739 --> 01:11:46,880
+many new and exciting features air
+
+1296
+01:11:43,500 --> 01:11:50,640
+conditioning leather seats
+
+1297
+01:11:46,880 --> 01:11:54,659
+ irrelevant
+
+1298
+01:11:50,640 --> 01:11:57,480
+an extra cup holder and the ability to
+
+1299
+01:11:54,659 --> 01:12:01,140
+pick up and move multiple grades at once
+
+1300
+01:11:57,480 --> 01:12:05,400
+okay they are trying to change the the
+
+1301
+01:12:01,140 --> 01:12:05,400
+move you know the
+
+1302
+01:12:06,300 --> 01:12:11,520
+they are they are trying they are
+
+1303
+01:12:09,600 --> 01:12:13,980
+fundamentally changing the way the
+
+1304
+01:12:11,520 --> 01:12:16,140
+stacks are moved okay so again
+
+1305
+01:12:13,980 --> 01:12:17,880
+considering considering the example
+
+1306
+01:12:16,140 --> 01:12:20,580
+above the crates beginning in the same
+
+1307
+01:12:17,880 --> 01:12:22,620
+configuration moving a single crate from
+
+1308
+01:12:20,580 --> 01:12:25,739
+stack two to one behaves the same as
+
+1309
+01:12:22,620 --> 01:12:29,699
+before however the action moving three
+
+1310
+01:12:25,739 --> 01:12:32,580
+crates from stack 1 to stack three
+
+1311
+01:12:29,699 --> 01:12:34,500
+means that those three moved crates stay
+
+1312
+01:12:32,580 --> 01:12:37,380
+in the same order
+
+1313
+01:12:34,500 --> 01:12:41,159
+I guessed I knew it's going to do that
+
+1314
+01:12:37,380 --> 01:12:44,159
+he idiot resulting in this new
+
+1315
+01:12:41,159 --> 01:12:46,320
+config Okay Nexus both crates are moved
+
+1316
+01:12:44,159 --> 01:12:49,020
+from stack 2 to stack 1 they retain
+
+1317
+01:12:46,320 --> 01:12:50,460
+their order as well yeah so now the
+
+1318
+01:12:49,020 --> 01:12:52,260
+Great
+
+1319
+01:12:50,460 --> 01:12:55,380
+can move
+
+1320
+01:12:52,260 --> 01:12:58,320
+more number of the crane can move more
+
+1321
+01:12:55,380 --> 01:13:00,120
+number of items in one shot so they
+
+1322
+01:12:58,320 --> 01:13:02,580
+don't reverse the order
+
+1323
+01:13:00,120 --> 01:13:04,860
+finally a single query is still moved
+
+1324
+01:13:02,580 --> 01:13:06,600
+from stack 1 to stack two but now it's
+
+1325
+01:13:04,860 --> 01:13:09,659
+great to see
+
+1326
+01:13:06,600 --> 01:13:14,580
+that gets moved yeah okay so in this
+
+1327
+01:13:09,659 --> 01:13:17,040
+example the crater mover 9001 has put
+
+1328
+01:13:14,580 --> 01:13:19,320
+the crates in a totally different order
+
+1329
+01:13:17,040 --> 01:13:21,480
+McD
+
+1330
+01:13:19,320 --> 01:13:23,360
+so before the original processing an
+
+1331
+01:13:21,480 --> 01:13:26,820
+updating your simulation so that yeah
+
+1332
+01:13:23,360 --> 01:13:30,440
+that helps this is the center the the
+
+1333
+01:13:26,820 --> 01:13:33,000
+ringing deer this is the the after the
+
+1334
+01:13:30,440 --> 01:13:37,920
+rearrangement procedure completes what
+
+1335
+01:13:33,000 --> 01:13:41,460
+creates ends up on top of each stack
+
+1336
+01:13:37,920 --> 01:13:42,600
+so all we have to do is to change this
+
+1337
+01:13:41,460 --> 01:13:44,880
+part
+
+1338
+01:13:42,600 --> 01:13:49,800
+you know this function okay let's do it
+
+1339
+01:13:44,880 --> 01:13:53,659
+so this this problem one okay
+
+1340
+01:13:49,800 --> 01:13:53,659
+let's go back
+
+1341
+01:13:54,179 --> 01:13:58,380
+copy it paste it
+
+1342
+01:13:56,880 --> 01:14:00,120
+now
+
+1343
+01:13:58,380 --> 01:14:01,500
+let's do this again
+
+1344
+01:14:00,120 --> 01:14:07,040
+now
+
+1345
+01:14:01,500 --> 01:14:07,040
+change this part copy it paste it okay
+
+1346
+01:14:07,080 --> 01:14:14,699
+let's see so
+
+1347
+01:14:10,500 --> 01:14:17,239
+p is not number of times anymore so p is
+
+1348
+01:14:14,699 --> 01:14:17,239
+something else
+
+1349
+01:14:23,580 --> 01:14:26,239
+okay
+
+1350
+01:14:33,120 --> 01:14:38,420
+pre-paint least of stacks and so so okay
+
+1351
+01:14:36,179 --> 01:14:38,420
+so
+
+1352
+01:14:40,020 --> 01:14:47,300
+so it's not do anymore so let's remove
+
+1353
+01:14:43,980 --> 01:14:47,300
+the two okay
+
+1354
+01:14:48,120 --> 01:14:56,159
+let's not do anymore so
+
+1355
+01:14:50,940 --> 01:14:58,020
+so this p is number of stacks to move in
+
+1356
+01:14:56,159 --> 01:15:00,840
+one shot
+
+1357
+01:14:58,020 --> 01:15:07,560
+oh okay so it's much it's actually
+
+1358
+01:15:00,840 --> 01:15:08,820
+simpler so number of stacks from M to n
+
+1359
+01:15:07,560 --> 01:15:10,140
+so
+
+1360
+01:15:08,820 --> 01:15:12,659
+um
+
+1361
+01:15:10,140 --> 01:15:17,460
+so you move
+
+1362
+01:15:12,659 --> 01:15:18,719
+P of number of them from n m to n Okay
+
+1363
+01:15:17,460 --> 01:15:23,640
+so
+
+1364
+01:15:18,719 --> 01:15:28,380
+so let's do that so you move from m
+
+1365
+01:15:23,640 --> 01:15:29,580
+so first so you have a drop situation
+
+1366
+01:15:28,380 --> 01:15:34,340
+okay
+
+1367
+01:15:29,580 --> 01:15:34,340
+actually so you need to assign it
+
+1368
+01:15:38,219 --> 01:15:45,239
+so you drop but before you drop you want
+
+1369
+01:15:41,820 --> 01:15:50,000
+to actually take the numbers so
+
+1370
+01:15:45,239 --> 01:15:50,000
+so you instead of drop you say take
+
+1371
+01:15:51,540 --> 01:15:54,780
+okay
+
+1372
+01:15:52,920 --> 01:15:55,980
+you take
+
+1373
+01:15:54,780 --> 01:16:00,060
+the
+
+1374
+01:15:55,980 --> 01:16:03,780
+P items from stack m
+
+1375
+01:16:00,060 --> 01:16:06,900
+that means Returns the first P items
+
+1376
+01:16:03,780 --> 01:16:10,500
+wait so you take
+
+1377
+01:16:06,900 --> 01:16:13,800
+from 1 to p
+
+1378
+01:16:10,500 --> 01:16:17,100
+one two P so let's check what is take
+
+1379
+01:16:13,800 --> 01:16:20,659
+let's look at the documentation
+
+1380
+01:16:17,100 --> 01:16:20,659
+install JavaScript
+
+1381
+01:16:22,739 --> 01:16:30,659
+okay take the first n items
+
+1382
+01:16:27,659 --> 01:16:32,400
+so you don't actually you just you can
+
+1383
+01:16:30,659 --> 01:16:35,460
+just say p
+
+1384
+01:16:32,400 --> 01:16:37,320
+take the first P items
+
+1385
+01:16:35,460 --> 01:16:39,320
+so
+
+1386
+01:16:37,320 --> 01:16:39,320
+um
+
+1387
+01:16:42,600 --> 01:16:49,020
+wait so because it's functional
+
+1388
+01:16:45,719 --> 01:16:54,800
+programming so you need to um so you
+
+1389
+01:16:49,020 --> 01:16:54,800
+take the first items then you drop
+
+1390
+01:17:12,900 --> 01:17:19,280
+you take those items P items then you
+
+1391
+01:17:16,800 --> 01:17:19,280
+drop them
+
+1392
+01:17:26,880 --> 01:17:32,280
+yeah you
+
+1393
+01:17:28,739 --> 01:17:36,000
+and you assign them back to him
+
+1394
+01:17:32,280 --> 01:17:41,040
+then those newly taken items you need to
+
+1395
+01:17:36,000 --> 01:17:43,260
+put add to end so you need to prepend
+
+1396
+01:17:41,040 --> 01:17:47,940
+that's right
+
+1397
+01:17:43,260 --> 01:17:51,600
+so this line is to go to go first
+
+1398
+01:17:47,940 --> 01:17:55,140
+so the new in stack in
+
+1399
+01:17:51,600 --> 01:17:56,699
+one in one stack
+
+1400
+01:17:55,140 --> 01:18:00,960
+nanny
+
+1401
+01:17:56,699 --> 01:18:03,719
+the new stack the the new stack nanny is
+
+1402
+01:18:00,960 --> 01:18:09,719
+going to be prepending
+
+1403
+01:18:03,719 --> 01:18:12,719
+the stack Nanny by taking P items from
+
+1404
+01:18:09,719 --> 01:18:12,719
+stack
+
+1405
+01:18:15,540 --> 01:18:19,980
+Mountain okay
+
+1406
+01:18:18,179 --> 01:18:24,540
+so yeah
+
+1407
+01:18:19,980 --> 01:18:26,580
+you take p number of items from stack
+
+1408
+01:18:24,540 --> 01:18:29,280
+Mountain
+
+1409
+01:18:26,580 --> 01:18:32,640
+prepended to
+
+1410
+01:18:29,280 --> 01:18:36,780
+the stack nanny
+
+1411
+01:18:32,640 --> 01:18:40,260
+and that will be the new stack value of
+
+1412
+01:18:36,780 --> 01:18:41,280
+Nanny okay then now you just need to
+
+1413
+01:18:40,260 --> 01:18:45,540
+drop
+
+1414
+01:18:41,280 --> 01:18:49,679
+the first P items in stack
+
+1415
+01:18:45,540 --> 01:18:52,520
+Mountain okay so you don't need this
+
+1416
+01:18:49,679 --> 01:18:52,520
+part anymore
+
+1417
+01:18:52,739 --> 01:18:56,640
+so this
+
+1418
+01:18:54,840 --> 01:19:00,540
+is
+
+1419
+01:18:56,640 --> 01:19:03,199
+that is a function okay now we can put a
+
+1420
+01:19:00,540 --> 01:19:03,199
+module
+
+1421
+01:19:03,659 --> 01:19:12,860
+okay uh let's take a width okay
+
+1422
+01:19:08,280 --> 01:19:12,860
+width is like a
+
+1423
+01:19:12,980 --> 01:19:17,880
+declare constant except there's no
+
+1424
+01:19:15,840 --> 01:19:21,540
+constant basically we just group them
+
+1425
+01:19:17,880 --> 01:19:23,699
+and you can also group them by and we
+
+1426
+01:19:21,540 --> 01:19:26,580
+don't need it
+
+1427
+01:19:23,699 --> 01:19:28,380
+okay so this is the new
+
+1428
+01:19:26,580 --> 01:19:31,560
+function okay
+
+1429
+01:19:28,380 --> 01:19:33,420
+so you don't need this this is original
+
+1430
+01:19:31,560 --> 01:19:35,520
+this is new
+
+1431
+01:19:33,420 --> 01:19:37,920
+now double check one more time we're
+
+1432
+01:19:35,520 --> 01:19:40,460
+gonna run it one shot and it's going to
+
+1433
+01:19:37,920 --> 01:19:40,460
+be correct
+
+1434
+01:19:54,840 --> 01:20:00,920
+right
+
+1435
+01:19:57,239 --> 01:20:00,920
+okay remove that
+
+1436
+01:20:01,320 --> 01:20:04,219
+copyhole
+
+1437
+01:20:04,260 --> 01:20:09,860
+back to Fan language paste
+
+1438
+01:20:07,440 --> 01:20:13,520
+run
+
+1439
+01:20:09,860 --> 01:20:13,520
+Okay so
+
+1440
+01:20:15,060 --> 01:20:18,179
+something wrong
+
+1441
+01:20:16,980 --> 01:20:21,020
+okay
+
+1442
+01:20:18,179 --> 01:20:24,500
+something wrong here
+
+1443
+01:20:21,020 --> 01:20:24,500
+PM in
+
+1444
+01:20:33,000 --> 01:20:38,699
+what
+
+1445
+01:20:35,400 --> 01:20:42,020
+part the expression M cannot be used as
+
+1446
+01:20:38,699 --> 01:20:42,020
+a part specification
+
+1447
+01:21:01,500 --> 01:21:07,940
+I think
+
+1448
+01:21:04,440 --> 01:21:07,940
+I think I may know
+
+1449
+01:21:12,300 --> 01:21:17,880
+okay let's try it again
+
+1450
+01:21:15,120 --> 01:21:20,640
+through this
+
+1451
+01:21:17,880 --> 01:21:23,659
+and now
+
+1452
+01:21:20,640 --> 01:21:23,659
+let's do this
+
+1453
+01:21:24,719 --> 01:21:29,719
+and I think I maybe you need
+
+1454
+01:21:31,080 --> 01:21:36,140
+rain okay let's just copy all and do it
+
+1455
+01:21:33,960 --> 01:21:36,140
+again
+
+1456
+01:21:43,140 --> 01:21:49,320
+okay now we run into this issue when the
+
+1457
+01:21:46,080 --> 01:21:51,800
+stack is empty you know there's no first
+
+1458
+01:21:49,320 --> 01:21:51,800
+item
+
+1459
+01:21:53,219 --> 01:22:00,860
+so let's see McD
+
+1460
+01:21:57,560 --> 01:22:04,440
+is the answer what
+
+1461
+01:22:00,860 --> 01:22:08,239
+MCD is the answer but we got
+
+1462
+01:22:04,440 --> 01:22:08,239
+CM which is
+
+1463
+01:22:09,540 --> 01:22:12,500
+incorrect
+
+1464
+01:22:17,640 --> 01:22:20,600
+okay
+
+1465
+01:22:30,360 --> 01:22:36,120
+Okay so
+
+1466
+01:22:33,120 --> 01:22:36,120
+uh
+
+1467
+01:22:37,679 --> 01:22:43,219
+from stack in
+
+1468
+01:22:40,140 --> 01:22:43,219
+to in
+
+1469
+01:22:53,159 --> 01:22:58,280
+let's see what is uh thing do we
+
+1470
+01:22:59,400 --> 01:23:01,880
+okay
+
+1471
+01:23:14,340 --> 01:23:19,219
+okay let's apply
+
+1472
+01:23:25,620 --> 01:23:31,679
+does the procedure still the same so one
+
+1473
+01:23:28,679 --> 01:23:36,840
+from two to one
+
+1474
+01:23:31,679 --> 01:23:39,620
+one from two to one so we got D and z c
+
+1475
+01:23:36,840 --> 01:23:39,620
+m p
+
+1476
+01:23:52,980 --> 01:23:57,440
+okay
+
+1477
+01:23:54,360 --> 01:23:57,440
+and now
+
+1478
+01:23:59,699 --> 01:24:02,239
+oh
+
+1479
+01:24:05,820 --> 01:24:11,239
+oh that's right you forgot something I
+
+1480
+01:24:08,520 --> 01:24:11,239
+forgot something
+
+1481
+01:24:12,060 --> 01:24:19,340
+oh yeah so because there is the
+
+1482
+01:24:16,140 --> 01:24:19,340
+so that's about
+
+1483
+01:24:21,900 --> 01:24:27,920
+we can easily solve it by just flatten
+
+1484
+01:24:25,260 --> 01:24:27,920
+okay
+
+1485
+01:24:31,440 --> 01:24:36,300
+yeah let's see prepend you know this is
+
+1486
+01:24:34,199 --> 01:24:37,560
+the issue that when you
+
+1487
+01:24:36,300 --> 01:24:40,520
+add
+
+1488
+01:24:37,560 --> 01:24:43,500
+several elements to at least
+
+1489
+01:24:40,520 --> 01:24:46,140
+sometimes it's added as a sub list
+
+1490
+01:24:43,500 --> 01:24:49,380
+sometimes it just ignore the list you
+
+1491
+01:24:46,140 --> 01:24:52,320
+just add elements this happens in Python
+
+1492
+01:24:49,380 --> 01:24:55,500
+in parallel in other languages
+
+1493
+01:24:52,320 --> 01:24:57,719
+in JavaScript so you have to make sure
+
+1494
+01:24:55,500 --> 01:24:59,760
+you know depending on the function or
+
+1495
+01:24:57,719 --> 01:25:01,380
+the methods sometimes they flatten it
+
+1496
+01:24:59,760 --> 01:25:03,600
+sometimes they don't
+
+1497
+01:25:01,380 --> 01:25:07,320
+very annoying problem
+
+1498
+01:25:03,600 --> 01:25:07,320
+so here
+
+1499
+01:25:13,620 --> 01:25:20,960
+yeah so when you prepend
+
+1500
+01:25:16,820 --> 01:25:20,960
+prepend elements okay
+
+1501
+01:25:33,900 --> 01:25:39,080
+you want to pre-pin elements yeah
+
+1502
+01:25:41,340 --> 01:25:45,860
+or you can use pre-pin 2.
+
+1503
+01:25:49,500 --> 01:25:52,580
+see they
+
+1504
+01:25:53,520 --> 01:26:00,380
+okay I'm going to I'm just going to do
+
+1505
+01:25:57,120 --> 01:26:00,380
+this okay let's
+
+1506
+01:26:07,080 --> 01:26:12,120
+just going to say map to arguments
+
+1507
+01:26:10,199 --> 01:26:16,159
+map that
+
+1508
+01:26:12,120 --> 01:26:16,159
+this is gonna be a function
+
+1509
+01:26:18,239 --> 01:26:27,060
+map this function for each one
+
+1510
+01:26:23,280 --> 01:26:31,219
+you know this result is is a list this
+
+1511
+01:26:27,060 --> 01:26:31,219
+is very Innovation by the way so
+
+1512
+01:26:34,920 --> 01:26:41,600
+and in fact you can say prepend two so
+
+1513
+01:26:38,520 --> 01:26:41,600
+let's try this
+
+1514
+01:26:42,000 --> 01:26:48,420
+hold on a second let me clean this up so
+
+1515
+01:26:45,000 --> 01:26:52,580
+you can see better so this is old code
+
+1516
+01:26:48,420 --> 01:26:52,580
+the new code is gonna be here
+
+1517
+01:27:00,480 --> 01:27:11,159
+so the new code is this prepend two okay
+
+1518
+01:27:07,380 --> 01:27:13,580
+so you don't need that so between two
+
+1519
+01:27:11,159 --> 01:27:13,580
+then
+
+1520
+01:27:15,060 --> 01:27:18,440
+then that okay
+
+1521
+01:27:18,960 --> 01:27:22,340
+use a new code
+
+1522
+01:27:29,100 --> 01:27:33,900
+I don't think that will work
+
+1523
+01:27:31,380 --> 01:27:36,860
+because the pre-pin 2 here let's just
+
+1524
+01:27:33,900 --> 01:27:36,860
+say print pin
+
+1525
+01:28:01,500 --> 01:28:05,360
+okay that should work
+
+1526
+01:28:06,120 --> 01:28:11,719
+so here's a new one
+
+1527
+01:28:08,940 --> 01:28:11,719
+and
+
+1528
+01:28:14,340 --> 01:28:18,199
+let's remove the whole one okay
+
+1529
+01:28:35,219 --> 01:28:41,639
+uh wait a second
+
+1530
+01:28:38,820 --> 01:28:43,020
+yeah this doesn't work God when you work
+
+1531
+01:28:41,639 --> 01:28:47,960
+with snacks
+
+1532
+01:28:43,020 --> 01:28:47,960
+you really need a stack data structure
+
+1533
+01:28:50,280 --> 01:28:53,540
+even each one
+
+1534
+01:28:53,699 --> 01:28:59,120
+yeah so actually you need to actually
+
+1535
+01:28:55,980 --> 01:28:59,120
+put this inside
+
+1536
+01:29:01,560 --> 01:29:07,800
+yeah then we'll walk
+
+1537
+01:29:04,500 --> 01:29:10,340
+you do that multiple times
+
+1538
+01:29:07,800 --> 01:29:10,340
+hmm
+
+1539
+01:29:13,080 --> 01:29:19,800
+very inefficient this is not the way to
+
+1540
+01:29:15,719 --> 01:29:22,460
+do with language but it's just
+
+1541
+01:29:19,800 --> 01:29:22,460
+do it
+
+1542
+01:29:22,500 --> 01:29:26,460
+okay
+
+1543
+01:29:23,760 --> 01:29:29,159
+all right we're getting tired and this
+
+1544
+01:29:26,460 --> 01:29:31,340
+is getting into true it's it's incorrect
+
+1545
+01:29:29,159 --> 01:29:31,340
+again
+
+1546
+01:29:39,800 --> 01:29:43,699
+and T3
+
+1547
+01:29:47,100 --> 01:29:54,199
+oh yeah because we got their function
+
+1548
+01:29:49,920 --> 01:29:54,199
+wrong you need a paren
+
+1549
+01:29:54,239 --> 01:29:59,600
+it's getting complex this is not the
+
+1550
+01:29:56,580 --> 01:29:59,600
+right way to do it
+
+1551
+01:29:59,699 --> 01:30:05,100
+but right now I just want the answer CMZ
+
+1552
+01:30:05,219 --> 01:30:08,300
+shut the up
+
+1553
+01:30:09,800 --> 01:30:15,080
+MCD yeah it's wrong again
+
+1554
+01:30:15,199 --> 01:30:18,500
+MCD what
+
+1555
+01:30:26,580 --> 01:30:30,920
+okay we need to think about this
+
+1556
+01:31:23,280 --> 01:31:27,320
+okay let's screen up the code
+
+1557
+01:31:50,760 --> 01:31:55,800
+take those items
+
+1558
+01:31:53,340 --> 01:32:00,260
+oh here you pretend you actually
+
+1559
+01:31:55,800 --> 01:32:00,260
+reversed all the idiotic
+
+1560
+01:32:07,920 --> 01:32:12,920
+yeah you reverse the order when you do
+
+1561
+01:32:10,380 --> 01:32:12,920
+it this way
+
+1562
+01:32:13,920 --> 01:32:19,500
+so you want to so yeah
+
+1563
+01:32:17,699 --> 01:32:21,060
+I don't know if you guys know what I
+
+1564
+01:32:19,500 --> 01:32:25,320
+mean but
+
+1565
+01:32:21,060 --> 01:32:28,980
+no questions I'm just gonna code it
+
+1566
+01:32:25,320 --> 01:32:31,760
+you take this part you want to prepend
+
+1567
+01:32:28,980 --> 01:32:31,760
+now
+
+1568
+01:32:32,820 --> 01:32:37,620
+why you see
+
+1569
+01:32:34,920 --> 01:32:40,260
+this is not really suitable in who fam
+
+1570
+01:32:37,620 --> 01:32:46,940
+language because you can see
+
+1571
+01:32:40,260 --> 01:32:46,940
+this pre pen they don't even take a
+
+1572
+01:32:47,100 --> 01:32:51,600
+they don't even take a argument I mean
+
+1573
+01:32:49,920 --> 01:32:55,400
+they are
+
+1574
+01:32:51,600 --> 01:32:55,400
+the second argument which is
+
+1575
+01:32:56,040 --> 01:33:00,300
+you know usually
+
+1576
+01:32:58,020 --> 01:33:03,300
+usually every function in Wolfram
+
+1577
+01:33:00,300 --> 01:33:06,000
+language when they take a list
+
+1578
+01:33:03,300 --> 01:33:09,239
+they will just apply to every element of
+
+1579
+01:33:06,000 --> 01:33:12,060
+the list but here it's a single element
+
+1580
+01:33:09,239 --> 01:33:15,480
+you know there is no form where this
+
+1581
+01:33:12,060 --> 01:33:18,139
+second element can be released why the
+
+1582
+01:33:15,480 --> 01:33:18,139
+reason is because
+
+1583
+01:33:19,320 --> 01:33:23,520
+um well it's a design issue it's you
+
+1584
+01:33:21,600 --> 01:33:26,580
+know it's basically just because the
+
+1585
+01:33:23,520 --> 01:33:28,400
+Wolfram list is not suitable for this
+
+1586
+01:33:26,580 --> 01:33:31,260
+kind of thing
+
+1587
+01:33:28,400 --> 01:33:33,480
+so what you want to do
+
+1588
+01:33:31,260 --> 01:33:36,900
+basically right now you want to join
+
+1589
+01:33:33,480 --> 01:33:38,820
+yeah join is the proper yeah John is a
+
+1590
+01:33:36,900 --> 01:33:40,620
+proper um
+
+1591
+01:33:38,820 --> 01:33:42,840
+function
+
+1592
+01:33:40,620 --> 01:33:45,380
+so you can see here is the example of
+
+1593
+01:33:42,840 --> 01:33:45,380
+join
+
+1594
+01:33:45,540 --> 01:33:49,739
+yeah you don't want to use prepend you
+
+1595
+01:33:48,420 --> 01:33:52,400
+want to join
+
+1596
+01:33:49,739 --> 01:33:52,400
+so
+
+1597
+01:33:57,900 --> 01:34:05,060
+so let's rewrite this function
+
+1598
+01:34:01,199 --> 01:34:05,060
+that equals to
+
+1599
+01:34:11,100 --> 01:34:13,940
+join
+
+1600
+01:34:14,159 --> 01:34:18,920
+that and the
+
+1601
+01:34:22,679 --> 01:34:29,159
+okay so you take the first M items I
+
+1602
+01:34:26,820 --> 01:34:34,380
+mean the you take the first p number of
+
+1603
+01:34:29,159 --> 01:34:37,400
+items of Stack Mountain then you prepend
+
+1604
+01:34:34,380 --> 01:34:39,000
+it to the stack
+
+1605
+01:34:37,400 --> 01:34:42,060
+990
+
+1606
+01:34:39,000 --> 01:34:46,260
+then you assign the bat that value to
+
+1607
+01:34:42,060 --> 01:34:49,920
+the stack in okay so that is how
+
+1608
+01:34:46,260 --> 01:34:53,179
+we can do this so let's remove these
+
+1609
+01:34:49,920 --> 01:34:53,179
+things we don't need
+
+1610
+01:34:53,639 --> 01:35:01,880
+no need map anymore then the second part
+
+1611
+01:34:57,179 --> 01:35:01,880
+is just that okay so we can do that
+
+1612
+01:35:04,920 --> 01:35:11,120
+okay so that is our function
+
+1613
+01:35:08,520 --> 01:35:11,120
+Papio
+
+1614
+01:35:15,480 --> 01:35:18,139
+let's do it
+
+1615
+01:35:18,239 --> 01:35:28,100
+McD
+
+1616
+01:35:19,810 --> 01:35:28,100
+[Music]
+
+1617
+01:35:39,060 --> 01:35:42,060
+McD
+
+1618
+01:35:42,239 --> 01:35:47,580
+that's the right answer but let's fix
+
+1619
+01:35:45,300 --> 01:35:49,320
+something else because sometimes when
+
+1620
+01:35:47,580 --> 01:35:51,900
+the stack is empty
+
+1621
+01:35:49,320 --> 01:35:54,000
+you cannot call the first
+
+1622
+01:35:51,900 --> 01:35:57,540
+Okay so
+
+1623
+01:35:54,000 --> 01:36:00,179
+so you want a function that takes the
+
+1624
+01:35:57,540 --> 01:36:03,540
+first element of a list
+
+1625
+01:36:00,179 --> 01:36:06,780
+however when the list is empty you don't
+
+1626
+01:36:03,540 --> 01:36:08,460
+want it to return error okay so how do
+
+1627
+01:36:06,780 --> 01:36:10,620
+you fix that
+
+1628
+01:36:08,460 --> 01:36:11,760
+we can fix that by using pattern
+
+1629
+01:36:10,620 --> 01:36:15,840
+matching
+
+1630
+01:36:11,760 --> 01:36:18,179
+but uh but let's look at the
+
+1631
+01:36:15,840 --> 01:36:20,580
+if there is some
+
+1632
+01:36:18,179 --> 01:36:22,639
+if the Wolfram shows
+
+1633
+01:36:20,580 --> 01:36:22,639
+um
+
+1634
+01:36:23,280 --> 01:36:30,120
+it shows some solution
+
+1635
+01:36:27,239 --> 01:36:33,239
+or if we uh
+
+1636
+01:36:30,120 --> 01:36:36,260
+and we can do a if statement here but
+
+1637
+01:36:33,239 --> 01:36:36,260
+that wouldn't be good
+
+1638
+01:36:37,380 --> 01:36:42,540
+yeah let me show you okay let me show
+
+1639
+01:36:39,600 --> 01:36:45,719
+you a technique something interesting a
+
+1640
+01:36:42,540 --> 01:36:48,239
+technique of pattern matching so now the
+
+1641
+01:36:45,719 --> 01:36:51,780
+problem is that
+
+1642
+01:36:48,239 --> 01:36:56,280
+the problem is that you want to take the
+
+1643
+01:36:51,780 --> 01:37:00,659
+first element of a bunch of beasts
+
+1644
+01:36:56,280 --> 01:37:03,780
+you know list of stacks that's a list of
+
+1645
+01:37:00,659 --> 01:37:06,480
+least each you know that's a list of
+
+1646
+01:37:03,780 --> 01:37:08,699
+least so if there's no first element
+
+1647
+01:37:06,480 --> 01:37:12,260
+don't return error how do you do that
+
+1648
+01:37:08,699 --> 01:37:12,260
+okay we can do it this way
+
+1649
+01:37:12,360 --> 01:37:19,080
+so you start by that and you want to
+
+1650
+01:37:17,219 --> 01:37:23,360
+apply the
+
+1651
+01:37:19,080 --> 01:37:27,239
+this slash dot means replace all
+
+1652
+01:37:23,360 --> 01:37:30,139
+and then you wanna say
+
+1653
+01:37:27,239 --> 01:37:30,139
+at least
+
+1654
+01:37:30,840 --> 01:37:37,860
+first okay whatever
+
+1655
+01:37:34,139 --> 01:37:40,920
+then the second part is anything we
+
+1656
+01:37:37,860 --> 01:37:42,360
+don't care one or more zero or more
+
+1657
+01:37:40,920 --> 01:37:46,560
+three
+
+1658
+01:37:42,360 --> 01:37:48,860
+low lines character okay then replace it
+
+1659
+01:37:46,560 --> 01:37:48,860
+by
+
+1660
+01:37:49,560 --> 01:37:52,040
+uh
+
+1661
+01:37:53,940 --> 01:38:00,199
+replace it by Just A Plus t
+
+1662
+01:37:57,179 --> 01:38:00,199
+so that will
+
+1663
+01:38:08,639 --> 01:38:12,260
+do that yeah
+
+1664
+01:38:13,320 --> 01:38:19,639
+actually I'm not sure you could maybe
+
+1665
+01:38:15,600 --> 01:38:19,639
+turn the empty list let's see
+
+1666
+01:38:23,340 --> 01:38:27,560
+no comments anyone no comments
+
+1667
+01:38:40,020 --> 01:38:43,400
+so here
+
+1668
+01:38:44,520 --> 01:38:51,060
+let's say result stack equals two
+
+1669
+01:38:49,139 --> 01:38:55,139
+these substance
+
+1670
+01:38:51,060 --> 01:38:55,139
+and then it's
+
+1671
+01:38:55,500 --> 01:39:00,840
+we need to
+
+1672
+01:38:58,320 --> 01:39:04,040
+let's modify these
+
+1673
+01:39:00,840 --> 01:39:09,540
+so it doesn't actually change anything
+
+1674
+01:39:04,040 --> 01:39:11,040
+yeah that's not okay let's don't do that
+
+1675
+01:39:09,540 --> 01:39:13,380
+so
+
+1676
+01:39:11,040 --> 01:39:16,679
+you have at least
+
+1677
+01:39:13,380 --> 01:39:19,679
+you want to get the first element
+
+1678
+01:39:16,679 --> 01:39:22,560
+but if the list is empty don't return
+
+1679
+01:39:19,679 --> 01:39:25,980
+any error how do you do that
+
+1680
+01:39:22,560 --> 01:39:29,300
+easy the symphony solution is to use the
+
+1681
+01:39:25,980 --> 01:39:29,300
+if statement okay
+
+1682
+01:39:29,820 --> 01:39:32,420
+if
+
+1683
+01:39:37,440 --> 01:39:40,280
+length
+
+1684
+01:39:40,620 --> 01:39:43,340
+argument
+
+1685
+01:39:44,719 --> 01:39:53,219
+equals to zero then
+
+1686
+01:39:49,980 --> 01:39:54,540
+then what do you do here return an empty
+
+1687
+01:39:53,219 --> 01:39:56,159
+list
+
+1688
+01:39:54,540 --> 01:39:58,199
+otherwise
+
+1689
+01:39:56,159 --> 01:40:02,639
+first
+
+1690
+01:39:58,199 --> 01:40:04,860
+that thing okay this is now a function
+
+1691
+01:40:02,639 --> 01:40:08,000
+so
+
+1692
+01:40:04,860 --> 01:40:08,000
+you can just
+
+1693
+01:40:09,659 --> 01:40:13,260
+do it this way that will return the
+
+1694
+01:40:12,000 --> 01:40:16,440
+result
+
+1695
+01:40:13,260 --> 01:40:18,960
+okay now there are other ways but
+
+1696
+01:40:16,440 --> 01:40:21,540
+um I'm gonna I was going to show you
+
+1697
+01:40:18,960 --> 01:40:24,540
+pattern matching but um
+
+1698
+01:40:21,540 --> 01:40:27,440
+but let's let's get the result let's get
+
+1699
+01:40:24,540 --> 01:40:27,440
+the answer for now
+
+1700
+01:40:28,500 --> 01:40:36,000
+okay that's you know McD
+
+1701
+01:40:32,280 --> 01:40:38,159
+okay let's do this for the real input
+
+1702
+01:40:36,000 --> 01:40:41,600
+okay
+
+1703
+01:40:38,159 --> 01:40:45,300
+let's do this for the real input so
+
+1704
+01:40:41,600 --> 01:40:50,120
+open open open
+
+1705
+01:40:45,300 --> 01:40:50,120
+pump here this is a real input copy
+
+1706
+01:40:50,280 --> 01:40:57,980
+close close okay go back here
+
+1707
+01:40:54,739 --> 01:40:57,980
+select that
+
+1708
+01:40:58,980 --> 01:41:07,639
+paste okay now let's add semicolon to
+
+1709
+01:41:03,480 --> 01:41:07,639
+suppress the long output
+
+1710
+01:41:16,620 --> 01:41:20,239
+suppress long output
+
+1711
+01:41:23,580 --> 01:41:31,320
+okay do it
+
+1712
+01:41:27,300 --> 01:41:34,260
+yeah I forgot to suppress that one
+
+1713
+01:41:31,320 --> 01:41:35,880
+okay so here is answer am I confident
+
+1714
+01:41:34,260 --> 01:41:38,699
+yeah
+
+1715
+01:41:35,880 --> 01:41:41,179
+let's do it I'm pretty confident hello
+
+1716
+01:41:38,699 --> 01:41:41,179
+Sam
+
+1717
+01:41:45,000 --> 01:41:51,420
+okay hey shut up
+
+1718
+01:41:47,480 --> 01:41:54,980
+submit yeah I'm confident and it's just
+
+1719
+01:41:51,420 --> 01:41:54,980
+did we do it
+
+1720
+01:41:55,139 --> 01:42:00,119
+enter
+
+1721
+01:41:57,360 --> 01:42:02,219
+that's the right answer you are one
+
+1722
+01:42:00,119 --> 01:42:05,659
+ghost star closer to collecting enough
+
+1723
+01:42:02,219 --> 01:42:09,060
+stuff here okay we finished the day five
+
+1724
+01:42:05,659 --> 01:42:10,560
+day five problem a and problem B that's
+
+1725
+01:42:09,060 --> 01:42:13,199
+it for
+
+1726
+01:42:10,560 --> 01:42:16,380
+this video
+
+1727
+01:42:13,199 --> 01:42:19,440
+now I'm going to do a next video
+
+1728
+01:42:16,380 --> 01:42:21,900
+okay so what time is it it's it's two
+
+1729
+01:42:19,440 --> 01:42:24,679
+o'clock so this is two hours
+
+1730
+01:42:21,900 --> 01:42:27,679
+so I'm going to start the next video
+
+1731
+01:42:24,679 --> 01:42:31,860
+uh in two hours
+
+1732
+01:42:27,679 --> 01:42:34,139
+so you know I can actually YouTube so
+
+1733
+01:42:31,860 --> 01:42:39,119
+I'm going to start the next video in two
+
+1734
+01:42:34,139 --> 01:42:43,699
+hours okay and that video is going to be
+
+1735
+01:42:39,119 --> 01:42:47,580
+we are going to implement a linked list
+
+1736
+01:42:43,699 --> 01:42:50,100
+in Python in JavaScript and in Wolfram
+
+1737
+01:42:47,580 --> 01:42:53,100
+language all three I'm gonna do it for
+
+1738
+01:42:50,100 --> 01:42:55,380
+sure and I'm going to we are going to
+
+1739
+01:42:53,100 --> 01:42:59,040
+test whether
+
+1740
+01:42:55,380 --> 01:43:01,860
+using the linked list as a stack data
+
+1741
+01:42:59,040 --> 01:43:05,639
+structure is more efficient than just
+
+1742
+01:43:01,860 --> 01:43:08,340
+using Python's default list
+
+1743
+01:43:05,639 --> 01:43:11,699
+okay we are going to push a lot items in
+
+1744
+01:43:08,340 --> 01:43:13,260
+popular item saying and we'll see
+
+1745
+01:43:11,699 --> 01:43:16,380
+um yeah so
+
+1746
+01:43:13,260 --> 01:43:20,040
+in two hours in two hours we're gonna do
+
+1747
+01:43:16,380 --> 01:43:23,540
+that I'm going to create a video and I'm
+
+1748
+01:43:20,040 --> 01:43:27,420
+going to post it on
+
+1749
+01:43:23,540 --> 01:43:29,699
+scored and I'm gonna also announce it on
+
+1750
+01:43:27,420 --> 01:43:32,520
+uh
+
+1751
+01:43:29,699 --> 01:43:34,500
+saw on Twitter okay
+
+1752
+01:43:32,520 --> 01:43:36,719
+okay that's it for today
+
+1753
+01:43:34,500 --> 01:43:39,659
+so
+
+1754
+01:43:36,719 --> 01:43:41,940
+into in about two hours you'll see my
+
+1755
+01:43:39,659 --> 01:43:44,580
+announcement on Twitter and Discord I'm
+
+1756
+01:43:41,940 --> 01:43:48,480
+gonna do another video exploration of
+
+1757
+01:43:44,580 --> 01:43:50,940
+the efficient stack structure
+
+1758
+01:43:48,480 --> 01:43:53,580
+okay in Python JavaScript and the
+
+1759
+01:43:50,940 --> 01:43:55,860
+Wolfram language
+
+1760
+01:43:53,580 --> 01:43:58,860
+so that's it for today by the way
+
+1761
+01:43:55,860 --> 01:43:59,940
+yesterday I did a very interesting I did
+
+1762
+01:43:58,860 --> 01:44:03,780
+a poll
+
+1763
+01:43:59,940 --> 01:44:08,040
+on functional language Haskell versus or
+
+1764
+01:44:03,780 --> 01:44:12,719
+camel okay so you can see we did a poor
+
+1765
+01:44:08,040 --> 01:44:14,580
+and that pole hit jackpot that pole
+
+1766
+01:44:12,719 --> 01:44:17,600
+here's the result
+
+1767
+01:44:14,580 --> 01:44:17,600
+Deadpool has
+
+1768
+01:44:18,600 --> 01:44:24,119
+uh
+
+1769
+01:44:20,420 --> 01:44:27,780
+937 votes close to a thousand votes so
+
+1770
+01:44:24,119 --> 01:44:30,420
+it's rare for me so and I asked people
+
+1771
+01:44:27,780 --> 01:44:32,540
+to post their reason why a camel or
+
+1772
+01:44:30,420 --> 01:44:36,480
+Haskell and a lot
+
+1773
+01:44:32,540 --> 01:44:39,719
+Experts of java of Haskell or camel they
+
+1774
+01:44:36,480 --> 01:44:44,159
+give their reasons very interesting
+
+1775
+01:44:39,719 --> 01:44:47,820
+my own conclusion is I'm I'm always um
+
+1776
+01:44:44,159 --> 01:44:52,560
+I I think maybe a pickup or camo again I
+
+1777
+01:44:47,820 --> 01:44:56,340
+did a camera study some 15 years ago but
+
+1778
+01:44:52,560 --> 01:44:58,860
+I never actually went far so I'm
+
+1779
+01:44:56,340 --> 01:45:01,619
+thinking maybe you know because today
+
+1780
+01:44:58,860 --> 01:45:04,920
+maybe I'll do a camera I also did some
+
+1781
+01:45:01,619 --> 01:45:09,960
+Haskell but never never went far like I
+
+1782
+01:45:04,920 --> 01:45:12,119
+know Haskell in our camera since 1997.
+
+1783
+01:45:09,960 --> 01:45:15,600
+you know so
+
+1784
+01:45:12,119 --> 01:45:17,940
+you know since 1997 back on news groups
+
+1785
+01:45:15,600 --> 01:45:20,159
+and there's there's a lot of others you
+
+1786
+01:45:17,940 --> 01:45:22,199
+know today you guys don't know you know
+
+1787
+01:45:20,159 --> 01:45:26,580
+because for example there's Maran
+
+1788
+01:45:22,199 --> 01:45:31,560
+moranda which at the time Miranda in
+
+1789
+01:45:26,580 --> 01:45:34,139
+1990s is the most popular commercial
+
+1790
+01:45:31,560 --> 01:45:36,780
+version of
+
+1791
+01:45:34,139 --> 01:45:39,300
+pure functional programming Miranda and
+
+1792
+01:45:36,780 --> 01:45:43,100
+clean okay let me let me show you since
+
+1793
+01:45:39,300 --> 01:45:43,100
+I'm talking about this topic
+
+1794
+01:45:45,420 --> 01:45:50,940
+Miranda language okay
+
+1795
+01:45:47,880 --> 01:45:53,760
+back in 1990s Miranda programming
+
+1796
+01:45:50,940 --> 01:45:55,020
+language is the most popular and most
+
+1797
+01:45:53,760 --> 01:45:57,900
+successful
+
+1798
+01:45:55,020 --> 01:45:59,219
+functional programming language
+
+1799
+01:45:57,900 --> 01:46:01,199
+and
+
+1800
+01:45:59,219 --> 01:46:03,480
+and it's commercial okay it's commercial
+
+1801
+01:46:01,199 --> 01:46:06,119
+it's not open source you know this is
+
+1802
+01:46:03,480 --> 01:46:07,940
+1990s and this
+
+1803
+01:46:06,119 --> 01:46:10,699
+this
+
+1804
+01:46:07,940 --> 01:46:13,260
+Miranda language is the main reason
+
+1805
+01:46:10,699 --> 01:46:14,400
+Haskell was created
+
+1806
+01:46:13,260 --> 01:46:17,940
+okay
+
+1807
+01:46:14,400 --> 01:46:20,460
+because it's very popular commercial in
+
+1808
+01:46:17,940 --> 01:46:23,940
+1990s remember 1990 is not like today
+
+1809
+01:46:20,460 --> 01:46:27,679
+because the CPU are not as fast the ram
+
+1810
+01:46:23,940 --> 01:46:32,480
+the maximum RAM you can get is like
+
+1811
+01:46:27,679 --> 01:46:35,400
+256 megabytes in 1991.
+
+1812
+01:46:32,480 --> 01:46:40,139
+256 megabytes
+
+1813
+01:46:35,400 --> 01:46:42,540
+Ram 1991 okay by year 2000 you might
+
+1814
+01:46:40,139 --> 01:46:45,600
+have one gigabyte I forgot but today
+
+1815
+01:46:42,540 --> 01:46:48,139
+it's like six six gigabytes anyway so in
+
+1816
+01:46:45,600 --> 01:46:52,020
+1990s Miranda is very popular then
+
+1817
+01:46:48,139 --> 01:46:53,340
+Haskell is a from a bunch of academics
+
+1818
+01:46:52,020 --> 01:46:57,239
+you know programming language
+
+1819
+01:46:53,340 --> 01:47:00,000
+researchers so they want the version
+
+1820
+01:46:57,239 --> 01:47:02,340
+but Miranda is commercial so you know
+
+1821
+01:47:00,000 --> 01:47:04,440
+they are trying to create a
+
+1822
+01:47:02,340 --> 01:47:06,900
+version of functional language you know
+
+1823
+01:47:04,440 --> 01:47:09,179
+so Miranda is very similar to Haskell
+
+1824
+01:47:06,900 --> 01:47:12,739
+and there's also a
+
+1825
+01:47:09,179 --> 01:47:15,719
+very very successful popular thing okay
+
+1826
+01:47:12,739 --> 01:47:18,060
+a pure functional programming language
+
+1827
+01:47:15,719 --> 01:47:21,780
+and this cleaning programming language
+
+1828
+01:47:18,060 --> 01:47:26,280
+is based on uh term rewriting system
+
+1829
+01:47:21,780 --> 01:47:29,219
+graph rewriting system okay in 1990s and
+
+1830
+01:47:26,280 --> 01:47:33,000
+also it also supports lazy evaluation
+
+1831
+01:47:29,219 --> 01:47:36,420
+just like Haskell okay so these are all
+
+1832
+01:47:33,000 --> 01:47:39,540
+you know these are at this time you know
+
+1833
+01:47:36,420 --> 01:47:40,920
+around year 2000
+
+1834
+01:47:39,540 --> 01:47:43,380
+Miranda
+
+1835
+01:47:40,920 --> 01:47:46,560
+and cream they are far more Superior
+
+1836
+01:47:43,380 --> 01:47:50,280
+than escal okay far more Superior
+
+1837
+01:47:46,560 --> 01:47:51,840
+you know Haskell even in 2010 is still
+
+1838
+01:47:50,280 --> 01:47:53,100
+kind of lousy
+
+1839
+01:47:51,840 --> 01:47:55,260
+you know
+
+1840
+01:47:53,100 --> 01:48:01,500
+but time has changed you know Microsoft
+
+1841
+01:47:55,260 --> 01:48:04,440
+begin in 2003 they started F sharp
+
+1842
+01:48:01,500 --> 01:48:07,380
+so anyway you know that so F sharp
+
+1843
+01:48:04,440 --> 01:48:10,139
+that's the first commercial by a giant
+
+1844
+01:48:07,380 --> 01:48:12,960
+corporation that actually embraced
+
+1845
+01:48:10,139 --> 01:48:15,179
+functional programming and we functional
+
+1846
+01:48:12,960 --> 01:48:18,840
+programmer Fanatics we are like oh my
+
+1847
+01:48:15,179 --> 01:48:22,320
+God thank you finally finally the C and
+
+1848
+01:48:18,840 --> 01:48:23,880
+C plus plus Java idiots they you know
+
+1849
+01:48:22,320 --> 01:48:26,639
+finally they can
+
+1850
+01:48:23,880 --> 01:48:28,679
+see function of the you know functional
+
+1851
+01:48:26,639 --> 01:48:31,320
+programming
+
+1852
+01:48:28,679 --> 01:48:33,119
+anyway that's history so so I want to
+
+1853
+01:48:31,320 --> 01:48:35,219
+say so Miranda
+
+1854
+01:48:33,119 --> 01:48:39,420
+clean
+
+1855
+01:48:35,219 --> 01:48:42,600
+and uh or camo okay or camo also these
+
+1856
+01:48:39,420 --> 01:48:44,880
+three are the superior
+
+1857
+01:48:42,600 --> 01:48:50,580
+functional programming languages in
+
+1858
+01:48:44,880 --> 01:48:52,380
+1990s even back in 1990s now today
+
+1859
+01:48:50,580 --> 01:48:54,900
+Miranda
+
+1860
+01:48:52,380 --> 01:48:59,280
+kind of died you never heard of you know
+
+1861
+01:48:54,900 --> 01:49:03,119
+so you know it like in 2020 a version of
+
+1862
+01:48:59,280 --> 01:49:06,179
+Miranda was released as open source it's
+
+1863
+01:49:03,119 --> 01:49:09,600
+kind of late okay it killed you know
+
+1864
+01:49:06,179 --> 01:49:12,540
+these here's a story another story about
+
+1865
+01:49:09,600 --> 01:49:15,719
+open source Open Source Kill a lot of
+
+1866
+01:49:12,540 --> 01:49:18,420
+superior things open source and free
+
+1867
+01:49:15,719 --> 01:49:22,080
+software Foundation they are a scan
+
+1868
+01:49:18,420 --> 01:49:25,260
+you know when I was back in year 2000 I
+
+1869
+01:49:22,080 --> 01:49:27,659
+was a Fanatics of Richard Stroman and
+
+1870
+01:49:25,260 --> 01:49:30,540
+you know I believe in his
+
+1871
+01:49:27,659 --> 01:49:32,880
+ethical qualities you know in fact
+
+1872
+01:49:30,540 --> 01:49:35,760
+between the war of Open Source and free
+
+1873
+01:49:32,880 --> 01:49:38,040
+software Foundation I'm a fan of free
+
+1874
+01:49:35,760 --> 01:49:40,560
+software Foundation just like Richard
+
+1875
+01:49:38,040 --> 01:49:43,800
+Stroman I'm a fan of Richard Stroman and
+
+1876
+01:49:40,560 --> 01:49:45,119
+I was waiting for his new herd operating
+
+1877
+01:49:43,800 --> 01:49:47,960
+system
+
+1878
+01:49:45,119 --> 01:49:50,639
+after 30 years never came to be okay
+
+1879
+01:49:47,960 --> 01:49:53,580
+gunu heard
+
+1880
+01:49:50,639 --> 01:49:56,639
+and Richard Stoneman became this Guru
+
+1881
+01:49:53,580 --> 01:50:01,080
+you know when I was young I believed in
+
+1882
+01:49:56,639 --> 01:50:04,920
+you know like a lot of you guys you know
+
+1883
+01:50:01,080 --> 01:50:07,679
+um yeah yeah and uh you know now I'm 50
+
+1884
+01:50:04,920 --> 01:50:12,239
+something you know I'm a few more years
+
+1885
+01:50:07,679 --> 01:50:14,040
+I'm done for programming you know um
+
+1886
+01:50:12,239 --> 01:50:16,980
+so that's history so I'm telling you
+
+1887
+01:50:14,040 --> 01:50:20,159
+guys my kind of my experience so back in
+
+1888
+01:50:16,980 --> 01:50:23,100
+90s Miranda is the top quality function
+
+1889
+01:50:20,159 --> 01:50:26,520
+of programming pure okay and clean also
+
+1890
+01:50:23,100 --> 01:50:28,679
+cream is made in Netherlands I think
+
+1891
+01:50:26,520 --> 01:50:30,900
+Netherlands something northern Europe
+
+1892
+01:50:28,679 --> 01:50:32,820
+okay
+
+1893
+01:50:30,900 --> 01:50:36,119
+also commercial
+
+1894
+01:50:32,820 --> 01:50:38,940
+and it also got killed by open source
+
+1895
+01:50:36,119 --> 01:50:41,880
+what else open source killed open source
+
+1896
+01:50:38,940 --> 01:50:45,179
+killed POS
+
+1897
+01:50:41,880 --> 01:50:47,639
+today you might heard of a
+
+1898
+01:50:45,179 --> 01:50:51,420
+Haiku OS okay
+
+1899
+01:50:47,639 --> 01:50:54,900
+POS got killed but got wiped out by open
+
+1900
+01:50:51,420 --> 01:50:57,960
+source and apples apples lots of
+
+1901
+01:50:54,900 --> 01:51:00,480
+networking protocols lots of things okay
+
+1902
+01:50:57,960 --> 01:51:02,100
+anyway boss has got killed by open
+
+1903
+01:51:00,480 --> 01:51:05,760
+source
+
+1904
+01:51:02,100 --> 01:51:09,060
+Miranda got killed by open source clean
+
+1905
+01:51:05,760 --> 01:51:13,679
+got cured by open source you know clean
+
+1906
+01:51:09,060 --> 01:51:16,440
+in 19 in in 1990 in year 2000 they tried
+
+1907
+01:51:13,679 --> 01:51:18,600
+to oh we are going to release a open
+
+1908
+01:51:16,440 --> 01:51:21,420
+source version too late
+
+1909
+01:51:18,600 --> 01:51:23,520
+you know too late
+
+1910
+01:51:21,420 --> 01:51:25,920
+and I got killed by a woman so screen
+
+1911
+01:51:23,520 --> 01:51:30,119
+got killed by open source
+
+1912
+01:51:25,920 --> 01:51:33,260
+uh also back then in 1990s erlan is
+
+1913
+01:51:30,119 --> 01:51:36,179
+another highly successful
+
+1914
+01:51:33,260 --> 01:51:39,300
+superly used in commercial world
+
+1915
+01:51:36,179 --> 01:51:40,380
+in commercial Enterprise
+
+1916
+01:51:39,300 --> 01:51:43,320
+okay
+
+1917
+01:51:40,380 --> 01:51:45,719
+so erlan about maybe five or ten years
+
+1918
+01:51:43,320 --> 01:51:49,080
+ago they also released as open source
+
+1919
+01:51:45,719 --> 01:51:50,159
+but they also luckily Orlando didn't get
+
+1920
+01:51:49,080 --> 01:51:54,060
+killed
+
+1921
+01:51:50,159 --> 01:51:57,960
+hola is your viable language
+
+1922
+01:51:54,060 --> 01:52:00,179
+but you know I'd so Miranda is kind of
+
+1923
+01:51:57,960 --> 01:52:02,040
+dead you know actually I need to read up
+
+1924
+01:52:00,179 --> 01:52:04,440
+what's up you know what what's their
+
+1925
+01:52:02,040 --> 01:52:05,699
+current status
+
+1926
+01:52:04,440 --> 01:52:08,880
+um
+
+1927
+01:52:05,699 --> 01:52:12,060
+clean is kind of dead you know like 20
+
+1928
+01:52:08,880 --> 01:52:13,739
+20 years ago year 2000 I was so much you
+
+1929
+01:52:12,060 --> 01:52:16,739
+know I so wish
+
+1930
+01:52:13,739 --> 01:52:21,619
+and including Haskell you know how they
+
+1931
+01:52:16,739 --> 01:52:21,619
+um I wish they become popular but anyway
+
+1932
+01:52:22,500 --> 01:52:27,719
+so Miranda clean uh and oh come on those
+
+1933
+01:52:26,760 --> 01:52:32,400
+are
+
+1934
+01:52:27,719 --> 01:52:34,699
+highly successful in 19 in in late 1990s
+
+1935
+01:52:32,400 --> 01:52:34,699
+okay
+
+1936
+01:52:35,400 --> 01:52:40,980
+so anyway I was saying I so I did a poll
+
+1937
+01:52:38,340 --> 01:52:44,340
+you know asking people about
+
+1938
+01:52:40,980 --> 01:52:47,100
+uh about Haskell and
+
+1939
+01:52:44,340 --> 01:52:50,820
+and uh where is it
+
+1940
+01:52:47,100 --> 01:52:53,880
+yeah okay it turns out 1 000 votes and
+
+1941
+01:52:50,820 --> 01:52:57,119
+lots of experts they gave their opinion
+
+1942
+01:52:53,880 --> 01:52:58,980
+I I just I don't have much opinion you
+
+1943
+01:52:57,119 --> 01:53:01,020
+know either one of them you know of
+
+1944
+01:52:58,980 --> 01:53:03,480
+course I know them for 20 years but I
+
+1945
+01:53:01,020 --> 01:53:06,000
+actually I wrote hello world you know
+
+1946
+01:53:03,480 --> 01:53:08,400
+just a few but never got into so I'm
+
+1947
+01:53:06,000 --> 01:53:10,920
+thinking maybe I'll start to
+
+1948
+01:53:08,400 --> 01:53:13,679
+between these two I think I much favor
+
+1949
+01:53:10,920 --> 01:53:15,960
+or camo you know I especially I don't
+
+1950
+01:53:13,679 --> 01:53:19,380
+like Haskell okay and I particularly
+
+1951
+01:53:15,960 --> 01:53:20,760
+despise The Fad these idiots they don't
+
+1952
+01:53:19,380 --> 01:53:22,619
+know what they are saying they don't
+
+1953
+01:53:20,760 --> 01:53:25,199
+know you know young people you know they
+
+1954
+01:53:22,619 --> 01:53:26,699
+think Haskell is a pure oh lazy
+
+1955
+01:53:25,199 --> 01:53:30,780
+evaluation
+
+1956
+01:53:26,699 --> 01:53:33,780
+like just like I was 20 years ago when I
+
+1957
+01:53:30,780 --> 01:53:36,119
+see Haskell you know lazy evaluation oh
+
+1958
+01:53:33,780 --> 01:53:38,219
+this this must this is a solution this
+
+1959
+01:53:36,119 --> 01:53:40,760
+is this is the most elegant this is the
+
+1960
+01:53:38,219 --> 01:53:44,219
+answer we must use it this is you know
+
+1961
+01:53:40,760 --> 01:53:46,380
+theoretical you know best thing lazy
+
+1962
+01:53:44,219 --> 01:53:48,239
+evaluation
+
+1963
+01:53:46,380 --> 01:53:51,060
+you know today you asked me I don't
+
+1964
+01:53:48,239 --> 01:53:53,159
+think so I don't think so I don't want I
+
+1965
+01:53:51,060 --> 01:53:55,860
+don't want lazy evaluation
+
+1966
+01:53:53,159 --> 01:53:57,780
+okay so anyways you know I'm just saying
+
+1967
+01:53:55,860 --> 01:54:01,320
+my experiences so
+
+1968
+01:53:57,780 --> 01:54:02,639
+maybe I'll try to pick up my old camo
+
+1969
+01:54:01,320 --> 01:54:04,560
+but
+
+1970
+01:54:02,639 --> 01:54:06,900
+I'm not sure because I'm getting old
+
+1971
+01:54:04,560 --> 01:54:10,440
+there's a lot of things for me to do I
+
+1972
+01:54:06,900 --> 01:54:12,780
+want to actually write a passer passer
+
+1973
+01:54:10,440 --> 01:54:14,639
+compiler for example the Emax with
+
+1974
+01:54:12,780 --> 01:54:17,400
+three-seater I want to dive into that
+
+1975
+01:54:14,639 --> 01:54:19,440
+possibly I'll create my own language or
+
+1976
+01:54:17,400 --> 01:54:22,020
+something like that you know there's a
+
+1977
+01:54:19,440 --> 01:54:25,380
+differential geometry and lots of uh
+
+1978
+01:54:22,020 --> 01:54:27,960
+type proof systems proof Theory I want
+
+1979
+01:54:25,380 --> 01:54:29,219
+to I need to get into homotopy type
+
+1980
+01:54:27,960 --> 01:54:34,679
+Theory
+
+1981
+01:54:29,219 --> 01:54:38,159
+you know that I hope that I become
+
+1982
+01:54:34,679 --> 01:54:40,139
+somewhat an expert in that topic before
+
+1983
+01:54:38,159 --> 01:54:43,800
+I die you know I don't have much time
+
+1984
+01:54:40,139 --> 01:54:46,380
+you know five five years or or and and
+
+1985
+01:54:43,800 --> 01:54:48,900
+Max 10 you know I'm getting old
+
+1986
+01:54:46,380 --> 01:54:52,860
+type Theory and lots of mathematics
+
+1987
+01:54:48,900 --> 01:54:56,280
+differential geometry in particular uh
+
+1988
+01:54:52,860 --> 01:55:01,380
+improved you know type Theory uh
+
+1989
+01:54:56,280 --> 01:55:04,080
+she finished in mathematics geometry and
+
+1990
+01:55:01,380 --> 01:55:06,480
+so as far as programming language goes
+
+1991
+01:55:04,080 --> 01:55:09,179
+well I'm interested but there's a
+
+1992
+01:55:06,480 --> 01:55:12,300
+there's also Julia I'm highly interested
+
+1993
+01:55:09,179 --> 01:55:14,520
+in Julia okay so if you guys young
+
+1994
+01:55:12,300 --> 01:55:18,239
+people you want advice I would recommend
+
+1995
+01:55:14,520 --> 01:55:19,500
+so on camo you can go into it's it's
+
+1996
+01:55:18,239 --> 01:55:22,619
+very
+
+1997
+01:55:19,500 --> 01:55:25,139
+uh it's used in you know by today it's
+
+1998
+01:55:22,619 --> 01:55:26,760
+this photo camera and Haskell are used
+
+1999
+01:55:25,139 --> 01:55:28,380
+in industry
+
+2000
+01:55:26,760 --> 01:55:32,400
+not
+
+2001
+01:55:28,380 --> 01:55:34,980
+not comparable to Golan for example or C
+
+2002
+01:55:32,400 --> 01:55:36,900
+or C sharp sharp C plus first but
+
+2003
+01:55:34,980 --> 01:55:40,560
+however they are fairly popular you can
+
+2004
+01:55:36,900 --> 01:55:42,600
+get a job if you are truly good okay so
+
+2005
+01:55:40,560 --> 01:55:45,480
+you can learn or camo or you can learn
+
+2006
+01:55:42,600 --> 01:55:48,239
+Haskell you'll get a job or you can
+
+2007
+01:55:45,480 --> 01:55:49,800
+learn closure you know you will get a
+
+2008
+01:55:48,239 --> 01:55:52,619
+job if you are really good you know
+
+2009
+01:55:49,800 --> 01:55:56,340
+study okay go study don't around
+
+2010
+01:55:52,619 --> 01:55:59,460
+don't post memes or you know or or just
+
+2011
+01:55:56,340 --> 01:56:02,639
+you know like you read Hacker News you
+
+2012
+01:55:59,460 --> 01:56:04,920
+just pick up you know dreamers then you
+
+2013
+01:56:02,639 --> 01:56:06,840
+post oh Haskell is this way no don't do
+
+2014
+01:56:04,920 --> 01:56:09,360
+that like I did that
+
+2015
+01:56:06,840 --> 01:56:12,540
+for 10 years when I was younger try not
+
+2016
+01:56:09,360 --> 01:56:15,540
+to do that what instead Master one
+
+2017
+01:56:12,540 --> 01:56:18,060
+language right through a project do that
+
+2018
+01:56:15,540 --> 01:56:20,460
+for one year so you actually really
+
+2019
+01:56:18,060 --> 01:56:22,860
+Master you know the language okay not
+
+2020
+01:56:20,460 --> 01:56:24,780
+just oh let's suppose this I know that
+
+2021
+01:56:22,860 --> 01:56:27,420
+that but you actually cannot code a
+
+2022
+01:56:24,780 --> 01:56:30,719
+project okay code a project
+
+2023
+01:56:27,420 --> 01:56:33,119
+for one year okay our camera is good has
+
+2024
+01:56:30,719 --> 01:56:35,300
+Cog is good you can get both a job in
+
+2025
+01:56:33,119 --> 01:56:38,159
+both and closure
+
+2026
+01:56:35,300 --> 01:56:40,860
+if you are really good that's a key
+
+2027
+01:56:38,159 --> 01:56:43,380
+Point okay there are a lot you know if
+
+2028
+01:56:40,860 --> 01:56:47,580
+you are really good okay and then there
+
+2029
+01:56:43,380 --> 01:56:50,699
+is also Julia Julia's language you know
+
+2030
+01:56:47,580 --> 01:56:53,699
+which I I think they are also comparable
+
+2031
+01:56:50,699 --> 01:56:58,560
+but I don't think there are many Julia
+
+2032
+01:56:53,699 --> 01:57:01,679
+jobs yet okay so that's it for today so
+
+2033
+01:56:58,560 --> 01:57:04,679
+in like I you know again in two hours
+
+2034
+01:57:01,679 --> 01:57:08,340
+also a post announcement in two or three
+
+2035
+01:57:04,679 --> 01:57:11,460
+hours I'll do another video on
+
+2036
+01:57:08,340 --> 01:57:14,099
+trying to implement a efficient data
+
+2037
+01:57:11,460 --> 01:57:16,260
+structure of stack in Python in
+
+2038
+01:57:14,099 --> 01:57:18,659
+JavaScript in and in Wolfram language
+
+2039
+01:57:16,260 --> 01:57:21,239
+okay thank you for watching go to my
+
+2040
+01:57:18,659 --> 01:57:23,659
+website pay me okay if you like you know
+
+2041
+01:57:21,239 --> 01:57:23,659
+support
+
+2042
+01:57:23,880 --> 01:57:27,060
+um
+
+2043
+01:57:25,260 --> 01:57:31,260
+you know go to my website you will see
+
+2044
+01:57:27,060 --> 01:57:33,980
+my PayPal in patreon okay thank you guys
+
+2045
+01:57:31,260 --> 01:57:33,980
+bye
+
+2046
+01:57:37,320 --> 01:57:41,840
+okay there's opinion well I disagree
+
+2047
+01:57:39,540 --> 01:57:41,840
+that's a
+

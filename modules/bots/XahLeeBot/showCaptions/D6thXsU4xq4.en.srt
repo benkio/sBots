@@ -1,0 +1,5376 @@
+1
+00:00:00,000 --> 00:00:04,400
+Morning, good evening guys. Welcome to
+
+2
+00:00:02,159 --> 00:00:07,440
+another episode of sound talk show. We
+
+3
+00:00:04,400 --> 00:00:10,160
+are going to code wam language. Today we
+
+4
+00:00:07,440 --> 00:00:13,200
+uh this is a coding session. So it's
+
+5
+00:00:10,160 --> 00:00:17,039
+just going to be me coding technical
+
+6
+00:00:13,200 --> 00:00:19,680
+stuff. Wam language. Okay. So because uh
+
+7
+00:00:17,039 --> 00:00:21,840
+you know code you need to code and then
+
+8
+00:00:19,680 --> 00:00:26,840
+stop coding. Wait, what what's going on
+
+9
+00:00:21,840 --> 00:00:26,840
+with my Emacs Windows?
+
+10
+00:00:27,760 --> 00:00:31,800
+Wait, there is something.
+
+11
+00:00:32,559 --> 00:00:38,079
+Oh yeah. So part of the window is not
+
+12
+00:00:34,800 --> 00:00:41,120
+showing Emacs. That's what Okay. Coding
+
+13
+00:00:38,079 --> 00:00:45,360
+session today. Emac bisp. Okay. So not
+
+14
+00:00:41,120 --> 00:00:48,559
+to do uh let's go to talk show. Today's
+
+15
+00:00:45,360 --> 00:00:51,520
+talk show. Open it. So uh wuam language
+
+16
+00:00:48,559 --> 00:00:55,120
+coding session. Uh we're going to write
+
+17
+00:00:51,520 --> 00:00:58,239
+a custom function to export SVG
+
+18
+00:00:55,120 --> 00:01:02,399
+graphics. Now we did several talk show
+
+19
+00:00:58,239 --> 00:01:06,400
+before uh a week or two ago. So the last
+
+20
+00:01:02,399 --> 00:01:10,080
+one is episode 697.
+
+21
+00:01:06,400 --> 00:01:12,479
+Uh we explored how to do this and we
+
+22
+00:01:10,080 --> 00:01:14,560
+abort it because it seems too difficult.
+
+23
+00:01:12,479 --> 00:01:17,360
+But I decided we're going to persist.
+
+24
+00:01:14,560 --> 00:01:19,920
+Okay. So we're going to persist to write
+
+25
+00:01:17,360 --> 00:01:22,560
+this function. Um
+
+26
+00:01:19,920 --> 00:01:25,360
+this is for exporting graphics. uh
+
+27
+00:01:22,560 --> 00:01:26,880
+exporting two-dimensional graphics to
+
+28
+00:01:25,360 --> 00:01:29,920
+SVG.
+
+29
+00:01:26,880 --> 00:01:34,400
+Now, now if you watch my previous video
+
+30
+00:01:29,920 --> 00:01:37,840
+uh episode 697 and then another one
+
+31
+00:01:34,400 --> 00:01:40,240
+episode 687 in July
+
+32
+00:01:37,840 --> 00:01:42,320
+uh that one is very technical that
+
+33
+00:01:40,240 --> 00:01:47,040
+discussed why we need to do it and so
+
+34
+00:01:42,320 --> 00:01:50,399
+on. So um so we uh talked about SVG you
+
+35
+00:01:47,040 --> 00:01:54,240
+know the technology of X SVG which is uh
+
+36
+00:01:50,399 --> 00:01:56,720
+XML file and uh lots of issues but
+
+37
+00:01:54,240 --> 00:01:58,960
+anyway so we're going to just code okay
+
+38
+00:01:56,720 --> 00:02:01,680
+so if you don't know Wuang language I
+
+39
+00:01:58,960 --> 00:02:04,320
+have many videos uh so you can download
+
+40
+00:02:01,680 --> 00:02:08,720
+it here search for Kasali wufam language
+
+41
+00:02:04,320 --> 00:02:10,879
+tutorial for programmers on kasali.info
+
+42
+00:02:08,720 --> 00:02:12,879
+info, okay? And you can find the
+
+43
+00:02:10,879 --> 00:02:17,120
+download link. It's free for personal
+
+44
+00:02:12,879 --> 00:02:20,879
+use. Uh and uh wam language for
+
+45
+00:02:17,120 --> 00:02:22,879
+programmers, a comprehensive tutorial
+
+46
+00:02:20,879 --> 00:02:25,040
+for programmers. If you already know a
+
+47
+00:02:22,879 --> 00:02:27,360
+programming language and lots of my uh
+
+48
+00:02:25,040 --> 00:02:31,040
+wraim language packages, I've been
+
+49
+00:02:27,360 --> 00:02:33,200
+coding wam language for like 30 years.
+
+50
+00:02:31,040 --> 00:02:36,800
+Hello, I discovered that both of my
+
+51
+00:02:33,200 --> 00:02:43,000
+physics uh let's see uh let me magnify
+
+52
+00:02:36,800 --> 00:02:43,000
+the font control plus okay
+
+53
+00:02:45,200 --> 00:02:50,080
+let's see
+
+54
+00:02:47,840 --> 00:02:52,879
+so this is boring for you guys for most
+
+55
+00:02:50,080 --> 00:02:56,560
+of you guys vast maj majority this is
+
+56
+00:02:52,879 --> 00:02:59,040
+just me coding wuan language um because
+
+57
+00:02:56,560 --> 00:03:02,480
+you know this is lots of technical
+
+58
+00:02:59,040 --> 00:03:04,720
+details uh I won't be able to explain
+
+59
+00:03:02,480 --> 00:03:07,519
+each one of them in detail. So it's just
+
+60
+00:03:04,720 --> 00:03:10,560
+watching me code wam language. Okay, I
+
+61
+00:03:07,519 --> 00:03:12,800
+I'll explain something along the way. Um
+
+62
+00:03:10,560 --> 00:03:14,640
+so if you already know Wuam language,
+
+63
+00:03:12,800 --> 00:03:17,040
+you started to learn, you know, maybe
+
+64
+00:03:14,640 --> 00:03:19,280
+for my tutorial, then you know, maybe
+
+65
+00:03:17,040 --> 00:03:21,200
+you coded wam language for half a year,
+
+66
+00:03:19,280 --> 00:03:23,840
+then you'll get you'll know what I'm
+
+67
+00:03:21,200 --> 00:03:25,920
+talking about. But for most of you, it's
+
+68
+00:03:23,840 --> 00:03:29,360
+probably boring. And if you are watching
+
+69
+00:03:25,920 --> 00:03:32,400
+this offline, best to play at 1.5 speed,
+
+70
+00:03:29,360 --> 00:03:34,959
+okay? minimum uh hacksaw discovered that
+
+71
+00:03:32,400 --> 00:03:37,760
+both of my physics teacher love wam
+
+72
+00:03:34,959 --> 00:03:41,040
+language. Oh okay. Yeah, physics you
+
+73
+00:03:37,760 --> 00:03:43,440
+know uh for physist uh basically wam
+
+74
+00:03:41,040 --> 00:03:48,400
+language is the only choice among a few
+
+75
+00:03:43,440 --> 00:03:50,959
+handful uh because for physics
+
+76
+00:03:48,400 --> 00:03:53,840
+you know physics mostly involve ma you
+
+77
+00:03:50,959 --> 00:03:57,680
+know like the the the heart of physics
+
+78
+00:03:53,840 --> 00:04:00,799
+is mathematics okay mathematical physics
+
+79
+00:03:57,680 --> 00:04:03,920
+so it's lots of and mostly they have to
+
+80
+00:04:00,799 --> 00:04:06,560
+do with the analysis branch or also
+
+81
+00:04:03,920 --> 00:04:08,560
+known as calculus so calculus
+
+82
+00:04:06,560 --> 00:04:11,840
+differential equations like turn you
+
+83
+00:04:08,560 --> 00:04:14,080
+know that that's a majority like uh
+
+84
+00:04:11,840 --> 00:04:16,400
+theory of relativity and differential
+
+85
+00:04:14,080 --> 00:04:19,560
+equations the model of the universe and
+
+86
+00:04:16,400 --> 00:04:19,560
+so on
+
+87
+00:04:22,560 --> 00:04:28,880
+GPS okay so I'm going to code okay so so
+
+88
+00:04:26,800 --> 00:04:32,400
+uh again this is going to be boring okay
+
+89
+00:04:28,880 --> 00:04:34,880
+but I'm just going to uh code it okay so
+
+90
+00:04:32,400 --> 00:04:37,919
+let's see I need to grab some uh
+
+91
+00:04:34,880 --> 00:04:41,840
+previous we started pre in previous live
+
+92
+00:04:37,919 --> 00:04:46,000
+stream we started um
+
+93
+00:04:41,840 --> 00:04:49,360
+we started to code it okay so there's a
+
+94
+00:04:46,000 --> 00:04:52,400
+uh AI video summary so let's see what I
+
+95
+00:04:49,360 --> 00:04:54,560
+want to grab we want to grab the code
+
+96
+00:04:52,400 --> 00:04:56,400
+okay here
+
+97
+00:04:54,560 --> 00:04:59,759
+so we're going to we're going to code it
+
+98
+00:04:56,400 --> 00:05:06,440
+for one hour and uh I will probably not
+
+99
+00:04:59,759 --> 00:05:06,440
+finish it but I will try to make it a Um
+
+100
+00:05:06,560 --> 00:05:11,680
+uh wait not eag this so wam language
+
+101
+00:05:09,360 --> 00:05:14,479
+paste the code and pop it out. So I'll
+
+102
+00:05:11,680 --> 00:05:18,479
+try to make it like uh at least part of
+
+103
+00:05:14,479 --> 00:05:20,880
+it is done so it can run so you you know
+
+104
+00:05:18,479 --> 00:05:23,280
+but on the whole it's not finished. So
+
+105
+00:05:20,880 --> 00:05:26,000
+let's start to write it. Okay. If you
+
+106
+00:05:23,280 --> 00:05:27,919
+have questions feel free to ask me. I'm
+
+107
+00:05:26,000 --> 00:05:30,720
+going to code and talk. Okay. Write a
+
+108
+00:05:27,919 --> 00:05:32,800
+command to export 2D graphics to SVG. We
+
+109
+00:05:30,720 --> 00:05:37,199
+want to do this because building export
+
+110
+00:05:32,800 --> 00:05:38,800
+function creates huge file size.
+
+111
+00:05:37,199 --> 00:05:42,000
+Uh
+
+112
+00:05:38,800 --> 00:05:45,919
+that is almost
+
+113
+00:05:42,000 --> 00:05:47,840
+almost 10 times larger
+
+114
+00:05:45,919 --> 00:05:51,440
+than
+
+115
+00:05:47,840 --> 00:05:53,600
+than necessary. Okay, that's a problem
+
+116
+00:05:51,440 --> 00:05:55,280
+with SVG because you have so many ways
+
+117
+00:05:53,600 --> 00:05:58,479
+to code the same thing. So it's it's
+
+118
+00:05:55,280 --> 00:06:01,280
+like HTML. when you use a program like
+
+119
+00:05:58,479 --> 00:06:03,440
+Adobe or whatever or Microsoft Word to
+
+120
+00:06:01,280 --> 00:06:05,840
+generate HTML
+
+121
+00:06:03,440 --> 00:06:08,560
+the result is tends to be like bloated
+
+122
+00:06:05,840 --> 00:06:10,560
+like 10 times as large
+
+123
+00:06:08,560 --> 00:06:13,039
+that's a situation typically when you
+
+124
+00:06:10,560 --> 00:06:16,400
+export from one format to another format
+
+125
+00:06:13,039 --> 00:06:18,479
+in an automatic way but if you manually
+
+126
+00:06:16,400 --> 00:06:21,840
+you know convert then it's like 10 times
+
+127
+00:06:18,479 --> 00:06:24,479
+smaller so I want to do this because I
+
+128
+00:06:21,840 --> 00:06:28,720
+have like hundreds hundreds of uh
+
+129
+00:06:24,479 --> 00:06:30,720
+hundreds um of uh graphics uh involving
+
+130
+00:06:28,720 --> 00:06:34,960
+two-dimensional graphics visualization
+
+131
+00:06:30,720 --> 00:06:37,199
+of mathematics um that uh let me show it
+
+132
+00:06:34,960 --> 00:06:40,080
+again. Okay, so
+
+133
+00:06:37,199 --> 00:06:42,800
+info my website and go down go down go
+
+134
+00:06:40,080 --> 00:06:45,680
+down below it's mathematics. So you go
+
+135
+00:06:42,800 --> 00:06:48,400
+to visual dictionary of uh spatial plane
+
+136
+00:06:45,680 --> 00:06:51,360
+curves for example parabola. Uh so there
+
+137
+00:06:48,400 --> 00:06:55,680
+are tons of animations and illustrations
+
+138
+00:06:51,360 --> 00:06:58,080
+about um um mathematics two dimensional.
+
+139
+00:06:55,680 --> 00:07:01,440
+So all these two-dimensional graphics
+
+140
+00:06:58,080 --> 00:07:03,840
+they are very suitable for SVG um you
+
+141
+00:07:01,440 --> 00:07:07,919
+don't want PNG because because they are
+
+142
+00:07:03,840 --> 00:07:10,160
+not scalable you know anyway so you know
+
+143
+00:07:07,919 --> 00:07:12,800
+watch my previous video you'll see so
+
+144
+00:07:10,160 --> 00:07:17,039
+anyway so let's start to write it okay
+
+145
+00:07:12,800 --> 00:07:19,520
+uh so uh so we going to do uh so for
+
+146
+00:07:17,039 --> 00:07:21,759
+example this is a primitive graphics so
+
+147
+00:07:19,520 --> 00:07:24,800
+that's a woofam this is how you do woo
+
+148
+00:07:21,759 --> 00:07:27,520
+frame um so we don't want axis okay so
+
+149
+00:07:24,800 --> 00:07:30,520
+let's Tory. So copy. Let's start wam
+
+150
+00:07:27,520 --> 00:07:30,520
+language.
+
+151
+00:07:40,639 --> 00:07:48,479
+Okay. New buffer. Paste and uh paste and
+
+152
+00:07:44,880 --> 00:07:52,599
+shift enter to run it.
+
+153
+00:07:48,479 --> 00:07:52,599
+And move this here.
+
+154
+00:07:52,639 --> 00:07:58,960
+And why why is it taking so long? So
+
+155
+00:07:56,160 --> 00:08:01,520
+let's make it 150. So that's a that's a
+
+156
+00:07:58,960 --> 00:08:04,319
+the circle is a graphic primitives that
+
+157
+00:08:01,520 --> 00:08:07,680
+means basic shape. So circle centered at
+
+158
+00:08:04,319 --> 00:08:10,319
+0 0 with radius one and then then you
+
+159
+00:08:07,680 --> 00:08:12,400
+wrap graphics around it. Then that
+
+160
+00:08:10,319 --> 00:08:16,400
+become that that will show us a graphics
+
+161
+00:08:12,400 --> 00:08:18,879
+and you add a axis true. Okay. So axis
+
+162
+00:08:16,400 --> 00:08:22,000
+gives you a sense of like what's the
+
+163
+00:08:18,879 --> 00:08:24,879
+scale of this uh thing.
+
+164
+00:08:22,000 --> 00:08:27,520
+So by default you can export to SVG like
+
+165
+00:08:24,879 --> 00:08:31,440
+we showed this before but um so let's
+
+166
+00:08:27,520 --> 00:08:34,159
+remove the uh axis. Okay. So wait. So
+
+167
+00:08:31,440 --> 00:08:36,240
+yeah so graphics trim. Yeah. So for
+
+168
+00:08:34,159 --> 00:08:40,000
+example let let me show this again.
+
+169
+00:08:36,240 --> 00:08:42,479
+Okay. So do that. Okay. Now it's now
+
+170
+00:08:40,000 --> 00:08:45,600
+it's saved in documents directory. Go
+
+171
+00:08:42,479 --> 00:08:49,040
+there and search for circle. Uh wait
+
+172
+00:08:45,600 --> 00:08:51,120
+what did we save as xx circle? So xx
+
+173
+00:08:49,040 --> 00:08:56,399
+circle. So you open that. That's a
+
+174
+00:08:51,120 --> 00:08:59,120
+circle. Then uh show it in HTML mode. So
+
+175
+00:08:56,399 --> 00:09:02,160
+you can actually see the code. SVG is
+
+176
+00:08:59,120 --> 00:09:06,720
+actually a uh XML file. So it's all
+
+177
+00:09:02,160 --> 00:09:09,760
+text. So now you make it to um you make
+
+178
+00:09:06,720 --> 00:09:14,160
+it to be multiple lines. Uh replace
+
+179
+00:09:09,760 --> 00:09:16,480
+semicolon by semicolons uh new line. So
+
+180
+00:09:14,160 --> 00:09:19,760
+So here's the file. Okay. So let's let's
+
+181
+00:09:16,480 --> 00:09:23,519
+also make this you know. So here is the
+
+182
+00:09:19,760 --> 00:09:25,920
+entire file. So
+
+183
+00:09:23,519 --> 00:09:30,720
+now you notice you know it's using the
+
+184
+00:09:25,920 --> 00:09:33,440
+path uh uh thing. So and uh and uh so
+
+185
+00:09:30,720 --> 00:09:35,200
+the file size wait
+
+186
+00:09:33,440 --> 00:09:39,040
+869.
+
+187
+00:09:35,200 --> 00:09:41,760
+The file size is 869
+
+188
+00:09:39,040 --> 00:09:45,519
+bytes. But actually the whole thing
+
+189
+00:09:41,760 --> 00:09:47,519
+should be just one circle. Uh actually
+
+190
+00:09:45,519 --> 00:09:49,279
+I'm repeating lots of things I talked
+
+191
+00:09:47,519 --> 00:09:51,279
+about before but let me just do it.
+
+192
+00:09:49,279 --> 00:09:53,600
+Okay. So if you don't know anything
+
+193
+00:09:51,279 --> 00:09:58,640
+about SVG you can search for practical
+
+194
+00:09:53,600 --> 00:10:03,040
+SVG tutorial by by me on si.info. Okay.
+
+195
+00:09:58,640 --> 00:10:07,440
+So so for a circle you go to you go to
+
+196
+00:10:03,040 --> 00:10:10,959
+basic shapes for a circle u primitive it
+
+197
+00:10:07,440 --> 00:10:13,360
+should be a single line. So like that.
+
+198
+00:10:10,959 --> 00:10:17,600
+Okay. So this is you know that's a
+
+199
+00:10:13,360 --> 00:10:21,360
+circle. So it should be just like you
+
+200
+00:10:17,600 --> 00:10:25,360
+know 50 megabytes you know 50 bytes. So
+
+201
+00:10:21,360 --> 00:10:27,680
+let me close that. So the whole file
+
+202
+00:10:25,360 --> 00:10:31,760
+should be just like that like that.
+
+203
+00:10:27,680 --> 00:10:34,240
+Okay. But but instead it creates this
+
+204
+00:10:31,760 --> 00:10:37,200
+it's using a path it's using a basio
+
+205
+00:10:34,240 --> 00:10:38,959
+curve. So it's appro it's trying to
+
+206
+00:10:37,200 --> 00:10:42,160
+approximate
+
+207
+00:10:38,959 --> 00:10:44,399
+approximate a circle. uh so it's very
+
+208
+00:10:42,160 --> 00:10:47,440
+inefficient you know so when you have
+
+209
+00:10:44,399 --> 00:10:51,040
+hundreds of c hundreds of circles like I
+
+210
+00:10:47,440 --> 00:10:53,519
+have um example like like
+
+211
+00:10:51,040 --> 00:10:56,160
+when you have hundreds of uh circles
+
+212
+00:10:53,519 --> 00:10:59,440
+then the file size is like blowing up
+
+213
+00:10:56,160 --> 00:11:02,320
+100 times so that's that's not that's
+
+214
+00:10:59,440 --> 00:11:06,560
+not what we want so that's why I'm
+
+215
+00:11:02,320 --> 00:11:10,000
+trying to write a export to SVG function
+
+216
+00:11:06,560 --> 00:11:14,000
+custom function by myself that will
+
+217
+00:11:10,000 --> 00:11:18,800
+convert a circle primitive like that to
+
+218
+00:11:14,000 --> 00:11:22,880
+just to just this, you know, instead
+
+219
+00:11:18,800 --> 00:11:24,959
+instead of uh instead of this this this.
+
+220
+00:11:22,880 --> 00:11:27,200
+Okay, that's what we going to do. So,
+
+221
+00:11:24,959 --> 00:11:30,399
+let's um
+
+222
+00:11:27,200 --> 00:11:35,760
+let's cut cut that. Okay, close that.
+
+223
+00:11:30,399 --> 00:11:39,680
+Don't say uh close that, right? Close uh
+
+224
+00:11:35,760 --> 00:11:42,160
+kill anyway. Yes. Okay. So, let's go
+
+225
+00:11:39,680 --> 00:11:44,560
+back. So, let let me post some link
+
+226
+00:11:42,160 --> 00:11:47,440
+here.
+
+227
+00:11:44,560 --> 00:11:49,600
+Uh let's that's a circle. Okay.
+
+228
+00:11:47,440 --> 00:11:53,079
+Actually, let's not do that. Okay. So,
+
+229
+00:11:49,600 --> 00:11:53,079
+hold on a second.
+
+230
+00:11:53,519 --> 00:11:58,760
+So, this uh let me
+
+231
+00:12:02,000 --> 00:12:08,639
+uh Okay. So, go back here. SVG. So let's
+
+232
+00:12:06,240 --> 00:12:13,040
+copy the link there.
+
+233
+00:12:08,639 --> 00:12:17,360
+That's plain curves and the SVG shapes
+
+234
+00:12:13,040 --> 00:12:22,680
+SVG tutorial practical SVG. So paste
+
+235
+00:12:17,360 --> 00:12:22,680
+that uh actually here.
+
+236
+00:12:24,480 --> 00:12:30,320
+Okay. Today's talk show. Okay. Special
+
+237
+00:12:26,959 --> 00:12:33,120
+plane curves and practical SVG tutorial.
+
+238
+00:12:30,320 --> 00:12:36,000
+So now we uh yeah let's go back to the
+
+239
+00:12:33,120 --> 00:12:39,360
+code. So let's start to code it. Okay.
+
+240
+00:12:36,000 --> 00:12:43,200
+So uh so we are writing graphics to
+
+241
+00:12:39,360 --> 00:12:45,440
+string that turns a graphics like
+
+242
+00:12:43,200 --> 00:12:48,560
+anything like that to a string to the
+
+243
+00:12:45,440 --> 00:12:52,720
+SVG string and here is the SVG string.
+
+244
+00:12:48,560 --> 00:12:55,360
+Okay. So we last time we discovered
+
+245
+00:12:52,720 --> 00:12:58,480
+there's lots of issues about about
+
+246
+00:12:55,360 --> 00:13:02,320
+scaling and and about uh scaling the
+
+247
+00:12:58,480 --> 00:13:05,200
+coordinate because you have to map the
+
+248
+00:13:02,320 --> 00:13:08,399
+the boundary of the graphics coordinate.
+
+249
+00:13:05,200 --> 00:13:10,800
+You want to find the maximum and minimum
+
+250
+00:13:08,399 --> 00:13:14,880
+x coordinate and maximum and minimum of
+
+251
+00:13:10,800 --> 00:13:17,680
+ycoordinate. Then you want to scale it
+
+252
+00:13:14,880 --> 00:13:21,040
+to the pixels because the pixel the
+
+253
+00:13:17,680 --> 00:13:23,040
+width and height will be you know fixed
+
+254
+00:13:21,040 --> 00:13:24,800
+like 1,00
+
+255
+00:13:23,040 --> 00:13:27,600
+by 1,000
+
+256
+00:13:24,800 --> 00:13:30,320
+but this image is you know negative one
+
+257
+00:13:27,600 --> 00:13:32,959
+to one. So it's just two. So you need to
+
+258
+00:13:30,320 --> 00:13:35,920
+like scale it. That's why um you need to
+
+259
+00:13:32,959 --> 00:13:40,639
+use this view box this view box SVG
+
+260
+00:13:35,920 --> 00:13:43,920
+viewbox to um to scale. So you need to
+
+261
+00:13:40,639 --> 00:13:46,800
+find the scale factor and the trans and
+
+262
+00:13:43,920 --> 00:13:51,600
+trans vector you need to also flip the
+
+263
+00:13:46,800 --> 00:13:56,079
+y-axis because in SVG the yaxis
+
+264
+00:13:51,600 --> 00:13:58,880
+goes from top to bottom you know the the
+
+265
+00:13:56,079 --> 00:14:04,079
+higher is negative so lower is positive
+
+266
+00:13:58,880 --> 00:14:07,120
+so the origin in SVG is the 0 coordinate
+
+267
+00:14:04,079 --> 00:14:09,440
+is on the upper left corner but in
+
+268
+00:14:07,120 --> 00:14:12,560
+mathematics the origin is the center you
+
+269
+00:14:09,440 --> 00:14:15,040
+know So, so you need to flip the y-axis.
+
+270
+00:14:12,560 --> 00:14:17,040
+So, that's why you need to um do this.
+
+271
+00:14:15,040 --> 00:14:20,800
+So, if you don't know, you know, you go
+
+272
+00:14:17,040 --> 00:14:24,720
+to my SVG tutorial.
+
+273
+00:14:20,800 --> 00:14:27,120
+So, there's a section uh on uh SVG
+
+274
+00:14:24,720 --> 00:14:30,000
+circle specifying style, shape style,
+
+275
+00:14:27,120 --> 00:14:33,120
+view port, and viewbox. So, view port
+
+276
+00:14:30,000 --> 00:14:36,800
+specifies how many pixels, width, and
+
+277
+00:14:33,120 --> 00:14:39,360
+height. Okay. And the viewbox specifies
+
+278
+00:14:36,800 --> 00:14:41,519
+a user coordinate
+
+279
+00:14:39,360 --> 00:14:44,000
+you know
+
+280
+00:14:41,519 --> 00:14:47,440
+because the actual graph may be one you
+
+281
+00:14:44,000 --> 00:14:50,079
+know 10 billion uh
+
+282
+00:14:47,440 --> 00:14:52,720
+um you know the the the coordinate
+
+283
+00:14:50,079 --> 00:14:54,639
+coordinate value may be a huge number
+
+284
+00:14:52,720 --> 00:14:57,199
+but you don't have enough pixel so you
+
+285
+00:14:54,639 --> 00:15:00,399
+need to like rescale it. So anyway, but
+
+286
+00:14:57,199 --> 00:15:02,000
+that's so so first thing actually the so
+
+287
+00:15:00,399 --> 00:15:04,639
+the first thing when you ex you know
+
+288
+00:15:02,000 --> 00:15:08,639
+when to do this you need to find the
+
+289
+00:15:04,639 --> 00:15:10,800
+maximum and minimum of the um
+
+290
+00:15:08,639 --> 00:15:12,720
+of the coordinate or Jesus that's
+
+291
+00:15:10,800 --> 00:15:14,320
+another issue that's another problem
+
+292
+00:15:12,720 --> 00:15:16,959
+because
+
+293
+00:15:14,320 --> 00:15:20,959
+God every time you try to do this you
+
+294
+00:15:16,959 --> 00:15:23,360
+run into another non-trivial problem why
+
+295
+00:15:20,959 --> 00:15:27,279
+because in this example we are exploding
+
+296
+00:15:23,360 --> 00:15:30,000
+a circle right so to find the maximum
+
+297
+00:15:27,279 --> 00:15:32,399
+the max x xcoordinate. One way you can
+
+298
+00:15:30,000 --> 00:15:35,279
+do is you get the order coordinate and
+
+299
+00:15:32,399 --> 00:15:38,480
+just find the maximum one you know the
+
+300
+00:15:35,279 --> 00:15:40,240
+the x you know but in this case we got a
+
+301
+00:15:38,480 --> 00:15:43,760
+problem because the circle you only
+
+302
+00:15:40,240 --> 00:15:46,000
+specify the center and radius. So you
+
+303
+00:15:43,760 --> 00:15:48,160
+you don't actually have a coordinate for
+
+304
+00:15:46,000 --> 00:15:51,519
+the um
+
+305
+00:15:48,160 --> 00:15:55,120
+one one and zero you know. So what if
+
+306
+00:15:51,519 --> 00:15:58,560
+your circle has a radius of 1,00
+
+307
+00:15:55,120 --> 00:16:01,040
+you know one one,000 or a billion
+
+308
+00:15:58,560 --> 00:16:03,680
+but you won't find uh so that's another
+
+309
+00:16:01,040 --> 00:16:07,600
+problem uh god
+
+310
+00:16:03,680 --> 00:16:10,079
+so every time we do this we um got you
+
+311
+00:16:07,600 --> 00:16:15,040
+you know we run into lots of issues so
+
+312
+00:16:10,079 --> 00:16:18,320
+but let's clarify this first okay so so
+
+313
+00:16:15,040 --> 00:16:22,560
+that is kind of so so now this function
+
+314
+00:16:18,320 --> 00:16:26,000
+return a string And uh here is like a
+
+315
+00:16:22,560 --> 00:16:30,480
+sample graphics. Let's remove it.
+
+316
+00:16:26,000 --> 00:16:34,079
+Okay. And uh and what is this? Um so
+
+317
+00:16:30,480 --> 00:16:39,839
+first job let's just write it down.
+
+318
+00:16:34,079 --> 00:16:43,320
+First job uh job is to find the max and
+
+319
+00:16:39,839 --> 00:16:43,320
+min of
+
+320
+00:16:44,000 --> 00:16:49,440
+uh x
+
+321
+00:16:46,720 --> 00:16:53,759
+coord
+
+322
+00:16:49,440 --> 00:16:56,880
+and and y
+
+323
+00:16:53,759 --> 00:16:58,959
+coordinate. Okay, that's uh in the
+
+324
+00:16:56,880 --> 00:17:02,320
+graphics
+
+325
+00:16:58,959 --> 00:17:04,160
+in the graphics. Okay, that's the first
+
+326
+00:17:02,320 --> 00:17:07,839
+thing we need to do. Let's do that. So
+
+327
+00:17:04,160 --> 00:17:11,039
+what is this? Uh so that's a example uh
+
+328
+00:17:07,839 --> 00:17:15,039
+of a circle. Uh
+
+329
+00:17:11,039 --> 00:17:18,319
+delete that. Okay. So this is like this
+
+330
+00:17:15,039 --> 00:17:21,679
+is explorics inline documentation. Let's
+
+331
+00:17:18,319 --> 00:17:25,439
+forget that for now.
+
+332
+00:17:21,679 --> 00:17:28,880
+Okay. So yeah, forget that. So right now
+
+333
+00:17:25,439 --> 00:17:31,360
+we are writing this function. So um so
+
+334
+00:17:28,880 --> 00:17:34,960
+this is a
+
+335
+00:17:31,360 --> 00:17:41,039
+sample simple
+
+336
+00:17:34,960 --> 00:17:42,720
+2D graphics of just a circle. Okay.
+
+337
+00:17:41,039 --> 00:17:45,200
+Uh
+
+338
+00:17:42,720 --> 00:17:51,039
+this is
+
+339
+00:17:45,200 --> 00:17:53,280
+this is built in export to SVG. Okay.
+
+340
+00:17:51,039 --> 00:17:56,240
+So now we are writing the function. So
+
+341
+00:17:53,280 --> 00:17:59,679
+graphics to string return a uh string
+
+342
+00:17:56,240 --> 00:18:02,559
+that is SVG format uh representing
+
+343
+00:17:59,679 --> 00:18:06,480
+graphics object G. Okay, fantastic.
+
+344
+00:18:02,559 --> 00:18:09,039
+That's a usage. Now um so right now it
+
+345
+00:18:06,480 --> 00:18:11,200
+just return this uh template string. So
+
+346
+00:18:09,039 --> 00:18:14,240
+we need to so first job to find the max
+
+347
+00:18:11,200 --> 00:18:17,039
+and min of coordinate. So how do you do
+
+348
+00:18:14,240 --> 00:18:20,039
+that? I you know I don't know. So let's
+
+349
+00:18:17,039 --> 00:18:20,039
+see.
+
+350
+00:18:20,640 --> 00:18:24,799
+Let's search for boundary. Okay,
+
+351
+00:18:22,799 --> 00:18:27,440
+something
+
+352
+00:18:24,799 --> 00:18:29,520
+let's see if we can find a I think
+
+353
+00:18:27,440 --> 00:18:33,280
+there's a building function boundary
+
+354
+00:18:29,520 --> 00:18:35,760
+discrete graphics. Okay. So,
+
+355
+00:18:33,280 --> 00:18:40,080
+uh
+
+356
+00:18:35,760 --> 00:18:42,559
+bounding region. Okay. So,
+
+357
+00:18:40,080 --> 00:18:44,320
+there's a lot. So, bounding region we
+
+358
+00:18:42,559 --> 00:18:46,000
+can check
+
+359
+00:18:44,320 --> 00:18:48,720
+uh
+
+360
+00:18:46,000 --> 00:18:52,400
+so if not we might turn it to a mesh
+
+361
+00:18:48,720 --> 00:18:55,039
+first. Okay. So, this you know or or dis
+
+362
+00:18:52,400 --> 00:18:57,760
+discretetized graphics. So, what does
+
+363
+00:18:55,039 --> 00:19:00,400
+discretetize graphics mean? So for
+
+364
+00:18:57,760 --> 00:19:02,880
+example when you have a circle this
+
+365
+00:19:00,400 --> 00:19:05,200
+circle
+
+366
+00:19:02,880 --> 00:19:08,240
+it you know it just represented by a
+
+367
+00:19:05,200 --> 00:19:10,880
+circle a center and radius
+
+368
+00:19:08,240 --> 00:19:13,679
+but let's say you want to distort the
+
+369
+00:19:10,880 --> 00:19:16,720
+circle you want to apply a function to
+
+370
+00:19:13,679 --> 00:19:19,919
+all the points on the circle. So for
+
+371
+00:19:16,720 --> 00:19:26,080
+every point you want to see what you
+
+372
+00:19:19,919 --> 00:19:30,919
+know what what is the um orientation.
+
+373
+00:19:26,080 --> 00:19:30,919
+So then then
+
+374
+00:19:31,039 --> 00:19:34,480
+um
+
+375
+00:19:32,640 --> 00:19:38,000
+they magnify the circle by the
+
+376
+00:19:34,480 --> 00:19:40,559
+orientation. So essentially you you you
+
+377
+00:19:38,000 --> 00:19:44,640
+become it became a spiral. So you see
+
+378
+00:19:40,559 --> 00:19:47,280
+the the more rotated the point is you
+
+379
+00:19:44,640 --> 00:19:50,720
+want to multiply that point uh by a
+
+380
+00:19:47,280 --> 00:19:52,640
+larger value. So basically expand it. So
+
+381
+00:19:50,720 --> 00:19:54,559
+the more rotated it become more
+
+382
+00:19:52,640 --> 00:19:56,880
+expanded. So it becomes a spiral.
+
+383
+00:19:54,559 --> 00:20:00,720
+Suppose you want to apply a function to
+
+384
+00:19:56,880 --> 00:20:02,799
+a to every point of the circle. Okay.
+
+385
+00:20:00,720 --> 00:20:04,640
+But you cannot do that to this circle
+
+386
+00:20:02,799 --> 00:20:06,799
+because this circle you know it's
+
+387
+00:20:04,640 --> 00:20:10,080
+represented by just one point you know
+
+388
+00:20:06,799 --> 00:20:12,960
+the origin. So that's when you want to
+
+389
+00:20:10,080 --> 00:20:16,799
+use discretetized graphics that will
+
+390
+00:20:12,960 --> 00:20:19,520
+break this circle primitive into many uh
+
+391
+00:20:16,799 --> 00:20:21,919
+line segments. Okay. So this is part of
+
+392
+00:20:19,520 --> 00:20:24,640
+computer graphics. Okay. Anyway, I'm I'm
+
+393
+00:20:21,919 --> 00:20:27,520
+trying to explain then uh I never start
+
+394
+00:20:24,640 --> 00:20:30,960
+to code. So, you know, I keep explain
+
+395
+00:20:27,520 --> 00:20:33,280
+explaining I'll never start to code. Uh
+
+396
+00:20:30,960 --> 00:20:35,280
+so, let me see uh how do you find the
+
+397
+00:20:33,280 --> 00:20:39,200
+boundary? Okay, so that's the first job.
+
+398
+00:20:35,280 --> 00:20:42,480
+Boundary uh let's see uh bounding
+
+399
+00:20:39,200 --> 00:20:45,039
+region. Can we bound region uh points
+
+400
+00:20:42,480 --> 00:20:48,720
+give the minimal axis align bounding of
+
+401
+00:20:45,039 --> 00:20:53,159
+box points. Okay, that cannot do because
+
+402
+00:20:48,720 --> 00:20:53,159
+it takes the uh points.
+
+403
+00:20:58,720 --> 00:21:06,240
+Okay. So, you know find the max and
+
+404
+00:21:01,520 --> 00:21:09,120
+minimum of the boundary is actually
+
+405
+00:21:06,240 --> 00:21:12,240
+necessary. So, we have to do this. We
+
+406
+00:21:09,120 --> 00:21:14,480
+have to do this. So, so we just have to
+
+407
+00:21:12,240 --> 00:21:18,679
+first um
+
+408
+00:21:14,480 --> 00:21:18,679
+do this. Oh god.
+
+409
+00:21:21,679 --> 00:21:30,679
+Boundary mesh boundary mesh region. Um
+
+410
+00:21:26,559 --> 00:21:30,679
+okay. So you know
+
+411
+00:21:33,520 --> 00:21:39,520
+boundary discretetize graphics
+
+412
+00:21:35,840 --> 00:21:43,640
+discretetize a 2D or 3D graphics G into
+
+413
+00:21:39,520 --> 00:21:43,640
+a boundary mesh region.
+
+414
+00:21:45,200 --> 00:21:49,000
+uh you know so
+
+415
+00:21:55,280 --> 00:22:00,280
+yeah so this this um
+
+416
+00:22:00,400 --> 00:22:06,159
+this will turn
+
+417
+00:22:03,039 --> 00:22:10,120
+so given a complicated 2D graphics we it
+
+418
+00:22:06,159 --> 00:22:10,120
+will turn the boundary
+
+419
+00:22:12,320 --> 00:22:19,799
+into a discrete graphics. Okay. But um
+
+420
+00:22:21,600 --> 00:22:25,159
+okay. So
+
+421
+00:22:28,559 --> 00:22:34,640
+boundary discretetize region.
+
+422
+00:22:31,840 --> 00:22:37,640
+What is this boundary discretetize
+
+423
+00:22:34,640 --> 00:22:37,640
+graphics?
+
+424
+00:22:40,799 --> 00:22:44,440
+Okay. Uh,
+
+425
+00:22:50,559 --> 00:22:56,240
+okay. So, again,
+
+426
+00:22:54,000 --> 00:23:00,320
+this is probably boring, so let me just
+
+427
+00:22:56,240 --> 00:23:03,919
+code it on my own. Okay.
+
+428
+00:23:00,320 --> 00:23:07,760
+So, so we want to find the minimum and
+
+429
+00:23:03,919 --> 00:23:10,799
+maximum of the x-axis and the y- axis.
+
+430
+00:23:07,760 --> 00:23:13,200
+So in wufam language that's called
+
+431
+00:23:10,799 --> 00:23:17,200
+basically some kind of boundary get the
+
+432
+00:23:13,200 --> 00:23:19,840
+region boundary. Okay. Uh and uh so you
+
+433
+00:23:17,200 --> 00:23:23,840
+want to find a command a function that
+
+434
+00:23:19,840 --> 00:23:26,880
+returns the min and max of the x and y
+
+435
+00:23:23,840 --> 00:23:30,880
+of a 2D graphics. Okay that's what we
+
+436
+00:23:26,880 --> 00:23:34,000
+want to do. So right now we are finding
+
+437
+00:23:30,880 --> 00:23:38,559
+listing all functions that contains the
+
+438
+00:23:34,000 --> 00:23:40,960
+word bound. Okay. So that should cover
+
+439
+00:23:38,559 --> 00:23:44,080
+all the possibilities we are we are
+
+440
+00:23:40,960 --> 00:23:47,280
+looking for I think. So there might be
+
+441
+00:23:44,080 --> 00:23:50,320
+also max and mean we need to find. Okay.
+
+442
+00:23:47,280 --> 00:23:53,120
+So let's look at the bounds. Okay. So
+
+443
+00:23:50,320 --> 00:23:55,039
+there are you know several uh things of
+
+444
+00:23:53,120 --> 00:23:58,080
+interest. Boundary discretetize
+
+445
+00:23:55,039 --> 00:24:01,520
+graphics. Boundary discretetize region.
+
+446
+00:23:58,080 --> 00:24:04,000
+So in wam language graphics means this
+
+447
+00:24:01,520 --> 00:24:07,360
+you know graphics primitives.
+
+448
+00:24:04,000 --> 00:24:09,919
+You have 2D version and 3D version. 2D
+
+449
+00:24:07,360 --> 00:24:12,400
+version is just called graphics. So you
+
+450
+00:24:09,919 --> 00:24:14,400
+got graphics. Okay. So this boundary
+
+451
+00:24:12,400 --> 00:24:16,320
+discretetized graphics applies to
+
+452
+00:24:14,400 --> 00:24:18,080
+graphics.
+
+453
+00:24:16,320 --> 00:24:21,039
+Now there's another concept in wool
+
+454
+00:24:18,080 --> 00:24:23,520
+frame language which is region. Uh
+
+455
+00:24:21,039 --> 00:24:26,000
+region region is not necessarily
+
+456
+00:24:23,520 --> 00:24:31,120
+graphics but they are like related. A
+
+457
+00:24:26,000 --> 00:24:33,679
+graphics can have a region. Uh but so
+
+458
+00:24:31,120 --> 00:24:36,080
+it's kind of it's related. So region is
+
+459
+00:24:33,679 --> 00:24:40,000
+more like more like a mathematical
+
+460
+00:24:36,080 --> 00:24:43,200
+concept. So boundary discretetize region
+
+461
+00:24:40,000 --> 00:24:49,120
+discretetizes the region
+
+462
+00:24:43,200 --> 00:24:53,279
+into a boundary mesh region. Okay. So
+
+463
+00:24:49,120 --> 00:24:56,240
+okay so you got that uh we we might look
+
+464
+00:24:53,279 --> 00:24:59,360
+into so you know so you need to look
+
+465
+00:24:56,240 --> 00:25:02,559
+into the definition of region I I don't
+
+466
+00:24:59,360 --> 00:25:05,760
+remember. Okay then another concept is
+
+467
+00:25:02,559 --> 00:25:09,200
+the mesh. Okay so this is quite
+
+468
+00:25:05,760 --> 00:25:12,480
+complicated. So mesh is another mesh is
+
+469
+00:25:09,200 --> 00:25:14,720
+basically a
+
+470
+00:25:12,480 --> 00:25:17,120
+uh mesh is just like what it sounds you
+
+471
+00:25:14,720 --> 00:25:19,039
+know like bunch of triangles but it also
+
+472
+00:25:17,120 --> 00:25:21,600
+include single lines it's like a
+
+473
+00:25:19,039 --> 00:25:24,080
+generalized mesh.
+
+474
+00:25:21,600 --> 00:25:26,480
+So for example you can look at the you
+
+475
+00:25:24,080 --> 00:25:28,240
+know if you look at the
+
+476
+00:25:26,480 --> 00:25:31,600
+uh
+
+477
+00:25:28,240 --> 00:25:34,480
+images it becomes somewhat clear. So you
+
+478
+00:25:31,600 --> 00:25:37,360
+see it's very generalized. So you can
+
+479
+00:25:34,480 --> 00:25:41,840
+have a mesh. This is not like typically
+
+480
+00:25:37,360 --> 00:25:44,720
+when we think of a mesh we think of a um
+
+481
+00:25:41,840 --> 00:25:48,240
+a surface a patch made of made out of
+
+482
+00:25:44,720 --> 00:25:50,400
+triangles right but in UA language they
+
+483
+00:25:48,240 --> 00:25:54,320
+you know that's a mesh but you could
+
+484
+00:25:50,400 --> 00:25:57,360
+also have mesh region and mesh region
+
+485
+00:25:54,320 --> 00:26:01,600
+can also contain holes and it's not just
+
+486
+00:25:57,360 --> 00:26:03,679
+for a planer mesh but you you can also
+
+487
+00:26:01,600 --> 00:26:05,279
+have one-dimensional mesh or
+
+488
+00:26:03,679 --> 00:26:07,360
+three-dimensional mesh. So a
+
+489
+00:26:05,279 --> 00:26:11,440
+three-dimensional mesh region is kind of
+
+490
+00:26:07,360 --> 00:26:14,320
+like a box but might have a holes in it.
+
+491
+00:26:11,440 --> 00:26:17,520
+So you know so it's like
+
+492
+00:26:14,320 --> 00:26:19,520
+fairly involved. So right now so there
+
+493
+00:26:17,520 --> 00:26:22,960
+are several concept that's interesting
+
+494
+00:26:19,520 --> 00:26:26,720
+to me. So there's uh about boundary
+
+495
+00:26:22,960 --> 00:26:30,480
+graphics and boundary
+
+496
+00:26:26,720 --> 00:26:32,960
+you know so several several um
+
+497
+00:26:30,480 --> 00:26:36,799
+uh concepts. One is discretetized
+
+498
+00:26:32,960 --> 00:26:39,360
+graphics. Uh the other one is mesh. You
+
+499
+00:26:36,799 --> 00:26:41,520
+can turn a graphics into a mesh. The
+
+500
+00:26:39,360 --> 00:26:44,480
+other one is discretetized graphics.
+
+501
+00:26:41,520 --> 00:26:46,559
+Okay. Then the other concept is region.
+
+502
+00:26:44,480 --> 00:26:50,320
+Region is like the boundary of a
+
+503
+00:26:46,559 --> 00:26:53,840
+graphics or or a mesh. Okay.
+
+504
+00:26:50,320 --> 00:26:57,360
+Then okay. So then um
+
+505
+00:26:53,840 --> 00:27:00,559
+Okay. So primarily this top few is what
+
+506
+00:26:57,360 --> 00:27:02,960
+I'm interested I think. Okay. So let's
+
+507
+00:27:00,559 --> 00:27:05,760
+see what does bounce return bounce
+
+508
+00:27:02,960 --> 00:27:08,559
+system bounce.
+
+509
+00:27:05,760 --> 00:27:11,279
+Okay, that's that's
+
+510
+00:27:08,559 --> 00:27:14,159
+system bounce. Why does it um what does
+
+511
+00:27:11,279 --> 00:27:19,679
+it do exactly?
+
+512
+00:27:14,159 --> 00:27:23,440
+There's no documentation for for um
+
+513
+00:27:19,679 --> 00:27:28,080
+interesting documentation web attribute
+
+514
+00:27:23,440 --> 00:27:30,480
+protected system bounds. So why is that?
+
+515
+00:27:28,080 --> 00:27:32,559
+So that's interesting. So you got this
+
+516
+00:27:30,480 --> 00:27:35,760
+bounce symbol
+
+517
+00:27:32,559 --> 00:27:39,279
+and that's not documented. Okay, that's
+
+518
+00:27:35,760 --> 00:27:42,640
+is it because we used it? No, that's
+
+519
+00:27:39,279 --> 00:27:45,120
+interesting finding. Okay, so then you
+
+520
+00:27:42,640 --> 00:27:48,400
+got cell bounding box. We don't care.
+
+521
+00:27:45,120 --> 00:27:51,279
+That's kind of you know uh coordinate
+
+522
+00:27:48,400 --> 00:27:52,880
+bounds. Okay, so that's that may what we
+
+523
+00:27:51,279 --> 00:27:56,720
+want. That may be what we want.
+
+524
+00:27:52,880 --> 00:27:58,799
+Coordinate bounds gives a list min max
+
+525
+00:27:56,720 --> 00:28:01,919
+of the bounds in each dimension of the
+
+526
+00:27:58,799 --> 00:28:05,960
+region defined by coordinates. Okay, I
+
+527
+00:28:01,919 --> 00:28:05,960
+don't know if that will work.
+
+528
+00:28:06,080 --> 00:28:11,520
+So you know the way to code is we can
+
+529
+00:28:09,279 --> 00:28:13,440
+start to try out an arrow. You know just
+
+530
+00:28:11,520 --> 00:28:16,880
+try a coordinate bounce and give a
+
+531
+00:28:13,440 --> 00:28:18,640
+graphics but that's not going to go well
+
+532
+00:28:16,880 --> 00:28:20,480
+because you you you're just going to
+
+533
+00:28:18,640 --> 00:28:23,840
+waste a lot of time. So the the better
+
+534
+00:28:20,480 --> 00:28:25,679
+approach is actually to um carefully
+
+535
+00:28:23,840 --> 00:28:28,080
+read each of the documentation. So
+
+536
+00:28:25,679 --> 00:28:30,320
+coordinate bounds it takes a bunch of
+
+537
+00:28:28,080 --> 00:28:36,159
+coordinate not graphics. Okay. So that's
+
+538
+00:28:30,320 --> 00:28:38,399
+not good. That's not what we want. So um
+
+539
+00:28:36,159 --> 00:28:41,919
+you see it just take a bunch of
+
+540
+00:28:38,399 --> 00:28:45,600
+coordinates. So coordinate bounding box
+
+541
+00:28:41,919 --> 00:28:48,159
+mean max region bounds. So let's look at
+
+542
+00:28:45,600 --> 00:28:51,200
+region bounds.
+
+543
+00:28:48,159 --> 00:28:53,679
+So region bounds uh region gives a
+
+544
+00:28:51,200 --> 00:28:56,080
+bounds for the region. Okay. So but how
+
+545
+00:28:53,679 --> 00:28:58,159
+do you turn a graphics to a region?
+
+546
+00:28:56,080 --> 00:29:01,039
+Region bounds is also known as bounding
+
+547
+00:28:58,159 --> 00:29:04,720
+box in bounding volume. Okay. Depending
+
+548
+00:29:01,039 --> 00:29:07,039
+on 2D or 3D region bounds. So region
+
+549
+00:29:04,720 --> 00:29:13,200
+bounds returns what kind of thing it
+
+550
+00:29:07,039 --> 00:29:16,080
+returns? So it returns like uh two um
+
+551
+00:29:13,200 --> 00:29:19,919
+depending on dimension for one dimension
+
+552
+00:29:16,080 --> 00:29:22,799
+for one dimension it returns two points
+
+553
+00:29:19,919 --> 00:29:30,039
+for two dimension two two dimension it
+
+554
+00:29:22,799 --> 00:29:30,039
+returns um I think four points Right.
+
+555
+00:29:38,399 --> 00:29:44,080
+So for three dimension it returns six
+
+556
+00:29:40,880 --> 00:29:46,480
+points I think. So
+
+557
+00:29:44,080 --> 00:29:50,960
+uh but uh
+
+558
+00:29:46,480 --> 00:29:54,240
+wait what but why is it uh
+
+559
+00:29:50,960 --> 00:29:56,320
+gives the bounds for the region. Okay so
+
+560
+00:29:54,240 --> 00:29:58,480
+you have to think about one region. So
+
+561
+00:29:56,320 --> 00:30:01,679
+one dimension the bounds is just two
+
+562
+00:29:58,480 --> 00:30:05,760
+numbers min and max. For two dimension
+
+563
+00:30:01,679 --> 00:30:09,279
+the bounds is four numbers right? X mean
+
+564
+00:30:05,760 --> 00:30:12,240
+X max Y mean Y max.
+
+565
+00:30:09,279 --> 00:30:14,320
+Is that correct though? Uh so let's see
+
+566
+00:30:12,240 --> 00:30:18,240
+examples. Find the bounds for region.
+
+567
+00:30:14,320 --> 00:30:21,200
+Let's magnify this. Uh
+
+568
+00:30:18,240 --> 00:30:25,880
+yeah. So
+
+569
+00:30:21,200 --> 00:30:25,880
+okay. So let's um
+
+570
+00:30:27,200 --> 00:30:34,720
+so so let's check find bounds for a
+
+571
+00:30:30,640 --> 00:30:36,240
+region in R2. Okay. So you are given a
+
+572
+00:30:34,720 --> 00:30:38,960
+triangle
+
+573
+00:30:36,240 --> 00:30:43,919
+then bounce and call the function region
+
+574
+00:30:38,960 --> 00:30:46,880
+bounce and it returns just two numbers y
+
+575
+00:30:43,919 --> 00:30:49,120
+for a plane two dimensional region it
+
+576
+00:30:46,880 --> 00:30:55,799
+should return
+
+577
+00:30:49,120 --> 00:30:55,799
+x mean x max y mean y max right
+
+578
+00:30:58,720 --> 00:31:04,559
+oh yeah so four numbers that's right
+
+579
+00:31:01,200 --> 00:31:07,760
+that's right okay so that's Right.
+
+580
+00:31:04,559 --> 00:31:10,640
+So this is for a plane uh four numbers.
+
+581
+00:31:07,760 --> 00:31:15,600
+That's right. And visualize. Okay.
+
+582
+00:31:10,640 --> 00:31:18,799
+That's correct. So it returns uh Oh, so
+
+583
+00:31:15,600 --> 00:31:21,600
+we can actually use this.
+
+584
+00:31:18,799 --> 00:31:25,200
+Can can we
+
+585
+00:31:21,600 --> 00:31:27,919
+So it takes a region, but a graphics is
+
+586
+00:31:25,200 --> 00:31:31,440
+not necessarily a region. Okay. So we we
+
+587
+00:31:27,919 --> 00:31:33,200
+need to try this. So region bounds
+
+588
+00:31:31,440 --> 00:31:35,520
+uh
+
+589
+00:31:33,200 --> 00:31:39,320
+region bounds. Okay. Is it is this
+
+590
+00:31:35,520 --> 00:31:39,320
+boring for you guys?
+
+591
+00:31:40,000 --> 00:31:47,880
+So region bounds then let's just uh try
+
+592
+00:31:43,039 --> 00:31:47,880
+the graphics. Okay. So the graphics
+
+593
+00:31:48,000 --> 00:31:52,880
+let's let's put it the graphics like
+
+594
+00:31:50,240 --> 00:31:55,880
+that. So we even remove the primitive.
+
+595
+00:31:52,880 --> 00:31:55,880
+Okay.
+
+596
+00:31:58,559 --> 00:32:05,039
+Okay. So, so you got a graphics. Let's
+
+597
+00:32:01,919 --> 00:32:10,000
+remove the axis. Okay. So, so that's
+
+598
+00:32:05,039 --> 00:32:12,880
+your graphics. Now, go back here.
+
+599
+00:32:10,000 --> 00:32:16,679
+So, we can actually run this. See what
+
+600
+00:32:12,880 --> 00:32:16,679
+see what it returns.
+
+601
+00:32:18,960 --> 00:32:24,320
+uh region bounds graphics is not a
+
+602
+00:32:22,000 --> 00:32:27,279
+correctly specified region. Okay, so
+
+603
+00:32:24,320 --> 00:32:30,960
+it's telling you a region is a graphics
+
+604
+00:32:27,279 --> 00:32:32,640
+is not a region. Okay, so that clarifies
+
+605
+00:32:30,960 --> 00:32:35,440
+that
+
+606
+00:32:32,640 --> 00:32:40,440
+uh but you so so there's a function that
+
+607
+00:32:35,440 --> 00:32:40,440
+turns a graphics into a region though.
+
+608
+00:32:44,320 --> 00:32:47,799
+Okay. So
+
+609
+00:32:49,600 --> 00:32:57,519
+let's look at bounding region. Okay. So
+
+610
+00:32:54,240 --> 00:32:59,919
+so now remember region bounds return the
+
+611
+00:32:57,519 --> 00:33:02,399
+boundary of a region. Now in three
+
+612
+00:32:59,919 --> 00:33:06,240
+dimension it returns six numbers. That's
+
+613
+00:33:02,399 --> 00:33:08,080
+correct. Three pairs total of six
+
+614
+00:33:06,240 --> 00:33:14,159
+numbers.
+
+615
+00:33:08,080 --> 00:33:16,799
+X mean Xmaxx, Y min YAX and Z mean Zmax.
+
+616
+00:33:14,159 --> 00:33:19,840
+Okay. Now, now remember this function
+
+617
+00:33:16,799 --> 00:33:24,320
+region bounds. It returns the boundary
+
+618
+00:33:19,840 --> 00:33:28,559
+of a region. Okay. Now let's see what
+
+619
+00:33:24,320 --> 00:33:31,279
+does this function do? Bounding region.
+
+620
+00:33:28,559 --> 00:33:35,320
+Now bounding region gives a minimal axis
+
+621
+00:33:31,279 --> 00:33:35,320
+align bounding box.
+
+622
+00:33:35,760 --> 00:33:40,960
+Uh okay. So bounding region is basically
+
+623
+00:33:38,159 --> 00:33:42,960
+the same as region bounds except that it
+
+624
+00:33:40,960 --> 00:33:48,039
+returns the coordinate in a different
+
+625
+00:33:42,960 --> 00:33:48,039
+order I think. Oh god.
+
+626
+00:34:02,000 --> 00:34:09,359
+Uh okay. So bound. Okay. So I now I got
+
+627
+00:34:06,720 --> 00:34:12,720
+it. Okay. So this
+
+628
+00:34:09,359 --> 00:34:18,200
+this takes a bunch of points and returns
+
+629
+00:34:12,720 --> 00:34:18,200
+a region. Okay. So
+
+630
+00:34:18,320 --> 00:34:22,960
+let's go back. Region bounds, right?
+
+631
+00:34:21,359 --> 00:34:25,119
+Okay. So before we were looking at
+
+632
+00:34:22,960 --> 00:34:28,800
+region bounds. It takes a region as
+
+633
+00:34:25,119 --> 00:34:32,399
+input. Now this bounding region takes a
+
+634
+00:34:28,800 --> 00:34:35,399
+list of points as input and returns a
+
+635
+00:34:32,399 --> 00:34:35,399
+region.
+
+636
+00:34:35,520 --> 00:34:40,560
+That's right. So
+
+637
+00:34:38,320 --> 00:34:43,119
+so if we begin with a list point we can
+
+638
+00:34:40,560 --> 00:34:46,079
+use this to get a region then feed it to
+
+639
+00:34:43,119 --> 00:34:49,440
+region bounds to get the max and min.
+
+640
+00:34:46,079 --> 00:34:51,520
+Okay. So this is bounding region. So
+
+641
+00:34:49,440 --> 00:34:53,760
+think so remember this is bounding
+
+642
+00:34:51,520 --> 00:34:56,960
+region takes a list of points. Okay. But
+
+643
+00:34:53,760 --> 00:35:02,040
+that's not what we want. We want you
+
+644
+00:34:56,960 --> 00:35:02,040
+know our input is a is a graphics
+
+645
+00:35:02,320 --> 00:35:07,760
+uh bounding region is not also known as
+
+646
+00:35:04,400 --> 00:35:11,680
+a an enclosing region or circumscribed
+
+647
+00:35:07,760 --> 00:35:15,359
+region. Okay. So a bounding region R for
+
+648
+00:35:11,680 --> 00:35:16,880
+a set of points uh I is a region is such
+
+649
+00:35:15,359 --> 00:35:19,880
+that
+
+650
+00:35:16,880 --> 00:35:19,880
+um
+
+651
+00:35:23,599 --> 00:35:28,960
+so what kind of region? So you have
+
+652
+00:35:26,800 --> 00:35:30,960
+one-dimensional case, two-dimensional
+
+653
+00:35:28,960 --> 00:35:34,240
+case,
+
+654
+00:35:30,960 --> 00:35:37,280
+uh threedimensional case.
+
+655
+00:35:34,240 --> 00:35:40,880
+So does it always return some kind of
+
+656
+00:35:37,280 --> 00:35:40,880
+rectangular shape?
+
+657
+00:35:43,520 --> 00:35:50,320
+bounding box. Yes. So it always return
+
+658
+00:35:47,040 --> 00:35:52,880
+some kind of rectangular shape never a
+
+659
+00:35:50,320 --> 00:35:55,040
+triangle for example like that. It
+
+660
+00:35:52,880 --> 00:36:00,000
+always returns some kind of rectangle.
+
+661
+00:35:55,040 --> 00:36:05,040
+Okay. Uh and it may be oriented not just
+
+662
+00:36:00,000 --> 00:36:09,440
+orthogonal to the axis. Okay. So so this
+
+663
+00:36:05,040 --> 00:36:12,720
+is about bounding region.
+
+664
+00:36:09,440 --> 00:36:16,400
+Okay. And okay, so you can specify
+
+665
+00:36:12,720 --> 00:36:18,720
+what kind of return shape it would be.
+
+666
+00:36:16,400 --> 00:36:20,720
+Okay. So you got minimal disk, minimal
+
+667
+00:36:18,720 --> 00:36:24,160
+elisp,
+
+668
+00:36:20,720 --> 00:36:26,079
+minimal convex polygon. Okay. So it's
+
+669
+00:36:24,160 --> 00:36:28,160
+not just rectangle. You can kind of
+
+670
+00:36:26,079 --> 00:36:30,800
+specify
+
+671
+00:36:28,160 --> 00:36:34,560
+uh what kind of region it returns. Okay.
+
+672
+00:36:30,800 --> 00:36:38,320
+So but but again this thing takes a list
+
+673
+00:36:34,560 --> 00:36:40,880
+of points which is not what we want or
+
+674
+00:36:38,320 --> 00:36:42,720
+we must be we should we want to be able
+
+675
+00:36:40,880 --> 00:36:46,000
+to turn the graphics into a list of
+
+676
+00:36:42,720 --> 00:36:48,640
+points that that I can do but uh but
+
+677
+00:36:46,000 --> 00:36:52,839
+that's not optimal.
+
+678
+00:36:48,640 --> 00:36:52,839
+So okay so let's do
+
+679
+00:36:54,000 --> 00:37:00,320
+so let so we have to think uh region
+
+680
+00:36:57,200 --> 00:37:04,079
+within region measure region bounds.
+
+681
+00:37:00,320 --> 00:37:07,359
+Okay, so you need to turn a graphics
+
+682
+00:37:04,079 --> 00:37:09,599
+into a region first.
+
+683
+00:37:07,359 --> 00:37:11,760
+So find a function that turns a graphics
+
+684
+00:37:09,599 --> 00:37:14,560
+into a region. Then you can just use
+
+685
+00:37:11,760 --> 00:37:17,040
+region bounds region or region uh you
+
+686
+00:37:14,560 --> 00:37:22,240
+know region bounds to get the mean and
+
+687
+00:37:17,040 --> 00:37:25,920
+max. Okay. So find a function that turn
+
+688
+00:37:22,240 --> 00:37:28,880
+graphics into a region or
+
+689
+00:37:25,920 --> 00:37:31,520
+find a function that that turn graphics
+
+690
+00:37:28,880 --> 00:37:33,359
+into all explicit coordinate. For
+
+691
+00:37:31,520 --> 00:37:36,079
+example, turn this circle into a
+
+692
+00:37:33,359 --> 00:37:38,960
+discrete you know points on the on the
+
+693
+00:37:36,079 --> 00:37:41,760
+ring. Okay. So so that's one thing but
+
+694
+00:37:38,960 --> 00:37:43,599
+the uh but there must I think they are a
+
+695
+00:37:41,760 --> 00:37:45,680
+direct function that just return the
+
+696
+00:37:43,599 --> 00:37:47,839
+boundary of a graphics. Okay. I'm pretty
+
+697
+00:37:45,680 --> 00:37:51,839
+sure.
+
+698
+00:37:47,839 --> 00:37:54,480
+So we want a function that directly uh
+
+699
+00:37:51,839 --> 00:37:58,000
+turn you know give the boundary of a uh
+
+700
+00:37:54,480 --> 00:38:01,599
+either a region of the graphics.
+
+701
+00:37:58,000 --> 00:38:04,800
+Okay. So let's check again. Okay.
+
+702
+00:38:01,599 --> 00:38:06,960
+Boundary discrete graphics.
+
+703
+00:38:04,800 --> 00:38:09,119
+Okay. Let's try that. That's that maybe
+
+704
+00:38:06,960 --> 00:38:11,359
+that's close. Boundary discretetize
+
+705
+00:38:09,119 --> 00:38:15,040
+graphics. Okay.
+
+706
+00:38:11,359 --> 00:38:18,480
+Discretetize a 2D or 3D graphics G into
+
+707
+00:38:15,040 --> 00:38:20,480
+a boundary mesh region. Fantastic. Okay.
+
+708
+00:38:18,480 --> 00:38:24,160
+So, what this do is, you know, it takes
+
+709
+00:38:20,480 --> 00:38:27,920
+any uh graphics like this circle. It
+
+710
+00:38:24,160 --> 00:38:30,320
+will discretize the graphics so that you
+
+711
+00:38:27,920 --> 00:38:34,400
+you'll get a graphics that's got lots of
+
+712
+00:38:30,320 --> 00:38:37,040
+points on a circle. Okay. Then it turns
+
+713
+00:38:34,400 --> 00:38:38,640
+in into a boundary mesh region. So, it
+
+714
+00:38:37,040 --> 00:38:41,760
+basically
+
+715
+00:38:38,640 --> 00:38:44,800
+takes a graphics
+
+716
+00:38:41,760 --> 00:38:46,800
+make it into a mesh not just the mesh
+
+717
+00:38:44,800 --> 00:38:49,760
+but the region of the mesh. I mean I
+
+718
+00:38:46,800 --> 00:38:54,800
+mean the yeah the a mesh of the region.
+
+719
+00:38:49,760 --> 00:38:59,760
+Okay. So effective effectively
+
+720
+00:38:54,800 --> 00:39:01,680
+a region then you can use boundary um
+
+721
+00:38:59,760 --> 00:39:03,839
+you know bounds of region to find the
+
+722
+00:39:01,680 --> 00:39:06,880
+maxing mean. So that's what we want.
+
+723
+00:39:03,839 --> 00:39:10,240
+Okay. I I know for I know I know for
+
+724
+00:39:06,880 --> 00:39:14,720
+sure. Okay. So let's just try it.
+
+725
+00:39:10,240 --> 00:39:16,960
+So So that's not right. So but that is
+
+726
+00:39:14,720 --> 00:39:20,320
+what we want. Okay, discretetize
+
+727
+00:39:16,960 --> 00:39:22,880
+graphics. Okay, so and uh then what is
+
+728
+00:39:20,320 --> 00:39:26,880
+the graphics? We can just uh paste that
+
+729
+00:39:22,880 --> 00:39:30,240
+there. So the graphics is that
+
+730
+00:39:26,880 --> 00:39:33,040
+um you know so let's run it. Okay, let's
+
+731
+00:39:30,240 --> 00:39:35,760
+see what it returns.
+
+732
+00:39:33,040 --> 00:39:39,200
+Okay, that's what we want. Fantastic. So
+
+733
+00:39:35,760 --> 00:39:43,119
+a circle a simple circle becomes this
+
+734
+00:39:39,200 --> 00:39:46,640
+bunch of points. Okay. Then you see then
+
+735
+00:39:43,119 --> 00:39:49,520
+this object is a boundary mesh region.
+
+736
+00:39:46,640 --> 00:39:52,079
+So that means we can now we can use this
+
+737
+00:39:49,520 --> 00:39:54,480
+uh region bounds to get it. Okay. So let
+
+738
+00:39:52,079 --> 00:39:58,520
+let's do um
+
+739
+00:39:54,480 --> 00:39:58,520
+let's let's um
+
+740
+00:40:02,400 --> 00:40:07,760
+uh let me let me just make it clear.
+
+741
+00:40:04,400 --> 00:40:09,200
+Okay. So let me code this so that it's
+
+742
+00:40:07,760 --> 00:40:11,200
+clear.
+
+743
+00:40:09,200 --> 00:40:13,920
+Um,
+
+744
+00:40:11,200 --> 00:40:16,240
+okay. That's graphics primitives. Let's
+
+745
+00:40:13,920 --> 00:40:21,599
+spell it out.
+
+746
+00:40:16,240 --> 00:40:24,240
+Uh, not it's not okay. So now
+
+747
+00:40:21,599 --> 00:40:27,119
+region bounds that won't won't work. So
+
+748
+00:40:24,240 --> 00:40:31,560
+but uh so hold on a second. So let let
+
+749
+00:40:27,119 --> 00:40:31,560
+me do that. Okay.
+
+750
+00:40:33,040 --> 00:40:38,160
+Graphics primitives. Let's make it a
+
+751
+00:40:35,680 --> 00:40:40,960
+list. Okay. you typically it's a list of
+
+752
+00:40:38,160 --> 00:40:44,560
+circles, lines and lots of other things.
+
+753
+00:40:40,960 --> 00:40:47,839
+Okay, then you turn that into graphics.
+
+754
+00:40:44,560 --> 00:40:50,720
+Okay, X graphics
+
+755
+00:40:47,839 --> 00:40:56,040
+equals to
+
+756
+00:40:50,720 --> 00:40:56,040
+uh let's name this primitives. Okay, X
+
+757
+00:40:56,560 --> 00:41:05,200
+primitives. Okay, so now X graphics
+
+758
+00:41:00,160 --> 00:41:08,880
+equals to X prims. Okay, the result is a
+
+759
+00:41:05,200 --> 00:41:14,240
+graphics object. Then then what you want
+
+760
+00:41:08,880 --> 00:41:17,920
+to do is you want uh you uh turn that
+
+761
+00:41:14,240 --> 00:41:22,280
+into Wait, what's going on? You turn
+
+762
+00:41:17,920 --> 00:41:22,280
+this into um
+
+763
+00:41:23,520 --> 00:41:30,880
+boundary. Okay,
+
+764
+00:41:26,800 --> 00:41:34,560
+boundary equals through that x graphics.
+
+765
+00:41:30,880 --> 00:41:39,480
+Fantastic. Then you
+
+766
+00:41:34,560 --> 00:41:39,480
+then you region bounce. Okay,
+
+767
+00:41:42,960 --> 00:41:49,200
+region bounce into uh equals through x
+
+768
+00:41:47,680 --> 00:41:52,480
+boundary.
+
+769
+00:41:49,200 --> 00:41:56,000
+Okay, that is a result. So let's try
+
+770
+00:41:52,480 --> 00:41:59,200
+that. Okay, so um
+
+771
+00:41:56,000 --> 00:42:01,359
+Okay, so let's can we run the whole
+
+772
+00:41:59,200 --> 00:42:02,880
+thing? Um
+
+773
+00:42:01,359 --> 00:42:05,920
+um
+
+774
+00:42:02,880 --> 00:42:08,720
+okay let's let's run this in in in wra
+
+775
+00:42:05,920 --> 00:42:11,760
+language
+
+776
+00:42:08,720 --> 00:42:14,800
+okay so let's paste that
+
+777
+00:42:11,760 --> 00:42:17,280
+let's just run it okay we got arrow so
+
+778
+00:42:14,800 --> 00:42:20,240
+first of all is a circle a list of graph
+
+779
+00:42:17,280 --> 00:42:26,000
+prim then we got arrow uh okay so what
+
+780
+00:42:20,240 --> 00:42:27,839
+is the arrow uh x x graphics equals to x
+
+781
+00:42:26,000 --> 00:42:31,200
+prims
+
+782
+00:42:27,839 --> 00:42:31,200
+why is that an arrow
+
+783
+00:42:34,240 --> 00:42:42,680
+graphics box is not a graphics primitive
+
+784
+00:42:37,440 --> 00:42:42,680
+or directive. Okay, why is that?
+
+785
+00:42:42,720 --> 00:42:47,119
+Oh, we you know that's that you know you
+
+786
+00:42:45,359 --> 00:42:51,720
+shouldn't have that graphics there. So
+
+787
+00:42:47,119 --> 00:42:51,720
+let's fix it. Um
+
+788
+00:42:52,160 --> 00:42:59,680
+yeah, so let's fix that. Copy that
+
+789
+00:42:56,560 --> 00:43:03,680
+back to Wam language. Select that. Paste
+
+790
+00:42:59,680 --> 00:43:05,839
+it. Run it. Okay. Circle. Correct.
+
+791
+00:43:03,680 --> 00:43:08,839
+That's a graph. That's graphics
+
+792
+00:43:05,839 --> 00:43:08,839
+primitive.
+
+793
+00:43:08,960 --> 00:43:14,400
+Then this is a graphics object. Wait,
+
+794
+00:43:12,079 --> 00:43:16,560
+wait, wait a minute.
+
+795
+00:43:14,400 --> 00:43:19,680
+Circle. That's a graphics primitive.
+
+796
+00:43:16,560 --> 00:43:24,000
+Let's output that. Then this circle is a
+
+797
+00:43:19,680 --> 00:43:26,960
+graphics object. That's that. Okay. Then
+
+798
+00:43:24,000 --> 00:43:30,960
+the this this
+
+799
+00:43:26,960 --> 00:43:34,079
+blue kind of thing that's the
+
+800
+00:43:30,960 --> 00:43:37,280
+discretetized graphics that's a b that's
+
+801
+00:43:34,079 --> 00:43:40,480
+a region
+
+802
+00:43:37,280 --> 00:43:43,680
+made out of the boundary of the circle
+
+803
+00:43:40,480 --> 00:43:45,680
+and discretetized it. So you can see
+
+804
+00:43:43,680 --> 00:43:48,240
+kind of you know lots of points on the
+
+805
+00:43:45,680 --> 00:43:50,000
+rim of the circle. Okay. Then finally
+
+806
+00:43:48,240 --> 00:43:52,800
+you find the boundary. So that is the
+
+807
+00:43:50,000 --> 00:43:55,200
+boundary. Fantastic.
+
+808
+00:43:52,800 --> 00:43:57,920
+So that's how you get the minimum and
+
+809
+00:43:55,200 --> 00:43:59,920
+maximum of the
+
+810
+00:43:57,920 --> 00:44:02,240
+um
+
+811
+00:43:59,920 --> 00:44:05,359
+of the graphics. For example, we can now
+
+812
+00:44:02,240 --> 00:44:08,160
+we now we get it now it works. So we can
+
+813
+00:44:05,359 --> 00:44:12,400
+kind of try a a lot of other circles.
+
+814
+00:44:08,160 --> 00:44:15,680
+For example, let's say um
+
+815
+00:44:12,400 --> 00:44:19,680
+you know another circle big number uh
+
+816
+00:44:15,680 --> 00:44:24,079
+let's say random coordinate center then
+
+817
+00:44:19,680 --> 00:44:27,440
+uh uh big big radius you know now we got
+
+818
+00:44:24,079 --> 00:44:30,319
+two circles one is very big radius so
+
+819
+00:44:27,440 --> 00:44:33,760
+let's try it
+
+820
+00:44:30,319 --> 00:44:36,160
+okay two circles then uh you see one
+
+821
+00:44:33,760 --> 00:44:40,599
+huge circle another circle is very tiny
+
+822
+00:44:36,160 --> 00:44:40,599
+you can see a little dot over there.
+
+823
+00:44:40,640 --> 00:44:46,240
+Wait, did I lose my color for for uh for
+
+824
+00:44:43,839 --> 00:44:48,640
+my uh you know, so you can see a little
+
+825
+00:44:46,240 --> 00:44:50,240
+dot over there
+
+826
+00:44:48,640 --> 00:44:53,839
+then.
+
+827
+00:44:50,240 --> 00:44:55,359
+Okay, so this got this got This
+
+828
+00:44:53,839 --> 00:44:59,040
+part
+
+829
+00:44:55,359 --> 00:45:04,000
+boundary discretetized graphics
+
+830
+00:44:59,040 --> 00:45:07,000
+is not a correctly specified region.
+
+831
+00:45:04,000 --> 00:45:07,000
+What?
+
+832
+00:45:09,599 --> 00:45:13,240
+Why is that?
+
+833
+00:45:14,240 --> 00:45:20,319
+Did I spell it wrong? No. Boundary
+
+834
+00:45:17,680 --> 00:45:25,720
+discretetize graphics. So that is a
+
+835
+00:45:20,319 --> 00:45:25,720
+graphics. So why is it not um
+
+836
+00:45:26,079 --> 00:45:30,720
+region bounds? Oh okay. Region bounds is
+
+837
+00:45:29,200 --> 00:45:35,520
+incorrect.
+
+838
+00:45:30,720 --> 00:45:39,200
+Wait. So boundary discretetize graphics.
+
+839
+00:45:35,520 --> 00:45:43,040
+So that didn't work.
+
+840
+00:45:39,200 --> 00:45:47,319
+So the problem because it returning
+
+841
+00:45:43,040 --> 00:45:47,319
+it unevaluated.
+
+842
+00:45:47,520 --> 00:45:53,119
+So boundary discretetize graphics is not
+
+843
+00:45:50,160 --> 00:45:57,680
+working. Any comments who who's watching
+
+844
+00:45:53,119 --> 00:46:03,720
+those who watches here say hi. Okay. So
+
+845
+00:45:57,680 --> 00:46:03,720
+boundary discretetize graphics is not
+
+846
+00:46:04,880 --> 00:46:12,079
+working. So let's double check. You got
+
+847
+00:46:08,640 --> 00:46:16,000
+list of graphics primitives two circles
+
+848
+00:46:12,079 --> 00:46:18,240
+that's valid. You got
+
+849
+00:46:16,000 --> 00:46:22,800
+graphics
+
+850
+00:46:18,240 --> 00:46:26,319
+that should that is valid but xboundary
+
+851
+00:46:22,800 --> 00:46:29,359
+is incorrect. Let's see xboundary what
+
+852
+00:46:26,319 --> 00:46:31,599
+is the value?
+
+853
+00:46:29,359 --> 00:46:33,359
+You see that is incorrect. That didn't
+
+854
+00:46:31,599 --> 00:46:36,960
+do anything.
+
+855
+00:46:33,359 --> 00:46:41,119
+So why is it not doing anything? Is it
+
+856
+00:46:36,960 --> 00:46:43,119
+because spelling error? No.
+
+857
+00:46:41,119 --> 00:46:47,520
+Let's look at documentation. Boundary
+
+858
+00:46:43,119 --> 00:46:51,440
+discretetize graphics choice
+
+859
+00:46:47,520 --> 00:46:57,119
+a 2D or 3D graphics into a boundary v.
+
+860
+00:46:51,440 --> 00:47:00,119
+Okay. So yeah, that's a graphics.
+
+861
+00:46:57,119 --> 00:47:00,119
+So
+
+862
+00:47:08,640 --> 00:47:16,040
+Oh, so it didn't even needs to be a
+
+863
+00:47:11,680 --> 00:47:16,040
+graphics primitive.
+
+864
+00:47:16,400 --> 00:47:22,319
+I mean the the argument to this boundary
+
+865
+00:47:19,440 --> 00:47:25,839
+discretetized graphics needs not to be a
+
+866
+00:47:22,319 --> 00:47:30,720
+graphics. It can be just
+
+867
+00:47:25,839 --> 00:47:34,839
+a list of graphics primitives. So
+
+868
+00:47:30,720 --> 00:47:34,839
+so let's try this. Okay.
+
+869
+00:47:36,000 --> 00:47:48,599
+So if you um Oh god. So let's copy that.
+
+870
+00:47:41,839 --> 00:47:48,599
+Do it fresh. So if you just say extremes
+
+871
+00:47:49,359 --> 00:47:56,280
+not graphics. Okay. So we just do prims
+
+872
+00:47:52,960 --> 00:47:56,280
+with that.
+
+873
+00:47:58,400 --> 00:48:01,400
+No.
+
+874
+00:48:03,119 --> 00:48:08,720
+Okay. Still you see this line is not
+
+875
+00:48:06,480 --> 00:48:12,079
+doing anything.
+
+876
+00:48:08,720 --> 00:48:15,839
+So why is that?
+
+877
+00:48:12,079 --> 00:48:19,480
+So now it becomes a question. So if we
+
+878
+00:48:15,839 --> 00:48:19,480
+just um
+
+879
+00:48:20,079 --> 00:48:26,440
+the thing we are interested is just um
+
+880
+00:48:27,040 --> 00:48:30,599
+does that work?
+
+881
+00:48:30,640 --> 00:48:39,440
+Yes, that works. So given a single
+
+882
+00:48:33,599 --> 00:48:44,400
+circle. Now if you um
+
+883
+00:48:39,440 --> 00:48:48,960
+if you give a uh so so that so that
+
+884
+00:48:44,400 --> 00:48:52,720
+works. What if you give a uh list of
+
+885
+00:48:48,960 --> 00:48:55,880
+circles? Does that still work?
+
+886
+00:48:52,720 --> 00:48:55,880
+Doesn't it?
+
+887
+00:48:56,400 --> 00:49:03,760
+No. A list of circles fails.
+
+888
+00:49:01,280 --> 00:49:06,760
+What the
+
+889
+00:49:03,760 --> 00:49:06,760
+Um,
+
+890
+00:49:08,240 --> 00:49:17,240
+fail. Okay,
+
+891
+00:49:11,920 --> 00:49:17,240
+works. Okay, wait. Uh, what
+
+892
+00:49:17,760 --> 00:49:22,440
+works? So, let's try this again.
+
+893
+00:49:23,119 --> 00:49:29,960
+Okay, so this is fail. Okay. Yeah. So,
+
+894
+00:49:26,960 --> 00:49:29,960
+yeah.
+
+895
+00:49:30,800 --> 00:49:40,480
+Okay. So this works. Now what about
+
+896
+00:49:35,680 --> 00:49:44,520
+what about if if you say
+
+897
+00:49:40,480 --> 00:49:44,520
+graphics? Okay.
+
+898
+00:49:45,520 --> 00:49:53,720
+So now that's a graphics object.
+
+899
+00:49:50,079 --> 00:49:53,720
+Okay. Run it.
+
+900
+00:49:54,160 --> 00:50:01,480
+That works.
+
+901
+00:49:56,800 --> 00:50:01,480
+So when you have a graphics object,
+
+902
+00:50:02,319 --> 00:50:09,040
+it works. It returns the result. Okay.
+
+903
+00:50:04,960 --> 00:50:11,599
+So that's good. Um
+
+904
+00:50:09,040 --> 00:50:15,760
+so let's move that you know. So the
+
+905
+00:50:11,599 --> 00:50:19,359
+input can be a uh graphics primitive or
+
+906
+00:50:15,760 --> 00:50:22,400
+it can be a graphics object
+
+907
+00:50:19,359 --> 00:50:26,559
+but it cannot be a list.
+
+908
+00:50:22,400 --> 00:50:28,640
+Okay. So, so then why is our original
+
+909
+00:50:26,559 --> 00:50:30,319
+fails? So, you got the graphics
+
+910
+00:50:28,640 --> 00:50:33,440
+primitives.
+
+911
+00:50:30,319 --> 00:50:37,599
+Okay. Then you got the graphics object
+
+912
+00:50:33,440 --> 00:50:40,319
+spelled out correctly. Yes. Then you try
+
+913
+00:50:37,599 --> 00:50:42,000
+to discretise
+
+914
+00:50:40,319 --> 00:50:46,640
+it.
+
+915
+00:50:42,000 --> 00:50:49,440
+X graphics spelled correctly. Yes. So
+
+916
+00:50:46,640 --> 00:50:54,599
+why this fail? I don't understand. So
+
+917
+00:50:49,440 --> 00:50:54,599
+let's go back here. Uh,
+
+918
+00:50:55,440 --> 00:51:00,920
+it failed because it didn't do anything.
+
+919
+00:51:02,240 --> 00:51:05,240
+What
+
+920
+00:51:08,160 --> 00:51:12,720
+graphics
+
+921
+00:51:09,760 --> 00:51:17,559
+is this graphics and this graphics is
+
+922
+00:51:12,720 --> 00:51:17,559
+this prim. So,
+
+923
+00:51:19,760 --> 00:51:26,720
+so it fails if you have two circles in
+
+924
+00:51:22,480 --> 00:51:29,119
+it. Is that is that right? It fails if
+
+925
+00:51:26,720 --> 00:51:31,839
+you got two circles in it. Let's try
+
+926
+00:51:29,119 --> 00:51:35,480
+this again. Okay, let's put another
+
+927
+00:51:31,839 --> 00:51:35,480
+circle. So,
+
+928
+00:51:36,160 --> 00:51:39,400
+run it
+
+929
+00:51:41,920 --> 00:51:48,599
+there. It didn't work.
+
+930
+00:51:45,200 --> 00:51:48,599
+Oh Jesus.
+
+931
+00:51:49,599 --> 00:51:58,800
+So this is not um Hello KPTXXZ.
+
+932
+00:51:55,520 --> 00:52:01,280
+What are you planning on export to XVG?
+
+933
+00:51:58,800 --> 00:52:05,280
+What are you planning on exporting to
+
+934
+00:52:01,280 --> 00:52:07,680
+SVG? Well, I talked about it that in my
+
+935
+00:52:05,280 --> 00:52:10,559
+beginning of the video and two videos
+
+936
+00:52:07,680 --> 00:52:14,400
+before. So I talked about like one hour
+
+937
+00:52:10,559 --> 00:52:16,880
+about it. uh basically this okay so
+
+938
+00:52:14,400 --> 00:52:20,240
+there are like thousands of
+
+939
+00:52:16,880 --> 00:52:23,440
+illustrations about plane curves that's
+
+940
+00:52:20,240 --> 00:52:28,240
+I want to export so today's talk show
+
+941
+00:52:23,440 --> 00:52:30,640
+let me remind you guys um today's talk
+
+942
+00:52:28,240 --> 00:52:34,319
+show showing browser
+
+943
+00:52:30,640 --> 00:52:37,520
+uh today's talk show
+
+944
+00:52:34,319 --> 00:52:41,119
+we have two episode prior each one is
+
+945
+00:52:37,520 --> 00:52:45,440
+one hour we talked about exporting to SV
+
+946
+00:52:41,119 --> 00:52:48,160
+SVG why you need to do it what's SVG uh
+
+947
+00:52:45,440 --> 00:52:51,440
+and so on you know fairly complicated
+
+948
+00:52:48,160 --> 00:52:53,920
+technical okay so that's why we are
+
+949
+00:52:51,440 --> 00:52:56,079
+writing a custom function you know we
+
+950
+00:52:53,920 --> 00:52:58,559
+are not writing you know this here is
+
+951
+00:52:56,079 --> 00:53:02,640
+the default I mean building function you
+
+952
+00:52:58,559 --> 00:53:06,720
+can do it but it creates large size
+
+953
+00:53:02,640 --> 00:53:08,960
+um anyway so now back to
+
+954
+00:53:06,720 --> 00:53:11,839
+back to this part I don't really
+
+955
+00:53:08,960 --> 00:53:14,240
+understand okay So, did we talk? How
+
+956
+00:53:11,839 --> 00:53:17,680
+long have we been talking?
+
+957
+00:53:14,240 --> 00:53:21,200
+55 minutes already. Okay, maybe uh we
+
+958
+00:53:17,680 --> 00:53:23,760
+should stop now. Okay, so we we we kind
+
+959
+00:53:21,200 --> 00:53:27,839
+of made uh some progress, you know, it's
+
+960
+00:53:23,760 --> 00:53:31,119
+kind of very tiny progress, but it's
+
+961
+00:53:27,839 --> 00:53:34,240
+solid progress because we we dis we, you
+
+962
+00:53:31,119 --> 00:53:37,599
+know, now we have a better understanding
+
+963
+00:53:34,240 --> 00:53:40,720
+of about the different issues. graphics,
+
+964
+00:53:37,599 --> 00:53:44,160
+discretetized graphics. What is a mesh?
+
+965
+00:53:40,720 --> 00:53:46,720
+What is a region? And what is a bounding
+
+966
+00:53:44,160 --> 00:53:48,960
+region? And what's the bounds of a
+
+967
+00:53:46,720 --> 00:53:50,960
+region?
+
+968
+00:53:48,960 --> 00:53:52,960
+Okay,
+
+969
+00:53:50,960 --> 00:53:58,079
+you know, it's a bit complex. So, let me
+
+970
+00:53:52,960 --> 00:54:01,440
+kind of summarize. Graphics is woof
+
+971
+00:53:58,079 --> 00:54:03,440
+2D graph graphics or 3D graphics. You
+
+972
+00:54:01,440 --> 00:54:07,040
+know they they you put the graphics into
+
+973
+00:54:03,440 --> 00:54:10,880
+it wrap it shows you know graphics all
+
+974
+00:54:07,040 --> 00:54:13,359
+the graphics you see in Wufam language
+
+975
+00:54:10,880 --> 00:54:16,319
+uh basically all these are generated in
+
+976
+00:54:13,359 --> 00:54:18,720
+wam language you know those are you know
+
+977
+00:54:16,319 --> 00:54:20,880
+all graphics so graphics is made out of
+
+978
+00:54:18,720 --> 00:54:23,359
+graphics primitives
+
+979
+00:54:20,880 --> 00:54:26,880
+basically means simple shapes like line
+
+980
+00:54:23,359 --> 00:54:28,720
+circle uh line circle rectangle and so
+
+981
+00:54:26,880 --> 00:54:31,599
+on.
+
+982
+00:54:28,720 --> 00:54:34,079
+So you you got graphics primitives then
+
+983
+00:54:31,599 --> 00:54:35,920
+you wrap graphics to create a graphics
+
+984
+00:54:34,079 --> 00:54:39,119
+object. Okay, that's graphics or
+
+985
+00:54:35,920 --> 00:54:42,480
+graphics 3D for 3D graphics.
+
+986
+00:54:39,119 --> 00:54:44,800
+Um okay let me let me let me let me talk
+
+987
+00:54:42,480 --> 00:54:47,839
+about let me go to my tutorial. Let me
+
+988
+00:54:44,800 --> 00:54:52,000
+show you. Okay so Wuam language not
+
+989
+00:54:47,839 --> 00:54:55,119
+math. Uh so you go to wam language todo.
+
+990
+00:54:52,000 --> 00:54:56,880
+No not to do go to tutorial.
+
+991
+00:54:55,119 --> 00:55:00,480
+Um
+
+992
+00:54:56,880 --> 00:55:02,960
+so language for programmers
+
+993
+00:55:00,480 --> 00:55:06,400
+comprehensive tutorial for programmers
+
+994
+00:55:02,960 --> 00:55:09,359
+from the ground up. You go to string uh
+
+995
+00:55:06,400 --> 00:55:12,640
+advanced symbol data structure
+
+996
+00:55:09,359 --> 00:55:15,599
+association pattern matching basics
+
+997
+00:55:12,640 --> 00:55:19,359
+string comment and print string number
+
+998
+00:55:15,599 --> 00:55:21,520
+boolean list uh plot and visualization.
+
+999
+00:55:19,359 --> 00:55:24,319
+So there graphics uh plot and
+
+1000
+00:55:21,520 --> 00:55:27,680
+visualization. So you can see you know
+
+1001
+00:55:24,319 --> 00:55:30,800
+100 plotting functions for services, for
+
+1002
+00:55:27,680 --> 00:55:33,200
+pie chart, for statistics or you know
+
+1003
+00:55:30,800 --> 00:55:36,079
+100 of them. Then you got plotting
+
+1004
+00:55:33,200 --> 00:55:39,440
+options. This is just showing you how to
+
+1005
+00:55:36,079 --> 00:55:42,800
+use Wuam language to create graphics. So
+
+1006
+00:55:39,440 --> 00:55:46,319
+these are 2D and the pie chart is 3D
+
+1007
+00:55:42,800 --> 00:55:48,559
+graphics. The surface is also 3D. So
+
+1008
+00:55:46,319 --> 00:55:51,920
+then you got options such as showing
+
+1009
+00:55:48,559 --> 00:55:54,559
+axis and so on. Okay. So then you got uh
+
+1010
+00:55:51,920 --> 00:55:58,000
+plot 3D options
+
+1011
+00:55:54,559 --> 00:56:01,040
+uh like like uh color lighting very
+
+1012
+00:55:58,000 --> 00:56:04,960
+complex gets it it can get extremely
+
+1013
+00:56:01,040 --> 00:56:08,000
+complex. Then you got kind of the um
+
+1014
+00:56:04,960 --> 00:56:10,640
+glow lighting or ambient lighting or
+
+1015
+00:56:08,000 --> 00:56:13,520
+spectacular specularity lighting
+
+1016
+00:56:10,640 --> 00:56:17,119
+specification and you got also tune
+
+1017
+00:56:13,520 --> 00:56:19,760
+shading. So 3D
+
+1018
+00:56:17,119 --> 00:56:22,880
+coloring of the surface then you got you
+
+1019
+00:56:19,760 --> 00:56:24,319
+know also um
+
+1020
+00:56:22,880 --> 00:56:26,240
+color on the surface you know
+
+1021
+00:56:24,319 --> 00:56:28,720
+interaction with lighting also you got
+
+1022
+00:56:26,240 --> 00:56:31,119
+transparency so very complex okay so
+
+1023
+00:56:28,720 --> 00:56:34,319
+that's about lighting then you you can
+
+1024
+00:56:31,119 --> 00:56:38,160
+have um mesh data type that represent
+
+1025
+00:56:34,319 --> 00:56:40,799
+graphics okay 3D graphics and 2D so
+
+1026
+00:56:38,160 --> 00:56:42,640
+anyway so so so anyway these are about
+
+1027
+00:56:40,799 --> 00:56:45,920
+plotting
+
+1028
+00:56:42,640 --> 00:56:49,599
+how to use the building function to plot
+
+1029
+00:56:45,920 --> 00:56:51,760
+and how do you specify opacity you know
+
+1030
+00:56:49,599 --> 00:56:54,640
+uh transparency of a graphics. So that's
+
+1031
+00:56:51,760 --> 00:56:58,480
+how how to use them. Okay, that's not
+
+1032
+00:56:54,640 --> 00:57:00,880
+about programming. Okay, so so once you
+
+1033
+00:56:58,480 --> 00:57:03,440
+get you know you you know how to use
+
+1034
+00:57:00,880 --> 00:57:06,480
+some of these plotting functions you
+
+1035
+00:57:03,440 --> 00:57:08,880
+start to do uh programming graphics.
+
+1036
+00:57:06,480 --> 00:57:11,920
+Okay, graphics programming that's what
+
+1037
+00:57:08,880 --> 00:57:14,000
+that's that's kind of what we are doing.
+
+1038
+00:57:11,920 --> 00:57:15,920
+So programming graphics you first of all
+
+1039
+00:57:14,000 --> 00:57:19,040
+you need to understand about graphics
+
+1040
+00:57:15,920 --> 00:57:22,559
+primitives. So you got point line
+
+1041
+00:57:19,040 --> 00:57:25,119
+polygon text disk circle rectangle
+
+1042
+00:57:22,559 --> 00:57:28,400
+that's that are basic primitives to
+
+1043
+00:57:25,119 --> 00:57:31,839
+build 2D graphics. Then you got 3D ones
+
+1044
+00:57:28,400 --> 00:57:35,760
+such as also point line polygon sphere
+
+1045
+00:57:31,839 --> 00:57:38,880
+cuboid cube and lots of more. Okay so
+
+1046
+00:57:35,760 --> 00:57:41,520
+graphics primitives you have 2D
+
+1047
+00:57:38,880 --> 00:57:43,760
+primitives and 3D primitives. Okay,
+
+1048
+00:57:41,520 --> 00:57:47,760
+these are called graphics primitives.
+
+1049
+00:57:43,760 --> 00:57:51,040
+Okay, then then you create a graphics
+
+1050
+00:57:47,760 --> 00:57:55,040
+object by wrapping this graphics
+
+1051
+00:57:51,040 --> 00:57:57,359
+function or the graphics 3D function
+
+1052
+00:57:55,040 --> 00:58:01,680
+wrap them around the list of primitives.
+
+1053
+00:57:57,359 --> 00:58:06,000
+So then you get a graphics object. Okay.
+
+1054
+00:58:01,680 --> 00:58:08,079
+Uh so there so so when when you when you
+
+1055
+00:58:06,000 --> 00:58:11,280
+when the out the output of any graphics
+
+1056
+00:58:08,079 --> 00:58:14,240
+object shows up as a graphics like that
+
+1057
+00:58:11,280 --> 00:58:16,720
+like that this is a 3D graphics 3D
+
+1058
+00:58:14,240 --> 00:58:19,920
+graphics 3D okay that's a graphics
+
+1059
+00:58:16,720 --> 00:58:21,920
+object so again primitives then you got
+
+1060
+00:58:19,920 --> 00:58:24,400
+graphics object
+
+1061
+00:58:21,920 --> 00:58:27,119
+uh graphics directive is like specifying
+
+1062
+00:58:24,400 --> 00:58:30,559
+color and like color you know thickness
+
+1063
+00:58:27,119 --> 00:58:33,760
+things like that okay then you got okay
+
+1064
+00:58:30,559 --> 00:58:36,079
+geometric transformation that's that's
+
+1065
+00:58:33,760 --> 00:58:39,040
+like advanced. Okay. Then you got
+
+1066
+00:58:36,079 --> 00:58:42,960
+graphics complex that's also advanced.
+
+1067
+00:58:39,040 --> 00:58:45,520
+Okay. Um then you got um then you got
+
+1068
+00:58:42,960 --> 00:58:48,799
+mesh region. Okay. Mesh region is a
+
+1069
+00:58:45,520 --> 00:58:51,280
+representation of graphics by breaking
+
+1070
+00:58:48,799 --> 00:58:54,880
+the graphics primitive into actually
+
+1071
+00:58:51,280 --> 00:58:58,000
+points. Okay. So that's kind of another
+
+1072
+00:58:54,880 --> 00:59:00,880
+representation of graphics called mesh
+
+1073
+00:58:58,000 --> 00:59:03,119
+mesh region. you know uh it's actually
+
+1074
+00:59:00,880 --> 00:59:05,760
+quite generalized because this woofer
+
+1075
+00:59:03,119 --> 00:59:07,920
+language mesh can be onedimensional or
+
+1076
+00:59:05,760 --> 00:59:11,359
+zero zero dimensional like at least a
+
+1077
+00:59:07,920 --> 00:59:13,920
+points that's also considered a mesh so
+
+1078
+00:59:11,359 --> 00:59:16,160
+it's like very generalized so you got
+
+1079
+00:59:13,920 --> 00:59:19,599
+one-dimensional mesh like just a bunch
+
+1080
+00:59:16,160 --> 00:59:21,760
+of segments on a line then or you got
+
+1081
+00:59:19,599 --> 00:59:23,680
+two dimensional mesh mesh which is what
+
+1082
+00:59:21,760 --> 00:59:26,960
+you think of a mesh like bunch of
+
+1083
+00:59:23,680 --> 00:59:28,799
+triangles making part of a surface or
+
+1084
+00:59:26,960 --> 00:59:32,319
+several of them patch of them not
+
+1085
+00:59:28,799 --> 00:59:34,880
+necessarily connected. Then you got 3D
+
+1086
+00:59:32,319 --> 00:59:38,599
+mesh which is very complex which which
+
+1087
+00:59:34,880 --> 00:59:38,599
+is like um
+
+1088
+00:59:40,079 --> 00:59:45,599
+you know each each mesh element is like
+
+1089
+00:59:42,400 --> 00:59:48,480
+a kind of enclosed volume. Okay. Um
+
+1090
+00:59:45,599 --> 00:59:51,040
+anyway you know so mesh is like another
+
+1091
+00:59:48,480 --> 00:59:55,359
+complex thing. So then you got mesh
+
+1092
+00:59:51,040 --> 00:59:58,480
+region. Okay. Um which represent a
+
+1093
+00:59:55,359 --> 01:00:00,240
+enclosed region. Okay. So
+
+1094
+00:59:58,480 --> 01:00:02,960
+then you got this you know convert
+
+1095
+01:00:00,240 --> 01:00:06,640
+graphics to mesh discretetized graphics
+
+1096
+01:00:02,960 --> 01:00:08,880
+you see a sphere
+
+1097
+01:00:06,640 --> 01:00:10,880
+uh now becomes you know you can kind of
+
+1098
+01:00:08,880 --> 01:00:15,599
+see your triangles on the surface so
+
+1099
+01:00:10,880 --> 01:00:19,040
+that because that's discretetized okay
+
+1100
+01:00:15,599 --> 01:00:20,880
+so so you got discrete dis
+
+1101
+01:00:19,040 --> 01:00:23,359
+discretization
+
+1102
+01:00:20,880 --> 01:00:25,040
+okay so then you got the region concept
+
+1103
+01:00:23,359 --> 01:00:29,359
+that's you know that's beginning to be
+
+1104
+01:00:25,040 --> 01:00:32,640
+what we are talking about um
+
+1105
+01:00:29,359 --> 01:00:34,720
+uh then you got the boundary uh concept
+
+1106
+01:00:32,640 --> 01:00:37,440
+which is the boundary of the graphics or
+
+1107
+01:00:34,720 --> 01:00:41,680
+mesh. Okay. What what what are we doing?
+
+1108
+01:00:37,440 --> 01:00:45,839
+So uh so what so so far how far have we
+
+1109
+01:00:41,680 --> 01:00:49,040
+go? Did we um Yeah. So that's about it.
+
+1110
+01:00:45,839 --> 01:00:51,520
+That's it for today. So today did we
+
+1111
+01:00:49,040 --> 01:00:54,480
+understand why it doesn't work or did we
+
+1112
+01:00:51,520 --> 01:00:57,280
+No, we didn't get it to work. boundary
+
+1113
+01:00:54,480 --> 01:00:59,520
+discretetized graphics but there's some
+
+1114
+01:00:57,280 --> 01:01:03,440
+okay so right now what need we need to
+
+1115
+01:00:59,520 --> 01:01:05,200
+do is just uh study this uh read in
+
+1116
+01:01:03,440 --> 01:01:06,880
+detail of this documentation I think
+
+1117
+01:01:05,200 --> 01:01:08,480
+that's it for today thank you guys for
+
+1118
+01:01:06,880 --> 01:01:10,799
+watching
+
+1119
+01:01:08,480 --> 01:01:12,720
+so boundary discretetized graphics let
+
+1120
+01:01:10,799 --> 01:01:15,680
+let's see how many people are watching
+
+1121
+01:01:12,720 --> 01:01:18,680
+I'm curious three let me let me make a
+
+1122
+01:01:15,680 --> 01:01:18,680
+guess
+
+1123
+01:01:20,720 --> 01:01:23,920
+uh let's
+
+1124
+01:01:25,119 --> 01:01:34,079
+Five people.
+
+1125
+01:01:27,760 --> 01:01:36,319
+Okay. Um that's a crowd. Uh so so we did
+
+1126
+01:01:34,079 --> 01:01:39,280
+not figure out why boundary
+
+1127
+01:01:36,319 --> 01:01:43,440
+discretetized graphics of a given valid
+
+1128
+01:01:39,280 --> 01:01:45,359
+graphics is not working. Okay. So so
+
+1129
+01:01:43,440 --> 01:01:47,520
+right now so the next thing to do is
+
+1130
+01:01:45,359 --> 01:01:51,040
+actually to read this documentation in
+
+1131
+01:01:47,520 --> 01:01:54,160
+detail. Okay. So boundary discretetize
+
+1132
+01:01:51,040 --> 01:01:57,040
+graphics G discretetize a 2D or 3D
+
+1133
+01:01:54,160 --> 01:02:01,200
+graphics G into a boundary mesh region.
+
+1134
+01:01:57,040 --> 01:02:03,760
+Okay. So it returns a boundary mesh
+
+1135
+01:02:01,200 --> 01:02:06,799
+region which is a region that's made of
+
+1136
+01:02:03,760 --> 01:02:08,640
+mesh and that's only the boundary of it.
+
+1137
+01:02:06,799 --> 01:02:11,040
+Okay.
+
+1138
+01:02:08,640 --> 01:02:14,240
+Uh then you can okay give a option to
+
+1139
+01:02:11,040 --> 01:02:18,160
+specify which element to discretetize.
+
+1140
+01:02:14,240 --> 01:02:20,799
+Okay. So deta so uh discretetize full
+
+1141
+01:02:18,160 --> 01:02:24,359
+dimensional graphics primitives into a
+
+1142
+01:02:20,799 --> 01:02:24,359
+boundary representation
+
+1143
+01:02:24,720 --> 01:02:31,760
+consisting of peacewise linear elements
+
+1144
+01:02:28,640 --> 01:02:37,720
+peacewise linear
+
+1145
+01:02:31,760 --> 01:02:37,720
+okay that basically just mean a mesh
+
+1146
+01:02:37,920 --> 01:02:43,760
+so only four dimensional plots area in
+
+1147
+01:02:41,440 --> 01:02:46,319
+2D and volume in 3D will be
+
+1148
+01:02:43,760 --> 01:02:48,799
+discretetized
+
+1149
+01:02:46,319 --> 01:02:51,200
+Okay. The graphics G can be graphics or
+
+1150
+01:02:48,799 --> 01:02:54,799
+graphics 3D or individual graphics
+
+1151
+01:02:51,200 --> 01:02:57,839
+primitives. There it is. Okay. So, we we
+
+1152
+01:02:54,799 --> 01:03:01,920
+give it graphics 2D.
+
+1153
+01:02:57,839 --> 01:03:04,160
+But why is it not working though?
+
+1154
+01:03:01,920 --> 01:03:07,200
+You know, that's that's the thing. So,
+
+1155
+01:03:04,160 --> 01:03:11,079
+you know, this is not working.
+
+1156
+01:03:07,200 --> 01:03:11,079
+Uh this is fail,
+
+1157
+01:03:13,280 --> 01:03:18,720
+right? Wait, it's
+
+1158
+01:03:16,640 --> 01:03:21,359
+fail.
+
+1159
+01:03:18,720 --> 01:03:24,319
+Yeah, it it it return itself. So, it's
+
+1160
+01:03:21,359 --> 01:03:26,079
+fail. So, we give it a graphics
+
+1161
+01:03:24,319 --> 01:03:28,400
+primitive
+
+1162
+01:03:26,079 --> 01:03:30,160
+of a list of circles. That's a graphics
+
+1163
+01:03:28,400 --> 01:03:32,079
+object. So, according to this
+
+1164
+01:03:30,160 --> 01:03:34,720
+documentation, graphics G can be
+
+1165
+01:03:32,079 --> 01:03:38,160
+graphics or graphics 3D
+
+1166
+01:03:34,720 --> 01:03:41,039
+effectively. So boundary discretetized
+
+1167
+01:03:38,160 --> 01:03:43,200
+graphic graphics effectively treats
+
+1168
+01:03:41,039 --> 01:03:50,160
+multiple primitives in graphics and
+
+1169
+01:03:43,200 --> 01:03:52,559
+graphics 3D as a union operation. Okay.
+
+1170
+01:03:50,160 --> 01:03:54,880
+Bounded pie-wise linear primitives in
+
+1171
+01:03:52,559 --> 01:03:56,720
+graphics. This can be uh represent
+
+1172
+01:03:54,880 --> 01:03:58,880
+exactly.
+
+1173
+01:03:56,720 --> 01:04:01,359
+I don't know why is it fail. So let's
+
+1174
+01:03:58,880 --> 01:04:04,079
+try. Is it because our radius is too
+
+1175
+01:04:01,359 --> 01:04:06,799
+large? No, that's not possible. I mean
+
+1176
+01:04:04,079 --> 01:04:10,160
+it would be very silly
+
+1177
+01:04:06,799 --> 01:04:12,400
+if the radius is large. Okay. But let's
+
+1178
+01:04:10,160 --> 01:04:15,280
+just, you know, try small just to be
+
+1179
+01:04:12,400 --> 01:04:17,920
+sure.
+
+1180
+01:04:15,280 --> 01:04:19,440
+You see it's not it's not doing it near
+
+1181
+01:04:17,920 --> 01:04:22,079
+yet.
+
+1182
+01:04:19,440 --> 01:04:25,559
+It should return something like that.
+
+1183
+01:04:22,079 --> 01:04:25,559
+Okay. So
+
+1184
+01:04:25,760 --> 01:04:29,880
+So um
+
+1185
+01:04:40,000 --> 01:04:46,720
+Okay. Unbounded. unbounded peace-wise
+
+1186
+01:04:43,920 --> 01:04:49,440
+linear primitives in graphics graphics
+
+1187
+01:04:46,720 --> 01:04:52,240
+3D only a finite range can be
+
+1188
+01:04:49,440 --> 01:04:56,319
+represented. Okay.
+
+1189
+01:04:52,240 --> 01:04:59,920
+So anyway, so why is it failing? So a
+
+1190
+01:04:56,319 --> 01:05:01,839
+dis parallelogram
+
+1191
+01:04:59,920 --> 01:05:05,359
+uh cone
+
+1192
+01:05:01,839 --> 01:05:06,960
+discretetize a cone discretetize a
+
+1193
+01:05:05,359 --> 01:05:09,520
+prism.
+
+1194
+01:05:06,960 --> 01:05:13,760
+Okay. Then discretetize what is this?
+
+1195
+01:05:09,520 --> 01:05:16,000
+desires a whole 2D graphic scene where
+
+1196
+01:05:13,760 --> 01:05:19,200
+multiple primitives are taken as a
+
+1197
+01:05:16,000 --> 01:05:21,920
+union. Okay. Yeah.
+
+1198
+01:05:19,200 --> 01:05:27,960
+Very quite powerful.
+
+1199
+01:05:21,920 --> 01:05:27,960
+Okay. But um but but but
+
+1200
+01:05:28,640 --> 01:05:32,680
+why is uh
+
+1201
+01:05:38,319 --> 01:05:42,400
+discretetize full dimensional graphics
+
+1202
+01:05:40,799 --> 01:05:45,400
+primitive into a boundary
+
+1203
+01:05:42,400 --> 01:05:45,400
+representation?
+
+1204
+01:05:48,880 --> 01:05:54,400
+So is it because they are not a region
+
+1205
+01:05:51,839 --> 01:05:58,720
+because they are disconnected because we
+
+1206
+01:05:54,400 --> 01:06:01,039
+you know we actually just have two um
+
+1207
+01:05:58,720 --> 01:06:04,760
+you know let's shrink the radius it's
+
+1208
+01:06:01,039 --> 01:06:04,760
+like kind of city
+
+1209
+01:06:07,039 --> 01:06:14,319
+so okay so you know shrink you know
+
+1210
+01:06:09,760 --> 01:06:17,520
+let's not to be too far apart.
+
+1211
+01:06:14,319 --> 01:06:19,039
+So now you see you know two circles.
+
+1212
+01:06:17,520 --> 01:06:22,640
+Uh
+
+1213
+01:06:19,039 --> 01:06:25,880
+yeah. So so
+
+1214
+01:06:22,640 --> 01:06:25,880
+if you
+
+1215
+01:06:25,920 --> 01:06:34,160
+run this Okay, it works.
+
+1216
+01:06:31,599 --> 01:06:37,119
+Wait a minute.
+
+1217
+01:06:34,160 --> 01:06:40,480
+It works.
+
+1218
+01:06:37,119 --> 01:06:44,079
+So when you shrink them,
+
+1219
+01:06:40,480 --> 01:06:46,640
+it works. Wait, this can't be right.
+
+1220
+01:06:44,079 --> 01:06:50,319
+This got to be a major bug, my friend.
+
+1221
+01:06:46,640 --> 01:06:54,240
+This got to be a major bug.
+
+1222
+01:06:50,319 --> 01:06:56,480
+If that's a bug, then I'm very pissed.
+
+1223
+01:06:54,240 --> 01:06:58,880
+You know, Wuam language cannot possibly
+
+1224
+01:06:56,480 --> 01:07:01,200
+have this bug.
+
+1225
+01:06:58,880 --> 01:07:05,039
+You see, when the circle when the second
+
+1226
+01:07:01,200 --> 01:07:08,079
+circle is near the first one or much
+
+1227
+01:07:05,039 --> 01:07:11,520
+smaller in radius, then the whole thing
+
+1228
+01:07:08,079 --> 01:07:14,640
+works. You see it return discretetize.
+
+1229
+01:07:11,520 --> 01:07:18,079
+Then then then uh
+
+1230
+01:07:14,640 --> 01:07:21,200
+then uh x boundary.
+
+1231
+01:07:18,079 --> 01:07:24,920
+Then what is the x boundary?
+
+1232
+01:07:21,200 --> 01:07:24,920
+I did it. Return.
+
+1233
+01:07:28,880 --> 01:07:34,799
+Run it.
+
+1234
+01:07:31,119 --> 01:07:38,799
+Wait. What you see? So that's the that's
+
+1235
+01:07:34,799 --> 01:07:42,400
+the primitives. That's the graphics.
+
+1236
+01:07:38,799 --> 01:07:47,160
+That's discretetized. But there's no
+
+1237
+01:07:42,400 --> 01:07:47,160
+where is my X boundary?
+
+1238
+01:07:47,920 --> 01:07:53,039
+Oh, wait. So, there's another value
+
+1239
+01:07:50,559 --> 01:07:56,520
+Xbounds
+
+1240
+01:07:53,039 --> 01:07:56,520
+region bounds.
+
+1241
+01:07:58,880 --> 01:08:03,760
+So, paste that. You know that works. So,
+
+1242
+01:08:01,280 --> 01:08:06,960
+let let's try this again. Okay. I can't
+
+1243
+01:08:03,760 --> 01:08:09,599
+believe this uh won't work. Okay. So if
+
+1244
+01:08:06,960 --> 01:08:12,319
+you run this, so let's create a new
+
+1245
+01:08:09,599 --> 01:08:18,880
+section. Old four
+
+1246
+01:08:12,319 --> 01:08:23,679
+old four new section. Paste it. Run it.
+
+1247
+01:08:18,880 --> 01:08:26,799
+Doesn't work. Okay. Now all four again
+
+1248
+01:08:23,679 --> 01:08:29,600
+something. Okay. Now
+
+1249
+01:08:26,799 --> 01:08:32,239
+paste it. Now let's shrink the circle.
+
+1250
+01:08:29,600 --> 01:08:35,600
+Okay. Shrink. The radius is just, you
+
+1251
+01:08:32,239 --> 01:08:40,759
+know, 11. Okay. 11. And the center is
+
+1252
+01:08:35,600 --> 01:08:40,759
+six and nine. Okay, do it.
+
+1253
+01:08:40,880 --> 01:08:49,719
+Oh, still doesn't work. Wait.
+
+1254
+01:08:44,239 --> 01:08:49,719
+God, what have I been do? Why is that?
+
+1255
+01:08:49,759 --> 01:08:52,759
+What?
+
+1256
+01:08:55,440 --> 01:08:59,799
+I thought it worked here.
+
+1257
+01:09:03,279 --> 01:09:08,199
+What have I been doing wrong?
+
+1258
+01:09:11,679 --> 01:09:17,640
+Is it because I'm getting tired? And uh
+
+1259
+01:09:47,679 --> 01:09:55,679
+is the circle radius the problem.
+
+1260
+01:09:51,359 --> 01:09:58,159
+So here the radius six that works. So
+
+1261
+01:09:55,679 --> 01:10:01,360
+but 11
+
+1262
+01:09:58,159 --> 01:10:04,480
+let's change it to six. Okay,
+
+1263
+01:10:01,360 --> 01:10:06,480
+do it.
+
+1264
+01:10:04,480 --> 01:10:09,280
+That worked.
+
+1265
+01:10:06,480 --> 01:10:13,800
+Oh god, this is incredible. So if if the
+
+1266
+01:10:09,280 --> 01:10:13,800
+second radius is 11,
+
+1267
+01:10:16,000 --> 01:10:22,040
+then it doesn't work. So this is
+
+1268
+01:10:18,400 --> 01:10:22,040
+a bug.
+
+1269
+01:10:22,239 --> 01:10:28,880
+This is this is not right. So
+
+1270
+01:10:25,840 --> 01:10:32,000
+it is possible I found a
+
+1271
+01:10:28,880 --> 01:10:34,000
+bug in Wuam language but this is not
+
+1272
+01:10:32,000 --> 01:10:36,400
+likely
+
+1273
+01:10:34,000 --> 01:10:38,000
+because how can you possibly have this
+
+1274
+01:10:36,400 --> 01:10:41,199
+bug
+
+1275
+01:10:38,000 --> 01:10:46,480
+you see when the radius of the second
+
+1276
+01:10:41,199 --> 01:10:49,360
+circle is let's say six
+
+1277
+01:10:46,480 --> 01:10:51,679
+then you run it okay then you go down
+
+1278
+01:10:49,360 --> 01:10:55,679
+you can see it create a discretetized
+
+1279
+01:10:51,679 --> 01:10:59,199
+circle and and that one and returns the
+
+1280
+01:10:55,679 --> 01:11:03,199
+boundary. Okay, so this is x min x maxx
+
+1281
+01:10:59,199 --> 01:11:05,920
+y min y max. Okay, when the radius of
+
+1282
+01:11:03,199 --> 01:11:09,360
+the second circle is six. Now if you
+
+1283
+01:11:05,920 --> 01:11:14,360
+change it to 11, you know that's not a
+
+1284
+01:11:09,360 --> 01:11:14,360
+big number. evaluate it.
+
+1285
+01:11:14,719 --> 01:11:19,239
+You see you got this
+
+1286
+01:11:20,960 --> 01:11:28,800
+not not a correctly specified region.
+
+1287
+01:11:24,880 --> 01:11:35,560
+Okay. Okay. So actually so it expect the
+
+1288
+01:11:28,800 --> 01:11:35,560
+input to be a region of some sort.
+
+1289
+01:11:36,000 --> 01:11:41,120
+So why is this overlapping circle not
+
+1290
+01:11:38,800 --> 01:11:44,320
+considered correct region? I mean it
+
+1291
+01:11:41,120 --> 01:11:46,800
+should be a region because we have seen
+
+1292
+01:11:44,320 --> 01:11:49,840
+you know you can you can even have this
+
+1293
+01:11:46,800 --> 01:11:51,920
+this bunch of circles.
+
+1294
+01:11:49,840 --> 01:11:54,000
+Okay that's very interesting finding.
+
+1295
+01:11:51,920 --> 01:11:56,480
+Okay I think that's it for today. That's
+
+1296
+01:11:54,000 --> 01:11:58,560
+very interesting
+
+1297
+01:11:56,480 --> 01:12:00,400
+uh puzzle.
+
+1298
+01:11:58,560 --> 01:12:03,840
+I don't know what's going on, but I
+
+1299
+01:12:00,400 --> 01:12:06,320
+have, you know, now um so I have to look
+
+1300
+01:12:03,840 --> 01:12:09,679
+into more to be sure. So, okay, I think
+
+1301
+01:12:06,320 --> 01:12:11,840
+that's it for today. Bye, guys.
+
+1302
+01:12:09,679 --> 01:12:15,280
+Shutting down in one minute and I'm
+
+1303
+01:12:11,840 --> 01:12:17,760
+going to have uh dinner.
+
+1304
+01:12:15,280 --> 01:12:22,199
+Very interesting. This this we we found
+
+1305
+01:12:17,760 --> 01:12:22,199
+a bug. Um seems like
+
+1306
+01:12:23,199 --> 01:12:29,360
+so clarify the bug. Okay. So, let me
+
+1307
+01:12:27,280 --> 01:12:32,920
+just write down the the the bug, the
+
+1308
+01:12:29,360 --> 01:12:32,920
+nature of a bug.
+
+1309
+01:12:33,199 --> 01:12:45,280
+Okay. Seems like we found a bug.
+
+1310
+01:12:40,400 --> 01:12:49,679
+Need to look into more. Okay.
+
+1311
+01:12:45,280 --> 01:12:53,120
+And what is a bug? The bug is
+
+1312
+01:12:49,679 --> 01:12:58,360
+The bug is Okay. So, hold on a second.
+
+1313
+01:12:53,120 --> 01:12:58,360
+Let me delete this. Delete this. Okay.
+
+1314
+01:13:01,520 --> 01:13:07,320
+The bug is
+
+1315
+01:13:04,320 --> 01:13:07,320
+when
+
+1316
+01:13:09,120 --> 01:13:12,800
+circle
+
+1317
+01:13:11,199 --> 01:13:17,480
+radius
+
+1318
+01:13:12,800 --> 01:13:17,480
+differ by just
+
+1319
+01:13:17,520 --> 01:13:20,880
+five.
+
+1320
+01:13:19,280 --> 01:13:23,920
+It
+
+1321
+01:13:20,880 --> 01:13:26,960
+doesn't work. Okay. What it? So this
+
+1322
+01:13:23,920 --> 01:13:29,199
+bound uh this
+
+1323
+01:13:26,960 --> 01:13:33,600
+this boundary disqueeze graphic doesn't
+
+1324
+01:13:29,199 --> 01:13:38,280
+work. So let let's so so so what works
+
+1325
+01:13:33,600 --> 01:13:38,280
+so what works is this works
+
+1326
+01:13:38,640 --> 01:13:41,960
+this works.
+
+1327
+01:13:47,440 --> 01:13:53,120
+This does not work.
+
+1328
+01:13:51,360 --> 01:13:57,199
+Okay. Okay. So what's the difference? So
+
+1329
+01:13:53,120 --> 01:14:01,120
+the difference here is that uh so let's
+
+1330
+01:13:57,199 --> 01:14:05,120
+see what is the difference. This one
+
+1331
+01:14:01,120 --> 01:14:09,920
+this one the circles are not connected.
+
+1332
+01:14:05,120 --> 01:14:14,080
+So you do so you have um
+
+1333
+01:14:09,920 --> 01:14:17,760
+so they are like they are uh disjointed.
+
+1334
+01:14:14,080 --> 01:14:19,440
+So that works but but then this does not
+
+1335
+01:14:17,760 --> 01:14:22,960
+work.
+
+1336
+01:14:19,440 --> 01:14:25,600
+In this case, the circles are like
+
+1337
+01:14:22,960 --> 01:14:28,560
+overlapping and it didn't work. But it
+
+1338
+01:14:25,600 --> 01:14:31,360
+should because according to this, you
+
+1339
+01:14:28,560 --> 01:14:34,080
+know, you you can even have. So anyway,
+
+1340
+01:14:31,360 --> 01:14:36,400
+bye guys.
+
+1341
+01:14:34,080 --> 01:14:39,120
+So put this back
+
+1342
+01:14:36,400 --> 01:14:42,800
+color the color syntax color it. That's
+
+1343
+01:14:39,120 --> 01:14:45,800
+today's talk show. Fantastic. Uh bye
+
+1344
+01:14:42,800 --> 01:14:45,800
+guys.
+

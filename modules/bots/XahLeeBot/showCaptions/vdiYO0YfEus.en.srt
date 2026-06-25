@@ -1,0 +1,4932 @@
+1
+00:00:03,659 --> 00:00:09,240
+hello guys welcome to another episode of
+
+2
+00:00:06,720 --> 00:00:13,920
+sound talk show today we are going to
+
+3
+00:00:09,240 --> 00:00:16,260
+code emac lisp emac this coding so emac
+
+4
+00:00:13,920 --> 00:00:18,720
+this live coding and if you have
+
+5
+00:00:16,260 --> 00:00:21,600
+questions in comments say hi okay
+
+6
+00:00:18,720 --> 00:00:24,840
+whoever you are five people say hi and
+
+7
+00:00:21,600 --> 00:00:27,539
+ask me questions about emacs or emac
+
+8
+00:00:24,840 --> 00:00:28,920
+beast I'm gonna code it today but first
+
+9
+00:00:27,539 --> 00:00:33,000
+of all let me tell you about my
+
+10
+00:00:28,920 --> 00:00:35,579
+keyboards this is glove 80 keyboard you
+
+11
+00:00:33,000 --> 00:00:38,820
+can find my reviews on my website I did
+
+12
+00:00:35,579 --> 00:00:41,760
+the review uh about three weeks ago
+
+13
+00:00:38,820 --> 00:00:44,040
+could have 80 keyboard and over here is
+
+14
+00:00:41,760 --> 00:00:46,860
+Ultimate hacking keyboard version 2.
+
+15
+00:00:44,040 --> 00:00:49,800
+fantastic I just did a review yesterday
+
+16
+00:00:46,860 --> 00:00:53,300
+or two days ago okay so that's my
+
+17
+00:00:49,800 --> 00:00:57,120
+keyboard and let's start coding okay
+
+18
+00:00:53,300 --> 00:01:00,180
+let's start coding e-maglis
+
+19
+00:00:57,120 --> 00:01:03,120
+okay so let's go to sound talk show and
+
+20
+00:01:00,180 --> 00:01:06,119
+today's page showing browser so we're
+
+21
+00:01:03,120 --> 00:01:08,400
+gonna uh first of all what what is it
+
+22
+00:01:06,119 --> 00:01:11,700
+are we going to code so we are going to
+
+23
+00:01:08,400 --> 00:01:14,700
+write a command such that you know uh
+
+24
+00:01:11,700 --> 00:01:18,960
+for example I write keyboard blog a lot
+
+25
+00:01:14,700 --> 00:01:22,320
+for example let me show you uh windows
+
+26
+00:01:18,960 --> 00:01:24,900
+okay Windows shortcut
+
+27
+00:01:22,320 --> 00:01:28,259
+okay show in browser you can see there's
+
+28
+00:01:24,900 --> 00:01:31,320
+a lot keyboard shortcut markup here so
+
+29
+00:01:28,259 --> 00:01:33,659
+this page is about Windows shortcuts and
+
+30
+00:01:31,320 --> 00:01:36,240
+you know I write a lot about keyboards
+
+31
+00:01:33,659 --> 00:01:38,640
+and so you have all these windows this
+
+32
+00:01:36,240 --> 00:01:41,340
+almost this is a complete list of
+
+33
+00:01:38,640 --> 00:01:44,100
+Windows shortcuts okay and the point
+
+34
+00:01:41,340 --> 00:01:46,439
+here is that you if if we open the page
+
+35
+00:01:44,100 --> 00:01:49,140
+let's put the link here
+
+36
+00:01:46,439 --> 00:01:53,040
+showing browser so if you open the page
+
+37
+00:01:49,140 --> 00:01:56,220
+you can see let's go look at the HTML so
+
+38
+00:01:53,040 --> 00:01:56,939
+you can see these are the markup you
+
+39
+00:01:56,220 --> 00:02:00,479
+know
+
+40
+00:01:56,939 --> 00:02:03,500
+kbd you know kbd something something and
+
+41
+00:02:00,479 --> 00:02:06,479
+Escape you know so lots of
+
+42
+00:02:03,500 --> 00:02:08,340
+HTML markup you have to do so what we
+
+43
+00:02:06,479 --> 00:02:10,140
+are going to do today is we're gonna
+
+44
+00:02:08,340 --> 00:02:13,860
+write a command let me show you so
+
+45
+00:02:10,140 --> 00:02:16,980
+suppose I want to say Ctrl W I want to
+
+46
+00:02:13,860 --> 00:02:21,540
+write that in HTML so normally you it
+
+47
+00:02:16,980 --> 00:02:25,620
+would be Ctrl capitalize then
+
+48
+00:02:21,540 --> 00:02:27,959
+keyboard tag then uh wait that doesn't
+
+49
+00:02:25,620 --> 00:02:32,700
+work okay so you have to select it
+
+50
+00:02:27,959 --> 00:02:38,360
+keyboard tag then you say Plus
+
+51
+00:02:32,700 --> 00:02:42,959
+plus then basically then you say w okay
+
+52
+00:02:38,360 --> 00:02:45,300
+okay showing browser so normally that's
+
+53
+00:02:42,959 --> 00:02:47,640
+how you do that tedious
+
+54
+00:02:45,300 --> 00:02:51,480
+so I want to write a command where I
+
+55
+00:02:47,640 --> 00:02:54,180
+just use the emac syntax so I just say C
+
+56
+00:02:51,480 --> 00:02:56,879
+Dash W the first character stands for
+
+57
+00:02:54,180 --> 00:02:59,280
+control then press the button then it
+
+58
+00:02:56,879 --> 00:03:01,680
+automatically become that that is what
+
+59
+00:02:59,280 --> 00:03:03,360
+we are going to write today okay so
+
+60
+00:03:01,680 --> 00:03:06,420
+let's begin
+
+61
+00:03:03,360 --> 00:03:09,620
+comments and questions okay post it and
+
+62
+00:03:06,420 --> 00:03:11,180
+pay me if you like my stuff you can buy
+
+63
+00:03:09,620 --> 00:03:15,360
+my
+
+64
+00:03:11,180 --> 00:03:19,319
+emacs tutorials you know emacs packages
+
+65
+00:03:15,360 --> 00:03:22,080
+and emacs tutorials recently and a lot
+
+66
+00:03:19,319 --> 00:03:25,200
+of updates so my packages you can you
+
+67
+00:03:22,080 --> 00:03:26,280
+know go to emacs blog and buy it and pay
+
+68
+00:03:25,200 --> 00:03:29,940
+me okay
+
+69
+00:03:26,280 --> 00:03:32,580
+so now let's uh so let me let me double
+
+70
+00:03:29,940 --> 00:03:34,800
+check if my video is going audio check
+
+71
+00:03:32,580 --> 00:03:36,120
+video check okay
+
+72
+00:03:34,800 --> 00:03:38,480
+good
+
+73
+00:03:36,120 --> 00:03:41,220
+ah wait uh
+
+74
+00:03:38,480 --> 00:03:44,280
+recording will be shut down do you are
+
+75
+00:03:41,220 --> 00:03:47,459
+you sure you want to exit now
+
+76
+00:03:44,280 --> 00:03:52,200
+oh okay so yeah press the wrong key so
+
+77
+00:03:47,459 --> 00:03:54,060
+windows down so okay so now we what we
+
+78
+00:03:52,200 --> 00:03:56,400
+do now so we are going to write the
+
+79
+00:03:54,060 --> 00:03:59,099
+command okay
+
+80
+00:03:56,400 --> 00:04:01,680
+uh so emac this so hold on a second
+
+81
+00:03:59,099 --> 00:04:05,099
+where is it so this is my emacs block
+
+82
+00:04:01,680 --> 00:04:07,200
+close close showing browser so we got
+
+83
+00:04:05,099 --> 00:04:09,000
+I'm going to write the emacs command so
+
+84
+00:04:07,200 --> 00:04:14,000
+start
+
+85
+00:04:09,000 --> 00:04:14,000
+show the pink Windows uh uh okay
+
+86
+00:04:14,640 --> 00:04:17,840
+oh uh
+
+87
+00:04:18,780 --> 00:04:24,540
+wait what happened
+
+88
+00:04:21,720 --> 00:04:25,620
+oh yeah so you have to press it twice so
+
+89
+00:04:24,540 --> 00:04:26,460
+we're gonna
+
+90
+00:04:25,620 --> 00:04:32,040
+um
+
+91
+00:04:26,460 --> 00:04:36,060
+emac this code okay so we begin uh we
+
+92
+00:04:32,040 --> 00:04:40,440
+begin okay so start a Emax this code and
+
+93
+00:04:36,060 --> 00:04:44,220
+Define I'm using sa emac this smart you
+
+94
+00:04:40,440 --> 00:04:47,880
+can see here so type D press space and
+
+95
+00:04:44,220 --> 00:04:52,199
+expand so this this is emac this mod you
+
+96
+00:04:47,880 --> 00:04:54,960
+can buy open source okay so so
+
+97
+00:04:52,199 --> 00:04:56,820
+yeah let's be in code okay so dark
+
+98
+00:04:54,960 --> 00:05:02,060
+stream
+
+99
+00:04:56,820 --> 00:05:02,060
+version today's date uh and uh
+
+100
+00:05:02,100 --> 00:05:13,740
+turn text such as uh such as e x x
+
+101
+00:05:11,220 --> 00:05:15,060
+so let's let's
+
+102
+00:05:13,740 --> 00:05:19,080
+um
+
+103
+00:05:15,060 --> 00:05:21,680
+it's document So to that okay that's the
+
+104
+00:05:19,080 --> 00:05:21,680
+documentation
+
+105
+00:05:22,800 --> 00:05:28,080
+text
+
+106
+00:05:24,000 --> 00:05:28,080
+and the cruiser
+
+107
+00:05:29,820 --> 00:05:32,660
+two
+
+108
+00:05:34,340 --> 00:05:38,060
+HTML markup
+
+109
+00:05:38,820 --> 00:05:43,680
+okay something like that we have we have
+
+110
+00:05:41,699 --> 00:05:46,259
+to fix the writing later but that's
+
+111
+00:05:43,680 --> 00:05:48,419
+basically what we're gonna do so we
+
+112
+00:05:46,259 --> 00:05:51,660
+start to define a function so the first
+
+113
+00:05:48,419 --> 00:05:54,060
+job is get the text under the cursor
+
+114
+00:05:51,660 --> 00:05:58,080
+let's get the first line okay so we want
+
+115
+00:05:54,060 --> 00:06:00,600
+the first line so let's define let two
+
+116
+00:05:58,080 --> 00:06:03,600
+variables xp1
+
+117
+00:06:00,600 --> 00:06:07,380
+x uh
+
+118
+00:06:03,600 --> 00:06:08,400
+P1 and P2 this position 1 position 2
+
+119
+00:06:07,380 --> 00:06:10,979
+okay
+
+120
+00:06:08,400 --> 00:06:14,400
+Cruiser positions which is a integer
+
+121
+00:06:10,979 --> 00:06:16,380
+which are integers so I start my
+
+122
+00:06:14,400 --> 00:06:19,199
+variable names with the X that's my
+
+123
+00:06:16,380 --> 00:06:21,800
+convention so that you can tell right
+
+124
+00:06:19,199 --> 00:06:24,060
+away or
+
+125
+00:06:21,800 --> 00:06:27,060
+identifiers that are variables local
+
+126
+00:06:24,060 --> 00:06:29,100
+variables okay so so you want to get the
+
+127
+00:06:27,060 --> 00:06:31,759
+position of the beginning of the line so
+
+128
+00:06:29,100 --> 00:06:38,100
+set
+
+129
+00:06:31,759 --> 00:06:42,259
+set xp1 beginning of line okay
+
+130
+00:06:38,100 --> 00:06:42,259
+so that that function will return
+
+131
+00:06:42,600 --> 00:06:47,220
+oh wait that that function that's not
+
+132
+00:06:45,000 --> 00:06:50,100
+the right one that will move the cursor
+
+133
+00:06:47,220 --> 00:06:52,440
+to the beginning of the line rather we
+
+134
+00:06:50,100 --> 00:06:57,360
+want the beginning position of the line
+
+135
+00:06:52,440 --> 00:06:59,520
+so uh line beginning position
+
+136
+00:06:57,360 --> 00:07:01,680
+okay that's a function we want that
+
+137
+00:06:59,520 --> 00:07:05,100
+returns that returns a number let me
+
+138
+00:07:01,680 --> 00:07:07,680
+show you let's eval evaluate you see one
+
+139
+00:07:05,100 --> 00:07:10,319
+five three that's a position of the
+
+140
+00:07:07,680 --> 00:07:11,819
+current cursor and the Ping window by
+
+141
+00:07:10,319 --> 00:07:14,220
+the way the pink window shows all my
+
+142
+00:07:11,819 --> 00:07:16,380
+emacs command cores and the keystrokes
+
+143
+00:07:14,220 --> 00:07:18,720
+as I type them so you can see the
+
+144
+00:07:16,380 --> 00:07:20,639
+command on the right and the key I type
+
+145
+00:07:18,720 --> 00:07:22,560
+on the left I'm using override keyboard
+
+146
+00:07:20,639 --> 00:07:25,319
+layout
+
+147
+00:07:22,560 --> 00:07:28,680
+okay we we haven't done emac this coding
+
+148
+00:07:25,319 --> 00:07:29,660
+for a long time so now next let's let's
+
+149
+00:07:28,680 --> 00:07:33,599
+get
+
+150
+00:07:29,660 --> 00:07:36,660
+xp2 line in position okay line in
+
+151
+00:07:33,599 --> 00:07:39,840
+position okay so that's the two
+
+152
+00:07:36,660 --> 00:07:41,220
+variables then what's next so we got the
+
+153
+00:07:39,840 --> 00:07:43,500
+beginning position we got the end
+
+154
+00:07:41,220 --> 00:07:47,099
+position we want to grab the text in
+
+155
+00:07:43,500 --> 00:07:48,440
+between so okay so so let's declare a
+
+156
+00:07:47,099 --> 00:07:52,039
+new variable
+
+157
+00:07:48,440 --> 00:07:52,039
+uh X text
+
+158
+00:07:53,160 --> 00:08:00,360
+okay so set that to
+
+159
+00:07:57,780 --> 00:08:03,840
+how do you so you got two positions you
+
+160
+00:08:00,360 --> 00:08:07,620
+want to get the string between them so
+
+161
+00:08:03,840 --> 00:08:10,080
+that command that function will be
+
+162
+00:08:07,620 --> 00:08:14,039
+buffer substring
+
+163
+00:08:10,080 --> 00:08:16,380
+okay that is a function but that will
+
+164
+00:08:14,039 --> 00:08:19,500
+also grab the coloring so instead we
+
+165
+00:08:16,380 --> 00:08:21,960
+want buffer substring no properties okay
+
+166
+00:08:19,500 --> 00:08:24,180
+so this is some technical detail the
+
+167
+00:08:21,960 --> 00:08:26,340
+difference is that you know you see in
+
+168
+00:08:24,180 --> 00:08:30,660
+emacs everything you know text is
+
+169
+00:08:26,340 --> 00:08:34,560
+colored syntax clean that is done by
+
+170
+00:08:30,660 --> 00:08:37,620
+having properties of the text so for
+
+171
+00:08:34,560 --> 00:08:40,140
+each text in a buffer it actually is
+
+172
+00:08:37,620 --> 00:08:42,300
+attached certain properties such as what
+
+173
+00:08:40,140 --> 00:08:45,660
+font to use what color to use what
+
+174
+00:08:42,300 --> 00:08:48,420
+background color font size and so on
+
+175
+00:08:45,660 --> 00:08:51,480
+behind the scenes you don't see it but
+
+176
+00:08:48,420 --> 00:08:55,860
+it's you know it's it's a data structure
+
+177
+00:08:51,480 --> 00:08:57,839
+embedded within any certain text you
+
+178
+00:08:55,860 --> 00:08:59,339
+know you can add to them or you can
+
+179
+00:08:57,839 --> 00:09:01,860
+remove them so that's called text
+
+180
+00:08:59,339 --> 00:09:03,839
+properties that is how you get the color
+
+181
+00:09:01,860 --> 00:09:07,560
+now
+
+182
+00:09:03,839 --> 00:09:09,240
+if we do this you'll grab the whole data
+
+183
+00:09:07,560 --> 00:09:11,820
+structure including the color and found
+
+184
+00:09:09,240 --> 00:09:14,160
+and font size and so on but usually you
+
+185
+00:09:11,820 --> 00:09:16,019
+don't need that so usually if you don't
+
+186
+00:09:14,160 --> 00:09:18,959
+want the color you just want the string
+
+187
+00:09:16,019 --> 00:09:20,700
+so you can then you say buffer substring
+
+188
+00:09:18,959 --> 00:09:24,240
+no properties okay
+
+189
+00:09:20,700 --> 00:09:27,720
+so that is what we want and this is our
+
+190
+00:09:24,240 --> 00:09:31,680
+variable names Okay so
+
+191
+00:09:27,720 --> 00:09:33,540
+so now let's purify the code okay let's
+
+192
+00:09:31,680 --> 00:09:37,200
+shrink a bit
+
+193
+00:09:33,540 --> 00:09:40,500
+okay now we got the text now what to do
+
+194
+00:09:37,200 --> 00:09:42,779
+with the text so it's a string now uh
+
+195
+00:09:40,500 --> 00:09:45,360
+let's remind ourselves what does the
+
+196
+00:09:42,779 --> 00:09:47,100
+string looks like okay so for example
+
+197
+00:09:45,360 --> 00:09:48,540
+the Stream
+
+198
+00:09:47,100 --> 00:09:49,860
+uh
+
+199
+00:09:48,540 --> 00:09:54,959
+C
+
+200
+00:09:49,860 --> 00:09:54,959
+W okay so CW becomes
+
+201
+00:09:56,160 --> 00:10:04,160
+let's do some magic here so you can see
+
+202
+00:10:00,660 --> 00:10:08,300
+showing browser so CW becomes that
+
+203
+00:10:04,160 --> 00:10:08,300
+magnifying okay magnify
+
+204
+00:10:08,519 --> 00:10:11,420
+so
+
+205
+00:10:11,640 --> 00:10:17,399
+but it can be more complicated for
+
+206
+00:10:14,459 --> 00:10:19,260
+example you if you have for example
+
+207
+00:10:17,399 --> 00:10:21,480
+let's say
+
+208
+00:10:19,260 --> 00:10:22,920
+CW
+
+209
+00:10:21,480 --> 00:10:25,100
+uh
+
+210
+00:10:22,920 --> 00:10:29,339
+let's say you know
+
+211
+00:10:25,100 --> 00:10:29,339
+let's say cwct
+
+212
+00:10:30,120 --> 00:10:35,399
+okay yeah let's just do that see you
+
+213
+00:10:32,640 --> 00:10:38,519
+know the two keystrokes now let's make
+
+214
+00:10:35,399 --> 00:10:40,680
+let's change it to something more common
+
+215
+00:10:38,519 --> 00:10:45,120
+so c a
+
+216
+00:10:40,680 --> 00:10:46,920
+c c so that's select all and copy a
+
+217
+00:10:45,120 --> 00:10:49,800
+sequence of shortcuts
+
+218
+00:10:46,920 --> 00:10:50,880
+that happens very often so select or and
+
+219
+00:10:49,800 --> 00:10:54,959
+shortcut
+
+220
+00:10:50,880 --> 00:10:57,839
+select or encode and that will become
+
+221
+00:10:54,959 --> 00:10:59,940
+uh let's just write it here so that will
+
+222
+00:10:57,839 --> 00:11:03,540
+become
+
+223
+00:10:59,940 --> 00:11:07,019
+that okay so for example uh wait here
+
+224
+00:11:03,540 --> 00:11:08,760
+yeah so here are two examples you know
+
+225
+00:11:07,019 --> 00:11:11,220
+so the first example is simple the
+
+226
+00:11:08,760 --> 00:11:13,920
+second one is sequence of key shortcuts
+
+227
+00:11:11,220 --> 00:11:16,440
+so you want to emacs to turn that into
+
+228
+00:11:13,920 --> 00:11:19,920
+this markup okay
+
+229
+00:11:16,440 --> 00:11:23,579
+easy okay so now let's let's go back
+
+230
+00:11:19,920 --> 00:11:27,000
+here so now you get a stream of things
+
+231
+00:11:23,579 --> 00:11:28,260
+like that first of all you split
+
+232
+00:11:27,000 --> 00:11:31,440
+okay
+
+233
+00:11:28,260 --> 00:11:35,399
+split string okay that's the function we
+
+234
+00:11:31,440 --> 00:11:39,720
+want split stream and you want to split
+
+235
+00:11:35,399 --> 00:11:43,200
+the X text stream optional separators
+
+236
+00:11:39,720 --> 00:11:46,860
+yes separators is gonna be white space
+
+237
+00:11:43,200 --> 00:11:49,440
+and uh one or more so that's a very good
+
+238
+00:11:46,860 --> 00:11:51,360
+expression omit news
+
+239
+00:11:49,440 --> 00:11:53,579
+um
+
+240
+00:11:51,360 --> 00:11:55,320
+no we don't care I mean no one's Neo
+
+241
+00:11:53,579 --> 00:11:58,680
+Okay so
+
+242
+00:11:55,320 --> 00:12:01,880
+so then you add a new variable list okay
+
+243
+00:11:58,680 --> 00:12:01,880
+so something like that
+
+244
+00:12:02,279 --> 00:12:08,940
+Okay so
+
+245
+00:12:04,440 --> 00:12:11,480
+so set list to be that
+
+246
+00:12:08,940 --> 00:12:11,480
+okay
+
+247
+00:12:11,579 --> 00:12:15,079
+comments and questions okay
+
+248
+00:12:24,180 --> 00:12:28,980
+okay next
+
+249
+00:12:26,399 --> 00:12:31,440
+so now we got the least so now we have
+
+250
+00:12:28,980 --> 00:12:34,680
+split screen split this into a list so
+
+251
+00:12:31,440 --> 00:12:36,680
+now we can process each one by itself
+
+252
+00:12:34,680 --> 00:12:39,600
+okay
+
+253
+00:12:36,680 --> 00:12:44,399
+so let's say
+
+254
+00:12:39,600 --> 00:12:46,980
+X temp okay key let's let's see um
+
+255
+00:12:44,399 --> 00:12:51,839
+X
+
+256
+00:12:46,980 --> 00:12:56,700
+temp okay something like that so now we
+
+257
+00:12:51,839 --> 00:13:01,880
+we want to so we now we got a list of
+
+258
+00:12:56,700 --> 00:13:01,880
+shortcuts we want to process
+
+259
+00:13:02,160 --> 00:13:06,079
+them one at a time
+
+260
+00:13:04,620 --> 00:13:10,680
+so
+
+261
+00:13:06,079 --> 00:13:11,880
+so the way to do that is is you map
+
+262
+00:13:10,680 --> 00:13:14,880
+C
+
+263
+00:13:11,880 --> 00:13:18,600
+that's a map function so you map to the
+
+264
+00:13:14,880 --> 00:13:20,399
+sequence X list okay and here Lambda is
+
+265
+00:13:18,600 --> 00:13:24,480
+a function that's what you want to want
+
+266
+00:13:20,399 --> 00:13:27,120
+to do to each one of the shortcuts
+
+267
+00:13:24,480 --> 00:13:32,040
+okay now you map so what we're gonna do
+
+268
+00:13:27,120 --> 00:13:34,500
+so so suppose the input is gonna be uh C
+
+269
+00:13:32,040 --> 00:13:38,100
+A for example that's that's a sample
+
+270
+00:13:34,500 --> 00:13:40,860
+input so X you know the x is gonna be
+
+271
+00:13:38,100 --> 00:13:43,880
+like that a string so once you get that
+
+272
+00:13:40,860 --> 00:13:47,540
+what you what what to do you want to
+
+273
+00:13:43,880 --> 00:13:47,540
+split string again
+
+274
+00:13:47,700 --> 00:13:53,220
+uh this is gonna get tedious
+
+275
+00:13:50,639 --> 00:13:54,899
+more tediously I thought okay so you
+
+276
+00:13:53,220 --> 00:13:59,100
+want to split stream
+
+277
+00:13:54,899 --> 00:14:02,100
+so okay so but before we do anything you
+
+278
+00:13:59,100 --> 00:14:06,240
+want to declare some variables okay so
+
+279
+00:14:02,100 --> 00:14:08,459
+the variables you want to declare is uh
+
+280
+00:14:06,240 --> 00:14:13,820
+uh
+
+281
+00:14:08,459 --> 00:14:13,820
+X key okay so first of all
+
+282
+00:14:27,600 --> 00:14:34,079
+sample x value okay so now you want to
+
+283
+00:14:32,220 --> 00:14:35,820
+um
+
+284
+00:14:34,079 --> 00:14:39,199
+so now
+
+285
+00:14:35,820 --> 00:14:43,019
+you want to so we have a variable X key
+
+286
+00:14:39,199 --> 00:14:44,519
+and what we want to do here is split
+
+287
+00:14:43,019 --> 00:14:46,860
+stream
+
+288
+00:14:44,519 --> 00:14:51,240
+split the X
+
+289
+00:14:46,860 --> 00:14:53,699
+into a list okay so let's say
+
+290
+00:14:51,240 --> 00:14:56,339
+Keys okay
+
+291
+00:14:53,699 --> 00:14:58,320
+so set queue keys keys will be three
+
+292
+00:14:56,339 --> 00:15:01,079
+string okay
+
+293
+00:14:58,320 --> 00:15:03,740
+in this case we can have a syntax
+
+294
+00:15:01,079 --> 00:15:03,740
+shortcut
+
+295
+00:15:03,779 --> 00:15:10,079
+let's do this okay so we just put it
+
+296
+00:15:06,899 --> 00:15:13,440
+there so simple so now what we do so now
+
+297
+00:15:10,079 --> 00:15:14,519
+we got each key is one of the letters c
+
+298
+00:15:13,440 --> 00:15:16,079
+and a
+
+299
+00:15:14,519 --> 00:15:20,600
+so
+
+300
+00:15:16,079 --> 00:15:20,600
+so we can here's what we can do
+
+301
+00:15:21,480 --> 00:15:25,279
+so we split them
+
+302
+00:15:26,760 --> 00:15:31,019
+okay so uh
+
+303
+00:15:33,000 --> 00:15:38,880
+so far so good
+
+304
+00:15:35,760 --> 00:15:41,839
+comments guys comments okay so we
+
+305
+00:15:38,880 --> 00:15:41,839
+split them
+
+306
+00:15:44,699 --> 00:15:49,220
+let's do this okay let's do
+
+307
+00:15:51,839 --> 00:15:56,940
+let's just assume
+
+308
+00:15:55,440 --> 00:15:59,760
+you know there are many different
+
+309
+00:15:56,940 --> 00:16:02,820
+variation cases for example the input
+
+310
+00:15:59,760 --> 00:16:04,820
+could be something like
+
+311
+00:16:02,820 --> 00:16:04,820
+um
+
+312
+00:16:06,240 --> 00:16:11,040
+you know something like that that means
+
+313
+00:16:08,399 --> 00:16:15,060
+control meta a
+
+314
+00:16:11,040 --> 00:16:16,260
+and it could be some other case for
+
+315
+00:16:15,060 --> 00:16:16,800
+example
+
+316
+00:16:16,260 --> 00:16:19,320
+um
+
+317
+00:16:16,800 --> 00:16:22,440
+so actually the split string here will
+
+318
+00:16:19,320 --> 00:16:24,720
+be split by a
+
+319
+00:16:22,440 --> 00:16:29,040
+Dash character
+
+320
+00:16:24,720 --> 00:16:32,220
+okay and uh yeah let's just do that
+
+321
+00:16:29,040 --> 00:16:34,459
+and then there are some other examples
+
+322
+00:16:32,220 --> 00:16:39,139
+for example you might have
+
+323
+00:16:34,459 --> 00:16:42,660
+uh you know the meta is usually
+
+324
+00:16:39,139 --> 00:16:44,459
+considered you know the Windows key so
+
+325
+00:16:42,660 --> 00:16:48,899
+the question is how do you represent the
+
+326
+00:16:44,459 --> 00:16:52,860
+Windows key or the old key so old key is
+
+327
+00:16:48,899 --> 00:16:55,500
+typically a and the Windows key here we
+
+328
+00:16:52,860 --> 00:16:58,220
+can device it just say let's say w is
+
+329
+00:16:55,500 --> 00:16:58,220
+Windows key
+
+330
+00:16:58,740 --> 00:17:04,919
+so something like that so this all these
+
+331
+00:17:01,259 --> 00:17:08,699
+are possible inputs now we split them by
+
+332
+00:17:04,919 --> 00:17:11,160
+a hyphen okay then for each one of these
+
+333
+00:17:08,699 --> 00:17:15,240
+the first few characters we need to
+
+334
+00:17:11,160 --> 00:17:18,720
+change them into a
+
+335
+00:17:15,240 --> 00:17:22,079
+you know C needs to be Ctrl
+
+336
+00:17:18,720 --> 00:17:24,540
+okay getting complex but but let's let's
+
+337
+00:17:22,079 --> 00:17:27,299
+just uh simplify and push through for
+
+338
+00:17:24,540 --> 00:17:30,660
+now then fix it you know
+
+339
+00:17:27,299 --> 00:17:33,120
+later improve it later so
+
+340
+00:17:30,660 --> 00:17:35,780
+because I'm doing live stream you need
+
+341
+00:17:33,120 --> 00:17:37,679
+to get going to show results
+
+342
+00:17:35,780 --> 00:17:42,500
+so
+
+343
+00:17:37,679 --> 00:17:42,500
+so what we do now is we
+
+344
+00:17:45,840 --> 00:17:51,600
+let's just add
+
+345
+00:17:48,480 --> 00:17:54,360
+let's just add the keyboard tag okay so
+
+346
+00:17:51,600 --> 00:17:57,140
+for each key
+
+347
+00:17:54,360 --> 00:17:57,140
+so
+
+348
+00:18:01,679 --> 00:18:09,120
+okay so before we do this map let's say
+
+349
+00:18:05,720 --> 00:18:11,760
+delete region
+
+350
+00:18:09,120 --> 00:18:16,280
+okay so once you get the text let's say
+
+351
+00:18:11,760 --> 00:18:16,280
+delete region delete region
+
+352
+00:18:20,039 --> 00:18:27,059
+there okay so you deleted the current
+
+353
+00:18:22,440 --> 00:18:29,960
+line then you insert them here so you're
+
+354
+00:18:27,059 --> 00:18:29,960
+gonna insert
+
+355
+00:18:31,380 --> 00:18:34,580
+uh actually
+
+356
+00:18:37,919 --> 00:18:45,539
+not insert so we want to
+
+357
+00:18:42,179 --> 00:18:46,740
+so each of this character is the item in
+
+358
+00:18:45,539 --> 00:18:50,160
+a list
+
+359
+00:18:46,740 --> 00:18:53,400
+so you want to so actually I know what
+
+360
+00:18:50,160 --> 00:18:56,400
+to do so instead of that you use
+
+361
+00:18:53,400 --> 00:18:59,120
+sequence contact
+
+362
+00:18:56,400 --> 00:19:02,460
+okay let's look up the list
+
+363
+00:18:59,120 --> 00:19:05,640
+documentation so go through my website
+
+364
+00:19:02,460 --> 00:19:10,580
+because our email list Basics then you
+
+365
+00:19:05,640 --> 00:19:14,700
+go to this Basics then you go to
+
+366
+00:19:10,580 --> 00:19:17,760
+these lisp data structure then you go to
+
+367
+00:19:14,700 --> 00:19:23,360
+list okay
+
+368
+00:19:17,760 --> 00:19:23,360
+and okay go to list and then you go down
+
+369
+00:19:25,200 --> 00:19:28,820
+it's magnify okay
+
+370
+00:19:29,700 --> 00:19:35,299
+then you go down at the bottom there is
+
+371
+00:19:32,880 --> 00:19:35,299
+a
+
+372
+00:19:35,640 --> 00:19:43,860
+so here is all the lisp related topics
+
+373
+00:19:40,380 --> 00:19:45,780
+convert join list or vector or string
+
+374
+00:19:43,860 --> 00:19:48,780
+that's what you want to do
+
+375
+00:19:45,780 --> 00:19:48,780
+so
+
+376
+00:19:50,520 --> 00:19:57,179
+V contact okay showing any sequence type
+
+377
+00:19:54,419 --> 00:19:58,200
+and return a vector okay that's not what
+
+378
+00:19:57,179 --> 00:20:01,260
+we want
+
+379
+00:19:58,200 --> 00:20:05,220
+we want to turn the list to a stream
+
+380
+00:20:01,260 --> 00:20:08,580
+and also add strings in between okay so
+
+381
+00:20:05,220 --> 00:20:09,600
+append is not what we want a pen returns
+
+382
+00:20:08,580 --> 00:20:12,900
+a list
+
+383
+00:20:09,600 --> 00:20:14,760
+but map contact that's what we want map
+
+384
+00:20:12,900 --> 00:20:15,840
+contact
+
+385
+00:20:14,760 --> 00:20:18,480
+okay
+
+386
+00:20:15,840 --> 00:20:21,320
+so let's do it here
+
+387
+00:20:18,480 --> 00:20:21,320
+uh
+
+388
+00:20:23,520 --> 00:20:27,320
+yeah so actually do it here
+
+389
+00:20:30,780 --> 00:20:34,500
+uh
+
+390
+00:20:32,100 --> 00:20:37,380
+there's an issue with my keyboard This
+
+391
+00:20:34,500 --> 00:20:39,720
+Bluetooth reconnected
+
+392
+00:20:37,380 --> 00:20:44,900
+Okay so
+
+393
+00:20:39,720 --> 00:20:44,900
+so now we map contact
+
+394
+00:20:45,720 --> 00:20:53,340
+okay map contact function uh
+
+395
+00:20:50,820 --> 00:20:55,980
+function sequence separator
+
+396
+00:20:53,340 --> 00:20:58,880
+function we don't need so
+
+397
+00:20:55,980 --> 00:20:58,880
+identity
+
+398
+00:21:01,320 --> 00:21:10,880
+okay identity function and the sequence
+
+399
+00:21:04,860 --> 00:21:10,880
+is X keys and the separator is
+
+400
+00:21:12,360 --> 00:21:16,580
+okay the separator is this
+
+401
+00:21:17,700 --> 00:21:20,539
+keyboard
+
+402
+00:21:25,440 --> 00:21:30,539
+Plus
+
+403
+00:21:28,200 --> 00:21:33,659
+backslash okay
+
+404
+00:21:30,539 --> 00:21:35,700
+that's what we that's what we want then
+
+405
+00:21:33,659 --> 00:21:39,380
+you want to
+
+406
+00:21:35,700 --> 00:21:39,380
+actually insert
+
+407
+00:21:44,220 --> 00:21:48,500
+okay insert that
+
+408
+00:21:46,500 --> 00:21:52,020
+then
+
+409
+00:21:48,500 --> 00:21:53,700
+insert this thing
+
+410
+00:21:52,020 --> 00:21:56,940
+then
+
+411
+00:21:53,700 --> 00:21:58,860
+you insert the ending keyboard tag is
+
+412
+00:21:56,940 --> 00:22:02,059
+that correct yes
+
+413
+00:21:58,860 --> 00:22:02,059
+yes okay
+
+414
+00:22:04,260 --> 00:22:09,299
+so
+
+415
+00:22:06,120 --> 00:22:10,919
+hello Akon first
+
+416
+00:22:09,299 --> 00:22:13,200
+a first comment
+
+417
+00:22:10,919 --> 00:22:14,760
+Okay so
+
+418
+00:22:13,200 --> 00:22:17,460
+so now
+
+419
+00:22:14,760 --> 00:22:20,400
+let's eval the function okay that's I
+
+420
+00:22:17,460 --> 00:22:24,780
+think I think that should do
+
+421
+00:22:20,400 --> 00:22:26,640
+uh that should give us a Basics okay so
+
+422
+00:22:24,780 --> 00:22:27,240
+let's rename the function
+
+423
+00:22:26,640 --> 00:22:30,179
+um
+
+424
+00:22:27,240 --> 00:22:32,760
+let's what what should we name it let's
+
+425
+00:22:30,179 --> 00:22:34,860
+open a new window okay because I have
+
+426
+00:22:32,760 --> 00:22:35,820
+written this function already 10 years
+
+427
+00:22:34,860 --> 00:22:38,220
+ago
+
+428
+00:22:35,820 --> 00:22:42,600
+so let's go to
+
+429
+00:22:38,220 --> 00:22:45,299
+PSI HTML mod uh actually let's just call
+
+430
+00:22:42,600 --> 00:22:48,780
+this command so the command is called
+
+431
+00:22:45,299 --> 00:22:52,740
+site HTML keyboard shortcut markup so
+
+432
+00:22:48,780 --> 00:22:55,559
+it's defined inside HTML mod so here is
+
+433
+00:22:52,740 --> 00:22:59,280
+a source code so I wrote this like 10
+
+434
+00:22:55,559 --> 00:23:02,340
+years ago but over the 10 years I made
+
+435
+00:22:59,280 --> 00:23:05,220
+some changes and I also made some
+
+436
+00:23:02,340 --> 00:23:07,559
+careless changes and now it's not so
+
+437
+00:23:05,220 --> 00:23:09,860
+good you see what it's doing you know
+
+438
+00:23:07,559 --> 00:23:09,860
+it's
+
+439
+00:23:10,039 --> 00:23:16,080
+the keyboard notation you see because
+
+440
+00:23:13,500 --> 00:23:18,840
+for example the control key some people
+
+441
+00:23:16,080 --> 00:23:21,480
+might say CTI or some some people might
+
+442
+00:23:18,840 --> 00:23:24,419
+type the full control some people with
+
+443
+00:23:21,480 --> 00:23:26,360
+lowercase you know sometimes it's with
+
+444
+00:23:24,419 --> 00:23:30,120
+capital case you so you want to
+
+445
+00:23:26,360 --> 00:23:33,600
+normalize it have a standard keyboard
+
+446
+00:23:30,120 --> 00:23:36,200
+notation across and also across Windows
+
+447
+00:23:33,600 --> 00:23:39,120
+Mac and and the
+
+448
+00:23:36,200 --> 00:23:41,880
+Linux so
+
+449
+00:23:39,120 --> 00:23:44,220
+so anyway so that so that's uh so let's
+
+450
+00:23:41,880 --> 00:23:47,280
+focus on what we are writing today so
+
+451
+00:23:44,220 --> 00:23:50,700
+let's so right now the question is what
+
+452
+00:23:47,280 --> 00:23:54,740
+command to name this okay so let's
+
+453
+00:23:50,700 --> 00:23:54,740
+what what is the name okay
+
+454
+00:23:55,260 --> 00:23:58,220
+let's say
+
+455
+00:24:00,539 --> 00:24:04,799
+let's just say that short okay because I
+
+456
+00:24:03,179 --> 00:24:06,840
+shortcut markup
+
+457
+00:24:04,799 --> 00:24:08,520
+okay so now
+
+458
+00:24:06,840 --> 00:24:11,460
+are we done
+
+459
+00:24:08,520 --> 00:24:13,559
+is this good let's see double check one
+
+460
+00:24:11,460 --> 00:24:15,360
+last time
+
+461
+00:24:13,559 --> 00:24:20,520
+so
+
+462
+00:24:15,360 --> 00:24:22,679
+let's just say let's try it okay eval
+
+463
+00:24:20,520 --> 00:24:27,240
+now
+
+464
+00:24:22,679 --> 00:24:30,419
+now we go to uh HTML page
+
+465
+00:24:27,240 --> 00:24:35,900
+yeah so now we go here so now let's
+
+466
+00:24:30,419 --> 00:24:35,900
+let's try let's try on this keyword okay
+
+467
+00:24:37,140 --> 00:24:44,840
+okay meta X
+
+468
+00:24:39,299 --> 00:24:49,679
+sound shortcut markup do it
+
+469
+00:24:44,840 --> 00:24:53,700
+fantastic it worked okay undo now let's
+
+470
+00:24:49,679 --> 00:24:57,240
+let's let's try this one control select
+
+471
+00:24:53,700 --> 00:25:00,500
+all and the copy okay meta X consumption
+
+472
+00:24:57,240 --> 00:25:00,500
+code markup to it
+
+473
+00:25:00,600 --> 00:25:05,280
+fantastic except that you need a space
+
+474
+00:25:03,419 --> 00:25:07,380
+here so you see
+
+475
+00:25:05,280 --> 00:25:10,679
+that's right so you need a space here
+
+476
+00:25:07,380 --> 00:25:13,020
+okay so let's fix that
+
+477
+00:25:10,679 --> 00:25:16,320
+fantastic so
+
+478
+00:25:13,020 --> 00:25:17,460
+how long did it okay in 20 minutes we
+
+479
+00:25:16,320 --> 00:25:21,059
+did it
+
+480
+00:25:17,460 --> 00:25:24,380
+so we now uh you need to add a space so
+
+481
+00:25:21,059 --> 00:25:24,380
+where do you add that
+
+482
+00:25:24,779 --> 00:25:32,400
+great uh okay so now you yeah it's a
+
+483
+00:25:28,260 --> 00:25:36,779
+missing a space in between here so
+
+484
+00:25:32,400 --> 00:25:40,740
+where do you add that let's see
+
+485
+00:25:36,779 --> 00:25:44,159
+Spirit stream X text
+
+486
+00:25:40,740 --> 00:25:45,600
+so this x text should be named
+
+487
+00:25:44,159 --> 00:25:49,320
+shortcut
+
+488
+00:25:45,600 --> 00:25:52,380
+okay so let's change change let's rename
+
+489
+00:25:49,320 --> 00:25:55,820
+the variables so they make better sense
+
+490
+00:25:52,380 --> 00:25:55,820
+X should cut
+
+491
+00:25:56,460 --> 00:26:03,299
+okay that's one single sequence
+
+492
+00:26:00,900 --> 00:26:06,059
+so I mean one one connected shortcut
+
+493
+00:26:03,299 --> 00:26:08,840
+okay a string that's a string
+
+494
+00:26:06,059 --> 00:26:08,840
+so
+
+495
+00:26:10,799 --> 00:26:16,340
+oh all you have to do is add a space
+
+496
+00:26:12,900 --> 00:26:16,340
+here that's right
+
+497
+00:26:16,620 --> 00:26:23,820
+okay even on the buffer go back here and
+
+498
+00:26:20,820 --> 00:26:27,240
+do undo and do and do okay let's try it
+
+499
+00:26:23,820 --> 00:26:31,679
+again meta X essential code mock-up do
+
+500
+00:26:27,240 --> 00:26:34,080
+it fantastic okay now let's put a
+
+501
+00:26:31,679 --> 00:26:37,679
+paragraph and go to browser and see how
+
+502
+00:26:34,080 --> 00:26:41,100
+it looks like that fantastic okay so
+
+503
+00:26:37,679 --> 00:26:43,380
+that's one step done now
+
+504
+00:26:41,100 --> 00:26:45,600
+you know no more people don't know what
+
+505
+00:26:43,380 --> 00:26:49,020
+the is C so you know because the
+
+506
+00:26:45,600 --> 00:26:51,360
+capital c that's a e Max convention that
+
+507
+00:26:49,020 --> 00:26:54,179
+stands for control but
+
+508
+00:26:51,360 --> 00:26:58,559
+outside of emacs you need to say you
+
+509
+00:26:54,179 --> 00:27:00,059
+know control see usually Ctrl this is an
+
+510
+00:26:58,559 --> 00:27:01,559
+interesting question by the way because
+
+511
+00:27:00,059 --> 00:27:05,700
+you can look at the official
+
+512
+00:27:01,559 --> 00:27:08,039
+documentation for Microsoft and and see
+
+513
+00:27:05,700 --> 00:27:10,679
+how they you know do they use the
+
+514
+00:27:08,039 --> 00:27:14,039
+forward control do they capitalize the
+
+515
+00:27:10,679 --> 00:27:16,260
+first word uh you know you look at you
+
+516
+00:27:14,039 --> 00:27:18,480
+know and yeah and things like that so
+
+517
+00:27:16,260 --> 00:27:21,720
+keyboard notation that's a topic by
+
+518
+00:27:18,480 --> 00:27:23,880
+itself very uh fairly complex and
+
+519
+00:27:21,720 --> 00:27:26,940
+interesting because on the Mac it's a
+
+520
+00:27:23,880 --> 00:27:29,880
+different way and also old key you know
+
+521
+00:27:26,940 --> 00:27:32,340
+do you say alternative or sometimes you
+
+522
+00:27:29,880 --> 00:27:34,020
+use a symbol for example on the Mac you
+
+523
+00:27:32,340 --> 00:27:36,840
+have the command key
+
+524
+00:27:34,020 --> 00:27:39,659
+okay so we digressed a bit but the the
+
+525
+00:27:36,840 --> 00:27:43,200
+least code is basically done okay that's
+
+526
+00:27:39,659 --> 00:27:44,880
+what we have so let's digress for five
+
+527
+00:27:43,200 --> 00:27:47,820
+minutes let me talk about the keyboard
+
+528
+00:27:44,880 --> 00:27:52,919
+notation because it's very interesting
+
+529
+00:27:47,820 --> 00:27:55,020
+so so so okay so for example we showed
+
+530
+00:27:52,919 --> 00:27:58,440
+now this is the keyboard notation okay
+
+531
+00:27:55,020 --> 00:28:01,380
+so let's go to yeah let's let's talk
+
+532
+00:27:58,440 --> 00:28:04,320
+about keyboard notation a little bit
+
+533
+00:28:01,380 --> 00:28:07,679
+so you have Windows keyboard shortcuts
+
+534
+00:28:04,320 --> 00:28:10,919
+you have then you have the windows logo
+
+535
+00:28:07,679 --> 00:28:13,860
+keyboard shortcuts okay Windows logo
+
+536
+00:28:10,919 --> 00:28:17,220
+Windows screenshot shortcuts Windows
+
+537
+00:28:13,860 --> 00:28:18,900
+File Explorer shortcuts Windows
+
+538
+00:28:17,220 --> 00:28:21,559
+shortcuts to launch or switch
+
+539
+00:28:18,900 --> 00:28:24,960
+application Windows keyboard shortcut
+
+540
+00:28:21,559 --> 00:28:27,539
+frequently asked questions and so on and
+
+541
+00:28:24,960 --> 00:28:29,940
+other shortcut tools now if you look at
+
+542
+00:28:27,539 --> 00:28:31,799
+you know each of them
+
+543
+00:28:29,940 --> 00:28:34,620
+you know that's interesting for example
+
+544
+00:28:31,799 --> 00:28:37,140
+the Windows key the Windows key the
+
+545
+00:28:34,620 --> 00:28:39,539
+windows logo also changed over the past
+
+546
+00:28:37,140 --> 00:28:42,120
+30 years so
+
+547
+00:28:39,539 --> 00:28:46,380
+um that's another interesting topic let
+
+548
+00:28:42,120 --> 00:28:50,720
+me show you okay so let's search
+
+549
+00:28:46,380 --> 00:28:53,760
+logo okay uh Windows okay Microsoft
+
+550
+00:28:50,720 --> 00:28:55,679
+Windows logo history so you can see
+
+551
+00:28:53,760 --> 00:28:57,779
+Microsoft Windows you know they their
+
+552
+00:28:55,679 --> 00:29:01,440
+logo changed over the past
+
+553
+00:28:57,779 --> 00:29:05,400
+30 years and you know for a while on the
+
+554
+00:29:01,440 --> 00:29:08,580
+keyboard you have this logo black and
+
+555
+00:29:05,400 --> 00:29:11,520
+white you know this one but now since
+
+556
+00:29:08,580 --> 00:29:14,580
+about five years ago they changed for a
+
+557
+00:29:11,520 --> 00:29:17,539
+few you know they changed to this you
+
+558
+00:29:14,580 --> 00:29:17,539
+know this this one
+
+559
+00:29:18,000 --> 00:29:22,919
+so that's about keyboard notation do you
+
+560
+00:29:20,220 --> 00:29:25,559
+use symbols or not so okay so let me
+
+561
+00:29:22,919 --> 00:29:28,260
+show you let me let's let me go to show
+
+562
+00:29:25,559 --> 00:29:32,700
+you the all about keyboard notation so
+
+563
+00:29:28,260 --> 00:29:37,880
+keyboard Blog then design key caps keys
+
+564
+00:29:32,700 --> 00:29:37,880
+so this is all about keyboard keys
+
+565
+00:29:38,820 --> 00:29:45,000
+um okay so let's see
+
+566
+00:29:42,480 --> 00:29:47,340
+so for example this key is a manual key
+
+567
+00:29:45,000 --> 00:29:50,820
+that's also interesting you know
+
+568
+00:29:47,340 --> 00:29:54,840
+sometimes they use a logo a glyph or
+
+569
+00:29:50,820 --> 00:29:57,659
+logo graph like that originally then you
+
+570
+00:29:54,840 --> 00:30:00,659
+know then simplify it some keyboard uses
+
+571
+00:29:57,659 --> 00:30:03,779
+that or you might think wait what about
+
+572
+00:30:00,659 --> 00:30:06,360
+just say menu or is it is this key code
+
+573
+00:30:03,779 --> 00:30:08,720
+menu or is it called app that depends
+
+574
+00:30:06,360 --> 00:30:11,880
+because by Microsoft official
+
+575
+00:30:08,720 --> 00:30:13,679
+documentation it's
+
+576
+00:30:11,880 --> 00:30:16,140
+um what do they use exactly but anyway
+
+577
+00:30:13,679 --> 00:30:19,740
+this key is officially known officially
+
+578
+00:30:16,140 --> 00:30:22,679
+known as either menu key or app key
+
+579
+00:30:19,740 --> 00:30:24,480
+which name is used depending on you know
+
+580
+00:30:22,679 --> 00:30:27,899
+who is writing the documentation so
+
+581
+00:30:24,480 --> 00:30:30,240
+that's so that's a interesting issue so
+
+582
+00:30:27,899 --> 00:30:33,480
+for example me I'm writing a you know
+
+583
+00:30:30,240 --> 00:30:35,520
+keyboard documentation or tutorial or
+
+584
+00:30:33,480 --> 00:30:38,820
+discussion philosophy about keyboard
+
+585
+00:30:35,520 --> 00:30:42,960
+which you know for example I choose
+
+586
+00:30:38,820 --> 00:30:45,539
+in my case I choose the menu to be
+
+587
+00:30:42,960 --> 00:30:47,220
+labeled this way menu with the you know
+
+588
+00:30:45,539 --> 00:30:50,159
+kind of
+
+589
+00:30:47,220 --> 00:30:52,740
+symbol but how should you do you know
+
+590
+00:30:50,159 --> 00:30:53,580
+for example if you are a Microsoft if
+
+591
+00:30:52,740 --> 00:30:56,039
+you
+
+592
+00:30:53,580 --> 00:30:58,200
+are documented you know documentation
+
+593
+00:30:56,039 --> 00:31:00,179
+writer for Microsoft or if you are
+
+594
+00:30:58,200 --> 00:31:03,059
+working for Apple
+
+595
+00:31:00,179 --> 00:31:05,399
+Which choice should you do you know so
+
+596
+00:31:03,059 --> 00:31:07,740
+that's a lot consideration you know the
+
+597
+00:31:05,399 --> 00:31:10,799
+terminology consideration which one is
+
+598
+00:31:07,740 --> 00:31:12,779
+more recognizable intuitive and things
+
+599
+00:31:10,799 --> 00:31:15,600
+like that and and which one is more
+
+600
+00:31:12,779 --> 00:31:17,159
+unique so there's a lot issues if you
+
+601
+00:31:15,600 --> 00:31:19,799
+actually consider about these kind of
+
+602
+00:31:17,159 --> 00:31:22,860
+things and also
+
+603
+00:31:19,799 --> 00:31:24,960
+writing documentation about keyboard
+
+604
+00:31:22,860 --> 00:31:28,020
+shortcut that's one thing another thing
+
+605
+00:31:24,960 --> 00:31:30,299
+is the documentation the the menu you
+
+606
+00:31:28,020 --> 00:31:32,940
+know so you know what should the
+
+607
+00:31:30,299 --> 00:31:35,460
+shortcut show in a menu command you know
+
+608
+00:31:32,940 --> 00:31:37,679
+in a menu in your application because
+
+609
+00:31:35,460 --> 00:31:40,980
+sometimes that's you have different
+
+610
+00:31:37,679 --> 00:31:43,620
+requirements from the documentation
+
+611
+00:31:40,980 --> 00:31:48,860
+uh so for example I can show you some
+
+612
+00:31:43,620 --> 00:31:48,860
+differences uh you know be uh
+
+613
+00:31:50,760 --> 00:31:53,960
+can I
+
+614
+00:31:51,960 --> 00:31:53,960
+um
+
+615
+00:31:55,020 --> 00:32:00,779
+so anyway so so so so so this is a
+
+616
+00:31:59,159 --> 00:32:04,500
+Windows case
+
+617
+00:32:00,779 --> 00:32:07,080
+on the Mac you also have quite a few
+
+618
+00:32:04,500 --> 00:32:10,020
+interesting cases you know Mac have
+
+619
+00:32:07,080 --> 00:32:12,419
+their different way of keyboard notation
+
+620
+00:32:10,020 --> 00:32:15,899
+and in fact over the years they also
+
+621
+00:32:12,419 --> 00:32:19,220
+change slightly you know it's at one
+
+622
+00:32:15,899 --> 00:32:22,380
+period uh they only use
+
+623
+00:32:19,220 --> 00:32:24,659
+symbols they don't have the words and
+
+624
+00:32:22,380 --> 00:32:26,760
+the other issue is is on the actual
+
+625
+00:32:24,659 --> 00:32:28,919
+keyboard what do you print them with
+
+626
+00:32:26,760 --> 00:32:30,659
+label do you just use symbols or do you
+
+627
+00:32:28,919 --> 00:32:33,960
+use full word
+
+628
+00:32:30,659 --> 00:32:36,360
+anyway I'm going oh I'm kind of lost and
+
+629
+00:32:33,960 --> 00:32:38,159
+going over all these issues
+
+630
+00:32:36,360 --> 00:32:41,159
+um you know so we are looking at the
+
+631
+00:32:38,159 --> 00:32:43,500
+documentation about this basically the
+
+632
+00:32:41,159 --> 00:32:46,260
+whole thing is is about keyboard
+
+633
+00:32:43,500 --> 00:32:49,020
+notation the keyboard notation in
+
+634
+00:32:46,260 --> 00:32:51,600
+documentation the keyboard notation on
+
+635
+00:32:49,020 --> 00:32:53,880
+actual keyboard labels which one should
+
+636
+00:32:51,600 --> 00:32:58,500
+you use should you use symbol or name
+
+637
+00:32:53,880 --> 00:33:01,860
+and the keyboard notation on menu for
+
+638
+00:32:58,500 --> 00:33:04,320
+example here's the example from Apple
+
+639
+00:33:01,860 --> 00:33:07,140
+you know in here in this case they don't
+
+640
+00:33:04,320 --> 00:33:11,340
+use the names they they only use symbols
+
+641
+00:33:07,140 --> 00:33:13,380
+so this is kind of more elegant and you
+
+642
+00:33:11,340 --> 00:33:15,840
+know you can also see apple
+
+643
+00:33:13,380 --> 00:33:18,120
+did away with the plus sign
+
+644
+00:33:15,840 --> 00:33:21,000
+you know using the plus sign is standard
+
+645
+00:33:18,120 --> 00:33:25,820
+in Windows documentation but before you
+
+646
+00:33:21,000 --> 00:33:30,419
+know in year 2000 and in year night uh
+
+647
+00:33:25,820 --> 00:33:34,140
+90s 1990s the windows keep on notation
+
+648
+00:33:30,419 --> 00:33:37,620
+they use a dash instead of a plus
+
+649
+00:33:34,140 --> 00:33:39,600
+but I guess they they realize the minor
+
+650
+00:33:37,620 --> 00:33:42,000
+sign is kind of confusing because when
+
+651
+00:33:39,600 --> 00:33:44,880
+you use the plus sign then it's more
+
+652
+00:33:42,000 --> 00:33:47,460
+intuitive meaning that you have to hold
+
+653
+00:33:44,880 --> 00:33:49,440
+this key and press that together plus
+
+654
+00:33:47,460 --> 00:33:52,919
+you know so
+
+655
+00:33:49,440 --> 00:33:55,620
+so they they change the minus to a plus
+
+656
+00:33:52,919 --> 00:33:57,659
+on the other hand Apple simply you know
+
+657
+00:33:55,620 --> 00:34:00,419
+remove the personal mind they just put
+
+658
+00:33:57,659 --> 00:34:01,679
+the keys together the apple way also got
+
+659
+00:34:00,419 --> 00:34:03,840
+issues
+
+660
+00:34:01,679 --> 00:34:07,620
+it got issues when you have a sequence
+
+661
+00:34:03,840 --> 00:34:08,580
+of keys that are that are not pressed
+
+662
+00:34:07,620 --> 00:34:12,359
+together
+
+663
+00:34:08,580 --> 00:34:15,359
+for example on a Windows old old space
+
+664
+00:34:12,359 --> 00:34:17,940
+for example I can press Alt
+
+665
+00:34:15,359 --> 00:34:19,260
+and release the release the key and
+
+666
+00:34:17,940 --> 00:34:22,800
+space
+
+667
+00:34:19,260 --> 00:34:22,800
+wait hold
+
+668
+00:34:23,220 --> 00:34:30,179
+space okay that doesn't work there let's
+
+669
+00:34:25,560 --> 00:34:33,480
+try here old space wait
+
+670
+00:34:30,179 --> 00:34:35,760
+okay old space you need to press
+
+671
+00:34:33,480 --> 00:34:39,659
+together one shot okay but there are
+
+672
+00:34:35,760 --> 00:34:41,940
+other things for example old F old F to
+
+673
+00:34:39,659 --> 00:34:44,580
+open the files menu okay let's try it
+
+674
+00:34:41,940 --> 00:34:49,260
+alt F you see
+
+675
+00:34:44,580 --> 00:34:53,280
+okay escape to cancel Escape you see odd
+
+676
+00:34:49,260 --> 00:34:56,280
+you know don't hold it release it and uh
+
+677
+00:34:53,280 --> 00:34:59,040
+F you see so in this case you are
+
+678
+00:34:56,280 --> 00:35:02,940
+pressing two keys one is a modifier but
+
+679
+00:34:59,040 --> 00:35:06,359
+you press them as a sequence not as a
+
+680
+00:35:02,940 --> 00:35:09,900
+combination so if you have that kind of
+
+681
+00:35:06,359 --> 00:35:12,060
+shortcut then this apple notation is
+
+682
+00:35:09,900 --> 00:35:14,579
+going to be a problem because there's no
+
+683
+00:35:12,060 --> 00:35:16,980
+way you know unless you put a space in
+
+684
+00:35:14,579 --> 00:35:21,240
+between so it you know it becomes a bit
+
+685
+00:35:16,980 --> 00:35:24,960
+ambiguous so they are so you know these
+
+686
+00:35:21,240 --> 00:35:27,300
+are some of the keyboard notation issues
+
+687
+00:35:24,960 --> 00:35:30,960
+on the other hand in emacs for example
+
+688
+00:35:27,300 --> 00:35:33,900
+let's go to emacs emacs standardize
+
+689
+00:35:30,960 --> 00:35:37,140
+their keys for example we can show here
+
+690
+00:35:33,900 --> 00:35:39,780
+emac standardized their keys simply you
+
+691
+00:35:37,140 --> 00:35:42,540
+know control is just capital c and a
+
+692
+00:35:39,780 --> 00:35:43,560
+Dash means press them together you can
+
+693
+00:35:42,540 --> 00:35:46,260
+see
+
+694
+00:35:43,560 --> 00:35:49,079
+um you know so
+
+695
+00:35:46,260 --> 00:35:51,359
+so this is some of the issues about key
+
+696
+00:35:49,079 --> 00:35:53,940
+keyboard notation in different
+
+697
+00:35:51,359 --> 00:35:56,940
+applications in different operating
+
+698
+00:35:53,940 --> 00:35:59,520
+systems and in different places such
+
+699
+00:35:56,940 --> 00:36:03,960
+such as documentation or applications
+
+700
+00:35:59,520 --> 00:36:06,839
+menu and or on the keyboard and also in
+
+701
+00:36:03,960 --> 00:36:12,359
+different era so for example the Emax
+
+702
+00:36:06,839 --> 00:36:12,359
+notation they came from the era of 1970s
+
+703
+00:36:14,040 --> 00:36:19,820
+okay my image is Frozen What uh
+
+704
+00:36:24,960 --> 00:36:28,680
+oh
+
+705
+00:36:28,800 --> 00:36:33,800
+when did its when did that start to
+
+706
+00:36:31,440 --> 00:36:33,800
+happen
+
+707
+00:36:34,560 --> 00:36:39,000
+okay but I think maybe that's it for
+
+708
+00:36:36,839 --> 00:36:43,700
+today uh I don't know what's what's
+
+709
+00:36:39,000 --> 00:36:43,700
+going on with my image Frozen
+
+710
+00:36:47,520 --> 00:36:53,400
+okay so but maybe that's it for today so
+
+711
+00:36:50,700 --> 00:36:56,700
+let me toggle timestamp
+
+712
+00:36:53,400 --> 00:36:58,500
+so my image are frozen about a minute
+
+713
+00:36:56,700 --> 00:37:00,920
+ago
+
+714
+00:36:58,500 --> 00:37:04,220
+I don't know what's going on though
+
+715
+00:37:00,920 --> 00:37:04,220
+let's see
+
+716
+00:37:05,880 --> 00:37:13,160
+11 minutes ago
+
+717
+00:37:09,359 --> 00:37:13,160
+uh okay so
+
+718
+00:37:13,380 --> 00:37:18,320
+hmm
+
+719
+00:37:14,940 --> 00:37:18,320
+so it looks like
+
+720
+00:37:21,599 --> 00:37:25,400
+okay so wait
+
+721
+00:37:27,540 --> 00:37:34,700
+so my screen is not frozen right it's
+
+722
+00:37:30,960 --> 00:37:34,700
+just it's just my video
+
+723
+00:37:35,880 --> 00:37:41,359
+yeah so somehow my video the camera
+
+724
+00:37:41,579 --> 00:37:45,060
+is
+
+725
+00:37:43,560 --> 00:37:47,220
+ up
+
+726
+00:37:45,060 --> 00:37:51,859
+let's try this
+
+727
+00:37:47,220 --> 00:37:51,859
+okay it's it's still frozen
+
+728
+00:37:51,960 --> 00:37:56,300
+okay I'm not sure what's going on
+
+729
+00:37:59,880 --> 00:38:05,520
+okay but that's a nice photo though
+
+730
+00:38:02,520 --> 00:38:08,480
+that's a nice capture
+
+731
+00:38:05,520 --> 00:38:08,480
+uh
+
+732
+00:38:09,119 --> 00:38:14,220
+why is my video Frozen so something
+
+733
+00:38:13,140 --> 00:38:17,700
+wrong
+
+734
+00:38:14,220 --> 00:38:20,460
+you know apparently the camera software
+
+735
+00:38:17,700 --> 00:38:21,599
+the Camera Part got frozen so let me
+
+736
+00:38:20,460 --> 00:38:25,020
+close
+
+737
+00:38:21,599 --> 00:38:26,880
+all a necessary applications and see
+
+738
+00:38:25,020 --> 00:38:28,920
+maybe
+
+739
+00:38:26,880 --> 00:38:31,320
+um
+
+740
+00:38:28,920 --> 00:38:34,920
+yeah but anyway that's it for today so
+
+741
+00:38:31,320 --> 00:38:37,380
+we we kind of finished the
+
+742
+00:38:34,920 --> 00:38:40,920
+list code yeah let's just wrap it up
+
+743
+00:38:37,380 --> 00:38:42,960
+okay we finished the list code anyway
+
+744
+00:38:40,920 --> 00:38:45,599
+and then we started to talk about
+
+745
+00:38:42,960 --> 00:38:48,780
+keyboard notation so here's the list
+
+746
+00:38:45,599 --> 00:38:51,480
+code it's not complete though because
+
+747
+00:38:48,780 --> 00:38:54,660
+now the next step is that we need to
+
+748
+00:38:51,480 --> 00:38:57,660
+change the capital c to you know the
+
+749
+00:38:54,660 --> 00:39:00,420
+Ctrl
+
+750
+00:38:57,660 --> 00:39:05,119
+but
+
+751
+00:39:00,420 --> 00:39:10,640
+okay so here is the code let's
+
+752
+00:39:05,119 --> 00:39:10,640
+syntax color it show in browser
+
+753
+00:39:10,920 --> 00:39:15,000
+so here's the code today
+
+754
+00:39:13,380 --> 00:39:19,140
+uh
+
+755
+00:39:15,000 --> 00:39:21,900
+puts my okay so now so it okay so that's
+
+756
+00:39:19,140 --> 00:39:25,560
+it for today thank you guys for watching
+
+757
+00:39:21,900 --> 00:39:27,900
+uh and now I'm just gonna do some random
+
+758
+00:39:25,560 --> 00:39:30,980
+let's see what what is going on with my
+
+759
+00:39:27,900 --> 00:39:30,980
+video why is it
+
+760
+00:39:31,079 --> 00:39:37,339
+why is it not
+
+761
+00:39:34,260 --> 00:39:37,339
+showing anything
+
+762
+00:39:42,240 --> 00:39:45,920
+let's see what happens now
+
+763
+00:39:48,780 --> 00:39:53,660
+okay that that just froze
+
+764
+00:39:56,820 --> 00:39:59,540
+so
+
+765
+00:40:05,820 --> 00:40:14,760
+so it must be a bug with the
+
+766
+00:40:09,960 --> 00:40:18,240
+either with the OBS or
+
+767
+00:40:14,760 --> 00:40:21,119
+with my camera I don't think it's a
+
+768
+00:40:18,240 --> 00:40:26,820
+camera because I have two of them
+
+769
+00:40:21,119 --> 00:40:30,619
+and both of them froze so now let's
+
+770
+00:40:26,820 --> 00:40:30,619
+control shift Escape
+
+771
+00:40:31,500 --> 00:40:39,140
+okay let's see the
+
+772
+00:40:33,660 --> 00:40:39,140
+tax task manager what does it say
+
+773
+00:40:45,000 --> 00:40:48,800
+okay task manager
+
+774
+00:40:52,020 --> 00:40:54,619
+God
+
+775
+00:41:05,480 --> 00:41:09,079
+wait it's back
+
+776
+00:41:12,420 --> 00:41:20,040
+wait the Logitech
+
+777
+00:41:15,480 --> 00:41:24,540
+the Logitech camera is now working
+
+778
+00:41:20,040 --> 00:41:25,859
+but not the speedo not the China cheaper
+
+779
+00:41:24,540 --> 00:41:30,140
+my face
+
+780
+00:41:25,859 --> 00:41:30,140
+the camera for my face is
+
+781
+00:41:30,300 --> 00:41:35,000
+yeah so the camera for my face is stuck
+
+782
+00:41:38,339 --> 00:41:42,079
+okay so we can
+
+783
+00:41:44,820 --> 00:41:48,920
+try to unplug that one
+
+784
+00:42:04,320 --> 00:42:07,040
+okay
+
+785
+00:42:27,480 --> 00:42:34,140
+that's not fixing it
+
+786
+00:42:29,700 --> 00:42:38,820
+okay we're gonna I'm gonna restart the
+
+787
+00:42:34,140 --> 00:42:43,700
+OBS and let's see if that will fix it
+
+788
+00:42:38,820 --> 00:42:43,700
+otherwise that's it for today bye guys
+
+789
+00:42:44,880 --> 00:42:48,320
+you mean let's see
+
+790
+00:42:54,240 --> 00:42:59,300
+let's see okay we are back are we not
+
+791
+00:43:02,160 --> 00:43:09,900
+I think so
+
+792
+00:43:04,680 --> 00:43:15,200
+it's good okay so now so what we took uh
+
+793
+00:43:09,900 --> 00:43:15,200
+okay so we are 47 minutes what to do
+
+794
+00:43:17,460 --> 00:43:22,800
+fixed yeah so
+
+795
+00:43:21,000 --> 00:43:25,380
+okay so
+
+796
+00:43:22,800 --> 00:43:28,319
+um you know so I talked for 10 minutes
+
+797
+00:43:25,380 --> 00:43:31,020
+about keyboard notations and I guess you
+
+798
+00:43:28,319 --> 00:43:32,220
+guys missed all that
+
+799
+00:43:31,020 --> 00:43:33,780
+um
+
+800
+00:43:32,220 --> 00:43:36,300
+but
+
+801
+00:43:33,780 --> 00:43:40,200
+okay let's forget about it let's let's
+
+802
+00:43:36,300 --> 00:43:42,859
+so now we got this code to work okay so
+
+803
+00:43:40,200 --> 00:43:47,520
+so it's
+
+804
+00:43:42,859 --> 00:43:48,599
+let's try to get to let's try to improve
+
+805
+00:43:47,520 --> 00:43:52,200
+it okay
+
+806
+00:43:48,599 --> 00:43:55,099
+so pop this out so here's the code and
+
+807
+00:43:52,200 --> 00:43:55,099
+we can
+
+808
+00:43:55,319 --> 00:44:04,980
+uh let me let me do this again so
+
+809
+00:44:00,540 --> 00:44:07,880
+okay so let me Demo so here is the text
+
+810
+00:44:04,980 --> 00:44:12,060
+put a cursor there pull the command
+
+811
+00:44:07,880 --> 00:44:15,119
+exception code marker meta X do it and
+
+812
+00:44:12,060 --> 00:44:19,200
+there we have it and put a paragraph
+
+813
+00:44:15,119 --> 00:44:21,780
+showing browser go down there it is so
+
+814
+00:44:19,200 --> 00:44:26,160
+now the next thing we want to do is we
+
+815
+00:44:21,780 --> 00:44:30,540
+want to change the capital c to ctil to
+
+816
+00:44:26,160 --> 00:44:30,540
+the standard notation Okay so
+
+817
+00:44:30,599 --> 00:44:38,040
+so um so what to do so
+
+818
+00:44:35,520 --> 00:44:41,579
+map contact
+
+819
+00:44:38,040 --> 00:44:45,000
+so so yeah so we put a function here so
+
+820
+00:44:41,579 --> 00:44:48,599
+let's let's write
+
+821
+00:44:45,000 --> 00:44:51,060
+so you see here the map can cap we have
+
+822
+00:44:48,599 --> 00:44:54,119
+identity mean which means do not do
+
+823
+00:44:51,060 --> 00:44:56,640
+anything but however in between elements
+
+824
+00:44:54,119 --> 00:44:58,020
+we add the keyboard
+
+825
+00:44:56,640 --> 00:44:59,760
+markup
+
+826
+00:44:58,020 --> 00:45:03,180
+but now
+
+827
+00:44:59,760 --> 00:45:05,940
+we want to change the capital c to Ctrl
+
+828
+00:45:03,180 --> 00:45:11,520
+so so
+
+829
+00:45:05,940 --> 00:45:15,440
+we add a Lambda here okay so
+
+830
+00:45:11,520 --> 00:45:15,440
+so we add the Lambda here
+
+831
+00:45:16,680 --> 00:45:27,260
+okay so Lambda and if
+
+832
+00:45:21,839 --> 00:45:27,260
+X okay if string equal
+
+833
+00:45:28,440 --> 00:45:33,079
+X is equals to C
+
+834
+00:45:33,900 --> 00:45:38,839
+then
+
+835
+00:45:35,579 --> 00:45:38,839
+we want to change it
+
+836
+00:45:44,460 --> 00:45:51,119
+we want to so we want to Output
+
+837
+00:45:48,119 --> 00:45:51,119
+ctil
+
+838
+00:45:51,780 --> 00:45:54,560
+otherwise
+
+839
+00:45:55,680 --> 00:46:02,119
+just return C itself okay something like
+
+840
+00:45:58,920 --> 00:46:05,460
+that about the buffer
+
+841
+00:46:02,119 --> 00:46:07,940
+let's just try it okay but we don't need
+
+842
+00:46:05,460 --> 00:46:07,940
+this line
+
+843
+00:46:08,220 --> 00:46:13,980
+Eva the buffer go back here and do undo
+
+844
+00:46:11,700 --> 00:46:16,260
+and do okay now let's try it
+
+845
+00:46:13,980 --> 00:46:17,460
+sound shortcut markup
+
+846
+00:46:16,260 --> 00:46:21,119
+do it
+
+847
+00:46:17,460 --> 00:46:22,560
+nothing is okay it changed here you see
+
+848
+00:46:21,119 --> 00:46:24,960
+uh
+
+849
+00:46:22,560 --> 00:46:27,839
+yeah it's it changed there it's a
+
+850
+00:46:24,960 --> 00:46:29,880
+problem we got a few things to fix it's
+
+851
+00:46:27,839 --> 00:46:32,040
+a problem because if you show in browser
+
+852
+00:46:29,880 --> 00:46:34,680
+you can see
+
+853
+00:46:32,040 --> 00:46:36,599
+you want to make the change only if it's
+
+854
+00:46:34,680 --> 00:46:39,300
+the first character
+
+855
+00:46:36,599 --> 00:46:43,040
+I mean only if it's you know the first
+
+856
+00:46:39,300 --> 00:46:43,040
+part of the shortcut
+
+857
+00:46:43,440 --> 00:46:48,300
+so okay and the other thing we need to
+
+858
+00:46:45,900 --> 00:46:52,079
+fix is that
+
+859
+00:46:48,300 --> 00:46:58,140
+lowercase C should also work okay so
+
+860
+00:46:52,079 --> 00:47:02,660
+here will be if all that or Capital C
+
+861
+00:46:58,140 --> 00:47:02,660
+okay now is here a
+
+862
+00:47:02,819 --> 00:47:04,880
+um
+
+863
+00:47:07,920 --> 00:47:14,540
+so you can say low low case lowercase so
+
+864
+00:47:17,839 --> 00:47:23,760
+what's the command
+
+865
+00:47:20,280 --> 00:47:27,720
+for lowercase so in e-max it's called
+
+866
+00:47:23,760 --> 00:47:32,060
+down case Okay down case
+
+867
+00:47:27,720 --> 00:47:32,060
+down Case Case X
+
+868
+00:47:32,760 --> 00:47:36,980
+okay so actually so that
+
+869
+00:47:38,040 --> 00:47:42,780
+so even the buffer let's try it again
+
+870
+00:47:40,500 --> 00:47:44,940
+okay
+
+871
+00:47:42,780 --> 00:47:48,500
+midax do it
+
+872
+00:47:44,940 --> 00:47:52,740
+you see now showing browser go here
+
+873
+00:47:48,500 --> 00:47:55,140
+refresh now it's better now
+
+874
+00:47:52,740 --> 00:47:57,060
+now the next thing we need to do is that
+
+875
+00:47:55,140 --> 00:47:59,220
+we only want to change the front we
+
+876
+00:47:57,060 --> 00:48:00,420
+don't want to change the last
+
+877
+00:47:59,220 --> 00:48:02,940
+key
+
+878
+00:48:00,420 --> 00:48:07,099
+Okay so
+
+879
+00:48:02,940 --> 00:48:07,099
+so we can do that by
+
+880
+00:48:07,380 --> 00:48:13,020
+this is so we need to drop the last
+
+881
+00:48:10,020 --> 00:48:13,020
+basically
+
+882
+00:48:17,819 --> 00:48:25,619
+I can hey can are you the can I know
+
+883
+00:48:21,540 --> 00:48:28,440
+long time no see long time no C I'm
+
+884
+00:48:25,619 --> 00:48:32,640
+gonna call you okay
+
+885
+00:48:28,440 --> 00:48:35,220
+I I think you are the are you the can I
+
+886
+00:48:32,640 --> 00:48:38,040
+know I think so I'm not sure
+
+887
+00:48:35,220 --> 00:48:41,300
+but I'm gonna call you okay offline
+
+888
+00:48:38,040 --> 00:48:41,300
+so uh
+
+889
+00:48:41,700 --> 00:48:48,420
+so what are we doing now so we have we
+
+890
+00:48:45,780 --> 00:48:50,940
+need to fix this
+
+891
+00:48:48,420 --> 00:48:54,000
+we need to fix this
+
+892
+00:48:50,940 --> 00:48:56,760
+so how do you fix it
+
+893
+00:48:54,000 --> 00:48:59,940
+okay let's fix this and that'll be it
+
+894
+00:48:56,760 --> 00:49:02,160
+for today maybe 10 more minutes okay
+
+895
+00:48:59,940 --> 00:49:05,339
+so
+
+896
+00:49:02,160 --> 00:49:08,579
+now let me uh let me repeat what's going
+
+897
+00:49:05,339 --> 00:49:11,099
+on so we got a sequence of shortcuts
+
+898
+00:49:08,579 --> 00:49:15,240
+like that okay one two three for example
+
+899
+00:49:11,099 --> 00:49:18,420
+each one is a shortcut Okay so
+
+900
+00:49:15,240 --> 00:49:20,700
+magnify so each uh wait
+
+901
+00:49:18,420 --> 00:49:23,640
+each one of these is considered a
+
+902
+00:49:20,700 --> 00:49:27,240
+shortcut so we have a list of them you
+
+903
+00:49:23,640 --> 00:49:29,900
+know a list of them and in this part so
+
+904
+00:49:27,240 --> 00:49:29,900
+the Lambda
+
+905
+00:49:32,579 --> 00:49:38,520
+the x is one of these okay for example
+
+906
+00:49:35,819 --> 00:49:40,940
+uh wait
+
+907
+00:49:38,520 --> 00:49:40,940
+for
+
+908
+00:49:41,400 --> 00:49:47,160
+you know for uh so let me let me explain
+
+909
+00:49:44,760 --> 00:49:50,460
+Okay so
+
+910
+00:49:47,160 --> 00:49:52,260
+sample X list
+
+911
+00:49:50,460 --> 00:49:55,260
+value
+
+912
+00:49:52,260 --> 00:49:55,260
+so
+
+913
+00:49:56,040 --> 00:50:01,880
+sample x value is like this okay
+
+914
+00:50:06,900 --> 00:50:12,960
+so this is a like a sample input
+
+915
+00:50:11,880 --> 00:50:16,560
+uh
+
+916
+00:50:12,960 --> 00:50:18,480
+wait that should be your parenthesis
+
+917
+00:50:16,560 --> 00:50:21,359
+yeah okay so
+
+918
+00:50:18,480 --> 00:50:24,500
+Okay so
+
+919
+00:50:21,359 --> 00:50:24,500
+let's do this again
+
+920
+00:50:30,480 --> 00:50:38,880
+okay so that's better so this is a
+
+921
+00:50:35,400 --> 00:50:40,140
+this is this is a example value of the X
+
+922
+00:50:38,880 --> 00:50:43,319
+list
+
+923
+00:50:40,140 --> 00:50:45,240
+a list of shortcuts
+
+924
+00:50:43,319 --> 00:50:47,940
+and uh
+
+925
+00:50:45,240 --> 00:50:49,740
+and then we map
+
+926
+00:50:47,940 --> 00:50:53,700
+to the list
+
+927
+00:50:49,740 --> 00:50:55,920
+and each X is one of these you know
+
+928
+00:50:53,700 --> 00:50:59,339
+example
+
+929
+00:50:55,920 --> 00:51:03,300
+but right now the problem is we don't
+
+930
+00:50:59,339 --> 00:51:05,339
+want to deal with the last element you
+
+931
+00:51:03,300 --> 00:51:07,319
+know we don't want to make any change to
+
+932
+00:51:05,339 --> 00:51:09,660
+the last one of it
+
+933
+00:51:07,319 --> 00:51:12,319
+so
+
+934
+00:51:09,660 --> 00:51:12,319
+so
+
+935
+00:51:17,059 --> 00:51:25,319
+so here we split the string
+
+936
+00:51:21,420 --> 00:51:29,460
+okay so now we split the string and we
+
+937
+00:51:25,319 --> 00:51:33,180
+want to drop last so how do you drop the
+
+938
+00:51:29,460 --> 00:51:37,500
+last item in a list now this is gonna be
+
+939
+00:51:33,180 --> 00:51:40,079
+inefficient because list in lisp is a
+
+940
+00:51:37,500 --> 00:51:43,559
+linked list
+
+941
+00:51:40,079 --> 00:51:46,500
+and linked to the last part so you can
+
+942
+00:51:43,559 --> 00:51:49,200
+drop the first item easily and
+
+943
+00:51:46,500 --> 00:51:51,359
+efficiently but you cannot drop the last
+
+944
+00:51:49,200 --> 00:51:54,420
+item efficiently
+
+945
+00:51:51,359 --> 00:51:56,700
+so but here we do need to drop we do
+
+946
+00:51:54,420 --> 00:51:59,760
+need one to drop the last so one easy
+
+947
+00:51:56,700 --> 00:52:00,480
+way but inefficient is just reverse the
+
+948
+00:51:59,760 --> 00:52:02,760
+whole
+
+949
+00:52:00,480 --> 00:52:06,200
+drop the first item
+
+950
+00:52:02,760 --> 00:52:06,200
+then reverse them back
+
+951
+00:52:09,240 --> 00:52:15,660
+okay that's that's okay so so that's
+
+952
+00:52:12,059 --> 00:52:18,240
+very inefficient so we can what we can
+
+953
+00:52:15,660 --> 00:52:22,380
+do is we can look up
+
+954
+00:52:18,240 --> 00:52:24,900
+the this documentation for sequence
+
+955
+00:52:22,380 --> 00:52:28,940
+functions let's see what's the best way
+
+956
+00:52:24,900 --> 00:52:28,940
+to do it okay sequence functions
+
+957
+00:52:30,740 --> 00:52:37,680
+so here is you have a bunch sequence
+
+958
+00:52:34,020 --> 00:52:39,059
+functions so there it is reverse we can
+
+959
+00:52:37,680 --> 00:52:43,579
+use
+
+960
+00:52:39,059 --> 00:52:43,579
+um sequence element sequence length
+
+961
+00:52:45,980 --> 00:52:49,940
+sequence take while
+
+962
+00:52:55,200 --> 00:53:00,660
+you know for now why don't we just do
+
+963
+00:52:58,680 --> 00:53:02,780
+the Innovation Way
+
+964
+00:53:00,660 --> 00:53:06,119
+you know that would be much faster
+
+965
+00:53:02,780 --> 00:53:07,800
+instead of we thinking and talking about
+
+966
+00:53:06,119 --> 00:53:10,579
+this
+
+967
+00:53:07,800 --> 00:53:10,579
+uh
+
+968
+00:53:11,099 --> 00:53:15,359
+uh yeah let's just do the most dumb way
+
+969
+00:53:13,920 --> 00:53:18,059
+okay
+
+970
+00:53:15,359 --> 00:53:21,599
+so let's do it
+
+971
+00:53:18,059 --> 00:53:25,559
+okay so here we got the key
+
+972
+00:53:21,599 --> 00:53:29,160
+so now let
+
+973
+00:53:25,559 --> 00:53:33,900
+star so that later variables notice the
+
+974
+00:53:29,160 --> 00:53:33,900
+value of earlier variables Okay so
+
+975
+00:53:38,359 --> 00:53:44,180
+uh
+
+976
+00:53:40,079 --> 00:53:44,180
+actually so X keys
+
+977
+00:53:53,700 --> 00:53:58,280
+this let me just um
+
+978
+00:54:01,260 --> 00:54:10,099
+okay so we got this bunch of things
+
+979
+00:54:05,099 --> 00:54:10,099
+so okay copy copy
+
+980
+00:54:11,940 --> 00:54:17,700
+set reversed equals to
+
+981
+00:54:15,540 --> 00:54:21,260
+reverse
+
+982
+00:54:17,700 --> 00:54:21,260
+X Keys okay
+
+983
+00:54:22,980 --> 00:54:25,640
+then
+
+984
+00:54:26,160 --> 00:54:31,099
+last item so you also want last
+
+985
+00:54:34,980 --> 00:54:37,880
+uh
+
+986
+00:54:38,339 --> 00:54:43,859
+so reverse it
+
+987
+00:54:41,339 --> 00:54:47,180
+set
+
+988
+00:54:43,859 --> 00:54:47,180
+last item
+
+989
+00:54:47,280 --> 00:54:49,940
+car
+
+990
+00:54:53,220 --> 00:55:00,740
+that so that's the last item okay
+
+991
+00:54:56,160 --> 00:55:00,740
+then you want to reverse it back
+
+992
+00:55:00,900 --> 00:55:04,640
+so in fact you don't want
+
+993
+00:55:07,920 --> 00:55:10,520
+to rest
+
+994
+00:55:10,859 --> 00:55:14,540
+so last item
+
+995
+00:55:17,940 --> 00:55:25,140
+yep what yep
+
+996
+00:55:21,300 --> 00:55:29,579
+okay so last item will be
+
+997
+00:55:25,140 --> 00:55:32,160
+so okay so you got a list you want
+
+998
+00:55:29,579 --> 00:55:34,500
+you actually want to drop the last item
+
+999
+00:55:32,160 --> 00:55:36,240
+because the last item you do not want to
+
+1000
+00:55:34,500 --> 00:55:37,920
+process at all
+
+1001
+00:55:36,240 --> 00:55:40,260
+so
+
+1002
+00:55:37,920 --> 00:55:42,900
+you do no need to know that what's the
+
+1003
+00:55:40,260 --> 00:55:45,480
+last item but also you need to remove it
+
+1004
+00:55:42,900 --> 00:55:48,900
+so
+
+1005
+00:55:45,480 --> 00:55:51,480
+so that's easy okay so
+
+1006
+00:55:48,900 --> 00:55:54,740
+so last item
+
+1007
+00:55:51,480 --> 00:55:54,740
+then you also
+
+1008
+00:55:56,040 --> 00:56:01,760
+set sense last
+
+1009
+00:55:59,040 --> 00:56:04,120
+so wait
+
+1010
+00:56:01,760 --> 00:56:10,420
+reverse and
+
+1011
+00:56:04,120 --> 00:56:10,420
+[Music]
+
+1012
+00:56:10,619 --> 00:56:17,160
+reverse and
+
+1013
+00:56:14,040 --> 00:56:20,940
+here is what to do cutter
+
+1014
+00:56:17,160 --> 00:56:23,579
+that okay so
+
+1015
+00:56:20,940 --> 00:56:26,460
+so this senseless is basically the
+
+1016
+00:56:23,579 --> 00:56:29,280
+original list in the original order but
+
+1017
+00:56:26,460 --> 00:56:32,819
+without the last item
+
+1018
+00:56:29,280 --> 00:56:36,619
+okay so it's double check
+
+1019
+00:56:32,819 --> 00:56:36,619
+yeah so we got the last
+
+1020
+00:56:37,980 --> 00:56:42,780
+Okay so
+
+1021
+00:56:40,559 --> 00:56:43,940
+predify
+
+1022
+00:56:42,780 --> 00:56:50,269
+okay
+
+1023
+00:56:43,940 --> 00:56:50,269
+[Music]
+
+1024
+00:56:55,800 --> 00:57:02,160
+okay and here we just process instead of
+
+1025
+00:56:59,700 --> 00:57:03,119
+the keys we just process the reverse
+
+1026
+00:57:02,160 --> 00:57:06,300
+last
+
+1027
+00:57:03,119 --> 00:57:09,079
+then once that's this once that is done
+
+1028
+00:57:06,300 --> 00:57:12,559
+we add back
+
+1029
+00:57:09,079 --> 00:57:18,440
+we add back the
+
+1030
+00:57:12,559 --> 00:57:18,440
+insert we will add back the last item so
+
+1031
+00:57:18,660 --> 00:57:21,859
+so that would be
+
+1032
+00:57:33,980 --> 00:57:39,319
+uh wait
+
+1033
+00:57:36,059 --> 00:57:39,319
+where would that be
+
+1034
+00:57:57,599 --> 00:58:02,059
+yeah we need to add it here somewhere
+
+1035
+00:58:20,040 --> 00:58:22,819
+here
+
+1036
+00:58:39,299 --> 00:58:41,480
+foreign
+
+1037
+00:58:59,700 --> 00:59:06,079
+okay so last item goes here
+
+1038
+00:59:03,299 --> 00:59:06,079
+then
+
+1039
+00:59:08,819 --> 00:59:15,859
+I'm not sure the logic is correct but
+
+1040
+00:59:12,540 --> 00:59:15,859
+something like that okay
+
+1041
+00:59:17,160 --> 00:59:22,280
+okay here's the whole code let's just
+
+1042
+00:59:19,799 --> 00:59:22,280
+try it
+
+1043
+00:59:23,099 --> 00:59:30,299
+okay undo so let's do it here
+
+1044
+00:59:26,880 --> 00:59:32,220
+comment do it
+
+1045
+00:59:30,299 --> 00:59:33,660
+perfect
+
+1046
+00:59:32,220 --> 00:59:35,880
+perfect
+
+1047
+00:59:33,660 --> 00:59:39,020
+one shot coding
+
+1048
+00:59:35,880 --> 00:59:39,020
+showing browser
+
+1049
+00:59:39,299 --> 00:59:44,520
+perfect oh you missing the space again
+
+1050
+00:59:41,640 --> 00:59:47,720
+you missing the space again
+
+1051
+00:59:44,520 --> 00:59:47,720
+Okay so
+
+1052
+00:59:52,740 --> 01:00:00,900
+oh yeah so the space needs to go
+
+1053
+00:59:56,460 --> 01:00:02,640
+wait so the space needs to go
+
+1054
+01:00:00,900 --> 01:00:08,160
+here
+
+1055
+01:00:02,640 --> 01:00:09,960
+but what is this wait so we go back here
+
+1056
+01:00:08,160 --> 01:00:14,819
+keyboard
+
+1057
+01:00:09,960 --> 01:00:14,819
+keyboard keyboard keyboard
+
+1058
+01:00:16,740 --> 01:00:22,380
+um
+
+1059
+01:00:17,940 --> 01:00:24,420
+it feels like we added a extra
+
+1060
+01:00:22,380 --> 01:00:27,140
+oh yeah that's right
+
+1061
+01:00:24,420 --> 01:00:27,140
+so
+
+1062
+01:00:33,000 --> 01:00:38,180
+begin
+
+1063
+01:00:35,579 --> 01:00:38,180
+and
+
+1064
+01:00:41,099 --> 01:00:46,260
+so begin in the keyboard that that that
+
+1065
+01:00:44,400 --> 01:00:49,220
+and end
+
+1066
+01:00:46,260 --> 01:00:49,220
+and
+
+1067
+01:00:50,819 --> 01:00:53,660
+end
+
+1068
+01:00:57,780 --> 01:01:03,480
+here okay
+
+1069
+01:01:00,720 --> 01:01:07,440
+and do and do and do call the command
+
+1070
+01:01:03,480 --> 01:01:09,119
+meta X sound shortcut markup enter
+
+1071
+01:01:07,440 --> 01:01:11,940
+perfect
+
+1072
+01:01:09,119 --> 01:01:13,200
+and a paragraph showing browser go to
+
+1073
+01:01:11,940 --> 01:01:14,700
+the bottom
+
+1074
+01:01:13,200 --> 01:01:17,520
+perfect
+
+1075
+01:01:14,700 --> 01:01:21,119
+okay now let's try something else let's
+
+1076
+01:01:17,520 --> 01:01:25,020
+you know we got this perfect
+
+1077
+01:01:21,119 --> 01:01:28,380
+copy paste do it do it
+
+1078
+01:01:25,020 --> 01:01:32,400
+and make it
+
+1079
+01:01:28,380 --> 01:01:35,880
+uh list showing browser go to the bottom
+
+1080
+01:01:32,400 --> 01:01:39,059
+that's perfect now let's do another
+
+1081
+01:01:35,880 --> 01:01:41,280
+example okay so this time the example
+
+1082
+01:01:39,059 --> 01:01:42,960
+will be
+
+1083
+01:01:41,280 --> 01:01:44,400
+um
+
+1084
+01:01:42,960 --> 01:01:48,420
+control
+
+1085
+01:01:44,400 --> 01:01:52,680
+s okay s will stand for shift just like
+
+1086
+01:01:48,420 --> 01:01:54,660
+the emac summit convention Okay so
+
+1087
+01:01:52,680 --> 01:01:57,380
+so here
+
+1088
+01:01:54,660 --> 01:01:57,380
+if
+
+1089
+01:01:57,599 --> 01:02:04,319
+so here instead of the if expression we
+
+1090
+01:02:00,480 --> 01:02:08,700
+need a we need a conditional
+
+1091
+01:02:04,319 --> 01:02:10,440
+so okay so copy that so let's write this
+
+1092
+01:02:08,700 --> 01:02:13,099
+okay
+
+1093
+01:02:10,440 --> 01:02:13,099
+condition
+
+1094
+01:02:16,079 --> 01:02:19,700
+first condition that
+
+1095
+01:02:23,579 --> 01:02:27,540
+mean that okay and the last condition is
+
+1096
+01:02:26,400 --> 01:02:28,980
+true
+
+1097
+01:02:27,540 --> 01:02:32,160
+uh
+
+1098
+01:02:28,980 --> 01:02:34,980
+true and do nothing return X itself okay
+
+1099
+01:02:32,160 --> 01:02:36,059
+so we don't need this if statement
+
+1100
+01:02:34,980 --> 01:02:39,180
+anymore
+
+1101
+01:02:36,059 --> 01:02:42,299
+do you need it okay but now we need to
+
+1102
+01:02:39,180 --> 01:02:47,119
+add several other conditions okay so
+
+1103
+01:02:42,299 --> 01:02:49,079
+this one will be S will be shift okay
+
+1104
+01:02:47,119 --> 01:02:55,680
+and uh
+
+1105
+01:02:49,079 --> 01:02:58,319
+a will mean hold okay and uh
+
+1106
+01:02:55,680 --> 01:03:01,680
+so let's see
+
+1107
+01:02:58,319 --> 01:03:03,720
+W will mean Windows okay let's you know
+
+1108
+01:03:01,680 --> 01:03:06,480
+this is not emacs convention it's
+
+1109
+01:03:03,720 --> 01:03:09,180
+something we make up we made up
+
+1110
+01:03:06,480 --> 01:03:13,200
+windows and in this case Windows let's
+
+1111
+01:03:09,180 --> 01:03:13,920
+be fancy and let's add this extra
+
+1112
+01:03:13,200 --> 01:03:16,920
+um
+
+1113
+01:03:13,920 --> 01:03:19,740
+symbol for Windows key
+
+1114
+01:03:16,920 --> 01:03:21,240
+okay Windows shortcut yeah so let's add
+
+1115
+01:03:19,740 --> 01:03:24,480
+this
+
+1116
+01:03:21,240 --> 01:03:25,619
+you know this is my own convention
+
+1117
+01:03:24,480 --> 01:03:28,680
+okay
+
+1118
+01:03:25,619 --> 01:03:33,000
+and uh yeah
+
+1119
+01:03:28,680 --> 01:03:34,859
+so W is for Windows and uh and uh what
+
+1120
+01:03:33,000 --> 01:03:37,140
+about command command
+
+1121
+01:03:34,859 --> 01:03:41,460
+uh
+
+1122
+01:03:37,140 --> 01:03:44,760
+there's a conflict because if you use C
+
+1123
+01:03:41,460 --> 01:03:47,220
+to stand for command for the mag it
+
+1124
+01:03:44,760 --> 01:03:50,000
+conflicts with control
+
+1125
+01:03:47,220 --> 01:03:50,000
+so
+
+1126
+01:03:51,660 --> 01:03:55,220
+so there are these situations
+
+1127
+01:03:54,299 --> 01:03:58,920
+um
+
+1128
+01:03:55,220 --> 01:04:01,799
+so what key do you want to use for
+
+1129
+01:03:58,920 --> 01:04:04,200
+command yeah I don't know
+
+1130
+01:04:01,799 --> 01:04:06,480
+it's not let's not worry about it now
+
+1131
+01:04:04,200 --> 01:04:10,819
+let's just do this okay
+
+1132
+01:04:06,480 --> 01:04:10,819
+and let's let's make another
+
+1133
+01:04:12,119 --> 01:04:14,660
+another
+
+1134
+01:04:15,319 --> 01:04:24,900
+it's just that like let that be okay
+
+1135
+01:04:21,059 --> 01:04:27,119
+so there it is Eva the buffer so we have
+
+1136
+01:04:24,900 --> 01:04:28,859
+Ctrl shift alt okay
+
+1137
+01:04:27,119 --> 01:04:32,339
+so
+
+1138
+01:04:28,859 --> 01:04:37,079
+so this will be Ctrl shift a
+
+1139
+01:04:32,339 --> 01:04:40,880
+and let's see Control Alt a let's make
+
+1140
+01:04:37,079 --> 01:04:43,740
+them a lowercase and let's say
+
+1141
+01:04:40,880 --> 01:04:45,119
+Ctrl shift Alt
+
+1142
+01:04:43,740 --> 01:04:49,040
+okay
+
+1143
+01:04:45,119 --> 01:04:49,040
+and let's say windows
+
+1144
+01:04:49,140 --> 01:04:52,980
+windows
+
+1145
+01:04:51,480 --> 01:04:57,540
+s
+
+1146
+01:04:52,980 --> 01:05:00,180
+okay and let's say windows SS that's for
+
+1147
+01:04:57,540 --> 01:05:05,119
+screenshot Windows shift s is for
+
+1148
+01:05:00,180 --> 01:05:05,119
+screenshot okay let's let's try them
+
+1149
+01:05:05,180 --> 01:05:11,640
+and now let's do this okay copy it
+
+1150
+01:05:09,780 --> 01:05:16,559
+so
+
+1151
+01:05:11,640 --> 01:05:21,319
+do it Ctrl shift a fantastic
+
+1152
+01:05:16,559 --> 01:05:21,319
+do it Ctrl alt a fantastic
+
+1153
+01:05:21,359 --> 01:05:27,020
+do it Ctrl shift alt a beautiful
+
+1154
+01:05:27,660 --> 01:05:31,700
+Windows is beautiful
+
+1155
+01:05:31,980 --> 01:05:40,140
+window shift s fantastic perfect
+
+1156
+01:05:37,020 --> 01:05:43,260
+make a list showing browser
+
+1157
+01:05:40,140 --> 01:05:46,559
+fantastic okay that's that's it that's
+
+1158
+01:05:43,260 --> 01:05:48,420
+what we wanted to do
+
+1159
+01:05:46,559 --> 01:05:51,180
+that's it for today thank you guys for
+
+1160
+01:05:48,420 --> 01:05:54,180
+watching if you like my stuff buy my
+
+1161
+01:05:51,180 --> 01:05:56,520
+emacs tutorial okay buy my emac this
+
+1162
+01:05:54,180 --> 01:06:00,000
+tutorials you know everything you need
+
+1163
+01:05:56,520 --> 01:06:00,780
+to know for from the beginners to you
+
+1164
+01:06:00,000 --> 01:06:03,180
+know
+
+1165
+01:06:00,780 --> 01:06:05,160
+to as a reference for your Advanced
+
+1166
+01:06:03,180 --> 01:06:08,700
+coders
+
+1167
+01:06:05,160 --> 01:06:11,480
+uh okay so that's it
+
+1168
+01:06:08,700 --> 01:06:11,480
+bye guys
+
+1169
+01:06:12,720 --> 01:06:19,859
+okay we shut down in one minute uh let's
+
+1170
+01:06:16,740 --> 01:06:22,880
+now do some cleanup of the code okay
+
+1171
+01:06:19,859 --> 01:06:22,880
+some cleanup
+
+1172
+01:06:23,099 --> 01:06:29,819
+so this x list you are the goat what is
+
+1173
+01:06:27,780 --> 01:06:32,059
+what does the goat mean what does goat
+
+1174
+01:06:29,819 --> 01:06:32,059
+mean
+
+1175
+01:06:33,119 --> 01:06:35,960
+uh
+
+1176
+01:06:37,220 --> 01:06:45,380
+good yeah so that's uh you know idioms
+
+1177
+01:06:42,420 --> 01:06:45,380
+and slan or something
+
+1178
+01:06:45,599 --> 01:06:53,460
+greatest of all time oh I see thank you
+
+1179
+01:06:49,980 --> 01:06:55,200
+so let's clean up up the code we you
+
+1180
+01:06:53,460 --> 01:06:58,380
+know that's it for today I'm shutting
+
+1181
+01:06:55,200 --> 01:07:01,980
+down so but clean up the code so
+
+1182
+01:06:58,380 --> 01:07:06,619
+so this x list should be something more
+
+1183
+01:07:01,980 --> 01:07:06,619
+intuitive you know so
+
+1184
+01:07:08,640 --> 01:07:11,539
+shortcuts
+
+1185
+01:07:13,500 --> 01:07:18,079
+okay so X list these shortcuts
+
+1186
+01:07:22,319 --> 01:07:26,400
+wait
+
+1187
+01:07:23,940 --> 01:07:29,839
+this this is
+
+1188
+01:07:26,400 --> 01:07:34,200
+text okay so this should be input text
+
+1189
+01:07:29,839 --> 01:07:37,520
+this shortcut should be input text
+
+1190
+01:07:34,200 --> 01:07:37,520
+okay rename that
+
+1191
+01:07:43,260 --> 01:07:48,619
+okay then X list is shortcuts
+
+1192
+01:07:56,400 --> 01:07:59,059
+okay
+
+1193
+01:07:59,299 --> 01:08:06,660
+then this x is
+
+1194
+01:08:02,819 --> 01:08:09,720
+is one shortcut okay
+
+1195
+01:08:06,660 --> 01:08:12,240
+okay something like that and this mess
+
+1196
+01:08:09,720 --> 01:08:13,680
+you know this inefficient mess it
+
+1197
+01:08:12,240 --> 01:08:16,020
+doesn't matter actually
+
+1198
+01:08:13,680 --> 01:08:18,660
+actually this form
+
+1199
+01:08:16,020 --> 01:08:21,120
+is probably the best code
+
+1200
+01:08:18,660 --> 01:08:23,520
+because if you want to consider
+
+1201
+01:08:21,120 --> 01:08:24,960
+efficiency you know we are doing reverse
+
+1202
+01:08:23,520 --> 01:08:28,140
+list
+
+1203
+01:08:24,960 --> 01:08:30,600
+we are doing reversing a list then take
+
+1204
+01:08:28,140 --> 01:08:33,600
+the you know that you know the first
+
+1205
+01:08:30,600 --> 01:08:35,520
+item then drop that item and reverse it
+
+1206
+01:08:33,600 --> 01:08:39,239
+back that's what we are doing
+
+1207
+01:08:35,520 --> 01:08:42,000
+so it's inefficient but however
+
+1208
+01:08:39,239 --> 01:08:44,160
+you know at least the length of our list
+
+1209
+01:08:42,000 --> 01:08:48,480
+is at most four
+
+1210
+01:08:44,160 --> 01:08:52,380
+you know it's not 100 or 1000 so in fact
+
+1211
+01:08:48,480 --> 01:08:55,440
+this is the most simple and
+
+1212
+01:08:52,380 --> 01:08:57,980
+pretty efficient you know
+
+1213
+01:08:55,440 --> 01:08:57,980
+you know
+
+1214
+01:08:58,199 --> 01:09:02,580
+um if you have you know more than 50
+
+1215
+01:09:00,120 --> 01:09:05,219
+items or something then maybe you don't
+
+1216
+01:09:02,580 --> 01:09:06,480
+want to do this but for our case you
+
+1217
+01:09:05,219 --> 01:09:09,239
+know the max
+
+1218
+01:09:06,480 --> 01:09:11,400
+number of lists is just four you know
+
+1219
+01:09:09,239 --> 01:09:14,339
+because you only have four modifiers or
+
+1220
+01:09:11,400 --> 01:09:15,839
+five you know six at most shift control
+
+1221
+01:09:14,339 --> 01:09:17,400
+or
+
+1222
+01:09:15,839 --> 01:09:21,359
+shift control
+
+1223
+01:09:17,400 --> 01:09:24,660
+you know shift control super old
+
+1224
+01:09:21,359 --> 01:09:27,839
+that's it four unless you consider left
+
+1225
+01:09:24,660 --> 01:09:30,380
+or right old left shift right shift but
+
+1226
+01:09:27,839 --> 01:09:33,060
+there's no shortcut that
+
+1227
+01:09:30,380 --> 01:09:36,060
+practically there's no shortcut that
+
+1228
+01:09:33,060 --> 01:09:40,080
+considers different left hand and right
+
+1229
+01:09:36,060 --> 01:09:42,060
+hand differentiation so this is actually
+
+1230
+01:09:40,080 --> 01:09:43,319
+a good code
+
+1231
+01:09:42,060 --> 01:09:47,060
+okay
+
+1232
+01:09:43,319 --> 01:09:47,060
+so okay that's it bye guys
+
+1233
+01:09:47,580 --> 01:09:49,699
+thank you
+

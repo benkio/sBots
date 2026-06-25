@@ -1,0 +1,4108 @@
+1
+00:00:01,129 --> 00:00:08,160
+good morning everyone
+
+2
+00:00:03,560 --> 00:00:14,480
+welcome to another exam talk show today
+
+3
+00:00:08,160 --> 00:00:18,300
+is June 12th 2019 3 o clock p.m.
+
+4
+00:00:14,480 --> 00:00:22,500
+California time and today we're gonna
+
+5
+00:00:18,300 --> 00:00:24,990
+talk about basically random topics
+
+6
+00:00:22,500 --> 00:00:29,119
+I haven't said I haven't decided two
+
+7
+00:00:24,990 --> 00:00:31,740
+topics but mostly something like random
+
+8
+00:00:29,119 --> 00:00:36,110
+technical technical stuff Emacs
+
+9
+00:00:31,740 --> 00:00:40,980
+JavaScript and related technical and
+
+10
+00:00:36,110 --> 00:00:43,140
+today so I have here in the comment box
+
+11
+00:00:40,980 --> 00:00:49,469
+you can see so there are some topic
+
+12
+00:00:43,140 --> 00:00:51,629
+topics listed there or i so go over
+
+13
+00:00:49,469 --> 00:00:54,989
+there and pick a topic you know go to
+
+14
+00:00:51,629 --> 00:01:00,750
+that link some talk show page and pick a
+
+15
+00:00:54,989 --> 00:01:06,479
+topic and all possibly we are going to
+
+16
+00:01:00,750 --> 00:01:10,140
+do a live Emacs Lisp coding where the
+
+17
+00:01:06,479 --> 00:01:13,049
+command log mod the Emacs command log
+
+18
+00:01:10,140 --> 00:01:15,270
+mod you can see you can see the
+
+19
+00:01:13,049 --> 00:01:18,750
+keystrokes on the left side of this
+
+20
+00:01:15,270 --> 00:01:26,250
+window for our keyboard Oh black key
+
+21
+00:01:18,750 --> 00:01:29,460
+layout two strokes you know so because
+
+22
+00:01:26,250 --> 00:01:31,320
+I'm using average people but people when
+
+23
+00:01:29,460 --> 00:01:33,630
+I do demo people don't know you know
+
+24
+00:01:31,320 --> 00:01:37,340
+those are not most of you are using
+
+25
+00:01:33,630 --> 00:01:46,619
+quotient so I'm thinking of modifying
+
+26
+00:01:37,340 --> 00:01:50,450
+this package let's see command log mod
+
+27
+00:01:46,619 --> 00:01:50,450
+ok that's the
+
+28
+00:01:52,050 --> 00:02:05,380
+it says command log mod so this is the
+
+29
+00:02:01,390 --> 00:02:07,750
+package which is four hundred lines so
+
+30
+00:02:05,380 --> 00:02:10,750
+I'm thinking of modifying this package
+
+31
+00:02:07,750 --> 00:02:16,050
+you know as a live demo so that it shows
+
+32
+00:02:10,750 --> 00:02:18,550
+the quoting keyboard they are if desired
+
+33
+00:02:16,050 --> 00:02:24,250
+meaning that is going to do a conversion
+
+34
+00:02:18,550 --> 00:02:27,640
+in real-time so what do you like so guys
+
+35
+00:02:24,250 --> 00:02:30,520
+so so you know what do you like to see
+
+36
+00:02:27,640 --> 00:02:37,360
+the topics type in the comments and
+
+37
+00:02:30,520 --> 00:02:38,350
+let's get started actually so I mean
+
+38
+00:02:37,360 --> 00:02:40,270
+that's that's correct
+
+39
+00:02:38,350 --> 00:02:42,970
+you know it's get started but meanwhile
+
+40
+00:02:40,270 --> 00:02:46,420
+so we got two people watching say hi
+
+41
+00:02:42,970 --> 00:02:48,930
+okay so right now actually what I'm
+
+42
+00:02:46,420 --> 00:02:52,750
+doing is that I'm working on my website
+
+43
+00:02:48,930 --> 00:02:58,900
+so this is how to run a Java Script you
+
+44
+00:02:52,750 --> 00:03:01,320
+know there are some parts I need to edit
+
+45
+00:02:58,900 --> 00:03:05,739
+you know this is what I do every day so
+
+46
+00:03:01,320 --> 00:03:07,959
+browser JavaScript on so for example in
+
+47
+00:03:05,739 --> 00:03:10,450
+this screenshot I need a new screenshot
+
+48
+00:03:07,959 --> 00:03:19,510
+this screenshot is old this screenshot
+
+49
+00:03:10,450 --> 00:03:22,750
+is from and C 2016 okay and it's done on
+
+50
+00:03:19,510 --> 00:03:30,640
+Linux so I'm you know I want a new
+
+51
+00:03:22,750 --> 00:03:32,980
+screenshot and and we can do that but
+
+52
+00:03:30,640 --> 00:03:34,989
+that is not the main topic because
+
+53
+00:03:32,980 --> 00:03:35,739
+that's I said I don't suppose it's very
+
+54
+00:03:34,989 --> 00:03:38,410
+interesting
+
+55
+00:03:35,739 --> 00:03:40,900
+so guys okay we got three person
+
+56
+00:03:38,410 --> 00:03:44,220
+watching you know go to the link and you
+
+57
+00:03:40,900 --> 00:03:47,739
+know pick the topic you'd like to see
+
+58
+00:03:44,220 --> 00:03:52,890
+then you know then let's get started I'm
+
+59
+00:03:47,739 --> 00:03:52,890
+not going to do this page now let's go
+
+60
+00:03:52,980 --> 00:03:58,480
+okay first so so let's just go round
+
+61
+00:03:55,989 --> 00:04:00,519
+about go to my website and I'll go
+
+62
+00:03:58,480 --> 00:04:03,400
+my blogs and talk about something
+
+63
+00:04:00,519 --> 00:04:07,629
+interesting so keyboard block let's see
+
+64
+00:04:03,400 --> 00:04:09,790
+the keyboard apartment people vlog we
+
+65
+00:04:07,629 --> 00:04:11,709
+talked about those those yesterday
+
+66
+00:04:09,790 --> 00:04:13,930
+okay this we haven't talked you know the
+
+67
+00:04:11,709 --> 00:04:15,069
+other day so this one we haven't talked
+
+68
+00:04:13,930 --> 00:04:19,090
+about before
+
+69
+00:04:15,069 --> 00:04:21,760
+this is fascinating so this is a tangi
+
+70
+00:04:19,090 --> 00:04:24,250
+keyboard basically a Japanese keyboard
+
+71
+00:04:21,760 --> 00:04:28,930
+to type Chinese characters hold on
+
+72
+00:04:24,250 --> 00:04:36,210
+second living closer to also my because
+
+73
+00:04:28,930 --> 00:04:36,210
+my human is watch on TV TV
+
+74
+00:05:05,349 --> 00:05:16,599
+so I'm back I am back
+
+75
+00:05:10,919 --> 00:05:18,849
+so this kanji keyboard kanji keyboard
+
+76
+00:05:16,599 --> 00:05:24,210
+this is a Japanese keyboard to type
+
+77
+00:05:18,849 --> 00:05:24,210
+Chinese characters so it's huge it's got
+
+78
+00:05:25,889 --> 00:05:38,919
+480 keys what year is is this is 1989
+
+79
+00:05:34,960 --> 00:05:42,490
+you know but this way of typing Chinese
+
+80
+00:05:38,919 --> 00:05:44,860
+characters is extremely inefficient you
+
+81
+00:05:42,490 --> 00:05:51,069
+know that's why you know this is the
+
+82
+00:05:44,860 --> 00:05:57,449
+early days people have not created much
+
+83
+00:05:51,069 --> 00:06:01,119
+of a input methods now input method is a
+
+84
+00:05:57,449 --> 00:06:04,539
+basically it's a software method that
+
+85
+00:06:01,119 --> 00:06:07,059
+allows you to type characters you know
+
+86
+00:06:04,539 --> 00:06:11,229
+more than you know 30 alphabets you know
+
+87
+00:06:07,059 --> 00:06:14,289
+for example for Chinese or Japanese so
+
+88
+00:06:11,229 --> 00:06:16,719
+those are input methods you know if you
+
+89
+00:06:14,289 --> 00:06:18,219
+need to type Chinese or Japanese or
+
+90
+00:06:16,719 --> 00:06:21,430
+Korean you need to do that
+
+91
+00:06:18,219 --> 00:06:25,120
+but before input method are invented
+
+92
+00:06:21,430 --> 00:06:27,279
+this is 1989 so people you know the
+
+93
+00:06:25,120 --> 00:06:31,269
+Japanese they are also trying to you
+
+94
+00:06:27,279 --> 00:06:33,930
+know invent you know thinking about how
+
+95
+00:06:31,269 --> 00:06:37,149
+to type Chinese of Japanese characters
+
+96
+00:06:33,930 --> 00:06:40,509
+so in other days there are things like
+
+97
+00:06:37,149 --> 00:06:42,669
+this where are you you know HP has
+
+98
+00:06:40,509 --> 00:06:45,999
+several choices you know Knight possible
+
+99
+00:06:42,669 --> 00:06:49,389
+characters you can type and they are 500
+
+100
+00:06:45,999 --> 00:06:52,719
+something cheese it's extremely
+
+101
+00:06:49,389 --> 00:06:55,559
+inefficient you know you so anyway
+
+102
+00:06:52,719 --> 00:06:55,559
+that's interesting
+
+103
+00:06:56,430 --> 00:07:01,619
+so that's keyboard stuff
+
+104
+00:07:05,620 --> 00:07:09,550
+let's talk about bass keyboard the bass
+
+105
+00:07:08,080 --> 00:07:11,590
+keyboard is the one of the worst
+
+106
+00:07:09,550 --> 00:07:15,040
+keyboard okay don't I don't recommend
+
+107
+00:07:11,590 --> 00:07:18,280
+bass keyboard - keyboard is very popular
+
+108
+00:07:15,040 --> 00:07:20,650
+among programmers why for one reason and
+
+109
+00:07:18,280 --> 00:07:23,980
+one reason most ly for one reason
+
+110
+00:07:20,650 --> 00:07:26,080
+because not marketing you know if you
+
+111
+00:07:23,980 --> 00:07:29,080
+want to get the same quality of keyboard
+
+112
+00:07:26,080 --> 00:07:33,940
+they are a lot better ones you know and
+
+113
+00:07:29,080 --> 00:07:36,040
+cheaper in a gaming community and if you
+
+114
+00:07:33,940 --> 00:07:39,250
+do not like the cameras you know fancy
+
+115
+00:07:36,040 --> 00:07:42,250
+you know coloring and style you know Tim
+
+116
+00:07:39,250 --> 00:07:45,580
+pH style they are not you know paint
+
+117
+00:07:42,250 --> 00:07:48,120
+choices - for example let's go to PC
+
+118
+00:07:45,580 --> 00:07:52,720
+keyboards for example you can pick this
+
+119
+00:07:48,120 --> 00:07:56,370
+CM master keys PVG keyboard this is high
+
+120
+00:07:52,720 --> 00:07:59,830
+quality keyboard and it's better than
+
+121
+00:07:56,370 --> 00:08:01,930
+it's better than the bass keyboard you
+
+122
+00:07:59,830 --> 00:08:04,900
+know I don't like - keyboard I you know
+
+123
+00:08:01,930 --> 00:08:09,400
+I despise - keyboard because why because
+
+124
+00:08:04,900 --> 00:08:13,920
+when you are good morning FMS it's like
+
+125
+00:08:09,400 --> 00:08:13,920
+wait you know when you go when you um
+
+126
+00:08:14,010 --> 00:08:24,630
+let's see you know you know IIIi despise
+
+127
+00:08:21,580 --> 00:08:24,630
+- keyboard because
+
+128
+00:08:27,770 --> 00:08:35,599
+because they are you know the quality /
+
+129
+00:08:31,759 --> 00:08:39,770
+price ratio is no good is too high okay
+
+130
+00:08:35,599 --> 00:08:42,409
+and this day they fly they are popular
+
+131
+00:08:39,770 --> 00:08:44,180
+among programmers because they market to
+
+132
+00:08:42,409 --> 00:08:48,339
+book web programmers for example let's
+
+133
+00:08:44,180 --> 00:08:52,490
+let me show you this headphone okay feet
+
+134
+00:08:48,339 --> 00:08:55,910
+headphone this is extremely popular you
+
+135
+00:08:52,490 --> 00:08:58,670
+know you see all the young people you
+
+136
+00:08:55,910 --> 00:09:01,459
+know by these speed headphones the big
+
+137
+00:08:58,670 --> 00:09:03,350
+headphone as far as technology you know
+
+138
+00:09:01,459 --> 00:09:05,870
+pure quality everything is considered
+
+139
+00:09:03,350 --> 00:09:08,300
+divided by price you know divided by
+
+140
+00:09:05,870 --> 00:09:11,540
+price is important because you could
+
+141
+00:09:08,300 --> 00:09:14,330
+something could cost you know one dollar
+
+142
+00:09:11,540 --> 00:09:15,680
+versus something cost a hundred dollars
+
+143
+00:09:14,330 --> 00:09:19,399
+you know there's a big difference so
+
+144
+00:09:15,680 --> 00:09:21,410
+anyway you take the quality / price the
+
+145
+00:09:19,399 --> 00:09:24,580
+bead headphone is one of the worst
+
+146
+00:09:21,410 --> 00:09:27,649
+possible they are almost like a scam
+
+147
+00:09:24,580 --> 00:09:30,410
+however in the past like five or ten
+
+148
+00:09:27,649 --> 00:09:34,040
+years they become hugely popular you
+
+149
+00:09:30,410 --> 00:09:36,829
+know big brand is unheard of before they
+
+150
+00:09:34,040 --> 00:09:39,290
+become hugely popular why because they
+
+151
+00:09:36,829 --> 00:09:41,420
+because marketing you know they have
+
+152
+00:09:39,290 --> 00:09:43,610
+people you know the marketing is a
+
+153
+00:09:41,420 --> 00:09:46,070
+billion dollar business industry you
+
+154
+00:09:43,610 --> 00:09:48,980
+know they have people they they try they
+
+155
+00:09:46,070 --> 00:09:51,829
+try to make celebrities you know singers
+
+156
+00:09:48,980 --> 00:09:54,620
+and stars to wear them in some cases pay
+
+157
+00:09:51,829 --> 00:09:56,570
+them you know say hey Michael Jackson we
+
+158
+00:09:54,620 --> 00:09:58,790
+pay you you know ten ten thousand
+
+159
+00:09:56,570 --> 00:10:01,970
+dollars see without this headphone you
+
+160
+00:09:58,790 --> 00:10:03,800
+know to do a you know when you are
+
+161
+00:10:01,970 --> 00:10:07,310
+talking to you know when you are doing
+
+162
+00:10:03,800 --> 00:10:09,680
+YouTube or something so that's why they
+
+163
+00:10:07,310 --> 00:10:12,560
+are hugely popular but the quality is
+
+164
+00:10:09,680 --> 00:10:17,029
+ you know it's so you know same
+
+165
+00:10:12,560 --> 00:10:19,790
+similarly waiting a similar way the task
+
+166
+00:10:17,029 --> 00:10:22,579
+keyboard is it's just no good okay -
+
+167
+00:10:19,790 --> 00:10:25,040
+keyboard is is no good I mean they are
+
+168
+00:10:22,579 --> 00:10:27,860
+reasonable quality but they are the the
+
+169
+00:10:25,040 --> 00:10:30,529
+price but basically you can get much
+
+170
+00:10:27,860 --> 00:10:32,830
+better deal if you go to in into the
+
+171
+00:10:30,529 --> 00:10:36,880
+King kima's community and
+
+172
+00:10:32,830 --> 00:10:40,270
+and by many many choices some of them
+
+173
+00:10:36,880 --> 00:10:43,930
+are like $30 like this optical switch
+
+174
+00:10:40,270 --> 00:10:46,720
+$40 very good optical switch or you can
+
+175
+00:10:43,930 --> 00:10:49,839
+buy the brand name you know CM
+
+176
+00:10:46,720 --> 00:10:55,000
+coolermaster Coolermaster those are also
+
+177
+00:10:49,839 --> 00:10:57,279
+excellent and many many other choices by
+
+178
+00:10:55,000 --> 00:10:59,470
+the way so anyway so that's the pass
+
+179
+00:10:57,279 --> 00:11:01,899
+keyboard and in the past few years they
+
+180
+00:10:59,470 --> 00:11:04,720
+started to go into the gamers community
+
+181
+00:11:01,899 --> 00:11:08,110
+you know because before you know they
+
+182
+00:11:04,720 --> 00:11:09,940
+arose as a keyboard quality keyboard for
+
+183
+00:11:08,110 --> 00:11:12,070
+programmers but now they could get into
+
+184
+00:11:09,940 --> 00:11:14,260
+gaming but the reason is easy to
+
+185
+00:11:12,070 --> 00:11:16,660
+understand because in in the chemical
+
+186
+00:11:14,260 --> 00:11:19,450
+community you have like hundred times
+
+187
+00:11:16,660 --> 00:11:22,330
+more people the market is hundred times
+
+188
+00:11:19,450 --> 00:11:24,910
+larger than the programmers community by
+
+189
+00:11:22,330 --> 00:11:28,870
+the way so bass keyboard is popular
+
+190
+00:11:24,910 --> 00:11:30,880
+among programmers but why but how come
+
+191
+00:11:28,870 --> 00:11:33,070
+you know the programmers doesn't know
+
+192
+00:11:30,880 --> 00:11:34,990
+about other things because you know
+
+193
+00:11:33,070 --> 00:11:36,670
+typically you tend to stay in your
+
+194
+00:11:34,990 --> 00:11:38,529
+community you know you don't have time
+
+195
+00:11:36,670 --> 00:11:40,630
+you never you know you are a programmer
+
+196
+00:11:38,529 --> 00:11:42,579
+you don't necessarily know about gaming
+
+197
+00:11:40,630 --> 00:11:45,640
+although some programmers are cameras
+
+198
+00:11:42,579 --> 00:11:47,380
+but in general gaming permit gaming
+
+199
+00:11:45,640 --> 00:11:49,660
+community and promote community they are
+
+200
+00:11:47,380 --> 00:11:52,149
+separate just like you know programming
+
+201
+00:11:49,660 --> 00:11:53,520
+programmers and mathematician community
+
+202
+00:11:52,149 --> 00:11:55,990
+they are separate you know
+
+203
+00:11:53,520 --> 00:11:59,410
+mathematicians they do their things you
+
+204
+00:11:55,990 --> 00:12:01,209
+know but what you read every day
+
+205
+00:11:59,410 --> 00:12:03,459
+the people you talk to the things you
+
+206
+00:12:01,209 --> 00:12:06,040
+hear I like different that's why
+
+207
+00:12:03,459 --> 00:12:10,270
+different communities like different
+
+208
+00:12:06,040 --> 00:12:13,320
+coaches get opinions and stuff your
+
+209
+00:12:10,270 --> 00:12:17,440
+perception or different
+
+210
+00:12:13,320 --> 00:12:19,720
+so if MSA is what are your thoughts are
+
+211
+00:12:17,440 --> 00:12:22,329
+low profile keyboards I feel like they
+
+212
+00:12:19,720 --> 00:12:28,709
+are more ergonomic and lest less
+
+213
+00:12:22,329 --> 00:12:31,839
+fatiguing when typing after having RSI
+
+214
+00:12:28,709 --> 00:12:35,829
+low profile keyboard are you talking
+
+215
+00:12:31,839 --> 00:12:39,010
+about non mechanical so in general okay
+
+216
+00:12:35,829 --> 00:12:41,170
+I don't think low profile keyboards are
+
+217
+00:12:39,010 --> 00:12:46,100
+a good thing at all I think they they I
+
+218
+00:12:41,170 --> 00:12:49,370
+mean it if if if you are typing
+
+219
+00:12:46,100 --> 00:12:52,190
+if you need to type a lot such as a
+
+220
+00:12:49,370 --> 00:12:54,139
+programmer you don't want low profile
+
+221
+00:12:52,190 --> 00:12:57,800
+keyboard I'm talking about low profile
+
+222
+00:12:54,139 --> 00:13:00,850
+such as such as you know you know
+
+223
+00:12:57,800 --> 00:13:04,069
+portable keyboards or Apple's keyboard
+
+224
+00:13:00,850 --> 00:13:07,120
+let's see and to get apples keyboard and
+
+225
+00:13:04,069 --> 00:13:10,430
+Apple Apple's keyboard are the worst
+
+226
+00:13:07,120 --> 00:13:13,130
+with respect to organ Amex Apple
+
+227
+00:13:10,430 --> 00:13:15,319
+keyboards today
+
+228
+00:13:13,130 --> 00:13:17,660
+like this year you know in the past two
+
+229
+00:13:15,319 --> 00:13:20,329
+years three years apples keyboard are
+
+230
+00:13:17,660 --> 00:13:23,300
+the worst not just economics but also
+
+231
+00:13:20,329 --> 00:13:26,000
+worst in quality was you know they may
+
+232
+00:13:23,300 --> 00:13:27,889
+get damaged you cannot be repaired we
+
+233
+00:13:26,000 --> 00:13:30,680
+have to buy a whole thing like every
+
+234
+00:13:27,889 --> 00:13:34,310
+three months you know if you are in the
+
+235
+00:13:30,680 --> 00:13:37,459
+Apple community you know it's it's well
+
+236
+00:13:34,310 --> 00:13:40,310
+known Apple keyboards so Apple keyboards
+
+237
+00:13:37,459 --> 00:13:42,980
+today is very bad but in general Apple
+
+238
+00:13:40,310 --> 00:13:45,170
+keyboards are the worst in terms of
+
+239
+00:13:42,980 --> 00:13:47,509
+ergonomics if you are a programmer you
+
+240
+00:13:45,170 --> 00:13:50,120
+know don't use Apple keyboard it's gonna
+
+241
+00:13:47,509 --> 00:13:51,769
+it's gonna you gonna get our side you
+
+242
+00:13:50,120 --> 00:13:53,660
+know it won't happen it's not happening
+
+243
+00:13:51,769 --> 00:13:56,959
+right now but who knows you know that's
+
+244
+00:13:53,660 --> 00:13:59,269
+the thing you know most people all those
+
+245
+00:13:56,959 --> 00:14:01,190
+people who got RSI you know the years
+
+246
+00:13:59,269 --> 00:14:06,170
+before they do now I think oh that won't
+
+247
+00:14:01,190 --> 00:14:08,750
+happen to me until it happens to you so
+
+248
+00:14:06,170 --> 00:14:10,699
+don't buy yourself so don't buy Apple
+
+249
+00:14:08,750 --> 00:14:12,829
+keyboards and also about these low
+
+250
+00:14:10,699 --> 00:14:15,319
+profile keyboards they are no good ok
+
+251
+00:14:12,829 --> 00:14:18,980
+never type on a laptop keyboard for
+
+252
+00:14:15,319 --> 00:14:21,740
+longer than you know five minutes its
+
+253
+00:14:18,980 --> 00:14:27,470
+laptop keyboard that got me eyesight the
+
+254
+00:14:21,740 --> 00:14:30,050
+foot my first hour I say in 2006 so my
+
+255
+00:14:27,470 --> 00:14:34,279
+opinion about low profile keyboards no
+
+256
+00:14:30,050 --> 00:14:37,329
+good except except when they are
+
+257
+00:14:34,279 --> 00:14:40,970
+mechanical now today you have several
+
+258
+00:14:37,329 --> 00:14:43,310
+mechanical kind of lower low profile
+
+259
+00:14:40,970 --> 00:14:47,449
+like this let me show you I have one
+
+260
+00:14:43,310 --> 00:14:51,279
+actually I wonder if I can show you yeah
+
+261
+00:14:47,449 --> 00:14:51,279
+let me show you them on a second
+
+262
+00:15:09,180 --> 00:15:17,430
+so this is habit keyboard listen they
+
+263
+00:15:12,720 --> 00:15:21,030
+say me of SME one for my review and this
+
+264
+00:15:17,430 --> 00:15:24,270
+is low profile key mechanical keyboard
+
+265
+00:15:21,030 --> 00:15:27,710
+so the travel is like half of the
+
+266
+00:15:24,270 --> 00:15:32,340
+typical Cherry MX keyboard so this I
+
+267
+00:15:27,710 --> 00:15:35,160
+recommend I recommend very much as far
+
+268
+00:15:32,340 --> 00:15:38,490
+as how does this compare to a normal
+
+269
+00:15:35,160 --> 00:15:41,280
+mechanical piece I don't have much your
+
+270
+00:15:38,490 --> 00:15:46,380
+opinion about that so let me actually
+
+271
+00:15:41,280 --> 00:15:49,110
+let me show you the keyboard now my
+
+272
+00:15:46,380 --> 00:15:51,930
+camera is extremely bad so it's you know
+
+273
+00:15:49,110 --> 00:15:54,330
+you won't see much out of it but anyway
+
+274
+00:15:51,930 --> 00:15:58,730
+so this is you know this is my desktop
+
+275
+00:15:54,330 --> 00:15:58,730
+let's see if I can do this
+
+276
+00:16:00,780 --> 00:16:07,320
+okay I'm gonna change some settings here
+
+277
+00:16:03,730 --> 00:16:07,320
+so you can see a big video
+
+278
+00:16:07,930 --> 00:16:11,320
+give me a minute
+
+279
+00:16:16,730 --> 00:16:18,790
+you
+
+280
+00:16:31,100 --> 00:16:42,230
+okay now you can hear me and let me add
+
+281
+00:16:35,250 --> 00:16:51,470
+the video video capture device okay
+
+282
+00:16:42,230 --> 00:16:54,870
+video coming up USB camera nice sixty
+
+283
+00:16:51,470 --> 00:17:04,919
+okay so there's a video but let me
+
+284
+00:16:54,870 --> 00:17:07,290
+change it so it's even bigger okay so
+
+285
+00:17:04,919 --> 00:17:12,270
+anyway so that's my keyboard and this is
+
+286
+00:17:07,290 --> 00:17:16,079
+the havoc keyboard so I actually never
+
+287
+00:17:12,270 --> 00:17:18,089
+use this for like more than an hour so I
+
+288
+00:17:16,079 --> 00:17:22,260
+can paint but anyway this is not
+
+289
+00:17:18,089 --> 00:17:24,410
+economic I must have economic ones so I
+
+290
+00:17:22,260 --> 00:17:27,480
+don't actually I haven't used it much
+
+291
+00:17:24,410 --> 00:17:30,059
+that is why if it is ergonomic I'll
+
+292
+00:17:27,480 --> 00:17:37,130
+definitely gonna use it for week weeks
+
+293
+00:17:30,059 --> 00:17:37,130
+and see how they compare but anyway so
+
+294
+00:17:37,220 --> 00:17:44,520
+so if you want thin profile go for this
+
+295
+00:17:40,679 --> 00:17:48,570
+this is good you know mechanical thing
+
+296
+00:17:44,520 --> 00:17:53,970
+profile keys but never never things like
+
+297
+00:17:48,570 --> 00:17:56,460
+apples keyboard of all black art
+
+298
+00:17:53,970 --> 00:18:00,510
+keyboards so that's my opinion about
+
+299
+00:17:56,460 --> 00:18:03,890
+keyboard about the low part Popeye okey
+
+300
+00:18:00,510 --> 00:18:03,890
+so anything else
+
+301
+00:18:08,880 --> 00:18:14,580
+so yeah okay so that that's about
+
+302
+00:18:11,769 --> 00:18:19,809
+keyboard let's go to another topic name
+
+303
+00:18:14,580 --> 00:18:22,240
+so keyboard programming there's this
+
+304
+00:18:19,809 --> 00:18:26,100
+interesting interesting things about
+
+305
+00:18:22,240 --> 00:18:30,580
+Unicode so in Unicode you have these
+
+306
+00:18:26,100 --> 00:18:35,409
+boxes this these characters that is
+
+307
+00:18:30,580 --> 00:18:37,210
+designed to draw borders and boxes for
+
+308
+00:18:35,409 --> 00:18:41,440
+example these are you or Unicode
+
+309
+00:18:37,210 --> 00:18:44,470
+characters you can see the character
+
+310
+00:18:41,440 --> 00:18:49,779
+name pumps drawing light vertical and
+
+311
+00:18:44,470 --> 00:18:53,019
+left that's the starter and this one is
+
+312
+00:18:49,779 --> 00:18:55,330
+flux drawing heavy down and left now you
+
+313
+00:18:53,019 --> 00:18:59,320
+can create these boxes you can create a
+
+314
+00:18:55,330 --> 00:19:04,299
+maze and there are also these characters
+
+315
+00:18:59,320 --> 00:19:08,590
+that you can create these images so
+
+316
+00:19:04,299 --> 00:19:14,200
+that's a fun thing too so those are
+
+317
+00:19:08,590 --> 00:19:19,539
+called Unicode drawing they are
+
+318
+00:19:14,200 --> 00:19:21,909
+typically called you parks drawing that
+
+319
+00:19:19,539 --> 00:19:26,980
+Curtis parks throwing characters and
+
+320
+00:19:21,909 --> 00:19:30,909
+then you have these block yeah block
+
+321
+00:19:26,980 --> 00:19:36,880
+character stop shade medium shade tight
+
+322
+00:19:30,909 --> 00:19:39,210
+shape okay that's about that UNIX web
+
+323
+00:19:36,880 --> 00:19:39,210
+dev
+
+324
+00:19:42,929 --> 00:19:45,929
+okay
+
+325
+00:19:56,059 --> 00:20:02,269
+I feel kind of lost talking about these
+
+326
+00:19:59,570 --> 00:20:06,219
+random things it's because it doesn't
+
+327
+00:20:02,269 --> 00:20:10,039
+seems to be focused and you know I
+
+328
+00:20:06,219 --> 00:20:13,059
+somehow it's like it no interest okay so
+
+329
+00:20:10,039 --> 00:20:14,509
+I got this fan like 10 years ago from
+
+330
+00:20:13,059 --> 00:20:19,330
+Chinatown
+
+331
+00:20:14,509 --> 00:20:22,940
+I guess so this is classic Chinese fan
+
+332
+00:20:19,330 --> 00:20:25,399
+it's so hard today in California in you
+
+333
+00:20:22,940 --> 00:20:28,639
+know I mean San Francisco mountain view
+
+334
+00:20:25,399 --> 00:20:32,989
+area in this week as three days is
+
+335
+00:20:28,639 --> 00:20:37,969
+extremely hot but however it's no harder
+
+336
+00:20:32,989 --> 00:20:43,789
+than then Taiwan or South Asia those
+
+337
+00:20:37,969 --> 00:20:46,129
+countries so let's start this
+
+338
+00:20:43,789 --> 00:20:50,690
+let's go through the topics then let's
+
+339
+00:20:46,129 --> 00:20:54,950
+see what else download you know Steve
+
+340
+00:20:50,690 --> 00:21:01,309
+Jobs and idiocy of typography now this
+
+341
+00:20:54,950 --> 00:21:06,139
+is one of my big rant the gist let's see
+
+342
+00:21:01,309 --> 00:21:08,769
+how long I've been talking the gist of
+
+343
+00:21:06,139 --> 00:21:12,499
+this thing is you know in typography
+
+344
+00:21:08,769 --> 00:21:15,919
+community similar things happens in
+
+345
+00:21:12,499 --> 00:21:20,239
+photography community calligraphy
+
+346
+00:21:15,919 --> 00:21:23,779
+community grammar chameleons grammarians
+
+347
+00:21:20,239 --> 00:21:27,979
+community okay you got this people these
+
+348
+00:21:23,779 --> 00:21:31,700
+idiots they choke up their stuff is they
+
+349
+00:21:27,979 --> 00:21:34,999
+kind of like a high art you know like in
+
+350
+00:21:31,700 --> 00:21:37,789
+typography community you know there
+
+351
+00:21:34,999 --> 00:21:41,299
+there is this documentary documentary
+
+352
+00:21:37,789 --> 00:21:45,139
+okay this is made in 2007 it's kind of a
+
+353
+00:21:41,299 --> 00:21:48,309
+movie so last for an hour so they talked
+
+354
+00:21:45,139 --> 00:21:52,009
+about a type of typography and the
+
+355
+00:21:48,309 --> 00:21:56,570
+heretical font I mean even go to let's
+
+356
+00:21:52,009 --> 00:21:59,169
+go to my website a Saudi website so you
+
+357
+00:21:56,570 --> 00:22:02,809
+can actually see the YouTube videos you
+
+358
+00:21:59,169 --> 00:22:06,049
+don't see that on my browser here
+
+359
+00:22:02,809 --> 00:22:07,500
+because I don't have JavaScript on and
+
+360
+00:22:06,049 --> 00:22:14,250
+also it's my local
+
+361
+00:22:07,500 --> 00:22:17,090
+file so you go to the info then you go
+
+362
+00:22:14,250 --> 00:22:17,090
+to web there
+
+363
+00:22:22,970 --> 00:22:31,760
+code and Benny in UK oh that's
+
+364
+00:22:28,220 --> 00:22:37,820
+interesting but is that isn't UK summer
+
+365
+00:22:31,760 --> 00:22:41,990
+right now UK which part of UK are you
+
+366
+00:22:37,820 --> 00:22:44,660
+had so anyway so good go to the Donald
+
+367
+00:22:41,990 --> 00:22:47,660
+Knuth's Steve Jobs and idiocy of
+
+368
+00:22:44,660 --> 00:22:51,380
+typography you know so why Donald knows
+
+369
+00:22:47,660 --> 00:22:54,620
+and why Steve Jobs because both of them
+
+370
+00:22:51,380 --> 00:22:58,190
+fail into type architect ography first
+
+371
+00:22:54,620 --> 00:23:00,050
+both of them are I mean they are high
+
+372
+00:22:58,190 --> 00:23:03,670
+achievers you know they have done great
+
+373
+00:23:00,050 --> 00:23:06,350
+things but both of them are inspired by
+
+374
+00:23:03,670 --> 00:23:09,260
+typography so that's a good aspect of
+
+375
+00:23:06,350 --> 00:23:12,380
+typography typography you know Donald
+
+376
+00:23:09,260 --> 00:23:13,880
+Knuth spend something like 10 years to
+
+377
+00:23:12,380 --> 00:23:19,210
+create tick
+
+378
+00:23:13,880 --> 00:23:22,910
+you know the typesetting language solid
+
+379
+00:23:19,210 --> 00:23:25,760
+black okay let me show you this article
+
+380
+00:23:22,910 --> 00:23:30,950
+you might have already seen this algo is
+
+381
+00:23:25,760 --> 00:23:34,430
+very popular the tech pestilence why
+
+382
+00:23:30,950 --> 00:23:37,550
+tech sucks okay this is one of my
+
+383
+00:23:34,430 --> 00:23:42,680
+article in fact I did a talk show on
+
+384
+00:23:37,550 --> 00:23:45,620
+this thing you know so Donald Knuth the
+
+385
+00:23:42,680 --> 00:23:49,250
+famous computer scientists created this
+
+386
+00:23:45,620 --> 00:23:52,430
+tech technology to typeset mathematics
+
+387
+00:23:49,250 --> 00:23:55,490
+not just for math but for tech
+
+388
+00:23:52,430 --> 00:23:58,040
+typesetting you know typography why he
+
+389
+00:23:55,490 --> 00:24:02,480
+did that because when he was writing his
+
+390
+00:23:58,040 --> 00:24:05,300
+book the art of programming the there is
+
+391
+00:24:02,480 --> 00:24:08,450
+no digital typography you know it's you
+
+392
+00:24:05,300 --> 00:24:10,580
+know this is in the 1970s 1980s you
+
+393
+00:24:08,450 --> 00:24:12,950
+don't have you know it's not right back
+
+394
+00:24:10,580 --> 00:24:15,410
+today you have found you know true type
+
+395
+00:24:12,950 --> 00:24:19,190
+font or whatever you can print you know
+
+396
+00:24:15,410 --> 00:24:22,540
+laser laser printers and whatnot they
+
+397
+00:24:19,190 --> 00:24:25,550
+don't have that practice so Donald Knuth
+
+398
+00:24:22,540 --> 00:24:28,070
+he wants to write the other programming
+
+399
+00:24:25,550 --> 00:24:32,810
+and in that book there's a lot math
+
+400
+00:24:28,070 --> 00:24:34,700
+formulas back in the 1970s and 80s math
+
+401
+00:24:32,810 --> 00:24:38,090
+are always is
+
+402
+00:24:34,700 --> 00:24:40,369
+they are you know usually typeset using
+
+403
+00:24:38,090 --> 00:24:44,269
+the mono space courier you know very
+
+404
+00:24:40,369 --> 00:24:46,460
+ugly so analysis you know try to solve
+
+405
+00:24:44,269 --> 00:24:49,999
+the problem so he basically spent ten
+
+406
+00:24:46,460 --> 00:24:52,759
+years and he created Tech and the MIT I
+
+407
+00:24:49,999 --> 00:24:56,529
+found and you know basically nobody uses
+
+408
+00:24:52,759 --> 00:24:59,509
+and to me Tech is one of the worst
+
+409
+00:24:56,529 --> 00:25:01,909
+technology you see it's not just you
+
+410
+00:24:59,509 --> 00:25:03,679
+know it's a pestilence if you are
+
+411
+00:25:01,909 --> 00:25:05,779
+interested you know read this article
+
+412
+00:25:03,679 --> 00:25:08,509
+and read my talk show over there we are
+
+413
+00:25:05,779 --> 00:25:12,590
+now going to talk about that today but
+
+414
+00:25:08,509 --> 00:25:15,529
+so who knows you know he he spent ten
+
+415
+00:25:12,590 --> 00:25:17,869
+years yak shaving to create the tech
+
+416
+00:25:15,529 --> 00:25:20,210
+instead of working on his you know the
+
+417
+00:25:17,869 --> 00:25:23,600
+art of computer the other programming
+
+418
+00:25:20,210 --> 00:25:26,029
+because you know dolly I don't it's
+
+419
+00:25:23,600 --> 00:25:28,759
+supposed to be seven volumes but may not
+
+420
+00:25:26,029 --> 00:25:30,409
+only three or four volume came up I
+
+421
+00:25:28,759 --> 00:25:34,909
+don't think he can do it you know he's
+
+422
+00:25:30,409 --> 00:25:37,070
+like 80 years old now but anyway you
+
+423
+00:25:34,909 --> 00:25:40,580
+know that's called yak saving yak
+
+424
+00:25:37,070 --> 00:25:41,629
+shaving you know by the way so let's see
+
+425
+00:25:40,580 --> 00:25:47,029
+sorry
+
+426
+00:25:41,629 --> 00:25:51,230
+yak shaving there's an article from
+
+427
+00:25:47,029 --> 00:25:55,399
+1980s about yak shaving best to for yak
+
+428
+00:25:51,230 --> 00:26:00,169
+shaving Emacs okay this article is from
+
+429
+00:25:55,399 --> 00:26:02,450
+year to year 2000 okay so I don't think
+
+430
+00:26:00,169 --> 00:26:04,820
+this is the earliest article on yak
+
+431
+00:26:02,450 --> 00:26:10,519
+shaving but you can read that is fun
+
+432
+00:26:04,820 --> 00:26:17,119
+eMac is the best tool for yak shaving so
+
+433
+00:26:10,519 --> 00:26:20,090
+anyways so that's know what what how how
+
+434
+00:26:17,119 --> 00:26:23,320
+he relates to technology so he is
+
+435
+00:26:20,090 --> 00:26:27,200
+actually a pioneer of modern digital
+
+436
+00:26:23,320 --> 00:26:36,109
+typography now Steve Jobs is also very
+
+437
+00:26:27,200 --> 00:26:39,190
+is also fair you know fair into
+
+438
+00:26:36,109 --> 00:26:42,070
+typography because you know
+
+439
+00:26:39,190 --> 00:26:44,590
+you know if you search Steve Jobs in
+
+440
+00:26:42,070 --> 00:26:47,350
+tight type of typography on YouTube
+
+441
+00:26:44,590 --> 00:26:51,640
+you'll find some stories I'm not going
+
+442
+00:26:47,350 --> 00:26:54,850
+to repeat them basically he you know
+
+443
+00:26:51,640 --> 00:26:58,660
+he's inspired by typography so you know
+
+444
+00:26:54,850 --> 00:27:01,210
+so very much on the Mac you have you
+
+445
+00:26:58,660 --> 00:27:05,950
+know Mac in the 1990s is the most
+
+446
+00:27:01,210 --> 00:27:08,830
+beautiful graphics but anyway back to
+
+447
+00:27:05,950 --> 00:27:11,710
+the topic the the thing about typography
+
+448
+00:27:08,830 --> 00:27:14,020
+and community is that they they think
+
+449
+00:27:11,710 --> 00:27:16,570
+you know when you listen to for example
+
+450
+00:27:14,020 --> 00:27:19,960
+when you watch this this article okay
+
+451
+00:27:16,570 --> 00:27:23,110
+this YouTube when you talk to this oh
+
+452
+00:27:19,960 --> 00:27:25,240
+you go on I read some type type type of
+
+453
+00:27:23,110 --> 00:27:27,310
+a community you know you listen to them
+
+454
+00:27:25,240 --> 00:27:32,590
+they are bunch of idiots okay they are
+
+455
+00:27:27,310 --> 00:27:35,790
+like how do you compare you know it's
+
+456
+00:27:32,590 --> 00:27:38,800
+like you know how in photography
+
+457
+00:27:35,790 --> 00:27:40,840
+community you know photographers some of
+
+458
+00:27:38,800 --> 00:27:43,090
+them think the photography is the
+
+459
+00:27:40,840 --> 00:27:45,370
+greatest art you know they show some
+
+460
+00:27:43,090 --> 00:27:48,010
+pictures of the you know historical
+
+461
+00:27:45,370 --> 00:27:51,460
+photos you know maybe in world war or
+
+462
+00:27:48,010 --> 00:27:53,470
+maybe in protests riots
+
+463
+00:27:51,460 --> 00:27:56,650
+you know historical moments you know
+
+464
+00:27:53,470 --> 00:27:58,900
+great photos and they choke up to oh
+
+465
+00:27:56,650 --> 00:28:01,480
+this is how great how important it is
+
+466
+00:27:58,900 --> 00:28:03,460
+that's all okay for half of it
+
+467
+00:28:01,480 --> 00:28:06,820
+is nothing no odd about this is like
+
+468
+00:28:03,460 --> 00:28:09,280
+little to none no art about it you oh
+
+469
+00:28:06,820 --> 00:28:11,590
+you have is the technology is a camera
+
+470
+00:28:09,280 --> 00:28:14,350
+you know you just take photos you just
+
+471
+00:28:11,590 --> 00:28:16,330
+take photos and in fact that's what we
+
+472
+00:28:14,350 --> 00:28:18,490
+have but that's what we are doing today
+
+473
+00:28:16,330 --> 00:28:20,610
+everyone's got a cell phone it's kind of
+
+474
+00:28:18,490 --> 00:28:23,530
+you know camera and you just take photos
+
+475
+00:28:20,610 --> 00:28:26,260
+this you know it's not like for the
+
+476
+00:28:23,530 --> 00:28:28,600
+photography is no way or compared to
+
+477
+00:28:26,260 --> 00:28:30,310
+painting painting you actually have to
+
+478
+00:28:28,600 --> 00:28:32,740
+take ten years to learn
+
+479
+00:28:30,310 --> 00:28:34,630
+not so with so you know when you
+
+480
+00:28:32,740 --> 00:28:37,840
+actually compare the heart there's
+
+481
+00:28:34,630 --> 00:28:42,120
+really no art in photography you know
+
+482
+00:28:37,840 --> 00:28:46,750
+it's like all okay so that's
+
+483
+00:28:42,120 --> 00:28:48,610
+that's photography and in a same thing
+
+484
+00:28:46,750 --> 00:28:51,220
+you can see it's that kind of a same
+
+485
+00:28:48,610 --> 00:28:51,940
+thing with the comb areas you know like
+
+486
+00:28:51,220 --> 00:28:55,090
+sometimes you
+
+487
+00:28:51,940 --> 00:28:57,399
+have to go marry like some paid pittance
+
+488
+00:28:55,090 --> 00:29:00,250
+you know grandma sensitive or sometimes
+
+489
+00:28:57,399 --> 00:29:05,019
+called ramen as nazies you know they say
+
+490
+00:29:00,250 --> 00:29:07,720
+Oh split infinitive oh you know the many
+
+491
+00:29:05,019 --> 00:29:10,389
+of the technical grandma jargons they
+
+492
+00:29:07,720 --> 00:29:12,700
+say you know how important our kites you
+
+493
+00:29:10,389 --> 00:29:17,139
+know they have like tens of style guides
+
+494
+00:29:12,700 --> 00:29:19,210
+like the the the AP prayer style guides
+
+495
+00:29:17,139 --> 00:29:21,639
+the what whatever is whatever standard
+
+496
+00:29:19,210 --> 00:29:24,250
+the past and you know the style guide
+
+497
+00:29:21,639 --> 00:29:28,299
+you know like they have lots of books
+
+498
+00:29:24,250 --> 00:29:33,879
+guys on how to punctuation should be
+
+499
+00:29:28,299 --> 00:29:37,690
+used you know let's go to let's show you
+
+500
+00:29:33,879 --> 00:29:44,139
+another article the more on necessities
+
+501
+00:29:37,690 --> 00:29:51,159
+of typography okay let's show you that
+
+502
+00:29:44,139 --> 00:29:53,220
+article this typography idiot so
+
+503
+00:29:51,159 --> 00:29:58,169
+although all these people are idiots
+
+504
+00:29:53,220 --> 00:30:01,210
+like I - and - okay you know
+
+505
+00:29:58,169 --> 00:30:02,830
+typographers are concerned about - and -
+
+506
+00:30:01,210 --> 00:30:04,990
+because they are actually different you
+
+507
+00:30:02,830 --> 00:30:07,090
+know some of them are longer a bit
+
+508
+00:30:04,990 --> 00:30:09,309
+longer in the finger and positioned a
+
+509
+00:30:07,090 --> 00:30:11,919
+little bit higher then you know there
+
+510
+00:30:09,309 --> 00:30:16,000
+they are like five types of - all dashes
+
+511
+00:30:11,919 --> 00:30:18,250
+you know so look at this these morons
+
+512
+00:30:16,000 --> 00:30:21,370
+you know this is from Wikipedia actually
+
+513
+00:30:18,250 --> 00:30:25,419
+this this this passage is from Wikipedia
+
+514
+00:30:21,370 --> 00:30:29,710
+around year 2010 or some Erica
+
+515
+00:30:25,419 --> 00:30:31,450
+so he says traditionally an e/m - like
+
+516
+00:30:29,710 --> 00:30:35,590
+so or space
+
+517
+00:30:31,450 --> 00:30:39,039
+eeehm - like so has been used for a - in
+
+518
+00:30:35,590 --> 00:30:42,879
+running text the elements of typographic
+
+519
+00:30:39,039 --> 00:30:47,620
+style recommends the more concise spaced
+
+520
+00:30:42,879 --> 00:30:52,509
+en - like so and argues that the length
+
+521
+00:30:47,620 --> 00:30:55,929
+and visual magnitude an e/m - belongs to
+
+522
+00:30:52,509 --> 00:30:59,620
+the padded and cosseted aesthetic of
+
+523
+00:30:55,929 --> 00:31:01,179
+Victorian typography you know they are
+
+524
+00:30:59,620 --> 00:31:04,539
+tracked they are making fun of each
+
+525
+00:31:01,179 --> 00:31:05,110
+other you know each different schools of
+
+526
+00:31:04,539 --> 00:31:08,770
+that
+
+527
+00:31:05,110 --> 00:31:10,720
+typography guides okay nan says the
+
+528
+00:31:08,770 --> 00:31:13,870
+spaced en-dash
+
+529
+00:31:10,720 --> 00:31:16,480
+is also the house style for certain
+
+530
+00:31:13,870 --> 00:31:20,200
+major publishers penguin
+
+531
+00:31:16,480 --> 00:31:24,330
+Cambridge University Press and Routledge
+
+532
+00:31:20,200 --> 00:31:27,820
+among them however some long-standing
+
+533
+00:31:24,330 --> 00:31:31,690
+typographical guides such as the Chicago
+
+534
+00:31:27,820 --> 00:31:36,730
+Manual of style still recommend unfazed
+
+535
+00:31:31,690 --> 00:31:40,450
+p.m. dashes dashes for this purpose the
+
+536
+00:31:36,730 --> 00:31:44,760
+Ox of all guide to style year 2002
+
+537
+00:31:40,450 --> 00:31:48,429
+section 5 point 1010 acknowledge is that
+
+538
+00:31:44,760 --> 00:31:52,299
+you know so this is a glimpse of how
+
+539
+00:31:48,429 --> 00:31:54,790
+this how these typography communities
+
+540
+00:31:52,299 --> 00:31:57,429
+that the the type of things and attitude
+
+541
+00:31:54,790 --> 00:31:59,380
+and tone they are talking about so it's
+
+542
+00:31:57,429 --> 00:32:03,400
+like each one of them is like they've
+
+543
+00:31:59,380 --> 00:32:05,860
+got a hate and soul you know in practice
+
+544
+00:32:03,400 --> 00:32:11,799
+it doesn't matter you know you can
+
+545
+00:32:05,860 --> 00:32:20,980
+just use the ugly at s key - you know
+
+546
+00:32:11,799 --> 00:32:26,890
+let me show you ugly SP - like so and
+
+547
+00:32:20,980 --> 00:32:30,340
+I'll be it okay you know that's that's
+
+548
+00:32:26,890 --> 00:32:36,600
+this is the s key - okay let me show you
+
+549
+00:32:30,340 --> 00:32:42,880
+the en - this is e m - oops
+
+550
+00:32:36,600 --> 00:32:54,010
+eeehm - let me show that so ii am i have
+
+551
+00:32:42,880 --> 00:32:57,340
+a om - so the key is M - okay so this is
+
+552
+00:32:54,010 --> 00:33:00,309
+e m - this is a C - you cannot actually
+
+553
+00:32:57,340 --> 00:33:03,309
+see the difference unless I change the
+
+554
+00:33:00,309 --> 00:33:06,700
+Emacs want to be something not the mano
+
+555
+00:33:03,309 --> 00:33:12,400
+space so let's do that
+
+556
+00:33:06,700 --> 00:33:16,100
+pitch so now you can see you see this is
+
+557
+00:33:12,400 --> 00:33:25,610
+a ski - this is Ian -
+
+558
+00:33:16,100 --> 00:33:30,320
+and let me show you the en - okay that's
+
+559
+00:33:25,610 --> 00:33:33,410
+Ian - and let me show you figure - this
+
+560
+00:33:30,320 --> 00:33:38,600
+type of graphical idiots have all these
+
+561
+00:33:33,410 --> 00:33:40,700
+things the fee good - actually I don't
+
+562
+00:33:38,600 --> 00:33:47,030
+think I have the shortcut for it I do
+
+563
+00:33:40,700 --> 00:33:52,400
+okay this is the figure - and this this
+
+564
+00:33:47,030 --> 00:33:52,940
+is the - - now now this ASCII character
+
+565
+00:33:52,400 --> 00:33:59,120
+is called
+
+566
+00:33:52,940 --> 00:34:03,290
+- man - - when you just press the the
+
+567
+00:33:59,120 --> 00:34:06,470
+minus key on your keyboard okay actually
+
+568
+00:34:03,290 --> 00:34:11,980
+let me show you the Unicode so that you
+
+569
+00:34:06,470 --> 00:34:11,980
+can actually see clearly what they are
+
+570
+00:34:17,170 --> 00:34:25,700
+so you so you can see me so you can see
+
+571
+00:34:21,740 --> 00:34:29,270
+that so you got a M - you got Ian - you
+
+572
+00:34:25,700 --> 00:34:31,040
+got figure - you got - Mac - - now if
+
+573
+00:34:29,270 --> 00:34:34,330
+you really care about these things you
+
+574
+00:34:31,040 --> 00:34:37,940
+know if you are of the pedantic
+
+575
+00:34:34,330 --> 00:34:40,790
+typographer kind of people then you know
+
+576
+00:34:37,940 --> 00:34:44,060
+each of them have proper uses for for
+
+577
+00:34:40,790 --> 00:34:48,620
+example I'm not going not going to
+
+578
+00:34:44,060 --> 00:34:54,140
+explain but good morning is shown thank
+
+579
+00:34:48,620 --> 00:34:56,840
+you for the donation I'm gonna be the
+
+580
+00:34:54,140 --> 00:34:59,510
+commenting a bit so yam - yet you know
+
+581
+00:34:56,840 --> 00:35:02,000
+so these are things typographers are
+
+582
+00:34:59,510 --> 00:35:04,070
+concerned about not just that then they
+
+583
+00:35:02,000 --> 00:35:06,470
+are they then okay then they are
+
+584
+00:35:04,070 --> 00:35:10,280
+concerned about ligatures like the
+
+585
+00:35:06,470 --> 00:35:12,800
+ stupid ligatures and and by the
+
+586
+00:35:10,280 --> 00:35:16,900
+way typography is also one of the thing
+
+587
+00:35:12,800 --> 00:35:19,550
+that this elite type of hacker idiots
+
+588
+00:35:16,900 --> 00:35:21,920
+chant about it all the time especially
+
+589
+00:35:19,550 --> 00:35:25,460
+the unix you know the UNIX philosophy
+
+590
+00:35:21,920 --> 00:35:27,510
+fax these type of people champ about
+
+591
+00:35:25,460 --> 00:35:29,670
+this all the time like they
+
+592
+00:35:27,510 --> 00:35:34,800
+talk about our hacker news about you
+
+593
+00:35:29,670 --> 00:35:40,740
+know they are just idiotic okay so let's
+
+594
+00:35:34,800 --> 00:35:46,290
+go back to the topic of yeah the topic
+
+595
+00:35:40,740 --> 00:35:48,210
+of the yeah okay we are on topic we are
+
+596
+00:35:46,290 --> 00:35:52,470
+talking about how the typography
+
+597
+00:35:48,210 --> 00:35:55,290
+communities in idiotic the bottom line
+
+598
+00:35:52,470 --> 00:36:00,150
+is that they they are craft okay that
+
+599
+00:35:55,290 --> 00:36:03,950
+the typography is a craft or grammar
+
+600
+00:36:00,150 --> 00:36:08,369
+writing as a craft or calligraphy or
+
+601
+00:36:03,950 --> 00:36:11,609
+photography as a craft they they are you
+
+602
+00:36:08,369 --> 00:36:14,100
+know they are not like very difficult I
+
+603
+00:36:11,609 --> 00:36:18,450
+mean really something critical art okay
+
+604
+00:36:14,100 --> 00:36:21,180
+they are not what these people community
+
+605
+00:36:18,450 --> 00:36:23,330
+claim them to be these people when you
+
+606
+00:36:21,180 --> 00:36:25,920
+watch like you watch this documented
+
+607
+00:36:23,330 --> 00:36:28,470
+documentary they the way they talk you
+
+608
+00:36:25,920 --> 00:36:31,350
+can see that they think they are the
+
+609
+00:36:28,470 --> 00:36:33,810
+kings like the typography like you know
+
+610
+00:36:31,350 --> 00:36:37,740
+they take camera you know of all the
+
+611
+00:36:33,810 --> 00:36:40,710
+people or the you know street you know
+
+612
+00:36:37,740 --> 00:36:42,540
+science advertisements you know they
+
+613
+00:36:40,710 --> 00:36:45,420
+show hepatica type you know
+
+614
+00:36:42,540 --> 00:36:47,820
+they show how it is everywhere they talk
+
+615
+00:36:45,420 --> 00:36:50,280
+about how it affects your mood you know
+
+616
+00:36:47,820 --> 00:36:52,550
+they talk about how oh because i'm
+
+617
+00:36:50,280 --> 00:36:55,740
+Avantika because then it affects
+
+618
+00:36:52,550 --> 00:36:56,580
+humanity smooth Aminata
+
+619
+00:36:55,740 --> 00:37:00,990
+is this
+
+620
+00:36:56,580 --> 00:37:03,480
+idiots people okay and a lot of
+
+621
+00:37:00,990 --> 00:37:07,980
+programmers follow this kind of flow
+
+622
+00:37:03,480 --> 00:37:12,660
+your flow like I have my followers who
+
+623
+00:37:07,980 --> 00:37:16,890
+do that but really it's this it's like
+
+624
+00:37:12,660 --> 00:37:19,470
+it you know it's it's blown out of
+
+625
+00:37:16,890 --> 00:37:21,570
+proportion is it's really the typography
+
+626
+00:37:19,470 --> 00:37:26,130
+it's not really that critical not
+
+627
+00:37:21,570 --> 00:37:29,400
+important at all I mean yeah so okay so
+
+628
+00:37:26,130 --> 00:37:36,119
+that that basically is the topic about
+
+629
+00:37:29,400 --> 00:37:40,440
+this typography yeah that that kind of
+
+630
+00:37:36,119 --> 00:37:43,440
+covers this so let me read the comments
+
+631
+00:37:40,440 --> 00:37:43,440
+so
+
+632
+00:37:46,220 --> 00:37:51,740
+[Music]
+
+633
+00:37:48,460 --> 00:37:54,770
+Midlands in the UK Midlands where is
+
+634
+00:37:51,740 --> 00:37:58,790
+milind and yes is summer but the weather
+
+635
+00:37:54,770 --> 00:38:01,190
+has been bad this week okay as long john
+
+636
+00:37:58,790 --> 00:38:05,150
+says as soon as whatever type of graphic
+
+637
+00:38:01,190 --> 00:38:09,020
+scheme you are using is consistent it
+
+638
+00:38:05,150 --> 00:38:11,480
+shouldn't matter which you use you're
+
+639
+00:38:09,020 --> 00:38:16,369
+welcome yeah thanks so thank you for the
+
+640
+00:38:11,480 --> 00:38:19,240
+donation quick episode thank you so I
+
+641
+00:38:16,369 --> 00:38:21,589
+think typography is critical insofar as
+
+642
+00:38:19,240 --> 00:38:23,869
+communication is critical good
+
+643
+00:38:21,589 --> 00:38:26,180
+typography should communicate well no I
+
+644
+00:38:23,869 --> 00:38:28,700
+don't think so I disagree well I mean
+
+645
+00:38:26,180 --> 00:38:33,140
+that's the thing that is the thing you
+
+646
+00:38:28,700 --> 00:38:34,130
+see so the if you cream type typography
+
+647
+00:38:33,140 --> 00:38:37,450
+is critical
+
+648
+00:38:34,130 --> 00:38:41,030
+insofar as communication is critical
+
+649
+00:38:37,450 --> 00:38:42,950
+well communication is absolutely
+
+650
+00:38:41,030 --> 00:38:45,170
+critical because that's you know we have
+
+651
+00:38:42,950 --> 00:38:47,990
+to communicate to do anything -
+
+652
+00:38:45,170 --> 00:38:50,900
+including - you know keep keep us being
+
+653
+00:38:47,990 --> 00:38:52,990
+alive we have to communicate but not
+
+654
+00:38:50,900 --> 00:38:56,869
+typography you know ten feet without
+
+655
+00:38:52,990 --> 00:38:58,520
+typography you can all you need you know
+
+656
+00:38:56,869 --> 00:38:59,119
+you don't need you can use mono space
+
+657
+00:38:58,520 --> 00:39:01,490
+foggy
+
+658
+00:38:59,119 --> 00:39:03,910
+you know just pick the most ugly fonts
+
+659
+00:39:01,490 --> 00:39:07,010
+without any you know the so-called
+
+660
+00:39:03,910 --> 00:39:11,359
+typography without any of that pick the
+
+661
+00:39:07,010 --> 00:39:13,940
+most ugly fun possible and we basically
+
+662
+00:39:11,359 --> 00:39:18,079
+communicate like you know there's no
+
+663
+00:39:13,940 --> 00:39:20,420
+lost of content no loss of anything now
+
+664
+00:39:18,079 --> 00:39:23,119
+with well of course that depends on how
+
+665
+00:39:20,420 --> 00:39:26,030
+what do you mean by typography you know
+
+666
+00:39:23,119 --> 00:39:29,119
+like so good you know some people when
+
+667
+00:39:26,030 --> 00:39:32,390
+they stink typography they include like
+
+668
+00:39:29,119 --> 00:39:34,880
+they were you know they include you know
+
+669
+00:39:32,390 --> 00:39:38,420
+printing they say printing that you know
+
+670
+00:39:34,880 --> 00:39:40,220
+if you cream printing is typography then
+
+671
+00:39:38,420 --> 00:39:41,000
+there's no argument of course printing
+
+672
+00:39:40,220 --> 00:39:44,270
+is critical
+
+673
+00:39:41,000 --> 00:39:46,790
+Prinny is you know critically important
+
+674
+00:39:44,270 --> 00:39:48,950
+without printing or technology we're
+
+675
+00:39:46,790 --> 00:39:52,520
+gonna fall apart you know the we the
+
+676
+00:39:48,950 --> 00:39:56,150
+whole USA but you know by next month you
+
+677
+00:39:52,520 --> 00:39:58,790
+wouldn't have food to eat so printing is
+
+678
+00:39:56,150 --> 00:40:01,670
+critical but printing is not typography
+
+679
+00:39:58,790 --> 00:40:05,630
+okay but you know if buddy
+
+680
+00:40:01,670 --> 00:40:07,670
+you are the typography fan you might you
+
+681
+00:40:05,630 --> 00:40:11,180
+know kind of include training as part of
+
+682
+00:40:07,670 --> 00:40:13,700
+Tiger typography you know so you know so
+
+683
+00:40:11,180 --> 00:40:17,930
+that depends on your definition but if
+
+684
+00:40:13,700 --> 00:40:21,500
+you you know think typography if you
+
+685
+00:40:17,930 --> 00:40:25,089
+define it is a kind of sort of art of
+
+686
+00:40:21,500 --> 00:40:28,460
+designing types you know typefaces font
+
+687
+00:40:25,089 --> 00:40:30,950
+designing printing like which like how
+
+688
+00:40:28,460 --> 00:40:33,230
+many spaces between lines how long how
+
+689
+00:40:30,950 --> 00:40:36,500
+long a line should be things like that
+
+690
+00:40:33,230 --> 00:40:38,750
+then that is typography that is actually
+
+691
+00:40:36,500 --> 00:40:41,960
+the definition proper you know
+
+692
+00:40:38,750 --> 00:40:45,710
+technically proper and is this critical
+
+693
+00:40:41,960 --> 00:40:49,039
+not really is this is it good we're good
+
+694
+00:40:45,710 --> 00:40:51,319
+to have yes obviously you know it's good
+
+695
+00:40:49,039 --> 00:40:53,599
+to have you know nice you know design
+
+696
+00:40:51,319 --> 00:40:56,990
+you know you have plenty of space you
+
+697
+00:40:53,599 --> 00:41:00,019
+know make it easy to read but also
+
+698
+00:40:56,990 --> 00:41:02,779
+another thing about type of typography
+
+699
+00:41:00,019 --> 00:41:04,760
+is that they say they claim for example
+
+700
+00:41:02,779 --> 00:41:08,390
+of these dashes they would claim it
+
+701
+00:41:04,760 --> 00:41:09,049
+makes it easy to read but not really
+
+702
+00:41:08,390 --> 00:41:14,140
+okay
+
+703
+00:41:09,049 --> 00:41:17,539
+some things in typography does influence
+
+704
+00:41:14,140 --> 00:41:20,960
+the ease of readings for example line
+
+705
+00:41:17,539 --> 00:41:23,809
+length and how many space between lines
+
+706
+00:41:20,960 --> 00:41:26,390
+that's obviously important you know
+
+707
+00:41:23,809 --> 00:41:31,130
+because you know or if the font is too
+
+708
+00:41:26,390 --> 00:41:33,880
+small or it you know it's critical but
+
+709
+00:41:31,130 --> 00:41:36,829
+that's not typically what this
+
+710
+00:41:33,880 --> 00:41:39,440
+typography people like if you watch this
+
+711
+00:41:36,829 --> 00:41:41,990
+documentary documentary that's not
+
+712
+00:41:39,440 --> 00:41:44,630
+typically what these kind of people talk
+
+713
+00:41:41,990 --> 00:41:47,240
+about they talk about the you
+
+714
+00:41:44,630 --> 00:41:50,269
+know little design issues like like this
+
+715
+00:41:47,240 --> 00:41:52,130
+Ian - me and - the thing you know the
+
+716
+00:41:50,269 --> 00:41:54,980
+ligature you know that's that's the
+
+717
+00:41:52,130 --> 00:41:59,450
+that's their concern and especially
+
+718
+00:41:54,980 --> 00:42:01,849
+donald knuth idiots with his teeth
+
+719
+00:41:59,450 --> 00:42:07,099
+you know this micro positioning of a
+
+720
+00:42:01,849 --> 00:42:09,529
+symbol like to him it's the important to
+
+721
+00:42:07,099 --> 00:42:14,109
+get it right like a little bit micro
+
+722
+00:42:09,529 --> 00:42:14,109
+pica you know whatever subpixels
+
+723
+00:42:15,310 --> 00:42:27,740
+okay so that autumn optimized good
+
+724
+00:42:24,070 --> 00:42:31,460
+communication so yeah so I think that
+
+725
+00:42:27,740 --> 00:42:33,230
+concludes okay that's a good topic today
+
+726
+00:42:31,460 --> 00:42:37,670
+that concludes the topic about
+
+727
+00:42:33,230 --> 00:42:43,840
+typography Google Maps let's go and look
+
+728
+00:42:37,670 --> 00:42:46,820
+check out where is Midlands Midlands in
+
+729
+00:42:43,840 --> 00:42:49,400
+England okay so the Midlands is the
+
+730
+00:42:46,820 --> 00:42:52,190
+geographical middle region of England oh
+
+731
+00:42:49,400 --> 00:42:56,150
+okay so that's kind of just a general
+
+732
+00:42:52,190 --> 00:43:05,350
+word I guess the party in between north
+
+733
+00:42:56,150 --> 00:43:07,760
+and south okay okay so that's typography
+
+734
+00:43:05,350 --> 00:43:10,430
+now I wonder I should whether I should
+
+735
+00:43:07,760 --> 00:43:13,430
+continue and talk something more about
+
+736
+00:43:10,430 --> 00:43:16,490
+typography because you know after all
+
+737
+00:43:13,430 --> 00:43:19,280
+that's a that's a good topic 40 40 40
+
+738
+00:43:16,490 --> 00:43:27,770
+minutes so anything else anything else
+
+739
+00:43:19,280 --> 00:43:30,140
+Sean and FMS so I'm thinking maybe
+
+740
+00:43:27,770 --> 00:43:34,370
+that's it for today because usually I be
+
+741
+00:43:30,140 --> 00:43:38,810
+I talk for you know an hour then becomes
+
+742
+00:43:34,370 --> 00:43:41,480
+90 minutes name becomes 2 hours so I
+
+743
+00:43:38,810 --> 00:43:45,260
+think it's probably better you know I
+
+744
+00:43:41,480 --> 00:43:48,610
+just talk one topic per video you know
+
+745
+00:43:45,260 --> 00:43:53,480
+like maybe today it's a good time to say
+
+746
+00:43:48,610 --> 00:43:58,190
+goodbye and you know this tomorrow and
+
+747
+00:43:53,480 --> 00:44:02,390
+do next one so so typography yeah
+
+748
+00:43:58,190 --> 00:44:10,780
+there's something about yeah it's it's
+
+749
+00:44:02,390 --> 00:44:10,780
+one of my big wrench let's see what else
+
+750
+00:44:15,040 --> 00:44:22,170
+okay so let me go over some of my other
+
+751
+00:44:17,850 --> 00:44:25,180
+blog things let's just see
+
+752
+00:44:22,170 --> 00:44:29,560
+so keyboard apartment programming
+
+753
+00:44:25,180 --> 00:44:32,920
+Department what we have okay this is a
+
+754
+00:44:29,560 --> 00:44:39,060
+bit history the history of get you can
+
+755
+00:44:32,920 --> 00:44:42,570
+see this is my blog from 2012 I say I
+
+756
+00:44:39,060 --> 00:44:48,670
+say been using it for several months now
+
+757
+00:44:42,570 --> 00:44:54,280
+before was SVN and CVS before I can say
+
+758
+00:44:48,670 --> 00:44:57,040
+I find get better kids man pages are
+
+759
+00:44:54,280 --> 00:45:00,130
+totally incomprehensible that is true
+
+760
+00:44:57,040 --> 00:45:02,200
+that is still true today in fact I was
+
+761
+00:45:00,130 --> 00:45:04,360
+just reading you know I was just trying
+
+762
+00:45:02,200 --> 00:45:07,240
+to do something today and get you know
+
+763
+00:45:04,360 --> 00:45:10,120
+about how to read it's totally
+
+764
+00:45:07,240 --> 00:45:12,790
+incomprehensible like this not many
+
+765
+00:45:10,120 --> 00:45:15,790
+people who actually understand it okay
+
+766
+00:45:12,790 --> 00:45:18,670
+of course you go to hacker news just
+
+767
+00:45:15,790 --> 00:45:21,820
+like the you know like in the 1990s you
+
+768
+00:45:18,670 --> 00:45:23,740
+have UNIX people talking about esoteric
+
+769
+00:45:21,820 --> 00:45:27,070
+things they think they understand but
+
+770
+00:45:23,740 --> 00:45:31,710
+they but it's really you know not very
+
+771
+00:45:27,070 --> 00:45:35,230
+many people understand kid really and
+
+772
+00:45:31,710 --> 00:45:38,680
+that's bad because you know if you look
+
+773
+00:45:35,230 --> 00:45:42,340
+at the whole popular population when you
+
+774
+00:45:38,680 --> 00:45:44,200
+create a tool it must be designed you
+
+775
+00:45:42,340 --> 00:45:48,220
+know how it however you know you think
+
+776
+00:45:44,200 --> 00:45:51,280
+it is good technically but the design
+
+777
+00:45:48,220 --> 00:45:54,370
+must be you know you must look at how
+
+778
+00:45:51,280 --> 00:45:58,450
+many percentage of the population can
+
+779
+00:45:54,370 --> 00:46:02,860
+use your tool can understand your tool
+
+780
+00:45:58,450 --> 00:46:07,180
+you know to to a good degree let's say
+
+781
+00:46:02,860 --> 00:46:10,480
+90 80 percent so if you look at the
+
+782
+00:46:07,180 --> 00:46:13,030
+population so forget how many percent
+
+783
+00:46:10,480 --> 00:46:15,880
+actually understand get you know if you
+
+784
+00:46:13,030 --> 00:46:19,390
+look at all the programmers who have to
+
+785
+00:46:15,880 --> 00:46:22,480
+use kid every day how many percent ten
+
+786
+00:46:19,390 --> 00:46:24,870
+percent no less five percent less one
+
+787
+00:46:22,480 --> 00:46:24,870
+percent
+
+788
+00:46:27,400 --> 00:46:33,549
+well I would say actually this depending
+
+789
+00:46:30,760 --> 00:46:36,039
+on what you know just to what degree you
+
+790
+00:46:33,549 --> 00:46:40,299
+claim you want to say to understand get
+
+791
+00:46:36,039 --> 00:46:43,390
+you know like it is just crap you know
+
+792
+00:46:40,299 --> 00:46:45,130
+but but but these kind of opinions will
+
+793
+00:46:43,390 --> 00:46:47,559
+go nowhere to order
+
+794
+00:46:45,130 --> 00:46:52,450
+you know UNIX philosophy things people
+
+795
+00:46:47,559 --> 00:46:58,029
+in fact get get as a tour is one of is
+
+796
+00:46:52,450 --> 00:47:01,500
+the last it's the last software of the
+
+797
+00:46:58,029 --> 00:47:04,900
+unit's philosophy school I would claim
+
+798
+00:47:01,500 --> 00:47:08,619
+of the UNIX school okay because it is
+
+799
+00:47:04,900 --> 00:47:14,079
+actually not like small small spherical
+
+800
+00:47:08,619 --> 00:47:24,460
+kitties like it kind of like huge let's
+
+801
+00:47:14,079 --> 00:47:30,400
+see what sorry get chicken real my
+
+802
+00:47:24,460 --> 00:47:34,890
+roommate is back so so I have a good
+
+803
+00:47:30,400 --> 00:47:39,220
+tutorial okay basic here basics here and
+
+804
+00:47:34,890 --> 00:47:42,160
+if you have used git then you know the
+
+805
+00:47:39,220 --> 00:47:45,009
+complexity I'm sure you know you know
+
+806
+00:47:42,160 --> 00:47:47,920
+you already know how how impossible to
+
+807
+00:47:45,009 --> 00:47:50,440
+understand it is but if you haven't used
+
+808
+00:47:47,920 --> 00:47:54,430
+it you know for example one example is
+
+809
+00:47:50,440 --> 00:47:56,230
+referred change yes and and the
+
+810
+00:47:54,430 --> 00:47:59,289
+difference you know you have the okay
+
+811
+00:47:56,230 --> 00:48:01,890
+River change you know you have git
+
+812
+00:47:59,289 --> 00:48:06,609
+checkout you have had you have this
+
+813
+00:48:01,890 --> 00:48:12,400
+checkout head checkout him and you can
+
+814
+00:48:06,609 --> 00:48:14,680
+check out a commit ID and you can revert
+
+815
+00:48:12,400 --> 00:48:17,559
+to you know it's very complex actually
+
+816
+00:48:14,680 --> 00:48:21,930
+and in fact if you try to read the man
+
+817
+00:48:17,559 --> 00:48:25,650
+page okay let me call the real git
+
+818
+00:48:21,930 --> 00:48:30,130
+checkout okay let's read the man page
+
+819
+00:48:25,650 --> 00:48:32,019
+you can see that you know nobody
+
+820
+00:48:30,130 --> 00:48:35,680
+understand you know I would cram this
+
+821
+00:48:32,019 --> 00:48:37,000
+than 1% let let me put a scientific
+
+822
+00:48:35,680 --> 00:48:40,090
+scientific
+
+823
+00:48:37,000 --> 00:48:42,700
+so this cream can be verified you know
+
+824
+00:48:40,090 --> 00:48:46,480
+as yes or no true or false
+
+825
+00:48:42,700 --> 00:48:50,560
+okay I would claim that less than 1% of
+
+826
+00:48:46,480 --> 00:48:52,860
+all the people who makes a living by
+
+827
+00:48:50,560 --> 00:48:57,670
+programming you know professional coders
+
+828
+00:48:52,860 --> 00:49:01,120
+who you know people whose primary income
+
+829
+00:48:57,670 --> 00:49:04,810
+is from programming okay of all those
+
+830
+00:49:01,120 --> 00:49:08,170
+people who has used it okay
+
+831
+00:49:04,810 --> 00:49:10,750
+well this one's a week okay every every
+
+832
+00:49:08,170 --> 00:49:15,220
+week once a week of all those people I
+
+833
+00:49:10,750 --> 00:49:18,310
+would claim less than 1% of people
+
+834
+00:49:15,220 --> 00:49:21,730
+actually understand get let me let me
+
+835
+00:49:18,310 --> 00:49:28,470
+make it more precise let's say less less
+
+836
+00:49:21,730 --> 00:49:28,470
+than 1% of people who can actually um
+
+837
+00:49:29,940 --> 00:49:35,650
+well understand it
+
+838
+00:49:32,230 --> 00:49:38,590
+yeah we can make it more precise by
+
+839
+00:49:35,650 --> 00:49:42,370
+let's say less than 1% people who
+
+840
+00:49:38,590 --> 00:49:44,170
+understand let's say this syntax who can
+
+841
+00:49:42,370 --> 00:49:47,920
+actually explain this thing I skip
+
+842
+00:49:44,170 --> 00:49:51,220
+checkout branch then start point you
+
+843
+00:49:47,920 --> 00:49:53,830
+know like you just should you just show
+
+844
+00:49:51,220 --> 00:49:57,160
+them this lie and tell them to explain
+
+845
+00:49:53,830 --> 00:50:00,460
+and you can you can verify whether they
+
+846
+00:49:57,160 --> 00:50:05,290
+succeeded in their explanation by for
+
+847
+00:50:00,460 --> 00:50:07,930
+example you ask 100 programmers to
+
+848
+00:50:05,290 --> 00:50:09,790
+listen to his explanation and see if
+
+849
+00:50:07,930 --> 00:50:12,520
+those programmers understand what he is
+
+850
+00:50:09,790 --> 00:50:14,410
+talking about so that's a claim okay
+
+851
+00:50:12,520 --> 00:50:18,490
+less than 1% for saying that people
+
+852
+00:50:14,410 --> 00:50:24,160
+understand get so that so that means is
+
+853
+00:50:18,490 --> 00:50:25,900
+it's not good um - okay well in one
+
+854
+00:50:24,160 --> 00:50:30,070
+sense you can you could say it's
+
+855
+00:50:25,900 --> 00:50:32,080
+actually some tool are good even though
+
+856
+00:50:30,070 --> 00:50:34,870
+most people do not understand it because
+
+857
+00:50:32,080 --> 00:50:38,320
+some tools are for example you could
+
+858
+00:50:34,870 --> 00:50:41,020
+sprain you could say you know that some
+
+859
+00:50:38,320 --> 00:50:43,120
+tools are low level tools you know so
+
+860
+00:50:41,020 --> 00:50:46,150
+they provide some kind of foundation I
+
+861
+00:50:43,120 --> 00:50:47,680
+mean they are low level so so on top of
+
+862
+00:50:46,150 --> 00:50:52,630
+the tool you can create
+
+863
+00:50:47,680 --> 00:50:54,790
+oh you know GUI or whatever you know but
+
+864
+00:50:52,630 --> 00:50:56,980
+you rely on the notable thing but that's
+
+865
+00:50:54,790 --> 00:50:58,510
+not true for kid you know kid is not a
+
+866
+00:50:56,980 --> 00:51:02,470
+low-level - okay
+
+867
+00:50:58,510 --> 00:51:05,470
+it's a code reversion system
+
+868
+00:51:02,470 --> 00:51:09,610
+it's not in any sense a low-level tool
+
+869
+00:51:05,470 --> 00:51:12,670
+its low-level only because it's it's its
+
+870
+00:51:09,610 --> 00:51:14,050
+design its exhibit low-level nice
+
+871
+00:51:12,670 --> 00:51:17,890
+because everything is like be
+
+872
+00:51:14,050 --> 00:51:19,990
+incomprehensible that is why and by the
+
+873
+00:51:17,890 --> 00:51:27,070
+way I I think a few years ago I have
+
+874
+00:51:19,990 --> 00:51:29,410
+seen a PhD thesis that that says a you
+
+875
+00:51:27,070 --> 00:51:32,980
+know the thesis is you know his ph.d
+
+876
+00:51:29,410 --> 00:51:36,400
+paper is about ravit it kind of a new
+
+877
+00:51:32,980 --> 00:51:39,040
+kid okay he claims you know he make made
+
+878
+00:51:36,400 --> 00:51:41,490
+a comment like it is nobody understand
+
+879
+00:51:39,040 --> 00:51:45,400
+it you know he incomprehensible and he
+
+880
+00:51:41,490 --> 00:51:48,490
+narrows down you know so this is his PhD
+
+881
+00:51:45,400 --> 00:51:51,790
+research he narrows down the problems
+
+882
+00:51:48,490 --> 00:51:55,960
+and he creates he created a new system
+
+883
+00:51:51,790 --> 00:51:59,740
+based on kid ok but a new system that
+
+884
+00:51:55,960 --> 00:52:04,150
+don't have this complexity so so I've
+
+885
+00:51:59,740 --> 00:52:08,980
+seen a PhD paper on that I think you can
+
+886
+00:52:04,150 --> 00:52:13,540
+probably probably find it you know you
+
+887
+00:52:08,980 --> 00:52:15,250
+know if you just search for get I don't
+
+888
+00:52:13,540 --> 00:52:18,220
+know it might be difficult to find it
+
+889
+00:52:15,250 --> 00:52:24,790
+but anyway yeah I think it was on Hacker
+
+890
+00:52:18,220 --> 00:52:28,720
+News anyway so it's a PhD paper but you
+
+891
+00:52:24,790 --> 00:52:32,320
+see I I think such a paper is really of
+
+892
+00:52:28,720 --> 00:52:35,040
+little practical effect I mean the life
+
+893
+00:52:32,320 --> 00:52:38,320
+is just gonna go on over his comment
+
+894
+00:52:35,040 --> 00:52:42,300
+read about that you know that's that's
+
+895
+00:52:38,320 --> 00:52:45,790
+another thing about technology is that
+
+896
+00:52:42,300 --> 00:52:50,440
+people really actually it is not the
+
+897
+00:52:45,790 --> 00:52:53,560
+quality of design that get get software
+
+898
+00:52:50,440 --> 00:52:55,930
+popular it is not that at all in fact
+
+899
+00:52:53,560 --> 00:52:59,470
+the mostly is about some many other
+
+900
+00:52:55,930 --> 00:53:00,700
+factors social factors about marketing
+
+901
+00:52:59,470 --> 00:53:03,430
+for example
+
+902
+00:53:00,700 --> 00:53:05,650
+about for example white kid became
+
+903
+00:53:03,430 --> 00:53:09,160
+popular you know back then so I was
+
+904
+00:53:05,650 --> 00:53:11,619
+talking about this my old block you know
+
+905
+00:53:09,160 --> 00:53:14,890
+there was back then you disobey sigh
+
+906
+00:53:11,619 --> 00:53:17,319
+it's just so funny it's so funny to hear
+
+907
+00:53:14,890 --> 00:53:20,859
+about it now do you see these people
+
+908
+00:53:17,319 --> 00:53:24,640
+this article white switch to pasa pasa
+
+909
+00:53:20,859 --> 00:53:26,470
+is the alternative we wish ravit
+
+910
+00:53:24,640 --> 00:53:29,470
+software version system okay by
+
+911
+00:53:26,470 --> 00:53:33,010
+canonical so they wrote an article why
+
+912
+00:53:29,470 --> 00:53:35,559
+switch to pasa in 2009 now remember in
+
+913
+00:53:33,010 --> 00:53:38,170
+2009 they are several other skid is one
+
+914
+00:53:35,559 --> 00:53:41,140
+of them mercury is one of them pasa is
+
+915
+00:53:38,170 --> 00:53:44,650
+one of them is mercury small way or no
+
+916
+00:53:41,140 --> 00:53:47,950
+get mercury is the two most popular then
+
+917
+00:53:44,650 --> 00:53:51,520
+do you have pasa they I think you have
+
+918
+00:53:47,950 --> 00:53:56,049
+yeah you have others but back then in
+
+919
+00:53:51,520 --> 00:53:57,579
+2009 no no one of them is more popular
+
+920
+00:53:56,049 --> 00:54:00,640
+than the other so they are like
+
+921
+00:53:57,579 --> 00:54:02,440
+competing eventually get warm out you
+
+922
+00:54:00,640 --> 00:54:05,049
+know basically all the other disappear
+
+923
+00:54:02,440 --> 00:54:10,119
+like they nobody is using them anymore
+
+924
+00:54:05,049 --> 00:54:16,510
+eventually you know one by one so what I
+
+925
+00:54:10,119 --> 00:54:25,319
+want to say before get software revision
+
+926
+00:54:16,510 --> 00:54:25,319
+systems it is very complex and
+
+927
+00:54:26,950 --> 00:54:32,049
+oh yeah white white kid became popular
+
+928
+00:54:29,500 --> 00:54:34,540
+you know popular popularity of
+
+929
+00:54:32,049 --> 00:54:40,020
+programming languages in software mostly
+
+930
+00:54:34,540 --> 00:54:42,609
+due to social causes almost nothing
+
+931
+00:54:40,020 --> 00:54:45,250
+having to do with the quality of the
+
+932
+00:54:42,609 --> 00:54:45,849
+design you know or the language okay so
+
+933
+00:54:45,250 --> 00:54:48,160
+kid
+
+934
+00:54:45,849 --> 00:54:51,240
+why did get warmer because first of all
+
+935
+00:54:48,160 --> 00:54:54,280
+because Lina's Lina's Lena's mother
+
+936
+00:54:51,240 --> 00:54:57,190
+Nina's Lina's you know he's very
+
+937
+00:54:54,280 --> 00:55:01,020
+extremely famous because he wrote the
+
+938
+00:54:57,190 --> 00:55:05,890
+Linux kernel so he's already you know a
+
+939
+00:55:01,020 --> 00:55:10,079
+huge major celebrity as a star so he
+
+940
+00:55:05,890 --> 00:55:12,640
+created a kid so there is a tremendous
+
+941
+00:55:10,079 --> 00:55:16,240
+marketing associated with that you know
+
+942
+00:55:12,640 --> 00:55:17,710
+this is just because like for example if
+
+943
+00:55:16,240 --> 00:55:20,049
+back in 2009
+
+944
+00:55:17,710 --> 00:55:23,440
+if you are new you know you want to pick
+
+945
+00:55:20,049 --> 00:55:26,170
+a software division system oh you know
+
+946
+00:55:23,440 --> 00:55:29,890
+so you see oh this kid is a mercury or
+
+947
+00:55:26,170 --> 00:55:31,990
+this about buzzer then you then then you
+
+948
+00:55:29,890 --> 00:55:34,960
+saw you know okay T is not by Lina's
+
+949
+00:55:31,990 --> 00:55:38,920
+Lina's oh yeah I know that guy oh quit
+
+950
+00:55:34,960 --> 00:55:41,700
+oh yeah he's a great code at all so you
+
+951
+00:55:38,920 --> 00:55:45,579
+automatically you know there's a
+
+952
+00:55:41,700 --> 00:55:48,369
+tremendous positive positive info for
+
+953
+00:55:45,579 --> 00:55:51,760
+you to pick it already without actually
+
+954
+00:55:48,369 --> 00:55:55,240
+you know trying it the no Curie you know
+
+955
+00:55:51,760 --> 00:55:59,619
+me I don't think he's made it's created
+
+956
+00:55:55,240 --> 00:56:02,740
+by any anyone's popular you know it so
+
+957
+00:55:59,619 --> 00:56:06,220
+there's no such marketing force for
+
+958
+00:56:02,740 --> 00:56:10,270
+mercury the positive things you heard
+
+959
+00:56:06,220 --> 00:56:13,270
+about ma mercury would be its simplicity
+
+960
+00:56:10,270 --> 00:56:15,069
+I would say and also because it's
+
+961
+00:56:13,270 --> 00:56:17,559
+written on in the Ruby
+
+962
+00:56:15,069 --> 00:56:21,480
+yeah I think it's written on Ruby Ruby
+
+963
+00:56:17,559 --> 00:56:24,369
+your pattern so remember back in 2009
+
+964
+00:56:21,480 --> 00:56:26,799
+Ruby on where you B's was very popular
+
+965
+00:56:24,369 --> 00:56:29,740
+back then because Ruby on Rails around
+
+966
+00:56:26,799 --> 00:56:31,420
+the same time so you know Ruby is over
+
+967
+00:56:29,740 --> 00:56:33,640
+the place so you'll be unreal oh this
+
+968
+00:56:31,420 --> 00:56:37,960
+you know it was a big framework
+
+969
+00:56:33,640 --> 00:56:42,070
+revolution then later on other language
+
+970
+00:56:37,960 --> 00:56:45,040
+copied it so so so I think mercury is
+
+971
+00:56:42,070 --> 00:56:48,190
+Rita Ruby don't quote me on that Ruby or
+
+972
+00:56:45,040 --> 00:56:50,320
+Python so maybe you see Oh Ruby oh great
+
+973
+00:56:48,190 --> 00:56:52,990
+yeah you know I'm a I'm a Ruby
+
+974
+00:56:50,320 --> 00:56:56,320
+programmer and you know so if I choose
+
+975
+00:56:52,990 --> 00:56:58,900
+mercury you know I would be able to give
+
+976
+00:56:56,320 --> 00:57:01,390
+me a gift it would give me more power so
+
+977
+00:56:58,900 --> 00:57:03,280
+that's one of the positive point about
+
+978
+00:57:01,390 --> 00:57:06,670
+mercury and and it's simple to
+
+979
+00:57:03,280 --> 00:57:09,790
+understand you know and pasa is mostly
+
+980
+00:57:06,670 --> 00:57:12,880
+the the the high point about pasa is
+
+981
+00:57:09,790 --> 00:57:16,660
+like it's free software support it is
+
+982
+00:57:12,880 --> 00:57:20,440
+the most one of the mono choices is one
+
+983
+00:57:16,660 --> 00:57:24,070
+of the most free free software like
+
+984
+00:57:20,440 --> 00:57:26,440
+copyleft and all that but they failed
+
+985
+00:57:24,070 --> 00:57:30,640
+they are the first one to go they failed
+
+986
+00:57:26,440 --> 00:57:37,270
+miserably and today he may even Emacs is
+
+987
+00:57:30,640 --> 00:57:44,619
+is using it now okay so that's about it
+
+988
+00:57:37,270 --> 00:57:45,339
+today so okay no more comments so ten
+
+989
+00:57:44,619 --> 00:57:48,420
+more seconds
+
+990
+00:57:45,339 --> 00:57:55,240
+now I'm gonna shut down type anything
+
+991
+00:57:48,420 --> 00:57:57,390
+any questions and thank you guys for
+
+992
+00:57:55,240 --> 00:57:57,390
+watching
+
+993
+00:58:10,730 --> 00:58:18,830
+have a good day more good stuff what
+
+994
+00:58:16,820 --> 00:58:29,180
+like what kind of good stuff like
+
+995
+00:58:18,830 --> 00:58:32,930
+tutorial 1 because tutorial wise you
+
+996
+00:58:29,180 --> 00:58:35,420
+know forget tutorial wise I don't really
+
+997
+00:58:32,930 --> 00:58:38,260
+have much thing to say because you know
+
+998
+00:58:35,420 --> 00:58:42,140
+and so I have this teacher for real and
+
+999
+00:58:38,260 --> 00:58:45,860
+this sketch tutorial they are focused on
+
+1000
+00:58:42,140 --> 00:58:49,220
+the most practical things you need to do
+
+1001
+00:58:45,860 --> 00:58:51,020
+like every P every person who uses get
+
+1002
+00:58:49,220 --> 00:58:53,150
+you know there are certain commands you
+
+1003
+00:58:51,020 --> 00:58:55,580
+use every day you don't have to
+
+1004
+00:58:53,150 --> 00:58:58,310
+understand the get you know but for most
+
+1005
+00:58:55,580 --> 00:59:02,480
+people you just you know get poor kid
+
+1006
+00:58:58,310 --> 00:59:05,780
+come on get poor get commit you know
+
+1007
+00:59:02,480 --> 00:59:07,850
+kids status it come in that's it you
+
+1008
+00:59:05,780 --> 00:59:10,850
+know that's you know and sometimes you
+
+1009
+00:59:07,850 --> 00:59:13,940
+need to get lock and you know so my my
+
+1010
+00:59:10,850 --> 00:59:16,310
+key tutorial is the you know focus on
+
+1011
+00:59:13,940 --> 00:59:19,340
+the most practical commands it may just
+
+1012
+00:59:16,310 --> 00:59:25,600
+tell you the commands they do not act
+
+1013
+00:59:19,340 --> 00:59:27,920
+you know try to explain kid because it's
+
+1014
+00:59:25,600 --> 00:59:31,370
+it's almost impossible to actually
+
+1015
+00:59:27,920 --> 00:59:37,150
+explain kid ok but you do have some
+
+1016
+00:59:31,370 --> 00:59:39,590
+effect use about what is head you know
+
+1017
+00:59:37,150 --> 00:59:43,850
+so that's what have the problem with kid
+
+1018
+00:59:39,590 --> 00:59:45,500
+you have all these jargons head so
+
+1019
+00:59:43,850 --> 00:59:47,810
+anyway so much you draw is mostly
+
+1020
+00:59:45,500 --> 00:59:50,900
+practical so you know if you never used
+
+1021
+00:59:47,810 --> 00:59:55,490
+it I think this might be useful to you
+
+1022
+00:59:50,900 --> 01:00:01,250
+as far as rent goes I don't have much
+
+1023
+00:59:55,490 --> 01:00:04,400
+friend about Gibbs yeah so I accept you
+
+1024
+01:00:01,250 --> 01:00:06,200
+know I think it's one of the worst you
+
+1025
+01:00:04,400 --> 01:00:09,920
+know what whatever rent I already talked
+
+1026
+01:00:06,200 --> 01:00:15,220
+about ok thank you guys for watching
+
+1027
+01:00:09,920 --> 01:00:15,220
+thank you Sean bye have a good day
+

@@ -1,0 +1,7627 @@
+1
+00:00:02,240 --> 00:00:09,519
+Good morning, good evening, good night.
+
+2
+00:00:05,359 --> 00:00:11,599
+Uh you are watching talk show. Uh we are
+
+3
+00:00:09,519 --> 00:00:14,480
+going to code
+
+4
+00:00:11,599 --> 00:00:16,640
+eag and python.
+
+5
+00:00:14,480 --> 00:00:20,160
+So if you are watching this offline,
+
+6
+00:00:16,640 --> 00:00:23,199
+play at 1.5 speed
+
+7
+00:00:20,160 --> 00:00:26,560
+necessarily. So if you are watching this
+
+8
+00:00:23,199 --> 00:00:30,720
+live, say hi here. Okay, say hi right
+
+9
+00:00:26,560 --> 00:00:32,399
+now. Concurrent viewers one that's
+
+10
+00:00:30,720 --> 00:00:35,520
+myself.
+
+11
+00:00:32,399 --> 00:00:38,800
+So okay uh EMAC this so video check
+
+12
+00:00:35,520 --> 00:00:42,320
+audio check video check audio check. So
+
+13
+00:00:38,800 --> 00:00:45,040
+Emac this coding. Okay now uh two days
+
+14
+00:00:42,320 --> 00:00:46,559
+ago we did a
+
+15
+00:00:45,040 --> 00:00:50,320
+episode
+
+16
+00:00:46,559 --> 00:00:53,360
+of San talk show episode 715
+
+17
+00:00:50,320 --> 00:00:56,399
+JavaScript markdown to HTML code
+
+18
+00:00:53,360 --> 00:01:00,320
+algorithm of text processing. So we
+
+19
+00:00:56,399 --> 00:01:03,520
+explored that uh fantastic that's 1 hour
+
+20
+00:01:00,320 --> 00:01:06,560
+go watch it. So and uh since about few
+
+21
+00:01:03,520 --> 00:01:09,760
+month ago we got video artificial
+
+22
+00:01:06,560 --> 00:01:11,360
+intelligence summary from Google.
+
+23
+00:01:09,760 --> 00:01:13,520
+Fantastic.
+
+24
+00:01:11,360 --> 00:01:17,040
+So it summarize what I'm talking about.
+
+25
+00:01:13,520 --> 00:01:19,119
+So you can read it you know just in 30
+
+26
+00:01:17,040 --> 00:01:22,240
+seconds you can see what's going on in
+
+27
+00:01:19,119 --> 00:01:24,960
+my video. The video itself is 1 hour and
+
+28
+00:01:22,240 --> 00:01:29,840
+if you watch at 1.5 speed which is
+
+29
+00:01:24,960 --> 00:01:32,479
+optimal then it's going to be uh let's
+
+30
+00:01:29,840 --> 00:01:37,360
+see that that's going to be divided by
+
+31
+00:01:32,479 --> 00:01:40,079
+so that you know this is a test 1.5.
+
+32
+00:01:37,360 --> 00:01:45,040
+So what you want to compute is 1 over
+
+33
+00:01:40,079 --> 00:01:48,560
+1.5. So the question is 60 minute video.
+
+34
+00:01:45,040 --> 00:01:52,000
+If you play at 1.5 speed, what's the
+
+35
+00:01:48,560 --> 00:01:55,600
+duration of the video? So the factor to
+
+36
+00:01:52,000 --> 00:01:59,600
+multiply would be 1 over 1.5. So that
+
+37
+00:01:55,600 --> 00:02:02,560
+would be equivalent to 10 over 15.
+
+38
+00:01:59,600 --> 00:02:07,360
+Multiply both top and bottom by 10. 10
+
+39
+00:02:02,560 --> 00:02:11,520
+over 15. Then you divide it by three uh
+
+40
+00:02:07,360 --> 00:02:15,200
+wait by five. So that's two over three.
+
+41
+00:02:11,520 --> 00:02:20,160
+So the mo the factor the scaling factor
+
+42
+00:02:15,200 --> 00:02:23,280
+is 2 over 3. So that's 2 of a3.
+
+43
+00:02:20,160 --> 00:02:28,000
+So so 60 minutes
+
+44
+00:02:23,280 --> 00:02:32,640
+uh divided by 3 * 2 divided by 3 is 20
+
+45
+00:02:28,000 --> 00:02:35,360
+minutes * 2 is 40 minutes. So 60 minutes
+
+46
+00:02:32,640 --> 00:02:38,160
+video become 40 minutes if you play at
+
+47
+00:02:35,360 --> 00:02:41,360
+1.5 speed.
+
+48
+00:02:38,160 --> 00:02:43,760
+Is that fantastic? You get that? Okay.
+
+49
+00:02:41,360 --> 00:02:46,319
+So now let's proceed to today's talk
+
+50
+00:02:43,760 --> 00:02:49,360
+show. So that's two today two days ago
+
+51
+00:02:46,319 --> 00:02:52,319
+we talked about the algorithm of text
+
+52
+00:02:49,360 --> 00:02:56,239
+processing. How do they do it of diverse
+
+53
+00:02:52,319 --> 00:02:58,319
+language designs Python Goland F. We
+
+54
+00:02:56,239 --> 00:03:02,159
+haven't got into it. JavaScript we
+
+55
+00:02:58,319 --> 00:03:06,000
+haven't. But anyway so today let's just
+
+56
+00:03:02,159 --> 00:03:08,000
+write a eaglist command emacs which is
+
+57
+00:03:06,000 --> 00:03:13,200
+what I'm using right now. It's more
+
+58
+00:03:08,000 --> 00:03:16,319
+efficient than VS code. You Microsoft
+
+59
+00:03:13,200 --> 00:03:19,200
+you unlearned Microsoft people you know
+
+60
+00:03:16,319 --> 00:03:22,879
+most popular VS code.
+
+61
+00:03:19,200 --> 00:03:25,200
+So uh what what is VS code for example
+
+62
+00:03:22,879 --> 00:03:30,000
+open in VS code this command I wrote in
+
+63
+00:03:25,200 --> 00:03:33,920
+eac list this. So eac list starting VS
+
+64
+00:03:30,000 --> 00:03:36,400
+code. Now every time I start VS code I
+
+65
+00:03:33,920 --> 00:03:38,959
+want to show you this. So VS code just
+
+66
+00:03:36,400 --> 00:03:42,560
+one single file you know open this file
+
+67
+00:03:38,959 --> 00:03:44,879
+in VS code you see right there and uh
+
+68
+00:03:42,560 --> 00:03:49,040
+you know compared let's go to the top
+
+69
+00:03:44,879 --> 00:03:53,200
+you see doc type html s talk show 2025
+
+70
+00:03:49,040 --> 00:03:56,560
+1123 episode 716
+
+71
+00:03:53,200 --> 00:03:59,439
+and here is vs code same thing okay now
+
+72
+00:03:56,560 --> 00:04:03,760
+how do I magnify let's see control
+
+73
+00:03:59,439 --> 00:04:06,080
+scroll doesn't work old scroll ah stupid
+
+74
+00:04:03,760 --> 00:04:08,959
+vs code doesn't follow the Windows
+
+75
+00:04:06,080 --> 00:04:13,400
+tradition. Control score doesn't work.
+
+76
+00:04:08,959 --> 00:04:13,400
+So now control +
+
+77
+00:04:13,680 --> 00:04:19,440
+even control plus doesn't work. What the
+
+78
+00:04:16,160 --> 00:04:20,959
+ VS Code. Oh, okay. Control plus
+
+79
+00:04:19,440 --> 00:04:23,840
+works.
+
+80
+00:04:20,959 --> 00:04:25,919
+So you can see VS Code is opening one
+
+81
+00:04:23,840 --> 00:04:28,400
+single file.
+
+82
+00:04:25,919 --> 00:04:30,800
+Actually two files because it got the
+
+83
+00:04:28,400 --> 00:04:36,160
+release notes whatever.
+
+84
+00:04:30,800 --> 00:04:38,639
+So, two files and the Emacs. Let's see.
+
+85
+00:04:36,160 --> 00:04:42,000
+I got a, you know, I got three files. In
+
+86
+00:04:38,639 --> 00:04:44,240
+fact, I can open 10 of them. So, uh
+
+87
+00:04:42,000 --> 00:04:46,960
+let's see.
+
+88
+00:04:44,240 --> 00:04:50,639
+Uh those are those are thumbnails. Those
+
+89
+00:04:46,960 --> 00:04:53,040
+are um you know, right now I'm actually
+
+90
+00:04:50,639 --> 00:04:56,560
+using a lot of memory because I'm
+
+91
+00:04:53,040 --> 00:05:00,639
+opening uh image files. Anyway, so let's
+
+92
+00:04:56,560 --> 00:05:02,720
+look at the memory usage. Every time I
+
+93
+00:05:00,639 --> 00:05:06,320
+open VS Code, I have to show you guys
+
+94
+00:05:02,720 --> 00:05:08,320
+this. So there it is. Emacs 105
+
+95
+00:05:06,320 --> 00:05:10,720
+mgabytes.
+
+96
+00:05:08,320 --> 00:05:13,199
+By the way, normally it's 60 megabytes
+
+97
+00:05:10,720 --> 00:05:16,320
+because I opened a few image files. It
+
+98
+00:05:13,199 --> 00:05:19,520
+it goes up, but after a while it go
+
+99
+00:05:16,320 --> 00:05:21,039
+down. Okay. 105 megabytes. Several image
+
+100
+00:05:19,520 --> 00:05:25,440
+files.
+
+101
+00:05:21,039 --> 00:05:28,160
+Now VS Code you can see one gigabyte
+
+102
+00:05:25,440 --> 00:05:31,199
+Jesus wait that's Google
+
+103
+00:05:28,160 --> 00:05:35,120
+that's Google Chrome so there it is VS
+
+104
+00:05:31,199 --> 00:05:36,960
+code 480 megabytes
+
+105
+00:05:35,120 --> 00:05:39,120
+you know if you start to do something
+
+106
+00:05:36,960 --> 00:05:41,759
+it's going to be G one gigabyte you so
+
+107
+00:05:39,120 --> 00:05:44,800
+that's a problem of VS code besides it's
+
+108
+00:05:41,759 --> 00:05:47,759
+less efficient than EMAC okay close it
+
+109
+00:05:44,800 --> 00:05:50,880
+shut it shut it
+
+110
+00:05:47,759 --> 00:05:53,919
+vs code it situation why is that Okay.
+
+111
+00:05:50,880 --> 00:05:56,080
+Well, let's not talk about it today. So,
+
+112
+00:05:53,919 --> 00:05:58,639
+anyway, let's let's So, today we're
+
+113
+00:05:56,080 --> 00:06:01,280
+going to do is uh let's close that uh
+
+114
+00:05:58,639 --> 00:06:05,199
+showing browser. We're going to do our
+
+115
+00:06:01,280 --> 00:06:07,199
+talk show. Uh yeah, let's get a Python.
+
+116
+00:06:05,199 --> 00:06:11,680
+So, we're going to download a Python
+
+117
+00:06:07,199 --> 00:06:14,479
+program that does markdown to HTML.
+
+118
+00:06:11,680 --> 00:06:16,400
+Convert markdown to HTML. Then we're
+
+119
+00:06:14,479 --> 00:06:20,000
+going to write emac this code to call
+
+120
+00:06:16,400 --> 00:06:22,880
+that Python program so that so that we
+
+121
+00:06:20,000 --> 00:06:26,160
+can have you know convert uh markdown to
+
+122
+00:06:22,880 --> 00:06:29,919
+HTML right here. So actually let me just
+
+123
+00:06:26,160 --> 00:06:32,240
+show you okay so uh make sure today yeah
+
+124
+00:06:29,919 --> 00:06:35,440
+so markdown tutorial if you don't know
+
+125
+00:06:32,240 --> 00:06:39,880
+what that is copy this uh uh this
+
+126
+00:06:35,440 --> 00:06:39,880
+markdown tutorial is kalei.info
+
+127
+00:06:39,919 --> 00:06:46,800
+info, then search for markdown.
+
+128
+00:06:44,319 --> 00:06:49,600
+Okay, so you search it, you'll find it.
+
+129
+00:06:46,800 --> 00:06:52,800
+And there it is. Kasali.info
+
+130
+00:06:49,600 --> 00:06:56,960
+markdown tutorial. No HTTPS
+
+131
+00:06:52,800 --> 00:06:59,199
+in the URL. It's just HTTP, no s. Okay,
+
+132
+00:06:56,960 --> 00:07:02,479
+don't be fooled by browser telling you
+
+133
+00:06:59,199 --> 00:07:07,520
+security problem. This site is insecure
+
+134
+00:07:02,479 --> 00:07:09,840
+because something my website is not
+
+135
+00:07:07,520 --> 00:07:13,120
+telling you to send me credit card so
+
+136
+00:07:09,840 --> 00:07:18,240
+you don't need https
+
+137
+00:07:13,120 --> 00:07:20,560
+the coding uh populace has been fooled
+
+138
+00:07:18,240 --> 00:07:23,520
+anyway markdown tutorial so you find it
+
+139
+00:07:20,560 --> 00:07:26,720
+and okay close it so here we already
+
+140
+00:07:23,520 --> 00:07:30,080
+copied it so that's markdown so you
+
+141
+00:07:26,720 --> 00:07:32,080
+select all then you press a key look at
+
+142
+00:07:30,080 --> 00:07:34,800
+the pink window on the left. You can see
+
+143
+00:07:32,080 --> 00:07:40,000
+the command I call press a key. You see
+
+144
+00:07:34,800 --> 00:07:42,720
+the command is HTML markdown to HTML
+
+145
+00:07:40,000 --> 00:07:45,520
+right here and tab S is my key. I'm
+
+146
+00:07:42,720 --> 00:07:48,000
+using softly keys and I'm using War
+
+147
+00:07:45,520 --> 00:07:50,960
+keyboard layout. Softly keys is the most
+
+148
+00:07:48,000 --> 00:07:54,080
+efficient keybinding system for Emacs. I
+
+149
+00:07:50,960 --> 00:07:58,319
+talked about it in almost every video of
+
+150
+00:07:54,080 --> 00:08:01,039
+my 700 videos. Okay. So, you can see it
+
+151
+00:07:58,319 --> 00:08:04,960
+converted to markdown. So undo. So this
+
+152
+00:08:01,039 --> 00:08:09,199
+is marked down. Now redo. Go to the top.
+
+153
+00:08:04,960 --> 00:08:12,319
+This is converted to um
+
+154
+00:08:09,199 --> 00:08:15,840
+to HTML. So you can see but so this is
+
+155
+00:08:12,319 --> 00:08:18,960
+this command I showed you guys two days
+
+156
+00:08:15,840 --> 00:08:22,720
+ago. This emac this. So copy it. New
+
+157
+00:08:18,960 --> 00:08:27,280
+buffer paste it 130 lines. So there it
+
+158
+00:08:22,720 --> 00:08:30,000
+is. So show in eax this mode. So you see
+
+159
+00:08:27,280 --> 00:08:33,919
+pretty short text processing. Okay,
+
+160
+00:08:30,000 --> 00:08:37,039
+close that. Close that. But so this is
+
+161
+00:08:33,919 --> 00:08:39,760
+the result. But it's not it's not there
+
+162
+00:08:37,039 --> 00:08:42,560
+are some errors. So I talked about uh
+
+163
+00:08:39,760 --> 00:08:45,600
+two days ago the major issues is that
+
+164
+00:08:42,560 --> 00:08:49,040
+you have when you have nested list and
+
+165
+00:08:45,600 --> 00:08:51,920
+when you have table table
+
+166
+00:08:49,040 --> 00:08:56,880
+in markdown or when you have a code
+
+167
+00:08:51,920 --> 00:09:00,160
+block of code that contains markdown
+
+168
+00:08:56,880 --> 00:09:04,000
+text itself. Okay, that's that's a
+
+169
+00:09:00,160 --> 00:09:06,320
+issue. So let's see if all these other
+
+170
+00:09:04,000 --> 00:09:08,560
+programs you know written in Python in
+
+171
+00:09:06,320 --> 00:09:10,640
+Golang in JavaScript let's see if you
+
+172
+00:09:08,560 --> 00:09:13,120
+they actually
+
+173
+00:09:10,640 --> 00:09:15,920
+deal with those situations okay like
+
+174
+00:09:13,120 --> 00:09:19,839
+especially when you have code
+
+175
+00:09:15,920 --> 00:09:22,080
+of Python for example that process so if
+
+176
+00:09:19,839 --> 00:09:26,480
+you you have a code Python code that
+
+177
+00:09:22,080 --> 00:09:30,240
+process is markdown itself so you have
+
+178
+00:09:26,480 --> 00:09:32,560
+so that's so you want to turn that into
+
+179
+00:09:30,240 --> 00:09:34,399
+uh to HTML it's going to create a
+
+180
+00:09:32,560 --> 00:09:37,279
+problem. Let's see if they uh do that.
+
+181
+00:09:34,399 --> 00:09:40,399
+Okay. So, close that. So, showing
+
+182
+00:09:37,279 --> 00:09:43,120
+browser again. So, so the first job, the
+
+183
+00:09:40,399 --> 00:09:47,080
+first job is we want to ask artificial
+
+184
+00:09:43,120 --> 00:09:47,080
+intelligence guiological
+
+185
+00:09:47,839 --> 00:09:52,560
+intelligence
+
+186
+00:09:50,240 --> 00:09:56,760
+um
+
+187
+00:09:52,560 --> 00:09:56,760
+let's say uh Python
+
+188
+00:09:56,959 --> 00:10:04,000
+markdown to HTML. It'll tell me which
+
+189
+00:10:00,560 --> 00:10:06,240
+one to get. Okay, here are the most
+
+190
+00:10:04,000 --> 00:10:09,279
+common and effective ways to convert
+
+191
+00:10:06,240 --> 00:10:11,839
+markdown to HTML in Python using
+
+192
+00:10:09,279 --> 00:10:15,200
+markdown. Most popular recommended. So,
+
+193
+00:10:11,839 --> 00:10:19,279
+pip install markdown. Okay, there it is.
+
+194
+00:10:15,200 --> 00:10:22,560
+So, now let's uh hold on. Wait, wait for
+
+195
+00:10:19,279 --> 00:10:25,839
+it to finish. Let's magnify.
+
+196
+00:10:22,560 --> 00:10:28,560
+Magnify so you can see the glorious
+
+197
+00:10:25,839 --> 00:10:33,440
+text.
+
+198
+00:10:28,560 --> 00:10:33,440
+Okay. So, uh let's do it again.
+
+199
+00:10:34,160 --> 00:10:40,320
+Okay, this is this is not turning into
+
+200
+00:10:38,160 --> 00:10:42,880
+this. I want to magnify the window.
+
+201
+00:10:40,320 --> 00:10:46,920
+Stupid. You know the the cruiser doesn't
+
+202
+00:10:42,880 --> 00:10:46,920
+change. Okay.
+
+203
+00:10:49,120 --> 00:10:56,240
+Okay. This is kind of idiotic.
+
+204
+00:10:52,000 --> 00:10:59,040
+Okay. So anyway, so um so you do you got
+
+205
+00:10:56,240 --> 00:11:02,640
+to do pip install markdown. Okay. So
+
+206
+00:10:59,040 --> 00:11:06,200
+that's too big. Shrink, shrink, shrink,
+
+207
+00:11:02,640 --> 00:11:06,200
+shrink, shrink.
+
+208
+00:11:08,959 --> 00:11:15,760
+Okay. PIP install markdown. Now, should
+
+209
+00:11:12,959 --> 00:11:19,360
+do I should I do it? Yeah. Okay, let's
+
+210
+00:11:15,760 --> 00:11:22,560
+Why not? So, I can do it in ESL or I can
+
+211
+00:11:19,360 --> 00:11:26,560
+go to PowerShell.
+
+212
+00:11:22,560 --> 00:11:29,959
+Let's uh let's do it in PowerShell.
+
+213
+00:11:26,560 --> 00:11:29,959
+So, magnify
+
+214
+00:11:33,200 --> 00:11:38,839
+paste. Okay, let's do it.
+
+215
+00:11:40,720 --> 00:11:46,240
+Downloading markdown. Same thing. Same
+
+216
+00:11:43,680 --> 00:11:52,200
+thing. Up to date pit upgrade. A new
+
+217
+00:11:46,240 --> 00:11:52,200
+release of pip pip is available. Okay.
+
+218
+00:11:52,240 --> 00:11:58,399
+Python m pip install upgrade pip to
+
+219
+00:11:55,760 --> 00:12:03,200
+update run.
+
+220
+00:11:58,399 --> 00:12:05,120
+Okay. Downloading markdown 3.10 Python 3
+
+221
+00:12:03,200 --> 00:12:08,240
+none any something something something
+
+222
+00:12:05,120 --> 00:12:11,200
+something installing collected packages
+
+223
+00:12:08,240 --> 00:12:14,160
+markdown. Okay. Successful installed. So
+
+224
+00:12:11,200 --> 00:12:18,279
+that's good enough for me.
+
+225
+00:12:14,160 --> 00:12:18,279
+Uh let's so
+
+226
+00:12:18,399 --> 00:12:24,079
+let's
+
+227
+00:12:20,000 --> 00:12:27,200
+track the AI answer so we get so close
+
+228
+00:12:24,079 --> 00:12:29,120
+that show browser. So, are you guys here
+
+229
+00:12:27,200 --> 00:12:32,000
+with me?
+
+230
+00:12:29,120 --> 00:12:35,120
+Okay. Say something. Oh, fantastic.
+
+231
+00:12:32,000 --> 00:12:39,000
+We're gonna check your comments
+
+232
+00:12:35,120 --> 00:12:39,000
+in a minute. Okay.
+
+233
+00:12:39,839 --> 00:12:45,920
+Fantastic.
+
+234
+00:12:42,320 --> 00:12:48,160
+Okay. Showing browser. Uh yeah. So, we
+
+235
+00:12:45,920 --> 00:12:51,279
+got Yeah. So, we got first of all, we
+
+236
+00:12:48,160 --> 00:12:54,160
+got the question. Uh
+
+237
+00:12:51,279 --> 00:12:58,399
+let's see.
+
+238
+00:12:54,160 --> 00:13:02,360
+Okay. So we got Python markdown to HTML.
+
+239
+00:12:58,399 --> 00:13:02,360
+So copy the URL.
+
+240
+00:13:02,399 --> 00:13:09,600
+Copy the link. So this is AI bot answer
+
+241
+00:13:06,320 --> 00:13:11,680
+showing browser there. Okay. Click it.
+
+242
+00:13:09,600 --> 00:13:14,880
+It's public.
+
+243
+00:13:11,680 --> 00:13:18,240
+So you guys can look at
+
+244
+00:13:14,880 --> 00:13:20,639
+okay. Python markdown to HTML. Then uh
+
+245
+00:13:18,240 --> 00:13:24,399
+then it says this is how you do it.
+
+246
+00:13:20,639 --> 00:13:26,639
+Let's let's let's do it. Okay. So,
+
+247
+00:13:24,399 --> 00:13:29,279
+Python,
+
+248
+00:13:26,639 --> 00:13:33,120
+paste the code. Pop it out. Let's look
+
+249
+00:13:29,279 --> 00:13:40,120
+at how it's going.
+
+250
+00:13:33,120 --> 00:13:40,120
+Okay. Hello world from Python mode. Uh,
+
+251
+00:13:41,040 --> 00:13:46,800
+now this code is incorrect. You see the
+
+252
+00:13:44,480 --> 00:13:52,639
+bracket
+
+253
+00:13:46,800 --> 00:13:56,160
+I mean the triple quote is not closed.
+
+254
+00:13:52,639 --> 00:14:00,399
+The AI idiot.
+
+255
+00:13:56,160 --> 00:14:03,199
+Hi AI. You are an idiot. Oh, you see
+
+256
+00:14:00,399 --> 00:14:07,120
+this is a mistake. It dropped there. So,
+
+257
+00:14:03,199 --> 00:14:10,320
+let's see. So, supposedly
+
+258
+00:14:07,120 --> 00:14:13,839
+No, that's not right. So, let's see. So,
+
+259
+00:14:10,320 --> 00:14:19,160
+it's a string and here's markdown
+
+260
+00:14:13,839 --> 00:14:19,160
+uh and uh and uh then
+
+261
+00:14:19,600 --> 00:14:28,000
+yeah, markdown text. So,
+
+262
+00:14:23,519 --> 00:14:29,839
+and uh when what is that?
+
+263
+00:14:28,000 --> 00:14:33,360
+Uh
+
+264
+00:14:29,839 --> 00:14:35,839
+markdown text. And wait, this is this is
+
+265
+00:14:33,360 --> 00:14:37,920
+all up. Where's the function?
+
+266
+00:14:35,839 --> 00:14:40,000
+Where's the function called to convert
+
+267
+00:14:37,920 --> 00:14:42,480
+it?
+
+268
+00:14:40,000 --> 00:14:46,240
+Oh, here.
+
+269
+00:14:42,480 --> 00:14:49,920
+Stupid. You see? You see the guac got
+
+270
+00:14:46,240 --> 00:14:53,279
+syntax like uh rendering issues when you
+
+271
+00:14:49,920 --> 00:14:57,040
+have code involving this back tick and
+
+272
+00:14:53,279 --> 00:15:00,800
+quote that typically happens. Okay. So
+
+273
+00:14:57,040 --> 00:15:04,240
+let's see. So here is uh so here is the
+
+274
+00:15:00,800 --> 00:15:07,920
+code. So you don't need the triple back
+
+275
+00:15:04,240 --> 00:15:10,320
+tick. Does it mean anything in
+
+276
+00:15:07,920 --> 00:15:12,240
+Python? Um
+
+277
+00:15:10,320 --> 00:15:16,639
+no.
+
+278
+00:15:12,240 --> 00:15:21,760
+So this is a variable markdown. So that
+
+279
+00:15:16,639 --> 00:15:24,720
+that that should be hello. Uh
+
+280
+00:15:21,760 --> 00:15:26,880
+what why are they printing these
+
+281
+00:15:24,720 --> 00:15:30,399
+idiots?
+
+282
+00:15:26,880 --> 00:15:32,639
+It should print HTML. Okay. So let's
+
+283
+00:15:30,399 --> 00:15:38,240
+name it XHTML.
+
+284
+00:15:32,639 --> 00:15:42,240
+Copy and just print that value. Okay. So
+
+285
+00:15:38,240 --> 00:15:44,560
+now press a key to format pretty format
+
+286
+00:15:42,240 --> 00:15:46,959
+the code. Let's see if there's a syntax
+
+287
+00:15:44,560 --> 00:15:49,360
+error. Wait,
+
+288
+00:15:46,959 --> 00:15:54,160
+press this key
+
+289
+00:15:49,360 --> 00:15:58,720
+Python format buffer. That's right. So
+
+290
+00:15:54,160 --> 00:16:01,120
+So let's say that do it. Okay. No, you
+
+291
+00:15:58,720 --> 00:16:06,880
+cannot have that. Wait, you cannot do
+
+292
+00:16:01,120 --> 00:16:10,160
+that. Do that. Okay. and say do that.
+
+293
+00:16:06,880 --> 00:16:12,320
+Okay, it's formatted now. Let's run a
+
+294
+00:16:10,160 --> 00:16:14,399
+code. Run.
+
+295
+00:16:12,320 --> 00:16:18,320
+Oh,
+
+296
+00:16:14,399 --> 00:16:20,800
+beautiful. Let's see. Compare both
+
+297
+00:16:18,320 --> 00:16:24,079
+italics. So, it seems to work.
+
+298
+00:16:20,800 --> 00:16:28,600
+Beautiful. Okay.
+
+299
+00:16:24,079 --> 00:16:28,600
+So, uh let's
+
+300
+00:16:28,800 --> 00:16:34,240
+let's change the v variable name because
+
+301
+00:16:31,440 --> 00:16:36,160
+I like them to start with x. So let me
+
+302
+00:16:34,240 --> 00:16:40,240
+read the comments, okay, before it's too
+
+303
+00:16:36,160 --> 00:16:42,399
+long. I enjoy agent coding now. No more
+
+304
+00:16:40,240 --> 00:16:44,800
+need to learn linear algebra data
+
+305
+00:16:42,399 --> 00:16:48,320
+structure and algorithm. What is agent
+
+306
+00:16:44,800 --> 00:16:52,320
+coding? I don't understand.
+
+307
+00:16:48,320 --> 00:16:55,040
+One Jesus by electron my friend eat my
+
+308
+00:16:52,320 --> 00:16:57,920
+ram. That's right. So do you recommend
+
+309
+00:16:55,040 --> 00:17:00,880
+to kill buffers that are not in use to
+
+310
+00:16:57,920 --> 00:17:03,600
+save memory? Okay, so let me answer that
+
+311
+00:17:00,880 --> 00:17:07,439
+question. So hold on a second. Okay, so
+
+312
+00:17:03,600 --> 00:17:11,600
+let's put the code back. Syntax color in
+
+313
+00:17:07,439 --> 00:17:14,240
+HTML show in browser. So this is today's
+
+314
+00:17:11,600 --> 00:17:17,760
+talk show. Fantastic. That's progress.
+
+315
+00:17:14,240 --> 00:17:21,679
+We downloaded a Python package markdown
+
+316
+00:17:17,760 --> 00:17:25,280
+and we run it, test it, it works.
+
+317
+00:17:21,679 --> 00:17:27,919
+Okay. And uh so hold on. So let me
+
+318
+00:17:25,280 --> 00:17:31,760
+answer the question about Emacs.
+
+319
+00:17:27,919 --> 00:17:33,679
+Question from ACP Junior. Do you
+
+320
+00:17:31,760 --> 00:17:37,520
+recommend to kill buffers that are not
+
+321
+00:17:33,679 --> 00:17:40,160
+in use to save memory? Okay.
+
+322
+00:17:37,520 --> 00:17:42,960
+So, Emacs you tend so here you know
+
+323
+00:17:40,160 --> 00:17:44,960
+Emacs you have lots of buffers like uh
+
+324
+00:17:42,960 --> 00:17:47,600
+you know I just compile something you
+
+325
+00:17:44,960 --> 00:17:50,240
+have compile lot list buffer go back to
+
+326
+00:17:47,600 --> 00:17:54,240
+list buffer you have validate HTML close
+
+327
+00:17:50,240 --> 00:17:57,360
+it it's empty because every time I open
+
+328
+00:17:54,240 --> 00:18:00,640
+something in browser there's a hook it
+
+329
+00:17:57,360 --> 00:18:02,720
+it will automatically validate the pages
+
+330
+00:18:00,640 --> 00:18:04,880
+HTML
+
+331
+00:18:02,720 --> 00:18:07,039
+so show in browser so you can see at the
+
+332
+00:18:04,880 --> 00:18:07,039
+bottom
+
+333
+00:18:07,440 --> 00:18:14,960
+HTML XML valid. Okay. So if I for
+
+334
+00:18:12,559 --> 00:18:17,520
+example delete that. Okay. Let's say
+
+335
+00:18:14,960 --> 00:18:21,480
+delete that section. You see it becomes
+
+336
+00:18:17,520 --> 00:18:21,480
+colored because
+
+337
+00:18:22,320 --> 00:18:28,880
+I'm using
+
+338
+00:18:24,240 --> 00:18:32,000
+HTML mode you know. So so here's my
+
+339
+00:18:28,880 --> 00:18:35,280
+source code. HTML mode is in fact
+
+340
+00:18:32,000 --> 00:18:38,240
+several files about 2,000 lines of code
+
+341
+00:18:35,280 --> 00:18:43,400
+act you know maybe 2,000 lines of code
+
+342
+00:18:38,240 --> 00:18:43,400
+so HTML so let's see
+
+343
+00:18:44,240 --> 00:18:52,160
+highlight them yellow so you see all
+
+344
+00:18:47,200 --> 00:18:56,400
+these are HTML part so HTML mode there
+
+345
+00:18:52,160 --> 00:18:59,679
+is a function that close close that will
+
+346
+00:18:56,400 --> 00:19:02,960
+validate the HTML buffer
+
+347
+00:18:59,679 --> 00:19:05,520
+So we wrote that about two or three
+
+348
+00:19:02,960 --> 00:19:09,120
+years ago live. Okay, just go to
+
+349
+00:19:05,520 --> 00:19:12,480
+YouTube, search validate HTML. We wrote
+
+350
+00:19:09,120 --> 00:19:14,559
+it live. So it's putting to great use.
+
+351
+00:19:12,480 --> 00:19:16,799
+So if you have this page like that, you
+
+352
+00:19:14,559 --> 00:19:18,640
+can call the command directly. Now watch
+
+353
+00:19:16,799 --> 00:19:21,520
+the pink window. You'll show my command
+
+354
+00:19:18,640 --> 00:19:24,480
+there. Okay. So let's press the key to
+
+355
+00:19:21,520 --> 00:19:29,200
+that that.
+
+356
+00:19:24,480 --> 00:19:34,400
+So you see error buffer todo.h HTML
+
+357
+00:19:29,200 --> 00:19:37,919
+closing tag SE at position 1 190 does
+
+358
+00:19:34,400 --> 00:19:42,799
+not does not match last open tag section
+
+359
+00:19:37,919 --> 00:19:46,400
+at position 1701. So let's go to 1 190.
+
+360
+00:19:42,799 --> 00:19:49,919
+So press press there it is it jumped to
+
+361
+00:19:46,400 --> 00:19:52,559
+the location of the arrow. You see?
+
+362
+00:19:49,919 --> 00:19:55,520
+So close that. We don't let's say we
+
+363
+00:19:52,559 --> 00:19:58,880
+don't we we let's say we didn't know. So
+
+364
+00:19:55,520 --> 00:20:02,000
+we simply wrote something. something uh
+
+365
+00:19:58,880 --> 00:20:05,840
+you know and we show in browser and boom
+
+366
+00:20:02,000 --> 00:20:09,440
+you see it automatically do a check and
+
+367
+00:20:05,840 --> 00:20:13,280
+tell me this error. Okay. So now undo
+
+368
+00:20:09,440 --> 00:20:16,000
+undo undo undo undo. So we back to the
+
+369
+00:20:13,280 --> 00:20:18,960
+section. Okay. Now
+
+370
+00:20:16,000 --> 00:20:22,640
+now let's close this. Okay. You expand
+
+371
+00:20:18,960 --> 00:20:26,240
+the window. Showing browser. You see it
+
+372
+00:20:22,640 --> 00:20:29,280
+says HTML XML valid.
+
+373
+00:20:26,240 --> 00:20:30,880
+That's the power of Emacisp
+
+374
+00:20:29,280 --> 00:20:33,039
+and I can show you the source code.
+
+375
+00:20:30,880 --> 00:20:35,919
+Okay, so the source code. So describe
+
+376
+00:20:33,039 --> 00:20:39,280
+key press
+
+377
+00:20:35,919 --> 00:20:43,840
+and here is the documentation HTML
+
+378
+00:20:39,280 --> 00:20:47,280
+validate XML buffer found in Kasa HTML
+
+379
+00:20:43,840 --> 00:20:51,600
+mode map which is an interactive byte
+
+380
+00:20:47,280 --> 00:20:55,440
+code function in HTML engine.el.
+
+381
+00:20:51,600 --> 00:20:57,440
+It is bound to the key tap uh on Vora
+
+382
+00:20:55,440 --> 00:21:00,640
+keyboard layout.
+
+383
+00:20:57,440 --> 00:21:04,799
+Okay. So go to the source code. There it
+
+384
+00:21:00,640 --> 00:21:07,919
+is. So we wrote this live. Okay. So you
+
+385
+00:21:04,799 --> 00:21:10,559
+guys can check it out. So date 2023.
+
+386
+00:21:07,919 --> 00:21:13,440
+That's two years ago.
+
+387
+00:21:10,559 --> 00:21:15,360
+Fantastic and beautiful. So close that.
+
+388
+00:21:13,440 --> 00:21:18,159
+So that's a digression. Okay. So close
+
+389
+00:21:15,360 --> 00:21:20,080
+that. Close that. Close that. So the
+
+390
+00:21:18,159 --> 00:21:22,640
+question is in EMAC you got all these
+
+391
+00:21:20,080 --> 00:21:26,480
+buffers.
+
+392
+00:21:22,640 --> 00:21:30,080
+Personally I close buffers I don't use
+
+393
+00:21:26,480 --> 00:21:32,400
+because I'm a functional programmer. You
+
+394
+00:21:30,080 --> 00:21:36,000
+know a functional programmer is a clean
+
+395
+00:21:32,400 --> 00:21:38,000
+programmer unlike the C and C++
+
+396
+00:21:36,000 --> 00:21:40,960
+bit dedas.
+
+397
+00:21:38,000 --> 00:21:44,799
+You know when you are done you close it
+
+398
+00:21:40,960 --> 00:21:49,039
+as as opposed to a lot EMAC users you
+
+399
+00:21:44,799 --> 00:21:51,280
+tends to accumulate buffers. So like
+
+400
+00:21:49,039 --> 00:21:53,760
+normally you don't shut down emacs. So
+
+401
+00:21:51,280 --> 00:21:57,200
+after a week you have few hundred
+
+402
+00:21:53,760 --> 00:22:01,200
+buffers open. Okay
+
+403
+00:21:57,200 --> 00:22:03,120
+I used to be like that. The reason Emacs
+
+404
+00:22:01,200 --> 00:22:05,679
+tends to accumulate buffer. You don't
+
+405
+00:22:03,120 --> 00:22:08,080
+close it. Like if you for example let's
+
+406
+00:22:05,679 --> 00:22:11,039
+okay refresh. Okay that's gone. So let's
+
+407
+00:22:08,080 --> 00:22:14,720
+say let's open this. Okay. So this is
+
+408
+00:22:11,039 --> 00:22:18,080
+the talk show index page.
+
+409
+00:22:14,720 --> 00:22:20,000
+Okay. So
+
+410
+00:22:18,080 --> 00:22:22,240
+so let's say I want to go to today's
+
+411
+00:22:20,000 --> 00:22:24,400
+talk show. So I you know today's talk
+
+412
+00:22:22,240 --> 00:22:28,080
+show is right here. So I just press
+
+413
+00:22:24,400 --> 00:22:30,640
+enter. Open it. Showing browser. That's
+
+414
+00:22:28,080 --> 00:22:34,480
+today's talk show.
+
+415
+00:22:30,640 --> 00:22:36,559
+Now what? So but you but if you list all
+
+416
+00:22:34,480 --> 00:22:39,520
+the buffer you can see the previous the
+
+417
+00:22:36,559 --> 00:22:42,480
+index page is still open. So you can see
+
+418
+00:22:39,520 --> 00:22:44,080
+there you see this index page is still
+
+419
+00:22:42,480 --> 00:22:48,159
+open.
+
+420
+00:22:44,080 --> 00:22:51,039
+So you tend so for I believe for most
+
+421
+00:22:48,159 --> 00:22:53,760
+EMAC user you just leave leave buffers
+
+422
+00:22:51,039 --> 00:22:57,039
+open. You just open what you want. You
+
+423
+00:22:53,760 --> 00:22:59,679
+don't bother to close them until one day
+
+424
+00:22:57,039 --> 00:23:02,480
+you find out oh my god I got you know
+
+425
+00:22:59,679 --> 00:23:06,640
+500. It's very common 300 buffers. You
+
+426
+00:23:02,480 --> 00:23:08,799
+know, I used to have like 300 buffers.
+
+427
+00:23:06,640 --> 00:23:11,760
+Then you start to close them. So you can
+
+428
+00:23:08,799 --> 00:23:17,240
+you can for example, there's a command Q
+
+429
+00:23:11,760 --> 00:23:17,240
+buffer um Q buffer
+
+430
+00:23:17,360 --> 00:23:23,440
+kill some buffers. Okay, that command
+
+431
+00:23:20,080 --> 00:23:26,640
+will go through each one and ask you.
+
+432
+00:23:23,440 --> 00:23:30,559
+Okay. Or you you know or you can just
+
+433
+00:23:26,640 --> 00:23:33,280
+quit the entire Emacs and start restart.
+
+434
+00:23:30,559 --> 00:23:35,360
+So personally my habit is always kill
+
+435
+00:23:33,280 --> 00:23:37,679
+the buffers I don't want I don't need.
+
+436
+00:23:35,360 --> 00:23:40,480
+I'm done you know using for so example
+
+437
+00:23:37,679 --> 00:23:43,200
+this talk show index page close it you
+
+438
+00:23:40,480 --> 00:23:46,799
+know I have fantastic one key press. You
+
+439
+00:23:43,200 --> 00:23:50,880
+see I just did that. Undo
+
+440
+00:23:46,799 --> 00:23:54,559
+reopen it you know. So one key then this
+
+441
+00:23:50,880 --> 00:23:59,799
+page this buffer validate HTML output. I
+
+442
+00:23:54,559 --> 00:23:59,799
+don't need it. That's close close.
+
+443
+00:24:00,320 --> 00:24:06,240
+Okay. So that's what I typically do. I
+
+444
+00:24:02,799 --> 00:24:09,280
+close buffers I don't need. So my buffer
+
+445
+00:24:06,240 --> 00:24:11,919
+are usually just like 10 10 20.
+
+446
+00:24:09,280 --> 00:24:15,200
+Sometimes I do batch. So you know 50
+
+447
+00:24:11,919 --> 00:24:19,919
+buffer then I close them all.
+
+448
+00:24:15,200 --> 00:24:22,480
+That's my habit. Now the reason
+
+449
+00:24:19,919 --> 00:24:24,640
+people tend to accumulate buffers in
+
+450
+00:24:22,480 --> 00:24:26,640
+EMAC
+
+451
+00:24:24,640 --> 00:24:30,400
+you know you have a few hundred is
+
+452
+00:24:26,640 --> 00:24:32,559
+because the EMAC command to kill buffer
+
+453
+00:24:30,400 --> 00:24:35,200
+is this.
+
+454
+00:24:32,559 --> 00:24:38,880
+Okay that's a EMAC command when you call
+
+455
+00:24:35,200 --> 00:24:40,880
+it it's very annoying.
+
+456
+00:24:38,880 --> 00:24:43,360
+Are you sure? Are you sure this is the
+
+457
+00:24:40,880 --> 00:24:45,520
+one you want to kill? Kill means close
+
+458
+00:24:43,360 --> 00:24:48,960
+by the way. That's a traditional hacker
+
+459
+00:24:45,520 --> 00:24:53,279
+word for close or Q process, you know,
+
+460
+00:24:48,960 --> 00:24:55,440
+like like close. Okay. Are you sure?
+
+461
+00:24:53,279 --> 00:24:58,240
+Very annoying. So you have to say yes or
+
+462
+00:24:55,440 --> 00:25:01,520
+no, you know, like yes, then you kill
+
+463
+00:24:58,240 --> 00:25:05,679
+that. So that's annoying. So why you
+
+464
+00:25:01,520 --> 00:25:08,320
+want to you know so that's why buffers
+
+465
+00:25:05,679 --> 00:25:11,440
+tend to accumulate because you got this
+
+466
+00:25:08,320 --> 00:25:13,600
+the default command Q buffer
+
+467
+00:25:11,440 --> 00:25:15,919
+affirms you know asking a question to
+
+468
+00:25:13,600 --> 00:25:23,600
+affirm you annoying
+
+469
+00:25:15,919 --> 00:25:27,840
+and uh and go to Emacs blog search
+
+470
+00:25:23,600 --> 00:25:31,600
+search for kio buffer you'll find I have
+
+471
+00:25:27,840 --> 00:25:33,919
+an article on that emac Next flaw kill
+
+472
+00:25:31,600 --> 00:25:35,600
+buffer command induces buffer
+
+473
+00:25:33,919 --> 00:25:38,559
+accumulation.
+
+474
+00:25:35,600 --> 00:25:41,200
+That is my research finding. That's the
+
+475
+00:25:38,559 --> 00:25:43,679
+reason people have so many like hundreds
+
+476
+00:25:41,200 --> 00:25:46,240
+buffers and they tend to brag about it.
+
+477
+00:25:43,679 --> 00:25:50,000
+Look, look at my Emacs. I got 500
+
+478
+00:25:46,240 --> 00:25:53,760
+buffers. That means I'm powerful.
+
+479
+00:25:50,000 --> 00:25:58,400
+No, because your user interface design
+
+480
+00:25:53,760 --> 00:26:01,440
+is So that induces this garbage.
+
+481
+00:25:58,400 --> 00:26:04,559
+That's the real reason. Okay. So this
+
+482
+00:26:01,440 --> 00:26:07,120
+article is 2012
+
+483
+00:26:04,559 --> 00:26:10,640
+and there is a collection of articles on
+
+484
+00:26:07,120 --> 00:26:16,400
+Emacs flow. Most of them written about
+
+485
+00:26:10,640 --> 00:26:18,880
+10 or uh years ago 10 or 20. Okay. So to
+
+486
+00:26:16,400 --> 00:26:20,799
+this day most you know many of these are
+
+487
+00:26:18,880 --> 00:26:23,120
+not fixed like most of these are not
+
+488
+00:26:20,799 --> 00:26:25,919
+fixed you know that's you know that's
+
+489
+00:26:23,120 --> 00:26:29,840
+Emacs that's open source.
+
+490
+00:26:25,919 --> 00:26:32,799
+So that answers your question about do I
+
+491
+00:26:29,840 --> 00:26:35,279
+close my buffer. However, I don't close
+
+492
+00:26:32,799 --> 00:26:37,919
+them because of memory to save memory.
+
+493
+00:26:35,279 --> 00:26:39,919
+Well, that's
+
+494
+00:26:37,919 --> 00:26:42,240
+I mean that's not you know that's not
+
+495
+00:26:39,919 --> 00:26:44,559
+not my primary reason especially today
+
+496
+00:26:42,240 --> 00:26:47,120
+in the past 10 years you got like few
+
+497
+00:26:44,559 --> 00:26:51,039
+gigabytes you know 16 gigabytes of
+
+498
+00:26:47,120 --> 00:26:54,960
+memory. So so Emacs doesn't
+
+499
+00:26:51,039 --> 00:26:58,559
+uh the memory doesn't grow.
+
+500
+00:26:54,960 --> 00:27:04,000
+Okay. So, no certificate.
+
+501
+00:26:58,559 --> 00:27:09,919
+Uh, yeah. Ching New Zealand 8.99. Thank
+
+502
+00:27:04,000 --> 00:27:13,679
+you, Johnny. Walk 9KS 9,000 miles.
+
+503
+00:27:09,919 --> 00:27:16,080
+Thank you. Do you have a question,
+
+504
+00:27:13,679 --> 00:27:19,200
+New Zealand?
+
+505
+00:27:16,080 --> 00:27:21,919
+Okay, that's a digression about Emacs.
+
+506
+00:27:19,200 --> 00:27:24,640
+Okay, so let's let's let's actually um
+
+507
+00:27:21,919 --> 00:27:27,919
+so let's go back to talk show. Wait,
+
+508
+00:27:24,640 --> 00:27:30,720
+this is already so uh let's not talk
+
+509
+00:27:27,919 --> 00:27:32,720
+about Emacs. Let's get this. So, we got
+
+510
+00:27:30,720 --> 00:27:36,000
+this done marked down Python code. I
+
+511
+00:27:32,720 --> 00:27:37,919
+want to look at the code. Okay, so but
+
+512
+00:27:36,000 --> 00:27:39,919
+actually we got it done. Well, wait. We
+
+513
+00:27:37,919 --> 00:27:43,559
+need to write a EMAC command to call
+
+514
+00:27:39,919 --> 00:27:43,559
+this. So,
+
+515
+00:27:43,919 --> 00:27:48,480
+okay. So, that's okay. Let's focus on
+
+516
+00:27:46,400 --> 00:27:51,360
+that. Let hope that we can do that
+
+517
+00:27:48,480 --> 00:27:54,880
+finish that in 30 minutes. Okay. So we
+
+518
+00:27:51,360 --> 00:27:58,000
+need to write a emac command to call to
+
+519
+00:27:54,880 --> 00:28:02,320
+to send whatever in current buffer you
+
+520
+00:27:58,000 --> 00:28:04,720
+know text to this Python program and uh
+
+521
+00:28:02,320 --> 00:28:08,640
+the Python will create a output then the
+
+522
+00:28:04,720 --> 00:28:10,960
+Emacs will grab the output and replace
+
+523
+00:28:08,640 --> 00:28:13,440
+the text in your screen. Okay, that's
+
+524
+00:28:10,960 --> 00:28:16,000
+what we're going to do. So let's let's
+
+525
+00:28:13,440 --> 00:28:18,320
+focus on that. Let's not digress too
+
+526
+00:28:16,000 --> 00:28:22,399
+much. Okay, so far so good. So far so
+
+527
+00:28:18,320 --> 00:28:25,120
+good. Say good guys. Applause. Please
+
+528
+00:28:22,399 --> 00:28:27,039
+make this lively. Okay. So, let's so
+
+529
+00:28:25,120 --> 00:28:30,000
+let's let's begin. Okay. So, that's a
+
+530
+00:28:27,039 --> 00:28:34,000
+command. So, um
+
+531
+00:28:30,000 --> 00:28:37,919
+uh Okay. So, now
+
+532
+00:28:34,000 --> 00:28:40,000
+emac lisp. Okay. So, let's quickly let
+
+533
+00:28:37,919 --> 00:28:44,960
+let me get some you know the template
+
+534
+00:28:40,000 --> 00:28:47,120
+things out of the way. So ka html
+
+535
+00:28:44,960 --> 00:28:51,120
+uh markdown
+
+536
+00:28:47,120 --> 00:28:53,679
+no hyphen markdown to html I think I
+
+537
+00:28:51,120 --> 00:28:57,039
+already have that function okay so yeah
+
+538
+00:28:53,679 --> 00:29:00,159
+so let's add python python variation
+
+539
+00:28:57,039 --> 00:29:02,320
+because my function is written in eacisp
+
+540
+00:29:00,159 --> 00:29:09,279
+okay okay now this is python variation
+
+541
+00:29:02,320 --> 00:29:09,279
+okay uh call the external command
+
+542
+00:29:14,720 --> 00:29:19,440
+to
+
+543
+00:29:16,559 --> 00:29:21,440
+um convert
+
+544
+00:29:19,440 --> 00:29:24,440
+the
+
+545
+00:29:21,440 --> 00:29:24,440
+current
+
+546
+00:29:25,440 --> 00:29:30,919
+X block
+
+547
+00:29:27,600 --> 00:29:30,919
+or selection
+
+548
+00:29:31,520 --> 00:29:37,760
+of markdown to HTML. Okay, that's a
+
+549
+00:29:35,120 --> 00:29:40,320
+documentation. All important.
+
+550
+00:29:37,760 --> 00:29:42,159
+Typical industrial programmers, they
+
+551
+00:29:40,320 --> 00:29:44,399
+they don't care, you know, they don't
+
+552
+00:29:42,159 --> 00:29:46,399
+write this, you know, they because they
+
+553
+00:29:44,399 --> 00:29:49,600
+can't type, they can't touch type, you
+
+554
+00:29:46,399 --> 00:29:53,520
+know, oh my god, oh my god, this too
+
+555
+00:29:49,600 --> 00:29:56,080
+much, you know, so and they are the
+
+556
+00:29:53,520 --> 00:30:01,279
+typical coders in the industry. Most
+
+557
+00:29:56,080 --> 00:30:04,000
+people C, C++, they are trial and error
+
+558
+00:30:01,279 --> 00:30:05,520
+coders most of them because they don't
+
+559
+00:30:04,000 --> 00:30:09,200
+know mathematics. They don't have
+
+560
+00:30:05,520 --> 00:30:12,320
+mathematical training. I I am a mathemat
+
+561
+00:30:09,200 --> 00:30:14,799
+mathematical type of coder. So I always
+
+562
+00:30:12,320 --> 00:30:16,799
+write the documentation first, you know,
+
+563
+00:30:14,799 --> 00:30:19,120
+spec first.
+
+564
+00:30:16,799 --> 00:30:21,520
+But the but but but the vast majority
+
+565
+00:30:19,120 --> 00:30:24,960
+from my experience in the industry vast
+
+566
+00:30:21,520 --> 00:30:28,320
+majority of coders they are kind of like
+
+567
+00:30:24,960 --> 00:30:30,080
+in intuition trial and error you know so
+
+568
+00:30:28,320 --> 00:30:32,559
+if they want to write this they just
+
+569
+00:30:30,080 --> 00:30:34,720
+start code right away. Oh you know they
+
+570
+00:30:32,559 --> 00:30:38,159
+can they can do it fast okay faster than
+
+571
+00:30:34,720 --> 00:30:40,720
+me but they they just start trial and oh
+
+572
+00:30:38,159 --> 00:30:44,480
+error oh got to fix that then error oh
+
+573
+00:30:40,720 --> 00:30:48,159
+but how you know trial and error. So my
+
+574
+00:30:44,480 --> 00:30:51,120
+style is opposite of that.
+
+575
+00:30:48,159 --> 00:30:54,640
+I write the documentation first and when
+
+576
+00:30:51,120 --> 00:30:57,120
+I code typically one shot coding I think
+
+577
+00:30:54,640 --> 00:30:59,360
+about the problem taking me an hour or
+
+578
+00:30:57,120 --> 00:31:03,600
+something something then when I start to
+
+579
+00:30:59,360 --> 00:31:06,080
+type type it once perfect typically then
+
+580
+00:31:03,600 --> 00:31:08,559
+I mean well this some exaggeration okay
+
+581
+00:31:06,080 --> 00:31:11,120
+but that's typically the case in
+
+582
+00:31:08,559 --> 00:31:14,000
+contrast to these most you know uh
+
+583
+00:31:11,120 --> 00:31:16,559
+industrial coders trial and error and
+
+584
+00:31:14,000 --> 00:31:18,960
+also I know the language down to you
+
+585
+00:31:16,559 --> 00:31:21,520
+know down to the last bone of the
+
+586
+00:31:18,960 --> 00:31:24,640
+language, the last feather of the
+
+587
+00:31:21,520 --> 00:31:27,919
+language may be emacis or Python. Well,
+
+588
+00:31:24,640 --> 00:31:30,880
+not to not any anyway. Most languages
+
+589
+00:31:27,919 --> 00:31:33,360
+emac this, Python or whatever.
+
+590
+00:31:30,880 --> 00:31:38,120
+Golan language I study, I study the
+
+591
+00:31:33,360 --> 00:31:38,120
+language in depth first,
+
+592
+00:31:38,399 --> 00:31:42,480
+not necessarily Python though. Python I
+
+593
+00:31:40,880 --> 00:31:45,200
+haven't
+
+594
+00:31:42,480 --> 00:31:48,320
+uh so anyway. So,
+
+595
+00:31:45,200 --> 00:31:50,960
+so you need to Okay. So uh so what what
+
+596
+00:31:48,320 --> 00:31:54,360
+you need to do is
+
+597
+00:31:50,960 --> 00:31:54,360
+call Python
+
+598
+00:31:54,799 --> 00:32:00,320
+select region of interest
+
+599
+00:31:58,080 --> 00:32:02,799
+then
+
+600
+00:32:00,320 --> 00:32:05,440
+send it
+
+601
+00:32:02,799 --> 00:32:09,440
+call the Python
+
+602
+00:32:05,440 --> 00:32:12,159
+markdown to HTML
+
+603
+00:32:09,440 --> 00:32:18,159
+uh script. It may be a script or it may
+
+604
+00:32:12,159 --> 00:32:21,159
+be not. Then then um send
+
+605
+00:32:18,159 --> 00:32:21,159
+the
+
+606
+00:32:21,360 --> 00:32:25,320
+region to it
+
+607
+00:32:25,760 --> 00:32:29,640
+get its output.
+
+608
+00:32:29,840 --> 00:32:41,120
+Okay. Now replace buffer text with that.
+
+609
+00:32:35,840 --> 00:32:44,159
+Okay. That's basically V steps algorithm
+
+610
+00:32:41,120 --> 00:32:46,640
+also known as okay so let's check the
+
+611
+00:32:44,159 --> 00:32:49,200
+comment no certificate yeah I talked
+
+612
+00:32:46,640 --> 00:32:52,000
+about that many times https
+
+613
+00:32:49,200 --> 00:32:54,880
+okay the triple back tick is part of the
+
+614
+00:32:52,000 --> 00:32:58,000
+markdown to mark up a code block of
+
+615
+00:32:54,880 --> 00:33:02,200
+course did did not close the triple uh
+
+616
+00:32:58,000 --> 00:33:02,200
+back ticks okay so
+
+617
+00:33:09,279 --> 00:33:14,399
+No. Well, it's besides, you know, trip,
+
+618
+00:33:12,159 --> 00:33:16,320
+you know, actually, you know, the the
+
+619
+00:33:14,399 --> 00:33:18,799
+book
+
+620
+00:33:16,320 --> 00:33:21,679
+render is pretty You know, it's
+
+621
+00:33:18,799 --> 00:33:24,080
+basically
+
+622
+00:33:21,679 --> 00:33:27,440
+No question. Just here for the rents.
+
+623
+00:33:24,080 --> 00:33:29,679
+Thank you, Johnny. Okay, so let's keep
+
+624
+00:33:27,440 --> 00:33:32,240
+going. Okay, keep your comments. Okay,
+
+625
+00:33:29,679 --> 00:33:35,440
+so we got so far so good. Now, the one
+
+626
+00:33:32,240 --> 00:33:38,799
+of the issue, okay, so here. So put it
+
+627
+00:33:35,440 --> 00:33:42,559
+back. Syntax correct showing browser. So
+
+628
+00:33:38,799 --> 00:33:44,640
+here is a Python code. So you want to Oh
+
+629
+00:33:42,559 --> 00:33:48,679
+god. So this is getting a bit involved.
+
+630
+00:33:44,640 --> 00:33:48,679
+You want to um
+
+631
+00:33:48,960 --> 00:33:54,880
+so it's is you see the Python markdown
+
+632
+00:33:51,760 --> 00:33:58,720
+is a library. It's not a standalone
+
+633
+00:33:54,880 --> 00:34:00,720
+command. So you kind of you you you you
+
+634
+00:33:58,720 --> 00:34:03,360
+can't
+
+635
+00:34:00,720 --> 00:34:06,399
+so you effectively you have to create
+
+636
+00:34:03,360 --> 00:34:09,799
+this script on the fly.
+
+637
+00:34:06,399 --> 00:34:09,799
+Oh god.
+
+638
+00:34:10,960 --> 00:34:19,200
+Yeah. You create this script on the fly
+
+639
+00:34:14,399 --> 00:34:21,520
+you know or um
+
+640
+00:34:19,200 --> 00:34:23,839
+Okay. This
+
+641
+00:34:21,520 --> 00:34:26,560
+Okay. We need to get faster. We need to
+
+642
+00:34:23,839 --> 00:34:30,079
+go faster. Okay. We we can't we can't
+
+643
+00:34:26,560 --> 00:34:32,079
+think too much. Uh so you let's let's
+
+644
+00:34:30,079 --> 00:34:35,280
+just save it as script for now. Okay,
+
+645
+00:34:32,079 --> 00:34:38,720
+let's just save the script for now. Then
+
+646
+00:34:35,280 --> 00:34:41,359
+then we worry about then we write the
+
+647
+00:34:38,720 --> 00:34:45,919
+eac list code to create this script on
+
+648
+00:34:41,359 --> 00:34:50,720
+the fly then the as a file then call
+
+649
+00:34:45,919 --> 00:34:53,520
+Python to code the file you know.
+
+650
+00:34:50,720 --> 00:34:56,720
+So is it interesting? Are you guys
+
+651
+00:34:53,520 --> 00:35:02,720
+following me? Interesting. Okay. So, so,
+
+652
+00:34:56,720 --> 00:35:06,040
+so let's open. So, here save uh let's
+
+653
+00:35:02,720 --> 00:35:06,040
+say markdown
+
+654
+00:35:06,640 --> 00:35:16,800
+markdown to html py. Okay. So, uh go to
+
+655
+00:35:13,200 --> 00:35:20,160
+the directory uh and change the space to
+
+656
+00:35:16,800 --> 00:35:24,000
+underscore. So, we got the file and put
+
+657
+00:35:20,160 --> 00:35:27,359
+some date. So we got we can track. So
+
+658
+00:35:24,000 --> 00:35:30,640
+and here is the input. Now before we do
+
+659
+00:35:27,359 --> 00:35:33,280
+anything, let's make sure it actually
+
+660
+00:35:30,640 --> 00:35:35,440
+works on more complicated markdown.
+
+661
+00:35:33,280 --> 00:35:38,560
+Okay. So
+
+662
+00:35:35,440 --> 00:35:43,119
+So you want to go to a markdown.
+
+663
+00:35:38,560 --> 00:35:45,520
+Copy that. So now markdown is this. Can
+
+664
+00:35:43,119 --> 00:35:48,240
+you do that?
+
+665
+00:35:45,520 --> 00:35:50,880
+Okay. It's not your simple example. It's
+
+666
+00:35:48,240 --> 00:35:55,680
+my example. Can you actually do this?
+
+667
+00:35:50,880 --> 00:35:58,560
+Run it. Oh, very fast. Okay, let's see.
+
+668
+00:35:55,680 --> 00:36:02,599
+Okay, now copy that new buffer. Paste
+
+669
+00:35:58,560 --> 00:36:02,599
+it. Make it
+
+670
+00:36:02,720 --> 00:36:11,520
+emac this mod. Okay, so go to the top.
+
+671
+00:36:06,720 --> 00:36:17,520
+So, and we want to format it. Let's see.
+
+672
+00:36:11,520 --> 00:36:20,800
+Uh, wait. So, wait, not eaglass
+
+673
+00:36:17,520 --> 00:36:26,640
+HTML mode. Okay, now that looks better
+
+674
+00:36:20,800 --> 00:36:28,400
+now. Tap F to format it. Okay, looks
+
+675
+00:36:26,640 --> 00:36:31,920
+so
+
+676
+00:36:28,400 --> 00:36:35,359
+Looks good. Looks good. Now let's see.
+
+677
+00:36:31,920 --> 00:36:39,280
+Let's validate the file to see if it's
+
+678
+00:36:35,359 --> 00:36:42,599
+valid HTML. So press press. It's valid.
+
+679
+00:36:39,280 --> 00:36:42,599
+Oh Jesus.
+
+680
+00:36:42,800 --> 00:36:48,160
+the Python people I mean well
+
+681
+00:36:46,240 --> 00:36:50,800
+they have to work correctly because
+
+682
+00:36:48,160 --> 00:36:54,079
+otherwise it's going to be a disaster
+
+683
+00:36:50,800 --> 00:36:56,480
+because this is used very frequently. So
+
+684
+00:36:54,079 --> 00:37:00,240
+whatever error they have to fix fix fix
+
+685
+00:36:56,480 --> 00:37:05,119
+so so looks like it's working.
+
+686
+00:37:00,240 --> 00:37:09,119
+Uh so let's let's try save this xx uh
+
+687
+00:37:05,119 --> 00:37:12,000
+today's state then html.
+
+688
+00:37:09,119 --> 00:37:15,040
+Okay, now showing browser
+
+689
+00:37:12,000 --> 00:37:19,280
+looks good. Does it looks good to you?
+
+690
+00:37:15,040 --> 00:37:23,119
+Yes. Italic and important and bold and
+
+691
+00:37:19,280 --> 00:37:25,760
+stuff. And unorder list
+
+692
+00:37:23,119 --> 00:37:27,440
+and dash order list. Order list.
+
+693
+00:37:25,760 --> 00:37:30,240
+Correct.
+
+694
+00:37:27,440 --> 00:37:35,520
+Nested list. That's one of the tricky
+
+695
+00:37:30,240 --> 00:37:39,760
+part. They did it correctly. Fantastic.
+
+696
+00:37:35,520 --> 00:37:42,880
+Okay. Copy. Copy the path. Close it. So,
+
+697
+00:37:39,760 --> 00:37:46,960
+let's go down. Hold on a second. Okay.
+
+698
+00:37:42,880 --> 00:37:50,560
+So, close it. Close it.
+
+699
+00:37:46,960 --> 00:37:53,200
+Paste. Reopen. Copy the file path. Close
+
+700
+00:37:50,560 --> 00:37:58,160
+it. So, we got
+
+701
+00:37:53,200 --> 00:38:02,720
+um let's link that. Link that. Okay. So,
+
+702
+00:37:58,160 --> 00:38:05,599
+we got uh this is the output
+
+703
+00:38:02,720 --> 00:38:09,520
+showing browser.
+
+704
+00:38:05,599 --> 00:38:14,640
+So this is the code the Python code.
+
+705
+00:38:09,520 --> 00:38:18,720
+That's right. And uh this is the um
+
+706
+00:38:14,640 --> 00:38:20,400
+I mean this is the uh the output. Okay.
+
+707
+00:38:18,720 --> 00:38:23,040
+Fantastic.
+
+708
+00:38:20,400 --> 00:38:25,440
+Now there's something we can try here
+
+709
+00:38:23,040 --> 00:38:28,720
+the Python code. Now let's try if you
+
+710
+00:38:25,440 --> 00:38:33,599
+have a nested code. Okay. So let's let
+
+711
+00:38:28,720 --> 00:38:39,400
+me do it. Okay. So let's just say
+
+712
+00:38:33,599 --> 00:38:39,400
+so we got the nestedic code. Okay. So
+
+713
+00:38:41,680 --> 00:38:47,200
+close close.
+
+714
+00:38:44,000 --> 00:38:49,440
+Okay. So you see now let's try this is
+
+715
+00:38:47,200 --> 00:38:54,480
+JavaScript
+
+716
+00:38:49,440 --> 00:38:58,800
+console block and the back tick tricky.
+
+717
+00:38:54,480 --> 00:39:02,960
+I'm going to try to trick you. I have
+
+718
+00:38:58,800 --> 00:39:05,920
+dollar sign this cats you know you
+
+719
+00:39:02,960 --> 00:39:09,520
+should say I have four cats so this is
+
+720
+00:39:05,920 --> 00:39:11,200
+code and this code is in JavaScript
+
+721
+00:39:09,520 --> 00:39:14,320
+let's put it there that's standard
+
+722
+00:39:11,200 --> 00:39:17,440
+markdown you know so so when you convert
+
+723
+00:39:14,320 --> 00:39:20,000
+this you see if you do this naively if
+
+724
+00:39:17,440 --> 00:39:22,960
+you're going to write markdown to HTML
+
+725
+00:39:20,000 --> 00:39:27,040
+naively this part is going to up
+
+726
+00:39:22,960 --> 00:39:29,520
+because that's you know that is the name
+
+727
+00:39:27,040 --> 00:39:33,599
+of the programming language which is not
+
+728
+00:39:29,520 --> 00:39:36,400
+part of the code. So it the first line
+
+729
+00:39:33,599 --> 00:39:38,240
+needs to be treated specially depending
+
+730
+00:39:36,400 --> 00:39:40,560
+on whether it's you know programming
+
+731
+00:39:38,240 --> 00:39:43,680
+language name. So that's a you could say
+
+732
+00:39:40,560 --> 00:39:45,680
+it's a flaw design flaw of the markdown
+
+733
+00:39:43,680 --> 00:39:48,160
+because this
+
+734
+00:39:45,680 --> 00:39:50,960
+this represent code but that JavaScript
+
+735
+00:39:48,160 --> 00:39:54,960
+that's that's that's not code. Okay.
+
+736
+00:39:50,960 --> 00:39:57,599
+Then inside it you have markdown. So,
+
+737
+00:39:54,960 --> 00:40:01,359
+so if you have JavaScript
+
+738
+00:39:57,599 --> 00:40:07,599
+uh wait so this wait so this should be
+
+739
+00:40:01,359 --> 00:40:13,119
+uh that you know uh wait so uh god
+
+740
+00:40:07,599 --> 00:40:16,079
+okay so this is a JavaScript uh
+
+741
+00:40:13,119 --> 00:40:18,320
+string syntax okay so if you convert
+
+742
+00:40:16,079 --> 00:40:20,240
+this so let's run it let's just see if
+
+743
+00:40:18,320 --> 00:40:23,040
+it works
+
+744
+00:40:20,240 --> 00:40:25,599
+it works correctly can you
+
+745
+00:40:23,040 --> 00:40:28,000
+It didn't convert this back tick to
+
+746
+00:40:25,599 --> 00:40:31,920
+code. So this work correct correctly. So
+
+747
+00:40:28,000 --> 00:40:34,720
+okay. So we can so so far it's very
+
+748
+00:40:31,920 --> 00:40:39,119
+good. Okay. So we you know okay so so
+
+749
+00:40:34,720 --> 00:40:42,000
+far this is good. Good. Now now now
+
+750
+00:40:39,119 --> 00:40:45,119
+let's copy the full file path of this.
+
+751
+00:40:42,000 --> 00:40:48,560
+And now let's go to emac this. So this
+
+752
+00:40:45,119 --> 00:40:51,520
+is the script you want to call.
+
+753
+00:40:48,560 --> 00:40:53,760
+So sh let's just do it quickly. Okay.
+
+754
+00:40:51,520 --> 00:40:58,200
+shell command.
+
+755
+00:40:53,760 --> 00:40:58,200
+Uh what
+
+756
+00:41:00,160 --> 00:41:06,640
+I believe it's uh which one?
+
+757
+00:41:03,599 --> 00:41:08,480
+This one. Okay. So do it. Shell command.
+
+758
+00:41:06,640 --> 00:41:11,680
+Yeah.
+
+759
+00:41:08,480 --> 00:41:14,680
+Okay. So um
+
+760
+00:41:11,680 --> 00:41:14,680
+well
+
+761
+00:41:15,359 --> 00:41:20,119
+so let me do that. Okay.
+
+762
+00:41:24,000 --> 00:41:31,720
+And wait.
+
+763
+00:41:26,880 --> 00:41:31,720
+Okay. So this is uh
+
+764
+00:41:32,000 --> 00:41:39,280
+script path.
+
+765
+00:41:35,200 --> 00:41:42,560
+Okay. Define that to be that script
+
+766
+00:41:39,280 --> 00:41:46,480
+path. Okay. Now
+
+767
+00:41:42,560 --> 00:41:49,200
+uh shell command script path and you
+
+768
+00:41:46,480 --> 00:41:53,800
+need the input.
+
+769
+00:41:49,200 --> 00:41:53,800
+Okay. So you need um
+
+770
+00:41:58,079 --> 00:42:04,640
+Okay. So markdown text you need to uh
+
+771
+00:42:01,680 --> 00:42:07,440
+set it. Okay. So how do you set it? Let
+
+772
+00:42:04,640 --> 00:42:14,400
+for now let's just um do trivial. Okay.
+
+773
+00:42:07,440 --> 00:42:19,079
+Let's just say um if region active P if
+
+774
+00:42:14,400 --> 00:42:19,079
+there's a selection then
+
+775
+00:42:19,599 --> 00:42:25,480
+you do
+
+776
+00:42:21,760 --> 00:42:25,480
+okay uh
+
+777
+00:42:25,599 --> 00:42:32,079
+begin end okay that's beginning end so
+
+778
+00:42:28,720 --> 00:42:34,960
+that's beginning and end those are
+
+779
+00:42:32,079 --> 00:42:39,040
+integers for the beginning position in a
+
+780
+00:42:34,960 --> 00:42:42,240
+buffer and end position Okay. So if
+
+781
+00:42:39,040 --> 00:42:47,520
+region is active then
+
+782
+00:42:42,240 --> 00:42:53,440
+set qx begin to be region beginning.
+
+783
+00:42:47,520 --> 00:42:56,480
+Okay. Then set x end to be region
+
+784
+00:42:53,440 --> 00:42:59,119
+end. Okay. Region beginning returns the
+
+785
+00:42:56,480 --> 00:43:01,920
+position of the beginning of a selection
+
+786
+00:42:59,119 --> 00:43:05,599
+like like this. Okay. And end is the end
+
+787
+00:43:01,920 --> 00:43:08,160
+position. Okay. The set them then. So if
+
+788
+00:43:05,599 --> 00:43:12,400
+region active said that okay if region
+
+789
+00:43:08,160 --> 00:43:14,400
+is not active then what you do is you oh
+
+790
+00:43:12,400 --> 00:43:17,839
+god
+
+791
+00:43:14,400 --> 00:43:20,160
+you need to go to beginning of the oh
+
+792
+00:43:17,839 --> 00:43:22,800
+god
+
+793
+00:43:20,160 --> 00:43:25,599
+let me do this quickly okay saving
+
+794
+00:43:22,800 --> 00:43:32,119
+search and search backward okay search
+
+795
+00:43:25,599 --> 00:43:32,119
+backward for two uh to
+
+796
+00:43:37,520 --> 00:43:42,960
+set X begin
+
+797
+00:43:40,720 --> 00:43:46,240
+search backward
+
+798
+00:43:42,960 --> 00:43:49,920
+search backward two empty lines then
+
+799
+00:43:46,240 --> 00:43:52,319
+match end then you set the beginning of
+
+800
+00:43:49,920 --> 00:43:54,560
+the so if there is no region what you
+
+801
+00:43:52,319 --> 00:43:59,119
+want to do is you want to do a text
+
+802
+00:43:54,560 --> 00:44:02,800
+block like this this is a text block.
+
+803
+00:43:59,119 --> 00:44:05,920
+This is a text block or if your cursor
+
+804
+00:44:02,800 --> 00:44:09,359
+is here, this is the text block. So text
+
+805
+00:44:05,920 --> 00:44:12,880
+block is separated by blank lines. Okay?
+
+806
+00:44:09,359 --> 00:44:16,000
+So if region is not active, then you
+
+807
+00:44:12,880 --> 00:44:18,800
+search for two blank blank lines and you
+
+808
+00:44:16,000 --> 00:44:23,280
+set it to the end of the blank line.
+
+809
+00:44:18,800 --> 00:44:27,280
+Then you search forward again. Two blank
+
+810
+00:44:23,280 --> 00:44:30,280
+lines. Uh that's the that that that that
+
+811
+00:44:27,280 --> 00:44:30,280
+that.
+
+812
+00:44:30,319 --> 00:44:39,440
+Okay. And two of it then. Okay. So we
+
+813
+00:44:35,839 --> 00:44:42,960
+don't care. Then uh search for that.
+
+814
+00:44:39,440 --> 00:44:46,079
+Then um
+
+815
+00:44:42,960 --> 00:44:51,040
+then then set
+
+816
+00:44:46,079 --> 00:44:54,000
+X end to be
+
+817
+00:44:51,040 --> 00:44:56,720
+match beginning beginning of those blank
+
+818
+00:44:54,000 --> 00:45:01,200
+lines. Okay.
+
+819
+00:44:56,720 --> 00:45:04,880
+So So is it is that clear? So okay. So
+
+820
+00:45:01,200 --> 00:45:07,599
+but let me check bound. Is that clear?
+
+821
+00:45:04,880 --> 00:45:09,839
+Does does you guys
+
+822
+00:45:07,599 --> 00:45:13,920
+understand? Do you need explicit
+
+823
+00:45:09,839 --> 00:45:16,240
+handling of end of file? Yes, you do.
+
+824
+00:45:13,920 --> 00:45:20,319
+So, yeah. So, actually that's what I'm
+
+825
+00:45:16,240 --> 00:45:25,520
+doing now. So, you know, so um so
+
+826
+00:45:20,319 --> 00:45:29,599
+optional bound no error true. If you
+
+827
+00:45:25,520 --> 00:45:32,319
+cannot find it, there's error. So, but
+
+828
+00:45:29,599 --> 00:45:34,720
+you just say no error true. That means
+
+829
+00:45:32,319 --> 00:45:36,880
+don't don't tell me about it. Don't
+
+830
+00:45:34,720 --> 00:45:40,640
+ignore the error. Okay? Come. We don't
+
+831
+00:45:36,880 --> 00:45:42,800
+care. So you need neo and n here. Okay,
+
+832
+00:45:40,640 --> 00:45:46,160
+delete that. You need the neo and t.
+
+833
+00:45:42,800 --> 00:45:49,280
+Same thing here. Okay. Uh pify the code.
+
+834
+00:45:46,160 --> 00:45:51,680
+So there. Okay. So like if you are at
+
+835
+00:45:49,280 --> 00:45:54,800
+the beginning, what's a block? This is a
+
+836
+00:45:51,680 --> 00:45:57,839
+block. But there is no two blank lines
+
+837
+00:45:54,800 --> 00:45:59,839
+above it, you know. So so you want to
+
+838
+00:45:57,839 --> 00:46:03,040
+deal with that situation. You know,
+
+839
+00:45:59,839 --> 00:46:06,800
+ignore the arrow. If you cannot find two
+
+840
+00:46:03,040 --> 00:46:10,160
+blank lines. Okay. So if there is no
+
+841
+00:46:06,800 --> 00:46:11,119
+selection then you uh say set okay
+
+842
+00:46:10,160 --> 00:46:11,119
+that's that's let's that's that's let's
+
+843
+00:46:11,119 --> 00:46:11,119
+that's let's that's let's that's let's
+
+844
+00:46:11,119 --> 00:46:11,599
+that's let's that's let's that's let's
+
+845
+00:46:11,119 --> 00:46:11,599
+that's let's that's let's that's let's
+
+846
+00:46:11,599 --> 00:46:11,599
+that's let's that's let's that's let's
+
+847
+00:46:11,599 --> 00:46:11,599
+that's let's that's let's that's let's
+
+848
+00:46:11,599 --> 00:46:13,200
+that's let's that's let's that's let's
+
+849
+00:46:11,599 --> 00:46:15,119
+that's let's set up the beginning and
+
+850
+00:46:13,200 --> 00:46:18,880
+end okay
+
+851
+00:46:15,119 --> 00:46:20,560
+then markdown text okay set markdown
+
+852
+00:46:18,880 --> 00:46:23,760
+text
+
+853
+00:46:20,560 --> 00:46:26,240
+uh buffer
+
+854
+00:46:23,760 --> 00:46:29,520
+uh so you want to grab the text between
+
+855
+00:46:26,240 --> 00:46:32,640
+the beginning and end uh buffer
+
+856
+00:46:29,520 --> 00:46:36,400
+substring no properties okay that's very
+
+857
+00:46:32,640 --> 00:46:39,440
+common I I did this 1,000 times in my in
+
+858
+00:46:36,400 --> 00:46:42,640
+my 100 emac this writing uh live
+
+859
+00:46:39,440 --> 00:46:46,800
+streams. Okay. So, just search for my uh
+
+860
+00:46:42,640 --> 00:46:51,040
+YouTube Emac list coding is like 100
+
+861
+00:46:46,800 --> 00:46:53,680
+videos. So, okay. So, we got that set.
+
+862
+00:46:51,040 --> 00:46:57,440
+We got So, we got beginning and end.
+
+863
+00:46:53,680 --> 00:47:00,880
+Let's put that in the in in here. Then
+
+864
+00:46:57,440 --> 00:47:03,760
+we got markdown text. That's a variable
+
+865
+00:47:00,880 --> 00:47:06,480
+local variable. Then script path. Okay.
+
+866
+00:47:03,760 --> 00:47:08,640
+We got the beginning and end set there.
+
+867
+00:47:06,480 --> 00:47:13,599
+We got mount contact and the script.
+
+868
+00:47:08,640 --> 00:47:16,319
+Okay. Now the script needs to take a um
+
+869
+00:47:13,599 --> 00:47:20,319
+okay the shell command needs to be uh
+
+870
+00:47:16,319 --> 00:47:25,680
+something like python location then okay
+
+871
+00:47:20,319 --> 00:47:30,240
+so you need contact the string python
+
+872
+00:47:25,680 --> 00:47:33,359
+then script path then
+
+873
+00:47:30,240 --> 00:47:36,160
+then x markdown text you know this so
+
+874
+00:47:33,359 --> 00:47:39,200
+it's a bit tricky how do you pass so on
+
+875
+00:47:36,160 --> 00:47:43,760
+the command line when you want to call
+
+876
+00:47:39,200 --> 00:47:47,680
+some Python script you know uh
+
+877
+00:47:43,760 --> 00:47:51,200
+you know convert this py uh wait
+
+878
+00:47:47,680 --> 00:47:53,760
+what oh god so that's the question
+
+879
+00:47:51,200 --> 00:47:57,599
+python
+
+880
+00:47:53,760 --> 00:48:02,319
+convert mark
+
+881
+00:47:57,599 --> 00:48:04,480
+down to HTML py right then you need kind
+
+882
+00:48:02,319 --> 00:48:07,119
+of the
+
+883
+00:48:04,480 --> 00:48:09,520
+so it's a bit tricky so you can the
+
+884
+00:48:07,119 --> 00:48:13,760
+typically your python script can take
+
+885
+00:48:09,520 --> 00:48:18,240
+input from the standard in from the Unix
+
+886
+00:48:13,760 --> 00:48:19,920
+idiots you know std in
+
+887
+00:48:18,240 --> 00:48:22,559
+do you guys know what I'm talking about
+
+888
+00:48:19,920 --> 00:48:25,680
+that's like you know if you code then
+
+889
+00:48:22,559 --> 00:48:28,559
+you must know stdin that's a standard
+
+890
+00:48:25,680 --> 00:48:32,160
+input
+
+891
+00:48:28,559 --> 00:48:36,720
+or you can take like you know text
+
+892
+00:48:32,160 --> 00:48:38,640
+equals to uh you know like this way this
+
+893
+00:48:36,720 --> 00:48:42,800
+way is no good because then you got the
+
+894
+00:48:38,640 --> 00:48:45,680
+back tick back slash hell. It's
+
+895
+00:48:42,800 --> 00:48:49,599
+impossible to escape them.
+
+896
+00:48:45,680 --> 00:48:51,760
+Uh so you so so let's let's make it take
+
+897
+00:48:49,599 --> 00:48:53,280
+from standard
+
+898
+00:48:51,760 --> 00:48:56,319
+input
+
+899
+00:48:53,280 --> 00:48:59,359
+and let's make it output to standard
+
+900
+00:48:56,319 --> 00:49:01,839
+output. Okay, you guys are following me?
+
+901
+00:48:59,359 --> 00:49:04,960
+Do you guys understand? Could you use
+
+902
+00:49:01,839 --> 00:49:07,040
+mark paragraph?
+
+903
+00:49:04,960 --> 00:49:10,559
+Uh
+
+904
+00:49:07,040 --> 00:49:12,559
+yes in Emacs. So in Emacs you have a
+
+905
+00:49:10,559 --> 00:49:15,520
+command called mark paragraph. For
+
+906
+00:49:12,559 --> 00:49:17,599
+example I call it mark paragraph. I
+
+907
+00:49:15,520 --> 00:49:24,040
+never use it.
+
+908
+00:49:17,599 --> 00:49:24,040
+Why? Because the mark paragraph
+
+909
+00:49:25,520 --> 00:49:31,119
+what what is what is its definition of
+
+910
+00:49:28,559 --> 00:49:33,200
+paragraph that depends on something
+
+911
+00:49:31,119 --> 00:49:36,240
+called syntax table for the current
+
+912
+00:49:33,200 --> 00:49:39,440
+buffer. So in EMAC buffer you have this
+
+913
+00:49:36,240 --> 00:49:41,680
+thing called syntax table and that is
+
+914
+00:49:39,440 --> 00:49:43,520
+each buffer has one okay they may be
+
+915
+00:49:41,680 --> 00:49:46,720
+different.
+
+916
+00:49:43,520 --> 00:49:51,280
+So when you turn on a major mode like
+
+917
+00:49:46,720 --> 00:49:53,599
+Python mode, HTML mode HTML mode or SE
+
+918
+00:49:51,280 --> 00:49:55,920
+mode or El mode from you know from other
+
+919
+00:49:53,599 --> 00:50:00,079
+people when you turn on a major mode the
+
+920
+00:49:55,920 --> 00:50:03,440
+major mode typically set or modify the
+
+921
+00:50:00,079 --> 00:50:07,359
+syntax table. So the current buffer it
+
+922
+00:50:03,440 --> 00:50:10,400
+has a syntax table um
+
+923
+00:50:07,359 --> 00:50:14,160
+you know local to the buffer and that's
+
+924
+00:50:10,400 --> 00:50:17,040
+so that's when the markdown command
+
+925
+00:50:14,160 --> 00:50:19,599
+what what is the paragraph it it checks
+
+926
+00:50:17,040 --> 00:50:22,079
+it checks it depends on the syntax
+
+927
+00:50:19,599 --> 00:50:24,480
+table. Okay so we can look at the code
+
+928
+00:50:22,079 --> 00:50:26,240
+please. So basically what that means the
+
+929
+00:50:24,480 --> 00:50:28,400
+behavior
+
+930
+00:50:26,240 --> 00:50:31,520
+is dependent
+
+931
+00:50:28,400 --> 00:50:33,680
+on what is the current major mode. So
+
+932
+00:50:31,520 --> 00:50:36,079
+when you are coding that command here it
+
+933
+00:50:33,680 --> 00:50:38,480
+does this you know without blank lines
+
+934
+00:50:36,079 --> 00:50:40,240
+but somewhere in when you are tomorrow
+
+935
+00:50:38,480 --> 00:50:43,440
+when you are on a different machine
+
+936
+00:50:40,240 --> 00:50:45,520
+doing uh JavaScript it may be something
+
+937
+00:50:43,440 --> 00:50:49,440
+else that's a problem that's so I don't
+
+938
+00:50:45,520 --> 00:50:52,240
+like it. So let's look up
+
+939
+00:50:49,440 --> 00:50:53,760
+uh mock I never use this command. Okay,
+
+940
+00:50:52,240 --> 00:50:56,400
+so look, let's look up the
+
+941
+00:50:53,760 --> 00:50:58,559
+documentation. Mark paragraph is a
+
+942
+00:50:56,400 --> 00:51:02,160
+interactive native compiled function in
+
+943
+00:50:58,559 --> 00:51:04,640
+paragraph. EAL mark paragraph syntax is
+
+944
+00:51:02,160 --> 00:51:07,680
+this optional arg allow extended
+
+945
+00:51:04,640 --> 00:51:10,720
+something inferred type. This is new you
+
+946
+00:51:07,680 --> 00:51:14,160
+know in the past few years Emacs this
+
+947
+00:51:10,720 --> 00:51:16,319
+added this type thing. So put point at
+
+948
+00:51:14,160 --> 00:51:18,559
+beginning of this paragraph mark at end.
+
+949
+00:51:16,319 --> 00:51:22,319
+Okay, the paragraph marked is the one
+
+950
+00:51:18,559 --> 00:51:25,839
+that contains point or follows point.
+
+951
+00:51:22,319 --> 00:51:28,720
+You know the Emacs idiots jargon like
+
+952
+00:51:25,839 --> 00:51:32,079
+what the is a point? Just say C
+
+953
+00:51:28,720 --> 00:51:34,240
+position the the Emacs dev. Okay,
+
+954
+00:51:32,079 --> 00:51:37,680
+they refuse you know because oh we
+
+955
+00:51:34,240 --> 00:51:40,079
+invented the concept C position before
+
+956
+00:51:37,680 --> 00:51:44,000
+any text editor that's why we call it
+
+957
+00:51:40,079 --> 00:51:47,280
+point you know point.
+
+958
+00:51:44,000 --> 00:51:50,079
+So, so after 40 years like today's
+
+959
+00:51:47,280 --> 00:51:52,559
+generation then when they want to you
+
+960
+00:51:50,079 --> 00:51:55,680
+use Emacs what the is the point
+
+961
+00:51:52,559 --> 00:51:59,280
+like what the is the point you know
+
+962
+00:51:55,680 --> 00:52:03,119
+so that's why they go to VS code
+
+963
+00:51:59,280 --> 00:52:06,000
+so you know Emacs people we refuse you
+
+964
+00:52:03,119 --> 00:52:08,720
+know we don't going to change this so
+
+965
+00:52:06,000 --> 00:52:12,400
+stupid Emacs people that's why nobody
+
+966
+00:52:08,720 --> 00:52:14,880
+use Emacs it's die dying it's dying like
+
+967
+00:52:12,400 --> 00:52:17,920
+dinosaur
+
+968
+00:52:14,880 --> 00:52:20,319
+Emacs dev
+
+969
+00:52:17,920 --> 00:52:22,079
+You guys, okay, I'm too old, you know.
+
+970
+00:52:20,319 --> 00:52:24,480
+They know I'm a troll. They think I'm a
+
+971
+00:52:22,079 --> 00:52:27,760
+troll. I've been fighting with them for
+
+972
+00:52:24,480 --> 00:52:30,480
+10 for 20 years. Okay, so now it relies
+
+973
+00:52:27,760 --> 00:52:33,440
+on you guys new generation. So you guys,
+
+974
+00:52:30,480 --> 00:52:36,079
+you know, talk to the death in some way
+
+975
+00:52:33,440 --> 00:52:40,800
+politely or whatever. Get them to uh
+
+976
+00:52:36,079 --> 00:52:45,359
+change this point in documentation say C
+
+977
+00:52:40,800 --> 00:52:47,119
+position. Okay, the point my ass.
+
+978
+00:52:45,359 --> 00:52:49,040
+Okay, anyway, back to the mark
+
+979
+00:52:47,119 --> 00:52:51,040
+paragraph. Okay, so put point at the
+
+980
+00:52:49,040 --> 00:52:53,839
+beginning of this paragraph, mark at the
+
+981
+00:52:51,040 --> 00:52:55,680
+end, and the mark means, you know,
+
+982
+00:52:53,839 --> 00:52:57,359
+that's another concept. But but
+
+983
+00:52:55,680 --> 00:52:59,680
+basically, it just means selection.
+
+984
+00:52:57,359 --> 00:53:01,839
+Okay, so with arc something something
+
+985
+00:52:59,680 --> 00:53:04,160
+okay, let's just look at the source code
+
+986
+00:53:01,839 --> 00:53:08,480
+because I'm a hard coder. I want just
+
+987
+00:53:04,160 --> 00:53:11,440
+see the code there. Okay, so here defend
+
+988
+00:53:08,480 --> 00:53:14,240
+mark, you know, mark paragraph. Let's so
+
+989
+00:53:11,440 --> 00:53:16,559
+let's look carefully how they define
+
+990
+00:53:14,240 --> 00:53:19,680
+paragraph
+
+991
+00:53:16,559 --> 00:53:22,880
+uh so transient mark you know
+
+992
+00:53:19,680 --> 00:53:26,240
+complicated go to j forward there there
+
+993
+00:53:22,880 --> 00:53:28,480
+it is so it depends so it reli so what
+
+994
+00:53:26,240 --> 00:53:30,720
+is the meaning of paragraph in mark
+
+995
+00:53:28,480 --> 00:53:33,440
+paragraph it relies on this command
+
+996
+00:53:30,720 --> 00:53:35,839
+forward paragraph so now let's look up
+
+997
+00:53:33,440 --> 00:53:38,240
+that command that function forward
+
+998
+00:53:35,839 --> 00:53:39,920
+paragraph is defined so let's go to that
+
+999
+00:53:38,240 --> 00:53:42,720
+documentation
+
+1000
+00:53:39,920 --> 00:53:44,960
+uh and expand the window. So for forward
+
+1001
+00:53:42,720 --> 00:53:47,200
+paragraph move forward to end a
+
+1002
+00:53:44,960 --> 00:53:51,280
+paragraph with argument arc do it arc
+
+1003
+00:53:47,200 --> 00:53:55,200
+times and okay a line with a line which
+
+1004
+00:53:51,280 --> 00:53:57,760
+paragraph start matches either separate
+
+1005
+00:53:55,200 --> 00:54:00,319
+paragraphs if paragraph separate matches
+
+1006
+00:53:57,760 --> 00:54:02,800
+it also or is the first line of a
+
+1007
+00:54:00,319 --> 00:54:06,079
+paragraph
+
+1008
+00:54:02,800 --> 00:54:08,240
+confusing I know what what is saying a
+
+1009
+00:54:06,079 --> 00:54:10,559
+paragraph a paragraph end is the
+
+1010
+00:54:08,240 --> 00:54:13,119
+beginning of a line which is not part of
+
+1011
+00:54:10,559 --> 00:54:17,520
+the paragraph have. Oh god. So let's
+
+1012
+00:54:13,119 --> 00:54:21,119
+look at the code. Field prefix rejects.
+
+1013
+00:54:17,520 --> 00:54:26,000
+Oh god. Field prefix not equal field
+
+1014
+00:54:21,119 --> 00:54:28,880
+prefix. What the is field prefix?
+
+1015
+00:54:26,000 --> 00:54:33,280
+You know complicated code. That's why I
+
+1016
+00:54:28,880 --> 00:54:37,200
+don't use you know I don't use this
+
+1017
+00:54:33,280 --> 00:54:39,760
+start if and not equal empty string or
+
+1018
+00:54:37,200 --> 00:54:42,640
+paragraph start.
+
+1019
+00:54:39,760 --> 00:54:45,440
+So highlight paragraph start. Let's see
+
+1020
+00:54:42,640 --> 00:54:47,359
+where did you what the is paragraph
+
+1021
+00:54:45,440 --> 00:54:48,960
+start. Okay. So it's actually a
+
+1022
+00:54:47,359 --> 00:54:51,680
+variable.
+
+1023
+00:54:48,960 --> 00:54:55,520
+So you need to look at.
+
+1024
+00:54:51,680 --> 00:54:58,480
+So then you know the code go on and on
+
+1025
+00:54:55,520 --> 00:55:00,960
+and on field prefix you know I just want
+
+1026
+00:54:58,480 --> 00:55:04,359
+to select a paragraph like what the
+
+1027
+00:55:00,960 --> 00:55:04,359
+are you doing?
+
+1028
+00:55:04,480 --> 00:55:10,240
+You know complicated. This is
+
+1029
+00:55:08,079 --> 00:55:12,960
+fundamental code in Emacs. You know,
+
+1030
+00:55:10,240 --> 00:55:15,760
+this is this is written like uh this
+
+1031
+00:55:12,960 --> 00:55:18,240
+this this code mark paragraph is like at
+
+1032
+00:55:15,760 --> 00:55:20,640
+least for uh 40 years old. I'm pretty
+
+1033
+00:55:18,240 --> 00:55:23,920
+sure 30 at least
+
+1034
+00:55:20,640 --> 00:55:28,480
+you know because well you know in part
+
+1035
+00:55:23,920 --> 00:55:33,040
+they also have to do to deal with right
+
+1036
+00:55:28,480 --> 00:55:35,520
+to left languages such as Islamic.
+
+1037
+00:55:33,040 --> 00:55:39,440
+Okay. So then they also have to deal
+
+1038
+00:55:35,520 --> 00:55:41,440
+with like a region of text that you are
+
+1039
+00:55:39,440 --> 00:55:43,200
+not supposed to move cursor into. They
+
+1040
+00:55:41,440 --> 00:55:45,280
+have to deal with that. So that's why
+
+1041
+00:55:43,200 --> 00:55:48,880
+it's kind of
+
+1042
+00:55:45,280 --> 00:55:52,079
+you know complicated. So that's why I
+
+1043
+00:55:48,880 --> 00:55:56,160
+don't use this you know I don't like but
+
+1044
+00:55:52,079 --> 00:55:59,680
+but my question our question is like
+
+1045
+00:55:56,160 --> 00:56:02,319
+uh what so what is paragraph start? So
+
+1046
+00:55:59,680 --> 00:56:04,799
+look at the documentation.
+
+1047
+00:56:02,319 --> 00:56:07,599
+Uh wait
+
+1048
+00:56:04,799 --> 00:56:10,880
+documentation paragraph start is a
+
+1049
+00:56:07,599 --> 00:56:13,200
+variable defined in paragraphs. Its
+
+1050
+00:56:10,880 --> 00:56:16,960
+value is
+
+1051
+00:56:13,200 --> 00:56:18,880
+okay. So this is how they define
+
+1052
+00:56:16,960 --> 00:56:23,280
+paragraph.
+
+1053
+00:56:18,880 --> 00:56:27,760
+Okay. So that thing means
+
+1054
+00:56:23,280 --> 00:56:29,440
+line break. Okay. That's forward uh
+
+1055
+00:56:27,760 --> 00:56:32,720
+you know that's one of the asy
+
+1056
+00:56:29,440 --> 00:56:35,920
+characters called uh line feed okay form
+
+1057
+00:56:32,720 --> 00:56:38,880
+feed you know it's you know older
+
+1058
+00:56:35,920 --> 00:56:41,680
+practice you guys may not know anyway
+
+1059
+00:56:38,880 --> 00:56:45,200
+that's that character is called point 12
+
+1060
+00:56:41,680 --> 00:56:48,240
+in as keyi okay called form feed
+
+1061
+00:56:45,200 --> 00:56:51,119
+so let's uh wait let's go back so
+
+1062
+00:56:48,240 --> 00:56:53,839
+describe paragraph paragraph start okay
+
+1063
+00:56:51,119 --> 00:56:55,040
+so it's defined as a string of regular
+
+1064
+00:56:53,839 --> 00:56:57,440
+expression
+
+1065
+00:56:55,040 --> 00:57:01,280
+form feed character which is a line
+
+1066
+00:56:57,440 --> 00:57:03,680
+break is which like page break. Okay,
+
+1067
+00:57:01,280 --> 00:57:07,839
+which in EMAC this code it means page
+
+1068
+00:57:03,680 --> 00:57:09,920
+break or it means it just means like
+
+1069
+00:57:07,839 --> 00:57:13,280
+something like that. Okay, like you put
+
+1070
+00:57:09,920 --> 00:57:15,839
+a a break, you know, line something, you
+
+1071
+00:57:13,280 --> 00:57:18,640
+know, code something that's so but in
+
+1072
+00:57:15,839 --> 00:57:20,880
+EMAC they use this
+
+1073
+00:57:18,640 --> 00:57:24,720
+control Q
+
+1074
+00:57:20,880 --> 00:57:28,319
+L that what EMAC people use it's
+
+1075
+00:57:24,720 --> 00:57:30,720
+invisible character form feed to mean
+
+1076
+00:57:28,319 --> 00:57:32,720
+just like you know just like just like
+
+1077
+00:57:30,720 --> 00:57:35,280
+that okay
+
+1078
+00:57:32,720 --> 00:57:37,839
+I you know again I have an article on
+
+1079
+00:57:35,280 --> 00:57:41,280
+that I have several articles search for
+
+1080
+00:57:37,839 --> 00:57:43,920
+foam feed you'll find it. Okay.
+
+1081
+00:57:41,280 --> 00:57:46,400
+So, so back. So, we digressed far enough
+
+1082
+00:57:43,920 --> 00:57:48,160
+yet. So, paragraph start. Let's describe
+
+1083
+00:57:46,400 --> 00:57:51,680
+variable. Let's see. So, it's a regular
+
+1084
+00:57:48,160 --> 00:57:54,880
+expression. So, it's a phone feed or uh
+
+1085
+00:57:51,680 --> 00:57:56,960
+or god. Then, let's So, it's bunch bunch
+
+1086
+00:57:54,880 --> 00:57:59,839
+of blanks, you know, bunch of white
+
+1087
+00:57:56,960 --> 00:58:03,920
+space. So, let's turn on show white
+
+1088
+00:57:59,839 --> 00:58:09,760
+space. Press press press. So, it's a
+
+1089
+00:58:03,920 --> 00:58:13,839
+space, then a tab. space or tab.
+
+1090
+00:58:09,760 --> 00:58:16,000
+Okay. Then zero or more and end. So a
+
+1091
+00:58:13,839 --> 00:58:18,640
+paragraph is defined. So if you have a
+
+1092
+00:58:16,000 --> 00:58:26,760
+phone feed, that's a beginning of
+
+1093
+00:58:18,640 --> 00:58:26,760
+paragraph. Okay. Or it's a space or tab
+
+1094
+00:58:27,680 --> 00:58:32,640
+one or more. So
+
+1095
+00:58:30,319 --> 00:58:35,680
+rejects for beginning of the line that's
+
+1096
+00:58:32,640 --> 00:58:37,200
+that starts or separates paragraph.
+
+1097
+00:58:35,680 --> 00:58:39,280
+Okay.
+
+1098
+00:58:37,200 --> 00:58:42,599
+Yeah. Anyway, that's so that's a deal.
+
+1099
+00:58:39,280 --> 00:58:42,599
+Okay. So,
+
+1100
+00:58:42,960 --> 00:58:49,119
+I you know I don't like it. So, uh so
+
+1101
+00:58:46,480 --> 00:58:52,880
+anyway, that's that's so let's go back.
+
+1102
+00:58:49,119 --> 00:58:56,000
+Okay. Now, we got confu we we digressed
+
+1103
+00:58:52,880 --> 00:59:01,920
+into several levels. So, let's keep
+
+1104
+00:58:56,000 --> 00:59:04,400
+track what of what we doing. So, so that
+
+1105
+00:59:01,920 --> 00:59:06,240
+other people have some idea what we
+
+1106
+00:59:04,400 --> 00:59:10,880
+talked about. Okay.
+
+1107
+00:59:06,240 --> 00:59:14,799
+So uh so originally we were talking
+
+1108
+00:59:10,880 --> 00:59:16,720
+about mark paragraph. Okay. So copy
+
+1109
+00:59:14,799 --> 00:59:20,559
+that.
+
+1110
+00:59:16,720 --> 00:59:22,720
+Okay. Add corner brackets. Add corner
+
+1111
+00:59:20,559 --> 00:59:27,200
+brackets
+
+1112
+00:59:22,720 --> 00:59:30,240
+and make it HTML and and make it that
+
+1113
+00:59:27,200 --> 00:59:32,559
+and show in browser. So we talked about
+
+1114
+00:59:30,240 --> 00:59:35,599
+these things.
+
+1115
+00:59:32,559 --> 00:59:38,799
+Okay. A digression. Now
+
+1116
+00:59:35,599 --> 00:59:44,799
+go back to So close that. Go back to So
+
+1117
+00:59:38,799 --> 00:59:46,960
+go back to Yeah. code. Okay.
+
+1118
+00:59:44,799 --> 00:59:49,119
+Could you use more? So is that a bad
+
+1119
+00:59:46,960 --> 00:59:52,720
+thing? It seems like a do what I mean
+
+1120
+00:59:49,119 --> 00:59:55,520
+command which is more EDI edomatic to
+
+1121
+00:59:52,720 --> 00:59:58,720
+Emacs. Yeah, that's up to you. Okay. So
+
+1122
+00:59:55,520 --> 01:00:01,040
+for me, no, I want universal.
+
+1123
+00:59:58,720 --> 01:00:04,240
+It depends depends on the situation, you
+
+1124
+01:00:01,040 --> 01:00:06,160
+know. So depends on the situation.
+
+1125
+01:00:04,240 --> 01:00:08,319
+for some situation you want a command
+
+1126
+01:00:06,160 --> 01:00:11,760
+that's universal. let's say common
+
+1127
+01:00:08,319 --> 01:00:14,480
+command you know so so in EMAC this the
+
+1128
+01:00:11,760 --> 01:00:16,240
+common syntax is that so you you always
+
+1129
+01:00:14,480 --> 01:00:18,960
+call the same command doesn't matter
+
+1130
+01:00:16,240 --> 01:00:21,040
+it's in Python or whatever language you
+
+1131
+01:00:18,960 --> 01:00:24,000
+know the command will depends on the
+
+1132
+01:00:21,040 --> 01:00:27,520
+language and do the comment right so
+
+1133
+01:00:24,000 --> 01:00:29,599
+maybe so that's fitting but for the
+
+1134
+01:00:27,520 --> 01:00:31,839
+paragraph
+
+1135
+01:00:29,599 --> 01:00:34,480
+you know so so here's the thing what
+
+1136
+01:00:31,839 --> 01:00:36,319
+does a paragraph mean in a programming
+
+1137
+01:00:34,480 --> 01:00:39,280
+language
+
+1138
+01:00:36,319 --> 01:00:40,880
+okay It it kind of depends. For example,
+
+1139
+01:00:39,280 --> 01:00:43,119
+you know, I can tell you what's the
+
+1140
+01:00:40,880 --> 01:00:46,880
+wrong with the mark paragraph because in
+
+1141
+01:00:43,119 --> 01:00:48,640
+HTML, if you call mark paragraph, it's
+
+1142
+01:00:46,880 --> 01:00:51,599
+unpredictable.
+
+1143
+01:00:48,640 --> 01:00:55,040
+Okay, for example, copy the whole file,
+
+1144
+01:00:51,599 --> 01:00:59,200
+new buffer, paste. This is our talk show
+
+1145
+01:00:55,040 --> 01:01:00,720
+today. Save it. XX uh random number.
+
+1146
+01:00:59,200 --> 01:01:03,440
+Okay.
+
+1147
+01:01:00,720 --> 01:01:08,160
+Uh
+
+1148
+01:01:03,440 --> 01:01:11,680
+okay. So, HTML. So there it is. Save it.
+
+1149
+01:01:08,160 --> 01:01:17,559
+Uh wait, we named it wrong. So rename
+
+1150
+01:01:11,680 --> 01:01:17,559
+it. So this is uh
+
+1151
+01:01:19,760 --> 01:01:26,000
+okay. So here is a HTML file, a copy of
+
+1152
+01:01:23,119 --> 01:01:27,680
+today's talk show. Now let's make it
+
+1153
+01:01:26,000 --> 01:01:30,880
+HTML
+
+1154
+01:01:27,680 --> 01:01:32,400
+mode. Okay, that's a bod emac mode for
+
+1155
+01:01:30,880 --> 01:01:35,760
+HTML.
+
+1156
+01:01:32,400 --> 01:01:38,720
+Do it. Okay, that's the default. Now
+
+1157
+01:01:35,760 --> 01:01:42,160
+when you call mark paragraph let's see
+
+1158
+01:01:38,720 --> 01:01:46,000
+what happens okay
+
+1159
+01:01:42,160 --> 01:01:48,640
+mark paragraph do it okay it goes one
+
+1160
+01:01:46,000 --> 01:01:51,280
+line above you see there's a extra blank
+
+1161
+01:01:48,640 --> 01:01:53,359
+line at top okay so what if you call it
+
+1162
+01:01:51,280 --> 01:01:56,720
+here so
+
+1163
+01:01:53,359 --> 01:01:59,119
+you see what the is that you know
+
+1164
+01:01:56,720 --> 01:02:02,640
+what what what is the meaning of
+
+1165
+01:01:59,119 --> 01:02:06,559
+paragraph can you see
+
+1166
+01:02:02,640 --> 01:02:10,319
+so can you see Franc's this holder.
+
+1167
+01:02:06,559 --> 01:02:13,839
+You see okay my cruiser is here call
+
+1168
+01:02:10,319 --> 01:02:16,480
+mark paragraph it does that now if my
+
+1169
+01:02:13,839 --> 01:02:20,400
+cruiser is here what does it do it does
+
+1170
+01:02:16,480 --> 01:02:24,079
+it it goes up to meta so does that mean
+
+1171
+01:02:20,400 --> 01:02:27,839
+it's somehow dependent on
+
+1172
+01:02:24,079 --> 01:02:30,960
+so what is it depend on so if my cruiser
+
+1173
+01:02:27,839 --> 01:02:36,079
+is here call mark paragraph it it went
+
+1174
+01:02:30,960 --> 01:02:38,559
+down so if if my cruiser is here co par
+
+1175
+01:02:36,079 --> 01:02:40,559
+Mark paragraph it went down again. So
+
+1176
+01:02:38,559 --> 01:02:42,799
+what the is your meaning of
+
+1177
+01:02:40,559 --> 01:02:45,520
+paragraph?
+
+1178
+01:02:42,799 --> 01:02:49,040
+So if my cruer is here in the body
+
+1179
+01:02:45,520 --> 01:02:52,079
+called mark paragraph it oh it okay so
+
+1180
+01:02:49,040 --> 01:02:55,119
+it always go downwards.
+
+1181
+01:02:52,079 --> 01:02:59,119
+So if my cruer is here before the body
+
+1182
+01:02:55,119 --> 01:03:01,760
+tag call it still go down. So you I
+
+1183
+01:02:59,119 --> 01:03:03,599
+don't know what the is going on. I
+
+1184
+01:03:01,760 --> 01:03:06,559
+don't want to spend one hour to find
+
+1185
+01:03:03,599 --> 01:03:09,440
+out. You see that's a problem.
+
+1186
+01:03:06,559 --> 01:03:12,319
+So for code you don't have you know you
+
+1187
+01:03:09,440 --> 01:03:15,680
+the general concept of paragraph should
+
+1188
+01:03:12,319 --> 01:03:19,599
+be a block of code
+
+1189
+01:03:15,680 --> 01:03:22,079
+separated by blank lines or you could go
+
+1190
+01:03:19,599 --> 01:03:26,079
+semantic. You know a paragraph just
+
+1191
+01:03:22,079 --> 01:03:28,720
+means like the the the element you know
+
+1192
+01:03:26,079 --> 01:03:32,640
+whatever nested complete element you
+
+1193
+01:03:28,720 --> 01:03:34,640
+could do that but in the default HTML
+
+1194
+01:03:32,640 --> 01:03:36,400
+mod I don't know what the it is. So
+
+1195
+01:03:34,640 --> 01:03:40,200
+anyway that's an example. Okay. Delete
+
+1196
+01:03:36,400 --> 01:03:40,200
+this file. Okay.
+
+1197
+01:03:40,400 --> 01:03:45,599
+Okay. So delete that file. Make let's
+
+1198
+01:03:42,880 --> 01:03:48,319
+make sure we are not confused. Okay. So
+
+1199
+01:03:45,599 --> 01:03:51,039
+close that. Close that. Okay. So that's
+
+1200
+01:03:48,319 --> 01:03:53,200
+a digression about the mark paragraph.
+
+1201
+01:03:51,039 --> 01:03:55,920
+Now
+
+1202
+01:03:53,200 --> 01:03:57,920
+we digress so much. Now we need to get
+
+1203
+01:03:55,920 --> 01:04:01,119
+back to get get this to work. Okay.
+
+1204
+01:03:57,920 --> 01:04:03,520
+Let's let's let's get on to that. Close
+
+1205
+01:04:01,119 --> 01:04:07,680
+that. Let's see.
+
+1206
+01:04:03,520 --> 01:04:09,520
+Okay. is well. So, okay. So, let's make
+
+1207
+01:04:07,680 --> 01:04:12,520
+a
+
+1208
+01:04:09,520 --> 01:04:12,520
+uh
+
+1209
+01:04:12,559 --> 01:04:19,119
+uh screenshot so we have a record of
+
+1210
+01:04:15,119 --> 01:04:22,640
+that. Okay. Wait. Yeah. So, we don't
+
+1211
+01:04:19,119 --> 01:04:25,520
+care about that. Okay. So, now
+
+1212
+01:04:22,640 --> 01:04:29,440
+uh now we will coding this. Yes. Okay.
+
+1213
+01:04:25,520 --> 01:04:31,760
+Now, remember we are coding this command
+
+1214
+01:04:29,440 --> 01:04:35,440
+begin end.
+
+1215
+01:04:31,760 --> 01:04:39,280
+Okay. and uh markdown text. Okay. Script
+
+1216
+01:04:35,440 --> 01:04:42,079
+path. Okay. This is a argo outline.
+
+1217
+01:04:39,280 --> 01:04:45,920
+Okay. Argo outline. Perfect
+
+1218
+01:04:42,079 --> 01:04:50,559
+documentation. Okay. Then set uh and
+
+1219
+01:04:45,920 --> 01:04:54,799
+this part is set X begin. Set begin
+
+1220
+01:04:50,559 --> 01:04:58,400
+point positions. Okay. No, not point my
+
+1221
+01:04:54,799 --> 01:05:01,200
+ass. Okay. Then set markdown text. So
+
+1222
+01:04:58,400 --> 01:05:05,119
+now we got to call shell command. So we
+
+1223
+01:05:01,200 --> 01:05:08,240
+need to modify the Python script so that
+
+1224
+01:05:05,119 --> 01:05:13,160
+it takes input from standard in. Okay.
+
+1225
+01:05:08,240 --> 01:05:13,160
+So now let's put um
+
+1226
+01:05:14,960 --> 01:05:19,079
+need to feed
+
+1227
+01:05:23,119 --> 01:05:31,039
+weight okay to standing to the script.
+
+1228
+01:05:28,480 --> 01:05:34,079
+Okay. That's what we need to do. Pedify
+
+1229
+01:05:31,039 --> 01:05:38,400
+the code. Put it back. Syntax color
+
+1230
+01:05:34,079 --> 01:05:40,720
+showing browser. Now we have um
+
+1231
+01:05:38,400 --> 01:05:42,799
+we know what we are doing. Okay. Here is
+
+1232
+01:05:40,720 --> 01:05:46,240
+the emac this code. Now we need to
+
+1233
+01:05:42,799 --> 01:05:50,079
+modify the Python code. Okay. The Python
+
+1234
+01:05:46,240 --> 01:05:54,079
+code needs to take input from standard
+
+1235
+01:05:50,079 --> 01:05:57,839
+input. Okay. So how do I how to do that?
+
+1236
+01:05:54,079 --> 01:06:01,200
+Python. I don't know Python.
+
+1237
+01:05:57,839 --> 01:06:04,000
+Let's read my tutorial.
+
+1238
+01:06:01,200 --> 01:06:08,720
+So I forgot where.
+
+1239
+01:06:04,000 --> 01:06:13,039
+St I N. Oh. Oh. Oh. Python says stand
+
+1240
+01:06:08,720 --> 01:06:16,079
+out but there is no stand in.
+
+1241
+01:06:13,039 --> 01:06:19,760
+Oh god.
+
+1242
+01:06:16,079 --> 01:06:22,319
+So what is how do you um
+
+1243
+01:06:19,760 --> 01:06:27,359
+so in Python how do you get the stand
+
+1244
+01:06:22,319 --> 01:06:30,000
+in? That's the question. Do I know?
+
+1245
+01:06:27,359 --> 01:06:33,240
+Uh do you guys know? Probably some of
+
+1246
+01:06:30,000 --> 01:06:33,240
+you know.
+
+1247
+01:06:33,359 --> 01:06:38,480
+So what what what you guys saying is
+
+1248
+01:06:36,079 --> 01:06:40,799
+that a bad thing it seems. Okay. Can you
+
+1249
+01:06:38,480 --> 01:06:45,799
+create a entire program like example
+
+1250
+01:06:40,799 --> 01:06:45,799
+Windows word using Python code only?
+
+1251
+01:06:45,839 --> 01:06:52,160
+Can you create a entire program
+
+1252
+01:06:49,839 --> 01:06:54,880
+like example
+
+1253
+01:06:52,160 --> 01:06:56,880
+Windows word using Python code only?
+
+1254
+01:06:54,880 --> 01:07:00,960
+What do you mean? Seems like it went
+
+1255
+01:06:56,880 --> 01:07:03,960
+back to the last unclosed tag. Okay. Use
+
+1256
+01:07:00,960 --> 01:07:03,960
+subprocess.
+
+1257
+01:07:05,520 --> 01:07:12,079
+So what do you So I don't know how. So,
+
+1258
+01:07:09,119 --> 01:07:14,240
+so right now our job is to make the
+
+1259
+01:07:12,079 --> 01:07:17,119
+Python script
+
+1260
+01:07:14,240 --> 01:07:20,240
+to take standard input. I don't know how
+
+1261
+01:07:17,119 --> 01:07:25,480
+to do that. So, let's and my tutorial
+
+1262
+01:07:20,240 --> 01:07:25,480
+doesn't cover it. So, let's ask Gork
+
+1263
+01:07:27,599 --> 01:07:32,920
+in Python. How to get std?
+
+1264
+01:07:34,160 --> 01:07:40,319
+I've done this before. Oh, yeah. CIS
+
+1265
+01:07:36,480 --> 01:07:44,480
+stand in obvious obviously
+
+1266
+01:07:40,319 --> 01:07:49,599
+okay so now let's go to um the Python
+
+1267
+01:07:44,480 --> 01:07:54,880
+code Python code here so you need to uh
+
+1268
+01:07:49,599 --> 01:07:57,839
+take stand in import sys read okay so
+
+1269
+01:07:54,880 --> 01:08:03,440
+let's write
+
+1270
+01:07:57,839 --> 01:08:08,480
+okay so we do we care about that no no
+
+1271
+01:08:03,440 --> 01:08:10,480
+okay markdown Text is just that that
+
+1272
+01:08:08,480 --> 01:08:12,160
+that that
+
+1273
+01:08:10,480 --> 01:08:14,319
+that that
+
+1274
+01:08:12,160 --> 01:08:17,319
+that that
+
+1275
+01:08:14,319 --> 01:08:17,319
+that
+
+1276
+01:08:17,759 --> 01:08:20,759
+that
+
+1277
+01:08:23,199 --> 01:08:27,920
+competitive competitive programming. My
+
+1278
+01:08:26,239 --> 01:08:30,799
+ass
+
+1279
+01:08:27,920 --> 01:08:33,120
+don't like competitive programming
+
+1280
+01:08:30,799 --> 01:08:36,159
+because those competi competitive
+
+1281
+01:08:33,120 --> 01:08:39,759
+programmers they are like they are
+
+1282
+01:08:36,159 --> 01:08:41,839
+useless you know they they you know they
+
+1283
+01:08:39,759 --> 01:08:45,759
+they they are just good for like fast
+
+1284
+01:08:41,839 --> 01:08:48,400
+coding but for real you know creating a
+
+1285
+01:08:45,759 --> 01:08:51,520
+huge project they are like not very
+
+1286
+01:08:48,400 --> 01:08:54,319
+good. Okay read all input at once. Yeah
+
+1287
+01:08:51,520 --> 01:08:56,640
+shut up. Okay. So that's simple. As
+
+1288
+01:08:54,319 --> 01:09:00,159
+simple as that.
+
+1289
+01:08:56,640 --> 01:09:05,480
+Is that the magical? Yes.
+
+1290
+01:09:00,159 --> 01:09:05,480
+Okay. So let's save it.
+
+1291
+01:09:06,000 --> 01:09:13,040
+Okay. Can we test it? Yes, we can. Yeah,
+
+1292
+01:09:08,960 --> 01:09:15,359
+but it's uh involved. Okay. So
+
+1293
+01:09:13,040 --> 01:09:19,600
+yeah, we can test test it. Okay.
+
+1294
+01:09:15,359 --> 01:09:22,880
+Markdown to HTML. Okay. So here. So, so
+
+1295
+01:09:19,600 --> 01:09:24,480
+that's so you want to create another
+
+1296
+01:09:22,880 --> 01:09:27,199
+file.
+
+1297
+01:09:24,480 --> 01:09:32,560
+Okay, let's open this one. Make a
+
+1298
+01:09:27,199 --> 01:09:36,000
+backup. Go to the directory. Rename this
+
+1299
+01:09:32,560 --> 01:09:39,799
+markdown. Okay.
+
+1300
+01:09:36,000 --> 01:09:39,799
+Uh let's say
+
+1301
+01:09:39,920 --> 01:09:46,239
+sample markdown. Okay. This not let's
+
+1302
+01:09:42,799 --> 01:09:52,640
+make it sample markdown.
+
+1303
+01:09:46,239 --> 01:09:56,320
+Okay. And this is called sample HTML.
+
+1304
+01:09:52,640 --> 01:09:59,920
+Okay. Uh
+
+1305
+01:09:56,320 --> 01:10:03,440
+HTML output.
+
+1306
+01:09:59,920 --> 01:10:07,440
+Okay. Let's X X it. So they are in the
+
+1307
+01:10:03,440 --> 01:10:11,040
+same location. And now let's add
+
+1308
+01:10:07,440 --> 01:10:14,640
+underscore to them. Okay. Then then mark
+
+1309
+01:10:11,040 --> 01:10:20,800
+these two file. Copy their file path.
+
+1310
+01:10:14,640 --> 01:10:23,840
+Close it. Close it. And uh and there
+
+1311
+01:10:20,800 --> 01:10:27,560
+there there link them.
+
+1312
+01:10:23,840 --> 01:10:27,560
+And uh
+
+1313
+01:10:30,239 --> 01:10:37,360
+so markdown to HTML.
+
+1314
+01:10:33,280 --> 01:10:41,679
+This one no longer exists. Okay. So here
+
+1315
+01:10:37,360 --> 01:10:46,960
+is our code. So here is the markdown to
+
+1316
+01:10:41,679 --> 01:10:50,480
+HTML and here is okay. Output. So sample
+
+1317
+01:10:46,960 --> 01:10:54,239
+markdown input. So there so in this file
+
+1318
+01:10:50,480 --> 01:10:56,719
+we need to put a sample markdown input.
+
+1319
+01:10:54,239 --> 01:11:00,440
+So how do you do that? You go to
+
+1320
+01:10:56,719 --> 01:11:00,440
+markdown link.
+
+1321
+01:11:04,880 --> 01:11:13,040
+Where is my markdown tutorial? So
+
+1322
+01:11:09,840 --> 01:11:16,719
+I just showing browser. Okay. So some
+
+1323
+01:11:13,040 --> 01:11:18,800
+markdown tutorial. So copy that.
+
+1324
+01:11:16,719 --> 01:11:22,239
+So
+
+1325
+01:11:18,800 --> 01:11:24,880
+sample paste it. Okay. So we got sample.
+
+1326
+01:11:22,239 --> 01:11:27,199
+Now let's not make it too complicated.
+
+1327
+01:11:24,880 --> 01:11:29,679
+Let's just say
+
+1328
+01:11:27,199 --> 01:11:33,040
+easy. Okay.
+
+1329
+01:11:29,679 --> 01:11:37,360
+There it is. Okay. Sample markdown. Save
+
+1330
+01:11:33,040 --> 01:11:39,360
+it. Close it. Okay. Now we want to test
+
+1331
+01:11:37,360 --> 01:11:44,080
+this
+
+1332
+01:11:39,360 --> 01:11:48,400
+script. feeding it the standard in.
+
+1333
+01:11:44,080 --> 01:11:52,320
+Okay. Open this directory in shell in
+
+1334
+01:11:48,400 --> 01:11:55,360
+PowerShell magnify.
+
+1335
+01:11:52,320 --> 01:11:58,320
+Okay. Then
+
+1336
+01:11:55,360 --> 01:12:00,400
+call this command. So copy the command
+
+1337
+01:11:58,320 --> 01:12:03,600
+name.
+
+1338
+01:12:00,400 --> 01:12:06,560
+Close it. Okay. So we need to write a
+
+1339
+01:12:03,600 --> 01:12:10,320
+shell command. Okay. So we are multi-
+
+1340
+01:12:06,560 --> 01:12:12,640
+language coding. So you need PowerShell.
+
+1341
+01:12:10,320 --> 01:12:16,480
+Now
+
+1342
+01:12:12,640 --> 01:12:19,120
+PowerShell you need to call this command
+
+1343
+01:12:16,480 --> 01:12:21,440
+with uh standard input. How do you feed
+
+1344
+01:12:19,120 --> 01:12:24,719
+it standard input? You can. So in
+
+1345
+01:12:21,440 --> 01:12:27,440
+PowerShell, how do you
+
+1346
+01:12:24,719 --> 01:12:31,280
+pass the standard input?
+
+1347
+01:12:27,440 --> 01:12:34,159
+God. Okay.
+
+1348
+01:12:31,280 --> 01:12:36,880
+So are you guys following me? Say yes.
+
+1349
+01:12:34,159 --> 01:12:40,480
+Okay. If you are still here,
+
+1350
+01:12:36,880 --> 01:12:42,719
+make this you know active. Make my video
+
+1351
+01:12:40,480 --> 01:12:45,120
+active. So let me know if you are still
+
+1352
+01:12:42,719 --> 01:12:50,080
+watching. Do I make sense? Am I going
+
+1353
+01:12:45,120 --> 01:12:51,920
+too slow? Okay. So PowerShell
+
+1354
+01:12:50,080 --> 01:12:55,199
+search I don't have I don't think I
+
+1355
+01:12:51,920 --> 01:12:58,080
+cover standard in oh PowerShell run
+
+1356
+01:12:55,199 --> 01:13:00,480
+PowerShell from command. Oh no no that's
+
+1357
+01:12:58,080 --> 01:13:06,920
+different thing. Okay.
+
+1358
+01:13:00,480 --> 01:13:06,920
+Yeah. So I my tutorial don't have the
+
+1359
+01:13:08,239 --> 01:13:16,800
+Okay. So let's ask Gro. Okay. So
+
+1360
+01:13:13,120 --> 01:13:19,800
+So first of all, let's put that into our
+
+1361
+01:13:16,800 --> 01:13:19,800
+um
+
+1362
+01:13:22,239 --> 01:13:25,719
+Okay. So
+
+1363
+01:13:26,480 --> 01:13:29,480
+wait
+
+1364
+01:13:33,440 --> 01:13:42,640
+okay so put it back. So let's ask in
+
+1365
+01:13:37,840 --> 01:13:45,760
+Python how to get stand in copy.
+
+1366
+01:13:42,640 --> 01:13:49,040
+So that's the guac answer
+
+1367
+01:13:45,760 --> 01:13:52,320
+and uh then we want to know in
+
+1368
+01:13:49,040 --> 01:13:54,719
+powershell how to get standing. Okay,
+
+1369
+01:13:52,320 --> 01:13:57,719
+new question.
+
+1370
+01:13:54,719 --> 01:13:57,719
+Paste.
+
+1371
+01:14:00,000 --> 01:14:05,719
+Oh, we don't we don't want to get
+
+1372
+01:14:01,520 --> 01:14:05,719
+standing. We want to pass
+
+1373
+01:14:07,920 --> 01:14:13,920
+we want to pass the stand in to the
+
+1374
+01:14:10,800 --> 01:14:16,920
+Python program. Okay.
+
+1375
+01:14:13,920 --> 01:14:16,920
+Um
+
+1376
+01:14:22,239 --> 01:14:29,199
+well in that case it's just get content
+
+1377
+01:14:25,120 --> 01:14:31,920
+okay yeah there get content that I know
+
+1378
+01:14:29,199 --> 01:14:36,280
+okay so get console here's what we do
+
+1379
+01:14:31,920 --> 01:14:36,280
+okay so powershell
+
+1380
+01:14:36,320 --> 01:14:42,560
+get content
+
+1381
+01:14:38,480 --> 01:14:46,239
+get content what what file so
+
+1382
+01:14:42,560 --> 01:14:49,280
+the file would be sample markdown. Okay,
+
+1383
+01:14:46,239 --> 01:14:52,280
+so that is the file. Okay,
+
+1384
+01:14:49,280 --> 01:14:52,280
+so
+
+1385
+01:14:52,320 --> 01:14:59,920
+this file copy file path close. Okay, so
+
+1386
+01:14:56,880 --> 01:15:03,320
+and now go back to PowerShell
+
+1387
+01:14:59,920 --> 01:15:03,320
+get content
+
+1388
+01:15:04,719 --> 01:15:12,000
+this file. Okay. Oh, yeah. Path. Okay.
+
+1389
+01:15:08,480 --> 01:15:15,600
+Oh. Oh, right. The dot.
+
+1390
+01:15:12,000 --> 01:15:18,560
+Oh, the Python can just say dash. That's
+
+1391
+01:15:15,600 --> 01:15:22,000
+right. Okay, we skipped. Do Do you guys
+
+1392
+01:15:18,560 --> 01:15:26,679
+know what I'm talking about?
+
+1393
+01:15:22,000 --> 01:15:26,679
+Do you guys know what I'm talking about?
+
+1394
+01:15:28,800 --> 01:15:35,840
+So, one way to do it is like this. Okay.
+
+1395
+01:15:32,640 --> 01:15:39,600
+Then the Python uh file name. So, what
+
+1396
+01:15:35,840 --> 01:15:42,600
+is the Python file name?
+
+1397
+01:15:39,600 --> 01:15:42,600
+Uh
+
+1398
+01:15:46,159 --> 01:15:53,679
+uh HTML markdown to HTML Python
+
+1399
+01:15:52,159 --> 01:16:00,040
+but
+
+1400
+01:15:53,679 --> 01:16:00,040
+what oh god showing browser so
+
+1401
+01:16:02,239 --> 01:16:08,840
+oh yeah okay so py search for py Y.
+
+1402
+01:16:09,920 --> 01:16:15,440
+Okay. So, here is the Python code. Copy
+
+1403
+01:16:13,040 --> 01:16:18,640
+the file path.
+
+1404
+01:16:15,440 --> 01:16:22,880
+Okay. So, you just So, this is one way
+
+1405
+01:16:18,640 --> 01:16:25,880
+to do it. Okay. So, you say
+
+1406
+01:16:22,880 --> 01:16:25,880
+Python.
+
+1407
+01:16:27,840 --> 01:16:35,199
+Okay. One line. So, it's one way.
+
+1408
+01:16:30,640 --> 01:16:38,880
+Another way which we learned is just
+
+1409
+01:16:35,199 --> 01:16:42,320
+forget about get content. You just do it
+
+1410
+01:16:38,880 --> 01:16:47,440
+like that. Okay. I think so.
+
+1411
+01:16:42,320 --> 01:16:52,199
+So there are two ways. Okay. So yeah.
+
+1412
+01:16:47,440 --> 01:16:52,199
+Yeah. Okay. So
+
+1413
+01:16:56,400 --> 01:17:03,640
+pass
+
+1414
+01:16:57,920 --> 01:17:03,640
+into the Python script
+
+1415
+01:17:04,480 --> 01:17:09,000
+method
+
+1416
+01:17:06,000 --> 01:17:09,000
+one.
+
+1417
+01:17:09,120 --> 01:17:15,520
+Okay, we are commenting
+
+1418
+01:17:12,000 --> 01:17:19,760
+it so that other people watching this
+
+1419
+01:17:15,520 --> 01:17:23,120
+can know what I'm be doing. So
+
+1420
+01:17:19,760 --> 01:17:27,120
+this is the way. Okay. I think
+
+1421
+01:17:23,120 --> 01:17:31,040
+yeah let's try. Okay.
+
+1422
+01:17:27,120 --> 01:17:36,440
+Uh wait. So wait. So
+
+1423
+01:17:31,040 --> 01:17:36,440
+Oh actually you need to do this way.
+
+1424
+01:17:36,800 --> 01:17:42,880
+Uh you need to do them both I think. Do
+
+1425
+01:17:39,920 --> 01:17:47,280
+you guys know?
+
+1426
+01:17:42,880 --> 01:17:51,760
+Okay. ACP. Hello ACP Junior.
+
+1427
+01:17:47,280 --> 01:17:55,440
+So we want to we have a file this file
+
+1428
+01:17:51,760 --> 01:17:56,960
+we want to pass it the content to the
+
+1429
+01:17:55,440 --> 01:18:00,800
+python
+
+1430
+01:17:56,960 --> 01:18:04,640
+script a standard in so is this the way
+
+1431
+01:18:00,800 --> 01:18:10,600
+to do it let's try so put this back show
+
+1432
+01:18:04,640 --> 01:18:10,600
+in browser I mean syntax color so we did
+
+1433
+01:18:11,360 --> 01:18:19,159
+this is uh asking guac so let me comment
+
+1434
+01:18:15,360 --> 01:18:19,159
+and okay So
+
+1435
+01:18:22,320 --> 01:18:25,800
+work answer.
+
+1436
+01:18:26,480 --> 01:18:33,600
+Okay, we ask guen
+
+1437
+01:18:29,600 --> 01:18:38,560
+here is a simple example
+
+1438
+01:18:33,600 --> 01:18:42,800
+and here is our act the script we script
+
+1439
+01:18:38,560 --> 01:18:45,600
+and here is a sample output html and in
+
+1440
+01:18:42,800 --> 01:18:50,640
+python how to get stand in. Okay, that's
+
+1441
+01:18:45,600 --> 01:18:53,120
+a GU answer and uh um
+
+1442
+01:18:50,640 --> 01:18:56,560
+yeah, Gork answer which is actually
+
+1443
+01:18:53,120 --> 01:19:01,120
+pretty simple and we can show the code
+
+1444
+01:18:56,560 --> 01:19:05,760
+you know it's just that okay and then um
+
+1445
+01:19:01,120 --> 01:19:10,199
+then we need to test that. So copy that.
+
+1446
+01:19:05,760 --> 01:19:10,199
+So let's test that. Okay,
+
+1447
+01:19:10,400 --> 01:19:14,120
+can this work?
+
+1448
+01:19:14,159 --> 01:19:21,400
+Try it. Yes. You see one shot coding.
+
+1449
+01:19:21,520 --> 01:19:25,880
+Perfect. Perfection.
+
+1450
+01:19:26,400 --> 01:19:30,400
+You know in video games when you did
+
+1451
+01:19:28,480 --> 01:19:34,000
+something right, you know, they they
+
+1452
+01:19:30,400 --> 01:19:38,239
+they will say something perfect or
+
+1453
+01:19:34,000 --> 01:19:40,960
+sometimes it's girls, you know, sexual
+
+1454
+01:19:38,239 --> 01:19:45,440
+orgasmic voice like when you did
+
+1455
+01:19:40,960 --> 01:19:45,440
+something correct, you'll go
+
+1456
+01:19:48,719 --> 01:19:53,199
+Perfect.
+
+1457
+01:19:50,320 --> 01:19:56,480
+Okay. So, so, so where are we? So, we
+
+1458
+01:19:53,199 --> 01:19:59,840
+got the um So, this works. We don't need
+
+1459
+01:19:56,480 --> 01:20:02,000
+that. So, let's let's clean it. Method
+
+1460
+01:19:59,840 --> 01:20:06,000
+two.
+
+1461
+01:20:02,000 --> 01:20:10,159
+Okay. So, we don't need let's not Okay,
+
+1462
+01:20:06,000 --> 01:20:15,120
+let's just that. Okay. Okay.
+
+1463
+01:20:10,159 --> 01:20:16,880
+It should refresh. Fantastic. Okay.
+
+1464
+01:20:15,120 --> 01:20:21,199
+So now
+
+1465
+01:20:16,880 --> 01:20:25,120
+the final step emac bisp
+
+1466
+01:20:21,199 --> 01:20:28,320
+there. Okay. Now we know the syntax. So
+
+1467
+01:20:25,120 --> 01:20:31,760
+here you
+
+1468
+01:20:28,320 --> 01:20:34,800
+so copy copy this. So what you do here
+
+1469
+01:20:31,760 --> 01:20:37,440
+is you call
+
+1470
+01:20:34,800 --> 01:20:39,920
+uh wait you need to call powershell
+
+1471
+01:20:37,440 --> 01:20:42,560
+Jesus.
+
+1472
+01:20:39,920 --> 01:20:46,320
+Because in Emacs by default when you
+
+1473
+01:20:42,560 --> 01:20:48,719
+call shell command it calls the
+
+1474
+01:20:46,320 --> 01:20:52,440
+command.exe.
+
+1475
+01:20:48,719 --> 01:20:52,440
+ idiots.
+
+1476
+01:20:56,560 --> 01:21:01,280
+Okay. I know. So in EMAC right now the
+
+1477
+01:20:59,120 --> 01:21:04,320
+problem is
+
+1478
+01:21:01,280 --> 01:21:08,400
+here is a problem. Okay.
+
+1479
+01:21:04,320 --> 01:21:12,159
+Beat X down text to stand in of the
+
+1480
+01:21:08,400 --> 01:21:15,920
+script. Okay, how do you do that?
+
+1481
+01:21:12,159 --> 01:21:20,239
+S E Emac this tutorial will tell you.
+
+1482
+01:21:15,920 --> 01:21:22,560
+Okay, so this is EMACB shell command. So
+
+1483
+01:21:20,239 --> 01:21:27,960
+there's a section co shell command.
+
+1484
+01:21:22,560 --> 01:21:27,960
+Okay, co shell command on region.
+
+1485
+01:21:28,320 --> 01:21:35,679
+Okay, let's try that shell command on
+
+1486
+01:21:31,280 --> 01:21:38,640
+region. It calls a shell command
+
+1487
+01:21:35,679 --> 01:21:43,360
+region. Are we calling a shell command?
+
+1488
+01:21:38,640 --> 01:21:46,640
+Yes. And uh so call a shell command feed
+
+1489
+01:21:43,360 --> 01:21:49,840
+the emac region to stand in. That's what
+
+1490
+01:21:46,640 --> 01:21:52,480
+we want. And take the stand out
+
+1491
+01:21:49,840 --> 01:21:55,760
+optionally replacing the region. That's
+
+1492
+01:21:52,480 --> 01:21:59,760
+what we want. Okay. In fact, I got the
+
+1493
+01:21:55,760 --> 01:22:03,199
+Python code standing read stuff. Okay.
+
+1494
+01:21:59,760 --> 01:22:05,920
+And and we got a code here. Okay. Show
+
+1495
+01:22:03,199 --> 01:22:08,800
+command on region. It's just copy copy
+
+1496
+01:22:05,920 --> 01:22:12,679
+paste coding. Fantastic. We don't even
+
+1497
+01:22:08,800 --> 01:22:12,679
+have to work anymore.
+
+1498
+01:22:15,840 --> 01:22:22,080
+Delete whatever. Delete whatever. So
+
+1499
+01:22:19,600 --> 01:22:25,360
+shell command on region basically just
+
+1500
+01:22:22,080 --> 01:22:30,320
+this. Okay. Shell command on region.
+
+1501
+01:22:25,360 --> 01:22:34,320
+Begin end. Oh, okay. X begin X end.
+
+1502
+01:22:30,320 --> 01:22:37,120
+That's our region. Then command string.
+
+1503
+01:22:34,320 --> 01:22:40,840
+Yeah, command string. So let's define
+
+1504
+01:22:37,120 --> 01:22:40,840
+our command string.
+
+1505
+01:22:42,080 --> 01:22:50,080
+Uh then we don't need this anymore.
+
+1506
+01:22:46,080 --> 01:22:54,040
+Command string is going to be now where
+
+1507
+01:22:50,080 --> 01:22:54,040
+does this come from?
+
+1508
+01:23:00,320 --> 01:23:07,360
+Yeah. command string is
+
+1509
+01:23:03,280 --> 01:23:10,320
+is here. Okay,
+
+1510
+01:23:07,360 --> 01:23:13,040
+let's see. Wait, call shell command on
+
+1511
+01:23:10,320 --> 01:23:15,760
+region. Wait a minute. It's still
+
+1512
+01:23:13,040 --> 01:23:18,760
+calling the command.exe.
+
+1513
+01:23:15,760 --> 01:23:18,760
+So,
+
+1514
+01:23:22,960 --> 01:23:29,360
+yeah, but I think that that'll work
+
+1515
+01:23:26,480 --> 01:23:32,080
+because the command.exe exe will simply
+
+1516
+01:23:29,360 --> 01:23:35,440
+call Python. There's no complicated
+
+1517
+01:23:32,080 --> 01:23:37,840
+stuff. Okay, let's try it. So, command
+
+1518
+01:23:35,440 --> 01:23:41,600
+on region.
+
+1519
+01:23:37,840 --> 01:23:43,600
+Okay, then command string. You need to
+
+1520
+01:23:41,600 --> 01:23:46,400
+set command string. So, the command
+
+1521
+01:23:43,600 --> 01:23:50,360
+string is a script path. What's my
+
+1522
+01:23:46,400 --> 01:23:50,360
+script path there?
+
+1523
+01:23:50,400 --> 01:23:58,199
+and uh and you don't need this then but
+
+1524
+01:23:54,880 --> 01:23:58,199
+you need
+
+1525
+01:23:59,520 --> 01:24:04,480
+hyphen. Okay, so
+
+1526
+01:24:02,239 --> 01:24:08,000
+let's go back. Yeah, so you need a
+
+1527
+01:24:04,480 --> 01:24:11,040
+hyphen at the end. Python markdown
+
+1528
+01:24:08,000 --> 01:24:15,360
+Python script name hyphen that takes
+
+1529
+01:24:11,040 --> 01:24:19,840
+that in. So Python
+
+1530
+01:24:15,360 --> 01:24:22,320
+script path then hyphen. Okay. So that
+
+1531
+01:24:19,840 --> 01:24:25,520
+is a command string and the command
+
+1532
+01:24:22,320 --> 01:24:28,400
+string is a variable. So local variable.
+
+1533
+01:24:25,520 --> 01:24:30,960
+So let's you know
+
+1534
+01:24:28,400 --> 01:24:34,480
+so you need to define it a local
+
+1535
+01:24:30,960 --> 01:24:37,520
+variable. Don't forget
+
+1536
+01:24:34,480 --> 01:24:41,960
+and let's rename it
+
+1537
+01:24:37,520 --> 01:24:41,960
+to be uh the more
+
+1538
+01:24:42,320 --> 01:24:48,800
+uh let's just leave it. Okay. Clean the
+
+1539
+01:24:46,560 --> 01:24:52,000
+code.
+
+1540
+01:24:48,800 --> 01:24:55,120
+Highlight it. Wait,
+
+1541
+01:24:52,000 --> 01:24:58,239
+highlight the command string.
+
+1542
+01:24:55,120 --> 01:25:03,320
+Okay, so set command string
+
+1543
+01:24:58,239 --> 01:25:03,320
+equals to that. Then
+
+1544
+01:25:06,560 --> 01:25:12,280
+then feed x markdown text. Okay. So,
+
+1545
+01:25:13,840 --> 01:25:18,320
+so actually we don't even need to define
+
+1546
+01:25:16,320 --> 01:25:19,840
+this.
+
+1547
+01:25:18,320 --> 01:25:23,760
+Okay.
+
+1548
+01:25:19,840 --> 01:25:26,960
+So, sh command on region begin and
+
+1549
+01:25:23,760 --> 01:25:31,360
+command string
+
+1550
+01:25:26,960 --> 01:25:34,360
+uh and what's neo neot. Okay. The is
+
+1551
+01:25:31,360 --> 01:25:34,360
+that
+
+1552
+01:25:35,040 --> 01:25:41,560
+okay show command on region.
+
+1553
+01:25:38,560 --> 01:25:41,560
+So
+
+1554
+01:25:43,920 --> 01:25:48,880
+okay so it's a complicated start and
+
+1555
+01:25:47,360 --> 01:25:52,960
+command
+
+1556
+01:25:48,880 --> 01:25:56,840
+optional oh output buffer okay you need
+
+1557
+01:25:52,960 --> 01:25:56,840
+to write
+
+1558
+01:25:59,120 --> 01:26:06,520
+so what is the out okay so let's so you
+
+1559
+01:26:02,320 --> 01:26:06,520
+need the output of
+
+1560
+01:26:06,719 --> 01:26:11,440
+describe function
+
+1561
+01:26:08,719 --> 01:26:13,760
+Am I doing good? The Python package come
+
+1562
+01:26:11,440 --> 01:26:16,960
+with a command line tool. Oh, you don't
+
+1563
+01:26:13,760 --> 01:26:19,520
+need it. Yeah. Okay. So, but you don't
+
+1564
+01:26:16,960 --> 01:26:23,040
+need it. Okay. So, how many people are
+
+1565
+01:26:19,520 --> 01:26:26,080
+watching? Three.
+
+1566
+01:26:23,040 --> 01:26:28,719
+Please guard four.
+
+1567
+01:26:26,080 --> 01:26:32,800
+Okay.
+
+1568
+01:26:28,719 --> 01:26:35,440
+ YouTube. Okay. So, you so so sh
+
+1569
+01:26:32,800 --> 01:26:38,719
+command on region. That's the right
+
+1570
+01:26:35,440 --> 01:26:41,440
+command. Start and position and the
+
+1571
+01:26:38,719 --> 01:26:43,679
+command. Okay. Then optional. Then
+
+1572
+01:26:41,440 --> 01:26:47,679
+output buffer.
+
+1573
+01:26:43,679 --> 01:26:49,840
+Um so describe function. Let's see
+
+1574
+01:26:47,679 --> 01:26:53,320
+what does the
+
+1575
+01:26:49,840 --> 01:26:53,320
+output buffer.
+
+1576
+01:26:54,480 --> 01:27:00,800
+Oh god. Very complicated. Can you see?
+
+1577
+01:26:58,560 --> 01:27:06,080
+You know the documentation is a few
+
+1578
+01:27:00,800 --> 01:27:09,360
+pages. Now let's look at my tutorial.
+
+1579
+01:27:06,080 --> 01:27:11,760
+because my tutorial might explain
+
+1580
+01:27:09,360 --> 01:27:14,960
+better.
+
+1581
+01:27:11,760 --> 01:27:17,360
+Uh, no.
+
+1582
+01:27:14,960 --> 01:27:19,199
+Okay.
+
+1583
+01:27:17,360 --> 01:27:21,520
+Uh,
+
+1584
+01:27:19,199 --> 01:27:23,280
+optional fourth argument output buffer.
+
+1585
+01:27:21,520 --> 01:27:25,520
+Specify where to put the commands
+
+1586
+01:27:23,280 --> 01:27:28,080
+output. If the value is a buffer or
+
+1587
+01:27:25,520 --> 01:27:31,920
+buffer name, erase the buffer and insert
+
+1588
+01:27:28,080 --> 01:27:34,320
+it. Uh, a neo a
+
+1589
+01:27:31,920 --> 01:27:36,800
+new neo value of shell command. Don't
+
+1590
+01:27:34,320 --> 01:27:39,199
+erase buffer prevent erasing. Okay. Any
+
+1591
+01:27:36,800 --> 01:27:42,560
+other than neo value means insert the
+
+1592
+01:27:39,199 --> 01:27:46,159
+buffer insert the output in the current
+
+1593
+01:27:42,560 --> 01:27:51,000
+buffer after start. Okay.
+
+1594
+01:27:46,159 --> 01:27:51,000
+Neo. Okay. So it's just neo.
+
+1595
+01:27:51,440 --> 01:27:56,320
+Okay. So this you see emac doesn't have
+
+1596
+01:27:53,920 --> 01:27:59,120
+named parameters. That's why you got neo
+
+1597
+01:27:56,320 --> 01:28:02,880
+t neo t. You don't know what it mean. So
+
+1598
+01:27:59,120 --> 01:28:06,639
+output for neo t means replace t replace
+
+1599
+01:28:02,880 --> 01:28:11,080
+true true error buffer neo uh replace
+
+1600
+01:28:06,639 --> 01:28:11,080
+okay so that so that's it
+
+1601
+01:28:12,080 --> 01:28:19,360
+yeah so that neot neo t okay so I think
+
+1602
+01:28:16,400 --> 01:28:22,360
+I think that's it double check one more
+
+1603
+01:28:19,360 --> 01:28:22,360
+time
+
+1604
+01:28:27,199 --> 01:28:31,639
+let's compact Okay.
+
+1605
+01:28:37,199 --> 01:28:40,760
+Select region.
+
+1606
+01:28:41,520 --> 01:28:46,679
+Send it to
+
+1607
+01:28:47,920 --> 01:28:50,920
+Python
+
+1608
+01:28:51,840 --> 01:28:58,400
+script
+
+1609
+01:28:53,360 --> 01:29:00,719
+stand in via shell.
+
+1610
+01:28:58,400 --> 01:29:03,719
+command.exe.
+
+1611
+01:29:00,719 --> 01:29:03,719
+Okay.
+
+1612
+01:29:08,080 --> 01:29:15,040
+Get the output. Replace buffer text with
+
+1613
+01:29:11,520 --> 01:29:17,280
+that. Okay. That's that's what right.
+
+1614
+01:29:15,040 --> 01:29:21,480
+Okay.
+
+1615
+01:29:17,280 --> 01:29:21,480
+So, let's um
+
+1616
+01:29:22,159 --> 01:29:28,960
+Okay. So, that's you know, here's a
+
+1617
+01:29:24,560 --> 01:29:33,040
+whole code. Okay. Uh go to the beginning
+
+1618
+01:29:28,960 --> 01:29:35,600
+xf make this uh declare a lexical
+
+1619
+01:29:33,040 --> 01:29:39,120
+binding make a backup go to the
+
+1620
+01:29:35,600 --> 01:29:42,080
+directory b4 by compile okay you got
+
+1621
+01:29:39,120 --> 01:29:45,520
+some issues warning unused lexical
+
+1622
+01:29:42,080 --> 01:29:48,400
+variable markdown okay so yeah we can
+
+1623
+01:29:45,520 --> 01:29:50,639
+fix it because we are actually not using
+
+1624
+01:29:48,400 --> 01:29:54,080
+it
+
+1625
+01:29:50,639 --> 01:29:56,159
+and unused variable okay in fact it's dd
+
+1626
+01:29:54,080 --> 01:29:58,560
+the Oh,
+
+1627
+01:29:56,159 --> 01:30:01,360
+do you guys know what I'm doing? See
+
+1628
+01:29:58,560 --> 01:30:03,440
+this text? We don't need the text. We
+
+1629
+01:30:01,360 --> 01:30:05,600
+just need the beginning and position.
+
+1630
+01:30:03,440 --> 01:30:10,000
+Uh,
+
+1631
+01:30:05,600 --> 01:30:12,400
+okay. And uh, let's see.
+
+1632
+01:30:10,000 --> 01:30:14,639
+Predefine the code. Okay. Looks like
+
+1633
+01:30:12,400 --> 01:30:18,080
+that. Okay.
+
+1634
+01:30:14,639 --> 01:30:19,679
+Make a backup. I compile. No error.
+
+1635
+01:30:18,080 --> 01:30:22,320
+Fantastic.
+
+1636
+01:30:19,679 --> 01:30:26,320
+Run the code.
+
+1637
+01:30:22,320 --> 01:30:30,639
+Okay. I think this code is ready to run.
+
+1638
+01:30:26,320 --> 01:30:35,040
+When we call this meta x in emac on a
+
+1639
+01:30:30,639 --> 01:30:40,000
+region of markdown, it will do the job.
+
+1640
+01:30:35,040 --> 01:30:43,360
+And uh that'll be it for the day.
+
+1641
+01:30:40,000 --> 01:30:45,920
+Just you know example
+
+1642
+01:30:43,360 --> 01:30:48,560
+you know but in real code you you you
+
+1643
+01:30:45,920 --> 01:30:51,280
+have to like
+
+1644
+01:30:48,560 --> 01:30:53,840
+um do a few other things. For example,
+
+1645
+01:30:51,280 --> 01:30:56,400
+you don't want this script, you know,
+
+1646
+01:30:53,840 --> 01:30:59,040
+this magical script. For example, you're
+
+1647
+01:30:56,400 --> 01:31:01,920
+going to, you know, put this on website
+
+1648
+01:30:59,040 --> 01:31:04,000
+so other people can use it, right? But
+
+1649
+01:31:01,920 --> 01:31:08,320
+before they use it, they need to create
+
+1650
+01:31:04,000 --> 01:31:11,199
+a magical script. You know, this Python,
+
+1651
+01:31:08,320 --> 01:31:14,320
+which is not necessary because in Emacs,
+
+1652
+01:31:11,199 --> 01:31:17,120
+you can create this script on the fly,
+
+1653
+01:31:14,320 --> 01:31:19,199
+right? So, you need to fix that. But for
+
+1654
+01:31:17,120 --> 01:31:23,360
+now, let's just try this if this work.
+
+1655
+01:31:19,199 --> 01:31:26,159
+Okay. So now let's open a new buffer.
+
+1656
+01:31:23,360 --> 01:31:27,920
+Let's go to a markdown. Let's get some
+
+1657
+01:31:26,159 --> 01:31:30,560
+markdown.
+
+1658
+01:31:27,920 --> 01:31:33,679
+Copy markdown. Paste the markdown. So
+
+1659
+01:31:30,560 --> 01:31:36,800
+here is a bunch of markdown. Let's uh
+
+1660
+01:31:33,679 --> 01:31:40,239
+let's delete the rest. Okay, just that.
+
+1661
+01:31:36,800 --> 01:31:42,639
+So let's put the cursor here.
+
+1662
+01:31:40,239 --> 01:31:44,560
+Uh wait, let's copy. So what's the
+
+1663
+01:31:42,639 --> 01:31:50,080
+command name?
+
+1664
+01:31:44,560 --> 01:31:53,920
+Okay, copy. Let's go here now.
+
+1665
+01:31:50,080 --> 01:31:58,560
+Oh, the command size mark on markdown to
+
+1666
+01:31:53,920 --> 01:32:00,800
+HTML Python. Oh,
+
+1667
+01:31:58,560 --> 01:32:05,120
+okay. Wrong.
+
+1668
+01:32:00,800 --> 01:32:07,679
+Okay. So, wait. Undo. Let's do it. Let's
+
+1669
+01:32:05,120 --> 01:32:14,679
+Let's call it again.
+
+1670
+01:32:07,679 --> 01:32:14,679
+Let's see what it can open file use ex.
+
+1671
+01:32:18,239 --> 01:32:25,000
+Okay. No, no such file directory. So it
+
+1672
+01:32:22,000 --> 01:32:25,000
+cannot
+
+1673
+01:32:25,120 --> 01:32:33,520
+use a EMAC temp
+
+1674
+01:32:29,760 --> 01:32:39,840
+info talk show markdown. So
+
+1675
+01:32:33,520 --> 01:32:43,360
+okay so let's it cannot find the file
+
+1676
+01:32:39,840 --> 01:32:46,000
+script. Oh okay script path. Okay, you
+
+1677
+01:32:43,360 --> 01:32:48,639
+needs you you can't you you cannot use
+
+1678
+01:32:46,000 --> 01:32:52,560
+this shortcut
+
+1679
+01:32:48,639 --> 01:32:55,960
+because the command.exe don't understand
+
+1680
+01:32:52,560 --> 01:32:55,960
+this tilda.
+
+1681
+01:32:56,560 --> 01:33:03,159
+Okay, so you need that
+
+1682
+01:32:59,920 --> 01:33:03,159
+and see
+
+1683
+01:33:06,719 --> 01:33:11,840
+yeah
+
+1684
+01:33:08,719 --> 01:33:15,440
+okay evaluate the buffer. Let's try it
+
+1685
+01:33:11,840 --> 01:33:19,120
+again. Now, maybe I need backslash. I
+
+1686
+01:33:15,440 --> 01:33:21,440
+don't Okay, go back here. Did that. Move
+
+1687
+01:33:19,120 --> 01:33:25,880
+the cursor here.
+
+1688
+01:33:21,440 --> 01:33:25,880
+Or do it.
+
+1689
+01:33:26,560 --> 01:33:33,280
+Did Did it work? No.
+
+1690
+01:33:30,159 --> 01:33:35,040
+Okay, let's try something else.
+
+1691
+01:33:33,280 --> 01:33:39,120
+Call it.
+
+1692
+01:33:35,040 --> 01:33:42,880
+Do it. It It worked.
+
+1693
+01:33:39,120 --> 01:33:46,159
+It works guys.
+
+1694
+01:33:42,880 --> 01:33:50,320
+Select all met
+
+1695
+01:33:46,159 --> 01:33:54,600
+HTML markdown to HTML Python. Do it.
+
+1696
+01:33:50,320 --> 01:33:54,600
+Fantastic. And beautiful.
+
+1697
+01:33:59,280 --> 01:34:04,719
+They must also pip install. Yeah, that's
+
+1698
+01:34:01,600 --> 01:34:06,880
+required. Yeah, we just So that's
+
+1699
+01:34:04,719 --> 01:34:09,520
+required. So we need to put that into
+
+1700
+01:34:06,880 --> 01:34:11,600
+documentation. Um you know because
+
+1701
+01:34:09,520 --> 01:34:14,760
+that's a design of this command to call
+
+1702
+01:34:11,600 --> 01:34:14,760
+the Python.
+
+1703
+01:34:14,880 --> 01:34:19,360
+Um
+
+1704
+01:34:16,639 --> 01:34:21,920
+yeah so you need to say you need to have
+
+1705
+01:34:19,360 --> 01:34:24,800
+the Python mark. Yeah that's so that's
+
+1706
+01:34:21,920 --> 01:34:26,880
+annoying thing. So this script this
+
+1707
+01:34:24,800 --> 01:34:29,600
+command. So let let's let me clean up
+
+1708
+01:34:26,880 --> 01:34:34,800
+first. Okay. So it's working. So you can
+
+1709
+01:34:29,600 --> 01:34:39,440
+see but now we need to clean up. So
+
+1710
+01:34:34,800 --> 01:34:42,440
+you need to say you need to have Python
+
+1711
+01:34:39,440 --> 01:34:42,440
+installed
+
+1712
+01:34:43,520 --> 01:34:52,960
+and you need to have Python
+
+1713
+01:34:47,360 --> 01:34:56,239
+um markdown lib installed and annoying.
+
+1714
+01:34:52,960 --> 01:34:59,040
+So this okay so that's you know for this
+
+1715
+01:34:56,239 --> 01:35:03,440
+live stream that's what it is. Okay. So
+
+1716
+01:34:59,040 --> 01:35:06,440
+put the code back and uh syntax show in
+
+1717
+01:35:03,440 --> 01:35:06,440
+browser.
+
+1718
+01:35:06,639 --> 01:35:10,120
+Okay. So
+
+1719
+01:35:10,880 --> 01:35:17,360
+so that's it today. I hope you guys like
+
+1720
+01:35:13,600 --> 01:35:21,920
+it. I think everything is clear. If you
+
+1721
+01:35:17,360 --> 01:35:24,880
+have questions, ask me. Okay. Uh
+
+1722
+01:35:21,920 --> 01:35:28,560
+so we got this code to work
+
+1723
+01:35:24,880 --> 01:35:31,600
+but it requires Python installed. That's
+
+1724
+01:35:28,560 --> 01:35:33,679
+obviously requirement. But then a nasty
+
+1725
+01:35:31,600 --> 01:35:38,760
+issue is that you need the user to
+
+1726
+01:35:33,679 --> 01:35:38,760
+install Python markdown li
+
+1727
+01:35:38,800 --> 01:35:45,760
+it's not present because you know
+
+1728
+01:35:43,679 --> 01:35:48,000
+you can assume people have Python
+
+1729
+01:35:45,760 --> 01:35:50,880
+installed because we are coders what
+
+1730
+01:35:48,000 --> 01:35:54,560
+you're doing with markdown to HTML right
+
+1731
+01:35:50,880 --> 01:35:57,520
+but then you do not want to assume
+
+1732
+01:35:54,560 --> 01:35:59,679
+people know Python how to code Python.
+
+1733
+01:35:57,520 --> 01:36:01,679
+So when you say you need Python markdown
+
+1734
+01:35:59,679 --> 01:36:04,080
+library installed, they they are like
+
+1735
+01:36:01,679 --> 01:36:07,360
+what what what does that mean? What
+
+1736
+01:36:04,080 --> 01:36:11,760
+library? Which one? How do I install it?
+
+1737
+01:36:07,360 --> 01:36:14,400
+You know like like ask guac guac will
+
+1738
+01:36:11,760 --> 01:36:18,239
+tell you you know you need to do python
+
+1739
+01:36:14,400 --> 01:36:22,320
+pip you know pip
+
+1740
+01:36:18,239 --> 01:36:25,199
+something. So any anyway so this works
+
+1741
+01:36:22,320 --> 01:36:28,080
+and uh
+
+1742
+01:36:25,199 --> 01:36:30,719
+yeah so th this part I don't really like
+
+1743
+01:36:28,080 --> 01:36:34,159
+you know I you know I wish Python has it
+
+1744
+01:36:30,719 --> 01:36:38,159
+built in or easier language has it built
+
+1745
+01:36:34,159 --> 01:36:39,760
+in so far as I know not in JavaScript
+
+1746
+01:36:38,159 --> 01:36:42,960
+you know in JavaScript you need to
+
+1747
+01:36:39,760 --> 01:36:45,600
+download the common mock or some other
+
+1748
+01:36:42,960 --> 01:36:49,440
+you know we talked about two days ago
+
+1749
+01:36:45,600 --> 01:36:52,480
+common mock.js JS you need to install it
+
+1750
+01:36:49,440 --> 01:36:55,360
+install it it's npm it has 10
+
+1751
+01:36:52,480 --> 01:36:58,080
+dependencies you know the dev dependency
+
+1752
+01:36:55,360 --> 01:37:00,560
+then you need to build it then it ch out
+
+1753
+01:36:58,080 --> 01:37:02,400
+the script then you can use it complex
+
+1754
+01:37:00,560 --> 01:37:05,440
+
+1755
+01:37:02,400 --> 01:37:08,639
+and python apparently it turns out it's
+
+1756
+01:37:05,440 --> 01:37:12,400
+not building you need to install this
+
+1757
+01:37:08,639 --> 01:37:15,400
+pip markdown so it's not not
+
+1758
+01:37:12,400 --> 01:37:15,400
+satisfactory
+
+1759
+01:37:15,679 --> 01:37:22,159
+uh and for Golan. I believe I asked
+
+1760
+01:37:18,880 --> 01:37:26,480
+guac, you also have to install a
+
+1761
+01:37:22,159 --> 01:37:29,600
+external library. So that's
+
+1762
+01:37:26,480 --> 01:37:33,239
+and you know markdown to HTML. Is there
+
+1763
+01:37:29,600 --> 01:37:33,239
+not like one
+
+1764
+01:37:38,239 --> 01:37:43,679
+programming language that has it as a
+
+1765
+01:37:40,400 --> 01:37:47,360
+build library?
+
+1766
+01:37:43,679 --> 01:37:50,480
+you know, probably not because it's it's
+
+1767
+01:37:47,360 --> 01:37:52,800
+not core to a programming language.
+
+1768
+01:37:50,480 --> 01:37:55,360
+So, alternatively,
+
+1769
+01:37:52,800 --> 01:37:58,320
+if you want to write a EMAC command that
+
+1770
+01:37:55,360 --> 01:38:02,080
+do that, so you can
+
+1771
+01:37:58,320 --> 01:38:07,719
+you can have the user install a markdown
+
+1772
+01:38:02,080 --> 01:38:07,719
+to HTML command line script,
+
+1773
+01:38:07,760 --> 01:38:13,199
+you know,
+
+1774
+01:38:09,600 --> 01:38:16,080
+and it's another step, you know. So,
+
+1775
+01:38:13,199 --> 01:38:18,320
+The best is actually just
+
+1776
+01:38:16,080 --> 01:38:21,520
+Elisp code.
+
+1777
+01:38:18,320 --> 01:38:23,040
+Okay. So like the e-magisp code I have
+
+1778
+01:38:21,520 --> 01:38:25,920
+here.
+
+1779
+01:38:23,040 --> 01:38:29,600
+So I need to spend few hours like
+
+1780
+01:38:25,920 --> 01:38:32,320
+actually 20 hours to make this robust.
+
+1781
+01:38:29,600 --> 01:38:35,040
+So so I think that's it for today. But
+
+1782
+01:38:32,320 --> 01:38:37,440
+another so what we need to do what I
+
+1783
+01:38:35,040 --> 01:38:39,840
+want to do is to look at the markdown
+
+1784
+01:38:37,440 --> 01:38:42,000
+code.
+
+1785
+01:38:39,840 --> 01:38:46,480
+How does Python do it? Let let's do
+
+1786
+01:38:42,000 --> 01:38:49,920
+that. Okay, let's do that. So now
+
+1787
+01:38:46,480 --> 01:38:52,480
+given a Python library, how do you find
+
+1788
+01:38:49,920 --> 01:38:57,600
+where is the source code? I don't
+
+1789
+01:38:52,480 --> 01:38:59,600
+remember but I have looked into so
+
+1790
+01:38:57,600 --> 01:39:02,800
+Python tutorial
+
+1791
+01:38:59,600 --> 01:39:06,800
+print version building help. Let's see
+
+1792
+01:39:02,800 --> 01:39:10,400
+print version. Uh then this related
+
+1793
+01:39:06,800 --> 01:39:13,760
+Python path and module file path
+
+1794
+01:39:10,400 --> 01:39:18,320
+functions print version get script path
+
+1795
+01:39:13,760 --> 01:39:21,040
+import module show show module doc okay
+
+1796
+01:39:18,320 --> 01:39:24,480
+list module functions list module list
+
+1797
+01:39:21,040 --> 01:39:27,480
+loaded modules okay module search path
+
+1798
+01:39:24,480 --> 01:39:27,480
+there
+
+1799
+01:39:27,600 --> 01:39:34,480
+okay so let's run that code
+
+1800
+01:39:31,840 --> 01:39:37,280
+let's see where where where is it Where
+
+1801
+01:39:34,480 --> 01:39:42,760
+the can they put it on my um
+
+1802
+01:39:37,280 --> 01:39:42,760
+computer when you pip something?
+
+1803
+01:39:44,719 --> 01:39:53,199
+Okay, Python paste run it. Run the code.
+
+1804
+01:39:48,639 --> 01:39:58,159
+Okay, here is the output and paste the
+
+1805
+01:39:53,199 --> 01:40:02,239
+output and make it one line per line.
+
+1806
+01:39:58,159 --> 01:40:06,280
+Okay. So it's in
+
+1807
+01:40:02,239 --> 01:40:06,280
+oh app data.
+
+1808
+01:40:07,440 --> 01:40:15,480
+Okay. So it's in app data
+
+1809
+01:40:11,040 --> 01:40:15,480
+local programs Python.
+
+1810
+01:40:18,480 --> 01:40:26,679
+I mean where where where did I put when
+
+1811
+01:40:21,760 --> 01:40:26,679
+did I put in data? So
+
+1812
+01:40:27,280 --> 01:40:35,760
+where is the command python
+
+1813
+01:40:30,239 --> 01:40:39,880
+do it use app data local program. Okay.
+
+1814
+01:40:35,760 --> 01:40:39,880
+So it's in app data.
+
+1815
+01:40:41,760 --> 01:40:48,400
+Okay. So it's in app data. So open that
+
+1816
+01:40:45,440 --> 01:40:52,320
+li
+
+1817
+01:40:48,400 --> 01:40:54,639
+down. Wait. Search for
+
+1818
+01:40:52,320 --> 01:40:56,639
+search for markdown. Wait, that's not
+
+1819
+01:40:54,639 --> 01:41:02,560
+there.
+
+1820
+01:40:56,639 --> 01:41:06,480
+Side packages. Okay. So, app data local
+
+1821
+01:41:02,560 --> 01:41:10,639
+programs Python Python 312
+
+1822
+01:41:06,480 --> 01:41:13,679
+lib side packages. Now, search for
+
+1823
+01:41:10,639 --> 01:41:16,960
+markdown. There it is.
+
+1824
+01:41:13,679 --> 01:41:19,760
+So, let's look the code.
+
+1825
+01:41:16,960 --> 01:41:23,040
+Now, this is going to be okay. This is
+
+1826
+01:41:19,760 --> 01:41:26,400
+going to be next live stream. Maybe not
+
+1827
+01:41:23,040 --> 01:41:29,520
+next one because next one I probably
+
+1828
+01:41:26,400 --> 01:41:32,880
+going to do wuam language. So this is
+
+1829
+01:41:29,520 --> 01:41:34,960
+going to be you know in in in a few
+
+1830
+01:41:32,880 --> 01:41:39,199
+days. Okay.
+
+1831
+01:41:34,960 --> 01:41:43,040
+Where I'm going to look at the code. So
+
+1832
+01:41:39,199 --> 01:41:46,880
+this is another topic about
+
+1833
+01:41:43,040 --> 01:41:48,560
+the the question of algorithm of text
+
+1834
+01:41:46,880 --> 01:41:51,600
+processing.
+
+1835
+01:41:48,560 --> 01:41:55,119
+Do you grab text? Do you turn them into
+
+1836
+01:41:51,600 --> 01:41:58,880
+a ch charact character array or bite
+
+1837
+01:41:55,119 --> 01:42:01,119
+array? Or do you pro, you know, deal
+
+1838
+01:41:58,880 --> 01:42:04,400
+them a string? Like what do you do?
+
+1839
+01:42:01,119 --> 01:42:08,080
+Okay, so this is text processing
+
+1840
+01:42:04,400 --> 01:42:11,080
+question. So let's look at oh god HTML
+
+1841
+01:42:08,080 --> 01:42:11,080
+parser.
+
+1842
+01:42:11,840 --> 01:42:17,320
+They actually have a HTML passer.
+
+1843
+01:42:18,159 --> 01:42:21,159
+What?
+
+1844
+01:42:22,000 --> 01:42:25,920
+So another So this is getting
+
+1845
+01:42:24,159 --> 01:42:28,159
+interesting because you know there's
+
+1846
+01:42:25,920 --> 01:42:31,119
+different approaches. Do you actually
+
+1847
+01:42:28,159 --> 01:42:33,360
+use a parser or do you just do like a
+
+1848
+01:42:31,119 --> 01:42:37,119
+regular expression?
+
+1849
+01:42:33,360 --> 01:42:40,320
+Uh and but why do you need a HTML
+
+1850
+01:42:37,119 --> 01:42:43,199
+passer? Because you are just you need a
+
+1851
+01:42:40,320 --> 01:42:46,000
+markdown passer because this is turning
+
+1852
+01:42:43,199 --> 01:42:50,119
+to HTML. Why do you need a HTML passer?
+
+1853
+01:42:46,000 --> 01:42:50,119
+I don't know. But um
+
+1854
+01:42:52,159 --> 01:42:57,360
+okay so that's next one. So thank you
+
+1855
+01:42:54,159 --> 01:42:59,600
+guys for watching. Bye guys.
+
+1856
+01:42:57,360 --> 01:43:03,440
+Actually how much preparation do you do
+
+1857
+01:42:59,600 --> 01:43:06,880
+before live stream? Uh the short answer
+
+1858
+01:43:03,440 --> 01:43:11,040
+is basically zero.
+
+1859
+01:43:06,880 --> 01:43:13,679
+Okay. Uh the long answer is you know I I
+
+1860
+01:43:11,040 --> 01:43:16,880
+work on computer all day. So I have some
+
+1861
+01:43:13,679 --> 01:43:21,199
+thoughts and uh I have a list of todos.
+
+1862
+01:43:16,880 --> 01:43:24,080
+So so it's in a sense even I have zero
+
+1863
+01:43:21,199 --> 01:43:26,719
+preparation is kind of already prepared
+
+1864
+01:43:24,080 --> 01:43:30,840
+because I've been working on this. For
+
+1865
+01:43:26,719 --> 01:43:30,840
+example, the thought about
+
+1866
+01:43:30,960 --> 01:43:37,679
+creating emac this code to do markdown
+
+1867
+01:43:34,000 --> 01:43:41,360
+to HTML is a long time. Then I wrote it
+
+1868
+01:43:37,679 --> 01:43:43,520
+live in live stream. then
+
+1869
+01:43:41,360 --> 01:43:46,719
+I run into problems because you know
+
+1870
+01:43:43,520 --> 01:43:48,880
+nested list or uh you know issues I know
+
+1871
+01:43:46,719 --> 01:43:50,400
+it's there I already know because I have
+
+1872
+01:43:48,880 --> 01:43:53,679
+experience
+
+1873
+01:43:50,400 --> 01:43:55,440
+so so I already know I wanted to look at
+
+1874
+01:43:53,679 --> 01:43:57,199
+you know Python Goland you know
+
+1875
+01:43:55,440 --> 01:44:00,000
+different languages and the other
+
+1876
+01:43:57,199 --> 01:44:03,119
+question is how they do it because in
+
+1877
+01:44:00,000 --> 01:44:04,880
+EMAC this you turn it into a buffer so
+
+1878
+01:44:03,119 --> 01:44:07,280
+you know you got a buffer then you can
+
+1879
+01:44:04,880 --> 01:44:09,760
+move the cursor you can insert here
+
+1880
+01:44:07,280 --> 01:44:12,800
+remove there but in other languages ages
+
+1881
+01:44:09,760 --> 01:44:16,880
+all of them you cannot do that you got
+
+1882
+01:44:12,800 --> 01:44:19,840
+one giant string fixed immutable
+
+1883
+01:44:16,880 --> 01:44:22,480
+so but how do they do it of of course
+
+1884
+01:44:19,840 --> 01:44:24,719
+they can do it but then it's maybe
+
+1885
+01:44:22,480 --> 01:44:27,440
+turning it into
+
+1886
+01:44:24,719 --> 01:44:29,119
+you know bite array those are dynamic
+
+1887
+01:44:27,440 --> 01:44:32,960
+array you know in different languages
+
+1888
+01:44:29,119 --> 01:44:35,679
+depends in Goland it might be
+
+1889
+01:44:32,960 --> 01:44:40,159
+what they call a slice
+
+1890
+01:44:35,679 --> 01:44:43,280
+of run you know run is bas basically the
+
+1891
+01:44:40,159 --> 01:44:45,440
+character type for golan of UTF8
+
+1892
+01:44:43,280 --> 01:44:48,960
+characters unic code characters so you
+
+1893
+01:44:45,440 --> 01:44:51,199
+you turn it into a like slice of run and
+
+1894
+01:44:48,960 --> 01:44:53,440
+slice means
+
+1895
+01:44:51,199 --> 01:44:56,400
+slice means like basically just means
+
+1896
+01:44:53,440 --> 01:44:58,639
+dynamic array okay it's array is a data
+
+1897
+01:44:56,400 --> 01:45:01,679
+type in golan so depends on the language
+
+1898
+01:44:58,639 --> 01:45:06,360
+that's another interesting to thing to
+
+1899
+01:45:01,679 --> 01:45:06,360
+look into okay bye guys.
+
+1900
+01:45:10,480 --> 01:45:13,800
+Hi guys.
+
+1901
+01:45:14,480 --> 01:45:20,480
+Shut down. Shut down. End stream. Pay
+
+1902
+01:45:17,360 --> 01:45:22,960
+me. Okay. Don't forget if you guys enjoy
+
+1903
+01:45:20,480 --> 01:45:25,119
+like my stuff, go to kasar talk show.
+
+1904
+01:45:22,960 --> 01:45:30,159
+kasali.info.
+
+1905
+01:45:25,119 --> 01:45:33,040
+Okay. kasali.info. http no s. Then go to
+
+1906
+01:45:30,159 --> 01:45:36,080
+the bottom. Patreon me, Amazon gift card
+
+1907
+01:45:33,040 --> 01:45:36,080
+me, PayPal me.
+

@@ -1,0 +1,4796 @@
+1
+00:00:03,500 --> 00:00:08,639
+good morning guys
+
+2
+00:00:05,299 --> 00:00:10,010
+welcome to another episode of Santa's
+
+3
+00:00:08,639 --> 00:00:14,179
+Show
+
+4
+00:00:10,010 --> 00:00:22,189
+let's see if I have okay it's good
+
+5
+00:00:14,179 --> 00:00:27,449
+so today so so I got a question here and
+
+6
+00:00:22,189 --> 00:00:28,830
+actually doesn't show now oh yeah this
+
+7
+00:00:27,449 --> 00:00:32,610
+is a question
+
+8
+00:00:28,830 --> 00:00:35,730
+Mario T commented is there a real need
+
+9
+00:00:32,610 --> 00:00:37,739
+to learn vim I just want to use emacs in
+
+10
+00:00:35,730 --> 00:00:40,940
+your fried keys
+
+11
+00:00:37,739 --> 00:00:45,360
+no there's no need to learn v me at all
+
+12
+00:00:40,940 --> 00:00:48,180
+what do you need to so exotic so let's
+
+13
+00:00:45,360 --> 00:00:50,190
+see let's talk about some things
+
+14
+00:00:48,180 --> 00:00:52,170
+first of all okay let me address some of
+
+15
+00:00:50,190 --> 00:01:00,000
+the things I talked about yesterday
+
+16
+00:00:52,170 --> 00:01:01,890
+and one of that is yeah so yesterday we
+
+17
+00:01:00,000 --> 00:01:06,090
+were talking about graphics programming
+
+18
+00:01:01,890 --> 00:01:15,080
+pain how the technology such as OpenGL
+
+19
+00:01:06,090 --> 00:01:15,080
+is in my opinion extremely bad ok and ok
+
+20
+00:01:16,610 --> 00:01:26,450
+so let's go back here OpenGL is
+
+21
+00:01:20,939 --> 00:01:30,570
+extremely bad and I was trying to I was
+
+22
+00:01:26,450 --> 00:01:35,610
+but however there is a good design but
+
+23
+00:01:30,570 --> 00:01:38,040
+that never came to that fail basically
+
+24
+00:01:35,610 --> 00:01:41,880
+so that good design you know a
+
+25
+00:01:38,040 --> 00:01:47,700
+replacement of OpenGL is this Farren
+
+26
+00:01:41,880 --> 00:01:50,990
+hate graphics API and quick-draw 3d so
+
+27
+00:01:47,700 --> 00:01:56,430
+if you you know you might read Wikipedia
+
+28
+00:01:50,990 --> 00:01:59,270
+so picture of 3d and Fahrenheit graphics
+
+29
+00:01:56,430 --> 00:02:04,020
+API so these are intended to replace
+
+30
+00:01:59,270 --> 00:02:06,329
+OpenGL now OpenGL is extremely bad
+
+31
+00:02:04,020 --> 00:02:08,729
+technology I mean it's very low level
+
+32
+00:02:06,329 --> 00:02:12,150
+it's like what I would call see you know
+
+33
+00:02:08,729 --> 00:02:13,380
+like you know it see extremely bad but
+
+34
+00:02:12,150 --> 00:02:16,830
+because it
+
+35
+00:02:13,380 --> 00:02:20,010
+all the irrelevant necessary things to
+
+36
+00:02:16,830 --> 00:02:22,800
+the programmer where the machine can
+
+37
+00:02:20,010 --> 00:02:24,990
+handle it you know when you design your
+
+38
+00:02:22,800 --> 00:02:27,900
+language or computer programming system
+
+39
+00:02:24,990 --> 00:02:32,940
+you know graphic system anything you
+
+40
+00:02:27,900 --> 00:02:36,660
+never want to expose things that can be
+
+41
+00:02:32,940 --> 00:02:38,280
+done by machine ok for example for
+
+42
+00:02:36,660 --> 00:02:42,380
+example let me give you an example the
+
+43
+00:02:38,280 --> 00:02:47,850
+basic example today everyone knows is
+
+44
+00:02:42,380 --> 00:02:50,130
+for example type inference ok so for
+
+45
+00:02:47,850 --> 00:02:56,010
+example if you program in goal and let's
+
+46
+00:02:50,130 --> 00:03:02,580
+set to go mod ok let's save this exhales
+
+47
+00:02:56,010 --> 00:03:10,890
+go OK and you know so I save I x equals
+
+48
+00:03:02,580 --> 00:03:14,670
+to 3 and trained X ok go format ok and
+
+49
+00:03:10,890 --> 00:03:17,300
+you run a program you see it's it's
+
+50
+00:03:14,670 --> 00:03:21,030
+printing out three now go is a
+
+51
+00:03:17,300 --> 00:03:23,550
+statically typed language so these 3 the
+
+52
+00:03:21,030 --> 00:03:26,250
+type of 3 is actually your integer you
+
+53
+00:03:23,550 --> 00:03:29,550
+can you can see it you can have a
+
+54
+00:03:26,250 --> 00:03:32,430
+printer type so you see the type is
+
+55
+00:03:29,550 --> 00:03:35,730
+actually int you know one of the gold :
+
+56
+00:03:32,430 --> 00:03:37,380
+type however you know you don't have to
+
+57
+00:03:35,730 --> 00:03:40,590
+say it's an int because you know
+
+58
+00:03:37,380 --> 00:03:43,260
+obviously you assigned to 3 3 int you
+
+59
+00:03:40,590 --> 00:03:44,670
+know so that means the machine can you
+
+60
+00:03:43,260 --> 00:03:47,220
+know this is something no machine can
+
+61
+00:03:44,670 --> 00:03:50,190
+figure out so you never when you design
+
+62
+00:03:47,220 --> 00:03:52,980
+your language you never want to do some
+
+63
+00:03:50,190 --> 00:03:54,630
+things that machine can trivially figure
+
+64
+00:03:52,980 --> 00:03:57,540
+out I mean this is actually an example
+
+65
+00:03:54,630 --> 00:03:59,850
+where the machine can trivially figure
+
+66
+00:03:57,540 --> 00:04:02,520
+out so you don't want to expose these
+
+67
+00:03:59,850 --> 00:04:04,830
+kind of things to your system to the
+
+68
+00:04:02,520 --> 00:04:07,890
+program so that you know what I taught
+
+69
+00:04:04,830 --> 00:04:12,030
+you know program go I have to always say
+
+70
+00:04:07,890 --> 00:04:14,490
+intense that so on the other hand sew
+
+71
+00:04:12,030 --> 00:04:18,660
+the opposite choice design decision is
+
+72
+00:04:14,490 --> 00:04:23,130
+kind of hack and sloppy and ignorant and
+
+73
+00:04:18,660 --> 00:04:25,650
+that I ascribe to the C and UNIX kind of
+
+74
+00:04:23,130 --> 00:04:26,699
+thing the UNIX philosophy C and they are
+
+75
+00:04:25,650 --> 00:04:30,010
+like that
+
+76
+00:04:26,699 --> 00:04:32,440
+you know the type inference I don't know
+
+77
+00:04:30,010 --> 00:04:34,870
+what's a history of type type inference
+
+78
+00:04:32,440 --> 00:04:39,970
+but to me these are something that's
+
+79
+00:04:34,870 --> 00:04:44,320
+patently obvious to any any person who
+
+80
+00:04:39,970 --> 00:04:46,300
+ever thought about this design okay but
+
+81
+00:04:44,320 --> 00:04:50,350
+type inference didn't become popular
+
+82
+00:04:46,300 --> 00:04:53,650
+until let's say ten thousand ten ten
+
+83
+00:04:50,350 --> 00:04:56,260
+years ago not ten thousand you know with
+
+84
+00:04:53,650 --> 00:04:58,180
+Haskell become popular Eskow is probably
+
+85
+00:04:56,260 --> 00:05:02,560
+the first one I heard about type
+
+86
+00:04:58,180 --> 00:05:04,510
+inference ok type Haskell is kind of a
+
+87
+00:05:02,560 --> 00:05:07,120
+special case because it's rather
+
+88
+00:05:04,510 --> 00:05:10,090
+elaborate functional programming
+
+89
+00:05:07,120 --> 00:05:14,229
+language with many elaborate functional
+
+90
+00:05:10,090 --> 00:05:17,560
+programming concepts but as something
+
+91
+00:05:14,229 --> 00:05:20,169
+like go : you know but anyway the point
+
+92
+00:05:17,560 --> 00:05:22,690
+is type inference you know at least for
+
+93
+00:05:20,169 --> 00:05:24,729
+the simple cases the machine can easily
+
+94
+00:05:22,690 --> 00:05:27,130
+figure you know any any person who
+
+95
+00:05:24,729 --> 00:05:31,300
+thought about design know that you know
+
+96
+00:05:27,130 --> 00:05:33,850
+but however in C C++ you know all the
+
+97
+00:05:31,300 --> 00:05:36,990
+languages including including Java you
+
+98
+00:05:33,850 --> 00:05:39,850
+know to me it's it's just like you know
+
+99
+00:05:36,990 --> 00:05:41,979
+so the industry adopted them of course
+
+100
+00:05:39,850 --> 00:05:46,360
+they are widely popular but to me they
+
+101
+00:05:41,979 --> 00:05:49,090
+are like patently extremely idiotic you
+
+102
+00:05:46,360 --> 00:05:51,700
+know because because they almost think
+
+103
+00:05:49,090 --> 00:05:55,720
+every everywhere you find them to
+
+104
+00:05:51,700 --> 00:05:59,110
+require something that that computers
+
+105
+00:05:55,720 --> 00:06:01,419
+the machine can easily do you know but
+
+106
+00:05:59,110 --> 00:06:04,810
+however they require you the programmer
+
+107
+00:06:01,419 --> 00:06:07,120
+to do it you know that is ok and and
+
+108
+00:06:04,810 --> 00:06:09,520
+also the other thing is for no reason I
+
+109
+00:06:07,120 --> 00:06:11,979
+mean the only reason I can subscribe to
+
+110
+00:06:09,520 --> 00:06:17,020
+to you know why it's that way because
+
+111
+00:06:11,979 --> 00:06:19,660
+it's only just because it just because
+
+112
+00:06:17,020 --> 00:06:23,560
+they don't care you know that that's why
+
+113
+00:06:19,660 --> 00:06:26,680
+I hate UNIX philosophy and C C++ these
+
+114
+00:06:23,560 --> 00:06:28,660
+type of people so much used when you
+
+115
+00:06:26,680 --> 00:06:30,760
+study them you eat the only basically
+
+116
+00:06:28,660 --> 00:06:32,770
+the only reason you find is that they
+
+117
+00:06:30,760 --> 00:06:35,800
+just don't care about these things you
+
+118
+00:06:32,770 --> 00:06:38,759
+know they you know you just they require
+
+119
+00:06:35,800 --> 00:06:41,309
+you to the programmer to
+
+120
+00:06:38,759 --> 00:06:44,189
+- all these things like everywhere not
+
+121
+00:06:41,309 --> 00:06:46,860
+just you know not just type infants like
+
+122
+00:06:44,189 --> 00:06:49,080
+every design of see you know almost
+
+123
+00:06:46,860 --> 00:06:53,430
+everywhere you know you find these kind
+
+124
+00:06:49,080 --> 00:06:56,069
+of problems like symptoms of like you
+
+125
+00:06:53,430 --> 00:06:58,319
+know the only way I can describe it is
+
+126
+00:06:56,069 --> 00:07:00,029
+like brainless Ness sloppy you know they
+
+127
+00:06:58,319 --> 00:07:02,639
+don't care they like they are lazy they
+
+128
+00:07:00,029 --> 00:07:03,930
+they always implement they always come
+
+129
+00:07:02,639 --> 00:07:05,490
+up with a design
+
+130
+00:07:03,930 --> 00:07:07,740
+you know actually they don't I don't
+
+131
+00:07:05,490 --> 00:07:10,379
+think they actually design but they the
+
+132
+00:07:07,740 --> 00:07:13,169
+result they of their product is
+
+133
+00:07:10,379 --> 00:07:15,240
+typically when you look at it back like
+
+134
+00:07:13,169 --> 00:07:17,309
+there's no design you know they just
+
+135
+00:07:15,240 --> 00:07:20,069
+sloppy they just created to make it work
+
+136
+00:07:17,309 --> 00:07:21,930
+you know for most cases you know you
+
+137
+00:07:20,069 --> 00:07:25,139
+don't care are not concerned about
+
+138
+00:07:21,930 --> 00:07:27,509
+extension extensibility they are not
+
+139
+00:07:25,139 --> 00:07:30,089
+concerned about architecture they are
+
+140
+00:07:27,509 --> 00:07:33,330
+not concerned about you know arrogance
+
+141
+00:07:30,089 --> 00:07:36,629
+or minimalism you know like those needs
+
+142
+00:07:33,330 --> 00:07:42,120
+they are not just concerned about so
+
+143
+00:07:36,629 --> 00:07:44,729
+anyway that's example but let me show
+
+144
+00:07:42,120 --> 00:07:49,949
+you an article then hi guys
+
+145
+00:07:44,729 --> 00:07:52,339
+good morning so today my computer is
+
+146
+00:07:49,949 --> 00:07:56,219
+good
+
+147
+00:07:52,339 --> 00:08:08,180
+say something say hi here so let me show
+
+148
+00:07:56,219 --> 00:08:11,099
+you sorry why I hate see okay so here I
+
+149
+00:08:08,180 --> 00:08:14,059
+think in this archive I gave some
+
+150
+00:08:11,099 --> 00:08:19,129
+examples you know one of the example
+
+151
+00:08:14,059 --> 00:08:24,779
+okay okay this article is about print
+
+152
+00:08:19,129 --> 00:08:32,219
+print F I don't see first first go to G
+
+153
+00:08:24,779 --> 00:08:34,589
+okay and most vexing pause yeah the most
+
+154
+00:08:32,219 --> 00:08:37,769
+vaccine pass is suppressed first I
+
+155
+00:08:34,589 --> 00:08:40,979
+believe let's look at the article so
+
+156
+00:08:37,769 --> 00:08:43,860
+magnify magnify most vexing paths the
+
+157
+00:08:40,979 --> 00:08:48,209
+most vexing path is a specific form of
+
+158
+00:08:43,860 --> 00:08:49,200
+synthetic ambiguity resolution in C++
+
+159
+00:08:48,209 --> 00:08:54,269
+programming language
+
+160
+00:08:49,200 --> 00:08:58,050
+okay anyway the term was used by Scott
+
+161
+00:08:54,269 --> 00:09:03,290
+Mayer seeing effective STL now Scott
+
+162
+00:08:58,050 --> 00:09:04,560
+Mayer's is famous for designing I think
+
+163
+00:09:03,290 --> 00:09:08,600
+Haskell
+
+164
+00:09:04,560 --> 00:09:08,600
+I think associated with Haskell
+
+165
+00:09:12,000 --> 00:09:20,070
+let's see Scott may spawn 1959 Oh
+
+166
+00:09:17,730 --> 00:09:22,440
+one year younger than me he's an
+
+167
+00:09:20,070 --> 00:09:25,920
+American author in software consultant
+
+168
+00:09:22,440 --> 00:09:30,209
+specializing in C++ oh okay I don't know
+
+169
+00:09:25,920 --> 00:09:35,610
+him I was confused with another guy okay
+
+170
+00:09:30,209 --> 00:09:37,769
+so anyway okay so let's I digressed
+
+171
+00:09:35,610 --> 00:09:38,760
+about a little bit but anyway so this
+
+172
+00:09:37,769 --> 00:09:41,220
+article is about
+
+173
+00:09:38,760 --> 00:09:45,389
+I hate see but this article is actually
+
+174
+00:09:41,220 --> 00:09:52,680
+on a separate issue about syntax and
+
+175
+00:09:45,389 --> 00:09:54,890
+other things well it covers some of the
+
+176
+00:09:52,680 --> 00:10:00,510
+issues I'm talking about about the
+
+177
+00:09:54,890 --> 00:10:02,670
+exposing you know implementation details
+
+178
+00:10:00,510 --> 00:10:05,370
+to the programmer let me for example
+
+179
+00:10:02,670 --> 00:10:10,709
+this one is a good example let me show
+
+180
+00:10:05,370 --> 00:10:18,899
+you so this is this essays concepts and
+
+181
+00:10:10,709 --> 00:10:20,970
+oh wait it's not this one this one this
+
+182
+00:10:18,899 --> 00:10:23,880
+one is about these concepts and
+
+183
+00:10:20,970 --> 00:10:27,480
+confusions of prefix infix postfix
+
+184
+00:10:23,880 --> 00:10:29,459
+invisible notations okay the this
+
+185
+00:10:27,480 --> 00:10:33,060
+article hack of bitmask
+
+186
+00:10:29,459 --> 00:10:35,880
+spooling parameters now in c programming
+
+187
+00:10:33,060 --> 00:10:39,000
+language as well as in python you'll
+
+188
+00:10:35,880 --> 00:10:42,390
+find this kind of thing basically you
+
+189
+00:10:39,000 --> 00:10:47,579
+know when you have a function and you
+
+190
+00:10:42,390 --> 00:10:52,829
+have lots of parameters you you will see
+
+191
+00:10:47,579 --> 00:10:55,260
+that in python you will see a syntax
+
+192
+00:10:52,829 --> 00:10:58,170
+like this okay it's it's called pooling
+
+193
+00:10:55,260 --> 00:11:01,110
+bitmask okay it's a it's called B
+
+194
+00:10:58,170 --> 00:11:03,210
+bitmask so your you'll see a thing like
+
+195
+00:11:01,110 --> 00:11:06,540
+this for example you
+
+196
+00:11:03,210 --> 00:11:11,250
+the function but your and the function
+
+197
+00:11:06,540 --> 00:11:13,800
+takes an int okay and the int integer
+
+198
+00:11:11,250 --> 00:11:22,020
+you know like a pipe it takes a bite and
+
+199
+00:11:13,800 --> 00:11:25,380
+then and you pass arguments such as red
+
+200
+00:11:22,020 --> 00:11:27,630
+and yellow and red and yellow each one
+
+201
+00:11:25,380 --> 00:11:29,930
+of them is a constant they are just the
+
+202
+00:11:27,630 --> 00:11:36,120
+paid constant defined by the language
+
+203
+00:11:29,930 --> 00:11:38,910
+then you use the OL bit or simp a Pareto
+
+204
+00:11:36,120 --> 00:11:44,150
+to combine them you know so it's like a
+
+205
+00:11:38,910 --> 00:11:48,390
+bit mask so how does that work
+
+206
+00:11:44,150 --> 00:11:50,310
+should I go explain that hi guys if you
+
+207
+00:11:48,390 --> 00:11:55,640
+are watching say something okay let me
+
+208
+00:11:50,310 --> 00:12:01,080
+know you are watching 2 to 2 person ok
+
+209
+00:11:55,640 --> 00:12:05,250
+so anyway the the in C and n in Python
+
+210
+00:12:01,080 --> 00:12:07,830
+you some you have the situation where a
+
+211
+00:12:05,250 --> 00:12:10,080
+function takes a bit mask you know
+
+212
+00:12:07,830 --> 00:12:18,870
+basically they are using bit mask as
+
+213
+00:12:10,080 --> 00:12:21,600
+function parameters ok only if I should
+
+214
+00:12:18,870 --> 00:12:23,640
+explain this or should I go into that so
+
+215
+00:12:21,600 --> 00:12:27,920
+should I go into that guys do you want
+
+216
+00:12:23,640 --> 00:12:33,330
+me to go into detail about this issue
+
+217
+00:12:27,920 --> 00:12:36,780
+because I'm gonna I'm going to talk
+
+218
+00:12:33,330 --> 00:12:40,440
+about some of the things about today's
+
+219
+00:12:36,780 --> 00:12:44,040
+topic let's see yeah the pain of doing
+
+220
+00:12:40,440 --> 00:12:46,280
+video some other topics the day Steve
+
+221
+00:12:44,040 --> 00:12:50,460
+Jobs died
+
+222
+00:12:46,280 --> 00:12:56,640
+ok type something guys type here type in
+
+223
+00:12:50,460 --> 00:12:58,950
+a comment box type here okay but anyway
+
+224
+00:12:56,640 --> 00:13:01,490
+let me just explain a bit mask then
+
+225
+00:12:58,950 --> 00:13:01,490
+let's see
+
+226
+00:13:03,730 --> 00:13:17,189
+let's see maybe I can show you a Python
+
+227
+00:13:07,209 --> 00:13:17,189
+example Python rejects functions
+
+228
+00:13:20,959 --> 00:13:33,870
+yeah the third argument the third of
+
+229
+00:13:25,140 --> 00:13:38,910
+argument is a Flags okay here
+
+230
+00:13:33,870 --> 00:13:39,480
+it's flags but let me show you where it
+
+231
+00:13:38,910 --> 00:13:44,089
+is
+
+232
+00:13:39,480 --> 00:13:51,360
+Python rejects reference and you want to
+
+233
+00:13:44,089 --> 00:13:55,399
+Python rejects flags okay so let me talk
+
+234
+00:13:51,360 --> 00:13:58,980
+about these ok so Python Python rejects
+
+235
+00:13:55,399 --> 00:14:01,079
+even go back about a second Python
+
+236
+00:13:58,980 --> 00:14:05,600
+rejects Fairfax okay
+
+237
+00:14:01,079 --> 00:14:05,600
+so Python rejects functions
+
+238
+00:14:11,940 --> 00:14:19,650
+okay such for example so Python has say
+
+239
+00:14:16,560 --> 00:14:22,020
+this is this is regular expression you
+
+240
+00:14:19,650 --> 00:14:26,070
+have a function that's such you know a
+
+241
+00:14:22,020 --> 00:14:29,790
+string so this syntax is a you know it
+
+242
+00:14:26,070 --> 00:14:32,700
+takes two arguments the first argument
+
+243
+00:14:29,790 --> 00:14:39,810
+is a regular expression pattern and the
+
+244
+00:14:32,700 --> 00:14:42,720
+second argument is a string yeah
+
+245
+00:14:39,810 --> 00:14:45,930
+so you it will return I mean basically
+
+246
+00:14:42,720 --> 00:14:49,110
+it checks if if the pattern is in the
+
+247
+00:14:45,930 --> 00:14:51,500
+stream now however if you know regular
+
+248
+00:14:49,110 --> 00:14:54,930
+expression you know there is Flags
+
+249
+00:14:51,500 --> 00:14:57,500
+regular expression in basically all
+
+250
+00:14:54,930 --> 00:15:00,540
+regular expressions you any language
+
+251
+00:14:57,500 --> 00:15:03,000
+implementation you have these flags so
+
+252
+00:15:00,540 --> 00:15:08,360
+what does regular expression flags -
+
+253
+00:15:03,000 --> 00:15:12,690
+basically they are like they are like
+
+254
+00:15:08,360 --> 00:15:15,390
+optional tricks on how your other
+
+255
+00:15:12,690 --> 00:15:17,490
+language interpreter interprets your
+
+256
+00:15:15,390 --> 00:15:20,720
+pattern basically you know whether you
+
+257
+00:15:17,490 --> 00:15:23,880
+want to ignore case whether you know
+
+258
+00:15:20,720 --> 00:15:32,300
+some of the patterns should match
+
+259
+00:15:23,880 --> 00:15:32,300
+multi-line or just or not you know and
+
+260
+00:15:34,700 --> 00:15:41,130
+for example a dart in regular expression
+
+261
+00:15:38,460 --> 00:15:44,220
+will match any character but no money
+
+262
+00:15:41,130 --> 00:15:46,860
+normally except newline character the
+
+263
+00:15:44,220 --> 00:15:49,770
+dot we are not match newline character
+
+264
+00:15:46,860 --> 00:15:52,170
+but however if you give this option the
+
+265
+00:15:49,770 --> 00:15:54,030
+dot will match your newline character
+
+266
+00:15:52,170 --> 00:15:57,510
+you know so things like that you know
+
+267
+00:15:54,030 --> 00:15:59,160
+you you know case is the simplest to
+
+268
+00:15:57,510 --> 00:16:01,740
+understand so you have an option for
+
+269
+00:15:59,160 --> 00:16:04,410
+ignore case so anyway so you see that
+
+270
+00:16:01,740 --> 00:16:06,420
+regular expression has all these kind of
+
+271
+00:16:04,410 --> 00:16:08,370
+options you can control you know whether
+
+272
+00:16:06,420 --> 00:16:14,400
+you want to ignore case or multi-line
+
+273
+00:16:08,370 --> 00:16:17,550
+and stuff so so when when a function you
+
+274
+00:16:14,400 --> 00:16:21,240
+know such as replace that takes a
+
+275
+00:16:17,550 --> 00:16:22,700
+regular expression you hi Duncan hey
+
+276
+00:16:21,240 --> 00:16:25,710
+Duncan
+
+277
+00:16:22,700 --> 00:16:29,850
+when function takes expression you
+
+278
+00:16:25,710 --> 00:16:30,510
+have this regular expression options
+
+279
+00:16:29,850 --> 00:16:34,920
+okay
+
+280
+00:16:30,510 --> 00:16:37,530
+now the way Python does it is that you
+
+281
+00:16:34,920 --> 00:16:41,820
+see you see back this function read out
+
+282
+00:16:37,530 --> 00:16:46,200
+such a pattern a stream then it except a
+
+283
+00:16:41,820 --> 00:16:48,780
+third argument which is a flag flags now
+
+284
+00:16:46,200 --> 00:16:51,540
+this third argument is actually just a
+
+285
+00:16:48,780 --> 00:16:56,010
+bite that is you know one zero one zero
+
+286
+00:16:51,540 --> 00:16:59,070
+or something something and so how does
+
+287
+00:16:56,010 --> 00:17:01,650
+this flags work so basically the way it
+
+288
+00:16:59,070 --> 00:17:04,110
+works is that any of these regular
+
+289
+00:17:01,650 --> 00:17:06,930
+expression options you are seeing here
+
+290
+00:17:04,110 --> 00:17:10,680
+like ignore case without motor
+
+291
+00:17:06,930 --> 00:17:13,050
+line dot or each one of them is
+
+292
+00:17:10,680 --> 00:17:18,720
+actually just a bite you know like eight
+
+293
+00:17:13,050 --> 00:17:21,120
+bits of one and one or zeros but suppose
+
+294
+00:17:18,720 --> 00:17:23,700
+you want ignore case and suppose you
+
+295
+00:17:21,120 --> 00:17:27,060
+want the dot to match or you know any
+
+296
+00:17:23,700 --> 00:17:29,250
+character so you want this option and
+
+297
+00:17:27,060 --> 00:17:31,560
+this option you know you want to options
+
+298
+00:17:29,250 --> 00:17:34,440
+but however notice that the function
+
+299
+00:17:31,560 --> 00:17:36,480
+only take one argument for the flags so
+
+300
+00:17:34,440 --> 00:17:38,460
+how does it work so it turns out you
+
+301
+00:17:36,480 --> 00:17:41,070
+know the way they do it is that it's
+
+302
+00:17:38,460 --> 00:17:44,280
+called beat mask you know so each of
+
+303
+00:17:41,070 --> 00:17:48,480
+this option is actually just a bite so
+
+304
+00:17:44,280 --> 00:17:52,020
+when you have two bites you you okay you
+
+305
+00:17:48,480 --> 00:17:54,720
+do a bit or to combine them it was it
+
+306
+00:17:52,020 --> 00:17:58,260
+and or basically you combine the bits
+
+307
+00:17:54,720 --> 00:18:00,930
+anyway it's it's kind of fairly complex
+
+308
+00:17:58,260 --> 00:18:06,540
+to explain and that that is my point
+
+309
+00:18:00,930 --> 00:18:10,560
+you see because because before the
+
+310
+00:18:06,540 --> 00:18:13,740
+simple idea of you know options for the
+
+311
+00:18:10,560 --> 00:18:17,490
+regular expression pattern now becomes
+
+312
+00:18:13,740 --> 00:18:20,670
+this complex bit mask thing where you
+
+313
+00:18:17,490 --> 00:18:23,910
+actually so you introduce the concept of
+
+314
+00:18:20,670 --> 00:18:28,350
+bit bits to programmer and then you into
+
+315
+00:18:23,910 --> 00:18:31,260
+a concept concept a bit combination so
+
+316
+00:18:28,350 --> 00:18:35,880
+this is extremely bad that's that's so
+
+317
+00:18:31,260 --> 00:18:38,299
+so that is this article is about hack of
+
+318
+00:18:35,880 --> 00:18:41,629
+beat mask as boolean parameters
+
+319
+00:18:38,299 --> 00:18:44,299
+now you wonder why did what I do it this
+
+320
+00:18:41,629 --> 00:18:46,639
+way it's because see you know as I said
+
+321
+00:18:44,299 --> 00:18:48,619
+see you know in my opinion series like
+
+322
+00:18:46,639 --> 00:18:52,879
+the granddaddy of everything that's
+
+323
+00:18:48,619 --> 00:18:56,359
+wrong with the computing industry so
+
+324
+00:18:52,879 --> 00:18:58,129
+this is so this is article this is one
+
+325
+00:18:56,359 --> 00:19:02,089
+my article about computer language
+
+326
+00:18:58,129 --> 00:19:05,389
+design and the problems I see and by the
+
+327
+00:19:02,089 --> 00:19:07,369
+way the best bit mask is going away I
+
+328
+00:19:05,389 --> 00:19:10,459
+mean these days you don't see your
+
+329
+00:19:07,369 --> 00:19:14,209
+language you doing this anymore it was
+
+330
+00:19:10,459 --> 00:19:18,769
+like that before in see languages like C
+
+331
+00:19:14,209 --> 00:19:22,719
+you know because they can't it's kind of
+
+332
+00:19:18,769 --> 00:19:24,769
+from efficiency reasons like practical
+
+333
+00:19:22,719 --> 00:19:28,309
+practicality and efficiency reasons
+
+334
+00:19:24,769 --> 00:19:30,889
+because when you have you know instead
+
+335
+00:19:28,309 --> 00:19:34,070
+of function taking multiple options or
+
+336
+00:19:30,889 --> 00:19:37,669
+named options I don't think you even
+
+337
+00:19:34,070 --> 00:19:39,859
+have named options in C but anyway when
+
+338
+00:19:37,669 --> 00:19:44,659
+you want to reduce memory size and you
+
+339
+00:19:39,859 --> 00:19:47,209
+want to you know reduce or that you used
+
+340
+00:19:44,659 --> 00:19:49,329
+that's why they thought they use the pit
+
+341
+00:19:47,209 --> 00:19:54,799
+mask
+
+342
+00:19:49,329 --> 00:19:58,849
+hate a new hate Duncan has going so I
+
+343
+00:19:54,799 --> 00:20:04,789
+was explaining about pit mask okay so
+
+344
+00:19:58,849 --> 00:20:10,070
+and you know yeah so so I guess that's
+
+345
+00:20:04,789 --> 00:20:14,619
+one topic that's that's that try this
+
+346
+00:20:10,070 --> 00:20:20,049
+curious way to define pit facts in go
+
+347
+00:20:14,619 --> 00:20:20,049
+okay so Duncan is showing me something
+
+348
+00:20:22,890 --> 00:20:28,500
+show sure
+
+349
+00:20:29,820 --> 00:20:39,320
+what is that so Duncan say is constant
+
+350
+00:20:39,859 --> 00:20:55,499
+black one equals one and flag too so try
+
+351
+00:20:52,409 --> 00:21:00,299
+this curious way to define bit flags and
+
+352
+00:20:55,499 --> 00:21:04,229
+go I don't you know I don't use
+
+353
+00:21:00,299 --> 00:21:08,450
+let's see how go format so you define
+
+354
+00:21:04,229 --> 00:21:13,399
+two constants flag one in fact two and
+
+355
+00:21:08,450 --> 00:21:20,460
+this this is some kind of a bit operator
+
+356
+00:21:13,399 --> 00:21:25,429
+shift left I think okay
+
+357
+00:21:20,460 --> 00:21:32,299
+Duncan says flag to gets implicit value
+
+358
+00:21:25,429 --> 00:21:35,669
+with okay yeah I you know I you know I
+
+359
+00:21:32,299 --> 00:21:38,820
+don't think pit mask is a good thing at
+
+360
+00:21:35,669 --> 00:21:42,239
+all and I don't like any of those any
+
+361
+00:21:38,820 --> 00:21:44,940
+language that has these feet operations
+
+362
+00:21:42,239 --> 00:21:49,679
+I mean unless the language is designed
+
+363
+00:21:44,940 --> 00:21:52,409
+to be you know low-level you know you
+
+364
+00:21:49,679 --> 00:21:53,460
+don't start with value one them one okay
+
+365
+00:21:52,409 --> 00:21:56,580
+but what's the point
+
+366
+00:21:53,460 --> 00:22:02,299
+Duncan I know what you know what you're
+
+367
+00:21:56,580 --> 00:22:02,299
+saying so so this is like an example of
+
+368
+00:22:07,609 --> 00:22:15,229
+bits in in : or who are you saying
+
+369
+00:22:12,869 --> 00:22:15,229
+something
+
+370
+00:22:22,610 --> 00:22:33,620
+Oh curious mechanism but why is it
+
+371
+00:22:27,080 --> 00:22:37,130
+curious because yeah because so you got
+
+372
+00:22:33,620 --> 00:22:41,330
+one yeah okay III see what you mean so
+
+373
+00:22:37,130 --> 00:22:44,149
+one is basically what one is in binary
+
+374
+00:22:41,330 --> 00:22:45,950
+what is one Z was one two three four
+
+375
+00:22:44,149 --> 00:22:52,789
+five six seven eight
+
+376
+00:22:45,950 --> 00:22:54,440
+so one is this right and the is that
+
+377
+00:22:52,789 --> 00:23:00,470
+shift left or right
+
+378
+00:22:54,440 --> 00:23:03,500
+Oh yota right yota is something : I
+
+379
+00:23:00,470 --> 00:23:10,279
+don't remember what it is so let's look
+
+380
+00:23:03,500 --> 00:23:11,450
+up yeah goal and yeah you know hate
+
+381
+00:23:10,279 --> 00:23:15,490
+these kind of things
+
+382
+00:23:11,450 --> 00:23:15,490
+yo tengo tengo wiki
+
+383
+00:23:23,780 --> 00:23:27,260
+where is it
+
+384
+00:23:29,150 --> 00:23:35,210
+there should be a goal and I want to go
+
+385
+00:23:32,360 --> 00:23:38,090
+to the goal inspect or documentation not
+
+386
+00:23:35,210 --> 00:23:40,490
+some random articles so goes Yatta
+
+387
+00:23:38,090 --> 00:23:44,260
+identifier is used in constant
+
+388
+00:23:40,490 --> 00:23:47,809
+declarations to simplify definitions of
+
+389
+00:23:44,260 --> 00:23:51,230
+incrementing numbers to simplify
+
+390
+00:23:47,809 --> 00:23:53,960
+definitions of incrementing numbers
+
+391
+00:23:51,230 --> 00:23:57,830
+because it can be using expressions it
+
+392
+00:23:53,960 --> 00:24:01,970
+provides a generality beyond that of the
+
+393
+00:23:57,830 --> 00:24:06,530
+simple enumeration okay I don't get it I
+
+394
+00:24:01,970 --> 00:24:11,210
+have to read in detail yeah I have to
+
+395
+00:24:06,530 --> 00:24:14,960
+okay that's my homework that's not gonna
+
+396
+00:24:11,210 --> 00:24:18,280
+be my homework so Daniel says by using
+
+397
+00:24:14,960 --> 00:24:21,170
+bit bit wise operation operators you are
+
+398
+00:24:18,280 --> 00:24:23,440
+opting into less readable code yeah
+
+399
+00:24:21,170 --> 00:24:23,440
+exactly
+
+400
+00:24:23,860 --> 00:24:30,230
+so are you guys any of you guys see
+
+401
+00:24:26,990 --> 00:24:33,440
+programmers because you know I I rent a
+
+402
+00:24:30,230 --> 00:24:37,120
+lot again in C because you know you know
+
+403
+00:24:33,440 --> 00:24:40,300
+again is any of the low-level languages
+
+404
+00:24:37,120 --> 00:24:43,580
+and design their stuff so I was running
+
+405
+00:24:40,300 --> 00:24:46,520
+so I mean if you guys disagree I mean
+
+406
+00:24:43,580 --> 00:24:49,160
+you have to say it okay I mean you have
+
+407
+00:24:46,520 --> 00:24:51,410
+to say it because you know then you know
+
+408
+00:24:49,160 --> 00:24:53,960
+you it like if you have a like when I'm
+
+409
+00:24:51,410 --> 00:24:56,660
+say is saying something or rant again is
+
+410
+00:24:53,960 --> 00:24:59,809
+some you know which I I do often you
+
+411
+00:24:56,660 --> 00:25:02,780
+know see stuff UNIX philosophy stuff and
+
+412
+00:24:59,809 --> 00:25:04,880
+if you really disagree I mean like you
+
+413
+00:25:02,780 --> 00:25:07,100
+don't see my point at all like you you
+
+414
+00:25:04,880 --> 00:25:08,900
+have some opinion you want to say you
+
+415
+00:25:07,100 --> 00:25:12,500
+have to say it you know type it I don't
+
+416
+00:25:08,900 --> 00:25:14,270
+mind you at all you know you know yeah I
+
+417
+00:25:12,500 --> 00:25:17,059
+don't mind at all so you have to say it
+
+418
+00:25:14,270 --> 00:25:19,490
+you say it so that other people can see
+
+419
+00:25:17,059 --> 00:25:21,530
+it you know when you know when they if
+
+420
+00:25:19,490 --> 00:25:25,480
+they happen to listen to this talk show
+
+421
+00:25:21,530 --> 00:25:27,890
+and I may or may not agree you know I
+
+422
+00:25:25,480 --> 00:25:30,740
+may or may not you know I you know
+
+423
+00:25:27,890 --> 00:25:32,960
+there's so it's you know sometimes I see
+
+424
+00:25:30,740 --> 00:25:35,230
+you a point you know and sometimes a Co
+
+425
+00:25:32,960 --> 00:25:39,160
+point and disagree still and you know
+
+426
+00:25:35,230 --> 00:25:42,670
+you know but feel free to you know just
+
+427
+00:25:39,160 --> 00:25:47,090
+counter you know my opinions
+
+428
+00:25:42,670 --> 00:25:53,090
+so that's about so actually I kind of
+
+429
+00:25:47,090 --> 00:25:56,090
+just wandered off into programming
+
+430
+00:25:53,090 --> 00:26:03,140
+language design okay what was the
+
+431
+00:25:56,090 --> 00:26:05,870
+original topic I why did I became why
+
+432
+00:26:03,140 --> 00:26:09,440
+did I start to toe language design okay
+
+433
+00:26:05,870 --> 00:26:17,360
+so yeah yeah oh yeah so I was talking
+
+434
+00:26:09,440 --> 00:26:19,460
+about yeah so let me backtrack oh yeah
+
+435
+00:26:17,360 --> 00:26:24,350
+so I you know I know what I'm saying
+
+436
+00:26:19,460 --> 00:26:26,390
+let me show you okay it's all good so
+
+437
+00:26:24,350 --> 00:26:29,000
+yeah I was talking about graphics
+
+438
+00:26:26,390 --> 00:26:31,310
+programming you know graphics
+
+439
+00:26:29,000 --> 00:26:35,480
+programming pain and I was talking about
+
+440
+00:26:31,310 --> 00:26:40,070
+how idiotic is the OpenGL technology
+
+441
+00:26:35,480 --> 00:26:43,670
+okay and I was talking about there is an
+
+442
+00:26:40,070 --> 00:26:46,760
+effort to create an a graphics 3d
+
+443
+00:26:43,670 --> 00:26:51,530
+graphics API that's actually the way I
+
+444
+00:26:46,760 --> 00:26:57,290
+like and which is Fahrenheit this is
+
+445
+00:26:51,530 --> 00:27:01,960
+back in 1990s okay wait this is backing
+
+446
+00:26:57,290 --> 00:27:05,540
+I think around 2000 year 2000 1997 okay
+
+447
+00:27:01,960 --> 00:27:09,410
+so so Fahrenheit is the one of the
+
+448
+00:27:05,540 --> 00:27:11,780
+project and quick-draw 3d is another
+
+449
+00:27:09,410 --> 00:27:15,440
+project the quick-draw 3d is from Apple
+
+450
+00:27:11,780 --> 00:27:15,950
+so both of these technologies are a high
+
+451
+00:27:15,440 --> 00:27:20,120
+level
+
+452
+00:27:15,950 --> 00:27:22,850
+graphics API designed you know supposed
+
+453
+00:27:20,120 --> 00:27:25,490
+to replace the OpenGL because OpenGL is
+
+454
+00:27:22,850 --> 00:27:28,700
+ you know I don't like know it like
+
+455
+00:27:25,490 --> 00:27:32,390
+in my opinion OpenGL is this the same
+
+456
+00:27:28,700 --> 00:27:36,380
+kind of mode of thinking as the see you
+
+457
+00:27:32,390 --> 00:27:40,190
+know UNIX and see phosphors and camp
+
+458
+00:27:36,380 --> 00:27:45,080
+canvas okay so HTML canvas they are crap
+
+459
+00:27:40,190 --> 00:27:47,930
+okay deity but so of some quick draw 3d
+
+460
+00:27:45,080 --> 00:27:50,110
+and Fahrenheit you know they are high
+
+461
+00:27:47,930 --> 00:27:53,660
+level they are what I was looking for
+
+462
+00:27:50,110 --> 00:27:56,150
+however they both of this project for
+
+463
+00:27:53,660 --> 00:27:59,270
+you know business reasons or whatever
+
+464
+00:27:56,150 --> 00:28:02,330
+they folded they never came to be so
+
+465
+00:27:59,270 --> 00:28:07,100
+today we are still dealing with OpenGL
+
+466
+00:28:02,330 --> 00:28:09,530
+you know the worst you know this so
+
+467
+00:28:07,100 --> 00:28:11,900
+as I was saying you know in line with my
+
+468
+00:28:09,530 --> 00:28:14,660
+point of view is that the C UNIX they
+
+469
+00:28:11,900 --> 00:28:16,970
+are like they are scum they are viruses
+
+470
+00:28:14,660 --> 00:28:20,120
+you know and same thing in the same way
+
+471
+00:28:16,970 --> 00:28:22,910
+so I mean OpenGL is also part of it
+
+472
+00:28:20,120 --> 00:28:25,670
+they are viruses they spread you know
+
+473
+00:28:22,910 --> 00:28:29,360
+they are you know so lousy but kind of
+
+474
+00:28:25,670 --> 00:28:33,140
+simplistic simple in a simplistic way
+
+475
+00:28:29,360 --> 00:28:36,230
+not in a minimal design you know elegant
+
+476
+00:28:33,140 --> 00:28:38,900
+way they are like just sloppy and
+
+477
+00:28:36,230 --> 00:28:41,270
+simplistic and fast that's the point so
+
+478
+00:28:38,900 --> 00:28:43,730
+they spread like virus so they get
+
+479
+00:28:41,270 --> 00:28:47,180
+people used to the whole industry adopt
+
+480
+00:28:43,730 --> 00:28:49,550
+them then they kind of you know then she
+
+481
+00:28:47,180 --> 00:28:51,380
+becomes you have tsipras first Java and
+
+482
+00:28:49,550 --> 00:28:53,600
+you have all the languages based on its
+
+483
+00:28:51,380 --> 00:28:55,910
+syntax you know so they kind of grow and
+
+484
+00:28:53,600 --> 00:28:59,570
+spread you know like a variable say go
+
+485
+00:28:55,910 --> 00:29:01,730
+and spread and OpenGL and there's no way
+
+486
+00:28:59,570 --> 00:29:07,370
+it's like you cannot kill them and also
+
+487
+00:29:01,730 --> 00:29:10,640
+tear donald knuth stack and and later on
+
+488
+00:29:07,370 --> 00:29:14,680
+a lot lot heck you cannot rid of them
+
+489
+00:29:10,640 --> 00:29:17,780
+because they they are like they they
+
+490
+00:29:14,680 --> 00:29:20,810
+they grow they root you know into things
+
+491
+00:29:17,780 --> 00:29:22,280
+because you know you get rid of them
+
+492
+00:29:20,810 --> 00:29:24,590
+there's a whole issue of compatibility
+
+493
+00:29:22,280 --> 00:29:26,990
+you know there's like a whole history of
+
+494
+00:29:24,590 --> 00:29:28,730
+them you cannot you know the computer
+
+495
+00:29:26,990 --> 00:29:32,570
+will not work you know kind of like that
+
+496
+00:29:28,730 --> 00:29:35,300
+so it's it's and x11 the linux x11 as
+
+497
+00:29:32,570 --> 00:29:38,090
+well it's also part of the hidden crap
+
+498
+00:29:35,300 --> 00:29:40,460
+so that's you know that's my very very
+
+499
+00:29:38,090 --> 00:29:43,160
+strong complaint about this kind of
+
+500
+00:29:40,460 --> 00:29:46,610
+thing they they you know they are you
+
+501
+00:29:43,160 --> 00:29:49,490
+know no design simplistic you know fast
+
+502
+00:29:46,610 --> 00:29:51,770
+crappy and but they spread you know
+
+503
+00:29:49,490 --> 00:29:54,980
+because it's simple and you know they
+
+504
+00:29:51,770 --> 00:29:58,370
+spread so to this day you know you it's
+
+505
+00:29:54,980 --> 00:30:01,900
+hard to kind of replace OpenGL although
+
+506
+00:29:58,370 --> 00:30:05,250
+I think these days Microsoft is
+
+507
+00:30:01,900 --> 00:30:08,580
+Microsoft is direct 3ds
+
+508
+00:30:05,250 --> 00:30:10,919
+now I'm I'm not a game programmer I try
+
+509
+00:30:08,580 --> 00:30:14,909
+to study them I never get into it I mean
+
+510
+00:30:10,919 --> 00:30:16,950
+it never went anywhere so but I've heard
+
+511
+00:30:14,909 --> 00:30:19,590
+you know from reading other people's
+
+512
+00:30:16,950 --> 00:30:22,140
+articles directory is actually just much
+
+513
+00:30:19,590 --> 00:30:26,640
+better than OpenGL I think John kamek
+
+514
+00:30:22,140 --> 00:30:30,750
+kamek the famous tomb created you know
+
+515
+00:30:26,640 --> 00:30:35,880
+he he said that as well I mean this is
+
+516
+00:30:30,750 --> 00:30:38,760
+even ten years ago so yeah you know you
+
+517
+00:30:35,880 --> 00:30:40,770
+see so in terms of design kind of things
+
+518
+00:30:38,760 --> 00:30:43,409
+computer languages design you know I I
+
+519
+00:30:40,770 --> 00:30:45,990
+see the point that let that sometimes
+
+520
+00:30:43,409 --> 00:30:50,760
+you need you know to be practical you
+
+521
+00:30:45,990 --> 00:30:53,580
+need a speed you know so but that you
+
+522
+00:30:50,760 --> 00:30:55,440
+know many C programmers or C++
+
+523
+00:30:53,580 --> 00:30:57,120
+programmers for example these type of
+
+524
+00:30:55,440 --> 00:30:59,820
+programmers they don't they don't get my
+
+525
+00:30:57,120 --> 00:31:01,919
+point you know they know they can think
+
+526
+00:30:59,820 --> 00:31:04,650
+of is that you need speeds therefore it
+
+527
+00:31:01,919 --> 00:31:06,809
+is necessary that is not my point of
+
+528
+00:31:04,650 --> 00:31:08,610
+course obviously I know you need speed
+
+529
+00:31:06,809 --> 00:31:11,010
+obviously I know there's many
+
+530
+00:31:08,610 --> 00:31:14,309
+constraints especially you know thirty
+
+531
+00:31:11,010 --> 00:31:16,380
+years ago but still there's a difference
+
+532
+00:31:14,309 --> 00:31:21,600
+in design you know there is a difference
+
+533
+00:31:16,380 --> 00:31:24,450
+between no design thing like see okay no
+
+534
+00:31:21,600 --> 00:31:28,830
+design product like citrus press okay
+
+535
+00:31:24,450 --> 00:31:35,190
+and OpenGL okay that's one group versus
+
+536
+00:31:28,830 --> 00:31:39,390
+versus where where you actually have or
+
+537
+00:31:35,190 --> 00:31:42,600
+all the same concerns as see but but yet
+
+538
+00:31:39,390 --> 00:31:44,340
+the outcome is different yet you know
+
+539
+00:31:42,600 --> 00:31:47,549
+that you know the system the firm
+
+540
+00:31:44,340 --> 00:31:52,289
+language is different if you if you are
+
+541
+00:31:47,549 --> 00:31:56,059
+aware the separation between the
+
+542
+00:31:52,289 --> 00:31:59,940
+separation of issues between you know
+
+543
+00:31:56,059 --> 00:32:02,460
+the language you know like as an API or
+
+544
+00:31:59,940 --> 00:32:05,429
+and its implementation you know what is
+
+545
+00:32:02,460 --> 00:32:08,100
+irrelevant to the programmer so you know
+
+546
+00:32:05,429 --> 00:32:11,400
+that's what I mean so I was giving an
+
+547
+00:32:08,100 --> 00:32:13,710
+example where something machine can
+
+548
+00:32:11,400 --> 00:32:16,080
+figure out you know so I was you know
+
+549
+00:32:13,710 --> 00:32:16,799
+attack talking about the Fahrenheit and
+
+550
+00:32:16,080 --> 00:32:18,840
+quick-draw
+
+551
+00:32:16,799 --> 00:32:20,850
+you know OpenGL stuff
+
+552
+00:32:18,840 --> 00:32:25,200
+and I was talking about I was giving an
+
+553
+00:32:20,850 --> 00:32:28,950
+example of type inference in : that's
+
+554
+00:32:25,200 --> 00:32:30,929
+that's how we came to this topic type
+
+555
+00:32:28,950 --> 00:32:32,820
+inference in goal and we're you know
+
+556
+00:32:30,929 --> 00:32:36,179
+he's you see you example this is
+
+557
+00:32:32,820 --> 00:32:38,429
+patently obvious and simple type
+
+558
+00:32:36,179 --> 00:32:42,899
+inference but however you see you know
+
+559
+00:32:38,429 --> 00:32:45,379
+see first as you see or needed so so
+
+560
+00:32:42,899 --> 00:32:47,639
+here is an example where you know
+
+561
+00:32:45,379 --> 00:32:50,370
+something program you know the machine
+
+562
+00:32:47,639 --> 00:32:52,350
+can figure out we really don't want it
+
+563
+00:32:50,370 --> 00:32:55,710
+to be exposed to the programming
+
+564
+00:32:52,350 --> 00:33:01,399
+language that's one example so so I was
+
+565
+00:32:55,710 --> 00:33:05,009
+saying you know yeah about design um
+
+566
+00:33:01,399 --> 00:33:07,619
+let's see so let's read the comments a
+
+567
+00:33:05,009 --> 00:33:12,720
+little bit actually
+
+568
+00:33:07,619 --> 00:33:18,090
+so today so today I did good with my
+
+569
+00:33:12,720 --> 00:33:25,019
+computer so everything is smooth so
+
+570
+00:33:18,090 --> 00:33:27,389
+let's read the comments so Danielle says
+
+571
+00:33:25,019 --> 00:33:29,820
+by using bitwise operators you are
+
+572
+00:33:27,389 --> 00:33:30,659
+opting into less readable code yes
+
+573
+00:33:29,820 --> 00:33:35,360
+exactly
+
+574
+00:33:30,659 --> 00:33:35,360
+nonetheless that doesn't stop us right
+
+575
+00:33:37,369 --> 00:33:43,799
+what do you mean like people still want
+
+576
+00:33:39,809 --> 00:33:45,869
+to use it oh okay don't come says the
+
+577
+00:33:43,799 --> 00:33:48,779
+people who make the low-level graphics
+
+578
+00:33:45,869 --> 00:33:52,320
+API will say is the community's
+
+579
+00:33:48,779 --> 00:33:53,249
+responsibility beyond high level API on
+
+580
+00:33:52,320 --> 00:33:57,269
+top of it
+
+581
+00:33:53,249 --> 00:34:05,340
+that's rally yeah but that never happens
+
+582
+00:33:57,269 --> 00:34:10,470
+I mean okay so is that valid as far as I
+
+583
+00:34:05,340 --> 00:34:13,349
+know it never happens like Emacs is
+
+584
+00:34:10,470 --> 00:34:17,849
+beyond on top of C and UNIX that's not
+
+585
+00:34:13,349 --> 00:34:21,510
+true you can say that but that's it's
+
+586
+00:34:17,849 --> 00:34:24,329
+actually that doesn't that's that's kind
+
+587
+00:34:21,510 --> 00:34:26,940
+of you can say that to anything I mean
+
+588
+00:34:24,329 --> 00:34:31,049
+so so so okay Duncan so you are saying
+
+589
+00:34:26,940 --> 00:34:32,250
+that this low-level graphics API exists
+
+590
+00:34:31,049 --> 00:34:35,399
+because those people
+
+591
+00:34:32,250 --> 00:34:36,480
+think that high-level stuff can be built
+
+592
+00:34:35,399 --> 00:34:39,960
+on top of them
+
+593
+00:34:36,480 --> 00:34:42,210
+and you're saying one example is Emacs
+
+594
+00:34:39,960 --> 00:34:46,280
+you know on top of C and UNIX I don't
+
+595
+00:34:42,210 --> 00:34:49,500
+think these two fit together because UK
+
+596
+00:34:46,280 --> 00:34:53,399
+then you can say any anything built on
+
+597
+00:34:49,500 --> 00:34:56,669
+top of high-level period on top of C or
+
+598
+00:34:53,399 --> 00:34:58,230
+UNIX is is kind of yeah I don't think
+
+599
+00:34:56,669 --> 00:35:02,640
+that makes sense I mean how do i
+
+600
+00:34:58,230 --> 00:35:07,020
+illogically say you know yeah I think
+
+601
+00:35:02,640 --> 00:35:10,140
+you know what I mean so Daniel says the
+
+602
+00:35:07,020 --> 00:35:14,310
+launch strategies for Windows Vista and
+
+603
+00:35:10,140 --> 00:35:17,010
+Windows 7 were both accompanied by a by
+
+604
+00:35:14,310 --> 00:35:21,359
+an immense marketing push by Microsoft
+
+605
+00:35:17,010 --> 00:35:26,220
+for DirectX yeah I can't I yeah I don't
+
+606
+00:35:21,359 --> 00:35:29,280
+know windows take but I I think I you
+
+607
+00:35:26,220 --> 00:35:32,490
+know I think that's true because I've
+
+608
+00:35:29,280 --> 00:35:35,490
+read you know the news open geo is
+
+609
+00:35:32,490 --> 00:35:39,359
+nonprofit open standard yeah OpenGL well
+
+610
+00:35:35,490 --> 00:35:42,359
+the SGI folded so what was the name
+
+611
+00:35:39,359 --> 00:35:48,119
+before OpenGL you know from SGI I think
+
+612
+00:35:42,359 --> 00:35:53,190
+there's a something GL I forgot what's
+
+613
+00:35:48,119 --> 00:35:55,589
+the name you know I you know as you know
+
+614
+00:35:53,190 --> 00:35:58,410
+you for II you know listen to minimize
+
+615
+00:35:55,589 --> 00:36:00,810
+my talks I'm not you know to found of
+
+616
+00:35:58,410 --> 00:36:03,599
+the open source typically okay
+
+617
+00:36:00,810 --> 00:36:05,970
+the open source standard they become
+
+618
+00:36:03,599 --> 00:36:08,760
+open when the company no can no longer
+
+619
+00:36:05,970 --> 00:36:11,190
+make money out of something you know
+
+620
+00:36:08,760 --> 00:36:16,020
+like they they are about to bankrupt or
+
+621
+00:36:11,190 --> 00:36:18,300
+they basically it's not a command of
+
+622
+00:36:16,020 --> 00:36:21,390
+commercial value something is you know
+
+623
+00:36:18,300 --> 00:36:23,490
+something X is known no longer has
+
+624
+00:36:21,390 --> 00:36:25,680
+commercial value like you cannot make
+
+625
+00:36:23,490 --> 00:36:28,680
+money out of it then they do open source
+
+626
+00:36:25,680 --> 00:36:31,770
+that's a that's that's happened that's
+
+627
+00:36:28,680 --> 00:36:36,470
+happened to Mozilla which we got Firefox
+
+628
+00:36:31,770 --> 00:36:36,470
+that happens to lots of Technology Sun
+
+629
+00:36:37,160 --> 00:36:42,839
+so okay so there was one topic it's let
+
+630
+00:36:41,609 --> 00:36:44,490
+me show you something different
+
+631
+00:36:42,839 --> 00:36:48,450
+interesting
+
+632
+00:36:44,490 --> 00:36:51,200
+okay so I'll talk show okay so let me
+
+633
+00:36:48,450 --> 00:36:55,530
+show you so yesterday we talked about
+
+634
+00:36:51,200 --> 00:36:58,770
+web analytics we talked about spam and
+
+635
+00:36:55,530 --> 00:37:01,620
+web analytics so let me show you my
+
+636
+00:36:58,770 --> 00:37:02,870
+website traffic now this is a secret
+
+637
+00:37:01,620 --> 00:37:06,600
+okay
+
+638
+00:37:02,870 --> 00:37:09,060
+you guys are all privy to see my website
+
+639
+00:37:06,600 --> 00:37:12,330
+traffic folks are either info
+
+640
+00:37:09,060 --> 00:37:17,690
+I have several websites books are
+
+641
+00:37:12,330 --> 00:37:20,850
+leaving for his is the most busy one
+
+642
+00:37:17,690 --> 00:37:23,220
+most popular so if you look at my
+
+643
+00:37:20,850 --> 00:37:27,210
+website so this is Google's analytics
+
+644
+00:37:23,220 --> 00:37:29,730
+now Google Analytics is a kind of a
+
+645
+00:37:27,210 --> 00:37:33,540
+marketing tool it gives you statistics
+
+646
+00:37:29,730 --> 00:37:36,780
+about your website about you know who is
+
+647
+00:37:33,540 --> 00:37:39,660
+viewing your website how much you made
+
+648
+00:37:36,780 --> 00:37:43,290
+you know on what page you know the
+
+649
+00:37:39,660 --> 00:37:45,450
+people audience interest gender age age
+
+650
+00:37:43,290 --> 00:37:50,040
+group interest you know and things like
+
+651
+00:37:45,450 --> 00:37:53,070
+that they have you know they let you
+
+652
+00:37:50,040 --> 00:37:55,470
+know web sites such as New York Times or
+
+653
+00:37:53,070 --> 00:37:58,650
+any website you know need to make money
+
+654
+00:37:55,470 --> 00:38:01,350
+you know to be fine you know like
+
+655
+00:37:58,650 --> 00:38:04,920
+today's website every detail like
+
+656
+00:38:01,350 --> 00:38:07,500
+everywhere the ad is placed which fun to
+
+657
+00:38:04,920 --> 00:38:10,830
+use you know where the button is face
+
+658
+00:38:07,500 --> 00:38:14,730
+the whole design everything is is
+
+659
+00:38:10,830 --> 00:38:18,510
+catered is optimized to the tee you know
+
+660
+00:38:14,730 --> 00:38:21,450
+to squeeze monies because like Amazon
+
+661
+00:38:18,510 --> 00:38:26,850
+you know or website oh oh media website
+
+662
+00:38:21,450 --> 00:38:28,800
+you know and they you know the two
+
+663
+00:38:26,850 --> 00:38:31,760
+options because they can test you know
+
+664
+00:38:28,800 --> 00:38:36,300
+they you know they did so optimize to
+
+665
+00:38:31,760 --> 00:38:38,130
+retain users you know get more clicks so
+
+666
+00:38:36,300 --> 00:38:41,220
+they have all sort of JavaScript
+
+667
+00:38:38,130 --> 00:38:41,940
+gathering statistics like like where you
+
+668
+00:38:41,220 --> 00:38:45,770
+stopped
+
+669
+00:38:41,940 --> 00:38:49,260
+you know pause on a page and so on so
+
+670
+00:38:45,770 --> 00:38:51,540
+and one of the tool they use is of
+
+671
+00:38:49,260 --> 00:38:53,500
+course Google you know Google is doing
+
+672
+00:38:51,540 --> 00:38:56,380
+that because
+
+673
+00:38:53,500 --> 00:39:00,280
+you know the more web traffic the more
+
+674
+00:38:56,380 --> 00:39:02,440
+money Google makes you know so here you
+
+675
+00:39:00,280 --> 00:39:04,599
+know the analytics is one of the Google
+
+676
+00:39:02,440 --> 00:39:12,280
+store basically used by every website
+
+677
+00:39:04,599 --> 00:39:16,119
+you know the top top 5,000 top million
+
+678
+00:39:12,280 --> 00:39:21,430
+website probably but let me show you a
+
+679
+00:39:16,119 --> 00:39:29,230
+website Alexa ranking so there is this
+
+680
+00:39:21,430 --> 00:39:33,640
+website that ranks that rang ranks the
+
+681
+00:39:29,230 --> 00:39:36,010
+traffic of all web sites in a world now
+
+682
+00:39:33,640 --> 00:39:39,190
+if you have a website if you are your
+
+683
+00:39:36,010 --> 00:39:41,890
+website business you probably already
+
+684
+00:39:39,190 --> 00:39:44,380
+know but if you are not then you don't
+
+685
+00:39:41,890 --> 00:39:46,359
+know I know because I mean a website
+
+686
+00:39:44,380 --> 00:39:50,710
+business you know I'd run website for
+
+687
+00:39:46,359 --> 00:39:54,400
+over 20 years so Alexa is owned by
+
+688
+00:39:50,710 --> 00:40:03,910
+Amazon by the way so if you go here you
+
+689
+00:39:54,400 --> 00:40:07,540
+can see let's see resources features you
+
+690
+00:40:03,910 --> 00:40:14,680
+know it used to be a top link but now
+
+691
+00:40:07,540 --> 00:40:20,410
+they they try to make money let me show
+
+692
+00:40:14,680 --> 00:40:26,050
+you resources ebooks ok feature top
+
+693
+00:40:20,410 --> 00:40:28,510
+sites okay this is they have a ranked
+
+694
+00:40:26,050 --> 00:40:30,640
+ranking of all the words website so
+
+695
+00:40:28,510 --> 00:40:33,310
+right now you know for like 10 years a
+
+696
+00:40:30,640 --> 00:40:36,880
+ 10 years so for example you can
+
+697
+00:40:33,310 --> 00:40:41,640
+see here so google.com is a number one
+
+698
+00:40:36,880 --> 00:40:45,280
+website basically they have so anyway
+
+699
+00:40:41,640 --> 00:40:49,030
+then YouTube Facebook bi do bi do is
+
+700
+00:40:45,280 --> 00:40:55,119
+like Chinese Google search engine and
+
+701
+00:40:49,030 --> 00:40:58,170
+Wikipedia QQ you see QQ is a website for
+
+702
+00:40:55,119 --> 00:41:03,110
+micro blogging like Twitter in China
+
+703
+00:40:58,170 --> 00:41:05,750
+Taobao is like China's Amazon okay
+
+704
+00:41:03,110 --> 00:41:08,570
+amazon has a chinese version as well but
+
+705
+00:41:05,750 --> 00:41:12,250
+Taba is the you know the the most
+
+706
+00:41:08,570 --> 00:41:16,790
+popular you buy things in China
+
+707
+00:41:12,250 --> 00:41:19,460
+Yahoo Yahoo he's still number eight you
+
+708
+00:41:16,790 --> 00:41:22,600
+don't hear about Yahoo these days so
+
+709
+00:41:19,460 --> 00:41:27,790
+Teemo is another shop inside in China
+
+710
+00:41:22,600 --> 00:41:31,910
+Amazon is number 10 Twitter is number 11
+
+711
+00:41:27,790 --> 00:41:35,480
+Soho Soho is another search engine in
+
+712
+00:41:31,910 --> 00:41:38,360
+China you see I was quite amazed by how
+
+713
+00:41:35,480 --> 00:41:40,660
+China China has fragra stream and ously
+
+714
+00:41:38,360 --> 00:41:44,900
+like everywhere I look I mean I've been
+
+715
+00:41:40,660 --> 00:41:54,860
+observing this top 100 top 500 websites
+
+716
+00:41:44,900 --> 00:41:56,660
+since at least 10 years ago like you
+
+717
+00:41:54,860 --> 00:42:00,680
+know you can find my blog you know at
+
+718
+00:41:56,660 --> 00:42:06,310
+least 10 years ago I have been writing
+
+719
+00:42:00,680 --> 00:42:09,310
+about it computer languages website
+
+720
+00:42:06,310 --> 00:42:09,310
+popularity
+
+721
+00:42:13,940 --> 00:42:21,970
+google search ranking and there is oh
+
+722
+00:42:18,940 --> 00:42:26,599
+yeah so this article is written back in
+
+723
+00:42:21,970 --> 00:42:29,980
+2008 and I was actually ranking the
+
+724
+00:42:26,599 --> 00:42:35,299
+traffic's of computer language websites
+
+725
+00:42:29,980 --> 00:42:38,030
+you know so you see so the sand outcome
+
+726
+00:42:35,299 --> 00:42:41,630
+you know as we know Sun Sun is Sun
+
+727
+00:42:38,030 --> 00:42:44,000
+Microsystems they are dead now so you
+
+728
+00:42:41,630 --> 00:42:49,940
+get a glimpse of history a lot history
+
+729
+00:42:44,000 --> 00:42:55,180
+here MySQL dot-com / comm php.net in
+
+730
+00:42:49,940 --> 00:42:59,630
+ways ranking ok so site con cast legs
+
+731
+00:42:55,180 --> 00:43:02,000
+okay here's the yeah here's the ranking
+
+732
+00:42:59,630 --> 00:43:07,640
+basically Sun was the most popular then
+
+733
+00:43:02,000 --> 00:43:11,059
+Java then PHP by the way you see my
+
+734
+00:43:07,640 --> 00:43:13,849
+website back then this is this one so I
+
+735
+00:43:11,059 --> 00:43:19,910
+was ranking quite high more higher than
+
+736
+00:43:13,849 --> 00:43:26,000
+Perot is he mean this is truth by the
+
+737
+00:43:19,910 --> 00:43:31,099
+way this is 2008 s Kellogg jwz jwe Z's
+
+738
+00:43:26,000 --> 00:43:36,440
+famous jamie zawinski he's famous for
+
+739
+00:43:31,099 --> 00:43:39,470
+Netscape and famous for X Emacs then you
+
+740
+00:43:36,440 --> 00:43:44,450
+see Novick Novick is Peter Novick the
+
+741
+00:43:39,470 --> 00:43:47,990
+Lisp Common Lisp expert and AI expert of
+
+742
+00:43:44,450 --> 00:43:51,289
+previous generation so you got Emacs we
+
+743
+00:43:47,990 --> 00:43:55,250
+be quickie you got friends friends is a
+
+744
+00:43:51,289 --> 00:43:57,650
+common lisp vendor and so on jika
+
+745
+00:43:55,250 --> 00:44:01,430
+monkeys is a very popular common lisp
+
+746
+00:43:57,650 --> 00:44:05,180
+book yeah practical communism so you see
+
+747
+00:44:01,430 --> 00:44:08,630
+I am I was ranking the traffic of
+
+748
+00:44:05,180 --> 00:44:11,000
+popular websites then I was ranking you
+
+749
+00:44:08,630 --> 00:44:13,460
+know check check the ranking of web dev
+
+750
+00:44:11,000 --> 00:44:16,400
+sites and so on so this this is like
+
+751
+00:44:13,460 --> 00:44:18,680
+2008 so that's interesting you might
+
+752
+00:44:16,400 --> 00:44:24,080
+check out
+
+753
+00:44:18,680 --> 00:44:26,680
+but I have I came to talkin let me read
+
+754
+00:44:24,080 --> 00:44:26,680
+the comments
+
+755
+00:44:36,430 --> 00:44:45,200
+okay Duncan says Duncan says back to the
+
+756
+00:44:42,220 --> 00:44:47,900
+so Duncan says the analogy is that high
+
+757
+00:44:45,200 --> 00:44:51,740
+level languages such as lisp can be
+
+758
+00:44:47,900 --> 00:44:54,110
+built using the low level ones such as c
+
+759
+00:44:51,740 --> 00:44:57,350
+for people who don't want to use a low
+
+760
+00:44:54,110 --> 00:45:00,490
+level one I disagree I mean okay then he
+
+761
+00:44:57,350 --> 00:45:06,740
+says high level 3d API is is typically
+
+762
+00:45:00,490 --> 00:45:09,530
+come attached to a game engine yeah you
+
+763
+00:45:06,740 --> 00:45:11,780
+can say that but I don't I don't agree I
+
+764
+00:45:09,530 --> 00:45:15,380
+don't think I mean you can say that to
+
+765
+00:45:11,780 --> 00:45:18,230
+anything low level you see okay so when
+
+766
+00:45:15,380 --> 00:45:20,180
+you design something low level of course
+
+767
+00:45:18,230 --> 00:45:22,850
+you always need something low level I
+
+768
+00:45:20,180 --> 00:45:24,980
+mean you cannot have a world where every
+
+769
+00:45:22,850 --> 00:45:26,960
+language is just high level in that you
+
+770
+00:45:24,980 --> 00:45:29,990
+know you cannot do that you have to have
+
+771
+00:45:26,960 --> 00:45:32,450
+you know assembly and see like you know
+
+772
+00:45:29,990 --> 00:45:35,870
+low level language so low level is
+
+773
+00:45:32,450 --> 00:45:39,710
+obviously you know it's necessary so you
+
+774
+00:45:35,870 --> 00:45:42,470
+have to have low level so you are saying
+
+775
+00:45:39,710 --> 00:45:46,070
+you know those who create the low level
+
+776
+00:45:42,470 --> 00:45:48,050
+thinking that you know it serves as a
+
+777
+00:45:46,070 --> 00:45:50,810
+kind of a foundation then you can build
+
+778
+00:45:48,050 --> 00:45:52,520
+high level stuff yeah that's all of
+
+779
+00:45:50,810 --> 00:45:54,950
+course I mean that's true but however
+
+780
+00:45:52,520 --> 00:45:57,410
+what I'm saying is that I mean that's
+
+781
+00:45:54,950 --> 00:45:59,360
+always true because of course high level
+
+782
+00:45:57,410 --> 00:46:01,520
+is always being on top of low level
+
+783
+00:45:59,360 --> 00:46:04,450
+that's true doesn't matter what it's
+
+784
+00:46:01,520 --> 00:46:11,320
+always true but what I'm saying is that
+
+785
+00:46:04,450 --> 00:46:14,960
+this C and this this OpenGL you know
+
+786
+00:46:11,320 --> 00:46:17,750
+they are pair to be designed I mean even
+
+787
+00:46:14,960 --> 00:46:20,360
+bad design you're still going to be all
+
+788
+00:46:17,750 --> 00:46:23,630
+high level stuff on top of course you
+
+789
+00:46:20,360 --> 00:46:28,040
+know so you cannot say you cannot use it
+
+790
+00:46:23,630 --> 00:46:29,750
+as a reason to say that therefore they
+
+791
+00:46:28,040 --> 00:46:31,790
+are good you know therefore they are
+
+792
+00:46:29,750 --> 00:46:33,170
+good design because you know high level
+
+793
+00:46:31,790 --> 00:46:36,080
+can build on top of them
+
+794
+00:46:33,170 --> 00:46:38,270
+I mean high level is always built on top
+
+795
+00:46:36,080 --> 00:46:40,370
+of low level stuff you know regardless
+
+796
+00:46:38,270 --> 00:46:42,410
+how you know how you design so that's
+
+797
+00:46:40,370 --> 00:46:46,060
+what that's what I'm saying that's okay
+
+798
+00:46:42,410 --> 00:46:46,060
+that's that's my counter
+
+799
+00:46:46,309 --> 00:46:52,740
+yeah so I you know yeah anyway so uh
+
+800
+00:46:49,579 --> 00:46:55,230
+Danielle says OpenGL evolved from iris
+
+801
+00:46:52,740 --> 00:46:58,829
+Gaea okay yeah I was thinking iris Gia
+
+802
+00:46:55,230 --> 00:47:01,710
+you know iris you know iris iris is
+
+803
+00:46:58,829 --> 00:47:04,410
+there you know the SGI
+
+804
+00:47:01,710 --> 00:47:07,920
+you know Silicon Graphics Inc their
+
+805
+00:47:04,410 --> 00:47:10,440
+operating system is called iris yeah
+
+806
+00:47:07,920 --> 00:47:13,530
+they they they have a name like you know
+
+807
+00:47:10,440 --> 00:47:17,549
+they have that's their name so Duncan
+
+808
+00:47:13,530 --> 00:47:23,000
+says Jimmy Wales wants endless donation
+
+809
+00:47:17,549 --> 00:47:23,000
+because we hip here gets a trillion hits
+
+810
+00:47:23,660 --> 00:47:29,089
+yeah so waste do it did I have we keep
+
+811
+00:47:27,839 --> 00:47:37,079
+here here
+
+812
+00:47:29,089 --> 00:47:40,319
+what was it from was it I forgot what
+
+813
+00:47:37,079 --> 00:47:42,690
+what was the topic about that anyway so
+
+814
+00:47:40,319 --> 00:47:45,270
+let's go back to yeah maybe let's go
+
+815
+00:47:42,690 --> 00:47:48,770
+back to this topic so I was joining so
+
+816
+00:47:45,270 --> 00:47:54,960
+this website you know Alexa ranks
+
+817
+00:47:48,770 --> 00:47:57,510
+websites yeah and and that's you know
+
+818
+00:47:54,960 --> 00:47:59,250
+you can find out you can actually if you
+
+819
+00:47:57,510 --> 00:48:01,890
+have a website you can find out where
+
+820
+00:47:59,250 --> 00:48:05,700
+your website ranks for example actually
+
+821
+00:48:01,890 --> 00:48:13,730
+we just read we just run into it over
+
+822
+00:48:05,700 --> 00:48:18,809
+here see let's click that lets go there
+
+823
+00:48:13,730 --> 00:48:23,880
+you see so global rank is my website is
+
+824
+00:48:18,809 --> 00:48:27,750
+top forty four thousand and in USA is
+
+825
+00:48:23,880 --> 00:48:29,640
+top twenty five thousand so I've been
+
+826
+00:48:27,750 --> 00:48:34,200
+checking these like since ten years ago
+
+827
+00:48:29,640 --> 00:48:36,270
+um every every year or two and actually
+
+828
+00:48:34,200 --> 00:48:38,339
+I'm not doing bad you know sorry dot
+
+829
+00:48:36,270 --> 00:48:41,010
+info because you know you can actually
+
+830
+00:48:38,339 --> 00:48:45,290
+check any website let's let's see so
+
+831
+00:48:41,010 --> 00:48:48,859
+remember I'm 44 K okay let's see Python
+
+832
+00:48:45,290 --> 00:48:54,650
+let's go here and say
+
+833
+00:48:48,859 --> 00:48:54,650
+Python dot it was it Python calm
+
+834
+00:49:04,390 --> 00:49:11,420
+what does that refer to
+
+835
+00:49:06,640 --> 00:49:19,190
+so anyway so a Python down hook so let's
+
+836
+00:49:11,420 --> 00:49:19,819
+see Python Todd oh okay they are much
+
+837
+00:49:19,190 --> 00:49:24,980
+higher
+
+838
+00:49:19,819 --> 00:49:30,400
+nyow eight so Alexa they they rank only
+
+839
+00:49:24,980 --> 00:49:34,099
+the top one hundred thousand psyched
+
+840
+00:49:30,400 --> 00:49:37,880
+let's see let's see what some other side
+
+841
+00:49:34,099 --> 00:49:42,260
+to check but anyway you know you can you
+
+842
+00:49:37,880 --> 00:49:48,280
+can type any website name here and find
+
+843
+00:49:42,260 --> 00:49:52,420
+out how they rank so let's go back to my
+
+844
+00:49:48,280 --> 00:49:52,420
+let me show you the Google Analytics
+
+845
+00:49:56,200 --> 00:50:05,799
+three people watching less and less
+
+846
+00:50:01,180 --> 00:50:08,930
+so Google Analytics so so it shows me
+
+847
+00:50:05,799 --> 00:50:12,400
+currently I have like fifty three people
+
+848
+00:50:08,930 --> 00:50:18,230
+watching so I so in general I have like
+
+849
+00:50:12,400 --> 00:50:20,000
+66k users a week now this this is weekly
+
+850
+00:50:18,230 --> 00:50:24,200
+you can change it you know last seven
+
+851
+00:50:20,000 --> 00:50:29,210
+days so basically 10k uses a day and
+
+852
+00:50:24,200 --> 00:50:33,040
+this is geo time report you can see like
+
+853
+00:50:29,210 --> 00:50:36,290
+typically I have from thirty to fifty
+
+854
+00:50:33,040 --> 00:50:39,890
+sixty users every you know every moment
+
+855
+00:50:36,290 --> 00:50:43,030
+and you can see these are the web's
+
+856
+00:50:39,890 --> 00:50:45,290
+webpages they are they are looking at
+
+857
+00:50:43,030 --> 00:50:51,140
+typically its Unicode you know my
+
+858
+00:50:45,290 --> 00:50:54,650
+unicode page you saw icon top and they
+
+859
+00:50:51,140 --> 00:50:58,910
+you know so this is real time and Google
+
+860
+00:50:54,650 --> 00:51:01,700
+also shows you you know where people are
+
+861
+00:50:58,910 --> 00:51:07,010
+looking at yet you you know where people
+
+862
+00:51:01,700 --> 00:51:10,990
+are kept coming from yeah so that's one
+
+863
+00:51:07,010 --> 00:51:10,990
+part of it let me show you others
+
+864
+00:51:11,140 --> 00:51:19,090
+go back so this is Google Analytics and
+
+865
+00:51:23,080 --> 00:51:32,150
+you know traffic channel you know how do
+
+866
+00:51:29,030 --> 00:51:35,240
+you how where do you retain users you
+
+867
+00:51:32,150 --> 00:51:39,200
+know I really I don't like these things
+
+868
+00:51:35,240 --> 00:51:41,020
+because they are you know Google or
+
+869
+00:51:39,200 --> 00:51:43,099
+these companies they are extremely
+
+870
+00:51:41,020 --> 00:51:46,280
+commercialized you know this is the
+
+871
+00:51:43,099 --> 00:51:49,099
+backbone you see all these statistics
+
+872
+00:51:46,280 --> 00:51:53,630
+how you retain users you know how your
+
+873
+00:51:49,099 --> 00:51:55,750
+active users trending all the time you
+
+874
+00:51:53,630 --> 00:51:55,750
+know
+
+875
+00:51:55,820 --> 00:52:01,640
+are you users you know what are your top
+
+876
+00:51:59,300 --> 00:52:04,310
+devices are they using desktop are they
+
+877
+00:52:01,640 --> 00:52:07,849
+using mobile are they using tablet and
+
+878
+00:52:04,310 --> 00:52:10,849
+where they can come from and which date
+
+879
+00:52:07,849 --> 00:52:12,290
+you know which are is a busy busiest you
+
+880
+00:52:10,849 --> 00:52:15,890
+know and so on you know lots of
+
+881
+00:52:12,290 --> 00:52:19,040
+statistical information why they do that
+
+882
+00:52:15,890 --> 00:52:22,250
+because this is this is actually the
+
+883
+00:52:19,040 --> 00:52:26,060
+backbone of the of the internet because
+
+884
+00:52:22,250 --> 00:52:27,619
+everyone you know this info are useful
+
+885
+00:52:26,060 --> 00:52:30,109
+when you want to make money they track
+
+886
+00:52:27,619 --> 00:52:34,880
+you you know treated you know you know
+
+887
+00:52:30,109 --> 00:52:36,740
+the top 500 thousand let's say top 100
+
+888
+00:52:34,880 --> 00:52:38,750
+thousand did they track you everything
+
+889
+00:52:36,740 --> 00:52:40,940
+they want to know because with this
+
+890
+00:52:38,750 --> 00:52:42,800
+information then you can you know trick
+
+891
+00:52:40,940 --> 00:52:46,460
+your website you know trick the button
+
+892
+00:52:42,800 --> 00:52:48,530
+design color everything so your you have
+
+893
+00:52:46,460 --> 00:52:50,869
+only one goal to make more money you
+
+894
+00:52:48,530 --> 00:52:54,020
+know you do all sort of things possible
+
+895
+00:52:50,869 --> 00:52:56,450
+so this also helps you know clickbait
+
+896
+00:52:54,020 --> 00:52:59,150
+you know you you read article you know
+
+897
+00:52:56,450 --> 00:53:01,400
+you you phrase the title so it's
+
+898
+00:52:59,150 --> 00:53:04,310
+dramatic and so on then you can check
+
+899
+00:53:01,400 --> 00:53:07,849
+your statistics okay okay how many males
+
+900
+00:53:04,310 --> 00:53:08,000
+clicked how many females clicked you
+
+901
+00:53:07,849 --> 00:53:11,300
+know
+
+902
+00:53:08,000 --> 00:53:13,160
+and what age group they click so you get
+
+903
+00:53:11,300 --> 00:53:16,010
+that information and tomorrow you write
+
+904
+00:53:13,160 --> 00:53:18,020
+an article that you you know yeah all
+
+905
+00:53:16,010 --> 00:53:21,030
+these kind of things so that's why we
+
+906
+00:53:18,020 --> 00:53:24,270
+the gym you know Internet becomes
+
+907
+00:53:21,030 --> 00:53:28,050
+bad you know it's like you go to like
+
+908
+00:53:24,270 --> 00:53:30,300
+hacker news sites all the basically or
+
+909
+00:53:28,050 --> 00:53:32,640
+the website you don't see information
+
+910
+00:53:30,300 --> 00:53:35,100
+you don't see real information anymore
+
+911
+00:53:32,640 --> 00:53:38,310
+you just see empty content and clickbait
+
+912
+00:53:35,100 --> 00:53:42,950
+and copied content you know it's like
+
+913
+00:53:38,310 --> 00:53:49,500
+that so anyways so let me show you what
+
+914
+00:53:42,950 --> 00:53:51,750
+pages are most popular on my website so
+
+915
+00:53:49,500 --> 00:53:55,380
+let's see comments I have made so many
+
+916
+00:53:51,750 --> 00:53:57,860
+kind and helpful folks on keep hideous I
+
+917
+00:53:55,380 --> 00:53:57,860
+person
+
+918
+00:54:08,770 --> 00:54:15,950
+okay I got three people watching which
+
+919
+00:54:11,900 --> 00:54:26,869
+is very low is it because the timing
+
+920
+00:54:15,950 --> 00:54:30,440
+let's see what is it yeah so yeah you
+
+921
+00:54:26,869 --> 00:54:33,560
+know one Krong so yeah it must be the
+
+922
+00:54:30,440 --> 00:54:36,710
+timing and date because I know it's like
+
+923
+00:54:33,560 --> 00:54:38,690
+when you know it's like four crowd
+
+924
+00:54:36,710 --> 00:54:42,859
+controlling three o'clock in morning in
+
+925
+00:54:38,690 --> 00:54:46,930
+New York and you know one o'clock in the
+
+926
+00:54:42,859 --> 00:54:49,940
+morning in California people went to bed
+
+927
+00:54:46,930 --> 00:54:52,099
+but what about European users so
+
+928
+00:54:49,940 --> 00:54:54,380
+European is like nine o'clock right now
+
+929
+00:54:52,099 --> 00:54:58,460
+nyow nyow o'clock ten o'clock in the
+
+930
+00:54:54,380 --> 00:55:01,880
+morning but however it's Saturday
+
+931
+00:54:58,460 --> 00:55:04,060
+wait he's a Saturday is a Friday for
+
+932
+00:55:01,880 --> 00:55:04,060
+them
+
+933
+00:55:09,500 --> 00:55:15,260
+Google's assumption is that you don't
+
+934
+00:55:12,020 --> 00:55:19,420
+want to help people but instead suck up
+
+935
+00:55:15,260 --> 00:55:19,420
+maximum time and attention
+
+936
+00:55:19,580 --> 00:55:31,190
+what do you mean Google's assumption
+
+937
+00:55:21,590 --> 00:55:36,470
+about who so anyway so so yeah let's
+
+938
+00:55:31,190 --> 00:55:42,260
+show you you know this guy funny this
+
+939
+00:55:36,470 --> 00:55:45,980
+frankerz frankerz Renee LED radio he is
+
+940
+00:55:42,260 --> 00:55:50,030
+a common list expert okay he worked he
+
+941
+00:55:45,980 --> 00:55:53,450
+worked at the you know the air plane
+
+942
+00:55:50,030 --> 00:55:55,960
+ticket website that's written in common
+
+943
+00:55:53,450 --> 00:55:58,910
+lisp and so to google GOOG about it
+
+944
+00:55:55,960 --> 00:56:02,240
+remember the name anyone remember the
+
+945
+00:55:58,910 --> 00:56:04,280
+name you know it's it's big news so you
+
+946
+00:56:02,240 --> 00:56:08,090
+know you have this company that sells
+
+947
+00:56:04,280 --> 00:56:10,430
+that the website that tells you you know
+
+948
+00:56:08,090 --> 00:56:12,320
+which ticket to buy like cheapest or
+
+949
+00:56:10,430 --> 00:56:15,830
+something like that you know from you
+
+950
+00:56:12,320 --> 00:56:22,250
+know air travel and it's written in
+
+951
+00:56:15,830 --> 00:56:28,420
+common lisp so about 2008 something like
+
+952
+00:56:22,250 --> 00:56:31,280
+that or 2005 Google bought it so then he
+
+953
+00:56:28,420 --> 00:56:34,220
+you know so he he was working for that
+
+954
+00:56:31,280 --> 00:56:36,890
+company then he worked at Google I don't
+
+955
+00:56:34,220 --> 00:56:40,250
+know if he still works at Google but
+
+956
+00:56:36,890 --> 00:56:43,540
+anyway he says familiar-looking syntax
+
+957
+00:56:40,250 --> 00:56:47,690
+but actually hideous complex semantics
+
+958
+00:56:43,540 --> 00:56:53,589
+pythons easy prosperous ha attractive
+
+959
+00:56:47,690 --> 00:56:53,589
+nuances whose authors deserve Jaeho time
+
+960
+00:56:53,980 --> 00:56:56,980
+yeah
+
+961
+00:57:01,290 --> 00:57:06,460
+like yeah you know I totally agree with
+
+962
+00:57:04,180 --> 00:57:08,350
+the sentiment but however I know of
+
+963
+00:57:06,460 --> 00:57:12,700
+course a lot of people do not agree I
+
+964
+00:57:08,350 --> 00:57:17,230
+have a friend which I respect very much
+
+965
+00:57:12,700 --> 00:57:20,140
+his name is David Capello and he he was
+
+966
+00:57:17,230 --> 00:57:22,960
+my partner when we when I started work
+
+967
+00:57:20,140 --> 00:57:23,890
+you know when I was working on Ocoee max
+
+968
+00:57:22,960 --> 00:57:28,500
+project
+
+969
+00:57:23,890 --> 00:57:32,050
+ergo Emacs was a project that is a Emacs
+
+970
+00:57:28,500 --> 00:57:34,330
+distribution just like today's space max
+
+971
+00:57:32,050 --> 00:57:36,970
+you know you download ago you max you
+
+972
+00:57:34,330 --> 00:57:39,760
+got everything you know in one in one
+
+973
+00:57:36,970 --> 00:57:42,250
+package you you know you don't have to
+
+974
+00:57:39,760 --> 00:57:48,310
+you know worry about things you just are
+
+975
+00:57:42,250 --> 00:57:51,520
+to use it so so David Capello he was you
+
+976
+00:57:48,310 --> 00:57:56,860
+know he and me are working on this
+
+977
+00:57:51,520 --> 00:58:00,010
+project and he is a C C++
+
+978
+00:57:56,860 --> 00:58:03,580
+he's a C++ expert you know and he is
+
+979
+00:58:00,010 --> 00:58:07,420
+very he's a strong defender zippers
+
+980
+00:58:03,580 --> 00:58:10,720
+first so he doesn't agree with my you
+
+981
+00:58:07,420 --> 00:58:20,230
+know ideas you know my my hatred for CNC
+
+982
+00:58:10,720 --> 00:58:22,870
+first ITA software that's it thank you
+
+983
+00:58:20,230 --> 00:58:26,440
+Duggan yeah so ITA Software was the
+
+984
+00:58:22,870 --> 00:58:29,470
+software that sells a plane ticket
+
+985
+00:58:26,440 --> 00:58:35,980
+something like that and Google bought it
+
+986
+00:58:29,470 --> 00:58:39,310
+and it's written in Common Lisp okay
+
+987
+00:58:35,980 --> 00:58:42,910
+daniel says a graph database allegro
+
+988
+00:58:39,310 --> 00:58:48,520
+cash what does that refer to
+
+989
+00:58:42,910 --> 00:58:54,670
+I mean what's the context I forgot
+
+990
+00:58:48,520 --> 00:58:58,900
+a Lego cache is a object persistence in
+
+991
+00:58:54,670 --> 00:59:01,360
+Lisp okay friends made by friends you
+
+992
+00:58:58,900 --> 00:59:04,800
+know friends you know France is a common
+
+993
+00:59:01,360 --> 00:59:07,450
+lisp company but I think they kind of
+
+994
+00:59:04,800 --> 00:59:10,780
+they are becoming like one person
+
+995
+00:59:07,450 --> 00:59:14,650
+operation since like ten years ago I
+
+996
+00:59:10,780 --> 00:59:17,470
+think maybe three percent something like
+
+997
+00:59:14,650 --> 00:59:19,450
+that because you know the open source
+
+998
+00:59:17,470 --> 00:59:23,380
+you know
+
+999
+00:59:19,450 --> 00:59:28,119
+ideology killed everything so Allegro
+
+1000
+00:59:23,380 --> 00:59:30,100
+they they create common list IDE and you
+
+1001
+00:59:28,119 --> 00:59:33,910
+know the whole thing in one package IDE
+
+1002
+00:59:30,100 --> 00:59:36,190
+and common list implementation they are
+
+1003
+00:59:33,910 --> 00:59:42,520
+one of the most popular back then in
+
+1004
+00:59:36,190 --> 00:59:46,690
+1990s you know you know very good
+
+1005
+00:59:42,520 --> 00:59:48,880
+product you know but I think they kind
+
+1006
+00:59:46,690 --> 00:59:50,530
+of just made a way because open-source
+
+1007
+00:59:48,880 --> 00:59:53,490
+you know then you have the open source
+
+1008
+00:59:50,530 --> 00:59:57,720
+several open source implementations then
+
+1009
+00:59:53,490 --> 00:59:57,720
+you know there's just kills everything
+
+1010
+00:59:59,400 --> 01:00:04,540
+but anyway they are still on Twitter
+
+1011
+01:00:02,230 --> 01:00:06,820
+though you can kind of you can still see
+
+1012
+01:00:04,540 --> 01:00:12,670
+them they treat now and then I don't
+
+1013
+01:00:06,820 --> 01:00:14,590
+know who is running it now so anyway so
+
+1014
+01:00:12,670 --> 01:00:20,590
+yeah all right I don't know what Allegro
+
+1015
+01:00:14,590 --> 01:00:22,840
+cache is about so back to so what topics
+
+1016
+01:00:20,590 --> 01:00:28,720
+should be interesting so I was talking
+
+1017
+01:00:22,840 --> 01:00:31,720
+about oh yeah I was going to show you
+
+1018
+01:00:28,720 --> 01:00:36,100
+what with my website are the most
+
+1019
+01:00:31,720 --> 01:00:40,210
+popular so so actually basically these
+
+1020
+01:00:36,100 --> 01:00:43,420
+are the top ten most popular pages on my
+
+1021
+01:00:40,210 --> 01:00:47,880
+website sorry dot info and you as you
+
+1022
+01:00:43,420 --> 01:00:51,930
+can see basically all of them Unicode
+
+1023
+01:00:47,880 --> 01:00:51,930
+let me show you one page
+
+1024
+01:00:54,430 --> 01:01:02,200
+my unicode project you see so so all
+
+1025
+01:00:59,410 --> 01:01:04,810
+these so this page is about Unicode
+
+1026
+01:01:02,200 --> 01:01:07,540
+arrows you know you can see these
+
+1027
+01:01:04,810 --> 01:01:12,160
+hundreds of different errors available
+
+1028
+01:01:07,540 --> 01:01:17,830
+in Unicode and I have emoji characters
+
+1029
+01:01:12,160 --> 01:01:20,050
+I showed this Unicode page a few times
+
+1030
+01:01:17,830 --> 01:01:22,690
+so you probably know but anyway so these
+
+1031
+01:01:20,050 --> 01:01:25,780
+are or the Unicode Unicode pages you
+
+1032
+01:01:22,690 --> 01:01:30,910
+know it's funny you know the Unicode
+
+1033
+01:01:25,780 --> 01:01:34,960
+pages you know the most popular you see
+
+1034
+01:01:30,910 --> 01:01:39,360
+that the unica arrow has got 19,000 in
+
+1035
+01:01:34,960 --> 01:01:44,080
+seven days so that's like 3,000 a day
+
+1036
+01:01:39,360 --> 01:01:48,070
+3,000 3,000 visitors a day then the
+
+1037
+01:01:44,080 --> 01:01:50,410
+Egyptian hieroglyph is like 1000
+
+1038
+01:01:48,070 --> 01:01:55,960
+visitors a day so these are the top 10
+
+1039
+01:01:50,410 --> 01:02:00,670
+and if you go to the next top top 20 to
+
+1040
+01:01:55,960 --> 01:02:06,370
+30 you can see that it mostly still
+
+1041
+01:02:00,670 --> 01:02:09,610
+unicode except one javascript page now
+
+1042
+01:02:06,370 --> 01:02:13,710
+this javascript pages has it has been
+
+1043
+01:02:09,610 --> 01:02:17,520
+very popular for like about 10 years
+
+1044
+01:02:13,710 --> 01:02:20,890
+about nine years yeah so this is a and
+
+1045
+01:02:17,520 --> 01:02:23,980
+actually this is the only this is my
+
+1046
+01:02:20,890 --> 01:02:26,790
+basically one just like one of the to
+
+1047
+01:02:23,980 --> 01:02:31,230
+only popular page for JavaScript
+
+1048
+01:02:26,790 --> 01:02:34,090
+nobody VD others my JavaScript in depth
+
+1049
+01:02:31,230 --> 01:02:36,970
+so anyway so this interesting thing
+
+1050
+01:02:34,090 --> 01:02:40,620
+going on because this javascript in
+
+1051
+01:02:36,970 --> 01:02:40,620
+depth for example and
+
+1052
+01:02:45,410 --> 01:02:52,310
+and many of my tutorials actually they
+
+1053
+01:02:49,850 --> 01:02:56,090
+they you know many of my programming
+
+1054
+01:02:52,310 --> 01:03:00,590
+tutorials technical topics they take me
+
+1055
+01:02:56,090 --> 01:03:03,320
+far more time to create like like 10
+
+1056
+01:03:00,590 --> 01:03:07,400
+times more time 100 year ten times more
+
+1057
+01:03:03,320 --> 01:03:13,880
+time to create then then the Unicode
+
+1058
+01:03:07,400 --> 01:03:16,220
+pages you know you know this like the
+
+1059
+01:03:13,880 --> 01:03:20,540
+Unicode is there's not much to it it's
+
+1060
+01:03:16,220 --> 01:03:23,030
+just fun único but so I have written
+
+1061
+01:03:20,540 --> 01:03:27,200
+JavaScript in depth in you know coli and
+
+1062
+01:03:23,030 --> 01:03:32,630
+other technical other technical topics
+
+1063
+01:03:27,200 --> 01:03:36,590
+such as you know syntax soup you know
+
+1064
+01:03:32,630 --> 01:03:40,460
+some of these articles they really take
+
+1065
+01:03:36,590 --> 01:03:42,800
+sometimes days to write and these these
+
+1066
+01:03:40,460 --> 01:03:45,530
+are like my opinions and they are rare
+
+1067
+01:03:42,800 --> 01:03:47,240
+opinions you don't find it the Omani you
+
+1068
+01:03:45,530 --> 01:03:49,760
+know you almost don't see it anywhere
+
+1069
+01:03:47,240 --> 01:03:53,270
+else so what I'm saying there's an
+
+1070
+01:03:49,760 --> 01:03:57,350
+interesting phenomenon as can be seen in
+
+1071
+01:03:53,270 --> 01:03:59,960
+my weblog is that I noticed that you
+
+1072
+01:03:57,350 --> 01:04:02,120
+know to get more popular I mean I mean
+
+1073
+01:03:59,960 --> 01:04:04,750
+suppose you are a mathematician you
+
+1074
+01:04:02,120 --> 01:04:09,290
+study 10 years you know in you know in
+
+1075
+01:04:04,750 --> 01:04:11,720
+in a most advanced math you know then
+
+1076
+01:04:09,290 --> 01:04:15,260
+you write a page about it nobody read it
+
+1077
+01:04:11,720 --> 01:04:17,770
+you know what is popular is actually
+
+1078
+01:04:15,260 --> 01:04:20,870
+those that doesn't require you know
+
+1079
+01:04:17,770 --> 01:04:23,990
+thinking that that you know you know
+
+1080
+01:04:20,870 --> 01:04:28,010
+like gossip you know politics common
+
+1081
+01:04:23,990 --> 01:04:30,620
+political commentary gossips celebrity
+
+1082
+01:04:28,010 --> 01:04:34,940
+gossips it's kind of like that so it's
+
+1083
+01:04:30,620 --> 01:04:37,610
+kind of a sad situation for society you
+
+1084
+01:04:34,940 --> 01:04:41,540
+know so I have you know these thousands
+
+1085
+01:04:37,610 --> 01:04:45,950
+pages on you know some very topics on
+
+1086
+01:04:41,540 --> 01:04:49,190
+programming or math but they don't you
+
+1087
+01:04:45,950 --> 01:04:52,040
+know have use have you know basically
+
+1088
+01:04:49,190 --> 01:05:03,560
+half of my website traffic is
+
+1089
+01:04:52,040 --> 01:05:06,940
+is the is just this emojis you know it's
+
+1090
+01:05:03,560 --> 01:05:15,680
+you know so it's kind of a sad situation
+
+1091
+01:05:06,940 --> 01:05:24,500
+hey info Matic great to see you great
+
+1092
+01:05:15,680 --> 01:05:32,500
+token info Matic Centennial is in like
+
+1093
+01:05:24,500 --> 01:05:36,170
+California Duncan is in Scotland right
+
+1094
+01:05:32,500 --> 01:05:42,830
+an informatics you wait you are you from
+
+1095
+01:05:36,170 --> 01:05:48,260
+Morocco right so what I missing Morocco
+
+1096
+01:05:42,830 --> 01:05:52,100
+8 o clock in the morning so actually I
+
+1097
+01:05:48,260 --> 01:05:55,880
+think we kind of yeah we kind of like
+
+1098
+01:05:52,100 --> 01:05:57,880
+exhausting I mean we Morocco yeah Marco
+
+1099
+01:05:55,880 --> 01:06:00,530
+is kind of interesting let's look at
+
+1100
+01:05:57,880 --> 01:06:02,570
+which so yeah we covered a few things
+
+1101
+01:06:00,530 --> 01:06:04,880
+today I think that's about it
+
+1102
+01:06:02,570 --> 01:06:11,120
+what I want to say you know it's over an
+
+1103
+01:06:04,880 --> 01:06:14,410
+hour now yeah so maybe let's look at
+
+1104
+01:06:11,120 --> 01:06:14,410
+Morocco Google Maps
+
+1105
+01:06:16,220 --> 01:06:21,650
+because I don't know nothing about
+
+1106
+01:06:19,280 --> 01:06:28,089
+Morocco so what is interesting in
+
+1107
+01:06:21,650 --> 01:06:31,089
+Morocco tomorrow is actually in northern
+
+1108
+01:06:28,089 --> 01:06:31,089
+Africa
+
+1109
+01:06:36,630 --> 01:06:46,329
+so non Second Life life actually I
+
+1110
+01:06:43,479 --> 01:06:49,929
+should fly towards the east
+
+1111
+01:06:46,329 --> 01:06:52,199
+I don't like all antic Ocean I like the
+
+1112
+01:06:49,929 --> 01:06:57,910
+Pacific Ocean
+
+1113
+01:06:52,199 --> 01:06:59,920
+so Morocco let's go to Morocco okay what
+
+1114
+01:06:57,910 --> 01:07:06,269
+language does moral core speak
+
+1115
+01:06:59,920 --> 01:07:09,269
+oh they speak Islamic some kind of
+
+1116
+01:07:06,269 --> 01:07:09,269
+Arabic
+
+1117
+01:07:13,810 --> 01:07:20,380
+so which city should I look at in
+
+1118
+01:07:17,930 --> 01:07:20,380
+formatic
+
+1119
+01:07:22,690 --> 01:07:27,400
+so when is Morocco like
+
+1120
+01:07:33,489 --> 01:07:36,489
+oops
+
+1121
+01:07:40,680 --> 01:07:53,510
+ooh this is some kind of Oasis so
+
+1122
+01:07:48,630 --> 01:07:53,510
+Morocco is lots of deserts I think
+
+1123
+01:07:58,339 --> 01:08:10,509
+knee of okay so Morocco speaks Arabic
+
+1124
+01:08:04,729 --> 01:08:10,509
+dialect macness near face
+
+1125
+01:08:16,049 --> 01:08:24,049
+in the center okay let's go to let's go
+
+1126
+01:08:20,970 --> 01:08:24,049
+back to Morocco
+
+1127
+01:08:30,259 --> 01:08:37,870
+Oh macness okay okay I probably
+
+1128
+01:08:34,520 --> 01:08:37,870
+pronounced it wrong
+
+1129
+01:08:41,549 --> 01:08:52,760
+let's see in the center yeah so this
+
+1130
+01:08:44,640 --> 01:08:52,760
+city let's magnify
+
+1131
+01:08:57,239 --> 01:09:02,719
+I don't think I ever looked at Morocco
+
+1132
+01:09:04,310 --> 01:09:10,210
+okay so we we start to see the city now
+
+1133
+01:09:07,370 --> 01:09:10,210
+the street
+
+1134
+01:09:15,509 --> 01:09:20,400
+again it's let's drop into Google Street
+
+1135
+01:09:19,799 --> 01:09:24,480
+View
+
+1136
+01:09:20,400 --> 01:09:28,109
+let's see what we can see okay there is
+
+1137
+01:09:24,480 --> 01:09:34,859
+no Street View except just some
+
+1138
+01:09:28,109 --> 01:09:37,759
+locations with photo macness okay I
+
+1139
+01:09:34,859 --> 01:09:37,759
+pronounced it right
+
+1140
+01:09:39,830 --> 01:09:51,410
+okay so whoo this is strange so you have
+
+1141
+01:09:46,500 --> 01:09:56,370
+a road but you know both sides of wars
+
+1142
+01:09:51,410 --> 01:09:59,570
+that's kind of strange why would they
+
+1143
+01:09:56,370 --> 01:09:59,570
+cover it with wars
+
+1144
+01:10:05,580 --> 01:10:16,020
+Oh Imperial City RC oh okay yeah this
+
+1145
+01:10:12,930 --> 01:10:20,510
+there's no Street View so I cannot like
+
+1146
+01:10:16,020 --> 01:10:20,510
+you know go into it so let's go back
+
+1147
+01:10:21,800 --> 01:10:25,220
+every time
+
+1148
+01:10:28,090 --> 01:10:37,900
+sixteenth century oh okay let's go back
+
+1149
+01:10:35,360 --> 01:10:37,900
+to
+
+1150
+01:10:41,219 --> 01:10:44,449
+when did it go
+
+1151
+01:10:50,349 --> 01:10:57,150
+oh yeah well first let's let's look at
+
+1152
+01:10:54,520 --> 01:10:57,150
+fasting
+
+1153
+01:11:04,490 --> 01:11:11,880
+we can see like city like buildings you
+
+1154
+01:11:09,270 --> 01:11:17,730
+know like big city maybe let's look at
+
+1155
+01:11:11,880 --> 01:11:20,270
+that as interesting our face is the old
+
+1156
+01:11:17,730 --> 01:11:20,270
+capital
+
+1157
+01:11:25,710 --> 01:11:28,730
+okay and it's
+
+1158
+01:11:31,210 --> 01:11:36,760
+Casa Blanca
+
+1159
+01:11:33,909 --> 01:11:40,949
+hold on second before we go let's know
+
+1160
+01:11:36,760 --> 01:11:40,949
+get some rays here
+
+1161
+01:11:44,590 --> 01:11:57,750
+this is coffee shop cigarettes this is
+
+1162
+01:11:52,390 --> 01:11:57,750
+inside Moroccans
+
+1163
+01:12:05,139 --> 01:12:08,500
+let's see
+
+1164
+01:12:11,869 --> 01:12:15,949
+let's see some other place
+
+1165
+01:12:23,209 --> 01:12:26,800
+that's your rabbit
+
+1166
+01:12:30,290 --> 01:12:33,220
+okay so
+
+1167
+01:12:47,719 --> 01:12:53,060
+again lots of places let's see
+
+1168
+01:13:04,210 --> 01:13:08,490
+so it's nice to look at
+
+1169
+01:13:12,019 --> 01:13:16,989
+Casa Blanca ok that's near the beach
+
+1170
+01:13:32,719 --> 01:13:35,890
+you know okay
+
+1171
+01:13:36,750 --> 01:13:39,750
+Arabic
+
+1172
+01:13:43,830 --> 01:13:53,530
+economic capital okay Cassandra
+
+1173
+01:13:48,390 --> 01:13:59,340
+Casablancas is the economic capital okay
+
+1174
+01:13:53,530 --> 01:13:59,340
+good yeah this is what I like to see
+
+1175
+01:14:00,730 --> 01:14:05,530
+lots of array big science
+
+1176
+01:14:11,349 --> 01:14:14,070
+cool
+
+1177
+01:14:14,900 --> 01:14:23,380
+so anything else interesting guys so
+
+1178
+01:14:18,740 --> 01:14:26,420
+maybe we close close sharp for the day
+
+1179
+01:14:23,380 --> 01:14:33,530
+let's see four people are watching yeah
+
+1180
+01:14:26,420 --> 01:14:36,800
+Oh in like 80 minutes this okay info
+
+1181
+01:14:33,530 --> 01:14:42,440
+Matic let's pick one more spot then we
+
+1182
+01:14:36,800 --> 01:14:45,410
+say goodbye so it was you know like like
+
+1183
+01:14:42,440 --> 01:14:49,600
+anything interesting about Morocco not
+
+1184
+01:14:45,410 --> 01:14:56,480
+necessarily your spot but anything
+
+1185
+01:14:49,600 --> 01:14:59,980
+interesting actually I want to look at
+
+1186
+01:14:56,480 --> 01:14:59,980
+the beach let's see
+
+1187
+01:15:04,349 --> 01:15:06,380
+Oh
+
+1188
+01:15:07,130 --> 01:15:09,940
+okay
+
+1189
+01:15:16,720 --> 01:15:24,120
+like easier a beach with a you know very
+
+1190
+01:15:20,970 --> 01:15:27,420
+squeals and all that
+
+1191
+01:15:24,120 --> 01:15:27,420
+let's see
+
+1192
+01:15:30,869 --> 01:15:33,679
+let's see
+
+1193
+01:15:38,469 --> 01:15:41,430
+okay
+
+1194
+01:15:47,289 --> 01:15:58,210
+ok I think that's it for today maybe God
+
+1195
+01:15:54,099 --> 01:16:00,670
+weather okay I think I think that's it
+
+1196
+01:15:58,210 --> 01:16:09,550
+for they set for today so thank you guys
+
+1197
+01:16:00,670 --> 01:16:11,469
+for coming and very tasty food okay
+
+1198
+01:16:09,550 --> 01:16:15,059
+thank you guys for coming and I'll see
+
+1199
+01:16:11,469 --> 01:16:15,059
+you next time bye
+

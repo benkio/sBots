@@ -1,0 +1,5304 @@
+1
+00:00:05,339 --> 00:00:08,339
+foreign
+
+2
+00:00:14,299 --> 00:00:20,119
+we are going to continue from last video
+
+3
+00:00:18,080 --> 00:00:26,279
+writing a
+
+4
+00:00:20,119 --> 00:00:28,199
+HTML validator in emac bisp okay so good
+
+5
+00:00:26,279 --> 00:00:31,500
+morning everyone so if you have
+
+6
+00:00:28,199 --> 00:00:33,899
+questions comments about emac be posted
+
+7
+00:00:31,500 --> 00:00:37,020
+okay so we're gonna focus on emac bisp
+
+8
+00:00:33,899 --> 00:00:39,000
+and we're gonna complete the task you
+
+9
+00:00:37,020 --> 00:00:42,960
+don't have to watch yesterday or the day
+
+10
+00:00:39,000 --> 00:00:44,820
+before video fantastic uh because I'm
+
+11
+00:00:42,960 --> 00:00:47,760
+gonna cover it um
+
+12
+00:00:44,820 --> 00:00:50,219
+okay so let me show you my keyboard This
+
+13
+00:00:47,760 --> 00:00:53,160
+is Ultimate this is the glove 80
+
+14
+00:00:50,219 --> 00:00:56,239
+keyboard and over there is Ultimate
+
+15
+00:00:53,160 --> 00:00:58,860
+hacking keyboard just search for xali
+
+16
+00:00:56,239 --> 00:01:02,100
+keyboard blog you'll find like reviews
+
+17
+00:00:58,860 --> 00:01:04,979
+including video reviews okay so now
+
+18
+00:01:02,100 --> 00:01:07,260
+let's go start to code let's show
+
+19
+00:01:04,979 --> 00:01:08,760
+today's page
+
+20
+00:01:07,260 --> 00:01:12,299
+um
+
+21
+00:01:08,760 --> 00:01:15,299
+okay so let's start so we did we we
+
+22
+00:01:12,299 --> 00:01:18,479
+started to do it yesterday that's 90
+
+23
+00:01:15,299 --> 00:01:21,360
+minutes very interesting I mean I I
+
+24
+00:01:18,479 --> 00:01:25,380
+explain as I go but today we're gonna
+
+25
+00:01:21,360 --> 00:01:28,560
+continue that task okay so first of all
+
+26
+00:01:25,380 --> 00:01:31,680
+so I'm using I'm using soft light keys
+
+27
+00:01:28,560 --> 00:01:34,860
+let me show you okay I'm using emacs of
+
+28
+00:01:31,680 --> 00:01:38,640
+course and I'm using all my custom mods
+
+29
+00:01:34,860 --> 00:01:43,560
+you can see CSS HTML emac Beast goal and
+
+30
+00:01:38,640 --> 00:01:46,439
+uh HDM you know all my emacs code and
+
+31
+00:01:43,560 --> 00:01:49,500
+the key binding I'm using is kind of
+
+32
+00:01:46,439 --> 00:01:52,500
+like keys so there show in browser so
+
+33
+00:01:49,500 --> 00:01:56,040
+you can download download it and use it
+
+34
+00:01:52,500 --> 00:01:58,860
+it's a key binding system for emacs so
+
+35
+00:01:56,040 --> 00:02:00,479
+that you don't have to press Ctrl key or
+
+36
+00:01:58,860 --> 00:02:03,119
+uh
+
+37
+00:02:00,479 --> 00:02:06,060
+meta key match
+
+38
+00:02:03,119 --> 00:02:08,340
+almost none okay so stuff like this and
+
+39
+00:02:06,060 --> 00:02:10,920
+I'm using a vorac keyboard layout so you
+
+40
+00:02:08,340 --> 00:02:15,060
+can see vorac okay and on the pink
+
+41
+00:02:10,920 --> 00:02:18,360
+window is all my command core and uh
+
+42
+00:02:15,060 --> 00:02:20,580
+uh and keystroke on the left okay that's
+
+43
+00:02:18,360 --> 00:02:23,220
+on the pink window so what I'm whatever
+
+44
+00:02:20,580 --> 00:02:25,560
+I'm doing for example select that delete
+
+45
+00:02:23,220 --> 00:02:29,340
+that you can see the command I just
+
+46
+00:02:25,560 --> 00:02:31,640
+called size HTML select element okay
+
+47
+00:02:29,340 --> 00:02:34,860
+undo
+
+48
+00:02:31,640 --> 00:02:36,190
+okay so let's begin immortality hello
+
+49
+00:02:34,860 --> 00:02:37,980
+hello
+
+50
+00:02:36,190 --> 00:02:41,400
+[Music]
+
+51
+00:02:37,980 --> 00:02:44,459
+hello you guys so emac Beast okay so and
+
+52
+00:02:41,400 --> 00:02:47,940
+I'd like to thank uh uh I'd like to
+
+53
+00:02:44,459 --> 00:02:51,420
+thank this person uh actually I don't
+
+54
+00:02:47,940 --> 00:02:53,879
+know this person Cliff okay he's seen he
+
+55
+00:02:51,420 --> 00:02:55,440
+you know he's got 100
+
+56
+00:02:53,879 --> 00:02:59,459
+000 followers
+
+57
+00:02:55,440 --> 00:03:01,620
+every time he treats Retreats my treat I
+
+58
+00:02:59,459 --> 00:03:05,099
+get tens of um
+
+59
+00:03:01,620 --> 00:03:08,519
+uh notifications and uh and some new
+
+60
+00:03:05,099 --> 00:03:12,840
+followers so thanks to Cliff
+
+61
+00:03:08,519 --> 00:03:17,000
+so he retreated my you know emacs live
+
+62
+00:03:12,840 --> 00:03:20,040
+stream and now it's 2 500 views
+
+63
+00:03:17,000 --> 00:03:23,519
+usually it's just 100.
+
+64
+00:03:20,040 --> 00:03:26,239
+okay so and I'm I'm on Twitter so follow
+
+65
+00:03:23,519 --> 00:03:29,760
+me on Twitter and also I'm on Discord
+
+66
+00:03:26,239 --> 00:03:32,879
+just search for Sardi Discord okay so
+
+67
+00:03:29,760 --> 00:03:35,159
+let's begin coding the real stuff the
+
+68
+00:03:32,879 --> 00:03:38,760
+coding okay so first so we need to go
+
+69
+00:03:35,159 --> 00:03:43,019
+back to yesterday's get the code so here
+
+70
+00:03:38,760 --> 00:03:44,700
+is the yesterday's pageant talk show uh
+
+71
+00:03:43,019 --> 00:03:47,819
+I mean two days ago
+
+72
+00:03:44,700 --> 00:03:50,400
+so here's the code let's grab it so
+
+73
+00:03:47,819 --> 00:03:53,220
+so get that code let's just work on
+
+74
+00:03:50,400 --> 00:03:56,599
+these yeah let's just actually let's
+
+75
+00:03:53,220 --> 00:04:02,159
+create a new one so copy it close close
+
+76
+00:03:56,599 --> 00:04:05,459
+Okay go to today's talk show and uh new
+
+77
+00:04:02,159 --> 00:04:06,840
+buffer paste it in the copy the file
+
+78
+00:04:05,459 --> 00:04:09,659
+path
+
+79
+00:04:06,840 --> 00:04:12,920
+uh actually save it okay save it let's
+
+80
+00:04:09,659 --> 00:04:12,920
+say XXX
+
+81
+00:04:13,019 --> 00:04:18,660
+dot e l for now okay so just run the
+
+82
+00:04:16,440 --> 00:04:20,880
+name copy it close it paste the link
+
+83
+00:04:18,660 --> 00:04:24,180
+here link if I
+
+84
+00:04:20,880 --> 00:04:27,479
+so we have a record of the code so later
+
+85
+00:04:24,180 --> 00:04:31,259
+on you can grab the code
+
+86
+00:04:27,479 --> 00:04:34,620
+so we continue to write a HTML validator
+
+87
+00:04:31,259 --> 00:04:38,300
+now let's create a new buffer and let's
+
+88
+00:04:34,620 --> 00:04:38,300
+insert some HTML
+
+89
+00:04:38,460 --> 00:04:44,240
+you know HTML template so we can
+
+90
+00:04:41,580 --> 00:04:48,240
+test on validating that
+
+91
+00:04:44,240 --> 00:04:48,240
+HTML so
+
+92
+00:04:48,960 --> 00:04:54,680
+what is that so there it is a template
+
+93
+00:04:52,320 --> 00:04:54,680
+okay
+
+94
+00:04:55,380 --> 00:05:00,139
+so this is the template we're gonna work
+
+95
+00:04:57,900 --> 00:05:00,139
+with
+
+96
+00:05:01,080 --> 00:05:08,940
+yeah so uh we need a slash here so okay
+
+97
+00:05:06,360 --> 00:05:11,100
+so this is a sample file so we write a
+
+98
+00:05:08,940 --> 00:05:14,400
+command we can meta X call the command
+
+99
+00:05:11,100 --> 00:05:17,100
+and it will validate you tell tell us
+
+100
+00:05:14,400 --> 00:05:20,340
+if it's valid you know or not you know
+
+101
+00:05:17,100 --> 00:05:23,759
+uh Miss mismatched tag or missing tag
+
+102
+00:05:20,340 --> 00:05:26,220
+and so on so yesterday so you can you
+
+103
+00:05:23,759 --> 00:05:28,500
+know we I always write documentation so
+
+104
+00:05:26,220 --> 00:05:31,220
+here's the documentation so if you are
+
+105
+00:05:28,500 --> 00:05:35,940
+late you can watch you know you can read
+
+106
+00:05:31,220 --> 00:05:38,759
+uh there to see what we are doing so so
+
+107
+00:05:35,940 --> 00:05:40,460
+the command yesterday we did is this uh
+
+108
+00:05:38,759 --> 00:05:43,320
+this one okay
+
+109
+00:05:40,460 --> 00:05:45,220
+validate buffer okay let's add today's
+
+110
+00:05:43,320 --> 00:05:45,780
+date a new version
+
+111
+00:05:45,220 --> 00:05:46,740
+[Music]
+
+112
+00:05:45,780 --> 00:05:51,500
+um
+
+113
+00:05:46,740 --> 00:05:51,500
+okay so let's get let's begin
+
+114
+00:05:56,220 --> 00:05:59,940
+okay video check audio check yeah good
+
+115
+00:05:59,100 --> 00:06:01,560
+to go
+
+116
+00:05:59,940 --> 00:06:04,199
+uh yeah
+
+117
+00:06:01,560 --> 00:06:07,680
+so okay so
+
+118
+00:06:04,199 --> 00:06:12,000
+let me briefly go over what we did
+
+119
+00:06:07,680 --> 00:06:14,160
+yesterday so so here is the code let's
+
+120
+00:06:12,000 --> 00:06:17,639
+hold on a second let's clean up okay so
+
+121
+00:06:14,160 --> 00:06:21,240
+let's remove the parts that
+
+122
+00:06:17,639 --> 00:06:23,460
+that we don't want okay so
+
+123
+00:06:21,240 --> 00:06:26,100
+uh
+
+124
+00:06:23,460 --> 00:06:28,020
+remove that
+
+125
+00:06:26,100 --> 00:06:30,860
+and
+
+126
+00:06:28,020 --> 00:06:35,039
+and this one we can actually also remove
+
+127
+00:06:30,860 --> 00:06:37,259
+we are using it there anyway so yeah
+
+128
+00:06:35,039 --> 00:06:39,979
+so yesterday's code
+
+129
+00:06:37,259 --> 00:06:39,979
+let's
+
+130
+00:06:40,440 --> 00:06:46,020
+uh can you see yeah you can see it okay
+
+131
+00:06:43,860 --> 00:06:48,720
+so
+
+132
+00:06:46,020 --> 00:06:51,419
+it's a trading slash needed for self
+
+133
+00:06:48,720 --> 00:06:53,580
+closing time okay yeah you were here
+
+134
+00:06:51,419 --> 00:06:57,180
+just yesterday are you because we
+
+135
+00:06:53,580 --> 00:06:58,800
+covered that yesterday so in short in
+
+136
+00:06:57,180 --> 00:07:01,979
+XML
+
+137
+00:06:58,800 --> 00:07:04,919
+if you have a self-closing tag that is a
+
+138
+00:07:01,979 --> 00:07:06,660
+tag without a closing tag so this that's
+
+139
+00:07:04,919 --> 00:07:08,759
+called self closing
+
+140
+00:07:06,660 --> 00:07:12,360
+you know you can call it self closing
+
+141
+00:07:08,759 --> 00:07:15,900
+tag the technical name is void element
+
+142
+00:07:12,360 --> 00:07:17,759
+okay uh why don't we repeat that okay so
+
+143
+00:07:15,900 --> 00:07:18,539
+you go to
+
+144
+00:07:17,759 --> 00:07:21,120
+um
+
+145
+00:07:18,539 --> 00:07:24,960
+you know just search for JavaScript in
+
+146
+00:07:21,120 --> 00:07:27,960
+depth and click on HTML then you have
+
+147
+00:07:24,960 --> 00:07:29,880
+you go here self closing tag so these
+
+148
+00:07:27,960 --> 00:07:32,580
+tags they don't have a closing tag
+
+149
+00:07:29,880 --> 00:07:34,860
+sometimes they do have a closing tag
+
+150
+00:07:32,580 --> 00:07:37,500
+it's optional so
+
+151
+00:07:34,860 --> 00:07:39,060
+technically they are called void
+
+152
+00:07:37,500 --> 00:07:41,819
+elements
+
+153
+00:07:39,060 --> 00:07:45,720
+you know it's it's kind of uh confusing
+
+154
+00:07:41,819 --> 00:07:48,000
+you know so in XML you always need the
+
+155
+00:07:45,720 --> 00:07:49,380
+slash okay whenever you have attacked
+
+156
+00:07:48,000 --> 00:07:52,020
+then
+
+157
+00:07:49,380 --> 00:07:54,900
+that tag ends with a slash
+
+158
+00:07:52,020 --> 00:07:59,460
+uh Red Bracket that means it's
+
+159
+00:07:54,900 --> 00:08:02,699
+self-close okay but in HTML technically
+
+160
+00:07:59,460 --> 00:08:04,680
+that slash is not allowed but however
+
+161
+00:08:02,699 --> 00:08:08,520
+because you know over the past 20 years
+
+162
+00:08:04,680 --> 00:08:13,740
+because the mix of X you know XML HTML
+
+163
+00:08:08,520 --> 00:08:16,979
+HTML5 xhtml it's one [ __ ] up [ __ ] so
+
+164
+00:08:13,740 --> 00:08:20,400
+so today in HTML you can also have that
+
+165
+00:08:16,979 --> 00:08:23,039
+slash but in XML that slash is required
+
+166
+00:08:20,400 --> 00:08:24,000
+okay so that's that's that's the bottom
+
+167
+00:08:23,039 --> 00:08:26,160
+line
+
+168
+00:08:24,000 --> 00:08:28,580
+we talked about that yesterday it's it's
+
+169
+00:08:26,160 --> 00:08:33,120
+XML it's much better because it's uh
+
+170
+00:08:28,580 --> 00:08:36,479
+because you can purely via syntax you
+
+171
+00:08:33,120 --> 00:08:39,419
+can judge which tag is sell is close is
+
+172
+00:08:36,479 --> 00:08:40,380
+you know is self-closing but in HTML you
+
+173
+00:08:39,419 --> 00:08:43,919
+cannot
+
+174
+00:08:40,380 --> 00:08:45,720
+so anyway so we so that so here's the
+
+175
+00:08:43,919 --> 00:08:49,080
+sample HTML file we're gonna have
+
+176
+00:08:45,720 --> 00:08:51,180
+validate and then
+
+177
+00:08:49,080 --> 00:08:55,680
+um then we start to code yeah so let me
+
+178
+00:08:51,180 --> 00:08:57,600
+go over yesterday's code Okay so
+
+179
+00:08:55,680 --> 00:09:02,399
+so first of all we have this function
+
+180
+00:08:57,600 --> 00:09:04,860
+PSI is self closing it takes a string so
+
+181
+00:09:02,399 --> 00:09:07,380
+so basically like that you know it takes
+
+182
+00:09:04,860 --> 00:09:10,500
+a stream of attack
+
+183
+00:09:07,380 --> 00:09:12,600
+and if the last second to last character
+
+184
+00:09:10,500 --> 00:09:14,760
+is a slash then it's a selfie closing
+
+185
+00:09:12,600 --> 00:09:17,700
+tag so this function just returns true
+
+186
+00:09:14,760 --> 00:09:19,800
+or false you know we do back
+
+187
+00:09:17,700 --> 00:09:22,740
+checking the substring
+
+188
+00:09:19,800 --> 00:09:24,600
+okay so instead of closing so that is
+
+189
+00:09:22,740 --> 00:09:27,959
+the um
+
+190
+00:09:24,600 --> 00:09:30,899
+that is that function now let's go to
+
+191
+00:09:27,959 --> 00:09:34,980
+the main body let's let me go over to
+
+192
+00:09:30,899 --> 00:09:38,940
+show you what we are doing so we so this
+
+193
+00:09:34,980 --> 00:09:40,980
+side HTML validate HTML buffer it will
+
+194
+00:09:38,940 --> 00:09:43,740
+just validate the current buffer so
+
+195
+00:09:40,980 --> 00:09:46,940
+first first thing it does is go to the
+
+196
+00:09:43,740 --> 00:09:50,519
+beginning of the buffer go to chart
+
+197
+00:09:46,940 --> 00:09:52,560
+uh get then get the current cursor
+
+198
+00:09:50,519 --> 00:09:55,800
+position find the next angle bracket
+
+199
+00:09:52,560 --> 00:09:58,080
+position grab the text in between
+
+200
+00:09:55,800 --> 00:10:00,300
+and that's one tag and push it two
+
+201
+00:09:58,080 --> 00:10:03,540
+stacks so go to the beginning of your
+
+202
+00:10:00,300 --> 00:10:06,839
+character and we do a while loop here
+
+203
+00:10:03,540 --> 00:10:09,740
+then okay let's magnify so while loop
+
+204
+00:10:06,839 --> 00:10:12,540
+then we search forward for
+
+205
+00:10:09,740 --> 00:10:15,060
+left or right bracket so we go to the
+
+206
+00:10:12,540 --> 00:10:16,440
+beginning search for word for left or
+
+207
+00:10:15,060 --> 00:10:20,760
+right bracket
+
+208
+00:10:16,440 --> 00:10:24,420
+there then if that character is the left
+
+209
+00:10:20,760 --> 00:10:26,580
+bracket then we set
+
+210
+00:10:24,420 --> 00:10:28,860
+The crucial position
+
+211
+00:10:26,580 --> 00:10:31,500
+to xp1
+
+212
+00:10:28,860 --> 00:10:33,860
+you know which is right here the
+
+213
+00:10:31,500 --> 00:10:37,500
+beginning of the tag basically
+
+214
+00:10:33,860 --> 00:10:39,300
+if the first if the angle bracket is not
+
+215
+00:10:37,500 --> 00:10:43,200
+a left bracket then it's an arrow
+
+216
+00:10:39,300 --> 00:10:45,300
+because we have a situation like that
+
+217
+00:10:43,200 --> 00:10:47,459
+you know then that's the error right
+
+218
+00:10:45,300 --> 00:10:51,120
+away so you just stop the program and
+
+219
+00:10:47,459 --> 00:10:53,779
+report it so let's uh we can run the
+
+220
+00:10:51,120 --> 00:10:58,019
+program and try it okay so run it
+
+221
+00:10:53,779 --> 00:11:01,800
+and copy the file uh command name meta X
+
+222
+00:10:58,019 --> 00:11:03,839
+sound validate XML buffer do it you can
+
+223
+00:11:01,800 --> 00:11:05,160
+see at the bottom it says error found at
+
+224
+00:11:03,839 --> 00:11:08,100
+position three
+
+225
+00:11:05,160 --> 00:11:11,100
+so it caught there
+
+226
+00:11:08,100 --> 00:11:13,980
+and that is uh
+
+227
+00:11:11,100 --> 00:11:17,040
+caught by this line okay so once we
+
+228
+00:11:13,980 --> 00:11:18,600
+found the left angle bracket we search
+
+229
+00:11:17,040 --> 00:11:21,600
+for another
+
+230
+00:11:18,600 --> 00:11:24,720
+angle bracket and if that is a right
+
+231
+00:11:21,600 --> 00:11:29,899
+angle bracket that means we found a tag
+
+232
+00:11:24,720 --> 00:11:29,899
+we found a tag so then we
+
+233
+00:11:30,000 --> 00:11:36,600
+buffer substring no properties we grab
+
+234
+00:11:32,399 --> 00:11:40,620
+the text between the two positions XP X
+
+235
+00:11:36,600 --> 00:11:42,240
+P1 xp2 then we check if it's
+
+236
+00:11:40,620 --> 00:11:43,860
+self-closing
+
+237
+00:11:42,240 --> 00:11:47,579
+if it's
+
+238
+00:11:43,860 --> 00:11:51,899
+if it is do nothing otherwise we push it
+
+239
+00:11:47,579 --> 00:11:54,060
+to a stack stack in here a stack is uh
+
+240
+00:11:51,899 --> 00:11:56,880
+in in lisp
+
+241
+00:11:54,060 --> 00:11:59,940
+stack is just a list okay
+
+242
+00:11:56,880 --> 00:12:02,279
+a list of items you can always add items
+
+243
+00:11:59,940 --> 00:12:05,339
+to the front or remove items from the
+
+244
+00:12:02,279 --> 00:12:08,339
+front Okay that's uh that's a
+
+245
+00:12:05,339 --> 00:12:12,200
+implementation of stacking lisp that's
+
+246
+00:12:08,339 --> 00:12:16,079
+just a list okay the the most natural
+
+247
+00:12:12,200 --> 00:12:19,680
+implementation of a stack data structure
+
+248
+00:12:16,079 --> 00:12:22,079
+in computer science in lisp languages
+
+249
+00:12:19,680 --> 00:12:24,360
+okay except closure closure has
+
+250
+00:12:22,079 --> 00:12:28,140
+something else because closure is based
+
+251
+00:12:24,360 --> 00:12:31,079
+on Java data structures underneath
+
+252
+00:12:28,140 --> 00:12:33,959
+so anyway so we pushed to the stack okay
+
+253
+00:12:31,079 --> 00:12:36,420
+when it's when the when the tag is not
+
+254
+00:12:33,959 --> 00:12:39,240
+set of closing then we push to the stack
+
+255
+00:12:36,420 --> 00:12:40,200
+uh then the code prints the stack and
+
+256
+00:12:39,240 --> 00:12:43,019
+that's it
+
+257
+00:12:40,200 --> 00:12:46,680
+you see that that's that's it that's
+
+258
+00:12:43,019 --> 00:12:49,320
+that's it of yesterday's progress
+
+259
+00:12:46,680 --> 00:12:52,139
+uh and we if we call it here let's
+
+260
+00:12:49,320 --> 00:12:54,839
+remove that you know so let's call it
+
+261
+00:12:52,139 --> 00:12:58,680
+call it and you go to the messages
+
+262
+00:12:54,839 --> 00:13:01,320
+before you can see here is the stack it
+
+263
+00:12:58,680 --> 00:13:05,160
+printed so we
+
+264
+00:13:01,320 --> 00:13:08,940
+open a new buffer then we paste it then
+
+265
+00:13:05,160 --> 00:13:11,100
+we make it each of those items into a
+
+266
+00:13:08,940 --> 00:13:13,860
+line by itself
+
+267
+00:13:11,100 --> 00:13:17,100
+so you can see that's a stack we have
+
+268
+00:13:13,860 --> 00:13:19,980
+now the next thing we want to do is you
+
+269
+00:13:17,100 --> 00:13:23,639
+know we check each one
+
+270
+00:13:19,980 --> 00:13:28,139
+so you know the bottom one is the is the
+
+271
+00:13:23,639 --> 00:13:30,360
+bottom of the stack so you go by
+
+272
+00:13:28,139 --> 00:13:32,940
+you know for each
+
+273
+00:13:30,360 --> 00:13:35,880
+item in the stack you check the next one
+
+274
+00:13:32,940 --> 00:13:39,000
+for example right now suppose we are on
+
+275
+00:13:35,880 --> 00:13:42,660
+head opening head then we check next one
+
+276
+00:13:39,000 --> 00:13:45,360
+that's also opening tag title so
+
+277
+00:13:42,660 --> 00:13:48,720
+whenever you see your opening tag skip
+
+278
+00:13:45,360 --> 00:13:51,600
+it go to the next item then whenever you
+
+279
+00:13:48,720 --> 00:13:55,079
+see a closing tag check to see if that
+
+280
+00:13:51,600 --> 00:13:58,380
+close intact matches the previous
+
+281
+00:13:55,079 --> 00:14:00,540
+tag in the stack if it does then just
+
+282
+00:13:58,380 --> 00:14:03,720
+delete them you know like remove them
+
+283
+00:14:00,540 --> 00:14:07,440
+because it's it matched it means well
+
+284
+00:14:03,720 --> 00:14:10,560
+formed okay so then you repeat so at the
+
+285
+00:14:07,440 --> 00:14:11,760
+end if the file is valid then your stack
+
+286
+00:14:10,560 --> 00:14:15,720
+will be
+
+287
+00:14:11,760 --> 00:14:18,600
+of nothing of no items okay so if
+
+288
+00:14:15,720 --> 00:14:21,300
+otherwise then you got an error mismatch
+
+289
+00:14:18,600 --> 00:14:23,820
+tag so that is the algorithm that's what
+
+290
+00:14:21,300 --> 00:14:26,160
+we did yesterday so today
+
+291
+00:14:23,820 --> 00:14:29,579
+so yes so so far
+
+292
+00:14:26,160 --> 00:14:31,620
+so close that okay so yet so far our
+
+293
+00:14:29,579 --> 00:14:34,500
+code
+
+294
+00:14:31,620 --> 00:14:36,420
+didn't do much you know our code the
+
+295
+00:14:34,500 --> 00:14:38,399
+only thing it checks for error is
+
+296
+00:14:36,420 --> 00:14:40,019
+something like that you know the
+
+297
+00:14:38,399 --> 00:14:42,839
+mistyped
+
+298
+00:14:40,019 --> 00:14:44,639
+angle brackets but it doesn't actually
+
+299
+00:14:42,839 --> 00:14:47,339
+check any
+
+300
+00:14:44,639 --> 00:14:50,160
+stack yet the you know the matching tag
+
+301
+00:14:47,339 --> 00:14:52,800
+for example we copy the HTML paste it
+
+302
+00:14:50,160 --> 00:14:55,560
+again here so it's repeated it should be
+
+303
+00:14:52,800 --> 00:14:57,600
+invalid so but the code doesn't do
+
+304
+00:14:55,560 --> 00:15:00,360
+anything yet because it doesn't check
+
+305
+00:14:57,600 --> 00:15:03,180
+the stat yet so today we are going to
+
+306
+00:15:00,360 --> 00:15:04,260
+continue the code so it actually checked
+
+307
+00:15:03,180 --> 00:15:08,760
+the stack
+
+308
+00:15:04,260 --> 00:15:11,519
+okay so the okay so now undo to remove
+
+309
+00:15:08,760 --> 00:15:15,180
+the duplicate uh well let's leave it
+
+310
+00:15:11,519 --> 00:15:16,740
+let's leave the duplicate HTML there so
+
+311
+00:15:15,180 --> 00:15:18,300
+today we are going to check the stack
+
+312
+00:15:16,740 --> 00:15:20,899
+okay
+
+313
+00:15:18,300 --> 00:15:20,899
+uh
+
+314
+00:15:26,220 --> 00:15:31,860
+so check the stack so
+
+315
+00:15:29,220 --> 00:15:34,860
+so we pushed a lot of things to the
+
+316
+00:15:31,860 --> 00:15:37,740
+stack yesterday you know but
+
+317
+00:15:34,860 --> 00:15:41,339
+but actually you know one of the most
+
+318
+00:15:37,740 --> 00:15:43,019
+important thing to validate the text is
+
+319
+00:15:41,339 --> 00:15:43,980
+that you want to know it's opening or
+
+320
+00:15:43,019 --> 00:15:46,500
+not
+
+321
+00:15:43,980 --> 00:15:48,959
+okay so you want to know
+
+322
+00:15:46,500 --> 00:15:51,480
+opening tag
+
+323
+00:15:48,959 --> 00:15:55,920
+or is it a closing tag closing tag
+
+324
+00:15:51,480 --> 00:15:57,899
+always start with a slash Okay so
+
+325
+00:15:55,920 --> 00:16:00,240
+you want to know it's often integral
+
+326
+00:15:57,899 --> 00:16:02,519
+closing tag the other one most critical
+
+327
+00:16:00,240 --> 00:16:05,399
+thing is you want to know the tag name
+
+328
+00:16:02,519 --> 00:16:07,260
+because only the same tag name can match
+
+329
+00:16:05,399 --> 00:16:09,839
+okay otherwise they don't they don't
+
+330
+00:16:07,260 --> 00:16:12,720
+match you have to keep going so the two
+
+331
+00:16:09,839 --> 00:16:16,079
+most important thing is the tag name and
+
+332
+00:16:12,720 --> 00:16:19,980
+it's opening or closing so let's write a
+
+333
+00:16:16,079 --> 00:16:22,740
+function to do that Okay so
+
+334
+00:16:19,980 --> 00:16:25,860
+then we push the information to the
+
+335
+00:16:22,740 --> 00:16:26,699
+stack so the stack instead of just a tag
+
+336
+00:16:25,860 --> 00:16:28,560
+name
+
+337
+00:16:26,699 --> 00:16:32,160
+we push
+
+338
+00:16:28,560 --> 00:16:35,160
+several informations we push
+
+339
+00:16:32,160 --> 00:16:38,279
+the information we we like to have is
+
+340
+00:16:35,160 --> 00:16:41,420
+the beginning position of the tag the
+
+341
+00:16:38,279 --> 00:16:44,880
+end position of the tag and whether the
+
+342
+00:16:41,420 --> 00:16:47,220
+and the tag name and whether it's
+
+343
+00:16:44,880 --> 00:16:49,440
+opening or closing so we find all this
+
+344
+00:16:47,220 --> 00:16:53,240
+information and push it to stack as one
+
+345
+00:16:49,440 --> 00:16:55,320
+item okay and so let's do that today
+
+346
+00:16:53,240 --> 00:16:58,920
+so uh
+
+347
+00:16:55,320 --> 00:17:03,060
+so we want so we have a self-closing tag
+
+348
+00:16:58,920 --> 00:17:05,280
+so we we want a function
+
+349
+00:17:03,060 --> 00:17:09,419
+is
+
+350
+00:17:05,280 --> 00:17:12,620
+opening tag Okay so
+
+351
+00:17:09,419 --> 00:17:12,620
+we can write it
+
+352
+00:17:14,339 --> 00:17:18,059
+or
+
+353
+00:17:15,900 --> 00:17:21,059
+I already defined it before I already
+
+354
+00:17:18,059 --> 00:17:23,459
+defined it in my HTML mod so let's let's
+
+355
+00:17:21,059 --> 00:17:27,059
+find let's use the existing code so we
+
+356
+00:17:23,459 --> 00:17:29,700
+don't have to waste so so much time so
+
+357
+00:17:27,059 --> 00:17:34,260
+so let's go to
+
+358
+00:17:29,700 --> 00:17:37,100
+this keystroke gets me to psi HTML mod
+
+359
+00:17:34,260 --> 00:17:40,500
+enter to open it here's the source code
+
+360
+00:17:37,100 --> 00:17:43,280
+then list matching lines okay let's show
+
+361
+00:17:40,500 --> 00:17:43,280
+the pink window
+
+362
+00:17:43,620 --> 00:17:50,220
+then these matching lines we want to
+
+363
+00:17:47,100 --> 00:17:54,799
+match for open something open tag
+
+364
+00:17:50,220 --> 00:17:59,059
+okay so here so here is a function
+
+365
+00:17:54,799 --> 00:17:59,059
+HTML opening tag p
+
+366
+00:17:59,580 --> 00:18:04,860
+any function ending in p
+
+367
+00:18:02,280 --> 00:18:07,020
+means it's a protocol predicate means
+
+368
+00:18:04,860 --> 00:18:08,220
+it's a function whether it returns true
+
+369
+00:18:07,020 --> 00:18:10,919
+or false
+
+370
+00:18:08,220 --> 00:18:13,799
+okay that's a emac
+
+371
+00:18:10,919 --> 00:18:16,440
+this convention ending in p means it
+
+372
+00:18:13,799 --> 00:18:18,360
+returns true or false okay so this so so
+
+373
+00:18:16,440 --> 00:18:20,400
+we have a function here
+
+374
+00:18:18,360 --> 00:18:22,559
+uh wait
+
+375
+00:18:20,400 --> 00:18:25,679
+yeah so we have a function here Excel
+
+376
+00:18:22,559 --> 00:18:28,740
+HTML open intact P true or false return
+
+377
+00:18:25,679 --> 00:18:31,320
+true if tag is opening tag or self
+
+378
+00:18:28,740 --> 00:18:34,679
+closing okay
+
+379
+00:18:31,320 --> 00:18:36,960
+okay else return Neo okay
+
+380
+00:18:34,679 --> 00:18:40,080
+now
+
+381
+00:18:36,960 --> 00:18:43,500
+now this function takes a position in a
+
+382
+00:18:40,080 --> 00:18:45,240
+in a buffer okay so attack begin the
+
+383
+00:18:43,500 --> 00:18:49,400
+parameter the argument must be on the
+
+384
+00:18:45,240 --> 00:18:49,400
+left of angle bracket okay like that
+
+385
+00:18:49,919 --> 00:18:54,900
+okay so we already have a function let's
+
+386
+00:18:52,679 --> 00:18:59,100
+just let why don't we grab it here so
+
+387
+00:18:54,900 --> 00:19:01,980
+copy it close it close it close it okay
+
+388
+00:18:59,100 --> 00:19:04,760
+so we have already have function let's
+
+389
+00:19:01,980 --> 00:19:04,760
+paste it there
+
+390
+00:19:04,799 --> 00:19:11,880
+fantastic so so all we have to do to
+
+391
+00:19:08,460 --> 00:19:14,520
+call this function is let's just start
+
+392
+00:19:11,880 --> 00:19:17,280
+to do it okay
+
+393
+00:19:14,520 --> 00:19:20,100
+so let's go back to our code here
+
+394
+00:19:17,280 --> 00:19:25,500
+so let's add a variable
+
+395
+00:19:20,100 --> 00:19:27,480
+is uh X is open okay by my my variable
+
+396
+00:19:25,500 --> 00:19:30,179
+naming convention always start with the
+
+397
+00:19:27,480 --> 00:19:33,360
+X so that they are highlighted all the
+
+398
+00:19:30,179 --> 00:19:34,919
+variables okay so X is open
+
+399
+00:19:33,360 --> 00:19:37,080
+uh
+
+400
+00:19:34,919 --> 00:19:40,440
+so let's
+
+401
+00:19:37,080 --> 00:19:44,059
+let's before we set tag let's see where
+
+402
+00:19:40,440 --> 00:19:44,059
+do we add this
+
+403
+00:19:47,720 --> 00:19:56,039
+so yeah so while we find so here is a
+
+404
+00:19:52,799 --> 00:19:56,039
+tag uh
+
+405
+00:19:57,720 --> 00:20:02,240
+set
+
+406
+00:19:59,340 --> 00:20:02,240
+is open
+
+407
+00:20:03,240 --> 00:20:06,679
+uh so
+
+408
+00:20:17,280 --> 00:20:24,000
+so before we sew this function opening
+
+409
+00:20:21,419 --> 00:20:26,160
+tag true I mean whether it's opening tag
+
+410
+00:20:24,000 --> 00:20:29,340
+it takes a cruiser position
+
+411
+00:20:26,160 --> 00:20:31,320
+okay not the tag name but we can also
+
+412
+00:20:29,340 --> 00:20:34,140
+it takes exclusive you know there are
+
+413
+00:20:31,320 --> 00:20:36,600
+many ways to go about you can make it to
+
+414
+00:20:34,140 --> 00:20:39,780
+take a stream which is the most simpler
+
+415
+00:20:36,600 --> 00:20:41,580
+conceptually or you can make it take a
+
+416
+00:20:39,780 --> 00:20:43,740
+cruiser position
+
+417
+00:20:41,580 --> 00:20:46,380
+which is more efficient because that way
+
+418
+00:20:43,740 --> 00:20:48,720
+you don't have to actually grab the
+
+419
+00:20:46,380 --> 00:20:50,880
+thing as a string
+
+420
+00:20:48,720 --> 00:20:52,919
+so this function right now takes a
+
+421
+00:20:50,880 --> 00:20:55,500
+cruiser position okay let's just do that
+
+422
+00:20:52,919 --> 00:20:57,360
+so now we need to first of all we need
+
+423
+00:20:55,500 --> 00:21:00,299
+to move closer to
+
+424
+00:20:57,360 --> 00:21:03,059
+uh yeah the cruiser position is xp1
+
+425
+00:21:00,299 --> 00:21:06,240
+because we remember we search forward
+
+426
+00:21:03,059 --> 00:21:09,179
+for the bracket and if it's open then
+
+427
+00:21:06,240 --> 00:21:13,679
+if it's a left bracket then we set it
+
+428
+00:21:09,179 --> 00:21:13,679
+the position to XP one so
+
+429
+00:21:13,799 --> 00:21:21,600
+so it's open so we can just call
+
+430
+00:21:18,539 --> 00:21:25,860
+here is how we do so call this function
+
+431
+00:21:21,600 --> 00:21:29,039
+give the argument XP one okay that will
+
+432
+00:21:25,860 --> 00:21:30,840
+return whether the tag is open or not so
+
+433
+00:21:29,039 --> 00:21:35,640
+that's one information
+
+434
+00:21:30,840 --> 00:21:38,280
+and uh and uh so that tells us the tag
+
+435
+00:21:35,640 --> 00:21:40,919
+is open or not then the other thing we
+
+436
+00:21:38,280 --> 00:21:42,960
+need is a tag name remember we need the
+
+437
+00:21:40,919 --> 00:21:46,039
+tag name so
+
+438
+00:21:42,960 --> 00:21:46,039
+to get the tag name
+
+439
+00:21:46,380 --> 00:21:51,720
+we also have a function already written
+
+440
+00:21:48,659 --> 00:21:55,679
+so let's go back let's open the HTML
+
+441
+00:21:51,720 --> 00:21:59,659
+file then here is the function
+
+442
+00:21:55,679 --> 00:21:59,659
+HTML get tag name okay
+
+443
+00:22:06,840 --> 00:22:10,860
+we're gonna use this function okay so
+
+444
+00:22:08,940 --> 00:22:13,020
+why don't we copy it
+
+445
+00:22:10,860 --> 00:22:17,580
+copy it close
+
+446
+00:22:13,020 --> 00:22:20,280
+and we also defined here okay
+
+447
+00:22:17,580 --> 00:22:22,640
+so these two functions let's move it to
+
+448
+00:22:20,280 --> 00:22:22,640
+the top
+
+449
+00:22:26,100 --> 00:22:31,140
+let's move it to the top
+
+450
+00:22:29,400 --> 00:22:34,080
+these are
+
+451
+00:22:31,140 --> 00:22:36,900
+self uh
+
+452
+00:22:34,080 --> 00:22:38,760
+Standalone functions you know these yeah
+
+453
+00:22:36,900 --> 00:22:42,539
+these two functions are Standalone
+
+454
+00:22:38,760 --> 00:22:46,500
+functions so this one gets a tag name
+
+455
+00:22:42,539 --> 00:22:50,700
+copy it now let's now we're gonna use it
+
+456
+00:22:46,500 --> 00:22:52,140
+okay so first of all let's Define a
+
+457
+00:22:50,700 --> 00:22:56,419
+variable
+
+458
+00:22:52,140 --> 00:22:56,419
+tag name okay so let's move here
+
+459
+00:22:59,880 --> 00:23:05,539
+okay so tag name now let's set
+
+460
+00:23:05,700 --> 00:23:09,140
+tag name to be
+
+461
+00:23:10,200 --> 00:23:14,280
+call this function then
+
+462
+00:23:14,400 --> 00:23:22,220
+then what is uh then then you need to
+
+463
+00:23:18,720 --> 00:23:25,919
+pass the position remember yeah so
+
+464
+00:23:22,220 --> 00:23:27,360
+it the position needs to be to the left
+
+465
+00:23:25,919 --> 00:23:30,960
+of the
+
+466
+00:23:27,360 --> 00:23:32,940
+left angle bracket so that would be also
+
+467
+00:23:30,960 --> 00:23:35,900
+X1
+
+468
+00:23:32,940 --> 00:23:35,900
+xp1
+
+469
+00:23:36,419 --> 00:23:42,840
+okay now predify the code so
+
+470
+00:23:40,020 --> 00:23:47,100
+so now we get the tag name we we get the
+
+471
+00:23:42,840 --> 00:23:48,299
+tag we get the tag name we we get the is
+
+472
+00:23:47,100 --> 00:23:51,419
+it open
+
+473
+00:23:48,299 --> 00:23:54,539
+okay and uh
+
+474
+00:23:51,419 --> 00:23:57,919
+yeah so that's what we want fantastic
+
+475
+00:23:54,539 --> 00:23:57,919
+Okay so
+
+476
+00:23:59,659 --> 00:24:03,260
+so first of all
+
+477
+00:24:05,520 --> 00:24:10,760
+okay so this this we need to
+
+478
+00:24:11,580 --> 00:24:16,440
+so if it's self-closing tag then we
+
+479
+00:24:14,460 --> 00:24:19,380
+don't push to the stack otherwise we do
+
+480
+00:24:16,440 --> 00:24:21,659
+push to the stack so
+
+481
+00:24:19,380 --> 00:24:24,120
+so first of all what we're gonna push to
+
+482
+00:24:21,659 --> 00:24:27,799
+the stack is going to be a vector okay
+
+483
+00:24:24,120 --> 00:24:27,799
+so a vector
+
+484
+00:24:27,840 --> 00:24:36,380
+in emac this Vector is a data structure
+
+485
+00:24:31,500 --> 00:24:41,100
+in lisp which is similar to Python's
+
+486
+00:24:36,380 --> 00:24:43,020
+Tuple okay or two C's array essentially
+
+487
+00:24:41,100 --> 00:24:46,080
+it's a list of items
+
+488
+00:24:43,020 --> 00:24:48,299
+of fixed length you can never add to it
+
+489
+00:24:46,080 --> 00:24:49,860
+you cannot remove item from it fixed
+
+490
+00:24:48,299 --> 00:24:54,059
+length
+
+491
+00:24:49,860 --> 00:24:56,340
+uh list essentially a fixed length array
+
+492
+00:24:54,059 --> 00:24:59,580
+okay typically it's called array so
+
+493
+00:24:56,340 --> 00:25:03,240
+that's what Vector is in emac lisp so so
+
+494
+00:24:59,580 --> 00:25:06,659
+here we have a vector and the
+
+495
+00:25:03,240 --> 00:25:11,539
+so what we want the stack item to be so
+
+496
+00:25:06,659 --> 00:25:11,539
+we need to be X is open
+
+497
+00:25:11,820 --> 00:25:16,620
+oh we got the
+
+498
+00:25:13,980 --> 00:25:20,419
+did we get the hearts and I saw the
+
+499
+00:25:16,620 --> 00:25:20,419
+heart how does that work
+
+500
+00:25:20,760 --> 00:25:26,880
+so
+
+501
+00:25:22,080 --> 00:25:29,120
+so Vector so Vector is open and the tag
+
+502
+00:25:26,880 --> 00:25:29,120
+name
+
+503
+00:25:29,520 --> 00:25:36,840
+so we want to vector
+
+504
+00:25:33,480 --> 00:25:40,020
+first item is is open then type name and
+
+505
+00:25:36,840 --> 00:25:44,400
+beginning position and position okay so
+
+506
+00:25:40,020 --> 00:25:48,240
+beginning position XP xp1 where the
+
+507
+00:25:44,400 --> 00:25:53,100
+let's Square the tag begin then xp2
+
+508
+00:25:48,240 --> 00:25:57,360
+that's where the tag ends then
+
+509
+00:25:53,100 --> 00:26:01,039
+then tag name then is it open
+
+510
+00:25:57,360 --> 00:26:01,039
+wait how does that hard work
+
+511
+00:26:01,140 --> 00:26:06,840
+fantastic
+
+512
+00:26:03,779 --> 00:26:11,000
+okay a message am I doing good comments
+
+513
+00:26:06,840 --> 00:26:11,000
+okay video check audio check
+
+514
+00:26:13,620 --> 00:26:19,020
+great fantastic heart
+
+515
+00:26:16,500 --> 00:26:21,360
+um okay so here is the thing we want to
+
+516
+00:26:19,020 --> 00:26:23,220
+push okay so
+
+517
+00:26:21,360 --> 00:26:27,960
+beginning includes the position and
+
+518
+00:26:23,220 --> 00:26:29,340
+close the position tag name and is open
+
+519
+00:26:27,960 --> 00:26:33,360
+okay
+
+520
+00:26:29,340 --> 00:26:34,620
+and we push it to
+
+521
+00:26:33,360 --> 00:26:39,320
+um
+
+522
+00:26:34,620 --> 00:26:39,320
+we push it to the stack right so
+
+523
+00:26:39,419 --> 00:26:44,700
+so
+
+524
+00:26:41,279 --> 00:26:49,200
+we check if the attack is self closing
+
+525
+00:26:44,700 --> 00:26:54,080
+if it is do nothing otherwise push
+
+526
+00:26:49,200 --> 00:26:54,080
+this to stack okay fantastic
+
+527
+00:26:55,860 --> 00:27:00,240
+okay that's our code that's that's
+
+528
+00:26:58,440 --> 00:27:03,900
+pretty good that's
+
+529
+00:27:00,240 --> 00:27:05,940
+um that is our code pretty good so
+
+530
+00:27:03,900 --> 00:27:09,000
+yeah so
+
+531
+00:27:05,940 --> 00:27:11,460
+so now our stack will be reach is gonna
+
+532
+00:27:09,000 --> 00:27:15,960
+be rich now so let's see
+
+533
+00:27:11,460 --> 00:27:20,299
+so is self closing okay let's
+
+534
+00:27:15,960 --> 00:27:20,299
+cut this move to the top
+
+535
+00:27:21,960 --> 00:27:27,240
+okay
+
+536
+00:27:23,159 --> 00:27:29,880
+so describe list matching lines
+
+537
+00:27:27,240 --> 00:27:33,120
+different so right now we have this
+
+538
+00:27:29,880 --> 00:27:35,880
+function defined the first three is help
+
+539
+00:27:33,120 --> 00:27:39,059
+functions this is the main thing so go
+
+540
+00:27:35,880 --> 00:27:44,159
+through there so there it is it's only
+
+541
+00:27:39,059 --> 00:27:47,640
+about 40 lines okay so now we eval the
+
+542
+00:27:44,159 --> 00:27:50,460
+buffer now emacs knows about the whole
+
+543
+00:27:47,640 --> 00:27:52,080
+list of functions now we
+
+544
+00:27:50,460 --> 00:27:55,080
+meta X
+
+545
+00:27:52,080 --> 00:27:58,320
+sound validate XML prefer to it
+
+546
+00:27:55,080 --> 00:28:02,279
+fantastic now we
+
+547
+00:27:58,320 --> 00:28:06,240
+open the messages buffer copy it
+
+548
+00:28:02,279 --> 00:28:09,480
+open a new buffer then we
+
+549
+00:28:06,240 --> 00:28:11,039
+make them into a line by itself make
+
+550
+00:28:09,480 --> 00:28:14,279
+each item
+
+551
+00:28:11,039 --> 00:28:16,640
+on the line by itself so here's our
+
+552
+00:28:14,279 --> 00:28:16,640
+stack
+
+553
+00:28:17,940 --> 00:28:24,360
+oh fantastic so wait
+
+554
+00:28:21,120 --> 00:28:28,159
+tag name is open fantastic this is now
+
+555
+00:28:24,360 --> 00:28:28,159
+simpler so we got the
+
+556
+00:28:28,320 --> 00:28:35,179
+you see so here's the the first tag is
+
+557
+00:28:32,159 --> 00:28:39,539
+HTML beginning position and position
+
+558
+00:28:35,179 --> 00:28:42,120
+then tag name then whether it's open
+
+559
+00:28:39,539 --> 00:28:45,419
+intact true open okay so this is open
+
+560
+00:28:42,120 --> 00:28:48,480
+this is open open close close tag new
+
+561
+00:28:45,419 --> 00:28:51,860
+scroll stack fantastic now we got the
+
+562
+00:28:48,480 --> 00:28:51,860
+push to the stack
+
+563
+00:28:52,700 --> 00:28:55,880
+thank you
+
+564
+00:28:56,039 --> 00:28:59,720
+okay so what um
+
+565
+00:29:01,320 --> 00:29:11,520
+so now fantastic now now it's it's great
+
+566
+00:29:06,480 --> 00:29:15,840
+I'm doing good thank you CEO uh okay so
+
+567
+00:29:11,520 --> 00:29:19,380
+so what's the next thing to do so those
+
+568
+00:29:15,840 --> 00:29:21,179
+comments we don't care okay what is the
+
+569
+00:29:19,380 --> 00:29:23,460
+next thing
+
+570
+00:29:21,179 --> 00:29:26,880
+let's move it
+
+571
+00:29:23,460 --> 00:29:28,980
+that's some comment from yesterday
+
+572
+00:29:26,880 --> 00:29:32,279
+yeah so we now
+
+573
+00:29:28,980 --> 00:29:34,760
+now we need some code to check the stack
+
+574
+00:29:32,279 --> 00:29:34,760
+okay
+
+575
+00:29:34,980 --> 00:29:41,100
+uh so remember
+
+576
+00:29:37,620 --> 00:29:43,200
+here is a while loop
+
+577
+00:29:41,100 --> 00:29:45,899
+this while loop
+
+578
+00:29:43,200 --> 00:29:48,179
+you know is going through
+
+579
+00:29:45,899 --> 00:29:50,700
+you know by searching the
+
+580
+00:29:48,179 --> 00:29:54,000
+brackets and each time
+
+581
+00:29:50,700 --> 00:29:56,659
+push your attack to the stack
+
+582
+00:29:54,000 --> 00:29:56,659
+now
+
+583
+00:29:57,360 --> 00:30:03,600
+we can you know so after the whole thing
+
+584
+00:30:00,539 --> 00:30:07,100
+is done we have a bunch of stacks
+
+585
+00:30:03,600 --> 00:30:07,100
+we can check it
+
+586
+00:30:07,140 --> 00:30:12,600
+you know all
+
+587
+00:30:09,840 --> 00:30:15,600
+or we can check it as we go you know
+
+588
+00:30:12,600 --> 00:30:18,840
+before we even you know like
+
+589
+00:30:15,600 --> 00:30:21,899
+we can check it after the whole Loop or
+
+590
+00:30:18,840 --> 00:30:24,539
+we can check it check the stack
+
+591
+00:30:21,899 --> 00:30:26,100
+while inside the loop
+
+592
+00:30:24,539 --> 00:30:31,100
+so
+
+593
+00:30:26,100 --> 00:30:31,100
+so uh which one should we do so
+
+594
+00:30:32,220 --> 00:30:36,000
+so here is the thing we need to think
+
+595
+00:30:34,740 --> 00:30:38,399
+about
+
+596
+00:30:36,000 --> 00:30:41,220
+we can check the stack
+
+597
+00:30:38,399 --> 00:30:43,740
+during the loop or we can should we
+
+598
+00:30:41,220 --> 00:30:45,240
+check the stack after the whole
+
+599
+00:30:43,740 --> 00:30:50,240
+uh
+
+600
+00:30:45,240 --> 00:30:50,240
+if we check the stack after hole
+
+601
+00:30:50,279 --> 00:30:55,799
+it's less efficient because suppose you
+
+602
+00:30:52,740 --> 00:30:57,059
+have a huge document let's say 10 000
+
+603
+00:30:55,799 --> 00:31:00,000
+lines
+
+604
+00:30:57,059 --> 00:31:01,320
+now you know the error occurs on the
+
+605
+00:31:00,000 --> 00:31:04,320
+10th Line
+
+606
+00:31:01,320 --> 00:31:06,659
+so if you check the stack while doing
+
+607
+00:31:04,320 --> 00:31:09,360
+the loop you'll find it right away and
+
+608
+00:31:06,659 --> 00:31:10,679
+the program can stop you know then this
+
+609
+00:31:09,360 --> 00:31:11,940
+error
+
+610
+00:31:10,679 --> 00:31:14,460
+or
+
+611
+00:31:11,940 --> 00:31:16,799
+if you wait until the whole Loop is done
+
+612
+00:31:14,460 --> 00:31:17,940
+it has to read all the you know ten
+
+613
+00:31:16,799 --> 00:31:19,940
+thousand
+
+614
+00:31:17,940 --> 00:31:22,320
+tax
+
+615
+00:31:19,940 --> 00:31:25,460
+Okay so
+
+616
+00:31:22,320 --> 00:31:25,460
+okay so so
+
+617
+00:31:26,159 --> 00:31:31,740
+it's it's it's better it's probably
+
+618
+00:31:29,520 --> 00:31:34,020
+better to check during the loop but the
+
+619
+00:31:31,740 --> 00:31:36,419
+other concern is which one is easier to
+
+620
+00:31:34,020 --> 00:31:38,940
+write uh to implement
+
+621
+00:31:36,419 --> 00:31:43,500
+because if you have the entire stack
+
+622
+00:31:38,940 --> 00:31:46,080
+then the way you validate it is by
+
+623
+00:31:43,500 --> 00:31:49,260
+you know you go to the last
+
+624
+00:31:46,080 --> 00:31:52,580
+item of the stack
+
+625
+00:31:49,260 --> 00:31:52,580
+then you
+
+626
+00:31:53,880 --> 00:31:57,539
+then you check if it's matching the
+
+627
+00:31:56,220 --> 00:32:00,539
+beginning
+
+628
+00:31:57,539 --> 00:32:03,059
+if it does you
+
+629
+00:32:00,539 --> 00:32:06,480
+you have to remove both so you have to
+
+630
+00:32:03,059 --> 00:32:09,059
+actually operate from both sides
+
+631
+00:32:06,480 --> 00:32:12,240
+you know our stack is at least
+
+632
+00:32:09,059 --> 00:32:13,440
+data structure so with a list data
+
+633
+00:32:12,240 --> 00:32:17,340
+structure
+
+634
+00:32:13,440 --> 00:32:20,159
+it's efficient only if you add or remove
+
+635
+00:32:17,340 --> 00:32:23,120
+the first item you know the top of the
+
+636
+00:32:20,159 --> 00:32:25,919
+stack if you want to remove or change
+
+637
+00:32:23,120 --> 00:32:27,899
+the bottom of the stack it's very
+
+638
+00:32:25,919 --> 00:32:31,440
+inefficient
+
+639
+00:32:27,899 --> 00:32:34,559
+so that means if we want to wait until
+
+640
+00:32:31,440 --> 00:32:35,520
+the whole Loop is done then process the
+
+641
+00:32:34,559 --> 00:32:39,419
+stack
+
+642
+00:32:35,520 --> 00:32:42,080
+that means the least data structure is
+
+643
+00:32:39,419 --> 00:32:42,080
+not suitable
+
+644
+00:32:42,600 --> 00:32:46,620
+because it's going to be very Innovation
+
+645
+00:32:44,820 --> 00:32:48,679
+efficient so
+
+646
+00:32:46,620 --> 00:32:48,679
+um
+
+647
+00:32:48,720 --> 00:32:54,840
+so yeah so right now we know it's
+
+648
+00:32:52,260 --> 00:32:57,419
+probably better to check the stack
+
+649
+00:32:54,840 --> 00:32:59,659
+during the loop within the while loop
+
+650
+00:32:57,419 --> 00:32:59,659
+okay
+
+651
+00:33:01,140 --> 00:33:07,320
+so
+
+652
+00:33:04,039 --> 00:33:10,380
+automatic automatically launched the
+
+653
+00:33:07,320 --> 00:33:12,899
+heart is that is also
+
+654
+00:33:10,380 --> 00:33:15,419
+you are doing good important to time
+
+655
+00:33:12,899 --> 00:33:17,399
+yourself while coding time sorry I'm
+
+656
+00:33:15,419 --> 00:33:20,519
+bugging you but would you be able to
+
+657
+00:33:17,399 --> 00:33:23,880
+provide results to detecting AMD
+
+658
+00:33:20,519 --> 00:33:28,039
+identifying a key log
+
+659
+00:33:23,880 --> 00:33:28,039
+on Windows 10 operating system
+
+660
+00:33:31,740 --> 00:33:36,659
+no I don't know I don't know anything
+
+661
+00:33:33,840 --> 00:33:39,840
+about that so you want to detect is is
+
+662
+00:33:36,659 --> 00:33:41,940
+if there's a key log on on Windows no I
+
+663
+00:33:39,840 --> 00:33:44,220
+don't know how to detect that or you can
+
+664
+00:33:41,940 --> 00:33:46,880
+do all I can recommend is you download
+
+665
+00:33:44,220 --> 00:33:50,100
+the virus checker
+
+666
+00:33:46,880 --> 00:33:52,260
+otherwise I don't know dude that's
+
+667
+00:33:50,100 --> 00:33:53,640
+another topic we can talk about another
+
+668
+00:33:52,260 --> 00:33:58,380
+day
+
+669
+00:33:53,640 --> 00:34:02,760
+so so we want to check the stack during
+
+670
+00:33:58,380 --> 00:34:06,860
+the loop okay that's more efficient
+
+671
+00:34:02,760 --> 00:34:06,860
+but how do you do it okay so
+
+672
+00:34:09,300 --> 00:34:13,020
+so you
+
+673
+00:34:21,720 --> 00:34:27,060
+yeah so so here's the stack suppose we
+
+674
+00:34:25,679 --> 00:34:31,560
+are here
+
+675
+00:34:27,060 --> 00:34:35,220
+and we just suppose we are here and then
+
+676
+00:34:31,560 --> 00:34:37,560
+we just one more Loop we read one more
+
+677
+00:34:35,220 --> 00:34:40,080
+stack so we are here
+
+678
+00:34:37,560 --> 00:34:43,220
+then you want to check the
+
+679
+00:34:40,080 --> 00:34:43,220
+Stacks so
+
+680
+00:34:43,800 --> 00:34:50,700
+so if the current stack is closed okay
+
+681
+00:34:48,060 --> 00:34:54,240
+so if it's open ignore it
+
+682
+00:34:50,700 --> 00:34:58,260
+so we move on to the next Loop if the
+
+683
+00:34:54,240 --> 00:35:01,640
+current tag is a closing tag that's when
+
+684
+00:34:58,260 --> 00:35:01,640
+you need to do something okay
+
+685
+00:35:02,280 --> 00:35:09,960
+if it's close in tag then you check the
+
+686
+00:35:07,080 --> 00:35:13,260
+last item on the stack
+
+687
+00:35:09,960 --> 00:35:16,680
+if if that's the opening tag and the
+
+688
+00:35:13,260 --> 00:35:19,079
+name also matches if so you remove it
+
+689
+00:35:16,680 --> 00:35:20,700
+okay that's the algorithm
+
+690
+00:35:19,079 --> 00:35:22,980
+fantastic
+
+691
+00:35:20,700 --> 00:35:27,060
+thinking does it
+
+692
+00:35:22,980 --> 00:35:29,880
+so let's write it out if the current tag
+
+693
+00:35:27,060 --> 00:35:34,140
+is closing then
+
+694
+00:35:29,880 --> 00:35:36,599
+check the last item on the stack
+
+695
+00:35:34,140 --> 00:35:41,040
+if it's opening
+
+696
+00:35:36,599 --> 00:35:46,200
+and tag name match then
+
+697
+00:35:41,040 --> 00:35:48,660
+remove that on stack fantastic
+
+698
+00:35:46,200 --> 00:35:50,940
+that's the way to go
+
+699
+00:35:48,660 --> 00:35:52,200
+that's the that's what we're gonna do
+
+700
+00:35:50,940 --> 00:35:54,599
+okay so
+
+701
+00:35:52,200 --> 00:35:55,560
+so now let's refactor the code a little
+
+702
+00:35:54,599 --> 00:35:59,040
+bit
+
+703
+00:35:55,560 --> 00:36:03,800
+so here if it's self-closing tag
+
+704
+00:35:59,040 --> 00:36:03,800
+okay let's let's move this code
+
+705
+00:36:04,560 --> 00:36:08,579
+to here okay so to make it more
+
+706
+00:36:07,320 --> 00:36:11,400
+efficient
+
+707
+00:36:08,579 --> 00:36:14,240
+so if it's self close intact do nothing
+
+708
+00:36:11,400 --> 00:36:14,240
+otherwise
+
+709
+00:36:14,700 --> 00:36:19,800
+we're gonna do something okay otherwise
+
+710
+00:36:20,420 --> 00:36:25,579
+otherwise okay let's move the code here
+
+711
+00:36:30,359 --> 00:36:36,359
+okay that does that make it simpler so
+
+712
+00:36:34,260 --> 00:36:39,599
+get a tag name
+
+713
+00:36:36,359 --> 00:36:41,940
+if it's self-closing tag
+
+714
+00:36:39,599 --> 00:36:43,619
+do nothing
+
+715
+00:36:41,940 --> 00:36:48,200
+otherwise
+
+716
+00:36:43,619 --> 00:36:48,200
+actually we don't even need the tag
+
+717
+00:36:48,359 --> 00:36:53,760
+yeah so we don't even need the tags you
+
+718
+00:36:51,060 --> 00:36:56,160
+see the only reason we need the tag is
+
+719
+00:36:53,760 --> 00:36:59,640
+because this function is self-closing
+
+720
+00:36:56,160 --> 00:37:03,839
+this function we wrote here
+
+721
+00:36:59,640 --> 00:37:06,420
+that takes a string the tag stream
+
+722
+00:37:03,839 --> 00:37:09,060
+but we but I already have a function
+
+723
+00:37:06,420 --> 00:37:10,440
+that checks if something is self-closing
+
+724
+00:37:09,060 --> 00:37:13,740
+without
+
+725
+00:37:10,440 --> 00:37:15,420
+needing the text string
+
+726
+00:37:13,740 --> 00:37:18,300
+so
+
+727
+00:37:15,420 --> 00:37:20,040
+so you see if itself closing do nothing
+
+728
+00:37:18,300 --> 00:37:23,220
+right
+
+729
+00:37:20,040 --> 00:37:26,160
+otherwise get the tag name check if it's
+
+730
+00:37:23,220 --> 00:37:27,780
+open then push to stack right
+
+731
+00:37:26,160 --> 00:37:30,300
+so
+
+732
+00:37:27,780 --> 00:37:32,099
+but however the attack the entire tag
+
+733
+00:37:30,300 --> 00:37:34,079
+you know opening or closing the tag
+
+734
+00:37:32,099 --> 00:37:37,140
+itself is
+
+735
+00:37:34,079 --> 00:37:38,760
+never needed you know it's never needed
+
+736
+00:37:37,140 --> 00:37:42,320
+anywhere except by this function
+
+737
+00:37:38,760 --> 00:37:42,320
+therefore we don't need it
+
+738
+00:37:42,839 --> 00:37:47,700
+the only we just need to know if it's
+
+739
+00:37:45,839 --> 00:37:52,280
+self-crossing or not we don't need to
+
+740
+00:37:47,700 --> 00:37:52,280
+actually grab the tag okay so now
+
+741
+00:37:52,700 --> 00:37:59,880
+let's replace let's let's get let's
+
+742
+00:37:57,480 --> 00:38:03,859
+write a cell you know
+
+743
+00:37:59,880 --> 00:38:03,859
+self-closing predicate function
+
+744
+00:38:04,079 --> 00:38:10,260
+that do not require a string the text
+
+745
+00:38:07,020 --> 00:38:13,740
+string okay so let's go to yeah so let's
+
+746
+00:38:10,260 --> 00:38:16,500
+go to my HTML mod again
+
+747
+00:38:13,740 --> 00:38:19,880
+to find the function because I HTML mod
+
+748
+00:38:16,500 --> 00:38:22,920
+so we want to find self closing okay
+
+749
+00:38:19,880 --> 00:38:24,660
+these matching lines self
+
+750
+00:38:22,920 --> 00:38:26,400
+closing
+
+751
+00:38:24,660 --> 00:38:28,800
+uh
+
+752
+00:38:26,400 --> 00:38:30,660
+so here is a function
+
+753
+00:38:28,800 --> 00:38:34,920
+jump to it
+
+754
+00:38:30,660 --> 00:38:36,440
+search for it there it is okay so here
+
+755
+00:38:34,920 --> 00:38:39,980
+is a function
+
+756
+00:38:36,440 --> 00:38:45,960
+html text cell close p
+
+757
+00:38:39,980 --> 00:38:48,660
+and it checks by whether the tag name is
+
+758
+00:38:45,960 --> 00:38:51,900
+is in this list
+
+759
+00:38:48,660 --> 00:38:54,180
+let me show you okay so here so you see
+
+760
+00:38:51,900 --> 00:38:58,560
+here is a bunch of self-closing tags
+
+761
+00:38:54,180 --> 00:39:00,540
+okay so now we just grab that
+
+762
+00:38:58,560 --> 00:39:05,820
+grab this function
+
+763
+00:39:00,540 --> 00:39:10,380
+okay close close go back here we paste
+
+764
+00:39:05,820 --> 00:39:14,160
+the code here and we don't need this
+
+765
+00:39:10,380 --> 00:39:18,540
+code anymore okay
+
+766
+00:39:14,160 --> 00:39:22,800
+and uh so now this is a new function
+
+767
+00:39:18,540 --> 00:39:26,520
+now let's go down here self closing
+
+768
+00:39:22,800 --> 00:39:27,480
+we don't need so we need a new way to
+
+769
+00:39:26,520 --> 00:39:31,380
+check
+
+770
+00:39:27,480 --> 00:39:34,320
+and this function takes a
+
+771
+00:39:31,380 --> 00:39:36,060
+tag name okay so actually it takes a tag
+
+772
+00:39:34,320 --> 00:39:39,079
+name
+
+773
+00:39:36,060 --> 00:39:39,079
+oh so
+
+774
+00:39:40,500 --> 00:39:44,119
+so it takes a tag name
+
+775
+00:39:45,240 --> 00:39:52,260
+so now remove this line
+
+776
+00:39:48,060 --> 00:39:54,900
+now attack name
+
+777
+00:39:52,260 --> 00:39:57,540
+so you need to set the tag name before
+
+778
+00:39:54,900 --> 00:40:03,180
+you see it's called here so you move
+
+779
+00:39:57,540 --> 00:40:05,760
+this line to here okay purify the code
+
+780
+00:40:03,180 --> 00:40:07,740
+and this tag we don't need anymore
+
+781
+00:40:05,760 --> 00:40:12,420
+that's right so
+
+782
+00:40:07,740 --> 00:40:15,540
+remove it okay so we got the tag name
+
+783
+00:40:12,420 --> 00:40:20,280
+now check if it's self-closing
+
+784
+00:40:15,540 --> 00:40:20,280
+if it's true do nothing otherwise
+
+785
+00:40:20,760 --> 00:40:27,900
+do this okay so
+
+786
+00:40:24,119 --> 00:40:30,000
+if it's not self closing then check if
+
+787
+00:40:27,900 --> 00:40:33,859
+it's opening tag
+
+788
+00:40:30,000 --> 00:40:33,859
+okay and now
+
+789
+00:40:34,200 --> 00:40:37,820
+check if
+
+790
+00:40:40,560 --> 00:40:48,560
+if it's open
+
+791
+00:40:42,660 --> 00:40:48,560
+do nothing new okay otherwise we
+
+792
+00:40:53,040 --> 00:40:58,460
+let's put a comment here otherwise we
+
+793
+00:40:58,740 --> 00:41:04,339
+we need to check the stack okay let's
+
+794
+00:41:01,079 --> 00:41:04,339
+predefine the code
+
+795
+00:41:05,280 --> 00:41:13,579
+so get the tag name
+
+796
+00:41:07,800 --> 00:41:13,579
+if it's self-closing if it is do nothing
+
+797
+00:41:14,099 --> 00:41:19,579
+otherwise
+
+798
+00:41:16,020 --> 00:41:19,579
+is it opening tag
+
+799
+00:41:22,440 --> 00:41:25,579
+if it's true
+
+800
+00:41:26,460 --> 00:41:33,960
+okay so set is open so if it's opening
+
+801
+00:41:29,640 --> 00:41:33,960
+tag then do nothing otherwise
+
+802
+00:41:35,820 --> 00:41:40,800
+check the stack okay so otherwise now we
+
+803
+00:41:39,420 --> 00:41:42,839
+check the stack
+
+804
+00:41:40,800 --> 00:41:46,079
+now
+
+805
+00:41:42,839 --> 00:41:48,740
+so so let's put a comment here now we
+
+806
+00:41:46,079 --> 00:41:48,740
+check the stack
+
+807
+00:41:51,900 --> 00:41:54,500
+so
+
+808
+00:41:58,140 --> 00:42:02,359
+so if it's a closing tag
+
+809
+00:42:03,480 --> 00:42:06,560
+now if
+
+810
+00:42:08,280 --> 00:42:14,940
+X tag now we got we need to get the
+
+811
+00:42:11,160 --> 00:42:17,280
+element of our stack did we document no
+
+812
+00:42:14,940 --> 00:42:21,020
+we didn't document it so
+
+813
+00:42:17,280 --> 00:42:21,020
+let's document the stack
+
+814
+00:42:22,020 --> 00:42:27,140
+okay it's document our stack here
+
+815
+00:42:29,700 --> 00:42:35,880
+stack is an empty list to begin with and
+
+816
+00:42:33,660 --> 00:42:39,000
+the least
+
+817
+00:42:35,880 --> 00:42:42,300
+each element is a vector
+
+818
+00:42:39,000 --> 00:42:45,960
+and of this form
+
+819
+00:42:42,300 --> 00:42:47,220
+position Cruiser position cursor end
+
+820
+00:42:45,960 --> 00:42:48,660
+position
+
+821
+00:42:47,220 --> 00:42:53,480
+tag name
+
+822
+00:42:48,660 --> 00:42:53,480
+is open okay that's a vector
+
+823
+00:42:56,220 --> 00:43:01,040
+stack is a list okay
+
+824
+00:42:59,099 --> 00:43:05,040
+each element
+
+825
+00:43:01,040 --> 00:43:07,920
+is a vector like that okay so that's a
+
+826
+00:43:05,040 --> 00:43:09,180
+document of the stack okay now let's go
+
+827
+00:43:07,920 --> 00:43:10,500
+back to
+
+828
+00:43:09,180 --> 00:43:13,339
+here
+
+829
+00:43:10,500 --> 00:43:13,339
+so
+
+830
+00:43:15,060 --> 00:43:21,359
+uh position position
+
+831
+00:43:18,359 --> 00:43:24,000
+name is open
+
+832
+00:43:21,359 --> 00:43:26,660
+Okay so
+
+833
+00:43:24,000 --> 00:43:26,660
+if
+
+834
+00:43:38,160 --> 00:43:44,300
+so we a vector we we how do we get the
+
+835
+00:43:46,560 --> 00:43:51,980
+so we need to get the
+
+836
+00:43:49,079 --> 00:43:54,960
+vector
+
+837
+00:43:51,980 --> 00:43:57,060
+Vector is zero indexed
+
+838
+00:43:54,960 --> 00:43:58,859
+uh
+
+839
+00:43:57,060 --> 00:44:01,859
+and uh
+
+840
+00:43:58,859 --> 00:44:03,119
+so we want to check the name and is open
+
+841
+00:44:01,859 --> 00:44:06,060
+uh
+
+842
+00:44:03,119 --> 00:44:08,760
+equal okay
+
+843
+00:44:06,060 --> 00:44:13,460
+so
+
+844
+00:44:08,760 --> 00:44:13,460
+if something okay so if
+
+845
+00:44:20,280 --> 00:44:24,900
+string equal
+
+846
+00:44:23,040 --> 00:44:26,880
+tag name
+
+847
+00:44:24,900 --> 00:44:29,940
+equals to
+
+848
+00:44:26,880 --> 00:44:32,819
+the item on the stack
+
+849
+00:44:29,940 --> 00:44:36,859
+so here you need to
+
+850
+00:44:32,819 --> 00:44:36,859
+get the last item on the stack
+
+851
+00:44:37,079 --> 00:44:42,440
+so you can so you can do that by car
+
+852
+00:44:44,640 --> 00:44:51,780
+okay so car extag X tag is actually a
+
+853
+00:44:49,440 --> 00:44:52,980
+list so car X stack gets the first
+
+854
+00:44:51,780 --> 00:44:54,720
+element
+
+855
+00:44:52,980 --> 00:44:58,859
+so
+
+856
+00:44:54,720 --> 00:45:01,920
+so if that elements
+
+857
+00:44:58,859 --> 00:45:04,920
+string equal attack name so that element
+
+858
+00:45:01,920 --> 00:45:05,819
+is a vector right it's it's a vector
+
+859
+00:45:04,920 --> 00:45:08,220
+like that
+
+860
+00:45:05,819 --> 00:45:11,160
+so that element so now we need to
+
+861
+00:45:08,220 --> 00:45:14,280
+extract the tag name from that Vector so
+
+862
+00:45:11,160 --> 00:45:21,060
+that function is a ref
+
+863
+00:45:14,280 --> 00:45:24,140
+so a array is that an index is 0 1 2 2
+
+864
+00:45:21,060 --> 00:45:24,140
+is the tag name
+
+865
+00:45:26,280 --> 00:45:28,819
+okay
+
+866
+00:45:29,339 --> 00:45:35,000
+so
+
+867
+00:45:31,380 --> 00:45:35,000
+if that is equal
+
+868
+00:45:35,880 --> 00:45:38,540
+and
+
+869
+00:45:38,760 --> 00:45:47,760
+we need another thing we need to check
+
+870
+00:45:40,800 --> 00:45:47,760
+Okay so so now go back so if that end
+
+871
+00:45:48,260 --> 00:45:54,599
+if the last
+
+872
+00:45:50,640 --> 00:45:56,819
+item on the stack is a opening tag
+
+873
+00:45:54,599 --> 00:45:59,640
+that means
+
+874
+00:45:56,819 --> 00:46:01,140
+opening tag that means
+
+875
+00:45:59,640 --> 00:46:03,480
+t
+
+876
+00:46:01,140 --> 00:46:06,480
+Okay so
+
+877
+00:46:03,480 --> 00:46:06,480
+and
+
+878
+00:46:08,300 --> 00:46:11,720
+let's see
+
+879
+00:46:16,980 --> 00:46:19,640
+uh
+
+880
+00:46:21,020 --> 00:46:24,920
+okay so let's
+
+881
+00:46:25,260 --> 00:46:32,160
+so the last item is
+
+882
+00:46:28,380 --> 00:46:35,700
+zero one two three so third item
+
+883
+00:46:32,160 --> 00:46:39,900
+so if the third item of the
+
+884
+00:46:35,700 --> 00:46:43,940
+of the last element on the stack
+
+885
+00:46:39,900 --> 00:46:43,940
+is t means it's open
+
+886
+00:46:46,079 --> 00:46:53,760
+okay so the name match and the last item
+
+887
+00:46:49,560 --> 00:46:53,760
+on the stack is open then
+
+888
+00:46:58,220 --> 00:47:06,980
+then we okay clean clean up the code
+
+889
+00:47:03,780 --> 00:47:06,980
+then we
+
+890
+00:47:13,200 --> 00:47:19,700
+pop remove the item on the stack okay
+
+891
+00:47:19,859 --> 00:47:25,740
+so if that is true then
+
+892
+00:47:23,220 --> 00:47:27,540
+pop
+
+893
+00:47:25,740 --> 00:47:31,200
+pop the stack
+
+894
+00:47:27,540 --> 00:47:33,060
+otherwise push to the stack you see now
+
+895
+00:47:31,200 --> 00:47:35,839
+it's all clear
+
+896
+00:47:33,060 --> 00:47:35,839
+otherwise
+
+897
+00:47:36,359 --> 00:47:43,040
+push to the stack fantastic
+
+898
+00:47:39,359 --> 00:47:43,040
+okay does that make sense
+
+899
+00:47:43,260 --> 00:47:49,079
+so here's the code to check stack we
+
+900
+00:47:45,720 --> 00:47:51,540
+already did it clean the code
+
+901
+00:47:49,079 --> 00:47:56,220
+uh
+
+902
+00:47:51,540 --> 00:47:58,819
+no too much nesting okay but still
+
+903
+00:47:56,220 --> 00:47:58,819
+okay
+
+904
+00:47:59,339 --> 00:48:05,660
+does that make sense actually I think
+
+905
+00:48:02,220 --> 00:48:09,140
+you'll walk one shot coding
+
+906
+00:48:05,660 --> 00:48:09,140
+I'm out of coffee
+
+907
+00:48:09,300 --> 00:48:15,380
+okay so let's double check okay
+
+908
+00:48:12,780 --> 00:48:15,380
+so
+
+909
+00:48:16,319 --> 00:48:21,200
+get the tag name
+
+910
+00:48:18,240 --> 00:48:21,200
+get tag name
+
+911
+00:48:23,640 --> 00:48:26,359
+uh
+
+912
+00:48:27,420 --> 00:48:31,339
+so let's look at our file
+
+913
+00:48:31,500 --> 00:48:38,180
+so we
+
+914
+00:48:34,260 --> 00:48:38,180
+we get the tag name
+
+915
+00:48:41,579 --> 00:48:46,880
+then
+
+916
+00:48:42,900 --> 00:48:46,880
+check if it's self-closing
+
+917
+00:48:47,460 --> 00:48:51,480
+if it is
+
+918
+00:48:49,859 --> 00:48:53,460
+do nothing
+
+919
+00:48:51,480 --> 00:48:54,480
+otherwise
+
+920
+00:48:53,460 --> 00:48:58,460
+check
+
+921
+00:48:54,480 --> 00:48:58,460
+if it's opening tag
+
+922
+00:49:00,720 --> 00:49:03,800
+if it is
+
+923
+00:49:04,140 --> 00:49:08,839
+oh if it is we need to push to stack
+
+924
+00:49:08,880 --> 00:49:13,859
+right
+
+925
+00:49:10,619 --> 00:49:16,579
+so if it is we need just we need to push
+
+926
+00:49:13,859 --> 00:49:16,579
+to stack
+
+927
+00:49:19,020 --> 00:49:21,980
+otherwise
+
+928
+00:49:30,900 --> 00:49:36,359
+we otherwise we check if it's a closing
+
+929
+00:49:34,680 --> 00:49:38,940
+tag
+
+930
+00:49:36,359 --> 00:49:41,880
+I mean otherwise it's a closing tag we
+
+931
+00:49:38,940 --> 00:49:44,220
+check if it matches the
+
+932
+00:49:41,880 --> 00:49:46,980
+the tag on the stack
+
+933
+00:49:44,220 --> 00:49:48,540
+the attack name is the same or not
+
+934
+00:49:46,980 --> 00:49:51,660
+and
+
+935
+00:49:48,540 --> 00:49:56,720
+the last item on the stack is open
+
+936
+00:49:51,660 --> 00:49:56,720
+if so remove the last item on the stack
+
+937
+00:49:56,760 --> 00:50:01,520
+otherwise push okay I think that's it
+
+938
+00:50:01,560 --> 00:50:07,380
+are you gonna show live memory run
+
+939
+00:50:05,339 --> 00:50:10,619
+for the runtime no we don't care about
+
+940
+00:50:07,380 --> 00:50:14,640
+that that this little very little memory
+
+941
+00:50:10,619 --> 00:50:18,500
+okay even if you have 10 000 stacks
+
+942
+00:50:14,640 --> 00:50:22,079
+that just means at least of 10 000 items
+
+943
+00:50:18,500 --> 00:50:25,319
+and each item is gonna is a vector like
+
+944
+00:50:22,079 --> 00:50:27,420
+that a vector of four things so even if
+
+945
+00:50:25,319 --> 00:50:30,960
+if you have ten thousand of them it's
+
+946
+00:50:27,420 --> 00:50:33,240
+like trivial micros one few micro
+
+947
+00:50:30,960 --> 00:50:37,020
+seconds you know because today's
+
+948
+00:50:33,240 --> 00:50:39,240
+computer are very fast unless you are
+
+949
+00:50:37,020 --> 00:50:40,079
+talking about one gigabyte file or
+
+950
+00:50:39,240 --> 00:50:42,420
+something
+
+951
+00:50:40,079 --> 00:50:46,740
+it but that's not practical but because
+
+952
+00:50:42,420 --> 00:50:52,200
+it uh you know most HTML files you know
+
+953
+00:50:46,740 --> 00:50:54,420
+team Mega by Max okay yeah you know
+
+954
+00:50:52,200 --> 00:50:57,960
+you are not going to deal with one
+
+955
+00:50:54,420 --> 00:51:01,140
+gigabyte HTML file so you know it's
+
+956
+00:50:57,960 --> 00:51:02,220
+uh shouldn't be your concern so we focus
+
+957
+00:51:01,140 --> 00:51:05,280
+on
+
+958
+00:51:02,220 --> 00:51:07,440
+okay so practicality okay so this code
+
+959
+00:51:05,280 --> 00:51:10,319
+works I think I'm pretty sure let's run
+
+960
+00:51:07,440 --> 00:51:13,079
+it okay it's already run
+
+961
+00:51:10,319 --> 00:51:15,660
+uh you see run current file so emacs
+
+962
+00:51:13,079 --> 00:51:18,720
+knows the new code now let's let's let's
+
+963
+00:51:15,660 --> 00:51:20,280
+test it on this sample file
+
+964
+00:51:18,720 --> 00:51:22,380
+quit
+
+965
+00:51:20,280 --> 00:51:25,740
+do it
+
+966
+00:51:22,380 --> 00:51:28,980
+okay so what happened oh
+
+967
+00:51:25,740 --> 00:51:32,180
+let's look at the stack oh so now the
+
+968
+00:51:28,980 --> 00:51:32,180
+stack is very short
+
+969
+00:51:34,819 --> 00:51:41,720
+actually that's correct you see because
+
+970
+00:51:38,280 --> 00:51:47,280
+remember we have a duplicated
+
+971
+00:51:41,720 --> 00:51:50,040
+HTML tag you see so that is why
+
+972
+00:51:47,280 --> 00:51:53,160
+that HTML tag remain on the stack
+
+973
+00:51:50,040 --> 00:51:55,980
+because it's never matched
+
+974
+00:51:53,160 --> 00:51:58,319
+but what is the what is this empty
+
+975
+00:51:55,980 --> 00:51:59,700
+string that that means attack without
+
+976
+00:51:58,319 --> 00:52:02,099
+the name
+
+977
+00:51:59,700 --> 00:52:04,200
+what
+
+978
+00:52:02,099 --> 00:52:06,720
+uh
+
+979
+00:52:04,200 --> 00:52:09,059
+yeah so that so we
+
+980
+00:52:06,720 --> 00:52:10,260
+it's working fantastic now we just have
+
+981
+00:52:09,059 --> 00:52:12,980
+some bug
+
+982
+00:52:10,260 --> 00:52:12,980
+so
+
+983
+00:52:16,440 --> 00:52:20,420
+so what what is the uh
+
+984
+00:52:21,540 --> 00:52:28,020
+so this mysterious mysterious thing oh
+
+985
+00:52:25,619 --> 00:52:30,680
+okay so it's number you see position
+
+986
+00:52:28,020 --> 00:52:30,680
+three
+
+987
+00:52:31,380 --> 00:52:35,540
+there I think that's that one
+
+988
+00:52:36,119 --> 00:52:42,780
+yeah I think so so
+
+989
+00:52:39,839 --> 00:52:46,079
+position three to eighteen so if you can
+
+990
+00:52:42,780 --> 00:52:48,980
+now you can call describe chart
+
+991
+00:52:46,079 --> 00:52:52,500
+and emacs will tell you what position
+
+992
+00:52:48,980 --> 00:52:56,040
+your Cruiser is on you see 18 so
+
+993
+00:52:52,500 --> 00:52:58,740
+position 18 is right here so
+
+994
+00:52:56,040 --> 00:53:01,020
+so that means this line
+
+995
+00:52:58,740 --> 00:53:03,059
+you know this element
+
+996
+00:53:01,020 --> 00:53:06,119
+is this thing
+
+997
+00:53:03,059 --> 00:53:09,300
+now that thing should be considered
+
+998
+00:53:06,119 --> 00:53:12,720
+that's a dark type
+
+999
+00:53:09,300 --> 00:53:15,920
+technically it's not a tag at all it's
+
+1000
+00:53:12,720 --> 00:53:18,359
+just one decoration
+
+1001
+00:53:15,920 --> 00:53:23,180
+technically you know according to spec
+
+1002
+00:53:18,359 --> 00:53:26,700
+that's not a tag you know
+
+1003
+00:53:23,180 --> 00:53:28,680
+but for for our purposes we can consider
+
+1004
+00:53:26,700 --> 00:53:31,260
+that to be yourself closing
+
+1005
+00:53:28,680 --> 00:53:34,740
+but why is ourselves closing time
+
+1006
+00:53:31,260 --> 00:53:38,819
+doesn't match that let's see
+
+1007
+00:53:34,740 --> 00:53:41,819
+uh get tag name is opening tag self
+
+1008
+00:53:38,819 --> 00:53:44,480
+cross intact P so let's look at the
+
+1009
+00:53:41,819 --> 00:53:49,020
+variable Okay so
+
+1010
+00:53:44,480 --> 00:53:52,319
+HTML self close tags okay
+
+1011
+00:53:49,020 --> 00:53:55,800
+so this should be there
+
+1012
+00:53:52,319 --> 00:53:58,079
+self close tags DOT type
+
+1013
+00:53:55,800 --> 00:53:59,520
+you know because we consider that to be
+
+1014
+00:53:58,079 --> 00:54:02,240
+self closing
+
+1015
+00:53:59,520 --> 00:54:02,240
+now
+
+1016
+00:54:02,700 --> 00:54:06,980
+now maybe the tag name
+
+1017
+00:54:07,380 --> 00:54:14,160
+or tag name I'll get tag name
+
+1018
+00:54:10,980 --> 00:54:18,359
+function is incorrect so let's look at
+
+1019
+00:54:14,160 --> 00:54:19,260
+it describe function jump to
+
+1020
+00:54:18,359 --> 00:54:22,280
+um
+
+1021
+00:54:19,260 --> 00:54:22,280
+yeah okay
+
+1022
+00:54:23,880 --> 00:54:30,540
+and actually
+
+1023
+00:54:26,220 --> 00:54:33,359
+okay so why is it not getting oh there
+
+1024
+00:54:30,540 --> 00:54:35,960
+it is that's why because it doesn't
+
+1025
+00:54:33,359 --> 00:54:38,700
+consider the
+
+1026
+00:54:35,960 --> 00:54:41,220
+exclamation sign
+
+1027
+00:54:38,700 --> 00:54:43,200
+to be part of it
+
+1028
+00:54:41,220 --> 00:54:44,339
+that's why it becomes zero so let's
+
+1029
+00:54:43,200 --> 00:54:46,559
+check
+
+1030
+00:54:44,339 --> 00:54:49,980
+uh tag name
+
+1031
+00:54:46,559 --> 00:54:53,359
+so how does this code work so it takes
+
+1032
+00:54:49,980 --> 00:54:53,359
+an attack beginning position
+
+1033
+00:54:54,119 --> 00:54:58,920
+okay then
+
+1034
+00:54:55,920 --> 00:55:02,119
+looking at then
+
+1035
+00:54:58,920 --> 00:55:05,599
+go to chart tag begin forward chart
+
+1036
+00:55:02,119 --> 00:55:05,599
+looking at
+
+1037
+00:55:07,859 --> 00:55:13,140
+if looking at
+
+1038
+00:55:09,960 --> 00:55:16,619
+then for chart so if it's
+
+1039
+00:55:13,140 --> 00:55:19,280
+the tag name start with that skip it
+
+1040
+00:55:16,619 --> 00:55:19,280
+otherwise
+
+1041
+00:55:19,500 --> 00:55:24,660
+set point
+
+1042
+00:55:21,540 --> 00:55:26,460
+so skip chart forward yeah so you see
+
+1043
+00:55:24,660 --> 00:55:29,280
+that's a problem so
+
+1044
+00:55:26,460 --> 00:55:31,460
+the code stuck over here so that's why
+
+1045
+00:55:29,280 --> 00:55:35,780
+you get an empty tag name
+
+1046
+00:55:31,460 --> 00:55:39,180
+but here you should include
+
+1047
+00:55:35,780 --> 00:55:40,559
+you know this is one of the this is one
+
+1048
+00:55:39,180 --> 00:55:43,680
+of the you should include the
+
+1049
+00:55:40,559 --> 00:55:46,980
+explanation here you see this is one of
+
+1050
+00:55:43,680 --> 00:55:50,220
+the problem of The Irregular syntax that
+
+1051
+00:55:46,980 --> 00:55:53,339
+creates you know suppose if you have a
+
+1052
+00:55:50,220 --> 00:55:54,780
+clean XML not even XML but suppose you
+
+1053
+00:55:53,339 --> 00:55:56,400
+have a XML
+
+1054
+00:55:54,780 --> 00:55:59,400
+where
+
+1055
+00:55:56,400 --> 00:56:01,440
+the syntax of the
+
+1056
+00:55:59,400 --> 00:56:03,780
+language is
+
+1057
+00:56:01,440 --> 00:56:08,359
+there's nothing special because right
+
+1058
+00:56:03,780 --> 00:56:08,359
+now this dark type is considered special
+
+1059
+00:56:11,099 --> 00:56:16,980
+so you can say you know that's even not
+
+1060
+00:56:14,460 --> 00:56:19,079
+a tag you know it's declaration it's not
+
+1061
+00:56:16,980 --> 00:56:22,020
+attack but you shouldn't but if
+
+1062
+00:56:19,079 --> 00:56:25,380
+everything is just attacked then it's
+
+1063
+00:56:22,020 --> 00:56:27,780
+regular is much easier to deal with so
+
+1064
+00:56:25,380 --> 00:56:29,839
+anyway so to solve that problem all we
+
+1065
+00:56:27,780 --> 00:56:32,880
+have to do is add a
+
+1066
+00:56:29,839 --> 00:56:36,300
+exclamation here I'm pretty sure so we
+
+1067
+00:56:32,880 --> 00:56:40,680
+can try it again evaluate the buffer
+
+1068
+00:56:36,300 --> 00:56:43,440
+go here go ahead do it you see now go to
+
+1069
+00:56:40,680 --> 00:56:45,900
+the messages buffer so you see
+
+1070
+00:56:43,440 --> 00:56:47,880
+now we got just one item because that is
+
+1071
+00:56:45,900 --> 00:56:51,540
+the
+
+1072
+00:56:47,880 --> 00:56:54,000
+duplicated HTML tag
+
+1073
+00:56:51,540 --> 00:56:57,119
+here see
+
+1074
+00:56:54,000 --> 00:56:59,040
+fantastic okay now let's do something up
+
+1075
+00:56:57,119 --> 00:57:01,020
+let's remove this
+
+1076
+00:56:59,040 --> 00:57:03,180
+um
+
+1077
+00:57:01,020 --> 00:57:06,540
+remove these
+
+1078
+00:57:03,180 --> 00:57:09,900
+remove this remove this because all
+
+1079
+00:57:06,540 --> 00:57:12,420
+those are defined in my HTML size HTML
+
+1080
+00:57:09,900 --> 00:57:15,070
+mod so let's just go to
+
+1081
+00:57:12,420 --> 00:57:16,380
+size HTML mod then
+
+1082
+00:57:15,070 --> 00:57:18,500
+[Music]
+
+1083
+00:57:16,380 --> 00:57:18,500
+um
+
+1084
+00:57:18,660 --> 00:57:25,220
+then you know we don't have to
+
+1085
+00:57:21,980 --> 00:57:25,220
+duplicate them
+
+1086
+00:57:25,760 --> 00:57:30,780
+so wait
+
+1087
+00:57:27,720 --> 00:57:33,740
+evaluate the buffer close it so what is
+
+1088
+00:57:30,780 --> 00:57:33,740
+it that we need
+
+1089
+00:57:35,220 --> 00:57:42,000
+attack name yeah so
+
+1090
+00:57:38,040 --> 00:57:43,500
+get tag name so describe function jump
+
+1091
+00:57:42,000 --> 00:57:46,920
+to the source code
+
+1092
+00:57:43,500 --> 00:57:49,260
+we need to add a band here
+
+1093
+00:57:46,920 --> 00:57:51,480
+band okay
+
+1094
+00:57:49,260 --> 00:57:56,059
+evaluate the code
+
+1095
+00:57:51,480 --> 00:57:56,059
+at today's date modification date
+
+1096
+00:57:56,940 --> 00:58:01,740
+okay
+
+1097
+00:57:58,140 --> 00:58:06,300
+evaluate the code go back here
+
+1098
+00:58:01,740 --> 00:58:11,280
+evaluate the buffer go back here expand
+
+1099
+00:58:06,300 --> 00:58:11,280
+call the function do it fantastic
+
+1100
+00:58:12,180 --> 00:58:17,040
+now uh
+
+1101
+00:58:14,460 --> 00:58:20,099
+now that's it we done with the program
+
+1102
+00:58:17,040 --> 00:58:22,619
+one more thing to do okay to make it we
+
+1103
+00:58:20,099 --> 00:58:24,960
+pull the error okay so here we don't
+
+1104
+00:58:22,619 --> 00:58:27,720
+even need to print the stack
+
+1105
+00:58:24,960 --> 00:58:29,819
+so all we have to do is
+
+1106
+00:58:27,720 --> 00:58:31,140
+if
+
+1107
+00:58:29,819 --> 00:58:34,920
+length
+
+1108
+00:58:31,140 --> 00:58:34,920
+of Stack
+
+1109
+00:58:36,420 --> 00:58:41,160
+zero zero let's hold on a second let's
+
+1110
+00:58:39,119 --> 00:58:47,720
+try equal yeah
+
+1111
+00:58:41,160 --> 00:58:47,720
+so if link of Stack is zero then
+
+1112
+00:58:53,160 --> 00:58:57,260
+done
+
+1113
+00:58:54,480 --> 00:58:57,260
+perfect
+
+1114
+00:58:57,700 --> 00:59:03,799
+[Laughter]
+
+1115
+00:58:59,880 --> 00:59:03,799
+you have perfect code
+
+1116
+00:59:03,980 --> 00:59:10,160
+okay it's
+
+1117
+00:59:07,440 --> 00:59:10,160
+otherwise
+
+1118
+00:59:10,559 --> 00:59:18,000
+otherwise print stack
+
+1119
+00:59:13,440 --> 00:59:20,660
+well otherwise let's see uh well yeah
+
+1120
+00:59:18,000 --> 00:59:20,660
+otherwise
+
+1121
+00:59:22,140 --> 00:59:28,680
+otherwise print stack but before you
+
+1122
+00:59:24,839 --> 00:59:30,299
+print the stack you also want to uh go
+
+1123
+00:59:28,680 --> 00:59:33,680
+to the last position
+
+1124
+00:59:30,299 --> 00:59:33,680
+so car
+
+1125
+00:59:36,359 --> 00:59:39,260
+a ref
+
+1126
+00:59:40,079 --> 00:59:48,660
+so get
+
+1127
+00:59:42,720 --> 00:59:48,660
+get the last item on the stack and
+
+1128
+00:59:48,720 --> 00:59:53,220
+and
+
+1129
+00:59:50,880 --> 00:59:58,020
+go to char
+
+1130
+00:59:53,220 --> 01:00:00,599
+uh last item of the stack in the the
+
+1131
+00:59:58,020 --> 01:00:03,420
+zeroth index that is the beginning
+
+1132
+01:00:00,599 --> 01:00:04,500
+position of the
+
+1133
+01:00:03,420 --> 01:00:07,559
+tag
+
+1134
+01:00:04,500 --> 01:00:09,500
+and then you just say go to it
+
+1135
+01:00:07,559 --> 01:00:15,859
+go to
+
+1136
+01:00:09,500 --> 01:00:15,859
+go to char okay go to char there
+
+1137
+01:00:16,079 --> 01:00:19,319
+one
+
+1138
+01:00:17,460 --> 01:00:23,520
+okay
+
+1139
+01:00:19,319 --> 01:00:26,900
+so if the stack has nothing then done
+
+1140
+01:00:23,520 --> 01:00:26,900
+you have perfect code
+
+1141
+01:00:30,420 --> 01:00:34,099
+your code is perfect
+
+1142
+01:00:35,400 --> 01:00:39,960
+otherwise
+
+1143
+01:00:37,319 --> 01:00:42,900
+go to the last item on the stack
+
+1144
+01:00:39,960 --> 01:00:45,480
+get the position put a cruiser on the
+
+1145
+01:00:42,900 --> 01:00:48,780
+beginning of the tag of the arrow
+
+1146
+01:00:45,480 --> 01:00:52,440
+and also print stack okay eval the
+
+1147
+01:00:48,780 --> 01:00:54,780
+buffer go back here now let's say let's
+
+1148
+01:00:52,440 --> 01:00:58,619
+now let's put a cruiser here okay let's
+
+1149
+01:00:54,780 --> 01:00:59,750
+let's say in the code command do it
+
+1150
+01:00:58,619 --> 01:01:02,180
+fantastic
+
+1151
+01:00:59,750 --> 01:01:05,760
+[Music]
+
+1152
+01:01:02,180 --> 01:01:08,160
+you see it puts the cursor right on the
+
+1153
+01:01:05,760 --> 01:01:10,740
+face
+
+1154
+01:01:08,160 --> 01:01:14,220
+you know the the first error that occurs
+
+1155
+01:01:10,740 --> 01:01:18,720
+fantastic okay now again let's do some
+
+1156
+01:01:14,220 --> 01:01:23,780
+pretty uh thing let's say
+
+1157
+01:01:18,720 --> 01:01:23,780
+error okay uh messages
+
+1158
+01:01:25,680 --> 01:01:28,680
+error
+
+1159
+01:01:28,700 --> 01:01:34,740
+you [ __ ]
+
+1160
+01:01:32,120 --> 01:01:39,020
+[Laughter]
+
+1161
+01:01:34,740 --> 01:01:43,440
+it says then we have to say
+
+1162
+01:01:39,020 --> 01:01:46,200
+uh yeah those Arrow yeah okay so
+
+1163
+01:01:43,440 --> 01:01:49,880
+also
+
+1164
+01:01:46,200 --> 01:01:49,880
+uh yeah so Arrow
+
+1165
+01:01:51,119 --> 01:01:56,400
+here's the stack okay
+
+1166
+01:01:53,819 --> 01:01:58,680
+then
+
+1167
+01:01:56,400 --> 01:02:02,220
+then also
+
+1168
+01:01:58,680 --> 01:02:06,420
+make sure the program if the program if
+
+1169
+01:02:02,220 --> 01:02:09,299
+it's valid should return true Okay so
+
+1170
+01:02:06,420 --> 01:02:11,040
+so let's do that
+
+1171
+01:02:09,299 --> 01:02:15,180
+t for true
+
+1172
+01:02:11,040 --> 01:02:16,079
+actually message I think message returns
+
+1173
+01:02:15,180 --> 01:02:18,960
+true
+
+1174
+01:02:16,079 --> 01:02:21,720
+yeah it returns a string yeah okay
+
+1175
+01:02:18,960 --> 01:02:23,700
+so when it's valid this function should
+
+1176
+01:02:21,720 --> 01:02:27,540
+return true in case you want to call
+
+1177
+01:02:23,700 --> 01:02:30,619
+this function in this code otherwise it
+
+1178
+01:02:27,540 --> 01:02:30,619
+returns new okay
+
+1179
+01:02:31,400 --> 01:02:36,480
+that's it that's it for today you know
+
+1180
+01:02:34,260 --> 01:02:39,240
+lots of talking and but
+
+1181
+01:02:36,480 --> 01:02:43,380
+one hour we did it in one hour perfect
+
+1182
+01:02:39,240 --> 01:02:45,960
+so total of two hours we did it
+
+1183
+01:02:43,380 --> 01:02:48,000
+let's go to message buffer yeah fact you
+
+1184
+01:02:45,960 --> 01:02:52,920
+fact here is a stack okay
+
+1185
+01:02:48,000 --> 01:02:55,619
+correct now let's remove this at HT this
+
+1186
+01:02:52,920 --> 01:02:58,440
+remove this duplicate okay now let's try
+
+1187
+01:02:55,619 --> 01:03:02,579
+again call it do it
+
+1188
+01:02:58,440 --> 01:03:05,220
+done you will call this perfect
+
+1189
+01:03:02,579 --> 01:03:10,619
+thank you guys for watching if you like
+
+1190
+01:03:05,220 --> 01:03:13,859
+my stuff pay me okay uh you can buy my
+
+1191
+01:03:10,619 --> 01:03:16,680
+emacs tutorial okay lots of
+
+1192
+01:03:13,859 --> 01:03:18,960
+you know go to
+
+1193
+01:03:16,680 --> 01:03:21,420
+you know just search for Sally emacs
+
+1194
+01:03:18,960 --> 01:03:24,599
+tutorial the most popular
+
+1195
+01:03:21,420 --> 01:03:27,000
+emacs tutorial on the website so you can
+
+1196
+01:03:24,599 --> 01:03:29,400
+PayPal me there's a link there PayPal or
+
+1197
+01:03:27,000 --> 01:03:32,420
+patreon me so thank you guys for
+
+1198
+01:03:29,400 --> 01:03:32,420
+watching any questions
+
+1199
+01:03:33,240 --> 01:03:38,819
+yeah so we did it fantastic so for those
+
+1200
+01:03:36,420 --> 01:03:40,920
+of you watching you know later you can
+
+1201
+01:03:38,819 --> 01:03:44,099
+get the code offline
+
+1202
+01:03:40,920 --> 01:03:47,040
+so let's uh hold on let's let's clean up
+
+1203
+01:03:44,099 --> 01:03:49,160
+the code okay so and put the code back
+
+1204
+01:03:47,040 --> 01:03:53,160
+to the my page
+
+1205
+01:03:49,160 --> 01:03:56,400
+so pass region so we don't need that
+
+1206
+01:03:53,160 --> 01:03:59,240
+anymore so here is the code glorious
+
+1207
+01:03:56,400 --> 01:03:59,240
+code
+
+1208
+01:03:59,520 --> 01:04:06,420
+59 60 lines 60 lines plus we used three
+
+1209
+01:04:04,500 --> 01:04:08,880
+building you know three
+
+1210
+01:04:06,420 --> 01:04:13,260
+functions I have written before so a
+
+1211
+01:04:08,880 --> 01:04:15,799
+total of 120 lines something like that
+
+1212
+01:04:13,260 --> 01:04:20,040
+100 100 lines
+
+1213
+01:04:15,799 --> 01:04:22,980
+validation of XML and HTML code
+
+1214
+01:04:20,040 --> 01:04:23,760
+fantastic now let's make some arrows so
+
+1215
+01:04:22,980 --> 01:04:25,799
+let's
+
+1216
+01:04:23,760 --> 01:04:28,680
+you see let's hear
+
+1217
+01:04:25,799 --> 01:04:29,579
+let's make some Arrow here okay let's
+
+1218
+01:04:28,680 --> 01:04:31,380
+say
+
+1219
+01:04:29,579 --> 01:04:33,720
+some
+
+1220
+01:04:31,380 --> 01:04:37,559
+some okay
+
+1221
+01:04:33,720 --> 01:04:40,680
+bold okay now let's call the command do
+
+1222
+01:04:37,559 --> 01:04:44,220
+it your code is perfect okay but now
+
+1223
+01:04:40,680 --> 01:04:48,839
+let's put this in bracket
+
+1224
+01:04:44,220 --> 01:04:51,540
+through here okay call the command do it
+
+1225
+01:04:48,839 --> 01:04:54,420
+Arrow so now let's look at let's go to
+
+1226
+01:04:51,540 --> 01:04:56,280
+the error you [ __ ]
+
+1227
+01:04:54,420 --> 01:04:58,020
+here's a stack
+
+1228
+01:04:56,280 --> 01:05:00,000
+and uh
+
+1229
+01:04:58,020 --> 01:05:02,880
+it should put the cruiser right right
+
+1230
+01:05:00,000 --> 01:05:04,740
+there so let's do it again do it
+
+1231
+01:05:02,880 --> 01:05:07,400
+No it didn't
+
+1232
+01:05:04,740 --> 01:05:07,400
+because
+
+1233
+01:05:08,520 --> 01:05:15,359
+it didn't put the cruiser at the right
+
+1234
+01:05:11,040 --> 01:05:17,819
+position because the way we validate so
+
+1235
+01:05:15,359 --> 01:05:22,500
+you can we can look at the stack
+
+1236
+01:05:17,819 --> 01:05:24,980
+uh the way we've added date we um
+
+1237
+01:05:22,500 --> 01:05:24,980
+because
+
+1238
+01:05:25,920 --> 01:05:29,540
+yeah so
+
+1239
+01:05:27,420 --> 01:05:34,140
+okay here is what here's what happens
+
+1240
+01:05:29,540 --> 01:05:35,940
+what happens here is you have two
+
+1241
+01:05:34,140 --> 01:05:38,099
+hmm
+
+1242
+01:05:35,940 --> 01:05:39,059
+oh that's an interesting error so you
+
+1243
+01:05:38,099 --> 01:05:42,140
+can't
+
+1244
+01:05:39,059 --> 01:05:42,140
+you can't
+
+1245
+01:05:42,660 --> 01:05:48,660
+the question is can you discover this
+
+1246
+01:05:45,299 --> 01:05:53,040
+error while you are doing the loop
+
+1247
+01:05:48,660 --> 01:05:56,040
+uh can you so the question is well
+
+1248
+01:05:53,040 --> 01:05:59,640
+so we found the opening tag then we
+
+1249
+01:05:56,040 --> 01:06:01,140
+found the closing tag well actually you
+
+1250
+01:05:59,640 --> 01:06:04,559
+should be able to
+
+1251
+01:06:01,140 --> 01:06:07,740
+but what is the mathematical
+
+1252
+01:06:04,559 --> 01:06:10,740
+property to know this is error how do
+
+1253
+01:06:07,740 --> 01:06:13,020
+you know this is error
+
+1254
+01:06:10,740 --> 01:06:15,960
+I mean we know it's Error because our
+
+1255
+01:06:13,020 --> 01:06:17,700
+stack they don't cancel out right so we
+
+1256
+01:06:15,960 --> 01:06:21,359
+know it's Error at the end
+
+1257
+01:06:17,700 --> 01:06:23,339
+but technically you don't need to go to
+
+1258
+01:06:21,359 --> 01:06:26,299
+the end
+
+1259
+01:06:23,339 --> 01:06:26,299
+um do you
+
+1260
+01:06:26,420 --> 01:06:32,099
+uh no because as soon as you have an
+
+1261
+01:06:29,700 --> 01:06:37,160
+opening tag
+
+1262
+01:06:32,099 --> 01:06:37,160
+you need to expect it to close
+
+1263
+01:06:42,240 --> 01:06:48,319
+okay so we have an opening tag H1 then
+
+1264
+01:06:45,420 --> 01:06:53,880
+we have an opening tag B
+
+1265
+01:06:48,319 --> 01:06:56,160
+then we close the H1 at that point
+
+1266
+01:06:53,880 --> 01:06:57,599
+we know it's Error
+
+1267
+01:06:56,160 --> 01:07:01,260
+already
+
+1268
+01:06:57,599 --> 01:07:04,859
+but how do you find how do you know in
+
+1269
+01:07:01,260 --> 01:07:08,880
+code how do you What is the
+
+1270
+01:07:04,859 --> 01:07:10,920
+mathematical Essence how do you express
+
+1271
+01:07:08,880 --> 01:07:13,200
+you know we humans we know it's Error
+
+1272
+01:07:10,920 --> 01:07:15,599
+but how do you express
+
+1273
+01:07:13,200 --> 01:07:17,460
+this
+
+1274
+01:07:15,599 --> 01:07:20,160
+this situation
+
+1275
+01:07:17,460 --> 01:07:22,140
+that makes it error from a mathematical
+
+1276
+01:07:20,160 --> 01:07:24,980
+point of view because once you can do
+
+1277
+01:07:22,140 --> 01:07:30,260
+that then you can turn it into code
+
+1278
+01:07:24,980 --> 01:07:30,260
+so opening tag opening tag
+
+1279
+01:07:30,299 --> 01:07:36,780
+so close so whenever you close the tag
+
+1280
+01:07:33,420 --> 01:07:38,099
+so when whenever you encounter a closing
+
+1281
+01:07:36,780 --> 01:07:42,000
+tag
+
+1282
+01:07:38,099 --> 01:07:44,579
+that closing tag must must have
+
+1283
+01:07:42,000 --> 01:07:48,180
+a matching opening tag before right
+
+1284
+01:07:44,579 --> 01:07:51,180
+right before the the previous the tag on
+
+1285
+01:07:48,180 --> 01:07:53,940
+the stack okay that's the thing
+
+1286
+01:07:51,180 --> 01:07:56,420
+so whenever you see a closing tag which
+
+1287
+01:07:53,940 --> 01:07:56,420
+is here
+
+1288
+01:07:56,720 --> 01:08:02,700
+and uh
+
+1289
+01:07:58,680 --> 01:08:05,039
+that that and the
+
+1290
+01:08:02,700 --> 01:08:08,039
+that tag must have
+
+1291
+01:08:05,039 --> 01:08:09,720
+a opening tag on the stack otherwise
+
+1292
+01:08:08,039 --> 01:08:12,359
+it's Error right away
+
+1293
+01:08:09,720 --> 01:08:13,859
+so we just have to modify the code here
+
+1294
+01:08:12,359 --> 01:08:16,080
+somewhere but that's it that's that's
+
+1295
+01:08:13,859 --> 01:08:19,920
+done today so
+
+1296
+01:08:16,080 --> 01:08:22,140
+fizzler fisler freeze says I got an
+
+1297
+01:08:19,920 --> 01:08:26,000
+expose after your review it hasn't
+
+1298
+01:08:22,140 --> 01:08:26,000
+arrived yet but I'm excited thank you
+
+1299
+01:08:26,940 --> 01:08:33,299
+I'm happy I'm happy I finished the code
+
+1300
+01:08:29,279 --> 01:08:36,540
+today it's it's basically good so expose
+
+1301
+01:08:33,299 --> 01:08:38,940
+I highly recommend it you know they I
+
+1302
+01:08:36,540 --> 01:08:41,880
+that's one of the keyboard I love very
+
+1303
+01:08:38,940 --> 01:08:44,520
+much I so so much enjoy it every time I
+
+1304
+01:08:41,880 --> 01:08:48,179
+use it like every because I have so many
+
+1305
+01:08:44,520 --> 01:08:50,940
+keyboards so I cannot use all of them
+
+1306
+01:08:48,179 --> 01:08:53,339
+for as my main so I have to you know
+
+1307
+01:08:50,940 --> 01:08:55,679
+either use this one or that one but all
+
+1308
+01:08:53,339 --> 01:09:01,080
+these you know ultimate hacking keyboard
+
+1309
+01:08:55,679 --> 01:09:04,020
+glove 80 Kinesis Advantage 2 and expose
+
+1310
+01:09:01,080 --> 01:09:06,179
+that any one of them I can use full-time
+
+1311
+01:09:04,020 --> 01:09:09,359
+no problem
+
+1312
+01:09:06,179 --> 01:09:12,779
+but the Xbox is flat so that's a bit an
+
+1313
+01:09:09,359 --> 01:09:15,420
+issue if I use it long term
+
+1314
+01:09:12,779 --> 01:09:17,100
+okay thank you guys thank you all pay me
+
+1315
+01:09:15,420 --> 01:09:19,560
+okay remember donate that's because
+
+1316
+01:09:17,100 --> 01:09:22,080
+that's the most important you know
+
+1317
+01:09:19,560 --> 01:09:23,699
+if you like my work you know donate
+
+1318
+01:09:22,080 --> 01:09:25,920
+something
+
+1319
+01:09:23,699 --> 01:09:29,160
+okay bye guys
+
+1320
+01:09:25,920 --> 01:09:33,120
+uh by closing down in one minute let's
+
+1321
+01:09:29,160 --> 01:09:35,160
+just put a code let's put a code into my
+
+1322
+01:09:33,120 --> 01:09:39,420
+page
+
+1323
+01:09:35,160 --> 01:09:40,799
+uh I think a backup close it
+
+1324
+01:09:39,420 --> 01:09:43,440
+close it
+
+1325
+01:09:40,799 --> 01:09:46,279
+close it showing browser okay that's it
+
+1326
+01:09:43,440 --> 01:09:46,279
+bye thank you
+

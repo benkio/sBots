@@ -1,0 +1,6020 @@
+1
+00:00:00,589 --> 00:00:10,889
+good morning welcome to another episode
+
+2
+00:00:04,529 --> 00:00:14,849
+of talk-show We Need to Talk and there
+
+3
+00:00:10,889 --> 00:00:17,070
+are a lot to talk about so let me show
+
+4
+00:00:14,849 --> 00:00:20,910
+you what I'm gonna talk about today's
+
+5
+00:00:17,070 --> 00:00:24,420
+topics so let's go to I'm just going to
+
+6
+00:00:20,910 --> 00:00:26,750
+give you show you what we gonna talk
+
+7
+00:00:24,420 --> 00:00:33,780
+about we are going to talk about
+
+8
+00:00:26,750 --> 00:00:36,870
+JavaScript string problem and so and I'm
+
+9
+00:00:33,780 --> 00:00:38,820
+going to explain you know what is the
+
+10
+00:00:36,870 --> 00:00:41,940
+problem and what is you know JavaScript
+
+11
+00:00:38,820 --> 00:00:44,640
+what does it mean to have a code unit
+
+12
+00:00:41,940 --> 00:00:48,329
+you know what does code point mean it's
+
+13
+00:00:44,640 --> 00:00:52,430
+related to unicode then we are going to
+
+14
+00:00:48,329 --> 00:00:57,149
+talk about category theory for you has
+
+15
+00:00:52,430 --> 00:00:58,710
+girlfriends but actually I'm going to
+
+16
+00:00:57,149 --> 00:01:01,649
+talk about something related to
+
+17
+00:00:58,710 --> 00:01:05,430
+mathematical logic the branch the math
+
+18
+00:01:01,649 --> 00:01:08,750
+logic branch which is about related to
+
+19
+00:01:05,430 --> 00:01:12,960
+proof theory model theory
+
+20
+00:01:08,750 --> 00:01:16,729
+category theory magic you know symbolic
+
+21
+00:01:12,960 --> 00:01:20,040
+magic predicate logic first-order logic
+
+22
+00:01:16,729 --> 00:01:24,810
+and you know for example let me show you
+
+23
+00:01:20,040 --> 00:01:27,540
+some Wikipedia articles so modal logic
+
+24
+00:01:24,810 --> 00:01:30,990
+so this is modal logic it's magnify
+
+25
+00:01:27,540 --> 00:01:33,380
+magnify so we have modal logic good
+
+26
+00:01:30,990 --> 00:01:36,630
+morning Isaak hoorah
+
+27
+00:01:33,380 --> 00:01:43,159
+so we have model logic we have links
+
+28
+00:01:36,630 --> 00:01:48,920
+from theorem we have yeah load load load
+
+29
+00:01:43,159 --> 00:01:51,960
+we have first-order logic we have
+
+30
+00:01:48,920 --> 00:01:53,790
+interpretation of logic which which is
+
+31
+00:01:51,960 --> 00:01:57,450
+which means a model when we say
+
+32
+00:01:53,790 --> 00:02:00,990
+something well you know I'll do some
+
+33
+00:01:57,450 --> 00:02:03,600
+explanation a little bit because I'm not
+
+34
+00:02:00,990 --> 00:02:05,969
+really qualified to teach this subject
+
+35
+00:02:03,600 --> 00:02:08,580
+and then we have standard model of
+
+36
+00:02:05,969 --> 00:02:11,129
+arithmetic now that's too advanced I
+
+37
+00:02:08,580 --> 00:02:13,330
+don't understand so I'm gonna talk about
+
+38
+00:02:11,129 --> 00:02:17,320
+these few things okay
+
+39
+00:02:13,330 --> 00:02:19,660
+and if you are new here the format is we
+
+40
+00:02:17,320 --> 00:02:24,330
+got three people watching all right yay
+
+41
+00:02:19,660 --> 00:02:27,480
+so the format is you ask I talk okay and
+
+42
+00:02:24,330 --> 00:02:31,270
+right now I'm going to drink this coffee
+
+43
+00:02:27,480 --> 00:02:33,700
+you know I'm so I'm gonna drink this
+
+44
+00:02:31,270 --> 00:02:37,750
+this is cheap coffee you know it looks
+
+45
+00:02:33,700 --> 00:02:41,860
+like Starbucks see this is $1.00 in
+
+46
+00:02:37,750 --> 00:02:44,740
+Dollar Tree store so we're gonna talk
+
+47
+00:02:41,860 --> 00:02:47,290
+about JavaScript and some math and some
+
+48
+00:02:44,740 --> 00:02:51,490
+stuff stuff and stuff that's what I'm
+
+49
+00:02:47,290 --> 00:02:54,580
+gonna talk about break the loop
+
+50
+00:02:51,490 --> 00:02:58,240
+good evening great to see you so break
+
+51
+00:02:54,580 --> 00:03:00,910
+loose break the loop sighs what do you
+
+52
+00:02:58,240 --> 00:03:03,610
+think of the price you got on Twitter
+
+53
+00:03:00,910 --> 00:03:06,910
+about Unicode in JavaScript yeah that's
+
+54
+00:03:03,610 --> 00:03:13,510
+the topic I'm going to talk about so
+
+55
+00:03:06,910 --> 00:03:18,880
+let's begin but as usual I am going to
+
+56
+00:03:13,510 --> 00:03:22,720
+digress I'm going to show you this for
+
+57
+00:03:18,880 --> 00:03:26,470
+two minutes okay now this is a castle
+
+58
+00:03:22,720 --> 00:03:28,989
+home you know this this is this is real
+
+59
+00:03:26,470 --> 00:03:32,019
+this is not toys you know you got this
+
+60
+00:03:28,989 --> 00:03:35,230
+like Disney style castles you got
+
+61
+00:03:32,019 --> 00:03:40,810
+hundreds of them where are they they are
+
+62
+00:03:35,230 --> 00:03:45,010
+at this modern modern new mutiny in
+
+63
+00:03:40,810 --> 00:03:47,680
+Turkey so apparently some real estate or
+
+64
+00:03:45,010 --> 00:03:50,560
+some you know some rich people they
+
+65
+00:03:47,680 --> 00:03:54,370
+build this bunch of castles castle homes
+
+66
+00:03:50,560 --> 00:03:57,820
+you know homes in a style of a castle
+
+67
+00:03:54,370 --> 00:04:00,040
+and they want people to buy but for some
+
+68
+00:03:57,820 --> 00:04:03,250
+reason the market is down or the economy
+
+69
+00:04:00,040 --> 00:04:05,320
+turned down and so they became a ghost
+
+70
+00:04:03,250 --> 00:04:08,260
+town so you have all these castles
+
+71
+00:04:05,320 --> 00:04:12,250
+hundreds of them and nobody's living
+
+72
+00:04:08,260 --> 00:04:14,680
+there so I mean if you search the web
+
+73
+00:04:12,250 --> 00:04:16,060
+you know Moodle root turkey castle you
+
+74
+00:04:14,680 --> 00:04:20,229
+know gotta read that you'll find more
+
+75
+00:04:16,060 --> 00:04:23,860
+information in fact today they are there
+
+76
+00:04:20,229 --> 00:04:25,960
+are so many there are so many photos you
+
+77
+00:04:23,860 --> 00:04:27,100
+know like all the website they want you
+
+78
+00:04:25,960 --> 00:04:28,930
+they want
+
+79
+00:04:27,100 --> 00:04:30,790
+want your money they want ad money you
+
+80
+00:04:28,930 --> 00:04:33,460
+know they want you to visit so they are
+
+81
+00:04:30,790 --> 00:04:36,370
+turns of website you know have having
+
+82
+00:04:33,460 --> 00:04:39,400
+beautiful photos of these architectural
+
+83
+00:04:36,370 --> 00:04:42,280
+stuff and by the way as you know this is
+
+84
+00:04:39,400 --> 00:04:44,740
+part of my architectural beauties
+
+85
+00:04:42,280 --> 00:04:48,870
+website which is part of the art
+
+86
+00:04:44,740 --> 00:04:51,880
+Startalk okay this is my local copy so I
+
+87
+00:04:48,870 --> 00:04:56,020
+started to collect these for example the
+
+88
+00:04:51,880 --> 00:05:01,350
+first one is written around 2006 so
+
+89
+00:04:56,020 --> 00:05:03,400
+that's like 15 years ago and you know
+
+90
+00:05:01,350 --> 00:05:05,860
+because they are beautiful by the way
+
+91
+00:05:03,400 --> 00:05:07,990
+you know back in 2006 you don't have
+
+92
+00:05:05,860 --> 00:05:12,850
+that much websites you know Wikipedia
+
+93
+00:05:07,990 --> 00:05:16,450
+just began like three years ago and you
+
+94
+00:05:12,850 --> 00:05:19,660
+know and it's in its infancy you know as
+
+95
+00:05:16,450 --> 00:05:22,270
+we say this is not much anything so I
+
+96
+00:05:19,660 --> 00:05:25,390
+began this to collect this architecture
+
+97
+00:05:22,270 --> 00:05:28,210
+of photos beautiful architectures you
+
+98
+00:05:25,390 --> 00:05:30,250
+know and look at this one it's
+
+99
+00:05:28,210 --> 00:05:33,400
+spectacular you know it looks like a
+
+100
+00:05:30,250 --> 00:05:37,230
+dream from science fiction you know but
+
+101
+00:05:33,400 --> 00:05:40,390
+this is this one is actually India
+
+102
+00:05:37,230 --> 00:05:41,740
+conscious River against River I don't
+
+103
+00:05:40,390 --> 00:05:44,320
+know how do you pronounce it but in
+
+104
+00:05:41,740 --> 00:05:47,920
+India you know it's so so it's beautiful
+
+105
+00:05:44,320 --> 00:05:51,520
+you know the world is huge you know you
+
+106
+00:05:47,920 --> 00:05:54,100
+know since today in our digital age we
+
+107
+00:05:51,520 --> 00:05:56,800
+begin to see so many things I mean yeah
+
+108
+00:05:54,100 --> 00:05:59,260
+wow that's a no topic so like like we
+
+109
+00:05:56,800 --> 00:06:01,840
+can see everywhere in the world like you
+
+110
+00:05:59,260 --> 00:06:05,230
+know you go to Google Earth you can see
+
+111
+00:06:01,840 --> 00:06:08,170
+almost just about every city streets
+
+112
+00:06:05,230 --> 00:06:12,070
+photos you know billions upon billions
+
+113
+00:06:08,170 --> 00:06:15,300
+of photos good evening so that's a
+
+114
+00:06:12,070 --> 00:06:19,140
+digression and let us get back to
+
+115
+00:06:15,300 --> 00:06:22,750
+JavaScript shall we is it good
+
+116
+00:06:19,140 --> 00:06:25,750
+anyone everyone good three people
+
+117
+00:06:22,750 --> 00:06:29,410
+watching okay three people three is
+
+118
+00:06:25,750 --> 00:06:31,330
+lucky number so let's close these Sal
+
+119
+00:06:29,410 --> 00:06:33,730
+talk show that's right let's open that
+
+120
+00:06:31,330 --> 00:06:36,370
+now let's so let's talk about the
+
+121
+00:06:33,730 --> 00:06:39,030
+JavaScript problem
+
+122
+00:06:36,370 --> 00:06:39,030
+sheis
+
+123
+00:06:43,240 --> 00:06:49,970
+so how is it going to break the loop so
+
+124
+00:06:46,460 --> 00:06:56,300
+you did study Java of our language I
+
+125
+00:06:49,970 --> 00:06:59,600
+don't like so you you you you did so
+
+126
+00:06:56,300 --> 00:07:02,060
+let's talk about JavaScript okay Isaac s
+
+127
+00:06:59,600 --> 00:07:05,060
+activist programming JavaScript I don't
+
+128
+00:07:02,060 --> 00:07:07,010
+think you do right okay let's talk about
+
+129
+00:07:05,060 --> 00:07:11,330
+JavaScript so what is the JavaScript
+
+130
+00:07:07,010 --> 00:07:14,900
+issue now look at this now just look I'm
+
+131
+00:07:11,330 --> 00:07:18,500
+going to demo okay let's go to Emacs so
+
+132
+00:07:14,900 --> 00:07:23,060
+let's open a new buffer and save this
+
+133
+00:07:18,500 --> 00:07:25,040
+file as X X dot J s so it's a temp file
+
+134
+00:07:23,060 --> 00:07:27,290
+and let me show you what's the issue
+
+135
+00:07:25,040 --> 00:07:32,900
+with JavaScript okay it's it's it's kind
+
+136
+00:07:27,290 --> 00:07:36,290
+of surprising issue okay since I'm using
+
+137
+00:07:32,900 --> 00:07:39,530
+Emacs let me start sauce start command
+
+138
+00:07:36,290 --> 00:07:45,440
+log mod okay so you can see all my
+
+139
+00:07:39,530 --> 00:07:49,370
+software keys commands in this window so
+
+140
+00:07:45,440 --> 00:07:52,270
+I'm going to so go to JavaScript so
+
+141
+00:07:49,370 --> 00:08:00,250
+javascript mod console log print and
+
+142
+00:07:52,270 --> 00:08:00,250
+make a string and let's see what smile
+
+143
+00:08:02,020 --> 00:08:07,760
+you know okay let's go to a brief I
+
+144
+00:08:05,930 --> 00:08:11,710
+forgot what's my op read further and
+
+145
+00:08:07,760 --> 00:08:11,710
+that character okay there it is
+
+146
+00:08:13,660 --> 00:08:23,780
+horror cat face no well let's for a
+
+147
+00:08:20,630 --> 00:08:29,570
+change let's use this one no no I want
+
+148
+00:08:23,780 --> 00:08:34,280
+to use the clown okay cow okay you see a
+
+149
+00:08:29,570 --> 00:08:37,250
+cow hold on second magnify you see which
+
+150
+00:08:34,280 --> 00:08:40,790
+so we got the clown character and let's
+
+151
+00:08:37,250 --> 00:08:42,650
+say what is the length okay wait I'm
+
+152
+00:08:40,790 --> 00:08:45,530
+sorry but the clown character is really
+
+153
+00:08:42,650 --> 00:08:50,490
+just too big I mean too complicated to
+
+154
+00:08:45,530 --> 00:08:53,880
+see well so let's switch back to the
+
+155
+00:08:50,490 --> 00:08:56,330
+crying with tears of joy so Isaac Isaac
+
+156
+00:08:53,880 --> 00:09:00,060
+sighs what do you think about freedom
+
+157
+00:08:56,330 --> 00:09:06,270
+proprietary software I think it's good
+
+158
+00:09:00,060 --> 00:09:09,200
+yeah you know yeah because mostly
+
+159
+00:09:06,270 --> 00:09:14,430
+because I think open source has become a
+
+160
+00:09:09,200 --> 00:09:17,640
+ideology and bad one so you know I mean
+
+161
+00:09:14,430 --> 00:09:19,410
+you I mean you've been here I mean you
+
+162
+00:09:17,640 --> 00:09:23,220
+guys know I talked about this quite a
+
+163
+00:09:19,410 --> 00:09:26,190
+lot so I mean today we got lots of other
+
+164
+00:09:23,220 --> 00:09:27,029
+topics so anyway so let me read some
+
+165
+00:09:26,190 --> 00:09:32,610
+comments
+
+166
+00:09:27,029 --> 00:09:34,080
+I see crying with crying crying with the
+
+167
+00:09:32,610 --> 00:09:38,610
+tears of joy it's the best
+
+168
+00:09:34,080 --> 00:09:40,830
+hey King herring I haven't seen you
+
+169
+00:09:38,610 --> 00:09:42,450
+before good morning good evening oh are
+
+170
+00:09:40,830 --> 00:09:45,600
+you are you from Germany your name
+
+171
+00:09:42,450 --> 00:09:48,000
+reminds me of from German because I
+
+172
+00:09:45,600 --> 00:09:51,029
+think German names got this her
+
+173
+00:09:48,000 --> 00:09:52,890
+something so anyway let me show you let
+
+174
+00:09:51,029 --> 00:09:56,279
+me let us go back to JavaScript so you
+
+175
+00:09:52,890 --> 00:09:57,390
+have this character you know you know
+
+176
+00:09:56,279 --> 00:10:00,149
+okay
+
+177
+00:09:57,390 --> 00:10:02,880
+tears of joy okay and you sure you want
+
+178
+00:10:00,149 --> 00:10:08,070
+to see how many characters are there so
+
+179
+00:10:02,880 --> 00:10:13,980
+let's run the program doin it now you
+
+180
+00:10:08,070 --> 00:10:16,649
+see the result is - how idiotic so let's
+
+181
+00:10:13,980 --> 00:10:20,040
+see you know equals to two it returns
+
+182
+00:10:16,649 --> 00:10:23,100
+true you can see that true so this is
+
+183
+00:10:20,040 --> 00:10:26,790
+what I mean by JavaScript problem okay
+
+184
+00:10:23,100 --> 00:10:29,100
+this is like very you know very stupid
+
+185
+00:10:26,790 --> 00:10:32,070
+you know like as a programmer every day
+
+186
+00:10:29,100 --> 00:10:34,620
+we you know we we work as a programmer
+
+187
+00:10:32,070 --> 00:10:37,709
+right and you encounter all these hacks
+
+188
+00:10:34,620 --> 00:10:40,800
+and problems and so on and you know
+
+189
+00:10:37,709 --> 00:10:43,320
+every day you you spend time to debug
+
+190
+00:10:40,800 --> 00:10:45,690
+and then you have a bunch of crazy
+
+191
+00:10:43,320 --> 00:10:49,260
+things patterns and [ __ ] like that
+
+192
+00:10:45,690 --> 00:10:51,570
+agile you know hoodoos of programming in
+
+193
+00:10:49,260 --> 00:10:54,029
+UNIX philosophy ok I hate the [ __ ]
+
+194
+00:10:51,570 --> 00:10:57,180
+UNIX philosophy you know those are
+
+195
+00:10:54,029 --> 00:10:58,949
+Buddhist this is this is you see this is
+
+196
+00:10:57,180 --> 00:11:03,910
+one example you see if you got this
+
+197
+00:10:58,949 --> 00:11:06,670
+voodoo but why does it happen
+
+198
+00:11:03,910 --> 00:11:09,070
+okay well it's complicated but we're
+
+199
+00:11:06,670 --> 00:11:11,170
+gonna explain so this is a problem okay
+
+200
+00:11:09,070 --> 00:11:15,510
+let me show you some other examples then
+
+201
+00:11:11,170 --> 00:11:18,790
+we so here are some other examples okay
+
+202
+00:11:15,510 --> 00:11:21,250
+so let's go hold on a second let me
+
+203
+00:11:18,790 --> 00:11:23,650
+shrink this this is too big we don't
+
+204
+00:11:21,250 --> 00:11:31,020
+want it to be okay that's good so let's
+
+205
+00:11:23,650 --> 00:11:36,820
+do that paste paste so we have that
+
+206
+00:11:31,020 --> 00:11:40,540
+let's put it here and let's put it here
+
+207
+00:11:36,820 --> 00:11:43,240
+okay now let's run this all this returns
+
+208
+00:11:40,540 --> 00:11:47,140
+true so basically now I have a string
+
+209
+00:11:43,240 --> 00:11:50,260
+and I want to use the method pad start
+
+210
+00:11:47,140 --> 00:11:52,930
+meaning like I want to pad X in front of
+
+211
+00:11:50,260 --> 00:11:57,090
+it and I want the total length of the
+
+212
+00:11:52,930 --> 00:12:00,820
+string to be two so I'm expecting X
+
+213
+00:11:57,090 --> 00:12:04,240
+smiley but instead it returns just
+
+214
+00:12:00,820 --> 00:12:06,550
+smiley why because the this smiley
+
+215
+00:12:04,240 --> 00:12:10,120
+character is already has a length of two
+
+216
+00:12:06,550 --> 00:12:12,370
+now here's another example we take a
+
+217
+00:12:10,120 --> 00:12:15,970
+slice you know basically we want a
+
+218
+00:12:12,370 --> 00:12:19,840
+substring of this string and so
+
+219
+00:12:15,970 --> 00:12:23,170
+substring from 0 to 1 which should give
+
+220
+00:12:19,840 --> 00:12:26,920
+us you know that character however it's
+
+221
+00:12:23,170 --> 00:12:29,260
+not equals to that character because you
+
+222
+00:12:26,920 --> 00:12:33,490
+know because for example it's let's do
+
+223
+00:12:29,260 --> 00:12:37,870
+this let's see what it returns you see
+
+224
+00:12:33,490 --> 00:12:40,930
+you got this you got this this none
+
+225
+00:12:37,870 --> 00:12:44,770
+character this you know half-assed
+
+226
+00:12:40,930 --> 00:12:48,880
+patched character so this is what I mean
+
+227
+00:12:44,770 --> 00:12:52,690
+by JavaScript string problem so in fact
+
+228
+00:12:48,880 --> 00:12:56,560
+all stream methods in JavaScript have
+
+229
+00:12:52,690 --> 00:12:59,140
+this problem you know this is really a
+
+230
+00:12:56,560 --> 00:13:00,970
+serious problem I mean it's incredible
+
+231
+00:12:59,140 --> 00:13:03,760
+that it's like you know if you are a
+
+232
+00:13:00,970 --> 00:13:07,060
+programmer you know you think why have
+
+233
+00:13:03,760 --> 00:13:12,250
+we searched have this extreme complexity
+
+234
+00:13:07,060 --> 00:13:15,820
+is it idiot idiotic totally stupid it's
+
+235
+00:13:12,250 --> 00:13:17,770
+it this kind of situation permeates
+
+236
+00:13:15,820 --> 00:13:20,110
+throughout the country
+
+237
+00:13:17,770 --> 00:13:23,410
+programming industry technology you know
+
+238
+00:13:20,110 --> 00:13:25,780
+UNIX the unities was the [ __ ] ok UNIX
+
+239
+00:13:23,410 --> 00:13:27,900
+and Linux permeates throughout the
+
+240
+00:13:25,780 --> 00:13:31,360
+industry what do almost every technology
+
+241
+00:13:27,900 --> 00:13:31,870
+you know UNIX web tab especially web web
+
+242
+00:13:31,360 --> 00:13:35,710
+tab
+
+243
+00:13:31,870 --> 00:13:37,930
+you know JavaScript dome technologies
+
+244
+00:13:35,710 --> 00:13:40,510
+you know there it's like all these kind
+
+245
+00:13:37,930 --> 00:13:44,530
+of stupidities and we have to endure it
+
+246
+00:13:40,510 --> 00:13:46,620
+that's that's our job you know that that
+
+247
+00:13:44,530 --> 00:13:50,290
+is our job
+
+248
+00:13:46,620 --> 00:13:53,290
+so ok let me let me just talk about this
+
+249
+00:13:50,290 --> 00:13:57,790
+let me not digress too much finish this
+
+250
+00:13:53,290 --> 00:13:59,680
+one discussion ok let me read a comment
+
+251
+00:13:57,790 --> 00:14:03,010
+a little bit do you know about Terry
+
+252
+00:13:59,680 --> 00:14:06,160
+Davis yes someone asked what about that
+
+253
+00:14:03,010 --> 00:14:09,190
+and actually I talked about that two
+
+254
+00:14:06,160 --> 00:14:13,540
+weeks ago something like that so he's
+
+255
+00:14:09,190 --> 00:14:16,510
+kind of he's got he's got schizophrenia
+
+256
+00:14:13,540 --> 00:14:18,820
+meaning that he see illusions you know
+
+257
+00:14:16,510 --> 00:14:22,000
+he see things that's not there he hear
+
+258
+00:14:18,820 --> 00:14:26,920
+things so he's got anyway I talked about
+
+259
+00:14:22,000 --> 00:14:32,080
+that the other day I'm a Zek American oh
+
+260
+00:14:26,920 --> 00:14:34,960
+okay cool so break the loop says he said
+
+261
+00:14:32,080 --> 00:14:38,460
+we a burg of Unicode in JavaScript no
+
+262
+00:14:34,960 --> 00:14:38,460
+it's not a bug okay let me explain
+
+263
+00:14:38,500 --> 00:14:47,500
+oh you interviewed David Terry Davis Oh
+
+264
+00:14:43,900 --> 00:14:49,330
+to tell us the story but okay let me let
+
+265
+00:14:47,500 --> 00:14:54,010
+me put focus let me focus on finishing
+
+266
+00:14:49,330 --> 00:14:55,540
+talking about the JavaScript then you
+
+267
+00:14:54,010 --> 00:14:57,610
+know if you have a comment about
+
+268
+00:14:55,540 --> 00:15:01,600
+JavaScript then I'll talk about that
+
+269
+00:14:57,610 --> 00:15:03,600
+other comments I'll look at you know
+
+270
+00:15:01,600 --> 00:15:05,980
+after I finish talking about JavaScript
+
+271
+00:15:03,600 --> 00:15:09,220
+so anyway so JavaScript you got these
+
+272
+00:15:05,980 --> 00:15:12,790
+problems so why does it have this
+
+273
+00:15:09,220 --> 00:15:15,910
+problem it's it's not really a bug but
+
+274
+00:15:12,790 --> 00:15:18,120
+actually it's fairly complicated it has
+
+275
+00:15:15,910 --> 00:15:20,830
+to do with the history of unicode the
+
+276
+00:15:18,120 --> 00:15:23,770
+history of adoption of unicode in
+
+277
+00:15:20,830 --> 00:15:27,490
+programming languages and technical
+
+278
+00:15:23,770 --> 00:15:30,240
+details of unicode encoding okay so let
+
+279
+00:15:27,490 --> 00:15:33,749
+me explain a little bit
+
+280
+00:15:30,240 --> 00:15:35,579
+so first of all let me the problem you
+
+281
+00:15:33,749 --> 00:15:37,199
+can understand you can see the problem
+
+282
+00:15:35,579 --> 00:15:39,389
+this problem you know when you have a
+
+283
+00:15:37,199 --> 00:15:41,550
+string of single character but it
+
+284
+00:15:39,389 --> 00:15:44,610
+actually has a link through lengths of
+
+285
+00:15:41,550 --> 00:15:49,490
+two that is a problem and this happens
+
+286
+00:15:44,610 --> 00:15:49,490
+for all stream functions in JavaScript
+
+287
+00:15:49,670 --> 00:15:54,779
+yes
+
+288
+00:15:51,149 --> 00:15:57,929
+so it means whenever you want and and
+
+289
+00:15:54,779 --> 00:16:01,879
+this this is a problem only when your
+
+290
+00:15:57,929 --> 00:16:06,990
+string contains a character that that
+
+291
+00:16:01,879 --> 00:16:08,819
+that is emoji or or whose code o or your
+
+292
+00:16:06,990 --> 00:16:12,149
+string contains a character whose
+
+293
+00:16:08,819 --> 00:16:15,959
+Unicode code point is beyond 2 to the
+
+294
+00:16:12,149 --> 00:16:19,319
+16th power I'm going to explain them but
+
+295
+00:16:15,959 --> 00:16:21,540
+anyway so the the simply put you have
+
+296
+00:16:19,319 --> 00:16:24,809
+problems with all string functions in
+
+297
+00:16:21,540 --> 00:16:27,600
+JavaScript only unexpected results
+
+298
+00:16:24,809 --> 00:16:30,029
+wherever you have an emoji okay that is
+
+299
+00:16:27,600 --> 00:16:33,779
+a problem now let me explain why this
+
+300
+00:16:30,029 --> 00:16:36,360
+happens okay let me let me just answer
+
+301
+00:16:33,779 --> 00:16:40,619
+that quickly the reason it happens is
+
+302
+00:16:36,360 --> 00:16:44,129
+because JavaScript string you know when
+
+303
+00:16:40,619 --> 00:16:46,350
+we see a string for example ABCD you
+
+304
+00:16:44,129 --> 00:16:48,740
+know we think you know it's just a
+
+305
+00:16:46,350 --> 00:16:54,749
+sequence of characters right but
+
+306
+00:16:48,740 --> 00:16:58,170
+technically you know it was technically
+
+307
+00:16:54,749 --> 00:17:00,449
+the definite actual definition what it
+
+308
+00:16:58,170 --> 00:17:02,369
+means is a bit complex because what do
+
+309
+00:17:00,449 --> 00:17:04,169
+you mean by character you know what do
+
+310
+00:17:02,369 --> 00:17:07,799
+you mean what is the character if you
+
+311
+00:17:04,169 --> 00:17:09,539
+use a pen to write ABC obviously you
+
+312
+00:17:07,799 --> 00:17:13,169
+know you know what is a character but
+
+313
+00:17:09,539 --> 00:17:19,350
+once you use a computer it's hard to say
+
+314
+00:17:13,169 --> 00:17:25,350
+what exactly is a character so so so so
+
+315
+00:17:19,350 --> 00:17:28,860
+they meet so so anyway the the the
+
+316
+00:17:25,350 --> 00:17:31,919
+reason this job this problem happens in
+
+317
+00:17:28,860 --> 00:17:33,990
+JavaScript is Java is because JavaScript
+
+318
+00:17:31,919 --> 00:17:41,460
+string is actually technically defined
+
+319
+00:17:33,990 --> 00:17:44,040
+as a sequence of 16-bit code units okay
+
+320
+00:17:41,460 --> 00:17:47,280
+so it's called code unit
+
+321
+00:17:44,040 --> 00:17:50,370
+so each character you see here is
+
+322
+00:17:47,280 --> 00:17:53,340
+considered it's called a cold unit it is
+
+323
+00:17:50,370 --> 00:17:56,220
+actually so what it actually is is
+
+324
+00:17:53,340 --> 00:18:01,110
+actually just sixteen bits you know
+
+325
+00:17:56,220 --> 00:18:04,530
+binary number six sixteen of them so so
+
+326
+00:18:01,110 --> 00:18:07,320
+so what so why is this smiley has length
+
+327
+00:18:04,530 --> 00:18:10,740
+of two that is because this character
+
+328
+00:18:07,320 --> 00:18:18,990
+unicode character when it is encoded it
+
+329
+00:18:10,740 --> 00:18:22,980
+actually has 32 bits so so you know 216
+
+330
+00:18:18,990 --> 00:18:26,520
+code units so so that is actually
+
+331
+00:18:22,980 --> 00:18:30,600
+considered considered to unique units
+
+332
+00:18:26,520 --> 00:18:34,980
+you know so that is why you know this
+
+333
+00:18:30,600 --> 00:18:37,260
+smiley length is two and and in for the
+
+334
+00:18:34,980 --> 00:18:43,620
+same reason all the stream method does
+
+335
+00:18:37,260 --> 00:18:46,050
+not work as you expected okay so so that
+
+336
+00:18:43,620 --> 00:18:49,130
+is a reason now let me explain about
+
+337
+00:18:46,050 --> 00:18:49,130
+unicode so
+
+338
+00:19:07,920 --> 00:19:18,930
+okay so so so you're a code code unit so
+
+339
+00:19:14,700 --> 00:19:20,550
+okay let me go in detail them about this
+
+340
+00:19:18,930 --> 00:19:23,730
+JavaScript problem okay
+
+341
+00:19:20,550 --> 00:19:26,520
+so to understand it in detail you have
+
+342
+00:19:23,730 --> 00:19:29,610
+to understand JavaScript string is a
+
+343
+00:19:26,520 --> 00:19:35,250
+sequence of 16-bit values that is a
+
+344
+00:19:29,610 --> 00:19:40,110
+technical definition of a element in a
+
+345
+00:19:35,250 --> 00:19:42,260
+JavaScript stream okay so each element
+
+346
+00:19:40,110 --> 00:19:48,150
+is actually 16 bits
+
+347
+00:19:42,260 --> 00:19:50,070
+values and so when you use the index for
+
+348
+00:19:48,150 --> 00:19:54,110
+example when you use an index of a
+
+349
+00:19:50,070 --> 00:19:57,150
+string for example when you do slice
+
+350
+00:19:54,110 --> 00:20:00,360
+index of a string the index actually
+
+351
+00:19:57,150 --> 00:20:05,790
+means you know each of the 16 bit values
+
+352
+00:20:00,360 --> 00:20:08,190
+it does not mean a character so what so
+
+353
+00:20:05,790 --> 00:20:11,190
+what that so you know on this page I
+
+354
+00:20:08,190 --> 00:20:14,520
+give the detailed explanation but so
+
+355
+00:20:11,190 --> 00:20:17,180
+basically let me just kind of go over it
+
+356
+00:20:14,520 --> 00:20:21,060
+so Java string string and character
+
+357
+00:20:17,180 --> 00:20:23,820
+based on Unicode standards version 5.1
+
+358
+00:20:21,060 --> 00:20:29,370
+or later okay today the current version
+
+359
+00:20:23,820 --> 00:20:33,750
+is a Unicode 12 I think 11
+
+360
+00:20:29,370 --> 00:20:35,970
+yeah Unicode 12 I think now each Unicode
+
+361
+00:20:33,750 --> 00:20:38,040
+now each Unicode character from the
+
+362
+00:20:35,970 --> 00:20:41,370
+Unicode standard you know each unicode
+
+363
+00:20:38,040 --> 00:20:43,800
+character has an ID integer ID code code
+
+364
+00:20:41,370 --> 00:20:46,530
+point okay so this is an important
+
+365
+00:20:43,800 --> 00:20:50,070
+concept so each character has a ID
+
+366
+00:20:46,530 --> 00:20:53,690
+that's called code point now Unicode
+
+367
+00:20:50,070 --> 00:20:55,040
+specifies specify several encoding
+
+368
+00:20:53,690 --> 00:20:59,330
+standards
+
+369
+00:20:55,040 --> 00:21:02,730
+the two most popular ones are utf-8 and
+
+370
+00:20:59,330 --> 00:21:05,070
+utf-16 so what does the encoding mean
+
+371
+00:21:02,730 --> 00:21:08,640
+encoding means you want to turn a
+
+372
+00:21:05,070 --> 00:21:11,370
+character into a sequence of binary bits
+
+373
+00:21:08,640 --> 00:21:13,710
+that's what encoding means of course
+
+374
+00:21:11,370 --> 00:21:15,390
+there are many ways to do that for
+
+375
+00:21:13,710 --> 00:21:19,860
+example you can say you know the
+
+376
+00:21:15,390 --> 00:21:21,630
+character a you can say you know it it
+
+377
+00:21:19,860 --> 00:21:24,740
+should be encoded as one
+
+378
+00:21:21,630 --> 00:21:28,620
+one zero zero one one for example you
+
+379
+00:21:24,740 --> 00:21:31,230
+know it's kind of arbitrary but so but
+
+380
+00:21:28,620 --> 00:21:34,460
+there are some sent standardized way you
+
+381
+00:21:31,230 --> 00:21:37,830
+know encoding to turn a character into a
+
+382
+00:21:34,460 --> 00:21:40,110
+sequence of one and zeros that's what
+
+383
+00:21:37,830 --> 00:21:42,300
+encoding means so they are the most two
+
+384
+00:21:40,110 --> 00:21:48,080
+and two most popular ones defined by
+
+385
+00:21:42,300 --> 00:21:52,560
+Unicode is utf-8 and utf-16 okay now
+
+386
+00:21:48,080 --> 00:21:56,030
+let's talk about utf-16 because that is
+
+387
+00:21:52,560 --> 00:21:59,250
+what javascript uses to encode
+
+388
+00:21:56,030 --> 00:22:02,850
+characters into bits in JavaScript
+
+389
+00:21:59,250 --> 00:22:06,630
+string okay now what now so when you
+
+390
+00:22:02,850 --> 00:22:11,100
+have a string in JavaScript it takes
+
+391
+00:22:06,630 --> 00:22:14,220
+each character and converted to 16 you
+
+392
+00:22:11,100 --> 00:22:23,790
+know sequence of bits by utf-16 encoding
+
+393
+00:22:14,220 --> 00:22:28,020
+now the utf-16 encoding the result of
+
+394
+00:22:23,790 --> 00:22:40,170
+one character in utf-16 encoding is
+
+395
+00:22:28,020 --> 00:22:47,000
+either 16 bits or or 32 32 bits okay one
+
+396
+00:22:40,170 --> 00:22:50,070
+of these two when when is a character
+
+397
+00:22:47,000 --> 00:22:54,150
+encoded into 16 bits and when is it
+
+398
+00:22:50,070 --> 00:22:58,260
+gonna be 32 bits this is how okay when
+
+399
+00:22:54,150 --> 00:23:04,500
+your character whose code point is is
+
+400
+00:22:58,260 --> 00:23:07,320
+less than 2 raised to 16 okay when your
+
+401
+00:23:04,500 --> 00:23:11,670
+characters code point code point is less
+
+402
+00:23:07,320 --> 00:23:16,920
+than 2 raised to 16 then it's encoding
+
+403
+00:23:11,670 --> 00:23:19,230
+in utf-16 is 16 bits okay when a
+
+404
+00:23:16,920 --> 00:23:22,740
+character whose code point you know the
+
+405
+00:23:19,230 --> 00:23:26,570
+integer ID is greater or equal to 2
+
+406
+00:23:22,740 --> 00:23:32,400
+raised to the 16th power then that
+
+407
+00:23:26,570 --> 00:23:33,540
+characters encoding in utf-16 will be 32
+
+408
+00:23:32,400 --> 00:23:37,250
+bits
+
+409
+00:23:33,540 --> 00:23:40,590
+okay selling up in other words you know
+
+410
+00:23:37,250 --> 00:23:47,730
+Wow yeah so so that so that is what
+
+411
+00:23:40,590 --> 00:23:51,630
+happens so you so so now let's talk
+
+412
+00:23:47,730 --> 00:23:53,340
+about JavaScript strings code unit so
+
+413
+00:23:51,630 --> 00:23:55,590
+what does a code unit mean
+
+414
+00:23:53,340 --> 00:23:58,620
+so first of all you take you know you
+
+415
+00:23:55,590 --> 00:24:02,760
+you you are given a stream you take each
+
+416
+00:23:58,620 --> 00:24:04,770
+character you convert it to UTF you know
+
+417
+00:24:02,760 --> 00:24:07,710
+you take all the characters converted to
+
+418
+00:24:04,770 --> 00:24:11,220
+utf-16 encoding now some characters will
+
+419
+00:24:07,710 --> 00:24:13,770
+have 16 bits some will have 32 bits if
+
+420
+00:24:11,220 --> 00:24:18,510
+that character is you know the code
+
+421
+00:24:13,770 --> 00:24:21,630
+point is beyond 16 bits you know so so
+
+422
+00:24:18,510 --> 00:24:24,810
+so you end up with a secret sequence of
+
+423
+00:24:21,630 --> 00:24:29,430
+bits you know you know once and zeros
+
+424
+00:24:24,810 --> 00:24:35,070
+then for every 16 bit you consider them
+
+425
+00:24:29,430 --> 00:24:38,570
+as one unit called code unit okay so the
+
+426
+00:24:35,070 --> 00:24:43,770
+first index of string will be the first
+
+427
+00:24:38,570 --> 00:24:49,950
+16 bits the second you know index index
+
+428
+00:24:43,770 --> 00:24:53,100
+2 will mean the the second 16 bits you
+
+429
+00:24:49,950 --> 00:24:55,620
+know and so on so that means for some
+
+430
+00:24:53,100 --> 00:24:59,160
+characters such as this smiley which
+
+431
+00:24:55,620 --> 00:25:02,400
+actually has a takes two code units to
+
+432
+00:24:59,160 --> 00:25:04,890
+encode so that means you know this
+
+433
+00:25:02,400 --> 00:25:09,480
+character will not correspond to the
+
+434
+00:25:04,890 --> 00:25:11,100
+index javascript stream so that that is
+
+435
+00:25:09,480 --> 00:25:14,280
+why when you say you know the this
+
+436
+00:25:11,100 --> 00:25:17,880
+smiley you know length will be equal to
+
+437
+00:25:14,280 --> 00:25:21,930
+2 because this character actually has
+
+438
+00:25:17,880 --> 00:25:26,160
+the encoding is is 32 bits so it has two
+
+439
+00:25:21,930 --> 00:25:28,650
+code units so that is why okay that is
+
+440
+00:25:26,160 --> 00:25:35,010
+why now on this page I explain in detail
+
+441
+00:25:28,650 --> 00:25:37,520
+you can read okay let me read a comment
+
+442
+00:25:35,010 --> 00:25:37,520
+a little bit
+
+443
+00:25:39,840 --> 00:25:49,300
+well okay yeah let me be the common in
+
+444
+00:25:43,240 --> 00:25:52,030
+answer the questions so generously
+
+445
+00:25:49,300 --> 00:25:58,500
+called Unicode encoding is the worst of
+
+446
+00:25:52,030 --> 00:25:58,500
+both words English in okay what wish
+
+447
+00:26:08,340 --> 00:26:15,460
+okay let me answer the question about
+
+448
+00:26:10,840 --> 00:26:17,590
+surrogate code points Wow big they don't
+
+449
+00:26:15,460 --> 00:26:21,520
+say surrogate code point they say the
+
+450
+00:26:17,590 --> 00:26:24,670
+surrogate pay us okay no no man asked
+
+451
+00:26:21,520 --> 00:26:29,050
+about surrogate pay us now in Unicode
+
+452
+00:26:24,670 --> 00:26:29,950
+there's a concept of surrogate pairs so
+
+453
+00:26:29,050 --> 00:26:33,340
+what does that mean
+
+454
+00:26:29,950 --> 00:26:37,930
+so remember we talked about in utf-16
+
+455
+00:26:33,340 --> 00:26:43,330
+encoding some characters is will have 32
+
+456
+00:26:37,930 --> 00:26:53,770
+bits you know become 32 you know once
+
+457
+00:26:43,330 --> 00:26:56,560
+and zeros so so these 32 ones and zeroes
+
+458
+00:26:53,770 --> 00:27:02,860
+so we have two code units you know 16
+
+459
+00:26:56,560 --> 00:27:08,590
+bits each now these particular 16 bits
+
+460
+00:27:02,860 --> 00:27:11,770
+is called a surrogate pair you know it's
+
+461
+00:27:08,590 --> 00:27:14,590
+one pair because these two 16 bits these
+
+462
+00:27:11,770 --> 00:27:21,430
+two code units makes up actually one
+
+463
+00:27:14,590 --> 00:27:23,110
+character so so why is it why is it
+
+464
+00:27:21,430 --> 00:27:25,360
+called surrogate pair I mean first of
+
+465
+00:27:23,110 --> 00:27:27,400
+all it's a pair because it takes two
+
+466
+00:27:25,360 --> 00:27:30,970
+code units to make up one character to
+
+467
+00:27:27,400 --> 00:27:33,610
+encode one character and surrogate just
+
+468
+00:27:30,970 --> 00:27:36,960
+means it kind of means they are together
+
+469
+00:27:33,610 --> 00:27:41,980
+but but why does this happen okay
+
+470
+00:27:36,960 --> 00:27:48,300
+why does some characters needs to 16
+
+471
+00:27:41,980 --> 00:27:48,300
+bits well because you because remember
+
+472
+00:27:49,410 --> 00:27:59,070
+the characters that become 32 32 bits
+
+473
+00:27:53,590 --> 00:28:02,170
+require 32 bits in a utf-16 encoding
+
+474
+00:27:59,070 --> 00:28:05,470
+those characters whose code point the
+
+475
+00:28:02,170 --> 00:28:10,390
+point is beyond 16 bits you know to 2
+
+476
+00:28:05,470 --> 00:28:13,840
+raised to 16 so obviously you know you
+
+477
+00:28:10,390 --> 00:28:16,750
+are you know if you only have 16 bits
+
+478
+00:28:13,840 --> 00:28:19,150
+that's enough that's not enough to
+
+479
+00:28:16,750 --> 00:28:20,230
+encode you know more than 16 bits of
+
+480
+00:28:19,150 --> 00:28:23,289
+characters
+
+481
+00:28:20,230 --> 00:28:26,559
+so therefore they they created this
+
+482
+00:28:23,289 --> 00:28:30,130
+method you know to encode characters you
+
+483
+00:28:26,559 --> 00:28:35,110
+know to encode more characters that is
+
+484
+00:28:30,130 --> 00:28:38,049
+why some character will be 32 bits you
+
+485
+00:28:35,110 --> 00:28:41,559
+know and those characters are the
+
+486
+00:28:38,049 --> 00:28:46,179
+characters whose code point is larger or
+
+487
+00:28:41,559 --> 00:28:48,070
+equal to 2 raised to 16 so that that is
+
+488
+00:28:46,179 --> 00:28:51,570
+what surrogate pair is you know
+
+489
+00:28:48,070 --> 00:28:57,970
+surrogate pair basically refers to this
+
+490
+00:28:51,570 --> 00:29:03,909
+any of these 32 bits 32 bits you know
+
+491
+00:28:57,970 --> 00:29:06,340
+basically basically two code unit big
+
+492
+00:29:03,909 --> 00:29:09,279
+sequence that corresponds through those
+
+493
+00:29:06,340 --> 00:29:15,070
+characters that whose code point is
+
+494
+00:29:09,279 --> 00:29:18,309
+beyond beyond 16 bits and also let me
+
+495
+00:29:15,070 --> 00:29:24,549
+emphasize this this so the surrogate
+
+496
+00:29:18,309 --> 00:29:26,980
+payer notion only happens in utf-16 in
+
+497
+00:29:24,549 --> 00:29:30,899
+encoding it does not happen elsewhere
+
+498
+00:29:26,980 --> 00:29:35,889
+okay now remember encoding is a process
+
+499
+00:29:30,899 --> 00:29:41,260
+to turn a character into binary sequence
+
+500
+00:29:35,889 --> 00:29:45,130
+and Unicode defines three of them you
+
+501
+00:29:41,260 --> 00:29:49,600
+have utf-8 you have utf-16 you have
+
+502
+00:29:45,130 --> 00:29:52,659
+utf-32 now utf-32 is the simplest of
+
+503
+00:29:49,600 --> 00:29:56,500
+them all every character it will become
+
+504
+00:29:52,659 --> 00:29:59,769
+32 bits you know and that's it so every
+
+505
+00:29:56,500 --> 00:30:03,610
+character we have the same number of
+
+506
+00:29:59,769 --> 00:30:06,519
+bits when it is encoded it's the most
+
+507
+00:30:03,610 --> 00:30:09,159
+simple one but however the problem I
+
+508
+00:30:06,519 --> 00:30:11,529
+mean that disadvantage is that it takes
+
+509
+00:30:09,159 --> 00:30:15,039
+you know lots of space it takes more
+
+510
+00:30:11,529 --> 00:30:19,149
+disk space it takes more memory to you
+
+511
+00:30:15,039 --> 00:30:22,779
+know process it so I mean each of this
+
+512
+00:30:19,149 --> 00:30:26,230
+encoding utf-8 utf-16 utf-32 has
+
+513
+00:30:22,779 --> 00:30:29,559
+advantages and disadvantages so it so
+
+514
+00:30:26,230 --> 00:30:33,430
+happens that utf-16 is used for
+
+515
+00:30:29,559 --> 00:30:37,150
+JavaScript and as well for Java and
+
+516
+00:30:33,430 --> 00:30:44,170
+c-sharp and microsoft windows file
+
+517
+00:30:37,150 --> 00:30:51,850
+system and also in max HFS+ file system
+
+518
+00:30:44,170 --> 00:30:54,400
+I think so anyway so so so that's about
+
+519
+00:30:51,850 --> 00:30:57,910
+encoding that's about you know utf-16
+
+520
+00:30:54,400 --> 00:31:00,340
+encoding that's about surrogate pair now
+
+521
+00:30:57,910 --> 00:31:04,210
+surrogate pair the notion only happens
+
+522
+00:31:00,340 --> 00:31:05,860
+in utf-16 that's a good thing to
+
+523
+00:31:04,210 --> 00:31:10,710
+remember okay that's good thing to know
+
+524
+00:31:05,860 --> 00:31:14,140
+it just refers to the the code sequence
+
+525
+00:31:10,710 --> 00:31:21,850
+that's from a character whose code point
+
+526
+00:31:14,140 --> 00:31:26,170
+is beyond 16 bits so so so that's what
+
+527
+00:31:21,850 --> 00:31:32,290
+surrogate pairs means so um okay so what
+
+528
+00:31:26,170 --> 00:31:35,440
+we're gonna talk about so let me talk
+
+529
+00:31:32,290 --> 00:31:42,280
+about so why unicode 16 I mean why
+
+530
+00:31:35,440 --> 00:31:44,410
+utf-16 you see this so so yeah first of
+
+531
+00:31:42,280 --> 00:31:46,810
+all let's talk about utf-16 a little bit
+
+532
+00:31:44,410 --> 00:31:50,590
+so which encoding to choose you know
+
+533
+00:31:46,810 --> 00:31:52,540
+today it's it's basically utf-8 is the
+
+534
+00:31:50,590 --> 00:31:57,010
+most popular it's the most widely used
+
+535
+00:31:52,540 --> 00:32:00,520
+and you know it's used by like 94% of
+
+536
+00:31:57,010 --> 00:32:05,920
+the web worldwide and basically all web
+
+537
+00:32:00,520 --> 00:32:07,990
+technologies they you know the the
+
+538
+00:32:05,920 --> 00:32:09,460
+community today the industry you know
+
+539
+00:32:07,990 --> 00:32:13,890
+the web programming community the
+
+540
+00:32:09,460 --> 00:32:18,850
+standard so you know HTTP they they they
+
+541
+00:32:13,890 --> 00:32:21,790
+converged into using utf-8 as the you
+
+542
+00:32:18,850 --> 00:32:24,970
+know recommend they all recommend utf-8
+
+543
+00:32:21,790 --> 00:32:28,000
+so you TAS speaking becoming the most
+
+544
+00:32:24,970 --> 00:32:31,690
+popular but as we know technology does
+
+545
+00:32:28,000 --> 00:32:35,260
+not happen I mean it's not you know back
+
+546
+00:32:31,690 --> 00:32:39,370
+then in 1995 when JavaScript was created
+
+547
+00:32:35,260 --> 00:32:41,560
+utf-8 was not there yet I mean it it may
+
+548
+00:32:39,370 --> 00:32:43,930
+have already been invented but it's not
+
+549
+00:32:41,560 --> 00:32:46,750
+ready you know it's like when you have a
+
+550
+00:32:43,930 --> 00:32:49,870
+new technology for example I created it
+
+551
+00:32:46,750 --> 00:32:52,600
+new language okay people are not sure
+
+552
+00:32:49,870 --> 00:32:56,200
+you know they they will back you up
+
+553
+00:32:52,600 --> 00:32:59,110
+unless everyone you know all the big
+
+554
+00:32:56,200 --> 00:33:01,870
+companies realizes ok this is not really
+
+555
+00:32:59,110 --> 00:33:04,240
+reliable you know we we want to use it
+
+556
+00:33:01,870 --> 00:33:06,820
+you know otherwise when something is new
+
+557
+00:33:04,240 --> 00:33:08,860
+people are not sure you know we don't
+
+558
+00:33:06,820 --> 00:33:10,809
+know maybe that that take we all die
+
+559
+00:33:08,860 --> 00:33:13,659
+you know Unicode is actually one of the
+
+560
+00:33:10,809 --> 00:33:16,360
+case you know back in 1990 for example
+
+561
+00:33:13,659 --> 00:33:19,030
+we don't know you know nobody knows this
+
+562
+00:33:16,360 --> 00:33:21,909
+if Unicode is going to survive you know
+
+563
+00:33:19,030 --> 00:33:24,280
+over the past you know technology over
+
+564
+00:33:21,909 --> 00:33:26,950
+the history of technology lots of
+
+565
+00:33:24,280 --> 00:33:31,690
+technology come and go you know Pro like
+
+566
+00:33:26,950 --> 00:33:32,230
+Pro is dead to make almost so so at the
+
+567
+00:33:31,690 --> 00:33:34,570
+time
+
+568
+00:33:32,230 --> 00:33:37,450
+you really don't know if you know you TF
+
+569
+00:33:34,570 --> 00:33:40,510
+you know Unicode we should you know it's
+
+570
+00:33:37,450 --> 00:33:41,880
+like still a question oh and also it's a
+
+571
+00:33:40,510 --> 00:33:44,740
+question you know where the JavaScript
+
+572
+00:33:41,880 --> 00:33:47,440
+will survive you know who knows like
+
+573
+00:33:44,740 --> 00:33:49,360
+this scape just one day said oh we
+
+574
+00:33:47,440 --> 00:33:52,360
+created JavaScript you know this is
+
+575
+00:33:49,360 --> 00:33:55,000
+gonna help you for the designers for
+
+576
+00:33:52,360 --> 00:33:57,580
+interactive dynamic you know HTML and so
+
+577
+00:33:55,000 --> 00:33:59,440
+on but everyone is not sure you know
+
+578
+00:33:57,580 --> 00:34:02,110
+Mike Rizzo is not sure they have to make
+
+579
+00:33:59,440 --> 00:34:04,360
+a decision you know that you know every
+
+580
+00:34:02,110 --> 00:34:07,030
+big companies they are fighting all the
+
+581
+00:34:04,360 --> 00:34:10,869
+time right like Apple Facebook today you
+
+582
+00:34:07,030 --> 00:34:12,970
+know Microsoft you know Google you know
+
+583
+00:34:10,869 --> 00:34:14,830
+all the big corporations they are
+
+584
+00:34:12,970 --> 00:34:17,830
+fighting about technology they want
+
+585
+00:34:14,830 --> 00:34:19,300
+everyone to use their own so it's a
+
+586
+00:34:17,830 --> 00:34:21,460
+situation when there's a new technology
+
+587
+00:34:19,300 --> 00:34:24,970
+nobody is you know you have to see
+
+588
+00:34:21,460 --> 00:34:29,710
+whether it survives or not you know so
+
+589
+00:34:24,970 --> 00:34:33,070
+so anyway when JavaScript began around
+
+590
+00:34:29,710 --> 00:34:37,750
+1995 and also Java they began about the
+
+591
+00:34:33,070 --> 00:34:42,990
+same time Java is a bit earlier and at
+
+592
+00:34:37,750 --> 00:34:45,879
+that time the common thought is that UTF
+
+593
+00:34:42,990 --> 00:34:50,980
+unicode will be popular you know único
+
+594
+00:34:45,879 --> 00:34:55,089
+is already widely accepted but but
+
+595
+00:34:50,980 --> 00:34:58,900
+however you utf-8 is is almost not on a
+
+596
+00:34:55,089 --> 00:34:59,920
+sing yet okay you know utf-8 doesn't
+
+597
+00:34:58,900 --> 00:35:01,720
+come
+
+598
+00:34:59,920 --> 00:35:06,190
+it came later in a beginning there's
+
+599
+00:35:01,720 --> 00:35:09,520
+utf-16 and utf-32 okay they are just
+
+600
+00:35:06,190 --> 00:35:12,810
+these two so back then at a time you
+
+601
+00:35:09,520 --> 00:35:15,130
+know utf-32 will take lots you know like
+
+602
+00:35:12,810 --> 00:35:18,490
+two times so four times
+
+603
+00:35:15,130 --> 00:35:21,610
+disk space so people are not sure about
+
+604
+00:35:18,490 --> 00:35:25,210
+that you know you know so with so
+
+605
+00:35:21,610 --> 00:35:28,000
+obviously people are thinking utf-16 is
+
+606
+00:35:25,210 --> 00:35:32,260
+a right choice you know
+
+607
+00:35:28,000 --> 00:35:35,230
+because remember back then internet just
+
+608
+00:35:32,260 --> 00:35:37,450
+began this is 1995 Internet you know
+
+609
+00:35:35,230 --> 00:35:43,270
+there's only few hundred websites
+
+610
+00:35:37,450 --> 00:35:46,420
+something like that and you know so and
+
+611
+00:35:43,270 --> 00:35:48,340
+and most people are using ASCII like
+
+612
+00:35:46,420 --> 00:35:51,670
+most people have no idea what the heck
+
+613
+00:35:48,340 --> 00:35:54,340
+is Unicode you know and and it's not
+
+614
+00:35:51,670 --> 00:35:56,950
+common to see you know other languages
+
+615
+00:35:54,340 --> 00:35:59,710
+because there's no internet yet I mean
+
+616
+00:35:56,950 --> 00:36:02,500
+it just began you know so USA lives in
+
+617
+00:35:59,710 --> 00:36:07,180
+USA Germany is you know lives in
+
+618
+00:36:02,500 --> 00:36:09,400
+Germany's you know home buh buh Japanese
+
+619
+00:36:07,180 --> 00:36:12,250
+in Japan Superboy like there's not much
+
+620
+00:36:09,400 --> 00:36:14,350
+communication yet he's except in
+
+621
+00:36:12,250 --> 00:36:17,350
+printing like newspapers you have to
+
+622
+00:36:14,350 --> 00:36:19,060
+ship it you know fax you know so back
+
+623
+00:36:17,350 --> 00:36:21,220
+then we are most people you know people
+
+624
+00:36:19,060 --> 00:36:24,190
+are still using there people are just
+
+625
+00:36:21,220 --> 00:36:27,850
+beginning to start to use new Unicode
+
+626
+00:36:24,190 --> 00:36:31,660
+and most people are just no ASCII you
+
+627
+00:36:27,850 --> 00:36:34,060
+know which is 8 bits so to most people
+
+628
+00:36:31,660 --> 00:36:36,460
+you know you know we think you know 16
+
+629
+00:36:34,060 --> 00:36:40,000
+is oh my god now we have 16 bits
+
+630
+00:36:36,460 --> 00:36:42,550
+that's plenty that's like enough enough
+
+631
+00:36:40,000 --> 00:36:47,050
+until Kingdom Come so everyone just
+
+632
+00:36:42,550 --> 00:36:48,940
+adopted utf-16 that is the original
+
+633
+00:36:47,050 --> 00:36:53,290
+history okay that's that that that is
+
+634
+00:36:48,940 --> 00:36:57,490
+how utf-16 became in so many standard
+
+635
+00:36:53,290 --> 00:37:01,600
+systems but not until later on until
+
+636
+00:36:57,490 --> 00:37:05,500
+like you know 2005 or later people begin
+
+637
+00:37:01,600 --> 00:37:09,070
+to realize you know 16 bits is not
+
+638
+00:37:05,500 --> 00:37:13,859
+enough to encode you know other words
+
+639
+00:37:09,070 --> 00:37:17,500
+languages and so on so so
+
+640
+00:37:13,859 --> 00:37:21,549
+and utf-8 is easy
+
+641
+00:37:17,500 --> 00:37:26,619
+interesting story by itself utf-8 is a
+
+642
+00:37:21,549 --> 00:37:29,619
+despise utf-8 okay I know because you
+
+643
+00:37:26,619 --> 00:37:33,400
+know you guys probably know you guys are
+
+644
+00:37:29,619 --> 00:37:36,099
+probably chanting for utf-8 because it
+
+645
+00:37:33,400 --> 00:37:38,770
+is from the UNIX you know if you love
+
+646
+00:37:36,099 --> 00:37:41,470
+UNIX or Linux you love utf-8 because
+
+647
+00:37:38,770 --> 00:37:44,950
+there's huge amount of propaganda you
+
+648
+00:37:41,470 --> 00:37:47,829
+know there was a you know utf-8 they
+
+649
+00:37:44,950 --> 00:37:50,260
+come up mostly because they became so
+
+650
+00:37:47,829 --> 00:37:52,779
+popular today mostly because backward
+
+651
+00:37:50,260 --> 00:37:54,849
+compatibility with ASCII okay
+
+652
+00:37:52,779 --> 00:37:58,299
+what does I mean meaning that if you
+
+653
+00:37:54,849 --> 00:38:01,510
+have a file and if you you know if you
+
+654
+00:37:58,299 --> 00:38:04,680
+do not have any Unicode you know non
+
+655
+00:38:01,510 --> 00:38:08,859
+ASCII character if you encoded in utf-8
+
+656
+00:38:04,680 --> 00:38:13,150
+and if you also encode the same file in
+
+657
+00:38:08,859 --> 00:38:16,210
+ut in ASCII the two files will be
+
+658
+00:38:13,150 --> 00:38:18,069
+identical so meaning that as long as you
+
+659
+00:38:16,210 --> 00:38:21,210
+don't have any Unicode characters you
+
+660
+00:38:18,069 --> 00:38:24,099
+know the strange Smiley's or whatever
+
+661
+00:38:21,210 --> 00:38:26,619
+you know it's compatible with ASCII you
+
+662
+00:38:24,099 --> 00:38:31,089
+know it's just it's the same encoding
+
+663
+00:38:26,619 --> 00:38:34,240
+us-ascii you know so utf-8 is ASCII
+
+664
+00:38:31,089 --> 00:38:38,140
+compatible and that was a big advantage
+
+665
+00:38:34,240 --> 00:38:42,160
+especially for for the UNIX fax in Linux
+
+666
+00:38:38,140 --> 00:38:44,470
+because you know other corporations Java
+
+667
+00:38:42,160 --> 00:38:47,230
+you know some Microsystems which is dead
+
+668
+00:38:44,470 --> 00:38:48,819
+today Samara systems Microsoft Apple
+
+669
+00:38:47,230 --> 00:38:51,640
+they you know there are corporations
+
+670
+00:38:48,819 --> 00:38:53,470
+they have money they make they sell
+
+671
+00:38:51,640 --> 00:38:55,839
+products they make money you know if
+
+672
+00:38:53,470 --> 00:38:57,670
+they products don't sell they die you
+
+673
+00:38:55,839 --> 00:39:00,400
+know there's no ideology you know they
+
+674
+00:38:57,670 --> 00:39:03,369
+have to sell it if people don't buy they
+
+675
+00:39:00,400 --> 00:39:07,869
+they disappear like some micro system
+
+676
+00:39:03,369 --> 00:39:10,180
+micro systems with their java so so
+
+677
+00:39:07,869 --> 00:39:13,359
+Apple and Microsoft and some ecosystems
+
+678
+00:39:10,180 --> 00:39:15,849
+and you know so they they want utf-8 you
+
+679
+00:39:13,359 --> 00:39:17,980
+know so they created but Linux you know
+
+680
+00:39:15,849 --> 00:39:22,779
+the ideology open source you don't have
+
+681
+00:39:17,980 --> 00:39:24,670
+resources you don't have people so so if
+
+682
+00:39:22,779 --> 00:39:26,660
+you want you know it's to support
+
+683
+00:39:24,670 --> 00:39:29,170
+Unicode
+
+684
+00:39:26,660 --> 00:39:32,360
+that means you have to almost rewrite oh
+
+685
+00:39:29,170 --> 00:39:35,000
+you're UNIX kernels you know you're
+
+686
+00:39:32,360 --> 00:39:37,610
+Linux Linux or UNIX kernels your patch
+
+687
+00:39:35,000 --> 00:39:40,220
+tours you know the bag of tours you have
+
+688
+00:39:37,610 --> 00:39:43,070
+to rewrite them all because because in
+
+689
+00:39:40,220 --> 00:39:46,790
+coding you know you cannot use ASCII
+
+690
+00:39:43,070 --> 00:39:52,010
+anymore so that is a serious problem
+
+691
+00:39:46,790 --> 00:39:56,540
+you know if utf-8 did not begin ok did
+
+692
+00:39:52,010 --> 00:39:59,060
+not gain alive then basically that Linux
+
+693
+00:39:56,540 --> 00:40:02,600
+may not be alive today you know did you
+
+694
+00:39:59,060 --> 00:40:06,140
+know that's kind of one possibility you
+
+695
+00:40:02,600 --> 00:40:08,000
+know so anyway so the Rob Pike and
+
+696
+00:40:06,140 --> 00:40:11,990
+Friends you know the UNIX people they
+
+697
+00:40:08,000 --> 00:40:14,330
+they they invented utf-8 and that's half
+
+698
+00:40:11,990 --> 00:40:18,500
+the problem and Linux and UNIX people
+
+699
+00:40:14,330 --> 00:40:22,220
+loved it because with utf-8 now to
+
+700
+00:40:18,500 --> 00:40:24,710
+create your you know Linux to bash or
+
+701
+00:40:22,220 --> 00:40:29,180
+the whole you know Linux package to
+
+702
+00:40:24,710 --> 00:40:31,610
+support Unicode it's not a huge task
+
+703
+00:40:29,180 --> 00:40:34,310
+anymore because it's compatible with
+
+704
+00:40:31,610 --> 00:40:36,110
+ASCII you know you you just patch a
+
+705
+00:40:34,310 --> 00:40:39,620
+little bit to support you know
+
+706
+00:40:36,110 --> 00:40:42,500
+characters that's you know so anyway
+
+707
+00:40:39,620 --> 00:40:46,220
+that's a story of utf-8 but anyway so
+
+708
+00:40:42,500 --> 00:40:49,370
+back to JavaScript but about utf-16 so
+
+709
+00:40:46,220 --> 00:40:54,190
+javascript strings are technically the
+
+710
+00:40:49,370 --> 00:41:00,530
+definition of a string is a sequence of
+
+711
+00:40:54,190 --> 00:41:01,520
+UTF is a sequence of sixteen bits called
+
+712
+00:41:00,530 --> 00:41:05,960
+core point
+
+713
+00:41:01,520 --> 00:41:10,420
+I mean code code unit code code unit
+
+714
+00:41:05,960 --> 00:41:14,000
+okay so each 16-bit is a code unit and
+
+715
+00:41:10,420 --> 00:41:19,160
+when when a character who's encoding in
+
+716
+00:41:14,000 --> 00:41:21,320
+utf-16 has more then has 32 bits then
+
+717
+00:41:19,160 --> 00:41:24,320
+you start to have this problem because
+
+718
+00:41:21,320 --> 00:41:29,180
+the index does not correspond to the
+
+719
+00:41:24,320 --> 00:41:31,910
+characters so that's you know okay so
+
+720
+00:41:29,180 --> 00:41:35,390
+that's a problem that is why Oh Chavez
+
+721
+00:41:31,910 --> 00:41:38,330
+so whenever you have a string and if
+
+722
+00:41:35,390 --> 00:41:40,010
+your string contains a character who's
+
+723
+00:41:38,330 --> 00:41:42,890
+you know code point is being
+
+724
+00:41:40,010 --> 00:41:46,340
+16-bits you have problems meaning that
+
+725
+00:41:42,890 --> 00:41:49,430
+all stream functions all stream methods
+
+726
+00:41:46,340 --> 00:41:51,619
+may break we break Europe will break you
+
+727
+00:41:49,430 --> 00:41:55,670
+know it's a serious problem can you
+
+728
+00:41:51,619 --> 00:41:56,690
+imagine you know programmers a good good
+
+729
+00:41:55,670 --> 00:42:02,650
+evening
+
+730
+00:41:56,690 --> 00:42:05,900
+am I so so that's a serious problem so
+
+731
+00:42:02,650 --> 00:42:09,020
+so I'm I'm very annoyed about this
+
+732
+00:42:05,900 --> 00:42:11,270
+problem okay so I asked you know
+
+733
+00:42:09,020 --> 00:42:13,750
+JavaScript started to have a standard
+
+734
+00:42:11,270 --> 00:42:17,900
+you know a new version every year since
+
+735
+00:42:13,750 --> 00:42:20,840
+2015 so there's this question in my mind
+
+736
+00:42:17,900 --> 00:42:24,200
+you know this is a serious heavy problem
+
+737
+00:42:20,840 --> 00:42:27,619
+you know because by the way it's not
+
+738
+00:42:24,200 --> 00:42:30,230
+just emoji that creates a problem be it
+
+739
+00:42:27,619 --> 00:42:34,490
+any character whose core point is beyond
+
+740
+00:42:30,230 --> 00:42:37,070
+16 bits have this problem now what kind
+
+741
+00:42:34,490 --> 00:42:42,880
+of character what characters that whose
+
+742
+00:42:37,070 --> 00:42:46,280
+code point more than 16 bits for okay so
+
+743
+00:42:42,880 --> 00:42:50,920
+almost all emoji has more than 16 bits
+
+744
+00:42:46,280 --> 00:42:54,830
+and also lots of Chinese characters like
+
+745
+00:42:50,920 --> 00:42:59,390
+where less frequently use cherry Chinese
+
+746
+00:42:54,830 --> 00:43:01,400
+characters and and any basically you
+
+747
+00:42:59,390 --> 00:43:07,880
+know there are thousands of them you
+
+748
+00:43:01,400 --> 00:43:10,040
+know so so this is a practical issue in
+
+749
+00:43:07,880 --> 00:43:13,550
+JavaScript because now when you have a
+
+750
+00:43:10,040 --> 00:43:15,770
+string first of all as a programmer you
+
+751
+00:43:13,550 --> 00:43:18,470
+know you do you write web applications
+
+752
+00:43:15,770 --> 00:43:21,109
+or whatever when you have a string you
+
+753
+00:43:18,470 --> 00:43:23,359
+you must have first of all be aware that
+
+754
+00:43:21,109 --> 00:43:26,810
+this is my string contains any
+
+755
+00:43:23,359 --> 00:43:30,200
+characters that's beyond 16 bits if no
+
+756
+00:43:26,810 --> 00:43:31,310
+if if if no then okay I don't have
+
+757
+00:43:30,200 --> 00:43:33,500
+nothing to worry about
+
+758
+00:43:31,310 --> 00:43:37,880
+you know I use string functions you know
+
+759
+00:43:33,500 --> 00:43:40,310
+but if it does contain a code you know a
+
+760
+00:43:37,880 --> 00:43:43,040
+character whose code point is beyond 16
+
+761
+00:43:40,310 --> 00:43:45,230
+bits then I got a problem I cannot use
+
+762
+00:43:43,040 --> 00:43:47,540
+all the building methods and functions I
+
+763
+00:43:45,230 --> 00:43:49,609
+have to kind of walk around you know you
+
+764
+00:43:47,540 --> 00:43:52,910
+you know imagine you have a language
+
+765
+00:43:49,609 --> 00:43:54,530
+where all string processes was
+
+766
+00:43:52,910 --> 00:43:57,890
+same functions which we you know which
+
+767
+00:43:54,530 --> 00:43:59,480
+is a call of the language is spoken so
+
+768
+00:43:57,890 --> 00:44:00,980
+every time you have a string you have to
+
+769
+00:43:59,480 --> 00:44:03,170
+know oh just my string
+
+770
+00:44:00,980 --> 00:44:06,770
+you know contains any particular
+
+771
+00:44:03,170 --> 00:44:09,410
+character that's a serious problem but
+
+772
+00:44:06,770 --> 00:44:12,470
+the programming [ __ ] idiots I cannot
+
+773
+00:44:09,410 --> 00:44:15,320
+imagine they don't you know know I like
+
+774
+00:44:12,470 --> 00:44:17,300
+I talked to my my years of programming
+
+775
+00:44:15,320 --> 00:44:19,940
+experience 20 years I talk to all these
+
+776
+00:44:17,300 --> 00:44:23,360
+programmers especially the UNIX and
+
+777
+00:44:19,940 --> 00:44:25,550
+Linux [ __ ] they almost always never
+
+778
+00:44:23,360 --> 00:44:28,520
+see the point the problems I see like
+
+779
+00:44:25,550 --> 00:44:31,190
+for example this is a sickness this
+
+780
+00:44:28,520 --> 00:44:35,990
+example about geometry to me it's like a
+
+781
+00:44:31,190 --> 00:44:38,450
+huge what you know a huge problem but
+
+782
+00:44:35,990 --> 00:44:40,700
+whenever you talk to industrial coders
+
+783
+00:44:38,450 --> 00:44:42,230
+especially the elite you know they talk
+
+784
+00:44:40,700 --> 00:44:47,330
+about UNIX philosophy and whatever
+
+785
+00:44:42,230 --> 00:44:49,430
+jargon so a pattern so you know the like
+
+786
+00:44:47,330 --> 00:44:51,620
+my interaction with them I always find
+
+787
+00:44:49,430 --> 00:44:53,420
+that they don't see whatever I find
+
+788
+00:44:51,620 --> 00:44:58,040
+either use a big problem and they don't
+
+789
+00:44:53,420 --> 00:45:02,060
+find it a problem for some reason ok ok
+
+790
+00:44:58,040 --> 00:45:04,970
+so anyway so in my mind this is a big
+
+791
+00:45:02,060 --> 00:45:07,100
+problem in JavaScript starting in 2015
+
+792
+00:45:04,970 --> 00:45:09,440
+they have a new version new standard
+
+793
+00:45:07,100 --> 00:45:11,510
+every year each year they add you know
+
+794
+00:45:09,440 --> 00:45:14,870
+little things you know they fix lots of
+
+795
+00:45:11,510 --> 00:45:16,610
+problems so in my mind what so what are
+
+796
+00:45:14,870 --> 00:45:18,770
+they going to do with this problem are
+
+797
+00:45:16,610 --> 00:45:22,180
+they going to fix it that is a big
+
+798
+00:45:18,770 --> 00:45:26,290
+question in my mind for a few years so I
+
+799
+00:45:22,180 --> 00:45:31,540
+yesterday I find finally I asked I asked
+
+800
+00:45:26,290 --> 00:45:34,400
+the guy Brendan Eich who created
+
+801
+00:45:31,540 --> 00:45:37,430
+JavaScript ok by the way javascript is
+
+802
+00:45:34,400 --> 00:45:40,730
+now the is there's a design committee
+
+803
+00:45:37,430 --> 00:45:46,760
+called tc39 ok so something like that
+
+804
+00:45:40,730 --> 00:45:50,390
+let's go back to ok so I asked the
+
+805
+00:45:46,760 --> 00:45:56,830
+Brendan Brendan Eich ok you can see the
+
+806
+00:45:50,390 --> 00:46:00,860
+Twitter tweeted [ __ ] so let's show you
+
+807
+00:45:56,830 --> 00:46:03,560
+the thread ok now on Twitter the threads
+
+808
+00:46:00,860 --> 00:46:06,170
+are disconnected but so anyway yesterday
+
+809
+00:46:03,560 --> 00:46:06,920
+I asked him the question and you know
+
+810
+00:46:06,170 --> 00:46:09,529
+people
+
+811
+00:46:06,920 --> 00:46:12,260
+finally I got answers and people start
+
+812
+00:46:09,529 --> 00:46:14,900
+to discuss it so you can see this is the
+
+813
+00:46:12,260 --> 00:46:17,480
+URL you can you can go there read it and
+
+814
+00:46:14,900 --> 00:46:22,849
+you can link to I mean you can let me
+
+815
+00:46:17,480 --> 00:46:25,730
+paste it here okay by the way Twitter
+
+816
+00:46:22,849 --> 00:46:28,519
+thread is not well connected because
+
+817
+00:46:25,730 --> 00:46:31,250
+they are much more posting than what you
+
+818
+00:46:28,519 --> 00:46:35,480
+see here this more than 10 so you have
+
+819
+00:46:31,250 --> 00:46:39,980
+to like you have to put focus on a
+
+820
+00:46:35,480 --> 00:46:42,500
+thread then for example this thread has
+
+821
+00:46:39,980 --> 00:46:46,760
+two answers but you can you can only see
+
+822
+00:46:42,500 --> 00:46:51,980
+what you have to click on that post then
+
+823
+00:46:46,760 --> 00:46:58,490
+you can see the other posts related to
+
+824
+00:46:51,980 --> 00:47:01,819
+that thread okay so anyway so so this is
+
+825
+00:46:58,490 --> 00:47:05,180
+not all you see but anyway so yesterday
+
+826
+00:47:01,819 --> 00:47:08,180
+I asked Brendan okay Brendan Eich who
+
+827
+00:47:05,180 --> 00:47:10,849
+created javascript in 1995 but however
+
+828
+00:47:08,180 --> 00:47:13,880
+by the way javascript is not today is
+
+829
+00:47:10,849 --> 00:47:16,579
+not like in his under his control you
+
+830
+00:47:13,880 --> 00:47:18,829
+know he basically I don't think he
+
+831
+00:47:16,579 --> 00:47:21,980
+actually has any control he can only
+
+832
+00:47:18,829 --> 00:47:23,900
+recommend and discuss basically you know
+
+833
+00:47:21,980 --> 00:47:30,109
+they have like nonprofit standard
+
+834
+00:47:23,900 --> 00:47:33,140
+committee called t t c13 i you see it if
+
+835
+00:47:30,109 --> 00:47:38,000
+you you know follow this thread you know
+
+836
+00:47:33,140 --> 00:47:42,200
+try to see all the posts because they
+
+837
+00:47:38,000 --> 00:47:44,769
+are like yeah twitter is got a problem
+
+838
+00:47:42,200 --> 00:47:49,539
+because it's hard to find all the posts
+
+839
+00:47:44,769 --> 00:47:52,789
+related to this thread any anyway so so
+
+840
+00:47:49,539 --> 00:47:54,650
+so anyway so I asked Brendan and Brent
+
+841
+00:47:52,789 --> 00:47:57,259
+although he is not controlling
+
+842
+00:47:54,650 --> 00:48:00,950
+JavaScript design but however he is
+
+843
+00:47:57,259 --> 00:48:03,349
+heavily participates in the process you
+
+844
+00:48:00,950 --> 00:48:07,640
+know because he's you know he's his
+
+845
+00:48:03,349 --> 00:48:10,609
+opinion people still respect so finally
+
+846
+00:48:07,640 --> 00:48:12,980
+and and and and he also linked to a
+
+847
+00:48:10,609 --> 00:48:15,589
+bunch of people in the comma in the
+
+848
+00:48:12,980 --> 00:48:18,589
+JavaScript design committee you know who
+
+849
+00:48:15,589 --> 00:48:21,020
+works at Google and so on and another
+
+850
+00:48:18,589 --> 00:48:24,230
+guy called fake unico
+
+851
+00:48:21,020 --> 00:48:26,390
+he's on Twitter he's actually one great
+
+852
+00:48:24,230 --> 00:48:28,790
+guy okay he knows you know I learned a
+
+853
+00:48:26,390 --> 00:48:34,430
+lot unicode from him you know this this
+
+854
+00:48:28,790 --> 00:48:36,320
+well let me show you the you know just
+
+855
+00:48:34,430 --> 00:48:38,920
+for fun
+
+856
+00:48:36,320 --> 00:48:41,600
+fake unicode okay this guy there's a
+
+857
+00:48:38,920 --> 00:48:44,300
+account called fake new unicode so I
+
+858
+00:48:41,600 --> 00:48:47,869
+know him on Twitter for like three years
+
+859
+00:48:44,300 --> 00:48:51,560
+by now and I have learned Unicode from
+
+860
+00:48:47,869 --> 00:48:54,590
+him you know many esoteric technical
+
+861
+00:48:51,560 --> 00:48:56,750
+details now he doesn't say you know his
+
+862
+00:48:54,590 --> 00:48:59,330
+hand oh is fake unicode but he doesn't
+
+863
+00:48:56,750 --> 00:49:00,830
+say what's his name oh you know who he
+
+864
+00:48:59,330 --> 00:49:04,220
+is or who he works for
+
+865
+00:49:00,830 --> 00:49:06,920
+but I'm guessing I get a sense that he
+
+866
+00:49:04,220 --> 00:49:10,100
+is actually working for the Unicode
+
+867
+00:49:06,920 --> 00:49:12,680
+consortium you know that's just my guess
+
+868
+00:49:10,100 --> 00:49:16,030
+you know maybe he doesn't want to tell
+
+869
+00:49:12,680 --> 00:49:20,270
+but anyway but but yeah he's a great guy
+
+870
+00:49:16,030 --> 00:49:22,720
+but anyway let's go back to so yeah he
+
+871
+00:49:20,270 --> 00:49:26,210
+you know he knows you know with many
+
+872
+00:49:22,720 --> 00:49:30,190
+esoteric details about Unicode and let
+
+873
+00:49:26,210 --> 00:49:33,650
+me show you the other guy who is on the
+
+874
+00:49:30,190 --> 00:49:34,430
+who is in the JavaScript Technical
+
+875
+00:49:33,650 --> 00:49:38,560
+Committee
+
+876
+00:49:34,430 --> 00:49:44,570
+his name is Matthew this this guy okay
+
+877
+00:49:38,560 --> 00:49:46,700
+matheus finance I came across this guy
+
+878
+00:49:44,570 --> 00:49:51,710
+before like five years ago but anyway
+
+879
+00:49:46,700 --> 00:49:53,480
+he's so so there's these threads and you
+
+880
+00:49:51,710 --> 00:49:56,510
+know they answered my questions so
+
+881
+00:49:53,480 --> 00:49:59,990
+finally so that what what is the answer
+
+882
+00:49:56,510 --> 00:50:03,590
+so my question is why is there any plan
+
+883
+00:49:59,990 --> 00:50:08,780
+for JavaScript to fix this string
+
+884
+00:50:03,590 --> 00:50:12,800
+problem it turns out no because they
+
+885
+00:50:08,780 --> 00:50:14,630
+want backward compatibility okay so you
+
+886
+00:50:12,800 --> 00:50:17,840
+know they just decided you know they're
+
+887
+00:50:14,630 --> 00:50:21,970
+gonna do nothing about it well they they
+
+888
+00:50:17,840 --> 00:50:24,800
+are aware of course it's a problem but -
+
+889
+00:50:21,970 --> 00:50:28,880
+for some reason okay - these industrial
+
+890
+00:50:24,800 --> 00:50:32,660
+people they they just you know they just
+
+891
+00:50:28,880 --> 00:50:34,020
+live live with it you know to me it's
+
+892
+00:50:32,660 --> 00:50:37,320
+like this is a [ __ ] for
+
+893
+00:50:34,020 --> 00:50:40,110
+we need to you know to do all things
+
+894
+00:50:37,320 --> 00:50:44,940
+possible to get it fixed but not to most
+
+895
+00:50:40,110 --> 00:50:47,910
+of these people's so so they know it of
+
+896
+00:50:44,940 --> 00:50:53,700
+course it's a problem but so their
+
+897
+00:50:47,910 --> 00:50:57,330
+solution is actually you know they have
+
+898
+00:50:53,700 --> 00:51:00,930
+some solutions in the works kind of that
+
+899
+00:50:57,330 --> 00:51:03,630
+that possibly will fix it okay not
+
+900
+00:51:00,930 --> 00:51:05,370
+certain yet we don't know but I mean if
+
+901
+00:51:03,630 --> 00:51:07,710
+you read the thread you'll see it's
+
+902
+00:51:05,370 --> 00:51:11,910
+called international segment segment
+
+903
+00:51:07,710 --> 00:51:13,620
+okay or international segmentation do
+
+904
+00:51:11,910 --> 00:51:17,670
+something like that you are see if you
+
+905
+00:51:13,620 --> 00:51:20,610
+read the thread which which is actually
+
+906
+00:51:17,670 --> 00:51:22,590
+not fixing the problem but it's a but we
+
+907
+00:51:20,610 --> 00:51:25,770
+might evolve into resolving this
+
+908
+00:51:22,590 --> 00:51:27,930
+eventually okay but anyway to me this is
+
+909
+00:51:25,770 --> 00:51:30,990
+I mean this is a serious problem
+
+910
+00:51:27,930 --> 00:51:32,730
+so I mean if they are ran out like right
+
+911
+00:51:30,990 --> 00:51:36,060
+now they don't have a plan to fix this
+
+912
+00:51:32,730 --> 00:51:39,420
+so what does that mean that means for
+
+913
+00:51:36,060 --> 00:51:41,220
+forever you know you know whenever you
+
+914
+00:51:39,420 --> 00:51:43,350
+know they are how many people code
+
+915
+00:51:41,220 --> 00:51:46,050
+JavaScript millions right because
+
+916
+00:51:43,350 --> 00:51:48,810
+javascript is like almost the number one
+
+917
+00:51:46,050 --> 00:51:50,760
+most popular language today so for these
+
+918
+00:51:48,810 --> 00:51:53,520
+millions and billions of software
+
+919
+00:51:50,760 --> 00:51:56,480
+applications websites every time you use
+
+920
+00:51:53,520 --> 00:52:00,000
+a string you have this problem now how
+
+921
+00:51:56,480 --> 00:52:03,090
+you know how idiotic is that you know I
+
+922
+00:52:00,000 --> 00:52:06,000
+cannot possibly imagine that people will
+
+923
+00:52:03,090 --> 00:52:08,280
+be will say oh that that's okay that's
+
+924
+00:52:06,000 --> 00:52:10,140
+no problem you know I don't care what
+
+925
+00:52:08,280 --> 00:52:15,120
+you you know I don't care what is the
+
+926
+00:52:10,140 --> 00:52:18,930
+issue you have to like you have to fix
+
+927
+00:52:15,120 --> 00:52:20,820
+it even even if there is no solution
+
+928
+00:52:18,930 --> 00:52:21,840
+other than you know break backward
+
+929
+00:52:20,820 --> 00:52:26,940
+compatibility
+
+930
+00:52:21,840 --> 00:52:30,650
+anyway that's so I saw that I think that
+
+931
+00:52:26,940 --> 00:52:34,860
+concludes my explanation of the
+
+932
+00:52:30,650 --> 00:52:37,950
+JavaScript string problem and by the way
+
+933
+00:52:34,860 --> 00:52:41,220
+this problem happens also as I learned
+
+934
+00:52:37,950 --> 00:52:45,210
+learned from one of this guy it also
+
+935
+00:52:41,220 --> 00:52:47,910
+happens in Java and it also happens in
+
+936
+00:52:45,210 --> 00:52:51,390
+c-sharp now if you look at this
+
+937
+00:52:47,910 --> 00:52:53,640
+code this code is Java okay so have the
+
+938
+00:52:51,390 --> 00:52:57,720
+same problem you know you have a smiley
+
+939
+00:52:53,640 --> 00:53:01,079
+and the length is two and also this
+
+940
+00:52:57,720 --> 00:53:03,480
+example also shows that a method you
+
+941
+00:53:01,079 --> 00:53:05,910
+know a string method is also broken just
+
+942
+00:53:03,480 --> 00:53:09,510
+like JavaScript and here is an example
+
+943
+00:53:05,910 --> 00:53:13,589
+from c-sharp language the same problem
+
+944
+00:53:09,510 --> 00:53:15,660
+so you know so to me so I have lots of
+
+945
+00:53:13,589 --> 00:53:19,079
+problems with the programmers you know
+
+946
+00:53:15,660 --> 00:53:21,839
+many of them call me a troll now this is
+
+947
+00:53:19,079 --> 00:53:26,039
+one example where you can see a
+
+948
+00:53:21,839 --> 00:53:28,349
+difference okay I cannot you know it's
+
+949
+00:53:26,039 --> 00:53:30,299
+just a difference of the way I see
+
+950
+00:53:28,349 --> 00:53:33,480
+things you know I cannot I mean these
+
+951
+00:53:30,299 --> 00:53:34,530
+things are not except acceptable to me
+
+952
+00:53:33,480 --> 00:53:36,390
+doesn't matter
+
+953
+00:53:34,530 --> 00:53:39,480
+I don't well I mean of course I
+
+954
+00:53:36,390 --> 00:53:41,910
+understand there's a historical context
+
+955
+00:53:39,480 --> 00:53:46,049
+you know I just explained the history of
+
+956
+00:53:41,910 --> 00:53:49,309
+JavaScript and Unicode so so that is how
+
+957
+00:53:46,049 --> 00:53:53,309
+we have the situation today and you know
+
+958
+00:53:49,309 --> 00:53:56,339
+backward compatibility is also very
+
+959
+00:53:53,309 --> 00:53:59,789
+important in fact almost critical so I
+
+960
+00:53:56,339 --> 00:54:03,270
+do understand you know I do understand
+
+961
+00:53:59,789 --> 00:54:08,510
+why JavaScript you know stream methods
+
+962
+00:54:03,270 --> 00:54:11,940
+are broken like that but however however
+
+963
+00:54:08,510 --> 00:54:15,089
+this is like not acceptable not
+
+964
+00:54:11,940 --> 00:54:17,460
+acceptable to me like these people I
+
+965
+00:54:15,089 --> 00:54:19,619
+mean today's JavaScript standard they
+
+966
+00:54:17,460 --> 00:54:23,480
+are thinking we're gonna just live with
+
+967
+00:54:19,619 --> 00:54:26,730
+this forever I mean that's impossible
+
+968
+00:54:23,480 --> 00:54:28,799
+but anyway brandade you know they they
+
+969
+00:54:26,730 --> 00:54:30,750
+do have logics you know they give their
+
+970
+00:54:28,799 --> 00:54:34,039
+reasons you know what either you know we
+
+971
+00:54:30,750 --> 00:54:37,440
+for example brendan has said no either
+
+972
+00:54:34,039 --> 00:54:40,920
+like he said him he mentioned that we
+
+973
+00:54:37,440 --> 00:54:43,650
+have two choices one break or backward
+
+974
+00:54:40,920 --> 00:54:46,200
+combat compatibility okay meaning that
+
+975
+00:54:43,650 --> 00:54:48,630
+if you change the JavaScript then all
+
+976
+00:54:46,200 --> 00:54:51,869
+the website in history will be broken
+
+977
+00:54:48,630 --> 00:54:57,480
+including all those printed out on DVDs
+
+978
+00:54:51,869 --> 00:55:00,690
+or CDs you know in 1990s and 2000's now
+
+979
+00:54:57,480 --> 00:55:01,770
+that's obviously not you know that's
+
+980
+00:55:00,690 --> 00:55:04,980
+actually very
+
+981
+00:55:01,770 --> 00:55:10,140
+because when you break things like that
+
+982
+00:55:04,980 --> 00:55:12,900
+it it's it's also it has critical
+
+983
+00:55:10,140 --> 00:55:15,300
+consequences because that's similar to
+
+984
+00:55:12,900 --> 00:55:18,390
+erasing a big chunk of history too
+
+985
+00:55:15,300 --> 00:55:21,359
+because lots of things rely on it so
+
+986
+00:55:18,390 --> 00:55:23,820
+yeah I understand so so one way is break
+
+987
+00:55:21,359 --> 00:55:29,820
+backward compatibility the other way is
+
+988
+00:55:23,820 --> 00:55:32,880
+just to create new features so as time
+
+989
+00:55:29,820 --> 00:55:36,660
+move forward we use the new features now
+
+990
+00:55:32,880 --> 00:55:38,940
+so they obviously they decided decided
+
+991
+00:55:36,660 --> 00:55:42,270
+to use you know just stick with new
+
+992
+00:55:38,940 --> 00:55:44,400
+features however to fix this or this
+
+993
+00:55:42,270 --> 00:55:48,990
+tree method problem meaning that either
+
+994
+00:55:44,400 --> 00:55:51,390
+we have to create a copy you know of all
+
+995
+00:55:48,990 --> 00:55:56,580
+the stream functions like there are 30
+
+996
+00:55:51,390 --> 00:56:00,480
+of them ok let's go to my JavaScript
+
+997
+00:55:56,580 --> 00:56:03,410
+tutorial ok let's go to JavaScript
+
+998
+00:56:00,480 --> 00:56:06,839
+object reference and this go to string
+
+999
+00:56:03,410 --> 00:56:08,700
+prototype so here's a tutorial I mean
+
+1000
+00:56:06,839 --> 00:56:11,940
+this is a reference or stream prototype
+
+1001
+00:56:08,700 --> 00:56:15,540
+so this shows all the string methods you
+
+1002
+00:56:11,940 --> 00:56:19,950
+know they are like they are like 30
+
+1003
+00:56:15,540 --> 00:56:22,140
+string methods so so if we want to add
+
+1004
+00:56:19,950 --> 00:56:25,970
+new features that means we make a copy a
+
+1005
+00:56:22,140 --> 00:56:29,070
+new version of each of the string method
+
+1006
+00:56:25,970 --> 00:56:33,810
+you know and that is also you know
+
+1007
+00:56:29,070 --> 00:56:35,970
+fairly ugly right
+
+1008
+00:56:33,810 --> 00:56:38,070
+so another option you know I have
+
+1009
+00:56:35,970 --> 00:56:41,310
+thought about is that we create a new
+
+1010
+00:56:38,070 --> 00:56:44,220
+language directive for example if you
+
+1011
+00:56:41,310 --> 00:56:50,220
+call JavaScript you know that we have
+
+1012
+00:56:44,220 --> 00:56:52,980
+this use strict that's a string just use
+
+1013
+00:56:50,220 --> 00:56:55,500
+strict and if you have that in your
+
+1014
+00:56:52,980 --> 00:56:58,320
+JavaScript code that means the compiler
+
+1015
+00:56:55,500 --> 00:57:02,040
+will treat treat your JavaScript in a
+
+1016
+00:56:58,320 --> 00:57:04,880
+different way considering it as kind of
+
+1017
+00:57:02,040 --> 00:57:11,630
+a new language not backward-compatible
+
+1018
+00:57:04,880 --> 00:57:11,630
+they created you strict around 2000 2000
+
+1019
+00:57:13,950 --> 00:57:22,619
+I think they created that I forgot when
+
+1020
+00:57:17,789 --> 00:57:26,160
+2008 or something but anyway they didn't
+
+1021
+00:57:22,619 --> 00:57:29,400
+is it they did not do a very good job
+
+1022
+00:57:26,160 --> 00:57:33,780
+so even have you even if you have used
+
+1023
+00:57:29,400 --> 00:57:35,849
+strict it doesn't change much except
+
+1024
+00:57:33,780 --> 00:57:38,970
+some of the very bad things about
+
+1025
+00:57:35,849 --> 00:57:41,880
+JavaScript so anyway my vision okay my
+
+1026
+00:57:38,970 --> 00:57:45,510
+idea of solution is we create a new
+
+1027
+00:57:41,880 --> 00:57:49,400
+directory for example you strict mm you
+
+1028
+00:57:45,510 --> 00:57:53,039
+know to 0 to 0 that means you know in
+
+1029
+00:57:49,400 --> 00:57:56,940
+2020 or 2019 we create a new language
+
+1030
+00:57:53,039 --> 00:58:00,359
+kind of like backward incompatible that
+
+1031
+00:57:56,940 --> 00:58:02,849
+fix all these issues so for all new
+
+1032
+00:58:00,359 --> 00:58:06,089
+JavaScript code we can just say you know
+
+1033
+00:58:02,849 --> 00:58:10,470
+use you know let's just say used to use
+
+1034
+00:58:06,089 --> 00:58:12,569
+to 0 to 0 meaning but you know so if we
+
+1035
+00:58:10,470 --> 00:58:16,740
+do this you can be backward compatible
+
+1036
+00:58:12,569 --> 00:58:20,220
+but meanwhile it can also you know have
+
+1037
+00:58:16,740 --> 00:58:22,579
+a more elegant code but for some reason
+
+1038
+00:58:20,220 --> 00:58:25,859
+again these people you know these
+
+1039
+00:58:22,579 --> 00:58:30,740
+industrial programmers including Brendan
+
+1040
+00:58:25,859 --> 00:58:33,660
+Eich ok he they they they think this is
+
+1041
+00:58:30,740 --> 00:58:37,170
+they think this creates more problems
+
+1042
+00:58:33,660 --> 00:58:40,109
+and more complexity so therefore they
+
+1043
+00:58:37,170 --> 00:58:43,230
+decided the JavaScript team you know the
+
+1044
+00:58:40,109 --> 00:58:48,539
+future future team decided not you know
+
+1045
+00:58:43,230 --> 00:58:50,369
+not to introduce any discord pragma or
+
+1046
+00:58:48,539 --> 00:58:53,640
+code directive I think it's called
+
+1047
+00:58:50,369 --> 00:58:56,130
+its technical technically called pragma
+
+1048
+00:58:53,640 --> 00:58:57,859
+in JavaScript you know each anguish
+
+1049
+00:58:56,130 --> 00:59:01,109
+cause this kind of thing differently
+
+1050
+00:58:57,859 --> 00:59:03,599
+whimper oh it's called directive I think
+
+1051
+00:59:01,109 --> 00:59:06,059
+in JavaScript is called pragma or
+
+1052
+00:59:03,599 --> 00:59:09,960
+something so anyway they decided they
+
+1053
+00:59:06,059 --> 00:59:12,180
+don't want to do that so okay so that is
+
+1054
+00:59:09,960 --> 00:59:18,599
+the situation with a JavaScript that
+
+1055
+00:59:12,180 --> 00:59:22,710
+that concludes my my my-my-my discussion
+
+1056
+00:59:18,599 --> 00:59:25,279
+my talk about the JavaScript string
+
+1057
+00:59:22,710 --> 00:59:25,279
+problem
+
+1058
+00:59:25,440 --> 00:59:32,019
+okay in the comments please don't swear
+
+1059
+00:59:29,019 --> 00:59:35,740
+okay I don't I mean I don't care if we
+
+1060
+00:59:32,019 --> 00:59:37,809
+swear but however Google today you know
+
+1061
+00:59:35,740 --> 00:59:41,470
+YouTube they are starting a heavy
+
+1062
+00:59:37,809 --> 00:59:44,130
+censorship so if if you have if I if my
+
+1063
+00:59:41,470 --> 00:59:47,799
+channel has you know swearing words
+
+1064
+00:59:44,130 --> 00:59:49,180
+they're gonna ban you you know they are
+
+1065
+00:59:47,799 --> 00:59:59,049
+going to bear my channel you know I
+
+1066
+00:59:49,180 --> 01:00:02,019
+tried not to so so let me read the
+
+1067
+00:59:59,049 --> 01:00:04,329
+comments and then let's see maybe we can
+
+1068
+01:00:02,019 --> 01:00:07,059
+talk about the next topic now we've been
+
+1069
+01:00:04,329 --> 01:00:07,569
+talking about for an hour maybe ten more
+
+1070
+01:00:07,059 --> 01:00:17,859
+minutes
+
+1071
+01:00:07,569 --> 01:00:22,059
+I think the technique now Auto all those
+
+1072
+01:00:17,859 --> 01:00:31,240
+says Kyoto other says code unit can be
+
+1073
+01:00:22,059 --> 01:00:36,250
+full Unicode no well no well the the the
+
+1074
+01:00:31,240 --> 01:00:42,099
+turn code unit the jargon code unit it's
+
+1075
+01:00:36,250 --> 01:00:47,410
+just a term that means sixteen bits in
+
+1076
+01:00:42,099 --> 01:00:50,680
+the utf-16 encoding so so first of all
+
+1077
+01:00:47,410 --> 01:00:53,740
+you have Unicode Unicode consortium okay
+
+1078
+01:00:50,680 --> 01:00:55,779
+now his history is a little bit
+
+1079
+01:00:53,740 --> 01:00:58,539
+complicated but but anyway we can think
+
+1080
+01:00:55,779 --> 01:01:02,619
+of the Unicode consortium which is a
+
+1081
+01:00:58,539 --> 01:01:06,009
+nonprofit they start the concept concept
+
+1082
+01:01:02,619 --> 01:01:08,200
+of Unicode so that you know we can have
+
+1083
+01:01:06,009 --> 01:01:09,130
+all the words languages Chinese Japanese
+
+1084
+01:01:08,200 --> 01:01:12,990
+English
+
+1085
+01:01:09,130 --> 01:01:16,000
+you know French owing one one kind of
+
+1086
+01:01:12,990 --> 01:01:21,190
+standardized encoding so that's idea
+
+1087
+01:01:16,000 --> 01:01:24,819
+Unicode they began in 1987 or something
+
+1088
+01:01:21,190 --> 01:01:28,990
+like that so that's idea of Unicode so
+
+1089
+01:01:24,819 --> 01:01:31,480
+Unicode began then then you have they
+
+1090
+01:01:28,990 --> 01:01:34,779
+they also define encodings right there
+
+1091
+01:01:31,480 --> 01:01:38,010
+so they defined utf-16 utf-32 in the
+
+1092
+01:01:34,779 --> 01:01:41,670
+beginning so in the utf-16
+
+1093
+01:01:38,010 --> 01:01:45,880
+encoding standard you know publication
+
+1094
+01:01:41,670 --> 01:01:49,240
+they they define the jargon code unit
+
+1095
+01:01:45,880 --> 01:01:52,119
+which means you know sixteen bits of you
+
+1096
+01:01:49,240 --> 01:01:55,210
+know of a encoding so that's that's my
+
+1097
+01:01:52,119 --> 01:02:01,740
+understanding of where the jargon code
+
+1098
+01:01:55,210 --> 01:02:04,540
+unit came from now it had it may have
+
+1099
+01:02:01,740 --> 01:02:07,930
+history before this but I'm not sure
+
+1100
+01:02:04,540 --> 01:02:10,800
+about that but mostly today when you say
+
+1101
+01:02:07,930 --> 01:02:15,780
+code unit you pretty much means the
+
+1102
+01:02:10,800 --> 01:02:15,780
+utf-16 sixteen bits
+
+1103
+01:02:17,609 --> 01:02:24,369
+okay you know I'm gonna you know I'm not
+
+1104
+01:02:21,340 --> 01:02:29,700
+gonna answer every comments okay because
+
+1105
+01:02:24,369 --> 01:02:29,700
+they're so me I think you're cemented
+
+1106
+01:02:30,060 --> 01:02:44,460
+like daily Prague what is steady Prague
+
+1107
+01:02:36,750 --> 01:02:44,460
+website normal says
+
+1108
+01:02:48,650 --> 01:02:57,600
+okay I forgot what's a context okay even
+
+1109
+01:02:54,780 --> 01:02:59,910
+with utf-8 things went down here so if
+
+1110
+01:02:57,600 --> 01:03:02,100
+you if I did not answer a question oh I
+
+1111
+01:02:59,910 --> 01:03:05,850
+have questions about your questions just
+
+1112
+01:03:02,100 --> 01:03:10,560
+type it again I'll see it then I'll get
+
+1113
+01:03:05,850 --> 01:03:13,250
+our answer okay so let me see the next
+
+1114
+01:03:10,560 --> 01:03:13,250
+question
+
+1115
+01:03:14,000 --> 01:03:20,850
+so Todd says good morning Todd Todd says
+
+1116
+01:03:18,300 --> 01:03:25,140
+even with utf-8 things went downhill
+
+1117
+01:03:20,850 --> 01:03:28,280
+after Unicode yeah Unicode has become in
+
+1118
+01:03:25,140 --> 01:03:32,000
+my opinion the organization itself has
+
+1119
+01:03:28,280 --> 01:03:36,110
+became somewhat corrupted you know
+
+1120
+01:03:32,000 --> 01:03:40,250
+unicode today since around since about
+
+1121
+01:03:36,110 --> 01:03:44,040
+let's say five years ago it has become
+
+1122
+01:03:40,250 --> 01:03:46,560
+political itical issue why you know it's
+
+1123
+01:03:44,040 --> 01:03:49,190
+strange it's just the technical standard
+
+1124
+01:03:46,560 --> 01:03:53,040
+about characters encoding why is it
+
+1125
+01:03:49,190 --> 01:03:58,110
+political because emoji emoji has become
+
+1126
+01:03:53,040 --> 01:04:00,660
+a huge political issue because you know
+
+1127
+01:03:58,110 --> 01:04:02,490
+some people they want skin colors you
+
+1128
+01:04:00,660 --> 01:04:06,120
+know for you know they want skin colors
+
+1129
+01:04:02,490 --> 01:04:09,540
+for everything then they want girls you
+
+1130
+01:04:06,120 --> 01:04:12,360
+know they you know so you have like a
+
+1131
+01:04:09,540 --> 01:04:14,460
+castle then people say oh but then you
+
+1132
+01:04:12,360 --> 01:04:16,860
+have church you know emoji right then
+
+1133
+01:04:14,460 --> 01:04:20,100
+people say oh no then you need a mosque
+
+1134
+01:04:16,860 --> 01:04:22,320
+emoji to represent Islam okay then you
+
+1135
+01:04:20,100 --> 01:04:23,730
+need then your of course then you need a
+
+1136
+01:04:22,320 --> 01:04:27,600
+Buddha temple
+
+1137
+01:04:23,730 --> 01:04:30,750
+emoji okay so it becomes a big political
+
+1138
+01:04:27,600 --> 01:04:34,140
+issue of skin colors then they then they
+
+1139
+01:04:30,750 --> 01:04:36,750
+becomes also part of it is gender you
+
+1140
+01:04:34,140 --> 01:04:40,320
+know sex issue like if you have an emoji
+
+1141
+01:04:36,750 --> 01:04:43,320
+of a face is it female or we say the
+
+1142
+01:04:40,320 --> 01:04:46,830
+male okay that's a that's the question
+
+1143
+01:04:43,320 --> 01:04:48,990
+so you cannot have you know if you have
+
+1144
+01:04:46,830 --> 01:04:50,850
+a tenser you know a girl dancing you
+
+1145
+01:04:48,990 --> 01:04:54,960
+know there's a emoji character called
+
+1146
+01:04:50,850 --> 01:04:59,300
+dancing okay let me show you let me show
+
+1147
+01:04:54,960 --> 01:04:59,300
+you the emoji characters okay
+
+1148
+01:05:00,140 --> 01:05:08,640
+so for example if you have this emoji
+
+1149
+01:05:03,650 --> 01:05:11,730
+character okay let me go to Chrome here
+
+1150
+01:05:08,640 --> 01:05:15,900
+so you can see actually you can actually
+
+1151
+01:05:11,730 --> 01:05:18,810
+see the pop up for example this is this
+
+1152
+01:05:15,900 --> 01:05:22,350
+emoji okay it's called coded the name is
+
+1153
+01:05:18,810 --> 01:05:25,290
+dancer now emoji or originated from
+
+1154
+01:05:22,350 --> 01:05:31,020
+Japanese phone you know Jack mostly
+
+1155
+01:05:25,290 --> 01:05:34,350
+Japanese girls back in 2002 or so you
+
+1156
+01:05:31,020 --> 01:05:37,590
+know emoji came from emoticon you know
+
+1157
+01:05:34,350 --> 01:05:39,660
+so well I'm not going to go into the
+
+1158
+01:05:37,590 --> 01:05:41,760
+whole history history but anyway emoji
+
+1159
+01:05:39,660 --> 01:05:44,310
+came from Japanese phone you know
+
+1160
+01:05:41,760 --> 01:05:46,710
+Japanese you know girl teeny teenagers
+
+1161
+01:05:44,310 --> 01:05:48,960
+they a used phone so you they want to
+
+1162
+01:05:46,710 --> 01:05:52,590
+send pictures you know people smiling
+
+1163
+01:05:48,960 --> 01:05:59,550
+dancing or eating Japanese food like
+
+1164
+01:05:52,590 --> 01:06:01,890
+sushi you know let me show you food so
+
+1165
+01:05:59,550 --> 01:06:06,510
+these are some of the original emojis
+
+1166
+01:06:01,890 --> 01:06:07,920
+Japanese food let me magnify so in the
+
+1167
+01:06:06,510 --> 01:06:11,400
+beginning you don't have all these
+
+1168
+01:06:07,920 --> 01:06:13,170
+hamburgers you know bread you don't have
+
+1169
+01:06:11,400 --> 01:06:16,020
+no of that it's mostly just these
+
+1170
+01:06:13,170 --> 01:06:20,040
+Japanese here so you have these Japanese
+
+1171
+01:06:16,020 --> 01:06:23,340
+rice cracker Japanese rice for sushi
+
+1172
+01:06:20,040 --> 01:06:25,680
+you have Japanese fish cake you have
+
+1173
+01:06:23,340 --> 01:06:30,870
+this Japanese bento which is kind of a
+
+1174
+01:06:25,680 --> 01:06:33,690
+lunchbox you know so emoji or engineers
+
+1175
+01:06:30,870 --> 01:06:36,800
+Japanese pictures you know food you know
+
+1176
+01:06:33,690 --> 01:06:41,150
+icons used by teens on their phone
+
+1177
+01:06:36,800 --> 01:06:43,920
+around through 2002 something like that
+
+1178
+01:06:41,150 --> 01:06:47,160
+and different phone companies they use
+
+1179
+01:06:43,920 --> 01:06:50,940
+different images so it became you know
+
+1180
+01:06:47,160 --> 01:06:53,520
+it came to the Unicode consortium head
+
+1181
+01:06:50,940 --> 01:06:56,370
+that we can unify it you know wouldn't
+
+1182
+01:06:53,520 --> 01:06:59,550
+be nice if Unicode created a standard
+
+1183
+01:06:56,370 --> 01:07:02,280
+you know code point for these images so
+
+1184
+01:06:59,550 --> 01:07:03,050
+that each phone company don't have to
+
+1185
+01:07:02,280 --> 01:07:05,910
+you know
+
+1186
+01:07:03,050 --> 01:07:08,330
+convert the image into some bits and
+
+1187
+01:07:05,910 --> 01:07:10,910
+transmitted and that bits come us
+
+1188
+01:07:08,330 --> 01:07:14,000
+convert back to image and
+
+1189
+01:07:10,910 --> 01:07:16,880
+and phone companies may not use the same
+
+1190
+01:07:14,000 --> 01:07:19,789
+image for example sushi sushi on my
+
+1191
+01:07:16,880 --> 01:07:22,579
+phone looks different than the sushi on
+
+1192
+01:07:19,789 --> 01:07:24,710
+your phone you know so the Unicode card
+
+1193
+01:07:22,579 --> 01:07:27,410
+idea you know they they can create a
+
+1194
+01:07:24,710 --> 01:07:30,740
+code point for the emoji so they did
+
+1195
+01:07:27,410 --> 01:07:34,309
+that so remember this is from Japan
+
+1196
+01:07:30,740 --> 01:07:37,220
+okay this emoji or engine is from Japan
+
+1197
+01:07:34,309 --> 01:07:39,710
+not in Japan they don't have whatever
+
+1198
+01:07:37,220 --> 01:07:41,420
+[ __ ] your notion of American notions
+
+1199
+01:07:39,710 --> 01:07:44,539
+they are different culture they don't
+
+1200
+01:07:41,420 --> 01:07:47,960
+have your notion of your justice or what
+
+1201
+01:07:44,539 --> 01:07:49,880
+it want whatever okay so in Japan they
+
+1202
+01:07:47,960 --> 01:07:54,490
+have for example let me show you an
+
+1203
+01:07:49,880 --> 01:07:57,440
+example of a derogatory thing emoji
+
+1204
+01:07:54,490 --> 01:08:02,119
+originally from Japan that is about
+
+1205
+01:07:57,440 --> 01:08:05,059
+Chinese this one okay this the emoji
+
+1206
+01:08:02,119 --> 01:08:08,270
+name is men with gua prima okay so what
+
+1207
+01:08:05,059 --> 01:08:09,950
+does I mean so you see this Chinese
+
+1208
+01:08:08,270 --> 01:08:13,400
+character face okay
+
+1209
+01:08:09,950 --> 01:08:17,000
+this face got this hat you may see the
+
+1210
+01:08:13,400 --> 01:08:19,489
+head from Chinese TV drama or kung fu
+
+1211
+01:08:17,000 --> 01:08:23,690
+movies sometimes you see it it's called
+
+1212
+01:08:19,489 --> 01:08:26,299
+this hat is called Cuauhtemoc okay mommy
+
+1213
+01:08:23,690 --> 01:08:30,009
+is a hat so what does crap he means what
+
+1214
+01:08:26,299 --> 01:08:33,290
+he means is like watermelon okay
+
+1215
+01:08:30,009 --> 01:08:35,569
+watermelon or cantaloupe you know it's
+
+1216
+01:08:33,290 --> 01:08:39,770
+like a melon okay melon you cut it and
+
+1217
+01:08:35,569 --> 01:08:42,170
+have you got this semi-spherical thing
+
+1218
+01:08:39,770 --> 01:08:45,230
+and you put it on your head so that head
+
+1219
+01:08:42,170 --> 01:08:50,350
+looks like that so in Chinese we recall
+
+1220
+01:08:45,230 --> 01:08:56,290
+that go up Hema or you know melon hat
+
+1221
+01:08:50,350 --> 01:09:00,140
+but you know it's it's not something we
+
+1222
+01:08:56,290 --> 01:09:02,750
+we like to you know we like to associate
+
+1223
+01:09:00,140 --> 01:09:05,540
+with you know it's it's you know it's
+
+1224
+01:09:02,750 --> 01:09:09,589
+more like that's history of China okay
+
+1225
+01:09:05,540 --> 01:09:14,029
+you know and especially its history in
+
+1226
+01:09:09,589 --> 01:09:16,580
+an era where it's not we Chinese are not
+
+1227
+01:09:14,029 --> 01:09:18,799
+proud of that because you know farming
+
+1228
+01:09:16,580 --> 01:09:21,049
+innovations and Japanese invasions you
+
+1229
+01:09:18,799 --> 01:09:22,720
+know the Qin Dynasty okay you have this
+
+1230
+01:09:21,049 --> 01:09:25,150
+hat
+
+1231
+01:09:22,720 --> 01:09:28,120
+but in Japan you know Japan had Japanese
+
+1232
+01:09:25,150 --> 01:09:30,730
+war with China you know so anyway Japan
+
+1233
+01:09:28,120 --> 01:09:32,980
+you know they created this emoji you
+
+1234
+01:09:30,730 --> 01:09:36,040
+know they okay so you know yeah yeah we
+
+1235
+01:09:32,980 --> 01:09:38,830
+don't we don't care much about you know
+
+1236
+01:09:36,040 --> 01:09:41,230
+I mean anyway anyway Japanese you know
+
+1237
+01:09:38,830 --> 01:09:45,580
+they created this emoji on their phone
+
+1238
+01:09:41,230 --> 01:09:47,980
+so they did that so anyway the or engine
+
+1239
+01:09:45,580 --> 01:09:50,710
+that's the engine so this this is one of
+
+1240
+01:09:47,980 --> 01:09:53,950
+the first this for example this
+
+1241
+01:09:50,710 --> 01:09:56,140
+character men with quite Pema is also
+
+1242
+01:09:53,950 --> 01:09:58,840
+one of the first emoji it came from the
+
+1243
+01:09:56,140 --> 01:10:02,260
+Japan all these others you see here are
+
+1244
+01:09:58,840 --> 01:10:06,220
+new you know these fairies and wizards
+
+1245
+01:10:02,260 --> 01:10:09,580
+and anyway so what I'm saying is that
+
+1246
+01:10:06,220 --> 01:10:11,920
+okay so emoji so why is it became
+
+1247
+01:10:09,580 --> 01:10:15,700
+political okay let me mention let me
+
+1248
+01:10:11,920 --> 01:10:17,860
+explain so so let me show another okay
+
+1249
+01:10:15,700 --> 01:10:20,800
+this tensor is also one of the original
+
+1250
+01:10:17,860 --> 01:10:23,290
+emoji from Japan okay so you have a
+
+1251
+01:10:20,800 --> 01:10:28,140
+dancer it's a girl dancing you know
+
+1252
+01:10:23,290 --> 01:10:31,990
+invest red skirt you know it's like very
+
+1253
+01:10:28,140 --> 01:10:34,690
+you know flame flaming it's like sexy
+
+1254
+01:10:31,990 --> 01:10:37,270
+and also this character women with funny
+
+1255
+01:10:34,690 --> 01:10:39,400
+years showing two girls you know with 20
+
+1256
+01:10:37,270 --> 01:10:41,560
+years it's like Playboy Bunnies okay
+
+1257
+01:10:39,400 --> 01:10:46,240
+it's nothing like what you see today
+
+1258
+01:10:41,560 --> 01:10:50,140
+it's it's originally originally in Japan
+
+1259
+01:10:46,240 --> 01:10:52,810
+it looks like to playboy girls you know
+
+1260
+01:10:50,140 --> 01:10:55,060
+meaning sexy you know like doing crab
+
+1261
+01:10:52,810 --> 01:10:58,330
+dancing stuff to women with too many
+
+1262
+01:10:55,060 --> 01:11:00,970
+years that this one is also one of the
+
+1263
+01:10:58,330 --> 01:11:06,190
+original Unicode characters from Japan
+
+1264
+01:11:00,970 --> 01:11:09,640
+an emoji so but anyway so so look at
+
+1265
+01:11:06,190 --> 01:11:14,200
+this tensor emoji now to the Western
+
+1266
+01:11:09,640 --> 01:11:16,030
+political you know today like okay you
+
+1267
+01:11:14,200 --> 01:11:18,490
+have a dancer but why should it be
+
+1268
+01:11:16,030 --> 01:11:20,770
+female you know and so the white people
+
+1269
+01:11:18,490 --> 01:11:23,140
+want to ask you know so we should have
+
+1270
+01:11:20,770 --> 01:11:26,140
+you know you should be male 2 you know
+
+1271
+01:11:23,140 --> 01:11:30,640
+because because this or that so they
+
+1272
+01:11:26,140 --> 01:11:32,680
+created man dancing and and so for
+
+1273
+01:11:30,640 --> 01:11:36,460
+example any character for example this
+
+1274
+01:11:32,680 --> 01:11:39,370
+baby so so since 2005 also you
+
+1275
+01:11:36,460 --> 01:11:42,600
+every year unicode added more emoji you
+
+1276
+01:11:39,370 --> 01:11:44,469
+know for example now today we have
+
+1277
+01:11:42,600 --> 01:11:46,450
+hamburger we have pizza
+
+1278
+01:11:44,469 --> 01:11:49,540
+we have Western croissant you know
+
+1279
+01:11:46,450 --> 01:11:52,150
+French croissant we have cheese eggs you
+
+1280
+01:11:49,540 --> 01:11:54,510
+know all kind of western food then we
+
+1281
+01:11:52,150 --> 01:11:57,280
+also added Chinese food Chinese
+
+1282
+01:11:54,510 --> 01:11:59,800
+chopsticks and so on but before it's all
+
+1283
+01:11:57,280 --> 01:12:03,850
+these are not there you just have the
+
+1284
+01:11:59,800 --> 01:12:07,360
+Japanese basically these these these
+
+1285
+01:12:03,850 --> 01:12:10,390
+ones you know you know about maybe you
+
+1286
+01:12:07,360 --> 01:12:12,700
+know five or ten of them because that's
+
+1287
+01:12:10,390 --> 01:12:15,520
+our internal you know Japanese teenagers
+
+1288
+01:12:12,700 --> 01:12:17,860
+they use their phone you know they are
+
+1289
+01:12:15,520 --> 01:12:19,870
+not thinking oh we must be fair we must
+
+1290
+01:12:17,860 --> 01:12:22,770
+represent all the food in the world you
+
+1291
+01:12:19,870 --> 01:12:27,010
+know they just want you know they show
+
+1292
+01:12:22,770 --> 01:12:29,980
+sushi because sushi is I don't know you
+
+1293
+01:12:27,010 --> 01:12:32,460
+know food that they eat often or
+
+1294
+01:12:29,980 --> 01:12:35,500
+something like that right so anyway so
+
+1295
+01:12:32,460 --> 01:12:39,460
+but to the Westerners you know so when
+
+1296
+01:12:35,500 --> 01:12:42,070
+you have a baby emoji some of the people
+
+1297
+01:12:39,460 --> 01:12:43,210
+are thinking oh but should the baby be
+
+1298
+01:12:42,070 --> 01:12:45,969
+male or female
+
+1299
+01:12:43,210 --> 01:12:48,550
+oh wait we need a baby with black color
+
+1300
+01:12:45,969 --> 01:12:51,700
+skin mean the big baby with red color
+
+1301
+01:12:48,550 --> 01:12:54,910
+skin and so on you know so so today it
+
+1302
+01:12:51,700 --> 01:12:57,160
+becomes a very heavy emoji political
+
+1303
+01:12:54,910 --> 01:13:00,550
+issue and for example you have this
+
+1304
+01:12:57,160 --> 01:13:05,830
+picture you know men with women men and
+
+1305
+01:13:00,550 --> 01:13:09,070
+women holding hands I am I don't know if
+
+1306
+01:13:05,830 --> 01:13:12,489
+this in our internal Japanese emoji of I
+
+1307
+01:13:09,070 --> 01:13:15,100
+don't remember but anyway let but to the
+
+1308
+01:13:12,489 --> 01:13:18,520
+Westerners then it's you know their
+
+1309
+01:13:15,100 --> 01:13:21,520
+thought is become oh oh but but but but
+
+1310
+01:13:18,520 --> 01:13:24,730
+then we need men with men holding hands
+
+1311
+01:13:21,520 --> 01:13:26,469
+then we we need women and women holding
+
+1312
+01:13:24,730 --> 01:13:30,430
+hands and things like that so everyone
+
+1313
+01:13:26,469 --> 01:13:32,950
+it becomes very political issue so so
+
+1314
+01:13:30,430 --> 01:13:36,250
+that is why ok that is a situation and
+
+1315
+01:13:32,950 --> 01:13:41,370
+in fact today we have come to the point
+
+1316
+01:13:36,250 --> 01:13:44,860
+that the Unicode consortium they decided
+
+1317
+01:13:41,370 --> 01:13:49,460
+they decided that all emoji they should
+
+1318
+01:13:44,860 --> 01:13:51,980
+not by default associated with a
+
+1319
+01:13:49,460 --> 01:13:54,739
+sex you know you cannot you know if you
+
+1320
+01:13:51,980 --> 01:13:57,710
+have an emoji you cannot have you know
+
+1321
+01:13:54,739 --> 01:14:00,140
+it's not supposed it cannot be either
+
+1322
+01:13:57,710 --> 01:14:04,489
+male female it has to be like new
+
+1323
+01:14:00,140 --> 01:14:08,989
+neutral for example for example look at
+
+1324
+01:14:04,489 --> 01:14:11,420
+today's emoji okay um our Apple Mac OS
+
+1325
+01:14:08,989 --> 01:14:15,430
+you know look at this emoji BAE it's
+
+1326
+01:14:11,420 --> 01:14:17,960
+like almost all of them becomes so this
+
+1327
+01:14:15,430 --> 01:14:19,910
+they don't look like men they don't like
+
+1328
+01:14:17,960 --> 01:14:22,690
+they don't like they don't look like
+
+1329
+01:14:19,910 --> 01:14:25,190
+women they don't look like a girl and
+
+1330
+01:14:22,690 --> 01:14:28,540
+they don't look like old man they don't
+
+1331
+01:14:25,190 --> 01:14:32,450
+like they all become this generic
+
+1332
+01:14:28,540 --> 01:14:35,900
+extremely generic and and creepy thing
+
+1333
+01:14:32,450 --> 01:14:39,440
+that's that's this social justice have
+
+1334
+01:14:35,900 --> 01:14:42,350
+created you know they they they all
+
+1335
+01:14:39,440 --> 01:14:47,600
+become this extremely creepy face and
+
+1336
+01:14:42,350 --> 01:14:51,380
+look at this so so in the past to 2018 I
+
+1337
+01:14:47,600 --> 01:14:54,620
+think 2017 or 2018 we added a bunch more
+
+1338
+01:14:51,380 --> 01:14:56,300
+emoji so you have this more person you
+
+1339
+01:14:54,620 --> 01:14:58,670
+know what wait what do you think of a
+
+1340
+01:14:56,300 --> 01:15:01,640
+mermaid you know my person came from
+
+1341
+01:14:58,670 --> 01:15:03,860
+mermaid mermaid is has long history you
+
+1342
+01:15:01,640 --> 01:15:06,770
+know like two or three thousand years
+
+1343
+01:15:03,860 --> 01:15:10,040
+ago from Greek mythology you know you
+
+1344
+01:15:06,770 --> 01:15:13,700
+have mermaid and you know it's always
+
+1345
+01:15:10,040 --> 01:15:16,190
+mermaid this you know you have you know
+
+1346
+01:15:13,700 --> 01:15:19,340
+statues of mermaid you know that's
+
+1347
+01:15:16,190 --> 01:15:22,190
+thousand or 2,000 years old but today
+
+1348
+01:15:19,340 --> 01:15:25,550
+you know in a social justice era you
+
+1349
+01:15:22,190 --> 01:15:27,680
+cannot you cannot have a mermaid because
+
+1350
+01:15:25,550 --> 01:15:31,520
+then because that would be oh that would
+
+1351
+01:15:27,680 --> 01:15:34,310
+be mythology or what whatever you know a
+
+1352
+01:15:31,520 --> 01:15:37,430
+stereotype or whatever so so you have to
+
+1353
+01:15:34,310 --> 01:15:39,620
+have a character that's you cannot have
+
+1354
+01:15:37,430 --> 01:15:42,440
+mermen either you you have you have to
+
+1355
+01:15:39,620 --> 01:15:46,130
+have a more person and look at this this
+
+1356
+01:15:42,440 --> 01:15:49,070
+thing ugly extremely ugly thing what is
+
+1357
+01:15:46,130 --> 01:15:51,860
+this you know mermen you know this not
+
+1358
+01:15:49,070 --> 01:15:54,880
+like a man not like a boys you you have
+
+1359
+01:15:51,860 --> 01:15:57,320
+this so and and then you have this elf
+
+1360
+01:15:54,880 --> 01:16:01,190
+then this look at this genie
+
+1361
+01:15:57,320 --> 01:16:02,520
+I mean does that reminds you of a genie
+
+1362
+01:16:01,190 --> 01:16:07,290
+I mean genie
+
+1363
+01:16:02,520 --> 01:16:08,640
+Jeanne's has Asian history from the
+
+1364
+01:16:07,290 --> 01:16:11,160
+Middle East okay
+
+1365
+01:16:08,640 --> 01:16:12,840
+now of course when you think of when we
+
+1366
+01:16:11,160 --> 01:16:16,190
+think of Jeannie today we think of
+
+1367
+01:16:12,840 --> 01:16:21,660
+Disney Disney's genie okay that's just
+
+1368
+01:16:16,190 --> 01:16:22,740
+Americanized genie genie is a fictional
+
+1369
+01:16:21,660 --> 01:16:26,910
+creature
+
+1370
+01:16:22,740 --> 01:16:28,710
+you know mythology in Middle East
+
+1371
+01:16:26,910 --> 01:16:31,590
+okay I'm not sure exactly what's a
+
+1372
+01:16:28,710 --> 01:16:33,960
+ranger but it it it's not like you know
+
+1373
+01:16:31,590 --> 01:16:37,110
+Disney's version but then you look at
+
+1374
+01:16:33,960 --> 01:16:40,500
+you know this emoji version of genie on
+
+1375
+01:16:37,110 --> 01:16:43,080
+Apple platform it's look it looks very
+
+1376
+01:16:40,500 --> 01:16:46,910
+creepy it looks like nothing it looks
+
+1377
+01:16:43,080 --> 01:16:50,760
+like a semis zombie it looks like a semi
+
+1378
+01:16:46,910 --> 01:16:53,460
+boy and it looks like you know all this
+
+1379
+01:16:50,760 --> 01:16:57,870
+becomes creepy things and this this
+
+1380
+01:16:53,460 --> 01:17:01,770
+match okay anyway I think you get what
+
+1381
+01:16:57,870 --> 01:17:05,820
+I'm saying that's that's a political
+
+1382
+01:17:01,770 --> 01:17:08,130
+situation of Unicode and you know the
+
+1383
+01:17:05,820 --> 01:17:11,130
+social justice people they are you know
+
+1384
+01:17:08,130 --> 01:17:17,790
+they are doing these things all day
+
+1385
+01:17:11,130 --> 01:17:21,270
+every day now okay no youyou do have a
+
+1386
+01:17:17,790 --> 01:17:23,130
+different skin color you know like like
+
+1387
+01:17:21,270 --> 01:17:28,020
+I mentioned Unicode has become so
+
+1388
+01:17:23,130 --> 01:17:30,330
+corrupted and complex you have skin
+
+1389
+01:17:28,020 --> 01:17:34,440
+color but to do that you basically you
+
+1390
+01:17:30,330 --> 01:17:38,820
+add another character called variant now
+
+1391
+01:17:34,440 --> 01:17:42,060
+you have like 16 of them 16 variant code
+
+1392
+01:17:38,820 --> 01:17:46,260
+point or characters so if you place that
+
+1393
+01:17:42,060 --> 01:17:49,290
+character Jason you know right after the
+
+1394
+01:17:46,260 --> 01:17:51,390
+more person then you'll get the male or
+
+1395
+01:17:49,290 --> 01:17:55,050
+female and also the I think there's the
+
+1396
+01:17:51,390 --> 01:17:57,300
+social skin color so it's like anyway it
+
+1397
+01:17:55,050 --> 01:18:00,210
+becomes very complex Unicode has to
+
+1398
+01:17:57,300 --> 01:18:04,470
+become you know this political situation
+
+1399
+01:18:00,210 --> 01:18:06,030
+and very complex so let me so I've been
+
+1400
+01:18:04,470 --> 01:18:09,270
+talking too long I think
+
+1401
+01:18:06,030 --> 01:18:12,030
+being okay I think that's it for I mean
+
+1402
+01:18:09,270 --> 01:18:14,760
+that's about it so if you have more
+
+1403
+01:18:12,030 --> 01:18:16,890
+questions as yet and we are done and we
+
+1404
+01:18:14,760 --> 01:18:21,060
+are going to skip
+
+1405
+01:18:16,890 --> 01:18:24,930
+the math the talk about logic model
+
+1406
+01:18:21,060 --> 01:18:28,890
+theory and stuff so let me finish
+
+1407
+01:18:24,930 --> 01:18:33,380
+answering the comments and that would be
+
+1408
+01:18:28,890 --> 01:18:33,380
+a good talk today
+
+1409
+01:18:45,419 --> 01:18:52,139
+so Norman ask ask
+
+1410
+01:18:48,659 --> 01:18:54,419
+number ask thus direct indexing ever
+
+1411
+01:18:52,139 --> 01:18:57,149
+makes sense for Unicode
+
+1412
+01:18:54,419 --> 01:19:02,780
+I think you must process the entire
+
+1413
+01:18:57,149 --> 01:19:05,820
+string to find all graphine clusters no
+
+1414
+01:19:02,780 --> 01:19:12,749
+I think yes and no depending on what you
+
+1415
+01:19:05,820 --> 01:19:16,709
+mean but okay so so I think what you are
+
+1416
+01:19:12,749 --> 01:19:20,070
+asking is about more complicated problem
+
+1417
+01:19:16,709 --> 01:19:24,329
+because well I'm not going to talk about
+
+1418
+01:19:20,070 --> 01:19:29,749
+that but but I think but anyway let's so
+
+1419
+01:19:24,329 --> 01:19:36,709
+if you let me point out for those of you
+
+1420
+01:19:29,749 --> 01:19:40,530
+JavaScript so such for JavaScript int l
+
+1421
+01:19:36,709 --> 01:19:48,709
+SE g m-e and t okay that is the new
+
+1422
+01:19:40,530 --> 01:19:52,260
+proposal in javascript to find to find
+
+1423
+01:19:48,709 --> 01:19:55,199
+the boundaries of graphemes
+
+1424
+01:19:52,260 --> 01:19:57,769
+in unicode okay i think that that
+
+1425
+01:19:55,199 --> 01:20:00,479
+relates to what you are asking normally
+
+1426
+01:19:57,769 --> 01:20:06,499
+so you might check out this page you
+
+1427
+01:20:00,479 --> 01:20:13,559
+know that that discuss that in detail
+
+1428
+01:20:06,499 --> 01:20:16,590
+and also for for you know different
+
+1429
+01:20:13,559 --> 01:20:20,090
+languages deal with the unicode problem
+
+1430
+01:20:16,590 --> 01:20:25,019
+in different ways for example python 3
+
+1431
+01:20:20,090 --> 01:20:28,439
+they created a way so that every stream
+
+1432
+01:20:25,019 --> 01:20:31,619
+python 3 is just unicode characters you
+
+1433
+01:20:28,439 --> 01:20:35,519
+know unicode code points that's it it's
+
+1434
+01:20:31,619 --> 01:20:39,360
+not bits is not bytes if every element
+
+1435
+01:20:35,519 --> 01:20:41,519
+in a string of python 3 is a unicode
+
+1436
+01:20:39,360 --> 01:20:46,499
+code point or character ok that's how
+
+1437
+01:20:41,519 --> 01:20:48,269
+Python 3 deal with the problem and which
+
+1438
+01:20:46,499 --> 01:20:50,789
+I don't think is a good solution because
+
+1439
+01:20:48,269 --> 01:20:53,070
+a lot you know they created lots of
+
+1440
+01:20:50,789 --> 01:20:55,619
+problems I don't really know the details
+
+1441
+01:20:53,070 --> 01:21:01,159
+but anyway they a lot of people don't
+
+1442
+01:20:55,619 --> 01:21:01,159
+like it and by the way also let me
+
+1443
+01:21:02,240 --> 01:21:10,050
+: which is my favorite favorite language
+
+1444
+01:21:06,030 --> 01:21:12,750
+they solve the problem in another way
+
+1445
+01:21:10,050 --> 01:21:16,920
+let me find the goal and my column page
+
+1446
+01:21:12,750 --> 01:21:24,000
+so if you go to sorry : tutorial you can
+
+1447
+01:21:16,920 --> 01:21:25,560
+see I discuss how : solves the problem
+
+1448
+01:21:24,000 --> 01:21:31,080
+in this page
+
+1449
+01:21:25,560 --> 01:21:32,630
+Oh dangerous you're asleep but soon ah
+
+1450
+01:21:31,080 --> 01:21:35,220
+butcher
+
+1451
+01:21:32,630 --> 01:21:38,370
+so color itself to this dream like my
+
+1452
+01:21:35,220 --> 01:21:42,780
+roommate asked me to eat so grass off
+
+1453
+01:21:38,370 --> 01:21:44,970
+this page solves the problem so in : :
+
+1454
+01:21:42,780 --> 01:21:46,980
+soft steel with the stream problem and
+
+1455
+01:21:44,970 --> 01:21:50,270
+Unicode in a different way different
+
+1456
+01:21:46,980 --> 01:21:52,710
+from JavaScript different from Unicode
+
+1457
+01:21:50,270 --> 01:21:54,090
+different from JavaScript
+
+1458
+01:21:52,710 --> 01:21:57,620
+well don't want don't want don't want
+
+1459
+01:21:54,090 --> 01:22:01,740
+lights that was different from
+
+1460
+01:21:57,620 --> 01:22:07,230
+JavaScript and different from Python 3
+
+1461
+01:22:01,740 --> 01:22:10,140
+okay so in : a string is a sequence of
+
+1462
+01:22:07,230 --> 01:22:12,750
+bytes you know a thick string is a
+
+1463
+01:22:10,140 --> 01:22:15,780
+sequence of 8 bits you know that's it
+
+1464
+01:22:12,750 --> 01:22:19,020
+it's not about Unicode it's not about
+
+1465
+01:22:15,780 --> 01:22:23,870
+characters it's simply your string in :
+
+1466
+01:22:19,020 --> 01:22:27,570
+is sequence of bytes you know 8 bits so
+
+1467
+01:22:23,870 --> 01:22:29,550
+so you know but how do you you know but
+
+1468
+01:22:27,570 --> 01:22:32,340
+what if I have a smiley you know what
+
+1469
+01:22:29,550 --> 01:22:35,700
+what if I have what if I have a emoji in
+
+1470
+01:22:32,340 --> 01:22:37,820
+in your stream well you can still solve
+
+1471
+01:22:35,700 --> 01:22:40,020
+the problem anyway I'm not going to
+
+1472
+01:22:37,820 --> 01:22:42,720
+explain about that you can read my
+
+1473
+01:22:40,020 --> 01:22:45,800
+website if you like to I kind of have to
+
+1474
+01:22:42,720 --> 01:22:56,790
+go because my roommate is calling for me
+
+1475
+01:22:45,800 --> 01:22:58,800
+so folks are stories and wolfram well I
+
+1476
+01:22:56,790 --> 01:23:00,630
+I kind of heard up name I think it's a
+
+1477
+01:22:58,800 --> 01:23:02,850
+great language but I don't have time to
+
+1478
+01:23:00,630 --> 01:23:05,670
+learn it yeah I heard many people
+
+1479
+01:23:02,850 --> 01:23:08,930
+totally in telling me so name is kind of
+
+1480
+01:23:05,670 --> 01:23:10,860
+a language kind of like in the same
+
+1481
+01:23:08,930 --> 01:23:12,890
+class s :
+
+1482
+01:23:10,860 --> 01:23:16,970
+it's very fast very
+
+1483
+01:23:12,890 --> 01:23:19,340
+for you can use it as a system
+
+1484
+01:23:16,970 --> 01:23:20,000
+programming language but McGuire is also
+
+1485
+01:23:19,340 --> 01:23:23,510
+elegant
+
+1486
+01:23:20,000 --> 01:23:28,490
+I think the syntax is Python right it's
+
+1487
+01:23:23,510 --> 01:23:30,710
+a python-based syntax but however it's
+
+1488
+01:23:28,490 --> 01:23:33,890
+also typed just like Cola and very
+
+1489
+01:23:30,710 --> 01:23:36,500
+efficient oh you know coding Emacs
+
+1490
+01:23:33,890 --> 01:23:39,800
+that's another very interesting it's
+
+1491
+01:23:36,500 --> 01:23:42,380
+Emacs is the most wonderful language
+
+1492
+01:23:39,800 --> 01:23:45,620
+when it comes to Unicode but anyway I
+
+1493
+01:23:42,380 --> 01:23:48,110
+gotta go so thank you guys for coming by
+
+1494
+01:23:45,620 --> 01:23:51,440
+if you like to support me you know just
+
+1495
+01:23:48,110 --> 01:23:54,130
+go to Holly blog okay any of my blog I
+
+1496
+01:23:51,440 --> 01:23:57,500
+got patron you know PayPal you can
+
+1497
+01:23:54,130 --> 01:24:00,010
+Amazon Cape Cod I appreciate that
+
+1498
+01:23:57,500 --> 01:24:03,890
+okay thank you thank you guys for coming
+
+1499
+01:24:00,010 --> 01:24:05,530
+it was a great talk today I'll see you
+
+1500
+01:24:03,890 --> 01:24:08,660
+guys next time
+
+1501
+01:24:05,530 --> 01:24:09,560
+if if you got a comment I didn't I
+
+1502
+01:24:08,660 --> 01:24:12,320
+didn't answer
+
+1503
+01:24:09,560 --> 01:24:14,960
+you know posting YouTube comments then I
+
+1504
+01:24:12,320 --> 01:24:19,570
+see it and we talk about it next time
+
+1505
+01:24:14,960 --> 01:24:19,570
+Thanks good night guys
+

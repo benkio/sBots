@@ -1,0 +1,3828 @@
+1
+00:03:22,670 --> 00:03:30,569
+no sound okay so now we have Sun sorry
+
+2
+00:03:26,370 --> 00:03:31,920
+about that this is screwed up or scooter
+
+3
+00:03:30,569 --> 00:03:36,480
+okay let's start over
+
+4
+00:03:31,920 --> 00:03:40,620
+so today's 2020 today he's 2020 January
+
+5
+00:03:36,480 --> 00:03:43,890
+13th Monday and noon San Francisco time
+
+6
+00:03:40,620 --> 00:03:45,870
+so today's topic is going to be Emacs
+
+7
+00:03:43,890 --> 00:03:47,879
+and eMac these live coding press
+
+8
+00:03:45,870 --> 00:03:49,860
+tutorial so if you have comments
+
+9
+00:03:47,879 --> 00:03:53,489
+possibly here okay so it's gonna be a
+
+10
+00:03:49,860 --> 00:03:56,760
+technical session today and if you have
+
+11
+00:03:53,489 --> 00:04:00,989
+not already joining this code you can
+
+12
+00:03:56,760 --> 00:04:02,940
+find midas code on solid out info or on
+
+13
+00:04:00,989 --> 00:04:07,290
+my youtube channel you just go around
+
+14
+00:04:02,940 --> 00:04:10,290
+and you'll find my exile this discord we
+
+15
+00:04:07,290 --> 00:04:14,940
+have lots of interesting people and lots
+
+16
+00:04:10,290 --> 00:04:18,690
+of great topics great people so okay so
+
+17
+00:04:14,940 --> 00:04:21,810
+let's let's start by yeah so we got we
+
+18
+00:04:18,690 --> 00:04:23,940
+are going to do Emacs and technical very
+
+19
+00:04:21,810 --> 00:04:27,389
+technical so if you have any MX
+
+20
+00:04:23,940 --> 00:04:30,630
+questions Emacs radiates things asked ok
+
+21
+00:04:27,389 --> 00:04:33,710
+post in the chat ok the first thing I
+
+22
+00:04:30,630 --> 00:04:39,180
+want to do is I have this odd odd odd
+
+23
+00:04:33,710 --> 00:04:41,849
+odd blog okay let me show you so we I
+
+24
+00:04:39,180 --> 00:04:44,910
+started to do just this yesterday but
+
+25
+00:04:41,849 --> 00:04:49,289
+instead of I end up talking about all
+
+26
+00:04:44,910 --> 00:04:53,400
+these topics for one hour plus these
+
+27
+00:04:49,289 --> 00:04:57,030
+fantastic topics about art these are not
+
+28
+00:04:53,400 --> 00:05:00,810
+just pretty girls but art and humanity
+
+29
+00:04:57,030 --> 00:05:02,970
+and communication and psychology and
+
+30
+00:05:00,810 --> 00:05:06,419
+neuroscience in artificial intelligence
+
+31
+00:05:02,970 --> 00:05:09,630
+and longevity learnt longevity you know
+
+32
+00:05:06,419 --> 00:05:11,669
+all kind of all sort of things but what
+
+33
+00:05:09,630 --> 00:05:15,810
+we want to do today is that I have this
+
+34
+00:05:11,669 --> 00:05:19,470
+art blog you can see so this is a
+
+35
+00:05:15,810 --> 00:05:21,750
+website and and this is the this is the
+
+36
+00:05:19,470 --> 00:05:25,020
+source code corresponding to that and I
+
+37
+00:05:21,750 --> 00:05:28,440
+want to you see this art blog has is
+
+38
+00:05:25,020 --> 00:05:30,300
+very long so it's like 40 screen 40
+
+39
+00:05:28,440 --> 00:05:31,349
+screens if you go all the way to the
+
+40
+00:05:30,300 --> 00:05:35,339
+bottom
+
+41
+00:05:31,349 --> 00:05:40,800
+the last entry is about you know it's
+
+42
+00:05:35,339 --> 00:05:42,809
+back to 2018 January so I need to make
+
+43
+00:05:40,800 --> 00:05:44,789
+an archive you know what what does I
+
+44
+00:05:42,809 --> 00:05:45,389
+mean so archive for example you click on
+
+45
+00:05:44,789 --> 00:05:47,969
+here
+
+46
+00:05:45,389 --> 00:05:50,550
+let's see archive so when it gets too
+
+47
+00:05:47,969 --> 00:05:54,289
+long I put them into an archive it's not
+
+48
+00:05:50,550 --> 00:05:58,349
+automated I do it same I manually
+
+49
+00:05:54,289 --> 00:06:00,569
+whenever it gets too long I manually do
+
+50
+00:05:58,349 --> 00:06:03,210
+it so let's go back to the art blog and
+
+51
+00:06:00,569 --> 00:06:06,869
+let's see so we are going to create an
+
+52
+00:06:03,210 --> 00:06:13,669
+archive of it now let's see how long
+
+53
+00:06:06,869 --> 00:06:18,479
+have I been so 2018 May so let's grab or
+
+54
+00:06:13,669 --> 00:06:20,399
+2018 into one page ok now this is
+
+55
+00:06:18,479 --> 00:06:25,259
+interesting this this this
+
+56
+00:06:20,399 --> 00:06:28,110
+twing this pears they are how are they
+
+57
+00:06:25,259 --> 00:06:31,649
+call kappa you know they are mixed race
+
+58
+00:06:28,110 --> 00:06:35,249
+they are half asian half American half
+
+59
+00:06:31,649 --> 00:06:38,180
+AC half white something like that but
+
+60
+00:06:35,249 --> 00:06:40,589
+they are you know they are young people
+
+61
+00:06:38,180 --> 00:06:42,629
+and they are couple they are actually
+
+62
+00:06:40,589 --> 00:06:44,399
+married they married like two years ago
+
+63
+00:06:42,629 --> 00:06:48,599
+or three years ago and they are great
+
+64
+00:06:44,399 --> 00:06:50,699
+people at they are on Twitter but the
+
+65
+00:06:48,599 --> 00:06:53,490
+interesting thing about them is that
+
+66
+00:06:50,699 --> 00:06:57,899
+they are posters you know the things
+
+67
+00:06:53,490 --> 00:06:59,459
+they put out are usually very artistic
+
+68
+00:06:57,899 --> 00:07:02,459
+you know it I find them very interesting
+
+69
+00:06:59,459 --> 00:07:05,939
+for example this this picture so you
+
+70
+00:07:02,459 --> 00:07:10,289
+have this guy you know sitting like that
+
+71
+00:07:05,939 --> 00:07:13,800
+you know it's a it's got a post and then
+
+72
+00:07:10,289 --> 00:07:17,309
+girls looking it at him her lover like
+
+73
+00:07:13,800 --> 00:07:18,180
+that so I find you know it's I will say
+
+74
+00:07:17,309 --> 00:07:20,430
+it's artistic
+
+75
+00:07:18,180 --> 00:07:22,740
+so anyway I'm not going to talk about
+
+76
+00:07:20,430 --> 00:07:26,279
+these topics we are just going to do
+
+77
+00:07:22,740 --> 00:07:28,709
+Emacs so so on the Emacs page this is
+
+78
+00:07:26,279 --> 00:07:32,399
+HTML source code I go to the button
+
+79
+00:07:28,709 --> 00:07:35,699
+search for archive okay it's right there
+
+80
+00:07:32,399 --> 00:07:38,729
+so I open it so it's a list of archive
+
+81
+00:07:35,699 --> 00:07:43,079
+so I'm going to create a new one so I
+
+82
+00:07:38,729 --> 00:07:45,180
+copy this line paste it enter so you see
+
+83
+00:07:43,079 --> 00:07:49,140
+this line is now double cut
+
+84
+00:07:45,180 --> 00:07:53,250
+now I'm going to change the date to 2018
+
+85
+00:07:49,140 --> 00:07:57,660
+okay 2018 January let's go back to the
+
+86
+00:07:53,250 --> 00:08:02,270
+blog to the bottom page up page up yeah
+
+87
+00:07:57,660 --> 00:08:07,860
+2018 January so I rename these to 2018
+
+88
+00:08:02,270 --> 00:08:09,780
+January okay and this page does not
+
+89
+00:08:07,860 --> 00:08:12,810
+exist so I press Enter
+
+90
+00:08:09,780 --> 00:08:16,970
+he says file does not exist okay do I
+
+91
+00:08:12,810 --> 00:08:19,830
+want to create new No instead I want to
+
+92
+00:08:16,970 --> 00:08:22,230
+kokum and you can see the left window
+
+93
+00:08:19,830 --> 00:08:24,690
+the pink window it shows all my commands
+
+94
+00:08:22,230 --> 00:08:26,940
+you can if you find a command that's
+
+95
+00:08:24,690 --> 00:08:28,860
+interesting you can search the command
+
+96
+00:08:26,940 --> 00:08:34,020
+name on my website you'll find the code
+
+97
+00:08:28,860 --> 00:08:36,780
+so I want to create this new page based
+
+98
+00:08:34,020 --> 00:08:38,610
+on this page basically make a copy so
+
+99
+00:08:36,780 --> 00:08:44,910
+what I do is I move the cursor to this
+
+100
+00:08:38,610 --> 00:08:48,330
+to this href to this link to this
+
+101
+00:08:44,910 --> 00:08:51,810
+position and I call the command saw copy
+
+102
+00:08:48,330 --> 00:08:55,740
+HTML by link you see that's a command at
+
+103
+00:08:51,810 --> 00:08:58,440
+the mini buffer so enter it's done now
+
+104
+00:08:55,740 --> 00:09:00,930
+if I you know the cursor is moved here
+
+105
+00:08:58,440 --> 00:09:04,890
+now if I press ENTER you're open that
+
+106
+00:09:00,930 --> 00:09:08,460
+file so you see this is a copy of that
+
+107
+00:09:04,890 --> 00:09:11,270
+of the previous archive blog archive so
+
+108
+00:09:08,460 --> 00:09:16,410
+so I open this in search for section
+
+109
+00:09:11,270 --> 00:09:18,960
+search for section wait okay so there is
+
+110
+00:09:16,410 --> 00:09:25,740
+no section actually I want to delete all
+
+111
+00:09:18,960 --> 00:09:28,140
+these contents okay and delete go all
+
+112
+00:09:25,740 --> 00:09:32,430
+the way down and delete them section
+
+113
+00:09:28,140 --> 00:09:35,310
+sections section TV them okay so now you
+
+114
+00:09:32,430 --> 00:09:39,180
+open in browser again it's empty we
+
+115
+00:09:35,310 --> 00:09:43,350
+accept the ads so back to Emacs rename
+
+116
+00:09:39,180 --> 00:09:46,110
+the title so I want to say 2018 January
+
+117
+00:09:43,350 --> 00:09:48,600
+enter okay the you see the name is
+
+118
+00:09:46,110 --> 00:09:54,960
+changed in both places in both this
+
+119
+00:09:48,600 --> 00:09:56,930
+title and also in this h1 header so in
+
+120
+00:09:54,960 --> 00:09:58,710
+browser you can see the header is now
+
+121
+00:09:56,930 --> 00:10:01,140
+2018 now
+
+122
+00:09:58,710 --> 00:10:04,020
+close this file and close this archive
+
+123
+00:10:01,140 --> 00:10:08,820
+file now we are back in my blog that
+
+124
+00:10:04,020 --> 00:10:13,560
+don't blog file so I want to now I want
+
+125
+00:10:08,820 --> 00:10:17,060
+to move everything that's 2018 to that
+
+126
+00:10:13,560 --> 00:10:19,800
+new page so what I do is I search for
+
+127
+00:10:17,060 --> 00:10:22,470
+least matching lines okay let me show
+
+128
+00:10:19,800 --> 00:10:24,810
+the command so I'm going to search for
+
+129
+00:10:22,470 --> 00:10:29,820
+this word okay this matching line is
+
+130
+00:10:24,810 --> 00:10:37,610
+state so you can see in this window it's
+
+131
+00:10:29,820 --> 00:10:37,610
+all the entries so I want to go to 2018
+
+132
+00:10:39,710 --> 00:10:47,790
+so here okay so I enter you'll jump to
+
+133
+00:10:43,800 --> 00:10:53,610
+your jump to that position which is here
+
+134
+00:10:47,790 --> 00:10:58,320
+so I copy I select it and go all the way
+
+135
+00:10:53,610 --> 00:11:01,590
+down to the last section cut okay so I
+
+136
+00:10:58,320 --> 00:11:08,010
+just cut the whole thing now go back to
+
+137
+00:11:01,590 --> 00:11:11,910
+my blog archive and open open this 2018
+
+138
+00:11:08,010 --> 00:11:14,850
+one the one we just created it's there
+
+139
+00:11:11,910 --> 00:11:18,540
+and paste the entire thing showing
+
+140
+00:11:14,850 --> 00:11:22,200
+browser now you can see we have just
+
+141
+00:11:18,540 --> 00:11:25,140
+created a new page so arts blog 2018
+
+142
+00:11:22,200 --> 00:11:29,550
+January so this is basically January to
+
+143
+00:11:25,140 --> 00:11:33,750
+December or 2018 and you can scroll down
+
+144
+00:11:29,550 --> 00:11:37,680
+you can see all the you know 2018
+
+145
+00:11:33,750 --> 00:11:41,130
+entries so that's good close it back to
+
+146
+00:11:37,680 --> 00:11:45,630
+Emacs close it and on this archive page
+
+147
+00:11:41,130 --> 00:11:48,330
+this 2018 needs to be on top so cut it
+
+148
+00:11:45,630 --> 00:11:49,380
+move to here and paste it so now the
+
+149
+00:11:48,330 --> 00:11:54,000
+2080
+
+150
+00:11:49,380 --> 00:11:57,720
+18 entries on top showing browser that
+
+151
+00:11:54,000 --> 00:12:01,980
+is correct okay close it back to Emacs
+
+152
+00:11:57,720 --> 00:12:05,490
+close it now this is my this now this we
+
+153
+00:12:01,980 --> 00:12:08,010
+are back at the long block page so if we
+
+154
+00:12:05,490 --> 00:12:12,090
+go back to my art blog page let's see
+
+155
+00:12:08,010 --> 00:12:12,660
+here you see this is my art block now if
+
+156
+00:12:12,090 --> 00:12:15,930
+we go
+
+157
+00:12:12,660 --> 00:12:18,740
+all the way down you see we have not
+
+158
+00:12:15,930 --> 00:12:22,889
+refreshed the browser yet so it's still
+
+159
+00:12:18,740 --> 00:12:26,910
+2018 here you see 2018 but now if we
+
+160
+00:12:22,889 --> 00:12:30,810
+refresh it all the 2018 entries will be
+
+161
+00:12:26,910 --> 00:12:33,089
+good you can observe the scrollbar the
+
+162
+00:12:30,810 --> 00:12:36,540
+scrollbar will kind of get longer so let
+
+163
+00:12:33,089 --> 00:12:37,740
+me do it so we're gonna I'm gonna press
+
+164
+00:12:36,540 --> 00:12:41,189
+refresh okay
+
+165
+00:12:37,740 --> 00:12:46,500
+refresh there it is you see the last
+
+166
+00:12:41,189 --> 00:12:50,910
+entry is now 2019 so so essentially this
+
+167
+00:12:46,500 --> 00:12:55,199
+my blog has shrinked by half almost and
+
+168
+00:12:50,910 --> 00:12:58,800
+you go to the bottom you click on the
+
+169
+00:12:55,199 --> 00:13:01,350
+blog archive so you have 2018 entry
+
+170
+00:12:58,800 --> 00:13:09,209
+click on that there it is
+
+171
+00:13:01,350 --> 00:13:11,879
+so I just I just you know made the blog
+
+172
+00:13:09,209 --> 00:13:15,019
+archive now there's one more thing to do
+
+173
+00:13:11,879 --> 00:13:18,870
+so go to the top of this page search for
+
+174
+00:13:15,019 --> 00:13:21,449
+section showing browser okay so you see
+
+175
+00:13:18,870 --> 00:13:26,339
+this is my art blog and there is a
+
+176
+00:13:21,449 --> 00:13:29,970
+subscribe RSS feed you see this is the
+
+177
+00:13:26,339 --> 00:13:34,350
+last entry yesterday's entry now let's
+
+178
+00:13:29,970 --> 00:13:36,660
+go back okay go back now I need to on
+
+179
+00:13:34,350 --> 00:13:40,290
+this ISS feed
+
+180
+00:13:36,660 --> 00:13:43,889
+I need also also need to truncate it so
+
+181
+00:13:40,290 --> 00:13:48,839
+if you go all the way to the bottom you
+
+182
+00:13:43,889 --> 00:13:50,790
+can see the last entry is 2018 I need to
+
+183
+00:13:48,839 --> 00:13:55,500
+remove them so let me show the show you
+
+184
+00:13:50,790 --> 00:14:02,000
+the ISS file so in backing Emacs go to
+
+185
+00:13:55,500 --> 00:14:06,959
+tired so this is my block art blog and
+
+186
+00:14:02,000 --> 00:14:14,100
+here the block dot XML is the RSS atom
+
+187
+00:14:06,959 --> 00:14:17,309
+entry so open it you see it's got 667
+
+188
+00:14:14,100 --> 00:14:20,129
+kilobytes right now so you open it go
+
+189
+00:14:17,309 --> 00:14:23,100
+all the way to the bottom you see the
+
+190
+00:14:20,129 --> 00:14:26,100
+last entry let me show you the last
+
+191
+00:14:23,100 --> 00:14:30,269
+entry is this one tick 4
+
+192
+00:14:26,100 --> 00:14:33,449
+sit and it's the entry date is 2018
+
+193
+00:14:30,269 --> 00:14:36,470
+January so like before we need to remove
+
+194
+00:14:33,449 --> 00:14:42,139
+all the January's January general
+
+195
+00:14:36,470 --> 00:14:46,230
+January's entry so what we do is we
+
+196
+00:14:42,139 --> 00:14:49,259
+leased matching lines and I want to list
+
+197
+00:14:46,230 --> 00:14:52,220
+all lines containing the word tag okay
+
+198
+00:14:49,259 --> 00:14:56,269
+so there it is
+
+199
+00:14:52,220 --> 00:15:01,829
+magnify magnify so you you see the tag
+
+200
+00:14:56,269 --> 00:15:07,019
+contains the creation date so we want to
+
+201
+00:15:01,829 --> 00:15:07,560
+remove all the 2000 and 2018 entries so
+
+202
+00:15:07,019 --> 00:15:11,100
+the lat
+
+203
+00:15:07,560 --> 00:15:15,389
+so the oops I already clicked but that's
+
+204
+00:15:11,100 --> 00:15:19,889
+good so this one this is the 2018
+
+205
+00:15:15,389 --> 00:15:22,709
+December 31st so I jump to it okay
+
+206
+00:15:19,889 --> 00:15:26,490
+expand window that's this one so from
+
+207
+00:15:22,709 --> 00:15:31,709
+this one on onward to all the way to the
+
+208
+00:15:26,490 --> 00:15:34,170
+bottom delete it it's deleted you see
+
+209
+00:15:31,709 --> 00:15:41,279
+now the last entry is 2000 wait there's
+
+210
+00:15:34,170 --> 00:15:44,339
+another 2018 okay so we we had a off by
+
+211
+00:15:41,279 --> 00:15:47,639
+one arrow so this this entry is also
+
+212
+00:15:44,339 --> 00:15:54,300
+2018 so delete it delete it delete it
+
+213
+00:15:47,639 --> 00:15:57,120
+okay so now make a backup and save one
+
+214
+00:15:54,300 --> 00:16:02,310
+shot in one shot okay it's done now go
+
+215
+00:15:57,120 --> 00:16:06,899
+to tired refresh now you can see this is
+
+216
+00:16:02,310 --> 00:16:10,439
+a current file plot dot XML now it's 200
+
+217
+00:16:06,899 --> 00:16:14,069
+I mean it's 26 kilobytes and you can see
+
+218
+00:16:10,439 --> 00:16:16,529
+this backup file it's 67 kilobytes
+
+219
+00:16:14,069 --> 00:16:21,060
+because we have removed lots of things
+
+220
+00:16:16,529 --> 00:16:24,120
+so that's good so close the XML file
+
+221
+00:16:21,060 --> 00:16:30,600
+close that we are done now all we have
+
+222
+00:16:24,120 --> 00:16:33,269
+to do is go to a shell and saw let me
+
+223
+00:16:30,600 --> 00:16:36,630
+show you this command so I mean ischial
+
+224
+00:16:33,269 --> 00:16:39,870
+now I want to call a a sync command to
+
+225
+00:16:36,630 --> 00:16:43,020
+so to sync to my server but
+
+226
+00:16:39,870 --> 00:16:45,779
+however I have a the icing command is
+
+227
+00:16:43,020 --> 00:16:47,730
+very long like 200 300 characters I
+
+228
+00:16:45,779 --> 00:16:50,880
+don't remember all the options you know
+
+229
+00:16:47,730 --> 00:16:54,600
+the UNIX philosophy idiots you know with
+
+230
+00:16:50,880 --> 00:16:56,880
+the commands with incomprehensible 100
+
+231
+00:16:54,600 --> 00:17:00,720
+options like like like this one okay
+
+232
+00:16:56,880 --> 00:17:03,270
+like that one in a top so I want to code
+
+233
+00:17:00,720 --> 00:17:05,309
+I command I have a brief but I forgot
+
+234
+00:17:03,270 --> 00:17:08,030
+what's a brief because I have hundreds
+
+235
+00:17:05,309 --> 00:17:10,439
+literally hundreds of abbreviations
+
+236
+00:17:08,030 --> 00:17:13,110
+abbreviations in Emacs is the best
+
+237
+00:17:10,439 --> 00:17:17,069
+feature okay so I did a video talk about
+
+238
+00:17:13,110 --> 00:17:19,829
+Emacs a brief so you you might want to
+
+239
+00:17:17,069 --> 00:17:22,260
+watch it you know goes such Maya on my
+
+240
+00:17:19,829 --> 00:17:25,650
+youtube search for Saudi Emacs a brief
+
+241
+00:17:22,260 --> 00:17:27,980
+so I have a tutorial anyway so I have a
+
+242
+00:17:25,650 --> 00:17:30,330
+brief I have hundreds of brevis and
+
+243
+00:17:27,980 --> 00:17:32,400
+sometimes you know some of them I don't
+
+244
+00:17:30,330 --> 00:17:34,710
+use every day so I forgot what is
+
+245
+00:17:32,400 --> 00:17:37,410
+abbreviation name you see that's the
+
+246
+00:17:34,710 --> 00:17:40,260
+thing for example I want to call this
+
+247
+00:17:37,410 --> 00:17:44,010
+awesome command and I remember I do have
+
+248
+00:17:40,260 --> 00:17:46,380
+a brief but however I have several are
+
+249
+00:17:44,010 --> 00:17:48,570
+synced to different servers to to my
+
+250
+00:17:46,380 --> 00:17:50,580
+professor server to work server to you
+
+251
+00:17:48,570 --> 00:17:54,300
+know I don't remember what's a deviation
+
+252
+00:17:50,580 --> 00:17:59,880
+for that a sink you know command in that
+
+253
+00:17:54,300 --> 00:18:02,610
+situation what you need is Casa smart a
+
+254
+00:17:59,880 --> 00:18:04,140
+brief so in fact that command is called
+
+255
+00:18:02,610 --> 00:18:07,110
+this okay so let me show you
+
+256
+00:18:04,140 --> 00:18:10,230
+echo it so this command is called saw
+
+257
+00:18:07,110 --> 00:18:14,030
+interactive abri so you see in the mini
+
+258
+00:18:10,230 --> 00:18:17,790
+buffer it will show me a list of names
+
+259
+00:18:14,030 --> 00:18:19,950
+that I have a brief for so you can you
+
+260
+00:18:17,790 --> 00:18:20,720
+know in fact I can you know go over them
+
+261
+00:18:19,950 --> 00:18:23,250
+wait
+
+262
+00:18:20,720 --> 00:18:26,190
+so you see I call the command saw
+
+263
+00:18:23,250 --> 00:18:30,440
+interactive a brief so you can you know
+
+264
+00:18:26,190 --> 00:18:36,870
+you have all these ssh youtube download
+
+265
+00:18:30,440 --> 00:18:39,600
+vm inbox vm of image one for changing
+
+266
+00:18:36,870 --> 00:18:44,520
+image size or converting image from jpg
+
+267
+00:18:39,600 --> 00:18:47,760
+to PNG so on image scale image 256 that
+
+268
+00:18:44,520 --> 00:18:50,670
+means reduced color to 256 so the all
+
+269
+00:18:47,760 --> 00:18:53,700
+these are abbreviations so if I type it
+
+270
+00:18:50,670 --> 00:18:55,980
+you know if I select that one you see
+
+271
+00:18:53,700 --> 00:18:58,740
+then I get this command this is the
+
+272
+00:18:55,980 --> 00:19:04,220
+actual command I want now this is more
+
+273
+00:18:58,740 --> 00:19:07,140
+efficient than the bash alias okay now
+
+274
+00:19:04,220 --> 00:19:10,560
+now my friends you know I see on this
+
+275
+00:19:07,140 --> 00:19:14,430
+code many people they discuss their bash
+
+276
+00:19:10,560 --> 00:19:18,030
+aliases which is great but if you want
+
+277
+00:19:14,430 --> 00:19:22,920
+ones level up one level up in efficiency
+
+278
+00:19:18,030 --> 00:19:26,460
+you want you want to do it in Emacs Asia
+
+279
+00:19:22,920 --> 00:19:27,390
+and you want to do it within a brief or
+
+280
+00:19:26,460 --> 00:19:29,940
+short cut
+
+281
+00:19:27,390 --> 00:19:33,690
+that's more efficient and in better in
+
+282
+00:19:29,940 --> 00:19:37,410
+many ways I can go into detail why it's
+
+283
+00:19:33,690 --> 00:19:39,990
+better but maybe not so anyway I want to
+
+284
+00:19:37,410 --> 00:19:42,510
+sync to my server so I call a
+
+285
+00:19:39,990 --> 00:19:47,490
+interactive a brief I think that's the
+
+286
+00:19:42,510 --> 00:19:50,070
+first entry okay enter and password now
+
+287
+00:19:47,490 --> 00:19:56,310
+I have a Emacs commands that typed my
+
+288
+00:19:50,070 --> 00:19:59,220
+password which is in in secret in you
+
+289
+00:19:56,310 --> 00:20:01,410
+know it's not in my Emacs a pre file so
+
+290
+00:19:59,220 --> 00:20:05,460
+there it is now I have synced to my
+
+291
+00:20:01,410 --> 00:20:11,010
+server okay that's one thing we want to
+
+292
+00:20:05,460 --> 00:20:14,580
+do does that make sense people does that
+
+293
+00:20:11,010 --> 00:20:18,540
+make sense does that 14 people watching
+
+294
+00:20:14,580 --> 00:20:20,940
+okay so say something guys so now I sync
+
+295
+00:20:18,540 --> 00:20:24,000
+to my web server fantastic I'm done I'm
+
+296
+00:20:20,940 --> 00:20:28,800
+done with this job but actually this
+
+297
+00:20:24,000 --> 00:20:30,090
+page is still very long so 1 2 3 4 5 6 7
+
+298
+00:20:28,800 --> 00:20:35,100
+8 9 10
+
+299
+00:20:30,090 --> 00:20:38,840
+about 30 page 30 screenful maybe I
+
+300
+00:20:35,100 --> 00:20:43,020
+should do another one that removes all
+
+301
+00:20:38,840 --> 00:20:45,890
+year 2019 to a different entry yeah no
+
+302
+00:20:43,020 --> 00:20:50,730
+I'll just leave it okay so leave it and
+
+303
+00:20:45,890 --> 00:20:53,670
+this is this is web feed RSS file we
+
+304
+00:20:50,730 --> 00:20:56,430
+don't need it close it ok that's one
+
+305
+00:20:53,670 --> 00:21:01,920
+thing that's one job done let's move on
+
+306
+00:20:56,430 --> 00:21:04,170
+to the next Emacs Tech geeking thing
+
+307
+00:21:01,920 --> 00:21:07,110
+let's see what's the next item we want
+
+308
+00:21:04,170 --> 00:21:10,230
+to do so ok any questions
+
+309
+00:21:07,110 --> 00:21:14,160
+Jen's comments posted okay so the next
+
+310
+00:21:10,230 --> 00:21:17,150
+thing I want to do let's see they are
+
+311
+00:21:14,160 --> 00:21:21,600
+quite a few things okay so you can see
+
+312
+00:21:17,150 --> 00:21:25,230
+let me show you let me post this so you
+
+313
+00:21:21,600 --> 00:21:27,809
+can go there and tell me what is your
+
+314
+00:21:25,230 --> 00:21:29,880
+what what do you like to see so you can
+
+315
+00:21:27,809 --> 00:21:33,000
+go there and tell me make a selection
+
+316
+00:21:29,880 --> 00:21:36,840
+all these are Emacs or images related
+
+317
+00:21:33,000 --> 00:21:40,500
+things so let me check my server status
+
+318
+00:21:36,840 --> 00:21:44,540
+my health 21 minutes good 15 people
+
+319
+00:21:40,500 --> 00:21:48,650
+watching so what is the next thing so
+
+320
+00:21:44,540 --> 00:21:48,650
+Paris I should get some drink
+
+321
+00:21:56,240 --> 00:22:04,500
+that was that was great
+
+322
+00:21:59,940 --> 00:22:08,960
+grape juice grape juice 100% grape juice
+
+323
+00:22:04,500 --> 00:22:08,960
+first energy drink now now tea
+
+324
+00:22:18,970 --> 00:22:27,649
+okay next topic let's see what I want to
+
+325
+00:22:23,690 --> 00:22:29,980
+do Emax modify command log mod yeah
+
+326
+00:22:27,649 --> 00:22:37,880
+let's do that
+
+327
+00:22:29,980 --> 00:22:41,269
+maybe you think I should let's see let's
+
+328
+00:22:37,880 --> 00:22:48,860
+try something control X control F okay
+
+329
+00:22:41,269 --> 00:22:51,200
+control X control F ok so let's you see
+
+330
+00:22:48,860 --> 00:22:55,250
+on the left window you can see all my
+
+331
+00:22:51,200 --> 00:23:01,220
+Emacs commands and that is done by this
+
+332
+00:22:55,250 --> 00:23:07,610
+command let me show you saw start
+
+333
+00:23:01,220 --> 00:23:12,860
+command log mod control H F that will
+
+334
+00:23:07,610 --> 00:23:16,940
+code describe function so this is my
+
+335
+00:23:12,860 --> 00:23:19,909
+this is a command I wrote that start up
+
+336
+00:23:16,940 --> 00:23:24,529
+the command log mod you see on the pink
+
+337
+00:23:19,909 --> 00:23:26,600
+window good morning Justin so if you
+
+338
+00:23:24,529 --> 00:23:30,889
+guys have comments questions about Emacs
+
+339
+00:23:26,600 --> 00:23:33,620
+post it ok so here here is a command I
+
+340
+00:23:30,889 --> 00:23:36,230
+wrote that starts the command log mod
+
+341
+00:23:33,620 --> 00:23:38,269
+why do I write this command because the
+
+342
+00:23:36,230 --> 00:23:41,120
+command log mod let me show you the
+
+343
+00:23:38,269 --> 00:23:44,980
+command log mod ok command log mod is
+
+344
+00:23:41,120 --> 00:23:50,480
+this one ok here is a source code of
+
+345
+00:23:44,980 --> 00:23:57,250
+command log mod by by Michael Webber and
+
+346
+00:23:50,480 --> 00:24:00,230
+also by Nick Fourier lai-wan and back in
+
+347
+00:23:57,250 --> 00:24:07,010
+2004 v free software foundation I guess
+
+348
+00:24:00,230 --> 00:24:10,039
+ok wait how is this 2004 copyright by
+
+349
+00:24:07,010 --> 00:24:14,630
+free software foundation so that means
+
+350
+00:24:10,039 --> 00:24:17,720
+this should be so is is this actually a
+
+351
+00:24:14,630 --> 00:24:24,710
+new Emacs package I mean is this bundled
+
+352
+00:24:17,720 --> 00:24:28,070
+in Emacs oh so it looks like this is
+
+353
+00:24:24,710 --> 00:24:30,500
+actually part of Emacs although it's not
+
+354
+00:24:28,070 --> 00:24:36,310
+bundled in Emacs but it's
+
+355
+00:24:30,500 --> 00:24:39,410
+Sigurd part of Emax possibly in ALPA
+
+356
+00:24:36,310 --> 00:24:42,980
+because normally when you see a package
+
+357
+00:24:39,410 --> 00:24:46,790
+you read a header normally it will say
+
+358
+00:24:42,980 --> 00:24:49,940
+this this file is not part of Emacs that
+
+359
+00:24:46,790 --> 00:24:51,800
+means you know people created it and the
+
+360
+00:24:49,940 --> 00:24:55,010
+copyright does not belong to Free
+
+361
+00:24:51,800 --> 00:24:59,060
+Software Foundation no money so but in
+
+362
+00:24:55,010 --> 00:25:02,300
+this one you don't see that but that
+
+363
+00:24:59,060 --> 00:25:04,220
+doesn't mean much because maybe they
+
+364
+00:25:02,300 --> 00:25:07,580
+didn't they forgot to add that you know
+
+365
+00:25:04,220 --> 00:25:11,480
+there are lots of things going on so
+
+366
+00:25:07,580 --> 00:25:13,910
+anyway so this this this package we
+
+367
+00:25:11,480 --> 00:25:16,480
+unlock your commands like I've shown on
+
+368
+00:25:13,910 --> 00:25:19,970
+the Left window but however the
+
+369
+00:25:16,480 --> 00:25:24,230
+documentation and the user interface is
+
+370
+00:25:19,970 --> 00:25:29,150
+very lousy it's it's like very confusing
+
+371
+00:25:24,230 --> 00:25:31,690
+so I wrote this paragraph that tells you
+
+372
+00:25:29,150 --> 00:25:35,690
+exactly what you need to do in order to
+
+373
+00:25:31,690 --> 00:25:37,550
+start this command lot mod ok so these
+
+374
+00:25:35,690 --> 00:25:41,510
+these few paragraphs
+
+375
+00:25:37,550 --> 00:25:46,720
+I added but it's but it's not on their
+
+376
+00:25:41,510 --> 00:25:50,060
+github this is just my personal copy and
+
+377
+00:25:46,720 --> 00:25:52,310
+I've also modified part of this code
+
+378
+00:25:50,060 --> 00:25:55,040
+what I want to do is that you see this
+
+379
+00:25:52,310 --> 00:26:00,050
+this printout you see there is a big
+
+380
+00:25:55,040 --> 00:26:04,100
+number of spaces between these you know
+
+381
+00:26:00,050 --> 00:26:05,900
+on the left the key on the left is the
+
+382
+00:26:04,100 --> 00:26:09,290
+key on the right is a command name and
+
+383
+00:26:05,900 --> 00:26:12,890
+there's a big number of spaces I think I
+
+384
+00:26:09,290 --> 00:26:18,260
+want to shorten them or something so
+
+385
+00:26:12,890 --> 00:26:22,690
+let's see if we can do that so search
+
+386
+00:26:18,260 --> 00:26:25,090
+for print list matching lines print so
+
+387
+00:26:22,690 --> 00:26:29,360
+nowhere to be found
+
+388
+00:26:25,090 --> 00:26:36,710
+let's try again this matching lines mes
+
+389
+00:26:29,360 --> 00:26:38,810
+s a message ok nowhere to be found so
+
+390
+00:26:36,710 --> 00:26:41,540
+that means they are actually not using
+
+391
+00:26:38,810 --> 00:26:44,120
+any sort of message or print they are
+
+392
+00:26:41,540 --> 00:26:50,600
+using insert I think
+
+393
+00:26:44,120 --> 00:26:53,810
+least matching lines insert okay let's
+
+394
+00:26:50,600 --> 00:26:57,140
+see you know I want to write my own
+
+395
+00:26:53,810 --> 00:27:01,010
+version of this command log mod because
+
+396
+00:26:57,140 --> 00:27:08,830
+I'm not happy with this I'm not happy
+
+397
+00:27:01,010 --> 00:27:12,320
+with the way it is I don't want you know
+
+398
+00:27:08,830 --> 00:27:18,650
+so I'm trying to modify it so that the
+
+399
+00:27:12,320 --> 00:27:23,270
+output will contain less spaces like
+
+400
+00:27:18,650 --> 00:27:27,470
+that and so that is one what I'm trying
+
+401
+00:27:23,270 --> 00:27:30,470
+to do and now the question is where do
+
+402
+00:27:27,470 --> 00:27:32,720
+you want to change that so apparently
+
+403
+00:27:30,470 --> 00:27:39,140
+they are not using any print command
+
+404
+00:27:32,720 --> 00:27:42,530
+because okay search PRI n oh they are
+
+405
+00:27:39,140 --> 00:27:45,460
+they are using there it is indeed so a
+
+406
+00:27:42,530 --> 00:27:50,050
+Emacs if you don't know you have three
+
+407
+00:27:45,460 --> 00:27:50,050
+print commands actually more than three
+
+408
+00:27:51,220 --> 00:27:56,140
+depending on how you count for example
+
+409
+00:27:53,660 --> 00:28:00,940
+insert is one of the print command and
+
+410
+00:27:56,140 --> 00:28:03,680
+you have print see print T and print one
+
+411
+00:28:00,940 --> 00:28:06,350
+so you have three versions of the print
+
+412
+00:28:03,680 --> 00:28:09,980
+command then you have also message
+
+413
+00:28:06,350 --> 00:28:15,070
+command so it's a bit confusing if you
+
+414
+00:28:09,980 --> 00:28:18,580
+don't know go to ha the Emacs this
+
+415
+00:28:15,070 --> 00:28:22,070
+tutorial so you go to my tutorial and
+
+416
+00:28:18,580 --> 00:28:25,190
+buy my tutorial ok bye my tutorial if
+
+417
+00:28:22,070 --> 00:28:27,830
+you like my stuff so you go to my eMac
+
+418
+00:28:25,190 --> 00:28:33,290
+this practical eMac B's and you search
+
+419
+00:28:27,830 --> 00:28:40,340
+for search for print you are see at the
+
+420
+00:28:33,290 --> 00:28:47,120
+bottom at the bottom you are see where
+
+421
+00:28:40,340 --> 00:28:51,530
+is it let's search again print print
+
+422
+00:28:47,120 --> 00:28:55,820
+item print there writing script print
+
+423
+00:28:51,530 --> 00:28:59,239
+output print and output so
+
+424
+00:28:55,820 --> 00:29:02,539
+so on this page I explain everything you
+
+425
+00:28:59,239 --> 00:29:05,389
+need to know about printing output so
+
+426
+00:29:02,539 --> 00:29:08,809
+you have the messages command which
+
+427
+00:29:05,389 --> 00:29:10,669
+prints to the messages buffer then you
+
+428
+00:29:08,809 --> 00:29:12,789
+have the insert command which just
+
+429
+00:29:10,669 --> 00:29:16,639
+insert a stream to the current buffer
+
+430
+00:29:12,789 --> 00:29:21,409
+then you have print you have print one
+
+431
+00:29:16,639 --> 00:29:23,749
+then you have print see three variations
+
+432
+00:29:21,409 --> 00:29:30,320
+of print what they do is that they print
+
+433
+00:29:23,749 --> 00:29:33,679
+to the default output stream by default
+
+434
+00:29:30,320 --> 00:29:35,960
+it is standard out it's a bit complex
+
+435
+00:29:33,679 --> 00:29:38,479
+but anyway they did they print to you
+
+436
+00:29:35,960 --> 00:29:42,859
+know a channel and the wifey of them
+
+437
+00:29:38,479 --> 00:29:55,729
+because print is to print in a human
+
+438
+00:29:42,859 --> 00:29:59,539
+readable form okay wait print see the
+
+439
+00:29:55,729 --> 00:30:02,690
+print see is to print into a human read
+
+440
+00:29:59,539 --> 00:30:08,059
+of readable form for example if you
+
+441
+00:30:02,690 --> 00:30:10,549
+print a list of strings the strings we
+
+442
+00:30:08,059 --> 00:30:13,249
+are not print with a double quote you
+
+443
+00:30:10,549 --> 00:30:17,090
+know so it's more easy to read princey
+
+444
+00:30:13,249 --> 00:30:19,879
+let's print see then print the print
+
+445
+00:30:17,090 --> 00:30:23,570
+command is just to print in basically a
+
+446
+00:30:19,879 --> 00:30:27,200
+in a format that lists can read back as
+
+447
+00:30:23,570 --> 00:30:30,830
+much as possible and it will also
+
+448
+00:30:27,200 --> 00:30:34,369
+include a new line at the end now that
+
+449
+00:30:30,830 --> 00:30:36,830
+print one is just like print except that
+
+450
+00:30:34,369 --> 00:30:40,190
+it does not include include a new line
+
+451
+00:30:36,830 --> 00:30:44,749
+at the end so minor differences so
+
+452
+00:30:40,190 --> 00:30:48,200
+that's why you have this anyway so there
+
+453
+00:30:44,749 --> 00:30:51,019
+it is my tutorial you can you can read
+
+454
+00:30:48,200 --> 00:30:53,690
+about so let's close that let's go back
+
+455
+00:30:51,019 --> 00:31:00,499
+to the talk show and paste it there so
+
+456
+00:30:53,690 --> 00:31:06,009
+we have one topic we paste the topic
+
+457
+00:31:00,499 --> 00:31:06,009
+here okay
+
+458
+00:31:08,010 --> 00:31:22,029
+so actually I won't want that showing
+
+459
+00:31:15,669 --> 00:31:25,900
+browser okay so print so let's go back
+
+460
+00:31:22,029 --> 00:31:29,529
+to the code the command log mod output
+
+461
+00:31:25,900 --> 00:31:31,750
+code I want to find where does it print
+
+462
+00:31:29,529 --> 00:31:36,400
+to the command sank so it actually takes
+
+463
+00:31:31,750 --> 00:31:42,100
+some time to read into print so what is
+
+464
+00:31:36,400 --> 00:31:50,260
+this okay so looks like here is this is
+
+465
+00:31:42,100 --> 00:31:58,659
+a line that does the print and that is
+
+466
+00:31:50,260 --> 00:32:05,250
+printing so what is current okay it
+
+467
+00:31:58,659 --> 00:32:05,250
+trains to current is the current buffer
+
+468
+00:32:06,240 --> 00:32:13,990
+yeah any comments questions type it I'm
+
+469
+00:32:11,710 --> 00:32:21,880
+getting bored I'm getting bored with
+
+470
+00:32:13,990 --> 00:32:26,620
+this so I'm trying to find out so this
+
+471
+00:32:21,880 --> 00:32:31,270
+line this line is trying to print to the
+
+472
+00:32:26,620 --> 00:32:34,320
+current buffer and command repetitions
+
+473
+00:32:31,270 --> 00:32:38,049
+so this line what this line is doing
+
+474
+00:32:34,320 --> 00:32:40,270
+corresponds to this part you see that
+
+475
+00:32:38,049 --> 00:32:45,520
+three times that corresponds through
+
+476
+00:32:40,270 --> 00:32:49,409
+that okay so that's these three lines so
+
+477
+00:32:45,520 --> 00:32:49,409
+what we want is somewhere before
+
+478
+00:32:53,730 --> 00:33:08,370
+so this part is trying to get the number
+
+479
+00:32:58,000 --> 00:33:08,370
+of repetitions okay and command log of
+
+480
+00:33:14,190 --> 00:33:19,400
+so where is the part that prints
+
+481
+00:33:24,990 --> 00:33:36,530
+prints the actual key and command name
+
+482
+00:33:44,510 --> 00:33:55,370
+okay so here is okay so let's see what
+
+483
+00:33:47,870 --> 00:34:01,809
+is is so condition base
+
+484
+00:33:55,370 --> 00:34:05,330
+good morning base any questions comments
+
+485
+00:34:01,809 --> 00:34:10,190
+okay so I see this is trying to print to
+
+486
+00:34:05,330 --> 00:34:13,690
+The Times right and the printing Times
+
+487
+00:34:10,190 --> 00:34:16,940
+comes before printing a command because
+
+488
+00:34:13,690 --> 00:34:20,389
+because if the current command is the
+
+489
+00:34:16,940 --> 00:34:25,550
+same as the last command then it just
+
+490
+00:34:20,389 --> 00:34:28,639
+update the time so the actual code that
+
+491
+00:34:25,550 --> 00:34:34,159
+prints the command name and key comes
+
+492
+00:34:28,639 --> 00:34:40,070
+after the comes after the printing of
+
+493
+00:34:34,159 --> 00:34:49,070
+the repetition times okay so we know the
+
+494
+00:34:40,070 --> 00:34:53,409
+code comes after these okay wait okay so
+
+495
+00:34:49,070 --> 00:34:59,359
+let's see so now let's see when
+
+496
+00:34:53,409 --> 00:35:03,410
+something-something text okay now this
+
+497
+00:34:59,359 --> 00:35:06,109
+part is for typing this part for example
+
+498
+00:35:03,410 --> 00:35:10,840
+let me show you okay so let me speed the
+
+499
+00:35:06,109 --> 00:35:15,320
+window new buffer magnify common buffer
+
+500
+00:35:10,840 --> 00:35:18,440
+type something you see normally this
+
+501
+00:35:15,320 --> 00:35:22,510
+will show up here but I suppress it okay
+
+502
+00:35:18,440 --> 00:35:22,510
+this is getting more complex complicated
+
+503
+00:35:26,590 --> 00:35:34,420
+let me just try to fix this okay so so
+
+504
+00:35:32,030 --> 00:35:38,000
+I'm trying to do a live coding press
+
+505
+00:35:34,420 --> 00:35:41,230
+explanation but the explanation part
+
+506
+00:35:38,000 --> 00:35:45,109
+part is often very difficult because
+
+507
+00:35:41,230 --> 00:35:46,460
+pretty soon you know I'm good I need to
+
+508
+00:35:45,109 --> 00:35:48,740
+explain all over the place
+
+509
+00:35:46,460 --> 00:35:51,710
+you know it's like when you do a live
+
+510
+00:35:48,740 --> 00:35:56,430
+stream you want you want only to touch
+
+511
+00:35:51,710 --> 00:35:58,620
+the most basic part because
+
+512
+00:35:56,430 --> 00:36:03,360
+you know it gets complex and people
+
+513
+00:35:58,620 --> 00:36:05,670
+don't understand but if you start to
+
+514
+00:36:03,360 --> 00:36:13,040
+explain the complex part then it gets
+
+515
+00:36:05,670 --> 00:36:16,890
+you know it becomes a ten hours video so
+
+516
+00:36:13,040 --> 00:36:19,620
+you have this dilemma which is right now
+
+517
+00:36:16,890 --> 00:36:22,110
+I'm stuck in because I'm trying to get
+
+518
+00:36:19,620 --> 00:36:26,390
+this to work but meanwhile I try I want
+
+519
+00:36:22,110 --> 00:36:30,770
+to try to explain it anyway so let's see
+
+520
+00:36:26,390 --> 00:36:34,920
+so the other option is just to simply
+
+521
+00:36:30,770 --> 00:36:39,740
+get what I want you know just to code it
+
+522
+00:36:34,920 --> 00:36:39,740
+without explanation okay so let's see
+
+523
+00:36:42,560 --> 00:36:50,610
+okay so where is it so insert okay so
+
+524
+00:36:45,810 --> 00:36:54,420
+insert let's see insert profit profit
+
+525
+00:36:50,610 --> 00:36:58,920
+eyes key description this command keys
+
+526
+00:36:54,420 --> 00:37:03,150
+okay so this part this part is inserting
+
+527
+00:36:58,920 --> 00:37:05,310
+the key on the left column you can see
+
+528
+00:37:03,150 --> 00:37:10,980
+on the pink window on the left column so
+
+529
+00:37:05,310 --> 00:37:13,470
+this line is inserting the key now we
+
+530
+00:37:10,980 --> 00:37:15,710
+are very close to where we are so there
+
+531
+00:37:13,470 --> 00:37:21,780
+it is
+
+532
+00:37:15,710 --> 00:37:25,950
+so when when the current column is
+
+533
+00:37:21,780 --> 00:37:30,360
+greater than this command lot this this
+
+534
+00:37:25,950 --> 00:37:37,890
+indentation then you insert a new line
+
+535
+00:37:30,360 --> 00:37:40,920
+okay so this is so let's so looks like
+
+536
+00:37:37,890 --> 00:37:44,370
+all we have to do is to modify this CRM
+
+537
+00:37:40,920 --> 00:37:44,730
+log command indentation so let's look at
+
+538
+00:37:44,370 --> 00:37:50,030
+it
+
+539
+00:37:44,730 --> 00:37:55,520
+search for it such such such there it is
+
+540
+00:37:50,030 --> 00:38:01,740
+CRM lock command in temptation 11 okay
+
+541
+00:37:55,520 --> 00:38:05,400
+11 I don't want you Devon and actually I
+
+542
+00:38:01,740 --> 00:38:07,980
+don't like it okay so I don't like this
+
+543
+00:38:05,400 --> 00:38:10,090
+command okay this is not this smart this
+
+544
+00:38:07,980 --> 00:38:13,000
+package is not written by me
+
+545
+00:38:10,090 --> 00:38:15,760
+I don't like things not written by me
+
+546
+00:38:13,000 --> 00:38:20,410
+the way they do things you know this so
+
+547
+00:38:15,760 --> 00:38:25,810
+because what you wait what I pressed
+
+548
+00:38:20,410 --> 00:38:32,440
+some key and that okay so apparently I
+
+549
+00:38:25,810 --> 00:38:36,190
+pressed SOG read novel mod okay let's go
+
+550
+00:38:32,440 --> 00:38:41,560
+back so you see I want to modify this I
+
+551
+00:38:36,190 --> 00:38:43,690
+want to modify the space the number of
+
+552
+00:38:41,560 --> 00:38:48,430
+space here is too much I don't like it
+
+553
+00:38:43,690 --> 00:38:52,270
+so I want to modify it but not just
+
+554
+00:38:48,430 --> 00:38:55,270
+space because I want also to add a unit
+
+555
+00:38:52,270 --> 00:38:58,180
+unicode character such as lying or a
+
+556
+00:38:55,270 --> 00:39:03,130
+bullet so we can clearly see as the
+
+557
+00:38:58,180 --> 00:39:05,620
+separation but this package do not does
+
+558
+00:39:03,130 --> 00:39:08,230
+not allow me to do it because you got a
+
+559
+00:39:05,620 --> 00:39:14,280
+number here which which is a number of
+
+560
+00:39:08,230 --> 00:39:14,280
+spaces so what you can can you do well
+
+561
+00:39:16,410 --> 00:39:21,940
+let's say five let's just say five okay
+
+562
+00:39:19,480 --> 00:39:25,210
+let's see what happens and also define
+
+563
+00:39:21,940 --> 00:39:27,760
+var define Y is a very annoying thing in
+
+564
+00:39:25,210 --> 00:39:30,790
+Emacs because when you have defined var
+
+565
+00:39:27,760 --> 00:39:34,300
+now you cannot change the you cannot
+
+566
+00:39:30,790 --> 00:39:39,010
+change you know if I change the value
+
+567
+00:39:34,300 --> 00:39:43,570
+and I if I read this buffer that will
+
+568
+00:39:39,010 --> 00:39:45,850
+not walk because define var the the
+
+569
+00:39:43,570 --> 00:39:48,700
+thing with define var is that if the
+
+570
+00:39:45,850 --> 00:39:52,740
+value is not neo then Emacs will not
+
+571
+00:39:48,700 --> 00:39:55,210
+change it that's actually a bad design
+
+572
+00:39:52,740 --> 00:39:58,690
+you know do you guys know what I'm
+
+573
+00:39:55,210 --> 00:40:01,030
+saying you know because otherwise I have
+
+574
+00:39:58,690 --> 00:40:04,660
+to explain that then you will take five
+
+575
+00:40:01,030 --> 00:40:11,680
+minutes but we have a lot other things
+
+576
+00:40:04,660 --> 00:40:17,850
+to do so so what do you do is instead
+
+577
+00:40:11,680 --> 00:40:17,850
+let's try this if this works okay set Q
+
+578
+00:40:17,930 --> 00:40:26,480
+SiC you okay that let's say six okay
+
+579
+00:40:23,510 --> 00:40:29,410
+let's change this back to 11 okay now
+
+580
+00:40:26,480 --> 00:40:36,820
+I'm going to evaluate this line done
+
+581
+00:40:29,410 --> 00:40:36,820
+okay then that's let's let's just say
+
+582
+00:40:36,940 --> 00:40:45,710
+let's just say six there okay then let's
+
+583
+00:40:40,610 --> 00:40:48,250
+just restart create Emacs let's restart
+
+584
+00:40:45,710 --> 00:40:48,250
+Emacs
+
+585
+00:40:54,520 --> 00:40:59,859
+I'm actually cold and let me put on a
+
+586
+00:40:57,530 --> 00:40:59,859
+coat
+
+587
+00:41:29,950 --> 00:41:37,310
+there it is
+
+588
+00:41:32,000 --> 00:41:45,650
+Emacs as we started now let's start
+
+589
+00:41:37,310 --> 00:41:54,530
+command log mod ok magnet magnify buffer
+
+590
+00:41:45,650 --> 00:41:57,710
+ok it worked that completes that task we
+
+591
+00:41:54,530 --> 00:42:06,700
+have completed another Emacs task any
+
+592
+00:41:57,710 --> 00:42:06,700
+any questions questions base justing
+
+593
+00:42:06,910 --> 00:42:15,290
+megalo schemas outshined questions
+
+594
+00:42:11,090 --> 00:42:19,190
+comments so look at look at the shell
+
+595
+00:42:15,290 --> 00:42:21,140
+okay so in Emacs you have these lot lots
+
+596
+00:42:19,190 --> 00:42:23,060
+of unix garbage
+
+597
+00:42:21,140 --> 00:42:25,100
+you know the unix garbage you know these
+
+598
+00:42:23,060 --> 00:42:28,820
+lots of arrows this happens all the time
+
+599
+00:42:25,100 --> 00:42:30,440
+you know it just spit out warnings or
+
+600
+00:42:28,820 --> 00:42:32,870
+whatever and and they are
+
+601
+00:42:30,440 --> 00:42:36,680
+incomprehensible okay so look at look at
+
+602
+00:42:32,870 --> 00:42:40,580
+this 2020 January 13th 12 o'clock
+
+603
+00:42:36,680 --> 00:42:41,240
+something Emacs x86 64 you know this
+
+604
+00:42:40,580 --> 00:42:44,570
+idiot
+
+605
+00:42:41,240 --> 00:42:46,400
+these UNIX idiots with these job ins you
+
+606
+00:42:44,570 --> 00:42:47,000
+know like when you go to when you go to
+
+607
+00:42:46,400 --> 00:42:49,520
+Kunal
+
+608
+00:42:47,000 --> 00:42:51,680
+Emacs website you try to download you
+
+609
+00:42:49,520 --> 00:42:52,420
+have no idea what they are saying so let
+
+610
+00:42:51,680 --> 00:42:56,180
+me show you
+
+611
+00:42:52,420 --> 00:42:59,750
+sorry max soca' sorry max you go to
+
+612
+00:42:56,180 --> 00:43:03,110
+practical practical Emacs tutorial you
+
+613
+00:42:59,750 --> 00:43:06,590
+then you go to then you see this is Mike
+
+614
+00:43:03,110 --> 00:43:12,650
+sorry max - Toby oh and you have a poem
+
+615
+00:43:06,590 --> 00:43:18,160
+there hi I wrote this poem like 17 years
+
+616
+00:43:12,650 --> 00:43:22,640
+ago the church of emacs feeling of
+
+617
+00:43:18,160 --> 00:43:30,670
+Charles lispy and binding buffers insert
+
+618
+00:43:22,640 --> 00:43:36,080
+young meta sex at hook 8 megabytes and
+
+619
+00:43:30,670 --> 00:43:39,440
+console swapping this is the church the
+
+620
+00:43:36,080 --> 00:43:42,470
+song of church of emacs ok
+
+621
+00:43:39,440 --> 00:43:46,310
+had this poem since about 16 years ago
+
+622
+00:43:42,470 --> 00:43:49,250
+and I removed it in the in the last
+
+623
+00:43:46,310 --> 00:43:51,670
+three years or so because because in
+
+624
+00:43:49,250 --> 00:43:57,020
+today's environment the social justice
+
+625
+00:43:51,670 --> 00:43:59,660
+has you know mentality so I was thinking
+
+626
+00:43:57,020 --> 00:44:03,260
+you know maybe I should try to be more
+
+627
+00:43:59,660 --> 00:44:07,220
+professional and remove this language
+
+628
+00:44:03,260 --> 00:44:09,620
+kind of thing but no that doesn't work
+
+629
+00:44:07,220 --> 00:44:12,080
+so I put it back you know you want to be
+
+630
+00:44:09,620 --> 00:44:16,400
+yourself so this is my Emacs website
+
+631
+00:44:12,080 --> 00:44:19,400
+this is my style and this is my poem so
+
+632
+00:44:16,400 --> 00:44:22,130
+I put it back here so anyway this is my
+
+633
+00:44:19,400 --> 00:44:24,770
+eMac to the Emacs tutorial so you go
+
+634
+00:44:22,130 --> 00:44:27,830
+there and you go to where to download ok
+
+635
+00:44:24,770 --> 00:44:32,470
+so this is where you download Emacs and
+
+636
+00:44:27,830 --> 00:44:36,320
+you have windows you have Mac you have
+
+637
+00:44:32,470 --> 00:44:40,070
+gnu/linux you know on Windows on the Mac
+
+638
+00:44:36,320 --> 00:44:42,530
+it's that you have precompiled binary
+
+639
+00:44:40,070 --> 00:44:46,460
+meaning that you just go there download
+
+640
+00:44:42,530 --> 00:44:48,710
+it unzip it or you'll drag to your you
+
+641
+00:44:46,460 --> 00:44:53,120
+know app folder you can use it right
+
+642
+00:44:48,710 --> 00:44:55,880
+away but for Linux and UNIX that doesn't
+
+643
+00:44:53,120 --> 00:45:00,800
+work you have to compile it yourself you
+
+644
+00:44:55,880 --> 00:45:02,540
+know Tech qicang that is why in Linux
+
+645
+00:45:00,800 --> 00:45:05,630
+nothing works everything is [ __ ] up
+
+646
+00:45:02,540 --> 00:45:08,360
+you know and Linux you love it it
+
+647
+00:45:05,630 --> 00:45:11,390
+doesn't work like you know you go there
+
+648
+00:45:08,360 --> 00:45:13,820
+you have you have to compare and stuff
+
+649
+00:45:11,390 --> 00:45:15,940
+by the way it's pretty easy if you want
+
+650
+00:45:13,820 --> 00:45:20,030
+to compile on Linux you just follow
+
+651
+00:45:15,940 --> 00:45:23,420
+follow my tutorial I tell you four easy
+
+652
+00:45:20,030 --> 00:45:26,450
+steps to compile it you know these days
+
+653
+00:45:23,420 --> 00:45:28,340
+today's generation most people they
+
+654
+00:45:26,450 --> 00:45:29,620
+don't know about compilation stuff
+
+655
+00:45:28,340 --> 00:45:34,760
+anymore
+
+656
+00:45:29,620 --> 00:45:38,330
+but wait what's going on with this yeah
+
+657
+00:45:34,760 --> 00:45:42,490
+close it close close close shell what's
+
+658
+00:45:38,330 --> 00:45:44,960
+going on so in Emacs
+
+659
+00:45:42,490 --> 00:45:47,150
+yeah the today's generation you don't
+
+660
+00:45:44,960 --> 00:45:49,670
+know these things anymore you know
+
+661
+00:45:47,150 --> 00:45:52,910
+basically config you download it
+
+662
+00:45:49,670 --> 00:45:56,450
+Xzibit then you run
+
+663
+00:45:52,910 --> 00:45:59,720
+config configure make and make install
+
+664
+00:45:56,450 --> 00:46:02,390
+basically that's all you have to do this
+
+665
+00:45:59,720 --> 00:46:04,160
+is what you have to do to compile stuff
+
+666
+00:46:02,390 --> 00:46:07,520
+on Linux but actually more than that
+
+667
+00:46:04,160 --> 00:46:10,760
+because then you have to install build
+
+668
+00:46:07,520 --> 00:46:13,250
+tools you need to have GCC you need to
+
+669
+00:46:10,760 --> 00:46:15,860
+have make of certain versions and you
+
+670
+00:46:13,250 --> 00:46:17,720
+need to have dependencies things like
+
+671
+00:46:15,860 --> 00:46:21,440
+that so anyway you follow my guide
+
+672
+00:46:17,720 --> 00:46:23,570
+you'll know how to do it but I'm I'm
+
+673
+00:46:21,440 --> 00:46:26,450
+going to tell you I was going to tell
+
+674
+00:46:23,570 --> 00:46:28,550
+you so our Mac and Windows you can just
+
+675
+00:46:26,450 --> 00:46:31,190
+download it but on Linux you have to
+
+676
+00:46:28,550 --> 00:46:35,690
+compile it okay so that's why Linux is
+
+677
+00:46:31,190 --> 00:46:38,360
+always you know how to use among other
+
+678
+00:46:35,690 --> 00:46:40,520
+things and of course you have
+
+679
+00:46:38,360 --> 00:46:44,930
+precompiled binary but usually that's
+
+680
+00:46:40,520 --> 00:46:46,670
+two years old so anyway you know why am
+
+681
+00:46:44,930 --> 00:46:50,270
+i saying this because whenever eyes
+
+682
+00:46:46,670 --> 00:46:53,300
+wherever you criticize Linux about
+
+683
+00:46:50,270 --> 00:46:55,550
+something then there will be an army of
+
+684
+00:46:53,300 --> 00:46:57,860
+Linux fanatics they will come up and say
+
+685
+00:46:55,550 --> 00:47:01,300
+oh no no you are wrong because you just
+
+686
+00:46:57,860 --> 00:47:04,220
+all you have to do is you know Afghan
+
+687
+00:47:01,300 --> 00:47:07,580
+but the thing with app get is usually
+
+688
+00:47:04,220 --> 00:47:11,270
+whatever most programs you want to use
+
+689
+00:47:07,580 --> 00:47:14,480
+the version from app get is like 2 years
+
+690
+00:47:11,270 --> 00:47:16,640
+old ok the [ __ ] Linux on the other
+
+691
+00:47:14,480 --> 00:47:18,740
+hand on the Mac you have something
+
+692
+00:47:16,640 --> 00:47:20,810
+similar you have proof ok you can just
+
+693
+00:47:18,740 --> 00:47:23,900
+you can just type root install something
+
+694
+00:47:20,810 --> 00:47:28,040
+it's actually much more simpler than app
+
+695
+00:47:23,900 --> 00:47:31,850
+get meanwhile the programs you install
+
+696
+00:47:28,040 --> 00:47:33,800
+by Abreu is not 2 years old like the
+
+697
+00:47:31,850 --> 00:47:36,020
+Linux Mac you know you might think oh
+
+698
+00:47:33,800 --> 00:47:38,600
+it's open source therefore Linux is the
+
+699
+00:47:36,020 --> 00:47:40,750
+foundation of open source so only knows
+
+700
+00:47:38,600 --> 00:47:44,030
+is actually easier no it's actually not
+
+701
+00:47:40,750 --> 00:47:47,840
+it so happens on a Mac the proprietary
+
+702
+00:47:44,030 --> 00:47:49,910
+Apple the Evo Apple where they make your
+
+703
+00:47:47,840 --> 00:47:51,830
+phone slower whenever they have a new
+
+704
+00:47:49,910 --> 00:47:55,490
+version things like that you know evil
+
+705
+00:47:51,830 --> 00:47:58,430
+apple but it so happens some of Apple
+
+706
+00:47:55,490 --> 00:48:01,220
+things are actually much more easier to
+
+707
+00:47:58,430 --> 00:48:03,350
+use even even for the open source
+
+708
+00:48:01,220 --> 00:48:06,530
+programs like when you install Python
+
+709
+00:48:03,350 --> 00:48:10,940
+not yes no for example let's
+
+710
+00:48:06,530 --> 00:48:14,060
+update not jeaious okay I think it's the
+
+711
+00:48:10,940 --> 00:48:17,600
+command is prude update not jeaious okay
+
+712
+00:48:14,060 --> 00:48:19,970
+let's try blue update not I don't even
+
+713
+00:48:17,600 --> 00:48:22,390
+have to man page or something like that
+
+714
+00:48:19,970 --> 00:48:22,390
+you know
+
+715
+00:48:23,020 --> 00:48:29,720
+okay so brew upgrade not yeah so you see
+
+716
+00:48:27,380 --> 00:48:35,450
+it just tell me the right you know I
+
+717
+00:48:29,720 --> 00:48:37,880
+don't have to dig so brew up great not
+
+718
+00:48:35,450 --> 00:48:40,700
+okay before we do that let's check what
+
+719
+00:48:37,880 --> 00:48:44,290
+what what is current my current not
+
+720
+00:48:40,700 --> 00:48:51,440
+version not yes is the program that runs
+
+721
+00:48:44,290 --> 00:48:53,690
+JavaScript okay so which not okay so use
+
+722
+00:48:51,440 --> 00:48:56,510
+a local be not I don't think that's the
+
+723
+00:48:53,690 --> 00:49:02,150
+current version let's try not - -
+
+724
+00:48:56,510 --> 00:49:06,830
+version version 12 it's pretty decent I
+
+725
+00:49:02,150 --> 00:49:08,810
+I think it's from last year but you see
+
+726
+00:49:06,830 --> 00:49:13,430
+the thing with not is that they update
+
+727
+00:49:08,810 --> 00:49:21,050
+every year so I have version 12 let's
+
+728
+00:49:13,430 --> 00:49:34,600
+let's try to run it okay Globo GL obal
+
+729
+00:49:21,050 --> 00:49:37,970
+todd BL e GL obal dart version I think
+
+730
+00:49:34,600 --> 00:49:41,240
+no that's not I have to look up I forgot
+
+731
+00:49:37,970 --> 00:49:47,120
+anyway so I'm running north version 12
+
+732
+00:49:41,240 --> 00:49:50,890
+ok exit okay
+
+733
+00:49:47,120 --> 00:49:50,890
+now let's prove update not
+
+734
+00:49:54,890 --> 00:50:03,840
+my roommate is back so it's running
+
+735
+00:49:58,050 --> 00:50:06,840
+update ok so just in says you living
+
+736
+00:50:03,840 --> 00:50:11,310
+inside the church of emacs yes of course
+
+737
+00:50:06,840 --> 00:50:14,420
+can I build one too yes if you are on a
+
+738
+00:50:11,310 --> 00:50:17,880
+Mac you can also be old
+
+739
+00:50:14,420 --> 00:50:21,750
+Emacs but however I do not have
+
+740
+00:50:17,880 --> 00:50:26,119
+instruction for how to build Emacs on
+
+741
+00:50:21,750 --> 00:50:29,070
+the Mac but it's not difficult because I
+
+742
+00:50:26,119 --> 00:50:34,200
+can tell you that there's a guide from a
+
+743
+00:50:29,070 --> 00:50:38,670
+friend from from this guy he's got he be
+
+744
+00:50:34,200 --> 00:50:42,420
+odd he be Oates Emacs on the Mac every
+
+745
+00:50:38,670 --> 00:50:46,340
+few years so I've seen how it so it's
+
+746
+00:50:42,420 --> 00:50:48,720
+not difficult so if you want to be old
+
+747
+00:50:46,340 --> 00:50:51,030
+Emacs on the Mac you can but you don't
+
+748
+00:50:48,720 --> 00:50:54,150
+you don't need to ok for the Mac just
+
+749
+00:50:51,030 --> 00:50:56,070
+download this one this is this this is
+
+750
+00:50:54,150 --> 00:50:59,520
+the one I'm using you know go to my
+
+751
+00:50:56,070 --> 00:51:02,400
+Emacs tutorial the first page download
+
+752
+00:50:59,520 --> 00:51:06,170
+Emacs then you just go to the Mac and
+
+753
+00:51:02,400 --> 00:51:06,170
+download this one ok
+
+754
+00:51:07,700 --> 00:51:15,240
+download this one 26.3 hi this is what I
+
+755
+00:51:14,609 --> 00:51:19,290
+recommend
+
+756
+00:51:15,240 --> 00:51:21,839
+this is plain kun Emacs no fluff once
+
+757
+00:51:19,290 --> 00:51:28,050
+you download it you can install other
+
+758
+00:51:21,839 --> 00:51:31,380
+things ok we are back to shell updating
+
+759
+00:51:28,050 --> 00:51:34,500
+phew now it's a still update improves ok
+
+760
+00:51:31,380 --> 00:51:37,050
+so what I wanted to say is that you go
+
+761
+00:51:34,500 --> 00:51:40,859
+to you know download Emacs then you go
+
+762
+00:51:37,050 --> 00:51:44,180
+to windows ok so this is a windows
+
+763
+00:51:40,859 --> 00:51:44,180
+download and
+
+764
+00:51:49,240 --> 00:51:55,610
+so Alan good morning Allen says the
+
+765
+00:51:52,880 --> 00:52:00,070
+MINIX are started talking about mac OS x
+
+766
+00:51:55,610 --> 00:52:00,070
+just working my macbook just crashed
+
+767
+00:52:01,630 --> 00:52:07,760
+okay so you go to you know this this is
+
+768
+00:52:06,530 --> 00:52:11,810
+goon website
+
+769
+00:52:07,760 --> 00:52:14,390
+this is goon website so they have Emacs
+
+770
+00:52:11,810 --> 00:52:22,070
+versions you know you click on Emacs 26
+
+771
+00:52:14,390 --> 00:52:25,120
+this is for Windows ok and you see this
+
+772
+00:52:22,070 --> 00:52:29,840
+crap you know this you see this tech
+
+773
+00:52:25,120 --> 00:52:32,180
+tech clickers tech geeking [ __ ] these
+
+774
+00:52:29,840 --> 00:52:35,270
+idiots this open source and free
+
+775
+00:52:32,180 --> 00:52:37,160
+software extreme idiots you know you see
+
+776
+00:52:35,270 --> 00:52:39,770
+this filename suppose you are mom
+
+777
+00:52:37,160 --> 00:52:41,660
+suppose you are your mom ok so people
+
+778
+00:52:39,770 --> 00:52:43,670
+say oh you can download Emacs oh you
+
+779
+00:52:41,660 --> 00:52:45,620
+don't need to be a programmer you Emacs
+
+780
+00:52:43,670 --> 00:52:49,280
+is actually easy to learn you know you
+
+781
+00:52:45,620 --> 00:52:51,830
+you hear that from Emacs from the mouths
+
+782
+00:52:49,280 --> 00:52:54,950
+of Emacs phonetics they will say that
+
+783
+00:52:51,830 --> 00:52:56,780
+they will say actually Emacs is not at
+
+784
+00:52:54,950 --> 00:52:59,540
+that difficult actually you know they
+
+785
+00:52:56,780 --> 00:53:02,080
+they will tell you the story about how
+
+786
+00:52:59,540 --> 00:53:06,680
+secretaries are using Emacs you know
+
+787
+00:53:02,080 --> 00:53:08,750
+like 30 years old story so ok so you try
+
+788
+00:53:06,680 --> 00:53:11,570
+to be you know think think you are your
+
+789
+00:53:08,750 --> 00:53:13,310
+mom ok so you go to this page you are on
+
+790
+00:53:11,570 --> 00:53:15,800
+Windows you want to download Emacs
+
+791
+00:53:13,310 --> 00:53:19,490
+because your son told you Emacs is the
+
+792
+00:53:15,800 --> 00:53:22,730
+greatest editor so now you are on this
+
+793
+00:53:19,490 --> 00:53:26,480
+page which one which wonder of the [ __ ]
+
+794
+00:53:22,730 --> 00:53:28,580
+to download tell me these [ __ ]
+
+795
+00:53:26,480 --> 00:53:30,860
+these idiots you know you tell them that
+
+796
+00:53:28,580 --> 00:53:33,280
+they don't understand this typical Linux
+
+797
+00:53:30,860 --> 00:53:35,780
+open source free software foundation of
+
+798
+00:53:33,280 --> 00:53:37,940
+foundation phonetics you know they tell
+
+799
+00:53:35,780 --> 00:53:39,350
+you everyday or Linux is great new nice
+
+800
+00:53:37,940 --> 00:53:42,740
+react actually better than Windows
+
+801
+00:53:39,350 --> 00:53:45,080
+Windows sucks you know now suppose you
+
+802
+00:53:42,740 --> 00:53:47,210
+are your mom you hurt so much good
+
+803
+00:53:45,080 --> 00:53:49,700
+things about you know UNIX leaner so I
+
+804
+00:53:47,210 --> 00:53:53,270
+mean about you max you go to this page
+
+805
+00:53:49,700 --> 00:53:56,660
+the first question is which one which
+
+806
+00:53:53,270 --> 00:53:59,810
+one of these [ __ ] should you download so
+
+807
+00:53:56,660 --> 00:54:02,630
+look at their names so you they have
+
+808
+00:53:59,810 --> 00:54:08,329
+Emacs 26 I 6 a
+
+809
+00:54:02,630 --> 00:54:13,759
+I six eight six - steps okay then you
+
+810
+00:54:08,329 --> 00:54:19,940
+have okay then you have AI 6i6 a six
+
+811
+00:54:13,759 --> 00:54:22,039
+then you have x86 okay then you have you
+
+812
+00:54:19,940 --> 00:54:25,069
+know then you have zip and six six six
+
+813
+00:54:22,039 --> 00:54:26,720
+six a as sick you know they are thinking
+
+814
+00:54:25,069 --> 00:54:32,180
+they want to make it secure these
+
+815
+00:54:26,720 --> 00:54:37,489
+[ __ ] the then you have okay I 686 I
+
+816
+00:54:32,180 --> 00:54:40,249
+you know then x86 okay then yeah so
+
+817
+00:54:37,489 --> 00:54:52,640
+that's the two variations oh the only
+
+818
+00:54:40,249 --> 00:54:54,710
+wait okay x86 then 64 okay so I mean do
+
+819
+00:54:52,640 --> 00:54:56,720
+you understand what I'm saying do you
+
+820
+00:54:54,710 --> 00:54:59,210
+think so you are your mom do you think
+
+821
+00:54:56,720 --> 00:55:01,729
+she know which one to download do you
+
+822
+00:54:59,210 --> 00:55:04,460
+think she knows that's the first
+
+823
+00:55:01,729 --> 00:55:06,920
+question and if she don't know how does
+
+824
+00:55:04,460 --> 00:55:09,589
+she how do you look up like how do you
+
+825
+00:55:06,920 --> 00:55:12,229
+know which one to download you know yeah
+
+826
+00:55:09,589 --> 00:55:14,989
+of course your mom even though she's not
+
+827
+00:55:12,229 --> 00:55:17,089
+technical person but she's not a idiot
+
+828
+00:55:14,989 --> 00:55:20,059
+right she is very intelligent
+
+829
+00:55:17,089 --> 00:55:22,249
+maybe she is a mathematician so I am a
+
+830
+00:55:20,059 --> 00:55:24,799
+mathematician and I've been programming
+
+831
+00:55:22,249 --> 00:55:27,259
+for 20 years I I don't know what the
+
+832
+00:55:24,799 --> 00:55:29,690
+[ __ ] out is fact the Linux people I
+
+833
+00:55:27,259 --> 00:55:34,700
+don't know which one to download because
+
+834
+00:55:29,690 --> 00:55:39,039
+you know I 64 probably means 60 bits CPU
+
+835
+00:55:34,700 --> 00:55:44,719
+then I 86 well I kind of know ok so I
+
+836
+00:55:39,039 --> 00:55:47,390
+686 and the x86 they are kind of short
+
+837
+00:55:44,719 --> 00:55:51,559
+you know a brief for Intel Architecture
+
+838
+00:55:47,390 --> 00:55:56,109
+you know it's Intel CPU architecture so
+
+839
+00:55:51,559 --> 00:55:59,210
+you know I you get my point
+
+840
+00:55:56,109 --> 00:56:01,069
+so the thing is cannot these Linux
+
+841
+00:55:59,210 --> 00:56:03,109
+[ __ ] today I mean my question
+
+842
+00:56:01,069 --> 00:56:05,900
+here's my question ok do they ever
+
+843
+00:56:03,109 --> 00:56:08,210
+thought about the whether this is a
+
+844
+00:56:05,900 --> 00:56:09,589
+problem or not you know they think they
+
+845
+00:56:08,210 --> 00:56:11,779
+are so hot that you know they are
+
+846
+00:56:09,589 --> 00:56:14,170
+hotshots they are techie cuz they know
+
+847
+00:56:11,779 --> 00:56:14,170
+so much
+
+848
+00:56:16,210 --> 00:56:21,490
+okay I should stop ranting about this
+
+849
+00:56:22,600 --> 00:56:28,460
+you know this this is this is a problem
+
+850
+00:56:25,760 --> 00:56:30,980
+okay this is this is a real you know one
+
+851
+00:56:28,460 --> 00:56:34,400
+example of the medium problems with
+
+852
+00:56:30,980 --> 00:56:37,220
+these Linux UNIX people they think they
+
+853
+00:56:34,400 --> 00:56:39,650
+know technical details the they are take
+
+854
+00:56:37,220 --> 00:56:43,420
+kickers they don't know it they are an
+
+855
+00:56:39,650 --> 00:56:46,910
+incapable of thinking about things okay
+
+856
+00:56:43,420 --> 00:56:48,170
+I I'm going to stop ranting about this
+
+857
+00:56:46,910 --> 00:56:50,300
+all right
+
+858
+00:56:48,170 --> 00:56:56,120
+well today I was supposed to work on
+
+859
+00:56:50,300 --> 00:57:01,120
+Emacs and emag beast so let's do that so
+
+860
+00:56:56,120 --> 00:57:04,280
+anyway so we finish this task it works
+
+861
+00:57:01,120 --> 00:57:09,340
+it's kind of my talk is kind of screwed
+
+862
+00:57:04,280 --> 00:57:12,920
+up now because I started to run and stop
+
+863
+00:57:09,340 --> 00:57:15,190
+now let's get back to let's get back to
+
+864
+00:57:12,920 --> 00:57:17,860
+what we were doing
+
+865
+00:57:15,190 --> 00:57:20,960
+so Emacs
+
+866
+00:57:17,860 --> 00:57:26,750
+modify command log mod we did that and
+
+867
+00:57:20,960 --> 00:57:28,910
+that is successful and what what what
+
+868
+00:57:26,750 --> 00:57:31,040
+else let's see how many people have how
+
+869
+00:57:28,910 --> 00:57:35,570
+many people is here yet
+
+870
+00:57:31,040 --> 00:57:38,960
+13 people okay we already did an hour so
+
+871
+00:57:35,570 --> 00:57:42,640
+I think that's it I don't get comments
+
+872
+00:57:38,960 --> 00:57:42,640
+from you guys so I kind of
+
+873
+00:57:49,369 --> 00:57:53,989
+so yeah so I have a lot more codes I
+
+874
+00:57:52,190 --> 00:57:57,200
+want to write every time I have these
+
+875
+00:57:53,989 --> 00:57:59,989
+tasks I was thinking you know I'm going
+
+876
+00:57:57,200 --> 00:58:02,359
+to do a talk show about it so on one
+
+877
+00:57:59,989 --> 00:58:05,210
+hand I can do these things I want to do
+
+878
+00:58:02,359 --> 00:58:10,729
+on the other hand I can also explain and
+
+879
+00:58:05,210 --> 00:58:13,279
+show you guys as an opportunity to you
+
+880
+00:58:10,729 --> 00:58:17,539
+know work on a real-life problem these
+
+881
+00:58:13,279 --> 00:58:19,130
+are real-life problems you know these
+
+882
+00:58:17,539 --> 00:58:22,940
+are the things I want to do I need to
+
+883
+00:58:19,130 --> 00:58:26,319
+write the commands to code them but I
+
+884
+00:58:22,940 --> 00:58:26,319
+think that's it for today
+
+885
+00:58:28,690 --> 00:58:31,869
+anything else
+
+886
+00:58:34,390 --> 00:58:41,539
+so just in Skyfire says I thought there
+
+887
+00:58:38,059 --> 00:58:43,789
+is a physical Emacs Church of course
+
+888
+00:58:41,539 --> 00:58:49,400
+there is not are you kidding
+
+889
+00:58:43,789 --> 00:58:51,589
+like sometimes I don't know you know
+
+890
+00:58:49,400 --> 00:58:54,019
+what your questions always very strange
+
+891
+00:58:51,589 --> 00:58:59,269
+person but sometimes I don't know if you
+
+892
+00:58:54,019 --> 00:59:00,170
+are kidding or not so that's it for
+
+893
+00:58:59,269 --> 00:59:08,599
+today
+
+894
+00:59:00,170 --> 00:59:11,359
+I think Emacs stuff okay who are you
+
+895
+00:59:08,599 --> 00:59:15,619
+people say hi you know so I guess I have
+
+896
+00:59:11,359 --> 00:59:17,749
+many locals you know about that topic
+
+897
+00:59:15,619 --> 00:59:23,630
+you know I know some people they don't
+
+898
+00:59:17,749 --> 00:59:26,180
+want to show partly because you know
+
+899
+00:59:23,630 --> 00:59:29,809
+when you are on the internet you have no
+
+900
+00:59:26,180 --> 00:59:32,900
+idea like who is watching you whether
+
+901
+00:59:29,809 --> 00:59:36,410
+maybe your life stream or maybe online
+
+902
+00:59:32,900 --> 00:59:39,079
+on social network because it could be it
+
+903
+00:59:36,410 --> 00:59:41,900
+could be your mom your co-workers your
+
+904
+00:59:39,079 --> 00:59:45,759
+boss or your neighbors or your friends
+
+905
+00:59:41,900 --> 00:59:45,759
+they are watching you and you don't know
+
+906
+00:59:46,180 --> 00:59:51,229
+yeah that's that's the case with the
+
+907
+00:59:49,099 --> 00:59:54,200
+Internet so when you go on internet you
+
+908
+00:59:51,229 --> 00:59:57,650
+want to be sure that everything you do
+
+909
+00:59:54,200 --> 01:00:00,349
+is public you know just keep keep the
+
+910
+00:59:57,650 --> 01:00:03,050
+mindset that everything you do on the
+
+911
+01:00:00,349 --> 01:00:05,000
+Internet is public that way
+
+912
+01:00:03,050 --> 01:00:08,870
+you don't get into the situation where
+
+913
+01:00:05,000 --> 01:00:10,340
+you you know maybe disclosed some of
+
+914
+01:00:08,870 --> 01:00:14,260
+your secret by mistake
+
+915
+01:00:10,340 --> 01:00:17,990
+and by the way goat go on internet
+
+916
+01:00:14,260 --> 01:00:20,600
+publicly is a good thing I recommend ok
+
+917
+01:00:17,990 --> 01:00:22,880
+so instead of using you know nicknames
+
+918
+01:00:20,600 --> 01:00:25,700
+or hiding your names things like that I
+
+919
+01:00:22,880 --> 01:00:33,230
+think it's actually a good thing you go
+
+920
+01:00:25,700 --> 01:00:36,650
+on internet you know with your name we
+
+921
+01:00:33,230 --> 01:00:40,150
+will see today's live now I will see
+
+922
+01:00:36,650 --> 01:00:49,250
+today's name now ok bye guys bye then
+
+923
+01:00:40,150 --> 01:00:52,610
+demo demo is is from from Brazil yeah
+
+924
+01:00:49,250 --> 01:00:55,010
+makers wrong they are that's why we need
+
+925
+01:00:52,610 --> 01:00:59,600
+privacy and pseudo names for zero time
+
+926
+01:00:55,010 --> 01:01:00,800
+zone complicates me yeah Paseo tamson is
+
+927
+01:00:59,600 --> 01:01:03,500
+not too complicated
+
+928
+01:01:00,800 --> 01:01:05,660
+Paseo time zone is only like two hours
+
+929
+01:01:03,500 --> 01:01:07,810
+ahead so it's like 3 o clock in the
+
+930
+01:01:05,660 --> 01:01:07,810
+afternoon
+
+931
+01:01:09,460 --> 01:01:18,340
+ok I'll see you guys bye and bye my Emax
+
+932
+01:01:15,500 --> 01:01:18,340
+Troy oh ok
+
+933
+01:01:23,180 --> 01:01:29,849
+in America so this I need to address
+
+934
+01:01:26,219 --> 01:01:34,140
+poor Dora says in America you can be
+
+935
+01:01:29,849 --> 01:01:38,940
+targeted in the workplace for political
+
+936
+01:01:34,140 --> 01:01:41,609
+views that is correct but however that
+
+937
+01:01:38,940 --> 01:01:43,769
+does not mean you should not get on you
+
+938
+01:01:41,609 --> 01:01:47,969
+know you should not use your name you
+
+939
+01:01:43,769 --> 01:01:50,969
+should use your name you go on you with
+
+940
+01:01:47,969 --> 01:01:54,089
+your real name say what you believe then
+
+941
+01:01:50,969 --> 01:01:57,509
+[ __ ] then those people who target you
+
+942
+01:01:54,089 --> 01:02:01,229
+they will be [ __ ] up we are in this
+
+943
+01:01:57,509 --> 01:02:03,479
+situation today where nobody dares to go
+
+944
+01:02:01,229 --> 01:02:05,279
+public because you know they they hide
+
+945
+01:02:03,479 --> 01:02:08,430
+like nuts you know they use nicknames
+
+946
+01:02:05,279 --> 01:02:11,819
+they they talk garbage it means it means
+
+947
+01:02:08,430 --> 01:02:15,329
+the fortune stuff they talk garbage it's
+
+948
+01:02:11,819 --> 01:02:18,509
+because because all of you nuts since
+
+949
+01:02:15,329 --> 01:02:20,700
+like 20 years ago have the idea that you
+
+950
+01:02:18,509 --> 01:02:23,549
+want to be anonymous that's why this
+
+951
+01:02:20,700 --> 01:02:26,999
+happens okay that is why this happens
+
+952
+01:02:23,549 --> 01:02:28,829
+and it will get worse it will get worse
+
+953
+01:02:26,999 --> 01:02:31,890
+and worse if you don't start
+
+954
+01:02:28,829 --> 01:02:35,910
+satis use your real name show your ID
+
+955
+01:02:31,890 --> 01:02:40,440
+and speak up okay that's my rate that's
+
+956
+01:02:35,910 --> 01:02:42,680
+my opinion that's my recommendation hi
+
+957
+01:02:40,440 --> 01:02:42,680
+guys
+

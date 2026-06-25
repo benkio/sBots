@@ -1,0 +1,9771 @@
+1
+00:00:00,599 --> 00:00:08,920
+welcome everyone to another c talk show
+
+2
+00:00:05,680 --> 00:00:13,559
+we are going to do wolam language coding
+
+3
+00:00:08,920 --> 00:00:16,480
+this is the third take of the Advent of
+
+4
+00:00:13,559 --> 00:00:20,240
+code 2023 day
+
+5
+00:00:16,480 --> 00:00:23,160
+14 uh and yesterday or the day before we
+
+6
+00:00:20,240 --> 00:00:26,560
+were doing part two and we didn't finish
+
+7
+00:00:23,160 --> 00:00:29,160
+so today we're going to continue that um
+
+8
+00:00:26,560 --> 00:00:32,680
+and one of the first thing we need to do
+
+9
+00:00:29,160 --> 00:00:35,879
+is to the function to detect
+
+10
+00:00:32,680 --> 00:00:38,320
+periodic okay we're going to C that uh
+
+11
+00:00:35,879 --> 00:00:42,559
+if you are watching this offline skip
+
+12
+00:00:38,320 --> 00:00:46,000
+around and play at 1.5 speed or more uh
+
+13
+00:00:42,559 --> 00:00:48,520
+because I ramble a lot uh which is often
+
+14
+00:00:46,000 --> 00:00:50,120
+the interesting part and if you are here
+
+15
+00:00:48,520 --> 00:00:53,520
+say hi
+
+16
+00:00:50,120 --> 00:00:59,039
+okay so uh let's begin okay so let's
+
+17
+00:00:53,520 --> 00:01:02,480
+start coding so um we did something fun
+
+18
+00:00:59,039 --> 00:01:04,640
+uh let's you know let's run the code and
+
+19
+00:01:02,480 --> 00:01:07,600
+uh show you what we did yesterday
+
+20
+00:01:04,640 --> 00:01:10,520
+because that's a fun part so here's a
+
+21
+00:01:07,600 --> 00:01:14,000
+code wolam language if you don't know
+
+22
+00:01:10,520 --> 00:01:19,759
+wolam language you go to uh just search
+
+23
+00:01:14,000 --> 00:01:22,759
+for Exel wolam language wolf Language
+
+24
+00:01:19,759 --> 00:01:24,640
+tutorial okay and uh you'll find my
+
+25
+00:01:22,759 --> 00:01:26,439
+tutorial this is designed for
+
+26
+00:01:24,640 --> 00:01:29,360
+programmers and you can find the
+
+27
+00:01:26,439 --> 00:01:30,520
+download button with a language has been
+
+28
+00:01:29,360 --> 00:01:34,280
+is free
+
+29
+00:01:30,520 --> 00:01:38,520
+since 2019 the you download the wam
+
+30
+00:01:34,280 --> 00:01:40,880
+engine and here's a full tutorial design
+
+31
+00:01:38,520 --> 00:01:43,439
+for programmers if you are JavaScript
+
+32
+00:01:40,880 --> 00:01:48,240
+coder python coder C or
+
+33
+00:01:43,439 --> 00:01:50,320
+C++ uh you like it okay so let's show so
+
+34
+00:01:48,240 --> 00:01:54,119
+here we are running the wolam language
+
+35
+00:01:50,320 --> 00:01:56,320
+code in um in wolam notepad so let's
+
+36
+00:01:54,119 --> 00:01:59,759
+remove this part because this is a
+
+37
+00:01:56,320 --> 00:01:59,759
+personal input
+
+38
+00:02:00,880 --> 00:02:06,240
+okay so here's a
+
+39
+00:02:02,560 --> 00:02:08,720
+codee uh here's the input and code code
+
+40
+00:02:06,240 --> 00:02:10,920
+code code code and okay and we did the
+
+41
+00:02:08,720 --> 00:02:13,640
+animation so
+
+42
+00:02:10,920 --> 00:02:15,879
+shift
+
+43
+00:02:13,640 --> 00:02:18,560
+enter
+
+44
+00:02:15,879 --> 00:02:20,040
+uh oh the animation where's the
+
+45
+00:02:18,560 --> 00:02:22,680
+animation
+
+46
+00:02:20,040 --> 00:02:24,959
+part okay maybe I mean oh that that's
+
+47
+00:02:22,680 --> 00:02:27,720
+the previous previous okay so we need to
+
+48
+00:02:24,959 --> 00:02:29,920
+go to this page uh this is from
+
+49
+00:02:27,720 --> 00:02:34,319
+yesterday we did the animation so let's
+
+50
+00:02:29,920 --> 00:02:36,720
+show that copy the code select or
+
+51
+00:02:34,319 --> 00:02:40,680
+paste okay here's a
+
+52
+00:02:36,720 --> 00:02:41,760
+code down down down down down down down
+
+53
+00:02:40,680 --> 00:02:46,200
+down
+
+54
+00:02:41,760 --> 00:02:48,480
+down down down we got the board history
+
+55
+00:02:46,200 --> 00:02:54,120
+and down down and we got this those
+
+56
+00:02:48,480 --> 00:02:54,120
+shows animation so shift enter run
+
+57
+00:02:56,680 --> 00:03:05,319
+it and okay we got a problem here uh we
+
+58
+00:03:01,120 --> 00:03:05,319
+need to cancel it out
+
+59
+00:03:05,680 --> 00:03:15,200
+period uh because the this code uh this
+
+60
+00:03:11,200 --> 00:03:18,720
+one billion times that's not that's not
+
+61
+00:03:15,200 --> 00:03:24,959
+um that's not working yesterday
+
+62
+00:03:18,720 --> 00:03:24,959
+so yeah okay so let's try this
+
+63
+00:03:25,000 --> 00:03:33,599
+um shift control D to split the cell and
+
+64
+00:03:30,439 --> 00:03:36,840
+we just want to run this the first part
+
+65
+00:03:33,599 --> 00:03:36,840
+okay shift
+
+66
+00:03:42,680 --> 00:03:50,519
+enter it'll take 5 seconds because our
+
+67
+00:03:47,120 --> 00:03:52,879
+code is not this this
+
+68
+00:03:50,519 --> 00:03:58,120
+manipulate is not done in the most
+
+69
+00:03:52,879 --> 00:04:00,840
+efficient way so it'll take 10
+
+70
+00:03:58,120 --> 00:04:04,000
+seconds but anyway today we're going to
+
+71
+00:04:00,840 --> 00:04:07,200
+write a function to detect periodicity
+
+72
+00:04:04,000 --> 00:04:09,680
+of a given function of a given discrete
+
+73
+00:04:07,200 --> 00:04:12,560
+function uh we I'm going to explain that
+
+74
+00:04:09,680 --> 00:04:17,359
+so we have this yesterday so this is fun
+
+75
+00:04:12,560 --> 00:04:20,040
+to watch you can watch uh you know you
+
+76
+00:04:17,359 --> 00:04:23,560
+can watch how the balls move on the
+
+77
+00:04:20,040 --> 00:04:26,840
+board so let's slow
+
+78
+00:04:23,560 --> 00:04:29,199
+down so they see they move northwest
+
+79
+00:04:26,840 --> 00:04:30,479
+southeast northwest southeast northwest
+
+80
+00:04:29,199 --> 00:04:33,120
+southeast
+
+81
+00:04:30,479 --> 00:04:35,720
+and the pattern changes so it's quite
+
+82
+00:04:33,120 --> 00:04:35,720
+interesting
+
+83
+00:04:36,160 --> 00:04:42,600
+problem
+
+84
+00:04:38,080 --> 00:04:45,680
+hello uh okay so so now we going to
+
+85
+00:04:42,600 --> 00:04:48,160
+write a program yesterday we made
+
+86
+00:04:45,680 --> 00:04:49,960
+progress almost solve the problem except
+
+87
+00:04:48,160 --> 00:04:55,520
+we need the function to find the
+
+88
+00:04:49,960 --> 00:04:59,400
+periodic okay so copy that let's see
+
+89
+00:04:55,520 --> 00:05:00,280
+yeah uh copy that and go to today's talk
+
+90
+00:04:59,400 --> 00:05:03,479
+show
+
+91
+00:05:00,280 --> 00:05:06,800
+and paste the code here showing browser
+
+92
+00:05:03,479 --> 00:05:10,919
+so oh not not that code uh oh yeah
+
+93
+00:05:06,800 --> 00:05:13,000
+that's a py okay let's work on that so
+
+94
+00:05:10,919 --> 00:05:16,000
+yesterday we got a function this
+
+95
+00:05:13,000 --> 00:05:19,440
+function someone else wrote it Richard
+
+96
+00:05:16,000 --> 00:05:22,720
+Phillips that takes a function and takes
+
+97
+00:05:19,440 --> 00:05:25,160
+a initial value and it will Nest the
+
+98
+00:05:22,720 --> 00:05:28,199
+function call the function get output
+
+99
+00:05:25,160 --> 00:05:31,400
+and call the function on that again
+
+100
+00:05:28,199 --> 00:05:33,800
+repeat uh and you want to detect the
+
+101
+00:05:31,400 --> 00:05:37,120
+periodicity of the function meaning that
+
+102
+00:05:33,800 --> 00:05:40,240
+for example the function for example if
+
+103
+00:05:37,120 --> 00:05:43,800
+you have a function uh let's say if you
+
+104
+00:05:40,240 --> 00:05:43,800
+have a function
+
+105
+00:05:44,720 --> 00:05:54,800
+God okay a function let's say if it
+
+106
+00:05:49,600 --> 00:05:54,800
+runs you know one it returns
+
+107
+00:05:56,160 --> 00:06:03,520
+three then if it's given three it it
+
+108
+00:06:00,280 --> 00:06:07,479
+returns let's say two then if the
+
+109
+00:06:03,520 --> 00:06:11,880
+function at two is
+
+110
+00:06:07,479 --> 00:06:14,800
+return one then it forms a cycle because
+
+111
+00:06:11,880 --> 00:06:17,880
+two gets one then one gets become three
+
+112
+00:06:14,800 --> 00:06:20,840
+three becomes two two becomes one so 3 2
+
+113
+00:06:17,880 --> 00:06:24,039
+1 3 2 one it forms a cycle you know one
+
+114
+00:06:20,840 --> 00:06:26,240
+of the most popular math problem a
+
+115
+00:06:24,039 --> 00:06:28,639
+interesting problem and extremely
+
+116
+00:06:26,240 --> 00:06:31,919
+difficult unsolved problem is uh
+
+117
+00:06:28,639 --> 00:06:36,960
+so-called health Stone numbers so uh or
+
+118
+00:06:31,919 --> 00:06:38,520
+collapse conjecture so let's say hell
+
+119
+00:06:36,960 --> 00:06:41,800
+Stone
+
+120
+00:06:38,520 --> 00:06:45,199
+numbers so let's show
+
+121
+00:06:41,800 --> 00:06:48,080
+that uh hstone number from WFAN research
+
+122
+00:06:45,199 --> 00:06:50,800
+you know math word is very bad resource
+
+123
+00:06:48,080 --> 00:06:54,160
+you don't want you don't want to check
+
+124
+00:06:50,800 --> 00:06:57,440
+any mathematics from the wolf math world
+
+125
+00:06:54,160 --> 00:07:01,960
+that's a very bad and
+
+126
+00:06:57,440 --> 00:07:04,080
+misleading resource okay uh so here's a
+
+127
+00:07:01,960 --> 00:07:07,039
+Cass
+
+128
+00:07:04,080 --> 00:07:09,599
+conjecture so basically the problem is
+
+129
+00:07:07,039 --> 00:07:11,639
+that you know you define a function such
+
+130
+00:07:09,599 --> 00:07:17,440
+that the function is defined
+
+131
+00:07:11,639 --> 00:07:20,840
+by FN if n ided by two is zero it's a
+
+132
+00:07:17,440 --> 00:07:24,319
+even number then you just
+
+133
+00:07:20,840 --> 00:07:24,319
+um uh what is
+
+134
+00:07:24,800 --> 00:07:29,960
+that yeah okay so here's a better
+
+135
+00:07:27,720 --> 00:07:32,759
+description if the number is even divide
+
+136
+00:07:29,960 --> 00:07:35,759
+by two okay so
+
+137
+00:07:32,759 --> 00:07:39,879
+F4 you know four is even so four divided
+
+138
+00:07:35,759 --> 00:07:42,520
+by two you get two so F at four is two
+
+139
+00:07:39,879 --> 00:07:45,240
+now if the number is odd then you triple
+
+140
+00:07:42,520 --> 00:07:49,759
+it and add one so let's say the number
+
+141
+00:07:45,240 --> 00:07:55,360
+is five F at five so triple five is 15
+
+142
+00:07:49,759 --> 00:07:57,720
+15 + 1 is 16 so F5 is equals to 16 okay
+
+143
+00:07:55,360 --> 00:08:00,720
+so this is a function this is the
+
+144
+00:07:57,720 --> 00:08:02,560
+definition of the function and uh you so
+
+145
+00:08:00,720 --> 00:08:05,440
+if you keep running the function you'll
+
+146
+00:08:02,560 --> 00:08:10,240
+notice there's a periodic for
+
+147
+00:08:05,440 --> 00:08:10,240
+example if you begin with
+
+148
+00:08:10,319 --> 00:08:17,520
+um you know if you f at
+
+149
+00:08:14,680 --> 00:08:20,840
+f27 uh actually this is one of the
+
+150
+00:08:17,520 --> 00:08:24,520
+longest periodic sequence basically this
+
+151
+00:08:20,840 --> 00:08:29,159
+the function almost always returns to
+
+152
+00:08:24,520 --> 00:08:33,440
+zero so it will always become 16 then F
+
+153
+00:08:29,159 --> 00:08:36,880
+at 16 is 8 F at 8 is four F at four is
+
+154
+00:08:33,440 --> 00:08:39,519
+two then F at two is one so it always
+
+155
+00:08:36,880 --> 00:08:43,240
+come down to one so here's a plot of the
+
+156
+00:08:39,519 --> 00:08:46,480
+function so the question is does this
+
+157
+00:08:43,240 --> 00:08:49,399
+function always come down to one that is
+
+158
+00:08:46,480 --> 00:08:52,600
+the question and that is unsolved okay
+
+159
+00:08:49,399 --> 00:08:54,440
+very very simple problem but is unsolved
+
+160
+00:08:52,600 --> 00:08:56,800
+anyway we talking about this problem
+
+161
+00:08:54,440 --> 00:09:01,279
+because there's a we can see there's a
+
+162
+00:08:56,800 --> 00:09:08,040
+period okay I mean so
+
+163
+00:09:01,279 --> 00:09:08,040
+uh you know 16 a241 so uh you know
+
+164
+00:09:08,480 --> 00:09:15,920
+the so basically depending on what uh
+
+165
+00:09:13,120 --> 00:09:19,320
+number is input you you become a
+
+166
+00:09:15,920 --> 00:09:23,560
+repetition of several Cycles a period so
+
+167
+00:09:19,320 --> 00:09:25,600
+there's a periodic so for example if um
+
+168
+00:09:23,560 --> 00:09:28,360
+the starting value having the largest
+
+169
+00:09:25,600 --> 00:09:30,560
+total stopping time while being less
+
+170
+00:09:28,360 --> 00:09:36,160
+than 10 is not
+
+171
+00:09:30,560 --> 00:09:37,560
+okay so so if F at n you got 19 steps
+
+172
+00:09:36,160 --> 00:09:41,240
+and it becomes
+
+173
+00:09:37,560 --> 00:09:43,000
+what uh anyway there's a period okay so
+
+174
+00:09:41,240 --> 00:09:44,560
+you can you know you can look at this
+
+175
+00:09:43,000 --> 00:09:47,720
+problem very interesting problem I
+
+176
+00:09:44,560 --> 00:09:49,440
+learned this problem dur uh where I was
+
+177
+00:09:47,720 --> 00:09:54,240
+in college in
+
+178
+00:09:49,440 --> 00:09:57,399
+1992 taking a recreational Math course
+
+179
+00:09:54,240 --> 00:10:00,040
+so actually yeah so you know very
+
+180
+00:09:57,399 --> 00:10:02,279
+interesting problem call lad's
+
+181
+00:10:00,040 --> 00:10:06,079
+conjecture very famous you'll see lots
+
+182
+00:10:02,279 --> 00:10:08,120
+of YouTube uh talking about it too
+
+183
+00:10:06,079 --> 00:10:10,279
+however it's not soled you know it's
+
+184
+00:10:08,120 --> 00:10:13,519
+very simple but it's not solved and some
+
+185
+00:10:10,279 --> 00:10:15,839
+mathematicians say this is you know so
+
+186
+00:10:13,519 --> 00:10:18,720
+difficult that today's mathematics we
+
+187
+00:10:15,839 --> 00:10:22,440
+are not we don't have the tools to even
+
+188
+00:10:18,720 --> 00:10:25,399
+approach the problem okay so and I
+
+189
+00:10:22,440 --> 00:10:27,720
+believe according to Stephan wolam you
+
+190
+00:10:25,399 --> 00:10:30,160
+know he has talked about this problem in
+
+191
+00:10:27,720 --> 00:10:33,560
+his blogs you know he's each article is
+
+192
+00:10:30,160 --> 00:10:36,120
+very long so he seems to suggest if I
+
+193
+00:10:33,560 --> 00:10:38,360
+recall correctly this is one of the
+
+194
+00:10:36,120 --> 00:10:39,959
+computational
+
+195
+00:10:38,360 --> 00:10:42,959
+irreducibility
+
+196
+00:10:39,959 --> 00:10:45,880
+so you know so basically his take is
+
+197
+00:10:42,959 --> 00:10:47,519
+that many of this computational problem
+
+198
+00:10:45,880 --> 00:10:51,240
+you know this is a math problem but you
+
+199
+00:10:47,519 --> 00:10:53,600
+can consider consider is it as a
+
+200
+00:10:51,240 --> 00:10:58,040
+computation as you know an
+
+201
+00:10:53,600 --> 00:11:00,360
+algorithm so what happens if you plug in
+
+202
+00:10:58,040 --> 00:11:02,320
+uh any number to and will it always come
+
+203
+00:11:00,360 --> 00:11:05,240
+down to one that that is a question so
+
+204
+00:11:02,320 --> 00:11:07,880
+it's you know you can always know the
+
+205
+00:11:05,240 --> 00:11:12,079
+answer by try different end you know you
+
+206
+00:11:07,880 --> 00:11:15,440
+can try FN where n is one one million or
+
+207
+00:11:12,079 --> 00:11:17,600
+a billion or billion plus one or gig
+
+208
+00:11:15,440 --> 00:11:19,720
+Petra you know whatever big number you
+
+209
+00:11:17,600 --> 00:11:21,880
+can always just compute it so any given
+
+210
+00:11:19,720 --> 00:11:24,560
+number you can find out the answer will
+
+211
+00:11:21,880 --> 00:11:25,519
+it always become one but the problem is
+
+212
+00:11:24,560 --> 00:11:28,720
+you you
+
+213
+00:11:25,519 --> 00:11:29,839
+know you know our computers is limited
+
+214
+00:11:28,720 --> 00:11:33,000
+speed
+
+215
+00:11:29,839 --> 00:11:35,320
+so uh there's always bigger number that
+
+216
+00:11:33,000 --> 00:11:38,920
+you cannot just compute you know just
+
+217
+00:11:35,320 --> 00:11:42,800
+you cannot brute force it but so Stephan
+
+218
+00:11:38,920 --> 00:11:45,480
+wolam is saying if I believe um I
+
+219
+00:11:42,800 --> 00:11:48,360
+believe that he's saying this is one of
+
+220
+00:11:45,480 --> 00:11:51,399
+the might be computational
+
+221
+00:11:48,360 --> 00:11:52,440
+irreducibility problem so there is no
+
+222
+00:11:51,399 --> 00:11:56,320
+actual
+
+223
+00:11:52,440 --> 00:11:59,279
+Theory you know so we don't know we like
+
+224
+00:11:56,320 --> 00:12:01,880
+he you know that like um you know you
+
+225
+00:11:59,279 --> 00:12:05,600
+know we don't know we cannot solve this
+
+226
+00:12:01,880 --> 00:12:07,839
+problem we do not know or or in other
+
+227
+00:12:05,600 --> 00:12:09,680
+words it's impossible or almost
+
+228
+00:12:07,839 --> 00:12:13,120
+impossible to
+
+229
+00:12:09,680 --> 00:12:16,600
+know for any number this uh will always
+
+230
+00:12:13,120 --> 00:12:18,800
+come down to one because computational
+
+231
+00:12:16,600 --> 00:12:21,720
+irreducibility the only way to find out
+
+232
+00:12:18,800 --> 00:12:25,079
+is just you just compute just just you
+
+233
+00:12:21,720 --> 00:12:26,399
+know this is so this is very interesting
+
+234
+00:12:25,079 --> 00:12:30,120
+issue
+
+235
+00:12:26,399 --> 00:12:32,000
+because hello based puffy
+
+236
+00:12:30,120 --> 00:12:34,240
+very interesting because for example
+
+237
+00:12:32,000 --> 00:12:36,800
+when you look at the super computers
+
+238
+00:12:34,240 --> 00:12:36,800
+okay
+
+239
+00:12:36,880 --> 00:12:41,480
+so you know it's interesting superc
+
+240
+00:12:39,600 --> 00:12:43,639
+computers let let me tell you about
+
+241
+00:12:41,480 --> 00:12:46,120
+supercomputers so every year or every
+
+242
+00:12:43,639 --> 00:12:49,160
+few years they have a list of the
+
+243
+00:12:46,120 --> 00:12:52,079
+fastest supercomputers you know and I
+
+244
+00:12:49,160 --> 00:12:54,680
+looked at you know like I this is very
+
+245
+00:12:52,079 --> 00:12:57,440
+interesting uh thing for me because I'm
+
+246
+00:12:54,680 --> 00:13:00,120
+a computer nerds right I want to see how
+
+247
+00:12:57,440 --> 00:13:02,680
+fast are they who who is Crea the
+
+248
+00:13:00,120 --> 00:13:07,000
+fastest super computer so every few
+
+249
+00:13:02,680 --> 00:13:09,600
+years I look at at this and uh about two
+
+250
+00:13:07,000 --> 00:13:13,000
+years ago I looked at it it's amazing
+
+251
+00:13:09,600 --> 00:13:14,920
+that China has the fastest computer but
+
+252
+00:13:13,000 --> 00:13:17,160
+they they they kept quiet about it
+
+253
+00:13:14,920 --> 00:13:20,240
+because they don't want to be too loud
+
+254
+00:13:17,160 --> 00:13:21,720
+because when they say when when they you
+
+255
+00:13:20,240 --> 00:13:24,600
+know join the
+
+256
+00:13:21,720 --> 00:13:26,440
+competition the USA Americans gets
+
+257
+00:13:24,600 --> 00:13:30,000
+annoyed because they then they're going
+
+258
+00:13:26,440 --> 00:13:33,120
+to you know like the USA deep state
+
+259
+00:13:30,000 --> 00:13:35,800
+so China like quietly do not publish
+
+260
+00:13:33,120 --> 00:13:39,120
+their their speed you know which is
+
+261
+00:13:35,800 --> 00:13:42,839
+actually the fastest F faster than uh
+
+262
+00:13:39,120 --> 00:13:45,079
+the this the current one the uh IBM blue
+
+263
+00:13:42,839 --> 00:13:49,240
+jeans is that
+
+264
+00:13:45,079 --> 00:13:52,279
+right uh I think so well let's look at
+
+265
+00:13:49,240 --> 00:13:55,079
+let's look at the fist right now so then
+
+266
+00:13:52,279 --> 00:13:57,880
+I can tell yeah faster than Frontier
+
+267
+00:13:55,079 --> 00:14:00,399
+okay I remember so there's China One
+
+268
+00:13:57,880 --> 00:14:03,880
+there's a China One
+
+269
+00:14:00,399 --> 00:14:07,120
+faster than this
+
+270
+00:14:03,880 --> 00:14:09,440
+uh yeah American frontier you know this
+
+271
+00:14:07,120 --> 00:14:12,519
+is you know you will not of course you
+
+272
+00:14:09,440 --> 00:14:14,680
+will not easily find the information no
+
+273
+00:14:12,519 --> 00:14:17,759
+mainstream media will report it they
+
+274
+00:14:14,680 --> 00:14:21,000
+will just say you know the look at the
+
+275
+00:14:17,759 --> 00:14:23,160
+American now is back in the fastest
+
+276
+00:14:21,000 --> 00:14:25,519
+again but
+
+277
+00:14:23,160 --> 00:14:29,320
+actually you but you can find the info
+
+278
+00:14:25,519 --> 00:14:31,519
+but you can find you know you know
+
+279
+00:14:29,320 --> 00:14:35,600
+you know that that China they they they
+
+280
+00:14:31,519 --> 00:14:35,600
+they stopped publishing the their
+
+281
+00:14:35,639 --> 00:14:42,079
+speeds uh so you know like this is
+
+282
+00:14:38,720 --> 00:14:44,160
+amazing you know China because like five
+
+283
+00:14:42,079 --> 00:14:46,160
+years ago starting about 10 years ago
+
+284
+00:14:44,160 --> 00:14:52,040
+all the top 10 are from
+
+285
+00:14:46,160 --> 00:14:57,000
+China uh very you know so you know we in
+
+286
+00:14:52,040 --> 00:15:00,320
+USA we have we have a problem now uh you
+
+287
+00:14:57,000 --> 00:15:02,720
+know due to Pol politics and Corruption
+
+288
+00:15:00,320 --> 00:15:06,279
+huge amount of it you know the social
+
+289
+00:15:02,720 --> 00:15:09,560
+justice gun and so on so anyway it's
+
+290
+00:15:06,279 --> 00:15:12,560
+back to um yeah hellstone numbers so why
+
+291
+00:15:09,560 --> 00:15:17,519
+are we mention mentioning supercomputers
+
+292
+00:15:12,560 --> 00:15:19,120
+uh because they uh oh yeah oh yeah so
+
+293
+00:15:17,519 --> 00:15:22,120
+one of the interesting thing about
+
+294
+00:15:19,120 --> 00:15:23,880
+supercomputers so I look at them you
+
+295
+00:15:22,120 --> 00:15:27,440
+know I was wondering you know what do
+
+296
+00:15:23,880 --> 00:15:29,759
+they use them for you know it turns out
+
+297
+00:15:27,440 --> 00:15:32,519
+the number one use of all these superc
+
+298
+00:15:29,759 --> 00:15:34,519
+computers is just Computing weather
+
+299
+00:15:32,519 --> 00:15:37,759
+what's the weather going to be tomorrow
+
+300
+00:15:34,519 --> 00:15:40,000
+well not tomorrow but next month and and
+
+301
+00:15:37,759 --> 00:15:43,240
+you look into you know you think about
+
+302
+00:15:40,000 --> 00:15:45,920
+why uh it you know so it turns out the
+
+303
+00:15:43,240 --> 00:15:50,120
+weather is actually the the most
+
+304
+00:15:45,920 --> 00:15:54,360
+critically important for Human animals
+
+305
+00:15:50,120 --> 00:15:57,600
+today as well as like 4,000 years ago
+
+306
+00:15:54,360 --> 00:16:00,839
+because 4,000 years ago when you don't
+
+307
+00:15:57,600 --> 00:16:02,920
+know it's going to R this season or not
+
+308
+00:16:00,839 --> 00:16:07,360
+you cannot cop you know your crop will
+
+309
+00:16:02,920 --> 00:16:10,160
+die crop dies no food no food you die
+
+310
+00:16:07,360 --> 00:16:13,319
+okay so weather be is like the number
+
+311
+00:16:10,160 --> 00:16:16,959
+one most important thing weather okay
+
+312
+00:16:13,319 --> 00:16:19,480
+4,000 years ago today two average
+
+313
+00:16:16,959 --> 00:16:22,440
+persons you know like like us we don't
+
+314
+00:16:19,480 --> 00:16:25,079
+care all we care is is tomorrow gonna
+
+315
+00:16:22,440 --> 00:16:27,600
+rain because I going to go shopping or
+
+316
+00:16:25,079 --> 00:16:29,399
+whatever you know I GNA go travel and
+
+317
+00:16:27,600 --> 00:16:31,759
+you know
+
+318
+00:16:29,399 --> 00:16:34,759
+but however
+
+319
+00:16:31,759 --> 00:16:37,680
+apparently the weather is still one one
+
+320
+00:16:34,759 --> 00:16:39,839
+of the utmost important thing because
+
+321
+00:16:37,680 --> 00:16:43,240
+all the you look at you know what all
+
+322
+00:16:39,839 --> 00:16:45,040
+these supercomputers are doing like half
+
+323
+00:16:43,240 --> 00:16:47,399
+of them or more than half of them is
+
+324
+00:16:45,040 --> 00:16:50,839
+like trying to compute the
+
+325
+00:16:47,399 --> 00:16:53,639
+weather uh but for what for exactly what
+
+326
+00:16:50,839 --> 00:16:56,880
+for I'm I'm not too sure for uh for you
+
+327
+00:16:53,639 --> 00:16:59,040
+know for example sending you know Elm
+
+328
+00:16:56,880 --> 00:17:02,600
+sending out Rockets you need to know the
+
+329
+00:16:59,040 --> 00:17:04,839
+WEA uh satellites you know there there's
+
+330
+00:17:02,600 --> 00:17:07,439
+hundreds or thousands of satellite you
+
+331
+00:17:04,839 --> 00:17:11,679
+know well I don't so any anyway I don't
+
+332
+00:17:07,439 --> 00:17:15,679
+know exactly why is the uh weather so
+
+333
+00:17:11,679 --> 00:17:17,679
+important today so but apparently it is
+
+334
+00:17:15,679 --> 00:17:20,640
+because all these superc computers are
+
+335
+00:17:17,679 --> 00:17:23,160
+are using are trying to compute the
+
+336
+00:17:20,640 --> 00:17:26,280
+weather you know so why are we talking
+
+337
+00:17:23,160 --> 00:17:30,120
+about that because that's related to the
+
+338
+00:17:26,280 --> 00:17:34,320
+kind of the computational irreducibility
+
+339
+00:17:30,120 --> 00:17:36,880
+because because weather you know
+
+340
+00:17:34,320 --> 00:17:40,640
+technically it's you know we we kind of
+
+341
+00:17:36,880 --> 00:17:44,600
+know the how it works but we cannot
+
+342
+00:17:40,640 --> 00:17:46,600
+predict it it predict it even though the
+
+343
+00:17:44,600 --> 00:17:48,799
+rules are very simple it's just running
+
+344
+00:17:46,600 --> 00:17:51,600
+a program but you just you don't have
+
+345
+00:17:48,799 --> 00:17:53,679
+theories for it you cannot say in a
+
+346
+00:17:51,600 --> 00:17:57,000
+million years the weather will be this
+
+347
+00:17:53,679 --> 00:17:59,120
+or that like you cannot say it you you
+
+348
+00:17:57,000 --> 00:18:01,840
+can we you can we can barely say say
+
+349
+00:17:59,120 --> 00:18:04,679
+what's weather next month you know the
+
+350
+00:18:01,840 --> 00:18:08,200
+the further way the the the the less
+
+351
+00:18:04,679 --> 00:18:10,840
+accurate it is our prediction so and how
+
+352
+00:18:08,200 --> 00:18:14,280
+do we predict mostly just by compute
+
+353
+00:18:10,840 --> 00:18:17,120
+Computing it you know running weather
+
+354
+00:18:14,280 --> 00:18:21,000
+simulations okay so we want to uh let's
+
+355
+00:18:17,120 --> 00:18:26,440
+just write okay so let's uh write a
+
+356
+00:18:21,000 --> 00:18:30,919
+function to compute um uh periodic
+
+357
+00:18:26,440 --> 00:18:33,240
+okay uh not power shell F language am I
+
+358
+00:18:30,919 --> 00:18:37,000
+doing
+
+359
+00:18:33,240 --> 00:18:40,720
+good laundry will not dry that's true
+
+360
+00:18:37,000 --> 00:18:43,159
+yeah you know in Germany you know in USA
+
+361
+00:18:40,720 --> 00:18:46,640
+they don't they don't we don't dry our W
+
+362
+00:18:43,159 --> 00:18:49,799
+uh clothing under the sun anymore not
+
+363
+00:18:46,640 --> 00:18:53,000
+not not not in all the cities we just
+
+364
+00:18:49,799 --> 00:18:55,640
+use the dryers washing machine so I
+
+365
+00:18:53,000 --> 00:18:59,320
+don't know if that's the case in
+
+366
+00:18:55,640 --> 00:19:01,320
+Germany in USA all the major cities you
+
+367
+00:18:59,320 --> 00:19:02,840
+you cannot dry your clothes because
+
+368
+00:19:01,320 --> 00:19:06,679
+there's no I
+
+369
+00:19:02,840 --> 00:19:07,600
+mean uh there's you you know there's no
+
+370
+00:19:06,679 --> 00:19:11,039
+no
+
+371
+00:19:07,600 --> 00:19:15,000
+room in an apartment or but even if you
+
+372
+00:19:11,039 --> 00:19:17,720
+have room usually they forbid you from
+
+373
+00:19:15,000 --> 00:19:21,720
+hanging your clothes in in the in the in
+
+374
+00:19:17,720 --> 00:19:24,440
+the uh in the balcony because it makes
+
+375
+00:19:21,720 --> 00:19:26,919
+the building look
+
+376
+00:19:24,440 --> 00:19:29,080
+ugly uh yeah it's a that's an
+
+377
+00:19:26,919 --> 00:19:33,000
+interesting phenomenon
+
+378
+00:19:29,080 --> 00:19:37,000
+um and but if you have a house like in a
+
+379
+00:19:33,000 --> 00:19:39,200
+in a in a in a country towns in USA uh I
+
+380
+00:19:37,000 --> 00:19:40,760
+don't think you they drive their cloth
+
+381
+00:19:39,200 --> 00:19:43,360
+because you don't you almost never see
+
+382
+00:19:40,760 --> 00:19:45,559
+it like you can watch American movies
+
+383
+00:19:43,360 --> 00:19:47,320
+you never see it it's always just
+
+384
+00:19:45,559 --> 00:19:50,640
+machine you know the drying machine
+
+385
+00:19:47,320 --> 00:19:53,080
+because Americans we like
+
+386
+00:19:50,640 --> 00:19:56,120
+machines but it's it's it's it's
+
+387
+00:19:53,080 --> 00:19:58,840
+interesting because if you look at um
+
+388
+00:19:56,120 --> 00:20:01,840
+you know in Hong Kong in China in in
+
+389
+00:19:58,840 --> 00:20:04,720
+other countries Spain they hand their
+
+390
+00:20:01,840 --> 00:20:07,640
+you know or Hispanic countries South
+
+391
+00:20:04,720 --> 00:20:11,400
+America they hand your clothes you know
+
+392
+00:20:07,640 --> 00:20:15,039
+Under the Sun to dry which is actually
+
+393
+00:20:11,400 --> 00:20:21,960
+better so anyway let's write a uh let's
+
+394
+00:20:15,039 --> 00:20:24,960
+see Hello uh German write a function to
+
+395
+00:20:21,960 --> 00:20:24,960
+detect
+
+396
+00:20:26,880 --> 00:20:34,760
+py of a given function okay that's what
+
+397
+00:20:31,200 --> 00:20:38,240
+we want to do uh so but yesterday we
+
+398
+00:20:34,760 --> 00:20:41,200
+found this uh we found this solution
+
+399
+00:20:38,240 --> 00:20:43,559
+from this Richard Phillips from you know
+
+400
+00:20:41,200 --> 00:20:48,320
+a w resource
+
+401
+00:20:43,559 --> 00:20:51,240
+function uh so you see his solution I
+
+402
+00:20:48,320 --> 00:20:53,559
+don't think I like it I haven't tried to
+
+403
+00:20:51,240 --> 00:20:56,720
+test it but you know I don't like it
+
+404
+00:20:53,559 --> 00:21:01,480
+because you can see he's
+
+405
+00:20:56,720 --> 00:21:05,360
+using plus plus tried steps Plus+ that's
+
+406
+00:21:01,480 --> 00:21:07,360
+like C++ that's a c thing incremental so
+
+407
+00:21:05,360 --> 00:21:10,120
+this is not a functional programming
+
+408
+00:21:07,360 --> 00:21:12,279
+code okay I haven't looked into details
+
+409
+00:21:10,120 --> 00:21:15,440
+but I can I can tell right away he's
+
+410
+00:21:12,279 --> 00:21:18,679
+using block you know so what is a block
+
+411
+00:21:15,440 --> 00:21:21,400
+block means it's like a listl it's
+
+412
+00:21:18,679 --> 00:21:24,559
+declaring local variables but however
+
+413
+00:21:21,400 --> 00:21:27,159
+using Dynamic scope okay so this is a
+
+414
+00:21:24,559 --> 00:21:31,080
+dynamic scope of local variable tried
+
+415
+00:21:27,159 --> 00:21:34,000
+steps so that means you know he's going
+
+416
+00:21:31,080 --> 00:21:37,279
+to mutate this variable over over you
+
+417
+00:21:34,000 --> 00:21:41,080
+can see there there you know so this is
+
+418
+00:21:37,279 --> 00:21:43,919
+not a you know not a very pure
+
+419
+00:21:41,080 --> 00:21:45,520
+functional programming style so you know
+
+420
+00:21:43,919 --> 00:21:49,080
+I'm going to write my own because I
+
+421
+00:21:45,520 --> 00:21:52,039
+enjoy writing W language code sub code
+
+422
+00:21:49,080 --> 00:21:57,000
+anyway so I'm going to uh try to do a
+
+423
+00:21:52,039 --> 00:22:00,200
+functional style okay so so what is a py
+
+424
+00:21:57,000 --> 00:22:04,000
+of a function for example period per
+
+425
+00:22:00,200 --> 00:22:07,080
+periodic of a given discrete function
+
+426
+00:22:04,000 --> 00:22:10,880
+this is important because
+
+427
+00:22:07,080 --> 00:22:13,440
+uh let's show this again so why is this
+
+428
+00:22:10,880 --> 00:22:13,440
+uh
+
+429
+00:22:15,960 --> 00:22:21,600
+what oh yeah so we want to show that so
+
+430
+00:22:19,480 --> 00:22:25,159
+we were showing that that's fantastic
+
+431
+00:22:21,600 --> 00:22:27,279
+now let's let's uh let's plus sign
+
+432
+00:22:25,159 --> 00:22:32,120
+okay so the
+
+433
+00:22:27,279 --> 00:22:35,039
+most uh obvious thing about periodic is
+
+434
+00:22:32,120 --> 00:22:35,039
+of course the sign
+
+435
+00:22:44,559 --> 00:22:54,480
+function s x
+
+436
+00:22:48,640 --> 00:22:57,760
+so x from 0 to 10 okay let's say 20
+
+437
+00:22:54,480 --> 00:23:00,960
+shift enter so you see it repeats you
+
+438
+00:22:57,760 --> 00:23:04,840
+know every 2 pi uh yeah every 2 pi it
+
+439
+00:23:00,960 --> 00:23:07,200
+repeats that's the most common example
+
+440
+00:23:04,840 --> 00:23:12,120
+uh let's try something fancy okay let's
+
+441
+00:23:07,200 --> 00:23:15,000
+say PL 3D so in two dimension in a
+
+442
+00:23:12,120 --> 00:23:18,120
+surface in two a function of returning a
+
+443
+00:23:15,000 --> 00:23:21,120
+vector that can also be periodic that
+
+444
+00:23:18,120 --> 00:23:22,679
+can actually be doubly periodic okay so
+
+445
+00:23:21,120 --> 00:23:28,799
+let's for
+
+446
+00:23:22,679 --> 00:23:30,120
+example if we do this uh okay so
+
+447
+00:23:28,799 --> 00:23:37,360
+yeah
+
+448
+00:23:30,120 --> 00:23:43,679
+so shift that key y from negative 10 to
+
+449
+00:23:37,360 --> 00:23:46,720
+10 okay let's say9 to 9 and uh X from 9
+
+450
+00:23:43,679 --> 00:23:50,279
+to 99 let's see what happens uh I don't
+
+451
+00:23:46,720 --> 00:23:50,279
+want that
+
+452
+00:23:50,360 --> 00:23:58,679
+um let's just say that okay so shift
+
+453
+00:23:54,640 --> 00:24:01,679
+enter so there is a periodic function of
+
+454
+00:23:58,679 --> 00:24:04,080
+sign in two Dimension but this periodic
+
+455
+00:24:01,679 --> 00:24:07,200
+this one period but you can have what's
+
+456
+00:24:04,080 --> 00:24:10,039
+soal double periodic okay so let's try
+
+457
+00:24:07,200 --> 00:24:13,520
+that again so let's
+
+458
+00:24:10,039 --> 00:24:16,520
+say uh sin x times
+
+459
+00:24:13,520 --> 00:24:22,640
+cosine
+
+460
+00:24:16,520 --> 00:24:24,080
+x shift enter uh not that wait cosine y
+
+461
+00:24:22,640 --> 00:24:28,240
+okay
+
+462
+00:24:24,080 --> 00:24:32,279
+got cosine y shift enter so there we
+
+463
+00:24:28,240 --> 00:24:35,399
+have it that's uh this is soal doubly
+
+464
+00:24:32,279 --> 00:24:39,159
+periodic because there's it's periodic
+
+465
+00:24:35,399 --> 00:24:41,840
+in two directions okay so I mean this is
+
+466
+00:24:39,159 --> 00:24:44,399
+a basic example this this is a very
+
+467
+00:24:41,840 --> 00:24:47,200
+intuitive way to understand what's
+
+468
+00:24:44,399 --> 00:24:51,080
+periods you know the function just
+
+469
+00:24:47,200 --> 00:24:53,600
+repeats uh but but this is a continuous
+
+470
+00:24:51,080 --> 00:24:56,120
+function you know because you know it's
+
+471
+00:24:53,600 --> 00:24:58,880
+continuous but what but for example if
+
+472
+00:24:56,120 --> 00:25:02,679
+we have the hellstone number that's a
+
+473
+00:24:58,880 --> 00:25:05,640
+that's not okay the the the most simple
+
+474
+00:25:02,679 --> 00:25:08,120
+intuitive example of periodic function
+
+475
+00:25:05,640 --> 00:25:11,919
+is mod okay so
+
+476
+00:25:08,120 --> 00:25:11,919
+let's my
+
+477
+00:25:12,679 --> 00:25:17,399
+period uh x
+
+478
+00:25:19,080 --> 00:25:26,159
+p okay xpf okay
+
+479
+00:25:22,960 --> 00:25:29,080
+got undecisive about the programming
+
+480
+00:25:26,159 --> 00:25:32,200
+language names so we Define a function
+
+481
+00:25:29,080 --> 00:25:36,679
+and that function takes a value X okay
+
+482
+00:25:32,200 --> 00:25:39,720
+then we say what it we we are defining a
+
+483
+00:25:36,679 --> 00:25:39,720
+um simple
+
+484
+00:25:40,640 --> 00:25:46,799
+example of a
+
+485
+00:25:43,799 --> 00:25:46,799
+disr
+
+486
+00:25:47,399 --> 00:25:56,840
+periodic function okay so mod
+
+487
+00:25:53,600 --> 00:26:01,279
+okay most obvious example let's say Mod
+
+488
+00:25:56,840 --> 00:26:04,640
+Five Okay so so let's remove
+
+489
+00:26:01,279 --> 00:26:08,159
+that okay remove
+
+490
+00:26:04,640 --> 00:26:10,960
+that so if you define this function uh
+
+491
+00:26:08,159 --> 00:26:13,880
+let's do a clear
+
+492
+00:26:10,960 --> 00:26:16,840
+okay because when you use pattern Ming
+
+493
+00:26:13,880 --> 00:26:19,640
+usually you want to clear it
+
+494
+00:26:16,840 --> 00:26:22,080
+before okay so we Define a
+
+495
+00:26:19,640 --> 00:26:23,840
+function uh
+
+496
+00:26:22,080 --> 00:26:25,840
+wait
+
+497
+00:26:23,840 --> 00:26:29,480
+undo shift
+
+498
+00:26:25,840 --> 00:26:34,559
+enter paste here am I doing good video
+
+499
+00:26:29,480 --> 00:26:37,919
+check audio check okay so shift enter so
+
+500
+00:26:34,559 --> 00:26:41,840
+we have a function now let's do a
+
+501
+00:26:37,919 --> 00:26:47,919
+table table of this function periodic
+
+502
+00:26:41,840 --> 00:26:53,640
+function add value X then X goes from
+
+503
+00:26:47,919 --> 00:26:57,760
+let's say 0 to 20 okay shift enter so
+
+504
+00:26:53,640 --> 00:26:58,799
+you can see it's 0 1 2 3 4 0 1 2 3 4 it
+
+505
+00:26:57,760 --> 00:27:03,240
+repeats
+
+506
+00:26:58,799 --> 00:27:08,320
+now let's include the input value
+
+507
+00:27:03,240 --> 00:27:08,320
+okay X and uh then
+
+508
+00:27:09,799 --> 00:27:18,679
+FX ah so where is
+
+509
+00:27:14,039 --> 00:27:21,600
+the where is the key for enter okay so
+
+510
+00:27:18,679 --> 00:27:22,799
+there shift enter so you can see the
+
+511
+00:27:21,600 --> 00:27:25,880
+pairs of
+
+512
+00:27:22,799 --> 00:27:28,840
+values uh you
+
+513
+00:27:25,880 --> 00:27:31,240
+know 1 2 3 4 5 so this this is a
+
+514
+00:27:28,840 --> 00:27:35,120
+discrete periodic
+
+515
+00:27:31,240 --> 00:27:37,799
+function now let's try uh okay so I'm
+
+516
+00:27:35,120 --> 00:27:40,880
+going to write the function so what we
+
+517
+00:27:37,799 --> 00:27:43,799
+want to write is a function that takes a
+
+518
+00:27:40,880 --> 00:27:46,200
+function and determine the periodic okay
+
+519
+00:27:43,799 --> 00:27:49,640
+so that's what we going to
+
+520
+00:27:46,200 --> 00:27:54,360
+write uh so let's move this up simple
+
+521
+00:27:49,640 --> 00:27:58,519
+example of a periodic function there and
+
+522
+00:27:54,360 --> 00:28:00,640
+uh okay and let's copy that let's just
+
+523
+00:27:58,519 --> 00:28:04,799
+copy that so we can
+
+524
+00:28:00,640 --> 00:28:07,000
+see that's a sample value and now we
+
+525
+00:28:04,799 --> 00:28:09,480
+going to write a function to detect
+
+526
+00:28:07,000 --> 00:28:13,240
+periodicity of a given discret function
+
+527
+00:28:09,480 --> 00:28:17,159
+okay so we want
+
+528
+00:28:13,240 --> 00:28:21,799
+to check period
+
+529
+00:28:17,159 --> 00:28:22,840
+okay uh let's say x get period okay so
+
+530
+00:28:21,799 --> 00:28:25,840
+that's our
+
+531
+00:28:22,840 --> 00:28:25,840
+function
+
+532
+00:28:26,320 --> 00:28:32,760
+uh okay clear then okay how do you we uh
+
+533
+00:28:30,120 --> 00:28:32,760
+how do we do
+
+534
+00:28:34,480 --> 00:28:43,320
+it Lima hello Lima says this is very
+
+535
+00:28:39,320 --> 00:28:46,360
+normal here arent Argentina we hand the
+
+536
+00:28:43,320 --> 00:28:48,360
+cloth to dry in the sun fantastic using
+
+537
+00:28:46,360 --> 00:28:51,760
+a driver for everything seems pretty
+
+538
+00:28:48,360 --> 00:28:56,880
+energy demanding yeah that's American
+
+539
+00:28:51,760 --> 00:28:59,760
+that's American life we uh we need big
+
+540
+00:28:56,880 --> 00:29:03,440
+trucks uh uh gas
+
+541
+00:28:59,760 --> 00:29:05,000
+guzlas and SUVs you
+
+542
+00:29:03,440 --> 00:29:07,960
+know
+
+543
+00:29:05,000 --> 00:29:11,120
+uh okay so get PE you know let me
+
+544
+00:29:07,960 --> 00:29:14,080
+mention another thing po politics for
+
+545
+00:29:11,120 --> 00:29:17,600
+the Maga people make American great
+
+546
+00:29:14,080 --> 00:29:20,240
+greater again you know they say China is
+
+547
+00:29:17,600 --> 00:29:24,039
+the most polluted you know using the
+
+548
+00:29:20,240 --> 00:29:26,159
+most gas but actually if you go by per
+
+549
+00:29:24,039 --> 00:29:29,720
+person because China has
+
+550
+00:29:26,159 --> 00:29:32,320
+like five times more people you know in
+
+551
+00:29:29,720 --> 00:29:35,960
+USA America you know USA you have
+
+552
+00:29:32,320 --> 00:29:39,840
+300,000 I mean 300 million the
+
+553
+00:29:35,960 --> 00:29:45,480
+population about 300 million okay China
+
+554
+00:29:39,840 --> 00:29:47,399
+they have like uh 1.4 billion so one two
+
+555
+00:29:45,480 --> 00:29:49,880
+three four so it's like four or five
+
+556
+00:29:47,399 --> 00:29:55,440
+times more people than
+
+557
+00:29:49,880 --> 00:29:59,120
+USA so considered as a whole yes China
+
+558
+00:29:55,440 --> 00:30:01,480
+uses more energy than USA but if you
+
+559
+00:29:59,120 --> 00:30:03,279
+consider each person you know you got
+
+560
+00:30:01,480 --> 00:30:05,519
+more people you got more people need to
+
+561
+00:30:03,279 --> 00:30:08,519
+more more food right if you consider
+
+562
+00:30:05,519 --> 00:30:10,480
+each person then each person USA is
+
+563
+00:30:08,519 --> 00:30:13,360
+using like two or three times more
+
+564
+00:30:10,480 --> 00:30:16,679
+energy than than the people in
+
+565
+00:30:13,360 --> 00:30:20,840
+China but the but we get fake news every
+
+566
+00:30:16,679 --> 00:30:23,039
+day from from part part of these Trump
+
+567
+00:30:20,840 --> 00:30:25,200
+supporters you know these SMA people
+
+568
+00:30:23,039 --> 00:30:28,480
+like every time I say something about
+
+569
+00:30:25,200 --> 00:30:32,320
+China these people will say you you are
+
+570
+00:30:28,480 --> 00:30:35,240
+you are a Chinese 5 cents you
+
+571
+00:30:32,320 --> 00:30:38,559
+know this this fake news you know this
+
+572
+00:30:35,240 --> 00:30:41,840
+uh you know this very hard to
+
+573
+00:30:38,559 --> 00:30:44,679
+fight like every time I have a
+
+574
+00:30:41,840 --> 00:30:46,480
+opinion you know that like like like I I
+
+575
+00:30:44,679 --> 00:30:49,440
+don't like to see the fake news about
+
+576
+00:30:46,480 --> 00:30:51,640
+China I'm from I'm not even from China
+
+577
+00:30:49,440 --> 00:30:54,559
+I'm from Taiwan okay but I I'm Chinese
+
+578
+00:30:51,640 --> 00:30:57,320
+so I know about Chinese things culture
+
+579
+00:30:54,559 --> 00:30:59,240
+history you know the why are the white
+
+580
+00:30:57,320 --> 00:31:01,320
+people American they they know nothing
+
+581
+00:30:59,240 --> 00:31:03,799
+not a thing they don't know nothing
+
+582
+00:31:01,320 --> 00:31:05,960
+about Chinese and of course don't they
+
+583
+00:31:03,799 --> 00:31:07,799
+don't speak Chinese they don't know who
+
+584
+00:31:05,960 --> 00:31:11,279
+are the president before who are the
+
+585
+00:31:07,799 --> 00:31:13,240
+kings or whatever they no have no idea
+
+586
+00:31:11,279 --> 00:31:16,399
+but then they say you know they they
+
+587
+00:31:13,240 --> 00:31:19,360
+they they say oh China this this or that
+
+588
+00:31:16,399 --> 00:31:22,120
+so sometimes I say that's false then
+
+589
+00:31:19,360 --> 00:31:25,480
+they'll just say oh you are you are uh
+
+590
+00:31:22,120 --> 00:31:28,440
+CCP how much uh how
+
+591
+00:31:25,480 --> 00:31:32,919
+much how much the um
+
+592
+00:31:28,440 --> 00:31:32,919
+she pays you
+
+593
+00:31:36,320 --> 00:31:42,200
+idiots okay so so so yeah let's write
+
+594
+00:31:39,480 --> 00:31:45,240
+this function uh get period so how do we
+
+595
+00:31:42,200 --> 00:31:50,320
+do it so you want basically you want to
+
+596
+00:31:45,240 --> 00:31:50,320
+so let's uh algorithm
+
+597
+00:31:51,200 --> 00:31:56,399
+description compute the function at the
+
+598
+00:31:54,480 --> 00:31:58,360
+beginning value okay so the function
+
+599
+00:31:56,399 --> 00:32:03,399
+needs to take
+
+600
+00:31:58,360 --> 00:32:05,480
+um a beginning init uh what inite value
+
+601
+00:32:03,399 --> 00:32:08,760
+okay the function needs to take init
+
+602
+00:32:05,480 --> 00:32:08,760
+value and
+
+603
+00:32:09,320 --> 00:32:12,880
+uh oh wait a
+
+604
+00:32:13,480 --> 00:32:19,480
+minute okay so there there's a
+
+605
+00:32:16,080 --> 00:32:22,240
+misconception I made um you see before
+
+606
+00:32:19,480 --> 00:32:25,200
+we were talking about periodic of a
+
+607
+00:32:22,240 --> 00:32:28,159
+function these are examples of discrete
+
+608
+00:32:25,200 --> 00:32:31,799
+function but what we actually want is
+
+609
+00:32:28,159 --> 00:32:33,600
+the periodic of nesting a function so
+
+610
+00:32:31,799 --> 00:32:35,600
+it's not just running a function you
+
+611
+00:32:33,600 --> 00:32:38,960
+know through the values but rather you
+
+612
+00:32:35,600 --> 00:32:41,639
+want to run a function get an output
+
+613
+00:32:38,960 --> 00:32:43,519
+then take that output put back to the
+
+614
+00:32:41,639 --> 00:32:47,400
+function and get another output so you
+
+615
+00:32:43,519 --> 00:32:49,240
+want a you want the
+
+616
+00:32:47,400 --> 00:32:53,919
+[Music]
+
+617
+00:32:49,240 --> 00:32:57,600
+priy of nesting this function if if that
+
+618
+00:32:53,919 --> 00:33:02,840
+exists okay so so write the functions to
+
+619
+00:32:57,600 --> 00:33:06,720
+D detect the period aresty of a of
+
+620
+00:33:02,840 --> 00:33:08,639
+nesting a given District uh a given
+
+621
+00:33:06,720 --> 00:33:11,320
+discrete
+
+622
+00:33:08,639 --> 00:33:14,159
+um function okay that's what you want to
+
+623
+00:33:11,320 --> 00:33:14,159
+do
+
+624
+00:33:14,519 --> 00:33:23,880
+so so uh as for so so does this does the
+
+625
+00:33:21,320 --> 00:33:27,120
+sign function sign function is periodic
+
+626
+00:33:23,880 --> 00:33:29,840
+right but does it if you Nest the sign
+
+627
+00:33:27,120 --> 00:33:31,519
+function does it also is it also
+
+628
+00:33:29,840 --> 00:33:36,279
+periodic I think
+
+629
+00:33:31,519 --> 00:33:39,840
+so uh yes for certain values it'll
+
+630
+00:33:36,279 --> 00:33:43,559
+become periodic okay this is getting
+
+631
+00:33:39,840 --> 00:33:47,159
+more uh ma into mathematics for sun
+
+632
+00:33:43,559 --> 00:33:49,320
+value of sign you know sign something
+
+633
+00:33:47,159 --> 00:33:53,279
+then you take the output then you put it
+
+634
+00:33:49,320 --> 00:33:56,639
+back to sign that you you
+
+635
+00:33:53,279 --> 00:34:00,200
+will is that true uh actually I think so
+
+636
+00:33:56,639 --> 00:34:03,639
+for some values but that's getting into
+
+637
+00:34:00,200 --> 00:34:07,120
+analysis you know into
+
+638
+00:34:03,639 --> 00:34:10,800
+calculus anyway so but we here we just
+
+639
+00:34:07,120 --> 00:34:15,639
+are concerned about discrete function so
+
+640
+00:34:10,800 --> 00:34:15,639
+again yeah so this mod example is
+
+641
+00:34:15,960 --> 00:34:23,000
+also okay so this mod example is a is
+
+642
+00:34:19,679 --> 00:34:26,119
+periodic but is it periodic if you feed
+
+643
+00:34:23,000 --> 00:34:29,240
+you know if you Nest it it is
+
+644
+00:34:26,119 --> 00:34:32,159
+also Okay so okay so now let's get back
+
+645
+00:34:29,240 --> 00:34:36,119
+to the algorithm so computer
+
+646
+00:34:32,159 --> 00:34:39,639
+function starting at init
+
+647
+00:34:36,119 --> 00:34:39,639
+value Nest
+
+648
+00:34:40,000 --> 00:34:46,440
+it for n times okay
+
+649
+00:34:44,399 --> 00:34:53,079
+so for
+
+650
+00:34:46,440 --> 00:34:53,079
+each time you compute the
+
+651
+00:34:53,359 --> 00:34:58,520
+function save the value
+
+652
+00:35:02,920 --> 00:35:08,640
+and compare if current
+
+653
+00:35:09,760 --> 00:35:15,880
+value is oh
+
+654
+00:35:13,160 --> 00:35:19,280
+
+655
+00:35:15,880 --> 00:35:19,280
+is in
+
+656
+00:35:19,599 --> 00:35:26,200
+history save value as a history list
+
+657
+00:35:27,800 --> 00:35:33,320
+so every time you comput it you save the
+
+658
+00:35:31,040 --> 00:35:38,240
+value so you got to
+
+659
+00:35:33,320 --> 00:35:40,320
+list a previous you know values and but
+
+660
+00:35:38,240 --> 00:35:41,680
+but also every time you compute you want
+
+661
+00:35:40,320 --> 00:35:47,119
+to
+
+662
+00:35:41,680 --> 00:35:50,040
+check H this is not so trivial to write
+
+663
+00:35:47,119 --> 00:35:53,920
+actually every time you get a new value
+
+664
+00:35:50,040 --> 00:35:53,920
+you want to check the history
+
+665
+00:35:55,520 --> 00:36:00,359
+list oh this is not true trivial to
+
+666
+00:36:01,359 --> 00:36:07,319
+write detect the cycle so you want to
+
+667
+00:36:04,440 --> 00:36:10,520
+check the previous
+
+668
+00:36:07,319 --> 00:36:14,040
+list if it doesn't match then that's
+
+669
+00:36:10,520 --> 00:36:16,960
+good then you you Nest it again but if
+
+670
+00:36:14,040 --> 00:36:19,839
+however if it matches some of the value
+
+671
+00:36:16,960 --> 00:36:19,839
+in the history
+
+672
+00:36:20,359 --> 00:36:32,079
+list if the Cur uput match a value in
+
+673
+00:36:29,079 --> 00:36:32,079
+history
+
+674
+00:36:32,440 --> 00:36:35,440
+then
+
+675
+00:36:36,000 --> 00:36:44,640
+uh then you need to make that a state
+
+676
+00:36:39,960 --> 00:36:44,640
+then when you
+
+677
+00:36:49,920 --> 00:36:58,200
+compute the next
+
+678
+00:36:52,520 --> 00:36:58,200
+value you need to check
+
+679
+00:37:02,880 --> 00:37:11,640
+if it match the next value in
+
+680
+00:37:08,720 --> 00:37:13,400
+history oh God this is this is not
+
+681
+00:37:11,640 --> 00:37:17,359
+trivial to
+
+682
+00:37:13,400 --> 00:37:22,599
+write um so you have to check and check
+
+683
+00:37:17,359 --> 00:37:26,280
+again until you see a match until you
+
+684
+00:37:22,599 --> 00:37:30,680
+see until actually you you
+
+685
+00:37:26,280 --> 00:37:35,640
+until do do this check again
+
+686
+00:37:30,680 --> 00:37:41,400
+until an output is the init value
+
+687
+00:37:35,640 --> 00:37:43,560
+again is the init value is the initial
+
+688
+00:37:41,400 --> 00:37:48,359
+matched
+
+689
+00:37:43,560 --> 00:37:51,040
+value in history list okay okay so you
+
+690
+00:37:48,359 --> 00:37:53,359
+got to actually you have to keep a state
+
+691
+00:37:51,040 --> 00:37:57,359
+oh God how we going to do this in
+
+692
+00:37:53,359 --> 00:37:57,359
+functional Style
+
+693
+00:38:00,920 --> 00:38:08,280
+okay this getting complex we've been
+
+694
+00:38:03,319 --> 00:38:08,280
+talking for almost 40 minutes already oh
+
+695
+00:38:09,480 --> 00:38:16,079
+God no now I want to back out you know
+
+696
+00:38:12,800 --> 00:38:19,200
+let's just use this his code no I don't
+
+697
+00:38:16,079 --> 00:38:21,760
+want to look at his code okay so we need
+
+698
+00:38:19,200 --> 00:38:21,760
+to write
+
+699
+00:38:22,359 --> 00:38:29,000
+this so we know we can always solve a
+
+700
+00:38:25,920 --> 00:38:30,920
+problem just
+
+701
+00:38:29,000 --> 00:38:34,400
+by
+
+702
+00:38:30,920 --> 00:38:38,520
+systematically and uh do things one step
+
+703
+00:38:34,400 --> 00:38:40,839
+at a time that's one of the way to solve
+
+704
+00:38:38,520 --> 00:38:44,240
+a problem maybe a slow way but it's a
+
+705
+00:38:40,839 --> 00:38:47,599
+sure way so you break down the problem
+
+706
+00:38:44,240 --> 00:38:51,000
+you analyze the problem and just do you
+
+707
+00:38:47,599 --> 00:38:54,200
+know solve one thing at a time one step
+
+708
+00:38:51,000 --> 00:38:58,079
+at a time so you want to so every time
+
+709
+00:38:54,200 --> 00:39:01,400
+you compute this you want to
+
+710
+00:38:58,079 --> 00:39:05,079
+so get period uh get period you need a
+
+711
+00:39:01,400 --> 00:39:08,400
+function okay actually you need a
+
+712
+00:39:05,079 --> 00:39:11,680
+function so given a function and initial
+
+713
+00:39:08,400 --> 00:39:11,680
+value and
+
+714
+00:39:13,599 --> 00:39:22,240
+then then then you need some of the
+
+715
+00:39:17,200 --> 00:39:24,560
+max check okay that is the
+
+716
+00:39:22,240 --> 00:39:27,800
+maximum amount of nesting you're going
+
+717
+00:39:24,560 --> 00:39:27,800
+to check
+
+718
+00:39:28,680 --> 00:39:37,400
+okay so this is not trivial at
+
+719
+00:39:33,119 --> 00:39:41,520
+all I mean it's it's not very difficult
+
+720
+00:39:37,400 --> 00:39:44,319
+but it's not uh something you can write
+
+721
+00:39:41,520 --> 00:39:47,680
+you can efficiently you can write a
+
+722
+00:39:44,319 --> 00:39:51,079
+solution efficiently
+
+723
+00:39:47,680 --> 00:39:53,720
+fast uh so you get period so that's the
+
+724
+00:39:51,079 --> 00:39:56,480
+you know that's what the function takes
+
+725
+00:39:53,720 --> 00:39:58,440
+a function initial value and Maxim
+
+726
+00:39:56,480 --> 00:40:01,560
+maxess
+
+727
+00:39:58,440 --> 00:40:01,560
+uh Max
+
+728
+00:40:03,040 --> 00:40:07,359
+Nest which is uh okay
+
+729
+00:40:07,800 --> 00:40:14,119
+so so every time you compute a function
+
+730
+00:40:11,040 --> 00:40:14,119
+so you want to
+
+731
+00:40:22,880 --> 00:40:28,319
+compute okay now I want to write the
+
+732
+00:40:26,119 --> 00:40:32,319
+documentation for this function okay let
+
+733
+00:40:28,319 --> 00:40:32,319
+me show you how to do that in wam
+
+734
+00:40:38,079 --> 00:40:47,000
+language okay so this is how you define
+
+735
+00:40:42,960 --> 00:40:50,560
+a inline documentation for the function
+
+736
+00:40:47,000 --> 00:40:53,400
+okay so you just assign that so assign
+
+737
+00:40:50,560 --> 00:40:55,520
+that to a string
+
+738
+00:40:53,400 --> 00:41:00,119
+okay so we
+
+739
+00:40:55,520 --> 00:41:03,880
+say that okay so let's see let me
+
+740
+00:41:00,119 --> 00:41:03,880
+explain how this works in a
+
+741
+00:41:07,160 --> 00:41:15,480
+bit so that
+
+742
+00:41:09,920 --> 00:41:19,760
+function return the period
+
+743
+00:41:15,480 --> 00:41:22,760
+of f of a
+
+744
+00:41:19,760 --> 00:41:22,760
+discrete
+
+745
+00:41:24,960 --> 00:41:30,280
+function f
+
+746
+00:41:28,800 --> 00:41:32,040
+return
+
+747
+00:41:30,280 --> 00:41:37,200
+the
+
+748
+00:41:32,040 --> 00:41:39,400
+of of return the period of nesting a
+
+749
+00:41:37,200 --> 00:41:43,280
+discret function
+
+750
+00:41:39,400 --> 00:41:46,280
+f okay and it is the
+
+751
+00:41:43,280 --> 00:41:46,280
+initial
+
+752
+00:41:46,880 --> 00:41:55,000
+value and the max list is the
+
+753
+00:41:52,000 --> 00:41:55,000
+maximon
+
+754
+00:41:55,560 --> 00:42:01,720
+nesting okay something like that so this
+
+755
+00:41:58,400 --> 00:42:04,599
+is the this is the inline documentation
+
+756
+00:42:01,720 --> 00:42:07,160
+for this function uh now what does the
+
+757
+00:42:04,599 --> 00:42:10,119
+function do let's just say return three
+
+758
+00:42:07,160 --> 00:42:14,560
+temporarily you know for I can so I can
+
+759
+00:42:10,119 --> 00:42:17,640
+let me show you so you post this in wam
+
+760
+00:42:14,560 --> 00:42:20,640
+notebook then you just shift enter run
+
+761
+00:42:17,640 --> 00:42:24,599
+it then you can type question mark
+
+762
+00:42:20,640 --> 00:42:28,119
+question mark x get period Then enter
+
+763
+00:42:24,599 --> 00:42:30,920
+shift enter so that will give you the
+
+764
+00:42:28,119 --> 00:42:34,160
+inline documentation
+
+765
+00:42:30,920 --> 00:42:37,800
+okay so but now we need to of course
+
+766
+00:42:34,160 --> 00:42:37,800
+actually Define this
+
+767
+00:42:37,880 --> 00:42:44,280
+so um so what so so okay so what do you
+
+768
+00:42:42,160 --> 00:42:48,359
+need to do so you need
+
+769
+00:42:44,280 --> 00:42:51,880
+to so we got to go back to the algorithm
+
+770
+00:42:48,359 --> 00:42:55,599
+so every time you compute a function you
+
+771
+00:42:51,880 --> 00:42:59,960
+save okay so this is going to be a
+
+772
+00:42:55,599 --> 00:43:04,640
+bit I mean it's not a trivial code okay
+
+773
+00:42:59,960 --> 00:43:07,599
+so almost always you write a
+
+774
+00:43:04,640 --> 00:43:11,720
+module now what does module mean module
+
+775
+00:43:07,599 --> 00:43:14,920
+means just like the Lis let okay so it
+
+776
+00:43:11,720 --> 00:43:17,800
+declares a bunch of local variables then
+
+777
+00:43:14,920 --> 00:43:22,280
+body here
+
+778
+00:43:17,800 --> 00:43:23,319
+okay uh This Here Local variables x y
+
+779
+00:43:22,280 --> 00:43:25,200
+and so
+
+780
+00:43:23,319 --> 00:43:30,359
+on
+
+781
+00:43:25,200 --> 00:43:30,359
+um okay what's what going on
+
+782
+00:43:34,960 --> 00:43:40,680
+what okay
+
+783
+00:43:37,520 --> 00:43:44,440
+so so what do you want to do so so you
+
+784
+00:43:40,680 --> 00:43:48,240
+want to compute
+
+785
+00:43:44,440 --> 00:43:51,559
+F okay so you got to do while a while
+
+786
+00:43:48,240 --> 00:43:54,119
+loop okay next
+
+787
+00:43:51,559 --> 00:43:57,119
+while let's look at the documentation
+
+788
+00:43:54,119 --> 00:44:00,240
+for nest while you'll just nest theun
+
+789
+00:43:57,119 --> 00:44:02,559
+function until a condition a function uh
+
+790
+00:44:00,240 --> 00:44:05,079
+while condition is
+
+791
+00:44:02,559 --> 00:44:08,000
+reached so here's a
+
+792
+00:44:05,079 --> 00:44:10,200
+documentation for next while okay F
+
+793
+00:44:08,000 --> 00:44:13,200
+expression and
+
+794
+00:44:10,200 --> 00:44:13,200
+test
+
+795
+00:44:16,280 --> 00:44:22,640
+uh yeah so this is what uh oh so this is
+
+796
+00:44:20,200 --> 00:44:26,119
+quite convenient because you see the N
+
+797
+00:44:22,640 --> 00:44:28,280
+while they actually provide an argument
+
+798
+00:44:26,119 --> 00:44:31,440
+that is a previous
+
+799
+00:44:28,280 --> 00:44:33,040
+history very
+
+800
+00:44:31,440 --> 00:44:36,839
+convenient
+
+801
+00:44:33,040 --> 00:44:41,119
+so so the simple form is nqu f
+
+802
+00:44:36,839 --> 00:44:41,119
+expression test okay let's magnify
+
+803
+00:44:42,040 --> 00:44:49,680
+more okay the most simple form give a
+
+804
+00:44:45,960 --> 00:44:53,760
+function that will Nest give a initial
+
+805
+00:44:49,680 --> 00:44:55,800
+value and test test is when to stop okay
+
+806
+00:44:53,760 --> 00:44:58,920
+start with expression then repeated
+
+807
+00:44:55,800 --> 00:45:02,920
+apply F until until applying test to the
+
+808
+00:44:58,920 --> 00:45:06,119
+result no longer yields true
+
+809
+00:45:02,920 --> 00:45:09,319
+okay so if the test is true it will
+
+810
+00:45:06,119 --> 00:45:11,280
+continue nesting okay let's let's put
+
+811
+00:45:09,319 --> 00:45:15,599
+that
+
+812
+00:45:11,280 --> 00:45:16,760
+down Nest s call the function and the
+
+813
+00:45:15,599 --> 00:45:21,319
+init
+
+814
+00:45:16,760 --> 00:45:23,680
+value then a test here is uh the the
+
+815
+00:45:21,319 --> 00:45:28,720
+important part the
+
+816
+00:45:23,680 --> 00:45:32,079
+test so so first of all we can test
+
+817
+00:45:28,720 --> 00:45:36,000
+if if a
+
+818
+00:45:32,079 --> 00:45:38,720
+value has already happened
+
+819
+00:45:36,000 --> 00:45:41,319
+before okay first of all we can test if
+
+820
+00:45:38,720 --> 00:45:43,640
+a value already happened before comments
+
+821
+00:45:41,319 --> 00:45:47,280
+guys 10 people watching
+
+822
+00:45:43,640 --> 00:45:50,520
+comments uh just say hi okay I won't
+
+823
+00:45:47,280 --> 00:45:55,359
+digress onto uh you know things but just
+
+824
+00:45:50,520 --> 00:45:59,000
+say hi so you want to test so we can
+
+825
+00:45:55,359 --> 00:46:01,760
+start by we just want to test if a value
+
+826
+00:45:59,000 --> 00:46:01,760
+has happened
+
+827
+00:46:02,559 --> 00:46:09,599
+before okay in that case you need let's
+
+828
+00:46:05,839 --> 00:46:12,599
+see this one Supply the most recent M
+
+829
+00:46:09,599 --> 00:46:17,280
+results as argument for test okay that's
+
+830
+00:46:12,599 --> 00:46:19,520
+makes sense then the next one all supply
+
+831
+00:46:17,280 --> 00:46:21,160
+all results so far as the argument for
+
+832
+00:46:19,520 --> 00:46:24,880
+test at each
+
+833
+00:46:21,160 --> 00:46:27,640
+step that's what I that's what we want
+
+834
+00:46:24,880 --> 00:46:30,359
+functional programming Supreme you know
+
+835
+00:46:27,640 --> 00:46:33,359
+this is a kind of typical way of
+
+836
+00:46:30,359 --> 00:46:36,480
+functional programming of doing a loop
+
+837
+00:46:33,359 --> 00:46:40,240
+where the function will take the output
+
+838
+00:46:36,480 --> 00:46:43,119
+and feed it back to the function itself
+
+839
+00:46:40,240 --> 00:46:45,640
+so it's like this is a a form of
+
+840
+00:46:43,119 --> 00:46:49,520
+recursion
+
+841
+00:46:45,640 --> 00:46:53,040
+okay so next next while test and okay so
+
+842
+00:46:49,520 --> 00:46:55,839
+you need a function that's test and you
+
+843
+00:46:53,040 --> 00:47:00,480
+say all all
+
+844
+00:46:55,839 --> 00:47:04,000
+means you know all previous values will
+
+845
+00:47:00,480 --> 00:47:06,200
+pass to the test okay now we need to uh
+
+846
+00:47:04,000 --> 00:47:09,800
+Define this
+
+847
+00:47:06,200 --> 00:47:12,559
+test okay what this test is going to be
+
+848
+00:47:09,800 --> 00:47:15,680
+we can Define It Let's
+
+849
+00:47:12,559 --> 00:47:18,319
+do let's put the local variable here
+
+850
+00:47:15,680 --> 00:47:21,520
+okay so we're going to Define f
+
+851
+00:47:18,319 --> 00:47:24,359
+test uh let's use functional yeah
+
+852
+00:47:21,520 --> 00:47:29,640
+instead of pattern let's use a
+
+853
+00:47:24,359 --> 00:47:33,319
+function equals to a function
+
+854
+00:47:29,640 --> 00:47:37,440
+okay now this x is a list because we
+
+855
+00:47:33,319 --> 00:47:40,480
+said all so what but what does it do
+
+856
+00:47:37,440 --> 00:47:40,480
+that's here
+
+857
+00:47:40,640 --> 00:47:45,480
+so so the test will given a
+
+858
+00:47:45,960 --> 00:47:54,319
+list of all previous values what
+
+859
+00:47:50,880 --> 00:47:58,800
+um supplies all result to so far as
+
+860
+00:47:54,319 --> 00:47:58,800
+argument from okay
+
+861
+00:47:59,880 --> 00:48:06,079
+so if it returns true continue if it
+
+862
+00:48:02,880 --> 00:48:11,400
+returns false stop
+
+863
+00:48:06,079 --> 00:48:11,400
+okay so you of course then you need a
+
+864
+00:48:11,880 --> 00:48:19,280
+if let's just say for
+
+865
+00:48:16,000 --> 00:48:28,040
+now if
+
+866
+00:48:19,280 --> 00:48:30,760
+length of this list is greater than five
+
+867
+00:48:28,040 --> 00:48:30,760
+then
+
+868
+00:48:31,079 --> 00:48:37,440
+false okay otherwise
+
+869
+00:48:34,079 --> 00:48:40,000
+true okay so this function will run
+
+870
+00:48:37,440 --> 00:48:43,319
+basically just five
+
+871
+00:48:40,000 --> 00:48:47,640
+times I mean this is just for testing
+
+872
+00:48:43,319 --> 00:48:50,079
+purposes you know just just to be just
+
+873
+00:48:47,640 --> 00:48:54,520
+so that our function will run you know
+
+874
+00:48:50,079 --> 00:48:58,119
+then we have to change this okay so next
+
+875
+00:48:54,520 --> 00:49:01,480
+while init
+
+876
+00:48:58,119 --> 00:49:05,839
+yeah run this and use this test function
+
+877
+00:49:01,480 --> 00:49:08,920
+okay then and all previous values okay
+
+878
+00:49:05,839 --> 00:49:10,760
+so when this stops what does it return
+
+879
+00:49:08,920 --> 00:49:14,280
+it
+
+880
+00:49:10,760 --> 00:49:17,720
+um oh oh God so you
+
+881
+00:49:14,280 --> 00:49:20,240
+need okay this is not functional not
+
+882
+00:49:17,720 --> 00:49:22,760
+pure functional programming uh let's say
+
+883
+00:49:20,240 --> 00:49:22,760
+last
+
+884
+00:49:22,839 --> 00:49:28,720
+bar okay last value so
+
+885
+00:49:30,280 --> 00:49:34,720
+so this actually will return the last
+
+886
+00:49:39,920 --> 00:49:42,920
+value
+
+887
+00:49:45,359 --> 00:49:52,000
+um yeah okay let's let's just let let
+
+888
+00:49:49,240 --> 00:49:57,799
+let that be
+
+889
+00:49:52,000 --> 00:49:57,799
+okay okay so copy that
+
+890
+00:50:00,440 --> 00:50:09,440
+okay run it then X get period okay then
+
+891
+00:50:05,760 --> 00:50:09,440
+then we need to define a
+
+892
+00:50:09,839 --> 00:50:15,440
+function we need to Define our mod
+
+893
+00:50:12,799 --> 00:50:19,640
+function okay
+
+894
+00:50:15,440 --> 00:50:23,079
+so yeah so okay because we need a
+
+895
+00:50:19,640 --> 00:50:29,000
+function to test so if you have a mod
+
+896
+00:50:23,079 --> 00:50:29,000
+function will and you Nest it will it
+
+897
+00:50:29,440 --> 00:50:38,280
+repeat uh yes of course but how does it
+
+898
+00:50:33,720 --> 00:50:41,520
+repeat exactly so this is slightly
+
+899
+00:50:38,280 --> 00:50:46,559
+involved as I make sense
+
+900
+00:50:41,520 --> 00:50:50,400
+hello um so here is the
+
+901
+00:50:46,559 --> 00:50:54,559
+mod so two becomes two three becomes
+
+902
+00:50:50,400 --> 00:50:57,079
+three 11 becomes 1 12 becomes 2 13
+
+903
+00:50:54,559 --> 00:51:00,200
+becomes three
+
+904
+00:50:57,079 --> 00:51:03,520
+so let's say if you start with 13 you
+
+905
+00:51:00,200 --> 00:51:06,920
+get three then three becomes
+
+906
+00:51:03,520 --> 00:51:06,920
+three then is
+
+907
+00:51:07,079 --> 00:51:13,480
+stuck so you see when you do this
+
+908
+00:51:10,799 --> 00:51:17,440
+nesting a function when you Nest a
+
+909
+00:51:13,480 --> 00:51:21,480
+function when you Nest a discrete
+
+910
+00:51:17,440 --> 00:51:24,880
+function the period may change depending
+
+911
+00:51:21,480 --> 00:51:28,839
+on what is your input okay so actually
+
+912
+00:51:24,880 --> 00:51:33,400
+that collapse conjecture is a good
+
+913
+00:51:28,839 --> 00:51:33,400
+example the period will
+
+914
+00:51:35,200 --> 00:51:44,839
+change is that right or or something
+
+915
+00:51:40,799 --> 00:51:49,240
+um you know here's a collap collapse
+
+916
+00:51:44,839 --> 00:51:49,240
+conjecture hell storm numbers
+
+917
+00:51:51,839 --> 00:51:59,040
+okay so 13 returns three if you use the
+
+918
+00:51:56,119 --> 00:52:01,880
+mod 13 returns three then three becomes
+
+919
+00:51:59,040 --> 00:52:06,880
+three then three becomes
+
+920
+00:52:01,880 --> 00:52:06,880
+three so for the problem of
+
+921
+00:52:07,319 --> 00:52:14,160
+13 wait how do you what is the
+
+922
+00:52:10,480 --> 00:52:15,839
+definition of a period for our
+
+923
+00:52:14,160 --> 00:52:19,839
+case
+
+924
+00:52:15,839 --> 00:52:22,440
+uh one becomes one two becomes two three
+
+925
+00:52:19,839 --> 00:52:24,760
+becomes three four becomes four so if
+
+926
+00:52:22,440 --> 00:52:28,119
+you start with any of these
+
+927
+00:52:24,760 --> 00:52:33,200
+number the period is is
+
+928
+00:52:28,119 --> 00:52:37,000
+just one because four becomes four then
+
+929
+00:52:33,200 --> 00:52:40,280
+four again becomes four so that repeats
+
+930
+00:52:37,000 --> 00:52:43,760
+then the period is one now if you start
+
+931
+00:52:40,280 --> 00:52:48,200
+with 13 then you become three then three
+
+932
+00:52:43,760 --> 00:52:52,880
+becomes three so the period is also
+
+933
+00:52:48,200 --> 00:52:56,960
+one or you know maybe you say
+
+934
+00:52:52,880 --> 00:53:00,480
+two uh but if you start with 20 20
+
+935
+00:52:56,960 --> 00:53:04,319
+becomes zero so they all become so the
+
+936
+00:53:00,480 --> 00:53:04,319
+period all becomes just
+
+937
+00:53:07,880 --> 00:53:18,119
+one is that right oh
+
+938
+00:53:12,079 --> 00:53:18,119
+God so now we actually getting into a
+
+939
+00:53:19,799 --> 00:53:25,000
+issue so this this if we use the mod
+
+940
+00:53:23,440 --> 00:53:28,839
+function as a
+
+941
+00:53:25,000 --> 00:53:30,160
+example you only get period of two I
+
+942
+00:53:28,839 --> 00:53:32,319
+mean or
+
+943
+00:53:30,160 --> 00:53:35,160
+one
+
+944
+00:53:32,319 --> 00:53:38,720
+so so we need to
+
+945
+00:53:35,160 --> 00:53:43,440
+actually be more precise we need to get
+
+946
+00:53:38,720 --> 00:53:47,839
+a clear definition what does it
+
+947
+00:53:43,440 --> 00:53:50,680
+mean to Nest a function and say the
+
+948
+00:53:47,839 --> 00:53:50,680
+function has a
+
+949
+00:53:50,839 --> 00:53:55,480
+period okay it should be simple you just
+
+950
+00:53:53,359 --> 00:54:00,640
+Nest the function and the function come
+
+951
+00:53:55,480 --> 00:54:00,640
+out a sequence of numbers that forms a
+
+952
+00:54:02,359 --> 00:54:07,839
+cycle okay cycle means a sequence of
+
+953
+00:54:05,280 --> 00:54:10,319
+numbers they just cycle they repeat so
+
+954
+00:54:07,839 --> 00:54:14,359
+if you three comes out three comes out
+
+955
+00:54:10,319 --> 00:54:19,160
+three that's also a cycle so
+
+956
+00:54:14,359 --> 00:54:21,520
+but so how do you define the picy so for
+
+957
+00:54:19,160 --> 00:54:27,839
+for the number three of this function of
+
+958
+00:54:21,520 --> 00:54:27,839
+this Mod Five is a period one or two
+
+959
+00:54:35,280 --> 00:54:41,000
+so let's see you n the function you got
+
+960
+00:54:38,040 --> 00:54:43,480
+a sequence of numbers and if you find
+
+961
+00:54:41,000 --> 00:54:46,799
+the cycle of those sequence then you got
+
+962
+00:54:43,480 --> 00:54:48,599
+a period then then that means this
+
+963
+00:54:46,799 --> 00:54:51,839
+function when
+
+964
+00:54:48,599 --> 00:54:55,160
+nesting when when nested you got a
+
+965
+00:54:51,839 --> 00:54:58,760
+period because the output repeats now
+
+966
+00:54:55,160 --> 00:55:02,720
+how do you de determine the periodic you
+
+967
+00:54:58,760 --> 00:55:06,400
+take the bunch of numbers that repeat
+
+968
+00:55:02,720 --> 00:55:10,720
+yes minus the you know repeating initial
+
+969
+00:55:06,400 --> 00:55:13,359
+so in a case of three for this function
+
+970
+00:55:10,720 --> 00:55:15,400
+you know you just get 3 3 3 3 three so
+
+971
+00:55:13,359 --> 00:55:17,960
+what is a period Well you take the
+
+972
+00:55:15,400 --> 00:55:20,760
+period which is just a three without
+
+973
+00:55:17,960 --> 00:55:23,200
+repeating a three so the period would be
+
+974
+00:55:20,760 --> 00:55:26,640
+one so for this
+
+975
+00:55:23,200 --> 00:55:30,039
+function if you start with three and you
+
+976
+00:55:26,640 --> 00:55:33,920
+Nest it the period is three I mean is
+
+977
+00:55:30,039 --> 00:55:38,640
+one similarly if you start with 0o 1 2 3
+
+978
+00:55:33,920 --> 00:55:42,599
+4 five the period is all just
+
+979
+00:55:38,640 --> 00:55:44,440
+one let's see if you the input is five
+
+980
+00:55:42,599 --> 00:55:48,000
+you get
+
+981
+00:55:44,440 --> 00:55:50,359
+zero okay then zero becomes zero and
+
+982
+00:55:48,000 --> 00:55:54,880
+zero becomes zero so you
+
+983
+00:55:50,359 --> 00:55:56,960
+got you know what your five z z zero so
+
+984
+00:55:54,880 --> 00:56:00,280
+zero is a repetition
+
+985
+00:55:56,960 --> 00:56:04,359
+and you you take the length without you
+
+986
+00:56:00,280 --> 00:56:05,839
+know the initial value so the period the
+
+987
+00:56:04,359 --> 00:56:09,359
+length is
+
+988
+00:56:05,839 --> 00:56:13,160
+one okay so any of this input from 0o to
+
+989
+00:56:09,359 --> 00:56:17,440
+five the period is
+
+990
+00:56:13,160 --> 00:56:20,319
+one okay what about six so for six you
+
+991
+00:56:17,440 --> 00:56:24,359
+get one then you get one one okay so the
+
+992
+00:56:20,319 --> 00:56:28,480
+period is also one so in fact for any of
+
+993
+00:56:24,359 --> 00:56:30,920
+these so in fact for this mod
+
+994
+00:56:28,480 --> 00:56:35,799
+x mod by
+
+995
+00:56:30,920 --> 00:56:37,920
+five the period is always just one reg
+
+996
+00:56:35,799 --> 00:56:41,440
+when you Nest when you Nest the function
+
+997
+00:56:37,920 --> 00:56:44,079
+okay regardless what what is the initial
+
+998
+00:56:41,440 --> 00:56:44,079
+value
+
+999
+00:56:44,559 --> 00:56:50,760
+okay so so now we have a better idea we
+
+1000
+00:56:47,839 --> 00:56:54,599
+have more clear precise definition of a
+
+1001
+00:56:50,760 --> 00:56:58,240
+period of nesting a function and we know
+
+1002
+00:56:54,599 --> 00:56:58,240
+now that this model
+
+1003
+00:56:58,839 --> 00:57:05,240
+function when you Nest it the period is
+
+1004
+00:57:02,200 --> 00:57:09,480
+always just one so that means this
+
+1005
+00:57:05,240 --> 00:57:13,200
+function is not a good example for to
+
+1006
+00:57:09,480 --> 00:57:19,119
+test our function because our function
+
+1007
+00:57:13,200 --> 00:57:21,640
+you need some kind of um more than one
+
+1008
+00:57:19,119 --> 00:57:24,720
+period okay
+
+1009
+00:57:21,640 --> 00:57:28,880
+so so we still need to think about this
+
+1010
+00:57:24,720 --> 00:57:29,760
+so now what about let's look at the um
+
+1011
+00:57:28,880 --> 00:57:32,280
+the
+
+1012
+00:57:29,760 --> 00:57:36,000
+collat
+
+1013
+00:57:32,280 --> 00:57:40,119
+problem uh you know so actually let's
+
+1014
+00:57:36,000 --> 00:57:40,119
+Hil storm let's define it
+
+1015
+00:57:45,280 --> 00:57:50,400
+okay okay let's define the hellstone
+
+1016
+00:57:50,839 --> 00:57:57,599
+number uh make sure we spelled it
+
+1017
+00:57:54,880 --> 00:58:01,480
+correctly cu lad's
+
+1018
+00:57:57,599 --> 00:58:06,319
+conjecture is also know Hailstone okay
+
+1019
+00:58:01,480 --> 00:58:10,760
+so named after the mathematician Loa
+
+1020
+00:58:06,319 --> 00:58:14,720
+CAD okay introduced idea in
+
+1021
+00:58:10,760 --> 00:58:18,200
+1937 uh and uh sometimes refer to as the
+
+1022
+00:58:14,720 --> 00:58:18,200
+Hailstone sequence
+
+1023
+00:58:18,400 --> 00:58:22,359
+okay Hailstone
+
+1024
+00:58:24,119 --> 00:58:31,440
+sequence let's let's say hell Stone okay
+
+1025
+00:58:27,280 --> 00:58:35,200
+because that's more intuitive okay so
+
+1026
+00:58:31,440 --> 00:58:38,160
+hellstone function okay so we Define
+
+1027
+00:58:35,200 --> 00:58:38,160
+let's define this
+
+1028
+00:58:38,319 --> 00:58:42,640
+function hstone okay
+
+1029
+00:58:44,480 --> 00:58:50,160
+so then okay we Define the
+
+1030
+00:58:48,359 --> 00:58:52,559
+function
+
+1031
+00:58:50,160 --> 00:58:56,680
+n okay so
+
+1032
+00:58:52,559 --> 00:58:59,960
+x uh so
+
+1033
+00:58:56,680 --> 00:58:59,960
+let's see if I have
+
+1034
+00:59:07,760 --> 00:59:13,000
+some okay so X if if
+
+1035
+00:59:17,400 --> 00:59:23,039
+even if it is even X
+
+1036
+00:59:23,280 --> 00:59:35,359
+then x / 2 okay otherwise it's
+
+1037
+00:59:29,359 --> 00:59:35,359
+odd x * 3 then +
+
+1038
+00:59:50,079 --> 00:59:57,079
+one okay so that's we Define this
+
+1039
+00:59:53,799 --> 01:00:04,359
+function uh and we can check
+
+1040
+00:59:57,079 --> 01:00:04,359
+let's run it let's say x is at 27 okay
+
+1041
+01:00:04,680 --> 01:00:12,319
+uh then you have to Loop it back so you
+
+1042
+01:00:08,520 --> 01:00:14,960
+yeah so what you do is you Nest list
+
+1043
+01:00:12,319 --> 01:00:17,039
+okay nextest this will Nest the function
+
+1044
+01:00:14,960 --> 01:00:19,599
+and return all the sequence of the
+
+1045
+01:00:17,039 --> 01:00:24,319
+output
+
+1046
+01:00:19,599 --> 01:00:28,640
+so so next list takes a function then
+
+1047
+01:00:24,319 --> 01:00:32,920
+takes a initial value value okay so then
+
+1048
+01:00:28,640 --> 01:00:37,440
+we can run this okay so let's let's put
+
+1049
+01:00:32,920 --> 01:00:40,839
+semicolon so it suppress the output okay
+
+1050
+01:00:37,440 --> 01:00:45,000
+so let's try it run
+
+1051
+01:00:40,839 --> 01:00:49,319
+it uh next list okay what uh looks like
+
+1052
+01:00:45,000 --> 01:00:49,319
+we are missing a value here let's
+
+1053
+01:00:51,400 --> 01:00:57,720
+try oh n times you you need to say how
+
+1054
+01:00:54,640 --> 01:01:01,920
+many times
+
+1055
+01:00:57,720 --> 01:01:05,480
+uh according to you know when it's
+
+1056
+01:01:01,920 --> 01:01:11,440
+27 it goes
+
+1057
+01:01:05,480 --> 01:01:14,799
+to 11 and uh 111
+
+1058
+01:01:11,440 --> 01:01:16,440
+steps so let's say
+
+1059
+01:01:14,799 --> 01:01:21,319
+120
+
+1060
+01:01:16,440 --> 01:01:24,680
+okay shift enter there we have it so you
+
+1061
+01:01:21,319 --> 01:01:26,680
+can see it goes to you know return these
+
+1062
+01:01:24,680 --> 01:01:32,079
+values then
+
+1063
+01:01:26,680 --> 01:01:33,400
+421 421 421 421 so there it enters so
+
+1064
+01:01:32,079 --> 01:01:38,000
+there's a
+
+1065
+01:01:33,400 --> 01:01:42,760
+period so what is the period 421 421 421
+
+1066
+01:01:38,000 --> 01:01:47,440
+421 so the period is three
+
+1067
+01:01:42,760 --> 01:01:50,839
+okay now if okay so I okay so we I think
+
+1068
+01:01:47,440 --> 01:01:55,079
+I we are getting clear what's going on
+
+1069
+01:01:50,839 --> 01:01:58,839
+about the nesting period okay so if you
+
+1070
+01:01:55,079 --> 01:02:03,640
+start by let's say
+
+1071
+01:01:58,839 --> 01:02:06,559
+12 I mean wait okay 120 let's say start
+
+1072
+01:02:03,640 --> 01:02:06,559
+by
+
+1073
+01:02:07,520 --> 01:02:16,200
+12 shift enter yeah so almost right away
+
+1074
+01:02:12,079 --> 01:02:19,359
+you got 421 so the period is still 4 421
+
+1075
+01:02:16,200 --> 01:02:21,520
+so okay so I I know now we know this
+
+1076
+01:02:19,359 --> 01:02:24,440
+this function the period period is
+
+1077
+01:02:21,520 --> 01:02:27,039
+always 4 to1 okay just three the period
+
+1078
+01:02:24,440 --> 01:02:30,480
+is three
+
+1079
+01:02:27,039 --> 01:02:30,480
+uh just three okay
+
+1080
+01:02:31,240 --> 01:02:38,240
+so so what does it mean when you say of
+
+1081
+01:02:35,400 --> 01:02:44,400
+nesting a function the period of nesting
+
+1082
+01:02:38,240 --> 01:02:44,400
+function does it depends on the initial
+
+1083
+01:02:45,400 --> 01:02:52,400
+value so for this problem it does not
+
+1084
+01:02:49,279 --> 01:02:54,480
+depends on the initial value we pre
+
+1085
+01:02:52,400 --> 01:02:56,319
+presume you know we presume this
+
+1086
+01:02:54,480 --> 01:02:57,839
+unsolved problem we always always come
+
+1087
+01:02:56,319 --> 01:03:02,200
+down to
+
+1088
+01:02:57,839 --> 01:03:04,960
+one you know that has been proven for
+
+1089
+01:03:02,200 --> 01:03:08,200
+billions of billions of you know like
+
+1090
+01:03:04,960 --> 01:03:11,440
+initial value like like they have tried
+
+1091
+01:03:08,200 --> 01:03:15,440
+to use superc computers to compute it
+
+1092
+01:03:11,440 --> 01:03:18,480
+so you know up to like uh up to what up
+
+1093
+01:03:15,440 --> 01:03:18,480
+to they have we
+
+1094
+01:03:22,039 --> 01:03:26,319
+have you know so far we have computed
+
+1095
+01:03:25,079 --> 01:03:29,440
+for
+
+1096
+01:03:26,319 --> 01:03:33,039
+visualization then supporting arguments
+
+1097
+01:03:29,440 --> 01:03:37,000
+experimental evidence so we have
+
+1098
+01:03:33,039 --> 01:03:39,880
+computed starting value of of two
+
+1099
+01:03:37,000 --> 01:03:44,440
+followed by 20
+
+1100
+01:03:39,880 --> 01:03:49,520
+zeros okay like 20 Z
+
+1101
+01:03:44,440 --> 01:03:53,160
+digit they all come down to one okay
+
+1102
+01:03:49,520 --> 01:03:55,480
+so so we just assume all number will
+
+1103
+01:03:53,160 --> 01:04:02,039
+come down to one then the period of this
+
+1104
+01:03:55,480 --> 01:04:04,720
+h custom function is just three 4 2 1
+
+1105
+01:04:02,039 --> 01:04:08,680
+okay and it does not depends on the
+
+1106
+01:04:04,720 --> 01:04:11,359
+initial value now what about what about
+
+1107
+01:04:08,680 --> 01:04:16,680
+is I mean what about the idea that some
+
+1108
+01:04:11,359 --> 01:04:20,359
+function some discrete function such
+
+1109
+01:04:16,680 --> 01:04:24,920
+that such that the period depends on the
+
+1110
+01:04:20,359 --> 01:04:24,920
+initial value is that possible
+
+1111
+01:04:26,240 --> 01:04:31,160
+yeah it it is it's very possible you can
+
+1112
+01:04:29,599 --> 01:04:32,880
+easily have a
+
+1113
+01:04:31,160 --> 01:04:36,839
+function
+
+1114
+01:04:32,880 --> 01:04:40,039
+where depending on your initial input
+
+1115
+01:04:36,839 --> 01:04:40,039
+you go to different
+
+1116
+01:04:40,559 --> 01:04:50,720
+Cycles yes so uh
+
+1117
+01:04:44,960 --> 01:04:50,720
+yeah so we can now make more better
+
+1118
+01:04:53,000 --> 01:05:00,000
+definition okay so let's elaborate on
+
+1119
+01:04:56,079 --> 01:05:00,000
+the on the uh
+
+1120
+01:05:02,079 --> 01:05:07,400
+let's
+
+1121
+01:05:04,079 --> 01:05:13,000
+the period of a
+
+1122
+01:05:07,400 --> 01:05:19,760
+function is different from
+
+1123
+01:05:13,000 --> 01:05:19,760
+the period of nesting the function
+
+1124
+01:05:21,599 --> 01:05:26,119
+okay for example
+
+1125
+01:05:30,079 --> 01:05:35,039
+has period mod model number five has a
+
+1126
+01:05:33,839 --> 01:05:40,200
+period
+
+1127
+01:05:35,039 --> 01:05:41,920
+of uh of of five okay because it's
+
+1128
+01:05:40,200 --> 01:05:46,720
+always
+
+1129
+01:05:41,920 --> 01:05:49,920
+0124 0124 so if you mod a number by five
+
+1130
+01:05:46,720 --> 01:05:49,920
+you have a period
+
+1131
+01:05:51,079 --> 01:05:56,799
+of of of of of of
+
+1132
+01:06:01,200 --> 01:06:08,480
+0 1 2 3
+
+1133
+01:06:04,160 --> 01:06:10,359
+4 0 1 2 3 4 zero you have a period of
+
+1134
+01:06:08,480 --> 01:06:13,359
+five
+
+1135
+01:06:10,359 --> 01:06:13,359
+okay
+
+1136
+01:06:14,039 --> 01:06:23,760
+but but if you Nest
+
+1137
+01:06:18,599 --> 01:06:23,760
+xpf then the period is
+
+1138
+01:06:23,839 --> 01:06:30,720
+one okay so that's that's another it's a
+
+1139
+01:06:27,520 --> 01:06:33,079
+distinction between period of a function
+
+1140
+01:06:30,720 --> 01:06:34,960
+versus the period of nesting the
+
+1141
+01:06:33,079 --> 01:06:38,559
+function okay that's
+
+1142
+01:06:34,960 --> 01:06:40,839
+important thing we realized then you
+
+1143
+01:06:38,559 --> 01:06:43,400
+know I'm doing this systematically this
+
+1144
+01:06:40,839 --> 01:06:47,039
+is my style of solving
+
+1145
+01:06:43,400 --> 01:06:49,279
+problems uh usually I just I don't just
+
+1146
+01:06:47,039 --> 01:06:52,240
+code you know Advent of code let's just
+
+1147
+01:06:49,279 --> 01:06:54,559
+get the answer so now we getting
+
+1148
+01:06:52,240 --> 01:06:56,400
+into you know starting yesterday we
+
+1149
+01:06:54,559 --> 01:06:59,240
+started to
+
+1150
+01:06:56,400 --> 01:07:02,279
+notice we need to find the periodicity
+
+1151
+01:06:59,240 --> 01:07:05,079
+of a function of nesting a function so
+
+1152
+01:07:02,279 --> 01:07:09,039
+that's what we are doing today and we
+
+1153
+01:07:05,079 --> 01:07:13,599
+want to fully understand the idea
+
+1154
+01:07:09,039 --> 01:07:16,240
+of periodic function and
+
+1155
+01:07:13,599 --> 01:07:18,200
+nesting of the the periodicity of
+
+1156
+01:07:16,240 --> 01:07:21,200
+nesting a function which is different
+
+1157
+01:07:18,200 --> 01:07:22,720
+very different okay and we have concrete
+
+1158
+01:07:21,200 --> 01:07:27,119
+examples
+
+1159
+01:07:22,720 --> 01:07:30,160
+here and and and also so we noticed the
+
+1160
+01:07:27,119 --> 01:07:32,960
+periodic how so what is periodic that is
+
+1161
+01:07:30,160 --> 01:07:35,319
+just a repeating
+
+1162
+01:07:32,960 --> 01:07:37,319
+output so what is the
+
+1163
+01:07:35,319 --> 01:07:39,079
+periodic what
+
+1164
+01:07:37,319 --> 01:07:44,039
+is
+
+1165
+01:07:39,079 --> 01:07:49,599
+periodic defined okay what is period
+
+1166
+01:07:44,039 --> 01:07:53,559
+defined it means the sequence of output
+
+1167
+01:07:49,599 --> 01:07:56,839
+repeats okay that is a
+
+1168
+01:07:53,559 --> 01:08:03,359
+periodic and next we also
+
+1169
+01:07:56,839 --> 01:08:06,359
+know we also know is it possible for a
+
+1170
+01:08:03,359 --> 01:08:09,279
+discrete
+
+1171
+01:08:06,359 --> 01:08:11,279
+function to have
+
+1172
+01:08:09,279 --> 01:08:13,559
+a
+
+1173
+01:08:11,279 --> 01:08:16,559
+nesting
+
+1174
+01:08:13,559 --> 01:08:16,559
+period
+
+1175
+01:08:17,279 --> 01:08:26,960
+depending uh to have a different ning
+
+1176
+01:08:23,839 --> 01:08:31,880
+period for
+
+1177
+01:08:26,960 --> 01:08:34,120
+different input different init
+
+1178
+01:08:31,880 --> 01:08:40,239
+value
+
+1179
+01:08:34,120 --> 01:08:44,480
+yes okay uh but what about a
+
+1180
+01:08:40,239 --> 01:08:46,560
+example uh well so what is a example
+
+1181
+01:08:44,480 --> 01:08:49,239
+when you have a function discrete
+
+1182
+01:08:46,560 --> 01:08:51,239
+function you know let's say integer
+
+1183
+01:08:49,239 --> 01:08:54,319
+function where the input and output are
+
+1184
+01:08:51,239 --> 01:08:56,040
+always integers and when you Nest it it
+
+1185
+01:08:54,319 --> 01:08:59,040
+depends on which
+
+1186
+01:08:56,040 --> 01:09:04,120
+so what is a example for these
+
+1187
+01:08:59,040 --> 01:09:05,440
+guys guys to okay you got any idea this
+
+1188
+01:09:04,120 --> 01:09:09,759
+should be
+
+1189
+01:09:05,440 --> 01:09:12,080
+a should be fairly common okay is what
+
+1190
+01:09:09,759 --> 01:09:16,520
+what is there a math
+
+1191
+01:09:12,080 --> 01:09:21,000
+function that have a nesting period but
+
+1192
+01:09:16,520 --> 01:09:22,799
+it depends on the initial value I think
+
+1193
+01:09:21,000 --> 01:09:23,880
+there's a lot you know especially when
+
+1194
+01:09:22,799 --> 01:09:26,880
+you do
+
+1195
+01:09:23,880 --> 01:09:29,080
+chaos you know dynamical systems you
+
+1196
+01:09:26,880 --> 01:09:31,880
+have different you know different
+
+1197
+01:09:29,080 --> 01:09:35,199
+initial value will end up in different
+
+1198
+01:09:31,880 --> 01:09:37,679
+cycle so the cycle is usually called
+
+1199
+01:09:35,199 --> 01:09:39,600
+orbit you know that's another you know
+
+1200
+01:09:37,679 --> 01:09:44,239
+interesting
+
+1201
+01:09:39,600 --> 01:09:44,239
+thing dynamical systems
+
+1202
+01:09:45,359 --> 01:09:56,000
+okay not sure what's a simple
+
+1203
+01:09:50,279 --> 01:09:59,239
+example but lots in
+
+1204
+01:09:56,000 --> 01:10:02,040
+dyn dynamical systems so this you can
+
+1205
+01:09:59,239 --> 01:10:05,159
+look up and that would be very
+
+1206
+01:10:02,040 --> 01:10:08,360
+interesting dynamical
+
+1207
+01:10:05,159 --> 01:10:10,800
+systems uh what okay
+
+1208
+01:10:08,360 --> 01:10:13,600
+search dynamical
+
+1209
+01:10:10,800 --> 01:10:16,080
+systems so that's a branch of
+
+1210
+01:10:13,600 --> 01:10:18,960
+mathematics basically this Branch you
+
+1211
+01:10:16,080 --> 01:10:22,440
+know this is one of the most uh famous
+
+1212
+01:10:18,960 --> 01:10:25,040
+example that is a loop okay that that's
+
+1213
+01:10:22,440 --> 01:10:28,120
+a cycle that forms a cycle given certain
+
+1214
+01:10:25,040 --> 01:10:29,600
+you know given a function and given a
+
+1215
+01:10:28,120 --> 01:10:32,840
+initial
+
+1216
+01:10:29,600 --> 01:10:35,600
+value then if the initial value is such
+
+1217
+01:10:32,840 --> 01:10:39,120
+and such you'll you'll become you'll go
+
+1218
+01:10:35,600 --> 01:10:43,080
+into this cycle you know this this very
+
+1219
+01:10:39,120 --> 01:10:43,080
+famous Len
+
+1220
+01:10:43,159 --> 01:10:49,000
+attractor uh so that's you know
+
+1221
+01:10:46,840 --> 01:10:52,640
+dynamical systems which actually I don't
+
+1222
+01:10:49,000 --> 01:10:56,159
+know much about uh but lots you know
+
+1223
+01:10:52,640 --> 01:10:59,520
+anyway so that's a like a branch of Meth
+
+1224
+01:10:56,159 --> 01:11:02,880
+fics and which this leads to this is
+
+1225
+01:10:59,520 --> 01:11:06,239
+connected to Chaos Theory because in
+
+1226
+01:11:02,880 --> 01:11:09,239
+Chaos Theory you want to
+
+1227
+01:11:06,239 --> 01:11:12,120
+know at which point you know like the
+
+1228
+01:11:09,239 --> 01:11:14,520
+initial condition is very important for
+
+1229
+01:11:12,120 --> 01:11:17,280
+some initial condition they become you
+
+1230
+01:11:14,520 --> 01:11:19,640
+know this thing they go into a loop but
+
+1231
+01:11:17,280 --> 01:11:22,560
+for other initial condition they go into
+
+1232
+01:11:19,640 --> 01:11:24,159
+different you know Loop which you can
+
+1233
+01:11:22,560 --> 01:11:25,840
+visualize there are you know there are
+
+1234
+01:11:24,159 --> 01:11:28,800
+few
+
+1235
+01:11:25,840 --> 01:11:31,080
+but however for some initial value is is
+
+1236
+01:11:28,800 --> 01:11:33,120
+even if it's a little bit different from
+
+1237
+01:11:31,080 --> 01:11:34,199
+the initial value of this one it becomes
+
+1238
+01:11:33,120 --> 01:11:37,120
+something
+
+1239
+01:11:34,199 --> 01:11:41,800
+else uh and it may never
+
+1240
+01:11:37,120 --> 01:11:44,880
+repeat so that's that's what you know
+
+1241
+01:11:41,800 --> 01:11:47,760
+chaos theory is about you know just a
+
+1242
+01:11:44,880 --> 01:11:50,440
+tiny bit different then it doesn't go
+
+1243
+01:11:47,760 --> 01:11:52,480
+into you know like the so the initial
+
+1244
+01:11:50,440 --> 01:11:55,280
+value is critically important this it's
+
+1245
+01:11:52,480 --> 01:11:59,360
+like the weather you know like the
+
+1246
+01:11:55,280 --> 01:12:03,840
+computational irreducibility we talked
+
+1247
+01:11:59,360 --> 01:12:06,120
+before you know like WEA today if I if I
+
+1248
+01:12:03,840 --> 01:12:09,120
+didn't talk do a talk show then next
+
+1249
+01:12:06,120 --> 01:12:12,120
+year there may not be a stor but if I do
+
+1250
+01:12:09,120 --> 01:12:16,320
+a talk show today if I breast breath a
+
+1251
+01:12:12,120 --> 01:12:19,320
+little bit harder today pu the
+
+1252
+01:12:16,320 --> 01:12:21,159
+air then after 10 years there's there's
+
+1253
+01:12:19,320 --> 01:12:25,360
+going to be a major storm you know they
+
+1254
+01:12:21,159 --> 01:12:25,360
+call that butterfly effect
+
+1255
+01:12:26,320 --> 01:12:28,600
+uh
+
+1256
+01:12:29,120 --> 01:12:35,040
+let's Okay so let's you know let's just
+
+1257
+01:12:31,960 --> 01:12:36,400
+check so there it is Butterfly Effect
+
+1258
+01:12:35,040 --> 01:12:40,600
+okay that's a
+
+1259
+01:12:36,400 --> 01:12:43,480
+movie uh stupid this guy this guy this
+
+1260
+01:12:40,600 --> 01:12:47,880
+guy Ash Ash Ashton
+
+1261
+01:12:43,480 --> 01:12:52,040
+cure he's a he's very obsessive about
+
+1262
+01:12:47,880 --> 01:12:55,440
+pedal about child trafficking okay but I
+
+1263
+01:12:52,040 --> 01:12:58,000
+think he's he's he's um he's in trouble
+
+1264
+01:12:55,440 --> 01:13:01,800
+you know because of the digly he's
+
+1265
+01:12:58,000 --> 01:13:04,239
+into this kind of thing uh
+
+1266
+01:13:01,800 --> 01:13:06,199
+usually these people talking about that
+
+1267
+01:13:04,239 --> 01:13:07,120
+they have a Obsession about that they
+
+1268
+01:13:06,199 --> 01:13:10,120
+have a
+
+1269
+01:13:07,120 --> 01:13:14,000
+problem anyway so that's a movie so this
+
+1270
+01:13:10,120 --> 01:13:17,040
+butterfly effect so that is you know
+
+1271
+01:13:14,000 --> 01:13:19,000
+that's about the butterfly effect very
+
+1272
+01:13:17,040 --> 01:13:21,960
+interesting you can go read about it
+
+1273
+01:13:19,000 --> 01:13:24,880
+dynamical systems so anyway
+
+1274
+01:13:21,960 --> 01:13:25,639
+so we are trying to find a function
+
+1275
+01:13:24,880 --> 01:13:28,199
+where
+
+1276
+01:13:25,639 --> 01:13:32,840
+we are trying to find a discrete
+
+1277
+01:13:28,199 --> 01:13:35,040
+function where it will repeat given
+
+1278
+01:13:32,840 --> 01:13:37,760
+certain initial value but for different
+
+1279
+01:13:35,040 --> 01:13:40,480
+initial value you have a different
+
+1280
+01:13:37,760 --> 01:13:43,760
+cycle uh but what is the example of such
+
+1281
+01:13:40,480 --> 01:13:46,239
+a function I don't know I don't know of
+
+1282
+01:13:43,760 --> 01:13:48,800
+of hand so that would be interesting we
+
+1283
+01:13:46,239 --> 01:13:52,600
+need this function
+
+1284
+01:13:48,800 --> 01:13:54,159
+because uh because we are trying to you
+
+1285
+01:13:52,600 --> 01:13:57,920
+know because we are writing a function
+
+1286
+01:13:54,159 --> 01:13:57,920
+to to deter the the
+
+1287
+01:13:58,920 --> 01:14:04,199
+periodic okay so this is actually quite
+
+1288
+01:14:02,719 --> 01:14:07,280
+untrivial
+
+1289
+01:14:04,199 --> 01:14:09,480
+now in our case we want the discrete
+
+1290
+01:14:07,280 --> 01:14:11,199
+function meaning a integer you know
+
+1291
+01:14:09,480 --> 01:14:14,960
+function takes the integer and return
+
+1292
+01:14:11,199 --> 01:14:17,440
+integer but in many of these chaos
+
+1293
+01:14:14,960 --> 01:14:19,760
+systems dynamical systems they they do
+
+1294
+01:14:17,440 --> 01:14:21,760
+have a function but they are not
+
+1295
+01:14:19,760 --> 01:14:25,600
+discrete like they are you know
+
+1296
+01:14:21,760 --> 01:14:28,840
+involving s cosign stuff
+
+1297
+01:14:25,600 --> 01:14:33,920
+uh geometric definition real dynamical
+
+1298
+01:14:28,840 --> 01:14:35,719
+systems of real uh you know continuous
+
+1299
+01:14:33,920 --> 01:14:39,000
+time
+
+1300
+01:14:35,719 --> 01:14:40,520
+flow okay those are real numbers and
+
+1301
+01:14:39,000 --> 01:14:43,480
+then differential
+
+1302
+01:14:40,520 --> 01:14:46,040
+equations uh discrete dynamical system
+
+1303
+01:14:43,480 --> 01:14:47,520
+okay there we there we have a discrete
+
+1304
+01:14:46,040 --> 01:14:51,600
+dynamic
+
+1305
+01:14:47,520 --> 01:14:54,440
+system uh when T is taken to be integers
+
+1306
+01:14:51,600 --> 01:14:57,040
+it is a Cascade or a map okay so
+
+1307
+01:14:54,440 --> 01:15:01,080
+actually we might find the
+
+1308
+01:14:57,040 --> 01:15:01,080
+example uh but they don't have a
+
+1309
+01:15:02,080 --> 01:15:09,280
+article okay then you have cellular
+
+1310
+01:15:04,560 --> 01:15:12,800
+autometer which is also you can consider
+
+1311
+01:15:09,280 --> 01:15:12,800
+dynamical system
+
+1312
+01:15:15,480 --> 01:15:23,239
+okay okay
+
+1313
+01:15:18,800 --> 01:15:26,520
+so so I bet you know we can find you
+
+1314
+01:15:23,239 --> 01:15:29,520
+know there's a lot
+
+1315
+01:15:26,520 --> 01:15:33,639
+nondiscrete continuous examples but we
+
+1316
+01:15:29,520 --> 01:15:36,000
+want the discrete example like of only
+
+1317
+01:15:33,639 --> 01:15:40,800
+integers
+
+1318
+01:15:36,000 --> 01:15:41,600
+uh so I don't know what is that okay we
+
+1319
+01:15:40,800 --> 01:15:44,000
+are
+
+1320
+01:15:41,600 --> 01:15:47,120
+digressing so
+
+1321
+01:15:44,000 --> 01:15:49,600
+but so hellstone number hellstone
+
+1322
+01:15:47,120 --> 01:15:53,760
+function it
+
+1323
+01:15:49,600 --> 01:15:56,760
+is this is a example this is a example
+
+1324
+01:15:53,760 --> 01:16:00,840
+um this is a
+
+1325
+01:15:56,760 --> 01:16:03,679
+example where the
+
+1326
+01:16:00,840 --> 01:16:06,760
+nesting
+
+1327
+01:16:03,679 --> 01:16:12,440
+periodic does not
+
+1328
+01:16:06,760 --> 01:16:14,719
+depends on init value it's
+
+1329
+01:16:12,440 --> 01:16:18,719
+always
+
+1330
+01:16:14,719 --> 01:16:22,199
+four okay that's the health no numbers
+
+1331
+01:16:18,719 --> 01:16:25,199
+uh it's already always three 421 421
+
+1332
+01:16:22,199 --> 01:16:25,199
+okay
+
+1333
+01:16:25,280 --> 01:16:31,239
+okay so yeah we are just
+
+1334
+01:16:28,679 --> 01:16:34,600
+digressing okay so now
+
+1335
+01:16:31,239 --> 01:16:37,679
+we now we have a better understanding
+
+1336
+01:16:34,600 --> 01:16:39,639
+let's get back to write this function
+
+1337
+01:16:37,679 --> 01:16:42,639
+so
+
+1338
+01:16:39,639 --> 01:16:47,360
+you call next
+
+1339
+01:16:42,639 --> 01:16:52,080
+while call the function with the initial
+
+1340
+01:16:47,360 --> 01:16:55,360
+condition then you test it by calling F
+
+1341
+01:16:52,080 --> 01:16:56,480
+test and you feed the F test all
+
+1342
+01:16:55,360 --> 01:17:01,280
+previous
+
+1343
+01:16:56,480 --> 01:17:06,679
+values okay so when how to when when do
+
+1344
+01:17:01,280 --> 01:17:06,679
+you want to stop you want to stop
+
+1345
+01:17:09,520 --> 01:17:15,480
+when let's write this function so right
+
+1346
+01:17:12,480 --> 01:17:18,560
+now right now we are just doing this
+
+1347
+01:17:15,480 --> 01:17:21,400
+dermy dermy condition okay if it's
+
+1348
+01:17:18,560 --> 01:17:26,840
+greater than five we
+
+1349
+01:17:21,400 --> 01:17:26,840
+stop we can run it actually so
+
+1350
+01:17:27,880 --> 01:17:36,600
+we can run it okay so for example let's
+
+1351
+01:17:31,320 --> 01:17:40,159
+try it paste it run it uh
+
+1352
+01:17:36,600 --> 01:17:45,239
+what paste the wrong place paste it run
+
+1353
+01:17:40,159 --> 01:17:51,480
+it okay now X get period and we can test
+
+1354
+01:17:45,239 --> 01:17:55,920
+it on the function X FP xpf that's a mod
+
+1355
+01:17:51,480 --> 01:17:59,440
+function okay initial value let's say 99
+
+1356
+01:17:55,920 --> 01:18:06,159
+okay and the maximum maximum test let's
+
+1357
+01:17:59,440 --> 01:18:12,960
+say 1,000 okay maximum Nest okay run
+
+1358
+01:18:06,159 --> 01:18:12,960
+it oh infinite Loop okay
+
+1359
+01:18:13,040 --> 01:18:18,679
+all
+
+1360
+01:18:14,960 --> 01:18:24,880
+all period to stop it
+
+1361
+01:18:18,679 --> 01:18:28,600
+what infinite Loop oh yeah because wait
+
+1362
+01:18:24,880 --> 01:18:28,600
+if the test is true
+
+1363
+01:18:34,000 --> 01:18:37,000
+continue
+
+1364
+01:18:37,400 --> 01:18:43,719
+what so let's print let's debug okay
+
+1365
+01:18:47,360 --> 01:18:56,719
+print okay here we debug we print it so
+
+1366
+01:18:51,679 --> 01:18:56,719
+I don't I don't get why is this nonstop
+
+1367
+01:19:08,880 --> 01:19:12,920
+uh okay so
+
+1368
+01:19:33,199 --> 01:19:38,280
+Define it okay then let's run
+
+1369
+01:19:39,040 --> 01:19:45,719
+this let's not let's just say 10 okay
+
+1370
+01:19:43,679 --> 01:19:48,960
+shift
+
+1371
+01:19:45,719 --> 01:19:52,679
+enter wow wow wow wow it's printing a
+
+1372
+01:19:48,960 --> 01:19:56,639
+lot nonstop stop old
+
+1373
+01:19:52,679 --> 01:19:56,639
+period old period
+
+1374
+01:19:57,679 --> 01:20:05,000
+okay okay so it's control period old
+
+1375
+01:20:02,360 --> 01:20:05,000
+period
+
+1376
+01:20:06,120 --> 01:20:11,719
+okay it's up now it's using up
+
+1377
+01:20:09,320 --> 01:20:11,719
+all my
+
+1378
+01:20:19,679 --> 01:20:29,000
+memory yeah I don't want to
+
+1379
+01:20:25,679 --> 01:20:32,000
+it is going into a infinite
+
+1380
+01:20:29,000 --> 01:20:32,000
+Loop
+
+1381
+01:20:34,600 --> 01:20:41,920
+impossible old period old period I
+
+1382
+01:20:38,480 --> 01:20:44,320
+believe old period is a board why is
+
+1383
+01:20:41,920 --> 01:20:44,320
+this
+
+1384
+01:20:48,639 --> 01:20:57,719
+not
+
+1385
+01:20:51,440 --> 01:20:57,719
+yeah okay we for SC it's
+
+1386
+01:21:29,840 --> 01:21:37,239
+it's not using much memory though but
+
+1387
+01:21:34,639 --> 01:21:40,000
+but the program is not responding okay
+
+1388
+01:21:37,239 --> 01:21:40,000
+let's for
+
+1389
+01:21:44,440 --> 01:21:52,560
+scrip yeah it's too bad why why is this
+
+1390
+01:21:48,800 --> 01:21:55,960
+did I did we get the semantic of the
+
+1391
+01:21:52,560 --> 01:22:00,560
+true false reversed
+
+1392
+01:21:55,960 --> 01:22:04,400
+let's see next while true to continue
+
+1393
+01:22:00,560 --> 01:22:07,080
+right start with the expression then uh
+
+1394
+01:22:04,400 --> 01:22:10,320
+apply F until applying test to the
+
+1395
+01:22:07,080 --> 01:22:15,120
+result no longer yields
+
+1396
+01:22:10,320 --> 01:22:15,120
+true right true means continue
+
+1397
+01:22:19,760 --> 01:22:28,120
+so yeah so this should work uh
+
+1398
+01:22:25,000 --> 01:22:33,159
+oh maybe maybe we
+
+1399
+01:22:28,120 --> 01:22:33,159
+got okay then's start W language
+
+1400
+01:22:41,760 --> 01:22:48,960
+again okay we digress so much that today
+
+1401
+01:22:45,880 --> 01:22:51,400
+we are not you know we didn't finish the
+
+1402
+01:22:48,960 --> 01:22:56,239
+V of code third
+
+1403
+01:22:51,400 --> 01:23:00,520
+take so if we paste this here let's
+
+1404
+01:22:56,239 --> 01:23:00,520
+see let's double check
+
+1405
+01:23:00,960 --> 01:23:04,320
+the the
+
+1406
+01:23:04,679 --> 01:23:09,920
+Precedence yeah those two are together
+
+1407
+01:23:07,840 --> 01:23:12,120
+that should be right so if it's greater
+
+1408
+01:23:09,920 --> 01:23:14,840
+than five
+
+1409
+01:23:12,120 --> 01:23:16,560
+stop otherwise don't stop
+
+1410
+01:23:14,840 --> 01:23:22,880
+but
+
+1411
+01:23:16,560 --> 01:23:22,880
+um Bute uh so why is it not stopping
+
+1412
+01:23:28,360 --> 01:23:34,639
+the function so why is it not stopping I
+
+1413
+01:23:31,320 --> 01:23:34,639
+don't know
+
+1414
+01:24:11,600 --> 01:24:17,239
+uh now three people watching all
+
+1415
+01:24:15,199 --> 01:24:18,920
+the people
+
+1416
+01:24:17,239 --> 01:24:21,920
+good
+
+1417
+01:24:18,920 --> 01:24:21,920
+um
+
+1418
+01:24:22,520 --> 01:24:29,120
+so it's no good
+
+1419
+01:24:25,199 --> 01:24:29,120
+so why is this function not
+
+1420
+01:24:43,119 --> 01:24:52,000
+stopping so you got the test this is a
+
+1421
+01:24:46,880 --> 01:24:58,320
+test function function so next while F
+
+1422
+01:24:52,000 --> 01:25:01,000
+initial value and test then pass it all
+
+1423
+01:24:58,320 --> 01:25:04,360
+values now okay let's look at some
+
+1424
+01:25:01,000 --> 01:25:04,360
+examples of the
+
+1425
+01:25:05,600 --> 01:25:12,760
+test so even Q stop now I need to see a
+
+1426
+01:25:10,880 --> 01:25:17,880
+example of the
+
+1427
+01:25:12,760 --> 01:25:17,880
+O Okay so
+
+1428
+01:25:18,199 --> 01:25:26,320
+or print and uh
+
+1429
+01:25:22,600 --> 01:25:26,320
+un so it's a function
+
+1430
+01:25:28,920 --> 01:25:37,000
+function print and unim so if they are
+
+1431
+01:25:33,239 --> 01:25:37,000
+not the same
+
+1432
+01:25:58,159 --> 01:26:05,520
+right so actually you can also say apply
+
+1433
+01:26:02,119 --> 01:26:05,520
+F at most Max
+
+1434
+01:26:05,719 --> 01:26:10,199
+times oh so you got to
+
+1435
+01:26:12,360 --> 01:26:19,040
+say now you forgot to say Max times here
+
+1436
+01:26:16,400 --> 01:26:23,080
+so that's why
+
+1437
+01:26:19,040 --> 01:26:26,239
+it's infinite Loop you need to say max
+
+1438
+01:26:23,080 --> 01:26:26,239
+number of times
+
+1439
+01:26:26,840 --> 01:26:29,840
+okay
+
+1440
+01:26:32,000 --> 01:26:37,800
+then then you can apply an extra nend
+
+1441
+01:26:39,960 --> 01:26:48,040
+times okay
+
+1442
+01:26:43,040 --> 01:26:48,040
+then okay so you got these kind of
+
+1443
+01:26:53,000 --> 01:26:56,239
+variations now
+
+1444
+01:27:01,960 --> 01:27:04,719
+now this
+
+1445
+01:27:04,880 --> 01:27:10,320
+function okay we I can okay we can run
+
+1446
+01:27:11,600 --> 01:27:16,719
+it so here's a function
+
+1447
+01:27:26,800 --> 01:27:34,000
+here's a
+
+1448
+01:27:28,880 --> 01:27:41,960
+function that is a definition we run it
+
+1449
+01:27:34,000 --> 01:27:41,960
+okay then we um now let's rename the
+
+1450
+01:27:44,800 --> 01:27:54,320
+xpf let's just say X Mod 5
+
+1451
+01:27:49,960 --> 01:27:56,600
+okay so now we need to define the mod
+
+1452
+01:27:54,320 --> 01:27:56,600
+five
+
+1453
+01:27:59,400 --> 01:28:07,400
+function so we Define it run it that's
+
+1454
+01:28:03,440 --> 01:28:11,420
+good then we test the modify function
+
+1455
+01:28:07,400 --> 01:28:14,649
+paste it run that's good and then
+
+1456
+01:28:11,420 --> 01:28:14,649
+[Music]
+
+1457
+01:28:15,440 --> 01:28:21,040
+we then
+
+1458
+01:28:17,600 --> 01:28:26,639
+we then then what is next then we want
+
+1459
+01:28:21,040 --> 01:28:29,600
+to try okay now Hil storm H hail stone
+
+1460
+01:28:26,639 --> 01:28:29,600
+then we want to
+
+1461
+01:28:36,199 --> 01:28:44,280
+try yeah then we want to try these okay
+
+1462
+01:28:40,239 --> 01:28:48,960
+so max Nest 1,000 so this
+
+1463
+01:28:44,280 --> 01:28:48,960
+shouldn't let's hope it's not infinite
+
+1464
+01:28:49,440 --> 01:28:57,920
+Loop okay because this time we added
+
+1465
+01:28:54,480 --> 01:29:02,639
+Max n list
+
+1466
+01:28:57,920 --> 01:29:02,639
+there okay so shift
+
+1467
+01:29:02,840 --> 01:29:08,679
+enter okay okay stopped finally so it's
+
+1468
+01:29:06,280 --> 01:29:12,719
+just 99
+
+1469
+01:29:08,679 --> 01:29:17,480
+99 uh why is it just 99
+
+1470
+01:29:12,719 --> 01:29:19,360
+oh oh xpf that's a mistake because you
+
+1471
+01:29:17,480 --> 01:29:23,639
+forgot to
+
+1472
+01:29:19,360 --> 01:29:23,639
+rename okay delete
+
+1473
+01:29:29,600 --> 01:29:35,320
+this should be xart five
+
+1474
+01:29:35,400 --> 01:29:38,840
+okay shift
+
+1475
+01:29:40,520 --> 01:29:49,440
+enter okay still 99 what the is 99
+
+1476
+01:29:45,880 --> 01:29:54,040
+four let's go
+
+1477
+01:29:49,440 --> 01:29:56,360
+back so let's just run 10 times okay Shi
+
+1478
+01:29:54,040 --> 01:29:56,360
+shift
+
+1479
+01:29:57,119 --> 01:30:08,280
+enter initial value is
+
+1480
+01:30:01,119 --> 01:30:08,280
+99 so why is it uh so you just print
+
+1481
+01:30:12,800 --> 01:30:18,800
+99 so this list is 99
+
+1482
+01:30:28,880 --> 01:30:31,239
+okay
+
+1483
+01:30:32,040 --> 01:30:37,080
+so something is not right
+
+1484
+01:30:39,119 --> 01:30:46,360
+yeah oh oh you actually you need this
+
+1485
+01:30:43,719 --> 01:30:46,360
+here
+
+1486
+01:30:46,960 --> 01:30:55,520
+so so X list so the
+
+1487
+01:30:51,320 --> 01:30:56,520
+function takes a input X Le x l is
+
+1488
+01:30:55,520 --> 01:31:01,199
+always
+
+1489
+01:30:56,520 --> 01:31:01,199
+99 why is it that we said
+
+1490
+01:31:10,639 --> 01:31:17,800
+oh let's just sa
+
+1491
+01:31:13,800 --> 01:31:17,800
+five okay
+
+1492
+01:31:38,440 --> 01:31:42,119
+let say next one
+
+1493
+01:31:43,040 --> 01:31:50,080
+least okay this is
+
+1494
+01:31:45,560 --> 01:31:53,040
+not right the test must return true okay
+
+1495
+01:31:50,080 --> 01:31:55,840
+so the test function must always return
+
+1496
+01:31:53,040 --> 01:31:55,840
+true
+
+1497
+01:31:55,960 --> 01:31:59,760
+so in this
+
+1498
+01:32:00,000 --> 01:32:06,040
+case it's a
+
+1499
+01:32:02,400 --> 01:32:11,920
+function that just return true okay so
+
+1500
+01:32:06,040 --> 01:32:11,920
+in our case we can make it
+
+1501
+01:32:31,159 --> 01:32:38,440
+yep that's what I want so if you do that
+
+1502
+01:32:36,800 --> 01:32:42,080
+and
+
+1503
+01:32:38,440 --> 01:32:42,080
+uh this
+
+1504
+01:32:46,080 --> 01:32:51,520
+format what no
+
+1505
+01:32:58,920 --> 01:33:05,810
+that's what I want so let's
+
+1506
+01:33:02,620 --> 01:33:05,810
+[Music]
+
+1507
+01:33:06,760 --> 01:33:14,600
+see yeah well let's just do n
+
+1508
+01:33:11,199 --> 01:33:17,920
+thing and uh so the function if the
+
+1509
+01:33:14,600 --> 01:33:17,920
+function is true it
+
+1510
+01:33:19,360 --> 01:33:28,960
+always so if the length is
+
+1511
+01:33:24,960 --> 01:33:34,960
+is the length of that
+
+1512
+01:33:28,960 --> 01:33:34,960
+is less than five then return
+
+1513
+01:33:40,840 --> 01:33:48,239
+true
+
+1514
+01:33:43,080 --> 01:33:51,119
+okay but uh you are not getting so what
+
+1515
+01:33:48,239 --> 01:33:54,119
+is this function doing so that is a
+
+1516
+01:33:51,119 --> 01:33:54,119
+problem
+
+1517
+01:33:56,000 --> 01:33:59,880
+okay so let's test out this
+
+1518
+01:34:03,040 --> 01:34:07,600
+function okay this is
+
+1519
+01:34:09,040 --> 01:34:17,679
+uh let's just always return true so it
+
+1520
+01:34:13,400 --> 01:34:20,440
+always runs okay so this function we're
+
+1521
+01:34:17,679 --> 01:34:24,400
+going to try this again and the function
+
+1522
+01:34:20,440 --> 01:34:29,119
+will always return true but how ever you
+
+1523
+01:34:24,400 --> 01:34:30,679
+print the result okay shift
+
+1524
+01:34:29,119 --> 01:34:35,960
+enter
+
+1525
+01:34:30,679 --> 01:34:40,119
+so this is the problem you are always
+
+1526
+01:34:35,960 --> 01:34:43,119
+getting the init as
+
+1527
+01:34:40,119 --> 01:34:43,119
+input
+
+1528
+01:34:45,960 --> 01:34:55,440
+um oh okay so this when you
+
+1529
+01:34:50,920 --> 01:35:00,560
+call now I get it when you call n
+
+1530
+01:34:55,440 --> 01:35:02,320
+while and if you say all pass all
+
+1531
+01:35:00,560 --> 01:35:04,840
+previous
+
+1532
+01:35:02,320 --> 01:35:08,880
+outputs to the test
+
+1533
+01:35:04,840 --> 01:35:12,400
+function now it doesn't pass a list it
+
+1534
+01:35:08,880 --> 01:35:17,679
+actually pass just a sequence of the
+
+1535
+01:35:12,400 --> 01:35:20,520
+outputs that's right that's right so
+
+1536
+01:35:17,679 --> 01:35:24,440
+okay so that's right
+
+1537
+01:35:20,520 --> 01:35:27,880
+because you can tell you can you can
+
+1538
+01:35:24,440 --> 01:35:32,400
+test it by because if
+
+1539
+01:35:27,880 --> 01:35:36,679
+you you know this this list is because
+
+1540
+01:35:32,400 --> 01:35:36,679
+here a function you just say the first
+
+1541
+01:35:39,159 --> 01:35:45,159
+argument instead you want all arguments
+
+1542
+01:35:42,560 --> 01:35:48,000
+okay so you want all arguments in that
+
+1543
+01:35:45,159 --> 01:35:48,000
+case you just
+
+1544
+01:35:48,040 --> 01:35:54,159
+say you know you just
+
+1545
+01:35:51,520 --> 01:35:57,360
+say pound sign pound sign sign that
+
+1546
+01:35:54,159 --> 01:35:59,679
+stands for all arguments so now if you
+
+1547
+01:35:57,360 --> 01:36:04,719
+do
+
+1548
+01:35:59,679 --> 01:36:07,639
+this you see it prints this it you know
+
+1549
+01:36:04,719 --> 01:36:09,840
+it prints this
+
+1550
+01:36:07,639 --> 01:36:15,600
+part
+
+1551
+01:36:09,840 --> 01:36:19,400
+yeah that's right so back over here and
+
+1552
+01:36:15,600 --> 01:36:21,719
+uh so this list so this function you you
+
+1553
+01:36:19,400 --> 01:36:25,000
+want to get all arguments so don't use
+
+1554
+01:36:21,719 --> 01:36:27,320
+that all argument just stand
+
+1555
+01:36:25,000 --> 01:36:32,239
+for
+
+1556
+01:36:27,320 --> 01:36:35,560
+um you just stand for um so you can do
+
+1557
+01:36:32,239 --> 01:36:39,080
+this two pound sign means all arguments
+
+1558
+01:36:35,560 --> 01:36:42,560
+then you enclose it with the list then
+
+1559
+01:36:39,080 --> 01:36:46,760
+you got length
+
+1560
+01:36:42,560 --> 01:36:49,880
+Okay okay so we solve that issue but but
+
+1561
+01:36:46,760 --> 01:36:55,360
+in any case this is just this is not the
+
+1562
+01:36:49,880 --> 01:36:55,360
+real test the real test is
+
+1563
+01:36:55,840 --> 01:37:02,199
+you get all previous arguments you want
+
+1564
+01:36:58,920 --> 01:37:02,199
+to check
+
+1565
+01:37:07,440 --> 01:37:13,159
+if oh this is different this is not easy
+
+1566
+01:37:10,840 --> 01:37:14,719
+to write because you want some kind of
+
+1567
+01:37:13,159 --> 01:37:19,080
+double
+
+1568
+01:37:14,719 --> 01:37:19,080
+State you know you got the current
+
+1569
+01:37:19,719 --> 01:37:26,960
+value okay so okay here's what you can
+
+1570
+01:37:22,239 --> 01:37:30,280
+do you can check if the all detect cycle
+
+1571
+01:37:26,960 --> 01:37:34,159
+okay it's easy okay so here's a list
+
+1572
+01:37:30,280 --> 01:37:37,239
+that's the all previous output you just
+
+1573
+01:37:34,159 --> 01:37:40,280
+want so given a list you want to
+
+1574
+01:37:37,239 --> 01:37:44,520
+determine if the tail of the
+
+1575
+01:37:40,280 --> 01:37:47,480
+least repeats it's a new
+
+1576
+01:37:44,520 --> 01:37:48,599
+problem okay so we break it down now we
+
+1577
+01:37:47,480 --> 01:37:51,440
+have a new
+
+1578
+01:37:48,599 --> 01:37:55,440
+problem let's write it
+
+1579
+01:37:51,440 --> 01:37:55,440
+out given a
+
+1580
+01:37:55,679 --> 01:38:04,199
+list write a uh
+
+1581
+01:38:00,480 --> 01:38:06,520
+determine if the tail of
+
+1582
+01:38:04,199 --> 01:38:09,800
+the list
+
+1583
+01:38:06,520 --> 01:38:12,840
+repeats ARA
+
+1584
+01:38:09,800 --> 01:38:14,880
+cycle for
+
+1585
+01:38:12,840 --> 01:38:16,560
+example
+
+1586
+01:38:14,880 --> 01:38:19,239
+5
+
+1587
+01:38:16,560 --> 01:38:22,280
+9 3
+
+1588
+01:38:19,239 --> 01:38:25,440
+2 9 3
+
+1589
+01:38:22,280 --> 01:38:25,440
+29 okay
+
+1590
+01:38:31,719 --> 01:38:38,679
+okay
+
+1591
+01:38:33,800 --> 01:38:42,199
+so write a function to do this so here's
+
+1592
+01:38:38,679 --> 01:38:45,520
+a new separate problem sub problem once
+
+1593
+01:38:42,199 --> 01:38:47,159
+we have that then we can write our get
+
+1594
+01:38:45,520 --> 01:38:49,840
+period
+
+1595
+01:38:47,159 --> 01:38:51,520
+function so how do you determine given a
+
+1596
+01:38:49,840 --> 01:38:53,719
+list how do you determine the tail
+
+1597
+01:38:51,520 --> 01:38:54,840
+repeats
+
+1598
+01:38:53,719 --> 01:38:56,260
+well
+
+1599
+01:38:54,840 --> 01:38:59,419
+naively
+
+1600
+01:38:56,260 --> 01:38:59,419
+[Music]
+
+1601
+01:39:01,159 --> 01:39:09,280
+you well naively what you can do is you
+
+1602
+01:39:05,679 --> 01:39:09,280
+you start from the last
+
+1603
+01:39:09,360 --> 01:39:15,560
+element and check if that exist
+
+1604
+01:39:12,320 --> 01:39:18,560
+previously if it does then you start
+
+1605
+01:39:15,560 --> 01:39:23,000
+from the second last element check if
+
+1606
+01:39:18,560 --> 01:39:23,000
+that pattern exist
+
+1607
+01:39:24,400 --> 01:39:29,080
+okay so is
+
+1608
+01:39:32,000 --> 01:39:39,040
+algorithm check if last two element is
+
+1609
+01:39:45,760 --> 01:39:51,159
+same if so that is the
+
+1610
+01:39:51,920 --> 01:39:58,040
+cycle then okay that's a tail that's
+
+1611
+01:39:54,840 --> 01:40:01,760
+just basically one single
+
+1612
+01:39:58,040 --> 01:40:04,760
+number check then check
+
+1613
+01:40:01,760 --> 01:40:04,760
+if
+
+1614
+01:40:05,119 --> 01:40:09,119
+if last
+
+1615
+01:40:29,280 --> 01:40:34,920
+four
+
+1616
+01:40:30,599 --> 01:40:38,280
+elements is a cycle
+
+1617
+01:40:34,920 --> 01:40:44,280
+EG one two one
+
+1618
+01:40:38,280 --> 01:40:44,280
+two something like that a b
+
+1619
+01:40:47,040 --> 01:40:55,239
+a b
+
+1620
+01:40:49,800 --> 01:40:55,239
+okay if so cycle is
+
+1621
+01:40:59,440 --> 01:41:06,400
+two okay now otherwise check
+
+1622
+01:41:07,760 --> 01:41:16,040
+if six elements okay the
+
+1623
+01:41:12,679 --> 01:41:19,840
+last six element is cycle
+
+1624
+01:41:16,040 --> 01:41:22,840
+ABC ABC okay so we started to get a
+
+1625
+01:41:19,840 --> 01:41:22,840
+pattern
+
+1626
+01:41:24,159 --> 01:41:28,960
+okay so bit but you always beginning at
+
+1627
+01:41:26,320 --> 01:41:28,960
+the end
+
+1628
+01:41:38,280 --> 01:41:44,840
+so so you do this until the length is is
+
+1629
+01:41:42,119 --> 01:41:49,560
+less than whatever you want to check you
+
+1630
+01:41:44,840 --> 01:41:56,679
+start with 2 4 six so that's basically 2
+
+1631
+01:41:49,560 --> 01:41:59,320
+n 2 * 2 2 * 1 is 2 2 * * 2 is 4 2 * 3 is
+
+1632
+01:41:56,679 --> 01:42:04,239
+6 you know 2 *
+
+1633
+01:41:59,320 --> 01:42:09,880
+n so you take the two times n the last
+
+1634
+01:42:04,239 --> 01:42:13,719
+that that that kind of elements and uh
+
+1635
+01:42:09,880 --> 01:42:13,719
+basically split it in
+
+1636
+01:42:15,639 --> 01:42:21,360
+two yeah is that is that right though
+
+1637
+01:42:18,880 --> 01:42:23,960
+what if there's three repetitions same
+
+1638
+01:42:21,360 --> 01:42:28,080
+thing
+
+1639
+01:42:23,960 --> 01:42:31,560
+yeah because to determine if the tail
+
+1640
+01:42:28,080 --> 01:42:31,560
+you know the key is here
+
+1641
+01:42:31,719 --> 01:42:37,800
+tail so if the tail repeats you know you
+
+1642
+01:42:35,159 --> 01:42:40,480
+just you always just check at the end so
+
+1643
+01:42:37,800 --> 01:42:44,520
+you start with two elements then four
+
+1644
+01:42:40,480 --> 01:42:44,520
+elements then six
+
+1645
+01:42:45,560 --> 01:42:49,599
+then then eight you
+
+1646
+01:42:49,800 --> 01:42:55,199
+know and all you have to do is just take
+
+1647
+01:42:52,560 --> 01:42:58,679
+elements split in the middle and compare
+
+1648
+01:42:55,199 --> 01:42:58,679
+the first part in you know
+
+1649
+01:42:59,639 --> 01:43:08,599
+so and so on okay and so on
+
+1650
+01:43:04,040 --> 01:43:08,599
+so this is how you would do it
+
+1651
+01:43:09,960 --> 01:43:17,320
+naively now how do you do this in wolam
+
+1652
+01:43:13,440 --> 01:43:20,760
+language is there a is there a bing
+
+1653
+01:43:17,320 --> 01:43:24,840
+function I don't know so uh it would be
+
+1654
+01:43:20,760 --> 01:43:24,840
+very interesting to check
+
+1655
+01:43:32,080 --> 01:43:39,639
+let's type cycle let's search for
+
+1656
+01:43:36,400 --> 01:43:43,440
+cycle we want to determine if the tail
+
+1657
+01:43:39,639 --> 01:43:43,440
+forms a cycle
+
+1658
+01:43:43,639 --> 01:43:51,000
+Cycles Cycles represent a permutation
+
+1659
+01:43:46,800 --> 01:43:54,400
+with destroy Cycles fin cycle there it
+
+1660
+01:43:51,000 --> 01:43:57,199
+is wait that's for
+
+1661
+01:43:54,400 --> 01:44:00,599
+graph okay that's more complicated
+
+1662
+01:43:57,199 --> 01:44:03,320
+that's for graph final cycle then
+
+1663
+01:44:00,599 --> 01:44:07,480
+permutation cycles that generates a
+
+1664
+01:44:03,320 --> 01:44:11,440
+permutation cycle find UK ukan cycle
+
+1665
+01:44:07,480 --> 01:44:14,880
+that's also for graph Honan cycle for
+
+1666
+01:44:11,440 --> 01:44:17,920
+graph cycle length
+
+1667
+01:44:14,880 --> 01:44:20,960
+count count the number of Cycles for all
+
+1668
+01:44:17,920 --> 01:44:25,400
+possible cycle length in a
+
+1669
+01:44:20,960 --> 01:44:28,199
+permutation I think that might do let's
+
+1670
+01:44:25,400 --> 01:44:28,199
+see show
+
+1671
+01:44:33,000 --> 01:44:38,000
+more okay so let's see let's
+
+1672
+01:44:36,480 --> 01:44:41,199
+try
+
+1673
+01:44:38,000 --> 01:44:45,159
+uh well there's also find fundamental
+
+1674
+01:44:41,199 --> 01:44:47,400
+cycle that's for graph now let's see
+
+1675
+01:44:45,159 --> 01:44:51,639
+cycle length
+
+1676
+01:44:47,400 --> 01:44:53,599
+counts oh God this is a again a function
+
+1677
+01:44:51,639 --> 01:44:56,960
+Repository
+
+1678
+01:44:53,599 --> 01:44:56,960
+so that's not what we
+
+1679
+01:45:02,960 --> 01:45:10,040
+want yeah so that's not what we want so
+
+1680
+01:45:06,800 --> 01:45:10,040
+we want some kind
+
+1681
+01:45:13,280 --> 01:45:19,080
+of today we going nowhere
+
+1682
+01:45:36,320 --> 01:45:42,199
+permutations okay permutation Cycles
+
+1683
+01:45:39,199 --> 01:45:42,199
+true
+
+1684
+01:45:54,040 --> 01:45:56,560
+okay I
+
+1685
+01:45:56,800 --> 01:46:03,639
+think this is
+
+1686
+01:45:59,639 --> 01:46:03,639
+not good
+
+1687
+01:46:25,360 --> 01:46:30,719
+uh
+
+1688
+01:46:26,480 --> 01:46:35,880
+we do we want permutation I don't think
+
+1689
+01:46:30,719 --> 01:46:35,880
+so permutation group find
+
+1690
+01:46:37,360 --> 01:46:44,880
+permutation so we just actually we want
+
+1691
+01:46:41,119 --> 01:46:49,000
+to detect the tail
+
+1692
+01:46:44,880 --> 01:46:52,000
+repeats so that has little to do with
+
+1693
+01:46:49,000 --> 01:46:52,000
+permutation
+
+1694
+01:46:57,030 --> 01:47:00,300
+[Music]
+
+1695
+01:47:00,920 --> 01:47:08,599
+uh so what are you doing so let's go to
+
+1696
+01:47:05,239 --> 01:47:11,000
+related guides related to permutation
+
+1697
+01:47:08,599 --> 01:47:13,800
+cylic permutation
+
+1698
+01:47:11,000 --> 01:47:16,159
+representation now permutation means
+
+1699
+01:47:13,800 --> 01:47:22,000
+given a list of
+
+1700
+01:47:16,159 --> 01:47:25,520
+things you you mix them you reorder them
+
+1701
+01:47:22,000 --> 01:47:28,000
+and you get a of all possible reordering
+
+1702
+01:47:25,520 --> 01:47:31,080
+so that's what permutation
+
+1703
+01:47:28,000 --> 01:47:34,000
+is and what is a cycle cyclic
+
+1704
+01:47:31,080 --> 01:47:34,000
+permutation
+
+1705
+01:47:34,360 --> 01:47:40,440
+representation oh okay
+
+1706
+01:47:37,440 --> 01:47:40,440
+yeah
+
+1707
+01:47:44,520 --> 01:47:51,840
+so so cyclet
+
+1708
+01:47:47,840 --> 01:47:51,840
+permutation means
+
+1709
+01:47:59,119 --> 01:48:04,400
+oh that wow that that is you know that
+
+1710
+01:48:02,040 --> 01:48:07,239
+is cyc
+
+1711
+01:48:04,400 --> 01:48:08,880
+permutation that is
+
+1712
+01:48:07,239 --> 01:48:11,599
+a
+
+1713
+01:48:08,880 --> 01:48:14,480
+notation to spec
+
+1714
+01:48:11,599 --> 01:48:16,119
+specify a particular
+
+1715
+01:48:14,480 --> 01:48:21,760
+reordering
+
+1716
+01:48:16,119 --> 01:48:24,760
+okay that's a notation to specify a
+
+1717
+01:48:21,760 --> 01:48:27,040
+particular reordering of a list of
+
+1718
+01:48:24,760 --> 01:48:30,040
+things I
+
+1719
+01:48:27,040 --> 01:48:30,040
+believe
+
+1720
+01:48:35,679 --> 01:48:45,639
+uh oh God this is not good wait can we
+
+1721
+01:48:39,679 --> 01:48:45,639
+just simply right okay this is not good
+
+1722
+01:49:01,360 --> 01:49:08,440
+okay we just want to find the repetition
+
+1723
+01:49:04,920 --> 01:49:08,440
+of the tail
+
+1724
+01:49:19,960 --> 01:49:24,719
+so so until
+
+1725
+01:49:41,920 --> 01:49:48,880
+is greater than half the length of
+
+1726
+01:49:56,840 --> 01:50:00,520
+until n is greater
+
+1727
+01:50:08,880 --> 01:50:14,159
+than yeah until 2 N is greater than
+
+1728
+01:50:11,840 --> 01:50:15,719
+length of
+
+1729
+01:50:14,159 --> 01:50:20,440
+least
+
+1730
+01:50:15,719 --> 01:50:23,960
+okay so yeah determine the cycle of a
+
+1731
+01:50:20,440 --> 01:50:29,400
+tail how do you do that yeah
+
+1732
+01:50:23,960 --> 01:50:29,400
+what is the most efficient
+
+1733
+01:50:39,480 --> 01:50:45,800
+way so permutation is rearranging this
+
+1734
+01:50:43,159 --> 01:50:51,800
+is not about rearranging so maybe there
+
+1735
+01:50:45,800 --> 01:50:51,800
+is no Bing function to do this
+
+1736
+01:51:06,360 --> 01:51:15,119
+okay we can write yeah got we can write
+
+1737
+01:51:10,159 --> 01:51:15,119
+a function ourself so
+
+1738
+01:51:25,920 --> 01:51:30,159
+find cyclic tail
+
+1739
+01:51:32,440 --> 01:51:36,480
+okay let me just push
+
+1740
+01:51:40,920 --> 01:51:44,920
+on usage
+
+1741
+01:52:03,520 --> 01:52:10,760
+if none
+
+1742
+01:52:05,639 --> 01:52:13,480
+return empty list okay so that's a
+
+1743
+01:52:10,760 --> 01:52:14,960
+documentation and uh so we going to
+
+1744
+01:52:13,480 --> 01:52:17,079
+write the
+
+1745
+01:52:14,960 --> 01:52:20,320
+function
+
+1746
+01:52:17,079 --> 01:52:22,719
+uh do you want to do it pattern matching
+
+1747
+01:52:20,320 --> 01:52:25,920
+or not
+
+1748
+01:52:22,719 --> 01:52:25,920
+we can
+
+1749
+01:52:30,960 --> 01:52:43,239
+and no okay so equals to function then
+
+1750
+01:52:38,440 --> 01:52:47,440
+okay then X is the input so first of all
+
+1751
+01:52:43,239 --> 01:52:47,440
+you need to get the length so
+
+1752
+01:52:47,520 --> 01:52:56,079
+module
+
+1753
+01:52:49,320 --> 01:53:00,000
+uh so X is x l let's say okay so X
+
+1754
+01:52:56,079 --> 01:53:05,239
+length equals to length
+
+1755
+01:53:00,000 --> 01:53:07,679
+of the least okay now what the body of
+
+1756
+01:53:05,239 --> 01:53:10,880
+what you want to do the body of the th
+
+1757
+01:53:07,679 --> 01:53:13,880
+function is that you want
+
+1758
+01:53:10,880 --> 01:53:13,880
+to
+
+1759
+01:53:18,480 --> 01:53:27,280
+uh I want to God writing okay this is
+
+1760
+01:53:23,119 --> 01:53:27,280
+not good so why don't we take a
+
+1761
+01:53:32,800 --> 01:53:40,520
+break I sent wolf M code not related to
+
+1762
+01:53:37,320 --> 01:53:43,520
+the problem but it does not go through
+
+1763
+01:53:40,520 --> 01:53:46,159
+chat uh no I think that's because
+
+1764
+01:53:43,520 --> 01:53:50,639
+YouTube YouTube
+
+1765
+01:53:46,159 --> 01:53:55,280
+is um YouTube has some kind of filter
+
+1766
+01:53:50,639 --> 01:53:55,280
+you know let's see live
+
+1767
+01:53:58,719 --> 01:54:05,679
+chat yeah YouTube has some kind of
+
+1768
+01:54:01,719 --> 01:54:08,040
+filter that's that has to do with the
+
+1769
+01:54:05,679 --> 01:54:11,079
+setup you know like I just follow the
+
+1770
+01:54:08,040 --> 01:54:14,440
+normal setup so it
+
+1771
+01:54:11,079 --> 01:54:18,480
+filters uh I think it filters code and
+
+1772
+01:54:14,440 --> 01:54:23,320
+so on I can edit actually can
+
+1773
+01:54:18,480 --> 01:54:23,320
+it details customization
+
+1774
+01:54:23,719 --> 01:54:26,719
+uh
+
+1775
+01:54:27,599 --> 01:54:35,000
+playlist whatever that
+
+1776
+01:54:31,239 --> 01:54:40,400
+that yeah so I think there is some kind
+
+1777
+01:54:35,000 --> 01:54:43,920
+of trailer redirect live chat live chat
+
+1778
+01:54:40,400 --> 01:54:47,520
+replay uh there is a check mark
+
+1779
+01:54:43,920 --> 01:54:51,520
+somewhere about whether to use automatic
+
+1780
+01:54:47,520 --> 01:54:51,520
+filter something
+
+1781
+01:54:53,920 --> 01:55:01,480
+thumbnail playlist audience okay yes
+
+1782
+01:54:57,400 --> 01:55:04,920
+it's not for kid okay paid promotion no
+
+1783
+01:55:01,480 --> 01:55:08,000
+altered altered content any of the
+
+1784
+01:55:04,920 --> 01:55:11,400
+following uh real person doing something
+
+1785
+01:55:08,000 --> 01:55:15,320
+didn't say no fake that's basically fake
+
+1786
+01:55:11,400 --> 01:55:18,440
+things automatic chapters okay featured
+
+1787
+01:55:15,320 --> 01:55:21,760
+places automatic Concepts
+
+1788
+01:55:18,440 --> 01:55:23,679
+Texs uh recording data and location
+
+1789
+01:55:21,760 --> 01:55:25,920
+license
+
+1790
+01:55:23,679 --> 01:55:29,480
+distribution allow
+
+1791
+01:55:25,920 --> 01:55:31,599
+embedding comment and the ratings okay
+
+1792
+01:55:29,480 --> 01:55:34,599
+common
+
+1793
+01:55:31,599 --> 01:55:34,599
+moderation
+
+1794
+01:55:35,599 --> 01:55:41,920
+um commment moderation
+
+1795
+01:55:38,440 --> 01:55:46,239
+basic okay let's say if I say
+
+1796
+01:55:41,920 --> 01:55:47,679
+none save now now try to post let's see
+
+1797
+01:55:46,239 --> 01:55:50,719
+if that
+
+1798
+01:55:47,679 --> 01:55:53,440
+works yeah anyway today is kind of
+
+1799
+01:55:50,719 --> 01:55:54,480
+that's no good because I T too much and
+
+1800
+01:55:53,440 --> 01:55:56,639
+no
+
+1801
+01:55:54,480 --> 01:56:03,040
+code
+
+1802
+01:55:56,639 --> 01:56:03,040
+um and to you know like writing simple
+
+1803
+01:56:03,400 --> 01:56:10,639
+functions so we want to find you know
+
+1804
+01:56:06,440 --> 01:56:14,760
+cyclic tail yeah so we have to implement
+
+1805
+01:56:10,639 --> 01:56:18,679
+this so you get the list of the length
+
+1806
+01:56:14,760 --> 01:56:22,119
+and so try to post the code Jolina see
+
+1807
+01:56:18,679 --> 01:56:22,119
+if that works
+
+1808
+01:56:23,400 --> 01:56:30,040
+so we find we want to find the tail of a
+
+1809
+01:56:26,560 --> 01:56:30,040
+function and
+
+1810
+01:56:36,360 --> 01:56:44,679
+uh so we can
+
+1811
+01:56:39,840 --> 01:56:44,679
+follow you know this algorithm
+
+1812
+01:56:49,079 --> 01:56:53,880
+that something like that
+
+1813
+01:57:04,760 --> 01:57:12,000
+okay so we can you know let's we can use
+
+1814
+01:57:07,400 --> 01:57:12,000
+a pattern Ming okay
+
+1815
+01:57:13,040 --> 01:57:19,199
+so let me so this would be interesting
+
+1816
+01:57:16,159 --> 01:57:24,320
+okay one single line of pattern matching
+
+1817
+01:57:19,199 --> 01:57:28,320
+will find you the tail of a list of a
+
+1818
+01:57:24,320 --> 01:57:31,520
+repeating you know tail of a list okay
+
+1819
+01:57:28,320 --> 01:57:31,520
+so you want to
+
+1820
+01:57:34,360 --> 01:57:41,040
+do okay Jolina says nothing yeah I don't
+
+1821
+01:57:37,480 --> 01:57:44,639
+know you know you know something YouTube
+
+1822
+01:57:41,040 --> 01:57:47,320
+so so if you want to paste
+
+1823
+01:57:44,639 --> 01:57:49,920
+code you know even if I Chang the
+
+1824
+01:57:47,320 --> 01:57:53,760
+settings here I just did but I don't
+
+1825
+01:57:49,920 --> 01:57:55,760
+know if that has real time effect or do
+
+1826
+01:57:53,760 --> 01:57:58,159
+I have to set it in
+
+1827
+01:57:55,760 --> 01:58:02,280
+before
+
+1828
+01:57:58,159 --> 01:58:06,199
+um you know Common moderation none you
+
+1829
+01:58:02,280 --> 01:58:10,880
+see wait do I say
+
+1830
+01:58:06,199 --> 01:58:10,880
+off comment and ratings
+
+1831
+01:58:11,960 --> 01:58:19,239
+on okay yeah
+
+1832
+01:58:14,800 --> 01:58:23,360
+so common rating is on and uh live chat
+
+1833
+01:58:19,239 --> 01:58:26,440
+showing live chat so
+
+1834
+01:58:23,360 --> 01:58:29,520
+so that's something YouTube too bad so
+
+1835
+01:58:26,440 --> 01:58:32,639
+anyway so this so we want to find the
+
+1836
+01:58:29,520 --> 01:58:34,400
+tail okay so what you can do
+
+1837
+01:58:32,639 --> 01:58:38,719
+is
+
+1838
+01:58:34,400 --> 01:58:38,719
+uh replace all
+
+1839
+01:58:38,760 --> 01:58:44,440
+okay replace
+
+1840
+01:58:41,760 --> 01:58:48,800
+all of a given
+
+1841
+01:58:44,440 --> 01:58:48,800
+list then you want to
+
+1842
+01:58:50,599 --> 01:58:56,440
+say uh
+
+1843
+01:58:53,239 --> 01:58:58,840
+head low line low line low line that's
+
+1844
+01:58:56,440 --> 01:59:03,440
+something we don't
+
+1845
+01:58:58,840 --> 01:59:06,239
+care uh let's put it here
+
+1846
+01:59:03,440 --> 01:59:08,880
+okay had something something okay so
+
+1847
+01:59:06,239 --> 01:59:08,880
+actually a
+
+1848
+01:59:13,199 --> 01:59:19,960
+list so give so it's a list starting
+
+1849
+01:59:17,199 --> 01:59:24,040
+with something zero or more anything
+
+1850
+01:59:19,960 --> 01:59:24,040
+zero or more then
+
+1851
+01:59:24,920 --> 01:59:33,520
+then tail okay then tail one or more so
+
+1852
+01:59:29,159 --> 01:59:37,760
+that's two low line okay then matched by
+
+1853
+01:59:33,520 --> 01:59:41,199
+tail again okay this will match when
+
+1854
+01:59:37,760 --> 01:59:44,880
+when this thing match that
+
+1855
+01:59:41,199 --> 01:59:48,199
+means there's there's a repeating tail
+
+1856
+01:59:44,880 --> 01:59:52,480
+okay so when that match just return
+
+1857
+01:59:48,199 --> 01:59:55,440
+tail and tail in a in a list okay so
+
+1858
+01:59:52,480 --> 01:59:58,719
+this would be function I mean this would
+
+1859
+01:59:55,440 --> 02:00:02,760
+be kind of interesting thing we did
+
+1860
+01:59:58,719 --> 02:00:07,960
+today the first interesting
+
+1861
+02:00:02,760 --> 02:00:12,560
+thing uh okay so we don't need the modu
+
+1862
+02:00:07,960 --> 02:00:18,599
+anymore so let's remove the even simpler
+
+1863
+02:00:12,560 --> 02:00:18,599
+okay so here is a function let's try it
+
+1864
+02:00:22,440 --> 02:00:28,960
+okay then all you have to do is try it
+
+1865
+02:00:26,760 --> 02:00:35,119
+so let's
+
+1866
+02:00:28,960 --> 02:00:37,400
+say F tail given a list uh given a list
+
+1867
+02:00:35,119 --> 02:00:40,960
+one two
+
+1868
+02:00:37,400 --> 02:00:44,960
+three two three two
+
+1869
+02:00:40,960 --> 02:00:44,960
+okay n
+
+1870
+02:01:05,560 --> 02:01:09,760
+no uh no
+
+1871
+02:01:17,560 --> 02:01:26,320
+because okay so I think I can fix this
+
+1872
+02:01:23,159 --> 02:01:31,320
+so it should be it should return 32 in
+
+1873
+02:01:26,320 --> 02:01:31,320
+this case Okay so but it's
+
+1874
+02:01:32,440 --> 02:01:38,560
+not uh in fact we don't want to use
+
+1875
+02:01:35,400 --> 02:01:41,840
+replace all
+
+1876
+02:01:38,560 --> 02:01:45,440
+because because replace or we'll check
+
+1877
+02:01:41,840 --> 02:01:49,159
+all levels that's not what we want we
+
+1878
+02:01:45,440 --> 02:01:53,320
+want Define a function patter matching
+
+1879
+02:01:49,159 --> 02:01:55,440
+okay pattern matching then you want uh
+
+1880
+02:01:53,320 --> 02:01:58,800
+transform function that transform
+
+1881
+02:01:55,440 --> 02:02:02,400
+expression by pattern okay here's a list
+
+1882
+02:01:58,800 --> 02:02:05,760
+of all of them so replace all replace
+
+1883
+02:02:02,400 --> 02:02:09,239
+repeated they all do all levels what you
+
+1884
+02:02:05,760 --> 02:02:12,880
+want is replace with the level spec
+
+1885
+02:02:09,239 --> 02:02:17,079
+that's what you want okay so simply
+
+1886
+02:02:12,880 --> 02:02:19,760
+replace because you can specify uh
+
+1887
+02:02:17,079 --> 02:02:22,320
+particular level of expression level
+
+1888
+02:02:19,760 --> 02:02:23,199
+means depth
+
+1889
+02:02:22,320 --> 02:02:27,679
+uh
+
+1890
+02:02:23,199 --> 02:02:31,639
+because expression is any an expression
+
+1891
+02:02:27,679 --> 02:02:34,040
+can be arbitrary tree so this is a
+
+1892
+02:02:31,639 --> 02:02:35,000
+tricky part of pattern matching when you
+
+1893
+02:02:34,040 --> 02:02:38,599
+have a
+
+1894
+02:02:35,000 --> 02:02:41,199
+tree you know it just doesn't matter it
+
+1895
+02:02:38,599 --> 02:02:44,239
+it does not just match the flat each
+
+1896
+02:02:41,199 --> 02:02:47,159
+item it actually when you have a tree it
+
+1897
+02:02:44,239 --> 02:02:50,000
+um gets complicated you can read my
+
+1898
+02:02:47,159 --> 02:02:55,239
+tutorial if you want so but anyway so we
+
+1899
+02:02:50,000 --> 02:02:55,239
+want to say level level expect is
+
+1900
+02:03:08,440 --> 02:03:13,639
+um we just want to say level one
+
+1901
+02:03:14,400 --> 02:03:18,079
+okay but
+
+1902
+02:03:18,360 --> 02:03:25,400
+uh so we can do mean we can just simply
+
+1903
+02:03:23,360 --> 02:03:28,639
+test this
+
+1904
+02:03:25,400 --> 02:03:32,360
+expression uh and uh let's
+
+1905
+02:03:28,639 --> 02:03:32,360
+say this is
+
+1906
+02:03:32,480 --> 02:03:36,320
+that and
+
+1907
+02:03:38,320 --> 02:03:43,050
+uh
+
+1908
+02:03:39,920 --> 02:03:44,320
+okay uh in fact this is
+
+1909
+02:03:43,050 --> 02:03:47,719
+[Music]
+
+1910
+02:03:44,320 --> 02:03:50,440
+repeated one or more
+
+1911
+02:03:47,719 --> 02:03:53,679
+times okay so actually we don't need
+
+1912
+02:03:50,440 --> 02:03:57,040
+even that so this is
+
+1913
+02:03:53,679 --> 02:03:59,199
+superb example of the power of pal
+
+1914
+02:03:57,040 --> 02:04:01,840
+magine okay run
+
+1915
+02:03:59,199 --> 02:04:04,840
+it no
+
+1916
+02:04:01,840 --> 02:04:04,840
+failed
+
+1917
+02:04:06,840 --> 02:04:15,159
+uh this means uh this means one or more
+
+1918
+02:04:12,639 --> 02:04:17,679
+times one or
+
+1919
+02:04:15,159 --> 02:04:22,040
+more
+
+1920
+02:04:17,679 --> 02:04:22,040
+so okay so
+
+1921
+02:04:24,199 --> 02:04:27,079
+let's
+
+1922
+02:04:28,520 --> 02:04:37,880
+try okay that doesn't
+
+1923
+02:04:31,719 --> 02:04:37,880
+work why is that not work it's
+
+1924
+02:04:42,800 --> 02:04:52,440
+because so we got 3 two
+
+1925
+02:04:46,320 --> 02:04:52,440
+32 okay tell means
+
+1926
+02:04:54,199 --> 02:05:00,440
+uh so you need some kind of longest oh
+
+1927
+02:05:01,760 --> 02:05:05,440
+God okay let's
+
+1928
+02:05:08,639 --> 02:05:11,639
+try
+
+1929
+02:05:16,599 --> 02:05:24,480
+longest okay so you got
+
+1930
+02:05:20,119 --> 02:05:28,000
+uh you want pattern name this pattern
+
+1931
+02:05:24,480 --> 02:05:31,800
+tail and what is the pattern exactly the
+
+1932
+02:05:28,000 --> 02:05:34,800
+pattern is that
+
+1933
+02:05:31,800 --> 02:05:34,800
+longest
+
+1934
+02:05:41,199 --> 02:05:48,599
+of
+
+1935
+02:05:43,800 --> 02:05:52,639
+of one or more okay and uh repeat
+
+1936
+02:05:48,599 --> 02:05:56,199
+it one or more times
+
+1937
+02:05:52,639 --> 02:05:56,199
+okay this gets
+
+1938
+02:05:58,159 --> 02:06:03,000
+complex okay let let me let me get
+
+1939
+02:06:03,079 --> 02:06:07,239
+this okay let's try
+
+1940
+02:06:19,320 --> 02:06:26,920
+that what
+
+1941
+02:06:22,960 --> 02:06:30,559
+God it's I don't know what's going
+
+1942
+02:06:26,920 --> 02:06:33,880
+on and I'm starting to get tired why is
+
+1943
+02:06:30,559 --> 02:06:33,880
+this not
+
+1944
+02:06:56,079 --> 02:07:02,880
+so dot dot is repeated one or more times
+
+1945
+02:06:59,679 --> 02:07:04,440
+let's go back to the pattern matching
+
+1946
+02:07:02,880 --> 02:07:08,400
+syntax
+
+1947
+02:07:04,440 --> 02:07:08,400
+here and
+
+1948
+02:07:12,520 --> 02:07:19,280
+uh repeated pmax okay repeat a pattern
+
+1949
+02:07:20,119 --> 02:07:26,559
+repeated one to Max times okay so here
+
+1950
+02:07:24,559 --> 02:07:30,679
+is the
+
+1951
+02:07:26,559 --> 02:07:34,679
+expression repeat it
+
+1952
+02:07:30,679 --> 02:07:39,159
+okay so let's change them to the full
+
+1953
+02:07:34,679 --> 02:07:39,159
+syntax so maybe it's easier to
+
+1954
+02:07:41,079 --> 02:07:47,239
+read okay instead of using the dot dot
+
+1955
+02:07:44,239 --> 02:07:53,840
+let's say repeat
+
+1956
+02:07:47,239 --> 02:07:58,239
+it okay repeated it of this p pattern
+
+1957
+02:07:53,840 --> 02:08:00,599
+okay so now you can see now we getting
+
+1958
+02:07:58,239 --> 02:08:06,480
+into this
+
+1959
+02:08:00,599 --> 02:08:09,199
+one so we have a pattern that is that
+
+1960
+02:08:06,480 --> 02:08:14,119
+this pattern is named the
+
+1961
+02:08:09,199 --> 02:08:18,440
+tail and uh it's going to match the
+
+1962
+02:08:14,119 --> 02:08:23,000
+longest actually you shouldn't match the
+
+1963
+02:08:18,440 --> 02:08:23,000
+longest one or more
+
+1964
+02:08:34,239 --> 02:08:40,800
+so yeah so let's remove the longest for
+
+1965
+02:08:38,280 --> 02:08:40,800
+now
+
+1966
+02:08:42,199 --> 02:08:45,199
+because
+
+1967
+02:08:45,679 --> 02:08:49,679
+no God
+
+1968
+02:08:58,440 --> 02:09:06,119
+oh God this is very interesting though
+
+1969
+02:09:02,760 --> 02:09:06,119
+but we
+
+1970
+02:09:06,880 --> 02:09:10,880
+have failed
+
+1971
+02:09:32,920 --> 02:09:41,760
+so this is a pattern named tail and the
+
+1972
+02:09:36,960 --> 02:09:41,760
+pattern is underscore
+
+1973
+02:09:44,360 --> 02:09:49,280
+underscore so that
+
+1974
+02:09:47,239 --> 02:09:52,559
+means
+
+1975
+02:09:49,280 --> 02:09:55,599
+it's one or more
+
+1976
+02:09:52,559 --> 02:09:58,639
+so this is just one or more of
+
+1977
+02:09:55,599 --> 02:10:01,480
+anything but you want
+
+1978
+02:09:58,639 --> 02:10:05,199
+it repeat
+
+1979
+02:10:01,480 --> 02:10:05,199
+it okay so I
+
+1980
+02:10:07,840 --> 02:10:13,639
+think maybe I should go back to this
+
+1981
+02:10:10,639 --> 02:10:13,639
+idea
+
+1982
+02:10:21,920 --> 02:10:24,280
+okay
+
+1983
+02:10:34,239 --> 02:10:42,960
+so let's just
+
+1984
+02:10:36,760 --> 02:10:42,960
+say tail here okay should
+
+1985
+02:10:49,679 --> 02:10:55,000
+work want
+
+1986
+02:10:51,960 --> 02:10:57,960
+if we cannot solve this I'm pretty sure
+
+1987
+02:10:55,000 --> 02:10:57,960
+it'll just
+
+1988
+02:11:00,159 --> 02:11:10,719
+work there it is there it is okay so now
+
+1989
+02:11:06,920 --> 02:11:14,400
+now having understood that yes tail tail
+
+1990
+02:11:10,719 --> 02:11:19,280
+you see tail repeated twice
+
+1991
+02:11:14,400 --> 02:11:21,760
+now oh yeah all you have to do
+
+1992
+02:11:19,280 --> 02:11:24,199
+is put that
+
+1993
+02:11:21,760 --> 02:11:27,920
+there so now
+
+1994
+02:11:24,199 --> 02:11:31,599
+let's copy the above then now do it
+
+1995
+02:11:27,920 --> 02:11:34,840
+again this time just using
+
+1996
+02:11:31,599 --> 02:11:37,599
+replace yes it
+
+1997
+02:11:34,840 --> 02:11:42,679
+works the whole
+
+1998
+02:11:37,599 --> 02:11:47,360
+expression uh zero to Infinity so anyway
+
+1999
+02:11:42,679 --> 02:11:49,400
+so replace works now I want to be sure
+
+2000
+02:11:47,360 --> 02:11:51,880
+about the
+
+2001
+02:11:49,400 --> 02:11:55,520
+level level spec
+
+2002
+02:11:51,880 --> 02:11:57,800
+okay so level spec is a bit complex if
+
+2003
+02:11:55,520 --> 02:12:01,520
+you you know you can read my tutorial
+
+2004
+02:11:57,800 --> 02:12:04,559
+there's a example about pattern matching
+
+2005
+02:12:01,520 --> 02:12:08,320
+with the level stuff level means the
+
+2006
+02:12:04,559 --> 02:12:13,920
+depth of the tree typically it's a
+
+2007
+02:12:08,320 --> 02:12:18,920
+range um like depth zero to depth five
+
+2008
+02:12:13,920 --> 02:12:21,719
+but it can also be a specific level like
+
+2009
+02:12:18,920 --> 02:12:24,639
+depth five only
+
+2010
+02:12:21,719 --> 02:12:28,119
+so this is important when your pattern
+
+2011
+02:12:24,639 --> 02:12:31,199
+can match you know arbitrary like at
+
+2012
+02:12:28,119 --> 02:12:34,480
+different depth of a
+
+2013
+02:12:31,199 --> 02:12:37,440
+expression uh but in our case we don't
+
+2014
+02:12:34,480 --> 02:12:40,040
+want any depth we want a flat because we
+
+2015
+02:12:37,440 --> 02:12:44,760
+only care we are considering the input
+
+2016
+02:12:40,040 --> 02:12:48,199
+as a flat list of items so if the one of
+
+2017
+02:12:44,760 --> 02:12:50,679
+the item is a tree and it has the tail
+
+2018
+02:12:48,199 --> 02:12:53,480
+we don't care we only want to care about
+
+2019
+02:12:50,679 --> 02:12:56,960
+the top level that is why we are using
+
+2020
+02:12:53,480 --> 02:12:58,760
+replace so we can say a level spec we
+
+2021
+02:12:56,960 --> 02:13:03,760
+can limit the
+
+2022
+02:12:58,760 --> 02:13:05,800
+level so level is level n
+
+2023
+02:13:03,760 --> 02:13:11,119
+Only
+
+2024
+02:13:05,800 --> 02:13:15,719
+uh so n is uh in the whole expression
+
+2025
+02:13:11,119 --> 02:13:19,679
+okay so level one is you know we should
+
+2026
+02:13:15,719 --> 02:13:22,920
+use level one okay
+
+2027
+02:13:19,679 --> 02:13:28,040
+so so we we can go back here and and we
+
+2028
+02:13:22,920 --> 02:13:28,040
+can try Okay so if you say level
+
+2029
+02:13:28,639 --> 02:13:35,000
+one you will also
+
+2030
+02:13:31,239 --> 02:13:35,000
+walk uh no
+
+2031
+02:13:35,639 --> 02:13:42,639
+what oh oh right that's right it needs
+
+2032
+02:13:38,840 --> 02:13:45,159
+to be level zero okay now level zero is
+
+2033
+02:13:42,639 --> 02:13:48,760
+the whole expression it's it's can be
+
+2034
+02:13:45,159 --> 02:13:52,079
+very confusing okay so this works now
+
+2035
+02:13:48,760 --> 02:13:55,920
+for example let's try some other the uh
+
+2036
+02:13:52,079 --> 02:13:59,880
+sequence now let's say if the tail
+
+2037
+02:13:55,920 --> 02:13:59,880
+is 3
+
+2038
+02:14:00,000 --> 02:14:06,880
+324 okay that doesn't work that's right
+
+2039
+02:14:03,599 --> 02:14:13,000
+and what if it's
+
+2040
+02:14:06,880 --> 02:14:17,000
+uh 32 4 that works okay now when there's
+
+2041
+02:14:13,000 --> 02:14:19,639
+no match you want it to return uh zero I
+
+2042
+02:14:17,000 --> 02:14:24,280
+mean uh empty list okay so you need to
+
+2043
+02:14:19,639 --> 02:14:29,880
+fix this find cyclic
+
+2044
+02:14:24,280 --> 02:14:29,880
+tail so if you say match
+
+2045
+02:14:30,599 --> 02:14:34,000
+Q let's
+
+2046
+02:14:35,599 --> 02:14:41,119
+see you want to determine it match or
+
+2047
+02:14:43,040 --> 02:14:50,119
+not so that does not allow you to
+
+2048
+02:14:46,320 --> 02:14:53,040
+specify a level you need to be able to
+
+2049
+02:14:50,119 --> 02:14:53,040
+say a level
+
+2050
+02:14:53,320 --> 02:14:58,920
+okay okay so you want to say
+
+2051
+02:15:13,079 --> 02:15:22,960
+replace level zero okay so level
+
+2052
+02:15:17,639 --> 02:15:22,960
+zero and uh so that's basic
+
+2053
+02:15:24,159 --> 02:15:35,280
+basically just that okay and
+
+2054
+02:15:29,440 --> 02:15:35,280
+uh then you want to say if it didn't
+
+2055
+02:15:37,639 --> 02:15:43,280
+match yeah you you need to know if it
+
+2056
+02:15:40,599 --> 02:15:43,280
+matched or
+
+2057
+02:15:43,599 --> 02:15:50,559
+not okay so there's more detail pattern
+
+2058
+02:15:47,040 --> 02:15:50,559
+matching functions
+
+2059
+02:15:52,119 --> 02:15:56,679
+cas's position count
+
+2060
+02:16:50,319 --> 02:16:55,479
+yeah but basically our function works if
+
+2061
+02:16:53,679 --> 02:16:58,920
+it's just
+
+2062
+02:16:55,479 --> 02:17:01,200
+that you know when there's no match you
+
+2063
+02:16:58,920 --> 02:17:04,000
+just return the whole thing which is not
+
+2064
+02:17:01,200 --> 02:17:07,280
+good when there's no tail we need to
+
+2065
+02:17:04,000 --> 02:17:10,280
+have it return empty
+
+2066
+02:17:07,280 --> 02:17:10,280
+least
+
+2067
+02:17:12,639 --> 02:17:22,599
+so we need to apply match Q at level
+
+2068
+02:17:18,240 --> 02:17:26,800
+zero Okay so we need
+
+2069
+02:17:22,599 --> 02:17:30,120
+to apply match Q at level zero you see
+
+2070
+02:17:26,800 --> 02:17:34,379
+match Q does not have a option for level
+
+2071
+02:17:30,120 --> 02:17:37,449
+by default so that means you need
+
+2072
+02:17:34,379 --> 02:17:37,449
+[Music]
+
+2073
+02:17:40,760 --> 02:17:48,719
+to uh map
+
+2074
+02:17:43,599 --> 02:17:48,719
+at oh God this can get very
+
+2075
+02:17:49,639 --> 02:17:55,599
+complex uh I don't know if you guys know
+
+2076
+02:17:52,639 --> 02:17:55,599
+what I'm
+
+2077
+02:17:58,439 --> 02:18:01,439
+saying
+
+2078
+02:18:06,080 --> 02:18:16,200
+because uh map at a specific
+
+2079
+02:18:11,359 --> 02:18:16,200
+level no the map at is
+
+2080
+02:18:16,519 --> 02:18:24,760
+for MPP to a specific list position
+
+2081
+02:18:20,800 --> 02:18:24,760
+positions so that's not what we
+
+2082
+02:18:26,240 --> 02:18:29,800
+want we want
+
+2083
+02:18:29,840 --> 02:18:35,280
+to okay probably boring for all of
+
+2084
+02:18:36,519 --> 02:18:48,040
+you oh Jolina finally able to post some
+
+2085
+02:18:43,359 --> 02:18:48,040
+code oh let
+
+2086
+02:18:48,679 --> 02:18:52,719
+copy uh can you copy
+
+2087
+02:18:54,200 --> 02:18:58,280
+no okay so let's
+
+2088
+02:18:59,000 --> 02:19:10,439
+see German German German
+
+2089
+02:19:03,359 --> 02:19:16,240
+Molina so map map part part uh one
+
+2090
+02:19:10,439 --> 02:19:19,479
+two and uh what evalue ENT entity
+
+2091
+02:19:16,240 --> 02:19:23,000
+country United States versus China okay
+
+2092
+02:19:19,479 --> 02:19:23,000
+let's see sh shift
+
+2093
+02:19:23,200 --> 02:19:28,800
+enter now this is going to get some
+
+2094
+02:19:26,040 --> 02:19:32,920
+information from the
+
+2095
+02:19:28,800 --> 02:19:35,240
+web this is the using wolam
+
+2096
+02:19:32,920 --> 02:19:40,519
+language so you
+
+2097
+02:19:35,240 --> 02:19:46,080
+got 340 Millions people so that's
+
+2098
+02:19:40,519 --> 02:19:46,080
+USA and uh the H and uh let's
+
+2099
+02:19:47,800 --> 02:19:55,680
+see okay then the second one is
+
+2100
+02:19:51,280 --> 02:20:00,640
+1.4 billion people in China like I said
+
+2101
+02:19:55,680 --> 02:20:05,319
+so it's using 3.8 kilowatts per person
+
+2102
+02:20:00,640 --> 02:20:08,560
+while in USA it's using 1.35 kilow per
+
+2103
+02:20:05,319 --> 02:20:12,600
+person so for each person in
+
+2104
+02:20:08,560 --> 02:20:12,600
+USA it's using
+
+2105
+02:20:13,800 --> 02:20:24,560
+about 3 to four times more energy thank
+
+2106
+02:20:19,720 --> 02:20:27,240
+you thank you for that political part we
+
+2107
+02:20:24,560 --> 02:20:30,399
+I I was talking about
+
+2108
+02:20:27,240 --> 02:20:34,760
+before yeah so for each person in USA is
+
+2109
+02:20:30,399 --> 02:20:38,800
+using three to four times more energy
+
+2110
+02:20:34,760 --> 02:20:43,920
+electricity than China okay so back to
+
+2111
+02:20:38,800 --> 02:20:45,040
+here um back to here we have this code
+
+2112
+02:20:43,920 --> 02:20:48,000
+you
+
+2113
+02:20:45,040 --> 02:20:49,479
+know you know I I want you know so this
+
+2114
+02:20:48,000 --> 02:20:52,399
+code is already
+
+2115
+02:20:49,479 --> 02:20:54,920
+working and name but we we all we have
+
+2116
+02:20:52,399 --> 02:20:56,800
+to do is uh if there's no match we want
+
+2117
+02:20:54,920 --> 02:21:00,200
+to return an empty
+
+2118
+02:20:56,800 --> 02:21:04,200
+list when there's no cycle okay we can
+
+2119
+02:21:00,200 --> 02:21:06,800
+easily do that by you know by for
+
+2120
+02:21:04,200 --> 02:21:06,800
+example
+
+2121
+02:21:07,399 --> 02:21:15,280
+if uh if match Q
+
+2122
+02:21:11,479 --> 02:21:15,280
+okay if match
+
+2123
+02:21:15,800 --> 02:21:19,800
+q that
+
+2124
+02:21:22,840 --> 02:21:30,760
+then then then do the you know return
+
+2125
+02:21:25,880 --> 02:21:33,439
+this replace true okay else return an
+
+2126
+02:21:30,760 --> 02:21:37,240
+empty dist you know this we can easily
+
+2127
+02:21:33,439 --> 02:21:41,200
+do that so just put this part in the
+
+2128
+02:21:37,240 --> 02:21:44,640
+true part you know however if we do that
+
+2129
+02:21:41,200 --> 02:21:49,520
+that's not entirely correct why because
+
+2130
+02:21:44,640 --> 02:21:51,040
+this match Q will match all depth of the
+
+2131
+02:21:49,520 --> 02:21:53,319
+expression
+
+2132
+02:21:51,040 --> 02:21:57,120
+let me show you a example shall
+
+2133
+02:21:53,319 --> 02:21:59,000
+we um because this match CU for example
+
+2134
+02:21:57,120 --> 02:22:03,000
+let's say
+
+2135
+02:21:59,000 --> 02:22:06,080
+okay so here's a list uh let's let's try
+
+2136
+02:22:03,000 --> 02:22:06,080
+it okay so
+
+2137
+02:22:09,399 --> 02:22:18,359
+wait 2 five
+
+2138
+02:22:12,760 --> 02:22:22,200
+okay s okay now now you see we got a
+
+2139
+02:22:18,359 --> 02:22:25,399
+list like this okay okay now does this
+
+2140
+02:22:22,200 --> 02:22:28,040
+list have a cycle no because the last
+
+2141
+02:22:25,399 --> 02:22:31,560
+two elements is 2 five and the one
+
+2142
+02:22:28,040 --> 02:22:35,520
+before that is a Leist so this element
+
+2143
+02:22:31,560 --> 02:22:38,680
+does not have a cycle however if you run
+
+2144
+02:22:35,520 --> 02:22:40,960
+this match CU it will match okay let me
+
+2145
+02:22:38,680 --> 02:22:40,960
+show
+
+2146
+02:22:45,680 --> 02:22:50,040
+you yeah Force
+
+2147
+02:22:51,000 --> 02:22:57,280
+wait why is it oh yeah so you need
+
+2148
+02:22:53,439 --> 02:23:02,240
+something what you see what I was
+
+2149
+02:22:57,280 --> 02:23:02,240
+thinking it will match the 32 32
+
+2150
+02:23:04,399 --> 02:23:11,760
+there oh wait the the match CU will
+
+2151
+02:23:07,920 --> 02:23:17,160
+match the whole expression oh okay so
+
+2152
+02:23:11,760 --> 02:23:17,160
+yeah so there's a yeah that's that's
+
+2153
+02:23:18,520 --> 02:23:23,840
+right right the match cu will match the
+
+2154
+02:23:21,240 --> 02:23:27,439
+whole expression not sub expression so
+
+2155
+02:23:23,840 --> 02:23:30,800
+the match Q actually works the same at
+
+2156
+02:23:27,439 --> 02:23:35,520
+the same level as the replace by default
+
+2157
+02:23:30,800 --> 02:23:39,680
+so this will work so we just replace the
+
+2158
+02:23:35,520 --> 02:23:44,520
+default here okay so now our function
+
+2159
+02:23:39,680 --> 02:23:44,520
+works so let's you know we can try it
+
+2160
+02:23:44,680 --> 02:23:51,319
+again how do you guys like wam language
+
+2161
+02:23:48,120 --> 02:23:53,720
+code except you joona because you know
+
+2162
+02:23:51,319 --> 02:23:55,960
+wam
+
+2163
+02:23:53,720 --> 02:23:59,680
+language you know but I was I'm
+
+2164
+02:23:55,960 --> 02:24:01,720
+wondering how do all the other people so
+
+2165
+02:23:59,680 --> 02:24:07,319
+here is our
+
+2166
+02:24:01,720 --> 02:24:07,319
+function now if we call this function
+
+2167
+02:24:09,600 --> 02:24:15,720
+um uh okay we don't need that so we need
+
+2168
+02:24:12,479 --> 02:24:15,720
+a test function
+
+2169
+02:24:16,560 --> 02:24:22,359
+so so for example we need to test
+
+2170
+02:24:25,840 --> 02:24:33,319
+this one R it that's
+
+2171
+02:24:29,880 --> 02:24:38,479
+correct what about uh what about let's
+
+2172
+02:24:33,319 --> 02:24:40,359
+say add two run it two that's correct
+
+2173
+02:24:38,479 --> 02:24:44,000
+what if I add
+
+2174
+02:24:40,359 --> 02:24:48,279
+three run it empty that's
+
+2175
+02:24:44,000 --> 02:24:51,680
+correct what what if you uh let's say 2
+
+2176
+02:24:48,279 --> 02:24:55,000
+three 2 three that will be 2 three
+
+2177
+02:24:51,680 --> 02:24:59,560
+you know so if you add another number
+
+2178
+02:24:55,000 --> 02:25:03,600
+let's say 4 2 3 4 2 3 4 here return to
+
+2179
+02:24:59,560 --> 02:25:07,600
+34 so this and and you can also have
+
+2180
+02:25:03,600 --> 02:25:10,080
+triple repeat your work so this is uh
+
+2181
+02:25:07,600 --> 02:25:14,080
+this is a great
+
+2182
+02:25:10,080 --> 02:25:17,120
+uh code we did today you know actually
+
+2183
+02:25:14,080 --> 02:25:20,960
+the the the shiny part of today's talk
+
+2184
+02:25:17,120 --> 02:25:24,960
+show so this is great okay
+
+2185
+02:25:20,960 --> 02:25:28,479
+so now we can remove all our
+
+2186
+02:25:24,960 --> 02:25:28,479
+previous kind of
+
+2187
+02:25:31,680 --> 02:25:38,240
+thing okay so we got this function now
+
+2188
+02:25:35,000 --> 02:25:40,479
+this function is essential for our
+
+2189
+02:25:38,240 --> 02:25:47,560
+original problem
+
+2190
+02:25:40,479 --> 02:25:50,359
+of of find the period of a nesting of a
+
+2191
+02:25:47,560 --> 02:25:52,760
+function okay so all we have to do now
+
+2192
+02:25:50,359 --> 02:25:56,960
+now here so here's a
+
+2193
+02:25:52,760 --> 02:26:01,479
+test um so let's move the function up so
+
+2194
+02:25:56,960 --> 02:26:04,319
+this this function let's move it up find
+
+2195
+02:26:01,479 --> 02:26:08,479
+cyclic tail okay cut
+
+2196
+02:26:04,319 --> 02:26:08,479
+it move up
+
+2197
+02:26:12,800 --> 02:26:19,120
+somewhere paste it
+
+2198
+02:26:15,200 --> 02:26:21,920
+okay find cyclic tail now we want to
+
+2199
+02:26:19,120 --> 02:26:23,240
+write this function get period so the
+
+2200
+02:26:21,920 --> 02:26:26,920
+test will
+
+2201
+02:26:23,240 --> 02:26:30,240
+be so instead of this random you know uh
+
+2202
+02:26:26,920 --> 02:26:33,240
+Toy test we just say
+
+2203
+02:26:30,240 --> 02:26:33,240
+if
+
+2204
+02:26:34,000 --> 02:26:39,200
+if if find cyclic
+
+2205
+02:26:39,600 --> 02:26:42,600
+tail
+
+2206
+02:26:46,080 --> 02:26:58,880
+at uh what wait me hold on a second yeah
+
+2207
+02:26:51,920 --> 02:27:01,920
+so if find cyclic tail at all the
+
+2208
+02:26:58,880 --> 02:27:04,640
+arguments there a list of all arguments
+
+2209
+02:27:01,920 --> 02:27:07,040
+so if that returns
+
+2210
+02:27:04,640 --> 02:27:11,200
+true
+
+2211
+02:27:07,040 --> 02:27:15,160
+then uh so if they cyclic tail then
+
+2212
+02:27:11,200 --> 02:27:15,160
+stop Force
+
+2213
+02:27:16,920 --> 02:27:24,720
+okay let means stop running the nting
+
+2214
+02:27:21,000 --> 02:27:29,920
+otherwise true continue the nesting
+
+2215
+02:27:24,720 --> 02:27:32,560
+okay so let's clean up this so this is a
+
+2216
+02:27:29,920 --> 02:27:34,279
+test function so actually now we have
+
+2217
+02:27:32,560 --> 02:27:37,279
+this kind of a
+
+2218
+02:27:34,279 --> 02:27:37,279
+short
+
+2219
+02:27:39,640 --> 02:27:50,960
+uh wait uh wait so if if if the find
+
+2220
+02:27:44,880 --> 02:27:50,960
+cyclic tail at that is equals to
+
+2221
+02:27:51,560 --> 02:27:57,040
+empty list
+
+2222
+02:27:54,040 --> 02:27:57,040
+okay
+
+2223
+02:27:58,560 --> 02:28:04,800
+then then that means there's no cycle
+
+2224
+02:28:01,760 --> 02:28:08,479
+found okay when there's no cycle found
+
+2225
+02:28:04,800 --> 02:28:08,479
+you want to continue okay
+
+2226
+02:28:08,640 --> 02:28:16,560
+so okay so it's a bit annoying here so
+
+2227
+02:28:12,880 --> 02:28:20,520
+anyway so here is a function to test
+
+2228
+02:28:16,560 --> 02:28:26,080
+whether you want the nting to continue
+
+2229
+02:28:20,520 --> 02:28:30,560
+if the cycle is empty list then continue
+
+2230
+02:28:26,080 --> 02:28:33,920
+otherwise false means stop okay so that
+
+2231
+02:28:30,560 --> 02:28:35,600
+is a test function and we pass the text
+
+2232
+02:28:33,920 --> 02:28:38,279
+function to next
+
+2233
+02:28:35,600 --> 02:28:43,399
+s
+
+2234
+02:28:38,279 --> 02:28:48,000
+okay good now let's test this let's copy
+
+2235
+02:28:43,399 --> 02:28:50,960
+that okay copy that and
+
+2236
+02:28:48,000 --> 02:28:55,080
+uh actually we going ins somewhere now
+
+2237
+02:28:50,960 --> 02:28:58,359
+finally we actually so this
+
+2238
+02:28:55,080 --> 02:28:58,359
+code run
+
+2239
+02:28:58,760 --> 02:29:04,080
+it okay it run so what
+
+2240
+02:29:14,279 --> 02:29:22,920
+the so what is this part what is this
+
+2241
+02:29:18,200 --> 02:29:22,920
+doing X get period xmart
+
+2242
+02:29:23,000 --> 02:29:29,439
+5 uh wait there's something not
+
+2243
+02:29:30,600 --> 02:29:38,000
+right okay let's let's restart wam
+
+2244
+02:29:34,040 --> 02:29:41,000
+language okay so let me do a some
+
+2245
+02:29:38,000 --> 02:29:41,000
+screenshot
+
+2246
+02:29:52,439 --> 02:29:59,800
+because that's some of the interesting
+
+2247
+02:29:55,680 --> 02:29:59,800
+parts for today's talk
+
+2248
+02:30:05,479 --> 02:30:11,080
+show okay then we're going to restart
+
+2249
+02:30:08,240 --> 02:30:13,479
+with our language save
+
+2250
+02:30:11,080 --> 02:30:19,760
+no and
+
+2251
+02:30:13,479 --> 02:30:19,760
+uh CL that close that
+
+2252
+02:30:24,479 --> 02:30:31,040
+okay now it's 2 hours and half
+
+2253
+02:30:29,240 --> 02:30:35,960
+new
+
+2254
+02:30:31,040 --> 02:30:37,760
+notepad three shift enter to
+
+2255
+02:30:35,960 --> 02:30:43,000
+evaluate
+
+2256
+02:30:37,760 --> 02:30:44,920
+magnify okay now we have several code we
+
+2257
+02:30:43,000 --> 02:30:50,319
+we want to
+
+2258
+02:30:44,920 --> 02:30:50,319
+try this you don't need so
+
+2259
+02:30:51,640 --> 02:30:59,120
+so copy that copy that copy that copy
+
+2260
+02:30:55,200 --> 02:30:59,120
+that copy that
+
+2261
+02:30:59,640 --> 02:31:05,720
+hellstone copy that and find tail yes
+
+2262
+02:31:04,520 --> 02:31:07,800
+then
+
+2263
+02:31:05,720 --> 02:31:13,640
+so yeah
+
+2264
+02:31:07,800 --> 02:31:13,640
+so copy that or select or
+
+2265
+02:31:17,720 --> 02:31:21,920
+paste okay so here is
+
+2266
+02:31:29,040 --> 02:31:36,000
+today so we
+
+2267
+02:31:31,240 --> 02:31:38,560
+got mod five function then we got
+
+2268
+02:31:36,000 --> 02:31:42,640
+some some
+
+2269
+02:31:38,560 --> 02:31:45,319
+clarification of periodic versus nesting
+
+2270
+02:31:42,640 --> 02:31:50,000
+of a function
+
+2271
+02:31:45,319 --> 02:31:51,960
+period then we did we explain how to
+
+2272
+02:31:50,000 --> 02:31:53,520
+precisely Define
+
+2273
+02:31:51,960 --> 02:31:57,359
+periodic
+
+2274
+02:31:53,520 --> 02:31:59,160
+then we explored on the question is it
+
+2275
+02:31:57,359 --> 02:32:02,479
+possible to have a discrete function
+
+2276
+02:31:59,160 --> 02:32:06,640
+whose nesting periodic is dependent on
+
+2277
+02:32:02,479 --> 02:32:10,080
+the input yes however we don't have a
+
+2278
+02:32:06,640 --> 02:32:12,720
+example uh then we have hstone numbers
+
+2279
+02:32:10,080 --> 02:32:15,960
+which has which is a discrete function
+
+2280
+02:32:12,720 --> 02:32:19,560
+that has a pery of three always not
+
+2281
+02:32:15,960 --> 02:32:20,720
+dependent on the input okay so hstone
+
+2282
+02:32:19,560 --> 02:32:24,399
+number
+
+2283
+02:32:20,720 --> 02:32:24,399
+defined and
+
+2284
+02:32:25,520 --> 02:32:31,479
+uh why do they put the why do they put
+
+2285
+02:32:28,960 --> 02:32:35,040
+the red correct
+
+2286
+02:32:31,479 --> 02:32:38,160
+there oh because you are missing
+
+2287
+02:32:35,040 --> 02:32:41,920
+yeah let's
+
+2288
+02:32:38,160 --> 02:32:46,760
+say let's say nest 10
+
+2289
+02:32:41,920 --> 02:32:51,840
+okay then you have find cyclet tail okay
+
+2290
+02:32:46,760 --> 02:32:51,840
+let's let's let's separate each
+
+2291
+02:32:52,720 --> 02:32:59,800
+yeah and because this
+
+2292
+02:32:55,560 --> 02:33:01,120
+is this is so slow today anyway so why
+
+2293
+02:32:59,800 --> 02:33:05,960
+not
+
+2294
+02:33:01,120 --> 02:33:09,240
+just okay so you can run that see
+
+2295
+02:33:05,960 --> 02:33:12,200
+example okay go down and here's a
+
+2296
+02:33:09,240 --> 02:33:16,960
+hellstone numbers
+
+2297
+02:33:12,200 --> 02:33:20,600
+split and run that so that's a example
+
+2298
+02:33:16,960 --> 02:33:23,600
+then you got F cyclet very good
+
+2299
+02:33:20,600 --> 02:33:26,800
+now do we have a test no
+
+2300
+02:33:23,600 --> 02:33:29,800
+so we need to get a
+
+2301
+02:33:26,800 --> 02:33:29,800
+test
+
+2302
+02:33:29,920 --> 02:33:33,319
+here did
+
+2303
+02:33:34,279 --> 02:33:39,359
+we okay we we have to rewrite
+
+2304
+02:33:45,200 --> 02:33:51,640
+it
+
+2305
+02:33:47,640 --> 02:33:51,640
+932 32
+
+2306
+02:33:52,560 --> 02:33:55,560
+okay
+
+2307
+02:33:56,040 --> 02:34:04,000
+split shift enter run
+
+2308
+02:33:59,359 --> 02:34:07,240
+it here's example run it 3 two now if
+
+2309
+02:34:04,000 --> 02:34:09,319
+you got one that returns empty least
+
+2310
+02:34:07,240 --> 02:34:13,680
+because that's not
+
+2311
+02:34:09,319 --> 02:34:17,600
+cyclic okay so now we get back
+
+2312
+02:34:13,680 --> 02:34:22,680
+to this function get period determine
+
+2313
+02:34:17,600 --> 02:34:28,520
+the period of a function when nesting
+
+2314
+02:34:22,680 --> 02:34:32,040
+it okay and uh and uh this is the goal
+
+2315
+02:34:28,520 --> 02:34:37,000
+of today's talk show and uh looks like I
+
+2316
+02:34:32,040 --> 02:34:39,960
+got it looks like how elegant it is you
+
+2317
+02:34:37,000 --> 02:34:43,240
+know compare this I you know although I
+
+2318
+02:34:39,960 --> 02:34:45,439
+was slow for three hours almost but
+
+2319
+02:34:43,240 --> 02:34:50,120
+compare these
+
+2320
+02:34:45,439 --> 02:34:52,760
+to to the one someone else wrote you to
+
+2321
+02:34:50,120 --> 02:34:56,040
+the one someone else wrote
+
+2322
+02:34:52,760 --> 02:34:59,720
+here so if we are successful that means
+
+2323
+02:34:56,040 --> 02:35:03,880
+truly elegant so this is someone else
+
+2324
+02:34:59,720 --> 02:35:08,240
+someone else code Phillips um Phillips
+
+2325
+02:35:03,880 --> 02:35:11,319
+Richard Phillips from function
+
+2326
+02:35:08,240 --> 02:35:14,960
+repository uh but our code is
+
+2327
+02:35:11,319 --> 02:35:18,240
+just this okay we we haven't tested for
+
+2328
+02:35:14,960 --> 02:35:21,640
+sure yet we don't know if this is uh oh
+
+2329
+02:35:18,240 --> 02:35:21,640
+yeah you need a semicolon
+
+2330
+02:35:26,880 --> 02:35:35,800
+there so this basically we call n file
+
+2331
+02:35:31,080 --> 02:35:38,800
+and uh and uh of a
+
+2332
+02:35:35,800 --> 02:35:42,359
+function apply initial value to the
+
+2333
+02:35:38,800 --> 02:35:44,600
+function then use the test function to
+
+2334
+02:35:42,359 --> 02:35:47,920
+determine when to stop and every time
+
+2335
+02:35:44,600 --> 02:35:50,520
+you call the test function you pass all
+
+2336
+02:35:47,920 --> 02:35:56,319
+previous argument to it
+
+2337
+02:35:50,520 --> 02:35:59,040
+and uh this will stop X at maximum Nest
+
+2338
+02:35:56,319 --> 02:36:02,680
+number of times okay and this test
+
+2339
+02:35:59,040 --> 02:36:07,600
+function is just this it tests if all
+
+2340
+02:36:02,680 --> 02:36:11,840
+the previous argument has a py cyclic
+
+2341
+02:36:07,600 --> 02:36:15,040
+tail if if not it's empty then true
+
+2342
+02:36:11,840 --> 02:36:20,080
+means continue otherwise
+
+2343
+02:36:15,040 --> 02:36:20,080
+stop okay so
+
+2344
+02:36:20,960 --> 02:36:25,760
+okay so that's but you know when you
+
+2345
+02:36:23,160 --> 02:36:28,479
+stop you just stop you you still need to
+
+2346
+02:36:25,760 --> 02:36:30,640
+know the you need to know the length of
+
+2347
+02:36:28,479 --> 02:36:33,240
+this what this whatever this return so
+
+2348
+02:36:30,640 --> 02:36:36,960
+we still need to modify
+
+2349
+02:36:33,240 --> 02:36:37,920
+it okay but I think that's it um you
+
+2350
+02:36:36,960 --> 02:36:43,000
+know
+
+2351
+02:36:37,920 --> 02:36:43,000
+99.9% sure this will be this is
+
+2352
+02:36:43,040 --> 02:36:47,720
+correct so yesterday you know like it's
+
+2353
+02:36:45,560 --> 02:36:50,479
+like yesterday after 3 hours we
+
+2354
+02:36:47,720 --> 02:36:52,080
+determined we need this function
+
+2355
+02:36:50,479 --> 02:36:54,000
+you know the function is already there
+
+2356
+02:36:52,080 --> 02:36:56,760
+but actually we tried it didn't work for
+
+2357
+02:36:54,000 --> 02:36:59,520
+some reason we still don't know why yet
+
+2358
+02:36:56,760 --> 02:37:02,120
+so today we made progress by writing
+
+2359
+02:36:59,520 --> 02:37:06,600
+this function ourselves you know another
+
+2360
+02:37:02,120 --> 02:37:10,479
+3 hours but we did it I mean well not
+
+2361
+02:37:06,600 --> 02:37:14,479
+yet but I'm 99% sure it
+
+2362
+02:37:10,479 --> 02:37:17,080
+works then then maybe tomorrow you know
+
+2363
+02:37:14,479 --> 02:37:19,920
+I think next you know next one I'm going
+
+2364
+02:37:17,080 --> 02:37:23,439
+to do some emac this but then you know
+
+2365
+02:37:19,920 --> 02:37:26,600
+we do next one then we finish
+
+2366
+02:37:23,439 --> 02:37:28,760
+this and then we can go back to testing
+
+2367
+02:37:26,600 --> 02:37:31,479
+our event of code The
+
+2368
+02:37:28,760 --> 02:37:35,279
+Matrix and does that make sense I don't
+
+2369
+02:37:31,479 --> 02:37:40,240
+think anyone is following me anywhere by
+
+2370
+02:37:35,279 --> 02:37:43,600
+now okay five people okay so that's
+
+2371
+02:37:40,240 --> 02:37:46,960
+it so why don't we
+
+2372
+02:37:43,600 --> 02:37:50,359
+continue this no
+
+2373
+02:37:46,960 --> 02:37:52,120
+because we need in order to test this
+
+2374
+02:37:50,359 --> 02:37:56,720
+function through all
+
+2375
+02:37:52,120 --> 02:37:59,040
+the we need to find a function where
+
+2376
+02:37:56,720 --> 02:38:02,479
+when you Nest it we need to find a
+
+2377
+02:37:59,040 --> 02:38:07,120
+discrete function that takes a you know
+
+2378
+02:38:02,479 --> 02:38:10,240
+let's say integer or or a matrix of
+
+2379
+02:38:07,120 --> 02:38:13,120
+integers a integer and return integer or
+
+2380
+02:38:10,240 --> 02:38:16,279
+a matrix and return Matrix actually we
+
+2381
+02:38:13,120 --> 02:38:18,520
+do have that function from aent of code
+
+2382
+02:38:16,279 --> 02:38:21,040
+so anyway we we need in order to test
+
+2383
+02:38:18,520 --> 02:38:25,560
+this we need to find a function discrete
+
+2384
+02:38:21,040 --> 02:38:29,080
+function that um that when given certain
+
+2385
+02:38:25,560 --> 02:38:31,160
+initial value it has a cycle and the
+
+2386
+02:38:29,080 --> 02:38:34,160
+period
+
+2387
+02:38:31,160 --> 02:38:37,560
+okay yeah in order to test
+
+2388
+02:38:34,160 --> 02:38:40,040
+that you know we could easily create
+
+2389
+02:38:37,560 --> 02:38:43,640
+that function just by defining Brute
+
+2390
+02:38:40,040 --> 02:38:46,000
+Force values you know to make it cycle
+
+2391
+02:38:43,640 --> 02:38:48,920
+you know like just hard code you know
+
+2392
+02:38:46,000 --> 02:38:53,359
+when it's two return 2 31 things like
+
+2393
+02:38:48,920 --> 02:38:55,000
+that when it's you know 10 return 1031
+
+2394
+02:38:53,359 --> 02:38:59,880
+you know
+
+2395
+02:38:55,000 --> 02:39:00,960
+10312 cycle so different input we have a
+
+2396
+02:38:59,880 --> 02:39:07,000
+different
+
+2397
+02:39:00,960 --> 02:39:09,800
+py and the the the list of cyclic
+
+2398
+02:39:07,000 --> 02:39:12,880
+tail yeah we can hot code it but you
+
+2399
+02:39:09,800 --> 02:39:16,960
+know I don't I don't feel like doing
+
+2400
+02:39:12,880 --> 02:39:19,160
+that um so I think that's good thank you
+
+2401
+02:39:16,960 --> 02:39:21,920
+guys for what for watching today I think
+
+2402
+02:39:19,160 --> 02:39:24,920
+that's it for
+
+2403
+02:39:21,920 --> 02:39:24,920
+that
+
+2404
+02:39:28,600 --> 02:39:35,160
+yeah you know I'm thinking deleting this
+
+2405
+02:39:31,920 --> 02:39:39,520
+video today because it's like three you
+
+2406
+02:39:35,160 --> 02:39:42,520
+know close to three hours and not doing
+
+2407
+02:39:39,520 --> 02:39:42,520
+much
+
+2408
+02:39:44,200 --> 02:39:51,000
+anyway okay yeah so that's our code and
+
+2409
+02:39:47,640 --> 02:39:53,960
+what is his code doing I mean you know
+
+2410
+02:39:51,000 --> 02:39:58,479
+he's he's uh he's
+
+2411
+02:39:53,960 --> 02:40:01,160
+using not pure functional approach um
+
+2412
+02:39:58,479 --> 02:40:05,040
+you know he's using the plus
+
+2413
+02:40:01,160 --> 02:40:07,479
+plus you know there plus plus and tri
+
+2414
+02:40:05,040 --> 02:40:10,160
+steps that's a local variable and he's
+
+2415
+02:40:07,479 --> 02:40:15,120
+implementing it using a
+
+2416
+02:40:10,160 --> 02:40:18,160
+block means Dynamic scope you know then
+
+2417
+02:40:15,120 --> 02:40:21,319
+he's using width width is a constant
+
+2418
+02:40:18,160 --> 02:40:25,600
+okay uh I mean Declaration of
+
+2419
+02:40:21,319 --> 02:40:29,359
+constant uh okay so he's doing Nest
+
+2420
+02:40:25,600 --> 02:40:33,279
+while and uh and
+
+2421
+02:40:29,359 --> 02:40:36,040
+um you can see yeah so I
+
+2422
+02:40:33,279 --> 02:40:41,240
+think I think the way we did it is much
+
+2423
+02:40:36,040 --> 02:40:44,399
+more better and and I would claim also
+
+2424
+02:40:41,240 --> 02:40:46,359
+faster okay so yeah this would be a good
+
+2425
+02:40:44,399 --> 02:40:49,120
+problem so next video we're going to
+
+2426
+02:40:46,359 --> 02:40:53,520
+thly test out you know create a function
+
+2427
+02:40:49,120 --> 02:40:56,359
+that that does that has that that is
+
+2428
+02:40:53,520 --> 02:40:58,439
+cyclic when nested and depending on
+
+2429
+02:40:56,359 --> 02:41:01,680
+different initial value you have
+
+2430
+02:40:58,439 --> 02:41:04,319
+different periodic and different cyclic
+
+2431
+02:41:01,680 --> 02:41:06,680
+tals so we get a simple function you
+
+2432
+02:41:04,319 --> 02:41:09,960
+know we get you know we try to find it
+
+2433
+02:41:06,680 --> 02:41:11,279
+then we compare these two solutions and
+
+2434
+02:41:09,960 --> 02:41:13,760
+we can test the
+
+2435
+02:41:11,279 --> 02:41:14,640
+speed okay that's it for today thank you
+
+2436
+02:41:13,760 --> 02:41:18,640
+guys for
+
+2437
+02:41:14,640 --> 02:41:18,640
+watching bye
+
+2438
+02:41:21,200 --> 02:41:27,880
+put this back syntax C show so this is
+
+2439
+02:41:26,279 --> 02:41:31,560
+what we did
+
+2440
+02:41:27,880 --> 02:41:33,680
+today you know that's close to three
+
+2441
+02:41:31,560 --> 02:41:35,000
+hours but you know a lot of thinking
+
+2442
+02:41:33,680 --> 02:41:40,080
+that's kind of
+
+2443
+02:41:35,000 --> 02:41:40,080
+typical for programming bye
+

@@ -1,0 +1,5480 @@
+1
+00:00:04,400 --> 00:00:07,680
+welcome to another episode of star talk
+
+2
+00:00:06,879 --> 00:00:09,360
+show
+
+3
+00:00:07,680 --> 00:00:11,519
+you are watching star talk show and
+
+4
+00:00:09,360 --> 00:00:14,719
+today is 2020
+
+5
+00:00:11,519 --> 00:00:17,920
+may 17th 17th
+
+6
+00:00:14,719 --> 00:00:20,080
+uh 2021
+
+7
+00:00:17,920 --> 00:00:21,920
+may 17th and today we are going to do
+
+8
+00:00:20,080 --> 00:00:24,320
+the first 30 minutes or so
+
+9
+00:00:21,920 --> 00:00:25,199
+we are going to do emacs this coding
+
+10
+00:00:24,320 --> 00:00:27,760
+live coding
+
+11
+00:00:25,199 --> 00:00:29,920
+of emaclis and on the pink window on the
+
+12
+00:00:27,760 --> 00:00:30,800
+left you can see all my emacs command
+
+13
+00:00:29,920 --> 00:00:33,040
+cores
+
+14
+00:00:30,800 --> 00:00:35,200
+because if you are new to emacs and if
+
+15
+00:00:33,040 --> 00:00:36,480
+you are your emacs user remember that in
+
+16
+00:00:35,200 --> 00:00:40,079
+emacs
+
+17
+00:00:36,480 --> 00:00:41,200
+the keystrokes is the uh critical thing
+
+18
+00:00:40,079 --> 00:00:44,399
+the primary thing
+
+19
+00:00:41,200 --> 00:00:45,120
+every keystroke is ultimately calling a
+
+20
+00:00:44,399 --> 00:00:47,039
+command
+
+21
+00:00:45,120 --> 00:00:48,640
+so you can on the pink window you can
+
+22
+00:00:47,039 --> 00:00:51,600
+see all my keystrokes
+
+23
+00:00:48,640 --> 00:00:52,800
+uh i'm typing for example let's see a
+
+24
+00:00:51,600 --> 00:00:55,680
+new page okay it's
+
+25
+00:00:52,800 --> 00:00:57,680
+except insert uh anyway so you can see
+
+26
+00:00:55,680 --> 00:00:59,760
+all my keys keystrokes moving closer
+
+27
+00:00:57,680 --> 00:01:00,559
+forward by word backward backward or
+
+28
+00:00:59,760 --> 00:01:03,520
+down up
+
+29
+00:01:00,559 --> 00:01:05,119
+or jump by paragraphs and you can see
+
+30
+00:01:03,520 --> 00:01:06,799
+the corresponding command
+
+31
+00:01:05,119 --> 00:01:08,799
+names so if you don't know what i'm
+
+32
+00:01:06,799 --> 00:01:10,000
+doing you can always search for the
+
+33
+00:01:08,799 --> 00:01:11,760
+command name
+
+34
+00:01:10,000 --> 00:01:13,200
+and you can find the code for example
+
+35
+00:01:11,760 --> 00:01:18,159
+start beginning line of block
+
+36
+00:01:13,200 --> 00:01:22,720
+copy it and type it here and search
+
+37
+00:01:18,159 --> 00:01:26,479
+uh github problems github there it is
+
+38
+00:01:22,720 --> 00:01:27,439
+uh well so the code is where is it code
+
+39
+00:01:26,479 --> 00:01:30,880
+the code is
+
+40
+00:01:27,439 --> 00:01:33,360
+star talk show uh the code
+
+41
+00:01:30,880 --> 00:01:34,479
+okay the code is actually in my uh
+
+42
+00:01:33,360 --> 00:01:36,720
+software keys
+
+43
+00:01:34,479 --> 00:01:37,520
+yeah so here there's an issue i i guess
+
+44
+00:01:36,720 --> 00:01:39,680
+the
+
+45
+00:01:37,520 --> 00:01:42,479
+search engine is not so good what what's
+
+46
+00:01:39,680 --> 00:01:45,520
+the issue that's a very old issue
+
+47
+00:01:42,479 --> 00:01:47,040
+2. four years ago but anyway so you can
+
+48
+00:01:45,520 --> 00:01:50,479
+search for the command and find it
+
+49
+00:01:47,040 --> 00:01:53,520
+okay uh find the source code uh
+
+50
+00:01:50,479 --> 00:01:55,280
+okay so we are going to code emacs lisp
+
+51
+00:01:53,520 --> 00:01:58,560
+okay if you have comments and questions
+
+52
+00:01:55,280 --> 00:02:00,799
+post it on the site and on on the live
+
+53
+00:01:58,560 --> 00:02:03,119
+youtube okay
+
+54
+00:02:00,799 --> 00:02:04,000
+so let's begin so first thing i want to
+
+55
+00:02:03,119 --> 00:02:07,200
+do is to
+
+56
+00:02:04,000 --> 00:02:11,039
+code a emac list command let's see
+
+57
+00:02:07,200 --> 00:02:14,160
+let's start a emac list uh e-lisp okay
+
+58
+00:02:11,039 --> 00:02:17,520
+let's start coding and let's show this
+
+59
+00:02:14,160 --> 00:02:22,000
+in browser okay let's start coding so
+
+60
+00:02:17,520 --> 00:02:25,760
+the fun uh we don't have people here yet
+
+61
+00:02:22,000 --> 00:02:29,680
+uh so what what does the command do
+
+62
+00:02:25,760 --> 00:02:32,720
+convert seconds
+
+63
+00:02:29,680 --> 00:02:35,760
+to minute
+
+64
+00:02:32,720 --> 00:02:38,800
+second format or
+
+65
+00:02:35,760 --> 00:02:38,800
+vice versa
+
+66
+00:02:39,360 --> 00:02:42,560
+on current word
+
+67
+00:02:43,599 --> 00:02:48,400
+okay or vice versa on current word okay
+
+68
+00:02:48,560 --> 00:02:54,720
+okay and let's put the date uh
+
+69
+00:02:51,680 --> 00:02:56,640
+version today's date okay we are going
+
+70
+00:02:54,720 --> 00:02:59,440
+to write this command
+
+71
+00:02:56,640 --> 00:02:59,440
+and uh
+
+72
+00:02:59,760 --> 00:03:05,440
+and okay let's do so so so so the
+
+73
+00:03:03,360 --> 00:03:06,959
+what we want to do is that for for
+
+74
+00:03:05,440 --> 00:03:09,280
+example let's say
+
+75
+00:03:06,959 --> 00:03:09,280
+um
+
+76
+00:03:13,920 --> 00:03:20,400
+what what's going on so
+
+77
+00:03:18,080 --> 00:03:20,400
+what
+
+78
+00:03:26,159 --> 00:03:28,480
+what
+
+79
+00:03:31,680 --> 00:03:36,319
+oh yeah so here is a number for example
+
+80
+00:03:34,000 --> 00:03:38,000
+i want to convert this to a number of
+
+81
+00:03:36,319 --> 00:03:41,200
+minutes and seconds
+
+82
+00:03:38,000 --> 00:03:43,599
+so let's do okay so the input so the
+
+83
+00:03:41,200 --> 00:03:46,640
+input is a number okay so
+
+84
+00:03:43,599 --> 00:03:49,120
+uh first of all we want to grab so
+
+85
+00:03:46,640 --> 00:03:50,720
+we want to grab the word under cursor so
+
+86
+00:03:49,120 --> 00:03:51,120
+which is a number okay so how do you
+
+87
+00:03:50,720 --> 00:03:54,239
+grab
+
+88
+00:03:51,120 --> 00:03:59,120
+what number under cursor i believe it's
+
+89
+00:03:54,239 --> 00:04:01,840
+a current word okay let's see if that
+
+90
+00:03:59,120 --> 00:04:02,879
+that's the right function yes indeed so
+
+91
+00:04:01,840 --> 00:04:04,879
+describe function
+
+92
+00:04:02,879 --> 00:04:06,799
+to look up current word is a compiler
+
+93
+00:04:04,879 --> 00:04:08,239
+this function blah blah blah can't word
+
+94
+00:04:06,799 --> 00:04:11,439
+option or strictly uh
+
+95
+00:04:08,239 --> 00:04:15,040
+really word return the word at uh at
+
+96
+00:04:11,439 --> 00:04:17,280
+or near a point okay as a string
+
+97
+00:04:15,040 --> 00:04:18,959
+okay so that returns the current word
+
+98
+00:04:17,280 --> 00:04:21,120
+for example
+
+99
+00:04:18,959 --> 00:04:21,120
+uh
+
+100
+00:04:23,040 --> 00:04:30,880
+current word okay so let's do this
+
+101
+00:04:26,880 --> 00:04:34,160
+so uh
+
+102
+00:04:30,880 --> 00:04:37,040
+so then we want to print it print
+
+103
+00:04:34,160 --> 00:04:37,680
+the current word okay that is basically
+
+104
+00:04:37,040 --> 00:04:39,919
+our code
+
+105
+00:04:37,680 --> 00:04:40,880
+for example i mean we let's just testing
+
+106
+00:04:39,919 --> 00:04:44,240
+okay
+
+107
+00:04:40,880 --> 00:04:47,680
+uh the function name will be convert
+
+108
+00:04:44,240 --> 00:04:51,360
+seconds to mean
+
+109
+00:04:47,680 --> 00:04:54,800
+sec okay so copy that
+
+110
+00:04:51,360 --> 00:04:58,160
+so evaluate the buffer then let's
+
+111
+00:04:54,800 --> 00:05:01,280
+put a random number okay here eight
+
+112
+00:04:58,160 --> 00:05:02,240
+four two eight now we want to so put the
+
+113
+00:05:01,280 --> 00:05:05,440
+cursor there
+
+114
+00:05:02,240 --> 00:05:05,919
+call the command meta x convert second
+
+115
+00:05:05,440 --> 00:05:10,160
+to
+
+116
+00:05:05,919 --> 00:05:12,000
+uh mean second okay press enter uh
+
+117
+00:05:10,160 --> 00:05:13,520
+symbols value as variable is void
+
+118
+00:05:12,000 --> 00:05:18,720
+current word okay so
+
+119
+00:05:13,520 --> 00:05:18,720
+what's going on symbols value is what
+
+120
+00:05:19,120 --> 00:05:26,320
+oh yeah so here this should be that okay
+
+121
+00:05:22,960 --> 00:05:26,320
+uh let's rename this
+
+122
+00:05:26,720 --> 00:05:32,479
+word x okay okay evaluate the buffer
+
+123
+00:05:30,479 --> 00:05:35,039
+now put the cursor on this word call it
+
+124
+00:05:32,479 --> 00:05:37,520
+let's magnify okay call it
+
+125
+00:05:35,039 --> 00:05:39,120
+call it and you can see the message
+
+126
+00:05:37,520 --> 00:05:41,280
+buffer printed you see
+
+127
+00:05:39,120 --> 00:05:42,639
+that's that's what the that's what the
+
+128
+00:05:41,280 --> 00:05:44,960
+code does right now
+
+129
+00:05:42,639 --> 00:05:45,919
+so we want to so that's how you grab the
+
+130
+00:05:44,960 --> 00:05:48,639
+word
+
+131
+00:05:45,919 --> 00:05:48,960
+but actually we don't want to use this
+
+132
+00:05:48,639 --> 00:05:52,000
+uh
+
+133
+00:05:48,960 --> 00:05:54,560
+function this this current word function
+
+134
+00:05:52,000 --> 00:05:56,880
+because our command is going to turn
+
+135
+00:05:54,560 --> 00:05:59,039
+this into
+
+136
+00:05:56,880 --> 00:06:00,319
+okay that's let's change another number
+
+137
+00:05:59,039 --> 00:06:02,560
+let's say 70.
+
+138
+00:06:00,319 --> 00:06:05,199
+so if the cursor is on the word 70 it
+
+139
+00:06:02,560 --> 00:06:08,639
+should return
+
+140
+00:06:05,199 --> 00:06:11,919
+it should return 110 one minute
+
+141
+00:06:08,639 --> 00:06:14,639
+and 10 seconds right so i mean
+
+142
+00:06:11,919 --> 00:06:15,120
+it should just replace the word the 70
+
+143
+00:06:14,639 --> 00:06:18,240
+by
+
+144
+00:06:15,120 --> 00:06:19,039
+by this 110. so that means we need to
+
+145
+00:06:18,240 --> 00:06:21,520
+also need
+
+146
+00:06:19,039 --> 00:06:22,639
+to know the posit we need to delete the
+
+147
+00:06:21,520 --> 00:06:24,560
+70
+
+148
+00:06:22,639 --> 00:06:26,000
+and in order to do that we need to know
+
+149
+00:06:24,560 --> 00:06:29,280
+the beginning position
+
+150
+00:06:26,000 --> 00:06:32,240
+of the word and end position so
+
+151
+00:06:29,280 --> 00:06:34,720
+so this current word function does not
+
+152
+00:06:32,240 --> 00:06:37,280
+do that it only gives you the
+
+153
+00:06:34,720 --> 00:06:38,000
+the word under cruiser so what do you
+
+154
+00:06:37,280 --> 00:06:41,039
+need to do
+
+155
+00:06:38,000 --> 00:06:43,440
+so you need to call thing at point
+
+156
+00:06:41,039 --> 00:06:46,560
+instead so thing at point is uh
+
+157
+00:06:43,440 --> 00:06:49,599
+is part of the emac list function okay
+
+158
+00:06:46,560 --> 00:06:52,319
+so thing at point takes a symbol as
+
+159
+00:06:49,599 --> 00:06:53,520
+arguments so if you say what it will
+
+160
+00:06:52,319 --> 00:06:56,960
+return a word
+
+161
+00:06:53,520 --> 00:06:59,520
+so so this function
+
+162
+00:06:56,960 --> 00:07:00,800
+is basically the same as that and that's
+
+163
+00:06:59,520 --> 00:07:04,240
+that's not what we want
+
+164
+00:07:00,800 --> 00:07:07,199
+what we want is bounds of thing at point
+
+165
+00:07:04,240 --> 00:07:08,000
+okay this is getting complex bounce of
+
+166
+00:07:07,199 --> 00:07:10,240
+thing at point
+
+167
+00:07:08,000 --> 00:07:12,960
+so what does does that do it basically
+
+168
+00:07:10,240 --> 00:07:15,440
+it's the same thing okay same thing as
+
+169
+00:07:12,960 --> 00:07:16,080
+thing at point except it returns the
+
+170
+00:07:15,440 --> 00:07:20,800
+boundary
+
+171
+00:07:16,080 --> 00:07:22,479
+that is the it returns a uh cons pair
+
+172
+00:07:20,800 --> 00:07:24,479
+two elements the first element is the
+
+173
+00:07:22,479 --> 00:07:26,240
+beginning position second element is the
+
+174
+00:07:24,479 --> 00:07:29,840
+end position of the
+
+175
+00:07:26,240 --> 00:07:33,120
+word under cursor so okay so that's
+
+176
+00:07:29,840 --> 00:07:37,440
+that's what we want okay so
+
+177
+00:07:33,120 --> 00:07:37,440
+so let's add new uh more variables
+
+178
+00:07:38,160 --> 00:07:44,400
+v-o-u and d-a-r-y-x
+
+179
+00:07:41,360 --> 00:07:48,479
+so let's name it boundary x so
+
+180
+00:07:44,400 --> 00:07:51,680
+set boundary x will be
+
+181
+00:07:48,479 --> 00:07:53,759
+that okay then then
+
+182
+00:07:51,680 --> 00:07:55,680
+let's add two more variables position
+
+183
+00:07:53,759 --> 00:07:59,759
+one position two okay
+
+184
+00:07:55,680 --> 00:08:02,800
+then set position one will be
+
+185
+00:07:59,759 --> 00:08:05,039
+uh car
+
+186
+00:08:02,800 --> 00:08:06,240
+boundary car means the first element of
+
+187
+00:08:05,039 --> 00:08:09,280
+a cons pair
+
+188
+00:08:06,240 --> 00:08:10,240
+so boundary is a cons pair two elements
+
+189
+00:08:09,280 --> 00:08:12,960
+so
+
+190
+00:08:10,240 --> 00:08:14,479
+that's the position one and the set
+
+191
+00:08:12,960 --> 00:08:18,080
+position two
+
+192
+00:08:14,479 --> 00:08:20,879
+cutter boundary x
+
+193
+00:08:18,080 --> 00:08:21,759
+so that's p two is position position two
+
+194
+00:08:20,879 --> 00:08:25,280
+okay
+
+195
+00:08:21,759 --> 00:08:28,879
+now now we want to get the word
+
+196
+00:08:25,280 --> 00:08:29,919
+so so now we have two positions we want
+
+197
+00:08:28,879 --> 00:08:31,599
+to grab the
+
+198
+00:08:29,919 --> 00:08:34,800
+stream between them so how do you do
+
+199
+00:08:31,599 --> 00:08:38,399
+that set
+
+200
+00:08:34,800 --> 00:08:41,760
+word x buffer
+
+201
+00:08:38,399 --> 00:08:43,680
+substring no properties okay it takes
+
+202
+00:08:41,760 --> 00:08:46,560
+two positions p1 and p2
+
+203
+00:08:43,680 --> 00:08:50,000
+exactly good okay that's our code so far
+
+204
+00:08:46,560 --> 00:08:54,160
+and this line we no longer need
+
+205
+00:08:50,000 --> 00:08:56,959
+okay so so now we have the boundaries
+
+206
+00:08:54,160 --> 00:08:58,880
+we have the beginning position p1 and n
+
+207
+00:08:56,959 --> 00:09:02,000
+position and we have the word
+
+208
+00:08:58,880 --> 00:09:02,959
+now we can do so now what we need to do
+
+209
+00:09:02,000 --> 00:09:06,080
+so the word x
+
+210
+00:09:02,959 --> 00:09:08,240
+is a is a string which
+
+211
+00:09:06,080 --> 00:09:10,080
+actually is a number okay we need to so
+
+212
+00:09:08,240 --> 00:09:13,680
+we need to convert the type string
+
+213
+00:09:10,080 --> 00:09:16,399
+to uh string two number so
+
+214
+00:09:13,680 --> 00:09:17,440
+string two number okay there is such a
+
+215
+00:09:16,399 --> 00:09:20,640
+function
+
+216
+00:09:17,440 --> 00:09:20,640
+so string two number
+
+217
+00:09:21,600 --> 00:09:28,800
+what okay then okay so actually
+
+218
+00:09:25,279 --> 00:09:33,680
+so actually let's uh let's
+
+219
+00:09:28,800 --> 00:09:33,680
+let's clean up our code so it's all
+
+220
+00:09:34,839 --> 00:09:41,200
+better
+
+221
+00:09:36,800 --> 00:09:43,519
+you see so
+
+222
+00:09:41,200 --> 00:09:44,880
+instead of that we we we want to say
+
+223
+00:09:43,519 --> 00:09:46,720
+this instead okay so
+
+224
+00:09:44,880 --> 00:09:49,120
+actually let's make it pretty prettier
+
+225
+00:09:46,720 --> 00:09:52,800
+kind of okay so now word x
+
+226
+00:09:49,120 --> 00:09:57,040
+is a number so uh let's so
+
+227
+00:09:52,800 --> 00:09:59,839
+so it's not let's say uh seconds
+
+228
+00:09:57,040 --> 00:10:02,079
+okay so actually so yeah let's let's
+
+229
+00:09:59,839 --> 00:10:04,320
+make the codes
+
+230
+00:10:02,079 --> 00:10:06,000
+easier to understand since i'm doing a
+
+231
+00:10:04,320 --> 00:10:08,560
+kind of tutorial so
+
+232
+00:10:06,000 --> 00:10:10,480
+so let's be elaborate with all the set
+
+233
+00:10:08,560 --> 00:10:12,320
+set set you know we don't need that mini
+
+234
+00:10:10,480 --> 00:10:14,480
+set actually if you
+
+235
+00:10:12,320 --> 00:10:16,560
+so anyway so here's the seconds now we
+
+236
+00:10:14,480 --> 00:10:17,519
+need to turn the seconds into minutes
+
+237
+00:10:16,560 --> 00:10:20,160
+and seconds
+
+238
+00:10:17,519 --> 00:10:21,040
+so we need to first of all add another
+
+239
+00:10:20,160 --> 00:10:25,040
+two variables
+
+240
+00:10:21,040 --> 00:10:28,079
+mean x sec x by the way why do i name my
+
+241
+00:10:25,040 --> 00:10:30,079
+variables this way because i prefer to
+
+242
+00:10:28,079 --> 00:10:33,600
+have variable names that
+
+243
+00:10:30,079 --> 00:10:34,800
+that is unique that tends to not to be a
+
+244
+00:10:33,600 --> 00:10:37,680
+english word
+
+245
+00:10:34,800 --> 00:10:38,240
+for example the word x can simply be
+
+246
+00:10:37,680 --> 00:10:41,519
+named
+
+247
+00:10:38,240 --> 00:10:41,519
+word but
+
+248
+00:10:42,079 --> 00:10:46,800
+but if you but when you need to search
+
+249
+00:10:44,800 --> 00:10:48,399
+the variable world you you tend to find
+
+250
+00:10:46,800 --> 00:10:51,040
+lots of places that's
+
+251
+00:10:48,399 --> 00:10:51,440
+not a variable so in this way word x is
+
+252
+00:10:51,040 --> 00:10:53,040
+kind of
+
+253
+00:10:51,440 --> 00:10:55,279
+unique you'll just find the variable
+
+254
+00:10:53,040 --> 00:10:57,360
+name so that's why that's a preference
+
+255
+00:10:55,279 --> 00:10:59,279
+in naming of variables
+
+256
+00:10:57,360 --> 00:11:01,120
+and same thing for functions that's my
+
+257
+00:10:59,279 --> 00:11:02,800
+own preference so now we have the
+
+258
+00:11:01,120 --> 00:11:04,560
+seconds now we need to turn these
+
+259
+00:11:02,800 --> 00:11:07,760
+seconds into minute
+
+260
+00:11:04,560 --> 00:11:10,880
+and minute and seconds okay
+
+261
+00:11:07,760 --> 00:11:13,839
+any comments hello guys ruby
+
+262
+00:11:10,880 --> 00:11:14,720
+uh good evening central europe fantastic
+
+263
+00:11:13,839 --> 00:11:18,160
+hello everyone
+
+264
+00:11:14,720 --> 00:11:20,640
+sid and potato hello so second
+
+265
+00:11:18,160 --> 00:11:22,480
+so now now turn the second two minutes
+
+266
+00:11:20,640 --> 00:11:25,040
+in seconds how do you do that
+
+267
+00:11:22,480 --> 00:11:26,000
+what you need is mathematics modular
+
+268
+00:11:25,040 --> 00:11:29,040
+arithmetics
+
+269
+00:11:26,000 --> 00:11:33,279
+okay so how do you do mod in uh
+
+270
+00:11:29,040 --> 00:11:35,920
+in in in emac base for example in python
+
+271
+00:11:33,279 --> 00:11:37,600
+in many languages you do that so you
+
+272
+00:11:35,920 --> 00:11:40,320
+have 70
+
+273
+00:11:37,600 --> 00:11:42,720
+the percentage sign is the operator you
+
+274
+00:11:40,320 --> 00:11:44,000
+know so you do that then you need to get
+
+275
+00:11:42,720 --> 00:11:45,760
+the remainder
+
+276
+00:11:44,000 --> 00:11:47,279
+so but i i don't remember what's a
+
+277
+00:11:45,760 --> 00:11:51,200
+function in emacs
+
+278
+00:11:47,279 --> 00:11:51,519
+so go to xr emacs tutorial just search
+
+279
+00:11:51,200 --> 00:11:54,240
+it
+
+280
+00:11:51,519 --> 00:11:55,120
+search for it you'll find it emacs list
+
+281
+00:11:54,240 --> 00:11:58,720
+okay
+
+282
+00:11:55,120 --> 00:12:01,839
+e magnus basics magnify
+
+283
+00:11:58,720 --> 00:12:05,519
+magnify and go down arithmetic
+
+284
+00:12:01,839 --> 00:12:07,760
+so here is the division here is the
+
+285
+00:12:05,519 --> 00:12:10,240
+integer part of a quotient
+
+286
+00:12:07,760 --> 00:12:11,760
+and here is the remainder okay that's
+
+287
+00:12:10,240 --> 00:12:14,800
+what you need that's what we need
+
+288
+00:12:11,760 --> 00:12:16,720
+close it so i'm using my own tutorial as
+
+289
+00:12:14,800 --> 00:12:21,440
+a reference
+
+290
+00:12:16,720 --> 00:12:26,320
+so integer part uh so minute okay
+
+291
+00:12:21,440 --> 00:12:26,320
+set minute x
+
+292
+00:12:28,000 --> 00:12:34,079
+uh m-i-n-u-t-e
+
+293
+00:12:31,440 --> 00:12:36,959
+not to be confused with minimal so let's
+
+294
+00:12:34,079 --> 00:12:36,959
+say minute x
+
+295
+00:12:37,040 --> 00:12:43,760
+uh and let's change the second two
+
+296
+00:12:40,160 --> 00:12:49,120
+seconds x okay
+
+297
+00:12:43,760 --> 00:12:49,120
+so we have so set minute minute will be
+
+298
+00:12:49,360 --> 00:12:55,519
+mod okay so so minute will be mod
+
+299
+00:12:53,279 --> 00:12:55,519
+uh
+
+300
+00:12:56,800 --> 00:13:02,090
+wait the second must be um
+
+301
+00:12:58,970 --> 00:13:02,090
+[Music]
+
+302
+00:13:02,720 --> 00:13:07,839
+okay total seconds so
+
+303
+00:13:09,680 --> 00:13:14,160
+so first of all you have total seconds
+
+304
+00:13:11,920 --> 00:13:14,160
+then
+
+305
+00:13:14,480 --> 00:13:19,519
+means that x uh yeah so let's let's name
+
+306
+00:13:17,519 --> 00:13:21,839
+our variable like that okay
+
+307
+00:13:19,519 --> 00:13:21,839
+so
+
+308
+00:13:22,880 --> 00:13:30,480
+so here this will be total seconds
+
+309
+00:13:26,880 --> 00:13:30,480
+so the minute will be
+
+310
+00:13:31,680 --> 00:13:39,279
+total seconds divided by 60 okay
+
+311
+00:13:36,240 --> 00:13:41,600
+pretty by the code then
+
+312
+00:13:39,279 --> 00:13:41,600
+set
+
+313
+00:13:46,240 --> 00:13:49,839
+okay so let's uh
+
+314
+00:13:50,079 --> 00:13:55,440
+okay then we set the seconds seconds
+
+315
+00:13:53,199 --> 00:14:00,839
+will be
+
+316
+00:13:55,440 --> 00:14:03,839
+the remainder okay yeah so that's the
+
+317
+00:14:00,839 --> 00:14:03,839
+that
+
+318
+00:14:04,560 --> 00:14:11,120
+yeah so uh here then total seconds
+
+319
+00:14:08,000 --> 00:14:14,000
+divided by 60
+
+320
+00:14:11,120 --> 00:14:15,120
+right so that's uh that's the that's
+
+321
+00:14:14,000 --> 00:14:18,880
+right so
+
+322
+00:14:15,120 --> 00:14:22,480
+d d d d d prettify the code
+
+323
+00:14:18,880 --> 00:14:22,480
+and we don't and and
+
+324
+00:14:22,800 --> 00:14:27,519
+so the 70 example input
+
+325
+00:14:28,639 --> 00:14:33,920
+okay and here is example output
+
+326
+00:14:36,000 --> 00:14:40,240
+okay so now we have the minutes and we
+
+327
+00:14:39,279 --> 00:14:43,040
+have the seconds
+
+328
+00:14:40,240 --> 00:14:44,240
+all we have to do now is to delete the
+
+329
+00:14:43,040 --> 00:14:47,839
+original text
+
+330
+00:14:44,240 --> 00:14:50,800
+and insert the new minute and second
+
+331
+00:14:47,839 --> 00:14:51,839
+so let's do so before we insert we need
+
+332
+00:14:50,800 --> 00:14:55,279
+to delete
+
+333
+00:14:51,839 --> 00:14:56,399
+delete region okay two positions that's
+
+334
+00:14:55,279 --> 00:14:59,199
+right
+
+335
+00:14:56,399 --> 00:15:01,279
+p1 and p2 beginning position and end
+
+336
+00:14:59,199 --> 00:15:04,560
+position those are numbers
+
+337
+00:15:01,279 --> 00:15:07,680
+then insert so insert
+
+338
+00:15:04,560 --> 00:15:10,320
+we will be inserting uh okay let's say
+
+339
+00:15:07,680 --> 00:15:10,320
+format
+
+340
+00:15:11,360 --> 00:15:17,440
+okay then two uh variables
+
+341
+00:15:14,399 --> 00:15:19,920
+minutes and uh
+
+342
+00:15:17,440 --> 00:15:19,920
+six
+
+343
+00:15:21,279 --> 00:15:27,839
+okay so hold on second six
+
+344
+00:15:24,399 --> 00:15:27,839
+okay then
+
+345
+00:15:30,320 --> 00:15:33,920
+there it is okay now now we don't need
+
+346
+00:15:32,639 --> 00:15:37,360
+this uh message
+
+347
+00:15:33,920 --> 00:15:39,040
+part did it purify the code fantastic i
+
+348
+00:15:37,360 --> 00:15:41,839
+believe that's it that's the whole
+
+349
+00:15:39,040 --> 00:15:41,839
+function
+
+350
+00:15:41,920 --> 00:15:45,040
+actually we haven't done the vice versa
+
+351
+00:15:43,839 --> 00:15:47,199
+the reverse
+
+352
+00:15:45,040 --> 00:15:48,399
+conversion yet but first of all so this
+
+353
+00:15:47,199 --> 00:15:52,000
+is i believe that's it
+
+354
+00:15:48,399 --> 00:15:54,880
+so let's uh verify uh before uh
+
+355
+00:15:52,000 --> 00:15:57,040
+you know let's avoid trial and error so
+
+356
+00:15:54,880 --> 00:16:00,240
+so minute
+
+357
+00:15:57,040 --> 00:16:03,600
+then seconds those are um
+
+358
+00:16:00,240 --> 00:16:06,079
+those are oh actually uh yeah that's
+
+359
+00:16:03,600 --> 00:16:09,199
+right so minute is the
+
+360
+00:16:06,079 --> 00:16:11,519
+uh quotient seconds is the remainder
+
+361
+00:16:09,199 --> 00:16:14,160
+that's right so let's try it okay
+
+362
+00:16:11,519 --> 00:16:16,560
+evaluate the buffer let's show the pink
+
+363
+00:16:14,160 --> 00:16:20,800
+window evaluate the buffer then
+
+364
+00:16:16,560 --> 00:16:23,839
+let's call uh let's just put 70 okay
+
+365
+00:16:20,800 --> 00:16:23,839
+70 put the
+
+366
+00:16:24,320 --> 00:16:28,399
+70 then call the command convert second
+
+367
+00:16:27,680 --> 00:16:32,639
+to minute
+
+368
+00:16:28,399 --> 00:16:37,079
+sec okay press enter we should get one
+
+369
+00:16:32,639 --> 00:16:40,720
+colon 10. let's see do it
+
+370
+00:16:37,079 --> 00:16:43,920
+fantastic complete
+
+371
+00:16:40,720 --> 00:16:46,320
+complete guys let's try some let's try
+
+372
+00:16:43,920 --> 00:16:49,120
+some um
+
+373
+00:16:46,320 --> 00:16:50,959
+let's try some bigger number let's say
+
+374
+00:16:49,120 --> 00:16:52,320
+seven hundred and one let's see what
+
+375
+00:16:50,959 --> 00:16:56,000
+happens to that
+
+376
+00:16:52,320 --> 00:16:59,279
+okay now this is just like
+
+377
+00:16:56,000 --> 00:16:59,279
+testing okay do it
+
+378
+00:17:00,320 --> 00:17:05,600
+11 minute and 41 seconds that's probably
+
+379
+00:17:04,559 --> 00:17:07,839
+right okay so
+
+380
+00:17:05,600 --> 00:17:07,839
+uh
+
+381
+00:17:09,280 --> 00:17:14,880
+that's yeah well it seems right so so
+
+382
+00:17:11,760 --> 00:17:18,640
+let's try another example 59 okay
+
+383
+00:17:14,880 --> 00:17:21,600
+do it 0 colon 59
+
+384
+00:17:18,640 --> 00:17:22,079
+fantastic we assume we presume this is
+
+385
+00:17:21,600 --> 00:17:25,280
+correct
+
+386
+00:17:22,079 --> 00:17:28,480
+no need for the testing okay now
+
+387
+00:17:25,280 --> 00:17:30,880
+this this is done the next thing
+
+388
+00:17:28,480 --> 00:17:33,360
+we need to do is write another function
+
+389
+00:17:30,880 --> 00:17:34,160
+or modify this function so that it can
+
+390
+00:17:33,360 --> 00:17:37,120
+convert
+
+391
+00:17:34,160 --> 00:17:37,120
+the reverse way
+
+392
+00:17:37,280 --> 00:17:41,120
+okay uh i'm going to read the comments
+
+393
+00:17:40,240 --> 00:17:43,600
+take a break
+
+394
+00:17:41,120 --> 00:17:44,320
+but let me tell you so so now there's an
+
+395
+00:17:43,600 --> 00:17:47,120
+interface
+
+396
+00:17:44,320 --> 00:17:47,840
+issue now you have to make a decision
+
+397
+00:17:47,120 --> 00:17:50,320
+one
+
+398
+00:17:47,840 --> 00:17:50,880
+is that use the same function that do
+
+399
+00:17:50,320 --> 00:17:54,240
+both
+
+400
+00:17:50,880 --> 00:17:54,720
+you know by pressing a universal command
+
+401
+00:17:54,240 --> 00:17:57,039
+so
+
+402
+00:17:54,720 --> 00:17:58,840
+so if if i want to convert from mini
+
+403
+00:17:57,039 --> 00:18:01,840
+second format to the second
+
+404
+00:17:58,840 --> 00:18:04,960
+format i call the same function
+
+405
+00:18:01,840 --> 00:18:08,000
+except right except that i press
+
+406
+00:18:04,960 --> 00:18:08,799
+ctrl u first then i call it then i'll do
+
+407
+00:18:08,000 --> 00:18:10,480
+that
+
+408
+00:18:08,799 --> 00:18:12,720
+so that's one option using the same
+
+409
+00:18:10,480 --> 00:18:14,640
+function the other option is just write
+
+410
+00:18:12,720 --> 00:18:16,559
+a new function
+
+411
+00:18:14,640 --> 00:18:18,640
+for example writing a new function so
+
+412
+00:18:16,559 --> 00:18:21,919
+this you know writing a new function and
+
+413
+00:18:18,640 --> 00:18:23,919
+um so which one should we do i'm i i
+
+414
+00:18:21,919 --> 00:18:25,200
+i'm going to use the same function you
+
+415
+00:18:23,919 --> 00:18:28,080
+know there are
+
+416
+00:18:25,200 --> 00:18:28,480
+pros and cons in either case okay i'm
+
+417
+00:18:28,080 --> 00:18:31,200
+gonna
+
+418
+00:18:28,480 --> 00:18:32,400
+use the same function uh the advantage
+
+419
+00:18:31,200 --> 00:18:35,880
+is that it's just from
+
+420
+00:18:32,400 --> 00:18:38,320
+one function name and the function can
+
+421
+00:18:35,880 --> 00:18:41,679
+automatically detect
+
+422
+00:18:38,320 --> 00:18:44,240
+whether the word or the the sequence of
+
+423
+00:18:41,679 --> 00:18:47,280
+strings under cursor
+
+424
+00:18:44,240 --> 00:18:49,280
+contains a colon or not so if it
+
+425
+00:18:47,280 --> 00:18:50,799
+contains a colon then we know we want to
+
+426
+00:18:49,280 --> 00:18:53,520
+convert it to seconds
+
+427
+00:18:50,799 --> 00:18:53,919
+format if it doesn't we want we know we
+
+428
+00:18:53,520 --> 00:18:55,600
+want
+
+429
+00:18:53,919 --> 00:18:57,919
+you know we we know which way to convert
+
+430
+00:18:55,600 --> 00:18:59,679
+so i'm gonna just use a function
+
+431
+00:18:57,919 --> 00:19:03,280
+once one single function for it
+
+432
+00:18:59,679 --> 00:19:06,880
+fantastic now let's read the comments
+
+433
+00:19:03,280 --> 00:19:07,760
+howdy so scott hey scott haven't seen
+
+434
+00:19:06,880 --> 00:19:11,360
+you for a while
+
+435
+00:19:07,760 --> 00:19:14,000
+uh it's doing pretty good i did my taxes
+
+436
+00:19:11,360 --> 00:19:16,720
+yesterday
+
+437
+00:19:14,000 --> 00:19:18,799
+now that's after 16 years of no doing
+
+438
+00:19:16,720 --> 00:19:19,520
+taxes because i don't make enough to do
+
+439
+00:19:18,799 --> 00:19:22,080
+taxes
+
+440
+00:19:19,520 --> 00:19:23,440
+but that yesterday i did taxes and now
+
+441
+00:19:22,080 --> 00:19:26,640
+i'm going to get
+
+442
+00:19:23,440 --> 00:19:30,160
+1 000 800 from
+
+443
+00:19:26,640 --> 00:19:32,240
+federal government and i'm going to get
+
+444
+00:19:30,160 --> 00:19:35,200
+and and and plus some something like
+
+445
+00:19:32,240 --> 00:19:38,400
+2000 stimulus you know corvid 19
+
+446
+00:19:35,200 --> 00:19:41,919
+stimulus money uh
+
+447
+00:19:38,400 --> 00:19:45,120
+you know my life has been changing
+
+448
+00:19:41,919 --> 00:19:46,000
+for the better the turning point is 2020
+
+449
+00:19:45,120 --> 00:19:49,760
+and the reason
+
+450
+00:19:46,000 --> 00:19:52,160
+my mom died a sad story but it's a
+
+451
+00:19:49,760 --> 00:19:53,360
+a bit detail okay i'm not going to go
+
+452
+00:19:52,160 --> 00:19:56,160
+into
+
+453
+00:19:53,360 --> 00:19:58,880
+so uh have you played with emacs 28's
+
+454
+00:19:56,160 --> 00:20:01,919
+ability to do native
+
+455
+00:19:58,880 --> 00:20:03,520
+jit just in time com compilation of emac
+
+456
+00:20:01,919 --> 00:20:06,559
+this no i haven't played with
+
+457
+00:20:03,520 --> 00:20:09,440
+emacs 28 that would be a great feature
+
+458
+00:20:06,559 --> 00:20:09,840
+uh i haven't played i'm getting old you
+
+459
+00:20:09,440 --> 00:20:12,000
+know i
+
+460
+00:20:09,840 --> 00:20:14,159
+haven't played with these things i'm
+
+461
+00:20:12,000 --> 00:20:15,200
+just gonna i'm just wait for the day
+
+462
+00:20:14,159 --> 00:20:17,760
+when i come out
+
+463
+00:20:15,200 --> 00:20:19,440
+and i just install it and it just it
+
+464
+00:20:17,760 --> 00:20:21,440
+works i don't
+
+465
+00:20:19,440 --> 00:20:23,280
+you know i'm not too you know unlike
+
+466
+00:20:21,440 --> 00:20:27,120
+when i'm younger we are getting old
+
+467
+00:20:23,280 --> 00:20:30,159
+scott and scott's by the way scott is a
+
+468
+00:20:27,120 --> 00:20:33,440
+c and c plus plus programming language
+
+469
+00:20:30,159 --> 00:20:34,880
+expert working on cpus and gpus and the
+
+470
+00:20:33,440 --> 00:20:39,840
+textures
+
+471
+00:20:34,880 --> 00:20:42,480
+designing cpus and uh and gpus
+
+472
+00:20:39,840 --> 00:20:42,960
+so anyway so let's uh yeah let's finish
+
+473
+00:20:42,480 --> 00:20:46,080
+this
+
+474
+00:20:42,960 --> 00:20:48,960
+um let's see let's do the reverse
+
+475
+00:20:46,080 --> 00:20:51,120
+conversion and maybe that's it for today
+
+476
+00:20:48,960 --> 00:20:52,159
+i've been talking 23 minutes okay so
+
+477
+00:20:51,120 --> 00:20:54,480
+today
+
+478
+00:20:52,159 --> 00:20:56,400
+maybe today is just gonna be pure emac
+
+479
+00:20:54,480 --> 00:20:59,280
+there's no random
+
+480
+00:20:56,400 --> 00:21:00,000
+you know sensitive topics random you
+
+481
+00:20:59,280 --> 00:21:02,159
+know
+
+482
+00:21:00,000 --> 00:21:03,600
+stuff okay now let's do the reverse
+
+483
+00:21:02,159 --> 00:21:05,919
+conversion
+
+484
+00:21:03,600 --> 00:21:08,080
+so first of all design the interface so
+
+485
+00:21:05,919 --> 00:21:10,480
+how do you want it to be
+
+486
+00:21:08,080 --> 00:21:11,679
+so let's uh let's write documentation
+
+487
+00:21:10,480 --> 00:21:15,120
+let's let's let's
+
+488
+00:21:11,679 --> 00:21:17,200
+explain so convert seconds to uh or
+
+489
+00:21:15,120 --> 00:21:19,120
+you know two minute second format or
+
+490
+00:21:17,200 --> 00:21:23,120
+vice versa on current word
+
+491
+00:21:19,120 --> 00:21:26,960
+okay now explain if the current
+
+492
+00:21:23,120 --> 00:21:30,640
+word contains a colon
+
+493
+00:21:26,960 --> 00:21:33,120
+then do the reverse uh
+
+494
+00:21:30,640 --> 00:21:33,120
+to the
+
+495
+00:21:36,559 --> 00:21:41,919
+to the reverse direction conversion so
+
+496
+00:21:40,080 --> 00:21:43,280
+it's basically automatic it will
+
+497
+00:21:41,919 --> 00:21:47,280
+automatically
+
+498
+00:21:43,280 --> 00:21:49,360
+detect which direction to go okay
+
+499
+00:21:47,280 --> 00:21:51,760
+that's that's what we decide you know
+
+500
+00:21:49,360 --> 00:21:55,120
+that's the user interface
+
+501
+00:21:51,760 --> 00:21:56,880
+i decided uh to do so now comes through
+
+502
+00:21:55,120 --> 00:21:58,000
+the coding part how are you gonna do
+
+503
+00:21:56,880 --> 00:22:00,000
+this
+
+504
+00:21:58,000 --> 00:22:01,039
+so first of all you know we grab the
+
+505
+00:22:00,000 --> 00:22:04,720
+word
+
+506
+00:22:01,039 --> 00:22:07,760
+we grab the boundary then we
+
+507
+00:22:04,720 --> 00:22:11,120
+uh we got the word now we need to
+
+508
+00:22:07,760 --> 00:22:14,480
+put a if statement okay if
+
+509
+00:22:11,120 --> 00:22:14,480
+something we want to see
+
+510
+00:22:14,720 --> 00:22:20,960
+check if what x contains
+
+511
+00:22:18,880 --> 00:22:22,000
+colon so that's essentially that's what
+
+512
+00:22:20,960 --> 00:22:26,400
+we need to do
+
+513
+00:22:22,000 --> 00:22:30,640
+okay but before we do that there's a
+
+514
+00:22:26,400 --> 00:22:33,840
+issue because when you call
+
+515
+00:22:30,640 --> 00:22:33,840
+bounce up thing at point
+
+516
+00:22:34,159 --> 00:22:40,320
+um i i i was eating something
+
+517
+00:22:37,679 --> 00:22:41,200
+in my teeth so when you cope on the
+
+518
+00:22:40,320 --> 00:22:44,720
+thing at point
+
+519
+00:22:41,200 --> 00:22:46,640
+we wheel it grab you know the the whole
+
+520
+00:22:44,720 --> 00:22:47,919
+minute and second part so what i mean by
+
+521
+00:22:46,640 --> 00:22:50,080
+that for example
+
+522
+00:22:47,919 --> 00:22:50,960
+if you have this let me let me just code
+
+523
+00:22:50,080 --> 00:22:54,559
+it okay so
+
+524
+00:22:50,960 --> 00:22:56,080
+it's easier to uh instead of me spending
+
+525
+00:22:54,559 --> 00:22:58,320
+several minutes through experience so
+
+526
+00:22:56,080 --> 00:23:01,919
+let's comment this out
+
+527
+00:22:58,320 --> 00:23:01,919
+so now let's just print
+
+528
+00:23:02,240 --> 00:23:06,320
+print what x to see what it returns okay
+
+529
+00:23:05,760 --> 00:23:09,600
+when
+
+530
+00:23:06,320 --> 00:23:11,919
+uh to see what this what this uh
+
+531
+00:23:09,600 --> 00:23:13,360
+thing at point actually grabs i mean the
+
+532
+00:23:11,919 --> 00:23:15,600
+question is if we will
+
+533
+00:23:13,360 --> 00:23:17,440
+just grab part of it or will it actually
+
+534
+00:23:15,600 --> 00:23:19,600
+consider the whole thing as a word
+
+535
+00:23:17,440 --> 00:23:20,640
+yeah actually i know the answer because
+
+536
+00:23:19,600 --> 00:23:23,679
+the thing at point
+
+537
+00:23:20,640 --> 00:23:26,640
+the the thing at point package i don't
+
+538
+00:23:23,679 --> 00:23:26,640
+like it because it
+
+539
+00:23:27,520 --> 00:23:31,600
+okay it's a it's a bit more complicated
+
+540
+00:23:30,400 --> 00:23:34,720
+because emacs
+
+541
+00:23:31,600 --> 00:23:37,200
+you know in emacs and emac these they
+
+542
+00:23:34,720 --> 00:23:40,640
+have the concept of
+
+543
+00:23:37,200 --> 00:23:42,559
+of syntax category okay let me let me
+
+544
+00:23:40,640 --> 00:23:46,159
+quickly explain this
+
+545
+00:23:42,559 --> 00:23:50,000
+so so if you go to the emac this
+
+546
+00:23:46,159 --> 00:23:53,279
+basics you go to the yeah so
+
+547
+00:23:50,000 --> 00:23:56,640
+so you go to the more advanced emac list
+
+548
+00:23:53,279 --> 00:24:01,840
+writing a major mod okay
+
+549
+00:23:56,640 --> 00:24:01,840
+then we you will see this section about
+
+550
+00:24:02,840 --> 00:24:07,679
+um
+
+551
+00:24:04,559 --> 00:24:08,400
+define face syntax coloring syntax table
+
+552
+00:24:07,679 --> 00:24:11,600
+okay
+
+553
+00:24:08,400 --> 00:24:15,679
+so in emac this you have this concept of
+
+554
+00:24:11,600 --> 00:24:19,360
+syntax table what basically it means
+
+555
+00:24:15,679 --> 00:24:22,400
+it classifies each and every character
+
+556
+00:24:19,360 --> 00:24:25,440
+in unicode into uh
+
+557
+00:24:22,400 --> 00:24:28,799
+into groups for example all the
+
+558
+00:24:25,440 --> 00:24:32,880
+punctuation characters comma colon
+
+559
+00:24:28,799 --> 00:24:36,559
+question mark you know space those are
+
+560
+00:24:32,880 --> 00:24:39,600
+punctuation group then english letters
+
+561
+00:24:36,559 --> 00:24:41,760
+russian letters alphabets you know
+
+562
+00:24:39,600 --> 00:24:43,279
+and all chinese characters those are
+
+563
+00:24:41,760 --> 00:24:45,679
+kind of another group
+
+564
+00:24:43,279 --> 00:24:46,640
+words letters or words then you have
+
+565
+00:24:45,679 --> 00:24:51,600
+another group
+
+566
+00:24:46,640 --> 00:24:51,600
+that's um that's um
+
+567
+00:24:53,440 --> 00:24:56,559
+uh that's that's what okay let me let me
+
+568
+00:24:55,440 --> 00:24:59,600
+concentrate
+
+569
+00:24:56,559 --> 00:25:01,840
+uh string yeah uh you know
+
+570
+00:24:59,600 --> 00:25:03,600
+then then you have another group about
+
+571
+00:25:01,840 --> 00:25:05,279
+syntax classes okay there
+
+572
+00:25:03,600 --> 00:25:06,960
+there you are so you have white space
+
+573
+00:25:05,279 --> 00:25:07,440
+characters you have what's considered
+
+574
+00:25:06,960 --> 00:25:09,440
+word
+
+575
+00:25:07,440 --> 00:25:10,960
+you have what's considered symbol then
+
+576
+00:25:09,440 --> 00:25:12,640
+you have punctuation
+
+577
+00:25:10,960 --> 00:25:14,880
+class of characters you then you have
+
+578
+00:25:12,640 --> 00:25:17,279
+string delimited
+
+579
+00:25:14,880 --> 00:25:19,279
+delimiters then you have the left
+
+580
+00:25:17,279 --> 00:25:19,840
+bracket red bracket and so on then
+
+581
+00:25:19,279 --> 00:25:23,279
+common
+
+582
+00:25:19,840 --> 00:25:26,880
+character so this is a
+
+583
+00:25:23,279 --> 00:25:30,240
+uh feature building into emac lisp
+
+584
+00:25:26,880 --> 00:25:33,120
+or emacs how emacs works each character
+
+585
+00:25:30,240 --> 00:25:34,480
+is you know each character in every
+
+586
+00:25:33,120 --> 00:25:38,080
+character in unicode is
+
+587
+00:25:34,480 --> 00:25:41,279
+classified into these kind of funky
+
+588
+00:25:38,080 --> 00:25:41,600
+groups okay this these funky groups is
+
+589
+00:25:41,279 --> 00:25:44,159
+not
+
+590
+00:25:41,600 --> 00:25:45,600
+mutually exclusive by the way for
+
+591
+00:25:44,159 --> 00:25:48,720
+example
+
+592
+00:25:45,600 --> 00:25:50,960
+for example common start character
+
+593
+00:25:48,720 --> 00:25:52,720
+it can also you know usually for example
+
+594
+00:25:50,960 --> 00:25:54,880
+in python pearl bash
+
+595
+00:25:52,720 --> 00:25:56,400
+powershell the common start is a pound
+
+596
+00:25:54,880 --> 00:25:59,760
+sign
+
+597
+00:25:56,400 --> 00:26:01,760
+but but in english writing
+
+598
+00:25:59,760 --> 00:26:03,600
+that pound sign is considered a pound
+
+599
+00:26:01,760 --> 00:26:05,360
+sign or a number sign or you know it's
+
+600
+00:26:03,600 --> 00:26:08,400
+considered punctuation
+
+601
+00:26:05,360 --> 00:26:10,080
+so so sometimes the letter can belong to
+
+602
+00:26:08,400 --> 00:26:12,480
+multiple categories and also
+
+603
+00:26:10,080 --> 00:26:14,559
+word and symbol that's very confusing
+
+604
+00:26:12,480 --> 00:26:16,400
+word basically means english word and
+
+605
+00:26:14,559 --> 00:26:18,720
+symbol means
+
+606
+00:26:16,400 --> 00:26:19,840
+this symbol basically it means allowed
+
+607
+00:26:18,720 --> 00:26:22,799
+characters in a
+
+608
+00:26:19,840 --> 00:26:23,760
+identifier of a programming language so
+
+609
+00:26:22,799 --> 00:26:27,279
+anyway
+
+610
+00:26:23,760 --> 00:26:30,240
+in emacs it has the concept of
+
+611
+00:26:27,279 --> 00:26:31,600
+syntax table which is a table that
+
+612
+00:26:30,240 --> 00:26:34,640
+classifies
+
+613
+00:26:31,600 --> 00:26:38,960
+characters into each of the these
+
+614
+00:26:34,640 --> 00:26:42,159
+kind of the groups and
+
+615
+00:26:38,960 --> 00:26:45,440
+and here's the thing for each buffer
+
+616
+00:26:42,159 --> 00:26:48,640
+it can have its own syntax buffer
+
+617
+00:26:45,440 --> 00:26:51,840
+i mean syntax table so depending on what
+
+618
+00:26:48,640 --> 00:26:54,159
+major mod you are in
+
+619
+00:26:51,840 --> 00:26:56,320
+same character maybe may may be
+
+620
+00:26:54,159 --> 00:26:59,919
+classified into different groups
+
+621
+00:26:56,320 --> 00:27:03,360
+so for example let's say the parentheses
+
+622
+00:26:59,919 --> 00:27:04,559
+okay in lisp it's considered a left
+
+623
+00:27:03,360 --> 00:27:07,360
+bracket
+
+624
+00:27:04,559 --> 00:27:09,200
+in english you know for example in
+
+625
+00:27:07,360 --> 00:27:11,840
+fundamental mod or text mod
+
+626
+00:27:09,200 --> 00:27:13,279
+that's also considered a left bracket
+
+627
+00:27:11,840 --> 00:27:14,960
+but however you can
+
+628
+00:27:13,279 --> 00:27:16,400
+you can write the major mod for some
+
+629
+00:27:14,960 --> 00:27:19,679
+language where the
+
+630
+00:27:16,400 --> 00:27:21,520
+parenthesis is not considered a bracket
+
+631
+00:27:19,679 --> 00:27:22,799
+rather it's considered to say let's say
+
+632
+00:27:21,520 --> 00:27:25,520
+a comma character
+
+633
+00:27:22,799 --> 00:27:27,039
+i mean a a string start character or
+
+634
+00:27:25,520 --> 00:27:30,799
+something
+
+635
+00:27:27,039 --> 00:27:31,760
+so so there there's a lot of problems
+
+636
+00:27:30,799 --> 00:27:34,640
+about this
+
+637
+00:27:31,760 --> 00:27:35,840
+emac syntax table idea it's very it's
+
+638
+00:27:34,640 --> 00:27:38,799
+it's pretty bad okay
+
+639
+00:27:35,840 --> 00:27:39,840
+this is a bad thing however it's very
+
+640
+00:27:38,799 --> 00:27:43,520
+fundamental because
+
+641
+00:27:39,840 --> 00:27:47,120
+every command that that move cursor
+
+642
+00:27:43,520 --> 00:27:49,600
+is dependent on the syntax table
+
+643
+00:27:47,120 --> 00:27:52,080
+so what so why is it bad first of all
+
+644
+00:27:49,600 --> 00:27:54,559
+you have this classification you know
+
+645
+00:27:52,080 --> 00:27:56,399
+which is kind of fuzzy you know it's not
+
+646
+00:27:54,559 --> 00:28:00,240
+mutually exclusive
+
+647
+00:27:56,399 --> 00:28:03,760
+and and even so you know it's not
+
+648
+00:28:00,240 --> 00:28:05,919
+it's it's difficult to to define them
+
+649
+00:28:03,760 --> 00:28:06,399
+you know to to to create a syntax table
+
+650
+00:28:05,919 --> 00:28:09,200
+to
+
+651
+00:28:06,399 --> 00:28:10,880
+say which which character belongs to
+
+652
+00:28:09,200 --> 00:28:13,919
+this this this that group it's
+
+653
+00:28:10,880 --> 00:28:17,440
+it's it's a huge huge mess okay
+
+654
+00:28:13,919 --> 00:28:18,960
+so first of all one of the problem of
+
+655
+00:28:17,440 --> 00:28:21,360
+the syntax table is that
+
+656
+00:28:18,960 --> 00:28:22,799
+it has these funky classification you
+
+657
+00:28:21,360 --> 00:28:26,159
+know categories
+
+658
+00:28:22,799 --> 00:28:26,159
+which is idiotic okay
+
+659
+00:28:26,399 --> 00:28:31,120
+so what's the example that's not idiotic
+
+660
+00:28:28,720 --> 00:28:32,080
+for example the unicode specification
+
+661
+00:28:31,120 --> 00:28:34,720
+unicode
+
+662
+00:28:32,080 --> 00:28:35,520
+okay let me remember okay maybe let's
+
+663
+00:28:34,720 --> 00:28:38,399
+ramble about
+
+664
+00:28:35,520 --> 00:28:40,399
+uh about about these things okay so
+
+665
+00:28:38,399 --> 00:28:43,360
+we're getting into linguistics and
+
+666
+00:28:40,399 --> 00:28:44,159
+stuff uh okay let's go through my
+
+667
+00:28:43,360 --> 00:28:47,600
+unicode
+
+668
+00:28:44,159 --> 00:28:49,520
+um page okay just search for you
+
+669
+00:28:47,600 --> 00:28:52,159
+sorry unicode you'll find my unicode
+
+670
+00:28:49,520 --> 00:28:55,679
+page so unicode standards
+
+671
+00:28:52,159 --> 00:28:57,600
+uh you know they they also have okay
+
+672
+00:28:55,679 --> 00:28:59,360
+let's magnify the browser hold on a
+
+673
+00:28:57,600 --> 00:29:02,399
+second so let's magnify
+
+674
+00:28:59,360 --> 00:29:02,399
+the browser uh
+
+675
+00:29:03,360 --> 00:29:06,799
+once for all instead of doing it on
+
+676
+00:29:05,919 --> 00:29:10,000
+every page
+
+677
+00:29:06,799 --> 00:29:13,520
+appearance uh magnify
+
+678
+00:29:10,000 --> 00:29:17,200
+125 okay okay so
+
+679
+00:29:13,520 --> 00:29:19,279
+so so my unicode page so let's go
+
+680
+00:29:17,200 --> 00:29:21,679
+let's go down to the unicode for
+
+681
+00:29:19,279 --> 00:29:24,720
+programmers
+
+682
+00:29:21,679 --> 00:29:27,520
+okay so i have uh oops
+
+683
+00:29:24,720 --> 00:29:28,080
+i have quite a lot articles on unif code
+
+684
+00:29:27,520 --> 00:29:30,399
+for
+
+685
+00:29:28,080 --> 00:29:31,120
+programmers the technical details about
+
+686
+00:29:30,399 --> 00:29:32,799
+unicode
+
+687
+00:29:31,120 --> 00:29:34,559
+which is about characters about
+
+688
+00:29:32,799 --> 00:29:35,840
+languages you know what's a unicode
+
+689
+00:29:34,559 --> 00:29:38,240
+what's utf-8
+
+690
+00:29:35,840 --> 00:29:39,440
+what's the code point uh you know this
+
+691
+00:29:38,240 --> 00:29:41,679
+kind of thing so
+
+692
+00:29:39,440 --> 00:29:43,120
+you go there and read it you know if you
+
+693
+00:29:41,679 --> 00:29:45,919
+are new to
+
+694
+00:29:43,120 --> 00:29:45,919
+programming okay
+
+695
+00:29:46,480 --> 00:29:51,520
+okay and i talk about encoding so so
+
+696
+00:29:49,440 --> 00:29:54,240
+okay so so the thing i want to say is
+
+697
+00:29:51,520 --> 00:29:55,440
+that unicode has also has a way to
+
+698
+00:29:54,240 --> 00:29:58,000
+classify
+
+699
+00:29:55,440 --> 00:29:58,559
+each and every characters into letters
+
+700
+00:29:58,000 --> 00:30:01,200
+group
+
+701
+00:29:58,559 --> 00:30:02,399
+into numbers group for example what
+
+702
+00:30:01,200 --> 00:30:04,159
+would you invite by
+
+703
+00:30:02,399 --> 00:30:05,760
+by numbers group for example one two
+
+704
+00:30:04,159 --> 00:30:08,480
+three you know arabic
+
+705
+00:30:05,760 --> 00:30:08,799
+numbering system one two three four you
+
+706
+00:30:08,480 --> 00:30:12,000
+know
+
+707
+00:30:08,799 --> 00:30:13,840
+up to nine and zero but that's not all
+
+708
+00:30:12,000 --> 00:30:15,760
+because in chinese
+
+709
+00:30:13,840 --> 00:30:22,080
+let's go let's let me show you okay in
+
+710
+00:30:15,760 --> 00:30:24,559
+chinese you also have
+
+711
+00:30:22,080 --> 00:30:25,440
+okay in chinese you also use the arabic
+
+712
+00:30:24,559 --> 00:30:28,480
+numbers you know
+
+713
+00:30:25,440 --> 00:30:31,440
+like three for example three or five
+
+714
+00:30:28,480 --> 00:30:32,720
+but however you also have it also has
+
+715
+00:30:31,440 --> 00:30:34,880
+its own
+
+716
+00:30:32,720 --> 00:30:36,880
+you know chinese characters characters
+
+717
+00:30:34,880 --> 00:30:39,919
+to represent one two three so
+
+718
+00:30:36,880 --> 00:30:42,399
+for example this character that is one
+
+719
+00:30:39,919 --> 00:30:44,640
+okay actually let me show you some other
+
+720
+00:30:42,399 --> 00:30:47,039
+thing okay so here is actually so here's
+
+721
+00:30:44,640 --> 00:30:52,000
+a chinese text from wikipedia
+
+722
+00:30:47,039 --> 00:30:54,480
+about this poem and you can see
+
+723
+00:30:52,000 --> 00:30:57,600
+you see here is uh two numbers okay
+
+724
+00:30:54,480 --> 00:30:57,600
+let's magnify okay
+
+725
+00:30:58,799 --> 00:31:03,360
+so look at this this this is a number it
+
+726
+00:31:01,919 --> 00:31:05,519
+means five okay
+
+727
+00:31:03,360 --> 00:31:06,480
+and here is another another number it
+
+728
+00:31:05,519 --> 00:31:10,000
+means 10.
+
+729
+00:31:06,480 --> 00:31:13,120
+so in chinese it has its own
+
+730
+00:31:10,000 --> 00:31:16,000
+number characters for number so
+
+731
+00:31:13,120 --> 00:31:16,720
+so these characters needs also belongs
+
+732
+00:31:16,000 --> 00:31:20,480
+to
+
+733
+00:31:16,720 --> 00:31:23,440
+the group numbers okay digits okay
+
+734
+00:31:20,480 --> 00:31:24,080
+uh similarly for arabics or indian you
+
+735
+00:31:23,440 --> 00:31:26,159
+know different
+
+736
+00:31:24,080 --> 00:31:28,480
+indian languages or you know many
+
+737
+00:31:26,159 --> 00:31:32,000
+languages has their or
+
+738
+00:31:28,480 --> 00:31:34,000
+or you know many languages has their own
+
+739
+00:31:32,000 --> 00:31:35,519
+digits you know they are specialized
+
+740
+00:31:34,000 --> 00:31:37,519
+digits so
+
+741
+00:31:35,519 --> 00:31:38,720
+when you deal with unicode you know all
+
+742
+00:31:37,519 --> 00:31:41,679
+the characters or
+
+743
+00:31:38,720 --> 00:31:43,120
+writing systems you know in unicode
+
+744
+00:31:41,679 --> 00:31:44,880
+that's what unicode is
+
+745
+00:31:43,120 --> 00:31:46,240
+you have to consider these things you
+
+746
+00:31:44,880 --> 00:31:48,720
+know so
+
+747
+00:31:46,240 --> 00:31:51,039
+so you have a group for numbers digits
+
+748
+00:31:48,720 --> 00:31:54,000
+then you also have a group
+
+749
+00:31:51,039 --> 00:31:54,399
+for um punctuations then you also have a
+
+750
+00:31:54,000 --> 00:31:58,240
+group
+
+751
+00:31:54,399 --> 00:31:59,760
+okay let me let me let me so unicode we
+
+752
+00:31:58,240 --> 00:32:02,399
+are talking about unicode so
+
+753
+00:31:59,760 --> 00:32:06,240
+we are talking about the classification
+
+754
+00:32:02,399 --> 00:32:06,240
+i mean the general idea the concept
+
+755
+00:32:06,320 --> 00:32:09,519
+everything about classification of
+
+756
+00:32:08,320 --> 00:32:12,480
+characters into
+
+757
+00:32:09,519 --> 00:32:14,720
+different groups you know we started to
+
+758
+00:32:12,480 --> 00:32:16,320
+talk about that because of the emacs
+
+759
+00:32:14,720 --> 00:32:18,000
+syntax table
+
+760
+00:32:16,320 --> 00:32:20,240
+so let me show you some some other
+
+761
+00:32:18,000 --> 00:32:22,799
+groups categories okay so
+
+762
+00:32:20,240 --> 00:32:23,919
+so you have letters so these are our
+
+763
+00:32:22,799 --> 00:32:25,600
+letters you know
+
+764
+00:32:23,919 --> 00:32:28,320
+in this case chinese letters also
+
+765
+00:32:25,600 --> 00:32:30,399
+including english alphabet
+
+766
+00:32:28,320 --> 00:32:31,600
+uh latin alphabet you know spanish
+
+767
+00:32:30,399 --> 00:32:34,320
+special characters
+
+768
+00:32:31,600 --> 00:32:34,960
+spanish french with carets and accent
+
+769
+00:32:34,320 --> 00:32:38,159
+science
+
+770
+00:32:34,960 --> 00:32:40,320
+german umlaut
+
+771
+00:32:38,159 --> 00:32:41,600
+things like that those are all letters
+
+772
+00:32:40,320 --> 00:32:44,399
+group then you have
+
+773
+00:32:41,600 --> 00:32:46,240
+digits group then you have punctuations
+
+774
+00:32:44,399 --> 00:32:47,200
+group for example you look at this
+
+775
+00:32:46,240 --> 00:32:50,159
+character
+
+776
+00:32:47,200 --> 00:32:51,760
+that's a chinese punctuation for period
+
+777
+00:32:50,159 --> 00:32:54,240
+okay
+
+778
+00:32:51,760 --> 00:32:55,200
+and here is the chinese punctuation for
+
+779
+00:32:54,240 --> 00:32:57,039
+karma okay
+
+780
+00:32:55,200 --> 00:32:59,200
+so they both also belong through the
+
+781
+00:32:57,039 --> 00:33:02,080
+punctuation group
+
+782
+00:32:59,200 --> 00:33:02,880
+in unicode okay then let me show you
+
+783
+00:33:02,080 --> 00:33:05,440
+other so
+
+784
+00:33:02,880 --> 00:33:06,640
+i want to show you other categories uh
+
+785
+00:33:05,440 --> 00:33:09,600
+okay so for example
+
+786
+00:33:06,640 --> 00:33:10,080
+sex you know sex symbols so what is this
+
+787
+00:33:09,600 --> 00:33:13,360
+this
+
+788
+00:33:10,080 --> 00:33:13,919
+so this is a character right and this
+
+789
+00:33:13,360 --> 00:33:16,880
+character
+
+790
+00:33:13,919 --> 00:33:18,559
+uh it's you know in unicode it's in
+
+791
+00:33:16,880 --> 00:33:19,679
+unicode therefore it also has a
+
+792
+00:33:18,559 --> 00:33:23,840
+classification so
+
+793
+00:33:19,679 --> 00:33:24,480
+what's this group it's it's symbols okay
+
+794
+00:33:23,840 --> 00:33:26,960
+uh and
+
+795
+00:33:24,480 --> 00:33:29,279
+and also you have emoji then then you
+
+796
+00:33:26,960 --> 00:33:30,880
+also have um
+
+797
+00:33:29,279 --> 00:33:33,120
+let me show you some of the characters
+
+798
+00:33:30,880 --> 00:33:35,919
+so it's for example uh
+
+799
+00:33:33,120 --> 00:33:37,200
+for example some of these some of these
+
+800
+00:33:35,919 --> 00:33:39,279
+crosses okay
+
+801
+00:33:37,200 --> 00:33:41,360
+some of these are ancient for example
+
+802
+00:33:39,279 --> 00:33:44,000
+these
+
+803
+00:33:41,360 --> 00:33:46,240
+uh and the and and chiro those you know
+
+804
+00:33:44,000 --> 00:33:49,919
+some of these are 2 000 years old uh
+
+805
+00:33:46,240 --> 00:33:52,080
+symbols and also the christian cross the
+
+806
+00:33:49,919 --> 00:33:53,840
+you know the greek cross and so on and
+
+807
+00:33:52,080 --> 00:33:58,880
+and you know israel sign
+
+808
+00:33:53,840 --> 00:33:58,880
+and so on so these are also um
+
+809
+00:33:59,039 --> 00:34:04,559
+uh uh
+
+810
+00:34:02,080 --> 00:34:05,279
+so there's a group to classify this okay
+
+811
+00:34:04,559 --> 00:34:10,000
+so i'm
+
+812
+00:34:05,279 --> 00:34:11,679
+actually the one i want to talk about is
+
+813
+00:34:10,000 --> 00:34:13,119
+there is a one called letter like
+
+814
+00:34:11,679 --> 00:34:15,119
+symbols okay anyway
+
+815
+00:34:13,119 --> 00:34:16,320
+you know you know the best thing i don't
+
+816
+00:34:15,119 --> 00:34:19,200
+have article for that
+
+817
+00:34:16,320 --> 00:34:20,560
+so the best thing is to search for
+
+818
+00:34:19,200 --> 00:34:24,320
+unicode
+
+819
+00:34:20,560 --> 00:34:28,800
+uh character classification okay
+
+820
+00:34:24,320 --> 00:34:28,800
+then you'll find you know there it is
+
+821
+00:34:29,200 --> 00:34:33,119
+uh a categorization of unicode
+
+822
+00:34:31,919 --> 00:34:35,919
+characters you know they
+
+823
+00:34:33,119 --> 00:34:36,720
+they talk about details how they assign
+
+824
+00:34:35,919 --> 00:34:38,879
+categories
+
+825
+00:34:36,720 --> 00:34:40,480
+so anyway so what i'm saying is that the
+
+826
+00:34:38,879 --> 00:34:45,599
+unicode cut you know that's
+
+827
+00:34:40,480 --> 00:34:47,679
+actually better kind of categorization
+
+828
+00:34:45,599 --> 00:34:49,520
+uh since i'm talking about these let me
+
+829
+00:34:47,679 --> 00:34:50,639
+show you some programming articles
+
+830
+00:34:49,520 --> 00:34:53,760
+related to it
+
+831
+00:34:50,639 --> 00:34:58,320
+okay so for example
+
+832
+00:34:53,760 --> 00:35:00,480
+so search for javascript in depth okay
+
+833
+00:34:58,320 --> 00:35:01,280
+that's my tutorial of javascript in
+
+834
+00:35:00,480 --> 00:35:04,720
+depth
+
+835
+00:35:01,280 --> 00:35:09,520
+and you can go to javascript reference
+
+836
+00:35:04,720 --> 00:35:09,520
+okay and go to uh javascript
+
+837
+00:35:10,240 --> 00:35:13,839
+regular expressions okay regular
+
+838
+00:35:12,720 --> 00:35:16,560
+expressions
+
+839
+00:35:13,839 --> 00:35:18,560
+then you want to so javascript regular
+
+840
+00:35:16,560 --> 00:35:21,280
+expression provides a way
+
+841
+00:35:18,560 --> 00:35:23,119
+for you for for you to use regular
+
+842
+00:35:21,280 --> 00:35:25,599
+expression to
+
+843
+00:35:23,119 --> 00:35:28,000
+match or list all characters that
+
+844
+00:35:25,599 --> 00:35:31,280
+belongs to a certain category
+
+845
+00:35:28,000 --> 00:35:32,880
+so how do you do that uh here okay
+
+846
+00:35:31,280 --> 00:35:36,320
+regular expression syntax
+
+847
+00:35:32,880 --> 00:35:38,000
+okay uh
+
+848
+00:35:36,320 --> 00:35:39,520
+character class okay so you have
+
+849
+00:35:38,000 --> 00:35:45,520
+character class
+
+850
+00:35:39,520 --> 00:35:47,359
+that's right
+
+851
+00:35:45,520 --> 00:35:50,000
+somewhere here okay let's search for
+
+852
+00:35:47,359 --> 00:35:50,000
+unicode
+
+853
+00:35:51,920 --> 00:35:54,160
+uh
+
+854
+00:35:55,440 --> 00:35:58,800
+yeah unicode property so it's called
+
+855
+00:35:57,440 --> 00:36:02,720
+unicode property
+
+856
+00:35:58,800 --> 00:36:04,640
+so so you can you know this is just a
+
+857
+00:36:02,720 --> 00:36:08,000
+javascript regular expression
+
+858
+00:36:04,640 --> 00:36:12,079
+syntax to match any
+
+859
+00:36:08,000 --> 00:36:14,640
+characters of a specific unicode
+
+860
+00:36:12,079 --> 00:36:16,480
+property the property is typically you
+
+861
+00:36:14,640 --> 00:36:18,640
+know property name
+
+862
+00:36:16,480 --> 00:36:21,839
+and property value so for example let me
+
+863
+00:36:18,640 --> 00:36:23,599
+let me show you an example okay
+
+864
+00:36:21,839 --> 00:36:26,320
+so for example and you know i already
+
+865
+00:36:23,599 --> 00:36:29,599
+have examples here so if you want to get
+
+866
+00:36:26,320 --> 00:36:31,920
+all punctuations you can do this okay
+
+867
+00:36:29,599 --> 00:36:34,720
+uh you know here so here's the full code
+
+868
+00:36:31,920 --> 00:36:36,800
+you can run so
+
+869
+00:36:34,720 --> 00:36:39,119
+okay let's let's do this one currency
+
+870
+00:36:36,800 --> 00:36:42,160
+symbols okay let's run it in e-max
+
+871
+00:36:39,119 --> 00:36:45,359
+so open it paste it here magnify
+
+872
+00:36:42,160 --> 00:36:49,839
+save it xx.js okay
+
+873
+00:36:45,359 --> 00:36:53,200
+so so you can see we have a string here
+
+874
+00:36:49,839 --> 00:36:55,359
+here's our string we want to
+
+875
+00:36:53,200 --> 00:36:57,440
+we want to grab all characters that's
+
+876
+00:36:55,359 --> 00:36:59,280
+considered a currency symbol
+
+877
+00:36:57,440 --> 00:37:01,520
+currency symbol is one of the unicode
+
+878
+00:36:59,280 --> 00:37:06,160
+category so you run the code
+
+879
+00:37:01,520 --> 00:37:10,160
+learn it encode syntax zero what
+
+880
+00:37:06,160 --> 00:37:12,400
+what the invalid regular expression
+
+881
+00:37:10,160 --> 00:37:12,400
+what
+
+882
+00:37:13,760 --> 00:37:20,839
+what what what this is bad
+
+883
+00:37:17,599 --> 00:37:22,800
+okay this means my tutorial is wrong
+
+884
+00:37:20,839 --> 00:37:28,000
+what
+
+885
+00:37:22,800 --> 00:37:28,000
+and called uh invalid property name
+
+886
+00:37:29,920 --> 00:37:37,760
+okay maybe it doesn't support
+
+887
+00:37:33,839 --> 00:37:40,960
+currency in my current um
+
+888
+00:37:37,760 --> 00:37:43,280
+in my in my um
+
+889
+00:37:40,960 --> 00:37:45,280
+in my demo you know i'm using deno as a
+
+890
+00:37:43,280 --> 00:37:48,480
+javascript engine
+
+891
+00:37:45,280 --> 00:37:51,280
+so i don't know what's going on actually
+
+892
+00:37:48,480 --> 00:37:51,680
+so this is bad so let's try this one so
+
+893
+00:37:51,280 --> 00:37:54,800
+get
+
+894
+00:37:51,680 --> 00:37:58,079
+letters okay so we have now
+
+895
+00:37:54,800 --> 00:38:01,200
+four characters here now
+
+896
+00:37:58,079 --> 00:38:02,560
+okay we i'm getting okay let's just run
+
+897
+00:38:01,200 --> 00:38:04,800
+it
+
+898
+00:38:02,560 --> 00:38:06,079
+unquote syntax error what's going on
+
+899
+00:38:04,800 --> 00:38:09,119
+they know
+
+900
+00:38:06,079 --> 00:38:10,720
+okay deno doesn't support
+
+901
+00:38:09,119 --> 00:38:12,160
+this feature is new you know this
+
+902
+00:38:10,720 --> 00:38:16,960
+feature is new in
+
+903
+00:38:12,160 --> 00:38:18,160
+um javascript 2018 deno should support
+
+904
+00:38:16,960 --> 00:38:21,280
+it by now uh
+
+905
+00:38:18,160 --> 00:38:23,680
+what's going on ah anyway
+
+906
+00:38:21,280 --> 00:38:27,440
+that's too bad okay let's try this let's
+
+907
+00:38:23,680 --> 00:38:32,000
+run this in browser then your work okay
+
+908
+00:38:27,440 --> 00:38:36,320
+so copy this okay let's go to browser
+
+909
+00:38:32,000 --> 00:38:40,960
+press f12 to show the javascript console
+
+910
+00:38:36,320 --> 00:38:44,560
+there it is magnify paste the code here
+
+911
+00:38:40,960 --> 00:38:46,880
+run it there it is okay
+
+912
+00:38:44,560 --> 00:38:48,400
+you see it shows it return value is two
+
+913
+00:38:46,880 --> 00:38:51,280
+dollar signs because that's
+
+914
+00:38:48,400 --> 00:38:52,800
+currency symbols so out of this string
+
+915
+00:38:51,280 --> 00:38:54,240
+you know we want to get the currency
+
+916
+00:38:52,800 --> 00:38:57,040
+symbols and that works
+
+917
+00:38:54,240 --> 00:39:01,040
+let's try some euro euro character okay
+
+918
+00:38:57,040 --> 00:39:04,000
+let's try some euro character
+
+919
+00:39:01,040 --> 00:39:04,000
+so let's try
+
+920
+00:39:04,960 --> 00:39:11,520
+okay so so how did i just do that
+
+921
+00:39:08,320 --> 00:39:14,720
+that is magic okay let me show you
+
+922
+00:39:11,520 --> 00:39:15,520
+okay that is that is the command star
+
+923
+00:39:14,720 --> 00:39:18,640
+input
+
+924
+00:39:15,520 --> 00:39:21,760
+change to symbol and that is in the
+
+925
+00:39:18,640 --> 00:39:22,240
+package some math input dot el so open
+
+926
+00:39:21,760 --> 00:39:25,920
+it
+
+927
+00:39:22,240 --> 00:39:27,200
+magnify magnify magnify so this is the
+
+928
+00:39:25,920 --> 00:39:30,079
+emac this package
+
+929
+00:39:27,200 --> 00:39:31,200
+where you can type all hundreds of
+
+930
+00:39:30,079 --> 00:39:34,720
+unicode
+
+931
+00:39:31,200 --> 00:39:35,520
+characters by using abbreviation for
+
+932
+00:39:34,720 --> 00:39:39,200
+example
+
+933
+00:39:35,520 --> 00:39:41,280
+all these triangles squares and
+
+934
+00:39:39,200 --> 00:39:42,400
+currency symbols and so on so if you
+
+935
+00:39:41,280 --> 00:39:46,000
+like it use it
+
+936
+00:39:42,400 --> 00:39:47,280
+okay it's on melpa okay so let's go back
+
+937
+00:39:46,000 --> 00:39:51,040
+uh wait open it
+
+938
+00:39:47,280 --> 00:39:52,160
+uh let's um i want to i want to go to my
+
+939
+00:39:51,040 --> 00:39:55,520
+talk show and
+
+940
+00:39:52,160 --> 00:39:57,599
+write a note about it okay so as a
+
+941
+00:39:55,520 --> 00:39:58,240
+documentation of what we talked about
+
+942
+00:39:57,599 --> 00:40:01,520
+okay
+
+943
+00:39:58,240 --> 00:40:02,560
+so save it let's go back okay so anyway
+
+944
+00:40:01,520 --> 00:40:05,520
+so
+
+945
+00:40:02,560 --> 00:40:06,160
+digression close that let's go back to
+
+946
+00:40:05,520 --> 00:40:11,280
+yeah
+
+947
+00:40:06,160 --> 00:40:14,880
+so now we type a euro copy the code
+
+948
+00:40:11,280 --> 00:40:16,000
+back to browser magnify paste the code
+
+949
+00:40:14,880 --> 00:40:19,760
+here
+
+950
+00:40:16,000 --> 00:40:23,839
+return enter so you see it got euro
+
+951
+00:40:19,760 --> 00:40:28,400
+so that's about unicode uh category
+
+952
+00:40:23,839 --> 00:40:28,400
+categorization of of um
+
+953
+00:40:28,560 --> 00:40:36,839
+uh characters okay now back to the emacs
+
+954
+00:40:32,480 --> 00:40:39,839
+least you know the emacs idiotic
+
+955
+00:40:36,839 --> 00:40:39,839
+um
+
+956
+00:40:41,440 --> 00:40:46,480
+uh uh where where do we go yeah the
+
+957
+00:40:44,160 --> 00:40:49,599
+let's go back to emacs yeah emacs
+
+958
+00:40:46,480 --> 00:40:51,359
+syntax table so so in my opinion emac
+
+959
+00:40:49,599 --> 00:40:53,680
+syntax table is
+
+960
+00:40:51,359 --> 00:40:54,720
+pretty lousy but however it's hard to
+
+961
+00:40:53,680 --> 00:40:57,520
+change because
+
+962
+00:40:54,720 --> 00:40:57,839
+it's very fundamental it sits in the
+
+963
+00:40:57,520 --> 00:41:00,480
+core
+
+964
+00:40:57,839 --> 00:41:00,480
+of emacs
+
+965
+00:41:00,880 --> 00:41:05,040
+so anyway that's here is a tutorial
+
+966
+00:41:03,040 --> 00:41:07,680
+about emacs syntax table so
+
+967
+00:41:05,040 --> 00:41:10,319
+back to where we what what we were doing
+
+968
+00:41:07,680 --> 00:41:13,839
+so we were doing
+
+969
+00:41:10,319 --> 00:41:20,960
+so close that uh so we we were doing uh
+
+970
+00:41:13,839 --> 00:41:23,599
+let's go back to our code okay
+
+971
+00:41:20,960 --> 00:41:25,599
+sweet okay so uh so let me read the
+
+972
+00:41:23,599 --> 00:41:28,800
+comments
+
+973
+00:41:25,599 --> 00:41:29,599
+uh uh yeah six i will give you a summary
+
+974
+00:41:28,800 --> 00:41:34,800
+of what's wrong with
+
+975
+00:41:29,599 --> 00:41:38,560
+unix and c
+
+976
+00:41:34,800 --> 00:41:41,920
+okay so let's go back to um
+
+977
+00:41:38,560 --> 00:41:45,359
+to the code okay so okay so what
+
+978
+00:41:41,920 --> 00:41:45,359
+what i was saying is that
+
+979
+00:41:46,319 --> 00:41:51,359
+did we try this yet okay so yeah let's
+
+980
+00:41:48,960 --> 00:41:54,240
+try it okay
+
+981
+00:41:51,359 --> 00:41:55,280
+we want to know if this bound of thing
+
+982
+00:41:54,240 --> 00:41:57,680
+at point
+
+983
+00:41:55,280 --> 00:41:59,119
+you know we tell it to grab the current
+
+984
+00:41:57,680 --> 00:42:01,440
+word under kusa
+
+985
+00:41:59,119 --> 00:42:02,880
+but we want to know what does it
+
+986
+00:42:01,440 --> 00:42:06,000
+consider a word
+
+987
+00:42:02,880 --> 00:42:08,800
+for example i know that digits sequence
+
+988
+00:42:06,000 --> 00:42:11,839
+of digits will consider as a word but
+
+989
+00:42:08,800 --> 00:42:14,160
+probably not the colon sign
+
+990
+00:42:11,839 --> 00:42:16,000
+you know in e-max syntax table it will
+
+991
+00:42:14,160 --> 00:42:18,640
+consider that as a punctuation
+
+992
+00:42:16,000 --> 00:42:19,040
+so it will not do that so we can try it
+
+993
+00:42:18,640 --> 00:42:22,160
+okay
+
+994
+00:42:19,040 --> 00:42:25,520
+eval the code now show
+
+995
+00:42:22,160 --> 00:42:26,880
+the message buffer then call the command
+
+996
+00:42:25,520 --> 00:42:31,839
+on these text okay my
+
+997
+00:42:26,880 --> 00:42:34,880
+i put the cursor here okay
+
+998
+00:42:31,839 --> 00:42:39,119
+you see it returns 41 which is
+
+999
+00:42:34,880 --> 00:42:40,560
+what not what we want so that means
+
+1000
+00:42:39,119 --> 00:42:42,319
+you know because we want to grab the
+
+1001
+00:42:40,560 --> 00:42:43,119
+whole thing so that means we need to
+
+1002
+00:42:42,319 --> 00:42:45,839
+change
+
+1003
+00:42:43,119 --> 00:42:47,599
+this boundary of thing at point okay so
+
+1004
+00:42:45,839 --> 00:42:48,560
+instead of calling that we need to do it
+
+1005
+00:42:47,599 --> 00:42:49,920
+manually so
+
+1006
+00:42:48,560 --> 00:42:52,880
+let me show you how do you do it
+
+1007
+00:42:49,920 --> 00:42:52,880
+manually okay
+
+1008
+00:42:53,040 --> 00:42:59,839
+so so let's um
+
+1009
+00:42:56,400 --> 00:42:59,839
+so let's um
+
+1010
+00:43:00,319 --> 00:43:05,839
+okay so so so
+
+1011
+00:43:04,079 --> 00:43:08,480
+okay we're gonna finish this and that's
+
+1012
+00:43:05,839 --> 00:43:10,640
+it for today so today is just emac this
+
+1013
+00:43:08,480 --> 00:43:12,560
+okay so how do you do this we want to
+
+1014
+00:43:10,640 --> 00:43:16,720
+replace these lines of code
+
+1015
+00:43:12,560 --> 00:43:17,440
+uh basically these lines of code we want
+
+1016
+00:43:16,720 --> 00:43:19,119
+automatic
+
+1017
+00:43:17,440 --> 00:43:21,520
+ultimately get the current word under
+
+1018
+00:43:19,119 --> 00:43:25,119
+cursor okay yeah so what do you do that
+
+1019
+00:43:21,520 --> 00:43:28,560
+let me show you okay uh save excursion
+
+1020
+00:43:25,119 --> 00:43:31,119
+okay i'm gonna uh ignore that okay
+
+1021
+00:43:28,560 --> 00:43:32,319
+look it up okay you see my emacs
+
+1022
+00:43:31,119 --> 00:43:40,079
+tutorial so what
+
+1023
+00:43:32,319 --> 00:43:43,119
+what what i want what i want to do is um
+
+1024
+00:43:40,079 --> 00:43:46,400
+search backward okay
+
+1025
+00:43:43,119 --> 00:43:49,599
+search backward by space okay
+
+1026
+00:43:46,400 --> 00:43:51,760
+uh bounce no we don't care uh we don't
+
+1027
+00:43:49,599 --> 00:43:55,119
+care search backward by space that
+
+1028
+00:43:51,760 --> 00:44:00,000
+we'll move cruiser you know backward
+
+1029
+00:43:55,119 --> 00:44:00,000
+until it finds a space then
+
+1030
+00:44:01,119 --> 00:44:04,960
+forward charge okay i'm just going to do
+
+1031
+00:44:03,119 --> 00:44:08,240
+this uh quickly
+
+1032
+00:44:04,960 --> 00:44:10,960
+then set p1
+
+1033
+00:44:08,240 --> 00:44:13,040
+point okay so so move the cursor
+
+1034
+00:44:10,960 --> 00:44:16,240
+backward until it finds the
+
+1035
+00:44:13,040 --> 00:44:19,760
+space and it will skip it okay
+
+1036
+00:44:16,240 --> 00:44:22,720
+then then forward one character
+
+1037
+00:44:19,760 --> 00:44:24,079
+then that's our beginning position okay
+
+1038
+00:44:22,720 --> 00:44:26,240
+then
+
+1039
+00:44:24,079 --> 00:44:27,760
+search forward and i'm going to do this
+
+1040
+00:44:26,240 --> 00:44:30,880
+fast okay so
+
+1041
+00:44:27,760 --> 00:44:34,000
+search for what we don't need that then
+
+1042
+00:44:30,880 --> 00:44:37,440
+backward char uh
+
+1043
+00:44:34,000 --> 00:44:40,720
+search search forward by rejects okay
+
+1044
+00:44:37,440 --> 00:44:41,520
+research forward okay uh so it's either
+
+1045
+00:44:40,720 --> 00:44:45,440
+a space
+
+1046
+00:44:41,520 --> 00:44:48,319
+or a um actually i should use that okay
+
+1047
+00:44:45,440 --> 00:44:51,440
+let's not do that let's just do that
+
+1048
+00:44:48,319 --> 00:44:55,280
+a space or
+
+1049
+00:44:51,440 --> 00:44:55,280
+all return okay line return
+
+1050
+00:44:56,720 --> 00:45:00,560
+okay so space or line return okay so
+
+1051
+00:44:59,200 --> 00:45:03,040
+let's let's do it
+
+1052
+00:45:00,560 --> 00:45:04,480
+let's not worry about complex situations
+
+1053
+00:45:03,040 --> 00:45:06,319
+okay
+
+1054
+00:45:04,480 --> 00:45:08,000
+then search forward by that then
+
+1055
+00:45:06,319 --> 00:45:11,520
+backwards character
+
+1056
+00:45:08,000 --> 00:45:14,960
+one okay then set
+
+1057
+00:45:11,520 --> 00:45:17,280
+p2 the point point is the
+
+1058
+00:45:14,960 --> 00:45:20,079
+position of the current cursor position
+
+1059
+00:45:17,280 --> 00:45:24,400
+which is a number okay uh integer okay
+
+1060
+00:45:20,079 --> 00:45:27,440
+so that's it okay so that
+
+1061
+00:45:24,400 --> 00:45:30,640
+so this this block gives us
+
+1062
+00:45:27,440 --> 00:45:32,319
+the p1 and p2 beginning and end position
+
+1063
+00:45:30,640 --> 00:45:34,400
+now we have that once we have that
+
+1064
+00:45:32,319 --> 00:45:35,599
+everything is easy okay now we just do
+
+1065
+00:45:34,400 --> 00:45:39,280
+this
+
+1066
+00:45:35,599 --> 00:45:41,680
+uh grab our word okay
+
+1067
+00:45:39,280 --> 00:45:43,599
+so instead of this instead of using the
+
+1068
+00:45:41,680 --> 00:45:46,400
+bound of thing at point because it
+
+1069
+00:45:43,599 --> 00:45:49,440
+have problems with the colon we manually
+
+1070
+00:45:46,400 --> 00:45:51,839
+code it this way okay
+
+1071
+00:45:49,440 --> 00:45:55,040
+then that that should be it okay so now
+
+1072
+00:45:51,839 --> 00:45:58,400
+we evaluate the buffer
+
+1073
+00:45:55,040 --> 00:46:00,560
+now we show the message buffer okay
+
+1074
+00:45:58,400 --> 00:46:02,000
+now watch the end okay now we're gonna
+
+1075
+00:46:00,560 --> 00:46:04,800
+call the command on this
+
+1076
+00:46:02,000 --> 00:46:04,800
+uh part okay
+
+1077
+00:46:05,680 --> 00:46:15,040
+okay so yeah i'm trying to
+
+1078
+00:46:09,119 --> 00:46:18,160
+okay so call it do it
+
+1079
+00:46:15,040 --> 00:46:23,200
+it worked no
+
+1080
+00:46:18,160 --> 00:46:23,200
+no it also grabbed the example part
+
+1081
+00:46:24,000 --> 00:46:29,599
+okay so we so what it grabbed is
+
+1082
+00:46:27,040 --> 00:46:31,839
+this whole thing which is not what we
+
+1083
+00:46:29,599 --> 00:46:34,640
+want okay so there's some
+
+1084
+00:46:31,839 --> 00:46:34,640
+error here
+
+1085
+00:46:35,359 --> 00:46:39,440
+this is a search regular expression
+
+1086
+00:46:38,400 --> 00:46:42,640
+search for
+
+1087
+00:46:39,440 --> 00:46:45,119
+space or
+
+1088
+00:46:42,640 --> 00:46:46,240
+for simplicity let's just say space okay
+
+1089
+00:46:45,119 --> 00:46:49,119
+oh oh oh
+
+1090
+00:46:46,240 --> 00:46:50,400
+here is the what's wrong okay we got
+
+1091
+00:46:49,119 --> 00:46:53,599
+this line we don't want
+
+1092
+00:46:50,400 --> 00:46:56,640
+okay so again
+
+1093
+00:46:53,599 --> 00:46:58,800
+about the buffer try it again call it do
+
+1094
+00:46:56,640 --> 00:46:58,800
+it
+
+1095
+00:46:59,200 --> 00:47:05,760
+nah now it grabs the
+
+1096
+00:47:02,720 --> 00:47:06,720
+okay now it grabs the two right
+
+1097
+00:47:05,760 --> 00:47:10,079
+parenthesis
+
+1098
+00:47:06,720 --> 00:47:12,319
+okay what's going on uh space
+
+1099
+00:47:10,079 --> 00:47:12,319
+or
+
+1100
+00:47:13,119 --> 00:47:16,720
+ah let's just do simple ones search
+
+1101
+00:47:15,040 --> 00:47:19,920
+forward okay
+
+1102
+00:47:16,720 --> 00:47:21,280
+search forward by space okay comment
+
+1103
+00:47:19,920 --> 00:47:23,599
+this up
+
+1104
+00:47:21,280 --> 00:47:26,319
+okay we are assuming we're gonna have a
+
+1105
+00:47:23,599 --> 00:47:26,319
+space here
+
+1106
+00:47:27,119 --> 00:47:30,800
+sim okay let's you know so okay evaluate
+
+1107
+00:47:30,160 --> 00:47:34,000
+the buffer
+
+1108
+00:47:30,800 --> 00:47:34,800
+put the cruiser here call it do it there
+
+1109
+00:47:34,000 --> 00:47:38,319
+we go
+
+1110
+00:47:34,800 --> 00:47:41,440
+we got the you know 11.41
+
+1111
+00:47:38,319 --> 00:47:45,040
+now why do i first about these things
+
+1112
+00:47:41,440 --> 00:47:47,280
+before because because if you just have
+
+1113
+00:47:45,040 --> 00:47:49,839
+for example if you just have that online
+
+1114
+00:47:47,280 --> 00:47:52,880
+by itself there's no space afterward
+
+1115
+00:47:49,839 --> 00:47:53,839
+you know turn on show space mod so
+
+1116
+00:47:52,880 --> 00:47:56,720
+there's no space
+
+1117
+00:47:53,839 --> 00:47:57,280
+then your code will not work that is why
+
+1118
+00:47:56,720 --> 00:48:00,000
+i was
+
+1119
+00:47:57,280 --> 00:48:01,680
+you know first thing about you know
+
+1120
+00:48:00,000 --> 00:48:04,079
+tricking it so it works
+
+1121
+00:48:01,680 --> 00:48:07,839
+well but for now let's not worry about
+
+1122
+00:48:04,079 --> 00:48:07,839
+it turn off space okay
+
+1123
+00:48:08,960 --> 00:48:12,079
+so let's continue okay so let's continue
+
+1124
+00:48:11,119 --> 00:48:15,280
+so once we got
+
+1125
+00:48:12,079 --> 00:48:18,000
+so so far so good so so far so good now
+
+1126
+00:48:15,280 --> 00:48:19,440
+now let's go back to our code now we
+
+1127
+00:48:18,000 --> 00:48:21,760
+don't need this anymore
+
+1128
+00:48:19,440 --> 00:48:22,559
+delete it okay let's leave it okay
+
+1129
+00:48:21,760 --> 00:48:25,680
+actually
+
+1130
+00:48:22,559 --> 00:48:27,680
+leave it so other people can see what we
+
+1131
+00:48:25,680 --> 00:48:30,559
+tried
+
+1132
+00:48:27,680 --> 00:48:32,960
+so now we got the word now we want to
+
+1133
+00:48:30,559 --> 00:48:35,839
+check if the word contains colon okay
+
+1134
+00:48:32,960 --> 00:48:35,839
+if
+
+1135
+00:48:36,319 --> 00:48:39,040
+string match
+
+1136
+00:48:41,040 --> 00:48:49,839
+colon and our string is word
+
+1137
+00:48:45,599 --> 00:48:54,000
+x okay so if that is true
+
+1138
+00:48:49,839 --> 00:48:55,040
+then then we want to convert the mini
+
+1139
+00:48:54,000 --> 00:48:58,640
+second format
+
+1140
+00:48:55,040 --> 00:49:00,960
+to the to the seconds format otherwise
+
+1141
+00:48:58,640 --> 00:49:02,000
+otherwise this code will work okay
+
+1142
+00:49:00,960 --> 00:49:05,920
+otherwise run this
+
+1143
+00:49:02,000 --> 00:49:08,480
+code okay so let's put that there okay
+
+1144
+00:49:05,920 --> 00:49:08,480
+pretty fine
+
+1145
+00:49:11,680 --> 00:49:16,000
+okay so for now so okay so now but what
+
+1146
+00:49:14,240 --> 00:49:18,720
+if it's a
+
+1147
+00:49:16,000 --> 00:49:21,760
+so how do you do that so so here we need
+
+1148
+00:49:18,720 --> 00:49:25,359
+to convert mini second format to
+
+1149
+00:49:21,760 --> 00:49:27,200
+two seconds to all seconds so let's code
+
+1150
+00:49:25,359 --> 00:49:31,839
+fast let's just do this
+
+1151
+00:49:27,200 --> 00:49:31,839
+so so split string
+
+1152
+00:49:32,160 --> 00:49:38,160
+speedy string word x
+
+1153
+00:49:36,319 --> 00:49:40,480
+let's see the documentation of split
+
+1154
+00:49:38,160 --> 00:49:40,480
+string
+
+1155
+00:49:41,119 --> 00:49:46,880
+it returns a
+
+1156
+00:49:44,720 --> 00:49:51,119
+split string into substrings bounded by
+
+1157
+00:49:46,880 --> 00:49:51,119
+match okay it returns the least i think
+
+1158
+00:49:52,880 --> 00:50:03,280
+okay let's do this fast okay
+
+1159
+00:49:59,760 --> 00:50:06,880
+uh let's just say this text okay
+
+1160
+00:50:03,280 --> 00:50:10,559
+add a variable split string
+
+1161
+00:50:06,880 --> 00:50:12,720
+set this x split string
+
+1162
+00:50:10,559 --> 00:50:13,680
+separator oh yeah we need separators
+
+1163
+00:50:12,720 --> 00:50:17,920
+okay
+
+1164
+00:50:13,680 --> 00:50:19,760
+separators will be comma okay amid noise
+
+1165
+00:50:17,920 --> 00:50:21,200
+uh don't no it's not we don't worry
+
+1166
+00:50:19,760 --> 00:50:24,839
+about that
+
+1167
+00:50:21,200 --> 00:50:26,079
+so put it here so first of all we split
+
+1168
+00:50:24,839 --> 00:50:30,400
+string
+
+1169
+00:50:26,079 --> 00:50:33,599
+then then we have two parts okay so
+
+1170
+00:50:30,400 --> 00:50:33,599
+so the first element
+
+1171
+00:50:37,680 --> 00:50:44,559
+so how do you get the element of
+
+1172
+00:50:40,960 --> 00:50:47,839
+a at least the nth okay
+
+1173
+00:50:44,559 --> 00:50:50,559
+nth zero
+
+1174
+00:50:47,839 --> 00:50:50,559
+list x
+
+1175
+00:50:51,359 --> 00:50:56,640
+okay let's use a let okay let
+
+1176
+00:51:00,319 --> 00:51:04,400
+okay yeah
+
+1177
+00:51:07,040 --> 00:51:09,839
+set
+
+1178
+00:51:11,440 --> 00:51:17,440
+minute x equals to that
+
+1179
+00:51:15,040 --> 00:51:17,440
+okay
+
+1180
+00:51:19,520 --> 00:51:28,000
+then set
+
+1181
+00:51:23,200 --> 00:51:28,000
+six seconds to
+
+1182
+00:51:28,079 --> 00:51:34,079
+nth first element which is also the last
+
+1183
+00:51:31,599 --> 00:51:34,079
+element
+
+1184
+00:51:34,800 --> 00:51:39,440
+okay so we got minute a second then
+
+1185
+00:51:39,680 --> 00:51:42,640
+then multiply
+
+1186
+00:51:43,119 --> 00:51:50,160
+minute by 60 then add
+
+1187
+00:51:46,960 --> 00:51:53,680
+so this is where the parenthesis
+
+1188
+00:51:50,160 --> 00:51:54,640
+syntax is painful okay can you guys see
+
+1189
+00:51:53,680 --> 00:52:05,839
+this okay
+
+1190
+00:51:54,640 --> 00:52:05,839
+i guess now you can
+
+1191
+00:52:06,079 --> 00:52:10,480
+okay so that's your total number of
+
+1192
+00:52:08,000 --> 00:52:10,480
+seconds
+
+1193
+00:52:16,839 --> 00:52:23,119
+then
+
+1194
+00:52:18,800 --> 00:52:27,760
+okay then delete region p1 p2
+
+1195
+00:52:23,119 --> 00:52:27,760
+then insert format
+
+1196
+00:52:27,920 --> 00:52:36,240
+that okay i think that's uh that's it
+
+1197
+00:52:33,520 --> 00:52:36,720
+yeah i don't know uh i don't i don't
+
+1198
+00:52:36,240 --> 00:52:40,160
+know
+
+1199
+00:52:36,720 --> 00:52:43,680
+for certain let's hope
+
+1200
+00:52:40,160 --> 00:52:47,839
+shrink let's
+
+1201
+00:52:43,680 --> 00:52:47,839
+uh let's remove this okay
+
+1202
+00:52:49,680 --> 00:52:54,319
+okay now now that's uh that's our code
+
+1203
+00:52:52,079 --> 00:52:57,040
+okay
+
+1204
+00:52:54,319 --> 00:52:59,520
+let's hope it works evaluate now first
+
+1205
+00:52:57,040 --> 00:53:01,920
+of all let's try working on the 17
+
+1206
+00:52:59,520 --> 00:53:04,079
+to see the old behavior still works call
+
+1207
+00:53:01,920 --> 00:53:04,079
+it
+
+1208
+00:53:04,160 --> 00:53:11,200
+fantastic 110. now let's try this
+
+1209
+00:53:07,240 --> 00:53:15,599
+1141 it should return 701
+
+1210
+00:53:11,200 --> 00:53:18,240
+okay try it
+
+1211
+00:53:15,599 --> 00:53:19,040
+oops wrong argument type number two or
+
+1212
+00:53:18,240 --> 00:53:21,359
+mark p
+
+1213
+00:53:19,040 --> 00:53:21,359
+here
+
+1214
+00:53:23,680 --> 00:53:27,359
+oh yeah because remember we don't we
+
+1215
+00:53:25,520 --> 00:53:28,800
+have the space problem so let's try it
+
+1216
+00:53:27,359 --> 00:53:32,079
+over here okay
+
+1217
+00:53:28,800 --> 00:53:34,960
+do it okay
+
+1218
+00:53:32,079 --> 00:53:37,760
+uh number mark p wrong argument okay so
+
+1219
+00:53:34,960 --> 00:53:37,760
+what's going on
+
+1220
+00:53:39,839 --> 00:53:44,720
+wrong type argument number or mark 11.
+
+1221
+00:53:46,319 --> 00:53:48,800
+undo
+
+1222
+00:53:52,319 --> 00:54:11,839
+so what the split string returns okay so
+
+1223
+00:53:56,400 --> 00:54:11,839
+we are almost done
+
+1224
+00:54:30,079 --> 00:54:36,640
+yeah so it returns at least okay
+
+1225
+00:54:33,359 --> 00:54:40,960
+so because it says there
+
+1226
+00:54:36,640 --> 00:54:44,400
+so it returns the list what about nth
+
+1227
+00:54:40,960 --> 00:54:48,160
+nth returns the nth element that's right
+
+1228
+00:54:44,400 --> 00:54:48,160
+so minutes is the
+
+1229
+00:54:48,319 --> 00:55:07,839
+the zeroth element so split string
+
+1230
+00:54:52,480 --> 00:55:07,839
+let's let's just print okay let's
+
+1231
+00:55:17,440 --> 00:55:24,400
+let's debug so these prints are debugged
+
+1232
+00:55:20,960 --> 00:55:28,319
+so let's evaluate the code
+
+1233
+00:55:24,400 --> 00:55:31,520
+show the message buffer call the command
+
+1234
+00:55:28,319 --> 00:55:35,440
+on that so we got
+
+1235
+00:55:31,520 --> 00:55:37,119
+minute 11 second 41 okay we got the
+
+1236
+00:55:35,440 --> 00:55:39,680
+input correctly we
+
+1237
+00:55:37,119 --> 00:55:40,720
+grabbed them correctly so something
+
+1238
+00:55:39,680 --> 00:55:44,400
+wrong about
+
+1239
+00:55:40,720 --> 00:55:45,200
+the output i mean something wrong after
+
+1240
+00:55:44,400 --> 00:55:49,920
+that
+
+1241
+00:55:45,200 --> 00:55:53,599
+so so far so good delete region p1 p2
+
+1242
+00:55:49,920 --> 00:55:54,160
+it should be good then the format part
+
+1243
+00:55:53,599 --> 00:55:58,319
+is
+
+1244
+00:55:54,160 --> 00:55:58,319
+wrong okay i believe
+
+1245
+00:56:01,440 --> 00:56:09,680
+run type argument number or marker 11
+
+1246
+00:56:06,400 --> 00:56:13,920
+so 11 is the minute part
+
+1247
+00:56:09,680 --> 00:56:16,640
+so oh yeah so so the minute part
+
+1248
+00:56:13,920 --> 00:56:19,839
+that's right it needs to be a number but
+
+1249
+00:56:16,640 --> 00:56:21,920
+however what we have here is a string
+
+1250
+00:56:19,839 --> 00:56:22,880
+so we need to we forgot to convert
+
+1251
+00:56:21,920 --> 00:56:26,480
+string to number
+
+1252
+00:56:22,880 --> 00:56:26,480
+okay so here
+
+1253
+00:56:28,000 --> 00:56:31,040
+we need we just need add string to
+
+1254
+00:56:30,000 --> 00:56:34,400
+number okay
+
+1255
+00:56:31,040 --> 00:56:34,400
+that's what we need to add
+
+1256
+00:56:35,359 --> 00:56:40,400
+and same thing for here string two
+
+1257
+00:56:37,920 --> 00:56:40,400
+number
+
+1258
+00:56:41,280 --> 00:56:48,160
+okay then we don't need the comments
+
+1259
+00:56:45,359 --> 00:56:48,160
+anymore do it
+
+1260
+00:56:48,400 --> 00:56:51,280
+eva buffer
+
+1261
+00:56:52,960 --> 00:57:00,000
+put a cursor on this over here
+
+1262
+00:56:56,640 --> 00:57:03,040
+call the command do it fantastic
+
+1263
+00:57:00,000 --> 00:57:03,040
+seven zero one
+
+1264
+00:57:03,200 --> 00:57:07,119
+and let's call it again okay let's call
+
+1265
+00:57:04,960 --> 00:57:10,319
+it again so that it convert back to
+
+1266
+00:57:07,119 --> 00:57:15,760
+11 41. do it again
+
+1267
+00:57:10,319 --> 00:57:15,760
+oh fantastic complete mission complete
+
+1268
+00:57:16,000 --> 00:57:21,040
+now of course we can clean it up so we
+
+1269
+00:57:18,319 --> 00:57:24,799
+we can cover situations where
+
+1270
+00:57:21,040 --> 00:57:26,240
+when you have you know that by a line by
+
+1271
+00:57:24,799 --> 00:57:28,640
+itself uh yeah
+
+1272
+00:57:26,240 --> 00:57:30,799
+in fact i think this should work i don't
+
+1273
+00:57:28,640 --> 00:57:33,920
+know let's just
+
+1274
+00:57:30,799 --> 00:57:36,559
+call it do it no
+
+1275
+00:57:33,920 --> 00:57:41,839
+it doesn't work so search for what let's
+
+1276
+00:57:36,559 --> 00:57:41,839
+see if search for word
+
+1277
+00:57:42,799 --> 00:57:46,240
+regular expression search for what i
+
+1278
+00:57:44,480 --> 00:57:48,799
+don't know why that that's not working
+
+1279
+00:57:46,240 --> 00:57:50,480
+but anyway we we have the
+
+1280
+00:57:48,799 --> 00:57:55,839
+let's read the comments and maybe that's
+
+1281
+00:57:50,480 --> 00:57:55,839
+it for today
+
+1282
+00:57:58,079 --> 00:58:01,280
+get line get paragraph uh what are the
+
+1283
+00:58:00,640 --> 00:58:03,200
+there
+
+1284
+00:58:01,280 --> 00:58:04,960
+are there so dion says are there no
+
+1285
+00:58:03,200 --> 00:58:08,160
+building functions for get what
+
+1286
+00:58:04,960 --> 00:58:10,799
+yeah we okay you are late dion we
+
+1287
+00:58:08,160 --> 00:58:11,680
+have we we talked about that before that
+
+1288
+00:58:10,799 --> 00:58:13,680
+is
+
+1289
+00:58:11,680 --> 00:58:15,440
+there are two you know if you you know
+
+1290
+00:58:13,680 --> 00:58:18,160
+watch the video so there are two
+
+1291
+00:58:15,440 --> 00:58:19,440
+building ways one is current word you
+
+1292
+00:58:18,160 --> 00:58:22,640
+know the function named
+
+1293
+00:58:19,440 --> 00:58:24,240
+current dash word
+
+1294
+00:58:22,640 --> 00:58:26,240
+that gets you the current word under
+
+1295
+00:58:24,240 --> 00:58:29,520
+cruiser and another way
+
+1296
+00:58:26,240 --> 00:58:31,520
+is thing at point however
+
+1297
+00:58:29,520 --> 00:58:32,880
+we cannot use those because we cannot
+
+1298
+00:58:31,520 --> 00:58:35,680
+use current word because
+
+1299
+00:58:32,880 --> 00:58:36,160
+two problems one we need the boundary
+
+1300
+00:58:35,680 --> 00:58:38,000
+okay
+
+1301
+00:58:36,160 --> 00:58:39,839
+we need the beginning position and end
+
+1302
+00:58:38,000 --> 00:58:42,079
+position because we need to delete the
+
+1303
+00:58:39,839 --> 00:58:42,079
+word
+
+1304
+00:58:42,480 --> 00:58:47,359
+you know we we you know we not just only
+
+1305
+00:58:45,280 --> 00:58:49,839
+need the word we also need the position
+
+1306
+00:58:47,359 --> 00:58:51,760
+because then we need to delete them you
+
+1307
+00:58:49,839 --> 00:58:53,760
+know replace it delete region
+
+1308
+00:58:51,760 --> 00:58:55,680
+so we need the boundary therefore we
+
+1309
+00:58:53,760 --> 00:58:58,720
+cannot use current word
+
+1310
+00:58:55,680 --> 00:58:59,040
+now but we can use thing at point you
+
+1311
+00:58:58,720 --> 00:59:01,200
+know
+
+1312
+00:58:59,040 --> 00:59:02,559
+we we i you know we talked about this in
+
+1313
+00:59:01,200 --> 00:59:04,160
+the beginning of the video thing at
+
+1314
+00:59:02,559 --> 00:59:06,400
+point we we tried everything
+
+1315
+00:59:04,160 --> 00:59:08,400
+thinking a point that gets you the
+
+1316
+00:59:06,400 --> 00:59:10,079
+boundary but there's a problem about the
+
+1317
+00:59:08,400 --> 00:59:13,359
+syntax table because it does
+
+1318
+00:59:10,079 --> 00:59:16,799
+it does not consider colon
+
+1319
+00:59:13,359 --> 00:59:19,839
+you know as part of a word so it will
+
+1320
+00:59:16,799 --> 00:59:22,319
+only get 41 or only get 11 you know so
+
+1321
+00:59:19,839 --> 00:59:24,079
+so we have to code our own manually okay
+
+1322
+00:59:22,319 --> 00:59:28,480
+that's it for today
+
+1323
+00:59:24,079 --> 00:59:28,480
+thank you uh yeah thank you guys um
+
+1324
+00:59:28,799 --> 00:59:32,319
+well if you like my emacs tutorial you
+
+1325
+00:59:30,960 --> 00:59:36,000
+can buy it you know support
+
+1326
+00:59:32,319 --> 00:59:39,599
+sponsor me for my you know trouble
+
+1327
+00:59:36,000 --> 00:59:41,599
+uh emacs tutorial you go there and uh
+
+1328
+00:59:39,599 --> 00:59:43,200
+you know you can easily find my where
+
+1329
+00:59:41,599 --> 00:59:46,000
+you where you pay
+
+1330
+00:59:43,200 --> 00:59:46,960
+okay so buy my mac tutorial or you can
+
+1331
+00:59:46,000 --> 00:59:50,720
+paypal me
+
+1332
+00:59:46,960 --> 00:59:50,720
+amazon gift me or patreon
+
+1333
+00:59:52,880 --> 01:00:02,960
+uh not no not uh yeah so um
+
+1334
+01:00:00,160 --> 01:00:03,680
+okay so dion's question so not get what
+
+1335
+01:00:02,960 --> 01:00:05,920
+okay
+
+1336
+01:00:03,680 --> 01:00:06,960
+you know actually you you should look
+
+1337
+01:00:05,920 --> 01:00:09,280
+you know
+
+1338
+01:00:06,960 --> 01:00:10,720
+uh watch this video because we we we
+
+1339
+01:00:09,280 --> 01:00:13,520
+spent like 10 minutes
+
+1340
+01:00:10,720 --> 01:00:14,079
+on those the function name is let me
+
+1341
+01:00:13,520 --> 01:00:17,280
+just type
+
+1342
+01:00:14,079 --> 01:00:19,520
+it okay here's a function okay
+
+1343
+01:00:17,280 --> 01:00:22,160
+current word that grabs the word under
+
+1344
+01:00:19,520 --> 01:00:25,119
+cursor but however it doesn't give you
+
+1345
+01:00:22,160 --> 01:00:26,559
+the boundary positions also it doesn't
+
+1346
+01:00:25,119 --> 01:00:29,599
+deal with the colon sign
+
+1347
+01:00:26,559 --> 01:00:32,640
+so we cannot use that the other thing
+
+1348
+01:00:29,599 --> 01:00:34,160
+is thing at point okay so that's a
+
+1349
+01:00:32,640 --> 01:00:36,480
+function name
+
+1350
+01:00:34,160 --> 01:00:39,200
+so you can say thing at point what it
+
+1351
+01:00:36,480 --> 01:00:41,599
+has the same problem with current word
+
+1352
+01:00:39,200 --> 01:00:42,720
+and however if you want boundary what
+
+1353
+01:00:41,599 --> 01:00:45,520
+you say is
+
+1354
+01:00:42,720 --> 01:00:47,599
+bounds of thing at point okay that's a
+
+1355
+01:00:45,520 --> 01:00:51,040
+function
+
+1356
+01:00:47,599 --> 01:00:53,839
+and this version returns the boundary
+
+1357
+01:00:51,040 --> 01:00:55,760
+but again it has a problem of not
+
+1358
+01:00:53,839 --> 01:00:59,359
+getting the colon sign
+
+1359
+01:00:55,760 --> 01:01:02,400
+so so you know actually i i talked
+
+1360
+01:00:59,359 --> 01:01:04,880
+for 20 minutes about emac this syntax
+
+1361
+01:01:02,400 --> 01:01:07,839
+table it has to do with emac this
+
+1362
+01:01:04,880 --> 01:01:09,200
+syntax table and categorization of
+
+1363
+01:01:07,839 --> 01:01:11,359
+letters okay that's it
+
+1364
+01:01:09,200 --> 01:01:12,799
+thank you guys for watching so today's
+
+1365
+01:01:11,359 --> 01:01:17,200
+opul emacs
+
+1366
+01:01:12,799 --> 01:01:17,200
+uh bye guys yeah
+
+1367
+01:01:19,680 --> 01:01:24,319
+oh 17 people so we have quite a lot of
+
+1368
+01:01:22,319 --> 01:01:25,599
+people today okay so how long have i
+
+1369
+01:01:24,319 --> 01:01:31,839
+been talking
+
+1370
+01:01:25,599 --> 01:01:31,839
+yeah uh one hour okay shut down bye guys
+

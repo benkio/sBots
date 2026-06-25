@@ -1,0 +1,3092 @@
+1
+00:00:00,000 --> 00:00:06,319
+Morning. Welcome to another episode of S
+
+2
+00:00:02,879 --> 00:00:09,920
+talk show. We are going to do I'm going
+
+3
+00:00:06,319 --> 00:00:12,400
+to explain JavaScript object system.
+
+4
+00:00:09,920 --> 00:00:14,799
+Okay. So, can you see my screen? Yes.
+
+5
+00:00:12,400 --> 00:00:18,720
+JavaScript. Okay. So, let's show my
+
+6
+00:00:14,799 --> 00:00:22,960
+page. JavaScript the object system. It
+
+7
+00:00:18,720 --> 00:00:26,880
+is a fantastic wonderful simple system.
+
+8
+00:00:22,960 --> 00:00:29,760
+But however because JavaScript tried to
+
+9
+00:00:26,880 --> 00:00:32,480
+become Java to look like Java and
+
+10
+00:00:29,760 --> 00:00:35,760
+therefore it become completely screwed
+
+11
+00:00:32,480 --> 00:00:39,520
+up and very complex. So you got keywords
+
+12
+00:00:35,760 --> 00:00:42,399
+like new you know new object instance of
+
+13
+00:00:39,520 --> 00:00:45,680
+this keyword prototype property and
+
+14
+00:00:42,399 --> 00:00:48,160
+constructor property
+
+15
+00:00:45,680 --> 00:00:50,879
+uh uh prototype key. Yeah property.
+
+16
+00:00:48,160 --> 00:00:54,399
+Yeah. So it becomes extremely complex to
+
+17
+00:00:50,879 --> 00:00:57,920
+this day. And then in 2015 they created
+
+18
+00:00:54,399 --> 00:01:00,480
+the class keyword which you know they
+
+19
+00:00:57,920 --> 00:01:03,440
+are trying to help the situation but
+
+20
+00:01:00,480 --> 00:01:06,159
+actually completely made it worse. Okay.
+
+21
+00:01:03,440 --> 00:01:08,880
+So that is today's topic. I'm just going
+
+22
+00:01:06,159 --> 00:01:12,960
+uh to explain that. If you are watching
+
+23
+00:01:08,880 --> 00:01:15,680
+this offline play at 1.5 speed because I
+
+24
+00:01:12,960 --> 00:01:19,759
+ramble a lot. Uh if you are watching
+
+25
+00:01:15,680 --> 00:01:24,280
+here live say hi. Hello Sarath.
+
+26
+00:01:19,759 --> 00:01:26,560
+Sarah, is that uh are you a guy or a a
+
+27
+00:01:24,280 --> 00:01:29,880
+girl? Okay, so let's talk about
+
+28
+00:01:26,560 --> 00:01:32,159
+JavaScript. Okay, so JavaScript object
+
+29
+00:01:29,880 --> 00:01:34,840
+system, you know, a short history,
+
+30
+00:01:32,159 --> 00:01:37,520
+JavaScript is created in
+
+31
+00:01:34,840 --> 00:01:41,840
+1995 when I basically when I started
+
+32
+00:01:37,520 --> 00:01:44,720
+coding coding in 1994. Uh okay. So
+
+33
+00:01:41,840 --> 00:01:46,040
+created it. So I watched it grew up
+
+34
+00:01:44,720 --> 00:01:50,000
+along with
+
+35
+00:01:46,040 --> 00:01:54,720
+HTML. JavaScript, Java, Java was also
+
+36
+00:01:50,000 --> 00:01:57,200
+born in 1995, 1994. Java language and
+
+37
+00:01:54,720 --> 00:02:00,240
+Ncap the browser the internet the entire
+
+38
+00:01:57,200 --> 00:02:04,320
+internet grew up uh starting around that
+
+39
+00:02:00,240 --> 00:02:08,560
+time uh and CSS wasn't born yet. CSS
+
+40
+00:02:04,320 --> 00:02:13,200
+cascading stylesheet was born
+
+41
+00:02:08,560 --> 00:02:17,680
+uh around 1997. Okay. And it wasn't it
+
+42
+00:02:13,200 --> 00:02:21,360
+wasn't practical until uh 2002 let's
+
+43
+00:02:17,680 --> 00:02:24,480
+say. So CSS you know so so anyway. So
+
+44
+00:02:21,360 --> 00:02:27,440
+JavaScript object system is very simple.
+
+45
+00:02:24,480 --> 00:02:30,720
+Okay. So it's called prototype based
+
+46
+00:02:27,440 --> 00:02:32,959
+system and it is based on the language
+
+47
+00:02:30,720 --> 00:02:35,599
+is modeled after the language called
+
+48
+00:02:32,959 --> 00:02:38,319
+self. Okay. I don't know that language
+
+49
+00:02:35,599 --> 00:02:40,720
+anyway. So how it works? What it is is
+
+50
+00:02:38,319 --> 00:02:44,640
+that you have a object. So first of all
+
+51
+00:02:40,720 --> 00:02:47,760
+what is object? What object is uh kind
+
+52
+00:02:44,640 --> 00:02:52,640
+of like Python's dictionary or Ruby's
+
+53
+00:02:47,760 --> 00:02:55,120
+hasht or JavaS map object or uh you know
+
+54
+00:02:52,640 --> 00:02:58,239
+so it's also known as dictionary hasht
+
+55
+00:02:55,120 --> 00:03:01,120
+or map sometimes known as association
+
+56
+00:02:58,239 --> 00:03:04,000
+list. Basically it's a collection of
+
+57
+00:03:01,120 --> 00:03:07,599
+items. Each item is a pair a key and
+
+58
+00:03:04,000 --> 00:03:10,959
+value. Okay. And this this pair is
+
+59
+00:03:07,599 --> 00:03:16,480
+called property. So again in JavaScript
+
+60
+00:03:10,959 --> 00:03:19,200
+a object is a collection of properties.
+
+61
+00:03:16,480 --> 00:03:20,920
+Each property is a key and pair a key
+
+62
+00:03:19,200 --> 00:03:24,560
+and value pair.
+
+63
+00:03:20,920 --> 00:03:27,440
+Okay. So that is object. So you you know
+
+64
+00:03:24,560 --> 00:03:30,640
+if you code in uh Python it's you can
+
+65
+00:03:27,440 --> 00:03:33,360
+think of it as a dictionary. Okay. So
+
+66
+00:03:30,640 --> 00:03:37,440
+JavaScript object is kind of like
+
+67
+00:03:33,360 --> 00:03:41,599
+Python's dictionary collection of pairs.
+
+68
+00:03:37,440 --> 00:03:44,239
+Now um now but however in JavaScript you
+
+69
+00:03:41,599 --> 00:03:48,480
+have the prototype based object system
+
+70
+00:03:44,239 --> 00:03:51,440
+meaning that every object any object may
+
+71
+00:03:48,480 --> 00:03:53,680
+have a parent associated parent. Okay.
+
+72
+00:03:51,440 --> 00:03:55,599
+So you got one object it may have a
+
+73
+00:03:53,680 --> 00:03:58,000
+parent. So this is a daddy of that
+
+74
+00:03:55,599 --> 00:04:00,400
+object and that object can also have a
+
+75
+00:03:58,000 --> 00:04:03,920
+parent. So you got the daddy you know
+
+76
+00:04:00,400 --> 00:04:05,920
+like ancestry you know chains of dead
+
+77
+00:04:03,920 --> 00:04:08,640
+daddies. By the way, this is called
+
+78
+00:04:05,920 --> 00:04:12,000
+prototype chain. Okay. So anyway, any
+
+79
+00:04:08,640 --> 00:04:14,159
+object can have a parent, a dad, and
+
+80
+00:04:12,000 --> 00:04:17,880
+that object can also have a that and so
+
+81
+00:04:14,159 --> 00:04:20,880
+on until then you have the root
+
+82
+00:04:17,880 --> 00:04:23,199
+object. But it is not necessary every
+
+83
+00:04:20,880 --> 00:04:25,520
+object always have one parent. Okay?
+
+84
+00:04:23,199 --> 00:04:28,000
+Some you can create object that has no
+
+85
+00:04:25,520 --> 00:04:30,960
+parent at all. So for example, the root
+
+86
+00:04:28,000 --> 00:04:33,759
+object no doesn't have any parent. So
+
+87
+00:04:30,960 --> 00:04:36,240
+JavaScript in JavaScript objects may
+
+88
+00:04:33,759 --> 00:04:38,320
+have a parent. Okay. And only one
+
+89
+00:04:36,240 --> 00:04:41,360
+parent, you know, dad or, you know, call
+
+90
+00:04:38,320 --> 00:04:46,000
+it mom. So only one parent. So you got
+
+91
+00:04:41,360 --> 00:04:48,960
+kind of the object tree. Okay. So and
+
+92
+00:04:46,000 --> 00:04:51,600
+anytime you can change you can you can
+
+93
+00:04:48,960 --> 00:04:53,680
+set the parent to be some other object.
+
+94
+00:04:51,600 --> 00:04:56,160
+You can do that anytime or when you
+
+95
+00:04:53,680 --> 00:04:59,440
+create object you can say okay I'm
+
+96
+00:04:56,160 --> 00:05:02,000
+creating object and this other object is
+
+97
+00:04:59,440 --> 00:05:04,240
+my parent. You can specify that when you
+
+98
+00:05:02,000 --> 00:05:07,440
+create object. Okay? Or you can change
+
+99
+00:05:04,240 --> 00:05:10,720
+it anytime anytime you want and anytime
+
+100
+00:05:07,440 --> 00:05:13,240
+you can add a property you know remember
+
+101
+00:05:10,720 --> 00:05:16,160
+object is a collection of key value
+
+102
+00:05:13,240 --> 00:05:19,199
+pairs. Each key value is called a
+
+103
+00:05:16,160 --> 00:05:22,000
+property. So at any time object has lots
+
+104
+00:05:19,199 --> 00:05:25,759
+of properties you can add at any time or
+
+105
+00:05:22,000 --> 00:05:29,199
+remove it. Okay. So very simple. So you
+
+106
+00:05:25,759 --> 00:05:32,320
+have uh functions to change the parents
+
+107
+00:05:29,199 --> 00:05:35,199
+or create a object when you specify a
+
+108
+00:05:32,320 --> 00:05:37,680
+parent. You can add properties or you
+
+109
+00:05:35,199 --> 00:05:40,400
+can remove properties all very simple
+
+110
+00:05:37,680 --> 00:05:42,240
+and function and works. Okay. So if you
+
+111
+00:05:40,400 --> 00:05:45,600
+want to understand that by the way I
+
+112
+00:05:42,240 --> 00:05:49,759
+have a JavaScript inepth tutorial
+
+113
+00:05:45,600 --> 00:05:53,199
+written um written starting in 2005. So
+
+114
+00:05:49,759 --> 00:05:56,520
+that's like 20 20 years ago. Uh so I
+
+115
+00:05:53,199 --> 00:05:59,520
+read the spec version of spec I spend
+
+116
+00:05:56,520 --> 00:06:03,440
+like a lot of time writing this okay
+
+117
+00:05:59,520 --> 00:06:06,240
+JavaScript in depth and uh so if you
+
+118
+00:06:03,440 --> 00:06:09,440
+want to understand the prototype based
+
+119
+00:06:06,240 --> 00:06:12,440
+object system in JavaScript you can
+
+120
+00:06:09,440 --> 00:06:15,479
+there's a section okay prototype and
+
+121
+00:06:12,440 --> 00:06:18,720
+inheritance okay very
+
+122
+00:06:15,479 --> 00:06:21,440
+simple so you can you know you can you
+
+123
+00:06:18,720 --> 00:06:23,840
+know you can the prototype chain you
+
+124
+00:06:21,440 --> 00:06:26,960
+know you know parent of object and the
+
+125
+00:06:23,840 --> 00:06:30,560
+parent of that object and uh you know
+
+126
+00:06:26,960 --> 00:06:32,560
+and you can you can query what is the
+
+127
+00:06:30,560 --> 00:06:34,880
+parent of this object you know get the
+
+128
+00:06:32,560 --> 00:06:37,120
+parent or you can set the parent change
+
+129
+00:06:34,880 --> 00:06:40,960
+the parent to be some some other object
+
+130
+00:06:37,120 --> 00:06:43,600
+okay uh so anyway anyway so very simple
+
+131
+00:06:40,960 --> 00:06:46,319
+okay or or when you create object you
+
+132
+00:06:43,600 --> 00:06:48,880
+can say you know my parent is this this
+
+133
+00:06:46,319 --> 00:06:52,240
+is how you do it you know object equals
+
+134
+00:06:48,880 --> 00:06:55,280
+to objectreate and you specify a parent.
+
+135
+00:06:52,240 --> 00:06:57,840
+Okay, that's how you create a parent.
+
+136
+00:06:55,280 --> 00:07:00,880
+One of the way to specify a parent
+
+137
+00:06:57,840 --> 00:07:03,280
+object very simple. Okay, so it's
+
+138
+00:07:00,880 --> 00:07:06,840
+fantastic. So that is the basis that's
+
+139
+00:07:03,280 --> 00:07:10,639
+the entire basis of
+
+140
+00:07:06,840 --> 00:07:12,960
+JavaScript object system. Okay, but
+
+141
+00:07:10,639 --> 00:07:15,280
+however that's you know this this is
+
+142
+00:07:12,960 --> 00:07:17,599
+great. This is all you need. In fact to
+
+143
+00:07:15,280 --> 00:07:20,000
+this day today's JavaScript doesn't
+
+144
+00:07:17,599 --> 00:07:22,800
+matter it's a Google Amazon you know any
+
+145
+00:07:20,000 --> 00:07:25,280
+JavaScript you code is based on this
+
+146
+00:07:22,800 --> 00:07:29,759
+prototype based system okay that's all
+
+147
+00:07:25,280 --> 00:07:32,639
+you need create object set parents add
+
+148
+00:07:29,759 --> 00:07:34,520
+properties or remove remove properties
+
+149
+00:07:32,639 --> 00:07:37,520
+okay but
+
+150
+00:07:34,520 --> 00:07:39,479
+however the JavaScript language became
+
+151
+00:07:37,520 --> 00:07:42,639
+much more complex than
+
+152
+00:07:39,479 --> 00:07:44,520
+that so we come down to you know history
+
+153
+00:07:42,639 --> 00:07:48,319
+of JavaScript
+
+154
+00:07:44,520 --> 00:07:50,400
+constructors and class complexity. Now
+
+155
+00:07:48,319 --> 00:07:52,960
+remember before when we talked about the
+
+156
+00:07:50,400 --> 00:07:56,800
+prototype based object system there's no
+
+157
+00:07:52,960 --> 00:07:59,080
+mention of class because there's no such
+
+158
+00:07:56,800 --> 00:08:01,960
+there's no such concept in
+
+159
+00:07:59,080 --> 00:08:05,440
+JavaScript even today there's no such
+
+160
+00:08:01,960 --> 00:08:06,599
+concept okay but however you know back
+
+161
+00:08:05,440 --> 00:08:10,160
+in
+
+162
+00:08:06,599 --> 00:08:14,080
+1995 there is there was this language
+
+163
+00:08:10,160 --> 00:08:18,440
+called Java okay Java is meant to be a
+
+164
+00:08:14,080 --> 00:08:20,960
+competitor with C++ so Java is
+
+165
+00:08:18,440 --> 00:08:24,319
+originally it's a very heavy language
+
+166
+00:08:20,960 --> 00:08:26,639
+you know it's requires a you know like a
+
+167
+00:08:24,319 --> 00:08:29,840
+a real programmer you know you needs to
+
+168
+00:08:26,639 --> 00:08:33,039
+be heavily invested writing originally
+
+169
+00:08:29,840 --> 00:08:36,880
+JavaScript is designed for writing
+
+170
+00:08:33,039 --> 00:08:38,959
+embedded systems such as you know the
+
+171
+00:08:36,880 --> 00:08:43,360
+code in your microwave in your mouse in
+
+172
+00:08:38,959 --> 00:08:45,839
+your keyboard in in TV in anything in in
+
+173
+00:08:43,360 --> 00:08:48,240
+your you know you know or or in space
+
+174
+00:08:45,839 --> 00:08:51,120
+satellite whatever
+
+175
+00:08:48,240 --> 00:08:52,040
+Java. Okay, Java is created created
+
+176
+00:08:51,120 --> 00:08:55,320
+around
+
+177
+00:08:52,040 --> 00:09:00,399
+1995. It's a competitor to
+
+178
+00:08:55,320 --> 00:09:02,959
+C++. So C++ was very popular even today
+
+179
+00:09:00,399 --> 00:09:05,200
+and also back then. So there's new
+
+180
+00:09:02,959 --> 00:09:07,920
+language Java. We're going to challenge
+
+181
+00:09:05,200 --> 00:09:12,279
+C++. We're going to you know and Java
+
+182
+00:09:07,920 --> 00:09:15,279
+Java the slogan was write it once run it
+
+183
+00:09:12,279 --> 00:09:19,200
+everywhere. So anyway that's Java. Okay.
+
+184
+00:09:15,279 --> 00:09:21,920
+So Java was created by the corporation
+
+185
+00:09:19,200 --> 00:09:22,839
+called Sun Micro Systemystems. It was a
+
+186
+00:09:21,920 --> 00:09:26,399
+big
+
+187
+00:09:22,839 --> 00:09:28,880
+corporation. It died in around 2006.
+
+188
+00:09:26,399 --> 00:09:32,880
+Oracle bought it. Any Anyway, that's
+
+189
+00:09:28,880 --> 00:09:36,080
+history. So back in 1995, Semicro
+
+190
+00:09:32,880 --> 00:09:39,760
+Systemystems created Java by the guy
+
+191
+00:09:36,080 --> 00:09:41,760
+named James Goslin. Very interesting guy
+
+192
+00:09:39,760 --> 00:09:45,320
+by the way. He's also one of the
+
+193
+00:09:41,760 --> 00:09:48,640
+original creators of Emacs. Okay, James
+
+194
+00:09:45,320 --> 00:09:52,320
+Gosling his, you know, one of the or
+
+195
+00:09:48,640 --> 00:09:56,519
+original first Emacs is by James Gosling
+
+196
+00:09:52,320 --> 00:10:00,200
+and he accuses Richard Storman stole his
+
+197
+00:09:56,519 --> 00:10:03,040
+code part of it. So James
+
+198
+00:10:00,200 --> 00:10:05,040
+Gosling is the founder I believe he's
+
+199
+00:10:03,040 --> 00:10:08,240
+the founder one of the you know founder
+
+200
+00:10:05,040 --> 00:10:10,160
+of Smicro Systemystems or was it he
+
+201
+00:10:08,240 --> 00:10:14,640
+original founder? I forgot but he's a
+
+202
+00:10:10,160 --> 00:10:17,920
+big you know CEO uh CEO or tech tech guy
+
+203
+00:10:14,640 --> 00:10:20,839
+semicrosystem and he created Java the
+
+204
+00:10:17,920 --> 00:10:25,200
+language okay so it's a Java is this
+
+205
+00:10:20,839 --> 00:10:27,920
+huge language you know so it's for in
+
+206
+00:10:25,200 --> 00:10:31,600
+industry use it's heavy you know heavy
+
+207
+00:10:27,920 --> 00:10:35,360
+uh duty language Java
+
+208
+00:10:31,600 --> 00:10:38,160
+uh so Java you know 1995 some micros
+
+209
+00:10:35,360 --> 00:10:40,160
+system you know trying to advertise it
+
+210
+00:10:38,160 --> 00:10:43,760
+they spend millions, you know, millions
+
+211
+00:10:40,160 --> 00:10:46,480
+of dollars. And then, you know, the web
+
+212
+00:10:43,760 --> 00:10:48,720
+began, you know, the Netscape back then,
+
+213
+00:10:46,480 --> 00:10:51,440
+the the browser, there's only one, like
+
+214
+00:10:48,720 --> 00:10:53,760
+almost only one, Netscape, the browser.
+
+215
+00:10:51,440 --> 00:10:55,600
+So, they collaborated with some micros
+
+216
+00:10:53,760 --> 00:10:57,519
+systemystems. They, you know, they say,
+
+217
+00:10:55,600 --> 00:10:59,519
+why don't you include Java in your
+
+218
+00:10:57,519 --> 00:11:02,480
+browser? Okay. So, they agreed, you
+
+219
+00:10:59,519 --> 00:11:06,000
+know, but then also, but at the time,
+
+220
+00:11:02,480 --> 00:11:07,839
+they also are creating JavaScript. So,
+
+221
+00:11:06,000 --> 00:11:11,279
+so why are you creating JavaScript?
+
+222
+00:11:07,839 --> 00:11:13,040
+Because back then the HTML is static,
+
+223
+00:11:11,279 --> 00:11:15,959
+you know, nothing like today. Today you
+
+224
+00:11:13,040 --> 00:11:18,360
+go to, you know, it's like interactive
+
+225
+00:11:15,959 --> 00:11:22,480
+JavaScript. So back
+
+226
+00:11:18,360 --> 00:11:24,480
+then most HTML are written by like
+
+227
+00:11:22,480 --> 00:11:27,360
+non-coders like you can you just type
+
+228
+00:11:24,480 --> 00:11:28,920
+these tags and showing a website. So
+
+229
+00:11:27,360 --> 00:11:32,000
+they want some kind of
+
+230
+00:11:28,920 --> 00:11:36,959
+interactivity to you know to manipulate
+
+231
+00:11:32,000 --> 00:11:39,680
+you know the HTML so it becomes dynamic.
+
+232
+00:11:36,959 --> 00:11:42,240
+So for example the first thing you can
+
+233
+00:11:39,680 --> 00:11:45,519
+do uh let me show you the first thing in
+
+234
+00:11:42,240 --> 00:11:49,040
+JavaScript that you have is let me show
+
+235
+00:11:45,519 --> 00:11:50,920
+you some example the first few examples
+
+236
+00:11:49,040 --> 00:11:54,360
+in JavaScript.
+
+237
+00:11:50,920 --> 00:11:58,040
+Okay. So, one of them is
+
+238
+00:11:54,360 --> 00:12:01,519
+um is this
+
+239
+00:11:58,040 --> 00:12:04,480
+uh image row over. Okay. So, do I have
+
+240
+00:12:01,519 --> 00:12:06,959
+that somewhere here? There you see
+
+241
+00:12:04,480 --> 00:12:09,519
+that's a image you mouse over it becomes
+
+242
+00:12:06,959 --> 00:12:13,519
+different background. That's the one of
+
+243
+00:12:09,519 --> 00:12:16,240
+the first JavaScript made thing uh back
+
+244
+00:12:13,519 --> 00:12:20,160
+in n late 1990s. Okay. It's like
+
+245
+00:12:16,240 --> 00:12:23,120
+everywhere. The other very popular thing
+
+246
+00:12:20,160 --> 00:12:25,120
+so that's dynamic HTML you see without
+
+247
+00:12:23,120 --> 00:12:28,800
+JavaScript without you know with just
+
+248
+00:12:25,120 --> 00:12:31,120
+HTML you cannot have like this you can
+
+249
+00:12:28,800 --> 00:12:34,240
+but then you you send it to server is
+
+250
+00:12:31,120 --> 00:12:36,880
+you know too slow so image rollover is
+
+251
+00:12:34,240 --> 00:12:38,440
+one of the first thing in JavaScript you
+
+252
+00:12:36,880 --> 00:12:41,920
+know kind of the
+
+253
+00:12:38,440 --> 00:12:43,920
+effect and the other thing is this uh
+
+254
+00:12:41,920 --> 00:12:46,320
+raining effect. Okay. So, let me show
+
+255
+00:12:43,920 --> 00:12:46,320
+you.
+
+256
+00:12:46,839 --> 00:12:52,880
+Um, so boom image roll over. Okay.
+
+257
+00:12:50,240 --> 00:12:54,760
+Stopwatch uh fader elements snowing
+
+258
+00:12:52,880 --> 00:12:57,440
+effect. Okay. Like
+
+259
+00:12:54,760 --> 00:12:59,440
+that. So, you see all these things
+
+260
+00:12:57,440 --> 00:13:02,800
+falling down. So, this is around year
+
+261
+00:12:59,440 --> 00:13:06,720
+2000. You'll see you know some website
+
+262
+00:13:02,800 --> 00:13:08,720
+have this uh so this is JavaScript you
+
+263
+00:13:06,720 --> 00:13:11,360
+know that that's like the cutting edge
+
+264
+00:13:08,720 --> 00:13:14,920
+back at the time. So anyway, JavaScript
+
+265
+00:13:11,360 --> 00:13:19,680
+was created to be
+
+266
+00:13:14,920 --> 00:13:22,399
+um to be to allow HTML to be dynamic and
+
+267
+00:13:19,680 --> 00:13:25,120
+it's supposed to be a simple scripting
+
+268
+00:13:22,399 --> 00:13:28,160
+language for those people who just write
+
+269
+00:13:25,120 --> 00:13:30,560
+simple HTML. They are not really most of
+
+270
+00:13:28,160 --> 00:13:33,040
+them are not professional programmers
+
+271
+00:13:30,560 --> 00:13:35,920
+back then. They are called web monkeys.
+
+272
+00:13:33,040 --> 00:13:39,040
+Okay, web monkeys like they know some
+
+273
+00:13:35,920 --> 00:13:41,680
+technical you know thing like you know
+
+274
+00:13:39,040 --> 00:13:45,440
+the tag or markup but they are not
+
+275
+00:13:41,680 --> 00:13:46,360
+actually programmers like C or C++ they
+
+276
+00:13:45,440 --> 00:13:50,480
+are more
+
+277
+00:13:46,360 --> 00:13:52,560
+like designers and writers you know they
+
+278
+00:13:50,480 --> 00:13:55,519
+or scientists you know scientists are
+
+279
+00:13:52,560 --> 00:13:58,399
+not programmers at least back then you
+
+280
+00:13:55,519 --> 00:14:01,120
+know scientists they they they you know
+
+281
+00:13:58,399 --> 00:14:02,639
+they research rocket science or physics
+
+282
+00:14:01,120 --> 00:14:04,160
+or mathematicians
+
+283
+00:14:02,639 --> 00:14:06,079
+they don't know how to code you know
+
+284
+00:14:04,160 --> 00:14:10,560
+they don't know how to write you know
+
+285
+00:14:06,079 --> 00:14:12,720
+Java or C++ or C you know so but the web
+
+286
+00:14:10,560 --> 00:14:14,880
+at the time there's a lot scientists and
+
+287
+00:14:12,720 --> 00:14:18,000
+engineers they need to talk so they
+
+288
+00:14:14,880 --> 00:14:20,160
+write HTML you know so you can that's
+
+289
+00:14:18,000 --> 00:14:21,720
+original purpose for scientific
+
+290
+00:14:20,160 --> 00:14:26,720
+communication
+
+291
+00:14:21,720 --> 00:14:29,920
+HTML so anyway 1995 there is this Java
+
+292
+00:14:26,720 --> 00:14:31,519
+programming language going on and then
+
+293
+00:14:29,920 --> 00:14:33,519
+you know they want they they are
+
+294
+00:14:31,519 --> 00:14:36,320
+creating a JavaScript language for the
+
+295
+00:14:33,519 --> 00:14:39,279
+browser so it can be interactive. So
+
+296
+00:14:36,320 --> 00:14:41,399
+Java is a heavyduty programming language
+
+297
+00:14:39,279 --> 00:14:44,600
+competitor to
+
+298
+00:14:41,399 --> 00:14:49,600
+C++. JavaScript is designed to be like
+
+299
+00:14:44,600 --> 00:14:52,000
+easy for nonprogrammers. Okay. So 1995
+
+300
+00:14:49,600 --> 00:14:53,760
+they they you know they collaborated
+
+301
+00:14:52,000 --> 00:14:57,680
+with some micros systemystem to have
+
+302
+00:14:53,760 --> 00:14:59,519
+Java bundled in in browser. So they
+
+303
+00:14:57,680 --> 00:15:02,880
+thought they thought you know it would
+
+304
+00:14:59,519 --> 00:15:05,839
+be a good idea to um make JavaScript
+
+305
+00:15:02,880 --> 00:15:07,839
+look like Java so that you know it feels
+
+306
+00:15:05,839 --> 00:15:11,600
+like they are together you know because
+
+307
+00:15:07,839 --> 00:15:13,800
+JavaScript was originally named Mocha.
+
+308
+00:15:11,600 --> 00:15:16,639
+Then it was named
+
+309
+00:15:13,800 --> 00:15:19,120
+Livcript you know before it was like
+
+310
+00:15:16,639 --> 00:15:23,360
+Livcript is in the in one of the beta
+
+311
+00:15:19,120 --> 00:15:26,000
+version of of Netscape browser. So they
+
+312
+00:15:23,360 --> 00:15:28,320
+wanted them to be kind of similar. So
+
+313
+00:15:26,000 --> 00:15:31,199
+they they they tried you know one of the
+
+314
+00:15:28,320 --> 00:15:34,320
+goal is like you have to make JavaScript
+
+315
+00:15:31,199 --> 00:15:38,000
+look like Java and kind of like you know
+
+316
+00:15:34,320 --> 00:15:41,760
+similar to Java. Okay. So they did that.
+
+317
+00:15:38,000 --> 00:15:42,920
+So that is a big mistake. Okay. Because
+
+318
+00:15:41,760 --> 00:15:46,000
+the
+
+319
+00:15:42,920 --> 00:15:48,639
+JavaScript programming language which is
+
+320
+00:15:46,000 --> 00:15:51,519
+modeled on the self you know programming
+
+321
+00:15:48,639 --> 00:15:53,680
+language you have this prototype object
+
+322
+00:15:51,519 --> 00:15:56,000
+system you know like we talked about
+
+323
+00:15:53,680 --> 00:15:58,880
+object has parents. You can change it
+
+324
+00:15:56,000 --> 00:16:00,880
+anytime, you know, and you have
+
+325
+00:15:58,880 --> 00:16:03,920
+inheritance, meaning that whenever you
+
+326
+00:16:00,880 --> 00:16:06,079
+look up a object's property, if the
+
+327
+00:16:03,920 --> 00:16:08,959
+object doesn't have that property, it'll
+
+328
+00:16:06,079 --> 00:16:11,279
+try to look up that object's parents to
+
+329
+00:16:08,959 --> 00:16:14,160
+see if that has that property. If it
+
+330
+00:16:11,279 --> 00:16:17,040
+does, then it's good. If it doesn't, it
+
+331
+00:16:14,160 --> 00:16:19,279
+tries to look up a that object's parent
+
+332
+00:16:17,040 --> 00:16:22,000
+again to see if that has that property.
+
+333
+00:16:19,279 --> 00:16:25,680
+Okay? Until you reach a parent that has
+
+334
+00:16:22,000 --> 00:16:27,759
+no more parent. Okay? And if you don't
+
+335
+00:16:25,680 --> 00:16:30,160
+if you didn't find any property of that
+
+336
+00:16:27,759 --> 00:16:32,959
+name then you don't have that property
+
+337
+00:16:30,160 --> 00:16:34,959
+otherwise you know it looks up. So this
+
+338
+00:16:32,959 --> 00:16:38,000
+is called inheritance that's what it
+
+339
+00:16:34,959 --> 00:16:42,120
+means okay inheritance. So you got this
+
+340
+00:16:38,000 --> 00:16:47,560
+prototype based system fantastic and
+
+341
+00:16:42,120 --> 00:16:50,320
+simple but Java the language they have a
+
+342
+00:16:47,560 --> 00:16:53,199
+classbased object system. You know this
+
+343
+00:16:50,320 --> 00:16:55,480
+is typically known as objectoriented
+
+344
+00:16:53,199 --> 00:16:58,079
+programming. So when people talk about
+
+345
+00:16:55,480 --> 00:17:03,199
+objectoriented programming they mean
+
+346
+00:16:58,079 --> 00:17:06,400
+Java. Okay that like the JavaS way where
+
+347
+00:17:03,199 --> 00:17:09,799
+you have you know you you write classes
+
+348
+00:17:06,400 --> 00:17:13,039
+that can specifically
+
+349
+00:17:09,799 --> 00:17:16,640
+inherit other classes. Okay that's a bit
+
+350
+00:17:13,039 --> 00:17:18,400
+complex to explain. Uh I'm going to skip
+
+351
+00:17:16,640 --> 00:17:21,280
+it now. Okay. But anyway, you have a
+
+352
+00:17:18,400 --> 00:17:25,520
+class-based system that's Java. And that
+
+353
+00:17:21,280 --> 00:17:27,400
+system is used also in Python, in PHP,
+
+354
+00:17:25,520 --> 00:17:34,039
+in Ruby,
+
+355
+00:17:27,400 --> 00:17:37,840
+um in C++. Okay. So this the so-called
+
+356
+00:17:34,039 --> 00:17:41,360
+objectoriented programming that system
+
+357
+00:17:37,840 --> 00:17:46,559
+is based on the Java is is is is based
+
+358
+00:17:41,360 --> 00:17:51,960
+on the JavaS class system or C++. So,
+
+359
+00:17:46,559 --> 00:17:56,280
+Java, C++, Python, PHP, Ruby, they are
+
+360
+00:17:51,960 --> 00:17:59,760
+all like that. Okay, that is class-based
+
+361
+00:17:56,280 --> 00:18:02,000
+system. But now because marketing they
+
+362
+00:17:59,760 --> 00:18:04,320
+say you need to make JavaScript look
+
+363
+00:18:02,000 --> 00:18:07,919
+like Java. So that becames all the
+
+364
+00:18:04,320 --> 00:18:11,039
+problem. What pro and and what made it
+
+365
+00:18:07,919 --> 00:18:14,600
+worse is that the whole JavaScript the
+
+366
+00:18:11,039 --> 00:18:18,320
+whole JavaScript is created designed
+
+367
+00:18:14,600 --> 00:18:20,480
+implemented in 10 days. Okay. So you
+
+368
+00:18:18,320 --> 00:18:23,120
+only got 10 days to do it and it needs
+
+369
+00:18:20,480 --> 00:18:25,039
+to look like Java although you are like
+
+370
+00:18:23,120 --> 00:18:27,120
+you know you you are not Java but you
+
+371
+00:18:25,039 --> 00:18:29,840
+have to look like Java with the syntax
+
+372
+00:18:27,120 --> 00:18:32,960
+and all that. So that's that creates all
+
+373
+00:18:29,840 --> 00:18:35,799
+the problems. So today when you talk to
+
+374
+00:18:32,960 --> 00:18:38,640
+a JavaScript programmer or if you know
+
+375
+00:18:35,799 --> 00:18:41,480
+JavaScript so every day almost every day
+
+376
+00:18:38,640 --> 00:18:45,520
+you you use the new you know like new
+
+377
+00:18:41,480 --> 00:18:48,320
+keyword instance of this keyword
+
+378
+00:18:45,520 --> 00:18:49,799
+prototype you know something prototype
+
+379
+00:18:48,320 --> 00:18:52,559
+you know and
+
+380
+00:18:49,799 --> 00:18:56,559
+constructor. So this why do we have that
+
+381
+00:18:52,559 --> 00:19:00,000
+that because these are created so that
+
+382
+00:18:56,559 --> 00:19:03,520
+JavaScript looks like Java because Java
+
+383
+00:19:00,000 --> 00:19:05,840
+in Java's class system you have the idea
+
+384
+00:19:03,520 --> 00:19:08,240
+of new you know the new keyword new
+
+385
+00:19:05,840 --> 00:19:11,440
+something you have the idea of the
+
+386
+00:19:08,240 --> 00:19:14,080
+instance of some you know something so
+
+387
+00:19:11,440 --> 00:19:15,240
+and you have the keyword this so I have
+
+388
+00:19:14,080 --> 00:19:19,760
+a
+
+389
+00:19:15,240 --> 00:19:21,919
+Java I also have a Java tutorial but
+
+390
+00:19:19,760 --> 00:19:24,160
+it's not very good. It's, you know,
+
+391
+00:19:21,919 --> 00:19:27,760
+because I haven't coded in Java that
+
+392
+00:19:24,160 --> 00:19:31,120
+much. But if you want look at that, if
+
+393
+00:19:27,760 --> 00:19:33,919
+you uh are a beginner, you know, if you
+
+394
+00:19:31,120 --> 00:19:35,000
+want just to simply understand the Java
+
+395
+00:19:33,919 --> 00:19:38,200
+programming
+
+396
+00:19:35,000 --> 00:19:42,000
+language, you know, I have one
+
+397
+00:19:38,200 --> 00:19:44,160
+on.info Java tutorial. So, you also have
+
+398
+00:19:42,000 --> 00:19:46,000
+like this keyword, you know, in Java,
+
+399
+00:19:44,160 --> 00:19:48,799
+which is entirely different thing from
+
+400
+00:19:46,000 --> 00:19:52,080
+JavaScript. Okay. So, by the way, I
+
+401
+00:19:48,799 --> 00:19:56,160
+created a Java logo. This is my own logo
+
+402
+00:19:52,080 --> 00:19:57,320
+created in 2008. The original Java logo
+
+403
+00:19:56,160 --> 00:20:00,640
+looks like
+
+404
+00:19:57,320 --> 00:20:03,679
+that. Okay. So, and then they change it
+
+405
+00:20:00,640 --> 00:20:07,440
+to look like that. Okay. So, in 1995,
+
+406
+00:20:03,679 --> 00:20:09,440
+it's like this. But then in 2003, they
+
+407
+00:20:07,440 --> 00:20:13,880
+simplify, they try to simplify it
+
+408
+00:20:09,440 --> 00:20:17,760
+because Java is a very kind of
+
+409
+00:20:13,880 --> 00:20:20,720
+heavy complex language. Okay.
+
+410
+00:20:17,760 --> 00:20:23,200
+And Java's got a mascot, you know, this
+
+411
+00:20:20,720 --> 00:20:26,720
+this thing called penguin. Yeah. Java
+
+412
+00:20:23,200 --> 00:20:29,880
+penguin. Duke. He's got a name Duke.
+
+413
+00:20:26,720 --> 00:20:32,880
+Okay. That's history of Java. So Java.
+
+414
+00:20:29,880 --> 00:20:35,039
+So So what happens is that they they
+
+415
+00:20:32,880 --> 00:20:37,840
+want to make JavaScript to look like
+
+416
+00:20:35,039 --> 00:20:40,720
+Java.
+
+417
+00:20:37,840 --> 00:20:45,960
+So that's why you got this new instance
+
+418
+00:20:40,720 --> 00:20:49,520
+you know and it and it is extremely bad
+
+419
+00:20:45,960 --> 00:20:53,280
+extremely badly done as well. First of
+
+420
+00:20:49,520 --> 00:20:55,520
+all, you know, it's very bad idea to to
+
+421
+00:20:53,280 --> 00:20:57,600
+make it look like Java because one is
+
+422
+00:20:55,520 --> 00:20:59,720
+prototype based system, the other is
+
+423
+00:20:57,600 --> 00:21:01,919
+classbased. They are not
+
+424
+00:20:59,720 --> 00:21:03,520
+compatible. But they are trying to force
+
+425
+00:21:01,919 --> 00:21:06,159
+it. You know, you you got to make it
+
+426
+00:21:03,520 --> 00:21:08,240
+look like Java because we are like adver
+
+427
+00:21:06,159 --> 00:21:10,360
+because there's a billions dollars of
+
+428
+00:21:08,240 --> 00:21:13,520
+advertising for
+
+429
+00:21:10,360 --> 00:21:16,400
+Java. So that's a big big mistake. But
+
+430
+00:21:13,520 --> 00:21:19,919
+then they they try to do it in 10 days.
+
+431
+00:21:16,400 --> 00:21:22,799
+So it's entire up. Okay. So if you
+
+432
+00:21:19,919 --> 00:21:25,760
+want to understand the JavaScript new
+
+433
+00:21:22,799 --> 00:21:28,960
+instance of this keyword it's all in
+
+434
+00:21:25,760 --> 00:21:32,480
+this chapter. Okay. So this binding uh
+
+435
+00:21:28,960 --> 00:21:35,440
+you know you got this binding you got
+
+436
+00:21:32,480 --> 00:21:38,159
+constructor the concept of constructor
+
+437
+00:21:35,440 --> 00:21:39,520
+which came from Java. Okay, Java class
+
+438
+00:21:38,159 --> 00:21:42,200
+constructor. You don't need it in
+
+439
+00:21:39,520 --> 00:21:44,720
+JavaScript because every
+
+440
+00:21:42,200 --> 00:21:47,600
+object, you know, you can create every
+
+441
+00:21:44,720 --> 00:21:48,960
+object just by by by by just by the
+
+442
+00:21:47,600 --> 00:21:51,360
+braces, you know, when you have a
+
+443
+00:21:48,960 --> 00:21:53,520
+braces, that's an object. There's no you
+
+444
+00:21:51,360 --> 00:21:55,600
+don't need a constructor, you know, but
+
+445
+00:21:53,520 --> 00:21:59,480
+they added that. So it, you know,
+
+446
+00:21:55,600 --> 00:22:02,960
+because Java has it. So you got this
+
+447
+00:21:59,480 --> 00:22:05,520
+constructor idea, then you got this
+
+448
+00:22:02,960 --> 00:22:08,840
+prototype property. Every function
+
+449
+00:22:05,520 --> 00:22:12,559
+magically has this prototype
+
+450
+00:22:08,840 --> 00:22:15,919
+property. Magically why? Because well
+
+451
+00:22:12,559 --> 00:22:18,480
+because in Java the class system you
+
+452
+00:22:15,919 --> 00:22:20,720
+have you need inheritance. Therefore
+
+453
+00:22:18,480 --> 00:22:23,679
+this is the way you know to tie them.
+
+454
+00:22:20,720 --> 00:22:26,280
+It's very bad. Okay you don't need it.
+
+455
+00:22:23,679 --> 00:22:30,400
+So in fact today if you are coding
+
+456
+00:22:26,280 --> 00:22:31,559
+JavaScript this entire you can you know
+
+457
+00:22:30,400 --> 00:22:35,360
+you can
+
+458
+00:22:31,559 --> 00:22:38,559
+never never ever use the new keyword
+
+459
+00:22:35,360 --> 00:22:41,440
+never ever use the instance of keyword
+
+460
+00:22:38,559 --> 00:22:44,280
+never ever use this keyword and all the
+
+461
+00:22:41,440 --> 00:22:47,600
+others and your code will become
+
+462
+00:22:44,280 --> 00:22:51,200
+actually simpler to understand simpler
+
+463
+00:22:47,600 --> 00:22:54,240
+faster more efficient. Okay, that is a
+
+464
+00:22:51,200 --> 00:22:56,000
+situation but unfortunately that's not a
+
+465
+00:22:54,240 --> 00:22:58,640
+situation in the computing industry
+
+466
+00:22:56,000 --> 00:23:01,520
+because you you look at the JavaScript
+
+467
+00:22:58,640 --> 00:23:05,039
+code you know the frameworks you know
+
+468
+00:23:01,520 --> 00:23:07,760
+they are using these why because people
+
+469
+00:23:05,039 --> 00:23:10,720
+they don't know because they habit you
+
+470
+00:23:07,760 --> 00:23:13,320
+know habit and confusion so that's why
+
+471
+00:23:10,720 --> 00:23:16,640
+they keep using these so for
+
+472
+00:23:13,320 --> 00:23:19,440
+example who does not use like I said you
+
+473
+00:23:16,640 --> 00:23:22,240
+don't you don't have to you do not need
+
+474
+00:23:19,440 --> 00:23:24,799
+to any to use any of new this in your
+
+475
+00:23:22,240 --> 00:23:27,240
+code to achieve exactly the same thing.
+
+476
+00:23:24,799 --> 00:23:31,679
+Exactly. Okay. For
+
+477
+00:23:27,240 --> 00:23:34,240
+example, Douglas Quford who is who made
+
+478
+00:23:31,679 --> 00:23:39,039
+JavaScript very popular. He's one of the
+
+479
+00:23:34,240 --> 00:23:42,520
+top most um expert of JavaScript. He is
+
+480
+00:23:39,039 --> 00:23:45,120
+in fact responsible for making
+
+481
+00:23:42,520 --> 00:23:48,360
+JavaScript respectables. you know he
+
+482
+00:23:45,120 --> 00:23:52,400
+wrote the book JavaScript the good
+
+483
+00:23:48,360 --> 00:23:55,480
+parts around year 2005 Douglas Quford
+
+484
+00:23:52,400 --> 00:23:58,960
+okay so let me show you and he's also
+
+485
+00:23:55,480 --> 00:24:02,880
+the creator of JSON format you know you
+
+486
+00:23:58,960 --> 00:24:06,320
+probably know Jason is now very uh you
+
+487
+00:24:02,880 --> 00:24:06,320
+know it's standard
+
+488
+00:24:06,440 --> 00:24:14,720
+so so Douglas qu okay Douglas qu that's
+
+489
+00:24:11,279 --> 00:24:19,200
+a guy okay he's a I highly respect him.
+
+490
+00:24:14,720 --> 00:24:22,159
+He's a very he's one of the guy who um
+
+491
+00:24:19,200 --> 00:24:24,880
+study programming languages and I highly
+
+492
+00:24:22,159 --> 00:24:27,760
+respect his view his point of view on
+
+493
+00:24:24,880 --> 00:24:30,240
+programming language design. He's now
+
+494
+00:24:27,760 --> 00:24:32,159
+pretty old. So I think he maybe he's
+
+495
+00:24:30,240 --> 00:24:34,799
+about to retire. I don't know but he's
+
+496
+00:24:32,159 --> 00:24:37,400
+pretty old but he's still kicking. Okay.
+
+497
+00:24:34,799 --> 00:24:39,080
+He's like I don't know 60
+
+498
+00:24:37,400 --> 00:24:41,760
+something.
+
+499
+00:24:39,080 --> 00:24:44,640
+So you know so you can go watch his
+
+500
+00:24:41,760 --> 00:24:47,039
+videos. So I I got you know so he also
+
+501
+00:24:44,640 --> 00:24:49,279
+wrote JavaScript the better parts and he
+
+502
+00:24:47,039 --> 00:24:52,480
+also wrote a new book. So let me see if
+
+503
+00:24:49,279 --> 00:24:56,440
+I can. So anyway my point here is he is
+
+504
+00:24:52,480 --> 00:24:59,679
+the one you see if you watch his
+
+505
+00:24:56,440 --> 00:25:02,640
+talk he stopped using the operator new
+
+506
+00:24:59,679 --> 00:25:05,600
+like in his code you not see it not one
+
+507
+00:25:02,640 --> 00:25:08,400
+time at all he don't use he he doesn't
+
+508
+00:25:05,600 --> 00:25:11,240
+use even object.create create he never
+
+509
+00:25:08,400 --> 00:25:14,240
+uses this key binding I mean this
+
+510
+00:25:11,240 --> 00:25:17,520
+binding he doesn't use no you know so
+
+511
+00:25:14,240 --> 00:25:20,279
+there's bunch of others okay some other
+
+512
+00:25:17,520 --> 00:25:23,120
+uh javascript complex comp
+
+513
+00:25:20,279 --> 00:25:25,200
+complexities he doesn't use okay so
+
+514
+00:25:23,120 --> 00:25:27,520
+anyway the main point is he doesn't use
+
+515
+00:25:25,200 --> 00:25:31,279
+new he doesn't use this binding okay so
+
+516
+00:25:27,520 --> 00:25:34,840
+you can take it from Douglas Crawford
+
+517
+00:25:31,279 --> 00:25:38,400
+one of the top JavaScript
+
+518
+00:25:34,840 --> 00:25:43,120
+expert okay so That's I'm showing this
+
+519
+00:25:38,400 --> 00:25:45,760
+to support my um my what I'm telling you
+
+520
+00:25:43,120 --> 00:25:48,520
+that you you know you can totally not
+
+521
+00:25:45,760 --> 00:25:52,159
+use any of the
+
+522
+00:25:48,520 --> 00:25:56,799
+um uh the other things you know this new
+
+523
+00:25:52,159 --> 00:25:59,520
+and this uh new and this keyword. Okay.
+
+524
+00:25:56,799 --> 00:26:01,840
+So last part of the story so that so
+
+525
+00:25:59,520 --> 00:26:04,600
+that's a JavaScript. Okay. JavaScript
+
+526
+00:26:01,840 --> 00:26:08,880
+let me let me summarize in one minute.
+
+527
+00:26:04,600 --> 00:26:09,720
+JavaScript created in 1995 is based on
+
+528
+00:26:08,880 --> 00:26:11,400
+two
+
+529
+00:26:09,720 --> 00:26:14,559
+languages
+
+530
+00:26:11,400 --> 00:26:17,600
+self where it took the prototype based
+
+531
+00:26:14,559 --> 00:26:20,880
+object system from and it's also based
+
+532
+00:26:17,600 --> 00:26:23,279
+on scheme lisp the programming language
+
+533
+00:26:20,880 --> 00:26:25,039
+which is a kind of like this like
+
+534
+00:26:23,279 --> 00:26:28,240
+functional programming language okay
+
+535
+00:26:25,039 --> 00:26:32,039
+that is why JavaScript is very kind of
+
+536
+00:26:28,240 --> 00:26:34,640
+known as functional you know programming
+
+537
+00:26:32,039 --> 00:26:37,600
+language so it has a very simple
+
+538
+00:26:34,640 --> 00:26:41,120
+prototype system. But however, because
+
+539
+00:26:37,600 --> 00:26:44,240
+of social reasons, marketing reasons,
+
+540
+00:26:41,120 --> 00:26:49,840
+they try to force JavaScript to look
+
+541
+00:26:44,240 --> 00:26:52,880
+like Java. Therefore, you got a syntax,
+
+542
+00:26:49,840 --> 00:26:55,200
+the JavaScript syntax become like Java.
+
+543
+00:26:52,880 --> 00:26:57,559
+Then you got these new words like new
+
+544
+00:26:55,200 --> 00:27:00,400
+and this.
+
+545
+00:26:57,559 --> 00:27:03,360
+Okay. So, actually I I should reverse
+
+546
+00:27:00,400 --> 00:27:07,679
+the order of these two. This should come
+
+547
+00:27:03,360 --> 00:27:10,159
+after new. So let me do that. So new.
+
+548
+00:27:07,679 --> 00:27:13,360
+Okay. So let me put that new. Okay. Show
+
+549
+00:27:10,159 --> 00:27:15,360
+in browser. New and this. You know those
+
+550
+00:27:13,360 --> 00:27:18,159
+those two are the most popular keywords
+
+551
+00:27:15,360 --> 00:27:20,480
+in JavaScript. So you don't don't use
+
+552
+00:27:18,159 --> 00:27:22,720
+that. Okay. You can like don't use them
+
+553
+00:27:20,480 --> 00:27:25,360
+at all and your code will be simpler,
+
+554
+00:27:22,720 --> 00:27:27,360
+better and more efficient. Now last part
+
+555
+00:27:25,360 --> 00:27:30,159
+of the story. So they so they created
+
+556
+00:27:27,360 --> 00:27:33,760
+they try to be like Java. So they become
+
+557
+00:27:30,159 --> 00:27:36,960
+all this complexity and but people adopt
+
+558
+00:27:33,760 --> 00:27:37,960
+it you know people use them because back
+
+559
+00:27:36,960 --> 00:27:41,279
+so
+
+560
+00:27:37,960 --> 00:27:43,880
+why why is that you know you have so
+
+561
+00:27:41,279 --> 00:27:46,320
+simple system you don't need this
+
+562
+00:27:43,880 --> 00:27:49,200
+complexities but however you do have
+
+563
+00:27:46,320 --> 00:27:52,799
+both in the language but and but most
+
+564
+00:27:49,200 --> 00:27:55,600
+people started to use this complex you
+
+565
+00:27:52,799 --> 00:27:58,720
+know construct instead of the simpler
+
+566
+00:27:55,600 --> 00:28:01,760
+why is that good question okay that is
+
+567
+00:27:58,720 --> 00:28:04,720
+Because the prototype based system is
+
+568
+00:28:01,760 --> 00:28:06,960
+not well known you know like nobody
+
+569
+00:28:04,720 --> 00:28:11,200
+understand what that is especially back
+
+570
+00:28:06,960 --> 00:28:14,240
+in 2000s. The reason is because you know
+
+571
+00:28:11,200 --> 00:28:16,799
+because most people are like programmers
+
+572
+00:28:14,240 --> 00:28:18,360
+are industrial programmers they code C,
+
+573
+00:28:16,799 --> 00:28:21,640
+C++,
+
+574
+00:28:18,360 --> 00:28:23,840
+Java and they consider
+
+575
+00:28:21,640 --> 00:28:26,799
+those you know they are familiar with
+
+576
+00:28:23,840 --> 00:28:28,720
+that classbased system. So nobody
+
+577
+00:28:26,799 --> 00:28:31,159
+understand you know not many people
+
+578
+00:28:28,720 --> 00:28:34,080
+understand what is prototype based
+
+579
+00:28:31,159 --> 00:28:36,080
+system. So that's why they are familiar
+
+580
+00:28:34,080 --> 00:28:38,960
+with you know this they they think of
+
+581
+00:28:36,080 --> 00:28:42,159
+that them like Java you know so they are
+
+582
+00:28:38,960 --> 00:28:44,520
+used using that those but they use it
+
+583
+00:28:42,159 --> 00:28:47,520
+wrong because it's not a class-based
+
+584
+00:28:44,520 --> 00:28:49,760
+system. So that is why the coding
+
+585
+00:28:47,520 --> 00:28:52,399
+industry all the JavaScript coders they
+
+586
+00:28:49,760 --> 00:28:56,320
+are using kind of they are like using
+
+587
+00:28:52,399 --> 00:28:58,720
+this. Okay. Now last part of the story
+
+588
+00:28:56,320 --> 00:29:02,799
+and and I think that's it for today.
+
+589
+00:28:58,720 --> 00:29:06,960
+Okay. So so in 2005 you know JavaScript
+
+590
+00:29:02,799 --> 00:29:12,720
+got lots of problems besides this this
+
+591
+00:29:06,960 --> 00:29:16,399
+object system problem. Uh so in 2015 the
+
+592
+00:29:12,720 --> 00:29:20,000
+people tried to make it try to overhaul
+
+593
+00:29:16,399 --> 00:29:22,159
+the language. So they they started to do
+
+594
+00:29:20,000 --> 00:29:24,799
+you know they they did a big giant
+
+595
+00:29:22,159 --> 00:29:27,080
+overhaul of the language. But meanwhile
+
+596
+00:29:24,799 --> 00:29:30,240
+they tried to make it backward
+
+597
+00:29:27,080 --> 00:29:34,240
+compatible. So they added a lot things
+
+598
+00:29:30,240 --> 00:29:36,080
+to fix JavaScript. For example, uh for
+
+599
+00:29:34,240 --> 00:29:39,440
+example, one of the big things they
+
+600
+00:29:36,080 --> 00:29:42,480
+added is if you look at variables, they
+
+601
+00:29:39,440 --> 00:29:43,320
+added the let keyword. Fantastic.
+
+602
+00:29:42,480 --> 00:29:46,320
+Because
+
+603
+00:29:43,320 --> 00:29:49,600
+before before you have the var which is
+
+604
+00:29:46,320 --> 00:29:51,679
+very complex and very bad. No no scope.
+
+605
+00:29:49,600 --> 00:29:54,159
+Like whenever you use v the glo the
+
+606
+00:29:51,679 --> 00:29:57,279
+scope is global unless you are using it
+
+607
+00:29:54,159 --> 00:29:59,840
+inside a function. So you cannot declare
+
+608
+00:29:57,279 --> 00:30:04,760
+local variables you know very bad
+
+609
+00:29:59,840 --> 00:30:07,760
+extremely bad. So after 20 years they in
+
+610
+00:30:04,760 --> 00:30:09,600
+2015 they find they added the let
+
+611
+00:30:07,760 --> 00:30:12,000
+keyword. So now you can have local
+
+612
+00:30:09,600 --> 00:30:16,120
+variables. Okay. So if you put it inside
+
+613
+00:30:12,000 --> 00:30:18,880
+the braces it's local in that braces.
+
+614
+00:30:16,120 --> 00:30:22,000
+Okay. That's one thing they added. They
+
+615
+00:30:18,880 --> 00:30:24,320
+added like a whole lot of things. So let
+
+616
+00:30:22,000 --> 00:30:26,880
+is one thing they added. Another thing
+
+617
+00:30:24,320 --> 00:30:30,039
+they added is for example, let's go to
+
+618
+00:30:26,880 --> 00:30:33,760
+JavaScript in depth. Let's go to
+
+619
+00:30:30,039 --> 00:30:36,559
+functions. Uh functions arrow function.
+
+620
+00:30:33,760 --> 00:30:38,360
+Okay. So now you can actually write a
+
+621
+00:30:36,559 --> 00:30:42,679
+short function like
+
+622
+00:30:38,360 --> 00:30:45,760
+that. Am I good? Say hi guys.
+
+623
+00:30:42,679 --> 00:30:48,000
+Okay. So error functions. Fantastic.
+
+624
+00:30:45,760 --> 00:30:49,720
+Okay. So again remember JavaScript is
+
+625
+00:30:48,000 --> 00:30:52,200
+based on a functional programming
+
+626
+00:30:49,720 --> 00:30:55,200
+language scheme
+
+627
+00:30:52,200 --> 00:30:58,080
+lisp. So they added that and lots of
+
+628
+00:30:55,200 --> 00:31:01,200
+other things. But however they try to
+
+629
+00:30:58,080 --> 00:31:04,480
+remain backward compatible. So they are
+
+630
+00:31:01,200 --> 00:31:07,279
+not removing or deleting anything that's
+
+631
+00:31:04,480 --> 00:31:09,360
+bad. They simply create new things. You
+
+632
+00:31:07,279 --> 00:31:11,840
+know use these new things just don't use
+
+633
+00:31:09,360 --> 00:31:14,559
+the old things. But they they are still
+
+634
+00:31:11,840 --> 00:31:16,960
+there. So they didn't you know they
+
+635
+00:31:14,559 --> 00:31:19,200
+didn't say okay we're gonna remove the
+
+636
+00:31:16,960 --> 00:31:22,080
+new keyword we're gonna remove this
+
+637
+00:31:19,200 --> 00:31:25,720
+keyword. No they didn't do that. Okay
+
+638
+00:31:22,080 --> 00:31:28,880
+but however they added a new thing
+
+639
+00:31:25,720 --> 00:31:30,799
+class. Why? Because most people when
+
+640
+00:31:28,880 --> 00:31:35,520
+they call JavaScript you know they are
+
+641
+00:31:30,799 --> 00:31:37,200
+using this complex and unnecessary new
+
+642
+00:31:35,520 --> 00:31:39,760
+something something this something
+
+643
+00:31:37,200 --> 00:31:42,240
+something.
+
+644
+00:31:39,760 --> 00:31:44,559
+Then they thought why don't we just
+
+645
+00:31:42,240 --> 00:31:47,679
+create a class keyword so people
+
+646
+00:31:44,559 --> 00:31:50,880
+actually can create a class just like
+
+647
+00:31:47,679 --> 00:31:54,559
+Java you know again just like Java but
+
+648
+00:31:50,880 --> 00:31:57,840
+the entire object system is not Java at
+
+649
+00:31:54,559 --> 00:32:00,320
+all but they just you know let's pretend
+
+650
+00:31:57,840 --> 00:32:06,159
+we are coding Java so they added this
+
+651
+00:32:00,320 --> 00:32:08,399
+keyword class new in 2015 very bad okay
+
+652
+00:32:06,159 --> 00:32:11,000
+it's it's it's bad in some way it's good
+
+653
+00:32:08,399 --> 00:32:13,519
+in some way okay It's bad
+
+654
+00:32:11,000 --> 00:32:15,919
+because you are trying to pretend you
+
+655
+00:32:13,519 --> 00:32:18,320
+are Java but you are not Java at all.
+
+656
+00:32:15,919 --> 00:32:21,440
+You don't need you don't need this class
+
+657
+00:32:18,320 --> 00:32:23,360
+keyword at all. You don't need new you
+
+658
+00:32:21,440 --> 00:32:26,720
+don't need this. You don't need class
+
+659
+00:32:23,360 --> 00:32:29,840
+and you can do exactly the same thing
+
+660
+00:32:26,720 --> 00:32:33,039
+which with with simpler syntax easier to
+
+661
+00:32:29,840 --> 00:32:37,720
+understand and more efficient code.
+
+662
+00:32:33,039 --> 00:32:40,399
+But so but they but they added the class
+
+663
+00:32:37,720 --> 00:32:43,519
+keyword. So that's bad because you don't
+
+664
+00:32:40,399 --> 00:32:46,640
+need it. But why is class also part
+
+665
+00:32:43,519 --> 00:32:49,120
+three good? Because because people are
+
+666
+00:32:46,640 --> 00:32:53,360
+doing this new and this and prototype
+
+667
+00:32:49,120 --> 00:32:55,159
+thing that's very complex. So now they
+
+668
+00:32:53,360 --> 00:32:59,440
+created a class
+
+669
+00:32:55,159 --> 00:33:01,279
+keyword which is kind of this this you
+
+670
+00:32:59,440 --> 00:33:03,200
+know new instance of class you know
+
+671
+00:33:01,279 --> 00:33:05,519
+prototype function.prototype and
+
+672
+00:33:03,200 --> 00:33:08,480
+something it makes it kind of simpler.
+
+673
+00:33:05,519 --> 00:33:11,360
+So it kind of like make it simpler for
+
+674
+00:33:08,480 --> 00:33:14,320
+those people who are like using this new
+
+675
+00:33:11,360 --> 00:33:19,120
+this keyword. So that's why they created
+
+676
+00:33:14,320 --> 00:33:21,440
+class keyword in 2015. Okay. Uh I think
+
+677
+00:33:19,120 --> 00:33:25,600
+that's it. That's a kind of the short
+
+678
+00:33:21,440 --> 00:33:29,519
+story of the complexity of JavaScript
+
+679
+00:33:25,600 --> 00:33:31,840
+object system. JavaScript object system
+
+680
+00:33:29,519 --> 00:33:35,120
+is prototype system. Prototype based
+
+681
+00:33:31,840 --> 00:33:39,000
+system is fantastic and simple. However,
+
+682
+00:33:35,120 --> 00:33:41,720
+they made they added a bunch of crap
+
+683
+00:33:39,000 --> 00:33:45,440
+unnecessarily for marketing
+
+684
+00:33:41,720 --> 00:33:48,000
+reasons but pe and people adopted them.
+
+685
+00:33:45,440 --> 00:33:52,080
+Then in 2015 they added the class
+
+686
+00:33:48,000 --> 00:33:55,279
+keyword which is like a necessary and
+
+687
+00:33:52,080 --> 00:33:57,919
+you know that's a short story. So if you
+
+688
+00:33:55,279 --> 00:34:00,960
+want to know the full detail about all
+
+689
+00:33:57,919 --> 00:34:02,960
+these things the this binding
+
+690
+00:34:00,960 --> 00:34:05,279
+uh the constructor the prototype
+
+691
+00:34:02,960 --> 00:34:07,440
+property every function magically have
+
+692
+00:34:05,279 --> 00:34:10,639
+this prototype property. What does it
+
+693
+00:34:07,440 --> 00:34:13,520
+mean? And if you want know to know the
+
+694
+00:34:10,639 --> 00:34:15,919
+you know the new operator very complex
+
+695
+00:34:13,520 --> 00:34:17,960
+this new operator you know exactly what
+
+696
+00:34:15,919 --> 00:34:20,639
+it does it very
+
+697
+00:34:17,960 --> 00:34:22,639
+complex so you can understand all these
+
+698
+00:34:20,639 --> 00:34:24,960
+instance of operator you should never
+
+699
+00:34:22,639 --> 00:34:27,839
+use okay because it's not reliable it
+
+700
+00:34:24,960 --> 00:34:30,240
+doesn't you know it they they pretend to
+
+701
+00:34:27,839 --> 00:34:32,079
+do what it does but actually no
+
+702
+00:34:30,240 --> 00:34:34,399
+sometimes it doesn't work some you know
+
+703
+00:34:32,079 --> 00:34:36,000
+depending on the situation you know
+
+704
+00:34:34,399 --> 00:34:38,480
+things like that depending on whether
+
+705
+00:34:36,000 --> 00:34:40,399
+you change the parent or
+
+706
+00:34:38,480 --> 00:34:43,119
+So you know you shouldn't use any of
+
+707
+00:34:40,399 --> 00:34:45,119
+these. Okay. Then you got magical
+
+708
+00:34:43,119 --> 00:34:48,399
+constructor property meaning that
+
+709
+00:34:45,119 --> 00:34:51,440
+there's a property whose type is a
+
+710
+00:34:48,399 --> 00:34:53,679
+string like that you know and the name
+
+711
+00:34:51,440 --> 00:34:57,040
+is constructor like magically like
+
+712
+00:34:53,679 --> 00:35:00,400
+whenever you have a um yeah whenever you
+
+713
+00:34:57,040 --> 00:35:02,560
+create a function it creates a whenever
+
+714
+00:35:00,400 --> 00:35:03,560
+you define a function you know function
+
+715
+00:35:02,560 --> 00:35:06,720
+some
+
+716
+00:35:03,560 --> 00:35:09,440
+function name parameter body whenever
+
+717
+00:35:06,720 --> 00:35:11,839
+you define a function it magically
+
+718
+00:35:09,440 --> 00:35:15,520
+automatically behind the scenes means
+
+719
+00:35:11,839 --> 00:35:18,480
+creates a function f.prototype prototype
+
+720
+00:35:15,520 --> 00:35:22,079
+you know by magic and that prototype
+
+721
+00:35:18,480 --> 00:35:24,480
+magically has a object and this object
+
+722
+00:35:22,079 --> 00:35:27,440
+magically have a constructor property
+
+723
+00:35:24,480 --> 00:35:30,320
+that's how complex it is okay so you got
+
+724
+00:35:27,440 --> 00:35:33,760
+that then then whenever you do new so
+
+725
+00:35:30,320 --> 00:35:37,560
+what does new do do exactly very complex
+
+726
+00:35:33,760 --> 00:35:40,560
+okay so here is a detail so you can read
+
+727
+00:35:37,560 --> 00:35:44,880
+it and you don't need any of these okay
+
+728
+00:35:40,560 --> 00:35:47,520
+so for example um you can you know So
+
+729
+00:35:44,880 --> 00:35:50,839
+you don't need any of them at all to to
+
+730
+00:35:47,520 --> 00:35:54,480
+create exactly the same thing. Okay.
+
+731
+00:35:50,839 --> 00:35:57,320
+So so you got this confusion type of
+
+732
+00:35:54,480 --> 00:36:00,880
+instance of constructor very
+
+733
+00:35:57,320 --> 00:36:04,640
+confusing. Then 2015 you got this class
+
+734
+00:36:00,880 --> 00:36:08,079
+thing. So what does the class thing do?
+
+735
+00:36:04,640 --> 00:36:12,320
+Well here I try to explain them in terms
+
+736
+00:36:08,079 --> 00:36:16,200
+of the basic object and prototype based
+
+737
+00:36:12,320 --> 00:36:20,000
+system. Okay. So you I try to explain
+
+738
+00:36:16,200 --> 00:36:22,160
+that you know class system. Okay. So uh
+
+739
+00:36:20,000 --> 00:36:25,000
+then you got of course you got the
+
+740
+00:36:22,160 --> 00:36:29,160
+static keyword borrowed from
+
+741
+00:36:25,000 --> 00:36:33,520
+Java. You got the extends keyword also
+
+742
+00:36:29,160 --> 00:36:37,119
+2015 borrowed from Java. Um you know
+
+743
+00:36:33,520 --> 00:36:40,320
+then you got the super keyword from 2015
+
+744
+00:36:37,119 --> 00:36:43,599
+borrowed from Java.
+
+745
+00:36:40,320 --> 00:36:45,760
+very very complex. Meanwhile, all this
+
+746
+00:36:43,599 --> 00:36:48,079
+is pretending, you know, it's using the
+
+747
+00:36:45,760 --> 00:36:51,000
+JavaScript prototype system, but
+
+748
+00:36:48,079 --> 00:36:54,280
+pretending it's like the Java
+
+749
+00:36:51,000 --> 00:36:59,960
+system. Okay, that's
+
+750
+00:36:54,280 --> 00:36:59,960
+it. Uh, thank you guys for watching.
+
+751
+00:37:06,000 --> 00:37:12,839
+classes make it harder to know the
+
+752
+00:37:07,920 --> 00:37:16,079
+structure of an object. Yes, exactly.
+
+753
+00:37:12,839 --> 00:37:19,280
+Uh, ironically, functional functional
+
+754
+00:37:16,079 --> 00:37:21,599
+programming is bit greater than object
+
+755
+00:37:19,280 --> 00:37:24,320
+oriented programming. Yes, but some
+
+756
+00:37:21,599 --> 00:37:28,960
+people do not believe it though. So,
+
+757
+00:37:24,320 --> 00:37:31,240
+it's not totally u you know widespread
+
+758
+00:37:28,960 --> 00:37:34,079
+yet
+
+759
+00:37:31,240 --> 00:37:35,920
+accepted. Okay. So, bye guys. If you
+
+760
+00:37:34,079 --> 00:37:38,079
+like my stuff, okay, don't forget to
+
+761
+00:37:35,920 --> 00:37:41,000
+donate to me, okay? Just like, you know,
+
+762
+00:37:38,079 --> 00:37:45,400
+if you like my stuff, go to
+
+763
+00:37:41,000 --> 00:37:48,720
+um go to go to
+
+764
+00:37:45,400 --> 00:37:52,400
+kas.info, go all the way to the bottom.
+
+765
+00:37:48,720 --> 00:37:55,040
+Uh you can Amazon gift card, click the
+
+766
+00:37:52,400 --> 00:37:57,680
+link, go there because I cannot accept,
+
+767
+00:37:55,040 --> 00:38:00,000
+you know, German, Germany's Amazon or
+
+768
+00:37:57,680 --> 00:38:03,520
+Japanese or French, you know. So, you
+
+769
+00:38:00,000 --> 00:38:07,359
+got to click the link and copy paste my
+
+770
+00:38:03,520 --> 00:38:09,880
+uh email and pay me or use PayPal. Copy
+
+771
+00:38:07,359 --> 00:38:12,280
+paste my email or Patreon
+
+772
+00:38:09,880 --> 00:38:16,280
+me. Thank you
+
+773
+00:38:12,280 --> 00:38:16,280
+guys. Bye.
+

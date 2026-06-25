@@ -1,0 +1,5172 @@
+1
+00:00:00,240 --> 00:00:05,600
+Hello, good morning everyone. Good
+
+2
+00:00:02,240 --> 00:00:08,320
+evening. Welcome to another episode of S
+
+3
+00:00:05,600 --> 00:00:11,440
+talk show. We are going to code Emac
+
+4
+00:00:08,320 --> 00:00:14,240
+list today of course the most powerful
+
+5
+00:00:11,440 --> 00:00:18,480
+editor and the most powerful programming
+
+6
+00:00:14,240 --> 00:00:23,760
+language for processing text. So we so
+
+7
+00:00:18,480 --> 00:00:28,320
+there's a news uh there is a new native
+
+8
+00:00:23,760 --> 00:00:32,000
+built-in JSON library. So in EMAC now
+
+9
+00:00:28,320 --> 00:00:33,520
+you can uh you know you can export and
+
+10
+00:00:32,000 --> 00:00:36,880
+import
+
+11
+00:00:33,520 --> 00:00:38,879
+uh JSON data format. Okay. If you are
+
+12
+00:00:36,880 --> 00:00:43,360
+here say hi if you are watching this
+
+13
+00:00:38,879 --> 00:00:46,320
+offline watch at 1.5 speed minimum.
+
+14
+00:00:43,360 --> 00:00:48,640
+Okay. So there's new uh JSON library. So
+
+15
+00:00:46,320 --> 00:00:52,079
+let me give you so so the functions are
+
+16
+00:00:48,640 --> 00:00:56,320
+JSON serialized that is you give it an
+
+17
+00:00:52,079 --> 00:00:59,840
+argument of list list or array or hash
+
+18
+00:00:56,320 --> 00:01:02,160
+table then it will create a JSON data
+
+19
+00:00:59,840 --> 00:01:05,040
+format you know it will speed out the
+
+20
+00:01:02,160 --> 00:01:08,000
+string so I'm going to demo that then
+
+21
+00:01:05,040 --> 00:01:11,119
+there's JSON insert that just uh that's
+
+22
+00:01:08,000 --> 00:01:14,159
+like JSON serialize but also insert the
+
+23
+00:01:11,119 --> 00:01:17,280
+text in the buffer then there's uh JSON
+
+24
+00:01:14,159 --> 00:01:20,799
+pass string which takes an argument of a
+
+25
+00:01:17,280 --> 00:01:23,680
+JSON data format then uh then pass it.
+
+26
+00:01:20,799 --> 00:01:26,560
+Okay. So let me show you what is a JSON
+
+27
+00:01:23,680 --> 00:01:28,640
+uh data format. So if you don't know you
+
+28
+00:01:26,560 --> 00:01:33,759
+you should know because it is the most
+
+29
+00:01:28,640 --> 00:01:36,720
+popular uh JSON. Okay. So wait
+
+30
+00:01:33,759 --> 00:01:41,280
+uh pop-up data. So where is my JSON
+
+31
+00:01:36,720 --> 00:01:45,240
+file? JSON. Okay. So not see it there.
+
+32
+00:01:41,280 --> 00:01:45,240
+So, let's go to keyboard.
+
+33
+00:01:46,479 --> 00:01:50,960
+Uh,
+
+34
+00:01:48,159 --> 00:01:54,880
+oh, I think I did I remove it.
+
+35
+00:01:50,960 --> 00:01:56,960
+Incredible. So, uh,
+
+36
+00:01:54,880 --> 00:01:59,520
+uh, search data.js.
+
+37
+00:01:56,960 --> 00:02:03,119
+So, okay. So, yeah. So, this is actually
+
+38
+00:01:59,520 --> 00:02:04,799
+JSON. So, JSON, uh, file format looks
+
+39
+00:02:03,119 --> 00:02:07,280
+like that. Okay.
+
+40
+00:02:04,799 --> 00:02:10,399
+Um and anyway, so you got this function
+
+41
+00:02:07,280 --> 00:02:12,400
+JSON serialize and JSON pass string and
+
+42
+00:02:10,399 --> 00:02:15,040
+JSON pass buffer. Okay, so most
+
+43
+00:02:12,400 --> 00:02:19,200
+important is serialize and pass string.
+
+44
+00:02:15,040 --> 00:02:22,239
+So they became native in EMAC uh EMAC
+
+45
+00:02:19,200 --> 00:02:25,680
+30. Okay, so I need to so I you know I'm
+
+46
+00:02:22,239 --> 00:02:28,000
+going to write a tutorial
+
+47
+00:02:25,680 --> 00:02:29,920
+uh
+
+48
+00:02:28,000 --> 00:02:32,879
+EMAC block. I'm going to write a
+
+49
+00:02:29,920 --> 00:02:36,480
+tutorial for that. So you go to Emacs
+
+50
+00:02:32,879 --> 00:02:38,800
+and Emacs list this basics. So we're
+
+51
+00:02:36,480 --> 00:02:44,080
+going to write a tutorial for it. Okay.
+
+52
+00:02:38,800 --> 00:02:48,560
+So the the this functions was new in
+
+53
+00:02:44,080 --> 00:02:54,560
+EMAC 27. Okay. Emacs 27 that is from
+
+54
+00:02:48,560 --> 00:02:59,440
+year 2020. So 5 years ago. And then
+
+55
+00:02:54,560 --> 00:03:03,440
+in EMAC 30 uh 2025 this year just
+
+56
+00:02:59,440 --> 00:03:06,480
+released a few months ago they made it
+
+57
+00:03:03,440 --> 00:03:09,040
+uh native. So before it depends on a C
+
+58
+00:03:06,480 --> 00:03:11,680
+library. It depends on the existence of
+
+59
+00:03:09,040 --> 00:03:14,959
+a C library. Now it it doesn't need that
+
+60
+00:03:11,680 --> 00:03:18,319
+anymore. So it's very good. Now before
+
+61
+00:03:14,959 --> 00:03:22,319
+that there is a library for uh importing
+
+62
+00:03:18,319 --> 00:03:25,360
+and exporting JSON and that is from that
+
+63
+00:03:22,319 --> 00:03:28,800
+is written like 20 years ago.
+
+64
+00:03:25,360 --> 00:03:31,519
+Uh that is uh do I have it here? No. So
+
+65
+00:03:28,800 --> 00:03:35,280
+so let me let me let me show you. Okay.
+
+66
+00:03:31,519 --> 00:03:42,159
+So uh talk show. So what is this page?
+
+67
+00:03:35,280 --> 00:03:47,200
+Emacs block close close uh talk show and
+
+68
+00:03:42,159 --> 00:03:51,200
+uh describe function JSON read string.
+
+69
+00:03:47,200 --> 00:03:55,440
+Okay. So if you look up that function
+
+70
+00:03:51,200 --> 00:03:59,599
+you'll find the library that is JSON.
+
+71
+00:03:55,440 --> 00:04:03,760
+Uh which is written in 2016 uh I mean
+
+72
+00:03:59,599 --> 00:04:07,040
+2006 beginning 2006. So this library
+
+73
+00:04:03,760 --> 00:04:09,280
+it's part of Emacs is now basically
+
+74
+00:04:07,040 --> 00:04:13,200
+obsolate because now you have built-in
+
+75
+00:04:09,280 --> 00:04:15,200
+functions. So let's see defend. So here
+
+76
+00:04:13,200 --> 00:04:18,079
+are the functions defined in library. I
+
+77
+00:04:15,200 --> 00:04:22,079
+was using it but I'm going to uh change
+
+78
+00:04:18,079 --> 00:04:24,160
+update my code uh to use the to use the
+
+79
+00:04:22,079 --> 00:04:27,759
+building you know uh these are written
+
+80
+00:04:24,160 --> 00:04:30,000
+in C JSON serialize. Okay. So that is
+
+81
+00:04:27,759 --> 00:04:33,600
+the basics. So the news is that you got
+
+82
+00:04:30,000 --> 00:04:36,639
+this new library and the native uh in
+
+83
+00:04:33,600 --> 00:04:39,600
+Emac Bisp. Okay. Then the rest of the
+
+84
+00:04:36,639 --> 00:04:43,680
+show I'm just going to start to write
+
+85
+00:04:39,600 --> 00:04:47,120
+the library for it. Okay. So okay.
+
+86
+00:04:43,680 --> 00:04:50,080
+So let's see defend I want to know I I
+
+87
+00:04:47,120 --> 00:04:53,600
+need to uh find the function so that can
+
+88
+00:04:50,080 --> 00:04:57,440
+lead people to find this library. So
+
+89
+00:04:53,600 --> 00:05:00,880
+JSON read string that's the one we want.
+
+90
+00:04:57,440 --> 00:05:06,160
+read the JSON string at point and um no
+
+91
+00:05:00,880 --> 00:05:09,680
+not JSON read string. So wait. So defend
+
+92
+00:05:06,160 --> 00:05:12,479
+uh list uh so list JSON uh functions.
+
+93
+00:05:09,680 --> 00:05:16,320
+JSON print JSON read JSON read from
+
+94
+00:05:12,479 --> 00:05:18,160
+string. That's one. Read the JSON object
+
+95
+00:05:16,320 --> 00:05:25,680
+contained in string. Yeah. So that's one
+
+96
+00:05:18,160 --> 00:05:28,400
+of them. Copy it. Go to talk show. Uh
+
+97
+00:05:25,680 --> 00:05:31,520
+yeah. So let's just p let's just put
+
+98
+00:05:28,400 --> 00:05:34,320
+that there. Okay. So that is from that
+
+99
+00:05:31,520 --> 00:05:36,960
+is basically importing JSON and also you
+
+100
+00:05:34,320 --> 00:05:44,240
+got JSON read file.
+
+101
+00:05:36,960 --> 00:05:49,039
+Uh okay so put it there. Then you got um
+
+102
+00:05:44,240 --> 00:05:55,440
+okay so let's go back. So JSON is the
+
+103
+00:05:49,039 --> 00:05:58,639
+library. Okay. So open it and uh and
+
+104
+00:05:55,440 --> 00:06:02,400
+this is the library. Okay.
+
+105
+00:05:58,639 --> 00:06:05,120
+And uh let's see then what what what is
+
+106
+00:06:02,400 --> 00:06:08,120
+a function to
+
+107
+00:06:05,120 --> 00:06:08,120
+um
+
+108
+00:06:09,440 --> 00:06:13,600
+what is the other function check
+
+109
+00:06:11,120 --> 00:06:17,919
+position okay so
+
+110
+00:06:13,600 --> 00:06:20,720
+so if you have comments hello meet
+
+111
+00:06:17,919 --> 00:06:22,880
+JSON print JSON read file JSON so that's
+
+112
+00:06:20,720 --> 00:06:29,520
+for import
+
+113
+00:06:22,880 --> 00:06:31,759
+uh export so print I suppose print and
+
+114
+00:06:29,520 --> 00:06:34,319
+pretty print buffer. Okay, so you got
+
+115
+00:06:31,759 --> 00:06:37,680
+pretty print buffer. So this this
+
+116
+00:06:34,319 --> 00:06:41,039
+library is even though we have this
+
+117
+00:06:37,680 --> 00:06:42,960
+building functions but I suppose this
+
+118
+00:06:41,039 --> 00:06:49,080
+library is still useful sometimes
+
+119
+00:06:42,960 --> 00:06:49,080
+because because then you can um
+
+120
+00:06:49,680 --> 00:06:55,680
+because you have functions like um like
+
+121
+00:06:53,120 --> 00:06:58,160
+pretty print you can preprint pre-format
+
+122
+00:06:55,680 --> 00:07:01,520
+the JSON file. Okay. So anyway, let's
+
+123
+00:06:58,160 --> 00:07:04,560
+close that. Close that. So So make it
+
+124
+00:07:01,520 --> 00:07:06,800
+that that that. Okay.
+
+125
+00:07:04,560 --> 00:07:10,479
+So Okay. So let's begin to write a
+
+126
+00:07:06,800 --> 00:07:12,880
+tutorial. So Okay. So go to and we going
+
+127
+00:07:10,479 --> 00:07:16,880
+to I'm going to demo. Okay. So emac this
+
+128
+00:07:12,880 --> 00:07:19,599
+basics. Yeah. So copy the file path. Uh
+
+129
+00:07:16,880 --> 00:07:22,880
+paste the file path there. Link it and
+
+130
+00:07:19,599 --> 00:07:29,639
+go to the file and search for hasht.
+
+131
+00:07:22,880 --> 00:07:29,639
+Okay. So in here, let's create a new um
+
+132
+00:07:29,919 --> 00:07:39,840
+import export export import JSON. Okay.
+
+133
+00:07:34,240 --> 00:07:43,360
+So yeah, let's put that there. So JSON
+
+134
+00:07:39,840 --> 00:07:46,400
+um then we going to
+
+135
+00:07:43,360 --> 00:07:51,479
+uh basically copy.
+
+136
+00:07:46,400 --> 00:07:51,479
+So we can do so um
+
+137
+00:07:54,960 --> 00:08:02,720
+clone file in link. Okay. So now you got
+
+138
+00:07:58,960 --> 00:08:06,080
+the file cloned. Paste it here. Let's
+
+139
+00:08:02,720 --> 00:08:08,879
+rename this file. Rename. Right now it's
+
+140
+00:08:06,080 --> 00:08:12,400
+a link. So open it. It basically just a
+
+141
+00:08:08,879 --> 00:08:16,360
+copy of that hasht page. Okay. Now uh
+
+142
+00:08:12,400 --> 00:08:16,360
+rename the file.
+
+143
+00:08:17,039 --> 00:08:24,319
+Okay. So we want to rename
+
+144
+00:08:20,160 --> 00:08:26,720
+emac this JSON. Okay.
+
+145
+00:08:24,319 --> 00:08:29,680
+Yeah. Okay. So there's no conflicting
+
+146
+00:08:26,720 --> 00:08:33,919
+files. So
+
+147
+00:08:29,680 --> 00:08:36,880
+uh and add a title. My convention is you
+
+148
+00:08:33,919 --> 00:08:39,919
+got this emac list
+
+149
+00:08:36,880 --> 00:08:44,720
+uh export import
+
+150
+00:08:39,919 --> 00:08:47,440
+read uh import export JSON or should it
+
+151
+00:08:44,720 --> 00:08:50,720
+be read write JSON? I think read write
+
+152
+00:08:47,440 --> 00:08:54,120
+JSON would be uh
+
+153
+00:08:50,720 --> 00:08:54,120
+more intuitive.
+
+154
+00:08:55,040 --> 00:09:02,800
+Okay. So JSON or capitalize. Okay. Copy
+
+155
+00:08:59,760 --> 00:09:08,880
+the file name. Uh actually I mean copy
+
+156
+00:09:02,800 --> 00:09:12,320
+the the the link text. Okay. So
+
+157
+00:09:08,880 --> 00:09:16,480
+copy and make a link that jump to the
+
+158
+00:09:12,320 --> 00:09:20,480
+string. Open it and uh
+
+159
+00:09:16,480 --> 00:09:26,120
+rename the file JSON read file. Oh, we
+
+160
+00:09:20,480 --> 00:09:26,120
+forgot emacisp. Okay. Uh
+
+161
+00:09:27,920 --> 00:09:33,040
+okay. So you can see the file name got
+
+162
+00:09:31,200 --> 00:09:35,519
+updated. You know why do I want to
+
+163
+00:09:33,040 --> 00:09:39,360
+clone? Because in on each page you got
+
+164
+00:09:35,519 --> 00:09:41,279
+several uh JavaScript files special just
+
+165
+00:09:39,360 --> 00:09:43,200
+for that file. Some files don't have
+
+166
+00:09:41,279 --> 00:09:46,880
+that I mean link to JavaScript. So
+
+167
+00:09:43,200 --> 00:09:50,080
+therefore you can you know hoover the
+
+168
+00:09:46,880 --> 00:09:52,800
+mouse pointer to a function name it will
+
+169
+00:09:50,080 --> 00:09:55,839
+pop up the inline documentation. That's
+
+170
+00:09:52,800 --> 00:09:58,959
+why you want you know clone for example
+
+171
+00:09:55,839 --> 00:10:01,440
+on keyboard pages
+
+172
+00:09:58,959 --> 00:10:04,080
+uh on trackboard pages or keyboard pages
+
+173
+00:10:01,440 --> 00:10:07,839
+you don't have that you know JavaScript
+
+174
+00:10:04,080 --> 00:10:10,399
+so so uh it's a good idea to clone a
+
+175
+00:10:07,839 --> 00:10:14,959
+file when you work on HTML it's kind of
+
+176
+00:10:10,399 --> 00:10:19,839
+similar to um in Unix you have processes
+
+177
+00:10:14,959 --> 00:10:22,720
+you know what they call um fork process
+
+178
+00:10:19,839 --> 00:10:25,600
+okay so anyway so go back Any comments?
+
+179
+00:10:22,720 --> 00:10:27,680
+ACP. Hello.
+
+180
+00:10:25,600 --> 00:10:30,000
+Oh, your volume sounds higher. Thank
+
+181
+00:10:27,680 --> 00:10:33,200
+you. Yeah, because you said that then I
+
+182
+00:10:30,000 --> 00:10:36,560
+looked into Yeah, I adjust things. So,
+
+183
+00:10:33,200 --> 00:10:40,320
+now it works. Uh, that's kind of tricky.
+
+184
+00:10:36,560 --> 00:10:43,279
+It's an interesting question because uh
+
+185
+00:10:40,320 --> 00:10:47,120
+because so you go to systems, then you
+
+186
+00:10:43,279 --> 00:10:51,120
+go to systems, then you go to uh sound
+
+187
+00:10:47,120 --> 00:10:54,560
+somewhere. Okay. So, so sound then you
+
+188
+00:10:51,120 --> 00:10:56,399
+go to um
+
+189
+00:10:54,560 --> 00:10:59,440
+uh
+
+190
+00:10:56,399 --> 00:11:02,240
+you know windows sucks so so much you
+
+191
+00:10:59,440 --> 00:11:04,000
+know it's very complex like you have the
+
+192
+00:11:02,240 --> 00:11:08,040
+preference settings then you have the
+
+193
+00:11:04,000 --> 00:11:08,040
+control panel [ __ ]
+
+194
+00:11:08,320 --> 00:11:14,320
+control panel okay for for example so
+
+195
+00:11:11,360 --> 00:11:16,399
+this control panel is but now they got
+
+196
+00:11:14,320 --> 00:11:18,399
+system settings but however they didn't
+
+197
+00:11:16,399 --> 00:11:20,800
+update the control panel So now you got
+
+198
+00:11:18,399 --> 00:11:23,360
+like two places, two version. You got
+
+199
+00:11:20,800 --> 00:11:26,720
+100 ways to go to the same place to set
+
+200
+00:11:23,360 --> 00:11:29,920
+the sound. You need to use one but some
+
+201
+00:11:26,720 --> 00:11:32,160
+other uh you know configuration you need
+
+202
+00:11:29,920 --> 00:11:34,800
+to go to the other. Okay. So anyway, so
+
+203
+00:11:32,160 --> 00:11:38,959
+you go to systems system preference uh
+
+204
+00:11:34,800 --> 00:11:43,440
+system settings then you go to sound
+
+205
+00:11:38,959 --> 00:11:46,560
+then you go to uh not that uh you go to
+
+206
+00:11:43,440 --> 00:11:49,200
+sound control panel. Yeah, you need to
+
+207
+00:11:46,560 --> 00:11:53,360
+go to control panel. Then you got this
+
+208
+00:11:49,200 --> 00:11:56,800
+20 years old Asian tiny claustrophobic
+
+209
+00:11:53,360 --> 00:11:59,440
+[ __ ] you know. Then you you then you
+
+210
+00:11:56,800 --> 00:12:02,560
+switch tab to the go to the recording.
+
+211
+00:11:59,440 --> 00:12:06,279
+Then you pick up your pick the the item
+
+212
+00:12:02,560 --> 00:12:06,279
+that is your microphone,
+
+213
+00:12:06,959 --> 00:12:12,959
+you know. Then then then you click on
+
+214
+00:12:10,240 --> 00:12:16,160
+properties. Then you go to the tab of
+
+215
+00:12:12,959 --> 00:12:18,639
+levels. And here is where you set the
+
+216
+00:12:16,160 --> 00:12:21,360
+so-called input gain you know kind of
+
+217
+00:12:18,639 --> 00:12:23,920
+silly you know because they call it gain
+
+218
+00:12:21,360 --> 00:12:25,600
+because each you know engineering
+
+219
+00:12:23,920 --> 00:12:28,240
+engineering or different field they have
+
+220
+00:12:25,600 --> 00:12:31,440
+like particular particular jargon. So
+
+221
+00:12:28,240 --> 00:12:33,120
+they call this uh typically microphone
+
+222
+00:12:31,440 --> 00:12:35,120
+gain
+
+223
+00:12:33,120 --> 00:12:38,160
+uh which
+
+224
+00:12:35,120 --> 00:12:42,720
+you see there is a gain button there as
+
+225
+00:12:38,160 --> 00:12:46,480
+well. So, can you see? So, you see,
+
+226
+00:12:42,720 --> 00:12:48,720
+but anyway, that is the gain.
+
+227
+00:12:46,480 --> 00:12:51,839
+Check. Check. You don't want it to be
+
+228
+00:12:48,720 --> 00:12:54,079
+too high though. So, right now, it might
+
+229
+00:12:51,839 --> 00:12:55,600
+So, anyway, that's how you set up the
+
+230
+00:12:54,079 --> 00:13:00,240
+microphone.
+
+231
+00:12:55,600 --> 00:13:04,800
+So, cancel cancel complex. [ __ ] On the
+
+232
+00:13:00,240 --> 00:13:08,000
+other digression, Google now banned you
+
+233
+00:13:04,800 --> 00:13:12,000
+block or engine. You see now you cannot
+
+234
+00:13:08,000 --> 00:13:14,560
+turn it on anymore. You see today I just
+
+235
+00:13:12,000 --> 00:13:16,880
+got it you know like right now. So let
+
+236
+00:13:14,560 --> 00:13:20,560
+me make a screenshot of this uh to make
+
+237
+00:13:16,880 --> 00:13:23,440
+a recording of the what happened so that
+
+238
+00:13:20,560 --> 00:13:27,120
+10 years later you will know oh this is
+
+239
+00:13:23,440 --> 00:13:31,440
+this is when Google did this. Uh okay so
+
+240
+00:13:27,120 --> 00:13:35,160
+what I want to do is control that. Okay,
+
+241
+00:13:31,440 --> 00:13:35,160
+I got a screenshot.
+
+242
+00:13:36,000 --> 00:13:40,480
+You block or engineer now is banned by
+
+243
+00:13:38,079 --> 00:13:46,000
+Google's because Google become so
+
+244
+00:13:40,480 --> 00:13:48,560
+extremely scum and uh um and deep state
+
+245
+00:13:46,000 --> 00:13:51,040
+you know they do many things very nasty.
+
+246
+00:13:48,560 --> 00:13:54,240
+Okay. So, I try not. So, I recommend if
+
+247
+00:13:51,040 --> 00:14:00,000
+you don't know, I recommend you use the
+
+248
+00:13:54,240 --> 00:14:04,240
+Braay browser. Brave browser or um
+
+249
+00:14:00,000 --> 00:14:07,519
+or what's the other one? Uh
+
+250
+00:14:04,240 --> 00:14:10,959
+don't use Microsoft Edge. Edge.
+
+251
+00:14:07,519 --> 00:14:14,480
+Microsoft Edge. Okay, that's also
+
+252
+00:14:10,959 --> 00:14:16,959
+very bad. Okay, don't use Google Chrome.
+
+253
+00:14:14,480 --> 00:14:21,120
+Uh I recommend use Brave. Okay. So,
+
+254
+00:14:16,959 --> 00:14:23,440
+Brave, it has um
+
+255
+00:14:21,120 --> 00:14:26,399
+it has uh blocking building. So, when
+
+256
+00:14:23,440 --> 00:14:28,959
+you watch YouTube, there's no ads. I
+
+257
+00:14:26,399 --> 00:14:30,880
+don't have any ads. Okay? So, you guys
+
+258
+00:14:28,959 --> 00:14:33,519
+donate. Okay? Don't forget you guys
+
+259
+00:14:30,880 --> 00:14:36,480
+donate to me. Go to sudi.info. I'm going
+
+260
+00:14:33,519 --> 00:14:38,560
+to repeat that later. So, meanwhile, let
+
+261
+00:14:36,480 --> 00:14:41,839
+me recommend. So, you can use Brave
+
+262
+00:14:38,560 --> 00:14:44,079
+browser. Also, use uh Brave search.
+
+263
+00:14:41,839 --> 00:14:48,320
+Okay? Set your, you know, default search
+
+264
+00:14:44,079 --> 00:14:52,639
+to Brave. And also uh and in fact these
+
+265
+00:14:48,320 --> 00:14:56,160
+days I use guork guork.com I highly
+
+266
+00:14:52,639 --> 00:14:59,040
+recommend it. Okay, guork.com you can uh
+
+267
+00:14:56,160 --> 00:15:02,320
+for all your search or question needs in
+
+268
+00:14:59,040 --> 00:15:05,279
+your life or coding needs. I it answer
+
+269
+00:15:02,320 --> 00:15:08,240
+tremendous amount of tech very technical
+
+270
+00:15:05,279 --> 00:15:10,880
+uh programming stuff
+
+271
+00:15:08,240 --> 00:15:12,720
+you know in the past two years. uh
+
+272
+00:15:10,880 --> 00:15:15,920
+typically you cannot find the answer
+
+273
+00:15:12,720 --> 00:15:19,839
+even in Stack Overflow or you know so
+
+274
+00:15:15,920 --> 00:15:21,839
+anyway so so I recommend and and I do
+
+275
+00:15:19,839 --> 00:15:24,880
+not recommend Firefox they've been
+
+276
+00:15:21,839 --> 00:15:28,720
+extremely evil as well it's very much
+
+277
+00:15:24,880 --> 00:15:31,440
+deep state tide okay but so uh I
+
+278
+00:15:28,720 --> 00:15:34,320
+recommend Brave and I also recommend uh
+
+279
+00:15:31,440 --> 00:15:37,760
+what's the other browser I can recommend
+
+280
+00:15:34,320 --> 00:15:41,199
+so what do you guys think
+
+281
+00:15:37,760 --> 00:15:43,839
+uh there's something. Anyway, I forgot I
+
+282
+00:15:41,199 --> 00:15:47,360
+have to look into I don't have the link
+
+283
+00:15:43,839 --> 00:15:50,240
+here. I have it installed, but
+
+284
+00:15:47,360 --> 00:15:53,040
+I forgot what's the browser name. So,
+
+285
+00:15:50,240 --> 00:15:55,360
+anyway, let's go back to uh Emacis.
+
+286
+00:15:53,040 --> 00:15:57,759
+Okay, JSON write file. So, right now
+
+287
+00:15:55,360 --> 00:16:03,199
+it's about hasht. So, you need to delete
+
+288
+00:15:57,759 --> 00:16:05,600
+them. Okay, so so update the date and
+
+289
+00:16:03,199 --> 00:16:08,720
+okay, so that's today's date. This file
+
+290
+00:16:05,600 --> 00:16:12,079
+is completely new. uh add entry remove
+
+291
+00:16:08,720 --> 00:16:16,000
+entry check. So I'm using kai HTML mod.
+
+292
+00:16:12,079 --> 00:16:19,360
+So that allows me the luxury. You see
+
+293
+00:16:16,000 --> 00:16:20,880
+this paragraph you see that's one
+
+294
+00:16:19,360 --> 00:16:24,800
+HTML
+
+295
+00:16:20,880 --> 00:16:26,880
+semantic unit. Okay? See and this color
+
+296
+00:16:24,800 --> 00:16:30,000
+paragraph that's semantic unit. I press
+
+297
+00:16:26,880 --> 00:16:34,000
+a key it'll expand. I press a key, it
+
+298
+00:16:30,000 --> 00:16:37,120
+expand to DD which is definition uh mean
+
+299
+00:16:34,000 --> 00:16:40,399
+uh definition and and expand again.
+
+300
+00:16:37,120 --> 00:16:44,639
+Okay, I already uh pressed some other
+
+301
+00:16:40,399 --> 00:16:47,360
+key. So select expand expand. So the
+
+302
+00:16:44,639 --> 00:16:49,680
+entire definition list is selected. I
+
+303
+00:16:47,360 --> 00:16:53,040
+can just press a key to delete it or I
+
+304
+00:16:49,680 --> 00:16:56,079
+can undo it. You see undo, select,
+
+305
+00:16:53,040 --> 00:16:58,639
+select again. You see undo or I can just
+
+306
+00:16:56,079 --> 00:17:00,800
+put a cursor here. press a key that
+
+307
+00:16:58,639 --> 00:17:03,920
+entire thing is gone. So you can see all
+
+308
+00:17:00,800 --> 00:17:06,640
+my commands is shown on the pink window
+
+309
+00:17:03,920 --> 00:17:08,799
+there. Okay. S HTML
+
+310
+00:17:06,640 --> 00:17:11,520
+um mode. You have to pay me to get it
+
+311
+00:17:08,799 --> 00:17:14,319
+because for 10 years it's free. Nobody
+
+312
+00:17:11,520 --> 00:17:17,520
+give you a [ __ ] Okay. So you see all
+
+313
+00:17:14,319 --> 00:17:21,120
+these blank lines. Press a key. It's all
+
+314
+00:17:17,520 --> 00:17:23,439
+gone. Now press a key. Press a key. So
+
+315
+00:17:21,120 --> 00:17:26,559
+show in browser. So now it's down to you
+
+316
+00:17:23,439 --> 00:17:30,480
+see uh down to that. So delete that. Uh
+
+317
+00:17:26,559 --> 00:17:33,039
+this is related topics. Uh I I'll add it
+
+318
+00:17:30,480 --> 00:17:36,559
+later. Okay. And data structure. Oh,
+
+319
+00:17:33,039 --> 00:17:39,600
+okay. So let's add that here. Okay. So
+
+320
+00:17:36,559 --> 00:17:43,919
+um copy the file path, paste it. Linkify
+
+321
+00:17:39,600 --> 00:17:47,760
+JSON read uh read JSON read. Right.
+
+322
+00:17:43,919 --> 00:17:52,080
+Okay. Make a list. Delete the URL and uh
+
+323
+00:17:47,760 --> 00:17:55,440
+delete that and uh put it here. So it's
+
+324
+00:17:52,080 --> 00:17:58,480
+related to data structure uh list vector
+
+325
+00:17:55,440 --> 00:18:01,679
+because JSON is a data structure format
+
+326
+00:17:58,480 --> 00:18:04,720
+I mean data structure data type
+
+327
+00:18:01,679 --> 00:18:07,120
+okay so now so show in browser so now if
+
+328
+00:18:04,720 --> 00:18:09,919
+you go to list
+
+329
+00:18:07,120 --> 00:18:12,080
+uh at the bottom you got the same data
+
+330
+00:18:09,919 --> 00:18:14,320
+structure box but there's no JSON you
+
+331
+00:18:12,080 --> 00:18:18,720
+see now you go to vector go to the
+
+332
+00:18:14,320 --> 00:18:23,520
+bottom there is no JSON you need to add
+
+333
+00:18:18,720 --> 00:18:25,760
+it so let's add that. So, press press uh
+
+334
+00:18:23,520 --> 00:18:29,039
+wait press.
+
+335
+00:18:25,760 --> 00:18:31,520
+Okay, it's now it's all done. Uh wait,
+
+336
+00:18:29,039 --> 00:18:33,760
+press press. Okay, now it's all done.
+
+337
+00:18:31,520 --> 00:18:38,720
+Now, go to the browser. You can see the
+
+338
+00:18:33,760 --> 00:18:40,240
+command I called is HTML update topic
+
+339
+00:18:38,720 --> 00:18:44,000
+boxes.
+
+340
+00:18:40,240 --> 00:18:45,679
+Okay, now watch here. Refresh. There is
+
+341
+00:18:44,000 --> 00:18:48,640
+JSON.
+
+342
+00:18:45,679 --> 00:18:51,840
+Go back to list. Go to the bottom.
+
+343
+00:18:48,640 --> 00:18:55,679
+There's JSON. Fantastic. Go to JSON. You
+
+344
+00:18:51,840 --> 00:18:59,440
+know, so this related items allows you
+
+345
+00:18:55,679 --> 00:19:01,520
+to easily navigate within a specialized
+
+346
+00:18:59,440 --> 00:19:04,240
+topic.
+
+347
+00:19:01,520 --> 00:19:06,400
+Okay. JSON read file and what is this uh
+
+348
+00:19:04,240 --> 00:19:08,960
+key value collection. So that box we
+
+349
+00:19:06,400 --> 00:19:12,960
+don't need you know that's you know. So
+
+350
+00:19:08,960 --> 00:19:15,919
+okay. So that that okay. So now let's
+
+351
+00:19:12,960 --> 00:19:20,640
+open a new window.
+
+352
+00:19:15,919 --> 00:19:23,760
+uh new huge giant box window and uh
+
+353
+00:19:20,640 --> 00:19:26,000
+let's make it this background color. Set
+
+354
+00:19:23,760 --> 00:19:29,000
+background color
+
+355
+00:19:26,000 --> 00:19:29,000
+to
+
+356
+00:19:29,679 --> 00:19:36,160
+sea shell. Fantastic.
+
+357
+00:19:34,080 --> 00:19:38,160
+Okay. And let's go to talkshell. Switch
+
+358
+00:19:36,160 --> 00:19:41,360
+this one to talk show. So what is this?
+
+359
+00:19:38,160 --> 00:19:44,640
+Showing browser this basics. Uh search
+
+360
+00:19:41,360 --> 00:19:48,400
+for JSON. Did we have it? No. We need to
+
+361
+00:19:44,640 --> 00:19:50,080
+make a change. So, we need to remove
+
+362
+00:19:48,400 --> 00:19:53,200
+this.
+
+363
+00:19:50,080 --> 00:19:55,600
+Uh, also we got a extra space. Remove
+
+364
+00:19:53,200 --> 00:20:00,400
+back here. Refresh. Fantastic. Are you
+
+365
+00:19:55,600 --> 00:20:02,640
+guys seeing what I seeing?
+
+366
+00:20:00,400 --> 00:20:05,840
+Okay. So, I'm going to answer the
+
+367
+00:20:02,640 --> 00:20:11,679
+questions in a bit. Okay. So, so JSON
+
+368
+00:20:05,840 --> 00:20:13,919
+file close that and update the title.
+
+369
+00:20:11,679 --> 00:20:16,720
+Uh,
+
+370
+00:20:13,919 --> 00:20:19,679
+okay. It's already good showing browser.
+
+371
+00:20:16,720 --> 00:20:22,000
+Okay, let's switch to what is this? Talk
+
+372
+00:20:19,679 --> 00:20:28,480
+show. Okay, so this page is talk show
+
+373
+00:20:22,000 --> 00:20:30,640
+and I want to move the items here to my
+
+374
+00:20:28,480 --> 00:20:33,280
+um
+
+375
+00:20:30,640 --> 00:20:36,000
+to my from for from my talk show page to
+
+376
+00:20:33,280 --> 00:20:39,280
+the JSON page. Okay, let me show you how
+
+377
+00:20:36,000 --> 00:20:42,480
+to do that. Okay, split the window. Uh
+
+378
+00:20:39,280 --> 00:20:46,080
+split the window. Go to go keyboard
+
+379
+00:20:42,480 --> 00:20:50,400
+block. Close. Uh go to talk show index
+
+380
+00:20:46,080 --> 00:20:53,280
+index. Close. Close. Close. Go to JSON.
+
+381
+00:20:50,400 --> 00:20:56,559
+So this is a JSON file. Now move the
+
+382
+00:20:53,280 --> 00:21:00,720
+cursor to where I want it to be there.
+
+383
+00:20:56,559 --> 00:21:02,559
+And go to this talk show page. So you
+
+384
+00:21:00,720 --> 00:21:05,280
+can see there's a section, you know, or
+
+385
+00:21:02,559 --> 00:21:07,760
+these bunch of things. Now go to the
+
+386
+00:21:05,280 --> 00:21:12,159
+top, search for section
+
+387
+00:21:07,760 --> 00:21:15,760
+uh there. Okay. So, select it. Now, the
+
+388
+00:21:12,159 --> 00:21:21,280
+entire section semantic unit is
+
+389
+00:21:15,760 --> 00:21:24,159
+selected. Okay. Now, press press
+
+390
+00:21:21,280 --> 00:21:26,559
+uh wait press
+
+391
+00:21:24,159 --> 00:21:30,960
+that's the right key.
+
+392
+00:21:26,559 --> 00:21:35,360
+HTML move text to uh move text block.
+
+393
+00:21:30,960 --> 00:21:37,600
+HTML move text block. Okay. So, now you
+
+394
+00:21:35,360 --> 00:21:40,720
+know the entire section got moved. You
+
+395
+00:21:37,600 --> 00:21:43,280
+see now talk show is empty. Go to the
+
+396
+00:21:40,720 --> 00:21:45,520
+JSON file show in browser. Now the JSON
+
+397
+00:21:43,280 --> 00:21:48,960
+file is populated.
+
+398
+00:21:45,520 --> 00:21:52,640
+This this is very useful. It is not the
+
+399
+00:21:48,960 --> 00:21:54,799
+same as if you just like copy you know
+
+400
+00:21:52,640 --> 00:21:58,880
+copy here cut it and paste it. It's not
+
+401
+00:21:54,799 --> 00:22:00,400
+the same because all the links
+
+402
+00:21:58,880 --> 00:22:02,880
+get
+
+403
+00:22:00,400 --> 00:22:04,799
+updated correctly you know from one page
+
+404
+00:22:02,880 --> 00:22:07,120
+to another another because especially
+
+405
+00:22:04,799 --> 00:22:09,679
+when you you know uh when whenever you
+
+406
+00:22:07,120 --> 00:22:12,159
+have relative links in one directory and
+
+407
+00:22:09,679 --> 00:22:14,559
+you want to move that you know text to
+
+408
+00:22:12,159 --> 00:22:17,840
+another page the relative links may
+
+409
+00:22:14,559 --> 00:22:19,840
+change. So so this function takes care
+
+410
+00:22:17,840 --> 00:22:22,799
+of that.
+
+411
+00:22:19,840 --> 00:22:26,159
+Uh kasa kasa something something
+
+412
+00:22:22,799 --> 00:22:30,720
+something kasa something okay too many
+
+413
+00:22:26,159 --> 00:22:33,200
+so many commands okay anyway so
+
+414
+00:22:30,720 --> 00:22:36,240
+uh so what is this page uh yeah so
+
+415
+00:22:33,200 --> 00:22:40,480
+there's few more things I want to uh
+
+416
+00:22:36,240 --> 00:22:43,840
+change okay so uh emac this JSON copy it
+
+417
+00:22:40,480 --> 00:22:47,280
+close it and let's just let's just paste
+
+418
+00:22:43,840 --> 00:22:52,080
+there okay we are writing this on the
+
+419
+00:22:47,280 --> 00:22:57,520
+fly okay cut it back to Emacs JSON page
+
+420
+00:22:52,080 --> 00:23:00,080
+and uh and what is this? Okay. Read. Uh
+
+421
+00:22:57,520 --> 00:23:04,240
+yeah. Okay.
+
+422
+00:23:00,080 --> 00:23:06,640
+So, so we are working on this now. This
+
+423
+00:23:04,240 --> 00:23:11,880
+JSON data structure. Paste it. Okay.
+
+424
+00:23:06,640 --> 00:23:11,880
+Show in browser. So, let me clean up
+
+425
+00:23:13,520 --> 00:23:19,679
+uh serialize. Okay. So, these are new.
+
+426
+00:23:17,440 --> 00:23:23,520
+So, how do you read? So, this is a
+
+427
+00:23:19,679 --> 00:23:25,760
+tutorial uh to teach you about how to
+
+428
+00:23:23,520 --> 00:23:29,880
+read. Okay. Yeah. So actually I got one
+
+429
+00:23:25,760 --> 00:23:29,880
+of that. Um
+
+430
+00:23:33,600 --> 00:23:38,880
+so this is a reference. We need
+
+431
+00:23:36,240 --> 00:23:44,240
+reference. Okay.
+
+432
+00:23:38,880 --> 00:23:48,240
+Reference. Okay. And uh cap and
+
+433
+00:23:44,240 --> 00:23:54,320
+capitalize it properly. Wait. Yeah. So
+
+434
+00:23:48,240 --> 00:23:57,760
+make it H2. Okay. And uh cut cut. Now
+
+435
+00:23:54,320 --> 00:24:01,679
+split go to the bottom and uh put the
+
+436
+00:23:57,760 --> 00:24:05,200
+reference section here. Okay, now that's
+
+437
+00:24:01,679 --> 00:24:08,400
+the reference. Now go to the top.
+
+438
+00:24:05,200 --> 00:24:12,000
+Uh let's see. So this this part about
+
+439
+00:24:08,400 --> 00:24:15,000
+hasht let me explain that later. Okay.
+
+440
+00:24:12,000 --> 00:24:15,000
+So
+
+441
+00:24:16,000 --> 00:24:20,760
+okay. So that goes to talk show.
+
+442
+00:24:21,360 --> 00:24:28,320
+This is what we going to do. uh import
+
+443
+00:24:23,520 --> 00:24:30,000
+export right the tutorial. Okay. And uh
+
+444
+00:24:28,320 --> 00:24:34,400
+and
+
+445
+00:24:30,000 --> 00:24:37,440
+paste that. Join the list. Okay. Undo.
+
+446
+00:24:34,400 --> 00:24:40,880
+Showing browser. You can see now join
+
+447
+00:24:37,440 --> 00:24:44,080
+the list. Join uh wrong key. Join the
+
+448
+00:24:40,880 --> 00:24:47,840
+list. Showing browser. Okay. That is the
+
+449
+00:24:44,080 --> 00:24:51,440
+talk show. Now back to the JSON page.
+
+450
+00:24:47,840 --> 00:24:54,799
+Now serial. Okay. So, what I want is So,
+
+451
+00:24:51,440 --> 00:24:58,200
+let's let's um
+
+452
+00:24:54,799 --> 00:24:58,200
+cut cut.
+
+453
+00:24:59,760 --> 00:25:05,919
+Okay, now move back here on the top.
+
+454
+00:25:04,320 --> 00:25:08,480
+Show.
+
+455
+00:25:05,919 --> 00:25:10,240
+Fantastic. Getting better. Now, this
+
+456
+00:25:08,480 --> 00:25:12,720
+state section, this section, let's
+
+457
+00:25:10,240 --> 00:25:15,440
+remove the section. Okay, remove the
+
+458
+00:25:12,720 --> 00:25:19,360
+date. Remove the to-do
+
+459
+00:25:15,440 --> 00:25:24,480
+and this this format hash table. Let me
+
+460
+00:25:19,360 --> 00:25:27,279
+explain that one. Okay. So, so I was
+
+461
+00:25:24,480 --> 00:25:30,159
+format hash table. Okay. So, let let's
+
+462
+00:25:27,279 --> 00:25:33,200
+copy that. Go to the talk show and uh
+
+463
+00:25:30,159 --> 00:25:37,520
+let's paste it there. So, I have a
+
+464
+00:25:33,200 --> 00:25:40,080
+command called format uh hash table. So,
+
+465
+00:25:37,520 --> 00:25:43,919
+that allows you to print hasht line by
+
+466
+00:25:40,080 --> 00:25:46,720
+line. Okay. So I was thinking uh maybe I
+
+467
+00:25:43,919 --> 00:25:50,799
+should update it you know just create
+
+468
+00:25:46,720 --> 00:25:53,520
+another command that says print hasht so
+
+469
+00:25:50,799 --> 00:25:55,679
+you can print hasht line by line okay so
+
+470
+00:25:53,520 --> 00:25:59,279
+I was going to do that then I was
+
+471
+00:25:55,679 --> 00:26:01,919
+thinking uh since we have JSON export to
+
+472
+00:25:59,279 --> 00:26:04,240
+JSON you know serialize soal serialize
+
+473
+00:26:01,919 --> 00:26:07,600
+that's another idiotic jargon from the
+
+474
+00:26:04,240 --> 00:26:09,919
+industrial coders you know serialize
+
+475
+00:26:07,600 --> 00:26:13,360
+what does it mean basically you want to
+
+476
+00:26:09,919 --> 00:26:15,120
+turn a data structure
+
+477
+00:26:13,360 --> 00:26:18,080
+you know typically internal data
+
+478
+00:26:15,120 --> 00:26:21,520
+structure into into string okay into a
+
+479
+00:26:18,080 --> 00:26:24,880
+text representable as a text so so
+
+480
+00:26:21,520 --> 00:26:28,159
+that's what this jargon serialize mean a
+
+481
+00:26:24,880 --> 00:26:29,919
+very extreme idiotic jargon from from
+
+482
+00:26:28,159 --> 00:26:32,080
+the industrial coders I don't know
+
+483
+00:26:29,919 --> 00:26:36,720
+what's the origin of serialized but I
+
+484
+00:26:32,080 --> 00:26:40,159
+suppose I blame it on the C C++ idiots
+
+485
+00:26:36,720 --> 00:26:45,120
+okay it's always these idiots create
+
+486
+00:26:40,159 --> 00:26:47,679
+They create lots of bad jargon in jarens
+
+487
+00:26:45,120 --> 00:26:50,480
+and concept in in in computer
+
+488
+00:26:47,679 --> 00:26:53,799
+programming. Okay. They idiots serialize
+
+489
+00:26:50,480 --> 00:26:53,799
+the idiocy
+
+490
+00:26:54,799 --> 00:27:01,440
+the idiocy of the jargon.
+
+491
+00:26:58,960 --> 00:27:04,080
+Okay. That jargon is used I know in
+
+492
+00:27:01,440 --> 00:27:08,400
+Java. That's when I first heard of it
+
+493
+00:27:04,080 --> 00:27:10,960
+like 20 25 years ago. But I don't know
+
+494
+00:27:08,400 --> 00:27:15,279
+how you know where does it begin. So
+
+495
+00:27:10,960 --> 00:27:18,640
+does anyone know uh the the the jargon
+
+496
+00:27:15,279 --> 00:27:21,679
+serialized when you know was it in C or
+
+497
+00:27:18,640 --> 00:27:25,120
+C++ like when did it became popular or
+
+498
+00:27:21,679 --> 00:27:27,919
+what you know what uh let me ask let's
+
+499
+00:27:25,120 --> 00:27:31,440
+ask work okay
+
+500
+00:27:27,919 --> 00:27:36,240
+what is the origin
+
+501
+00:27:31,440 --> 00:27:37,919
+uh origin oh I don't have a brief of the
+
+502
+00:27:36,240 --> 00:27:41,520
+jargon
+
+503
+00:27:37,919 --> 00:27:44,520
+of the programming I mean
+
+504
+00:27:41,520 --> 00:27:44,520
+uh
+
+505
+00:27:44,799 --> 00:27:49,080
+okay let's ask gu.com
+
+506
+00:27:50,320 --> 00:27:54,720
+what is the origin of the programming
+
+507
+00:27:52,240 --> 00:27:57,520
+jargon serialize
+
+508
+00:27:54,720 --> 00:28:00,320
+let's see okay you need to magnify
+
+509
+00:27:57,520 --> 00:28:02,080
+control scroll up scroll up scroll up
+
+510
+00:28:00,320 --> 00:28:05,039
+scroll up
+
+511
+00:28:02,080 --> 00:28:09,520
+okay
+
+512
+00:28:05,039 --> 00:28:09,520
+am I good you guys is is interesting
+
+513
+00:28:10,159 --> 00:28:15,120
+So the programming jargon serialized
+
+514
+00:28:12,320 --> 00:28:17,760
+come comes from the concept of
+
+515
+00:28:15,120 --> 00:28:22,000
+converting complex data structure or
+
+516
+00:28:17,760 --> 00:28:24,320
+objects into a linear sequence of bytes
+
+517
+00:28:22,000 --> 00:28:26,960
+or characters which can be stored,
+
+518
+00:28:24,320 --> 00:28:31,279
+transmitted or reconstructed later.
+
+519
+00:28:26,960 --> 00:28:34,880
+Okay. The term derived derives from the
+
+520
+00:28:31,279 --> 00:28:38,720
+English word serial meaning arranged in
+
+521
+00:28:34,880 --> 00:28:42,960
+a series or sequence rooted in the Latin
+
+522
+00:28:38,720 --> 00:28:44,960
+series. Okay. Or raw chain or sequence.
+
+523
+00:28:42,960 --> 00:28:48,799
+Okay. Origin and evolution early
+
+524
+00:28:44,960 --> 00:28:51,919
+computing 1960 to 70. The term emerged
+
+525
+00:28:48,799 --> 00:28:53,919
+in computer science as data needed to be
+
+526
+00:28:51,919 --> 00:28:55,919
+converted into a format suitable for
+
+527
+00:28:53,919 --> 00:28:58,000
+storage or transmission over networks.
+
+528
+00:28:55,919 --> 00:29:00,880
+For example, early databases and file
+
+529
+00:28:58,000 --> 00:29:03,919
+systems require data to be written in a
+
+530
+00:29:00,880 --> 00:29:06,000
+sequential serial form to save to disk
+
+531
+00:29:03,919 --> 00:29:08,320
+or tape. That's right, tar. You know,
+
+532
+00:29:06,000 --> 00:29:11,600
+glue tar
+
+533
+00:29:08,320 --> 00:29:14,399
+still in use today. Idiotic from the
+
+534
+00:29:11,600 --> 00:29:17,279
+Unix idiots.
+
+535
+00:29:14,399 --> 00:29:20,640
+Okay. So, 1960s7s
+
+536
+00:29:17,279 --> 00:29:24,480
+you need data to be in a linear format.
+
+537
+00:29:20,640 --> 00:29:26,960
+Okay. Then then what? Then serialization
+
+538
+00:29:24,480 --> 00:29:28,480
+in programming by the 1980s as
+
+539
+00:29:26,960 --> 00:29:31,679
+objectoriented
+
+540
+00:29:28,480 --> 00:29:33,279
+that's the origin of the [ __ ]
+
+541
+00:29:31,679 --> 00:29:37,039
+objectoriented
+
+542
+00:29:33,279 --> 00:29:39,919
+[ __ ] okay from the C++
+
+543
+00:29:37,039 --> 00:29:42,640
+idiots in Java
+
+544
+00:29:39,919 --> 00:29:45,679
+the worst paradigm in programming
+
+545
+00:29:42,640 --> 00:29:47,919
+industry okay so by the 1980s as
+
+546
+00:29:45,679 --> 00:29:50,159
+objectoriented programming and complex
+
+547
+00:29:47,919 --> 00:29:54,320
+data structures became common
+
+548
+00:29:50,159 --> 00:29:57,840
+serialization referred to flattening
+
+549
+00:29:54,320 --> 00:29:59,919
+objects like graph or trees into a
+
+550
+00:29:57,840 --> 00:30:02,640
+stream of bytes.
+
+551
+00:29:59,919 --> 00:30:06,000
+Okay, this allow data to be saved to
+
+552
+00:30:02,640 --> 00:30:09,679
+files or send across systems with d
+
+553
+00:30:06,000 --> 00:30:12,399
+serialization as the reverse process to
+
+554
+00:30:09,679 --> 00:30:16,320
+reconstruct the data. Okay, now I I get
+
+555
+00:30:12,399 --> 00:30:18,799
+it. So where does the serialization
+
+556
+00:30:16,320 --> 00:30:20,960
+[ __ ] in end jargon came from? came
+
+557
+00:30:18,799 --> 00:30:23,120
+from the objectoriented
+
+558
+00:30:20,960 --> 00:30:27,120
+oriented [ __ ]
+
+559
+00:30:23,120 --> 00:30:29,039
+Okay, these [ __ ] idiots,
+
+560
+00:30:27,120 --> 00:30:31,840
+you know, because they they you know
+
+561
+00:30:29,039 --> 00:30:34,399
+they create this in end jarens that's
+
+562
+00:30:31,840 --> 00:30:36,480
+misleading because because when you if
+
+563
+00:30:34,399 --> 00:30:39,120
+you are a programmer you know I suppose
+
+564
+00:30:36,480 --> 00:30:40,640
+most of you you know when you learn
+
+565
+00:30:39,120 --> 00:30:43,840
+programming the first time you started
+
+566
+00:30:40,640 --> 00:30:45,919
+to learn oh serializ so for most people
+
+567
+00:30:43,840 --> 00:30:47,760
+programmers professional programmers in
+
+568
+00:30:45,919 --> 00:30:50,799
+the industry they have no idea you know
+
+569
+00:30:47,760 --> 00:30:53,120
+they serialization is natural natural
+
+570
+00:30:50,799 --> 00:30:55,679
+word to them because they just you know
+
+571
+00:30:53,120 --> 00:30:58,320
+they just know the meaning you know oh
+
+572
+00:30:55,679 --> 00:31:01,440
+you have to because you know fire file
+
+573
+00:30:58,320 --> 00:31:03,760
+and linear and it's a sequence there you
+
+574
+00:31:01,440 --> 00:31:06,640
+know that's why serialization it's it's
+
+575
+00:31:03,760 --> 00:31:10,080
+very natural because but it's it's
+
+576
+00:31:06,640 --> 00:31:12,960
+actually a misleading very idiotic
+
+577
+00:31:10,080 --> 00:31:15,760
+misleading concept you don't want to
+
+578
+00:31:12,960 --> 00:31:19,440
+think of you don't want to think of data
+
+579
+00:31:15,760 --> 00:31:21,840
+structure representation as like you
+
+580
+00:31:19,440 --> 00:31:24,559
+know one version of it is serious
+
+581
+00:31:21,840 --> 00:31:27,279
+realized like sequential then another
+
+582
+00:31:24,559 --> 00:31:31,200
+version is not you know that's that's a
+
+583
+00:31:27,279 --> 00:31:34,480
+[ __ ] idiotic misleading
+
+584
+00:31:31,200 --> 00:31:37,760
+concept okay that tense your brain what
+
+585
+00:31:34,480 --> 00:31:41,200
+you want to think of instead is that you
+
+586
+00:31:37,760 --> 00:31:43,919
+have a data structure and you have
+
+587
+00:31:41,200 --> 00:31:48,080
+internal representation you know bits
+
+588
+00:31:43,919 --> 00:31:49,840
+like for bit didas you know C or C++
+
+589
+00:31:48,080 --> 00:31:52,720
+whatever your language you know wam
+
+590
+00:31:49,840 --> 00:31:54,720
+language Mathematica or function has you
+
+591
+00:31:52,720 --> 00:31:57,120
+know but anyway
+
+592
+00:31:54,720 --> 00:31:59,679
+for digital electronic computers you
+
+593
+00:31:57,120 --> 00:32:02,480
+have to have them in certain form in
+
+594
+00:31:59,679 --> 00:32:05,679
+electronic you know in you know in in
+
+595
+00:32:02,480 --> 00:32:08,799
+memory bits and the bits and byes then
+
+596
+00:32:05,679 --> 00:32:12,799
+but but often times you want to
+
+597
+00:32:08,799 --> 00:32:15,279
+represent it to programmers visually.
+
+598
+00:32:12,799 --> 00:32:18,480
+Okay. So so data structures have
+
+599
+00:32:15,279 --> 00:32:21,679
+internal representation forms and uh and
+
+600
+00:32:18,480 --> 00:32:25,360
+also textual forms. So the proper term
+
+601
+00:32:21,679 --> 00:32:28,000
+to think of this serialization [ __ ] is
+
+602
+00:32:25,360 --> 00:32:31,600
+textual representation. Okay, that is
+
+603
+00:32:28,000 --> 00:32:36,000
+the proper way of thinking. Not the
+
+604
+00:32:31,600 --> 00:32:39,360
+serialization [ __ ] This C++
+
+605
+00:32:36,000 --> 00:32:41,919
+Java industrial coding monkeys. Okay,
+
+606
+00:32:39,360 --> 00:32:44,320
+that's their problem.
+
+607
+00:32:41,919 --> 00:32:47,519
+Okay, that's a digression into this
+
+608
+00:32:44,320 --> 00:32:49,279
+topic and I suppose that's a good one.
+
+609
+00:32:47,519 --> 00:32:51,519
+That's you know I have lots of friends.
+
+610
+00:32:49,279 --> 00:32:53,919
+I so I explain to you guys what I'm
+
+611
+00:32:51,519 --> 00:32:56,080
+thinking, you know, I'm telling you and
+
+612
+00:32:53,919 --> 00:32:57,760
+you can be you you can judge, you know,
+
+613
+00:32:56,080 --> 00:32:59,360
+you can judge whether I'm correct or
+
+614
+00:32:57,760 --> 00:33:01,919
+not.
+
+615
+00:32:59,360 --> 00:33:04,640
+Okay, let's read some comments. Uh so we
+
+616
+00:33:01,919 --> 00:33:08,320
+we started to write. So we we actually
+
+617
+00:33:04,640 --> 00:33:10,720
+so um let's let's actually we haven't
+
+618
+00:33:08,320 --> 00:33:13,440
+demonstrated this yet. So how long has
+
+619
+00:33:10,720 --> 00:33:16,720
+it uh you know I've been talking for 30
+
+620
+00:33:13,440 --> 00:33:18,799
+minutes already. Okay. So we haven't
+
+621
+00:33:16,720 --> 00:33:21,440
+demonstrated that there's a issue I want
+
+622
+00:33:18,799 --> 00:33:24,080
+to resolve about if what happens when
+
+623
+00:33:21,440 --> 00:33:29,080
+you have a unic code in the uh JSON
+
+624
+00:33:24,080 --> 00:33:29,080
+string but let me read the comments.
+
+625
+00:33:29,120 --> 00:33:34,480
+Uh thank you for adjusting Yuck. Yes,
+
+626
+00:33:31,679 --> 00:33:37,039
+thank you ACP
+
+627
+00:33:34,480 --> 00:33:38,640
+for alerting me of my live stream
+
+628
+00:33:37,039 --> 00:33:42,640
+issues.
+
+629
+00:33:38,640 --> 00:33:44,880
+Google is sucks. Google is evil based. I
+
+630
+00:33:42,640 --> 00:33:47,600
+already used Brave and it will be very
+
+631
+00:33:44,880 --> 00:33:50,159
+sad day when YouTube stops supporting.
+
+632
+00:33:47,600 --> 00:33:51,919
+Yeah. Uh when YouTube stop stops
+
+633
+00:33:50,159 --> 00:33:55,279
+supporting Brave. You know what YouTube
+
+634
+00:33:51,919 --> 00:33:59,919
+did? When Microsoft 10 years ago came up
+
+635
+00:33:55,279 --> 00:34:02,559
+with Microsoft Edge browser okay let's
+
+636
+00:33:59,919 --> 00:34:04,480
+digress. Okay. Because this you know I
+
+637
+00:34:02,559 --> 00:34:06,880
+don't I'm not sure that many interested.
+
+638
+00:34:04,480 --> 00:34:09,040
+Let me talk about you know random topic
+
+639
+00:34:06,880 --> 00:34:11,679
+because that usually is colorful and
+
+640
+00:34:09,040 --> 00:34:14,399
+fun.
+
+641
+00:34:11,679 --> 00:34:16,879
+So you see you got this Microsoft Edge
+
+642
+00:34:14,399 --> 00:34:19,919
+you know Microsoft is very evil of
+
+643
+00:34:16,879 --> 00:34:22,480
+course but anyway but Microsoft started
+
+644
+00:34:19,919 --> 00:34:25,599
+the Edge browser you know as a
+
+645
+00:34:22,480 --> 00:34:28,639
+replacement for their internet explorer
+
+646
+00:34:25,599 --> 00:34:31,040
+that's another you know history
+
+647
+00:34:28,639 --> 00:34:34,000
+so that is very good because they have
+
+648
+00:34:31,040 --> 00:34:36,480
+entire new JavaScript engines entire new
+
+649
+00:34:34,000 --> 00:34:40,079
+uh HTML engines you know everything is
+
+650
+00:34:36,480 --> 00:34:42,960
+new and it's very good competitive to
+
+651
+00:34:40,079 --> 00:34:45,040
+Google, Google Chrome or Firefox. These
+
+652
+00:34:42,960 --> 00:34:48,079
+three are the primary primary three
+
+653
+00:34:45,040 --> 00:34:50,240
+browser engines. You know, Google Chrome
+
+654
+00:34:48,079 --> 00:34:53,839
+which by now is called Blink, you know,
+
+655
+00:34:50,240 --> 00:34:55,599
+Blink engine. Uh you got Firefox,
+
+656
+00:34:53,839 --> 00:34:57,280
+uh which they have engine, they have,
+
+657
+00:34:55,599 --> 00:35:01,200
+you know, the engine changed, you know,
+
+658
+00:34:57,280 --> 00:35:03,760
+in the past 30 years. So then then you
+
+659
+00:35:01,200 --> 00:35:07,520
+got Microsoft then well then you got the
+
+660
+00:35:03,760 --> 00:35:11,040
+Opera. Okay. opera is also kind of evil
+
+661
+00:35:07,520 --> 00:35:13,359
+by this by this uh was it Norwegian or
+
+662
+00:35:11,040 --> 00:35:18,000
+you know these [ __ ]
+
+663
+00:35:13,359 --> 00:35:21,520
+a a extreme Microsoft hater that's who
+
+664
+00:35:18,000 --> 00:35:24,880
+also created CSS okay by what's his name
+
+665
+00:35:21,520 --> 00:35:28,000
+you know havagan some you know something
+
+666
+00:35:24,880 --> 00:35:31,680
+some uh northern Europe Scandinavia some
+
+667
+00:35:28,000 --> 00:35:33,520
+some guy opera by by now it's kind of
+
+668
+00:35:31,680 --> 00:35:35,200
+dead you know nobody even know what is
+
+669
+00:35:33,520 --> 00:35:37,520
+opera
+
+670
+00:35:35,200 --> 00:35:40,800
+browser. It It's still It's still around
+
+671
+00:35:37,520 --> 00:35:42,800
+though. Anyway, so Microsoft Edge, you
+
+672
+00:35:40,800 --> 00:35:45,119
+know, they started a new brand new
+
+673
+00:35:42,800 --> 00:35:47,599
+browser like 10 years ago or was it 15
+
+674
+00:35:45,119 --> 00:35:50,720
+years ago? So extremely good
+
+675
+00:35:47,599 --> 00:35:53,440
+competitive. Then what Google started to
+
+676
+00:35:50,720 --> 00:35:56,240
+do is they they trick their websites
+
+677
+00:35:53,440 --> 00:35:58,480
+like YouTube like Google search you know
+
+678
+00:35:56,240 --> 00:36:02,160
+that because that's uh most people visit
+
+679
+00:35:58,480 --> 00:36:04,480
+them. They trick it so that so that if
+
+680
+00:36:02,160 --> 00:36:06,880
+you are using Microsoft Edge browser
+
+681
+00:36:04,480 --> 00:36:08,800
+it'll be slow or you got some problems
+
+682
+00:36:06,880 --> 00:36:12,560
+the formatting doesn't work you know
+
+683
+00:36:08,800 --> 00:36:15,440
+they trick it secretly
+
+684
+00:36:12,560 --> 00:36:17,520
+and then like Microsoft you know you
+
+685
+00:36:15,440 --> 00:36:19,520
+know there's like very competitive you
+
+686
+00:36:17,520 --> 00:36:22,480
+know there are websites that compare you
+
+687
+00:36:19,520 --> 00:36:25,280
+know YouTube speed between browsers uh
+
+688
+00:36:22,480 --> 00:36:27,839
+JavaScript speed you know so Microsoft
+
+689
+00:36:25,280 --> 00:36:30,720
+Edge is number one but all of a sudden
+
+690
+00:36:27,839 --> 00:36:32,800
+now it's no longer true because the
+
+691
+00:36:30,720 --> 00:36:35,440
+YouTube [ __ ] you know they they trick
+
+692
+00:36:32,800 --> 00:36:38,400
+their code to tremendous degree you know
+
+693
+00:36:35,440 --> 00:36:42,640
+like they you know like for example
+
+694
+00:36:38,400 --> 00:36:45,640
+let's say uh what Cortana what the [ __ ]
+
+695
+00:36:42,640 --> 00:36:45,640
+Cotana
+
+696
+00:36:46,160 --> 00:36:53,680
+you know suppose I you know what uh wait
+
+697
+00:36:50,320 --> 00:36:56,800
+I got a Windows keys on
+
+698
+00:36:53,680 --> 00:36:58,960
+okay so suppose suppose this this line I
+
+699
+00:36:56,800 --> 00:37:01,920
+can trick it you know I can like use
+
+700
+00:36:58,960 --> 00:37:05,359
+JavaScript to join you know you know
+
+701
+00:37:01,920 --> 00:37:07,200
+like um well let me show you you know
+
+702
+00:37:05,359 --> 00:37:09,119
+you can
+
+703
+00:37:07,200 --> 00:37:12,800
+you can
+
+704
+00:37:09,119 --> 00:37:15,440
+so for example let's say let's add a
+
+705
+00:37:12,800 --> 00:37:17,119
+span there you know like like that you
+
+706
+00:37:15,440 --> 00:37:19,280
+know you can see the difference but they
+
+707
+00:37:17,119 --> 00:37:21,040
+are you know like these two looks the
+
+708
+00:37:19,280 --> 00:37:24,000
+same but actually the code becomes
+
+709
+00:37:21,040 --> 00:37:27,760
+different so that's what Google is doing
+
+710
+00:37:24,000 --> 00:37:30,240
+you know to YouTube code so it [ __ ] up
+
+711
+00:37:27,760 --> 00:37:32,880
+you Microsoft
+
+712
+00:37:30,240 --> 00:37:36,079
+then Microsoft tried to fix it you know
+
+713
+00:37:32,880 --> 00:37:37,760
+by by by a reverse engineer you know
+
+714
+00:37:36,079 --> 00:37:40,240
+they try to find out what YouTube is
+
+715
+00:37:37,760 --> 00:37:42,079
+doing so they they try to fix it then
+
+716
+00:37:40,240 --> 00:37:44,240
+YouTube start to do another thing you
+
+717
+00:37:42,079 --> 00:37:47,920
+know they they change again so this kept
+
+718
+00:37:44,240 --> 00:37:51,119
+going for a while so that is how evil
+
+719
+00:37:47,920 --> 00:37:54,400
+the Google Chrome is you know every time
+
+720
+00:37:51,119 --> 00:37:57,040
+they do that they pretend oh oh I'm
+
+721
+00:37:54,400 --> 00:37:59,359
+sorry oh by mistake who you know we
+
+722
+00:37:57,040 --> 00:38:03,839
+didn't Oh,
+
+723
+00:37:59,359 --> 00:38:06,880
+but the repeats year after year,
+
+724
+00:38:03,839 --> 00:38:09,920
+you know, so that's uh how scum they
+
+725
+00:38:06,880 --> 00:38:13,200
+became. People don't know. So, you know,
+
+726
+00:38:09,920 --> 00:38:15,839
+search search.info
+
+727
+00:38:13,200 --> 00:38:19,520
+Google crimes.
+
+728
+00:38:15,839 --> 00:38:21,839
+Okay. So there's a index of of what
+
+729
+00:38:19,520 --> 00:38:25,040
+Google has done
+
+730
+00:38:21,839 --> 00:38:29,200
+um you know in in the past uh 15 years
+
+731
+00:38:25,040 --> 00:38:33,839
+or so since I started to write this. So
+
+732
+00:38:29,200 --> 00:38:39,280
+you can see uh so if we search for
+
+733
+00:38:33,839 --> 00:38:42,240
+Edge uh Microsoft there it is Google
+
+734
+00:38:39,280 --> 00:38:45,680
+tricks YouTube to make Microsoft browser
+
+735
+00:38:42,240 --> 00:38:48,160
+slower. Okay. 2018
+
+736
+00:38:45,680 --> 00:38:51,680
+the big giant chapter of history. Okay.
+
+737
+00:38:48,160 --> 00:38:54,800
+So, but let me post the link here
+
+738
+00:38:51,680 --> 00:38:58,400
+uh Google crimes. Okay. And uh back to
+
+739
+00:38:54,800 --> 00:39:02,560
+browser. Copy the link. Paste it there.
+
+740
+00:38:58,400 --> 00:39:06,960
+Linkify joining those two
+
+741
+00:39:02,560 --> 00:39:10,160
+uh AI and cut it all here. Paste. Okay.
+
+742
+00:39:06,960 --> 00:39:12,320
+Showing browser. So, we got a record of
+
+743
+00:39:10,160 --> 00:39:14,560
+what we talked about.
+
+744
+00:39:12,320 --> 00:39:17,680
+So back to Google. So Google, so how do
+
+745
+00:39:14,560 --> 00:39:21,280
+I know this detail? Because they are
+
+746
+00:39:17,680 --> 00:39:23,200
+Microsoft employees, you know, they know
+
+747
+00:39:21,280 --> 00:39:24,960
+because you are coding, you know, you
+
+748
+00:39:23,200 --> 00:39:28,000
+are, you know, you think, you know, you
+
+749
+00:39:24,960 --> 00:39:30,800
+you work hard to get your browser to
+
+750
+00:39:28,000 --> 00:39:32,720
+become the best fastest. Then the next
+
+751
+00:39:30,800 --> 00:39:35,359
+day it doesn't work anymore. Then you
+
+752
+00:39:32,720 --> 00:39:39,280
+look into, oh, Google is doing that. You
+
+753
+00:39:35,359 --> 00:39:41,520
+know, imagine how much, you know, hatred
+
+754
+00:39:39,280 --> 00:39:45,119
+when that happens because Google is
+
+755
+00:39:41,520 --> 00:39:46,640
+doing something nasty.
+
+756
+00:39:45,119 --> 00:39:48,640
+You know, you work your ass, you know,
+
+757
+00:39:46,640 --> 00:39:50,720
+to create the greatest, you know, great
+
+758
+00:39:48,640 --> 00:39:53,200
+engine para JavaScript, you know, or
+
+759
+00:39:50,720 --> 00:39:55,760
+that HTML engine, then Google is like
+
+760
+00:39:53,200 --> 00:39:57,599
+doing something nasty
+
+761
+00:39:55,760 --> 00:40:00,079
+and nobody knows. Of course, you tell
+
+762
+00:39:57,599 --> 00:40:01,839
+people like, "Oh, is there a proof?" You
+
+763
+00:40:00,079 --> 00:40:03,839
+know, like like you know, all these deep
+
+764
+00:40:01,839 --> 00:40:07,280
+state things on Twitter, you know,
+
+765
+00:40:03,839 --> 00:40:09,680
+1,000, you know, influencers and bots, 1
+
+766
+00:40:07,280 --> 00:40:12,640
+million.
+
+767
+00:40:09,680 --> 00:40:15,119
+So, but on hacker news, you know, some
+
+768
+00:40:12,640 --> 00:40:17,920
+you'll see this kind of insider info,
+
+769
+00:40:15,119 --> 00:40:20,400
+you know, they they'll tell you and of
+
+770
+00:40:17,920 --> 00:40:22,320
+course they got proofs, you know, you
+
+771
+00:40:20,400 --> 00:40:24,960
+because this this is not something you
+
+772
+00:40:22,320 --> 00:40:28,160
+can hide, you know. So this is one of
+
+773
+00:40:24,960 --> 00:40:30,800
+the incident of the what the Google [ __ ]
+
+774
+00:40:28,160 --> 00:40:33,040
+become the extreme scum is doing and
+
+775
+00:40:30,800 --> 00:40:35,839
+there's lots of others lots other so so
+
+776
+00:40:33,040 --> 00:40:38,720
+what happened so so it's very
+
+777
+00:40:35,839 --> 00:40:40,880
+interesting this incident so m so
+
+778
+00:40:38,720 --> 00:40:43,920
+Microsoft
+
+779
+00:40:40,880 --> 00:40:47,359
+decided they're going to they they're
+
+780
+00:40:43,920 --> 00:40:51,280
+going to um they're going to stop using
+
+781
+00:40:47,359 --> 00:40:53,839
+their own engine uh their own uh edge
+
+782
+00:40:51,280 --> 00:40:56,640
+edge browser engine I forgot you Look,
+
+783
+00:40:53,839 --> 00:40:58,560
+look up Wikipedia, you'll find out. So,
+
+784
+00:40:56,640 --> 00:41:02,160
+they did they stopped, you know, they
+
+785
+00:40:58,560 --> 00:41:03,920
+they they um what's the word? They um
+
+786
+00:41:02,160 --> 00:41:07,280
+abandoned
+
+787
+00:41:03,920 --> 00:41:09,920
+the entire fantastic browser engine.
+
+788
+00:41:07,280 --> 00:41:11,839
+Then they just adopted Google Chrome's
+
+789
+00:41:09,920 --> 00:41:14,480
+engine, you know, because Google
+
+790
+00:41:11,839 --> 00:41:17,599
+supposedly opensource very uh that's
+
+791
+00:41:14,480 --> 00:41:20,079
+another story. Okay. the origin of the
+
+792
+00:41:17,599 --> 00:41:26,319
+Chrome browser,
+
+793
+00:41:20,079 --> 00:41:29,760
+you know, it was from it was from um
+
+794
+00:41:26,319 --> 00:41:31,760
+okay, it's been a while. uh uh what's
+
+795
+00:41:29,760 --> 00:41:34,960
+the engine of Google Chromes engine it
+
+796
+00:41:31,760 --> 00:41:37,440
+was from a open open source one okay I
+
+797
+00:41:34,960 --> 00:41:39,520
+forgot which one
+
+798
+00:41:37,440 --> 00:41:41,599
+you know open source by the Linux people
+
+799
+00:41:39,520 --> 00:41:44,880
+then they then then you know after 20
+
+800
+00:41:41,599 --> 00:41:46,880
+years there's too many changes so uh
+
+801
+00:41:44,880 --> 00:41:49,839
+similar is for Apple I believe they
+
+802
+00:41:46,880 --> 00:41:52,480
+adopted Apple's uh Safari so Apple
+
+803
+00:41:49,839 --> 00:41:55,520
+Safari be about 20 years ago they
+
+804
+00:41:52,480 --> 00:41:59,359
+started the Safari browser by Steve Jobs
+
+805
+00:41:55,520 --> 00:42:02,240
+they they they they uh borrowed the
+
+806
+00:41:59,359 --> 00:42:08,000
+open-source engine from
+
+807
+00:42:02,240 --> 00:42:10,880
+the Linux um from the Linux um
+
+808
+00:42:08,000 --> 00:42:14,720
+uh what's the what's the what's the
+
+809
+00:42:10,880 --> 00:42:16,960
+Linux desktop you know KDE
+
+810
+00:42:14,720 --> 00:42:19,440
+I think you know if I remember correctly
+
+811
+00:42:16,960 --> 00:42:22,560
+I have blogged somewhere
+
+812
+00:42:19,440 --> 00:42:25,920
+long ago you know 20 years ago or 20 20
+
+813
+00:42:22,560 --> 00:42:29,119
+years ago so Safaris started you know
+
+814
+00:42:25,920 --> 00:42:33,040
+Apple started browser Safari based on
+
+815
+00:42:29,119 --> 00:42:37,119
+the open-source engine from the Linux KD
+
+816
+00:42:33,040 --> 00:42:40,000
+uh one I I I forgot the name exactly I
+
+817
+00:42:37,119 --> 00:42:42,400
+think. So anyway, Apple then after se
+
+818
+00:42:40,000 --> 00:42:45,440
+you know so after several years they
+
+819
+00:42:42,400 --> 00:42:47,440
+became uh split apart because you know
+
+820
+00:42:45,440 --> 00:42:49,839
+corporations their code usually not
+
+821
+00:42:47,440 --> 00:42:53,040
+going to be compatible with open-source
+
+822
+00:42:49,839 --> 00:42:54,880
+goals. Then I think then Google Chrome
+
+823
+00:42:53,040 --> 00:42:59,200
+started their browser. I believe
+
+824
+00:42:54,880 --> 00:43:02,400
+originally is borrowed from uh Safari's
+
+825
+00:42:59,200 --> 00:43:07,000
+code. Okay, you can look up all these
+
+826
+00:43:02,400 --> 00:43:07,000
+are in Wikipedia. Okay, so
+
+827
+00:43:07,040 --> 00:43:13,040
+Safari browser. Okay, let me let's find
+
+828
+00:43:10,079 --> 00:43:16,000
+out. Okay, Safari browser. Uh what is
+
+829
+00:43:13,040 --> 00:43:19,680
+this? Change not saved. Cancel. Are you
+
+830
+00:43:16,000 --> 00:43:22,480
+still here? Yes, I'm still here. Where
+
+831
+00:43:19,680 --> 00:43:24,800
+are you?
+
+832
+00:43:22,480 --> 00:43:29,440
+Your chat will be deleted after 5
+
+833
+00:43:24,800 --> 00:43:31,680
+minutes. Okay. Why
+
+834
+00:43:29,440 --> 00:43:34,480
+stupid? I want to save this. I don't
+
+835
+00:43:31,680 --> 00:43:37,480
+want delete. Okay.
+
+836
+00:43:34,480 --> 00:43:37,480
+Uh,
+
+837
+00:43:37,520 --> 00:43:44,800
+okay. Hold on. What is the origin of the
+
+838
+00:43:40,240 --> 00:43:49,520
+programming jargon serialized actually?
+
+839
+00:43:44,800 --> 00:43:51,440
+So, let's just copy that. Okay.
+
+840
+00:43:49,520 --> 00:43:55,839
+Now I have a record screenshot.
+
+841
+00:43:51,440 --> 00:43:58,160
+Screenshot is great for record keeping.
+
+842
+00:43:55,839 --> 00:44:00,960
+It doesn't prove
+
+843
+00:43:58,160 --> 00:44:04,720
+much but it's uh kind of you know
+
+844
+00:44:00,960 --> 00:44:08,839
+essential anyway. So let's go let's go
+
+845
+00:44:04,720 --> 00:44:08,839
+uh let's copy again.
+
+846
+00:44:11,520 --> 00:44:18,560
+So anyway now let's go to the Wikipedia.
+
+847
+00:44:14,880 --> 00:44:22,079
+Let's see Safari. Uh, this is annoying.
+
+848
+00:44:18,560 --> 00:44:24,000
+Safari browser. Okay. Safari browser.
+
+849
+00:44:22,079 --> 00:44:28,079
+Then you got history, background,
+
+850
+00:44:24,000 --> 00:44:31,680
+history. Okay. Uh, blah blah blah. Uh,
+
+851
+00:44:28,079 --> 00:44:34,640
+uh, Cyberdog. Yeah, I I I've used all
+
+852
+00:44:31,680 --> 00:44:38,560
+the browsers including Cyberdog.
+
+853
+00:44:34,640 --> 00:44:41,280
+You know this. So, this is 1990 1997
+
+854
+00:44:38,560 --> 00:44:44,240
+and IE for the Mac and so on. Background
+
+855
+00:44:41,280 --> 00:44:48,560
+conception Safari one WebKit. That's
+
+856
+00:44:44,240 --> 00:44:52,640
+right. WebKit from uh KHTML.
+
+857
+00:44:48,560 --> 00:44:54,960
+KHTML is a project from the KDE desktop.
+
+858
+00:44:52,640 --> 00:44:58,480
+One of the two actually the first one
+
+859
+00:44:54,960 --> 00:45:01,599
+the first original desktop for Linux.
+
+860
+00:44:58,480 --> 00:45:04,640
+Okay. Then the Richard Stoman gan
+
+861
+00:45:01,599 --> 00:45:06,880
+created Gnome as the and they are
+
+862
+00:45:04,640 --> 00:45:09,520
+anti-KD because the you know
+
+863
+00:45:06,880 --> 00:45:13,119
+technicalities of the open source
+
+864
+00:45:09,520 --> 00:45:14,960
+license you know these open-source scums
+
+865
+00:45:13,119 --> 00:45:17,359
+open source people and free software
+
+866
+00:45:14,960 --> 00:45:19,599
+people they are also scums you know in
+
+867
+00:45:17,359 --> 00:45:22,079
+corporations they fight for money but
+
+868
+00:45:19,599 --> 00:45:24,160
+the open source richman because they
+
+869
+00:45:22,079 --> 00:45:26,800
+cannot fight for money because he you
+
+870
+00:45:24,160 --> 00:45:29,599
+know he based on his principle on
+
+871
+00:45:26,800 --> 00:45:34,880
+morality but they fight for power and
+
+872
+00:45:29,599 --> 00:45:38,480
+fame which is can which is um a form of
+
+873
+00:45:34,880 --> 00:45:41,359
+money. Okay. So, so Richard Stman
+
+874
+00:45:38,480 --> 00:45:42,960
+created you know he and this is long
+
+875
+00:45:41,359 --> 00:45:44,800
+history and they they eventually they
+
+876
+00:45:42,960 --> 00:45:46,640
+broke apart they they hate each other
+
+877
+00:45:44,800 --> 00:45:49,839
+the Gnome Foundation and the Richard
+
+878
+00:45:46,640 --> 00:45:52,400
+Stman you know they hate each other long
+
+879
+00:45:49,839 --> 00:45:55,839
+story lots of complicated things so the
+
+880
+00:45:52,400 --> 00:45:58,960
+the open source KDE created you know KD
+
+881
+00:45:55,839 --> 00:46:02,079
+is the first elite Linux desktop okay
+
+882
+00:45:58,960 --> 00:46:05,280
+which is the and then then the uh free
+
+883
+00:46:02,079 --> 00:46:08,000
+software foundation sponsored or partly
+
+884
+00:46:05,280 --> 00:46:12,000
+sponsored or kind of together they
+
+885
+00:46:08,000 --> 00:46:14,880
+there's a Gnome uh was created you know
+
+886
+00:46:12,000 --> 00:46:17,920
+so Gnome and KD are enemies to each
+
+887
+00:46:14,880 --> 00:46:20,800
+other in the beginning so this is 1999
+
+888
+00:46:17,920 --> 00:46:24,960
+also
+
+889
+00:46:20,800 --> 00:46:27,680
+uh so so you so KHTML is from KDE that
+
+890
+00:46:24,960 --> 00:46:31,680
+is where Safari got their engine in the
+
+891
+00:46:27,680 --> 00:46:35,680
+beginning 19 so so this is 2003 okay so
+
+892
+00:46:31,680 --> 00:46:40,280
+now let's see Google Chrome okay Chrome
+
+893
+00:46:35,680 --> 00:46:40,280
+So safer. So um
+
+894
+00:46:40,480 --> 00:46:46,480
+so Google Chrome can so Google Chrome.
+
+895
+00:46:44,400 --> 00:46:48,640
+So let's open Google Chrome. I forgot.
+
+896
+00:46:46,480 --> 00:46:52,560
+So let's check where is the engine came
+
+897
+00:46:48,640 --> 00:46:55,560
+from. History of Google. Uh Google
+
+898
+00:46:52,560 --> 00:46:55,560
+Chrome.
+
+899
+00:46:57,040 --> 00:47:04,119
+So they began in 2006. Okay. So where is
+
+900
+00:47:01,119 --> 00:47:04,119
+it?
+
+901
+00:47:07,040 --> 00:47:13,160
+public release. Okay. Something
+
+902
+00:47:09,520 --> 00:47:13,160
+something something something
+
+903
+00:47:13,440 --> 00:47:18,319
+uh development. Okay. Something
+
+904
+00:47:15,920 --> 00:47:21,720
+something something.
+
+905
+00:47:18,319 --> 00:47:21,720
+So comments
+
+906
+00:47:22,480 --> 00:47:28,000
+Olivivera. Oh hi Oliver. So Olivivera
+
+907
+00:47:25,040 --> 00:47:31,520
+knows the story. Khtml. That's correct.
+
+908
+00:47:28,000 --> 00:47:35,119
+Apple forkbit. Yes. To become WebKit.
+
+909
+00:47:31,520 --> 00:47:38,000
+Yes. And uh so what is the but what is
+
+910
+00:47:35,119 --> 00:47:39,920
+the origin of Google Chrome?
+
+911
+00:47:38,000 --> 00:47:42,560
+Yeah. So there's also a version on
+
+912
+00:47:39,920 --> 00:47:45,599
+Google Chromium. Yeah, I mean yes
+
+913
+00:47:42,560 --> 00:47:48,640
+Chromium. Uh I should I should probably
+
+914
+00:47:45,599 --> 00:47:51,920
+switch to that. So what but what is the
+
+915
+00:47:48,640 --> 00:47:54,480
+origin of uh Chrome engine? I forgot. I
+
+916
+00:47:51,920 --> 00:47:57,839
+believe it's WebKit, right?
+
+917
+00:47:54,480 --> 00:48:00,400
+So let's you know I can find out of
+
+918
+00:47:57,839 --> 00:48:04,319
+course if I read it carefully but but
+
+919
+00:48:00,400 --> 00:48:06,800
+let's search for web kit.
+
+920
+00:48:04,319 --> 00:48:08,640
+Oh yeah. So exactly. So it was
+
+921
+00:48:06,800 --> 00:48:11,920
+originally
+
+922
+00:48:08,640 --> 00:48:13,839
+stolen from Safar's engine you know
+
+923
+00:48:11,920 --> 00:48:18,560
+Google Chrome we going to make a
+
+924
+00:48:13,839 --> 00:48:20,400
+browser. So back in 2004 2008 Google is
+
+925
+00:48:18,560 --> 00:48:23,599
+still pretty good company. You know they
+
+926
+00:48:20,400 --> 00:48:26,079
+are one of the greatest actual moral
+
+927
+00:48:23,599 --> 00:48:28,720
+opensource corporation today. They are
+
+928
+00:48:26,079 --> 00:48:31,440
+the one of the most evil in fact if not
+
+929
+00:48:28,720 --> 00:48:35,359
+the most pro it should be the most the
+
+930
+00:48:31,440 --> 00:48:38,480
+most evil scum deep state lying through
+
+931
+00:48:35,359 --> 00:48:41,599
+their teeth and and so powerful you know
+
+932
+00:48:38,480 --> 00:48:45,280
+they are more powerful like in they are
+
+933
+00:48:41,599 --> 00:48:47,200
+more powerful than USA kind of actually
+
+934
+00:48:45,280 --> 00:48:49,359
+you know lying through their teeth
+
+935
+00:48:47,200 --> 00:48:52,000
+especially what happens what's happening
+
+936
+00:48:49,359 --> 00:48:54,480
+in the past two years I shall not talk
+
+937
+00:48:52,000 --> 00:48:57,040
+about that you know so deep state you
+
+938
+00:48:54,480 --> 00:48:59,119
+know so extreme extremely bad. So, so
+
+939
+00:48:57,040 --> 00:49:01,760
+Google Chrome
+
+940
+00:48:59,119 --> 00:49:04,480
+began by taking over, you know, taking
+
+941
+00:49:01,760 --> 00:49:07,839
+Safari's code.
+
+942
+00:49:04,480 --> 00:49:09,839
+Okay. So, anyway, so then Microsoft
+
+943
+00:49:07,839 --> 00:49:12,720
+started their Edge browser, you know,
+
+944
+00:49:09,839 --> 00:49:16,960
+had which is their uh very good, you
+
+945
+00:49:12,720 --> 00:49:18,640
+know, then Google [ __ ] with it, you
+
+946
+00:49:16,960 --> 00:49:22,079
+know, by changing YouTube. Then
+
+947
+00:49:18,640 --> 00:49:24,000
+Microsoft eventually okay
+
+948
+00:49:22,079 --> 00:49:26,720
+let's just be practical you know Google
+
+949
+00:49:24,000 --> 00:49:29,119
+is going to do that forever of course so
+
+950
+00:49:26,720 --> 00:49:31,599
+let's just you know we are just going to
+
+951
+00:49:29,119 --> 00:49:35,119
+use Google Chrome engine you know so the
+
+952
+00:49:31,599 --> 00:49:38,160
+same engine you can't [ __ ] it
+
+953
+00:49:35,119 --> 00:49:41,040
+meanwhile the Microsoft [ __ ] the
+
+954
+00:49:38,160 --> 00:49:44,319
+Microsoft scum
+
+955
+00:49:41,040 --> 00:49:47,520
+you know so Microsoft Edge is a victim
+
+956
+00:49:44,319 --> 00:49:49,680
+of Google but but of of course Microsoft
+
+957
+00:49:47,520 --> 00:49:51,520
+is not good boys, you know, they they
+
+958
+00:49:49,680 --> 00:49:54,000
+do, you know, they do whatever things
+
+959
+00:49:51,520 --> 00:49:56,559
+they can [ __ ] you as a user, you know,
+
+960
+00:49:54,000 --> 00:50:00,160
+they every time you click on something,
+
+961
+00:49:56,559 --> 00:50:03,839
+you know, they they start Microsoft Edge
+
+962
+00:50:00,160 --> 00:50:05,680
+and I delete it. So, you know, you can
+
+963
+00:50:03,839 --> 00:50:10,800
+delete the application, you know, let me
+
+964
+00:50:05,680 --> 00:50:14,160
+show you. Uh I was actually I was
+
+965
+00:50:10,800 --> 00:50:17,119
+enthusiastic using it for I used it for
+
+966
+00:50:14,160 --> 00:50:20,559
+six months but eventually it's just too
+
+967
+00:50:17,119 --> 00:50:24,000
+you know they just too much problem so I
+
+968
+00:50:20,559 --> 00:50:27,520
+delete it okay so you go to applications
+
+969
+00:50:24,000 --> 00:50:31,800
+okay apps so you can you can find
+
+970
+00:50:27,520 --> 00:50:31,800
+Microsoft Edge here
+
+971
+00:50:31,839 --> 00:50:39,920
+Microsoft Edge okay I delete it then it
+
+972
+00:50:36,079 --> 00:50:42,559
+came back match magically. Okay.
+
+973
+00:50:39,920 --> 00:50:45,680
+And after a year or two, it is not
+
+974
+00:50:42,559 --> 00:50:47,599
+impossible to delete it. Impossible. You
+
+975
+00:50:45,680 --> 00:50:51,280
+know, it don't it won't you know, you
+
+976
+00:50:47,599 --> 00:50:55,599
+see un uninstall button is uh
+
+977
+00:50:51,280 --> 00:50:58,480
+is grayed out. The [ __ ] scum. So all
+
+978
+00:50:55,599 --> 00:51:03,280
+these are you know this scum scums and
+
+979
+00:50:58,480 --> 00:51:07,280
+versus scum in USA in America. We became
+
+980
+00:51:03,280 --> 00:51:09,760
+it wasn't so bad this this bad but it
+
+981
+00:51:07,280 --> 00:51:12,319
+became very bad in the past 10 or 20
+
+982
+00:51:09,760 --> 00:51:15,839
+years especially the past 10 it became
+
+983
+00:51:12,319 --> 00:51:18,640
+very bad. It's like these rich people,
+
+984
+00:51:15,839 --> 00:51:21,839
+these rich mega elites, you know, scum.
+
+985
+00:51:18,640 --> 00:51:23,920
+They all playing games and you zoomers,
+
+986
+00:51:21,839 --> 00:51:26,319
+you know, you zoomers know nothingness.
+
+987
+00:51:23,920 --> 00:51:29,520
+Every day you are just
+
+988
+00:51:26,319 --> 00:51:32,319
+your brain is already washed clean by
+
+989
+00:51:29,520 --> 00:51:34,160
+them since you were born. You know, you
+
+990
+00:51:32,319 --> 00:51:37,359
+go to, you know, your phone, you go to
+
+991
+00:51:34,160 --> 00:51:40,160
+the website, you know, like, "Oh, Kasan,
+
+992
+00:51:37,359 --> 00:51:42,720
+Kasan, why don't you have how come your
+
+993
+00:51:40,160 --> 00:51:46,160
+website doesn't have HTTPS? It's not
+
+994
+00:51:42,720 --> 00:51:47,680
+secure. You need to do that [ __ ]
+
+995
+00:51:46,160 --> 00:51:49,680
+idiots.
+
+996
+00:51:47,680 --> 00:51:52,880
+Today's Zuma generation because they
+
+997
+00:51:49,680 --> 00:51:56,319
+they they you know like including HTTPS,
+
+998
+00:51:52,880 --> 00:51:59,599
+Google like force you to do that. It
+
+999
+00:51:56,319 --> 00:52:01,920
+became very bad gradually and today you
+
+1000
+00:51:59,599 --> 00:52:05,680
+know they automatically prevent people
+
+1001
+00:52:01,920 --> 00:52:09,040
+from visiting your site unless you you
+
+1002
+00:52:05,680 --> 00:52:11,200
+go to one of their centralized control
+
+1003
+00:52:09,040 --> 00:52:13,520
+of the certificate. You know that's what
+
+1004
+00:52:11,200 --> 00:52:16,880
+they want to do. They want centralized
+
+1005
+00:52:13,520 --> 00:52:19,839
+control of the certificate.
+
+1006
+00:52:16,880 --> 00:52:23,280
+But you'll just say oh but you know HTML
+
+1007
+00:52:19,839 --> 00:52:25,359
+is invented to be you know free for all
+
+1008
+00:52:23,280 --> 00:52:28,720
+for everyone. No censorship. So I don't
+
+1009
+00:52:25,359 --> 00:52:31,440
+I can I don't have to use HTTPS because
+
+1010
+00:52:28,720 --> 00:52:33,200
+my website doesn't ask for credit card.
+
+1011
+00:52:31,440 --> 00:52:35,359
+But they're going to do it anyway. So
+
+1012
+00:52:33,200 --> 00:52:38,079
+now so they they going to say no. Okay.
+
+1013
+00:52:35,359 --> 00:52:41,359
+They're going to auto upgrade whatever
+
+1014
+00:52:38,079 --> 00:52:44,400
+website you use to the HTTP version,
+
+1015
+00:52:41,359 --> 00:52:47,040
+HTTPS version. And if your website
+
+1016
+00:52:44,400 --> 00:52:50,480
+doesn't have that, sure, your website is
+
+1017
+00:52:47,040 --> 00:52:53,040
+basically banned.
+
+1018
+00:52:50,480 --> 00:52:55,599
+So they in this way they magically
+
+1019
+00:52:53,040 --> 00:52:58,400
+banned like millions. You know, you can
+
+1020
+00:52:55,599 --> 00:53:00,720
+ask I asked it before. How many website
+
+1021
+00:52:58,400 --> 00:53:04,559
+doesn't have HTTPS? Like millions and
+
+1022
+00:53:00,720 --> 00:53:07,440
+millions. Magically banned. those who
+
+1023
+00:53:04,559 --> 00:53:09,280
+doesn't register now it's like no if you
+
+1024
+00:53:07,440 --> 00:53:12,960
+want to publish information you have to
+
+1025
+00:53:09,280 --> 00:53:16,160
+register with their so-called free oh
+
+1026
+00:53:12,960 --> 00:53:18,720
+free you know let let's encrypt how
+
+1027
+00:53:16,160 --> 00:53:21,359
+sounds so nice let's encrypt and you
+
+1028
+00:53:18,720 --> 00:53:24,680
+know it's free
+
+1029
+00:53:21,359 --> 00:53:24,680
+these [ __ ]
+
+1030
+00:53:25,599 --> 00:53:32,079
+okay I think I talked for one hour I
+
+1031
+00:53:27,839 --> 00:53:34,960
+think um the Jason uh so we were writing
+
+1032
+00:53:32,079 --> 00:53:36,960
+the you know we were writing in the JSON
+
+1033
+00:53:34,960 --> 00:53:40,480
+uh tutorial. I'm just going to write it
+
+1034
+00:53:36,960 --> 00:53:45,319
+offline. Okay.
+
+1035
+00:53:40,480 --> 00:53:45,319
+Okay. My alarm clock is going off.
+
+1036
+00:53:57,920 --> 00:54:00,920
+iPad.
+
+1037
+00:54:03,280 --> 00:54:09,119
+Okay, that's it. Do you guys enjoyed the
+
+1038
+00:54:07,359 --> 00:54:14,079
+show?
+
+1039
+00:54:09,119 --> 00:54:17,839
+Uh, now this show is sponsored by you.
+
+1040
+00:54:14,079 --> 00:54:20,720
+Go to kxi.info like right here. Click
+
+1041
+00:54:17,839 --> 00:54:26,160
+kasali.info and go to all the way to the
+
+1042
+00:54:20,720 --> 00:54:28,559
+bottom and I ask you to donate.
+
+1043
+00:54:26,160 --> 00:54:31,280
+Now the standard
+
+1044
+00:54:28,559 --> 00:54:36,559
+proclamation is that if you working a
+
+1045
+00:54:31,280 --> 00:54:38,880
+job, you should pay $100. Okay? Why not,
+
+1046
+00:54:36,559 --> 00:54:41,760
+you know, pay me once a year or
+
+1047
+00:54:38,880 --> 00:54:44,960
+something, $100
+
+1048
+00:54:41,760 --> 00:54:48,319
+uh if you have a job. Otherwise, you
+
+1049
+00:54:44,960 --> 00:54:51,359
+know, you can pay me uh $9, $6,
+
+1050
+00:54:48,319 --> 00:54:53,839
+whatever. Uh so I can get a burger,
+
+1051
+00:54:51,359 --> 00:54:55,599
+hamburger, the American white man's
+
+1052
+00:54:53,839 --> 00:54:57,599
+food.
+
+1053
+00:54:55,599 --> 00:55:01,119
+Thank you very much. Okay, you got
+
+1054
+00:54:57,599 --> 00:55:02,960
+Patreon, Amazon gift card, PayPal.
+
+1055
+00:55:01,119 --> 00:55:05,520
+Okay, let's read the comments and I
+
+1056
+00:55:02,960 --> 00:55:08,960
+think that's it for today. Let's see.
+
+1057
+00:55:05,520 --> 00:55:12,319
+Tape drive uh suggests use instead
+
+1058
+00:55:08,960 --> 00:55:14,720
+serialize. Yeah, so text textual output
+
+1059
+00:55:12,319 --> 00:55:16,880
+text output, you know, just output text
+
+1060
+00:55:14,720 --> 00:55:19,200
+or export text. Okay, that's what I
+
+1061
+00:55:16,880 --> 00:55:21,119
+recommend, not serialize.
+
+1062
+00:55:19,200 --> 00:55:24,319
+you know the the the thinking you want
+
+1063
+00:55:21,119 --> 00:55:26,720
+is that data structure has many
+
+1064
+00:55:24,319 --> 00:55:28,480
+representations. So typically in a
+
+1065
+00:55:26,720 --> 00:55:32,400
+programming language you have internal
+
+1066
+00:55:28,480 --> 00:55:34,480
+representation of data structure
+
+1067
+00:55:32,400 --> 00:55:36,240
+uh usually called objects you know or
+
+1068
+00:55:34,480 --> 00:55:39,200
+blob.
+
+1069
+00:55:36,240 --> 00:55:42,079
+Uh but you can but even blobs can have
+
+1070
+00:55:39,200 --> 00:55:45,200
+many different representations in memory
+
+1071
+00:55:42,079 --> 00:55:48,480
+in in in in the memory cache you know or
+
+1072
+00:55:45,200 --> 00:55:50,160
+on disk you know but uh on the you know
+
+1073
+00:55:48,480 --> 00:55:52,240
+you know b you know binary
+
+1074
+00:55:50,160 --> 00:55:54,000
+representation even binary
+
+1075
+00:55:52,240 --> 00:55:55,920
+representation there are many for
+
+1076
+00:55:54,000 --> 00:55:58,240
+example you can have native comp
+
+1077
+00:55:55,920 --> 00:56:01,119
+compiled eagbis or you can have bite
+
+1078
+00:55:58,240 --> 00:56:05,040
+compiled emac similarly for java you
+
+1079
+00:56:01,119 --> 00:56:07,680
+know bite compiled or whatever so the
+
+1080
+00:56:05,040 --> 00:56:10,880
+that so the what you want to know about
+
+1081
+00:56:07,680 --> 00:56:14,000
+the JSON so-called serialization the the
+
+1082
+00:56:10,880 --> 00:56:16,640
+proper concept is representation of the
+
+1083
+00:56:14,000 --> 00:56:19,280
+data structure okay data structure is a
+
+1084
+00:56:16,640 --> 00:56:22,559
+concept in computer science
+
+1085
+00:56:19,280 --> 00:56:24,799
+and in computer engineering
+
+1086
+00:56:22,559 --> 00:56:26,720
+which is the practice of computer
+
+1087
+00:56:24,799 --> 00:56:28,799
+science that's called computer
+
+1088
+00:56:26,720 --> 00:56:31,200
+engineering that's what we are doing
+
+1089
+00:56:28,799 --> 00:56:33,119
+okay so computer engineering we have
+
+1090
+00:56:31,200 --> 00:56:36,240
+data structure you know data structure
+
+1091
+00:56:33,119 --> 00:56:38,799
+you know a practical thing hash table or
+
+1092
+00:56:36,240 --> 00:56:41,040
+called map or dictionary or array vector
+
+1093
+00:56:38,799 --> 00:56:43,760
+depending on the language you know so
+
+1094
+00:56:41,040 --> 00:56:45,839
+they have representations as a binary
+
+1095
+00:56:43,760 --> 00:56:48,079
+blob you even have different
+
+1096
+00:56:45,839 --> 00:56:51,040
+representations or you have you know
+
+1097
+00:56:48,079 --> 00:56:53,839
+textual uh representation so the proper
+
+1098
+00:56:51,040 --> 00:56:55,359
+way so the thing to remember is
+
+1099
+00:56:53,839 --> 00:56:58,400
+representation
+
+1100
+00:56:55,359 --> 00:57:01,440
+okay and this serialization just means
+
+1101
+00:56:58,400 --> 00:57:05,200
+textual representation
+
+1102
+00:57:01,440 --> 00:57:07,440
+okay or another in other way so Another
+
+1103
+00:57:05,200 --> 00:57:09,359
+way of representation textual
+
+1104
+00:57:07,440 --> 00:57:13,599
+representation I mean even textual
+
+1105
+00:57:09,359 --> 00:57:17,440
+representation have different formats.
+
+1106
+00:57:13,599 --> 00:57:21,520
+So JSON is one of the format of textual
+
+1107
+00:57:17,440 --> 00:57:24,799
+representation such that it is kind of
+
+1108
+00:57:21,520 --> 00:57:27,839
+universal for every different languages
+
+1109
+00:57:24,799 --> 00:57:31,359
+like we agreed by happen stance. You
+
+1110
+00:57:27,839 --> 00:57:34,079
+know we every language agreed to
+
+1111
+00:57:31,359 --> 00:57:36,480
+recognize this particular specific
+
+1112
+00:57:34,079 --> 00:57:39,599
+textual format
+
+1113
+00:57:36,480 --> 00:57:41,520
+of data structure called JSON. Okay. But
+
+1114
+00:57:39,599 --> 00:57:45,040
+however each language also have their
+
+1115
+00:57:41,520 --> 00:57:47,359
+own textual representation for list, for
+
+1116
+00:57:45,040 --> 00:57:49,280
+array, for hash, table or map you know
+
+1117
+00:57:47,359 --> 00:57:51,359
+and they are different. Python's
+
+1118
+00:57:49,280 --> 00:57:55,119
+represent textual representation of a
+
+1119
+00:57:51,359 --> 00:57:58,799
+list or array is different from list
+
+1120
+00:57:55,119 --> 00:58:02,160
+representation of list or array.
+
+1121
+00:57:58,799 --> 00:58:03,680
+Similarly for Java and so on. Okay. So
+
+1122
+00:58:02,160 --> 00:58:05,839
+representation
+
+1123
+00:58:03,680 --> 00:58:09,119
+that's what that's the that's the
+
+1124
+00:58:05,839 --> 00:58:14,160
+concept you want to understand not the
+
+1125
+00:58:09,119 --> 00:58:16,720
+serial serialization. [ __ ] [ __ ] the C
+
+1126
+00:58:14,160 --> 00:58:19,440
+[ __ ] the objectoriented oriented
+
+1127
+00:58:16,720 --> 00:58:24,040
+programming idiots. [ __ ] They
+
+1128
+00:58:19,440 --> 00:58:24,040
+create damage to the computing industry.
+
+1129
+00:58:27,920 --> 00:58:34,640
+Yes. ACP says uh is it appropriate to
+
+1130
+00:58:31,680 --> 00:58:37,040
+call it a textual representation exactly
+
+1131
+00:58:34,640 --> 00:58:39,520
+if the serialization function output
+
+1132
+00:58:37,040 --> 00:58:42,559
+nonprintable characters?
+
+1133
+00:58:39,520 --> 00:58:45,839
+Uh yes of yes of course because even in
+
+1134
+00:58:42,559 --> 00:58:47,920
+a file system I mean even in even in
+
+1135
+00:58:45,839 --> 00:58:49,760
+files right now we have nonprintable
+
+1136
+00:58:47,920 --> 00:58:53,440
+characters like like right now this
+
+1137
+00:58:49,760 --> 00:58:55,359
+character describe character
+
+1138
+00:58:53,440 --> 00:58:59,200
+called the function describe character
+
+1139
+00:58:55,359 --> 00:59:03,119
+and you can see that character my cous
+
+1140
+00:58:59,200 --> 00:59:06,400
+is CJ control J which is called point
+
+1141
+00:59:03,119 --> 00:59:09,839
+uni you know ask as code point10 and
+
+1142
+00:59:06,400 --> 00:59:12,000
+also unicode co.10 10 or in uh
+
+1143
+00:59:09,839 --> 00:59:15,680
+octoisimal representation or in
+
+1144
+00:59:12,000 --> 00:59:19,520
+hexadisimal textual representation and
+
+1145
+00:59:15,680 --> 00:59:22,000
+what is this CJ uh which has the name of
+
+1146
+00:59:19,520 --> 00:59:24,720
+old name old unic code name for that
+
+1147
+00:59:22,000 --> 00:59:27,200
+character is called line feed
+
+1148
+00:59:24,720 --> 00:59:30,799
+and the asky name for that character is
+
+1149
+00:59:27,200 --> 00:59:33,119
+called also line feed okay so this this
+
+1150
+00:59:30,799 --> 00:59:36,000
+what is this line feed that's invisible
+
+1151
+00:59:33,119 --> 00:59:38,160
+character that is the end of line you
+
+1152
+00:59:36,000 --> 00:59:41,119
+see that's that's there And you can show
+
+1153
+00:59:38,160 --> 00:59:43,280
+it by um
+
+1154
+00:59:41,119 --> 00:59:50,480
+uh white space mod. Okay, I just changed
+
+1155
+00:59:43,280 --> 00:59:55,319
+the key. So let me ink softly keys. Uh
+
+1156
+00:59:50,480 --> 00:59:55,319
+wait. So what is the key?
+
+1157
+00:59:59,119 --> 01:00:03,520
+Okay. Uh backspace. Yeah. Okay.
+
+1158
+01:00:01,119 --> 01:00:08,319
+Backspace and space. Space. Okay. So
+
+1159
+01:00:03,520 --> 01:00:11,040
+backspace and space. So now you can see
+
+1160
+01:00:08,319 --> 01:00:13,760
+you made that invisible character
+
+1161
+01:00:11,040 --> 01:00:16,640
+visible that's uh you know that's called
+
+1162
+01:00:13,760 --> 01:00:19,119
+line feed character which is a control
+
+1163
+01:00:16,640 --> 01:00:22,160
+character which normally it's you know
+
+1164
+01:00:19,119 --> 01:00:26,400
+you cannot see it and similarly is a tab
+
+1165
+01:00:22,160 --> 01:00:29,839
+so let's insert a tab control Q tab you
+
+1166
+01:00:26,400 --> 01:00:32,559
+see now tab is represented by a triangle
+
+1167
+01:00:29,839 --> 01:00:35,359
+because of my configuration so that
+
+1168
+01:00:32,559 --> 01:00:37,280
+character is a tab so how do I
+
+1169
+01:00:35,359 --> 01:00:40,799
+called describe character. So you can
+
+1170
+01:00:37,280 --> 01:00:43,200
+see this is called 0.9 which is another
+
+1171
+01:00:40,799 --> 01:00:46,160
+invisible character. So close that. But
+
+1172
+01:00:43,200 --> 01:00:49,200
+if you don't show white space control
+
+1173
+01:00:46,160 --> 01:00:51,520
+and space space how do I know you don't
+
+1174
+01:00:49,200 --> 01:00:53,920
+know it's invisible you know it's
+
+1175
+01:00:51,520 --> 01:00:55,520
+invisible and unicode has like tens of
+
+1176
+01:00:53,920 --> 01:00:58,240
+it.
+
+1177
+01:00:55,520 --> 01:01:00,480
+Uh so
+
+1178
+01:00:58,240 --> 01:01:03,200
+so so
+
+1179
+01:01:00,480 --> 01:01:06,559
+what what if the serialization function
+
+1180
+01:01:03,200 --> 01:01:09,280
+output nonprintable that's acceptable
+
+1181
+01:01:06,559 --> 01:01:12,559
+you know I mean every text file got
+
+1182
+01:01:09,280 --> 01:01:14,480
+invisible characters okay and sometimes
+
+1183
+01:01:12,559 --> 01:01:17,920
+you know depending on what's the purpose
+
+1184
+01:01:14,480 --> 01:01:21,520
+sometimes this tab is significant for
+
+1185
+01:01:17,920 --> 01:01:25,440
+example in goland in go language let's
+
+1186
+01:01:21,520 --> 01:01:28,960
+let's show example go uh
+
+1187
+01:01:25,440 --> 01:01:31,359
+So here is a go language code I talked
+
+1188
+01:01:28,960 --> 01:01:35,280
+about many times find and find replace
+
+1189
+01:01:31,359 --> 01:01:37,119
+okay go language code you can open it in
+
+1190
+01:01:35,280 --> 01:01:41,680
+the browser you can get the code and run
+
+1191
+01:01:37,119 --> 01:01:43,440
+it this is like grab okay so this this
+
+1192
+01:01:41,680 --> 01:01:45,520
+you know they got invisible characters
+
+1193
+01:01:43,440 --> 01:01:49,040
+there you know even the representation
+
+1194
+01:01:45,520 --> 01:01:53,040
+of source code require okay notice
+
+1195
+01:01:49,040 --> 01:01:57,200
+require not optional not oh I prefer
+
+1196
+01:01:53,040 --> 01:01:59,359
+space I'll just Use space. No.
+
+1197
+01:01:57,200 --> 01:02:02,559
+Well, actually space actually works as
+
+1198
+01:01:59,359 --> 01:02:07,040
+well. But anyway, paste it and turn on.
+
+1199
+01:02:02,559 --> 01:02:11,200
+Why space? So, you can see it's uh it's
+
+1200
+01:02:07,040 --> 01:02:14,160
+tabs. If you change it to space, if you
+
+1201
+01:02:11,200 --> 01:02:18,640
+change all these tab to space, let's say
+
+1202
+01:02:14,160 --> 01:02:22,240
+uh replace tab by space. Okay. But when
+
+1203
+01:02:18,640 --> 01:02:26,000
+you call go format, go change it back to
+
+1204
+01:02:22,240 --> 01:02:28,960
+tabs again. Okay. So in go language they
+
+1205
+01:02:26,000 --> 01:02:31,760
+they want you know this tab invisible
+
+1206
+01:02:28,960 --> 01:02:35,520
+character has special meaning
+
+1207
+01:02:31,760 --> 01:02:39,359
+anyway and also for make file I believe
+
+1208
+01:02:35,520 --> 01:02:42,359
+the Unix idiots make file they require
+
+1209
+01:02:39,359 --> 01:02:42,359
+tabs.
+
+1210
+01:02:46,559 --> 01:02:52,000
+Have you heard of the new Ladybird
+
+1211
+01:02:48,880 --> 01:02:55,839
+browser? Oh yeah I heard of it. and that
+
+1212
+01:02:52,000 --> 01:02:58,319
+they are under massive attack. I believe
+
+1213
+01:02:55,839 --> 01:03:01,520
+so I believe Ladybird browser is the
+
+1214
+01:02:58,319 --> 01:03:04,000
+idea that you know all these deep state
+
+1215
+01:03:01,520 --> 01:03:06,400
+their browser is creating you know is
+
+1216
+01:03:04,000 --> 01:03:08,640
+not good we don't want this deep state
+
+1217
+01:03:06,400 --> 01:03:11,280
+complicated browser you know why Google
+
+1218
+01:03:08,640 --> 01:03:14,319
+Chrome you know like the open source
+
+1219
+01:03:11,280 --> 01:03:17,280
+idiots they will say oh just use uh
+
+1220
+01:03:14,319 --> 01:03:19,520
+chromium you know because open source it
+
+1221
+01:03:17,280 --> 01:03:22,640
+removed open source it removed Google's
+
+1222
+01:03:19,520 --> 01:03:25,839
+code the [ __ ] idiots these zoomer
+
+1223
+01:03:22,640 --> 01:03:27,599
+open source fanatical [ __ ]
+
+1224
+01:03:25,839 --> 01:03:29,520
+Okay, their brain has been washed.
+
+1225
+01:03:27,599 --> 01:03:32,880
+That's precisely what Google wants you
+
+1226
+01:03:29,520 --> 01:03:35,280
+to do to do. You know, they want you to
+
+1227
+01:03:32,880 --> 01:03:37,359
+create this faction of people. You know,
+
+1228
+01:03:35,280 --> 01:03:39,680
+first of all, you need to spend 10 years
+
+1229
+01:03:37,359 --> 01:03:42,480
+in computer engineering to understand
+
+1230
+01:03:39,680 --> 01:03:45,119
+what is, you know, HTTP. And then so
+
+1231
+01:03:42,480 --> 01:03:48,480
+they create this tiny faction of people
+
+1232
+01:03:45,119 --> 01:03:51,119
+like you guys, like us. Okay.
+
+1233
+01:03:48,480 --> 01:03:52,960
+To to so this little group of people,
+
+1234
+01:03:51,119 --> 01:03:55,520
+they think, oh, we are the freedom
+
+1235
+01:03:52,960 --> 01:03:58,480
+fighters, you know, we we are anti the
+
+1236
+01:03:55,520 --> 01:04:00,480
+deep state. So oh in this situation you
+
+1237
+01:03:58,480 --> 01:04:02,960
+need to use this browser. In that
+
+1238
+01:04:00,480 --> 01:04:06,240
+situation you need to you know config
+
+1239
+01:04:02,960 --> 01:04:08,640
+your DNS server. Okay this is this this
+
+1240
+01:04:06,240 --> 01:04:11,680
+way we will win this tiny fraction of
+
+1241
+01:04:08,640 --> 01:04:14,319
+people like one in 10,000 one in million
+
+1242
+01:04:11,680 --> 01:04:16,960
+in the population. So they create they
+
+1243
+01:04:14,319 --> 01:04:20,079
+create they brainwashed and created you
+
+1244
+01:04:16,960 --> 01:04:22,079
+guys. Okay. And you guys are happy, you
+
+1245
+01:04:20,079 --> 01:04:24,160
+know, like we gonna do, you know, you're
+
+1246
+01:04:22,079 --> 01:04:26,400
+gonna use Linux. So now you have to use
+
+1247
+01:04:24,160 --> 01:04:28,640
+Linux. Go this and and configure that
+
+1248
+01:04:26,400 --> 01:04:33,440
+in, you know, and you'll be good. No,
+
+1249
+01:04:28,640 --> 01:04:35,839
+you know, no privacy uh no privacy um
+
+1250
+01:04:33,440 --> 01:04:38,079
+intrusion and stuff.
+
+1251
+01:04:35,839 --> 01:04:40,640
+So they create this little tiny f
+
+1252
+01:04:38,079 --> 01:04:43,520
+fraction of pe people in population to
+
+1253
+01:04:40,640 --> 01:04:45,119
+make you feel good. You think you are a
+
+1254
+01:04:43,520 --> 01:04:46,880
+freedom fighter but actually you are
+
+1255
+01:04:45,119 --> 01:04:50,240
+doing nothing.
+
+1256
+01:04:46,880 --> 01:04:53,200
+You are just tdling your ass
+
+1257
+01:04:50,240 --> 01:04:54,880
+[ __ ] And my followers are this
+
+1258
+01:04:53,200 --> 01:04:56,960
+type you know because I'm a nerd. My
+
+1259
+01:04:54,880 --> 01:04:59,039
+followers will you just fight with me
+
+1260
+01:04:56,960 --> 01:05:01,440
+like Mo, you know they will fight with
+
+1261
+01:04:59,039 --> 01:05:04,680
+me every day. You are wrong. You are
+
+1262
+01:05:01,440 --> 01:05:04,680
+just wrong.
+
+1263
+01:05:06,400 --> 01:05:11,520
+So, so the whole society got censored
+
+1264
+01:05:09,440 --> 01:05:14,240
+and censored and censored. They don't
+
+1265
+01:05:11,520 --> 01:05:17,680
+you know most people most people are not
+
+1266
+01:05:14,240 --> 01:05:19,920
+coders but this this this these little
+
+1267
+01:05:17,680 --> 01:05:22,720
+[ __ ] these open source fanatics
+
+1268
+01:05:19,920 --> 01:05:24,799
+they are helping Google to to to create
+
+1269
+01:05:22,720 --> 01:05:27,039
+this situation. you please, you know,
+
+1270
+01:05:24,799 --> 01:05:29,680
+you should upgrade to HTTPS and what
+
+1271
+01:05:27,039 --> 01:05:32,160
+whatnot. They don't see this evil, you
+
+1272
+01:05:29,680 --> 01:05:36,000
+know, like like when we talked about how
+
+1273
+01:05:32,160 --> 01:05:39,359
+Google is doing all these nasty things,
+
+1274
+01:05:36,000 --> 01:05:43,920
+you know, uh you know, quite a quite a
+
+1275
+01:05:39,359 --> 01:05:46,240
+lot, you know, Google Google, you know,
+
+1276
+01:05:43,920 --> 01:05:50,240
+Google Jimny
+
+1277
+01:05:46,240 --> 01:05:53,359
+AI technology, you know, please draw a
+
+1278
+01:05:50,240 --> 01:05:56,319
+pope. Oh, yeah, sure. There you go.
+
+1279
+01:05:53,359 --> 01:05:58,559
+There's a image of pope you know please
+
+1280
+01:05:56,319 --> 01:06:01,440
+draw me a white knight you know the
+
+1281
+01:05:58,559 --> 01:06:05,280
+medieval European white knight oh yeah
+
+1282
+01:06:01,440 --> 01:06:07,520
+sure let me show it you know
+
+1283
+01:06:05,280 --> 01:06:09,839
+this this
+
+1284
+01:06:07,520 --> 01:06:11,599
+you know so so that's one of the uh
+
+1285
+01:06:09,839 --> 01:06:14,880
+situation you know there's lots of
+
+1286
+01:06:11,599 --> 01:06:18,079
+others and in some cases the APM scam
+
+1287
+01:06:14,880 --> 01:06:20,480
+that's a big one they got sued
+
+1288
+01:06:18,079 --> 01:06:23,920
+uh you know
+
+1289
+01:06:20,480 --> 01:06:26,240
+okay that's it for today.
+
+1290
+01:06:23,920 --> 01:06:29,240
+Now, donate to me. Okay, that's what I'm
+
+1291
+01:06:26,240 --> 01:06:29,240
+asking.
+
+1292
+01:06:29,760 --> 01:06:34,280
+Uh, okay, that's it.
+
+1293
+01:06:37,359 --> 01:06:40,359
+Bye.
+

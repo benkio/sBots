@@ -1,0 +1,6404 @@
+1
+00:00:04,319 --> 00:00:07,359
+hi guys
+
+2
+00:00:05,279 --> 00:00:09,280
+good morning everyone welcome to another
+
+3
+00:00:07,359 --> 00:00:12,400
+episode of star talk show
+
+4
+00:00:09,280 --> 00:00:15,440
+today is 2020 september
+
+5
+00:00:12,400 --> 00:00:19,279
+6th sunday noon
+
+6
+00:00:15,440 --> 00:00:21,359
+san francisco time and we are going to
+
+7
+00:00:19,279 --> 00:00:23,119
+talk random but mostly i'm going to
+
+8
+00:00:21,359 --> 00:00:26,640
+install this deno
+
+9
+00:00:23,119 --> 00:00:27,519
+javascript platform and i'm going to
+
+10
+00:00:26,640 --> 00:00:30,560
+give you my
+
+11
+00:00:27,519 --> 00:00:31,199
+impression as i install it but first of
+
+12
+00:00:30,560 --> 00:00:34,800
+all this
+
+13
+00:00:31,199 --> 00:00:37,760
+first of all this background image today
+
+14
+00:00:34,800 --> 00:00:39,280
+so let's go to today's talk show and
+
+15
+00:00:37,760 --> 00:00:41,200
+here is my emacs
+
+16
+00:00:39,280 --> 00:00:43,040
+and on the right you can see all my
+
+17
+00:00:41,200 --> 00:00:45,840
+commands and keys
+
+18
+00:00:43,040 --> 00:00:47,920
+comment this part out showing browser so
+
+19
+00:00:45,840 --> 00:00:51,199
+today's today's talk show page
+
+20
+00:00:47,920 --> 00:00:54,399
+the background image is this keyboard
+
+21
+00:00:51,199 --> 00:00:57,039
+about vfx keyboard
+
+22
+00:00:54,399 --> 00:00:58,800
+this is just a keyboard from china i
+
+23
+00:00:57,039 --> 00:01:02,079
+mean you you find it
+
+24
+00:00:58,800 --> 00:01:05,600
+i find it on uh on one of the chinese uh
+
+25
+00:01:02,079 --> 00:01:06,720
+selling website chinese uh alibaba or
+
+26
+00:01:05,600 --> 00:01:09,920
+something
+
+27
+00:01:06,720 --> 00:01:13,280
+you can see where to buy yeah at
+
+28
+00:01:09,920 --> 00:01:16,479
+80 uh ali express
+
+29
+00:01:13,280 --> 00:01:17,840
+okay so this keyboard is designed for
+
+30
+00:01:16,479 --> 00:01:20,080
+photoshop
+
+31
+00:01:17,840 --> 00:01:21,040
+and i think it's fantastic you know you
+
+32
+00:01:20,080 --> 00:01:23,920
+got these
+
+33
+00:01:21,040 --> 00:01:25,520
+wheels knobs and wheels two knobs one
+
+34
+00:01:23,920 --> 00:01:28,560
+wheel and another
+
+35
+00:01:25,520 --> 00:01:30,960
+drum wheel so you know it's
+
+36
+00:01:28,560 --> 00:01:33,360
+it's designed for photoshop but i don't
+
+37
+00:01:30,960 --> 00:01:35,600
+use photoshop or image edit editing
+
+38
+00:01:33,360 --> 00:01:37,520
+that much however i would love this
+
+39
+00:01:35,600 --> 00:01:40,400
+keyboard you know get two of them
+
+40
+00:01:37,520 --> 00:01:41,759
+because i talked about this many times
+
+41
+00:01:40,400 --> 00:01:45,520
+the wheels are
+
+42
+00:01:41,759 --> 00:01:48,720
+incredibly useful for volume control
+
+43
+00:01:45,520 --> 00:01:49,759
+or for any activity any kind of action
+
+44
+00:01:48,720 --> 00:01:53,280
+or command
+
+45
+00:01:49,759 --> 00:01:55,840
+that has a backward and forward versions
+
+46
+00:01:53,280 --> 00:01:56,640
+such as left and right arrow up down
+
+47
+00:01:55,840 --> 00:02:00,000
+arrow
+
+48
+00:01:56,640 --> 00:02:03,280
+page up and down scroll up and down
+
+49
+00:02:00,000 --> 00:02:04,320
+previous tab next tab previous window
+
+50
+00:02:03,280 --> 00:02:07,360
+next tab
+
+51
+00:02:04,320 --> 00:02:10,399
+next window previous or next workspace
+
+52
+00:02:07,360 --> 00:02:10,959
+you know those things are uh the wheel
+
+53
+00:02:10,399 --> 00:02:13,360
+is most
+
+54
+00:02:10,959 --> 00:02:14,480
+suitable or even move cruiser you know
+
+55
+00:02:13,360 --> 00:02:16,319
+move uh
+
+56
+00:02:14,480 --> 00:02:17,840
+move cruiser forward backward for
+
+57
+00:02:16,319 --> 00:02:20,640
+example
+
+58
+00:02:17,840 --> 00:02:21,360
+you know so if you have have a wheel it
+
+59
+00:02:20,640 --> 00:02:24,480
+allows you
+
+60
+00:02:21,360 --> 00:02:28,560
+instantaneous variable control of
+
+61
+00:02:24,480 --> 00:02:31,200
+speed and also
+
+62
+00:02:28,560 --> 00:02:33,200
+instantaneous reversible direction much
+
+63
+00:02:31,200 --> 00:02:36,400
+more efficient than
+
+64
+00:02:33,200 --> 00:02:39,440
+keys for example arrow keys
+
+65
+00:02:36,400 --> 00:02:41,840
+i mean i mean i mean you know two keys
+
+66
+00:02:39,440 --> 00:02:43,680
+previous and next because for keys for
+
+67
+00:02:41,840 --> 00:02:44,319
+example you can see your example of this
+
+68
+00:02:43,680 --> 00:02:46,879
+is
+
+69
+00:02:44,319 --> 00:02:48,160
+when you you know most modern keyboards
+
+70
+00:02:46,879 --> 00:02:50,640
+they have
+
+71
+00:02:48,160 --> 00:02:52,239
+buttons like two buttons for sound
+
+72
+00:02:50,640 --> 00:02:54,560
+volume up and down
+
+73
+00:02:52,239 --> 00:02:57,040
+so you if you want to uh increase the
+
+74
+00:02:54,560 --> 00:02:59,920
+volume you press for example let's see
+
+75
+00:02:57,040 --> 00:03:00,879
+yeah you know press press press press
+
+76
+00:02:59,920 --> 00:03:03,280
+press press
+
+77
+00:03:00,879 --> 00:03:04,000
+that's idiotic okay you have a wheel
+
+78
+00:03:03,280 --> 00:03:06,000
+that controls
+
+79
+00:03:04,000 --> 00:03:07,280
+backward back backward and forward
+
+80
+00:03:06,000 --> 00:03:10,239
+motion
+
+81
+00:03:07,280 --> 00:03:11,360
+uh so that's a background keyboard you
+
+82
+00:03:10,239 --> 00:03:14,879
+can actually buy it
+
+83
+00:03:11,360 --> 00:03:17,360
+i i forgot how much it it is but
+
+84
+00:03:14,879 --> 00:03:18,480
+so you just go to my website search for
+
+85
+00:03:17,360 --> 00:03:22,560
+saudi about
+
+86
+00:03:18,480 --> 00:03:26,239
+vx if uh about vf just search for xrd
+
+87
+00:03:22,560 --> 00:03:28,720
+keyboard you'll find my pages
+
+88
+00:03:26,239 --> 00:03:30,560
+okay so today i'm going to install deno
+
+89
+00:03:28,720 --> 00:03:32,720
+the javascript the new javascript
+
+90
+00:03:30,560 --> 00:03:33,680
+platform hello hello guys we have so
+
+91
+00:03:32,720 --> 00:03:36,720
+many people
+
+92
+00:03:33,680 --> 00:03:38,080
+so uh you guys have questions uh type it
+
+93
+00:03:36,720 --> 00:03:41,200
+okay
+
+94
+00:03:38,080 --> 00:03:42,640
+let's see what good morning but uh bart
+
+95
+00:03:41,200 --> 00:03:45,519
+from germany and
+
+96
+00:03:42,640 --> 00:03:46,080
+good morning shiko siko from hong kong
+
+97
+00:03:45,519 --> 00:03:50,480
+good morning
+
+98
+00:03:46,080 --> 00:03:53,680
+alan from sunny california uh
+
+99
+00:03:50,480 --> 00:03:55,920
+chrome just scratched for alan
+
+100
+00:03:53,680 --> 00:03:57,040
+okay so we are going to do javascript
+
+101
+00:03:55,920 --> 00:04:00,640
+today that that's
+
+102
+00:03:57,040 --> 00:04:01,439
+uh so there is a new project called deno
+
+103
+00:04:00,640 --> 00:04:04,480
+okay
+
+104
+00:04:01,439 --> 00:04:06,319
+d-e-n-o so let me show you you just
+
+105
+00:04:04,480 --> 00:04:10,480
+search the web demo
+
+106
+00:04:06,319 --> 00:04:14,480
+uh so deno for example there's wikipedia
+
+107
+00:04:10,480 --> 00:04:17,519
+okay and uh wait hold on a second
+
+108
+00:04:14,480 --> 00:04:19,519
+so there's wikipedia and the home page
+
+109
+00:04:17,519 --> 00:04:21,600
+for demo okay so let's
+
+110
+00:04:19,519 --> 00:04:23,120
+let's magnify let me show you some of
+
+111
+00:04:21,600 --> 00:04:24,800
+the interesting things
+
+112
+00:04:23,120 --> 00:04:27,120
+so you can you know you can read
+
+113
+00:04:24,800 --> 00:04:29,360
+wikipedia so they have this logo
+
+114
+00:04:27,120 --> 00:04:30,479
+so you know if you are a javascript
+
+115
+00:04:29,360 --> 00:04:33,199
+coder
+
+116
+00:04:30,479 --> 00:04:34,560
+if you are not learn it okay well it's
+
+117
+00:04:33,199 --> 00:04:37,199
+it's one of the language
+
+118
+00:04:34,560 --> 00:04:38,479
+uh modern language very highly popular
+
+119
+00:04:37,199 --> 00:04:42,479
+the most the top
+
+120
+00:04:38,479 --> 00:04:44,320
+five most popular you know if we
+
+121
+00:04:42,479 --> 00:04:45,759
+yeah let me talk about damn dental but
+
+122
+00:04:44,320 --> 00:04:48,000
+let me talk let me tell you about
+
+123
+00:04:45,759 --> 00:04:50,880
+javascript because i have been working
+
+124
+00:04:48,000 --> 00:04:51,840
+on javascript for the past two days
+
+125
+00:04:50,880 --> 00:04:53,919
+non-stop you know
+
+126
+00:04:51,840 --> 00:04:56,080
+well i've been working on it for years
+
+127
+00:04:53,919 --> 00:04:58,000
+but for example you can look at my tabs
+
+128
+00:04:56,080 --> 00:05:01,360
+okay this is all my
+
+129
+00:04:58,000 --> 00:05:04,160
+javascript tutorials uh
+
+130
+00:05:01,360 --> 00:05:05,400
+constant declaration global variable
+
+131
+00:05:04,160 --> 00:05:08,840
+javascript
+
+132
+00:05:05,400 --> 00:05:12,160
+date.utc method function call
+
+133
+00:05:08,840 --> 00:05:15,759
+applybind you know we i have like
+
+134
+00:05:12,160 --> 00:05:18,240
+hundreds of pages javascript so this is
+
+135
+00:05:15,759 --> 00:05:18,479
+my javascript in depth tutorial i have
+
+136
+00:05:18,240 --> 00:05:21,759
+and
+
+137
+00:05:18,479 --> 00:05:23,680
+and also dom find element width
+
+138
+00:05:21,759 --> 00:05:24,960
+so i've been working on that actually
+
+139
+00:05:23,680 --> 00:05:28,800
+non-stop today for
+
+140
+00:05:24,960 --> 00:05:31,120
+six hours uh there are tons of
+
+141
+00:05:28,800 --> 00:05:33,440
+tons of things to do uh in fact i can
+
+142
+00:05:31,120 --> 00:05:36,639
+show you what i was doing you know and i
+
+143
+00:05:33,440 --> 00:05:40,560
+still have tons of uh things to do
+
+144
+00:05:36,639 --> 00:05:42,639
+so this space page is basic dom methods
+
+145
+00:05:40,560 --> 00:05:43,600
+you know like you read this page you'll
+
+146
+00:05:42,639 --> 00:05:47,280
+know
+
+147
+00:05:43,600 --> 00:05:50,240
+almost 99 of use the need
+
+148
+00:05:47,280 --> 00:05:53,120
+for the functions i mean the the other
+
+149
+00:05:50,240 --> 00:05:56,240
+function 99 of the functions you need
+
+150
+00:05:53,120 --> 00:05:59,520
+to manipulate dom you do not
+
+151
+00:05:56,240 --> 00:06:02,720
+need you know react or or
+
+152
+00:05:59,520 --> 00:06:05,120
+angularjs or a bunch of crap like that
+
+153
+00:06:02,720 --> 00:06:06,000
+you know you follow my tutorial you
+
+154
+00:06:05,120 --> 00:06:09,759
+follow my
+
+155
+00:06:06,000 --> 00:06:13,199
+style you'll be most efficient the most
+
+156
+00:06:09,759 --> 00:06:16,000
+lean and efficient
+
+157
+00:06:13,199 --> 00:06:16,639
+code you don't need react you don't need
+
+158
+00:06:16,000 --> 00:06:21,120
+angular
+
+159
+00:06:16,639 --> 00:06:24,160
+js you you don't need all those crap
+
+160
+00:06:21,120 --> 00:06:27,280
+uh well i guess in
+
+161
+00:06:24,160 --> 00:06:30,240
+if you work in a company is you somewhat
+
+162
+00:06:27,280 --> 00:06:32,160
+sometimes you somewhat need them well
+
+163
+00:06:30,240 --> 00:06:34,479
+we're getting into that today you know
+
+164
+00:06:32,160 --> 00:06:35,520
+so there's npm you know library and
+
+165
+00:06:34,479 --> 00:06:37,919
+there's not js
+
+166
+00:06:35,520 --> 00:06:39,759
+and we we are going to look at uh deno
+
+167
+00:06:37,919 --> 00:06:41,280
+today i'm going to tell you what deno is
+
+168
+00:06:39,759 --> 00:06:43,039
+about
+
+169
+00:06:41,280 --> 00:06:45,680
+so you can see all my javascript you
+
+170
+00:06:43,039 --> 00:06:49,680
+know i have tons of tab open
+
+171
+00:06:45,680 --> 00:06:52,720
+these tabs are pages i already modified
+
+172
+00:06:49,680 --> 00:06:54,160
+you know i can tell you what you know i
+
+173
+00:06:52,720 --> 00:06:56,560
+modified them so
+
+174
+00:06:54,160 --> 00:06:58,000
+i still leave them all open so that i
+
+175
+00:06:56,560 --> 00:07:01,280
+can read about them
+
+176
+00:06:58,000 --> 00:07:04,080
+uh like review like oh you know to
+
+177
+00:07:01,280 --> 00:07:05,919
+review them again because you write a
+
+178
+00:07:04,080 --> 00:07:09,120
+lot of tutorials over the years
+
+179
+00:07:05,919 --> 00:07:11,360
+um if you don't review them
+
+180
+00:07:09,120 --> 00:07:13,039
+you know they will bit rot because
+
+181
+00:07:11,360 --> 00:07:15,039
+things change or the javascript you know
+
+182
+00:07:13,039 --> 00:07:17,680
+javascript has a new version
+
+183
+00:07:15,039 --> 00:07:18,240
+a new standard new features every year
+
+184
+00:07:17,680 --> 00:07:22,639
+now
+
+185
+00:07:18,240 --> 00:07:23,840
+since 2015. so for example javascript
+
+186
+00:07:22,639 --> 00:07:27,840
+iterable
+
+187
+00:07:23,840 --> 00:07:30,960
+is a new feature since 2015 and a very
+
+188
+00:07:27,840 --> 00:07:33,440
+extremely useful feature powerful
+
+189
+00:07:30,960 --> 00:07:35,039
+iterable number constructor you know
+
+190
+00:07:33,440 --> 00:07:38,400
+some of these are so
+
+191
+00:07:35,039 --> 00:07:40,240
+rather more esoteric details uh i mean
+
+192
+00:07:38,400 --> 00:07:41,120
+even if you code in javascript for
+
+193
+00:07:40,240 --> 00:07:42,960
+living
+
+194
+00:07:41,120 --> 00:07:45,680
+let's say you're coding you know let's
+
+195
+00:07:42,960 --> 00:07:47,919
+say you work for google for three years
+
+196
+00:07:45,680 --> 00:07:48,960
+you may not understand lots of these
+
+197
+00:07:47,919 --> 00:07:50,960
+because
+
+198
+00:07:48,960 --> 00:07:53,680
+well part of the reason is that you use
+
+199
+00:07:50,960 --> 00:07:56,000
+the react and stuff you know and
+
+200
+00:07:53,680 --> 00:07:58,879
+you know and also javascript is uh
+
+201
+00:07:56,000 --> 00:08:00,960
+extremely complicated
+
+202
+00:07:58,879 --> 00:08:02,639
+language rather very extremely
+
+203
+00:08:00,960 --> 00:08:06,960
+complicated
+
+204
+00:08:02,639 --> 00:08:08,879
+but however since javascript 2015
+
+205
+00:08:06,960 --> 00:08:11,680
+you know if you know what you are doing
+
+206
+00:08:08,879 --> 00:08:13,120
+you avoid those packages you avoid the
+
+207
+00:08:11,680 --> 00:08:15,440
+bad features so called
+
+208
+00:08:13,120 --> 00:08:16,560
+the javascript the good parts you use
+
+209
+00:08:15,440 --> 00:08:20,160
+the good parts
+
+210
+00:08:16,560 --> 00:08:23,400
+javascript the language today is
+
+211
+00:08:20,160 --> 00:08:26,080
+uh is equivalent as far as power and
+
+212
+00:08:23,400 --> 00:08:30,000
+flexibility goes is equivalent to
+
+213
+00:08:26,080 --> 00:08:33,200
+any of you know python ruby um
+
+214
+00:08:30,000 --> 00:08:35,839
+yeah but oh oh
+
+215
+00:08:33,200 --> 00:08:36,320
+oh said with all that said javascript is
+
+216
+00:08:35,839 --> 00:08:39,760
+still
+
+217
+00:08:36,320 --> 00:08:40,479
+sucky the entire language is extremely
+
+218
+00:08:39,760 --> 00:08:44,880
+complex
+
+219
+00:08:40,479 --> 00:08:48,320
+and hard to understand
+
+220
+00:08:44,880 --> 00:08:51,600
+tons of baggages that they refuse to
+
+221
+00:08:48,320 --> 00:08:53,600
+fix they refuse to fix
+
+222
+00:08:51,600 --> 00:08:54,720
+because they don't want to they don't
+
+223
+00:08:53,600 --> 00:08:57,440
+want to make a
+
+224
+00:08:54,720 --> 00:08:59,920
+incompatible version so that's why all
+
+225
+00:08:57,440 --> 00:09:03,120
+these baggage remains
+
+226
+00:08:59,920 --> 00:09:04,320
+so you know rejects array object literal
+
+227
+00:09:03,120 --> 00:09:06,160
+expression
+
+228
+00:09:04,320 --> 00:09:09,360
+and there are new features in object
+
+229
+00:09:06,160 --> 00:09:11,440
+literal expression introduced in 2015
+
+230
+00:09:09,360 --> 00:09:12,480
+you know computed property keys and
+
+231
+00:09:11,440 --> 00:09:16,320
+method syntax
+
+232
+00:09:12,480 --> 00:09:20,240
+shorthand and so on and you see so
+
+233
+00:09:16,320 --> 00:09:22,399
+terms of my uh you know tabs
+
+234
+00:09:20,240 --> 00:09:23,279
+so you see i'm using so let me show you
+
+235
+00:09:22,399 --> 00:09:25,839
+one of the
+
+236
+00:09:23,279 --> 00:09:28,720
+one of the interesting things about my
+
+237
+00:09:25,839 --> 00:09:28,720
+keyboard setup
+
+238
+00:09:28,800 --> 00:09:33,200
+you can see the efficiency of my setup
+
+239
+00:09:31,760 --> 00:09:37,200
+okay so
+
+240
+00:09:33,200 --> 00:09:38,640
+so here is here is my keyboard using you
+
+241
+00:09:37,200 --> 00:09:42,240
+can see
+
+242
+00:09:38,640 --> 00:09:45,519
+and let's switch back to the browser
+
+243
+00:09:42,240 --> 00:09:48,720
+okay so you can see you you see
+
+244
+00:09:45,519 --> 00:09:51,839
+it's all uh one
+
+245
+00:09:48,720 --> 00:09:54,640
+one finger operation so go back here
+
+246
+00:09:51,839 --> 00:09:56,320
+so this page is about symbols symbol is
+
+247
+00:09:54,640 --> 00:09:59,519
+introduced in javascript
+
+248
+00:09:56,320 --> 00:10:04,240
+uh uh 2015 yeah
+
+249
+00:09:59,519 --> 00:10:06,880
+you know so you can fly through uh
+
+250
+00:10:04,240 --> 00:10:07,360
+these tabs so this you know single key
+
+251
+00:10:06,880 --> 00:10:10,640
+press
+
+252
+00:10:07,360 --> 00:10:12,720
+fantastic uh operation and and again
+
+253
+00:10:10,640 --> 00:10:16,079
+this is kinesis advantage 2
+
+254
+00:10:12,720 --> 00:10:21,120
+my main keyboard and this one is um
+
+255
+00:10:16,079 --> 00:10:21,120
+this one is uh ultimate hacking keyboard
+
+256
+00:10:21,200 --> 00:10:24,640
+i have reviews on my website you can go
+
+257
+00:10:23,360 --> 00:10:27,040
+read
+
+258
+00:10:24,640 --> 00:10:28,399
+so now let's let's put it back in
+
+259
+00:10:27,040 --> 00:10:31,839
+position
+
+260
+00:10:28,399 --> 00:10:33,200
+okay so javascript you know you might
+
+261
+00:10:31,839 --> 00:10:36,640
+want to learn it because
+
+262
+00:10:33,200 --> 00:10:38,800
+it's quite popular so we are going to
+
+263
+00:10:36,640 --> 00:10:39,760
+look at deno so what is daniel daniel is
+
+264
+00:10:38,800 --> 00:10:42,079
+the new platform
+
+265
+00:10:39,760 --> 00:10:44,880
+it's basically not js you know you know
+
+266
+00:10:42,079 --> 00:10:48,160
+not js i'm running not js for example
+
+267
+00:10:44,880 --> 00:10:50,640
+yeah let's do demo okay uh
+
+268
+00:10:48,160 --> 00:10:52,800
+let's say you know create a javascript a
+
+269
+00:10:50,640 --> 00:10:54,720
+new template okay so you can see
+
+270
+00:10:52,800 --> 00:10:57,360
+here's a new template and i press the
+
+271
+00:10:54,720 --> 00:10:58,959
+button i'm using emacs this is kind of
+
+272
+00:10:57,360 --> 00:11:02,079
+my custom emacs
+
+273
+00:10:58,959 --> 00:11:02,720
+huge amount of customers customization
+
+274
+00:11:02,079 --> 00:11:06,160
+with
+
+275
+00:11:02,720 --> 00:11:09,360
+powerful features uh powerful
+
+276
+00:11:06,160 --> 00:11:12,399
+features comparable to oakmod
+
+277
+00:11:09,360 --> 00:11:14,640
+of of those of you ogmod fans you know
+
+278
+00:11:12,399 --> 00:11:15,600
+you you have oak babble and all this
+
+279
+00:11:14,640 --> 00:11:17,760
+that that
+
+280
+00:11:15,600 --> 00:11:19,600
+you know oakmod people you know they
+
+281
+00:11:17,760 --> 00:11:22,800
+love it they live in it
+
+282
+00:11:19,600 --> 00:11:25,680
+but you know so i work in my
+
+283
+00:11:22,800 --> 00:11:27,440
+site html mod i have similar features so
+
+284
+00:11:25,680 --> 00:11:29,680
+let's say console.log
+
+285
+00:11:27,440 --> 00:11:31,120
+you know console.log let's say three
+
+286
+00:11:29,680 --> 00:11:34,240
+plus two
+
+287
+00:11:31,120 --> 00:11:36,079
+run it and you can see
+
+288
+00:11:34,240 --> 00:11:38,480
+five you know you know in the result
+
+289
+00:11:36,079 --> 00:11:39,040
+panel so that's javascript and how do i
+
+290
+00:11:38,480 --> 00:11:42,880
+write
+
+291
+00:11:39,040 --> 00:11:45,920
+well i'm using well the and you see
+
+292
+00:11:42,880 --> 00:11:47,680
+i'm using uh
+
+293
+00:11:45,920 --> 00:11:49,040
+many of the things i wrote uh for
+
+294
+00:11:47,680 --> 00:11:51,360
+example you call uh
+
+295
+00:11:49,040 --> 00:11:52,720
+star run current file that's how you run
+
+296
+00:11:51,360 --> 00:11:54,959
+it
+
+297
+00:11:52,720 --> 00:11:56,160
+so you can see five let's say three plus
+
+298
+00:11:54,959 --> 00:11:59,360
+seven run it
+
+299
+00:11:56,160 --> 00:12:02,720
+you can see 10 here so that's that's
+
+300
+00:11:59,360 --> 00:12:06,720
+all um where is it
+
+301
+00:12:02,720 --> 00:12:09,200
+starting current file this command
+
+302
+00:12:06,720 --> 00:12:10,880
+okay but how is that command implemented
+
+303
+00:12:09,200 --> 00:12:13,920
+let's look you know so
+
+304
+00:12:10,880 --> 00:12:15,360
+i'm gonna call uh i'm i'm going to call
+
+305
+00:12:13,920 --> 00:12:17,760
+describe key
+
+306
+00:12:15,360 --> 00:12:18,560
+and press the key for soldering current
+
+307
+00:12:17,760 --> 00:12:21,040
+file
+
+308
+00:12:18,560 --> 00:12:21,680
+then emacs will pop up the documentation
+
+309
+00:12:21,040 --> 00:12:23,920
+for that
+
+310
+00:12:21,680 --> 00:12:25,040
+command console run current file right
+
+311
+00:12:23,920 --> 00:12:27,279
+here so
+
+312
+00:12:25,040 --> 00:12:28,320
+now you can press tab to jump to the
+
+313
+00:12:27,279 --> 00:12:32,000
+link
+
+314
+00:12:28,320 --> 00:12:33,680
+um open it and here is the source code
+
+315
+00:12:32,000 --> 00:12:37,360
+focus on run current file
+
+316
+00:12:33,680 --> 00:12:39,040
+so you can see it can run magnify so you
+
+317
+00:12:37,360 --> 00:12:42,240
+can run php
+
+318
+00:12:39,040 --> 00:12:46,240
+pearl python python 3 ruby
+
+319
+00:12:42,240 --> 00:12:49,040
+golan haskell not not js not js is the
+
+320
+00:12:46,240 --> 00:12:49,440
+you know javascript you know depending
+
+321
+00:12:49,040 --> 00:12:52,560
+on the
+
+322
+00:12:49,440 --> 00:12:56,000
+the file file name surface
+
+323
+00:12:52,560 --> 00:12:58,560
+uh which one to run so this is how it's
+
+324
+00:12:56,000 --> 00:12:59,200
+implemented so when it sees a dot js
+
+325
+00:12:58,560 --> 00:13:04,320
+file
+
+326
+00:12:59,200 --> 00:13:04,320
+it will actually run not js you can see
+
+327
+00:13:04,839 --> 00:13:08,880
+oops uh not you can see right there that
+
+328
+00:13:08,240 --> 00:13:12,800
+line
+
+329
+00:13:08,880 --> 00:13:13,360
+you see you know so that's the emac this
+
+330
+00:13:12,800 --> 00:13:17,360
+code
+
+331
+00:13:13,360 --> 00:13:20,399
+so it tells you so you see so this file
+
+332
+00:13:17,360 --> 00:13:24,000
+is you can see the file name
+
+333
+00:13:20,399 --> 00:13:26,000
+there uh oops uh
+
+334
+00:13:24,000 --> 00:13:27,760
+okay you can see the file name there dot
+
+335
+00:13:26,000 --> 00:13:30,959
+js close it
+
+336
+00:13:27,760 --> 00:13:32,560
+so it'll run not js so for example let's
+
+337
+00:13:30,959 --> 00:13:36,240
+go to
+
+338
+00:13:32,560 --> 00:13:39,360
+let's go to shell okay isha
+
+339
+00:13:36,240 --> 00:13:40,079
+which nod so you see i have not
+
+340
+00:13:39,360 --> 00:13:43,199
+installed
+
+341
+00:13:40,079 --> 00:13:46,399
+right there so now you say
+
+342
+00:13:43,199 --> 00:13:48,399
+uh now you say not and the file name
+
+343
+00:13:46,399 --> 00:13:52,959
+that's a temp file name
+
+344
+00:13:48,399 --> 00:13:56,880
+learnet you can see 10. so that's how
+
+345
+00:13:52,959 --> 00:13:59,120
+i run javascript okay let's delete that
+
+346
+00:13:56,880 --> 00:14:00,800
+and that's how i work on my javascript
+
+347
+00:13:59,120 --> 00:14:03,440
+tutorial as well
+
+348
+00:14:00,800 --> 00:14:04,800
+for example for example this constant
+
+349
+00:14:03,440 --> 00:14:07,920
+declaration okay
+
+350
+00:14:04,800 --> 00:14:11,680
+so copy the url back to emax
+
+351
+00:14:07,920 --> 00:14:14,560
+open that file this is the file
+
+352
+00:14:11,680 --> 00:14:15,600
+constant declaration new feature in
+
+353
+00:14:14,560 --> 00:14:18,800
+javascript
+
+354
+00:14:15,600 --> 00:14:20,240
+so here is javascript code you can see
+
+355
+00:14:18,800 --> 00:14:23,279
+the first
+
+356
+00:14:20,240 --> 00:14:25,920
+block of code sample code
+
+357
+00:14:23,279 --> 00:14:27,680
+that corresponds to this region and i
+
+358
+00:14:25,920 --> 00:14:30,959
+press the key
+
+359
+00:14:27,680 --> 00:14:32,240
+the code is moving you know moved out
+
+360
+00:14:30,959 --> 00:14:35,440
+there
+
+361
+00:14:32,240 --> 00:14:39,120
+you see from here so now i can run it
+
+362
+00:14:35,440 --> 00:14:39,120
+run it uh wait
+
+363
+00:14:39,279 --> 00:14:46,160
+uh oh yeah type error yeah
+
+364
+00:14:43,279 --> 00:14:48,320
+so you know i'm trying to show that if
+
+365
+00:14:46,160 --> 00:14:51,279
+you declare something as constant
+
+366
+00:14:48,320 --> 00:14:52,639
+you cannot reassign it if you do you got
+
+367
+00:14:51,279 --> 00:14:56,079
+error which
+
+368
+00:14:52,639 --> 00:14:59,199
+which is what we get so
+
+369
+00:14:56,079 --> 00:15:02,560
+okay uh unsplit
+
+370
+00:14:59,199 --> 00:15:04,240
+delete this undo it you know
+
+371
+00:15:02,560 --> 00:15:05,760
+so that's how i you know that's how i
+
+372
+00:15:04,240 --> 00:15:08,480
+work on my javascript code
+
+373
+00:15:05,760 --> 00:15:08,959
+you know so constant page let's close
+
+374
+00:15:08,480 --> 00:15:13,279
+this
+
+375
+00:15:08,959 --> 00:15:15,839
+page uh let's show another example
+
+376
+00:15:13,279 --> 00:15:16,880
+shall we or shall we not let's not do it
+
+377
+00:15:15,839 --> 00:15:20,800
+okay so anyway
+
+378
+00:15:16,880 --> 00:15:24,000
+you see how um you know i need
+
+379
+00:15:20,800 --> 00:15:27,519
+you know basically i need a
+
+380
+00:15:24,000 --> 00:15:30,000
+javascript runtime on my system
+
+381
+00:15:27,519 --> 00:15:31,120
+of course you can also use a browser now
+
+382
+00:15:30,000 --> 00:15:33,759
+for example
+
+383
+00:15:31,120 --> 00:15:34,959
+in browser any browser chrome safari or
+
+384
+00:15:33,759 --> 00:15:39,199
+not or
+
+385
+00:15:34,959 --> 00:15:41,839
+firefox you can press f12
+
+386
+00:15:39,199 --> 00:15:42,480
+then you got this panel then you can
+
+387
+00:15:41,839 --> 00:15:45,120
+type
+
+388
+00:15:42,480 --> 00:15:45,920
+you know you click on console then you
+
+389
+00:15:45,120 --> 00:15:50,560
+can type
+
+390
+00:15:45,920 --> 00:15:53,839
+three plus two you know it says five
+
+391
+00:15:50,560 --> 00:15:55,920
+let's say magnum file you see
+
+392
+00:15:53,839 --> 00:15:57,600
+but then but you have to go to the you
+
+393
+00:15:55,920 --> 00:16:00,480
+see that doesn't
+
+394
+00:15:57,600 --> 00:16:01,120
+uh work for my workflow because i have
+
+395
+00:16:00,480 --> 00:16:03,519
+to
+
+396
+00:16:01,120 --> 00:16:05,360
+you know i'd rather say in emacs i i
+
+397
+00:16:03,519 --> 00:16:08,720
+don't have to switch to the browser
+
+398
+00:16:05,360 --> 00:16:09,120
+run it then they maybe copy the result
+
+399
+00:16:08,720 --> 00:16:11,440
+then
+
+400
+00:16:09,120 --> 00:16:12,959
+go back to emacs and paste it you know
+
+401
+00:16:11,440 --> 00:16:15,360
+so that's that
+
+402
+00:16:12,959 --> 00:16:16,079
+okay close this page so now we're gonna
+
+403
+00:16:15,360 --> 00:16:19,519
+install
+
+404
+00:16:16,079 --> 00:16:20,720
+deno so why they know so um not js you
+
+405
+00:16:19,519 --> 00:16:23,519
+know not js
+
+406
+00:16:20,720 --> 00:16:24,320
+is invented by ryan dao this guy ryan
+
+407
+00:16:23,519 --> 00:16:26,320
+dar
+
+408
+00:16:24,320 --> 00:16:27,519
+hey good morning bass haven't seen you
+
+409
+00:16:26,320 --> 00:16:31,120
+for a long time
+
+410
+00:16:27,519 --> 00:16:33,680
+i'm doing well thank you ladies library
+
+411
+00:16:31,120 --> 00:16:36,000
+of the week
+
+412
+00:16:33,680 --> 00:16:37,519
+no not you know i i very much trust
+
+413
+00:16:36,000 --> 00:16:39,920
+denno let me tell you what is dinner
+
+414
+00:16:37,519 --> 00:16:44,000
+okay so let's go back to daniel
+
+415
+00:16:39,920 --> 00:16:47,120
+uh deno software you know uh
+
+416
+00:16:44,000 --> 00:16:50,560
+so about 10 years ago the ryan doll
+
+417
+00:16:47,120 --> 00:16:53,040
+this guy ryan doll is a great guy i
+
+418
+00:16:50,560 --> 00:16:54,160
+highly respect him you know those of you
+
+419
+00:16:53,040 --> 00:16:57,519
+who watch lots of
+
+420
+00:16:54,160 --> 00:16:59,360
+my videos you see i flame i [ __ ] about
+
+421
+00:16:57,519 --> 00:17:02,480
+all these programmers for exa
+
+422
+00:16:59,360 --> 00:17:05,520
+for example the larry war pearl who
+
+423
+00:17:02,480 --> 00:17:08,160
+invented pearl who is he he's an idiot
+
+424
+00:17:05,520 --> 00:17:10,160
+uh guido of van rossum who invented
+
+425
+00:17:08,160 --> 00:17:13,039
+python he's an idiot
+
+426
+00:17:10,160 --> 00:17:14,640
+uh martin fowler who who you know modern
+
+427
+00:17:13,039 --> 00:17:17,360
+father a very famous guy for
+
+428
+00:17:14,640 --> 00:17:18,400
+in a programming community he's he's a
+
+429
+00:17:17,360 --> 00:17:20,640
+he's a
+
+430
+00:17:18,400 --> 00:17:21,439
+con man okay in my opinion he's a
+
+431
+00:17:20,640 --> 00:17:23,439
+comment
+
+432
+00:17:21,439 --> 00:17:25,199
+he whatever he says it's crap it's
+
+433
+00:17:23,439 --> 00:17:27,120
+garbage you know he created
+
+434
+00:17:25,199 --> 00:17:28,400
+agile you know extreme programming and
+
+435
+00:17:27,120 --> 00:17:32,640
+so on and x
+
+436
+00:17:28,400 --> 00:17:36,240
+and uh and uml you know the uml
+
+437
+00:17:32,640 --> 00:17:39,919
+um you you and ml stand for what
+
+438
+00:17:36,240 --> 00:17:43,760
+uh um
+
+439
+00:17:39,919 --> 00:17:47,760
+i forgot jesus it's been a while
+
+440
+00:17:43,760 --> 00:17:50,720
+you know i'm getting old
+
+441
+00:17:47,760 --> 00:17:51,280
+so anyway so so so you know i complained
+
+442
+00:17:50,720 --> 00:17:53,600
+you know but
+
+443
+00:17:51,280 --> 00:17:55,600
+actually some programmers i highly
+
+444
+00:17:53,600 --> 00:17:58,640
+respect ryan dahl
+
+445
+00:17:55,600 --> 00:18:00,320
+i highly respect this guy okay
+
+446
+00:17:58,640 --> 00:18:02,160
+first of all he's a mathematician you
+
+447
+00:18:00,320 --> 00:18:03,520
+know he's a real mathematician he's
+
+448
+00:18:02,160 --> 00:18:05,760
+studying phd
+
+449
+00:18:03,520 --> 00:18:06,799
+i talked about this uh before like half
+
+450
+00:18:05,760 --> 00:18:09,760
+a year ago
+
+451
+00:18:06,799 --> 00:18:10,720
+he he's a phd student studying some
+
+452
+00:18:09,760 --> 00:18:13,200
+esoteric
+
+453
+00:18:10,720 --> 00:18:15,120
+you know when you when you are in math
+
+454
+00:18:13,200 --> 00:18:17,600
+when you get to phd
+
+455
+00:18:15,120 --> 00:18:18,640
+those topics you cannot explain to a
+
+456
+00:18:17,600 --> 00:18:21,840
+layman you know
+
+457
+00:18:18,640 --> 00:18:22,160
+it takes a month to expand just to just
+
+458
+00:18:21,840 --> 00:18:25,600
+to
+
+459
+00:18:22,160 --> 00:18:28,400
+try to give them an idea what it's about
+
+460
+00:18:25,600 --> 00:18:29,280
+so he studied you know a phd and one day
+
+461
+00:18:28,400 --> 00:18:32,640
+well anyway he
+
+462
+00:18:29,280 --> 00:18:36,559
+invented knot.js 10 years ago
+
+463
+00:18:32,640 --> 00:18:39,840
+which is you know which is
+
+464
+00:18:36,559 --> 00:18:42,960
+fantastic but he made a few mistakes
+
+465
+00:18:39,840 --> 00:18:46,080
+of course everyone does then
+
+466
+00:18:42,960 --> 00:18:48,320
+what happens is that he kind of
+
+467
+00:18:46,080 --> 00:18:49,280
+he let other people around you know he
+
+468
+00:18:48,320 --> 00:18:52,080
+is thinking it's
+
+469
+00:18:49,280 --> 00:18:53,120
+i'm done he let other people so then
+
+470
+00:18:52,080 --> 00:18:57,280
+that's when the
+
+471
+00:18:53,120 --> 00:19:00,000
+mpm began the the leader of the mpm
+
+472
+00:18:57,280 --> 00:19:01,120
+is a scumbag okay in my opinion he's not
+
+473
+00:19:00,000 --> 00:19:04,160
+a good human
+
+474
+00:19:01,120 --> 00:19:06,880
+animal uh the leader of npm
+
+475
+00:19:04,160 --> 00:19:07,520
+so but anyway he's you know let's let's
+
+476
+00:19:06,880 --> 00:19:11,840
+let's see
+
+477
+00:19:07,520 --> 00:19:15,919
+okay that's my opinion
+
+478
+00:19:11,840 --> 00:19:19,679
+nothing else npm software okay
+
+479
+00:19:15,919 --> 00:19:23,520
+now npm software is not this guy isaac
+
+480
+00:19:19,679 --> 00:19:27,120
+z uh shorter something
+
+481
+00:19:23,520 --> 00:19:30,400
+i i i don't know him too much
+
+482
+00:19:27,120 --> 00:19:33,360
+but from the few incidents you know
+
+483
+00:19:30,400 --> 00:19:36,400
+controversial incidents i looked into i
+
+484
+00:19:33,360 --> 00:19:39,440
+think he's a scumbag
+
+485
+00:19:36,400 --> 00:19:40,559
+okay so anyway he now he runs not js he
+
+486
+00:19:39,440 --> 00:19:43,840
+he you know he
+
+487
+00:19:40,559 --> 00:19:46,480
+leads not js and he als
+
+488
+00:19:43,840 --> 00:19:47,760
+he's a creator of npm and the npm
+
+489
+00:19:46,480 --> 00:19:51,360
+becomes a giant
+
+490
+00:19:47,760 --> 00:19:55,760
+huge corporate thing uh
+
+491
+00:19:51,360 --> 00:19:58,960
+so anyway so so i'd rather i'd rather
+
+492
+00:19:55,760 --> 00:19:59,919
+not use not yet you know because i
+
+493
+00:19:58,960 --> 00:20:02,880
+rather you know i
+
+494
+00:19:59,919 --> 00:20:03,440
+rather prefer to not use things from
+
+495
+00:20:02,880 --> 00:20:05,679
+people
+
+496
+00:20:03,440 --> 00:20:08,000
+i do not like from people i think are
+
+497
+00:20:05,679 --> 00:20:11,120
+not good person
+
+498
+00:20:08,000 --> 00:20:13,760
+so anyway so there is now so that's when
+
+499
+00:20:11,120 --> 00:20:16,960
+so there is deno so not you know the
+
+500
+00:20:13,760 --> 00:20:19,919
+ryan dog guy the mathematician
+
+501
+00:20:16,960 --> 00:20:22,240
+he's uh he's incredible because he never
+
+502
+00:20:19,919 --> 00:20:24,799
+had any coding experience
+
+503
+00:20:22,240 --> 00:20:26,799
+you know he's a mathematician uh and he
+
+504
+00:20:24,799 --> 00:20:27,760
+just started to learn coding for a year
+
+505
+00:20:26,799 --> 00:20:31,200
+or two and he
+
+506
+00:20:27,760 --> 00:20:32,080
+basically just created uh not in in like
+
+507
+00:20:31,200 --> 00:20:34,080
+three years
+
+508
+00:20:32,080 --> 00:20:37,120
+two to two hours you know very short
+
+509
+00:20:34,080 --> 00:20:40,559
+time he he was a php
+
+510
+00:20:37,120 --> 00:20:42,000
+coder you know so that's not a trivial
+
+511
+00:20:40,559 --> 00:20:44,080
+thing to do you
+
+512
+00:20:42,000 --> 00:20:46,559
+you to create an arcgis you know based
+
+513
+00:20:44,080 --> 00:20:48,720
+on not js is based on the
+
+514
+00:20:46,559 --> 00:20:49,840
+javascript engine from chrome web
+
+515
+00:20:48,720 --> 00:20:54,960
+browser called
+
+516
+00:20:49,840 --> 00:20:58,320
+v8 so anyway a year two years ago
+
+517
+00:20:54,960 --> 00:21:01,679
+ryan daw who is working at google now
+
+518
+00:20:58,320 --> 00:21:04,080
+you know he decided he was trying to he
+
+519
+00:21:01,679 --> 00:21:06,000
+you know he came up with dana which is
+
+520
+00:21:04,080 --> 00:21:09,200
+kind of a
+
+521
+00:21:06,000 --> 00:21:11,600
+a new version of node.js in a sense
+
+522
+00:21:09,200 --> 00:21:12,400
+so you know trying to fix his mistakes
+
+523
+00:21:11,600 --> 00:21:15,120
+and you know
+
+524
+00:21:12,400 --> 00:21:17,440
+start a new so that's what dano is about
+
+525
+00:21:15,120 --> 00:21:20,400
+and i heard someone told me
+
+526
+00:21:17,440 --> 00:21:21,000
+that then tenno is the reverse of not
+
+527
+00:21:20,400 --> 00:21:25,440
+you know
+
+528
+00:21:21,000 --> 00:21:28,000
+d-e-n-o the reverse of not
+
+529
+00:21:25,440 --> 00:21:28,960
+you know so i have several of you know
+
+530
+00:21:28,000 --> 00:21:31,360
+you go watch
+
+531
+00:21:28,960 --> 00:21:33,679
+several of the ryan dahl's video okay
+
+532
+00:21:31,360 --> 00:21:36,720
+let me show you okay
+
+533
+00:21:33,679 --> 00:21:41,440
+uh close that let's go to uh
+
+534
+00:21:36,720 --> 00:21:44,559
+ryan dao uh sardi okay
+
+535
+00:21:41,440 --> 00:21:47,280
+actually exactly ryan dal so there are
+
+536
+00:21:44,559 --> 00:21:49,120
+some videos of him i recommend
+
+537
+00:21:47,280 --> 00:21:50,960
+i'm going to show you my pages okay
+
+538
+00:21:49,120 --> 00:21:52,960
+because otherwise today
+
+539
+00:21:50,960 --> 00:21:54,559
+google and all these corporations make
+
+540
+00:21:52,960 --> 00:21:58,480
+makes it impossible
+
+541
+00:21:54,559 --> 00:22:00,480
+for you to find good quality things
+
+542
+00:21:58,480 --> 00:22:03,200
+because if i tell you to you know watch
+
+543
+00:22:00,480 --> 00:22:05,760
+some of the video by him
+
+544
+00:22:03,200 --> 00:22:07,919
+your your search and what will come up
+
+545
+00:22:05,760 --> 00:22:08,720
+is probably a bunch of clickbaits you
+
+546
+00:22:07,919 --> 00:22:11,200
+know someone
+
+547
+00:22:08,720 --> 00:22:12,480
+a second hand or third hand trying to
+
+548
+00:22:11,200 --> 00:22:15,360
+comment on his video
+
+549
+00:22:12,480 --> 00:22:16,880
+some things like that not just things
+
+550
+00:22:15,360 --> 00:22:19,120
+things like that or copy
+
+551
+00:22:16,880 --> 00:22:20,880
+you know you know so anyways there are
+
+552
+00:22:19,120 --> 00:22:21,200
+there are a couple you know how to find
+
+553
+00:22:20,880 --> 00:22:24,080
+good
+
+554
+00:22:21,200 --> 00:22:25,679
+stuff because you you'll probably see
+
+555
+00:22:24,080 --> 00:22:27,840
+tons of videos you don't know which one
+
+556
+00:22:25,679 --> 00:22:30,880
+is good
+
+557
+00:22:27,840 --> 00:22:33,440
+so i've watched two uh so
+
+558
+00:22:30,880 --> 00:22:34,559
+here's article ryan daw on software
+
+559
+00:22:33,440 --> 00:22:36,640
+complexity
+
+560
+00:22:34,559 --> 00:22:37,919
+you know today's software is just crap
+
+561
+00:22:36,640 --> 00:22:41,039
+our software the c
+
+562
+00:22:37,919 --> 00:22:43,280
+especially the c c plus first and the
+
+563
+00:22:41,039 --> 00:22:45,520
+unix and linux [ __ ]
+
+564
+00:22:43,280 --> 00:22:46,640
+they they idiots they they create
+
+565
+00:22:45,520 --> 00:22:49,360
+complexity
+
+566
+00:22:46,640 --> 00:22:50,880
+also javascript and also the entire web
+
+567
+00:22:49,360 --> 00:22:52,559
+technology
+
+568
+00:22:50,880 --> 00:22:54,159
+so anyway ryan dog you know you watch
+
+569
+00:22:52,559 --> 00:22:56,000
+him he's a
+
+570
+00:22:54,159 --> 00:22:58,159
+truly a great guy and he wrote the
+
+571
+00:22:56,000 --> 00:23:01,280
+article this article is written by him
+
+572
+00:22:58,159 --> 00:23:02,240
+on the complexity of javascript i mean
+
+573
+00:23:01,280 --> 00:23:05,280
+not just
+
+574
+00:23:02,240 --> 00:23:08,240
+on the complexity of software
+
+575
+00:23:05,280 --> 00:23:11,039
+that's the state we are in and here's
+
+576
+00:23:08,240 --> 00:23:14,080
+another video by him this is this one is
+
+577
+00:23:11,039 --> 00:23:15,280
+uh less interesting it's just a tutorial
+
+578
+00:23:14,080 --> 00:23:19,360
+on uh
+
+579
+00:23:15,280 --> 00:23:22,320
+on not js like 10 years ago uh 2011 yeah
+
+580
+00:23:19,360 --> 00:23:22,960
+nine years ago so anyway so i recommend
+
+581
+00:23:22,320 --> 00:23:25,679
+you watch
+
+582
+00:23:22,960 --> 00:23:26,000
+this one okay so uh you know created you
+
+583
+00:23:25,679 --> 00:23:27,840
+know
+
+584
+00:23:26,000 --> 00:23:29,520
+this this one is interesting actually
+
+585
+00:23:27,840 --> 00:23:33,440
+there's another one
+
+586
+00:23:29,520 --> 00:23:36,080
+uh this one will be also interesting
+
+587
+00:23:33,440 --> 00:23:38,559
+ryan daw on history of not so you'll
+
+588
+00:23:36,080 --> 00:23:41,520
+learn about nigerians
+
+589
+00:23:38,559 --> 00:23:42,799
+you know why he created it so anyway he
+
+590
+00:23:41,520 --> 00:23:46,159
+came up with a demo
+
+591
+00:23:42,799 --> 00:23:46,559
+uh like and and and now it's supposed to
+
+592
+00:23:46,159 --> 00:23:52,159
+be
+
+593
+00:23:46,559 --> 00:23:54,400
+uh uh you know ready for industrial use
+
+594
+00:23:52,159 --> 00:23:55,520
+so they know a secure runtime for
+
+595
+00:23:54,400 --> 00:23:58,080
+javascript and
+
+596
+00:23:55,520 --> 00:23:59,760
+typescript you know typescript is also
+
+597
+00:23:58,080 --> 00:24:01,919
+great
+
+598
+00:23:59,760 --> 00:24:03,679
+i wouldn't say it's great but because
+
+599
+00:24:01,919 --> 00:24:07,360
+javascript is pretty bad
+
+600
+00:24:03,679 --> 00:24:10,960
+javascript is truly a bad language so
+
+601
+00:24:07,360 --> 00:24:13,360
+typescript help helps significantly
+
+602
+00:24:10,960 --> 00:24:15,679
+however their type typescript is
+
+603
+00:24:13,360 --> 00:24:19,120
+actually a superset of javascript
+
+604
+00:24:15,679 --> 00:24:22,400
+so any plain javascript is also type
+
+605
+00:24:19,120 --> 00:24:25,520
+type script by definition it's it's a
+
+606
+00:24:22,400 --> 00:24:27,360
+strict superset so that's one
+
+607
+00:24:25,520 --> 00:24:29,039
+advantage of typescript because it's
+
+608
+00:24:27,360 --> 00:24:31,279
+just like javascript
+
+609
+00:24:29,039 --> 00:24:32,799
+you know you can add more stuff you
+
+610
+00:24:31,279 --> 00:24:34,559
+don't have to you know so it's
+
+611
+00:24:32,799 --> 00:24:37,279
+compatible
+
+612
+00:24:34,559 --> 00:24:38,400
+so typescript is a great help to
+
+613
+00:24:37,279 --> 00:24:41,039
+javascript
+
+614
+00:24:38,400 --> 00:24:42,080
+however i mean even you know even
+
+615
+00:24:41,039 --> 00:24:45,200
+typescript
+
+616
+00:24:42,080 --> 00:24:47,440
+you know javascript with typescript it's
+
+617
+00:24:45,200 --> 00:24:49,360
+the language is still pretty lousy
+
+618
+00:24:47,440 --> 00:24:52,640
+because javascript itself is
+
+619
+00:24:49,360 --> 00:24:56,480
+tremendous complexity but anyway so
+
+620
+00:24:52,640 --> 00:24:59,120
+yeah typescript is great okay
+
+621
+00:24:56,480 --> 00:25:00,640
+so deno actually runs typescript by
+
+622
+00:24:59,120 --> 00:25:03,600
+itself too so that's
+
+623
+00:25:00,640 --> 00:25:04,880
+that's great about deno okay so so we're
+
+624
+00:25:03,600 --> 00:25:09,200
+gonna install it
+
+625
+00:25:04,880 --> 00:25:12,080
+uh i'm going to install it now okay
+
+626
+00:25:09,200 --> 00:25:12,799
+let me read the comments bar says i'm
+
+627
+00:25:12,080 --> 00:25:16,080
+fully
+
+628
+00:25:12,799 --> 00:25:19,120
+on board with your c plus plus passion
+
+629
+00:25:16,080 --> 00:25:22,720
+thank you oh yeah uh
+
+630
+00:25:19,120 --> 00:25:23,520
+dirk bennett says the unified modeling
+
+631
+00:25:22,720 --> 00:25:26,640
+language
+
+632
+00:25:23,520 --> 00:25:30,240
+that that uml that crap that crap that
+
+633
+00:25:26,640 --> 00:25:32,159
+kong man stuff from the modern father
+
+634
+00:25:30,240 --> 00:25:35,440
+[ __ ]
+
+635
+00:25:32,159 --> 00:25:43,039
+my they could um
+
+636
+00:25:35,440 --> 00:25:44,880
+uh you know that's my opinion only okay
+
+637
+00:25:43,039 --> 00:25:46,640
+okay so we're gonna install it so
+
+638
+00:25:44,880 --> 00:25:47,360
+actually so there's the install instruct
+
+639
+00:25:46,640 --> 00:25:50,080
+instruction
+
+640
+00:25:47,360 --> 00:25:52,159
+i'm going to install it and so there's
+
+641
+00:25:50,080 --> 00:25:54,960
+blue okay let's just try brew
+
+642
+00:25:52,159 --> 00:25:57,360
+brew install dental okay so let's go to
+
+643
+00:25:54,960 --> 00:26:01,760
+a
+
+644
+00:25:57,360 --> 00:26:01,760
+oops let's go to my terminal
+
+645
+00:26:02,080 --> 00:26:06,720
+it's magnified so it's huge
+
+646
+00:26:09,200 --> 00:26:16,400
+okay boo
+
+647
+00:26:12,480 --> 00:26:16,400
+install denno okay
+
+648
+00:26:17,200 --> 00:26:23,440
+now brew is one of uh mac os uh
+
+649
+00:26:20,480 --> 00:26:24,320
+mac os uh package manager there are
+
+650
+00:26:23,440 --> 00:26:26,799
+quite a few
+
+651
+00:26:24,320 --> 00:26:27,679
+uh about 20 years ago the first one is
+
+652
+00:26:26,799 --> 00:26:30,720
+fink
+
+653
+00:26:27,679 --> 00:26:34,400
+which i used for like over 10 years i
+
+654
+00:26:30,720 --> 00:26:37,279
+used for for yeah 10 years think
+
+655
+00:26:34,400 --> 00:26:37,919
+then just somewhat sometimes during that
+
+656
+00:26:37,279 --> 00:26:42,240
+time they
+
+657
+00:26:37,919 --> 00:26:45,760
+then came mac ports uh then drew
+
+658
+00:26:42,240 --> 00:26:46,159
+you know came up it was never clear to
+
+659
+00:26:45,760 --> 00:26:48,320
+me
+
+660
+00:26:46,159 --> 00:26:50,159
+exactly what's the reason you know these
+
+661
+00:26:48,320 --> 00:26:53,039
+people created you know
+
+662
+00:26:50,159 --> 00:26:55,360
+other than other than think but but i i
+
+663
+00:26:53,039 --> 00:26:57,840
+can tell you a story about think
+
+664
+00:26:55,360 --> 00:26:58,640
+you know so there's one guy who thought
+
+665
+00:26:57,840 --> 00:27:00,960
+you know
+
+666
+00:26:58,640 --> 00:27:01,919
+he he got idea of creating a package
+
+667
+00:27:00,960 --> 00:27:05,120
+manager
+
+668
+00:27:01,919 --> 00:27:07,679
+for the mac based on the based on the
+
+669
+00:27:05,120 --> 00:27:12,640
+linux
+
+670
+00:27:07,679 --> 00:27:14,880
+uh debian uh package manager so he
+
+671
+00:27:12,640 --> 00:27:16,880
+kind of pulled it to the mac so he
+
+672
+00:27:14,880 --> 00:27:19,919
+created the think project
+
+673
+00:27:16,880 --> 00:27:21,919
+open source but after year or two he got
+
+674
+00:27:19,919 --> 00:27:24,399
+tired of it because
+
+675
+00:27:21,919 --> 00:27:26,559
+it's all take no give you know other
+
+676
+00:27:24,399 --> 00:27:28,480
+people is asking him questions
+
+677
+00:27:26,559 --> 00:27:29,840
+oh this doesn't work can you help me you
+
+678
+00:27:28,480 --> 00:27:32,840
+know things like that
+
+679
+00:27:29,840 --> 00:27:35,200
+easy got fed up with open source so he
+
+680
+00:27:32,840 --> 00:27:38,240
+quit
+
+681
+00:27:35,200 --> 00:27:40,960
+okay brew it says updating proof so okay
+
+682
+00:27:38,240 --> 00:27:43,360
+so it's this is gonna take a few minutes
+
+683
+00:27:40,960 --> 00:27:46,960
+i guess
+
+684
+00:27:43,360 --> 00:27:50,799
+well i have 17 people watching just by
+
+685
+00:27:46,960 --> 00:27:54,320
+talking about javascript stuff
+
+686
+00:27:50,799 --> 00:27:58,880
+uh so what's up alan so any
+
+687
+00:27:54,320 --> 00:27:58,880
+opinions about uh
+
+688
+00:27:59,520 --> 00:28:07,440
+not or uh deno
+
+689
+00:28:03,440 --> 00:28:10,960
+so alain says ellen from sweden
+
+690
+00:28:07,440 --> 00:28:13,600
+says why is he a common
+
+691
+00:28:10,960 --> 00:28:14,960
+martin fowler okay martin fowler why is
+
+692
+00:28:13,600 --> 00:28:17,120
+he a comment
+
+693
+00:28:14,960 --> 00:28:18,080
+first of all that's just my opinion you
+
+694
+00:28:17,120 --> 00:28:20,320
+know
+
+695
+00:28:18,080 --> 00:28:23,360
+let me take it back not a comment okay
+
+696
+00:28:20,320 --> 00:28:27,039
+because if i say he's a common i can get
+
+697
+00:28:23,360 --> 00:28:29,440
+sued that's a defamation but
+
+698
+00:28:27,039 --> 00:28:30,960
+so martin fowler in my opinion he's the
+
+699
+00:28:29,440 --> 00:28:34,399
+idiot
+
+700
+00:28:30,960 --> 00:28:37,440
+he is some you know he's the type of guy
+
+701
+00:28:34,399 --> 00:28:40,480
+like kind of like common okay they they
+
+702
+00:28:37,440 --> 00:28:43,120
+they create let's say a crackpot okay
+
+703
+00:28:40,480 --> 00:28:44,159
+crackpot is a more fitting word he's a
+
+704
+00:28:43,120 --> 00:28:48,159
+he's a crackpot
+
+705
+00:28:44,159 --> 00:28:50,240
+in my opinion he create things you know
+
+706
+00:28:48,159 --> 00:28:52,880
+he created a code kind of thing
+
+707
+00:28:50,240 --> 00:28:54,480
+and with a lot of followers you know
+
+708
+00:28:52,880 --> 00:28:55,120
+because you know you can see today a lot
+
+709
+00:28:54,480 --> 00:28:58,000
+of followers
+
+710
+00:28:55,120 --> 00:29:00,799
+love you know they will they will cite
+
+711
+00:28:58,000 --> 00:29:03,120
+martin fowler constantly
+
+712
+00:29:00,799 --> 00:29:04,080
+so he's one of the type of guy in
+
+713
+00:29:03,120 --> 00:29:07,360
+society
+
+714
+00:29:04,080 --> 00:29:10,399
+you know this happens over you know
+
+715
+00:29:07,360 --> 00:29:12,000
+constantly in history so he's one the
+
+716
+00:29:10,399 --> 00:29:13,760
+type who create kind of a code
+
+717
+00:29:12,000 --> 00:29:16,480
+thing with the file with lots of
+
+718
+00:29:13,760 --> 00:29:19,840
+followers and the things he creates
+
+719
+00:29:16,480 --> 00:29:23,039
+you know his ideas is usually like
+
+720
+00:29:19,840 --> 00:29:24,080
+uh not not science-based it's not
+
+721
+00:29:23,039 --> 00:29:26,960
+science
+
+722
+00:29:24,080 --> 00:29:29,039
+uh it's kind of cult like thing you know
+
+723
+00:29:26,960 --> 00:29:33,039
+modern father uml okay
+
+724
+00:29:29,039 --> 00:29:38,240
+uh ultimate what is it ultimate modern
+
+725
+00:29:33,039 --> 00:29:38,240
+language was it ultimate uh
+
+726
+00:29:39,520 --> 00:29:42,960
+you know he you know one of the hallmark
+
+727
+00:29:41,760 --> 00:29:45,039
+of crackpot's
+
+728
+00:29:42,960 --> 00:29:46,480
+unified modern language you know he
+
+729
+00:29:45,039 --> 00:29:49,039
+created this thing
+
+730
+00:29:46,480 --> 00:29:50,640
+one of the hallmark of of code is
+
+731
+00:29:49,039 --> 00:29:53,200
+jargons
+
+732
+00:29:50,640 --> 00:29:53,679
+you know so martin fowler his things are
+
+733
+00:29:53,200 --> 00:29:55,360
+full
+
+734
+00:29:53,679 --> 00:29:58,559
+filled with jargons everything is a
+
+735
+00:29:55,360 --> 00:29:59,440
+jargon a unified modeling language these
+
+736
+00:29:58,559 --> 00:30:01,520
+[ __ ]
+
+737
+00:29:59,440 --> 00:30:03,840
+these [ __ ] will create a modern
+
+738
+00:30:01,520 --> 00:30:06,320
+language that's unified
+
+739
+00:30:03,840 --> 00:30:06,960
+but in reality that's just for op okay
+
+740
+00:30:06,320 --> 00:30:08,799
+that's not
+
+741
+00:30:06,960 --> 00:30:12,399
+for functional programming it's just
+
+742
+00:30:08,799 --> 00:30:15,679
+that good and it's not mathematics okay
+
+743
+00:30:12,399 --> 00:30:19,279
+well i i i take it back because i
+
+744
+00:30:15,679 --> 00:30:20,960
+i haven't studied uml in depth
+
+745
+00:30:19,279 --> 00:30:23,240
+you know he created a lot of lots of
+
+746
+00:30:20,960 --> 00:30:26,080
+things you know a data
+
+747
+00:30:23,240 --> 00:30:27,760
+object-oriented uh database for example
+
+748
+00:30:26,080 --> 00:30:30,720
+i despise that
+
+749
+00:30:27,760 --> 00:30:32,399
+he also created you know something
+
+750
+00:30:30,720 --> 00:30:33,679
+injection you know some some kind of
+
+751
+00:30:32,399 --> 00:30:35,919
+programming paradigm
+
+752
+00:30:33,679 --> 00:30:38,399
+you know jargons you know basically
+
+753
+00:30:35,919 --> 00:30:38,399
+useless
+
+754
+00:30:39,039 --> 00:30:42,880
+you you kind of useless jargons like
+
+755
+00:30:40,960 --> 00:30:46,480
+patterns you know yeah you usually
+
+756
+00:30:42,880 --> 00:30:49,600
+you know okay so let's go back
+
+757
+00:30:46,480 --> 00:30:50,080
+let's so deno is installed let's see uh
+
+758
+00:30:49,600 --> 00:30:53,520
+which
+
+759
+00:30:50,080 --> 00:30:56,480
+demo there it is
+
+760
+00:30:53,520 --> 00:30:58,399
+user local uh user local bin deno so i
+
+761
+00:30:56,480 --> 00:31:01,600
+can run demo now let's go to
+
+762
+00:30:58,399 --> 00:31:05,600
+uh ishow deno let's uh
+
+763
+00:31:01,600 --> 00:31:08,000
+which deno fantastic user local bin deno
+
+764
+00:31:05,600 --> 00:31:11,039
+we got we are going to run it okay
+
+765
+00:31:08,000 --> 00:31:12,640
+so okay close it let's let's create a
+
+766
+00:31:11,039 --> 00:31:16,399
+javascript okay
+
+767
+00:31:12,640 --> 00:31:20,080
+console.log magnify three
+
+768
+00:31:16,399 --> 00:31:23,120
+plus uh one okay
+
+769
+00:31:20,080 --> 00:31:26,320
+now this is going to okay so save it
+
+770
+00:31:23,120 --> 00:31:28,880
+back to go go go to the shell
+
+771
+00:31:26,320 --> 00:31:29,919
+copy the file name this is the file name
+
+772
+00:31:28,880 --> 00:31:33,440
+close it
+
+773
+00:31:29,919 --> 00:31:35,760
+go to the go to the e-shell again
+
+774
+00:31:33,440 --> 00:31:37,200
+then we are going to run demo okay
+
+775
+00:31:35,760 --> 00:31:40,640
+denote that file name
+
+776
+00:31:37,200 --> 00:31:40,640
+let's see oh [ __ ]
+
+777
+00:31:40,720 --> 00:31:47,600
+arrow now this is a bad sign because
+
+778
+00:31:44,399 --> 00:31:50,799
+it should just return uh you know four
+
+779
+00:31:47,600 --> 00:31:53,919
+so error found argument that
+
+780
+00:31:50,799 --> 00:31:57,440
+which wasn't expected oh okay so okay
+
+781
+00:31:53,919 --> 00:32:00,720
+so it's because um
+
+782
+00:31:57,440 --> 00:32:01,600
+you know the options i have to use it
+
+783
+00:32:00,720 --> 00:32:04,640
+properly
+
+784
+00:32:01,600 --> 00:32:04,640
+so deno help
+
+785
+00:32:04,720 --> 00:32:09,919
+let's see what it says so how do you run
+
+786
+00:32:07,600 --> 00:32:12,080
+the file
+
+787
+00:32:09,919 --> 00:32:13,840
+a secure javascript and type script
+
+788
+00:32:12,080 --> 00:32:14,720
+runtime we're going to try typescript
+
+789
+00:32:13,840 --> 00:32:18,399
+okay
+
+790
+00:32:14,720 --> 00:32:21,360
+so docs uh modules and books
+
+791
+00:32:18,399 --> 00:32:23,360
+so so you know i um you know it's
+
+792
+00:32:21,360 --> 00:32:26,159
+fantastic go use it i get i
+
+793
+00:32:23,360 --> 00:32:27,279
+i trust it for sure because of the ryan
+
+794
+00:32:26,159 --> 00:32:28,720
+dollar guy
+
+795
+00:32:27,279 --> 00:32:30,399
+you know you go to their website you
+
+796
+00:32:28,720 --> 00:32:31,919
+also read you know the summary of
+
+797
+00:32:30,399 --> 00:32:35,360
+features it's a i think
+
+798
+00:32:31,919 --> 00:32:38,559
+it's great it's a uh not
+
+799
+00:32:35,360 --> 00:32:39,679
+not dot js replay replacement and i hope
+
+800
+00:32:38,559 --> 00:32:44,000
+it will
+
+801
+00:32:39,679 --> 00:32:47,279
+uh you know replace not.js
+
+802
+00:32:44,000 --> 00:32:48,640
+so usage demo options uh how do you run
+
+803
+00:32:47,279 --> 00:32:52,799
+the file
+
+804
+00:32:48,640 --> 00:32:55,039
+let's see eval help install linked repo
+
+805
+00:32:52,799 --> 00:32:56,799
+run run a program given a file name or
+
+806
+00:32:55,039 --> 00:33:00,320
+url to module
+
+807
+00:32:56,799 --> 00:33:01,360
+okay use dash as a file name to read
+
+808
+00:33:00,320 --> 00:33:05,120
+from stats
+
+809
+00:33:01,360 --> 00:33:10,480
+okay so that's the option so
+
+810
+00:33:05,120 --> 00:33:15,360
+let's try it again
+
+811
+00:33:10,480 --> 00:33:15,360
+okay then you need to say run
+
+812
+00:33:17,519 --> 00:33:24,480
+okay uh
+
+813
+00:33:20,799 --> 00:33:28,080
+we got what happened oh four there it is
+
+814
+00:33:24,480 --> 00:33:32,799
+you see somehow the output is um
+
+815
+00:33:28,080 --> 00:33:36,720
+gray so it's hard to see but you see it
+
+816
+00:33:32,799 --> 00:33:40,000
+it's magnified you see
+
+817
+00:33:36,720 --> 00:33:43,440
+yellow yellowish color four
+
+818
+00:33:40,000 --> 00:33:45,679
+so successful so actually
+
+819
+00:33:43,440 --> 00:33:48,000
+now shrink shrink shrink okay so
+
+820
+00:33:45,679 --> 00:33:50,320
+actually successful now
+
+821
+00:33:48,000 --> 00:33:52,480
+what we are going to do is uh let's
+
+822
+00:33:50,320 --> 00:33:53,840
+replace my command okay close this we
+
+823
+00:33:52,480 --> 00:33:58,559
+don't need it
+
+824
+00:33:53,840 --> 00:34:01,919
+let's replace my emacs command
+
+825
+00:33:58,559 --> 00:34:05,600
+uh run kernel file to use
+
+826
+00:34:01,919 --> 00:34:08,960
+deno instead of nod okay
+
+827
+00:34:05,600 --> 00:34:14,720
+so so go here
+
+828
+00:34:08,960 --> 00:34:14,720
+make a backup copy so this line
+
+829
+00:34:14,800 --> 00:34:18,079
+comment out make a new one let's say
+
+830
+00:34:17,200 --> 00:34:22,639
+deno okay
+
+831
+00:34:18,079 --> 00:34:24,639
+uh actually they demo run yeah
+
+832
+00:34:22,639 --> 00:34:27,280
+you know it's interesting you know the
+
+833
+00:34:24,639 --> 00:34:30,879
+optional design because for some
+
+834
+00:34:27,280 --> 00:34:32,800
+languages languages you need to say run
+
+835
+00:34:30,879 --> 00:34:35,040
+you know for example go down you
+
+836
+00:34:32,800 --> 00:34:37,839
+if you want if you want to run some file
+
+837
+00:34:35,040 --> 00:34:41,839
+you say go run
+
+838
+00:34:37,839 --> 00:34:43,760
+but not for php perl python in those
+
+839
+00:34:41,839 --> 00:34:46,879
+cases you just
+
+840
+00:34:43,760 --> 00:34:49,040
+type the file name uh that
+
+841
+00:34:46,879 --> 00:34:50,879
+you know that's a interesting design
+
+842
+00:34:49,040 --> 00:34:52,960
+choice like which one is better and so
+
+843
+00:34:50,879 --> 00:34:55,119
+on
+
+844
+00:34:52,960 --> 00:34:58,480
+anyway anyway so dental run is the one
+
+845
+00:34:55,119 --> 00:35:01,359
+so eval the buffer let's change the date
+
+846
+00:34:58,480 --> 00:35:03,440
+the new version number today's date then
+
+847
+00:35:01,359 --> 00:35:07,040
+eval this command
+
+848
+00:35:03,440 --> 00:35:07,040
+then go back to my
+
+849
+00:35:08,720 --> 00:35:12,640
+go back to my html file
+
+850
+00:35:13,520 --> 00:35:21,440
+wait actually go here uh
+
+851
+00:35:17,599 --> 00:35:24,720
+run okay so but for some reason
+
+852
+00:35:21,440 --> 00:35:31,200
+i don't know why it shows the output
+
+853
+00:35:24,720 --> 00:35:35,680
+colored uh kind of yellow like
+
+854
+00:35:31,200 --> 00:35:38,320
+i don't quite get what mechanism
+
+855
+00:35:35,680 --> 00:35:39,599
+you know because usually the output
+
+856
+00:35:38,320 --> 00:35:41,680
+should not be colored
+
+857
+00:35:39,599 --> 00:35:44,320
+especially in emacs because what what
+
+858
+00:35:41,680 --> 00:35:47,839
+right now what what it is doing is that
+
+859
+00:35:44,320 --> 00:35:50,240
+e-max calls dental and there's output
+
+860
+00:35:47,839 --> 00:35:51,040
+then e-max will take the output and
+
+861
+00:35:50,240 --> 00:35:54,720
+display it
+
+862
+00:35:51,040 --> 00:35:56,960
+in the buffer here but
+
+863
+00:35:54,720 --> 00:35:58,880
+but i don't see how it gets color
+
+864
+00:35:56,960 --> 00:36:00,160
+because in order to have color you have
+
+865
+00:35:58,880 --> 00:36:03,040
+to have
+
+866
+00:36:00,160 --> 00:36:05,839
+text properties in e-max so i guess
+
+867
+00:36:03,040 --> 00:36:09,680
+e-max automatically
+
+868
+00:36:05,839 --> 00:36:11,200
+copy the shells you know the shells
+
+869
+00:36:09,680 --> 00:36:15,440
+ascii
+
+870
+00:36:11,200 --> 00:36:18,960
+color coding i guess so anyway it works
+
+871
+00:36:15,440 --> 00:36:21,520
+so now i want to make sure that
+
+872
+00:36:18,960 --> 00:36:23,280
+well i know for sure this is from deno
+
+873
+00:36:21,520 --> 00:36:26,560
+because the output is colored
+
+874
+00:36:23,280 --> 00:36:27,440
+uh yellow it was not the case from not
+
+875
+00:36:26,560 --> 00:36:32,079
+js
+
+876
+00:36:27,440 --> 00:36:32,079
+okay so that works so delete this file
+
+877
+00:36:32,800 --> 00:36:38,839
+okay we installed deno and we run the
+
+878
+00:36:35,599 --> 00:36:41,839
+code successfully
+
+879
+00:36:38,839 --> 00:36:41,839
+uh
+
+880
+00:36:42,720 --> 00:36:46,160
+now let's see i want to let's try i want
+
+881
+00:36:45,760 --> 00:36:49,760
+to
+
+882
+00:36:46,160 --> 00:36:52,880
+say i want to print out
+
+883
+00:36:49,760 --> 00:36:54,000
+the executable file path how do you do
+
+884
+00:36:52,880 --> 00:36:57,040
+that
+
+885
+00:36:54,000 --> 00:37:00,160
+so how do you in dental how do you print
+
+886
+00:36:57,040 --> 00:37:00,800
+the executable file path any comments
+
+887
+00:37:00,160 --> 00:37:04,480
+questions
+
+888
+00:37:00,800 --> 00:37:07,040
+i think that's you know we are basically
+
+889
+00:37:04,480 --> 00:37:09,839
+um let's see how long have i been
+
+890
+00:37:07,040 --> 00:37:09,839
+talking
+
+891
+00:37:10,960 --> 00:37:17,440
+37 minutes yeah i think we did
+
+892
+00:37:15,040 --> 00:37:19,760
+you know we gave an introduction to uh
+
+893
+00:37:17,440 --> 00:37:19,760
+denno
+
+894
+00:37:20,240 --> 00:37:27,440
+a new js runtime to test front-end code
+
+895
+00:37:23,440 --> 00:37:28,240
+yeah you know so uh you guys work in
+
+896
+00:37:27,440 --> 00:37:30,800
+companies
+
+897
+00:37:28,240 --> 00:37:31,680
+you can you know you use deno and not js
+
+898
+00:37:30,800 --> 00:37:35,599
+for the back
+
+899
+00:37:31,680 --> 00:37:37,520
+for the server right mostly but me
+
+900
+00:37:35,599 --> 00:37:40,000
+i haven't been working at corporations
+
+901
+00:37:37,520 --> 00:37:43,040
+for a long time so
+
+902
+00:37:40,000 --> 00:37:46,560
+so this this is my use of uh
+
+903
+00:37:43,040 --> 00:37:46,560
+dental or not.js
+
+904
+00:37:46,960 --> 00:37:50,560
+oh a feature of dental color in the
+
+905
+00:37:49,440 --> 00:37:54,800
+console
+
+906
+00:37:50,560 --> 00:37:54,800
+oh okay that's interesting
+
+907
+00:37:55,359 --> 00:37:57,599
+uh
+
+908
+00:37:59,680 --> 00:38:06,240
+okay i think we have 15 uh viewers
+
+909
+00:38:02,800 --> 00:38:09,040
+so deno is great go install it okay
+
+910
+00:38:06,240 --> 00:38:11,119
+let's try to run some more complex code
+
+911
+00:38:09,040 --> 00:38:14,480
+okay let's
+
+912
+00:38:11,119 --> 00:38:15,280
+yeah so i'm going to go to my javascript
+
+913
+00:38:14,480 --> 00:38:19,280
+in depth
+
+914
+00:38:15,280 --> 00:38:22,640
+okay showing browser
+
+915
+00:38:19,280 --> 00:38:25,520
+so if you like my tutorial uh
+
+916
+00:38:22,640 --> 00:38:26,480
+buy my javascript in depth okay you know
+
+917
+00:38:25,520 --> 00:38:30,560
+there's like
+
+918
+00:38:26,480 --> 00:38:32,720
+200 pages um
+
+919
+00:38:30,560 --> 00:38:34,079
+you don't need any libraries i teach you
+
+920
+00:38:32,720 --> 00:38:37,520
+the most simple
+
+921
+00:38:34,079 --> 00:38:39,359
+simple and elegant way to code using
+
+922
+00:38:37,520 --> 00:38:44,160
+pure javascript
+
+923
+00:38:39,359 --> 00:38:44,160
+and the technology building in browser
+
+924
+00:38:44,839 --> 00:38:50,560
+uh
+
+925
+00:38:46,720 --> 00:38:54,320
+uh so what oh let me mention you know
+
+926
+00:38:50,560 --> 00:38:57,640
+with not js you know not js and and vu
+
+927
+00:38:54,320 --> 00:39:02,079
+dot js and re and you know react no
+
+928
+00:38:57,640 --> 00:39:05,040
+react.js view.js or angular.js
+
+929
+00:39:02,079 --> 00:39:06,240
+or amber.js you know this this kind of
+
+930
+00:39:05,040 --> 00:39:08,640
+javascript
+
+931
+00:39:06,240 --> 00:39:10,640
+platform you know they are kind of
+
+932
+00:39:08,640 --> 00:39:14,160
+frameworks
+
+933
+00:39:10,640 --> 00:39:17,200
+they are useful um they are useful
+
+934
+00:39:14,160 --> 00:39:20,400
+for sure um
+
+935
+00:39:17,200 --> 00:39:22,240
+i don't like them myself but i mean it's
+
+936
+00:39:20,400 --> 00:39:23,760
+it's not true to say i mean they are
+
+937
+00:39:22,240 --> 00:39:27,280
+useful they are actually
+
+938
+00:39:23,760 --> 00:39:30,560
+uh lots of coding went into them and
+
+939
+00:39:27,280 --> 00:39:32,720
+they are useful you know once in
+
+940
+00:39:30,560 --> 00:39:35,440
+one of the situation they are great very
+
+941
+00:39:32,720 --> 00:39:38,560
+useful using a corporation
+
+942
+00:39:35,440 --> 00:39:41,839
+and not not not really because
+
+943
+00:39:38,560 --> 00:39:43,920
+the features they provide
+
+944
+00:39:41,839 --> 00:39:47,359
+that too but that's not the main reason
+
+945
+00:39:43,920 --> 00:39:47,359
+the main reason is rather
+
+946
+00:39:48,400 --> 00:39:56,320
+they they don't require you to know
+
+947
+00:39:53,119 --> 00:39:58,560
+the javascript or the language in depth
+
+948
+00:39:56,320 --> 00:39:59,680
+that's what they do they kind of you
+
+949
+00:39:58,560 --> 00:40:01,839
+know you just slap
+
+950
+00:39:59,680 --> 00:40:03,599
+in this framework you just put these
+
+951
+00:40:01,839 --> 00:40:06,160
+lines you know copy and paste
+
+952
+00:40:03,599 --> 00:40:08,839
+and your work so in a corporation when
+
+953
+00:40:06,160 --> 00:40:11,440
+they hire a lot
+
+954
+00:40:08,839 --> 00:40:15,839
+people um
+
+955
+00:40:11,440 --> 00:40:17,680
+so those frames frameworks are useful
+
+956
+00:40:15,839 --> 00:40:19,920
+i mean that's part of the reason they
+
+957
+00:40:17,680 --> 00:40:23,119
+are hugely popular
+
+958
+00:40:19,920 --> 00:40:26,079
+on the other hand you know a giant
+
+959
+00:40:23,119 --> 00:40:28,319
+corporation cannot you know i'm like
+
+960
+00:40:26,079 --> 00:40:30,000
+my coding style you know use you know if
+
+961
+00:40:28,319 --> 00:40:33,280
+you want to code
+
+962
+00:40:30,000 --> 00:40:36,160
+the way i do you know using minimal code
+
+963
+00:40:33,280 --> 00:40:37,760
+understand the language very well that's
+
+964
+00:40:36,160 --> 00:40:40,160
+not normal that's not the
+
+965
+00:40:37,760 --> 00:40:41,040
+normal case i mean that's what we should
+
+966
+00:40:40,160 --> 00:40:44,240
+do uh
+
+967
+00:40:41,040 --> 00:40:46,480
+you should aspire to do that
+
+968
+00:40:44,240 --> 00:40:48,480
+uh you know but you have to spend
+
+969
+00:40:46,480 --> 00:40:50,960
+tremendous time i spent two years full
+
+970
+00:40:48,480 --> 00:40:53,119
+time to write this tutorial you know
+
+971
+00:40:50,960 --> 00:40:54,400
+two years full time nobody have time to
+
+972
+00:40:53,119 --> 00:40:58,160
+do that right
+
+973
+00:40:54,400 --> 00:41:00,880
+so well i i do i i i did
+
+974
+00:40:58,160 --> 00:41:02,960
+so that's a cost you know most people
+
+975
+00:41:00,880 --> 00:41:05,920
+you don't have that luxury
+
+976
+00:41:02,960 --> 00:41:08,640
+so that is why those frameworks becomes
+
+977
+00:41:05,920 --> 00:41:08,640
+very useful
+
+978
+00:41:11,359 --> 00:41:16,560
+okay so anyway so but but ultimately
+
+979
+00:41:14,720 --> 00:41:17,359
+because javascript is a very lousy
+
+980
+00:41:16,560 --> 00:41:20,880
+language
+
+981
+00:41:17,359 --> 00:41:25,599
+you know if you look at golan golan or
+
+982
+00:41:20,880 --> 00:41:27,920
+or many other you know modern languages
+
+983
+00:41:25,599 --> 00:41:28,800
+golan julia julia maybe julia for
+
+984
+00:41:27,920 --> 00:41:31,119
+example
+
+985
+00:41:28,800 --> 00:41:32,480
+they have bld library even python you
+
+986
+00:41:31,119 --> 00:41:34,640
+know python ruby
+
+987
+00:41:32,480 --> 00:41:36,079
+you know you have a system of libraries
+
+988
+00:41:34,640 --> 00:41:39,200
+you don't have to use
+
+989
+00:41:36,079 --> 00:41:39,920
+frameworks you don't have to you know
+
+990
+00:41:39,200 --> 00:41:42,480
+just use
+
+991
+00:41:39,920 --> 00:41:44,480
+building libraries but javascript does
+
+992
+00:41:42,480 --> 00:41:46,319
+not have that that's a problem
+
+993
+00:41:44,480 --> 00:41:49,040
+you know that's that is why you have all
+
+994
+00:41:46,319 --> 00:41:50,000
+these frameworks and the most despicable
+
+995
+00:41:49,040 --> 00:41:53,599
+one is the
+
+996
+00:41:50,000 --> 00:41:57,920
+mpm [ __ ] npm you know that guy
+
+997
+00:41:53,599 --> 00:42:01,359
+isaac he made npm so that you know
+
+998
+00:41:57,920 --> 00:42:04,880
+it's a in my opinion you know the
+
+999
+00:42:01,359 --> 00:42:05,680
+every choice he make he he he make it so
+
+1000
+00:42:04,880 --> 00:42:08,880
+that
+
+1001
+00:42:05,680 --> 00:42:09,200
+he benefit the most he make choices so
+
+1002
+00:42:08,880 --> 00:42:12,000
+that
+
+1003
+00:42:09,200 --> 00:42:12,960
+npm becomes the most popular as par as
+
+1004
+00:42:12,000 --> 00:42:15,040
+popular as part
+
+1005
+00:42:12,960 --> 00:42:16,319
+possible and gets the most people
+
+1006
+00:42:15,040 --> 00:42:18,560
+involved
+
+1007
+00:42:16,319 --> 00:42:19,760
+but however it's not a good thing for
+
+1008
+00:42:18,560 --> 00:42:21,839
+the actual coders
+
+1009
+00:42:19,760 --> 00:42:23,280
+you know you you install one library
+
+1010
+00:42:21,839 --> 00:42:25,920
+that installs 10
+
+1011
+00:42:23,280 --> 00:42:27,680
+and each one install 10 more so every
+
+1012
+00:42:25,920 --> 00:42:29,760
+time you install library you actually
+
+1013
+00:42:27,680 --> 00:42:32,400
+install hundreds of libraries
+
+1014
+00:42:29,760 --> 00:42:34,079
+that's what what happens with npm and
+
+1015
+00:42:32,400 --> 00:42:36,240
+some of the libraries are just
+
+1016
+00:42:34,079 --> 00:42:38,960
+five lines of code you know such as
+
+1017
+00:42:36,240 --> 00:42:38,960
+stream stream
+
+1018
+00:42:39,040 --> 00:42:42,160
+you know why does this happen you know
+
+1019
+00:42:40,640 --> 00:42:44,400
+you might say oh well
+
+1020
+00:42:42,160 --> 00:42:45,200
+because javascript then they designed
+
+1021
+00:42:44,400 --> 00:42:47,040
+that way
+
+1022
+00:42:45,200 --> 00:42:49,520
+not really well that's half the reason
+
+1023
+00:42:47,040 --> 00:42:52,079
+the you know
+
+1024
+00:42:49,520 --> 00:42:53,839
+part part of the reason is because they
+
+1025
+00:42:52,079 --> 00:42:56,880
+they made it that way so
+
+1026
+00:42:53,839 --> 00:42:59,119
+so npm will grow and grow and grow
+
+1027
+00:42:56,880 --> 00:43:00,480
+uh you know that's that's you know
+
+1028
+00:42:59,119 --> 00:43:03,280
+that's uh
+
+1029
+00:43:00,480 --> 00:43:05,760
+that's similarly similarly that is how
+
+1030
+00:43:03,280 --> 00:43:09,200
+google all these giant corporations grow
+
+1031
+00:43:05,760 --> 00:43:11,359
+google facebook microsoft you know they
+
+1032
+00:43:09,200 --> 00:43:12,480
+on the surface they tell you oh we are
+
+1033
+00:43:11,359 --> 00:43:15,119
+helping the world
+
+1034
+00:43:12,480 --> 00:43:15,839
+you know we do this way so that we wish
+
+1035
+00:43:15,119 --> 00:43:18,800
+a
+
+1036
+00:43:15,839 --> 00:43:20,319
+word where information is available for
+
+1037
+00:43:18,800 --> 00:43:22,800
+everyone that's what they say
+
+1038
+00:43:20,319 --> 00:43:23,760
+that's which is true too you know from
+
+1039
+00:43:22,800 --> 00:43:26,160
+certain aspect
+
+1040
+00:43:23,760 --> 00:43:28,480
+but on the other hand you know as you
+
+1041
+00:43:26,160 --> 00:43:30,720
+know google today is very evil
+
+1042
+00:43:28,480 --> 00:43:32,800
+that's not you know that's that's not
+
+1043
+00:43:30,720 --> 00:43:35,920
+their pure goal they have something else
+
+1044
+00:43:32,800 --> 00:43:36,640
+in their mind to grow you know to make
+
+1045
+00:43:35,920 --> 00:43:40,880
+them
+
+1046
+00:43:36,640 --> 00:43:44,000
+themselves a massive empire
+
+1047
+00:43:40,880 --> 00:43:46,319
+so anyway so um
+
+1048
+00:43:44,000 --> 00:43:48,480
+so that's about the my you know my
+
+1049
+00:43:46,319 --> 00:43:51,280
+opinions about these frameworks
+
+1050
+00:43:48,480 --> 00:43:52,319
+and also i don't use them not because
+
+1051
+00:43:51,280 --> 00:43:55,839
+well
+
+1052
+00:43:52,319 --> 00:43:56,640
+also in part because i'm getting old and
+
+1053
+00:43:55,839 --> 00:43:59,839
+i just never
+
+1054
+00:43:56,640 --> 00:44:03,280
+actually studied them i wanted to
+
+1055
+00:43:59,839 --> 00:44:04,160
+study uh react.js you know at least one
+
+1056
+00:44:03,280 --> 00:44:07,280
+of them
+
+1057
+00:44:04,160 --> 00:44:08,079
+well so by well i mean to the degree
+
+1058
+00:44:07,280 --> 00:44:10,960
+that i i
+
+1059
+00:44:08,079 --> 00:44:12,400
+would know how to implement them from
+
+1060
+00:44:10,960 --> 00:44:14,480
+scratch
+
+1061
+00:44:12,400 --> 00:44:16,160
+you know not necessarily doing it
+
+1062
+00:44:14,480 --> 00:44:16,560
+because doing it actually will take a
+
+1063
+00:44:16,160 --> 00:44:18,880
+lot of
+
+1064
+00:44:16,560 --> 00:44:19,839
+experience you know you'll take one year
+
+1065
+00:44:18,880 --> 00:44:21,920
+you know but
+
+1066
+00:44:19,839 --> 00:44:24,480
+if if i do it by myself it will take one
+
+1067
+00:44:21,920 --> 00:44:27,119
+year or two
+
+1068
+00:44:24,480 --> 00:44:28,000
+if if that you know to implement nuagex
+
+1069
+00:44:27,119 --> 00:44:31,680
+that's not
+
+1070
+00:44:28,000 --> 00:44:37,040
+my goal i i want what i want is at least
+
+1071
+00:44:31,680 --> 00:44:40,000
+the the the you know the understanding
+
+1072
+00:44:37,040 --> 00:44:42,400
+of how it is done you know what you know
+
+1073
+00:44:40,000 --> 00:44:43,920
+react.js every feature about react.js
+
+1074
+00:44:42,400 --> 00:44:47,040
+you understand
+
+1075
+00:44:43,920 --> 00:44:49,520
+how it is done what is it is purpose
+
+1076
+00:44:47,040 --> 00:44:50,720
+how when you use react.js what's the
+
+1077
+00:44:49,520 --> 00:44:52,720
+major
+
+1078
+00:44:50,720 --> 00:44:54,000
+you know difference what's the major
+
+1079
+00:44:52,720 --> 00:44:57,520
+benefits or
+
+1080
+00:44:54,000 --> 00:44:58,400
+shortcomings but mostly the mechanism
+
+1081
+00:44:57,520 --> 00:45:00,400
+how it is
+
+1082
+00:44:58,400 --> 00:45:02,319
+uh done you know by what means that you
+
+1083
+00:45:00,400 --> 00:45:04,800
+know understand the technology
+
+1084
+00:45:02,319 --> 00:45:05,680
+so that is actually that's that that is
+
+1085
+00:45:04,800 --> 00:45:09,119
+what i want
+
+1086
+00:45:05,680 --> 00:45:11,839
+uh uh to do uh
+
+1087
+00:45:09,119 --> 00:45:12,480
+i'm hoping to do to understand one of
+
+1088
+00:45:11,839 --> 00:45:15,680
+them
+
+1089
+00:45:12,480 --> 00:45:18,160
+so there's ember.jsreact.js
+
+1090
+00:45:15,680 --> 00:45:19,839
+you know vue.js and quite a few there's
+
+1091
+00:45:18,160 --> 00:45:21,040
+you know there's also new ones i don't
+
+1092
+00:45:19,839 --> 00:45:23,520
+remember the names
+
+1093
+00:45:21,040 --> 00:45:26,000
+like a new a new one coming out every
+
+1094
+00:45:23,520 --> 00:45:26,000
+two years
+
+1095
+00:45:26,960 --> 00:45:30,560
+okay similar java and stream framework
+
+1096
+00:45:29,520 --> 00:45:34,400
+so that
+
+1097
+00:45:30,560 --> 00:45:36,720
+alain says then uh how about elm
+
+1098
+00:45:34,400 --> 00:45:37,440
+yeah elm you know so i haven't studied
+
+1099
+00:45:36,720 --> 00:45:42,079
+elm so
+
+1100
+00:45:37,440 --> 00:45:44,800
+m is another m is a language i think
+
+1101
+00:45:42,079 --> 00:45:46,000
+uh i don't know much about l but m is
+
+1102
+00:45:44,800 --> 00:45:49,200
+kind of a functional
+
+1103
+00:45:46,000 --> 00:45:49,680
+language based on based on javascript
+
+1104
+00:45:49,200 --> 00:45:53,200
+right
+
+1105
+00:45:49,680 --> 00:45:57,599
+based on javascript and and
+
+1106
+00:45:53,200 --> 00:46:01,040
+that that parallel programming
+
+1107
+00:45:57,599 --> 00:46:01,680
+language idea right is that maybe i got
+
+1108
+00:46:01,040 --> 00:46:04,240
+confused
+
+1109
+00:46:01,680 --> 00:46:05,760
+anyway so there are quite a few let's go
+
+1110
+00:46:04,240 --> 00:46:08,720
+to um
+
+1111
+00:46:05,760 --> 00:46:09,119
+since since i'm talking random let's go
+
+1112
+00:46:08,720 --> 00:46:14,480
+to
+
+1113
+00:46:09,119 --> 00:46:18,720
+my website
+
+1114
+00:46:14,480 --> 00:46:21,680
+hi sergio we are about done today
+
+1115
+00:46:18,720 --> 00:46:22,160
+i've been talking for an hour for 40
+
+1116
+00:46:21,680 --> 00:46:24,800
+minutes
+
+1117
+00:46:22,160 --> 00:46:26,160
+15 minutes 46 minutes yeah we're about
+
+1118
+00:46:24,800 --> 00:46:29,359
+done
+
+1119
+00:46:26,160 --> 00:46:29,839
+so we installed deno uh so this is my
+
+1120
+00:46:29,359 --> 00:46:32,240
+page
+
+1121
+00:46:29,839 --> 00:46:32,960
+proliferation programming languages i
+
+1122
+00:46:32,240 --> 00:46:36,319
+talked about
+
+1123
+00:46:32,960 --> 00:46:39,359
+quite a few times in my video
+
+1124
+00:46:36,319 --> 00:46:42,560
+so um so you have you know let's see
+
+1125
+00:46:39,359 --> 00:46:45,839
+elm okay scheme
+
+1126
+00:46:42,560 --> 00:46:49,119
+scheme dylan which is a lisp
+
+1127
+00:46:45,839 --> 00:46:50,079
+from apple meta language meta language
+
+1128
+00:46:49,119 --> 00:46:53,920
+is
+
+1129
+00:46:50,079 --> 00:46:56,160
+which is the daddy of ocamo and f-sharp
+
+1130
+00:46:53,920 --> 00:46:56,960
+then you have sharp which is from
+
+1131
+00:46:56,160 --> 00:46:59,760
+microsoft
+
+1132
+00:46:56,960 --> 00:47:01,520
+microsoft's version of our camera a
+
+1133
+00:46:59,760 --> 00:47:04,160
+functional language
+
+1134
+00:47:01,520 --> 00:47:05,359
+then you have erlang right erlang
+
+1135
+00:47:04,160 --> 00:47:08,560
+haskell concurrent
+
+1136
+00:47:05,359 --> 00:47:11,760
+clean mercury q q
+
+1137
+00:47:08,560 --> 00:47:13,280
+q and o z then your ph okay those are
+
+1138
+00:47:11,760 --> 00:47:14,400
+not interesting then javascript
+
+1139
+00:47:13,280 --> 00:47:17,920
+powershell
+
+1140
+00:47:14,400 --> 00:47:21,440
+tcl lua okay
+
+1141
+00:47:17,920 --> 00:47:23,599
+okay so some thought about languages
+
+1142
+00:47:21,440 --> 00:47:27,440
+listing criterion
+
+1143
+00:47:23,599 --> 00:47:31,839
+and popularity why the list okay anyway
+
+1144
+00:47:27,440 --> 00:47:31,839
+so uh let's see elm okay
+
+1145
+00:47:32,000 --> 00:47:39,520
+go rust julia coffee script
+
+1146
+00:47:35,920 --> 00:47:41,599
+copy script is pretty dead now it's
+
+1147
+00:47:39,520 --> 00:47:42,800
+you know back about 10 years ago it's
+
+1148
+00:47:41,599 --> 00:47:45,920
+supposed to
+
+1149
+00:47:42,800 --> 00:47:47,920
+uh it's very highly popular very popular
+
+1150
+00:47:45,920 --> 00:47:50,000
+uh it's supposed to be a javascript
+
+1151
+00:47:47,920 --> 00:47:54,400
+replacement but today
+
+1152
+00:47:50,000 --> 00:47:56,960
+typescript does that now back in 2011
+
+1153
+00:47:54,400 --> 00:47:57,839
+quite a few people corporations and
+
+1154
+00:47:56,960 --> 00:48:00,160
+people too
+
+1155
+00:47:57,839 --> 00:48:02,480
+they try to come up with a java with a
+
+1156
+00:48:00,160 --> 00:48:04,960
+language that replaces javascript
+
+1157
+00:48:02,480 --> 00:48:06,000
+because javascript truly sucks you know
+
+1158
+00:48:04,960 --> 00:48:09,440
+javascript
+
+1159
+00:48:06,000 --> 00:48:14,160
+sucks donkey s so google came out with
+
+1160
+00:48:09,440 --> 00:48:17,680
+dot no good so there's typescript
+
+1161
+00:48:14,160 --> 00:48:20,640
+in this asm.js ometa elm yeah
+
+1162
+00:48:17,680 --> 00:48:21,040
+so m is a functional foreign language
+
+1163
+00:48:20,640 --> 00:48:23,520
+for
+
+1164
+00:48:21,040 --> 00:48:25,920
+declarative uh creating web browser
+
+1165
+00:48:23,520 --> 00:48:29,200
+based on graphical user interface
+
+1166
+00:48:25,920 --> 00:48:29,760
+uh functional reactive programming style
+
+1167
+00:48:29,200 --> 00:48:32,000
+okay
+
+1168
+00:48:29,760 --> 00:48:34,160
+i'm not familiar with that you know it
+
+1169
+00:48:32,000 --> 00:48:37,440
+will be interesting to learn
+
+1170
+00:48:34,160 --> 00:48:39,520
+so i don't know um
+
+1171
+00:48:37,440 --> 00:48:41,119
+you know so you know today so many
+
+1172
+00:48:39,520 --> 00:48:42,880
+languages you don't have time to learn
+
+1173
+00:48:41,119 --> 00:48:44,720
+them you know like
+
+1174
+00:48:42,880 --> 00:48:46,079
+you talk to people some people say oh
+
+1175
+00:48:44,720 --> 00:48:48,640
+you should learn elm then
+
+1176
+00:48:46,079 --> 00:48:50,240
+ask how then you know you know you know
+
+1177
+00:48:48,640 --> 00:48:53,440
+haskell fans right
+
+1178
+00:48:50,240 --> 00:48:57,119
+scout this and that uh
+
+1179
+00:48:53,440 --> 00:49:00,000
+and hacks and hack and swift
+
+1180
+00:48:57,119 --> 00:49:00,880
+and edison pattern matching language and
+
+1181
+00:49:00,000 --> 00:49:05,760
+elixir
+
+1182
+00:49:00,880 --> 00:49:08,400
+elixir is also often mentioned with elm
+
+1183
+00:49:05,760 --> 00:49:09,280
+uh elixir is a functional concurrent
+
+1184
+00:49:08,400 --> 00:49:11,040
+general purpose
+
+1185
+00:49:09,280 --> 00:49:12,880
+programming language that runs on the
+
+1186
+00:49:11,040 --> 00:49:16,640
+airline virtual machine
+
+1187
+00:49:12,880 --> 00:49:19,680
+yeah basically then you have kotlin
+
+1188
+00:49:16,640 --> 00:49:20,880
+uh on based on the java virtual machine
+
+1189
+00:49:19,680 --> 00:49:23,119
+platform
+
+1190
+00:49:20,880 --> 00:49:24,240
+then you have nim name has quite a lot
+
+1191
+00:49:23,119 --> 00:49:27,680
+of followers
+
+1192
+00:49:24,240 --> 00:49:30,720
+from the nerd community um
+
+1193
+00:49:27,680 --> 00:49:34,480
+then you have crystal which is like a
+
+1194
+00:49:30,720 --> 00:49:36,160
+ruby you know a fast version of ruby
+
+1195
+00:49:34,480 --> 00:49:37,760
+then you have pirate from the skin
+
+1196
+00:49:36,160 --> 00:49:40,319
+people
+
+1197
+00:49:37,760 --> 00:49:42,400
+then you have pure script also you know
+
+1198
+00:49:40,319 --> 00:49:44,319
+like pure script along with elm
+
+1199
+00:49:42,400 --> 00:49:46,240
+it's kind of popular and read some ml
+
+1200
+00:49:44,319 --> 00:49:49,599
+okay this i actually i
+
+1201
+00:49:46,240 --> 00:49:50,960
+have some interest reason ml is created
+
+1202
+00:49:49,599 --> 00:49:54,240
+by facebook
+
+1203
+00:49:50,960 --> 00:49:57,520
+it's basically a camel in javascript
+
+1204
+00:49:54,240 --> 00:49:58,240
+syntax so basically this compiles to
+
+1205
+00:49:57,520 --> 00:50:00,800
+javascript
+
+1206
+00:49:58,240 --> 00:50:01,920
+you know it's a it's a language you know
+
+1207
+00:50:00,800 --> 00:50:05,200
+they call it reason
+
+1208
+00:50:01,920 --> 00:50:07,520
+ml uh but
+
+1209
+00:50:05,200 --> 00:50:09,680
+the language is basically ocamo you know
+
+1210
+00:50:07,520 --> 00:50:12,800
+the which is
+
+1211
+00:50:09,680 --> 00:50:14,720
+off stream from the meta language ml
+
+1212
+00:50:12,800 --> 00:50:17,520
+that's why they say ml you know all
+
+1213
+00:50:14,720 --> 00:50:20,720
+these are ml meta language
+
+1214
+00:50:17,520 --> 00:50:21,599
+which is originally originally designed
+
+1215
+00:50:20,720 --> 00:50:25,040
+to do math
+
+1216
+00:50:21,599 --> 00:50:26,240
+proofs like 30 years ago ml so you have
+
+1217
+00:50:25,040 --> 00:50:28,880
+ml you have
+
+1218
+00:50:26,240 --> 00:50:29,520
+camo you have all camel then you have f
+
+1219
+00:50:28,880 --> 00:50:32,400
+sharp
+
+1220
+00:50:29,520 --> 00:50:33,839
+then you have reason ml so it's a camo
+
+1221
+00:50:32,400 --> 00:50:37,119
+in javascript
+
+1222
+00:50:33,839 --> 00:50:40,240
+syntax so i would be interested
+
+1223
+00:50:37,119 --> 00:50:42,800
+in this one uh so
+
+1224
+00:50:40,240 --> 00:50:45,119
+cake ml another email you know so many
+
+1225
+00:50:42,800 --> 00:50:47,119
+languages
+
+1226
+00:50:45,119 --> 00:50:49,440
+okay that's it for today any comments
+
+1227
+00:50:47,119 --> 00:50:52,720
+and questions we shut down in
+
+1228
+00:50:49,440 --> 00:50:52,720
+three minutes five minutes
+
+1229
+00:50:53,040 --> 00:50:55,839
+okay so
+
+1230
+00:50:56,079 --> 00:50:59,680
+yeah so bye guys thank you guys for
+
+1231
+00:50:58,880 --> 00:51:02,400
+watching
+
+1232
+00:50:59,680 --> 00:51:04,559
+uh if you like my tutorial again you
+
+1233
+00:51:02,400 --> 00:51:08,319
+know go buy my javascript in depth
+
+1234
+00:51:04,559 --> 00:51:09,920
+tutorial um and what else you know we
+
+1235
+00:51:08,319 --> 00:51:14,720
+shut down in five minutes
+
+1236
+00:51:09,920 --> 00:51:18,559
+and uh i'm going to show you i guess
+
+1237
+00:51:14,720 --> 00:51:21,119
+some uh some of my working on my website
+
+1238
+00:51:18,559 --> 00:51:22,000
+ryan dahl okay very interesting go watch
+
+1239
+00:51:21,119 --> 00:51:26,079
+his video okay
+
+1240
+00:51:22,000 --> 00:51:28,000
+go watch go watch uh this one
+
+1241
+00:51:26,079 --> 00:51:29,680
+just search the title you'll find it
+
+1242
+00:51:28,000 --> 00:51:30,559
+create a ryan dial on software
+
+1243
+00:51:29,680 --> 00:51:33,839
+complexity
+
+1244
+00:51:30,559 --> 00:51:36,000
+this video okay uh
+
+1245
+00:51:33,839 --> 00:51:38,480
+you know many of his his opinions i
+
+1246
+00:51:36,000 --> 00:51:39,040
+usually agree with i highly respect this
+
+1247
+00:51:38,480 --> 00:51:42,160
+guy
+
+1248
+00:51:39,040 --> 00:51:45,760
+and now he came up with uh daniel
+
+1249
+00:51:42,160 --> 00:51:48,079
+a great guy uh incredible and also
+
+1250
+00:51:45,760 --> 00:51:50,400
+you know a mathematician highly
+
+1251
+00:51:48,079 --> 00:51:54,160
+intelligent but also a very capable
+
+1252
+00:51:50,400 --> 00:51:58,960
+guy you know he just writes software
+
+1253
+00:51:54,160 --> 00:51:58,960
+some sort of uh genius almost yeah
+
+1254
+00:51:59,839 --> 00:52:06,319
+ryan dao so npm you know the
+
+1255
+00:52:03,200 --> 00:52:10,960
+the leader is not a good human
+
+1256
+00:52:06,319 --> 00:52:15,119
+mpm is also crap [ __ ] vm
+
+1257
+00:52:10,960 --> 00:52:18,000
+so you have deno go install dinner okay
+
+1258
+00:52:15,119 --> 00:52:19,359
+so let's see i i want to do some uh let
+
+1259
+00:52:18,000 --> 00:52:21,680
+me show you
+
+1260
+00:52:19,359 --> 00:52:23,119
+you know how i work on some some of my
+
+1261
+00:52:21,680 --> 00:52:26,400
+tutorial page
+
+1262
+00:52:23,119 --> 00:52:27,359
+so recently uh let me show you what i
+
+1263
+00:52:26,400 --> 00:52:29,760
+was doing okay
+
+1264
+00:52:27,359 --> 00:52:31,680
+i was trying to redesign some of the
+
+1265
+00:52:29,760 --> 00:52:34,720
+formatting
+
+1266
+00:52:31,680 --> 00:52:38,880
+things on my website look at this okay
+
+1267
+00:52:34,720 --> 00:52:41,839
+so you see there are two formats for
+
+1268
+00:52:38,880 --> 00:52:43,440
+specification of a function so in one
+
+1269
+00:52:41,839 --> 00:52:46,000
+way it's basically a list
+
+1270
+00:52:43,440 --> 00:52:47,920
+like that and another way you have
+
+1271
+00:52:46,000 --> 00:52:51,200
+indentation
+
+1272
+00:52:47,920 --> 00:52:52,000
+now they are implemented in html in
+
+1273
+00:52:51,200 --> 00:52:54,800
+different ways
+
+1274
+00:52:52,000 --> 00:52:56,160
+okay the list is just a list on the
+
+1275
+00:52:54,800 --> 00:52:58,880
+other hand the second one
+
+1276
+00:52:56,160 --> 00:52:59,520
+you know the list is an ordered at least
+
+1277
+00:52:58,880 --> 00:53:04,240
+an ordered
+
+1278
+00:52:59,520 --> 00:53:07,359
+list ul the indentation is done by use
+
+1279
+00:53:04,240 --> 00:53:10,800
+done by the definition list dt
+
+1280
+00:53:07,359 --> 00:53:14,000
+okay that's html by the way by the way
+
+1281
+00:53:10,800 --> 00:53:16,960
+i have html tutorial too so
+
+1282
+00:53:14,000 --> 00:53:18,160
+if you do not know html at all you can
+
+1283
+00:53:16,960 --> 00:53:21,760
+learn from scratch
+
+1284
+00:53:18,160 --> 00:53:26,079
+a kind of a very simplified tutorial
+
+1285
+00:53:21,760 --> 00:53:26,079
+the whole thing the html and
+
+1286
+00:53:26,839 --> 00:53:32,079
+ncss okay so
+
+1287
+00:53:29,680 --> 00:53:33,599
+what i want to show you is that so you
+
+1288
+00:53:32,079 --> 00:53:36,720
+know
+
+1289
+00:53:33,599 --> 00:53:38,800
+so this is an interesting design issue
+
+1290
+00:53:36,720 --> 00:53:40,839
+uh well not that interesting but you
+
+1291
+00:53:38,800 --> 00:53:43,440
+know so you have these two
+
+1292
+00:53:40,839 --> 00:53:46,240
+formats you know this is related to
+
+1293
+00:53:43,440 --> 00:53:49,359
+technical writing
+
+1294
+00:53:46,240 --> 00:53:52,000
+you know take technical writing you know
+
+1295
+00:53:49,359 --> 00:53:53,599
+it's a skill right and it's kind of also
+
+1296
+00:53:52,000 --> 00:53:56,079
+a specialty
+
+1297
+00:53:53,599 --> 00:53:58,000
+you have to have writing skill but it's
+
+1298
+00:53:56,079 --> 00:54:01,280
+different from novel writing
+
+1299
+00:53:58,000 --> 00:54:04,240
+it's different from creative writing
+
+1300
+00:54:01,280 --> 00:54:04,240
+it's different from
+
+1301
+00:54:05,599 --> 00:54:13,359
+essay writing you know different skills
+
+1302
+00:54:09,200 --> 00:54:16,079
+uh so technical writing you have to
+
+1303
+00:54:13,359 --> 00:54:18,160
+you you can learn that okay i that's you
+
+1304
+00:54:16,079 --> 00:54:20,480
+know i might talk about that as another
+
+1305
+00:54:18,160 --> 00:54:25,440
+topic another day
+
+1306
+00:54:20,480 --> 00:54:26,960
+but in order to write stuff today
+
+1307
+00:54:25,440 --> 00:54:29,040
+so it's not just writing you know
+
+1308
+00:54:26,960 --> 00:54:31,119
+writing you create a content but there's
+
+1309
+00:54:29,040 --> 00:54:33,680
+also the issue of formatting
+
+1310
+00:54:31,119 --> 00:54:35,359
+and the issue the formatting issue is a
+
+1311
+00:54:33,680 --> 00:54:38,480
+big giant implementation
+
+1312
+00:54:35,359 --> 00:54:41,280
+basically think of technical writing
+
+1313
+00:54:38,480 --> 00:54:44,000
+as a uh you know you write the content
+
+1314
+00:54:41,280 --> 00:54:44,000
+but however
+
+1315
+00:54:45,200 --> 00:54:48,880
+formatting and the implement you have
+
+1316
+00:54:47,599 --> 00:54:51,280
+the implementation
+
+1317
+00:54:48,880 --> 00:54:52,240
+issue how do you put it you know you you
+
+1318
+00:54:51,280 --> 00:54:54,240
+it's not like
+
+1319
+00:54:52,240 --> 00:54:56,079
+you write on paper and send it to
+
+1320
+00:54:54,240 --> 00:54:56,720
+publisher they print it it's not like
+
+1321
+00:54:56,079 --> 00:54:59,680
+that
+
+1322
+00:54:56,720 --> 00:55:00,640
+you write it you know in either in html
+
+1323
+00:54:59,680 --> 00:55:04,400
+or xml
+
+1324
+00:55:00,640 --> 00:55:06,720
+or uh or p or uh pdf you know
+
+1325
+00:55:04,400 --> 00:55:07,680
+there are quite a few there are tens of
+
+1326
+00:55:06,720 --> 00:55:11,200
+actually
+
+1327
+00:55:07,680 --> 00:55:14,319
+documentation documentation um
+
+1328
+00:55:11,200 --> 00:55:15,040
+technologies for for example tech la
+
+1329
+00:55:14,319 --> 00:55:18,799
+tech
+
+1330
+00:55:15,040 --> 00:55:20,799
+html org mod uh text info
+
+1331
+00:55:18,799 --> 00:55:22,559
+from emacs from google emacs you know
+
+1332
+00:55:20,799 --> 00:55:25,760
+kind of quite a lot
+
+1333
+00:55:22,559 --> 00:55:27,280
+and and there's also art we do something
+
+1334
+00:55:25,760 --> 00:55:29,040
+ruby uses you know
+
+1335
+00:55:27,280 --> 00:55:31,599
+python you know quite a lot of
+
+1336
+00:55:29,040 --> 00:55:34,079
+technologies
+
+1337
+00:55:31,599 --> 00:55:34,720
+and and there's also open dock i think
+
+1338
+00:55:34,079 --> 00:55:37,839
+it's called
+
+1339
+00:55:34,720 --> 00:55:39,920
+you know so that's a non-trivial issue
+
+1340
+00:55:37,839 --> 00:55:41,760
+what which one you're gonna use
+
+1341
+00:55:39,920 --> 00:55:44,240
+which one is more efficient for you you
+
+1342
+00:55:41,760 --> 00:55:47,680
+know it's not trivial and each one have
+
+1343
+00:55:44,240 --> 00:55:49,440
+different capabilities okay so technical
+
+1344
+00:55:47,680 --> 00:55:51,680
+writing today
+
+1345
+00:55:49,440 --> 00:55:52,960
+besides the writing skill part besides
+
+1346
+00:55:51,680 --> 00:55:54,400
+the writing content you
+
+1347
+00:55:52,960 --> 00:55:56,559
+also have the formatting and
+
+1348
+00:55:54,400 --> 00:56:00,240
+implementation issue
+
+1349
+00:55:56,559 --> 00:56:01,359
+and here so i choose to use html right
+
+1350
+00:56:00,240 --> 00:56:04,000
+because i've been
+
+1351
+00:56:01,359 --> 00:56:05,119
+you know i was born with you know when i
+
+1352
+00:56:04,000 --> 00:56:09,200
+i watched
+
+1353
+00:56:05,119 --> 00:56:12,880
+the birth of html since 1995 i
+
+1354
+00:56:09,200 --> 00:56:15,040
+i began to use i began to write htm html
+
+1355
+00:56:12,880 --> 00:56:18,079
+in 1996.
+
+1356
+00:56:15,040 --> 00:56:21,359
+so so i watched the both of html
+
+1357
+00:56:18,079 --> 00:56:24,000
+css and javascript you know from from
+
+1358
+00:56:21,359 --> 00:56:26,079
+from the from their first day so i'm
+
+1359
+00:56:24,000 --> 00:56:27,760
+very familiar with html so i choose to
+
+1360
+00:56:26,079 --> 00:56:31,520
+use html
+
+1361
+00:56:27,760 --> 00:56:33,920
+but then um so this issue in particular
+
+1362
+00:56:31,520 --> 00:56:35,119
+is you know it's not so it's a kind of
+
+1363
+00:56:33,920 --> 00:56:38,480
+formatting issue
+
+1364
+00:56:35,119 --> 00:56:40,480
+so once you choose a technology you also
+
+1365
+00:56:38,480 --> 00:56:43,280
+have this kind of
+
+1366
+00:56:40,480 --> 00:56:45,599
+formatting issue for example for example
+
+1367
+00:56:43,280 --> 00:56:47,760
+if you go read a technical book you go
+
+1368
+00:56:45,599 --> 00:56:49,200
+out by o'reilly books or whatever book
+
+1369
+00:56:47,760 --> 00:56:52,079
+you know javascript
+
+1370
+00:56:49,200 --> 00:56:52,720
+you know book or haskell books you open
+
+1371
+00:56:52,079 --> 00:56:55,760
+them you know
+
+1372
+00:56:52,720 --> 00:56:56,720
+sometimes they have a tip box you know
+
+1373
+00:56:55,760 --> 00:56:59,680
+maybe with a
+
+1374
+00:56:56,720 --> 00:57:01,680
+you know idea you know a light bulb you
+
+1375
+00:56:59,680 --> 00:57:04,160
+know you have a tip box
+
+1376
+00:57:01,680 --> 00:57:06,079
+then you have sometimes a warning box
+
+1377
+00:57:04,160 --> 00:57:08,640
+you know they
+
+1378
+00:57:06,079 --> 00:57:10,000
+you know those boxes they they have a
+
+1379
+00:57:08,640 --> 00:57:12,960
+visual clue
+
+1380
+00:57:10,000 --> 00:57:14,960
+to indicate their purpose you know aside
+
+1381
+00:57:12,960 --> 00:57:17,520
+from the main content
+
+1382
+00:57:14,960 --> 00:57:18,240
+uh or sometimes in books you also have
+
+1383
+00:57:17,520 --> 00:57:21,040
+footnotes
+
+1384
+00:57:18,240 --> 00:57:23,040
+right so these are issues you know if
+
+1385
+00:57:21,040 --> 00:57:23,440
+you actually write a book even if you
+
+1386
+00:57:23,040 --> 00:57:25,520
+know
+
+1387
+00:57:23,440 --> 00:57:26,480
+publish your book or write online like
+
+1388
+00:57:25,520 --> 00:57:28,559
+me
+
+1389
+00:57:26,480 --> 00:57:29,760
+these are issues you have to deal with
+
+1390
+00:57:28,559 --> 00:57:32,799
+they don't they don't just
+
+1391
+00:57:29,760 --> 00:57:35,760
+come out and you know done so i saw
+
+1392
+00:57:32,799 --> 00:57:37,200
+so this so i have this you know i happen
+
+1393
+00:57:35,760 --> 00:57:40,400
+to have these two
+
+1394
+00:57:37,200 --> 00:57:42,799
+issues you know which one is better so
+
+1395
+00:57:40,400 --> 00:57:45,680
+it seems like so which which one you
+
+1396
+00:57:42,799 --> 00:57:45,680
+guys like better
+
+1397
+00:57:46,000 --> 00:57:51,440
+uh so let me know
+
+1398
+00:57:49,359 --> 00:57:54,160
+okay so for example i think most people
+
+1399
+00:57:51,440 --> 00:57:57,359
+like the indented intended issue okay
+
+1400
+00:57:54,160 --> 00:57:59,440
+i mean the intended version so
+
+1401
+00:57:57,359 --> 00:58:01,680
+once i choose the intended version i
+
+1402
+00:57:59,440 --> 00:58:02,079
+have to change hundreds of pages you
+
+1403
+00:58:01,680 --> 00:58:04,400
+know
+
+1404
+00:58:02,079 --> 00:58:06,240
+throughout my website to the intended
+
+1405
+00:58:04,400 --> 00:58:07,119
+version and that's not a trivial thing
+
+1406
+00:58:06,240 --> 00:58:10,319
+to do
+
+1407
+00:58:07,119 --> 00:58:12,000
+and you know most people think oh oh you
+
+1408
+00:58:10,319 --> 00:58:12,960
+can just write a script you know you can
+
+1409
+00:58:12,000 --> 00:58:15,599
+just write the
+
+1410
+00:58:12,960 --> 00:58:17,520
+python pro ruby or golan you can just
+
+1411
+00:58:15,599 --> 00:58:20,960
+write a script to automate it
+
+1412
+00:58:17,520 --> 00:58:22,480
+not really have you ever tried
+
+1413
+00:58:20,960 --> 00:58:25,359
+have you ever tried for example to
+
+1414
+00:58:22,480 --> 00:58:26,319
+convert a book let's say from html to
+
+1415
+00:58:25,359 --> 00:58:29,680
+pdf
+
+1416
+00:58:26,319 --> 00:58:30,079
+or pdf to tech la tech you know any of
+
+1417
+00:58:29,680 --> 00:58:33,119
+those
+
+1418
+00:58:30,079 --> 00:58:34,160
+if have you ever tried it's not just
+
+1419
+00:58:33,119 --> 00:58:36,640
+untrivia
+
+1420
+00:58:34,160 --> 00:58:38,720
+it's in fact impossible okay you
+
+1421
+00:58:36,640 --> 00:58:39,760
+actually have to do it manually line by
+
+1422
+00:58:38,720 --> 00:58:42,480
+line otherwise
+
+1423
+00:58:39,760 --> 00:58:43,200
+if you do it automatic automatically
+
+1424
+00:58:42,480 --> 00:58:46,240
+it's ink
+
+1425
+00:58:43,200 --> 00:58:48,480
+you come out very ugly garbage
+
+1426
+00:58:46,240 --> 00:58:50,559
+just like lots of automatically
+
+1427
+00:58:48,480 --> 00:58:53,920
+generated html files
+
+1428
+00:58:50,559 --> 00:58:54,799
+you look at them it's crap it's garbage
+
+1429
+00:58:53,920 --> 00:58:57,920
+you know
+
+1430
+00:58:54,799 --> 00:59:01,680
+and even uh it's syntactically invalid
+
+1431
+00:58:57,920 --> 00:59:03,839
+html you know you go to the html
+
+1432
+00:59:01,680 --> 00:59:05,760
+validation website you know just search
+
+1433
+00:59:03,839 --> 00:59:09,760
+for html validation
+
+1434
+00:59:05,760 --> 00:59:12,079
+from the w3c you'll see it's invalid
+
+1435
+00:59:09,760 --> 00:59:13,680
+so anyway it's not trivial and and even
+
+1436
+00:59:12,079 --> 00:59:17,119
+for the simple thing
+
+1437
+00:59:13,680 --> 00:59:20,240
+of the things i wrote with which has
+
+1438
+00:59:17,119 --> 00:59:23,680
+tight very tight control um
+
+1439
+00:59:20,240 --> 00:59:27,520
+um you know my web my html
+
+1440
+00:59:23,680 --> 00:59:29,520
+uh pages are very tight control okay i
+
+1441
+00:59:27,520 --> 00:59:30,319
+control exactly where i should have a
+
+1442
+00:59:29,520 --> 00:59:32,559
+space
+
+1443
+00:59:30,319 --> 00:59:34,240
+where i should break the line you know
+
+1444
+00:59:32,559 --> 00:59:37,520
+every every detail
+
+1445
+00:59:34,240 --> 00:59:40,160
+even that it's not trivial to
+
+1446
+00:59:37,520 --> 00:59:42,079
+to suddenly decide uh to convert those
+
+1447
+00:59:40,160 --> 00:59:46,400
+let me show you an example then okay
+
+1448
+00:59:42,079 --> 00:59:50,400
+so let's go to um okay let's go to
+
+1449
+00:59:46,400 --> 00:59:50,400
+let's see let's say um
+
+1450
+00:59:52,000 --> 00:59:58,240
+array constructor okay let's open that
+
+1451
+00:59:55,200 --> 01:00:01,280
+show this page in browser so here we
+
+1452
+00:59:58,240 --> 01:00:02,720
+have a page this is about the array
+
+1453
+01:00:01,280 --> 01:00:06,079
+constructor the array
+
+1454
+01:00:02,720 --> 01:00:08,160
+uh wait what okay here
+
+1455
+01:00:06,079 --> 01:00:09,119
+yeah so this this page is array
+
+1456
+01:00:08,160 --> 01:00:11,440
+constructor
+
+1457
+01:00:09,119 --> 01:00:12,480
+you see they are using my old format
+
+1458
+01:00:11,440 --> 01:00:15,839
+where it's a
+
+1459
+01:00:12,480 --> 01:00:19,200
+an order list with arrow okay now
+
+1460
+01:00:15,839 --> 01:00:19,680
+now go back to the html here is the html
+
+1461
+01:00:19,200 --> 01:00:22,799
+code
+
+1462
+01:00:19,680 --> 01:00:25,839
+hold on a second so let's magnify
+
+1463
+01:00:22,799 --> 01:00:29,839
+let me show okay okay maybe
+
+1464
+01:00:25,839 --> 01:00:29,839
+maybe this way it's better you can see
+
+1465
+01:00:30,160 --> 01:00:33,599
+this section this section corresponds to
+
+1466
+01:00:32,880 --> 01:00:37,040
+the
+
+1467
+01:00:33,599 --> 01:00:40,880
+to that okay to to this
+
+1468
+01:00:37,040 --> 01:00:43,839
+okay so what
+
+1469
+01:00:40,880 --> 01:00:43,839
+okay so
+
+1470
+01:00:44,240 --> 01:00:51,520
+so i'm going to so i have written a emac
+
+1471
+01:00:47,680 --> 01:00:54,160
+this command that helps me convert
+
+1472
+01:00:51,520 --> 01:00:56,079
+so for example let's uh copy this okay
+
+1473
+01:00:54,160 --> 01:00:58,640
+copy and paste it so we have
+
+1474
+01:00:56,079 --> 01:01:00,559
+two copy of it so now i'm going to
+
+1475
+01:00:58,640 --> 01:01:03,040
+convert the second copy here
+
+1476
+01:01:00,559 --> 01:01:04,319
+so what i do is i put a cursor somewhere
+
+1477
+01:01:03,040 --> 01:01:09,119
+inside the block
+
+1478
+01:01:04,319 --> 01:01:13,359
+here okay then i call the command
+
+1479
+01:01:09,119 --> 01:01:17,359
+ul 2 dl there it is
+
+1480
+01:01:13,359 --> 01:01:19,680
+ul to dl okay then he asked me for a
+
+1481
+01:01:17,359 --> 01:01:22,400
+separator
+
+1482
+01:01:19,680 --> 01:01:24,720
+okay if you know html you know because
+
+1483
+01:01:22,400 --> 01:01:25,680
+if you use definition list there are two
+
+1484
+01:01:24,720 --> 01:01:29,040
+parts there's a diff
+
+1485
+01:01:25,680 --> 01:01:30,799
+the term and the definition you know so
+
+1486
+01:01:29,040 --> 01:01:34,319
+so you need you kind of you have a
+
+1487
+01:01:30,799 --> 01:01:37,599
+separator so separator is an arrow okay
+
+1488
+01:01:34,319 --> 01:01:39,599
+okay then uh keep separated no okay
+
+1489
+01:01:37,599 --> 01:01:40,640
+i'm not going to explain but anyway it's
+
+1490
+01:01:39,599 --> 01:01:43,680
+done
+
+1491
+01:01:40,640 --> 01:01:44,079
+so so this block is kind of it's done so
+
+1492
+01:01:43,680 --> 01:01:47,760
+now
+
+1493
+01:01:44,079 --> 01:01:50,960
+go back to browser magnify
+
+1494
+01:01:47,760 --> 01:01:53,119
+refresh now shrink a little bit you can
+
+1495
+01:01:50,960 --> 01:01:56,000
+see two versions here
+
+1496
+01:01:53,119 --> 01:01:57,920
+here is the first original version and
+
+1497
+01:01:56,000 --> 01:02:02,400
+here's the second version
+
+1498
+01:01:57,920 --> 01:02:02,400
+i just did i just did the conversion
+
+1499
+01:02:02,559 --> 01:02:06,799
+so you know so now i can you know now i
+
+1500
+01:02:04,880 --> 01:02:09,760
+can just um
+
+1501
+01:02:06,799 --> 01:02:11,680
+delete the first version okay back to
+
+1502
+01:02:09,760 --> 01:02:15,280
+browser refresh you see
+
+1503
+01:02:11,680 --> 01:02:17,920
+this is new version so that's what i do
+
+1504
+01:02:15,280 --> 01:02:19,039
+um the end you know so you have to
+
+1505
+01:02:17,920 --> 01:02:21,680
+change
+
+1506
+01:02:19,039 --> 01:02:24,000
+more than 100 pages and usually you want
+
+1507
+01:02:21,680 --> 01:02:27,200
+to do it manually because
+
+1508
+01:02:24,000 --> 01:02:30,799
+why because for example
+
+1509
+01:02:27,200 --> 01:02:34,000
+um because on some pages you know
+
+1510
+01:02:30,799 --> 01:02:35,599
+they are not all together you know here
+
+1511
+01:02:34,000 --> 01:02:37,200
+we are all talking about array but
+
+1512
+01:02:35,599 --> 01:02:39,599
+sometimes they
+
+1513
+01:02:37,200 --> 01:02:40,720
+it's explained in different sections
+
+1514
+01:02:39,599 --> 01:02:44,480
+because
+
+1515
+01:02:40,720 --> 01:02:44,480
+you have examples in between
+
+1516
+01:02:44,880 --> 01:02:48,559
+so you you know i'm talking about some
+
+1517
+01:02:47,520 --> 01:02:51,599
+uh
+
+1518
+01:02:48,559 --> 01:02:52,880
+some esoteric details the interesting
+
+1519
+01:02:51,599 --> 01:02:56,640
+details about
+
+1520
+01:02:52,880 --> 01:02:59,839
+formatting change in in in a technical
+
+1521
+01:02:56,640 --> 01:03:01,839
+uh uh literature
+
+1522
+01:02:59,839 --> 01:03:03,520
+so it's not just change the format that
+
+1523
+01:03:01,839 --> 01:03:04,400
+you know most people think oh just
+
+1524
+01:03:03,520 --> 01:03:06,160
+change the format
+
+1525
+01:03:04,400 --> 01:03:07,839
+you can run a program here work no it
+
+1526
+01:03:06,160 --> 01:03:10,319
+doesn't because
+
+1527
+01:03:07,839 --> 01:03:11,839
+in here it worked but some other page
+
+1528
+01:03:10,319 --> 01:03:15,200
+sometimes they are a part
+
+1529
+01:03:11,839 --> 01:03:17,520
+with with example code in between
+
+1530
+01:03:15,200 --> 01:03:19,520
+but once you change to this you know
+
+1531
+01:03:17,520 --> 01:03:21,599
+indian style
+
+1532
+01:03:19,520 --> 01:03:23,440
+then you want them to be together
+
+1533
+01:03:21,599 --> 01:03:25,680
+because
+
+1534
+01:03:23,440 --> 01:03:28,839
+because the visualization you know
+
+1535
+01:03:25,680 --> 01:03:30,880
+here's an intricacy okay because
+
+1536
+01:03:28,839 --> 01:03:31,839
+visualization how how things are
+
+1537
+01:03:30,880 --> 01:03:35,200
+formatted
+
+1538
+01:03:31,839 --> 01:03:38,319
+has a effect and impact
+
+1539
+01:03:35,200 --> 01:03:40,079
+on how you perceive the content okay so
+
+1540
+01:03:38,319 --> 01:03:42,960
+it's not just
+
+1541
+01:03:40,079 --> 01:03:44,400
+you know a lot of html people like say
+
+1542
+01:03:42,960 --> 01:03:47,760
+like to say oh
+
+1543
+01:03:44,400 --> 01:03:49,280
+you know semantic versus appearance you
+
+1544
+01:03:47,760 --> 01:03:53,680
+know they should be separated
+
+1545
+01:03:49,280 --> 01:03:56,160
+[ __ ] idiots it's not just that okay
+
+1546
+01:03:53,680 --> 01:03:57,359
+how you format has a how things are
+
+1547
+01:03:56,160 --> 01:04:00,559
+formatted how the
+
+1548
+01:03:57,359 --> 01:04:03,680
+appearance the color the position has a
+
+1549
+01:04:00,559 --> 01:04:05,920
+impact to your position
+
+1550
+01:04:03,680 --> 01:04:06,720
+to your perception of the content the
+
+1551
+01:04:05,920 --> 01:04:09,680
+exact
+
+1552
+01:04:06,720 --> 01:04:10,319
+same content no change to the text but
+
+1553
+01:04:09,680 --> 01:04:13,839
+how they are
+
+1554
+01:04:10,319 --> 01:04:16,880
+formatted has a rather
+
+1555
+01:04:13,839 --> 01:04:20,000
+not neglected
+
+1556
+01:04:16,880 --> 01:04:22,079
+impact to your perception
+
+1557
+01:04:20,000 --> 01:04:24,240
+so anyway that's it for today thank you
+
+1558
+01:04:22,079 --> 01:04:27,200
+guys for watching
+
+1559
+01:04:24,240 --> 01:04:27,839
+uh bye guys you should rewrite to uh
+
+1560
+01:04:27,200 --> 01:04:32,079
+react
+
+1561
+01:04:27,839 --> 01:04:32,079
+right um
+
+1562
+01:04:32,480 --> 01:04:38,839
+pen doc right okay so alan has done
+
+1563
+01:04:36,000 --> 01:04:40,240
+so pen dog is another technology for
+
+1564
+01:04:38,839 --> 01:04:42,720
+documentation
+
+1565
+01:04:40,240 --> 01:04:43,599
+uh he doesn't look at the back of his
+
+1566
+01:04:42,720 --> 01:04:46,640
+hands uh
+
+1567
+01:04:43,599 --> 01:04:47,359
+in dutch type he knows html back of his
+
+1568
+01:04:46,640 --> 01:04:50,000
+hands
+
+1569
+01:04:47,359 --> 01:04:52,319
+so i was wrong on the web when was the
+
+1570
+01:04:50,000 --> 01:04:53,200
+last time you worked for someone some
+
+1571
+01:04:52,319 --> 01:04:57,680
+company that's
+
+1572
+01:04:53,200 --> 01:04:59,839
+uh depending on how you count
+
+1573
+01:04:57,680 --> 01:05:00,720
+so if you are talking about you know
+
+1574
+01:04:59,839 --> 01:05:03,440
+working a
+
+1575
+01:05:00,720 --> 01:05:05,280
+company every day you go you know you go
+
+1576
+01:05:03,440 --> 01:05:07,039
+to the company you you know work with
+
+1577
+01:05:05,280 --> 01:05:10,799
+co-workers every day
+
+1578
+01:05:07,039 --> 01:05:13,839
+then the last time is year 2002
+
+1579
+01:05:10,799 --> 01:05:15,280
+but if you can't contract work where you
+
+1580
+01:05:13,839 --> 01:05:18,400
+also work for a company but
+
+1581
+01:05:15,280 --> 01:05:23,839
+at home then then it's
+
+1582
+01:05:18,400 --> 01:05:23,839
+kind of here and there
+
+1583
+01:05:29,359 --> 01:05:33,280
+uh yeah css but
+
+1584
+01:05:33,599 --> 01:05:40,480
+css is not the
+
+1585
+01:05:37,200 --> 01:05:40,480
+it it does not
+
+1586
+01:05:40,559 --> 01:05:47,440
+it does not have the capability to
+
+1587
+01:05:44,079 --> 01:05:50,960
+control the appearance hundred percent
+
+1588
+01:05:47,440 --> 01:05:54,160
+that is some part of appearance are
+
+1589
+01:05:50,960 --> 01:05:57,119
+fundamentally with html
+
+1590
+01:05:54,160 --> 01:05:57,839
+no amount of css can change it for
+
+1591
+01:05:57,119 --> 01:06:00,559
+example
+
+1592
+01:05:57,839 --> 01:06:04,480
+when one primary example is older the
+
+1593
+01:06:00,559 --> 01:06:07,119
+order of elements in your html page
+
+1594
+01:06:04,480 --> 01:06:08,160
+uh it's it's basically impossible just
+
+1595
+01:06:07,119 --> 01:06:10,720
+you know
+
+1596
+01:06:08,160 --> 01:06:11,760
+to to to change order by css you know
+
+1597
+01:06:10,720 --> 01:06:14,960
+and they're they're
+
+1598
+01:06:11,760 --> 01:06:16,720
+intricacy you know they are details
+
+1599
+01:06:14,960 --> 01:06:21,119
+so anyway that's it for today thank you
+
+1600
+01:06:16,720 --> 01:06:21,119
+guys um bye guys have a good day
+
+1601
+01:06:22,960 --> 01:06:33,839
+uh in stream okay so end stream
+

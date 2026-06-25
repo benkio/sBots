@@ -1,0 +1,2640 @@
+1
+00:00:08,040 --> 00:00:13,400
+morning everyone welcome to another
+
+2
+00:00:10,679 --> 00:00:16,680
+episode of exan talk show today we are
+
+3
+00:00:13,400 --> 00:00:21,760
+going to code emac lisp I'm going to
+
+4
+00:00:16,680 --> 00:00:25,960
+write a command that changes a link to a
+
+5
+00:00:21,760 --> 00:00:29,039
+dead link by making it a cross out
+
+6
+00:00:25,960 --> 00:00:31,240
+strike okay so emac this today we're
+
+7
+00:00:29,039 --> 00:00:33,680
+going to do something different so this
+
+8
+00:00:31,240 --> 00:00:36,559
+talk show is going to be just 20 minutes
+
+9
+00:00:33,680 --> 00:00:39,559
+let's see okay just 20
+
+10
+00:00:36,559 --> 00:00:42,800
+minutes oh we started early so 3 minutes
+
+11
+00:00:39,559 --> 00:00:46,719
+early so anyway so my keyboard This is
+
+12
+00:00:42,800 --> 00:00:48,920
+kesis 360 fantastic okay with pink
+
+13
+00:00:46,719 --> 00:00:52,480
+switch if you're going to buy it go to
+
+14
+00:00:48,920 --> 00:00:56,480
+my website Kar keyboard buy the kesis
+
+15
+00:00:52,480 --> 00:01:00,079
+360 with pink switch okay that's light
+
+16
+00:00:56,480 --> 00:01:02,480
+linear switch uh you know you want want
+
+17
+00:01:00,079 --> 00:01:04,960
+to make sure you get that and this
+
+18
+00:01:02,480 --> 00:01:08,040
+keyboard is automate hacking keyboard
+
+19
+00:01:04,960 --> 00:01:10,960
+it's also fantastic also super light
+
+20
+00:01:08,040 --> 00:01:13,880
+switch I got 35 grams you know super
+
+21
+00:01:10,960 --> 00:01:16,159
+light so anyway let's begin coding okay
+
+22
+00:01:13,880 --> 00:01:18,680
+so uh emac
+
+23
+00:01:16,159 --> 00:01:20,799
+list okay so the pink window shows all
+
+24
+00:01:18,680 --> 00:01:23,640
+my command Calles as you can see I move
+
+25
+00:01:20,799 --> 00:01:26,880
+coer or delete something you can see the
+
+26
+00:01:23,640 --> 00:01:30,000
+command name is uh show right there and
+
+27
+00:01:26,880 --> 00:01:33,079
+also the key stroke on the left side
+
+28
+00:01:30,000 --> 00:01:36,439
+let's see can you see it yes and uh then
+
+29
+00:01:33,079 --> 00:01:37,960
+okay so then that's uh so I'm using S
+
+30
+00:01:36,439 --> 00:01:42,119
+flly
+
+31
+00:01:37,960 --> 00:01:45,040
+keys and CA FL Keys is a emac package
+
+32
+00:01:42,119 --> 00:01:47,799
+just search for it it's like VI model
+
+33
+00:01:45,040 --> 00:01:51,600
+okay ca keys and I'm using a v keyboard
+
+34
+00:01:47,799 --> 00:01:53,719
+okay so here's my keyboard block and you
+
+35
+00:01:51,600 --> 00:01:56,520
+uh let me digress okay so you can see
+
+36
+00:01:53,719 --> 00:02:01,360
+there's a new mouse this is new track
+
+37
+00:01:56,520 --> 00:02:04,280
+boo I discovered new Lear M5 05 actually
+
+38
+00:02:01,360 --> 00:02:07,479
+this so there's this one which is
+
+39
+00:02:04,280 --> 00:02:11,200
+modeled after the
+
+40
+00:02:07,479 --> 00:02:14,480
+Microsoft tracko Explorer this this this
+
+41
+00:02:11,200 --> 00:02:17,000
+track B is the best track B 20 years ago
+
+42
+00:02:14,480 --> 00:02:18,239
+you know on Amazon people are selling it
+
+43
+00:02:17,000 --> 00:02:21,920
+for
+
+44
+00:02:18,239 --> 00:02:25,400
+$500 you know they no longer may make it
+
+45
+00:02:21,920 --> 00:02:28,760
+for since like since like 20 years ago
+
+46
+00:02:25,400 --> 00:02:32,080
+so anyway so now there is new
+
+47
+00:02:28,760 --> 00:02:35,160
+Leia track roll okay so check it out on
+
+48
+00:02:32,080 --> 00:02:38,720
+my website uh and but actually there's
+
+49
+00:02:35,160 --> 00:02:43,159
+also two more uh brand another brand is
+
+50
+00:02:38,720 --> 00:02:46,920
+pro AR I don't have a web page Pro AR
+
+51
+00:02:43,159 --> 00:02:49,239
+which looks exactly the same like new
+
+52
+00:02:46,920 --> 00:02:51,800
+newa I I think these are Chinese
+
+53
+00:02:49,239 --> 00:02:54,040
+companies so it this Chinese product
+
+54
+00:02:51,800 --> 00:02:56,200
+usually you have the same product but
+
+55
+00:02:54,040 --> 00:02:58,840
+several brand names you know I'm not
+
+56
+00:02:56,200 --> 00:03:01,159
+sure what exactly is going on you know
+
+57
+00:02:58,840 --> 00:03:05,120
+maybe they use the same same Factory
+
+58
+00:03:01,159 --> 00:03:08,159
+anyway so Pro Arc and
+
+59
+00:03:05,120 --> 00:03:10,799
+nuia you know so there's a question you
+
+60
+00:03:08,159 --> 00:03:12,519
+know of course they they are identical
+
+61
+00:03:10,799 --> 00:03:14,840
+you know the track you know they look
+
+62
+00:03:12,519 --> 00:03:16,959
+the product looks exactly the same
+
+63
+00:03:14,840 --> 00:03:18,799
+however The Branding on the track board
+
+64
+00:03:16,959 --> 00:03:21,480
+they are different so one of the
+
+65
+00:03:18,799 --> 00:03:24,400
+question is are they the same product
+
+66
+00:03:21,480 --> 00:03:27,920
+that is likely to be sold for I'm pretty
+
+67
+00:03:24,400 --> 00:03:30,040
+sure 99% same product the other question
+
+68
+00:03:27,920 --> 00:03:32,319
+is are they actually different company
+
+69
+00:03:30,040 --> 00:03:34,959
+you know two different actually separate
+
+70
+00:03:32,319 --> 00:03:39,280
+companies using the same you know
+
+71
+00:03:34,959 --> 00:03:42,080
+Factory uh and uh it seems to me they
+
+72
+00:03:39,280 --> 00:03:44,920
+are different companies I'm not sure you
+
+73
+00:03:42,080 --> 00:03:49,680
+know so one is newa the other one is pro
+
+74
+00:03:44,920 --> 00:03:51,680
+arc Arc Pro AR so you know sometimes
+
+75
+00:03:49,680 --> 00:03:53,319
+it's a case it's the same company but
+
+76
+00:03:51,680 --> 00:03:57,079
+they just have different brand names you
+
+77
+00:03:53,319 --> 00:03:58,680
+know one for USA for example you know so
+
+78
+00:03:57,079 --> 00:04:00,319
+I'm not sure I think they are different
+
+79
+00:03:58,680 --> 00:04:03,799
+companies so
+
+80
+00:04:00,319 --> 00:04:07,720
+nuia and porar they both produce this
+
+81
+00:04:03,799 --> 00:04:09,959
+track ball uh I think I'm going to get
+
+82
+00:04:07,720 --> 00:04:14,360
+get it and there's another company
+
+83
+00:04:09,959 --> 00:04:17,160
+called um a Japanese company also made
+
+84
+00:04:14,360 --> 00:04:19,840
+one very similar to
+
+85
+00:04:17,160 --> 00:04:22,400
+this uh but it's different product for
+
+86
+00:04:19,840 --> 00:04:24,600
+sure and that Japanese company uh I
+
+87
+00:04:22,400 --> 00:04:28,560
+forgot the name for the moment but if
+
+88
+00:04:24,600 --> 00:04:30,440
+you search for newly track B you'll see
+
+89
+00:04:28,560 --> 00:04:33,280
+redit you know they mention they'll talk
+
+90
+00:04:30,440 --> 00:04:36,720
+about it I forgot the name of that
+
+91
+00:04:33,280 --> 00:04:39,479
+Japanese company C something sea
+
+92
+00:04:36,720 --> 00:04:42,120
+something anyway so this is a good track
+
+93
+00:04:39,479 --> 00:04:45,160
+boo okay so you can look at my all my
+
+94
+00:04:42,120 --> 00:04:48,440
+track boo reviews so there's track boo
+
+95
+00:04:45,160 --> 00:04:52,120
+controllers then there is track B uh
+
+96
+00:04:48,440 --> 00:04:56,639
+track B all the track B you wanted to
+
+97
+00:04:52,120 --> 00:04:58,840
+know ever created so the the most these
+
+98
+00:04:56,639 --> 00:05:02,120
+are currently available I give you my
+
+99
+00:04:58,840 --> 00:05:05,000
+ratings then there is track B history
+
+100
+00:05:02,120 --> 00:05:08,840
+these are historical track BS so track
+
+101
+00:05:05,000 --> 00:05:11,400
+BS are fantastic okay so anyway let's
+
+102
+00:05:08,840 --> 00:05:14,840
+already two minutes okay let's start
+
+103
+00:05:11,400 --> 00:05:18,120
+coding so if you are here say hi okay
+
+104
+00:05:14,840 --> 00:05:20,680
+love to see your comments and stuff so
+
+105
+00:05:18,120 --> 00:05:25,080
+let's pop this comment
+
+106
+00:05:20,680 --> 00:05:28,080
+out where is the comment restore
+
+107
+00:05:25,080 --> 00:05:28,080
+chat
+
+108
+00:05:28,479 --> 00:05:31,479
+uh
+
+109
+00:05:31,960 --> 00:05:36,680
+so we're going to try to finish this in
+
+110
+00:05:34,319 --> 00:05:39,919
+two in 20
+
+111
+00:05:36,680 --> 00:05:44,199
+minutes instead of being chatty and so
+
+112
+00:05:39,919 --> 00:05:47,520
+on okay so let's start to code okay so
+
+113
+00:05:44,199 --> 00:05:50,039
+hello n nut boy any thoughts on track B
+
+114
+00:05:47,520 --> 00:05:52,039
+on the index versus track B for the
+
+115
+00:05:50,039 --> 00:05:54,919
+thumb let me talk about that
+
+116
+00:05:52,039 --> 00:05:57,000
+quickly so so you know so there are two
+
+117
+00:05:54,919 --> 00:05:59,440
+type of track BS of course you know one
+
+118
+00:05:57,000 --> 00:06:02,120
+is index finger based such as you know
+
+119
+00:05:59,440 --> 00:06:05,840
+you know they usually have bigger ball
+
+120
+00:06:02,120 --> 00:06:09,479
+so you use it like you know you roll it
+
+121
+00:06:05,840 --> 00:06:11,720
+the other type is the thumb based so
+
+122
+00:06:09,479 --> 00:06:14,160
+this is the first thumb based track
+
+123
+00:06:11,720 --> 00:06:18,199
+board so you use your thumb you know uh
+
+124
+00:06:14,160 --> 00:06:21,280
+most popular is so so this is a funny uh
+
+125
+00:06:18,199 --> 00:06:23,560
+funny ad you know they say some people
+
+126
+00:06:21,280 --> 00:06:25,880
+think you are aliens you know that that
+
+127
+00:06:23,560 --> 00:06:29,560
+index finger track B so they make they
+
+128
+00:06:25,880 --> 00:06:32,039
+make a mockery of it and the Logitech is
+
+129
+00:06:29,560 --> 00:06:34,520
+more natural using the thumb okay so
+
+130
+00:06:32,039 --> 00:06:38,000
+this is the first logic I believe this
+
+131
+00:06:34,520 --> 00:06:41,360
+is the first uh thumb based track B so
+
+132
+00:06:38,000 --> 00:06:43,520
+then Logitech makes that for example I
+
+133
+00:06:41,360 --> 00:06:46,360
+lived through it so back then this is
+
+134
+00:06:43,520 --> 00:06:50,880
+like uh 19
+
+135
+00:06:46,360 --> 00:06:53,160
+1996 something like that 1991 okay so
+
+136
+00:06:50,880 --> 00:06:57,240
+you know I I've seen I've touched these
+
+137
+00:06:53,160 --> 00:07:01,000
+track B so anyway Logitech then the most
+
+138
+00:06:57,240 --> 00:07:05,759
+popular one is the of course this one
+
+139
+00:07:01,000 --> 00:07:09,479
+this this uh this this model so this
+
+140
+00:07:05,759 --> 00:07:13,120
+model today you have for example you
+
+141
+00:07:09,479 --> 00:07:16,560
+have this one then then the latest is
+
+142
+00:07:13,120 --> 00:07:17,680
+actually this one you know Logitech uh
+
+143
+00:07:16,560 --> 00:07:20,479
+MX
+
+144
+00:07:17,680 --> 00:07:23,560
+Ugo this one is pretty good okay I have
+
+145
+00:07:20,479 --> 00:07:27,479
+a friend who has it so and I have the
+
+146
+00:07:23,560 --> 00:07:31,280
+one I have is um I have it I have this
+
+147
+00:07:27,479 --> 00:07:33,840
+one okay this is the lesser lesser model
+
+148
+00:07:31,280 --> 00:07:35,360
+less expensive but less features but I
+
+149
+00:07:33,840 --> 00:07:38,720
+have this one
+
+150
+00:07:35,360 --> 00:07:42,479
+m575 okay this so all these are based on
+
+151
+00:07:38,720 --> 00:07:45,919
+the classic um you know based on Classic
+
+152
+00:07:42,479 --> 00:07:49,080
+this model so anyway so these are thumb
+
+153
+00:07:45,919 --> 00:07:51,639
+based now my opinion you know if you ask
+
+154
+00:07:49,080 --> 00:07:55,400
+people if you I read you know thousands
+
+155
+00:07:51,639 --> 00:07:57,240
+of of reviews Some people prefer the
+
+156
+00:07:55,400 --> 00:08:01,000
+thumb Some people prefer the index
+
+157
+00:07:57,240 --> 00:08:03,720
+finger but my opinion is that you uh the
+
+158
+00:08:01,000 --> 00:08:05,560
+index finger is better because if you
+
+159
+00:08:03,720 --> 00:08:07,479
+use the thumb track boo you have the
+
+160
+00:08:05,560 --> 00:08:10,560
+issue you don't want to move your thumb
+
+161
+00:08:07,479 --> 00:08:12,960
+like that too much if you you know are
+
+162
+00:08:10,560 --> 00:08:15,400
+coding or photoshop or whatever video
+
+163
+00:08:12,960 --> 00:08:19,759
+editor every day and you use a thumb
+
+164
+00:08:15,400 --> 00:08:19,759
+track B let me get it let me show you
+
+165
+00:08:23,120 --> 00:08:29,520
+one so there it
+
+166
+00:08:25,479 --> 00:08:31,560
+is oh my God 20 minutes talk show I'm
+
+167
+00:08:29,520 --> 00:08:34,080
+not sure I can do that since we
+
+168
+00:08:31,560 --> 00:08:37,880
+digressed into this
+
+169
+00:08:34,080 --> 00:08:41,560
+topic so can you see it and why don't I
+
+170
+00:08:37,880 --> 00:08:43,120
+show you you see this thumb based track
+
+171
+00:08:41,560 --> 00:08:45,320
+Bo let's turn it
+
+172
+00:08:43,120 --> 00:08:48,240
+off okay so
+
+173
+00:08:45,320 --> 00:08:50,760
+you you move your thumb like
+
+174
+00:08:48,240 --> 00:08:53,519
+that you you don't want to do do that
+
+175
+00:08:50,760 --> 00:08:55,519
+too much okay because if if you do that
+
+176
+00:08:53,519 --> 00:08:58,079
+too much you know if you work long hours
+
+177
+00:08:55,519 --> 00:08:59,959
+or you you your habit is just keep your
+
+178
+00:08:58,079 --> 00:09:01,880
+hand there and move just you know use
+
+179
+00:08:59,959 --> 00:09:04,120
+your thumb you got you're going to have
+
+180
+00:09:01,880 --> 00:09:06,640
+thumb problems okay you're going to have
+
+181
+00:09:04,120 --> 00:09:09,519
+thumb problems
+
+182
+00:09:06,640 --> 00:09:12,959
+so so I would
+
+183
+00:09:09,519 --> 00:09:15,880
+say you know this is not bad I mean of
+
+184
+00:09:12,959 --> 00:09:17,920
+course every device if you use a bad
+
+185
+00:09:15,880 --> 00:09:19,959
+habit you know or if you use it too long
+
+186
+00:09:17,920 --> 00:09:21,880
+you're going to have problems so this is
+
+187
+00:09:19,959 --> 00:09:24,279
+not too bad but if you are really into
+
+188
+00:09:21,880 --> 00:09:28,519
+track ball and you are uh you know work
+
+189
+00:09:24,279 --> 00:09:31,640
+for hours every day probably Thum okay I
+
+190
+00:09:28,519 --> 00:09:35,839
+mean you want the you you want the let's
+
+191
+00:09:31,640 --> 00:09:38,800
+go back you want the index finger based
+
+192
+00:09:35,839 --> 00:09:41,560
+track B okay and when you use you know
+
+193
+00:09:38,800 --> 00:09:45,360
+the index finger so this is the classic
+
+194
+00:09:41,560 --> 00:09:48,480
+let me show you the kington this is the
+
+195
+00:09:45,360 --> 00:09:51,560
+the best one you know back in 1991 I was
+
+196
+00:09:48,480 --> 00:09:53,440
+every Mac this is the superior device
+
+197
+00:09:51,560 --> 00:09:56,160
+you know every Photoshop Photoshop
+
+198
+00:09:53,440 --> 00:09:58,920
+started its life on the Mac all the
+
+199
+00:09:56,160 --> 00:10:01,680
+drawings and Photoshop you know desk
+
+200
+00:09:58,920 --> 00:10:04,480
+code called desktop publishing so this
+
+201
+00:10:01,680 --> 00:10:07,640
+this is one of the elite device costing
+
+202
+00:10:04,480 --> 00:10:09,160
+over $100 back then that I wanted this
+
+203
+00:10:07,640 --> 00:10:12,519
+but I don't have money that I was a
+
+204
+00:10:09,160 --> 00:10:16,120
+student so Kensington expert okay so
+
+205
+00:10:12,519 --> 00:10:18,360
+this is the earliest version and today
+
+206
+00:10:16,120 --> 00:10:20,279
+and today's version is kind of like that
+
+207
+00:10:18,360 --> 00:10:22,240
+this is a special version they sell in
+
+208
+00:10:20,279 --> 00:10:24,920
+Japan pink
+
+209
+00:10:22,240 --> 00:10:28,079
+version so what I want to say is that
+
+210
+00:10:24,920 --> 00:10:29,640
+when you use a index finger track B
+
+211
+00:10:28,079 --> 00:10:32,240
+usually they have larger but you don't
+
+212
+00:10:29,640 --> 00:10:34,519
+want you don't want to do this okay you
+
+213
+00:10:32,240 --> 00:10:36,760
+don't want to bend your wrist like like
+
+214
+00:10:34,519 --> 00:10:39,839
+do this instead you want to move your
+
+215
+00:10:36,760 --> 00:10:42,200
+whole hand this is this is general
+
+216
+00:10:39,839 --> 00:10:44,279
+advice for keyboard as well like you
+
+217
+00:10:42,200 --> 00:10:47,519
+don't want to press
+
+218
+00:10:44,279 --> 00:10:49,639
+the back delete key by by doing that you
+
+219
+00:10:47,519 --> 00:10:52,720
+know back delete back delete you don't
+
+220
+00:10:49,639 --> 00:10:54,480
+want to do this okay in general doesn't
+
+221
+00:10:52,720 --> 00:10:57,320
+matter it's a keyboard is mouse you want
+
+222
+00:10:54,480 --> 00:11:00,920
+to move just move your whole hand okay
+
+223
+00:10:57,320 --> 00:11:03,320
+press and also also you don't want for
+
+224
+00:11:00,920 --> 00:11:06,399
+example on my Kinesis you don't want to
+
+225
+00:11:03,320 --> 00:11:09,519
+like use your trle your thumb you want
+
+226
+00:11:06,399 --> 00:11:11,880
+to try as much as possible I mean
+
+227
+00:11:09,519 --> 00:11:15,519
+develop a habit like just move your
+
+228
+00:11:11,880 --> 00:11:18,399
+whole hand and uh like let your hand be
+
+229
+00:11:15,519 --> 00:11:21,880
+relaxed and don't don't move them avoid
+
+230
+00:11:18,399 --> 00:11:24,959
+moving moving them at all the times okay
+
+231
+00:11:21,880 --> 00:11:28,279
+even pressing a key so anyway so for
+
+232
+00:11:24,959 --> 00:11:30,839
+example on the Pink Key let's see on the
+
+233
+00:11:28,279 --> 00:11:33,800
+Pink Key usually you you press the caps
+
+234
+00:11:30,839 --> 00:11:35,920
+lock right so when you do that you don't
+
+235
+00:11:33,800 --> 00:11:38,920
+want you don't want to like try to move
+
+236
+00:11:35,920 --> 00:11:41,600
+your finger and try to do that instead
+
+237
+00:11:38,920 --> 00:11:46,760
+just move your hand to the left a bit
+
+238
+00:11:41,600 --> 00:11:50,560
+and uh and uh and just uh move the whole
+
+239
+00:11:46,760 --> 00:11:53,639
+hand press the capslock key for example
+
+240
+00:11:50,560 --> 00:11:58,040
+for Vi users for example you set that to
+
+241
+00:11:53,639 --> 00:12:00,440
+uh to switch Modo you know uh insert
+
+242
+00:11:58,040 --> 00:12:03,120
+versus Command so anyway let's go back
+
+243
+00:12:00,440 --> 00:12:05,480
+to code uh let's go back to code okay
+
+244
+00:12:03,120 --> 00:12:08,360
+that's about track
+
+245
+00:12:05,480 --> 00:12:09,880
+B I also have the exact same model I
+
+246
+00:12:08,360 --> 00:12:13,040
+love my
+
+247
+00:12:09,880 --> 00:12:15,440
+m575 yes I have that but I guess I never
+
+248
+00:12:13,040 --> 00:12:19,680
+thought about the orgonomic implications
+
+249
+00:12:15,440 --> 00:12:21,880
+okay hey so qrious why 360 now it's your
+
+250
+00:12:19,680 --> 00:12:24,519
+main keyboard well I have so many
+
+251
+00:12:21,880 --> 00:12:26,360
+keyboards okay so whenever I use one as
+
+252
+00:12:24,519 --> 00:12:29,040
+my main people will think why do you
+
+253
+00:12:26,360 --> 00:12:31,839
+switch oh this cuz you know this must be
+
+254
+00:12:29,040 --> 00:12:34,680
+better because now this is man
+
+255
+00:12:31,839 --> 00:12:37,639
+okay that's not the case okay I have
+
+256
+00:12:34,680 --> 00:12:42,240
+many keyboards right now the glove 80 I
+
+257
+00:12:37,639 --> 00:12:42,240
+use for my can you see
+
+258
+00:12:43,320 --> 00:12:46,560
+it okay
+
+259
+00:12:51,800 --> 00:12:55,839
+so yeah you can see it you see it's
+
+260
+00:12:54,240 --> 00:12:57,839
+right here
+
+261
+00:12:55,839 --> 00:13:01,160
+so
+
+262
+00:12:57,839 --> 00:13:01,160
+four my
+
+263
+00:13:03,720 --> 00:13:13,680
+laptop so that's kind of that's why okay
+
+264
+00:13:08,639 --> 00:13:16,480
+so and also the kesis 360 I got wired
+
+265
+00:13:13,680 --> 00:13:19,920
+it's wired so it's no
+
+266
+00:13:16,480 --> 00:13:23,040
+Bluetooth so for my desktop for my power
+
+267
+00:13:19,920 --> 00:13:26,959
+station or battle station I prefer it
+
+268
+00:13:23,040 --> 00:13:29,800
+wired so it suits me the best to put
+
+269
+00:13:26,959 --> 00:13:32,360
+this one on desktop and that one
+
+270
+00:13:29,800 --> 00:13:36,360
+to the on the go you know because this
+
+271
+00:13:32,360 --> 00:13:39,839
+this too heavy thing you know very heavy
+
+272
+00:13:36,360 --> 00:13:42,040
+where it's I think 1 kilogram or more
+
+273
+00:13:39,839 --> 00:13:44,199
+you know I it's not suitable if I put on
+
+274
+00:13:42,040 --> 00:13:47,279
+a bed because it's heavy and I have to
+
+275
+00:13:44,199 --> 00:13:50,079
+and no blue tooth you know so that is a
+
+276
+00:13:47,279 --> 00:13:52,320
+reason so let's start coding emac list
+
+277
+00:13:50,079 --> 00:13:52,320
+shall
+
+278
+00:13:53,320 --> 00:14:00,839
+we okay so yeah
+
+279
+00:13:57,320 --> 00:14:03,800
+so yeah let's let's go back make sure my
+
+280
+00:14:00,839 --> 00:14:06,279
+video is uh okay so we are going to call
+
+281
+00:14:03,800 --> 00:14:09,160
+the emac this code
+
+282
+00:14:06,279 --> 00:14:11,959
+okay let me show you okay so show show
+
+283
+00:14:09,160 --> 00:14:14,000
+this is today's talk show you see I have
+
+284
+00:14:11,959 --> 00:14:16,360
+this YouTube video you know I wrote I
+
+285
+00:14:14,000 --> 00:14:18,639
+write blocks for like over 20 years
+
+286
+00:14:16,360 --> 00:14:21,600
+since
+
+287
+00:14:18,639 --> 00:14:24,079
+19997 okay so I have you know more than
+
+288
+00:14:21,600 --> 00:14:26,600
+20 years of blogs many of the YouTube
+
+289
+00:14:24,079 --> 00:14:29,560
+links went dead and other links so I
+
+290
+00:14:26,600 --> 00:14:32,120
+need a command to quickly I don't want
+
+291
+00:14:29,560 --> 00:14:35,079
+this you know because I I need a command
+
+292
+00:14:32,120 --> 00:14:36,480
+to change the link to a dead link for
+
+293
+00:14:35,079 --> 00:14:39,519
+example here's a
+
+294
+00:14:36,480 --> 00:14:42,800
+YouTube embedded iframe okay so I want
+
+295
+00:14:39,519 --> 00:14:45,199
+to press a key then it becomes stad link
+
+296
+00:14:42,800 --> 00:14:47,079
+not having to fetch YouTube You Know
+
+297
+00:14:45,199 --> 00:14:49,959
+YouTube is lots of
+
+298
+00:14:47,079 --> 00:14:52,560
+censorship since five years ago very
+
+299
+00:14:49,959 --> 00:14:56,399
+nasty anyway I want a command to change
+
+300
+00:14:52,560 --> 00:14:59,480
+so let me show you a command so uh let's
+
+301
+00:14:56,399 --> 00:15:02,920
+say let's see some website so
+
+302
+00:14:59,480 --> 00:15:02,920
+so uh
+
+303
+00:15:03,880 --> 00:15:10,120
+okay so someone is telling me about new
+
+304
+00:15:07,079 --> 00:15:12,040
+shell so new shell is a new shell okay I
+
+305
+00:15:10,120 --> 00:15:14,160
+don't think it'll go anywhere so you
+
+306
+00:15:12,040 --> 00:15:15,959
+know because yesterday or two days ago I
+
+307
+00:15:14,160 --> 00:15:19,720
+was talking about power Shell versus
+
+308
+00:15:15,959 --> 00:15:22,639
+bash so someone tells me about new
+
+309
+00:15:19,720 --> 00:15:24,120
+shell I mean asking me but anyway I
+
+310
+00:15:22,639 --> 00:15:26,360
+don't think he'll go anywhere it's on
+
+311
+00:15:24,120 --> 00:15:28,839
+Twitter okay someone asked me the
+
+312
+00:15:26,360 --> 00:15:31,440
+question so anyway I want to show you a
+
+313
+00:15:28,839 --> 00:15:33,560
+link so here's a link so showing browser
+
+314
+00:15:31,440 --> 00:15:36,480
+you can see we linked to new sh but it's
+
+315
+00:15:33,560 --> 00:15:39,040
+not a link so I press the key ban so it
+
+316
+00:15:36,480 --> 00:15:42,800
+becomes link so you can see the command
+
+317
+00:15:39,040 --> 00:15:45,920
+is called that it's part of kar HTML
+
+318
+00:15:42,800 --> 00:15:48,839
+package okay showing browser so you can
+
+319
+00:15:45,920 --> 00:15:51,839
+see now it's a link I can go to it okay
+
+320
+00:15:48,839 --> 00:15:54,800
+now let's say after you know a year or
+
+321
+00:15:51,839 --> 00:15:57,839
+two this let's say this this link can be
+
+322
+00:15:54,800 --> 00:16:00,839
+a you know political article or whatever
+
+323
+00:15:57,839 --> 00:16:03,240
+you you know many will be many many will
+
+324
+00:16:00,839 --> 00:16:05,560
+be dead okay so now I want to for
+
+325
+00:16:03,240 --> 00:16:07,800
+example I want to make kill this link
+
+326
+00:16:05,560 --> 00:16:11,279
+make it dead so I press a
+
+327
+00:16:07,800 --> 00:16:15,880
+key you can see that command is HTML
+
+328
+00:16:11,279 --> 00:16:19,440
+make link def defun HTML make link
+
+329
+00:16:15,880 --> 00:16:22,800
+different so now showing browser you can
+
+330
+00:16:19,440 --> 00:16:28,759
+see it now it's a dead link you know
+
+331
+00:16:22,800 --> 00:16:31,000
+it's with the s s tag means strike out
+
+332
+00:16:28,759 --> 00:16:34,600
+okay so that's a example of a command
+
+333
+00:16:31,000 --> 00:16:37,880
+that changes a link to dead okay so now
+
+334
+00:16:34,600 --> 00:16:40,759
+we don't need this let's remove it
+
+335
+00:16:37,880 --> 00:16:43,480
+okay so now I want that command to work
+
+336
+00:16:40,759 --> 00:16:47,399
+on if frame it doesn't work on iframe so
+
+337
+00:16:43,480 --> 00:16:49,440
+you see it says search failed a so I
+
+338
+00:16:47,399 --> 00:16:54,440
+want to modify the command so it works
+
+339
+00:16:49,440 --> 00:16:54,440
+on iframe okay so let's start to do
+
+340
+00:16:54,720 --> 00:17:01,319
+that okay so let's look at the code so
+
+341
+00:16:57,800 --> 00:17:06,000
+here is this code Kar HTML make link
+
+342
+00:17:01,319 --> 00:17:09,880
+def okay let's magnify so copy it make
+
+343
+00:17:06,000 --> 00:17:14,919
+it new buffer so 40 lines of code save
+
+344
+00:17:09,880 --> 00:17:14,919
+it XX let's say today
+
+345
+00:17:16,240 --> 00:17:23,079
+uhel so temp file okay so here is the
+
+346
+00:17:20,319 --> 00:17:26,240
+command very easy okay
+
+347
+00:17:23,079 --> 00:17:28,840
+so now I want to show you guys a command
+
+348
+00:17:26,240 --> 00:17:31,480
+so you can use right away so make link
+
+349
+00:17:28,840 --> 00:17:31,480
+okay so
+
+350
+00:17:31,720 --> 00:17:40,320
+actually uh so
+
+351
+00:17:35,000 --> 00:17:43,880
+Search emx tutorial search for link and
+
+352
+00:17:40,320 --> 00:17:46,760
+HTML so there are several
+
+353
+00:17:43,880 --> 00:17:49,559
+commands uh here okay so all these
+
+354
+00:17:46,760 --> 00:17:52,080
+command are here so let me show
+
+355
+00:17:49,559 --> 00:17:54,679
+you so actually there are several
+
+356
+00:17:52,080 --> 00:17:57,039
+versions so let so you can just go and
+
+357
+00:17:54,679 --> 00:18:01,880
+grab it and you'll have the code so this
+
+358
+00:17:57,039 --> 00:18:04,960
+one is HTML Amazon URL link F so
+
+359
+00:18:01,880 --> 00:18:06,760
+this this will for example you got the
+
+360
+00:18:04,960 --> 00:18:10,679
+Amazon
+
+361
+00:18:06,760 --> 00:18:14,799
+link uh let's let's go to talk show
+
+362
+00:18:10,679 --> 00:18:16,960
+so go to talk show let's say you have an
+
+363
+00:18:14,799 --> 00:18:19,159
+Amazon link showing browser here's the
+
+364
+00:18:16,960 --> 00:18:24,240
+Amazon link you just grabbed from a
+
+365
+00:18:19,159 --> 00:18:27,320
+website you can press a key and showing
+
+366
+00:18:24,240 --> 00:18:31,880
+browser and it becomes that so it
+
+367
+00:18:27,320 --> 00:18:37,320
+reformat it makes a URL into a link but
+
+368
+00:18:31,880 --> 00:18:39,840
+reformat the link into a canonical link
+
+369
+00:18:37,320 --> 00:18:42,799
+with possibly addition to your
+
+370
+00:18:39,840 --> 00:18:45,360
+affiliation tag you know a lot of people
+
+371
+00:18:42,799 --> 00:18:48,600
+you know do that so you know YouTubers
+
+372
+00:18:45,360 --> 00:18:51,039
+and so on so you so it so that that is
+
+373
+00:18:48,600 --> 00:18:54,159
+that command
+
+374
+00:18:51,039 --> 00:18:59,520
+okay this one search for it you'll find
+
+375
+00:18:54,159 --> 00:19:00,679
+it make Amazon URL link F okay now
+
+376
+00:18:59,520 --> 00:19:04,440
+this
+
+377
+00:19:00,679 --> 00:19:08,679
+version uh iMac this URL to HTML link
+
+378
+00:19:04,440 --> 00:19:09,130
+first state so this one will for example
+
+379
+00:19:08,679 --> 00:19:10,600
+let's
+
+380
+00:19:09,130 --> 00:19:15,320
+[Music]
+
+381
+00:19:10,600 --> 00:19:15,320
+see uh what is the new
+
+382
+00:19:16,360 --> 00:19:23,200
+Shell let's try that new shell again so
+
+383
+00:19:20,320 --> 00:19:26,520
+copy a link paste it so when I make a
+
+384
+00:19:23,200 --> 00:19:30,840
+link you see there is the custom tag
+
+385
+00:19:26,520 --> 00:19:33,080
+accessed date date Das access and there
+
+386
+00:19:30,840 --> 00:19:36,919
+is Target blank that means when you
+
+387
+00:19:33,080 --> 00:19:39,880
+click it you'll create a new tab and the
+
+388
+00:19:36,919 --> 00:19:43,600
+release no referral usually you
+
+389
+00:19:39,880 --> 00:19:45,960
+know you want to remove referral because
+
+390
+00:19:43,600 --> 00:19:49,120
+these stays a lot of websites they are
+
+391
+00:19:45,960 --> 00:19:50,880
+kind of nasty and also there's a dome
+
+392
+00:19:49,120 --> 00:19:55,799
+bug
+
+393
+00:19:50,880 --> 00:19:58,960
+where where if you have blank and if you
+
+394
+00:19:55,799 --> 00:20:02,080
+don't have if you have blank I forgot
+
+395
+00:19:58,960 --> 00:20:05,159
+exactly but I have a Blog about it it's
+
+396
+00:20:02,080 --> 00:20:10,440
+just search for blank okay so let's try
+
+397
+00:20:05,159 --> 00:20:14,840
+oh God uh you know there it is HTML link
+
+398
+00:20:10,440 --> 00:20:17,799
+problem underscore blank n no opener no
+
+399
+00:20:14,840 --> 00:20:21,200
+referral there is a nasty bug that
+
+400
+00:20:17,799 --> 00:20:24,320
+allows you to allow your the target
+
+401
+00:20:21,200 --> 00:20:26,400
+target site to kind of control the
+
+402
+00:20:24,320 --> 00:20:30,280
+previous page but anyway you read this
+
+403
+00:20:26,400 --> 00:20:32,240
+you'll see the detail so anyway that so
+
+404
+00:20:30,280 --> 00:20:35,640
+so I'm showing you so so this is a
+
+405
+00:20:32,240 --> 00:20:39,480
+command that makes a URL into a link
+
+406
+00:20:35,640 --> 00:20:41,440
+plus the date the date is very important
+
+407
+00:20:39,480 --> 00:20:43,679
+because if you write a blog after 10 or
+
+408
+00:20:41,440 --> 00:20:46,320
+20 years let's say
+
+409
+00:20:43,679 --> 00:20:48,960
+10 you know some link you don't know
+
+410
+00:20:46,320 --> 00:20:51,600
+what that link you forgot what that that
+
+411
+00:20:48,960 --> 00:20:53,840
+link is about and you need the date you
+
+412
+00:20:51,600 --> 00:20:56,600
+know you need to know when was when did
+
+413
+00:20:53,840 --> 00:20:59,039
+you link that when was that site you
+
+414
+00:20:56,600 --> 00:21:01,600
+viewed so
+
+415
+00:20:59,039 --> 00:21:04,799
+a few years later you can kind of if you
+
+416
+00:21:01,600 --> 00:21:06,840
+want to you can check website archive
+
+417
+00:21:04,799 --> 00:21:09,600
+you know and so on so the date is
+
+418
+00:21:06,840 --> 00:21:12,919
+usually important so anyway that's this
+
+419
+00:21:09,600 --> 00:21:16,440
+command you can grab here the next
+
+420
+00:21:12,919 --> 00:21:18,960
+version make HTML to that link that's
+
+421
+00:21:16,440 --> 00:21:21,760
+the version We demonstrated for example
+
+422
+00:21:18,960 --> 00:21:24,720
+this link I press the key uh wait press
+
+423
+00:21:21,760 --> 00:21:27,039
+the wrong key I press a key uh needs to
+
+424
+00:21:24,720 --> 00:21:31,240
+be inside I press a key you see it
+
+425
+00:21:27,039 --> 00:21:33,520
+becomes d fun link okay so that's this
+
+426
+00:21:31,240 --> 00:21:37,679
+one you can grab the code
+
+427
+00:21:33,520 --> 00:21:41,440
+here uh then and this one is the most
+
+428
+00:21:37,679 --> 00:21:44,039
+basic just change your URL into a link
+
+429
+00:21:41,440 --> 00:21:47,600
+okay so you can grab all those
+
+430
+00:21:44,039 --> 00:21:49,520
+code now let's go back to focus on what
+
+431
+00:21:47,600 --> 00:21:52,080
+we are going to do today okay it's
+
+432
+00:21:49,520 --> 00:21:54,360
+already 18 minutes okay so let's let's
+
+433
+00:21:52,080 --> 00:21:57,520
+go back to focus on what we are doing
+
+434
+00:21:54,360 --> 00:22:01,520
+today uh let's just make this make this
+
+435
+00:21:57,520 --> 00:22:05,679
+make this okay so later so I want to
+
+436
+00:22:01,520 --> 00:22:09,000
+modify the one of the command to work on
+
+437
+00:22:05,679 --> 00:22:12,360
+this okay so let's go back to the code
+
+438
+00:22:09,000 --> 00:22:17,279
+close that this code
+
+439
+00:22:12,360 --> 00:22:19,919
+okay so make a URL like that into like
+
+440
+00:22:17,279 --> 00:22:23,840
+uh all that
+
+441
+00:22:19,919 --> 00:22:27,400
+into into that okay
+
+442
+00:22:23,840 --> 00:22:31,679
+so the key here is that we want it to
+
+443
+00:22:27,400 --> 00:22:34,720
+work on on the if frame okay copy the if
+
+444
+00:22:31,679 --> 00:22:38,640
+frame so let's
+
+445
+00:22:34,720 --> 00:22:42,240
+see search backward uh search backward
+
+446
+00:22:38,640 --> 00:22:47,919
+search forward okay
+
+447
+00:22:42,240 --> 00:22:50,640
+so this is kind of uh too big let's
+
+448
+00:22:47,919 --> 00:22:50,640
+shrink it a
+
+449
+00:22:51,000 --> 00:22:58,360
+bit forward chart
+
+450
+00:22:54,760 --> 00:23:04,720
+so so that's one okay let me me just
+
+451
+00:22:58,360 --> 00:23:04,720
+work on so so this section works on
+
+452
+00:23:05,640 --> 00:23:13,520
+the this section works on the HTML tag
+
+453
+00:23:16,080 --> 00:23:23,760
+okay works on the a tag let's see so
+
+454
+00:23:25,640 --> 00:23:35,200
+let's let's put some so let's make them
+
+455
+00:23:29,120 --> 00:23:35,200
+into a syntactical unit
+
+456
+00:23:36,960 --> 00:23:43,279
+okay okay so that's one
+
+457
+00:23:40,320 --> 00:23:47,159
+thing uh where is
+
+458
+00:23:43,279 --> 00:23:52,760
+xp1 xp1 is the beginning position of the
+
+459
+00:23:47,159 --> 00:23:52,760
+tag xp2 is the end position of the tag
+
+460
+00:23:55,799 --> 00:24:00,080
+okay get the boundary of the the opening
+
+461
+00:23:58,440 --> 00:24:06,559
+tag okay
+
+462
+00:24:00,080 --> 00:24:06,559
+so you find the beginning tag and then
+
+463
+00:24:06,960 --> 00:24:11,600
+okay uh yeah okay
+
+464
+00:24:12,039 --> 00:24:21,120
+so beginning tag and find the boundary
+
+465
+00:24:15,279 --> 00:24:24,200
+of the end tag okay so let's move this
+
+466
+00:24:21,120 --> 00:24:27,600
+here we want to forward three characters
+
+467
+00:24:24,200 --> 00:24:31,320
+in case in in the case when the curer is
+
+468
+00:24:27,600 --> 00:24:31,320
+at the beginning of the tag
+
+469
+00:24:33,039 --> 00:24:41,320
+okay actually maybe let's not do that
+
+470
+00:24:38,679 --> 00:24:43,559
+okay
+
+471
+00:24:41,320 --> 00:24:46,159
+so search
+
+472
+00:24:43,559 --> 00:24:47,559
+backward then if found then search
+
+473
+00:24:46,159 --> 00:24:49,440
+forward
+
+474
+00:24:47,559 --> 00:24:53,039
+okay
+
+475
+00:24:49,440 --> 00:24:56,679
+uh so actually we just change this to a
+
+476
+00:24:53,039 --> 00:24:56,679
+regular expression
+
+477
+00:24:56,760 --> 00:24:58,840
+okay
+
+478
+00:24:58,320 --> 00:25:02,020
+okay
+
+479
+00:24:58,840 --> 00:25:02,020
+[Music]
+
+480
+00:25:06,559 --> 00:25:14,760
+so uh okay so after you got the tag then
+
+481
+00:25:10,840 --> 00:25:16,559
+here's the entire link string then you
+
+482
+00:25:14,760 --> 00:25:20,720
+process the link
+
+483
+00:25:16,559 --> 00:25:20,720
+string then you search for
+
+484
+00:25:23,520 --> 00:25:30,600
+href Okay so to modify this you know so
+
+485
+00:25:28,240 --> 00:25:34,960
+if you wanted to work
+
+486
+00:25:30,600 --> 00:25:39,600
+with I frame you know if you wanted to
+
+487
+00:25:34,960 --> 00:25:43,200
+work with like an i frame there's a lot
+
+488
+00:25:39,600 --> 00:25:44,799
+modification you need to do so rather
+
+489
+00:25:43,200 --> 00:25:47,760
+it's
+
+490
+00:25:44,799 --> 00:25:51,960
+simple if we write a new one for the I
+
+491
+00:25:47,760 --> 00:25:54,520
+frame then we merge them
+
+492
+00:25:51,960 --> 00:25:58,440
+so
+
+493
+00:25:54,520 --> 00:26:01,120
+yeah okay so let's let's just let's just
+
+494
+00:25:58,440 --> 00:26:01,120
+do it
+
+495
+00:26:02,080 --> 00:26:08,559
+okay let's just say you know for for the
+
+496
+00:26:04,799 --> 00:26:12,120
+sake of today it's easier clear if I
+
+497
+00:26:08,559 --> 00:26:12,120
+just show you this
+
+498
+00:26:15,760 --> 00:26:25,279
+okay make a HTML I frame under Cruiser
+
+499
+00:26:20,200 --> 00:26:29,600
+to be to be def def okay if frame looks
+
+500
+00:26:25,279 --> 00:26:29,600
+like that for example
+
+501
+00:26:34,760 --> 00:26:37,120
+for
+
+502
+00:26:37,679 --> 00:26:40,679
+example
+
+503
+00:26:49,919 --> 00:26:56,279
+becomes okay that's an example and
+
+504
+00:26:56,600 --> 00:26:59,600
+uh
+
+505
+00:26:59,880 --> 00:27:04,440
+okay so that's the goal so all you have
+
+506
+00:27:02,919 --> 00:27:07,200
+to do
+
+507
+00:27:04,440 --> 00:27:11,840
+is
+
+508
+00:27:07,200 --> 00:27:15,159
+um yeah you forward charts so how many
+
+509
+00:27:11,840 --> 00:27:15,159
+charts is
+
+510
+00:27:18,000 --> 00:27:21,760
+this 14
+
+511
+00:27:26,520 --> 00:27:29,520
+CHS
+
+512
+00:27:30,679 --> 00:27:37,440
+okay so comments comments comment okay
+
+513
+00:27:34,840 --> 00:27:41,600
+comment
+
+514
+00:27:37,440 --> 00:27:43,600
+so so of course this is going to be
+
+515
+00:27:41,600 --> 00:27:47,200
+I
+
+516
+00:27:43,600 --> 00:27:53,000
+frame so you search for the iframe
+
+517
+00:27:47,200 --> 00:27:54,770
+tag then search backward for the iframe
+
+518
+00:27:53,000 --> 00:27:56,519
+tag then
+
+519
+00:27:54,770 --> 00:27:59,519
+[Music]
+
+520
+00:27:56,519 --> 00:27:59,519
+you
+
+521
+00:28:03,600 --> 00:28:06,279
+don't want
+
+522
+00:28:07,840 --> 00:28:12,159
+that then you search for
+
+523
+00:28:19,600 --> 00:28:22,600
+word
+
+524
+00:28:26,440 --> 00:28:29,440
+okay
+
+525
+00:28:33,080 --> 00:28:38,279
+and uh we don't want to save excusion
+
+526
+00:28:40,080 --> 00:28:45,919
+okay so we found the beginning tag
+
+527
+00:28:42,840 --> 00:28:48,880
+position and in tag position okay search
+
+528
+00:28:45,919 --> 00:28:53,279
+backward search forward then
+
+529
+00:28:48,880 --> 00:28:53,279
+we then what is if frame
+
+530
+00:28:56,399 --> 00:29:03,760
+tag
+
+531
+00:28:59,080 --> 00:29:03,760
+I frame tag looks like that okay
+
+532
+00:29:10,480 --> 00:29:16,720
+so yeah
+
+533
+00:29:14,159 --> 00:29:20,640
+so so we got the beginning and end
+
+534
+00:29:16,720 --> 00:29:22,279
+position then we want to grab this
+
+535
+00:29:20,640 --> 00:29:26,679
+Source
+
+536
+00:29:22,279 --> 00:29:29,320
+okay then okay so the whole string whole
+
+537
+00:29:26,679 --> 00:29:29,320
+link string
+
+538
+00:29:32,960 --> 00:29:36,120
+okay holding streen is that then create
+
+539
+00:29:35,039 --> 00:29:37,799
+a temp
+
+540
+00:29:36,120 --> 00:29:41,720
+buffer
+
+541
+00:29:37,799 --> 00:29:44,279
+um generate replacement so insert go to
+
+542
+00:29:41,720 --> 00:29:46,919
+point mean so search
+
+543
+00:29:44,279 --> 00:29:52,679
+for
+
+544
+00:29:46,919 --> 00:29:52,679
+Source then the URL is match string no
+
+545
+00:29:53,120 --> 00:29:58,399
+properties okay then date accessed
+
+546
+00:29:56,399 --> 00:30:00,440
+usually we don't have have dat data
+
+547
+00:29:58,399 --> 00:30:06,399
+accessed
+
+548
+00:30:00,440 --> 00:30:09,399
+so uh so let's remove that if
+
+549
+00:30:06,399 --> 00:30:09,399
+date
+
+550
+00:30:10,640 --> 00:30:16,799
+so data
+
+551
+00:30:12,840 --> 00:30:19,919
+accessed so usually iframe tag don't
+
+552
+00:30:16,799 --> 00:30:23,840
+doesn't have date access so let's remove
+
+553
+00:30:19,919 --> 00:30:26,240
+that it you could add that but usually
+
+554
+00:30:23,840 --> 00:30:31,360
+not
+
+555
+00:30:26,240 --> 00:30:34,360
+so let's search for Access State remove
+
+556
+00:30:31,360 --> 00:30:34,360
+it
+
+557
+00:30:34,840 --> 00:30:44,880
+okay don't worry about that okay
+
+558
+00:30:40,159 --> 00:30:47,960
+then then set the results okay day def
+
+559
+00:30:44,880 --> 00:30:47,960
+defun we don't
+
+560
+00:30:49,240 --> 00:30:54,039
+care so the result is
+
+561
+00:30:55,840 --> 00:31:03,399
+just you don't
+
+562
+00:30:59,159 --> 00:31:05,799
+care just that okay the result string
+
+563
+00:31:03,399 --> 00:31:09,679
+then just delete
+
+564
+00:31:05,799 --> 00:31:12,200
+region the whole tag go to the position
+
+565
+00:31:09,679 --> 00:31:16,600
+of the beginning of the tag insert the
+
+566
+00:31:12,200 --> 00:31:20,399
+string okay so this will do
+
+567
+00:31:16,600 --> 00:31:23,559
+it okay so actually we
+
+568
+00:31:20,399 --> 00:31:26,519
+can yeah eval the buffer and show the
+
+569
+00:31:23,559 --> 00:31:28,039
+pink window eval the buffer okay let's
+
+570
+00:31:26,519 --> 00:31:32,000
+try it out
+
+571
+00:31:28,039 --> 00:31:34,919
+so copy that paste it here then put a
+
+572
+00:31:32,000 --> 00:31:37,200
+curer here
+
+573
+00:31:34,919 --> 00:31:42,440
+s
+
+574
+00:31:37,200 --> 00:31:44,080
+iame defun okay correct there it is
+
+575
+00:31:42,440 --> 00:31:48,360
+showing
+
+576
+00:31:44,080 --> 00:31:53,440
+browser you see it
+
+577
+00:31:48,360 --> 00:31:57,000
+works uh so it works now so
+
+578
+00:31:53,440 --> 00:32:00,639
+now now there is a you know so basically
+
+579
+00:31:57,000 --> 00:32:05,000
+we we got our code the codee is this
+
+580
+00:32:00,639 --> 00:32:12,960
+okay let's copy it go to the talk show
+
+581
+00:32:05,000 --> 00:32:15,799
+uh let's create a code imag LP paste it
+
+582
+00:32:12,960 --> 00:32:17,760
+there color
+
+583
+00:32:15,799 --> 00:32:22,080
+it showing
+
+584
+00:32:17,760 --> 00:32:24,080
+browser so we got a code now essentially
+
+585
+00:32:22,080 --> 00:32:27,960
+we are done okay
+
+586
+00:32:24,080 --> 00:32:28,960
+so very easy no dependency
+
+587
+00:32:27,960 --> 00:32:32,279
+uh but
+
+588
+00:32:28,960 --> 00:32:35,320
+now there's a design issue for me for
+
+589
+00:32:32,279 --> 00:32:37,000
+example should I merge this
+
+590
+00:32:35,320 --> 00:32:42,480
+command
+
+591
+00:32:37,000 --> 00:32:45,080
+into this make link def defun should I
+
+592
+00:32:42,480 --> 00:32:47,880
+merge them so there's only just this
+
+593
+00:32:45,080 --> 00:32:51,720
+command or should I
+
+594
+00:32:47,880 --> 00:32:55,799
+like create a wrapper that depends on
+
+595
+00:32:51,720 --> 00:32:59,799
+whether the link is a normal link or is
+
+596
+00:32:55,799 --> 00:33:02,240
+a iframe then call each one of them you
+
+597
+00:32:59,799 --> 00:33:06,279
+know like Ste two command two or three
+
+598
+00:33:02,240 --> 00:33:08,200
+like a rapper then dispatch or the whole
+
+599
+00:33:06,279 --> 00:33:10,639
+thing should be just one
+
+600
+00:33:08,200 --> 00:33:12,760
+command uh actually I have to think
+
+601
+00:33:10,639 --> 00:33:14,480
+about that which one is a better design
+
+602
+00:33:12,760 --> 00:33:18,880
+so this is kind of
+
+603
+00:33:14,480 --> 00:33:21,159
+the interface or a package design issue
+
+604
+00:33:18,880 --> 00:33:25,360
+separate from the actual code because
+
+605
+00:33:21,159 --> 00:33:28,519
+you you know whether you should
+
+606
+00:33:25,360 --> 00:33:31,320
+um yeah there so the criteria is there
+
+607
+00:33:28,519 --> 00:33:33,559
+are many criterias for example if you
+
+608
+00:33:31,320 --> 00:33:37,159
+have one single command that's kind of
+
+609
+00:33:33,559 --> 00:33:39,760
+simpler for user you know whatever link
+
+610
+00:33:37,159 --> 00:33:42,120
+just make it def def you know user don't
+
+611
+00:33:39,760 --> 00:33:47,440
+have to worry about what whether it's
+
+612
+00:33:42,120 --> 00:33:51,159
+iframe or is it's a normal link or you
+
+613
+00:33:47,440 --> 00:33:53,480
+know so then there's a implementation so
+
+614
+00:33:51,159 --> 00:33:55,159
+if you decide just have one single
+
+615
+00:33:53,480 --> 00:33:57,600
+command so first of all to the user you
+
+616
+00:33:55,159 --> 00:34:00,840
+can have one single single command or
+
+617
+00:33:57,600 --> 00:34:03,639
+you can have two or more command so for
+
+618
+00:34:00,840 --> 00:34:08,240
+the user they have to decide whether you
+
+619
+00:34:03,639 --> 00:34:10,240
+want to defun a link or defun a if frame
+
+620
+00:34:08,240 --> 00:34:13,200
+because they are they are kind of
+
+621
+00:34:10,240 --> 00:34:14,599
+different so you give more Precision to
+
+622
+00:34:13,200 --> 00:34:17,800
+the
+
+623
+00:34:14,599 --> 00:34:20,040
+user so that's first thing to think
+
+624
+00:34:17,800 --> 00:34:22,359
+about what do you want for the use what
+
+625
+00:34:20,040 --> 00:34:25,159
+do you want the user to see that's the
+
+626
+00:34:22,359 --> 00:34:27,879
+most important this is the kind of the
+
+627
+00:34:25,159 --> 00:34:30,040
+API aspect
+
+628
+00:34:27,879 --> 00:34:33,040
+so after that there's a implementation
+
+629
+00:34:30,040 --> 00:34:36,000
+issue so doesn't matter which way you go
+
+630
+00:34:33,040 --> 00:34:37,720
+I mean in if you you know one is just
+
+631
+00:34:36,000 --> 00:34:40,520
+one single command the other case is
+
+632
+00:34:37,720 --> 00:34:43,760
+several command
+
+633
+00:34:40,520 --> 00:34:47,320
+now the implementation case if you want
+
+634
+00:34:43,760 --> 00:34:50,159
+a several command then what we have is
+
+635
+00:34:47,320 --> 00:34:54,000
+like perfect okay one is just for if
+
+636
+00:34:50,159 --> 00:34:57,839
+frame one is for normal
+
+637
+00:34:54,000 --> 00:34:59,960
+link but however if the if you decided
+
+638
+00:34:57,839 --> 00:35:02,560
+the user interface should have just one
+
+639
+00:34:59,960 --> 00:35:05,760
+single command then there are several
+
+640
+00:35:02,560 --> 00:35:08,640
+ways to go do you want one single like
+
+641
+00:35:05,760 --> 00:35:10,320
+merge these two or do you want a have a
+
+642
+00:35:08,640 --> 00:35:13,320
+wrapper that c
+
+643
+00:35:10,320 --> 00:35:15,359
+different internal command Okay so
+
+644
+00:35:13,320 --> 00:35:18,839
+that's the thing I have to think about
+
+645
+00:35:15,359 --> 00:35:22,880
+for my package okay that's it for
+
+646
+00:35:18,839 --> 00:35:26,400
+today I forgot to close you forgot to
+
+647
+00:35:22,880 --> 00:35:28,800
+close the opening s tag in a description
+
+648
+00:35:26,400 --> 00:35:28,800
+did we
+
+649
+00:35:29,960 --> 00:35:37,200
+I think we did we we have it here you
+
+650
+00:35:33,400 --> 00:35:40,400
+see you forgot to close the opening tag
+
+651
+00:35:37,200 --> 00:35:44,359
+in the description oh in the
+
+652
+00:35:40,400 --> 00:35:44,359
+description uh yeah it's
+
+653
+00:35:46,200 --> 00:35:51,880
+here okay that's it that's it for today
+
+654
+00:35:49,079 --> 00:35:55,160
+thank you guys for watching okay so you
+
+655
+00:35:51,880 --> 00:36:01,040
+know if you like my stuff 32 minutes
+
+656
+00:35:55,160 --> 00:36:03,079
+okay go to s code and uh it's my website
+
+657
+00:36:01,040 --> 00:36:06,480
+and the bottom you can see PayPal
+
+658
+00:36:03,079 --> 00:36:09,480
+patreon me okay thank you
+
+659
+00:36:06,480 --> 00:36:09,480
+guys
+
+660
+00:36:13,960 --> 00:36:16,960
+bye
+

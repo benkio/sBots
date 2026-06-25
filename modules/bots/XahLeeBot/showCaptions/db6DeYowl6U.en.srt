@@ -1,0 +1,8016 @@
+1
+00:00:06,759 --> 00:00:12,719
+good morning everyone welcome to another
+
+2
+00:00:09,440 --> 00:00:17,160
+episode of s talk show we are going to
+
+3
+00:00:12,719 --> 00:00:20,480
+code wolam language Mathematica today
+
+4
+00:00:17,160 --> 00:00:24,760
+so so this is so this is what we are
+
+5
+00:00:20,480 --> 00:00:29,560
+going to code this is a package I wrote
+
+6
+00:00:24,760 --> 00:00:30,720
+uh about 30 years ago this is uh par
+
+7
+00:00:29,560 --> 00:00:31,840
+plot
+
+8
+00:00:30,720 --> 00:00:34,480
+uh
+
+9
+00:00:31,840 --> 00:00:37,480
+enhanced uh functions for plotting
+
+10
+00:00:34,480 --> 00:00:41,520
+parametric equations for Mathematica so
+
+11
+00:00:37,480 --> 00:00:45,520
+let me show you some graphics so um for
+
+12
+00:00:41,520 --> 00:00:49,039
+example you can plot this is called
+
+13
+00:00:45,520 --> 00:00:55,000
+costic basically array reflected around
+
+14
+00:00:49,039 --> 00:00:58,920
+a uh reflected U from a curve so this is
+
+15
+00:00:55,000 --> 00:01:03,800
+a parabola so this is a typical lamp
+
+16
+00:00:58,920 --> 00:01:05,720
+situation so costic so you can see many
+
+17
+00:01:03,800 --> 00:01:08,280
+of the properties that's what this
+
+18
+00:01:05,720 --> 00:01:11,280
+package do it just generates these
+
+19
+00:01:08,280 --> 00:01:16,080
+Graphics allows allows you to plot these
+
+20
+00:01:11,280 --> 00:01:20,439
+graphics for visualization of geometry
+
+21
+00:01:16,080 --> 00:01:25,000
+and uh and for educational purposes so I
+
+22
+00:01:20,439 --> 00:01:28,360
+wrote this like around 1994 to
+
+23
+00:01:25,000 --> 00:01:30,479
+1997 and uh so it's been 30 years
+
+24
+00:01:28,360 --> 00:01:33,240
+basically or 25
+
+25
+00:01:30,479 --> 00:01:37,680
+and uh I've been the last time I updated
+
+26
+00:01:33,240 --> 00:01:42,200
+this package is about 2004
+
+27
+00:01:37,680 --> 00:01:44,360
+so so I'm revisit you know revisiting
+
+28
+00:01:42,200 --> 00:01:47,399
+this package it's been 30 years there's
+
+29
+00:01:44,360 --> 00:01:50,560
+a lot of changes in wfam language and uh
+
+30
+00:01:47,399 --> 00:01:53,000
+but most of them vast Maj I mean it
+
+31
+00:01:50,560 --> 00:01:55,840
+still works you see
+
+32
+00:01:53,000 --> 00:01:58,840
+so so that's some of the graphics let me
+
+33
+00:01:55,840 --> 00:02:00,399
+so and let me show you okay
+
+34
+00:01:58,840 --> 00:02:02,719
+so
+
+35
+00:02:00,399 --> 00:02:06,399
+so if you want to see you know this is
+
+36
+00:02:02,719 --> 00:02:09,399
+one of my most popular uh website visual
+
+37
+00:02:06,399 --> 00:02:12,480
+dictionary of special plan curves it's
+
+38
+00:02:09,399 --> 00:02:16,040
+been linked from University math
+
+39
+00:02:12,480 --> 00:02:21,160
+departments like from a thousands of
+
+40
+00:02:16,040 --> 00:02:25,400
+websites back in back in 1990 from 1997
+
+41
+00:02:21,160 --> 00:02:28,599
+to from 1998 to
+
+42
+00:02:25,400 --> 00:02:30,280
+2008 but basically Wikipedia took over
+
+43
+00:02:28,599 --> 00:02:34,400
+and other websit
+
+44
+00:02:30,280 --> 00:02:37,080
+since 2010 or so so so all these
+
+45
+00:02:34,400 --> 00:02:40,519
+Graphics are done mostly in
+
+46
+00:02:37,080 --> 00:02:45,360
+1997 and uh you know it it was cutting
+
+47
+00:02:40,519 --> 00:02:48,159
+edge technology um and and today I'm
+
+48
+00:02:45,360 --> 00:02:50,599
+going to update them you know so a lot
+
+49
+00:02:48,159 --> 00:02:56,599
+code you know wolam language has been
+
+50
+00:02:50,599 --> 00:03:00,360
+evolving for 30 years and uh uh
+
+51
+00:02:56,599 --> 00:03:02,800
+so so there are some impr improvements I
+
+52
+00:03:00,360 --> 00:03:05,040
+can make to the package so uh for
+
+53
+00:03:02,800 --> 00:03:07,920
+example here is the source code okay so
+
+54
+00:03:05,040 --> 00:03:08,840
+here's a source code uh so this is a
+
+55
+00:03:07,920 --> 00:03:12,640
+file
+
+56
+00:03:08,840 --> 00:03:15,680
+p.m you open it this is a wolam language
+
+57
+00:03:12,640 --> 00:03:17,480
+code or also known as
+
+58
+00:03:15,680 --> 00:03:20,599
+Mathematica okay
+
+59
+00:03:17,480 --> 00:03:24,519
+so and uh you know so here's a source
+
+60
+00:03:20,599 --> 00:03:27,280
+code source code here's a inline
+
+61
+00:03:24,519 --> 00:03:28,560
+documentation and let's go down so here
+
+62
+00:03:27,280 --> 00:03:31,040
+is the
+
+63
+00:03:28,560 --> 00:03:36,280
+code the this is a code for drawing
+
+64
+00:03:31,040 --> 00:03:40,280
+normal lines and this is and uh and then
+
+65
+00:03:36,280 --> 00:03:45,000
+here's a code for doing drawing tangent
+
+66
+00:03:40,280 --> 00:03:49,280
+lines uh this is a parallel curve and uh
+
+67
+00:03:45,000 --> 00:03:51,680
+this is CICS we have just shown here is
+
+68
+00:03:49,280 --> 00:03:55,640
+kind of the code for drawing costic
+
+69
+00:03:51,680 --> 00:03:56,760
+lines costic meaning reflection of rays
+
+70
+00:03:55,640 --> 00:04:00,319
+like
+
+71
+00:03:56,760 --> 00:04:02,040
+this so I'm going to update the code
+
+72
+00:04:00,319 --> 00:04:06,480
+okay so this is just going to be me
+
+73
+00:04:02,040 --> 00:04:11,519
+coding it's probably boring for you guys
+
+74
+00:04:06,480 --> 00:04:16,400
+um yeah am I am I uh live yeah I think
+
+75
+00:04:11,519 --> 00:04:18,639
+so okay so I'm just going to code it uh
+
+76
+00:04:16,400 --> 00:04:20,759
+yeah so about wam language Mathematica
+
+77
+00:04:18,639 --> 00:04:21,720
+if you don't know yet you know just
+
+78
+00:04:20,759 --> 00:04:26,880
+search
+
+79
+00:04:21,720 --> 00:04:26,880
+forar Wan language or
+
+80
+00:04:27,400 --> 00:04:35,160
+Mathematica and you can find find uh my
+
+81
+00:04:32,400 --> 00:04:37,720
+tutorials you go there W from language
+
+82
+00:04:35,160 --> 00:04:41,199
+Mathematica tutorials and you can
+
+83
+00:04:37,720 --> 00:04:43,720
+download wam language for free uh it
+
+84
+00:04:41,199 --> 00:04:46,320
+will it began to be free about four
+
+85
+00:04:43,720 --> 00:04:48,560
+years ago or five so you can download
+
+86
+00:04:46,320 --> 00:04:51,320
+there and some information I tell you
+
+87
+00:04:48,560 --> 00:04:54,520
+what they are what it is about and from
+
+88
+00:04:51,320 --> 00:04:57,400
+this tutorial you can learn the
+
+89
+00:04:54,520 --> 00:04:59,560
+complete tutorial for programmers if you
+
+90
+00:04:57,400 --> 00:05:03,199
+are familiar with JavaScript python see
+
+91
+00:04:59,560 --> 00:05:05,000
+C C++ Java any of the language if you
+
+92
+00:05:03,199 --> 00:05:07,840
+are already a programmer then you can
+
+93
+00:05:05,000 --> 00:05:12,919
+learn from my tutorial from the
+
+94
+00:05:07,840 --> 00:05:16,120
+groundup uh and mostly I teach
+
+95
+00:05:12,919 --> 00:05:18,800
+you understand how wam language works
+
+96
+00:05:16,120 --> 00:05:20,520
+because wolam language is a term
+
+97
+00:05:18,800 --> 00:05:22,520
+rewriting system it's a function of
+
+98
+00:05:20,520 --> 00:05:26,280
+programming language and term rewriting
+
+99
+00:05:22,520 --> 00:05:29,360
+system you likely have never seen in any
+
+100
+00:05:26,280 --> 00:05:33,280
+other language not in hascal not in lisp
+
+101
+00:05:29,360 --> 00:05:36,039
+um uh in a way it's kind of like list
+
+102
+00:05:33,280 --> 00:05:39,360
+maral so imagine every function you
+
+103
+00:05:36,039 --> 00:05:42,520
+write is list maros it's kind of like
+
+104
+00:05:39,360 --> 00:05:45,600
+that okay so except the list maros is
+
+105
+00:05:42,520 --> 00:05:49,000
+far more advanced it's symbolic pattern
+
+106
+00:05:45,600 --> 00:05:51,960
+matching so imagine if you are coding
+
+107
+00:05:49,000 --> 00:05:54,720
+lisp every function is defined by a
+
+108
+00:05:51,960 --> 00:05:57,120
+marro and you have very Advanced pattern
+
+109
+00:05:54,720 --> 00:06:01,319
+matching symbolic matching for Marco
+
+110
+00:05:57,120 --> 00:06:04,080
+that is what kind of it's like in wfam
+
+111
+00:06:01,319 --> 00:06:06,120
+language okay so that's a introduction
+
+112
+00:06:04,080 --> 00:06:09,800
+you can read the tutorial to learn it so
+
+113
+00:06:06,120 --> 00:06:11,240
+I'm and download it uh and I'm going to
+
+114
+00:06:09,800 --> 00:06:14,960
+start
+
+115
+00:06:11,240 --> 00:06:17,199
+to code it okay so this is mostly just
+
+116
+00:06:14,960 --> 00:06:17,199
+for
+
+117
+00:06:17,960 --> 00:06:23,440
+myself oh we have six concurrent viewers
+
+118
+00:06:21,400 --> 00:06:25,960
+so if you are here say hi if you have
+
+119
+00:06:23,440 --> 00:06:30,919
+some questions about wam language or
+
+120
+00:06:25,960 --> 00:06:34,080
+Mathematica ask me okay hello
+
+121
+00:06:30,919 --> 00:06:36,960
+reu okay so let's code so let me tell
+
+122
+00:06:34,080 --> 00:06:39,240
+you what I'm going to do okay
+
+123
+00:06:36,960 --> 00:06:42,800
+so
+
+124
+00:06:39,240 --> 00:06:46,280
+um so here is a source code you can view
+
+125
+00:06:42,800 --> 00:06:49,319
+the source code in wolam language so you
+
+126
+00:06:46,280 --> 00:06:51,800
+know so here is how it looks like in
+
+127
+00:06:49,319 --> 00:06:51,800
+wolam
+
+128
+00:06:52,240 --> 00:07:01,280
+language uh let's magnify okay so here's
+
+129
+00:06:56,759 --> 00:07:05,120
+a documentation copyright
+
+130
+00:07:01,280 --> 00:07:07,680
+uh okay and here is the inline
+
+131
+00:07:05,120 --> 00:07:11,080
+documentation let's go down go down go
+
+132
+00:07:07,680 --> 00:07:14,039
+down go down go down go down go down go
+
+133
+00:07:11,080 --> 00:07:17,479
+down go down go down go down so here is
+
+134
+00:07:14,039 --> 00:07:21,360
+starting to have code this begin is to
+
+135
+00:07:17,479 --> 00:07:24,400
+declare a name space so you are starting
+
+136
+00:07:21,360 --> 00:07:26,520
+you know I'm starting my own name space
+
+137
+00:07:24,400 --> 00:07:29,879
+you know basically this is this is like
+
+138
+00:07:26,520 --> 00:07:33,800
+writing a library in python or Java
+
+139
+00:07:29,879 --> 00:07:36,840
+so anyway documentation so here's code
+
+140
+00:07:33,800 --> 00:07:42,319
+so you can see here's
+
+141
+00:07:36,840 --> 00:07:44,599
+code um okay so this file is par plot. M
+
+142
+00:07:42,319 --> 00:07:47,800
+okay so that's this
+
+143
+00:07:44,599 --> 00:07:51,319
+file and uh let me just let me just
+
+144
+00:07:47,800 --> 00:07:54,840
+start to code uh let me focus on what I
+
+145
+00:07:51,319 --> 00:07:56,759
+need to do then maybe I explain what I'm
+
+146
+00:07:54,840 --> 00:07:59,879
+doing
+
+147
+00:07:56,759 --> 00:08:02,199
+okay so anyway so this package has been
+
+148
+00:07:59,879 --> 00:08:03,960
+almost like 15 years I haven't touched
+
+149
+00:08:02,199 --> 00:08:07,639
+it
+
+150
+00:08:03,960 --> 00:08:11,440
+so you know this so there is quite a few
+
+151
+00:08:07,639 --> 00:08:14,280
+changes in wfam language has added about
+
+152
+00:08:11,440 --> 00:08:18,960
+a thousand more functions so you know
+
+153
+00:08:14,280 --> 00:08:22,800
+actually wam language has added 5,000
+
+154
+00:08:18,960 --> 00:08:26,879
+something around 5,000 functions since
+
+155
+00:08:22,800 --> 00:08:30,759
+20 years ago uh so there is quite a lot
+
+156
+00:08:26,879 --> 00:08:33,640
+to do and uh also so in the past 30
+
+157
+00:08:30,759 --> 00:08:38,039
+years there's a lot changes in Computing
+
+158
+00:08:33,640 --> 00:08:41,599
+in in you know in in Hardware CPU GPU
+
+159
+00:08:38,039 --> 00:08:43,880
+and uh the style of documentation the
+
+160
+00:08:41,599 --> 00:08:46,040
+wording you know the the word is
+
+161
+00:08:43,880 --> 00:08:49,519
+different from 20 years ago because 20
+
+162
+00:08:46,040 --> 00:08:52,399
+years ago you don't even have Wikipedia
+
+163
+00:08:49,519 --> 00:08:54,959
+and you barely have the internet so when
+
+164
+00:08:52,399 --> 00:08:57,399
+you need to know mathematics you know B
+
+165
+00:08:54,959 --> 00:08:59,720
+basically you read textbooks so it's not
+
+166
+00:08:57,399 --> 00:09:03,240
+like today today you have cell phones
+
+167
+00:08:59,720 --> 00:09:06,680
+and everything so this
+
+168
+00:09:03,240 --> 00:09:10,200
+um wam language has also added a lot of
+
+169
+00:09:06,680 --> 00:09:12,839
+additions and some incompatible changes
+
+170
+00:09:10,200 --> 00:09:15,120
+there's some so this a lot to change
+
+171
+00:09:12,839 --> 00:09:18,040
+reward the documentation and so
+
+172
+00:09:15,120 --> 00:09:20,959
+on so let me let me let me get to what I
+
+173
+00:09:18,040 --> 00:09:20,959
+want to do okay
+
+174
+00:09:21,600 --> 00:09:30,120
+so okay so this file is M MB okay so
+
+175
+00:09:26,519 --> 00:09:33,120
+this is my original source code
+
+176
+00:09:30,120 --> 00:09:36,040
+um let's see what I how I want to do
+
+177
+00:09:33,120 --> 00:09:36,040
+this what I want to
+
+178
+00:09:36,360 --> 00:09:43,079
+do if I just started to do what I need
+
+179
+00:09:40,160 --> 00:09:45,959
+to do then you you won't understand
+
+180
+00:09:43,079 --> 00:09:48,399
+anything uh this is a description of
+
+181
+00:09:45,959 --> 00:09:50,839
+this video I mean this is what this is
+
+182
+00:09:48,399 --> 00:09:54,079
+the purpose of today's live stream I'm
+
+183
+00:09:50,839 --> 00:09:55,600
+just going to code my stuff you won't
+
+184
+00:09:54,079 --> 00:10:00,040
+understand the thing it's just like in a
+
+185
+00:09:55,600 --> 00:10:03,360
+real life programming project at at at a
+
+186
+00:10:00,040 --> 00:10:06,720
+job you know it even takes an hour to
+
+187
+00:10:03,360 --> 00:10:10,519
+explain to let any Outsider to
+
+188
+00:10:06,720 --> 00:10:13,399
+understand what you are doing uh because
+
+189
+00:10:10,519 --> 00:10:15,600
+you know so it's like real life coding
+
+190
+00:10:13,399 --> 00:10:19,040
+but however I'm going to
+
+191
+00:10:15,600 --> 00:10:21,360
+try to explain some part of it so at
+
+192
+00:10:19,040 --> 00:10:25,839
+least you get some sense of what I'm
+
+193
+00:10:21,360 --> 00:10:29,560
+doing what I need to do
+
+194
+00:10:25,839 --> 00:10:31,200
+um okay let's let's focus let's
+
+195
+00:10:29,560 --> 00:10:33,720
+let me show you let's start to load
+
+196
+00:10:31,200 --> 00:10:36,320
+wolam language from the ground up okay
+
+197
+00:10:33,720 --> 00:10:39,040
+so I there's some bug I need to fix for
+
+198
+00:10:36,320 --> 00:10:41,440
+example let me show you some bugs okay
+
+199
+00:10:39,040 --> 00:10:44,440
+so you can see all these are
+
+200
+00:10:41,440 --> 00:10:47,760
+fine you can you can see all these are
+
+201
+00:10:44,440 --> 00:10:50,440
+fine but however you see this got a pink
+
+202
+00:10:47,760 --> 00:10:52,959
+background that means there's a there's
+
+203
+00:10:50,440 --> 00:10:57,680
+some error so if you click on that you
+
+204
+00:10:52,959 --> 00:11:00,320
+can see coordinate in the coordinate in
+
+205
+00:10:57,680 --> 00:11:03,320
+determinate in terminate should be a
+
+206
+00:11:00,320 --> 00:11:06,160
+real uh pair of numbers or a scale of
+
+207
+00:11:03,320 --> 00:11:10,279
+offset form basically you
+
+208
+00:11:06,160 --> 00:11:13,800
+got basically division by zero so when
+
+209
+00:11:10,279 --> 00:11:16,480
+you compute this
+
+210
+00:11:13,800 --> 00:11:17,760
+curve uh this curve is interesting okay
+
+211
+00:11:16,480 --> 00:11:22,399
+it's called
+
+212
+00:11:17,760 --> 00:11:25,000
+cycloid it's this curve anyways this so
+
+213
+00:11:22,399 --> 00:11:28,200
+there's quite a lot things to
+
+214
+00:11:25,000 --> 00:11:31,399
+explain so this curve is called cycloid
+
+215
+00:11:28,200 --> 00:11:33,279
+okay so let's let let me just demo then
+
+216
+00:11:31,399 --> 00:11:38,160
+so you go to visual dictionary of
+
+217
+00:11:33,279 --> 00:11:40,880
+special CL plane curves then you go to
+
+218
+00:11:38,160 --> 00:11:46,399
+cycloid
+
+219
+00:11:40,880 --> 00:11:49,000
+um okay there it is Cy cycloid so this
+
+220
+00:11:46,399 --> 00:11:54,120
+curve is what happens if you roll a
+
+221
+00:11:49,000 --> 00:11:57,800
+circle on a line and you trace out the a
+
+222
+00:11:54,120 --> 00:11:59,760
+point on a wheel on a circle so this is
+
+223
+00:11:57,800 --> 00:12:02,959
+a cycle cycle
+
+224
+00:11:59,760 --> 00:12:06,399
+and it's one of the very famous curve
+
+225
+00:12:02,959 --> 00:12:10,120
+about 200 years ago because this curve
+
+226
+00:12:06,399 --> 00:12:12,160
+is a solution to you know imagine if you
+
+227
+00:12:10,120 --> 00:12:18,240
+have a
+
+228
+00:12:12,160 --> 00:12:21,880
+ball and you have a slope you drop the
+
+229
+00:12:18,240 --> 00:12:25,040
+ball the ball will roll down right so
+
+230
+00:12:21,880 --> 00:12:28,079
+obviously the higher the angle of
+
+231
+00:12:25,040 --> 00:12:29,639
+inclination the ball will reach to the
+
+232
+00:12:28,079 --> 00:12:33,639
+ground faster
+
+233
+00:12:29,639 --> 00:12:36,120
+but however if you make the slope curved
+
+234
+00:12:33,639 --> 00:12:40,880
+will it reach the ground faster than a
+
+235
+00:12:36,120 --> 00:12:43,519
+straight slope or even if you you know
+
+236
+00:12:40,880 --> 00:12:47,360
+so what what is the shape of the curve
+
+237
+00:12:43,519 --> 00:12:50,760
+such that if you drop the drop the ball
+
+238
+00:12:47,360 --> 00:12:53,880
+it will roll down the fastest Accord by
+
+239
+00:12:50,760 --> 00:12:58,160
+the laws of physics so it turns out the
+
+240
+00:12:53,880 --> 00:13:00,600
+solution of that slope is this this
+
+241
+00:12:58,160 --> 00:13:03,079
+curve called cycloid and you can
+
+242
+00:13:00,600 --> 00:13:06,560
+generate this Cur by Rolling a circle so
+
+243
+00:13:03,079 --> 00:13:09,079
+lots of calculus this is this problem
+
+244
+00:13:06,560 --> 00:13:13,120
+belongs to the calculus of variation so
+
+245
+00:13:09,079 --> 00:13:15,519
+this is uh interesting part of
+
+246
+00:13:13,120 --> 00:13:17,800
+calculus typically you don't learn that
+
+247
+00:13:15,519 --> 00:13:20,000
+you know they don't tell you these
+
+248
+00:13:17,800 --> 00:13:22,199
+interesting things in school so anyway
+
+249
+00:13:20,000 --> 00:13:25,760
+so this
+
+250
+00:13:22,199 --> 00:13:27,760
+curve but then you can generate what's
+
+251
+00:13:25,760 --> 00:13:30,760
+called a
+
+252
+00:13:27,760 --> 00:13:30,760
+um
+
+253
+00:13:30,800 --> 00:13:35,600
+oh this is the this is the evolute yeah
+
+254
+00:13:33,680 --> 00:13:39,519
+okay so you can generate the evolute of
+
+255
+00:13:35,600 --> 00:13:44,120
+the curve and the evolute of a cycloid
+
+256
+00:13:39,519 --> 00:13:48,000
+is itself so anyway that's that's that's
+
+257
+00:13:44,120 --> 00:13:50,600
+um that's a lot math I won't go into if
+
+258
+00:13:48,000 --> 00:13:54,120
+you want to read it you can click here
+
+259
+00:13:50,600 --> 00:13:56,720
+and understand what evolute is about so
+
+260
+00:13:54,120 --> 00:13:59,720
+there's a visual animation you can
+
+261
+00:13:56,720 --> 00:14:02,560
+understand what's the evolute so this
+
+262
+00:13:59,720 --> 00:14:06,399
+animation is showing the evolute of an
+
+263
+00:14:02,560 --> 00:14:09,399
+elisp so this this red dots traced out
+
+264
+00:14:06,399 --> 00:14:12,959
+is the evolute of a
+
+265
+00:14:09,399 --> 00:14:16,000
+elisp okay so then the evolute of a
+
+266
+00:14:12,959 --> 00:14:19,279
+cycloid is itself so for example this
+
+267
+00:14:16,000 --> 00:14:22,519
+blue curve the evolute is this red one
+
+268
+00:14:19,279 --> 00:14:27,440
+is is it itself then the evolute of that
+
+269
+00:14:22,519 --> 00:14:30,720
+is again you know itself so that's why
+
+270
+00:14:27,440 --> 00:14:32,959
+you know so that's what this codee is
+
+271
+00:14:30,720 --> 00:14:35,680
+trying to do is is is trying to
+
+272
+00:14:32,959 --> 00:14:39,000
+illustrate the evolute of a
+
+273
+00:14:35,680 --> 00:14:41,800
+cycloid okay but now it's got error so
+
+274
+00:14:39,000 --> 00:14:43,720
+you see we got some somewhere in a
+
+275
+00:14:41,800 --> 00:14:47,720
+computation we got
+
+276
+00:14:43,720 --> 00:14:52,480
+a uh basically division by zero like
+
+277
+00:14:47,720 --> 00:14:54,839
+one/ zero so in the in determinant so
+
+278
+00:14:52,480 --> 00:14:57,079
+that's a bug you know it wasn't this I
+
+279
+00:14:54,839 --> 00:14:59,440
+don't have this bug like 20 years ago
+
+280
+00:14:57,079 --> 00:15:02,440
+but somehow you know the current version
+
+281
+00:14:59,440 --> 00:15:04,600
+of wolf language I have that bug so we I
+
+282
+00:15:02,440 --> 00:15:07,360
+need to fix that okay so that's one of
+
+283
+00:15:04,600 --> 00:15:10,320
+the things I need to fix let's
+
+284
+00:15:07,360 --> 00:15:14,120
+see let's focus on that let's see if I
+
+285
+00:15:10,320 --> 00:15:16,920
+can fix this bug today uh that would be
+
+286
+00:15:14,120 --> 00:15:18,199
+the focus of this video you see the bug
+
+287
+00:15:16,920 --> 00:15:21,759
+happened here
+
+288
+00:15:18,199 --> 00:15:24,959
+again uh and uh and there are some other
+
+289
+00:15:21,759 --> 00:15:28,720
+bugs so for example this this
+
+290
+00:15:24,959 --> 00:15:31,240
+expression you are supposed to the
+
+291
+00:15:28,720 --> 00:15:35,600
+result should be like this okay this
+
+292
+00:15:31,240 --> 00:15:35,600
+should be the result it shows
+
+293
+00:15:35,920 --> 00:15:43,519
+the it shows the
+
+294
+00:15:39,680 --> 00:15:46,079
+um inversion of a hyperbola okay it
+
+295
+00:15:43,519 --> 00:15:48,399
+should this should be the result but
+
+296
+00:15:46,079 --> 00:15:52,199
+however if you plot it now you get this
+
+297
+00:15:48,399 --> 00:15:55,600
+instead so something is wrong so
+
+298
+00:15:52,199 --> 00:16:00,079
+basically this two bugs I believe this
+
+299
+00:15:55,600 --> 00:16:03,279
+two bugs is um is what I need to fix
+
+300
+00:16:00,079 --> 00:16:05,240
+okay so let's just focus on doing
+
+301
+00:16:03,279 --> 00:16:08,240
+that okay
+
+302
+00:16:05,240 --> 00:16:12,399
+so close that don't
+
+303
+00:16:08,240 --> 00:16:15,480
+save and let's start wam language close
+
+304
+00:16:12,399 --> 00:16:19,040
+that don't save start from the
+
+305
+00:16:15,480 --> 00:16:19,040
+beginning okay launch
+
+306
+00:16:21,880 --> 00:16:27,880
+it so do you think it's possible to make
+
+307
+00:16:24,720 --> 00:16:29,880
+a game using wolf and math plots yes of
+
+308
+00:16:27,880 --> 00:16:32,880
+course now there are two separate
+
+309
+00:16:29,880 --> 00:16:34,440
+questions is it possible to create a
+
+310
+00:16:32,880 --> 00:16:37,519
+game
+
+311
+00:16:34,440 --> 00:16:41,120
+using uh the ideas of geometry in
+
+312
+00:16:37,519 --> 00:16:43,720
+particular plating curves or more
+
+313
+00:16:41,120 --> 00:16:46,160
+specifically surfaces when you have
+
+314
+00:16:43,720 --> 00:16:47,600
+surfaces oh my God it's pure it's
+
+315
+00:16:46,160 --> 00:16:51,160
+amazing
+
+316
+00:16:47,600 --> 00:16:55,279
+okay uh let me talk about that
+
+317
+00:16:51,160 --> 00:16:57,480
+so it is not just possible it would be
+
+318
+00:16:55,279 --> 00:17:01,079
+amazing it would be one of the best
+
+319
+00:16:57,480 --> 00:17:04,640
+seller if you create a 3D game because I
+
+320
+00:17:01,079 --> 00:17:07,120
+I have been wanting to do that for for a
+
+321
+00:17:04,640 --> 00:17:09,199
+long time for like 20 years ago I was
+
+322
+00:17:07,120 --> 00:17:11,959
+thinking about that but I don't know how
+
+323
+00:17:09,199 --> 00:17:17,839
+to write again despite I try to learn it
+
+324
+00:17:11,959 --> 00:17:23,559
+it's very complex the open G stuff but
+
+325
+00:17:17,839 --> 00:17:26,480
+so if you create a game with idea of
+
+326
+00:17:23,559 --> 00:17:29,960
+either curves or more specifically I
+
+327
+00:17:26,480 --> 00:17:31,400
+have in mind uh 3D surfaces you are
+
+328
+00:17:29,960 --> 00:17:34,960
+going to have a
+
+329
+00:17:31,400 --> 00:17:37,400
+spectacular uh 3D game okay like the you
+
+330
+00:17:34,960 --> 00:17:39,360
+know like today's 3D game you can walk
+
+331
+00:17:37,400 --> 00:17:41,880
+inside it you can move
+
+332
+00:17:39,360 --> 00:17:46,000
+around it would be spectacular I'm going
+
+333
+00:17:41,880 --> 00:17:49,679
+to show you a few of that uh of the idea
+
+334
+00:17:46,000 --> 00:17:53,240
+okay so yeah but we just need someone to
+
+335
+00:17:49,679 --> 00:17:56,720
+write it but some games they already
+
+336
+00:17:53,240 --> 00:18:01,880
+employ some of the idea for example in
+
+337
+00:17:56,720 --> 00:18:01,880
+Zelda back in 1999 Zelda
+
+338
+00:18:04,960 --> 00:18:12,799
+64 okay you have this character link
+
+339
+00:18:09,240 --> 00:18:14,080
+that goes through a t a tunel okay so
+
+340
+00:18:12,799 --> 00:18:17,400
+Zelda
+
+341
+00:18:14,080 --> 00:18:22,000
+64 game
+
+342
+00:18:17,400 --> 00:18:26,400
+play uh H this Brave search is no
+
+343
+00:18:22,000 --> 00:18:26,400
+good so let's go to
+
+344
+00:18:27,320 --> 00:18:30,320
+Google
+
+345
+00:18:32,760 --> 00:18:39,960
+so let me keep focused I want to talk
+
+346
+00:18:35,520 --> 00:18:42,440
+about something okay so it is certainly
+
+347
+00:18:39,960 --> 00:18:44,200
+fantastic if you create a game with ma
+
+348
+00:18:42,440 --> 00:18:46,760
+mathematical
+
+349
+00:18:44,200 --> 00:18:49,440
+ideas now however you are talking about
+
+350
+00:18:46,760 --> 00:18:51,480
+wolam language can you use wolam
+
+351
+00:18:49,440 --> 00:18:54,240
+language to create search again yeah you
+
+352
+00:18:51,480 --> 00:18:56,919
+can but like it's not good okay you can
+
+353
+00:18:54,240 --> 00:18:59,120
+use wolam language in the notebook you
+
+354
+00:18:56,919 --> 00:19:02,480
+can create a game like
+
+355
+00:18:59,120 --> 00:19:06,080
+like Tetris that sort of thing but if
+
+356
+00:19:02,480 --> 00:19:07,520
+you want to create a 3D game like the
+
+357
+00:19:06,080 --> 00:19:11,159
+you know the type of games you are
+
+358
+00:19:07,520 --> 00:19:13,280
+familiar with no you cannot do that with
+
+359
+00:19:11,159 --> 00:19:15,799
+wam language and you don't want to do
+
+360
+00:19:13,280 --> 00:19:18,400
+that with wam language okay so wolam
+
+361
+00:19:15,799 --> 00:19:22,640
+language is not for that you know for
+
+362
+00:19:18,400 --> 00:19:25,039
+that you go to C++ things like that so
+
+363
+00:19:22,640 --> 00:19:27,559
+in Zelda you have you know so you have
+
+364
+00:19:25,039 --> 00:19:30,600
+this link character and in this game you
+
+365
+00:19:27,559 --> 00:19:33,360
+have link go through a tunnel so you go
+
+366
+00:19:30,600 --> 00:19:36,480
+inside the tunnel then the tunnel become
+
+367
+00:19:33,360 --> 00:19:39,799
+twist twisted it's like you know upside
+
+368
+00:19:36,480 --> 00:19:44,799
+down twisting then you come out from the
+
+369
+00:19:39,799 --> 00:19:47,880
+tunnel to some other side so that is a
+
+370
+00:19:44,799 --> 00:19:49,600
+incredible idea using the idea of
+
+371
+00:19:47,880 --> 00:19:52,760
+threedimensional
+
+372
+00:19:49,600 --> 00:19:56,159
+uh curves and surfaces three dimensional
+
+373
+00:19:52,760 --> 00:19:58,520
+surfaces okay so let me show you let me
+
+374
+00:19:56,159 --> 00:20:02,600
+finish talking about that and let's get
+
+375
+00:19:58,520 --> 00:20:05,440
+back to the wolfen language code um so
+
+376
+00:20:02,600 --> 00:20:09,000
+for example here are some of some of the
+
+377
+00:20:05,440 --> 00:20:12,000
+surfaces and for example I want to show
+
+378
+00:20:09,000 --> 00:20:12,000
+you
+
+379
+00:20:12,280 --> 00:20:19,400
+um minimal surfaces minimal surfaces is
+
+380
+00:20:16,080 --> 00:20:22,799
+most spectacular okay so for example
+
+381
+00:20:19,400 --> 00:20:26,400
+this uh let me show you this
+
+382
+00:20:22,799 --> 00:20:29,280
+one okay so for for example this one now
+
+383
+00:20:26,400 --> 00:20:31,720
+this this is a minimal surface so it's a
+
+384
+00:20:29,280 --> 00:20:34,720
+three-dimensional surface so as you can
+
+385
+00:20:31,720 --> 00:20:38,440
+see it's kind of symmetric and you got
+
+386
+00:20:34,720 --> 00:20:41,240
+this holse in it so now imagine imagine
+
+387
+00:20:38,440 --> 00:20:44,159
+the Zelda game or whatever shooter game
+
+388
+00:20:41,240 --> 00:20:46,640
+or whatever so you your your character
+
+389
+00:20:44,159 --> 00:20:48,799
+works inside this hole that's an
+
+390
+00:20:46,640 --> 00:20:51,720
+interesting interesting thing about
+
+391
+00:20:48,799 --> 00:20:56,440
+these surfaces because this surface
+
+392
+00:20:51,720 --> 00:21:00,960
+divides the 3D space into several
+
+393
+00:20:56,440 --> 00:21:03,480
+sections now some of the surface so you
+
+394
+00:21:00,960 --> 00:21:06,200
+have to imagine this surface extends all
+
+395
+00:21:03,480 --> 00:21:06,880
+over so it's this is just showing part
+
+396
+00:21:06,200 --> 00:21:11,559
+of
+
+397
+00:21:06,880 --> 00:21:13,480
+it now some of it is uh periodic okay so
+
+398
+00:21:11,559 --> 00:21:16,720
+let me show you an example here's
+
+399
+00:21:13,480 --> 00:21:20,559
+another example again this is this
+
+400
+00:21:16,720 --> 00:21:24,760
+expands to all all the space so you got
+
+401
+00:21:20,559 --> 00:21:28,440
+this hole so you see you got this hole
+
+402
+00:21:24,760 --> 00:21:29,919
+this hole gets you into this like a
+
+403
+00:21:28,440 --> 00:21:33,520
+second store
+
+404
+00:21:29,919 --> 00:21:36,640
+store you know story then you go around
+
+405
+00:21:33,520 --> 00:21:39,720
+then you drop into that hole gets to to
+
+406
+00:21:36,640 --> 00:21:42,039
+get you to the next floor so this this
+
+407
+00:21:39,720 --> 00:21:46,320
+surface you know it's like a
+
+408
+00:21:42,039 --> 00:21:49,919
+screw it fills the space so you can go
+
+409
+00:21:46,320 --> 00:21:54,240
+around different um floors kind
+
+410
+00:21:49,919 --> 00:21:57,400
+of it partitions the 3D space
+
+411
+00:21:54,240 --> 00:22:01,080
+into in fact it's it doesn't partition
+
+412
+00:21:57,400 --> 00:22:02,960
+because uh wait does it yes it does I I
+
+413
+00:22:01,080 --> 00:22:04,080
+think it does it partition the space
+
+414
+00:22:02,960 --> 00:22:07,279
+into
+
+415
+00:22:04,080 --> 00:22:10,799
+two spaces separate from each other you
+
+416
+00:22:07,279 --> 00:22:13,000
+can never go from one space to the other
+
+417
+00:22:10,799 --> 00:22:16,200
+you see because this
+
+418
+00:22:13,000 --> 00:22:19,039
+hole Yeah so you can look at this hole
+
+419
+00:22:16,200 --> 00:22:21,840
+actually drops you to this
+
+420
+00:22:19,039 --> 00:22:24,520
+floor but on this floor dropped you to
+
+421
+00:22:21,840 --> 00:22:25,640
+the so basically you have even floors
+
+422
+00:22:24,520 --> 00:22:28,840
+and odd
+
+423
+00:22:25,640 --> 00:22:31,080
+floors you can go from any even floor to
+
+424
+00:22:28,840 --> 00:22:34,640
+another even floor but you can never
+
+425
+00:22:31,080 --> 00:22:37,440
+reach the odd floors so this is why it
+
+426
+00:22:34,640 --> 00:22:38,919
+is interesting so imagine now imagine if
+
+427
+00:22:37,440 --> 00:22:43,320
+you are the you
+
+428
+00:22:38,919 --> 00:22:45,360
+know uh a character in the 3D game you
+
+429
+00:22:43,320 --> 00:22:47,919
+can you cannot get to the other side you
+
+430
+00:22:45,360 --> 00:22:51,679
+see unless unless maybe there's a hole
+
+431
+00:22:47,919 --> 00:22:55,480
+there so that's you know that makes it a
+
+432
+00:22:51,679 --> 00:22:58,799
+puzzle uh By the way when you when you
+
+433
+00:22:55,480 --> 00:23:00,520
+move like a human you know you walk
+
+434
+00:22:58,799 --> 00:23:04,880
+around buildings
+
+435
+00:23:00,520 --> 00:23:08,120
+without without getting a over a bird's
+
+436
+00:23:04,880 --> 00:23:09,799
+eyes view of the whole map you know in
+
+437
+00:23:08,120 --> 00:23:11,840
+game usually you have a little map
+
+438
+00:23:09,799 --> 00:23:14,640
+that's kind of like cheating right
+
+439
+00:23:11,840 --> 00:23:16,559
+because in reality you don't get a map
+
+440
+00:23:14,640 --> 00:23:21,760
+like that unless today you you know you
+
+441
+00:23:16,559 --> 00:23:24,320
+have iPhone you know you you use a
+
+442
+00:23:21,760 --> 00:23:28,120
+uh you know you have Google
+
+443
+00:23:24,320 --> 00:23:29,960
+Maps but in real life you you know
+
+444
+00:23:28,120 --> 00:23:33,120
+without this smap technology you don't
+
+445
+00:23:29,960 --> 00:23:34,880
+have that so you don't know which room
+
+446
+00:23:33,120 --> 00:23:37,880
+goes where like in a
+
+447
+00:23:34,880 --> 00:23:37,880
+puzzle
+
+448
+00:23:38,039 --> 00:23:44,240
+uh so let me just show you some pictures
+
+449
+00:23:41,520 --> 00:23:48,440
+to illustrate the idea so like a
+
+450
+00:23:44,240 --> 00:23:52,279
+labyrinth right without a overview from
+
+451
+00:23:48,440 --> 00:23:54,440
+above you don't know where you are so
+
+452
+00:23:52,279 --> 00:23:57,360
+when in that situation you have to rely
+
+453
+00:23:54,440 --> 00:24:02,559
+on your senses like when did you turn or
+
+454
+00:23:57,360 --> 00:24:02,559
+leave a thread so that's called dead
+
+455
+00:24:05,360 --> 00:24:11,760
+reckoning okay that kind of navigation
+
+456
+00:24:08,080 --> 00:24:15,279
+is called called uh dead reckoning okay
+
+457
+00:24:11,760 --> 00:24:16,840
+very interesting so now imagine now you
+
+458
+00:24:15,279 --> 00:24:19,840
+know
+
+459
+00:24:16,840 --> 00:24:23,159
+you you know we are familiar with these
+
+460
+00:24:19,840 --> 00:24:26,799
+Labyrinth kind of 2D puzzles but now
+
+461
+00:24:23,159 --> 00:24:31,240
+imagine in a 3D case 3D case you have
+
+462
+00:24:26,799 --> 00:24:34,799
+this you know so it's very it it it kind
+
+463
+00:24:31,240 --> 00:24:36,960
+of makes the interesting level to the
+
+464
+00:24:34,799 --> 00:24:39,960
+next level so you have to realize you
+
+465
+00:24:36,960 --> 00:24:40,880
+have to kind of relying on your senses
+
+466
+00:24:39,960 --> 00:24:43,559
+to
+
+467
+00:24:40,880 --> 00:24:45,840
+determine whether you can get to the
+
+468
+00:24:43,559 --> 00:24:48,279
+other side or how many different sides
+
+469
+00:24:45,840 --> 00:24:51,039
+are there things like that so that's
+
+470
+00:24:48,279 --> 00:24:53,159
+another example there quite a few uh let
+
+471
+00:24:51,039 --> 00:24:56,279
+me show you for example this
+
+472
+00:24:53,159 --> 00:25:00,399
+one this one you know this is called uh
+
+473
+00:24:56,279 --> 00:25:04,840
+Casher J saddle Tower Casher is a German
+
+474
+00:25:00,399 --> 00:25:08,320
+geometer it's a one of the top geometer
+
+475
+00:25:04,840 --> 00:25:12,240
+specializing in minimal surfaces he
+
+476
+00:25:08,320 --> 00:25:16,399
+taught me a lot mathematics you know so
+
+477
+00:25:12,240 --> 00:25:19,760
+in this so for example there's also that
+
+478
+00:25:16,399 --> 00:25:22,840
+one so this kind of surfaces partition
+
+479
+00:25:19,760 --> 00:25:27,760
+the space into weird you know
+
+480
+00:25:22,840 --> 00:25:29,720
+compartments so I think it makes it very
+
+481
+00:25:27,760 --> 00:25:32,440
+interesting and you have things like
+
+482
+00:25:29,720 --> 00:25:35,840
+that it's hard to imagine how exactly
+
+483
+00:25:32,440 --> 00:25:39,760
+this expands but you know that's one of
+
+484
+00:25:35,840 --> 00:25:42,240
+the and you you have G gyroid and today
+
+485
+00:25:39,760 --> 00:25:46,720
+you know with Wikipedia you have lots of
+
+486
+00:25:42,240 --> 00:25:50,039
+better uh images you see so this is
+
+487
+00:25:46,720 --> 00:25:54,159
+another minimal surface so you have so
+
+488
+00:25:50,039 --> 00:25:55,919
+many holes so that's very interesting
+
+489
+00:25:54,159 --> 00:25:57,679
+okay so that's one of the thing I've
+
+490
+00:25:55,919 --> 00:25:59,520
+been thinking of doing but I don't think
+
+491
+00:25:57,679 --> 00:26:04,640
+think I'll ever do it because I'm
+
+492
+00:25:59,520 --> 00:26:10,799
+getting old so we need someone to you
+
+493
+00:26:04,640 --> 00:26:13,200
+know get expert to to work on this idea
+
+494
+00:26:10,799 --> 00:26:15,279
+okay yeah so back to the question if
+
+495
+00:26:13,200 --> 00:26:17,880
+you're going to yeah you can do that but
+
+496
+00:26:15,279 --> 00:26:21,200
+if if can you do that with Mathematica
+
+497
+00:26:17,880 --> 00:26:22,679
+no you want no you you need to use a
+
+498
+00:26:21,200 --> 00:26:28,080
+game engine
+
+499
+00:26:22,679 --> 00:26:30,200
+okay or you even need to um anyway so uh
+
+500
+00:26:28,080 --> 00:26:33,360
+I'm going to stop there because
+
+501
+00:26:30,200 --> 00:26:36,159
+otherwise I'll it'll be nonstop so
+
+502
+00:26:33,360 --> 00:26:39,919
+that's about that
+
+503
+00:26:36,159 --> 00:26:42,640
+um so by the way all these all these
+
+504
+00:26:39,919 --> 00:26:44,000
+Graphics you see here are generated uh
+
+505
+00:26:42,640 --> 00:26:47,120
+by wolam
+
+506
+00:26:44,000 --> 00:26:48,640
+language uh I did them like long time
+
+507
+00:26:47,120 --> 00:26:52,200
+ago 20 years
+
+508
+00:26:48,640 --> 00:26:56,320
+ago uh except some of them are generated
+
+509
+00:26:52,200 --> 00:26:59,559
+by my professor my friend and Mentor
+
+510
+00:26:56,320 --> 00:27:02,480
+Professor Richard palet you know many of
+
+511
+00:26:59,559 --> 00:27:07,360
+these uh
+
+512
+00:27:02,480 --> 00:27:10,760
+his uh you know his his uh 3D explore
+
+513
+00:27:07,360 --> 00:27:13,559
+math that's his software okay so anyway
+
+514
+00:27:10,760 --> 00:27:15,679
+so that's about that's some interesting
+
+515
+00:27:13,559 --> 00:27:18,360
+things about
+
+516
+00:27:15,679 --> 00:27:19,720
+um you know differential geometry
+
+517
+00:27:18,360 --> 00:27:23,559
+threedimensional
+
+518
+00:27:19,720 --> 00:27:25,760
+surfaces uh idea in games okay let's get
+
+519
+00:27:23,559 --> 00:27:28,360
+back uh and we talked about Deb
+
+520
+00:27:25,760 --> 00:27:31,640
+Reckoning Labyrinth
+
+521
+00:27:28,360 --> 00:27:34,760
+gyroid geometry okay
+
+522
+00:27:31,640 --> 00:27:37,720
+Zelda uh let's get back to what I I need
+
+523
+00:27:34,760 --> 00:27:37,720
+to do okay
+
+524
+00:27:37,960 --> 00:27:45,799
+so uh okay so yeah let's start wolam
+
+525
+00:27:42,039 --> 00:27:49,600
+language let's begin to Let's load it
+
+526
+00:27:45,799 --> 00:27:52,600
+okay so it's started now close it don't
+
+527
+00:27:49,600 --> 00:27:56,720
+save now let's go to the
+
+528
+00:27:52,600 --> 00:27:59,519
+directory and uh let's open my package
+
+529
+00:27:56,720 --> 00:27:59,519
+open it
+
+530
+00:28:00,880 --> 00:28:08,000
+okay so here is my package now select
+
+531
+00:28:05,279 --> 00:28:08,000
+all
+
+532
+00:28:11,480 --> 00:28:20,960
+rning okay so here's all the
+
+533
+00:28:14,320 --> 00:28:20,960
+code and it's done okay now open the
+
+534
+00:28:23,360 --> 00:28:28,159
+examples open
+
+535
+00:28:26,240 --> 00:28:31,960
+it okay
+
+536
+00:28:28,159 --> 00:28:36,200
+documentation now let's
+
+537
+00:28:31,960 --> 00:28:39,240
+so so for example let's delete that and
+
+538
+00:28:36,200 --> 00:28:42,840
+run it do you want to automatically
+
+539
+00:28:39,240 --> 00:28:45,240
+evaluate all initialization cells no
+
+540
+00:28:42,840 --> 00:28:49,159
+because we already loaded so this is
+
+541
+00:28:45,240 --> 00:28:51,840
+what this package does it can draw a
+
+542
+00:28:49,159 --> 00:28:55,519
+parametric curve
+
+543
+00:28:51,840 --> 00:28:58,880
+but using the color variation to show
+
+544
+00:28:55,519 --> 00:29:02,480
+where does the curve begin so normally
+
+545
+00:28:58,880 --> 00:29:05,559
+if you do this in wam language
+
+546
+00:29:02,480 --> 00:29:08,000
+um I'm not sure it can do it today but I
+
+547
+00:29:05,559 --> 00:29:08,000
+don't think
+
+548
+00:29:08,840 --> 00:29:16,039
+so uh parametric
+
+549
+00:29:12,600 --> 00:29:17,919
+plot okay so if you use wolam language
+
+550
+00:29:16,039 --> 00:29:20,399
+you get this you don't get you don't
+
+551
+00:29:17,919 --> 00:29:22,840
+know where where's the beginning of the
+
+552
+00:29:20,399 --> 00:29:29,320
+curve where's the end
+
+553
+00:29:22,840 --> 00:29:29,320
+so my package add adds that enhancement
+
+554
+00:29:29,360 --> 00:29:34,440
+okay
+
+555
+00:29:30,840 --> 00:29:38,840
+so so it works let's let's just run
+
+556
+00:29:34,440 --> 00:29:40,960
+another example okay delete that do it
+
+557
+00:29:38,840 --> 00:29:44,480
+okay
+
+558
+00:29:40,960 --> 00:29:44,480
+uh delete
+
+559
+00:29:45,320 --> 00:29:50,240
+that do it
+
+560
+00:29:48,240 --> 00:29:54,159
+okay
+
+561
+00:29:50,240 --> 00:29:56,320
+uh now this is also let's run it okay so
+
+562
+00:29:54,159 --> 00:29:58,640
+each time it generates a different
+
+563
+00:29:56,320 --> 00:30:00,760
+color
+
+564
+00:29:58,640 --> 00:30:04,519
+okay so but I want
+
+565
+00:30:00,760 --> 00:30:06,720
+to yeah let's get to one of the error
+
+566
+00:30:04,519 --> 00:30:09,159
+problems so for example
+
+567
+00:30:06,720 --> 00:30:14,799
+here delete
+
+568
+00:30:09,159 --> 00:30:16,519
+that run it okay you got error
+
+569
+00:30:14,799 --> 00:30:19,519
+click
+
+570
+00:30:16,519 --> 00:30:22,279
+indetermined coordinate okay so let's
+
+571
+00:30:19,519 --> 00:30:29,240
+fix this let's
+
+572
+00:30:22,279 --> 00:30:29,240
+see H evolute is kind of difficult
+
+573
+00:30:29,960 --> 00:30:35,120
+so yeah I think so how long have I been
+
+574
+00:30:32,320 --> 00:30:36,720
+30 minutes I think I'm just going to
+
+575
+00:30:35,120 --> 00:30:39,720
+start to
+
+576
+00:30:36,720 --> 00:30:39,720
+code
+
+577
+00:30:39,840 --> 00:30:48,240
+um so evolute so let's look at my
+
+578
+00:30:45,440 --> 00:30:51,760
+package search for
+
+579
+00:30:48,240 --> 00:30:55,760
+evolute now I I wrote this long time ago
+
+580
+00:30:51,760 --> 00:30:59,240
+so some of the ideas I don't remember
+
+581
+00:30:55,760 --> 00:30:59,240
+off hand
+
+582
+00:31:02,200 --> 00:31:05,200
+uh
+
+583
+00:31:23,760 --> 00:31:29,159
+okay now where is aute defined
+
+584
+00:31:37,080 --> 00:31:40,720
+what okay I don't
+
+585
+00:31:41,679 --> 00:31:45,559
+want yeah okay
+
+586
+00:31:56,159 --> 00:32:02,519
+so so anyway let me see the comments Sam
+
+587
+00:31:59,679 --> 00:32:02,519
+Hammer
+
+588
+00:32:02,639 --> 00:32:09,519
+hey okay so what I want to do
+
+589
+00:32:06,440 --> 00:32:09,519
+[Music]
+
+590
+00:32:10,919 --> 00:32:14,279
+so let's
+
+591
+00:32:15,200 --> 00:32:23,279
+see so all these error so let's see you
+
+592
+00:32:19,080 --> 00:32:25,720
+know so all this error error is about
+
+593
+00:32:23,279 --> 00:32:29,080
+indeterminate basically one divided by
+
+594
+00:32:25,720 --> 00:32:29,080
+zero somewhere
+
+595
+00:32:29,240 --> 00:32:35,519
+and uh it
+
+596
+00:32:32,679 --> 00:32:40,760
+happens when you plot
+
+597
+00:32:35,519 --> 00:32:43,200
+evolute okay so what is evolute let me
+
+598
+00:32:40,760 --> 00:32:45,080
+let me let me try to explain what is
+
+599
+00:32:43,200 --> 00:32:49,039
+evolute okay
+
+600
+00:32:45,080 --> 00:32:49,039
+so the evolute
+
+601
+00:32:50,320 --> 00:32:54,600
+is okay so let's go
+
+602
+00:32:56,039 --> 00:32:59,039
+to
+
+603
+00:32:59,519 --> 00:33:06,279
+PL curves go down go
+
+604
+00:33:02,559 --> 00:33:10,480
+down uh you have a page explaining
+
+605
+00:33:06,279 --> 00:33:13,559
+evolute okay there evolute is
+
+606
+00:33:10,480 --> 00:33:19,720
+basically the center
+
+607
+00:33:13,559 --> 00:33:23,279
+of osculating circle okay so you can see
+
+608
+00:33:19,720 --> 00:33:25,360
+the blue curve is
+
+609
+00:33:23,279 --> 00:33:31,080
+elisp and
+
+610
+00:33:25,360 --> 00:33:31,080
+uh so let me let me see if I can expand
+
+611
+00:33:35,880 --> 00:33:39,279
+this okay
+
+612
+00:33:55,960 --> 00:33:58,960
+so
+
+613
+00:34:04,440 --> 00:34:10,359
+so if you have a curve like that you
+
+614
+00:34:07,320 --> 00:34:12,440
+know you know the concept of a tangent
+
+615
+00:34:10,359 --> 00:34:14,839
+right so if you have a point on the
+
+616
+00:34:12,440 --> 00:34:18,639
+curve the line
+
+617
+00:34:14,839 --> 00:34:22,440
+closest to that curve approximate that
+
+618
+00:34:18,639 --> 00:34:24,800
+curve at that point is called tangent so
+
+619
+00:34:22,440 --> 00:34:27,359
+for example here the tangent line would
+
+620
+00:34:24,800 --> 00:34:32,440
+be here here the tangent line would be
+
+621
+00:34:27,359 --> 00:34:35,839
+like that okay so that's called the
+
+622
+00:34:32,440 --> 00:34:38,520
+tangent of a point on a curve now
+
+623
+00:34:35,839 --> 00:34:40,480
+there's another concept similar to that
+
+624
+00:34:38,520 --> 00:34:44,079
+you see when you have a curve you see
+
+625
+00:34:40,480 --> 00:34:47,599
+some points on a curve at that point the
+
+626
+00:34:44,079 --> 00:34:51,440
+curve is more curved for example if you
+
+627
+00:34:47,599 --> 00:34:53,720
+have a point here the point there is not
+
+628
+00:34:51,440 --> 00:34:57,079
+too much of a curve it's rather you know
+
+629
+00:34:53,720 --> 00:34:58,000
+there's no curve but over here it's very
+
+630
+00:34:57,079 --> 00:35:01,440
+highly
+
+631
+00:34:58,000 --> 00:35:06,000
+curved so if you have a curve with a
+
+632
+00:35:01,440 --> 00:35:10,400
+sharp turn you know then then another
+
+633
+00:35:06,000 --> 00:35:13,760
+sharp turn you see this point this point
+
+634
+00:35:10,400 --> 00:35:18,880
+is very tight on the other hand this
+
+635
+00:35:13,760 --> 00:35:18,880
+point is not so tight you
+
+636
+00:35:20,000 --> 00:35:24,640
+know something like that okay
+
+637
+00:35:24,880 --> 00:35:32,760
+tight so so this a concept of curvature
+
+638
+00:35:30,119 --> 00:35:36,960
+so the more tight curvature is basically
+
+639
+00:35:32,760 --> 00:35:41,119
+at any point on the curve it measures
+
+640
+00:35:36,960 --> 00:35:44,320
+how tight is the curve how sharp a turn
+
+641
+00:35:41,119 --> 00:35:48,400
+is at that point okay so that's called
+
+642
+00:35:44,320 --> 00:35:49,920
+curvature curvature of a curve and uh
+
+643
+00:35:48,400 --> 00:35:55,560
+and then you
+
+644
+00:35:49,920 --> 00:35:58,880
+can you can use a circle to approximate
+
+645
+00:35:55,560 --> 00:36:02,200
+that coverture to illustrate for example
+
+646
+00:35:58,880 --> 00:36:03,480
+you know so here the this illustration
+
+647
+00:36:02,200 --> 00:36:05,079
+shows
+
+648
+00:36:03,480 --> 00:36:09,319
+that
+
+649
+00:36:05,079 --> 00:36:12,599
+now so at any point on a curve you can
+
+650
+00:36:09,319 --> 00:36:16,560
+have a circle this circle is called
+
+651
+00:36:12,599 --> 00:36:19,440
+ulating Circle ulate means kiss so it's
+
+652
+00:36:16,560 --> 00:36:22,000
+a kissing Circle in other in in other
+
+653
+00:36:19,440 --> 00:36:24,720
+words it's a circle that
+
+654
+00:36:22,000 --> 00:36:28,920
+kisses the point on the
+
+655
+00:36:24,720 --> 00:36:33,000
+curve you know so if the turning point
+
+656
+00:36:28,920 --> 00:36:37,319
+point is very tight then your ulating
+
+657
+00:36:33,000 --> 00:36:41,079
+circle is very small when the
+
+658
+00:36:37,319 --> 00:36:44,079
+the the the point is not very tight then
+
+659
+00:36:41,079 --> 00:36:44,079
+the circle is very
+
+660
+00:36:44,119 --> 00:36:51,920
+large so this is osculating circle so on
+
+661
+00:36:49,319 --> 00:36:55,960
+any point on the curve you have a
+
+662
+00:36:51,920 --> 00:36:58,079
+osculating circle at that point then
+
+663
+00:36:55,960 --> 00:37:01,680
+once you have a Circle you have a center
+
+664
+00:36:58,079 --> 00:37:04,800
+of that Circle so the trace of the
+
+665
+00:37:01,680 --> 00:37:08,839
+center of the circle is called the
+
+666
+00:37:04,800 --> 00:37:13,200
+evolute of the of the given curve okay
+
+667
+00:37:08,839 --> 00:37:13,200
+so again let me repeat given a
+
+668
+00:37:13,839 --> 00:37:20,160
+curve on any point on the curve you have
+
+669
+00:37:17,359 --> 00:37:23,760
+a circle called oscillating Circle
+
+670
+00:37:20,160 --> 00:37:24,640
+Associated at that point and this circle
+
+671
+00:37:23,760 --> 00:37:27,640
+has a
+
+672
+00:37:24,640 --> 00:37:30,520
+center so
+
+673
+00:37:27,640 --> 00:37:34,160
+of all the centers of the oing Circle
+
+674
+00:37:30,520 --> 00:37:37,720
+forms another curve and this new curve
+
+675
+00:37:34,160 --> 00:37:40,960
+is called the the evolute of the orinal
+
+676
+00:37:37,720 --> 00:37:40,960
+curve okay that's
+
+677
+00:37:41,079 --> 00:37:47,400
+idea
+
+678
+00:37:43,760 --> 00:37:49,079
+so uh God so we need to dive into the
+
+679
+00:37:47,400 --> 00:37:52,440
+code
+
+680
+00:37:49,079 --> 00:37:52,440
+uh I need
+
+681
+00:37:52,800 --> 00:37:58,680
+to yeah so let's start to dive into the
+
+682
+00:37:56,280 --> 00:38:05,480
+code shall
+
+683
+00:37:58,680 --> 00:38:07,170
+we so the the here so in order so to do
+
+684
+00:38:05,480 --> 00:38:10,369
+that it's best
+
+685
+00:38:07,170 --> 00:38:10,369
+[Music]
+
+686
+00:38:12,839 --> 00:38:17,880
+to now I know why this happen
+
+687
+00:38:18,680 --> 00:38:24,880
+because because if you add
+
+688
+00:38:22,359 --> 00:38:27,839
+0.1 then you don't have the error you
+
+689
+00:38:24,880 --> 00:38:31,640
+see this one got
+
+690
+00:38:27,839 --> 00:38:34,119
+error but this one no error you got a
+
+691
+00:38:31,640 --> 00:38:36,319
+error because you are starting at zero
+
+692
+00:38:34,119 --> 00:38:40,680
+when when you start at zero you got this
+
+693
+00:38:36,319 --> 00:38:44,319
+kind of kind of division by zero
+
+694
+00:38:40,680 --> 00:38:46,839
+thing so how do you fix that so this is
+
+695
+00:38:44,319 --> 00:38:46,839
+about
+
+696
+00:38:46,880 --> 00:38:55,520
+evolute this is about evolute so I don't
+
+697
+00:38:51,280 --> 00:38:58,520
+even remember my code
+
+698
+00:38:55,520 --> 00:38:58,520
+evolutes
+
+699
+00:39:03,040 --> 00:39:10,520
+okay so let's see so that's a
+
+700
+00:39:06,000 --> 00:39:15,880
+documentation then PL evolute is
+
+701
+00:39:10,520 --> 00:39:15,880
+false so here you are getting
+
+702
+00:39:17,280 --> 00:39:24,440
+the the optional value for the evolute
+
+703
+00:39:20,960 --> 00:39:24,440
+okay so let's
+
+704
+00:39:25,440 --> 00:39:31,760
+see
+
+705
+00:39:26,960 --> 00:39:34,720
+okay so far so good yes so the value the
+
+706
+00:39:31,760 --> 00:39:37,640
+variable is this one p evolute okay now
+
+707
+00:39:34,720 --> 00:39:37,640
+let's search for
+
+708
+00:39:38,040 --> 00:39:41,040
+that
+
+709
+00:39:49,040 --> 00:39:53,160
+so what is this part
+
+710
+00:39:55,400 --> 00:39:58,400
+doing
+
+711
+00:40:06,119 --> 00:40:13,440
+so we have a if expression here so let's
+
+712
+00:40:10,960 --> 00:40:16,880
+highlight the P
+
+713
+00:40:13,440 --> 00:40:17,880
+evolute okay so all values of P evolute
+
+714
+00:40:16,880 --> 00:40:22,760
+becomes
+
+715
+00:40:17,880 --> 00:40:22,760
+yellow now here's the if
+
+716
+00:40:22,800 --> 00:40:30,880
+statement okay and uh if if this this
+
+717
+00:40:27,839 --> 00:40:30,880
+and this are
+
+718
+00:40:34,800 --> 00:40:42,119
+true P equals to that equals to that so
+
+719
+00:40:39,240 --> 00:40:42,119
+if they are all
+
+720
+00:40:45,599 --> 00:40:51,480
+Force so plot evolute so we can look
+
+721
+00:40:55,319 --> 00:40:58,319
+at
+
+722
+00:41:00,119 --> 00:41:03,960
+for example here's a documentation for
+
+723
+00:41:02,680 --> 00:41:07,400
+this
+
+724
+00:41:03,960 --> 00:41:07,400
+option PL
+
+725
+00:41:17,240 --> 00:41:21,240
+evolute okay
+
+726
+00:41:22,760 --> 00:41:30,760
+so so evolute of a curve is a low focus
+
+727
+00:41:26,680 --> 00:41:30,760
+of its Center of curvature
+
+728
+00:41:34,000 --> 00:41:39,040
+exactly so given a point on a curve we
+
+729
+00:41:37,440 --> 00:41:43,240
+need to
+
+730
+00:41:39,040 --> 00:41:47,359
+compute we need to find the point that
+
+731
+00:41:43,240 --> 00:41:51,240
+is the center of the curvature okay so
+
+732
+00:41:47,359 --> 00:41:52,680
+that's what we have to do in order for
+
+733
+00:41:51,240 --> 00:41:54,359
+this code to
+
+734
+00:41:52,680 --> 00:41:57,040
+work
+
+735
+00:41:54,359 --> 00:42:01,359
+so the p
+
+736
+00:41:57,040 --> 00:42:04,040
+here is actually just true or false okay
+
+737
+00:42:01,359 --> 00:42:07,599
+so that's not exactly what we
+
+738
+00:42:04,040 --> 00:42:07,599
+want so
+
+739
+00:42:09,480 --> 00:42:19,079
+if so if it's false then oh there it
+
+740
+00:42:15,200 --> 00:42:23,079
+is so we are we are trying to compute
+
+741
+00:42:19,079 --> 00:42:26,280
+velocity Vector list and acceleration
+
+742
+00:42:23,079 --> 00:42:27,280
+vector list the velocity Vector list is
+
+743
+00:42:26,280 --> 00:42:29,000
+is
+
+744
+00:42:27,280 --> 00:42:31,880
+basically
+
+745
+00:42:29,000 --> 00:42:35,480
+derivatives then the acceleration vector
+
+746
+00:42:31,880 --> 00:42:37,119
+this is basically second derivatives so
+
+747
+00:42:35,480 --> 00:42:41,720
+this is
+
+748
+00:42:37,119 --> 00:42:41,720
+about you know parametric
+
+749
+00:42:41,800 --> 00:42:49,040
+plot so if you don't know what
+
+750
+00:42:44,680 --> 00:42:52,000
+parametric plot is let me show
+
+751
+00:42:49,040 --> 00:42:54,800
+you okay so for example
+
+752
+00:42:52,000 --> 00:42:57,000
+you say
+
+753
+00:42:54,800 --> 00:43:02,319
+t let's
+
+754
+00:42:57,000 --> 00:43:06,000
+magnify let's say uh t t^ s
+
+755
+00:43:02,319 --> 00:43:08,119
+okay that basically give you a parabola
+
+756
+00:43:06,000 --> 00:43:12,559
+so now you
+
+757
+00:43:08,119 --> 00:43:17,720
+say t from 0 to
+
+758
+00:43:12,559 --> 00:43:21,319
+2 okay so you can kind of see a parabola
+
+759
+00:43:17,720 --> 00:43:25,119
+Parabola so this is parametric curve so
+
+760
+00:43:21,319 --> 00:43:27,000
+basically parametric curve is a is
+
+761
+00:43:25,119 --> 00:43:29,440
+defined by two
+
+762
+00:43:27,000 --> 00:43:31,760
+functions the first function is over
+
+763
+00:43:29,440 --> 00:43:34,599
+here the second function is there so x
+
+764
+00:43:31,760 --> 00:43:38,480
+equals to a function y equals to another
+
+765
+00:43:34,599 --> 00:43:42,520
+function then the function's value goes
+
+766
+00:43:38,480 --> 00:43:46,160
+from -2 to two so for
+
+767
+00:43:42,520 --> 00:43:49,200
+example what if uh what if the second
+
+768
+00:43:46,160 --> 00:43:49,200
+part is
+
+769
+00:43:50,040 --> 00:43:57,559
+sign s t then you got a S curve now the
+
+770
+00:43:55,040 --> 00:44:01,559
+interesting so this normally this is how
+
+771
+00:43:57,559 --> 00:44:03,839
+a a plot of a function works so you have
+
+772
+00:44:01,559 --> 00:44:07,359
+the first part is just X they don't
+
+773
+00:44:03,839 --> 00:44:11,240
+change then the second part is y a
+
+774
+00:44:07,359 --> 00:44:13,440
+function that's a normal plot now what's
+
+775
+00:44:11,240 --> 00:44:16,680
+interesting about parametric plot is
+
+776
+00:44:13,440 --> 00:44:20,000
+that you can make the first function
+
+777
+00:44:16,680 --> 00:44:24,839
+change so for example let's say
+
+778
+00:44:20,000 --> 00:44:28,839
+t^2 and s t let's see what we get
+
+779
+00:44:24,839 --> 00:44:32,000
+okay um uh let's let's make a copy of
+
+780
+00:44:28,839 --> 00:44:35,400
+that let's do it you see you got this
+
+781
+00:44:32,000 --> 00:44:38,880
+kind of interesting thing let's see what
+
+782
+00:44:35,400 --> 00:44:41,800
+happens if negative -2 to 20 okay so it
+
+783
+00:44:38,880 --> 00:44:44,440
+basically becomes a straight line I mean
+
+784
+00:44:41,800 --> 00:44:44,440
+kind
+
+785
+00:44:45,520 --> 00:44:53,480
+u-shaped uh okay very interesting to 10
+
+786
+00:44:49,720 --> 00:44:53,480
+wow wow very
+
+787
+00:44:54,680 --> 00:45:02,920
+interesting yeah so you can
+
+788
+00:44:57,480 --> 00:45:03,760
+see let's say now let's times this by T
+
+789
+00:45:02,920 --> 00:45:10,000
+what
+
+790
+00:45:03,760 --> 00:45:10,000
+happens okay so let's say -10 to
+
+791
+00:45:10,240 --> 00:45:16,119
+10 okay because the square um let's
+
+792
+00:45:14,200 --> 00:45:18,280
+let's make
+
+793
+00:45:16,119 --> 00:45:21,480
+it third
+
+794
+00:45:18,280 --> 00:45:24,319
+power okay so that's the fun thing about
+
+795
+00:45:21,480 --> 00:45:26,100
+mathematics so you can see it gives you
+
+796
+00:45:24,319 --> 00:45:28,240
+all kind of Curves
+
+797
+00:45:26,100 --> 00:45:30,480
+[Laughter]
+
+798
+00:45:28,240 --> 00:45:30,480
+okay
+
+799
+00:45:30,839 --> 00:45:38,000
+so so that's about parametric plot so
+
+800
+00:45:34,920 --> 00:45:41,079
+when you want a so now if you take the
+
+801
+00:45:38,000 --> 00:45:43,200
+derivative of the first function and
+
+802
+00:45:41,079 --> 00:45:46,440
+take the derivative of the second
+
+803
+00:45:43,200 --> 00:45:50,079
+function and so you got two new
+
+804
+00:45:46,440 --> 00:45:55,119
+functions then you evaluate at many
+
+805
+00:45:50,079 --> 00:45:56,800
+values T = to -2 -1 and so on that gives
+
+806
+00:45:55,119 --> 00:46:00,640
+you the
+
+807
+00:45:56,800 --> 00:46:03,680
+the velocity at that point at the time
+
+808
+00:46:00,640 --> 00:46:07,119
+T and if you take the second derivative
+
+809
+00:46:03,680 --> 00:46:10,520
+you get the acceleration value at that
+
+810
+00:46:07,119 --> 00:46:14,359
+point okay so that's what those means so
+
+811
+00:46:10,520 --> 00:46:17,160
+what I'm doing here is that you know if
+
+812
+00:46:14,359 --> 00:46:20,839
+if the user does not request any of
+
+813
+00:46:17,160 --> 00:46:22,280
+these evolute or whatever then you just
+
+814
+00:46:20,839 --> 00:46:25,400
+set them
+
+815
+00:46:22,280 --> 00:46:27,160
+to empty list meaning that you don't
+
+816
+00:46:25,400 --> 00:46:30,040
+have to compute them because you don't
+
+817
+00:46:27,160 --> 00:46:33,160
+need it you know the purpose is to plot
+
+818
+00:46:30,040 --> 00:46:37,119
+the curve so if the user
+
+819
+00:46:33,160 --> 00:46:40,960
+doesn't doesn't request to plot
+
+820
+00:46:37,119 --> 00:46:44,000
+evolute uh you know you don't need
+
+821
+00:46:40,960 --> 00:46:46,839
+so but the user request that then you
+
+822
+00:46:44,000 --> 00:46:51,319
+need to compute so you can see it's over
+
+823
+00:46:46,839 --> 00:46:51,319
+here so you got velocity Vector
+
+824
+00:46:53,920 --> 00:47:00,160
+list okay so
+
+825
+00:46:56,680 --> 00:47:04,400
+so velocity then acceleration okay so
+
+826
+00:47:00,160 --> 00:47:10,160
+let's see so velocity let's color it
+
+827
+00:47:04,400 --> 00:47:10,160
+okay pink then acceleration color it
+
+828
+00:47:10,760 --> 00:47:16,440
+green okay so you can see velocity is
+
+829
+00:47:14,880 --> 00:47:19,040
+the first
+
+830
+00:47:16,440 --> 00:47:24,559
+derivative
+
+831
+00:47:19,040 --> 00:47:27,880
+okay then the acceleration is so if
+
+832
+00:47:24,559 --> 00:47:31,440
+these features are requested by user
+
+833
+00:47:27,880 --> 00:47:34,480
+then you compute the acceler
+
+834
+00:47:31,440 --> 00:47:38,480
+acceleration list okay so you take the
+
+835
+00:47:34,480 --> 00:47:42,960
+second derivative okay so we got that
+
+836
+00:47:38,480 --> 00:47:44,599
+now we understand okay so so this
+
+837
+00:47:42,960 --> 00:47:47,880
+indetermined
+
+838
+00:47:44,599 --> 00:47:52,160
+indeterminate error came
+
+839
+00:47:47,880 --> 00:47:54,720
+from basically came from these two
+
+840
+00:47:52,160 --> 00:47:57,079
+lines when you
+
+841
+00:47:54,720 --> 00:48:01,200
+have
+
+842
+00:47:57,079 --> 00:48:01,200
+so let's see so the evolute
+
+843
+00:48:02,040 --> 00:48:09,520
+so yeah okay so when you have this curve
+
+844
+00:48:05,400 --> 00:48:12,200
+you know this cycloid curve at this curp
+
+845
+00:48:09,520 --> 00:48:15,839
+point you know at this sharp Turning
+
+846
+00:48:12,200 --> 00:48:15,839
+Point there's no
+
+847
+00:48:16,000 --> 00:48:19,000
+derivative
+
+848
+00:48:21,559 --> 00:48:26,280
+so in fact it's either no derivative or
+
+849
+00:48:25,160 --> 00:48:29,119
+the Der
+
+850
+00:48:26,280 --> 00:48:32,119
+if is infinite something like that
+
+851
+00:48:29,119 --> 00:48:34,359
+that's that's why we get this error so
+
+852
+00:48:32,119 --> 00:48:34,359
+let's
+
+853
+00:48:39,440 --> 00:48:45,920
+see can you do some fire fire cells no I
+
+854
+00:48:43,240 --> 00:48:51,920
+don't know what that that is
+
+855
+00:48:45,920 --> 00:48:55,359
+okay okay so we uh almost got it so so
+
+856
+00:48:51,920 --> 00:48:57,280
+we can see where this Arrow likely came
+
+857
+00:48:55,359 --> 00:48:59,960
+from I'm pretty sure it came from one
+
+858
+00:48:57,280 --> 00:49:01,160
+one of these okay the derivative and
+
+859
+00:48:59,960 --> 00:49:05,440
+second
+
+860
+00:49:01,160 --> 00:49:08,119
+derivative but okay so let's think about
+
+861
+00:49:05,440 --> 00:49:11,640
+this
+
+862
+00:49:08,119 --> 00:49:14,520
+so you see you avoid the error if you
+
+863
+00:49:11,640 --> 00:49:17,760
+just increment the t a little bit you
+
+864
+00:49:14,520 --> 00:49:20,240
+avoid you know Computing at these sharp
+
+865
+00:49:17,760 --> 00:49:20,240
+turning
+
+866
+00:49:22,160 --> 00:49:27,520
+points
+
+867
+00:49:24,520 --> 00:49:27,520
+so
+
+868
+00:49:34,200 --> 00:49:40,240
+so this this error is actually
+
+869
+00:49:37,720 --> 00:49:44,119
+inevitable because this error came from
+
+870
+00:49:40,240 --> 00:49:50,359
+mathematics I mean this you know the the
+
+871
+00:49:44,119 --> 00:49:54,359
+derivative at that point is not defined
+
+872
+00:49:50,359 --> 00:49:56,520
+basically you see the you see the
+
+873
+00:49:54,359 --> 00:49:59,599
+function is this
+
+874
+00:49:56,520 --> 00:50:02,720
+so if you compute this function starting
+
+875
+00:49:59,599 --> 00:50:02,720
+at zero what you
+
+876
+00:50:04,440 --> 00:50:11,920
+get
+
+877
+00:50:07,240 --> 00:50:15,960
+t0 okay so you got Z 0 right now let's
+
+878
+00:50:11,920 --> 00:50:18,960
+try it again let's do the derivative
+
+879
+00:50:15,960 --> 00:50:18,960
+okay
+
+880
+00:50:19,799 --> 00:50:28,200
+uh okay I haven't done calculus for a
+
+881
+00:50:23,280 --> 00:50:28,200
+long time for like 20 years
+
+882
+00:50:29,119 --> 00:50:35,680
+so derivative of a function okay let's
+
+883
+00:50:32,480 --> 00:50:35,680
+see how we do
+
+884
+00:50:40,359 --> 00:50:48,480
+this okay so that's that's a
+
+885
+00:50:43,599 --> 00:50:48,480
+documentation now let's read up about
+
+886
+00:50:49,440 --> 00:50:58,160
+the I believe that's what you
+
+887
+00:50:54,079 --> 00:51:01,079
+want okay so give the partial derivative
+
+888
+00:50:58,160 --> 00:51:02,680
+of a function with respect to X okay
+
+889
+00:51:01,079 --> 00:51:07,480
+this is what we
+
+890
+00:51:02,680 --> 00:51:11,680
+want gives a multiple derivative of
+
+891
+00:51:07,480 --> 00:51:11,680
+that okay
+
+892
+00:51:12,319 --> 00:51:20,920
+so derivative of this thing two
+
+893
+00:51:16,440 --> 00:51:26,000
+functions with respect to T what you get
+
+894
+00:51:20,920 --> 00:51:28,240
+you get that then if you okay so
+
+895
+00:51:26,000 --> 00:51:33,720
+then if you replace
+
+896
+00:51:28,240 --> 00:51:33,720
+T by zero you get 0
+
+897
+00:51:34,920 --> 00:51:44,359
+02 okay uh and but why does
+
+898
+00:51:39,799 --> 00:51:46,839
+our error come up where does it come
+
+899
+00:51:44,359 --> 00:51:49,839
+up second
+
+900
+00:51:46,839 --> 00:51:49,839
+derivative
+
+901
+00:51:54,359 --> 00:51:57,359
+uh
+
+902
+00:52:04,240 --> 00:52:08,200
+okay so let's do the second
+
+903
+00:52:11,440 --> 00:52:15,079
+derivative oh
+
+904
+00:52:15,359 --> 00:52:20,119
+wait you need to say
+
+905
+00:52:24,280 --> 00:52:29,960
+yeah
+
+906
+00:52:26,839 --> 00:52:35,440
+T first
+
+907
+00:52:29,960 --> 00:52:35,440
+derivative second derivative okay
+
+908
+00:52:37,240 --> 00:52:40,240
+exactly
+
+909
+00:52:40,480 --> 00:52:48,000
+uh yeah so the derivative just becomes s
+
+910
+00:52:44,200 --> 00:52:52,160
+cosine the derivative of a constant is
+
+911
+00:52:48,000 --> 00:52:54,240
+zero that's right I forgot my calculus
+
+912
+00:52:52,160 --> 00:52:59,400
+Okay
+
+913
+00:52:54,240 --> 00:52:59,400
+so okay so back to the code
+
+914
+00:53:00,359 --> 00:53:05,799
+so so you compute the first dtive
+
+915
+00:53:08,000 --> 00:53:16,000
+here you got z z Okay then if you
+
+916
+00:53:12,880 --> 00:53:22,040
+compute a second derivative you
+
+917
+00:53:16,000 --> 00:53:25,960
+also got z0 for if you start at zero
+
+918
+00:53:22,040 --> 00:53:30,000
+okay so the problem is not here
+
+919
+00:53:25,960 --> 00:53:33,480
+because yeah because here we simply have
+
+920
+00:53:30,000 --> 00:53:37,040
+a list you know this velocity Vector
+
+921
+00:53:33,480 --> 00:53:41,200
+list or acceleration vector list that
+
+922
+00:53:37,040 --> 00:53:44,400
+some of their points is zero zero okay
+
+923
+00:53:41,200 --> 00:53:46,480
+so that doesn't give you problem it
+
+924
+00:53:44,400 --> 00:53:50,040
+start you you start to have a problem
+
+925
+00:53:46,480 --> 00:53:53,760
+when you when you divide that by zero or
+
+926
+00:53:50,040 --> 00:53:55,720
+something divided that by by that okay
+
+927
+00:53:53,760 --> 00:53:58,799
+so let's
+
+928
+00:53:55,720 --> 00:54:02,960
+check go to the next occurrence of
+
+929
+00:53:58,799 --> 00:54:02,960
+velocity Vector list
+
+930
+00:54:07,839 --> 00:54:11,400
+okay okay
+
+931
+00:54:24,079 --> 00:54:27,079
+velocity
+
+932
+00:54:30,720 --> 00:54:33,280
+Vector
+
+933
+00:54:35,240 --> 00:54:41,839
+Leist
+
+934
+00:54:37,559 --> 00:54:46,480
+curvature okay curvature is
+
+935
+00:54:41,839 --> 00:54:49,240
+actually one of the more complex thing
+
+936
+00:54:46,480 --> 00:54:52,440
+okay that's it
+
+937
+00:54:49,240 --> 00:54:55,920
+here so now you need to find this
+
+938
+00:54:52,440 --> 00:55:00,160
+coverture GP GP stand for Graphics
+
+939
+00:54:55,920 --> 00:55:02,599
+primitive this function is is calling it
+
+940
+00:55:00,160 --> 00:55:05,599
+I think that's where the problem is so
+
+941
+00:55:02,599 --> 00:55:07,920
+let's search for this
+
+942
+00:55:05,599 --> 00:55:10,480
+function cure
+
+943
+00:55:07,920 --> 00:55:14,880
+[Music]
+
+944
+00:55:10,480 --> 00:55:20,240
+GP yeah so the function is
+
+945
+00:55:14,880 --> 00:55:20,240
+here coverture GP now where is
+
+946
+00:55:20,839 --> 00:55:26,240
+this okay
+
+947
+00:55:23,599 --> 00:55:29,359
+so now I I need to look at my
+
+948
+00:55:26,240 --> 00:55:31,240
+documentation so this code is a bit
+
+949
+00:55:29,359 --> 00:55:34,960
+complex you can
+
+950
+00:55:31,240 --> 00:55:37,440
+see God this is more one of the more
+
+951
+00:55:34,960 --> 00:55:42,680
+complex
+
+952
+00:55:37,440 --> 00:55:46,119
+part so let's see where is this
+
+953
+00:55:42,680 --> 00:55:49,920
+function let's see the documentation I
+
+954
+00:55:46,119 --> 00:55:57,000
+have yeah so here's a
+
+955
+00:55:49,920 --> 00:55:57,000
+code find previous find next cature GPS
+
+956
+00:55:59,920 --> 00:56:04,480
+oh I don't have documentation for it
+
+957
+00:56:02,799 --> 00:56:08,400
+that's
+
+958
+00:56:04,480 --> 00:56:11,920
+rare okay so curvature GPS basically
+
+959
+00:56:08,400 --> 00:56:14,440
+this function returns a list of Graphics
+
+960
+00:56:11,920 --> 00:56:18,039
+Primitives like lines and
+
+961
+00:56:14,440 --> 00:56:21,440
+circles and so it takes these arguments
+
+962
+00:56:18,039 --> 00:56:24,559
+so at least a points on the curve at
+
+963
+00:56:21,440 --> 00:56:28,520
+least the velocity vectors of those
+
+964
+00:56:24,559 --> 00:56:32,160
+points and the acceler acceleration
+
+965
+00:56:28,520 --> 00:56:38,599
+vectors okay
+
+966
+00:56:32,160 --> 00:56:38,599
+then Circle evolute radius
+
+967
+00:56:39,240 --> 00:56:42,240
+okay
+
+968
+00:56:45,720 --> 00:56:54,119
+uh yeah some some there there it is so
+
+969
+00:56:50,640 --> 00:56:56,880
+square root first last velocity Vector
+
+970
+00:56:54,119 --> 00:56:56,880
+so
+
+971
+00:56:58,839 --> 00:57:05,960
+so here is a problem because this part
+
+972
+00:57:03,119 --> 00:57:05,960
+may become
+
+973
+00:57:06,000 --> 00:57:12,440
+zero so when this part become zero you
+
+974
+00:57:09,480 --> 00:57:12,440
+got divide by
+
+975
+00:57:15,520 --> 00:57:21,760
+zero yeah so there there it is so let's
+
+976
+00:57:19,440 --> 00:57:25,240
+let me change okay I think I found a
+
+977
+00:57:21,760 --> 00:57:28,039
+problem if you just change this instead
+
+978
+00:57:25,240 --> 00:57:31,760
+of three equal sign change it to two
+
+979
+00:57:28,039 --> 00:57:31,760
+equal sign it
+
+980
+00:57:32,839 --> 00:57:38,920
+work okay I think
+
+981
+00:57:35,920 --> 00:57:41,599
+so if you do that
+
+982
+00:57:38,920 --> 00:57:44,559
+then this
+
+983
+00:57:41,599 --> 00:57:48,319
+error let me show you indetermined
+
+984
+00:57:44,559 --> 00:57:50,240
+indeterminant indetermined will go away
+
+985
+00:57:48,319 --> 00:57:54,160
+okay let's just try
+
+986
+00:57:50,240 --> 00:57:56,119
+that so now we okay so where do we
+
+987
+00:57:54,160 --> 00:57:59,319
+change it
+
+988
+00:57:56,119 --> 00:57:59,319
+yeah let's just change it
+
+989
+00:57:59,359 --> 00:58:06,440
+here actually we shouldn't uh make a
+
+990
+00:58:03,640 --> 00:58:08,119
+backup and let's just do
+
+991
+00:58:06,440 --> 00:58:13,680
+it
+
+992
+00:58:08,119 --> 00:58:17,480
+okay change triple equal to double
+
+993
+00:58:13,680 --> 00:58:20,799
+equal okay and change this to a
+
+994
+00:58:17,480 --> 00:58:20,799
+approximate zero
+
+995
+00:58:23,720 --> 00:58:26,720
+okay
+
+996
+00:58:30,559 --> 00:58:34,200
+yeah okay now
+
+997
+00:58:47,799 --> 00:58:53,720
+we now we just evaluate this block of
+
+998
+00:58:51,599 --> 00:58:56,720
+code go back
+
+999
+00:58:53,720 --> 00:58:56,720
+here
+
+1000
+00:58:58,440 --> 00:59:04,720
+make a copy of this part and run it
+
+1001
+00:59:02,440 --> 00:59:04,720
+let's
+
+1002
+00:59:05,920 --> 00:59:11,039
+see steel
+
+1003
+00:59:08,039 --> 00:59:11,039
+Arrow
+
+1004
+00:59:15,319 --> 00:59:18,319
+God
+
+1005
+00:59:18,760 --> 00:59:22,400
+uh let's make
+
+1006
+00:59:23,640 --> 00:59:29,520
+sure
+
+1007
+00:59:26,200 --> 00:59:33,920
+okay maybe we need to restart
+
+1008
+00:59:29,520 --> 00:59:38,119
+because do we need to restart yeah
+
+1009
+00:59:33,920 --> 00:59:43,039
+probably okay let's restart
+
+1010
+00:59:38,119 --> 00:59:43,039
+okay this is a change we made close
+
+1011
+00:59:43,200 --> 00:59:49,440
+it save close it don't
+
+1012
+00:59:50,359 --> 00:59:57,920
+save okay uh and here uh let's just do
+
+1013
+00:59:55,559 --> 00:59:57,920
+create
+
+1014
+01:00:01,440 --> 01:00:05,640
+kernel okay
+
+1015
+01:00:06,880 --> 01:00:10,559
+now open it
+
+1016
+01:00:14,599 --> 01:00:22,720
+again okay select all shift return Rand
+
+1017
+01:00:23,559 --> 01:00:26,559
+name
+
+1018
+01:00:29,319 --> 01:00:36,680
+fantastic okay close
+
+1019
+01:00:33,200 --> 01:00:39,480
+it open the
+
+1020
+01:00:36,680 --> 01:00:42,920
+example then go
+
+1021
+01:00:39,480 --> 01:00:45,920
+to where
+
+1022
+01:00:42,920 --> 01:00:45,920
+that
+
+1023
+01:00:48,280 --> 01:00:56,520
+uh there okay
+
+1024
+01:00:52,720 --> 01:00:58,599
+now make a copy
+
+1025
+01:00:56,520 --> 01:01:01,400
+it run
+
+1026
+01:00:58,599 --> 01:01:06,240
+it no don't re
+
+1027
+01:01:01,400 --> 01:01:06,240
+evaluate ah we still got
+
+1028
+01:01:22,240 --> 01:01:26,440
+error Okay so
+
+1029
+01:01:33,480 --> 01:01:39,280
+let's try this okay so this is kind of
+
+1030
+01:01:36,480 --> 01:01:39,280
+the key
+
+1031
+01:01:40,119 --> 01:01:44,240
+here so if we
+
+1032
+01:01:47,440 --> 01:01:56,440
+have uh z z what it equal equals to
+
+1033
+01:01:53,440 --> 01:01:56,440
+true
+
+1034
+01:02:09,279 --> 01:02:12,799
+triple
+
+1035
+01:02:10,960 --> 01:02:19,559
+equal
+
+1036
+01:02:12,799 --> 01:02:19,559
+C that's Force so this is this is
+
+1037
+01:02:21,720 --> 01:02:28,720
+uh this is a problem
+
+1038
+01:02:25,200 --> 01:02:32,520
+in a field called numerical
+
+1039
+01:02:28,720 --> 01:02:36,000
+analysis because it's kind of
+
+1040
+01:02:32,520 --> 01:02:39,960
+tricky I believe this is where the eror
+
+1041
+01:02:36,000 --> 01:02:42,960
+came from because if you can determine
+
+1042
+01:02:39,960 --> 01:02:46,279
+you know some number is zero if we know
+
+1043
+01:02:42,960 --> 01:02:48,039
+for sure we got a zero Vector then we
+
+1044
+01:02:46,279 --> 01:02:52,799
+simply
+
+1045
+01:02:48,039 --> 01:02:54,880
+return Z 0 we don't do anything but
+
+1046
+01:02:52,799 --> 01:02:58,319
+otherwise we are trying trying to
+
+1047
+01:02:54,880 --> 01:03:02,039
+compute the normal okay so wait so here
+
+1048
+01:02:58,319 --> 01:03:03,680
+is a no uh normal unit Vector yeah we
+
+1049
+01:03:02,039 --> 01:03:05,839
+need
+
+1050
+01:03:03,680 --> 01:03:08,960
+that
+
+1051
+01:03:05,839 --> 01:03:12,400
+uh okay maybe the problem is here so
+
+1052
+01:03:08,960 --> 01:03:17,039
+here is you are Computing the curvature
+
+1053
+01:03:12,400 --> 01:03:19,680
+k k is a traditional function name for
+
+1054
+01:03:17,039 --> 01:03:23,160
+curvature and the our function for
+
+1055
+01:03:19,680 --> 01:03:26,119
+curvature is here oh they are there so
+
+1056
+01:03:23,160 --> 01:03:29,520
+we forgot to change
+
+1057
+01:03:26,119 --> 01:03:33,599
+yeah the two places we need to change
+
+1058
+01:03:29,520 --> 01:03:37,720
+okay so maybe that that we'll fix
+
+1059
+01:03:33,599 --> 01:03:40,720
+it so we need to open this again let's
+
+1060
+01:03:37,720 --> 01:03:40,720
+just change here
+
+1061
+01:03:44,200 --> 01:03:49,520
+okay yeah so uh so what
+
+1062
+01:03:53,279 --> 01:03:56,279
+um
+
+1063
+01:04:00,880 --> 01:04:08,160
+okay make a backup first just to be sure
+
+1064
+01:04:04,359 --> 01:04:08,160
+so you need to change
+
+1065
+01:04:11,799 --> 01:04:18,279
+that here and here so you see the triple
+
+1066
+01:04:16,400 --> 01:04:21,279
+triple equal
+
+1067
+01:04:18,279 --> 01:04:23,200
+means whether the structures are
+
+1068
+01:04:21,279 --> 01:04:27,680
+symbolically the
+
+1069
+01:04:23,200 --> 01:04:29,319
+same while the double equal in wam
+
+1070
+01:04:27,680 --> 01:04:33,559
+language means they
+
+1071
+01:04:29,319 --> 01:04:34,640
+are approximately the same okay so
+
+1072
+01:04:33,559 --> 01:04:37,559
+there's a
+
+1073
+01:04:34,640 --> 01:04:40,400
+difference uh you know the equality sign
+
+1074
+01:04:37,559 --> 01:04:43,839
+there's always big complexity in any
+
+1075
+01:04:40,400 --> 01:04:45,039
+language for example in Python in Java
+
+1076
+01:04:43,839 --> 01:04:50,599
+if you have
+
+1077
+01:04:45,039 --> 01:04:54,000
+a a value that's a list then when you
+
+1078
+01:04:50,599 --> 01:04:55,960
+compare one list is equal to another you
+
+1079
+01:04:54,000 --> 01:04:59,079
+have have the issue of whether if you
+
+1080
+01:04:55,960 --> 01:05:02,559
+are comparing their reference address
+
+1081
+01:04:59,079 --> 01:05:05,400
+they are equal or whether they actual
+
+1082
+01:05:02,559 --> 01:05:06,720
+component value are equal so it gets
+
+1083
+01:05:05,400 --> 01:05:10,640
+very
+
+1084
+01:05:06,720 --> 01:05:13,359
+complex the determination of equality
+
+1085
+01:05:10,640 --> 01:05:17,640
+that is why that is why in iMac lisp you
+
+1086
+01:05:13,359 --> 01:05:20,440
+have like five different equality tests
+
+1087
+01:05:17,640 --> 01:05:23,520
+depending on the type of the value and
+
+1088
+01:05:20,440 --> 01:05:28,480
+similarly for hascal and type Theory you
+
+1089
+01:05:23,520 --> 01:05:28,480
+know the identity equality is extremely
+
+1090
+01:05:31,520 --> 01:05:40,760
+complex okay so those of you are
+
+1091
+01:05:36,440 --> 01:05:40,760
+trolling not recommended
+
+1092
+01:05:43,520 --> 01:05:53,079
+okay uh Return of the loan something is
+
+1093
+01:05:47,200 --> 01:05:56,960
+when you drink something for $3 and
+
+1094
+01:05:53,079 --> 01:06:00,160
+something okay those you guys are
+
+1095
+01:05:56,960 --> 01:06:05,039
+trolling go away
+
+1096
+01:06:00,160 --> 01:06:05,039
+okay so let's see what how do we fix
+
+1097
+01:06:10,640 --> 01:06:15,200
+this let's just change that
+
+1098
+01:06:19,960 --> 01:06:25,680
+okay okay let's do
+
+1099
+01:06:23,000 --> 01:06:28,160
+that
+
+1100
+01:06:25,680 --> 01:06:28,160
+okay
+
+1101
+01:06:32,480 --> 01:06:37,319
+now we're going to create kernel
+
+1102
+01:06:40,680 --> 01:06:49,440
+again create local yes then we're going
+
+1103
+01:06:45,000 --> 01:06:49,440
+to open
+
+1104
+01:06:50,279 --> 01:06:56,000
+this open
+
+1105
+01:06:53,000 --> 01:06:56,000
+it
+
+1106
+01:06:57,720 --> 01:07:02,079
+then select all
+
+1107
+01:07:03,680 --> 01:07:07,079
+evaluated okay
+
+1108
+01:07:08,039 --> 01:07:15,680
+then close it back here try this
+
+1109
+01:07:13,720 --> 01:07:17,559
+again do
+
+1110
+01:07:15,680 --> 01:07:19,279
+it
+
+1111
+01:07:17,559 --> 01:07:22,920
+no
+
+1112
+01:07:19,279 --> 01:07:25,920
+yeah Ste
+
+1113
+01:07:22,920 --> 01:07:25,920
+error
+
+1114
+01:07:32,359 --> 01:07:38,599
+so this arrow is
+
+1115
+01:07:35,799 --> 01:07:42,520
+indeterminant I believe you get that if
+
+1116
+01:07:38,599 --> 01:07:43,960
+you do that one divided by zero okay
+
+1117
+01:07:42,520 --> 01:07:48,279
+complex
+
+1118
+01:07:43,960 --> 01:07:48,279
+Infinity uh what if you
+
+1119
+01:07:52,920 --> 01:07:55,920
+have
+
+1120
+01:08:13,319 --> 01:08:16,760
+okay let me try something
+
+1121
+01:08:22,839 --> 01:08:28,759
+else let's see the documentation for
+
+1122
+01:08:34,000 --> 01:08:42,319
+if so if can take a third
+
+1123
+01:08:39,319 --> 01:08:42,319
+argument
+
+1124
+01:08:46,239 --> 01:08:51,600
+now okay so first argument second
+
+1125
+01:08:52,799 --> 01:08:55,799
+argument
+
+1126
+01:08:59,480 --> 01:09:05,719
+can take a fourth argument okay I
+
+1127
+01:09:02,679 --> 01:09:05,719
+believe that's
+
+1128
+01:09:10,520 --> 01:09:17,120
+new so you can see first argument second
+
+1129
+01:09:14,239 --> 01:09:21,359
+argument third argument so let's give a
+
+1130
+01:09:17,120 --> 01:09:21,359
+fourth argument zero
+
+1131
+01:09:21,799 --> 01:09:26,560
+okay and here let's do the
+
+1132
+01:09:30,000 --> 01:09:35,839
+same first argument second argument
+
+1133
+01:09:33,359 --> 01:09:35,839
+third
+
+1134
+01:09:36,600 --> 01:09:43,920
+argument uh wait
+
+1135
+01:09:39,719 --> 01:09:46,920
+one test
+
+1136
+01:09:43,920 --> 01:09:46,920
+true
+
+1137
+01:09:47,719 --> 01:09:55,719
+false actor list okay test true
+
+1138
+01:09:56,320 --> 01:10:01,640
+Force Vector list okay let's try
+
+1139
+01:10:02,960 --> 01:10:08,800
+that quit Kel
+
+1140
+01:10:05,800 --> 01:10:08,800
+again
+
+1141
+01:10:12,320 --> 01:10:15,920
+quit close
+
+1142
+01:10:16,239 --> 01:10:19,800
+that open
+
+1143
+01:10:22,640 --> 01:10:27,040
+this
+
+1144
+01:10:25,320 --> 01:10:28,880
+select
+
+1145
+01:10:27,040 --> 01:10:31,760
+all
+
+1146
+01:10:28,880 --> 01:10:33,719
+evaluate go back
+
+1147
+01:10:31,760 --> 01:10:35,440
+here minut
+
+1148
+01:10:33,719 --> 01:10:39,800
+it
+
+1149
+01:10:35,440 --> 01:10:39,800
+no and same
+
+1150
+01:10:43,159 --> 01:10:48,239
+errow it should be just here map
+
+1151
+01:10:51,760 --> 01:10:56,960
+thread is there somewh where this happen
+
+1152
+01:11:02,880 --> 01:11:07,560
+again if that then
+
+1153
+01:11:07,960 --> 01:11:12,920
+that it test true
+
+1154
+01:11:22,560 --> 01:11:25,560
+false
+
+1155
+01:11:26,560 --> 01:11:31,239
+oh okay so yeah so here
+
+1156
+01:11:39,679 --> 01:11:43,840
+so okay let's try
+
+1157
+01:11:49,000 --> 01:11:55,560
+again save
+
+1158
+01:11:51,040 --> 01:11:55,560
+it uh permission denied okay
+
+1159
+01:11:56,000 --> 01:12:03,239
+okay okay close this now save it open
+
+1160
+01:12:06,960 --> 01:12:12,040
+it start again create the
+
+1161
+01:12:18,800 --> 01:12:29,800
+Kel okay select all evaluated
+
+1162
+01:12:25,280 --> 01:12:32,800
+back here run this
+
+1163
+01:12:29,800 --> 01:12:32,800
+no
+
+1164
+01:12:42,080 --> 01:12:48,560
+yeah okay that's that's Uh something's
+
+1165
+01:12:52,440 --> 01:12:55,440
+wrong
+
+1166
+01:13:26,440 --> 01:13:30,120
+now where does this
+
+1167
+01:13:52,360 --> 01:13:55,360
+occur
+
+1168
+01:14:21,040 --> 01:14:28,040
+now uh last
+
+1169
+01:14:25,159 --> 01:14:31,080
+negative you
+
+1170
+01:14:28,040 --> 01:14:35,000
+reverse yeah so you can see here they
+
+1171
+01:14:31,080 --> 01:14:39,760
+are reversing the order
+
+1172
+01:14:35,000 --> 01:14:43,960
+so you are given X and Y now it
+
+1173
+01:14:39,760 --> 01:14:48,760
+becomes negative Y and
+
+1174
+01:14:43,960 --> 01:14:52,560
+X so X becomes negative Y and Y becomes
+
+1175
+01:14:48,760 --> 01:14:55,760
+X you are doing that because you you you
+
+1176
+01:14:52,560 --> 01:14:57,320
+are getting a perpendicular Vector of
+
+1177
+01:14:55,760 --> 01:15:00,080
+the
+
+1178
+01:14:57,320 --> 01:15:03,639
+oral and then you divide it by the
+
+1179
+01:15:00,080 --> 01:15:04,600
+square root and first SLS that's you
+
+1180
+01:15:03,639 --> 01:15:07,840
+know
+
+1181
+01:15:04,600 --> 01:15:11,840
+so that
+
+1182
+01:15:07,840 --> 01:15:14,840
+is that is Computing the length of a
+
+1183
+01:15:11,840 --> 01:15:14,840
+vector
+
+1184
+01:15:15,800 --> 01:15:24,199
+so so in wam language now they have a
+
+1185
+01:15:19,560 --> 01:15:26,880
+function to do that it wasn't available
+
+1186
+01:15:24,199 --> 01:15:26,880
+20 years
+
+1187
+01:15:27,320 --> 01:15:36,960
+ago uh normalized form no uh yeah
+
+1188
+01:15:33,440 --> 01:15:41,080
+so unit Vector no you uh you want the
+
+1189
+01:15:36,960 --> 01:15:45,520
+norm so Norm computes the length of a
+
+1190
+01:15:41,080 --> 01:15:45,520
+vector okay so for example
+
+1191
+01:15:45,880 --> 01:15:48,880
+Norm
+
+1192
+01:15:49,120 --> 01:15:57,880
+one one one okay so the the vector one
+
+1193
+01:15:54,840 --> 01:16:02,400
+one the length is square root of two
+
+1194
+01:15:57,880 --> 01:16:07,920
+that's correct so instead of doing that
+
+1195
+01:16:02,400 --> 01:16:07,920
+here now we can just say Norm
+
+1196
+01:16:08,440 --> 01:16:14,080
+okay yeah
+
+1197
+01:16:11,080 --> 01:16:14,080
+so
+
+1198
+01:16:17,120 --> 01:16:25,120
+nor okay that should be the same that
+
+1199
+01:16:21,520 --> 01:16:25,120
+should do it
+
+1200
+01:16:29,320 --> 01:16:32,320
+now
+
+1201
+01:16:36,199 --> 01:16:39,639
+uh okay
+
+1202
+01:16:40,120 --> 01:16:47,080
+so let's search for square root so this
+
+1203
+01:16:43,520 --> 01:16:47,080
+happened in quite a few
+
+1204
+01:16:52,080 --> 01:16:55,080
+places
+
+1205
+01:16:55,360 --> 01:17:00,000
+also happens here so you can just say
+
+1206
+01:17:22,000 --> 01:17:25,000
+no
+
+1207
+01:17:30,880 --> 01:17:35,239
+okay so then search
+
+1208
+01:17:39,360 --> 01:17:42,360
+again
+
+1209
+01:17:46,199 --> 01:17:49,199
+nor
+
+1210
+01:17:52,000 --> 01:17:58,080
+okay
+
+1211
+01:17:54,719 --> 01:17:58,080
+happens one more
+
+1212
+01:18:21,920 --> 01:18:24,920
+place
+
+1213
+01:18:30,360 --> 01:18:38,280
+uh so this is Computing the tangent line
+
+1214
+01:18:35,679 --> 01:18:42,120
+so you also run into this
+
+1215
+01:18:38,280 --> 01:18:42,120
+issue so this
+
+1216
+01:18:45,520 --> 01:18:51,920
+issue this issue let's Okay so let's
+
+1217
+01:18:49,440 --> 01:18:55,280
+start to drill
+
+1218
+01:18:51,920 --> 01:18:57,239
+down so the problem is just this
+
+1219
+01:18:55,280 --> 01:19:00,320
+function
+
+1220
+01:18:57,239 --> 01:19:04,880
+okay so let's put it
+
+1221
+01:19:00,320 --> 01:19:06,560
+here put it here so this function is
+
+1222
+01:19:04,880 --> 01:19:08,320
+giving you
+
+1223
+01:19:06,560 --> 01:19:10,880
+this
+
+1224
+01:19:08,320 --> 01:19:15,679
+indeterminant errow
+
+1225
+01:19:10,880 --> 01:19:15,679
+okay and we can make
+
+1226
+01:19:17,600 --> 01:19:24,840
+it we can try to simplify it
+
+1227
+01:19:21,840 --> 01:19:24,840
+okay
+
+1228
+01:19:25,159 --> 01:19:33,679
+we still got the problem you know so now
+
+1229
+01:19:29,400 --> 01:19:37,400
+in fact let's just say 2 one I believe
+
+1230
+01:19:33,679 --> 01:19:37,400
+it still get the
+
+1231
+01:19:38,639 --> 01:19:50,560
+problem yep so now instead of 1260 one
+
+1232
+01:19:45,400 --> 01:19:53,800
+12 just 10 of them you see much
+
+1233
+01:19:50,560 --> 01:19:57,840
+simpler now let's say
+
+1234
+01:19:53,800 --> 01:19:59,840
+025 let's just say four of them you see
+
+1235
+01:19:57,840 --> 01:20:03,400
+we still got this
+
+1236
+01:19:59,840 --> 01:20:06,840
+eror but now it's much simpler now let's
+
+1237
+01:20:03,400 --> 01:20:09,320
+remove the old aspect R let's remove the
+
+1238
+01:20:06,840 --> 01:20:09,320
+line
+
+1239
+01:20:10,040 --> 01:20:20,159
+style okay we still got the problem now
+
+1240
+01:20:13,880 --> 01:20:24,760
+remove the aspect ratio so simplify
+
+1241
+01:20:20,159 --> 01:20:24,760
+it okay so
+
+1242
+01:20:28,040 --> 01:20:35,960
+so if you don't plot the evolute will
+
+1243
+01:20:31,040 --> 01:20:35,960
+the error still be there let's try
+
+1244
+01:20:38,360 --> 01:20:44,600
+it and it no okay so it's only when you
+
+1245
+01:20:43,360 --> 01:20:48,320
+plot the
+
+1246
+01:20:44,600 --> 01:20:52,199
+evolute this bug
+
+1247
+01:20:48,320 --> 01:20:54,719
+happens so yeah so the problem is with
+
+1248
+01:20:52,199 --> 01:20:54,719
+the Evol
+
+1249
+01:20:54,800 --> 01:20:58,760
+somewhere yeah so this
+
+1250
+01:21:03,239 --> 01:21:09,280
+evolute and this evolute basically the
+
+1251
+01:21:06,199 --> 01:21:13,880
+problem is in somewhere in the velocity
+
+1252
+01:21:09,280 --> 01:21:18,719
+Vector list and acceleration vector
+
+1253
+01:21:13,880 --> 01:21:21,639
+list okay so but when you compute the
+
+1254
+01:21:18,719 --> 01:21:24,639
+derivative will the problem
+
+1255
+01:21:21,639 --> 01:21:24,639
+occur
+
+1256
+01:21:24,679 --> 01:21:30,159
+no
+
+1257
+01:21:26,400 --> 01:21:34,120
+because um you simply get
+
+1258
+01:21:30,159 --> 01:21:36,920
+zero you see when you compute the
+
+1259
+01:21:34,120 --> 01:21:43,120
+derivative
+
+1260
+01:21:36,920 --> 01:21:43,120
+of does it give you divide by zero
+
+1261
+01:21:43,159 --> 01:21:46,800
+no I don't think
+
+1262
+01:21:51,639 --> 01:22:01,080
+so yeah so so
+
+1263
+01:21:57,000 --> 01:22:04,360
+this is not the source of our
+
+1264
+01:22:01,080 --> 01:22:06,679
+problem but the source of our problem is
+
+1265
+01:22:04,360 --> 01:22:06,679
+when
+
+1266
+01:22:12,400 --> 01:22:19,560
+you is when you try
+
+1267
+01:22:16,560 --> 01:22:19,560
+to
+
+1268
+01:22:19,840 --> 01:22:28,520
+do this coverture yeah I'm pretty sure
+
+1269
+01:22:23,880 --> 01:22:28,520
+it's when you try to do the curvature
+
+1270
+01:22:31,360 --> 01:22:36,400
+okay so here is a curvature
+
+1271
+01:22:40,320 --> 01:22:47,960
+core oh okay so the curvature function
+
+1272
+01:22:43,440 --> 01:22:50,320
+the last argument is a list of true or
+
+1273
+01:22:47,960 --> 01:22:54,040
+false okay now let's go to the
+
+1274
+01:22:50,320 --> 01:22:57,679
+definition of curvature
+
+1275
+01:22:54,040 --> 01:23:02,840
+GP okay so there it
+
+1276
+01:22:57,679 --> 01:23:08,159
+is and uh here are the
+
+1277
+01:23:02,840 --> 01:23:11,840
+parameters okay and uh so this the last
+
+1278
+01:23:08,159 --> 01:23:15,960
+three elements are each one of them is
+
+1279
+01:23:11,840 --> 01:23:17,880
+true or false true means plot it plot
+
+1280
+01:23:15,960 --> 01:23:21,480
+the circle
+
+1281
+01:23:17,880 --> 01:23:24,480
+the the oscillating
+
+1282
+01:23:21,480 --> 01:23:24,480
+Circle
+
+1283
+01:23:27,040 --> 01:23:32,239
+uh and this is the center of the circle
+
+1284
+01:23:29,360 --> 01:23:33,560
+and this is radius the line of this to
+
+1285
+01:23:32,239 --> 01:23:39,440
+the
+
+1286
+01:23:33,560 --> 01:23:39,440
+center okay so then we back to
+
+1287
+01:23:51,480 --> 01:23:54,480
+here
+
+1288
+01:23:59,920 --> 01:24:08,080
+in determinant true or false false true
+
+1289
+01:24:05,000 --> 01:24:11,080
+that if it's false then you get
+
+1290
+01:24:08,080 --> 01:24:11,080
+that
+
+1291
+01:24:16,199 --> 01:24:24,360
+um so why don't we just say that
+
+1292
+01:24:21,360 --> 01:24:24,360
+okay
+
+1293
+01:24:43,159 --> 01:24:48,159
+so this K is a cure
+
+1294
+01:24:49,679 --> 01:24:56,280
+function oh God the coverage of function
+
+1295
+01:24:53,000 --> 01:24:56,280
+let's just do this
+
+1296
+01:25:01,040 --> 01:25:09,000
+again so if that if it's
+
+1297
+01:25:04,520 --> 01:25:10,760
+true then zero
+
+1298
+01:25:09,000 --> 01:25:13,760
+otherwise
+
+1299
+01:25:10,760 --> 01:25:15,960
+that
+
+1300
+01:25:13,760 --> 01:25:20,159
+otherwise
+
+1301
+01:25:15,960 --> 01:25:20,159
+zero test true
+
+1302
+01:25:20,639 --> 01:25:27,239
+false if it's in
+
+1303
+01:25:23,719 --> 01:25:31,239
+indeterminant also zero so when
+
+1304
+01:25:27,239 --> 01:25:31,239
+curvature returns zero what
+
+1305
+01:25:31,719 --> 01:25:35,920
+happens oh there it
+
+1306
+01:25:38,080 --> 01:25:42,920
+is yeah so here is a problem
+
+1307
+01:25:43,320 --> 01:25:49,880
+so one over least okay so there is a
+
+1308
+01:25:47,840 --> 01:25:53,600
+problem radius
+
+1309
+01:25:49,880 --> 01:25:57,159
+list I find the problem I found the
+
+1310
+01:25:53,600 --> 01:26:00,920
+problem so you see one divided by this
+
+1311
+01:25:57,159 --> 01:26:04,560
+Cal function this Cal function here
+
+1312
+01:26:00,920 --> 01:26:04,560
+returns zero
+
+1313
+01:26:06,159 --> 01:26:09,159
+sometimes
+
+1314
+01:26:11,440 --> 01:26:18,360
+so so what you're going to do so what is
+
+1315
+01:26:14,800 --> 01:26:18,360
+this radius list
+
+1316
+01:26:21,199 --> 01:26:28,320
+used Center vectors okay normal unit is
+
+1317
+01:26:25,560 --> 01:26:31,000
+times radius
+
+1318
+01:26:28,320 --> 01:26:33,679
+least yeah that's a problem you see
+
+1319
+01:26:31,000 --> 01:26:33,679
+divide by
+
+1320
+01:26:37,159 --> 01:26:45,119
+zero
+
+1321
+01:26:39,600 --> 01:26:45,119
+um yeah so the problem is
+
+1322
+01:26:51,199 --> 01:26:58,600
+here
+
+1323
+01:26:54,119 --> 01:27:02,040
+the problem is here so 1 divided by
+
+1324
+01:26:58,600 --> 01:27:05,760
+zero you get that
+
+1325
+01:27:02,040 --> 01:27:08,920
+sometimes so what can you do you cannot
+
+1326
+01:27:05,760 --> 01:27:12,480
+simply so you see this curvature part is
+
+1327
+01:27:08,920 --> 01:27:16,960
+a list of values okay it's a list of
+
+1328
+01:27:12,480 --> 01:27:20,040
+values and some of them is zero maybe
+
+1329
+01:27:16,960 --> 01:27:22,320
+zero so what can you do to avoid so when
+
+1330
+01:27:20,040 --> 01:27:27,679
+you one divided by this list you get get
+
+1331
+01:27:22,320 --> 01:27:31,639
+a least of one divided by that okay
+
+1332
+01:27:27,679 --> 01:27:33,320
+so so how can you fix that you cannot
+
+1333
+01:27:31,639 --> 01:27:36,639
+simply
+
+1334
+01:27:33,320 --> 01:27:40,159
+remove those values elements that are
+
+1335
+01:27:36,639 --> 01:27:43,679
+zero because if you do that then you
+
+1336
+01:27:40,159 --> 01:27:47,239
+changed the length of this
+
+1337
+01:27:43,679 --> 01:27:51,119
+list and that's not good because because
+
+1338
+01:27:47,239 --> 01:27:53,000
+this the length of this list needs to be
+
+1339
+01:27:51,119 --> 01:27:55,560
+used
+
+1340
+01:27:53,000 --> 01:27:59,560
+you know because if you change the
+
+1341
+01:27:55,560 --> 01:28:03,480
+length of the radius list
+
+1342
+01:27:59,560 --> 01:28:07,119
+then that list has a different length
+
+1343
+01:28:03,480 --> 01:28:09,159
+than the normal unit Vector list so then
+
+1344
+01:28:07,119 --> 01:28:12,360
+that means you cannot multiply them
+
+1345
+01:28:09,159 --> 01:28:15,360
+together you know element by
+
+1346
+01:28:12,360 --> 01:28:15,360
+element
+
+1347
+01:28:18,719 --> 01:28:25,880
+so and same thing for the center points
+
+1348
+01:28:22,560 --> 01:28:28,800
+so Center points is the center of the
+
+1349
+01:28:25,880 --> 01:28:28,800
+ulating
+
+1350
+01:28:28,880 --> 01:28:36,360
+circle okay so and why what what are we
+
+1351
+01:28:32,560 --> 01:28:40,000
+using this for we are using this for to
+
+1352
+01:28:36,360 --> 01:28:43,719
+compute to draw the circle basically
+
+1353
+01:28:40,000 --> 01:28:48,560
+yeah so you see we draw the circle and
+
+1354
+01:28:43,719 --> 01:28:52,600
+we draw the the center of the circle and
+
+1355
+01:28:48,560 --> 01:28:55,080
+then we draw the radius line
+
+1356
+01:28:52,600 --> 01:29:01,320
+from the point on the curve to the
+
+1357
+01:28:55,080 --> 01:29:04,400
+center of the oscillating Circle okay
+
+1358
+01:29:01,320 --> 01:29:08,800
+so so in order to draw that we have
+
+1359
+01:29:04,400 --> 01:29:14,280
+these variables Center vectors Center
+
+1360
+01:29:08,800 --> 01:29:14,280
+points okay Center Vector Center points
+
+1361
+01:29:15,719 --> 01:29:23,719
+okay so yeah I kind of know what to
+
+1362
+01:29:20,719 --> 01:29:27,520
+do uh
+
+1363
+01:29:23,719 --> 01:29:30,360
+uh almost almost done fixing the problem
+
+1364
+01:29:27,520 --> 01:29:34,560
+so the problem
+
+1365
+01:29:30,360 --> 01:29:37,719
+is some of these elements in this list
+
+1366
+01:29:34,560 --> 01:29:40,440
+is zero you cannot simply delete delete
+
+1367
+01:29:37,719 --> 01:29:41,960
+them if you want to delete them you have
+
+1368
+01:29:40,440 --> 01:29:45,000
+to delete
+
+1369
+01:29:41,960 --> 01:29:50,920
+also the same elements
+
+1370
+01:29:45,000 --> 01:29:52,440
+in the normal unit Vector list and
+
+1371
+01:29:50,920 --> 01:29:55,920
+uh
+
+1372
+01:29:52,440 --> 01:29:59,000
+yeah and uh Center Vector yeah so you
+
+1373
+01:29:55,920 --> 01:30:02,920
+have to delete all of them in one
+
+1374
+01:29:59,000 --> 01:30:05,920
+shot the corresponding elements
+
+1375
+01:30:02,920 --> 01:30:05,920
+okay
+
+1376
+01:30:07,239 --> 01:30:14,960
+so yeah I kind of know what to do so for
+
+1377
+01:30:11,520 --> 01:30:17,520
+example so for example you have a list
+
+1378
+01:30:14,960 --> 01:30:17,520
+of
+
+1379
+01:30:18,639 --> 01:30:27,360
+something okay some of them are zero uh
+
+1380
+01:30:22,480 --> 01:30:27,360
+and you have another list let's
+
+1381
+01:30:29,400 --> 01:30:35,000
+say uh let's say
+
+1382
+01:30:32,000 --> 01:30:37,400
+x
+
+1383
+01:30:35,000 --> 01:30:39,000
+x0
+
+1384
+01:30:37,400 --> 01:30:41,480
+X2
+
+1385
+01:30:39,000 --> 01:30:44,080
+X3
+
+1386
+01:30:41,480 --> 01:30:46,080
+X4 you know let's say you have another
+
+1387
+01:30:44,080 --> 01:30:49,960
+list of several
+
+1388
+01:30:46,080 --> 01:30:52,440
+values now and then you have another
+
+1389
+01:30:49,960 --> 01:30:55,239
+list the important thing thing is that
+
+1390
+01:30:52,440 --> 01:30:58,199
+all these List have the same number of
+
+1391
+01:30:55,239 --> 01:31:00,480
+items so if you delete the zeros in the
+
+1392
+01:30:58,199 --> 01:31:04,080
+first list you also need to delete the
+
+1393
+01:31:00,480 --> 01:31:08,159
+corresponding elements okay so what we
+
+1394
+01:31:04,080 --> 01:31:08,159
+can do here
+
+1395
+01:31:11,679 --> 01:31:20,159
+is oh okay so actually uh the problem is
+
+1396
+01:31:15,760 --> 01:31:20,159
+here you see the problem
+
+1397
+01:31:20,760 --> 01:31:28,600
+is
+
+1398
+01:31:22,639 --> 01:31:28,600
+one divided by zero so the problem is
+
+1399
+01:31:36,119 --> 01:31:42,080
+that okay God I I know what is the
+
+1400
+01:31:39,239 --> 01:31:43,170
+problem you see the curvature so for
+
+1401
+01:31:42,080 --> 01:31:46,359
+example this would
+
+1402
+01:31:43,170 --> 01:31:46,359
+[Music]
+
+1403
+01:31:50,080 --> 01:31:56,000
+be that would be the
+
+1404
+01:31:53,000 --> 01:32:00,159
+that that would correspond to this okay
+
+1405
+01:31:56,000 --> 01:32:06,440
+so now if you have one divided
+
+1406
+01:32:00,159 --> 01:32:08,760
+by that you got that that is the
+
+1407
+01:32:06,440 --> 01:32:11,760
+problem uh
+
+1408
+01:32:08,760 --> 01:32:11,760
+yeah
+
+1409
+01:32:20,679 --> 01:32:27,239
+so
+
+1410
+01:32:22,800 --> 01:32:27,239
+okay you need you need to
+
+1411
+01:32:29,840 --> 01:32:33,360
+CL oh
+
+1412
+01:32:34,440 --> 01:32:40,840
+God okay I need to think about
+
+1413
+01:32:37,520 --> 01:32:42,400
+this okay I've been sitting for 1990
+
+1414
+01:32:40,840 --> 01:32:46,520
+minutes I need a
+
+1415
+01:32:42,400 --> 01:32:48,719
+break how many people are watching one
+
+1416
+01:32:46,520 --> 01:32:50,639
+two
+
+1417
+01:32:48,719 --> 01:32:53,639
+three
+
+1418
+01:32:50,639 --> 01:32:53,639
+okay
+
+1419
+01:33:16,480 --> 01:33:22,960
+uh fantastic someone is watching okay
+
+1420
+01:33:20,159 --> 01:33:26,119
+thank you so so yeah I'm going to take a
+
+1421
+01:33:22,960 --> 01:33:29,040
+break for 4 minutes and uh let's come
+
+1422
+01:33:26,119 --> 01:33:36,800
+back we know the problem
+
+1423
+01:33:29,040 --> 01:33:36,800
+now um yeah so okay be right
+
+1424
+01:33:50,560 --> 01:33:53,560
+back
+
+1425
+01:39:24,800 --> 01:39:28,960
+one Mega ton of
+
+1426
+01:39:29,650 --> 01:39:32,740
+[Music]
+
+1427
+01:39:47,760 --> 01:39:53,040
+coffee let me describe the problem
+
+1428
+01:39:56,760 --> 01:40:03,360
+Let's uh let's just go
+
+1429
+01:39:59,679 --> 01:40:06,000
+slowly now in my normal coding of course
+
+1430
+01:40:03,360 --> 01:40:08,480
+I wouldn't be talking actually I talk to
+
+1431
+01:40:06,000 --> 01:40:10,480
+myself a lot because when you talk WR
+
+1432
+01:40:08,480 --> 01:40:15,000
+things down
+
+1433
+01:40:10,480 --> 01:40:15,000
+you it help you clarify the
+
+1434
+01:40:19,960 --> 01:40:22,960
+thoughts
+
+1435
+01:40:23,800 --> 01:40:32,440
+the K
+
+1436
+01:40:25,560 --> 01:40:32,440
+is the K is a function that
+
+1437
+01:40:42,719 --> 01:40:47,000
+computes uh how do you spell
+
+1438
+01:40:49,920 --> 01:40:52,920
+compute
+
+1439
+01:41:08,159 --> 01:41:13,560
+so
+
+1440
+01:41:09,360 --> 01:41:16,320
+like this okay so let me
+
+1441
+01:41:13,560 --> 01:41:19,840
+just do it so
+
+1442
+01:41:16,320 --> 01:41:22,080
+it people can
+
+1443
+01:41:19,840 --> 01:41:25,199
+understand
+
+1444
+01:41:22,080 --> 01:41:28,199
+so K is a function that computes cure
+
+1445
+01:41:25,199 --> 01:41:28,199
+then
+
+1446
+01:41:31,760 --> 01:41:35,679
+um something like
+
+1447
+01:41:36,159 --> 01:41:44,080
+this where some items are
+
+1448
+01:41:41,119 --> 01:41:47,199
+zero so so when
+
+1449
+01:41:44,080 --> 01:41:51,679
+you one over that then you get div
+
+1450
+01:41:47,199 --> 01:41:54,560
+division by zero that is your problem
+
+1451
+01:41:51,679 --> 01:41:58,119
+you know you get a value of complex
+
+1452
+01:41:54,560 --> 01:42:02,320
+infinite complex Infinity okay when you
+
+1453
+01:41:58,119 --> 01:42:08,080
+when one divide by zero you get complex
+
+1454
+01:42:02,320 --> 01:42:13,719
+Infinity uh and then so our code but our
+
+1455
+01:42:08,080 --> 01:42:13,719
+code continues to you know to
+
+1456
+01:42:14,360 --> 01:42:19,520
+multiply so when you have a unit Vector
+
+1457
+01:42:17,280 --> 01:42:22,760
+times
+
+1458
+01:42:19,520 --> 01:42:27,360
+zero uh then you get a z 0o you get a
+
+1459
+01:42:22,760 --> 01:42:31,080
+zero vector and then so which is okay
+
+1460
+01:42:27,360 --> 01:42:34,280
+centered um which is okay but actually
+
+1461
+01:42:31,080 --> 01:42:39,880
+wrong because it's no longer
+
+1462
+01:42:34,280 --> 01:42:43,239
+Center center of the uh articulating
+
+1463
+01:42:39,880 --> 01:42:46,679
+Circle Center of the C uh you know the
+
+1464
+01:42:43,239 --> 01:42:49,560
+circle of curvature but anyway basically
+
+1465
+01:42:46,679 --> 01:42:53,040
+when you get a zero that means at that
+
+1466
+01:42:49,560 --> 01:42:56,760
+point on the Curve you do not have a
+
+1467
+01:42:53,040 --> 01:42:59,639
+curvature defined so you cannot have a
+
+1468
+01:42:56,760 --> 01:43:01,800
+osculating circle
+
+1469
+01:42:59,639 --> 01:43:06,000
+so so that
+
+1470
+01:43:01,800 --> 01:43:07,719
+means so whenever at those points you
+
+1471
+01:43:06,000 --> 01:43:11,080
+you don't want to compute anything at
+
+1472
+01:43:07,719 --> 01:43:14,080
+those points ah God so what you going to
+
+1473
+01:43:11,080 --> 01:43:14,080
+do
+
+1474
+01:43:16,760 --> 01:43:22,679
+so so what you going to do here
+
+1475
+01:43:23,080 --> 01:43:29,599
+so this curvature function you know so
+
+1476
+01:43:27,000 --> 01:43:32,239
+this curvature
+
+1477
+01:43:29,599 --> 01:43:36,040
+function
+
+1478
+01:43:32,239 --> 01:43:38,560
+um this cure function if we change it
+
+1479
+01:43:36,040 --> 01:43:43,040
+you you see the thing is we don't want
+
+1480
+01:43:38,560 --> 01:43:44,780
+to change the length of the
+
+1481
+01:43:43,040 --> 01:43:46,119
+list okay
+
+1482
+01:43:44,780 --> 01:43:47,800
+[Music]
+
+1483
+01:43:46,119 --> 01:43:50,760
+so
+
+1484
+01:43:47,800 --> 01:43:52,400
+yeah I think I have to do this offlines
+
+1485
+01:43:50,760 --> 01:43:56,119
+so you
+
+1486
+01:43:52,400 --> 01:43:59,320
+know because this
+
+1487
+01:43:56,119 --> 01:44:03,000
+is not so easy to
+
+1488
+01:43:59,320 --> 01:44:06,599
+fix one of the easy way is simply to
+
+1489
+01:44:03,000 --> 01:44:06,599
+turn off the warning
+
+1490
+01:44:07,440 --> 01:44:13,679
+messages n that wouldn't work actually I
+
+1491
+01:44:10,760 --> 01:44:17,560
+already turned it off I
+
+1492
+01:44:13,679 --> 01:44:17,560
+think because you can
+
+1493
+01:44:18,199 --> 01:44:22,599
+see uh
+
+1494
+01:44:29,560 --> 01:44:32,480
+okay let's
+
+1495
+01:44:33,360 --> 01:44:37,159
+see search for
+
+1496
+01:44:38,400 --> 01:44:45,800
+off you see we already so this
+
+1497
+01:44:42,560 --> 01:44:50,760
+line this line already turns
+
+1498
+01:44:45,800 --> 01:44:53,400
+of infinity turns of Errors of infinity
+
+1499
+01:44:50,760 --> 01:44:57,800
+let's close
+
+1500
+01:44:53,400 --> 01:44:57,800
+that you know this this
+
+1501
+01:44:59,400 --> 01:45:04,719
+thing turns of infinity in
+
+1502
+01:45:06,080 --> 01:45:09,080
+determinant
+
+1503
+01:45:10,560 --> 01:45:15,760
+uh yeah but what how do you not solve
+
+1504
+01:45:19,480 --> 01:45:24,560
+this
+
+1505
+01:45:22,040 --> 01:45:24,560
+oh
+
+1506
+01:45:25,760 --> 01:45:35,000
+God go back to go back go back to our
+
+1507
+01:45:31,400 --> 01:45:35,000
+problem so the
+
+1508
+01:45:48,440 --> 01:45:55,239
+problem CU cuz
+
+1509
+01:45:51,920 --> 01:46:01,040
+yeah go to
+
+1510
+01:45:55,239 --> 01:46:01,040
+it let's just comment here so you can
+
+1511
+01:46:01,920 --> 01:46:11,920
+see and uh here let's just make it one
+
+1512
+01:46:07,320 --> 01:46:15,239
+line single line wam
+
+1513
+01:46:11,920 --> 01:46:19,400
+language okay so yeah
+
+1514
+01:46:15,239 --> 01:46:23,000
+so the problem is this
+
+1515
+01:46:19,400 --> 01:46:26,239
+line how do you solve the
+
+1516
+01:46:23,000 --> 01:46:28,760
+problem you got a list of values some of
+
+1517
+01:46:26,239 --> 01:46:28,760
+them are
+
+1518
+01:46:29,239 --> 01:46:36,880
+zero the best solution is just to delete
+
+1519
+01:46:33,040 --> 01:46:40,440
+those zero elements okay but if you want
+
+1520
+01:46:36,880 --> 01:46:43,199
+to do that you also have to delete the
+
+1521
+01:46:40,440 --> 01:46:48,920
+corresponding points of this and that
+
+1522
+01:46:43,199 --> 01:46:52,400
+okay and can you do that yes so yeah
+
+1523
+01:46:48,920 --> 01:46:52,400
+easy okay
+
+1524
+01:46:52,760 --> 01:47:01,639
+so velocity Vector list
+
+1525
+01:46:56,840 --> 01:47:04,520
+so so you compute the radius list first
+
+1526
+01:47:01,639 --> 01:47:07,639
+I mean well you compute this thing
+
+1527
+01:47:04,520 --> 01:47:12,080
+first so actually we can start to fix it
+
+1528
+01:47:07,639 --> 01:47:16,400
+so for example curvature list is a
+
+1529
+01:47:12,080 --> 01:47:21,440
+value we declare it here as
+
+1530
+01:47:16,400 --> 01:47:25,760
+another variable let's say here okay
+
+1531
+01:47:21,440 --> 01:47:29,400
+there okay so curvature list then you
+
+1532
+01:47:25,760 --> 01:47:29,400
+can Define curvature
+
+1533
+01:47:33,400 --> 01:47:37,159
+list here okay
+
+1534
+01:47:38,960 --> 01:47:41,960
+so
+
+1535
+01:47:42,239 --> 01:47:51,480
+there equals to that okay so you got a
+
+1536
+01:47:47,280 --> 01:47:55,280
+cure list then
+
+1537
+01:47:51,480 --> 01:47:57,800
+then some of the value will be zero okay
+
+1538
+01:47:55,280 --> 01:47:59,840
+then but now you
+
+1539
+01:47:57,800 --> 01:48:02,880
+know now you
+
+1540
+01:47:59,840 --> 01:48:07,760
+know which elements are
+
+1541
+01:48:02,880 --> 01:48:11,320
+problematic so once you know that you
+
+1542
+01:48:07,760 --> 01:48:14,360
+can you can shorten
+
+1543
+01:48:11,320 --> 01:48:17,239
+the let's see you can shorten the
+
+1544
+01:48:14,360 --> 01:48:20,320
+velocity Vector
+
+1545
+01:48:17,239 --> 01:48:24,159
+list Therefore your normal Vector list
+
+1546
+01:48:20,320 --> 01:48:26,480
+will be corresponded will be correct
+
+1547
+01:48:24,159 --> 01:48:29,840
+length
+
+1548
+01:48:26,480 --> 01:48:29,840
+right that's
+
+1549
+01:48:29,960 --> 01:48:37,760
+right okay and then so similarly
+
+1550
+01:48:34,360 --> 01:48:41,040
+your okay let's let's move the radius
+
+1551
+01:48:37,760 --> 01:48:41,040
+list here okay
+
+1552
+01:48:44,800 --> 01:48:54,199
+so so similarly your radius list okay so
+
+1553
+01:48:50,800 --> 01:48:55,520
+I can put it here so you so the then the
+
+1554
+01:48:54,199 --> 01:48:59,880
+center
+
+1555
+01:48:55,520 --> 01:49:03,400
+vectors will also be correspondent you
+
+1556
+01:48:59,880 --> 01:49:06,360
+know correct length then Center points
+
+1557
+01:49:03,400 --> 01:49:06,360
+will be
+
+1558
+01:49:09,400 --> 01:49:16,239
+also uh where does the T Point list come
+
+1559
+01:49:12,800 --> 01:49:19,360
+from okay they will not be the correct
+
+1560
+01:49:16,239 --> 01:49:23,440
+length you need to also change the Le
+
+1561
+01:49:19,360 --> 01:49:26,679
+the length of T Point list okay so
+
+1562
+01:49:23,440 --> 01:49:30,880
+anyway that's the but okay so you can
+
+1563
+01:49:26,679 --> 01:49:34,480
+you can you can properly delete some of
+
+1564
+01:49:30,880 --> 01:49:37,760
+the zero elements but however you when
+
+1565
+01:49:34,480 --> 01:49:41,159
+you if you do that then this
+
+1566
+01:49:37,760 --> 01:49:43,159
+curvature Graphics primitive function
+
+1567
+01:49:41,159 --> 01:49:47,679
+will return a
+
+1568
+01:49:43,159 --> 01:49:50,960
+list where the length of the list will
+
+1569
+01:49:47,679 --> 01:49:54,159
+not be necessarily the same is the input
+
+1570
+01:49:50,960 --> 01:49:54,159
+list of points on the
+
+1571
+01:49:55,480 --> 01:50:02,159
+curve that's not so good because use you
+
+1572
+01:49:59,040 --> 01:50:06,520
+know you expect the lengths to always be
+
+1573
+01:50:02,159 --> 01:50:09,800
+the same uh let's look at where cure GPS
+
+1574
+01:50:06,520 --> 01:50:15,440
+is called okay so
+
+1575
+01:50:09,800 --> 01:50:19,040
+cature okay so basically you got you see
+
+1576
+01:50:15,440 --> 01:50:20,920
+this is how you generate
+
+1577
+01:50:19,040 --> 01:50:24,480
+the
+
+1578
+01:50:20,920 --> 01:50:27,320
+the lines of radius
+
+1579
+01:50:24,480 --> 01:50:28,880
+um this is how you generate you draw you
+
+1580
+01:50:27,320 --> 01:50:33,599
+know you generate the
+
+1581
+01:50:28,880 --> 01:50:36,360
+lines of radial lines and uh and the
+
+1582
+01:50:33,599 --> 01:50:39,280
+point the red these red
+
+1583
+01:50:36,360 --> 01:50:41,960
+dots so in order to generate those
+
+1584
+01:50:39,280 --> 01:50:45,239
+Graphics you rely on the curvature
+
+1585
+01:50:41,960 --> 01:50:45,239
+Graphics primitive
+
+1586
+01:50:48,639 --> 01:50:53,480
+Okay so
+
+1587
+01:50:51,159 --> 01:50:56,079
+so now let's look at where are these
+
+1588
+01:50:53,480 --> 01:50:56,079
+variable
+
+1589
+01:50:58,719 --> 01:51:04,560
+used
+
+1590
+01:51:00,280 --> 01:51:04,560
+okay oh then delete
+
+1591
+01:51:04,599 --> 01:51:07,599
+cases
+
+1592
+01:51:10,520 --> 01:51:17,159
+what oh we already have delete
+
+1593
+01:51:14,159 --> 01:51:17,159
+cases
+
+1594
+01:51:18,960 --> 01:51:21,960
+what
+
+1595
+01:51:25,400 --> 01:51:31,239
+delete cases by what
+
+1596
+01:51:28,239 --> 01:51:31,239
+criteria
+
+1597
+01:51:35,800 --> 01:51:38,800
+okay
+
+1598
+01:51:48,960 --> 01:51:51,960
+what
+
+1599
+01:52:11,360 --> 01:52:15,159
+did you finish your Advent of code
+
+1600
+01:52:13,079 --> 01:52:19,119
+already have You' been watching the
+
+1601
+01:52:15,159 --> 01:52:23,639
+videos if you have you know the answer
+
+1602
+01:52:19,119 --> 01:52:23,639
+what is your intention of asking that
+
+1603
+01:52:32,239 --> 01:52:38,840
+question oh God so this
+
+1604
+01:52:35,840 --> 01:52:41,599
+problem do I want to continue yeah let's
+
+1605
+01:52:38,840 --> 01:52:44,079
+continue because let's just I mean
+
+1606
+01:52:41,599 --> 01:52:46,840
+that's what that's the point of this
+
+1607
+01:52:44,079 --> 01:52:51,920
+video
+
+1608
+01:52:46,840 --> 01:52:56,159
+so it's you know it's going to be
+
+1609
+01:52:51,920 --> 01:53:01,320
+boring from the beginning so anyway so
+
+1610
+01:52:56,159 --> 01:53:01,320
+what how do you fix this problem you got
+
+1611
+01:53:01,719 --> 01:53:09,480
+um yeah so here is your radial lines
+
+1612
+01:53:06,320 --> 01:53:13,159
+here is radius radial point the center
+
+1613
+01:53:09,480 --> 01:53:13,159
+points Center of circle
+
+1614
+01:53:14,119 --> 01:53:21,760
+points so this coverage
+
+1615
+01:53:18,760 --> 01:53:21,760
+thing
+
+1616
+01:53:22,480 --> 01:53:27,679
+H coverture is the problematic thing
+
+1617
+01:53:25,400 --> 01:53:30,119
+because you you run into
+
+1618
+01:53:27,679 --> 01:53:33,079
+the undefined
+
+1619
+01:53:30,119 --> 01:53:39,040
+situation where you have a
+
+1620
+01:53:33,079 --> 01:53:41,280
+cusp or in catastroph catastrophe Theory
+
+1621
+01:53:39,040 --> 01:53:43,520
+they are called
+
+1622
+01:53:41,280 --> 01:53:46,599
+Singularity you know like today we are
+
+1623
+01:53:43,520 --> 01:53:50,360
+approaching Singularity those points are
+
+1624
+01:53:46,599 --> 01:53:53,199
+called Singularity okay just for fun
+
+1625
+01:53:50,360 --> 01:53:53,199
+let's chat
+
+1626
+01:53:55,639 --> 01:54:03,639
+random catastrophe Theory okay there it
+
+1627
+01:54:00,119 --> 01:54:03,639
+is catastrophe
+
+1628
+01:54:05,400 --> 01:54:12,599
+Theory actually I don't know the sub
+
+1629
+01:54:08,079 --> 01:54:16,760
+subject too much but
+
+1630
+01:54:12,599 --> 01:54:18,840
+basically okay so you have what fold
+
+1631
+01:54:16,760 --> 01:54:21,719
+catastrophe okay I don't know what that
+
+1632
+01:54:18,840 --> 01:54:22,960
+is but you can see here they are trying
+
+1633
+01:54:21,719 --> 01:54:27,280
+to
+
+1634
+01:54:22,960 --> 01:54:31,199
+show cusp cat catastrophe that's what we
+
+1635
+01:54:27,280 --> 01:54:34,760
+got you see this this cusp this pointed
+
+1636
+01:54:31,199 --> 01:54:39,159
+sharp points that's that's the cusp
+
+1637
+01:54:34,760 --> 01:54:43,360
+catastrophe in fact we just plotted a
+
+1638
+01:54:39,159 --> 01:54:45,239
+graph of it uh today I mean two days ago
+
+1639
+01:54:43,360 --> 01:54:48,199
+I
+
+1640
+01:54:45,239 --> 01:54:50,280
+was yeah you see those all those points
+
+1641
+01:54:48,199 --> 01:54:51,920
+are cusps
+
+1642
+01:54:50,280 --> 01:54:55,560
+sharp
+
+1643
+01:54:51,920 --> 01:54:59,159
+points why are they C I mean so why are
+
+1644
+01:54:55,560 --> 01:55:02,840
+they catastrophe because at those points
+
+1645
+01:54:59,159 --> 01:55:06,000
+things goes wrong you know s things goes
+
+1646
+01:55:02,840 --> 01:55:07,239
+out of the ordinary it's like into the
+
+1647
+01:55:06,000 --> 01:55:11,239
+black
+
+1648
+01:55:07,239 --> 01:55:13,320
+hole because every point on a curve you
+
+1649
+01:55:11,239 --> 01:55:16,400
+know they have properties they have
+
+1650
+01:55:13,320 --> 01:55:19,239
+velocity they have curvature they have
+
+1651
+01:55:16,400 --> 01:55:22,000
+tangent they you know they have normal
+
+1652
+01:55:19,239 --> 01:55:25,760
+it's well defined but when when you
+
+1653
+01:55:22,000 --> 01:55:28,920
+reach one of these curp Point everything
+
+1654
+01:55:25,760 --> 01:55:31,320
+breaks you know you got one divided by
+
+1655
+01:55:28,920 --> 01:55:35,199
+zero you you you don't you don't have
+
+1656
+01:55:31,320 --> 01:55:36,560
+velocity velocity becom zero Cur
+
+1657
+01:55:35,199 --> 01:55:38,840
+curvature is
+
+1658
+01:55:36,560 --> 01:55:42,599
+undefined uh you know things like that
+
+1659
+01:55:38,840 --> 01:55:44,840
+so that's catastrophe so at those points
+
+1660
+01:55:42,599 --> 01:55:47,480
+that's what
+
+1661
+01:55:44,840 --> 01:55:49,480
+the yeah oh oh this is what I'm going to
+
+1662
+01:55:47,480 --> 01:55:52,760
+show I'm going to show it okay so anyway
+
+1663
+01:55:49,480 --> 01:55:56,159
+that's that's what this catastrophe
+
+1664
+01:55:52,760 --> 01:55:58,480
+theory is about you know I don't know
+
+1665
+01:55:56,159 --> 01:55:59,880
+much about it but that's that's a basic
+
+1666
+01:55:58,480 --> 01:56:03,400
+idea they
+
+1667
+01:55:59,880 --> 01:56:06,639
+study when the situations when you know
+
+1668
+01:56:03,400 --> 01:56:10,760
+in what circumstances this CPS
+
+1669
+01:56:06,639 --> 01:56:13,040
+happen Okay so let's read it cusp
+
+1670
+01:56:10,760 --> 01:56:15,840
+catastrophe so you are you have this
+
+1671
+01:56:13,040 --> 01:56:18,679
+equation you know we can plot it let's
+
+1672
+01:56:15,840 --> 01:56:21,159
+ramble you know let's ramble a bit and
+
+1673
+01:56:18,679 --> 01:56:27,560
+uh
+
+1674
+01:56:21,159 --> 01:56:27,560
+um okay uh X4 ax2
+
+1675
+01:56:34,639 --> 01:56:46,719
+BX what is it a x s okay so
+
+1676
+01:56:40,360 --> 01:56:51,480
+ax² that's equals to zero I suppose and
+
+1677
+01:56:46,719 --> 01:56:51,480
+uh okay so
+
+1678
+01:56:51,800 --> 01:56:59,400
+and uh I believe implicit
+
+1679
+01:56:56,400 --> 01:56:59,400
+PL
+
+1680
+01:57:04,560 --> 01:57:08,840
+uh cont to
+
+1681
+01:57:06,760 --> 01:57:11,159
+plot
+
+1682
+01:57:08,840 --> 01:57:13,599
+x-3
+
+1683
+01:57:11,159 --> 01:57:17,400
+23 let's
+
+1684
+01:57:13,599 --> 01:57:18,400
+say what is a and b yeah stupid
+
+1685
+01:57:17,400 --> 01:57:21,400
+A and
+
+1686
+01:57:18,400 --> 01:57:21,400
+B
+
+1687
+01:57:27,719 --> 01:57:29,920
+let's
+
+1688
+01:57:28,110 --> 01:57:34,520
+[Music]
+
+1689
+01:57:29,920 --> 01:57:36,840
+see I'm not even sure that works uh
+
+1690
+01:57:34,520 --> 01:57:36,840
+let's
+
+1691
+01:57:48,400 --> 01:57:51,400
+see
+
+1692
+01:57:56,119 --> 01:57:59,199
+where where is the
+
+1693
+01:58:14,159 --> 01:58:17,159
+Y
+
+1694
+01:58:18,320 --> 01:58:21,320
+whats
+
+1695
+01:58:32,000 --> 01:58:38,199
+yeah X4 power ax s +
+
+1696
+01:58:38,560 --> 01:58:47,719
+BX oh a = to z a less than z Oh a is a
+
+1697
+01:58:44,599 --> 01:58:47,719
+variable so a
+
+1698
+01:58:48,320 --> 01:58:53,360
+changes okay so you got that kind of
+
+1699
+01:58:59,360 --> 01:59:07,199
+situation yeah anyway yeah I'm not going
+
+1700
+01:59:02,639 --> 01:59:11,119
+to app PL it I'm not going to app PL it
+
+1701
+01:59:07,199 --> 01:59:11,119
+so anyway that's a
+
+1702
+01:59:11,840 --> 01:59:18,079
+digression so how do we how do I solve
+
+1703
+01:59:14,679 --> 01:59:20,400
+this problem I have to okay I cannot do
+
+1704
+01:59:18,079 --> 01:59:21,560
+it online I mean I have to think about
+
+1705
+01:59:20,400 --> 01:59:23,840
+it I
+
+1706
+01:59:21,560 --> 01:59:26,840
+cannot just talk
+
+1707
+01:59:23,840 --> 01:59:26,840
+and
+
+1708
+01:59:28,960 --> 01:59:37,800
+stuff and I'm getting tired okay
+
+1709
+01:59:33,520 --> 01:59:39,239
+so so what what what are you doing now
+
+1710
+01:59:37,800 --> 01:59:40,460
+count to
+
+1711
+01:59:39,239 --> 01:59:43,560
+plot
+
+1712
+01:59:40,460 --> 01:59:43,560
+[Music]
+
+1713
+01:59:48,239 --> 01:59:51,239
+um
+
+1714
+02:00:18,159 --> 02:00:21,159
+for
+
+1715
+02:00:35,440 --> 02:00:41,360
+oh syntax error that's
+
+1716
+02:00:39,239 --> 02:00:48,119
+why there it
+
+1717
+02:00:41,360 --> 02:00:51,119
+is so what are they saying a = to
+
+1718
+02:00:48,119 --> 02:00:51,119
+2
+
+1719
+02:00:52,320 --> 02:00:58,920
+so what is the Wikipedia
+
+1720
+02:00:54,639 --> 02:00:58,920
+saying the Wikipedia is
+
+1721
+02:00:59,719 --> 02:01:07,679
+saying a less than zero let's
+
+1722
+02:01:03,719 --> 02:01:10,360
+see so a less than Zer
+
+1723
+02:01:07,679 --> 02:01:14,280
+-2 you don't get any
+
+1724
+02:01:10,360 --> 02:01:14,280
+Contours uh why is
+
+1725
+02:01:18,040 --> 02:01:21,040
+that
+
+1726
+02:01:39,079 --> 02:01:44,040
+what what is this we Wikipedia
+
+1727
+02:01:46,960 --> 02:01:53,560
+thing oh DVD DX what they taking a
+
+1728
+02:01:55,960 --> 02:02:02,679
+derivative okay so they have to take the
+
+1729
+02:01:59,159 --> 02:02:05,400
+derivative the curp geometry is very
+
+1730
+02:02:02,679 --> 02:02:07,679
+common when one explores what happens to
+
+1731
+02:02:05,400 --> 02:02:11,520
+a fold by
+
+1732
+02:02:07,679 --> 02:02:13,560
+fication if a second parameter B is
+
+1733
+02:02:11,520 --> 02:02:17,520
+added to the control
+
+1734
+02:02:13,560 --> 02:02:20,520
+space okay varying the parameters one
+
+1735
+02:02:17,520 --> 02:02:24,159
+finds that there is now curve
+
+1736
+02:02:20,520 --> 02:02:27,000
+blue of points in AB space where
+
+1737
+02:02:24,159 --> 02:02:30,480
+stability is
+
+1738
+02:02:27,000 --> 02:02:33,719
+lost where a stable solution we suddenly
+
+1739
+02:02:30,480 --> 02:02:36,800
+jump to an alternative outcome okay
+
+1740
+02:02:33,719 --> 02:02:41,520
+that's catastrophe
+
+1741
+02:02:36,800 --> 02:02:41,520
+Theory uh and
+
+1742
+02:02:47,960 --> 02:02:50,960
+uh
+
+1743
+02:03:07,040 --> 02:03:14,920
+so hyperbolic umbilic
+
+1744
+02:03:11,360 --> 02:03:17,880
+catastrophe elliptic umbilic
+
+1745
+02:03:14,920 --> 02:03:22,040
+catastrophe parabolic umbilic
+
+1746
+02:03:17,880 --> 02:03:22,040
+catastrophe Arnold
+
+1747
+02:03:23,480 --> 02:03:28,599
+notation Chaos Theory okay
+
+1748
+02:03:29,040 --> 02:03:35,760
+uh yeah they don't say much
+
+1749
+02:03:32,560 --> 02:03:39,079
+Singularity Theory let's
+
+1750
+02:03:35,760 --> 02:03:43,639
+see what is singularity
+
+1751
+02:03:39,079 --> 02:03:47,400
+Theory this article has problems in math
+
+1752
+02:03:43,639 --> 02:03:51,559
+Singularity Theory studies spaces that
+
+1753
+02:03:47,400 --> 02:03:54,280
+are almost manif folds but not quite a
+
+1754
+02:03:51,559 --> 02:03:58,320
+string can serve as an example of a
+
+1755
+02:03:54,280 --> 02:04:02,239
+one-dimensional manifold if one neglects
+
+1756
+02:03:58,320 --> 02:04:05,320
+its thickness a singularity can be made
+
+1757
+02:04:02,239 --> 02:04:09,599
+by boiling it up dropping it on the
+
+1758
+02:04:05,320 --> 02:04:12,440
+floor and flattening it in some places
+
+1759
+02:04:09,599 --> 02:04:15,480
+the flat string will cross itself in an
+
+1760
+02:04:12,440 --> 02:04:19,199
+approximate X shape the point on the
+
+1761
+02:04:15,480 --> 02:04:21,079
+floor where does this are one kind of
+
+1762
+02:04:19,199 --> 02:04:26,920
+Singularity
+
+1763
+02:04:21,079 --> 02:04:28,679
+yeah yeah again cusps cusps and double
+
+1764
+02:04:26,920 --> 02:04:33,520
+points and
+
+1765
+02:04:28,679 --> 02:04:38,239
+stuff okay uh so but
+
+1766
+02:04:33,520 --> 02:04:38,239
+they they really have nothing to do
+
+1767
+02:04:38,280 --> 02:04:46,280
+with with with debugging our
+
+1768
+02:04:42,440 --> 02:04:50,040
+program our program our
+
+1769
+02:04:46,280 --> 02:04:53,280
+problem is we got this
+
+1770
+02:04:50,040 --> 02:04:53,280
+our problem
+
+1771
+02:04:53,639 --> 02:05:00,679
+is is this we got this
+
+1772
+02:04:57,239 --> 02:05:02,360
+list so here is our problem okay we got
+
+1773
+02:05:00,679 --> 02:05:05,840
+a list of
+
+1774
+02:05:02,360 --> 02:05:09,480
+points and uh some of them are
+
+1775
+02:05:05,840 --> 02:05:12,440
+zero when that
+
+1776
+02:05:09,480 --> 02:05:15,079
+happens you know we need to shorten the
+
+1777
+02:05:12,440 --> 02:05:20,679
+the list we need to remove those
+
+1778
+02:05:15,079 --> 02:05:20,679
+elements but if we do that then
+
+1779
+02:05:22,239 --> 02:05:28,480
+um you see the Cure so if we do that
+
+1780
+02:05:29,199 --> 02:05:34,199
+then oh okay so we actually we just
+
+1781
+02:05:35,920 --> 02:05:43,199
+directly yeah okay so we can shorten
+
+1782
+02:05:38,840 --> 02:05:44,800
+them within this function no
+
+1783
+02:05:43,199 --> 02:05:47,840
+problem
+
+1784
+02:05:44,800 --> 02:05:50,679
+right let's do that okay let's just do
+
+1785
+02:05:47,840 --> 02:05:50,679
+that
+
+1786
+02:05:52,280 --> 02:05:56,440
+okay so let's do that so here is a
+
+1787
+02:05:54,719 --> 02:06:01,079
+function
+
+1788
+02:05:56,440 --> 02:06:05,159
+definition and uh it's not it's not it's
+
+1789
+02:06:01,079 --> 02:06:08,199
+actually quite long but you know you you
+
+1790
+02:06:05,159 --> 02:06:09,719
+you guys probably cannot read this but
+
+1791
+02:06:08,199 --> 02:06:13,520
+but I
+
+1792
+02:06:09,719 --> 02:06:15,800
+can okay but okay so so it's not too
+
+1793
+02:06:13,520 --> 02:06:19,199
+long though but
+
+1794
+02:06:15,800 --> 02:06:22,119
+um so for example let me shorten and so
+
+1795
+02:06:19,199 --> 02:06:22,119
+you can kind of
+
+1796
+02:06:22,320 --> 02:06:25,840
+see what is
+
+1797
+02:06:29,599 --> 02:06:35,520
+this oh this is normal so we are
+
+1798
+02:06:32,599 --> 02:06:38,239
+actually just defining so that's so we
+
+1799
+02:06:35,520 --> 02:06:41,679
+are defining the curvature list we are
+
+1800
+02:06:38,239 --> 02:06:45,199
+defining the radius list we are defining
+
+1801
+02:06:41,679 --> 02:06:49,440
+the normal unit list okay then we are
+
+1802
+02:06:45,199 --> 02:06:51,760
+defining the center vectors list
+
+1803
+02:06:49,440 --> 02:06:55,239
+then we are defining the center point
+
+1804
+02:06:51,760 --> 02:06:59,280
+list okay it's also close and
+
+1805
+02:06:55,239 --> 02:07:02,559
+then and then what's this
+
+1806
+02:06:59,280 --> 02:07:05,480
+um Let me let me shorten the code so you
+
+1807
+02:07:02,559 --> 02:07:08,559
+can see what's going
+
+1808
+02:07:05,480 --> 02:07:12,559
+on yeah then we are actually generating
+
+1809
+02:07:08,559 --> 02:07:14,960
+the graph Graphics so you see these
+
+1810
+02:07:12,559 --> 02:07:16,760
+three
+
+1811
+02:07:14,960 --> 02:07:19,840
+parts you
+
+1812
+02:07:16,760 --> 02:07:24,360
+see we are
+
+1813
+02:07:19,840 --> 02:07:28,159
+returning this list this list is a list
+
+1814
+02:07:24,360 --> 02:07:28,159
+of three things
+
+1815
+02:07:31,639 --> 02:07:37,639
+okay
+
+1816
+02:07:34,119 --> 02:07:40,400
+uh okay so this we are just returning
+
+1817
+02:07:37,639 --> 02:07:44,320
+this three a list of three
+
+1818
+02:07:40,400 --> 02:07:46,559
+things each of those thing is a graphics
+
+1819
+02:07:44,320 --> 02:07:49,840
+primitive it's basically a bunch of
+
+1820
+02:07:46,559 --> 02:07:53,239
+circles that represents the oscillating
+
+1821
+02:07:49,840 --> 02:07:56,119
+circles or a bunch of lines that
+
+1822
+02:07:53,239 --> 02:08:01,800
+represents the point on the curve to the
+
+1823
+02:07:56,119 --> 02:08:05,679
+center of the circle then a bunch
+
+1824
+02:08:01,800 --> 02:08:09,199
+of uh lines that's the radius okay so
+
+1825
+02:08:05,679 --> 02:08:09,199
+what is this Evol
+
+1826
+02:08:17,440 --> 02:08:24,440
+evolute
+
+1827
+02:08:19,880 --> 02:08:24,440
+center point so T point so
+
+1828
+02:08:25,920 --> 02:08:34,639
+okay yeah I can I I know what to do but
+
+1829
+02:08:29,920 --> 02:08:42,119
+um I'm kind of tired here so
+
+1830
+02:08:34,639 --> 02:08:42,119
+again again the main problem is is this
+
+1831
+02:08:42,239 --> 02:08:50,400
+okay so you
+
+1832
+02:08:45,079 --> 02:08:50,400
+can you can get the positions
+
+1833
+02:08:56,480 --> 02:09:02,960
+okay let me show you what that is
+
+1834
+02:08:59,119 --> 02:09:05,159
+position index that Returns the
+
+1835
+02:09:02,960 --> 02:09:09,079
+indexes where
+
+1836
+02:09:05,159 --> 02:09:15,159
+some some criteria occur so we want to
+
+1837
+02:09:09,079 --> 02:09:15,159
+know a list of all indexes where zero
+
+1838
+02:09:16,520 --> 02:09:22,960
+occur yeah so give an association
+
+1839
+02:09:20,639 --> 02:09:27,000
+between a unique elements okay that's
+
+1840
+02:09:22,960 --> 02:09:31,199
+not that's what not position is what we
+
+1841
+02:09:27,000 --> 02:09:34,559
+want yeah position so so for
+
+1842
+02:09:31,199 --> 02:09:39,159
+example so this curvature list we want
+
+1843
+02:09:34,559 --> 02:09:42,119
+to know all the indexes where zero occur
+
+1844
+02:09:39,159 --> 02:09:47,480
+so we can just say
+
+1845
+02:09:42,119 --> 02:09:52,320
+position okay cature list then zero okay
+
+1846
+02:09:47,480 --> 02:09:54,280
+so it tells us do it happens at index 2
+
+1847
+02:09:52,320 --> 02:09:57,400
+and index six
+
+1848
+02:09:54,280 --> 02:10:01,400
+correct okay so once we got the index we
+
+1849
+02:09:57,400 --> 02:10:05,199
+can use this index to remove element by
+
+1850
+02:10:01,400 --> 02:10:08,199
+index so that would be
+
+1851
+02:10:05,199 --> 02:10:08,199
+delete
+
+1852
+02:10:10,400 --> 02:10:18,840
+um okay I forgot what is that let's go
+
+1853
+02:10:13,719 --> 02:10:21,599
+to w tutorial okay uh list
+
+1854
+02:10:18,840 --> 02:10:25,520
+so you got you go to the list then you
+
+1855
+02:10:21,599 --> 02:10:29,079
+want to delete element by position so
+
+1856
+02:10:25,520 --> 02:10:31,199
+let's go to list operations you see in
+
+1857
+02:10:29,079 --> 02:10:34,840
+wam language you have many ways to
+
+1858
+02:10:31,199 --> 02:10:36,400
+delete elements of a list you can delete
+
+1859
+02:10:34,840 --> 02:10:40,360
+by using an
+
+1860
+02:10:36,400 --> 02:10:43,520
+index or you can delete by using a
+
+1861
+02:10:40,360 --> 02:10:46,280
+function criteria if the function
+
+1862
+02:10:43,520 --> 02:10:48,960
+returns true delete those you know or
+
+1863
+02:10:46,280 --> 02:10:53,199
+you can delete Elements by by using
+
+1864
+02:10:48,960 --> 02:10:56,520
+pattern matching now this this this way
+
+1865
+02:10:53,199 --> 02:11:00,440
+is not available in in most
+
+1866
+02:10:56,520 --> 02:11:05,840
+languages so anyway so we want uh so now
+
+1867
+02:11:00,440 --> 02:11:09,239
+but our problem we got a list of indexes
+
+1868
+02:11:05,840 --> 02:11:13,559
+we want to delete them okay so here
+
+1869
+02:11:09,239 --> 02:11:15,840
+delete element in list delete by index
+
+1870
+02:11:13,559 --> 02:11:18,960
+range that's not what we want we don't
+
+1871
+02:11:15,840 --> 02:11:22,280
+want the range we want delete by
+
+1872
+02:11:18,960 --> 02:11:24,199
+position that's what we want okay delete
+
+1873
+02:11:22,280 --> 02:11:27,719
+expression
+
+1874
+02:11:24,199 --> 02:11:30,440
+n uh then you can have a list of
+
+1875
+02:11:27,719 --> 02:11:33,320
+positions that's what we want okay so
+
+1876
+02:11:30,440 --> 02:11:36,599
+for example let's go back to our code
+
+1877
+02:11:33,320 --> 02:11:36,599
+let me show you how this
+
+1878
+02:11:38,800 --> 02:11:47,000
+works okay so for
+
+1879
+02:11:42,119 --> 02:11:50,280
+example so for example let's define
+
+1880
+02:11:47,000 --> 02:11:52,400
+this uh let's define so for example this
+
+1881
+02:11:50,280 --> 02:11:57,760
+is a
+
+1882
+02:11:52,400 --> 02:12:00,079
+corresponding uh T Point list okay for
+
+1883
+02:11:57,760 --> 02:12:01,199
+example you know they have the same
+
+1884
+02:12:00,079 --> 02:12:04,520
+number of
+
+1885
+02:12:01,199 --> 02:12:08,400
+elements now you get the position of the
+
+1886
+02:12:04,520 --> 02:12:11,400
+zero in curvature list then you just
+
+1887
+02:12:08,400 --> 02:12:11,400
+say
+
+1888
+02:12:11,559 --> 02:12:20,079
+delete uh what was the function just
+
+1889
+02:12:17,079 --> 02:12:20,079
+delete
+
+1890
+02:12:20,880 --> 02:12:30,000
+okay then you delete the T
+
+1891
+02:12:26,199 --> 02:12:34,199
+points then you delete by the position
+
+1892
+02:12:30,000 --> 02:12:37,440
+of the indexes you know that okay run it
+
+1893
+02:12:34,199 --> 02:12:41,320
+you see you see the
+
+1894
+02:12:37,440 --> 02:12:45,079
+corresponding elements are removed so we
+
+1895
+02:12:41,320 --> 02:12:49,320
+can use this methodology
+
+1896
+02:12:45,079 --> 02:12:51,840
+to to fix our problem to fix our this
+
+1897
+02:12:49,320 --> 02:12:54,000
+okay
+
+1898
+02:12:51,840 --> 02:12:57,559
+yeah
+
+1899
+02:12:54,000 --> 02:13:00,840
+so so we so now we know the curvature
+
+1900
+02:12:57,559 --> 02:13:03,119
+list okay then so now we need to know
+
+1901
+02:13:00,840 --> 02:13:03,119
+the
+
+1902
+02:13:05,800 --> 02:13:10,960
+position zero
+
+1903
+02:13:07,960 --> 02:13:10,960
+indexes
+
+1904
+02:13:12,079 --> 02:13:19,960
+uh zero positions okay zero let's
+
+1905
+02:13:16,960 --> 02:13:19,960
+say
+
+1906
+02:13:20,639 --> 02:13:26,920
+okay
+
+1907
+02:13:22,320 --> 02:13:31,079
+so there okay there that's good now we
+
+1908
+02:13:26,920 --> 02:13:36,159
+created a new variable let's add it here
+
+1909
+02:13:31,079 --> 02:13:39,320
+okay uh module is like lisps let okay
+
+1910
+02:13:36,159 --> 02:13:43,719
+it's like JavaScript let it just declare
+
+1911
+02:13:39,320 --> 02:13:46,960
+local variables okay so cure list okay
+
+1912
+02:13:43,719 --> 02:13:49,960
+then zero position list okay
+
+1913
+02:13:46,960 --> 02:13:49,960
+fantastic
+
+1914
+02:13:51,320 --> 02:13:56,199
+then then um then you need to delete
+
+1915
+02:13:54,599 --> 02:13:59,199
+that's
+
+1916
+02:13:56,199 --> 02:13:59,199
+right
+
+1917
+02:14:03,760 --> 02:14:08,960
+delete new coverture list equals
+
+1918
+02:14:15,000 --> 02:14:24,440
+to delete coverture list
+
+1919
+02:14:19,520 --> 02:14:24,440
+by the zero position
+
+1920
+02:14:25,199 --> 02:14:32,880
+okay fantastic okay we are coding
+
+1921
+02:14:29,400 --> 02:14:35,440
+blindly because I know what you know is
+
+1922
+02:14:32,880 --> 02:14:37,960
+in my head I have the
+
+1923
+02:14:35,440 --> 02:14:41,280
+structure so we don't have to trial and
+
+1924
+02:14:37,960 --> 02:14:43,320
+error okay so we got the new curvature
+
+1925
+02:14:41,280 --> 02:14:49,639
+this that's what we
+
+1926
+02:14:43,320 --> 02:14:53,840
+want uh then then uh
+
+1927
+02:14:49,639 --> 02:14:56,920
+oh God this is not perfect this is not
+
+1928
+02:14:53,840 --> 02:14:59,840
+good code uh but I'm just doing it for
+
+1929
+02:14:56,920 --> 02:15:02,480
+the live stream because so that we can
+
+1930
+02:14:59,840 --> 02:15:05,079
+get somewhere
+
+1931
+02:15:02,480 --> 02:15:07,719
+because in real life you don't want you
+
+1932
+02:15:05,079 --> 02:15:10,320
+know you need to check if there's a zero
+
+1933
+02:15:07,719 --> 02:15:12,639
+first if there's no zero you don't want
+
+1934
+02:15:10,320 --> 02:15:16,440
+to go all through this if there's no
+
+1935
+02:15:12,639 --> 02:15:18,320
+zero then your code is good as is you
+
+1936
+02:15:16,440 --> 02:15:22,079
+know so you you need to have a check on
+
+1937
+02:15:18,320 --> 02:15:28,000
+zero first there so anyway let's push on
+
+1938
+02:15:22,079 --> 02:15:28,000
+okay so so so find all the zeros then
+
+1939
+02:15:32,199 --> 02:15:36,559
+new so actually it's better if we do
+
+1940
+02:15:35,320 --> 02:15:39,559
+check for
+
+1941
+02:15:36,559 --> 02:15:39,559
+zero
+
+1942
+02:15:40,280 --> 02:15:49,440
+um so how do you check if something if a
+
+1943
+02:15:44,280 --> 02:15:54,880
+list has zero you do member Q okay
+
+1944
+02:15:49,440 --> 02:15:59,679
+member Q uh curvature list zero okay
+
+1945
+02:15:54,880 --> 02:15:59,679
+true that means there is zero in
+
+1946
+02:15:59,960 --> 02:16:08,040
+it
+
+1947
+02:16:02,000 --> 02:16:08,040
+yeah yeah so so much problem so much
+
+1948
+02:16:08,719 --> 02:16:12,520
+tediousness so member
+
+1949
+02:16:13,440 --> 02:16:21,880
+Q curvature
+
+1950
+02:16:16,119 --> 02:16:24,840
+list zero if this true then then problem
+
+1951
+02:16:21,880 --> 02:16:28,840
+okay if it's not true then everything is
+
+1952
+02:16:24,840 --> 02:16:32,000
+simple if so if it's not true then then
+
+1953
+02:16:28,840 --> 02:16:32,000
+we just do all
+
+1954
+02:16:32,960 --> 02:16:37,800
+this okay then then we just do all
+
+1955
+02:16:45,599 --> 02:16:53,920
+this okay but if it's
+
+1956
+02:16:49,800 --> 02:16:53,920
+true we got a problem my
+
+1957
+02:16:56,519 --> 02:17:03,840
+friend let's let's just
+
+1958
+02:16:59,479 --> 02:17:07,040
+um let's just return a empty list okay
+
+1959
+02:17:03,840 --> 02:17:11,639
+let's just return empties and and move
+
+1960
+02:17:07,040 --> 02:17:15,160
+this to here okay so actually
+
+1961
+02:17:11,639 --> 02:17:19,840
+now this solves our
+
+1962
+02:17:15,160 --> 02:17:23,280
+problem because this code solves this
+
+1963
+02:17:19,840 --> 02:17:26,760
+problem but actually it doesn't draw
+
+1964
+02:17:23,280 --> 02:17:29,639
+anything we can try
+
+1965
+02:17:26,760 --> 02:17:31,639
+it okay so
+
+1966
+02:17:29,639 --> 02:17:37,000
+evaluate quit
+
+1967
+02:17:31,639 --> 02:17:39,719
+kernel quit local kernel quit Okay then
+
+1968
+02:17:37,000 --> 02:17:39,719
+open this
+
+1969
+02:17:46,599 --> 02:17:50,240
+file
+
+1970
+02:17:48,559 --> 02:17:53,000
+H where is
+
+1971
+02:17:50,240 --> 02:17:57,319
+it I don't understand why is it taking
+
+1972
+02:17:53,000 --> 02:18:00,960
+so long okay select all evaluated good
+
+1973
+02:17:57,319 --> 02:18:04,160
+close it back to
+
+1974
+02:18:00,960 --> 02:18:08,639
+here copy the
+
+1975
+02:18:04,160 --> 02:18:12,960
+code and uh put it here paste it if we
+
+1976
+02:18:08,639 --> 02:18:16,000
+if we run it it's going to be no error
+
+1977
+02:18:12,960 --> 02:18:18,760
+but however it won't it won't
+
+1978
+02:18:16,000 --> 02:18:22,080
+draw it won't draw the
+
+1979
+02:18:18,760 --> 02:18:22,080
+thing oh
+
+1980
+02:18:22,679 --> 02:18:28,479
+actually oh we got some Arrow here
+
+1981
+02:18:25,559 --> 02:18:31,240
+somewhere okay I I think that's it I'm
+
+1982
+02:18:28,479 --> 02:18:34,639
+going to walk offline I need to uh take
+
+1983
+02:18:31,240 --> 02:18:37,240
+a break and so that's it for today thank
+
+1984
+02:18:34,639 --> 02:18:41,840
+you guys for watching it's like 2 hours
+
+1985
+02:18:37,240 --> 02:18:41,840
+2 hours and 20 minutes bye
+
+1986
+02:18:46,519 --> 02:18:49,519
+guys
+
+1987
+02:18:52,399 --> 02:18:56,040
+and yeah yeah I
+
+1988
+02:18:59,719 --> 02:19:07,479
+gotta so what is the error why is it
+
+1989
+02:19:03,559 --> 02:19:11,160
+private arcing Circle
+
+1990
+02:19:07,479 --> 02:19:13,920
+uh see you later later
+
+1991
+02:19:11,160 --> 02:19:16,200
+Tommy yeah actually I don't I know I
+
+1992
+02:19:13,920 --> 02:19:20,319
+know what is a
+
+1993
+02:19:16,200 --> 02:19:21,800
+problem because cuz you don't yeah you
+
+1994
+02:19:20,319 --> 02:19:26,240
+need to
+
+1995
+02:19:21,800 --> 02:19:26,240
+return actually so let's
+
+1996
+02:19:30,840 --> 02:19:36,960
+return because you are expected to
+
+1997
+02:19:33,719 --> 02:19:42,399
+return three things okay so now let's
+
+1998
+02:19:36,960 --> 02:19:46,439
+try it again quit kernel local
+
+1999
+02:19:42,399 --> 02:19:49,439
+quit Okay then open this
+
+2000
+02:19:46,439 --> 02:19:49,439
+file
+
+2001
+02:19:49,640 --> 02:19:59,800
+it takes why is it taking a
+
+2002
+02:19:54,080 --> 02:20:08,040
+while okay select or B it close it go
+
+2003
+02:19:59,800 --> 02:20:08,040
+back here B it and okay that's it
+
+2004
+02:20:08,960 --> 02:20:11,960
+bye
+

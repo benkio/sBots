@@ -1,0 +1,5000 @@
+1
+00:00:06,600 --> 00:00:12,520
+Welcome to another episode of Sacha Talk
+
+2
+00:00:09,000 --> 00:00:16,280
+Show. Today is 2021,
+
+3
+00:00:12,520 --> 00:00:19,320
+June 24th, and today the main topic is
+
+4
+00:00:16,280 --> 00:00:21,160
+going to be Emacs with live coding.
+
+5
+00:00:19,320 --> 00:00:23,680
+Okay, video check, audio check, and you
+
+6
+00:00:21,160 --> 00:00:25,640
+are looking at my keyboard, Kinesis
+
+7
+00:00:23,680 --> 00:00:28,240
+Advantage 2
+
+8
+00:00:25,640 --> 00:00:29,800
+linear red switches, fantastic silent
+
+9
+00:00:28,240 --> 00:00:31,840
+red switches. You know, if you have
+
+10
+00:00:29,800 --> 00:00:34,520
+repetitive strain injury, you want to
+
+11
+00:00:31,840 --> 00:00:36,480
+get red linear light linear switches.
+
+12
+00:00:34,520 --> 00:00:38,400
+Okay, I highly recommend this. This is
+
+13
+00:00:36,480 --> 00:00:40,840
+my main, and this is the ultimate
+
+14
+00:00:38,400 --> 00:00:43,680
+hacking keyboard, okay?
+
+15
+00:00:40,840 --> 00:00:46,960
+Uh, okay, so video check, audio check.
+
+16
+00:00:43,680 --> 00:00:50,160
+Check. So, the main topic is going to be
+
+17
+00:00:46,960 --> 00:00:51,560
+Emacs live coding. Good morning, Toby,
+
+18
+00:00:50,160 --> 00:00:54,960
+and
+
+19
+00:00:51,560 --> 00:00:58,320
+Absen, and BDX.
+
+20
+00:00:54,960 --> 00:01:00,960
+BDX 5, okay. So, the fantastic image
+
+21
+00:00:58,320 --> 00:01:03,160
+artwork, this is a moth.
+
+22
+00:01:00,960 --> 00:01:05,760
+Now, this moth, okay? I'm not going to
+
+23
+00:01:03,160 --> 00:01:08,560
+tell you where it came from, this photo,
+
+24
+00:01:05,760 --> 00:01:10,080
+but because YouTube censorship. Uh, but
+
+25
+00:01:08,560 --> 00:01:12,600
+anyway, this
+
+26
+00:01:10,080 --> 00:01:15,440
+incredible intricate, this is the beauty
+
+27
+00:01:12,600 --> 00:01:18,600
+of nature, okay? And lots of it has to
+
+28
+00:01:15,440 --> 00:01:20,880
+do with mathematics, the dynamic
+
+29
+00:01:18,600 --> 00:01:23,160
+algorithms, or how shall we put it, the
+
+30
+00:01:20,880 --> 00:01:25,400
+cellular automata, the generation of the
+
+31
+00:01:23,160 --> 00:01:27,680
+patterns. You see how the nature, the
+
+32
+00:01:25,400 --> 00:01:29,760
+incredible beauty of the nature.
+
+33
+00:01:27,680 --> 00:01:32,160
+Okay, so that's a digression. So, but
+
+34
+00:01:29,760 --> 00:01:34,320
+mostly we're going to talk about Emacs.
+
+35
+00:01:32,160 --> 00:01:37,960
+So, the first 10 minutes, uh, 20 minutes
+
+36
+00:01:34,320 --> 00:01:40,560
+going to be Emacs Lisp live coding.
+
+37
+00:01:37,960 --> 00:01:44,600
+Good? Good? Guys, three people watching.
+
+38
+00:01:40,560 --> 00:01:47,440
+So, working uh,
+
+39
+00:01:44,600 --> 00:01:49,560
+working here, computer-aided world.
+
+40
+00:01:47,440 --> 00:01:51,440
+Okay, so let's see talk show, okay? So,
+
+41
+00:01:49,560 --> 00:01:53,080
+go to topic notes on the pink window,
+
+42
+00:01:51,440 --> 00:01:55,840
+you can see all my command codes and
+
+43
+00:01:53,080 --> 00:01:59,520
+keystrokes showing browser. So, what I
+
+44
+00:01:55,840 --> 00:02:04,080
+want to do, uh, let's see.
+
+45
+00:01:59,520 --> 00:02:04,080
+So, there are two things I want to do.
+
+46
+00:02:05,040 --> 00:02:09,520
+Okay, so let's see which one I want to
+
+47
+00:02:07,880 --> 00:02:11,280
+write a command to change. Okay, make it
+
+48
+00:02:09,520 --> 00:02:13,000
+so that when viewing browser. So, let's
+
+49
+00:02:11,280 --> 00:02:15,640
+do the first one. Okay, this might take
+
+50
+00:02:13,000 --> 00:02:17,200
+30 minutes actually. 30 minutes. So, if
+
+51
+00:02:15,640 --> 00:02:18,880
+you have questions, comments, post it.
+
+52
+00:02:17,200 --> 00:02:21,320
+Okay.
+
+53
+00:02:18,880 --> 00:02:23,760
+Questions and comments, post it. Love to
+
+54
+00:02:21,320 --> 00:02:26,760
+see your comments. Okay. And okay, so
+
+55
+00:02:23,760 --> 00:02:28,640
+first thing first is Emacs Lisp coding.
+
+56
+00:02:26,760 --> 00:02:31,520
+So, let's go to
+
+57
+00:02:28,640 --> 00:02:32,959
+let's go to see let's see my Emacs blog.
+
+58
+00:02:31,520 --> 00:02:34,840
+Let's see.
+
+59
+00:02:32,959 --> 00:02:37,160
+Um
+
+60
+00:02:34,840 --> 00:02:39,640
+Uh yeah, okay, let's focus on coding.
+
+61
+00:02:37,160 --> 00:02:43,720
+Let's just um
+
+62
+00:02:39,640 --> 00:02:43,720
+Yeah, my alarm clock. I need to shut it.
+
+63
+00:02:51,080 --> 00:02:55,720
+Okay, back. Emacs Lisp coding. So, I
+
+64
+00:02:54,080 --> 00:02:56,720
+want to command the uh I want to write
+
+65
+00:02:55,720 --> 00:02:59,000
+the command. Let me show you what I'm
+
+66
+00:02:56,720 --> 00:03:01,760
+going to do. So, you see let's go to
+
+67
+00:02:59,000 --> 00:03:03,560
+talk show. Talk show. Go open that. Show
+
+68
+00:03:01,760 --> 00:03:06,959
+today's This is a today's talk show
+
+69
+00:03:03,560 --> 00:03:10,080
+page. So, you see what I write HTML. I
+
+70
+00:03:06,959 --> 00:03:10,640
+work in raw HTML a lot manually
+
+71
+00:03:10,080 --> 00:03:12,720
+uh
+
+72
+00:03:10,640 --> 00:03:15,640
+like this.
+
+73
+00:03:12,720 --> 00:03:18,680
+For example, uh
+
+74
+00:03:15,640 --> 00:03:22,320
+I write blogs. And uh you know, one of
+
+75
+00:03:18,680 --> 00:03:25,800
+the most frequently used tag in HTML is
+
+76
+00:03:22,320 --> 00:03:27,880
+paragraph. You see the P and P. So, if I
+
+77
+00:03:25,800 --> 00:03:30,120
+show your browser, you can see you know,
+
+78
+00:03:27,880 --> 00:03:32,280
+like that as a paragraph. Now, if I
+
+79
+00:03:30,120 --> 00:03:33,519
+delete the paragraph showing browser,
+
+80
+00:03:32,280 --> 00:03:37,239
+then
+
+81
+00:03:33,519 --> 00:03:40,480
+Well, actually paragraph tag is um
+
+82
+00:03:37,239 --> 00:03:42,440
+optional actually in HTML 5. Oh, that's
+
+83
+00:03:40,480 --> 00:03:45,280
+yeah, I remember.
+
+84
+00:03:42,440 --> 00:03:47,560
+The paragraph tag if you don't have if
+
+85
+00:03:45,280 --> 00:03:50,360
+you have just a text like that, it
+
+86
+00:03:47,560 --> 00:03:53,880
+actually is a paragraph. It's uh let's
+
+87
+00:03:50,360 --> 00:03:57,040
+try some let's test. Okay, let's
+
+88
+00:03:53,880 --> 00:03:59,600
+uh let's
+
+89
+00:03:57,040 --> 00:04:01,760
+test this hypothe-
+
+90
+00:03:59,600 --> 00:04:04,240
+sis, I think. Uh
+
+91
+00:04:01,760 --> 00:04:08,920
+if you
+
+92
+00:04:04,240 --> 00:04:11,040
+don't have any tags, it's taken It's
+
+93
+00:04:08,920 --> 00:04:14,200
+interpreted
+
+94
+00:04:11,040 --> 00:04:17,079
+as paragraph as P tag
+
+95
+00:04:14,200 --> 00:04:19,200
+in HTML 5, okay? It's important what
+
+96
+00:04:17,079 --> 00:04:20,799
+version of HTML. So, let's show in
+
+97
+00:04:19,200 --> 00:04:23,360
+browser.
+
+98
+00:04:20,799 --> 00:04:26,480
+Oh, it doesn't. Okay.
+
+99
+00:04:23,360 --> 00:04:28,680
+Yeah, so you So, the tag the P tag is
+
+100
+00:04:26,480 --> 00:04:31,160
+still necessary because otherwise this
+
+101
+00:04:28,680 --> 00:04:34,520
+three things, you know, this three
+
+102
+00:04:31,160 --> 00:04:36,640
+things uh you know, it's it's uh joined
+
+103
+00:04:34,520 --> 00:04:40,280
+as one paragraph
+
+104
+00:04:36,640 --> 00:04:42,040
+uh by default interpretation. Okay, so
+
+105
+00:04:40,280 --> 00:04:44,520
+So, what I'm saying is that normally so
+
+106
+00:04:42,040 --> 00:04:48,320
+paragraph tag is the the thing you use
+
+107
+00:04:44,520 --> 00:04:50,440
+the most often in HTML page. So, but
+
+108
+00:04:48,320 --> 00:04:52,120
+even if you have fast keys for that, for
+
+109
+00:04:50,440 --> 00:04:55,400
+example, just two keys for each
+
+110
+00:04:52,120 --> 00:04:57,560
+paragraph, but still it's uh cumbersome
+
+111
+00:04:55,400 --> 00:05:00,520
+to always type that. Another way to do
+
+112
+00:04:57,560 --> 00:05:02,120
+that is I select it, then do it, then
+
+113
+00:05:00,520 --> 00:05:03,320
+show in browser, you see?
+
+114
+00:05:02,120 --> 00:05:05,000
+So,
+
+115
+00:05:03,320 --> 00:05:07,120
+what I'm thinking is that So, let's
+
+116
+00:05:05,000 --> 00:05:08,440
+remove those tags. So, what I'm thinking
+
+117
+00:05:07,120 --> 00:05:10,520
+is that
+
+118
+00:05:08,440 --> 00:05:13,320
+write a command so that whenever you
+
+119
+00:05:10,520 --> 00:05:17,640
+show this page, the current buffer, in a
+
+120
+00:05:13,320 --> 00:05:19,400
+browser, it will automatically find all
+
+121
+00:05:17,640 --> 00:05:21,800
+text blocks
+
+122
+00:05:19,400 --> 00:05:25,000
+that doesn't have any tag with it, will
+
+123
+00:05:21,800 --> 00:05:26,960
+automatically add tag like that.
+
+124
+00:05:25,000 --> 00:05:28,919
+Show in browser, you see? So, I'm going
+
+125
+00:05:26,960 --> 00:05:31,080
+to write a command. So,
+
+126
+00:05:28,919 --> 00:05:32,800
+let's uh
+
+127
+00:05:31,080 --> 00:05:35,120
+Let's begin to write a command, okay?
+
+128
+00:05:32,800 --> 00:05:38,520
+Then this document. So, we have uh let's
+
+129
+00:05:35,120 --> 00:05:41,000
+okay. So, Emacs Lisp code, okay, start a
+
+130
+00:05:38,520 --> 00:05:43,560
+Emacs Lisp code define.
+
+131
+00:05:41,000 --> 00:05:44,880
+So, this command is going to be
+
+132
+00:05:43,560 --> 00:05:47,520
+version
+
+133
+00:05:44,880 --> 00:05:50,080
+today's date.
+
+134
+00:05:47,520 --> 00:05:55,000
+Uh
+
+135
+00:05:50,080 --> 00:05:55,000
+So, this this command is going to add
+
+136
+00:05:56,600 --> 00:06:00,520
+add P tags
+
+137
+00:06:00,800 --> 00:06:08,920
+around any text block that does not have
+
+138
+00:06:06,040 --> 00:06:11,360
+any tags, okay? So, that's what this
+
+139
+00:06:08,920 --> 00:06:13,120
+command do. Let's name it. So, let's
+
+140
+00:06:11,360 --> 00:06:16,120
+name it site
+
+141
+00:06:13,120 --> 00:06:16,120
+HTML.
+
+142
+00:06:18,760 --> 00:06:21,240
+Uh
+
+143
+00:06:26,960 --> 00:06:31,160
+Let's Let's just name it something
+
+144
+00:06:28,720 --> 00:06:35,320
+simple, okay? Naming is uh Naming
+
+145
+00:06:31,160 --> 00:06:37,800
+requires some thinking to do correctly.
+
+146
+00:06:35,320 --> 00:06:40,280
+Uh let's just say wrap wrapped P tags
+
+147
+00:06:37,800 --> 00:06:42,840
+for now, okay? I'm going to change after
+
+148
+00:06:40,280 --> 00:06:45,440
+today, then maybe tomorrow this will be
+
+149
+00:06:42,840 --> 00:06:48,240
+part of the site HTML mod. I've been
+
+150
+00:06:45,440 --> 00:06:50,360
+talking a lot about that past videos.
+
+151
+00:06:48,240 --> 00:06:52,960
+So, uh the name might change. You'll
+
+152
+00:06:50,360 --> 00:06:57,120
+You'll see in my Anyway, so let's begin
+
+153
+00:06:52,960 --> 00:06:59,320
+with this uh name site HTML wrap P tags.
+
+154
+00:06:57,120 --> 00:07:02,960
+So, this will add P tags around any text
+
+155
+00:06:59,320 --> 00:07:04,680
+block that doesn't have any tags, okay?
+
+156
+00:07:02,960 --> 00:07:08,200
+So, uh
+
+157
+00:07:04,680 --> 00:07:10,680
+So, let's remove them. So,
+
+158
+00:07:08,200 --> 00:07:13,760
+Okay, so let's Okay, so let's begin to
+
+159
+00:07:10,680 --> 00:07:13,760
+code this command.
+
+160
+00:07:16,880 --> 00:07:20,120
+in current buffer
+
+161
+00:07:21,400 --> 00:07:26,320
+Okay, so let's begin to write this
+
+162
+00:07:23,400 --> 00:07:26,320
+command, okay?
+
+163
+00:07:28,040 --> 00:07:34,000
+Hello S Pen, okay. Uh so, okay, so we
+
+164
+00:07:31,600 --> 00:07:35,960
+want to add So, how do you begin? So, uh
+
+165
+00:07:34,000 --> 00:07:38,680
+let's I have to think. So, how do you
+
+166
+00:07:35,960 --> 00:07:40,880
+begin to code this? So, this is This is
+
+167
+00:07:38,680 --> 00:07:46,480
+going to fold the whole buffer.
+
+168
+00:07:40,880 --> 00:07:46,480
+Uh add a P tag to any tag, um, so
+
+169
+00:07:47,280 --> 00:07:52,440
+Uh, so how do you do this? Uh, I have to
+
+170
+00:07:50,080 --> 00:07:55,160
+think. Okay, let's let's look at the
+
+171
+00:07:52,440 --> 00:07:57,760
+HTML so we get idea.
+
+172
+00:07:55,160 --> 00:08:00,880
+So you want to search for
+
+173
+00:07:57,760 --> 00:08:02,920
+uh, let Okay, let's show the
+
+174
+00:08:00,880 --> 00:08:04,520
+show white spaces.
+
+175
+00:08:02,920 --> 00:08:06,480
+Make white space
+
+176
+00:08:04,520 --> 00:08:08,640
+spaces visible.
+
+177
+00:08:06,480 --> 00:08:12,320
+So you want to show
+
+178
+00:08:08,640 --> 00:08:15,480
+basically search for any consecutive,
+
+179
+00:08:12,320 --> 00:08:17,280
+you know, two empty line characters, two
+
+180
+00:08:15,480 --> 00:08:19,760
+new line characters.
+
+181
+00:08:17,280 --> 00:08:23,440
+And uh, if it's adjacent, if it doesn't
+
+182
+00:08:19,760 --> 00:08:26,800
+have any tag, then you want to add a P
+
+183
+00:08:23,440 --> 00:08:28,760
+tag like that. Okay, um, let me Okay, I
+
+184
+00:08:26,800 --> 00:08:30,840
+have to think about to do.
+
+185
+00:08:28,760 --> 00:08:30,840
+Um,
+
+186
+00:08:32,479 --> 00:08:39,159
+So there are two parts to this problem.
+
+187
+00:08:35,360 --> 00:08:40,640
+Okay, the first part is, uh, adding the
+
+188
+00:08:39,159 --> 00:08:42,120
+first
+
+189
+00:08:40,640 --> 00:08:44,520
+tag.
+
+190
+00:08:42,120 --> 00:08:46,880
+Okay, so let let's make it into a tag.
+
+191
+00:08:44,520 --> 00:08:49,440
+Let's see. The first part is to add the
+
+192
+00:08:46,880 --> 00:08:51,560
+beginning tag. The The other part of the
+
+193
+00:08:49,440 --> 00:08:54,160
+problem is add the second
+
+194
+00:08:51,560 --> 00:08:57,040
+um,
+
+195
+00:08:54,160 --> 00:08:59,040
+tag. Uh, the other part is to add the
+
+196
+00:08:57,040 --> 00:09:03,600
+second, um,
+
+197
+00:08:59,040 --> 00:09:06,560
+the closing tag. So the first job the
+
+198
+00:09:03,600 --> 00:09:09,720
+first job to write this command is to
+
+199
+00:09:06,560 --> 00:09:12,560
+to find an algorithm
+
+200
+00:09:09,720 --> 00:09:14,680
+that is the question of how do you
+
+201
+00:09:12,560 --> 00:09:17,400
+how do you determine how do you find the
+
+202
+00:09:14,680 --> 00:09:20,080
+places where you need to add
+
+203
+00:09:17,400 --> 00:09:23,240
+the tag. Okay, so that's what I we are
+
+204
+00:09:20,080 --> 00:09:25,920
+looking at. So you want to
+
+205
+00:09:23,240 --> 00:09:25,920
+So let me
+
+206
+00:09:26,080 --> 00:09:31,080
+you know, because I'm doing live stream,
+
+207
+00:09:28,280 --> 00:09:32,839
+so uh, live stream the the methodology,
+
+208
+00:09:31,080 --> 00:09:34,360
+the workflow is a bit different. So live
+
+209
+00:09:32,839 --> 00:09:36,480
+stream it's better for me to keep
+
+210
+00:09:34,360 --> 00:09:39,720
+talking. Whatever comes to my mind, just
+
+211
+00:09:36,480 --> 00:09:42,880
+talk talk it out Uh so you
+
+212
+00:09:39,720 --> 00:09:44,800
+so because otherwise normal if I'm doing
+
+213
+00:09:42,880 --> 00:09:46,840
+this offline, I would have to you know
+
+214
+00:09:44,800 --> 00:09:48,240
+think for 2 minutes and then have a good
+
+215
+00:09:46,840 --> 00:09:49,360
+solution.
+
+216
+00:09:48,240 --> 00:09:52,280
+Uh
+
+217
+00:09:49,360 --> 00:09:54,880
+But but you know, you don't want to uh
+
+218
+00:09:52,280 --> 00:09:57,360
+have people stare at empty screen for 2
+
+219
+00:09:54,880 --> 00:09:59,640
+minutes. So anyway, so the the first
+
+220
+00:09:57,360 --> 00:10:02,280
+problem is solving is to how do you
+
+221
+00:09:59,640 --> 00:10:04,560
+determine um
+
+222
+00:10:02,280 --> 00:10:06,080
+How do you determine the
+
+223
+00:10:04,560 --> 00:10:07,880
+um
+
+224
+00:10:06,080 --> 00:10:10,440
+Uh the uh
+
+225
+00:10:07,880 --> 00:10:11,600
+the the places you want to add a tag,
+
+226
+00:10:10,440 --> 00:10:15,320
+okay? So
+
+227
+00:10:11,600 --> 00:10:18,920
+So one way okay, one way is to find to
+
+228
+00:10:15,320 --> 00:10:20,880
+search or to search for any
+
+229
+00:10:18,920 --> 00:10:22,480
+uh you know, sequence of two new line
+
+230
+00:10:20,880 --> 00:10:25,120
+characters.
+
+231
+00:10:22,480 --> 00:10:25,120
+Then
+
+232
+00:10:25,560 --> 00:10:30,880
+Uh okay.
+
+233
+00:10:28,000 --> 00:10:32,560
+Okay, one way is just um okay, that
+
+234
+00:10:30,880 --> 00:10:35,720
+doesn't work.
+
+235
+00:10:32,560 --> 00:10:38,760
+You see because for example, if you are
+
+236
+00:10:35,720 --> 00:10:41,520
+if you are uh cursor is over here, you
+
+237
+00:10:38,760 --> 00:10:43,680
+can see here they already have a tag.
+
+238
+00:10:41,520 --> 00:10:46,480
+Here is already a tag, but you still
+
+239
+00:10:43,680 --> 00:10:49,480
+have two consecutive um
+
+240
+00:10:46,480 --> 00:10:49,480
+uh
+
+241
+00:10:50,240 --> 00:10:54,760
+empty lines. So what do you want to do
+
+242
+00:10:52,600 --> 00:10:57,400
+instead? You want to find it. So let's
+
+243
+00:10:54,760 --> 00:10:58,760
+let's just start to write, okay? Search
+
+244
+00:10:57,400 --> 00:11:01,080
+uh
+
+245
+00:10:58,760 --> 00:11:04,760
+research forward, okay? So that's uh
+
+246
+00:11:01,080 --> 00:11:06,000
+this is first of all, go to char
+
+247
+00:11:04,760 --> 00:11:09,880
+buffer
+
+248
+00:11:06,000 --> 00:11:12,240
+uh mean uh point movement, okay?
+
+249
+00:11:09,880 --> 00:11:14,200
+So go to the beginning of the buffer,
+
+250
+00:11:12,240 --> 00:11:17,800
+then search for
+
+251
+00:11:14,200 --> 00:11:19,760
+So two empty lines represented by that.
+
+252
+00:11:17,800 --> 00:11:21,520
+Uh this is a regular expression search
+
+253
+00:11:19,760 --> 00:11:23,839
+forward. So go to the beginning then
+
+254
+00:11:21,520 --> 00:11:26,320
+start to search that, but
+
+255
+00:11:23,839 --> 00:11:30,839
+however
+
+256
+00:11:26,320 --> 00:11:30,839
+you want to search that so that
+
+257
+00:11:31,200 --> 00:11:38,360
+so that the next character after
+
+258
+00:11:35,520 --> 00:11:39,600
+that Okay, so let me do this. Okay, so
+
+259
+00:11:38,360 --> 00:11:42,320
+the next
+
+260
+00:11:39,600 --> 00:11:45,680
+the next character So
+
+261
+00:11:42,320 --> 00:11:48,520
+So wait. So let's do
+
+262
+00:11:45,680 --> 00:11:51,680
+one or more empty lines. Okay, one or
+
+263
+00:11:48,520 --> 00:11:54,080
+more new line character.
+
+264
+00:11:51,680 --> 00:11:57,960
+So after that, the next character should
+
+265
+00:11:54,080 --> 00:12:00,440
+be anything like A capital A to Z or
+
+266
+00:11:57,960 --> 00:12:04,280
+lowercase A to Z.
+
+267
+00:12:00,440 --> 00:12:04,280
+Okay, so I think
+
+268
+00:12:04,320 --> 00:12:10,080
+uh that's one way to find, you know, to
+
+269
+00:12:07,200 --> 00:12:12,720
+find a position like that.
+
+270
+00:12:10,080 --> 00:12:13,800
+Okay, once you find that
+
+271
+00:12:12,720 --> 00:12:15,560
+So
+
+272
+00:12:13,800 --> 00:12:18,160
+um
+
+273
+00:12:15,560 --> 00:12:21,160
+Okay, you need to do a
+
+274
+00:12:18,160 --> 00:12:21,160
+when, okay?
+
+275
+00:12:23,600 --> 00:12:27,600
+So when
+
+276
+00:12:25,880 --> 00:12:32,720
+this happens
+
+277
+00:12:27,600 --> 00:12:35,200
+optional bound nil no error
+
+278
+00:12:32,720 --> 00:12:37,720
+true. I don't We don't want any
+
+279
+00:12:35,200 --> 00:12:40,480
+uh if you cannot find it, it's not an
+
+280
+00:12:37,720 --> 00:12:40,480
+error, okay?
+
+281
+00:12:45,120 --> 00:12:52,200
+Okay, so when this happens, then
+
+282
+00:12:48,480 --> 00:12:52,200
+replace match
+
+283
+00:12:54,600 --> 00:13:01,040
+Okay, uh
+
+284
+00:12:57,320 --> 00:13:01,040
+replace match by
+
+285
+00:13:05,000 --> 00:13:11,080
+by
+
+286
+00:13:06,920 --> 00:13:11,080
+two empty lines.
+
+287
+00:13:12,160 --> 00:13:17,720
+Uh actually one or more Okay, so now you
+
+288
+00:13:14,360 --> 00:13:20,040
+need actually you need to capture. Okay,
+
+289
+00:13:17,720 --> 00:13:22,560
+because you need to know how many empty
+
+290
+00:13:20,040 --> 00:13:25,920
+lines you did you found here. So okay,
+
+291
+00:13:22,560 --> 00:13:30,320
+let's capture. Okay, so to do capture in
+
+292
+00:13:25,920 --> 00:13:30,320
+Emacs this oops, yeah.
+
+293
+00:13:30,920 --> 00:13:35,800
+So to do capture in Emacs this, let me
+
+294
+00:13:33,440 --> 00:13:38,440
+show you.
+
+295
+00:13:35,800 --> 00:13:41,240
+So that is how you capture. So this So
+
+296
+00:13:38,440 --> 00:13:43,800
+this first part you need two
+
+297
+00:13:41,240 --> 00:13:46,240
+um backslashes.
+
+298
+00:13:43,800 --> 00:13:48,840
+Then two backslashes uh parentheses.
+
+299
+00:13:46,240 --> 00:13:52,400
+This is first part captures the a
+
+300
+00:13:48,840 --> 00:13:55,560
+sequence of one or more
+
+301
+00:13:52,400 --> 00:13:57,560
+what the sequence of at least two
+
+302
+00:13:55,560 --> 00:14:00,440
+uh empty line characters new line
+
+303
+00:13:57,560 --> 00:14:04,160
+characters. Then
+
+304
+00:14:00,440 --> 00:14:05,520
+same thing you have to do here, okay?
+
+305
+00:14:04,160 --> 00:14:08,360
+Uh
+
+306
+00:14:05,520 --> 00:14:11,360
+so you have to capture that part.
+
+307
+00:14:08,360 --> 00:14:15,520
+So once you find that, you
+
+308
+00:14:11,360 --> 00:14:18,640
+do replace, okay? Now replace the first
+
+309
+00:14:15,520 --> 00:14:20,160
+replace match. The first part is the
+
+310
+00:14:18,640 --> 00:14:21,880
+whatever number, you know, the first
+
+311
+00:14:20,160 --> 00:14:24,760
+captured pattern.
+
+312
+00:14:21,880 --> 00:14:26,760
+Then the second captured pattern. In
+
+313
+00:14:24,760 --> 00:14:29,280
+between them is the paragraph tag, okay?
+
+314
+00:14:26,760 --> 00:14:31,920
+Actually, I want a new line in between.
+
+315
+00:14:29,280 --> 00:14:33,000
+So okay, so that's that's kind of uh
+
+316
+00:14:31,920 --> 00:14:36,640
+that.
+
+317
+00:14:33,000 --> 00:14:39,880
+Then optional fix case true literal
+
+318
+00:14:36,640 --> 00:14:41,280
+true. Uh we don't need that that, okay?
+
+319
+00:14:39,880 --> 00:14:45,160
+So
+
+320
+00:14:41,280 --> 00:14:46,880
+this is a command, okay? So let's
+
+321
+00:14:45,160 --> 00:14:49,080
+evaluate it.
+
+322
+00:14:46,880 --> 00:14:51,720
+Okay, let's go back here. Let's
+
+323
+00:14:49,080 --> 00:14:54,880
+uh delete that, okay? Let's Let's try to
+
+324
+00:14:51,720 --> 00:14:58,080
+call it, okay? Wait.
+
+325
+00:14:54,880 --> 00:15:01,160
+So the command is xah HTML wrap, okay?
+
+326
+00:14:58,080 --> 00:15:05,440
+So let's go back to HTML.
+
+327
+00:15:01,160 --> 00:15:07,640
+Let's call it. Meta X xah HTML wrap P
+
+328
+00:15:05,440 --> 00:15:09,360
+tags. Let's see what happens.
+
+329
+00:15:07,640 --> 00:15:12,440
+It should
+
+330
+00:15:09,360 --> 00:15:16,640
+add beginning paragraph here and here
+
+331
+00:15:12,440 --> 00:15:16,640
+and here, okay? Let's call it.
+
+332
+00:15:19,200 --> 00:15:21,760
+Do it.
+
+333
+00:15:21,920 --> 00:15:27,480
+Okay, some
+
+334
+00:15:23,800 --> 00:15:29,640
+Okay, mistake. You see it added this A
+
+335
+00:15:27,480 --> 00:15:31,680
+and B.
+
+336
+00:15:29,640 --> 00:15:34,040
+Those are
+
+337
+00:15:31,680 --> 00:15:36,480
+you know, correct A. Those are
+
+338
+00:15:34,040 --> 00:15:39,000
+Those are ASCII characters. You can do
+
+339
+00:15:36,480 --> 00:15:42,400
+describe-char
+
+340
+00:15:39,000 --> 00:15:45,480
+and to find what they are. So, they are
+
+341
+00:15:42,400 --> 00:15:45,480
+control A.
+
+342
+00:15:46,920 --> 00:15:50,800
+Code point one, control A. Okay, ASCII.
+
+343
+00:15:49,560 --> 00:15:52,480
+So,
+
+344
+00:15:50,800 --> 00:15:56,080
+So, if you don't know what that is,
+
+345
+00:15:52,480 --> 00:15:56,080
+search for ASCII.
+
+346
+00:15:56,200 --> 00:16:00,440
+ASCII table.
+
+347
+00:15:58,320 --> 00:16:03,200
+So, here is a page.
+
+348
+00:16:00,440 --> 00:16:05,000
+So, control A is a start of head header.
+
+349
+00:16:03,200 --> 00:16:07,560
+Okay, so anyway, we
+
+350
+00:16:05,000 --> 00:16:10,680
+our code made some mistake. Let's go
+
+351
+00:16:07,560 --> 00:16:10,680
+back to the code.
+
+352
+00:16:11,760 --> 00:16:19,120
+Oh, yeah. So, if So, why is it um
+
+353
+00:16:16,920 --> 00:16:21,000
+Oh,
+
+354
+00:16:19,120 --> 00:16:24,000
+Yeah, okay. So, you you need a double
+
+355
+00:16:21,000 --> 00:16:28,080
+backslash. This is a major pain of
+
+356
+00:16:24,000 --> 00:16:28,080
+regular expressions in Emacs Lisp.
+
+357
+00:16:29,000 --> 00:16:35,200
+Okay, evaluate the buffer, then go here,
+
+358
+00:16:32,520 --> 00:16:37,440
+then try it again.
+
+359
+00:16:35,200 --> 00:16:40,400
+Do it.
+
+360
+00:16:37,440 --> 00:16:43,080
+Okay, then you got that. Okay, this is
+
+361
+00:16:40,400 --> 00:16:46,960
+wrong. Undo. Go back here. Wait, what
+
+362
+00:16:43,080 --> 00:16:46,960
+what's going on? Replace match.
+
+363
+00:16:58,640 --> 00:17:03,960
+Uh what?
+
+364
+00:17:00,800 --> 00:17:07,160
+Okay, describe function on replace match
+
+365
+00:17:03,960 --> 00:17:07,160
+and see what's going on.
+
+366
+00:17:12,959 --> 00:17:18,880
+Okay, you can see
+
+367
+00:17:15,640 --> 00:17:22,400
+this backslash n means substitute what
+
+368
+00:17:18,880 --> 00:17:24,720
+matched in nth capture, right? So, nth
+
+369
+00:17:22,400 --> 00:17:26,839
+parent didn't match, substitute nothing,
+
+370
+00:17:24,720 --> 00:17:30,440
+right? So,
+
+371
+00:17:26,839 --> 00:17:35,400
+what did we do wrong here?
+
+372
+00:17:30,440 --> 00:17:35,400
+So, it's actually just one.
+
+373
+00:17:37,960 --> 00:17:44,720
+Uh replace match
+
+374
+00:17:41,000 --> 00:17:47,480
+replace match fixed case true literal
+
+375
+00:17:44,720 --> 00:17:50,200
+false. Okay, that's why we did it wrong.
+
+376
+00:17:47,480 --> 00:17:51,920
+So, we want to fix case, yes, but not
+
+377
+00:17:50,200 --> 00:17:55,160
+literal expression.
+
+378
+00:17:51,920 --> 00:17:57,680
+Uh that's why we got, you know,
+
+379
+00:17:55,160 --> 00:17:59,520
+you know, backslash one when that's, you
+
+380
+00:17:57,680 --> 00:18:01,920
+know, we want the regular interp-
+
+381
+00:17:59,520 --> 00:18:03,720
+regular expression interpretation where
+
+382
+00:18:01,920 --> 00:18:06,280
+backslash one means the captured
+
+383
+00:18:03,720 --> 00:18:07,840
+pattern, okay? Eval the buffer, go back
+
+384
+00:18:06,280 --> 00:18:10,360
+to the
+
+385
+00:18:07,840 --> 00:18:12,160
+HTML, call it again.
+
+386
+00:18:10,360 --> 00:18:14,560
+Do it.
+
+387
+00:18:12,160 --> 00:18:17,120
+Ah.
+
+388
+00:18:14,560 --> 00:18:19,320
+Wait, why is it this
+
+389
+00:18:17,120 --> 00:18:20,000
+It it inserts
+
+390
+00:18:19,320 --> 00:18:22,920
+um
+
+391
+00:18:20,000 --> 00:18:25,760
+you know, you see, it inserted
+
+392
+00:18:22,920 --> 00:18:25,760
+that.
+
+393
+00:18:27,720 --> 00:18:32,000
+Okay, so
+
+394
+00:18:29,400 --> 00:18:32,000
+uh
+
+395
+00:18:33,760 --> 00:18:36,920
+So, let's
+
+396
+00:18:40,600 --> 00:18:44,160
+So, let's see what's uh
+
+397
+00:18:48,600 --> 00:18:52,040
+Wait, what? What?
+
+398
+00:19:00,200 --> 00:19:09,560
+Uh fixed case new text literal string
+
+399
+00:19:04,560 --> 00:19:12,000
+sub expression, so match case new text
+
+400
+00:19:09,560 --> 00:19:16,040
+replace match
+
+401
+00:19:12,000 --> 00:19:19,680
+replace text match by last search within
+
+402
+00:19:16,040 --> 00:19:22,120
+with new text. Okay.
+
+403
+00:19:19,680 --> 00:19:24,080
+Three points at end of replacement text.
+
+404
+00:19:22,120 --> 00:19:30,480
+Okay.
+
+405
+00:19:24,080 --> 00:19:30,480
+So, what am I doing wrong here when
+
+406
+00:19:31,520 --> 00:19:37,480
+research forward option bound no error.
+
+407
+00:19:34,680 --> 00:19:41,120
+Okay, bound and no error.
+
+408
+00:19:37,480 --> 00:19:44,160
+That's right. Bound nil, no error true.
+
+409
+00:19:41,120 --> 00:19:46,720
+And then we replace match, but something
+
+410
+00:19:44,160 --> 00:19:51,360
+is wrong.
+
+411
+00:19:46,720 --> 00:19:51,360
+Now, I'm pretty sure this is a capture.
+
+412
+00:19:55,560 --> 00:20:00,040
+Wait, how can I not get this right?
+
+413
+00:19:57,720 --> 00:20:02,000
+Okay, so time to look up at my Emacs
+
+414
+00:20:00,040 --> 00:20:05,360
+tutorial.
+
+415
+00:20:02,000 --> 00:20:08,640
+So, go to Xahlee Emacs practical Emacs
+
+416
+00:20:05,360 --> 00:20:11,960
+Lisp and there is a page about regular
+
+417
+00:20:08,640 --> 00:20:14,480
+expressions in in Emacs Lisp. Let me
+
+418
+00:20:11,960 --> 00:20:16,360
+just check that.
+
+419
+00:20:14,480 --> 00:20:18,760
+Okay, so near the bottom regular
+
+420
+00:20:16,360 --> 00:20:20,600
+expression in Emacs Lisp, there is
+
+421
+00:20:18,760 --> 00:20:22,880
+something you might to have to pay
+
+422
+00:20:20,600 --> 00:20:24,920
+attention to.
+
+423
+00:20:22,880 --> 00:20:27,320
+Uh
+
+424
+00:20:24,920 --> 00:20:31,080
+Let's uh let me let me magnify the
+
+425
+00:20:27,320 --> 00:20:31,080
+screen here once for all.
+
+426
+00:20:32,360 --> 00:20:35,720
+Okay, so let's check
+
+427
+00:20:34,480 --> 00:20:38,280
+what
+
+428
+00:20:35,720 --> 00:20:40,840
+uh some precautions when using regular
+
+429
+00:20:38,280 --> 00:20:43,960
+expression in Emacs Lisp. Maybe I
+
+430
+00:20:40,840 --> 00:20:43,960
+screwed up there.
+
+431
+00:20:45,200 --> 00:20:50,800
+So, here's the example. So,
+
+432
+00:20:47,720 --> 00:20:53,800
+regular expression search for word.
+
+433
+00:20:50,800 --> 00:20:57,360
+Yeah, so that looks right.
+
+434
+00:20:53,800 --> 00:20:57,360
+Uh and uh
+
+435
+00:21:00,360 --> 00:21:06,400
+I I I don't know what's going on. So,
+
+436
+00:21:02,800 --> 00:21:09,760
+let's why don't we go to the source code
+
+437
+00:21:06,400 --> 00:21:11,880
+of Xah Fly Keys. There's lots of code.
+
+438
+00:21:09,760 --> 00:21:12,760
+Then let's just search for
+
+439
+00:21:11,880 --> 00:21:15,000
+uh
+
+440
+00:21:12,760 --> 00:21:18,400
+rejects. I mean, let's search for
+
+441
+00:21:15,000 --> 00:21:21,280
+replace match. We will probably
+
+442
+00:21:18,400 --> 00:21:24,600
+find a example here.
+
+443
+00:21:21,280 --> 00:21:24,600
+So, let's see.
+
+444
+00:21:25,000 --> 00:21:31,480
+Okay, so
+
+445
+00:21:27,640 --> 00:21:34,080
+concat, so double slash. Yes, double
+
+446
+00:21:31,480 --> 00:21:35,240
+slash.
+
+447
+00:21:34,080 --> 00:21:37,320
+Okay.
+
+448
+00:21:35,240 --> 00:21:40,480
+Now, that Yeah, so you see here is
+
+449
+00:21:37,320 --> 00:21:42,720
+example. So, let's jump to the code. You
+
+450
+00:21:40,480 --> 00:21:45,800
+see, here is example.
+
+451
+00:21:42,720 --> 00:21:46,960
+Indeed, so here we have again a similar
+
+452
+00:21:45,800 --> 00:21:50,440
+code.
+
+453
+00:21:46,960 --> 00:21:53,880
+And this code is reformat sentence two
+
+454
+00:21:50,440 --> 00:21:56,880
+lines, okay? And here we have example of
+
+455
+00:21:53,880 --> 00:21:59,160
+regular expression search forward, and
+
+456
+00:21:56,880 --> 00:22:02,200
+we have a capture here.
+
+457
+00:21:59,160 --> 00:22:05,640
+Here. And then replace, you see, you
+
+458
+00:22:02,200 --> 00:22:07,800
+need a double backslash, okay? So, that
+
+459
+00:22:05,640 --> 00:22:10,440
+is it. The
+
+460
+00:22:07,800 --> 00:22:12,360
+usefulness of code examples. So, close
+
+461
+00:22:10,440 --> 00:22:16,000
+that, close that.
+
+462
+00:22:12,360 --> 00:22:18,920
+So, let's go back to the list code.
+
+463
+00:22:16,000 --> 00:22:21,000
+Yeah, so double slash, double backslash,
+
+464
+00:22:18,920 --> 00:22:23,640
+double backslash, okay? Pretty file the
+
+465
+00:22:21,000 --> 00:22:25,960
+code, okay? Evaluate the code.
+
+466
+00:22:23,640 --> 00:22:27,360
+Evaluate the buffer, go here, call the
+
+467
+00:22:25,960 --> 00:22:30,920
+command again.
+
+468
+00:22:27,360 --> 00:22:32,440
+Do it. Fantastic. You see that?
+
+469
+00:22:30,920 --> 00:22:35,600
+You see, undo,
+
+470
+00:22:32,440 --> 00:22:38,960
+redo, undo, redo.
+
+471
+00:22:35,600 --> 00:22:41,720
+You see? So, it it did that. So, now
+
+472
+00:22:38,960 --> 00:22:44,440
+let's continue working on go with this
+
+473
+00:22:41,720 --> 00:22:47,400
+flow. So, this only replace one
+
+474
+00:22:44,440 --> 00:22:50,440
+instance. So, instead we want a while
+
+475
+00:22:47,400 --> 00:22:53,080
+loop, okay? So, while loop,
+
+476
+00:22:50,440 --> 00:22:55,080
+while
+
+477
+00:22:53,080 --> 00:22:58,480
+search forward, you know, that for that
+
+478
+00:22:55,080 --> 00:22:58,480
+expression, then
+
+479
+00:22:59,240 --> 00:23:05,840
+then then you want uh do that, okay?
+
+480
+00:23:03,680 --> 00:23:09,000
+Clean the code, so
+
+481
+00:23:05,840 --> 00:23:11,920
+evaluate the buffer back here, and do so
+
+482
+00:23:09,000 --> 00:23:14,080
+let's start over. Let's let's copy this,
+
+483
+00:23:11,920 --> 00:23:15,560
+okay? Copy these three, new buffer,
+
+484
+00:23:14,080 --> 00:23:17,600
+paste it here.
+
+485
+00:23:15,560 --> 00:23:20,240
+Then call the command.
+
+486
+00:23:17,600 --> 00:23:22,200
+Do it. Fantastic. You see, it did it
+
+487
+00:23:20,240 --> 00:23:23,960
+here and here. Not the first one
+
+488
+00:23:22,200 --> 00:23:25,520
+because, you know, the first one doesn't
+
+489
+00:23:23,960 --> 00:23:28,120
+have uh
+
+490
+00:23:25,520 --> 00:23:30,360
+line returns, okay? Let's undo. So,
+
+491
+00:23:28,120 --> 00:23:34,040
+let's add some line returns. So, do it.
+
+492
+00:23:30,360 --> 00:23:36,760
+Call it. Fantastic. So, let's
+
+493
+00:23:34,040 --> 00:23:39,880
+That kind of the fixed the first part.
+
+494
+00:23:36,760 --> 00:23:43,040
+So, let's continue to code.
+
+495
+00:23:39,880 --> 00:23:45,880
+So, the other part is similar, okay? So,
+
+496
+00:23:43,040 --> 00:23:47,960
+what basically we just do this. So, go
+
+497
+00:23:45,880 --> 00:23:51,040
+to the buffer beginning again, then
+
+498
+00:23:47,960 --> 00:23:53,440
+search forward, and this time
+
+499
+00:23:51,040 --> 00:23:56,520
+you want to search for
+
+500
+00:23:53,440 --> 00:23:58,360
+two new line characters, but before that
+
+501
+00:23:56,520 --> 00:24:01,080
+it should be a
+
+502
+00:23:58,360 --> 00:24:01,080
+um
+
+503
+00:24:01,280 --> 00:24:06,720
+Okay, so we do like that. Search for
+
+504
+00:24:05,080 --> 00:24:12,360
+that.
+
+505
+00:24:06,720 --> 00:24:16,080
+Anything like that or a period or a
+
+506
+00:24:12,360 --> 00:24:20,080
+uh question mark or exclamation, okay?
+
+507
+00:24:16,080 --> 00:24:22,240
+Search search for that or any alphabet.
+
+508
+00:24:20,080 --> 00:24:24,440
+Or a number, actually, zero to nine,
+
+509
+00:24:22,240 --> 00:24:26,720
+actually. So, we need to add a zero to
+
+510
+00:24:24,440 --> 00:24:30,000
+nine here as well.
+
+511
+00:24:26,720 --> 00:24:33,880
+Improving our code.
+
+512
+00:24:30,000 --> 00:24:33,880
+Okay, so that and that
+
+513
+00:24:47,480 --> 00:24:51,440
+Okay, so actually so yeah, so that's one
+
+514
+00:24:50,000 --> 00:24:53,600
+thing. So,
+
+515
+00:24:51,440 --> 00:24:57,560
+then replace part
+
+516
+00:24:53,600 --> 00:24:57,560
+uh we need to add
+
+517
+00:25:02,800 --> 00:25:09,200
+like that. So, we
+
+518
+00:25:05,960 --> 00:25:12,040
+we replace it with whatever is found.
+
+519
+00:25:09,200 --> 00:25:15,520
+Then we add a new line character, then
+
+520
+00:25:12,040 --> 00:25:17,680
+the closing tag, then whatever
+
+521
+00:25:15,520 --> 00:25:20,560
+the number of new lines in the end,
+
+522
+00:25:17,680 --> 00:25:23,440
+okay? Evaluate the code.
+
+523
+00:25:20,560 --> 00:25:24,720
+Go back here, call the command,
+
+524
+00:25:23,440 --> 00:25:29,360
+do it.
+
+525
+00:25:24,720 --> 00:25:31,600
+Okay, something went went wrong.
+
+526
+00:25:29,360 --> 00:25:34,760
+Uh undo.
+
+527
+00:25:31,600 --> 00:25:38,000
+Let's test the simple case. New buffer.
+
+528
+00:25:34,760 --> 00:25:40,880
+Okay. New buffer, paste it here.
+
+529
+00:25:38,000 --> 00:25:45,120
+Let's uh let's make it like that. So,
+
+530
+00:25:40,880 --> 00:25:46,200
+let's call the code, see what happens.
+
+531
+00:25:45,120 --> 00:25:47,720
+Call it.
+
+532
+00:25:46,200 --> 00:25:51,480
+Do it.
+
+533
+00:25:47,720 --> 00:25:53,200
+Okay, the second part is not
+
+534
+00:25:51,480 --> 00:25:54,600
+done, okay? The second part is
+
+535
+00:25:53,200 --> 00:25:57,640
+incorrect.
+
+536
+00:25:54,600 --> 00:26:00,560
+So, search for Oh, yeah. So, these three
+
+537
+00:25:57,640 --> 00:26:02,640
+character must be inside the character
+
+538
+00:26:00,560 --> 00:26:04,720
+class, you know.
+
+539
+00:26:02,640 --> 00:26:08,320
+So, this is a regular expression syntax.
+
+540
+00:26:04,720 --> 00:26:09,640
+So, do it. Undo. Let's call it again.
+
+541
+00:26:08,320 --> 00:26:11,760
+Do it.
+
+542
+00:26:09,640 --> 00:26:14,680
+Fantastic.
+
+543
+00:26:11,760 --> 00:26:17,400
+Looks like that's uh we've completed our
+
+544
+00:26:14,680 --> 00:26:19,680
+mission, basically. The prototype. You
+
+545
+00:26:17,400 --> 00:26:21,760
+know, this is the code. This is This is
+
+546
+00:26:19,680 --> 00:26:24,320
+the fruit of today. Any questions,
+
+547
+00:26:21,760 --> 00:26:24,320
+comments?
+
+548
+00:26:24,680 --> 00:26:30,120
+Okay, so that So, okay, undo this, close
+
+549
+00:26:27,800 --> 00:26:31,600
+that. So, let's call it here. Let's see
+
+550
+00:26:30,120 --> 00:26:34,840
+what happens.
+
+551
+00:26:31,600 --> 00:26:37,560
+Do it. Fantastic. You think Fantastic.
+
+552
+00:26:34,840 --> 00:26:40,760
+Show in browser. Fantastic.
+
+553
+00:26:37,560 --> 00:26:44,240
+So, okay. So,
+
+554
+00:26:40,760 --> 00:26:47,080
+So, okay. So, so now, you know, this is
+
+555
+00:26:44,240 --> 00:26:50,000
+done. We don't actually need those these
+
+556
+00:26:47,080 --> 00:26:52,600
+parts anymore. So, we don't I mean, we
+
+557
+00:26:50,000 --> 00:26:53,880
+We need let because we didn't use any
+
+558
+00:26:52,600 --> 00:26:55,800
+variables.
+
+559
+00:26:53,880 --> 00:26:59,920
+So actually this is a code. Let's just
+
+560
+00:26:55,800 --> 00:26:59,920
+pretty fire. Okay, let's just um
+
+561
+00:27:01,080 --> 00:27:06,640
+Okay, for now let's cut that
+
+562
+00:27:04,160 --> 00:27:08,200
+and and go back here.
+
+563
+00:27:06,640 --> 00:27:11,360
+Paste it here.
+
+564
+00:27:08,200 --> 00:27:14,360
+Showing browser back in Emacs pretty
+
+565
+00:27:11,360 --> 00:27:15,640
+fight the code color it should go to the
+
+566
+00:27:14,360 --> 00:27:17,160
+browser.
+
+567
+00:27:15,640 --> 00:27:19,880
+Refresh.
+
+568
+00:27:17,160 --> 00:27:22,400
+Fantastic. Go back to Emacs delete this
+
+569
+00:27:19,880 --> 00:27:24,560
+paragraph showing browser in Emacs
+
+570
+00:27:22,400 --> 00:27:27,000
+uh in Emacs in in showing browser
+
+571
+00:27:24,560 --> 00:27:29,560
+fantastic.
+
+572
+00:27:27,000 --> 00:27:32,160
+So this is the command we set out to do
+
+573
+00:27:29,560 --> 00:27:33,840
+today and basically that's uh successful
+
+574
+00:27:32,160 --> 00:27:36,240
+but uh we can
+
+575
+00:27:33,840 --> 00:27:38,280
+there's a lot additions to do.
+
+576
+00:27:36,240 --> 00:27:39,400
+Depending on the new language good
+
+577
+00:27:38,280 --> 00:27:40,800
+morning.
+
+578
+00:27:39,400 --> 00:27:42,640
+So now
+
+579
+00:27:40,800 --> 00:27:44,440
+So what what's the next thing to do? We
+
+580
+00:27:42,640 --> 00:27:47,680
+can continue
+
+581
+00:27:44,440 --> 00:27:49,800
+with this Emacs this coding. Okay guys,
+
+582
+00:27:47,680 --> 00:27:50,960
+I need your reaction. You know, start to
+
+583
+00:27:49,800 --> 00:27:53,200
+talk.
+
+584
+00:27:50,960 --> 00:27:55,760
+Uh type your comments in chat, okay. So
+
+585
+00:27:53,200 --> 00:27:58,040
+how many people how many sponsors do I
+
+586
+00:27:55,760 --> 00:27:58,920
+have? Seven seven concurrent viewers,
+
+587
+00:27:58,040 --> 00:27:59,920
+okay.
+
+588
+00:27:58,920 --> 00:28:04,320
+So
+
+589
+00:27:59,920 --> 00:28:05,480
+So now we can continue to enhance
+
+590
+00:28:04,320 --> 00:28:08,800
+this
+
+591
+00:28:05,480 --> 00:28:12,240
+command add features or
+
+592
+00:28:08,800 --> 00:28:14,640
+we can start to talk random for about
+
+593
+00:28:12,240 --> 00:28:16,040
+for about maybe 20 minutes.
+
+594
+00:28:14,640 --> 00:28:18,000
+Let's see how long I've been talking.
+
+595
+00:28:16,040 --> 00:28:20,320
+I've been talking for 40 minutes
+
+596
+00:28:18,000 --> 00:28:23,520
+already, yeah.
+
+597
+00:28:20,320 --> 00:28:25,360
+Uh oops. So
+
+598
+00:28:23,520 --> 00:28:27,600
+you know, I kind of want to talk random
+
+599
+00:28:25,360 --> 00:28:31,280
+because I you know, I something about
+
+600
+00:28:27,600 --> 00:28:32,680
+Emacs maybe. So give your opinions guys.
+
+601
+00:28:31,280 --> 00:28:34,960
+If you are here
+
+602
+00:28:32,680 --> 00:28:37,160
+say something, okay. Questions about
+
+603
+00:28:34,960 --> 00:28:38,880
+Emacs list or
+
+604
+00:28:37,160 --> 00:28:41,800
+do you want me to continue adding
+
+605
+00:28:38,880 --> 00:28:45,040
+enhancement to the code here?
+
+606
+00:28:41,800 --> 00:28:47,400
+Uh or uh what else you want to uh do
+
+607
+00:28:45,040 --> 00:28:49,160
+next? Okay, okay, yeah. Let me let me
+
+608
+00:28:47,400 --> 00:28:51,440
+finish this, okay? There's something I
+
+609
+00:28:49,160 --> 00:28:53,960
+want to add, okay? So
+
+610
+00:28:51,440 --> 00:28:55,880
+So now we have this at least the draft
+
+611
+00:28:53,960 --> 00:28:59,480
+prototype of this function, which we
+
+612
+00:28:55,880 --> 00:29:01,840
+will add, you know, text to empty uh
+
+613
+00:28:59,480 --> 00:29:02,760
+text blocks.
+
+614
+00:29:01,840 --> 00:29:05,400
+Now we
+
+615
+00:29:02,760 --> 00:29:07,360
+What I want to do is add a hook so that,
+
+616
+00:29:05,400 --> 00:29:10,040
+for example, let me delete those, okay?
+
+617
+00:29:07,360 --> 00:29:12,640
+So ddddddd. You see?
+
+618
+00:29:10,040 --> 00:29:15,400
+You see it's showing browser. You see
+
+619
+00:29:12,640 --> 00:29:18,240
+we need a paragraph for each one of
+
+620
+00:29:15,400 --> 00:29:22,040
+these. So what I want is that whenever I
+
+621
+00:29:18,240 --> 00:29:24,920
+show a buffer HTML buffer in browser,
+
+622
+00:29:22,040 --> 00:29:26,440
+it will automatically call this command
+
+623
+00:29:24,920 --> 00:29:31,280
+uh wrap
+
+624
+00:29:26,440 --> 00:29:32,840
+HTML wrap P tags automatically call it.
+
+625
+00:29:31,280 --> 00:29:34,680
+So I don't have, you know, so this will
+
+626
+00:29:32,840 --> 00:29:36,520
+save you significant time, you know,
+
+627
+00:29:34,680 --> 00:29:39,320
+when you write a blog, when you write,
+
+628
+00:29:36,520 --> 00:29:41,400
+for example, let's go to my Emacs blog.
+
+629
+00:29:39,320 --> 00:29:44,320
+Let me show you, okay? So So go to my
+
+630
+00:29:41,400 --> 00:29:48,600
+Emacs blog, start a new section, you can
+
+631
+00:29:44,320 --> 00:29:53,520
+see new section. Then I just say
+
+632
+00:29:48,600 --> 00:29:54,640
+today I wrote a fantastic command.
+
+633
+00:29:53,520 --> 00:29:59,720
+And
+
+634
+00:29:54,640 --> 00:30:00,960
+the reason is it is fantastic, okay? So
+
+635
+00:29:59,720 --> 00:30:02,800
+now
+
+636
+00:30:00,960 --> 00:30:04,240
+normally, you know, I go back here, I
+
+637
+00:30:02,800 --> 00:30:06,360
+need I need to, you know, add a
+
+638
+00:30:04,240 --> 00:30:09,040
+paragraph. But now I just want to show
+
+639
+00:30:06,360 --> 00:30:11,320
+in browser, it should automatically do
+
+640
+00:30:09,040 --> 00:30:13,360
+that, add a paragraph. So
+
+641
+00:30:11,320 --> 00:30:16,200
+let's do that, okay? So close this.
+
+642
+00:30:13,360 --> 00:30:17,880
+Let's let's let's make this uh
+
+643
+00:30:16,200 --> 00:30:19,880
+uh function.
+
+644
+00:30:17,880 --> 00:30:22,120
+Let's Let me Let me tell you how to you
+
+645
+00:30:19,880 --> 00:30:25,040
+do that, okay?
+
+646
+00:30:22,120 --> 00:30:27,640
+So Elisp is based fantastic. So let me
+
+647
+00:30:25,040 --> 00:30:29,240
+continue virtual virtual blue sky, okay?
+
+648
+00:30:27,640 --> 00:30:30,200
+So let me continue, let me show you how
+
+649
+00:30:29,240 --> 00:30:32,360
+do you
+
+650
+00:30:30,200 --> 00:30:35,280
+how do you add this hook? So first of
+
+651
+00:30:32,360 --> 00:30:38,560
+all, the command to show in browser is
+
+652
+00:30:35,280 --> 00:30:41,880
+this, okay? Describe key.
+
+653
+00:30:38,560 --> 00:30:42,840
+Press the key. You see the command
+
+654
+00:30:41,880 --> 00:30:45,760
+name is actually
+
+655
+00:30:42,840 --> 00:30:48,840
+excite-html-browse-url-of-buffer,
+
+656
+00:30:45,760 --> 00:30:51,360
+okay? So, now we go to uh the source
+
+657
+00:30:48,840 --> 00:30:52,320
+code, which is in the excite-html mode,
+
+658
+00:30:51,360 --> 00:30:53,520
+okay?
+
+659
+00:30:52,320 --> 00:30:58,480
+Enter.
+
+660
+00:30:53,520 --> 00:31:02,360
+Here's the source code. Uh okay. So,
+
+661
+00:30:58,480 --> 00:31:05,160
+So, so what I I can do is that So,
+
+662
+00:31:02,360 --> 00:31:07,520
+where's today's code? So, today's code
+
+663
+00:31:05,160 --> 00:31:11,280
+Let's go to today's code, okay? So,
+
+664
+00:31:07,520 --> 00:31:11,280
+today's code is this one.
+
+665
+00:31:11,640 --> 00:31:17,360
+So, I can just simply Let me Let me show
+
+666
+00:31:14,760 --> 00:31:21,320
+uh You see?
+
+667
+00:31:17,360 --> 00:31:21,320
+I can simply add
+
+668
+00:31:21,960 --> 00:31:27,640
+Make a backup of this file. So, I can
+
+669
+00:31:24,120 --> 00:31:28,960
+simply add a call to this function.
+
+670
+00:31:27,640 --> 00:31:32,240
+Okay, let Let me show you, okay? Let's
+
+671
+00:31:28,960 --> 00:31:34,880
+just run it, okay? Evaluate the function
+
+672
+00:31:32,240 --> 00:31:36,920
+back to the HTML.
+
+673
+00:31:34,880 --> 00:31:38,840
+You see, this is talk show. So, you can
+
+674
+00:31:36,920 --> 00:31:40,600
+see here
+
+675
+00:31:38,840 --> 00:31:43,920
+You see, those are missing paragraph
+
+676
+00:31:40,600 --> 00:31:46,280
+tags. But, now if I show in browser,
+
+677
+00:31:43,920 --> 00:31:48,200
+it'll be added. Let's see.
+
+678
+00:31:46,280 --> 00:31:53,240
+Do it. You see?
+
+679
+00:31:48,200 --> 00:31:53,240
+Did you see that? Fantastic. Wait, what?
+
+680
+00:31:53,520 --> 00:31:58,600
+Oh, okay. Okay. So, you see,
+
+681
+00:31:56,480 --> 00:32:01,480
+it's added in the buffer, but however,
+
+682
+00:31:58,600 --> 00:32:03,560
+it's not showing up in browser. That's
+
+683
+00:32:01,480 --> 00:32:06,400
+because we switched to the browser
+
+684
+00:32:03,560 --> 00:32:09,680
+first, then we added those paragraph.
+
+685
+00:32:06,400 --> 00:32:10,520
+So, we let's fix that. Let's undo.
+
+686
+00:32:09,680 --> 00:32:12,760
+Uh
+
+687
+00:32:10,520 --> 00:32:15,680
+and go back to the code.
+
+688
+00:32:12,760 --> 00:32:17,440
+So, here is the code.
+
+689
+00:32:15,680 --> 00:32:21,120
+So, we
+
+690
+00:32:17,440 --> 00:32:24,000
+want to delete that and uh move it here,
+
+691
+00:32:21,120 --> 00:32:26,000
+okay? So,
+
+692
+00:32:24,000 --> 00:32:28,120
+uh we want to move it somewhere. So,
+
+693
+00:32:26,000 --> 00:32:30,960
+let's magnify the code.
+
+694
+00:32:28,120 --> 00:32:34,760
+So, let's see. So, here's the URL when
+
+695
+00:32:30,960 --> 00:32:37,800
+browser is modified.
+
+696
+00:32:34,760 --> 00:32:42,240
+Uh and uh it does some extra things. So,
+
+697
+00:32:37,800 --> 00:32:44,480
+the browser So, buffer modified P
+
+698
+00:32:42,240 --> 00:32:46,880
+is a variable building variable. Its
+
+699
+00:32:44,480 --> 00:32:49,800
+value is either true or false. True
+
+700
+00:32:46,880 --> 00:32:52,600
+means the buffer has not been saved.
+
+701
+00:32:49,800 --> 00:32:53,640
+You know, but that's how Emacs works.
+
+702
+00:32:52,600 --> 00:32:57,040
+So,
+
+703
+00:32:53,640 --> 00:32:59,520
+so when buffer has not been saved, then
+
+704
+00:32:57,040 --> 00:33:01,000
+you want to find whether um
+
+705
+00:32:59,520 --> 00:33:02,920
+basically you want to save it save
+
+706
+00:33:01,000 --> 00:33:04,640
+buffer, okay? But before you do that, I
+
+707
+00:33:02,920 --> 00:33:06,120
+want to clean up white space, you know,
+
+708
+00:33:04,640 --> 00:33:08,520
+that's just my
+
+709
+00:33:06,120 --> 00:33:10,320
+uh clean white space.
+
+710
+00:33:08,520 --> 00:33:11,920
+So, if that command is bound, just do
+
+711
+00:33:10,320 --> 00:33:13,520
+it.
+
+712
+00:33:11,920 --> 00:33:16,000
+Then, uh
+
+713
+00:33:13,520 --> 00:33:18,920
+let's just add here, okay? Let's Let's
+
+714
+00:33:16,000 --> 00:33:20,240
+Let's Let's add here and also
+
+715
+00:33:18,920 --> 00:33:22,960
+uh
+
+716
+00:33:20,240 --> 00:33:22,960
+actually
+
+717
+00:33:24,120 --> 00:33:27,120
+Let's just add here, okay?
+
+718
+00:33:26,240 --> 00:33:29,280
+Okay?
+
+719
+00:33:27,120 --> 00:33:31,120
+Evaluate,
+
+720
+00:33:29,280 --> 00:33:35,000
+you know, the code,
+
+721
+00:33:31,120 --> 00:33:36,320
+then go back to the HTML. You see? Now,
+
+722
+00:33:35,000 --> 00:33:38,120
+we're going to
+
+723
+00:33:36,320 --> 00:33:39,680
+uh show in browser. Let's see if it
+
+724
+00:33:38,120 --> 00:33:42,240
+changed. Do it.
+
+725
+00:33:39,680 --> 00:33:44,600
+Fantastic! You can see
+
+726
+00:33:42,240 --> 00:33:47,040
+uh it's done there, okay?
+
+727
+00:33:44,600 --> 00:33:49,560
+Fantastic.
+
+728
+00:33:47,040 --> 00:33:51,360
+Now,
+
+729
+00:33:49,560 --> 00:33:52,480
+Now, there's uh one more thing to do.
+
+730
+00:33:51,360 --> 00:33:56,200
+You see,
+
+731
+00:33:52,480 --> 00:33:58,520
+not everyone wants to do this
+
+732
+00:33:56,200 --> 00:34:00,680
+because
+
+733
+00:33:58,520 --> 00:34:02,840
+yeah, you know, I suppose we I you know,
+
+734
+00:34:00,680 --> 00:34:05,040
+this can we we can just have this and be
+
+735
+00:34:02,840 --> 00:34:07,280
+done with it. But,
+
+736
+00:34:05,040 --> 00:34:08,840
+I guess there are some situations or for
+
+737
+00:34:07,280 --> 00:34:11,399
+other people when they use my
+
+738
+00:34:08,840 --> 00:34:14,320
+ex-html-mode, they don't they don't
+
+739
+00:34:11,399 --> 00:34:16,040
+necessarily want to,
+
+740
+00:34:14,320 --> 00:34:17,919
+you know, automatically add paragraph
+
+741
+00:34:16,040 --> 00:34:19,399
+because maybe they haven't
+
+742
+00:34:17,919 --> 00:34:21,120
+you know, maybe they want this to be a
+
+743
+00:34:19,399 --> 00:34:23,000
+list instead. You know, they haven't
+
+744
+00:34:21,120 --> 00:34:26,240
+finished yet, but they just want to look
+
+745
+00:34:23,000 --> 00:34:28,600
+at browser first. So, you want to add
+
+746
+00:34:26,240 --> 00:34:30,240
+kind of a option
+
+747
+00:34:28,600 --> 00:34:32,360
+where people can choose whether they
+
+748
+00:34:30,240 --> 00:34:34,679
+want to do that. So, the way to do that
+
+749
+00:34:32,360 --> 00:34:37,399
+is
+
+750
+00:34:34,679 --> 00:34:39,120
+a a hook, okay? Emacs hook. So, let me
+
+751
+00:34:37,399 --> 00:34:40,120
+let me do it and you'll see, okay? Let
+
+752
+00:34:39,120 --> 00:34:40,760
+me just
+
+753
+00:34:40,120 --> 00:34:43,399
+uh
+
+754
+00:34:40,760 --> 00:34:44,720
+let me just uh start to code it so you
+
+755
+00:34:43,399 --> 00:34:46,560
+can see.
+
+756
+00:34:44,720 --> 00:34:47,760
+So, here is a hook.
+
+757
+00:34:46,560 --> 00:34:49,720
+Okay, so
+
+758
+00:34:47,760 --> 00:34:51,399
+so don't worry. Let me I'm going to
+
+759
+00:34:49,720 --> 00:34:52,600
+explain, okay?
+
+760
+00:34:51,399 --> 00:34:53,879
+So,
+
+761
+00:34:52,600 --> 00:34:56,520
+this
+
+762
+00:34:53,879 --> 00:34:59,240
+we're going to have a define var, which
+
+763
+00:34:56,520 --> 00:35:01,040
+is a declaration of a variable, and this
+
+764
+00:34:59,240 --> 00:35:02,040
+will be a
+
+765
+00:35:01,040 --> 00:35:04,960
+this var will be
+
+766
+00:35:02,040 --> 00:35:08,360
+exhtml-wrap-p-tags-hook.
+
+767
+00:35:04,960 --> 00:35:09,240
+So, so this is uh then the documentation
+
+768
+00:35:08,360 --> 00:35:10,160
+is
+
+769
+00:35:09,240 --> 00:35:11,960
+uh
+
+770
+00:35:10,160 --> 00:35:13,920
+the initial value is nil. The
+
+771
+00:35:11,960 --> 00:35:15,440
+documentation is
+
+772
+00:35:13,920 --> 00:35:18,720
+hook for
+
+773
+00:35:15,440 --> 00:35:21,160
+uh actually the hook for this function.
+
+774
+00:35:18,720 --> 00:35:23,920
+Hook for exhtml-browse-url-a-buffer,
+
+775
+00:35:21,160 --> 00:35:25,200
+okay? So, copy that. So, let's change
+
+776
+00:35:23,920 --> 00:35:26,720
+the name.
+
+777
+00:35:25,200 --> 00:35:30,280
+Okay?
+
+778
+00:35:26,720 --> 00:35:32,920
+So, we are declaring a variable.
+
+779
+00:35:30,280 --> 00:35:35,960
+Defvar, okay? Defvar, declaring this
+
+780
+00:35:32,920 --> 00:35:37,880
+variable. This is a hook. And the the
+
+781
+00:35:35,960 --> 00:35:41,160
+documentation is a hook for this uh
+
+782
+00:35:37,880 --> 00:35:43,200
+function. So, that means
+
+783
+00:35:41,160 --> 00:35:47,800
+you can add hook, okay? So, let me show
+
+784
+00:35:43,200 --> 00:35:47,800
+you how how it's done, okay? Add hook.
+
+785
+00:35:48,360 --> 00:35:55,480
+Okay, add hook um
+
+786
+00:35:50,760 --> 00:35:57,600
+add hook to this hook. And when
+
+787
+00:35:55,480 --> 00:35:59,960
+So, basically when that when this
+
+788
+00:35:57,600 --> 00:36:02,760
+function is called, you want to call
+
+789
+00:35:59,960 --> 00:36:06,040
+this function, okay? So, you can see
+
+790
+00:36:02,760 --> 00:36:08,680
+this is how you want to do it.
+
+791
+00:36:06,040 --> 00:36:10,480
+But, you know, that means as a user, if
+
+792
+00:36:08,680 --> 00:36:11,680
+you want this command, if you want this
+
+793
+00:36:10,480 --> 00:36:13,520
+command
+
+794
+00:36:11,680 --> 00:36:15,360
+to do something before, you know, when
+
+795
+00:36:13,520 --> 00:36:18,160
+it's called,
+
+796
+00:36:15,360 --> 00:36:19,680
+that's what you have to do, add hook.
+
+797
+00:36:18,160 --> 00:36:21,960
+But, however,
+
+798
+00:36:19,680 --> 00:36:23,640
+before you have before for this to work,
+
+799
+00:36:21,960 --> 00:36:27,400
+you have to first of all declare the
+
+800
+00:36:23,640 --> 00:36:29,960
+hook, then you you you have to also say
+
+801
+00:36:27,400 --> 00:36:32,160
+in the command over here, you have to
+
+802
+00:36:29,960 --> 00:36:34,440
+say call hook, okay? So, how do you do
+
+803
+00:36:32,160 --> 00:36:37,480
+that? I forgot. It's but then let me
+
+804
+00:36:34,440 --> 00:36:37,480
+look um
+
+805
+00:36:38,400 --> 00:36:42,800
+Let me look at how it's done. Call hook,
+
+806
+00:36:41,200 --> 00:36:44,120
+okay?
+
+807
+00:36:42,800 --> 00:36:47,720
+Uh
+
+808
+00:36:44,120 --> 00:36:47,720
+list function hook
+
+809
+00:36:49,520 --> 00:36:55,880
+Uh add hook. So, we have add hook. We
+
+810
+00:36:52,400 --> 00:36:57,480
+don't have uh call hook.
+
+811
+00:36:55,880 --> 00:36:59,880
+Okay, so
+
+812
+00:36:57,480 --> 00:36:59,880
+wait.
+
+813
+00:37:00,040 --> 00:37:02,160
+Uh
+
+814
+00:37:06,000 --> 00:37:12,760
+You know, so hook is automatically
+
+815
+00:37:08,480 --> 00:37:16,080
+called by the uh major mod.
+
+816
+00:37:12,760 --> 00:37:19,600
+Yeah, okay. So, I I know it's probably
+
+817
+00:37:16,080 --> 00:37:21,720
+confusing for you guys because I'm kind
+
+818
+00:37:19,600 --> 00:37:24,360
+of getting all over the place without a
+
+819
+00:37:21,720 --> 00:37:26,840
+good explanation.
+
+820
+00:37:24,360 --> 00:37:29,440
+But, let me do the ex- let me do explain
+
+821
+00:37:26,840 --> 00:37:31,280
+it, okay? Uh So, first of all, get go to
+
+822
+00:37:29,440 --> 00:37:33,560
+the Emacs Lisp
+
+823
+00:37:31,280 --> 00:37:36,720
+Practical Emacs Lisp, then click on
+
+824
+00:37:33,560 --> 00:37:39,640
+Emacs Lisp writing major mod.
+
+825
+00:37:36,720 --> 00:37:43,280
+Okay, I think
+
+826
+00:37:39,640 --> 00:37:45,080
+I might have explanation here
+
+827
+00:37:43,280 --> 00:37:47,800
+because I don't I don't remember exactly
+
+828
+00:37:45,080 --> 00:37:49,400
+how it's done myself. So, I So, let me
+
+829
+00:37:47,800 --> 00:37:52,520
+just
+
+830
+00:37:49,400 --> 00:37:53,560
+Let me just uh stumble around, okay?
+
+831
+00:37:52,520 --> 00:37:57,760
+Let me
+
+832
+00:37:53,560 --> 00:37:57,760
+stumble around and uh
+
+833
+00:38:01,360 --> 00:38:04,600
+Okay, so
+
+834
+00:38:11,400 --> 00:38:18,200
+So, where do I explain the hook?
+
+835
+00:38:15,240 --> 00:38:21,360
+Okay, so define font-lock-mode, define
+
+836
+00:38:18,200 --> 00:38:23,760
+face, color comment color comment,
+
+837
+00:38:21,360 --> 00:38:26,720
+comment command, your own comment
+
+838
+00:38:23,760 --> 00:38:28,960
+command, keyboard completion command.
+
+839
+00:38:26,720 --> 00:38:32,240
+This is all about how to write a major
+
+840
+00:38:28,960 --> 00:38:35,360
+mod. Create key map
+
+841
+00:38:32,240 --> 00:38:38,320
+uh abbreviation template text properties
+
+842
+00:38:35,360 --> 00:38:39,400
+overlay lookup doc. Okay, it's not
+
+843
+00:38:38,320 --> 00:38:43,320
+there.
+
+844
+00:38:39,400 --> 00:38:45,440
+Major mod naming provide required
+
+845
+00:38:43,320 --> 00:38:48,360
+Okay, I don't have hook here, but so
+
+846
+00:38:45,440 --> 00:38:50,320
+let's look at let's look at Emacs in
+
+847
+00:38:48,360 --> 00:38:52,440
+init section.
+
+848
+00:38:50,320 --> 00:38:55,320
+I might have it explained here. So,
+
+849
+00:38:52,440 --> 00:38:59,120
+what's hook? So, click on what what's
+
+850
+00:38:55,320 --> 00:39:03,320
+hook. This page explains
+
+851
+00:38:59,120 --> 00:39:07,160
+uh what is a hook in Emacs. But
+
+852
+00:39:03,320 --> 00:39:09,360
+does it explain how do you actually
+
+853
+00:39:07,160 --> 00:39:11,560
+create the hook mechanism for a
+
+854
+00:39:09,360 --> 00:39:14,040
+function? No, it does not.
+
+855
+00:39:11,560 --> 00:39:17,080
+So, this page is user-oriented. You
+
+856
+00:39:14,040 --> 00:39:19,080
+know, if you are Emacs user you might
+
+857
+00:39:17,080 --> 00:39:21,880
+encounter what is a hook. You know, this
+
+858
+00:39:19,080 --> 00:39:24,000
+page explains and it tells you how how
+
+859
+00:39:21,880 --> 00:39:24,720
+can you add a hook
+
+860
+00:39:24,000 --> 00:39:28,200
+uh
+
+861
+00:39:24,720 --> 00:39:30,000
+you know, with some building functions.
+
+862
+00:39:28,200 --> 00:39:31,160
+This is how you do.
+
+863
+00:39:30,000 --> 00:39:34,520
+But
+
+864
+00:39:31,160 --> 00:39:36,560
+this page is not a explanation to Emac
+
+865
+00:39:34,520 --> 00:39:40,320
+Lisp programmers.
+
+866
+00:39:36,560 --> 00:39:43,240
+It doesn't explain how do you actually
+
+867
+00:39:40,320 --> 00:39:45,120
+create a hook you know, for certain
+
+868
+00:39:43,240 --> 00:39:47,600
+event or function call
+
+869
+00:39:45,120 --> 00:39:49,480
+so that user can, you know
+
+870
+00:39:47,600 --> 00:39:52,400
+you know, add hook to it.
+
+871
+00:39:49,480 --> 00:39:55,000
+So, it didn't explain. So, okay.
+
+872
+00:39:52,400 --> 00:39:57,320
+So, I didn't explain. So, maybe I note
+
+873
+00:39:55,000 --> 00:39:59,560
+to myself, write a tutorial about that.
+
+874
+00:39:57,320 --> 00:40:01,800
+So, but
+
+875
+00:39:59,560 --> 00:40:04,320
+so, right now
+
+876
+00:40:01,800 --> 00:40:06,960
+I'm kind of in a mess because hold on a
+
+877
+00:40:04,320 --> 00:40:09,040
+second, I can explain it. Okay, hold on
+
+878
+00:40:06,960 --> 00:40:11,080
+a second.
+
+879
+00:40:09,040 --> 00:40:14,000
+So, this add hook, this is what user
+
+880
+00:40:11,080 --> 00:40:15,920
+have to do. Okay, so
+
+881
+00:40:14,000 --> 00:40:18,560
+but first of all, you define a variable
+
+882
+00:40:15,920 --> 00:40:20,960
+so people can look up
+
+883
+00:40:18,560 --> 00:40:22,600
+you know, the hook and see what it does.
+
+884
+00:40:20,960 --> 00:40:25,240
+This is a good thing.
+
+885
+00:40:22,600 --> 00:40:28,280
+But, the actual coding hook will be
+
+886
+00:40:25,240 --> 00:40:30,680
+somewhere here, okay?
+
+887
+00:40:28,280 --> 00:40:32,360
+It will be inside this function, okay?
+
+888
+00:40:30,680 --> 00:40:33,720
+But, um
+
+889
+00:40:32,360 --> 00:40:36,320
+Okay?
+
+890
+00:40:33,720 --> 00:40:38,440
+Now, the the question Okay, so the the
+
+891
+00:40:36,320 --> 00:40:39,880
+question for me is how do you find that
+
+892
+00:40:38,440 --> 00:40:42,280
+function?
+
+893
+00:40:39,880 --> 00:40:44,840
+I think it's call hook, okay? So, let's
+
+894
+00:40:42,280 --> 00:40:47,240
+see call
+
+895
+00:40:44,840 --> 00:40:49,120
+hook. No, it's not call hook. But, I can
+
+896
+00:40:47,240 --> 00:40:51,840
+find the proper name by looking at the
+
+897
+00:40:49,120 --> 00:40:54,560
+documentation of this function. Define
+
+898
+00:40:51,840 --> 00:40:57,480
+derived mod, okay? I think. So, this
+
+899
+00:40:54,560 --> 00:41:00,280
+right function define derived mod
+
+900
+00:40:57,480 --> 00:41:04,160
+magnify, so we can see.
+
+901
+00:41:00,280 --> 00:41:04,160
+Um then search for hook.
+
+902
+00:41:04,680 --> 00:41:07,800
+Okay, so
+
+903
+00:41:08,600 --> 00:41:11,200
+hook.
+
+904
+00:41:20,040 --> 00:41:24,960
+Okay, you can see near the bottom
+
+905
+00:41:22,920 --> 00:41:28,840
+um
+
+906
+00:41:24,960 --> 00:41:31,640
+Let's call highlight phrase hook. So, it
+
+907
+00:41:28,840 --> 00:41:34,200
+can highlight all hook names. So, let me
+
+908
+00:41:31,640 --> 00:41:36,000
+shrink, so you can actually see the
+
+909
+00:41:34,200 --> 00:41:39,080
+part.
+
+910
+00:41:36,000 --> 00:41:41,640
+So, here is the
+
+911
+00:41:39,080 --> 00:41:44,840
+you know, here's the documentation
+
+912
+00:41:41,640 --> 00:41:49,000
+for the function define derived mod. And
+
+913
+00:41:44,840 --> 00:41:50,440
+in here, it talks about hook.
+
+914
+00:41:49,000 --> 00:41:52,400
+Okay?
+
+915
+00:41:50,440 --> 00:41:54,720
+Now, this is kind of advanced Emacs.
+
+916
+00:41:52,400 --> 00:41:56,200
+This This is about how to write a major
+
+917
+00:41:54,720 --> 00:41:58,520
+mod.
+
+918
+00:41:56,200 --> 00:42:00,280
+But, what I'm trying to
+
+919
+00:41:58,520 --> 00:42:02,560
+tell you now is how do you actually
+
+920
+00:42:00,280 --> 00:42:05,120
+create a hook for any of our arbitrary
+
+921
+00:42:02,560 --> 00:42:05,120
+function.
+
+922
+00:42:07,280 --> 00:42:12,240
+Okay, so let me just look around. Then
+
+923
+00:42:09,800 --> 00:42:15,960
+then I'll explain it, okay? The the new
+
+924
+00:42:12,240 --> 00:42:18,520
+mod runs the hook and constructed by uh
+
+925
+00:42:15,960 --> 00:42:20,560
+uh drive function hook name, okay?
+
+926
+00:42:18,520 --> 00:42:23,640
+Run hook, okay? So
+
+927
+00:42:20,560 --> 00:42:26,560
+uh describe function run hook. There it
+
+928
+00:42:23,640 --> 00:42:30,000
+is, run hooks, okay?
+
+929
+00:42:26,560 --> 00:42:31,600
+So run hooks So let's look at the
+
+930
+00:42:30,000 --> 00:42:34,240
+documentation for the function run
+
+931
+00:42:31,600 --> 00:42:38,320
+hooks, okay?
+
+932
+00:42:34,240 --> 00:42:40,040
+Run each hook in hooks. Fantastic, okay?
+
+933
+00:42:38,320 --> 00:42:43,880
+Yeah, okay. This is the function we
+
+934
+00:42:40,040 --> 00:42:43,880
+want, okay? So let me explain.
+
+935
+00:42:46,240 --> 00:42:52,760
+Okay, so let me explain uh the whole
+
+936
+00:42:48,440 --> 00:42:52,760
+thing in a clear manner, okay?
+
+937
+00:42:56,360 --> 00:42:59,040
+Uh
+
+938
+00:42:57,200 --> 00:43:00,200
+okay, here. So
+
+939
+00:42:59,040 --> 00:43:02,760
+uh
+
+940
+00:43:00,200 --> 00:43:05,080
+So the code we are interested So let me
+
+941
+00:43:02,760 --> 00:43:06,760
+let me let me
+
+942
+00:43:05,080 --> 00:43:10,120
+Here. So
+
+943
+00:43:06,760 --> 00:43:12,080
+So let me just paste this, okay? So here
+
+944
+00:43:10,120 --> 00:43:14,680
+is the code
+
+945
+00:43:12,080 --> 00:43:18,040
+the these three code are uh
+
+946
+00:43:14,680 --> 00:43:20,400
+is the our interest. I'll make So
+
+947
+00:43:18,040 --> 00:43:22,080
+So there is a function CSHTML browser
+
+948
+00:43:20,400 --> 00:43:25,200
+URL buffer.
+
+949
+00:43:22,080 --> 00:43:28,480
+We What we want to do now is we want to
+
+950
+00:43:25,200 --> 00:43:30,720
+create a hook so that whenever this
+
+951
+00:43:28,480 --> 00:43:33,480
+function runs, it will actually call
+
+952
+00:43:30,720 --> 00:43:35,760
+whatever hook user added. So how do you
+
+953
+00:43:33,480 --> 00:43:38,480
+do that? We want to create a hook. All
+
+954
+00:43:35,760 --> 00:43:41,600
+you have to do is to create define a
+
+955
+00:43:38,480 --> 00:43:45,040
+variable here and create a name
+
+956
+00:43:41,600 --> 00:43:47,880
+CSHTML browser URL buffer hook. Then
+
+957
+00:43:45,040 --> 00:43:50,520
+inside the function body, call this call
+
+958
+00:43:47,880 --> 00:43:53,320
+this run hooks, okay? So you see, it's
+
+959
+00:43:50,520 --> 00:43:55,000
+very simple. Now, I hope that that makes
+
+960
+00:43:53,320 --> 00:43:57,080
+sense, guys.
+
+961
+00:43:55,000 --> 00:43:59,000
+Answer.
+
+962
+00:43:57,080 --> 00:44:01,920
+80 people watching, does that make
+
+963
+00:43:59,000 --> 00:44:04,760
+sense? You know, did I make a good
+
+964
+00:44:01,920 --> 00:44:06,680
+effort in explaining this after, you
+
+965
+00:44:04,760 --> 00:44:09,640
+know, 10 minutes I do?
+
+966
+00:44:06,680 --> 00:44:14,280
+So Okay, run hooks. So, this is what you
+
+967
+00:44:09,640 --> 00:44:16,240
+want, run hooks. Now, now do we need uh
+
+968
+00:44:14,280 --> 00:44:18,200
+should this be a symbol? The argument
+
+969
+00:44:16,240 --> 00:44:20,280
+should it be a symbol or just a
+
+970
+00:44:18,200 --> 00:44:23,640
+variable? I don't know.
+
+971
+00:44:20,280 --> 00:44:26,480
+Uh you see that's um
+
+972
+00:44:23,640 --> 00:44:29,840
+Yeah, Emacs list they don't have
+
+973
+00:44:26,480 --> 00:44:29,840
+they don't have examples.
+
+974
+00:44:47,040 --> 00:44:53,640
+Let's see some examples.
+
+975
+00:44:50,440 --> 00:44:56,400
+Uh I don't know. I Okay, so let's go to
+
+976
+00:44:53,640 --> 00:44:59,840
+In fact, let's go to
+
+977
+00:44:56,400 --> 00:45:01,840
+Xah Lee Ki again and search for run hook
+
+978
+00:44:59,840 --> 00:45:04,400
+because I have example. There it is,
+
+979
+00:45:01,840 --> 00:45:07,280
+okay? So, you can see it actually
+
+980
+00:45:04,400 --> 00:45:08,920
+requires a symbol the argument. You
+
+981
+00:45:07,280 --> 00:45:10,880
+know, this this part is kind of
+
+982
+00:45:08,920 --> 00:45:12,840
+confusing when you code Emacs list
+
+983
+00:45:10,880 --> 00:45:15,000
+because some arguments sometimes they
+
+984
+00:45:12,840 --> 00:45:17,040
+require to be a symbol
+
+985
+00:45:15,000 --> 00:45:18,840
+uh and sometimes it's just a variable.
+
+986
+00:45:17,040 --> 00:45:21,560
+So, in this case it's a symbol. It's a
+
+987
+00:45:18,840 --> 00:45:23,560
+symbol of the variable. You see this
+
+988
+00:45:21,560 --> 00:45:25,920
+hook thing, they are actually variables,
+
+989
+00:45:23,560 --> 00:45:28,840
+but you need to pass argument as a
+
+990
+00:45:25,920 --> 00:45:31,800
+symbol to run hooks, okay? So, okay, so
+
+991
+00:45:28,840 --> 00:45:34,480
+that's so we found the answer. So, you
+
+992
+00:45:31,800 --> 00:45:36,760
+So, so over here we back here. So, so
+
+993
+00:45:34,480 --> 00:45:40,840
+this is what you need. So, this part you
+
+994
+00:45:36,760 --> 00:45:43,120
+need to move it to uh
+
+995
+00:45:40,840 --> 00:45:44,800
+Move it move it here, okay?
+
+996
+00:45:43,120 --> 00:45:47,760
+Move it here.
+
+997
+00:45:44,800 --> 00:45:47,760
+Okay, clean up.
+
+998
+00:45:51,400 --> 00:45:55,520
+Okay, so this function now, that's good.
+
+999
+00:45:54,160 --> 00:45:58,320
+Now,
+
+1000
+00:45:55,520 --> 00:46:01,400
+so we we define a variable a hook and
+
+1001
+00:45:58,320 --> 00:46:04,640
+and you see this variable and we also
+
+1002
+00:46:01,400 --> 00:46:07,600
+run it here. And for the user, so this
+
+1003
+00:46:04,640 --> 00:46:10,680
+part this part is shouldn't be here.
+
+1004
+00:46:07,600 --> 00:46:13,760
+This part is this part should be user.
+
+1005
+00:46:10,680 --> 00:46:15,440
+You know, so delete that. Now
+
+1006
+00:46:13,760 --> 00:46:17,720
+Now um
+
+1007
+00:46:15,440 --> 00:46:19,120
+widen the buffer so we have we see the
+
+1008
+00:46:17,720 --> 00:46:20,520
+whole code.
+
+1009
+00:46:19,120 --> 00:46:23,320
+Okay?
+
+1010
+00:46:20,520 --> 00:46:26,240
+So now we evaluate this part and
+
+1011
+00:46:23,320 --> 00:46:29,360
+evaluate this part, okay?
+
+1012
+00:46:26,240 --> 00:46:33,400
+So we evaluate buffer, okay?
+
+1013
+00:46:29,360 --> 00:46:35,680
+What's my key, I believe. Uh wait.
+
+1014
+00:46:33,400 --> 00:46:38,000
+Evaluate region.
+
+1015
+00:46:35,680 --> 00:46:42,280
+That's eval-defun.
+
+1016
+00:46:38,000 --> 00:46:42,280
+Okay. Wait, what's my key?
+
+1017
+00:46:42,960 --> 00:46:47,920
+Eval region.
+
+1018
+00:46:45,280 --> 00:46:49,960
+Delete w u, okay? That's in Vorai
+
+1019
+00:46:47,920 --> 00:46:52,040
+keyboard and delete key is here, right
+
+1020
+00:46:49,960 --> 00:46:56,040
+on my thumb. That's the Vorai keyboard.
+
+1021
+00:46:52,040 --> 00:46:58,520
+W is here, U is here, okay? So
+
+1022
+00:46:56,040 --> 00:47:01,760
+back to the code.
+
+1023
+00:46:58,520 --> 00:47:01,760
+Eval region.
+
+1024
+00:47:02,000 --> 00:47:06,080
+Okay? So you can see in the ping window,
+
+1025
+00:47:04,040 --> 00:47:09,000
+you can see it's gold.
+
+1026
+00:47:06,080 --> 00:47:12,520
+Now we evaluated that, we back to go
+
+1027
+00:47:09,000 --> 00:47:16,120
+back to the talk show page.
+
+1028
+00:47:12,520 --> 00:47:19,480
+And then we need to evaluate this add
+
+1029
+00:47:16,120 --> 00:47:20,920
+hook, you know, whenever this hook
+
+1030
+00:47:19,480 --> 00:47:23,320
+you know, uh
+
+1031
+00:47:20,920 --> 00:47:26,680
+when whenever that event happens, call
+
+1032
+00:47:23,320 --> 00:47:28,480
+this function, okay? Evaluated, okay?
+
+1033
+00:47:26,680 --> 00:47:30,560
+Now
+
+1034
+00:47:28,480 --> 00:47:32,280
+Now we we call the
+
+1035
+00:47:30,560 --> 00:47:35,640
+uh we show in browser, it should add
+
+1036
+00:47:32,280 --> 00:47:37,520
+paragraphs paragraphs. Let's do it.
+
+1037
+00:47:35,640 --> 00:47:38,720
+Fantastic, okay?
+
+1038
+00:47:37,520 --> 00:47:40,480
+So I
+
+1039
+00:47:38,720 --> 00:47:43,600
+So that's it for today. Thank you guys
+
+1040
+00:47:40,480 --> 00:47:46,160
+for watching. That's it.
+
+1041
+00:47:43,600 --> 00:47:49,680
+Oh good. I think I guess I'm still
+
+1042
+00:47:46,160 --> 00:47:51,360
+alive. Thank you. Thank you, virtual.
+
+1043
+00:47:49,680 --> 00:47:53,280
+Good explanation. I actually have been
+
+1044
+00:47:51,360 --> 00:47:53,960
+trying to use hooks for
+
+1045
+00:47:53,280 --> 00:47:56,080
+um
+
+1046
+00:47:53,960 --> 00:47:59,280
+org extension which have been tricky.
+
+1047
+00:47:56,080 --> 00:48:01,760
+Okay, Hi Xah G says, Hi what color theme
+
+1048
+00:47:59,280 --> 00:48:02,760
+in Emacs of Emacs do you use?" Okay, let
+
+1049
+00:48:01,760 --> 00:48:04,400
+me
+
+1050
+00:48:02,760 --> 00:48:07,160
+answer that.
+
+1051
+00:48:04,400 --> 00:48:09,240
+And that that should be it today. Okay.
+
+1052
+00:48:07,160 --> 00:48:11,240
+So, color themes
+
+1053
+00:48:09,240 --> 00:48:13,840
+so
+
+1054
+00:48:11,240 --> 00:48:15,720
+So, color themes Okay, so color themes I
+
+1055
+00:48:13,840 --> 00:48:18,040
+don't like themes. Okay, so all you all
+
+1056
+00:48:15,720 --> 00:48:22,440
+you have to do is, you know, you go to
+
+1057
+00:48:18,040 --> 00:48:24,600
+just search for Xah Lee Emacs themes.
+
+1058
+00:48:22,440 --> 00:48:26,720
+Okay.
+
+1059
+00:48:24,600 --> 00:48:30,000
+You see, then you go to, you know, this
+
+1060
+00:48:26,720 --> 00:48:32,120
+website. Set color themes. Set color
+
+1061
+00:48:30,000 --> 00:48:33,760
+Emacs set color themes. Okay, let's
+
+1062
+00:48:32,120 --> 00:48:37,000
+magnify.
+
+1063
+00:48:33,760 --> 00:48:39,320
+Then, you know, I this page explains,
+
+1064
+00:48:37,000 --> 00:48:41,440
+you know, the Emacs theme. How do you
+
+1065
+00:48:39,320 --> 00:48:43,720
+use them? How do you set them? And so
+
+1066
+00:48:41,440 --> 00:48:43,720
+on.
+
+1067
+00:48:43,960 --> 00:48:49,080
+Okay, load loading themes and what's
+
+1068
+00:48:46,320 --> 00:48:52,000
+available themes by default.
+
+1069
+00:48:49,080 --> 00:48:54,760
+This is written in 2012, so it's like
+
+1070
+00:48:52,000 --> 00:48:57,520
+actually 8 years old. I haven't updated.
+
+1071
+00:48:54,760 --> 00:49:00,160
+Last update 2018. I don't use themes.
+
+1072
+00:48:57,520 --> 00:49:02,760
+Okay, I don't like themes. I want things
+
+1073
+00:49:00,160 --> 00:49:05,960
+I want things as simple as possible, as
+
+1074
+00:49:02,760 --> 00:49:09,400
+ugly as possible. The The uglier, the
+
+1075
+00:49:05,960 --> 00:49:09,400
+better the user interface.
+
+1076
+00:49:11,600 --> 00:49:15,760
+Sometimes true. That's often actually
+
+1077
+00:49:13,880 --> 00:49:18,440
+often true. I don't want I don't want
+
+1078
+00:49:15,760 --> 00:49:20,960
+any kind of fluff. Anything I do in
+
+1079
+00:49:18,440 --> 00:49:23,920
+Emacs must be functional. Extreme I'm a
+
+1080
+00:49:20,960 --> 00:49:25,640
+extreme efficiency nerd.
+
+1081
+00:49:23,920 --> 00:49:28,680
+Now, how however, for example, I love
+
+1082
+00:49:25,640 --> 00:49:30,240
+Unicode. For example, you you see this
+
+1083
+00:49:28,680 --> 00:49:32,000
+right arrow,
+
+1084
+00:49:30,240 --> 00:49:33,760
+you see this summation, you know,
+
+1085
+00:49:32,000 --> 00:49:36,080
+because they are functional, not because
+
+1086
+00:49:33,760 --> 00:49:37,760
+they are pretty. You know, I don't care
+
+1087
+00:49:36,080 --> 00:49:39,960
+for font, you know, lots of programmer
+
+1088
+00:49:37,760 --> 00:49:42,600
+nerds. They are into fonts. You know, I
+
+1089
+00:49:39,960 --> 00:49:45,040
+ran the I ran it about these four hours.
+
+1090
+00:49:42,600 --> 00:49:46,760
+Into fonts, into like ligature. You
+
+1091
+00:49:45,040 --> 00:49:48,520
+know, you know what is a ligature? You
+
+1092
+00:49:46,760 --> 00:49:51,320
+know, like AE,
+
+1093
+00:49:48,520 --> 00:49:53,680
+you know, that ligature.
+
+1094
+00:49:51,320 --> 00:49:56,160
+I this I don't I don't want any of that.
+
+1095
+00:49:53,680 --> 00:49:58,240
+I want functionality. But actually this
+
+1096
+00:49:56,160 --> 00:50:00,480
+is this is a good thing, okay? So
+
+1097
+00:49:58,240 --> 00:50:02,600
+paragraph
+
+1098
+00:50:00,480 --> 00:50:04,800
+today we talked about it's represented
+
+1099
+00:50:02,600 --> 00:50:07,480
+by this symbol and you can show white
+
+1100
+00:50:04,800 --> 00:50:10,080
+spaces, you know, and you have section
+
+1101
+00:50:07,480 --> 00:50:12,480
+sign, you know, function
+
+1102
+00:50:10,080 --> 00:50:15,000
+wait, section wait, sec
+
+1103
+00:50:12,480 --> 00:50:18,880
+Okay, then turn off white space, you
+
+1104
+00:50:15,000 --> 00:50:20,560
+see, these are Unicode. I love Unicode.
+
+1105
+00:50:18,880 --> 00:50:23,560
+So you can see actually you have a
+
+1106
+00:50:20,560 --> 00:50:27,440
+entire page about Unicode, so you can
+
+1107
+00:50:23,560 --> 00:50:30,480
+hand gestures, food, love symbols,
+
+1108
+00:50:27,440 --> 00:50:33,600
+clothing. So let's search here. So you
+
+1109
+00:50:30,480 --> 00:50:35,160
+you know, s e c, you know, dynamic
+
+1110
+00:50:33,600 --> 00:50:36,200
+interactive
+
+1111
+00:50:35,160 --> 00:50:39,360
+uh
+
+1112
+00:50:36,200 --> 00:50:41,400
+Unicode search, you know, let's say p a
+
+1113
+00:50:39,360 --> 00:50:42,720
+r
+
+1114
+00:50:41,400 --> 00:50:45,800
+a
+
+1115
+00:50:42,720 --> 00:50:48,600
+So these all all these Unicode Unicode
+
+1116
+00:50:45,800 --> 00:50:50,480
+whose Unicode name contains the word p a
+
+1117
+00:50:48,600 --> 00:50:53,120
+r a, paragraph. So where's the
+
+1118
+00:50:50,480 --> 00:50:55,800
+paragraph? Right here. So you can see
+
+1119
+00:50:53,120 --> 00:50:57,240
+you scroll down, then you have the full
+
+1120
+00:50:55,800 --> 00:50:59,480
+um
+
+1121
+00:50:57,240 --> 00:51:02,800
+You see? This one, so it's actually
+
+1122
+00:50:59,480 --> 00:51:04,920
+called curved stem paragraph sign
+
+1123
+00:51:02,800 --> 00:51:07,520
+ornament.
+
+1124
+00:51:04,920 --> 00:51:09,280
+Unicode has ornaments. So that's an
+
+1125
+00:51:07,520 --> 00:51:11,680
+ornament feature. Wait, where is the
+
+1126
+00:51:09,280 --> 00:51:14,160
+standard paragraph feature?
+
+1127
+00:51:11,680 --> 00:51:17,000
+Okay, so this character is actually uh
+
+1128
+00:51:14,160 --> 00:51:18,320
+the the ornament version of the
+
+1129
+00:51:17,000 --> 00:51:19,320
+paragraph
+
+1130
+00:51:18,320 --> 00:51:22,200
+um
+
+1131
+00:51:19,320 --> 00:51:24,200
+character. But there's also a a normal
+
+1132
+00:51:22,200 --> 00:51:26,560
+non ornament
+
+1133
+00:51:24,200 --> 00:51:28,880
+um version. By the way, here is the
+
+1134
+00:51:26,560 --> 00:51:30,440
+interesting, you see, Ethiopic paragraph
+
+1135
+00:51:28,880 --> 00:51:32,800
+separator.
+
+1136
+00:51:30,440 --> 00:51:35,520
+This hexagonal
+
+1137
+00:51:32,800 --> 00:51:37,960
+size, so you know, I love
+
+1138
+00:51:35,520 --> 00:51:42,240
+then I love Unicode. Then then you have
+
+1139
+00:51:37,960 --> 00:51:45,360
+c react c react c react end of paragraph
+
+1140
+00:51:42,240 --> 00:51:47,360
+sign. So that's interesting. So anyway,
+
+1141
+00:51:45,360 --> 00:51:50,280
+I have a section on punctuation. Now,
+
+1142
+00:51:47,360 --> 00:51:52,360
+let's see where is the normal standard
+
+1143
+00:51:50,280 --> 00:51:54,040
+paragraph symbol and why is my search
+
+1144
+00:51:52,360 --> 00:51:56,440
+didn't locate it. Oh,
+
+1145
+00:51:54,040 --> 00:51:59,160
+okay. So, the official name for the
+
+1146
+00:51:56,440 --> 00:52:01,080
+paragraph sign is pilcrow sign. You
+
+1147
+00:51:59,160 --> 00:52:04,000
+know, so here we are getting into
+
+1148
+00:52:01,080 --> 00:52:06,240
+centuries of history, you know,
+
+1149
+00:52:04,000 --> 00:52:08,920
+punctuation and writing systems. So,
+
+1150
+00:52:06,240 --> 00:52:10,800
+this is called pilcrow sign.
+
+1151
+00:52:08,920 --> 00:52:14,440
+And here's a section sign and here's a
+
+1152
+00:52:10,800 --> 00:52:17,000
+asterin asterism, okay?
+
+1153
+00:52:14,440 --> 00:52:19,600
+You know, I I studied all of these and
+
+1154
+00:52:17,000 --> 00:52:22,440
+read about their Wikipedia, you know,
+
+1155
+00:52:19,600 --> 00:52:24,880
+detail. This is fascinating, okay? Uh,
+
+1156
+00:52:22,440 --> 00:52:26,840
+you know, Unicode. So, anyway, back to
+
+1157
+00:52:24,880 --> 00:52:29,520
+the original topic. We were talking
+
+1158
+00:52:26,840 --> 00:52:31,960
+about themes, okay? Themes. So, I was
+
+1159
+00:52:29,520 --> 00:52:34,120
+saying I don't care for, you know, the
+
+1160
+00:52:31,960 --> 00:52:35,600
+kind of fluff things.
+
+1161
+00:52:34,120 --> 00:52:38,120
+How, you know, like
+
+1162
+00:52:35,600 --> 00:52:40,240
+the Emacs nerds, the Emacs hackers, the
+
+1163
+00:52:38,120 --> 00:52:42,440
+Emaclists, you know, those
+
+1164
+00:52:40,240 --> 00:52:45,240
+typically the people you encounter other
+
+1165
+00:52:42,440 --> 00:52:46,240
+than me, okay? Other Emaclists, hackers.
+
+1166
+00:52:45,240 --> 00:52:48,160
+They
+
+1167
+00:52:46,240 --> 00:52:50,120
+Oh, they love about the, you know, they
+
+1168
+00:52:48,160 --> 00:52:52,920
+they they love the themes and they love
+
+1169
+00:52:50,120 --> 00:52:55,120
+they want to remove the, you know, the
+
+1170
+00:52:52,920 --> 00:52:57,440
+the the scroll bar. You will see a lot
+
+1171
+00:52:55,120 --> 00:52:59,480
+of Emacs hackers do that. They want to
+
+1172
+00:52:57,440 --> 00:53:01,440
+remove the scroll bar and remove the
+
+1173
+00:52:59,480 --> 00:53:04,720
+menu because in their opinion those
+
+1174
+00:53:01,440 --> 00:53:06,000
+these are crap. Not to me, you know?
+
+1175
+00:53:04,720 --> 00:53:09,400
+I want
+
+1176
+00:53:06,000 --> 00:53:11,440
+100% functionality, nothing else. But, I
+
+1177
+00:53:09,400 --> 00:53:13,760
+want the menus and I want the scroll bar
+
+1178
+00:53:11,440 --> 00:53:16,200
+because they are the most efficient way
+
+1179
+00:53:13,760 --> 00:53:18,600
+to use Emacs because they they provide a
+
+1180
+00:53:16,200 --> 00:53:22,160
+visual clue, okay? Let me shrink, okay?
+
+1181
+00:53:18,600 --> 00:53:24,800
+So, what what's going on with the
+
+1182
+00:53:22,160 --> 00:53:26,840
+uh, undo. Okay, so anyway, I digressed
+
+1183
+00:53:24,800 --> 00:53:30,120
+all over the place. So, what are we
+
+1184
+00:53:26,840 --> 00:53:31,800
+talking about? So, we want to uh, So,
+
+1185
+00:53:30,120 --> 00:53:34,040
+let's hold on. We were talking about
+
+1186
+00:53:31,800 --> 00:53:35,440
+themes, okay? Let me get back to that.
+
+1187
+00:53:34,040 --> 00:53:37,560
+But, first of all, let me write this
+
+1188
+00:53:35,440 --> 00:53:39,880
+down so we have a note of what we talked
+
+1189
+00:53:37,560 --> 00:53:40,880
+about and go here.
+
+1190
+00:53:39,880 --> 00:53:44,000
+Uh, wait.
+
+1191
+00:53:40,880 --> 00:53:45,600
+Paste. Uh, ba- You see?
+
+1192
+00:53:44,000 --> 00:53:47,720
+Now, with today's feature, I don't have
+
+1193
+00:53:45,600 --> 00:53:49,400
+to add a paragraph here anymore. I just
+
+1194
+00:53:47,720 --> 00:53:51,400
+show in browser
+
+1195
+00:53:49,400 --> 00:53:54,000
+and it will automatically add it. Oh,
+
+1196
+00:53:51,400 --> 00:53:55,800
+okay. So, we found a bug. You see?
+
+1197
+00:53:54,000 --> 00:53:58,640
+Because the beginning um
+
+1198
+00:53:55,800 --> 00:54:01,480
+character is not a letter, so it only
+
+1199
+00:53:58,640 --> 00:54:03,080
+added the ending um
+
+1200
+00:54:01,480 --> 00:54:04,560
+thing. It didn't add the beginning
+
+1201
+00:54:03,080 --> 00:54:05,640
+thing. So, undo.
+
+1202
+00:54:04,560 --> 00:54:08,760
+So,
+
+1203
+00:54:05,640 --> 00:54:11,440
+Unicode is fantastic. Okay? If we add
+
+1204
+00:54:08,760 --> 00:54:14,240
+this, then show in browser, then you can
+
+1205
+00:54:11,440 --> 00:54:16,160
+see it adds uh properly. So, we actually
+
+1206
+00:54:14,240 --> 00:54:17,680
+have a bug to fix. But anyway, we were
+
+1207
+00:54:16,160 --> 00:54:20,640
+talking about themes. So, let me get
+
+1208
+00:54:17,680 --> 00:54:21,880
+back to themes, okay? Themes. So, lots
+
+1209
+00:54:20,640 --> 00:54:23,560
+of um
+
+1210
+00:54:21,880 --> 00:54:25,680
+people like that. I don't like themes.
+
+1211
+00:54:23,560 --> 00:54:28,960
+So, I want you know, I don't want I I'm
+
+1212
+00:54:25,680 --> 00:54:31,120
+not using any themes. So, all I do is
+
+1213
+00:54:28,960 --> 00:54:34,200
+just this one, okay? Set background
+
+1214
+00:54:31,120 --> 00:54:36,080
+color honeydew. Okay? So, let's I can
+
+1215
+00:54:34,200 --> 00:54:39,160
+show you. So, let's do it.
+
+1216
+00:54:36,080 --> 00:54:40,800
+So, call meta-x set
+
+1217
+00:54:39,160 --> 00:54:41,760
+background color.
+
+1218
+00:54:40,800 --> 00:54:44,400
+Okay?
+
+1219
+00:54:41,760 --> 00:54:45,480
+Then, let's say pink. Okay?
+
+1220
+00:54:44,400 --> 00:54:47,640
+Enter.
+
+1221
+00:54:45,480 --> 00:54:48,960
+And we have pink. That's my theme. So,
+
+1222
+00:54:47,640 --> 00:54:51,120
+you see actually I don't have any
+
+1223
+00:54:48,960 --> 00:54:53,760
+themes. So, basically, the only thing I
+
+1224
+00:54:51,120 --> 00:54:55,680
+have is the set background color. So,
+
+1225
+00:54:53,760 --> 00:54:59,120
+let's try again. Set back- background
+
+1226
+00:54:55,680 --> 00:55:01,520
+color um Another good color is uh
+
+1227
+00:54:59,120 --> 00:55:03,160
+seashell, I believe.
+
+1228
+00:55:01,520 --> 00:55:08,520
+Seashell, okay?
+
+1229
+00:55:03,160 --> 00:55:08,520
+Do it. Fantastic, okay? I I got to go.
+
+1230
+00:55:12,560 --> 00:55:17,880
+Okay, I got to go. So, thank you guys
+
+1231
+00:55:15,160 --> 00:55:19,760
+for watching. So, does that explain my
+
+1232
+00:55:17,880 --> 00:55:22,800
+choice of themes?
+
+1233
+00:55:19,760 --> 00:55:24,560
+So, you can do that.
+
+1234
+00:55:22,800 --> 00:55:26,880
+Chug chug chug chug chug. Okay, I got to
+
+1235
+00:55:24,560 --> 00:55:30,200
+go. So, thank you guys for watching and
+
+1236
+00:55:26,880 --> 00:55:31,600
+uh okay?
+
+1237
+00:55:30,200 --> 00:55:34,920
+I have links here. You know where to
+
+1238
+00:55:31,600 --> 00:55:36,320
+find it. Thank you guys. Bye, guys.
+
+1239
+00:55:34,920 --> 00:55:38,600
+Bye, Hi
+
+1240
+00:55:36,320 --> 00:55:40,640
+I close down in 1 minute.
+
+1241
+00:55:38,600 --> 00:55:43,120
+Okay, so we talked So, let me just clean
+
+1242
+00:55:40,640 --> 00:55:45,040
+up what we talked about. Okay, here's
+
+1243
+00:55:43,120 --> 00:55:46,960
+another bug. You know, this is the
+
+1244
+00:55:45,040 --> 00:55:49,800
+parenthesis. That's why it doesn't it
+
+1245
+00:55:46,960 --> 00:55:51,640
+didn't automatically add
+
+1246
+00:55:49,800 --> 00:55:53,960
+uh you know, the
+
+1247
+00:55:51,640 --> 00:55:56,720
+paragraph. Okay?
+
+1248
+00:55:53,960 --> 00:56:00,200
+Okay, so I'm shutting down. Okay, so
+
+1249
+00:55:56,720 --> 00:56:02,880
+uh yeah, actually I I got to go. So
+
+1250
+00:56:00,200 --> 00:56:02,880
+So, that's it.
+

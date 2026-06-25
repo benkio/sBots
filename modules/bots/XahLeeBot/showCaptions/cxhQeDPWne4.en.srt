@@ -1,0 +1,9828 @@
+1
+00:00:07,439 --> 00:00:14,200
+so guys welcome to another episode of s
+
+2
+00:00:11,599 --> 00:00:18,520
+talk show today we are going to do
+
+3
+00:00:14,200 --> 00:00:21,240
+Advent of code live coding in Wolf and
+
+4
+00:00:18,520 --> 00:00:25,439
+language and I'm going to do the
+
+5
+00:00:21,240 --> 00:00:28,960
+shortest code possible on Earth so
+
+6
+00:00:25,439 --> 00:00:32,000
+Advent of code day three live coding
+
+7
+00:00:28,960 --> 00:00:35,480
+okay if you are here say hi okay Shall
+
+8
+00:00:32,000 --> 00:00:39,600
+We Begin let's check audio check video
+
+9
+00:00:35,480 --> 00:00:42,200
+check oh okay so to the
+
+10
+00:00:39,600 --> 00:00:46,680
+code Adent code let's see if we can do
+
+11
+00:00:42,200 --> 00:00:50,079
+it okay so Advent of code 20203 day
+
+12
+00:00:46,680 --> 00:00:52,559
+three here is the problem so you are
+
+13
+00:00:50,079 --> 00:00:56,399
+given a
+
+14
+00:00:52,559 --> 00:01:00,399
+input you are given a input like that
+
+15
+00:00:56,399 --> 00:01:03,680
+okay so let's magnify so you are given a
+
+16
+00:01:00,399 --> 00:01:04,560
+input a text file so let's let's go to c
+
+17
+00:01:03,680 --> 00:01:07,560
+talk
+
+18
+00:01:04,560 --> 00:01:07,560
+show
+
+19
+00:01:09,840 --> 00:01:17,159
+uh okay so you are given a input like
+
+20
+00:01:13,400 --> 00:01:20,799
+that a text file and uh and what is the
+
+21
+00:01:17,159 --> 00:01:24,840
+problem sum up number adjacent to a
+
+22
+00:01:20,799 --> 00:01:27,600
+symbol even diagonal
+
+23
+00:01:24,840 --> 00:01:30,880
+diagonally periods do not count as a
+
+24
+00:01:27,600 --> 00:01:33,520
+symbol so for example
+
+25
+00:01:30,880 --> 00:01:36,200
+uh so for example let's see okay so you
+
+26
+00:01:33,520 --> 00:01:40,960
+are given this text so for example there
+
+27
+00:01:36,200 --> 00:01:46,520
+is a symbol AS risk so adjacent so that
+
+28
+00:01:40,960 --> 00:01:48,399
+467 is part of it now 114 is not because
+
+29
+00:01:46,520 --> 00:01:54,880
+you know the diagonal is you know it's
+
+30
+00:01:48,399 --> 00:01:59,399
+one off and uh then 35 is part of it 633
+
+31
+00:01:54,880 --> 00:02:03,240
+is not okay so you want all the numbers
+
+32
+00:01:59,399 --> 00:02:06,880
+that's neighbor of a symbol character
+
+33
+00:02:03,240 --> 00:02:07,840
+now what are the symbols so period does
+
+34
+00:02:06,880 --> 00:02:12,280
+not
+
+35
+00:02:07,840 --> 00:02:15,440
+count uh and uh I guess anything else
+
+36
+00:02:12,280 --> 00:02:17,599
+except letters again the Advent of code
+
+37
+00:02:15,440 --> 00:02:20,760
+is never
+
+38
+00:02:17,599 --> 00:02:23,680
+precise so anyway so you you want to get
+
+39
+00:02:20,760 --> 00:02:27,519
+all the numbers adjacent to a symbol
+
+40
+00:02:23,680 --> 00:02:31,519
+then you want to sum them up okay so in
+
+41
+00:02:27,519 --> 00:02:35,599
+this example it says one 144 and
+
+42
+00:02:31,519 --> 00:02:39,879
+58 144 there and
+
+43
+00:02:35,599 --> 00:02:43,599
+58 are not adjacent to a symbol others
+
+44
+00:02:39,879 --> 00:02:47,480
+are okay so you get all the numbers but
+
+45
+00:02:43,599 --> 00:02:49,879
+remove 144 and 58 then you sum them up
+
+46
+00:02:47,480 --> 00:02:55,080
+and result should be
+
+47
+00:02:49,879 --> 00:02:57,200
+4361 that is a Advent of code 20123 day
+
+48
+00:02:55,080 --> 00:03:00,840
+three problem
+
+49
+00:02:57,200 --> 00:03:03,000
+one okay so so I read this problem
+
+50
+00:03:00,840 --> 00:03:06,000
+yesterday I thought a little bit about
+
+51
+00:03:03,000 --> 00:03:10,040
+it it's a interesting problem uh what do
+
+52
+00:03:06,000 --> 00:03:10,040
+I want to say uh there is
+
+53
+00:03:12,519 --> 00:03:21,120
+um okay hello Joan Molina J hello ago so
+
+54
+00:03:18,920 --> 00:03:23,720
+the problem you know my first you know
+
+55
+00:03:21,120 --> 00:03:26,400
+I'm trying to actually solve this
+
+56
+00:03:23,720 --> 00:03:28,439
+problem today okay instead of you know
+
+57
+00:03:26,400 --> 00:03:31,640
+uh but meanwhile I want to talk about it
+
+58
+00:03:28,439 --> 00:03:34,120
+okay so the first question is like you
+
+59
+00:03:31,640 --> 00:03:36,560
+know again Advent of code when you solve
+
+60
+00:03:34,120 --> 00:03:39,280
+a when you program a problem there is
+
+61
+00:03:36,560 --> 00:03:41,480
+many issues for example efficiency
+
+62
+00:03:39,280 --> 00:03:45,720
+algorithmic efficiency
+
+63
+00:03:41,480 --> 00:03:49,239
+concerns uh and uh storage concerns
+
+64
+00:03:45,720 --> 00:03:52,680
+efficiency concerns and also uh the code
+
+65
+00:03:49,239 --> 00:03:55,879
+Elegance concern or the code readability
+
+66
+00:03:52,680 --> 00:03:58,159
+and maintenance maintainability concern
+
+67
+00:03:55,879 --> 00:04:00,159
+you know you can't have cryptic code
+
+68
+00:03:58,159 --> 00:04:02,840
+because you know if if you write a
+
+69
+00:04:00,159 --> 00:04:05,879
+software you know web server or whatever
+
+70
+00:04:02,840 --> 00:04:07,720
+you have to come back to it to uh to add
+
+71
+00:04:05,879 --> 00:04:11,480
+features and so on you have to maintain
+
+72
+00:04:07,720 --> 00:04:13,280
+it or upgrade the language version so it
+
+73
+00:04:11,480 --> 00:04:15,480
+must be readable so you have all these
+
+74
+00:04:13,280 --> 00:04:17,519
+concerns but with Advent of code it's
+
+75
+00:04:15,480 --> 00:04:19,440
+like all those are thrown out because
+
+76
+00:04:17,519 --> 00:04:22,400
+they don't care you know Advent code is
+
+77
+00:04:19,440 --> 00:04:24,960
+just online puzzle Whoever has the most
+
+78
+00:04:22,400 --> 00:04:27,639
+splashy you know you want a solution
+
+79
+00:04:24,960 --> 00:04:30,560
+that is most attention catching like a
+
+80
+00:04:27,639 --> 00:04:32,560
+drama like a clickbait oh Advent code
+
+81
+00:04:30,560 --> 00:04:35,120
+number number three solution oh this
+
+82
+00:04:32,560 --> 00:04:37,360
+language so weird or so short or so
+
+83
+00:04:35,120 --> 00:04:40,080
+cryptic oh this is the longest solution
+
+84
+00:04:37,360 --> 00:04:43,280
+possible then people is going to thumb
+
+85
+00:04:40,080 --> 00:04:47,639
+up okay that's a nature ofand of code so
+
+86
+00:04:43,280 --> 00:04:51,240
+anyway this problem I was thinking so um
+
+87
+00:04:47,639 --> 00:04:55,080
+so first you consider this uh text block
+
+88
+00:04:51,240 --> 00:04:58,919
+as as a matrix okay so each spot is one
+
+89
+00:04:55,080 --> 00:05:02,400
+space you know so you so those periods
+
+90
+00:04:58,919 --> 00:05:06,160
+are empty spots so you consider this as
+
+91
+00:05:02,400 --> 00:05:10,720
+n by m Matrix okay so the first question
+
+92
+00:05:06,160 --> 00:05:14,240
+is what is is uh if the numbers are Spar
+
+93
+00:05:10,720 --> 00:05:16,199
+if if this is a spar Matrix that means
+
+94
+00:05:14,240 --> 00:05:19,120
+there are just a few numbers for example
+
+95
+00:05:16,199 --> 00:05:23,039
+you have 10 million by 10 million you
+
+96
+00:05:19,120 --> 00:05:26,639
+know these characters okay but you only
+
+97
+00:05:23,039 --> 00:05:30,639
+have let's say 100 numbers in it so that
+
+98
+00:05:26,639 --> 00:05:32,039
+would be a sparse Matrix okay okay so
+
+99
+00:05:30,639 --> 00:05:34,000
+the first question is whether the
+
+100
+00:05:32,039 --> 00:05:37,280
+numbers are sparse because if the
+
+101
+00:05:34,000 --> 00:05:38,960
+numbers are sparse then your algorithm
+
+102
+00:05:37,280 --> 00:05:42,639
+if you want to be efficient you just
+
+103
+00:05:38,960 --> 00:05:45,400
+want to grab the numbers and see check
+
+104
+00:05:42,639 --> 00:05:49,520
+each number if they have adjacent
+
+105
+00:05:45,400 --> 00:05:53,680
+symbol if if the numbers are Spar
+
+106
+00:05:49,520 --> 00:05:57,560
+alternatively if the if this uh the
+
+107
+00:05:53,680 --> 00:06:02,880
+symbols are Spar for example you have 1
+
+108
+00:05:57,560 --> 00:06:07,280
+million by 1 million characters and uh
+
+109
+00:06:02,880 --> 00:06:11,039
+and uh you have a million you have three
+
+110
+00:06:07,280 --> 00:06:14,800
+million numbers okay however you only
+
+111
+00:06:11,039 --> 00:06:17,759
+have 10 symbols 10 of these
+
+112
+00:06:14,800 --> 00:06:20,759
+symbols then if that's a case you want
+
+113
+00:06:17,759 --> 00:06:23,199
+to just pass for the symbols for each
+
+114
+00:06:20,759 --> 00:06:26,639
+symbol you want to check if there's a
+
+115
+00:06:23,199 --> 00:06:29,520
+number adjacent to it okay that's a case
+
+116
+00:06:26,639 --> 00:06:31,080
+of the if the symbol is pass but the
+
+117
+00:06:29,520 --> 00:06:33,080
+problem you know Advent of code they
+
+118
+00:06:31,080 --> 00:06:36,080
+never say they don't say anything like
+
+119
+00:06:33,080 --> 00:06:38,800
+that so if you take your time you know
+
+120
+00:06:36,080 --> 00:06:40,840
+if you take time to make your code okay
+
+121
+00:06:38,800 --> 00:06:44,000
+there's another let me talk about
+
+122
+00:06:40,840 --> 00:06:46,840
+another issue the other issue is it
+
+123
+00:06:44,000 --> 00:06:49,840
+didn't say what are the symbols it just
+
+124
+00:06:46,840 --> 00:06:54,639
+say you know the Advent code you can see
+
+125
+00:06:49,840 --> 00:06:58,039
+here it just says that period are not
+
+126
+00:06:54,639 --> 00:06:59,800
+symbol okay okay but what kind of symbol
+
+127
+00:06:58,039 --> 00:07:03,599
+do you have in this example example we
+
+128
+00:06:59,800 --> 00:07:07,160
+see asterisk we see the number sign we
+
+129
+00:07:03,599 --> 00:07:09,599
+see the plus sign we see the dollar sign
+
+130
+00:07:07,160 --> 00:07:13,639
+but what if you have a letter is that a
+
+131
+00:07:09,599 --> 00:07:16,400
+symbol or not it doesn't say and uh are
+
+132
+00:07:13,639 --> 00:07:19,720
+these all the possible symbols there it
+
+133
+00:07:16,400 --> 00:07:23,759
+doesn't say the [ __ ] Advent of a
+
+134
+00:07:19,720 --> 00:07:27,080
+code I want to criticize it a little bit
+
+135
+00:07:23,759 --> 00:07:30,199
+because for vast majority of people who
+
+136
+00:07:27,080 --> 00:07:32,599
+are doing this I I presume uh college
+
+137
+00:07:30,199 --> 00:07:34,280
+students or young people or teenagers
+
+138
+00:07:32,599 --> 00:07:37,160
+you know they don't have better things
+
+139
+00:07:34,280 --> 00:07:39,039
+to do but for a professional programmer
+
+140
+00:07:37,160 --> 00:07:41,120
+your time is better spend you know you
+
+141
+00:07:39,039 --> 00:07:43,960
+you do you make a lot of money when you
+
+142
+00:07:41,120 --> 00:07:46,280
+are not coding you don't want to code
+
+143
+00:07:43,960 --> 00:07:48,080
+right so anyway I want to criticize a
+
+144
+00:07:46,280 --> 00:07:51,159
+bit because vast majority of people
+
+145
+00:07:48,080 --> 00:07:53,360
+doing this they never talk about this I
+
+146
+00:07:51,159 --> 00:07:56,440
+don't think so you know you rarely see
+
+147
+00:07:53,360 --> 00:07:58,720
+people analyze the the the problem the
+
+148
+00:07:56,440 --> 00:08:02,000
+criticism of the Advent the code the
+
+149
+00:07:58,720 --> 00:08:05,199
+puzzle and and so on okay so we have the
+
+150
+00:08:02,000 --> 00:08:08,440
+sit few situations where the the numbers
+
+151
+00:08:05,199 --> 00:08:11,400
+are Spar Spar Matrix or whether the
+
+152
+00:08:08,440 --> 00:08:14,319
+symbols are Spar okay
+
+153
+00:08:11,400 --> 00:08:16,759
+or maybe neither okay maybe they are
+
+154
+00:08:14,319 --> 00:08:19,599
+just like kind of random in that case
+
+155
+00:08:16,759 --> 00:08:21,759
+you know you say it's a
+
+156
+00:08:19,599 --> 00:08:25,800
+mized you know you write a program
+
+157
+00:08:21,759 --> 00:08:28,280
+algorithm that that is best that is most
+
+158
+00:08:25,800 --> 00:08:31,599
+algorithmically efficient for that
+
+159
+00:08:28,280 --> 00:08:35,399
+situation anyway so then the other
+
+160
+00:08:31,599 --> 00:08:37,000
+situation is what how many uh what are
+
+161
+00:08:35,399 --> 00:08:40,240
+the set of
+
+162
+00:08:37,000 --> 00:08:43,039
+characters for the symbol it doesn't say
+
+163
+00:08:40,240 --> 00:08:46,080
+so let's look up our own
+
+164
+00:08:43,039 --> 00:08:50,240
+input so let's see let's have a look
+
+165
+00:08:46,080 --> 00:08:55,080
+okay so here so
+
+166
+00:08:50,240 --> 00:08:58,720
+um so Does it include a b or c let's see
+
+167
+00:08:55,080 --> 00:09:01,839
+uh so we are in emac so we can grab for
+
+168
+00:08:58,720 --> 00:09:05,760
+let's say find replace uh let's say list
+
+169
+00:09:01,839 --> 00:09:08,720
+matching lines and let's give a bracket
+
+170
+00:09:05,760 --> 00:09:12,760
+A2 Z
+
+171
+00:09:08,720 --> 00:09:15,440
+and copy that and capitalize so that's
+
+172
+00:09:12,760 --> 00:09:18,519
+all possible A to Z let's see if there's
+
+173
+00:09:15,440 --> 00:09:23,519
+anyone okay it's none so there's no
+
+174
+00:09:18,519 --> 00:09:24,880
+letters so uh and uh judging by this um
+
+175
+00:09:23,519 --> 00:09:29,320
+okay let's do
+
+176
+00:09:24,880 --> 00:09:32,440
+some text processing okay copy it here
+
+177
+00:09:29,320 --> 00:09:36,880
+query replace back slash dot that means
+
+178
+00:09:32,440 --> 00:09:40,839
+a literal dot one or more enter replace
+
+179
+00:09:36,880 --> 00:09:44,320
+with nothing okay ban uh to replace them
+
+180
+00:09:40,839 --> 00:09:45,920
+all what let's do it
+
+181
+00:09:44,320 --> 00:09:49,600
+again
+
+182
+00:09:45,920 --> 00:09:53,160
+okay okay so it becomes so short now
+
+183
+00:09:49,600 --> 00:09:57,519
+let's make them one line okay now again
+
+184
+00:09:53,160 --> 00:10:01,640
+let's do fine replace okay this time
+
+185
+00:09:57,519 --> 00:10:05,800
+029 one or more all replace by nothing
+
+186
+00:10:01,640 --> 00:10:08,760
+okay replace all okay so now it becomes
+
+187
+00:10:05,800 --> 00:10:11,839
+shorter now
+
+188
+00:10:08,760 --> 00:10:13,800
+H so basically that's all the symbols
+
+189
+00:10:11,839 --> 00:10:18,720
+you got okay
+
+190
+00:10:13,800 --> 00:10:22,040
+so okay so good you see because if
+
+191
+00:10:18,720 --> 00:10:24,399
+you you know the spec doesn't say what
+
+192
+00:10:22,040 --> 00:10:27,200
+you know what's what are the set of
+
+193
+00:10:24,399 --> 00:10:29,760
+symbols so if the spec doesn't say
+
+194
+00:10:27,200 --> 00:10:32,399
+typically what you can do is you code
+
+195
+00:10:29,760 --> 00:10:35,240
+your program so that you find all
+
+196
+00:10:32,399 --> 00:10:38,440
+possible symbols of any
+
+197
+00:10:35,240 --> 00:10:41,480
+input if you don't do that then your
+
+198
+00:10:38,440 --> 00:10:44,440
+solution if if I give you another new
+
+199
+00:10:41,480 --> 00:10:46,959
+input but with a new symbol let's say
+
+200
+00:10:44,440 --> 00:10:49,839
+let's say comma okay do is there any
+
+201
+00:10:46,959 --> 00:10:52,680
+comma no you know I put a comma there
+
+202
+00:10:49,839 --> 00:10:56,000
+your program broke you
+
+203
+00:10:52,680 --> 00:10:59,040
+see but if you take the time to write a
+
+204
+00:10:56,000 --> 00:11:00,920
+generalized solution nobody cares like
+
+205
+00:10:59,040 --> 00:11:04,279
+you know your code is slow and you know
+
+206
+00:11:00,920 --> 00:11:07,040
+so on so that's a some analysis about
+
+207
+00:11:04,279 --> 00:11:10,279
+this situation okay so let's close that
+
+208
+00:11:07,040 --> 00:11:12,440
+close that so how do we solve this so we
+
+209
+00:11:10,279 --> 00:11:15,000
+are going just to assume we are not
+
+210
+00:11:12,440 --> 00:11:17,720
+going to I'm not going to like create
+
+211
+00:11:15,000 --> 00:11:21,000
+the most efficient whatever but however
+
+212
+00:11:17,720 --> 00:11:24,560
+I'm going to try I'm pretty sure I'll
+
+213
+00:11:21,000 --> 00:11:26,920
+succeed to come up with a shortest
+
+214
+00:11:24,560 --> 00:11:30,839
+possible uh solution code for this
+
+215
+00:11:26,920 --> 00:11:32,760
+problem okay and uh show this possible
+
+216
+00:11:30,839 --> 00:11:36,000
+solution and
+
+217
+00:11:32,760 --> 00:11:40,480
+uh not care about the generalization
+
+218
+00:11:36,000 --> 00:11:44,279
+okay and uh uh okay
+
+219
+00:11:40,480 --> 00:11:46,600
+so so okay how do you solve this you
+
+220
+00:11:44,279 --> 00:11:49,880
+know um it's not hard but it's a bit
+
+221
+00:11:46,600 --> 00:11:52,079
+tedious so there are quite a few ways
+
+222
+00:11:49,880 --> 00:11:55,360
+okay you go through each line you grab
+
+223
+00:11:52,079 --> 00:12:00,040
+the number then you see the number has a
+
+224
+00:11:55,360 --> 00:12:04,040
+adjacent uh symbol if if if if if so
+
+225
+00:12:00,040 --> 00:12:06,959
+then you put that number into a uh array
+
+226
+00:12:04,040 --> 00:12:09,279
+okay then you repeat that for every line
+
+227
+00:12:06,959 --> 00:12:12,040
+then at the end you just add up all the
+
+228
+00:12:09,279 --> 00:12:14,079
+numbers in the array okay that's
+
+229
+00:12:12,040 --> 00:12:17,720
+essentially um
+
+230
+00:12:14,079 --> 00:12:20,680
+it okay that's you know enough talking
+
+231
+00:12:17,720 --> 00:12:23,680
+that's 20 minutes let's see if I can
+
+232
+00:12:20,680 --> 00:12:26,360
+actually code it within an hour uh I
+
+233
+00:12:23,680 --> 00:12:29,440
+hope so I'm trying to let me try to be
+
+234
+00:12:26,360 --> 00:12:32,000
+focused on this okay so I
+
+235
+00:12:29,440 --> 00:12:35,720
+um Advent code so solution uh so let's
+
+236
+00:12:32,000 --> 00:12:35,720
+start a
+
+237
+00:12:36,880 --> 00:12:45,120
+um uh start the wolam language okay so
+
+238
+00:12:41,199 --> 00:12:45,120
+uh yeah start wolam language start
+
+239
+00:12:52,720 --> 00:12:57,839
+it new
+
+240
+00:12:54,600 --> 00:12:59,880
+notebook let's put a new notebook
+
+241
+00:12:57,839 --> 00:13:05,079
+here
+
+242
+00:12:59,880 --> 00:13:07,160
+three evaluate it and uh let's
+
+243
+00:13:05,079 --> 00:13:11,279
+magnify okay
+
+244
+00:13:07,160 --> 00:13:16,399
+so so um so first of all you want to get
+
+245
+00:13:11,279 --> 00:13:16,399
+the input okay so the input is
+
+246
+00:13:16,920 --> 00:13:23,639
+this I'm I'm trying to finish this okay
+
+247
+00:13:20,240 --> 00:13:26,360
+uh instead of failing okay so we got
+
+248
+00:13:23,639 --> 00:13:27,760
+input so what do you want to do so you
+
+249
+00:13:26,360 --> 00:13:29,920
+uh first of
+
+250
+00:13:27,760 --> 00:13:34,399
+all let's
+
+251
+00:13:29,920 --> 00:13:37,320
+see let's just try to solve the problem
+
+252
+00:13:34,399 --> 00:13:40,600
+don't worry about efficiency or anything
+
+253
+00:13:37,320 --> 00:13:40,600
+else uh
+
+254
+00:13:44,480 --> 00:13:49,519
+so uh I'm just going
+
+255
+00:13:47,040 --> 00:13:52,600
+to you know I'm I'm going to try to
+
+256
+00:13:49,519 --> 00:13:55,480
+finish this so even if that means no
+
+257
+00:13:52,600 --> 00:13:59,639
+talking I'm going to try to do it okay
+
+258
+00:13:55,480 --> 00:14:04,959
+so let me just um
+
+259
+00:13:59,639 --> 00:14:08,480
+string length let's see how many
+
+260
+00:14:04,959 --> 00:14:11,320
+um characters are there so I know it's
+
+261
+00:14:08,480 --> 00:14:13,560
+10 by 10 this is 10 x 10 characters but
+
+262
+00:14:11,320 --> 00:14:15,680
+each line you have a line break so
+
+263
+00:14:13,560 --> 00:14:19,480
+that's why it's
+
+264
+00:14:15,680 --> 00:14:23,279
+11 so you
+
+265
+00:14:19,480 --> 00:14:26,639
+can the most basic way is you go through
+
+266
+00:14:23,279 --> 00:14:29,959
+each line uh for example we are on line
+
+267
+00:14:26,639 --> 00:14:32,000
+two uh but how do you
+
+268
+00:14:29,959 --> 00:14:33,959
+find the previous line and next next
+
+269
+00:14:32,000 --> 00:14:37,120
+line well if you are on line to the
+
+270
+00:14:33,959 --> 00:14:40,240
+previous is minus one the next line is
+
+271
+00:14:37,120 --> 00:14:43,199
+plus one okay so you pass these lines
+
+272
+00:14:40,240 --> 00:14:45,839
+into a array string
+
+273
+00:14:43,199 --> 00:14:49,120
+split so that's one way to do it each
+
+274
+00:14:45,839 --> 00:14:51,519
+element is a line that's one way to do
+
+275
+00:14:49,120 --> 00:14:53,040
+it uh and when you are on first line you
+
+276
+00:14:51,519 --> 00:14:55,240
+check make sure you are you know you
+
+277
+00:14:53,040 --> 00:14:56,279
+don't have go to array zero or array
+
+278
+00:14:55,240 --> 00:14:59,199
+negative
+
+279
+00:14:56,279 --> 00:15:02,920
+one same thing with uh when you are are
+
+280
+00:14:59,199 --> 00:15:05,000
+at the end of the uh last line so that's
+
+281
+00:15:02,920 --> 00:15:09,399
+one way to do it
+
+282
+00:15:05,000 --> 00:15:11,399
+but another way is that you can um you
+
+283
+00:15:09,399 --> 00:15:14,680
+can consider the whole thing as one
+
+284
+00:15:11,399 --> 00:15:17,800
+single one single string so you don't
+
+285
+00:15:14,680 --> 00:15:19,720
+have to deal with each line uh but how
+
+286
+00:15:17,800 --> 00:15:21,839
+do you if you do that how do you find
+
+287
+00:15:19,720 --> 00:15:24,160
+the previous line for for example this
+
+288
+00:15:21,839 --> 00:15:27,360
+line uh what is this character maybe
+
+289
+00:15:24,160 --> 00:15:29,319
+that that's the 14th character okay so
+
+290
+00:15:27,360 --> 00:15:31,440
+that's a 14th character
+
+291
+00:15:29,319 --> 00:15:35,360
+how do you find the position of the
+
+292
+00:15:31,440 --> 00:15:37,880
+previous line above it so that would
+
+293
+00:15:35,360 --> 00:15:40,199
+be actually you can do it without going
+
+294
+00:15:37,880 --> 00:15:43,839
+to the previous line because they are 10
+
+295
+00:15:40,199 --> 00:15:48,720
+characters per line so 14
+
+296
+00:15:43,839 --> 00:15:51,880
+minus 10 right 14 minus 10 so for
+
+297
+00:15:48,720 --> 00:15:54,199
+example if this so actually we can do
+
+298
+00:15:51,880 --> 00:15:57,000
+actually we can actually do this uh
+
+299
+00:15:54,199 --> 00:16:01,880
+backward chart so let me let me try to
+
+300
+00:15:57,000 --> 00:16:04,079
+this okay iMac this backward chart okay
+
+301
+00:16:01,880 --> 00:16:09,319
+backward chart character we move the
+
+302
+00:16:04,079 --> 00:16:13,279
+cruiser uh backward so 14 okay so if we
+
+303
+00:16:09,319 --> 00:16:16,959
+have this code and we put the code
+
+304
+00:16:13,279 --> 00:16:19,680
+here uh actually it should be 14 + 1
+
+305
+00:16:16,959 --> 00:16:22,959
+because there is a End of Line character
+
+306
+00:16:19,680 --> 00:16:27,199
+so let's try 15 okay copy that so put
+
+307
+00:16:22,959 --> 00:16:29,680
+the cruiser here if we move backward 15
+
+308
+00:16:27,199 --> 00:16:32,680
+it should end up there
+
+309
+00:16:29,680 --> 00:16:32,680
+okay
+
+310
+00:16:33,720 --> 00:16:42,920
+so okay do it eval eval the
+
+311
+00:16:39,680 --> 00:16:46,800
+uh eval expression
+
+312
+00:16:42,920 --> 00:16:50,319
+okay okay that didn't work why is it so
+
+313
+00:16:46,800 --> 00:16:54,959
+it moved back there so let's try do it
+
+314
+00:16:50,319 --> 00:16:54,959
+again do it again eval
+
+315
+00:16:56,319 --> 00:17:01,040
+backward oh okay so each line line is 10
+
+316
+00:16:59,880 --> 00:17:06,600
+uh
+
+317
+00:17:01,040 --> 00:17:09,640
+so let's try each line is 10 the current
+
+318
+00:17:06,600 --> 00:17:13,720
+position so actually 10 not
+
+319
+00:17:09,640 --> 00:17:16,760
+15 well plus the end of line so it's 11
+
+320
+00:17:13,720 --> 00:17:16,760
+okay so let's try it
+
+321
+00:17:17,439 --> 00:17:24,199
+again show the pink window so you can
+
+322
+00:17:20,760 --> 00:17:28,000
+see all my commands eval expression
+
+323
+00:17:24,199 --> 00:17:30,960
+paste it do it fantastic let me let's
+
+324
+00:17:28,000 --> 00:17:30,960
+try again and put it
+
+325
+00:17:31,120 --> 00:17:35,679
+here fantastic you see
+
+326
+00:17:36,440 --> 00:17:44,320
+so so two ways first of all you can
+
+327
+00:17:40,120 --> 00:17:48,600
+split split string to make each
+
+328
+00:17:44,320 --> 00:17:52,840
+line uh array element or consider the
+
+329
+00:17:48,600 --> 00:17:54,720
+whole thing as one single string then
+
+330
+00:17:52,840 --> 00:17:58,600
+when you want to move to the previous
+
+331
+00:17:54,720 --> 00:18:02,760
+line next line you simply just move by
+
+332
+00:17:58,600 --> 00:18:02,760
+you know increase the index by by
+
+333
+00:18:03,559 --> 00:18:09,039
+11 uh but then you also you still need
+
+334
+00:18:07,120 --> 00:18:12,320
+to check if they
+
+335
+00:18:09,039 --> 00:18:17,320
+are out of bound the
+
+336
+00:18:12,320 --> 00:18:20,280
+index right yeah okay okay that's uh
+
+337
+00:18:17,320 --> 00:18:22,000
+it's kind of okay we got some thought
+
+338
+00:18:20,280 --> 00:18:24,799
+about that
+
+339
+00:18:22,000 --> 00:18:33,320
+okay so the total of number of
+
+340
+00:18:24,799 --> 00:18:36,520
+characters is 111 okay 110 okay so then
+
+341
+00:18:33,320 --> 00:18:39,679
+um so what's the easiest way let me
+
+342
+00:18:36,520 --> 00:18:39,679
+think about it okay
+
+343
+00:18:41,200 --> 00:18:46,120
+so now the whole solution is going to be
+
+344
+00:18:44,000 --> 00:18:50,360
+what in one single line and the function
+
+345
+00:18:46,120 --> 00:18:51,600
+we are going to use is string cases
+
+346
+00:18:50,360 --> 00:18:54,520
+which I
+
+347
+00:18:51,600 --> 00:18:57,440
+explained I spent one hour to to explain
+
+348
+00:18:54,520 --> 00:18:59,960
+this function yesterday okay now you can
+
+349
+00:18:57,440 --> 00:19:05,760
+look at the document mentation here
+
+350
+00:18:59,960 --> 00:19:05,760
+string cases wam language magnify
+
+351
+00:19:06,039 --> 00:19:11,000
+okay
+
+352
+00:19:08,039 --> 00:19:13,400
+uh it takes two arguments the first
+
+353
+00:19:11,000 --> 00:19:15,480
+argument is a string the second argument
+
+354
+00:19:13,400 --> 00:19:17,039
+is a pattern okay like regular
+
+355
+00:19:15,480 --> 00:19:19,640
+expression
+
+356
+00:19:17,039 --> 00:19:24,039
+so the overall structure is just going
+
+357
+00:19:19,640 --> 00:19:24,039
+to be string cases then
+
+358
+00:19:26,360 --> 00:19:33,039
+just total okay be because string cases
+
+359
+00:19:30,000 --> 00:19:36,400
+return a list of
+
+360
+00:19:33,039 --> 00:19:39,600
+things then with a pattern then in the
+
+361
+00:19:36,400 --> 00:19:42,520
+pattern part you can just
+
+362
+00:19:39,600 --> 00:19:45,919
+say you can just say replace it by
+
+363
+00:19:42,520 --> 00:19:49,159
+number okay two
+
+364
+00:19:45,919 --> 00:19:52,559
+expression D okay in a pattern we we
+
+365
+00:19:49,159 --> 00:19:56,919
+name a one of these you know we name the
+
+366
+00:19:52,559 --> 00:20:00,760
+number we give it a name n let's say n
+
+367
+00:19:56,919 --> 00:20:04,000
+okay let's say num then here we convert
+
+368
+00:20:00,760 --> 00:20:07,760
+the string a number string to actual
+
+369
+00:20:04,000 --> 00:20:09,880
+number okay so again this string case is
+
+370
+00:20:07,760 --> 00:20:13,280
+return a list so it just going to return
+
+371
+00:20:09,880 --> 00:20:17,039
+a list of numbers okay then we just
+
+372
+00:20:13,280 --> 00:20:17,039
+total it that's you
+
+373
+00:20:21,039 --> 00:20:26,960
+know okay one single line of code now in
+
+374
+00:20:24,120 --> 00:20:31,480
+the pattern part you see the pattern
+
+375
+00:20:26,960 --> 00:20:33,679
+part you will include a condition such
+
+376
+00:20:31,480 --> 00:20:37,840
+that if a
+
+377
+00:20:33,679 --> 00:20:42,159
+number is not adjacent to a symbol that
+
+378
+00:20:37,840 --> 00:20:45,440
+caption that that is not part of the
+
+379
+00:20:42,159 --> 00:20:48,840
+pattern okay so the pattern must satisfy
+
+380
+00:20:45,440 --> 00:20:52,880
+a condition such that if this number is
+
+381
+00:20:48,840 --> 00:20:55,080
+adjacent to a to a symbol okay but this
+
+382
+00:20:52,880 --> 00:21:00,080
+is basically the outline of the solution
+
+383
+00:20:55,080 --> 00:21:04,000
+okay so now let's start to code it
+
+384
+00:21:00,080 --> 00:21:06,640
+uh so the pattern will be okay so what
+
+385
+00:21:04,000 --> 00:21:08,600
+is the pattern the pattern is uh this
+
+386
+00:21:06,640 --> 00:21:11,279
+time let's uh let's see let's use
+
+387
+00:21:08,600 --> 00:21:14,919
+regular expression because I'm still
+
+388
+00:21:11,279 --> 00:21:14,919
+more familiar with regular
+
+389
+00:21:16,760 --> 00:21:22,919
+expression okay regular expression the
+
+390
+00:21:19,520 --> 00:21:25,440
+pattern is going to be oh wait here's
+
+391
+00:21:22,919 --> 00:21:27,760
+the thing if you use regular expression
+
+392
+00:21:25,440 --> 00:21:31,159
+then you cannot have a arbitrary
+
+393
+00:21:27,760 --> 00:21:33,159
+function as a condition so you have to
+
+394
+00:21:31,159 --> 00:21:37,360
+use the wol
+
+395
+00:21:33,159 --> 00:21:39,799
+F's uh string pattern syntax so that is
+
+396
+00:21:37,360 --> 00:21:41,000
+uh you know that's one of the power of
+
+397
+00:21:39,799 --> 00:21:43,440
+wolam
+
+398
+00:21:41,000 --> 00:21:46,039
+language because if you use regular
+
+399
+00:21:43,440 --> 00:21:49,039
+expression then you have
+
+400
+00:21:46,039 --> 00:21:50,840
+to actually it's kind of similar but but
+
+401
+00:21:49,039 --> 00:21:53,520
+Bas but basically you want to apply a
+
+402
+00:21:50,840 --> 00:21:56,840
+function to check the Matched pattern is
+
+403
+00:21:53,520 --> 00:22:00,679
+actually adjacent to a symbol but in wo
+
+404
+00:21:56,840 --> 00:22:04,200
+one the wo FS string pattern syntax you
+
+405
+00:22:00,679 --> 00:22:08,159
+can easily do that let me show you okay
+
+406
+00:22:04,200 --> 00:22:12,000
+string so string expression is the
+
+407
+00:22:08,159 --> 00:22:17,600
+represent a text pattern okay and uh the
+
+408
+00:22:12,000 --> 00:22:22,159
+syntax is condition uh uh
+
+409
+00:22:17,600 --> 00:22:25,520
+pattern and the function okay that's
+
+410
+00:22:22,159 --> 00:22:29,200
+that's what you want so the pattern will
+
+411
+00:22:25,520 --> 00:22:32,600
+match first then if the function returns
+
+412
+00:22:29,200 --> 00:22:38,039
+true then that actually is captured
+
+413
+00:22:32,600 --> 00:22:42,400
+otherwise no okay so that is a basic
+
+414
+00:22:38,039 --> 00:22:42,400
+syntax let's write write it
+
+415
+00:22:50,039 --> 00:22:56,200
+out okay so that's a that's a okay
+
+416
+00:22:54,000 --> 00:22:59,960
+that's a string expression so first of
+
+417
+00:22:56,200 --> 00:22:59,960
+all what is the pattern the pattern
+
+418
+00:23:02,240 --> 00:23:05,240
+is
+
+419
+00:23:05,919 --> 00:23:12,240
+digit digit character
+
+420
+00:23:09,480 --> 00:23:15,440
+okay the pattern is a digit character
+
+421
+00:23:12,240 --> 00:23:15,440
+and the function
+
+422
+00:23:21,120 --> 00:23:26,120
+is what is a
+
+423
+00:23:23,520 --> 00:23:29,880
+function okay the function is a bit hard
+
+424
+00:23:26,120 --> 00:23:29,880
+so we we need to write the function
+
+425
+00:23:39,480 --> 00:23:44,640
+number is valid okay let's let's name
+
+426
+00:23:42,320 --> 00:23:44,640
+our
+
+427
+00:23:46,960 --> 00:23:51,919
+function okay let's name our function
+
+428
+00:23:53,240 --> 00:23:59,880
+that valid number Q equals to
+
+429
+00:24:02,600 --> 00:24:06,320
+function given a
+
+430
+00:24:06,760 --> 00:24:14,120
+number and uh whatever whatever it does
+
+431
+00:24:11,240 --> 00:24:16,600
+return true or false okay so that is a
+
+432
+00:24:14,120 --> 00:24:19,200
+function right now it's a dummy
+
+433
+00:24:16,600 --> 00:24:22,799
+function it doesn't do anything always
+
+434
+00:24:19,200 --> 00:24:27,279
+it just always return return true for
+
+435
+00:24:22,799 --> 00:24:29,799
+now okay so in wame language convention
+
+436
+00:24:27,279 --> 00:24:33,240
+whenever you you have a symbol whose
+
+437
+00:24:29,799 --> 00:24:36,840
+name ends in a capital Q that means it's
+
+438
+00:24:33,240 --> 00:24:40,159
+a question in the list convention
+
+439
+00:24:36,840 --> 00:24:43,480
+typically they end in p p stand for
+
+440
+00:24:40,159 --> 00:24:45,840
+Pedic which came from logic basically it
+
+441
+00:24:43,480 --> 00:24:50,000
+means this function always return either
+
+442
+00:24:45,840 --> 00:24:53,200
+true or false okay so and in scheme lisp
+
+443
+00:24:50,000 --> 00:24:56,760
+and Ruby there convention is for the
+
+444
+00:24:53,200 --> 00:24:59,919
+function to ends in a question mark
+
+445
+00:24:56,760 --> 00:25:02,840
+okay so the reason wfam language ends in
+
+446
+00:24:59,919 --> 00:25:05,480
+Q not question mark is because question
+
+447
+00:25:02,840 --> 00:25:07,720
+mark has many other meanings so you know
+
+448
+00:25:05,480 --> 00:25:12,640
+there's a
+
+449
+00:25:07,720 --> 00:25:15,640
+tradeoff okay so that is our string
+
+450
+00:25:12,640 --> 00:25:20,640
+expression string pattern
+
+451
+00:25:15,640 --> 00:25:23,080
+okay now let's be Let's uh let's let's
+
+452
+00:25:20,640 --> 00:25:25,880
+digit character okay this's got to be
+
+453
+00:25:23,080 --> 00:25:30,440
+one more digit not
+
+454
+00:25:25,880 --> 00:25:34,039
+just okay digit dot dot is a Syntax for
+
+455
+00:25:30,440 --> 00:25:38,399
+one or more right okay
+
+456
+00:25:34,039 --> 00:25:43,200
+right uh then we also need to give this
+
+457
+00:25:38,399 --> 00:25:48,440
+pattern a name so we'll just name it num
+
+458
+00:25:43,200 --> 00:25:51,320
+okay so num then put a parenthesis so so
+
+459
+00:25:48,440 --> 00:25:54,720
+this whole line stand for a string
+
+460
+00:25:51,320 --> 00:25:59,159
+pattern such that the pattern is a digit
+
+461
+00:25:54,720 --> 00:26:03,640
+character repeated one or more times
+
+462
+00:25:59,159 --> 00:26:06,799
+and and it must this function on on that
+
+463
+00:26:03,640 --> 00:26:10,360
+pattern must return true valid number Q
+
+464
+00:26:06,799 --> 00:26:13,200
+Okay then if that is so then this
+
+465
+00:26:10,360 --> 00:26:18,919
+pattern has a name num we can refer to
+
+466
+00:26:13,200 --> 00:26:22,640
+it by num okay uh then we want so once
+
+467
+00:26:18,919 --> 00:26:26,360
+we got that for that pattern we
+
+468
+00:26:22,640 --> 00:26:28,600
+return this num string into a actual
+
+469
+00:26:26,360 --> 00:26:32,000
+number okay let's let's try let's try to
+
+470
+00:26:28,600 --> 00:26:35,960
+run this okay uh let's run see if that
+
+471
+00:26:32,000 --> 00:26:37,880
+runs please please God oh
+
+472
+00:26:35,960 --> 00:26:40,600
+God okay
+
+473
+00:26:37,880 --> 00:26:42,520
+problem what is the problem what is the
+
+474
+00:26:40,600 --> 00:26:46,399
+problem string or list of strings
+
+475
+00:26:42,520 --> 00:26:49,480
+expected at position one string cases oh
+
+476
+00:26:46,399 --> 00:26:52,200
+of course this string cases first
+
+477
+00:26:49,480 --> 00:26:55,200
+argument is
+
+478
+00:26:52,200 --> 00:26:55,200
+input
+
+479
+00:26:56,279 --> 00:27:00,320
+right okay let's run it
+
+480
+00:27:00,520 --> 00:27:05,799
+again
+
+481
+00:27:02,559 --> 00:27:09,200
+problem string case string or list of
+
+482
+00:27:05,799 --> 00:27:12,320
+strings expected at position one in
+
+483
+00:27:09,200 --> 00:27:16,080
+string cases okay string or list of
+
+484
+00:27:12,320 --> 00:27:18,159
+strings uh so why is it not a string
+
+485
+00:27:16,080 --> 00:27:21,640
+let's go back
+
+486
+00:27:18,159 --> 00:27:21,640
+to our
+
+487
+00:27:21,840 --> 00:27:27,799
+code it
+
+488
+00:27:24,360 --> 00:27:30,159
+says the input is a string right so why
+
+489
+00:27:27,799 --> 00:27:33,480
+is it why are you
+
+490
+00:27:30,159 --> 00:27:37,159
+complaining input input input it's a
+
+491
+00:27:33,480 --> 00:27:39,600
+string oh because we are evaluating this
+
+492
+00:27:37,159 --> 00:27:44,240
+uh wait yeah we you know we need to
+
+493
+00:27:39,600 --> 00:27:47,080
+commment this out so comment that out
+
+494
+00:27:44,240 --> 00:27:48,480
+and this part we also need to comment
+
+495
+00:27:47,080 --> 00:27:54,760
+out because
+
+496
+00:27:48,480 --> 00:27:56,519
+it's it's invalid okay now when
+
+497
+00:27:54,760 --> 00:27:59,519
+this
+
+498
+00:27:56,519 --> 00:27:59,519
+fantastic
+
+499
+00:28:00,799 --> 00:28:09,399
+okay so let's check okay
+
+500
+00:28:04,960 --> 00:28:09,399
+467 check
+
+501
+00:28:09,640 --> 00:28:17,320
+114
+
+502
+00:28:11,320 --> 00:28:19,880
+uh check 35 check 360 okay it seems to
+
+503
+00:28:17,320 --> 00:28:24,320
+check out okay we got all the numbers
+
+504
+00:28:19,880 --> 00:28:26,440
+now the difficult part is to write this
+
+505
+00:28:24,320 --> 00:28:30,200
+function valid number
+
+506
+00:28:26,440 --> 00:28:32,760
+Q how can you be sure it's a valid okay
+
+507
+00:28:30,200 --> 00:28:34,640
+so this is a difficult part now in order
+
+508
+00:28:32,760 --> 00:28:37,240
+to write this function we need to know
+
+509
+00:28:34,640 --> 00:28:39,840
+how many characters per line okay so
+
+510
+00:28:37,240 --> 00:28:42,799
+let's do that let me just show show you
+
+511
+00:28:39,840 --> 00:28:42,799
+know I'm just going to
+
+512
+00:28:44,480 --> 00:28:52,480
+show
+
+513
+00:28:46,519 --> 00:28:52,480
+uh Shar line okay so this
+
+514
+00:28:53,039 --> 00:29:00,640
+uh choer line equals
+
+515
+00:28:56,399 --> 00:29:07,120
+to CH equals to
+
+516
+00:29:00,640 --> 00:29:11,039
+split uh wait string split okay
+
+517
+00:29:07,120 --> 00:29:16,080
+input okay and split
+
+518
+00:29:11,039 --> 00:29:19,880
+by line break okay and uh return the
+
+519
+00:29:16,080 --> 00:29:22,320
+maximum of just one item okay then we
+
+520
+00:29:19,880 --> 00:29:25,720
+want to get the
+
+521
+00:29:22,320 --> 00:29:29,679
+length of that
+
+522
+00:29:25,720 --> 00:29:33,640
+so back slash back slash is the postfix
+
+523
+00:29:29,679 --> 00:29:36,600
+notation similar to the Unix vertical
+
+524
+00:29:33,640 --> 00:29:39,720
+line for pipe okay so we apply string
+
+525
+00:29:36,600 --> 00:29:46,440
+length to that okay so we move that and
+
+526
+00:29:39,720 --> 00:29:46,440
+also total okay so total chars equals
+
+527
+00:29:46,600 --> 00:29:50,760
+to okay so something like
+
+528
+00:29:51,720 --> 00:29:59,240
+that uh yeah
+
+529
+00:29:55,880 --> 00:30:03,960
+right fantastic fantastic okay uh this
+
+530
+00:29:59,240 --> 00:30:07,120
+is incorrect not 111 oh okay so you see
+
+531
+00:30:03,960 --> 00:30:09,960
+when you call string split it always
+
+532
+00:30:07,120 --> 00:30:12,799
+return a list so in this case you want
+
+533
+00:30:09,960 --> 00:30:14,840
+the first item of that list even if you
+
+534
+00:30:12,799 --> 00:30:17,480
+set one here you know return just the
+
+535
+00:30:14,840 --> 00:30:22,360
+maximum of one item but it still return
+
+536
+00:30:17,480 --> 00:30:25,679
+a least because that way the any
+
+537
+00:30:22,360 --> 00:30:28,679
+function this is a basic principle in
+
+538
+00:30:25,679 --> 00:30:31,399
+wolam language any function always
+
+539
+00:30:28,679 --> 00:30:33,399
+returns the same structure does not
+
+540
+00:30:31,399 --> 00:30:37,000
+matter what kind of parameters you pass
+
+541
+00:30:33,399 --> 00:30:41,080
+it they return structure is always the
+
+542
+00:30:37,000 --> 00:30:44,559
+same so string split all uh string split
+
+543
+00:30:41,080 --> 00:30:47,799
+always return a list even if there's you
+
+544
+00:30:44,559 --> 00:30:50,240
+know even you say just one item uh okay
+
+545
+00:30:47,799 --> 00:30:54,279
+so to get the first item you can just
+
+546
+00:30:50,240 --> 00:30:57,360
+say one okay run
+
+547
+00:30:54,279 --> 00:30:59,559
+it there it is okay wait wait the the
+
+548
+00:30:57,360 --> 00:31:02,559
+first part is still
+
+549
+00:30:59,559 --> 00:31:02,559
+wrong
+
+550
+00:31:04,200 --> 00:31:10,519
+uh okay what let's look up the
+
+551
+00:31:07,000 --> 00:31:10,519
+documentation for SP
+
+552
+00:31:26,159 --> 00:31:29,159
+stream
+
+553
+00:31:31,480 --> 00:31:39,639
+I find myself at an impass on day
+
+554
+00:31:35,080 --> 00:31:42,639
+10 Thiago Advanced day 10 of my journey
+
+555
+00:31:39,639 --> 00:31:45,720
+I'm hopeful that the de of programming
+
+556
+00:31:42,639 --> 00:31:49,320
+will be sty bestow their wisdom upon me
+
+557
+00:31:45,720 --> 00:31:51,600
+to guide me through day
+
+558
+00:31:49,320 --> 00:31:55,519
+10 very
+
+559
+00:31:51,600 --> 00:31:58,399
+Advanced I hope we I I will get to
+
+560
+00:31:55,519 --> 00:32:00,880
+that uh but I'm kind slow maybe that'll
+
+561
+00:31:58,399 --> 00:32:02,760
+become next year you
+
+562
+00:32:00,880 --> 00:32:05,760
+know day
+
+563
+00:32:02,760 --> 00:32:08,639
+10 okay so anyway so how many how many
+
+564
+00:32:05,760 --> 00:32:15,159
+days are there Advent of code you know
+
+565
+00:32:08,639 --> 00:32:18,440
+so this Christian thing until Christmas
+
+566
+00:32:15,159 --> 00:32:22,039
+right um but anyway Let's uh let's focus
+
+567
+00:32:18,440 --> 00:32:25,039
+on the code
+
+568
+00:32:22,039 --> 00:32:26,919
+so string split H I don't know what's
+
+569
+00:32:25,039 --> 00:32:28,760
+going on let's just print it okay let's
+
+570
+00:32:26,919 --> 00:32:34,039
+just
+
+571
+00:32:28,760 --> 00:32:34,039
+just let's just see what it
+
+572
+00:32:41,720 --> 00:32:49,000
+is uh
+
+573
+00:32:43,919 --> 00:32:49,000
+what CH lines okay
+
+574
+00:32:49,840 --> 00:32:52,840
+so
+
+575
+00:32:56,039 --> 00:32:59,039
+let's
+
+576
+00:32:59,679 --> 00:33:06,559
+wait so the split is not successful
+
+577
+00:33:02,799 --> 00:33:10,039
+what's going on so do you require double
+
+578
+00:33:06,559 --> 00:33:10,039
+back slash for
+
+579
+00:33:18,279 --> 00:33:23,760
+the I don't think so but what why why is
+
+580
+00:33:21,600 --> 00:33:28,960
+it
+
+581
+00:33:23,760 --> 00:33:28,960
+um always hate to be stuck
+
+582
+00:33:37,159 --> 00:33:43,080
+so it just Returns the whole
+
+583
+00:33:40,440 --> 00:33:47,279
+thing okay you mean just settling after
+
+584
+00:33:43,080 --> 00:33:47,279
+getting H work good luck
+
+585
+00:33:48,000 --> 00:33:54,679
+s getting home from work
+
+586
+00:33:50,960 --> 00:33:58,360
+okay so split stream
+
+587
+00:33:54,679 --> 00:34:01,600
+uh let's just try uh let's just try
+
+588
+00:33:58,360 --> 00:34:04,919
+random I don't think that's the yeah
+
+589
+00:34:01,600 --> 00:34:04,919
+something is wrong with my
+
+590
+00:34:11,839 --> 00:34:14,839
+code
+
+591
+00:34:16,359 --> 00:34:23,200
+okay okay now it works oh yeah okay so
+
+592
+00:34:20,679 --> 00:34:23,200
+why is
+
+593
+00:34:25,879 --> 00:34:28,879
+it
+
+594
+00:34:29,040 --> 00:34:33,040
+split at most and sub
+
+595
+00:34:33,320 --> 00:34:39,320
+strings oh okay actually you have to say
+
+596
+00:34:36,119 --> 00:34:42,240
+two ah I know because the first you see
+
+597
+00:34:39,320 --> 00:34:45,000
+we actually have a something before you
+
+598
+00:34:42,240 --> 00:34:48,320
+know like you know there's a difference
+
+599
+00:34:45,000 --> 00:34:51,040
+between that and that you know so the
+
+600
+00:34:48,320 --> 00:34:55,399
+actual it should be like that so if like
+
+601
+00:34:51,040 --> 00:34:55,399
+if it's like that it works R
+
+602
+00:34:55,879 --> 00:35:01,680
+it
+
+603
+00:34:57,400 --> 00:35:03,400
+[Music]
+
+604
+00:35:01,680 --> 00:35:07,880
+no
+
+605
+00:35:03,400 --> 00:35:13,880
+wait okay let's see two let's say
+
+606
+00:35:07,880 --> 00:35:17,079
+two yeah so you see this should be um
+
+607
+00:35:13,880 --> 00:35:21,480
+anyway should be two at most two of them
+
+608
+00:35:17,079 --> 00:35:22,880
+okay then you say get the first one then
+
+609
+00:35:21,480 --> 00:35:26,880
+you
+
+610
+00:35:22,880 --> 00:35:30,119
+say uh remove that then you say yeah
+
+611
+00:35:26,880 --> 00:35:33,760
+let's just change this to
+
+612
+00:35:30,119 --> 00:35:33,760
+two Okay done
+
+613
+00:35:36,000 --> 00:35:45,320
+it h okay so you need to print
+
+614
+00:35:40,440 --> 00:35:51,880
+output okay so chop line is 10 correct
+
+615
+00:35:45,320 --> 00:35:58,800
+okay uh this is 10 and uh and then
+
+616
+00:35:51,880 --> 00:35:58,800
+the total number of lines is 109 okay
+
+617
+00:36:00,000 --> 00:36:02,400
+okay
+
+618
+00:36:03,240 --> 00:36:09,839
+right okay so we got the string length
+
+619
+00:36:06,079 --> 00:36:13,960
+so now we need to do some modular
+
+620
+00:36:09,839 --> 00:36:16,160
+arithmetics that is given a position in
+
+621
+00:36:13,960 --> 00:36:16,160
+the
+
+622
+00:36:20,560 --> 00:36:28,400
+string you see here we captured the
+
+623
+00:36:24,160 --> 00:36:31,440
+number but however
+
+624
+00:36:28,400 --> 00:36:33,400
+we also need to know the
+
+625
+00:36:31,440 --> 00:36:38,240
+index of the
+
+626
+00:36:33,400 --> 00:36:38,240
+number the index within the whole
+
+627
+00:36:43,280 --> 00:36:46,280
+string
+
+628
+00:36:47,200 --> 00:36:53,640
+so you cannot so you cannot use string
+
+629
+00:36:51,040 --> 00:36:55,760
+cases you need the index you know you
+
+630
+00:36:53,640 --> 00:36:58,319
+captured the number but you also need to
+
+631
+00:36:55,760 --> 00:37:01,880
+know
+
+632
+00:36:58,319 --> 00:37:05,680
+the beginning and end of their index
+
+633
+00:37:01,880 --> 00:37:05,680
+because otherwise you have no
+
+634
+00:37:06,960 --> 00:37:12,480
+way
+
+635
+00:37:08,560 --> 00:37:15,680
+wait maybe there's a way this is
+
+636
+00:37:12,480 --> 00:37:19,000
+fantastic W language
+
+637
+00:37:15,680 --> 00:37:20,119
+hacking so one solution is you capture
+
+638
+00:37:19,000 --> 00:37:23,920
+you get the
+
+639
+00:37:20,119 --> 00:37:26,079
+index because without index you can't
+
+640
+00:37:23,920 --> 00:37:28,480
+you know check if that number is
+
+641
+00:37:26,079 --> 00:37:32,200
+adjacent to a
+
+642
+00:37:28,480 --> 00:37:34,760
+symbol okay that's one way you get the
+
+643
+00:37:32,200 --> 00:37:36,480
+index and in order to get index you need
+
+644
+00:37:34,760 --> 00:37:38,160
+to
+
+645
+00:37:36,480 --> 00:37:43,480
+say
+
+646
+00:37:38,160 --> 00:37:43,480
+uh you need to say string position I
+
+647
+00:37:44,880 --> 00:37:50,400
+believe give a list of starting and
+
+648
+00:37:47,640 --> 00:37:53,400
+ending characters position
+
+649
+00:37:50,400 --> 00:37:53,400
+okay
+
+650
+00:37:54,920 --> 00:38:00,280
+uh yeah so the this
+
+651
+00:37:57,560 --> 00:38:04,160
+actually yeah so instead of instead of
+
+652
+00:38:00,280 --> 00:38:08,119
+string cases you use string position to
+
+653
+00:38:04,160 --> 00:38:11,640
+get a least of beginning and end
+
+654
+00:38:08,119 --> 00:38:14,960
+positions for each digit
+
+655
+00:38:11,640 --> 00:38:19,040
+occurrence once you do that you have the
+
+656
+00:38:14,960 --> 00:38:22,079
+position then you you need to pass the
+
+657
+00:38:19,040 --> 00:38:24,720
+pos position to
+
+658
+00:38:22,079 --> 00:38:28,200
+um to where is
+
+659
+00:38:24,720 --> 00:38:31,200
+it did I just deleted yeah you then you
+
+660
+00:38:28,200 --> 00:38:31,200
+need to pass
+
+661
+00:38:32,920 --> 00:38:39,280
+your position to this so actually you
+
+662
+00:38:36,520 --> 00:38:39,280
+need two
+
+663
+00:38:40,640 --> 00:38:47,240
+arguments okay the first is a number the
+
+664
+00:38:44,720 --> 00:38:50,359
+second one is
+
+665
+00:38:47,240 --> 00:38:52,960
+position okay so this function is valid
+
+666
+00:38:50,359 --> 00:38:56,319
+number takes two
+
+667
+00:38:52,960 --> 00:38:59,000
+argument the position will be beginning
+
+668
+00:38:56,319 --> 00:39:01,839
+and end positions okay so that's one way
+
+669
+00:38:59,000 --> 00:39:05,440
+to do it the other way
+
+670
+00:39:01,839 --> 00:39:10,200
+now uh so if we do that then we we kind
+
+671
+00:39:05,440 --> 00:39:15,920
+of need uh not string cases but
+
+672
+00:39:10,200 --> 00:39:15,920
+string position okay so kind of like
+
+673
+00:39:16,000 --> 00:39:21,800
+that yeah they they have the same syntax
+
+674
+00:39:19,119 --> 00:39:25,160
+so that's one way to do
+
+675
+00:39:21,800 --> 00:39:27,000
+it but can we do it without doing the
+
+676
+00:39:25,160 --> 00:39:29,680
+string position
+
+677
+00:39:27,000 --> 00:39:31,839
+so if we don't have the string position
+
+678
+00:39:29,680 --> 00:39:34,000
+we just have a
+
+679
+00:39:31,839 --> 00:39:36,760
+number
+
+680
+00:39:34,000 --> 00:39:39,720
+we let's try let's think about if
+
+681
+00:39:36,760 --> 00:39:43,160
+there's another way some kind of pattern
+
+682
+00:39:39,720 --> 00:39:43,160
+matching on
+
+683
+00:39:46,280 --> 00:39:55,520
+symbols so one way is to get a bunch of
+
+684
+00:39:50,960 --> 00:39:59,160
+numbers then you also do the same thing
+
+685
+00:39:55,520 --> 00:40:03,800
+string cases but this time on the
+
+686
+00:39:59,160 --> 00:40:03,800
+symbols so you also got a bunch of
+
+687
+00:40:04,319 --> 00:40:12,000
+symbols yeah but how do you know their
+
+688
+00:40:07,400 --> 00:40:12,000
+relative position is there
+
+689
+00:40:17,560 --> 00:40:22,359
+way okay let me think about this I want
+
+690
+00:40:20,079 --> 00:40:24,839
+to get distance so I'm going to just
+
+691
+00:40:22,359 --> 00:40:24,839
+think about
+
+692
+00:40:25,359 --> 00:40:28,359
+it
+
+693
+00:40:28,480 --> 00:40:34,880
+is there a way to know the position I
+
+694
+00:40:32,160 --> 00:40:36,680
+mean with position you can solve the
+
+695
+00:40:34,880 --> 00:40:40,359
+problem but if you don't know the
+
+696
+00:40:36,680 --> 00:40:42,760
+position is there a way to Simply by
+
+697
+00:40:40,359 --> 00:40:46,680
+getting the pattern you know a list of
+
+698
+00:40:42,760 --> 00:40:50,760
+all the digits and the list of all the
+
+699
+00:40:46,680 --> 00:40:50,760
+symbols just by having
+
+700
+00:40:52,480 --> 00:40:57,119
+that are you able
+
+701
+00:40:55,319 --> 00:41:01,000
+to
+
+702
+00:40:57,119 --> 00:41:01,000
+okay I'm not I
+
+703
+00:41:05,000 --> 00:41:11,839
+um I don't think
+
+704
+00:41:08,560 --> 00:41:14,920
+so why not well
+
+705
+00:41:11,839 --> 00:41:17,040
+because the numbers the occurrence of
+
+706
+00:41:14,920 --> 00:41:20,280
+numbers and the occurrence of the
+
+707
+00:41:17,040 --> 00:41:23,520
+symbols they they have a
+
+708
+00:41:20,280 --> 00:41:27,200
+relation only when this relation is
+
+709
+00:41:23,520 --> 00:41:29,160
+satisfied meaning that they are adjacent
+
+710
+00:41:27,200 --> 00:41:32,119
+then the number is
+
+711
+00:41:29,160 --> 00:41:35,880
+valid so this
+
+712
+00:41:32,119 --> 00:41:39,839
+relation is a positional
+
+713
+00:41:35,880 --> 00:41:43,160
+relation right so it's a positional
+
+714
+00:41:39,839 --> 00:41:47,319
+relation uh but is there a way to you
+
+715
+00:41:43,160 --> 00:41:49,200
+know ultimately you have to somehow know
+
+716
+00:41:47,319 --> 00:41:52,480
+their
+
+717
+00:41:49,200 --> 00:41:55,240
+position uh but is it possible without
+
+718
+00:41:52,480 --> 00:41:58,240
+using stream position
+
+719
+00:41:55,240 --> 00:41:58,240
+like
+
+720
+00:41:59,680 --> 00:42:05,599
+I don't think so well because ultimately
+
+721
+00:42:02,440 --> 00:42:09,319
+you need to know their position if you
+
+722
+00:42:05,599 --> 00:42:12,760
+just get the patterns
+
+723
+00:42:09,319 --> 00:42:15,440
+then now is there a way in string cases
+
+724
+00:42:12,760 --> 00:42:17,720
+in a string expression to actually
+
+725
+00:42:15,440 --> 00:42:21,200
+return their
+
+726
+00:42:17,720 --> 00:42:22,319
+position I don't know so let's just look
+
+727
+00:42:21,200 --> 00:42:25,040
+up the
+
+728
+00:42:22,319 --> 00:42:26,800
+documentation for the string expression
+
+729
+00:42:25,040 --> 00:42:31,920
+syntax Maybe
+
+730
+00:42:26,800 --> 00:42:31,920
+if we are lucky maybe it it
+
+731
+00:42:36,040 --> 00:42:42,000
+um okay so this is too
+
+732
+00:42:39,000 --> 00:42:42,000
+big
+
+733
+00:42:42,960 --> 00:42:50,359
+um so here are the Syntax for string
+
+734
+00:42:47,240 --> 00:42:54,040
+expression these are string patterns we
+
+735
+00:42:50,359 --> 00:42:58,160
+want to know is it possible to also
+
+736
+00:42:54,040 --> 00:42:58,160
+extract the position they
+
+737
+00:42:59,599 --> 00:43:03,880
+occur pattern given in the
+
+738
+00:43:04,280 --> 00:43:10,680
+name so in a regular expression usually
+
+739
+00:43:08,319 --> 00:43:12,119
+yes in a regular expression when you
+
+740
+00:43:10,680 --> 00:43:15,400
+capture
+
+741
+00:43:12,119 --> 00:43:17,280
+something in python or emac L usually
+
+742
+00:43:15,400 --> 00:43:20,559
+you have a way to
+
+743
+00:43:17,280 --> 00:43:24,599
+know the the beginning and end
+
+744
+00:43:20,559 --> 00:43:28,559
+index where this capture happens yes
+
+745
+00:43:24,599 --> 00:43:31,599
+that's true in imag LP and also in
+
+746
+00:43:28,559 --> 00:43:34,319
+Python and I presume you know I I don't
+
+747
+00:43:31,599 --> 00:43:38,119
+remember but I think it's true in in
+
+748
+00:43:34,319 --> 00:43:42,119
+all in in all almost also in JavaScript
+
+749
+00:43:38,119 --> 00:43:44,720
+okay so so you can get the index
+
+750
+00:43:42,119 --> 00:43:46,559
+beginning and end index of something you
+
+751
+00:43:44,720 --> 00:43:49,160
+that matched a
+
+752
+00:43:46,559 --> 00:43:51,800
+pattern okay you can do that with
+
+753
+00:43:49,160 --> 00:43:55,200
+regular expression
+
+754
+00:43:51,800 --> 00:43:56,839
+functions okay so now the question is
+
+755
+00:43:55,200 --> 00:43:59,559
+can you do that with with the wolam
+
+756
+00:43:56,839 --> 00:44:03,640
+language string expression usually yes
+
+757
+00:43:59,559 --> 00:44:06,079
+because once you you know because the
+
+758
+00:44:03,640 --> 00:44:08,480
+string expression is supposed to be more
+
+759
+00:44:06,079 --> 00:44:13,160
+powerful I mean it's you know it's
+
+760
+00:44:08,480 --> 00:44:17,000
+supposed to be analogous to yes so so
+
+761
+00:44:13,160 --> 00:44:19,160
+now we are trying to find yes yeah we
+
+762
+00:44:17,000 --> 00:44:22,520
+are trying to find the pattern we
+
+763
+00:44:19,160 --> 00:44:25,559
+matched and we are trying to
+
+764
+00:44:22,520 --> 00:44:29,760
+find get their beginning and end
+
+765
+00:44:25,559 --> 00:44:32,680
+position okay and how do you do that uh
+
+766
+00:44:29,760 --> 00:44:34,480
+and in other languages that's usually
+
+767
+00:44:32,680 --> 00:44:36,760
+not part of
+
+768
+00:44:34,480 --> 00:44:39,839
+the pattern
+
+769
+00:44:36,760 --> 00:44:43,640
+syntax that is usually either a
+
+770
+00:44:39,839 --> 00:44:46,079
+different function or a method of the
+
+771
+00:44:43,640 --> 00:44:50,400
+regular expression object that return
+
+772
+00:44:46,079 --> 00:44:53,000
+the result uh regular expression object
+
+773
+00:44:50,400 --> 00:44:54,960
+then you can dot begin position or dot
+
+774
+00:44:53,000 --> 00:44:58,920
+end you know
+
+775
+00:44:54,960 --> 00:45:03,359
+so Pro so it's
+
+776
+00:44:58,920 --> 00:45:06,800
+likely it is true in wam language too so
+
+777
+00:45:03,359 --> 00:45:09,800
+you need so the string cases maybe
+
+778
+00:45:06,800 --> 00:45:13,440
+there's a function we can look up the
+
+779
+00:45:09,800 --> 00:45:17,280
+documentation let or another way is uh
+
+780
+00:45:13,440 --> 00:45:19,640
+we can just say
+
+781
+00:45:17,280 --> 00:45:24,359
+options okay
+
+782
+00:45:19,640 --> 00:45:26,800
+at string uh string
+
+783
+00:45:24,359 --> 00:45:29,559
+cases let's see
+
+784
+00:45:26,800 --> 00:45:33,359
+meta characters none ignore case force
+
+785
+00:45:29,559 --> 00:45:33,359
+overlap Force okay there is
+
+786
+00:45:33,640 --> 00:45:37,599
+no what what is meta
+
+787
+00:45:46,880 --> 00:45:54,880
+characters okay meta
+
+788
+00:45:50,200 --> 00:45:57,520
+characters meta characters is something
+
+789
+00:45:54,880 --> 00:46:01,640
+obscure
+
+790
+00:45:57,520 --> 00:46:01,640
+yeah meta characters is something
+
+791
+00:46:03,160 --> 00:46:09,040
+obscure meta characters is an option to
+
+792
+00:46:06,119 --> 00:46:13,200
+string position with meta characters
+
+793
+00:46:09,040 --> 00:46:16,240
+none no string have special
+
+794
+00:46:13,200 --> 00:46:18,359
+meanings uh with meta characters that
+
+795
+00:46:16,240 --> 00:46:21,000
+specifies the meta characters for
+
+796
+00:46:18,359 --> 00:46:21,000
+pattern
+
+797
+00:46:22,160 --> 00:46:26,720
+Escape
+
+798
+00:46:24,359 --> 00:46:29,720
+oh okay
+
+799
+00:46:26,720 --> 00:46:31,119
+Single Character matching uh but why is
+
+800
+00:46:29,720 --> 00:46:36,079
+there
+
+801
+00:46:31,119 --> 00:46:36,079
+no dedicated documentation
+
+802
+00:46:42,200 --> 00:46:49,160
+for yeah so it's not act it's it's
+
+803
+00:46:45,160 --> 00:46:49,160
+something obscure
+
+804
+00:46:54,800 --> 00:46:57,800
+interesting
+
+805
+00:47:01,559 --> 00:47:07,839
+we found we found kind of a bug you
+
+806
+00:47:05,240 --> 00:47:10,040
+see you know the page you found cannot
+
+807
+00:47:07,839 --> 00:47:13,319
+be found so this this this meta
+
+808
+00:47:10,040 --> 00:47:17,040
+character thing is something ofcu this
+
+809
+00:47:13,319 --> 00:47:17,990
+option uh and apparently it's not very
+
+810
+00:47:17,040 --> 00:47:19,520
+well
+
+811
+00:47:17,990 --> 00:47:23,079
+[Music]
+
+812
+00:47:19,520 --> 00:47:26,520
+documented okay M characters automatic
+
+813
+00:47:23,079 --> 00:47:29,119
+is equivalent to MAA characters that
+
+814
+00:47:26,520 --> 00:47:31,079
+that that
+
+815
+00:47:29,119 --> 00:47:35,559
+that okay
+
+816
+00:47:31,079 --> 00:47:38,640
+anyway it's not relevant to us okay so
+
+817
+00:47:35,559 --> 00:47:42,240
+but there is no how so the question now
+
+818
+00:47:38,640 --> 00:47:44,359
+is once you have a pattern once you
+
+819
+00:47:42,240 --> 00:47:47,800
+captured a pattern how do you get the
+
+820
+00:47:44,359 --> 00:47:50,440
+beginning and end position okay so that
+
+821
+00:47:47,800 --> 00:47:52,920
+means read the
+
+822
+00:47:50,440 --> 00:47:55,200
+documentation okay so we need to read
+
+823
+00:47:52,920 --> 00:47:59,559
+the documentation for string expression
+
+824
+00:47:55,200 --> 00:48:03,079
+so you know this is when I usually take
+
+825
+00:47:59,559 --> 00:48:05,760
+my tablet and walk and back and forth
+
+826
+00:48:03,079 --> 00:48:07,960
+for 10 minutes or something to read the
+
+827
+00:48:05,760 --> 00:48:11,040
+entirety of
+
+828
+00:48:07,960 --> 00:48:14,280
+this uh string expression documentation
+
+829
+00:48:11,040 --> 00:48:18,800
+that's what you I usually do so to
+
+830
+00:48:14,280 --> 00:48:21,680
+prevent my ass rot from sitting all day
+
+831
+00:48:18,800 --> 00:48:21,680
+so anyway let's read
+
+832
+00:48:23,520 --> 00:48:30,079
+it uh good evening Jesus settle in maybe
+
+833
+00:48:27,079 --> 00:48:30,079
+this maybe
+
+834
+00:48:31,800 --> 00:48:39,119
+what so we want to find the beginning
+
+835
+00:48:34,599 --> 00:48:43,400
+and end position okay so of a match okay
+
+836
+00:48:39,119 --> 00:48:45,960
+start of string there it is start of
+
+837
+00:48:43,400 --> 00:48:48,200
+stream start of the whole stream end of
+
+838
+00:48:45,960 --> 00:48:53,440
+stream end of the whole
+
+839
+00:48:48,200 --> 00:48:57,280
+stream wait wait no no no those are
+
+840
+00:48:53,440 --> 00:48:59,119
+the the start of stream is a symbol that
+
+841
+00:48:57,280 --> 00:49:02,440
+represent a
+
+842
+00:48:59,119 --> 00:49:04,440
+pattern to indicate that must start at
+
+843
+00:49:02,440 --> 00:49:08,119
+the beginning of a string similar to
+
+844
+00:49:04,440 --> 00:49:11,319
+regular Expressions correct character
+
+845
+00:49:08,119 --> 00:49:15,880
+okay so that is not it
+
+846
+00:49:11,319 --> 00:49:15,880
+so let me just uh read
+
+847
+00:49:18,400 --> 00:49:22,949
+it okay
+
+848
+00:49:19,900 --> 00:49:22,949
+[Music]
+
+849
+00:49:24,520 --> 00:49:30,000
+so
+
+850
+00:49:27,000 --> 00:49:33,520
+so you see normally in other languages
+
+851
+00:49:30,000 --> 00:49:36,720
+in Python in emac Lis in
+
+852
+00:49:33,520 --> 00:49:40,359
+JavaScript the information about the
+
+853
+00:49:36,720 --> 00:49:43,000
+beginning and end position of a matched
+
+854
+00:49:40,359 --> 00:49:45,200
+pattern is
+
+855
+00:49:43,000 --> 00:49:48,799
+typically
+
+856
+00:49:45,200 --> 00:49:52,040
+stored in a build-in variable in other
+
+857
+00:49:48,799 --> 00:49:53,880
+words it's not functional programming
+
+858
+00:49:52,040 --> 00:49:56,520
+because once you do some regular
+
+859
+00:49:53,880 --> 00:49:59,000
+expression match it matched
+
+860
+00:49:56,520 --> 00:50:01,400
+you know these begin end positions are
+
+861
+00:49:59,000 --> 00:50:03,240
+stored in in a totally entirely
+
+862
+00:50:01,400 --> 00:50:05,040
+different you know
+
+863
+00:50:03,240 --> 00:50:09,200
+variable
+
+864
+00:50:05,040 --> 00:50:09,200
+so it's not functional
+
+865
+00:50:09,319 --> 00:50:13,839
+programming uh okay but still the
+
+866
+00:50:11,880 --> 00:50:18,640
+question the question is how do you find
+
+867
+00:50:13,839 --> 00:50:18,640
+it in wam language with um
+
+868
+00:50:20,400 --> 00:50:27,799
+okay so now
+
+869
+00:50:23,880 --> 00:50:31,119
+we uh kind of stuck with this issue not
+
+870
+00:50:27,799 --> 00:50:34,559
+really you know we just haven't found
+
+871
+00:50:31,119 --> 00:50:38,240
+the you know answer yet there are two
+
+872
+00:50:34,559 --> 00:50:40,400
+approaches now one is the easy approach
+
+873
+00:50:38,240 --> 00:50:43,040
+just start to use the
+
+874
+00:50:40,400 --> 00:50:45,359
+search you you know search we find you
+
+875
+00:50:43,040 --> 00:50:48,359
+know find how how do I get the beginning
+
+876
+00:50:45,359 --> 00:50:51,119
+end position of a pattern that's the
+
+877
+00:50:48,359 --> 00:50:53,880
+easier way usually I don't like that
+
+878
+00:50:51,119 --> 00:50:56,599
+because I want to demonstrate you know I
+
+879
+00:50:53,880 --> 00:51:00,520
+should be able to I know where to look
+
+880
+00:50:56,599 --> 00:51:00,520
+uh but let's just cheat okay
+
+881
+00:51:01,760 --> 00:51:10,160
+so position of match okay let's see
+
+882
+00:51:06,319 --> 00:51:13,000
+let's see stream match let's see what it
+
+883
+00:51:10,160 --> 00:51:15,240
+says string and characters string
+
+884
+00:51:13,000 --> 00:51:18,319
+position string match
+
+885
+00:51:15,240 --> 00:51:20,559
+Quee uh work with string patterns okay
+
+886
+00:51:18,319 --> 00:51:24,359
+that take note that is kind of a
+
+887
+00:51:20,559 --> 00:51:27,359
+tutorial okay
+
+888
+00:51:24,359 --> 00:51:27,359
+uh
+
+889
+00:51:44,440 --> 00:51:50,559
+stream match
+
+890
+00:51:46,040 --> 00:51:57,359
+Q from the link pick range length at
+
+891
+00:51:50,559 --> 00:51:57,359
+input stream match Q pattern at input
+
+892
+00:51:58,839 --> 00:52:04,400
+so Sho says form the link
+
+893
+00:52:07,760 --> 00:52:15,079
+pick range at
+
+894
+00:52:11,640 --> 00:52:15,079
+length and
+
+895
+00:52:22,280 --> 00:52:29,079
+input okay I don't know what is that
+
+896
+00:52:25,040 --> 00:52:30,799
+though let's let's see so P suggest I
+
+897
+00:52:29,079 --> 00:52:34,960
+look into
+
+898
+00:52:30,799 --> 00:52:38,319
+this um the question is I don't know
+
+899
+00:52:34,960 --> 00:52:39,960
+what is pick very interesting let's see
+
+900
+00:52:38,319 --> 00:52:43,520
+what is
+
+901
+00:52:39,960 --> 00:52:45,000
+pick pick list selection pick out those
+
+902
+00:52:43,520 --> 00:52:47,000
+elements of list for which the
+
+903
+00:52:45,000 --> 00:52:50,440
+corresponding element of
+
+904
+00:52:47,000 --> 00:52:50,440
+selection is
+
+905
+00:52:54,240 --> 00:52:57,240
+true
+
+906
+00:52:57,359 --> 00:53:02,359
+yeah but if you do this you know a
+
+907
+00:52:59,880 --> 00:53:06,880
+number may be repeated in the
+
+908
+00:53:02,359 --> 00:53:10,680
+input so it's not necessarily unique and
+
+909
+00:53:06,880 --> 00:53:12,440
+also this is inefficient because once
+
+910
+00:53:10,680 --> 00:53:14,200
+you get a bunch of numbers for each
+
+911
+00:53:12,440 --> 00:53:18,799
+number you have to search through the
+
+912
+00:53:14,200 --> 00:53:21,079
+whole input again to find it I
+
+913
+00:53:18,799 --> 00:53:23,200
+think but there's a way to get a
+
+914
+00:53:21,079 --> 00:53:26,680
+position for sure you know you know
+
+915
+00:53:23,200 --> 00:53:29,079
+because you know like coding it makes it
+
+916
+00:53:26,680 --> 00:53:31,520
+looks like you know we cannot find it
+
+917
+00:53:29,079 --> 00:53:33,559
+but that's not the case it's just that
+
+918
+00:53:31,520 --> 00:53:37,880
+we haven't really spent time to find it
+
+919
+00:53:33,559 --> 00:53:40,920
+yet so we want to find so given once you
+
+920
+00:53:37,880 --> 00:53:44,079
+got a pattern match you want to find the
+
+921
+00:53:40,920 --> 00:53:47,440
+uh beginning and end position okay and
+
+922
+00:53:44,079 --> 00:53:50,839
+let me think about how is that done
+
+923
+00:53:47,440 --> 00:53:53,920
+usually so once you have a match you
+
+924
+00:53:50,839 --> 00:53:55,920
+want to know the beginning and end
+
+925
+00:53:53,920 --> 00:53:59,720
+position uh
+
+926
+00:53:55,920 --> 00:54:04,480
+again so let's check let's just check on
+
+927
+00:53:59,720 --> 00:54:04,480
+uh string expression documentation
+
+928
+00:54:06,880 --> 00:54:13,119
+again uh your ordinary stream okay so we
+
+929
+00:54:10,839 --> 00:54:13,119
+need
+
+930
+00:54:24,079 --> 00:54:27,079
+stream
+
+931
+00:54:55,280 --> 00:54:59,720
+maybe maybe you actually just have to
+
+932
+00:54:58,040 --> 00:55:03,079
+use stream
+
+933
+00:54:59,720 --> 00:55:05,280
+positions because you see this function
+
+934
+00:55:03,079 --> 00:55:07,720
+you know in wam language every function
+
+935
+00:55:05,280 --> 00:55:11,040
+is very
+
+936
+00:55:07,720 --> 00:55:14,640
+specific so if you want a position use a
+
+937
+00:55:11,040 --> 00:55:17,480
+string position if you if you just want
+
+938
+00:55:14,640 --> 00:55:20,040
+extract the cases then you use string
+
+939
+00:55:17,480 --> 00:55:20,040
+cases
+
+940
+00:55:20,880 --> 00:55:25,839
+maybe because once we use string
+
+941
+00:55:23,520 --> 00:55:27,720
+positions then we know the position then
+
+942
+00:55:25,839 --> 00:55:30,720
+we can easily
+
+943
+00:55:27,720 --> 00:55:33,880
+extract uh the pattern
+
+944
+00:55:30,720 --> 00:55:37,079
+so you know but let's
+
+945
+00:55:33,880 --> 00:55:41,359
+just I I haven't given up
+
+946
+00:55:37,079 --> 00:55:41,359
+yet to see if there's a
+
+947
+00:55:47,039 --> 00:55:54,000
+way so examples
+
+948
+00:55:51,079 --> 00:55:58,240
+okay
+
+949
+00:55:54,000 --> 00:56:01,640
+scope survey of the scope of standard
+
+950
+00:55:58,240 --> 00:56:05,119
+use cases okay so we don't
+
+951
+00:56:01,640 --> 00:56:06,480
+care uh use any order to match patterns
+
+952
+00:56:05,119 --> 00:56:09,240
+in any
+
+953
+00:56:06,480 --> 00:56:14,000
+order okay very
+
+954
+00:56:09,240 --> 00:56:16,480
+interesting by the way you cannot do
+
+955
+00:56:14,000 --> 00:56:19,039
+this in regular
+
+956
+00:56:16,480 --> 00:56:20,680
+expression uh assign or matching any
+
+957
+00:56:19,039 --> 00:56:23,920
+order to a
+
+958
+00:56:20,680 --> 00:56:27,280
+variable uh
+
+959
+00:56:23,920 --> 00:56:30,240
+anyway we want beginning and end
+
+960
+00:56:27,280 --> 00:56:33,280
+position okay applications sample
+
+961
+00:56:30,240 --> 00:56:37,400
+problems that can be solved with this
+
+962
+00:56:33,280 --> 00:56:41,119
+function uh find the primes with four
+
+963
+00:56:37,400 --> 00:56:41,119
+identical digits
+
+964
+00:56:43,760 --> 00:56:51,799
+okay find a prime with four identical
+
+965
+00:56:47,640 --> 00:56:51,799
+digits okay
+
+966
+00:56:51,839 --> 00:56:56,880
+uh properties and relations okay
+
+967
+00:56:58,240 --> 00:57:06,240
+okay string
+
+968
+00:57:00,599 --> 00:57:06,240
+count okay string free string
+
+969
+00:57:06,599 --> 00:57:14,319
+cases okay there is one string
+
+970
+00:57:11,079 --> 00:57:19,680
+position maybe we have to use stream
+
+971
+00:57:14,319 --> 00:57:19,680
+position now if we use stream position
+
+972
+00:57:21,760 --> 00:57:27,119
+then then we have to extract it okay
+
+973
+00:57:24,920 --> 00:57:28,960
+okay so let's okay let's move on let's
+
+974
+00:57:27,119 --> 00:57:33,079
+use stream position
+
+975
+00:57:28,960 --> 00:57:36,880
+then okay let's move on so check if the
+
+976
+00:57:33,079 --> 00:57:39,160
+code is the same yes okay uh the pick I
+
+977
+00:57:36,880 --> 00:57:39,160
+don't
+
+978
+00:57:53,280 --> 00:58:02,520
+think pick is is new pick is okay new in
+
+979
+00:57:57,760 --> 00:58:04,400
+2004 okay uh let me make sure your
+
+980
+00:58:02,520 --> 00:58:07,319
+suggestion is
+
+981
+00:58:04,400 --> 00:58:10,799
+actually works or
+
+982
+00:58:07,319 --> 00:58:13,520
+not pick out those elements of list for
+
+983
+00:58:10,799 --> 00:58:16,599
+which the corresponding element is true
+
+984
+00:58:13,520 --> 00:58:18,760
+okay so it's some kind of it's like a
+
+985
+00:58:16,599 --> 00:58:23,720
+bit
+
+986
+00:58:18,760 --> 00:58:25,760
+mask uh yeah I remember I read
+
+987
+00:58:23,720 --> 00:58:29,240
+this
+
+988
+00:58:25,760 --> 00:58:30,880
+so for example you have AB B CDE e then
+
+989
+00:58:29,240 --> 00:58:34,880
+you have a bit
+
+990
+00:58:30,880 --> 00:58:40,079
+mask one means pass through okay zero
+
+991
+00:58:34,880 --> 00:58:43,079
+means filter out so so you get
+
+992
+00:58:40,079 --> 00:58:43,079
+that
+
+993
+00:58:43,480 --> 00:58:50,240
+so so when so you are saying oh wait you
+
+994
+00:58:47,960 --> 00:58:50,240
+are
+
+995
+00:58:53,720 --> 00:58:56,720
+saying
+
+996
+00:58:58,720 --> 00:59:04,760
+I think you are suggesting a entirely
+
+997
+00:59:01,559 --> 00:59:07,119
+new solution such that we treat the
+
+998
+00:59:04,760 --> 00:59:11,760
+whole input as some kind
+
+999
+00:59:07,119 --> 00:59:11,760
+of you know Matrix then
+
+1000
+00:59:13,440 --> 00:59:21,240
+we uh I don't know uh oh actually wait
+
+1001
+00:59:18,480 --> 00:59:25,440
+it's actually that's another
+
+1002
+00:59:21,240 --> 00:59:27,720
+approach so you treat the whole thing as
+
+1003
+00:59:25,440 --> 00:59:29,960
+a list of
+
+1004
+00:59:27,720 --> 00:59:32,039
+characters
+
+1005
+00:59:29,960 --> 00:59:35,400
+then
+
+1006
+00:59:32,039 --> 00:59:35,400
+you pick
+
+1007
+00:59:37,520 --> 00:59:42,640
+out anyway that's a new
+
+1008
+00:59:40,240 --> 00:59:45,319
+approach
+
+1009
+00:59:42,640 --> 00:59:50,839
+uh but that's new approach I have to
+
+1010
+00:59:45,319 --> 00:59:53,319
+think about that so for now let's focus
+
+1011
+00:59:50,839 --> 00:59:56,880
+on what I'm
+
+1012
+00:59:53,319 --> 01:00:00,480
+doing okay so close that so now let's
+
+1013
+00:59:56,880 --> 01:00:00,480
+look at stream positions
+
+1014
+01:00:00,720 --> 01:00:07,240
+yes it just this just run it okay run
+
+1015
+01:00:08,440 --> 01:00:13,880
+it invalid okay something is wrong
+
+1016
+01:00:12,119 --> 01:00:16,520
+string
+
+1017
+01:00:13,880 --> 01:00:21,359
+positions uh why is it
+
+1018
+01:00:16,520 --> 01:00:26,559
+invalid now if string
+
+1019
+01:00:21,359 --> 01:00:26,559
+cases ah we got something wrong before
+
+1020
+01:00:29,160 --> 01:00:33,880
+wait why is it's not working
+
+1021
+01:00:37,760 --> 01:00:43,880
+anymore too many parameters in Num
+
+1022
+01:00:40,880 --> 01:00:48,599
+position oh okay oh
+
+1023
+01:00:43,880 --> 01:00:51,559
+okay because this function valid number
+
+1024
+01:00:48,599 --> 01:00:56,119
+Q now takes two
+
+1025
+01:00:51,559 --> 01:00:58,480
+argument so that is but here
+
+1026
+01:00:56,119 --> 01:01:03,520
+it only gives one argument so it
+
+1027
+01:00:58,480 --> 01:01:07,079
+complains so this is actually should be
+
+1028
+01:01:03,520 --> 01:01:07,079
+position yeah that
+
+1029
+01:01:07,359 --> 01:01:18,160
+work okay so string cases work okay now
+
+1030
+01:01:13,520 --> 01:01:18,160
+let's try string positions
+
+1031
+01:01:19,200 --> 01:01:25,799
+it okay why is
+
+1032
+01:01:22,640 --> 01:01:28,119
+it oh yeah so when you do stream
+
+1033
+01:01:25,799 --> 01:01:31,599
+positions OB
+
+1034
+01:01:28,119 --> 01:01:31,599
+obviously you
+
+1035
+01:01:31,880 --> 01:01:40,680
+get you can two expression so it uh it
+
+1036
+01:01:35,799 --> 01:01:42,920
+returns a bunch two numbers okay so it
+
+1037
+01:01:40,680 --> 01:01:46,400
+returns you you don't need you don't
+
+1038
+01:01:42,920 --> 01:01:46,400
+even need this part
+
+1039
+01:01:47,200 --> 01:01:55,200
+okay yeah so
+
+1040
+01:01:50,960 --> 01:01:57,279
+here is it you know uh these are the
+
+1041
+01:01:55,200 --> 01:01:59,839
+beginning and end positions of each
+
+1042
+01:01:57,279 --> 01:01:59,839
+number
+
+1043
+01:02:00,039 --> 01:02:05,880
+okay okay so change of plan oh
+
+1044
+01:02:16,640 --> 01:02:24,039
+God okay I need a
+
+1045
+01:02:20,480 --> 01:02:26,599
+break uh that's a issue with live coding
+
+1046
+01:02:24,039 --> 01:02:26,599
+yeah you
+
+1047
+01:02:28,760 --> 01:02:36,319
+can okay anyway so it returns that okay
+
+1048
+01:02:33,640 --> 01:02:40,119
+now let's look at that again see what we
+
+1049
+01:02:36,319 --> 01:02:46,000
+can do with string position so we get a
+
+1050
+01:02:40,119 --> 01:02:50,680
+pattern you cannot actually replace it
+
+1051
+01:02:46,000 --> 01:02:53,200
+here you can multiple patterns okay uh
+
+1052
+01:02:50,680 --> 01:02:56,920
+Leist of results for each of the string
+
+1053
+01:02:53,200 --> 01:02:56,920
+Okay so so you
+
+1054
+01:03:05,520 --> 01:03:12,359
+can't yeah backu it's just more more
+
+1055
+01:03:09,760 --> 01:03:14,400
+code okay string so you get the list of
+
+1056
+01:03:12,359 --> 01:03:15,650
+numbers okay so
+
+1057
+01:03:14,400 --> 01:03:17,640
+then
+
+1058
+01:03:15,650 --> 01:03:21,359
+[Music]
+
+1059
+01:03:17,640 --> 01:03:23,039
+you yeah so you can now you can have a
+
+1060
+01:03:21,359 --> 01:03:25,680
+function
+
+1061
+01:03:23,039 --> 01:03:31,720
+that uh
+
+1062
+01:03:25,680 --> 01:03:35,160
+um you apply that to right right you map
+
+1063
+01:03:31,720 --> 01:03:36,650
+this function okay let me just do it you
+
+1064
+01:03:35,160 --> 01:03:39,729
+map this function
+
+1065
+01:03:36,650 --> 01:03:39,729
+[Music]
+
+1066
+01:03:40,039 --> 01:03:46,520
+to okay so let's do this positions
+
+1067
+01:03:43,200 --> 01:03:51,079
+equals to that okay now all you have to
+
+1068
+01:03:46,520 --> 01:03:53,279
+do is you map this function valid number
+
+1069
+01:03:51,079 --> 01:03:56,279
+Q
+
+1070
+01:03:53,279 --> 01:03:56,279
+to
+
+1071
+01:04:06,359 --> 01:04:10,200
+to positions
+
+1072
+01:04:18,559 --> 01:04:22,799
+okay uh and here
+
+1073
+01:04:23,200 --> 01:04:26,200
+we
+
+1074
+01:04:28,440 --> 01:04:32,839
+yeah I know what to do okay let me just
+
+1075
+01:04:30,400 --> 01:04:36,400
+code it
+
+1076
+01:04:32,839 --> 01:04:36,400
+so so
+
+1077
+01:04:38,279 --> 01:04:43,760
+positions okay number positions so
+
+1078
+01:04:41,319 --> 01:04:46,160
+here's a bunch of number positions and
+
+1079
+01:04:43,760 --> 01:04:49,480
+you don't
+
+1080
+01:04:46,160 --> 01:04:53,760
+need you don't need that
+
+1081
+01:04:49,480 --> 01:04:57,000
+okay so this is number positions okay
+
+1082
+01:04:53,760 --> 01:04:57,000
+it's shrink a little
+
+1083
+01:05:07,559 --> 01:05:10,920
+bit okay
+
+1084
+01:05:12,400 --> 01:05:18,880
+so
+
+1085
+01:05:15,039 --> 01:05:22,359
+uh symbol positions now we get try to
+
+1086
+01:05:18,880 --> 01:05:22,359
+get all the positions for
+
+1087
+01:05:23,079 --> 01:05:26,079
+symbols
+
+1088
+01:05:27,160 --> 01:05:29,440
+let's
+
+1089
+01:05:53,079 --> 01:05:56,079
+see
+
+1090
+01:06:00,160 --> 01:06:04,960
+yeah we can we can we can do all the
+
+1091
+01:06:02,559 --> 01:06:07,960
+positions for symbols
+
+1092
+01:06:04,960 --> 01:06:07,960
+too
+
+1093
+01:06:10,440 --> 01:06:15,319
+um
+
+1094
+01:06:12,200 --> 01:06:20,839
+okay now let's look at the Syntax for
+
+1095
+01:06:15,319 --> 01:06:20,839
+string expression so we want to
+
+1096
+01:06:23,000 --> 01:06:26,000
+exclude
+
+1097
+01:06:49,119 --> 01:06:56,000
+except digit
+
+1098
+01:06:51,559 --> 01:06:56,000
+character or
+
+1099
+01:07:00,240 --> 01:07:10,279
+period okay that's our pattern so string
+
+1100
+01:07:06,240 --> 01:07:10,279
+expression except
+
+1101
+01:07:15,319 --> 01:07:21,880
+that
+
+1102
+01:07:17,680 --> 01:07:21,880
+maybe let's test it
+
+1103
+01:07:22,920 --> 01:07:25,920
+out
+
+1104
+01:07:52,920 --> 01:07:55,920
+h
+
+1105
+01:07:58,839 --> 01:08:04,200
+okay let's try the wolam language
+
+1106
+01:08:01,160 --> 01:08:07,880
+notebook because last time it seems
+
+1107
+01:08:04,200 --> 01:08:11,279
+easier to read there okay so we just
+
+1108
+01:08:07,880 --> 01:08:11,279
+going to try some code
+
+1109
+01:08:13,319 --> 01:08:19,279
+here no okay except digital character is
+
+1110
+01:08:16,960 --> 01:08:25,839
+not a valid string oh
+
+1111
+01:08:19,279 --> 01:08:25,839
+yeah uh wait no you can't use um
+
+1112
+01:08:27,440 --> 01:08:32,699
+except does it take
+
+1113
+01:08:29,580 --> 01:08:32,699
+[Music]
+
+1114
+01:08:37,040 --> 01:08:42,000
+one instead of accept let's just
+
+1115
+01:08:50,400 --> 01:08:55,799
+say characters
+
+1116
+01:08:52,799 --> 01:08:55,799
+okay
+
+1117
+01:09:02,040 --> 01:09:08,239
+okay now let's look at our input let's
+
+1118
+01:09:06,040 --> 01:09:08,239
+just
+
+1119
+01:09:08,640 --> 01:09:12,880
+see yeah wait where is our
+
+1120
+01:09:17,279 --> 01:09:25,799
+input ler copy new buffer paste back
+
+1121
+01:09:24,120 --> 01:09:33,199
+copy the file
+
+1122
+01:09:25,799 --> 01:09:33,199
+path uh it's okay so go back here
+
+1123
+01:09:35,000 --> 01:09:39,359
+um okay so now
+
+1124
+01:09:44,520 --> 01:09:47,920
+let's read
+
+1125
+01:09:49,159 --> 01:09:56,520
+string okay that's the this file is the
+
+1126
+01:09:53,319 --> 01:10:00,880
+user input okay now let's look at the
+
+1127
+01:09:56,520 --> 01:10:04,239
+user input let's remove like we did
+
+1128
+01:10:00,880 --> 01:10:08,719
+before remove all
+
+1129
+01:10:04,239 --> 01:10:08,719
+numbers and uh
+
+1130
+01:10:09,760 --> 01:10:13,560
+remove digit
+
+1131
+01:10:15,719 --> 01:10:23,080
+uh okay so then
+
+1132
+01:10:19,480 --> 01:10:25,640
+we that's all the possible digits now we
+
+1133
+01:10:23,080 --> 01:10:25,640
+want
+
+1134
+01:10:26,280 --> 01:10:35,760
+to I mean that's all the possible
+
+1135
+01:10:30,480 --> 01:10:38,679
+um C uh symbols okay so now we just we
+
+1136
+01:10:35,760 --> 01:10:42,400
+can do let's use wam
+
+1137
+01:10:38,679 --> 01:10:44,920
+language okay close that close that
+
+1138
+01:10:42,400 --> 01:10:44,920
+close
+
+1139
+01:10:44,960 --> 01:10:51,159
+that okay copy let's use W firm language
+
+1140
+01:10:52,640 --> 01:10:59,760
+characters okay that
+
+1141
+01:10:56,280 --> 01:11:02,760
+will that will return all the unique
+
+1142
+01:10:59,760 --> 01:11:02,760
+characters
+
+1143
+01:11:04,520 --> 01:11:13,920
+okay oh no
+
+1144
+01:11:08,000 --> 01:11:13,920
+way uh it doesn't delete DLI cut
+
+1145
+01:11:22,560 --> 01:11:25,560
+okay
+
+1146
+01:11:27,800 --> 01:11:32,679
+let's just do this okay so close
+
+1147
+01:11:39,520 --> 01:11:44,920
+that so delete
+
+1148
+01:11:41,920 --> 01:11:48,679
+duplicate delete all duplicate from a
+
+1149
+01:11:44,920 --> 01:11:48,679
+list okay
+
+1150
+01:11:52,560 --> 01:11:55,560
+so
+
+1151
+01:11:56,280 --> 01:11:59,280
+characters
+
+1152
+01:12:02,400 --> 01:12:05,400
+input
+
+1153
+01:12:06,440 --> 01:12:12,000
+then okay that's what we want so first
+
+1154
+01:12:09,600 --> 01:12:12,000
+all
+
+1155
+01:12:18,000 --> 01:12:25,480
+input that reads in the input now
+
+1156
+01:12:33,440 --> 01:12:41,719
+uh s uh yeah we misspelled characters
+
+1157
+01:12:38,159 --> 01:12:44,719
+okay so
+
+1158
+01:12:41,719 --> 01:12:44,719
+unique
+
+1159
+01:12:45,560 --> 01:12:49,920
+Char okay so that is
+
+1160
+01:12:50,560 --> 01:12:57,560
+uh that is a list of symbol chars okay
+
+1161
+01:12:54,880 --> 01:12:57,560
+let's try it
+
+1162
+01:12:58,480 --> 01:13:02,000
+again yeah wa
+
+1163
+01:13:02,199 --> 01:13:06,880
+did okay and
+
+1164
+01:13:08,760 --> 01:13:17,920
+uh yep oh and you got digits stupid tic
+
+1165
+01:13:15,400 --> 01:13:22,239
+digits you got you got to remove the
+
+1166
+01:13:17,920 --> 01:13:22,239
+digits and remove the
+
+1167
+01:13:22,360 --> 01:13:25,360
+um
+
+1168
+01:13:32,719 --> 01:13:35,719
+period
+
+1169
+01:13:36,360 --> 01:13:41,760
+okay uh what you can do is replace
+
+1170
+01:13:43,600 --> 01:13:47,880
+string string rep
+
+1171
+01:13:48,440 --> 01:13:55,880
+replace okay stream
+
+1172
+01:13:51,600 --> 01:13:55,880
+replaced right so string
+
+1173
+01:13:56,360 --> 01:14:01,520
+replace
+
+1174
+01:13:57,920 --> 01:14:04,880
+input and by a
+
+1175
+01:14:01,520 --> 01:14:04,880
+pattern okay
+
+1176
+01:14:21,719 --> 01:14:25,679
+so let's see that
+
+1177
+01:14:28,719 --> 01:14:32,560
+works uh
+
+1178
+01:14:39,199 --> 01:14:45,880
+no stream
+
+1179
+01:14:41,840 --> 01:14:47,000
+replace oh you need uh you need a yeah
+
+1180
+01:14:45,880 --> 01:14:49,120
+you need a
+
+1181
+01:14:47,000 --> 01:14:55,280
+rule
+
+1182
+01:14:49,120 --> 01:14:55,280
+so those becomes empty string
+
+1183
+01:14:58,840 --> 01:15:03,480
+yep and here you need double
+
+1184
+01:15:03,800 --> 01:15:09,320
+backlash wait
+
+1185
+01:15:06,320 --> 01:15:09,320
+no
+
+1186
+01:15:10,159 --> 01:15:15,600
+uh string replace replace one or more
+
+1187
+01:15:14,639 --> 01:15:17,840
+digit
+
+1188
+01:15:15,600 --> 01:15:20,840
+characters and
+
+1189
+01:15:17,840 --> 01:15:20,840
+uh
+
+1190
+01:15:21,239 --> 01:15:25,199
+replace one or more p
+
+1191
+01:15:52,199 --> 01:15:55,199
+period
+
+1192
+01:16:00,880 --> 01:16:05,199
+okay this is getting long and
+
+1193
+01:16:05,480 --> 01:16:12,239
+longer no common
+
+1194
+01:16:09,159 --> 01:16:16,199
+okay yeah but I want to finish
+
+1195
+01:16:12,239 --> 01:16:18,639
+this so string replace input digit
+
+1196
+01:16:16,199 --> 01:16:25,120
+characters why is it not matching I
+
+1197
+01:16:18,639 --> 01:16:25,120
+don't understand why why is this maybe
+
+1198
+01:16:27,159 --> 01:16:34,560
+okay I'm just like doing trial and error
+
+1199
+01:16:30,320 --> 01:16:37,120
+now the worst way of
+
+1200
+01:16:34,560 --> 01:16:40,520
+programming okay that kind of worked
+
+1201
+01:16:37,120 --> 01:16:43,520
+actually so now
+
+1202
+01:16:40,520 --> 01:16:43,520
+now
+
+1203
+01:16:50,600 --> 01:16:56,239
+um so why is the back slash not
+
+1204
+01:16:59,719 --> 01:17:07,400
+working oh wait so it's not followed by
+
+1205
+01:17:04,400 --> 01:17:11,000
+right this means followed
+
+1206
+01:17:07,400 --> 01:17:13,880
+by string expression so you want all so
+
+1207
+01:17:11,000 --> 01:17:13,880
+let's use
+
+1208
+01:17:22,000 --> 01:17:28,440
+all
+
+1209
+01:17:24,600 --> 01:17:28,440
+I don't know no that that's
+
+1210
+01:17:46,520 --> 01:17:49,920
+not okay
+
+1211
+01:17:52,000 --> 01:17:55,000
+it's
+
+1212
+01:17:55,440 --> 01:18:00,160
+mhm
+
+1213
+01:17:57,280 --> 01:18:03,680
+no uh because
+
+1214
+01:18:00,160 --> 01:18:03,680
+[Music]
+
+1215
+01:18:04,520 --> 01:18:14,360
+we how do I read of the period it's very
+
+1216
+01:18:11,280 --> 01:18:17,400
+odd period one or
+
+1217
+01:18:14,360 --> 01:18:21,159
+more why can't
+
+1218
+01:18:17,400 --> 01:18:21,159
+I remove
+
+1219
+01:18:21,920 --> 01:18:24,920
+period
+
+1220
+01:18:26,520 --> 01:18:29,960
+H where am
+
+1221
+01:18:35,320 --> 01:18:43,440
+I okay now the input is too big now
+
+1222
+01:18:39,639 --> 01:18:43,440
+let's try the original
+
+1223
+01:18:47,520 --> 01:18:54,920
+input here okay now let's
+
+1224
+01:18:51,920 --> 01:18:54,920
+try
+
+1225
+01:19:22,440 --> 01:19:30,800
+now this let's go back to the Syntax for
+
+1226
+01:19:25,440 --> 01:19:33,800
+string expression there is a all pattern
+
+1227
+01:19:30,800 --> 01:19:37,080
+here a pattern matching at least one of
+
+1228
+01:19:33,800 --> 01:19:42,480
+the pattern okay so you can either use
+
+1229
+01:19:37,080 --> 01:19:44,560
+all or or least okay so you use a
+
+1230
+01:19:42,480 --> 01:19:49,199
+list
+
+1231
+01:19:44,560 --> 01:19:49,199
+okay so you can use a list
+
+1232
+01:19:51,840 --> 01:19:54,840
+here
+
+1233
+01:19:58,000 --> 01:20:04,679
+uh okay and remove the
+
+1234
+01:20:01,239 --> 01:20:06,560
+per so it's either a digit
+
+1235
+01:20:04,679 --> 01:20:09,040
+character
+
+1236
+01:20:06,560 --> 01:20:11,480
+or uh one bunch
+
+1237
+01:20:09,040 --> 01:20:17,880
+of
+
+1238
+01:20:11,480 --> 01:20:17,880
+period okay the period removal is
+
+1239
+01:20:21,760 --> 01:20:24,760
+failed
+
+1240
+01:20:25,199 --> 01:20:30,760
+oh you oh just just a period I [ __ ] I'm
+
+1241
+01:20:28,239 --> 01:20:33,159
+so idiotic you know I've been
+
+1242
+01:20:30,760 --> 01:20:36,639
+brainwashed by the regular expression
+
+1243
+01:20:33,159 --> 01:20:39,000
+back slashback slash thing so a period
+
+1244
+01:20:36,639 --> 01:20:42,280
+in a string is just a period in the
+
+1245
+01:20:39,000 --> 01:20:44,960
+wolam string expression pattern so okay
+
+1246
+01:20:42,280 --> 01:20:48,880
+so this expression means this pattern
+
+1247
+01:20:44,960 --> 01:20:53,280
+means a digit character 10 more
+
+1248
+01:20:48,880 --> 01:20:55,960
+or a period one or more replace them by
+
+1249
+01:20:53,280 --> 01:20:59,440
+empty string and actually here we can
+
+1250
+01:20:55,960 --> 01:21:05,199
+just say rule instead of rule delay
+
+1251
+01:20:59,440 --> 01:21:10,120
+there it is and also replace space okay
+
+1252
+01:21:05,199 --> 01:21:10,120
+uh space replace new
+
+1253
+01:21:11,280 --> 01:21:19,600
+line okay oh so the number patterns is
+
+1254
+01:21:16,520 --> 01:21:25,800
+very small I mean the number of symbols
+
+1255
+01:21:19,600 --> 01:21:25,800
+is very small okay so you got that
+
+1256
+01:21:26,000 --> 01:21:34,440
+that uh that put that so this this gives
+
+1257
+01:21:31,760 --> 01:21:34,440
+you
+
+1258
+01:21:39,400 --> 01:21:48,159
+a you see the possible symbols are just
+
+1259
+01:21:44,480 --> 01:21:48,159
+that okay
+
+1260
+01:21:50,520 --> 01:21:56,239
+so okay let's write it down
+
+1261
+01:21:53,679 --> 01:22:00,880
+ah God now it's almost two
+
+1262
+01:21:56,239 --> 01:22:03,320
+hours any else anyone else is watching
+
+1263
+01:22:00,880 --> 01:22:03,320
+say
+
+1264
+01:22:05,280 --> 01:22:13,040
+hi okay this is
+
+1265
+01:22:08,480 --> 01:22:16,280
+another so we got the input we got
+
+1266
+01:22:13,040 --> 01:22:19,360
+unique symbol characters list of unique
+
+1267
+01:22:16,280 --> 01:22:23,199
+symbol CES not many it's just four of
+
+1268
+01:22:19,360 --> 01:22:28,000
+them asterisk pound sign
+
+1269
+01:22:23,199 --> 01:22:31,040
+plus and the dollar sign okay then CH
+
+1270
+01:22:28,000 --> 01:22:33,040
+line okay hello
+
+1271
+01:22:31,040 --> 01:22:38,960
+lron
+
+1272
+01:22:33,040 --> 01:22:42,440
+great uh then yeah actually I need a
+
+1273
+01:22:38,960 --> 01:22:46,560
+break got element
+
+1274
+01:22:42,440 --> 01:22:50,320
+except so where is this
+
+1275
+01:22:46,560 --> 01:22:51,560
+except oh yeah symbol position let's
+
+1276
+01:22:50,320 --> 01:22:53,600
+remove
+
+1277
+01:22:51,560 --> 01:22:59,199
+that
+
+1278
+01:22:53,600 --> 01:23:03,120
+uh so symbol positions okay
+
+1279
+01:22:59,199 --> 01:23:06,840
+so symbol positions now we know what are
+
+1280
+01:23:03,120 --> 01:23:09,560
+the symbols so unique same
+
+1281
+01:23:06,840 --> 01:23:12,480
+charts so it's
+
+1282
+01:23:09,560 --> 01:23:17,120
+just
+
+1283
+01:23:12,480 --> 01:23:17,120
+uh is actually just that
+
+1284
+01:23:19,880 --> 01:23:27,320
+okay let's see
+
+1285
+01:23:23,560 --> 01:23:30,639
+okay so what is this the first part uh
+
+1286
+01:23:27,320 --> 01:23:34,000
+then something invalid okay character is
+
+1287
+01:23:30,639 --> 01:23:39,120
+not valid okay so we got the syntax zor
+
+1288
+01:23:34,000 --> 01:23:44,679
+some some code we are not using there
+
+1289
+01:23:39,120 --> 01:23:44,679
+so yeah so here is wrong
+
+1290
+01:23:47,320 --> 01:23:53,840
+character yeah so remove that remove
+
+1291
+01:23:50,400 --> 01:23:59,000
+that okay now run it again let's see
+
+1292
+01:23:53,840 --> 01:24:00,600
+what we got okay so we got a big line
+
+1293
+01:23:59,000 --> 01:24:03,280
+one single
+
+1294
+01:24:00,600 --> 01:24:08,400
+line okay let's
+
+1295
+01:24:03,280 --> 01:24:11,560
+see go to the top so we got a input we
+
+1296
+01:24:08,400 --> 01:24:16,400
+got unique symbol characters a list of
+
+1297
+01:24:11,560 --> 01:24:19,120
+characters okay like that then we got
+
+1298
+01:24:16,400 --> 01:24:22,800
+chart per line okay we got total number
+
+1299
+01:24:19,120 --> 01:24:25,480
+of charts okay uh then we don't care but
+
+1300
+01:24:22,800 --> 01:24:28,880
+the now this function we
+
+1301
+01:24:25,480 --> 01:24:32,520
+haven't uh return implemented yet valid
+
+1302
+01:24:28,880 --> 01:24:36,080
+number whether it's true or not uh
+
+1303
+01:24:32,520 --> 01:24:37,440
+number positions this uh what does this
+
+1304
+01:24:36,080 --> 01:24:41,480
+do
+
+1305
+01:24:37,440 --> 01:24:45,040
+so input string expression number uh
+
+1306
+01:24:41,480 --> 01:24:45,040
+number positions let's
+
+1307
+01:24:49,040 --> 01:24:56,800
+see string cases let's common that uh
+
+1308
+01:24:52,800 --> 01:24:58,800
+okay so now we just got number positions
+
+1309
+01:24:56,800 --> 01:25:00,600
+let's see if that's
+
+1310
+01:24:58,800 --> 01:25:05,920
+right
+
+1311
+01:25:00,600 --> 01:25:10,000
+okay okay so it's one giant big of
+
+1312
+01:25:05,920 --> 01:25:11,719
+numbers okay now let's go back to the
+
+1313
+01:25:10,000 --> 01:25:15,360
+let's not
+
+1314
+01:25:11,719 --> 01:25:16,520
+read our long input let's just use the
+
+1315
+01:25:15,360 --> 01:25:19,639
+toy
+
+1316
+01:25:16,520 --> 01:25:24,639
+input okay so the number of
+
+1317
+01:25:19,639 --> 01:25:26,760
+positions Okay so 1 three yeah okay
+
+1318
+01:25:24,639 --> 01:25:30,159
+that's the position of the number first
+
+1319
+01:25:26,760 --> 01:25:34,920
+number 1 three second
+
+1320
+01:25:30,159 --> 01:25:40,119
+number okay wrong 1 three and 2 three
+
+1321
+01:25:34,920 --> 01:25:41,679
+and 3 three so it's actually you
+
+1322
+01:25:40,119 --> 01:25:46,880
+see
+
+1323
+01:25:41,679 --> 01:25:50,800
+467 then 67 then seven okay that's not
+
+1324
+01:25:46,880 --> 01:25:54,280
+that's not what we want so the um so the
+
+1325
+01:25:50,800 --> 01:25:54,280
+number positions here
+
+1326
+01:25:59,840 --> 01:26:05,159
+is incorrect okay this number positions
+
+1327
+01:26:02,840 --> 01:26:05,159
+is
+
+1328
+01:26:06,440 --> 01:26:14,199
+incorrect make sure we that's what we
+
+1329
+01:26:09,960 --> 01:26:17,880
+see yep so the number of positions is
+
+1330
+01:26:14,199 --> 01:26:21,639
+incorrect okay we can evaluate it here
+
+1331
+01:26:17,880 --> 01:26:23,360
+so you can see 1 3 2 3 3 three that's
+
+1332
+01:26:21,639 --> 01:26:26,520
+not right
+
+1333
+01:26:23,360 --> 01:26:28,760
+uh so here is a question about pattern
+
+1334
+01:26:26,520 --> 01:26:30,639
+matching whether you want to match
+
+1335
+01:26:28,760 --> 01:26:34,360
+maximum or
+
+1336
+01:26:30,639 --> 01:26:40,520
+minimum okay uh which is an
+
+1337
+01:26:34,360 --> 01:26:40,520
+issue but usually it's longest why is it
+
+1338
+01:26:42,360 --> 01:26:48,679
+um stream positions okay uh let's see
+
+1339
+01:26:46,560 --> 01:26:51,199
+stream positions let's look at the
+
+1340
+01:26:48,679 --> 01:26:54,080
+stream positions
+
+1341
+01:26:51,199 --> 01:26:59,880
+documentation
+
+1342
+01:26:54,080 --> 01:27:03,480
+and options okay overlap true we we run
+
+1343
+01:26:59,880 --> 01:27:06,920
+into that before ignore case true
+
+1344
+01:27:03,480 --> 01:27:09,560
+yeah re string position return sequence
+
+1345
+01:27:06,920 --> 01:27:12,600
+specifications in the form used by
+
+1346
+01:27:09,560 --> 01:27:14,560
+string take and blah blah blah okay give
+
+1347
+01:27:12,600 --> 01:27:18,800
+position substring
+
+1348
+01:27:14,560 --> 01:27:22,920
+matching uh okay yeah so it gives
+
+1349
+01:27:18,800 --> 01:27:28,800
+okay uh yeah and bio sequence bio
+
+1350
+01:27:22,920 --> 01:27:28,800
+sequence uh okay it does not
+
+1351
+01:27:29,840 --> 01:27:38,400
+mention okay
+
+1352
+01:27:31,840 --> 01:27:38,400
+so what we have to do is we use the
+
+1353
+01:27:40,280 --> 01:27:48,840
+longest which is the
+
+1354
+01:27:43,840 --> 01:27:52,639
+default so why is it um yeah this
+
+1355
+01:27:48,840 --> 01:27:54,040
+is problematic what you know let's let's
+
+1356
+01:27:52,639 --> 01:27:58,320
+just try
+
+1357
+01:27:54,040 --> 01:28:02,719
+this string positions let's just try it
+
+1358
+01:27:58,320 --> 01:28:02,719
+okay string positions uh
+
+1359
+01:28:03,360 --> 01:28:11,560
+string uh number number
+
+1360
+01:28:07,679 --> 01:28:16,360
+okay uh and
+
+1361
+01:28:11,560 --> 01:28:16,360
+uh okay so let's see what that
+
+1362
+01:28:18,880 --> 01:28:22,800
+returns yeah you don't want the
+
+1363
+01:28:21,040 --> 01:28:27,719
+semicolon
+
+1364
+01:28:22,800 --> 01:28:27,719
+cuz the semicolon suppresses the
+
+1365
+01:28:28,960 --> 01:28:34,480
+output okay
+
+1366
+01:28:31,480 --> 01:28:34,480
+so
+
+1367
+01:28:38,119 --> 01:28:43,119
+57 oh God this is not
+
+1368
+01:28:45,880 --> 01:28:54,000
+good 1
+
+1369
+01:28:48,560 --> 01:28:54,000
+three 2 three 3 three so it
+
+1370
+01:28:54,760 --> 01:29:01,360
+it wait so is the overlap true or false
+
+1371
+01:28:58,440 --> 01:29:01,360
+ah God so
+
+1372
+01:29:08,840 --> 01:29:15,199
+me ignore case overlap true H we want
+
+1373
+01:29:13,119 --> 01:29:18,880
+overlap false
+
+1374
+01:29:15,199 --> 01:29:18,880
+okay we don't want
+
+1375
+01:29:20,920 --> 01:29:23,920
+overlap
+
+1376
+01:29:27,000 --> 01:29:33,199
+there it is
+
+1377
+01:29:29,119 --> 01:29:35,239
+we so many tricky
+
+1378
+01:29:33,199 --> 01:29:40,400
+details
+
+1379
+01:29:35,239 --> 01:29:45,600
+okay okay stream position so so that
+
+1380
+01:29:40,400 --> 01:29:45,600
+that that overlap Force
+
+1381
+01:29:45,960 --> 01:29:49,520
+okay
+
+1382
+01:29:48,000 --> 01:29:53,920
+God
+
+1383
+01:29:49,520 --> 01:29:53,920
+okay now
+
+1384
+01:29:54,119 --> 01:30:00,480
+run
+
+1385
+01:29:55,679 --> 01:30:00,480
+it now better let's
+
+1386
+01:30:01,400 --> 01:30:08,520
+check 13 yes this 68 okay looks right
+
+1387
+01:30:06,520 --> 01:30:13,920
+then 25
+
+1388
+01:30:08,520 --> 01:30:17,400
+26 yeah then 29 33
+
+1389
+01:30:13,920 --> 01:30:22,800
+31 yep
+
+1390
+01:30:17,400 --> 01:30:27,920
+okay good finally got that part right l
+
+1391
+01:30:22,800 --> 01:30:31,040
+says W seems like a very complicated
+
+1392
+01:30:27,920 --> 01:30:32,080
+language kind of well I would say you
+
+1393
+01:30:31,040 --> 01:30:35,719
+know that
+
+1394
+01:30:32,080 --> 01:30:39,280
+depends it's very different from all
+
+1395
+01:30:35,719 --> 01:30:44,199
+industrial languages for sure but I
+
+1396
+01:30:39,280 --> 01:30:47,960
+would say it's actually so if you are a
+
+1397
+01:30:44,199 --> 01:30:51,199
+alien from Mars you don't know anything
+
+1398
+01:30:47,960 --> 01:30:52,520
+about Earth or human beings uh but you
+
+1399
+01:30:51,199 --> 01:30:55,840
+are intellig
+
+1400
+01:30:52,520 --> 01:30:58,199
+ENT you know you just came from Mars
+
+1401
+01:30:55,840 --> 01:31:01,600
+then you drop to Earth then you let's
+
+1402
+01:30:58,199 --> 01:31:06,040
+say you are given uh let's say Java
+
+1403
+01:31:01,600 --> 01:31:09,400
+python W fir language hascal lisp you
+
+1404
+01:31:06,040 --> 01:31:12,600
+start to learn them in parallel okay
+
+1405
+01:31:09,400 --> 01:31:15,880
+which one would this alien find the
+
+1406
+01:31:12,600 --> 01:31:19,199
+easiest I would say that would be wfam
+
+1407
+01:31:15,880 --> 01:31:22,159
+language okay that's my view it appears
+
+1408
+01:31:19,199 --> 01:31:25,159
+very complex because it's very different
+
+1409
+01:31:22,159 --> 01:31:28,040
+from the vast you know the industrial
+
+1410
+01:31:25,159 --> 01:31:32,719
+common industrial languages most people
+
+1411
+01:31:28,040 --> 01:31:35,679
+are familiar with C Java C++ python they
+
+1412
+01:31:32,719 --> 01:31:39,840
+all basically do the same way you know
+
+1413
+01:31:35,679 --> 01:31:41,719
+bash you know so but however if you are
+
+1414
+01:31:39,840 --> 01:31:43,880
+fresh and
+
+1415
+01:31:41,719 --> 01:31:47,400
+new I would
+
+1416
+01:31:43,880 --> 01:31:49,320
+say yeah I'm pretty I'm pretty sure I
+
+1417
+01:31:47,400 --> 01:31:53,440
+would I would say
+
+1418
+01:31:49,320 --> 01:31:57,600
+it's UAM language is actually pretty
+
+1419
+01:31:53,440 --> 01:31:59,400
+simple okay back to the problem so we
+
+1420
+01:31:57,600 --> 01:32:01,880
+got a list of
+
+1421
+01:31:59,400 --> 01:32:05,719
+positions we got a list of number
+
+1422
+01:32:01,880 --> 01:32:09,400
+positions okay uh and
+
+1423
+01:32:05,719 --> 01:32:11,920
+now since since we found a problem about
+
+1424
+01:32:09,400 --> 01:32:15,800
+about the overlap now we need to do that
+
+1425
+01:32:11,920 --> 01:32:20,679
+for the for the symbol positions as well
+
+1426
+01:32:15,800 --> 01:32:23,679
+because if we don't let's see what it
+
+1427
+01:32:20,679 --> 01:32:23,679
+returns
+
+1428
+01:32:24,840 --> 01:32:33,840
+oh so it so happens symbols are never
+
+1429
+01:32:29,920 --> 01:32:38,000
+consecutive it's interesting to find you
+
+1430
+01:32:33,840 --> 01:32:39,639
+see symbols are never
+
+1431
+01:32:38,000 --> 01:32:43,760
+consecutive
+
+1432
+01:32:39,639 --> 01:32:46,679
+but you know if day one is any
+
+1433
+01:32:43,760 --> 01:32:48,360
+indication maybe in a real input it
+
+1434
+01:32:46,679 --> 01:32:51,679
+sneaks
+
+1435
+01:32:48,360 --> 01:32:54,360
+in consecutive symbols does it actually
+
+1436
+01:32:51,679 --> 01:32:57,239
+actually happen
+
+1437
+01:32:54,360 --> 01:33:01,880
+somewhere I don't know but you
+
+1438
+01:32:57,239 --> 01:33:04,600
+see symbols so happen to be never
+
+1439
+01:33:01,880 --> 01:33:07,600
+consecutive but it is actually something
+
+1440
+01:33:04,600 --> 01:33:11,440
+we have to look out for because the
+
+1441
+01:33:07,600 --> 01:33:13,280
+problem does not say that symbols never
+
+1442
+01:33:11,440 --> 01:33:15,880
+occur
+
+1443
+01:33:13,280 --> 01:33:19,159
+together you see that's a that's a thing
+
+1444
+01:33:15,880 --> 01:33:22,840
+about Advent of a code but from the look
+
+1445
+01:33:19,159 --> 01:33:26,000
+of it it looks like the symbols on never
+
+1446
+01:33:22,840 --> 01:33:26,000
+adjacent to each
+
+1447
+01:33:26,400 --> 01:33:32,719
+other but anyway just to be sure you
+
+1448
+01:33:30,119 --> 01:33:37,280
+know just to be safe the I mean the the
+
+1449
+01:33:32,719 --> 01:33:42,880
+actual the correct solution is to not
+
+1450
+01:33:37,280 --> 01:33:45,560
+assume that not assume that that uh
+
+1451
+01:33:42,880 --> 01:33:45,560
+symbols
+
+1452
+01:33:45,800 --> 01:33:53,560
+are never adjacent so this is the better
+
+1453
+01:33:50,639 --> 01:33:53,560
+let's run it
+
+1454
+01:33:55,960 --> 01:34:01,320
+you see uh okay so let's you know let's
+
+1455
+01:33:59,679 --> 01:34:05,400
+run them
+
+1456
+01:34:01,320 --> 01:34:09,600
+two let's run two account one is
+
+1457
+01:34:05,400 --> 01:34:13,360
+symbol uh overlap true other one overlap
+
+1458
+01:34:09,600 --> 01:34:16,800
+Force let's see and this time let's use
+
+1459
+01:34:13,360 --> 01:34:16,800
+the our
+
+1460
+01:34:20,480 --> 01:34:25,199
+input
+
+1461
+01:34:22,119 --> 01:34:29,159
+so let's see
+
+1462
+01:34:25,199 --> 01:34:32,239
+copy new buffer
+
+1463
+01:34:29,159 --> 01:34:34,679
+paste so we got two of
+
+1464
+01:34:32,239 --> 01:34:38,000
+them one is
+
+1465
+01:34:34,679 --> 01:34:41,719
+149 okay so it's hard to tell from these
+
+1466
+01:34:38,000 --> 01:34:45,560
+output they are the same or not okay but
+
+1467
+01:34:41,719 --> 01:34:50,480
+what you can do is that you can say
+
+1468
+01:34:45,560 --> 01:34:53,480
+equal then you um yeah
+
+1469
+01:34:50,480 --> 01:34:53,480
+so
+
+1470
+01:34:56,040 --> 01:35:03,600
+so we can see we can let me
+
+1471
+01:35:00,600 --> 01:35:03,600
+see
+
+1472
+01:35:04,840 --> 01:35:12,760
+equal let's see if they are equal or
+
+1473
+01:35:09,000 --> 01:35:15,119
+not oh they are equal so actually the
+
+1474
+01:35:12,760 --> 01:35:16,960
+symbols never
+
+1475
+01:35:15,119 --> 01:35:18,719
+happens
+
+1476
+01:35:16,960 --> 01:35:22,520
+consecutively
+
+1477
+01:35:18,719 --> 01:35:24,639
+interesting hidden ship
+
+1478
+01:35:22,520 --> 01:35:28,000
+okay so
+
+1479
+01:35:24,639 --> 01:35:30,159
+anyway o overlap Force okay we want
+
+1480
+01:35:28,000 --> 01:35:33,520
+actually we want overlap Force we don't
+
+1481
+01:35:30,159 --> 01:35:37,679
+assume the symbols never
+
+1482
+01:35:33,520 --> 01:35:39,840
+overlap okay so we got number positions
+
+1483
+01:35:37,679 --> 01:35:42,840
+now we and then then we got symbol
+
+1484
+01:35:39,840 --> 01:35:45,880
+positions now we need to write this
+
+1485
+01:35:42,840 --> 01:35:49,040
+valid number this is actually the heart
+
+1486
+01:35:45,880 --> 01:35:52,800
+of the problem and we spend almost two
+
+1487
+01:35:49,040 --> 01:35:55,400
+hours we haven't write this code yet
+
+1488
+01:35:52,800 --> 01:35:58,440
+yet uh actually it's good time for a
+
+1489
+01:35:55,400 --> 01:35:58,440
+break you know because
+
+1490
+01:35:59,639 --> 01:36:04,760
+usually when you take a break you can
+
+1491
+01:36:02,119 --> 01:36:07,960
+look at some other approaches then
+
+1492
+01:36:04,760 --> 01:36:12,000
+usually you know in instead of you
+
+1493
+01:36:07,960 --> 01:36:15,760
+slaving into the details like this this
+
+1494
+01:36:12,000 --> 01:36:17,000
+um you might find a better way and solve
+
+1495
+01:36:15,760 --> 01:36:20,280
+it
+
+1496
+01:36:17,000 --> 01:36:23,719
+easier but you know or we can just push
+
+1497
+01:36:20,280 --> 01:36:25,960
+on and then let's just let's just push
+
+1498
+01:36:23,719 --> 01:36:28,159
+on I mean we are making a lot of
+
+1499
+01:36:25,960 --> 01:36:30,280
+progress it's not like we are stuck
+
+1500
+01:36:28,159 --> 01:36:34,159
+somewhere right
+
+1501
+01:36:30,280 --> 01:36:37,960
+so so so now we need to write the valid
+
+1502
+01:36:34,159 --> 01:36:40,119
+number the valid number is it valid
+
+1503
+01:36:37,960 --> 01:36:43,760
+given a position beginning and end
+
+1504
+01:36:40,119 --> 01:36:46,440
+position so what we have to do is okay
+
+1505
+01:36:43,760 --> 01:36:50,040
+we need to write this function so the
+
+1506
+01:36:46,440 --> 01:36:50,040
+body of the function will
+
+1507
+01:36:50,280 --> 01:36:56,800
+be
+
+1508
+01:36:51,920 --> 01:37:00,560
+uh basically the algorithm will be check
+
+1509
+01:36:56,800 --> 01:37:05,320
+if there is a
+
+1510
+01:37:00,560 --> 01:37:05,320
+symbol in front or
+
+1511
+01:37:05,600 --> 01:37:11,320
+after the number
+
+1512
+01:37:09,280 --> 01:37:14,679
+okay then
+
+1513
+01:37:11,320 --> 01:37:17,520
+check if there is a
+
+1514
+01:37:14,679 --> 01:37:21,360
+symbol above the
+
+1515
+01:37:17,520 --> 01:37:25,800
+line okay then check if there is there
+
+1516
+01:37:21,360 --> 01:37:29,520
+is a symbol after the line okay so three
+
+1517
+01:37:25,800 --> 01:37:29,520
+lines we we need to
+
+1518
+01:37:29,639 --> 01:37:37,960
+check a symbol in front of a okay
+
+1519
+01:37:34,119 --> 01:37:40,400
+so first first of all let's check check
+
+1520
+01:37:37,960 --> 01:37:43,400
+if there is a
+
+1521
+01:37:40,400 --> 01:37:43,400
+adjacent
+
+1522
+01:37:44,920 --> 01:37:51,320
+uh lindra says turns out that in a super
+
+1523
+01:37:48,760 --> 01:37:55,639
+functional language like wolm you need
+
+1524
+01:37:51,320 --> 01:37:59,800
+to write a gazillion functions just to
+
+1525
+01:37:55,639 --> 01:38:03,199
+replace simple Loop for C that's that's
+
+1526
+01:37:59,800 --> 01:38:06,639
+false that's patently
+
+1527
+01:38:03,199 --> 01:38:08,679
+false you know the one thing with doing
+
+1528
+01:38:06,639 --> 01:38:10,400
+live stream is
+
+1529
+01:38:08,679 --> 01:38:14,320
+that you
+
+1530
+01:38:10,400 --> 01:38:16,639
+see why do I have all these functions I
+
+1531
+01:38:14,320 --> 01:38:19,719
+don't need to if I'm react if I'm
+
+1532
+01:38:16,639 --> 01:38:24,040
+actually just coding it myself you won't
+
+1533
+01:38:19,719 --> 01:38:26,760
+see all this fun funs but then nobody
+
+1534
+01:38:24,040 --> 01:38:29,520
+would understand what I'm doing you see
+
+1535
+01:38:26,760 --> 01:38:33,000
+and also I use this long form you know
+
+1536
+01:38:29,520 --> 01:38:38,000
+is there's a lot you know also I I write
+
+1537
+01:38:33,000 --> 01:38:43,520
+them such that in such I went out my way
+
+1538
+01:38:38,000 --> 01:38:45,840
+to write them in all this way so that
+
+1539
+01:38:43,520 --> 01:38:48,119
+the readers you guys can understand what
+
+1540
+01:38:45,840 --> 01:38:52,480
+I'm doing because normally you don't
+
+1541
+01:38:48,119 --> 01:38:55,520
+write things this way you know you
+
+1542
+01:38:52,480 --> 01:38:58,840
+uh and also I'm I'm writing these extra
+
+1543
+01:38:55,520 --> 01:39:01,599
+variables you know just so that mostly
+
+1544
+01:38:58,840 --> 01:39:06,440
+it's for that purpose you
+
+1545
+01:39:01,599 --> 01:39:08,760
+know so in fact if you code wam language
+
+1546
+01:39:06,440 --> 01:39:13,800
+you know you can look at the previous
+
+1547
+01:39:08,760 --> 01:39:16,080
+two days solution there's one there's no
+
+1548
+01:39:13,800 --> 01:39:20,199
+extra function outside this is like the
+
+1549
+01:39:16,080 --> 01:39:22,440
+whole solution is one single line one
+
+1550
+01:39:20,199 --> 01:39:25,000
+single expression there is no even
+
+1551
+01:39:22,440 --> 01:39:28,320
+definition of a function one single
+
+1552
+01:39:25,000 --> 01:39:32,320
+expression within 200 characters for
+
+1553
+01:39:28,320 --> 01:39:36,440
+each Advent of code day okay and I would
+
+1554
+01:39:32,320 --> 01:39:40,400
+say for all Advent of code in fact for
+
+1555
+01:39:36,440 --> 01:39:43,679
+the entire history of event of code any
+
+1556
+01:39:40,400 --> 01:39:44,800
+of this problem is one single line of
+
+1557
+01:39:43,679 --> 01:39:49,360
+wolam
+
+1558
+01:39:44,800 --> 01:39:52,360
+language uh in you know within let's say
+
+1559
+01:39:49,360 --> 01:39:55,520
+500 characters the entire history of
+
+1560
+01:39:52,360 --> 01:39:58,280
+Advent of code problem okay and further
+
+1561
+01:39:55,520 --> 01:40:01,080
+I would claim you don't even have to
+
+1562
+01:39:58,280 --> 01:40:04,000
+Define one single
+
+1563
+01:40:01,080 --> 01:40:06,480
+function you know you might think I'm
+
+1564
+01:40:04,000 --> 01:40:10,560
+exaggerating I'm not because that's the
+
+1565
+01:40:06,480 --> 01:40:11,960
+nature of wolam language it's a it's a
+
+1566
+01:40:10,560 --> 01:40:15,639
+[Music]
+
+1567
+01:40:11,960 --> 01:40:17,840
+um term rewriting system you know in in
+
+1568
+01:40:15,639 --> 01:40:20,080
+the academic computer science way of
+
+1569
+01:40:17,840 --> 01:40:22,800
+speaking it's called term rewriting
+
+1570
+01:40:20,080 --> 01:40:25,719
+system you don't need you
+
+1571
+01:40:22,800 --> 01:40:28,800
+know but anyway so that's kind of
+
+1572
+01:40:25,719 --> 01:40:31,320
+getting getting you know so anyway let's
+
+1573
+01:40:28,800 --> 01:40:35,199
+go back to
+
+1574
+01:40:31,320 --> 01:40:37,239
+um yeah you know kind of you know
+
+1575
+01:40:35,199 --> 01:40:39,800
+addressing these issues gets me
+
+1576
+01:40:37,239 --> 01:40:42,960
+energized but but I'm not solving the
+
+1577
+01:40:39,800 --> 01:40:47,080
+problem right now so we need
+
+1578
+01:40:42,960 --> 01:40:48,679
+to I'm tired um sitting here for like 2
+
+1579
+01:40:47,080 --> 01:40:54,000
+hours
+
+1580
+01:40:48,679 --> 01:40:54,000
+now um we need to write this function
+
+1581
+01:40:55,119 --> 01:41:02,000
+so um yeah so check you know you just
+
+1582
+01:40:58,639 --> 01:41:02,000
+have to check each line
+
+1583
+01:41:03,480 --> 01:41:10,760
+so so given that
+
+1584
+01:41:06,960 --> 01:41:13,440
+um so let's let's start with the easiest
+
+1585
+01:41:10,760 --> 01:41:13,440
+case
+
+1586
+01:41:17,719 --> 01:41:23,440
+so so now I'm thinking is there a way
+
+1587
+01:41:21,040 --> 01:41:27,480
+actually without checking positions at
+
+1588
+01:41:23,440 --> 01:41:31,679
+all you simply use some kind of pattern
+
+1589
+01:41:27,480 --> 01:41:34,520
+matching such that
+
+1590
+01:41:31,679 --> 01:41:37,480
+you you know without knowing any
+
+1591
+01:41:34,520 --> 01:41:40,320
+position about anything but you simply
+
+1592
+01:41:37,480 --> 01:41:45,159
+use some some string
+
+1593
+01:41:40,320 --> 01:41:49,480
+pattern that will match your number only
+
+1594
+01:41:45,159 --> 01:41:53,119
+if it has one of these symbols adjacent
+
+1595
+01:41:49,480 --> 01:41:56,280
+to it you know even above it or below it
+
+1596
+01:41:53,119 --> 01:41:58,800
+you see because now we took the time to
+
+1597
+01:41:56,280 --> 01:42:00,840
+find out all the symbols there is
+
+1598
+01:41:58,800 --> 01:42:05,760
+there's actually just four of
+
+1599
+01:42:00,840 --> 01:42:07,320
+them so is it possible to write a string
+
+1600
+01:42:05,760 --> 01:42:10,000
+pattern such
+
+1601
+01:42:07,320 --> 01:42:11,050
+that you don't even need to know the
+
+1602
+01:42:10,000 --> 01:42:14,149
+position
+
+1603
+01:42:11,050 --> 01:42:14,149
+[Music]
+
+1604
+01:42:19,199 --> 01:42:27,800
+um it is actually it may be possible and
+
+1605
+01:42:23,840 --> 01:42:32,000
+also shico made this suggestion this
+
+1606
+01:42:27,800 --> 01:42:32,000
+this pick that's very interesting
+
+1607
+01:42:32,760 --> 01:42:38,560
+that that I need to think about that
+
+1608
+01:42:36,000 --> 01:42:42,400
+actually might work because that pck
+
+1609
+01:42:38,560 --> 01:42:44,920
+solution is just like a mask a mask for
+
+1610
+01:42:42,400 --> 01:42:46,960
+this Matrix like you
+
+1611
+01:42:44,920 --> 01:42:50,800
+just put the
+
+1612
+01:42:46,960 --> 01:42:52,760
+mask onto it and whatever shows is just
+
+1613
+01:42:50,800 --> 01:42:56,119
+the numbers you
+
+1614
+01:42:52,760 --> 01:42:59,760
+want so but I have to think about that
+
+1615
+01:42:56,119 --> 01:43:03,880
+but right now I'm thinking of
+
+1616
+01:42:59,760 --> 01:43:07,080
+um is there a pattern such that is it
+
+1617
+01:43:03,880 --> 01:43:09,239
+possible to write a string expression
+
+1618
+01:43:07,080 --> 01:43:14,719
+pattern such
+
+1619
+01:43:09,239 --> 01:43:17,159
+that it gets a number only if the
+
+1620
+01:43:14,719 --> 01:43:21,880
+number
+
+1621
+01:43:17,159 --> 01:43:25,760
+has symbols adjacent to it so in order
+
+1622
+01:43:21,880 --> 01:43:28,000
+to do this you need your expression you
+
+1623
+01:43:25,760 --> 01:43:31,050
+need your text pattern to
+
+1624
+01:43:28,000 --> 01:43:34,119
+be to be
+
+1625
+01:43:31,050 --> 01:43:40,119
+[Music]
+
+1626
+01:43:34,119 --> 01:43:42,679
+to you need your text pattern to embed
+
+1627
+01:43:40,119 --> 01:43:46,719
+information
+
+1628
+01:43:42,679 --> 01:43:46,719
+about the entire
+
+1629
+01:43:46,840 --> 01:43:52,679
+line
+
+1630
+01:43:49,679 --> 01:43:52,679
+Plus
+
+1631
+01:43:53,679 --> 01:44:01,679
+so you know let's say let's take the
+
+1632
+01:43:56,560 --> 01:44:04,920
+number 633 here so you want
+
+1633
+01:44:01,679 --> 01:44:07,159
+so if that is the case then you need a
+
+1634
+01:44:04,920 --> 01:44:09,639
+regular expression that covers this
+
+1635
+01:44:07,159 --> 01:44:13,159
+range
+
+1636
+01:44:09,639 --> 01:44:16,639
+okay so let's take the number
+
+1637
+01:44:13,159 --> 01:44:18,599
+58 now a regular expression for this
+
+1638
+01:44:16,639 --> 01:44:22,599
+case will
+
+1639
+01:44:18,599 --> 01:44:22,599
+cover this range
+
+1640
+01:44:22,800 --> 01:44:28,080
+okay what about
+
+1641
+01:44:25,040 --> 01:44:30,679
+617 okay a regular expression cover in
+
+1642
+01:44:28,080 --> 01:44:34,239
+this case
+
+1643
+01:44:30,679 --> 01:44:36,679
+will uh will be in this range okay so
+
+1644
+01:44:34,239 --> 01:44:38,280
+basically including including the
+
+1645
+01:44:36,679 --> 01:44:41,280
+diagonal
+
+1646
+01:44:38,280 --> 01:44:44,080
+okay so let's think about this
+
+1647
+01:44:41,280 --> 01:44:46,350
+possibility you're going to generate a
+
+1648
+01:44:44,080 --> 01:44:47,480
+ex regular
+
+1649
+01:44:46,350 --> 01:44:49,560
+[Music]
+
+1650
+01:44:47,480 --> 01:44:52,560
+expression such
+
+1651
+01:44:49,560 --> 01:44:52,560
+that
+
+1652
+01:44:55,199 --> 01:44:59,239
+such
+
+1653
+01:44:56,960 --> 01:45:02,159
+that
+
+1654
+01:44:59,239 --> 01:45:04,199
+uh why am I not using the glove at I
+
+1655
+01:45:02,159 --> 01:45:06,880
+talked about in my last video okay you
+
+1656
+01:45:04,199 --> 01:45:09,800
+guys should watch my video
+
+1657
+01:45:06,880 --> 01:45:13,599
+because this this I got a light switch
+
+1658
+01:45:09,800 --> 01:45:18,000
+for this one watch my video two three
+
+1659
+01:45:13,599 --> 01:45:20,159
+episode ago okay you'll see uh I'm going
+
+1660
+01:45:18,000 --> 01:45:21,080
+to use this for a while for for a few
+
+1661
+01:45:20,159 --> 01:45:22,840
+months
+
+1662
+01:45:21,080 --> 01:45:24,719
+so anyway
+
+1663
+01:45:22,840 --> 01:45:27,159
+so
+
+1664
+01:45:24,719 --> 01:45:29,239
+this so that anyway that's another
+
+1665
+01:45:27,159 --> 01:45:30,239
+approach very interesting you use the
+
+1666
+01:45:29,239 --> 01:45:33,920
+regular
+
+1667
+01:45:30,239 --> 01:45:38,760
+expression instead of position checking
+
+1668
+01:45:33,920 --> 01:45:43,080
+okay so that's a approach for us right
+
+1669
+01:45:38,760 --> 01:45:46,000
+now now the traditional approach would
+
+1670
+01:45:43,080 --> 01:45:49,520
+be now once you get the beginning and
+
+1671
+01:45:46,000 --> 01:45:51,520
+end index you minus the number of
+
+1672
+01:45:49,520 --> 01:45:53,360
+characters per line
+
+1673
+01:45:51,520 --> 01:46:00,800
+so you
+
+1674
+01:45:53,360 --> 01:46:04,840
+check if there is a symbol occurring in
+
+1675
+01:46:00,800 --> 01:46:07,520
+that yeah so maybe this is actually
+
+1676
+01:46:04,840 --> 01:46:10,560
+simpler so you all you have to do is you
+
+1677
+01:46:07,520 --> 01:46:15,000
+check if there is
+
+1678
+01:46:10,560 --> 01:46:18,320
+um so suppose our index
+
+1679
+01:46:15,000 --> 01:46:18,320
+is let's
+
+1680
+01:46:19,400 --> 01:46:22,400
+say
+
+1681
+01:46:24,480 --> 01:46:32,000
+27 and uh 23 and
+
+1682
+01:46:28,360 --> 01:46:35,800
+207 okay let's say that's our beginning
+
+1683
+01:46:32,000 --> 01:46:37,360
+end so you just
+
+1684
+01:46:35,800 --> 01:46:39,440
+check
+
+1685
+01:46:37,360 --> 01:46:42,840
+is
+
+1686
+01:46:39,440 --> 01:46:42,840
+22 is a
+
+1687
+01:46:44,000 --> 01:46:48,760
+symbol something like that okay so
+
+1688
+01:46:49,400 --> 01:46:54,080
+let's
+
+1689
+01:46:51,320 --> 01:46:54,080
+suppose
+
+1690
+01:47:04,199 --> 01:47:08,960
+begin is position 22 a
+
+1691
+01:47:11,760 --> 01:47:16,639
+symbol then is position
+
+1692
+01:47:17,639 --> 01:47:22,320
+28 a symbol
+
+1693
+01:47:22,520 --> 01:47:29,040
+okay so that's checking the current line
+
+1694
+01:47:26,480 --> 01:47:33,719
+uh and if you do this you also have to
+
+1695
+01:47:29,040 --> 01:47:36,159
+make sure that you are not you know you
+
+1696
+01:47:33,719 --> 01:47:39,679
+are not going to the previous line you
+
+1697
+01:47:36,159 --> 01:47:43,159
+have to make sure you are your number is
+
+1698
+01:47:39,679 --> 01:47:43,159
+not at the beginning of
+
+1699
+01:47:49,320 --> 01:47:52,320
+line
+
+1700
+01:47:57,320 --> 01:48:02,199
+okay that's that's uh God
+
+1701
+01:48:03,280 --> 01:48:08,800
+then
+
+1702
+01:48:05,280 --> 01:48:13,480
+then once you do that
+
+1703
+01:48:08,800 --> 01:48:16,040
+then is position 22
+
+1704
+01:48:13,480 --> 01:48:17,639
+minus line
+
+1705
+01:48:16,040 --> 01:48:23,520
+chart
+
+1706
+01:48:17,639 --> 01:48:28,800
+count something like that okay okay so M
+
+1707
+01:48:23,520 --> 01:48:28,800
+so if 58 is a number
+
+1708
+01:48:31,280 --> 01:48:38,199
+you okay M minus line line ch ch count
+
+1709
+01:48:36,480 --> 01:48:43,159
+minus one
+
+1710
+01:48:38,199 --> 01:48:43,159
+okay is position that okay
+
+1711
+01:48:46,360 --> 01:48:49,199
+so
+
+1712
+01:48:47,500 --> 01:48:52,199
+[Music]
+
+1713
+01:48:49,199 --> 01:48:52,199
+so
+
+1714
+01:48:52,239 --> 01:49:00,719
+plus plus one
+
+1715
+01:48:56,280 --> 01:49:05,679
+okay let's replace so this is so we
+
+1716
+01:49:00,719 --> 01:49:10,199
+write down what we are doing okay so why
+
+1717
+01:49:05,679 --> 01:49:12,440
+okay make sure the number so now this
+
+1718
+01:49:10,199 --> 01:49:13,590
+xus is
+
+1719
+01:49:12,440 --> 01:49:16,560
+then
+
+1720
+01:49:13,590 --> 01:49:22,119
+[Music]
+
+1721
+01:49:16,560 --> 01:49:22,119
+then okay then is uh
+
+1722
+01:49:37,840 --> 01:49:42,440
+um something like that
+
+1723
+01:49:43,920 --> 01:49:48,040
+okay okay this is getting
+
+1724
+01:49:48,920 --> 01:49:55,760
+tedious and and
+
+1725
+01:49:51,360 --> 01:49:57,840
+also we need to make sure we need to
+
+1726
+01:49:55,760 --> 01:50:03,880
+double check
+
+1727
+01:49:57,840 --> 01:50:07,920
+if if our uh number occurs in in the
+
+1728
+01:50:03,880 --> 01:50:10,440
+first line or the last line because
+
+1729
+01:50:07,920 --> 01:50:14,159
+that
+
+1730
+01:50:10,440 --> 01:50:14,159
+way uh
+
+1731
+01:50:19,040 --> 01:50:22,040
+okay
+
+1732
+01:50:38,080 --> 01:50:43,679
+okay we need to make sure we don't step
+
+1733
+01:50:40,119 --> 01:50:47,199
+out of the index
+
+1734
+01:50:43,679 --> 01:50:51,159
+boundary okay so that is the basic
+
+1735
+01:50:47,199 --> 01:50:52,960
+algorithm if we take this
+
+1736
+01:50:51,159 --> 01:50:55,960
+approach H
+
+1737
+01:50:52,960 --> 01:50:55,960
+seems
+
+1738
+01:50:56,560 --> 01:51:01,760
+problematic
+
+1739
+01:50:58,840 --> 01:51:04,840
+um
+
+1740
+01:51:01,760 --> 01:51:08,440
+so right now this
+
+1741
+01:51:04,840 --> 01:51:10,480
+problem you know it's been working on
+
+1742
+01:51:08,440 --> 01:51:13,320
+this for two hours
+
+1743
+01:51:10,480 --> 01:51:16,800
+now uh so far the
+
+1744
+01:51:13,320 --> 01:51:19,760
+code is not much code actually so so far
+
+1745
+01:51:16,800 --> 01:51:21,239
+it's like this line this line you don't
+
+1746
+01:51:19,760 --> 01:51:23,000
+need need variables you don't need
+
+1747
+01:51:21,239 --> 01:51:25,599
+special you know you can combine them
+
+1748
+01:51:23,000 --> 01:51:29,159
+they become very short single
+
+1749
+01:51:25,599 --> 01:51:31,679
+line um and and right now we are
+
+1750
+01:51:29,159 --> 01:51:36,360
+basically just having three lines of
+
+1751
+01:51:31,679 --> 01:51:39,760
+code because this unique for example
+
+1752
+01:51:36,360 --> 01:51:42,199
+unique symbol characters do we need it
+
+1753
+01:51:39,760 --> 01:51:44,800
+no uh because Advent of a code they
+
+1754
+01:51:42,199 --> 01:51:46,880
+don't care you can manually find out
+
+1755
+01:51:44,800 --> 01:51:50,760
+what symbols you need so you can just
+
+1756
+01:51:46,880 --> 01:51:52,000
+hard code into your program so you don't
+
+1757
+01:51:50,760 --> 01:51:57,360
+need this
+
+1758
+01:51:52,000 --> 01:52:00,000
+line uh CH line you know we found we can
+
+1759
+01:51:57,360 --> 01:52:02,679
+find it out programmatic
+
+1760
+01:52:00,000 --> 01:52:05,040
+programmatically that's what we did but
+
+1761
+01:52:02,679 --> 01:52:08,159
+also we can just hard code it you know
+
+1762
+01:52:05,040 --> 01:52:11,960
+for the real input the number of car
+
+1763
+01:52:08,159 --> 01:52:11,960
+characters per line is more
+
+1764
+01:52:14,159 --> 01:52:17,159
+than
+
+1765
+01:52:17,320 --> 01:52:23,800
+uh is 140 C
+
+1766
+01:52:20,800 --> 01:52:24,960
+right so they they are all 140
+
+1767
+01:52:23,800 --> 01:52:27,960
+characters
+
+1768
+01:52:24,960 --> 01:52:27,960
+each
+
+1769
+01:52:30,079 --> 01:52:37,679
+so yeah so we don't need this character
+
+1770
+01:52:33,040 --> 01:52:37,679
+per line neither so it's
+
+1771
+01:52:37,760 --> 01:52:42,480
+140 and the total of number of
+
+1772
+01:52:40,480 --> 01:52:44,599
+characters we don't need it neither so
+
+1773
+01:52:42,480 --> 01:52:48,639
+we don't need that
+
+1774
+01:52:44,599 --> 01:52:53,400
+line and this valid number function we
+
+1775
+01:52:48,639 --> 01:52:57,639
+do need which we have not complete yet
+
+1776
+01:52:53,400 --> 01:53:01,239
+okay then this number of
+
+1777
+01:52:57,639 --> 01:53:01,239
+positions we do
+
+1778
+01:53:01,599 --> 01:53:07,280
+need yeah number positions let's give
+
+1779
+01:53:04,639 --> 01:53:08,560
+you all the beginning end positions of
+
+1780
+01:53:07,280 --> 01:53:11,920
+occurrence of
+
+1781
+01:53:08,560 --> 01:53:15,599
+numbers and
+
+1782
+01:53:11,920 --> 01:53:17,159
+uh and uh we can can we shorten it yes
+
+1783
+01:53:15,599 --> 01:53:21,719
+we
+
+1784
+01:53:17,159 --> 01:53:26,400
+can we can shorten it by a lot
+
+1785
+01:53:21,719 --> 01:53:26,400
+uh and symbol positions do we need
+
+1786
+01:53:27,119 --> 01:53:33,599
+it it's nice to have because otherwise
+
+1787
+01:53:31,040 --> 01:53:33,599
+you have
+
+1788
+01:53:34,639 --> 01:53:39,719
+to yeah it's actually nice to have once
+
+1789
+01:53:37,639 --> 01:53:41,880
+you have the symbol positions you don't
+
+1790
+01:53:39,719 --> 01:53:41,880
+have
+
+1791
+01:53:44,960 --> 01:53:50,520
+to compute each
+
+1792
+01:53:48,760 --> 01:53:54,119
+time
+
+1793
+01:53:50,520 --> 01:53:56,199
+but actually now you know thinking about
+
+1794
+01:53:54,119 --> 01:54:00,159
+this
+
+1795
+01:53:56,199 --> 01:54:06,040
+this uh who is this shiko shiko solution
+
+1796
+01:54:00,159 --> 01:54:06,040
+about this pick now is looking very
+
+1797
+01:54:07,000 --> 01:54:12,560
+attractive the
+
+1798
+01:54:09,040 --> 01:54:13,960
+pick so let me think about this about
+
+1799
+01:54:12,560 --> 01:54:17,280
+this
+
+1800
+01:54:13,960 --> 01:54:21,920
+because if you do this you know you kind
+
+1801
+01:54:17,280 --> 01:54:25,719
+of just mask out like a bit
+
+1802
+01:54:21,920 --> 01:54:25,719
+mask on this
+
+1803
+01:54:25,960 --> 01:54:32,119
+entire character
+
+1804
+01:54:28,639 --> 01:54:35,159
+Matrix so
+
+1805
+01:54:32,119 --> 01:54:39,119
+you so we have you know consider this
+
+1806
+01:54:35,159 --> 01:54:39,119
+input as a character
+
+1807
+01:54:41,520 --> 01:54:47,199
+Matrix so you can so let's see if the
+
+1808
+01:54:45,440 --> 01:54:50,520
+pick how does it
+
+1809
+01:54:47,199 --> 01:54:52,280
+work list selection
+
+1810
+01:54:50,520 --> 01:54:57,840
+okay so list
+
+1811
+01:54:52,280 --> 01:54:58,800
+selection yeah so you take this string
+
+1812
+01:54:57,840 --> 01:55:04,199
+input
+
+1813
+01:54:58,800 --> 01:55:07,199
+string you replace all numbers by
+
+1814
+01:55:04,199 --> 01:55:11,960
+one right you replace all
+
+1815
+01:55:07,199 --> 01:55:14,960
+digits by one so you got one one
+
+1816
+01:55:11,960 --> 01:55:14,960
+here
+
+1817
+01:55:15,480 --> 01:55:26,480
+and that's right then you just pick
+
+1818
+01:55:21,040 --> 01:55:29,719
+okay then what you get is a
+
+1819
+01:55:26,480 --> 01:55:32,239
+string that contains nothing but
+
+1820
+01:55:29,719 --> 01:55:36,320
+numbers okay that then then what you get
+
+1821
+01:55:32,239 --> 01:55:38,239
+is a like string like that but all
+
+1822
+01:55:36,320 --> 01:55:39,960
+characters are removed except the
+
+1823
+01:55:38,239 --> 01:55:42,159
+numbers
+
+1824
+01:55:39,960 --> 01:55:45,159
+okay it's very
+
+1825
+01:55:42,159 --> 01:55:45,159
+nice
+
+1826
+01:55:47,119 --> 01:55:53,679
+then then you can do uh can you do that
+
+1827
+01:55:50,639 --> 01:55:55,719
+actually so yeah so
+
+1828
+01:55:53,679 --> 01:55:59,440
+the that's
+
+1829
+01:55:55,719 --> 01:55:59,440
+right yes you can do
+
+1830
+01:56:05,079 --> 01:56:11,400
+that okay but instead of a string the
+
+1831
+01:56:08,000 --> 01:56:12,760
+input must be a list that's also easily
+
+1832
+01:56:11,400 --> 01:56:16,560
+done you just
+
+1833
+01:56:12,760 --> 01:56:17,920
+convert a string into a sequence of a
+
+1834
+01:56:16,560 --> 01:56:21,119
+list of
+
+1835
+01:56:17,920 --> 01:56:24,920
+characters okay
+
+1836
+01:56:21,119 --> 01:56:24,920
+then so now we
+
+1837
+01:56:36,639 --> 01:56:45,560
+get so so when you do the pick we get a
+
+1838
+01:56:41,880 --> 01:56:52,280
+list of digits and
+
+1839
+01:56:45,560 --> 01:56:56,520
+uh the N digigit we need to replace them
+
+1840
+01:56:52,280 --> 01:56:56,520
+by they just become empty
+
+1841
+01:56:57,400 --> 01:57:04,320
+least they just
+
+1842
+01:57:00,800 --> 01:57:06,480
+become EMP empty Le oh God I need to
+
+1843
+01:57:04,320 --> 01:57:09,480
+think about
+
+1844
+01:57:06,480 --> 01:57:09,480
+this
+
+1845
+01:57:10,960 --> 01:57:16,840
+okay uh my wife cut my hair two days
+
+1846
+01:57:18,400 --> 01:57:21,400
+ago
+
+1847
+01:57:32,360 --> 01:57:39,280
+so I want to finish this
+
+1848
+01:57:35,560 --> 01:57:41,760
+problem I'm thinking of quit the live
+
+1849
+01:57:39,280 --> 01:57:41,760
+stream
+
+1850
+01:57:48,400 --> 01:57:51,400
+but
+
+1851
+01:58:05,360 --> 01:58:10,119
+yeah so we can have a matrix fantastic
+
+1852
+01:58:08,360 --> 01:58:17,920
+right we turn
+
+1853
+01:58:10,119 --> 01:58:21,679
+this input string into a matrix of
+
+1854
+01:58:17,920 --> 01:58:24,760
+characters so a 2d Matrix that will
+
+1855
+01:58:21,679 --> 01:58:26,119
+remain the shape of the input string as
+
+1856
+01:58:24,760 --> 01:58:29,400
+a
+
+1857
+01:58:26,119 --> 01:58:33,159
+rectangle and each element in the Matrix
+
+1858
+01:58:29,400 --> 01:58:36,280
+will be just a single
+
+1859
+01:58:33,159 --> 01:58:40,960
+character okay then
+
+1860
+01:58:36,280 --> 01:58:40,960
+we we generate the
+
+1861
+01:58:44,800 --> 01:58:47,800
+mask
+
+1862
+01:58:48,320 --> 01:58:54,079
+by it's fairly easy to do by one of
+
+1863
+01:58:51,320 --> 01:58:57,360
+these
+
+1864
+01:58:54,079 --> 01:59:00,360
+uh you know we just check if a character
+
+1865
+01:58:57,360 --> 01:59:02,840
+is a digit or not you know we check each
+
+1866
+01:59:00,360 --> 01:59:07,880
+and every element of the
+
+1867
+01:59:02,840 --> 01:59:11,239
+Matrix if that character is a digit then
+
+1868
+01:59:07,880 --> 01:59:12,760
+it remains if it's not a
+
+1869
+01:59:11,239 --> 01:59:17,760
+digit
+
+1870
+01:59:12,760 --> 01:59:17,760
+we replace it by zero or
+
+1871
+01:59:18,239 --> 01:59:23,119
+something
+
+1872
+01:59:19,960 --> 01:59:26,920
+uh we can do that without even without
+
+1873
+01:59:23,119 --> 01:59:26,920
+this this pick
+
+1874
+01:59:27,480 --> 01:59:34,000
+function okay so but once you do that
+
+1875
+01:59:30,719 --> 01:59:38,280
+what do you get I mean what what is the
+
+1876
+01:59:34,000 --> 01:59:42,079
+advantage what what what does it do for
+
+1877
+01:59:38,280 --> 01:59:45,800
+you so we get so we work with a 2d
+
+1878
+01:59:42,079 --> 01:59:47,440
+Matrix each element is a character we
+
+1879
+01:59:45,800 --> 01:59:51,480
+are able
+
+1880
+01:59:47,440 --> 01:59:52,960
+to filter out out any character that's
+
+1881
+01:59:51,480 --> 01:59:58,119
+not a
+
+1882
+01:59:52,960 --> 02:00:01,880
+digit okay so and retain retain this
+
+1883
+01:59:58,119 --> 02:00:04,400
+Matrix shape and we are also able to
+
+1884
+02:00:01,880 --> 02:00:09,480
+filter
+
+1885
+02:00:04,400 --> 02:00:09,480
+out any character that's not
+
+1886
+02:00:09,920 --> 02:00:15,159
+a
+
+1887
+02:00:12,440 --> 02:00:18,199
+symbol but the question remains how do
+
+1888
+02:00:15,159 --> 02:00:21,159
+you how do you know if a number is
+
+1889
+02:00:18,199 --> 02:00:21,159
+adjacent to a
+
+1890
+02:00:23,560 --> 02:00:29,360
+symbol okay and the basic solution is
+
+1891
+02:00:26,719 --> 02:00:32,280
+like we went through here the basic
+
+1892
+02:00:29,360 --> 02:00:35,239
+solution is to tediously check the
+
+1893
+02:00:32,280 --> 02:00:37,520
+position you know blah blah blah but is
+
+1894
+02:00:35,239 --> 02:00:41,679
+there some kind of
+
+1895
+02:00:37,520 --> 02:00:43,960
+like like like from the top Bird's eyes
+
+1896
+02:00:41,679 --> 02:00:48,280
+view some kind of mask or
+
+1897
+02:00:43,960 --> 02:00:51,000
+net that simply lets you like a cookie
+
+1898
+02:00:48,280 --> 02:00:53,480
+stamp
+
+1899
+02:00:51,000 --> 02:00:57,079
+that easily tells you a number is
+
+1900
+02:00:53,480 --> 02:00:59,440
+adjacent to a symbol so we are trying to
+
+1901
+02:00:57,079 --> 02:01:00,639
+look at that look into that using this
+
+1902
+02:00:59,440 --> 02:01:03,480
+pick
+
+1903
+02:01:00,639 --> 02:01:04,800
+function uh and this pick function turns
+
+1904
+02:01:03,480 --> 02:01:11,040
+a
+
+1905
+02:01:04,800 --> 02:01:14,560
+string a rectangular string into a 2d
+
+1906
+02:01:11,040 --> 02:01:18,280
+Matrix uh but is it necessary to turn it
+
+1907
+02:01:14,560 --> 02:01:21,040
+into a 2d Matrix not even I don't you
+
+1908
+02:01:18,280 --> 02:01:22,199
+know you can I think you can work with
+
+1909
+02:01:21,040 --> 02:01:25,480
+strings
+
+1910
+02:01:22,199 --> 02:01:28,280
+directly so what is the so the question
+
+1911
+02:01:25,480 --> 02:01:31,400
+is what is the advantage
+
+1912
+02:01:28,280 --> 02:01:35,239
+of working with Matrix there's probably
+
+1913
+02:01:31,400 --> 02:01:39,040
+some Advantage because string is by
+
+1914
+02:01:35,239 --> 02:01:41,440
+nature not a structured data structure
+
+1915
+02:01:39,040 --> 02:01:43,159
+with Matrix you can easily pick out you
+
+1916
+02:01:41,440 --> 02:01:46,599
+know the second
+
+1917
+02:01:43,159 --> 02:01:51,400
+row or the third column things like
+
+1918
+02:01:46,599 --> 02:01:53,360
+that so with Matrix is much easier to
+
+1919
+02:01:51,400 --> 02:01:56,280
+work with with
+
+1920
+02:01:53,360 --> 02:01:58,360
+string you can't you you know unless
+
+1921
+02:01:56,280 --> 02:02:03,719
+every time you split the
+
+1922
+02:01:58,360 --> 02:02:08,040
+lines you know yeah okay so Matrix great
+
+1923
+02:02:03,719 --> 02:02:11,040
+Advantage now back to the problem what's
+
+1924
+02:02:08,040 --> 02:02:15,199
+is is some kind of
+
+1925
+02:02:11,040 --> 02:02:18,280
+way like a cookie stamp that just easily
+
+1926
+02:02:15,199 --> 02:02:21,679
+tell you trivially tells you if a number
+
+1927
+02:02:18,280 --> 02:02:21,679
+is adjacent to
+
+1928
+02:02:22,520 --> 02:02:30,679
+a oh yes
+
+1929
+02:02:26,880 --> 02:02:34,440
+yes I think so yes with a
+
+1930
+02:02:30,679 --> 02:02:38,520
+matrix with a matrix given any element
+
+1931
+02:02:34,440 --> 02:02:40,800
+in a 2d Matrix you can find all its
+
+1932
+02:02:38,520 --> 02:02:44,800
+[Laughter]
+
+1933
+02:02:40,800 --> 02:02:47,440
+neighbors this is the power of wam
+
+1934
+02:02:44,800 --> 02:02:52,599
+language okay
+
+1935
+02:02:47,440 --> 02:02:55,520
+so given a a 2d Matrix or even 3D Matrix
+
+1936
+02:02:52,599 --> 02:02:58,400
+you know given a matrix given any
+
+1937
+02:02:55,520 --> 02:03:02,360
+element position of a
+
+1938
+02:02:58,400 --> 02:03:05,480
+matrix it is mathematically defined you
+
+1939
+02:03:02,360 --> 02:03:08,119
+know usually in math you you need to do
+
+1940
+02:03:05,480 --> 02:03:11,159
+that to find all the neighbors of that
+
+1941
+02:03:08,119 --> 02:03:14,639
+element okay what you know to to get all
+
+1942
+02:03:11,159 --> 02:03:17,119
+the values of adjacent
+
+1943
+02:03:14,639 --> 02:03:21,040
+elements I believe sometimes you need to
+
+1944
+02:03:17,119 --> 02:03:22,719
+do that for Matrix so this becomes a
+
+1945
+02:03:21,040 --> 02:03:24,679
+traditional math
+
+1946
+02:03:22,719 --> 02:03:28,599
+problem
+
+1947
+02:03:24,679 --> 02:03:32,960
+right so now you know if I'm doing this
+
+1948
+02:03:28,599 --> 02:03:35,679
+on my own I would be looking into all
+
+1949
+02:03:32,960 --> 02:03:39,560
+the Matrix functions okay let's let's
+
+1950
+02:03:35,679 --> 02:03:42,119
+look for a few select criteria okay now
+
+1951
+02:03:39,560 --> 02:03:45,360
+let's see there is a
+
+1952
+02:03:42,119 --> 02:03:50,880
+matrix working on Matrix
+
+1953
+02:03:45,360 --> 02:03:50,880
+guide okay conditions numerical data
+
+1954
+02:03:51,119 --> 02:03:57,199
+uh element elements of a list handling
+
+1955
+02:03:55,679 --> 02:04:00,840
+arrays of
+
+1956
+02:03:57,199 --> 02:04:03,639
+data I know where to look for but um
+
+1957
+02:04:00,840 --> 02:04:08,599
+okay let's go
+
+1958
+02:04:03,639 --> 02:04:12,400
+there so data analysis data manipulation
+
+1959
+02:04:08,599 --> 02:04:15,679
+and Analysis array manipulation okay
+
+1960
+02:04:12,400 --> 02:04:15,679
+maybe you it's
+
+1961
+02:04:16,880 --> 02:04:25,280
+there and symbol there is
+
+1962
+02:04:20,760 --> 02:04:28,679
+a you know there is a section that
+
+1963
+02:04:25,280 --> 02:04:31,320
+directly addresses matrices
+
+1964
+02:04:28,679 --> 02:04:34,000
+matrices linear
+
+1965
+02:04:31,320 --> 02:04:37,520
+algebra okay but we can hire
+
+1966
+02:04:34,000 --> 02:04:40,480
+mathematical computation polom algebra
+
+1967
+02:04:37,520 --> 02:04:44,360
+linear algebra there let's go tensor
+
+1968
+02:04:40,480 --> 02:04:50,079
+right exactly so right so now we
+
+1969
+02:04:44,360 --> 02:04:54,639
+got close to the Matrix section okay so
+
+1970
+02:04:50,079 --> 02:04:58,239
+right now we want a function that given
+
+1971
+02:04:54,639 --> 02:05:02,480
+a index of a
+
+1972
+02:04:58,239 --> 02:05:02,480
+matrix find all its
+
+1973
+02:05:02,520 --> 02:05:07,520
+neighbors okay cross Nome total
+
+1974
+02:05:05,159 --> 02:05:10,800
+normalize projection
+
+1975
+02:05:07,520 --> 02:05:12,040
+orthogon uh table identity Matrix
+
+1976
+02:05:10,800 --> 02:05:16,239
+diagonal
+
+1977
+02:05:12,040 --> 02:05:17,360
+matrix close Okay parts of Matrix there
+
+1978
+02:05:16,239 --> 02:05:21,599
+it
+
+1979
+02:05:17,360 --> 02:05:24,000
+is diag position upper triangular okay
+
+1980
+02:05:21,599 --> 02:05:27,920
+we are I think I'm
+
+1981
+02:05:24,000 --> 02:05:31,960
+I'm fairly sure this is
+
+1982
+02:05:27,920 --> 02:05:34,960
+the right way I mean this is kind of the
+
+1983
+02:05:31,960 --> 02:05:37,960
+simple way for this
+
+1984
+02:05:34,960 --> 02:05:42,760
+problem this would be a spectacular way
+
+1985
+02:05:37,960 --> 02:05:42,760
+to solve this problem and this would be
+
+1986
+02:05:44,000 --> 02:05:50,040
+unique well except other other uh
+
+1987
+02:05:48,760 --> 02:05:52,760
+programming
+
+1988
+02:05:50,040 --> 02:05:54,559
+languages that does mathematics that
+
+1989
+02:05:52,760 --> 02:05:58,679
+that focus on linear
+
+1990
+02:05:54,559 --> 02:06:00,960
+algebra but otherwise compared to you
+
+1991
+02:05:58,679 --> 02:06:04,119
+know vast majority of programming
+
+1992
+02:06:00,960 --> 02:06:09,119
+languages this would be unique okay so
+
+1993
+02:06:04,119 --> 02:06:12,040
+part of matrixes how do you extract just
+
+1994
+02:06:09,119 --> 02:06:14,760
+the I know I know I can you know I can I
+
+1995
+02:06:12,040 --> 02:06:17,159
+can do it but it's just that is there a
+
+1996
+02:06:14,760 --> 02:06:20,599
+specific function I know I can do it
+
+1997
+02:06:17,159 --> 02:06:20,599
+even without
+
+1998
+02:06:20,679 --> 02:06:25,239
+right all you have to do you know just
+
+1999
+02:06:22,760 --> 02:06:27,599
+yeah I know I can do it but is there a
+
+2000
+02:06:25,239 --> 02:06:27,599
+build
+
+2001
+02:06:29,320 --> 02:06:37,040
+in diagonal get the list of elements on
+
+2002
+02:06:32,800 --> 02:06:41,679
+the diagonal okay
+
+2003
+02:06:37,040 --> 02:06:43,840
+so so that is the diagonal matrix give
+
+2004
+02:06:41,679 --> 02:06:47,480
+uh give the list of elements on the
+
+2005
+02:06:43,840 --> 02:06:49,199
+leading diagonals of Matrix okay that
+
+2006
+02:06:47,480 --> 02:06:55,079
+means like that
+
+2007
+02:06:49,199 --> 02:06:55,079
+so this this gives the K diagonal
+
+2008
+02:06:58,400 --> 02:07:06,880
+okay so you can use this part of this
+
+2009
+02:07:02,040 --> 02:07:06,880
+you see this here is a example you
+
+2010
+02:07:07,920 --> 02:07:14,970
+can so that gets you the diagonal Okay
+
+2011
+02:07:11,880 --> 02:07:14,970
+[Music]
+
+2012
+02:07:17,520 --> 02:07:20,520
+so
+
+2013
+02:07:23,679 --> 02:07:30,119
+band let's see what is band band
+
+2014
+02:07:26,360 --> 02:07:33,239
+represents the sequence of
+
+2015
+02:07:30,119 --> 02:07:37,760
+positions the sequence of positions on
+
+2016
+02:07:33,239 --> 02:07:40,480
+the diagonal band that start with IJ in
+
+2017
+02:07:37,760 --> 02:07:44,800
+a spar array
+
+2018
+02:07:40,480 --> 02:07:50,520
+okay in a spar array
+
+2019
+02:07:44,800 --> 02:07:50,520
+okay so create a band diagonal matri
+
+2020
+02:07:54,800 --> 02:07:59,039
+okay
+
+2021
+02:07:55,960 --> 02:07:59,039
+[Music]
+
+2022
+02:08:02,280 --> 02:08:08,239
+so but we don't want the entire we just
+
+2023
+02:08:05,159 --> 02:08:10,320
+want the neighbor is so normally in
+
+2024
+02:08:08,239 --> 02:08:13,559
+mathematics that's
+
+2025
+02:08:10,320 --> 02:08:17,440
+called that kind of neighborhood is
+
+2026
+02:08:13,559 --> 02:08:20,440
+called van Numan neighborhood
+
+2027
+02:08:17,440 --> 02:08:20,440
+okay
+
+2028
+02:08:23,719 --> 02:08:30,119
+because when you have a grid you can
+
+2029
+02:08:26,320 --> 02:08:33,760
+Define the neighbors by just D just just
+
+2030
+02:08:30,119 --> 02:08:37,079
+vertical or horizontal neighbors or you
+
+2031
+02:08:33,760 --> 02:08:44,159
+can count also include the diagonal
+
+2032
+02:08:37,079 --> 02:08:44,159
+neighbors okay so van Numan neighborhood
+
+2033
+02:08:45,280 --> 02:08:51,400
+is okay the vuma neighborhood of
+
+2034
+02:08:48,920 --> 02:08:53,800
+four neighborhood cell is classically
+
+2035
+02:08:51,400 --> 02:08:57,679
+defined on a two-dimensional Square
+
+2036
+02:08:53,800 --> 02:09:01,599
+latus and is composed of a central cell
+
+2037
+02:08:57,679 --> 02:09:05,480
+and it's for adjacent cells okay so the
+
+2038
+02:09:01,599 --> 02:09:08,400
+one I'm looking for is more
+
+2039
+02:09:05,480 --> 02:09:12,199
+neighborhood okay so now just search the
+
+2040
+02:09:08,400 --> 02:09:15,040
+word more so more neighborhood includes
+
+2041
+02:09:12,199 --> 02:09:19,719
+not just vertical and horizontal but
+
+2042
+02:09:15,040 --> 02:09:23,639
+also diagonal neighbors okay now go back
+
+2043
+02:09:19,719 --> 02:09:26,960
+to UAM language documentation let's just
+
+2044
+02:09:23,639 --> 02:09:31,000
+search for more if it's got
+
+2045
+02:09:26,960 --> 02:09:31,000
+anything sud sudo
+
+2046
+02:09:32,239 --> 02:09:40,400
+inverse dring
+
+2047
+02:09:34,679 --> 02:09:40,400
+inverse pair okay box Matrix
+
+2048
+02:09:44,559 --> 02:09:54,400
+oh is that what we want box Matrix
+
+2049
+02:09:48,960 --> 02:09:54,400
+Corner neighbors there is
+
+2050
+02:09:54,599 --> 02:10:03,320
+promising let's look up let's
+
+2051
+02:09:57,960 --> 02:10:04,239
+look up box Matrix and Corner neighbors
+
+2052
+02:10:03,320 --> 02:10:07,559
+Corner
+
+2053
+02:10:04,239 --> 02:10:10,960
+neighbors is an option for various array
+
+2054
+02:10:07,559 --> 02:10:14,480
+and image processing functions that
+
+2055
+02:10:10,960 --> 02:10:16,800
+specifies whether diagonally adjacent
+
+2056
+02:10:14,480 --> 02:10:21,159
+corners should be considered neighbors
+
+2057
+02:10:16,800 --> 02:10:25,480
+of particular element exactly you
+
+2058
+02:10:21,159 --> 02:10:30,320
+see we getting close so Corner neighbors
+
+2059
+02:10:25,480 --> 02:10:30,320
+is an option to some functions
+
+2060
+02:10:31,480 --> 02:10:38,719
+okay so Corner neighbors if false that
+
+2061
+02:10:35,000 --> 02:10:38,719
+means do not include
+
+2062
+02:10:39,280 --> 02:10:45,400
+diagonal
+
+2063
+02:10:40,880 --> 02:10:49,400
+right which is Van Newman neighborhood
+
+2064
+02:10:45,400 --> 02:10:52,719
+now if Corner neighbors is is true that
+
+2065
+02:10:49,400 --> 02:10:57,199
+means includes diagonal Neighbors which
+
+2066
+02:10:52,719 --> 02:11:01,559
+is more neighborhood okay now we just
+
+2067
+02:10:57,199 --> 02:11:05,480
+find out okay great now is there is a
+
+2068
+02:11:01,559 --> 02:11:08,480
+matrix example so eight connected
+
+2069
+02:11:05,480 --> 02:11:10,599
+components morphological
+
+2070
+02:11:08,480 --> 02:11:13,880
+components
+
+2071
+02:11:10,599 --> 02:11:17,159
+oh maybe morphological components is
+
+2072
+02:11:13,880 --> 02:11:20,159
+what you need I don't know what is
+
+2073
+02:11:17,159 --> 02:11:20,159
+that
+
+2074
+02:11:21,320 --> 02:11:30,440
+oh God box Matrix there it is chest
+
+2075
+02:11:25,159 --> 02:11:34,559
+board distance manhatton distance that's
+
+2076
+02:11:30,440 --> 02:11:37,719
+like uh Capi driver manhatton distance
+
+2077
+02:11:34,559 --> 02:11:42,440
+is a distance defined such that you can
+
+2078
+02:11:37,719 --> 02:11:45,679
+only go from one point to another by
+
+2079
+02:11:42,440 --> 02:11:49,000
+traveling vertically or horizontally so
+
+2080
+02:11:45,679 --> 02:11:51,599
+normally if you have like two point of a
+
+2081
+02:11:49,000 --> 02:11:54,239
+triangle you can just directly go there
+
+2082
+02:11:51,599 --> 02:11:57,440
+but with manhon distance you have to go
+
+2083
+02:11:54,239 --> 02:12:01,440
+like that that that that that always
+
+2084
+02:11:57,440 --> 02:12:06,199
+like a square so anyway we I think we
+
+2085
+02:12:01,440 --> 02:12:06,199
+are very close so what is the Box
+
+2086
+02:12:07,199 --> 02:12:13,679
+Matrix box
+
+2087
+02:12:10,320 --> 02:12:18,400
+Matrix now remember our goal is given a
+
+2088
+02:12:13,679 --> 02:12:21,199
+matrix we want its neighbors okay uh uh
+
+2089
+02:12:18,400 --> 02:12:26,480
+we are close Okay so we
+
+2090
+02:12:21,199 --> 02:12:31,239
+have Diamond Matrix cross Matrix oh okay
+
+2091
+02:12:26,480 --> 02:12:31,239
+getting close and disk Matrix what
+
+2092
+02:12:31,679 --> 02:12:39,760
+you structure matrices and convolution
+
+2093
+02:12:37,000 --> 02:12:44,599
+kernels that's related to machine
+
+2094
+02:12:39,760 --> 02:12:48,440
+learning I think okay so diag Diamond
+
+2095
+02:12:44,599 --> 02:12:52,520
+Matrix gives a matrix whose elements are
+
+2096
+02:12:48,440 --> 02:12:57,119
+one in a diamond shaped region that
+
+2097
+02:12:52,520 --> 02:13:01,679
+extends our index okay we we care about
+
+2098
+02:12:57,119 --> 02:13:04,440
+um we care about extracting elements not
+
+2099
+02:13:01,679 --> 02:13:04,440
+generating
+
+2100
+02:13:08,119 --> 02:13:15,520
+matrices okay the answer is somewhere uh
+
+2101
+02:13:11,239 --> 02:13:19,079
+is close Okay cross Matrix cross Matrix
+
+2102
+02:13:15,520 --> 02:13:23,320
+gives a matrix whose elements are
+
+2103
+02:13:19,079 --> 02:13:26,800
+in a centered cross shaped
+
+2104
+02:13:23,320 --> 02:13:29,280
+region that extends our positions along
+
+2105
+02:13:26,800 --> 02:13:35,599
+each index Direction and are zero
+
+2106
+02:13:29,280 --> 02:13:35,599
+otherwise okay so basically across you
+
+2107
+02:13:38,239 --> 02:13:46,520
+know yeah so but what we want is
+
+2108
+02:13:41,719 --> 02:13:46,520
+actually we just want a function
+
+2109
+02:13:46,960 --> 02:13:54,119
+that gives us the adjacent index
+
+2110
+02:13:51,199 --> 02:13:57,199
+actually we don't even need a uh
+
+2111
+02:13:54,119 --> 02:13:57,199
+building function
+
+2112
+02:14:00,040 --> 02:14:07,159
+because yeah it's just you know to get
+
+2113
+02:14:02,639 --> 02:14:11,360
+the adjacent index you just X - 1 + 1
+
+2114
+02:14:07,159 --> 02:14:15,840
+and y - 1 + 1 but then you need to do
+
+2115
+02:14:11,360 --> 02:14:18,360
+boundary boundary check that is the TDS
+
+2116
+02:14:15,840 --> 02:14:20,760
+part you need to know if you at the
+
+2117
+02:14:18,360 --> 02:14:23,400
+beginning of line or I mean beginning of
+
+2118
+02:14:20,760 --> 02:14:28,000
+row or end of row or the you know first
+
+2119
+02:14:23,400 --> 02:14:32,239
+row or last row so boundary check that's
+
+2120
+02:14:28,000 --> 02:14:34,079
+the tedious part so that's that is why
+
+2121
+02:14:32,239 --> 02:14:38,760
+we are trying to
+
+2122
+02:14:34,079 --> 02:14:45,559
+find a function that does it already for
+
+2123
+02:14:38,760 --> 02:14:45,559
+you okay disk Matrix uh okay this are
+
+2124
+02:14:46,880 --> 02:14:53,199
+not
+
+2125
+02:14:48,400 --> 02:14:53,199
+we could you know we could use some of
+
+2126
+02:14:56,520 --> 02:15:04,360
+these so let's go back
+
+2127
+02:14:59,559 --> 02:15:04,360
+to let's go back to
+
+2128
+02:15:06,159 --> 02:15:14,440
+the so who which function uses Corner
+
+2129
+02:15:11,079 --> 02:15:14,440
+neighbors let's
+
+2130
+02:15:14,719 --> 02:15:22,079
+see so related guide mathematics
+
+2131
+02:15:18,559 --> 02:15:22,079
+morphology what is
+
+2132
+02:15:23,480 --> 02:15:30,280
+that combining methods from set theory
+
+2133
+02:15:27,800 --> 02:15:33,040
+topology and discrete
+
+2134
+02:15:30,280 --> 02:15:35,880
+mathematics mathematical morphology
+
+2135
+02:15:33,040 --> 02:15:39,679
+provides a powerful approach to
+
+2136
+02:15:35,880 --> 02:15:41,320
+processing images and other discrete
+
+2137
+02:15:39,679 --> 02:15:45,320
+data
+
+2138
+02:15:41,320 --> 02:15:47,920
+okay so it's primarily for processing
+
+2139
+02:15:45,320 --> 02:15:51,440
+images I suppose let's see search
+
+2140
+02:15:47,920 --> 02:15:55,559
+morphology morphology is linguistics so
+
+2141
+02:15:51,440 --> 02:15:58,719
+why I don't understand why do you
+
+2142
+02:15:55,559 --> 02:16:01,400
+have what is mathematical
+
+2143
+02:15:58,719 --> 02:16:03,800
+morphology the wolam language includes
+
+2144
+02:16:01,400 --> 02:16:07,360
+an extensive and efficient
+
+2145
+02:16:03,800 --> 02:16:10,760
+implementation of mathematical
+
+2146
+02:16:07,360 --> 02:16:13,920
+morphology I'm not sure I seen that
+
+2147
+02:16:10,760 --> 02:16:16,719
+before fully integrated with the wam
+
+2148
+02:16:13,920 --> 02:16:20,159
+languages general image and data
+
+2149
+02:16:16,719 --> 02:16:24,719
+processing okay but it seems
+
+2150
+02:16:20,159 --> 02:16:27,080
+mathematical morphology is basically
+
+2151
+02:16:24,719 --> 02:16:29,840
+about image
+
+2152
+02:16:27,080 --> 02:16:32,960
+[Music]
+
+2153
+02:16:29,840 --> 02:16:35,559
+processing and data science maybe oh
+
+2154
+02:16:32,960 --> 02:16:39,559
+this Wikipedia
+
+2155
+02:16:35,559 --> 02:16:42,280
+okay mathematical morphology is a theory
+
+2156
+02:16:39,559 --> 02:16:45,399
+and technique for the analysis and
+
+2157
+02:16:42,280 --> 02:16:49,080
+processing of geometric
+
+2158
+02:16:45,399 --> 02:16:52,280
+structures oh this is new to me based on
+
+2159
+02:16:49,080 --> 02:16:53,280
+set theory lat Theory topology and
+
+2160
+02:16:52,280 --> 02:16:55,880
+random
+
+2161
+02:16:53,280 --> 02:16:59,880
+functions mathematical morphology is
+
+2162
+02:16:55,880 --> 02:17:02,760
+most commonly applied to digital images
+
+2163
+02:16:59,880 --> 02:17:06,639
+but it can be employed as well on graphs
+
+2164
+02:17:02,760 --> 02:17:08,080
+surface measures solids and many other
+
+2165
+02:17:06,639 --> 02:17:10,200
+spatial
+
+2166
+02:17:08,080 --> 02:17:14,920
+structures
+
+2167
+02:17:10,200 --> 02:17:18,280
+okay uh it's a theory and technique okay
+
+2168
+02:17:14,920 --> 02:17:22,160
+for analysis and processing of
+
+2169
+02:17:18,280 --> 02:17:25,599
+geometrical structures okay topological
+
+2170
+02:17:22,160 --> 02:17:29,120
+and geometrical continuous space
+
+2171
+02:17:25,599 --> 02:17:32,960
+Concepts such as size shape convexity
+
+2172
+02:17:29,120 --> 02:17:36,559
+connectivity and geodesic distance were
+
+2173
+02:17:32,960 --> 02:17:40,679
+introduced by mathematical morphology on
+
+2174
+02:17:36,559 --> 02:17:42,519
+both continuous and discrete spaces okay
+
+2175
+02:17:40,679 --> 02:17:44,399
+mathematical morphology is also the
+
+2176
+02:17:42,519 --> 02:17:49,359
+foundation of
+
+2177
+02:17:44,399 --> 02:17:52,439
+morphological image processing h
+
+2178
+02:17:49,359 --> 02:17:55,319
+it's some deep topic which consists of a
+
+2179
+02:17:52,439 --> 02:17:57,920
+set of operations that transform images
+
+2180
+02:17:55,319 --> 02:18:00,479
+according to the above characterizations
+
+2181
+02:17:57,920 --> 02:18:04,200
+okay now let's see what is this a shape
+
+2182
+02:18:00,479 --> 02:18:06,160
+in blue and its morphological dilations
+
+2183
+02:18:04,200 --> 02:18:12,200
+in
+
+2184
+02:18:06,160 --> 02:18:16,519
+green okay uh and uh erosion in yellow
+
+2185
+02:18:12,200 --> 02:18:19,240
+okay by a diamond shaped structural
+
+2186
+02:18:16,519 --> 02:18:21,439
+element
+
+2187
+02:18:19,240 --> 02:18:25,359
+it looks like it's two people
+
+2188
+02:18:21,439 --> 02:18:29,319
+dancing so you know so mathematical
+
+2189
+02:18:25,359 --> 02:18:32,240
+morphology analysis of an image
+
+2190
+02:18:29,319 --> 02:18:34,240
+processing and
+
+2191
+02:18:32,240 --> 02:18:38,840
+uh so I'm
+
+2192
+02:18:34,240 --> 02:18:42,120
+supposing it's trying to find out what
+
+2193
+02:18:38,840 --> 02:18:45,519
+this image is you know it's a seate of
+
+2194
+02:18:42,120 --> 02:18:48,679
+two people dancing so one of the part of
+
+2195
+02:18:45,519 --> 02:18:52,479
+the technique is kind of
+
+2196
+02:18:48,679 --> 02:18:53,840
+just add the outline you know in this
+
+2197
+02:18:52,479 --> 02:18:57,599
+fancy
+
+2198
+02:18:53,840 --> 02:18:59,920
+words dilation morphological dilation
+
+2199
+02:18:57,599 --> 02:19:02,120
+and erosion
+
+2200
+02:18:59,920 --> 02:19:03,700
+okay so
+
+2201
+02:19:02,120 --> 02:19:05,679
+history okay
+
+2202
+02:19:03,700 --> 02:19:08,120
+[Music]
+
+2203
+02:19:05,679 --> 02:19:12,920
+so basic
+
+2204
+02:19:08,120 --> 02:19:12,920
+operations okay it it seems kind of
+
+2205
+02:19:13,040 --> 02:19:19,120
+like
+
+2206
+02:19:15,399 --> 02:19:22,399
+newish kind of thing from the past 20
+
+2207
+02:19:19,120 --> 02:19:27,840
+years maybe kind of new
+
+2208
+02:19:22,399 --> 02:19:31,280
+newish uh field used by mostly I I would
+
+2209
+02:19:27,840 --> 02:19:31,280
+assume image
+
+2210
+02:19:33,000 --> 02:19:39,599
+processing okay so but this is getting
+
+2211
+02:19:36,319 --> 02:19:39,599
+away from
+
+2212
+02:19:40,280 --> 02:19:45,960
+our from what are we doing what we are
+
+2213
+02:19:43,160 --> 02:19:49,359
+doing okay so anyway this is
+
+2214
+02:19:45,960 --> 02:19:53,520
+mathematical morphology a section of
+
+2215
+02:19:49,359 --> 02:19:53,520
+wolam functions related to
+
+2216
+02:19:54,160 --> 02:20:00,200
+that uh and uh does it have anything to
+
+2217
+02:19:58,600 --> 02:20:03,560
+do with our
+
+2218
+02:20:00,200 --> 02:20:03,560
+problem not
+
+2219
+02:20:06,120 --> 02:20:11,920
+really well actually you know that's
+
+2220
+02:20:09,040 --> 02:20:15,560
+what we are trying to do if we look at
+
+2221
+02:20:11,920 --> 02:20:16,359
+our problem from a geome geometric point
+
+2222
+02:20:15,560 --> 02:20:19,359
+of
+
+2223
+02:20:16,359 --> 02:20:22,399
+view you know we consider this as a
+
+2224
+02:20:19,359 --> 02:20:23,920
+geometric shape that's what we are
+
+2225
+02:20:22,399 --> 02:20:27,000
+doing
+
+2226
+02:20:23,920 --> 02:20:28,520
+then that's why we have these questions
+
+2227
+02:20:27,000 --> 02:20:34,359
+about
+
+2228
+02:20:28,520 --> 02:20:34,359
+neighboring elements and that is why
+
+2229
+02:20:34,560 --> 02:20:42,680
+indeed it's some sort of mathematical
+
+2230
+02:20:38,240 --> 02:20:42,680
+morphology issue
+
+2231
+02:20:46,319 --> 02:20:51,920
+so okay I'm just random talking now you
+
+2232
+02:20:49,600 --> 02:20:51,920
+know
+
+2233
+02:20:53,000 --> 02:20:58,840
+to yeah the real I'm just talking so
+
+2234
+02:20:56,280 --> 02:20:58,840
+there's some
+
+2235
+02:21:00,160 --> 02:21:06,560
+video so actually to solve the problem
+
+2236
+02:21:04,280 --> 02:21:10,479
+solve the problem is actually code just
+
+2237
+02:21:06,560 --> 02:21:11,520
+start to code this tediousness I don't
+
+2238
+02:21:10,479 --> 02:21:14,520
+want
+
+2239
+02:21:11,520 --> 02:21:14,520
+to
+
+2240
+02:21:16,240 --> 02:21:22,560
+uh
+
+2241
+02:21:18,920 --> 02:21:25,319
+yeah so the no I'm pretty sure there is
+
+2242
+02:21:22,560 --> 02:21:26,920
+a function okay we just need to find the
+
+2243
+02:21:25,319 --> 02:21:32,960
+function that give
+
+2244
+02:21:26,920 --> 02:21:35,479
+you that extract the neighboring
+
+2245
+02:21:32,960 --> 02:21:40,000
+elements yeah I'm I'm pretty
+
+2246
+02:21:35,479 --> 02:21:43,840
+sure I'm I'm pretty sure in wam language
+
+2247
+02:21:40,000 --> 02:21:45,600
+there is a trivial way okay with a a
+
+2248
+02:21:43,840 --> 02:21:50,200
+trivial
+
+2249
+02:21:45,600 --> 02:21:54,680
+way to such that given a matrix 2D
+
+2250
+02:21:50,200 --> 02:21:56,560
+Matrix and given a index two numbers for
+
+2251
+02:21:54,680 --> 02:22:00,240
+item in the
+
+2252
+02:21:56,560 --> 02:22:04,439
+Matrix so given this you can easily have
+
+2253
+02:22:00,240 --> 02:22:11,240
+it return all the neighboring values of
+
+2254
+02:22:04,439 --> 02:22:14,359
+that entry okay I'm 99% sure that there
+
+2255
+02:22:11,240 --> 02:22:18,439
+is either a buildin function
+
+2256
+02:22:14,359 --> 02:22:21,359
+or it's so trivial to write it yourself
+
+2257
+02:22:18,439 --> 02:22:23,520
+without having to check you know this
+
+2258
+02:22:21,359 --> 02:22:26,120
+boundary conditions like you know
+
+2259
+02:22:23,520 --> 02:22:28,800
+whether you are going beyond the current
+
+2260
+02:22:26,120 --> 02:22:28,800
+row or
+
+2261
+02:22:29,240 --> 02:22:33,359
+whatnot uh which is not actually
+
+2262
+02:22:31,800 --> 02:22:36,160
+difficult to write neither because so
+
+2263
+02:22:33,359 --> 02:22:39,560
+you have to do is just you know but it's
+
+2264
+02:22:36,160 --> 02:22:42,800
+tedious like you have to make four four
+
+2265
+02:22:39,560 --> 02:22:44,920
+checks you have to check if your line is
+
+2266
+02:22:42,800 --> 02:22:47,280
+the beginning I mean the first row of
+
+2267
+02:22:44,920 --> 02:22:50,680
+the Matrix or the last row of The Matrix
+
+2268
+02:22:47,280 --> 02:22:53,600
+matx and you have to check if your
+
+2269
+02:22:50,680 --> 02:22:56,080
+element is the first element in a row or
+
+2270
+02:22:53,600 --> 02:22:59,280
+the last element in a
+
+2271
+02:22:56,080 --> 02:23:03,080
+row neighborhood Matrix thank you so is
+
+2272
+02:22:59,280 --> 02:23:03,080
+that the actual function
+
+2273
+02:23:05,960 --> 02:23:11,680
+name no I don't think uh wait is
+
+2274
+02:23:13,399 --> 02:23:17,960
+that neighborhood okay there's quite a
+
+2275
+02:23:16,479 --> 02:23:20,960
+few
+
+2276
+02:23:17,960 --> 02:23:20,960
+neighborhood
+
+2277
+02:23:21,160 --> 02:23:27,880
+thing neighborhood contraction okay
+
+2278
+02:23:24,200 --> 02:23:30,920
+let's just search for let's get
+
+2279
+02:23:27,880 --> 02:23:33,880
+neighborhood interpreter type natural
+
+2280
+02:23:30,920 --> 02:23:37,520
+language name of a neighborhood
+
+2281
+02:23:33,880 --> 02:23:40,600
+no I think it's just one of those uh
+
+2282
+02:23:37,520 --> 02:23:43,300
+Matrix functions okay I
+
+2283
+02:23:40,600 --> 02:23:44,560
+just it's just here you know I
+
+2284
+02:23:43,300 --> 02:23:49,160
+[Music]
+
+2285
+02:23:44,560 --> 02:23:51,920
+can you know uh uh if I'm not doing this
+
+2286
+02:23:49,160 --> 02:23:53,600
+video I can probably already found it by
+
+2287
+02:23:51,920 --> 02:23:58,760
+now
+
+2288
+02:23:53,600 --> 02:23:58,760
+but you know it's in one of these uh
+
+2289
+02:24:00,800 --> 02:24:04,720
+Matrix constructing
+
+2290
+02:24:05,399 --> 02:24:12,120
+matrices table array Coe coefficient
+
+2291
+02:24:09,319 --> 02:24:16,279
+array construct construct a matrix from
+
+2292
+02:24:12,120 --> 02:24:21,279
+a system of equations okay Spar array
+
+2293
+02:24:16,279 --> 02:24:21,279
+construct a SP Matrix from position and
+
+2294
+02:24:23,439 --> 02:24:33,000
+values that uh no okay noal convert The
+
+2295
+02:24:28,880 --> 02:24:37,560
+Spar Matrix to ordinary form band give
+
+2296
+02:24:33,000 --> 02:24:42,160
+values on any collection of bands or Tri
+
+2297
+02:24:37,560 --> 02:24:42,160
+diagonal matrices okay this is
+
+2298
+02:24:42,200 --> 02:24:50,760
+actually Center array there it is Center
+
+2299
+02:24:45,960 --> 02:24:54,279
+array create a list of length n with the
+
+2300
+02:24:50,760 --> 02:24:59,560
+element create a list of length n with
+
+2301
+02:24:54,279 --> 02:25:02,560
+the elements of a at the center and zero
+
+2302
+02:24:59,560 --> 02:25:02,560
+elsewhere
+
+2303
+02:25:04,800 --> 02:25:11,960
+okay somewhere okay somewhere somewhere
+
+2304
+02:25:07,680 --> 02:25:14,000
+here very uh you know it's one of these
+
+2305
+02:25:11,960 --> 02:25:20,240
+it'll tell you exactly how to do it I'm
+
+2306
+02:25:14,000 --> 02:25:24,640
+pretty sure I'm like 90 90 99 uh% okay
+
+2307
+02:25:20,240 --> 02:25:24,640
+or something trivial like two functions
+
+2308
+02:25:25,640 --> 02:25:31,279
+combined band so what what is band I
+
+2309
+02:25:28,439 --> 02:25:35,439
+haven't okay band
+
+2310
+02:25:31,279 --> 02:25:38,399
+ji represents the sequence of positions
+
+2311
+02:25:35,439 --> 02:25:38,399
+on the diagonal
+
+2312
+02:25:38,640 --> 02:25:46,200
+band that start with IJ in a spar array
+
+2313
+02:25:43,399 --> 02:25:48,880
+okay it basically represent the diagonal
+
+2314
+02:25:46,200 --> 02:25:48,880
+line
+
+2315
+02:25:52,040 --> 02:25:59,920
+so so here okay maybe here so bend I
+
+2316
+02:25:56,000 --> 02:26:03,560
+mean J mean IMAX J
+
+2317
+02:25:59,920 --> 02:26:03,560
+Max right so you
+
+2318
+02:26:05,520 --> 02:26:08,520
+can
+
+2319
+02:26:10,560 --> 02:26:19,800
+okay uh maybe band okay
+
+2320
+02:26:15,359 --> 02:26:24,319
+so spend diagonal okay so there's also
+
+2321
+02:26:19,800 --> 02:26:28,160
+minus maybe extract [ __ ] there it is
+
+2322
+02:26:24,319 --> 02:26:33,479
+extract maybe probably let's look at
+
+2323
+02:26:28,160 --> 02:26:33,479
+extract and let's look at minus
+
+2324
+02:26:33,760 --> 02:26:39,720
+okay uh let's
+
+2325
+02:26:36,439 --> 02:26:42,560
+see extract extract the part of
+
+2326
+02:26:39,720 --> 02:26:43,880
+expression at position specified by
+
+2327
+02:26:42,560 --> 02:26:50,840
+position
+
+2328
+02:26:43,880 --> 02:26:50,840
+okay uh okay so is there a neighborhood
+
+2329
+02:26:51,000 --> 02:26:55,600
+option okay I think I'm going to quit
+
+2330
+02:26:53,560 --> 02:26:58,680
+I'm just
+
+2331
+02:26:55,600 --> 02:27:04,399
+like I'm just going to quit minus gives
+
+2332
+02:26:58,680 --> 02:27:04,399
+a minus of a matrix okay
+
+2333
+02:27:04,680 --> 02:27:12,720
+so minus of a 3X3
+
+2334
+02:27:09,319 --> 02:27:15,399
+Matrix what is it do oh it's it's like
+
+2335
+02:27:12,720 --> 02:27:18,000
+doing this
+
+2336
+02:27:15,399 --> 02:27:20,640
+computation app
+
+2337
+02:27:18,000 --> 02:27:20,640
+so is
+
+2338
+02:27:21,319 --> 02:27:29,560
+it Matrix operations okay that's what I
+
+2339
+02:27:25,680 --> 02:27:33,640
+was looking for Matrix
+
+2340
+02:27:29,560 --> 02:27:37,920
+operations pseudo inverse R reduce new
+
+2341
+02:27:33,640 --> 02:27:41,760
+space Matrix rank no transpose no
+
+2342
+02:27:37,920 --> 02:27:46,800
+conjugate transpose no lower triangular
+
+2343
+02:27:41,760 --> 02:27:49,319
+eyes no upper triangular no symmetric
+
+2344
+02:27:46,800 --> 02:27:52,920
+tries
+
+2345
+02:27:49,319 --> 02:27:55,160
+no diagonal get the list of elements on
+
+2346
+02:27:52,920 --> 02:27:55,160
+the
+
+2347
+02:27:55,319 --> 02:27:59,399
+diagonal we can use that you know once
+
+2348
+02:27:57,840 --> 02:28:03,800
+you get a you know we
+
+2349
+02:27:59,399 --> 02:28:03,800
+can use that
+
+2350
+02:28:03,840 --> 02:28:10,439
+um the thing I'm looking for is to avoid
+
+2351
+02:28:07,000 --> 02:28:14,520
+boundary check myself you
+
+2352
+02:28:10,439 --> 02:28:17,600
+see so diagonal can do that it
+
+2353
+02:28:14,520 --> 02:28:20,560
+automatically avoids bound re
+
+2354
+02:28:17,600 --> 02:28:24,240
+check because it's going to give you the
+
+2355
+02:28:20,560 --> 02:28:27,200
+diagonal elements then you just take you
+
+2356
+02:28:24,240 --> 02:28:29,680
+know one of each side then you get your
+
+2357
+02:28:27,200 --> 02:28:33,640
+diagonal I'm pretty sure there's a
+
+2358
+02:28:29,680 --> 02:28:36,600
+option to give you the other diagonal
+
+2359
+02:28:33,640 --> 02:28:39,040
+right yeah but it's still tedious I I
+
+2360
+02:28:36,600 --> 02:28:42,000
+want like one single function away to
+
+2361
+02:28:39,040 --> 02:28:46,640
+just get all the neighbors okay
+
+2362
+02:28:42,000 --> 02:28:51,040
+so determin nor Fugate minus permanent
+
+2363
+02:28:46,640 --> 02:28:53,720
+quanica product no Matrix power and I
+
+2364
+02:28:51,040 --> 02:28:56,279
+I'm I'm kind of like just wasting time
+
+2365
+02:28:53,720 --> 02:28:56,279
+here
+
+2366
+02:28:57,240 --> 02:29:02,760
+because what
+
+2367
+02:28:59,439 --> 02:29:04,040
+really I need to do is actually actually
+
+2368
+02:29:02,760 --> 02:29:09,319
+just
+
+2369
+02:29:04,040 --> 02:29:13,840
+code uh and it's not that much code
+
+2370
+02:29:09,319 --> 02:29:13,840
+anyway yeah and because I want to
+
+2371
+02:29:15,520 --> 02:29:21,359
+go
+
+2372
+02:29:17,880 --> 02:29:24,920
+adjacency okay let's see there's
+
+2373
+02:29:21,359 --> 02:29:24,920
+adjacency dis
+
+2374
+02:29:30,479 --> 02:29:37,520
+Matrix let's just try adjacent first
+
+2375
+02:29:34,000 --> 02:29:42,880
+adjacency graph adjacency Leist
+
+2376
+02:29:37,520 --> 02:29:42,880
+adjacency tensor adjacency
+
+2377
+02:29:43,640 --> 02:29:48,520
+Matrix ad Jony hypergraph
+
+2378
+02:29:48,960 --> 02:29:57,359
+have delete adjacent duplicate you know
+
+2379
+02:29:52,960 --> 02:30:01,120
+amazing 7,000 functions spill in
+
+2380
+02:29:57,359 --> 02:30:04,240
+adjacency list gives a list of vertices
+
+2381
+02:30:01,120 --> 02:30:07,439
+adjacent to a
+
+2382
+02:30:04,240 --> 02:30:11,200
+Vertex now this is like this is graph
+
+2383
+02:30:07,439 --> 02:30:11,200
+Theory yeah okay
+
+2384
+02:30:11,840 --> 02:30:17,560
+so so this is talking about graph Theory
+
+2385
+02:30:16,040 --> 02:30:19,880
+uh
+
+2386
+02:30:17,560 --> 02:30:24,439
+at least the vertic is adjacent to the
+
+2387
+02:30:19,880 --> 02:30:27,520
+vertex one so yeah that's
+
+2388
+02:30:24,439 --> 02:30:31,760
+uh there it is table highlight graph
+
+2389
+02:30:27,520 --> 02:30:37,160
+okay so maybe this can be applied
+
+2390
+02:30:31,760 --> 02:30:41,479
+to this could I mean that's but that's
+
+2391
+02:30:37,160 --> 02:30:45,920
+something so there is adjacency Matrix
+
+2392
+02:30:41,479 --> 02:30:49,439
+adjacency Matrix gives a Vertex vertex
+
+2393
+02:30:45,920 --> 02:30:53,960
+adjacent y Matrix of a
+
+2394
+02:30:49,439 --> 02:30:57,279
+graph okay it's related to graph
+
+2395
+02:30:53,960 --> 02:31:00,200
+Theory so if you want to if we want to
+
+2396
+02:30:57,279 --> 02:31:03,960
+apply this to our
+
+2397
+02:31:00,200 --> 02:31:07,560
+uh problem we have to do
+
+2398
+02:31:03,960 --> 02:31:08,279
+something so but it's not what we want
+
+2399
+02:31:07,560 --> 02:31:12,040
+for
+
+2400
+02:31:08,279 --> 02:31:15,359
+sure adjacency tensor compu the
+
+2401
+02:31:12,040 --> 02:31:16,920
+adjacency tensor of an arbitrary
+
+2402
+02:31:15,359 --> 02:31:19,600
+hypergraph
+
+2403
+02:31:16,920 --> 02:31:22,680
+okay they are talking about graph Theory
+
+2404
+02:31:19,600 --> 02:31:26,720
+and this is someone wrote this is
+
+2405
+02:31:22,680 --> 02:31:31,479
+a library of a function you know you can
+
+2406
+02:31:26,720 --> 02:31:34,319
+just call and wam language will
+
+2407
+02:31:31,479 --> 02:31:37,160
+dynamically fetch this function in real
+
+2408
+02:31:34,319 --> 02:31:38,840
+time when it's
+
+2409
+02:31:37,160 --> 02:31:44,560
+executed
+
+2410
+02:31:38,840 --> 02:31:47,800
+so this ajason C tensor now who wrote
+
+2411
+02:31:44,560 --> 02:31:51,479
+this who wrote this
+
+2412
+02:31:47,800 --> 02:31:55,720
+Jonathan jard this this is one of the
+
+2413
+02:31:51,479 --> 02:31:59,479
+greatest young physicist Jonathan
+
+2414
+02:31:55,720 --> 02:32:04,439
+gorad you know he's doing the wolfan
+
+2415
+02:31:59,479 --> 02:32:07,720
+physics um research
+
+2416
+02:32:04,439 --> 02:32:10,640
+anyway uh adjacency yeah so but this
+
+2417
+02:32:07,720 --> 02:32:13,720
+adjacency Matrix is doing something
+
+2418
+02:32:10,640 --> 02:32:17,000
+about graph related
+
+2419
+02:32:13,720 --> 02:32:20,200
+so I don't think I so it's you know then
+
+2420
+02:32:17,000 --> 02:32:23,040
+we have to read it uh I think it's
+
+2421
+02:32:20,200 --> 02:32:28,720
+related to what we want to do but it's
+
+2422
+02:32:23,040 --> 02:32:31,240
+not exactly in order to use this you
+
+2423
+02:32:28,720 --> 02:32:34,960
+have to do something you
+
+2424
+02:32:31,240 --> 02:32:41,080
+know uh
+
+2425
+02:32:34,960 --> 02:32:45,240
+so graphs and matrices okay adjacency
+
+2426
+02:32:41,080 --> 02:32:47,600
+tens okay that's it thank you guys for
+
+2427
+02:32:45,240 --> 02:32:51,080
+watching
+
+2428
+02:32:47,600 --> 02:32:53,880
+I'm going I'm going to go offline and by
+
+2429
+02:32:51,080 --> 02:32:56,359
+tomorrow you'll see the shortest
+
+2430
+02:32:53,880 --> 02:32:59,359
+Solution on
+
+2431
+02:32:56,359 --> 02:32:59,359
+Earth
+
+2432
+02:33:08,760 --> 02:33:12,840
+classic
+
+2433
+02:33:10,319 --> 02:33:15,960
+HRI Henrik
+
+2434
+02:33:12,840 --> 02:33:18,279
+says why YouTube doesn't tell me when
+
+2435
+02:33:15,960 --> 02:33:20,640
+you are streaming I check the Bell icon
+
+2436
+02:33:18,279 --> 02:33:25,560
+it simply doesn't tell me when you are
+
+2437
+02:33:20,640 --> 02:33:29,439
+start streaming yeah Google Google is
+
+2438
+02:33:25,560 --> 02:33:32,080
+heavy censorship all kind of nasty dark
+
+2439
+02:33:29,439 --> 02:33:35,080
+things going on so that's why I
+
+2440
+02:33:32,080 --> 02:33:37,840
+recommend Twitter okay bye guys for
+
+2441
+02:33:35,080 --> 02:33:41,439
+today thank you guys for watching uh
+
+2442
+02:33:37,840 --> 02:33:44,840
+meanwhile also I Rec recommend uh
+
+2443
+02:33:41,439 --> 02:33:49,080
+Twitter and I recommend you pay Elam
+
+2444
+02:33:44,840 --> 02:33:51,479
+musk like $8 a month to get a blue check
+
+2445
+02:33:49,080 --> 02:33:54,960
+okay I highly recommend because
+
+2446
+02:33:51,479 --> 02:33:58,600
+Twitter is right now Elam musk is saving
+
+2447
+02:33:54,960 --> 02:34:02,240
+America so America is collapsing kind of
+
+2448
+02:33:58,600 --> 02:34:04,960
+going down a drain uh and there's a good
+
+2449
+02:34:02,240 --> 02:34:09,240
+chance that Elam musk is Reviving you
+
+2450
+02:34:04,960 --> 02:34:10,760
+know it's making America great again
+
+2451
+02:34:09,240 --> 02:34:14,359
+okay thank you guys for watching you
+
+2452
+02:34:10,760 --> 02:34:17,160
+know two hours three close to 3
+
+2453
+02:34:14,359 --> 02:34:21,520
+hours uh it's kind of disappointing I
+
+2454
+02:34:17,160 --> 02:34:26,160
+didn't do it you know I hate to you know
+
+2455
+02:34:21,520 --> 02:34:30,359
+b um yeah but that's how usually I do
+
+2456
+02:34:26,160 --> 02:34:30,359
+things okay bye
+
+2457
+02:34:33,960 --> 02:34:36,960
+guys
+

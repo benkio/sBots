@@ -1,0 +1,9262 @@
+1
+00:00:00,560 --> 00:00:07,600
+Welcome to another episode of Saw Talk
+
+2
+00:00:03,600 --> 00:00:15,240
+Show. We are going to code Wuam language
+
+3
+00:00:07,600 --> 00:00:15,240
+advent of code 2025 day five part two.
+
+4
+00:00:15,280 --> 00:00:22,720
+In this month I've done advent of code
+
+5
+00:00:18,160 --> 00:00:26,800
+almost every day. So check them out.
+
+6
+00:00:22,720 --> 00:00:29,199
+Okay, so let's begin. So the pink window
+
+7
+00:00:26,800 --> 00:00:33,440
+shows all my command calls and
+
+8
+00:00:29,199 --> 00:00:37,200
+keystrokes. So let me adjust it so that
+
+9
+00:00:33,440 --> 00:00:41,280
+it doesn't get hidden.
+
+10
+00:00:37,200 --> 00:00:46,559
+So show this is my website kasali.info
+
+11
+00:00:41,280 --> 00:00:50,800
+http nos. So we're going to do a code
+
+12
+00:00:46,559 --> 00:00:53,760
+and here is a rand of code and if you
+
+13
+00:00:50,800 --> 00:00:55,680
+are here say hi.
+
+14
+00:00:53,760 --> 00:00:57,760
+Uh, leave a comment. Love to see your
+
+15
+00:00:55,680 --> 00:01:02,960
+comment. If you are watching this
+
+16
+00:00:57,760 --> 00:01:05,439
+offline, play at two speed, twice as
+
+17
+00:01:02,960 --> 00:01:08,240
+fast.
+
+18
+00:01:05,439 --> 00:01:11,280
+Okay.
+
+19
+00:01:08,240 --> 00:01:13,439
+Now, uh, kali.info. I have complete
+
+20
+00:01:11,280 --> 00:01:16,400
+tutorial on wam language for
+
+21
+00:01:13,439 --> 00:01:19,360
+programmers. You can see uh complete
+
+22
+00:01:16,400 --> 00:01:23,680
+tutorial basics common syntax string
+
+23
+00:01:19,360 --> 00:01:27,200
+data structure list uh how do you create
+
+24
+00:01:23,680 --> 00:01:29,040
+a number boolean list and how do you
+
+25
+00:01:27,200 --> 00:01:31,680
+create a function and variable
+
+26
+00:01:29,040 --> 00:01:34,960
+conditional loop
+
+27
+00:01:31,680 --> 00:01:40,680
+and you can download wra engine for free
+
+28
+00:01:34,960 --> 00:01:40,680
+following this link okay so
+
+29
+00:01:41,119 --> 00:01:47,360
+uh so let's begin code okay so let's So
+
+30
+00:01:44,320 --> 00:01:49,520
+let's start with our language
+
+31
+00:01:47,360 --> 00:01:51,520
+my keyboard. Let me introduce you my
+
+32
+00:01:49,520 --> 00:01:55,200
+keyboard. This is ultimate hacking
+
+33
+00:01:51,520 --> 00:01:59,360
+keyboard 80 UHK80.
+
+34
+00:01:55,200 --> 00:02:02,079
+I have a video review on my website and
+
+35
+00:01:59,360 --> 00:02:07,439
+uh so here's Wua language new notebook
+
+36
+00:02:02,079 --> 00:02:10,439
+three shift enter to evaluate it and uh
+
+37
+00:02:07,439 --> 00:02:10,439
+magnify.
+
+38
+00:02:12,959 --> 00:02:18,160
+Okay. So this is Wuam notebook.
+
+39
+00:02:16,480 --> 00:02:23,360
+If you don't know what is Wufam
+
+40
+00:02:18,160 --> 00:02:25,760
+language, watch my video uh episode
+
+41
+00:02:23,360 --> 00:02:29,120
+episode 731.
+
+42
+00:02:25,760 --> 00:02:33,360
+That's one hour introduction
+
+43
+00:02:29,120 --> 00:02:37,120
+uh about 3 days ago. Okay. So let's see.
+
+44
+00:02:33,360 --> 00:02:41,440
+So Wam language advent of code they they
+
+45
+00:02:37,120 --> 00:02:46,080
+um okay I forgot to put it back.
+
+46
+00:02:41,440 --> 00:02:48,720
+Advent of code episode 734
+
+47
+00:02:46,080 --> 00:02:50,560
+and uh
+
+48
+00:02:48,720 --> 00:02:54,319
+we can start coding. Okay, hold on a
+
+49
+00:02:50,560 --> 00:02:57,840
+second. So, I'm using Emacs, the most
+
+50
+00:02:54,319 --> 00:03:01,040
+advanced text editor, and I'm using
+
+51
+00:02:57,840 --> 00:03:05,040
+Softly Keys, which is the most efficient
+
+52
+00:03:01,040 --> 00:03:07,360
+keybinding system for Emacs. Uh, so
+
+53
+00:03:05,040 --> 00:03:09,840
+here's a source code, 4,000 lines of
+
+54
+00:03:07,360 --> 00:03:11,519
+code. It's on GitHub and you can go to
+
+55
+00:03:09,840 --> 00:03:14,480
+the homepage
+
+56
+00:03:11,519 --> 00:03:17,920
+SFY keys. There are tens of video
+
+57
+00:03:14,480 --> 00:03:21,120
+tutorials I've done in the past.
+
+58
+00:03:17,920 --> 00:03:24,800
+Basically, it's model keybinding system
+
+59
+00:03:21,120 --> 00:03:28,560
+like Vim, but the
+
+60
+00:03:24,800 --> 00:03:31,519
+key key mapping are based on statistics
+
+61
+00:03:28,560 --> 00:03:34,080
+of command frequency. So, it's most
+
+62
+00:03:31,519 --> 00:03:36,879
+ergonomic.
+
+63
+00:03:34,080 --> 00:03:40,319
+The most used commands are assigned to
+
+64
+00:03:36,879 --> 00:03:44,400
+the most easy fingers. So, can you see
+
+65
+00:03:40,319 --> 00:03:47,920
+it? Yeah. So, that's keys. Okay. And all
+
+66
+00:03:44,400 --> 00:03:50,159
+links are here. Okay. So, that's Emacs.
+
+67
+00:03:47,920 --> 00:03:52,640
+And I'm also using a vorac keyboard
+
+68
+00:03:50,159 --> 00:03:55,440
+layout. And the pink window shows all my
+
+69
+00:03:52,640 --> 00:03:57,200
+command calls or keystrokes. Command
+
+70
+00:03:55,440 --> 00:03:59,920
+name on the right, keystroke on the
+
+71
+00:03:57,200 --> 00:04:03,760
+left. Vorac keyboard layout. Showing
+
+72
+00:03:59,920 --> 00:04:06,959
+browser. Back. Close. Close. Close. show
+
+73
+00:04:03,760 --> 00:04:11,040
+in browser. Okay, today's talk show. Now
+
+74
+00:04:06,959 --> 00:04:13,840
+let's do day five part two. Now day five
+
+75
+00:04:11,040 --> 00:04:16,720
+part one if you have seen uh yesterday
+
+76
+00:04:13,840 --> 00:04:20,880
+or two days ago that's that problem is
+
+77
+00:04:16,720 --> 00:04:24,320
+given a range of numbers 3 to 5 10 to 14
+
+78
+00:04:20,880 --> 00:04:26,960
+and so on and give a list of numbers you
+
+79
+00:04:24,320 --> 00:04:29,600
+want to find
+
+80
+00:04:26,960 --> 00:04:34,080
+how many of these given list of numbers
+
+81
+00:04:29,600 --> 00:04:37,919
+are in the range. So you want the total.
+
+82
+00:04:34,080 --> 00:04:42,759
+Okay, that was uh part one problem. So
+
+83
+00:04:37,919 --> 00:04:42,759
+today we are part two. So let's see.
+
+84
+00:04:45,120 --> 00:04:50,639
+Okay, can you see the whole thing? Uh,
+
+85
+00:04:47,440 --> 00:04:52,800
+okay. So part two,
+
+86
+00:04:50,639 --> 00:04:55,600
+the elves starts bringing their spoiled
+
+87
+00:04:52,800 --> 00:04:58,160
+inventory to the trash shoot at the back
+
+88
+00:04:55,600 --> 00:05:00,400
+of the kitchen so that they can stop
+
+89
+00:04:58,160 --> 00:05:02,960
+bugging you when they get new inventory.
+
+90
+00:05:00,400 --> 00:05:06,400
+The elves would like to know all of the
+
+91
+00:05:02,960 --> 00:05:09,919
+IDs that the fresh ingredient ID range
+
+92
+00:05:06,400 --> 00:05:11,759
+consider to be fresh. Okay.
+
+93
+00:05:09,919 --> 00:05:15,440
+So instead of counting them, you want
+
+94
+00:05:11,759 --> 00:05:18,320
+the list of them. An ingredient ID is
+
+95
+00:05:15,440 --> 00:05:21,520
+still considered fresh if it is in any
+
+96
+00:05:18,320 --> 00:05:23,600
+range. Okay.
+
+97
+00:05:21,520 --> 00:05:26,160
+Now the second section of the database,
+
+98
+00:05:23,600 --> 00:05:28,240
+the available ingredient IDs is
+
+99
+00:05:26,160 --> 00:05:30,479
+irrelevant. Here are the fresh
+
+100
+00:05:28,240 --> 00:05:36,160
+ingredient ID ranges from the above
+
+101
+00:05:30,479 --> 00:05:39,520
+example. Okay. So for each number called
+
+102
+00:05:36,160 --> 00:05:43,520
+ingredient ID. So do you guys understand
+
+103
+00:05:39,520 --> 00:05:45,680
+the problem? So you see for each number
+
+104
+00:05:43,520 --> 00:05:48,960
+given that each number is called
+
+105
+00:05:45,680 --> 00:05:52,639
+ingredient ID. So if they are in this
+
+106
+00:05:48,960 --> 00:05:55,600
+given range any of them that means this
+
+107
+00:05:52,639 --> 00:05:58,919
+ID is fresh.
+
+108
+00:05:55,600 --> 00:05:58,919
+So now
+
+109
+00:05:59,120 --> 00:06:04,960
+the second section of database here
+
+110
+00:06:01,840 --> 00:06:07,919
+fresh ingredient ID. So you want to get
+
+111
+00:06:04,960 --> 00:06:11,560
+a list of ranges that contains the fresh
+
+112
+00:06:07,919 --> 00:06:11,560
+ingredient ID
+
+113
+00:06:12,319 --> 00:06:21,000
+3 4 5 10.
+
+114
+00:06:15,919 --> 00:06:21,000
+Excuse me. I still have code.
+
+115
+00:06:31,120 --> 00:06:36,639
+So if you are here comment okay the
+
+116
+00:06:34,319 --> 00:06:40,080
+ingredient ids that are these ranges
+
+117
+00:06:36,639 --> 00:06:42,880
+considered to be fresh are 3 4 5 10 11
+
+118
+00:06:40,080 --> 00:06:47,919
+12 13
+
+119
+00:06:42,880 --> 00:06:50,080
+uh okay so basically combine them 19 and
+
+120
+00:06:47,919 --> 00:06:55,680
+20
+
+121
+00:06:50,080 --> 00:07:00,240
+12 13 14 19 and 20 and 20. Okay, because
+
+122
+00:06:55,680 --> 00:07:02,800
+20. So in this example,
+
+123
+00:07:00,240 --> 00:07:05,199
+the fresh ingredient ID ranges consider
+
+124
+00:07:02,800 --> 00:07:07,840
+a total of 14 ingredients ID to be
+
+125
+00:07:05,199 --> 00:07:10,080
+fresh.
+
+126
+00:07:07,840 --> 00:07:13,039
+Process the database file again. How
+
+127
+00:07:10,080 --> 00:07:16,240
+many ingredient IDs are considered to be
+
+128
+00:07:13,039 --> 00:07:19,800
+fresh according to the fresh ingredient
+
+129
+00:07:16,240 --> 00:07:19,800
+IDs range?
+
+130
+00:07:24,639 --> 00:07:31,520
+Okay. Now you don't care about this
+
+131
+00:07:27,599 --> 00:07:36,000
+given list of ids. You only care about
+
+132
+00:07:31,520 --> 00:07:40,160
+the range. Basically, you want to know.
+
+133
+00:07:36,000 --> 00:07:43,199
+So each line specify a range
+
+134
+00:07:40,160 --> 00:07:45,680
+and you want to combine all the ranges.
+
+135
+00:07:43,199 --> 00:07:50,319
+How many number how many total number
+
+136
+00:07:45,680 --> 00:07:50,319
+are in these ranges? Is that right?
+
+137
+00:07:52,319 --> 00:07:58,479
+process the data process the database
+
+138
+00:07:55,360 --> 00:08:01,680
+file again. How many ingredient IDs are
+
+139
+00:07:58,479 --> 00:08:04,800
+considered to be fresh according to the
+
+140
+00:08:01,680 --> 00:08:07,800
+fresh ingredient ID ranges? Okay, pretty
+
+141
+00:08:04,800 --> 00:08:07,800
+simple.
+
+142
+00:08:09,520 --> 00:08:14,319
+So the naive way to solve the this
+
+143
+00:08:12,160 --> 00:08:18,879
+problem is you just create a range of
+
+144
+00:08:14,319 --> 00:08:22,560
+all these numbers. Then you do a union
+
+145
+00:08:18,879 --> 00:08:25,120
+like a set union. So you got a unique
+
+146
+00:08:22,560 --> 00:08:28,560
+list of them. Then you just check then
+
+147
+00:08:25,120 --> 00:08:32,320
+you just count the length of that list
+
+148
+00:08:28,560 --> 00:08:36,159
+the union. Okay, that's the naive way.
+
+149
+00:08:32,320 --> 00:08:40,880
+Now why is that naive? because
+
+150
+00:08:36,159 --> 00:08:44,640
+because the date five problem input the
+
+151
+00:08:40,880 --> 00:08:47,360
+ranges are huge. So if you actually
+
+152
+00:08:44,640 --> 00:08:50,720
+generate a list of these numbers, they
+
+153
+00:08:47,360 --> 00:08:52,720
+are going to be uh millions trillions.
+
+154
+00:08:50,720 --> 00:08:56,160
+Let's see.
+
+155
+00:08:52,720 --> 00:09:01,040
+So for example, copy one of them new
+
+156
+00:08:56,160 --> 00:09:04,440
+buffer. Uh let's put them into true line
+
+157
+00:09:01,040 --> 00:09:04,440
+and magnify.
+
+158
+00:09:06,640 --> 00:09:15,279
+Okay. and uh this number let's let's put
+
+159
+00:09:10,320 --> 00:09:18,399
+a uh let's put you know so in Python for
+
+160
+00:09:15,279 --> 00:09:22,000
+example let's
+
+161
+00:09:18,399 --> 00:09:25,040
+cut close so let's let's do some testing
+
+162
+00:09:22,000 --> 00:09:27,680
+okay so in fact
+
+163
+00:09:25,040 --> 00:09:29,440
+uh let's say we can do this in Python or
+
+164
+00:09:27,680 --> 00:09:31,839
+JavaScript
+
+165
+00:09:29,440 --> 00:09:34,080
+or wam language basically you want to
+
+166
+00:09:31,839 --> 00:09:36,720
+know for example let's try wam language
+
+167
+00:09:34,080 --> 00:09:39,279
+they you want comma separated
+
+168
+00:09:36,720 --> 00:09:41,040
+You see in Wuam language it separates
+
+169
+00:09:39,279 --> 00:09:45,200
+for you.
+
+170
+00:09:41,040 --> 00:09:47,360
+So that's K mega
+
+171
+00:09:45,200 --> 00:09:49,600
+
+172
+00:09:47,360 --> 00:09:53,440
+uh Petra.
+
+173
+00:09:49,600 --> 00:09:56,440
+So what what's above So let's
+
+174
+00:09:53,440 --> 00:09:56,440
+check
+
+175
+00:10:02,480 --> 00:10:08,800
+kibi mi gibbi keto mega chigga. Okay, it
+
+176
+00:10:06,080 --> 00:10:12,080
+didn't go beyond
+
+177
+00:10:08,800 --> 00:10:15,440
+matrix prefix. Now we are doing
+
+178
+00:10:12,080 --> 00:10:20,519
+excursion. We want to know what's above
+
+179
+00:10:15,440 --> 00:10:20,519
+ I believe that's peta.
+
+180
+00:10:23,440 --> 00:10:30,240
+Oh, terra. That's right. So you got ter
+
+181
+00:10:26,000 --> 00:10:35,240
+ mega kilo mega then terra.
+
+182
+00:10:30,240 --> 00:10:35,240
+Okay. So what is this number?
+
+183
+00:10:36,000 --> 00:10:42,079
+Kilo mega
+
+184
+00:10:39,920 --> 00:10:47,519
+terra
+
+185
+00:10:42,079 --> 00:10:52,079
+terra or tetra terra. Okay, terra and
+
+186
+00:10:47,519 --> 00:10:56,640
+terra. So 221 terra.
+
+187
+00:10:52,079 --> 00:10:59,760
+So that's 10 followed by 12 numbers, 12
+
+188
+00:10:56,640 --> 00:11:02,000
+zeros. That's like So it's like 12
+
+189
+00:10:59,760 --> 00:11:07,360
+digits. 12
+
+190
+00:11:02,000 --> 00:11:10,880
++ 13 14 15 digit numbers.
+
+191
+00:11:07,360 --> 00:11:14,839
+So can you have sufficient memory to
+
+192
+00:11:10,880 --> 00:11:14,839
+actually um
+
+193
+00:11:15,040 --> 00:11:22,800
+create this large number?
+
+194
+00:11:18,399 --> 00:11:26,399
+Let's see again. So
+
+195
+00:11:22,800 --> 00:11:28,480
+so let's kind of cheat you know look at
+
+196
+00:11:26,399 --> 00:11:30,079
+you know actually this is not cheat. We
+
+197
+00:11:28,480 --> 00:11:32,880
+just want to know how big are the
+
+198
+00:11:30,079 --> 00:11:34,880
+numbers the input numbers which is part
+
+199
+00:11:32,880 --> 00:11:37,600
+of the problem you see. So the length
+
+200
+00:11:34,880 --> 00:11:40,640
+you can compare the length they don't go
+
+201
+00:11:37,600 --> 00:11:46,440
+over that. So that is about as as large
+
+202
+00:11:40,640 --> 00:11:46,440
+you get. Okay. So is that right? Yeah.
+
+203
+00:11:46,720 --> 00:11:51,600
+Okay. So if we just generate a range
+
+204
+00:11:49,360 --> 00:11:53,920
+let's say
+
+205
+00:11:51,600 --> 00:11:57,920
+um
+
+206
+00:11:53,920 --> 00:12:00,160
+let's say that okay let's see if it will
+
+207
+00:11:57,920 --> 00:12:03,920
+go
+
+208
+00:12:00,160 --> 00:12:10,639
+uh beyond memory so this number to this
+
+209
+00:12:03,920 --> 00:12:13,279
+number range okay let's see now let's um
+
+210
+00:12:10,639 --> 00:12:17,680
+let's look at my memory so wam language
+
+211
+00:12:13,279 --> 00:12:20,639
+right now 195 megabyte
+
+212
+00:12:17,680 --> 00:12:24,320
+Okay, let's check the me memory graph.
+
+213
+00:12:20,639 --> 00:12:26,720
+Now let's do this. Shift enter. General
+
+214
+00:12:24,320 --> 00:12:30,000
+the current computation was aborted
+
+215
+00:12:26,720 --> 00:12:31,839
+because there was info in insufficient
+
+216
+00:12:30,000 --> 00:12:35,200
+memory available to complete the
+
+217
+00:12:31,839 --> 00:12:37,120
+computation. So yeah, so you cannot do
+
+218
+00:12:35,200 --> 00:12:39,519
+that. That means you cannot do that in
+
+219
+00:12:37,120 --> 00:12:42,880
+Python in JavaScript.
+
+220
+00:12:39,519 --> 00:12:47,600
+The number the the array length is too
+
+221
+00:12:42,880 --> 00:12:51,519
+big. Okay. So language simply abort it
+
+222
+00:12:47,600 --> 00:12:54,000
+before it even computes it. Okay. So you
+
+223
+00:12:51,519 --> 00:12:56,720
+don't want so but to find the length
+
+224
+00:12:54,000 --> 00:13:00,160
+it's easy. You just take the second
+
+225
+00:12:56,720 --> 00:13:03,360
+number minus the first number.
+
+226
+00:13:00,160 --> 00:13:06,959
+Oh okay. So
+
+227
+00:13:03,360 --> 00:13:09,680
+but then you need to reduce. Okay.
+
+228
+00:13:06,959 --> 00:13:11,600
+That's uh that's a interesting problem.
+
+229
+00:13:09,680 --> 00:13:15,560
+You re you need to remove the
+
+230
+00:13:11,600 --> 00:13:15,560
+duplicates. Okay.
+
+231
+00:13:17,680 --> 00:13:23,200
+So, how do you solve this?
+
+232
+00:13:20,399 --> 00:13:25,440
+You see this is you know normally you
+
+233
+00:13:23,200 --> 00:13:29,200
+just generate the range and you do a
+
+234
+00:13:25,440 --> 00:13:31,600
+union very simple but now you cannot
+
+235
+00:13:29,200 --> 00:13:34,600
+generate the range.
+
+236
+00:13:31,600 --> 00:13:34,600
+Um
+
+237
+00:13:34,959 --> 00:13:37,959
+interesting
+
+238
+00:13:39,760 --> 00:13:45,200
+so what are the comments? Hikaran, do
+
+239
+00:13:42,720 --> 00:13:47,760
+you notice a lot of typing difference
+
+240
+00:13:45,200 --> 00:13:50,079
+between real staggered keyboard like
+
+241
+00:13:47,760 --> 00:13:52,560
+ultimate hacking keyboard and glove 80?
+
+242
+00:13:50,079 --> 00:13:54,480
+Okay, that's a very interesting
+
+243
+00:13:52,560 --> 00:13:56,880
+question.
+
+244
+00:13:54,480 --> 00:13:59,680
+It turns out it doesn't matter much.
+
+245
+00:13:56,880 --> 00:14:03,839
+Okay, let's let me digress on keyboard.
+
+246
+00:13:59,680 --> 00:14:06,240
+So, if you search for keyboard blog, you
+
+247
+00:14:03,839 --> 00:14:09,519
+you get to my keyboard blog, which is
+
+248
+00:14:06,240 --> 00:14:13,600
+this page. And there are over 1,000
+
+249
+00:14:09,519 --> 00:14:16,399
+articles. So you can see 1,400
+
+250
+00:14:13,600 --> 00:14:19,440
+articles on keyboard, mouse, input
+
+251
+00:14:16,399 --> 00:14:21,519
+devices, keyboard layout, trackboard and
+
+252
+00:14:19,440 --> 00:14:26,720
+so on. So you see I got my trackboard
+
+253
+00:14:21,519 --> 00:14:29,360
+here and mouse here. So uh all so when
+
+254
+00:14:26,720 --> 00:14:32,800
+you shop for keyboard there are many
+
+255
+00:14:29,360 --> 00:14:36,399
+considerations. Do you want it split? Do
+
+256
+00:14:32,800 --> 00:14:39,680
+you or do you want it can it be can it
+
+257
+00:14:36,399 --> 00:14:43,279
+tent like you know instead of flat it
+
+258
+00:14:39,680 --> 00:14:46,560
+goes like that right now this is tented
+
+259
+00:14:43,279 --> 00:14:48,720
+you know so and what uh what about the
+
+260
+00:14:46,560 --> 00:14:50,560
+key switches do you want it mechanical
+
+261
+00:14:48,720 --> 00:14:53,920
+key switches what's the difference does
+
+262
+00:14:50,560 --> 00:14:58,000
+it help does mechanical key switches
+
+263
+00:14:53,920 --> 00:14:59,920
+help your handheld and if so which one
+
+264
+00:14:58,000 --> 00:15:03,440
+there are so many of them mechanical key
+
+265
+00:14:59,920 --> 00:15:06,240
+switches so you can find um articles all
+
+266
+00:15:03,440 --> 00:15:10,959
+here. Okay, for example, history or go
+
+267
+00:15:06,240 --> 00:15:14,800
+history key switch guide. This section
+
+268
+00:15:10,959 --> 00:15:16,959
+is all about key switches and also key
+
+269
+00:15:14,800 --> 00:15:21,680
+cap design. You know, there's so many
+
+270
+00:15:16,959 --> 00:15:26,079
+issues and also uh keyboard layout,
+
+271
+00:15:21,680 --> 00:15:28,320
+keypad key design. So um keyboard layout
+
+272
+00:15:26,079 --> 00:15:31,320
+for example
+
+273
+00:15:28,320 --> 00:15:31,320
+voraci
+
+274
+00:15:31,920 --> 00:15:38,959
+vorac coac and so on. So there are many
+
+275
+00:15:35,920 --> 00:15:41,519
+issues to consider when you buy a
+
+276
+00:15:38,959 --> 00:15:45,040
+keyboard and about the relation to
+
+277
+00:15:41,519 --> 00:15:46,639
+handheld and so on and of course price
+
+278
+00:15:45,040 --> 00:15:49,360
+portability
+
+279
+00:15:46,639 --> 00:15:52,000
+is it wireless or USB what kind of
+
+280
+00:15:49,360 --> 00:15:54,399
+wireless wireless USB dongle or
+
+281
+00:15:52,000 --> 00:15:57,519
+Bluetooth? There's there are pros and
+
+282
+00:15:54,399 --> 00:15:59,600
+cons and also the weight of the keyboard
+
+283
+00:15:57,519 --> 00:16:03,279
+the construction the quality of course
+
+284
+00:15:59,600 --> 00:16:05,839
+and also the software can it remap keys
+
+285
+00:16:03,279 --> 00:16:08,240
+is it does it have memory inside the
+
+286
+00:16:05,839 --> 00:16:11,120
+keyboard or do you always have to use
+
+287
+00:16:08,240 --> 00:16:14,160
+software so lots of consideration now
+
+288
+00:16:11,120 --> 00:16:17,759
+one of them is uh let's go to key key
+
+289
+00:16:14,160 --> 00:16:20,000
+design okay one of them is about the
+
+290
+00:16:17,759 --> 00:16:22,480
+staggered
+
+291
+00:16:20,000 --> 00:16:26,079
+you know why are keyboards keys not
+
+292
+00:16:22,480 --> 00:16:28,880
+aligned vertical vertically like a grid
+
+293
+00:16:26,079 --> 00:16:31,120
+like a matrix you know that's simple
+
+294
+00:16:28,880 --> 00:16:34,399
+right because your fingers move up down
+
+295
+00:16:31,120 --> 00:16:36,639
+your fingers human hand is not you know
+
+296
+00:16:34,399 --> 00:16:39,839
+up and down right that's natural you
+
+297
+00:16:36,639 --> 00:16:41,839
+don't go like sideways you know like the
+
+298
+00:16:39,839 --> 00:16:45,519
+right hand goes sideway that way the
+
+299
+00:16:41,839 --> 00:16:48,079
+left hand you know so like if you
+
+300
+00:16:45,519 --> 00:16:51,279
+consider symmetry you want if you want
+
+301
+00:16:48,079 --> 00:16:54,480
+to go inward then it's like but then
+
+302
+00:16:51,279 --> 00:16:57,120
+it's like that. Anyway, okay, my uh
+
+303
+00:16:54,480 --> 00:16:59,279
+video window is too small. So, anyway,
+
+304
+00:16:57,120 --> 00:17:02,639
+why are they staggered? This way is
+
+305
+00:16:59,279 --> 00:17:05,919
+called staggered because back then 200
+
+306
+00:17:02,639 --> 00:17:07,839
+years ago when mechanical typewriter
+
+307
+00:17:05,919 --> 00:17:10,240
+were invented,
+
+308
+00:17:07,839 --> 00:17:14,199
+they are mechanical. So, let's go to
+
+309
+00:17:10,240 --> 00:17:14,199
+typewriters. So,
+
+310
+00:17:16,000 --> 00:17:21,360
+so I'm digressing a little bit because
+
+311
+00:17:19,199 --> 00:17:24,079
+you know to answer this question I'm
+
+312
+00:17:21,360 --> 00:17:27,760
+giving you a full detailed account
+
+313
+00:17:24,079 --> 00:17:30,320
+palash backup. Okay. So this is kind of
+
+314
+00:17:27,760 --> 00:17:34,000
+history of mechanical typewriters. You
+
+315
+00:17:30,320 --> 00:17:37,360
+can see elaborate ones 200 years ago.
+
+316
+00:17:34,000 --> 00:17:40,080
+Okay. So when typewriters were created
+
+317
+00:17:37,360 --> 00:17:43,520
+mechanical typewriters they they are
+
+318
+00:17:40,080 --> 00:17:45,440
+mechanical it's not electronics. So it
+
+319
+00:17:43,520 --> 00:17:47,600
+every time you press the key they hit a
+
+320
+00:17:45,440 --> 00:17:50,640
+hammer and so on. So they need this
+
+321
+00:17:47,600 --> 00:17:52,880
+mechanism you see all this elaborate
+
+322
+00:17:50,640 --> 00:17:56,720
+mechanism
+
+323
+00:17:52,880 --> 00:17:59,120
+behind them. So which means the keys
+
+324
+00:17:56,720 --> 00:18:01,679
+cannot align cannot be aligned
+
+325
+00:17:59,120 --> 00:18:04,880
+vertically. So they are like so-called
+
+326
+00:18:01,679 --> 00:18:08,000
+staggered or slanted.
+
+327
+00:18:04,880 --> 00:18:11,039
+So that you see the underneath the keys
+
+328
+00:18:08,000 --> 00:18:14,000
+you got those level levels. So they must
+
+329
+00:18:11,039 --> 00:18:17,200
+be aligned. You see? So they have room
+
+330
+00:18:14,000 --> 00:18:21,520
+to go to you know the the the mechanism
+
+331
+00:18:17,200 --> 00:18:25,840
+the hammer bars have room. That is why
+
+332
+00:18:21,520 --> 00:18:29,760
+the keyboard we use have this weird
+
+333
+00:18:25,840 --> 00:18:34,000
+slanted shape. They are not like
+
+334
+00:18:29,760 --> 00:18:36,559
+uh like uh regularly orthogonal like you
+
+335
+00:18:34,000 --> 00:18:38,799
+you think you know 45 degrees they are
+
+336
+00:18:36,559 --> 00:18:41,919
+not like that. They are like shaped
+
+337
+00:18:38,799 --> 00:18:45,440
+slanted in a weird way. That's because
+
+338
+00:18:41,919 --> 00:18:49,600
+this is why. Okay.
+
+339
+00:18:45,440 --> 00:18:53,200
+So when electronic keyboards are
+
+340
+00:18:49,600 --> 00:18:55,360
+invented like today for example let's go
+
+341
+00:18:53,200 --> 00:18:58,640
+when electronic keyboard you don't you
+
+342
+00:18:55,360 --> 00:19:02,640
+don't have those mechanical mechanisms
+
+343
+00:18:58,640 --> 00:19:05,360
+underneath it you know the earliest one
+
+344
+00:19:02,640 --> 00:19:07,840
+let's see uh
+
+345
+00:19:05,360 --> 00:19:10,559
+key switch guide go history keyboard
+
+346
+00:19:07,840 --> 00:19:14,640
+history you know so when digital
+
+347
+00:19:10,559 --> 00:19:18,080
+computers are created uh okay so where
+
+348
+00:19:14,640 --> 00:19:21,039
+is it And so let's open that one.
+
+349
+00:19:18,080 --> 00:19:24,240
+You know, for example, Invac PK200
+
+350
+00:19:21,039 --> 00:19:26,559
+keyboard 1966.
+
+351
+00:19:24,240 --> 00:19:29,280
+There's no mechanism underneath it. It's
+
+352
+00:19:26,559 --> 00:19:34,880
+just, you know, electronic computers.
+
+353
+00:19:29,280 --> 00:19:39,280
+But people, we human animals has a habit
+
+354
+00:19:34,880 --> 00:19:41,200
+because we are already used to
+
+355
+00:19:39,280 --> 00:19:43,840
+this,
+
+356
+00:19:41,200 --> 00:19:45,840
+you know, we are already used. Wait, by
+
+357
+00:19:43,840 --> 00:19:48,559
+the way, this this one is interesting.
+
+358
+00:19:45,840 --> 00:19:50,799
+They are vertical. Uh, yeah, this is
+
+359
+00:19:48,559 --> 00:19:53,919
+this one is kind of special. So, let's
+
+360
+00:19:50,799 --> 00:19:59,960
+go back. We are already used to this
+
+361
+00:19:53,919 --> 00:19:59,960
+slanted way. So, people when people see,
+
+362
+00:20:00,080 --> 00:20:07,039
+you know, so let me show you a vertical
+
+363
+00:20:02,480 --> 00:20:07,039
+uh align keyboard. Okay. So, let's go to
+
+364
+00:20:07,280 --> 00:20:12,720
+ergonomic keyboard review. So, you can
+
+365
+00:20:09,600 --> 00:20:15,440
+see glove 80. One of my favorite. You
+
+366
+00:20:12,720 --> 00:20:18,080
+see they are not staggered they are just
+
+367
+00:20:15,440 --> 00:20:21,039
+straight because your fingers move up
+
+368
+00:20:18,080 --> 00:20:23,280
+down that's more natural and lots of
+
+369
+00:20:21,039 --> 00:20:25,840
+more. So for example this is one of the
+
+370
+00:20:23,280 --> 00:20:29,440
+first you know so these are they what
+
+371
+00:20:25,840 --> 00:20:32,720
+they call this or linear okay so this
+
+372
+00:20:29,440 --> 00:20:36,240
+Kinesis keyboard Kinesis 360 I have
+
+373
+00:20:32,720 --> 00:20:38,240
+video reviews for all of them. Okay. For
+
+374
+00:20:36,240 --> 00:20:41,200
+this this this
+
+375
+00:20:38,240 --> 00:20:43,440
+uh and so and there's also so this one
+
+376
+00:20:41,200 --> 00:20:46,080
+also interesting ortholinear but they
+
+377
+00:20:43,440 --> 00:20:48,080
+are symmetric you know they are like
+
+378
+00:20:46,080 --> 00:20:51,120
+slanted but they are symmetric because
+
+379
+00:20:48,080 --> 00:20:53,440
+your hands are symmetric it's your your
+
+380
+00:20:51,120 --> 00:20:56,880
+hand doesn't grow that way you know your
+
+381
+00:20:53,440 --> 00:21:01,039
+hand are symmetric. So,
+
+382
+00:20:56,880 --> 00:21:03,919
+so when when um electronic keyboard got
+
+383
+00:21:01,039 --> 00:21:06,559
+invented
+
+384
+00:21:03,919 --> 00:21:08,400
+but people don't want it because habit
+
+385
+00:21:06,559 --> 00:21:11,840
+you know they they don't want this
+
+386
+00:21:08,400 --> 00:21:16,240
+straight you know orolinear because they
+
+387
+00:21:11,840 --> 00:21:19,679
+are used to the weird slant. Okay.
+
+388
+00:21:16,240 --> 00:21:23,919
+So that is a phenomenon
+
+389
+00:21:19,679 --> 00:21:27,280
+of many conventions of everyday things.
+
+390
+00:21:23,919 --> 00:21:30,240
+You know when technology improved
+
+391
+00:21:27,280 --> 00:21:32,240
+to have a better way but human animals
+
+392
+00:21:30,240 --> 00:21:35,600
+we refuse it. We don't want it because
+
+393
+00:21:32,240 --> 00:21:40,960
+we are already used to this weird
+
+394
+00:21:35,600 --> 00:21:43,760
+Okay. So that is why to this day all the
+
+395
+00:21:40,960 --> 00:21:45,600
+normal keyboards you know including for
+
+396
+00:21:43,760 --> 00:21:48,159
+example
+
+397
+00:21:45,600 --> 00:21:50,159
+uh Apple computers
+
+398
+00:21:48,159 --> 00:21:55,039
+you know all the keyboards you have this
+
+399
+00:21:50,159 --> 00:21:56,880
+weird slant which is idiotic extreme
+
+400
+00:21:55,039 --> 00:22:02,159
+but what can you do you know people are
+
+401
+00:21:56,880 --> 00:22:05,360
+used to it uh can we go let's show again
+
+402
+00:22:02,159 --> 00:22:09,039
+so open
+
+403
+00:22:05,360 --> 00:22:13,120
+uh Open open.
+
+404
+00:22:09,039 --> 00:22:16,400
+So you can see Apple iBook year 2003
+
+405
+00:22:13,120 --> 00:22:19,200
+and this is MacBook 2019. They are all
+
+406
+00:22:16,400 --> 00:22:21,520
+slanted and that's that one is special
+
+407
+00:22:19,200 --> 00:22:27,360
+anyway.
+
+408
+00:22:21,520 --> 00:22:29,760
+So um so question but today since about
+
+409
+00:22:27,360 --> 00:22:32,400
+10 years ago a lot of people you know we
+
+410
+00:22:29,760 --> 00:22:35,679
+change slowly every decade when the old
+
+411
+00:22:32,400 --> 00:22:37,679
+generation dies the new generation they
+
+412
+00:22:35,679 --> 00:22:40,400
+don't know what the are these
+
+413
+00:22:37,679 --> 00:22:43,840
+mechanical typewriters like never seen
+
+414
+00:22:40,400 --> 00:22:46,960
+it so they don't have this habit issue
+
+415
+00:22:43,840 --> 00:22:49,440
+so for for the new generation including
+
+416
+00:22:46,960 --> 00:22:52,240
+your children you know whatever you get
+
+417
+00:22:49,440 --> 00:22:54,320
+used to you think it's best normal but
+
+418
+00:22:52,240 --> 00:22:56,080
+then your children don't know what your
+
+419
+00:22:54,320 --> 00:22:59,280
+experience is. Your children think you
+
+420
+00:22:56,080 --> 00:23:01,600
+are idiot in many things including
+
+421
+00:22:59,280 --> 00:23:03,200
+programming languages. So the new
+
+422
+00:23:01,600 --> 00:23:06,080
+generation
+
+423
+00:23:03,200 --> 00:23:10,000
+they don't have attachment or habit with
+
+424
+00:23:06,080 --> 00:23:14,000
+this. So beginning about 10 years ago
+
+425
+00:23:10,000 --> 00:23:16,640
+there are many keyboards that are let's
+
+426
+00:23:14,000 --> 00:23:18,240
+go uh
+
+427
+00:23:16,640 --> 00:23:19,840
+you know they are not they they are
+
+428
+00:23:18,240 --> 00:23:22,640
+ortholinear
+
+429
+00:23:19,840 --> 00:23:27,360
+for example this one from China or
+
+430
+00:23:22,640 --> 00:23:30,240
+linear grid okay much better so when you
+
+431
+00:23:27,360 --> 00:23:33,120
+buy a keyboard today there's a question
+
+432
+00:23:30,240 --> 00:23:36,240
+should you go with the orolinear like
+
+433
+00:23:33,120 --> 00:23:39,039
+the modern supposedly better or should
+
+434
+00:23:36,240 --> 00:23:44,480
+you with a convent con conventional like
+
+435
+00:23:39,039 --> 00:23:48,000
+UHK 80 which is what I'm using.
+
+436
+00:23:44,480 --> 00:23:52,159
+So ideally in my opinion you should go
+
+437
+00:23:48,000 --> 00:23:57,120
+ortholinear. Orlinear is just better in
+
+438
+00:23:52,159 --> 00:24:01,679
+theory and in practice or okay or linear
+
+439
+00:23:57,120 --> 00:24:05,919
+straight. No weird slant like complete
+
+440
+00:24:01,679 --> 00:24:10,640
+idiot idiotic This this habit
+
+441
+00:24:05,919 --> 00:24:14,720
+you know habit indu induced
+
+442
+00:24:10,640 --> 00:24:17,039
+But however it is not a very important
+
+443
+00:24:14,720 --> 00:24:19,039
+issue. Okay. Now let me show you some
+
+444
+00:24:17,039 --> 00:24:23,440
+other examples. Ortholinear you know
+
+445
+00:24:19,039 --> 00:24:27,200
+symmetric. Okay that's good. Uh that's
+
+446
+00:24:23,440 --> 00:24:31,760
+good. But this one you see they they do
+
+447
+00:24:27,200 --> 00:24:34,559
+the kind of semi-traditional so people
+
+448
+00:24:31,760 --> 00:24:36,960
+came from traditional keyboard can get
+
+449
+00:24:34,559 --> 00:24:38,799
+used to this you know. So anyway, so the
+
+450
+00:24:36,960 --> 00:24:41,600
+qu question is when you buy a new
+
+451
+00:24:38,799 --> 00:24:43,919
+keyboard, you are aware of these issues.
+
+452
+00:24:41,600 --> 00:24:47,279
+You know, you got young, you know, so
+
+453
+00:24:43,919 --> 00:24:51,360
+but which one should you choose? So it
+
+454
+00:24:47,279 --> 00:24:54,400
+turns out this ortholinear or slanted
+
+455
+00:24:51,360 --> 00:24:57,440
+does not matter that much all things
+
+456
+00:24:54,400 --> 00:24:59,919
+considered. Okay, on a keyboard, you
+
+457
+00:24:57,440 --> 00:25:03,440
+know, do you want it split? Do you want
+
+458
+00:24:59,919 --> 00:25:05,919
+it um do you want it like the surface
+
+459
+00:25:03,440 --> 00:25:08,000
+curved? Do you want it you know
+
+460
+00:25:05,919 --> 00:25:10,880
+mechanical keys? Of course. Do you know
+
+461
+00:25:08,000 --> 00:25:13,760
+so many many choices and about keyboard
+
+462
+00:25:10,880 --> 00:25:16,559
+layout? So of all these choices as far
+
+463
+00:25:13,760 --> 00:25:19,919
+as handheld goes
+
+464
+00:25:16,559 --> 00:25:24,080
+whether it is slanted like the
+
+465
+00:25:19,919 --> 00:25:27,200
+traditional um slant or whether it's
+
+466
+00:25:24,080 --> 00:25:30,320
+ortholinear does not matter that much.
+
+467
+00:25:27,200 --> 00:25:33,279
+Okay. So for me
+
+468
+00:25:30,320 --> 00:25:35,600
+now I can use both of them trivially. I
+
+469
+00:25:33,279 --> 00:25:38,400
+like I don't even notice like if you
+
+470
+00:25:35,600 --> 00:25:41,760
+switch from one to the other you might
+
+471
+00:25:38,400 --> 00:25:45,120
+make some mistakes the first day then
+
+472
+00:25:41,760 --> 00:25:48,720
+you just get used to it. Okay. So for me
+
+473
+00:25:45,120 --> 00:25:51,440
+like I can switch from from the
+
+474
+00:25:48,720 --> 00:25:57,039
+staggered or the ortholinear
+
+475
+00:25:51,440 --> 00:25:59,360
+um you know any day you know any hour no
+
+476
+00:25:57,039 --> 00:26:01,760
+problem. Okay does that answer your
+
+477
+00:25:59,360 --> 00:26:04,960
+question? If I if I did answer your
+
+478
+00:26:01,760 --> 00:26:07,360
+question, say yes or something. Okay, so
+
+479
+00:26:04,960 --> 00:26:11,080
+that is a digression into keyboard. Now
+
+480
+00:26:07,360 --> 00:26:11,080
+let's go back to
+
+481
+00:26:11,360 --> 00:26:17,520
+let's go back to coding the problem.
+
+482
+00:26:13,600 --> 00:26:22,679
+Okay, so let me think. So we run into a
+
+483
+00:26:17,520 --> 00:26:22,679
+problem. How do you solve this? Okay,
+
+484
+00:26:23,279 --> 00:26:26,960
+makes sense. Fantastic. Thank you,
+
+485
+00:26:25,279 --> 00:26:29,440
+Palash.
+
+486
+00:26:26,960 --> 00:26:31,360
+Okay, let's solve this problem. So the
+
+487
+00:26:29,440 --> 00:26:35,279
+problem is you are given a bunch of
+
+488
+00:26:31,360 --> 00:26:37,520
+ranges. You want to find their union and
+
+489
+00:26:35,279 --> 00:26:43,000
+uh how many total are there. How do you
+
+490
+00:26:37,520 --> 00:26:43,000
+solve this? Let's see. Let's see.
+
+491
+00:26:46,960 --> 00:26:54,960
+So what you can do is you um
+
+492
+00:26:52,320 --> 00:26:57,600
+okay so you got range first of all you
+
+493
+00:26:54,960 --> 00:27:00,640
+sort them by the by the minimum by the
+
+494
+00:26:57,600 --> 00:27:03,520
+first number in the range okay then you
+
+495
+00:27:00,640 --> 00:27:07,760
+break them into segments
+
+496
+00:27:03,520 --> 00:27:13,679
+like for example 10 to 14
+
+497
+00:27:07,760 --> 00:27:16,480
+10 to 14 and 16 to 20 they overlap.
+
+498
+00:27:13,679 --> 00:27:20,720
+How do you know they overlap? Because
+
+499
+00:27:16,480 --> 00:27:23,360
+the first range last number the maximum
+
+500
+00:27:20,720 --> 00:27:29,279
+is wait they don't overlap. Hold on a
+
+501
+00:27:23,360 --> 00:27:34,320
+second. 10 to 14 16 to 20. Okay. Now
+
+502
+00:27:29,279 --> 00:27:37,760
+16 to 20 and 12 to 18 they overlap.
+
+503
+00:27:34,320 --> 00:27:40,400
+Okay. So let me show you how how that
+
+504
+00:27:37,760 --> 00:27:44,159
+works.
+
+505
+00:27:40,400 --> 00:27:47,960
+And uh let's also write it out. Okay. So
+
+506
+00:27:44,159 --> 00:27:47,960
+we forgot. So
+
+507
+00:27:49,440 --> 00:27:55,559
+uh so let's not let's not do this. Okay.
+
+508
+00:27:52,559 --> 00:27:55,559
+So
+
+509
+00:27:56,720 --> 00:28:06,279
+the naive way to solve is problem. So
+
+510
+00:28:02,320 --> 00:28:06,279
+the problem
+
+511
+00:28:06,320 --> 00:28:11,000
+the
+
+512
+00:28:08,000 --> 00:28:11,000
+description
+
+513
+00:28:13,760 --> 00:28:23,240
+carbon description
+
+514
+00:28:16,640 --> 00:28:23,240
+given a list of ranges. For example,
+
+515
+00:28:26,399 --> 00:28:33,279
+find how many total this
+
+516
+00:28:31,039 --> 00:28:35,520
+this
+
+517
+00:28:33,279 --> 00:28:39,520
+distinct
+
+518
+00:28:35,520 --> 00:28:44,279
+numbers are in them. Okay, that is the
+
+519
+00:28:39,520 --> 00:28:44,279
+problem description. Uh wait.
+
+520
+00:28:50,000 --> 00:28:56,799
+Okay. Problem description. Now,
+
+521
+00:28:53,520 --> 00:29:00,240
+now the naive way to solve this problem
+
+522
+00:28:56,799 --> 00:29:05,520
+is just
+
+523
+00:29:00,240 --> 00:29:07,440
+to generate a list of numbers for each
+
+524
+00:29:05,520 --> 00:29:10,080
+range.
+
+525
+00:29:07,440 --> 00:29:16,559
+Then you
+
+526
+00:29:10,080 --> 00:29:21,880
+do a set union of all the lists.
+
+527
+00:29:16,559 --> 00:29:21,880
+Then you just count
+
+528
+00:29:22,559 --> 00:29:28,080
+get the
+
+529
+00:29:26,000 --> 00:29:32,080
+length.
+
+530
+00:29:28,080 --> 00:29:36,360
+Okay. So does that make sense? Okay. Let
+
+531
+00:29:32,080 --> 00:29:36,360
+me uh let me put this
+
+532
+00:29:45,600 --> 00:29:52,880
+showing browser. So we got the problem
+
+533
+00:29:48,559 --> 00:29:54,880
+description and we got naive solution
+
+534
+00:29:52,880 --> 00:29:57,360
+but
+
+535
+00:29:54,880 --> 00:30:00,360
+the naive sol
+
+536
+00:29:57,360 --> 00:30:00,360
+okay
+
+537
+00:30:01,360 --> 00:30:14,720
+but the naive solution won't work
+
+538
+00:30:08,159 --> 00:30:22,200
+because the range the number range
+
+539
+00:30:14,720 --> 00:30:22,200
+too many numbers to fit into memory.
+
+540
+00:30:22,960 --> 00:30:31,720
+Okay, that is the problem. So
+
+541
+00:30:28,720 --> 00:30:31,720
+therefore,
+
+542
+00:30:37,760 --> 00:30:43,320
+here
+
+543
+00:30:39,840 --> 00:30:43,320
+better solution.
+
+544
+00:30:43,440 --> 00:30:49,039
+Here is a better solution. algorithm
+
+545
+00:30:46,399 --> 00:30:50,960
+description how we going to attack this
+
+546
+00:30:49,039 --> 00:30:54,880
+problem.
+
+547
+00:30:50,960 --> 00:30:58,200
+So given a list
+
+548
+00:30:54,880 --> 00:30:58,200
+of ranges
+
+549
+00:30:59,120 --> 00:31:05,200
+first we sort them. Okay.
+
+550
+00:31:03,600 --> 00:31:07,360
+Example
+
+551
+00:31:05,200 --> 00:31:11,640
+sort them
+
+552
+00:31:07,360 --> 00:31:11,640
+by their mean.
+
+553
+00:31:11,760 --> 00:31:18,799
+Okay. So press a key to sort them. Okay.
+
+554
+00:31:14,880 --> 00:31:21,679
+Actually uh press a key. Now you want to
+
+555
+00:31:18,799 --> 00:31:26,240
+sort uh
+
+556
+00:31:21,679 --> 00:31:33,679
+so in EMAC you can do this give a value
+
+557
+00:31:26,240 --> 00:31:36,960
+one then meta x sort numerical fields
+
+558
+00:31:33,679 --> 00:31:38,559
+okay so you sort it so you got it became
+
+559
+00:31:36,960 --> 00:31:42,960
+that
+
+560
+00:31:38,559 --> 00:31:45,039
+you see 128 become the notimate line
+
+561
+00:31:42,960 --> 00:31:48,080
+then 1620
+
+562
+00:31:45,039 --> 00:31:51,279
+you see different from here here is 16
+
+563
+00:31:48,080 --> 00:31:55,240
+20 then 12 18 right you saw them by
+
+564
+00:31:51,279 --> 00:31:55,240
+their first number then
+
+565
+00:31:55,440 --> 00:32:02,919
+you find their intersection
+
+566
+00:31:59,919 --> 00:32:02,919
+you
+
+567
+00:32:03,360 --> 00:32:09,440
+how do you say this you well uh how do
+
+568
+00:32:06,559 --> 00:32:13,760
+you say this let's focus on focus on
+
+569
+00:32:09,440 --> 00:32:15,519
+these two lines 12 to 18 16 to 20 they
+
+570
+00:32:13,760 --> 00:32:18,919
+overlap
+
+571
+00:32:15,519 --> 00:32:18,919
+you Find
+
+572
+00:32:19,679 --> 00:32:27,440
+ranges,
+
+573
+00:32:22,080 --> 00:32:30,320
+neighbor ranges that overlap.
+
+574
+00:32:27,440 --> 00:32:33,120
+And you do that by
+
+575
+00:32:30,320 --> 00:32:34,960
+to determine
+
+576
+00:32:33,120 --> 00:32:39,240
+overlap.
+
+577
+00:32:34,960 --> 00:32:39,240
+Lab or lab overlap.
+
+578
+00:32:40,240 --> 00:32:45,640
+Check the max of
+
+579
+00:32:49,679 --> 00:32:52,679
+uh
+
+580
+00:32:53,440 --> 00:32:57,080
+two ranges
+
+581
+00:32:57,279 --> 00:33:02,159
+overlap.
+
+582
+00:32:59,120 --> 00:33:07,640
+If the
+
+583
+00:33:02,159 --> 00:33:07,640
+max of burst
+
+584
+00:33:07,679 --> 00:33:17,679
+which is 18 is greater
+
+585
+00:33:12,480 --> 00:33:22,919
+or equals to the mean of the
+
+586
+00:33:17,679 --> 00:33:22,919
+next range. greater or equal yes
+
+587
+00:33:26,399 --> 00:33:34,360
+to the mean of the
+
+588
+00:33:30,880 --> 00:33:34,360
+second range.
+
+589
+00:33:35,679 --> 00:33:38,679
+Okay,
+
+590
+00:33:40,240 --> 00:33:45,519
+showing browser fantastic analysis of
+
+591
+00:33:43,679 --> 00:33:49,919
+the problem.
+
+592
+00:33:45,519 --> 00:33:52,919
+Anyone else watching say hi. Okay,
+
+593
+00:33:49,919 --> 00:33:52,919
+so
+
+594
+00:33:54,880 --> 00:33:58,360
+that's easy.
+
+595
+00:34:00,240 --> 00:34:08,240
+Now
+
+596
+00:34:02,000 --> 00:34:12,079
+when you deter when you find two ranges
+
+597
+00:34:08,240 --> 00:34:13,839
+that overlap
+
+598
+00:34:12,079 --> 00:34:17,480
+for example
+
+599
+00:34:13,839 --> 00:34:17,480
+that and that
+
+600
+00:34:17,919 --> 00:34:23,800
+you create a new range let's see uh
+
+601
+00:34:24,320 --> 00:34:30,760
+when you find the range overlap
+
+602
+00:34:27,760 --> 00:34:30,760
+You
+
+603
+00:34:35,760 --> 00:34:45,440
+you reduce the first
+
+604
+00:34:40,240 --> 00:34:47,040
+the max of the first range
+
+605
+00:34:45,440 --> 00:34:50,720
+by
+
+606
+00:34:47,040 --> 00:34:54,879
+the mean
+
+607
+00:34:50,720 --> 00:34:58,599
+of the second range
+
+608
+00:34:54,879 --> 00:34:58,599
+minus one.
+
+609
+00:35:00,560 --> 00:35:04,800
+For example,
+
+610
+00:35:02,720 --> 00:35:07,119
+1218
+
+611
+00:35:04,800 --> 00:35:10,119
+becomes
+
+612
+00:35:07,119 --> 00:35:10,119
+um
+
+613
+00:35:15,760 --> 00:35:20,359
+because
+
+614
+00:35:17,359 --> 00:35:20,359
+16
+
+615
+00:35:21,839 --> 00:35:29,359
+minus 1. Does that make sense? So 1218
+
+616
+00:35:27,280 --> 00:35:33,359
+becomes 1215.
+
+617
+00:35:29,359 --> 00:35:35,040
+Then you got 16 to 20, right?
+
+618
+00:35:33,359 --> 00:35:39,440
+Yeah.
+
+619
+00:35:35,040 --> 00:35:42,800
+So then you can continue comparing that
+
+620
+00:35:39,440 --> 00:35:46,079
+and the next range. Okay. Does that make
+
+621
+00:35:42,800 --> 00:35:49,079
+sense? Yes.
+
+622
+00:35:46,079 --> 00:35:49,079
+Okay.
+
+623
+00:35:53,359 --> 00:36:00,359
+Let's make sure this algorithm works.
+
+624
+00:35:56,560 --> 00:36:00,359
+Okay, I think so.
+
+625
+00:36:03,280 --> 00:36:09,880
+Just this algorithm works. So you got a
+
+626
+00:36:06,400 --> 00:36:09,880
+list of numbers.
+
+627
+00:36:11,040 --> 00:36:15,079
+Sort them by the first.
+
+628
+00:36:17,119 --> 00:36:28,079
+Now what if let's see what if um what if
+
+629
+00:36:23,040 --> 00:36:30,960
+you have that that identical
+
+630
+00:36:28,079 --> 00:36:34,240
+okay so
+
+631
+00:36:30,960 --> 00:36:36,560
+if we follow our algorithm this will
+
+632
+00:36:34,240 --> 00:36:40,160
+become
+
+633
+00:36:36,560 --> 00:36:43,040
+12 to 11
+
+634
+00:36:40,160 --> 00:36:45,440
+and that doesn't work.
+
+635
+00:36:43,040 --> 00:36:47,599
+Yeah, that's you see this is a edge
+
+636
+00:36:45,440 --> 00:36:50,000
+case.
+
+637
+00:36:47,599 --> 00:36:52,880
+If they are repeated
+
+638
+00:36:50,000 --> 00:36:56,040
+then you got then by our algorithm you
+
+639
+00:36:52,880 --> 00:36:56,040
+get that
+
+640
+00:36:56,960 --> 00:37:00,280
+and
+
+641
+00:37:15,440 --> 00:37:21,920
+If the two ranges are identical,
+
+642
+00:37:19,119 --> 00:37:25,119
+simply remove them.
+
+643
+00:37:21,920 --> 00:37:28,320
+Okay, that works out.
+
+644
+00:37:25,119 --> 00:37:30,720
+So another a new rule before we do this
+
+645
+00:37:28,320 --> 00:37:35,240
+then first of all if two ranges are
+
+646
+00:37:30,720 --> 00:37:35,240
+identical just remove one of them.
+
+647
+00:37:36,640 --> 00:37:43,359
+Okay. Then what then? What else? Let's
+
+648
+00:37:40,960 --> 00:37:48,160
+see
+
+649
+00:37:43,359 --> 00:37:51,680
+what what about the special case of uh
+
+650
+00:37:48,160 --> 00:37:54,160
+what about special case of that?
+
+651
+00:37:51,680 --> 00:37:58,160
+Uh if
+
+652
+00:37:54,160 --> 00:38:03,040
+if you get that then the new
+
+653
+00:37:58,160 --> 00:38:06,960
+range for the first one is just
+
+654
+00:38:03,040 --> 00:38:08,800
+17. So that works out.
+
+655
+00:38:06,960 --> 00:38:10,720
+Yeah.
+
+656
+00:38:08,800 --> 00:38:13,720
+Okay.
+
+657
+00:38:10,720 --> 00:38:13,720
+So
+
+658
+00:38:17,200 --> 00:38:28,079
+better solution given these ranges.
+
+659
+00:38:21,280 --> 00:38:34,119
+First if uh first we saw them they mean
+
+660
+00:38:28,079 --> 00:38:34,119
+then if it so happens
+
+661
+00:38:35,359 --> 00:38:40,400
+that
+
+662
+00:38:37,040 --> 00:38:45,079
+two neighboring
+
+663
+00:38:40,400 --> 00:38:45,079
+ranges are identical.
+
+664
+00:38:45,760 --> 00:38:50,200
+Remove one of them.
+
+665
+00:38:50,560 --> 00:38:54,680
+Remove or search
+
+666
+00:38:55,119 --> 00:39:05,720
+ranges. Okay, first step. Then you find
+
+667
+00:38:59,760 --> 00:39:05,720
+neighboring ranges that overlap. Okay.
+
+668
+00:39:09,040 --> 00:39:15,760
+Okay. I think that's
+
+669
+00:39:11,760 --> 00:39:19,040
+that's great description analysis of the
+
+670
+00:39:15,760 --> 00:39:23,200
+problem. We got a solution already. Now
+
+671
+00:39:19,040 --> 00:39:25,200
+we got the algorithm to implement it is
+
+672
+00:39:23,200 --> 00:39:27,839
+trivial.
+
+673
+00:39:25,200 --> 00:39:31,119
+Okay. Anyone watching say hi. Okay. To
+
+674
+00:39:27,839 --> 00:39:34,240
+implement this is trivial. So
+
+675
+00:39:31,119 --> 00:39:36,960
+uh so let's let's you know let's go slow
+
+676
+00:39:34,240 --> 00:39:40,480
+and have fun uh I want to make this
+
+677
+00:39:36,960 --> 00:39:44,320
+instead of a hardcoded text let's make
+
+678
+00:39:40,480 --> 00:39:49,800
+it into actually um
+
+679
+00:39:44,320 --> 00:39:49,800
+uh paragraph instead of instead of
+
+680
+00:39:51,680 --> 00:39:54,680
+hardcoded.
+
+681
+00:39:58,240 --> 00:40:05,040
+Okay, let me just show you. Okay, so
+
+682
+00:40:01,599 --> 00:40:09,079
+problem description
+
+683
+00:40:05,040 --> 00:40:09,079
+given a list of ranges
+
+684
+00:40:10,880 --> 00:40:15,599
+uh
+
+685
+00:40:13,680 --> 00:40:19,720
+code.
+
+686
+00:40:15,599 --> 00:40:19,720
+I know. Okay.
+
+687
+00:40:37,200 --> 00:40:41,560
+Oh god. Sorry about that.
+
+688
+00:40:52,640 --> 00:40:58,800
+showing browser. So now that's a better
+
+689
+00:40:56,160 --> 00:41:01,800
+description problem description and
+
+690
+00:40:58,800 --> 00:41:01,800
+analysis.
+
+691
+00:41:07,040 --> 00:41:12,359
+Okay, let's start to implement this
+
+692
+00:41:09,359 --> 00:41:12,359
+problem.
+
+693
+00:41:17,520 --> 00:41:21,560
+Wolf language code
+
+694
+00:41:21,920 --> 00:41:24,920
+solution
+
+695
+00:41:25,200 --> 00:41:29,240
+w language code
+
+696
+00:41:31,359 --> 00:41:37,280
+input
+
+697
+00:41:33,920 --> 00:41:41,560
+input is just the first
+
+698
+00:41:37,280 --> 00:41:41,560
+set of numbers. Okay.
+
+699
+00:41:47,119 --> 00:41:52,000
+Okay. You need to turn that into a list
+
+700
+00:41:49,359 --> 00:41:53,760
+of ranges. Okay. So, we we go to
+
+701
+00:41:52,000 --> 00:41:58,800
+yesterday's
+
+702
+00:41:53,760 --> 00:42:01,800
+input and uh copy the code from there.
+
+703
+00:41:58,800 --> 00:42:01,800
+Okay.
+
+704
+00:42:08,240 --> 00:42:13,200
+Copy.
+
+705
+00:42:09,839 --> 00:42:17,119
+SL paste. Okay,
+
+706
+00:42:13,200 --> 00:42:21,800
+this this is official input. But now we
+
+707
+00:42:17,119 --> 00:42:21,800
+only care about the first segment.
+
+708
+00:42:29,119 --> 00:42:34,480
+So let me show you how that is the next
+
+709
+00:42:31,599 --> 00:42:38,040
+range list. Okay, we don't care about
+
+710
+00:42:34,480 --> 00:42:38,040
+the um
+
+711
+00:43:20,880 --> 00:43:23,880
+Okay.
+
+712
+00:43:44,480 --> 00:43:49,720
+Oh god. Got something wrong here.
+
+713
+00:44:11,599 --> 00:44:14,760
+That's it.
+
+714
+00:44:18,319 --> 00:44:21,800
+Uh, wait.
+
+715
+00:44:27,200 --> 00:44:31,960
+Okay. Now run the whole thing.
+
+716
+00:44:32,880 --> 00:44:39,319
+That's the result. Fantastic and
+
+717
+00:44:35,520 --> 00:44:39,319
+beautiful. Okay.
+
+718
+00:44:50,000 --> 00:44:55,240
+Wait, you forgot two expression. Uh
+
+719
+00:44:59,599 --> 00:45:06,200
+those are actually strings you need to
+
+720
+00:45:02,079 --> 00:45:06,200
+two expression. Okay.
+
+721
+00:45:09,359 --> 00:45:17,680
+Copy all. Go back here. Paste it. Shift
+
+722
+00:45:14,400 --> 00:45:23,640
+enter. Fantastic. Okay, that's the
+
+723
+00:45:17,680 --> 00:45:23,640
+answer. You got a list of ranges. Then
+
+724
+00:45:24,960 --> 00:45:32,880
+then what you do is you do something to
+
+725
+00:45:28,400 --> 00:45:36,240
+this list range list. Okay. So according
+
+726
+00:45:32,880 --> 00:45:40,880
+our plan the algorithm description we
+
+727
+00:45:36,240 --> 00:45:43,520
+going to go back to today we going to uh
+
+728
+00:45:40,880 --> 00:45:47,040
+mean max okay
+
+729
+00:45:43,520 --> 00:45:50,680
+so so first of all sort okay let's do
+
+730
+00:45:47,040 --> 00:45:50,680
+this um
+
+731
+00:45:52,480 --> 00:45:59,920
+let's let's do this uh in a trial and
+
+732
+00:45:57,680 --> 00:46:02,720
+error way so you can see the output then
+
+733
+00:45:59,920 --> 00:46:06,240
+we build our function Okay. So, here's a
+
+734
+00:46:02,720 --> 00:46:09,240
+list of ranges. Then we can actually So,
+
+735
+00:46:06,240 --> 00:46:09,240
+let's
+
+736
+00:46:13,359 --> 00:46:21,680
+Okay, that's our list range. Okay. Then
+
+737
+00:46:19,119 --> 00:46:25,359
+then what you do is you're going to do
+
+738
+00:46:21,680 --> 00:46:29,680
+something to that.
+
+739
+00:46:25,359 --> 00:46:32,160
+You want to sort them. Sort. Okay.
+
+740
+00:46:29,680 --> 00:46:35,599
+Now sort
+
+741
+00:46:32,160 --> 00:46:39,000
+takes two arguments. Uh you can actually
+
+742
+00:46:35,599 --> 00:46:39,000
+sort by
+
+743
+00:46:40,480 --> 00:46:46,359
+the difference is that sort takes a
+
+744
+00:46:43,359 --> 00:46:46,359
+function
+
+745
+00:46:48,160 --> 00:46:55,280
+predicate. Okay. Uh which is which is a
+
+746
+00:46:52,400 --> 00:46:57,680
+function takes two elements then returns
+
+747
+00:46:55,280 --> 00:47:02,760
+one or negative one. determine which one
+
+748
+00:46:57,680 --> 00:47:02,760
+is from or you can sort by
+
+749
+00:47:02,800 --> 00:47:07,000
+sort by will
+
+750
+00:47:07,200 --> 00:47:15,800
+sort by uh element they say first okay
+
+751
+00:47:10,640 --> 00:47:15,800
+that we'll do it okay so let me show you
+
+752
+00:47:18,880 --> 00:47:26,560
+shift enter I believe so you can see the
+
+753
+00:47:22,400 --> 00:47:30,000
+difference 1620 1218 now 1218 620 20.
+
+754
+00:47:26,560 --> 00:47:33,400
+Okay, that is the sort by the power of
+
+755
+00:47:30,000 --> 00:47:33,400
+sort by.
+
+756
+00:47:34,000 --> 00:47:39,599
+You can look up the documentation
+
+757
+00:47:36,560 --> 00:47:42,480
+language sort by the second argument is
+
+758
+00:47:39,599 --> 00:47:45,920
+a function that extract the element to
+
+759
+00:47:42,480 --> 00:47:48,920
+sort. Okay. Then you just delete
+
+760
+00:47:45,920 --> 00:47:48,920
+duplicate
+
+761
+00:47:50,480 --> 00:47:54,839
+unique. Wait. Um,
+
+762
+00:47:57,440 --> 00:48:01,839
+delete duplicate.
+
+763
+00:47:59,680 --> 00:48:04,400
+Let's check the documentation. Delete
+
+764
+00:48:01,839 --> 00:48:09,359
+duplicate data. Deletes all duplicates
+
+765
+00:48:04,400 --> 00:48:12,800
+of data. Okay, we can do that.
+
+766
+00:48:09,359 --> 00:48:16,240
+sort by then
+
+767
+00:48:12,800 --> 00:48:18,800
+delete duplicate now. Now in this
+
+768
+00:48:16,240 --> 00:48:23,000
+example,
+
+769
+00:48:18,800 --> 00:48:23,000
+okay, so hold on a second.
+
+770
+00:48:23,839 --> 00:48:30,000
+Uh do we have a uh sort by say let's
+
+771
+00:48:27,280 --> 00:48:32,960
+copy the uh
+
+772
+00:48:30,000 --> 00:48:36,960
+copy so for those it's easier to
+
+773
+00:48:32,960 --> 00:48:39,680
+understand. Okay. Now delete duplicate.
+
+774
+00:48:36,960 --> 00:48:47,319
+What happens is that now let's say
+
+775
+00:48:39,680 --> 00:48:47,319
+sorted ranges equals to okay
+
+776
+00:48:51,359 --> 00:48:58,520
+right
+
+777
+00:48:52,960 --> 00:48:58,520
+now delete duplicate will
+
+778
+00:49:00,000 --> 00:49:06,079
+now in our case we don't have duplicate
+
+779
+00:49:02,559 --> 00:49:10,640
+but but let's say if uh there is a
+
+780
+00:49:06,079 --> 00:49:15,520
+duplicate Let's say that.
+
+781
+00:49:10,640 --> 00:49:19,680
+Okay. So if you do that it will remove
+
+782
+00:49:15,520 --> 00:49:23,280
+the 128 that's repeated. You see
+
+783
+00:49:19,680 --> 00:49:25,520
+so this is the example. Okay. So we want
+
+784
+00:49:23,280 --> 00:49:30,680
+to do that
+
+785
+00:49:25,520 --> 00:49:30,680
+through the exorted ranges. Okay.
+
+786
+00:49:30,800 --> 00:49:38,440
+Just in case. Actually last time we
+
+787
+00:49:32,720 --> 00:49:38,440
+checked there's no duplicate. Okay. So
+
+788
+00:49:39,359 --> 00:49:49,319
+delete duplicate. Okay. Once you delete
+
+789
+00:49:41,760 --> 00:49:49,319
+the duplicate, then you want to check um
+
+790
+00:49:49,920 --> 00:49:52,920
+minmax.
+
+791
+00:49:57,760 --> 00:50:03,359
+So you want to map through all of them
+
+792
+00:50:00,800 --> 00:50:07,800
+and generate a new one. You want to
+
+793
+00:50:03,359 --> 00:50:07,800
+check the neighbors. Okay.
+
+794
+00:50:51,440 --> 00:50:58,680
+Okay. Now, let me show you what to do.
+
+795
+00:50:54,000 --> 00:50:58,680
+You want to um
+
+796
+00:51:02,880 --> 00:51:09,319
+partition. Let me show you what this do.
+
+797
+00:51:05,200 --> 00:51:09,319
+Okay. A
+
+798
+00:51:09,599 --> 00:51:12,720
+A
+
+799
+00:51:11,119 --> 00:51:14,480
+B
+
+800
+00:51:12,720 --> 00:51:17,440
+C
+
+801
+00:51:14,480 --> 00:51:21,839
+partition
+
+802
+00:51:17,440 --> 00:51:25,720
+uh two with a repetition of one. It will
+
+803
+00:51:21,839 --> 00:51:25,720
+return a a a
+
+804
+00:51:25,760 --> 00:51:33,599
+pair of list then I mean it will return
+
+805
+00:51:29,040 --> 00:51:37,200
+a b and bc it will return like
+
+806
+00:51:33,599 --> 00:51:37,200
+let's see d
+
+807
+00:51:37,440 --> 00:51:42,000
+E. Okay, I'll run it. You you'll see
+
+808
+00:51:39,839 --> 00:51:48,160
+what it mean.
+
+809
+00:51:42,000 --> 00:51:50,640
+You see AB B C D E. So it kind of
+
+810
+00:51:48,160 --> 00:51:53,359
+it partition a list with one element
+
+811
+00:51:50,640 --> 00:51:59,079
+repetition. Okay.
+
+812
+00:51:53,359 --> 00:51:59,079
+See example. Then we just map.
+
+813
+00:52:02,960 --> 00:52:06,720
+Sorry, hold on a second.
+
+814
+00:52:08,640 --> 00:52:12,520
+Then you just map.
+
+815
+00:52:16,240 --> 00:52:21,280
+For example, this is a list. You map a
+
+816
+00:52:19,119 --> 00:52:24,880
+function
+
+817
+00:52:21,280 --> 00:52:28,240
+to this list.
+
+818
+00:52:24,880 --> 00:52:31,839
+In here each
+
+819
+00:52:28,240 --> 00:52:37,760
+each of the a
+
+820
+00:52:31,839 --> 00:52:42,079
+b c act is a range. Okay. So for example
+
+821
+00:52:37,760 --> 00:52:44,960
+this a a this a and b are two ranges. A
+
+822
+00:52:42,079 --> 00:52:48,800
+is a range b is a range. Okay. Then you
+
+823
+00:52:44,960 --> 00:52:51,359
+write a function to reduce that compared
+
+824
+00:52:48,800 --> 00:52:55,000
+like a b are neighboring ranges. B and c
+
+825
+00:52:51,359 --> 00:52:55,000
+are neighboring ranges.
+
+826
+00:52:56,559 --> 00:53:00,040
+Hold on a second.
+
+827
+00:53:09,839 --> 00:53:16,000
+Okay. Then you
+
+828
+00:53:13,359 --> 00:53:19,800
+then you write the function ff. So what
+
+829
+00:53:16,000 --> 00:53:19,800
+the f do?
+
+830
+00:53:30,800 --> 00:53:35,640
+function.
+
+831
+00:53:32,640 --> 00:53:35,640
+Then
+
+832
+00:53:39,520 --> 00:53:44,040
+X range with
+
+833
+00:54:04,400 --> 00:54:08,920
+Okay.
+
+834
+00:54:05,920 --> 00:54:08,920
+So,
+
+835
+00:54:43,440 --> 00:54:50,839
+Okay. So that's the two ranges. Then
+
+836
+00:54:46,240 --> 00:54:50,839
+what you do is um
+
+837
+00:54:59,119 --> 00:55:02,119
+if
+
+838
+00:55:16,240 --> 00:55:22,000
+If the last number of range one, the
+
+839
+00:55:20,319 --> 00:55:26,359
+maximum
+
+840
+00:55:22,000 --> 00:55:26,359
+is uh
+
+841
+00:55:32,160 --> 00:55:36,359
+that algorithm. Okay.
+
+842
+00:55:40,480 --> 00:55:46,119
+If the max of the first range is greater
+
+843
+00:55:48,720 --> 00:55:52,920
+equal is greater than
+
+844
+00:55:53,040 --> 00:56:00,280
+the first
+
+845
+00:55:56,240 --> 00:56:00,280
+of the second range.
+
+846
+00:56:00,880 --> 00:56:07,240
+Then you return a range of
+
+847
+00:56:22,400 --> 00:56:28,040
+Okay, that's the
+
+848
+00:56:25,040 --> 00:56:28,040
+Well,
+
+849
+00:56:37,280 --> 00:56:42,920
+Let's continue. Okay. Then we clean the
+
+850
+00:56:39,920 --> 00:56:42,920
+code.
+
+851
+00:57:14,720 --> 00:57:23,000
+Okay. The first of range one to the last
+
+852
+00:57:17,680 --> 00:57:23,000
+of range two that means they overlap
+
+853
+00:57:23,760 --> 00:57:26,760
+otherwise
+
+854
+00:57:27,520 --> 00:57:31,400
+otherwise return
+
+855
+00:57:31,440 --> 00:57:37,079
+simply them as is. Okay.
+
+856
+00:57:39,520 --> 00:57:45,599
+Is that does that make sense?
+
+857
+00:57:42,960 --> 00:57:48,599
+Okay. So, we kind of you know so this
+
+858
+00:57:45,599 --> 00:57:48,599
+code
+
+859
+00:57:48,720 --> 00:57:54,280
+so that's our function. Okay. this.
+
+860
+00:57:55,920 --> 00:58:02,240
+Can you guys understand?
+
+861
+00:57:58,880 --> 00:58:06,720
+If last of the first range, let's double
+
+862
+00:58:02,240 --> 00:58:13,160
+check. If last of the first range which
+
+863
+00:58:06,720 --> 00:58:13,160
+is maximum is greater than or equals to
+
+864
+00:58:14,640 --> 00:58:22,799
+the uh the first range two. Okay, the
+
+865
+00:58:18,400 --> 00:58:25,599
+first of the range true
+
+866
+00:58:22,799 --> 00:58:32,040
+that means they overlap then you return
+
+867
+00:58:25,599 --> 00:58:32,040
+this otherwise you return them as is
+
+868
+00:58:33,920 --> 00:58:39,760
+uh
+
+869
+00:58:36,559 --> 00:58:42,000
+actually you can just return them as is.
+
+870
+00:58:39,760 --> 00:58:45,440
+Okay,
+
+871
+00:58:42,000 --> 00:58:49,200
+let's let's clean up the uh rename the
+
+872
+00:58:45,440 --> 00:58:52,520
+variable so it's easier to understand,
+
+873
+00:58:49,200 --> 00:58:52,520
+shall we?
+
+874
+00:58:59,119 --> 00:59:04,839
+Let's rename this range pair. Okay.
+
+875
+00:59:12,960 --> 00:59:18,319
+Okay.
+
+876
+00:59:14,799 --> 00:59:23,079
+So, copy that.
+
+877
+00:59:18,319 --> 00:59:23,079
+Paste it and
+
+878
+00:59:23,119 --> 00:59:28,079
+copy it
+
+879
+00:59:25,200 --> 00:59:31,200
+and paste it. So, language formatted.
+
+880
+00:59:28,079 --> 00:59:34,640
+It's kind of easier to understand.
+
+881
+00:59:31,200 --> 00:59:38,160
+Okay. Let's use the form. Okay.
+
+882
+00:59:34,640 --> 00:59:41,520
+So, so now it's easy to do. So, we
+
+883
+00:59:38,160 --> 00:59:43,839
+already, you know, we already got the,
+
+884
+00:59:41,520 --> 00:59:47,799
+you know, so actually, so let me just do
+
+885
+00:59:43,839 --> 00:59:47,799
+it. Um, code it
+
+886
+00:59:50,640 --> 00:59:56,359
+going to code this one shot. Okay. So,
+
+887
+00:59:56,400 --> 01:00:01,920
+so the these are kind of examples. Okay.
+
+888
+00:59:59,520 --> 01:00:03,599
+That mean these are like uh example
+
+889
+01:00:01,920 --> 01:00:07,119
+code.
+
+890
+01:00:03,599 --> 01:00:09,359
+Example code telling you what it is
+
+891
+01:00:07,119 --> 01:00:12,359
+doing. Okay.
+
+892
+01:00:09,359 --> 01:00:12,359
+Solution.
+
+893
+01:00:14,480 --> 01:00:21,960
+Okay. Showing browser problem
+
+894
+01:00:17,119 --> 01:00:21,960
+description and problem analysis.
+
+895
+01:00:23,920 --> 01:00:26,920
+Okay.
+
+896
+01:00:36,559 --> 01:00:39,559
+Problem
+
+897
+01:00:44,960 --> 01:00:51,640
+description. Better solution. Naive
+
+898
+01:00:48,640 --> 01:00:51,640
+solution.
+
+899
+01:00:58,559 --> 01:01:04,000
+Okay. Problem description.
+
+900
+01:01:01,040 --> 01:01:07,599
+Naive solution. Okay. Naive solution.
+
+901
+01:01:04,000 --> 01:01:07,599
+Need to move up.
+
+902
+01:01:12,960 --> 01:01:19,359
+Then better solution I'll go description
+
+903
+01:01:16,640 --> 01:01:21,520
+and here are solution. Now here is
+
+904
+01:01:19,359 --> 01:01:27,079
+sample code
+
+905
+01:01:21,520 --> 01:01:27,079
+uh sample code exchange list
+
+906
+01:01:36,559 --> 01:01:44,480
+you know this is our sample solution
+
+907
+01:01:39,920 --> 01:01:49,079
+just show the how it works. Okay, now we
+
+908
+01:01:44,480 --> 01:01:49,079
+going to code our real solution.
+
+909
+01:01:50,079 --> 01:01:56,200
+Okay, now we just copy the code here.
+
+910
+01:01:56,960 --> 01:02:01,240
+We just deleted
+
+911
+01:02:02,559 --> 01:02:07,559
+We just delete it. Uh
+
+912
+01:02:09,839 --> 01:02:14,599
+yeah. So, let's go back to here.
+
+913
+01:02:18,480 --> 01:02:23,799
+Yeah, let's copy that. Copy
+
+914
+01:02:24,000 --> 01:02:28,520
+paste. Okay, so
+
+915
+01:02:47,680 --> 01:02:52,040
+Okay, that's our range list.
+
+916
+01:02:58,000 --> 01:03:02,839
+Okay,
+
+917
+01:02:59,599 --> 01:03:02,839
+run it.
+
+918
+01:03:04,000 --> 01:03:08,160
+Correct.
+
+919
+01:03:06,160 --> 01:03:12,960
+Okay, we're going to do this one shot.
+
+920
+01:03:08,160 --> 01:03:17,319
+So, range list. So, width. Okay, range
+
+921
+01:03:12,960 --> 01:03:17,319
+list is that
+
+922
+01:03:19,440 --> 01:03:26,079
+wait, what you doing? So, make it one
+
+923
+01:03:23,200 --> 01:03:28,720
+line
+
+924
+01:03:26,079 --> 01:03:34,359
+range list.
+
+925
+01:03:28,720 --> 01:03:34,359
+And so here is the sample.
+
+926
+01:03:38,160 --> 01:03:46,000
+Okay, that's the range list. And uh then
+
+927
+01:03:42,000 --> 01:03:49,319
+we just do the function. Um so go back
+
+928
+01:03:46,000 --> 01:03:49,319
+to today
+
+929
+01:03:49,920 --> 01:03:54,720
+sort ranges. Okay. And let's copy that.
+
+930
+01:03:53,039 --> 01:03:59,680
+Copy.
+
+931
+01:03:54,720 --> 01:03:59,680
+So here is what we will do.
+
+932
+01:04:05,440 --> 01:04:10,440
+Okay. So many code.
+
+933
+01:04:14,000 --> 01:04:20,079
+So we got the range list and we want to
+
+934
+01:04:17,039 --> 01:04:23,359
+sort them.
+
+935
+01:04:20,079 --> 01:04:28,760
+Okay. Highlight the range list. Okay.
+
+936
+01:04:23,359 --> 01:04:28,760
+Sort it. Then delete duplicate.
+
+937
+01:04:30,799 --> 01:04:36,240
+Okay, I don't care about that. Don't
+
+938
+01:04:33,839 --> 01:04:40,640
+care about that. When you got solid
+
+939
+01:04:36,240 --> 01:04:42,720
+range, that's right. Then you partition
+
+940
+01:04:40,640 --> 01:04:48,039
+partition
+
+941
+01:04:42,720 --> 01:04:48,039
+this part. Okay, partition that.
+
+942
+01:04:51,599 --> 01:04:59,039
+Okay, partition that. Then you just uh
+
+943
+01:04:56,240 --> 01:05:03,200
+then you just map a function
+
+944
+01:04:59,039 --> 01:05:05,520
+map the function to the list this one.
+
+945
+01:05:03,200 --> 01:05:08,480
+Okay. Now what is the function? You're
+
+946
+01:05:05,520 --> 01:05:11,480
+going to map this ff which is this
+
+947
+01:05:08,480 --> 01:05:11,480
+function
+
+948
+01:05:16,799 --> 01:05:25,200
+that function. Okay. And that's it.
+
+949
+01:05:19,920 --> 01:05:27,119
+Let's uh bring our code. It's a
+
+950
+01:05:25,200 --> 01:05:30,960
+solution. Okay, we can run it. Let's
+
+951
+01:05:27,119 --> 01:05:34,960
+just run it. Okay. Right. Oh, yeah. You
+
+952
+01:05:30,960 --> 01:05:37,760
+you need to count the total. So, wait.
+
+953
+01:05:34,960 --> 01:05:40,880
+Uh first normal nonatomic. Okay. We got
+
+954
+01:05:37,760 --> 01:05:44,000
+the we got the issue.
+
+955
+01:05:40,880 --> 01:05:47,119
+Nonatomic expression expected. Okay. We
+
+956
+01:05:44,000 --> 01:05:50,119
+forgot something. Okay. So, let's double
+
+957
+01:05:47,119 --> 01:05:50,119
+check.
+
+958
+01:05:52,240 --> 01:06:05,480
+So range list that's right and uh
+
+959
+01:05:58,960 --> 01:06:05,480
+so this is a function mapped to this.
+
+960
+01:06:16,559 --> 01:06:20,119
+Is that correct?
+
+961
+01:06:24,799 --> 01:06:34,119
+Yeah. So
+
+962
+01:06:28,240 --> 01:06:34,119
+pair, right? Then you just map.
+
+963
+01:06:34,480 --> 01:06:39,880
+So map to this. That's right.
+
+964
+01:06:39,920 --> 01:06:46,559
+Then the function here is our function.
+
+965
+01:06:42,640 --> 01:06:49,119
+Let's be careful. Now where is X? That's
+
+966
+01:06:46,559 --> 01:06:53,200
+the that's where is wrong. So X is
+
+967
+01:06:49,119 --> 01:06:55,440
+undefined. X should be the range pair.
+
+968
+01:06:53,200 --> 01:06:58,160
+Okay,
+
+969
+01:06:55,440 --> 01:07:01,400
+range pair. So where is the X occur? So
+
+970
+01:06:58,160 --> 01:07:01,400
+that's it.
+
+971
+01:07:02,480 --> 01:07:08,079
+Run the whole code.
+
+972
+01:07:05,920 --> 01:07:11,440
+That's right. So you got this list of
+
+973
+01:07:08,079 --> 01:07:14,440
+unique ranges. Okay. Then you just
+
+974
+01:07:11,440 --> 01:07:14,440
+flatten
+
+975
+01:07:16,880 --> 01:07:24,559
+Okay, let me show you. Flatten that
+
+976
+01:07:18,880 --> 01:07:27,440
+result. Then uh flatten by by one level.
+
+977
+01:07:24,559 --> 01:07:32,280
+Then you just take the length. Okay, so
+
+978
+01:07:27,440 --> 01:07:32,280
+let me show you. Okay, so
+
+979
+01:07:36,559 --> 01:07:42,880
+so function
+
+980
+01:07:39,599 --> 01:07:46,480
+at okay. What is this function? your
+
+981
+01:07:42,880 --> 01:07:48,559
+function. This function will flatten x
+
+982
+01:07:46,480 --> 01:07:51,039
+by first level
+
+983
+01:07:48,559 --> 01:07:55,319
+then
+
+984
+01:07:51,039 --> 01:07:55,319
+then just take the length.
+
+985
+01:07:56,960 --> 01:08:05,400
+Okay. So so now it will return the
+
+986
+01:08:01,280 --> 01:08:05,400
+solution right
+
+987
+01:08:06,000 --> 01:08:09,000
+six.
+
+988
+01:08:10,559 --> 01:08:16,480
+Oh, wait. You want to know the distinct
+
+989
+01:08:12,880 --> 01:08:18,319
+numbers. So, you want to know Okay. So,
+
+990
+01:08:16,480 --> 01:08:21,600
+actually, you don't want to flatten.
+
+991
+01:08:18,319 --> 01:08:24,080
+Okay. So, instead of flatten, you want
+
+992
+01:08:21,600 --> 01:08:28,040
+to um
+
+993
+01:08:24,080 --> 01:08:28,040
+wait, you want to flatten.
+
+994
+01:08:28,560 --> 01:08:32,040
+Okay. Then,
+
+995
+01:08:37,279 --> 01:08:41,600
+okay. Is this get complicated? you you
+
+996
+01:08:39,920 --> 01:08:45,960
+flatten.
+
+997
+01:08:41,600 --> 01:08:45,960
+So you got um
+
+998
+01:08:46,400 --> 01:08:53,279
+you got a list of ranges. Okay. Then you
+
+999
+01:08:50,000 --> 01:08:58,920
+map to
+
+1000
+01:08:53,279 --> 01:08:58,920
+then you map. Okay. This uh
+
+1001
+01:09:00,880 --> 01:09:08,679
+function let me just write it. Okay. The
+
+1002
+01:09:04,719 --> 01:09:08,679
+function will be
+
+1003
+01:09:20,080 --> 01:09:28,880
+minus. So for example 20 minus 16 is
+
+1004
+01:09:26,159 --> 01:09:30,960
+four. That means there are four of them.
+
+1005
+01:09:28,880 --> 01:09:34,759
+16
+
+1006
+01:09:30,960 --> 01:09:34,759
+17 18
+
+1007
+01:09:35,040 --> 01:09:45,159
+19 20. So the last x minus
+
+1008
+01:09:42,159 --> 01:09:45,159
+first
+
+1009
+01:09:45,199 --> 01:09:55,679
+at x then you need to plus one.
+
+1010
+01:09:51,520 --> 01:10:01,320
+So you want to map that function to this
+
+1011
+01:09:55,679 --> 01:10:01,320
+thing. Okay. So can you guys see?
+
+1012
+01:10:02,239 --> 01:10:08,400
+Okay. So you
+
+1013
+01:10:05,600 --> 01:10:10,880
+okay cut
+
+1014
+01:10:08,400 --> 01:10:15,040
+paste
+
+1015
+01:10:10,880 --> 01:10:17,920
+okay this is the whole solution
+
+1016
+01:10:15,040 --> 01:10:19,920
+uh I don't know if you guys will find it
+
+1017
+01:10:17,920 --> 01:10:23,239
+readable
+
+1018
+01:10:19,920 --> 01:10:23,239
+run it
+
+1019
+01:10:23,840 --> 01:10:31,920
+okay general stop you got a problem
+
+1020
+01:10:26,960 --> 01:10:34,920
+something okay so well I can
+
+1021
+01:10:31,920 --> 01:10:34,920
+See?
+
+1022
+01:10:39,440 --> 01:10:42,440
+Yeah.
+
+1023
+01:10:47,199 --> 01:10:53,960
+Yeah. So, where is the problem?
+
+1024
+01:10:50,800 --> 01:10:53,960
+Run it.
+
+1025
+01:10:55,760 --> 01:11:01,760
+Nonatomic expression expected at
+
+1026
+01:10:59,040 --> 01:11:05,600
+position one in last tense. So you got
+
+1027
+01:11:01,760 --> 01:11:10,480
+the last 10. The flatten is wrong. So
+
+1028
+01:11:05,600 --> 01:11:16,840
+okay, you can't do this yet. You I mean
+
+1029
+01:11:10,480 --> 01:11:16,840
+you need to see the output. Okay. So
+
+1030
+01:11:21,280 --> 01:11:25,960
+don't map yet. Okay.
+
+1031
+01:11:32,560 --> 01:11:36,600
+Let's see what's the result.
+
+1032
+01:11:36,960 --> 01:11:41,480
+So you got that result.
+
+1033
+01:11:42,239 --> 01:11:46,600
+Then let's try the flatten.
+
+1034
+01:11:55,199 --> 01:11:59,199
+That's not what you want. Okay. So you
+
+1035
+01:11:57,679 --> 01:12:02,560
+want
+
+1036
+01:11:59,199 --> 01:12:05,560
+uh function
+
+1037
+01:12:02,560 --> 01:12:05,560
+flatten
+
+1038
+01:12:05,760 --> 01:12:10,920
+one.
+
+1039
+01:12:07,920 --> 01:12:10,920
+Okay.
+
+1040
+01:12:21,760 --> 01:12:28,440
+Uh no that's not what you what you want.
+
+1041
+01:12:24,400 --> 01:12:28,440
+Okay. So wait,
+
+1042
+01:12:29,760 --> 01:12:34,000
+okay,
+
+1043
+01:12:31,600 --> 01:12:38,000
+that's why you got a problem. So instead
+
+1044
+01:12:34,000 --> 01:12:42,199
+you want instead of flatten, you want um
+
+1045
+01:12:38,000 --> 01:12:42,199
+just flatten. Okay.
+
+1046
+01:12:47,040 --> 01:12:55,320
+Do you guys find what I'm doing funny?
+
+1047
+01:12:50,719 --> 01:12:55,320
+Then add and then partition.
+
+1048
+01:13:06,880 --> 01:13:13,199
+Actually, we can you can do this. Okay.
+
+1049
+01:13:09,760 --> 01:13:16,199
+You just need to uh say something like
+
+1050
+01:13:13,199 --> 01:13:16,199
+that.
+
+1051
+01:13:17,440 --> 01:13:20,440
+Yep.
+
+1052
+01:13:34,159 --> 01:13:41,040
+So flatten level one to -2. Uh
+
+1053
+01:13:38,880 --> 01:13:44,800
+Jesus.
+
+1054
+01:13:41,040 --> 01:13:48,320
+Let's see. Flatten. Flatten n. Okay.
+
+1055
+01:13:44,800 --> 01:13:54,199
+Flatten. Flatten to level n.
+
+1056
+01:13:48,320 --> 01:13:54,199
+So flatten to level -2. Okay.
+
+1057
+01:13:57,440 --> 01:14:00,440
+No.
+
+1058
+01:14:02,080 --> 01:14:09,360
+So let me just do this again. We don't
+
+1059
+01:14:05,920 --> 01:14:11,920
+get too complicated. Okay. Flatten. So
+
+1060
+01:14:09,360 --> 01:14:16,880
+instead, let's just put that there.
+
+1061
+01:14:11,920 --> 01:14:21,000
+Okay. So flatten -2.
+
+1062
+01:14:16,880 --> 01:14:21,000
+Uh -1.
+
+1063
+01:14:23,040 --> 01:14:26,040
+No
+
+1064
+01:14:28,080 --> 01:14:32,600
+should be a negative number.
+
+1065
+01:14:33,199 --> 01:14:40,080
+Uh okay. So the negative number let's
+
+1066
+01:14:36,960 --> 01:14:42,239
+say so if it's one
+
+1067
+01:14:40,080 --> 01:14:44,719
+you get.
+
+1068
+01:14:42,239 --> 01:14:48,480
+So some part you don't want to flatten
+
+1069
+01:14:44,719 --> 01:14:52,760
+to one. Yeah. So you don't So you can't
+
+1070
+01:14:48,480 --> 01:14:52,760
+use flatten on this.
+
+1071
+01:14:54,400 --> 01:14:59,800
+Yeah. Okay. So you have to do partition
+
+1072
+01:14:56,800 --> 01:14:59,800
+then.
+
+1073
+01:15:01,040 --> 01:15:05,440
+Okay.
+
+1074
+01:15:03,199 --> 01:15:08,000
+Now
+
+1075
+01:15:05,440 --> 01:15:11,320
+I'm pretty sure
+
+1076
+01:15:08,000 --> 01:15:11,320
+uh wait.
+
+1077
+01:15:12,480 --> 01:15:20,840
+Okay. Let me just do this in functional
+
+1078
+01:15:14,880 --> 01:15:20,840
+way. Okay. Then then you just say
+
+1079
+01:15:22,719 --> 01:15:25,719
+partition
+
+1080
+01:15:26,080 --> 01:15:34,159
+partition button that all the way then
+
+1081
+01:15:30,480 --> 01:15:38,000
+partition by two. Okay.
+
+1082
+01:15:34,159 --> 01:15:41,520
+And it that should do it. Okay. That
+
+1083
+01:15:38,000 --> 01:15:44,960
+that does it. Okay. That kind of
+
+1084
+01:15:41,520 --> 01:15:49,120
+um that does it.
+
+1085
+01:15:44,960 --> 01:15:51,360
+So let's delete all this junk. Okay. So
+
+1086
+01:15:49,120 --> 01:15:55,880
+that is what you want to do. So you need
+
+1087
+01:15:51,360 --> 01:15:55,880
+to fix your flatten code.
+
+1088
+01:16:13,199 --> 01:16:18,480
+Yeah. So that needs should be that
+
+1089
+01:16:15,679 --> 01:16:22,000
+instead of that
+
+1090
+01:16:18,480 --> 01:16:27,239
+flatten at that that then you need to
+
+1091
+01:16:22,000 --> 01:16:27,239
+map that to that. Okay. So
+
+1092
+01:16:30,880 --> 01:16:35,239
+So let me try something.
+
+1093
+01:16:44,320 --> 01:16:52,560
+Let's see the presidents. Okay,
+
+1094
+01:16:48,719 --> 01:16:54,480
+let's see. Do I need Okay, so this is
+
+1095
+01:16:52,560 --> 01:16:56,239
+perfect.
+
+1096
+01:16:54,480 --> 01:16:58,320
+You don't need Okay, you don't need
+
+1097
+01:16:56,239 --> 01:17:00,719
+parenthesis.
+
+1098
+01:16:58,320 --> 01:17:04,679
+Okay, so we just run this code. This is
+
+1099
+01:17:00,719 --> 01:17:04,679
+the solution. Okay,
+
+1100
+01:17:06,159 --> 01:17:12,719
+comment it out.
+
+1101
+01:17:08,640 --> 01:17:16,080
+This is the solution. Okay.
+
+1102
+01:17:12,719 --> 01:17:22,239
+This this thing.
+
+1103
+01:17:16,080 --> 01:17:25,840
+So wait. So last minus first map to that
+
+1104
+01:17:22,239 --> 01:17:27,840
+then you need to actually total them.
+
+1105
+01:17:25,840 --> 01:17:32,400
+Then
+
+1106
+01:17:27,840 --> 01:17:32,400
+you need to actually total them.
+
+1107
+01:17:34,960 --> 01:17:43,520
+Put a bracket in total.
+
+1108
+01:17:38,880 --> 01:17:46,480
+I mean put a paren and total at
+
+1109
+01:17:43,520 --> 01:17:48,640
+run it
+
+1110
+01:17:46,480 --> 01:17:51,679
+26.
+
+1111
+01:17:48,640 --> 01:17:55,840
+Now what what is that junk?
+
+1112
+01:17:51,679 --> 01:17:59,560
+Oh yeah because we got this. Okay. 26.
+
+1113
+01:17:55,840 --> 01:17:59,560
+Is that the solution?
+
+1114
+01:18:00,880 --> 01:18:06,719
+Uh, consider a total of 14 ingredients
+
+1115
+01:18:03,600 --> 01:18:12,440
+ID to be fresh. 14,
+
+1116
+01:18:06,719 --> 01:18:12,440
+not 26. So, I got it wrong.
+
+1117
+01:18:13,600 --> 01:18:17,000
+Yeah, annoying.
+
+1118
+01:18:19,040 --> 01:18:25,040
+Very annoying. So, this code is getting
+
+1119
+01:18:22,159 --> 01:18:27,920
+too complicated. I don't think people
+
+1120
+01:18:25,040 --> 01:18:31,239
+understand. So we need to actually break
+
+1121
+01:18:27,920 --> 01:18:31,239
+them into
+
+1122
+01:18:32,960 --> 01:18:38,159
+smaller parts.
+
+1123
+01:18:35,920 --> 01:18:45,320
+But anyway, the result is wrong. That
+
+1124
+01:18:38,159 --> 01:18:45,320
+means we have to debug anyway. Oh
+
+1125
+01:18:58,080 --> 01:19:04,679
+What? Why is it 26? Let's see. Let's run
+
+1126
+01:19:01,679 --> 01:19:04,679
+this.
+
+1127
+01:19:12,239 --> 01:19:22,800
+9 * 9 is 18.
+
+1128
+01:19:15,760 --> 01:19:25,040
+5 3 is 8. So 9 * 3 27 - 1 is 26. That is
+
+1129
+01:19:22,800 --> 01:19:28,600
+incorrect.
+
+1130
+01:19:25,040 --> 01:19:28,600
+Okay. So
+
+1131
+01:19:29,679 --> 01:19:36,440
+okay, this is a problem. Nobody's here.
+
+1132
+01:19:33,440 --> 01:19:36,440
+Okay.
+
+1133
+01:19:37,920 --> 01:19:44,280
+Okay. So, let's just this run this one
+
+1134
+01:19:40,400 --> 01:19:44,280
+by one, shall we?
+
+1135
+01:19:50,080 --> 01:19:55,400
+Even that part is wrong. So, what
+
+1136
+01:20:05,600 --> 01:20:11,760
+it.
+
+1137
+01:20:08,080 --> 01:20:14,719
+Okay, that returns that. Okay, then
+
+1138
+01:20:11,760 --> 01:20:16,800
+let's just do this one by one so we
+
+1139
+01:20:14,719 --> 01:20:22,920
+don't get
+
+1140
+01:20:16,800 --> 01:20:22,920
+confused. Okay. So this map part
+
+1141
+01:20:43,440 --> 01:20:49,960
+language open new one. paste
+
+1142
+01:20:46,960 --> 01:20:49,960
+magnify
+
+1143
+01:20:51,199 --> 01:20:58,199
+shift enter.
+
+1144
+01:20:53,520 --> 01:20:58,199
+So we get this new list.
+
+1145
+01:21:05,360 --> 01:21:09,000
+Is that correct?
+
+1146
+01:21:17,199 --> 01:21:27,000
+We separated 35. Wait, this is like
+
+1147
+01:21:21,920 --> 01:21:27,000
+totally wrong. How did we get this?
+
+1148
+01:21:31,679 --> 01:21:36,640
+Okay, so then you need to break them
+
+1149
+01:21:34,000 --> 01:21:36,640
+apart.
+
+1150
+01:21:50,640 --> 01:21:56,679
+range pairs. Okay, that's range pairs.
+
+1151
+01:22:33,280 --> 01:22:36,280
+Okay.
+
+1152
+01:22:44,800 --> 01:22:48,840
+That's what you get.
+
+1153
+01:22:49,040 --> 01:22:53,440
+example.
+
+1154
+01:22:50,880 --> 01:22:55,920
+Okay.
+
+1155
+01:22:53,440 --> 01:22:58,960
+Then
+
+1156
+01:22:55,920 --> 01:23:03,800
+you map a function
+
+1157
+01:22:58,960 --> 01:23:03,800
+to this range pair. So,
+
+1158
+01:23:09,840 --> 01:23:13,800
+so what is the result?
+
+1159
+01:23:31,440 --> 01:23:37,360
+Wait, something went missing. Okay. 35
+
+1160
+01:23:35,840 --> 01:23:45,000
+1014.
+
+1161
+01:23:37,360 --> 01:23:45,000
+35 1014 does not change. 1014 1218.
+
+1162
+01:23:46,000 --> 01:23:56,159
+That became 1018. 104 128
+
+1163
+01:23:51,520 --> 01:23:58,400
+10 to 14 12 to 18 that just become 101
+
+1164
+01:23:56,159 --> 01:24:03,080
+18 that's correct.
+
+1165
+01:23:58,400 --> 01:24:03,080
+Now 128 to 1620
+
+1166
+01:24:04,800 --> 01:24:09,480
+that just becomes 1220.
+
+1167
+01:24:12,000 --> 01:24:18,800
+Oh, so once you do this, you need to
+
+1168
+01:24:14,639 --> 01:24:22,320
+recurse. You see, then you you know then
+
+1169
+01:24:18,800 --> 01:24:25,120
+then you got 1014 and 1018. They
+
+1170
+01:24:22,320 --> 01:24:28,600
+overlap. So you need to recurse this
+
+1171
+01:24:25,120 --> 01:24:28,600
+tricky
+
+1172
+01:24:30,400 --> 01:24:35,960
+Okay. So you know you can't do this
+
+1173
+01:24:32,400 --> 01:24:35,960
+once. So
+
+1174
+01:24:36,480 --> 01:24:42,239
+So okay, we can modify our function. So
+
+1175
+01:24:39,440 --> 01:24:47,400
+to do it one shot. No actually we
+
+1176
+01:24:42,239 --> 01:24:47,400
+already destroyed our function. So
+
+1177
+01:24:51,920 --> 01:24:56,880
+yeah. So we so we need to recurse this.
+
+1178
+01:24:55,360 --> 01:25:00,239
+Okay.
+
+1179
+01:24:56,880 --> 01:25:04,199
+So once this done then you do need to
+
+1180
+01:25:00,239 --> 01:25:04,199
+partition and flatten.
+
+1181
+01:25:04,480 --> 01:25:10,560
+Okay. Then forget about that. Okay. So
+
+1182
+01:25:08,560 --> 01:25:15,159
+you need to partition and flatten and
+
+1183
+01:25:10,560 --> 01:25:15,159
+you need to re recurse this
+
+1184
+01:25:15,760 --> 01:25:20,040
+fixed point obviously
+
+1185
+01:25:25,920 --> 01:25:35,440
+fixed point at this this this this.
+
+1186
+01:25:31,199 --> 01:25:38,679
+Okay. So actually we can do that and uh
+
+1187
+01:25:35,440 --> 01:25:38,679
+try it
+
+1188
+01:25:40,960 --> 01:25:46,480
+uh code with one argument two or more
+
+1189
+01:25:43,360 --> 01:25:48,560
+argument expected. That's right. You
+
+1190
+01:25:46,480 --> 01:25:51,120
+need a initial
+
+1191
+01:25:48,560 --> 01:25:55,480
+you need a function.
+
+1192
+01:25:51,120 --> 01:25:55,480
+Oh right that's right.
+
+1193
+01:25:57,199 --> 01:26:04,320
+So this part this whole thing needs to
+
+1194
+01:26:02,400 --> 01:26:07,320
+this whole thing needs to become a
+
+1195
+01:26:04,320 --> 01:26:07,320
+function.
+
+1196
+01:26:10,239 --> 01:26:16,080
+Yeah, we can do it. You know turn this
+
+1197
+01:26:13,120 --> 01:26:19,679
+part into a function.
+
+1198
+01:26:16,080 --> 01:26:24,800
+Okay, easy.
+
+1199
+01:26:19,679 --> 01:26:26,719
+This range pair list is the input. Okay,
+
+1200
+01:26:24,800 --> 01:26:30,000
+so
+
+1201
+01:26:26,719 --> 01:26:32,800
+Wait. So this range pair there that
+
+1202
+01:26:30,000 --> 01:26:34,320
+becomes a function. You see this is a
+
+1203
+01:26:32,800 --> 01:26:40,320
+function
+
+1204
+01:26:34,320 --> 01:26:42,639
+and and what this function do is
+
+1205
+01:26:40,320 --> 01:26:46,040
+is actually
+
+1206
+01:26:42,639 --> 01:26:46,040
+up to here.
+
+1207
+01:26:46,400 --> 01:26:52,320
+Wait this section the function is kind
+
+1208
+01:26:49,760 --> 01:26:54,400
+of nesting. Okay.
+
+1209
+01:26:52,320 --> 01:26:58,800
+Do you know do you guys know what I
+
+1210
+01:26:54,400 --> 01:27:02,679
+mean? Maybe not.
+
+1211
+01:26:58,800 --> 01:27:02,679
+So from language.
+
+1212
+01:27:04,639 --> 01:27:07,639
+So
+
+1213
+01:27:14,400 --> 01:27:21,280
+okay. So you copy that. So fix point
+
+1214
+01:27:18,960 --> 01:27:25,440
+takes a function and takes the initial
+
+1215
+01:27:21,280 --> 01:27:28,800
+value. Okay. So fixed point
+
+1216
+01:27:25,440 --> 01:27:32,639
+takes a function
+
+1217
+01:27:28,800 --> 01:27:34,960
+cut that's a function then takes the
+
+1218
+01:27:32,639 --> 01:27:37,520
+initial value. So what is the initial
+
+1219
+01:27:34,960 --> 01:27:42,440
+value? That initial value is range pair
+
+1220
+01:27:37,520 --> 01:27:42,440
+list. Okay then copy that
+
+1221
+01:27:42,880 --> 01:27:49,560
+paste. Does that make sense? Shift
+
+1222
+01:27:45,280 --> 01:27:49,560
+enter. Ah
+
+1223
+01:28:07,440 --> 01:28:13,679
+Okay, this is taking too long. This is
+
+1224
+01:28:10,239 --> 01:28:16,880
+becoming this is not good.
+
+1225
+01:28:13,679 --> 01:28:18,960
+No, nobody's watching.
+
+1226
+01:28:16,880 --> 01:28:21,199
+Okay, I just going to need I just going
+
+1227
+01:28:18,960 --> 01:28:23,280
+to code it quickly. Okay, I'm just going
+
+1228
+01:28:21,199 --> 01:28:26,280
+to code it for myself and finish the
+
+1229
+01:28:23,280 --> 01:28:26,280
+problem.
+
+1230
+01:28:32,320 --> 01:28:37,760
+It's been uh 90 minutes already, I
+
+1231
+01:28:36,159 --> 01:28:41,000
+think.
+
+1232
+01:28:37,760 --> 01:28:41,000
+Oh
+
+1233
+01:30:57,280 --> 01:31:01,800
+This is very interesting.
+
+1234
+01:31:05,679 --> 01:31:11,199
+Okay, this part is interesting because
+
+1235
+01:31:09,120 --> 01:31:15,280
+it shows
+
+1236
+01:31:11,199 --> 01:31:18,280
+that you need to do you need to recurse
+
+1237
+01:31:15,280 --> 01:31:18,280
+this
+
+1238
+01:32:03,840 --> 01:32:09,800
+Because 10:14
+
+1239
+01:32:06,080 --> 01:32:09,800
+then you got 1018
+
+1240
+01:33:14,480 --> 01:33:17,800
+in cold.
+
+1241
+01:34:09,199 --> 01:34:13,880
+Okay, let me just think about this.
+
+1242
+01:36:35,280 --> 01:36:40,360
+You can use block map
+
+1243
+01:36:41,120 --> 01:36:46,560
+instead of the partition. Okay. Instead
+
+1244
+01:36:43,679 --> 01:36:52,639
+of the flattening partition which is
+
+1245
+01:36:46,560 --> 01:36:55,119
+much more efficient. Okay. Black M map
+
+1246
+01:36:52,639 --> 01:36:59,119
+block map
+
+1247
+01:36:55,119 --> 01:37:02,000
+was introduced in what year?
+
+1248
+01:36:59,119 --> 01:37:04,880
+2015 10 years ago. Yeah, we can use
+
+1249
+01:37:02,000 --> 01:37:10,440
+that. So instead of flatten and
+
+1250
+01:37:04,880 --> 01:37:10,440
+partition by two, we can use block map.
+
+1251
+01:37:10,560 --> 01:37:17,400
+That will save a lot of code this
+
+1252
+01:37:13,040 --> 01:37:17,400
+partition and uh
+
+1253
+01:37:24,239 --> 01:37:30,119
+okay. But uh what but what is the um
+
+1254
+01:38:04,960 --> 01:38:12,040
+If they overlap,
+
+1255
+01:38:08,080 --> 01:38:12,040
+then what you do?
+
+1256
+01:38:23,280 --> 01:38:28,119
+If they overlap then
+
+1257
+01:38:58,080 --> 01:39:06,880
+Now if they overlap then
+
+1258
+01:39:02,960 --> 01:39:10,119
+first range one last range two.
+
+1259
+01:39:06,880 --> 01:39:10,119
+That's right.
+
+1260
+01:39:15,360 --> 01:39:19,480
+If they do not overlap.
+
+1261
+01:41:14,000 --> 01:41:19,080
+Okay. Need some change of structure.
+
+1262
+01:41:31,920 --> 01:41:36,679
+Just black map.
+
+1263
+01:42:14,239 --> 01:42:17,239
+Okay.
+
+1264
+01:42:23,199 --> 01:42:27,560
+We block this function.
+
+1265
+01:42:36,480 --> 01:42:43,239
+If they overlap, if they overlap, then
+
+1266
+01:42:44,080 --> 01:42:50,760
+you if they overlap, then you actually
+
+1267
+01:42:47,040 --> 01:42:50,760
+need to return.
+
+1268
+01:43:10,800 --> 01:43:14,440
+If they overlap
+
+1269
+01:43:16,239 --> 01:43:22,960
+10, 14, 16, 20.
+
+1270
+01:43:19,600 --> 01:43:25,760
+Yeah. Then you just return one thing.
+
+1271
+01:43:22,960 --> 01:43:29,800
+this one thing.
+
+1272
+01:43:25,760 --> 01:43:29,800
+If they do not overlap,
+
+1273
+01:43:31,199 --> 01:43:36,600
+then you actually return the first one
+
+1274
+01:43:41,280 --> 01:43:47,239
+instead of a pair. So that way you keep
+
+1275
+01:43:43,920 --> 01:43:47,239
+the structure.
+
+1276
+01:43:48,159 --> 01:43:53,040
+Do you guys understand? I don't think
+
+1277
+01:43:50,080 --> 01:43:53,040
+so.
+
+1278
+01:44:03,600 --> 01:44:09,560
+Well, you can't just return the first
+
+1279
+01:44:06,080 --> 01:44:09,560
+one because
+
+1280
+01:44:15,679 --> 01:44:20,600
+you cannot just return the first one.
+
+1281
+01:44:27,199 --> 01:44:32,800
+you need to return the pair.
+
+1282
+01:44:30,880 --> 01:44:36,480
+Well, in that case, you don't want to
+
+1283
+01:44:32,800 --> 01:44:36,480
+use black block
+
+1284
+01:45:05,679 --> 01:45:08,679
+See?
+
+1285
+01:45:49,679 --> 01:45:59,159
+You can flatten them like that.
+
+1286
+01:45:53,199 --> 01:45:59,159
+Okay. So, you need to like sequence
+
+1287
+01:46:08,960 --> 01:46:15,639
+sequence is from 1996.
+
+1288
+01:46:12,639 --> 01:46:15,639
+Yes.
+
+1289
+01:46:40,719 --> 01:46:43,719
+What?
+
+1290
+01:46:52,320 --> 01:46:55,639
+That's right.
+
+1291
+01:47:22,159 --> 01:47:25,960
+Okay, more testing.
+
+1292
+01:47:35,760 --> 01:47:41,239
+Perfect.
+
+1293
+01:47:38,239 --> 01:47:41,239
+Perfect.
+
+1294
+01:47:46,800 --> 01:47:52,760
+Wait, wait a second. No, not perfect.
+
+1295
+01:47:58,159 --> 01:48:05,960
+35 10 14 16 20 12 18 no change.
+
+1296
+01:48:11,600 --> 01:48:17,760
+Oh, because you didn't uh you didn't
+
+1297
+01:48:14,000 --> 01:48:21,159
+sort and all that. So, you need to do
+
+1298
+01:48:17,760 --> 01:48:21,159
+that first.
+
+1299
+01:48:28,800 --> 01:48:34,119
+So forget about partition then.
+
+1300
+01:49:01,360 --> 01:49:04,360
+
+1301
+01:49:10,239 --> 01:49:17,840
+Actually, you don't want to be pay list.
+
+1302
+01:49:13,199 --> 01:49:17,840
+Okay, just range list.
+
+1303
+01:49:20,639 --> 01:49:24,840
+That's right. Work on that.
+
+1304
+01:49:29,040 --> 01:49:34,600
+Okay. Then you do this copy.
+
+1305
+01:49:42,000 --> 01:49:47,040
+No change.
+
+1306
+01:49:44,639 --> 01:49:50,600
+10 14
+
+1307
+01:49:47,040 --> 01:49:50,600
+12 18
+
+1308
+01:49:55,920 --> 01:49:59,960
+Why is it no change?
+
+1309
+01:50:07,600 --> 01:50:13,719
+God, this is pretty bad. 10 14
+
+1310
+01:50:28,800 --> 01:50:36,320
+last range one greater than first range
+
+1311
+01:50:32,480 --> 01:50:38,800
+two then you return first range one last
+
+1312
+01:50:36,320 --> 01:50:41,520
+range two
+
+1313
+01:50:38,800 --> 01:50:46,360
+block Map
+
+1314
+01:50:41,520 --> 01:50:46,360
+block map is not working.
+
+1315
+01:51:12,000 --> 01:51:19,119
+Block map is not working.
+
+1316
+01:51:15,280 --> 01:51:21,040
+Oh, you need to say two. Is that right?
+
+1317
+01:51:19,119 --> 01:51:25,119
+Yeah, stupid.
+
+1318
+01:51:21,040 --> 01:51:27,199
+That's right. The block map needs two
+
+1319
+01:51:25,119 --> 01:51:30,199
+here.
+
+1320
+01:51:27,199 --> 01:51:30,199
+What?
+
+1321
+01:51:41,280 --> 01:51:51,159
+Fantastic. Now wait, there's something
+
+1322
+01:51:44,080 --> 01:51:51,159
+still not right. 1620. So 128,
+
+1323
+01:51:51,199 --> 01:51:59,920
+right? 128 1620
+
+1324
+01:51:55,280 --> 01:52:02,920
+becomes 1220. So they get eliminated.
+
+1325
+01:51:59,920 --> 01:52:02,920
+10:14
+
+1326
+01:52:03,119 --> 01:52:07,400
+1218 10:14
+
+1327
+01:52:08,239 --> 01:52:14,119
+They also need to change but they
+
+1328
+01:52:11,119 --> 01:52:14,119
+didn't.
+
+1329
+01:52:19,760 --> 01:52:27,800
+3 5 10 14 return as is.
+
+1330
+01:52:24,080 --> 01:52:27,800
+This is incorrect.
+
+1331
+01:52:31,760 --> 01:52:34,080
+This
+
+1332
+01:53:28,080 --> 01:53:35,280
+splice is created in
+
+1333
+01:53:32,400 --> 01:53:37,440
+2020.
+
+1334
+01:53:35,280 --> 01:53:40,440
+Not sure I want to use this
+
+1335
+01:53:37,440 --> 01:53:40,440
+experimental.
+
+1336
+01:53:41,280 --> 01:53:47,880
+You know, you should use splice instead
+
+1337
+01:53:43,920 --> 01:53:47,880
+of sequence there.
+
+1338
+01:53:48,080 --> 01:53:52,679
+Yeah, that's what I want. You see,
+
+1339
+01:53:53,920 --> 01:54:01,520
+that's what I want. But
+
+1340
+01:53:56,960 --> 01:54:03,040
+Splice is created in
+
+1341
+01:54:01,520 --> 01:54:07,800
+2020,
+
+1342
+01:54:03,040 --> 01:54:07,800
+five years ago, kind of new,
+
+1343
+01:54:08,400 --> 01:54:15,639
+so I'm not sure I want to use that. And
+
+1344
+01:54:11,440 --> 01:54:15,639
+also it says experimental.
+
+1345
+01:54:15,679 --> 01:54:21,960
+It basically remove the brackets around
+
+1346
+01:54:18,560 --> 01:54:21,960
+it. So,
+
+1347
+01:54:22,400 --> 01:54:27,360
+so I mean the issue here is that you
+
+1348
+01:54:25,119 --> 01:54:29,599
+want to keep the structure so that you
+
+1349
+01:54:27,360 --> 01:54:34,000
+don't have to every time you finish this
+
+1350
+01:54:29,599 --> 01:54:37,679
+you have to do flatten and partition
+
+1351
+01:54:34,000 --> 01:54:42,040
+to make it pairs to make it like that
+
+1352
+01:54:37,679 --> 01:54:42,040
+the range. So,
+
+1353
+01:54:51,199 --> 01:54:58,800
+so it was there a
+
+1354
+01:54:54,080 --> 01:55:02,440
+function that uh
+
+1355
+01:54:58,800 --> 01:55:02,440
+subset map
+
+1356
+01:55:23,679 --> 01:55:32,280
+When is subset map created?
+
+1357
+01:55:27,280 --> 01:55:32,280
+Also pretty new I think 2019.
+
+1358
+01:55:32,960 --> 01:55:38,239
+Okay, I'm just going to stick with the
+
+1359
+01:55:35,440 --> 01:55:40,639
+classic way. So,
+
+1360
+01:55:38,239 --> 01:55:44,880
+uh, this is no good because it's now
+
+1361
+01:55:40,639 --> 01:55:48,400
+taking more than hour to solve this
+
+1362
+01:55:44,880 --> 01:55:52,520
+stupid problem.
+
+1363
+01:55:48,400 --> 01:55:52,520
+So, I really need to
+
+1364
+01:55:54,159 --> 01:56:00,880
+I need to speed up. This is no good
+
+1365
+01:55:57,679 --> 01:56:03,520
+trivial problem. Let me I mean
+
+1366
+01:56:00,880 --> 01:56:06,000
+if you do the procedural way although
+
+1367
+01:56:03,520 --> 01:56:08,880
+it's tedious by now you you would have
+
+1368
+01:56:06,000 --> 01:56:13,159
+solved it.
+
+1369
+01:56:08,880 --> 01:56:13,159
+Okay block map
+
+1370
+01:56:13,520 --> 01:56:20,719
+block map you want to keep the structure
+
+1371
+01:56:16,560 --> 01:56:26,760
+return the same structure. So
+
+1372
+01:56:20,719 --> 01:56:26,760
+if it is overlap then you return
+
+1373
+01:57:05,520 --> 01:57:13,080
+Uh there's a there's also efficiency
+
+1374
+01:57:08,639 --> 01:57:13,080
+issues you can consider.
+
+1375
+01:57:15,840 --> 01:57:23,080
+So basically you need this step to be
+
+1376
+01:57:19,199 --> 01:57:23,080
+repeated because
+
+1377
+01:57:28,320 --> 01:57:35,239
+Okay, come on. Let's just solve it.
+
+1378
+01:57:30,400 --> 01:57:35,239
+Solve this. Okay, so
+
+1379
+01:57:51,440 --> 01:57:58,880
+Second range should be
+
+1380
+01:57:55,440 --> 01:58:03,400
+well. One easy solution is to keep the
+
+1381
+01:57:58,880 --> 01:58:03,400
+structure. You can just like
+
+1382
+01:58:06,320 --> 01:58:11,159
+to keep the structure just do that.
+
+1383
+01:58:12,400 --> 01:58:19,639
+Then you need to remove that zero one.
+
+1384
+01:58:15,199 --> 01:58:19,639
+So you can say no.
+
+1385
+01:58:21,679 --> 01:58:27,000
+Then you need to say delete more. No
+
+1386
+01:58:24,000 --> 01:58:27,000
+more.
+
+1387
+01:58:31,920 --> 01:58:36,719
+keep the structure. So you see you got a
+
+1388
+01:58:34,800 --> 01:58:39,360
+list of ranges.
+
+1389
+01:58:36,719 --> 01:58:42,360
+So you want to merge the ranges
+
+1390
+01:58:39,360 --> 01:58:42,360
+sometimes
+
+1391
+01:58:42,560 --> 01:58:48,560
+and otherwise leave it alone. Okay? You
+
+1392
+01:58:46,239 --> 01:58:51,280
+want to sometimes merge the ranges or
+
+1393
+01:58:48,560 --> 01:58:54,239
+leave alone. The
+
+1394
+01:58:51,280 --> 01:58:56,719
+irregularity happens when you have a
+
+1395
+01:58:54,239 --> 01:59:00,040
+pair of ranges and you merge them become
+
+1396
+01:58:56,719 --> 01:59:00,040
+one range.
+
+1397
+01:59:07,840 --> 01:59:13,239
+So how do you solve this?
+
+1398
+01:59:14,239 --> 01:59:21,599
+So let's think about
+
+1399
+01:59:17,920 --> 01:59:26,320
+I really want to solve this.
+
+1400
+01:59:21,599 --> 01:59:32,320
+Okay. So in a functional way wam
+
+1401
+01:59:26,320 --> 01:59:37,280
+language style. Okay. So you go to
+
+1402
+01:59:32,320 --> 01:59:39,679
+Okay. So if you don't want to use
+
+1403
+01:59:37,280 --> 01:59:41,920
+this map
+
+1404
+01:59:39,679 --> 01:59:47,080
+block map,
+
+1405
+01:59:41,920 --> 01:59:47,080
+you could go back to recursion.
+
+1406
+01:59:52,400 --> 02:00:00,440
+Uh then recursion is kind of procedural
+
+1407
+01:59:56,719 --> 02:00:00,440
+but um
+
+1408
+02:00:04,560 --> 02:00:10,520
+Uh I like I prefer block map. Okay.
+
+1409
+02:00:12,239 --> 02:00:19,480
+Okay. Let's just do block map. Let's
+
+1410
+02:00:14,560 --> 02:00:19,480
+just do this in the way in a way.
+
+1411
+02:00:22,320 --> 02:00:28,679
+Although it's not efficient but um
+
+1412
+02:00:37,440 --> 02:00:42,440
+like we are doing here. Okay.
+
+1413
+02:00:50,560 --> 02:00:58,400
+more then partition it then that will
+
+1414
+02:00:54,800 --> 02:01:02,000
+do. Okay, just
+
+1415
+02:00:58,400 --> 02:01:05,639
+just get it to work and remove the zero
+
+1416
+02:01:02,000 --> 02:01:05,639
+zero. Okay.
+
+1417
+02:01:11,119 --> 02:01:14,119
+Uh
+
+1418
+02:01:15,920 --> 02:01:25,840
+paste shift enter. Yeah. Then 1014 and
+
+1419
+02:01:21,599 --> 02:01:29,280
+1220 they needs to be uh you need to
+
+1420
+02:01:25,840 --> 02:01:33,880
+repeat this process. Okay. So what you
+
+1421
+02:01:29,280 --> 02:01:33,880
+can do is fixed point.
+
+1422
+02:01:35,920 --> 02:01:42,560
+So didn't we have that there? Yes. So we
+
+1423
+02:01:39,920 --> 02:01:45,040
+got the fixed point
+
+1424
+02:01:42,560 --> 02:01:49,400
+and yeah so you need to turn the whole
+
+1425
+02:01:45,040 --> 02:01:49,400
+thing into a function.
+
+1426
+02:01:52,800 --> 02:01:57,360
+function
+
+1427
+02:01:55,599 --> 02:02:00,320
+function.
+
+1428
+02:01:57,360 --> 02:02:02,159
+Okay, then the function expression is
+
+1429
+02:02:00,320 --> 02:02:06,719
+this
+
+1430
+02:02:02,159 --> 02:02:09,719
+and the function input is uh
+
+1431
+02:02:06,719 --> 02:02:09,719
+range
+
+1432
+02:02:10,320 --> 02:02:17,520
+list. Okay, the function
+
+1433
+02:02:14,480 --> 02:02:20,520
+input is range list.
+
+1434
+02:02:17,520 --> 02:02:20,520
+So
+
+1435
+02:02:21,679 --> 02:02:30,880
+okay actually they need to be
+
+1436
+02:02:25,760 --> 02:02:33,040
+there. Okay so that will work
+
+1437
+02:02:30,880 --> 02:02:35,679
+this function.
+
+1438
+02:02:33,040 --> 02:02:40,760
+So this function
+
+1439
+02:02:35,679 --> 02:02:40,760
+and then you just say fix point
+
+1440
+02:02:45,199 --> 02:02:51,040
+fix point
+
+1441
+02:02:48,320 --> 02:02:54,560
+the first argument is a function which
+
+1442
+02:02:51,040 --> 02:02:59,880
+is this one. Okay. Then the second
+
+1443
+02:02:54,560 --> 02:02:59,880
+argument is the actual range list.
+
+1444
+02:03:01,440 --> 02:03:06,000
+Right. Yeah. So that's the second
+
+1445
+02:03:03,840 --> 02:03:09,000
+argument. The first argument is a
+
+1446
+02:03:06,000 --> 02:03:09,000
+function
+
+1447
+02:03:09,119 --> 02:03:13,960
+we can say ff. So make
+
+1448
+02:03:29,119 --> 02:03:32,760
+what are we doing?
+
+1449
+02:03:43,760 --> 02:03:49,040
+This is kind of advanced, pretty
+
+1450
+02:03:46,800 --> 02:03:54,119
+advanced functional programming. So, let
+
+1451
+02:03:49,040 --> 02:03:54,119
+me show you. Let's just run it.
+
+1452
+02:03:56,480 --> 02:04:04,040
+Shift enter. So they reduced to 3 5 10
+
+1453
+02:04:01,040 --> 02:04:04,040
+14
+
+1454
+02:04:04,560 --> 02:04:15,760
+3 minus
+
+1455
+02:04:06,639 --> 02:04:19,119
+5 - 3 + 1 is 3 14 - 10 + 1 is 5
+
+1456
+02:04:15,760 --> 02:04:22,920
+5 + 3 is 8. So is that the solution?
+
+1457
+02:04:19,119 --> 02:04:22,920
+Wait 14.
+
+1458
+02:04:23,679 --> 02:04:26,679
+What?
+
+1459
+02:04:33,440 --> 02:04:38,199
+Wait, wait. 35
+
+1460
+02:04:38,719 --> 02:04:44,520
+104. Wait. 1220 disappeared.
+
+1461
+02:04:53,440 --> 02:04:57,480
+1220 disappeared.
+
+1462
+02:04:57,520 --> 02:05:00,520
+What?
+
+1463
+02:05:05,440 --> 02:05:12,679
+So this is just wrong. Jesus.
+
+1464
+02:05:09,199 --> 02:05:12,679
+Now I am
+
+1465
+02:05:17,280 --> 02:05:26,560
+Now I am really not feeling good about
+
+1466
+02:05:22,080 --> 02:05:29,440
+this because we spent so much time
+
+1467
+02:05:26,560 --> 02:05:32,840
+and did not
+
+1468
+02:05:29,440 --> 02:05:32,840
+finish it.
+
+1469
+02:05:36,320 --> 02:05:41,639
+Okay. summon an integer lead code.
+
+1470
+02:05:46,560 --> 02:05:52,880
+So
+
+1471
+02:05:48,400 --> 02:05:57,920
+yeah, this is so bad. Let's see.
+
+1472
+02:05:52,880 --> 02:06:01,320
+Shift enter. Now copy that. Now if I put
+
+1473
+02:05:57,920 --> 02:06:01,320
+that there.
+
+1474
+02:06:14,400 --> 02:06:20,320
+So our algorithm is in fact wrong
+
+1475
+02:06:17,440 --> 02:06:24,920
+because
+
+1476
+02:06:20,320 --> 02:06:24,920
+now 12 to 20 disappeared.
+
+1477
+02:06:29,440 --> 02:06:40,880
+So 104 12 20 do they overlap? Yes.
+
+1478
+02:06:36,239 --> 02:06:45,280
+So it should become 104 to 1220. So it
+
+1479
+02:06:40,880 --> 02:06:49,159
+should be two it should be 1020.
+
+1480
+02:06:45,280 --> 02:06:49,159
+So why did this
+
+1481
+02:06:49,440 --> 02:06:58,400
+104 last first? So first range one, last
+
+1482
+02:06:55,119 --> 02:07:01,599
+range two,
+
+1483
+02:06:58,400 --> 02:07:05,239
+last range two should be 20. So how did
+
+1484
+02:07:01,599 --> 02:07:05,239
+we get 104?
+
+1485
+02:07:11,040 --> 02:07:14,040
+But
+
+1486
+02:07:18,400 --> 02:07:23,360
+we got the code just wrong somewhere.
+
+1487
+02:07:21,840 --> 02:07:26,239
+Okay.
+
+1488
+02:07:23,360 --> 02:07:29,239
+So, let's replace the function just by
+
+1489
+02:07:26,239 --> 02:07:29,239
+f.
+
+1490
+02:07:32,639 --> 02:07:35,639
+Oh,
+
+1491
+02:07:36,719 --> 02:07:42,159
+wait. Block map.
+
+1492
+02:07:39,599 --> 02:07:46,639
+Oh, you forgot block map. It should be
+
+1493
+02:07:42,159 --> 02:07:52,480
+that. That's right. Block map by two
+
+1494
+02:07:46,639 --> 02:07:56,000
+then overlap one. Oh, idiotic.
+
+1495
+02:07:52,480 --> 02:07:58,960
+Okay, I have been idiotic all this time.
+
+1496
+02:07:56,000 --> 02:08:01,599
+Block map.
+
+1497
+02:07:58,960 --> 02:08:06,880
+Yeah, you forgot to say you have to say
+
+1498
+02:08:01,599 --> 02:08:09,920
+one because we want one overlap. Okay,
+
+1499
+02:08:06,880 --> 02:08:13,159
+so and
+
+1500
+02:08:09,920 --> 02:08:13,159
+of course
+
+1501
+02:08:14,960 --> 02:08:21,480
+here. Okay. So now if you do fixed point
+
+1502
+02:08:23,679 --> 02:08:30,639
+now that's good. Okay. Now if you now
+
+1503
+02:08:27,119 --> 02:08:33,639
+okay so now let's suppose this is good.
+
+1504
+02:08:30,639 --> 02:08:33,639
+Delete
+
+1505
+02:08:34,800 --> 02:08:44,440
+delete delete delete. So this is our
+
+1506
+02:08:37,199 --> 02:08:44,440
+code. Perfect. Now, now we just um
+
+1507
+02:08:45,760 --> 02:08:52,480
+Yeah, we just map this to it.
+
+1508
+02:08:49,760 --> 02:08:55,920
+So, let's try it here.
+
+1509
+02:08:52,480 --> 02:09:00,159
+Okay. So, map these two.
+
+1510
+02:08:55,920 --> 02:09:03,040
+Shift Ctrl L to copy the last output.
+
+1511
+02:09:00,159 --> 02:09:08,880
+last minus first
+
+1512
+02:09:03,040 --> 02:09:13,199
+then total at as output
+
+1513
+02:09:08,880 --> 02:09:17,840
+28 which is incorrect.
+
+1514
+02:09:13,199 --> 02:09:22,800
+Oh wait oh you need to then what?
+
+1515
+02:09:17,840 --> 02:09:28,239
+Wait hold on a second. So you need to
+
+1516
+02:09:22,800 --> 02:09:33,960
+108 1020. Why is that not reduced?
+
+1517
+02:09:28,239 --> 02:09:33,960
+Oh god. Now he ran into another problem
+
+1518
+02:09:44,159 --> 02:09:51,079
+108 1020. They should become just 1020.
+
+1519
+02:10:27,119 --> 02:10:35,400
+That's right. Now, if you do this again
+
+1520
+02:10:31,760 --> 02:10:35,400
+and uh
+
+1521
+02:10:35,760 --> 02:10:43,199
+last output,
+
+1522
+02:10:37,840 --> 02:10:46,560
+do it. That's right. Copy the last input
+
+1523
+02:10:43,199 --> 02:10:49,679
+and this part
+
+1524
+02:10:46,560 --> 02:10:51,520
+will be last output.
+
+1525
+02:10:49,679 --> 02:10:54,800
+Do it.
+
+1526
+02:10:51,520 --> 02:10:59,960
+It did not reduce
+
+1527
+02:10:54,800 --> 02:10:59,960
+1020 1018. So
+
+1528
+02:11:00,079 --> 02:11:07,960
+the last maximum is greater than the
+
+1529
+02:11:04,960 --> 02:11:07,960
+first
+
+1530
+02:11:08,480 --> 02:11:11,960
+the last
+
+1531
+02:11:12,960 --> 02:11:17,239
+first I mean the the the
+
+1532
+02:11:18,320 --> 02:11:24,159
+maximum of a range
+
+1533
+02:11:21,760 --> 02:11:28,079
+is greater than the minimum of the
+
+1534
+02:11:24,159 --> 02:11:32,400
+second range then you merge them is so
+
+1535
+02:11:28,079 --> 02:11:36,400
+108 1020 should become
+
+1536
+02:11:32,400 --> 02:11:40,320
+10 20
+
+1537
+02:11:36,400 --> 02:11:44,760
+but it did not happen.
+
+1538
+02:11:40,320 --> 02:11:44,760
+It did not happen because
+
+1539
+02:11:45,040 --> 02:11:50,199
+why did not happen? Let's see.
+
+1540
+02:12:07,119 --> 02:12:17,119
+3 5 10 14 10 14 10 18
+
+1541
+02:12:12,880 --> 02:12:19,760
+10 10 18 10 20 Why did we not get 10 18
+
+1542
+02:12:17,119 --> 02:12:23,239
+10 20
+
+1543
+02:12:19,760 --> 02:12:23,239
+ What?
+
+1544
+02:12:51,360 --> 02:13:01,520
+3 5 10 14 10 14 10 18 10 10 18 10 20
+
+1545
+02:12:58,000 --> 02:13:04,560
+Is that right? Yes.
+
+1546
+02:13:01,520 --> 02:13:09,520
+But then
+
+1547
+02:13:04,560 --> 02:13:12,880
+But then what the is going on here?
+
+1548
+02:13:09,520 --> 02:13:15,880
+No, because
+
+1549
+02:13:12,880 --> 02:13:15,880
+what?
+
+1550
+02:13:19,520 --> 02:13:26,520
+Wait, that's a function.
+
+1551
+02:13:22,800 --> 02:13:26,520
+That's a function.
+
+1552
+02:13:27,280 --> 02:13:32,560
+Okay, so this function got fed into
+
+1553
+02:13:30,159 --> 02:13:35,760
+here.
+
+1554
+02:13:32,560 --> 02:13:39,400
+So this is a function. This is the
+
+1555
+02:13:35,760 --> 02:13:39,400
+function body.
+
+1556
+02:13:45,040 --> 02:13:49,880
+Okay. And this is the argument.
+
+1557
+02:13:52,079 --> 02:13:57,159
+I'm not seeing why it is.
+
+1558
+02:13:59,840 --> 02:14:05,000
+I'm not seeing why this is not
+
+1559
+02:14:13,119 --> 02:14:18,599
+walking.
+
+1560
+02:14:15,599 --> 02:14:18,599
+Oh.
+
+1561
+02:14:33,440 --> 02:14:37,719
+Yeah, this is pretty bad.
+
+1562
+02:14:42,639 --> 02:14:45,639
+So
+
+1563
+02:15:07,520 --> 02:15:10,520
+function.
+
+1564
+02:15:12,000 --> 02:15:15,800
+mention it at
+
+1565
+02:16:32,960 --> 02:16:38,880
+You know there's nothing
+
+1566
+02:16:35,920 --> 02:16:43,160
+computer they don't make mistakes so you
+
+1567
+02:16:38,880 --> 02:16:43,160
+always just work out diligently.
+
+1568
+02:16:44,000 --> 02:16:49,439
+There's nothing can screw you up. Okay.
+
+1569
+02:16:46,319 --> 02:16:54,559
+You can always find out what is wrong.
+
+1570
+02:16:49,439 --> 02:16:57,840
+So let's just screw this um
+
+1571
+02:16:54,559 --> 02:17:01,240
+this complicated nesting of functions.
+
+1572
+02:16:57,840 --> 02:17:01,240
+Let's not
+
+1573
+02:17:11,040 --> 02:17:20,479
+you know this part should be equivalent
+
+1574
+02:17:14,080 --> 02:17:20,479
+just to that. I cannot believe it's the
+
+1575
+02:17:22,240 --> 02:17:28,000
+Wait,
+
+1576
+02:17:23,920 --> 02:17:30,719
+you don't need even need function here.
+
+1577
+02:17:28,000 --> 02:17:33,439
+Yeah,
+
+1578
+02:17:30,719 --> 02:17:37,760
+now this is simpler
+
+1579
+02:17:33,439 --> 02:17:40,960
+what I was doing before.
+
+1580
+02:17:37,760 --> 02:17:44,599
+This is simpler. Okay, run it.
+
+1581
+02:17:40,960 --> 02:17:44,599
+Uh, wait.
+
+1582
+02:17:45,599 --> 02:17:49,519
+What was I doing?
+
+1583
+02:17:51,439 --> 02:17:56,200
+Let's start over again. Okay,
+
+1584
+02:18:02,399 --> 02:18:06,280
+let go.
+
+1585
+02:18:11,359 --> 02:18:14,359
+Copy.
+
+1586
+02:18:14,880 --> 02:18:20,319
+Okay. Paste again.
+
+1587
+02:18:17,359 --> 02:18:23,840
+Now again there is
+
+1588
+02:18:20,319 --> 02:18:28,399
+you just simply go by logic nothing go
+
+1589
+02:18:23,840 --> 02:18:33,639
+wrong. Okay. So that is a function.
+
+1590
+02:18:28,399 --> 02:18:33,639
+Now you see this block is a function.
+
+1591
+02:18:36,559 --> 02:18:39,559
+Okay.
+
+1592
+02:18:41,760 --> 02:18:48,080
+Remove that function.
+
+1593
+02:18:44,240 --> 02:18:53,760
+Remove it. Okay. And this range list is
+
+1594
+02:18:48,080 --> 02:18:58,559
+now just that. Okay. Now this is again a
+
+1595
+02:18:53,760 --> 02:19:01,559
+function. So so you can remove this
+
+1596
+02:18:58,559 --> 02:19:01,559
+function
+
+1597
+02:19:02,639 --> 02:19:13,200
+remove and you partition block x is just
+
+1598
+02:19:08,800 --> 02:19:15,760
+that. Okay. So in other words this is
+
+1599
+02:19:13,200 --> 02:19:18,559
+equivalent to that.
+
+1600
+02:19:15,760 --> 02:19:21,359
+So why do you do this complicated form?
+
+1601
+02:19:18,559 --> 02:19:24,000
+I'm doing this complicated form so you
+
+1602
+02:19:21,359 --> 02:19:27,000
+avoid nesting because this is deep
+
+1603
+02:19:24,000 --> 02:19:27,000
+nesting.
+
+1604
+02:19:27,200 --> 02:19:32,599
+You get you get a problem when you have.
+
+1605
+02:19:33,519 --> 02:19:39,200
+So you see
+
+1606
+02:19:35,519 --> 02:19:44,240
+35 1014 1014.
+
+1607
+02:19:39,200 --> 02:19:49,200
+So 3 5 10 14 1014 1018 18
+
+1608
+02:19:44,240 --> 02:19:53,160
+and uh 108 1020. So you are missing 108
+
+1609
+02:19:49,200 --> 02:19:53,160
+1020. Wait.
+
+1610
+02:19:56,640 --> 02:20:03,720
+Okay, you up. So why do are you
+
+1611
+02:19:59,520 --> 02:20:03,720
+doing the partition
+
+1612
+02:20:03,840 --> 02:20:09,640
+So this so your code about this flatten
+
+1613
+02:20:15,040 --> 02:20:18,040
+What?
+
+1614
+02:20:23,439 --> 02:20:31,280
+God, this code is not good.
+
+1615
+02:20:28,560 --> 02:20:32,800
+Yeah, our code, our block code is
+
+1616
+02:20:31,280 --> 02:20:36,319
+perfect,
+
+1617
+02:20:32,800 --> 02:20:39,520
+but this flatten and partition is
+
+1618
+02:20:36,319 --> 02:20:39,520
+screwing it up.
+
+1619
+02:20:49,920 --> 02:20:55,760
+That's right. That's right. If you are
+
+1620
+02:20:52,399 --> 02:20:59,800
+using FF, but if you are not using FF,
+
+1621
+02:20:55,760 --> 02:20:59,800
+it should work. Okay.
+
+1622
+02:20:59,840 --> 02:21:06,200
+So, what is what the is going on
+
+1623
+02:21:02,720 --> 02:21:06,200
+here? So,
+
+1624
+02:21:10,000 --> 02:21:14,600
+so if you just use a list
+
+1625
+02:21:15,120 --> 02:21:25,240
+then you see 108 10 1820. So then
+
+1626
+02:21:20,960 --> 02:21:25,240
+okay where are we?
+
+1627
+02:21:32,720 --> 02:21:38,040
+Okay, let me get this to work.
+
+1628
+02:21:46,080 --> 02:21:51,359
+This is no good. This taking too long.
+
+1629
+02:21:49,120 --> 02:21:57,000
+So
+
+1630
+02:21:51,359 --> 02:21:57,000
+taking like too long and complicated.
+
+1631
+02:22:58,000 --> 02:23:04,560
+Okay, let's try again. Range list is
+
+1632
+02:23:01,760 --> 02:23:09,200
+that that's right
+
+1633
+02:23:04,560 --> 02:23:14,359
+now. What's wrong with our block map?
+
+1634
+02:23:09,200 --> 02:23:14,359
+block map produces that.
+
+1635
+02:23:20,319 --> 02:23:24,600
+Then you need to
+
+1636
+02:23:36,000 --> 02:23:39,000
+Then
+
+1637
+02:23:46,720 --> 02:23:50,040
+like this.
+
+1638
+02:26:00,319 --> 02:26:03,840
+Very
+
+1639
+02:26:02,160 --> 02:26:08,359
+bad
+
+1640
+02:26:03,840 --> 02:26:08,359
+holding this session.
+
+1641
+02:26:19,520 --> 02:26:28,600
+10 14 12 18 12 18 16 20 So what do you
+
+1642
+02:26:25,600 --> 02:26:28,600
+produce?
+
+1643
+02:26:45,920 --> 02:26:49,720
+That's right. So,
+
+1644
+02:26:51,439 --> 02:26:55,960
+so can you just flatten
+
+1645
+02:26:57,439 --> 02:27:00,920
+level one?
+
+1646
+02:27:01,120 --> 02:27:04,120
+Wait.
+
+1647
+02:27:08,399 --> 02:27:16,359
+Yeah, you just flatten one level.
+
+1648
+02:27:11,840 --> 02:27:16,359
+No need to partition
+
+1649
+02:27:24,319 --> 02:27:30,760
+That's right. One level. No need to
+
+1650
+02:27:27,040 --> 02:27:30,760
+partition
+
+1651
+02:28:09,760 --> 02:28:12,760
+Okay,
+
+1652
+02:28:17,760 --> 02:28:23,560
+our input.
+
+1653
+02:28:19,680 --> 02:28:23,560
+This is the code.
+
+1654
+02:28:26,240 --> 02:28:29,640
+Shift enter.
+
+1655
+02:28:33,680 --> 02:28:41,200
+You need to uh wait. We already fixed
+
+1656
+02:28:37,040 --> 02:28:44,479
+for why didn't it reduce?
+
+1657
+02:28:41,200 --> 02:28:47,880
+1014 1018.
+
+1658
+02:28:44,479 --> 02:28:47,880
+What? Uh
+
+1659
+02:28:49,920 --> 02:28:53,240
+this function
+
+1660
+02:28:53,520 --> 02:28:59,160
+at last shift enter.
+
+1661
+02:28:59,840 --> 02:29:07,000
+1014 1018
+
+1662
+02:29:03,040 --> 02:29:07,000
+10:14 10:18
+
+1663
+02:29:09,680 --> 02:29:15,160
+Why did that not combine them?
+
+1664
+02:29:30,399 --> 02:29:36,680
+So this is a problem. So X range is
+
+1665
+02:29:57,760 --> 02:30:04,680
+Wait. So fixed point
+
+1666
+02:30:01,680 --> 02:30:04,680
+function
+
+1667
+02:30:06,000 --> 02:30:09,319
+this is
+
+1668
+02:30:24,080 --> 02:30:29,640
+Did we have like syntax problem?
+
+1669
+02:30:59,680 --> 02:31:03,479
+Okay. No.
+
+1670
+02:31:26,960 --> 02:31:29,960
+What?
+
+1671
+02:31:38,160 --> 02:31:43,720
+That's the function. This is the input.
+
+1672
+02:31:51,760 --> 02:31:59,240
+Now what is original input? The original
+
+1673
+02:31:54,880 --> 02:31:59,240
+input is just that
+
+1674
+02:32:12,319 --> 02:32:17,800
+Okay, now it went into infinite
+
+1675
+02:32:14,800 --> 02:32:17,800
+recursion
+
+1676
+02:32:24,479 --> 02:32:27,479
+probably
+
+1677
+02:32:30,000 --> 02:32:33,000
+language
+
+1678
+02:32:33,200 --> 02:32:41,000
+kernel for Windows. was 60 70 mgabyte in
+
+1679
+02:32:41,520 --> 02:32:47,200
+170 mgabyte.
+
+1680
+02:32:43,680 --> 02:32:50,200
+Wow. Minimal use of memory. Something is
+
+1681
+02:32:47,200 --> 02:32:50,200
+wrong.
+
+1682
+02:32:52,640 --> 02:32:59,960
+There is a lot
+
+1683
+02:32:54,880 --> 02:32:59,960
+organized by name by CPU
+
+1684
+02:33:00,960 --> 02:33:04,680
+language kernel.
+
+1685
+02:33:17,040 --> 02:33:23,600
+What?
+
+1686
+02:33:18,720 --> 02:33:23,600
+Why does it run zero kernels?
+
+1687
+02:33:27,760 --> 02:33:35,359
+But this is not exiting. So control
+
+1688
+02:33:32,640 --> 02:33:37,680
+period to
+
+1689
+02:33:35,359 --> 02:33:40,880
+stop.
+
+1690
+02:33:37,680 --> 02:33:45,640
+Alt period. Okay.
+
+1691
+02:33:40,880 --> 02:33:45,640
+Old period to old.
+
+1692
+02:33:46,720 --> 02:33:53,920
+Yeah. Very, you know, we not doing good
+
+1693
+02:33:50,399 --> 02:33:56,880
+today. So
+
+1694
+02:33:53,920 --> 02:34:01,920
+although the solution is very close but
+
+1695
+02:33:56,880 --> 02:34:06,920
+it's just something is wrong.
+
+1696
+02:34:01,920 --> 02:34:06,920
+ I'm going to delete this video.
+
+1697
+02:34:09,520 --> 02:34:16,200
+Is there anyone watching then
+
+1698
+02:34:13,200 --> 02:34:16,200
+people
+
+1699
+02:34:18,720 --> 02:34:27,760
+ I'm very annoyed you know
+
+1700
+02:34:23,439 --> 02:34:31,840
+so this simple problem took two hours
+
+1701
+02:34:27,760 --> 02:34:34,880
+and not done and now I'm kind of tired
+
+1702
+02:34:31,840 --> 02:34:36,960
+of this
+
+1703
+02:34:34,880 --> 02:34:39,439
+thing
+
+1704
+02:34:36,960 --> 02:34:42,479
+this functional programming and We now
+
+1705
+02:34:39,439 --> 02:34:46,600
+we get into infinite loop. Something
+
+1706
+02:34:42,479 --> 02:34:46,600
+wrong with our code,
+
+1707
+02:34:47,840 --> 02:34:51,399
+fixed point,
+
+1708
+02:34:53,520 --> 02:34:58,800
+fixed point, a function, an expression.
+
+1709
+02:34:56,720 --> 02:35:02,800
+A function and expression. The
+
+1710
+02:34:58,800 --> 02:35:04,880
+expression is that and the function is
+
+1711
+02:35:02,800 --> 02:35:08,080
+this function.
+
+1712
+02:35:04,880 --> 02:35:10,399
+And this function takes a range list.
+
+1713
+02:35:08,080 --> 02:35:13,359
+That's the input.
+
+1714
+02:35:10,399 --> 02:35:17,840
+Okay. Then
+
+1715
+02:35:13,359 --> 02:35:20,000
+then what it do? It
+
+1716
+02:35:17,840 --> 02:35:22,880
+um
+
+1717
+02:35:20,000 --> 02:35:27,160
+it flatten is said it does this block
+
+1718
+02:35:22,880 --> 02:35:27,160
+map. It should work.
+
+1719
+02:35:30,880 --> 02:35:39,040
+But I don't understand why this is not
+
+1720
+02:35:33,920 --> 02:35:39,040
+work. Okay, let's try nest list.
+
+1721
+02:35:40,880 --> 02:35:49,720
+Okay, next list of this function and the
+
+1722
+02:35:45,520 --> 02:35:49,720
+input will be
+
+1723
+02:35:50,080 --> 02:35:54,520
+that initial input
+
+1724
+02:35:54,720 --> 02:36:00,640
+initial input and how many time you want
+
+1725
+02:35:57,520 --> 02:36:03,359
+to nest three times.
+
+1726
+02:36:00,640 --> 02:36:07,439
+Shift enter.
+
+1727
+02:36:03,359 --> 02:36:11,280
+So here's the result. So the first time
+
+1728
+02:36:07,439 --> 02:36:15,359
+the initial input is that then the first
+
+1729
+02:36:11,280 --> 02:36:18,840
+time you you do it. Um can you do this
+
+1730
+02:36:15,359 --> 02:36:18,840
+matrix form
+
+1731
+02:36:24,399 --> 02:36:28,520
+table form? Okay.
+
+1732
+02:36:29,040 --> 02:36:36,280
+So the first time wait uh 10 13
+
+1733
+02:36:37,040 --> 02:36:47,160
+3 5 10 14 3 5 10 14 16 20 12 18 That's
+
+1734
+02:36:43,600 --> 02:36:47,160
+the first time.
+
+1735
+02:36:48,160 --> 02:36:55,640
+Second time 3 5 10 14 I don't like this
+
+1736
+02:36:51,680 --> 02:36:55,640
+form. 10 20
+
+1737
+02:36:56,240 --> 02:37:01,240
+16 20 16 18
+
+1738
+02:37:02,080 --> 02:37:07,720
+This is the problem. Each time you got
+
+1739
+02:37:04,720 --> 02:37:07,720
+more,
+
+1740
+02:37:08,560 --> 02:37:14,280
+you see? So each time the list
+
+1741
+02:37:11,280 --> 02:37:14,280
+increases.
+
+1742
+02:37:15,280 --> 02:37:18,280
+What?
+
+1743
+02:37:36,880 --> 02:37:40,920
+So in the step
+
+1744
+02:37:43,120 --> 02:37:47,000
+104 104
+
+1745
+02:37:54,720 --> 02:37:59,319
+Why does the list increase?
+
+1746
+02:38:03,600 --> 02:38:10,760
+Okay, I'm tired and I'm going to maybe
+
+1747
+02:38:06,880 --> 02:38:10,760
+DD this video
+
+1748
+02:38:12,479 --> 02:38:15,479
+because
+
+1749
+02:38:18,880 --> 02:38:23,920
+nobody's watching and it's taking 3
+
+1750
+02:38:21,840 --> 02:38:27,880
+hours now.
+
+1751
+02:38:23,920 --> 02:38:27,880
+I think I got to go.
+
+1752
+02:39:23,200 --> 02:39:26,200
+Good.
+
+1753
+02:40:24,560 --> 02:40:31,040
+Once you added it, it becomes input.
+
+1754
+02:40:28,479 --> 02:40:35,600
+Interesting.
+
+1755
+02:40:31,040 --> 02:40:39,120
+Yeah, the list gets longer. That's
+
+1756
+02:40:35,600 --> 02:40:42,120
+It's just not right.
+
+1757
+02:40:39,120 --> 02:40:42,120
+Idiotic.
+
+1758
+02:41:02,000 --> 02:41:10,720
+What are what are these table view?
+
+1759
+02:41:06,720 --> 02:41:13,720
+No, I'm just like doing random
+
+1760
+02:41:10,720 --> 02:41:13,720
+spreadsheet.
+
+1761
+02:41:18,479 --> 02:41:25,920
+Now I'm just doing random. Okay. The you
+
+1762
+02:41:21,600 --> 02:41:30,000
+know our code is incorrect. It's
+
+1763
+02:41:25,920 --> 02:41:34,439
+it's adding. Wait, is it possible for it
+
+1764
+02:41:30,000 --> 02:41:34,439
+to uh grow?
+
+1765
+02:41:34,720 --> 02:41:43,120
+So you map to a pair
+
+1766
+02:41:38,880 --> 02:41:45,359
+if the if they overlap you reduce the
+
+1767
+02:41:43,120 --> 02:41:47,760
+pair into
+
+1768
+02:41:45,359 --> 02:41:53,479
+one range.
+
+1769
+02:41:47,760 --> 02:41:53,479
+Okay. But now if they do not overlap
+
+1770
+02:41:53,840 --> 02:42:00,000
+it return the pair itself.
+
+1771
+02:41:57,040 --> 02:42:03,040
+You see but the thing is
+
+1772
+02:42:00,000 --> 02:42:07,920
+you are doing the map block map. So you
+
+1773
+02:42:03,040 --> 02:42:10,160
+are like almost increase the
+
+1774
+02:42:07,920 --> 02:42:14,760
+you are mapping two neighbors. So every
+
+1775
+02:42:10,160 --> 02:42:14,760
+time you do this you are
+
+1776
+02:42:15,840 --> 02:42:22,240
+Yeah. So you you you don't want to Yeah.
+
+1777
+02:42:19,280 --> 02:42:25,800
+That's why they increase. No, I know
+
+1778
+02:42:22,240 --> 02:42:25,800
+they increase.
+
+1779
+02:42:27,280 --> 02:42:30,280
+So,
+
+1780
+02:42:30,479 --> 02:42:35,200
+so what you can do is you delete
+
+1781
+02:42:32,800 --> 02:42:37,600
+duplicate each time you do this loop.
+
+1782
+02:42:35,200 --> 02:42:41,479
+You delete duplicate again. But that's
+
+1783
+02:42:37,600 --> 02:42:41,479
+not good. That's inefficient.
+
+1784
+02:42:44,720 --> 02:42:48,280
+So you
+
+1785
+02:42:50,000 --> 02:42:56,560
+So you see that's why you got them
+
+1786
+02:42:52,720 --> 02:42:59,880
+repeated. So,
+
+1787
+02:42:56,560 --> 02:42:59,880
+so this
+
+1788
+02:43:17,280 --> 02:43:25,240
+see block map
+
+1789
+02:43:19,680 --> 02:43:25,240
+block map block map block app.
+
+1790
+02:43:39,040 --> 02:43:45,600
+I need to take a break.
+
+1791
+02:43:42,640 --> 02:43:48,319
+I'm not going to finish this. I need to
+
+1792
+02:43:45,600 --> 02:43:51,319
+take a break.
+
+1793
+02:43:48,319 --> 02:43:51,319
+Okay.
+
+1794
+02:44:00,560 --> 02:44:06,120
+very
+
+1795
+02:44:02,160 --> 02:44:06,120
+frustrated with this,
+
+1796
+02:44:16,000 --> 02:44:22,240
+what to do. Um, either take a break and
+
+1797
+02:44:20,560 --> 02:44:24,720
+continue
+
+1798
+02:44:22,240 --> 02:44:29,520
+or just stop
+
+1799
+02:44:24,720 --> 02:44:33,279
+or stop and delete this video
+
+1800
+02:44:29,520 --> 02:44:35,760
+because this video
+
+1801
+02:44:33,279 --> 02:44:39,720
+the first hour is useful because we
+
+1802
+02:44:35,760 --> 02:44:39,720
+analyze the problem.
+
+1803
+02:44:39,840 --> 02:44:45,760
+Then we talked about we went into about
+
+1804
+02:44:43,359 --> 02:44:47,600
+keyboards.
+
+1805
+02:44:45,760 --> 02:44:51,000
+Um
+
+1806
+02:44:47,600 --> 02:44:51,000
+but then
+
+1807
+02:44:52,560 --> 02:44:59,920
+we went over um but then
+
+1808
+02:44:57,600 --> 02:45:01,760
+now where the where is even my talk
+
+1809
+02:44:59,920 --> 02:45:05,840
+show page
+
+1810
+02:45:01,760 --> 02:45:08,479
+but then we um reanalyze the problem
+
+1811
+02:45:05,840 --> 02:45:12,319
+very well.
+
+1812
+02:45:08,479 --> 02:45:14,399
+Um but then we got code one code issue
+
+1813
+02:45:12,319 --> 02:45:17,520
+after another.
+
+1814
+02:45:14,399 --> 02:45:22,120
+So, it doesn't look good.
+
+1815
+02:45:17,520 --> 02:45:22,120
+So, what uh delete the video.
+
+1816
+02:45:30,560 --> 02:45:34,880
+But this
+
+1817
+02:45:32,720 --> 02:45:41,240
+this should work. But now I'm just
+
+1818
+02:45:34,880 --> 02:45:41,240
+tired. Okay. And I'm just now tired.
+
+1819
+02:45:42,720 --> 02:45:46,920
+What to do now? Shoot.
+
+1820
+02:45:47,600 --> 02:45:53,760
+I need a break for sure.
+
+1821
+02:45:50,560 --> 02:45:56,319
+Okay, break. Break.
+
+1822
+02:45:53,760 --> 02:45:59,200
+I'm going to come back. Maybe we'll
+
+1823
+02:45:56,319 --> 02:46:03,880
+delete this video after all. But for
+
+1824
+02:45:59,200 --> 02:46:03,880
+now, let me just take a break.
+
+1825
+02:53:21,600 --> 02:53:29,960
+Do I still live in Mountain View? Yes.
+
+1826
+02:53:24,960 --> 02:53:29,960
+Why do you ask that? Who are you?
+
+1827
+02:53:32,399 --> 02:53:37,000
+Answer Amazon. What?
+
+1828
+02:53:41,359 --> 02:53:45,640
+Why do you ask that question?
+
+1829
+02:53:50,800 --> 02:53:54,279
+Who are you?
+
+1830
+02:53:57,120 --> 02:54:03,439
+Okay, this up.
+
+1831
+02:54:00,399 --> 02:54:06,720
+I don't feel like doing it.
+
+1832
+02:54:03,439 --> 02:54:08,560
+Now, this is red wine. By the way, you
+
+1833
+02:54:06,720 --> 02:54:13,960
+cannot see
+
+1834
+02:54:08,560 --> 02:54:13,960
+not many like 200 milliliters.
+
+1835
+02:54:18,080 --> 02:54:22,920
+Now, Amazon answer the question.
+
+1836
+02:54:30,640 --> 02:54:36,560
+Who are you? Have you been watching my
+
+1837
+02:54:32,640 --> 02:54:38,880
+videos? How long ago? Like because
+
+1838
+02:54:36,560 --> 02:54:41,040
+that's a personal question and I'm
+
+1839
+02:54:38,880 --> 02:54:44,319
+sensitive to
+
+1840
+02:54:41,040 --> 02:54:48,600
+those of kind of questions because I
+
+1841
+02:54:44,319 --> 02:54:48,600
+talk about all sort of things.
+
+1842
+02:54:55,279 --> 02:55:02,160
+Okay, answer that question like
+
+1843
+02:54:59,840 --> 02:55:05,439
+why why are you asking that question?
+
+1844
+02:55:02,160 --> 02:55:08,000
+Who are you?
+
+1845
+02:55:05,439 --> 02:55:12,240
+Because I don't remember
+
+1846
+02:55:08,000 --> 02:55:14,240
+Amazon, you watch my video before
+
+1847
+02:55:12,240 --> 02:55:19,120
+because on the internet there's all sort
+
+1848
+02:55:14,240 --> 02:55:22,160
+of lookers. You don't know who they are.
+
+1849
+02:55:19,120 --> 02:55:25,120
+Don't know where you came from.
+
+1850
+02:55:22,160 --> 02:55:26,640
+Okay. Anyway, so answer that question.
+
+1851
+02:55:25,120 --> 02:55:28,319
+Okay.
+
+1852
+02:55:26,640 --> 02:55:32,640
+So,
+
+1853
+02:55:28,319 --> 02:55:34,800
+so we got this situation this um this
+
+1854
+02:55:32,640 --> 02:55:39,200
+block map.
+
+1855
+02:55:34,800 --> 02:55:42,240
+Shall I explain what block map is?
+
+1856
+02:55:39,200 --> 02:55:44,640
+uh be you know I explain everything this
+
+1857
+02:55:42,240 --> 02:55:48,319
+take take 10 hours
+
+1858
+02:55:44,640 --> 02:55:50,800
+but block block map allows you to map a
+
+1859
+02:55:48,319 --> 02:55:54,399
+function to a list
+
+1860
+02:55:50,800 --> 02:55:58,160
+with repetition so you can overlap them
+
+1861
+02:55:54,399 --> 02:56:01,120
+we want to do that because given a list
+
+1862
+02:55:58,160 --> 02:56:03,840
+of ranges we want to check neighboring
+
+1863
+02:56:01,120 --> 02:56:07,840
+ranges so this pair of range we want to
+
+1864
+02:56:03,840 --> 02:56:09,840
+check then this pair of range then next
+
+1865
+02:56:07,840 --> 02:56:12,880
+you know every
+
+1866
+02:56:09,840 --> 02:56:16,080
+two neighbors of the range. So that's
+
+1867
+02:56:12,880 --> 02:56:19,920
+why we use block map. Alternatively is
+
+1868
+02:56:16,080 --> 02:56:23,760
+you use partition which cut a list with
+
+1869
+02:56:19,920 --> 02:56:26,160
+one repetition into pairs.
+
+1870
+02:56:23,760 --> 02:56:29,680
+But if you do partition that's another
+
+1871
+02:56:26,160 --> 02:56:33,439
+call. So you map and partition. So block
+
+1872
+02:56:29,680 --> 02:56:37,200
+map combine the two function call into
+
+1873
+02:56:33,439 --> 02:56:43,040
+one function call. So block map. So if
+
+1874
+02:56:37,200 --> 02:56:44,640
+block map is given this input 35 1014
+
+1875
+02:56:43,040 --> 02:56:46,240
+1620
+
+1876
+02:56:44,640 --> 02:56:51,120
+1218
+
+1877
+02:56:46,240 --> 02:56:59,040
+it will produce it will map like
+
+1878
+02:56:51,120 --> 02:57:01,120
+like this 35 1014 1014 1218 128 1620
+
+1879
+02:56:59,040 --> 02:57:03,840
+um
+
+1880
+02:57:01,120 --> 02:57:08,080
+and uh and
+
+1881
+02:57:03,840 --> 02:57:12,720
+128 1620 Yeah. So that's original input
+
+1882
+02:57:08,080 --> 02:57:14,240
+list. Okay. So right now I'm just very
+
+1883
+02:57:12,720 --> 02:57:18,720
+uh
+
+1884
+02:57:14,240 --> 02:57:22,560
+not feeling good because I took 3 hours
+
+1885
+02:57:18,720 --> 02:57:26,960
+to work on this and it's not working. So
+
+1886
+02:57:22,560 --> 02:57:29,279
+let me just distract and go to I need to
+
+1887
+02:57:26,960 --> 02:57:32,319
+turn on my mouse trailer because I used
+
+1888
+02:57:29,279 --> 02:57:36,160
+to have mouse trailer. I turned it off
+
+1889
+02:57:32,319 --> 02:57:38,000
+because I thought you don't need it, but
+
+1890
+02:57:36,160 --> 02:57:39,680
+actually it's better to have mouse
+
+1891
+02:57:38,000 --> 02:57:42,560
+trailer,
+
+1892
+02:57:39,680 --> 02:57:44,240
+mouse pointer trailer. So, let's turn it
+
+1893
+02:57:42,560 --> 02:57:46,720
+back on.
+
+1894
+02:57:44,240 --> 02:57:51,840
+So, personalization, you go need to go
+
+1895
+02:57:46,720 --> 02:57:54,720
+to uh block Bluetooth and devices
+
+1896
+02:57:51,840 --> 02:57:57,760
+and mouse
+
+1897
+02:57:54,720 --> 02:58:01,920
+and uh you can turn on uh pointing
+
+1898
+02:57:57,760 --> 02:58:04,479
+trailer. Okay. So, scrolling mouse
+
+1899
+02:58:01,920 --> 02:58:08,279
+pointer speed
+
+1900
+02:58:04,479 --> 02:58:08,279
+enhance precision.
+
+1901
+02:58:13,279 --> 02:58:20,240
+Additional mouse settings
+
+1902
+02:58:16,080 --> 02:58:24,720
+there. This window 11 idiotic tiny
+
+1903
+02:58:20,240 --> 02:58:29,520
+screen. I got 30 inch screen, but they
+
+1904
+02:58:24,720 --> 02:58:32,319
+force your screen into this 2 inch.
+
+1905
+02:58:29,520 --> 02:58:34,800
+You know, this is like extremely
+
+1906
+02:58:32,319 --> 02:58:38,319
+idiotic. This 2-in screen mouse
+
+1907
+02:58:34,800 --> 02:58:41,120
+properties is from 1990s.
+
+1908
+02:58:38,319 --> 02:58:43,200
+So, you go to pointers, you go to
+
+1909
+02:58:41,120 --> 02:58:46,000
+pointer options,
+
+1910
+02:58:43,200 --> 02:58:49,359
+then you go to uh display pointer
+
+1911
+02:58:46,000 --> 02:58:52,160
+trails. Now, it's better. Okay. Now say
+
+1912
+02:58:49,359 --> 02:58:54,880
+okay.
+
+1913
+02:58:52,160 --> 02:59:00,200
+So now I got kind of pointer tra
+
+1914
+02:58:54,880 --> 02:59:00,200
+trailer. So anyway, block map
+
+1915
+02:59:00,319 --> 02:59:07,600
+close that now. Emerson, did you answer
+
+1916
+02:59:03,680 --> 02:59:10,399
+the question? Very annoying.
+
+1917
+02:59:07,600 --> 02:59:14,439
+Answer the question, my friend, because
+
+1918
+02:59:10,399 --> 02:59:14,439
+I answered your question.
+
+1919
+02:59:14,960 --> 02:59:19,359
+because if you don't answer then I'm
+
+1920
+02:59:17,120 --> 02:59:21,040
+more likely I feel like deleting this
+
+1921
+02:59:19,359 --> 02:59:27,040
+video
+
+1922
+02:59:21,040 --> 02:59:30,640
+and it's not good anyway. So block map
+
+1923
+02:59:27,040 --> 02:59:34,000
+allows you to map with overlap.
+
+1924
+02:59:30,640 --> 02:59:36,800
+So if the last range equals to you know
+
+1925
+02:59:34,000 --> 02:59:42,040
+look at this part. If if this if
+
+1926
+02:59:36,800 --> 02:59:42,040
+statement if the last range
+
+1927
+02:59:42,399 --> 02:59:51,359
+the maximum part of one range is greater
+
+1928
+02:59:47,120 --> 02:59:55,359
+or equals to the minimum of next range
+
+1929
+02:59:51,359 --> 02:59:58,760
+then you return the pair of ranges into
+
+1930
+02:59:55,359 --> 02:59:58,760
+single range.
+
+1931
+02:59:59,120 --> 03:00:04,520
+Okay? Otherwise you return the pair of
+
+1932
+03:00:01,520 --> 03:00:04,520
+ranges.
+
+1933
+03:00:06,800 --> 03:00:14,840
+So that is a problem. So this is where
+
+1934
+03:00:10,319 --> 03:00:14,840
+the ranges start to increase.
+
+1935
+03:00:28,479 --> 03:00:34,880
+That's right. So if let's think about it
+
+1936
+03:00:31,760 --> 03:00:37,880
+A B C
+
+1937
+03:00:34,880 --> 03:00:37,880
+right.
+
+1938
+03:00:40,640 --> 03:00:49,560
+So you want to do extra check if the
+
+1939
+03:00:44,000 --> 03:00:49,560
+range if the two range is equal.
+
+1940
+03:00:49,600 --> 03:00:55,359
+Okay. So, um we made actually we made a
+
+1941
+03:00:53,200 --> 03:01:00,200
+progress
+
+1942
+03:00:55,359 --> 03:01:00,200
+uh fix point. Okay. So, let's
+
+1943
+03:01:01,200 --> 03:01:07,160
+So now the code here is fairly
+
+1944
+03:01:04,160 --> 03:01:07,160
+complicated.
+
+1945
+03:01:08,080 --> 03:01:11,399
+So if
+
+1946
+03:01:13,600 --> 03:01:16,600
+if
+
+1947
+03:01:29,920 --> 03:01:39,040
+Okay. If range one is exactly equals to
+
+1948
+03:01:33,760 --> 03:01:43,800
+range two, then just return
+
+1949
+03:01:39,040 --> 03:01:43,800
+range one. Otherwise
+
+1950
+03:01:45,359 --> 03:01:53,359
+then you do this. Okay, that will fix
+
+1951
+03:01:48,800 --> 03:01:57,120
+it. Okay, so this function um you know
+
+1952
+03:01:53,359 --> 03:02:00,000
+it's getting complicated. So copy that
+
+1953
+03:01:57,120 --> 03:02:03,399
+actually that should work.
+
+1954
+03:02:00,000 --> 03:02:03,399
+Okay, so
+
+1955
+03:02:03,840 --> 03:02:09,880
+so just come down and you'll solve the
+
+1956
+03:02:06,880 --> 03:02:09,880
+problem.
+
+1957
+03:02:10,000 --> 03:02:17,279
+Problem again remains. Why do you have
+
+1958
+03:02:12,960 --> 03:02:19,920
+10 14 10 18?
+
+1959
+03:02:17,279 --> 03:02:22,920
+God,
+
+1960
+03:02:19,920 --> 03:02:22,920
+what's
+
+1961
+03:02:39,279 --> 03:02:45,520
+1018 1020 That should be That should
+
+1962
+03:02:43,279 --> 03:02:48,240
+have been merged.
+
+1963
+03:02:45,520 --> 03:02:52,760
+1014 1018
+
+1964
+03:02:48,240 --> 03:02:52,760
+you know that should have been merged.
+
+1965
+03:02:57,520 --> 03:03:05,279
+Yeah, it did some clean up but it you
+
+1966
+03:03:00,319 --> 03:03:07,040
+know it got 1014 1018. Why is it not
+
+1967
+03:03:05,279 --> 03:03:11,120
+merged?
+
+1968
+03:03:07,040 --> 03:03:15,680
+And you apply fixed point.
+
+1969
+03:03:11,120 --> 03:03:19,000
+So 104 101 18 is the 14 greater than 10?
+
+1970
+03:03:15,680 --> 03:03:19,000
+It is
+
+1971
+03:03:39,840 --> 03:03:44,960
+very annoying.
+
+1972
+03:03:41,920 --> 03:03:46,560
+Okay. Emma Emerson is not answering the
+
+1973
+03:03:44,960 --> 03:03:49,880
+question.
+
+1974
+03:03:46,560 --> 03:03:49,880
+Very annoying
+
+1975
+03:03:49,920 --> 03:03:54,319
+because
+
+1976
+03:03:51,439 --> 03:03:56,479
+you asked me a question.
+
+1977
+03:03:54,319 --> 03:04:01,439
+Do you still live in Mountain View? Kind
+
+1978
+03:03:56,479 --> 03:04:07,040
+of personal question and I answered it,
+
+1979
+03:04:01,439 --> 03:04:10,640
+right? Yes, I still do. So,
+
+1980
+03:04:07,040 --> 03:04:13,760
+as a courtesy, I ask you, why do you ask
+
+1981
+03:04:10,640 --> 03:04:18,000
+that question? you should answer
+
+1982
+03:04:13,760 --> 03:04:20,240
+and you are not answering. So that is
+
+1983
+03:04:18,000 --> 03:04:25,560
+very annoying
+
+1984
+03:04:20,240 --> 03:04:25,560
+for my for me for my personality.
+
+1985
+03:04:36,880 --> 03:04:44,120
+Okay. So
+
+1986
+03:04:39,760 --> 03:04:44,120
+this function so far
+
+1987
+03:04:48,880 --> 03:04:55,160
+is just is it's just not doing the thing
+
+1988
+03:04:51,760 --> 03:04:55,160
+we want,
+
+1989
+03:04:56,800 --> 03:05:03,240
+you know. I don't know.
+
+1990
+03:05:00,000 --> 03:05:03,240
+I get
+
+1991
+03:05:37,920 --> 03:05:46,760
+Let's not do the fancy trick.
+
+1992
+03:05:41,920 --> 03:05:46,760
+You see this knot is not correct.
+
+1993
+03:05:49,439 --> 03:05:57,240
+I just don't understand.
+
+1994
+03:05:52,479 --> 03:05:57,240
+So this is one shot.
+
+1995
+03:06:10,720 --> 03:06:18,840
+Run it. You get that.
+
+1996
+03:06:14,080 --> 03:06:18,840
+Okay. No change.
+
+1997
+03:06:20,560 --> 03:06:25,399
+Copy that. Why? Why is it no change?
+
+1998
+03:06:28,080 --> 03:06:33,279
+Why doesn't it change? Because 10:14
+
+1999
+03:06:31,600 --> 03:06:39,240
+1018
+
+2000
+03:06:33,279 --> 03:06:39,240
+if So we got this if statement here
+
+2001
+03:06:41,680 --> 03:06:49,279
+1014 1018. So why is it doesn't change?
+
+2002
+03:06:45,439 --> 03:06:52,279
+I don't understand. So if this statement
+
+2003
+03:06:49,279 --> 03:06:52,279
+so
+
+2004
+03:06:55,760 --> 03:07:06,319
+108 1020 10 104 1018 18 so it does work
+
+2005
+03:07:02,080 --> 03:07:08,319
+on those pair of ranges 10 18 1020
+
+2006
+03:07:06,319 --> 03:07:12,160
+so but
+
+2007
+03:07:08,319 --> 03:07:15,359
+this function is not actually working I
+
+2008
+03:07:12,160 --> 03:07:18,920
+mean it's not actually reducing
+
+2009
+03:07:15,359 --> 03:07:18,920
+the pair Yeah.
+
+2010
+03:07:26,319 --> 03:07:30,040
+Function at
+
+2011
+03:07:36,399 --> 03:07:40,600
+ it.
+
+2012
+03:07:48,720 --> 03:07:51,720
+bucket.
+
+2013
+03:07:51,760 --> 03:07:57,240
+10 14 10 18 10 10 18 10 20.
+
+2014
+03:08:00,160 --> 03:08:05,080
+So Emerson one, who are you?
+
+2015
+03:08:15,200 --> 03:08:22,800
+stupid stupid um
+
+2016
+03:08:19,760 --> 03:08:24,960
+you know YouTube. It used to be you can
+
+2017
+03:08:22,800 --> 03:08:26,880
+check out their YouTube account and
+
+2018
+03:08:24,960 --> 03:08:30,520
+stuff
+
+2019
+03:08:26,880 --> 03:08:30,520
+but um
+
+2020
+03:08:35,040 --> 03:08:39,240
+okay. So it's
+
+2021
+03:08:55,200 --> 03:09:00,279
+remove that. Okay, remove that.
+
+2022
+03:09:30,000 --> 03:09:35,080
+So, let's Add some print statements.
+
+2023
+03:09:49,279 --> 03:09:52,279
+All right.
+
+2024
+03:10:35,040 --> 03:10:38,080
+1014
+
+2025
+03:10:36,560 --> 03:10:42,279
+1018
+
+2026
+03:10:38,080 --> 03:10:42,279
+1018 1020
+
+2027
+03:10:42,319 --> 03:10:50,160
+1014
+
+2028
+03:10:44,000 --> 03:10:55,200
+1018 then 1018 1020 that's correct okay
+
+2029
+03:10:50,160 --> 03:10:57,200
+so it the range pair argument is correct
+
+2030
+03:10:55,200 --> 03:11:02,040
+Now,
+
+2031
+03:10:57,200 --> 03:11:02,040
+now let's print um
+
+2032
+03:11:33,200 --> 03:11:40,359
+35 1014
+
+2033
+03:11:36,240 --> 03:11:40,359
+1014 1018
+
+2034
+03:11:41,359 --> 03:11:46,520
+Right. Okay. So, let's print
+
+2035
+03:11:53,359 --> 03:12:01,479
+the ranges.
+
+2036
+03:11:56,080 --> 03:12:01,479
+So 3 5 10 14. So
+
+2037
+03:12:10,080 --> 03:12:13,479
+range pair
+
+2038
+03:12:21,520 --> 03:12:28,240
+Range pair 35 1014. Range pair 1014
+
+2039
+03:12:26,319 --> 03:12:31,439
+1018.
+
+2040
+03:12:28,240 --> 03:12:34,160
+Why is it uh
+
+2041
+03:12:31,439 --> 03:12:38,439
+the ranges
+
+2042
+03:12:34,160 --> 03:12:38,439
+if Okay. So,
+
+2043
+03:12:39,279 --> 03:12:45,160
+so that actually hold on a second. So
+
+2044
+03:12:42,160 --> 03:12:45,160
+that
+
+2045
+03:12:47,040 --> 03:12:54,319
+if range one and range two is equal then
+
+2046
+03:12:50,880 --> 03:12:57,040
+do that otherwise
+
+2047
+03:12:54,319 --> 03:12:59,279
+otherwise range one and range two are
+
+2048
+03:12:57,040 --> 03:13:01,680
+not equal.
+
+2049
+03:12:59,279 --> 03:13:04,680
+Okay, the ranges
+
+2050
+03:13:01,680 --> 03:13:04,680
+now
+
+2051
+03:13:05,520 --> 03:13:08,520
+overlap
+
+2052
+03:13:10,160 --> 03:13:17,600
+happened.
+
+2053
+03:13:12,720 --> 03:13:20,880
+Okay, shift enter. Range pair 3 5 10 14.
+
+2054
+03:13:17,600 --> 03:13:23,600
+The range is
+
+2055
+03:13:20,880 --> 03:13:30,239
+3, five. Range one and range two. Let's
+
+2056
+03:13:23,600 --> 03:13:34,479
+change the name. Range one, one and two.
+
+2057
+03:13:30,239 --> 03:13:38,319
+Okay. Range pair 3, 5, 10, 14. Range one
+
+2058
+03:13:34,479 --> 03:13:41,359
+and two, 3, 5, 10, 14. Correct. Range
+
+2059
+03:13:38,319 --> 03:13:44,800
+pair. So nothing happens to there. Range
+
+2060
+03:13:41,359 --> 03:13:48,640
+pair 1014 1018.
+
+2061
+03:13:44,800 --> 03:13:53,439
+Range one and two. 104 1018. Correct.
+
+2062
+03:13:48,640 --> 03:13:57,960
+Overlap happened. 1014 1018.
+
+2063
+03:13:53,439 --> 03:13:57,960
+Okay. over overlapped happened.
+
+2064
+03:14:03,439 --> 03:14:09,319
+So overlap happened. You should return
+
+2065
+03:14:06,319 --> 03:14:09,319
+this
+
+2066
+03:14:10,000 --> 03:14:19,800
+first range one, last range two.
+
+2067
+03:14:14,080 --> 03:14:19,800
+Okay, so that means 10 and 18.
+
+2068
+03:14:22,319 --> 03:14:28,319
+Oh, wait. So you got so this you need
+
+2069
+03:14:25,439 --> 03:14:32,319
+the commas I mean you need a semicolon
+
+2070
+03:14:28,319 --> 03:14:36,560
+do again range pair 3 5 10 14 range one
+
+2071
+03:14:32,319 --> 03:14:38,720
+and range two 3 5 10 14 correct range
+
+2072
+03:14:36,560 --> 03:14:41,600
+pair nothing happens to those because
+
+2073
+03:14:38,720 --> 03:14:46,160
+they don't overlap now range pair 104
+
+2074
+03:14:41,600 --> 03:14:50,399
+1018 okay range one and range two 104
+
+2075
+03:14:46,160 --> 03:14:54,520
+1018 correct overlap happened 1014 and
+
+2076
+03:14:50,399 --> 03:14:54,520
+1018 Yes.
+
+2077
+03:14:55,359 --> 03:15:02,720
+Then the result is 10 to 18. Okay. 10.
+
+2078
+03:14:59,680 --> 03:15:04,800
+You know, it didn't print. That's good.
+
+2079
+03:15:02,720 --> 03:15:08,800
+Then overlap happened. That's right.
+
+2080
+03:15:04,800 --> 03:15:12,319
+Then range pair 108 1020.
+
+2081
+03:15:08,800 --> 03:15:15,960
+Range one and two. 108. 1020. Overlap
+
+2082
+03:15:12,319 --> 03:15:15,960
+happened. Yes.
+
+2083
+03:15:16,640 --> 03:15:26,760
+So, so it returns. So overlap happened
+
+2084
+03:15:21,359 --> 03:15:26,760
+is uh 1018 1020
+
+2085
+03:15:27,520 --> 03:15:31,560
+over overlapped happened.
+
+2086
+03:15:58,160 --> 03:16:06,880
+Okay, you see overlap happen 1014 1018
+
+2087
+03:16:02,960 --> 03:16:11,680
+result is 10 and 1018 I mean result is
+
+2088
+03:16:06,880 --> 03:16:15,680
+10 and 18 that's right and here overlap
+
+2089
+03:16:11,680 --> 03:16:18,680
+happen 108 and 20 1020 result is 1020
+
+2090
+03:16:15,680 --> 03:16:18,680
+20.
+
+2091
+03:16:19,040 --> 03:16:27,080
+Okay. So result is 1018 and result is
+
+2092
+03:16:22,479 --> 03:16:27,080
+1020. So that is correct.
+
+2093
+03:16:27,200 --> 03:16:31,319
+Okay. That is correct.
+
+2094
+03:16:34,880 --> 03:16:42,319
+3 5 10 14 10 18 10 20. So this is the
+
+2095
+03:16:40,160 --> 03:16:45,279
+correct.
+
+2096
+03:16:42,319 --> 03:16:47,439
+Then we are applying this function
+
+2097
+03:16:45,279 --> 03:16:52,040
+flatten.
+
+2098
+03:16:47,439 --> 03:16:52,040
+Did this flatten not work
+
+2099
+03:16:52,720 --> 03:16:58,200
+at
+
+2100
+03:16:54,720 --> 03:16:58,200
+last output?
+
+2101
+03:16:58,319 --> 03:17:01,720
+It's correct.
+
+2102
+03:17:07,040 --> 03:17:10,040
+Then
+
+2103
+03:17:10,720 --> 03:17:14,880
+this flatten is correct. That's what we
+
+2104
+03:17:13,439 --> 03:17:20,200
+got.
+
+2105
+03:17:14,880 --> 03:17:20,200
+So originally it was
+
+2106
+03:17:26,479 --> 03:17:30,600
+wait what what is the
+
+2107
+03:17:31,600 --> 03:17:35,640
+1014 1018?
+
+2108
+03:17:38,000 --> 03:17:41,560
+Wait a minute.
+
+2109
+03:17:42,399 --> 03:17:48,479
+You see 35 and 1014
+
+2110
+03:17:46,239 --> 03:17:52,120
+nothing happened.
+
+2111
+03:17:48,479 --> 03:17:52,120
+So they remain
+
+2112
+03:17:54,160 --> 03:17:59,160
+then overlap 1014 1018.
+
+2113
+03:18:02,560 --> 03:18:07,800
+Oh, what the
+
+2114
+03:18:15,600 --> 03:18:22,040
+So when nothing happened, you should
+
+2115
+03:18:18,479 --> 03:18:22,040
+just return.
+
+2116
+03:18:31,120 --> 03:18:38,479
+You see, it didn't change nothing at
+
+2117
+03:18:34,800 --> 03:18:42,560
+all. Even even though our merge does
+
+2118
+03:18:38,479 --> 03:18:45,680
+work the reason is
+
+2119
+03:18:42,560 --> 03:18:48,080
+10 35 1014
+
+2120
+03:18:45,680 --> 03:18:53,840
+return themselves
+
+2121
+03:18:48,080 --> 03:18:56,239
+then 1014 1018 returns 1018.
+
+2122
+03:18:53,840 --> 03:18:58,960
+That's right.
+
+2123
+03:18:56,239 --> 03:19:04,000
+Then 1018 1020
+
+2124
+03:18:58,960 --> 03:19:07,200
+returns 1020. That is right.
+
+2125
+03:19:04,000 --> 03:19:10,600
+So we did merge
+
+2126
+03:19:07,200 --> 03:19:10,600
+but however
+
+2127
+03:19:13,840 --> 03:19:22,279
+1018 1020 become 1020 1014 1018 becomes
+
+2128
+03:19:19,279 --> 03:19:22,279
+1018.
+
+2129
+03:19:24,319 --> 03:19:32,600
+However, when uh 35 104 didn't change.
+
+2130
+03:19:40,960 --> 03:19:48,960
+So, we discovered a fatal
+
+2131
+03:19:45,200 --> 03:19:54,359
+flaw in our algorithm. Actually, a fatal
+
+2132
+03:19:48,960 --> 03:19:54,359
+flaw. That's why it didn't change.
+
+2133
+03:20:01,120 --> 03:20:06,560
+Even though some of them merged but
+
+2134
+03:20:03,760 --> 03:20:10,600
+because you are overlapping your map you
+
+2135
+03:20:06,560 --> 03:20:10,600
+are doing the block map.
+
+2136
+03:20:22,160 --> 03:20:30,399
+So, can you guys see what I mean?
+
+2137
+03:20:26,960 --> 03:20:33,410
+So, you know, so what happens is that
+
+2138
+03:20:30,399 --> 03:20:36,580
+you got this thing
+
+2139
+03:20:33,410 --> 03:20:36,580
+[Music]
+
+2140
+03:21:33,520 --> 03:21:43,880
+So the result even though you did merge
+
+2141
+03:21:38,560 --> 03:21:43,880
+but the result remains the Damn.
+
+2142
+03:21:50,000 --> 03:21:53,000
+Amazing.
+
+2143
+03:21:56,479 --> 03:22:03,239
+Wait. So what? So the result remain the
+
+2144
+03:21:59,439 --> 03:22:03,239
+same. That's because
+
+2145
+03:22:03,920 --> 03:22:08,359
+how does this work out logically?
+
+2146
+03:22:08,479 --> 03:22:13,960
+Be sure to save this. save. Okay.
+
+2147
+03:22:36,000 --> 03:22:39,720
+Let's see. So,
+
+2148
+03:22:56,560 --> 03:23:01,600
+it doesn't change.
+
+2149
+03:22:58,640 --> 03:23:04,640
+How does Wait, how does this work? How
+
+2150
+03:23:01,600 --> 03:23:08,000
+does how do you resolve this this fatal
+
+2151
+03:23:04,640 --> 03:23:08,000
+problem logically?
+
+2152
+03:23:09,680 --> 03:23:17,040
+When you do block map, you are
+
+2153
+03:23:13,200 --> 03:23:19,439
+decreasing by one element. Okay? Because
+
+2154
+03:23:17,040 --> 03:23:26,840
+you are mapping between the neighbors.
+
+2155
+03:23:19,439 --> 03:23:26,840
+But some of the result so that these two
+
+2156
+03:23:34,720 --> 03:23:38,279
+10 14
+
+2157
+03:23:49,840 --> 03:23:54,160
+Okay. So, you don't want to do block.
+
+2158
+03:23:52,319 --> 03:23:59,720
+That's right.
+
+2159
+03:23:54,160 --> 03:23:59,720
+That's right. Don't do block map
+
+2160
+03:24:02,080 --> 03:24:08,160
+because you basically you are repeating.
+
+2161
+03:24:04,720 --> 03:24:13,720
+Yeah. Don't do block map. Just do pairs
+
+2162
+03:24:08,160 --> 03:24:13,720
+reduce every time. Take two parts.
+
+2163
+03:24:14,720 --> 03:24:21,520
+I know what's going on. So, fat fatal
+
+2164
+03:24:17,760 --> 03:24:25,880
+flaw with the blog map.
+
+2165
+03:24:21,520 --> 03:24:25,880
+Then, should we write it down?
+
+2166
+03:24:47,840 --> 03:24:53,520
+Don't overlap him
+
+2167
+03:24:51,279 --> 03:24:58,880
+then repeat.
+
+2168
+03:24:53,520 --> 03:25:01,760
+Okay, that is the problem. So,
+
+2169
+03:24:58,880 --> 03:25:05,920
+so let's uh merge let's clean up the
+
+2170
+03:25:01,760 --> 03:25:08,920
+code. Okay, so uh is this the code the
+
+2171
+03:25:05,920 --> 03:25:08,920
+same?
+
+2172
+03:25:10,399 --> 03:25:13,279
+Let's see.
+
+2173
+03:25:44,160 --> 03:25:50,200
+Okay, I know what to do. Don't Don't use
+
+2174
+03:25:46,800 --> 03:25:50,200
+block map
+
+2175
+03:26:06,720 --> 03:26:12,000
+block map. Don't don't do this overlap.
+
+2176
+03:26:09,840 --> 03:26:13,760
+Okay, that is that's why you got it
+
+2177
+03:26:12,000 --> 03:26:18,120
+wrong.
+
+2178
+03:26:13,760 --> 03:26:18,120
+But what if there is
+
+2179
+03:26:43,120 --> 03:26:48,479
+One, two, three, four, five, six, seven,
+
+2180
+03:26:45,359 --> 03:26:52,279
+eight, nine, 10. So
+
+2181
+03:26:48,479 --> 03:26:52,279
+I know what to do.
+
+2182
+03:27:00,399 --> 03:27:07,080
+That will drop the E, which is not good.
+
+2183
+03:27:07,760 --> 03:27:15,880
+make block code to arguments uh three or
+
+2184
+03:27:11,040 --> 03:27:15,880
+four. Okay. So iff
+
+2185
+03:27:18,399 --> 03:27:24,359
+still no answer
+
+2186
+03:27:21,040 --> 03:27:24,359
+not good.
+
+2187
+03:27:28,880 --> 03:27:38,160
+So, so the problem is if your range list
+
+2188
+03:27:33,520 --> 03:27:41,560
+is odd number of them you cannot use
+
+2189
+03:27:38,160 --> 03:27:41,560
+block map.
+
+2190
+03:27:45,200 --> 03:27:51,960
+So if you arrange this this odd number
+
+2191
+03:27:48,720 --> 03:27:51,960
+of them
+
+2192
+03:27:57,520 --> 03:28:03,040
+you cannot use block map nor can you use
+
+2193
+03:28:00,640 --> 03:28:06,960
+partition.
+
+2194
+03:28:03,040 --> 03:28:10,640
+So we got a new problem.
+
+2195
+03:28:06,960 --> 03:28:14,760
+So we have to use recurs then like nest
+
+2196
+03:28:10,640 --> 03:28:14,760
+or or nest list.
+
+2197
+03:28:45,520 --> 03:28:49,479
+This is interesting.
+
+2198
+03:29:13,920 --> 03:29:17,520
+interesting inputs.
+
+2199
+03:29:44,960 --> 03:29:50,560
+Yes. So you got a list of elements, you
+
+2200
+03:29:47,359 --> 03:29:53,120
+want to merge some of them.
+
+2201
+03:29:50,560 --> 03:29:55,760
+Now you got a new insight. You got a
+
+2202
+03:29:53,120 --> 03:29:59,680
+list of ranges. Basically, you just want
+
+2203
+03:29:55,760 --> 03:30:02,319
+to merge some of them around the
+
+2204
+03:29:59,680 --> 03:30:05,319
+neighbors. Okay.
+
+2205
+03:30:02,319 --> 03:30:05,319
+Um,
+
+2206
+03:30:11,600 --> 03:30:21,399
+block map is a solution, but you run
+
+2207
+03:30:16,160 --> 03:30:21,399
+into this weird situation where
+
+2208
+03:30:23,359 --> 03:30:27,960
+it return itself basically.
+
+2209
+03:30:29,120 --> 03:30:33,359
+So these two returns that these two
+
+2210
+03:30:31,359 --> 03:30:35,520
+returns that
+
+2211
+03:30:33,359 --> 03:30:39,399
+then they become
+
+2212
+03:30:35,520 --> 03:30:39,399
+you see these two
+
+2213
+03:31:18,720 --> 03:31:29,000
+10 10 18 10 20 10 14 10 18 20 10 10 20
+
+2214
+03:31:25,120 --> 03:31:29,000
+What was the original
+
+2215
+03:31:32,960 --> 03:31:35,960
+1014?
+
+2216
+03:31:38,720 --> 03:31:45,560
+108.
+
+2217
+03:31:41,200 --> 03:31:45,560
+So 104 108.
+
+2218
+03:31:52,000 --> 03:32:00,680
+Oh, so you become this.
+
+2219
+03:31:54,960 --> 03:32:00,680
+You got this 1014, 1018, 1020.
+
+2220
+03:32:12,960 --> 03:32:18,520
+Wow.
+
+2221
+03:32:15,520 --> 03:32:18,520
+Interesting.
+
+2222
+03:35:36,080 --> 03:35:41,160
+That's interesting problem.
+
+2223
+03:35:45,920 --> 03:35:51,640
+It returns itself. That is a problem.
+
+2224
+03:37:41,840 --> 03:37:50,680
+Okay. So you need some kind you need a
+
+2225
+03:37:45,200 --> 03:37:50,680
+better solution is like recursive then
+
+2226
+03:38:17,840 --> 03:38:25,720
+Yeah, better solution. So you start to
+
+2227
+03:38:21,279 --> 03:38:25,720
+have some kind of head and tail.
+
+2228
+03:39:02,960 --> 03:39:09,600
+So the check you check the first so a
+
+2229
+03:39:06,000 --> 03:39:13,040
+function that take a list of ranges you
+
+2230
+03:39:09,600 --> 03:39:15,600
+check the first two ranges if they are
+
+2231
+03:39:13,040 --> 03:39:18,560
+they don't overlap
+
+2232
+03:39:15,600 --> 03:39:22,319
+then you return
+
+2233
+03:39:18,560 --> 03:39:24,560
+you need to return kind of a list of two
+
+2234
+03:39:22,319 --> 03:39:27,760
+parts the head and tail.
+
+2235
+03:39:24,560 --> 03:39:30,800
+In the beginning the head is empty list.
+
+2236
+03:39:27,760 --> 03:39:34,399
+It just got the tail. Then each
+
+2237
+03:39:30,800 --> 03:39:36,960
+iteration the function.
+
+2238
+03:39:34,399 --> 03:39:39,840
+So take the function take a list of head
+
+2239
+03:39:36,960 --> 03:39:42,160
+and tail two parts.
+
+2240
+03:39:39,840 --> 03:39:45,920
+If the head is empty then empty
+
+2241
+03:39:42,160 --> 03:39:51,359
+otherwise you I mean each iteration you
+
+2242
+03:39:45,920 --> 03:39:55,680
+take the first two ranges from the tail.
+
+2243
+03:39:51,359 --> 03:39:57,760
+See if they overlap. If they do
+
+2244
+03:39:55,680 --> 03:40:00,479
+merge it,
+
+2245
+03:39:57,760 --> 03:40:03,760
+then put the merged result into the head
+
+2246
+03:40:00,479 --> 03:40:07,080
+into the t into the tail of the head pen
+
+2247
+03:40:03,760 --> 03:40:07,080
+to the head.
+
+2248
+03:40:07,600 --> 03:40:13,160
+That's it. If they do not overlap,
+
+2249
+03:40:14,720 --> 03:40:20,720
+okay, wait, hold on. So, so the function
+
+2250
+03:40:18,319 --> 03:40:23,279
+will take, you know, we can write it
+
+2251
+03:40:20,720 --> 03:40:26,399
+out. So,
+
+2252
+03:40:23,279 --> 03:40:29,279
+Yeah, this this problem is uh
+
+2253
+03:40:26,399 --> 03:40:31,439
+interesting. So you cannot use block. I
+
+2254
+03:40:29,279 --> 03:40:33,279
+mean you can but then you have to like
+
+2255
+03:40:31,439 --> 03:40:36,399
+shift
+
+2256
+03:40:33,279 --> 03:40:39,399
+um you have to check even oddness of
+
+2257
+03:40:36,399 --> 03:40:39,399
+that.
+
+2258
+03:40:40,160 --> 03:40:48,680
+Okay. New Argo,
+
+2259
+03:40:44,160 --> 03:40:48,680
+a function FF
+
+2260
+03:40:50,000 --> 03:40:58,359
+that takes a list of head, part and
+
+2261
+03:40:55,359 --> 03:40:58,359
+tail.
+
+2262
+03:41:01,680 --> 03:41:05,000
+Two things,
+
+2263
+03:41:05,200 --> 03:41:12,359
+head list, tail list.
+
+2264
+03:41:09,359 --> 03:41:12,359
+Okay.
+
+2265
+03:41:12,640 --> 03:41:15,800
+At least
+
+2266
+03:41:16,960 --> 03:41:23,279
+is a list
+
+2267
+03:41:20,960 --> 03:41:26,160
+of ranges
+
+2268
+03:41:23,279 --> 03:41:30,120
+that do not
+
+2269
+03:41:26,160 --> 03:41:30,120
+do not overlap.
+
+2270
+03:41:30,960 --> 03:41:42,160
+Initially it is empty.
+
+2271
+03:41:35,279 --> 03:41:46,279
+Tail list is a list of ranges to be
+
+2272
+03:41:42,160 --> 03:41:46,279
+processed. Okay.
+
+2273
+03:41:48,479 --> 03:41:51,960
+So the function
+
+2274
+03:41:57,040 --> 03:42:00,600
+of this form.
+
+2275
+03:42:02,080 --> 03:42:05,080
+Okay.
+
+2276
+03:42:05,200 --> 03:42:09,960
+The function returns.
+
+2277
+03:42:21,920 --> 03:42:25,160
+A new
+
+2278
+03:42:27,520 --> 03:42:32,279
+by
+
+2279
+03:42:29,279 --> 03:42:32,279
+comparing
+
+2280
+03:42:40,399 --> 03:42:45,160
+The last item in
+
+2281
+03:42:46,479 --> 03:42:55,160
+head list with
+
+2282
+03:42:50,960 --> 03:42:55,160
+the first item
+
+2283
+03:42:55,279 --> 03:42:59,560
+in tail list.
+
+2284
+03:42:59,760 --> 03:43:06,359
+If they
+
+2285
+03:43:02,239 --> 03:43:06,359
+do not overlap,
+
+2286
+03:43:07,200 --> 03:43:10,200
+move
+
+2287
+03:43:13,840 --> 03:43:21,880
+the first item in tail list to
+
+2288
+03:43:17,920 --> 03:43:21,880
+head list.
+
+2289
+03:43:22,880 --> 03:43:26,760
+If they do overlap,
+
+2290
+03:43:29,680 --> 03:43:33,160
+Merge it.
+
+2291
+03:43:34,800 --> 03:43:40,040
+Put result in head list.
+
+2292
+03:43:42,160 --> 03:43:50,760
+Okay, that's a new function.
+
+2293
+03:43:46,160 --> 03:43:50,760
+So this way each time
+
+2294
+03:43:51,199 --> 03:43:57,800
+you will remove one range in the tail
+
+2295
+03:43:54,800 --> 03:43:57,800
+list.
+
+2296
+03:43:59,520 --> 03:44:07,279
+And each time you will grow an item in
+
+2297
+03:44:03,359 --> 03:44:10,279
+the head list until the tail list is
+
+2298
+03:44:07,279 --> 03:44:10,279
+empty.
+
+2299
+03:44:12,880 --> 03:44:18,600
+Okay. So once you do this, you repeat
+
+2300
+03:44:15,600 --> 03:44:18,600
+it.
+
+2301
+03:44:18,720 --> 03:44:26,000
+Okay. I'm tired. I don't want to
+
+2302
+03:44:21,760 --> 03:44:29,000
+implement this. Now it's three hours.
+
+2303
+03:44:26,000 --> 03:44:29,000
+Uh,
+
+2304
+03:44:29,040 --> 03:44:35,040
+okay. I I I think I need to say goodbye.
+
+2305
+03:44:32,160 --> 03:44:37,920
+Now it's 12:20.
+
+2306
+03:44:35,040 --> 03:44:43,439
+So, we've been coding this for 3 hours
+
+2307
+03:44:37,920 --> 03:44:44,960
+and uh got this annoying no answer.
+
+2308
+03:44:43,439 --> 03:44:48,880
+That
+
+2309
+03:44:44,960 --> 03:44:51,840
+ticks me about,
+
+2310
+03:44:48,880 --> 03:44:53,760
+you know, the private privacy issues and
+
+2311
+03:44:51,840 --> 03:44:56,880
+the,
+
+2312
+03:44:53,760 --> 03:45:00,600
+you know, your followers issue like you
+
+2313
+03:44:56,880 --> 03:45:00,600
+don't know who they are.
+
+2314
+03:45:02,800 --> 03:45:09,760
+And uh so this video has now nobody
+
+2315
+03:45:06,640 --> 03:45:15,479
+watching, so I'm going to close it
+
+2316
+03:45:09,760 --> 03:45:15,479
+and I might delete it. Okay, bye guys.
+

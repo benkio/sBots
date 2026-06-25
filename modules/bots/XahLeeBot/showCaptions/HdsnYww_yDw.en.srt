@@ -1,0 +1,5196 @@
+1
+00:00:07,140 --> 00:00:13,139
+good morning everyone welcome to another
+
+2
+00:00:09,900 --> 00:00:16,859
+episode of sound talk show today we are
+
+3
+00:00:13,139 --> 00:00:23,000
+going to code emac lisp we are going to
+
+4
+00:00:16,859 --> 00:00:23,000
+write a command to do empty trash
+
+5
+00:00:23,580 --> 00:00:29,519
+um Windows or Mac on Linux or
+
+6
+00:00:26,699 --> 00:00:32,640
+delete empty directories list empty
+
+7
+00:00:29,519 --> 00:00:37,079
+directories list empty files
+
+8
+00:00:32,640 --> 00:00:40,200
+list emacs backup delete emacs backup
+
+9
+00:00:37,079 --> 00:00:43,860
+so this kind of commands so it's going
+
+10
+00:00:40,200 --> 00:00:47,820
+to be emacs this coding good morning or
+
+11
+00:00:43,860 --> 00:00:51,420
+flamio and Smoky okay let's begin so let
+
+12
+00:00:47,820 --> 00:00:53,460
+me show my keyboard This is glove 80. I
+
+13
+00:00:51,420 --> 00:00:54,719
+have reviews on my website just search
+
+14
+00:00:53,460 --> 00:00:58,199
+for my name
+
+15
+00:00:54,719 --> 00:01:00,360
+glove 80. this one and this one is
+
+16
+00:00:58,199 --> 00:01:04,199
+Ultimate hacking keyboard both of them
+
+17
+00:01:00,360 --> 00:01:06,559
+are fantastic okay so let's show my
+
+18
+00:01:04,199 --> 00:01:06,559
+screen
+
+19
+00:01:07,080 --> 00:01:13,860
+yeah okay I'm good to go so let's begin
+
+20
+00:01:10,740 --> 00:01:18,360
+let's begin coding emac Beast now I'm
+
+21
+00:01:13,860 --> 00:01:21,420
+using some flag keys and you can see the
+
+22
+00:01:18,360 --> 00:01:24,060
+pink window is all my command course and
+
+23
+00:01:21,420 --> 00:01:29,060
+keystrokes on the left
+
+24
+00:01:24,060 --> 00:01:29,060
+okay let's uh enlarge it a little bit
+
+25
+00:01:31,200 --> 00:01:35,939
+okay let's let's begin coding for
+
+26
+00:01:34,140 --> 00:01:39,780
+example I delete this
+
+27
+00:01:35,939 --> 00:01:42,000
+block of text and you can see that uh
+
+28
+00:01:39,780 --> 00:01:44,880
+command is there if you search on the
+
+29
+00:01:42,000 --> 00:01:48,960
+web you'll usually find the code they
+
+30
+00:01:44,880 --> 00:01:51,899
+are almost all in soft like Keys it's on
+
+31
+00:01:48,960 --> 00:01:54,540
+GitHub okay so let's start the First
+
+32
+00:01:51,899 --> 00:01:56,700
+Command delete empty trash okay I'm
+
+33
+00:01:54,540 --> 00:02:00,899
+using stuff like this and Warrior
+
+34
+00:01:56,700 --> 00:02:02,399
+keyboard layout and I'm using uh HTML
+
+35
+00:02:00,899 --> 00:02:05,040
+mod so
+
+36
+00:02:02,399 --> 00:02:07,079
+okay so let's begin so the First Command
+
+37
+00:02:05,040 --> 00:02:09,239
+we're gonna write let's see how many we
+
+38
+00:02:07,079 --> 00:02:13,260
+can do it's gonna be 40 minutes
+
+39
+00:02:09,239 --> 00:02:15,180
+something okay emac Beast okay let's
+
+40
+00:02:13,260 --> 00:02:19,260
+begin
+
+41
+00:02:15,180 --> 00:02:22,040
+emac this code so different we want to
+
+42
+00:02:19,260 --> 00:02:26,580
+delete trash okay so
+
+43
+00:02:22,040 --> 00:02:29,520
+empty trash now how do you do it okay I
+
+44
+00:02:26,580 --> 00:02:30,780
+already have a command for
+
+45
+00:02:29,520 --> 00:02:33,440
+um
+
+46
+00:02:30,780 --> 00:02:33,440
+uh
+
+47
+00:02:33,900 --> 00:02:39,180
+uh for
+
+48
+00:02:36,120 --> 00:02:42,480
+um Powershell in Powershell so
+
+49
+00:02:39,180 --> 00:02:46,680
+search for empty
+
+50
+00:02:42,480 --> 00:02:50,819
+search for trash so you can see
+
+51
+00:02:46,680 --> 00:02:53,879
+here is the Powershell command so let's
+
+52
+00:02:50,819 --> 00:02:56,099
+copy it here and let's see
+
+53
+00:02:53,879 --> 00:02:59,519
+okay so it's very simple it's clear
+
+54
+00:02:56,099 --> 00:03:01,739
+recycle bin clear recycle bin is a
+
+55
+00:02:59,519 --> 00:03:05,459
+Powershell command
+
+56
+00:03:01,739 --> 00:03:07,800
+uh okay so let me show you so here is
+
+57
+00:03:05,459 --> 00:03:11,760
+the basically
+
+58
+00:03:07,800 --> 00:03:15,620
+this part is the and you can I'm using
+
+59
+00:03:11,760 --> 00:03:20,400
+some Powershell mod so you type
+
+60
+00:03:15,620 --> 00:03:22,019
+Edge tab H then it will go to Powershell
+
+61
+00:03:20,400 --> 00:03:23,940
+documentation
+
+62
+00:03:22,019 --> 00:03:27,599
+to JavaScript
+
+63
+00:03:23,940 --> 00:03:29,879
+and you can see clear recycle bin
+
+64
+00:03:27,599 --> 00:03:32,459
+so that is the command provide so all we
+
+65
+00:03:29,879 --> 00:03:35,400
+have to do is call this okay so call
+
+66
+00:03:32,459 --> 00:03:38,280
+this from emacs empty trash
+
+67
+00:03:35,400 --> 00:03:40,200
+you see normally I go to I turn on the
+
+68
+00:03:38,280 --> 00:03:42,000
+uh
+
+69
+00:03:40,200 --> 00:03:46,260
+you know I go through my terminal on
+
+70
+00:03:42,000 --> 00:03:50,040
+Windows and I can say empty
+
+71
+00:03:46,260 --> 00:03:50,040
+EMP EMP
+
+72
+00:03:57,799 --> 00:04:03,060
+the the command is actually just named
+
+73
+00:04:00,659 --> 00:04:05,220
+empty trash not because I empty trash so
+
+74
+00:04:03,060 --> 00:04:07,200
+usually I just call that and you're
+
+75
+00:04:05,220 --> 00:04:10,019
+empty trash but
+
+76
+00:04:07,200 --> 00:04:12,319
+I you know I want to do it in emacs so I
+
+77
+00:04:10,019 --> 00:04:14,640
+can call it the emx directly uh
+
+78
+00:04:12,319 --> 00:04:17,579
+alternatively you can start a Shell
+
+79
+00:04:14,640 --> 00:04:21,060
+let's see you see now you can start the
+
+80
+00:04:17,579 --> 00:04:23,460
+Powershell you can say emacs tempter
+
+81
+00:04:21,060 --> 00:04:27,240
+okay I don't want it there
+
+82
+00:04:23,460 --> 00:04:30,360
+so for example you go to uh you know you
+
+83
+00:04:27,240 --> 00:04:32,460
+go to you go to a
+
+84
+00:04:30,360 --> 00:04:36,020
+go to
+
+85
+00:04:32,460 --> 00:04:36,020
+the add diet
+
+86
+00:04:37,620 --> 00:04:42,840
+okay so actually yeah you know the
+
+87
+00:04:40,740 --> 00:04:46,020
+window is not wide enough let's let's
+
+88
+00:04:42,840 --> 00:04:48,720
+just make it wide so you go to diet and
+
+89
+00:04:46,020 --> 00:04:51,540
+you start the shell meta X shell and you
+
+90
+00:04:48,720 --> 00:04:54,240
+got Powershell and you can say duh which
+
+91
+00:04:51,540 --> 00:04:56,940
+is a Powershell command uh you know
+
+92
+00:04:54,240 --> 00:05:02,720
+things like that so
+
+93
+00:04:56,940 --> 00:05:02,720
+and I can now call empty trash here
+
+94
+00:05:04,800 --> 00:05:11,360
+and it'll do the same thing so I'm
+
+95
+00:05:07,320 --> 00:05:11,360
+running Powershell inside emacs
+
+96
+00:05:11,580 --> 00:05:16,979
+kill it yes but now today we are going
+
+97
+00:05:14,820 --> 00:05:19,500
+to write the emacs command so I just
+
+98
+00:05:16,979 --> 00:05:20,460
+meta X empty trash I don't have to go to
+
+99
+00:05:19,500 --> 00:05:23,100
+a shout
+
+100
+00:05:20,460 --> 00:05:25,380
+okay so now the trick all you have to do
+
+101
+00:05:23,100 --> 00:05:27,120
+basically all you have to do is call
+
+102
+00:05:25,380 --> 00:05:30,000
+this uh
+
+103
+00:05:27,120 --> 00:05:33,360
+Powershell command now the tricky part
+
+104
+00:05:30,000 --> 00:05:36,380
+is how do you call a Powershell command
+
+105
+00:05:33,360 --> 00:05:39,660
+inside emac bisp okay
+
+106
+00:05:36,380 --> 00:05:40,259
+and that for that
+
+107
+00:05:39,660 --> 00:05:42,900
+um
+
+108
+00:05:40,259 --> 00:05:46,460
+we can simply do
+
+109
+00:05:42,900 --> 00:05:46,460
+let me try this okay
+
+110
+00:05:47,580 --> 00:05:55,460
+shell command Okay shell command uh
+
+111
+00:05:51,240 --> 00:05:55,460
+let's Okay so this is the
+
+112
+00:05:56,520 --> 00:06:02,100
+string let's see if that works no
+
+113
+00:06:03,060 --> 00:06:07,620
+I don't want
+
+114
+00:06:04,860 --> 00:06:10,139
+special purpose so let's describe
+
+115
+00:06:07,620 --> 00:06:12,600
+function to look at the Shell command
+
+116
+00:06:10,139 --> 00:06:15,440
+documentation let's see what is the
+
+117
+00:06:12,600 --> 00:06:20,639
+default output buffer
+
+118
+00:06:15,440 --> 00:06:23,160
+uh as commands output buffer
+
+119
+00:06:20,639 --> 00:06:25,919
+the option or second argument I would
+
+120
+00:06:23,160 --> 00:06:29,759
+buffer if naneo says to Upper buffer in
+
+121
+00:06:25,919 --> 00:06:31,819
+some other buffer so otherwise it's
+
+122
+00:06:29,759 --> 00:06:31,819
+um
+
+123
+00:06:35,580 --> 00:06:43,139
+kids oh yeah it usually output default
+
+124
+00:06:39,180 --> 00:06:46,080
+to some shell output buffer okay so
+
+125
+00:06:43,139 --> 00:06:47,520
+anyway let's try this okay clean up the
+
+126
+00:06:46,080 --> 00:06:50,100
+code
+
+127
+00:06:47,520 --> 00:06:53,039
+uh
+
+128
+00:06:50,100 --> 00:06:55,380
+okay let's let's do that
+
+129
+00:06:53,039 --> 00:06:56,819
+now
+
+130
+00:06:55,380 --> 00:07:02,580
+okay
+
+131
+00:06:56,819 --> 00:07:05,639
+now actually first of all go to diet and
+
+132
+00:07:02,580 --> 00:07:07,020
+open this directory now my trash is
+
+133
+00:07:05,639 --> 00:07:08,600
+empty
+
+134
+00:07:07,020 --> 00:07:12,180
+how can I show
+
+135
+00:07:08,600 --> 00:07:15,479
+my trash is empty
+
+136
+00:07:12,180 --> 00:07:18,900
+uh it doesn't show trash here
+
+137
+00:07:15,479 --> 00:07:21,740
+desktop no
+
+138
+00:07:18,900 --> 00:07:21,740
+uh
+
+139
+00:07:23,580 --> 00:07:28,620
+I want to show trash
+
+140
+00:07:26,280 --> 00:07:32,220
+Okay so
+
+141
+00:07:28,620 --> 00:07:35,039
+okay there it is recycle bin okay so
+
+142
+00:07:32,220 --> 00:07:40,280
+let's put some stuff there
+
+143
+00:07:35,039 --> 00:07:40,280
+now all these are my temp files so let's
+
+144
+00:07:43,440 --> 00:07:51,660
+uh delete do you want to delete yes so
+
+145
+00:07:47,520 --> 00:07:55,979
+there's one file in recycle bin
+
+146
+00:07:51,660 --> 00:07:58,199
+okay and now what what to do now we yeah
+
+147
+00:07:55,979 --> 00:08:02,039
+render command so now
+
+148
+00:07:58,199 --> 00:08:07,979
+you can see Eva last six now emacs know
+
+149
+00:08:02,039 --> 00:08:10,560
+the command now meta XR empty trash okay
+
+150
+00:08:07,979 --> 00:08:14,660
+once we press enter this file should be
+
+151
+00:08:10,560 --> 00:08:14,660
+good let's let's see
+
+152
+00:08:16,440 --> 00:08:22,740
+let's see if that works
+
+153
+00:08:18,780 --> 00:08:25,979
+what oh you have to complete empty trash
+
+154
+00:08:22,740 --> 00:08:28,139
+clear recycle bin is not recognized as a
+
+155
+00:08:25,979 --> 00:08:30,900
+internal or external command here okay
+
+156
+00:08:28,139 --> 00:08:33,959
+that's expected because when you call
+
+157
+00:08:30,900 --> 00:08:36,020
+Shell command it's actually
+
+158
+00:08:33,959 --> 00:08:36,020
+um
+
+159
+00:08:36,200 --> 00:08:42,659
+it is
+
+160
+00:08:38,640 --> 00:08:46,980
+what the exactly show is it calling
+
+161
+00:08:42,659 --> 00:08:51,440
+I don't know but uh but we can
+
+162
+00:08:46,980 --> 00:08:51,440
+we can do what we want by
+
+163
+00:08:51,660 --> 00:08:57,260
+there are many ways okay by actually
+
+164
+00:08:54,120 --> 00:08:57,260
+looking at
+
+165
+00:08:57,420 --> 00:09:02,279
+so I want to empty trash basically now
+
+166
+00:09:00,420 --> 00:09:06,360
+the problem is I want to
+
+167
+00:09:02,279 --> 00:09:09,240
+call a Powershell command Within emacs
+
+168
+00:09:06,360 --> 00:09:11,220
+so how do you do I have examples I have
+
+169
+00:09:09,240 --> 00:09:14,519
+written code before so for example I
+
+170
+00:09:11,220 --> 00:09:16,200
+want to open this buffer in vs code so I
+
+171
+00:09:14,519 --> 00:09:20,300
+can do meta X
+
+172
+00:09:16,200 --> 00:09:20,300
+open vs code
+
+173
+00:09:21,600 --> 00:09:27,600
+okay so this file is open in vs code so
+
+174
+00:09:24,959 --> 00:09:32,459
+how does that command work so we can
+
+175
+00:09:27,600 --> 00:09:35,760
+just look up describe function uh
+
+176
+00:09:32,459 --> 00:09:38,580
+open vs code okay
+
+177
+00:09:35,760 --> 00:09:42,300
+now here's a documentation for that
+
+178
+00:09:38,580 --> 00:09:46,440
+command and it's in soft like keys so
+
+179
+00:09:42,300 --> 00:09:50,399
+this is this is how you do it in
+
+180
+00:09:46,440 --> 00:09:54,180
+how you call Powershell so you can see
+
+181
+00:09:50,399 --> 00:09:56,640
+so you have to do is
+
+182
+00:09:54,180 --> 00:10:00,300
+okay this is not a good example because
+
+183
+00:09:56,640 --> 00:10:01,680
+it's simply called code.cmd
+
+184
+00:10:00,300 --> 00:10:05,160
+uh
+
+185
+00:10:01,680 --> 00:10:08,220
+but in our case we want to call a
+
+186
+00:10:05,160 --> 00:10:09,899
+command in Powershell so actually I know
+
+187
+00:10:08,220 --> 00:10:13,580
+what's what to do
+
+188
+00:10:09,899 --> 00:10:17,820
+actually it's PWD uh
+
+189
+00:10:13,580 --> 00:10:20,339
+pwsh so let's try that
+
+190
+00:10:17,820 --> 00:10:23,820
+actually trial and error that's not good
+
+191
+00:10:20,339 --> 00:10:28,500
+actually so the best thing to do is to
+
+192
+00:10:23,820 --> 00:10:31,500
+go into one of my uh
+
+193
+00:10:28,500 --> 00:10:35,399
+my package because our diet so that
+
+194
+00:10:31,500 --> 00:10:35,399
+package contains
+
+195
+00:10:35,820 --> 00:10:42,000
+what's going on contains a lot functions
+
+196
+00:10:38,820 --> 00:10:44,640
+so these matching lines function so you
+
+197
+00:10:42,000 --> 00:10:45,720
+can see all these functions and many of
+
+198
+00:10:44,640 --> 00:10:49,320
+them
+
+199
+00:10:45,720 --> 00:10:52,320
+for example opening inkscape opening
+
+200
+00:10:49,320 --> 00:10:55,920
+ opening iPhone view which is image
+
+201
+00:10:52,320 --> 00:10:59,040
+viewer on windows open in krita image
+
+202
+00:10:55,920 --> 00:11:01,500
+editor opening Ms paint over in text
+
+203
+00:10:59,040 --> 00:11:04,740
+edit so
+
+204
+00:11:01,500 --> 00:11:10,200
+one of these commands will do so
+
+205
+00:11:04,740 --> 00:11:13,500
+actually let's see opening is inkscape
+
+206
+00:11:10,200 --> 00:11:17,820
+so if it's windows then
+
+207
+00:11:13,500 --> 00:11:20,880
+okay okay this is getting complicated
+
+208
+00:11:17,820 --> 00:11:23,519
+we are using it's using start start
+
+209
+00:11:20,880 --> 00:11:28,100
+process which is more efficient than
+
+210
+00:11:23,519 --> 00:11:28,100
+just the shell function
+
+211
+00:11:29,640 --> 00:11:35,779
+uh
+
+212
+00:11:32,060 --> 00:11:35,779
+so let's see
+
+213
+00:11:42,480 --> 00:11:48,480
+yeah okay so let's uh so let's go to
+
+214
+00:11:45,600 --> 00:11:52,620
+some flight Keys actually
+
+215
+00:11:48,480 --> 00:11:56,459
+and simply search for pwsh Okay because
+
+216
+00:11:52,620 --> 00:11:59,220
+I've written commands for this before
+
+217
+00:11:56,459 --> 00:12:02,220
+oh yeah so here it is
+
+218
+00:11:59,220 --> 00:12:05,339
+so here is uh what you want to do shell
+
+219
+00:12:02,220 --> 00:12:07,680
+command and do that okay now go back to
+
+220
+00:12:05,339 --> 00:12:10,320
+the recycle bin
+
+221
+00:12:07,680 --> 00:12:14,120
+and uh
+
+222
+00:12:10,320 --> 00:12:14,120
+so we want to do
+
+223
+00:12:14,279 --> 00:12:24,360
+show command format psh pwsh
+
+224
+00:12:19,920 --> 00:12:27,300
+command so here is the command
+
+225
+00:12:24,360 --> 00:12:29,720
+instead of start process it's going to
+
+226
+00:12:27,300 --> 00:12:29,720
+be
+
+227
+00:12:33,000 --> 00:12:35,660
+hmm
+
+228
+00:12:37,320 --> 00:12:46,579
+uh not start process so it's just that
+
+229
+00:12:42,600 --> 00:12:49,800
+and no argument okay
+
+230
+00:12:46,579 --> 00:12:53,240
+argument we don't need
+
+231
+00:12:49,800 --> 00:12:53,240
+so that
+
+232
+00:12:54,660 --> 00:13:02,579
+okay basically eval buffer
+
+233
+00:12:58,860 --> 00:13:07,940
+now let's check the recycle beam there's
+
+234
+00:13:02,579 --> 00:13:07,940
+one file there and The Meta X
+
+235
+00:13:07,980 --> 00:13:13,860
+same T trash do it
+
+236
+00:13:10,279 --> 00:13:15,899
+fantastic you can see the trash is good
+
+237
+00:13:13,860 --> 00:13:19,139
+so
+
+238
+00:13:15,899 --> 00:13:23,399
+we completed that so this is basically
+
+239
+00:13:19,139 --> 00:13:26,480
+this is just this command
+
+240
+00:13:23,399 --> 00:13:26,480
+so far so good
+
+241
+00:13:28,200 --> 00:13:33,800
+uh documentation okay let's put some
+
+242
+00:13:31,200 --> 00:13:33,800
+documentation
+
+243
+00:13:34,200 --> 00:13:39,200
+version
+
+244
+00:13:36,360 --> 00:13:39,200
+today's date
+
+245
+00:13:39,540 --> 00:13:44,100
+now right now this function only works
+
+246
+00:13:42,779 --> 00:13:46,320
+for Windows
+
+247
+00:13:44,100 --> 00:13:49,200
+so you want to add some kind of
+
+248
+00:13:46,320 --> 00:13:51,480
+condition so that on Windows you call
+
+249
+00:13:49,200 --> 00:13:54,480
+this command on Linux you call some
+
+250
+00:13:51,480 --> 00:13:56,880
+other command Okay so so what you want
+
+251
+00:13:54,480 --> 00:14:00,720
+to do is
+
+252
+00:13:56,880 --> 00:14:03,720
+condition so this gives you several
+
+253
+00:14:00,720 --> 00:14:06,200
+options so first of all
+
+254
+00:14:03,720 --> 00:14:06,200
+uh
+
+255
+00:14:06,600 --> 00:14:09,860
+system type
+
+256
+00:14:12,060 --> 00:14:20,579
+so if system type is equals to let's see
+
+257
+00:14:16,980 --> 00:14:23,339
+what is the available system type that's
+
+258
+00:14:20,579 --> 00:14:27,240
+a variable so you describe variable
+
+259
+00:14:23,339 --> 00:14:30,600
+and you can see the documentation so
+
+260
+00:14:27,240 --> 00:14:35,760
+that is the type so if the season type
+
+261
+00:14:30,600 --> 00:14:35,760
+is Windows Dash NT then
+
+262
+00:14:36,899 --> 00:14:44,100
+this is what you want to do
+
+263
+00:14:40,100 --> 00:14:44,100
+fantastic otherwise
+
+264
+00:14:44,820 --> 00:14:48,360
+um otherwise
+
+265
+00:14:48,660 --> 00:14:53,180
+and let's put some more so
+
+266
+00:14:54,060 --> 00:15:00,899
+so otherwise if it's canoe Linux not
+
+267
+00:14:58,260 --> 00:15:03,540
+Linux but canol Linux then you do
+
+268
+00:15:00,899 --> 00:15:07,800
+something new okay for now
+
+269
+00:15:03,540 --> 00:15:10,860
+now if it's mag which is the system type
+
+270
+00:15:07,800 --> 00:15:13,079
+is Darwin city name
+
+271
+00:15:10,860 --> 00:15:16,579
+by the free software Foundation people
+
+272
+00:15:13,079 --> 00:15:19,560
+they don't want to name it Mac OS well
+
+273
+00:15:16,579 --> 00:15:24,240
+that Darwin is kind of the open source
+
+274
+00:15:19,560 --> 00:15:26,100
+version of Mac OS so if so if it's Mac
+
+275
+00:15:24,240 --> 00:15:28,740
+then you do something
+
+276
+00:15:26,100 --> 00:15:31,500
+now I don't remember exactly what is the
+
+277
+00:15:28,740 --> 00:15:34,920
+directory for trash on Linux you know I
+
+278
+00:15:31,500 --> 00:15:38,279
+think it may depend on distro so if we
+
+279
+00:15:34,920 --> 00:15:41,220
+can just leave it for now okay so if
+
+280
+00:15:38,279 --> 00:15:44,760
+none of this match then you just say
+
+281
+00:15:41,220 --> 00:15:50,899
+true then do nothing new okay
+
+282
+00:15:44,760 --> 00:15:50,899
+so basically here is a complete Command
+
+283
+00:15:51,720 --> 00:15:56,760
+for empty trash
+
+284
+00:15:54,000 --> 00:16:00,260
+now we if you are on Linux you can add
+
+285
+00:15:56,760 --> 00:16:00,260
+you know what to do on Linux
+
+286
+00:16:00,420 --> 00:16:04,279
+okay I think that's it
+
+287
+00:16:05,399 --> 00:16:11,360
+uh empty trash
+
+288
+00:16:09,360 --> 00:16:11,360
+um
+
+289
+00:16:12,899 --> 00:16:17,899
+Linux
+
+290
+00:16:15,120 --> 00:16:17,899
+mag
+
+291
+00:16:19,260 --> 00:16:26,519
+okay that is a complete code now back to
+
+292
+00:16:22,579 --> 00:16:29,760
+the HTML showing browser
+
+293
+00:16:26,519 --> 00:16:33,660
+there it is back to emacs
+
+294
+00:16:29,760 --> 00:16:36,540
+format them back to browser refresh
+
+295
+00:16:33,660 --> 00:16:40,100
+fantastic we have one command let's
+
+296
+00:16:36,540 --> 00:16:40,100
+continue to next command
+
+297
+00:16:43,560 --> 00:16:50,759
+or flamio says
+
+298
+00:16:46,620 --> 00:16:54,480
+there's a shell variable uh trash
+
+299
+00:16:50,759 --> 00:16:58,100
+okay what do you think about obsidian
+
+300
+00:16:54,480 --> 00:16:58,100
+I forgot what that is
+
+301
+00:17:05,220 --> 00:17:09,860
+okay it's a stone
+
+302
+00:17:07,439 --> 00:17:12,900
+this ambiguation
+
+303
+00:17:09,860 --> 00:17:15,660
+it's a software something
+
+304
+00:17:12,900 --> 00:17:18,120
+oh a note-taking software I'm not into
+
+305
+00:17:15,660 --> 00:17:21,360
+note taking software and I'm not much
+
+306
+00:17:18,120 --> 00:17:22,980
+into not taking itself because it's one
+
+307
+00:17:21,360 --> 00:17:26,520
+of the fashion you know there are many
+
+308
+00:17:22,980 --> 00:17:29,400
+systems that tells you open mind or My
+
+309
+00:17:26,520 --> 00:17:31,559
+Mind Tree mind graph or whatever
+
+310
+00:17:29,400 --> 00:17:34,440
+My Philosophy is that
+
+311
+00:17:31,559 --> 00:17:37,919
+if you need to do note taking
+
+312
+00:17:34,440 --> 00:17:39,480
+then you are procrastinator okay how do
+
+313
+00:17:37,919 --> 00:17:42,320
+you reach how do you deal with
+
+314
+00:17:39,480 --> 00:17:46,580
+procrastination you don't deal with it
+
+315
+00:17:42,320 --> 00:17:46,580
+that's the final solution
+
+316
+00:17:46,679 --> 00:17:52,799
+procrastination the first thing you want
+
+317
+00:17:48,720 --> 00:17:54,980
+you you deal with it is that you
+
+318
+00:17:52,799 --> 00:17:58,500
+you know you are a procrastinator
+
+319
+00:17:54,980 --> 00:18:00,419
+accepted then
+
+320
+00:17:58,500 --> 00:18:03,419
+you know just do what you have to do
+
+321
+00:18:00,419 --> 00:18:07,080
+that's you know that's
+
+322
+00:18:03,419 --> 00:18:10,140
+all these self-help things you they
+
+323
+00:18:07,080 --> 00:18:13,679
+usually do not help the most important
+
+324
+00:18:10,140 --> 00:18:15,539
+thing is you have to set your mindset
+
+325
+00:18:13,679 --> 00:18:20,039
+right
+
+326
+00:18:15,539 --> 00:18:23,460
+you know you have to make yourself
+
+327
+00:18:20,039 --> 00:18:27,059
+uh realize that you have potential or
+
+328
+00:18:23,460 --> 00:18:28,200
+you are necessary or you want to do
+
+329
+00:18:27,059 --> 00:18:30,900
+something
+
+330
+00:18:28,200 --> 00:18:34,200
+you have a desire then you don't need
+
+331
+00:18:30,900 --> 00:18:37,980
+all this self-help because the innermost
+
+332
+00:18:34,200 --> 00:18:42,000
+power is come from came from your desire
+
+333
+00:18:37,980 --> 00:18:45,299
+which in part is your personality so if
+
+334
+00:18:42,000 --> 00:18:49,799
+you have if you have problems with uh
+
+335
+00:18:45,299 --> 00:18:51,660
+that kind of thing you want just to
+
+336
+00:18:49,799 --> 00:18:54,240
+relax
+
+337
+00:18:51,660 --> 00:18:57,360
+uh
+
+338
+00:18:54,240 --> 00:19:00,960
+you know seek friends who can help you
+
+339
+00:18:57,360 --> 00:19:02,340
+or who appreciate you you know you want
+
+340
+00:19:00,960 --> 00:19:05,760
+encouragement
+
+341
+00:19:02,340 --> 00:19:09,360
+uh you know that
+
+342
+00:19:05,760 --> 00:19:12,059
+might help okay so obsidian is not
+
+343
+00:19:09,360 --> 00:19:15,840
+taking yeah I I'm too old to look into
+
+344
+00:19:12,059 --> 00:19:18,000
+these different softwares so for some
+
+345
+00:19:15,840 --> 00:19:19,980
+circumstances such as when you're
+
+346
+00:19:18,000 --> 00:19:23,520
+studying mathematics
+
+347
+00:19:19,980 --> 00:19:26,640
+proof Theory type Theory homotopy type
+
+348
+00:19:23,520 --> 00:19:28,799
+Theory then you want to take notes or
+
+349
+00:19:26,640 --> 00:19:31,679
+when you are learning emacs you know or
+
+350
+00:19:28,799 --> 00:19:34,559
+programming language python Golan so on
+
+351
+00:19:31,679 --> 00:19:35,760
+Powershell so in those cases you want to
+
+352
+00:19:34,559 --> 00:19:39,120
+take notes
+
+353
+00:19:35,760 --> 00:19:42,780
+uh but otherwise I don't like
+
+354
+00:19:39,120 --> 00:19:46,140
+to do you know the to do kind of stuff
+
+355
+00:19:42,780 --> 00:19:47,880
+unless you are you know a businessman or
+
+356
+00:19:46,140 --> 00:19:52,260
+Professor you have a lot of schedules
+
+357
+00:19:47,880 --> 00:19:54,539
+then yeah but otherwise I don't do that
+
+358
+00:19:52,260 --> 00:19:57,000
+so anyway we finished one command let's
+
+359
+00:19:54,539 --> 00:20:00,059
+continue to next command
+
+360
+00:19:57,000 --> 00:20:03,140
+let's see which one we want to write uh
+
+361
+00:20:00,059 --> 00:20:03,140
+empty directory
+
+362
+00:20:03,480 --> 00:20:09,679
+okay DD emacs backup okay
+
+363
+00:20:06,960 --> 00:20:09,679
+so
+
+364
+00:20:13,559 --> 00:20:21,179
+okay so we have emacs backup
+
+365
+00:20:18,660 --> 00:20:24,419
+we have released backup delete backup
+
+366
+00:20:21,179 --> 00:20:27,240
+either way okay so let's let's write a
+
+367
+00:20:24,419 --> 00:20:30,419
+TV backup okay
+
+368
+00:20:27,240 --> 00:20:33,720
+uh emac Beast so we start another
+
+369
+00:20:30,419 --> 00:20:36,080
+function define
+
+370
+00:20:33,720 --> 00:20:40,440
+delete
+
+371
+00:20:36,080 --> 00:20:43,340
+Emax back up okay
+
+372
+00:20:40,440 --> 00:20:43,340
+version
+
+373
+00:20:43,799 --> 00:20:49,460
+today's date
+
+374
+00:20:45,660 --> 00:20:49,460
+and some documentation
+
+375
+00:20:52,140 --> 00:20:58,860
+DD emx
+
+376
+00:20:54,720 --> 00:21:02,280
+back up files
+
+377
+00:20:58,860 --> 00:21:06,480
+okay with a Toyota
+
+378
+00:21:02,280 --> 00:21:06,480
+in current recursively
+
+379
+00:21:07,020 --> 00:21:13,100
+okay because normally if you just want
+
+380
+00:21:10,380 --> 00:21:13,100
+to delete
+
+381
+00:21:14,580 --> 00:21:20,419
+the font is too large actually so let me
+
+382
+00:21:17,640 --> 00:21:20,419
+just shrink it
+
+383
+00:21:21,360 --> 00:21:27,179
+okay so maybe that's better
+
+384
+00:21:23,700 --> 00:21:29,520
+so normally if you are in the ad diet
+
+385
+00:21:27,179 --> 00:21:33,720
+and you have some files you want to
+
+386
+00:21:29,520 --> 00:21:36,179
+delete you can simply press the what
+
+387
+00:21:33,720 --> 00:21:39,000
+you can simply press the
+
+388
+00:21:36,179 --> 00:21:41,340
+Toyota sign and it will highlight all of
+
+389
+00:21:39,000 --> 00:21:43,500
+them then you can just
+
+390
+00:21:41,340 --> 00:21:45,360
+press X
+
+391
+00:21:43,500 --> 00:21:48,600
+then you ask you do you want to delete
+
+392
+00:21:45,360 --> 00:21:51,600
+them to say yes say yes and they are all
+
+393
+00:21:48,600 --> 00:21:54,059
+gone so but that doesn't work for nested
+
+394
+00:21:51,600 --> 00:21:57,179
+directories so if you have necessary
+
+395
+00:21:54,059 --> 00:22:00,840
+directories that doesn't work so that's
+
+396
+00:21:57,179 --> 00:22:03,659
+what this command will do
+
+397
+00:22:00,840 --> 00:22:07,340
+Okay so
+
+398
+00:22:03,659 --> 00:22:07,340
+in order to do that
+
+399
+00:22:10,020 --> 00:22:15,179
+so we want to delete them in current so
+
+400
+00:22:12,900 --> 00:22:17,159
+this command will be con convenient so
+
+401
+00:22:15,179 --> 00:22:19,559
+you just delete all necessary
+
+402
+00:22:17,159 --> 00:22:22,820
+directories of the current wherever this
+
+403
+00:22:19,559 --> 00:22:25,860
+file is at uh you don't have to go into
+
+404
+00:22:22,820 --> 00:22:28,220
+shell or diode
+
+405
+00:22:25,860 --> 00:22:30,960
+so okay so first of all
+
+406
+00:22:28,220 --> 00:22:32,940
+default okay default
+
+407
+00:22:30,960 --> 00:22:34,620
+um not DD directory
+
+408
+00:22:32,940 --> 00:22:36,720
+default
+
+409
+00:22:34,620 --> 00:22:40,039
+the
+
+410
+00:22:36,720 --> 00:22:43,380
+default directory is a variable that
+
+411
+00:22:40,039 --> 00:22:45,840
+contains the directory your current
+
+412
+00:22:43,380 --> 00:22:47,340
+buffer or file reset for example we can
+
+413
+00:22:45,840 --> 00:22:49,980
+evaluate it
+
+414
+00:22:47,340 --> 00:22:52,140
+uh Eva last sex
+
+415
+00:22:49,980 --> 00:22:54,600
+you can see
+
+416
+00:22:52,140 --> 00:22:57,480
+right now my current directory is that
+
+417
+00:22:54,600 --> 00:22:59,880
+okay so that is the variable and you
+
+418
+00:22:57,480 --> 00:23:02,059
+want to Traverse okay so let's write it
+
+419
+00:22:59,880 --> 00:23:02,059
+down
+
+420
+00:23:04,280 --> 00:23:14,100
+Traverse the default list or names
+
+421
+00:23:08,640 --> 00:23:14,100
+ending in Toyota okay then
+
+422
+00:23:14,280 --> 00:23:20,580
+delete them okay that's that's what we
+
+423
+00:23:17,400 --> 00:23:23,520
+want to do okay so now we want to
+
+424
+00:23:20,580 --> 00:23:26,880
+Traverse the how do you do that
+
+425
+00:23:23,520 --> 00:23:29,340
+I don't remember offhand so you search
+
+426
+00:23:26,880 --> 00:23:32,940
+for Sardi lisp
+
+427
+00:23:29,340 --> 00:23:35,640
+emac Beast Basics you'll find how to so
+
+428
+00:23:32,940 --> 00:23:39,480
+in this case you want to go to emacs
+
+429
+00:23:35,640 --> 00:23:41,659
+list practical emac disp and you want to
+
+430
+00:23:39,480 --> 00:23:45,900
+go to
+
+431
+00:23:41,659 --> 00:23:48,840
+text processing get user input files and
+
+432
+00:23:45,900 --> 00:23:51,299
+buffers file and directory work
+
+433
+00:23:48,840 --> 00:23:53,039
+directory that's what you want so this
+
+434
+00:23:51,299 --> 00:23:54,780
+is the file you want
+
+435
+00:23:53,039 --> 00:23:58,520
+I mean this is a function you want
+
+436
+00:23:54,780 --> 00:23:58,520
+directory files okay
+
+437
+00:23:59,039 --> 00:24:04,559
+okay so but this function does not
+
+438
+00:24:01,520 --> 00:24:06,419
+recurse into subdirectories so if you
+
+439
+00:24:04,559 --> 00:24:10,500
+want subdirectories you want this
+
+440
+00:24:06,419 --> 00:24:13,980
+function directory files recursively
+
+441
+00:24:10,500 --> 00:24:17,280
+okay so great
+
+442
+00:24:13,980 --> 00:24:19,620
+directory files recursively there it is
+
+443
+00:24:17,280 --> 00:24:22,700
+we have a shortcut fantastic so the
+
+444
+00:24:19,620 --> 00:24:22,700
+directory will be
+
+445
+00:24:24,440 --> 00:24:29,179
+default directory and the regular
+
+446
+00:24:27,240 --> 00:24:32,059
+expression will be
+
+447
+00:24:29,179 --> 00:24:35,280
+uh anything
+
+448
+00:24:32,059 --> 00:24:39,419
+ends in a Toyota sign
+
+449
+00:24:35,280 --> 00:24:40,860
+okay and optional include directories so
+
+450
+00:24:39,419 --> 00:24:43,760
+what does the optional include
+
+451
+00:24:40,860 --> 00:24:43,760
+directories mean
+
+452
+00:25:03,179 --> 00:25:08,760
+include directories option argument
+
+453
+00:25:05,760 --> 00:25:11,520
+include directories the Neo means also
+
+454
+00:25:08,760 --> 00:25:13,760
+include in the output directories whose
+
+455
+00:25:11,520 --> 00:25:13,760
+name
+
+456
+00:25:16,679 --> 00:25:19,100
+all right
+
+457
+00:25:25,559 --> 00:25:33,179
+local slash share uh download code slash
+
+458
+00:25:30,600 --> 00:25:36,919
+share slash trash that's a trash
+
+459
+00:25:33,179 --> 00:25:36,919
+location on Linux thank you
+
+460
+00:25:38,480 --> 00:25:44,000
+uh so what is so what is this uh
+
+461
+00:25:50,700 --> 00:25:55,799
+oh that means so the includes
+
+462
+00:25:53,820 --> 00:25:58,200
+directories means should the output
+
+463
+00:25:55,799 --> 00:26:01,080
+include directory so as opposed to files
+
+464
+00:25:58,200 --> 00:26:04,559
+yeah we don't want okay so we just want
+
+465
+00:26:01,080 --> 00:26:07,559
+files Okay so
+
+466
+00:26:04,559 --> 00:26:11,779
+that will give uh so so here's what we
+
+467
+00:26:07,559 --> 00:26:11,779
+to do we declare a variable
+
+468
+00:26:13,559 --> 00:26:21,679
+so at least the path and set a list of
+
+469
+00:26:17,580 --> 00:26:21,679
+path to be that
+
+470
+00:26:26,360 --> 00:26:30,200
+uh what am I doing
+
+471
+00:26:32,760 --> 00:26:38,539
+so let's let's make them larger okay
+
+472
+00:26:44,340 --> 00:26:49,559
+okay so we have a bunch of
+
+473
+00:26:47,460 --> 00:26:52,919
+file path
+
+474
+00:26:49,559 --> 00:26:55,740
+now we want to map a function to all
+
+475
+00:26:52,919 --> 00:27:00,659
+these file path basically delete them
+
+476
+00:26:55,740 --> 00:27:03,659
+okay but before we do that we can simply
+
+477
+00:27:00,659 --> 00:27:07,620
+run this code to make sure it runs
+
+478
+00:27:03,659 --> 00:27:10,140
+correctly before we go further Okay so
+
+479
+00:27:07,620 --> 00:27:12,120
+leave out the
+
+480
+00:27:10,140 --> 00:27:13,140
+about the
+
+481
+00:27:12,120 --> 00:27:15,840
+um
+
+482
+00:27:13,140 --> 00:27:19,440
+even less says sex
+
+483
+00:27:15,840 --> 00:27:22,700
+and uh then we just call this command
+
+484
+00:27:19,440 --> 00:27:22,700
+Okay copy it
+
+485
+00:27:23,100 --> 00:27:27,360
+okay it should return a list of files
+
+486
+00:27:26,100 --> 00:27:29,460
+now
+
+487
+00:27:27,360 --> 00:27:31,860
+now let's
+
+488
+00:27:29,460 --> 00:27:36,140
+in the in this current directory so
+
+489
+00:27:31,860 --> 00:27:36,140
+let's make a new directory first
+
+490
+00:27:36,419 --> 00:27:42,000
+um
+
+491
+00:27:38,279 --> 00:27:44,779
+so new directory XX okay
+
+492
+00:27:42,000 --> 00:27:44,779
+uh
+
+493
+00:27:46,320 --> 00:27:51,500
+okay then create some random files
+
+494
+00:27:54,900 --> 00:28:02,419
+okay go to the directory so that's a
+
+495
+00:27:57,900 --> 00:28:02,419
+random file close it make a backup
+
+496
+00:28:16,620 --> 00:28:22,200
+and make make backup okay so anyway we
+
+497
+00:28:20,760 --> 00:28:25,080
+have several
+
+498
+00:28:22,200 --> 00:28:28,380
+now go up one directory
+
+499
+00:28:25,080 --> 00:28:29,340
+close it close it okay now if we call
+
+500
+00:28:28,380 --> 00:28:31,799
+delete
+
+501
+00:28:29,340 --> 00:28:33,600
+we call it it should list them okay
+
+502
+00:28:31,799 --> 00:28:37,799
+let's try it
+
+503
+00:28:33,600 --> 00:28:43,020
+so there's a new feature in emacs 29
+
+504
+00:28:37,799 --> 00:28:43,980
+where you press Ctrl U 0 first then you
+
+505
+00:28:43,020 --> 00:28:45,559
+call
+
+506
+00:28:43,980 --> 00:28:48,659
+uh
+
+507
+00:28:45,559 --> 00:28:51,900
+coalesced six
+
+508
+00:28:48,659 --> 00:28:55,140
+do that so you get the full list result
+
+509
+00:28:51,900 --> 00:28:58,200
+in the buffer okay now let's change them
+
+510
+00:28:55,140 --> 00:29:00,679
+into lines so you can see it worked
+
+511
+00:28:58,200 --> 00:29:03,659
+because it included
+
+512
+00:29:00,679 --> 00:29:06,539
+subdirectories okay now you got the
+
+513
+00:29:03,659 --> 00:29:08,340
+files now it's very easy all you have to
+
+514
+00:29:06,539 --> 00:29:11,220
+do is to
+
+515
+00:29:08,340 --> 00:29:13,500
+map a function
+
+516
+00:29:11,220 --> 00:29:18,179
+okay and what function you want to map
+
+517
+00:29:13,500 --> 00:29:22,740
+to delete files so the sequence is the
+
+518
+00:29:18,179 --> 00:29:24,720
+sequence is the bunch of file paths and
+
+519
+00:29:22,740 --> 00:29:27,659
+what the function what do you uh what
+
+520
+00:29:24,720 --> 00:29:30,600
+the function do you want DVD file okay
+
+521
+00:29:27,659 --> 00:29:32,640
+so let's look up the documentation for
+
+522
+00:29:30,600 --> 00:29:35,820
+delete file
+
+523
+00:29:32,640 --> 00:29:38,460
+delete file file name optional trash
+
+524
+00:29:35,820 --> 00:29:41,720
+okay delete file file name optional
+
+525
+00:29:38,460 --> 00:29:45,980
+trash okay so that's gonna be just X
+
+526
+00:29:41,720 --> 00:29:45,980
+uh in fact you just
+
+527
+00:29:47,340 --> 00:29:49,880
+there
+
+528
+00:29:52,440 --> 00:29:59,399
+it will map the function delete file to
+
+529
+00:29:55,500 --> 00:30:01,880
+each and every of these so let's try it
+
+530
+00:29:59,399 --> 00:30:01,880
+okay
+
+531
+00:30:02,279 --> 00:30:08,159
+Eva eval
+
+532
+00:30:05,340 --> 00:30:11,159
+okay and now let's go to the directory
+
+533
+00:30:08,159 --> 00:30:16,320
+let's open this directory
+
+534
+00:30:11,159 --> 00:30:16,320
+refresh it's all good fantastic
+
+535
+00:30:16,440 --> 00:30:20,360
+okay it's fantastic now
+
+536
+00:30:20,700 --> 00:30:26,399
+in fact we are done but what we want is
+
+537
+00:30:24,480 --> 00:30:28,460
+to
+
+538
+00:30:26,399 --> 00:30:28,460
+um
+
+539
+00:30:30,539 --> 00:30:36,899
+let's see uh
+
+540
+00:30:33,360 --> 00:30:39,240
+what we want is to let's see
+
+541
+00:30:36,899 --> 00:30:41,159
+let's make a backup again
+
+542
+00:30:39,240 --> 00:30:45,659
+close that
+
+543
+00:30:41,159 --> 00:30:49,260
+we want when we call this command x.d
+
+544
+00:30:45,659 --> 00:30:51,799
+Max backup we wanted to print a list of
+
+545
+00:30:49,260 --> 00:30:55,740
+files that's deleted
+
+546
+00:30:51,799 --> 00:30:58,440
+to to the message buffer yeah okay so
+
+547
+00:30:55,740 --> 00:31:01,980
+the question now is what delete file
+
+548
+00:30:58,440 --> 00:31:04,799
+does what does it return Okay so
+
+549
+00:31:01,980 --> 00:31:08,399
+okay so let's try
+
+550
+00:31:04,799 --> 00:31:12,960
+copy final path close close okay we're
+
+551
+00:31:08,399 --> 00:31:16,620
+gonna test this delete file function
+
+552
+00:31:12,960 --> 00:31:18,779
+delete file okay
+
+553
+00:31:16,620 --> 00:31:21,360
+okay now we want to know what does it
+
+554
+00:31:18,779 --> 00:31:25,260
+returns so run it
+
+555
+00:31:21,360 --> 00:31:27,840
+it returns new okay so let's see yeah it
+
+556
+00:31:25,260 --> 00:31:31,260
+returns new so it doesn't return the
+
+557
+00:31:27,840 --> 00:31:35,880
+file path so in that case what you have
+
+558
+00:31:31,260 --> 00:31:38,360
+to do is okay you just put file path at
+
+559
+00:31:35,880 --> 00:31:38,360
+the bottom
+
+560
+00:31:40,820 --> 00:31:44,120
+uh actually
+
+561
+00:31:44,460 --> 00:31:50,520
+you know in case some file didn't get
+
+562
+00:31:46,919 --> 00:31:51,360
+deleted then the return value will be
+
+563
+00:31:50,520 --> 00:31:56,460
+wrong
+
+564
+00:31:51,360 --> 00:31:59,159
+so rather so let's modify this instead
+
+565
+00:31:56,460 --> 00:32:00,539
+we use a Lambda
+
+566
+00:31:59,159 --> 00:32:04,559
+okay
+
+567
+00:32:00,539 --> 00:32:08,940
+Lambda so so what does Lambda do the
+
+568
+00:32:04,559 --> 00:32:11,279
+Lambda will delete the file okay then
+
+569
+00:32:08,940 --> 00:32:14,820
+then return it
+
+570
+00:32:11,279 --> 00:32:16,919
+if it's successful now how do we know if
+
+571
+00:32:14,820 --> 00:32:20,279
+it's successful let's look up the
+
+572
+00:32:16,919 --> 00:32:24,240
+documentation for delete file again
+
+573
+00:32:20,279 --> 00:32:26,580
+DD file named that if it's a Sim link
+
+574
+00:32:24,240 --> 00:32:29,340
+remove the sim link if it's multiple
+
+575
+00:32:26,580 --> 00:32:30,600
+names continue to exist okay trash in
+
+576
+00:32:29,340 --> 00:32:34,200
+the neon means that we call
+
+577
+00:32:30,600 --> 00:32:35,279
+interactively uh change into the other
+
+578
+00:32:34,200 --> 00:32:39,659
+okay
+
+579
+00:32:35,279 --> 00:32:43,380
+it doesn't say successful or not
+
+580
+00:32:39,659 --> 00:32:44,760
+and this is written in C code it it
+
+581
+00:32:43,380 --> 00:32:47,820
+doesn't
+
+582
+00:32:44,760 --> 00:32:52,399
+it does not give you an indication where
+
+583
+00:32:47,820 --> 00:32:52,399
+the delete X is successful or not
+
+584
+00:32:54,000 --> 00:32:59,460
+yeah okay so
+
+585
+00:32:56,159 --> 00:33:02,899
+okay there's nothing you can do so yeah
+
+586
+00:32:59,460 --> 00:33:02,899
+in that case we just
+
+587
+00:33:04,320 --> 00:33:12,899
+return that okay so in fact let's
+
+588
+00:33:09,659 --> 00:33:16,519
+so let's remove that in fact we want to
+
+589
+00:33:12,899 --> 00:33:16,519
+print each one of them
+
+590
+00:33:21,120 --> 00:33:23,960
+uh
+
+591
+00:33:24,360 --> 00:33:30,840
+do we want to print each one of them
+
+592
+00:33:28,019 --> 00:33:34,140
+usually there's gonna be hundreds like
+
+593
+00:33:30,840 --> 00:33:37,440
+in my use case usually this this hundred
+
+594
+00:33:34,140 --> 00:33:42,080
+so do we want to print them or not
+
+595
+00:33:37,440 --> 00:33:42,080
+I guess not let's just returned value
+
+596
+00:33:42,960 --> 00:33:48,620
+okay so actually this this is it
+
+597
+00:33:50,039 --> 00:33:57,740
+this is the function uh and uh
+
+598
+00:33:54,779 --> 00:34:01,760
+Okay so
+
+599
+00:33:57,740 --> 00:34:06,059
+let's make sure it still works okay
+
+600
+00:34:01,760 --> 00:34:07,980
+evaluated remove this
+
+601
+00:34:06,059 --> 00:34:12,540
+uh and now
+
+602
+00:34:07,980 --> 00:34:15,000
+meta X star DD emacs backup do it
+
+603
+00:34:12,540 --> 00:34:16,560
+okay what does it return it doesn't
+
+604
+00:34:15,000 --> 00:34:19,399
+return anything
+
+605
+00:34:16,560 --> 00:34:19,399
+uh
+
+606
+00:34:22,740 --> 00:34:27,020
+wait why does it not return anything
+
+607
+00:34:30,300 --> 00:34:37,940
+oh okay because you I was using the
+
+608
+00:34:33,740 --> 00:34:41,280
+metallics so go to the directory again
+
+609
+00:34:37,940 --> 00:34:44,879
+you know so it's good right
+
+610
+00:34:41,280 --> 00:34:46,919
+okay so this is the this is the delete
+
+611
+00:34:44,879 --> 00:34:48,179
+Emax backup
+
+612
+00:34:46,919 --> 00:34:51,780
+uh
+
+613
+00:34:48,179 --> 00:34:54,179
+okay so that's successful now this
+
+614
+00:34:51,780 --> 00:34:57,000
+should be cleaned up because
+
+615
+00:34:54,179 --> 00:34:58,800
+there is the issue of whether you want
+
+616
+00:34:57,000 --> 00:35:03,260
+to print
+
+617
+00:34:58,800 --> 00:35:03,260
+those files that are deleted or not
+
+618
+00:35:03,900 --> 00:35:06,020
+um
+
+619
+00:35:06,359 --> 00:35:13,500
+anyway so that's the you know the first
+
+620
+00:35:08,820 --> 00:35:16,260
+draft okay so go back to HTML color it
+
+621
+00:35:13,500 --> 00:35:18,900
+show in browser
+
+622
+00:35:16,260 --> 00:35:21,560
+so we got two commands
+
+623
+00:35:18,900 --> 00:35:21,560
+done
+
+624
+00:35:24,420 --> 00:35:33,920
+okay let's try another command then
+
+625
+00:35:28,020 --> 00:35:33,920
+empty trash least empty the uh
+
+626
+00:35:36,839 --> 00:35:43,500
+okay list empty the will be
+
+627
+00:35:40,680 --> 00:35:47,540
+slightly tricky
+
+628
+00:35:43,500 --> 00:35:47,540
+how am I doing how are you guys doing
+
+629
+00:35:48,540 --> 00:35:56,160
+oh yeah so you guys are talking about
+
+630
+00:35:51,420 --> 00:35:59,060
+the trash in Linux you know actually I
+
+631
+00:35:56,160 --> 00:36:03,300
+have an article on that
+
+632
+00:35:59,060 --> 00:36:06,780
+Linux trash but it's fairly old uh kind
+
+633
+00:36:03,300 --> 00:36:13,099
+of outdated by a few years so Rita in
+
+634
+00:36:06,780 --> 00:36:17,460
+2013 so you have the command gvfs trash
+
+635
+00:36:13,099 --> 00:36:19,619
+that will uh oh wait this is uh deleting
+
+636
+00:36:17,460 --> 00:36:23,940
+a file to trash
+
+637
+00:36:19,619 --> 00:36:27,720
+okay now on Linux you know the gvfs
+
+638
+00:36:23,940 --> 00:36:30,000
+was standing stand for Canon
+
+639
+00:36:27,720 --> 00:36:32,280
+virtual fire system something but they
+
+640
+00:36:30,000 --> 00:36:36,119
+kept changing so I don't know if it
+
+641
+00:36:32,280 --> 00:36:39,780
+still exists anyway the trash directory
+
+642
+00:36:36,119 --> 00:36:42,119
+is yeah these locations
+
+643
+00:36:39,780 --> 00:36:45,060
+again I don't know if it's up to date or
+
+644
+00:36:42,119 --> 00:36:47,339
+not but the dot local share trash is
+
+645
+00:36:45,060 --> 00:36:49,920
+probably still
+
+646
+00:36:47,339 --> 00:36:53,700
+but anyway the the trash and Linux
+
+647
+00:36:49,920 --> 00:36:56,160
+system is very bad very very bad because
+
+648
+00:36:53,700 --> 00:36:58,859
+I remember 10 years ago I was trying to
+
+649
+00:36:56,160 --> 00:37:02,220
+delete a few hundred files on a USB
+
+650
+00:36:58,859 --> 00:37:03,720
+stick and it just stuck stuck there it's
+
+651
+00:37:02,220 --> 00:37:06,200
+like
+
+652
+00:37:03,720 --> 00:37:06,200
+um anyway
+
+653
+00:37:06,420 --> 00:37:09,560
+uh so
+
+654
+00:37:10,500 --> 00:37:16,700
+so we have so what we want to write so
+
+655
+00:37:13,560 --> 00:37:16,700
+yeah what's a comment
+
+656
+00:37:17,460 --> 00:37:24,960
+usual path Okay so hexa
+
+657
+00:37:21,300 --> 00:37:29,040
+ice mods isomat
+
+658
+00:37:24,960 --> 00:37:31,079
+I got myself a glove 80 fantastic and it
+
+659
+00:37:29,040 --> 00:37:33,420
+feels like I'm relearning to type again
+
+660
+00:37:31,079 --> 00:37:34,619
+reminds me the times that I was learning
+
+661
+00:37:33,420 --> 00:37:37,460
+Haskell
+
+662
+00:37:34,619 --> 00:37:37,460
+fantastic
+
+663
+00:37:42,500 --> 00:37:48,900
+when's the next rant uh you pay me I'll
+
+664
+00:37:46,140 --> 00:37:52,680
+do a rent you know
+
+665
+00:37:48,900 --> 00:37:57,060
+PayPal meat you know or Super Chat
+
+666
+00:37:52,680 --> 00:37:59,940
+something and uh put up a topic of rent
+
+667
+00:37:57,060 --> 00:38:01,440
+and I'll give it to you
+
+668
+00:37:59,940 --> 00:38:04,260
+okay
+
+669
+00:38:01,440 --> 00:38:06,980
+so how long have we been 40 minutes
+
+670
+00:38:04,260 --> 00:38:09,359
+already so what else we want to write
+
+671
+00:38:06,980 --> 00:38:11,480
+let's see
+
+672
+00:38:09,359 --> 00:38:11,480
+um
+
+673
+00:38:14,040 --> 00:38:20,540
+yeah so we can we can you know we can
+
+674
+00:38:17,160 --> 00:38:20,540
+write another command
+
+675
+00:38:22,320 --> 00:38:29,640
+list empty files okay
+
+676
+00:38:25,920 --> 00:38:33,119
+yeah okay let's try that this anti this
+
+677
+00:38:29,640 --> 00:38:35,820
+npt files okay
+
+678
+00:38:33,119 --> 00:38:38,220
+okay emacs this
+
+679
+00:38:35,820 --> 00:38:39,780
+show Pink window
+
+680
+00:38:38,220 --> 00:38:42,680
+pop out
+
+681
+00:38:39,780 --> 00:38:44,400
+the fun
+
+682
+00:38:42,680 --> 00:38:47,099
+list
+
+683
+00:38:44,400 --> 00:38:50,160
+empty files
+
+684
+00:38:47,099 --> 00:38:52,980
+okay and let's copy some of the
+
+685
+00:38:50,160 --> 00:38:55,740
+documentation so we don't have to type
+
+686
+00:38:52,980 --> 00:38:57,000
+everything again
+
+687
+00:38:55,740 --> 00:38:59,780
+okay
+
+688
+00:38:57,000 --> 00:38:59,780
+uh
+
+689
+00:39:00,180 --> 00:39:06,720
+list empty
+
+690
+00:39:03,119 --> 00:39:08,579
+files in current directory recursively
+
+691
+00:39:06,720 --> 00:39:09,780
+that's correct
+
+692
+00:39:08,579 --> 00:39:14,040
+okay
+
+693
+00:39:09,780 --> 00:39:16,339
+so okay so but basically just like
+
+694
+00:39:14,040 --> 00:39:16,339
+before
+
+695
+00:39:16,380 --> 00:39:23,359
+so let's copy the code just like before
+
+696
+00:39:19,980 --> 00:39:23,359
+we have two
+
+697
+00:39:24,079 --> 00:39:30,560
+recursively dive into directory
+
+698
+00:39:27,900 --> 00:39:30,560
+okay
+
+699
+00:39:31,260 --> 00:39:34,880
+and in this time
+
+700
+00:39:35,640 --> 00:39:38,960
+this time
+
+701
+00:39:41,520 --> 00:39:46,859
+this time the
+
+702
+00:39:44,160 --> 00:39:49,800
+empty files so empty files you don't
+
+703
+00:39:46,859 --> 00:39:54,180
+have a regular expression anything will
+
+704
+00:39:49,800 --> 00:39:56,339
+we want everything so let's look up
+
+705
+00:39:54,180 --> 00:39:58,440
+documentation for directory files
+
+706
+00:39:56,339 --> 00:40:02,359
+recursively
+
+707
+00:39:58,440 --> 00:40:05,400
+so regular expression is
+
+708
+00:40:02,359 --> 00:40:08,000
+required option required required
+
+709
+00:40:05,400 --> 00:40:08,000
+parameter
+
+710
+00:40:10,920 --> 00:40:18,480
+okay so regular expression is a required
+
+711
+00:40:14,040 --> 00:40:22,160
+parameter so in that case it's just Dot
+
+712
+00:40:18,480 --> 00:40:22,160
+a DOT matches anything
+
+713
+00:40:24,180 --> 00:40:27,839
+uh
+
+714
+00:40:25,980 --> 00:40:31,619
+yeah I suppose
+
+715
+00:40:27,839 --> 00:40:33,599
+so now what we do now so we have a list
+
+716
+00:40:31,619 --> 00:40:36,599
+of files
+
+717
+00:40:33,599 --> 00:40:38,940
+let's show it
+
+718
+00:40:36,599 --> 00:40:41,220
+Okay so
+
+719
+00:40:38,940 --> 00:40:43,320
+do you need that we can actually try it
+
+720
+00:40:41,220 --> 00:40:46,680
+so go to the diet
+
+721
+00:40:43,320 --> 00:40:50,760
+go to this we just made open it delete
+
+722
+00:40:46,680 --> 00:40:55,260
+the text save it go back to diet refresh
+
+723
+00:40:50,760 --> 00:40:57,180
+now we can see it's zero bytes empty so
+
+724
+00:40:55,260 --> 00:41:01,200
+we have one empty file
+
+725
+00:40:57,180 --> 00:41:04,079
+okay make a copy make a copy so you see
+
+726
+00:41:01,200 --> 00:41:08,099
+all these empty files okay
+
+727
+00:41:04,079 --> 00:41:10,680
+close wait uh
+
+728
+00:41:08,099 --> 00:41:14,040
+let's copy the directory name close
+
+729
+00:41:10,680 --> 00:41:17,599
+close and paste the directory name here
+
+730
+00:41:14,040 --> 00:41:17,599
+so we can open it easily
+
+731
+00:41:18,260 --> 00:41:23,820
+by jumping to it
+
+732
+00:41:21,180 --> 00:41:27,180
+that's the command is Excel open file at
+
+733
+00:41:23,820 --> 00:41:29,220
+Cruiser now in emacs if you are using
+
+734
+00:41:27,180 --> 00:41:30,060
+plain glue emacs you have a command
+
+735
+00:41:29,220 --> 00:41:33,000
+called
+
+736
+00:41:30,060 --> 00:41:34,800
+find file at point which is basically
+
+737
+00:41:33,000 --> 00:41:36,720
+the same thing
+
+738
+00:41:34,800 --> 00:41:42,119
+okay close that
+
+739
+00:41:36,720 --> 00:41:45,300
+now so we got a bunch of file paths so
+
+740
+00:41:42,119 --> 00:41:49,260
+let's just show it okay
+
+741
+00:41:45,300 --> 00:41:53,480
+Eva buffer so now emacs no the command
+
+742
+00:41:49,260 --> 00:41:53,480
+now eval is
+
+743
+00:41:54,180 --> 00:41:56,960
+uh
+
+744
+00:41:57,960 --> 00:42:04,980
+oh so okay it returned a lot results
+
+745
+00:42:01,680 --> 00:42:07,160
+okay so let me do it again
+
+746
+00:42:04,980 --> 00:42:13,980
+control
+
+747
+00:42:07,160 --> 00:42:17,220
+U 0 Eva last six so here is a complete
+
+748
+00:42:13,980 --> 00:42:18,839
+result list it's huge
+
+749
+00:42:17,220 --> 00:42:22,500
+okay now
+
+750
+00:42:18,839 --> 00:42:24,900
+make them into a line lines
+
+751
+00:42:22,500 --> 00:42:27,960
+so you can see all these files are
+
+752
+00:42:24,900 --> 00:42:30,420
+supposed to be empty so let's check
+
+753
+00:42:27,960 --> 00:42:33,060
+actually it's correct because you see
+
+754
+00:42:30,420 --> 00:42:35,579
+this file we created it's empty so we
+
+755
+00:42:33,060 --> 00:42:37,859
+can open this one
+
+756
+00:42:35,579 --> 00:42:40,800
+okay it's incorrect
+
+757
+00:42:37,859 --> 00:42:45,300
+see it's not empty oh yeah obviously
+
+758
+00:42:40,800 --> 00:42:47,940
+because you you did not check for uh the
+
+759
+00:42:45,300 --> 00:42:49,619
+file size yet so you need to check file
+
+760
+00:42:47,940 --> 00:42:52,500
+size okay
+
+761
+00:42:49,619 --> 00:42:56,960
+so let's see
+
+762
+00:42:52,500 --> 00:42:56,960
+what's the function for file size
+
+763
+00:42:59,460 --> 00:43:04,619
+oh we don't wait so we need a function
+
+764
+00:43:02,880 --> 00:43:10,800
+for file size
+
+765
+00:43:04,619 --> 00:43:14,099
+so let's go back to emacs this tutorial
+
+766
+00:43:10,800 --> 00:43:17,700
+file and directory
+
+767
+00:43:14,099 --> 00:43:22,319
+I don't think I ever used
+
+768
+00:43:17,700 --> 00:43:25,980
+a function that gives you the file size
+
+769
+00:43:22,319 --> 00:43:26,760
+so we need to look up emacs manual let's
+
+770
+00:43:25,980 --> 00:43:28,260
+see
+
+771
+00:43:26,760 --> 00:43:32,520
+fire path
+
+772
+00:43:28,260 --> 00:43:35,760
+yeah so let's look up emacs manual file
+
+773
+00:43:32,520 --> 00:43:40,339
+information about files
+
+774
+00:43:35,760 --> 00:43:40,339
+file attributes there
+
+775
+00:43:43,020 --> 00:43:49,940
+file attributes
+
+776
+00:43:46,140 --> 00:43:49,940
+oh God this is gonna be
+
+777
+00:43:51,480 --> 00:43:57,240
+okay I think I think after we write this
+
+778
+00:43:55,020 --> 00:44:00,599
+and that'll be it today
+
+779
+00:43:57,240 --> 00:44:05,599
+file endings right now we need a
+
+780
+00:44:00,599 --> 00:44:05,599
+function that tells us the file size
+
+781
+00:44:10,940 --> 00:44:14,060
+thank you
+
+782
+00:44:15,440 --> 00:44:20,960
+her family is paying for someone else's
+
+783
+00:44:18,119 --> 00:44:20,960
+topic so
+
+784
+00:44:21,420 --> 00:44:27,780
+so who's got the topic
+
+785
+00:44:24,780 --> 00:44:27,780
+Spade
+
+786
+00:44:29,760 --> 00:44:34,099
+it's just a problem with USB stick
+
+787
+00:44:34,680 --> 00:44:37,220
+okay
+
+788
+00:44:41,280 --> 00:44:48,839
+now what is that so okay so now we need
+
+789
+00:44:44,400 --> 00:44:53,480
+a function that Returns the file size
+
+790
+00:44:48,839 --> 00:44:53,480
+so maybe it's these file attributes
+
+791
+00:44:59,819 --> 00:45:05,579
+I have never
+
+792
+00:45:02,819 --> 00:45:08,819
+in emac bisp
+
+793
+00:45:05,579 --> 00:45:12,240
+tried to do this before
+
+794
+00:45:08,819 --> 00:45:16,140
+so you got there it is file attribute
+
+795
+00:45:12,240 --> 00:45:20,760
+size the size of file in bytes okay
+
+796
+00:45:16,140 --> 00:45:24,119
+so this is a function file attributes
+
+797
+00:45:20,760 --> 00:45:28,280
+and returns a list of attributes of file
+
+798
+00:45:24,119 --> 00:45:28,280
+okay if the uh
+
+799
+00:45:29,220 --> 00:45:35,760
+let's just try file attributes file name
+
+800
+00:45:32,280 --> 00:45:38,180
+in optional ID format okay let's just
+
+801
+00:45:35,760 --> 00:45:38,180
+try it
+
+802
+00:45:43,619 --> 00:45:50,099
+there it is that's what we want okay so
+
+803
+00:45:47,280 --> 00:45:52,819
+file attribute now let's try it so let's
+
+804
+00:45:50,099 --> 00:45:57,599
+just paste it here copy the current
+
+805
+00:45:52,819 --> 00:46:01,200
+buffers file path put it here and let's
+
+806
+00:45:57,599 --> 00:46:03,599
+run it and see what it returns okay so
+
+807
+00:46:01,200 --> 00:46:08,599
+Ctrl U
+
+808
+00:46:03,599 --> 00:46:08,599
+okay so oh God this is nasty
+
+809
+00:46:12,060 --> 00:46:15,599
+okay so I guess
+
+810
+00:46:14,339 --> 00:46:17,940
+yeah
+
+811
+00:46:15,599 --> 00:46:19,800
+this is rather nasty
+
+812
+00:46:17,940 --> 00:46:22,200
+so you have to so this is what it
+
+813
+00:46:19,800 --> 00:46:26,040
+returns so but you have to
+
+814
+00:46:22,200 --> 00:46:29,359
+decrypt it like you want to get the part
+
+815
+00:46:26,040 --> 00:46:29,359
+that's file size
+
+816
+00:46:30,180 --> 00:46:36,540
+so the element of the listing order are
+
+817
+00:46:33,240 --> 00:46:38,339
+okay in order so size is number seven
+
+818
+00:46:36,540 --> 00:46:43,500
+okay
+
+819
+00:46:38,339 --> 00:46:49,160
+size number seven so you can say nth
+
+820
+00:46:43,500 --> 00:46:49,160
+seven okay so there it is
+
+821
+00:46:50,099 --> 00:46:53,780
+oh seven not two
+
+822
+00:46:55,500 --> 00:46:59,960
+okay you can see let's try again
+
+823
+00:47:00,300 --> 00:47:09,300
+there it is twenty six three five four
+
+824
+00:47:04,440 --> 00:47:10,740
+go to diet there it is indeed true so
+
+825
+00:47:09,300 --> 00:47:13,740
+that's the
+
+826
+00:47:10,740 --> 00:47:16,980
+so we got the file size okay so this is
+
+827
+00:47:13,740 --> 00:47:19,560
+how you do file size okay
+
+828
+00:47:16,980 --> 00:47:23,339
+now
+
+829
+00:47:19,560 --> 00:47:26,099
+okay now you need to integrate it into
+
+830
+00:47:23,339 --> 00:47:28,859
+this function here
+
+831
+00:47:26,099 --> 00:47:32,460
+so for each path
+
+832
+00:47:28,859 --> 00:47:34,740
+so you want to map function
+
+833
+00:47:32,460 --> 00:47:38,819
+if the file
+
+834
+00:47:34,740 --> 00:47:41,339
+the size is zero then
+
+835
+00:47:38,819 --> 00:47:44,460
+okay then you want to delete those okay
+
+836
+00:47:41,339 --> 00:47:47,720
+so now we create another variable X
+
+837
+00:47:44,460 --> 00:47:47,720
+empty okay
+
+838
+00:47:48,480 --> 00:47:52,980
+empty files let's just give it a better
+
+839
+00:47:51,300 --> 00:47:58,520
+name
+
+840
+00:47:52,980 --> 00:47:58,520
+so set empty files equal to
+
+841
+00:48:00,540 --> 00:48:05,119
+equals to You're Gonna Do
+
+842
+00:48:06,060 --> 00:48:13,859
+map uh how you're gonna do this
+
+843
+00:48:10,140 --> 00:48:16,920
+so we want to Traverse we want to map a
+
+844
+00:48:13,859 --> 00:48:19,500
+function to all X path
+
+845
+00:48:16,920 --> 00:48:23,579
+for each one you check the file size
+
+846
+00:48:19,500 --> 00:48:28,680
+okay so if it's equal
+
+847
+00:48:23,579 --> 00:48:32,359
+it's let's see uh three three yeah so we
+
+848
+00:48:28,680 --> 00:48:37,140
+can use equal EQ to check integer
+
+849
+00:48:32,359 --> 00:48:40,520
+comparison so if
+
+850
+00:48:37,140 --> 00:48:40,520
+it's zero
+
+851
+00:48:41,099 --> 00:48:43,700
+okay
+
+852
+00:48:45,480 --> 00:48:50,160
+and over here
+
+853
+00:48:48,480 --> 00:48:55,380
+it's
+
+854
+00:48:50,160 --> 00:48:59,400
+x file that X means the file okay so if
+
+855
+00:48:55,380 --> 00:49:02,240
+that's it's uh if that is true you want
+
+856
+00:48:59,400 --> 00:49:02,240
+to return it
+
+857
+00:49:03,000 --> 00:49:09,740
+okay so one way is one way to do this is
+
+858
+00:49:06,240 --> 00:49:12,319
+you you declare empty files to be a
+
+859
+00:49:09,740 --> 00:49:14,520
+empty list okay
+
+860
+00:49:12,319 --> 00:49:18,900
+uh so
+
+861
+00:49:14,520 --> 00:49:21,240
+instead of set you you don't set okay so
+
+862
+00:49:18,900 --> 00:49:24,000
+let me do it this way
+
+863
+00:49:21,240 --> 00:49:25,920
+yeah because you cannot map to it uh
+
+864
+00:49:24,000 --> 00:49:29,339
+actually you can but let's let's do it
+
+865
+00:49:25,920 --> 00:49:31,319
+this way okay so let's do it
+
+866
+00:49:29,339 --> 00:49:34,980
+this is kind of
+
+867
+00:49:31,319 --> 00:49:36,060
+not a functional way but it is a lisp
+
+868
+00:49:34,980 --> 00:49:39,780
+idiom
+
+869
+00:49:36,060 --> 00:49:43,099
+let me show you okay so what you do is
+
+870
+00:49:39,780 --> 00:49:43,099
+you map
+
+871
+00:49:43,260 --> 00:49:50,579
+for side effect you map a function to a
+
+872
+00:49:47,819 --> 00:49:55,520
+bunch of file paths and for each
+
+873
+00:49:50,579 --> 00:49:55,520
+function Lambda you check
+
+874
+00:49:57,420 --> 00:50:06,180
+you check if this is true okay so if
+
+875
+00:50:02,660 --> 00:50:11,460
+instead of if we can just just say when
+
+876
+00:50:06,180 --> 00:50:15,540
+when this is true then you push
+
+877
+00:50:11,460 --> 00:50:15,540
+that file to
+
+878
+00:50:17,160 --> 00:50:23,160
+to the list of empty files okay
+
+879
+00:50:20,400 --> 00:50:26,940
+so this is how you do it okay so let's
+
+880
+00:50:23,160 --> 00:50:30,540
+actually do more cleanup yeah this is
+
+881
+00:50:26,940 --> 00:50:32,579
+hideous and anyway so you know this so
+
+882
+00:50:30,540 --> 00:50:35,160
+much indentation
+
+883
+00:50:32,579 --> 00:50:38,000
+so anyway so this
+
+884
+00:50:35,160 --> 00:50:38,000
+will do it
+
+885
+00:50:39,480 --> 00:50:46,859
+uh in fact this part actually we can
+
+886
+00:50:43,980 --> 00:50:50,160
+just move it here too
+
+887
+00:50:46,859 --> 00:50:52,319
+so that's more symmetric so we have two
+
+888
+00:50:50,160 --> 00:50:57,480
+variables
+
+889
+00:50:52,319 --> 00:51:02,880
+okay then we map if it's zero size we
+
+890
+00:50:57,480 --> 00:51:04,920
+push it to empty files then we return
+
+891
+00:51:02,880 --> 00:51:06,260
+empty files okay
+
+892
+00:51:04,920 --> 00:51:09,480
+so
+
+893
+00:51:06,260 --> 00:51:13,940
+evaluate the function
+
+894
+00:51:09,480 --> 00:51:13,940
+call it there it is now
+
+895
+00:51:16,020 --> 00:51:20,460
+let's let's do it again okay so remove
+
+896
+00:51:18,900 --> 00:51:22,020
+this part
+
+897
+00:51:20,460 --> 00:51:26,280
+control
+
+898
+00:51:22,020 --> 00:51:29,160
+U 0 Co last sixth
+
+899
+00:51:26,280 --> 00:51:30,540
+okay it's still huge I think we still
+
+900
+00:51:29,160 --> 00:51:33,240
+got it wrong
+
+901
+00:51:30,540 --> 00:51:36,359
+let's open this file oh that's correct
+
+902
+00:51:33,240 --> 00:51:37,740
+let's go to the diet zero you see
+
+903
+00:51:36,359 --> 00:51:41,460
+correct
+
+904
+00:51:37,740 --> 00:51:44,880
+let's open this file it's empty correct
+
+905
+00:51:41,460 --> 00:51:47,579
+open this file empty correct so if you
+
+906
+00:51:44,880 --> 00:51:51,559
+go to diode you see right now let's
+
+907
+00:51:47,579 --> 00:51:51,559
+shrink okay so you can see
+
+908
+00:51:52,619 --> 00:51:57,599
+now they are arranged the file are
+
+909
+00:51:54,839 --> 00:52:00,540
+arranged by name by file name so this
+
+910
+00:51:57,599 --> 00:52:03,059
+this these are my 10 files
+
+911
+00:52:00,540 --> 00:52:06,180
+every time I have a buffer that's not
+
+912
+00:52:03,059 --> 00:52:09,240
+empty and I close it it will be saved
+
+913
+00:52:06,180 --> 00:52:12,300
+into this temp directory just in case I
+
+914
+00:52:09,240 --> 00:52:15,900
+want it back so periodically I delete
+
+915
+00:52:12,300 --> 00:52:18,480
+you know a whole bunch of files here but
+
+916
+00:52:15,900 --> 00:52:21,960
+in the past some of the file is zero
+
+917
+00:52:18,480 --> 00:52:26,220
+size you see zero zero so I want to sort
+
+918
+00:52:21,960 --> 00:52:28,559
+this dial directory to see on you know
+
+919
+00:52:26,220 --> 00:52:30,480
+to sort them by file size so I can call
+
+920
+00:52:28,559 --> 00:52:35,160
+a command
+
+921
+00:52:30,480 --> 00:52:38,900
+uh I have egg sauce salt
+
+922
+00:52:35,160 --> 00:52:38,900
+diet Salt yeah
+
+923
+00:52:39,540 --> 00:52:42,260
+let's do it again
+
+924
+00:52:42,859 --> 00:52:51,480
+diet sword okay
+
+925
+00:52:45,660 --> 00:52:53,160
+do it and okay complete sort by
+
+926
+00:52:51,480 --> 00:52:56,579
+size
+
+927
+00:52:53,160 --> 00:52:59,280
+okay so now you can see all the files
+
+928
+00:52:56,579 --> 00:53:01,260
+are sorted by size now if we go all the
+
+929
+00:52:59,280 --> 00:53:06,500
+way to the bottom
+
+930
+00:53:01,260 --> 00:53:06,500
+you can see we have all these zero
+
+931
+00:53:06,599 --> 00:53:13,020
+uh file of size zero okay so now we go
+
+932
+00:53:11,280 --> 00:53:15,420
+back to our code
+
+933
+00:53:13,020 --> 00:53:17,940
+oh we have so this code is basically
+
+934
+00:53:15,420 --> 00:53:20,700
+correct let's check a few
+
+935
+00:53:17,940 --> 00:53:23,000
+open it it's empty
+
+936
+00:53:20,700 --> 00:53:25,800
+open it it's empty
+
+937
+00:53:23,000 --> 00:53:30,180
+open it it's empty so it's all basically
+
+938
+00:53:25,800 --> 00:53:32,700
+all correct okay so now remove that
+
+939
+00:53:30,180 --> 00:53:35,540
+basically this is our code okay let's
+
+940
+00:53:32,700 --> 00:53:35,540
+clean up
+
+941
+00:53:41,099 --> 00:53:46,680
+this is uh this you know you know this
+
+942
+00:53:44,579 --> 00:53:49,520
+it's got this issue so anyway this let's
+
+943
+00:53:46,680 --> 00:53:49,520
+put it this way
+
+944
+00:53:49,740 --> 00:53:58,280
+so Eva that so now one more thing we
+
+945
+00:53:53,520 --> 00:54:01,020
+need to do we want to map a
+
+946
+00:53:58,280 --> 00:54:04,380
+delete file oh this is actually just
+
+947
+00:54:01,020 --> 00:54:06,839
+these empty files okay so
+
+948
+00:54:04,380 --> 00:54:09,300
+yeah this command is just this uh this
+
+949
+00:54:06,839 --> 00:54:11,599
+empty files so we just so that's that's
+
+950
+00:54:09,300 --> 00:54:11,599
+it
+
+951
+00:54:12,839 --> 00:54:19,500
+that's it actually we can print them so
+
+952
+00:54:17,160 --> 00:54:21,839
+let's print them okay
+
+953
+00:54:19,500 --> 00:54:24,420
+so instead so we don't have to like
+
+954
+00:54:21,839 --> 00:54:26,960
+manually you know do stuff so let's
+
+955
+00:54:24,420 --> 00:54:26,960
+print them
+
+956
+00:54:29,540 --> 00:54:34,800
+okay map function
+
+957
+00:54:33,240 --> 00:54:36,960
+to
+
+958
+00:54:34,800 --> 00:54:39,839
+empty files
+
+959
+00:54:36,960 --> 00:54:42,559
+actually we want to return empty files
+
+960
+00:54:39,839 --> 00:54:46,619
+map car
+
+961
+00:54:42,559 --> 00:54:49,940
+actually map C so map function so all we
+
+962
+00:54:46,619 --> 00:54:49,940
+have to do is just
+
+963
+00:54:50,339 --> 00:54:54,020
+message it okay
+
+964
+00:54:57,900 --> 00:55:00,900
+uh
+
+965
+00:55:01,760 --> 00:55:09,020
+evaluate it and
+
+966
+00:55:05,460 --> 00:55:14,460
+delete that code
+
+967
+00:55:09,020 --> 00:55:18,119
+list empty files do it okay now go to
+
+968
+00:55:14,460 --> 00:55:20,099
+messages buffer now you can see
+
+969
+00:55:18,119 --> 00:55:21,780
+these are
+
+970
+00:55:20,099 --> 00:55:25,619
+all the files
+
+971
+00:55:21,780 --> 00:55:27,359
+fantastic okay now let's meanwhile let's
+
+972
+00:55:25,619 --> 00:55:30,500
+just write another command to delete
+
+973
+00:55:27,359 --> 00:55:30,500
+them okay so
+
+974
+00:55:36,900 --> 00:55:39,559
+delete
+
+975
+00:55:42,000 --> 00:55:50,180
+TV empty files so all we have to do now
+
+976
+00:55:45,119 --> 00:55:50,180
+is just to call the list
+
+977
+00:56:07,800 --> 00:56:13,760
+map a function to it and this function
+
+978
+00:56:10,859 --> 00:56:13,760
+will delete it
+
+979
+00:56:14,700 --> 00:56:21,780
+okay so this function will just
+
+980
+00:56:17,880 --> 00:56:24,559
+DD the file okay
+
+981
+00:56:21,780 --> 00:56:24,559
+that's it
+
+982
+00:56:27,180 --> 00:56:32,180
+okay so we first of all get the list and
+
+983
+00:56:29,760 --> 00:56:35,880
+let's let's just call it okay
+
+984
+00:56:32,180 --> 00:56:42,599
+evaluate it and now
+
+985
+00:56:35,880 --> 00:56:46,319
+X start delete empty files do it okay
+
+986
+00:56:42,599 --> 00:56:49,800
+now drop to directory add
+
+987
+00:56:46,319 --> 00:56:55,260
+can you see all these empty files at the
+
+988
+00:56:49,800 --> 00:56:57,180
+bottom now type G to refresh do it it's
+
+989
+00:56:55,260 --> 00:56:58,980
+all good
+
+990
+00:56:57,180 --> 00:57:03,180
+fantastic
+
+991
+00:56:58,980 --> 00:57:06,900
+okay so now we got two files
+
+992
+00:57:03,180 --> 00:57:11,400
+this I mean we got two functions
+
+993
+00:57:06,900 --> 00:57:14,460
+color it show in HTML so today we wrote
+
+994
+00:57:11,400 --> 00:57:17,599
+basically three functions okay let's
+
+995
+00:57:14,460 --> 00:57:20,760
+look what do you think of Norman
+
+996
+00:57:17,599 --> 00:57:22,220
+wee buggers criticism of the real number
+
+997
+00:57:20,760 --> 00:57:25,020
+system
+
+998
+00:57:22,220 --> 00:57:29,339
+it's a tough question
+
+999
+00:57:25,020 --> 00:57:31,680
+or Flavio I don't know the answer okay
+
+1000
+00:57:29,339 --> 00:57:35,460
+because I don't even know
+
+1001
+00:57:31,680 --> 00:57:40,099
+my weed Burger criticism of the real
+
+1002
+00:57:35,460 --> 00:57:40,099
+number system let's see who he is
+
+1003
+00:57:41,819 --> 00:57:49,640
+Divine proportions rational trigonometry
+
+1004
+00:57:45,180 --> 00:57:49,640
+to Universal trigonometry
+
+1005
+00:57:53,420 --> 00:57:59,839
+tangential thoughts
+
+1006
+00:57:56,119 --> 00:58:04,859
+mathematical ruminations you know that
+
+1007
+00:57:59,839 --> 00:58:07,800
+so far this guy looks like a crackpot
+
+1008
+00:58:04,859 --> 00:58:10,380
+you know in mathematics there are a huge
+
+1009
+00:58:07,800 --> 00:58:13,740
+number of crack parts
+
+1010
+00:58:10,380 --> 00:58:17,819
+you know but so far the way you know
+
+1011
+00:58:13,740 --> 00:58:20,460
+these titles this homepage you know it
+
+1012
+00:58:17,819 --> 00:58:23,400
+sounds like a crackpot but we don't know
+
+1013
+00:58:20,460 --> 00:58:24,119
+for sure so we let's look at
+
+1014
+00:58:23,400 --> 00:58:26,700
+um
+
+1015
+00:58:24,119 --> 00:58:31,220
+this Wikipedia and what is his name
+
+1016
+00:58:26,700 --> 00:58:33,000
+Norman wilburg okay let's search for
+
+1017
+00:58:31,220 --> 00:58:36,540
+Norman
+
+1018
+00:58:33,000 --> 00:58:39,980
+okay so so
+
+1019
+00:58:36,540 --> 00:58:43,980
+Divine proportions rational trigonometry
+
+1020
+00:58:39,980 --> 00:58:47,720
+to Universal trigonometry is a 2005 book
+
+1021
+00:58:43,980 --> 00:58:51,480
+by the mathematician Norman J wielberg
+
+1022
+00:58:47,720 --> 00:58:54,359
+on a proposed alternative approach to
+
+1023
+00:58:51,480 --> 00:58:57,900
+euclidean geometry and trigonometry
+
+1024
+00:58:54,359 --> 00:59:01,740
+called rational trigonometry okay so
+
+1025
+00:58:57,900 --> 00:59:05,099
+it's a proposed alternative approach to
+
+1026
+00:59:01,740 --> 00:59:08,400
+euclidean geometry and trigonometry okay
+
+1027
+00:59:05,099 --> 00:59:11,099
+Ukrainian geometry and trigonometry so
+
+1028
+00:59:08,400 --> 00:59:13,819
+it's a low level high school level
+
+1029
+00:59:11,099 --> 00:59:18,240
+geometry
+
+1030
+00:59:13,819 --> 00:59:21,059
+but it's taking a he's trying to
+
+1031
+00:59:18,240 --> 00:59:24,180
+use a alternative approach probably
+
+1032
+00:59:21,059 --> 00:59:25,980
+meaning teaching
+
+1033
+00:59:24,180 --> 00:59:27,420
+you know is it teaching or Foundation
+
+1034
+00:59:25,980 --> 00:59:28,559
+we'll find out
+
+1035
+00:59:27,420 --> 00:59:31,380
+and
+
+1036
+00:59:28,559 --> 00:59:33,660
+currently it's proposed okay so that's
+
+1037
+00:59:31,380 --> 00:59:36,680
+why I say it's a crackpot like I mean
+
+1038
+00:59:33,660 --> 00:59:39,119
+this is not part of the
+
+1039
+00:59:36,680 --> 00:59:42,660
+established mathematics but let's read
+
+1040
+00:59:39,119 --> 00:59:45,859
+on the book Advocates replacing the
+
+1041
+00:59:42,660 --> 00:59:49,760
+usual basic quantities of trigonometry
+
+1042
+00:59:45,859 --> 00:59:53,819
+euclidean distance and angle measure
+
+1043
+00:59:49,760 --> 00:59:56,220
+by square the distance and the square of
+
+1044
+00:59:53,819 --> 00:59:59,099
+the sign of the angle
+
+1045
+00:59:56,220 --> 01:00:01,140
+okay so you replace the concept of
+
+1046
+00:59:59,099 --> 01:00:03,359
+distance the you know the standard
+
+1047
+01:00:01,140 --> 01:00:06,660
+concept of distance in euclidean
+
+1048
+01:00:03,359 --> 01:00:09,359
+Geometry by the squared distance okay
+
+1049
+01:00:06,660 --> 01:00:14,099
+and you replace the standard concept of
+
+1050
+01:00:09,359 --> 01:00:16,260
+angle by the sign of the angle okay and
+
+1051
+01:00:14,099 --> 01:00:19,020
+this is logically equivalent to the
+
+1052
+01:00:16,260 --> 01:00:21,420
+standard standard development
+
+1053
+01:00:19,020 --> 01:00:23,099
+as the replacement of quantities can be
+
+1054
+01:00:21,420 --> 01:00:24,420
+expressed in terms of standard once in
+
+1055
+01:00:23,099 --> 01:00:28,200
+vice versa
+
+1056
+01:00:24,420 --> 01:00:31,200
+yeah okay the author claims his approach
+
+1057
+01:00:28,200 --> 01:00:35,760
+holds some advantages such as avoiding
+
+1058
+01:00:31,200 --> 01:00:38,180
+the need for irrational numbers okay I
+
+1059
+01:00:35,760 --> 01:00:38,180
+can see
+
+1060
+01:00:38,579 --> 01:00:41,819
+um
+
+1061
+01:00:39,180 --> 01:00:43,079
+you know so he basically want to replace
+
+1062
+01:00:41,819 --> 01:00:46,200
+the
+
+1063
+01:00:43,079 --> 01:00:49,380
+cons the sense of Distance by square
+
+1064
+01:00:46,200 --> 01:00:51,839
+distance and the sense of angle by
+
+1065
+01:00:49,380 --> 01:00:54,900
+by sine of the angle
+
+1066
+01:00:51,839 --> 01:00:57,240
+while everything Remains the Same so you
+
+1067
+01:00:54,900 --> 01:00:58,559
+know it's just the extra
+
+1068
+01:00:57,240 --> 01:01:02,160
+step
+
+1069
+01:00:58,559 --> 01:01:03,119
+so but his argument is that when you do
+
+1070
+01:01:02,160 --> 01:01:06,500
+this
+
+1071
+01:01:03,119 --> 01:01:08,900
+things will become simpler in particular
+
+1072
+01:01:06,500 --> 01:01:12,920
+you will avoid
+
+1073
+01:01:08,900 --> 01:01:12,920
+irrational numbers okay
+
+1074
+01:01:13,859 --> 01:01:19,500
+okay so so the book was essentially
+
+1075
+01:01:16,680 --> 01:01:21,299
+essentially self-published okay that's
+
+1076
+01:01:19,500 --> 01:01:23,040
+typically what
+
+1077
+01:01:21,299 --> 01:01:27,480
+crackpots do
+
+1078
+01:01:23,040 --> 01:01:30,780
+uh but I mean not necessarily bad I mean
+
+1079
+01:01:27,480 --> 01:01:34,200
+he you know but anyway overall this is
+
+1080
+01:01:30,780 --> 01:01:36,780
+Trivial I mean this is not a like a
+
+1081
+01:01:34,200 --> 01:01:37,980
+significant advancement it's actually
+
+1082
+01:01:36,780 --> 01:01:40,799
+it's just
+
+1083
+01:01:37,980 --> 01:01:43,859
+it's nothing much you know it's just
+
+1084
+01:01:40,799 --> 01:01:46,319
+um nothing much it's not a theory
+
+1085
+01:01:43,859 --> 01:01:48,420
+he just believes that if you do this
+
+1086
+01:01:46,319 --> 01:01:51,740
+Things become simpler you avoid
+
+1087
+01:01:48,420 --> 01:01:51,740
+irrational numbers
+
+1088
+01:01:52,380 --> 01:01:54,500
+um
+
+1089
+01:01:55,380 --> 01:01:59,940
+uh I guess that was so that means you
+
+1090
+01:01:58,799 --> 01:02:04,920
+avoid
+
+1091
+01:01:59,940 --> 01:02:07,579
+you will avoid irrational numbers in in
+
+1092
+01:02:04,920 --> 01:02:07,579
+distances
+
+1093
+01:02:08,760 --> 01:02:15,119
+right so because normally for example if
+
+1094
+01:02:11,940 --> 01:02:17,040
+you have a right angle let's say a
+
+1095
+01:02:15,119 --> 01:02:20,280
+triangle of equal
+
+1096
+01:02:17,040 --> 01:02:23,040
+you know with two angles at right angle
+
+1097
+01:02:20,280 --> 01:02:26,240
+and they are the same length and the
+
+1098
+01:02:23,040 --> 01:02:30,240
+other part is hypotenuse you know
+
+1099
+01:02:26,240 --> 01:02:33,599
+hypotenuse something so the distance of
+
+1100
+01:02:30,240 --> 01:02:35,940
+that is x squared plus y squared
+
+1101
+01:02:33,599 --> 01:02:40,500
+and square root right
+
+1102
+01:02:35,940 --> 01:02:43,920
+but now if you use his way his approach
+
+1103
+01:02:40,500 --> 01:02:45,240
+where the distance is replaced by square
+
+1104
+01:02:43,920 --> 01:02:48,660
+of the distance
+
+1105
+01:02:45,240 --> 01:02:51,780
+so if you use his approach then then the
+
+1106
+01:02:48,660 --> 01:02:55,260
+distance of the hypotenuse is no longer
+
+1107
+01:02:51,780 --> 01:02:57,720
+the square root it's just x x squared
+
+1108
+01:02:55,260 --> 01:03:01,260
+plus y squared
+
+1109
+01:02:57,720 --> 01:03:04,579
+right so in that way you get rid of
+
+1110
+01:03:01,260 --> 01:03:04,579
+irrational numbers
+
+1111
+01:03:06,420 --> 01:03:09,780
+um
+
+1112
+01:03:07,380 --> 01:03:12,599
+you know but we have to think about what
+
+1113
+01:03:09,780 --> 01:03:15,240
+are the consequences I mean okay so
+
+1114
+01:03:12,599 --> 01:03:17,220
+overview the main the idea of divine
+
+1115
+01:03:15,240 --> 01:03:21,660
+proportion is to replace Distance by
+
+1116
+01:03:17,220 --> 01:03:26,640
+that and and which he calls it quadrants
+
+1117
+01:03:21,660 --> 01:03:30,420
+okay and to replace angle by
+
+1118
+01:03:26,640 --> 01:03:33,599
+by the squares of their signs Oh by
+
+1119
+01:03:30,420 --> 01:03:36,059
+squares of the signs okay
+
+1120
+01:03:33,599 --> 01:03:37,859
+oh yeah by the square of sine not just
+
+1121
+01:03:36,059 --> 01:03:40,920
+sine okay
+
+1122
+01:03:37,859 --> 01:03:42,960
+and which he calls spread you know this
+
+1123
+01:03:40,920 --> 01:03:45,540
+these scrap Parts usually have a lot of
+
+1124
+01:03:42,960 --> 01:03:49,020
+jargons okay so Divine proportions
+
+1125
+01:03:45,540 --> 01:03:52,740
+Define both of these concept okay
+
+1126
+01:03:49,020 --> 01:03:55,579
+for real Burger a finite test this
+
+1127
+01:03:52,740 --> 01:03:58,799
+replacement has a purported advantage of
+
+1128
+01:03:55,579 --> 01:04:01,859
+advantage of avoiding the concept limits
+
+1129
+01:03:58,799 --> 01:04:04,680
+actually Infinity use in divining real
+
+1130
+01:04:01,859 --> 01:04:08,579
+numbers okay
+
+1131
+01:04:04,680 --> 01:04:12,059
+okay uh organization and topics okay
+
+1132
+01:04:08,579 --> 01:04:14,299
+audience critical reception okay let's
+
+1133
+01:04:12,059 --> 01:04:14,299
+see
+
+1134
+01:04:15,540 --> 01:04:21,599
+okay it's mostly positively
+
+1135
+01:04:18,619 --> 01:04:25,099
+received okay what is your question
+
+1136
+01:04:21,599 --> 01:04:25,099
+so what do I think of it
+
+1137
+01:04:25,380 --> 01:04:30,200
+Open Access only 12 pages okay
+
+1138
+01:04:30,420 --> 01:04:35,640
+okay so let's let's quickly see what is
+
+1139
+01:04:33,480 --> 01:04:38,579
+overall picture so
+
+1140
+01:04:35,640 --> 01:04:41,599
+let's see this critical exact uh
+
+1141
+01:04:38,579 --> 01:04:41,599
+critical reception
+
+1142
+01:04:45,180 --> 01:04:51,540
+so but overall this is Elementary
+
+1143
+01:04:48,440 --> 01:04:54,000
+geometry I mean there's no big theory
+
+1144
+01:04:51,540 --> 01:04:56,900
+about it
+
+1145
+01:04:54,000 --> 01:04:56,900
+uh
+
+1146
+01:05:24,059 --> 01:05:30,540
+okay uh
+
+1147
+01:05:26,180 --> 01:05:33,599
+this you know he will take a a while to
+
+1148
+01:05:30,540 --> 01:05:35,220
+actually review yeah but so far it's
+
+1149
+01:05:33,599 --> 01:05:39,000
+just the basic
+
+1150
+01:05:35,220 --> 01:05:43,440
+geometry so it says an advantage of
+
+1151
+01:05:39,000 --> 01:05:45,240
+wheel Burgers methods noted by Hindi is
+
+1152
+01:05:43,440 --> 01:05:47,640
+that because they involve only simple
+
+1153
+01:05:45,240 --> 01:05:49,440
+algebra the proofs are both easy to
+
+1154
+01:05:47,640 --> 01:05:51,960
+follow and easy to our computer to
+
+1155
+01:05:49,440 --> 01:05:55,260
+verify however He suggests that the
+
+1156
+01:05:51,960 --> 01:05:58,859
+book's claim of Greater Simplicity in
+
+1157
+01:05:55,260 --> 01:06:02,579
+its overall Theory less than a force
+
+1158
+01:05:58,859 --> 01:06:03,660
+comparison in which quadrants in spread
+
+1159
+01:06:02,579 --> 01:06:06,780
+are
+
+1160
+01:06:03,660 --> 01:06:09,299
+waited not against the corresponding
+
+1161
+01:06:06,780 --> 01:06:12,000
+classical concept of distance angles and
+
+1162
+01:06:09,299 --> 01:06:15,059
+signs but the much wider set of tools
+
+1163
+01:06:12,000 --> 01:06:16,619
+from classical trigonometry he also
+
+1164
+01:06:15,059 --> 01:06:19,160
+pointed out to a student with a
+
+1165
+01:06:16,619 --> 01:06:21,540
+scientific calculator I don't think it's
+
+1166
+01:06:19,160 --> 01:06:24,780
+I don't think it's good
+
+1167
+01:06:21,540 --> 01:06:28,500
+yeah so in general in summary my quick
+
+1168
+01:06:24,780 --> 01:06:31,020
+review is that this is nothing but as
+
+1169
+01:06:28,500 --> 01:06:35,299
+the as today's
+
+1170
+01:06:31,020 --> 01:06:35,299
+slang it doesn't do anything
+
+1171
+01:06:35,339 --> 01:06:42,180
+it's not a new Theory it's not a new
+
+1172
+01:06:38,579 --> 01:06:44,460
+field it's simply that he thinks by this
+
+1173
+01:06:42,180 --> 01:06:48,960
+extra calculation you
+
+1174
+01:06:44,460 --> 01:06:53,839
+you avoid irrationals but
+
+1175
+01:06:48,960 --> 01:06:53,839
+to what degree I'm not even sure you can
+
+1176
+01:06:54,599 --> 01:07:00,319
+yeah
+
+1177
+01:06:55,980 --> 01:07:00,319
+so anyway that's the that's the article
+
+1178
+01:07:01,079 --> 01:07:07,140
+okay so apparently there is another book
+
+1179
+01:07:04,140 --> 01:07:09,960
+or article real numbers a critique and
+
+1180
+01:07:07,140 --> 01:07:12,619
+the way forward okay let's look at that
+
+1181
+01:07:09,960 --> 01:07:12,619
+maybe
+
+1182
+01:07:16,380 --> 01:07:21,720
+okay so so far my impression this is
+
+1183
+01:07:20,220 --> 01:07:25,140
+this is
+
+1184
+01:07:21,720 --> 01:07:29,400
+um is this is kind of Crack part thing
+
+1185
+01:07:25,140 --> 01:07:32,400
+okay I don't think you should buy it uh
+
+1186
+01:07:29,400 --> 01:07:34,799
+this is kind of you know doesn't do
+
+1187
+01:07:32,400 --> 01:07:37,140
+anything I mean even though you
+
+1188
+01:07:34,799 --> 01:07:40,020
+mentioned you know real numbers critique
+
+1189
+01:07:37,140 --> 01:07:42,299
+and forward that's crap you know because
+
+1190
+01:07:40,020 --> 01:07:45,539
+that idea he's talking about real
+
+1191
+01:07:42,299 --> 01:07:47,520
+numbers you know he's already he's kind
+
+1192
+01:07:45,539 --> 01:07:49,980
+of already showing it here so he's
+
+1193
+01:07:47,520 --> 01:07:52,799
+saying that if you don't want irrational
+
+1194
+01:07:49,980 --> 01:07:55,799
+numbers this is what you do but that's
+
+1195
+01:07:52,799 --> 01:07:58,380
+that's just you know that's just adding
+
+1196
+01:07:55,799 --> 01:07:59,520
+an extra computation
+
+1197
+01:07:58,380 --> 01:08:00,960
+you know
+
+1198
+01:07:59,520 --> 01:08:04,440
+um
+
+1199
+01:08:00,960 --> 01:08:07,020
+so now what I am interested so far is to
+
+1200
+01:08:04,440 --> 01:08:10,280
+look into the background of this sky
+
+1201
+01:08:07,020 --> 01:08:14,700
+so you know he self-published this book
+
+1202
+01:08:10,280 --> 01:08:17,640
+and this is his home page and he's uh
+
+1203
+01:08:14,700 --> 01:08:19,259
+you know it doesn't does it say he's a
+
+1204
+01:08:17,640 --> 01:08:22,739
+professor of anywhere
+
+1205
+01:08:19,259 --> 01:08:25,440
+oh he is a professor okay
+
+1206
+01:08:22,739 --> 01:08:29,880
+so let's look at his uh so he's a
+
+1207
+01:08:25,440 --> 01:08:31,500
+professor so I mean he's not a you know
+
+1208
+01:08:29,880 --> 01:08:33,600
+some crazy
+
+1209
+01:08:31,500 --> 01:08:35,400
+guy but
+
+1210
+01:08:33,600 --> 01:08:39,420
+he's a professor of mathematic
+
+1211
+01:08:35,400 --> 01:08:41,580
+mathematics he teaches mathematics but
+
+1212
+01:08:39,420 --> 01:08:45,960
+he has this idea
+
+1213
+01:08:41,580 --> 01:08:49,199
+which is you know he he's got this idea
+
+1214
+01:08:45,960 --> 01:08:52,440
+that he think he's better in
+
+1215
+01:08:49,199 --> 01:08:54,660
+okay so he has written
+
+1216
+01:08:52,440 --> 01:08:57,620
+yeah anyway so he's a mathematician
+
+1217
+01:08:54,660 --> 01:08:57,620
+right he's a
+
+1218
+01:08:57,719 --> 01:09:00,739
+you know uh
+
+1219
+01:09:01,380 --> 01:09:07,140
+at least he's a recognized mathematician
+
+1220
+01:09:04,859 --> 01:09:11,279
+a professor
+
+1221
+01:09:07,140 --> 01:09:12,839
+so there is nothing wrong what with what
+
+1222
+01:09:11,279 --> 01:09:14,279
+he says
+
+1223
+01:09:12,839 --> 01:09:18,480
+but
+
+1224
+01:09:14,279 --> 01:09:21,560
+I think it's not necessarily
+
+1225
+01:09:18,480 --> 01:09:21,560
+you know the
+
+1226
+01:09:22,199 --> 01:09:27,660
+significant
+
+1227
+01:09:24,239 --> 01:09:30,359
+welcome to algebraic Calculus 1 2001
+
+1228
+01:09:27,660 --> 01:09:34,380
+hello algebraic calculus one course lot
+
+1229
+01:09:30,359 --> 01:09:36,660
+live so of flamio I need you watch a lot
+
+1230
+01:09:34,380 --> 01:09:41,880
+math videos is
+
+1231
+01:09:36,660 --> 01:09:43,859
+amazing but are you I think you know I I
+
+1232
+01:09:41,880 --> 01:09:46,380
+think you know if you are really
+
+1233
+01:09:43,859 --> 01:09:51,179
+interested you want to dive into
+
+1234
+01:09:46,380 --> 01:09:51,179
+Hands-On become a mathematician
+
+1235
+01:09:53,339 --> 01:09:58,199
+because otherwise what you're gonna do
+
+1236
+01:09:55,199 --> 01:10:00,260
+with this you know like
+
+1237
+01:09:58,199 --> 01:10:00,260
+um
+
+1238
+01:10:01,020 --> 01:10:04,580
+same thing with programming
+
+1239
+01:10:05,040 --> 01:10:10,440
+okay so an elementary course in pure
+
+1240
+01:10:07,620 --> 01:10:13,860
+method mathematics meant for a very
+
+1241
+01:10:10,440 --> 01:10:15,480
+broad audience okay he so he write a lot
+
+1242
+01:10:13,860 --> 01:10:18,540
+but
+
+1243
+01:10:15,480 --> 01:10:21,860
+but you know judging on these titles you
+
+1244
+01:10:18,540 --> 01:10:25,260
+know it's just like going nowhere
+
+1245
+01:10:21,860 --> 01:10:28,460
+Archimedes parabolic area formula for
+
+1246
+01:10:25,260 --> 01:10:28,460
+cubics okay
+
+1247
+01:10:29,760 --> 01:10:35,719
+pimpton
+
+1248
+01:10:31,280 --> 01:10:40,140
+primp 10 322 and
+
+1249
+01:10:35,719 --> 01:10:41,280
+Babylonian exact sexy small trigonometry
+
+1250
+01:10:40,140 --> 01:10:44,580
+okay
+
+1251
+01:10:41,280 --> 01:10:46,860
+yeah this you know he is let's endanger
+
+1252
+01:10:44,580 --> 01:10:49,560
+our children you know this
+
+1253
+01:10:46,860 --> 01:10:50,699
+you know they are not important theories
+
+1254
+01:10:49,560 --> 01:10:53,940
+or
+
+1255
+01:10:50,699 --> 01:10:56,460
+upcoming talk on Google gold back
+
+1256
+01:10:53,940 --> 01:10:59,120
+conjecture okay some exciting news I
+
+1257
+01:10:56,460 --> 01:11:03,360
+will next month be giving a talk okay
+
+1258
+01:10:59,120 --> 01:11:06,780
+we'll resolve the gold back conjecture
+
+1259
+01:11:03,360 --> 01:11:09,780
+that is a rather famous conjecture okay
+
+1260
+01:11:06,780 --> 01:11:13,920
+the talk will be in pure mathematics
+
+1261
+01:11:09,780 --> 01:11:16,280
+colloquium on November 2016 at
+
+1262
+01:11:13,920 --> 01:11:16,280
+University
+
+1263
+01:11:16,860 --> 01:11:23,000
+yeah he's you know it's not significant
+
+1264
+01:11:19,800 --> 01:11:23,000
+you know it's like
+
+1265
+01:11:26,280 --> 01:11:30,060
+you know but it's not yeah but you know
+
+1266
+01:11:28,560 --> 01:11:33,120
+it's
+
+1267
+01:11:30,060 --> 01:11:36,060
+I wouldn't you know I I would not for me
+
+1268
+01:11:33,120 --> 01:11:39,719
+I would not spend time to look into it
+
+1269
+01:11:36,060 --> 01:11:42,900
+yeah that's my that's what I think
+
+1270
+01:11:39,719 --> 01:11:46,460
+no finally let's look at that real
+
+1271
+01:11:42,900 --> 01:11:46,460
+number book let's see
+
+1272
+01:11:57,000 --> 01:12:04,860
+so he's one of the big math fan
+
+1273
+01:12:01,860 --> 01:12:04,860
+foreign
+
+1274
+01:12:05,940 --> 01:12:10,739
+this is just a single natural number to
+
+1275
+01:12:08,640 --> 01:12:14,460
+get a fraction we need two natural
+
+1276
+01:12:10,739 --> 01:12:15,600
+numbers separated by forward slash
+
+1277
+01:12:14,460 --> 01:12:18,719
+how
+
+1278
+01:12:15,600 --> 01:12:21,380
+okay that's how he looks he's got quite
+
+1279
+01:12:18,719 --> 01:12:21,380
+a few videos
+
+1280
+01:12:23,699 --> 01:12:27,080
+yeah but basically
+
+1281
+01:12:27,840 --> 01:12:32,280
+and see inside into mathematics let's
+
+1282
+01:12:30,659 --> 01:12:35,060
+click on his
+
+1283
+01:12:32,280 --> 01:12:35,060
+home page
+
+1284
+01:12:36,960 --> 01:12:42,179
+box arithmetics
+
+1285
+01:12:39,239 --> 01:12:47,040
+staff notation
+
+1286
+01:12:42,179 --> 01:12:50,400
+uh old guy sharp in Flats music
+
+1287
+01:12:47,040 --> 01:12:56,520
+box arithmetics
+
+1288
+01:12:50,400 --> 01:12:56,520
+uh yeah so mostly just elementary math
+
+1289
+01:12:56,699 --> 01:13:00,719
+yep
+
+1290
+01:12:58,260 --> 01:13:04,620
+so that's my opinion I don't think it's
+
+1291
+01:13:00,719 --> 01:13:07,760
+significant and I would not that's not a
+
+1292
+01:13:04,620 --> 01:13:11,179
+Direction I want to go if I'm gonna
+
+1293
+01:13:07,760 --> 01:13:11,179
+study more math
+
+1294
+01:13:12,060 --> 01:13:18,060
+okay that's it for today
+
+1295
+01:13:14,420 --> 01:13:19,860
+oh 70 minutes okay thank you guys for
+
+1296
+01:13:18,060 --> 01:13:22,640
+watching
+
+1297
+01:13:19,860 --> 01:13:22,640
+bye
+
+1298
+01:13:27,300 --> 01:13:33,020
+so we wrote three commands three or four
+
+1299
+01:13:30,480 --> 01:13:33,020
+okay
+

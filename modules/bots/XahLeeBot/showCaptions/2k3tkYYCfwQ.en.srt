@@ -1,0 +1,4572 @@
+1
+00:00:00,080 --> 00:00:04,240
+Hello, good morning. Good morning
+
+2
+00:00:01,600 --> 00:00:06,879
+everyone. Welcome to another episode of
+
+3
+00:00:04,240 --> 00:00:10,480
+Sad Talk Show. We are going to code Emac
+
+4
+00:00:06,879 --> 00:00:12,719
+Lisp today. Nothing but Emac Lisp. So,
+
+5
+00:00:10,480 --> 00:00:16,400
+let me introduce my keyboards. This is
+
+6
+00:00:12,719 --> 00:00:18,960
+glove 80. Fantastic. I have a review on
+
+7
+00:00:16,400 --> 00:00:21,119
+each one of them on YouTube. This is
+
+8
+00:00:18,960 --> 00:00:24,560
+ultimate hacking keyboard. Fantastic.
+
+9
+00:00:21,119 --> 00:00:29,679
+This is new trackboard. Fantastic. And
+
+10
+00:00:24,560 --> 00:00:33,040
+this thing is called board. S V A L B O
+
+11
+00:00:29,679 --> 00:00:36,399
+A R D. There are two parts. And this is
+
+12
+00:00:33,040 --> 00:00:38,800
+magnetic switch. Uh, fantastic. But I
+
+13
+00:00:36,399 --> 00:00:41,600
+haven't got to use uh I haven't used it
+
+14
+00:00:38,800 --> 00:00:44,800
+yet. I promised each video until I use
+
+15
+00:00:41,600 --> 00:00:48,160
+it every day. Each video I'll, you know,
+
+16
+00:00:44,800 --> 00:00:50,399
+shout out do a shout out. SV A L B O A R
+
+17
+00:00:48,160 --> 00:00:53,840
+D. Okay. I have an intro, but you can
+
+18
+00:00:50,399 --> 00:00:56,879
+watch other people's uh review on
+
+19
+00:00:53,840 --> 00:01:00,239
+YouTube. You'll find. Um, so let's do
+
+20
+00:00:56,879 --> 00:01:02,559
+Emacs. lisp. So it's pure emac bisp
+
+21
+00:01:00,239 --> 00:01:04,720
+coding. Hello talmid.
+
+22
+00:01:02,559 --> 00:01:08,880
+Pure emac this coding. We're just going
+
+23
+00:01:04,720 --> 00:01:12,560
+to focus on that. Okay. Uh stream bit is
+
+24
+00:01:08,880 --> 00:01:16,479
+my stream alive and well. So tell me.
+
+25
+00:01:12,560 --> 00:01:19,200
+Okay. So immac coding. So uh if you are
+
+26
+00:01:16,479 --> 00:01:21,920
+watching this offline play at 1.5 speed
+
+27
+00:01:19,200 --> 00:01:24,479
+or higher because I ramble just like Joe
+
+28
+00:01:21,920 --> 00:01:28,000
+Rogan monkey.
+
+29
+00:01:24,479 --> 00:01:31,759
+And now so now let's focus on this. So
+
+30
+00:01:28,000 --> 00:01:34,640
+there's a command we live streamed uh uh
+
+31
+00:01:31,759 --> 00:01:37,200
+about two month few month ago. So let's
+
+32
+00:01:34,640 --> 00:01:39,439
+let me show you. Okay. So for example I
+
+33
+00:01:37,200 --> 00:01:43,119
+have a number
+
+34
+00:01:39,439 --> 00:01:46,720
+okay so you see uh can you see let's see
+
+35
+00:01:43,119 --> 00:01:49,040
+check the uh check check. Okay 168. Now
+
+36
+00:01:46,720 --> 00:01:53,600
+I want to increase number. So normally
+
+37
+00:01:49,040 --> 00:01:58,079
+let's say I want to it be 189.
+
+38
+00:01:53,600 --> 00:02:01,360
+So you delete it then type 189 89 that's
+
+39
+00:01:58,079 --> 00:02:04,399
+tedious. Okay like usually so what I can
+
+40
+00:02:01,360 --> 00:02:06,799
+do let me show you press a key and I can
+
+41
+00:02:04,399 --> 00:02:09,440
+scroll the mouse wheel to increase or
+
+42
+00:02:06,799 --> 00:02:11,360
+decrease. You see fantastic or I can use
+
+43
+00:02:09,440 --> 00:02:13,760
+this mouse the other mouse you cannot
+
+44
+00:02:11,360 --> 00:02:15,840
+see but it's got a spin wheel. So it
+
+45
+00:02:13,760 --> 00:02:19,520
+just increase
+
+46
+00:02:15,840 --> 00:02:21,760
+this magnify. Okay. So for example the
+
+47
+00:02:19,520 --> 00:02:24,560
+command. Okay. So the command you can
+
+48
+00:02:21,760 --> 00:02:27,120
+see in the pink window increment number
+
+49
+00:02:24,560 --> 00:02:30,319
+on the right hand side and on the left
+
+50
+00:02:27,120 --> 00:02:33,599
+hand side is a keystrokes I used to type
+
+51
+00:02:30,319 --> 00:02:37,840
+that backspace is right here under my
+
+52
+00:02:33,599 --> 00:02:40,959
+left hand thumb right here. Uh and so
+
+53
+00:02:37,840 --> 00:02:43,680
+that command fantastic I can just uh
+
+54
+00:02:40,959 --> 00:02:48,239
+press a key to begin it. I can score the
+
+55
+00:02:43,680 --> 00:02:51,360
+mouse wheel up or down or I can press
+
+56
+00:02:48,239 --> 00:02:56,160
+the arrow key up up arrow or down arrow.
+
+57
+00:02:51,360 --> 00:02:59,040
+So we live streamed coding this um few
+
+58
+00:02:56,160 --> 00:03:04,000
+months ago. Let's see if we can find it.
+
+59
+00:02:59,040 --> 00:03:07,680
+Kasar talk show homepage. Okay on.infos
+
+60
+00:03:04,000 --> 00:03:10,640
+on my website without https no s. Okay.
+
+61
+00:03:07,680 --> 00:03:15,760
+So search for increment. Okay. Search
+
+62
+00:03:10,640 --> 00:03:20,239
+for there it is. Uh talk show 2025
+
+63
+00:03:15,760 --> 00:03:23,120
+January 23rd episode 69. Emac be coding
+
+64
+00:03:20,239 --> 00:03:26,560
+increment digit. Okay.
+
+65
+00:03:23,120 --> 00:03:29,920
+So uh increment so
+
+66
+00:03:26,560 --> 00:03:32,480
+but there's a issue we're going to fix.
+
+67
+00:03:29,920 --> 00:03:35,280
+Okay. So if you have a date, you know
+
+68
+00:03:32,480 --> 00:03:38,959
+let's you know today's date. So I want
+
+69
+00:03:35,280 --> 00:03:41,120
+to change it to tomorrow 9th. Okay. So
+
+70
+00:03:38,959 --> 00:03:44,560
+start the command it become you know it
+
+71
+00:03:41,120 --> 00:03:47,840
+dropped the zero padding.
+
+72
+00:03:44,560 --> 00:03:51,440
+So usually you know so that's annoying
+
+73
+00:03:47,840 --> 00:03:54,799
+undo. So we want to modify the command
+
+74
+00:03:51,440 --> 00:03:58,560
+so that it so whatever how many zeros in
+
+75
+00:03:54,799 --> 00:04:02,159
+front padding will be kept. Okay.
+
+76
+00:03:58,560 --> 00:04:05,439
+Okay. Let's do that.
+
+77
+00:04:02,159 --> 00:04:09,920
+So far so good. Hope you are well. Hi
+
+78
+00:04:05,439 --> 00:04:15,439
+audio. Hi qu. Uh, hi my goat. Uh, hi
+
+79
+00:04:09,920 --> 00:04:18,799
+audio. Okay, let's So, let's do Yeah.
+
+80
+00:04:15,439 --> 00:04:21,040
+Okay. So, let's do uh wait uh let's go
+
+81
+00:04:18,799 --> 00:04:23,840
+back. So, there's a command. So, let's
+
+82
+00:04:21,040 --> 00:04:26,639
+go to the source code. Uh let's see if
+
+83
+00:04:23,840 --> 00:04:29,840
+the source code is available online so
+
+84
+00:04:26,639 --> 00:04:32,080
+you can use it. No, it's not. Uh because
+
+85
+00:04:29,840 --> 00:04:35,759
+otherwise you'll have a URL. So, why
+
+86
+00:04:32,080 --> 00:04:38,160
+don't we make this command available
+
+87
+00:04:35,759 --> 00:04:41,520
+online? publish on my website so you
+
+88
+00:04:38,160 --> 00:04:43,840
+guys can grab it. Let's do that.
+
+89
+00:04:41,520 --> 00:04:46,400
+Uh as far as coding you you know you can
+
+90
+00:04:43,840 --> 00:04:48,800
+watch last you know the the video. So
+
+91
+00:04:46,400 --> 00:04:51,199
+we've done so let's just let's just
+
+92
+00:04:48,800 --> 00:04:54,560
+quickly create a URL for I mean put it
+
+93
+00:04:51,199 --> 00:04:56,960
+on my website. Okay.info
+
+94
+00:04:54,560 --> 00:04:59,120
+Emacs blog. Search for Emacs blog.
+
+95
+00:04:56,960 --> 00:05:04,080
+You'll find everything you want to know
+
+96
+00:04:59,120 --> 00:05:07,600
+about Emacs. There are like uh 700 pages
+
+97
+00:05:04,080 --> 00:05:12,400
+uh most comprehensive tutorial on Emacs
+
+98
+00:05:07,600 --> 00:05:14,960
+and Emacs in it on Emacs keys and Emacs
+
+99
+00:05:12,400 --> 00:05:19,360
+uh
+
+100
+00:05:14,960 --> 00:05:21,360
+and Emac list the language and uh uh you
+
+101
+00:05:19,360 --> 00:05:23,280
+know the EMAC list the language and how
+
+102
+00:05:21,360 --> 00:05:27,120
+to write the major mod everything. Okay,
+
+103
+00:05:23,280 --> 00:05:30,320
+that's the most popular Emacs and EMAC
+
+104
+00:05:27,120 --> 00:05:32,880
+list tutorial on the web. So let's see
+
+105
+00:05:30,320 --> 00:05:34,400
+uh Emacs block. So okay so let's write a
+
+106
+00:05:32,880 --> 00:05:36,960
+command. Where do you want that command
+
+107
+00:05:34,400 --> 00:05:39,520
+to be? So
+
+108
+00:05:36,960 --> 00:05:42,160
+uh so actually let's go faster. Okay. So
+
+109
+00:05:39,520 --> 00:05:45,520
+let's go faster. Let's just quickly put
+
+110
+00:05:42,160 --> 00:05:49,600
+the code on my website. So first of all
+
+111
+00:05:45,520 --> 00:05:52,639
+uh let me go to so that's part of the
+
+112
+00:05:49,600 --> 00:05:55,680
+Emacs commands. Okay. So you know so
+
+113
+00:05:52,639 --> 00:05:59,039
+there are all these EMAC command you can
+
+114
+00:05:55,680 --> 00:06:01,039
+copy. Okay. So copy that. So let me just
+
+115
+00:05:59,039 --> 00:06:03,840
+do it quickly. Okay. So what is this
+
+116
+00:06:01,039 --> 00:06:07,280
+page? Emacs blog. Okay. Create a new
+
+117
+00:06:03,840 --> 00:06:12,080
+section. Paste uh link. Okay. Then go
+
+118
+00:06:07,280 --> 00:06:14,960
+here and say clone file in link. Okay.
+
+119
+00:06:12,080 --> 00:06:19,520
+Then cut it and put it here. And here is
+
+120
+00:06:14,960 --> 00:06:22,560
+a new page and rename it. Uh ren rename
+
+121
+00:06:19,520 --> 00:06:24,400
+the link. So this is will be increment
+
+122
+00:06:22,560 --> 00:06:27,199
+number. Okay. So what is the command
+
+123
+00:06:24,400 --> 00:06:30,319
+name? Uh there it is. Kasa increment
+
+124
+00:06:27,199 --> 00:06:33,919
+number. Copy. Go back here. So the
+
+125
+00:06:30,319 --> 00:06:38,319
+command name is that. Okay. So rename
+
+126
+00:06:33,919 --> 00:06:41,360
+the file path uh emac increment number.
+
+127
+00:06:38,319 --> 00:06:44,720
+Okay. Let's just uh let's just say that
+
+128
+00:06:41,360 --> 00:06:46,880
+change change to underscore in uni code
+
+129
+00:06:44,720 --> 00:06:49,520
+name. That's called low line which is a
+
+130
+00:06:46,880 --> 00:06:53,440
+better name than the underscore. Okay.
+
+131
+00:06:49,520 --> 00:06:57,600
+So wait enter. Yeah. So wait I don't
+
+132
+00:06:53,440 --> 00:07:02,000
+want um well. Okay. So I don't want
+
+133
+00:06:57,600 --> 00:07:03,759
+hyphen. Um I want underscore. Okay. Now
+
+134
+00:07:02,000 --> 00:07:05,599
+there is something going on. Why is it
+
+135
+00:07:03,759 --> 00:07:09,479
+slow?
+
+136
+00:07:05,599 --> 00:07:09,479
+Something is not right.
+
+137
+00:07:09,840 --> 00:07:16,000
+Wait.
+
+138
+00:07:12,800 --> 00:07:20,400
+Okay. So anyway then title title is
+
+139
+00:07:16,000 --> 00:07:22,000
+going to be uh increment number. Okay.
+
+140
+00:07:20,400 --> 00:07:25,520
+Um
+
+141
+00:07:22,000 --> 00:07:27,680
+sac command actually.
+
+142
+00:07:25,520 --> 00:07:29,599
+Wait. Uh, actually I copied the wrong
+
+143
+00:07:27,680 --> 00:07:31,599
+page. Yeah, I don't want that page.
+
+144
+00:07:29,599 --> 00:07:34,720
+Okay, so actually let's do this all over
+
+145
+00:07:31,599 --> 00:07:37,759
+again. Open it. Delete the file. Uh,
+
+146
+00:07:34,720 --> 00:07:41,039
+then go to one of one of these command.
+
+147
+00:07:37,759 --> 00:07:44,160
+Go to the top general purpose command
+
+148
+00:07:41,039 --> 00:07:47,199
+buffer. Copy file path. Close. Close.
+
+149
+00:07:44,160 --> 00:07:52,960
+Okay. Put it here. Linkify it. Then go
+
+150
+00:07:47,199 --> 00:07:56,080
+here and clone file in link. So now
+
+151
+00:07:52,960 --> 00:07:58,960
+cut that link. Make a list. make a list.
+
+152
+00:07:56,080 --> 00:08:02,720
+Okay. And then rename this increment
+
+153
+00:07:58,960 --> 00:08:06,639
+number. Okay. So, rename the file path
+
+154
+00:08:02,720 --> 00:08:09,919
+uh emac. Okay. Uh increment number.
+
+155
+00:08:06,639 --> 00:08:14,400
+Delete delete that. Change change to
+
+156
+00:08:09,919 --> 00:08:17,520
+underscore increment number. Yes. Okay.
+
+157
+00:08:14,400 --> 00:08:21,120
+Then delete that. So this command name
+
+158
+00:08:17,520 --> 00:08:24,800
+will be called increment number. Okay.
+
+159
+00:08:21,120 --> 00:08:27,919
+So paste previous. There it is. Then
+
+160
+00:08:24,800 --> 00:08:29,919
+make them space and capitalize each
+
+161
+00:08:27,919 --> 00:08:32,320
+word.
+
+162
+00:08:29,919 --> 00:08:35,360
+Okay. Cuz I increment number. Okay. So
+
+163
+00:08:32,320 --> 00:08:38,320
+delete that. Open that and go back. Go
+
+164
+00:08:35,360 --> 00:08:41,839
+here. Paste it there. That's a command
+
+165
+00:08:38,320 --> 00:08:44,240
+we're going to uh do. And now and you
+
+166
+00:08:41,839 --> 00:08:48,560
+need to change the file title. So go
+
+167
+00:08:44,240 --> 00:08:52,880
+back here. So copy the
+
+168
+00:08:48,560 --> 00:08:56,240
+that uh inner text. Okay. D copy. Okay.
+
+169
+00:08:52,880 --> 00:08:58,240
+Now open it. Now rename the title and uh
+
+170
+00:08:56,240 --> 00:09:02,080
+rename the
+
+171
+00:08:58,240 --> 00:09:06,160
+rename the title and the H1. Okay. So
+
+172
+00:09:02,080 --> 00:09:10,480
+you there is a command like that. Then
+
+173
+00:09:06,160 --> 00:09:12,560
+you just say that. Okay. So that
+
+174
+00:09:10,480 --> 00:09:15,600
+fantastic. Can you see? Okay. Showing
+
+175
+00:09:12,560 --> 00:09:18,000
+browser. So this is a copy a clone of
+
+176
+00:09:15,600 --> 00:09:20,480
+the previous file. So we don't need the
+
+177
+00:09:18,000 --> 00:09:24,080
+previous section. So okay. But first of
+
+178
+00:09:20,480 --> 00:09:27,920
+all, change modify the updated date.
+
+179
+00:09:24,080 --> 00:09:30,480
+Okay, done. And you don't need uh the
+
+180
+00:09:27,920 --> 00:09:32,560
+other parts.
+
+181
+00:09:30,480 --> 00:09:35,519
+Uh
+
+182
+00:09:32,560 --> 00:09:38,320
+okay, because this is fresh file. And
+
+183
+00:09:35,519 --> 00:09:40,880
+then okay and actually the actually we
+
+184
+00:09:38,320 --> 00:09:43,440
+need that. Okay, then the section delete
+
+185
+00:09:40,880 --> 00:09:45,279
+section delete showing browser.
+
+186
+00:09:43,440 --> 00:09:49,040
+Fantastic and beautiful. Go back to
+
+187
+00:09:45,279 --> 00:09:50,560
+Emacs. Now copy the file path. Close.
+
+188
+00:09:49,040 --> 00:09:52,959
+Now,
+
+189
+00:09:50,560 --> 00:09:56,440
+rename this. Make sure it's correct.
+
+190
+00:09:52,959 --> 00:09:56,440
+Wait. Um,
+
+191
+00:09:56,480 --> 00:10:00,399
+what?
+
+192
+00:09:58,000 --> 00:10:03,519
+Okay. So,
+
+193
+00:10:00,399 --> 00:10:06,720
+yeah. So, showing browser. This is my
+
+194
+00:10:03,519 --> 00:10:09,839
+Emacs. That's a new file. Fantastic. And
+
+195
+00:10:06,720 --> 00:10:13,200
+this old one, this is a clone from we
+
+196
+00:10:09,839 --> 00:10:15,600
+don't need. Okay. So, open that. Copy
+
+197
+00:10:13,200 --> 00:10:18,079
+the file path. Now, go back to the
+
+198
+00:10:15,600 --> 00:10:19,760
+source code there. So you need to say a
+
+199
+00:10:18,079 --> 00:10:23,519
+URL.
+
+200
+00:10:19,760 --> 00:10:28,320
+URL is this file path. We need to turn
+
+201
+00:10:23,519 --> 00:10:30,240
+it into a qualified domain URL. So press
+
+202
+00:10:28,320 --> 00:10:33,519
+press.
+
+203
+00:10:30,240 --> 00:10:36,399
+It becomes casi.info. Fantastic.
+
+204
+00:10:33,519 --> 00:10:39,440
+Capitalize the URL and press press.
+
+205
+00:10:36,399 --> 00:10:42,480
+That's the special syntax in Emacs
+
+206
+00:10:39,440 --> 00:10:44,959
+inline documentation.
+
+207
+00:10:42,480 --> 00:10:47,839
+You see? So that's so that you need the
+
+208
+00:10:44,959 --> 00:10:49,360
+back tick and then you need a straight
+
+209
+00:10:47,839 --> 00:10:51,040
+apostrophe.
+
+210
+00:10:49,360 --> 00:10:52,959
+Okay?
+
+211
+00:10:51,040 --> 00:10:55,040
+Because when you have that when you have
+
+212
+00:10:52,959 --> 00:10:58,959
+this this is a markup. So when you have
+
+213
+00:10:55,040 --> 00:11:02,000
+this then then let's say uh let's change
+
+214
+00:10:58,959 --> 00:11:04,480
+the version date. Okay. Uh okay then
+
+215
+00:11:02,000 --> 00:11:08,000
+evaluate the buffer. Fantastic. And now
+
+216
+00:11:04,480 --> 00:11:11,839
+if you do copy that if you do describe
+
+217
+00:11:08,000 --> 00:11:14,320
+function sign increment number and
+
+218
+00:11:11,839 --> 00:11:16,560
+here's a documentation and you can see
+
+219
+00:11:14,320 --> 00:11:19,440
+it you know there's a link you can click
+
+220
+00:11:16,560 --> 00:11:22,079
+and jump to. So that is why you need
+
+221
+00:11:19,440 --> 00:11:27,040
+this uh markup. So if you search for
+
+222
+00:11:22,079 --> 00:11:29,920
+Emacs inline documentation markup um
+
+223
+00:11:27,040 --> 00:11:34,480
+in my my EMAC tutorial
+
+224
+00:11:29,920 --> 00:11:36,800
+uh doc markup so you can see emac do
+
+225
+00:11:34,480 --> 00:11:38,800
+dark string markup so it tells you all
+
+226
+00:11:36,800 --> 00:11:41,519
+the conventions you need to do you can
+
+227
+00:11:38,800 --> 00:11:45,200
+have a clickable link that's what this
+
+228
+00:11:41,519 --> 00:11:47,440
+is for okay so so you got the code so
+
+229
+00:11:45,200 --> 00:11:52,000
+you got the code uh I mean you got the
+
+230
+00:11:47,440 --> 00:11:56,640
+URL okay so now we need to copy the code
+
+231
+00:11:52,000 --> 00:11:59,279
+this code and put it to uh this talk
+
+232
+00:11:56,640 --> 00:12:03,600
+show close that uh let's copy the code
+
+233
+00:11:59,279 --> 00:12:05,920
+and put it to this page okay so normally
+
+234
+00:12:03,600 --> 00:12:08,800
+I just do it manually let's say close
+
+235
+00:12:05,920 --> 00:12:11,120
+that okay wait reopen
+
+236
+00:12:08,800 --> 00:12:14,079
+normally I just do it manually but let
+
+237
+00:12:11,120 --> 00:12:17,839
+me show you something okay so uh add a
+
+238
+00:12:14,079 --> 00:12:20,800
+emac list this code and uh and cut that
+
+239
+00:12:17,839 --> 00:12:23,600
+put here and remove that show in
+
+240
+00:12:20,800 --> 00:12:26,240
+browser. So right now it's a dummy. So
+
+241
+00:12:23,600 --> 00:12:28,720
+normally I just go to the source code,
+
+242
+00:12:26,240 --> 00:12:31,839
+go to the source code, copy this, you
+
+243
+00:12:28,720 --> 00:12:36,000
+know, block of text and go to the file
+
+244
+00:12:31,839 --> 00:12:38,320
+and uh then insert here and uh syntax
+
+245
+00:12:36,000 --> 00:12:42,160
+correct. But now
+
+246
+00:12:38,320 --> 00:12:44,320
+few weeks ago we did this live. So I can
+
+247
+00:12:42,160 --> 00:12:47,040
+it's automated. So let me show you. You
+
+248
+00:12:44,320 --> 00:12:49,760
+just go to wherever the source code is.
+
+249
+00:12:47,040 --> 00:12:52,160
+Let's suppose you made some update then
+
+250
+00:12:49,760 --> 00:12:55,519
+press press
+
+251
+00:12:52,160 --> 00:13:00,399
+then it automatically find the file via
+
+252
+00:12:55,519 --> 00:13:02,399
+that URL and in fact update the page now
+
+253
+00:13:00,399 --> 00:13:05,120
+showing browser
+
+254
+00:13:02,399 --> 00:13:09,120
+fantastic so now this is public you can
+
+255
+00:13:05,120 --> 00:13:11,839
+copy and grab for your own use now did I
+
+256
+00:13:09,120 --> 00:13:14,880
+call any commands that's not here no so
+
+257
+00:13:11,839 --> 00:13:18,959
+it's all plain new emacs
+
+258
+00:13:14,880 --> 00:13:21,279
+the power of Emacs and emac is the most
+
+259
+00:13:18,959 --> 00:13:24,959
+efficient editor. Okay. And that command
+
+260
+00:13:21,279 --> 00:13:27,519
+is update code to website.
+
+261
+00:13:24,959 --> 00:13:30,480
+Uh that's what uh you know few weeks ago
+
+262
+00:13:27,519 --> 00:13:33,200
+we did the live stream which I didn't
+
+263
+00:13:30,480 --> 00:13:36,240
+finish the coding but uh I did it
+
+264
+00:13:33,200 --> 00:13:39,120
+offline. So anyway so here's a code. So
+
+265
+00:13:36,240 --> 00:13:42,160
+now our job is to modify the code so
+
+266
+00:13:39,120 --> 00:13:45,120
+that it keeps the padding. Okay. So
+
+267
+00:13:42,160 --> 00:13:48,000
+showing browser back to Emacs close. Uh
+
+268
+00:13:45,120 --> 00:13:52,480
+so let's go to what is this page? Uh
+
+269
+00:13:48,000 --> 00:13:55,839
+talk show. Uh actually so since we added
+
+270
+00:13:52,480 --> 00:13:58,240
+that uh let's uh what is this page? Talk
+
+271
+00:13:55,839 --> 00:14:00,399
+show. So we can add a link here. So
+
+272
+00:13:58,240 --> 00:14:04,240
+there there it is. There it is. We can
+
+273
+00:14:00,399 --> 00:14:09,800
+actually directly link to um the file we
+
+274
+00:14:04,240 --> 00:14:09,800
+just created. Okay. Now but um
+
+275
+00:14:10,560 --> 00:14:15,040
+okay fantastic.
+
+276
+00:14:12,480 --> 00:14:18,639
+Fantastic. So now what is the job? The
+
+277
+00:14:15,040 --> 00:14:20,560
+the the now the job is to modify this
+
+278
+00:14:18,639 --> 00:14:24,399
+code. Okay. So you want to keep the
+
+279
+00:14:20,560 --> 00:14:30,480
+padding. Okay. So let's demo again. Co
+
+280
+00:14:24,399 --> 00:14:36,399
+you see increase 13 14 6 19 25 19
+
+281
+00:14:30,480 --> 00:14:38,320
+5 4 3 2 1 11 10 and ban. It missed the
+
+282
+00:14:36,399 --> 00:14:42,480
+digit. You see we want to keep the
+
+283
+00:14:38,320 --> 00:14:45,040
+padding. Okay. So uh so we let's undo.
+
+284
+00:14:42,480 --> 00:14:46,880
+So what is this? Uh what's original?
+
+285
+00:14:45,040 --> 00:14:50,240
+[ __ ] I forgot what's original. Undo.
+
+286
+00:14:46,880 --> 00:14:53,199
+Undo. Undo. Undo. Oh, wait. What? Okay.
+
+287
+00:14:50,240 --> 00:14:56,639
+So original is that. So uh here today's
+
+288
+00:14:53,199 --> 00:14:59,360
+date. Um yeah. So let's make it today's
+
+289
+00:14:56,639 --> 00:15:01,600
+date. Okay. So we need to keep the
+
+290
+00:14:59,360 --> 00:15:05,519
+padding. What to do? So we now we need
+
+291
+00:15:01,600 --> 00:15:11,360
+to think um well
+
+292
+00:15:05,519 --> 00:15:16,480
+have some red wine. This is 100 ml or
+
+293
+00:15:11,360 --> 00:15:18,399
+150 ml red wine to sooththe my soul.
+
+294
+00:15:16,480 --> 00:15:20,959
+Why do you need to sooth your soul?
+
+295
+00:15:18,399 --> 00:15:23,519
+Because when you read politics today on
+
+296
+00:15:20,959 --> 00:15:28,079
+Twitter, it's
+
+297
+00:15:23,519 --> 00:15:32,480
+uh very painful and ugly things.
+
+298
+00:15:28,079 --> 00:15:36,160
+Uh and here is my uh here is my uh you
+
+299
+00:15:32,480 --> 00:15:38,880
+know uh my discord. If you haven't been
+
+300
+00:15:36,160 --> 00:15:42,800
+there, you can join.
+
+301
+00:15:38,880 --> 00:15:45,040
+Hello, Hank. Ching. Thank you, Hank.
+
+302
+00:15:42,800 --> 00:15:47,519
+Okay, Hank says, "I'm going to stream
+
+303
+00:15:45,040 --> 00:15:51,440
+after you are finished. I just got a G
+
+304
+00:15:47,519 --> 00:15:56,279
+game working for someone else."
+
+305
+00:15:51,440 --> 00:15:56,279
+A game working for someone else. Nice.
+
+306
+00:15:59,199 --> 00:16:06,399
+Am I doing well? Say hi. How do you like
+
+307
+00:16:02,240 --> 00:16:08,399
+it so far? Is it is it is this
+
+308
+00:16:06,399 --> 00:16:11,680
+comprehensible? Okay. Now we need to
+
+309
+00:16:08,399 --> 00:16:15,120
+think about this uh you know thinking is
+
+310
+00:16:11,680 --> 00:16:17,680
+the hard part. So so beginning position
+
+311
+00:16:15,120 --> 00:16:19,839
+end position that's uh integers. Let's
+
+312
+00:16:17,680 --> 00:16:23,199
+uh mark the beginning position of a
+
+313
+00:16:19,839 --> 00:16:25,759
+number. Okay. So you search backward uh
+
+314
+00:16:23,199 --> 00:16:28,320
+of all digits. Then that's a beginning
+
+315
+00:16:25,759 --> 00:16:30,880
+set it to the beginning position point
+
+316
+00:16:28,320 --> 00:16:33,440
+is the current cursor position. Okay.
+
+317
+00:16:30,880 --> 00:16:35,839
+Then you skip char forward to the end of
+
+318
+00:16:33,440 --> 00:16:39,199
+the digit. Then you set to the end. So
+
+319
+00:16:35,839 --> 00:16:43,519
+far so good. Do I understand it? Yes.
+
+320
+00:16:39,199 --> 00:16:46,480
+Now xnum is you grab the two positions
+
+321
+00:16:43,519 --> 00:16:51,839
+beginning and end and that grabs a
+
+322
+00:16:46,480 --> 00:16:54,320
+string. That's xnum. Okay. So let's uh
+
+323
+00:16:51,839 --> 00:16:56,480
+so let's can you know let's highlight
+
+324
+00:16:54,320 --> 00:16:59,600
+it. Okay. Xnum.
+
+325
+00:16:56,480 --> 00:17:03,279
+Now, so Xnum
+
+326
+00:16:59,600 --> 00:17:06,720
+if so what are we doing string match uh
+
+327
+00:17:03,279 --> 00:17:10,240
+so if it matches this regular expression
+
+328
+00:17:06,720 --> 00:17:13,439
+then delete region okay then you need to
+
+329
+00:17:10,240 --> 00:17:16,000
+know how many characters are there okay
+
+330
+00:17:13,439 --> 00:17:19,240
+we started to code we we are you know we
+
+331
+00:17:16,000 --> 00:17:19,240
+are talking
+
+332
+00:17:23,120 --> 00:17:31,840
+okay so string match If it's all digits
+
+333
+00:17:29,039 --> 00:17:35,120
+now obviously this will match. Why? Why
+
+334
+00:17:31,840 --> 00:17:39,120
+do you have to match?
+
+335
+00:17:35,120 --> 00:17:43,919
+If match delete the region then insert
+
+336
+00:17:39,120 --> 00:17:46,880
+insert string to number then plus one
+
+337
+00:17:43,919 --> 00:17:50,480
+then number to string and insert it.
+
+338
+00:17:46,880 --> 00:17:54,160
+Right? Correct. Uh otherwise insert
+
+339
+00:17:50,480 --> 00:17:56,400
+zero. Oh I see. So right. So when you
+
+340
+00:17:54,160 --> 00:18:00,720
+skip backward and forward to grab the
+
+341
+00:17:56,400 --> 00:18:03,280
+digit it might be possible we that you
+
+342
+00:18:00,720 --> 00:18:06,640
+are not on any digit.
+
+343
+00:18:03,280 --> 00:18:08,960
+So that's why you need to check string
+
+344
+00:18:06,640 --> 00:18:11,360
+match if it match your digit because if
+
+345
+00:18:08,960 --> 00:18:14,000
+it does not then all you do is just
+
+346
+00:18:11,360 --> 00:18:16,160
+insert zero. Okay. Uh let me
+
+347
+00:18:14,000 --> 00:18:19,200
+demonstrate. Okay. So you call this
+
+348
+00:18:16,160 --> 00:18:22,240
+command call. You see it just enter
+
+349
+00:18:19,200 --> 00:18:25,120
+zero. Now if you call it again then
+
+350
+00:18:22,240 --> 00:18:27,120
+you'll just start to incre increase. You
+
+351
+00:18:25,120 --> 00:18:31,760
+see now you can use the mouse wheel up
+
+352
+00:18:27,120 --> 00:18:34,640
+or down. Okay. So let's make it larger.
+
+353
+00:18:31,760 --> 00:18:40,160
+Okay. So the beauty of the font. So you
+
+354
+00:18:34,640 --> 00:18:42,960
+can see um so okay. So now you
+
+355
+00:18:40,160 --> 00:18:46,080
+this checks if there's actually some a
+
+356
+00:18:42,960 --> 00:18:48,080
+digit in the c under the cursor. Then
+
+357
+00:18:46,080 --> 00:18:49,600
+you need to know how many characters.
+
+358
+00:18:48,080 --> 00:18:52,600
+Okay.
+
+359
+00:18:49,600 --> 00:18:52,600
+Uh
+
+360
+00:18:55,280 --> 00:19:00,160
+how how do you do it? Because let's say
+
+361
+00:18:57,280 --> 00:19:03,120
+if you have zero or nine, you can
+
+362
+00:19:00,160 --> 00:19:06,400
+increase to zero or 10.
+
+363
+00:19:03,120 --> 00:19:08,880
+So if you have 09, let me do you do you
+
+364
+00:19:06,400 --> 00:19:13,600
+guys understand you know if you have
+
+365
+00:19:08,880 --> 00:19:16,240
+like 09 okay so you call the command
+
+366
+00:19:13,600 --> 00:19:18,400
+then it becomes 10, right?
+
+367
+00:19:16,240 --> 00:19:20,880
+And so far you can find out yeah there
+
+368
+00:19:18,400 --> 00:19:24,240
+are two digits you know so you want to
+
+369
+00:19:20,880 --> 00:19:26,799
+always keep it two digits. Okay. But now
+
+370
+00:19:24,240 --> 00:19:30,559
+what happens if you keep increasing then
+
+371
+00:19:26,799 --> 00:19:33,360
+it becomes 100.
+
+372
+00:19:30,559 --> 00:19:37,600
+So you have to check if the two digit if
+
+373
+00:19:33,360 --> 00:19:41,440
+the current value if the new value
+
+374
+00:19:37,600 --> 00:19:44,240
+the number of digits in the new value.
+
+375
+00:19:41,440 --> 00:19:47,679
+If the number of digits in the new value
+
+376
+00:19:44,240 --> 00:19:51,039
+after increment or decrement is
+
+377
+00:19:47,679 --> 00:19:55,120
+smaller than the number of digits before
+
+378
+00:19:51,039 --> 00:19:58,640
+then you want to keep the digit. Okay?
+
+379
+00:19:55,120 --> 00:20:00,480
+But if it's larger
+
+380
+00:19:58,640 --> 00:20:02,400
+then you don't want to you know you
+
+381
+00:20:00,480 --> 00:20:05,840
+don't want to drop you know you want to
+
+382
+00:20:02,400 --> 00:20:08,080
+increase. Is that right?
+
+383
+00:20:05,840 --> 00:20:10,400
+Now let let's make it simple. Let's just
+
+384
+00:20:08,080 --> 00:20:15,360
+always remain the same number of digits.
+
+385
+00:20:10,400 --> 00:20:17,840
+Okay. So so let's add a new variable num
+
+386
+00:20:15,360 --> 00:20:19,840
+of digits.
+
+387
+00:20:17,840 --> 00:20:22,880
+Okay. Something like that. Okay. Let's
+
+388
+00:20:19,840 --> 00:20:25,600
+for now let's uh well we can make it
+
+389
+00:20:22,880 --> 00:20:28,880
+like that.
+
+390
+00:20:25,600 --> 00:20:31,760
+No digit
+
+391
+00:20:28,880 --> 00:20:34,159
+count. What about that? The art of
+
+392
+00:20:31,760 --> 00:20:37,360
+naming variables supposedly the most
+
+393
+00:20:34,159 --> 00:20:42,720
+difficult part. Okay. Digit count. Okay.
+
+394
+00:20:37,360 --> 00:20:48,919
+So, let's just say chart count.
+
+395
+00:20:42,720 --> 00:20:48,919
+Okay. Um, then you want to
+
+396
+00:20:55,760 --> 00:21:00,400
+do you do where do you do it? Okay,
+
+397
+00:20:57,679 --> 00:21:03,520
+let's just do it. Let's keep like let's
+
+398
+00:21:00,400 --> 00:21:08,640
+keep typing. Okay, so child count equals
+
+399
+00:21:03,520 --> 00:21:12,960
+to length uh length. No, not let length
+
+400
+00:21:08,640 --> 00:21:19,840
+the length of um
+
+401
+00:21:12,960 --> 00:21:23,440
+match string one. Okay. And uh what?
+
+402
+00:21:19,840 --> 00:21:28,240
+Okay. So the string the xnum
+
+403
+00:21:23,440 --> 00:21:32,159
+xnum is a string. Okay. So so that's why
+
+404
+00:21:28,240 --> 00:21:34,240
+so you need to say xnum here. So this
+
+405
+00:21:32,159 --> 00:21:37,280
+means grab the capture. Okay. So
+
+406
+00:21:34,240 --> 00:21:40,720
+actually you need to capture. Well, zero
+
+407
+00:21:37,280 --> 00:21:43,039
+means the whole match. Okay.
+
+408
+00:21:40,720 --> 00:21:45,200
+So you
+
+409
+00:21:43,039 --> 00:21:49,240
+So what is that? That's the beginning of
+
+410
+00:21:45,200 --> 00:21:49,240
+string regular expression.
+
+411
+00:21:55,919 --> 00:22:02,320
+You see we need that because now it's
+
+412
+00:21:58,080 --> 00:22:06,240
+getting tricky. The situation is what if
+
+413
+00:22:02,320 --> 00:22:10,799
+you have let's say xxx
+
+414
+00:22:06,240 --> 00:22:14,320
+then 9 you see so what if xaxs let's say
+
+415
+00:22:10,799 --> 00:22:17,120
+88 okay what do you if you have this
+
+416
+00:22:14,320 --> 00:22:20,559
+situation you know so when you if you
+
+417
+00:22:17,120 --> 00:22:24,880
+call this command it becomes 89 because
+
+418
+00:22:20,559 --> 00:22:30,400
+but however it grabbed um
+
+419
+00:22:24,880 --> 00:22:34,440
+it the code grabbed the two digits It's
+
+420
+00:22:30,400 --> 00:22:34,440
+right. Okay. So,
+
+421
+00:22:34,720 --> 00:22:42,720
+so but so you don't need this, you know,
+
+422
+00:22:37,919 --> 00:22:45,840
+this back tick. That's a specific emac
+
+423
+00:22:42,720 --> 00:22:50,080
+regular expression for either beginning
+
+424
+00:22:45,840 --> 00:22:54,320
+of line or beginning of string. Okay.
+
+425
+00:22:50,080 --> 00:22:57,799
+Uh so I don't I don't think you need it,
+
+426
+00:22:54,320 --> 00:22:57,799
+you know. So
+
+427
+00:22:58,320 --> 00:23:02,480
+yeah because you are already you know
+
+428
+00:23:00,640 --> 00:23:04,720
+you are always always grabbing the
+
+429
+00:23:02,480 --> 00:23:08,320
+digits anyway.
+
+430
+00:23:04,720 --> 00:23:11,919
+So anyway so child count length match
+
+431
+00:23:08,320 --> 00:23:16,159
+string uh
+
+432
+00:23:11,919 --> 00:23:19,039
+yeah match stream uh xnum. Okay nobody
+
+433
+00:23:16,159 --> 00:23:23,679
+is here. Okay so char count. So let me
+
+434
+00:23:19,039 --> 00:23:29,919
+just code it then. Uh char count
+
+435
+00:23:23,679 --> 00:23:33,919
+char count uh match string. So grab that
+
+436
+00:23:29,919 --> 00:23:37,360
+and uh then find the length that's the
+
+437
+00:23:33,919 --> 00:23:42,000
+char count. Okay. And now you can just
+
+438
+00:23:37,360 --> 00:23:45,039
+for now x chart count. Uh you can kind
+
+439
+00:23:42,000 --> 00:23:48,880
+of print it for debugging purposes.
+
+440
+00:23:45,039 --> 00:23:52,960
+Okay. Then let's evalide the region and
+
+441
+00:23:48,880 --> 00:24:02,799
+uh let's do it. Okay. So call it CH
+
+442
+00:23:52,960 --> 00:24:08,480
+count two. Now 91 92 3 4 5 6 7 8 99 8 99
+
+443
+00:24:02,799 --> 00:24:11,760
+and the 100 CH count. Okay.
+
+444
+00:24:08,480 --> 00:24:14,760
+Yeah. So char count is the original CH
+
+445
+00:24:11,760 --> 00:24:14,760
+count.
+
+446
+00:24:16,559 --> 00:24:23,440
+Okay. So, let's go back to the code.
+
+447
+00:24:21,360 --> 00:24:26,000
+Okay. So,
+
+448
+00:24:23,440 --> 00:24:29,840
+okay. This is beginning to become boring
+
+449
+00:24:26,000 --> 00:24:33,039
+chan. So, okay. Let's quickly let's
+
+450
+00:24:29,840 --> 00:24:35,840
+don't worry about many edge cases. Let's
+
+451
+00:24:33,039 --> 00:24:38,840
+just finish this for the simple case.
+
+452
+00:24:35,840 --> 00:24:38,840
+So,
+
+453
+00:24:39,520 --> 00:24:49,799
+so then after increment uh okay then you
+
+454
+00:24:44,159 --> 00:24:49,799
+need to say a new number. Okay. Uh
+
+455
+00:24:50,240 --> 00:24:57,840
+x new num. Okay. Something like new num.
+
+456
+00:24:54,960 --> 00:25:00,480
+X new num
+
+457
+00:24:57,840 --> 00:25:06,159
+uh will be
+
+458
+00:25:00,480 --> 00:25:10,640
+set X new num equals to something like
+
+459
+00:25:06,159 --> 00:25:15,520
+this. Okay. Um
+
+460
+00:25:10,640 --> 00:25:20,720
+string to number plus one X new num x
+
+461
+00:25:15,520 --> 00:25:23,840
+new num is turn it to string. Okay.
+
+462
+00:25:20,720 --> 00:25:29,400
+Then xnum let's rename it. Rename the
+
+463
+00:25:23,840 --> 00:25:29,400
+xnum to xnum string.
+
+464
+00:25:34,880 --> 00:25:42,400
+Okay. Then okay you need to deal with
+
+465
+00:25:37,840 --> 00:25:45,200
+decrement number two. Okay. Jesus.
+
+466
+00:25:42,400 --> 00:25:48,159
+Ah
+
+467
+00:25:45,200 --> 00:25:51,039
+Jesus.
+
+468
+00:25:48,159 --> 00:25:55,600
+Uh go to child to other buffer. No.
+
+469
+00:25:51,039 --> 00:25:58,960
+Okay. So yeah. So let's make a backup.
+
+470
+00:25:55,600 --> 00:26:01,600
+Compile it. Yes, it works. No error.
+
+471
+00:25:58,960 --> 00:26:03,200
+That's good. Okay. Now go back to our
+
+472
+00:26:01,600 --> 00:26:05,440
+code.
+
+473
+00:26:03,200 --> 00:26:08,960
+Okay. So then you have to deal with
+
+474
+00:26:05,440 --> 00:26:11,120
+decrement number. Then you see this uh
+
+475
+00:26:08,960 --> 00:26:13,360
+but the body is pretty much the same.
+
+476
+00:26:11,120 --> 00:26:17,200
+Then you need to do refactoring to make
+
+477
+00:26:13,360 --> 00:26:19,840
+them one function. Um okay, getting
+
+478
+00:26:17,200 --> 00:26:22,159
+complex. Okay. So purify the code. So
+
+479
+00:26:19,840 --> 00:26:25,919
+you got
+
+480
+00:26:22,159 --> 00:26:29,039
+num string that's original then new num
+
+481
+00:26:25,919 --> 00:26:31,919
+that's a new number then you delete
+
+482
+00:26:29,039 --> 00:26:35,440
+region then you insert number two
+
+483
+00:26:31,919 --> 00:26:38,159
+string. Yes. Yeah. But before we you do
+
+484
+00:26:35,440 --> 00:26:40,799
+that if you want to know the padding.
+
+485
+00:26:38,159 --> 00:26:43,799
+Okay. Oh god.
+
+486
+00:26:40,799 --> 00:26:43,799
+If
+
+487
+00:26:43,840 --> 00:26:47,760
+length
+
+488
+00:26:45,679 --> 00:26:50,400
+of
+
+489
+00:26:47,760 --> 00:26:55,120
+new num you need to turn that to a
+
+490
+00:26:50,400 --> 00:26:58,720
+string. So none to string.
+
+491
+00:26:55,120 --> 00:27:03,400
+So if that new number the length of that
+
+492
+00:26:58,720 --> 00:27:03,400
+is less than
+
+493
+00:27:04,320 --> 00:27:10,679
+less than the x chart count
+
+494
+00:27:11,520 --> 00:27:19,679
+then you want to okay wait so this is
+
+495
+00:27:16,080 --> 00:27:23,760
+increment oh god you see this line only
+
+496
+00:27:19,679 --> 00:27:28,480
+makes sense if it's in decrement oh god
+
+497
+00:27:23,760 --> 00:27:33,799
+uh okay but Let's keep keep going. So if
+
+498
+00:27:28,480 --> 00:27:33,799
+the length num to string
+
+499
+00:27:36,320 --> 00:27:44,320
+is greater okay so let's just say
+
+500
+00:27:38,559 --> 00:27:49,000
+greater so um wait so
+
+501
+00:27:44,320 --> 00:27:49,000
+wait greater than okay
+
+502
+00:27:52,400 --> 00:27:58,000
+so the length if it's greater than you
+
+503
+00:27:55,360 --> 00:28:01,000
+then you basically just want to drop a
+
+504
+00:27:58,000 --> 00:28:01,000
+number
+
+505
+00:28:04,320 --> 00:28:10,720
+that's you know so the you are getting
+
+506
+00:28:06,640 --> 00:28:13,919
+into a kind of new behavior now uh
+
+507
+00:28:10,720 --> 00:28:15,919
+getting complex okay
+
+508
+00:28:13,919 --> 00:28:19,120
+hey Hank you can you know you can start
+
+509
+00:28:15,919 --> 00:28:21,679
+your video um thank you for you know
+
+510
+00:28:19,120 --> 00:28:23,760
+checking though but you can start your
+
+511
+00:28:21,679 --> 00:28:26,760
+video
+
+512
+00:28:23,760 --> 00:28:26,760
+Okay.
+
+513
+00:28:32,000 --> 00:28:37,679
+Okay. I need to finish this. Oh god. 40
+
+514
+00:28:35,200 --> 00:28:41,120
+minutes already.
+
+515
+00:28:37,679 --> 00:28:44,399
+So if length is number two string then
+
+516
+00:28:41,120 --> 00:28:46,960
+chunk. If it's greater then
+
+517
+00:28:44,399 --> 00:28:48,960
+oh god what you what to do if it's
+
+518
+00:28:46,960 --> 00:28:52,000
+greater?
+
+519
+00:28:48,960 --> 00:28:57,039
+Do you just inc increase the number or
+
+520
+00:28:52,000 --> 00:29:02,720
+do you uh you do you want to drop it
+
+521
+00:28:57,039 --> 00:29:05,279
+Matio? Uh what's so great about Lisp?
+
+522
+00:29:02,720 --> 00:29:08,480
+Uh
+
+523
+00:29:05,279 --> 00:29:11,360
+well I can say about Emac Lisp okay Emac
+
+524
+00:29:08,480 --> 00:29:15,520
+Lisp is the greatest programming
+
+525
+00:29:11,360 --> 00:29:18,799
+language for text processing. So if your
+
+526
+00:29:15,520 --> 00:29:21,840
+task is about text processing especially
+
+527
+00:29:18,799 --> 00:29:25,600
+small files like let's say less than 1
+
+528
+00:29:21,840 --> 00:29:28,000
+megabyte and you need to process it in a
+
+529
+00:29:25,600 --> 00:29:30,159
+flexible way or you know or make a
+
+530
+00:29:28,000 --> 00:29:32,240
+report then EMAC this is the best
+
+531
+00:29:30,159 --> 00:29:34,080
+language better than pearl python
+
+532
+00:29:32,240 --> 00:29:38,720
+whatever
+
+533
+00:29:34,080 --> 00:29:40,559
+text text processing and also
+
+534
+00:29:38,720 --> 00:29:43,840
+in addition
+
+535
+00:29:40,559 --> 00:29:46,240
+when if you want it to be interactive
+
+536
+00:29:43,840 --> 00:29:48,240
+Okay. Like like like what you know what
+
+537
+00:29:46,240 --> 00:29:50,960
+we are doing today. You cannot do this
+
+538
+00:29:48,240 --> 00:29:53,279
+in Python, JavaScript,
+
+539
+00:29:50,960 --> 00:29:56,320
+Pearl or whatever you know especially if
+
+540
+00:29:53,279 --> 00:29:59,679
+you want it interactive.
+
+541
+00:29:56,320 --> 00:30:03,120
+Uh you cannot do this in VS Code in Neo
+
+542
+00:29:59,679 --> 00:30:07,440
+Vim in VI in Vim you know whatever [ __ ]
+
+543
+00:30:03,120 --> 00:30:10,159
+Okay. Best programming language for text
+
+544
+00:30:07,440 --> 00:30:13,360
+processing especially
+
+545
+00:30:10,159 --> 00:30:16,640
+if you need it to be interactive. Okay,
+
+546
+00:30:13,360 --> 00:30:21,399
+that's emac disp. Now, what about lisp
+
+547
+00:30:16,640 --> 00:30:21,399
+in general such as common disp
+
+548
+00:30:21,840 --> 00:30:26,320
+um
+
+549
+00:30:23,600 --> 00:30:28,159
+well in that case I like them because
+
+550
+00:30:26,320 --> 00:30:30,880
+they are functional programming. I don't
+
+551
+00:30:28,159 --> 00:30:33,840
+like common lisp. Common lisp is this
+
+552
+00:30:30,880 --> 00:30:36,399
+bloated crap bloated
+
+553
+00:30:33,840 --> 00:30:38,399
+um
+
+554
+00:30:36,399 --> 00:30:41,360
+common lisp
+
+555
+00:30:38,399 --> 00:30:45,120
+happened because back in like 20 years
+
+556
+00:30:41,360 --> 00:30:47,679
+ago 30 years ago they need to merge all
+
+557
+00:30:45,120 --> 00:30:51,200
+the different families of lisp because
+
+558
+00:30:47,679 --> 00:30:55,600
+so in the 1980s there's many factions of
+
+559
+00:30:51,200 --> 00:30:57,760
+lisp mag lisp and you know zeta lisp
+
+560
+00:30:55,600 --> 00:30:59,360
+civil you know they are slightly
+
+561
+00:30:57,760 --> 00:31:02,880
+incompatible
+
+562
+00:30:59,360 --> 00:31:06,080
+So common lisp was created as a vision
+
+563
+00:31:02,880 --> 00:31:08,960
+to unify all the lisps.
+
+564
+00:31:06,080 --> 00:31:11,600
+Uh but it turned out it be becomes crap.
+
+565
+00:31:08,960 --> 00:31:14,720
+It becomes like the huge you know
+
+566
+00:31:11,600 --> 00:31:17,760
+humongous baggage of all the little
+
+567
+00:31:14,720 --> 00:31:20,480
+features each faction wants. So it
+
+568
+00:31:17,760 --> 00:31:22,720
+became like so we are compatible to all
+
+569
+00:31:20,480 --> 00:31:26,799
+these factions you know to please
+
+570
+00:31:22,720 --> 00:31:29,200
+everyone. So common list is the greatest
+
+571
+00:31:26,799 --> 00:31:31,440
+word what
+
+572
+00:31:29,200 --> 00:31:33,919
+in programming language you know it's a
+
+573
+00:31:31,440 --> 00:31:36,960
+huge you know the doc the documentation
+
+574
+00:31:33,919 --> 00:31:40,799
+is like over you know 10,000 pages or
+
+575
+00:31:36,960 --> 00:31:42,640
+something common list so in a sense a
+
+576
+00:31:40,799 --> 00:31:45,679
+lot
+
+577
+00:31:42,640 --> 00:31:49,679
+this experts said that common list
+
+578
+00:31:45,679 --> 00:31:52,240
+killed lisp okay uh but so what what is
+
+579
+00:31:49,679 --> 00:31:54,320
+good about lisp well there are several
+
+580
+00:31:52,240 --> 00:31:57,200
+um
+
+581
+00:31:54,320 --> 00:31:59,360
+reasons but mostly for myself I like
+
+582
+00:31:57,200 --> 00:32:03,039
+lisp because it is functional
+
+583
+00:31:59,360 --> 00:32:06,880
+programming. Okay. And and also because
+
+584
+00:32:03,039 --> 00:32:08,640
+of the syntax the syntax correspond to
+
+585
+00:32:06,880 --> 00:32:11,519
+semantics because everything is
+
+586
+00:32:08,640 --> 00:32:15,039
+parenthesis. So you can you know you can
+
+587
+00:32:11,519 --> 00:32:17,919
+edit uh uh wait undo redo you can edit
+
+588
+00:32:15,039 --> 00:32:21,279
+or for example I can ed you know kill
+
+589
+00:32:17,919 --> 00:32:24,159
+this whole semantic unit by just
+
+590
+00:32:21,279 --> 00:32:26,399
+pressing a key. How can it does do that?
+
+591
+00:32:24,159 --> 00:32:29,120
+Because this you know because of the
+
+592
+00:32:26,399 --> 00:32:32,159
+regular let because of the regularity of
+
+593
+00:32:29,120 --> 00:32:35,440
+the syntax. So it allows you to
+
+594
+00:32:32,159 --> 00:32:38,799
+trivially manipulate
+
+595
+00:32:35,440 --> 00:32:41,200
+expressions and because expressions the
+
+596
+00:32:38,799 --> 00:32:45,279
+syntact the syntax the syntactical
+
+597
+00:32:41,200 --> 00:32:48,399
+expressions corresponds to the semantics
+
+598
+00:32:45,279 --> 00:32:50,559
+semantic unit of the programming
+
+599
+00:32:48,399 --> 00:32:53,519
+language. Okay.
+
+600
+00:32:50,559 --> 00:32:55,840
+So that is the a good property of the
+
+601
+00:32:53,519 --> 00:32:59,200
+lisp syntax.
+
+602
+00:32:55,840 --> 00:33:01,840
+Um, and for example, I can let me show
+
+603
+00:32:59,200 --> 00:33:04,080
+you another one. For example, select the
+
+604
+00:33:01,840 --> 00:33:07,279
+unit under the cruiser. Press a key
+
+605
+00:33:04,080 --> 00:33:10,000
+again. Select the outer unit. Press a
+
+606
+00:33:07,279 --> 00:33:12,399
+key again. Select the outer unit. Okay?
+
+607
+00:33:10,000 --> 00:33:16,159
+So, extend selection. You cannot do this
+
+608
+00:33:12,399 --> 00:33:20,240
+in C, in JavaScript, in Python, all
+
+609
+00:33:16,159 --> 00:33:23,679
+these languages fetuned with
+
+610
+00:33:20,240 --> 00:33:25,919
+irregularity of the syntax. Like oh in
+
+611
+00:33:23,679 --> 00:33:28,880
+this case if you are doing while loop
+
+612
+00:33:25,919 --> 00:33:30,880
+the syntax is this one with semicolon.
+
+613
+00:33:28,880 --> 00:33:33,360
+If you are doing loop for loop then
+
+614
+00:33:30,880 --> 00:33:38,880
+there are you know this special ad hoc
+
+615
+00:33:33,360 --> 00:33:42,080
+syntax you know [ __ ] the C and C++
+
+616
+00:33:38,880 --> 00:33:45,360
+and Java and JavaScript basically all
+
+617
+00:33:42,080 --> 00:33:47,760
+languages came out of it. Okay. because
+
+618
+00:33:45,360 --> 00:33:51,440
+of the Unix
+
+619
+00:33:47,760 --> 00:33:54,399
+virus, the Unix [ __ ] and the C
+
+620
+00:33:51,440 --> 00:33:57,679
+[ __ ] they damaged the programming
+
+621
+00:33:54,399 --> 00:34:00,320
+industry for like 30 years.
+
+622
+00:33:57,679 --> 00:34:04,320
+Okay. Are there other syntaxes that's
+
+623
+00:34:00,320 --> 00:34:09,919
+like not parenthesized but
+
+624
+00:34:04,320 --> 00:34:13,440
+but have good qualities? Yes. APL, Wuam
+
+625
+00:34:09,919 --> 00:34:16,560
+language and few others. Okay. So I'm
+
+626
+00:34:13,440 --> 00:34:19,440
+not saying like you know list syntax is
+
+627
+00:34:16,560 --> 00:34:23,040
+the only way but the point is that you
+
+628
+00:34:19,440 --> 00:34:25,440
+have to anyway that's a programming
+
+629
+00:34:23,040 --> 00:34:27,919
+language syntax issue okay there are a
+
+630
+00:34:25,440 --> 00:34:30,480
+lot of issues about that
+
+631
+00:34:27,919 --> 00:34:33,200
+anyway let let's go back to the code so
+
+632
+00:34:30,480 --> 00:34:35,599
+can I you know so now right now we are
+
+633
+00:34:33,200 --> 00:34:38,240
+distracted can we finish the code so
+
+634
+00:34:35,599 --> 00:34:40,399
+let's finish the code
+
+635
+00:34:38,240 --> 00:34:43,520
+who is watching
+
+636
+00:34:40,399 --> 00:34:45,280
+so you guys are quiet my people. So, you
+
+637
+00:34:43,520 --> 00:34:48,079
+know, you guys need to say something.
+
+638
+00:34:45,280 --> 00:34:51,919
+Okay, say something like you want to
+
+639
+00:34:48,079 --> 00:34:53,919
+meet uh me to keep coding or whatnot.
+
+640
+00:34:51,919 --> 00:34:55,679
+Thanks for the insight. Thank you. So, I
+
+641
+00:34:53,919 --> 00:34:57,760
+did a lot of videos in the past, you
+
+642
+00:34:55,679 --> 00:35:01,119
+know, I have like by now five years of
+
+643
+00:34:57,760 --> 00:35:03,119
+videos. So, I did quite a lot videos
+
+644
+00:35:01,119 --> 00:35:05,200
+talking about the Lisp programming
+
+645
+00:35:03,119 --> 00:35:08,640
+language and which language to learn.
+
+646
+00:35:05,200 --> 00:35:10,960
+So, you can search for it if you want
+
+647
+00:35:08,640 --> 00:35:13,920
+to.
+
+648
+00:35:10,960 --> 00:35:16,560
+Okay. So let's back to so back to this
+
+649
+00:35:13,920 --> 00:35:19,119
+uh you know one thing particular again
+
+650
+00:35:16,560 --> 00:35:22,880
+about emacisp is that it's the greatest
+
+651
+00:35:19,119 --> 00:35:25,599
+language for text processing because why
+
+652
+00:35:22,880 --> 00:35:28,160
+because you can control you have the
+
+653
+00:35:25,599 --> 00:35:30,560
+buffer data type and you can have you
+
+654
+00:35:28,160 --> 00:35:32,400
+know you you can get the cursor position
+
+655
+00:35:30,560 --> 00:35:34,800
+you can move it forward you can move it
+
+656
+00:35:32,400 --> 00:35:37,200
+backward you can do a rejects on the
+
+657
+00:35:34,800 --> 00:35:39,200
+current buffer text you can you know
+
+658
+00:35:37,200 --> 00:35:41,520
+rejects save it save the current
+
+659
+00:35:39,200 --> 00:35:44,079
+position or what or rejects regular
+
+660
+00:35:41,520 --> 00:35:47,760
+expression again or whatever or delete
+
+661
+00:35:44,079 --> 00:35:51,119
+characters, delete a section, you know.
+
+662
+00:35:47,760 --> 00:35:53,599
+So everything I do manually it can be uh
+
+663
+00:35:51,119 --> 00:35:55,760
+you know uh done programmatically that
+
+664
+00:35:53,599 --> 00:35:59,119
+in fact that's what this code is about
+
+665
+00:35:55,760 --> 00:36:01,680
+you know it's in increment of numbers.
+
+666
+00:35:59,119 --> 00:36:04,079
+So that's why it's the best text
+
+667
+00:36:01,680 --> 00:36:06,480
+processing language. It has the buffer
+
+668
+00:36:04,079 --> 00:36:08,400
+data type which is what you see in the
+
+669
+00:36:06,480 --> 00:36:12,000
+whole whole buffer right now like you
+
+670
+00:36:08,400 --> 00:36:15,200
+know uh and buffer data type what what
+
+671
+00:36:12,000 --> 00:36:16,720
+what is it? Well, it's basically a glor
+
+672
+00:36:15,200 --> 00:36:18,560
+glorified
+
+673
+00:36:16,720 --> 00:36:21,440
+string
+
+674
+00:36:18,560 --> 00:36:24,000
+data type you know in a typical language
+
+675
+00:36:21,440 --> 00:36:25,839
+like Pearl, Python, Ruby, JavaScript you
+
+676
+00:36:24,000 --> 00:36:28,400
+know when you have a string it's just a
+
+677
+00:36:25,839 --> 00:36:30,800
+string it's it's dead you know there's
+
+678
+00:36:28,400 --> 00:36:33,680
+nothing you can do to it. Maybe you can
+
+679
+00:36:30,800 --> 00:36:35,920
+change the nth character or maybe you
+
+680
+00:36:33,680 --> 00:36:37,680
+can do find replace. That's it. Every
+
+681
+00:36:35,920 --> 00:36:40,240
+time you do it, usually in these
+
+682
+00:36:37,680 --> 00:36:43,680
+languages, doesn't matter it's um
+
+683
+00:36:40,240 --> 00:36:47,040
+Python, Ruby, uh JavaScript and and on
+
+684
+00:36:43,680 --> 00:36:49,200
+and on, the strings are immutable. So
+
+685
+00:36:47,040 --> 00:36:51,040
+every time you make a change, it it has
+
+686
+00:36:49,200 --> 00:36:53,760
+to create a whole string. So if you have
+
+687
+00:36:51,040 --> 00:36:56,400
+a buffer, you know, of 10,000 characters
+
+688
+00:36:53,760 --> 00:36:58,720
+or one megabyte, whatever, it very slow,
+
+689
+00:36:56,400 --> 00:37:01,760
+you know, it has to recreate the entire
+
+690
+00:36:58,720 --> 00:37:03,839
+string. You cannot like and you cannot
+
+691
+00:37:01,760 --> 00:37:06,480
+save the position inside the string like
+
+692
+00:37:03,839 --> 00:37:08,400
+the index right. So suppose you got a
+
+693
+00:37:06,480 --> 00:37:11,520
+string you want to delete the index
+
+694
+00:37:08,400 --> 00:37:14,079
+let's say 10 to 100
+
+695
+00:37:11,520 --> 00:37:18,400
+you cannot do that you delete basically
+
+696
+00:37:14,079 --> 00:37:20,079
+recreates a string uh so it's very slow
+
+697
+00:37:18,400 --> 00:37:24,240
+but
+
+698
+00:37:20,079 --> 00:37:27,760
+you know comes in emac buffer data data
+
+699
+00:37:24,240 --> 00:37:30,720
+type which is comes into bas so so it is
+
+700
+00:37:27,760 --> 00:37:32,880
+like a string but you got cursor
+
+701
+00:37:30,720 --> 00:37:34,480
+position you you can you know you can
+
+702
+00:37:32,880 --> 00:37:36,240
+move forward backward you can save
+
+703
+00:37:34,480 --> 00:37:38,880
+cursive position position and so on. You
+
+704
+00:37:36,240 --> 00:37:40,560
+can delete part of it and it's still it
+
+705
+00:37:38,880 --> 00:37:43,119
+basically is a string. You know this
+
+706
+00:37:40,560 --> 00:37:45,760
+whole thing is a you know you don't call
+
+707
+00:37:43,119 --> 00:37:49,599
+it a string. You call it a buffer or in
+
+708
+00:37:45,760 --> 00:37:52,079
+other words it's a text. Okay.
+
+709
+00:37:49,599 --> 00:37:54,400
+In addition to this buffer then you then
+
+710
+00:37:52,079 --> 00:37:57,440
+you do have the normal string concept
+
+711
+00:37:54,400 --> 00:37:59,599
+which is like you can turn this uh you
+
+712
+00:37:57,440 --> 00:38:03,040
+know this part of text into a string and
+
+713
+00:37:59,599 --> 00:38:06,720
+so on. So that is the buffer data type
+
+714
+00:38:03,040 --> 00:38:09,920
+in EMAC. is and that is why let's go
+
+715
+00:38:06,720 --> 00:38:13,839
+let's jump uh let's undo undo undo
+
+716
+00:38:09,920 --> 00:38:16,240
+whatever I did before uh uh so that you
+
+717
+00:38:13,839 --> 00:38:19,440
+know the buffer data type is like a
+
+718
+00:38:16,240 --> 00:38:24,720
+glorified string very like much more
+
+719
+00:38:19,440 --> 00:38:28,079
+enhanced string data type very rich that
+
+720
+00:38:24,720 --> 00:38:31,280
+makes eaglist the most powerful
+
+721
+00:38:28,079 --> 00:38:34,720
+programming language for doing the task
+
+722
+00:38:31,280 --> 00:38:37,119
+of text processing Okay. Now if you go
+
+723
+00:38:34,720 --> 00:38:39,680
+beyond text processing, Emac this is not
+
+724
+00:38:37,119 --> 00:38:46,000
+good because Emac this is very kind of
+
+725
+00:38:39,680 --> 00:38:49,200
+niche only works runs in EMACs. Okay.
+
+726
+00:38:46,000 --> 00:38:52,480
+So if you want to do huge amount of text
+
+727
+00:38:49,200 --> 00:38:55,280
+processing like processing gigabyte
+
+728
+00:38:52,480 --> 00:38:58,480
+tetra like Google or whatever or
+
+729
+00:38:55,280 --> 00:39:01,839
+processing you know language translation
+
+730
+00:38:58,480 --> 00:39:05,320
+then you know you move to Python or
+
+731
+00:39:01,839 --> 00:39:05,320
+whatever go
+
+732
+00:39:10,079 --> 00:39:17,200
+okay that's a huge digression
+
+733
+00:39:13,440 --> 00:39:19,280
+God we need to finish the code So
+
+734
+00:39:17,200 --> 00:39:21,760
+let's just do it now. Okay, then I'm
+
+735
+00:39:19,280 --> 00:39:24,160
+going to code it offline. So if the
+
+736
+00:39:21,760 --> 00:39:26,560
+length is greater than the number of
+
+737
+00:39:24,160 --> 00:39:29,440
+characters, then you you want to drop
+
+738
+00:39:26,560 --> 00:39:32,400
+the first character.
+
+739
+00:39:29,440 --> 00:39:34,880
+Uh okay. So,
+
+740
+00:39:32,400 --> 00:39:37,680
+so x new
+
+741
+00:39:34,880 --> 00:39:40,160
+number
+
+742
+00:39:37,680 --> 00:39:43,119
+uh you want to turn it string, you want
+
+743
+00:39:40,160 --> 00:39:46,560
+to turn that number into a string, then
+
+744
+00:39:43,119 --> 00:39:48,960
+you want to d drop the first uh few
+
+745
+00:39:46,560 --> 00:39:51,440
+characters. God, it's going to getting
+
+746
+00:39:48,960 --> 00:39:54,440
+tedious.
+
+747
+00:39:51,440 --> 00:39:54,440
+Um,
+
+748
+00:40:04,240 --> 00:40:10,920
+uh, then you need a new variable to
+
+749
+00:40:06,640 --> 00:40:10,920
+insert. Okay. So,
+
+750
+00:40:12,079 --> 00:40:17,560
+uh, and now I'm half drunk. [ __ ]
+
+751
+00:40:18,160 --> 00:40:25,200
+Okay. So,
+
+752
+00:40:21,599 --> 00:40:27,599
+okay, let's concentrate and uh do I want
+
+753
+00:40:25,200 --> 00:40:31,119
+to finish this? Yes, let's finish it.
+
+754
+00:40:27,599 --> 00:40:33,119
+Okay, let's just code something so it's
+
+755
+00:40:31,119 --> 00:40:36,800
+it works.
+
+756
+00:40:33,119 --> 00:40:40,640
+So, um
+
+757
+00:40:36,800 --> 00:40:43,920
+so the new number okay string uh number
+
+758
+00:40:40,640 --> 00:40:47,760
+to string actually you can use format.
+
+759
+00:40:43,920 --> 00:40:52,400
+Okay. Format will allow uh will allow
+
+760
+00:40:47,760 --> 00:40:57,839
+you to drop numbers. Let's test. Okay.
+
+761
+00:40:52,400 --> 00:41:00,640
+1 2 3 4 5. Okay. Then you say uh number.
+
+762
+00:40:57,839 --> 00:41:04,240
+Okay. I need to check the documentation
+
+763
+00:41:00,640 --> 00:41:08,160
+for format and uh for integer. So
+
+764
+00:41:04,240 --> 00:41:11,280
+integer is d. So go back here. Go back.
+
+765
+00:41:08,160 --> 00:41:14,640
+Go back here. So integer is d. And how
+
+766
+00:41:11,280 --> 00:41:16,720
+do you change the um
+
+767
+00:41:14,640 --> 00:41:18,400
+I mean how do you specify how many
+
+768
+00:41:16,720 --> 00:41:23,560
+digits
+
+769
+00:41:18,400 --> 00:41:23,560
+search for digit? Okay. Uh
+
+770
+00:41:24,800 --> 00:41:32,160
+I don't remember you know this this this
+
+771
+00:41:28,240 --> 00:41:35,440
+sprint f you know this format string is
+
+772
+00:41:32,160 --> 00:41:39,040
+one of the grave crimes from the Unix
+
+773
+00:41:35,440 --> 00:41:41,599
+and C [ __ ] Okay,
+
+774
+00:41:39,040 --> 00:41:43,359
+you know that that percentage D, percent
+
+775
+00:41:41,599 --> 00:41:45,680
+o, percent X, you know, whatever, you
+
+776
+00:41:43,359 --> 00:41:48,480
+know, this this is so-called a mini
+
+777
+00:41:45,680 --> 00:41:53,040
+language, a language within a language.
+
+778
+00:41:48,480 --> 00:41:55,839
+And it came from C and then it spread to
+
+779
+00:41:53,040 --> 00:41:59,359
+Pearl, spread to JavaScript, swept to
+
+780
+00:41:55,839 --> 00:42:01,760
+Python, script to spread to Python,
+
+781
+00:41:59,359 --> 00:42:06,000
+JavaScript, Goland, basically every
+
+782
+00:42:01,760 --> 00:42:07,839
+language there. C and Unix [ __ ]
+
+783
+00:42:06,000 --> 00:42:11,119
+created this. Okay, it's
+
+784
+00:42:07,839 --> 00:42:13,680
+incomprehensible [ __ ]
+
+785
+00:42:11,119 --> 00:42:16,960
+Okay, so how do you want to So right now
+
+786
+00:42:13,680 --> 00:42:20,800
+I want to Okay, so here so field let's
+
+787
+00:42:16,960 --> 00:42:23,520
+see field flags width and precision and
+
+788
+00:42:20,800 --> 00:42:26,520
+character very confusing.
+
+789
+00:42:23,520 --> 00:42:26,520
+Um
+
+790
+00:42:26,560 --> 00:42:32,480
+I don't know. So let's just try trial
+
+791
+00:42:29,599 --> 00:42:36,319
+and error. Okay, something like two do
+
+792
+00:42:32,480 --> 00:42:40,800
+it. Okay, uh wait. So, you got to put
+
+793
+00:42:36,319 --> 00:42:45,480
+the two in front. Okay. Do it. No, it
+
+794
+00:42:40,800 --> 00:42:45,480
+didn't work. Um, what?
+
+795
+00:42:46,400 --> 00:42:53,119
+Okay. So, let's go to eag this blog. So,
+
+796
+00:42:50,319 --> 00:42:57,359
+let's go to saw eag this tutorial. Do I
+
+797
+00:42:53,119 --> 00:43:02,160
+have it like easy to read
+
+798
+00:42:57,359 --> 00:43:07,599
+uh solution here? Format. Okay. Format
+
+799
+00:43:02,160 --> 00:43:10,400
+integer uh padding. There it is. Oh,
+
+800
+00:43:07,599 --> 00:43:12,720
+padding decimal four digits. Okay,
+
+801
+00:43:10,400 --> 00:43:14,720
+that's padding decimal. If you that's
+
+802
+00:43:12,720 --> 00:43:17,839
+okay, that's a good solution. Padding
+
+803
+00:43:14,720 --> 00:43:20,480
+decimal four digits.
+
+804
+00:43:17,839 --> 00:43:24,000
+Zero means you want to pad with the zero
+
+805
+00:43:20,480 --> 00:43:25,920
+and then four then d. Okay, so the first
+
+806
+00:43:24,000 --> 00:43:28,560
+character is the character you want to
+
+807
+00:43:25,920 --> 00:43:31,760
+use for padding
+
+808
+00:43:28,560 --> 00:43:35,760
+and adding sign. We don't care. So,
+
+809
+00:43:31,760 --> 00:43:40,319
+okay. So, okay. So [ __ ] idiotic. The
+
+810
+00:43:35,760 --> 00:43:42,240
+[ __ ] the Unix and [ __ ] the C.
+
+811
+00:43:40,319 --> 00:43:45,040
+Okay. Something like that. Okay. So
+
+812
+00:43:42,240 --> 00:43:48,960
+wait, is that true? No. Yeah, I think
+
+813
+00:43:45,040 --> 00:43:51,119
+so. So let's do it again.
+
+814
+00:43:48,960 --> 00:43:55,200
+Uh,
+
+815
+00:43:51,119 --> 00:43:58,880
+no. Let's say nine.
+
+816
+00:43:55,200 --> 00:44:02,000
+Okay. So if you know, so so the padding
+
+817
+00:43:58,880 --> 00:44:04,319
+must be greater than the number. But how
+
+818
+00:44:02,000 --> 00:44:07,440
+how can we drop it, you know? I don't
+
+819
+00:44:04,319 --> 00:44:10,319
+want that many.
+
+820
+00:44:07,440 --> 00:44:15,079
+Oh god.
+
+821
+00:44:10,319 --> 00:44:15,079
+Decimal. Hexad decimal.
+
+822
+00:44:15,520 --> 00:44:24,880
+Uh number to decimal. Okay.
+
+823
+00:44:20,240 --> 00:44:27,440
+So it seems like is it even possible?
+
+824
+00:44:24,880 --> 00:44:31,119
+Okay. So if you can can you use floating
+
+825
+00:44:27,440 --> 00:44:35,599
+number? Okay. So let's see.
+
+826
+00:44:31,119 --> 00:44:38,160
+So instead of D, use F. Then do that.
+
+827
+00:44:35,599 --> 00:44:42,160
+Then you got the [ __ ] zero zero at
+
+828
+00:44:38,160 --> 00:44:45,200
+the end, you know. [ __ ] [ __ ] the C. [ __ ]
+
+829
+00:44:42,160 --> 00:44:49,119
+the Unix and C, you know, because I'm
+
+830
+00:44:45,200 --> 00:44:53,200
+right now I'm running into this problem.
+
+831
+00:44:49,119 --> 00:44:55,680
+Who to blame? C and Unix [ __ ] They
+
+832
+00:44:53,200 --> 00:44:57,599
+did it this they did this to the coding
+
+833
+00:44:55,680 --> 00:45:00,079
+industry.
+
+834
+00:44:57,599 --> 00:45:03,359
+Um,
+
+835
+00:45:00,079 --> 00:45:05,680
+so anyway, so I just want to have two.
+
+836
+00:45:03,359 --> 00:45:09,440
+Okay, let's try it. No, that doesn't
+
+837
+00:45:05,680 --> 00:45:12,440
+work. So, you know, [ __ ] it.
+
+838
+00:45:09,440 --> 00:45:12,440
+Um,
+
+839
+00:45:19,599 --> 00:45:27,359
+can we just use S will the S S work? Uh,
+
+840
+00:45:25,440 --> 00:45:29,440
+let's see.
+
+841
+00:45:27,359 --> 00:45:33,280
+No.
+
+842
+00:45:29,440 --> 00:45:36,880
+Uh so you so so now it means you have to
+
+843
+00:45:33,280 --> 00:45:39,760
+read this carefully.
+
+844
+00:45:36,880 --> 00:45:42,960
+Number two exponential notation or
+
+845
+00:45:39,760 --> 00:45:45,599
+decimal point notation. Number two
+
+846
+00:45:42,960 --> 00:45:48,960
+exponential notation. What the [ __ ] is
+
+847
+00:45:45,599 --> 00:45:52,400
+that? [ __ ] it.
+
+848
+00:45:48,960 --> 00:45:57,119
+Let's say G. Okay.
+
+849
+00:45:52,400 --> 00:46:00,560
+No. So what we want to
+
+850
+00:45:57,119 --> 00:46:04,160
+uh go. So wait,
+
+851
+00:46:00,560 --> 00:46:07,400
+you know, so we we want
+
+852
+00:46:04,160 --> 00:46:07,400
+[ __ ] it.
+
+853
+00:46:08,400 --> 00:46:14,400
+We want just two digits. How do you How
+
+854
+00:46:11,680 --> 00:46:18,800
+do you do it? If it's more, if there's
+
+855
+00:46:14,400 --> 00:46:20,400
+more, then drop them. Okay. Okay. So you
+
+856
+00:46:18,800 --> 00:46:23,200
+you really need to read the
+
+857
+00:46:20,400 --> 00:46:26,240
+documentation carefully. Okay. So let's
+
+858
+00:46:23,200 --> 00:46:29,240
+go back to read the documentation.
+
+859
+00:46:26,240 --> 00:46:29,240
+Yeah.
+
+860
+00:46:31,119 --> 00:46:37,920
+Produce a sign number in decimal. Okay.
+
+861
+00:46:34,640 --> 00:46:41,599
+Sign number. Okay. That's what we want.
+
+862
+00:46:37,920 --> 00:46:44,599
+Okay. So it's going to be percent D
+
+863
+00:46:41,599 --> 00:46:44,599
+then
+
+864
+00:46:45,040 --> 00:46:52,920
+and possibly also percent F. Okay.
+
+865
+00:46:49,920 --> 00:46:52,920
+Um
+
+866
+00:46:53,200 --> 00:47:00,319
+and C means produce a number as a single
+
+867
+00:46:57,200 --> 00:47:02,000
+character. Okay, that's a unic code
+
+868
+00:47:00,319 --> 00:47:04,960
+point.
+
+869
+00:47:02,000 --> 00:47:08,720
+Okay, S capital S means produce any
+
+870
+00:47:04,960 --> 00:47:08,800
+object as X s
+
+871
+00:47:08,720 --> 00:47:09,200
+S S S S S S S S S S S S S S S S S S S S
+
+872
+00:47:08,800 --> 00:47:11,839
+S S S S S S S S S S S S S S S S S S S S
+
+873
+00:47:09,200 --> 00:47:14,880
+expression symbolic expression that just
+
+874
+00:47:11,839 --> 00:47:18,079
+means this syntax. Okay. The argument
+
+875
+00:47:14,880 --> 00:47:22,480
+used for D, O and so on must be a
+
+876
+00:47:18,079 --> 00:47:26,079
+number. Okay. Yeah. And uh
+
+877
+00:47:22,480 --> 00:47:32,240
+and uh and that that treat argument as
+
+878
+00:47:26,079 --> 00:47:35,359
+unsigned if binary as unsigned is true.
+
+879
+00:47:32,240 --> 00:47:38,960
+[ __ ] complex [ __ ]
+
+880
+00:47:35,359 --> 00:47:42,160
+Uh use percent to put a single percent
+
+881
+00:47:38,960 --> 00:47:45,119
+into output. Okay. A percent sequence
+
+882
+00:47:42,160 --> 00:47:49,599
+other than percent may contain optional
+
+883
+00:47:45,119 --> 00:47:55,200
+field number. Okay. Then you got flag
+
+884
+00:47:49,599 --> 00:47:58,960
+width and precision. Okay. So you got
+
+885
+00:47:55,200 --> 00:48:03,119
+field flag width position.
+
+886
+00:47:58,960 --> 00:48:05,920
+Okay. Field flags with position. Okay.
+
+887
+00:48:03,119 --> 00:48:09,400
+Field is 0 to9 followed by a literal
+
+888
+00:48:05,920 --> 00:48:09,400
+dollar sign.
+
+889
+00:48:09,920 --> 00:48:17,839
+Oh, what the you see one of the problem
+
+890
+00:48:13,599 --> 00:48:21,760
+with EMAC list um documentation is that
+
+891
+00:48:17,839 --> 00:48:26,559
+they don't have much examples. Uh well,
+
+892
+00:48:21,760 --> 00:48:28,960
+so search EMAC list manual for format.
+
+893
+00:48:26,559 --> 00:48:31,680
+Let's see if we can find so let's read
+
+894
+00:48:28,960 --> 00:48:34,720
+the full
+
+895
+00:48:31,680 --> 00:48:37,200
+EMAC manual for this format instead of
+
+896
+00:48:34,720 --> 00:48:39,599
+just the inline documentation. Okay,
+
+897
+00:48:37,200 --> 00:48:42,160
+close that.
+
+898
+00:48:39,599 --> 00:48:46,000
+So, um,
+
+899
+00:48:42,160 --> 00:48:48,880
+so we got this format format function
+
+900
+00:48:46,000 --> 00:48:52,559
+and, uh, where is it? So, here it
+
+901
+00:48:48,880 --> 00:48:54,079
+describes the full documentation for
+
+902
+00:48:52,559 --> 00:48:59,160
+this.
+
+903
+00:48:54,079 --> 00:48:59,160
+Okay. So then you got
+
+904
+00:49:01,839 --> 00:49:04,839
+okay
+
+905
+00:49:07,359 --> 00:49:14,079
+God. Okay. I'm currently half drunk and
+
+906
+00:49:11,839 --> 00:49:16,400
+uh at this rate we are not going
+
+907
+00:49:14,079 --> 00:49:18,800
+anywhere.
+
+908
+00:49:16,400 --> 00:49:23,680
+Uh
+
+909
+00:49:18,800 --> 00:49:26,079
+the flag zero. Okay. So let's see cause
+
+910
+00:49:23,680 --> 00:49:28,640
+any padding inserted by the width if
+
+911
+00:49:26,079 --> 00:49:32,000
+specified to be inserted on the right
+
+912
+00:49:28,640 --> 00:49:34,960
+rather than left. Okay. The flag zero
+
+913
+00:49:32,000 --> 00:49:38,720
+ensures that padding consists of zero
+
+914
+00:49:34,960 --> 00:49:42,720
+characters instead of space. Okay. Uh
+
+915
+00:49:38,720 --> 00:49:46,000
+what is the Okay. So the flag pound sign
+
+916
+00:49:42,720 --> 00:49:51,240
+specifies an alternative form which
+
+917
+00:49:46,000 --> 00:49:51,240
+depends on the format used. Okay.
+
+918
+00:49:54,880 --> 00:50:02,000
+So plus means add a plus sign
+
+919
+00:49:58,480 --> 00:50:04,480
+field number. Okay. So after the percent
+
+920
+00:50:02,000 --> 00:50:08,520
+sign any field number you can put
+
+921
+00:50:04,480 --> 00:50:08,520
+certain flag characters.
+
+922
+00:50:08,559 --> 00:50:11,559
+Okay.
+
+923
+00:50:13,359 --> 00:50:22,400
+So flag is zero. I think we
+
+924
+00:50:18,319 --> 00:50:25,400
+where is it? So flag is zero for sure.
+
+925
+00:50:22,400 --> 00:50:25,400
+Um,
+
+926
+00:50:26,319 --> 00:50:34,000
+Mr. Lee, I was trying to install fly
+
+927
+00:50:28,559 --> 00:50:37,040
+keys on Doom, but I could I could
+
+928
+00:50:34,000 --> 00:50:40,079
+not get it to work on my for my blog.
+
+929
+00:50:37,040 --> 00:50:42,720
+Yes, true. It's true. On my blog, it's
+
+930
+00:50:40,079 --> 00:50:45,040
+outdated.
+
+931
+00:50:42,720 --> 00:50:47,839
+But my recommendation is that if you
+
+932
+00:50:45,040 --> 00:50:50,720
+want to use Doom, just go with Doom,
+
+933
+00:50:47,839 --> 00:50:54,400
+okay? because you know Doom is another
+
+934
+00:50:50,720 --> 00:50:56,720
+guy who is a great emac coder he's great
+
+935
+00:50:54,400 --> 00:50:59,680
+you know so but
+
+936
+00:50:56,720 --> 00:51:03,599
+he's him I'm me so but you know he's not
+
+937
+00:50:59,680 --> 00:51:05,680
+going to like promote Safly keys and so
+
+938
+00:51:03,599 --> 00:51:09,680
+if you're going to use Doom just go with
+
+939
+00:51:05,680 --> 00:51:13,119
+Doom if you want to try keys I would
+
+940
+00:51:09,680 --> 00:51:15,280
+recommend just go with Safly keys okay
+
+941
+00:51:13,119 --> 00:51:18,720
+and don't don't use Doom just playing
+
+942
+00:51:15,280 --> 00:51:21,200
+Groom Emacs and Kafly keys Okay, that's
+
+943
+00:51:18,720 --> 00:51:23,200
+my recommendation. I I don't think it
+
+944
+00:51:21,200 --> 00:51:27,119
+works well together with Doom because
+
+945
+00:51:23,200 --> 00:51:29,680
+Doom, the core foundation of Doom, the
+
+946
+00:51:27,119 --> 00:51:32,240
+philosophy is designed to be Vim like.
+
+947
+00:51:29,680 --> 00:51:34,240
+So, it has like last time, you know, two
+
+948
+00:51:32,240 --> 00:51:38,880
+years ago, I tried to install it live
+
+949
+00:51:34,240 --> 00:51:40,400
+stream. It has like 1,000 packages.
+
+950
+00:51:38,880 --> 00:51:42,400
+Um,
+
+951
+00:51:40,400 --> 00:51:46,800
+you know, but it's it's very popular.
+
+952
+00:51:42,400 --> 00:51:49,520
+It's very good. uh but it's like
+
+953
+00:51:46,800 --> 00:51:51,920
+you know it's focused on vim.
+
+954
+00:51:49,520 --> 00:51:54,000
+So if you're going to use safely keys
+
+955
+00:51:51,920 --> 00:52:00,319
+you don't need all the things in in
+
+956
+00:51:54,000 --> 00:52:02,160
+doom. Okay just so just use safly keys.
+
+957
+00:52:00,319 --> 00:52:04,400
+Okay so let's see let's read the
+
+958
+00:52:02,160 --> 00:52:06,720
+comment. You know I'm I'm kind of like
+
+959
+00:52:04,400 --> 00:52:08,960
+going nowhere here. So let me read the
+
+960
+00:52:06,720 --> 00:52:12,319
+comments and maybe that's it for today.
+
+961
+00:52:08,960 --> 00:52:16,160
+It's already one hour.
+
+962
+00:52:12,319 --> 00:52:18,880
+Uh so M Leah so another dark page
+
+963
+00:52:16,160 --> 00:52:21,680
+mentions this the new variable float
+
+964
+00:52:18,880 --> 00:52:24,640
+output format controls how this prints
+
+965
+00:52:21,680 --> 00:52:27,040
+floating numbers its value should be new
+
+966
+00:52:24,640 --> 00:52:30,040
+or string okay
+
+967
+00:52:27,040 --> 00:52:30,040
+uh
+
+968
+00:52:30,240 --> 00:52:33,240
+yeah
+
+969
+00:52:33,839 --> 00:52:38,240
+okay so I think that's that's it for
+
+970
+00:52:35,839 --> 00:52:43,079
+today you know just random talk this is
+
+971
+00:52:38,240 --> 00:52:43,079
+something I want to do but Um
+
+972
+00:52:43,839 --> 00:52:51,200
+you know so usually I code it offline.
+
+973
+00:52:47,920 --> 00:52:53,839
+Coding offline is much faster like at
+
+974
+00:52:51,200 --> 00:52:56,160
+least three times four times faster
+
+975
+00:52:53,839 --> 00:52:58,880
+faster than live stream because in live
+
+976
+00:52:56,160 --> 00:53:01,839
+stream you need to explain what's going
+
+977
+00:52:58,880 --> 00:53:05,520
+on then you know basically you are doing
+
+978
+00:53:01,839 --> 00:53:09,440
+a show that's what I'm doing a show you
+
+979
+00:53:05,520 --> 00:53:13,040
+then you know at this occasion I need to
+
+980
+00:53:09,440 --> 00:53:15,839
+flame the sea and Unix [ __ ] I need
+
+981
+00:53:13,040 --> 00:53:17,520
+to talk about it history like where does
+
+982
+00:53:15,839 --> 00:53:20,240
+this format came
+
+983
+00:53:17,520 --> 00:53:22,880
+How did we get this this you know this
+
+984
+00:53:20,240 --> 00:53:26,720
+percent 00002
+
+985
+00:53:22,880 --> 00:53:29,680
+as cryptic [ __ ] that's history of
+
+986
+00:53:26,720 --> 00:53:33,599
+computing and that came from the C and
+
+987
+00:53:29,680 --> 00:53:36,559
+Unix [ __ ] Okay.
+
+988
+00:53:33,599 --> 00:53:39,280
+But if we if I'm coding offline you know
+
+989
+00:53:36,559 --> 00:53:42,079
+it's just me you just need to get it to
+
+990
+00:53:39,280 --> 00:53:45,440
+work then I won't be you know talking
+
+991
+00:53:42,079 --> 00:53:48,079
+about these elaborate things. Um, so
+
+992
+00:53:45,440 --> 00:53:51,119
+anyway,
+
+993
+00:53:48,079 --> 00:53:54,280
+should we finish this now? Well, I don't
+
+994
+00:53:51,119 --> 00:53:54,280
+you know,
+
+995
+00:53:54,640 --> 00:54:00,160
+you know, so right now I'm like like so
+
+996
+00:53:57,200 --> 00:54:03,200
+so the question is should we like finish
+
+997
+00:54:00,160 --> 00:54:06,800
+reading you know doing coding this?
+
+998
+00:54:03,200 --> 00:54:09,520
+Well, we need to go through this format
+
+999
+00:54:06,800 --> 00:54:12,319
+and or alternatively you know just don't
+
+1000
+00:54:09,520 --> 00:54:14,720
+use this format then you know you know
+
+1001
+00:54:12,319 --> 00:54:17,280
+then just use like code it manually. So
+
+1002
+00:54:14,720 --> 00:54:19,920
+instead of using format all you have to
+
+1003
+00:54:17,280 --> 00:54:22,000
+do is just extract substring actually
+
+1004
+00:54:19,920 --> 00:54:25,520
+it'll be simple
+
+1005
+00:54:22,000 --> 00:54:28,079
+uh substring.
+
+1006
+00:54:25,520 --> 00:54:30,880
+So substring you need to look at the
+
+1007
+00:54:28,079 --> 00:54:34,400
+documentation substring option from two.
+
+1008
+00:54:30,880 --> 00:54:38,480
+Okay. So, so the substring is going to
+
+1009
+00:54:34,400 --> 00:54:42,720
+be the string is x new num. In fact, we
+
+1010
+00:54:38,480 --> 00:54:46,960
+need to tie it to num to string. Okay.
+
+1011
+00:54:42,720 --> 00:54:49,960
+uh number two string x new number then
+
+1012
+00:54:46,960 --> 00:54:49,960
+from
+
+1013
+00:54:50,319 --> 00:54:56,079
+from starting from uh so actually we
+
+1014
+00:54:53,520 --> 00:54:58,880
+need to drop the first you know we we
+
+1015
+00:54:56,079 --> 00:55:05,920
+want we we we want the total number of
+
+1016
+00:54:58,880 --> 00:55:09,280
+digits to be char count so we need to
+
+1017
+00:55:05,920 --> 00:55:11,760
+get the length of that
+
+1018
+00:55:09,280 --> 00:55:14,559
+okay so this is like like what you have
+
+1019
+00:55:11,760 --> 00:55:17,040
+to Okay. Length
+
+1020
+00:55:14,559 --> 00:55:19,839
+length
+
+1021
+00:55:17,040 --> 00:55:24,760
+uh god then you then you need to cut you
+
+1022
+00:55:19,839 --> 00:55:24,760
+know so the length of that
+
+1023
+00:55:25,280 --> 00:55:31,920
+two okay so the two is to the end length
+
+1024
+00:55:29,839 --> 00:55:35,760
+which is optional so that means you
+
+1025
+00:55:31,920 --> 00:55:39,839
+don't need it okay but the front from
+
+1026
+00:55:35,760 --> 00:55:46,960
+the beginning index would be the length
+
+1027
+00:55:39,839 --> 00:55:50,960
+minus So uh so it would be minus
+
+1028
+00:55:46,960 --> 00:55:55,119
+length minus the padding right. So when
+
+1029
+00:55:50,960 --> 00:55:59,040
+it's greater right so uh yeah so length
+
+1030
+00:55:55,119 --> 00:56:03,040
+minus x chart
+
+1031
+00:55:59,040 --> 00:56:07,000
+count let's make sure is this correct
+
+1032
+00:56:03,040 --> 00:56:07,000
+so number two string
+
+1033
+00:56:07,520 --> 00:56:13,720
+uh number two string minus the char
+
+1034
+00:56:10,720 --> 00:56:13,720
+count.
+
+1035
+00:56:14,480 --> 00:56:19,280
+Oh wait, we need to wait. We need to
+
+1036
+00:56:16,799 --> 00:56:22,880
+take the beginning or end. We need to
+
+1037
+00:56:19,280 --> 00:56:26,280
+take from the end. Okay. So,
+
+1038
+00:56:22,880 --> 00:56:26,280
+yeah. So,
+
+1039
+00:56:29,200 --> 00:56:36,000
+so let's say number let's say there are
+
+1040
+00:56:32,640 --> 00:56:37,599
+five digits. Let's say the char count is
+
+1041
+00:56:36,000 --> 00:56:41,920
+two.
+
+1042
+00:56:37,599 --> 00:56:45,920
+Okay. So you need to begin basically
+
+1043
+00:56:41,920 --> 00:56:48,480
+uh basically 012 at three something like
+
+1044
+00:56:45,920 --> 00:56:53,000
+that.
+
+1045
+00:56:48,480 --> 00:56:53,000
+So this will actually be
+
+1046
+00:56:54,160 --> 00:57:00,960
+okay. I'm half drunk. Okay.
+
+1047
+00:56:58,079 --> 00:57:03,119
+[ __ ] it.
+
+1048
+00:57:00,960 --> 00:57:05,119
+Okay. I think that's it for today,
+
+1049
+00:57:03,119 --> 00:57:07,440
+right?
+
+1050
+00:57:05,119 --> 00:57:09,520
+Okay. So, what what else was I going to
+
+1051
+00:57:07,440 --> 00:57:12,640
+do? I was going to write something else.
+
+1052
+00:57:09,520 --> 00:57:15,359
+Reformat lines that one and then another
+
+1053
+00:57:12,640 --> 00:57:17,760
+ones, but we didn't even finish this one
+
+1054
+00:57:15,359 --> 00:57:24,000
+for an hour. Okay.
+
+1055
+00:57:17,760 --> 00:57:26,400
+Uh yeah, that's it for Okay, let's Well,
+
+1056
+00:57:24,000 --> 00:57:28,400
+let's continue. Let's continue coding.
+
+1057
+00:57:26,400 --> 00:57:31,440
+Let's finish this.
+
+1058
+00:57:28,400 --> 00:57:36,640
+Okay, substring
+
+1059
+00:57:31,440 --> 00:57:40,599
+substring of this string and uh begin.
+
+1060
+00:57:36,640 --> 00:57:40,599
+So let me think about it.
+
+1061
+00:57:44,960 --> 00:57:52,160
+Uh let's say you have let's say the
+
+1062
+00:57:48,720 --> 00:57:55,920
+current number the current the the new
+
+1063
+00:57:52,160 --> 00:58:00,079
+number is 10 digits. Okay, 10 of them.
+
+1064
+00:57:55,920 --> 00:58:03,680
+Then let's say the char count is two.
+
+1065
+00:58:00,079 --> 00:58:06,880
+You only allow two digits. Okay.
+
+1066
+00:58:03,680 --> 00:58:10,680
+So that means you want to begin at
+
+1067
+00:58:06,880 --> 00:58:10,680
+something like eight.
+
+1068
+00:58:11,599 --> 00:58:19,680
+Yeah. So so that minus ch would be it.
+
+1069
+00:58:16,640 --> 00:58:22,559
+Do you need to add one?
+
+1070
+00:58:19,680 --> 00:58:26,960
+Uh that's always always uh annoying. So
+
+1071
+00:58:22,559 --> 00:58:30,799
+we can try it. Okay. So for example,
+
+1072
+00:58:26,960 --> 00:58:37,839
+let's say string let's say
+
+1073
+00:58:30,799 --> 00:58:40,480
+1 2 3 4 5 6 7 okay then
+
+1074
+00:58:37,839 --> 00:58:43,599
+let's say the char count is two so we
+
+1075
+00:58:40,480 --> 00:58:47,880
+want to just get a two so
+
+1076
+00:58:43,599 --> 00:58:47,880
+uh 7 minus two
+
+1077
+00:58:48,400 --> 00:58:57,240
+7
+
+1078
+00:58:51,119 --> 00:58:57,240
+uh two right so what do we at
+
+1079
+00:58:58,160 --> 00:59:03,559
+uh wait so 7 to
+
+1080
+00:59:05,119 --> 00:59:10,400
+67. So that's is correct. Okay. So
+
+1081
+00:59:08,559 --> 00:59:14,079
+substring
+
+1082
+00:59:10,400 --> 00:59:15,760
+then that string then length
+
+1083
+00:59:14,079 --> 00:59:18,720
+of
+
+1084
+00:59:15,760 --> 00:59:21,440
+number two string and then length. Oh
+
+1085
+00:59:18,720 --> 00:59:25,839
+god, this is [ __ ]
+
+1086
+00:59:21,440 --> 00:59:29,040
+length and ch count. Okay, then purify
+
+1087
+00:59:25,839 --> 00:59:33,480
+the code and we don't need format
+
+1088
+00:59:29,040 --> 00:59:33,480
+anymore. So it's just substring
+
+1089
+00:59:34,319 --> 00:59:42,880
+and then you and then we just remove all
+
+1090
+00:59:38,319 --> 00:59:46,400
+these uh code. Okay, so we kind of
+
+1091
+00:59:42,880 --> 00:59:48,880
+remove that all that that testing code.
+
+1092
+00:59:46,400 --> 00:59:53,079
+Okay.
+
+1093
+00:59:48,880 --> 00:59:53,079
+So you just insert
+
+1094
+01:00:03,680 --> 01:00:07,480
+insert that
+
+1095
+01:00:11,040 --> 01:00:14,040
+otherwise
+
+1096
+01:00:15,680 --> 01:00:20,400
+insert that. Okay. Purify the code. I
+
+1097
+01:00:18,160 --> 01:00:25,040
+don't know if this works, but let's try.
+
+1098
+01:00:20,400 --> 01:00:27,040
+Okay. Uh, let's just try it.
+
+1099
+01:00:25,040 --> 01:00:32,319
+So, we can at least say something
+
+1100
+01:00:27,040 --> 01:00:35,119
+worked. 70. Okay. Increase now. 72 76.
+
+1101
+01:00:32,319 --> 01:00:41,200
+Increase increase.
+
+1102
+01:00:35,119 --> 01:00:42,960
+92 95 6 96 97 98 99.
+
+1103
+01:00:41,200 --> 01:00:47,359
+If you're going to do it again, it's
+
+1104
+01:00:42,960 --> 01:00:49,280
+going to be 0 0. Not one zero. Okay? If
+
+1105
+01:00:47,359 --> 01:00:51,599
+it's zero, that means we did it
+
+1106
+01:00:49,280 --> 01:00:55,280
+correctly. Okay, do it again. One more.
+
+1107
+01:00:51,599 --> 01:00:58,920
+Oh, wrong argument. Type sequence
+
+1108
+01:00:55,280 --> 01:00:58,920
+sequence P1
+
+1109
+01:00:59,530 --> 01:01:07,480
+[Music]
+
+1110
+01:01:00,960 --> 01:01:07,480
+[ __ ] Okay, so our code is incorrect.
+
+1111
+01:01:07,680 --> 01:01:14,000
+Uh incorrect incorrect somewhere here.
+
+1112
+01:01:11,359 --> 01:01:15,520
+Let's see. Wrong. What? What is the
+
+1113
+01:01:14,000 --> 01:01:19,760
+error?
+
+1114
+01:01:15,520 --> 01:01:24,640
+wrong type of argument. It expect a
+
+1115
+01:01:19,760 --> 01:01:28,040
+sequence and it got one instead.
+
+1116
+01:01:24,640 --> 01:01:28,040
+Uh what?
+
+1117
+01:01:28,240 --> 01:01:34,640
+Oh, wait. This is this shouldn't be
+
+1118
+01:01:30,240 --> 01:01:38,920
+number two string. Okay. Uh what? Wait.
+
+1119
+01:01:34,640 --> 01:01:38,920
+This should be number two string.
+
+1120
+01:01:40,079 --> 01:01:48,280
+Wait. number to string
+
+1121
+01:01:43,040 --> 01:01:48,280
+then length then minus char
+
+1122
+01:01:48,880 --> 01:01:56,559
+and it's a number. Okay, so this this is
+
+1123
+01:01:52,000 --> 01:01:58,480
+not a length. Okay, that eval the code
+
+1124
+01:01:56,559 --> 01:02:02,079
+let's not worry about anything just
+
+1125
+01:01:58,480 --> 01:02:08,000
+eval. Okay, so let's try it again. Uh
+
+1126
+01:02:02,079 --> 01:02:11,359
+let's say 98 98. Okay, do it. 99 and
+
+1127
+01:02:08,000 --> 01:02:14,559
+increase 98. Okay, decrease increase 99
+
+1128
+01:02:11,359 --> 01:02:17,520
+and increase again 0.
+
+1129
+01:02:14,559 --> 01:02:19,760
+Fantastic. Oh,
+
+1130
+01:02:17,520 --> 01:02:23,359
+correct. Okay. So, we got it to work,
+
+1131
+01:02:19,760 --> 01:02:26,400
+but we didn't work on the the other
+
+1132
+01:02:23,359 --> 01:02:29,359
+case. So, what is the other case? The
+
+1133
+01:02:26,400 --> 01:02:33,319
+the other case is
+
+1134
+01:02:29,359 --> 01:02:33,319
+if it's less than
+
+1135
+01:02:35,040 --> 01:02:40,240
+wait well the less than is because the
+
+1136
+01:02:37,839 --> 01:02:41,760
+then you need to work on the decrement
+
+1137
+01:02:40,240 --> 01:02:43,920
+number.
+
+1138
+01:02:41,760 --> 01:02:47,599
+Actually, we need to refactor to combine
+
+1139
+01:02:43,920 --> 01:02:52,079
+them into one. So we don't repeat, you
+
+1140
+01:02:47,599 --> 01:02:54,400
+know, we don't repeat this um
+
+1141
+01:02:52,079 --> 01:02:58,760
+this whole code. Okay, that's it. Thank
+
+1142
+01:02:54,400 --> 01:02:58,760
+you guys for watching. Bye guys.
+
+1143
+01:03:02,400 --> 01:03:05,400
+God.
+

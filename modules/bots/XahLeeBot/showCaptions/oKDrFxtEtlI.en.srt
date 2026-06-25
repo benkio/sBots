@@ -1,0 +1,4851 @@
+1
+00:00:00,740 --> 00:00:04,740
+good morning everyone good morning
+
+2
+00:00:03,929 --> 00:00:06,810
+everyone
+
+3
+00:00:04,740 --> 00:00:11,070
+welcome to another episode of discuss of
+
+4
+00:00:06,810 --> 00:00:15,020
+Gaston talk-show today's is 2019
+
+5
+00:00:11,070 --> 00:00:18,240
+December 7th Saturday 12 o'clock
+
+6
+00:00:15,020 --> 00:00:24,600
+San Francisco time good morning guys
+
+7
+00:00:18,240 --> 00:00:28,019
+Papa moon and Nabi and named eleven so
+
+8
+00:00:24,600 --> 00:00:31,349
+today's topic is half of it is gonna be
+
+9
+00:00:28,019 --> 00:00:35,160
+Emacs and live coding some Emacs stuff
+
+10
+00:00:31,349 --> 00:00:38,070
+and yes
+
+11
+00:00:35,160 --> 00:00:40,980
+Emacs coding and let's see talk-show
+
+12
+00:00:38,070 --> 00:00:44,399
+it's in a description okay so today's
+
+13
+00:00:40,980 --> 00:00:46,829
+topic is in Addis in the description so
+
+14
+00:00:44,399 --> 00:00:52,230
+we can see I'm gonna talk something
+
+15
+00:00:46,829 --> 00:00:55,140
+about something ok so start command log
+
+16
+00:00:52,230 --> 00:01:01,320
+mod so you can see all my Emacs commands
+
+17
+00:00:55,140 --> 00:01:07,520
+on the left window ok there so let me
+
+18
+00:01:01,320 --> 00:01:11,840
+adjust the window and we are good to go
+
+19
+00:01:07,520 --> 00:01:16,680
+so any questions you guys any anything
+
+20
+00:01:11,840 --> 00:01:18,509
+interesting type in the chat ok then we
+
+21
+00:01:16,680 --> 00:01:20,159
+are going to begin but first of all let
+
+22
+00:01:18,509 --> 00:01:24,320
+me show you this ok so I'm working on
+
+23
+00:01:20,159 --> 00:01:26,939
+this page this is Windows shortcut
+
+24
+00:01:24,320 --> 00:01:29,939
+frequently asked questions you know some
+
+25
+00:01:26,939 --> 00:01:32,220
+how to disable the sleep key how to
+
+26
+00:01:29,939 --> 00:01:35,700
+disable caps lock how to disable windows
+
+27
+00:01:32,220 --> 00:01:39,930
+logo key and things like that how to set
+
+28
+00:01:35,700 --> 00:01:43,770
+a key a shortcut to launch an an app so
+
+29
+00:01:39,930 --> 00:01:47,399
+this is returned in 2009 beginning 2009
+
+30
+00:01:43,770 --> 00:01:52,470
+so I every few years I try to update it
+
+31
+00:01:47,399 --> 00:01:54,780
+and you know writing a blog is not easy
+
+32
+00:01:52,470 --> 00:01:58,439
+I mean there's lots of tedious tasks
+
+33
+00:01:54,780 --> 00:02:03,540
+anyway today I found for example you see
+
+34
+00:01:58,439 --> 00:02:06,450
+it says here it says here no built-in
+
+35
+00:02:03,540 --> 00:02:09,090
+way to do that with Windows Vista or
+
+36
+00:02:06,450 --> 00:02:11,940
+Windows 7 so disable caps lock or
+
+37
+00:02:09,090 --> 00:02:14,190
+windows logo key you cannot do that do
+
+38
+00:02:11,940 --> 00:02:17,640
+that with Windows by default you know
+
+39
+00:02:14,190 --> 00:02:20,010
+using Windows GUI at least not in
+
+40
+00:02:17,640 --> 00:02:23,520
+Windows Vista Windows 7 so this article
+
+41
+00:02:20,010 --> 00:02:25,980
+is videoed but anyway I noticed the word
+
+42
+00:02:23,520 --> 00:02:30,180
+building and I don't like it because I'm
+
+43
+00:02:25,980 --> 00:02:32,730
+particular about about this kind of
+
+44
+00:02:30,180 --> 00:02:39,240
+things you see the the word peel in
+
+45
+00:02:32,730 --> 00:02:41,250
+there I'm using here it has a - the the
+
+46
+00:02:39,240 --> 00:02:43,650
+word building using a - is actually
+
+47
+00:02:41,250 --> 00:02:45,750
+standard so let me look up so let me
+
+48
+00:02:43,650 --> 00:02:49,580
+show you okay so you call a command to
+
+49
+00:02:45,750 --> 00:02:52,380
+look up the web search so you can see
+
+50
+00:02:49,580 --> 00:02:54,030
+merriam-webster dictionary that by the
+
+51
+00:02:52,380 --> 00:02:58,740
+way that's a what's dictionary okay
+
+52
+00:02:54,030 --> 00:03:01,830
+don't use that use the this one or free
+
+53
+00:02:58,740 --> 00:03:04,920
+dictionary calm so anyway you can see
+
+54
+00:03:01,830 --> 00:03:10,290
+the building word it's either building
+
+55
+00:03:04,920 --> 00:03:12,630
+without - or with - but but I don't like
+
+56
+00:03:10,290 --> 00:03:14,760
+that so I what I want is for example let
+
+57
+00:03:12,630 --> 00:03:20,280
+me let me do this okay so what I want is
+
+58
+00:03:14,760 --> 00:03:22,770
+building without - and but before I make
+
+59
+00:03:20,280 --> 00:03:25,740
+a change I want to be sure that this is
+
+60
+00:03:22,770 --> 00:03:29,130
+also Papa because you know I'm
+
+61
+00:03:25,740 --> 00:03:32,040
+meticulous things English writing Styles
+
+62
+00:03:29,130 --> 00:03:35,940
+even though I do make grammar mistakes
+
+63
+00:03:32,040 --> 00:03:40,860
+but almost the way you see my writings
+
+64
+00:03:35,940 --> 00:03:43,650
+almost the every way down to how things
+
+65
+00:03:40,860 --> 00:03:48,239
+are spelled is in control you know I I
+
+66
+00:03:43,650 --> 00:03:51,540
+am in tight control of it so you they
+
+67
+00:03:48,239 --> 00:03:53,820
+are there are a lot ignorant programmers
+
+68
+00:03:51,540 --> 00:03:56,820
+you know a Native American you know
+
+69
+00:03:53,820 --> 00:03:59,010
+English speakers white people they see
+
+70
+00:03:56,820 --> 00:04:00,720
+my writings they say oh sorry it was
+
+71
+00:03:59,010 --> 00:04:04,650
+writing no you don't know how to write
+
+72
+00:04:00,720 --> 00:04:06,630
+okay because well I'm not going to give
+
+73
+00:04:04,650 --> 00:04:09,120
+into a history about a whole whole thing
+
+74
+00:04:06,630 --> 00:04:11,580
+or my qualifications because I've done
+
+75
+00:04:09,120 --> 00:04:15,680
+that in previous videos so anyway the
+
+76
+00:04:11,580 --> 00:04:19,049
+the I want to the building word to be I
+
+77
+00:04:15,680 --> 00:04:21,390
+want to without be without - but usually
+
+78
+00:04:19,049 --> 00:04:26,550
+before I do that I have to make sure
+
+79
+00:04:21,390 --> 00:04:28,170
+that is accepted for example so I let's
+
+80
+00:04:26,550 --> 00:04:32,010
+search
+
+81
+00:04:28,170 --> 00:04:35,610
+and and so far the merriam-webster I
+
+82
+00:04:32,010 --> 00:04:38,610
+have not found it to say that the
+
+83
+00:04:35,610 --> 00:04:42,870
+building without - is also standard I
+
+84
+00:04:38,610 --> 00:04:44,760
+mean it's a variation so I haven't
+
+85
+00:04:42,870 --> 00:04:49,770
+sensing that but however you see it in
+
+86
+00:04:44,760 --> 00:04:54,300
+wiki Wiktionary this grassroots version
+
+87
+00:04:49,770 --> 00:04:56,670
+of not here Wiktionary okay so for
+
+88
+00:04:54,300 --> 00:04:59,820
+example here see also all pages
+
+89
+00:04:56,670 --> 00:05:03,660
+beginning with Pio in that with a hyphen
+
+90
+00:04:59,820 --> 00:05:10,080
+or Pio in without - or filled in with a
+
+91
+00:05:03,660 --> 00:05:16,230
+space so actually that does not that
+
+92
+00:05:10,080 --> 00:05:19,020
+does not mean it is you know so actually
+
+93
+00:05:16,230 --> 00:05:21,990
+right now I'm not sure I'm not sure I
+
+94
+00:05:19,020 --> 00:05:26,070
+want to change so far actually it needs
+
+95
+00:05:21,990 --> 00:05:28,890
+more research oh there it is I found it
+
+96
+00:05:26,070 --> 00:05:31,910
+here yeah I saw it before so you see the
+
+97
+00:05:28,890 --> 00:05:36,350
+word you see the on Wiktionary they have
+
+98
+00:05:31,910 --> 00:05:40,770
+built in without without - or space or
+
+99
+00:05:36,350 --> 00:05:43,950
+and they say you know they say also see
+
+100
+00:05:40,770 --> 00:05:47,820
+building with a - in space anyway so
+
+101
+00:05:43,950 --> 00:05:49,220
+here is an instance of confirmation you
+
+102
+00:05:47,820 --> 00:05:53,460
+know meaning that at least this is
+
+103
+00:05:49,220 --> 00:05:55,020
+somewhat popular usage orthography by
+
+104
+00:05:53,460 --> 00:05:58,770
+the way this kind of thing is called
+
+105
+00:05:55,020 --> 00:06:00,810
+orthography you know because you know if
+
+106
+00:05:58,770 --> 00:06:03,060
+you want to go technical about this this
+
+107
+00:06:00,810 --> 00:06:07,680
+is not about spelling because it's it's
+
+108
+00:06:03,060 --> 00:06:09,840
+about involving - in space or without so
+
+109
+00:06:07,680 --> 00:06:12,890
+this is called orthography you know
+
+110
+00:06:09,840 --> 00:06:16,770
+technically speaking in linguistics and
+
+111
+00:06:12,890 --> 00:06:19,350
+also also you might ask the more general
+
+112
+00:06:16,770 --> 00:06:21,690
+question about in English writing you
+
+113
+00:06:19,350 --> 00:06:24,090
+know we have terms of words with -
+
+114
+00:06:21,690 --> 00:06:26,160
+sometimes you know the similar cases
+
+115
+00:06:24,090 --> 00:06:29,250
+like this building like sometimes you
+
+116
+00:06:26,160 --> 00:06:32,130
+have have for example email email begin
+
+117
+00:06:29,250 --> 00:06:36,200
+with you know it's central electronic
+
+118
+00:06:32,130 --> 00:06:40,170
+mail and it begins with a - e - mail
+
+119
+00:06:36,200 --> 00:06:41,630
+then then then it just today it's just
+
+120
+00:06:40,170 --> 00:06:46,920
+email you know one
+
+121
+00:06:41,630 --> 00:06:48,720
+without - or space and in fact today you
+
+122
+00:06:46,920 --> 00:06:49,710
+might often see people just say mail
+
+123
+00:06:48,720 --> 00:06:53,160
+mail it to me
+
+124
+00:06:49,710 --> 00:06:55,830
+meaning email sometimes okay so you can
+
+125
+00:06:53,160 --> 00:06:59,490
+study on these kind of issues you can
+
+126
+00:06:55,830 --> 00:07:01,220
+study the history of the changes you
+
+127
+00:06:59,490 --> 00:07:07,220
+know the evolution of words with
+
+128
+00:07:01,220 --> 00:07:10,740
+hyphenated words or not so that is the
+
+129
+00:07:07,220 --> 00:07:13,440
+so that is my exploration on you know
+
+130
+00:07:10,740 --> 00:07:17,220
+when I'm doing writings and you know it
+
+131
+00:07:13,440 --> 00:07:21,120
+went into attention into lots of lookup
+
+132
+00:07:17,220 --> 00:07:24,000
+and research so actually I was going to
+
+133
+00:07:21,120 --> 00:07:27,690
+change all my website building with -
+
+134
+00:07:24,000 --> 00:07:29,990
+without without a - but I'm not sure
+
+135
+00:07:27,690 --> 00:07:34,790
+right now I don't want to do it now so
+
+136
+00:07:29,990 --> 00:07:34,790
+anyway so I'm talking about that topic
+
+137
+00:07:35,300 --> 00:07:41,430
+so okay so let's close that close that
+
+138
+00:07:38,340 --> 00:07:45,930
+let's go to today's talk show and let's
+
+139
+00:07:41,430 --> 00:07:48,600
+go to today's talk show page so Nabi
+
+140
+00:07:45,930 --> 00:07:51,360
+says Google Ngram viewer shows if it's
+
+141
+00:07:48,600 --> 00:07:55,770
+popular okay you want to do it good
+
+142
+00:07:51,360 --> 00:08:01,050
+morning Alan so now we do the research
+
+143
+00:07:55,770 --> 00:08:05,850
+for me you know Google Ngram Google
+
+144
+00:08:01,050 --> 00:08:10,500
+Ngram you yeah you can use that it's one
+
+145
+00:08:05,850 --> 00:08:13,530
+of the tool okay so Google Ingram so so
+
+146
+00:08:10,500 --> 00:08:16,560
+before we talk about so first of all we
+
+147
+00:08:13,530 --> 00:08:24,090
+talked about peel in built-in
+
+148
+00:08:16,560 --> 00:08:27,060
+hyphenation or built in okay or built in
+
+149
+00:08:24,090 --> 00:08:30,000
+you know so we have three V Asians three
+
+150
+00:08:27,060 --> 00:08:40,610
+variations and the question is about the
+
+151
+00:08:30,000 --> 00:08:40,610
+orthography and the evolution of
+
+152
+00:08:41,839 --> 00:08:49,080
+hyphenated words so that's a topic of
+
+153
+00:08:44,880 --> 00:08:52,710
+study and meanwhile since we are talking
+
+154
+00:08:49,080 --> 00:08:54,510
+about that let's go to class were the
+
+155
+00:08:52,710 --> 00:08:56,850
+English
+
+156
+00:08:54,510 --> 00:08:59,640
+from the haughty emotions of lexicons
+
+157
+00:08:56,850 --> 00:09:02,840
+the listing concerns decipherment of
+
+158
+00:08:59,640 --> 00:09:07,490
+grammar and idioms linguistic allottee
+
+159
+00:09:02,840 --> 00:09:12,180
+literature and logic allottee this is my
+
+160
+00:09:07,490 --> 00:09:14,310
+my word wordy english.com website so
+
+161
+00:09:12,180 --> 00:09:18,030
+let's go to the home page then he says
+
+162
+00:09:14,310 --> 00:09:21,480
+the lure of vocabulary the depth of
+
+163
+00:09:18,030 --> 00:09:25,350
+literature the question of style the
+
+164
+00:09:21,480 --> 00:09:28,500
+logic of linguistics the ills of English
+
+165
+00:09:25,350 --> 00:09:32,220
+and the pure by writing that's what I do
+
+166
+00:09:28,500 --> 00:09:33,870
+okay so those of you there are a lot of
+
+167
+00:09:32,220 --> 00:09:35,280
+people you know they flame me for
+
+168
+00:09:33,870 --> 00:09:38,760
+everything you know cuz I hate us
+
+169
+00:09:35,280 --> 00:09:40,770
+because I'm anyway let's you know I I
+
+170
+00:09:38,760 --> 00:09:43,110
+don't want you know they did anyway so
+
+171
+00:09:40,770 --> 00:09:45,780
+let's go to the I want to talk about
+
+172
+00:09:43,110 --> 00:09:48,300
+yeah I want to mention so I collect
+
+173
+00:09:45,780 --> 00:09:51,690
+vocabularies okay this is another big
+
+174
+00:09:48,300 --> 00:09:55,290
+topic I did a video about this several
+
+175
+00:09:51,690 --> 00:09:58,440
+months ago one or two anyway so I have I
+
+176
+00:09:55,290 --> 00:10:01,560
+have obsession about collecting words
+
+177
+00:09:58,440 --> 00:10:03,930
+vocabulary so the in fact that's how I
+
+178
+00:10:01,560 --> 00:10:06,600
+learned English so anyway I just want to
+
+179
+00:10:03,930 --> 00:10:09,510
+show you I have a collection of
+
+180
+00:10:06,600 --> 00:10:11,460
+hyphenated words so you can see but by
+
+181
+00:10:09,510 --> 00:10:15,540
+the way this list is like 20 years old
+
+182
+00:10:11,460 --> 00:10:18,240
+20 30 years old so for example these are
+
+183
+00:10:15,540 --> 00:10:20,640
+collection of hyphenated words okay so I
+
+184
+00:10:18,240 --> 00:10:25,730
+don't have JavaScript there so let's go
+
+185
+00:10:20,640 --> 00:10:28,710
+to a page where I have JavaScript on
+
+186
+00:10:25,730 --> 00:10:32,870
+okay so new page why don't we create a
+
+187
+00:10:28,710 --> 00:10:37,350
+new page okay sorry
+
+188
+00:10:32,870 --> 00:10:42,530
+- ated words let's see if we can find
+
+189
+00:10:37,350 --> 00:10:45,480
+that there it is Sawadee English
+
+190
+00:10:42,530 --> 00:10:47,280
+hyphenated words so we have this is a
+
+191
+00:10:45,480 --> 00:10:49,110
+collection of heaven and it was okay
+
+192
+00:10:47,280 --> 00:10:53,070
+that that's a mistake that shouldn't be
+
+193
+00:10:49,110 --> 00:10:55,250
+like that well okay let's fix it let's
+
+194
+00:10:53,070 --> 00:11:02,850
+fix it right now let's go back to Emacs
+
+195
+00:10:55,250 --> 00:11:06,060
+open the page search for h2 wait what is
+
+196
+00:11:02,850 --> 00:11:07,730
+this actually page - wait where does the
+
+197
+00:11:06,060 --> 00:11:16,910
+page to come from
+
+198
+00:11:07,730 --> 00:11:18,889
+oh it such for each one okay so that's a
+
+199
+00:11:16,910 --> 00:11:19,519
+mistake somewhere that there shouldn't
+
+200
+00:11:18,889 --> 00:11:24,319
+be there
+
+201
+00:11:19,519 --> 00:11:27,079
+delete it okay anyway go back here so
+
+202
+00:11:24,319 --> 00:11:30,829
+you have you can let's do random run so
+
+203
+00:11:27,079 --> 00:11:33,589
+you have words like hand up at the babe
+
+204
+00:11:30,829 --> 00:11:36,019
+I forgot what at Billy's oh yeah so
+
+205
+00:11:33,589 --> 00:11:38,600
+let's read it you know example of the
+
+206
+00:11:36,019 --> 00:11:42,290
+usage at lip what does it mean so he
+
+207
+00:11:38,600 --> 00:11:45,799
+says when he was when he was showing how
+
+208
+00:11:42,290 --> 00:11:48,980
+a next location could be used to query a
+
+209
+00:11:45,799 --> 00:11:53,239
+database that ran on another company's
+
+210
+00:11:48,980 --> 00:11:56,899
+server the next machine crashed jabbed
+
+211
+00:11:53,239 --> 00:12:00,739
+at Beebe Kim D that's how you know it
+
+212
+00:11:56,899 --> 00:12:07,149
+was life okay so this is from a book on
+
+213
+00:12:00,739 --> 00:12:07,149
+Steve Jobs so this I read this book in
+
+214
+00:12:07,359 --> 00:12:14,059
+1998 or something something like that so
+
+215
+00:12:10,249 --> 00:12:18,769
+the book is Steve Jobs and the net Steve
+
+216
+00:12:14,059 --> 00:12:21,799
+Jobs and then the next big thing 1993 by
+
+217
+00:12:18,769 --> 00:12:24,529
+Randle East Rose he is a historian okay
+
+218
+00:12:21,799 --> 00:12:26,449
+you know he's writing so Steve Jobs he's
+
+219
+00:12:24,529 --> 00:12:29,959
+a guy who created next machine
+
+220
+00:12:26,449 --> 00:12:32,480
+do you guys know I have lots of photos
+
+221
+00:12:29,959 --> 00:12:35,509
+collecting our next machines keyboards
+
+222
+00:12:32,480 --> 00:12:39,169
+and stuff I wonder if I should go into
+
+223
+00:12:35,509 --> 00:12:41,329
+that so we have already a laptop a lot
+
+224
+00:12:39,169 --> 00:12:43,100
+of topics so anyway so you're on this
+
+225
+00:12:41,329 --> 00:12:45,709
+page you can see all the hyphenated
+
+226
+00:12:43,100 --> 00:12:49,309
+words so what does ad lib mean so he
+
+227
+00:12:45,709 --> 00:12:51,319
+says did I give a definition here no
+
+228
+00:12:49,309 --> 00:12:55,189
+usually I do not give definition do you
+
+229
+00:12:51,319 --> 00:12:58,850
+know why because it turns out when you
+
+230
+00:12:55,189 --> 00:13:01,279
+are learning something you learn it if
+
+231
+00:12:58,850 --> 00:13:04,100
+it's more difficult to learn you
+
+232
+00:13:01,279 --> 00:13:06,230
+remember it better so I do not give
+
+233
+00:13:04,100 --> 00:13:09,859
+definitions so if you want to understand
+
+234
+00:13:06,230 --> 00:13:12,889
+you have to you have to like look up
+
+235
+00:13:09,859 --> 00:13:17,749
+yourself then you remember so for
+
+236
+00:13:12,889 --> 00:13:21,100
+example let's search ad lib there it is
+
+237
+00:13:17,749 --> 00:13:22,220
+intransitive to improvise and deliver
+
+238
+00:13:21,100 --> 00:13:24,620
+extempore
+
+239
+00:13:22,220 --> 00:13:28,490
+vanie ously meaning without preparation
+
+240
+00:13:24,620 --> 00:13:31,100
+so so Steve Jobs is demonstrating is
+
+241
+00:13:28,490 --> 00:13:34,250
+doing a demo on his next machine very
+
+242
+00:13:31,100 --> 00:13:36,800
+expensive and the Civic does something
+
+243
+00:13:34,250 --> 00:13:40,450
+wrong you know the server crashed and he
+
+244
+00:13:36,800 --> 00:13:43,370
+says that's how you know it was live ok
+
+245
+00:13:40,450 --> 00:13:45,770
+so you know he's recounting a story of
+
+246
+00:13:43,370 --> 00:13:48,440
+Steve Jobs so anyway this this this page
+
+247
+00:13:45,770 --> 00:13:52,000
+is a collection of words with
+
+248
+00:13:48,440 --> 00:13:57,020
+hyphenation face off remember there's a
+
+249
+00:13:52,000 --> 00:13:57,500
+movie named face off starring good
+
+250
+00:13:57,020 --> 00:13:59,990
+morning
+
+251
+00:13:57,500 --> 00:14:03,400
+the new language do you guys remember
+
+252
+00:13:59,990 --> 00:14:05,090
+what's who starts in the movies face off
+
+253
+00:14:03,400 --> 00:14:09,440
+what's his name
+
+254
+00:14:05,090 --> 00:14:16,010
+he also he's a star and he also starred
+
+255
+00:14:09,440 --> 00:14:21,140
+in leaving Las Vegas what's his name how
+
+256
+00:14:16,010 --> 00:14:23,210
+do you so guys do you know so the new
+
+257
+00:14:21,140 --> 00:14:25,970
+landlord says wait what's the definition
+
+258
+00:14:23,210 --> 00:14:33,560
+the definition is to improvise and
+
+259
+00:14:25,970 --> 00:14:35,990
+deliver a extemporaneously ad-lib okay
+
+260
+00:14:33,560 --> 00:14:37,730
+so that that is ad-lib you know you just
+
+261
+00:14:35,990 --> 00:14:39,640
+say something on the spot without
+
+262
+00:14:37,730 --> 00:14:44,630
+preparation
+
+263
+00:14:39,640 --> 00:14:47,150
+John Travolta and someone else or face
+
+264
+00:14:44,630 --> 00:14:50,630
+off oh oh yeah right but I was thinking
+
+265
+00:14:47,150 --> 00:14:53,780
+the someone else guy Nic Cage yes
+
+266
+00:14:50,630 --> 00:14:57,500
+Nicholas Cage that's tsukai face off
+
+267
+00:14:53,780 --> 00:14:59,270
+so you know so well we'd I used to do it
+
+268
+00:14:57,500 --> 00:15:02,390
+I don't do it now I stopped doing these
+
+269
+00:14:59,270 --> 00:15:06,440
+things like 15 years ago since 2005
+
+270
+00:15:02,390 --> 00:15:10,580
+since 2010 because you get old and it
+
+271
+00:15:06,440 --> 00:15:13,220
+becomes anyway you know so it's my habit
+
+272
+00:15:10,580 --> 00:15:15,680
+and in fact it's my obsession that
+
+273
+00:15:13,220 --> 00:15:18,080
+whenever I read some some what I don't
+
+274
+00:15:15,680 --> 00:15:20,630
+understand or not quite sure the exact
+
+275
+00:15:18,080 --> 00:15:23,380
+meaning I look up and usually I also
+
+276
+00:15:20,630 --> 00:15:26,360
+write it down so I have a collection of
+
+277
+00:15:23,380 --> 00:15:29,200
+hyphenated words here so larger for
+
+278
+00:15:26,360 --> 00:15:33,710
+example larger in life larger than life
+
+279
+00:15:29,200 --> 00:15:35,300
+about face so we have face off then we
+
+280
+00:15:33,710 --> 00:15:39,110
+have about face
+
+281
+00:15:35,300 --> 00:15:41,480
+now about face is like it's like that
+
+282
+00:15:39,110 --> 00:15:46,060
+you know the is like sharp turn auto
+
+283
+00:15:41,480 --> 00:15:49,580
+reverse kind of us then you have turnkey
+
+284
+00:15:46,060 --> 00:15:51,920
+you know turnkey solutions is which some
+
+285
+00:15:49,580 --> 00:15:55,960
+companies use that name as a company
+
+286
+00:15:51,920 --> 00:15:58,240
+names turnkey solution double cross good
+
+287
+00:15:55,960 --> 00:16:02,090
+goody-two-shoes not as a idiom
+
+288
+00:15:58,240 --> 00:16:05,450
+goody-two-shoes call a sack so anyway so
+
+289
+00:16:02,090 --> 00:16:07,910
+these are heavy native words now so you
+
+290
+00:16:05,450 --> 00:16:12,170
+know when you know if you are interested
+
+291
+00:16:07,910 --> 00:16:14,510
+in linguistics literature writings you
+
+292
+00:16:12,170 --> 00:16:16,220
+you would be interested in these kind of
+
+293
+00:16:14,510 --> 00:16:19,280
+things and you want that for example we
+
+294
+00:16:16,220 --> 00:16:22,220
+can ask can this what we are this what
+
+295
+00:16:19,280 --> 00:16:25,670
+could a sack ever at some point you know
+
+296
+00:16:22,220 --> 00:16:30,710
+becomes without the hyphen
+
+297
+00:16:25,670 --> 00:16:33,590
+you know just see you l de si si si in
+
+298
+00:16:30,710 --> 00:16:36,260
+this case no it's not likely so we have
+
+299
+00:16:33,590 --> 00:16:38,150
+avant garde we have cloak-and-dagger in
+
+300
+00:16:36,260 --> 00:16:40,820
+anyway so we have many of these things
+
+301
+00:16:38,150 --> 00:16:41,480
+things so that's about hyphenated word
+
+302
+00:16:40,820 --> 00:16:46,610
+words
+
+303
+00:16:41,480 --> 00:16:49,610
+okay so let's it's just so let's put
+
+304
+00:16:46,610 --> 00:16:53,060
+into my sock show page so we have a
+
+305
+00:16:49,610 --> 00:16:55,790
+record of it of the topics we talked
+
+306
+00:16:53,060 --> 00:16:58,790
+about okay that's two thing I'm going to
+
+307
+00:16:55,790 --> 00:17:00,170
+be the comments okay and what a
+
+308
+00:16:58,790 --> 00:17:03,440
+what what the what the what
+
+309
+00:17:00,170 --> 00:17:06,770
+what do you mean name 11 and then 11
+
+310
+00:17:03,440 --> 00:17:12,110
+where does you where do you came from
+
+311
+00:17:06,770 --> 00:17:14,720
+I also seen resources Tanabe yeah so so
+
+312
+00:17:12,110 --> 00:17:19,339
+yesterday I was doing so yesterday we
+
+313
+00:17:14,720 --> 00:17:24,589
+did they talk on on Emacs Stev okay so
+
+314
+00:17:19,339 --> 00:17:27,770
+let's go to Santa show index page so
+
+315
+00:17:24,589 --> 00:17:34,300
+yesterday we did let's magnify so we did
+
+316
+00:17:27,770 --> 00:17:37,040
+this Linux firewall IP table and
+
+317
+00:17:34,300 --> 00:17:42,110
+networking and how to contribute to
+
+318
+00:17:37,040 --> 00:17:46,850
+Emacs we we I gave a kind of who is who
+
+319
+00:17:42,110 --> 00:17:48,930
+in the Emacs staff you know people for
+
+320
+00:17:46,850 --> 00:17:54,400
+in for the past 20 years
+
+321
+00:17:48,930 --> 00:17:57,130
+kind of and and the day before yesterday
+
+322
+00:17:54,400 --> 00:18:01,360
+it's also a big brand it's also a Emacs
+
+323
+00:17:57,130 --> 00:18:05,830
+topic I did a big rant on Emacs and do
+
+324
+00:18:01,360 --> 00:18:07,450
+we do so of you Emacs people if you
+
+325
+00:18:05,830 --> 00:18:09,670
+haven't read it already check it out you
+
+326
+00:18:07,450 --> 00:18:12,880
+know it's a one hour long video so I
+
+327
+00:18:09,670 --> 00:18:18,640
+have done a lot videos you know one day
+
+328
+00:18:12,880 --> 00:18:20,740
+so you know go reco go watch them okay
+
+329
+00:18:18,640 --> 00:18:24,340
+so you know you guys if you got nothing
+
+330
+00:18:20,740 --> 00:18:26,380
+to do because many of the topics I'd
+
+331
+00:18:24,340 --> 00:18:27,040
+repeated but anyway I was going to say
+
+332
+00:18:26,380 --> 00:18:30,420
+so yes
+
+333
+00:18:27,040 --> 00:18:35,140
+you know I because of my character I
+
+334
+00:18:30,420 --> 00:18:38,650
+sometimes I swear a lot and yesterday I
+
+335
+00:18:35,140 --> 00:18:42,220
+felt bad a little bit because sometimes
+
+336
+00:18:38,650 --> 00:18:44,230
+you I noticed you know when you
+
+337
+00:18:42,220 --> 00:18:50,220
+sometimes you like online in online
+
+338
+00:18:44,230 --> 00:18:53,980
+arguments I I become I swear a lot and
+
+339
+00:18:50,220 --> 00:18:57,880
+somewhat mean to people you know not to
+
+340
+00:18:53,980 --> 00:19:01,390
+people but you know I I begin to sway a
+
+341
+00:18:57,880 --> 00:19:03,820
+lot that's sometimes that's because I'm
+
+342
+00:19:01,390 --> 00:19:05,680
+not feeling well you know I'm you know
+
+343
+00:19:03,820 --> 00:19:07,050
+I'm feeling pressure or something you
+
+344
+00:19:05,680 --> 00:19:10,030
+know there's pain
+
+345
+00:19:07,050 --> 00:19:12,550
+so anyway yesterday I felt that like I
+
+346
+00:19:10,030 --> 00:19:19,990
+did some of that unnecessarily
+
+347
+00:19:12,550 --> 00:19:26,440
+especially I was not I was not you know
+
+348
+00:19:19,990 --> 00:19:29,530
+I was kind of being mean to but okay but
+
+349
+00:19:26,440 --> 00:19:30,990
+you know his spot but are you here so if
+
+350
+00:19:29,530 --> 00:19:33,400
+you are watching about sorry about that
+
+351
+00:19:30,990 --> 00:19:37,720
+because you know he mentioned he was
+
+352
+00:19:33,400 --> 00:19:41,920
+talking about unix/linux fire war tool
+
+353
+00:19:37,720 --> 00:19:43,750
+then I started I started to flame it for
+
+354
+00:19:41,920 --> 00:19:48,600
+10 minutes saying it's a worst
+
+355
+00:19:43,750 --> 00:19:51,940
+possible yeah so sorry about that but
+
+356
+00:19:48,600 --> 00:19:54,460
+okay so that's about that let's let's go
+
+357
+00:19:51,940 --> 00:20:00,790
+through the next topic so we got a lot
+
+358
+00:19:54,460 --> 00:20:04,330
+of things to talk about so let's see
+
+359
+00:20:00,790 --> 00:20:06,280
+so eMac lists so the next two things I'm
+
+360
+00:20:04,330 --> 00:20:09,100
+thinking of going into email base are
+
+361
+00:20:06,280 --> 00:20:13,060
+you guys interested like I'm going to do
+
+362
+00:20:09,100 --> 00:20:17,200
+a live coding of eMac B's I want to do
+
+363
+00:20:13,060 --> 00:20:20,620
+that and then okay before we do that
+
+364
+00:20:17,200 --> 00:20:26,820
+let's talk about sponsorship okay you
+
+365
+00:20:20,620 --> 00:20:32,260
+guys people sponsorship it's time to pay
+
+366
+00:20:26,820 --> 00:20:35,920
+so you go to my keyboard blog okay and I
+
+367
+00:20:32,260 --> 00:20:40,410
+have some interesting things I want to
+
+368
+00:20:35,920 --> 00:20:40,410
+show you okay Sully keyboard
+
+369
+00:20:42,450 --> 00:20:52,390
+sorry keyboard there it is let's go to
+
+370
+00:20:46,000 --> 00:20:57,340
+it there's this many interesting things
+
+371
+00:20:52,390 --> 00:21:04,900
+here okay so let's wait for this video
+
+372
+00:20:57,340 --> 00:21:10,210
+to turn up it's loading why is it not
+
+373
+00:21:04,900 --> 00:21:16,890
+showing what the okay go to Casati
+
+374
+00:21:10,210 --> 00:21:19,930
+keyboard it's trying in Firefox okay so
+
+375
+00:21:16,890 --> 00:21:23,050
+the video format is wrong anyway that's
+
+376
+00:21:19,930 --> 00:21:26,320
+a very interesting home a trackball okay
+
+377
+00:21:23,050 --> 00:21:30,970
+so anyway the thing I want to mention
+
+378
+00:21:26,320 --> 00:21:33,400
+okay get by a by a fanny pack okay so
+
+379
+00:21:30,970 --> 00:21:37,330
+this is good for notes this is what I
+
+380
+00:21:33,400 --> 00:21:39,280
+use actually place my so they actually
+
+381
+00:21:37,330 --> 00:21:41,730
+let me show you let me demonstrate mine
+
+382
+00:21:39,280 --> 00:21:41,730
+okay
+
+383
+00:22:02,880 --> 00:22:17,160
+this is my fanny pack so that's that's
+
+384
+00:22:12,240 --> 00:22:20,820
+the utility belt of a nerd so this year
+
+385
+00:22:17,160 --> 00:22:22,620
+so I don't use wallets a lot guys you
+
+386
+00:22:20,820 --> 00:22:24,930
+know you have wallets I've never
+
+387
+00:22:22,620 --> 00:22:38,430
+actually I've never used wallet in my
+
+388
+00:22:24,930 --> 00:22:40,890
+life so this is what I use and so you
+
+389
+00:22:38,430 --> 00:22:43,320
+guys you guys can go buy it you know I
+
+390
+00:22:40,890 --> 00:22:45,540
+make some some books and there are some
+
+391
+00:22:43,320 --> 00:22:48,090
+other interesting things people bought
+
+392
+00:22:45,540 --> 00:22:48,690
+for my Amazon links I don't know who
+
+393
+00:22:48,090 --> 00:22:51,780
+they are
+
+394
+00:22:48,690 --> 00:22:55,620
+so it's anonymous I I just know you know
+
+395
+00:22:51,780 --> 00:22:57,410
+the things people buy so you can see let
+
+396
+00:22:55,620 --> 00:23:03,560
+me show you some of them okay so you
+
+397
+00:22:57,410 --> 00:23:03,560
+guys if you you know you guys go buy it
+
+398
+00:23:19,470 --> 00:23:31,180
+there is the link and let's look at some
+
+399
+00:23:28,000 --> 00:23:33,540
+of these things you wait wait for Amazon
+
+400
+00:23:31,180 --> 00:23:33,540
+to load
+
+401
+00:23:44,260 --> 00:23:53,890
+so we have here a a water flosser that's
+
+402
+00:23:51,160 --> 00:23:57,280
+that's an interesting idea you have a
+
+403
+00:23:53,890 --> 00:24:00,610
+floss for your teeth but now they have a
+
+404
+00:23:57,280 --> 00:24:06,370
+water flosser I've never seen that
+
+405
+00:24:00,610 --> 00:24:09,580
+before then you have okay this is a
+
+406
+00:24:06,370 --> 00:24:14,400
+amplifier for you guys nuts so this is a
+
+407
+00:24:09,580 --> 00:24:18,510
+2 - this is digital to analog converter
+
+408
+00:24:14,400 --> 00:24:22,720
+for headphones headphone amplifier okay
+
+409
+00:24:18,510 --> 00:24:26,110
+74 dollars so for you guys walking
+
+410
+00:24:22,720 --> 00:24:30,640
+accompany you you go buy it you got
+
+411
+00:24:26,110 --> 00:24:33,400
+money and for this in order to to use
+
+412
+00:24:30,640 --> 00:24:36,820
+these of course you need to have a
+
+413
+00:24:33,400 --> 00:24:39,010
+expensive headphone because otherwise it
+
+414
+00:24:36,820 --> 00:24:41,860
+doesn't make sense you need to have one
+
+415
+00:24:39,010 --> 00:24:45,130
+of these fancy headphones hundred twenty
+
+416
+00:24:41,860 --> 00:24:50,620
+seven dollars okay so let's look at the
+
+417
+00:24:45,130 --> 00:24:53,410
+next thing and this one is a pressure
+
+418
+00:24:50,620 --> 00:24:58,210
+cooker and this this one is good for
+
+419
+00:24:53,410 --> 00:25:00,910
+rice so if you want to test taste the
+
+420
+00:24:58,210 --> 00:25:07,540
+rice the AC on rice this is what you
+
+421
+00:25:00,910 --> 00:25:09,910
+want you you buy this okay rice so among
+
+422
+00:25:07,540 --> 00:25:12,730
+the hackers and gamers or the Mimas
+
+423
+00:25:09,910 --> 00:25:15,280
+there is the there is a slang rice
+
+424
+00:25:12,730 --> 00:25:18,280
+something rice something you know I
+
+425
+00:25:15,280 --> 00:25:22,270
+forgot what it means exactly so what
+
+426
+00:25:18,280 --> 00:25:24,700
+does it means anyone you know the jargon
+
+427
+00:25:22,270 --> 00:25:28,000
+among gamers rice something like I
+
+428
+00:25:24,700 --> 00:25:34,090
+forgot what it means and and it happens
+
+429
+00:25:28,000 --> 00:25:40,179
+in keyboard community a lot too so this
+
+430
+00:25:34,090 --> 00:25:42,910
+one is a humidifier okay so it's a four
+
+431
+00:25:40,179 --> 00:25:47,230
+places that's to dry such as California
+
+432
+00:25:42,910 --> 00:25:49,299
+you need a humidifier and let's look at
+
+433
+00:25:47,230 --> 00:25:53,850
+the what's the next one now this one is
+
+434
+00:25:49,299 --> 00:25:53,850
+for those of you who has who have cats
+
+435
+00:25:54,000 --> 00:25:57,670
+Nabby so a mess you're doing good
+
+436
+00:25:56,980 --> 00:26:04,710
+comments
+
+437
+00:25:57,670 --> 00:26:08,130
+okay guys so this is some kind of cat
+
+438
+00:26:04,710 --> 00:26:12,070
+cat litter I guess
+
+439
+00:26:08,130 --> 00:26:16,210
+platinum and platinum platinum slide
+
+440
+00:26:12,070 --> 00:26:22,300
+easy king of grunting cat litter okay
+
+441
+00:26:16,210 --> 00:26:24,400
+cat litter stuff and this one a lot of
+
+442
+00:26:22,300 --> 00:26:27,430
+you will be interested you program
+
+443
+00:26:24,400 --> 00:26:30,340
+innards this one I need to buy one I
+
+444
+00:26:27,430 --> 00:26:34,650
+need to buy one for backup so this is
+
+445
+00:26:30,340 --> 00:26:38,980
+SanDisk one terabyte portable SSD
+
+446
+00:26:34,650 --> 00:26:48,310
+external drive okay that's that's good
+
+447
+00:26:38,980 --> 00:26:53,800
+close them close close close okay that's
+
+448
+00:26:48,310 --> 00:26:58,300
+about that and keyboard stuff
+
+449
+00:26:53,800 --> 00:27:04,480
+adlib okay addley so good morning sound
+
+450
+00:26:58,300 --> 00:27:08,620
+toxin so close that and some toxin says
+
+451
+00:27:04,480 --> 00:27:12,430
+rice as a verb started out referring to
+
+452
+00:27:08,620 --> 00:27:16,930
+modifying crappy cause with things like
+
+453
+00:27:12,430 --> 00:27:17,470
+extra lights I think oh but in the tech
+
+454
+00:27:16,930 --> 00:27:20,050
+world
+
+455
+00:27:17,470 --> 00:27:26,460
+it's like customizing how your desktop
+
+456
+00:27:20,050 --> 00:27:26,460
+looks okay yeah okay battle station so
+
+457
+00:27:27,630 --> 00:27:34,750
+so keyboard block close that back to so
+
+458
+00:27:32,230 --> 00:27:38,910
+I'm going to start to code email list so
+
+459
+00:27:34,750 --> 00:27:38,910
+what do you guys think
+
+460
+00:27:44,000 --> 00:27:49,440
+because eMac beast is kind of you know
+
+461
+00:27:47,340 --> 00:27:50,130
+technical you know only if you call
+
+462
+00:27:49,440 --> 00:27:53,790
+d-max
+
+463
+00:27:50,130 --> 00:27:55,920
+you Cody Mavis view be interested so let
+
+464
+00:27:53,790 --> 00:28:02,250
+me know ok I wait for one minute you
+
+465
+00:27:55,920 --> 00:28:06,900
+know if you like him ass stuff say it or
+
+466
+00:28:02,250 --> 00:28:08,940
+else or else we're gonna see 27 minutes
+
+467
+00:28:06,900 --> 00:28:12,150
+or else we're gonna talk about Unicode
+
+468
+00:28:08,940 --> 00:28:20,700
+or stuff so I think I'll just start to
+
+469
+00:28:12,150 --> 00:28:26,940
+code eMac be spin yeah unless you guys
+
+470
+00:28:20,700 --> 00:28:29,100
+have something else to say okay okay so
+
+471
+00:28:26,940 --> 00:28:31,890
+one of the first thing is write a
+
+472
+00:28:29,100 --> 00:28:34,920
+command to increase font because for
+
+473
+00:28:31,890 --> 00:28:38,880
+example I close this buffer close reopen
+
+474
+00:28:34,920 --> 00:28:41,160
+reopen that that is my default font but
+
+475
+00:28:38,880 --> 00:28:44,400
+when I do a video I prefer the found to
+
+476
+00:28:41,160 --> 00:28:46,800
+be a bit larger like that so but I want
+
+477
+00:28:44,400 --> 00:28:49,470
+so I do have a command that changed the
+
+478
+00:28:46,800 --> 00:28:52,800
+font just by pressing your key you see I
+
+479
+00:28:49,470 --> 00:28:58,800
+can magnify magnify magnify pressing a
+
+480
+00:28:52,800 --> 00:29:03,060
+single key but it does not change on all
+
+481
+00:28:58,800 --> 00:29:06,930
+the other buffers for example I I have a
+
+482
+00:29:03,060 --> 00:29:08,880
+copy this new page basic here I only
+
+483
+00:29:06,930 --> 00:29:11,970
+might magnify the current buffer I
+
+484
+00:29:08,880 --> 00:29:15,270
+wanted to happen to globally for every
+
+485
+00:29:11,970 --> 00:29:17,880
+window in buffer frame so I want to
+
+486
+00:29:15,270 --> 00:29:20,420
+write that command and that command will
+
+487
+00:29:17,880 --> 00:29:21,870
+be easy to write in five minutes so
+
+488
+00:29:20,420 --> 00:29:24,710
+let's do that
+
+489
+00:29:21,870 --> 00:29:29,310
+okay so lit before we do that let's see
+
+490
+00:29:24,710 --> 00:29:32,910
+what Nabi analysis so Nabi says I want
+
+491
+00:29:29,310 --> 00:29:37,290
+to know how to get paddle style paddle
+
+492
+00:29:32,910 --> 00:29:44,310
+style linking in Emacs PI Docs style
+
+493
+00:29:37,290 --> 00:29:47,880
+linking in Emacs what do you mean by dog
+
+494
+00:29:44,310 --> 00:29:51,930
+style so PI dock so I guess my dog is a
+
+495
+00:29:47,880 --> 00:29:55,010
+tool for Python and I suppose it's some
+
+496
+00:29:51,930 --> 00:29:55,010
+kind of linking tool
+
+497
+00:29:56,040 --> 00:30:03,900
+and you know you run the program on a
+
+498
+00:29:59,250 --> 00:30:08,640
+Python source code it will possibly
+
+499
+00:30:03,900 --> 00:30:11,490
+reformat the you know the the formatting
+
+500
+00:30:08,640 --> 00:30:14,850
+style of the source code and possibly
+
+501
+00:30:11,490 --> 00:30:20,429
+also give you some warnings so that's PI
+
+502
+00:30:14,850 --> 00:30:22,260
+doc linking but what do you mean hi doc
+
+503
+00:30:20,429 --> 00:30:27,510
+styled in t in emacs so I don't
+
+504
+00:30:22,260 --> 00:30:30,000
+understand okay Nobby say it say it you
+
+505
+00:30:27,510 --> 00:30:32,580
+know let me know what you what what what
+
+506
+00:30:30,000 --> 00:30:34,530
+do you mean exactly so Allen says do you
+
+507
+00:30:32,580 --> 00:30:38,120
+ever use different input methods in
+
+508
+00:30:34,530 --> 00:30:42,270
+Emacs to type diet diet ryx no I don't
+
+509
+00:30:38,120 --> 00:30:44,730
+in fact I have a system and I want to
+
+510
+00:30:42,270 --> 00:30:49,580
+tell you what's the easiest way to do
+
+511
+00:30:44,730 --> 00:30:55,470
+that okay so let's talk about that okay
+
+512
+00:30:49,580 --> 00:30:57,690
+how to type dialectics in Emacs I mean
+
+513
+00:30:55,470 --> 00:30:59,880
+is that what you're the focus of a
+
+514
+00:30:57,690 --> 00:31:02,730
+question or something else let me know
+
+515
+00:30:59,880 --> 00:31:07,470
+because are you talking about just one
+
+516
+00:31:02,730 --> 00:31:11,040
+or two accents in a letter such as
+
+517
+00:31:07,470 --> 00:31:16,050
+access accented e for example this is
+
+518
+00:31:11,040 --> 00:31:19,350
+what I do all your talking about for
+
+519
+00:31:16,050 --> 00:31:25,500
+example I can do these two whoops not
+
+520
+00:31:19,350 --> 00:31:27,660
+that what is that I forgot okay so for
+
+521
+00:31:25,500 --> 00:31:34,830
+example you can I can also do that but I
+
+522
+00:31:27,660 --> 00:31:36,840
+want the oh yeah so I want that okay so
+
+523
+00:31:34,830 --> 00:31:39,420
+you have the oh these kind of characters
+
+524
+00:31:36,840 --> 00:31:41,820
+that's how I type it yeah I'm using
+
+525
+00:31:39,420 --> 00:31:45,120
+right now I'm using the package saw math
+
+526
+00:31:41,820 --> 00:31:47,670
+input to do it and it's actually one of
+
+527
+00:31:45,120 --> 00:31:49,890
+the most efficient way to do it
+
+528
+00:31:47,670 --> 00:31:52,710
+yeah actually so I already started
+
+529
+00:31:49,890 --> 00:31:55,500
+started to talk about it so it's a if
+
+530
+00:31:52,710 --> 00:31:58,230
+all you want if you if what you want is
+
+531
+00:31:55,500 --> 00:32:03,510
+to type math symbols or some of these
+
+532
+00:31:58,230 --> 00:32:06,030
+characters then the best thing is our
+
+533
+00:32:03,510 --> 00:32:07,840
+input mod is one of the best things so
+
+534
+00:32:06,030 --> 00:32:10,120
+let me show you the fact the the
+
+535
+00:32:07,840 --> 00:32:12,760
+name okay so here is the command name
+
+536
+00:32:10,120 --> 00:32:16,360
+that's the command name and it's in this
+
+537
+00:32:12,760 --> 00:32:20,309
+package and you open it go to the top
+
+538
+00:32:16,360 --> 00:32:23,890
+here is the source code here's a URL you
+
+539
+00:32:20,309 --> 00:32:25,870
+open the URL showing browser so you can
+
+540
+00:32:23,890 --> 00:32:28,210
+see that's the URL so you can eat some
+
+541
+00:32:25,870 --> 00:32:33,730
+ALPA you can download it and use it
+
+542
+00:32:28,210 --> 00:32:37,150
+it has over 500 math symbols and it's
+
+543
+00:32:33,730 --> 00:32:39,250
+also you can add your own easily
+
+544
+00:32:37,150 --> 00:32:45,340
+trivially just by one line you can add
+
+545
+00:32:39,250 --> 00:32:48,549
+your own so as far as inputting unicode
+
+546
+00:32:45,340 --> 00:32:50,860
+they are quite a lot ways but one thing
+
+547
+00:32:48,549 --> 00:32:53,710
+I can tell you is that do not use
+
+548
+00:32:50,860 --> 00:32:58,270
+whatever the way that is building in
+
+549
+00:32:53,710 --> 00:33:05,500
+Emacs those are very inefficient okay so
+
+550
+00:32:58,270 --> 00:33:08,230
+let's go to for example let's search for
+
+551
+00:33:05,500 --> 00:33:15,909
+Kesari Unicode actually such such folks
+
+552
+00:33:08,230 --> 00:33:20,380
+sorry Unicode Emacs okay so then you
+
+553
+00:33:15,909 --> 00:33:24,429
+will find Unicode tutorial here this
+
+554
+00:33:20,380 --> 00:33:27,130
+page this page talks about all the
+
+555
+00:33:24,429 --> 00:33:30,190
+things you need to know about inputting
+
+556
+00:33:27,130 --> 00:33:32,350
+Unicode or related issues such as how do
+
+557
+00:33:30,190 --> 00:33:34,809
+you find the character's name how do you
+
+558
+00:33:32,350 --> 00:33:39,510
+find its code point and things like that
+
+559
+00:33:34,809 --> 00:33:43,480
+so let's copy the page let's put it here
+
+560
+00:33:39,510 --> 00:33:49,570
+let's put it here then let's also copy
+
+561
+00:33:43,480 --> 00:33:54,760
+this page and put it here so we can okay
+
+562
+00:33:49,570 --> 00:33:58,799
+then let's copy that put that there
+
+563
+00:33:54,760 --> 00:34:02,130
+okay close this buffer save it reopen
+
+564
+00:33:58,799 --> 00:34:06,279
+magnify show that go to a browser
+
+565
+00:34:02,130 --> 00:34:08,619
+refresh okay we got the topics layer so
+
+566
+00:34:06,279 --> 00:34:16,320
+let me go back to read Alan's question
+
+567
+00:34:08,619 --> 00:34:16,320
+oh yeah so for entering emoji okay
+
+568
+00:34:16,830 --> 00:34:23,169
+yeah so one of the best way I would
+
+569
+00:34:20,919 --> 00:34:27,159
+recommend is you just download and use
+
+570
+00:34:23,169 --> 00:34:28,960
+my package saw math input mod you can
+
+571
+00:34:27,159 --> 00:34:33,220
+add your own you can add your own emoji
+
+572
+00:34:28,960 --> 00:34:35,320
+in fact the other way if you do not need
+
+573
+00:34:33,220 --> 00:34:39,399
+you know the whole set of math symbols
+
+574
+00:34:35,320 --> 00:34:41,560
+then you can just do it a brief for
+
+575
+00:34:39,399 --> 00:34:45,190
+example let's say I want to emit emoji
+
+576
+00:34:41,560 --> 00:34:47,290
+let's say you know actually there are so
+
+577
+00:34:45,190 --> 00:34:51,580
+many ways to do it okay so example I can
+
+578
+00:34:47,290 --> 00:34:54,909
+type this hot and I can press the key
+
+579
+00:34:51,580 --> 00:35:00,580
+using the saw math input mod so you got
+
+580
+00:34:54,909 --> 00:35:03,820
+a hot and suppose I want let's go to
+
+581
+00:35:00,580 --> 00:35:07,540
+Unicode okay so let's open my Unicode
+
+582
+00:35:03,820 --> 00:35:12,390
+website let's see let's say I want a
+
+583
+00:35:07,540 --> 00:35:12,390
+male emoji Apple okay let's say that
+
+584
+00:35:15,210 --> 00:35:24,700
+let's say I want cucumber cucumber is a
+
+585
+00:35:18,700 --> 00:35:27,150
+nice fruit yeah we want that okay so oh
+
+586
+00:35:24,700 --> 00:35:30,130
+god that doesn't look good
+
+587
+00:35:27,150 --> 00:35:35,950
+stevia max it's let's go back to Apple
+
+588
+00:35:30,130 --> 00:35:39,700
+so let's say I have app it looks ugly so
+
+589
+00:35:35,950 --> 00:35:43,270
+anyway so there's a long story you know
+
+590
+00:35:39,700 --> 00:35:46,210
+you Emacs the GUI max reaches home and
+
+591
+00:35:43,270 --> 00:35:48,100
+told people to remove code so that so
+
+592
+00:35:46,210 --> 00:35:51,250
+that an emoji looks ugly
+
+593
+00:35:48,100 --> 00:35:53,380
+just like Linux on the Mac because they
+
+594
+00:35:51,250 --> 00:35:56,830
+don't want the fuchsia snowman don't
+
+595
+00:35:53,380 --> 00:36:02,619
+want Emacs to be superior then the Emacs
+
+596
+00:35:56,830 --> 00:36:06,520
+on Linux anyway so suppose I want this
+
+597
+00:36:02,619 --> 00:36:10,390
+Apple okay so as suppose I want to type
+
+598
+00:36:06,520 --> 00:36:14,830
+this Apple often so how do I do copy it
+
+599
+00:36:10,390 --> 00:36:18,670
+go through my a brief way not this go to
+
+600
+00:36:14,830 --> 00:36:22,060
+my a brief file and just paste it here
+
+601
+00:36:18,670 --> 00:36:25,180
+okay so let me magnify this so you can
+
+602
+00:36:22,060 --> 00:36:27,980
+see I pasted that pace here then let's
+
+603
+00:36:25,180 --> 00:36:31,040
+say APR okay well
+
+604
+00:36:27,980 --> 00:36:33,560
+say Apple then copy that paste it here
+
+605
+00:36:31,040 --> 00:36:38,180
+okay so I have this line this is my
+
+606
+00:36:33,560 --> 00:36:42,080
+Aubry file so evaluate it open a new
+
+607
+00:36:38,180 --> 00:36:43,190
+buffer now I just type Apple and if you
+
+608
+00:36:42,080 --> 00:36:50,500
+can't suppose so
+
+609
+00:36:43,190 --> 00:36:54,170
+some thing and today I ate ate an apple
+
+610
+00:36:50,500 --> 00:36:57,230
+then become sample so that's how easy it
+
+611
+00:36:54,170 --> 00:36:59,720
+is so now you can just have all your
+
+612
+00:36:57,230 --> 00:37:02,210
+emojis here so in fact I have quite a
+
+613
+00:36:59,720 --> 00:37:07,270
+few of my own emojis for example thumb
+
+614
+00:37:02,210 --> 00:37:11,000
+up I'm not sure that's the no so good
+
+615
+00:37:07,270 --> 00:37:14,800
+good tea yeah good tea okay so I you
+
+616
+00:37:11,000 --> 00:37:18,470
+know that's the thumb Bob and oh my god
+
+617
+00:37:14,800 --> 00:37:21,680
+you see oh my god that becomes that so I
+
+618
+00:37:18,470 --> 00:37:28,070
+have some of my own emojis hot ok hot
+
+619
+00:37:21,680 --> 00:37:30,650
+doesn't walk hot hot tea no so so so
+
+620
+00:37:28,070 --> 00:37:32,540
+that's anyway so that's how for example
+
+621
+00:37:30,650 --> 00:37:37,010
+I have quite a few others okay that's
+
+622
+00:37:32,540 --> 00:37:38,000
+right arrow left arrow you know you can
+
+623
+00:37:37,010 --> 00:37:40,070
+create yourself
+
+624
+00:37:38,000 --> 00:37:43,780
+I actually I have a live stream video
+
+625
+00:37:40,070 --> 00:37:46,340
+about how to set up a brief and
+
+626
+00:37:43,780 --> 00:37:50,119
+demonstration of all these several
+
+627
+00:37:46,340 --> 00:37:53,810
+months ago just go to youtube and search
+
+628
+00:37:50,119 --> 00:37:57,740
+for it so I don't want that evaluate
+
+629
+00:37:53,810 --> 00:38:00,050
+close okay then shrink and what are we
+
+630
+00:37:57,740 --> 00:38:07,520
+talking about a brief okay so Emacs a
+
+631
+00:38:00,050 --> 00:38:10,490
+brief saw e-max breathe okay sorry you
+
+632
+00:38:07,520 --> 00:38:13,940
+max a review search for it and you'll
+
+633
+00:38:10,490 --> 00:38:17,300
+find the page ok the page is already
+
+634
+00:38:13,940 --> 00:38:20,180
+here so o this what I have talked about
+
+635
+00:38:17,300 --> 00:38:22,250
+it so on this page so guys for for you
+
+636
+00:38:20,180 --> 00:38:25,300
+guys Emacs users you know just go to my
+
+637
+00:38:22,250 --> 00:38:29,210
+go to read my Emacs tutorial there's
+
+638
+00:38:25,300 --> 00:38:32,660
+tons of goodies you know so instead of
+
+639
+00:38:29,210 --> 00:38:34,100
+everyday people asking me repeatedly how
+
+640
+00:38:32,660 --> 00:38:35,990
+do you do this or that it's all there
+
+641
+00:38:34,100 --> 00:38:40,859
+it's all there all you have to do is
+
+642
+00:38:35,990 --> 00:38:43,469
+just go to take half an hour to read it
+
+643
+00:38:40,859 --> 00:38:45,930
+okay so that's about Unicode I mean the
+
+644
+00:38:43,469 --> 00:38:46,619
+said answer I mean the question okay
+
+645
+00:38:45,930 --> 00:38:49,079
+cool
+
+646
+00:38:46,619 --> 00:38:52,170
+input method yeah so you know use a
+
+647
+00:38:49,079 --> 00:38:54,900
+brief a brief is the best if you just
+
+648
+00:38:52,170 --> 00:38:57,329
+have a few your own emoji you want or
+
+649
+00:38:54,900 --> 00:39:00,390
+math symbols but if you want a system
+
+650
+00:38:57,329 --> 00:39:03,869
+like all the math symbols you could use
+
+651
+00:39:00,390 --> 00:39:07,680
+the Saudi math in put mod that's a
+
+652
+00:39:03,869 --> 00:39:10,049
+package now again they are quite other
+
+653
+00:39:07,680 --> 00:39:13,769
+with quite a few other ways to do it but
+
+654
+00:39:10,049 --> 00:39:16,829
+these two should be enough for you for I
+
+655
+00:39:13,769 --> 00:39:19,440
+mean for anyone okay so so that's about
+
+656
+00:39:16,829 --> 00:39:23,719
+that so let's go back here close that
+
+657
+00:39:19,440 --> 00:39:26,969
+and close close tabs to save memory
+
+658
+00:39:23,719 --> 00:39:30,869
+Unicode emoji okay let's copy that close
+
+659
+00:39:26,969 --> 00:39:36,209
+it back to Emacs let's paste it so we
+
+660
+00:39:30,869 --> 00:39:38,579
+have all these topics where I will put
+
+661
+00:39:36,209 --> 00:39:41,130
+in a youtube description so later on
+
+662
+00:39:38,579 --> 00:39:46,229
+people can know what are the topics we
+
+663
+00:39:41,130 --> 00:39:48,569
+talked about okay how to so how to type
+
+664
+00:39:46,229 --> 00:39:51,390
+dialect same thing for diuretics you
+
+665
+00:39:48,569 --> 00:39:53,549
+know for this exit exit accented letters
+
+666
+00:39:51,390 --> 00:39:53,969
+same thing you know you just create an
+
+667
+00:39:53,549 --> 00:39:58,410
+emoji
+
+668
+00:39:53,969 --> 00:40:04,559
+I mean create a brief or or use the some
+
+669
+00:39:58,410 --> 00:40:06,779
+ass input more so okay so that's that's
+
+670
+00:40:04,559 --> 00:40:10,440
+about that let's see what's the next
+
+671
+00:40:06,779 --> 00:40:16,079
+next one let's see yeah we already have
+
+672
+00:40:10,440 --> 00:40:20,400
+that yeah so let's copy that here
+
+673
+00:40:16,079 --> 00:40:24,269
+actually so copy that here okay so let's
+
+674
+00:40:20,400 --> 00:40:26,940
+see the comments like typing JPEG with
+
+675
+00:40:24,269 --> 00:40:30,319
+the right accent or whatever oh yeah so
+
+676
+00:40:26,940 --> 00:40:30,319
+that one you can do too
+
+677
+00:40:30,749 --> 00:40:39,719
+let's get this just to demo that okay so
+
+678
+00:40:33,539 --> 00:40:43,680
+let's stim on that coffee that qu e PE C
+
+679
+00:40:39,719 --> 00:40:48,209
+right and then you have a lot of that
+
+680
+00:40:43,680 --> 00:40:52,109
+there okay so make that that and let's
+
+681
+00:40:48,209 --> 00:40:54,240
+say QB you know that's a QB for Quebec
+
+682
+00:40:52,109 --> 00:41:01,590
+and capitalized okay
+
+683
+00:40:54,240 --> 00:41:06,880
+okay evaluated new buffer magnify QB o
+
+684
+00:41:01,590 --> 00:41:09,930
+QB q p there we have it so it's super
+
+685
+00:41:06,880 --> 00:41:09,930
+nice super nice
+
+686
+00:41:10,350 --> 00:41:18,220
+okay just wanna how you approach these
+
+687
+00:41:12,670 --> 00:41:22,720
+okay so mo trudeau motored says do you
+
+688
+00:41:18,220 --> 00:41:24,390
+think it's worth investing time to
+
+689
+00:41:22,720 --> 00:41:28,450
+closure I find it quite interesting
+
+690
+00:41:24,390 --> 00:41:31,150
+coming from Opie okay yeah closure is
+
+691
+00:41:28,450 --> 00:41:34,870
+nice I talked about closure for one hour
+
+692
+00:41:31,150 --> 00:41:37,240
+in my past video so look for that in
+
+693
+00:41:34,870 --> 00:41:40,900
+fact I talked about more than once and
+
+694
+00:41:37,240 --> 00:41:43,210
+these two videos on closure so you know
+
+695
+00:41:40,900 --> 00:41:45,460
+you might check check on that basically
+
+696
+00:41:43,210 --> 00:41:48,180
+I like closure the language but I don't
+
+697
+00:41:45,460 --> 00:41:51,580
+like the way it is intertwined with Java
+
+698
+00:41:48,180 --> 00:41:53,500
+yeah so I did more than one hour of it
+
+699
+00:41:51,580 --> 00:41:55,510
+you know check check check the old
+
+700
+00:41:53,500 --> 00:41:57,640
+videos up that's so that's that's what
+
+701
+00:41:55,510 --> 00:42:02,320
+I'm saying because I got questions
+
+702
+00:41:57,640 --> 00:42:06,450
+asking me frequently asked questions you
+
+703
+00:42:02,320 --> 00:42:09,430
+know just go to my croc show page then
+
+704
+00:42:06,450 --> 00:42:11,950
+you have an index here or you go to
+
+705
+00:42:09,430 --> 00:42:16,630
+youtube you you know just search for
+
+706
+00:42:11,950 --> 00:42:21,310
+sorry closure you'll find it so anyway
+
+707
+00:42:16,630 --> 00:42:24,970
+so back to heaven edit words close that
+
+708
+00:42:21,310 --> 00:42:28,380
+lets back go back to start off show I
+
+709
+00:42:24,970 --> 00:42:36,850
+don't want to Quebec anymore close it
+
+710
+00:42:28,380 --> 00:42:40,690
+close it reopen magnify and put it here
+
+711
+00:42:36,850 --> 00:42:44,520
+- native words actually we already have
+
+712
+00:42:40,690 --> 00:42:48,220
+it okay so actually remove that
+
+713
+00:42:44,520 --> 00:42:54,460
+okay showing browser so what is so Nabi
+
+714
+00:42:48,220 --> 00:42:57,100
+says Navi says I see some packages for
+
+715
+00:42:54,460 --> 00:43:00,280
+Emacs but they can't they come with
+
+716
+00:42:57,100 --> 00:43:03,090
+their own linters I want to be able to
+
+717
+00:43:00,280 --> 00:43:03,090
+choose my own
+
+718
+00:43:04,060 --> 00:43:09,730
+they well they don't come with their own
+
+719
+00:43:07,240 --> 00:43:13,420
+linters usually they have a command that
+
+720
+00:43:09,730 --> 00:43:17,410
+cause the external linter program
+
+721
+00:43:13,420 --> 00:43:20,350
+typically okay yes as far as yeah most
+
+722
+00:43:17,410 --> 00:43:23,380
+of them do not you know it's not the
+
+723
+00:43:20,350 --> 00:43:25,840
+case where the interests are written in
+
+724
+00:43:23,380 --> 00:43:28,110
+Americus itself you can it can be done
+
+725
+00:43:25,840 --> 00:43:28,110
+of course
+
+726
+00:43:29,940 --> 00:43:35,830
+yeah but Nobby I don't know what's your
+
+727
+00:43:33,220 --> 00:43:39,130
+question exactly like show you show a
+
+728
+00:43:35,830 --> 00:43:42,220
+concrete example like I have a pad like
+
+729
+00:43:39,130 --> 00:43:44,680
+like you know for example I'm you okay
+
+730
+00:43:42,220 --> 00:43:47,910
+so I'm using so I just I started to
+
+731
+00:43:44,680 --> 00:43:49,030
+explore Emacs I'm using this Python dot
+
+732
+00:43:47,910 --> 00:43:51,790
+Satya
+
+733
+00:43:49,030 --> 00:43:54,550
+you know a name of the package and in
+
+734
+00:43:51,790 --> 00:43:56,850
+that package I saw this this command but
+
+735
+00:43:54,550 --> 00:43:59,910
+it doesn't do something I want you know
+
+736
+00:43:56,850 --> 00:44:06,430
+if you ask that question you get answers
+
+737
+00:43:59,910 --> 00:44:09,520
+you know because I it's like I don't
+
+738
+00:44:06,430 --> 00:44:13,870
+know you know your question is like if
+
+739
+00:44:09,520 --> 00:44:19,720
+kind of to general I don't know what
+
+740
+00:44:13,870 --> 00:44:24,430
+what is the you know question so so do
+
+741
+00:44:19,720 --> 00:44:27,820
+you have Lenny and shrug no I don't know
+
+742
+00:44:24,430 --> 00:44:31,930
+what is Lenny ku input method
+
+743
+00:44:27,820 --> 00:44:35,530
+oh that those kind of things I have it
+
+744
+00:44:31,930 --> 00:44:37,390
+of course I have
+
+745
+00:44:35,530 --> 00:44:39,670
+so today we let's talk about Unicode
+
+746
+00:44:37,390 --> 00:44:43,840
+yeah so let's just talk random on
+
+747
+00:44:39,670 --> 00:44:49,930
+Unicode and I think in fact we can shut
+
+748
+00:44:43,840 --> 00:44:53,170
+down soon Unicode Unicode tutorial so
+
+749
+00:44:49,930 --> 00:44:56,220
+let's go to Unicode and we want you know
+
+750
+00:44:53,170 --> 00:45:02,620
+there's some interesting things like
+
+751
+00:44:56,220 --> 00:45:05,710
+wait not not this okay so oh I need to
+
+752
+00:45:02,620 --> 00:45:11,170
+go to my unicode page wait fruit where
+
+753
+00:45:05,710 --> 00:45:14,170
+is my unicode page yeah you bear fruit
+
+754
+00:45:11,170 --> 00:45:17,829
+emoji okay so food emoji then you go
+
+755
+00:45:14,170 --> 00:45:21,309
+down you go down down down then you
+
+756
+00:45:17,829 --> 00:45:31,739
+you go to actually I want to let's just
+
+757
+00:45:21,309 --> 00:45:31,739
+go to Saudi Unicode there it is
+
+758
+00:45:33,989 --> 00:45:42,390
+and go all the way down on the left you
+
+759
+00:45:39,279 --> 00:45:44,130
+can see some of the interesting
+
+760
+00:45:42,390 --> 00:45:48,789
+japanese-style
+
+761
+00:45:44,130 --> 00:45:50,979
+ASCII art you know ASCII art you guys
+
+762
+00:45:48,789 --> 00:45:53,529
+know ASCII art these are kind of like
+
+763
+00:45:50,979 --> 00:45:56,920
+ASCII art except they are no longer I
+
+764
+00:45:53,529 --> 00:45:59,940
+mean you don't you don't call them ASCII
+
+765
+00:45:56,920 --> 00:46:02,799
+art anymore no you know it becomes
+
+766
+00:45:59,940 --> 00:46:05,799
+because today you are using Unicode I
+
+767
+00:46:02,799 --> 00:46:08,410
+mean these are what's known as ASCII art
+
+768
+00:46:05,799 --> 00:46:12,609
+but the Japanese people are using
+
+769
+00:46:08,410 --> 00:46:15,719
+Unicode to do it so here is some
+
+770
+00:46:12,609 --> 00:46:19,299
+interesting examples I've collected and
+
+771
+00:46:15,719 --> 00:46:24,219
+but also look at the first one okay this
+
+772
+00:46:19,299 --> 00:46:28,109
+is or text they have very creative you
+
+773
+00:46:24,219 --> 00:46:34,869
+know they spent hours to create this
+
+774
+00:46:28,109 --> 00:46:38,219
+text and to you use use text to unicode
+
+775
+00:46:34,869 --> 00:46:42,190
+characters to create an animation that
+
+776
+00:46:38,219 --> 00:46:46,209
+is actually 3d that's what they've done
+
+777
+00:46:42,190 --> 00:46:53,559
+so it's very interesting but then you
+
+778
+00:46:46,209 --> 00:46:56,229
+also have this Unicode Smiley's a bunch
+
+779
+00:46:53,559 --> 00:47:01,660
+of Japanese style único Smiley's you
+
+780
+00:46:56,229 --> 00:47:03,729
+know I have like collected them so that
+
+781
+00:47:01,660 --> 00:47:09,099
+one is called Lenny I don't know about
+
+782
+00:47:03,729 --> 00:47:12,579
+that one so anyway you know this this
+
+783
+00:47:09,099 --> 00:47:17,559
+for fun but in general I don't like this
+
+784
+00:47:12,579 --> 00:47:21,880
+okay you know why because I'm I'm a when
+
+785
+00:47:17,559 --> 00:47:25,599
+it comes to text I am kind I want a
+
+786
+00:47:21,880 --> 00:47:29,319
+formal language okay I do not want any
+
+787
+00:47:25,599 --> 00:47:31,480
+possible occurrence where the brackets
+
+788
+00:47:29,319 --> 00:47:34,630
+are mismatched
+
+789
+00:47:31,480 --> 00:47:38,770
+so in the hole in the entire basically
+
+790
+00:47:34,630 --> 00:47:42,310
+almost in the entire six thousand
+
+791
+00:47:38,770 --> 00:47:44,290
+articles of my websites there is no one
+
+792
+00:47:42,310 --> 00:47:47,110
+place where you only have mismatched
+
+793
+00:47:44,290 --> 00:47:49,690
+bracket like for example when you are
+
+794
+00:47:47,110 --> 00:47:55,450
+using a bracket for a smiley for example
+
+795
+00:47:49,690 --> 00:47:58,120
+let me show you magnify okay so for
+
+796
+00:47:55,450 --> 00:48:01,500
+example this this is a common smiley you
+
+797
+00:47:58,120 --> 00:48:06,130
+know but I don't use that okay because
+
+798
+00:48:01,500 --> 00:48:10,360
+this screws up the the the matching so
+
+799
+00:48:06,130 --> 00:48:12,490
+you have a matched bracket now so I have
+
+800
+00:48:10,360 --> 00:48:15,820
+a session about these I don't want that
+
+801
+00:48:12,490 --> 00:48:17,890
+so the proper way for this to work not
+
+802
+00:48:15,820 --> 00:48:20,800
+that okay so the proper way for example
+
+803
+00:48:17,890 --> 00:48:24,550
+I'm gonna call my saw math input so I
+
+804
+00:48:20,800 --> 00:48:29,560
+wonder smiley act I I press the key and
+
+805
+00:48:24,550 --> 00:48:32,710
+it becomes that you know the it becomes
+
+806
+00:48:29,560 --> 00:48:35,770
+an emoji that is the proper way okay so
+
+807
+00:48:32,710 --> 00:48:37,900
+if you want the smiley these you know I
+
+808
+00:48:35,770 --> 00:48:40,300
+don't like Smiley's in the first place
+
+809
+00:48:37,900 --> 00:48:43,960
+not just because the mismatched bracket
+
+810
+00:48:40,300 --> 00:48:45,310
+but that came later but the the reason
+
+811
+00:48:43,960 --> 00:48:46,960
+you know in the beginning I didn't like
+
+812
+00:48:45,310 --> 00:48:48,370
+Smiley's because they you know why
+
+813
+00:48:46,960 --> 00:48:51,040
+because they are a hack
+
+814
+00:48:48,370 --> 00:48:54,610
+I don't like hack of any kind I don't
+
+815
+00:48:51,040 --> 00:48:56,470
+like the UNIX the UNIX the entire Unix
+
+816
+00:48:54,610 --> 00:48:59,410
+Linux because they are all hacks they
+
+817
+00:48:56,470 --> 00:49:01,300
+tends to be often hack you know just
+
+818
+00:48:59,410 --> 00:49:03,640
+make it fast you know and i and i don't
+
+819
+00:49:01,300 --> 00:49:05,260
+like the word hacker whenever I see
+
+820
+00:49:03,640 --> 00:49:07,390
+something that's named hack hacking
+
+821
+00:49:05,260 --> 00:49:09,700
+hacker you know the hacker types they
+
+822
+00:49:07,390 --> 00:49:12,160
+love it the UNIX philosophy type of
+
+823
+00:49:09,700 --> 00:49:14,740
+people or Linux people they love it they
+
+824
+00:49:12,160 --> 00:49:17,050
+enjoyed the power people but when I see
+
+825
+00:49:14,740 --> 00:49:20,440
+something that's hack I I hate a despise
+
+826
+00:49:17,050 --> 00:49:22,470
+I despise the word the the concept hack
+
+827
+00:49:20,440 --> 00:49:26,250
+hacking hacker okay
+
+828
+00:49:22,470 --> 00:49:30,070
+including the happy hacking keyboard
+
+829
+00:49:26,250 --> 00:49:35,650
+happy hacking he were the worst keyboard
+
+830
+00:49:30,070 --> 00:49:42,700
+possible okay so anything else maybe
+
+831
+00:49:35,650 --> 00:49:45,150
+that's it for today so let's see hey
+
+832
+00:49:42,700 --> 00:49:45,150
+pollo
+
+833
+00:49:46,200 --> 00:49:53,470
+Leonie Leonie Paulo and Leonie how do
+
+834
+00:49:50,890 --> 00:49:59,700
+you copy your key by now do you copy a
+
+835
+00:49:53,470 --> 00:49:59,700
+key by like if I want to copy mx2 MQ oh
+
+836
+00:50:00,390 --> 00:50:05,010
+yeah you want to you want translate
+
+837
+00:50:03,190 --> 00:50:08,760
+right that's what do you mean you want
+
+838
+00:50:05,010 --> 00:50:08,760
+translation is that what you mean
+
+839
+00:50:08,850 --> 00:50:15,610
+so you you you you you want what you
+
+840
+00:50:13,510 --> 00:50:19,330
+wanted to be such that whenever you type
+
+841
+00:50:15,610 --> 00:50:21,430
+meta X it becomes meter Q is that what
+
+842
+00:50:19,330 --> 00:50:27,550
+you mean say yes if you know you let me
+
+843
+00:50:21,430 --> 00:50:31,330
+know I think that's what you sing right
+
+844
+00:50:27,550 --> 00:50:35,380
+right so if you want to do that let's go
+
+845
+00:50:31,330 --> 00:50:39,190
+to Emacs Brock okay so you know so this
+
+846
+00:50:35,380 --> 00:50:40,780
+stays you know the for you guys Emacs
+
+847
+00:50:39,190 --> 00:50:45,580
+people you know all the people who are
+
+848
+00:50:40,780 --> 00:50:48,010
+watching my videos just read my
+
+849
+00:50:45,580 --> 00:50:51,300
+tutorials because I spent 15 years you
+
+850
+00:50:48,010 --> 00:50:56,470
+know cuz you have the best the most
+
+851
+00:50:51,300 --> 00:50:59,830
+condensed the the the the amount if you
+
+852
+00:50:56,470 --> 00:51:02,770
+spend the time on my Emacs tutorial the
+
+853
+00:50:59,830 --> 00:51:04,780
+ratio of the time spend versus what you
+
+854
+00:51:02,770 --> 00:51:08,350
+learn what'd you learn divided by the
+
+855
+00:51:04,780 --> 00:51:10,660
+time span is the maximum of all Emacs
+
+856
+00:51:08,350 --> 00:51:13,090
+resources out there okay and you are
+
+857
+00:51:10,660 --> 00:51:19,510
+going to learn the most logically
+
+858
+00:51:13,090 --> 00:51:28,390
+correct style of concept okay the the
+
+859
+00:51:19,510 --> 00:51:30,970
+I'm telling you the well you know I'm
+
+860
+00:51:28,390 --> 00:51:35,050
+saying I'm the best okay but anyway I'm
+
+861
+00:51:30,970 --> 00:51:40,840
+telling you the you you're gonna get the
+
+862
+00:51:35,050 --> 00:51:43,869
+best concept that the best how do you
+
+863
+00:51:40,840 --> 00:51:46,420
+how shall I say it okay so it's almost
+
+864
+00:51:43,869 --> 00:51:49,270
+it's like a mathematical approach okay
+
+865
+00:51:46,420 --> 00:51:55,030
+so you so I'll tell you what it is not
+
+866
+00:51:49,270 --> 00:51:57,190
+okay by by way of communication I can
+
+867
+00:51:55,030 --> 00:51:58,540
+tell you what it is not then you all
+
+868
+00:51:57,190 --> 00:52:01,660
+know what I mean by
+
+869
+00:51:58,540 --> 00:52:04,030
+it is mathematical mathematically the
+
+870
+00:52:01,660 --> 00:52:07,240
+best or something like that so it is not
+
+871
+00:52:04,030 --> 00:52:09,610
+for example my Emacs tutorial and also
+
+872
+00:52:07,240 --> 00:52:12,580
+my other programming language tutorials
+
+873
+00:52:09,610 --> 00:52:15,760
+what they are not they are not they are
+
+874
+00:52:12,580 --> 00:52:17,740
+not in a style of storytelling you know
+
+875
+00:52:15,760 --> 00:52:21,400
+in many many programming language
+
+876
+00:52:17,740 --> 00:52:23,170
+tutorials they they they they like to
+
+877
+00:52:21,400 --> 00:52:26,620
+being a stocking a fashion of a
+
+878
+00:52:23,170 --> 00:52:29,350
+storytelling for example hi guys for
+
+879
+00:52:26,620 --> 00:52:31,720
+example of for example introduction to
+
+880
+00:52:29,350 --> 00:52:35,020
+eMac beasts you know they will say oh I
+
+881
+00:52:31,720 --> 00:52:39,250
+program in this language C++ and Pascal
+
+882
+00:52:35,020 --> 00:52:41,920
+and one day I did I discover the Magnus
+
+883
+00:52:39,250 --> 00:52:45,700
+means and oh my god you know they tell a
+
+884
+00:52:41,920 --> 00:52:48,910
+story like tell or sometimes they they
+
+885
+00:52:45,700 --> 00:52:50,950
+want to ingest humor like they want the
+
+886
+00:52:48,910 --> 00:52:53,410
+reading did they want the tutorial to be
+
+887
+00:52:50,950 --> 00:52:56,530
+funny they like they want to have humors
+
+888
+00:52:53,410 --> 00:52:58,480
+like a little snippet or some like also
+
+889
+00:52:56,530 --> 00:53:01,600
+it happens off often then you have a
+
+890
+00:52:58,480 --> 00:53:04,510
+snippet of quote nonsensical idiotic
+
+891
+00:53:01,600 --> 00:53:10,210
+quote at the top for example if you read
+
+892
+00:53:04,510 --> 00:53:12,780
+clue donald donald knuth book the art of
+
+893
+00:53:10,210 --> 00:53:16,900
+programming in each chapter or section
+
+894
+00:53:12,780 --> 00:53:17,470
+it will begin with a quote the
+
+895
+00:53:16,900 --> 00:53:19,480
+idiots
+
+896
+00:53:17,470 --> 00:53:22,750
+you know if the quote is supposed to be
+
+897
+00:53:19,480 --> 00:53:25,390
+like somewhat humorous somewhat capture
+
+898
+00:53:22,750 --> 00:53:27,510
+the spirit of this chapter somewhat cap
+
+899
+00:53:25,390 --> 00:53:31,230
+you know dislike that okay
+
+900
+00:53:27,510 --> 00:53:34,210
+and this this is somewhat fashionable
+
+901
+00:53:31,230 --> 00:53:36,220
+and for example there is a book i think
+
+902
+00:53:34,210 --> 00:53:41,740
+some of you are reading i don't remember
+
+903
+00:53:36,220 --> 00:53:44,050
+who the eloquent javascript okay alright
+
+904
+00:53:41,740 --> 00:53:45,700
+it's a good book okay it's eloquent
+
+905
+00:53:44,050 --> 00:53:47,680
+javascript it's a good book for
+
+906
+00:53:45,700 --> 00:53:49,900
+beginners like you never coded anything
+
+907
+00:53:47,680 --> 00:53:53,100
+before there's a book eloquent
+
+908
+00:53:49,900 --> 00:53:57,520
+javascript very popular that book is the
+
+909
+00:53:53,100 --> 00:54:01,660
+epitome of a storytelling style like you
+
+910
+00:53:57,520 --> 00:54:05,230
+read it you know in one 1000 words only
+
+911
+00:54:01,660 --> 00:54:08,110
+only 200 words are the actual content
+
+912
+00:54:05,230 --> 00:54:11,170
+the rest 800 words are about like
+
+913
+00:54:08,110 --> 00:54:13,839
+setting a mood setting up setting a mood
+
+914
+00:54:11,170 --> 00:54:16,869
+something like he you know he's telling
+
+915
+00:54:13,839 --> 00:54:19,990
+your story about peacocks about animals
+
+916
+00:54:16,869 --> 00:54:23,290
+about whatever so that's it you know a
+
+917
+00:54:19,990 --> 00:54:27,099
+token JavaScript so I that's the worst
+
+918
+00:54:23,290 --> 00:54:29,079
+book in the I would not know what it's a
+
+919
+00:54:27,099 --> 00:54:32,530
+great book but it's a worst writing
+
+920
+00:54:29,079 --> 00:54:41,410
+style it's English style writing style I
+
+921
+00:54:32,530 --> 00:54:45,940
+despise the most okay eloquent and but
+
+922
+00:54:41,410 --> 00:54:49,299
+he is a JavaScript expert he knows I
+
+923
+00:54:45,940 --> 00:54:53,280
+would say he has more experience in code
+
+924
+00:54:49,299 --> 00:54:56,920
+in JavaScript than me I would say that
+
+925
+00:54:53,280 --> 00:54:59,230
+but because he has written JavaScript
+
+926
+00:54:56,920 --> 00:55:02,230
+compilers in JavaScript but anyway the
+
+927
+00:54:59,230 --> 00:55:03,819
+the book you know the writing style of
+
+928
+00:55:02,230 --> 00:55:06,640
+this book that's what I'm talking about
+
+929
+00:55:03,819 --> 00:55:11,470
+that's it's seeing a style I despise I
+
+930
+00:55:06,640 --> 00:55:15,520
+mean I don't like okay it this this his
+
+931
+00:55:11,470 --> 00:55:18,220
+book is a you know it's ap to me a great
+
+932
+00:55:15,520 --> 00:55:22,960
+example of the storytelling example a
+
+933
+00:55:18,220 --> 00:55:25,390
+style of writing so in in my programming
+
+934
+00:55:22,960 --> 00:55:27,609
+language or email is for Emacs tutorials
+
+935
+00:55:25,390 --> 00:55:33,040
+you see none of it unknown but none of
+
+936
+00:55:27,609 --> 00:55:35,170
+it every sentence is is to the call you
+
+937
+00:55:33,040 --> 00:55:38,410
+know it's it's it's essential it's
+
+938
+00:55:35,170 --> 00:55:41,020
+necessary every sentence okay so that's
+
+939
+00:55:38,410 --> 00:55:43,000
+so I'm talking about one of the writing
+
+940
+00:55:41,020 --> 00:55:45,609
+style okay so for I mean is lanista
+
+941
+00:55:43,000 --> 00:55:50,440
+that's a big topic I can go on about
+
+942
+00:55:45,609 --> 00:55:54,869
+that for one hour or more so let's see
+
+943
+00:55:50,440 --> 00:55:54,869
+where am i so let's look at that
+
+944
+00:55:54,930 --> 00:56:03,880
+programming style okay so we are talking
+
+945
+00:55:57,910 --> 00:56:09,819
+about writing style of programming
+
+946
+00:56:03,880 --> 00:56:14,290
+language talk and tutorial and that is
+
+947
+00:56:09,819 --> 00:56:16,750
+truly a big topic because I'm I'm I am
+
+948
+00:56:14,290 --> 00:56:19,930
+going to talk about that for 10 hours
+
+949
+00:56:16,750 --> 00:56:23,500
+because I have a collection I have a
+
+950
+00:56:19,930 --> 00:56:25,060
+collection of articles on it too dark
+
+951
+00:56:23,500 --> 00:56:27,190
+for Delta means
+
+952
+00:56:25,060 --> 00:56:29,710
+in fact I we haven't talked about this
+
+953
+00:56:27,190 --> 00:56:30,369
+topic for a long time for several months
+
+954
+00:56:29,710 --> 00:56:33,160
+now
+
+955
+00:56:30,369 --> 00:56:34,410
+it would be good to talk about it maybe
+
+956
+00:56:33,160 --> 00:56:37,090
+next day
+
+957
+00:56:34,410 --> 00:56:39,430
+so what Denis anyway I've just what I've
+
+958
+00:56:37,090 --> 00:56:41,590
+done is giving you one example for I
+
+959
+00:56:39,430 --> 00:56:43,150
+mean tutorial reading style or
+
+960
+00:56:41,590 --> 00:56:45,640
+documentation ran in style
+
+961
+00:56:43,150 --> 00:56:49,030
+in Python documentation is also the
+
+962
+00:56:45,640 --> 00:56:53,530
+worst Python Python doc doc for dummies
+
+963
+00:56:49,030 --> 00:56:54,940
+that the worst one of the worst okay for
+
+964
+00:56:53,530 --> 00:56:57,340
+example you go to the Python
+
+965
+00:56:54,940 --> 00:56:59,140
+documentation they have you know that
+
+966
+00:56:57,340 --> 00:57:03,730
+they have keep these under your pillow
+
+967
+00:56:59,140 --> 00:57:06,550
+Pete oh my ass okay excuse me I
+
+968
+00:57:03,730 --> 00:57:09,190
+don't want to I don't want to get into
+
+969
+00:57:06,550 --> 00:57:12,970
+that to become like angry rant that's
+
+970
+00:57:09,190 --> 00:57:14,800
+that's that's not needed but anyway you
+
+971
+00:57:12,970 --> 00:57:19,180
+know you you you do have you know Python
+
+972
+00:57:14,800 --> 00:57:21,700
+documentation if you have read it wait
+
+973
+00:57:19,180 --> 00:57:26,050
+wait let me go to where am I
+
+974
+00:57:21,700 --> 00:57:29,710
+close that refresh close that what is
+
+975
+00:57:26,050 --> 00:57:32,320
+this page emoji close that Annie
+
+976
+00:57:29,710 --> 00:57:35,859
+Maggie's basics close side okay eloquent
+
+977
+00:57:32,320 --> 00:57:41,099
+JavaScript okay close that close that
+
+978
+00:57:35,859 --> 00:57:43,720
+close doc yeah so Python documentation
+
+979
+00:57:41,099 --> 00:57:47,859
+you know they they have a would you know
+
+980
+00:57:43,720 --> 00:57:52,920
+keep this under your pillow that is very
+
+981
+00:57:47,859 --> 00:57:52,920
+to me you know to my personality is very
+
+982
+00:57:57,660 --> 00:58:04,060
+you see here right here you see keep
+
+983
+00:58:00,910 --> 00:58:07,180
+this under your pillow what the idiocy
+
+984
+00:58:04,060 --> 00:58:09,790
+Python talk you know not you know it's
+
+985
+00:58:07,180 --> 00:58:11,859
+not just little things like okay this is
+
+986
+00:58:09,790 --> 00:58:14,650
+fine by the way I'm not this is not
+
+987
+00:58:11,859 --> 00:58:17,650
+nothing wrong with it it just so happens
+
+988
+00:58:14,650 --> 00:58:20,290
+that style this little jokes little
+
+989
+00:58:17,650 --> 00:58:22,420
+humor is not my style
+
+990
+00:58:20,290 --> 00:58:25,240
+okay that's all I'm saying there is
+
+991
+00:58:22,420 --> 00:58:28,839
+nothing wrong with that style okay
+
+992
+00:58:25,240 --> 00:58:32,050
+however the Python documentation is
+
+993
+00:58:28,839 --> 00:58:33,790
+okay the the the the the the the writing
+
+994
+00:58:32,050 --> 00:58:37,180
+style of the writing quality the
+
+995
+00:58:33,790 --> 00:58:37,650
+organization the search ability is pure
+
+996
+00:58:37,180 --> 00:58:38,830
+
+997
+00:58:37,650 --> 00:58:41,530
+so in
+
+998
+00:58:38,830 --> 00:58:44,680
+that topic is a big topic we are not
+
+999
+00:58:41,530 --> 00:58:46,510
+going cannot go into so anyway I I
+
+1000
+00:58:44,680 --> 00:58:48,760
+talked about one of the writing style
+
+1001
+00:58:46,510 --> 00:58:51,250
+but the other thing I want to mention
+
+1002
+00:58:48,760 --> 00:58:53,080
+let me mention quickly is that some of
+
+1003
+00:58:51,250 --> 00:58:55,930
+the programming writing styles the for
+
+1004
+00:58:53,080 --> 00:58:58,260
+example Python Python is Python talk is
+
+1005
+00:58:55,930 --> 00:59:01,660
+a great example of the worst
+
+1006
+00:58:58,260 --> 00:59:04,180
+documentation okay so we talked about
+
+1007
+00:59:01,660 --> 00:59:06,760
+the humor or storytelling style of
+
+1008
+00:59:04,180 --> 00:59:08,320
+writing of documentation okay that's one
+
+1009
+00:59:06,760 --> 00:59:08,860
+thing I don't like with nothing wrong
+
+1010
+00:59:08,320 --> 00:59:11,440
+with it
+
+1011
+00:59:08,860 --> 00:59:15,010
+but it's just a style I don't like you
+
+1012
+00:59:11,440 --> 00:59:17,260
+will not see it in my tutorials so
+
+1013
+00:59:15,010 --> 00:59:20,890
+that's one thing now the other thing is
+
+1014
+00:59:17,260 --> 00:59:25,390
+some of the style read programming tacos
+
+1015
+00:59:20,890 --> 00:59:28,390
+or tutorial writing style they they are
+
+1016
+00:59:25,390 --> 00:59:31,780
+taking a some kind of a computer science
+
+1017
+00:59:28,390 --> 00:59:34,750
+approach okay they are taking a computer
+
+1018
+00:59:31,780 --> 00:59:37,570
+science approach now Python doc is a
+
+1019
+00:59:34,750 --> 00:59:39,700
+good example of that in Python dog is
+
+1020
+00:59:37,570 --> 00:59:42,700
+also a good example of a storytelling
+
+1021
+00:59:39,700 --> 00:59:45,700
+it's a possible for example let
+
+1022
+00:59:42,700 --> 00:59:48,280
+me show you this Holika okay so this is
+
+1023
+00:59:45,700 --> 00:59:52,660
+from Python doc and it's it's still
+
+1024
+00:59:48,280 --> 00:59:56,560
+there I'm pretty sure in Python 3.3 you
+
+1025
+00:59:52,660 --> 01:00:03,040
+know this guy he started to say where is
+
+1026
+00:59:56,560 --> 01:00:06,280
+it let's see anyway that's another topic
+
+1027
+01:00:03,040 --> 01:00:08,470
+so I I just want to mention that in some
+
+1028
+01:00:06,280 --> 01:00:12,430
+of the documentation one of the style
+
+1029
+01:00:08,470 --> 01:00:14,590
+that happens frequently over you know
+
+1030
+01:00:12,430 --> 01:00:17,650
+over the programming industry is that
+
+1031
+01:00:14,590 --> 01:00:21,070
+they will take some kind of a computer
+
+1032
+01:00:17,650 --> 01:00:23,410
+science approach you know they like when
+
+1033
+01:00:21,070 --> 01:00:26,290
+you are trying to explain something you
+
+1034
+01:00:23,410 --> 01:00:29,580
+you have a tendency to try to chalk it
+
+1035
+01:00:26,290 --> 01:00:32,860
+up you know you speak fancy jargons like
+
+1036
+01:00:29,580 --> 01:00:36,120
+linked list or memory you start to talk
+
+1037
+01:00:32,860 --> 01:00:38,680
+about memory pointers references you
+
+1038
+01:00:36,120 --> 01:00:41,860
+unnecessarily so you started to talk
+
+1039
+01:00:38,680 --> 01:00:44,140
+like like if you are a computer science
+
+1040
+01:00:41,860 --> 01:00:46,780
+scientists even if you are not I mean
+
+1041
+01:00:44,140 --> 01:00:49,630
+most vast majority of this documentation
+
+1042
+01:00:46,780 --> 01:00:52,390
+they are written by basically idiots
+
+1043
+01:00:49,630 --> 01:00:54,309
+okay basically by students vast majority
+
+1044
+01:00:52,390 --> 01:00:58,140
+of them
+
+1045
+01:00:54,309 --> 01:01:00,490
+unikz man pages Python documentation
+
+1046
+01:00:58,140 --> 01:01:03,599
+everywhere almost everywhere of hacci
+
+1047
+01:01:00,490 --> 01:01:06,009
+documentation you know almost everywhere
+
+1048
+01:01:03,599 --> 01:01:08,589
+they are written not by computer
+
+1049
+01:01:06,009 --> 01:01:10,799
+scientist scientist ed at all they did
+
+1050
+01:01:08,589 --> 01:01:13,480
+they did they don't know they only
+
+1051
+01:01:10,799 --> 01:01:15,579
+heard you know they heard some jargons
+
+1052
+01:01:13,480 --> 01:01:17,640
+from computer science they rotate they
+
+1053
+01:01:15,579 --> 01:01:20,440
+took you know they took some courses in
+
+1054
+01:01:17,640 --> 01:01:22,660
+university so they know some of the you
+
+1055
+01:01:20,440 --> 01:01:27,150
+know the joggers they tend to so these
+
+1056
+01:01:22,660 --> 01:01:30,819
+people they they try to make their
+
+1057
+01:01:27,150 --> 01:01:34,720
+writing field with these words you know
+
+1058
+01:01:30,819 --> 01:01:37,809
+they try to think it's also but it's but
+
+1059
+01:01:34,720 --> 01:01:40,150
+in fact the the so that's a that's
+
+1060
+01:01:37,809 --> 01:01:42,150
+approach ok that's one of the style I'm
+
+1061
+01:01:40,150 --> 01:01:44,829
+talking about one of the writing style
+
+1062
+01:01:42,150 --> 01:01:50,279
+you you see that over Python
+
+1063
+01:01:44,829 --> 01:01:53,380
+documentation is a good example and and
+
+1064
+01:01:50,279 --> 01:01:56,289
+ok so what I'm saying is that this style
+
+1065
+01:01:53,380 --> 01:01:58,299
+I don't like neither ok you will not
+
+1066
+01:01:56,289 --> 01:02:00,609
+find this style in my tutorial at all
+
+1067
+01:01:58,299 --> 01:02:03,519
+you will not see you will not see any
+
+1068
+01:02:00,609 --> 01:02:06,190
+jargon unnecessarily so if it's
+
+1069
+01:02:03,519 --> 01:02:08,230
+necessary you will see it if it's not
+
+1070
+01:02:06,190 --> 01:02:10,869
+necessary you will not see it for
+
+1071
+01:02:08,230 --> 01:02:14,410
+example is it isn't that instance say
+
+1072
+01:02:10,869 --> 01:02:16,809
+said or was it the Einstein says
+
+1073
+01:02:14,410 --> 01:02:19,059
+something I forgot with who exactly they
+
+1074
+01:02:16,809 --> 01:02:21,489
+said you know if you cannot explain
+
+1075
+01:02:19,059 --> 01:02:24,940
+something to a child on the street in
+
+1076
+01:02:21,489 --> 01:02:28,660
+telling in three minutes then you don't
+
+1077
+01:02:24,940 --> 01:02:31,329
+understand it if you guys do you guys
+
+1078
+01:02:28,660 --> 01:02:34,960
+remember that quote that you know clip
+
+1079
+01:02:31,329 --> 01:02:36,999
+from a sauna or hang you know faint
+
+1080
+01:02:34,960 --> 01:02:39,069
+phenomena or something you know if you
+
+1081
+01:02:36,999 --> 01:02:41,410
+cannot explain something to a child on
+
+1082
+01:02:39,069 --> 01:02:43,450
+the street in three minutes then you
+
+1083
+01:02:41,410 --> 01:02:46,119
+don't understand it that is so that's
+
+1084
+01:02:43,450 --> 01:02:48,519
+that in my in my point of view that's
+
+1085
+01:02:46,119 --> 01:02:50,680
+very valid okay so when I read a
+
+1086
+01:02:48,519 --> 01:02:55,269
+tutorial you will not see none of these
+
+1087
+01:02:50,680 --> 01:02:59,220
+jargons because I don't like a style but
+
+1088
+01:02:55,269 --> 01:03:01,869
+by the way that style from you know take
+
+1089
+01:02:59,220 --> 01:03:05,619
+writing things from a computer science
+
+1090
+01:03:01,869 --> 01:03:06,400
+point of view it's not necessarily bad
+
+1091
+01:03:05,619 --> 01:03:09,340
+ok
+
+1092
+01:03:06,400 --> 01:03:12,300
+is actually valid style so what is a
+
+1093
+01:03:09,340 --> 01:03:14,410
+good example of that style Java Java
+
+1094
+01:03:12,300 --> 01:03:18,090
+documentation is good
+
+1095
+01:03:14,410 --> 01:03:21,580
+okay Java documentation is professional
+
+1096
+01:03:18,090 --> 01:03:25,360
+professionally written and it is in a
+
+1097
+01:03:21,580 --> 01:03:28,420
+style that is kind of formal okay formal
+
+1098
+01:03:25,360 --> 01:03:30,790
+so when it has a lot jargons for example
+
+1099
+01:03:28,420 --> 01:03:34,660
+in Java documentation you will see
+
+1100
+01:03:30,790 --> 01:03:35,260
+linked list you will see data structure
+
+1101
+01:03:34,660 --> 01:03:39,070
+array
+
+1102
+01:03:35,260 --> 01:03:41,350
+you know they is formal okay and it's
+
+1103
+01:03:39,070 --> 01:03:42,670
+well that it's done it's written by
+
+1104
+01:03:41,350 --> 01:03:43,510
+people who know that what they are
+
+1105
+01:03:42,670 --> 01:03:46,000
+talking about
+
+1106
+01:03:43,510 --> 01:03:48,070
+unlike the Python and perl
+
+1107
+01:03:46,000 --> 01:03:49,630
+python perl you know lots of
+
+1108
+01:03:48,070 --> 01:03:50,560
+documentation by these people they don't
+
+1109
+01:03:49,630 --> 01:03:52,170
+know they don't know what they're
+
+1110
+01:03:50,560 --> 01:03:56,410
+talking about
+
+1111
+01:03:52,170 --> 01:04:00,690
+okay so that's about that so back to you
+
+1112
+01:03:56,410 --> 01:04:05,430
+know I so this is a you know again III
+
+1113
+01:04:00,690 --> 01:04:08,950
+should do this topic again in next video
+
+1114
+01:04:05,430 --> 01:04:12,670
+but let's go and also actually I've done
+
+1115
+01:04:08,950 --> 01:04:14,320
+a video on Python before so you can
+
+1116
+01:04:12,670 --> 01:04:17,860
+watch that just such folks sorry
+
+1117
+01:04:14,320 --> 01:04:19,630
+on YouTube sorry Python so anyway the
+
+1118
+01:04:17,860 --> 01:04:21,670
+other thing the reason I'm mentioning
+
+1119
+01:04:19,630 --> 01:04:26,940
+this is let me summarize okay I
+
+1120
+01:04:21,670 --> 01:04:30,850
+mentioned two styles tell tell tell a
+
+1121
+01:04:26,940 --> 01:04:34,660
+telltale style of humor you know tell
+
+1122
+01:04:30,850 --> 01:04:37,660
+story style and also the computer
+
+1123
+01:04:34,660 --> 01:04:41,290
+science point of view style these two
+
+1124
+01:04:37,660 --> 01:04:45,640
+style are not my cells okay so you will
+
+1125
+01:04:41,290 --> 01:04:47,380
+not seen of it in my tutorial okay that
+
+1126
+01:04:45,640 --> 01:04:51,190
+that's that's that's why I'm mentioning
+
+1127
+01:04:47,380 --> 01:04:57,490
+it so you know so you can you guys can
+
+1128
+01:04:51,190 --> 01:05:04,030
+read my tutorials if you like that okay
+
+1129
+01:04:57,490 --> 01:05:06,460
+so download news right that's how do you
+
+1130
+01:05:04,030 --> 01:05:09,430
+pronounce his name news is it north of
+
+1131
+01:05:06,460 --> 01:05:17,560
+news is here okay let's see
+
+1132
+01:05:09,430 --> 01:05:20,200
+okay navi download good news I tend to
+
+1133
+01:05:17,560 --> 01:05:24,400
+phone ask the G because maybe I'm
+
+1134
+01:05:20,200 --> 01:05:28,650
+influenced by the new you know a thing
+
+1135
+01:05:24,400 --> 01:05:34,290
+well yeah so it's knuth donald knuth
+
+1136
+01:05:28,650 --> 01:05:34,290
+yeah there so there is okay you know a
+
+1137
+01:05:34,380 --> 01:05:47,140
+oda bouquet there so yeah so so now you
+
+1138
+01:05:44,859 --> 01:05:50,920
+care at least if i don't program me and
+
+1139
+01:05:47,140 --> 01:05:54,570
+computer it by myself okay okay so I
+
+1140
+01:05:50,920 --> 01:05:54,570
+think that's it for today
+
+1141
+01:05:55,800 --> 01:06:01,829
+didn't get my stream notification where
+
+1142
+01:05:59,260 --> 01:06:05,349
+yeah like what
+
+1143
+01:06:01,829 --> 01:06:09,040
+come oh gee oh okay come oh gee
+
+1144
+01:06:05,349 --> 01:06:11,770
+so how do you copy oh yeah so you have a
+
+1145
+01:06:09,040 --> 01:06:14,320
+question oh yeah so okay so polo one
+
+1146
+01:06:11,770 --> 01:06:18,160
+more question so that's it for today so
+
+1147
+01:06:14,320 --> 01:06:22,750
+you go to my Emacs Emacs web page then
+
+1148
+01:06:18,160 --> 01:06:25,450
+you go to you go to my Emacs web page
+
+1149
+01:06:22,750 --> 01:06:28,329
+then you go to oh yeah keep keybinding
+
+1150
+01:06:25,450 --> 01:06:31,930
+so you have this section this section is
+
+1151
+01:06:28,329 --> 01:06:34,119
+all about keys there's a video I have a
+
+1152
+01:06:31,930 --> 01:06:36,609
+JavaScript off so you don't see it you
+
+1153
+01:06:34,119 --> 01:06:40,720
+you go to my website you'll see it so
+
+1154
+01:06:36,609 --> 01:06:44,880
+this is index of or articles ready to
+
+1155
+01:06:40,720 --> 01:06:48,280
+Emacs keybinding and one of them is
+
+1156
+01:06:44,880 --> 01:06:49,420
+talking about key remapping okay so
+
+1157
+01:06:48,280 --> 01:06:53,109
+there it is
+
+1158
+01:06:49,420 --> 01:06:57,490
+so this one so if you want to be map
+
+1159
+01:06:53,109 --> 01:06:58,960
+keys this is what you do so let me see
+
+1160
+01:06:57,490 --> 01:07:01,599
+okay let me check because there are
+
+1161
+01:06:58,960 --> 01:07:05,520
+subtleties I remember so let me check if
+
+1162
+01:07:01,599 --> 01:07:05,520
+I it will does what you want
+
+1163
+01:07:07,329 --> 01:07:14,500
+Oh again by the way here is another way
+
+1164
+01:07:10,540 --> 01:07:16,599
+to insert Unicode and if you are still
+
+1165
+01:07:14,500 --> 01:07:19,650
+here so another way to insert Unicode is
+
+1166
+01:07:16,599 --> 01:07:26,440
+you can define keys to do it for example
+
+1167
+01:07:19,650 --> 01:07:31,030
+ff8 can press a key so and by the way
+
+1168
+01:07:26,440 --> 01:07:34,299
+Paulo there is subtleties so hold on a
+
+1169
+01:07:31,030 --> 01:07:38,170
+second because I remember
+
+1170
+01:07:34,299 --> 01:07:42,819
+you cannot you this you cannot use this
+
+1171
+01:07:38,170 --> 01:07:44,859
+to translate you know meta X to
+
+1172
+01:07:42,819 --> 01:07:48,880
+something because when it involves two
+
+1173
+01:07:44,859 --> 01:07:57,369
+keys it may have problems so let me see
+
+1174
+01:07:48,880 --> 01:07:59,709
+what okay so wait so let's see so anyway
+
+1175
+01:07:57,369 --> 01:08:05,349
+let's just just try it okay so let's
+
+1176
+01:07:59,709 --> 01:08:10,299
+just try it and we'll see let's magnify
+
+1177
+01:08:05,349 --> 01:08:12,759
+so not too big so let's remove sorry max
+
+1178
+01:08:10,299 --> 01:08:16,599
+this mod magnify
+
+1179
+01:08:12,759 --> 01:08:27,790
+okay so remove that so translate map you
+
+1180
+01:08:16,599 --> 01:08:31,630
+want MX meta X 2 meter Q let's say let's
+
+1181
+01:08:27,790 --> 01:08:39,250
+say that okay so let's say T G okay so
+
+1182
+01:08:31,630 --> 01:08:43,859
+evaluate that oh error oh yeah so it
+
+1183
+01:08:39,250 --> 01:08:43,859
+says you cannot do it because
+
+1184
+01:08:50,620 --> 01:09:05,200
+you cannot do it yeah so what is arrow I
+
+1185
+01:08:58,060 --> 01:09:09,730
+don't remember let's see so I don't know
+
+1186
+01:09:05,200 --> 01:09:12,069
+if if that meta X is your particular
+
+1187
+01:09:09,730 --> 01:09:15,310
+specific question or just in general any
+
+1188
+01:09:12,069 --> 01:09:20,350
+key so anyway so if you want to do the
+
+1189
+01:09:15,310 --> 01:09:25,060
+meta something then you may not this may
+
+1190
+01:09:20,350 --> 01:09:27,220
+not work and I I have to look you know I
+
+1191
+01:09:25,060 --> 01:09:29,640
+have to read in detail and because I
+
+1192
+01:09:27,220 --> 01:09:34,960
+wrote this I forgot you know this
+
+1193
+01:09:29,640 --> 01:09:39,609
+written in 2011 Inca code I will check
+
+1194
+01:09:34,960 --> 01:09:43,210
+it so what's Inca code so that's it for
+
+1195
+01:09:39,609 --> 01:09:45,420
+today thank you guys for watching bye
+
+1196
+01:09:43,210 --> 01:09:45,420
+guys
+
+1197
+01:09:50,880 --> 01:10:06,150
+Oh in general okay so in general yeah so
+
+1198
+01:10:01,440 --> 01:10:09,630
+in gently I it's it gets complicated I
+
+1199
+01:10:06,150 --> 01:10:11,820
+don't think I don't think there is a
+
+1200
+01:10:09,630 --> 01:10:14,370
+general wait for you to type any
+
+1201
+01:10:11,820 --> 01:10:17,130
+sequence of characters to be you know
+
+1202
+01:10:14,370 --> 01:10:18,960
+any to be something else because how do
+
+1203
+01:10:17,130 --> 01:10:22,020
+you define you know how do you define
+
+1204
+01:10:18,960 --> 01:10:29,610
+when the key stops that's one thing well
+
+1205
+01:10:22,020 --> 01:10:31,710
+for for meta X so so I don't have the
+
+1206
+01:10:29,610 --> 01:10:34,140
+answer right now because I don't know
+
+1207
+01:10:31,710 --> 01:10:36,750
+because I have to look so for example if
+
+1208
+01:10:34,140 --> 01:10:39,450
+this page doesn't answer you have to go
+
+1209
+01:10:36,750 --> 01:10:45,300
+to eMac based reference then you can
+
+1210
+01:10:39,450 --> 01:10:49,700
+read the details you know so anyway so
+
+1211
+01:10:45,300 --> 01:10:49,700
+that so thank you guys bye guys
+
+1212
+01:10:51,590 --> 01:10:59,840
+now if you like my stuff PayPal and
+
+1213
+01:10:55,190 --> 01:10:59,840
+patreon okay I have links on my website
+

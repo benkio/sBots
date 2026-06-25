@@ -1,0 +1,5156 @@
+1
+00:00:04,080 --> 00:00:11,200
+Hello everyone. Welcome to another
+
+2
+00:00:06,879 --> 00:00:16,960
+episode of talk show. We are going to
+
+3
+00:00:11,200 --> 00:00:20,800
+learn F and uh I'm going to write my
+
+4
+00:00:16,960 --> 00:00:24,320
+learning F tutorial notes.
+
+5
+00:00:20,800 --> 00:00:28,640
+So this is probably boring for you. If
+
+6
+00:00:24,320 --> 00:00:32,160
+you want to learn F, there are a lot
+
+7
+00:00:28,640 --> 00:00:35,360
+nice video tutorials out there,
+
+8
+00:00:32,160 --> 00:00:37,680
+but I'm just doing it on my own. So, uh
+
+9
+00:00:35,360 --> 00:00:41,120
+I'm going to write a my tutorial for
+
+10
+00:00:37,680 --> 00:00:44,800
+learn uh F. And so, you also going to
+
+11
+00:00:41,120 --> 00:00:48,239
+watch me work with my Emacs. So, this is
+
+12
+00:00:44,800 --> 00:00:52,960
+kind of Emacs workflow and learning how
+
+13
+00:00:48,239 --> 00:00:55,360
+to uh learning about F.
+
+14
+00:00:52,960 --> 00:00:59,120
+If you are watching this offline, play
+
+15
+00:00:55,360 --> 00:01:01,120
+at two point uh twice as fast. Uh if you
+
+16
+00:00:59,120 --> 00:01:05,480
+are here, say hi. Okay, love to see your
+
+17
+00:01:01,120 --> 00:01:05,480
+comments. Let's see.
+
+18
+00:01:05,920 --> 00:01:12,799
+Okay, so learning F and uh Emacs
+
+19
+00:01:09,520 --> 00:01:15,680
+workflow. So I'm using Emacs.
+
+20
+00:01:12,799 --> 00:01:18,720
+Here is my today's talk show page. And
+
+21
+00:01:15,680 --> 00:01:21,759
+uh the pink window shows all my command
+
+22
+00:01:18,720 --> 00:01:24,400
+calls and the keystrokes real time
+
+23
+00:01:21,759 --> 00:01:28,479
+keystrokes on the left. And uh I'm using
+
+24
+00:01:24,400 --> 00:01:32,240
+a Vorac keyboard layout.
+
+25
+00:01:28,479 --> 00:01:34,479
+And I'm using a Kafly keys. So if you
+
+26
+00:01:32,240 --> 00:01:37,680
+don't know what is Vorac keyboard
+
+27
+00:01:34,479 --> 00:01:41,200
+layout, you can go to my uh Kawar
+
+28
+00:01:37,680 --> 00:01:44,720
+keyboard blog. Let me show you quickly.
+
+29
+00:01:41,200 --> 00:01:47,600
+Uh keypad normal laptop keys. Fun
+
+30
+00:01:44,720 --> 00:01:50,479
+history go history design key cap
+
+31
+00:01:47,600 --> 00:01:55,040
+special keys layout. So ergonomic
+
+32
+00:01:50,479 --> 00:01:57,840
+keyboard layout so you can see
+
+33
+00:01:55,040 --> 00:02:04,360
+this is qui layout most people use and
+
+34
+00:01:57,840 --> 00:02:04,360
+this is war layout and I'm using um
+
+35
+00:02:05,520 --> 00:02:11,200
+safly keys. Here's a source code. You
+
+36
+00:02:07,759 --> 00:02:16,599
+can get get it on GitHub. It is the most
+
+37
+00:02:11,200 --> 00:02:16,599
+efficient keybinding system for Emacs.
+
+38
+00:02:17,280 --> 00:02:23,840
+Okay. It's a model keybinding system
+
+39
+00:02:19,599 --> 00:02:26,160
+like VI. But the command names and the
+
+40
+00:02:23,840 --> 00:02:31,040
+the command mapping, the key mapping,
+
+41
+00:02:26,160 --> 00:02:34,720
+the key binding are based on frequency
+
+42
+00:02:31,040 --> 00:02:37,440
+of the command used. So here is like the
+
+43
+00:02:34,720 --> 00:02:41,599
+layout. So you don't have to press
+
+44
+00:02:37,440 --> 00:02:44,239
+control key or meta key. Okay, that's
+
+45
+00:02:41,599 --> 00:02:48,160
+fly keys and that's war keyboard layout.
+
+46
+00:02:44,239 --> 00:02:50,239
+So uh let's
+
+47
+00:02:48,160 --> 00:02:56,400
+close close
+
+48
+00:02:50,239 --> 00:03:00,000
+showing browser keyboard blog close. So
+
+49
+00:02:56,400 --> 00:03:03,280
+so let me post the link here so you can
+
+50
+00:03:00,000 --> 00:03:05,519
+see keys F learning notes ergonomic
+
+51
+00:03:03,280 --> 00:03:08,640
+keyboard layout. Okay. So let's let's
+
+52
+00:03:05,519 --> 00:03:11,280
+begin. So I wanted to do
+
+53
+00:03:08,640 --> 00:03:16,239
+formatting string. So uh wait not
+
+54
+00:03:11,280 --> 00:03:19,120
+formatting string allow long line char.
+
+55
+00:03:16,239 --> 00:03:21,742
+Uh there is something I want to do.
+
+56
+00:03:19,120 --> 00:03:22,560
+Okay.
+
+57
+00:03:21,742 --> 00:03:25,920
+[clears throat]
+
+58
+00:03:22,560 --> 00:03:30,799
+Comment print string. So I'm making a
+
+59
+00:03:25,920 --> 00:03:32,560
+lot progress at F. Format string. Uh no
+
+60
+00:03:30,799 --> 00:03:35,920
+not that convert string string
+
+61
+00:03:32,560 --> 00:03:39,040
+operation. Uh
+
+62
+00:03:35,920 --> 00:03:43,080
+uh escape sequence. What? What was it I
+
+63
+00:03:39,040 --> 00:03:43,080
+want to do? Uh
+
+64
+00:03:46,640 --> 00:03:51,360
+comment print
+
+65
+00:03:49,040 --> 00:03:54,799
+string
+
+66
+00:03:51,360 --> 00:03:58,480
+string sequence add sign print dollar
+
+67
+00:03:54,799 --> 00:04:00,720
+sign in string dollar sign as prefix
+
+68
+00:03:58,480 --> 00:04:03,120
+template interpolated string string
+
+69
+00:04:00,720 --> 00:04:05,920
+escape sequence.
+
+70
+00:04:03,120 --> 00:04:08,239
+Not that
+
+71
+00:04:05,920 --> 00:04:11,040
+uh
+
+72
+00:04:08,239 --> 00:04:13,519
+oh string
+
+73
+00:04:11,040 --> 00:04:16,519
+wait there is something I want to do. I
+
+74
+00:04:13,519 --> 00:04:16,519
+forgot
+
+75
+00:04:22,639 --> 00:04:31,479
+types. Okay. So yeah. So this literal
+
+76
+00:04:26,400 --> 00:04:31,479
+types I want to do. So let me show you.
+
+77
+00:04:32,160 --> 00:04:39,680
+So this literal types those are like
+
+78
+00:04:36,000 --> 00:04:43,440
+basic types like primitive types in F
+
+79
+00:04:39,680 --> 00:04:45,600
+and this is from the F documentation. I
+
+80
+00:04:43,440 --> 00:04:48,800
+want it right now it's formatted as a
+
+81
+00:04:45,600 --> 00:04:51,600
+table. I want to turn them into code. So
+
+82
+00:04:48,800 --> 00:04:54,320
+let me show you the uh the documentation
+
+83
+00:04:51,600 --> 00:04:56,400
+the official documentation. Uh by the
+
+84
+00:04:54,320 --> 00:04:59,440
+way there's f.org.
+
+85
+00:04:56,400 --> 00:05:02,720
+That website sucks. Okay. If you want to
+
+86
+00:04:59,440 --> 00:05:04,720
+learn F, the best resource is the
+
+87
+00:05:02,720 --> 00:05:07,680
+Microsoft.com.
+
+88
+00:05:04,720 --> 00:05:10,560
+Learn F. So,
+
+89
+00:05:07,680 --> 00:05:13,199
+uh, let me show you Fsh
+
+90
+00:05:10,560 --> 00:05:16,080
+website. So, let me talk about this for
+
+91
+00:05:13,199 --> 00:05:19,039
+five minutes. F.org. It sucks. Donkey
+
+92
+00:05:16,080 --> 00:05:22,240
+ass. First of all, you got this logo.
+
+93
+00:05:19,039 --> 00:05:25,039
+Okay. F logo. Can you see it? Yeah. This
+
+94
+00:05:22,240 --> 00:05:28,320
+logo is the worst logo because it does
+
+95
+00:05:25,039 --> 00:05:32,240
+not represent F. does not make you
+
+96
+00:05:28,320 --> 00:05:34,960
+remember or associate with F or
+
+97
+00:05:32,240 --> 00:05:38,000
+programming language in any way. This is
+
+98
+00:05:34,960 --> 00:05:40,479
+just a generic like pretty geometric
+
+99
+00:05:38,000 --> 00:05:42,960
+modern design. It has nothing. It you
+
+100
+00:05:40,479 --> 00:05:44,479
+know it there's no f there's no lambda.
+
+101
+00:05:42,960 --> 00:05:46,080
+There's no programming language there.
+
+102
+00:05:44,479 --> 00:05:48,320
+Nothing
+
+103
+00:05:46,080 --> 00:05:51,320
+is designed
+
+104
+00:05:48,320 --> 00:05:51,320
+um
+
+105
+00:05:51,520 --> 00:05:58,560
+uh I have a web uh I have a um blog
+
+106
+00:05:56,000 --> 00:06:01,280
+about it. So this is about logo design
+
+107
+00:05:58,560 --> 00:06:03,759
+in software industry. So you can see
+
+108
+00:06:01,280 --> 00:06:09,800
+PowerShell logo. It's a great one
+
+109
+00:06:03,759 --> 00:06:09,800
+because this symbol is the prompt.
+
+110
+00:06:10,000 --> 00:06:14,639
+So you can see whenever you have a
+
+111
+00:06:11,840 --> 00:06:17,680
+shell, you have that prompt and so it's
+
+112
+00:06:14,639 --> 00:06:19,120
+reminiscent of you know the terminal. It
+
+113
+00:06:17,680 --> 00:06:22,479
+you know it's a PowerShell. It's a
+
+114
+00:06:19,120 --> 00:06:25,759
+shell. Okay. So PowerShell logo. So GNU
+
+115
+00:06:22,479 --> 00:06:28,479
+Emacs logo is also great because GNU
+
+116
+00:06:25,759 --> 00:06:35,440
+based on the recursive acronym GNU is
+
+117
+00:06:28,479 --> 00:06:38,000
+not Unix GNU but GNU is this uh cow ox
+
+118
+00:06:35,440 --> 00:06:40,800
+category of animal so it's a animal head
+
+119
+00:06:38,000 --> 00:06:43,199
+glue you know and bash logo is also
+
+120
+00:06:40,800 --> 00:06:45,360
+great because again you have this dollar
+
+121
+00:06:43,199 --> 00:06:48,400
+sign underscore
+
+122
+00:06:45,360 --> 00:06:51,600
+reminds you of a prompt pearl is ugly
+
+123
+00:06:48,400 --> 00:06:53,199
+they choose this logo is which is also
+
+124
+00:06:51,600 --> 00:06:56,479
+fitting.
+
+125
+00:06:53,199 --> 00:06:58,800
+Firefox shows a fox windows shows a
+
+126
+00:06:56,479 --> 00:07:02,400
+window. Guac
+
+127
+00:06:58,800 --> 00:07:06,720
+uh logo design is also fantastic. Here's
+
+128
+00:07:02,400 --> 00:07:10,240
+a evolution of guac logo design.
+
+129
+00:07:06,720 --> 00:07:13,280
+Guac is a slan from nerds from a scient
+
+130
+00:07:10,240 --> 00:07:17,520
+uh science fiction written by this uh
+
+131
+00:07:13,280 --> 00:07:19,520
+moon is a beautiful mistress. Um
+
+132
+00:07:17,520 --> 00:07:23,759
+and you know he wrote a lot a famous
+
+133
+00:07:19,520 --> 00:07:27,840
+science fiction writer. So he coined the
+
+134
+00:07:23,759 --> 00:07:30,319
+word guac which is commonly uh used
+
+135
+00:07:27,840 --> 00:07:32,479
+among the Unix
+
+136
+00:07:30,319 --> 00:07:35,199
+kind of people elite hacker types you
+
+137
+00:07:32,479 --> 00:07:38,639
+know guac it means to understand kind of
+
+138
+00:07:35,199 --> 00:07:40,720
+like a feel like you you can read
+
+139
+00:07:38,639 --> 00:07:43,520
+programming code and you can get a feel
+
+140
+00:07:40,720 --> 00:07:47,199
+of uh what it does. So [snorts] uh kind
+
+141
+00:07:43,520 --> 00:07:50,400
+of like uh empathy for understanding
+
+142
+00:07:47,199 --> 00:07:54,000
+that's what guac gu
+
+143
+00:07:50,400 --> 00:07:56,720
+is the eleusk's AI engine. So you know
+
+144
+00:07:54,000 --> 00:08:01,800
+actually we are looking at guork here I
+
+145
+00:07:56,720 --> 00:08:01,800
+ask it about f question.
+
+146
+00:08:02,000 --> 00:08:07,840
+So you can see that's that's gu okay you
+
+147
+00:08:04,400 --> 00:08:11,280
+see this logo. So gawk lo the meaning
+
+148
+00:08:07,840 --> 00:08:14,160
+and then logo it began with a slash then
+
+149
+00:08:11,280 --> 00:08:19,520
+uh it evolved into this symbol. So it
+
+150
+00:08:14,160 --> 00:08:22,960
+reminds you of a G stylized uh
+
+151
+00:08:19,520 --> 00:08:25,680
+stylized G and this symbol is also the
+
+152
+00:08:22,960 --> 00:08:27,520
+symbol for black hole because black hole
+
+153
+00:08:25,680 --> 00:08:31,360
+kind of look like that you know you got
+
+154
+00:08:27,520 --> 00:08:33,760
+event horizon so Elamus posts
+
+155
+00:08:31,360 --> 00:08:34,959
+um frequently about these black hole you
+
+156
+00:08:33,760 --> 00:08:38,800
+know images.
+
+157
+00:08:34,959 --> 00:08:41,519
+Guac logo which is also great
+
+158
+00:08:38,800 --> 00:08:43,519
+and uh so these are great logos. Python,
+
+159
+00:08:41,519 --> 00:08:46,720
+you know, you know, two snakes, you
+
+160
+00:08:43,519 --> 00:08:51,320
+know. Python. Python was named after the
+
+161
+00:08:46,720 --> 00:08:51,320
+the British comedy show
+
+162
+00:08:51,600 --> 00:08:58,959
+uh called um
+
+163
+00:08:54,240 --> 00:09:01,440
+called uh uh there's a
+
+164
+00:08:58,959 --> 00:09:03,440
+name uh
+
+165
+00:09:01,440 --> 00:09:08,000
+anyway, it's named after Brit, you know,
+
+166
+00:09:03,440 --> 00:09:10,240
+the the Python. What's the name?
+
+167
+00:09:08,000 --> 00:09:13,839
+Python
+
+168
+00:09:10,240 --> 00:09:16,160
+British comedy show. Okay. Why is it
+
+169
+00:09:13,839 --> 00:09:18,399
+named Python? Oh, Monty Python. That's
+
+170
+00:09:16,160 --> 00:09:20,880
+right. I think Python is a part of the
+
+171
+00:09:18,399 --> 00:09:23,440
+person's name. I think I don't know
+
+172
+00:09:20,880 --> 00:09:26,320
+exactly. Some some of them are very
+
+173
+00:09:23,440 --> 00:09:28,959
+funny. Okay. Monty Python's Flying
+
+174
+00:09:26,320 --> 00:09:31,920
+Circus. Okay. So, Python programming
+
+175
+00:09:28,959 --> 00:09:34,880
+language is named after the show because
+
+176
+00:09:31,920 --> 00:09:38,160
+the Gido van Rosam the creator of Python
+
+177
+00:09:34,880 --> 00:09:40,720
+love that show. And then you know after
+
+178
+00:09:38,160 --> 00:09:43,600
+10 20 years then 30 years then 40 years
+
+179
+00:09:40,720 --> 00:09:45,200
+he got tired of it uh of it but anyway
+
+180
+00:09:43,600 --> 00:09:47,519
+that's the origin of Python but
+
+181
+00:09:45,200 --> 00:09:50,480
+eventually but people don't know about
+
+182
+00:09:47,519 --> 00:09:52,720
+the show most I mean for vast majority
+
+183
+00:09:50,480 --> 00:09:55,200
+of majority of people they when they
+
+184
+00:09:52,720 --> 00:09:57,600
+hear Python they think of the snake of
+
+185
+00:09:55,200 --> 00:10:00,720
+course because that's a snake's name. So
+
+186
+00:09:57,600 --> 00:10:03,680
+eventually Gido van Rosam the creator
+
+187
+00:10:00,720 --> 00:10:07,279
+gave up and adopted the you know say
+
+188
+00:10:03,680 --> 00:10:11,040
+okay you know let's just stop adapt the
+
+189
+00:10:07,279 --> 00:10:14,000
+snake logo so they
+
+190
+00:10:11,040 --> 00:10:17,519
+choose a cubed double snake you know
+
+191
+00:10:14,000 --> 00:10:19,360
+Python okay so and it reminds you of
+
+192
+00:10:17,519 --> 00:10:21,440
+Python you know and some micros
+
+193
+00:10:19,360 --> 00:10:24,399
+systemystem that's also a fantastic
+
+194
+00:10:21,440 --> 00:10:26,880
+design okay some micros systemystems um
+
+195
+00:10:24,399 --> 00:10:30,560
+okay I need to change the link uh
+
+196
+00:10:26,880 --> 00:10:33,680
+because it some micros systemystems
+
+197
+00:10:30,560 --> 00:10:35,839
+now it's bankrupt it you know that's
+
+198
+00:10:33,680 --> 00:10:38,320
+that's a guy that's a corporation that
+
+199
+00:10:35,839 --> 00:10:39,920
+created Java the programming language in
+
+200
+00:10:38,320 --> 00:10:42,480
+1995
+
+201
+00:10:39,920 --> 00:10:45,440
+it went it got it it got bankrupt or
+
+202
+00:10:42,480 --> 00:10:48,560
+sold to Oracle you know the database
+
+203
+00:10:45,440 --> 00:10:51,120
+extremely evil corporation so they they
+
+204
+00:10:48,560 --> 00:10:54,000
+are famous for Solaris operating system
+
+205
+00:10:51,120 --> 00:10:56,160
+which is part of Unix but anyway the
+
+206
+00:10:54,000 --> 00:10:58,880
+background of Sun Micros systemystems
+
+207
+00:10:56,160 --> 00:11:02,160
+they came from Stanford University which
+
+208
+00:10:58,880 --> 00:11:04,720
+is 20 minutes drive from where I live.
+
+209
+00:11:02,160 --> 00:11:07,600
+Okay. In Palo Alto here we are in
+
+210
+00:11:04,720 --> 00:11:10,640
+Silicon Valley. Google is 10 minutes
+
+211
+00:11:07,600 --> 00:11:13,600
+drive you know uh then Palo Alto. So
+
+212
+00:11:10,640 --> 00:11:16,640
+ecosystem is 20 minutes drive. They from
+
+213
+00:11:13,600 --> 00:11:19,200
+Stanford University I believe originally
+
+214
+00:11:16,640 --> 00:11:22,480
+they are named the the company is named
+
+215
+00:11:19,200 --> 00:11:25,519
+um Standard Stanford University
+
+216
+00:11:22,480 --> 00:11:28,560
+Networks. So anyway, their logo is made
+
+217
+00:11:25,519 --> 00:11:31,920
+up of several U's, you know, so but they
+
+218
+00:11:28,560 --> 00:11:34,640
+kind of spell su n. You see some micros
+
+219
+00:11:31,920 --> 00:11:36,720
+systemystems fantastic logo design. Now
+
+220
+00:11:34,640 --> 00:11:39,360
+these are some of the classic logo
+
+221
+00:11:36,720 --> 00:11:41,920
+design and Solaris is for the Unix
+
+222
+00:11:39,360 --> 00:11:46,640
+operating system. Of course Solaris
+
+223
+00:11:41,920 --> 00:11:49,519
+means sun in in French or other um
+
+224
+00:11:46,640 --> 00:11:52,480
+Spanish related uh languages. We have
+
+225
+00:11:49,519 --> 00:11:54,800
+the word solar. Solar power of for
+
+226
+00:11:52,480 --> 00:11:59,320
+example.
+
+227
+00:11:54,800 --> 00:11:59,320
+So great logo design. Okay.
+
+228
+00:12:02,800 --> 00:12:10,000
+Hello coffee some ecosystems. Fantastic.
+
+229
+00:12:07,040 --> 00:12:13,839
+And Linux famous for the penguin. Why
+
+230
+00:12:10,000 --> 00:12:17,120
+penguin? Because Linux Linux towards the
+
+231
+00:12:13,839 --> 00:12:20,399
+guy who wrote uh Linux. He likes
+
+232
+00:12:17,120 --> 00:12:23,760
+Penguin. he likes some kind of a fat
+
+233
+00:12:20,399 --> 00:12:27,200
+sachiated penguin. So that's where this
+
+234
+00:12:23,760 --> 00:12:29,279
+uh Linux logo came from. Okay. So he
+
+235
+00:12:27,200 --> 00:12:32,399
+explained, you know, why he choose the
+
+236
+00:12:29,279 --> 00:12:37,360
+uh penguin about like 30 years ago in
+
+237
+00:12:32,399 --> 00:12:42,560
+1990s, early 1990s or late 1990s.
+
+238
+00:12:37,360 --> 00:12:46,000
+So penguin is for uh Linux and FreeBSD
+
+239
+00:12:42,560 --> 00:12:49,920
+is uh associated with this Tikeke this
+
+240
+00:12:46,000 --> 00:12:53,120
+little uh demon monster.
+
+241
+00:12:49,920 --> 00:12:56,880
+Now I'm not sure how exactly the logo
+
+242
+00:12:53,120 --> 00:13:01,040
+originates but it is related associated
+
+243
+00:12:56,880 --> 00:13:04,639
+with this uh demon repres you know demon
+
+244
+00:13:01,040 --> 00:13:07,360
+is a background process in Unix that's
+
+245
+00:13:04,639 --> 00:13:09,839
+called demon it just means in windows
+
+246
+00:13:07,360 --> 00:13:12,480
+terms it's uh it's called background
+
+247
+00:13:09,839 --> 00:13:14,959
+process like
+
+248
+00:13:12,480 --> 00:13:17,120
+like if you look at the windows uh task
+
+249
+00:13:14,959 --> 00:13:19,120
+manager you can see a lot background
+
+250
+00:13:17,120 --> 00:13:20,880
+processes like you don't you don't you
+
+251
+00:13:19,120 --> 00:13:22,880
+normally really noticed but there's a
+
+252
+00:13:20,880 --> 00:13:26,000
+lot running in the background. Okay. But
+
+253
+00:13:22,880 --> 00:13:29,120
+in Unix or Linux they they call it they
+
+254
+00:13:26,000 --> 00:13:32,560
+call those demon. Okay. So demon which
+
+255
+00:13:29,120 --> 00:13:35,519
+is the English word demon you know. So
+
+256
+00:13:32,560 --> 00:13:40,000
+you have this for example these comics
+
+257
+00:13:35,519 --> 00:13:43,839
+back in 1980s 1985 a t-shirt you see you
+
+258
+00:13:40,000 --> 00:13:47,360
+see this bunch of uh demon tikes making
+
+259
+00:13:43,839 --> 00:13:51,839
+fun and fork and pipe that's all Unix
+
+260
+00:13:47,360 --> 00:13:54,160
+things. Okay. So the BSD uh logo is also
+
+261
+00:13:51,839 --> 00:13:56,399
+fitting you know you got a fork there
+
+262
+00:13:54,160 --> 00:13:59,839
+you got a demon.
+
+263
+00:13:56,399 --> 00:14:02,000
+So this and Mac OSX you know so Apple
+
+264
+00:13:59,839 --> 00:14:06,880
+that's another story uh also very
+
+265
+00:14:02,000 --> 00:14:10,160
+fitting OSX which is uh following the
+
+266
+00:14:06,880 --> 00:14:14,160
+convention of Unix operating systems
+
+267
+00:14:10,160 --> 00:14:17,399
+ending in X. For example, you got Unix,
+
+268
+00:14:14,160 --> 00:14:17,399
+you got
+
+269
+00:14:17,680 --> 00:14:25,760
+Pix. Pix is the standardized
+
+270
+00:14:22,320 --> 00:14:30,639
+specification of Unix. And the the name
+
+271
+00:14:25,760 --> 00:14:33,360
+Pix P O SIX came from Richard Storman.
+
+272
+00:14:30,639 --> 00:14:37,199
+Richard Stoman the guy who created Emacs
+
+273
+00:14:33,360 --> 00:14:41,680
+and GNU compiler, you know, he suggested
+
+274
+00:14:37,199 --> 00:14:44,800
+the word parics. Okay. So, Mac OS X
+
+275
+00:14:41,680 --> 00:14:49,199
+today is known as Mac OS just but back
+
+276
+00:14:44,800 --> 00:14:52,240
+then is it was known um M OSX X is
+
+277
+00:14:49,199 --> 00:14:55,120
+actually stands for 10.
+
+278
+00:14:52,240 --> 00:15:01,360
+So there's lots of pun going on. Mac OS
+
+279
+00:14:55,120 --> 00:15:03,440
+XX is the Roman numeral for 10. But X is
+
+280
+00:15:01,360 --> 00:15:10,160
+also you know following the Unix
+
+281
+00:15:03,440 --> 00:15:12,240
+convention. Unix, Pix, Mac OSX, HPUS,
+
+282
+00:15:10,160 --> 00:15:15,519
+uh, HPUX,
+
+283
+00:15:12,240 --> 00:15:18,240
+IRX from Silicon Graphics. Another
+
+284
+00:15:15,519 --> 00:15:22,959
+great, fantastic logo, Silicon Graphics.
+
+285
+00:15:18,240 --> 00:15:26,639
+They also died around 2005 or so. They
+
+286
+00:15:22,959 --> 00:15:30,399
+um 200 I think early 2004. you know
+
+287
+00:15:26,639 --> 00:15:32,560
+their logo is a illusion of a you know
+
+288
+00:15:30,399 --> 00:15:36,279
+you it looks like a hexagon but it's
+
+289
+00:15:32,560 --> 00:15:36,279
+actually a cube
+
+290
+00:15:36,639 --> 00:15:43,120
+okay 3D cube SGI so they they are famous
+
+291
+00:15:40,160 --> 00:15:47,279
+for computer graphics used for example
+
+292
+00:15:43,120 --> 00:15:50,800
+in uh in movies for example the Jurassic
+
+293
+00:15:47,279 --> 00:15:54,240
+Park one of the most popular movie
+
+294
+00:15:50,800 --> 00:15:56,800
+Jurassic Park is created with you know
+
+295
+00:15:54,240 --> 00:16:00,199
+by silicon graphics Okay, they are
+
+296
+00:15:56,800 --> 00:16:00,199
+special effects.
+
+297
+00:16:01,360 --> 00:16:07,680
+Okay, so these are great logos and next
+
+298
+00:16:03,759 --> 00:16:11,839
+computer from Steve Jobs Apple B O uh
+
+299
+00:16:07,680 --> 00:16:14,399
+kind kind of dead uh year and I you know
+
+300
+00:16:11,839 --> 00:16:17,279
+so because they are a media they are
+
+301
+00:16:14,399 --> 00:16:21,279
+supposed to be a media operating system
+
+302
+00:16:17,279 --> 00:16:23,279
+from the ground up designed in the in
+
+303
+00:16:21,279 --> 00:16:26,240
+around 1996
+
+304
+00:16:23,279 --> 00:16:29,680
+to to to be the vision that we are not
+
+305
+00:16:26,240 --> 00:16:32,480
+going to carriage uh old baggages of
+
+306
+00:16:29,680 --> 00:16:35,839
+operating system we're going start fresh
+
+307
+00:16:32,480 --> 00:16:38,639
+because now is the era of media like
+
+308
+00:16:35,839 --> 00:16:42,079
+audio files and video files like today
+
+309
+00:16:38,639 --> 00:16:45,279
+I'm doing uh YouTube live stream video
+
+310
+00:16:42,079 --> 00:16:49,680
+so that's the story of BOS
+
+311
+00:16:45,279 --> 00:16:52,959
+that's the uh like a fresh new operating
+
+312
+00:16:49,680 --> 00:16:57,600
+system designed for media and video and
+
+313
+00:16:52,959 --> 00:17:00,880
+audio okay uh then and so these are all
+
+314
+00:16:57,600 --> 00:17:05,039
+great logos and there's of course the uh
+
+315
+00:17:00,880 --> 00:17:07,600
+lambda the lambda from uh the uh
+
+316
+00:17:05,039 --> 00:17:10,319
+functional programming languages lisp
+
+317
+00:17:07,600 --> 00:17:12,000
+scheme you know they all have lambda.
+
+318
+00:17:10,319 --> 00:17:14,959
+Okay.
+
+319
+00:17:12,000 --> 00:17:18,400
+So anyway, back to so Java of course
+
+320
+00:17:14,959 --> 00:17:21,280
+reminds you of the like coffee the a
+
+321
+00:17:18,400 --> 00:17:24,079
+special type of coffee Java
+
+322
+00:17:21,280 --> 00:17:26,880
+and GNU again a GNU head GU Emac and
+
+323
+00:17:24,079 --> 00:17:31,200
+Hascal. So all these are great logos
+
+324
+00:17:26,880 --> 00:17:33,919
+fantastic and deno for the uh oh I I I
+
+325
+00:17:31,200 --> 00:17:38,039
+need to make some fix because you see
+
+326
+00:17:33,919 --> 00:17:38,039
+this logo is not linked.
+
+327
+00:17:39,520 --> 00:17:49,039
+Let's fix them. Fix them. Okay. So, we
+
+328
+00:17:41,840 --> 00:17:53,240
+digressed, but um so Deno is the um C
+
+329
+00:17:49,039 --> 00:17:53,240
+and O. Okay. So,
+
+330
+00:18:10,400 --> 00:18:20,000
+okay, there's some inconsistencies in my
+
+331
+00:18:15,520 --> 00:18:22,640
+in my HTML markup. Let's see.
+
+332
+00:18:20,000 --> 00:18:26,080
+That should fix it. But let's let me
+
+333
+00:18:22,640 --> 00:18:30,000
+check something. So I don't want the BR.
+
+334
+00:18:26,080 --> 00:18:35,120
+Okay. So I don't want the BR. Search BR.
+
+335
+00:18:30,000 --> 00:18:38,559
+So SciHub logo. Beautiful.
+
+336
+00:18:35,120 --> 00:18:41,840
+And Deno logo. You can see it here in
+
+337
+00:18:38,559 --> 00:18:45,360
+Emacs. That's why Emacs,
+
+338
+00:18:41,840 --> 00:18:50,000
+the graphical user interface of Emacs is
+
+339
+00:18:45,360 --> 00:18:53,000
+much better than running Emacs in um in
+
+340
+00:18:50,000 --> 00:18:53,000
+terminal.
+
+341
+00:18:57,280 --> 00:19:04,480
+You see we started Emacs in terminal but
+
+342
+00:19:00,960 --> 00:19:07,200
+then you don't have you cannot view
+
+343
+00:19:04,480 --> 00:19:08,799
+images and several other things. Okay, I
+
+344
+00:19:07,200 --> 00:19:10,320
+have an article on that. Just search
+
+345
+00:19:08,799 --> 00:19:12,640
+on.info.
+
+346
+00:19:10,320 --> 00:19:15,360
+You'll find it.
+
+347
+00:19:12,640 --> 00:19:18,360
+Okay. So, search for BR.
+
+348
+00:19:15,360 --> 00:19:18,360
+Wait.
+
+349
+00:19:20,000 --> 00:19:26,559
+Okay. There's no more show in browser.
+
+350
+00:19:22,799 --> 00:19:28,960
+Go back and go down. Go down. Go down.
+
+351
+00:19:26,559 --> 00:19:30,880
+Go down. Fantastic. Fantastic.
+
+352
+00:19:28,960 --> 00:19:33,039
+Fantastic.
+
+353
+00:19:30,880 --> 00:19:35,200
+F. There it is. Let let me talk about
+
+354
+00:19:33,039 --> 00:19:36,799
+that. Deno. Okay. Deno is the new
+
+355
+00:19:35,200 --> 00:19:40,320
+JavaScript
+
+356
+00:19:36,799 --> 00:19:41,840
+uh compiler and engine from the guy who
+
+357
+00:19:40,320 --> 00:19:43,679
+created
+
+358
+00:19:41,840 --> 00:19:48,080
+um
+
+359
+00:19:43,679 --> 00:19:52,320
+NJS. Okay, N.JS got corrupted by the MPM
+
+360
+00:19:48,080 --> 00:19:55,039
+guy. Very cor in my opinion a bad guy.
+
+361
+00:19:52,320 --> 00:19:58,320
+So Deno
+
+362
+00:19:55,039 --> 00:20:00,960
+uh by Ryan Dah who created NJS he
+
+363
+00:19:58,320 --> 00:20:03,840
+created a new one Deno about five five
+
+364
+00:20:00,960 --> 00:20:06,720
+seven years ago. So Deno is the I
+
+365
+00:20:03,840 --> 00:20:09,360
+recommended Deno. Okay, don't use NJS,
+
+366
+00:20:06,720 --> 00:20:14,559
+use Deno.
+
+367
+00:20:09,360 --> 00:20:17,280
+So all these are great um great logos.
+
+368
+00:20:14,559 --> 00:20:19,760
+And we got Razer kind of also fitting
+
+369
+00:20:17,280 --> 00:20:22,880
+because that's for gamers and gamers are
+
+370
+00:20:19,760 --> 00:20:27,120
+typically teenagers and they like this
+
+371
+00:20:22,880 --> 00:20:29,919
+kind of snake or horror stuff or school,
+
+372
+00:20:27,120 --> 00:20:31,440
+you know, teenagers, you know, for g
+
+373
+00:20:29,919 --> 00:20:34,080
+gamers.
+
+374
+00:20:31,440 --> 00:20:37,309
+So, and this is particular this side
+
+375
+00:20:34,080 --> 00:20:39,520
+herub is very beautiful logo
+
+376
+00:20:37,309 --> 00:20:43,039
+[clears throat] a car with stars but the
+
+377
+00:20:39,520 --> 00:20:46,400
+F logo is the one of the worst okay
+
+378
+00:20:43,039 --> 00:20:48,960
+because it doesn't show it doesn't you
+
+379
+00:20:46,400 --> 00:20:51,360
+know it it does not
+
+380
+00:20:48,960 --> 00:20:54,960
+has no character okay it's just a
+
+381
+00:20:51,360 --> 00:20:58,400
+generic logo this logo
+
+382
+00:20:54,960 --> 00:21:01,280
+was created around 2014
+
+383
+00:20:58,400 --> 00:21:03,840
+that is the era of social justice
+
+384
+00:21:01,280 --> 00:21:07,520
+warriors, you know, they they promote
+
+385
+00:21:03,840 --> 00:21:10,240
+feminism, they promote women STEM, you
+
+386
+00:21:07,520 --> 00:21:13,200
+know, women must work in corporation.
+
+387
+00:21:10,240 --> 00:21:15,440
+Women should go do programming. They
+
+388
+00:21:13,200 --> 00:21:19,280
+created all these misery, black life
+
+389
+00:21:15,440 --> 00:21:22,799
+matters, trans. They say men can get
+
+390
+00:21:19,280 --> 00:21:26,720
+pregnant. That's that era. Okay. 2014,
+
+391
+00:21:22,799 --> 00:21:28,799
+like a a little bit before. So, you
+
+392
+00:21:26,720 --> 00:21:31,919
+know, they are massively promoting women
+
+393
+00:21:28,799 --> 00:21:34,880
+and they are pushing, you know, they
+
+394
+00:21:31,919 --> 00:21:37,840
+they are debasing men, especially white
+
+395
+00:21:34,880 --> 00:21:40,559
+men, okay? Because they
+
+396
+00:21:37,840 --> 00:21:44,000
+anyway, this is a movement from USA deep
+
+397
+00:21:40,559 --> 00:21:48,159
+state because they want to control
+
+398
+00:21:44,000 --> 00:21:50,480
+average citizens power in USA, which
+
+399
+00:21:48,159 --> 00:21:52,640
+means in USA the average the most
+
+400
+00:21:50,480 --> 00:21:54,799
+powerful is actually the white people.
+
+401
+00:21:52,640 --> 00:21:58,080
+So, they want to suppress them. That's
+
+402
+00:21:54,799 --> 00:22:02,080
+the movement. The whole feminism,
+
+403
+00:21:58,080 --> 00:22:04,480
+gay, then then LGBTQ,
+
+404
+00:22:02,080 --> 00:22:06,640
+then trans and black women and lesbians,
+
+405
+00:22:04,480 --> 00:22:09,760
+they all promote that. The one thing
+
+406
+00:22:06,640 --> 00:22:14,320
+they don't promote and in fact they kick
+
+407
+00:22:09,760 --> 00:22:18,799
+is normal white male. You see why they
+
+408
+00:22:14,320 --> 00:22:21,200
+promote female not male? Because female
+
+409
+00:22:18,799 --> 00:22:23,840
+female usually they don't have power and
+
+410
+00:22:21,200 --> 00:22:25,679
+they don't want power. Okay? Usually
+
+411
+00:22:23,840 --> 00:22:28,720
+it's the males that control everything.
+
+412
+00:22:25,679 --> 00:22:31,440
+For example, the USA government, the top
+
+413
+00:22:28,720 --> 00:22:34,240
+let's say 50 heads, they are all white
+
+414
+00:22:31,440 --> 00:22:37,840
+male. Okay,
+
+415
+00:22:34,240 --> 00:22:40,880
+almost all all. Okay, so anyway, so F
+
+416
+00:22:37,840 --> 00:22:45,679
+logo was created in that era and and we
+
+417
+00:22:40,880 --> 00:22:48,240
+got this very ugly bad thing.
+
+418
+00:22:45,679 --> 00:22:52,240
+What about some other bad logos? You can
+
+419
+00:22:48,240 --> 00:22:54,799
+see these are bad logos. You know bash
+
+420
+00:22:52,240 --> 00:22:56,799
+this is bash logo back in 1990s they
+
+421
+00:22:54,799 --> 00:22:59,600
+don't have a logo yet so it just say
+
+422
+00:22:56,799 --> 00:23:01,360
+bash because it's computer render they
+
+423
+00:22:59,600 --> 00:23:05,440
+thought it's beautiful but remember this
+
+424
+00:23:01,360 --> 00:23:09,760
+is 1990s not like today you got 3D
+
+425
+00:23:05,440 --> 00:23:14,080
+engines you got like 20s of them you got
+
+426
+00:23:09,760 --> 00:23:16,960
+you know all sort of technology and but
+
+427
+00:23:14,080 --> 00:23:20,240
+back then so for example this herd logo
+
+428
+00:23:16,960 --> 00:23:24,991
+herd from GNU Richard Stman which is the
+
+429
+00:23:20,240 --> 00:23:25,520
+vapor wear for like 50 years.
+
+430
+00:23:24,991 --> 00:23:27,360
+[laughter]
+
+431
+00:23:25,520 --> 00:23:31,520
+So anyway, back then, you know, they
+
+432
+00:23:27,360 --> 00:23:34,240
+rendered a 3D uh ball with her. They,
+
+433
+00:23:31,520 --> 00:23:36,559
+you know, the technology is like very
+
+434
+00:23:34,240 --> 00:23:38,400
+fancy. Oh, you can do that. Well, I
+
+435
+00:23:36,559 --> 00:23:40,720
+didn't know like ray traced or whatever,
+
+436
+00:23:38,400 --> 00:23:44,880
+but but it's not a good logo because it
+
+437
+00:23:40,720 --> 00:23:48,320
+doesn't it's just it doesn't have any
+
+438
+00:23:44,880 --> 00:23:52,080
+character, no spunk, no spirit. It does
+
+439
+00:23:48,320 --> 00:23:55,039
+not associate with whatever the software
+
+440
+00:23:52,080 --> 00:23:58,240
+the product you know the ident's no
+
+441
+00:23:55,039 --> 00:24:02,000
+identity okay I heard these are bad
+
+442
+00:23:58,240 --> 00:24:05,679
+logos and CVS
+
+443
+00:24:02,000 --> 00:24:09,840
+is the dead technology CVS is the kind
+
+444
+00:24:05,679 --> 00:24:13,360
+of like like git okay the version
+
+445
+00:24:09,840 --> 00:24:17,919
+control system back in ' 90s up to 90 up
+
+446
+00:24:13,360 --> 00:24:22,000
+to two 2000 up to 2010 it's still widely
+
+447
+00:24:17,919 --> 00:24:24,720
+used for example Ruby the programming
+
+448
+00:24:22,000 --> 00:24:26,559
+language their logo
+
+449
+00:24:24,720 --> 00:24:29,440
+uh they are I mean they are still using
+
+450
+00:24:26,559 --> 00:24:31,840
+CVS even like I I think even seven years
+
+451
+00:24:29,440 --> 00:24:34,080
+ago they are the last one I'm not sure
+
+452
+00:24:31,840 --> 00:24:36,960
+did they ever actually switch I think
+
+453
+00:24:34,080 --> 00:24:39,520
+they did switch to git because git g
+
+454
+00:24:36,960 --> 00:24:43,200
+eventually took over so CVS is one of
+
+455
+00:24:39,520 --> 00:24:48,400
+the original uh version control system I
+
+456
+00:24:43,200 --> 00:24:50,960
+used it like for 10 10 15 years. So, and
+
+457
+00:24:48,400 --> 00:24:53,760
+Python early early on when Python
+
+458
+00:24:50,960 --> 00:24:56,000
+doesn't have a logo yet, but people want
+
+459
+00:24:53,760 --> 00:24:58,240
+the logo because for example, if I'm a
+
+460
+00:24:56,000 --> 00:25:00,880
+Python fan, I want to promote it, right?
+
+461
+00:24:58,240 --> 00:25:03,200
+Oh my god, I love this language. I I put
+
+462
+00:25:00,880 --> 00:25:06,000
+it on my website, but I need to like
+
+463
+00:25:03,200 --> 00:25:09,120
+some graphics to show it. So, that's why
+
+464
+00:25:06,000 --> 00:25:11,440
+the people So, all these Python logos
+
+465
+00:25:09,120 --> 00:25:13,919
+are created by fans. They are not
+
+466
+00:25:11,440 --> 00:25:17,760
+official. Okay. So for example, this one
+
+467
+00:25:13,919 --> 00:25:19,919
+is the most popular in 2005.
+
+468
+00:25:17,760 --> 00:25:22,240
+Python don't officially have a logo but
+
+469
+00:25:19,919 --> 00:25:25,279
+people created them. So this one is most
+
+470
+00:25:22,240 --> 00:25:27,840
+used this one. And then there's uh some
+
+471
+00:25:25,279 --> 00:25:32,000
+others. Okay. Then Python powered. And
+
+472
+00:25:27,840 --> 00:25:36,880
+here this 16 ton like ink block like
+
+473
+00:25:32,000 --> 00:25:41,919
+this uh ankle how do you call this thing
+
+474
+00:25:36,880 --> 00:25:44,559
+that is uh used for Mac Python icon.
+
+475
+00:25:41,919 --> 00:25:48,080
+Okay. So you guys here uh you guys
+
+476
+00:25:44,559 --> 00:25:50,960
+comments. Okay. Happy new year ACP
+
+477
+00:25:48,080 --> 00:25:53,520
+2006.
+
+478
+00:25:50,960 --> 00:25:55,840
+Hey, does he read chat? Of course I do.
+
+479
+00:25:53,520 --> 00:25:57,679
+Just slow. Okay.
+
+480
+00:25:55,840 --> 00:26:01,679
+What do you think about the U web
+
+481
+00:25:57,679 --> 00:26:05,360
+browser in Emacs? Coffee. Coffee. I just
+
+482
+00:26:01,679 --> 00:26:08,960
+talk about that for like 20 minutes in
+
+483
+00:26:05,360 --> 00:26:11,840
+in uh one day ago or two day ago. So
+
+484
+00:26:08,960 --> 00:26:15,279
+anyway, I do video very frequently
+
+485
+00:26:11,840 --> 00:26:18,559
+almost every day. So usually I talk
+
+486
+00:26:15,279 --> 00:26:22,159
+about all sort of things you guys
+
+487
+00:26:18,559 --> 00:26:25,440
+may have missed or you just search my
+
+488
+00:26:22,159 --> 00:26:29,320
+website. So let let me let me let me go
+
+489
+00:26:25,440 --> 00:26:29,320
+to my um
+
+490
+00:26:29,600 --> 00:26:34,720
+you just click on the search. Okay, then
+
+491
+00:26:33,120 --> 00:26:37,279
+EW
+
+492
+00:26:34,720 --> 00:26:39,120
+you will find a complete article on
+
+493
+00:26:37,279 --> 00:26:41,760
+that.
+
+494
+00:26:39,120 --> 00:26:44,000
+telling you how to do it. What what what
+
+495
+00:26:41,760 --> 00:26:46,400
+are the configs? Where are they? Where
+
+496
+00:26:44,000 --> 00:26:50,720
+is cookie files located? You know, this
+
+497
+00:26:46,400 --> 00:26:54,080
+is part of my Emacs tutorial. Okay. So,
+
+498
+00:26:50,720 --> 00:26:56,799
+what do I think about it? Okay, let's
+
+499
+00:26:54,080 --> 00:26:58,960
+not talk about that because well,
+
+500
+00:26:56,799 --> 00:27:02,000
+anyway, two days ago or a day ago, we
+
+501
+00:26:58,960 --> 00:27:04,080
+talked about it. That's the uh why don't
+
+502
+00:27:02,000 --> 00:27:05,760
+I show you instead of just talking about
+
+503
+00:27:04,080 --> 00:27:09,120
+it.
+
+504
+00:27:05,760 --> 00:27:13,520
+Okay. So, talk show go to talk show
+
+505
+00:27:09,120 --> 00:27:16,400
+homepage. So here is a index and uh so
+
+506
+00:27:13,520 --> 00:27:19,520
+yesterday that's wam language a demand
+
+507
+00:27:16,400 --> 00:27:23,520
+of code then two days ago it's learning
+
+508
+00:27:19,520 --> 00:27:27,279
+f find replace script and here three
+
+509
+00:27:23,520 --> 00:27:32,720
+days ago episode 739
+
+510
+00:27:27,279 --> 00:27:36,320
+on January 7th is write emacisp write a
+
+511
+00:27:32,720 --> 00:27:39,440
+lookup web command and in this video I
+
+512
+00:27:36,320 --> 00:27:40,880
+demonstrated you because you know so we
+
+513
+00:27:39,440 --> 00:27:44,960
+have a command and that look up
+
+514
+00:27:40,880 --> 00:27:48,159
+Wikipedia or Google whatever but show in
+
+515
+00:27:44,960 --> 00:27:51,440
+you browser. Do I have a screenshot? No.
+
+516
+00:27:48,159 --> 00:27:54,000
+But uh no but anyway you can watch that
+
+517
+00:27:51,440 --> 00:27:56,320
+video. So I talked like 20 minutes about
+
+518
+00:27:54,000 --> 00:27:58,880
+you.
+
+519
+00:27:56,320 --> 00:28:01,919
+Uh yeah that's not that's not a problem
+
+520
+00:27:58,880 --> 00:28:04,080
+because because there are literally like
+
+521
+00:28:01,919 --> 00:28:07,120
+millions of videos. Everyone is doing
+
+522
+00:28:04,080 --> 00:28:09,600
+videos you know as as life goes on as
+
+523
+00:28:07,120 --> 00:28:12,480
+the technology goes on like almost
+
+524
+00:28:09,600 --> 00:28:15,520
+everybody will do a video and nobody can
+
+525
+00:28:12,480 --> 00:28:18,960
+watch them all right and even you know
+
+526
+00:28:15,520 --> 00:28:21,440
+there's a lot uh well-known programmers
+
+527
+00:28:18,960 --> 00:28:24,960
+and also mathematicians and professors
+
+528
+00:28:21,440 --> 00:28:29,440
+they all all have videos uh and usually
+
+529
+00:28:24,960 --> 00:28:33,200
+their video is like 300 views
+
+530
+00:28:29,440 --> 00:28:35,360
+1,000 views not many people watch even
+
+531
+00:28:33,200 --> 00:28:38,640
+though they are like professors really
+
+532
+00:28:35,360 --> 00:28:41,360
+uh great programmers for example I I
+
+533
+00:28:38,640 --> 00:28:42,960
+learned about this this programmer a
+
+534
+00:28:41,360 --> 00:28:45,919
+very
+
+535
+00:28:42,960 --> 00:28:50,799
+uh advanced very well-known game
+
+536
+00:28:45,919 --> 00:28:53,600
+programmer okay uh this guy Casey Mur
+
+537
+00:28:50,799 --> 00:28:56,080
+Muratori
+
+538
+00:28:53,600 --> 00:28:59,279
+I I just learned about this guy about a
+
+539
+00:28:56,080 --> 00:29:02,000
+week ago two a few weeks ago okay so in
+
+540
+00:28:59,279 --> 00:29:05,679
+fact I have an article on that about OOP
+
+541
+00:29:02,000 --> 00:29:08,240
+That's what I learned um from him.
+
+542
+00:29:05,679 --> 00:29:11,120
+Uh Murato just search for his name.
+
+543
+00:29:08,240 --> 00:29:13,679
+Okay. History of objectoriented
+
+544
+00:29:11,120 --> 00:29:16,799
+programming by Casey Muratori. So this
+
+545
+00:29:13,679 --> 00:29:19,840
+video is about an hour I think. So I
+
+546
+00:29:16,799 --> 00:29:23,360
+watched it. Uh it's fantastic. So this
+
+547
+00:29:19,840 --> 00:29:27,279
+is the first video by this guy I saw
+
+548
+00:29:23,360 --> 00:29:31,200
+told to me by my friends on my discord.
+
+549
+00:29:27,279 --> 00:29:33,840
+Uh we by Lunarus and by Bruce. Bruce is
+
+550
+00:29:31,200 --> 00:29:37,600
+a great professional gra computer
+
+551
+00:29:33,840 --> 00:29:39,120
+graphics low low-level computer graphics
+
+552
+00:29:37,600 --> 00:29:42,799
+programmer
+
+553
+00:29:39,120 --> 00:29:45,760
+you know he like he code openg like GPU
+
+554
+00:29:42,799 --> 00:29:51,279
+he code GPU stuff and Ronaris is a
+
+555
+00:29:45,760 --> 00:29:57,760
+expert in like lots of PC hardware and
+
+556
+00:29:51,279 --> 00:30:00,320
+Mo this guy Mo is a uh expert in uh
+
+557
+00:29:57,760 --> 00:30:03,279
+large language machine models
+
+558
+00:30:00,320 --> 00:30:07,520
+chat bots, AI chat bots and mukovert is
+
+559
+00:30:03,279 --> 00:30:11,039
+a Unix kind of C programmer expert.
+
+560
+00:30:07,520 --> 00:30:13,200
+Okay. So anyway, so
+
+561
+00:30:11,039 --> 00:30:16,240
+uh where will I so I was talking about
+
+562
+00:30:13,200 --> 00:30:20,799
+this guy. So this is a gamer. Okay. This
+
+563
+00:30:16,240 --> 00:30:23,120
+is a very well-known accomplished
+
+564
+00:30:20,799 --> 00:30:24,880
+uh game programmer. Okay. Casey
+
+565
+00:30:23,120 --> 00:30:27,840
+Muratori.
+
+566
+00:30:24,880 --> 00:30:30,080
+And I noticed today so he he has a
+
+567
+00:30:27,840 --> 00:30:33,679
+project. Oh my god. very ambitious.
+
+568
+00:30:30,080 --> 00:30:36,480
+Okay. Uh but anyway, I noticed today
+
+569
+00:30:33,679 --> 00:30:39,760
+some of his videos is got like 300
+
+570
+00:30:36,480 --> 00:30:44,640
+views. Look at look at this. Okay. Like
+
+571
+00:30:39,760 --> 00:30:47,520
+so this is this is him. So he did a s
+
+572
+00:30:44,640 --> 00:30:49,520
+series of videos uh Babel on Babylon.
+
+573
+00:30:47,520 --> 00:30:51,760
+I'm not sure what that is like talking
+
+574
+00:30:49,520 --> 00:30:54,640
+about science fiction maybe. Like
+
+575
+00:30:51,760 --> 00:30:56,960
+usually every of his video is like one
+
+576
+00:30:54,640 --> 00:31:00,320
+hour or two hours long like mine you
+
+577
+00:30:56,960 --> 00:31:03,600
+know but you know some of the videos
+
+578
+00:31:00,320 --> 00:31:07,039
+like three years ago 300 views 400 views
+
+579
+00:31:03,600 --> 00:31:09,360
+200 views like makes you feel sad you
+
+580
+00:31:07,039 --> 00:31:12,240
+know 1,000 views.
+
+581
+00:31:09,360 --> 00:31:14,880
+So some of my videos if popular you know
+
+582
+00:31:12,240 --> 00:31:18,399
+I got 1,000 views or you know the most
+
+583
+00:31:14,880 --> 00:31:22,000
+popular maybe 3,000 5,000 views. Okay.
+
+584
+00:31:18,399 --> 00:31:24,480
+So anyway, so what I'm saying is as
+
+585
+00:31:22,000 --> 00:31:28,159
+you know, and but but also notice
+
+586
+00:31:24,480 --> 00:31:31,120
+there's no click clickbait, the [ __ ]
+
+587
+00:31:28,159 --> 00:31:34,480
+clickbait from the Zuma [ __ ] and
+
+588
+00:31:31,120 --> 00:31:36,720
+the Zuma idiots and the late Malayan.
+
+589
+00:31:34,480 --> 00:31:38,559
+There's no clickbait in his videos.
+
+590
+00:31:36,720 --> 00:31:41,360
+There's no
+
+591
+00:31:38,559 --> 00:31:44,080
+the open mouth, you know, shocking
+
+592
+00:31:41,360 --> 00:31:46,159
+oh new discovery. Oh, learn this trick
+
+593
+00:31:44,080 --> 00:31:49,600
+to save your professional life. Then
+
+594
+00:31:46,159 --> 00:31:52,559
+[ __ ] them the scumbags. Okay, I despise
+
+595
+00:31:49,600 --> 00:31:54,960
+the zoomers. Anong, you know this these
+
+596
+00:31:52,559 --> 00:31:57,760
+zoomer they they are that way because
+
+597
+00:31:54,960 --> 00:32:01,039
+their brain got washed by the deep state
+
+598
+00:31:57,760 --> 00:32:03,360
+for for for over 10 years.
+
+599
+00:32:01,039 --> 00:32:06,480
+Zumas they they are like that. So
+
+600
+00:32:03,360 --> 00:32:10,559
+anyway, this is
+
+601
+00:32:06,480 --> 00:32:12,799
+uh Casey Muratori. What an odd name uh
+
+602
+00:32:10,559 --> 00:32:15,600
+Muratori because that sounds like uh
+
+603
+00:32:12,799 --> 00:32:19,360
+Japanese. So anyway, that's a this this
+
+604
+00:32:15,600 --> 00:32:23,360
+is a great video. Okay. So, and he has a
+
+605
+00:32:19,360 --> 00:32:25,440
+a very I I learned I don't know about
+
+606
+00:32:23,360 --> 00:32:28,080
+this guy, but I just learned you know in
+
+607
+00:32:25,440 --> 00:32:30,799
+past few days he has a tremendous uh
+
+608
+00:32:28,080 --> 00:32:33,200
+ambitious project.
+
+609
+00:32:30,799 --> 00:32:36,159
+So, we can go there. Let's let's, you
+
+610
+00:32:33,200 --> 00:32:40,120
+know, let's digress. So you go to you go
+
+611
+00:32:36,159 --> 00:32:40,120
+to his uh YouTube
+
+612
+00:32:42,480 --> 00:32:46,559
+and then stop that. You go to his So
+
+613
+00:32:46,080 --> 00:32:48,240
+that's him
+
+614
+00:32:46,559 --> 00:32:50,159
+>> and part one. What I'd like to the
+
+615
+00:32:48,240 --> 00:32:53,200
+operational ideas of.
+
+616
+00:32:50,159 --> 00:32:56,559
+>> So you go to his YouTube homepage.
+
+617
+00:32:53,200 --> 00:32:58,880
+I got that. It's named Marley Rocket. I
+
+618
+00:32:56,559 --> 00:33:02,480
+think that's his company or with his
+
+619
+00:32:58,880 --> 00:33:06,880
+wife uh something. Marley Rocket. That's
+
+620
+00:33:02,480 --> 00:33:09,519
+uh Casey Mola Tori's uh
+
+621
+00:33:06,880 --> 00:33:11,600
+homepage v uh YouTube homepage. But you
+
+622
+00:33:09,519 --> 00:33:15,120
+click on videos. Okay. There's a lot
+
+623
+00:33:11,600 --> 00:33:18,799
+this, you know. So he did this project
+
+624
+00:33:15,120 --> 00:33:21,519
+called Handmade Hero. Handmade hero.
+
+625
+00:33:18,799 --> 00:33:24,799
+Let's open one of them. So So you notice
+
+626
+00:33:21,519 --> 00:33:27,600
+each one of them is like two hours long.
+
+627
+00:33:24,799 --> 00:33:30,080
+>> Two hours or you know at least
+
+628
+00:33:27,600 --> 00:33:33,039
+>> one hour. 2 hours. 2 hours. 2 hours. 2
+
+629
+00:33:30,080 --> 00:33:36,080
+hours 30 minutes. 2 hours, 1 hours, and
+
+630
+00:33:33,039 --> 00:33:38,720
+50 minutes. So, he's got this project
+
+631
+00:33:36,080 --> 00:33:41,519
+called Handmade Hero. Okay. So, let's
+
+632
+00:33:38,720 --> 00:33:44,519
+open one of them. Random.
+
+633
+00:33:41,519 --> 00:33:44,519
+What?
+
+634
+00:33:44,559 --> 00:33:50,559
+Go back. Hand handmade. Uh, not that.
+
+635
+00:33:47,519 --> 00:33:52,159
+Not that. Okay. Let's open one of them.
+
+636
+00:33:50,559 --> 00:33:54,080
+Handmade.
+
+637
+00:33:52,159 --> 00:33:56,080
+Handmade
+
+638
+00:33:54,080 --> 00:33:59,120
+hero. Day 661.
+
+639
+00:33:56,080 --> 00:34:02,799
+>> Welcome to Handmade Hero. Show.
+
+640
+00:33:59,120 --> 00:34:04,399
+>> Okay. So it's all code. It's all this is
+
+641
+00:34:02,799 --> 00:34:07,679
+C++.
+
+642
+00:34:04,399 --> 00:34:08,960
+So this project handmade hero is a video
+
+643
+00:34:07,679 --> 00:34:12,720
+game
+
+644
+00:34:08,960 --> 00:34:16,560
+>> and he he is basically live coding it
+
+645
+00:34:12,720 --> 00:34:20,480
+from scratch. No game engine, no physics
+
+646
+00:34:16,560 --> 00:34:22,399
+engine, no nothing like completely from
+
+647
+00:34:20,480 --> 00:34:26,560
+scratch.
+
+648
+00:34:22,399 --> 00:34:29,200
+And as he called, he teach you how it is
+
+649
+00:34:26,560 --> 00:34:31,119
+done. He explained everything and it
+
+650
+00:34:29,200 --> 00:34:33,200
+turns out I didn't know, you know, I
+
+651
+00:34:31,119 --> 00:34:38,079
+just learned about this like two days
+
+652
+00:34:33,200 --> 00:34:39,760
+ago. So there are about 660
+
+653
+00:34:38,079 --> 00:34:42,560
+episodes,
+
+654
+00:34:39,760 --> 00:34:46,320
+one per day, one hour per day. And it
+
+655
+00:34:42,560 --> 00:34:49,359
+began like 14 years ago. Was it 14 years
+
+656
+00:34:46,320 --> 00:34:51,599
+ago? you know. So, so he's been doing
+
+657
+00:34:49,359 --> 00:34:54,320
+this one hour a day from scratch,
+
+658
+00:34:51,599 --> 00:34:56,639
+writing this game,
+
+659
+00:34:54,320 --> 00:34:59,359
+one hour a day or two hours a day like
+
+660
+00:34:56,639 --> 00:35:03,119
+every day for over 10 years. My god,
+
+661
+00:34:59,359 --> 00:35:06,160
+this is a very big ambitious project.
+
+662
+00:35:03,119 --> 00:35:09,599
+Okay, you can you can ask guac about
+
+663
+00:35:06,160 --> 00:35:12,480
+what is handmade uh
+
+664
+00:35:09,599 --> 00:35:14,880
+about you know you can ask guac what is
+
+665
+00:35:12,480 --> 00:35:17,040
+handmade hero and guac will give you an
+
+666
+00:35:14,880 --> 00:35:20,240
+introduction what is you know it is
+
+667
+00:35:17,040 --> 00:35:23,839
+about so it's amazing you know this guy
+
+668
+00:35:20,240 --> 00:35:30,320
+uh Casey Muratori
+
+669
+00:35:23,839 --> 00:35:33,119
+fantastic okay handmade project date 654
+
+670
+00:35:30,320 --> 00:35:35,040
+so that's that's him so you look at his
+
+671
+00:35:33,119 --> 00:35:38,000
+videos. You know, one I want to
+
+672
+00:35:35,040 --> 00:35:41,280
+emphasize again, there's no [ __ ]
+
+673
+00:35:38,000 --> 00:35:44,320
+clickbait of the Zuma [ __ ]
+
+674
+00:35:41,280 --> 00:35:46,400
+There's no like, you know, the memes
+
+675
+00:35:44,320 --> 00:35:50,400
+like the big mouse, the the the the
+
+676
+00:35:46,400 --> 00:35:54,920
+drama, the [ __ ] None.
+
+677
+00:35:50,400 --> 00:35:54,920
+Okay. So, excellent.
+
+678
+00:35:56,079 --> 00:36:01,920
+So, digress.
+
+679
+00:35:59,119 --> 00:36:04,800
+So, I digressed a lot. So, let's go back
+
+680
+00:36:01,920 --> 00:36:07,920
+to I was talking about I digress into
+
+681
+00:36:04,800 --> 00:36:11,760
+talking about logos because
+
+682
+00:36:07,920 --> 00:36:14,400
+because the F logo sucks sucks donkey
+
+683
+00:36:11,760 --> 00:36:17,040
+ass. Okay, that's I haven't finished
+
+684
+00:36:14,400 --> 00:36:21,599
+yet. Okay, that's about logos. But I was
+
+685
+00:36:17,040 --> 00:36:23,200
+going to talk about why uh f.org
+
+686
+00:36:21,599 --> 00:36:26,480
+sucks.
+
+687
+00:36:23,200 --> 00:36:28,240
+Sucks in every way. Okay. Like, okay.
+
+688
+00:36:26,480 --> 00:36:32,480
+So, you go to the, you know, when you
+
+689
+00:36:28,240 --> 00:36:35,200
+search F, usually this website shows up
+
+690
+00:36:32,480 --> 00:36:36,800
+first. Okay. Apparently, it's a
+
+691
+00:36:35,200 --> 00:36:40,160
+communitydriven.
+
+692
+00:36:36,800 --> 00:36:43,200
+You know, F is a project of Microsoft
+
+693
+00:36:40,160 --> 00:36:46,000
+beginning around the year 2001.
+
+694
+00:36:43,200 --> 00:36:48,480
+So, that's like 25 years ago. Okay.
+
+695
+00:36:46,000 --> 00:36:50,480
+Microsoft is a blood sucking
+
+696
+00:36:48,480 --> 00:36:52,960
+corporation.
+
+697
+00:36:50,480 --> 00:36:55,599
+Fair fairly evil. Okay. They don't
+
+698
+00:36:52,960 --> 00:36:57,359
+really care about like they just want
+
+699
+00:36:55,599 --> 00:37:00,160
+money.
+
+700
+00:36:57,359 --> 00:37:02,560
+But since about 10 years ago, they
+
+701
+00:37:00,160 --> 00:37:05,040
+became like open source. They became the
+
+702
+00:37:02,560 --> 00:37:08,480
+biggest open source. Okay, open source
+
+703
+00:37:05,040 --> 00:37:12,320
+basically been taking over. So if you
+
+704
+00:37:08,480 --> 00:37:14,160
+are a open source fan
+
+705
+00:37:12,320 --> 00:37:16,880
+and you know if you are open source
+
+706
+00:37:14,160 --> 00:37:19,040
+fanatic, if you are open source fine fan
+
+707
+00:37:16,880 --> 00:37:22,240
+that's okay. But if you are open source
+
+708
+00:37:19,040 --> 00:37:23,920
+fanatic like shut then then then then
+
+709
+00:37:22,240 --> 00:37:25,280
+shut the [ __ ] up. You don't like you
+
+710
+00:37:23,920 --> 00:37:27,280
+don't know what you're talking about.
+
+711
+00:37:25,280 --> 00:37:30,720
+I've been I've been telling this story
+
+712
+00:37:27,280 --> 00:37:33,040
+many times in my video. Okay. Anyway,
+
+713
+00:37:30,720 --> 00:37:35,920
+because the open source people like
+
+714
+00:37:33,040 --> 00:37:38,160
+today, they have no idea. They they they
+
+715
+00:37:35,920 --> 00:37:41,839
+just push for whatever the deep state
+
+716
+00:37:38,160 --> 00:37:44,160
+told them to like like this f.org, you
+
+717
+00:37:41,839 --> 00:37:46,800
+know. Anyway, so let let's go back to
+
+718
+00:37:44,160 --> 00:37:48,960
+why this sucks. Okay, so you go to this
+
+719
+00:37:46,800 --> 00:37:53,760
+site. First of all, the logo is very
+
+720
+00:37:48,960 --> 00:37:56,960
+bad. Okay, then you got this use f like
+
+721
+00:37:53,760 --> 00:37:59,359
+what the [ __ ] What does it mean? Use F.
+
+722
+00:37:56,960 --> 00:38:01,280
+Like typically for programming langu
+
+723
+00:37:59,359 --> 00:38:04,480
+language website doesn't matter it's
+
+724
+00:38:01,280 --> 00:38:08,000
+Goland, Python, Ruby, whatever for
+
+725
+00:38:04,480 --> 00:38:10,800
+programming lang language website
+
+726
+00:38:08,000 --> 00:38:13,359
+their audience are programmers or
+
+727
+00:38:10,800 --> 00:38:15,119
+beginner programmers or students. Okay,
+
+728
+00:38:13,359 --> 00:38:16,960
+you go to the programming language
+
+729
+00:38:15,119 --> 00:38:21,359
+website. The first thing you want to
+
+730
+00:38:16,960 --> 00:38:24,400
+know is like download why where do I
+
+731
+00:38:21,359 --> 00:38:26,880
+download it for my Mac or Windows or up
+
+732
+00:38:24,400 --> 00:38:28,880
+you know whatever maybe Android on the
+
+733
+00:38:26,880 --> 00:38:32,640
+phone you know download is the most
+
+734
+00:38:28,880 --> 00:38:35,440
+important then another most important is
+
+735
+00:38:32,640 --> 00:38:37,839
+where's the documentation and tutorials
+
+736
+00:38:35,440 --> 00:38:40,400
+okay download and tutorials and
+
+737
+00:38:37,839 --> 00:38:44,160
+documentation okay
+
+738
+00:38:40,400 --> 00:38:50,640
+and possibly another thing important on
+
+739
+00:38:44,160 --> 00:38:54,000
+the homepage is like um uh testimonials
+
+740
+00:38:50,640 --> 00:38:56,240
+like maybe you'll show some other famous
+
+741
+00:38:54,000 --> 00:38:58,560
+programmer oh great F is the best
+
+742
+00:38:56,240 --> 00:39:02,320
+language I have ever known you know they
+
+743
+00:38:58,560 --> 00:39:04,480
+have some of that here okay like uh and
+
+744
+00:39:02,320 --> 00:39:07,839
+also this sponsor you know usually just
+
+745
+00:39:04,480 --> 00:39:11,040
+like 100 logos this is this this came
+
+746
+00:39:07,839 --> 00:39:14,720
+from the web framework the JavaScript
+
+747
+00:39:11,040 --> 00:39:16,720
+not JS MPM [ __ ] so almost every website
+
+748
+00:39:14,720 --> 00:39:19,839
+they at the bottom you have like one
+
+749
+00:39:16,720 --> 00:39:24,240
+1000 logos you know like
+
+750
+00:39:19,839 --> 00:39:26,480
+anyway F Microsoft is is a very uh kind
+
+751
+00:39:24,240 --> 00:39:29,119
+of
+
+752
+00:39:26,480 --> 00:39:32,560
+uh poor money organization okay but
+
+753
+00:39:29,119 --> 00:39:35,119
+anyway they have this website forg so
+
+754
+00:39:32,560 --> 00:39:38,640
+but so you go to the website then you
+
+755
+00:39:35,119 --> 00:39:41,760
+got you got this use f okay and you see
+
+756
+00:39:38,640 --> 00:39:46,560
+you click it nothing happens why because
+
+757
+00:39:41,760 --> 00:39:49,119
+you they required uh JavaScript
+
+758
+00:39:46,560 --> 00:39:51,200
+which is which is not a big deal you
+
+759
+00:39:49,119 --> 00:39:54,960
+know if you choose these days you know
+
+760
+00:39:51,200 --> 00:39:57,520
+you you you kind of it's necessary
+
+761
+00:39:54,960 --> 00:39:59,839
+but but but so many other things added
+
+762
+00:39:57,520 --> 00:40:02,000
+together this website really sucks okay
+
+763
+00:39:59,839 --> 00:40:04,720
+so now you turn on JavaScript and you
+
+764
+00:40:02,000 --> 00:40:08,480
+you look at this use F like what the
+
+765
+00:40:04,720 --> 00:40:11,520
+[ __ ] does it mean use okay oh so
+
+766
+00:40:08,480 --> 00:40:14,880
+download is here must be F on Mac on
+
+767
+00:40:11,520 --> 00:40:18,960
+Linux on Windows so that's f Okay. Then
+
+768
+00:40:14,880 --> 00:40:22,400
+then F for desk desktop apps. Like what
+
+769
+00:40:18,960 --> 00:40:25,599
+does what the the [ __ ] does it mean?
+
+770
+00:40:22,400 --> 00:40:29,119
+This is a programming language. Okay.
+
+771
+00:40:25,599 --> 00:40:31,520
+And most if you are a programmer, a
+
+772
+00:40:29,119 --> 00:40:33,680
+serious programmer, you are on desktop.
+
+773
+00:40:31,520 --> 00:40:36,800
+So you download it, right? So what what
+
+774
+00:40:33,680 --> 00:40:42,000
+why do you have a F for desktop apps?
+
+775
+00:40:36,800 --> 00:40:45,520
+What does it mean? F for mobile apps.
+
+776
+00:40:42,000 --> 00:40:49,599
+F# for web apps,
+
+777
+00:40:45,520 --> 00:40:51,839
+F# for Jupyter notebooks, F# in browser.
+
+778
+00:40:49,599 --> 00:40:54,800
+So what does the is that? So this is the
+
+779
+00:40:51,839 --> 00:40:58,240
+is does this mean like a a place you can
+
+780
+00:40:54,800 --> 00:41:02,240
+try F# language which is also a very
+
+781
+00:40:58,240 --> 00:41:03,920
+good thing, right? But you don't but you
+
+782
+00:41:02,240 --> 00:41:06,800
+don't organize it. You shouldn't
+
+783
+00:41:03,920 --> 00:41:09,359
+organize it, you know, like use F# like
+
+784
+00:41:06,800 --> 00:41:14,560
+what the [ __ ] use F?
+
+785
+00:41:09,359 --> 00:41:17,839
+Just download. Okay, download F. Try F
+
+786
+00:41:14,560 --> 00:41:19,920
+on a website a link not not hidden
+
+787
+00:41:17,839 --> 00:41:23,440
+behind like a button. I don't want to
+
+788
+00:41:19,920 --> 00:41:25,440
+click. Don't make user click. Okay, they
+
+789
+00:41:23,440 --> 00:41:27,359
+click. They don't see nothing because oh
+
+790
+00:41:25,440 --> 00:41:29,040
+by the way you don't have JavaScript.
+
+791
+00:41:27,359 --> 00:41:30,800
+You turn on JavaScript then you click
+
+792
+00:41:29,040 --> 00:41:32,880
+and you don't know what the [ __ ] are
+
+793
+00:41:30,800 --> 00:41:37,440
+these things. You want it to be clear.
+
+794
+00:41:32,880 --> 00:41:39,599
+So download try F on the website and
+
+795
+00:41:37,440 --> 00:41:41,839
+testimonials all the people you know you
+
+796
+00:41:39,599 --> 00:41:44,160
+might have a SC you know great computer
+
+797
+00:41:41,839 --> 00:41:47,359
+scientist says F is the best language
+
+798
+00:41:44,160 --> 00:41:49,839
+you know something like that and then
+
+799
+00:41:47,359 --> 00:41:52,079
+then documents and tutorials tutorial
+
+800
+00:41:49,839 --> 00:41:55,520
+first then documentation like API
+
+801
+00:41:52,079 --> 00:41:57,839
+documentation like for professional F
+
+802
+00:41:55,520 --> 00:42:01,440
+coders right that's the things you want
+
+803
+00:41:57,839 --> 00:42:04,960
+the most important okay download link
+
+804
+00:42:01,440 --> 00:42:09,440
+try it right away and you might have a
+
+805
+00:42:04,960 --> 00:42:12,440
+code example page somewhere. Uh then uh
+
+806
+00:42:09,440 --> 00:42:12,440
+download
+
+807
+00:42:13,440 --> 00:42:21,680
+download link try on the web
+
+808
+00:42:17,680 --> 00:42:24,560
+uh tutorials and documentation and
+
+809
+00:42:21,680 --> 00:42:28,200
+testimonials. Okay, these five things
+
+810
+00:42:24,560 --> 00:42:28,200
+are the most important.
+
+811
+00:42:28,560 --> 00:42:36,240
+But F# lousy logo then okay I'm not done
+
+812
+00:42:32,720 --> 00:42:38,560
+yet okay not done yet they got things
+
+813
+00:42:36,240 --> 00:42:41,200
+you know the concise like Python so this
+
+814
+00:42:38,560 --> 00:42:43,680
+is part of this this section is part of
+
+815
+00:42:41,200 --> 00:42:46,960
+the marketing they want to tell you how
+
+816
+00:42:43,680 --> 00:42:50,240
+great they are in connection with the uh
+
+817
+00:42:46,960 --> 00:42:52,960
+testimonials so they got testimonials
+
+818
+00:42:50,240 --> 00:42:55,599
+on this page
+
+819
+00:42:52,960 --> 00:43:00,000
+not good okay so like Michael Newton who
+
+820
+00:42:55,599 --> 00:43:00,000
+who is Michael Newton like who
+
+821
+00:43:00,240 --> 00:43:07,200
+Atala soft is that the guy who create
+
+822
+00:43:03,520 --> 00:43:10,839
+like github website you know who are
+
+823
+00:43:07,200 --> 00:43:10,839
+these people then
+
+824
+00:43:10,960 --> 00:43:15,440
+if they are not too famous remove it you
+
+825
+00:43:14,000 --> 00:43:19,119
+don't want you know don't don't have
+
+826
+00:43:15,440 --> 00:43:21,920
+this testimonial occupying huge space
+
+827
+00:43:19,119 --> 00:43:26,480
+read more about test testimonials in the
+
+828
+00:43:21,920 --> 00:43:28,480
+dice is that supposed to be random link
+
+829
+00:43:26,480 --> 00:43:31,440
+anyway so I'm not done yet. Okay. So,
+
+830
+00:43:28,480 --> 00:43:34,319
+you go to So, so, okay, I want to learn
+
+831
+00:43:31,440 --> 00:43:38,720
+I want to learn F. I'm a newbie. Okay.
+
+832
+00:43:34,319 --> 00:43:43,680
+Go to learn, by the way, on the on the
+
+833
+00:43:38,720 --> 00:43:46,319
+tablet on iOS. Okay. On Apple's phone,
+
+834
+00:43:43,680 --> 00:43:49,280
+you when you have JavaScript on, you
+
+835
+00:43:46,319 --> 00:43:51,119
+click the learn, nothing happens. Okay?
+
+836
+00:43:49,280 --> 00:43:53,520
+Like it doesn't pop up. Like you click,
+
+837
+00:43:51,119 --> 00:43:57,599
+nothing happens. You click any of these,
+
+838
+00:43:53,520 --> 00:44:01,599
+nothing happens on the Apple iPad.
+
+839
+00:43:57,599 --> 00:44:03,839
+just sucks. Okay. Okay. But anyway, um
+
+840
+00:44:01,599 --> 00:44:06,960
+we are on desktop. So I want to learn.
+
+841
+00:44:03,839 --> 00:44:08,960
+So you go to learn. Then you got very
+
+842
+00:44:06,960 --> 00:44:10,720
+confusing bunch of [ __ ] Let me tell
+
+843
+00:44:08,960 --> 00:44:13,280
+you. Okay. So let's say you know they
+
+844
+00:44:10,720 --> 00:44:16,000
+got okay learn F then books
+
+845
+00:44:13,280 --> 00:44:19,119
+documentation. Okay. And papers and
+
+846
+00:44:16,000 --> 00:44:22,560
+publications. Okay. From academics
+
+847
+00:44:19,119 --> 00:44:24,960
+uh and video. Okay. Then FSSF. What the
+
+848
+00:44:22,560 --> 00:44:28,400
+[ __ ] that is? I don't know. Video
+
+849
+00:44:24,960 --> 00:44:31,520
+community. Oh. So you got like uh you
+
+850
+00:44:28,400 --> 00:44:34,400
+got this FSSF something channel. Then
+
+851
+00:44:31,520 --> 00:44:37,040
+you got communities videos. Anyway, I
+
+852
+00:44:34,400 --> 00:44:40,960
+want to learn. So I click learn, right?
+
+853
+00:44:37,040 --> 00:44:43,839
+Then a bunch of [ __ ] confusing bag of
+
+854
+00:44:40,960 --> 00:44:47,440
+[ __ ] It's all here. Like you you you
+
+855
+00:44:43,839 --> 00:44:50,160
+don't know what which is what. I'm a F.
+
+856
+00:44:47,440 --> 00:44:52,480
+I I want I heard good things about F. I
+
+857
+00:44:50,160 --> 00:44:56,640
+want to learn. just just show me one
+
+858
+00:44:52,480 --> 00:44:58,800
+page or you know here are three
+
+859
+00:44:56,640 --> 00:45:01,680
+tutorials
+
+860
+00:44:58,800 --> 00:45:04,560
+try you know try them and see which one
+
+861
+00:45:01,680 --> 00:45:08,000
+do you like you know maybe three you
+
+862
+00:45:04,560 --> 00:45:10,480
+don't you don't want a like everybody
+
+863
+00:45:08,000 --> 00:45:13,760
+every random Joe throwing a link you
+
+864
+00:45:10,480 --> 00:45:16,960
+know hey F can you include my tutorial
+
+865
+00:45:13,760 --> 00:45:20,000
+that's what this this page is like okay
+
+866
+00:45:16,960 --> 00:45:25,040
+F# basic you go there
+
+867
+00:45:20,000 --> 00:45:27,839
+you go player then who oh god
+
+868
+00:45:25,040 --> 00:45:31,280
+did I turn uh you know then you went to
+
+869
+00:45:27,839 --> 00:45:35,200
+Microsoft the [laughter]
+
+870
+00:45:31,280 --> 00:45:38,880
+okay you go back so it doesn't end here
+
+871
+00:45:35,200 --> 00:45:42,800
+okay so let's go back so wait you go
+
+872
+00:45:38,880 --> 00:45:45,440
+back then beginning F video series wait
+
+873
+00:45:42,800 --> 00:45:49,359
+didn't you didn't I just like you have a
+
+874
+00:45:45,440 --> 00:45:52,079
+special section for video right why why
+
+875
+00:45:49,359 --> 00:45:55,440
+you have another video here like is
+
+876
+00:45:52,079 --> 00:45:58,240
+repeated and from the ground up course
+
+877
+00:45:55,440 --> 00:46:03,040
+like who wrote this like
+
+878
+00:45:58,240 --> 00:46:05,119
+and F# for C# you know UDI okay Udemi is
+
+879
+00:46:03,040 --> 00:46:08,640
+a commercial organization you have to
+
+880
+00:46:05,119 --> 00:46:10,800
+pay is that right
+
+881
+00:46:08,640 --> 00:46:13,680
+commercial video like they they are like
+
+882
+00:46:10,800 --> 00:46:15,440
+tutorial organ uh corporation for
+
+883
+00:46:13,680 --> 00:46:20,079
+teaching programming look at look at
+
+884
+00:46:15,440 --> 00:46:22,480
+this look at this this this is um By the
+
+885
+00:46:20,079 --> 00:46:25,359
+way, you see this kind of thing that's
+
+886
+00:46:22,480 --> 00:46:29,359
+called um there's a name to that. That's
+
+887
+00:46:25,359 --> 00:46:33,119
+from the JavaScript late Malay genen.
+
+888
+00:46:29,359 --> 00:46:37,560
+Malay genen [ __ ] Okay. I have an
+
+889
+00:46:33,119 --> 00:46:37,560
+article on that. You see this thing?
+
+890
+00:46:39,280 --> 00:46:42,760
+Uh Jesus.
+
+891
+00:46:43,760 --> 00:46:51,040
+Okay, let me digress. Okay. So, so
+
+892
+00:46:47,599 --> 00:46:54,400
+kasali.info info my homepage. So, what
+
+893
+00:46:51,040 --> 00:46:59,440
+you want to find is a web webdev
+
+894
+00:46:54,400 --> 00:47:02,160
+history. Okay. The the industrial
+
+895
+00:46:59,440 --> 00:47:04,560
+uh idiots.
+
+896
+00:47:02,160 --> 00:47:07,680
+So, go down go down go down. Programming
+
+897
+00:47:04,560 --> 00:47:11,520
+languages tutorial hacker code. That's
+
+898
+00:47:07,680 --> 00:47:15,280
+what they are. History of web uh tech.
+
+899
+00:47:11,520 --> 00:47:19,520
+Okay. User interface design. We spam
+
+900
+00:47:15,280 --> 00:47:24,520
+scam SEO. Google crimes. Let's see. Uh,
+
+901
+00:47:19,520 --> 00:47:24,520
+history of web tech. Is that here?
+
+902
+00:47:29,440 --> 00:47:38,079
+No, it's MPM FI fiasco mware and that
+
+903
+00:47:34,079 --> 00:47:41,040
+steals Bitcoin, you know. MPM
+
+904
+00:47:38,079 --> 00:47:43,119
+uh lots of and Apache rewrites history.
+
+905
+00:47:41,040 --> 00:47:45,680
+Why is it named Apache? Okay. Lots of
+
+906
+00:47:43,119 --> 00:47:47,920
+story of the open source. I believe
+
+907
+00:47:45,680 --> 00:47:51,520
+that's user interface design. Yeah. So,
+
+908
+00:47:47,920 --> 00:47:55,119
+go to user interface design. You got
+
+909
+00:47:51,520 --> 00:48:00,920
+there skeleton screen. Okay. Now, by the
+
+910
+00:47:55,119 --> 00:48:00,920
+way, this is called they call it um
+
+911
+00:48:01,920 --> 00:48:08,880
+Oh, yeah. They call it skeleton screen.
+
+912
+00:48:04,240 --> 00:48:11,280
+Okay. It began about 2018. So, it's a
+
+913
+00:48:08,880 --> 00:48:13,520
+Zoomer thing.
+
+914
+00:48:11,280 --> 00:48:16,880
+And one of the first one who started it
+
+915
+00:48:13,520 --> 00:48:18,640
+is YouTube. So when you go to a website
+
+916
+00:48:16,880 --> 00:48:23,359
+before they load everything they show
+
+917
+00:48:18,640 --> 00:48:26,400
+this gray boxes first okay by this guy
+
+918
+00:48:23,359 --> 00:48:28,880
+this idiots this like designer okay they
+
+919
+00:48:26,400 --> 00:48:31,599
+like they are like oh I'm from Google
+
+920
+00:48:28,880 --> 00:48:34,720
+I'm the headmaster of design this way is
+
+921
+00:48:31,599 --> 00:48:38,880
+better okay mobile design detail avoid
+
+922
+00:48:34,720 --> 00:48:42,400
+the spinner okay Luke
+
+923
+00:48:38,880 --> 00:48:44,960
+Robleski okay that's his name I don't
+
+924
+00:48:42,400 --> 00:48:49,040
+know anything about this guy Okay, this
+
+925
+00:48:44,960 --> 00:48:51,520
+is my opinion only. But after I
+
+926
+00:48:49,040 --> 00:48:55,359
+discovered this very annoying thing
+
+927
+00:48:51,520 --> 00:48:59,520
+beginning in 2018, I looked into so I
+
+928
+00:48:55,359 --> 00:49:02,160
+found out that is this guy who began it.
+
+929
+00:48:59,520 --> 00:49:06,400
+He was the
+
+930
+00:49:02,160 --> 00:49:09,520
+product director at Google. Okay, this
+
+931
+00:49:06,400 --> 00:49:12,000
+is my opinion only. Okay, I don't know
+
+932
+00:49:09,520 --> 00:49:15,359
+anything about this guy, but I think
+
+933
+00:49:12,000 --> 00:49:18,559
+this skeleton [ __ ] it's a crap this
+
+934
+00:49:15,359 --> 00:49:21,520
+design. Okay, so that is why you see
+
+935
+00:49:18,559 --> 00:49:25,440
+this um
+
+936
+00:49:21,520 --> 00:49:29,599
+let's go back to what we
+
+937
+00:49:25,440 --> 00:49:32,559
+this this thing and and it's going to
+
+938
+00:49:29,599 --> 00:49:34,240
+flash you like a like a classic TV or
+
+939
+00:49:32,559 --> 00:49:36,960
+something.
+
+940
+00:49:34,240 --> 00:49:40,240
+this UDMI,
+
+941
+00:49:36,960 --> 00:49:44,160
+you know, UDI began about like 15 years
+
+942
+00:49:40,240 --> 00:49:48,160
+ago when when the um when the online
+
+943
+00:49:44,160 --> 00:49:51,040
+programming tutorial start to spread, it
+
+944
+00:49:48,160 --> 00:49:53,384
+began by the [gasps]
+
+945
+00:49:51,040 --> 00:49:54,880
+uh what's the name? Do you
+
+946
+00:49:53,384 --> 00:49:57,880
+[clears throat] guys know? Do you guys
+
+947
+00:49:54,880 --> 00:49:57,880
+remember?
+
+948
+00:50:00,079 --> 00:50:05,359
+Okay, comments. Okay. Comments
+
+949
+00:50:03,280 --> 00:50:07,599
+began like what's the what's a
+
+950
+00:50:05,359 --> 00:50:11,119
+corporation the first famous corporation
+
+951
+00:50:07,599 --> 00:50:14,480
+that began the online tutorials?
+
+952
+00:50:11,119 --> 00:50:16,640
+Um I have a blog on that but I don't for
+
+953
+00:50:14,480 --> 00:50:20,559
+I don't remember.
+
+954
+00:50:16,640 --> 00:50:23,040
+Let's not search. Okay. Anyway, I have a
+
+955
+00:50:20,559 --> 00:50:26,319
+blog on that. I can search it. I can
+
+956
+00:50:23,040 --> 00:50:32,160
+find it. Let's let's find it.
+
+957
+00:50:26,319 --> 00:50:33,760
+Uh okay. So show start talk show search
+
+958
+00:50:32,160 --> 00:50:36,000
+UDM.
+
+959
+00:50:33,760 --> 00:50:39,599
+Okay. Uh
+
+960
+00:50:36,000 --> 00:50:41,359
+online tutorial. Okay. Let's search for
+
+961
+00:50:39,599 --> 00:50:43,520
+review
+
+962
+00:50:41,359 --> 00:50:47,119
+book review
+
+963
+00:50:43,520 --> 00:50:50,880
+patterns of software 1996 by Richard
+
+964
+00:50:47,119 --> 00:50:55,359
+Gabriel 1998. I wrote it. Richard P.
+
+965
+00:50:50,880 --> 00:50:58,319
+Gabriel is one of the uh founder uh one
+
+966
+00:50:55,359 --> 00:51:01,280
+one of the pioneer of common lisp
+
+967
+00:50:58,319 --> 00:51:06,440
+programming language. Okay. He is also
+
+968
+00:51:01,280 --> 00:51:06,440
+kind of the father of x emacs.
+
+969
+00:51:07,760 --> 00:51:18,839
+Okay. So what I want to find is the
+
+970
+00:51:12,240 --> 00:51:18,839
+uh what was I going to find? Uh
+
+971
+00:51:22,640 --> 00:51:28,240
+oh yeah the first like the the the
+
+972
+00:51:25,200 --> 00:51:30,960
+beginning of the movement of online
+
+973
+00:51:28,240 --> 00:51:34,880
+programming tutorials especially video
+
+974
+00:51:30,960 --> 00:51:38,319
+tutorials then it became a huge industry
+
+975
+00:51:34,880 --> 00:51:41,200
+about around 2010.
+
+976
+00:51:38,319 --> 00:51:44,559
+Okay so I have an article on that there.
+
+977
+00:51:41,200 --> 00:51:47,599
+Okay. Stanford University computer
+
+978
+00:51:44,559 --> 00:51:50,720
+science courses. Now two this is written
+
+979
+00:51:47,599 --> 00:51:53,760
+in 2012. Now you have to remember
+
+980
+00:51:50,720 --> 00:51:57,920
+history. Okay. 2012 is the kind of the
+
+981
+00:51:53,760 --> 00:52:02,240
+beginning of like iPhone or phone you
+
+982
+00:51:57,920 --> 00:52:05,520
+know uh handheld smartphone become very
+
+983
+00:52:02,240 --> 00:52:08,400
+popular for every person to own it and
+
+984
+00:52:05,520 --> 00:52:10,720
+then it's also when YouTube become more
+
+985
+00:52:08,400 --> 00:52:17,280
+and more popular you know. So that is
+
+986
+00:52:10,720 --> 00:52:21,599
+the era 2012. Now 2012 is I believe 2012
+
+987
+00:52:17,280 --> 00:52:25,119
+or 2011 is the beginning of um of this
+
+988
+00:52:21,599 --> 00:52:28,800
+rampant movement of online programming
+
+989
+00:52:25,119 --> 00:52:31,359
+tech tutorial videos. Okay. And many
+
+990
+00:52:28,800 --> 00:52:33,359
+many commercial organizations sprang up.
+
+991
+00:52:31,359 --> 00:52:36,319
+Okay. Stanford University is like one of
+
+992
+00:52:33,359 --> 00:52:38,640
+the kind of one of the first. Okay. So
+
+993
+00:52:36,319 --> 00:52:42,240
+when I was reading about it, you know,
+
+994
+00:52:38,640 --> 00:52:44,720
+back then this is news, I look at, oh,
+
+995
+00:52:42,240 --> 00:52:47,440
+oh, new things. So you they are they
+
+996
+00:52:44,720 --> 00:52:50,400
+actually have a video course on computer
+
+997
+00:52:47,440 --> 00:52:53,440
+science now, you know, it's like free.
+
+998
+00:52:50,400 --> 00:52:56,800
+So I was, you know, looking into it 2012
+
+999
+00:52:53,440 --> 00:53:00,800
+when I was like that was the year around
+
+1000
+00:52:56,800 --> 00:53:03,760
+that era. I was dying of hunger
+
+1001
+00:53:00,800 --> 00:53:07,200
+because I was just coding emac and free
+
+1002
+00:53:03,760 --> 00:53:09,440
+open source. All my packages are free.
+
+1003
+00:53:07,200 --> 00:53:11,200
+Um anyway, so I was looking into that,
+
+1004
+00:53:09,440 --> 00:53:13,200
+you know. Oh, this is new thing. Let's
+
+1005
+00:53:11,200 --> 00:53:15,839
+check out, you know. So, you got
+
+1006
+00:53:13,200 --> 00:53:18,720
+computer science 101 from this professor
+
+1007
+00:53:15,839 --> 00:53:21,280
+and these are YouTube thumbnails. Okay,
+
+1008
+00:53:18,720 --> 00:53:23,920
+let's click on that. This this course is
+
+1009
+00:53:21,280 --> 00:53:26,319
+about human interaction.
+
+1010
+00:53:23,920 --> 00:53:29,680
+Now, we are actually kind of looking at
+
+1011
+00:53:26,319 --> 00:53:34,319
+history. This is 14 years ago. Okay, 14
+
+1012
+00:53:29,680 --> 00:53:36,400
+years ago. And only 13,000 views. So I
+
+1013
+00:53:34,319 --> 00:53:39,040
+don't think this is very good. This is
+
+1014
+00:53:36,400 --> 00:53:40,480
+human computer interfaces. Okay.
+
+1015
+00:53:39,040 --> 00:53:41,760
+>> You'll learn techniques for human
+
+1016
+00:53:40,480 --> 00:53:44,240
+centered design
+
+1017
+00:53:41,760 --> 00:53:46,640
+>> you know compared to today this is not
+
+1018
+00:53:44,240 --> 00:53:50,079
+good. You just talk. Oh this is only
+
+1019
+00:53:46,640 --> 00:53:52,880
+talking for 42 seconds. Uh so this just
+
+1020
+00:53:50,079 --> 00:53:57,760
+an introduction. Okay.
+
+1021
+00:53:52,880 --> 00:54:00,240
+Uh so close that. So
+
+1022
+00:53:57,760 --> 00:54:02,480
+and and then you have this machine
+
+1023
+00:54:00,240 --> 00:54:06,079
+learning guy. This this guy is kind of
+
+1024
+00:54:02,480 --> 00:54:09,359
+famous. Okay, Andrew NG.
+
+1025
+00:54:06,079 --> 00:54:12,240
+Now, my opinion, I think he's not a good
+
+1026
+00:54:09,359 --> 00:54:15,040
+person. Okay, again, this is my opinion
+
+1027
+00:54:12,240 --> 00:54:19,119
+only. He's one of the guy he's he's one
+
+1028
+00:54:15,040 --> 00:54:21,839
+of the guy who's founded Kosera. Kosa is
+
+1029
+00:54:19,119 --> 00:54:24,720
+one of the first like online video
+
+1030
+00:54:21,839 --> 00:54:27,920
+tutorial. They are they are like for
+
+1031
+00:54:24,720 --> 00:54:30,880
+profit. I believe they are. Okay. But
+
+1032
+00:54:27,920 --> 00:54:35,280
+this Andrew NG guy
+
+1033
+00:54:30,880 --> 00:54:37,520
+in my opinion is a bad person. Okay.
+
+1034
+00:54:35,280 --> 00:54:40,160
+Anyway, that's history. Back then, by
+
+1035
+00:54:37,520 --> 00:54:42,640
+the way, so I wrote this in 2012. At
+
+1036
+00:54:40,160 --> 00:54:46,400
+that time, I don't know who that is, but
+
+1037
+00:54:42,640 --> 00:54:49,839
+now I kind of know a little bit. Okay.
+
+1038
+00:54:46,400 --> 00:54:52,960
+And Okay. Anyway, so so but the
+
+1039
+00:54:49,839 --> 00:54:57,359
+corporation that began it all began this
+
+1040
+00:54:52,960 --> 00:55:01,280
+kind of movement is the uh
+
+1041
+00:54:57,359 --> 00:55:03,119
+uh so you see some of the videos are gun
+
+1042
+00:55:01,280 --> 00:55:05,599
+we are looking at history some of the
+
+1043
+00:55:03,119 --> 00:55:10,720
+videos are deleted for one reason or
+
+1044
+00:55:05,599 --> 00:55:12,800
+another okay so why um
+
+1045
+00:55:10,720 --> 00:55:16,880
+can [clears throat] academy okay this is
+
+1046
+00:55:12,800 --> 00:55:19,599
+the beginning can academy there is a guy
+
+1047
+00:55:16,880 --> 00:55:22,319
+a very talented guy who started to do
+
+1048
+00:55:19,599 --> 00:55:24,240
+YouTube videos teaching you all sort of
+
+1049
+00:55:22,319 --> 00:55:27,839
+things on programming on basic
+
+1050
+00:55:24,240 --> 00:55:31,040
+mathematics you know on trigonometry so
+
+1051
+00:55:27,839 --> 00:55:34,800
+this guy kind of began can academy he
+
+1052
+00:55:31,040 --> 00:55:37,800
+became very famous okay what's his name
+
+1053
+00:55:34,800 --> 00:55:37,800
+uh
+
+1054
+00:55:38,000 --> 00:55:44,480
+so I was you know so this is 2011 I was
+
+1055
+00:55:41,200 --> 00:55:47,200
+like this is novel at the time so I was
+
+1056
+00:55:44,480 --> 00:55:51,200
+looking into it what is this you and
+
+1057
+00:55:47,200 --> 00:55:54,160
+kind of write out my review and uh
+
+1058
+00:55:51,200 --> 00:55:57,440
+summary
+
+1059
+00:55:54,160 --> 00:55:59,599
+uh K Academy. Now what who is the guy I
+
+1060
+00:55:57,440 --> 00:56:01,920
+did I mention it? I forgot but you can
+
+1061
+00:55:59,599 --> 00:56:04,400
+look up. Okay.
+
+1062
+00:56:01,920 --> 00:56:07,200
+So I was saying
+
+1063
+00:56:04,400 --> 00:56:10,799
+so we digressed all over into different
+
+1064
+00:56:07,200 --> 00:56:12,000
+topics. So let's go back to the F. Uh
+
+1065
+00:56:10,799 --> 00:56:14,160
+yeah
+
+1066
+00:56:12,000 --> 00:56:17,920
+ui. So that's why I started to mention
+
+1067
+00:56:14,160 --> 00:56:20,079
+it. Um now some of these course online
+
+1068
+00:56:17,920 --> 00:56:22,799
+course there's lots of controversy you
+
+1069
+00:56:20,079 --> 00:56:26,079
+know they are they were doing nasty
+
+1070
+00:56:22,799 --> 00:56:28,799
+things um like there's also stealing of
+
+1071
+00:56:26,079 --> 00:56:30,799
+courses you know like lots of that going
+
+1072
+00:56:28,799 --> 00:56:34,079
+on
+
+1073
+00:56:30,799 --> 00:56:40,400
+so anyway so I was talking about the
+
+1074
+00:56:34,079 --> 00:56:43,359
+f.org or so they link to UDI.
+
+1075
+00:56:40,400 --> 00:56:45,280
+Why do you do it, you know? So basically
+
+1076
+00:56:43,359 --> 00:56:48,240
+they they just link like all sort of
+
+1077
+00:56:45,280 --> 00:56:51,119
+link. By the way, this F cheat sheet is
+
+1078
+00:56:48,240 --> 00:56:55,760
+very good. Okay, because it is kind of
+
+1079
+00:56:51,119 --> 00:56:59,760
+summarize the entire F in one page. I I
+
+1080
+00:56:55,760 --> 00:57:02,079
+I started to uh know about this uh last
+
+1081
+00:56:59,760 --> 00:57:06,000
+week.
+
+1082
+00:57:02,079 --> 00:57:08,400
+Okay, F cheat sheet. Anyway,
+
+1083
+00:57:06,000 --> 00:57:14,760
+so I think that's it for about that, you
+
+1084
+00:57:08,400 --> 00:57:14,760
+know. So this f or website is sucks.
+
+1085
+00:57:15,040 --> 00:57:18,599
+Then you have
+
+1086
+00:57:23,440 --> 00:57:28,400
+then you have guides, you know, very
+
+1087
+00:57:25,520 --> 00:57:30,559
+confusing. So what what are guides? Like
+
+1088
+00:57:28,400 --> 00:57:33,760
+typically you have guides means a
+
+1089
+00:57:30,559 --> 00:57:35,680
+tutorial, right? like you got tutorials,
+
+1090
+00:57:33,760 --> 00:57:40,240
+you got documentation or you got
+
+1091
+00:57:35,680 --> 00:57:43,200
+documentation API so-called that
+
+1092
+00:57:40,240 --> 00:57:46,240
+you know the beginning of the fad of
+
+1093
+00:57:43,200 --> 00:57:49,680
+mentioning documentation as API began
+
+1094
+00:57:46,240 --> 00:57:52,240
+with Java in 1995.
+
+1095
+00:57:49,680 --> 00:57:55,599
+Okay. Anyway, so usually you have
+
+1096
+00:57:52,240 --> 00:57:59,599
+tutorials and documentation and also
+
+1097
+00:57:55,599 --> 00:58:02,400
+less commonly needed is the language
+
+1098
+00:57:59,599 --> 00:58:05,599
+specification. Okay, they also have it
+
+1099
+00:58:02,400 --> 00:58:07,760
+here. Uh I believe you know again it's
+
+1100
+00:58:05,599 --> 00:58:14,119
+very confusing like I believe it's
+
+1101
+00:58:07,760 --> 00:58:14,119
+papers and uh papers and publications.
+
+1102
+00:58:14,160 --> 00:58:19,680
+You need language specification for
+
+1103
+00:58:16,799 --> 00:58:21,839
+those you know want to implement it.
+
+1104
+00:58:19,680 --> 00:58:25,359
+It's not here you know. So this is very
+
+1105
+00:58:21,839 --> 00:58:26,960
+lousy site books learn F books
+
+1106
+00:58:25,359 --> 00:58:28,880
+documentation. So is it in
+
+1107
+00:58:26,960 --> 00:58:33,520
+documentation? Yeah language reference.
+
+1108
+00:58:28,880 --> 00:58:36,000
+Okay, not too bad. Okay, so anyway then
+
+1109
+00:58:33,520 --> 00:58:38,160
+so typically guide means tutorial but
+
+1110
+00:58:36,000 --> 00:58:40,665
+this guide is what what what is this
+
+1111
+00:58:38,160 --> 00:58:43,599
+guide about?
+
+1112
+00:58:40,665 --> 00:58:45,839
+[laughter] Cloud data access uh data
+
+1113
+00:58:43,599 --> 00:58:48,960
+science enterprise
+
+1114
+00:58:45,839 --> 00:58:51,680
+guide. Okay, let's see cloud guide cloud
+
+1115
+00:58:48,960 --> 00:58:53,520
+programming with F. Okay, some some kind
+
+1116
+00:58:51,680 --> 00:58:55,200
+of guide.
+
+1117
+00:58:53,520 --> 00:58:59,119
+Can you know this should be part of
+
+1118
+00:58:55,200 --> 00:59:02,079
+tutorial like practical like
+
+1119
+00:58:59,119 --> 00:59:04,000
+uh professional level you know part of
+
+1120
+00:59:02,079 --> 00:59:08,079
+the tutorial section that's what they
+
+1121
+00:59:04,000 --> 00:59:12,640
+are and testimonials okay and community
+
+1122
+00:59:08,079 --> 00:59:18,440
+okay oh they got discord I didn't know
+
+1123
+00:59:12,640 --> 00:59:18,440
+uh and then there it is code of conduct
+
+1124
+00:59:19,520 --> 00:59:25,119
+okay
+
+1125
+00:59:21,040 --> 00:59:29,400
+I think that's it for Today I talked for
+
+1126
+00:59:25,119 --> 00:59:29,400
+1 hour exactly.
+
+1127
+00:59:29,440 --> 00:59:36,559
+Yep. And uh I was going to do,
+
+1128
+00:59:34,240 --> 00:59:41,839
+you know, I was just going to do some of
+
+1129
+00:59:36,559 --> 00:59:44,319
+my um writing my tutorial on F, but now
+
+1130
+00:59:41,839 --> 00:59:47,200
+I digressed into
+
+1131
+00:59:44,319 --> 00:59:50,799
+lots of other things. Why f.org the
+
+1132
+00:59:47,200 --> 00:59:54,799
+website sucks. I digress to logos,
+
+1133
+00:59:50,799 --> 00:59:59,000
+history of logos. Um, let's see.
+
+1134
+00:59:54,799 --> 00:59:59,000
+And so that's it for today.
+
+1135
+01:00:01,119 --> 01:00:06,000
+Let's see. Am I popular today? How many
+
+1136
+01:00:03,520 --> 01:00:09,040
+people watch?
+
+1137
+01:00:06,000 --> 01:00:10,880
+Eight people. Okay, not too bad. You
+
+1138
+01:00:09,040 --> 01:00:13,680
+know, when I talk about random things,
+
+1139
+01:00:10,880 --> 01:00:18,640
+usually more people watch.
+
+1140
+01:00:13,680 --> 01:00:23,599
+Um, so that's it for today and I'm just
+
+1141
+01:00:18,640 --> 01:00:26,880
+we're going to shut down in 1 hour and
+
+1142
+01:00:23,599 --> 01:00:31,760
+I'm just going to put some of the links
+
+1143
+01:00:26,880 --> 01:00:35,200
+back to my website. Okay, so back to
+
+1144
+01:00:31,760 --> 01:00:38,559
+today's talk show. Okay,
+
+1145
+01:00:35,200 --> 01:00:41,520
+so we are going to do this but uh forget
+
+1146
+01:00:38,559 --> 01:00:45,559
+it. Uh, okay. We talked about logo. So,
+
+1147
+01:00:41,520 --> 01:00:45,559
+let's put um
+
+1148
+01:00:49,200 --> 01:00:53,920
+Yeah, we talked about a lot of logo
+
+1149
+01:00:51,680 --> 01:00:59,799
+stuff.
+
+1150
+01:00:53,920 --> 01:00:59,799
+Okay, bye guys. Any last words?
+
+1151
+01:01:00,160 --> 01:01:05,760
+Do you use Helex editor? No. Like every
+
+1152
+01:01:03,119 --> 01:01:08,559
+few years there's new generation. They,
+
+1153
+01:01:05,760 --> 01:01:12,240
+you know, there's new editor coming up.
+
+1154
+01:01:08,559 --> 01:01:17,559
+Helix is one of the latest. It is
+
+1155
+01:01:12,240 --> 01:01:17,559
+written by is it rust.
+
+1156
+01:01:19,832 --> 01:01:21,852
+[clears throat]
+
+1157
+01:01:22,160 --> 01:01:29,680
+Okay. Helix matrix. No, we don't want
+
+1158
+01:01:24,960 --> 01:01:33,200
+matrices. Uh editor. Okay. See, I think
+
+1159
+01:01:29,680 --> 01:01:36,720
+it is written by Rust. Is it? Helix
+
+1160
+01:01:33,200 --> 01:01:39,040
+editor is a modern. [ __ ] modern like all
+
+1161
+01:01:36,720 --> 01:01:42,799
+these things idiots they will call
+
+1162
+01:01:39,040 --> 01:01:46,079
+themselves modern modern today not
+
+1163
+01:01:42,799 --> 01:01:48,319
+modern tomorrow you know it's like the
+
+1164
+01:01:46,079 --> 01:01:50,160
+word modern something is kind of
+
+1165
+01:01:48,319 --> 01:01:53,839
+ephemereral
+
+1166
+01:01:50,160 --> 01:01:56,240
+you know by the time
+
+1167
+01:01:53,839 --> 01:01:59,359
+you know you you know by the time you
+
+1168
+01:01:56,240 --> 01:02:02,079
+grew out of teen age it's no longer
+
+1169
+01:01:59,359 --> 01:02:04,240
+modern whatever you are doing uh
+
+1170
+01:02:02,079 --> 01:02:05,200
+terminal based
+
+1171
+01:02:04,240 --> 01:02:07,839
+not
+
+1172
+01:02:05,200 --> 01:02:12,000
+model text editor. Okay, it's like Vim
+
+1173
+01:02:07,839 --> 01:02:14,400
+inspired by Vim and coi
+
+1174
+01:02:12,000 --> 01:02:16,720
+I don't know what that is. Designed for
+
+1175
+01:02:14,400 --> 01:02:20,160
+speed. Well, wait. The most important is
+
+1176
+01:02:16,720 --> 01:02:24,480
+it written in Rust? Yes. [laughter]
+
+1177
+01:02:20,160 --> 01:02:27,920
+There. There it is. You know why that is
+
+1178
+01:02:24,480 --> 01:02:31,680
+the key? Okay. Why? Why Helix blah blah
+
+1179
+01:02:27,920 --> 01:02:36,880
+blah? Well, it's because it's written in
+
+1180
+01:02:31,680 --> 01:02:39,839
+Rust. It's written by Rust fanatics.
+
+1181
+01:02:36,880 --> 01:02:43,119
+Okay, that's why this exist.
+
+1182
+01:02:39,839 --> 01:02:45,839
+Rust fanatics.
+
+1183
+01:02:43,119 --> 01:02:49,040
+Will it last? We don't know. We'll have
+
+1184
+01:02:45,839 --> 01:02:51,920
+to see. Like every every five, every 10
+
+1185
+01:02:49,040 --> 01:02:54,160
+years, five years, every time the new
+
+1186
+01:02:51,920 --> 01:02:56,079
+language come up, people going to write
+
+1187
+01:02:54,160 --> 01:02:59,200
+in that language. For example, 10 years
+
+1188
+01:02:56,079 --> 01:03:01,280
+ago, 15 years ago, about 15 years ago,
+
+1189
+01:02:59,200 --> 01:03:03,200
+there's Hascal,
+
+1190
+01:03:01,280 --> 01:03:04,799
+you know, complete programming editor
+
+1191
+01:03:03,200 --> 01:03:10,680
+written in Haskell. There's actually
+
+1192
+01:03:04,799 --> 01:03:10,680
+more than one. The one is called uh E.
+
+1193
+01:03:12,720 --> 01:03:18,079
+It's dead for a long time, I believe.
+
+1194
+01:03:14,799 --> 01:03:22,720
+Yeah, there it is. Is it still alive?
+
+1195
+01:03:18,079 --> 01:03:25,680
+Let's see. Ye editor star 1.5,000
+
+1196
+01:03:22,720 --> 01:03:29,200
+fork 199
+
+1197
+01:03:25,680 --> 01:03:32,000
+last commit two years ago four years ago
+
+1198
+01:03:29,200 --> 01:03:35,520
+it's still kind of going last commit
+
+1199
+01:03:32,000 --> 01:03:37,440
+three years ago two years ago
+
+1200
+01:03:35,520 --> 01:03:40,880
+you know
+
+1201
+01:03:37,440 --> 01:03:43,119
+the amazing editor written in Hascal the
+
+1202
+01:03:40,880 --> 01:03:45,920
+most advanced language you never heard
+
+1203
+01:03:43,119 --> 01:03:48,400
+of
+
+1204
+01:03:45,920 --> 01:03:50,720
+this is like this is like almost 15
+
+1205
+01:03:48,400 --> 01:03:53,359
+years ago, you know, every five years.
+
+1206
+01:03:50,720 --> 01:03:55,520
+Oh then then then then then then then
+
+1207
+01:03:53,359 --> 01:03:58,880
+the closure then then then there's one
+
+1208
+01:03:55,520 --> 01:04:02,960
+written in closure based on web like new
+
+1209
+01:03:58,880 --> 01:04:05,520
+new thought complete new uh vision you
+
+1210
+01:04:02,960 --> 01:04:08,880
+know that was very popular for like few
+
+1211
+01:04:05,520 --> 01:04:11,440
+years like every every Joe is talking
+
+1212
+01:04:08,880 --> 01:04:15,400
+about it okay that's a history of this
+
+1213
+01:04:11,440 --> 01:04:15,400
+this kind of fat
+
+1214
+01:04:15,599 --> 01:04:21,119
+which
+
+1215
+01:04:17,920 --> 01:04:24,400
+you know which which is just what
+
+1216
+01:04:21,119 --> 01:04:26,319
+happens. You you got fat going on. Uh
+
+1217
+01:04:24,400 --> 01:04:28,480
+okay. But will we or it last? Is it
+
+1218
+01:04:26,319 --> 01:04:31,039
+really good? We we don't we don't know.
+
+1219
+01:04:28,480 --> 01:04:33,359
+I don't know. We have to see. If you
+
+1220
+01:04:31,039 --> 01:04:34,880
+last, you know, then you might be
+
+1221
+01:04:33,359 --> 01:04:39,839
+something.
+
+1222
+01:04:34,880 --> 01:04:44,720
+Uh so actually there's an editor that
+
+1223
+01:04:39,839 --> 01:04:49,160
+was a fat and new and that lasted. Okay,
+
+1224
+01:04:44,720 --> 01:04:49,160
+that editor is called
+
+1225
+01:04:52,960 --> 01:05:00,079
+VS Code. Okay. It was begin it began by
+
+1226
+01:04:58,400 --> 01:05:03,039
+GitHub
+
+1227
+01:05:00,079 --> 01:05:05,520
+about 15 years ago. They have a a
+
+1228
+01:05:03,039 --> 01:05:08,559
+vision. You know, they going to based on
+
+1229
+01:05:05,520 --> 01:05:11,359
+modern programming language JavaScript.
+
+1230
+01:05:08,559 --> 01:05:13,599
+You know, we think Emacs is respectable,
+
+1231
+01:05:11,359 --> 01:05:16,160
+but we think there's a room for
+
+1232
+01:05:13,599 --> 01:05:19,839
+improvement. So we gonna create a new
+
+1233
+01:05:16,160 --> 01:05:22,720
+editor that would com compete that would
+
+1234
+01:05:19,839 --> 01:05:24,559
+you know that would uh you know be you
+
+1235
+01:05:22,720 --> 01:05:28,240
+know
+
+1236
+01:05:24,559 --> 01:05:30,880
+be as good as Emacs with a embedded
+
+1237
+01:05:28,240 --> 01:05:34,319
+programming language JavaScript the
+
+1238
+01:05:30,880 --> 01:05:38,400
+modern programming language that was the
+
+1239
+01:05:34,319 --> 01:05:40,240
+origin of VS code created by GitHub it's
+
+1240
+01:05:38,400 --> 01:05:43,359
+called Atom
+
+1241
+01:05:40,240 --> 01:05:49,280
+okay search for uh not here search for
+
+1242
+01:05:43,359 --> 01:05:52,640
+Atom editor Okay, new page. Atom editor.
+
+1243
+01:05:49,280 --> 01:05:55,280
+Then the GitHub people. You see a
+
+1244
+01:05:52,640 --> 01:05:56,799
+hackable text editor for the 21st
+
+1245
+01:05:55,280 --> 01:05:59,200
+century.
+
+1246
+01:05:56,799 --> 01:06:04,000
+By the way, it's dead. Okay. Atom editor
+
+1247
+01:05:59,200 --> 01:06:06,960
+is dead. It it it it died killed the
+
+1248
+01:06:04,000 --> 01:06:09,920
+project is gun about three or four years
+
+1249
+01:06:06,960 --> 01:06:12,559
+ago. So let me tell you the story. So
+
+1250
+01:06:09,920 --> 01:06:14,720
+Atom editor they began about 15 years
+
+1251
+01:06:12,559 --> 01:06:17,359
+ago. JavaScript JavaScript because
+
+1252
+01:06:14,720 --> 01:06:19,119
+JavaScript became the universal language
+
+1253
+01:06:17,359 --> 01:06:22,079
+you know everyone need you need
+
+1254
+01:06:19,119 --> 01:06:24,880
+JavaScript. Okay.
+
+1255
+01:06:22,079 --> 01:06:27,359
+Then they start in the process they
+
+1256
+01:06:24,880 --> 01:06:32,400
+created the framework JavaScript
+
+1257
+01:06:27,359 --> 01:06:35,200
+framework called um electron
+
+1258
+01:06:32,400 --> 01:06:38,000
+then electron became a project by itself
+
+1259
+01:06:35,200 --> 01:06:40,960
+because it's useful. So electron then
+
+1260
+01:06:38,000 --> 01:06:43,920
+Microsoft take the electron they created
+
+1261
+01:06:40,960 --> 01:06:46,720
+VS code. So they kind of kind of forked
+
+1262
+01:06:43,920 --> 01:06:50,079
+it, faked it.
+
+1263
+01:06:46,720 --> 01:06:53,839
+And now
+
+1264
+01:06:50,079 --> 01:06:58,400
+in 2022, three years ago,
+
+1265
+01:06:53,839 --> 01:07:02,720
+GitHub pronounced atom dead. Okay? No,
+
+1266
+01:06:58,400 --> 01:07:06,000
+there's no atom anymore. Instead,
+
+1267
+01:07:02,720 --> 01:07:09,839
+they recommend, you know, just switch to
+
+1268
+01:07:06,000 --> 01:07:12,000
+VS Code. And VS Code survive. VS Code
+
+1269
+01:07:09,839 --> 01:07:14,880
+not just survive. It's successful. It's
+
+1270
+01:07:12,000 --> 01:07:19,280
+like today the like almost the most
+
+1271
+01:07:14,880 --> 01:07:21,839
+popular text editor VS code. Okay. So
+
+1272
+01:07:19,280 --> 01:07:24,400
+this is a story of text editors. One of
+
+1273
+01:07:21,839 --> 01:07:26,480
+these you know let's create a new one
+
+1274
+01:07:24,400 --> 01:07:29,440
+and this we're going to you know we have
+
+1275
+01:07:26,480 --> 01:07:33,359
+a new vision. Well that VS Code
+
+1276
+01:07:29,440 --> 01:07:36,559
+succeeded VS Code
+
+1277
+01:07:33,359 --> 01:07:41,039
+uh head uh well we don't know. We'll
+
+1278
+01:07:36,559 --> 01:07:43,680
+have to see. Okay. Bye guys. That's it.
+
+1279
+01:07:41,039 --> 01:07:47,200
+Now, if you like if you like my stuff,
+
+1280
+01:07:43,680 --> 01:07:52,200
+enjoyed my show, go to my website, okay?
+
+1281
+01:07:47,200 --> 01:07:52,200
+Talk show kasali.org kasali.info
+
+1282
+01:07:52,880 --> 01:07:55,880
+kasali.info.
+
+1283
+01:07:56,079 --> 01:08:02,799
+Go to all the way to the bottom here is
+
+1284
+01:07:59,599 --> 01:08:04,720
+uh chatgp describing me because they
+
+1285
+01:08:02,799 --> 01:08:07,760
+they all know about me because I've been
+
+1286
+01:08:04,720 --> 01:08:10,160
+writing blogs for 30 years. Okay. So, go
+
+1287
+01:08:07,760 --> 01:08:13,520
+to the bottom pay Patreon me, Amazon
+
+1288
+01:08:10,160 --> 01:08:16,920
+gift card me, PayPal me. Okay.
+
+1289
+01:08:13,520 --> 01:08:16,920
+Bye, guys.
+

@@ -1,0 +1,9168 @@
+1
+00:00:01,120 --> 00:00:07,759
+Hello guys. Hello guys. I'm alive.
+
+2
+00:00:04,640 --> 00:00:09,280
+Welcome to another episode of Sound Talk
+
+3
+00:00:07,759 --> 00:00:12,719
+Show.
+
+4
+00:00:09,280 --> 00:00:17,039
+Uh we are going to do EMAC Visp Emac
+
+5
+00:00:12,719 --> 00:00:21,520
+stuff. I'm going to install SFly Keys in
+
+6
+00:00:17,039 --> 00:00:23,840
+Windows Subsystem for Linux. Okay, we
+
+7
+00:00:21,520 --> 00:00:27,680
+installed Emacs the other day, two days
+
+8
+00:00:23,840 --> 00:00:31,760
+ago. Let's see. Control scroll. So
+
+9
+00:00:27,680 --> 00:00:34,800
+magnify the font so you can see
+
+10
+00:00:31,760 --> 00:00:36,960
+and uh we just going to go slowly. Okay.
+
+11
+00:00:34,800 --> 00:00:40,640
+So if you are here, if you are watching,
+
+12
+00:00:36,960 --> 00:00:45,920
+say hi. If you are not watching, don't
+
+13
+00:00:40,640 --> 00:00:50,000
+say hi. And uh this video
+
+14
+00:00:45,920 --> 00:00:52,399
+uh if you are busy man, you want better
+
+15
+00:00:50,000 --> 00:00:54,960
+tutorials, you can watch my other
+
+16
+00:00:52,399 --> 00:00:58,960
+tutorials about stuff like keys and
+
+17
+00:00:54,960 --> 00:01:02,320
+stuff. So this is just me coding. Okay.
+
+18
+00:00:58,960 --> 00:01:05,360
+So let's see. Uh check video check.
+
+19
+00:01:02,320 --> 00:01:09,680
+Video. Do I do do I check out? Video
+
+20
+00:01:05,360 --> 00:01:14,240
+check. Am I moving? Yes. Uh audio check.
+
+21
+00:01:09,680 --> 00:01:19,759
+Okay. So let's do Okay.
+
+22
+00:01:14,240 --> 00:01:24,159
+So Okay. So my Emacs, this is my Emacs.
+
+23
+00:01:19,759 --> 00:01:26,640
+And here is today's topic. We want to uh
+
+24
+00:01:24,159 --> 00:01:31,280
+actually I want to write a emac write
+
+25
+00:01:26,640 --> 00:01:33,520
+sentence case for all H2. That's u kind
+
+26
+00:01:31,280 --> 00:01:36,000
+of find replacement. You want to change
+
+27
+00:01:33,520 --> 00:01:38,560
+all header H2's
+
+28
+00:01:36,000 --> 00:01:41,280
+letter case to sentence case meaning
+
+29
+00:01:38,560 --> 00:01:44,799
+just capitalize the first
+
+30
+00:01:41,280 --> 00:01:48,079
+word in the sentence and the lower case
+
+31
+00:01:44,799 --> 00:01:50,799
+all the others. for example this um and
+
+32
+00:01:48,079 --> 00:01:54,479
+demo keyboard marker first save it then
+
+33
+00:01:50,799 --> 00:01:57,280
+write a uh emac this function okay so
+
+34
+00:01:54,479 --> 00:02:02,119
+okay so let's begin
+
+35
+00:01:57,280 --> 00:02:02,119
+wsl to begin it
+
+36
+00:02:04,640 --> 00:02:12,640
+so meanwhile let's check out okay so
+
+37
+00:02:08,080 --> 00:02:17,040
+this is my windows performance okay
+
+38
+00:02:12,640 --> 00:02:22,239
+okay so we can start emac Then we
+
+39
+00:02:17,040 --> 00:02:26,239
+uh where is the delete key? Oh god.
+
+40
+00:02:22,239 --> 00:02:30,400
+Which emacs? Okay. Now you want to So
+
+41
+00:02:26,239 --> 00:02:37,120
+this is um you see this Mnt that's
+
+42
+00:02:30,400 --> 00:02:39,280
+Windows disk. You want to uh
+
+43
+00:02:37,120 --> 00:02:46,239
+oh we didn't actually install it the
+
+44
+00:02:39,280 --> 00:02:49,599
+other day but so CD to home the now the
+
+45
+00:02:46,239 --> 00:02:54,000
+now the I believe they define it as
+
+46
+00:02:49,599 --> 00:02:57,640
+alias to LS. Uh
+
+47
+00:02:54,000 --> 00:02:57,640
+yeah. Well,
+
+48
+00:02:58,000 --> 00:03:04,800
+which the how how did they define it?
+
+49
+00:03:00,480 --> 00:03:09,360
+User bind. Okay, they got a user bind.
+
+50
+00:03:04,800 --> 00:03:12,760
+Uh which cat? Let's see what is this uh
+
+51
+00:03:09,360 --> 00:03:12,760
+user binder.
+
+52
+00:03:16,239 --> 00:03:22,959
+It's a binary file.
+
+53
+00:03:18,720 --> 00:03:28,720
+Jesus, I thought there is like an alias
+
+54
+00:03:22,959 --> 00:03:30,640
+to uh oops I'll exit.
+
+55
+00:03:28,720 --> 00:03:34,959
+Start again.
+
+56
+00:03:30,640 --> 00:03:39,840
+Go to um so I want to know what is the
+
+57
+00:03:34,959 --> 00:03:42,720
+in Unix. Okay. So, so DWZ. Okay. You got
+
+58
+00:03:39,840 --> 00:03:45,519
+some text here. Use a lip debug
+
+59
+00:03:42,720 --> 00:03:47,280
+something debug
+
+60
+00:03:45,519 --> 00:03:52,560
+shab
+
+61
+00:03:47,280 --> 00:03:57,360
+debug note gnu uh property note gnu
+
+62
+00:03:52,560 --> 00:04:01,200
+build ID node AI tag femy uh what the
+
+63
+00:03:57,360 --> 00:04:03,599
+[ __ ] is that? So man the let's see since
+
+64
+00:04:01,200 --> 00:04:06,640
+they have it then there must be a man
+
+65
+00:04:03,599 --> 00:04:09,640
+page there it is the list directory
+
+66
+00:04:06,640 --> 00:04:09,640
+contents
+
+67
+00:04:11,519 --> 00:04:20,320
+hello Kan Jung what keyboard is that
+
+68
+00:04:16,880 --> 00:04:22,720
+does it come with its own tents uh no
+
+69
+00:04:20,320 --> 00:04:24,800
+you have to buy the tent separately this
+
+70
+00:04:22,720 --> 00:04:27,440
+is um
+
+71
+00:04:24,800 --> 00:04:31,040
+this is called ultimate hacking keyboard
+
+72
+00:04:27,440 --> 00:04:33,040
+Okay, if you search kasali.info,
+
+73
+00:04:31,040 --> 00:04:36,560
+let me just show you for one minute.
+
+74
+00:04:33,040 --> 00:04:39,840
+Okay, kasali keyboard guide, you'll see
+
+75
+00:04:36,560 --> 00:04:42,720
+a thousand articles on keyboard. And
+
+76
+00:04:39,840 --> 00:04:46,240
+this is the one you are I'm using. I
+
+77
+00:04:42,720 --> 00:04:50,160
+have a review on YouTube UHK Ultimate
+
+78
+00:04:46,240 --> 00:04:52,560
+Hacking Keyboard 80. Okay, there's a
+
+79
+00:04:50,160 --> 00:04:55,919
+previous version. So, I got a talk show.
+
+80
+00:04:52,560 --> 00:04:59,280
+I got a video review on YouTube. I have
+
+81
+00:04:55,919 --> 00:05:02,080
+hundreds of reviews on keyboards in the
+
+82
+00:04:59,280 --> 00:05:04,800
+past five years. Okay. Ultimate hacking
+
+83
+00:05:02,080 --> 00:05:09,600
+keyboard 80. That's a keyboard. Okay.
+
+84
+00:05:04,800 --> 00:05:12,639
+Back to uh Emacs. So I want to so
+
+85
+00:05:09,600 --> 00:05:14,479
+so this so Unix got the command. I
+
+86
+00:05:12,639 --> 00:05:16,880
+didn't know this information about the
+
+87
+00:05:14,479 --> 00:05:19,680
+files. So
+
+88
+00:05:16,880 --> 00:05:23,360
+h
+
+89
+00:05:19,680 --> 00:05:25,039
+interesting because I thought it was
+
+90
+00:05:23,360 --> 00:05:29,919
+just
+
+91
+00:05:25,039 --> 00:05:35,280
+like an alias to LS- A or at least it
+
+92
+00:05:29,919 --> 00:05:39,199
+used to be. So I want to know uh forward
+
+93
+00:05:35,280 --> 00:05:42,000
+Ctrl F to page down Ctrl B to back now.
+
+94
+00:05:39,199 --> 00:05:45,520
+Okay. Does my page up down work? No,
+
+95
+00:05:42,000 --> 00:05:48,639
+because it's I have key marker it that
+
+96
+00:05:45,520 --> 00:05:52,639
+does switch browser tabs.
+
+97
+00:05:48,639 --> 00:05:55,520
+So this uh copyright 2023's free
+
+98
+00:05:52,639 --> 00:05:58,639
+software foundation.
+
+99
+00:05:55,520 --> 00:06:00,639
+Incredible. Can't believe the free
+
+100
+00:05:58,639 --> 00:06:03,840
+software foundation. They are very much
+
+101
+00:06:00,639 --> 00:06:07,759
+anti- Windows, anti-Microsoft. But
+
+102
+00:06:03,840 --> 00:06:11,360
+magically they created a duh copy of the
+
+103
+00:06:07,759 --> 00:06:16,160
+Windows command, you know, uh dove
+
+104
+00:06:11,360 --> 00:06:19,280
+function. Quite interesting. But but bec
+
+105
+00:06:16,160 --> 00:06:21,840
+because since about 2000 year 2020,
+
+106
+00:06:19,280 --> 00:06:24,400
+Richard Stman considered
+
+107
+00:06:21,840 --> 00:06:27,120
+Microsoft a great company because
+
+108
+00:06:24,400 --> 00:06:29,600
+Microsoft started to release all their
+
+109
+00:06:27,120 --> 00:06:33,280
+like.NET net o as open source. So
+
+110
+00:06:29,600 --> 00:06:36,240
+Richard Stman Strowman went to Microsoft
+
+111
+00:06:33,280 --> 00:06:39,199
+Office to give a lecture.
+
+112
+00:06:36,240 --> 00:06:42,199
+So you can also find
+
+113
+00:06:39,199 --> 00:06:42,199
+uh
+
+114
+00:06:44,160 --> 00:06:49,600
+Richard Stoman lots of articles on let
+
+115
+00:06:46,319 --> 00:06:52,319
+me find it quickly. Okay. So lots of
+
+116
+00:06:49,600 --> 00:06:55,360
+articles on Richard Storman. Uh you can
+
+117
+00:06:52,319 --> 00:06:58,400
+find them all here. Richard Strowman got
+
+118
+00:06:55,360 --> 00:07:03,039
+cancer 2023.
+
+119
+00:06:58,400 --> 00:07:07,120
+Yeah. So, so that's uh and the history
+
+120
+00:07:03,039 --> 00:07:10,240
+of Lisp Emac Symbolics by Daniel Wre
+
+121
+00:07:07,120 --> 00:07:13,199
+rebutt Richard Stolman's lie about
+
+122
+00:07:10,240 --> 00:07:16,160
+history of leispman stole Emacs. Okay,
+
+123
+00:07:13,199 --> 00:07:18,720
+that's from James Goslin the the guy who
+
+124
+00:07:16,160 --> 00:07:21,680
+started micro semicros systemystems who
+
+125
+00:07:18,720 --> 00:07:26,240
+created Java the language. James Gossen
+
+126
+00:07:21,680 --> 00:07:29,919
+who is also the first to create Emacs
+
+127
+00:07:26,240 --> 00:07:34,960
+and and Richard Stman originally just
+
+128
+00:07:29,919 --> 00:07:38,560
+took Jim Goslin's Emacs code originally.
+
+129
+00:07:34,960 --> 00:07:41,199
+So the Richard Stoman resigned from Free
+
+130
+00:07:38,560 --> 00:07:44,880
+Software Foundation 2019. That's when
+
+131
+00:07:41,199 --> 00:07:50,000
+the social justice warriors scum started
+
+132
+00:07:44,880 --> 00:07:51,759
+by this girl Salam Gi tried to remove
+
+133
+00:07:50,000 --> 00:07:54,400
+Richard Stoman you know because they
+
+134
+00:07:51,759 --> 00:07:58,160
+want you know they want trans and stuff
+
+135
+00:07:54,400 --> 00:08:00,879
+they you know lots of stuff and so he
+
+136
+00:07:58,160 --> 00:08:02,879
+got kicked out this power struggle and
+
+137
+00:08:00,879 --> 00:08:05,680
+all the you see all the it's quite
+
+138
+00:08:02,879 --> 00:08:07,840
+interesting history because the free
+
+139
+00:08:05,680 --> 00:08:11,759
+Sophia foundation the people many of
+
+140
+00:08:07,840 --> 00:08:15,280
+them are rotten True because you follow
+
+141
+00:08:11,759 --> 00:08:18,479
+the social justice way you you rise you
+
+142
+00:08:15,280 --> 00:08:21,440
+got money you know so many of them they
+
+143
+00:08:18,479 --> 00:08:24,400
+agree you know they they they seen the
+
+144
+00:08:21,440 --> 00:08:26,720
+song alone yeah rich so is bad you know
+
+145
+00:08:24,400 --> 00:08:31,400
+so that's the incidents the people
+
+146
+00:08:26,720 --> 00:08:31,400
+following power 2019
+
+147
+00:08:31,759 --> 00:08:37,120
+he got kicked out by uh free sophia
+
+148
+00:08:34,479 --> 00:08:41,440
+found foundation the foundation he began
+
+149
+00:08:37,120 --> 00:08:45,760
+in 1980s or 1970s and the guy who
+
+150
+00:08:41,440 --> 00:08:49,360
+created the basically open source.
+
+151
+00:08:45,760 --> 00:08:52,800
+Okay. And here 2019, Richard Stoman
+
+152
+00:08:49,360 --> 00:08:56,080
+standing in Microsoft
+
+153
+00:08:52,800 --> 00:08:58,560
+building invited by Microsoft because
+
+154
+00:08:56,080 --> 00:09:01,440
+Microsoft released you know like
+
+155
+00:08:58,560 --> 00:09:04,880
+embraced open source. So lots of you
+
+156
+00:09:01,440 --> 00:09:07,360
+know the entire net is open source and I
+
+157
+00:09:04,880 --> 00:09:10,800
+believe the Windows subsystem for Linux
+
+158
+00:09:07,360 --> 00:09:13,360
+is also open source. Right? Is it uh I
+
+159
+00:09:10,800 --> 00:09:17,000
+don't know but we have to check uh okay
+
+160
+00:09:13,360 --> 00:09:17,000
+let's check AI
+
+161
+00:09:39,519 --> 00:09:45,120
+Thanks mate. Thanks. Thank you. Yeah,
+
+162
+00:09:42,800 --> 00:09:47,760
+it's uh it's quite expensive though. So,
+
+163
+00:09:45,120 --> 00:09:50,000
+but on my website I have a lot
+
+164
+00:09:47,760 --> 00:09:53,040
+alternative choices about keyboard. I
+
+165
+00:09:50,000 --> 00:09:57,279
+mean auto hacking keyboard 80 is like
+
+166
+00:09:53,040 --> 00:10:02,080
+$400 to $500. Okay. But on my website
+
+167
+00:09:57,279 --> 00:10:05,120
+you can find a lot uh keyboard. you are
+
+168
+00:10:02,080 --> 00:10:07,120
+new here uh so you don't know but
+
+169
+00:10:05,120 --> 00:10:09,920
+talking about keyboard is one of the
+
+170
+00:10:07,120 --> 00:10:13,200
+main thing of my YouTube channel so I
+
+171
+00:10:09,920 --> 00:10:15,120
+have over 100 videos about all these
+
+172
+00:10:13,200 --> 00:10:19,440
+keyboards
+
+173
+00:10:15,120 --> 00:10:23,040
+uh so ultimate hacking here uh80 very
+
+174
+00:10:19,440 --> 00:10:25,680
+expensive $400 to $500 if you want the
+
+175
+00:10:23,040 --> 00:10:27,200
+stand and you know all all the other
+
+176
+00:10:25,680 --> 00:10:29,519
+things you have to buy the stand
+
+177
+00:10:27,200 --> 00:10:32,959
+separately okay
+
+178
+00:10:29,519 --> 00:10:36,399
+so anyway so here is okay. Uh, Grog,
+
+179
+00:10:32,959 --> 00:10:40,040
+here's a question I have. Um, the
+
+180
+00:10:36,399 --> 00:10:40,040
+question is
+
+181
+00:10:41,200 --> 00:10:43,519
+Oh. Oh, I forgot. What is What is the
+
+182
+00:10:43,120 --> 00:10:45,680
+question?
+
+183
+00:10:43,519 --> 00:10:47,440
+>> Yes, I'm listen.
+
+184
+00:10:45,680 --> 00:10:51,160
+>> That's all right. Take your time. I'm
+
+185
+00:10:47,440 --> 00:10:51,160
+right here when you remember.
+
+186
+00:10:56,560 --> 00:11:02,560
+>> Oh, yeah. The question is when did free
+
+187
+00:10:59,680 --> 00:11:06,440
+software foundation they they wrote the
+
+188
+00:11:02,560 --> 00:11:06,440
+the utility
+
+189
+00:11:10,800 --> 00:11:15,959
+the diir
+
+190
+00:11:12,959 --> 00:11:15,959
+program
+
+191
+00:11:22,160 --> 00:11:27,040
+around 1990 the free software
+
+192
+00:11:24,640 --> 00:11:29,360
+foundation's new project released Dio
+
+193
+00:11:27,040 --> 00:11:31,519
+utility as part of three new file utils
+
+194
+00:11:29,360 --> 00:11:34,000
+written by David McKenzie. He announced
+
+195
+00:11:31,519 --> 00:11:37,360
+the package in 1990 with early versions
+
+196
+00:11:34,000 --> 00:11:39,680
+like 2.1 coming out in 1991. It's
+
+197
+00:11:37,360 --> 00:11:41,440
+basically a version of ls with different
+
+198
+00:11:39,680 --> 00:11:43,519
+default formatting for DOSs windows
+
+199
+00:11:41,440 --> 00:11:45,440
+compatibility and it's been in gaming
+
+200
+00:11:43,519 --> 00:11:48,320
+ever since.
+
+201
+00:11:45,440 --> 00:11:52,240
+>> Well, I thought originally d is just an
+
+202
+00:11:48,320 --> 00:11:54,399
+alias to ls on some window on some Linux
+
+203
+00:11:52,240 --> 00:11:57,399
+systems.
+
+204
+00:11:54,399 --> 00:11:57,399
+Actually,
+
+205
+00:11:58,800 --> 00:12:03,360
+that's backwards. The dear command in
+
+206
+00:12:00,880 --> 00:12:05,600
+gear came first. It's a real program
+
+207
+00:12:03,360 --> 00:12:08,160
+that the FSF wrote. And it's not just an
+
+208
+00:12:05,600 --> 00:12:10,639
+alias. On many Linux distros, people
+
+209
+00:12:08,160 --> 00:12:12,320
+later made DR an alias, the ls with some
+
+210
+00:12:10,639 --> 00:12:14,560
+flags to make it behave like Windows,
+
+211
+00:12:12,320 --> 00:12:15,680
+but the original VM is its own
+
+212
+00:12:14,560 --> 00:12:19,320
+independent utility.
+
+213
+00:12:15,680 --> 00:12:19,320
+>> I see. Thank you.
+
+214
+00:12:19,440 --> 00:12:23,519
+>> You're welcome. Anything else on your
+
+215
+00:12:21,120 --> 00:12:26,240
+mind?
+
+216
+00:12:23,519 --> 00:12:29,440
+Okay, that's uh that's uh but why do
+
+217
+00:12:26,240 --> 00:12:32,639
+they have copyright 2023 here? That's
+
+218
+00:12:29,440 --> 00:12:35,519
+interesting. So this is very old. David
+
+219
+00:12:32,639 --> 00:12:39,040
+McKenzie.
+
+220
+00:12:35,519 --> 00:12:40,880
+Okay. Uh okay.
+
+221
+00:12:39,040 --> 00:12:44,079
+Written by Richard Stman. So this is
+
+222
+00:12:40,880 --> 00:12:46,800
+like in the 80s I believe.
+
+223
+00:12:44,079 --> 00:12:50,079
+Okay. So stop that.
+
+224
+00:12:46,800 --> 00:12:52,079
+So what we doing here? So, we want to
+
+225
+00:12:50,079 --> 00:12:54,399
+Yeah, we want to install stuff like
+
+226
+00:12:52,079 --> 00:12:59,600
+keys. Oh, yeah. First of all, go to my
+
+227
+00:12:54,399 --> 00:13:04,079
+home. Duh. Uh, Emacs. Okay, you need to
+
+228
+00:12:59,600 --> 00:13:07,120
+do this. Let's go to Emacs.
+
+229
+00:13:04,079 --> 00:13:11,600
+Oh, I have a Emacs.
+
+230
+00:13:07,120 --> 00:13:17,040
+Emacs created the Emacs init. Uh, the
+
+231
+00:13:11,600 --> 00:13:19,120
+Let's look what's there. cd. EMAC.
+
+232
+00:13:17,040 --> 00:13:22,880
+Duh.
+
+233
+00:13:19,120 --> 00:13:26,079
+Auto save. Oh. Uh, auto save. Oh, yeah.
+
+234
+00:13:22,880 --> 00:13:30,639
+Games. We played Tetris the other day.
+
+235
+00:13:26,079 --> 00:13:33,760
+Okay. CD back. CD to the Emacs because
+
+236
+00:13:30,639 --> 00:13:38,160
+Emacs is installed there.
+
+237
+00:13:33,760 --> 00:13:41,959
+And uh we can uh we can make install. I
+
+238
+00:13:38,160 --> 00:13:41,959
+believe make install.
+
+239
+00:13:42,480 --> 00:13:49,279
+Okay. That will put Emacs in the user
+
+240
+00:13:44,880 --> 00:13:51,839
+bin. So uh oh user be maker cannot
+
+241
+00:13:49,279 --> 00:13:56,279
+create directory user local share info
+
+242
+00:13:51,839 --> 00:13:56,279
+permission perm denied.
+
+243
+00:13:58,320 --> 00:14:05,680
+KPT says are you going to run an Xserver
+
+244
+00:14:02,079 --> 00:14:07,360
+for the WSL emac or just run a terminal?
+
+245
+00:14:05,680 --> 00:14:10,160
+I'm going to just run it ter in
+
+246
+00:14:07,360 --> 00:14:12,079
+terminal. I don't like the emac server.
+
+247
+00:14:10,160 --> 00:14:15,199
+You know a lot of people like it because
+
+248
+00:14:12,079 --> 00:14:17,680
+it's like more advanced like oh so Emacs
+
+249
+00:14:15,199 --> 00:14:20,480
+editor you got a server and client you
+
+250
+00:14:17,680 --> 00:14:23,920
+know you know the practical reason they
+
+251
+00:14:20,480 --> 00:14:26,399
+want that is so that Emacs starts faster
+
+252
+00:14:23,920 --> 00:14:28,720
+because the first time you start Emacs
+
+253
+00:14:26,399 --> 00:14:30,880
+it runs the Emacs server you know like
+
+254
+00:14:28,720 --> 00:14:33,199
+web server you know it runs a server
+
+255
+00:14:30,880 --> 00:14:34,959
+then next time you start Emacs it just
+
+256
+00:14:33,199 --> 00:14:38,000
+start a client it just connect to the
+
+257
+00:14:34,959 --> 00:14:40,399
+server so it's basically instantaneous
+
+258
+00:14:38,000 --> 00:14:43,040
+so people started to like the ser you
+
+259
+00:14:40,399 --> 00:14:45,760
+know the render emac server in client
+
+260
+00:14:43,040 --> 00:14:48,639
+this began the server feature Emacs as a
+
+261
+00:14:45,760 --> 00:14:52,079
+server started like 10 years ago or 15
+
+262
+00:14:48,639 --> 00:14:54,560
+years ago okay
+
+263
+00:14:52,079 --> 00:14:58,079
+wait what oh you're talking about
+
+264
+00:14:54,560 --> 00:15:01,199
+Xserver are you talking about the X11
+
+265
+00:14:58,079 --> 00:15:07,240
+because I'm talking about Emac server in
+
+266
+00:15:01,199 --> 00:15:07,240
+Emacs you have a EMAC server okay so
+
+267
+00:15:08,800 --> 00:15:12,399
+what do you talking about? I'm confused.
+
+268
+00:15:10,720 --> 00:15:15,680
+Are you talking about Emacs? Are you
+
+269
+00:15:12,399 --> 00:15:19,279
+talking about X11
+
+270
+00:15:15,680 --> 00:15:21,040
+anyway? So, so uh I'm not for Emacs. I'm
+
+271
+00:15:19,279 --> 00:15:24,199
+not running the Emacs server. I don't
+
+272
+00:15:21,040 --> 00:15:24,199
+like it.
+
+273
+00:15:24,639 --> 00:15:33,360
+Oh, you mean you mean X11? Well, X11
+
+274
+00:15:27,680 --> 00:15:36,639
+they um it runs in in GUI. You see,
+
+275
+00:15:33,360 --> 00:15:41,360
+maybe you don't know. Have you ever um
+
+276
+00:15:36,639 --> 00:15:44,399
+run WSL? because the WSL technology they
+
+277
+00:15:41,360 --> 00:15:47,199
+they they made the GUI part of it but
+
+278
+00:15:44,399 --> 00:15:49,600
+you I uh you know here start uh I'll
+
+279
+00:15:47,199 --> 00:15:52,800
+show you in a minute. Okay, let me first
+
+280
+00:15:49,600 --> 00:15:55,680
+for example let's just start Emacs. Uh
+
+281
+00:15:52,800 --> 00:15:58,079
+which Emacs?
+
+282
+00:15:55,680 --> 00:16:00,880
+Okay, you didn't I need the permission
+
+283
+00:15:58,079 --> 00:16:03,920
+to install it. [ __ ] So you need to do
+
+284
+00:16:00,880 --> 00:16:10,800
+sudo uh
+
+285
+00:16:03,920 --> 00:16:14,320
+uh sudo. So this key and this key s and
+
+286
+00:16:10,800 --> 00:16:20,120
+I need to hide my screen for a moment.
+
+287
+00:16:14,320 --> 00:16:20,120
+Excuse me and see what is this.
+
+288
+00:16:27,759 --> 00:16:35,880
+Okay. So that is the my keyboard and uh
+
+289
+00:16:31,839 --> 00:16:35,880
+Okay. Let's try it.
+
+290
+00:16:39,120 --> 00:16:46,880
+Okay, let's put it back.
+
+291
+00:16:41,759 --> 00:16:48,480
+Put back my screen. Put back my keyboard
+
+292
+00:16:46,880 --> 00:16:51,480
+video.
+
+293
+00:16:48,480 --> 00:16:51,480
+So,
+
+294
+00:16:51,680 --> 00:16:59,199
+so it's installing Emacs. Jesus. What?
+
+295
+00:16:55,600 --> 00:17:01,279
+What all the things it's moving to?
+
+296
+00:16:59,199 --> 00:17:04,240
+Oh, [ __ ] Maybe I shouldn't. Maybe
+
+297
+00:17:01,279 --> 00:17:06,640
+that's a mistake. just run it in my
+
+298
+00:17:04,240 --> 00:17:08,559
+home, you know. Don't put it in the user
+
+299
+00:17:06,640 --> 00:17:11,880
+logo.
+
+300
+00:17:08,559 --> 00:17:11,880
+Oh god.
+
+301
+00:17:13,919 --> 00:17:18,199
+Oh god. There's so many things.
+
+302
+00:17:18,799 --> 00:17:24,799
+And that's, you know, that's a mistake.
+
+303
+00:17:21,360 --> 00:17:27,600
+I cont contaminated
+
+304
+00:17:24,799 --> 00:17:31,360
+my Unix system by installing Emacs
+
+305
+00:17:27,600 --> 00:17:34,799
+because it puts user logo user share and
+
+306
+00:17:31,360 --> 00:17:40,160
+all a bunch of things.
+
+307
+00:17:34,799 --> 00:17:42,960
+Kan says uh CA says GUI just works on
+
+308
+00:17:40,160 --> 00:17:46,160
+WSL2. You don't need to configure X.
+
+309
+00:17:42,960 --> 00:17:48,240
+Exactly. That's what I meant.
+
+310
+00:17:46,160 --> 00:17:53,280
+It just works. So let me show you. We we
+
+311
+00:17:48,240 --> 00:17:56,240
+showed it yesterday. So now which Emacs
+
+312
+00:17:53,280 --> 00:17:59,120
+you see now Emacs in user local bing
+
+313
+00:17:56,240 --> 00:18:01,600
+that's a standard directory for like the
+
+314
+00:17:59,120 --> 00:18:05,520
+Unix convention.
+
+315
+00:18:01,600 --> 00:18:07,679
+Uh okay hold on a second. Uh wait is the
+
+316
+00:18:05,520 --> 00:18:11,760
+screen clear to you guys like can you
+
+317
+00:18:07,679 --> 00:18:16,760
+guys see do or do I need to magnify
+
+318
+00:18:11,760 --> 00:18:16,760
+further? Mega chigga.
+
+319
+00:18:18,960 --> 00:18:26,400
+Can you make it mega [ __ ] big? So now
+
+320
+00:18:22,000 --> 00:18:29,760
+Emacs. Okay. Here GUI version of Emacs.
+
+321
+00:18:26,400 --> 00:18:34,880
+You see outside of the terminal. You see
+
+322
+00:18:29,760 --> 00:18:38,559
+now control alt square to enlarge the
+
+323
+00:18:34,880 --> 00:18:40,559
+window for all buffers. Okay. Now, now
+
+324
+00:18:38,559 --> 00:18:43,679
+remember when you do live stream, you
+
+325
+00:18:40,559 --> 00:18:46,799
+need the font size to be like twice as
+
+326
+00:18:43,679 --> 00:18:49,360
+large, otherwise it's too small. Okay,
+
+327
+00:18:46,799 --> 00:18:53,840
+now stop.
+
+328
+00:18:49,360 --> 00:18:56,840
+Now enlarged the window. Oh god, this
+
+329
+00:18:53,840 --> 00:18:56,840
+god.
+
+330
+00:18:57,760 --> 00:19:05,520
+It's kind of slow. What? What?
+
+331
+00:19:02,080 --> 00:19:08,400
+Come on. You see there's a tiny
+
+332
+00:19:05,520 --> 00:19:11,640
+thing you cannot see.
+
+333
+00:19:08,400 --> 00:19:11,640
+Oh god.
+
+334
+00:19:15,760 --> 00:19:19,640
+What? Come on.
+
+335
+00:19:21,600 --> 00:19:24,600
+Drag.
+
+336
+00:19:25,840 --> 00:19:31,919
+Okay. Now scroll up. Okay. Now it's
+
+337
+00:19:29,840 --> 00:19:34,400
+still
+
+338
+00:19:31,919 --> 00:19:37,600
+You see it's super slow. If you want to
+
+339
+00:19:34,400 --> 00:19:40,080
+track the window larger for for reasons
+
+340
+00:19:37,600 --> 00:19:42,000
+I do not know. I don't know if it's
+
+341
+00:19:40,080 --> 00:19:45,360
+because I'm doing live stream or is it
+
+342
+00:19:42,000 --> 00:19:48,559
+because something else. So because WSL
+
+343
+00:19:45,360 --> 00:19:52,240
+so there you have it. Uh GUI oh you can
+
+344
+00:19:48,559 --> 00:19:57,760
+run a clock. Okay. So now we need to
+
+345
+00:19:52,240 --> 00:20:00,080
+type FG full ground. Oh wait no
+
+346
+00:19:57,760 --> 00:20:02,640
+we need to
+
+347
+00:20:00,080 --> 00:20:06,160
+pause the process. Hide it in the Wait.
+
+348
+00:20:02,640 --> 00:20:08,559
+Is it Ctrl Z? [ __ ] Unix.
+
+349
+00:20:06,160 --> 00:20:10,880
+Okay, there. There. The Emacs now is in
+
+350
+00:20:08,559 --> 00:20:13,200
+the background. Oh, wait. You paused it.
+
+351
+00:20:10,880 --> 00:20:18,320
+That's a mistake. You don't want to stop
+
+352
+00:20:13,200 --> 00:20:22,559
+it. Oh, Jesus. Um, foreground,
+
+353
+00:20:18,320 --> 00:20:25,520
+please. Emacs. But I want I want to be
+
+354
+00:20:22,559 --> 00:20:28,799
+able to run it, but hide it in the
+
+355
+00:20:25,520 --> 00:20:32,159
+terminal. By the way, I also learned
+
+356
+00:20:28,799 --> 00:20:35,200
+you can just start another terminal,
+
+357
+00:20:32,159 --> 00:20:40,360
+you see, and go to WSL.
+
+358
+00:20:35,200 --> 00:20:40,360
+Let's magnify so you can see.
+
+359
+00:20:44,400 --> 00:20:52,799
+Can you see? Yeah. Another terminal. So,
+
+360
+00:20:48,320 --> 00:20:57,520
+so now you can CD and do a top.
+
+361
+00:20:52,799 --> 00:21:01,840
+Oh, we are monitoring our pro processes
+
+362
+00:20:57,520 --> 00:21:05,480
+so advanced. Jesus, I'm a real man. I'm
+
+363
+00:21:01,840 --> 00:21:05,480
+a real man.
+
+364
+00:21:05,760 --> 00:21:12,880
+[ __ ] the C C++. [ __ ] it. Now I forgot
+
+365
+00:21:10,320 --> 00:21:18,159
+what's the command. So, uh, Linux, let's
+
+366
+00:21:12,880 --> 00:21:20,559
+go to the, uh, Unix tutorial on jobs.
+
+367
+00:21:18,159 --> 00:21:23,679
+You know, it's called jobs like 40 years
+
+368
+00:21:20,559 --> 00:21:26,480
+ago. I don't know how you zoomers know
+
+369
+00:21:23,679 --> 00:21:28,720
+about it. It's called job control. Okay.
+
+370
+00:21:26,480 --> 00:21:32,640
+Uh oh yeah. So foreground background.
+
+371
+00:21:28,720 --> 00:21:40,039
+What? So what is the uh key?
+
+372
+00:21:32,640 --> 00:21:40,039
+Ctrl C. Uh no control Z suspend. No.
+
+373
+00:21:46,480 --> 00:21:52,159
+Yeah, I forgot. I forgot what the [ __ ]
+
+374
+00:21:49,039 --> 00:21:55,120
+So, you know, we can just restart Emacs.
+
+375
+00:21:52,159 --> 00:21:58,480
+But if we restart Emacs, then I have to
+
+376
+00:21:55,120 --> 00:22:00,640
+like adjust the window size and font
+
+377
+00:21:58,480 --> 00:22:02,880
+size all over.
+
+378
+00:22:00,640 --> 00:22:04,880
+Uh where did it go? Here. Too many
+
+379
+00:22:02,880 --> 00:22:07,360
+windows now.
+
+380
+00:22:04,880 --> 00:22:12,720
+Okay. Now, control
+
+381
+00:22:07,360 --> 00:22:15,360
+uh C to cancel it. In insta
+
+382
+00:22:12,720 --> 00:22:20,080
+death.
+
+383
+00:22:15,360 --> 00:22:20,080
+Okay. In Unix, it's called kill.
+
+384
+00:22:20,320 --> 00:22:25,120
+So, so what are we doing? Oh, clock.
+
+385
+00:22:23,039 --> 00:22:31,679
+Okay. So, you want to know the GUI
+
+386
+00:22:25,120 --> 00:22:35,280
+there? X. What? X clock. Is it X clock?
+
+387
+00:22:31,679 --> 00:22:38,400
+The classic X11.
+
+388
+00:22:35,280 --> 00:22:41,280
+[ __ ] Okay. It's not even installed.
+
+389
+00:22:38,400 --> 00:22:43,520
+Don't they install it by default? Or
+
+390
+00:22:41,280 --> 00:22:45,520
+maybe not.
+
+391
+00:22:43,520 --> 00:22:48,960
+Okay. So,
+
+392
+00:22:45,520 --> 00:22:51,520
+Oh, yeah. Don't forget the our goal is
+
+393
+00:22:48,960 --> 00:22:54,720
+to install SFly keys, okay? Don't [ __ ]
+
+394
+00:22:51,520 --> 00:22:57,440
+around. So now, let me show you how to
+
+395
+00:22:54,720 --> 00:23:01,520
+start Emacs without Windows. That's a
+
+396
+00:22:57,440 --> 00:23:05,240
+dash NW. Okay. So now, oh god, now you
+
+397
+00:23:01,520 --> 00:23:05,240
+got this ugly.
+
+398
+00:23:06,640 --> 00:23:13,600
+What is this? Hold on a second. Okay,
+
+399
+00:23:10,080 --> 00:23:16,880
+there it is. Okay,
+
+400
+00:23:13,600 --> 00:23:19,840
+now I need
+
+401
+00:23:16,880 --> 00:23:22,000
+so control
+
+402
+00:23:19,840 --> 00:23:28,080
+X.
+
+403
+00:23:22,000 --> 00:23:32,480
+Wait, what? That's Windows. Ctrl X2.
+
+404
+00:23:28,080 --> 00:23:34,799
+Split the window. Okay. Now, Ctrl X.
+
+405
+00:23:32,480 --> 00:23:37,520
+Controll F.
+
+406
+00:23:34,799 --> 00:23:41,679
+Go to um
+
+407
+00:23:37,520 --> 00:23:45,120
+go to Emacs my home. Duh. Oh [ __ ] you
+
+408
+00:23:41,679 --> 00:23:50,559
+forgot completion. God, the playing new
+
+409
+00:23:45,120 --> 00:23:57,440
+Emacs is like Ctrl X K to kill.
+
+410
+00:23:50,559 --> 00:24:02,640
+Now Ctrl X controll F. Now you
+
+411
+00:23:57,440 --> 00:24:05,600
+metab backspace. Now
+
+412
+00:24:02,640 --> 00:24:11,200
+tap to complete. Now enter. Now that's
+
+413
+00:24:05,600 --> 00:24:15,200
+where I want to go. Now, Ctrl X O to
+
+414
+00:24:11,200 --> 00:24:19,080
+move the cursor to the other pen.
+
+415
+00:24:15,200 --> 00:24:19,080
+Let me show you the
+
+416
+00:24:19,279 --> 00:24:26,559
+obscurity, the idiocy of the Emacs
+
+417
+00:24:22,960 --> 00:24:31,520
+default key binding. Now, Ctrl X
+
+418
+00:24:26,559 --> 00:24:33,520
+controll F to open to open the
+
+419
+00:24:31,520 --> 00:24:37,120
+mntount
+
+420
+00:24:33,520 --> 00:24:41,919
+directory. Wait, did it uh I want to go
+
+421
+00:24:37,120 --> 00:24:45,760
+to mount. Okay, mount. Mount C. Okay,
+
+422
+00:24:41,919 --> 00:24:51,840
+mount. So, Ctrl X control
+
+423
+00:24:45,760 --> 00:24:54,000
+F then C slash then users. Okay. Tab no
+
+424
+00:24:51,840 --> 00:24:56,320
+work.
+
+425
+00:24:54,000 --> 00:24:58,559
+What?
+
+426
+00:24:56,320 --> 00:25:02,640
+Capital US.
+
+427
+00:24:58,559 --> 00:25:05,760
+Okay. Now, casad. Okay.
+
+428
+00:25:02,640 --> 00:25:09,120
+Enter. Now that is my homepage in my
+
+429
+00:25:05,760 --> 00:25:13,760
+home directory on Windows the Windows
+
+430
+00:25:09,120 --> 00:25:19,240
+new technology file system. Okay. Now
+
+431
+00:25:13,760 --> 00:25:19,240
+search for uh search for controlF.
+
+432
+00:25:19,279 --> 00:25:26,159
+EMAC. Oh, oops. I pressed something
+
+433
+00:25:22,559 --> 00:25:29,200
+wrong. Now this is DS store the Mac OS
+
+434
+00:25:26,159 --> 00:25:32,159
+[ __ ] file. They litter the ship file.
+
+435
+00:25:29,200 --> 00:25:35,840
+Now control
+
+436
+00:25:32,159 --> 00:25:41,600
+slash to undo. Now where is my slash?
+
+437
+00:25:35,840 --> 00:25:46,640
+I'm using vor keyboard. Okay. So this no
+
+438
+00:25:41,600 --> 00:25:50,480
+control g to cancel. Okay. Uh control
+
+439
+00:25:46,640 --> 00:25:54,000
+slash and this one. No. Control G to
+
+440
+00:25:50,480 --> 00:25:57,520
+cancel. Where is my slash? Maybe that
+
+441
+00:25:54,000 --> 00:26:02,400
+one. Can try it. That's right. Now kill
+
+442
+00:25:57,520 --> 00:26:04,240
+this file. Control X K. Are you sure?
+
+443
+00:26:02,400 --> 00:26:08,159
+Yes.
+
+444
+00:26:04,240 --> 00:26:10,480
+Now, uh, now you use the arrow key so
+
+445
+00:26:08,159 --> 00:26:14,000
+you don't control [ __ ] Just arrow.
+
+446
+00:26:10,480 --> 00:26:17,840
+Okay. Now go to my home Emacs.
+
+447
+00:26:14,000 --> 00:26:20,720
+Go to my, uh,
+
+448
+00:26:17,840 --> 00:26:22,799
+initate file. Oh god, now I remember
+
+449
+00:26:20,720 --> 00:26:25,200
+it's complicated.
+
+450
+00:26:22,799 --> 00:26:27,760
+my init file. You see, because in my
+
+451
+00:26:25,200 --> 00:26:31,120
+init file, it
+
+452
+00:26:27,760 --> 00:26:34,400
+loads this other file which is my real
+
+453
+00:26:31,120 --> 00:26:37,200
+innit file. You see, and then it loads
+
+454
+00:26:34,400 --> 00:26:40,400
+the other file. This one is which is my
+
+455
+00:26:37,200 --> 00:26:44,080
+real init file.
+
+456
+00:26:40,400 --> 00:26:46,240
+So, you see I got one two systems.
+
+457
+00:26:44,080 --> 00:26:48,640
+Let me explain. Okay, it's easier if I
+
+458
+00:26:46,240 --> 00:26:51,760
+just show you in the home in my uh
+
+459
+00:26:48,640 --> 00:26:56,559
+Windows setting. Okay. So, go to uh go
+
+460
+00:26:51,760 --> 00:27:02,000
+to the eax. Okay. Go to em eacd. That's
+
+461
+00:26:56,559 --> 00:27:05,039
+what I want. Yes. Okay. So, uh you got
+
+462
+00:27:02,000 --> 00:27:08,559
+init. There it is. In it. So, this init
+
+463
+00:27:05,039 --> 00:27:10,880
+has three parts. The first part is
+
+464
+00:27:08,559 --> 00:27:12,720
+local. Whatever your system, your
+
+465
+00:27:10,880 --> 00:27:16,159
+current machine, you know, it mean maybe
+
+466
+00:27:12,720 --> 00:27:19,919
+a Mac here or maybe on on another
+
+467
+00:27:16,159 --> 00:27:23,120
+country or running Windows or uh running
+
+468
+00:27:19,919 --> 00:27:26,880
+Linux. Okay. So, what is whatever direct
+
+469
+00:27:23,120 --> 00:27:30,240
+setting settings you see in this file is
+
+470
+00:27:26,880 --> 00:27:35,279
+for whatever your current machine. Okay.
+
+471
+00:27:30,240 --> 00:27:38,799
+Then it loads this file XAX. Okay. In
+
+472
+00:27:35,279 --> 00:27:43,440
+it. Now you open that file. That file is
+
+473
+00:27:38,799 --> 00:27:47,279
+the entire Kasa Emac system. Okay. So
+
+474
+00:27:43,440 --> 00:27:49,279
+this is generalized EMAC system for can
+
+475
+00:27:47,279 --> 00:27:51,600
+be used by you anyone. You have to pay
+
+476
+00:27:49,279 --> 00:27:54,720
+me. Okay. Nobody buys it. But you you
+
+477
+00:27:51,600 --> 00:27:56,960
+you send me a $100 donation and let me
+
+478
+00:27:54,720 --> 00:28:01,039
+know I send it to you. Okay. So this
+
+479
+00:27:56,960 --> 00:28:04,799
+emac system. So you got generalized farm
+
+480
+00:28:01,039 --> 00:28:08,159
+setup, generalized key setup and uh any
+
+481
+00:28:04,799 --> 00:28:10,799
+other miscellaneous and oak mod and okay
+
+482
+00:28:08,159 --> 00:28:14,399
+and then you gota
+
+483
+00:28:10,799 --> 00:28:19,039
+packages about 20 of them. No 30 oh
+
+484
+00:28:14,399 --> 00:28:22,799
+Jesus. Okay 30 about 40 of them the
+
+485
+00:28:19,039 --> 00:28:25,600
+system kasar emacs. Okay so close that
+
+486
+00:28:22,799 --> 00:28:28,320
+close that this is kasar emac
+
+487
+00:28:25,600 --> 00:28:33,039
+kasar emacs in it. So you can see close.
+
+488
+00:28:28,320 --> 00:28:35,039
+So that's this this one. Okay. Then you
+
+489
+00:28:33,039 --> 00:28:38,640
+uh begin
+
+490
+00:28:35,039 --> 00:28:40,960
+you start the fly keys you know. Then I
+
+491
+00:28:38,640 --> 00:28:44,159
+mean you set the keyboard layout. Okay.
+
+492
+00:28:40,960 --> 00:28:47,760
+It's already started I think.
+
+493
+00:28:44,159 --> 00:28:51,200
+Then you load this in it. Okay. This is
+
+494
+00:28:47,760 --> 00:28:53,919
+my personal in it. Okay. So you open
+
+495
+00:28:51,200 --> 00:28:58,799
+that. Go to the directory. So you can
+
+496
+00:28:53,919 --> 00:29:01,679
+see this directory is about 40 about 40
+
+497
+00:28:58,799 --> 00:29:03,840
+files. Okay, those starting with xx that
+
+498
+00:29:01,679 --> 00:29:07,120
+those are like 10 files. Okay, garbage
+
+499
+00:29:03,840 --> 00:29:11,679
+files. So 40 files. So basically this in
+
+500
+00:29:07,120 --> 00:29:15,600
+it set loads up a bunch of my things
+
+501
+00:29:11,679 --> 00:29:18,559
+that I personally use but is not
+
+502
+00:29:15,600 --> 00:29:23,679
+suitable for other people. So that's
+
+503
+00:29:18,559 --> 00:29:26,240
+like 40 40 uh eag files. Okay. So you
+
+504
+00:29:23,679 --> 00:29:29,600
+can see, let me summarize again. So go
+
+505
+00:29:26,240 --> 00:29:33,200
+to my EMAC init directory. So you got
+
+506
+00:29:29,600 --> 00:29:36,240
+the init file. There are two main parts.
+
+507
+00:29:33,200 --> 00:29:39,360
+One is the Kasar EMAC system in it. You
+
+508
+00:29:36,240 --> 00:29:43,840
+open that. That loads the Kasar Emacs
+
+509
+00:29:39,360 --> 00:29:46,240
+system including 40 packages. Okay. Then
+
+510
+00:29:43,840 --> 00:29:50,640
+you got the Casar personal in it which
+
+511
+00:29:46,240 --> 00:29:53,600
+is this one. 40 another 40 EMA this
+
+512
+00:29:50,640 --> 00:29:56,080
+files. Okay, then the rest you know the
+
+513
+00:29:53,600 --> 00:29:58,320
+rest you see here set frame font you
+
+514
+00:29:56,080 --> 00:30:01,120
+know that's just for this machine
+
+515
+00:29:58,320 --> 00:30:03,440
+whatever you know this machine is why
+
+516
+00:30:01,120 --> 00:30:06,080
+you need to be that like that because
+
+517
+00:30:03,440 --> 00:30:08,640
+for example console last 18 that's a
+
+518
+00:30:06,080 --> 00:30:11,279
+font font size
+
+519
+00:30:08,640 --> 00:30:13,919
+is specific to this machine because on
+
+520
+00:30:11,279 --> 00:30:16,480
+different monitors their resolution is
+
+521
+00:30:13,919 --> 00:30:19,679
+different so
+
+522
+00:30:16,480 --> 00:30:22,960
+size 18 is nice here but it's too small
+
+523
+00:30:19,679 --> 00:30:25,919
+there is too charge on another monitor
+
+524
+00:30:22,960 --> 00:30:28,320
+or system things like that. Okay. And
+
+525
+00:30:25,919 --> 00:30:30,720
+depending on whether you are on Linux,
+
+526
+00:30:28,320 --> 00:30:33,440
+Windows or whatever, you may not have
+
+527
+00:30:30,720 --> 00:30:36,720
+consolas. Consolas is a default
+
+528
+00:30:33,440 --> 00:30:38,880
+Microsoft monospace
+
+529
+00:30:36,720 --> 00:30:41,679
+font. Okay.
+
+530
+00:30:38,880 --> 00:30:45,360
+On the Mac, it's Menlo. On Linux, it's
+
+531
+00:30:41,679 --> 00:30:51,840
+it depends, but uh half of the time is
+
+532
+00:30:45,360 --> 00:30:54,480
+the deja vu mono. Okay. Uh okay. So
+
+533
+00:30:51,840 --> 00:30:58,480
+okay, we are not going anywhere. I'm
+
+534
+00:30:54,480 --> 00:31:01,679
+just like explaining this. Uh the
+
+535
+00:30:58,480 --> 00:31:04,960
+original goal was to install softly keys
+
+536
+00:31:01,679 --> 00:31:07,039
+to get softly keys in this
+
+537
+00:31:04,960 --> 00:31:09,440
+Windows subsystem because otherwise I
+
+538
+00:31:07,039 --> 00:31:14,360
+cannot use Emacs. I cannot do with a
+
+539
+00:31:09,440 --> 00:31:14,360
+control X control F [ __ ]
+
+540
+00:31:15,360 --> 00:31:21,320
+Does that make sense? Am I like good?
+
+541
+00:31:23,200 --> 00:31:28,880
+Oh, hello. Hello. Uh, hello mass. Hello
+
+542
+00:31:26,720 --> 00:31:33,679
+more mo.
+
+543
+00:31:28,880 --> 00:31:36,000
+Uh, ser is a demon. Okay, so what are we
+
+544
+00:31:33,679 --> 00:31:39,600
+types in volorac? Why not comarmac or
+
+545
+00:31:36,000 --> 00:31:41,200
+workman? Okay, that's another kind of
+
+546
+00:31:39,600 --> 00:31:46,120
+frequently
+
+547
+00:31:41,200 --> 00:31:46,120
+asked question and uh
+
+548
+00:31:46,240 --> 00:31:51,039
+you know you you got to check my website
+
+549
+00:31:48,480 --> 00:31:54,320
+you know because I have 1,000 articles
+
+550
+00:31:51,039 --> 00:31:58,399
+about that topic actually 100 you know
+
+551
+00:31:54,320 --> 00:32:00,240
+actually 50 about vorac
+
+552
+00:31:58,399 --> 00:32:03,679
+which one is better okay and I talked
+
+553
+00:32:00,240 --> 00:32:07,760
+about that live 10,000 times already
+
+554
+00:32:03,679 --> 00:32:11,279
+okay and again on the And uh you know
+
+555
+00:32:07,760 --> 00:32:14,159
+Vorak I I I don't like Vorac. I I mean I
+
+556
+00:32:11,279 --> 00:32:16,240
+don't like Karmac kind of like I don't
+
+557
+00:32:14,159 --> 00:32:19,039
+like that guy because that guy is
+
+558
+00:32:16,240 --> 00:32:22,399
+aggressive. He's the first guy who
+
+559
+00:32:19,039 --> 00:32:24,799
+dissed Vorac you know before the co
+
+560
+00:32:22,399 --> 00:32:28,159
+comarmac [ __ ]
+
+561
+00:32:24,799 --> 00:32:30,799
+before the comarmac [ __ ] the word is is
+
+562
+00:32:28,159 --> 00:32:34,000
+quoty which is very lousy then vorac
+
+563
+00:32:30,799 --> 00:32:37,279
+which is very uh you know efficient
+
+564
+00:32:34,000 --> 00:32:39,760
+design. Then came this Karmac guy. Okay,
+
+565
+00:32:37,279 --> 00:32:42,480
+he says he proclaims, "Oh, by by the
+
+566
+00:32:39,760 --> 00:32:44,960
+way, Cormarmac is actually not the best.
+
+567
+00:32:42,480 --> 00:32:48,559
+There are possible better ones." Okay,
+
+568
+00:32:44,960 --> 00:32:50,480
+let me show you my my my my name is
+
+569
+00:32:48,559 --> 00:32:53,519
+Comac. Okay, let me show you the
+
+570
+00:32:50,480 --> 00:32:57,120
+Comarmac way, which is actually better
+
+571
+00:32:53,519 --> 00:33:01,279
+than Vorac. Vorac is Oh, it's old. It's
+
+572
+00:32:57,120 --> 00:33:03,279
+before the computer era. I created
+
+573
+00:33:01,279 --> 00:33:06,159
+Comarmac. It's based on computer
+
+574
+00:33:03,279 --> 00:33:08,559
+statistics. Therefore, it's better.
+
+575
+00:33:06,159 --> 00:33:11,039
+Okay, this this we got this comarmac
+
+576
+00:33:08,559 --> 00:33:13,919
+guy. Okay, I don't think he's a bad
+
+577
+00:33:11,039 --> 00:33:16,159
+person. Let me mention that again in
+
+578
+00:33:13,919 --> 00:33:18,559
+case of misunderstanding. Okay, I don't
+
+579
+00:33:16,159 --> 00:33:21,840
+think he's a bad person. I don't think
+
+580
+00:33:18,559 --> 00:33:24,799
+he did anything wrong. However, I don't
+
+581
+00:33:21,840 --> 00:33:27,679
+like him because he pushed Koreac
+
+582
+00:33:24,799 --> 00:33:31,200
+aggressively. He started to get, you
+
+583
+00:33:27,679 --> 00:33:34,480
+know, the uh first the Linux. Hey Linux
+
+584
+00:33:31,200 --> 00:33:36,399
+people, can we include COMAC? Well,
+
+585
+00:33:34,480 --> 00:33:38,960
+first of all, he begin his website, you
+
+586
+00:33:36,399 --> 00:33:40,720
+know, massive website with forums so
+
+587
+00:33:38,960 --> 00:33:44,159
+people can chat, you know, very nice,
+
+588
+00:33:40,720 --> 00:33:46,880
+you know, FAQ. Why COMAC is better? Is
+
+589
+00:33:44,159 --> 00:33:49,679
+it better than Borak? Yes, because this
+
+590
+00:33:46,880 --> 00:33:52,480
+this this this is okay. He began his
+
+591
+00:33:49,679 --> 00:33:58,320
+website first. This is around 2006 or
+
+592
+00:33:52,480 --> 00:34:00,880
+so. Then he uh hey the Linux dev private
+
+593
+00:33:58,320 --> 00:34:02,640
+email you know c can we include comarmac
+
+594
+00:34:00,880 --> 00:34:05,600
+please because you know I believe it's
+
+595
+00:34:02,640 --> 00:34:08,079
+better look at the statistics you know
+
+596
+00:34:05,600 --> 00:34:11,359
+then he talked to the Mac oh that's
+
+597
+00:34:08,079 --> 00:34:13,839
+that's a difficult one he talked to the
+
+598
+00:34:11,359 --> 00:34:17,040
+apple guys okay can we can we possibly
+
+599
+00:34:13,839 --> 00:34:19,200
+include coac as a layout because I think
+
+600
+00:34:17,040 --> 00:34:23,040
+it's better
+
+601
+00:34:19,200 --> 00:34:26,720
+you know so very aggressive this guy but
+
+602
+00:34:23,040 --> 00:34:29,119
+Funny he failed in getting Windows the
+
+603
+00:34:26,720 --> 00:34:33,599
+Microsoft to include comarmac as one of
+
+604
+00:34:29,119 --> 00:34:36,480
+the uh layout he failed in that
+
+605
+00:34:33,599 --> 00:34:38,240
+but is is comarmac actually better
+
+606
+00:34:36,480 --> 00:34:42,480
+that's the real question is it actually
+
+607
+00:34:38,240 --> 00:34:46,159
+better than vorac I don't think so [ __ ]
+
+608
+00:34:42,480 --> 00:34:48,560
+the comarmac [ __ ] you know depending on
+
+609
+00:34:46,159 --> 00:34:51,919
+lots of things for example if you jump
+
+610
+00:34:48,560 --> 00:34:56,480
+around uh different languages if you
+
+611
+00:34:51,919 --> 00:35:00,240
+type Chinese ping, French or Japanese or
+
+612
+00:34:56,480 --> 00:35:02,240
+uh then comarmac is not better. Okay, if
+
+613
+00:35:00,240 --> 00:35:06,320
+you stick with English and type in just
+
+614
+00:35:02,240 --> 00:35:09,359
+English, yeah, com is argu arguably
+
+615
+00:35:06,320 --> 00:35:11,200
+better, you know, also especially if you
+
+616
+00:35:09,359 --> 00:35:14,560
+don't like switch hands, you like row,
+
+617
+00:35:11,200 --> 00:35:16,480
+you know, but if you you know use
+
+618
+00:35:14,560 --> 00:35:18,000
+different languages then or different
+
+619
+00:35:16,480 --> 00:35:20,800
+programming languages, it's not
+
+620
+00:35:18,000 --> 00:35:22,800
+necessarily better. Okay, but that you
+
+621
+00:35:20,800 --> 00:35:25,760
+know that but
+
+622
+00:35:22,800 --> 00:35:28,160
+uh he's successful salesman. He sold his
+
+623
+00:35:25,760 --> 00:35:30,400
+idea to you guys, you know, like
+
+624
+00:35:28,160 --> 00:35:33,200
+especially the younger guys, the zoomers
+
+625
+00:35:30,400 --> 00:35:36,240
+or the late Malaysians, they don't know.
+
+626
+00:35:33,200 --> 00:35:38,640
+They, "Oh, I heard there's a comac. It's
+
+627
+00:35:36,240 --> 00:35:41,920
+more efficient." Yeah, there's Warak. I
+
+628
+00:35:38,640 --> 00:35:45,200
+heard, but it's like 100 years old. Back
+
+629
+00:35:41,920 --> 00:35:48,640
+then, you don't have computers, so it's
+
+630
+00:35:45,200 --> 00:35:51,359
+stupid today. We have COMAC, which is
+
+631
+00:35:48,640 --> 00:35:54,480
+computer-based. It's better. [ __ ] the
+
+632
+00:35:51,359 --> 00:35:57,280
+CMAC. Okay, that's my story. Okay. I
+
+633
+00:35:54,480 --> 00:36:00,320
+don't think I think he's a
+
+634
+00:35:57,280 --> 00:36:03,599
+I don't think he did anything wrong. You
+
+635
+00:36:00,320 --> 00:36:06,320
+know, I you know, probably a good uh
+
+636
+00:36:03,599 --> 00:36:09,119
+good guy, but I don't like Karmac. Okay.
+
+637
+00:36:06,320 --> 00:36:13,920
+Because he dissed Vorak. He's the first
+
+638
+00:36:09,119 --> 00:36:18,960
+one. But he made but he, you know, he
+
+639
+00:36:13,920 --> 00:36:22,400
+made a contribution to humanity.
+
+640
+00:36:18,960 --> 00:36:25,280
+that is he introduced the idea that
+
+641
+00:36:22,400 --> 00:36:27,760
+there are better efficient layout I mean
+
+642
+00:36:25,280 --> 00:36:30,240
+I mean the vorak is not the best one
+
+643
+00:36:27,760 --> 00:36:33,680
+okay it's not like vorak is the best one
+
+644
+00:36:30,240 --> 00:36:37,839
+and period okay since comarmac there's
+
+645
+00:36:33,680 --> 00:36:41,680
+lots of lots of lots of
+
+646
+00:36:37,839 --> 00:36:45,520
+keyboard layout uh creators okay there
+
+647
+00:36:41,680 --> 00:36:49,200
+are tens of them and there's still there
+
+648
+00:36:45,520 --> 00:36:53,119
+are still so many people like doing the
+
+649
+00:36:49,200 --> 00:36:56,640
+layouts. Okay, it's like idiotic.
+
+650
+00:36:53,119 --> 00:36:58,720
+Okay, uh big digression as usual. Uh so
+
+651
+00:36:56,640 --> 00:37:00,800
+why don't we since I talked about this
+
+652
+00:36:58,720 --> 00:37:05,440
+so much, why don't I just show the
+
+653
+00:37:00,800 --> 00:37:08,079
+layout one more time? The 1,1
+
+654
+00:37:05,440 --> 00:37:10,480
+time about keyboard layout and my
+
+655
+00:37:08,079 --> 00:37:12,720
+articles. So you can just search on
+
+656
+00:37:10,480 --> 00:37:15,599
+kasadi.info.
+
+657
+00:37:12,720 --> 00:37:18,640
+Okay, you'll find it keyboard blog.
+
+658
+00:37:15,599 --> 00:37:20,480
+Okay, then you just go to you need the
+
+659
+00:37:18,640 --> 00:37:22,480
+big screen so you can see the side
+
+660
+00:37:20,480 --> 00:37:26,560
+panels but you cannot see the side
+
+661
+00:37:22,480 --> 00:37:31,440
+panels. So let me enlarge this and uh
+
+662
+00:37:26,560 --> 00:37:34,240
+then there is the side panels. So
+
+663
+00:37:31,440 --> 00:37:37,520
+So you go to the layout section. There
+
+664
+00:37:34,240 --> 00:37:40,480
+are 10,000 articles on this on this
+
+665
+00:37:37,520 --> 00:37:42,880
+keyboard section. Okay. So you go to
+
+666
+00:37:40,480 --> 00:37:44,640
+layout uh keyboard layout. So which is
+
+667
+00:37:42,880 --> 00:37:48,640
+uh here
+
+668
+00:37:44,640 --> 00:37:52,720
+u it yourself normal erggo.
+
+669
+00:37:48,640 --> 00:37:57,200
+Okay. Not erggo. Do it yourself. Not do
+
+670
+00:37:52,720 --> 00:38:00,720
+yourself. No more for no meanies. No
+
+671
+00:37:57,200 --> 00:38:04,480
+laptop. No keypads. Oh keypad. That's
+
+672
+00:38:00,720 --> 00:38:08,160
+good. But no fun history. Ugo history.
+
+673
+00:38:04,480 --> 00:38:11,520
+Key switch guide. Design of the keyboard
+
+674
+00:38:08,160 --> 00:38:14,800
+and key caps. All beautiful key caps and
+
+675
+00:38:11,520 --> 00:38:17,920
+the layout there. Okay. Then this
+
+676
+00:38:14,800 --> 00:38:20,480
+article ergonomic ergonomic keyboard
+
+677
+00:38:17,920 --> 00:38:23,760
+layouts. So you got a JavaScript
+
+678
+00:38:20,480 --> 00:38:27,040
+interactive diagram showing different
+
+679
+00:38:23,760 --> 00:38:31,839
+layouts. There is comarmac, there is
+
+680
+00:38:27,040 --> 00:38:34,880
+comarmac, there is workman, there is
+
+681
+00:38:31,839 --> 00:38:37,599
+mini mac and so on and in grammar and
+
+682
+00:38:34,880 --> 00:38:40,079
+canary and whole mac. Those are news.
+
+683
+00:38:37,599 --> 00:38:41,200
+Okay, those are new in the past like 10
+
+684
+00:38:40,079 --> 00:38:46,560
+years.
+
+685
+00:38:41,200 --> 00:38:48,079
+Be bo 15, Bo 15, home in grammar,
+
+686
+00:38:46,560 --> 00:38:50,320
+Canary.
+
+687
+00:38:48,079 --> 00:38:52,000
+There are lots of these uh layout
+
+688
+00:38:50,320 --> 00:38:55,839
+special nerds, you know, they are on
+
+689
+00:38:52,000 --> 00:38:58,880
+Reddit, very specialized nerds. They
+
+690
+00:38:55,839 --> 00:39:01,520
+learn all these layouts. Okay. And for
+
+691
+00:38:58,880 --> 00:39:05,440
+European language, you got Neo, you got
+
+692
+00:39:01,520 --> 00:39:08,560
+AdnW German, you got Beo French, you got
+
+693
+00:39:05,440 --> 00:39:10,880
+French asserti, you got PT Nivo for
+
+694
+00:39:08,560 --> 00:39:13,920
+Brazilian, then you got Juncan, that's
+
+695
+00:39:10,880 --> 00:39:16,240
+not ergonomic, uh that's for Russian,
+
+696
+00:39:13,920 --> 00:39:21,200
+and you got English, Spanish. You can
+
+697
+00:39:16,240 --> 00:39:25,359
+try for example Neo on English on SP
+
+698
+00:39:21,200 --> 00:39:29,839
+let's say quoty the most idiotic on
+
+699
+00:39:25,359 --> 00:39:33,119
+English on Spanish on Germany on French
+
+700
+00:39:29,839 --> 00:39:35,839
+on ping in Chinese on typing Russian
+
+701
+00:39:33,119 --> 00:39:39,440
+okay Russian doesn't work because the
+
+702
+00:39:35,839 --> 00:39:44,320
+letter alphabets are not Latin of course
+
+703
+00:39:39,440 --> 00:39:49,599
+uh so you got vorac you got uh yeah quot
+
+704
+00:39:44,320 --> 00:39:53,280
+v uh Quarti Vorac and Mutron
+
+705
+00:39:49,599 --> 00:39:57,040
+specialized with with a thumb e and
+
+706
+00:39:53,280 --> 00:40:00,000
+programmers war and and a lot okay and
+
+707
+00:39:57,040 --> 00:40:03,440
+uh there are about
+
+708
+00:40:00,000 --> 00:40:06,079
+uh maybe 50 maybe 30 more articles all
+
+709
+00:40:03,440 --> 00:40:08,960
+the details about this okay that's a
+
+710
+00:40:06,079 --> 00:40:11,920
+huge digression that's like 20 minutes
+
+711
+00:40:08,960 --> 00:40:11,920
+digression isn't
+
+712
+00:40:20,560 --> 00:40:28,520
+Why not just package install? Oh yeah,
+
+713
+00:40:23,599 --> 00:40:28,520
+that's good idea. That's good idea.
+
+714
+00:40:32,560 --> 00:40:37,599
+Okay, that's
+
+715
+00:40:35,599 --> 00:40:39,920
+actually I can do it easy without
+
+716
+00:40:37,599 --> 00:40:43,040
+package. So yeah. Okay. So, let's go
+
+717
+00:40:39,920 --> 00:40:48,400
+back. So, Ctrl X
+
+718
+00:40:43,040 --> 00:40:50,720
+K. Are you sure? Yes. [ __ ] Ctrl XO.
+
+719
+00:40:48,400 --> 00:40:54,760
+Control X1.
+
+720
+00:40:50,720 --> 00:40:54,760
+Now, Ctrl
+
+721
+00:40:55,040 --> 00:41:00,480
+X
+
+722
+00:40:56,880 --> 00:41:02,400
+F to create. Wait. No.
+
+723
+00:41:00,480 --> 00:41:04,960
+Oh, God.
+
+724
+00:41:02,400 --> 00:41:12,920
+Can we actually do it? Yeah. Okay. So,
+
+725
+00:41:04,960 --> 00:41:12,920
+wait. So go to find file uh s.emax.
+
+726
+00:41:13,119 --> 00:41:24,040
+Oh, you need to get um so that's in uh
+
+727
+00:41:20,480 --> 00:41:24,040
+so that's
+
+728
+00:41:24,319 --> 00:41:32,240
+get get my friend get then fly keys
+
+729
+00:41:30,480 --> 00:41:32,640
+fly
+
+730
+00:41:32,240 --> 00:41:32,640
+fly fly fly fly fly fly fly fly fly fly
+
+731
+00:41:32,640 --> 00:41:38,640
+fly fly fly fly fly fly fly fly fly fly
+
+732
+00:41:32,640 --> 00:41:42,400
+fly there okay now control X2 to split
+
+733
+00:41:38,640 --> 00:41:45,359
+the window then then Jesus I for then
+
+734
+00:41:42,400 --> 00:41:50,160
+you need to get diet list of files. So
+
+735
+00:41:45,359 --> 00:41:51,839
+Jesus, what is the D? What is the um
+
+736
+00:41:50,160 --> 00:41:53,760
+control
+
+737
+00:41:51,839 --> 00:41:58,000
+X?
+
+738
+00:41:53,760 --> 00:42:00,880
+Okay, I don't remember what is the
+
+739
+00:41:58,000 --> 00:42:05,359
+I buffer. Okay, so now Okay, I forgot
+
+740
+00:42:00,880 --> 00:42:09,359
+what's the key. So meta X
+
+741
+00:42:05,359 --> 00:42:11,520
+I um buffer list. Okay. Oh yeah,
+
+742
+00:42:09,359 --> 00:42:15,800
+controll XP.
+
+743
+00:42:11,520 --> 00:42:15,800
+I remember wait
+
+744
+00:42:16,560 --> 00:42:21,920
+there it is.
+
+745
+00:42:18,720 --> 00:42:26,560
+So list buffers. So wait where are we
+
+746
+00:42:21,920 --> 00:42:31,680
+here is softly keys. Okay XO to switch
+
+747
+00:42:26,560 --> 00:42:37,040
+pen. Then you want to go to home
+
+748
+00:42:31,680 --> 00:42:38,880
+XAX home there. Then you just
+
+749
+00:42:37,040 --> 00:42:42,800
+uh
+
+750
+00:42:38,880 --> 00:42:48,000
+go. So you need to um
+
+751
+00:42:42,800 --> 00:42:54,240
+where do I put uh God? Okay. Control X
+
+752
+00:42:48,000 --> 00:43:01,079
+O. Now put the cursor here. Shift C.
+
+753
+00:42:54,240 --> 00:43:01,079
+Copy. You want to copy it to um
+
+754
+00:43:02,720 --> 00:43:08,480
+Okay.
+
+755
+00:43:04,960 --> 00:43:12,040
+Yeah. Copy it, please.
+
+756
+00:43:08,480 --> 00:43:12,040
+Crl XO
+
+757
+00:43:12,560 --> 00:43:18,400
+uh G to refresh. Now you got soft flag
+
+758
+00:43:16,560 --> 00:43:23,119
+keys. Now you got a unique you got to
+
+759
+00:43:18,400 --> 00:43:26,480
+create a unique file. Now um control
+
+760
+00:43:23,119 --> 00:43:32,960
+space to start selection
+
+761
+00:43:26,480 --> 00:43:37,839
+and uh then how do you do copy? Copy is
+
+762
+00:43:32,960 --> 00:43:42,560
+uh alt w I think. Please don't close.
+
+763
+00:43:37,839 --> 00:43:44,960
+Okay, got it. Now, Ctrl XF
+
+764
+00:43:42,560 --> 00:43:49,280
+find file. Okay, now we're going to
+
+765
+00:43:44,960 --> 00:43:54,480
+create a new file. Uh, init.
+
+766
+00:43:49,280 --> 00:43:57,920
+Okay. Now, paste is control Y. That's
+
+767
+00:43:54,480 --> 00:44:00,400
+correct. You missing L. So, you need to
+
+768
+00:43:57,920 --> 00:44:01,920
+load that. Okay. So, you need to say
+
+769
+00:44:00,400 --> 00:44:06,000
+load
+
+770
+00:44:01,920 --> 00:44:11,760
+emac lisp coding. Load. Okay. Reload
+
+771
+00:44:06,000 --> 00:44:14,800
+this. Shift that. Okay. Shift quote and
+
+772
+00:44:11,760 --> 00:44:18,560
+write paren. Fantastic.
+
+773
+00:44:14,800 --> 00:44:22,079
+And let's delete this. Make it one line.
+
+774
+00:44:18,560 --> 00:44:25,040
+Okay. Space. Now
+
+775
+00:44:22,079 --> 00:44:27,520
+error message. What? I don't care about
+
+776
+00:44:25,040 --> 00:44:30,400
+that. You know there's a magic going on.
+
+777
+00:44:27,520 --> 00:44:32,800
+L doc. You see it shows the
+
+778
+00:44:30,400 --> 00:44:36,480
+documentation for this load function
+
+779
+00:44:32,800 --> 00:44:40,079
+automatically. Anyway, now Ctrl S to
+
+780
+00:44:36,480 --> 00:44:45,599
+save. Wait, that's not save. Uh, Ctrl G
+
+781
+00:44:40,079 --> 00:44:49,040
+to cancel. Save is Ctrl XRL S.
+
+782
+00:44:45,599 --> 00:44:52,960
+Fantastic. Successful.
+
+783
+00:44:49,040 --> 00:44:55,119
+Now, key fly key is saved. And you can
+
+784
+00:44:52,960 --> 00:44:58,400
+just load it. Actually, you need to set
+
+785
+00:44:55,119 --> 00:45:01,119
+the key binding. Jesus.
+
+786
+00:44:58,400 --> 00:45:03,760
+Oh, God. Jesus. Because otherwise you
+
+787
+00:45:01,119 --> 00:45:08,800
+got factor of keys. So you got to copy
+
+788
+00:45:03,760 --> 00:45:12,560
+that. Okay. Go back here. Go back here.
+
+789
+00:45:08,800 --> 00:45:14,240
+Enter. Then paste. Can you do uh control
+
+790
+00:45:12,560 --> 00:45:17,200
+V?
+
+791
+00:45:14,240 --> 00:45:21,800
+Oh, actually that works. I don't know
+
+792
+00:45:17,200 --> 00:45:21,800
+why that works, but uh
+
+793
+00:45:22,720 --> 00:45:28,319
+it shouldn't work, right?
+
+794
+00:45:26,079 --> 00:45:31,520
+Ctrl + V for paste worked. But anyway,
+
+795
+00:45:28,319 --> 00:45:35,520
+so Ctrl X Controll
+
+796
+00:45:31,520 --> 00:45:39,760
+S to save it. Now, do we have the init
+
+797
+00:45:35,520 --> 00:45:43,359
+correct? Yes. Load that. Yes. Okay. Now,
+
+798
+00:45:39,760 --> 00:45:46,560
+we can start another Emacs. Uh let's
+
+799
+00:45:43,359 --> 00:45:50,640
+see. Back to the Windows
+
+800
+00:45:46,560 --> 00:45:52,960
+Subsystem for Linux.
+
+801
+00:45:50,640 --> 00:45:57,440
+And oh, oh, we are already in a
+
+802
+00:45:52,960 --> 00:46:00,480
+terminal. We occupied the terminal.
+
+803
+00:45:57,440 --> 00:46:04,480
+Uh, so now go you go here, you quit the
+
+804
+00:46:00,480 --> 00:46:07,839
+top, the [ __ ] stupid Linux top and
+
+805
+00:46:04,480 --> 00:46:11,920
+you start Emacs here.
+
+806
+00:46:07,839 --> 00:46:14,319
+Okay, so Emacs now I should have Safly
+
+807
+00:46:11,920 --> 00:46:16,319
+keys. Okay, hopefully
+
+808
+00:46:14,319 --> 00:46:19,520
+do it.
+
+809
+00:46:16,319 --> 00:46:21,760
+Do I have SFly keys now? You just have
+
+810
+00:46:19,520 --> 00:46:24,880
+to try. Okay.
+
+811
+00:46:21,760 --> 00:46:28,000
+Uh, no. Okay. Warning initial
+
+812
+00:46:24,880 --> 00:46:30,800
+initialization an error occurred while
+
+813
+00:46:28,000 --> 00:46:33,760
+loading. Oh Jesus
+
+814
+00:46:30,800 --> 00:46:37,920
+symbols function definition is void. Sly
+
+815
+00:46:33,760 --> 00:46:40,319
+key set layout. Oh that's right. Okay.
+
+816
+00:46:37,920 --> 00:46:43,119
+So close that.
+
+817
+00:46:40,319 --> 00:46:47,839
+Okay. Now go back here. Now you want to
+
+818
+00:46:43,119 --> 00:46:51,040
+move this to uh Ctrl A to go to the
+
+819
+00:46:47,839 --> 00:46:56,079
+beginning. Control space to begin
+
+820
+00:46:51,040 --> 00:46:57,920
+selection. Ctrl E to move to the end.
+
+821
+00:46:56,079 --> 00:47:01,680
+Control
+
+822
+00:46:57,920 --> 00:47:07,200
+uh cut. How do you cut?
+
+823
+00:47:01,680 --> 00:47:10,800
+Ctrl K. I think please make it. No.
+
+824
+00:47:07,200 --> 00:47:15,200
+Uh [ __ ] [ __ ] [ __ ] Ex. Okay. Just
+
+825
+00:47:10,800 --> 00:47:20,240
+paste it here. Just No. Didn't work. Uh
+
+826
+00:47:15,200 --> 00:47:24,480
+Ctrl K. Ctrl K. Okay. Now, Ctrl Y to
+
+827
+00:47:20,240 --> 00:47:26,240
+paste. Yes. Okay, now Ctrl X Controll
+
+828
+00:47:24,480 --> 00:47:29,680
+Save.
+
+829
+00:47:26,240 --> 00:47:32,240
+Now go back here. Now start emacs. Do I
+
+830
+00:47:29,680 --> 00:47:35,119
+have softly keys?
+
+831
+00:47:32,240 --> 00:47:37,440
+Warning initial an error occur while
+
+832
+00:47:35,119 --> 00:47:40,400
+loading. No search file or directory
+
+833
+00:47:37,440 --> 00:47:42,400
+softly keys.
+
+834
+00:47:40,400 --> 00:47:48,680
+Shut up.
+
+835
+00:47:42,400 --> 00:47:48,680
+What do you mean? No. No. No. Uh what?
+
+836
+00:47:49,119 --> 00:47:55,000
+What do you mean file not found? is
+
+837
+00:47:51,760 --> 00:47:55,000
+right here.
+
+838
+00:47:55,520 --> 00:47:58,520
+God.
+
+839
+00:48:01,119 --> 00:48:07,920
+Oh, control W. Yeah, control W is for
+
+840
+00:48:04,319 --> 00:48:13,280
+what? Um, you mean? O W, I think for
+
+841
+00:48:07,920 --> 00:48:16,280
+copy. Um, so what is this? Uh,
+
+842
+00:48:13,280 --> 00:48:16,280
+load.
+
+843
+00:48:17,839 --> 00:48:24,880
+So, I don't know. Load file. Okay.
+
+844
+00:48:21,680 --> 00:48:27,200
+That way
+
+845
+00:48:24,880 --> 00:48:30,319
+it should work. I don't know why it's
+
+846
+00:48:27,200 --> 00:48:33,280
+not saved. Okay, let me do this faster.
+
+847
+00:48:30,319 --> 00:48:37,119
+Okay. Arrow
+
+848
+00:48:33,280 --> 00:48:40,119
+home. No such file directory.
+
+849
+00:48:37,119 --> 00:48:40,119
+What
+
+850
+00:48:40,319 --> 00:48:45,640
+the file is right here. So,
+
+851
+00:48:47,440 --> 00:48:51,760
+oh god.
+
+852
+00:48:50,000 --> 00:48:53,520
+diet.
+
+853
+00:48:51,760 --> 00:48:58,839
+Okay,
+
+854
+00:48:53,520 --> 00:48:58,839
+the file is right here. Uh
+
+855
+00:48:59,599 --> 00:49:05,839
+home exit.
+
+856
+00:49:02,720 --> 00:49:08,160
+Okay, refresh.
+
+857
+00:49:05,839 --> 00:49:12,319
+Yes.
+
+858
+00:49:08,160 --> 00:49:15,440
+So the init file is there and this is
+
+859
+00:49:12,319 --> 00:49:18,880
+there. Why is it not loading? Error
+
+860
+00:49:15,440 --> 00:49:20,720
+occur. No such file or directory
+
+861
+00:49:18,880 --> 00:49:24,079
+homely
+
+862
+00:49:20,720 --> 00:49:27,680
+keys. Oh.
+
+863
+00:49:24,079 --> 00:49:30,680
+So it is loading. Wait, something is
+
+864
+00:49:27,680 --> 00:49:30,680
+wrong.
+
+865
+00:49:32,480 --> 00:49:35,880
+Uh what?
+
+866
+00:49:38,160 --> 00:49:46,040
+You need the full path. [ __ ] [ __ ]
+
+867
+00:49:42,160 --> 00:49:46,040
+Yeah. [ __ ] [ __ ]
+
+868
+00:49:46,400 --> 00:49:53,800
+Okay. So, God, I don't need all the
+
+869
+00:49:48,720 --> 00:49:53,800
+default Emacs is such a pain.
+
+870
+00:49:55,599 --> 00:50:00,079
+Uh,
+
+871
+00:49:57,839 --> 00:50:04,960
+okay. How do you delete that? That that
+
+872
+00:50:00,079 --> 00:50:06,720
+that. Okay. Cancel. Okay. Now go here.
+
+873
+00:50:04,960 --> 00:50:13,440
+Paste.
+
+874
+00:50:06,720 --> 00:50:17,400
+Now, Ctrl X Control S. Now try again.
+
+875
+00:50:13,440 --> 00:50:17,400
+Do it. do it.
+
+876
+00:50:17,920 --> 00:50:24,160
+Okay, now it's better. But warning,
+
+877
+00:50:20,559 --> 00:50:27,160
+missing lexical binding cookie
+
+878
+00:50:24,160 --> 00:50:27,160
+inac.
+
+879
+00:50:28,240 --> 00:50:34,640
+You can add one with elisp enable
+
+880
+00:50:31,599 --> 00:50:38,160
+lexical binding
+
+881
+00:50:34,640 --> 00:50:42,400
+missing lexical binding cookie. Ah, shut
+
+882
+00:50:38,160 --> 00:50:44,800
+the [ __ ] up now. Sh
+
+883
+00:50:42,400 --> 00:50:47,680
+cookie
+
+884
+00:50:44,800 --> 00:50:50,480
+missing lexical binding cookie. So they
+
+885
+00:50:47,680 --> 00:50:54,880
+want no they want to enforce you to have
+
+886
+00:50:50,480 --> 00:50:57,880
+lexical binding there. Not that. Oh god.
+
+887
+00:50:54,880 --> 00:50:57,880
+What
+
+888
+00:50:58,400 --> 00:51:03,760
+stupid Linux. You know when you press
+
+889
+00:51:01,040 --> 00:51:06,960
+control Z it
+
+890
+00:51:03,760 --> 00:51:10,800
+[ __ ] you up. You want this cookie. Okay.
+
+891
+00:51:06,960 --> 00:51:13,359
+Can't you just paste it? Ctrl V. It
+
+892
+00:51:10,800 --> 00:51:17,200
+works. I don't know why. Uh, so let's
+
+893
+00:51:13,359 --> 00:51:19,280
+just use it. Okay, now you got the you
+
+894
+00:51:17,200 --> 00:51:23,599
+now you got the lexical binding cookie
+
+895
+00:51:19,280 --> 00:51:27,200
+you wanted. Ctrl X control S. Now start
+
+896
+00:51:23,599 --> 00:51:28,960
+ex again. Do it.
+
+897
+00:51:27,200 --> 00:51:32,480
+Perfect.
+
+898
+00:51:28,960 --> 00:51:35,440
+Perfect. No arrow. Can you believe it?
+
+899
+00:51:32,480 --> 00:51:38,960
+Now the font is too small. [ __ ] is
+
+900
+00:51:35,440 --> 00:51:41,359
+too [ __ ] too small.
+
+901
+00:51:38,960 --> 00:51:44,720
+Okay, how do how do you set default
+
+902
+00:51:41,359 --> 00:51:48,400
+font? Okay, so you know let's um of
+
+903
+00:51:44,720 --> 00:51:51,040
+course I have a tutorial for that.
+
+904
+00:51:48,400 --> 00:51:53,520
+Uh but let's not read my tutorial. Let's
+
+905
+00:51:51,040 --> 00:51:56,880
+just I show let's do it quickly. Okay,
+
+906
+00:51:53,520 --> 00:51:58,960
+you go to the options
+
+907
+00:51:56,880 --> 00:52:02,640
+options.
+
+908
+00:51:58,960 --> 00:52:06,400
+Then you go to the uh first of all,
+
+909
+00:52:02,640 --> 00:52:09,400
+let's just enlarge it manually. Okay.
+
+910
+00:52:06,400 --> 00:52:09,400
+Okay.
+
+911
+00:52:11,359 --> 00:52:14,680
+Oh god.
+
+912
+00:52:23,520 --> 00:52:34,079
+Okay. Now you go to the options, click
+
+913
+00:52:27,680 --> 00:52:37,520
+mouse operation. Then you go to um
+
+914
+00:52:34,079 --> 00:52:40,640
+you see the font there is still small
+
+915
+00:52:37,520 --> 00:52:43,680
+tiny use system font. Set default font
+
+916
+00:52:40,640 --> 00:52:48,079
+there. Click
+
+917
+00:52:43,680 --> 00:52:51,760
+monospace regular font size. Oh, they
+
+918
+00:52:48,079 --> 00:52:53,839
+got nice graphical system 18. Okay.
+
+919
+00:52:51,760 --> 00:52:55,599
+Select.
+
+920
+00:52:53,839 --> 00:53:00,800
+Select.
+
+921
+00:52:55,599 --> 00:53:03,280
+Oh, okay. Now go click option again.
+
+922
+00:53:00,800 --> 00:53:05,920
+Save options. Okay, that's how you do it
+
+923
+00:53:03,280 --> 00:53:09,920
+for you Emacs newbies.
+
+924
+00:53:05,920 --> 00:53:12,480
+Now close this and uh also exit. Well,
+
+925
+00:53:09,920 --> 00:53:15,520
+let's not exit that. In case there's
+
+926
+00:53:12,480 --> 00:53:18,319
+some error, you can, you know, go back
+
+927
+00:53:15,520 --> 00:53:20,240
+to the Emacs and edit here. So, you see,
+
+928
+00:53:18,319 --> 00:53:23,920
+but now I don't I think it'll be
+
+929
+00:53:20,240 --> 00:53:27,599
+perfect. Now, start Emacs. Perfect.
+
+930
+00:53:23,920 --> 00:53:32,559
+Can you guys see the our effort is
+
+931
+00:53:27,599 --> 00:53:35,760
+working now? Close this. Now, Ctrl XTRL
+
+932
+00:53:32,559 --> 00:53:39,119
+C to quit Emacs. Now, we you see now we
+
+933
+00:53:35,760 --> 00:53:42,160
+are back home. Now, Emacs is done. You
+
+934
+00:53:39,119 --> 00:53:45,520
+can start perfectly. And do I have
+
+935
+00:53:42,160 --> 00:53:47,760
+softly keys? Wait,
+
+936
+00:53:45,520 --> 00:53:51,559
+what?
+
+937
+00:53:47,760 --> 00:53:51,559
+Uh T, wait.
+
+938
+00:53:51,599 --> 00:53:56,960
+Okay, I think I do, but the key binding
+
+939
+00:53:55,119 --> 00:53:59,960
+is incorrect.
+
+940
+00:53:56,960 --> 00:53:59,960
+What?
+
+941
+00:54:04,480 --> 00:54:12,520
+U is undefined. Wait, something is
+
+942
+00:54:07,119 --> 00:54:12,520
+wrong. F is undefined. What?
+
+943
+00:54:14,880 --> 00:54:19,800
+Let's see a new buffer. Okay.
+
+944
+00:54:20,559 --> 00:54:26,720
+Can you actually type? Oh, actually keys
+
+945
+00:54:23,920 --> 00:54:29,720
+is not installed.
+
+946
+00:54:26,720 --> 00:54:29,720
+What?
+
+947
+00:54:34,000 --> 00:54:37,480
+I don't know.
+
+948
+00:54:41,440 --> 00:54:46,839
+Okay. I don't know what is the
+
+949
+00:54:52,079 --> 00:54:57,760
+Okay, the font is not large enough.
+
+950
+00:54:54,480 --> 00:55:00,720
+Okay, so you need to Okay, the default
+
+951
+00:54:57,760 --> 00:55:06,720
+font on Linux is deja vu sense mono.
+
+952
+00:55:00,720 --> 00:55:10,200
+Okay, now the font is not large enough.
+
+953
+00:55:06,720 --> 00:55:10,200
+What is this?
+
+954
+00:55:10,880 --> 00:55:16,440
+Oh god, they don't even say uh
+
+955
+00:55:18,240 --> 00:55:25,359
+set default font. Can you say that
+
+956
+00:55:23,280 --> 00:55:28,359
+18
+
+957
+00:55:25,359 --> 00:55:28,359
+select?
+
+958
+00:55:30,319 --> 00:55:36,000
+Does that work?
+
+959
+00:55:32,880 --> 00:55:38,720
+But uh
+
+960
+00:55:36,000 --> 00:55:42,319
+Oh, you didn't start softly keys. So,
+
+961
+00:55:38,720 --> 00:55:45,319
+you need to start it. Okay.
+
+962
+00:55:42,319 --> 00:55:45,319
+Sly.
+
+963
+00:55:47,839 --> 00:55:53,240
+I think so. Right.
+
+964
+00:55:50,240 --> 00:55:53,240
+But
+
+965
+00:55:56,799 --> 00:56:02,119
+yeah, so you need to start it, of
+
+966
+00:55:59,119 --> 00:56:02,119
+course.
+
+967
+00:56:05,839 --> 00:56:12,160
+Paste. Wait. Ctrl V to paste. Oh, Ctrl +
+
+968
+00:56:10,000 --> 00:56:17,680
+V is so good.
+
+969
+00:56:12,160 --> 00:56:22,240
+Uh, Ctrl K to kill that. Uh, say Q. Use
+
+970
+00:56:17,680 --> 00:56:26,319
+meta keys. True. Uh, okay. So, well,
+
+971
+00:56:22,240 --> 00:56:29,440
+okay. Ctrl X Ctrl S to save it. Go back
+
+972
+00:56:26,319 --> 00:56:31,599
+here. Start emacs. Another instance.
+
+973
+00:56:29,440 --> 00:56:35,200
+Beautiful. Okay. Okay, the phone is
+
+974
+00:56:31,599 --> 00:56:38,240
+still too small, but we can now fly
+
+975
+00:56:35,200 --> 00:56:41,280
+keys. They are fantastic and beautiful.
+
+976
+00:56:38,240 --> 00:56:45,720
+Can you see how how efficient I am
+
+977
+00:56:41,280 --> 00:56:45,720
+operating on this [ __ ]
+
+978
+00:56:45,760 --> 00:56:51,440
+Oh, even that works. Fantastic. Okay,
+
+979
+00:56:49,760 --> 00:56:54,880
+quit.
+
+980
+00:56:51,440 --> 00:56:57,520
+Buffer is read only. Wait, quick quick.
+
+981
+00:56:54,880 --> 00:57:01,280
+What? Oh, you need to Okay. Yeah, that's
+
+982
+00:56:57,520 --> 00:57:04,799
+right. So, this is good. Now close it.
+
+983
+00:57:01,280 --> 00:57:07,760
+We don't need it. Now start Emacs again.
+
+984
+00:57:04,799 --> 00:57:12,559
+Now I can do efficient operation. Okay.
+
+985
+00:57:07,760 --> 00:57:16,880
+Press. Press. Wait. What? Press press.
+
+986
+00:57:12,559 --> 00:57:19,920
+Okay. Now jump to um what?
+
+987
+00:57:16,880 --> 00:57:23,839
+Buffer is read only. Yeah. So what?
+
+988
+00:57:19,920 --> 00:57:26,480
+Emacs. Oh yeah. So Oh yeah. Habit. I
+
+989
+00:57:23,839 --> 00:57:30,079
+need to change some keys. So the font is
+
+990
+00:57:26,480 --> 00:57:33,200
+still too small for some reason.
+
+991
+00:57:30,079 --> 00:57:34,880
+But so maybe this option is not working.
+
+992
+00:57:33,200 --> 00:57:40,400
+Okay.
+
+993
+00:57:34,880 --> 00:57:44,400
+Why is this uh option not working?
+
+994
+00:57:40,400 --> 00:57:47,839
+Okay. I don't know. So now what? Close
+
+995
+00:57:44,400 --> 00:57:52,559
+that. Close that.
+
+996
+00:57:47,839 --> 00:57:56,079
+Critical G gtk attribution something.
+
+997
+00:57:52,559 --> 00:57:58,880
+Okay. So what the font is still too
+
+998
+00:57:56,079 --> 00:58:02,160
+small for it's good for me but it's too
+
+999
+00:57:58,880 --> 00:58:06,079
+small for live stream low lexical
+
+1000
+00:58:02,160 --> 00:58:07,920
+binding cookie. Yeah. Load xx. Okay. So
+
+1001
+00:58:06,079 --> 00:58:11,440
+so far so good. I think nobody's
+
+1002
+00:58:07,920 --> 00:58:13,359
+watching. It's too boring now. But uh we
+
+1003
+00:58:11,440 --> 00:58:17,040
+need to fix the phone problem. Okay.
+
+1004
+00:58:13,359 --> 00:58:21,200
+Let's persist. Persistence is the key to
+
+1005
+00:58:17,040 --> 00:58:24,640
+the universe. Okay. uh go to Kasali
+
+1006
+00:58:21,200 --> 00:58:27,200
+homepage and what we want to do Emacs of
+
+1007
+00:58:24,640 --> 00:58:29,520
+course we need to go to the Emacs
+
+1008
+00:58:27,200 --> 00:58:34,480
+section kasali
+
+1009
+00:58:29,520 --> 00:58:37,520
+that's my name info okay go to Emacs
+
+1010
+00:58:34,480 --> 00:58:40,480
+we need to bit dto on Emacs so the first
+
+1011
+00:58:37,520 --> 00:58:43,599
+thing you want to do is usually change
+
+1012
+00:58:40,480 --> 00:58:46,400
+font size but how do you do that okay
+
+1013
+00:58:43,599 --> 00:58:50,640
+set font so you see on Windows this is
+
+1014
+00:58:46,400 --> 00:58:54,359
+what you see but on Linux you are seeing
+
+1015
+00:58:50,640 --> 00:58:54,359
+society different
+
+1016
+00:58:56,160 --> 00:59:01,119
+you know why is it uh what the you know
+
+1017
+00:58:59,119 --> 00:59:04,799
+so
+
+1018
+00:59:01,119 --> 00:59:08,079
+so but they got uh they got use system
+
+1019
+00:59:04,799 --> 00:59:11,440
+font what does it mean
+
+1020
+00:59:08,079 --> 00:59:14,720
+better not
+
+1021
+00:59:11,440 --> 00:59:17,839
+so okay change font size globally okay
+
+1022
+00:59:14,720 --> 00:59:20,480
+change font size globally by command
+
+1023
+00:59:17,839 --> 00:59:23,040
+okay Change font size current buffer by
+
+1024
+00:59:20,480 --> 00:59:25,920
+command and change font size current
+
+1025
+00:59:23,040 --> 00:59:28,799
+buffer by mouse. Okay, that's not what I
+
+1026
+00:59:25,920 --> 00:59:32,640
+want. This is for current version. I
+
+1027
+00:59:28,799 --> 00:59:36,240
+want a perm version. So you go down here
+
+1028
+00:59:32,640 --> 00:59:39,200
+uh set default font there.
+
+1029
+00:59:36,240 --> 00:59:42,400
+Okay. So all you have to do is put this
+
+1030
+00:59:39,200 --> 00:59:44,799
+in your init and magic happens. Okay. We
+
+1031
+00:59:42,400 --> 00:59:48,880
+tried this first route. It's not seems
+
+1032
+00:59:44,799 --> 00:59:51,680
+work to work on and so but okay copy. Oh
+
+1033
+00:59:48,880 --> 00:59:54,960
+god. Then you need to find out what
+
+1034
+00:59:51,680 --> 00:59:58,799
+fonts are available and stuff. Jesus.
+
+1035
+00:59:54,960 --> 01:00:02,160
+Copy. Okay.
+
+1036
+00:59:58,799 --> 01:00:06,400
+Oh Jesus. Lots of lots of things to do
+
+1037
+01:00:02,160 --> 01:00:09,839
+in either way. So what what is Oh god.
+
+1038
+01:00:06,400 --> 01:00:12,240
+So um
+
+1039
+01:00:09,839 --> 01:00:17,040
+pac.
+
+1040
+01:00:12,240 --> 01:00:21,200
+Okay. So you go to init you paste uh not
+
+1041
+01:00:17,040 --> 01:00:24,000
+that Ctrl V to paste. No. So go here
+
+1042
+01:00:21,200 --> 01:00:28,079
+copy that and
+
+1043
+01:00:24,000 --> 01:00:31,119
+Ctrl V to paste. Yeah. Okay. Now you
+
+1044
+01:00:28,079 --> 01:00:33,760
+need to check if Cascadia Mono is
+
+1045
+01:00:31,119 --> 01:00:39,960
+available. Check.
+
+1046
+01:00:33,760 --> 01:00:39,960
+Wait. Uh wait. How do you do that?
+
+1047
+01:00:41,440 --> 01:00:45,880
+remember that. What?
+
+1048
+01:00:48,000 --> 01:00:51,640
+Hey, this code
+
+1049
+01:00:58,240 --> 01:01:05,200
+there is a mistake. There's a mistake.
+
+1050
+01:01:01,599 --> 01:01:07,200
+Or did I delete it? Yes, I deleted.
+
+1051
+01:01:05,200 --> 01:01:12,319
+Undo.
+
+1052
+01:01:07,200 --> 01:01:15,359
+Uh, wait. and do. Oh yeah. Okay. So now
+
+1053
+01:01:12,319 --> 01:01:20,160
+eval. So that's neo. That means this
+
+1054
+01:01:15,359 --> 01:01:24,000
+line is neo. So now eval this font is
+
+1055
+01:01:20,160 --> 01:01:27,520
+also not there. Now menlo is obviously
+
+1056
+01:01:24,000 --> 01:01:31,200
+not there. So delete it. Now this line
+
+1057
+01:01:27,520 --> 01:01:36,760
+member deja vu eval.
+
+1058
+01:01:31,200 --> 01:01:36,760
+Oh, it's also neo. What the [ __ ]
+
+1059
+01:01:36,960 --> 01:01:45,640
+Let's see. Let's just uh manually
+
+1060
+01:01:40,319 --> 01:01:45,640
+enlarge. Okay. So you guys can see.
+
+1061
+01:01:48,559 --> 01:01:56,720
+Okay. What are we doing? Okay. Now first
+
+1062
+01:01:51,599 --> 01:01:59,839
+so so this Neil uh Okay. Maybe it's
+
+1063
+01:01:56,720 --> 01:02:03,119
+because you put the size. Oh. Okay. So
+
+1064
+01:01:59,839 --> 01:02:06,000
+you cannot have the size Jesus.
+
+1065
+01:02:03,119 --> 01:02:09,119
+So this this is wrong. This is
+
+1066
+01:02:06,000 --> 01:02:10,640
+misleading information. Jesus s you you
+
+1067
+01:02:09,119 --> 01:02:14,799
+got the wrong information on your
+
+1068
+01:02:10,640 --> 01:02:17,119
+website. How how can you
+
+1069
+01:02:14,799 --> 01:02:19,040
+do a screenshot so I'll remember to fix
+
+1070
+01:02:17,119 --> 01:02:22,240
+it.
+
+1071
+01:02:19,040 --> 01:02:29,079
+Okay. Now back here. So that font family
+
+1072
+01:02:22,240 --> 01:02:29,079
+is good. So you want just um
+
+1073
+01:02:30,400 --> 01:02:35,520
+set frame font deja vu. Just do the [ __ ]
+
+1074
+01:02:33,359 --> 01:02:38,520
+it.
+
+1075
+01:02:35,520 --> 01:02:38,520
+Okay.
+
+1076
+01:02:41,359 --> 01:02:48,040
+Okay. So, I don't have this mod neither.
+
+1077
+01:02:44,640 --> 01:02:48,040
+So, what
+
+1078
+01:02:48,559 --> 01:02:53,359
+uh
+
+1079
+01:02:50,880 --> 01:02:57,280
+yeah, but how do you set size though?
+
+1080
+01:02:53,359 --> 01:03:01,599
+Can you um now what what is the current
+
+1081
+01:02:57,280 --> 01:03:05,280
+font? So, you do control H. Uh wait,
+
+1082
+01:03:01,599 --> 01:03:08,480
+sounds like key. space HC which is
+
+1083
+01:03:05,280 --> 01:03:10,640
+describe char. Okay. So let's uh you
+
+1084
+01:03:08,480 --> 01:03:14,760
+need to describe char. Let's see what is
+
+1085
+01:03:10,640 --> 01:03:14,760
+the current font used.
+
+1086
+01:03:16,880 --> 01:03:23,119
+Okay. Are you guys still with me? Are we
+
+1087
+01:03:18,880 --> 01:03:26,119
+fixing Emacs? We we are running Emacs on
+
+1088
+01:03:23,119 --> 01:03:26,119
+Windows
+
+1089
+01:03:26,480 --> 01:03:33,119
+subsystem for Linux. Okay. And I'm we
+
+1090
+01:03:30,400 --> 01:03:37,119
+just installed safely keys on it and we
+
+1091
+01:03:33,119 --> 01:03:39,839
+are I am playing with it. Okay. So right
+
+1092
+01:03:37,119 --> 01:03:41,920
+now this is a way to find out what is
+
+1093
+01:03:39,839 --> 01:03:43,599
+the current font of a particular
+
+1094
+01:03:41,920 --> 01:03:45,839
+character you are looking at. What is
+
+1095
+01:03:43,599 --> 01:03:48,319
+the font use that for that character
+
+1096
+01:03:45,839 --> 01:03:52,160
+this command is describe char. It will
+
+1097
+01:03:48,319 --> 01:03:56,720
+tell you. Okay. So it says it says
+
+1098
+01:03:52,160 --> 01:04:00,720
+display by this font deja vu pf d
+
+1099
+01:03:56,720 --> 01:04:03,359
+something ftcr hb some that's some unix
+
+1100
+01:04:00,720 --> 01:04:08,000
+thing uh Linux thing deja vu sense mono
+
+1101
+01:04:03,359 --> 01:04:11,119
+regular normal uh 37 okay
+
+1102
+01:04:08,000 --> 01:04:16,880
+close that
+
+1103
+01:04:11,119 --> 01:04:19,839
+uh can you do so if I uh wait delete run
+
+1104
+01:04:16,880 --> 01:04:23,599
+it that works now can you actually add
+
+1105
+01:04:19,839 --> 01:04:28,319
+the size here. Let's say 20.
+
+1106
+01:04:23,599 --> 01:04:30,880
+Run it. Oh, you can. Now, let's try this
+
+1107
+01:04:28,319 --> 01:04:37,440
+command. Press press then scroll mouse
+
+1108
+01:04:30,880 --> 01:04:40,440
+to No, press uh wait. Press press. Wait.
+
+1109
+01:04:37,440 --> 01:04:40,440
+Okay.
+
+1110
+01:04:40,799 --> 01:04:49,440
+Let's just say 30. Okay. Now, run it.
+
+1111
+01:04:45,760 --> 01:04:53,200
+Fantastic. It's working. So this is
+
+1112
+01:04:49,440 --> 01:04:57,520
+working. Okay. Now you just remove the
+
+1113
+01:04:53,200 --> 01:05:00,000
+white lines and remove the the the messy
+
+1114
+01:04:57,520 --> 01:05:03,119
+autogenerated code. You see we don't
+
+1115
+01:05:00,000 --> 01:05:05,440
+need this. Delete. Delete.
+
+1116
+01:05:03,119 --> 01:05:09,440
+Now that's perfect.
+
+1117
+01:05:05,440 --> 01:05:14,000
+Ctrl X. Uh well now we have soft flag
+
+1118
+01:05:09,440 --> 01:05:17,200
+keys. So we just space saved
+
+1119
+01:05:14,000 --> 01:05:21,119
+close and uh
+
+1120
+01:05:17,200 --> 01:05:24,000
+close quit and start Emacs again.
+
+1121
+01:05:21,119 --> 01:05:28,319
+Fantastic. Welcome to new Emacs. Oh my
+
+1122
+01:05:24,000 --> 01:05:31,440
+god. Now the font is all correct.
+
+1123
+01:05:28,319 --> 01:05:34,319
+I don't have to enlarge but
+
+1124
+01:05:31,440 --> 01:05:36,960
+but then
+
+1125
+01:05:34,319 --> 01:05:39,960
+but then I need to enlarge the window
+
+1126
+01:05:36,960 --> 01:05:39,960
+still.
+
+1127
+01:05:40,799 --> 01:05:49,160
+Oh god, now it's actually too big.
+
+1128
+01:05:45,039 --> 01:05:49,160
+Oh god. And also
+
+1129
+01:05:49,280 --> 01:05:57,280
+Oh, also the screen got the glue image
+
+1130
+01:05:53,599 --> 01:06:04,000
+is gone for some reason. Got you need to
+
+1131
+01:05:57,280 --> 01:06:07,920
+work on this. Yeah. So, okay. So,
+
+1132
+01:06:04,000 --> 01:06:11,440
+exo. Okay. So
+
+1133
+01:06:07,920 --> 01:06:15,680
+init. So that's the init. Let's not do
+
+1134
+01:06:11,440 --> 01:06:19,039
+that. Let's do the let's try this
+
+1135
+01:06:15,680 --> 01:06:21,440
+this auto way again. Set default font.
+
+1136
+01:06:19,039 --> 01:06:24,559
+Okay.
+
+1137
+01:06:21,440 --> 01:06:28,160
+Deja vu sans. No. Why do they have this
+
+1138
+01:06:24,559 --> 01:06:31,559
+[ __ ] different [ __ ]
+
+1139
+01:06:28,160 --> 01:06:31,559
+What book?
+
+1140
+01:06:32,960 --> 01:06:41,160
+I just want deja vu science mono normal.
+
+1141
+01:06:38,160 --> 01:06:41,160
+Okay.
+
+1142
+01:06:44,240 --> 01:06:47,240
+What
+
+1143
+01:07:03,440 --> 01:07:10,359
+When did they introduce the book? [ __ ]
+
+1144
+01:07:06,240 --> 01:07:10,359
+What the [ __ ] is the book?
+
+1145
+01:07:10,799 --> 01:07:16,039
+I can't even pick a font correctly.
+
+1146
+01:07:16,720 --> 01:07:20,039
+Oh Jesus.
+
+1147
+01:07:21,359 --> 01:07:28,920
+Let's uh let's let's waste time and just
+
+1148
+01:07:24,720 --> 01:07:28,920
+ask AI. Okay.
+
+1149
+01:07:57,839 --> 01:08:01,599
+What? What is better? What do you mean?
+
+1150
+01:07:59,599 --> 01:08:04,000
+What is better?
+
+1151
+01:08:01,599 --> 01:08:05,599
+Okay, I think that's it for today. Okay.
+
+1152
+01:08:04,000 --> 01:08:09,079
+So,
+
+1153
+01:08:05,599 --> 01:08:09,079
+hello Gork.
+
+1154
+01:08:25,600 --> 01:08:33,960
+I'm seeing the font deja vu sans mono
+
+1155
+01:08:28,960 --> 01:08:33,960
+book. What is the book for?
+
+1156
+01:08:37,679 --> 01:08:41,920
+Book is just deja vu's name for the
+
+1157
+01:08:39,679 --> 01:08:43,839
+regular normal weight of the font.
+
+1158
+01:08:41,920 --> 01:08:46,159
+Instead of calling it regular, they use
+
+1159
+01:08:43,839 --> 01:08:48,480
+book for the standard style. So deja vu
+
+1160
+01:08:46,159 --> 01:08:50,560
+s mono book is the everyday version you
+
+1161
+01:08:48,480 --> 01:08:51,759
+normally see, not a special or lighter
+
+1162
+01:08:50,560 --> 01:08:53,920
+variant.
+
+1163
+01:08:51,759 --> 01:08:56,480
+>> When did they start to do that? I don't
+
+1164
+01:08:53,920 --> 01:08:59,799
+remember. They have the the name book in
+
+1165
+01:08:56,480 --> 01:08:59,799
+their name.
+
+1166
+01:09:04,159 --> 01:09:07,759
+Deja vu started using book right from
+
+1167
+01:09:06,159 --> 01:09:10,799
+the beginning. They launched the project
+
+1168
+01:09:07,759 --> 01:09:12,560
+in 2004 based on bitstream vera. The
+
+1169
+01:09:10,799 --> 01:09:14,719
+original vera called its regular weight
+
+1170
+01:09:12,560 --> 01:09:16,080
+Roman but deja vu switched it to book
+
+1171
+01:09:14,719 --> 01:09:20,120
+with a normal style across their
+
+1172
+01:09:16,080 --> 01:09:20,120
+families including sen.
+
+1173
+01:09:23,279 --> 01:09:30,080
+>> I don't think so. I I think the deja vu
+
+1174
+01:09:27,600 --> 01:09:34,759
+found name never had the word book in
+
+1175
+01:09:30,080 --> 01:09:34,759
+it. Can you double check?
+
+1176
+01:09:38,640 --> 01:09:42,880
+You're right. I double checked. The deja
+
+1177
+01:09:40,960 --> 01:09:45,199
+vu project has used book for the regular
+
+1178
+01:09:42,880 --> 01:09:47,759
+weight since it started in 2004. It was
+
+1179
+01:09:45,199 --> 01:09:49,600
+a deliberate change from bitstream which
+
+1180
+01:09:47,759 --> 01:09:52,000
+called it normal style Roman. So the
+
+1181
+01:09:49,600 --> 01:09:53,279
+full name deja vu sans mono book has
+
+1182
+01:09:52,000 --> 01:09:56,239
+been that way from the very first
+
+1183
+01:09:53,279 --> 01:09:56,239
+versions.
+
+1184
+01:09:57,280 --> 01:10:02,159
+I don't think so. I don't think so
+
+1185
+01:09:59,600 --> 01:10:04,800
+because I have downloaded deja vu font
+
+1186
+01:10:02,159 --> 01:10:06,880
+and I I don't remember seeing the word
+
+1187
+01:10:04,800 --> 01:10:11,040
+book in it.
+
+1188
+01:10:06,880 --> 01:10:14,040
+And we can verify. Can we? Yeah, sure.
+
+1189
+01:10:11,040 --> 01:10:14,040
+Uh
+
+1190
+01:10:15,760 --> 01:10:21,920
+deja vu and they used to have a website
+
+1191
+01:10:18,159 --> 01:10:24,080
+but the domain name is gun.
+
+1192
+01:10:21,920 --> 01:10:27,760
+They used to have a dedicated website
+
+1193
+01:10:24,080 --> 01:10:30,560
+about like 15 years ago. This is around
+
+1194
+01:10:27,760 --> 01:10:34,320
+2008.
+
+1195
+01:10:30,560 --> 01:10:38,640
+Deja vu uh Wikipedia. No, I want the
+
+1196
+01:10:34,320 --> 01:10:41,360
+font. Okay. So, let's say deja vu.
+
+1197
+01:10:38,640 --> 01:10:44,159
+Uh
+
+1198
+01:10:41,360 --> 01:10:48,040
+fonts. Got I got so many windows now.
+
+1199
+01:10:44,159 --> 01:10:48,040
+Which window is it?
+
+1200
+01:10:48,239 --> 01:10:55,880
+So, deja vu. Okay. Deja vu deja vu.
+
+1201
+01:10:56,400 --> 01:11:04,080
+Wait, what? DJA. Okay.
+
+1202
+01:11:01,199 --> 01:11:06,320
+DJ Vu
+
+1203
+01:11:04,080 --> 01:11:10,400
+font.
+
+1204
+01:11:06,320 --> 01:11:12,800
+Okay. So, yeah. Now, that's GitHub.
+
+1205
+01:11:10,400 --> 01:11:16,159
+Now, they used to have have their own
+
+1206
+01:11:12,800 --> 01:11:19,440
+domain, but it's gone it's gone many
+
+1207
+01:11:16,159 --> 01:11:21,520
+years ago. So, now let's see. How do I
+
+1208
+01:11:19,440 --> 01:11:23,440
+know? because I blog about them, you
+
+1209
+01:11:21,520 --> 01:11:26,159
+know, like when you have a blog, you you
+
+1210
+01:11:23,440 --> 01:11:28,239
+you blogged for 30 years. Then you have
+
+1211
+01:11:26,159 --> 01:11:30,800
+a record like when you look at your
+
+1212
+01:11:28,239 --> 01:11:32,400
+blog, my blog, I have like 12,000
+
+1213
+01:11:30,800 --> 01:11:35,040
+articles.
+
+1214
+01:11:32,400 --> 01:11:37,440
+So, so sometimes you can see dead links,
+
+1215
+01:11:35,040 --> 01:11:39,679
+you know, dead links and you can see
+
+1216
+01:11:37,440 --> 01:11:42,159
+what people were thinking 10 years ago
+
+1217
+01:11:39,679 --> 01:11:44,960
+or 20 years ago.
+
+1218
+01:11:42,159 --> 01:11:48,880
+But anyway, Déja vu. So, deja vu. So you
+
+1219
+01:11:44,960 --> 01:11:51,440
+see deja vu font did did they did they
+
+1220
+01:11:48,880 --> 01:11:54,880
+when did they [ __ ] added the name
+
+1221
+01:11:51,440 --> 01:11:56,719
+book into the font name B O K search for
+
+1222
+01:11:54,880 --> 01:12:00,640
+it
+
+1223
+01:11:56,719 --> 01:12:05,159
+book italic okay the 10 styles okay so
+
+1224
+01:12:00,640 --> 01:12:05,159
+book uh book
+
+1225
+01:12:06,159 --> 01:12:14,640
+okay so book is
+
+1226
+01:12:09,199 --> 01:12:17,360
+a reference to the regular but wait so I
+
+1227
+01:12:14,640 --> 01:12:21,520
+book probably never appeared in the font
+
+1228
+01:12:17,360 --> 01:12:24,640
+name font file name itself.
+
+1229
+01:12:21,520 --> 01:12:29,199
+However, book is used to refer to mean
+
+1230
+01:12:24,640 --> 01:12:31,600
+regular. But why don't but
+
+1231
+01:12:29,199 --> 01:12:34,960
+is it just usually it's just called
+
+1232
+01:12:31,600 --> 01:12:38,719
+regular? Why is it called book or is
+
+1233
+01:12:34,960 --> 01:12:40,239
+this specific to deja vu or is this
+
+1234
+01:12:38,719 --> 01:12:44,480
+general
+
+1235
+01:12:40,239 --> 01:12:46,080
+scheme for calling regular found book?
+
+1236
+01:12:44,480 --> 01:12:48,480
+That's my question. I want to know
+
+1237
+01:12:46,080 --> 01:12:52,480
+because I that's how I work. I always
+
+1238
+01:12:48,480 --> 01:12:55,840
+know all the details.
+
+1239
+01:12:52,480 --> 01:13:00,640
+So this is uh this is about when when we
+
+1240
+01:12:55,840 --> 01:13:04,040
+are trying to do the Emacs uh setting up
+
+1241
+01:13:00,640 --> 01:13:04,040
+the font.
+
+1242
+01:13:04,560 --> 01:13:09,920
+But anyway in practice you can ignore
+
+1243
+01:13:06,719 --> 01:13:14,080
+it. But the key important thing is about
+
+1244
+01:13:09,920 --> 01:13:17,080
+the font size. Why is the font size not
+
+1245
+01:13:14,080 --> 01:13:17,080
+set?
+
+1246
+01:13:17,679 --> 01:13:22,480
+Okay.
+
+1247
+01:13:19,520 --> 01:13:28,880
+Let's start uh Emacs again. Now this
+
+1248
+01:13:22,480 --> 01:13:33,400
+start from here. Did it set font size?
+
+1249
+01:13:28,880 --> 01:13:33,400
+I'm not sure what the
+
+1250
+01:13:34,239 --> 01:13:39,600
+Oh, you didn't save the file. Okay,
+
+1251
+01:13:36,719 --> 01:13:42,480
+wait. Save.
+
+1252
+01:13:39,600 --> 01:13:47,040
+Oh, wait. So,
+
+1253
+01:13:42,480 --> 01:13:50,960
+close that options menu set default font
+
+1254
+01:13:47,040 --> 01:13:56,000
+deja vu. Let's make it
+
+1255
+01:13:50,960 --> 01:13:59,199
+okay 24. Okay. Select then idiotic
+
+1256
+01:13:56,000 --> 01:14:04,159
+Emacs. You need to go here again then
+
+1257
+01:13:59,199 --> 01:14:07,120
+say save options because Emacs is old.
+
+1258
+01:14:04,159 --> 01:14:12,239
+Okay. So you can see it added this list
+
+1259
+01:14:07,120 --> 01:14:15,360
+code and here is the hey height 241.
+
+1260
+01:14:12,239 --> 01:14:18,000
+Let's suppose that's okay. Now you can
+
+1261
+01:14:15,360 --> 01:14:22,400
+try it again over here. Start emac run
+
+1262
+01:14:18,000 --> 01:14:24,800
+it. Fantastic. Okay, that's that's fine.
+
+1263
+01:14:22,400 --> 01:14:26,960
+But now it's you see it's humongous. Now
+
+1264
+01:14:24,800 --> 01:14:30,880
+you need to
+
+1265
+01:14:26,960 --> 01:14:34,760
+uh set the initial frame size. Uh too
+
+1266
+01:14:30,880 --> 01:14:34,760
+much to do. Okay.
+
+1267
+01:14:35,679 --> 01:14:44,080
+Okay. I think that's it. So Mandela
+
+1268
+01:14:40,400 --> 01:14:47,760
+effect was always book.
+
+1269
+01:14:44,080 --> 01:14:47,760
+Oh, really?
+
+1270
+01:14:49,040 --> 01:14:56,480
+So the question is it better is WSL max
+
+1271
+01:14:52,880 --> 01:14:58,960
+better that is what I intend to find out
+
+1272
+01:14:56,480 --> 01:15:01,360
+that's why I'm installing the softly
+
+1273
+01:14:58,960 --> 01:15:04,400
+keys and everything
+
+1274
+01:15:01,360 --> 01:15:09,120
+you see I'm not focused because you see
+
+1275
+01:15:04,400 --> 01:15:12,719
+for me to actually get things going in
+
+1276
+01:15:09,120 --> 01:15:15,920
+you know the in the WSL emac to to get
+
+1277
+01:15:12,719 --> 01:15:19,360
+all my uh in files
+
+1278
+01:15:15,920 --> 01:15:21,440
+Uh, usually I just work on it. Uh, but
+
+1279
+01:15:19,360 --> 01:15:24,800
+because I'm doing live streams, so I
+
+1280
+01:15:21,440 --> 01:15:28,080
+talk and talk about drama and stuff. So
+
+1281
+01:15:24,800 --> 01:15:31,520
+that never get things done. So
+
+1282
+01:15:28,080 --> 01:15:35,040
+So all the while we are not
+
+1283
+01:15:31,520 --> 01:15:38,080
+all the while uh what do I have? I just
+
+1284
+01:15:35,040 --> 01:15:42,400
+All the while we just have softly keys
+
+1285
+01:15:38,080 --> 01:15:46,239
+and there's a lot setup to do. Okay.
+
+1286
+01:15:42,400 --> 01:15:48,719
+Yeah. So, but
+
+1287
+01:15:46,239 --> 01:15:50,800
+yeah. So, we only just got stuff like
+
+1288
+01:15:48,719 --> 01:15:53,840
+this. You you need to set font. You need
+
+1289
+01:15:50,800 --> 01:15:56,840
+to set You need to set a lot of things.
+
+1290
+01:15:53,840 --> 01:15:56,840
+Um
+
+1291
+01:15:56,880 --> 01:16:02,040
+Well, can we do it? Yeah. Should we do
+
+1292
+01:15:58,800 --> 01:16:02,040
+it? Yes.
+
+1293
+01:16:02,080 --> 01:16:08,080
+Okay. So, now
+
+1294
+01:16:04,640 --> 01:16:12,000
+But how you want to do it? Because
+
+1295
+01:16:08,080 --> 01:16:15,000
+you see because over here on my windows
+
+1296
+01:16:12,000 --> 01:16:15,000
+system
+
+1297
+01:16:15,040 --> 01:16:20,080
+you got you know I got this
+
+1298
+01:16:18,480 --> 01:16:23,679
+somewhat complicated you know I'm
+
+1299
+01:16:20,080 --> 01:16:26,960
+loading two sets of in files
+
+1300
+01:16:23,679 --> 01:16:30,000
+and these are on my Windows NT file
+
+1301
+01:16:26,960 --> 01:16:35,480
+system. Okay. So
+
+1302
+01:16:30,000 --> 01:16:35,480
+over here you need to
+
+1303
+01:16:35,520 --> 01:16:42,239
+Oh, I know what
+
+1304
+01:16:38,080 --> 01:16:45,360
+just load this file. Okay, so let me try
+
+1305
+01:16:42,239 --> 01:16:49,120
+think about this. Okay, just load just
+
+1306
+01:16:45,360 --> 01:16:51,199
+load my Windows init file
+
+1307
+01:16:49,120 --> 01:16:54,000
+then you'll figure out everything else.
+
+1308
+01:16:51,199 --> 01:16:58,159
+Does that work?
+
+1309
+01:16:54,000 --> 01:17:01,120
+I don't think so. Okay, it may not.
+
+1310
+01:16:58,159 --> 01:17:03,199
+Okay. So, you need a backup of that. Oh
+
+1311
+01:17:01,120 --> 01:17:05,760
+god.
+
+1312
+01:17:03,199 --> 01:17:08,719
+Uh, normally I can make a back. Oh, can
+
+1313
+01:17:05,760 --> 01:17:11,360
+I still do? Oh, fantastic. I can make a
+
+1314
+01:17:08,719 --> 01:17:14,320
+backup just by pressing a few keys. This
+
+1315
+01:17:11,360 --> 01:17:17,840
+is part of safely keys because otherwise
+
+1316
+01:17:14,320 --> 01:17:20,640
+then you need to split window then
+
+1317
+01:17:17,840 --> 01:17:23,040
+capital C for copy then type a new name
+
+1318
+01:17:20,640 --> 01:17:26,000
+find the directory you know. But now I
+
+1319
+01:17:23,040 --> 01:17:29,600
+can just press a key. You see press I
+
+1320
+01:17:26,000 --> 01:17:32,320
+got a new fresh backup. Okay. So now
+
+1321
+01:17:29,600 --> 01:17:36,239
+let's try this. Okay. So instead of not
+
+1322
+01:17:32,320 --> 01:17:39,920
+doing that let's just uh now with softly
+
+1323
+01:17:36,239 --> 01:17:43,280
+keys things are so much so much easier.
+
+1324
+01:17:39,920 --> 01:17:46,640
+Okay. And this needs to be on Windows
+
+1325
+01:17:43,280 --> 01:17:55,080
+mount mount. Now on Micros on the the
+
+1326
+01:17:46,640 --> 01:17:55,080
+way Mnt okay mntc can you like complete
+
+1327
+01:17:55,520 --> 01:17:59,600
+mnt
+
+1328
+01:17:57,600 --> 01:18:02,239
+uh what
+
+1329
+01:17:59,600 --> 01:18:05,719
+>> yes C is a directory but why can't you
+
+1330
+01:18:02,239 --> 01:18:05,719
+go into it?
+
+1331
+01:18:06,480 --> 01:18:11,120
+>> I know it's a directory but why can't
+
+1332
+01:18:08,719 --> 01:18:15,960
+you go into it? What the [ __ ] is this
+
+1333
+01:18:11,120 --> 01:18:15,960
+problem? Is it because
+
+1334
+01:18:19,520 --> 01:18:28,520
+close? Okay, let's try again.
+
+1335
+01:18:23,120 --> 01:18:28,520
+Mnt. Okay. Capital
+
+1336
+01:18:28,960 --> 01:18:31,960
+User.
+
+1337
+01:18:32,719 --> 01:18:39,080
+Go there.
+
+1338
+01:18:35,120 --> 01:18:39,080
+Why is it not open?
+
+1339
+01:18:44,480 --> 01:18:51,320
+Oh god. Flame fire. What? I thought uh
+
+1340
+01:18:54,960 --> 01:19:00,440
+why can't I open mntc
+
+1341
+01:19:00,800 --> 01:19:05,280
+users
+
+1342
+01:19:02,880 --> 01:19:09,560
+is a directory? Yes, of course it's a
+
+1343
+01:19:05,280 --> 01:19:09,560
+directory. I want to open it.
+
+1344
+01:19:09,600 --> 01:19:12,600
+What?
+
+1345
+01:19:25,600 --> 01:19:30,520
+Okay. There is something is wrong.
+
+1346
+01:19:30,800 --> 01:19:35,320
+It's not letting me
+
+1347
+01:19:54,000 --> 01:19:58,440
+Okay. [ __ ]
+
+1348
+01:20:14,960 --> 01:20:21,600
+Okay. So, what is going on? Permission
+
+1349
+01:20:18,159 --> 01:20:24,159
+denied. Hila system.
+
+1350
+01:20:21,600 --> 01:20:28,600
+Permission denied. Uh, what? I don't
+
+1351
+01:20:24,159 --> 01:20:28,600
+know what is going on actually.
+
+1352
+01:20:29,679 --> 01:20:34,199
+Emacs.
+
+1353
+01:20:31,199 --> 01:20:34,199
+So,
+
+1354
+01:20:47,520 --> 01:20:50,840
+this is this.
+
+1355
+01:21:05,920 --> 01:21:13,280
+Okay. Yeah. So, something is going on
+
+1356
+01:21:08,320 --> 01:21:16,320
+with that Emacs. I don't know. So, you
+
+1357
+01:21:13,280 --> 01:21:20,960
+go to zot.ac.
+
+1358
+01:21:16,320 --> 01:21:23,960
+So this is my Windows disk. Okay. So
+
+1359
+01:21:20,960 --> 01:21:23,960
+copy
+
+1360
+01:21:25,360 --> 01:21:34,440
+copy the file path. Okay. Now open
+
+1361
+01:21:30,320 --> 01:21:34,440
+now open the home
+
+1362
+01:21:37,120 --> 01:21:44,560
+and open that. Paste the file path and
+
+1363
+01:21:40,560 --> 01:21:46,800
+load that. Make it the list. I mean make
+
+1364
+01:21:44,560 --> 01:21:50,239
+it the string load file. I'll put that
+
+1365
+01:21:46,800 --> 01:21:53,520
+there. Delete that. That. Okay.
+
+1366
+01:21:50,239 --> 01:21:57,440
+Now don't do that. Don't do that. Wait.
+
+1367
+01:21:53,520 --> 01:22:01,600
+Don't do that. And uh this part
+
+1368
+01:21:57,440 --> 01:22:07,040
+you can also comment out. Okay.
+
+1369
+01:22:01,600 --> 01:22:08,719
+And uh so for this let's say
+
+1370
+01:22:07,040 --> 01:22:13,920
+24.
+
+1371
+01:22:08,719 --> 01:22:18,239
+Okay. Comment out. And that's it. Okay.
+
+1372
+01:22:13,920 --> 01:22:20,080
+Now uh so actually let's delete that.
+
+1373
+01:22:18,239 --> 01:22:22,960
+Okay. Now
+
+1374
+01:22:20,080 --> 01:22:27,440
+save it. Okay. This just loads my
+
+1375
+01:22:22,960 --> 01:22:31,040
+windows in a file. You see
+
+1376
+01:22:27,440 --> 01:22:32,960
+we work. Okay. Let's see. Now this one
+
+1377
+01:22:31,040 --> 01:22:36,239
+close it.
+
+1378
+01:22:32,960 --> 01:22:39,120
+This one got [ __ ] up for some reason.
+
+1379
+01:22:36,239 --> 01:22:42,120
+Now we can leave it open to sturdy
+
+1380
+01:22:39,120 --> 01:22:42,120
+later.
+
+1381
+01:22:46,639 --> 01:22:55,080
+Are you guys still watching? Is it like
+
+1382
+01:22:49,199 --> 01:22:55,080
+interesting? Not interesting. Okay.
+
+1383
+01:22:55,280 --> 01:23:03,120
+So, back here. So, well, okay. So,
+
+1384
+01:23:00,320 --> 01:23:09,719
+yeah. Got you know the on Linux you got
+
+1385
+01:23:03,120 --> 01:23:09,719
+this problem. You need to like um Wait,
+
+1386
+01:23:10,480 --> 01:23:18,360
+let's just close it.
+
+1387
+01:23:14,000 --> 01:23:18,360
+I don't know what I did there.
+
+1388
+01:23:21,840 --> 01:23:28,400
+Okay. So, you see on Linux you got a
+
+1389
+01:23:25,120 --> 01:23:32,600
+problem. You have to like
+
+1390
+01:23:28,400 --> 01:23:32,600
+append that. Is that
+
+1391
+01:23:34,480 --> 01:23:38,719
+kind of annoying
+
+1392
+01:23:36,639 --> 01:23:42,080
+warning initialization
+
+1393
+01:23:38,719 --> 01:23:45,280
+problem. Okay, it cannot read
+
+1394
+01:23:42,080 --> 01:23:47,040
+phone spec. Oh, because consola doesn't
+
+1395
+01:23:45,280 --> 01:23:49,440
+exist.
+
+1396
+01:23:47,040 --> 01:23:54,880
+Okay,
+
+1397
+01:23:49,440 --> 01:24:00,520
+you see because consolers doesn't exist.
+
+1398
+01:23:54,880 --> 01:24:00,520
+So you this is the problem.
+
+1399
+01:24:02,159 --> 01:24:09,040
+Okay. Now, can you do it again?
+
+1400
+01:24:06,639 --> 01:24:12,639
+Do it.
+
+1401
+01:24:09,040 --> 01:24:16,320
+Uh, another problem because cannot open
+
+1402
+01:24:12,639 --> 01:24:20,080
+load file. No lo no such file. Get saw
+
+1403
+01:24:16,320 --> 01:24:23,440
+emacs. Okay.
+
+1404
+01:24:20,080 --> 01:24:26,920
+Well, it cannot load the file because
+
+1405
+01:24:23,440 --> 01:24:26,920
+I'm using
+
+1406
+01:24:27,600 --> 01:24:33,679
+uh because
+
+1407
+01:24:29,440 --> 01:24:36,679
+uh that's right because on here
+
+1408
+01:24:33,679 --> 01:24:36,679
+WSL
+
+1409
+01:24:36,960 --> 01:24:43,120
+it thinks this home directory is the
+
+1410
+01:24:40,159 --> 01:24:46,560
+Linux home directory but over here it's
+
+1411
+01:24:43,120 --> 01:24:49,760
+referring to the Windows
+
+1412
+01:24:46,560 --> 01:24:54,400
+disk home directory.
+
+1413
+01:24:49,760 --> 01:24:58,719
+So this home directory is um incorrect
+
+1414
+01:24:54,400 --> 01:25:02,480
+you see. So the problem is the Linux
+
+1415
+01:24:58,719 --> 01:25:06,400
+you see the home directory here
+
+1416
+01:25:02,480 --> 01:25:11,120
+is not the Windows disk home directory.
+
+1417
+01:25:06,400 --> 01:25:13,600
+So that is why it doesn't work.
+
+1418
+01:25:11,120 --> 01:25:15,360
+So in order to make it work you have to
+
+1419
+01:25:13,600 --> 01:25:19,840
+so yeah you actually you have to think
+
+1420
+01:25:15,360 --> 01:25:19,840
+about this how you want to do this.
+
+1421
+01:25:23,520 --> 01:25:30,639
+So you see so what am I doing? I want to
+
+1422
+01:25:27,360 --> 01:25:33,520
+install basically I want to do some a
+
+1423
+01:25:30,639 --> 01:25:37,840
+lot of coding and experiment experiment
+
+1424
+01:25:33,520 --> 01:25:39,760
+of running Emacs in Windows subsystem
+
+1425
+01:25:37,840 --> 01:25:43,679
+for Linux
+
+1426
+01:25:39,760 --> 01:25:48,000
+because it could be faster I've heard.
+
+1427
+01:25:43,679 --> 01:25:53,840
+Uh but there are a few issues because
+
+1428
+01:25:48,000 --> 01:25:57,440
+all my files are on my Windows disk and
+
+1429
+01:25:53,840 --> 01:26:00,080
+when you run Linux on Windows
+
+1430
+01:25:57,440 --> 01:26:02,320
+in WSL
+
+1431
+01:26:00,080 --> 01:26:06,159
+they don't
+
+1432
+01:26:02,320 --> 01:26:10,280
+read Windows files directly. I mean
+
+1433
+01:26:06,159 --> 01:26:10,280
+there's complications. So
+
+1434
+01:26:10,480 --> 01:26:17,280
+for fast file access, you need to copy
+
+1435
+01:26:14,639 --> 01:26:22,159
+your files from Windows
+
+1436
+01:26:17,280 --> 01:26:25,440
+NTFS file system to this to the WSL file
+
+1437
+01:26:22,159 --> 01:26:27,440
+system. Okay, which is kind of a fake
+
+1438
+01:26:25,440 --> 01:26:30,880
+file system
+
+1439
+01:26:27,440 --> 01:26:33,520
+anyway. So you need to
+
+1440
+01:26:30,880 --> 01:26:37,120
+copy the files over. So that means I
+
+1441
+01:26:33,520 --> 01:26:39,760
+need to you know I have like few thou
+
+1442
+01:26:37,120 --> 01:26:43,080
+you know tens of thousand files that
+
+1443
+01:26:39,760 --> 01:26:43,080
+work on.
+
+1444
+01:26:43,280 --> 01:26:51,760
+So if I just access them
+
+1445
+01:26:47,760 --> 01:26:54,880
+via the mount the window disc mount that
+
+1446
+01:26:51,760 --> 01:26:57,679
+would not work
+
+1447
+01:26:54,880 --> 01:27:00,960
+well because first of all it makes it
+
+1448
+01:26:57,679 --> 01:27:06,800
+much slower. So you don't want that. you
+
+1449
+01:27:00,960 --> 01:27:10,639
+lose the point of running Emacs in WSL.
+
+1450
+01:27:06,800 --> 01:27:15,199
+So you do want to copy over some you
+
+1451
+01:27:10,639 --> 01:27:17,360
+know 100,000 files if you want to work
+
+1452
+01:27:15,199 --> 01:27:20,880
+on WSL.
+
+1453
+01:27:17,360 --> 01:27:23,679
+Okay. So before we decide what we want
+
+1454
+01:27:20,880 --> 01:27:27,600
+to do about that, the first thing we can
+
+1455
+01:27:23,679 --> 01:27:31,199
+do is to just test run some, you know,
+
+1456
+01:27:27,600 --> 01:27:35,280
+play with Emacs in WSL to see just if it
+
+1457
+01:27:31,199 --> 01:27:37,920
+works fine and which is what we did.
+
+1458
+01:27:35,280 --> 01:27:42,400
+However,
+
+1459
+01:27:37,920 --> 01:27:44,480
+to really experiment Emacs on WSL, I
+
+1460
+01:27:42,400 --> 01:27:47,120
+need all my init files, you know, or
+
+1461
+01:27:44,480 --> 01:27:49,040
+most of it. So, we installed Softfly
+
+1462
+01:27:47,120 --> 01:27:54,560
+Keys, but there's, you know, there's a
+
+1463
+01:27:49,040 --> 01:27:57,040
+lot there's a lot that allows me to like
+
+1464
+01:27:54,560 --> 01:28:02,480
+there's a lot, you know, all my packages
+
+1465
+01:27:57,040 --> 01:28:06,719
+like 20 packages and other 30 files.
+
+1466
+01:28:02,480 --> 01:28:09,520
+So, I need to install them. And we tried
+
+1467
+01:28:06,719 --> 01:28:12,080
+to do that by simply run running the
+
+1468
+01:28:09,520 --> 01:28:15,520
+load, you know, the Microsoft Windows
+
+1469
+01:28:12,080 --> 01:28:17,760
+disk init file. But you got a problem.
+
+1470
+01:28:15,520 --> 01:28:20,320
+You can't do that because my init file
+
+1471
+01:28:17,760 --> 01:28:22,560
+involves other
+
+1472
+01:28:20,320 --> 01:28:27,040
+init files
+
+1473
+01:28:22,560 --> 01:28:30,159
+which refers to the home. But the home
+
+1474
+01:28:27,040 --> 01:28:33,920
+in WSL is different from the home on
+
+1475
+01:28:30,159 --> 01:28:35,920
+Windows machine home. So they they're
+
+1476
+01:28:33,920 --> 01:28:38,960
+going to say file not found. It says
+
+1477
+01:28:35,920 --> 01:28:41,840
+file not found because you need to you
+
+1478
+01:28:38,960 --> 01:28:44,320
+see you need to copy this emac skit. You
+
+1479
+01:28:41,840 --> 01:28:48,239
+need I need to copy my entire Windows
+
+1480
+01:28:44,320 --> 01:28:52,560
+skit and my homed to the Linux homed.
+
+1481
+01:28:48,239 --> 01:28:56,480
+You see the the WSL homed
+
+1482
+01:28:52,560 --> 01:28:58,880
+if I want to do that way. So what are
+
+1483
+01:28:56,480 --> 01:29:01,120
+the options? I don't know. So anyway,
+
+1484
+01:28:58,880 --> 01:29:04,560
+I'm just playing with it and nobody's
+
+1485
+01:29:01,120 --> 01:29:06,960
+watching I think. So let's have a look.
+
+1486
+01:29:04,560 --> 01:29:09,679
+Um
+
+1487
+01:29:06,960 --> 01:29:13,679
+seven. Okay.
+
+1488
+01:29:09,679 --> 01:29:19,280
+So it's kind of okay. So yeah. So what
+
+1489
+01:29:13,679 --> 01:29:21,440
+so what what is the plan? I don't know.
+
+1490
+01:29:19,280 --> 01:29:24,800
+So actually I need to think about it. So
+
+1491
+01:29:21,440 --> 01:29:29,280
+we did try we did the experiment on lots
+
+1492
+01:29:24,800 --> 01:29:30,800
+of these. Okay. Deja font.
+
+1493
+01:29:29,280 --> 01:29:35,360
+Uh
+
+1494
+01:29:30,800 --> 01:29:39,760
+yeah keys works perfect. Fantastic. And
+
+1495
+01:29:35,360 --> 01:29:45,000
+truly wait undo. Oh wait undo. Oh yeah.
+
+1496
+01:29:39,760 --> 01:29:45,000
+Key mistake, key h key habit.
+
+1497
+01:29:48,880 --> 01:29:54,840
+So yeah. So you need to um
+
+1498
+01:30:03,440 --> 01:30:08,960
+so it's more involved than I thought. So
+
+1499
+01:30:06,480 --> 01:30:10,880
+my system
+
+1500
+01:30:08,960 --> 01:30:13,679
+seems
+
+1501
+01:30:10,880 --> 01:30:16,320
+too complex.
+
+1502
+01:30:13,679 --> 01:30:19,920
+You see it's loading two innit files.
+
+1503
+01:30:16,320 --> 01:30:23,719
+One is the emac system. The other one is
+
+1504
+01:30:19,920 --> 01:30:23,719
+my personal init.
+
+1505
+01:30:23,840 --> 01:30:31,719
+Uh so even if you do I mean it's still
+
+1506
+01:30:27,600 --> 01:30:31,719
+complex. So,
+
+1507
+01:30:38,880 --> 01:30:45,199
+so what if you just load
+
+1508
+01:30:42,239 --> 01:30:47,679
+Oh, yeah. So, you can Yeah, you can
+
+1509
+01:30:45,199 --> 01:30:51,960
+change. You can No, no, you cannot
+
+1510
+01:30:47,679 --> 01:30:51,960
+change. God,
+
+1511
+01:30:52,880 --> 01:30:59,760
+so you can load. Yeah, we have to edit
+
+1512
+01:30:56,000 --> 01:30:59,760
+initate files then.
+
+1513
+01:31:04,320 --> 01:31:12,000
+So you see you need to
+
+1514
+01:31:08,560 --> 01:31:15,679
+open that. Oh it doesn't open because of
+
+1515
+01:31:12,000 --> 01:31:19,239
+again because of the home mess up that's
+
+1516
+01:31:15,679 --> 01:31:19,239
+Windows home
+
+1517
+01:31:22,159 --> 01:31:25,159
+close.
+
+1518
+01:31:25,600 --> 01:31:32,880
+So, open it. Copy or close. Why don't we
+
+1519
+01:31:29,840 --> 01:31:35,600
+just uh try to do something like this?
+
+1520
+01:31:32,880 --> 01:31:38,000
+Okay. Now, we just paste it the whole
+
+1521
+01:31:35,600 --> 01:31:40,480
+thing. Close.
+
+1522
+01:31:38,000 --> 01:31:43,520
+Uh
+
+1523
+01:31:40,480 --> 01:31:46,800
+this is the initial frame.
+
+1524
+01:31:43,520 --> 01:31:49,040
+Okay. Let's see 90 and 40. So, it's not
+
+1525
+01:31:46,800 --> 01:31:53,199
+too big. Okay.
+
+1526
+01:31:49,040 --> 01:31:56,800
+So, and uh that's the that's the initial
+
+1527
+01:31:53,199 --> 01:31:58,560
+font for this system. So we discovered
+
+1528
+01:31:56,800 --> 01:32:03,520
+before
+
+1529
+01:31:58,560 --> 01:32:08,800
+how to what font we have there. So we
+
+1530
+01:32:03,520 --> 01:32:12,560
+want that one. Okay. Let's say 22. Not
+
+1531
+01:32:08,800 --> 01:32:16,960
+too big. Okay. So for this file. So save
+
+1532
+01:32:12,560 --> 01:32:23,760
+it. Okay. So that's for the font for
+
+1533
+01:32:16,960 --> 01:32:26,320
+this WSL emac. Then init uh uh make the
+
+1534
+01:32:23,760 --> 01:32:28,639
+initial frame position at top the
+
+1535
+01:32:26,320 --> 01:32:32,480
+screen. No, we don't care. Okay. Width
+
+1536
+01:32:28,639 --> 01:32:35,440
+and height. Okay. Let that be that
+
+1537
+01:32:32,480 --> 01:32:37,920
+uh load
+
+1538
+01:32:35,440 --> 01:32:40,480
+then just use condition. You can set
+
+1539
+01:32:37,920 --> 01:32:46,239
+load path instead of loading files with
+
+1540
+01:32:40,480 --> 01:32:48,560
+home path. Oh, that's right. Well, yeah.
+
+1541
+01:32:46,239 --> 01:32:51,679
+Yeah, you are right. Well, there there's
+
+1542
+01:32:48,560 --> 01:32:55,880
+there was a reason I'm using you know
+
+1543
+01:32:51,679 --> 01:32:55,880
+load full path because
+
+1544
+01:32:56,000 --> 01:33:02,639
+you see because you see you know each of
+
+1545
+01:32:59,520 --> 01:33:06,080
+these init set they do use this uh load
+
+1546
+01:33:02,639 --> 01:33:10,880
+path right
+
+1547
+01:33:06,080 --> 01:33:13,280
+but if you do that um anyway
+
+1548
+01:33:10,880 --> 01:33:17,440
+it's like uh
+
+1549
+01:33:13,280 --> 01:33:19,360
+anyway so yeah that we can do that Um
+
+1550
+01:33:17,440 --> 01:33:22,880
+but let me just quickly get this to
+
+1551
+01:33:19,360 --> 01:33:27,920
+work. Okay. So over here you want uh you
+
+1552
+01:33:22,880 --> 01:33:31,679
+want for now Mnt uh use. Yeah. What is
+
+1553
+01:33:27,920 --> 01:33:33,920
+the [ __ ] is that? Mnt. So let's try to
+
+1554
+01:33:31,679 --> 01:33:35,520
+open it again.
+
+1555
+01:33:33,920 --> 01:33:38,520
+Mnt
+
+1556
+01:33:35,520 --> 01:33:38,520
+C
+
+1557
+01:33:38,560 --> 01:33:44,239
+users.
+
+1558
+01:33:40,159 --> 01:33:47,600
+Okay. Thanks. Uh open that. Open that.
+
+1559
+01:33:44,239 --> 01:33:51,040
+Copy the file path. Close. Close. Okay.
+
+1560
+01:33:47,600 --> 01:33:53,679
+So, the file path is something like
+
+1561
+01:33:51,040 --> 01:34:00,280
+that.
+
+1562
+01:33:53,679 --> 01:34:00,280
+Okay. So, but but here is like um
+
+1563
+01:34:01,600 --> 01:34:05,360
+get.
+
+1564
+01:34:03,760 --> 01:34:12,480
+Okay.
+
+1565
+01:34:05,360 --> 01:34:17,440
+So, get then. Okay. So, yeah. So cut
+
+1566
+01:34:12,480 --> 01:34:22,159
+paste mnt get.
+
+1567
+01:34:17,440 --> 01:34:25,280
+Okay. Then emac then emac in it. Now if
+
+1568
+01:34:22,159 --> 01:34:27,760
+we open that save it. Okay. Now if we
+
+1569
+01:34:25,280 --> 01:34:33,679
+open that.
+
+1570
+01:34:27,760 --> 01:34:36,000
+Oh god. Then it has home the reference.
+
+1571
+01:34:33,679 --> 01:34:40,040
+Jesus.
+
+1572
+01:34:36,000 --> 01:34:40,040
+Then this doesn't work.
+
+1573
+01:34:42,239 --> 01:34:48,239
+Is that right? Yeah, that home directory
+
+1574
+01:34:44,800 --> 01:34:54,040
+reference. Yeah. So, what you actually
+
+1575
+01:34:48,239 --> 01:34:54,040
+need to do is actually copy the entire
+
+1576
+01:34:54,159 --> 01:35:01,480
+uh XEMAX get home to the Linux GitHome.
+
+1577
+01:35:03,679 --> 01:35:08,400
+Yeah.
+
+1578
+01:35:05,440 --> 01:35:12,679
+So, that's one thing. Then you need to
+
+1579
+01:35:08,400 --> 01:35:12,679
+Yeah. So okay.
+
+1580
+01:35:13,840 --> 01:35:17,320
+Yeah. So
+
+1581
+01:35:19,760 --> 01:35:24,320
+you see so what do you need actually?
+
+1582
+01:35:21,679 --> 01:35:28,520
+You need to copy. So let's see if we can
+
+1583
+01:35:24,320 --> 01:35:28,520
+run some Unix command.
+
+1584
+01:35:34,800 --> 01:35:42,719
+Oh god, this is so slow.
+
+1585
+01:35:39,520 --> 01:35:46,960
+You see, we can let's see. Uh we want to
+
+1586
+01:35:42,719 --> 01:35:49,920
+copy something like that. Okay. Copy
+
+1587
+01:35:46,960 --> 01:35:54,960
+that to
+
+1588
+01:35:49,920 --> 01:35:58,560
+to like to
+
+1589
+01:35:54,960 --> 01:36:03,360
+here. Okay. Copy the Windows mount
+
+1590
+01:35:58,560 --> 01:36:06,719
+C users get kasar emacs. Okay. actually
+
+1591
+01:36:03,360 --> 01:36:08,719
+copy the whole
+
+1592
+01:36:06,719 --> 01:36:11,600
+to
+
+1593
+01:36:08,719 --> 01:36:14,239
+there. Okay. To the
+
+1594
+01:36:11,600 --> 01:36:16,800
+Linux home directory. Okay, that's one
+
+1595
+01:36:14,239 --> 01:36:19,760
+thing. But not yet. There's another
+
+1596
+01:36:16,800 --> 01:36:21,679
+thing. So, oh, let's go. Uh, wait. Let's
+
+1597
+01:36:19,760 --> 01:36:25,040
+go there.
+
+1598
+01:36:21,679 --> 01:36:28,080
+Magnify. Go to the directory.
+
+1599
+01:36:25,040 --> 01:36:32,239
+Then there is
+
+1600
+01:36:28,080 --> 01:36:36,080
+Emacs in it. Okay. So, copy that. Close.
+
+1601
+01:36:32,239 --> 01:36:40,000
+shrink back close.
+
+1602
+01:36:36,080 --> 01:36:43,840
+So you need to
+
+1603
+01:36:40,000 --> 01:36:48,159
+uh yeah so that would be here
+
+1604
+01:36:43,840 --> 01:36:50,560
+there and there
+
+1605
+01:36:48,159 --> 01:36:53,600
+okay I think we need to run these two
+
+1606
+01:36:50,560 --> 01:36:56,080
+copy command
+
+1607
+01:36:53,600 --> 01:36:58,480
+can we do it of course let's run eh
+
+1608
+01:36:56,080 --> 01:37:02,080
+shell you know the tech advanced
+
+1609
+01:36:58,480 --> 01:37:07,920
+technology let me demonstrate okay
+
+1610
+01:37:02,080 --> 01:37:10,920
+e welcome to emac shell instantaneous is
+
+1611
+01:37:07,920 --> 01:37:10,920
+copyr
+
+1612
+01:37:12,719 --> 01:37:20,000
+technology system. Use the kasar git
+
+1613
+01:37:15,760 --> 01:37:24,960
+xmax system to
+
+1614
+01:37:20,000 --> 01:37:27,040
+wslux system home get kasar emac do it.
+
+1615
+01:37:24,960 --> 01:37:32,080
+Make directory creating directory. No
+
+1616
+01:37:27,040 --> 01:37:35,280
+search file or directory home. Oh Jesus.
+
+1617
+01:37:32,080 --> 01:37:38,159
+uh copy you know the Unix copy they
+
+1618
+01:37:35,280 --> 01:37:39,920
+don't create a directory
+
+1619
+01:37:38,159 --> 01:37:41,760
+I mean if you have you if you have
+
+1620
+01:37:39,920 --> 01:37:47,440
+nested new directory they they don't
+
+1621
+01:37:41,760 --> 01:37:50,480
+create it now didn't didn't the new um
+
+1622
+01:37:47,440 --> 01:37:53,360
+I mean man CP did all these years after
+
+1623
+01:37:50,480 --> 01:37:57,199
+all these years did they not add option
+
+1624
+01:37:53,360 --> 01:38:00,199
+to to create all the intermediate
+
+1625
+01:37:57,199 --> 01:38:00,199
+directories
+
+1626
+01:38:00,480 --> 01:38:05,600
+of course if An existing destination
+
+1627
+01:38:02,880 --> 01:38:08,400
+file cannot be opened. Remove it and try
+
+1628
+01:38:05,600 --> 01:38:13,520
+again. Interactive follow command line
+
+1629
+01:38:08,400 --> 01:38:16,480
+symbolic link def reference no clober P
+
+1630
+01:38:13,520 --> 01:38:18,560
+something preserve parents are
+
+1631
+01:38:16,480 --> 01:38:21,520
+recursive.
+
+1632
+01:38:18,560 --> 01:38:23,679
+Did we do recursive?
+
+1633
+01:38:21,520 --> 01:38:27,600
+Did we?
+
+1634
+01:38:23,679 --> 01:38:32,239
+Yes. Yeah, of course.
+
+1635
+01:38:27,600 --> 01:38:34,639
+Uh see. Okay. Idiotic. Okay.
+
+1636
+01:38:32,239 --> 01:38:38,320
+So, let's just do it manually the
+
+1637
+01:38:34,639 --> 01:38:42,000
+trusted way. Okay. LS AEL.
+
+1638
+01:38:38,320 --> 01:38:48,000
+So, make the get
+
+1639
+01:38:42,000 --> 01:38:52,320
+cd get high Linux idiot. LS.
+
+1640
+01:38:48,000 --> 01:38:58,480
+Okay. Make the And what I want to make
+
+1641
+01:38:52,320 --> 01:39:05,000
+now uh XAX copy paste. So, CtrlV. Does
+
+1642
+01:38:58,480 --> 01:39:05,000
+it work? Yes. do it and make the
+
+1643
+01:39:05,119 --> 01:39:11,639
+make the uh Emacs. What's your
+
+1644
+01:39:12,960 --> 01:39:18,320
+uh kasa emac
+
+1645
+01:39:15,600 --> 01:39:20,480
+in it?
+
+1646
+01:39:18,320 --> 01:39:24,400
+Copy.
+
+1647
+01:39:20,480 --> 01:39:27,679
+Oh, you you forgot put here. Jesus,
+
+1648
+01:39:24,400 --> 01:39:29,360
+almost a major mistake.
+
+1649
+01:39:27,679 --> 01:39:36,000
+Copy.
+
+1650
+01:39:29,360 --> 01:39:38,960
+Make the paste. Do it and ls a l
+
+1651
+01:39:36,000 --> 01:39:41,920
+correct. Now can I run this copy
+
+1652
+01:39:38,960 --> 01:39:44,639
+command? Go to eh shell. Wait. Go to eh
+
+1653
+01:39:41,920 --> 01:39:47,679
+shell.
+
+1654
+01:39:44,639 --> 01:39:51,679
+Do it.
+
+1655
+01:39:47,679 --> 01:39:54,480
+Yes. You see the tai chi spinning.
+
+1656
+01:39:51,679 --> 01:39:58,560
+Looks like it's working
+
+1657
+01:39:54,480 --> 01:40:03,239
+now. My XEX shouldn't be too large. It's
+
+1658
+01:39:58,560 --> 01:40:03,239
+done. Okay. Now,
+
+1659
+01:40:03,280 --> 01:40:12,320
+now can we switch? Why is that iso tab
+
+1660
+01:40:06,560 --> 01:40:15,679
+not defined? Okay. So, oh god, stupid.
+
+1661
+01:40:12,320 --> 01:40:17,760
+Okay. Now you need to copy this part.
+
+1662
+01:40:15,679 --> 01:40:21,040
+Copy.
+
+1663
+01:40:17,760 --> 01:40:26,560
+Comment. Save.
+
+1664
+01:40:21,040 --> 01:40:29,800
+Go to ESHL. paste instantaneously.
+
+1665
+01:40:26,560 --> 01:40:29,800
+Do it.
+
+1666
+01:40:30,800 --> 01:40:37,760
+Hello young younger. Then just use
+
+1667
+01:40:35,199 --> 01:40:41,040
+condition to set load path based on
+
+1668
+01:40:37,760 --> 01:40:43,920
+system type. You can set load path
+
+1669
+01:40:41,040 --> 01:40:47,440
+instead of loading file home path. Set
+
+1670
+01:40:43,920 --> 01:40:50,639
+low path use condition. Yeah, you know
+
+1671
+01:40:47,440 --> 01:40:53,760
+those things like like you trick them.
+
+1672
+01:40:50,639 --> 01:40:57,440
+It's like you never reach a final
+
+1673
+01:40:53,760 --> 01:40:59,679
+solution you know this this path issues
+
+1674
+01:40:57,440 --> 01:41:02,560
+because I've been I've been you know
+
+1675
+01:40:59,679 --> 01:41:05,440
+fing about them for 30 years on
+
+1676
+01:41:02,560 --> 01:41:08,239
+different systems like the init setup
+
+1677
+01:41:05,440 --> 01:41:11,280
+like one day you decided actually full
+
+1678
+01:41:08,239 --> 01:41:13,760
+path is the best then the next day you
+
+1679
+01:41:11,280 --> 01:41:15,920
+know like next few months you decided oh
+
+1680
+01:41:13,760 --> 01:41:18,719
+you you know let's use a tear dot
+
+1681
+01:41:15,920 --> 01:41:21,360
+because that stand for home directory
+
+1682
+01:41:18,719 --> 01:41:23,600
+then on another system you discovered
+
+1683
+01:41:21,360 --> 01:41:27,040
+well the teod is not well supported
+
+1684
+01:41:23,600 --> 01:41:29,199
+sometimes you know and then another next
+
+1685
+01:41:27,040 --> 01:41:31,840
+year you decided you found out actually
+
+1686
+01:41:29,199 --> 01:41:35,800
+oh you you should always use relative
+
+1687
+01:41:31,840 --> 01:41:35,800
+path you know
+
+1688
+01:41:35,840 --> 01:41:39,679
+actually that's true that's my
+
+1689
+01:41:37,119 --> 01:41:41,440
+experience okay that is my experience
+
+1690
+01:41:39,679 --> 01:41:44,239
+and also the different programming
+
+1691
+01:41:41,440 --> 01:41:47,520
+languages so the the file path for
+
+1692
+01:41:44,239 --> 01:41:50,000
+example you got the Unix file path on
+
+1693
+01:41:47,520 --> 01:41:52,320
+Windows you got the backslash but slash
+
+1694
+01:41:50,000 --> 01:41:55,840
+is also supported.
+
+1695
+01:41:52,320 --> 01:41:59,280
+Lots of issues. Then on Emacs uh on
+
+1696
+01:41:55,840 --> 01:42:02,400
+Emacs which is different from Unix for
+
+1697
+01:41:59,280 --> 01:42:06,400
+example Emacs a directory should always
+
+1698
+01:42:02,400 --> 01:42:10,080
+end with a slash that's a convention and
+
+1699
+01:42:06,400 --> 01:42:13,119
+sometimes assumed okay in EMAC this
+
+1700
+01:42:10,080 --> 01:42:14,639
+directory should always end with a slash
+
+1701
+01:42:13,119 --> 01:42:18,000
+okay when you have a path that's
+
+1702
+01:42:14,639 --> 01:42:22,000
+directory but in Unix or Linux tradition
+
+1703
+01:42:18,000 --> 01:42:25,600
+never because directory in Unix it's you
+
+1704
+01:42:22,000 --> 01:42:28,400
+know it's just a um a file. Okay, it's
+
+1705
+01:42:25,600 --> 01:42:31,760
+you know you never distinguish which is
+
+1706
+01:42:28,400 --> 01:42:35,920
+idiotic. It's a Unix idiocy
+
+1707
+01:42:31,760 --> 01:42:38,400
+on Unix and Linux directory when the
+
+1708
+01:42:35,920 --> 01:42:41,440
+path for a directory is always without
+
+1709
+01:42:38,400 --> 01:42:44,560
+the slash at the end. Okay, that's a
+
+1710
+01:42:41,440 --> 01:42:46,639
+convention. So whenever some program
+
+1711
+01:42:44,560 --> 01:42:51,520
+asks you for a directory path, you
+
+1712
+01:42:46,639 --> 01:42:54,320
+should not give a ending slash.
+
+1713
+01:42:51,520 --> 01:42:57,440
+I well sometimes it may work but usually
+
+1714
+01:42:54,320 --> 01:42:59,840
+you should should not. Okay. So be but
+
+1715
+01:42:57,440 --> 01:43:02,719
+but so all all these difference seems
+
+1716
+01:42:59,840 --> 01:43:06,159
+minor but actually quite significant
+
+1717
+01:43:02,719 --> 01:43:08,800
+significant because whenever you have a
+
+1718
+01:43:06,159 --> 01:43:12,159
+program that use regular expression for
+
+1719
+01:43:08,800 --> 01:43:14,400
+example r sync you can pass a regular
+
+1720
+01:43:12,159 --> 01:43:17,520
+expression to say what file what kind of
+
+1721
+01:43:14,400 --> 01:43:20,080
+pattern to ignore you know so when when
+
+1722
+01:43:17,520 --> 01:43:23,360
+so whether directory end in a slash or
+
+1723
+01:43:20,080 --> 01:43:26,159
+not create lots of headache when when
+
+1724
+01:43:23,360 --> 01:43:28,719
+there's you know lots of headache Then
+
+1725
+01:43:26,159 --> 01:43:31,920
+okay. So then the
+
+1726
+01:43:28,719 --> 01:43:36,400
+then you know the EMAC load uh you know
+
+1727
+01:43:31,920 --> 01:43:41,159
+that you know set up load library um
+
+1728
+01:43:36,400 --> 01:43:41,159
+what what's so what is the reason that
+
+1729
+01:43:43,679 --> 01:43:52,239
+you see when when you just load the file
+
+1730
+01:43:46,239 --> 01:43:56,400
+a simple file you don't want to um
+
+1731
+01:43:52,239 --> 01:43:59,400
+you don't want to add to list load path
+
+1732
+01:43:56,400 --> 01:43:59,400
+because
+
+1733
+01:44:00,080 --> 01:44:04,960
+well in this case it you know it doesn't
+
+1734
+01:44:02,639 --> 01:44:09,679
+matter because it's going to add to this
+
+1735
+01:44:04,960 --> 01:44:12,960
+low path the emac system anyway but um
+
+1736
+01:44:09,679 --> 01:44:14,639
+anyway lots of issues you see why do I
+
+1737
+01:44:12,960 --> 01:44:20,000
+have them separate like why do I have
+
+1738
+01:44:14,639 --> 01:44:22,480
+this kasar emac set of init files then
+
+1739
+01:44:20,000 --> 01:44:25,199
+another set of init files because kasar
+
+1740
+01:44:22,480 --> 01:44:28,960
+emacs is considered like a independent
+
+1741
+01:44:25,199 --> 01:44:30,800
+package. So at any day I should be able
+
+1742
+01:44:28,960 --> 01:44:34,000
+theoretically
+
+1743
+01:44:30,800 --> 01:44:37,840
+uh be able to pass this entire kasar
+
+1744
+01:44:34,000 --> 01:44:40,639
+emacs directory give it to you to anyone
+
+1745
+01:44:37,840 --> 01:44:43,040
+then all they have to do is in their in
+
+1746
+01:44:40,639 --> 01:44:47,280
+any file all they have to do is just add
+
+1747
+01:44:43,040 --> 01:44:49,920
+this line then they will their emacs
+
+1748
+01:44:47,280 --> 01:44:55,400
+will bear emac system you see that's a
+
+1749
+01:44:49,920 --> 01:44:55,400
+that's a design okay so so
+
+1750
+01:44:55,520 --> 01:45:01,119
+the you know, so so but we run into a is
+
+1751
+01:44:59,040 --> 01:45:04,480
+some some kind of problem. Okay, not
+
+1752
+01:45:01,119 --> 01:45:07,920
+really. But but why didn't we add, you
+
+1753
+01:45:04,480 --> 01:45:10,080
+know, why didn't we use this load path
+
+1754
+01:45:07,920 --> 01:45:13,520
+system
+
+1755
+01:45:10,080 --> 01:45:16,159
+at this first innit file so that we
+
+1756
+01:45:13,520 --> 01:45:18,080
+don't so that then today we don't have
+
+1757
+01:45:16,159 --> 01:45:21,679
+this
+
+1758
+01:45:18,080 --> 01:45:25,440
+issue. So why don't we can we uh let's
+
+1759
+01:45:21,679 --> 01:45:27,600
+let's undo let's copy that for for now.
+
+1760
+01:45:25,440 --> 01:45:32,320
+Let's just paste it just so we can see
+
+1761
+01:45:27,600 --> 01:45:35,280
+it. So let's see load path. Uh can we do
+
+1762
+01:45:32,320 --> 01:45:39,280
+that?
+
+1763
+01:45:35,280 --> 01:45:43,440
+Yes. So if we do that then okay then
+
+1764
+01:45:39,280 --> 01:45:45,199
+this this line is just going to be
+
+1765
+01:45:43,440 --> 01:45:48,800
+uh
+
+1766
+01:45:45,199 --> 01:45:50,480
+just going to be that. Okay. then then
+
+1767
+01:45:48,800 --> 01:45:53,040
+you
+
+1768
+01:45:50,480 --> 01:45:55,360
+don't have this you know we don't have
+
+1769
+01:45:53,040 --> 01:45:56,960
+we won't have the problem like today we
+
+1770
+01:45:55,360 --> 01:46:00,880
+had
+
+1771
+01:45:56,960 --> 01:46:04,480
+so but if you do this then this means
+
+1772
+01:46:00,880 --> 01:46:07,520
+you see any any file of this name this
+
+1773
+01:46:04,480 --> 01:46:10,080
+this is more ambiguity because if you
+
+1774
+01:46:07,520 --> 01:46:12,000
+happen to have this file in any in your
+
+1775
+01:46:10,080 --> 01:46:14,880
+load path
+
+1776
+01:46:12,000 --> 01:46:18,159
+outside of this emacs then you got a you
+
+1777
+01:46:14,880 --> 01:46:20,800
+got a problem because it will load that
+
+1778
+01:46:18,159 --> 01:46:24,880
+file anyway. So, so there's a lot of
+
+1779
+01:46:20,800 --> 01:46:28,719
+those kind of problems. Okay.
+
+1780
+01:46:24,880 --> 01:46:31,280
+Yeah, that so that's my explanation also
+
+1781
+01:46:28,719 --> 01:46:33,199
+partly for myself because you know why
+
+1782
+01:46:31,280 --> 01:46:36,639
+am I not doing this you know I don't
+
+1783
+01:46:33,199 --> 01:46:39,119
+know I forgot um
+
+1784
+01:46:36,639 --> 01:46:43,040
+anyway so
+
+1785
+01:46:39,119 --> 01:46:49,119
+so now we have copied these two files
+
+1786
+01:46:43,040 --> 01:46:52,880
+can we close uh is yes uh and
+
+1787
+01:46:49,119 --> 01:46:56,719
+so what are we doing so we uh we load so
+
+1788
+01:46:52,880 --> 01:46:58,800
+we copy those And then we can just Yeah.
+
+1789
+01:46:56,719 --> 01:47:02,080
+No. So now
+
+1790
+01:46:58,800 --> 01:47:05,080
+we can just load uh what we going to
+
+1791
+01:47:02,080 --> 01:47:05,080
+load
+
+1792
+01:47:09,760 --> 01:47:16,400
+there. Cuz Emac. That's right. We just
+
+1793
+01:47:12,560 --> 01:47:19,199
+going to load that. And we just uh in
+
+1794
+01:47:16,400 --> 01:47:24,480
+fact we're going to load Emacs back up
+
+1795
+01:47:19,199 --> 01:47:30,000
+first. I mean wait uh Emacs. Yeah. So
+
+1796
+01:47:24,480 --> 01:47:34,560
+can we open that? No. Wait. That's uh
+
+1797
+01:47:30,000 --> 01:47:36,960
+Emacs. Oh, [ __ ] stupid. You see you
+
+1798
+01:47:34,560 --> 01:47:41,280
+see the way window I mean the the way
+
+1799
+01:47:36,960 --> 01:47:44,880
+Unix copy file system works. Now you got
+
+1800
+01:47:41,280 --> 01:47:48,639
+um what?
+
+1801
+01:47:44,880 --> 01:47:52,239
+So can you guys see? Now you got nested
+
+1802
+01:47:48,639 --> 01:47:56,000
+directory of the same name. You see uh
+
+1803
+01:47:52,239 --> 01:47:59,560
+Jesus because the way copy works. So now
+
+1804
+01:47:56,000 --> 01:47:59,560
+you want to
+
+1805
+01:48:02,719 --> 01:48:09,199
+Okay. So let me let me fix it.
+
+1806
+01:48:06,719 --> 01:48:11,199
+Select all.
+
+1807
+01:48:09,199 --> 01:48:12,960
+Copy
+
+1808
+01:48:11,199 --> 01:48:18,080
+here.
+
+1809
+01:48:12,960 --> 01:48:21,480
+Close it. Refresh. Refresh. What?
+
+1810
+01:48:18,080 --> 01:48:21,480
+Select all.
+
+1811
+01:48:21,520 --> 01:48:26,880
+Split the window. Go to the parent. Go
+
+1812
+01:48:25,360 --> 01:48:30,080
+here.
+
+1813
+01:48:26,880 --> 01:48:33,280
+Shift C for copy.
+
+1814
+01:48:30,080 --> 01:48:36,239
+Uh, shift C. Okay. Now you need to Why
+
+1815
+01:48:33,280 --> 01:48:37,920
+didn't it um
+
+1816
+01:48:36,239 --> 01:48:41,840
+do it?
+
+1817
+01:48:37,920 --> 01:48:45,199
+Copy that. Get recursively. Yes. Just
+
+1818
+01:48:41,840 --> 01:48:49,679
+copy the whole thing.
+
+1819
+01:48:45,199 --> 01:48:52,960
+Copy recursively. Yes. Okay. Now expand
+
+1820
+01:48:49,679 --> 01:48:56,320
+the window now. Okay. So we let me show
+
+1821
+01:48:52,960 --> 01:49:00,119
+you. So because it's
+
+1822
+01:48:56,320 --> 01:49:00,119
+not hard to see.
+
+1823
+01:49:13,199 --> 01:49:22,159
+Okay. So,
+
+1824
+01:49:16,000 --> 01:49:24,719
+U capital U to remove the marks. Now,
+
+1825
+01:49:22,159 --> 01:49:30,159
+close it.
+
+1826
+01:49:24,719 --> 01:49:35,760
+Go up. Refresh. Now, delete that. Yes.
+
+1827
+01:49:30,159 --> 01:49:39,360
+Yes. A Y S. Okay. Uh, recursive delete.
+
+1828
+01:49:35,760 --> 01:49:41,760
+Yes. Okay. Now, that that should be
+
+1829
+01:49:39,360 --> 01:49:45,920
+fixed. And now you need to do do the
+
+1830
+01:49:41,760 --> 01:49:50,400
+same thing for here. Uh,
+
+1831
+01:49:45,920 --> 01:49:54,320
+okay. Now open it. Select or go back
+
+1832
+01:49:50,400 --> 01:49:57,440
+here. Uh, go back here.
+
+1833
+01:49:54,320 --> 01:50:00,639
+Capital C for copy.
+
+1834
+01:49:57,440 --> 01:50:04,080
+Yes. Yes. Yes. Copy over here
+
+1835
+01:50:00,639 --> 01:50:09,360
+recursively. Yes.
+
+1836
+01:50:04,080 --> 01:50:12,960
+Okay. Done. Now close. Refresh.
+
+1837
+01:50:09,360 --> 01:50:17,440
+Okay. Now what is this? This is Emacs
+
+1838
+01:50:12,960 --> 01:50:22,719
+init my personal init file. Okay. Now
+
+1839
+01:50:17,440 --> 01:50:28,199
+delete that. Do it. Yes.
+
+1840
+01:50:22,719 --> 01:50:28,199
+Uh yes recursively. Okay.
+
+1841
+01:50:28,560 --> 01:50:36,639
+Oh there's a problem. Okay. So now we
+
+1842
+01:50:31,520 --> 01:50:40,480
+fix that. Okay. Now we got them on Linux
+
+1843
+01:50:36,639 --> 01:50:43,199
+home. my git, my init.
+
+1844
+01:50:40,480 --> 01:50:47,040
+Close that. Close that.
+
+1845
+01:50:43,199 --> 01:50:48,560
+Uh, open it. Fantastic. It opened.
+
+1846
+01:50:47,040 --> 01:50:52,560
+Fantastic.
+
+1847
+01:50:48,560 --> 01:50:57,280
+Now open it. Fantastic. It opened. File
+
+1848
+01:50:52,560 --> 01:51:00,800
+exist. Okay. Now this copy is we don't
+
+1849
+01:50:57,280 --> 01:51:04,159
+we don't need anymore. It was uh you see
+
+1850
+01:51:00,800 --> 01:51:06,960
+the also there is that
+
+1851
+01:51:04,159 --> 01:51:09,679
+that's why we copied them by mistake. I
+
+1852
+01:51:06,960 --> 01:51:13,280
+mean it's double
+
+1853
+01:51:09,679 --> 01:51:18,480
+uh doubly nested. Okay. So actually so
+
+1854
+01:51:13,280 --> 01:51:21,199
+we uh load that and set set to roak.
+
+1855
+01:51:18,480 --> 01:51:24,560
+That's right. And this we don't need
+
+1856
+01:51:21,199 --> 01:51:27,679
+anymore. That's incorrect.
+
+1857
+01:51:24,560 --> 01:51:31,199
+Uh let's put them here for comparison.
+
+1858
+01:51:27,679 --> 01:51:34,239
+Oh uh what?
+
+1859
+01:51:31,199 --> 01:51:39,000
+Oh wait.
+
+1860
+01:51:34,239 --> 01:51:39,000
+Oh that's right. So this is incorrect.
+
+1861
+01:51:39,760 --> 01:51:42,760
+What?
+
+1862
+01:51:46,080 --> 01:51:54,400
+Oh yeah. So let's open that. Yeah,
+
+1863
+01:51:49,920 --> 01:51:56,719
+that's good. Open. Okay. Close.
+
+1864
+01:51:54,400 --> 01:52:01,040
+Okay. We're going to load that. And load
+
+1865
+01:51:56,719 --> 01:52:03,360
+that and set softly keys to Vorrack.
+
+1866
+01:52:01,040 --> 01:52:06,000
+Fantastic. And what is this? This is
+
+1867
+01:52:03,360 --> 01:52:09,520
+opening the todo file. We don't need
+
+1868
+01:52:06,000 --> 01:52:13,199
+that's my uh that's my web todo
+
+1869
+01:52:09,520 --> 01:52:16,880
+and uh emac any time. Yes, we want to
+
+1870
+01:52:13,199 --> 01:52:22,400
+see how long did it uh work and view
+
+1871
+01:52:16,880 --> 01:52:25,520
+open the message uh buffer. Then this is
+
+1872
+01:52:22,400 --> 01:52:28,239
+this loads the uh
+
+1873
+01:52:25,520 --> 01:52:31,599
+we don't want this. This this loads the
+
+1874
+01:52:28,239 --> 01:52:34,480
+Okamo mod okamel programming language
+
+1875
+01:52:31,599 --> 01:52:37,440
+like Functional programming language. We
+
+1876
+01:52:34,480 --> 01:52:41,679
+don't want that then we don't want that
+
+1877
+01:52:37,440 --> 01:52:46,000
+and this uh you don't care. Okay, that
+
+1878
+01:52:41,679 --> 01:52:48,320
+was okay. Now save.
+
+1879
+01:52:46,000 --> 01:52:50,880
+Fantastic. Okay, let me try something.
+
+1880
+01:52:48,320 --> 01:52:54,880
+If I move, you see I have the setup such
+
+1881
+01:52:50,880 --> 01:52:57,599
+that if I if Emac goes out of focus, it
+
+1882
+01:52:54,880 --> 01:53:00,880
+will save the buffer. You see right now
+
+1883
+01:52:57,599 --> 01:53:02,800
+you see those two asterisks on the left
+
+1884
+01:53:00,880 --> 01:53:05,440
+corner.
+
+1885
+01:53:02,800 --> 01:53:09,440
+That means the file is not saved. It's
+
+1886
+01:53:05,440 --> 01:53:11,280
+modified. But now if I move to chat or
+
+1887
+01:53:09,440 --> 01:53:14,280
+something, it should save. Okay, let's
+
+1888
+01:53:11,280 --> 01:53:14,280
+try.
+
+1889
+01:53:15,360 --> 01:53:22,000
+No, let's go here. Go back here. No,
+
+1890
+01:53:19,840 --> 01:53:26,159
+it's not auto save. Oh, yeah, obviously
+
+1891
+01:53:22,000 --> 01:53:29,040
+because I have not loaded my personal in
+
+1892
+01:53:26,159 --> 01:53:32,480
+it yet. Okay, but we'll see. Now, save
+
+1893
+01:53:29,040 --> 01:53:35,599
+it one last time. Verify everything is
+
+1894
+01:53:32,480 --> 01:53:39,360
+good. This is my Emacs init file on
+
+1895
+01:53:35,599 --> 01:53:44,040
+Linux. Okay, in WSL.
+
+1896
+01:53:39,360 --> 01:53:44,040
+Now, let's start Emacs.
+
+1897
+01:53:44,159 --> 01:53:50,239
+Now when this time Emac start it, it
+
+1898
+01:53:47,040 --> 01:53:54,679
+will have all my in it. So I should fly
+
+1899
+01:53:50,239 --> 01:53:54,679
+in it. Let's do let's see.
+
+1900
+01:53:56,239 --> 01:54:05,040
+Fantastic. 3 seconds. Is it faster? Uh
+
+1901
+01:54:01,360 --> 01:54:08,320
+well normally on Windows if I'm starting
+
+1902
+01:54:05,040 --> 01:54:11,280
+Emacs for the first time, it has to load
+
+1903
+01:54:08,320 --> 01:54:14,800
+the files init files to memory. It's
+
+1904
+01:54:11,280 --> 01:54:17,920
+about eight seconds. But second time it
+
+1905
+01:54:14,800 --> 01:54:20,800
+will be two something seconds. Okay. Now
+
+1906
+01:54:17,920 --> 01:54:25,599
+this on Linux the first time the disk is
+
+1907
+01:54:20,800 --> 01:54:28,800
+not warm yet. It's 3.6 seconds. So it it
+
+1908
+01:54:25,599 --> 01:54:32,719
+looks like it's half half as fast. Now
+
+1909
+01:54:28,800 --> 01:54:35,360
+if I start again now they should be the
+
+1910
+01:54:32,719 --> 01:54:37,360
+all those in files are in memory in
+
+1911
+01:54:35,360 --> 01:54:40,239
+operating system memory. So if I start
+
+1912
+01:54:37,360 --> 01:54:42,880
+again normally on Windows it would be
+
+1913
+01:54:40,239 --> 01:54:47,560
+two seconds something. So now it should
+
+1914
+01:54:42,880 --> 01:54:47,560
+be if it's let's see
+
+1915
+01:54:51,199 --> 01:55:02,040
+okay so 3.6 seconds. So okay so you know
+
+1916
+01:54:58,400 --> 01:55:02,040
+you know we can
+
+1917
+01:55:02,080 --> 01:55:05,080
+see
+
+1918
+01:55:07,360 --> 01:55:13,280
+Emacs. Let me show you how fast it runs
+
+1919
+01:55:10,320 --> 01:55:13,280
+on Windows.
+
+1920
+01:55:14,960 --> 01:55:20,880
+2.4 second wait but there is something
+
+1921
+01:55:17,920 --> 01:55:24,880
+wrong it's
+
+1922
+01:55:20,880 --> 01:55:29,679
+oh I removed my font that's why
+
+1923
+01:55:24,880 --> 01:55:33,159
+now you can you can return my font okay
+
+1924
+01:55:29,679 --> 01:55:33,159
+do it again
+
+1925
+01:55:37,360 --> 01:55:46,280
+you see 2.4 4 seconds
+
+1926
+01:55:41,840 --> 01:55:46,280
+now. Uh, Emacs.
+
+1927
+01:55:49,679 --> 01:55:56,520
+What?
+
+1928
+01:55:51,440 --> 01:55:56,520
+Emacs. Is it Emacs or Emacs?
+
+1929
+01:55:57,840 --> 01:56:03,599
+Okay.
+
+1930
+01:55:59,760 --> 01:56:09,480
+2.4 seconds on Windows. Now, the exact
+
+1931
+01:56:03,599 --> 01:56:09,480
+same setup on Linux. Do it.
+
+1932
+01:56:11,920 --> 01:56:14,920
+Okay.
+
+1933
+01:56:15,920 --> 01:56:26,719
+3.4 seconds slightly slower. H
+
+1934
+01:56:21,599 --> 01:56:30,239
+I wonder is it uh
+
+1935
+01:56:26,719 --> 01:56:35,280
+I don't know why but uh
+
+1936
+01:56:30,239 --> 01:56:40,760
+also why is this uh you see now because
+
+1937
+01:56:35,280 --> 01:56:40,760
+now you see fantastic and beautiful
+
+1938
+01:56:41,360 --> 01:56:46,400
+so fantastic okay I can fly through it
+
+1939
+01:56:44,239 --> 01:56:49,280
+you see
+
+1940
+01:56:46,400 --> 01:56:52,000
+okay so we uh yeah so we actually
+
+1941
+01:56:49,280 --> 01:56:55,840
+successful. Actually, we completed
+
+1942
+01:56:52,000 --> 01:56:58,159
+completed what we wanted to do today
+
+1943
+01:56:55,840 --> 01:57:02,320
+fully.
+
+1944
+01:56:58,159 --> 01:57:06,480
+I not only I I not just installed
+
+1945
+01:57:02,320 --> 01:57:08,080
+Kasafly keys in WSL, but I installed my
+
+1946
+01:57:06,480 --> 01:57:12,320
+entire
+
+1947
+01:57:08,080 --> 01:57:15,920
+Kasa Emac system and all my in it. Let's
+
+1948
+01:57:12,320 --> 01:57:19,719
+see. Uh so in summary close that can we
+
+1949
+01:57:15,920 --> 01:57:19,719
+like um
+
+1950
+01:57:20,719 --> 01:57:27,040
+let's see uh yeah so
+
+1951
+01:57:24,880 --> 01:57:29,920
+where is my other terminal? Yeah so we
+
+1952
+01:57:27,040 --> 01:57:34,000
+got two terminals here.
+
+1953
+01:57:29,920 --> 01:57:41,000
+Fantastic. Okay fantastic so now let's
+
+1954
+01:57:34,000 --> 01:57:41,000
+see Emacs no um no windows.
+
+1955
+01:57:41,360 --> 01:57:46,360
+So there it is 3 seconds
+
+1956
+01:57:46,960 --> 01:57:51,800
+now but Emacs with Windows
+
+1957
+01:57:51,840 --> 01:57:58,239
+I mean graphical UI system.
+
+1958
+01:57:54,880 --> 01:58:01,840
+Okay 3.3 seconds still the same but now
+
+1959
+01:57:58,239 --> 01:58:06,080
+why why is it so big? I mean the line is
+
+1960
+01:58:01,840 --> 01:58:09,080
+too much. Okay. So, let's see.
+
+1961
+01:58:06,080 --> 01:58:09,080
+Uh,
+
+1962
+01:58:10,000 --> 01:58:13,560
+okay. Init
+
+1963
+01:58:15,199 --> 01:58:21,920
+height 40.
+
+1964
+01:58:17,360 --> 01:58:25,199
+Oh, height 40 is pretty pretty big. So,
+
+1965
+01:58:21,920 --> 01:58:28,159
+you don't want height 40. What?
+
+1966
+01:58:25,199 --> 01:58:32,480
+But what about PowerShell default? Let's
+
+1967
+01:58:28,159 --> 01:58:35,199
+Let's see PowerShell default.
+
+1968
+01:58:32,480 --> 01:58:40,880
+30.
+
+1969
+01:58:35,199 --> 01:58:44,840
+So, PowerShell default is uh
+
+1970
+01:58:40,880 --> 01:58:44,840
+is 30 lines
+
+1971
+01:58:45,040 --> 01:58:50,960
+uh of of of code. A new window. Control
+
+1972
+01:58:48,960 --> 01:58:56,719
+shift N
+
+1973
+01:58:50,960 --> 01:58:59,440
+30 lines. So, why is Emac 30 lines? Oh,
+
+1974
+01:58:56,719 --> 01:59:02,639
+I said 40. So, you need to change it to
+
+1975
+01:58:59,440 --> 01:59:06,199
+30. Save it. Quit.
+
+1976
+01:59:02,639 --> 01:59:06,199
+Uh, what?
+
+1977
+01:59:07,280 --> 01:59:11,840
+So, let's see. PowerShell
+
+1978
+01:59:10,239 --> 01:59:15,360
+settings.
+
+1979
+01:59:11,840 --> 01:59:20,480
+This is Windows terminal. Okay.
+
+1980
+01:59:15,360 --> 01:59:24,960
+Okay. I set it to 30 lines by default.
+
+1981
+01:59:20,480 --> 01:59:28,800
+Okay. Uh, close all. Now,
+
+1982
+01:59:24,960 --> 01:59:33,960
+let's do the same on Emacs. Okay. So 30
+
+1983
+01:59:28,800 --> 01:59:33,960
+close. Do it again. Start.
+
+1984
+01:59:37,440 --> 01:59:41,679
+Okay. Perfect.
+
+1985
+01:59:39,679 --> 01:59:44,320
+Okay. So what's what we going to do? We
+
+1986
+01:59:41,679 --> 01:59:46,480
+can we can write this code now. You see?
+
+1987
+01:59:44,320 --> 01:59:50,960
+Fantastic. Let's let's see. Press press
+
+1988
+01:59:46,480 --> 01:59:54,400
+press press. That give me soft flag keys
+
+1989
+01:59:50,960 --> 01:59:58,560
+source code. 4,000 of lines. You see I
+
+1990
+01:59:54,400 --> 02:00:02,320
+can I can show you everything sfly keys
+
+1991
+01:59:58,560 --> 02:00:06,880
+and let's go to my package there
+
+1992
+02:00:02,320 --> 02:00:11,040
+cascading stylesheet mode
+
+1993
+02:00:06,880 --> 02:00:14,880
+the edit mode diet
+
+1994
+02:00:11,040 --> 02:00:19,119
+is mode fantastic okay uh I think that's
+
+1995
+02:00:14,880 --> 02:00:23,760
+it by guys is it slightly slower on WSL
+
+1996
+02:00:19,119 --> 02:00:23,760
+because a shell is run on top of windows
+
+1997
+02:00:26,960 --> 02:00:33,560
+Uh what what do you mean? You mean the
+
+1998
+02:00:29,920 --> 02:00:33,560
+like um
+
+1999
+02:00:39,199 --> 02:00:46,000
+well they say emacs on window is much
+
+2000
+02:00:42,080 --> 02:00:49,920
+faster but um
+
+2001
+02:00:46,000 --> 02:00:54,159
+but actually I asked AI even in WSL I
+
+2002
+02:00:49,920 --> 02:00:56,560
+think AI told me it's faster than native
+
+2003
+02:00:54,159 --> 02:00:58,800
+Windows
+
+2004
+02:00:56,560 --> 02:01:02,000
+uh but for what reason I forgot. But
+
+2005
+02:00:58,800 --> 02:01:05,000
+anyway, we but uh
+
+2006
+02:01:02,000 --> 02:01:05,000
+so
+
+2007
+02:01:05,040 --> 02:01:10,560
+so I don't know why is it not faster,
+
+2008
+02:01:07,760 --> 02:01:12,400
+but you were saying it's because it's a
+
+2009
+02:01:10,560 --> 02:01:14,639
+shell.
+
+2010
+02:01:12,400 --> 02:01:17,760
+No, you mean you mean the overhead not
+
+2011
+02:01:14,639 --> 02:01:20,560
+shell? You mean some like some overhead
+
+2012
+02:01:17,760 --> 02:01:22,159
+for running virtual machine?
+
+2013
+02:01:20,560 --> 02:01:27,719
+Um
+
+2014
+02:01:22,159 --> 02:01:27,719
+that could be I don't know really. Uh
+
+2015
+02:01:30,000 --> 02:01:36,880
+anyway, so successful. Okay, bye guys. I
+
+2016
+02:01:33,040 --> 02:01:40,239
+think yeah, so I'm going to go
+
+2017
+02:01:36,880 --> 02:01:43,440
+uh then. So next days I have a lot to
+
+2018
+02:01:40,239 --> 02:01:46,719
+do. So we can start to code you know I
+
+2019
+02:01:43,440 --> 02:01:52,320
+can start to do my find replace um or
+
+2020
+02:01:46,719 --> 02:01:55,920
+watch lots of things um in WSL to see
+
+2021
+02:01:52,320 --> 02:01:58,960
+how it performs and also since this is
+
+2022
+02:01:55,920 --> 02:02:03,040
+running in Windows I mean in Linux I can
+
+2023
+02:01:58,960 --> 02:02:05,599
+actually compile them to native code
+
+2024
+02:02:03,040 --> 02:02:07,840
+which is a feature not available on
+
+2025
+02:02:05,599 --> 02:02:10,320
+Windows.
+
+2026
+02:02:07,840 --> 02:02:13,280
+That is you compile
+
+2027
+02:02:10,320 --> 02:02:16,480
+the emac this code. Let me show you. So
+
+2028
+02:02:13,280 --> 02:02:20,880
+you see, so let's open the XE Emacs.
+
+2029
+02:02:16,480 --> 02:02:23,920
+Okay. So packages. So you see there is
+
+2030
+02:02:20,880 --> 02:02:26,080
+let's say um
+
+2031
+02:02:23,920 --> 02:02:29,760
+let's say find let's try it. Okay. So
+
+2032
+02:02:26,080 --> 02:02:33,520
+tell your friend. So I let's say I copy
+
+2033
+02:02:29,760 --> 02:02:37,840
+some let's say I want to find let's just
+
+2034
+02:02:33,520 --> 02:02:39,920
+say find Hascal. Okay. F. Wait what?
+
+2035
+02:02:37,840 --> 02:02:44,199
+Undo. Undo.
+
+2036
+02:02:39,920 --> 02:02:44,199
+What do I have a key for?
+
+2037
+02:02:44,800 --> 02:02:48,400
+Uh, no.
+
+2038
+02:02:46,800 --> 02:02:51,360
+Wait,
+
+2039
+02:02:48,400 --> 02:02:55,199
+let's go to
+
+2040
+02:02:51,360 --> 02:02:58,719
+CH. Oh, I don't have bookmark. So,
+
+2041
+02:02:55,199 --> 02:03:02,719
+yeah, I bookmark is another
+
+2042
+02:02:58,719 --> 02:03:06,159
+in it. Uh
+
+2043
+02:03:02,719 --> 02:03:08,880
+so anyway, let's try coar
+
+2044
+02:03:06,159 --> 02:03:12,080
+find text.
+
+2045
+02:03:08,880 --> 02:03:16,080
+So let's find let's say Hascal. Let's
+
+2046
+02:03:12,080 --> 02:03:19,599
+see if in my all my eaglist this files
+
+2047
+02:03:16,080 --> 02:03:22,400
+did they ever mention Hascal. Let's see
+
+2048
+02:03:19,599 --> 02:03:26,320
+there it is. So indeed they some of them
+
+2049
+02:03:22,400 --> 02:03:29,360
+mention because in HTML you need to have
+
+2050
+02:03:26,320 --> 02:03:34,320
+syntax color for Hascal. So you see uh
+
+2051
+02:03:29,360 --> 02:03:38,800
+HTML mode. So open it. So you can see uh
+
+2052
+02:03:34,320 --> 02:03:41,119
+let's magnify. Okay. So magnify.
+
+2053
+02:03:38,800 --> 02:03:45,040
+So you can see
+
+2054
+02:03:41,119 --> 02:03:47,360
+one of my package that is the find
+
+2055
+02:03:45,040 --> 02:03:50,000
+that's working.
+
+2056
+02:03:47,360 --> 02:03:52,880
+So but what is my point? What was I
+
+2057
+02:03:50,000 --> 02:03:55,360
+trying to say? Uh I was well yeah okay.
+
+2058
+02:03:52,880 --> 02:03:58,400
+So I was trying to say so this is E
+
+2059
+02:03:55,360 --> 02:04:03,920
+which is EMAC this code you can bite
+
+2060
+02:03:58,400 --> 02:04:06,960
+compile it yes so you can see EC so now
+
+2061
+02:04:03,920 --> 02:04:09,679
+this is by compile it will run faster
+
+2062
+02:04:06,960 --> 02:04:12,000
+but however there's a new feature since
+
+2063
+02:04:09,679 --> 02:04:15,840
+about five years ago you can compile the
+
+2064
+02:04:12,000 --> 02:04:18,320
+EIS code to native code but that you
+
+2065
+02:04:15,840 --> 02:04:21,360
+cannot do on Windows
+
+2066
+02:04:18,320 --> 02:04:24,239
+okay so but how do you do it so uh you
+
+2067
+02:04:21,360 --> 02:04:27,239
+want to so I I think uh let's see
+
+2068
+02:04:24,239 --> 02:04:27,239
+compile.
+
+2069
+02:04:28,719 --> 02:04:36,400
+You see you can compile the list code
+
+2070
+02:04:31,360 --> 02:04:38,480
+now to to native code
+
+2071
+02:04:36,400 --> 02:04:42,080
+which I'm not familiar since I'm on
+
+2072
+02:04:38,480 --> 02:04:44,560
+Windows. You don't have that feature.
+
+2073
+02:04:42,080 --> 02:04:48,639
+Emac display by compile. So I don't know
+
+2074
+02:04:44,560 --> 02:04:53,840
+where is it. Okay. So you need to go to
+
+2075
+02:04:48,639 --> 02:04:58,000
+control hi go to the emacs info then you
+
+2076
+02:04:53,840 --> 02:05:02,320
+go to the emac list info
+
+2077
+02:04:58,000 --> 02:05:05,840
+okay then you search for
+
+2078
+02:05:02,320 --> 02:05:10,159
+compile okay by compilation native
+
+2079
+02:05:05,840 --> 02:05:12,560
+compilation there open it so in addition
+
+2080
+02:05:10,159 --> 02:05:15,119
+to by compilation described in the
+
+2081
+02:05:12,560 --> 02:05:17,199
+previous chapter of Emacs can also
+
+2082
+02:05:15,119 --> 02:05:20,480
+option Ally I compile these function
+
+2083
+02:05:17,199 --> 02:05:24,000
+definitions into a true compiled code
+
+2084
+02:05:20,480 --> 02:05:28,239
+known as native code. This feature uses
+
+2085
+02:05:24,000 --> 02:05:31,520
+lib gcc jit. Oh okay okay. We installed
+
+2086
+02:05:28,239 --> 02:05:35,599
+it yesterday. I remember uh which is
+
+2087
+02:05:31,520 --> 02:05:37,760
+part of the GCC. Okay. So you see you
+
+2088
+02:05:35,599 --> 02:05:41,119
+see you see one of the this is one of
+
+2089
+02:05:37,760 --> 02:05:44,880
+the damage of the Unix [ __ ] Okay.
+
+2090
+02:05:41,119 --> 02:05:48,080
+Let me tell you Mo listen pay attention.
+
+2091
+02:05:44,880 --> 02:05:50,320
+Okay, this is one of the damage of the
+
+2092
+02:05:48,080 --> 02:05:52,719
+Unix [ __ ]
+
+2093
+02:05:50,320 --> 02:05:55,760
+You see, you see how the lines are not
+
+2094
+02:05:52,719 --> 02:05:58,800
+well formatted. You see this this line?
+
+2095
+02:05:55,760 --> 02:06:01,840
+You see they have extra word in in a new
+
+2096
+02:05:58,800 --> 02:06:04,400
+line. Why is that? Because let me let me
+
+2097
+02:06:01,840 --> 02:06:07,040
+try to demo this. Okay. Well, actually I
+
+2098
+02:06:04,400 --> 02:06:10,239
+did so many times, but doesn't hurt to
+
+2099
+02:06:07,040 --> 02:06:13,840
+do it again. Okay. Because the Unix
+
+2100
+02:06:10,239 --> 02:06:16,960
+[ __ ] their idea of hard formatted
+
+2101
+02:06:13,840 --> 02:06:20,400
+code what they want is they tell you
+
+2102
+02:06:16,960 --> 02:06:22,400
+that lines must not be more than 80
+
+2103
+02:06:20,400 --> 02:06:25,360
+characters. Let's turn on ruler mod.
+
+2104
+02:06:22,400 --> 02:06:28,159
+Okay. So you can see okay so we got a
+
+2105
+02:06:25,360 --> 02:06:30,560
+ruler you see. So here over here it's 70
+
+2106
+02:06:28,159 --> 02:06:34,560
+characters over here is 80 characters.
+
+2107
+02:06:30,560 --> 02:06:36,960
+So the Unix [ __ ] told us and which
+
+2108
+02:06:34,560 --> 02:06:41,119
+influence all computing programming
+
+2109
+02:06:36,960 --> 02:06:43,840
+industry in Python in JavaScript in C C
+
+2110
+02:06:41,119 --> 02:06:46,320
+everywhere they say they tell you that
+
+2111
+02:06:43,840 --> 02:06:48,639
+lines you should format your lines no
+
+2112
+02:06:46,320 --> 02:06:51,760
+more than 80 characters in fact no more
+
+2113
+02:06:48,639 --> 02:06:54,560
+than 70 typically the convention the
+
+2114
+02:06:51,760 --> 02:06:56,239
+convention came from punch cards okay so
+
+2115
+02:06:54,560 --> 02:06:59,599
+you got that convention because the
+
+2116
+02:06:56,239 --> 02:07:01,599
+reason is that is that because you know
+
+2117
+02:06:59,599 --> 02:07:03,599
+lines too Oh, it's hard to read, you
+
+2118
+02:07:01,599 --> 02:07:06,400
+know. You don't want to turn your head,
+
+2119
+02:07:03,599 --> 02:07:08,960
+you know, like that. This Unix
+
+2120
+02:07:06,400 --> 02:07:11,040
+[ __ ]
+
+2121
+02:07:08,960 --> 02:07:14,159
+Now, because of that convention, now you
+
+2122
+02:07:11,040 --> 02:07:16,639
+got this situation. Can you see? Can you
+
+2123
+02:07:14,159 --> 02:07:18,480
+see this? Can you see this right now?
+
+2124
+02:07:16,639 --> 02:07:21,119
+Because why does this happen? Because
+
+2125
+02:07:18,480 --> 02:07:23,360
+right now, my windows width is less than
+
+2126
+02:07:21,119 --> 02:07:25,280
+80 characters. So you started to have
+
+2127
+02:07:23,360 --> 02:07:27,920
+this situation
+
+2128
+02:07:25,280 --> 02:07:31,440
+where they automatically wrap the line
+
+2129
+02:07:27,920 --> 02:07:34,320
+here to here but then it cut off because
+
+2130
+02:07:31,440 --> 02:07:37,440
+you know then you start a new line. So
+
+2131
+02:07:34,320 --> 02:07:40,239
+so you got this jack. Why does this
+
+2132
+02:07:37,440 --> 02:07:42,079
+happen? Well the technical reason is
+
+2133
+02:07:40,239 --> 02:07:44,639
+because well there's a line ending
+
+2134
+02:07:42,079 --> 02:07:48,239
+because you show white show white space.
+
+2135
+02:07:44,639 --> 02:07:50,800
+So in some fly keys that's press control
+
+2136
+02:07:48,239 --> 02:07:54,000
+and space space. You see, you can see
+
+2137
+02:07:50,800 --> 02:07:57,440
+those are line breaks. Okay, those
+
+2138
+02:07:54,000 --> 02:07:59,280
+paragraph signs unic code
+
+2139
+02:07:57,440 --> 02:08:02,239
+because there's a line break. There's a
+
+2140
+02:07:59,280 --> 02:08:05,760
+hardcoded hardcoded line break. That's
+
+2141
+02:08:02,239 --> 02:08:08,800
+why it becomes that. Okay. On the other
+
+2142
+02:08:05,760 --> 02:08:13,040
+hand, copy new buffer paste. If you make
+
+2143
+02:08:08,800 --> 02:08:17,040
+your line entirely in one line, [ __ ] the
+
+2144
+02:08:13,040 --> 02:08:19,840
+Unix people. Ignore them.
+
+2145
+02:08:17,040 --> 02:08:22,480
+the way I prefer one single long line.
+
+2146
+02:08:19,840 --> 02:08:25,679
+This line is like 100, you know, 300
+
+2147
+02:08:22,480 --> 02:08:29,679
+characters. Okay, one line. Now, you
+
+2148
+02:08:25,679 --> 02:08:33,040
+don't have the problem of of of the like
+
+2149
+02:08:29,679 --> 02:08:34,880
+jack lines, you see. But do you have the
+
+2150
+02:08:33,040 --> 02:08:36,400
+problem like, oh, it's too long, you
+
+2151
+02:08:34,880 --> 02:08:38,480
+know, you have to turn your head to the
+
+2152
+02:08:36,400 --> 02:08:40,000
+right, to the to the left, to No, you
+
+2153
+02:08:38,480 --> 02:08:42,719
+don't have that problem either. What
+
+2154
+02:08:40,000 --> 02:08:45,280
+about the word? You see, you you want to
+
+2155
+02:08:42,719 --> 02:08:47,840
+toggle
+
+2156
+02:08:45,280 --> 02:08:50,880
+uh word rap. You see, so now you don't
+
+2157
+02:08:47,840 --> 02:08:53,040
+you you have the nice world rap too. Can
+
+2158
+02:08:50,880 --> 02:08:55,840
+you see that?
+
+2159
+02:08:53,040 --> 02:08:58,960
+Can you see
+
+2160
+02:08:55,840 --> 02:09:00,560
+the harm, the damage the Unix [ __ ]
+
+2161
+02:08:58,960 --> 02:09:02,480
+created
+
+2162
+02:09:00,560 --> 02:09:05,440
+which to this day we we are we are
+
+2163
+02:09:02,480 --> 02:09:09,520
+feeling it right now at this moment. Uh
+
+2164
+02:09:05,440 --> 02:09:12,880
+control hi you see you see because this
+
+2165
+02:09:09,520 --> 02:09:15,760
+uh now space and space space turn off
+
+2166
+02:09:12,880 --> 02:09:18,320
+the uh white space mode. So see we are
+
+2167
+02:09:15,760 --> 02:09:21,840
+feeding the pain
+
+2168
+02:09:18,320 --> 02:09:24,320
+given to us by the Unix [ __ ] and
+
+2169
+02:09:21,840 --> 02:09:27,040
+Linux [ __ ]
+
+2170
+02:09:24,320 --> 02:09:29,599
+To this day they tell you, oh you you
+
+2171
+02:09:27,040 --> 02:09:32,719
+you should cut your lines at at 80
+
+2172
+02:09:29,599 --> 02:09:36,480
+characters. Why? Because oh because back
+
+2173
+02:09:32,719 --> 02:09:42,159
+then 40 50 60 years ago we use punch
+
+2174
+02:09:36,480 --> 02:09:45,040
+cards and it has 80 horse per row,
+
+2175
+02:09:42,159 --> 02:09:50,119
+80 columns per row. So therefore, you
+
+2176
+02:09:45,040 --> 02:09:50,119
+should follow that. [ __ ] the Unix.
+
+2177
+02:09:50,320 --> 02:09:54,560
+[ __ ] the Unix people. Okay, that's my
+
+2178
+02:09:52,719 --> 02:09:59,880
+that's what I want to tell you guys.
+
+2179
+02:09:54,560 --> 02:09:59,880
+[ __ ] the Unix philosophy. They lie.
+
+2180
+02:10:00,480 --> 02:10:09,079
+Okay, Unix and Created the most damage
+
+2181
+02:10:03,920 --> 02:10:09,079
+in computer computing industry.
+
+2182
+02:10:09,119 --> 02:10:16,639
+um you know it's it's you know it's you
+
+2183
+02:10:13,360 --> 02:10:19,520
+know in history of humanity lots of not
+
+2184
+02:10:16,639 --> 02:10:22,079
+so good or you know less than per
+
+2185
+02:10:19,520 --> 02:10:24,000
+perfect things happen and this is one of
+
+2186
+02:10:22,079 --> 02:10:27,599
+them that's what I want to tell so my
+
+2187
+02:10:24,000 --> 02:10:30,560
+message is that the Unix
+
+2188
+02:10:27,599 --> 02:10:33,920
+operating system and the code its people
+
+2189
+02:10:30,560 --> 02:10:37,920
+the kind of community they created a lot
+
+2190
+02:10:33,920 --> 02:10:41,840
+okay let's say just a lot of harm and
+
+2191
+02:10:37,920 --> 02:10:44,560
+bad ideas in computing industry and most
+
+2192
+02:10:41,840 --> 02:10:47,599
+people don't know it. We still like
+
+2193
+02:10:44,560 --> 02:10:49,920
+believe it. You you know even today a
+
+2194
+02:10:47,599 --> 02:10:52,079
+lot of people you you ask the average
+
+2195
+02:10:49,920 --> 02:10:54,880
+programmers especially those who
+
+2196
+02:10:52,079 --> 02:10:57,360
+consider themselves as elite you ask
+
+2197
+02:10:54,880 --> 02:10:59,440
+them and they will say oh yeah you
+
+2198
+02:10:57,360 --> 02:11:01,920
+should please you know format your lines
+
+2199
+02:10:59,440 --> 02:11:03,920
+according this way or that way which is
+
+2200
+02:11:01,920 --> 02:11:06,000
+harmful
+
+2201
+02:11:03,920 --> 02:11:08,320
+which is a convention that came from
+
+2202
+02:11:06,000 --> 02:11:11,280
+punch cards
+
+2203
+02:11:08,320 --> 02:11:13,599
+and then Unix inherited it they they you
+
+2204
+02:11:11,280 --> 02:11:16,320
+know Unix operand operating system they
+
+2205
+02:11:13,599 --> 02:11:18,480
+truncate lines is silently because they
+
+2206
+02:11:16,320 --> 02:11:21,119
+can't process it. You know, they are too
+
+2207
+02:11:18,480 --> 02:11:25,520
+stupidly designed. The C [ __ ] the
+
+2208
+02:11:21,119 --> 02:11:27,840
+Coders and Unix [ __ ] The way their
+
+2209
+02:11:25,520 --> 02:11:30,320
+philosophy is just do do the fastest
+
+2210
+02:11:27,840 --> 02:11:33,199
+way. Don't care about design. Oh,
+
+2211
+02:11:30,320 --> 02:11:34,719
+extension philosophy. Oh, academic mumbo
+
+2212
+02:11:33,199 --> 02:11:36,960
+jumbo. Computer science is too
+
+2213
+02:11:34,719 --> 02:11:40,480
+complicated. We just want to do simple
+
+2214
+02:11:36,960 --> 02:11:42,320
+and fastest. That's how Unix and C
+
+2215
+02:11:40,480 --> 02:11:44,880
+thrived.
+
+2216
+02:11:42,320 --> 02:11:48,079
+They created and then they created the
+
+2217
+02:11:44,880 --> 02:11:50,320
+code. These people tell other people you
+
+2218
+02:11:48,079 --> 02:11:52,560
+should do this way our way because it's
+
+2219
+02:11:50,320 --> 02:11:56,079
+better that you know that's how this
+
+2220
+02:11:52,560 --> 02:11:58,719
+harmful ideas spread. So we are seeing
+
+2221
+02:11:56,079 --> 02:12:00,960
+the harm right right here. Okay. Because
+
+2222
+02:11:58,719 --> 02:12:03,679
+these lines are truncate you know
+
+2223
+02:12:00,960 --> 02:12:06,400
+formatted 80 no more than 80 characters
+
+2224
+02:12:03,679 --> 02:12:09,520
+per line. Therefore, when your window
+
+2225
+02:12:06,400 --> 02:12:11,679
+happens to be, you know, why is my
+
+2226
+02:12:09,520 --> 02:12:14,400
+windows less than 80 characters so
+
+2227
+02:12:11,679 --> 02:12:18,079
+narrow? That doesn't happen in reality,
+
+2228
+02:12:14,400 --> 02:12:20,079
+right? No, you are wrong because my
+
+2229
+02:12:18,079 --> 02:12:22,239
+windows right now is less than 80
+
+2230
+02:12:20,079 --> 02:12:25,440
+characters because I need large font to
+
+2231
+02:12:22,239 --> 02:12:28,880
+do live stream and I got [ __ ] by this
+
+2232
+02:12:25,440 --> 02:12:31,440
+Unix [ __ ]
+
+2233
+02:12:28,880 --> 02:12:33,679
+Practical. It's not I created this
+
+2234
+02:12:31,440 --> 02:12:36,639
+magical situation to demonstrate the
+
+2235
+02:12:33,679 --> 02:12:40,719
+Unix problem. No.
+
+2236
+02:12:36,639 --> 02:12:44,199
+Okay. I hope you guys uh
+
+2237
+02:12:40,719 --> 02:12:44,199
+get my point.
+
+2238
+02:12:44,480 --> 02:12:50,320
+So comp. So back to compilation to uh to
+
+2239
+02:12:47,679 --> 02:12:53,440
+to the native code. Okay. So we can do
+
+2240
+02:12:50,320 --> 02:12:55,119
+that. Yes, of course. Uh but I don't
+
+2241
+02:12:53,440 --> 02:13:00,159
+know how to do that. I have to read
+
+2242
+02:12:55,119 --> 02:13:02,639
+about it. So, uh, but, uh, so let's see.
+
+2243
+02:13:00,159 --> 02:13:06,159
+Should I stop? Let's see what how long
+
+2244
+02:13:02,639 --> 02:13:07,920
+have I been? 2 hours and 17 minutes.
+
+2245
+02:13:06,159 --> 02:13:11,280
+Okay.
+
+2246
+02:13:07,920 --> 02:13:16,599
+Uh, I think I should have dinner soon.
+
+2247
+02:13:11,280 --> 02:13:16,599
+Let's check. Okay, let me check if I
+
+2248
+02:13:52,079 --> 02:14:01,000
+I don't know where did I put my phone.
+
+2249
+02:13:56,560 --> 02:14:01,000
+So, be right back. Okay.
+
+2250
+02:14:10,960 --> 02:14:17,320
+Tank speedo. Let me find my phone.
+
+2251
+02:15:32,960 --> 02:15:40,800
+Okay, I can I can go on for a bit more.
+
+2252
+02:15:37,520 --> 02:15:43,440
+So fantastic. So let me try to bite
+
+2253
+02:15:40,800 --> 02:15:45,520
+compile. Okay, actually this will be
+
+2254
+02:15:43,440 --> 02:15:48,079
+really fun.
+
+2255
+02:15:45,520 --> 02:15:50,880
+Uh I mean not by compile, native
+
+2256
+02:15:48,079 --> 02:15:52,800
+compile.
+
+2257
+02:15:50,880 --> 02:15:55,199
+So
+
+2258
+02:15:52,800 --> 02:15:59,199
+to determine whether the current EMAC
+
+2259
+02:15:55,199 --> 02:16:02,560
+process can produce
+
+2260
+02:15:59,199 --> 02:16:07,280
+and load native compile list code native
+
+2261
+02:16:02,560 --> 02:16:11,679
+compile available P. So let's run that.
+
+2262
+02:16:07,280 --> 02:16:15,599
+Let's run that Neo. So it says Neo. What
+
+2263
+02:16:11,679 --> 02:16:17,679
+the [ __ ] Wait.
+
+2264
+02:16:15,599 --> 02:16:20,880
+Describe function native compile
+
+2265
+02:16:17,679 --> 02:16:22,800
+available P is a primitive function in C
+
+2266
+02:16:20,880 --> 02:16:25,800
+source code. Can do we have the source
+
+2267
+02:16:22,800 --> 02:16:25,800
+code
+
+2268
+02:16:26,239 --> 02:16:30,639
+on Linux when you install Emacs it come
+
+2269
+02:16:28,880 --> 02:16:32,719
+with source code? Oh yeah because we
+
+2270
+02:16:30,639 --> 02:16:34,960
+compiled it
+
+2271
+02:16:32,719 --> 02:16:36,800
+right. So we can now we are looking at
+
+2272
+02:16:34,960 --> 02:16:39,359
+the source code. I haven't looked at
+
+2273
+02:16:36,800 --> 02:16:42,559
+Emac source code for I mean C source
+
+2274
+02:16:39,359 --> 02:16:47,120
+code for like
+
+2275
+02:16:42,559 --> 02:16:49,840
+15 10 years. So we can directly jump to
+
+2276
+02:16:47,120 --> 02:16:53,840
+the sea source code. Great. So close
+
+2277
+02:16:49,840 --> 02:16:57,679
+that. Uh what wait
+
+2278
+02:16:53,840 --> 02:17:02,240
+close that close that close that. Okay.
+
+2279
+02:16:57,679 --> 02:17:06,240
+Go back. Oh yeah. So describe function
+
+2280
+02:17:02,240 --> 02:17:10,200
+uh return the new. Okay. So, but why
+
+2281
+02:17:06,240 --> 02:17:10,200
+does it return Neo?
+
+2282
+02:17:13,200 --> 02:17:20,160
+Why does it return Neo? So, right now I
+
+2283
+02:17:17,120 --> 02:17:23,040
+don't have this native compile
+
+2284
+02:17:20,160 --> 02:17:26,439
+available. Why is that?
+
+2285
+02:17:23,040 --> 02:17:26,439
+That's disappointing.
+
+2286
+02:17:26,639 --> 02:17:29,639
+Um,
+
+2287
+02:17:38,000 --> 02:17:42,040
+right? Because what?
+
+2288
+02:17:45,200 --> 02:17:51,760
+Anyway, okay, that's it. Bye, guys.
+
+2289
+02:17:49,359 --> 02:17:55,040
+Many windows split. It become
+
+2290
+02:17:51,760 --> 02:17:58,639
+unreadable. Yes.
+
+2291
+02:17:55,040 --> 02:18:01,960
+Yes. Okay. Bye, guys.
+
+2292
+02:17:58,639 --> 02:18:01,960
+Bye, guys.
+

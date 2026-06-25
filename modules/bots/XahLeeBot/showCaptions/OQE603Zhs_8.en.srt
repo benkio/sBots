@@ -1,0 +1,3636 @@
+1
+00:00:00,000 --> 00:00:05,359
+Morning, good evening, good afternoon.
+
+2
+00:00:02,560 --> 00:00:07,919
+Welcome to another episode of K Talk
+
+3
+00:00:05,359 --> 00:00:11,920
+Show. If you are watching this offline,
+
+4
+00:00:07,919 --> 00:00:14,080
+play at 1.5 speed because I ramble. Uh,
+
+5
+00:00:11,920 --> 00:00:16,680
+today we're going to code wam language.
+
+6
+00:00:14,080 --> 00:00:20,080
+So, I'm going to show you how to define
+
+7
+00:00:16,680 --> 00:00:23,000
+functions via the function keyword which
+
+8
+00:00:20,080 --> 00:00:26,080
+is kind of like lambda in other
+
+9
+00:00:23,000 --> 00:00:29,119
+languages and or how to define function
+
+10
+00:00:26,080 --> 00:00:32,360
+using pattern matching. Okay. So, Wuam
+
+11
+00:00:29,119 --> 00:00:36,320
+language tutorial. Search for it on
+
+12
+00:00:32,360 --> 00:00:39,840
+si.info. You'll find it. And uh here is
+
+13
+00:00:36,320 --> 00:00:43,360
+where to download it for free. Okay. So,
+
+14
+00:00:39,840 --> 00:00:48,960
+let's begin. So, um yeah, wam language
+
+15
+00:00:43,360 --> 00:00:54,399
+um um function definition. Okay. So, uh
+
+16
+00:00:48,960 --> 00:00:57,440
+then I need to code. So, I need to code
+
+17
+00:00:54,399 --> 00:01:01,320
+this uh modify this code. Okay. So
+
+18
+00:00:57,440 --> 00:01:05,280
+negative pedal. So let me just show you
+
+19
+00:01:01,320 --> 00:01:10,680
+first. Uh so today's talk show and go
+
+20
+00:01:05,280 --> 00:01:14,760
+here and uh then let's open a wam
+
+21
+00:01:10,680 --> 00:01:19,439
+language. Uh and uh yeah there paste it
+
+22
+00:01:14,760 --> 00:01:23,240
+there. Pop it out. So wam language I
+
+23
+00:01:19,439 --> 00:01:27,360
+already started wam language 14. Paste
+
+24
+00:01:23,240 --> 00:01:30,080
+it and uh run it. Okay. So, let's make
+
+25
+00:01:27,360 --> 00:01:30,080
+the window
+
+26
+00:01:31,320 --> 00:01:41,600
+large.
+
+27
+00:01:34,200 --> 00:01:41,600
+So, 150%. Uh, that's too large. 125%.
+
+28
+00:01:43,400 --> 00:01:51,439
+Okay. Okay. So, here is a code. Control
+
+29
+00:01:47,439 --> 00:01:54,880
+shift D to separate into two blocks and
+
+30
+00:01:51,439 --> 00:01:59,439
+evaluate the first part. So control
+
+31
+00:01:54,880 --> 00:02:03,200
+shift D. So actually evaluate it.
+
+32
+00:01:59,439 --> 00:02:06,000
+Controll enter. Evaluate it. Then
+
+33
+00:02:03,200 --> 00:02:08,200
+control enter. Then we got that. Then we
+
+34
+00:02:06,000 --> 00:02:11,840
+can change the
+
+35
+00:02:08,200 --> 00:02:14,400
+uh change the function function. So
+
+36
+00:02:11,840 --> 00:02:17,599
+negative plot. I did two live streams
+
+37
+00:02:14,400 --> 00:02:20,400
+about this thing uh about introduction
+
+38
+00:02:17,599 --> 00:02:23,760
+to wraim language graphics. So you can
+
+39
+00:02:20,400 --> 00:02:29,920
+watch it about a month ago.
+
+40
+00:02:23,760 --> 00:02:33,400
+on my YouTube. So I want to show
+
+41
+00:02:29,920 --> 00:02:37,120
+uh what is this part? This must be
+
+42
+00:02:33,400 --> 00:02:40,480
+the negative the pedo point. Where is
+
+43
+00:02:37,120 --> 00:02:44,640
+the pedo point now? Here. So 0 0. So
+
+44
+00:02:40,480 --> 00:02:47,560
+let's say 0 0. Then you got that. Then
+
+45
+00:02:44,640 --> 00:02:49,800
+if you change it to
+
+46
+00:02:47,560 --> 00:02:53,200
+one
+
+47
+00:02:49,800 --> 00:02:57,000
+one then you got a different shape. So
+
+48
+00:02:53,200 --> 00:03:01,440
+let's try to change it to 44. See what
+
+49
+00:02:57,000 --> 00:03:04,879
+happens. Four four. Shift enter.
+
+50
+00:03:01,440 --> 00:03:07,920
+Fantastic. Beautiful. So we going to So
+
+51
+00:03:04,879 --> 00:03:09,959
+how do you write a function? So okay. So
+
+52
+00:03:07,920 --> 00:03:14,879
+let me let me show
+
+53
+00:03:09,959 --> 00:03:18,120
+you language. Pop it out. So the the
+
+54
+00:03:14,879 --> 00:03:24,280
+most simple way to define a
+
+55
+00:03:18,120 --> 00:03:27,519
+function, most easy way to define a
+
+56
+00:03:24,280 --> 00:03:30,000
+function. The most simple way to define
+
+57
+00:03:27,519 --> 00:03:34,560
+a function is via this function keyword.
+
+58
+00:03:30,000 --> 00:03:36,959
+So for example, x + one and that's a
+
+59
+00:03:34,560 --> 00:03:42,360
+function. Then you can evaluate it.
+
+60
+00:03:36,959 --> 00:03:42,360
+Let's say evaluate at three and run it.
+
+61
+00:03:42,480 --> 00:03:48,000
+So you got four. So for
+
+62
+00:03:44,599 --> 00:03:52,640
+example, and if you and you can of
+
+63
+00:03:48,000 --> 00:03:53,720
+course assign it to a uh name. So my
+
+64
+00:03:52,640 --> 00:03:57,040
+fun.
+
+65
+00:03:53,720 --> 00:03:58,840
+Okay. So if you say that then let's add
+
+66
+00:03:57,040 --> 00:04:02,959
+a
+
+67
+00:03:58,840 --> 00:04:05,360
+clear my phone. Okay. So my phone is a
+
+68
+00:04:02,959 --> 00:04:11,319
+function. Now you just say my phone and
+
+69
+00:04:05,360 --> 00:04:11,319
+let's say three and you will get four.
+
+70
+00:04:11,360 --> 00:04:17,280
+Okay. Now what about uh what about
+
+71
+00:04:14,319 --> 00:04:20,880
+multiple parameters? Uh very easy. So
+
+72
+00:04:17,280 --> 00:04:25,320
+you just add so this function you just
+
+73
+00:04:20,880 --> 00:04:30,479
+add this x. So for example add another
+
+74
+00:04:25,320 --> 00:04:34,120
+uh parameter xy. So let's say x + y.
+
+75
+00:04:30,479 --> 00:04:38,320
+Okay. So now let's say call it
+
+76
+00:04:34,120 --> 00:04:39,520
+34. Okay. And uh why do you need that
+
+77
+00:04:38,320 --> 00:04:42,240
+part?
+
+78
+00:04:39,520 --> 00:04:44,479
+Oh yeah, you don't need that part.
+
+79
+00:04:42,240 --> 00:04:46,800
+Forget. Okay, so let's try this again.
+
+80
+00:04:44,479 --> 00:04:46,800
+Run
+
+81
+00:04:47,560 --> 00:04:53,120
+it. Oh, it returns. Yeah. Okay, that's a
+
+82
+00:04:50,560 --> 00:04:56,000
+return value. So let's put a semicolon
+
+83
+00:04:53,120 --> 00:04:56,919
+at the end. That will suppress suppress
+
+84
+00:04:56,000 --> 00:05:02,639
+this
+
+85
+00:04:56,919 --> 00:05:02,639
+constant. So now evaluate
+
+86
+00:05:03,560 --> 00:05:10,000
+again. You see you got four. Okay. Now
+
+87
+00:05:06,960 --> 00:05:13,280
+here now we now we have two uh
+
+88
+00:05:10,000 --> 00:05:17,840
+parameters add a semicolon to suppress
+
+89
+00:05:13,280 --> 00:05:21,039
+output and uh delete that run it
+
+90
+00:05:17,840 --> 00:05:23,759
+function 3 4 so the result is seven so
+
+91
+00:05:21,039 --> 00:05:26,400
+this is how to define a function very
+
+92
+00:05:23,759 --> 00:05:30,160
+simple uh and this function keyword is
+
+93
+00:05:26,400 --> 00:05:33,360
+just like lambda in lisp in or like
+
+94
+00:05:30,160 --> 00:05:36,240
+function in javascript uh it's kind and
+
+95
+00:05:33,360 --> 00:05:37,800
+lambda in python so it's lambda in other
+
+96
+00:05:36,240 --> 00:05:40,639
+programming
+
+97
+00:05:37,800 --> 00:05:43,199
+languages. Now, uh there's a limitation
+
+98
+00:05:40,639 --> 00:05:46,720
+if you use this if you use this function
+
+99
+00:05:43,199 --> 00:05:49,160
+keyword to define a function. Um
+
+100
+00:05:46,720 --> 00:05:53,880
+basically there's a limitation on the
+
+101
+00:05:49,160 --> 00:05:57,680
+parameter. So it allows you to have
+
+102
+00:05:53,880 --> 00:06:00,759
+um using function
+
+103
+00:05:57,680 --> 00:06:04,759
+uh wait uh
+
+104
+00:06:00,759 --> 00:06:04,759
+okay function
+
+105
+00:06:06,080 --> 00:06:11,360
+to define a function has a
+
+106
+00:06:13,400 --> 00:06:19,479
+limitation on
+
+107
+00:06:16,360 --> 00:06:22,680
+the function
+
+108
+00:06:19,479 --> 00:06:29,080
+parameters. Okay,
+
+109
+00:06:22,680 --> 00:06:31,400
+namely you can only have ordered
+
+110
+00:06:29,080 --> 00:06:37,520
+param rest
+
+111
+00:06:31,400 --> 00:06:37,520
+param. Okay. But but you cannot
+
+112
+00:06:39,560 --> 00:06:44,800
+have default
+
+113
+00:06:41,720 --> 00:06:48,319
+values. Okay. So when we define a
+
+114
+00:06:44,800 --> 00:06:51,520
+functions usually we want to say if for
+
+115
+00:06:48,319 --> 00:06:53,919
+example if y is not given then just
+
+116
+00:06:51,520 --> 00:06:56,720
+equals to three that's a default value
+
+117
+00:06:53,919 --> 00:06:59,759
+or when x is not given things like that.
+
+118
+00:06:56,720 --> 00:07:01,599
+So but but that does not uh this
+
+119
+00:06:59,759 --> 00:07:02,680
+function keyword does not allow you to
+
+120
+00:07:01,599 --> 00:07:06,160
+do that.
+
+121
+00:07:02,680 --> 00:07:08,319
+Okay. So this function keyword is the
+
+122
+00:07:06,160 --> 00:07:11,440
+most fundamental like lambda just like
+
+123
+00:07:08,319 --> 00:07:14,560
+lambda in lambda calculus. It's
+
+124
+00:07:11,440 --> 00:07:17,680
+basically reflect mathematical function.
+
+125
+00:07:14,560 --> 00:07:20,000
+Okay. So in mathematical function you I
+
+126
+00:07:17,680 --> 00:07:22,319
+mean you don't really have like default
+
+127
+00:07:20,000 --> 00:07:24,960
+value for a parameter you know you just
+
+128
+00:07:22,319 --> 00:07:26,800
+give out all parameters. But in practice
+
+129
+00:07:24,960 --> 00:07:28,639
+when you want to define a function in a
+
+130
+00:07:26,800 --> 00:07:31,680
+programming language usually you want
+
+131
+00:07:28,639 --> 00:07:35,280
+some kind of default parameters. You
+
+132
+00:07:31,680 --> 00:07:37,440
+also want uh kind of structure matching
+
+133
+00:07:35,280 --> 00:07:37,440
+you
+
+134
+00:07:39,240 --> 00:07:46,080
+know so that you can um so you want
+
+135
+00:07:43,599 --> 00:07:48,160
+default parameters you want optional
+
+136
+00:07:46,080 --> 00:07:50,479
+parameters. So again this function
+
+137
+00:07:48,160 --> 00:07:53,479
+keyword do not allow you to have option
+
+138
+00:07:50,479 --> 00:07:53,479
+parameters.
+
+139
+00:08:00,759 --> 00:08:06,000
+Okay. Okay. You can you can have ordered
+
+140
+00:08:03,599 --> 00:08:10,440
+parameters, rest parameters but you
+
+141
+00:08:06,000 --> 00:08:14,879
+cannot default values option optional
+
+142
+00:08:10,440 --> 00:08:17,199
+param or named param. So named
+
+143
+00:08:14,879 --> 00:08:20,479
+parameters, optional parameters and
+
+144
+00:08:17,199 --> 00:08:23,039
+default values. These are kind of uh
+
+145
+00:08:20,479 --> 00:08:24,720
+computer engineering programming
+
+146
+00:08:23,039 --> 00:08:27,919
+language issues. They are not
+
+147
+00:08:24,720 --> 00:08:31,599
+mathematical issues. So this function
+
+148
+00:08:27,919 --> 00:08:31,599
+keyword is just for mathematical
+
+149
+00:08:31,880 --> 00:08:34,880
+functions.
+
+150
+00:08:35,240 --> 00:08:41,800
+So in in order to have
+
+151
+00:08:43,839 --> 00:08:53,480
+default values, optional params or named
+
+152
+00:08:47,000 --> 00:08:56,279
+params you need to define function by
+
+153
+00:08:53,480 --> 00:08:59,760
+using pattern
+
+154
+00:08:56,279 --> 00:09:02,640
+matching okay so how do you do that for
+
+155
+00:08:59,760 --> 00:09:05,800
+example so let's say let's say I want to
+
+156
+00:09:02,640 --> 00:09:09,440
+define the you know just same like that
+
+157
+00:09:05,800 --> 00:09:12,160
+okay so let's say I want to uh define a
+
+158
+00:09:09,440 --> 00:09:16,800
+function you know that returns + one of
+
+159
+00:09:12,160 --> 00:09:21,160
+the argument. So what you do is my fun
+
+160
+00:09:16,800 --> 00:09:25,279
+equals to now this you use colon
+
+161
+00:09:21,160 --> 00:09:28,320
+equal. Okay. So then then you say um uh
+
+162
+00:09:25,279 --> 00:09:31,279
+actually you uh yeah so you do this way.
+
+163
+00:09:28,320 --> 00:09:34,080
+So you want one argument and that okay
+
+164
+00:09:31,279 --> 00:09:37,160
+let me just show you how to write it
+
+165
+00:09:34,080 --> 00:09:39,760
+first then I
+
+166
+00:09:37,160 --> 00:09:42,880
+explain. Okay that's how you write it.
+
+167
+00:09:39,760 --> 00:09:42,880
+Now let's add a
+
+168
+00:09:47,399 --> 00:09:53,600
+clear. So this is how you define a
+
+169
+00:09:49,839 --> 00:09:55,360
+function. My fun of one argument and uh
+
+170
+00:09:53,600 --> 00:09:58,160
+the body of the function is just
+
+171
+00:09:55,360 --> 00:10:00,800
+argument plus one. How does this work?
+
+172
+00:09:58,160 --> 00:10:04,399
+This is pattern matching. Okay. So this
+
+173
+00:10:00,800 --> 00:10:06,720
+the full syntax for this is actually let
+
+174
+00:10:04,399 --> 00:10:10,480
+me show that because that will become
+
+175
+00:10:06,720 --> 00:10:10,480
+make it very clear. Hello
+
+176
+00:10:11,720 --> 00:10:19,480
+Palash. Are you the uh Palash? Are you
+
+177
+00:10:14,800 --> 00:10:23,279
+the uh panache guy? The Indian guy. Uh
+
+178
+00:10:19,480 --> 00:10:25,120
+so so to define we so we want so this is
+
+179
+00:10:23,279 --> 00:10:28,160
+pattern matching. Okay. So what does it
+
+180
+00:10:25,120 --> 00:10:29,800
+mean? So this means uh let me show you
+
+181
+00:10:28,160 --> 00:10:32,640
+set
+
+182
+00:10:29,800 --> 00:10:36,800
+delayed. Okay. Set delayed two
+
+183
+00:10:32,640 --> 00:10:38,600
+parameters. You want to set my function
+
+184
+00:10:36,800 --> 00:10:41,720
+and uh
+
+185
+00:10:38,600 --> 00:10:44,240
+um then you want to
+
+186
+00:10:41,720 --> 00:10:46,480
+um yeah hold on a second. So two
+
+187
+00:10:44,240 --> 00:10:48,680
+argument the first one is what you what
+
+188
+00:10:46,480 --> 00:10:53,279
+pattern you want to
+
+189
+00:10:48,680 --> 00:10:57,519
+set. So uh uh so okay hold on a second.
+
+190
+00:10:53,279 --> 00:10:57,519
+So um let me show you first.
+
+191
+00:10:59,560 --> 00:11:06,320
+plus. Okay. So set set delay basically
+
+192
+00:11:03,680 --> 00:11:09,519
+what it does is actually it define it
+
+193
+00:11:06,320 --> 00:11:11,600
+sets a value. Okay. The left hand side
+
+194
+00:11:09,519 --> 00:11:14,959
+set set the right hand side to the left
+
+195
+00:11:11,600 --> 00:11:17,519
+hand side. Now the for for the whole
+
+196
+00:11:14,959 --> 00:11:21,120
+sess session. Okay. So that means
+
+197
+00:11:17,519 --> 00:11:26,800
+whenever wam language sees whatever
+
+198
+00:11:21,120 --> 00:11:26,800
+pattern here it will replace it by that.
+
+199
+00:11:30,920 --> 00:11:36,120
+Okay. Sets a
+
+200
+00:11:33,720 --> 00:11:38,440
+pattern
+
+201
+00:11:36,120 --> 00:11:42,640
+whenever left hand
+
+202
+00:11:38,440 --> 00:11:46,000
+side match replace it by right hand
+
+203
+00:11:42,640 --> 00:11:48,640
+side. Okay, that's how set delay work.
+
+204
+00:11:46,000 --> 00:11:52,079
+Okay, so the right hand side is just
+
+205
+00:11:48,640 --> 00:11:55,760
+plus x1. Okay, the left hand side is
+
+206
+00:11:52,079 --> 00:12:00,959
+needs to be a pattern. Okay. So in in
+
+207
+00:11:55,760 --> 00:12:00,959
+our case to be in our case we need it to
+
+208
+00:12:01,079 --> 00:12:09,839
+be okay we need to be a pattern and uh
+
+209
+00:12:05,040 --> 00:12:11,519
+the pattern name will be X okay and uh I
+
+210
+00:12:09,839 --> 00:12:13,440
+believe that's a sing uh okay let me
+
+211
+00:12:11,519 --> 00:12:17,800
+just finish it first the the pattern
+
+212
+00:12:13,440 --> 00:12:21,560
+name will be X then the pattern is
+
+213
+00:12:17,800 --> 00:12:24,800
+blank okay so what so what this pattern
+
+214
+00:12:21,560 --> 00:12:28,320
+means this pattern is a named pattern.
+
+215
+00:12:24,800 --> 00:12:30,959
+Okay, so the pattern is blank means that
+
+216
+00:12:28,320 --> 00:12:33,440
+it matches anything any value any
+
+217
+00:12:30,959 --> 00:12:35,839
+expression you'll just match. Okay, so
+
+218
+00:12:33,440 --> 00:12:40,240
+whenever you match you assign it to a
+
+219
+00:12:35,839 --> 00:12:43,519
+name X. Okay, so that is a pattern. Then
+
+220
+00:12:40,240 --> 00:12:44,680
+you set delay of this pattern. So that
+
+221
+00:12:43,519 --> 00:12:48,240
+means
+
+222
+00:12:44,680 --> 00:12:51,040
+whenever wuan language sees this pattern
+
+223
+00:12:48,240 --> 00:12:54,880
+which is basically anything
+
+224
+00:12:51,040 --> 00:12:57,360
+uh then it will replace it by plus xy
+
+225
+00:12:54,880 --> 00:12:59,360
+where x is what whatever that pattern
+
+226
+00:12:57,360 --> 00:13:02,639
+is. Actually we need something else
+
+227
+00:12:59,360 --> 00:13:07,360
+here. So we need a named pattern. So the
+
+228
+00:13:02,639 --> 00:13:07,360
+named pattern will be uh
+
+229
+00:13:08,200 --> 00:13:16,720
+my it will be that. Okay. So this is the
+
+230
+00:13:12,440 --> 00:13:19,040
+actual so this is actually syn the the
+
+231
+00:13:16,720 --> 00:13:22,320
+full form syntax syntactically
+
+232
+00:13:19,040 --> 00:13:26,880
+equivalent to this line. Okay. Uh but
+
+233
+00:13:22,320 --> 00:13:26,880
+let let's double check. So let's double
+
+234
+00:13:36,760 --> 00:13:43,360
+check. Okay. So when you say full form
+
+235
+00:13:40,320 --> 00:13:46,959
+hold that will show the full syntax for
+
+236
+00:13:43,360 --> 00:13:49,360
+that. So let's paste it here. Run it. So
+
+237
+00:13:46,959 --> 00:13:52,480
+you see this is the result. So let me
+
+238
+00:13:49,360 --> 00:13:56,920
+show it here. So let's compare to see if
+
+239
+00:13:52,480 --> 00:14:02,279
+we got it right. Okay. So
+
+240
+00:13:56,920 --> 00:14:05,279
+paste and uh okay. So set
+
+241
+00:14:02,279 --> 00:14:08,320
+delayed my function check pattern
+
+242
+00:14:05,279 --> 00:14:12,920
+fantastic blank fantastic and plus
+
+243
+00:14:08,320 --> 00:14:15,839
+fantastic exactly exactly as I have
+
+244
+00:14:12,920 --> 00:14:19,040
+written. So that means I I'm pretty
+
+245
+00:14:15,839 --> 00:14:21,720
+familiar with this. Okay. So what am I
+
+246
+00:14:19,040 --> 00:14:26,480
+showing here is
+
+247
+00:14:21,720 --> 00:14:29,440
+that I'm showing that this syntax to
+
+248
+00:14:26,480 --> 00:14:32,199
+define a function via pattern matching
+
+249
+00:14:29,440 --> 00:14:36,720
+is in fact identical
+
+250
+00:14:32,199 --> 00:14:39,440
+to to this expression identical because
+
+251
+00:14:36,720 --> 00:14:42,240
+whenever wam language evaluates we it
+
+252
+00:14:39,440 --> 00:14:45,279
+will convert any of these short hand to
+
+253
+00:14:42,240 --> 00:14:49,079
+this fully nested form. Okay. So these
+
+254
+00:14:45,279 --> 00:14:50,760
+two things are completely
+
+255
+00:14:49,079 --> 00:14:55,279
+identical
+
+256
+00:14:50,760 --> 00:14:59,360
+100%. Okay. So so this set delayed. So
+
+257
+00:14:55,279 --> 00:15:01,440
+but now how does it work? So the reason
+
+258
+00:14:59,360 --> 00:15:03,839
+we are using this is actually to define
+
+259
+00:15:01,440 --> 00:15:05,680
+a function. That's our intention. That's
+
+260
+00:15:03,839 --> 00:15:08,959
+programmer's intention. You know we want
+
+261
+00:15:05,680 --> 00:15:10,959
+to define a function and and in wam
+
+262
+00:15:08,959 --> 00:15:13,279
+language this is you know we are
+
+263
+00:15:10,959 --> 00:15:17,560
+actually doing pattern matching. So what
+
+264
+00:15:13,279 --> 00:15:20,959
+we are doing is that we are creating a
+
+265
+00:15:17,560 --> 00:15:23,360
+permanent replacement rule for the
+
+266
+00:15:20,959 --> 00:15:26,480
+current session. So this rule is called
+
+267
+00:15:23,360 --> 00:15:27,480
+set delayed. Why delay? That means the
+
+268
+00:15:26,480 --> 00:15:31,279
+right hand
+
+269
+00:15:27,480 --> 00:15:33,160
+side evaluation is not evaluate right
+
+270
+00:15:31,279 --> 00:15:36,480
+away. only
+
+271
+00:15:33,160 --> 00:15:38,959
+until the left hand side when it's
+
+272
+00:15:36,480 --> 00:15:42,800
+evaluate when the left hand side finds a
+
+273
+00:15:38,959 --> 00:15:45,120
+match then the right hand side evaluates
+
+274
+00:15:42,800 --> 00:15:47,760
+so that means whenever x actually
+
+275
+00:15:45,120 --> 00:15:51,240
+matched something then the right hand
+
+276
+00:15:47,760 --> 00:15:53,560
+side evaluate and that x will become
+
+277
+00:15:51,240 --> 00:15:57,519
+something okay that's why it's set
+
+278
+00:15:53,560 --> 00:16:00,160
+delayed so set is just like you know set
+
+279
+00:15:57,519 --> 00:16:02,800
+x equals to three you know so it's like
+
+280
+00:16:00,160 --> 00:16:04,800
+set delayed okay Then the set delay
+
+281
+00:16:02,800 --> 00:16:07,720
+takes two arguments. The left hand side
+
+282
+00:16:04,800 --> 00:16:11,440
+is a pattern and this pattern is
+
+283
+00:16:07,720 --> 00:16:14,639
+just just a symbol my followed by a
+
+284
+00:16:11,440 --> 00:16:17,639
+bracket then by a pattern and it's named
+
+285
+00:16:14,639 --> 00:16:21,519
+X. Okay, the pattern is blank means
+
+286
+00:16:17,639 --> 00:16:24,480
+anything. So that means so whenever you
+
+287
+00:16:21,519 --> 00:16:27,040
+see this pattern whenever you evaluate
+
+288
+00:16:24,480 --> 00:16:29,360
+something in wam language after you
+
+289
+00:16:27,040 --> 00:16:33,440
+define after you run this. So whenever
+
+290
+00:16:29,360 --> 00:16:35,759
+wam language sees this my fun something
+
+291
+00:16:33,440 --> 00:16:40,639
+something and the pattern match it will
+
+292
+00:16:35,759 --> 00:16:43,759
+replace it by this plus x1. Okay. So
+
+293
+00:16:40,639 --> 00:16:47,959
+this is basically the how the entire
+
+294
+00:16:43,759 --> 00:16:52,079
+woof language works by this pattern
+
+295
+00:16:47,959 --> 00:16:54,959
+matching. Okay. So so uh so let me um
+
+296
+00:16:52,079 --> 00:16:55,959
+let me clean up a a little bit. So this
+
+297
+00:16:54,959 --> 00:17:00,920
+is
+
+298
+00:16:55,959 --> 00:17:04,760
+how to show the full form
+
+299
+00:17:00,920 --> 00:17:07,760
+syntax of some
+
+300
+00:17:04,760 --> 00:17:11,199
+expression. Okay. By using full form.
+
+301
+00:17:07,760 --> 00:17:13,439
+Okay. So that's a separate topic. So
+
+302
+00:17:11,199 --> 00:17:18,079
+this is this is defining a function
+
+303
+00:17:13,439 --> 00:17:20,520
+pattern matching. Okay. So and the full
+
+304
+00:17:18,079 --> 00:17:23,919
+form is this.
+
+305
+00:17:20,520 --> 00:17:26,799
+Okay. So now we can run this and we can
+
+306
+00:17:23,919 --> 00:17:30,200
+for example we can uh call it let's say
+
+307
+00:17:26,799 --> 00:17:33,840
+three. Okay. Now evaluate
+
+308
+00:17:30,200 --> 00:17:35,320
+it. You see it returns four. Okay. So
+
+309
+00:17:33,840 --> 00:17:39,000
+this is pattern
+
+310
+00:17:35,320 --> 00:17:42,480
+matching. This shorthand syntax is
+
+311
+00:17:39,000 --> 00:17:44,360
+equivalent to that. Okay. So let me just
+
+312
+00:17:42,480 --> 00:17:47,600
+uh where should I put
+
+313
+00:17:44,360 --> 00:17:49,000
+it? There. Okay. That these two is
+
+314
+00:17:47,600 --> 00:17:50,840
+exactly the
+
+315
+00:17:49,000 --> 00:17:53,679
+same. So
+
+316
+00:17:50,840 --> 00:17:57,120
+now so this is how you define a function
+
+317
+00:17:53,679 --> 00:18:01,120
+via pattern matching. Okay. So far so
+
+318
+00:17:57,120 --> 00:18:04,720
+good. Am I doing good? Palash says yes.
+
+319
+00:18:01,120 --> 00:18:08,160
+So PL congratulations you have written a
+
+320
+00:18:04,720 --> 00:18:11,679
+package in uh the next version of Emac
+
+321
+00:18:08,160 --> 00:18:14,000
+30 something about switching frames that
+
+322
+00:18:11,679 --> 00:18:14,000
+is
+
+323
+00:18:16,360 --> 00:18:23,200
+fantastic. So so that's about defining a
+
+324
+00:18:20,799 --> 00:18:26,400
+function. Okay. So now let's see where
+
+325
+00:18:23,200 --> 00:18:29,120
+we want to go next. So we explained
+
+326
+00:18:26,400 --> 00:18:31,039
+defining a function and we explained the
+
+327
+00:18:29,120 --> 00:18:33,919
+pattern matching. Oh yeah. So let's show
+
+328
+00:18:31,039 --> 00:18:36,120
+some more example about pattern matching
+
+329
+00:18:33,919 --> 00:18:38,039
+about
+
+330
+00:18:36,120 --> 00:18:41,039
+okay
+
+331
+00:18:38,039 --> 00:18:43,360
+so so in order to have a default values
+
+332
+00:18:41,039 --> 00:18:45,600
+optional param or name param you need to
+
+333
+00:18:43,360 --> 00:18:47,799
+define function via pattern match and
+
+334
+00:18:45,600 --> 00:18:51,200
+this is example
+
+335
+00:18:47,799 --> 00:18:53,120
+and and how it works is because you know
+
+336
+00:18:51,200 --> 00:18:55,840
+we explained by the set delayed and
+
+337
+00:18:53,120 --> 00:18:58,360
+pattern and so on. So but now let's get
+
+338
+00:18:55,840 --> 00:19:03,039
+more practical. So
+
+339
+00:18:58,360 --> 00:19:03,039
+now let's get practical.
+
+340
+00:19:05,480 --> 00:19:11,799
+Okay. Uh pra uh let's see
+
+341
+00:19:10,280 --> 00:19:13,799
+practical
+
+342
+00:19:11,799 --> 00:19:19,000
+example
+
+343
+00:19:13,799 --> 00:19:22,000
+of defining a function via
+
+344
+00:19:19,000 --> 00:19:24,120
+pattern matching. Okay. So let's give
+
+345
+00:19:22,000 --> 00:19:27,679
+some practical
+
+346
+00:19:24,120 --> 00:19:30,080
+example. Okay. Copy that. Uh so let's
+
+347
+00:19:27,679 --> 00:19:34,640
+say two parameters. So how do you define
+
+348
+00:19:30,080 --> 00:19:37,039
+two parameters X and Y uh that okay now
+
+349
+00:19:34,640 --> 00:19:39,840
+we don't you know let's forget about
+
+350
+00:19:37,039 --> 00:19:42,400
+this full form. This full form is like
+
+351
+00:19:39,840 --> 00:19:44,559
+understanding fully how warm language
+
+352
+00:19:42,400 --> 00:19:46,720
+works but once you understand it like
+
+353
+00:19:44,559 --> 00:19:49,120
+you don't need it like in practice you
+
+354
+00:19:46,720 --> 00:19:51,760
+know nobody writes that you can just you
+
+355
+00:19:49,120 --> 00:19:54,480
+know this is how you normally define a
+
+356
+00:19:51,760 --> 00:19:57,080
+function. Okay. So now let's say 3 4
+
+357
+00:19:54,480 --> 00:19:59,400
+evaluate three and
+
+358
+00:19:57,080 --> 00:20:05,120
+four. Run
+
+359
+00:19:59,400 --> 00:20:07,520
+it. Fantastic. Seven. Okay. Now let's um
+
+360
+00:20:05,120 --> 00:20:10,960
+now let's uh create a more example.
+
+361
+00:20:07,520 --> 00:20:13,840
+Let's say now let's say I'm getting
+
+362
+00:20:10,960 --> 00:20:18,080
+fancy. I want to I want this function
+
+363
+00:20:13,840 --> 00:20:21,120
+where the second part is a uh let's say
+
+364
+00:20:18,080 --> 00:20:22,919
+a vector. Okay. So the second part is a
+
+365
+00:20:21,120 --> 00:20:27,039
+vector
+
+366
+00:20:22,919 --> 00:20:31,440
+ve and uh um okay let me show you some
+
+367
+00:20:27,039 --> 00:20:31,440
+other uh yeah let me show you okay
+
+368
+00:20:31,799 --> 00:20:40,159
+so yeah like before remember we said
+
+369
+00:20:35,120 --> 00:20:44,159
+that this way allows you to define um
+
+370
+00:20:40,159 --> 00:20:46,400
+default values and optional um default
+
+371
+00:20:44,159 --> 00:20:48,559
+par default parameter values and
+
+372
+00:20:46,400 --> 00:20:50,760
+optional parameters and named
+
+373
+00:20:48,559 --> 00:20:54,480
+parameters.
+
+374
+00:20:50,760 --> 00:20:57,480
+Okay. So the named parameters we already
+
+375
+00:20:54,480 --> 00:21:01,840
+showed it basically you give it a
+
+376
+00:20:57,480 --> 00:21:04,640
+name and wait named parameters usually
+
+377
+00:21:01,840 --> 00:21:06,559
+uh you can means place you know you you
+
+378
+00:21:04,640 --> 00:21:09,039
+should be able to place it anywhere. So
+
+379
+00:21:06,559 --> 00:21:13,240
+that's not it. So okay so let me let me
+
+380
+00:21:09,039 --> 00:21:19,520
+let's show okay. So so
+
+381
+00:21:13,240 --> 00:21:19,520
+here let's example of default value.
+
+382
+00:21:19,960 --> 00:21:30,440
+Okay. So, so X and Y and let's say
+
+383
+00:21:25,799 --> 00:21:33,600
+YD424. Okay. That's how you do it. So,
+
+384
+00:21:30,440 --> 00:21:33,600
+now run
+
+385
+00:21:34,200 --> 00:21:40,640
+it. Fantastic. You got seven even though
+
+386
+00:21:37,520 --> 00:21:44,240
+Y is not given. So, but you see default
+
+387
+00:21:40,640 --> 00:21:47,120
+values. Okay. Now, now let's uh let's
+
+388
+00:21:44,240 --> 00:21:52,919
+cover the other example. What? So we
+
+389
+00:21:47,120 --> 00:21:52,919
+cover default values. Then we covered um
+
+390
+00:21:55,480 --> 00:22:01,760
+uh default value is kind of similar to
+
+391
+00:21:58,880 --> 00:22:04,240
+optional param. So this default values
+
+392
+00:22:01,760 --> 00:22:06,480
+optional param and name param they are
+
+393
+00:22:04,240 --> 00:22:09,919
+kind of tied together. Okay this kind of
+
+394
+00:22:06,480 --> 00:22:12,559
+relation because default values to a
+
+395
+00:22:09,919 --> 00:22:15,280
+parameter basically means that parameter
+
+396
+00:22:12,559 --> 00:22:18,000
+is is optional. Okay. So for example
+
+397
+00:22:15,280 --> 00:22:22,240
+just like like like
+
+398
+00:22:18,000 --> 00:22:25,039
+um like here you know this y is optional
+
+399
+00:22:22,240 --> 00:22:27,919
+and also it's got a default value but
+
+400
+00:22:25,039 --> 00:22:32,559
+then another sense of optional value is
+
+401
+00:22:27,919 --> 00:22:35,280
+that is that um you see right now in
+
+402
+00:22:32,559 --> 00:22:37,679
+this example although four is optional
+
+403
+00:22:35,280 --> 00:22:41,679
+so let's make x optional okay so let's
+
+404
+00:22:37,679 --> 00:22:45,039
+make x optional too let's say three okay
+
+405
+00:22:41,679 --> 00:22:45,039
+so now if you don't give
+
+406
+00:22:45,559 --> 00:22:55,640
+anything it returns seven. Okay. But now
+
+407
+00:22:48,960 --> 00:22:59,640
+if you say if you say uh let's say y is
+
+408
+00:22:55,640 --> 00:23:03,360
+uh let's say I want y to
+
+409
+00:22:59,640 --> 00:23:06,720
+be let's say I want y to be five. I want
+
+410
+00:23:03,360 --> 00:23:09,679
+to I want x to be optional. You cannot
+
+411
+00:23:06,720 --> 00:23:12,600
+do that. You see in order you know when
+
+412
+00:23:09,679 --> 00:23:14,280
+you do default values they are still
+
+413
+00:23:12,600 --> 00:23:17,919
+ordered.
+
+414
+00:23:14,280 --> 00:23:20,080
+So y becomes optional or both of them
+
+415
+00:23:17,919 --> 00:23:22,760
+are optional but you cannot have x
+
+416
+00:23:20,080 --> 00:23:25,760
+optional you know you
+
+417
+00:23:22,760 --> 00:23:28,559
+cannot want to have a value for y and
+
+418
+00:23:25,760 --> 00:23:30,679
+let the x be optional like this you run
+
+419
+00:23:28,559 --> 00:23:34,720
+this that won't work.
+
+420
+00:23:30,679 --> 00:23:39,520
+Okay. So what I mean so what this means
+
+421
+00:23:34,720 --> 00:23:42,400
+is that the meaning of default values is
+
+422
+00:23:39,520 --> 00:23:46,400
+not completely identical to the meaning
+
+423
+00:23:42,400 --> 00:23:49,039
+of optional parameters. You see when you
+
+424
+00:23:46,400 --> 00:23:50,799
+have ordered argument okay that's why we
+
+425
+00:23:49,039 --> 00:23:54,000
+are talking about this because we are
+
+426
+00:23:50,799 --> 00:23:56,880
+talking about the the default values and
+
+427
+00:23:54,000 --> 00:23:59,360
+optional param their relation you see.
+
+428
+00:23:56,880 --> 00:24:04,159
+So when you have a default value for for
+
+429
+00:23:59,360 --> 00:24:06,960
+older parameter that means only counting
+
+430
+00:24:04,159 --> 00:24:09,200
+from the last parameters they are
+
+431
+00:24:06,960 --> 00:24:11,360
+optional you know you can have two
+
+432
+00:24:09,200 --> 00:24:13,360
+optional parameters near the right hand
+
+433
+00:24:11,360 --> 00:24:16,640
+side or three or more but you cannot
+
+434
+00:24:13,360 --> 00:24:18,960
+have the beginning. So so then then
+
+435
+00:24:16,640 --> 00:24:21,559
+another concept is named param. So let's
+
+436
+00:24:18,960 --> 00:24:24,960
+define named param.
+
+437
+00:24:21,559 --> 00:24:27,919
+Okay. So let's uh clean up a little bit.
+
+438
+00:24:24,960 --> 00:24:30,720
+Let me clean up. So, so here's a default
+
+439
+00:24:27,919 --> 00:24:33,000
+example of default values and here is
+
+440
+00:24:30,720 --> 00:24:37,400
+example
+
+441
+00:24:33,000 --> 00:24:42,799
+of two default values
+
+442
+00:24:37,400 --> 00:24:42,799
+and how only the
+
+443
+00:24:42,840 --> 00:24:52,039
+ones and and
+
+444
+00:24:45,320 --> 00:24:55,000
+how how you cannot have the first
+
+445
+00:24:52,039 --> 00:24:57,480
+param as optional.
+
+446
+00:24:55,000 --> 00:24:59,799
+Now
+
+447
+00:24:57,480 --> 00:25:03,960
+this
+
+448
+00:24:59,799 --> 00:25:07,440
+showcase how default
+
+449
+00:25:03,960 --> 00:25:07,440
+values does
+
+450
+00:25:07,799 --> 00:25:12,880
+not is
+
+451
+00:25:09,880 --> 00:25:12,880
+not
+
+452
+00:25:16,600 --> 00:25:19,600
+completely
+
+453
+00:25:19,720 --> 00:25:23,640
+complete
+
+454
+00:25:21,400 --> 00:25:27,000
+completely equival
+
+455
+00:25:23,640 --> 00:25:30,640
+But lent
+
+456
+00:25:27,000 --> 00:25:30,640
+two optional
+
+457
+00:25:33,559 --> 00:25:38,720
+param. How
+
+458
+00:25:35,799 --> 00:25:41,840
+param with default values is not
+
+459
+00:25:38,720 --> 00:25:44,840
+completely equivalent to optional param.
+
+460
+00:25:41,840 --> 00:25:44,840
+Okay.
+
+461
+00:25:46,159 --> 00:25:58,200
+If we want y to be five and and use
+
+462
+00:25:54,200 --> 00:26:01,640
+default value for
+
+463
+00:25:58,200 --> 00:26:04,960
+x, this
+
+464
+00:26:01,640 --> 00:26:08,240
+cannot won't work. Okay, that's an
+
+465
+00:26:04,960 --> 00:26:11,480
+example. This is error if you run it.
+
+466
+00:26:08,240 --> 00:26:14,400
+Okay, so that's a relationship about
+
+467
+00:26:11,480 --> 00:26:17,520
+uh default values for parameter.
+
+468
+00:26:14,400 --> 00:26:21,360
+parameter with default value versus
+
+469
+00:26:17,520 --> 00:26:24,799
+optional. So let me so now let me um so
+
+470
+00:26:21,360 --> 00:26:26,039
+now let's show an example of name named
+
+471
+00:26:24,799 --> 00:26:29,400
+parameters.
+
+472
+00:26:26,039 --> 00:26:35,520
+Okay. So now example
+
+473
+00:26:29,400 --> 00:26:35,520
+of named param par parameters.
+
+474
+00:26:40,360 --> 00:26:45,880
+Okay. Okay. Example of named params.
+
+475
+00:26:44,279 --> 00:26:52,640
+So
+
+476
+00:26:45,880 --> 00:26:52,640
+x y and uh let's so uh
+
+477
+00:26:53,880 --> 00:27:00,640
+okay so so there's another issue about
+
+478
+00:26:58,159 --> 00:27:04,760
+named parameters the relationship of
+
+479
+00:27:00,640 --> 00:27:07,039
+named parameters and uh optional
+
+480
+00:27:04,760 --> 00:27:09,200
+parameters again so there's a
+
+481
+00:27:07,039 --> 00:27:12,880
+relationship of that for example in
+
+482
+00:27:09,200 --> 00:27:15,240
+JavaScript in Python you have or in
+
+483
+00:27:12,880 --> 00:27:18,480
+powers shell or in bash you have this
+
+484
+00:27:15,240 --> 00:27:20,559
+dash you know name then value you know
+
+485
+00:27:18,480 --> 00:27:24,559
+that's a parameter so those are
+
+486
+00:27:20,559 --> 00:27:28,279
+typically called named parameters and
+
+487
+00:27:24,559 --> 00:27:31,760
+usually those are orderless so when you
+
+488
+00:27:28,279 --> 00:27:34,159
+have named parameters they needs not to
+
+489
+00:27:31,760 --> 00:27:38,720
+be specific order they can be anywhere
+
+490
+00:27:34,159 --> 00:27:40,799
+and they can they cannot exist and by
+
+491
+00:27:38,720 --> 00:27:43,039
+default they will have a value but so
+
+492
+00:27:40,799 --> 00:27:47,840
+let me just show you okay so the The way
+
+493
+00:27:43,039 --> 00:27:50,400
+you define named parameters is by
+
+494
+00:27:47,840 --> 00:27:53,279
+uh well let me look up so I forgot at
+
+495
+00:27:50,400 --> 00:27:55,480
+the moment I I I I remember but let's
+
+496
+00:27:53,279 --> 00:28:00,399
+look up my
+
+497
+00:27:55,480 --> 00:28:04,000
+um wolf language tutorial. So Wuam
+
+498
+00:28:00,399 --> 00:28:07,039
+language in depth. So all the things I
+
+499
+00:28:04,000 --> 00:28:10,159
+talked about is in fact already written.
+
+500
+00:28:07,039 --> 00:28:14,000
+So check it out. Wuam language inepth
+
+501
+00:28:10,159 --> 00:28:18,039
+onali.info. info table of contents. So
+
+502
+00:28:14,000 --> 00:28:22,240
+basics comments string number boolean
+
+503
+00:28:18,039 --> 00:28:25,039
+list and expression atom head variable
+
+504
+00:28:22,240 --> 00:28:27,720
+conditional loop iteration function.
+
+505
+00:28:25,039 --> 00:28:30,640
+Okay, that's what you want. The function
+
+506
+00:28:27,720 --> 00:28:32,960
+section defining function define
+
+507
+00:28:30,640 --> 00:28:35,760
+function with optional parameters.
+
+508
+00:28:32,960 --> 00:28:39,760
+That's what we want. Okay, so let me
+
+509
+00:28:35,760 --> 00:28:41,799
+just copy um so save save us type
+
+510
+00:28:39,760 --> 00:28:45,120
+typing.
+
+511
+00:28:41,799 --> 00:28:48,159
+So okay. So yeah. So let's just do it.
+
+512
+00:28:45,120 --> 00:28:51,840
+So there is the example clear. Now let's
+
+513
+00:28:48,159 --> 00:28:54,640
+change F to uh my phone just to be
+
+514
+00:28:51,840 --> 00:28:59,679
+consistent with the way we were doing
+
+515
+00:28:54,640 --> 00:29:03,840
+it. Okay. So so clear my phone the
+
+516
+00:28:59,679 --> 00:29:06,399
+symbol. Then here is a um this is a
+
+517
+00:29:03,840 --> 00:29:09,679
+option. This is a default value. Okay.
+
+518
+00:29:06,399 --> 00:29:12,720
+Uh okay. So not actually not this part.
+
+519
+00:29:09,679 --> 00:29:15,159
+So optional positional parameters,
+
+520
+00:29:12,720 --> 00:29:17,440
+right? That's not what we
+
+521
+00:29:15,159 --> 00:29:19,840
+want. You know, this is interesting
+
+522
+00:29:17,440 --> 00:29:22,559
+because the full name, the more precise
+
+523
+00:29:19,840 --> 00:29:24,840
+name for that what we showed before is
+
+524
+00:29:22,559 --> 00:29:28,399
+optional positional
+
+525
+00:29:24,840 --> 00:29:30,880
+parameters or you can say uh a parameter
+
+526
+00:29:28,399 --> 00:29:34,159
+with ordered parameter with default
+
+527
+00:29:30,880 --> 00:29:37,279
+value. Okay, that's a full name. We
+
+528
+00:29:34,159 --> 00:29:39,440
+showed that before. But what we want
+
+529
+00:29:37,279 --> 00:29:43,520
+now, what we going to demo now is
+
+530
+00:29:39,440 --> 00:29:46,279
+optional named parameters. Okay. So, um,
+
+531
+00:29:43,520 --> 00:29:49,440
+let me just copy it. Let me do it. Okay.
+
+532
+00:29:46,279 --> 00:29:51,760
+So, yeah. So, here's a instruction to to
+
+533
+00:29:49,440 --> 00:29:54,159
+write optional named params. So, let's
+
+534
+00:29:51,760 --> 00:29:54,159
+just do
+
+535
+00:29:55,640 --> 00:30:01,520
+it. Okay. So, we want my function just
+
+536
+00:29:58,960 --> 00:30:03,039
+same as like before optional named
+
+537
+00:30:01,520 --> 00:30:07,240
+param.
+
+538
+00:30:03,039 --> 00:30:11,520
+uh example of optional named parameters.
+
+539
+00:30:07,240 --> 00:30:16,720
+Okay, my function and uh the name the
+
+540
+00:30:11,520 --> 00:30:21,600
+symbol is uh my function. Okay. My
+
+541
+00:30:16,720 --> 00:30:26,960
+function uh wait uh op yeah options uh
+
+542
+00:30:21,600 --> 00:30:28,360
+uh wait my function then opt one that's
+
+543
+00:30:26,960 --> 00:30:32,000
+the option
+
+544
+00:30:28,360 --> 00:30:37,640
+name opt whatever it is you know my
+
+545
+00:30:32,000 --> 00:30:43,840
+option uh let's say my op one okay uh
+
+546
+00:30:37,640 --> 00:30:46,080
+let's capital okay my opt one my opt two
+
+547
+00:30:43,840 --> 00:30:49,360
+and let's say default value is three
+
+548
+00:30:46,080 --> 00:30:51,880
+default value is four. Okay, remove that
+
+549
+00:30:49,360 --> 00:30:56,240
+act. Okay, so this is how
+
+550
+00:30:51,880 --> 00:30:58,720
+you create a optional named parameters
+
+551
+00:30:56,240 --> 00:31:01,760
+to a function. So the function is my
+
+552
+00:30:58,720 --> 00:31:01,760
+fun. Okay,
+
+553
+00:31:04,120 --> 00:31:09,039
+then okay then then you define a
+
+554
+00:31:06,720 --> 00:31:11,480
+function. Okay, just like before. So let
+
+555
+00:31:09,039 --> 00:31:16,760
+me do that.
+
+556
+00:31:11,480 --> 00:31:19,930
+So let's say yeah so let's say
+
+557
+00:31:16,760 --> 00:31:21,399
+um yeah so let's remove that
+
+558
+00:31:19,930 --> 00:31:25,600
+[Music]
+
+559
+00:31:21,399 --> 00:31:30,320
+entirely let's just say that and uh yeah
+
+560
+00:31:25,600 --> 00:31:30,320
+that okay then optional param
+
+561
+00:31:32,039 --> 00:31:39,200
+um then
+
+562
+00:31:34,039 --> 00:31:41,919
+uh yeah so then here you want to say now
+
+563
+00:31:39,200 --> 00:31:46,720
+you want to say a module. Okay. So what
+
+564
+00:31:41,919 --> 00:31:51,200
+does module do? It's like let in lisp or
+
+565
+00:31:46,720 --> 00:31:53,760
+in f in okamel or inascal module that
+
+566
+00:31:51,200 --> 00:31:56,080
+lets you create local variables. Okay.
+
+567
+00:31:53,760 --> 00:31:58,120
+So it takes two arguments. The first
+
+568
+00:31:56,080 --> 00:32:00,960
+part is
+
+569
+00:31:58,120 --> 00:32:04,080
+params at least. The second part is the
+
+570
+00:32:00,960 --> 00:32:06,559
+body. Okay. That's um okay. So the
+
+571
+00:32:04,080 --> 00:32:09,760
+params let's say let's leave it empty.
+
+572
+00:32:06,559 --> 00:32:13,760
+Okay. Now the body what what the body
+
+573
+00:32:09,760 --> 00:32:13,760
+will be? Okay. So that would
+
+574
+00:32:14,120 --> 00:32:23,440
+be okay option value uh my
+
+575
+00:32:20,440 --> 00:32:23,440
+op
+
+576
+00:32:23,640 --> 00:32:26,640
+one
+
+577
+00:32:26,679 --> 00:32:33,360
+plus my up two.
+
+578
+00:32:30,360 --> 00:32:36,080
+Okay that's how you do it. Uh actually
+
+579
+00:32:33,360 --> 00:32:39,080
+so we don't even need the module part.
+
+580
+00:32:36,080 --> 00:32:42,880
+Just like that. Okay. So now we have a
+
+581
+00:32:39,080 --> 00:32:47,679
+function with a optional param. My opt
+
+582
+00:32:42,880 --> 00:32:50,799
+one my opt two and uh and this is the
+
+583
+00:32:47,679 --> 00:32:53,440
+definition of the function. Okay. So now
+
+584
+00:32:50,799 --> 00:32:53,440
+we can call
+
+585
+00:32:53,799 --> 00:33:02,080
+it empty. So let's clean up uh uh wait
+
+586
+00:32:59,200 --> 00:33:05,440
+let's clean up make them together. Okay.
+
+587
+00:33:02,080 --> 00:33:08,320
+Run it. Hope hopefully it works.
+
+588
+00:33:05,440 --> 00:33:11,640
+Warning comma encount encountered with
+
+589
+00:33:08,320 --> 00:33:14,559
+no adjacent expression. Where is the
+
+590
+00:33:11,640 --> 00:33:16,399
+comma? Oh yeah, here. So in uam
+
+591
+00:33:14,559 --> 00:33:19,519
+language, you cannot have trailing
+
+592
+00:33:16,399 --> 00:33:22,399
+commas. Okay, so remove that. Oh, it
+
+593
+00:33:19,519 --> 00:33:24,919
+evaluated anyway. So seven. You see? So
+
+594
+00:33:22,399 --> 00:33:28,480
+let's do it
+
+595
+00:33:24,919 --> 00:33:31,880
+again. Seven. Oh, by the way, that's a
+
+596
+00:33:28,480 --> 00:33:35,600
+nice new feature. You see, it
+
+597
+00:33:31,880 --> 00:33:37,919
+doesn't stop. it it doesn't error out.
+
+598
+00:33:35,600 --> 00:33:40,480
+It creates a warning but it still runs.
+
+599
+00:33:37,919 --> 00:33:45,760
+So the training trailing comma is kind
+
+600
+00:33:40,480 --> 00:33:49,480
+of kind of a syntax design issue. You
+
+601
+00:33:45,760 --> 00:33:52,320
+know by now we understand like trailing
+
+602
+00:33:49,480 --> 00:33:55,760
+comma just ignore it. You know it's very
+
+603
+00:33:52,320 --> 00:33:58,320
+convenient when you when you can just
+
+604
+00:33:55,760 --> 00:34:02,240
+ignore the trailing comma in a list in a
+
+605
+00:33:58,320 --> 00:34:04,080
+array or or you know things like that.
+
+606
+00:34:02,240 --> 00:34:06,799
+But however when whenever you have
+
+607
+00:34:04,080 --> 00:34:11,200
+trailing comma if you allow that then
+
+608
+00:34:06,799 --> 00:34:14,800
+that means your the logical soundness of
+
+609
+00:34:11,200 --> 00:34:17,119
+your syntax is is not too logical
+
+610
+00:34:14,800 --> 00:34:18,960
+because logically you don't want the
+
+611
+00:34:17,119 --> 00:34:20,200
+trailing comma when you have a list of
+
+612
+00:34:18,960 --> 00:34:23,359
+things you
+
+613
+00:34:20,200 --> 00:34:25,520
+know you know like a list typically the
+
+614
+00:34:23,359 --> 00:34:27,960
+comma is meant to be the se you know
+
+615
+00:34:25,520 --> 00:34:31,599
+separator. So anyway that's
+
+616
+00:34:27,960 --> 00:34:34,560
+a syntax design issue. Okay. So anyway,
+
+617
+00:34:31,599 --> 00:34:37,280
+this is how you write um optional param.
+
+618
+00:34:34,560 --> 00:34:41,520
+But this looks complex. So let's let's
+
+619
+00:34:37,280 --> 00:34:41,520
+make it uh let's try to make
+
+620
+00:34:44,760 --> 00:34:50,560
+it okay. So this this kind of simpler
+
+621
+00:34:47,919 --> 00:34:52,919
+but it's still complex but okay. So but
+
+622
+00:34:50,560 --> 00:34:56,000
+the point here is
+
+623
+00:34:52,919 --> 00:34:57,880
+that okay let's evaluate this. Okay.
+
+624
+00:34:56,000 --> 00:35:01,599
+Evaluate
+
+625
+00:34:57,880 --> 00:35:03,920
+it seven. Okay. Now so the point of this
+
+626
+00:35:01,599 --> 00:35:06,480
+optional named param is that you can
+
+627
+00:35:03,920 --> 00:35:08,839
+have like hundreds of them you know it's
+
+628
+00:35:06,480 --> 00:35:15,280
+not just my opt one so this is for
+
+629
+00:35:08,839 --> 00:35:20,160
+example plot point you know number
+
+630
+00:35:15,280 --> 00:35:24,400
+uh let's say number of plot points
+
+631
+00:35:20,160 --> 00:35:24,400
+uh you know you can say kind of like
+
+632
+00:35:27,240 --> 00:35:32,079
+that you know you can have lots much
+
+633
+00:35:29,839 --> 00:35:35,359
+options. Color, you know, color
+
+634
+00:35:32,079 --> 00:35:38,119
+something like by default red. Uh number
+
+635
+00:35:35,359 --> 00:35:40,640
+of plot points, uh let's say 30 by
+
+636
+00:35:38,119 --> 00:35:42,839
+default. Uh
+
+637
+00:35:40,640 --> 00:35:46,440
+uh uh
+
+638
+00:35:42,839 --> 00:35:48,119
+launch missile, uh for
+
+639
+00:35:46,440 --> 00:35:51,440
+example,
+
+640
+00:35:48,119 --> 00:35:53,599
+true or false. Okay, so the point is
+
+641
+00:35:51,440 --> 00:35:56,560
+that you can have like hundreds of them.
+
+642
+00:35:53,599 --> 00:35:58,880
+you don't need to specify all of them
+
+643
+00:35:56,560 --> 00:36:01,839
+and you don't need necessarily need all
+
+644
+00:35:58,880 --> 00:36:04,400
+of them in the in the body part of the
+
+645
+00:36:01,839 --> 00:36:07,599
+computation for for your function. So
+
+646
+00:36:04,400 --> 00:36:11,040
+that's a that's a thing. So for example
+
+647
+00:36:07,599 --> 00:36:13,839
+in a typical wam language plot function
+
+648
+00:36:11,040 --> 00:36:13,839
+uh let's say
+
+649
+00:36:23,720 --> 00:36:31,040
+plot 3D let's say let's try something
+
+650
+00:36:27,119 --> 00:36:31,040
+fun okay uh
+
+651
+00:36:34,119 --> 00:36:38,920
+wait
+
+652
+00:36:37,079 --> 00:36:41,920
+s
+
+653
+00:36:38,920 --> 00:36:41,920
+x
+
+654
+00:36:42,680 --> 00:36:48,320
+cosine
+
+655
+00:36:44,839 --> 00:36:51,480
+y. Uh, it's it's actually easier for me
+
+656
+00:36:48,320 --> 00:36:55,680
+to type this in uh emacs. I'm using
+
+657
+00:36:51,480 --> 00:36:55,680
+wuam. I'm using kasar
+
+658
+00:36:58,359 --> 00:37:04,640
+emacs. Kasawa wam mod emacs. Okay. So,
+
+659
+00:37:02,880 --> 00:37:06,880
+wait, do I Yeah, here. So you can
+
+660
+00:37:04,640 --> 00:37:10,200
+download it. So it allows you to code
+
+661
+00:37:06,880 --> 00:37:14,960
+wam language in Emacs. Uh it's on
+
+662
+00:37:10,200 --> 00:37:18,079
+GitHub. Okay. Wu mod. So it allows me to
+
+663
+00:37:14,960 --> 00:37:25,599
+type faster. So for example here we want
+
+664
+00:37:18,079 --> 00:37:32,320
+x. So 0 to uh 2 pi. Okay. 2 pi. And we
+
+665
+00:37:25,599 --> 00:37:35,119
+want y to be 0 to 2 pi. Okay. So plot.
+
+666
+00:37:32,320 --> 00:37:37,400
+So this plot function right now is
+
+667
+00:37:35,119 --> 00:37:40,240
+taking one
+
+668
+00:37:37,400 --> 00:37:43,960
+arguments, two arguments and three
+
+669
+00:37:40,240 --> 00:37:48,320
+arguments. Okay. Now run
+
+670
+00:37:43,960 --> 00:37:50,599
+it. Shift enter. Fantastic. Okay. So
+
+671
+00:37:48,320 --> 00:37:54,520
+what is this?
+
+672
+00:37:50,599 --> 00:37:58,320
+Uh why is it look like that? That's not
+
+673
+00:37:54,520 --> 00:38:00,400
+right. Oh yeah, this new uh yeah so we
+
+674
+00:37:58,320 --> 00:38:04,560
+forgot this needs to be one single
+
+675
+00:38:00,400 --> 00:38:07,440
+function. Okay. So x times let's say
+
+676
+00:38:04,560 --> 00:38:09,760
+plus okay so this is not a list of
+
+677
+00:38:07,440 --> 00:38:12,160
+functions this is one should be one
+
+678
+00:38:09,760 --> 00:38:12,160
+single
+
+679
+00:38:13,079 --> 00:38:20,440
+function okay fantastic now let's say uh
+
+680
+00:38:17,359 --> 00:38:24,040
+let's say 2 3
+
+681
+00:38:20,440 --> 00:38:27,599
+pi shift enter
+
+682
+00:38:24,040 --> 00:38:30,480
+fantastic and now there's a lot options
+
+683
+00:38:27,599 --> 00:38:32,800
+for plot for for example you type
+
+684
+00:38:30,480 --> 00:38:32,800
+options
+
+685
+00:38:35,880 --> 00:38:44,320
+S plot 3D shift enter. So you see you
+
+686
+00:38:41,520 --> 00:38:45,400
+got whole bunch of options. So that is
+
+687
+00:38:44,320 --> 00:38:47,320
+the
+
+688
+00:38:45,400 --> 00:38:52,960
+power and
+
+689
+00:38:47,320 --> 00:38:54,560
+utility of of named optional parameters.
+
+690
+00:38:52,960 --> 00:38:56,640
+Okay, because you have thousands of
+
+691
+00:38:54,560 --> 00:38:58,960
+them. You know, you don't want to like
+
+692
+00:38:56,640 --> 00:39:01,119
+like type all of them whenever you call
+
+693
+00:38:58,960 --> 00:39:03,839
+a function.
+
+694
+00:39:01,119 --> 00:39:05,640
+Okay. So that is this is how you define
+
+695
+00:39:03,839 --> 00:39:08,880
+a named option.
+
+696
+00:39:05,640 --> 00:39:14,960
+Okay. So now I think that's it for
+
+697
+00:39:08,880 --> 00:39:14,960
+today. Um am I doing good? Is this
+
+698
+00:39:15,240 --> 00:39:22,720
+useful? Okay. Nobody's here. Um I think
+
+699
+00:39:19,200 --> 00:39:26,079
+that's it. So why don't we show
+
+700
+00:39:22,720 --> 00:39:29,680
+something fun? Um for example, let's do
+
+701
+00:39:26,079 --> 00:39:32,160
+a animation of it.
+
+702
+00:39:29,680 --> 00:39:34,920
+Animation is most fun part of weren
+
+703
+00:39:32,160 --> 00:39:37,920
+language. Okay.
+
+704
+00:39:34,920 --> 00:39:40,640
+Um yeah. Okay. Let's do it here because
+
+705
+00:39:37,920 --> 00:39:40,640
+it's much
+
+706
+00:39:45,560 --> 00:39:49,720
+easier. Let's say
+
+707
+00:39:50,240 --> 00:39:56,440
+uh let's say B. Okay. So add a B here.
+
+708
+00:39:54,079 --> 00:39:58,839
+That's a parameter. Let's say T. Okay.
+
+709
+00:39:56,440 --> 00:40:04,520
+TT. So now
+
+710
+00:39:58,839 --> 00:40:06,280
+tt tt goes from uh let's say t uh let's
+
+711
+00:40:04,520 --> 00:40:10,119
+say let's
+
+712
+00:40:06,280 --> 00:40:12,359
+say let's just say t okay so t goes
+
+713
+00:40:10,119 --> 00:40:15,560
+from zero
+
+714
+00:40:12,359 --> 00:40:19,480
+to one
+
+715
+00:40:15,560 --> 00:40:24,640
+okay so we going to create an
+
+716
+00:40:19,480 --> 00:40:24,640
+animation fantastic now let's play
+
+717
+00:40:34,599 --> 00:40:42,000
+it. Okay. So, this this is not fun.
+
+718
+00:40:38,760 --> 00:40:46,079
+Um, so let's let me think which how do
+
+719
+00:40:42,000 --> 00:40:46,079
+you make it fun?
+
+720
+00:40:46,440 --> 00:40:58,640
+Uh, okay. So let's just
+
+721
+00:40:49,960 --> 00:41:04,440
+say sin x * y + t. Okay. And t goes from
+
+722
+00:40:58,640 --> 00:41:08,079
+1 to uh three. Okay. One, two,
+
+723
+00:41:04,440 --> 00:41:10,560
+pi. Okay. Fantastic. Now this is more
+
+724
+00:41:08,079 --> 00:41:10,560
+evil
+
+725
+00:41:12,920 --> 00:41:19,560
+looking. Okay. Now it's not smooth. No,
+
+726
+00:41:16,240 --> 00:41:23,680
+I want it smooth. Okay.
+
+727
+00:41:19,560 --> 00:41:26,160
+So, now I don't know how what is the
+
+728
+00:41:23,680 --> 00:41:30,280
+option to make. Okay. So, let's Yeah.
+
+729
+00:41:26,160 --> 00:41:34,960
+Okay. Let's do that. So, copy
+
+730
+00:41:30,280 --> 00:41:37,839
+that. So, we got this and we want to
+
+731
+00:41:34,960 --> 00:41:40,640
+make it smooth. So, let's instead of
+
+732
+00:41:37,839 --> 00:41:44,280
+using manipulate, let's first of all
+
+733
+00:41:40,640 --> 00:41:47,000
+create a table of it. Okay.
+
+734
+00:41:44,280 --> 00:41:51,760
+So, so
+
+735
+00:41:47,000 --> 00:41:56,119
+table okay table of this expression then
+
+736
+00:41:51,760 --> 00:42:01,040
+then the t goes from
+
+737
+00:41:56,119 --> 00:42:03,400
+uh t from zero to 2 pi and now so so
+
+738
+00:42:01,040 --> 00:42:06,640
+okay so let's
+
+739
+00:42:03,400 --> 00:42:06,640
+um so
+
+740
+00:42:08,680 --> 00:42:16,839
+now so now but um but you want to add
+
+741
+00:42:12,240 --> 00:42:21,839
+option Okay. So let's make it clear
+
+742
+00:42:16,839 --> 00:42:25,440
+here. So you see plot plot but now let's
+
+743
+00:42:21,839 --> 00:42:29,280
+add a optional parameter to plot. Okay.
+
+744
+00:42:25,440 --> 00:42:29,280
+So we want to say plot
+
+745
+00:42:33,480 --> 00:42:40,720
+range. Okay. Plot range. Uh so x goes
+
+746
+00:42:38,640 --> 00:42:45,000
+from
+
+747
+00:42:40,720 --> 00:42:51,720
+uh where does it uh goes from 0 to 2 pi.
+
+748
+00:42:45,000 --> 00:42:56,760
+Okay. Uh goes from zero to
+
+749
+00:42:51,720 --> 00:42:56,760
+2 pi. Okay.
+
+750
+00:42:58,000 --> 00:43:08,599
+Same for y and and z goes from zero
+
+751
+00:43:04,599 --> 00:43:08,599
+to 1.5
+
+752
+00:43:08,880 --> 00:43:11,599
+uh uh
+
+753
+00:43:13,319 --> 00:43:21,520
+from negative 1.1 to 1.1. Okay. So this
+
+754
+00:43:18,400 --> 00:43:26,560
+will create a bunch of graphics. Let's
+
+755
+00:43:21,520 --> 00:43:28,520
+show it. Hopefully it's correct.
+
+756
+00:43:26,560 --> 00:43:31,720
+Double
+
+757
+00:43:28,520 --> 00:43:33,240
+check. Do it. Do
+
+758
+00:43:31,720 --> 00:43:36,000
+it.
+
+759
+00:43:33,240 --> 00:43:38,800
+Fantastic. Wait, only four of them.
+
+760
+00:43:36,000 --> 00:43:42,119
+Yeah. Okay. So, you want go from 0 to 2
+
+761
+00:43:38,800 --> 00:43:48,240
+pi in increment
+
+762
+00:43:42,119 --> 00:43:48,240
+of pi divided by let's say
+
+763
+00:43:49,079 --> 00:43:56,000
+20. Okay. So, you got lots of graphic.
+
+764
+00:43:52,319 --> 00:43:58,640
+Now, this is not exactly I'm It's good.
+
+765
+00:43:56,000 --> 00:43:59,720
+It's good. Okay. So, now you got a bunch
+
+766
+00:43:58,640 --> 00:44:03,240
+of
+
+767
+00:43:59,720 --> 00:44:08,319
+graphics. Copy it. Paste it
+
+768
+00:44:03,240 --> 00:44:08,319
+here. Uh, okay. So, let's
+
+769
+00:44:09,800 --> 00:44:19,119
+just So, let's assign it my graphics
+
+770
+00:44:14,560 --> 00:44:24,040
+equals to that. Okay. Now, you assigned
+
+771
+00:44:19,119 --> 00:44:24,040
+it. Now, you just say animate.
+
+772
+00:44:27,280 --> 00:44:32,319
+animate. Okay, I believe that's it. So,
+
+773
+00:44:29,680 --> 00:44:32,319
+let's try
+
+774
+00:44:33,079 --> 00:44:36,599
+it. So, we're going to create an
+
+775
+00:44:35,280 --> 00:44:41,480
+animation.
+
+776
+00:44:36,599 --> 00:44:44,880
+Uh my gra animate.
+
+777
+00:44:41,480 --> 00:44:48,240
+Uh wait, you got a new here. Oh, yeah.
+
+778
+00:44:44,880 --> 00:44:50,280
+That's that comma. This trailing comma
+
+779
+00:44:48,240 --> 00:44:54,560
+is a annoying
+
+780
+00:44:50,280 --> 00:44:54,560
+thing. Okay, let's try again.
+
+781
+00:44:55,359 --> 00:45:01,880
+Yeah. Okay. Oh, it works. Wait, where's
+
+782
+00:44:58,720 --> 00:45:05,040
+the animation? Okay. Animate is
+
+783
+00:45:01,880 --> 00:45:09,720
+incorrect. So, you need to find out what
+
+784
+00:45:05,040 --> 00:45:11,880
+is the uh syntax for
+
+785
+00:45:09,720 --> 00:45:18,000
+animate. There it
+
+786
+00:45:11,880 --> 00:45:18,000
+is. Show JavaScript and uh enlarge the
+
+787
+00:45:19,319 --> 00:45:26,400
+window. Okay. So animate you need you
+
+788
+00:45:23,440 --> 00:45:30,160
+need a iterator. Okay. So but we already
+
+789
+00:45:26,400 --> 00:45:32,800
+have a list of um this animate. That's
+
+790
+00:45:30,160 --> 00:45:35,599
+what we want. We already have a list. So
+
+791
+00:45:32,800 --> 00:45:35,599
+we don't need
+
+792
+00:45:35,880 --> 00:45:42,960
+um Okay. So now let's do it. Now let's
+
+793
+00:45:39,599 --> 00:45:46,480
+add a semicolon there. So it suppress
+
+794
+00:45:42,960 --> 00:45:49,800
+suppress the list of graphics. Paste.
+
+795
+00:45:46,480 --> 00:45:49,800
+Run it.
+
+796
+00:45:50,599 --> 00:45:56,240
+Fantastic. Now, this is beautiful. Yeah,
+
+797
+00:45:54,319 --> 00:45:59,200
+this is kind of what I'm looking for.
+
+798
+00:45:56,240 --> 00:45:59,200
+But now, let's
+
+799
+00:46:05,480 --> 00:46:14,079
+loop. So, what you know, so we need to
+
+800
+00:46:08,960 --> 00:46:15,680
+make it more dramatic is by uh 2 pi 220.
+
+801
+00:46:14,079 --> 00:46:20,079
+Okay.
+
+802
+00:46:15,680 --> 00:46:20,079
+And uh and
+
+803
+00:46:21,880 --> 00:46:26,960
+uh okay. So it needs to move
+
+804
+00:46:33,319 --> 00:46:38,319
+faster. Okay, that's good. Thank you
+
+805
+00:46:36,400 --> 00:46:41,319
+guys for watching. I think that's it for
+
+806
+00:46:38,319 --> 00:46:41,319
+today.
+
+807
+00:46:50,540 --> 00:46:53,599
+[Music]
+
+808
+00:46:59,359 --> 00:47:05,760
+Uh in fact I mean this is
+
+809
+00:47:02,200 --> 00:47:07,920
+not this is not that great an animation
+
+810
+00:47:05,760 --> 00:47:09,760
+you know this this animation is been
+
+811
+00:47:07,920 --> 00:47:14,359
+done
+
+812
+00:47:09,760 --> 00:47:18,560
+uh let's change your perspective. Uh
+
+813
+00:47:14,359 --> 00:47:21,079
+actually stop. You know this animations
+
+814
+00:47:18,560 --> 00:47:23,720
+has been done like in the
+
+815
+00:47:21,079 --> 00:47:27,280
+1990s. So
+
+816
+00:47:23,720 --> 00:47:30,920
+um so we can add a perspective. So that
+
+817
+00:47:27,280 --> 00:47:34,040
+would be another option.
+
+818
+00:47:30,920 --> 00:47:37,680
+Um so let's see what what is
+
+819
+00:47:34,040 --> 00:47:37,680
+the option
+
+820
+00:47:37,960 --> 00:47:44,000
+for for like the
+
+821
+00:47:40,760 --> 00:47:46,960
+viewpoint so that we can view this thing
+
+822
+00:47:44,000 --> 00:47:50,800
+from from this angle. So that would make
+
+823
+00:47:46,960 --> 00:47:55,960
+make it more interesting. So let's see
+
+824
+00:47:50,800 --> 00:47:55,960
+view matrix view angle automatic
+
+825
+00:47:56,400 --> 00:48:02,480
+uh view projection viewpoint. Okay. So
+
+826
+00:47:59,520 --> 00:48:02,480
+we can use this
+
+827
+00:48:02,760 --> 00:48:09,880
+viewpoint. Okay. So there's a plot
+
+828
+00:48:07,000 --> 00:48:14,760
+range comma then
+
+829
+00:48:09,880 --> 00:48:17,720
+viewpoint viewpoint. Now this is
+
+830
+00:48:14,760 --> 00:48:22,119
+1.3 then
+
+831
+00:48:17,720 --> 00:48:25,359
+negative then two. So let's make it
+
+832
+00:48:22,119 --> 00:48:28,160
+flat and uh let's make it two for now.
+
+833
+00:48:25,359 --> 00:48:31,280
+Let's see what happens. Okay. You need
+
+834
+00:48:28,160 --> 00:48:31,280
+you need like
+
+835
+00:48:31,960 --> 00:48:38,040
+experiment shift enter. Okay. So you
+
+836
+00:48:35,680 --> 00:48:42,240
+need rotate it a little bit.
+
+837
+00:48:38,040 --> 00:48:46,160
+So rotate. So that means you need some
+
+838
+00:48:42,240 --> 00:48:53,200
+kind of this angle. So that means let's
+
+839
+00:48:46,160 --> 00:48:56,760
+say x = to 2 y = to 2. Okay. Let's see
+
+840
+00:48:53,200 --> 00:48:56,760
+what we get.
+
+841
+00:48:57,440 --> 00:49:00,000
+Yeah.
+
+842
+00:49:00,280 --> 00:49:08,520
+No. Okay. So now we get So uh x needs to
+
+843
+00:49:05,760 --> 00:49:13,160
+be uh let's say
+
+844
+00:49:08,520 --> 00:49:17,480
+-2. Oh yeah, y -2. Okay. So
+
+845
+00:49:13,160 --> 00:49:19,800
+actually I think that will get
+
+846
+00:49:17,480 --> 00:49:24,760
+us shift
+
+847
+00:49:19,800 --> 00:49:29,119
+enter. Okay. That's kind of what I like.
+
+848
+00:49:24,760 --> 00:49:32,160
+Now, now let's say animation uh 20
+
+849
+00:49:29,119 --> 00:49:37,119
+frames. Let's say 30 frames
+
+850
+00:49:32,160 --> 00:49:39,920
+uh from 2 pi 2 pi uh from 2 pi to 2 pi
+
+851
+00:49:37,119 --> 00:49:43,319
+divided by 30 that means like 30 frames
+
+852
+00:49:39,920 --> 00:49:45,960
+or 31 frames and
+
+853
+00:49:43,319 --> 00:49:51,359
+uh and
+
+854
+00:49:45,960 --> 00:49:54,720
+uh and uh the formula is xy + t. So t
+
+855
+00:49:51,359 --> 00:49:54,720
+kind of just shift
+
+856
+00:49:55,079 --> 00:50:03,280
+the yeah it it t kind of
+
+857
+00:49:59,559 --> 00:50:06,680
+shifts the frequency. So t is for
+
+858
+00:50:03,280 --> 00:50:10,880
+frequency. You learn that in
+
+859
+00:50:06,680 --> 00:50:13,440
+u in basic analytic geometry. Okay. So
+
+860
+00:50:10,880 --> 00:50:16,440
+but so let's now run the animation
+
+861
+00:50:13,440 --> 00:50:16,440
+again.
+
+862
+00:50:22,079 --> 00:50:26,960
+Okay. So, it's it's a bit better, but
+
+863
+00:50:24,559 --> 00:50:30,480
+not not exactly, you know. I don't like
+
+864
+00:50:26,960 --> 00:50:30,480
+the color. You know, this
+
+865
+00:50:35,319 --> 00:50:39,599
+color. Anyway, that's it for
+
+866
+00:50:41,240 --> 00:50:46,680
+today. Bye, guys. So if you like my
+
+867
+00:50:44,800 --> 00:50:48,880
+stuff, go to my
+
+868
+00:50:46,680 --> 00:50:52,079
+website.info, okay? So you can, you
+
+869
+00:50:48,880 --> 00:50:56,200
+know, check out my wui mod. It's free
+
+870
+00:50:52,079 --> 00:50:59,000
+and check out my entire wam language in
+
+871
+00:50:56,200 --> 00:51:02,559
+depth. And uh
+
+872
+00:50:59,000 --> 00:51:05,119
+so in fact all we talked about today is
+
+873
+00:51:02,559 --> 00:51:08,200
+all here. And if you want to know about
+
+874
+00:51:05,119 --> 00:51:12,319
+the graphics and animation, it's in this
+
+875
+00:51:08,200 --> 00:51:14,960
+section. So go to kasali.info info and
+
+876
+00:51:12,319 --> 00:51:18,240
+all the way bottom you can pay me,
+
+877
+00:51:14,960 --> 00:51:22,160
+Patreon me, PayPal and Amazon gift card
+
+878
+00:51:18,240 --> 00:51:23,400
+me. Okay. Send me a $100 or something.
+
+879
+00:51:22,160 --> 00:51:26,800
+Bye
+
+880
+00:51:23,400 --> 00:51:29,440
+guys. So yeah, so that's one hour. Yeah.
+
+881
+00:51:26,800 --> 00:51:35,680
+Or you can buy my entire website. Pay me
+
+882
+00:51:29,440 --> 00:51:35,680
+$300. I send you a zip file of my
+
+883
+00:51:35,800 --> 00:51:42,960
+entire.info website. uh and there are
+
+884
+00:51:39,440 --> 00:51:45,520
+about about 4,000 articles or 6 thou
+
+885
+00:51:42,960 --> 00:51:48,359
+thou thousand articles on programming
+
+886
+00:51:45,520 --> 00:51:50,200
+languages on mathematics
+
+887
+00:51:48,359 --> 00:51:54,720
+um you
+
+888
+00:51:50,200 --> 00:51:54,720
+know okay that's it bye
+
+889
+00:51:57,480 --> 00:52:03,599
+guys so that's what we talked about
+
+890
+00:52:00,480 --> 00:52:06,670
+today about defining a function in wolf
+
+891
+00:52:03,599 --> 00:52:08,280
+language and uh we talked
+
+892
+00:52:06,670 --> 00:52:12,880
+[Music]
+
+893
+00:52:08,280 --> 00:52:14,880
+about we we we showed how the mechanism
+
+894
+00:52:12,880 --> 00:52:18,559
+of defining a function in woofer
+
+895
+00:52:14,880 --> 00:52:22,319
+language using pattern matching and how
+
+896
+00:52:18,559 --> 00:52:24,680
+does it work because we showed how it is
+
+897
+00:52:22,319 --> 00:52:28,000
+a
+
+898
+00:52:24,680 --> 00:52:31,319
+global syntactical transformation system
+
+899
+00:52:28,000 --> 00:52:34,960
+we defined using
+
+900
+00:52:31,319 --> 00:52:38,200
+um where is it we defined using set
+
+901
+00:52:34,960 --> 00:52:41,200
+delayed okay We explain that. Then we
+
+902
+00:52:38,200 --> 00:52:44,000
+explain we explain the differences and
+
+903
+00:52:41,200 --> 00:52:47,520
+relations of default parameters with
+
+904
+00:52:44,000 --> 00:52:50,400
+default values and optional parameters
+
+905
+00:52:47,520 --> 00:52:52,480
+and uh named parameters. The
+
+906
+00:52:50,400 --> 00:52:55,200
+relationship between optional parameters
+
+907
+00:52:52,480 --> 00:52:58,720
+and named parameters. And how do you do
+
+908
+00:52:55,200 --> 00:53:01,720
+that in weren language?
+
+909
+00:52:58,720 --> 00:53:01,720
+Fantastic.
+

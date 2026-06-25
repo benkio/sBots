@@ -1,0 +1,1756 @@
+1
+00:00:00,060 --> 00:00:07,710
+hey guys so today I'm going to continue
+
+2
+00:00:03,570 --> 00:00:11,099
+yesterday's yesterday's tightening of
+
+3
+00:00:07,710 --> 00:00:14,099
+JavaScript to draw math graphics so
+
+4
+00:00:11,099 --> 00:00:16,980
+yesterday it's part 1 and today now it's
+
+5
+00:00:14,099 --> 00:00:21,390
+part 2 and we're gonna finish finish
+
+6
+00:00:16,980 --> 00:00:23,369
+this in 30 minutes so now it's 732 we're
+
+7
+00:00:21,390 --> 00:00:27,570
+gonna finish in 20 minutes or 30 minutes
+
+8
+00:00:23,369 --> 00:00:30,119
+we can do it I'm pretty sure so what
+
+9
+00:00:27,570 --> 00:00:35,460
+we're gonna draw is this it's a math
+
+10
+00:00:30,119 --> 00:00:37,829
+curve any one of these and it's pretty
+
+11
+00:00:35,460 --> 00:00:39,570
+easy I'm gonna show you so if you
+
+12
+00:00:37,829 --> 00:00:41,879
+haven't watched yesterday you can watch
+
+13
+00:00:39,570 --> 00:00:45,780
+yesterday but we're gonna do it from
+
+14
+00:00:41,879 --> 00:00:48,149
+scratch so let's begin so what we're
+
+15
+00:00:45,780 --> 00:00:55,020
+gonna do is first of all create a HTML
+
+16
+00:00:48,149 --> 00:00:57,539
+file okay save it I'm using Emacs so you
+
+17
+00:00:55,020 --> 00:01:01,910
+can see oh you can see all my commands
+
+18
+00:00:57,539 --> 00:01:08,780
+on the upper left window so save this as
+
+19
+00:01:01,910 --> 00:01:13,320
+just run the name xxx HTML okay
+
+20
+00:01:08,780 --> 00:01:22,290
+create the HTML template test - let's
+
+21
+00:01:13,320 --> 00:01:27,890
+say test - so that's our file and create
+
+22
+00:01:22,290 --> 00:01:27,890
+a JavaScript test has two
+
+23
+00:01:30,880 --> 00:01:42,850
+link it and the file is empty created
+
+24
+00:01:35,799 --> 00:01:47,240
+for the date console.log something
+
+25
+00:01:42,850 --> 00:01:50,179
+something okay and we cannot show this
+
+26
+00:01:47,240 --> 00:01:52,969
+in Safari because in Firefox I don't
+
+27
+00:01:50,179 --> 00:01:56,799
+have JavaScript on so but in Safari
+
+28
+00:01:52,969 --> 00:02:02,720
+I have JavaScript on and you can see
+
+29
+00:01:56,799 --> 00:02:05,299
+command option I the console.log it says
+
+30
+00:02:02,720 --> 00:02:11,540
+something that's good
+
+31
+00:02:05,299 --> 00:02:23,510
+so first of all we're gonna add a dive
+
+32
+00:02:11,540 --> 00:02:39,079
+element so X X X 80 X X X and add a
+
+33
+00:02:23,510 --> 00:02:46,130
+style it's not xxx its TTT okay add a
+
+34
+00:02:39,079 --> 00:02:52,519
+style and let's say border okay
+
+35
+00:02:46,130 --> 00:02:58,400
+over the read and see we have a border
+
+36
+00:02:52,519 --> 00:03:01,299
+and now let's say okay so get Helmand by
+
+37
+00:02:58,400 --> 00:03:09,340
+ID okay
+
+38
+00:03:01,299 --> 00:03:14,209
+documents constants get element by ID TT
+
+39
+00:03:09,340 --> 00:03:21,260
+and so what that what does that do is it
+
+40
+00:03:14,209 --> 00:03:29,540
+grabs it grabs this type elements and
+
+41
+00:03:21,260 --> 00:03:33,260
+we're gonna create a so then we're gonna
+
+42
+00:03:29,540 --> 00:03:34,760
+create a SG of an element so I forgot my
+
+43
+00:03:33,260 --> 00:03:38,530
+G element
+
+44
+00:03:34,760 --> 00:03:45,140
+I forgot the syntax so let's go to my
+
+45
+00:03:38,530 --> 00:03:53,200
+JavaScript his SVG reference so create
+
+46
+00:03:45,140 --> 00:03:54,409
+SG let's see if I can create element
+
+47
+00:03:53,200 --> 00:04:00,409
+okay
+
+48
+00:03:54,409 --> 00:04:04,780
+create element namespace yeah that's the
+
+49
+00:04:00,409 --> 00:04:07,939
+one so document create element namespace
+
+50
+00:04:04,780 --> 00:04:07,939
+[Music]
+
+51
+00:04:09,519 --> 00:04:18,890
+well SVG it's SVG is XML and it has a
+
+52
+00:04:15,620 --> 00:04:21,590
+special it's not just create element it
+
+53
+00:04:18,890 --> 00:04:25,219
+has created element n yes yes for
+
+54
+00:04:21,590 --> 00:04:30,159
+namespace it's it's somewhat complicated
+
+55
+00:04:25,219 --> 00:04:36,370
+but it's just cheat and copy this line
+
+56
+00:04:30,159 --> 00:04:39,409
+so copy go back here okay there it is
+
+57
+00:04:36,370 --> 00:04:43,969
+document create create element a yes and
+
+58
+00:04:39,409 --> 00:04:47,210
+you need this you are hi and so this
+
+59
+00:04:43,969 --> 00:04:51,380
+line create a SVG element then what
+
+60
+00:04:47,210 --> 00:04:58,010
+we're gonna do is to attach this element
+
+61
+00:04:51,380 --> 00:05:01,099
+to to that to here to here so what what
+
+62
+00:04:58,010 --> 00:05:03,080
+will happen is actually just these wow
+
+63
+00:05:01,099 --> 00:05:13,550
+let's just coat it and we show the
+
+64
+00:05:03,080 --> 00:05:20,419
+results so um so X so appendchild yeah X
+
+65
+00:05:13,550 --> 00:05:25,159
+appendchild a paint child and SPG one so
+
+66
+00:05:20,419 --> 00:05:29,360
+what this does is to append this element
+
+67
+00:05:25,159 --> 00:05:35,180
+to this element so that's the code save
+
+68
+00:05:29,360 --> 00:05:37,870
+it and this foot they said Vardhan we
+
+69
+00:05:35,180 --> 00:05:42,289
+don't need it really but okay DVD
+
+70
+00:05:37,870 --> 00:05:46,539
+okay so let's show in Safari okay that
+
+71
+00:05:42,289 --> 00:05:50,960
+looks good and if you can if you look at
+
+72
+00:05:46,539 --> 00:05:52,879
+debugger you can see you see we added
+
+73
+00:05:50,960 --> 00:05:57,709
+the SVG element here
+
+74
+00:05:52,879 --> 00:06:02,259
+can we enlarge it yes okay you see okay
+
+75
+00:05:57,709 --> 00:06:02,259
+so we got an SP chairman now let's add
+
+76
+00:06:03,189 --> 00:06:18,919
+let's add a circle we did this yesterday
+
+77
+00:06:08,119 --> 00:06:26,479
+so why not just copy the code copy so
+
+78
+00:06:18,919 --> 00:06:33,050
+create a circle so so this create a new
+
+79
+00:06:26,479 --> 00:06:38,479
+element circle and add attribute CX CX
+
+80
+00:06:33,050 --> 00:06:46,209
+is 80 C Y is 80 those are coordinates x
+
+81
+00:06:38,479 --> 00:06:49,729
+and y in radio study feel read well okay
+
+82
+00:06:46,209 --> 00:06:57,409
+yeah let's do that so go back to Safari
+
+83
+00:06:49,729 --> 00:07:00,199
+and reload okay it's not working
+
+84
+00:06:57,409 --> 00:07:07,459
+oh yeah we need to attach the circle to
+
+85
+00:07:00,199 --> 00:07:14,990
+the Tuda is SVG so we're gonna do is SVG
+
+86
+00:07:07,459 --> 00:07:17,869
+one attach circle refresh there there is
+
+87
+00:07:14,990 --> 00:07:21,529
+our circle now what we want to do is to
+
+88
+00:07:17,869 --> 00:07:24,019
+actually draw draw these so what's the
+
+89
+00:07:21,529 --> 00:07:29,869
+plan so these curves are actually a
+
+90
+00:07:24,019 --> 00:07:32,029
+parametric formula so this is how they
+
+91
+00:07:29,869 --> 00:07:34,699
+are generated by rolling a circle inside
+
+92
+00:07:32,029 --> 00:07:37,149
+the circle but we don't care about that
+
+93
+00:07:34,699 --> 00:07:39,559
+now you know it's fun to do an animation
+
+94
+00:07:37,149 --> 00:07:41,959
+eventually you're gonna write you can
+
+95
+00:07:39,559 --> 00:07:44,689
+write a JavaScript to create this
+
+96
+00:07:41,959 --> 00:07:47,089
+animation but for now we just want to
+
+97
+00:07:44,689 --> 00:07:49,909
+generate the static graphics like like
+
+98
+00:07:47,089 --> 00:07:55,939
+one of these and that is done by a
+
+99
+00:07:49,909 --> 00:08:00,110
+formula you can see your formula okay
+
+100
+00:07:55,939 --> 00:08:02,870
+plane curves epic rocket have a trunk
+
+101
+00:08:00,110 --> 00:08:05,790
+are in a hyper tracker so these are
+
+102
+00:08:02,870 --> 00:08:13,290
+variations they just differ by parameter
+
+103
+00:08:05,790 --> 00:08:19,850
+so here is a parametric formula copy so
+
+104
+00:08:13,290 --> 00:08:19,850
+so what we want to do is the ok formula
+
+105
+00:08:23,660 --> 00:08:44,940
+we creative we create a formula that's
+
+106
+00:08:37,280 --> 00:08:46,800
+one parameter T and it will create so
+
+107
+00:08:44,940 --> 00:08:50,910
+we're gonna write this formula first
+
+108
+00:08:46,800 --> 00:08:53,130
+that's what we're gonna do so what
+
+109
+00:08:50,910 --> 00:08:58,590
+should it return it should let's let's
+
+110
+00:08:53,130 --> 00:09:02,910
+have it return a vector of array in
+
+111
+00:08:58,590 --> 00:09:07,680
+JavaScript so the array is going to be
+
+112
+00:09:02,910 --> 00:09:11,670
+two parts so the first part is that the
+
+113
+00:09:07,680 --> 00:09:16,200
+second part is that and but we gotta
+
+114
+00:09:11,670 --> 00:09:20,460
+need the correct JavaScript syntax for
+
+115
+00:09:16,200 --> 00:09:22,800
+the formula so a and B are a and B are
+
+116
+00:09:20,460 --> 00:09:37,110
+parameters are constants so let's define
+
+117
+00:09:22,800 --> 00:09:40,860
+a and B so hey B let's say I forgot what
+
+118
+00:09:37,110 --> 00:09:43,950
+the proper value should be but let's
+
+119
+00:09:40,860 --> 00:09:47,270
+just say a and B equals 1 so now we have
+
+120
+00:09:43,950 --> 00:09:47,270
+a formula here and
+
+121
+00:09:52,040 --> 00:09:57,570
+yeah let's forget about efficiency and
+
+122
+00:09:55,020 --> 00:09:59,670
+everything about that we just want to
+
+123
+00:09:57,570 --> 00:10:04,820
+quickly get this done let's see if we
+
+124
+00:09:59,670 --> 00:10:10,050
+can so okay so cosine cosine is in
+
+125
+00:10:04,820 --> 00:10:12,440
+JavaScript I believe is math cosine
+
+126
+00:10:10,050 --> 00:10:17,240
+I don't remember it's capitalized or not
+
+127
+00:10:12,440 --> 00:10:26,400
+but let's see at JavaScript syntax
+
+128
+00:10:17,240 --> 00:10:27,210
+JavaScript reference math so math power
+
+129
+00:10:26,400 --> 00:10:31,580
+logs
+
+130
+00:10:27,210 --> 00:10:38,240
+sine cosine okay it's lowercase trick
+
+131
+00:10:31,580 --> 00:10:46,170
+methods yeah so it's just lowercase so
+
+132
+00:10:38,240 --> 00:10:55,010
+math cosine so we're gonna what we're
+
+133
+00:10:46,170 --> 00:10:55,010
+gonna do is replace cosine by that
+
+134
+00:10:58,290 --> 00:11:04,200
+okay and replace sine by
+
+135
+00:11:08,180 --> 00:11:23,740
+don't need that don't need that so
+
+136
+00:11:13,910 --> 00:11:23,740
+Ava's be math let's add a
+
+137
+00:11:26,930 --> 00:11:45,199
+so it's easier to see math cosine T of
+
+138
+00:11:33,769 --> 00:11:47,449
+course this gotta be T sine T and okay
+
+139
+00:11:45,199 --> 00:11:58,629
+so we're gonna replace all the square
+
+140
+00:11:47,449 --> 00:12:04,059
+bracket by parenthesis change bracket
+
+141
+00:11:58,629 --> 00:12:04,059
+square per reign okay
+
+142
+00:12:06,400 --> 00:12:15,370
+so so that should be it
+
+143
+00:12:10,390 --> 00:12:24,810
+so let's see if our function compiles so
+
+144
+00:12:15,370 --> 00:12:29,800
+let's go to Safari and reload looks good
+
+145
+00:12:24,810 --> 00:12:34,150
+so formula let's change it to FF saves
+
+146
+00:12:29,800 --> 00:12:36,520
+typing now we got a formula what we want
+
+147
+00:12:34,150 --> 00:12:39,820
+to do is first of all let's try to put
+
+148
+00:12:36,520 --> 00:12:41,890
+darts in in yet
+
+149
+00:12:39,820 --> 00:12:45,460
+what so what what do you mean so for
+
+150
+00:12:41,890 --> 00:12:48,600
+example if you look at the SVG there are
+
+151
+00:12:45,460 --> 00:12:53,860
+several elements we can draw a line
+
+152
+00:12:48,600 --> 00:12:57,370
+square circle so what we're gonna do is
+
+153
+00:12:53,860 --> 00:13:02,790
+we draw a circle very tiny radius so
+
+154
+00:12:57,370 --> 00:13:02,790
+it's just one single thought and then we
+
+155
+00:13:03,900 --> 00:13:11,650
+then we basically so so this is a curve
+
+156
+00:13:08,380 --> 00:13:15,360
+we just gonna put lots of thoughts on it
+
+157
+00:13:11,650 --> 00:13:18,580
+then later on we can change it to line
+
+158
+00:13:15,360 --> 00:13:20,830
+but doing lines is slightly more
+
+159
+00:13:18,580 --> 00:13:24,010
+complicated let's just two darts first
+
+160
+00:13:20,830 --> 00:13:28,330
+so if we can do it dots in you know 15
+
+161
+00:13:24,010 --> 00:13:31,720
+more minutes how you know how code a
+
+162
+00:13:28,330 --> 00:13:33,550
+success because then it's easy to change
+
+163
+00:13:31,720 --> 00:13:37,810
+starts to line I mean the idea is just
+
+164
+00:13:33,550 --> 00:13:41,890
+to show the basic idea of how to do this
+
+165
+00:13:37,810 --> 00:13:45,339
+so okay so we have the formula and now
+
+166
+00:13:41,890 --> 00:13:48,910
+we want to create circles circles like
+
+167
+00:13:45,339 --> 00:13:51,190
+that we have to create huge number of
+
+168
+00:13:48,910 --> 00:13:57,750
+circles like hundred thousands of
+
+169
+00:13:51,190 --> 00:13:57,750
+circles on this on a curve so
+
+170
+00:14:00,709 --> 00:14:07,999
+so we actually need to write a function
+
+171
+00:14:03,720 --> 00:14:07,999
+so let's let's try to function then
+
+172
+00:14:10,069 --> 00:14:18,360
+let's it just say create dot and create
+
+173
+00:14:14,009 --> 00:14:23,100
+that head at X&Y position and also
+
+174
+00:14:18,360 --> 00:14:27,779
+attach it to element so what so what we
+
+175
+00:14:23,100 --> 00:14:36,149
+want to do okay create a circle a
+
+176
+00:14:27,779 --> 00:14:44,939
+seviche element element and attach it to
+
+177
+00:14:36,149 --> 00:14:51,269
+the Hermant e-l sequoia trees create a
+
+178
+00:14:44,939 --> 00:14:56,430
+circle SVG element centered on XY with
+
+179
+00:14:51,269 --> 00:14:58,829
+radius R and attached it to element yeah
+
+180
+00:14:56,430 --> 00:15:04,499
+so yeah so that's what we wanted to
+
+181
+00:14:58,829 --> 00:15:06,809
+create out so we're gonna create a
+
+182
+00:15:04,499 --> 00:15:10,199
+circle so let's copy that whole thing
+
+183
+00:15:06,809 --> 00:15:15,449
+here so create a circle create a circle
+
+184
+00:15:10,199 --> 00:15:22,889
+element centered on X Y so this is going
+
+185
+00:15:15,449 --> 00:15:28,819
+to be X 2 string to string so function
+
+186
+00:15:22,889 --> 00:15:28,819
+right yeah so here is the same
+
+187
+00:15:30,910 --> 00:15:43,840
+at y2 string and radios radios let's say
+
+188
+00:15:35,710 --> 00:15:50,840
+two pixels three three pixels and feel
+
+189
+00:15:43,840 --> 00:15:58,040
+create read okay let's just try that so
+
+190
+00:15:50,840 --> 00:16:01,900
+here we are going to so we create
+
+191
+00:15:58,040 --> 00:16:08,440
+element then we set attributes for those
+
+192
+00:16:01,900 --> 00:16:16,130
+four for the dot then we attach it to
+
+193
+00:16:08,440 --> 00:16:19,190
+append child - yeah that's right so here
+
+194
+00:16:16,130 --> 00:16:25,490
+here we have our function let's see if
+
+195
+00:16:19,190 --> 00:16:28,910
+we want to I'm using Emacs my own
+
+196
+00:16:25,490 --> 00:16:32,090
+JavaScript script mod and right now it
+
+197
+00:16:28,910 --> 00:16:35,600
+doesn't have a nice indentation I
+
+198
+00:16:32,090 --> 00:16:37,990
+haven't written it yet so anyway so we
+
+199
+00:16:35,600 --> 00:16:41,240
+do it manually so here is our function
+
+200
+00:16:37,990 --> 00:16:45,740
+and let's just try it let's make sure
+
+201
+00:16:41,240 --> 00:16:49,280
+this function works so we're gonna so
+
+202
+00:16:45,740 --> 00:16:56,990
+we're just gonna create a dot and attach
+
+203
+00:16:49,280 --> 00:17:02,330
+it to SVG one centered at 0 0 with
+
+204
+00:16:56,990 --> 00:17:09,589
+radius 3 let's say for example and we
+
+205
+00:17:02,330 --> 00:17:11,920
+forgot radius here okay we we actually
+
+206
+00:17:09,589 --> 00:17:11,920
+need
+
+207
+00:17:15,789 --> 00:17:26,390
+okay so let's see if we got any same cat
+
+208
+00:17:19,610 --> 00:17:27,199
+syntax error so Safari reload hello it
+
+209
+00:17:26,390 --> 00:17:31,760
+looks good
+
+210
+00:17:27,199 --> 00:17:34,130
+oh wait can find variable Y can't fight
+
+211
+00:17:31,760 --> 00:17:36,520
+oh yeah of course you've got the typo
+
+212
+00:17:34,130 --> 00:17:36,520
+here
+
+213
+00:17:43,650 --> 00:17:53,370
+perfect it's so smooth great so now
+
+214
+00:17:48,840 --> 00:17:58,260
+let's okay so we are successful wait
+
+215
+00:17:53,370 --> 00:18:01,590
+Howie no we are not successful because
+
+216
+00:17:58,260 --> 00:18:05,990
+this like this function should added
+
+217
+00:18:01,590 --> 00:18:15,090
+another circle so for this one let's
+
+218
+00:18:05,990 --> 00:18:16,710
+comment it out because okay actually you
+
+219
+00:18:15,090 --> 00:18:23,160
+see that little dot here
+
+220
+00:18:16,710 --> 00:18:28,230
+that's our circle you see so yeah it's
+
+221
+00:18:23,160 --> 00:18:36,809
+so there's something radius okay so
+
+222
+00:18:28,230 --> 00:18:40,410
+let's say radius 30 there it is so the
+
+223
+00:18:36,809 --> 00:18:46,050
+next step is that we want to now we want
+
+224
+00:18:40,410 --> 00:18:51,240
+to use this formula to create thousands
+
+225
+00:18:46,050 --> 00:18:56,100
+of dots let's do that so okay so we want
+
+226
+00:18:51,240 --> 00:18:59,760
+to map so basically map now JavaScript
+
+227
+00:18:56,100 --> 00:19:03,660
+function is kind of CV so first of all
+
+228
+00:18:59,760 --> 00:19:06,650
+we need a range of values so remember
+
+229
+00:19:03,660 --> 00:19:10,410
+this function is T so T goes from
+
+230
+00:19:06,650 --> 00:19:15,620
+typically 0 to PI like 0 to 3 point 1 4
+
+231
+00:19:10,410 --> 00:19:18,720
+or 0 to 2 pi it depends on you know what
+
+232
+00:19:15,620 --> 00:19:21,990
+parameters a and B are so so that the
+
+233
+00:19:18,720 --> 00:19:24,179
+curve will be complete
+
+234
+00:19:21,990 --> 00:19:31,920
+you know they will they will form a
+
+235
+00:19:24,179 --> 00:19:35,040
+complete loop but yeah so it depends so
+
+236
+00:19:31,920 --> 00:19:37,380
+but we can just try four values so first
+
+237
+00:19:35,040 --> 00:19:40,320
+of all we need to create a bunch of
+
+238
+00:19:37,380 --> 00:19:43,350
+values for T so we're going to generate
+
+239
+00:19:40,320 --> 00:19:48,809
+a array for example is something like
+
+240
+00:19:43,350 --> 00:19:52,510
+that you know 1 2 3 so
+
+241
+00:19:48,809 --> 00:19:54,400
+values so we're gonna generate that now
+
+242
+00:19:52,510 --> 00:19:56,200
+in JavaScript you don't have you don't
+
+243
+00:19:54,400 --> 00:20:02,220
+really have a range function like in
+
+244
+00:19:56,200 --> 00:20:05,040
+Python so how do you do that okay we got
+
+245
+00:20:02,220 --> 00:20:09,750
+javascript in depth that's my tutorial
+
+246
+00:20:05,040 --> 00:20:13,870
+so you know check it out I you know I
+
+247
+00:20:09,750 --> 00:20:16,600
+hope you like it I will I appreciate you
+
+248
+00:20:13,870 --> 00:20:19,960
+view you know check it out so javascript
+
+249
+00:20:16,600 --> 00:20:24,250
+in depth so we cannot do array and here
+
+250
+00:20:19,960 --> 00:20:28,510
+is array how to range function there it
+
+251
+00:20:24,250 --> 00:20:33,640
+is so okay we're gonna just use that you
+
+252
+00:20:28,510 --> 00:20:35,559
+know we not gonna do fancy stuff you
+
+253
+00:20:33,640 --> 00:20:41,559
+know javascript is language that pretty
+
+254
+00:20:35,559 --> 00:20:46,900
+sucks a lot sucks even with Eggman
+
+255
+00:20:41,559 --> 00:20:49,780
+script 2015 a commis script 2015 is a
+
+256
+00:20:46,900 --> 00:20:53,530
+huge improvement however all the wards
+
+257
+00:20:49,780 --> 00:20:56,350
+you know or the flow flows of JavaScript
+
+258
+00:20:53,530 --> 00:21:01,000
+is still there because they decided to
+
+259
+00:20:56,350 --> 00:21:02,890
+be 100% backward compatible basically so
+
+260
+00:21:01,000 --> 00:21:05,490
+but anyway to this day you don't have a
+
+261
+00:21:02,890 --> 00:21:09,220
+function to create a range of values but
+
+262
+00:21:05,490 --> 00:21:13,420
+and and even if you do like like this
+
+263
+00:21:09,220 --> 00:21:16,960
+code the syntax int it's pretty
+
+264
+00:21:13,420 --> 00:21:21,100
+incomprehensible so anyway so we have a
+
+265
+00:21:16,960 --> 00:21:27,220
+range function so here is n what so what
+
+266
+00:21:21,100 --> 00:21:29,559
+does this to okay it just okay that's
+
+267
+00:21:27,220 --> 00:21:32,880
+what that's not what we want because we
+
+268
+00:21:29,559 --> 00:21:35,890
+want not just integers we want zero to
+
+269
+00:21:32,880 --> 00:21:38,980
+PI you know zero to three point one four
+
+270
+00:21:35,890 --> 00:21:44,500
+but in increment of for example zero
+
+271
+00:21:38,980 --> 00:21:49,000
+point one so we actually need this this
+
+272
+00:21:44,500 --> 00:21:52,270
+function son range you know we can do it
+
+273
+00:21:49,000 --> 00:21:56,020
+you know we can do it manually and
+
+274
+00:21:52,270 --> 00:21:59,000
+explain each step each step you know how
+
+275
+00:21:56,020 --> 00:22:03,680
+we construct this function but that's
+
+276
+00:21:59,000 --> 00:22:06,060
+that's gonna take too much time you know
+
+277
+00:22:03,680 --> 00:22:09,000
+so anyway so here's a function of
+
+278
+00:22:06,060 --> 00:22:11,970
+syringe so here we'll just create T
+
+279
+00:22:09,000 --> 00:22:17,360
+values for us so so now it's good let's
+
+280
+00:22:11,970 --> 00:22:21,810
+just do that T values constant T values
+
+281
+00:22:17,360 --> 00:22:29,430
+equals Lucas our range let's say 0 to 6
+
+282
+00:22:21,810 --> 00:22:32,910
+in steps of 0.1 0.1 okay that's gonna be
+
+283
+00:22:29,430 --> 00:22:38,870
+give us a lot T values now we want to
+
+284
+00:22:32,910 --> 00:22:48,210
+map T values to create a bunch of this
+
+285
+00:22:38,870 --> 00:22:54,150
+this so T values dot map JavaScript you
+
+286
+00:22:48,210 --> 00:22:57,300
+know JavaScript you have this object dot
+
+287
+00:22:54,150 --> 00:23:06,000
+syntax they will you know anyway so
+
+288
+00:22:57,300 --> 00:23:11,340
+that's so the function is f F and that
+
+289
+00:23:06,000 --> 00:23:21,240
+should be it actually so points equals
+
+290
+00:23:11,340 --> 00:23:25,230
+to T values so points should be a bunch
+
+291
+00:23:21,240 --> 00:23:30,410
+of points knits console.log show it
+
+292
+00:23:25,230 --> 00:23:34,020
+print it so Safari reload let's see
+
+293
+00:23:30,410 --> 00:23:36,930
+there it is so great so we didn't it's
+
+294
+00:23:34,020 --> 00:23:44,070
+very smooth so you see we get our arrays
+
+295
+00:23:36,930 --> 00:23:48,900
+of arrays of values you know each each
+
+296
+00:23:44,070 --> 00:23:51,270
+each array is a well my roommate is
+
+297
+00:23:48,900 --> 00:23:54,450
+calling me but you know what each array
+
+298
+00:23:51,270 --> 00:23:56,790
+each element in the array is array again
+
+299
+00:23:54,450 --> 00:24:04,650
+and that's two values that's a
+
+300
+00:23:56,790 --> 00:24:07,230
+coordinate and so so we got our points
+
+301
+00:24:04,650 --> 00:24:10,220
+and now we just need to map the points
+
+302
+00:24:07,230 --> 00:24:14,690
+to we're gonna do another map
+
+303
+00:24:10,220 --> 00:24:22,639
+so let's do another map so this time
+
+304
+00:24:14,690 --> 00:24:31,429
+it's gonna be points with Sedona oops
+
+305
+00:24:22,639 --> 00:24:37,159
+what and so so TT values so we're gonna
+
+306
+00:24:31,429 --> 00:24:42,440
+map T values points map we're gonna map
+
+307
+00:24:37,159 --> 00:24:48,740
+the create circle create thought okay
+
+308
+00:24:42,440 --> 00:24:55,940
+and so we're gonna map create that
+
+309
+00:24:48,740 --> 00:25:00,139
+attach it to SVG 1 X Y so we need to so
+
+310
+00:24:55,940 --> 00:25:05,210
+R is going to be 3 for example and X Y
+
+311
+00:25:00,139 --> 00:25:12,139
+is going to be they need to be actually
+
+312
+00:25:05,210 --> 00:25:14,059
+vectors so ok ok so what we're gonna do
+
+313
+00:25:12,139 --> 00:25:16,519
+is we're gonna write an anonymous
+
+314
+00:25:14,059 --> 00:25:23,480
+function here so let's just let me show
+
+315
+00:25:16,519 --> 00:25:29,350
+you here so arrow function aramid point
+
+316
+00:25:23,480 --> 00:25:29,350
+so that's XY array and
+
+317
+00:25:29,790 --> 00:25:32,970
+[Music]
+
+318
+00:25:33,870 --> 00:25:48,919
+then here we're gonna so let's see let's
+
+319
+00:25:42,450 --> 00:25:48,919
+just say P so what we're gonna do oops
+
+320
+00:25:50,809 --> 00:26:05,340
+pp0 see what so this is what we're gonna
+
+321
+00:26:01,080 --> 00:26:08,220
+do so here's a function we want to map a
+
+322
+00:26:05,340 --> 00:26:14,130
+function two points each points each
+
+323
+00:26:08,220 --> 00:26:19,350
+point is a is a array of two values x
+
+324
+00:26:14,130 --> 00:26:25,190
+and y so so this is the argument point p
+
+325
+00:26:19,350 --> 00:26:28,890
+and p 0 is x value py is the y value so
+
+326
+00:26:25,190 --> 00:26:30,960
+we're just going to map it to you know
+
+327
+00:26:28,890 --> 00:26:35,039
+create dot we're gonna create a lot of
+
+328
+00:26:30,960 --> 00:26:41,820
+dots so hope this should work
+
+329
+00:26:35,039 --> 00:26:44,730
+let's hope it works ok arrow okay cannot
+
+330
+00:26:41,820 --> 00:26:51,750
+find variable create dot okay so that's
+
+331
+00:26:44,730 --> 00:26:54,169
+probably your title okay um oh yeah typo
+
+332
+00:26:51,750 --> 00:26:54,169
+so
+
+333
+00:26:57,050 --> 00:27:00,970
+so gonna be paste that
+
+334
+00:27:06,510 --> 00:27:14,840
+okay and let's see we don't need that
+
+335
+00:27:14,040 --> 00:27:19,850
+anymore
+
+336
+00:27:14,840 --> 00:27:19,850
+okay that's that's how it works
+
+337
+00:27:20,760 --> 00:27:26,400
+wait what
+
+338
+00:27:22,020 --> 00:27:29,610
+okay so the so looks like all our points
+
+339
+00:27:26,400 --> 00:27:31,590
+is concentrated over here so what
+
+340
+00:27:29,610 --> 00:27:42,410
+happened is let's change the parameter
+
+341
+00:27:31,590 --> 00:27:46,230
+let's say 20 let's say 100 200 okay
+
+342
+00:27:42,410 --> 00:27:49,380
+now I'm not sure where it goes so let's
+
+343
+00:27:46,230 --> 00:27:52,590
+so what happens is that's okay hold on
+
+344
+00:27:49,380 --> 00:27:56,160
+let's put these at the top since those
+
+345
+00:27:52,590 --> 00:28:00,630
+are functions and let's put these also
+
+346
+00:27:56,160 --> 00:28:06,750
+at the top that's our function and you
+
+347
+00:28:00,630 --> 00:28:10,290
+know and you know tidy up our code a
+
+348
+00:28:06,750 --> 00:28:12,780
+little bit so so from here on downwards
+
+349
+00:28:10,290 --> 00:28:17,340
+that's our real thing
+
+350
+00:28:12,780 --> 00:28:21,929
+and now yeah increase the parameters and
+
+351
+00:28:17,340 --> 00:28:26,010
+let's increase the yeah to is no good so
+
+352
+00:28:21,929 --> 00:28:30,390
+it's at least 10 so we are plotting from
+
+353
+00:28:26,010 --> 00:28:33,210
+zero to ten T values is zero to 10 so
+
+354
+00:28:30,390 --> 00:28:40,380
+let's do it again yeah that's no that's
+
+355
+00:28:33,210 --> 00:28:42,830
+very close now we want to let's say
+
+356
+00:28:40,380 --> 00:28:42,830
+hundred
+
+357
+00:28:45,039 --> 00:28:51,289
+okay so there is something so okay so
+
+358
+00:28:48,259 --> 00:28:53,539
+the t-value so so what happened is that
+
+359
+00:28:51,289 --> 00:28:57,169
+in order to create these interesting
+
+360
+00:28:53,539 --> 00:29:00,230
+curves you can see each curve there are
+
+361
+00:28:57,169 --> 00:29:03,889
+two values on it that's the parameter so
+
+362
+00:29:00,230 --> 00:29:06,080
+the left is a the right is B so it
+
+363
+00:29:03,889 --> 00:29:08,570
+depends on what parameters you use you
+
+364
+00:29:06,080 --> 00:29:14,090
+get different curve so let's let's try
+
+365
+00:29:08,570 --> 00:29:16,340
+one let's try this one simple so
+
+366
+00:29:14,090 --> 00:29:23,570
+negative three over seven
+
+367
+00:29:16,340 --> 00:29:27,799
+it's a is negative three over seven wait
+
+368
+00:29:23,570 --> 00:29:29,570
+yeah over seven now in JavaScript you
+
+369
+00:29:27,799 --> 00:29:35,210
+want to make it a float
+
+370
+00:29:29,570 --> 00:29:38,090
+otherwise it's it may not be it may just
+
+371
+00:29:35,210 --> 00:29:45,460
+give you the remainder or that you know
+
+372
+00:29:38,090 --> 00:29:47,990
+the divide and divide the quotient
+
+373
+00:29:45,460 --> 00:29:55,929
+integer quotient which you don't want
+
+374
+00:29:47,990 --> 00:29:55,929
+you only want the actual decimal
+
+375
+00:29:57,700 --> 00:30:05,140
+so okay we should so we are using this
+
+376
+00:30:00,850 --> 00:30:15,490
+one negative three over seven and B is
+
+377
+00:30:05,140 --> 00:30:21,100
+negative 4 over 7 so let's refresh ok so
+
+378
+00:30:15,490 --> 00:30:25,150
+what happens is that they you see these
+
+379
+00:30:21,100 --> 00:30:27,430
+two values are very small they are you
+
+380
+00:30:25,150 --> 00:30:29,770
+know they are within one so that's why
+
+381
+00:30:27,430 --> 00:30:33,460
+all our points are like within one
+
+382
+00:30:29,770 --> 00:30:38,460
+pixels so so maybe I'm not sure this
+
+383
+00:30:33,460 --> 00:30:38,460
+will work but let's just try that
+
+384
+00:30:42,330 --> 00:30:48,700
+actually if you want to do that the
+
+385
+00:30:46,000 --> 00:30:55,000
+better way I used to multiply the whole
+
+386
+00:30:48,700 --> 00:30:58,320
+thing by here so we want to multiply the
+
+387
+00:30:55,000 --> 00:30:58,320
+whole expression
+
+388
+00:31:01,530 --> 00:31:07,400
+by hundred
+
+389
+00:31:10,260 --> 00:31:18,059
+so and here we don't want that so this
+
+390
+00:31:14,669 --> 00:31:22,400
+this is how you scale the curve meaning
+
+391
+00:31:18,059 --> 00:31:27,740
+that you you make you magnify the whole
+
+392
+00:31:22,400 --> 00:31:32,010
+the whole curve so let's go to Safari n
+
+393
+00:31:27,740 --> 00:31:34,710
+yes so good so what you see what happen
+
+394
+00:31:32,010 --> 00:31:39,049
+is singing a quarter of it because in
+
+395
+00:31:34,710 --> 00:31:43,230
+SVG zero zero is at this point and X
+
+396
+00:31:39,049 --> 00:31:46,890
+x-axis goes this way to the right but
+
+397
+00:31:43,230 --> 00:31:53,820
+the y-axis goes down we can fix that but
+
+398
+00:31:46,890 --> 00:31:57,440
+before we do let's just so actually the
+
+399
+00:31:53,820 --> 00:32:01,260
+parameter is wrong you know apparently
+
+400
+00:31:57,440 --> 00:32:04,260
+that does not look this but that's okay
+
+401
+00:32:01,260 --> 00:32:09,299
+you know we just we focus on that get
+
+402
+00:32:04,260 --> 00:32:13,080
+the JavaScript technology going so so
+
+403
+00:32:09,299 --> 00:32:17,010
+let's fix one more thing and there'll be
+
+404
+00:32:13,080 --> 00:32:19,549
+it for this video let's try to Center it
+
+405
+00:32:17,010 --> 00:32:22,950
+like you know so we see the whole thing
+
+406
+00:32:19,549 --> 00:32:28,549
+okay so that we can what we can do is we
+
+407
+00:32:22,950 --> 00:32:33,630
+add a you see in SVG you can actually
+
+408
+00:32:28,549 --> 00:32:37,260
+let's see SVG you can create your own
+
+409
+00:32:33,630 --> 00:32:40,440
+coordinate and so we have viewports view
+
+410
+00:32:37,260 --> 00:32:44,400
+box view box is the way to create your
+
+411
+00:32:40,440 --> 00:32:49,380
+own coordinate and the syntax looks like
+
+412
+00:32:44,400 --> 00:32:53,910
+this so you see SVG with in hate then
+
+413
+00:32:49,380 --> 00:32:59,990
+you add a view box so let's try the view
+
+414
+00:32:53,910 --> 00:32:59,990
+box then append attribute so
+
+415
+00:33:02,880 --> 00:33:19,150
+so SVG one set attribute view box what
+
+416
+00:33:12,850 --> 00:33:21,220
+do you want to set it to so let's say so
+
+417
+00:33:19,150 --> 00:33:23,410
+what what does the value mean first of
+
+418
+00:33:21,220 --> 00:33:28,210
+all we want to know what does the value
+
+419
+00:33:23,410 --> 00:33:32,190
+means so X mean Y mean hexamine Y mean X
+
+420
+00:33:28,210 --> 00:33:36,040
+with Y with okay so x wing is the
+
+421
+00:33:32,190 --> 00:33:42,910
+coordinate coordinate of the top left
+
+422
+00:33:36,040 --> 00:33:49,740
+corner so x mean is let's say 100 and y
+
+423
+00:33:42,910 --> 00:33:52,630
+mean Y mean you remember SVG the y axis
+
+424
+00:33:49,740 --> 00:33:56,500
+is reversed from the normal math
+
+425
+00:33:52,630 --> 00:34:01,420
+Convention Y axis goes down it increases
+
+426
+00:33:56,500 --> 00:34:10,290
+down so why me will be negative 100
+
+427
+00:34:01,420 --> 00:34:10,290
+okay so and X with Y weight let's say
+
+428
+00:34:16,030 --> 00:34:24,369
+five hundred let's you're gonna do it in
+
+429
+00:34:20,179 --> 00:34:24,369
+several tries and let's say 200
+
+430
+00:34:30,770 --> 00:34:39,530
+great this is great okay so we got so
+
+431
+00:34:37,310 --> 00:34:46,610
+now we let's say reduce it a little bit
+
+432
+00:34:39,530 --> 00:34:50,960
+seventy don't magnify so much so great
+
+433
+00:34:46,610 --> 00:34:54,889
+okay so I'm gonna go eat I'm glad this
+
+434
+00:34:50,960 --> 00:34:57,260
+worked out and I hope you learned
+
+435
+00:34:54,889 --> 00:34:59,840
+something I hope you like it so if you
+
+436
+00:34:57,260 --> 00:35:02,300
+like to see you know let me know what
+
+437
+00:34:59,840 --> 00:35:03,410
+you think and let me know what you like
+
+438
+00:35:02,300 --> 00:35:08,200
+to see next
+
+439
+00:35:03,410 --> 00:35:08,200
+Thanks thank you for watching bye
+

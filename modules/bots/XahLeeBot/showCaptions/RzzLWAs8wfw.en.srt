@@ -1,0 +1,5196 @@
+1
+00:00:03,620 --> 00:00:07,350
+test
+
+2
+00:00:04,980 --> 00:00:11,099
+good morning everyone welcome to another
+
+3
+00:00:07,350 --> 00:00:18,020
+episode of Santos show today I'm going
+
+4
+00:00:11,099 --> 00:00:18,020
+to teach you a max regular expressions
+
+5
+00:00:19,279 --> 00:00:24,359
+okay I'm going to teach you a max
+
+6
+00:00:21,840 --> 00:00:27,000
+regular expressions for the first 30
+
+7
+00:00:24,359 --> 00:00:29,699
+minutes also you know 30 minutes 40
+
+8
+00:00:27,000 --> 00:00:31,769
+minutes then perhaps we are going to
+
+9
+00:00:29,699 --> 00:00:34,140
+chat randomly about things about
+
+10
+00:00:31,769 --> 00:00:36,090
+programming things JavaScript goal and
+
+11
+00:00:34,140 --> 00:00:39,780
+programming languages and so on you know
+
+12
+00:00:36,090 --> 00:00:44,570
+maybe after that so but first first of
+
+13
+00:00:39,780 --> 00:00:47,160
+all I'm going to give you a introduction
+
+14
+00:00:44,570 --> 00:00:49,289
+you know maybe a bit deeper than
+
+15
+00:00:47,160 --> 00:00:54,449
+introduction you know if you are Emacs
+
+16
+00:00:49,289 --> 00:00:58,890
+user I'm going to explain and teach you
+
+17
+00:00:54,449 --> 00:01:02,390
+about Emacs regular expression but
+
+18
+00:00:58,890 --> 00:01:05,970
+visually this video supposed to start in
+
+19
+00:01:02,390 --> 00:01:10,260
+in seven more minutes so actually I will
+
+20
+00:01:05,970 --> 00:01:18,960
+be back you know so people can get on I
+
+21
+00:01:10,260 --> 00:01:25,590
+start early so start at 5:00 p.m.
+
+22
+00:01:18,960 --> 00:01:27,830
+San Francisco time okay that's in seven
+
+23
+00:01:25,590 --> 00:01:27,830
+minutes
+
+24
+00:01:37,060 --> 00:01:43,570
+okay so yeah let that let that be that
+
+25
+00:01:40,630 --> 00:01:50,280
+so I hope people come on to my
+
+26
+00:01:43,570 --> 00:01:52,979
+livestream and today's topic is Emacs
+
+27
+00:01:50,280 --> 00:01:58,080
+regular expression yep
+
+28
+00:01:52,979 --> 00:01:58,080
+okay now I'll see you in five minutes
+
+29
+00:06:18,219 --> 00:06:29,449
+okay now it's 458 so so welcome to
+
+30
+00:06:26,539 --> 00:06:38,330
+another episode of our talk show today
+
+31
+00:06:29,449 --> 00:06:44,020
+is August 4th July August 4th and 2019 5
+
+32
+00:06:38,330 --> 00:06:48,080
+o'clock p.m. and we are going to teach
+
+33
+00:06:44,020 --> 00:06:49,939
+Emacs regular expressions and possibly
+
+34
+00:06:48,080 --> 00:06:53,119
+some Emacs Lisp
+
+35
+00:06:49,939 --> 00:06:57,439
+so as usual type your comments your
+
+36
+00:06:53,119 --> 00:07:01,459
+thoughts you know say hi type where you
+
+37
+00:06:57,439 --> 00:07:04,759
+form that way the talk gets better you
+
+38
+00:07:01,459 --> 00:07:07,369
+know typically the more people talk we
+
+39
+00:07:04,759 --> 00:07:12,199
+get you know I get more topics to talk I
+
+40
+00:07:07,369 --> 00:07:14,889
+get more relaxed and it's and people get
+
+41
+00:07:12,199 --> 00:07:17,689
+you know when people see other people
+
+42
+00:07:14,889 --> 00:07:20,689
+type stuff then they start to type too
+
+43
+00:07:17,689 --> 00:07:25,389
+so you know things get busy which is
+
+44
+00:07:20,689 --> 00:07:31,669
+good for us so I'm going to teach about
+
+45
+00:07:25,389 --> 00:07:34,610
+Emacs regular expressions okay shall we
+
+46
+00:07:31,669 --> 00:07:37,069
+begin let's see two people watching so
+
+47
+00:07:34,610 --> 00:07:41,089
+let's make the windows over here so you
+
+48
+00:07:37,069 --> 00:07:47,509
+can see and let's move the windows over
+
+49
+00:07:41,089 --> 00:07:49,279
+here now now am i we Emacs my Emacs
+
+50
+00:07:47,509 --> 00:07:52,039
+window there are two windows here on the
+
+51
+00:07:49,279 --> 00:07:54,349
+left you can see every command cycle you
+
+52
+00:07:52,039 --> 00:07:57,919
+know forward walk back walk backward
+
+53
+00:07:54,349 --> 00:07:59,659
+word who's up previous line close it
+
+54
+00:07:57,919 --> 00:08:02,809
+down you know every command basically
+
+55
+00:07:59,659 --> 00:08:05,180
+every command delete things like that
+
+56
+00:08:02,809 --> 00:08:06,889
+you will see it so when you see
+
+57
+00:08:05,180 --> 00:08:10,219
+something I'm doing you are not sure
+
+58
+00:08:06,889 --> 00:08:12,619
+exactly what you can look up the command
+
+59
+00:08:10,219 --> 00:08:19,629
+name typically it's on my website so you
+
+60
+00:08:12,619 --> 00:08:19,629
+can get a code to use for yourself
+
+61
+00:08:19,870 --> 00:08:25,710
+okay so let's let's talk about Emacs
+
+62
+00:08:22,719 --> 00:08:25,710
+regular expressions
+
+63
+00:08:42,900 --> 00:08:51,210
+now Emax regular expressions as you know
+
+64
+00:08:45,820 --> 00:08:51,210
+regular expressions is a wave for you to
+
+65
+00:08:51,540 --> 00:08:59,020
+pattern match strings text you know text
+
+66
+00:08:55,810 --> 00:09:01,660
+like that for example let's say I want
+
+67
+00:08:59,020 --> 00:09:05,020
+to find you know this is my Emacs blog
+
+68
+00:09:01,660 --> 00:09:09,310
+this file HTML file showing browser so
+
+69
+00:09:05,020 --> 00:09:12,040
+you can see this is my Emacs blog lots
+
+70
+00:09:09,310 --> 00:09:16,780
+of pages and suppose I want to find all
+
+71
+00:09:12,040 --> 00:09:18,490
+mention of the word Haskell I can again
+
+72
+00:09:16,780 --> 00:09:20,110
+call the command let's see what the come
+
+73
+00:09:18,490 --> 00:09:22,990
+at least matching lines okay least
+
+74
+00:09:20,110 --> 00:09:26,890
+matching lines a scowl I type Haskell
+
+75
+00:09:22,990 --> 00:09:30,750
+press ENTER none found so there's no
+
+76
+00:09:26,890 --> 00:09:35,890
+word has cow let's type subscribe it's
+
+77
+00:09:30,750 --> 00:09:40,960
+UBS okay okay one occurrence let's try
+
+78
+00:09:35,890 --> 00:09:43,300
+to find archive okay to occurrence but
+
+79
+00:09:40,960 --> 00:09:49,150
+let's say I want to find any words
+
+80
+00:09:43,300 --> 00:09:49,870
+beginning with AR and ending with a e so
+
+81
+00:09:49,150 --> 00:09:56,800
+let's do that
+
+82
+00:09:49,870 --> 00:10:00,490
+AR dot plus E space okay now the dot
+
+83
+00:09:56,800 --> 00:10:03,460
+means any character so it's a wild-card
+
+84
+00:10:00,490 --> 00:10:06,280
+you know like in poker games or some
+
+85
+00:10:03,460 --> 00:10:09,730
+card games it's called wild card so the
+
+86
+00:10:06,280 --> 00:10:14,800
+dot matches any character and a plus
+
+87
+00:10:09,730 --> 00:10:17,500
+sign means a personal sign means one or
+
+88
+00:10:14,800 --> 00:10:23,140
+more occurrence of whatever pattern
+
+89
+00:10:17,500 --> 00:10:26,530
+before that so here a dot plus means one
+
+90
+00:10:23,140 --> 00:10:30,300
+or more characters so we have AR dot
+
+91
+00:10:26,530 --> 00:10:33,340
+plus e and space that will find any word
+
+92
+00:10:30,300 --> 00:10:35,590
+okay let's put a space in front so any
+
+93
+00:10:33,340 --> 00:10:39,100
+word beginning with AR and ends with E
+
+94
+00:10:35,590 --> 00:10:43,240
+let's see what we get okay so we got
+
+95
+00:10:39,100 --> 00:10:48,070
+several so we got article we got we got
+
+96
+00:10:43,240 --> 00:10:50,590
+article we got arguments actually these
+
+97
+00:10:48,070 --> 00:10:56,020
+matches or other things and then we got
+
+98
+00:10:50,590 --> 00:10:56,740
+a ray like object code equal so it
+
+99
+00:10:56,020 --> 00:10:58,660
+actually
+
+100
+00:10:56,740 --> 00:11:01,630
+to match your sentence you see this
+
+101
+00:10:58,660 --> 00:11:06,060
+sentence array like object Emax curly
+
+102
+00:11:01,630 --> 00:11:10,930
+quote they began with AR and ends with E
+
+103
+00:11:06,060 --> 00:11:14,830
+so so that is the pattern space AR dot
+
+104
+00:11:10,930 --> 00:11:17,530
+plus E space now you see we don't want
+
+105
+00:11:14,830 --> 00:11:19,780
+for example we don't want sentences we
+
+106
+00:11:17,530 --> 00:11:22,630
+just want what's so we can do what we
+
+107
+00:11:19,780 --> 00:11:26,710
+can do is let's let's try to do it again
+
+108
+00:11:22,630 --> 00:11:31,200
+so least matching lines then the pattern
+
+109
+00:11:26,710 --> 00:11:31,200
+will be let me give you the pattern okay
+
+110
+00:11:32,910 --> 00:11:43,600
+okay so now second okay AR square
+
+111
+00:11:37,180 --> 00:11:45,880
+bracket then a dash Z then after that of
+
+112
+00:11:43,600 --> 00:11:50,560
+first sight so what this means is that
+
+113
+00:11:45,880 --> 00:11:55,110
+we are going to find any pattern that
+
+114
+00:11:50,560 --> 00:11:59,590
+begin with a space a are then any
+
+115
+00:11:55,110 --> 00:12:03,160
+character any one of one any one of a
+
+116
+00:11:59,590 --> 00:12:07,360
+twosie you know the alphabet then plus
+
+117
+00:12:03,160 --> 00:12:11,460
+means one or more of it then end with e
+
+118
+00:12:07,360 --> 00:12:15,340
+then space so this should give us all
+
+119
+00:12:11,460 --> 00:12:17,370
+words that begin with AR and ends with E
+
+120
+00:12:15,340 --> 00:12:20,830
+so let's try it
+
+121
+00:12:17,370 --> 00:12:23,380
+indeed we got article so why is not
+
+122
+00:12:20,830 --> 00:12:27,340
+archived not part of it because archived
+
+123
+00:12:23,380 --> 00:12:29,800
+here begin with a capital letter so if
+
+124
+00:12:27,340 --> 00:12:36,360
+we want also capital letters we can see
+
+125
+00:12:29,800 --> 00:12:36,360
+we can we can do it like that we can
+
+126
+00:12:37,230 --> 00:12:43,660
+okay let's let okay so capital letters
+
+127
+00:12:40,450 --> 00:12:50,950
+we can do it this way let's see we're
+
+128
+00:12:43,660 --> 00:12:53,110
+gonna okay square bracket a and capital
+
+129
+00:12:50,950 --> 00:12:57,010
+a and lowercase a okay
+
+130
+00:12:53,110 --> 00:13:00,930
+oops on our second capital a and
+
+131
+00:12:57,010 --> 00:13:00,930
+lowercase a okay let's try it
+
+132
+00:13:04,510 --> 00:13:11,300
+so we still only get articles so why is
+
+133
+00:13:09,260 --> 00:13:13,450
+not archived part of it let's try it
+
+134
+00:13:11,300 --> 00:13:13,450
+again
+
+135
+00:13:13,540 --> 00:13:25,910
+so space capital a lowercase a o menos
+
+136
+00:13:22,610 --> 00:13:28,880
+we are we have a space after that it's
+
+137
+00:13:25,910 --> 00:13:33,050
+remove that space okay so we got that so
+
+138
+00:13:28,880 --> 00:13:36,830
+we got archive article argument you know
+
+139
+00:13:33,050 --> 00:13:39,110
+so that is illustration an example of
+
+140
+00:13:36,830 --> 00:13:43,700
+using regular expression you see so
+
+141
+00:13:39,110 --> 00:13:46,550
+regular expression is a way to capture
+
+142
+00:13:43,700 --> 00:13:51,680
+you know patterns you know patterns in
+
+143
+00:13:46,550 --> 00:13:53,660
+text or string now I guess most of you
+
+144
+00:13:51,680 --> 00:13:55,160
+already familiar with regular
+
+145
+00:13:53,660 --> 00:13:58,010
+expressions just in case you are not
+
+146
+00:13:55,160 --> 00:14:00,560
+okay so let's get on to the Emacs
+
+147
+00:13:58,010 --> 00:14:03,320
+regular expression so in programming
+
+148
+00:14:00,560 --> 00:14:06,020
+languages Perl Python Ruby Java
+
+149
+00:14:03,320 --> 00:14:09,190
+JavaScript almost basically : every
+
+150
+00:14:06,020 --> 00:14:12,970
+language has regular expression building
+
+151
+00:14:09,190 --> 00:14:15,590
+in Emacs of course you have that too but
+
+152
+00:14:12,970 --> 00:14:17,990
+notice that each programming language
+
+153
+00:14:15,590 --> 00:14:22,580
+their regular expression syntax is a
+
+154
+00:14:17,990 --> 00:14:25,490
+little bit different basically they are
+
+155
+00:14:22,580 --> 00:14:27,950
+all the same but as you know sometimes
+
+156
+00:14:25,490 --> 00:14:31,790
+it you know a little bit different now
+
+157
+00:14:27,950 --> 00:14:35,330
+for Emacs regular expression in Emacs
+
+158
+00:14:31,790 --> 00:14:38,300
+Emacs regular expression is particularly
+
+159
+00:14:35,330 --> 00:14:41,410
+different from the other languages so if
+
+160
+00:14:38,300 --> 00:14:44,600
+you program probe Python Ruby PHP Java
+
+161
+00:14:41,410 --> 00:14:46,520
+JavaScript their expression you could
+
+162
+00:14:44,600 --> 00:14:49,340
+say they are all the same okay they are
+
+163
+00:14:46,520 --> 00:14:51,680
+like 99% the same you know you can you
+
+164
+00:14:49,340 --> 00:14:56,420
+know you know one you know them all but
+
+165
+00:14:51,680 --> 00:14:59,030
+in Emacs it's like 90 percent is the
+
+166
+00:14:56,420 --> 00:15:05,690
+same but the rest 10% is a bit different
+
+167
+00:14:59,030 --> 00:15:07,040
+event so what is a major difference let
+
+168
+00:15:05,690 --> 00:15:09,560
+me talk about that just a little bit
+
+169
+00:15:07,040 --> 00:15:11,360
+just soso for you guys already know
+
+170
+00:15:09,560 --> 00:15:15,389
+regular expression in other languages
+
+171
+00:15:11,360 --> 00:15:19,079
+you can immediately see
+
+172
+00:15:15,389 --> 00:15:21,240
+what's Emacs re-expression difference so
+
+173
+00:15:19,079 --> 00:15:26,070
+folk a let me talk about that let me
+
+174
+00:15:21,240 --> 00:15:30,660
+just say so okay so actually let me type
+
+175
+00:15:26,070 --> 00:15:33,300
+the topics we are talking so that we
+
+176
+00:15:30,660 --> 00:15:38,430
+have a sense of what we've talked about
+
+177
+00:15:33,300 --> 00:15:40,889
+so example of regular rejects use we
+
+178
+00:15:38,430 --> 00:15:46,800
+already cover that example of regular
+
+179
+00:15:40,889 --> 00:15:51,449
+expression then we talked about we we
+
+180
+00:15:46,800 --> 00:15:53,820
+were using this matching lines so so the
+
+181
+00:15:51,449 --> 00:16:01,920
+command is this matching lines you know
+
+182
+00:15:53,820 --> 00:16:04,920
+MX least naturalized okay so okay so you
+
+183
+00:16:01,920 --> 00:16:07,740
+know we we've tried we demonstrate that
+
+184
+00:16:04,920 --> 00:16:11,370
+in Emacs least matching lines is a this
+
+185
+00:16:07,740 --> 00:16:15,029
+matching lines command is a great way in
+
+186
+00:16:11,370 --> 00:16:18,089
+Emacs to learn regular expression
+
+187
+00:16:15,029 --> 00:16:20,820
+because whenever you want to learn the
+
+188
+00:16:18,089 --> 00:16:23,040
+syntax of regular expression Emacs you
+
+189
+00:16:20,820 --> 00:16:24,839
+can always just use list not code this
+
+190
+00:16:23,040 --> 00:16:28,940
+matching eyes and give a pattern that's
+
+191
+00:16:24,839 --> 00:16:33,930
+a great way to learn regular expression
+
+192
+00:16:28,940 --> 00:16:39,810
+this command is a great way to test
+
+193
+00:16:33,930 --> 00:16:41,310
+learn rejects in Emacs okay so we cover
+
+194
+00:16:39,810 --> 00:16:44,899
+the example use of the regular
+
+195
+00:16:41,310 --> 00:16:52,070
+expression let's talk about difference
+
+196
+00:16:44,899 --> 00:16:59,190
+difference between Emacs rejects and
+
+197
+00:16:52,070 --> 00:17:09,049
+other land rejects rejects are all
+
+198
+00:16:59,190 --> 00:17:16,020
+similar in Perl Python Python Ruby PHP
+
+199
+00:17:09,049 --> 00:17:23,150
+Java JavaScript act okay but Emacs
+
+200
+00:17:16,020 --> 00:17:25,530
+rejects is slightly more different
+
+201
+00:17:23,150 --> 00:17:31,100
+okay
+
+202
+00:17:25,530 --> 00:17:31,100
+Emacs rejects is slightly more different
+
+203
+00:17:32,840 --> 00:17:37,980
+the difference between Emacs rejects and
+
+204
+00:17:35,850 --> 00:17:47,490
+other lengths it rejects
+
+205
+00:17:37,980 --> 00:17:49,080
+okay so let's cut and it's so what is
+
+206
+00:17:47,490 --> 00:17:51,690
+the difference between Emacs regular
+
+207
+00:17:49,080 --> 00:17:54,630
+expression and others basically so in
+
+208
+00:17:51,690 --> 00:17:59,000
+other in other regular expression you
+
+209
+00:17:54,630 --> 00:18:00,810
+have backslash T would that stand for
+
+210
+00:17:59,000 --> 00:18:06,200
+digits okay
+
+211
+00:18:00,810 --> 00:18:17,150
+and backslash W stand for word you know
+
+212
+00:18:06,200 --> 00:18:27,840
+basically any a to Z a to z and and
+
+213
+00:18:17,150 --> 00:18:30,660
+digits okay so in other regular
+
+214
+00:18:27,840 --> 00:18:32,850
+expressions you have that but in Emacs
+
+215
+00:18:30,660 --> 00:18:36,060
+regular expression you do not have that
+
+216
+00:18:32,850 --> 00:18:39,060
+you do not have the backslash T you do
+
+217
+00:18:36,060 --> 00:18:41,250
+not have back slash W actually in Emacs
+
+218
+00:18:39,060 --> 00:18:45,780
+regular expression you do have the
+
+219
+00:18:41,250 --> 00:18:48,150
+backslash W but however the meaning is
+
+220
+00:18:45,780 --> 00:18:54,270
+slightly different from the other
+
+221
+00:18:48,150 --> 00:19:00,290
+regular expression okay so so what so we
+
+222
+00:18:54,270 --> 00:19:06,690
+are trying to say the main the major
+
+223
+00:19:00,290 --> 00:19:13,770
+difference between Emacs rejects and
+
+224
+00:19:06,690 --> 00:19:15,450
+other land rejects ah so that and that
+
+225
+00:19:13,770 --> 00:19:17,610
+actually I have that written out
+
+226
+00:19:15,450 --> 00:19:22,590
+somewhere so let me let's see where is
+
+227
+00:19:17,610 --> 00:19:23,880
+that hey guys hey ex stock prints not a
+
+228
+00:19:22,590 --> 00:19:27,900
+touch typist
+
+229
+00:19:23,880 --> 00:19:29,520
+so Emacs default are fine with me what
+
+230
+00:19:27,900 --> 00:19:32,210
+do you mean you mean you mean the the
+
+231
+00:19:29,520 --> 00:19:32,210
+key binding
+
+232
+00:19:33,889 --> 00:19:39,480
+so so yeah we're talking about Emacs
+
+233
+00:19:37,830 --> 00:19:41,399
+regular expression so what's the major
+
+234
+00:19:39,480 --> 00:19:44,000
+difference between Emacs rejects and
+
+235
+00:19:41,399 --> 00:19:47,970
+other line rejects let me show you I
+
+236
+00:19:44,000 --> 00:19:48,629
+covered that somewhere here okay okay
+
+237
+00:19:47,970 --> 00:19:51,480
+here
+
+238
+00:19:48,629 --> 00:19:53,639
+so you see JavaScript purses Emacs
+
+239
+00:19:51,480 --> 00:19:55,740
+rejects now JavaScript regular
+
+240
+00:19:53,639 --> 00:19:59,519
+expression is pretty similar to Perl
+
+241
+00:19:55,740 --> 00:20:02,879
+Python Ruby PHP Java okay they are all
+
+242
+00:19:59,519 --> 00:20:07,799
+similar so so so JavaScript versus Emacs
+
+243
+00:20:02,879 --> 00:20:10,379
+rejects so yeah so here are the major
+
+244
+00:20:07,799 --> 00:20:12,419
+differences so you have so in other
+
+245
+00:20:10,379 --> 00:20:15,419
+languages when you want to capture you
+
+246
+00:20:12,419 --> 00:20:17,009
+use parenthesis but in Emacs regular
+
+247
+00:20:15,419 --> 00:20:19,440
+expression you have to backslash
+
+248
+00:20:17,009 --> 00:20:22,740
+parenthesis you know the parentheses
+
+249
+00:20:19,440 --> 00:20:24,330
+character is literal in Emacs then we
+
+250
+00:20:22,740 --> 00:20:27,179
+talked about you have digits you have
+
+251
+00:20:24,330 --> 00:20:30,330
+words you have white space backslash s
+
+252
+00:20:27,179 --> 00:20:33,059
+for white space in other languages but
+
+253
+00:20:30,330 --> 00:20:36,080
+in Emacs you don't have that so in Emacs
+
+254
+00:20:33,059 --> 00:20:40,710
+if you want to do that you have to use
+
+255
+00:20:36,080 --> 00:20:48,000
+these syntax like double square bracket
+
+256
+00:20:40,710 --> 00:20:50,129
+then colon digit : okay similarly
+
+257
+00:20:48,000 --> 00:20:52,710
+forward in space you have to type the
+
+258
+00:20:50,129 --> 00:20:55,500
+word space so anyway so this is for
+
+259
+00:20:52,710 --> 00:20:57,960
+those of you already know regular
+
+260
+00:20:55,500 --> 00:21:01,110
+expression so I'm trying to show the
+
+261
+00:20:57,960 --> 00:21:04,649
+major differences but I'm going to
+
+262
+00:21:01,110 --> 00:21:07,889
+explain more in detail using Emacs
+
+263
+00:21:04,649 --> 00:21:09,419
+rejects so if you don't know wiecek's
+
+264
+00:21:07,889 --> 00:21:12,690
+already that's okay we cannot talk about
+
+265
+00:21:09,419 --> 00:21:19,379
+it these are just the major differences
+
+266
+00:21:12,690 --> 00:21:24,059
+between Emacs and others okay so now
+
+267
+00:21:19,379 --> 00:21:25,980
+let's get back to talk about Emacs
+
+268
+00:21:24,059 --> 00:21:28,830
+regular expression how we use it and so
+
+269
+00:21:25,980 --> 00:21:30,899
+on so first of all least you know least
+
+270
+00:21:28,830 --> 00:21:34,320
+matching lines is a great command to try
+
+271
+00:21:30,899 --> 00:21:36,210
+it okay so you know if you have Emacs
+
+272
+00:21:34,320 --> 00:21:38,700
+you know if you are in front of a
+
+273
+00:21:36,210 --> 00:21:42,210
+computer try it just called list
+
+274
+00:21:38,700 --> 00:21:44,669
+matching lines you know for you can open
+
+275
+00:21:42,210 --> 00:21:46,799
+that any any file any buffer create a
+
+276
+00:21:44,669 --> 00:21:47,520
+new file then start to type something
+
+277
+00:21:46,799 --> 00:21:52,070
+you want
+
+278
+00:21:47,520 --> 00:21:55,140
+you try to match for example like email
+
+279
+00:21:52,070 --> 00:22:02,900
+then you call this matching lines you
+
+280
+00:21:55,140 --> 00:22:06,230
+know lists matching lines lists lists
+
+281
+00:22:02,900 --> 00:22:12,360
+matching lines you know you you call it
+
+282
+00:22:06,230 --> 00:22:16,170
+let's say dot add dot you know then you
+
+283
+00:22:12,360 --> 00:22:21,870
+it will pop up result in the you know in
+
+284
+00:22:16,170 --> 00:22:24,870
+another pin split pin okay so so that's
+
+285
+00:22:21,870 --> 00:22:27,929
+and another great command to test
+
+286
+00:22:24,870 --> 00:22:30,200
+regular expression is query replace
+
+287
+00:22:27,929 --> 00:22:32,880
+rejects
+
+288
+00:22:30,200 --> 00:22:37,320
+now this command actually have a key
+
+289
+00:22:32,880 --> 00:22:39,350
+binding let's see what is is now guys
+
+290
+00:22:37,320 --> 00:22:44,280
+type your comments and thoughts okay
+
+291
+00:22:39,350 --> 00:22:47,780
+let's get the chat lively so another
+
+292
+00:22:44,280 --> 00:22:51,330
+command great to call his query rejects
+
+293
+00:22:47,780 --> 00:22:55,650
+query replace rejects now what that
+
+294
+00:22:51,330 --> 00:22:57,990
+command does is that it allows you to do
+
+295
+00:22:55,650 --> 00:23:02,490
+find and replace in the current buffer
+
+296
+00:22:57,990 --> 00:23:05,400
+using regular expression so let's let's
+
+297
+00:23:02,490 --> 00:23:11,730
+demonstrate that so let's say I want to
+
+298
+00:23:05,400 --> 00:23:17,690
+replace the word Adam let's let's say I
+
+299
+00:23:11,730 --> 00:23:20,610
+want to replace the word article to
+
+300
+00:23:17,690 --> 00:23:26,010
+archive let's say for example so we can
+
+301
+00:23:20,610 --> 00:23:28,350
+do let's let me get the rejects ready
+
+302
+00:23:26,010 --> 00:23:32,100
+here so okay so what we can do so let's
+
+303
+00:23:28,350 --> 00:23:38,790
+say we face the word article to archive
+
+304
+00:23:32,100 --> 00:23:41,179
+in this buffer wait it's not a good
+
+305
+00:23:38,790 --> 00:23:41,179
+example
+
+306
+00:23:42,140 --> 00:23:48,140
+let's try email so because email is a
+
+307
+00:23:45,230 --> 00:23:53,830
+common commonly used pattern people want
+
+308
+00:23:48,140 --> 00:23:59,870
+to do so let's say Sally at gmail.com
+
+309
+00:23:53,830 --> 00:24:07,340
+let's say Joe at gmail.com it's a when
+
+310
+00:23:59,870 --> 00:24:09,679
+Rand at live.com okay some some some
+
+311
+00:24:07,340 --> 00:24:21,919
+random names so we have several email
+
+312
+00:24:09,679 --> 00:24:25,250
+addresses and we want to replace let's
+
+313
+00:24:21,919 --> 00:24:29,390
+say it replace the dot-com to let's say
+
+314
+00:24:25,250 --> 00:24:31,340
+this is dog okay so we so we have a
+
+315
+00:24:29,390 --> 00:24:37,610
+bunch of email addresses we want to
+
+316
+00:24:31,340 --> 00:24:41,419
+replace you know the the dot org or
+
+317
+00:24:37,610 --> 00:24:46,280
+dotnet into something else dotnet so
+
+318
+00:24:41,419 --> 00:24:48,559
+let's say Jane and Jane outpost darn it
+
+319
+00:24:46,280 --> 00:24:50,750
+okay you know several random email
+
+320
+00:24:48,559 --> 00:24:54,740
+addresses we want to let's say replace
+
+321
+00:24:50,750 --> 00:24:57,380
+all the surface to or calm let's say so
+
+322
+00:24:54,740 --> 00:25:04,370
+we can say where we replace with Jack's
+
+323
+00:24:57,380 --> 00:25:07,850
+okay okay so I just called a command
+
+324
+00:25:04,370 --> 00:25:13,520
+curry replace rejects and the type of
+
+325
+00:25:07,850 --> 00:25:16,190
+pattern let's say let's say dot first
+
+326
+00:25:13,520 --> 00:25:21,230
+dot means any character first means one
+
+327
+00:25:16,190 --> 00:25:25,450
+one or more then at Sai at sign @ at
+
+328
+00:25:21,230 --> 00:25:25,450
+sign outside then
+
+329
+00:25:28,900 --> 00:25:38,120
+then anything not dot okay this this
+
+330
+00:25:35,150 --> 00:25:40,550
+this pattern is getting complex you know
+
+331
+00:25:38,120 --> 00:25:43,160
+regular expression syntax is such that
+
+332
+00:25:40,550 --> 00:25:47,420
+it takes some time to understand them
+
+333
+00:25:43,160 --> 00:25:51,140
+hey good morning Beth Beth Lomu you know
+
+334
+00:25:47,420 --> 00:25:53,840
+regular expression takes sometimes to to
+
+335
+00:25:51,140 --> 00:25:55,820
+get familiar so if you are not quite
+
+336
+00:25:53,840 --> 00:25:57,890
+getting at don't worry because took me
+
+337
+00:25:55,820 --> 00:26:00,410
+several years you know I've been using
+
+338
+00:25:57,890 --> 00:26:03,080
+regular expression for for more than
+
+339
+00:26:00,410 --> 00:26:04,820
+twenty years now so but I do remember in
+
+340
+00:26:03,080 --> 00:26:07,880
+the beginning first few years it's
+
+341
+00:26:04,820 --> 00:26:09,440
+always like confusing like you like
+
+342
+00:26:07,880 --> 00:26:11,720
+sometimes you want to replace something
+
+343
+00:26:09,440 --> 00:26:15,050
+you tried many patterns many times and
+
+344
+00:26:11,720 --> 00:26:18,430
+take hours it doesn't work so it takes
+
+345
+00:26:15,050 --> 00:26:21,890
+time to get to know them well ok so
+
+346
+00:26:18,430 --> 00:26:25,310
+right now we are trying to you know
+
+347
+00:26:21,890 --> 00:26:28,070
+match the email addresses and so what
+
+348
+00:26:25,310 --> 00:26:32,330
+pattern to do to use that so one way we
+
+349
+00:26:28,070 --> 00:26:33,440
+can do is this you know so if you are if
+
+350
+00:26:32,330 --> 00:26:36,410
+you don't know what I'm doing that's
+
+351
+00:26:33,440 --> 00:26:39,020
+okay you you you know did eventually you
+
+352
+00:26:36,410 --> 00:26:43,790
+will I'm just going to do it for now
+
+353
+00:26:39,020 --> 00:26:49,520
+okay so let's say so the pattern we want
+
+354
+00:26:43,790 --> 00:26:52,030
+is that this will be literal dot then
+
+355
+00:26:49,520 --> 00:27:01,070
+dot dot dot okay let's say three words
+
+356
+00:26:52,030 --> 00:27:03,950
+yeah okay wait actually this will be
+
+357
+00:27:01,070 --> 00:27:07,070
+actually the sweet happy more
+
+358
+00:27:03,950 --> 00:27:11,840
+complicated than I thought okay so let's
+
+359
+00:27:07,070 --> 00:27:13,880
+say that dot plus so I think this
+
+360
+00:27:11,840 --> 00:27:17,960
+pattern will walk that you know let's
+
+361
+00:27:13,880 --> 00:27:20,200
+try that so actually I'm going to
+
+362
+00:27:17,960 --> 00:27:23,090
+explain in a bit okay so let's do
+
+363
+00:27:20,200 --> 00:27:27,800
+credibly place rejects let me call the
+
+364
+00:27:23,090 --> 00:27:31,990
+command query we face rejects type the
+
+365
+00:27:27,800 --> 00:27:31,990
+pattern okay that is the pattern we want
+
+366
+00:27:35,690 --> 00:27:54,840
+actually we we need more than that
+
+367
+00:27:39,390 --> 00:27:57,120
+actually so we need when you see these
+
+368
+00:27:54,840 --> 00:27:59,190
+you think you might think oh my god this
+
+369
+00:27:57,120 --> 00:28:01,590
+is so complicated I'll never learn
+
+370
+00:27:59,190 --> 00:28:04,860
+regular expression you know regular
+
+371
+00:28:01,590 --> 00:28:06,810
+expression is tremendously powerful you
+
+372
+00:28:04,860 --> 00:28:09,060
+know like if you working any job you
+
+373
+00:28:06,810 --> 00:28:12,030
+know like even if you go to chop chop
+
+374
+00:28:09,060 --> 00:28:14,180
+interview often they'll ask you you know
+
+375
+00:28:12,030 --> 00:28:16,830
+how well you know regular expressions so
+
+376
+00:28:14,180 --> 00:28:21,120
+you want to really know them well
+
+377
+00:28:16,830 --> 00:28:23,460
+because it's tremendously useful so let
+
+378
+00:28:21,120 --> 00:28:35,820
+me try to finish this pattern okay so
+
+379
+00:28:23,460 --> 00:28:39,930
+I'm going to need that plus sign okay so
+
+380
+00:28:35,820 --> 00:28:43,770
+this is a pattern that will match email
+
+381
+00:28:39,930 --> 00:28:46,560
+like this okay so let's try that copy
+
+382
+00:28:43,770 --> 00:28:50,700
+that and let's call query replace
+
+383
+00:28:46,560 --> 00:28:53,070
+rejects well first of all let's do list
+
+384
+00:28:50,700 --> 00:28:54,930
+matching lines remember that that's a
+
+385
+00:28:53,070 --> 00:28:57,270
+great command to test regular expression
+
+386
+00:28:54,930 --> 00:29:00,570
+so let's let's test it first
+
+387
+00:28:57,270 --> 00:29:04,880
+so let's call this matching lines give
+
+388
+00:29:00,570 --> 00:29:04,880
+the pattern let's see what it finds
+
+389
+00:29:09,369 --> 00:29:16,639
+okay okay it found a lot of tons of
+
+390
+00:29:13,519 --> 00:29:18,559
+things so that means our pattern is to
+
+391
+00:29:16,639 --> 00:29:25,729
+general this is not good
+
+392
+00:29:18,559 --> 00:29:26,809
+oh yeah so actually okay so let's try
+
+393
+00:29:25,729 --> 00:29:31,070
+that again
+
+394
+00:29:26,809 --> 00:29:31,749
+a to Z hey to Z okay let's try that
+
+395
+00:29:31,070 --> 00:29:40,299
+again
+
+396
+00:29:31,749 --> 00:29:40,299
+then then a to Z okay so
+
+397
+00:29:46,010 --> 00:29:54,500
+then A to Z okay okay so let's try that
+
+398
+00:29:51,710 --> 00:29:58,700
+again lease matching lines we give a
+
+399
+00:29:54,500 --> 00:30:01,130
+pattern there it is fantastic you know
+
+400
+00:29:58,700 --> 00:30:04,220
+don't you think this is fantastic you
+
+401
+00:30:01,130 --> 00:30:06,139
+know we have you see we want to get all
+
+402
+00:30:04,220 --> 00:30:09,260
+email addresses in this file
+
+403
+00:30:06,139 --> 00:30:12,490
+you know this file has you know this
+
+404
+00:30:09,260 --> 00:30:15,440
+file has you know 900 lines and now we
+
+405
+00:30:12,490 --> 00:30:17,240
+we just call one command and we got all
+
+406
+00:30:15,440 --> 00:30:20,179
+the email addresses you know this is
+
+407
+00:30:17,240 --> 00:30:24,710
+here you know so this is wonderful
+
+408
+00:30:20,179 --> 00:30:28,039
+so now if we want to replace part of it
+
+409
+00:30:24,710 --> 00:30:32,110
+we can now try the query query we place
+
+410
+00:30:28,039 --> 00:30:37,760
+rejects so let me show you so let's call
+
+411
+00:30:32,110 --> 00:30:40,309
+prairie jex we replace I have a keyboard
+
+412
+00:30:37,760 --> 00:30:41,750
+shortcut you know that caused the
+
+413
+00:30:40,309 --> 00:30:45,139
+command you can see the command on the
+
+414
+00:30:41,750 --> 00:30:49,820
+Left panel okay now I need to give a
+
+415
+00:30:45,139 --> 00:30:53,649
+pattern so pattern will be that and what
+
+416
+00:30:49,820 --> 00:30:56,720
+do you want to replace it with let's say
+
+417
+00:30:53,649 --> 00:31:03,350
+let's say we let's say we just want to
+
+418
+00:30:56,720 --> 00:31:06,169
+be placed like this is a email address
+
+419
+00:31:03,350 --> 00:31:07,820
+okay this is done so we just replace
+
+420
+00:31:06,169 --> 00:31:11,830
+with the text this is an email address
+
+421
+00:31:07,820 --> 00:31:15,230
+okay let's say okay okay so it found one
+
+422
+00:31:11,830 --> 00:31:17,000
+occurrence it's going to ask you what
+
+423
+00:31:15,230 --> 00:31:21,139
+you want to do about it you can be face
+
+424
+00:31:17,000 --> 00:31:24,769
+it you can you know skip it and go to
+
+425
+00:31:21,139 --> 00:31:27,380
+the next match you know and the Emacs
+
+426
+00:31:24,769 --> 00:31:29,360
+will say you know type question for help
+
+427
+00:31:27,380 --> 00:31:33,710
+you know there are several shortcut keys
+
+428
+00:31:29,360 --> 00:31:35,720
+you can oops
+
+429
+00:31:33,710 --> 00:31:40,909
+you know shortcut so let's do it again
+
+430
+00:31:35,720 --> 00:31:46,460
+so query we trace rejects
+
+431
+00:31:40,909 --> 00:31:50,899
+use this pattern and replaced by you
+
+432
+00:31:46,460 --> 00:31:54,110
+know replaced by that text say yes I can
+
+433
+00:31:50,899 --> 00:31:55,900
+say yes yes yes yes you know that that
+
+434
+00:31:54,110 --> 00:31:58,610
+we face them all
+
+435
+00:31:55,900 --> 00:32:01,790
+now let's try one more thing okay let's
+
+436
+00:31:58,610 --> 00:32:04,160
+do query replace rejects the beginning
+
+437
+00:32:01,790 --> 00:32:10,190
+pattern will be the same as we used
+
+438
+00:32:04,160 --> 00:32:13,160
+before let's see yeah this pattern so
+
+439
+00:32:10,190 --> 00:32:16,700
+let's use that pattern and let's say the
+
+440
+00:32:13,160 --> 00:32:19,280
+ending pattern will be backslash 1
+
+441
+00:32:16,700 --> 00:32:21,020
+backslash 1 means the first captured
+
+442
+00:32:19,280 --> 00:32:25,430
+item you'll see what it means let me
+
+443
+00:32:21,020 --> 00:32:27,890
+show you so okay so yes yes yes yes you
+
+444
+00:32:25,430 --> 00:32:30,410
+see so what it does is that it replace
+
+445
+00:32:27,890 --> 00:32:33,200
+the whole email address by just the
+
+446
+00:32:30,410 --> 00:32:36,890
+first name you know name you know the
+
+447
+00:32:33,200 --> 00:32:41,930
+beginning part of the email address so
+
+448
+00:32:36,890 --> 00:32:45,890
+so you see now how regular expression is
+
+449
+00:32:41,930 --> 00:32:47,960
+used and that also demonstrate the power
+
+450
+00:32:45,890 --> 00:32:50,990
+of regular expressions so regular
+
+451
+00:32:47,960 --> 00:32:53,300
+expression can be used to find email you
+
+452
+00:32:50,990 --> 00:32:55,580
+know find any text patterns you want for
+
+453
+00:32:53,300 --> 00:32:57,560
+example in programming language when you
+
+454
+00:32:55,580 --> 00:32:59,330
+code what you want to refactor you know
+
+455
+00:32:57,560 --> 00:33:01,820
+find function names replace with
+
+456
+00:32:59,330 --> 00:33:05,860
+something else or find variables names
+
+457
+00:33:01,820 --> 00:33:09,110
+or find some you know a universal ID oh
+
+458
+00:33:05,860 --> 00:33:10,850
+you know encrypted key they usually have
+
+459
+00:33:09,110 --> 00:33:14,360
+certain pattern you can find them all
+
+460
+00:33:10,850 --> 00:33:17,840
+and you can also to replace so that
+
+461
+00:33:14,360 --> 00:33:22,580
+demonstrate the power and one example
+
+462
+00:33:17,840 --> 00:33:25,820
+usage of regular expression and now now
+
+463
+00:33:22,580 --> 00:33:28,520
+let me explain the syntax of regular
+
+464
+00:33:25,820 --> 00:33:34,400
+expression now this is the part that you
+
+465
+00:33:28,520 --> 00:33:38,110
+really want to learn okay okay so but
+
+466
+00:33:34,400 --> 00:33:45,410
+let me write down what we have just done
+
+467
+00:33:38,110 --> 00:33:52,100
+demo the power and example of rejects
+
+468
+00:33:45,410 --> 00:33:56,900
+use okay for example finding email
+
+469
+00:33:52,100 --> 00:34:03,920
+addresses in a file okay we have shown
+
+470
+00:33:56,900 --> 00:34:07,100
+that example okay then this is the
+
+471
+00:34:03,920 --> 00:34:08,889
+pattern used okay this is rejects
+
+472
+00:34:07,100 --> 00:34:11,510
+pattern used
+
+473
+00:34:08,889 --> 00:34:15,940
+now you can see in browsers so we have
+
+474
+00:34:11,510 --> 00:34:15,940
+you know written out what we were doing
+
+475
+00:34:19,090 --> 00:34:25,970
+so so okay we have demonstrated the
+
+476
+00:34:23,300 --> 00:34:29,389
+example of usage of regular expression
+
+477
+00:34:25,970 --> 00:34:33,159
+now let's talk about the syntax of
+
+478
+00:34:29,389 --> 00:34:35,840
+rejects that is the heart of the thing
+
+479
+00:34:33,159 --> 00:34:41,450
+when you learn rejects it's about you
+
+480
+00:34:35,840 --> 00:34:44,000
+know the syntax so let's see let me read
+
+481
+00:34:41,450 --> 00:34:47,570
+the comments hey tech ways good morning
+
+482
+00:34:44,000 --> 00:34:49,940
+or good evening so bathroom you say yes
+
+483
+00:34:47,570 --> 00:34:52,340
+reject seems complicated at first but
+
+484
+00:34:49,940 --> 00:34:53,990
+you just need to learn it and understand
+
+485
+00:34:52,340 --> 00:34:56,690
+how it works yes exactly
+
+486
+00:34:53,990 --> 00:34:59,780
+be persistent then it becomes very
+
+487
+00:34:56,690 --> 00:35:04,849
+powerful yes exactly so Dec way says
+
+488
+00:34:59,780 --> 00:35:07,369
+rejects is we use it at work to tokenize
+
+489
+00:35:04,849 --> 00:35:10,010
+documents for further processing yeah
+
+490
+00:35:07,369 --> 00:35:12,670
+yes yeah it's interesting you know the
+
+491
+00:35:10,010 --> 00:35:15,349
+the history of the regular expression
+
+492
+00:35:12,670 --> 00:35:17,690
+you know that like the name regular
+
+493
+00:35:15,349 --> 00:35:20,960
+expression it's kind of seedy you know
+
+494
+00:35:17,690 --> 00:35:23,240
+it's like regular expression first of
+
+495
+00:35:20,960 --> 00:35:26,930
+all you know you don't think you know in
+
+496
+00:35:23,240 --> 00:35:29,720
+programming languages you when you when
+
+497
+00:35:26,930 --> 00:35:33,290
+you see the word expression you know you
+
+498
+00:35:29,720 --> 00:35:35,030
+don't think you know you like expression
+
+499
+00:35:33,290 --> 00:35:38,390
+has a value right in programming
+
+500
+00:35:35,030 --> 00:35:40,190
+languages but this regular expression it
+
+501
+00:35:38,390 --> 00:35:43,190
+doesn't look like expression you know
+
+502
+00:35:40,190 --> 00:35:45,500
+then it says regular you know what the
+
+503
+00:35:43,190 --> 00:35:49,400
+heck it's not regular I mean look at the
+
+504
+00:35:45,500 --> 00:35:51,650
+syntax you know it's not it's not in any
+
+505
+00:35:49,400 --> 00:35:54,260
+way rate you know it it doesn't come to
+
+506
+00:35:51,650 --> 00:35:57,770
+mind is regular the reason it's called
+
+507
+00:35:54,260 --> 00:35:58,970
+regular expression is historical it's
+
+508
+00:35:57,770 --> 00:36:03,200
+very complicated
+
+509
+00:35:58,970 --> 00:36:06,440
+it's rather you know very complicated
+
+510
+00:36:03,200 --> 00:36:12,320
+but in basically it came from the study
+
+511
+00:36:06,440 --> 00:36:15,800
+of theoretical computer science study on
+
+512
+00:36:12,320 --> 00:36:18,670
+passing you know also you know part of
+
+513
+00:36:15,800 --> 00:36:21,980
+it is known as automata like Oh Tom
+
+514
+00:36:18,670 --> 00:36:22,550
+automata and basically is study passing
+
+515
+00:36:21,980 --> 00:36:25,070
+okay
+
+516
+00:36:22,550 --> 00:36:27,020
+given a bunch of you know it study
+
+517
+00:36:25,070 --> 00:36:29,240
+formal and it's part of the formal
+
+518
+00:36:27,020 --> 00:36:31,450
+language originally in a regular
+
+519
+00:36:29,240 --> 00:36:33,500
+expression it they came up because
+
+520
+00:36:31,450 --> 00:36:36,650
+originally it's a part of the
+
+521
+00:36:33,500 --> 00:36:39,890
+theoretical this is this is important
+
+522
+00:36:36,650 --> 00:36:42,040
+theoretical computer science not related
+
+523
+00:36:39,890 --> 00:36:45,200
+to anything practical it's related to
+
+524
+00:36:42,040 --> 00:36:48,200
+theoretical computer science on the you
+
+525
+00:36:45,200 --> 00:36:50,690
+know in the branch of formal languages
+
+526
+00:36:48,200 --> 00:36:53,120
+what they want they are trying to do is
+
+527
+00:36:50,690 --> 00:36:59,030
+that they are trying to find find a way
+
+528
+00:36:53,120 --> 00:37:01,880
+a syntax kind of to match to be able to
+
+529
+00:36:59,030 --> 00:37:04,880
+pass or match any so-called regular
+
+530
+00:37:01,880 --> 00:37:08,180
+regular languages that is a language
+
+531
+00:37:04,880 --> 00:37:10,160
+with regular grammar okay so that is why
+
+532
+00:37:08,180 --> 00:37:13,880
+it's called regular expression you know
+
+533
+00:37:10,160 --> 00:37:16,460
+because it's trying to it's trying to
+
+534
+00:37:13,880 --> 00:37:19,580
+eat it's supposed to be able to match
+
+535
+00:37:16,460 --> 00:37:22,580
+any computer language whose grammar is
+
+536
+00:37:19,580 --> 00:37:24,680
+called regular grammar now regular
+
+537
+00:37:22,580 --> 00:37:27,680
+grammar the word itself is very
+
+538
+00:37:24,680 --> 00:37:29,840
+confusing because the regular grammar in
+
+539
+00:37:27,680 --> 00:37:34,100
+regular languages they are in no way
+
+540
+00:37:29,840 --> 00:37:37,820
+regular in the in a daily English sense
+
+541
+00:37:34,100 --> 00:37:39,650
+they are not regular okay so so anyway
+
+542
+00:37:37,820 --> 00:37:43,160
+it's convoluted history it's a regular
+
+543
+00:37:39,650 --> 00:37:46,820
+expression so actually let me show you
+
+544
+00:37:43,160 --> 00:37:59,000
+some articles about that if you are
+
+545
+00:37:46,820 --> 00:38:04,610
+interested so sorry automata and sorry
+
+546
+00:37:59,000 --> 00:38:06,860
+pause compiler okay so you know these
+
+547
+00:38:04,610 --> 00:38:09,220
+are interesting things you might look
+
+548
+00:38:06,860 --> 00:38:09,220
+into
+
+549
+00:38:17,820 --> 00:38:25,170
+how compiler works okay that's part of
+
+550
+00:38:20,400 --> 00:38:27,960
+it so I have this tutorial that is a
+
+551
+00:38:25,170 --> 00:38:30,270
+introduction really truly basic
+
+552
+00:38:27,960 --> 00:38:33,720
+introduction about how compiler works
+
+553
+00:38:30,270 --> 00:38:36,030
+now if you read this you will begin to
+
+554
+00:38:33,720 --> 00:38:38,640
+learn you know how compiler works you
+
+555
+00:38:36,030 --> 00:38:40,740
+know like this is not in depth you know
+
+556
+00:38:38,640 --> 00:38:44,460
+this just gives you an intro idea like
+
+557
+00:38:40,740 --> 00:38:46,680
+what exactly compilers do and then if
+
+558
+00:38:44,460 --> 00:38:50,160
+you read it you'll learn passing you
+
+559
+00:38:46,680 --> 00:38:53,010
+know you know passing what does it mean
+
+560
+00:38:50,160 --> 00:38:55,890
+for a programming language to pass the
+
+561
+00:38:53,010 --> 00:38:57,780
+language then you also learn about
+
+562
+00:38:55,890 --> 00:38:59,640
+grammar you know a grammar of a
+
+563
+00:38:57,780 --> 00:39:03,870
+programming language how is it defined
+
+564
+00:38:59,640 --> 00:39:07,460
+exactly what it is then you'll also
+
+565
+00:39:03,870 --> 00:39:12,050
+learn about Backus no form which is a
+
+566
+00:39:07,460 --> 00:39:15,120
+standard kind it's a syntax to specify
+
+567
+00:39:12,050 --> 00:39:18,000
+programming language grammar now once
+
+568
+00:39:15,120 --> 00:39:20,610
+you know that then your your start you
+
+569
+00:39:18,000 --> 00:39:22,710
+or learn about you know regular grammar
+
+570
+00:39:20,610 --> 00:39:25,470
+you know one of the class of grammars is
+
+571
+00:39:22,710 --> 00:39:27,450
+called regular you know so languages
+
+572
+00:39:25,470 --> 00:39:31,140
+with regular grammar is called regular
+
+573
+00:39:27,450 --> 00:39:34,070
+languages then you also learn you know
+
+574
+00:39:31,140 --> 00:39:38,130
+you hear often can't context-free
+
+575
+00:39:34,070 --> 00:39:43,770
+languages that is also very confusing
+
+576
+00:39:38,130 --> 00:39:46,050
+jargon because it is not in the normal
+
+577
+00:39:43,770 --> 00:39:48,570
+English word context-free when you have
+
+578
+00:39:46,050 --> 00:39:51,000
+a context-free language actually doesn't
+
+579
+00:39:48,570 --> 00:39:54,300
+mean it's context-free it means it has
+
+580
+00:39:51,000 --> 00:39:56,010
+specific meaning so so anyway you are
+
+581
+00:39:54,300 --> 00:39:57,330
+learning about regular languages then
+
+582
+00:39:56,010 --> 00:39:59,820
+you are learn about you know
+
+583
+00:39:57,330 --> 00:40:03,540
+context-free grammar then you'll learn
+
+584
+00:39:59,820 --> 00:40:05,760
+about regular expression this is when
+
+585
+00:40:03,540 --> 00:40:10,200
+regular expression comes come up because
+
+586
+00:40:05,760 --> 00:40:13,140
+it it it tries to match all regular
+
+587
+00:40:10,200 --> 00:40:14,760
+languages so any way that you can read
+
+588
+00:40:13,140 --> 00:40:19,560
+that but there's another interesting
+
+589
+00:40:14,760 --> 00:40:22,500
+thing about regular expression that is
+
+590
+00:40:19,560 --> 00:40:27,740
+when you read about regular expression
+
+591
+00:40:22,500 --> 00:40:31,410
+you will often came to the term automata
+
+592
+00:40:27,740 --> 00:40:33,720
+again this is very confusing and not
+
+593
+00:40:31,410 --> 00:40:36,720
+and it has very interesting history and
+
+594
+00:40:33,720 --> 00:40:37,529
+linguistics as well you know so why do
+
+595
+00:40:36,720 --> 00:40:39,960
+they call it
+
+596
+00:40:37,529 --> 00:40:44,940
+automata you know finite state automata
+
+597
+00:40:39,960 --> 00:40:48,059
+and so on automata you know this is very
+
+598
+00:40:44,940 --> 00:40:50,430
+interesting I digressed we're gonna get
+
+599
+00:40:48,059 --> 00:40:52,769
+back to Emacs okay practical to talking
+
+600
+00:40:50,430 --> 00:40:54,839
+a bit but automata basically means a
+
+601
+00:40:52,769 --> 00:40:58,529
+machine okay it's asian it's like two
+
+602
+00:40:54,839 --> 00:41:00,859
+thousand years ago this this guy this
+
+603
+00:40:58,529 --> 00:41:05,809
+guy from Greek mythology
+
+604
+00:41:00,859 --> 00:41:08,940
+Talos his name is Talos he is a automata
+
+605
+00:41:05,809 --> 00:41:11,519
+now automata what does it mean it just
+
+606
+00:41:08,940 --> 00:41:14,369
+means a robot so back in the Greek
+
+607
+00:41:11,519 --> 00:41:17,609
+mythology days so you have this guy
+
+608
+00:41:14,369 --> 00:41:20,940
+Talos he's a automata he's a giant
+
+609
+00:41:17,609 --> 00:41:23,849
+you know mecha you know you if you watch
+
+610
+00:41:20,940 --> 00:41:25,859
+Japanese anime you know it's a kind of
+
+611
+00:41:23,849 --> 00:41:29,940
+like mecha back in two thousand years
+
+612
+00:41:25,859 --> 00:41:33,269
+ago so automata means just just means
+
+613
+00:41:29,940 --> 00:41:35,549
+like a machine that operate by itself it
+
+614
+00:41:33,269 --> 00:41:37,680
+doesn't need you know human input it
+
+615
+00:41:35,549 --> 00:41:39,720
+doesn't need someone to tell him it's
+
+616
+00:41:37,680 --> 00:41:43,259
+not like be more controls or anything it
+
+617
+00:41:39,720 --> 00:41:47,460
+it does you know it has it controls
+
+618
+00:41:43,259 --> 00:41:51,559
+itself that's automata then they in
+
+619
+00:41:47,460 --> 00:41:54,390
+computer science they started to call
+
+620
+00:41:51,559 --> 00:41:57,839
+something you know they call it automata
+
+621
+00:41:54,390 --> 00:42:03,750
+which is kind of bad naming because in
+
+622
+00:41:57,839 --> 00:42:05,549
+no way it so it's it's self operating so
+
+623
+00:42:03,750 --> 00:42:07,980
+anyway it's complicated you know
+
+624
+00:42:05,549 --> 00:42:11,579
+linguistic and very interesting history
+
+625
+00:42:07,980 --> 00:42:13,470
+about how this word came to be so let's
+
+626
+00:42:11,579 --> 00:42:20,339
+go back to regular expression so we
+
+627
+00:42:13,470 --> 00:42:23,160
+talked about so there's a common
+
+628
+00:42:20,339 --> 00:42:25,380
+question about you know like for
+
+629
+00:42:23,160 --> 00:42:26,849
+beginners when they learn regular
+
+630
+00:42:25,380 --> 00:42:28,730
+expression they have a common question
+
+631
+00:42:26,849 --> 00:42:31,970
+so what's the difference between
+
+632
+00:42:28,730 --> 00:42:36,599
+wildcards you know like in file names
+
+633
+00:42:31,970 --> 00:42:37,710
+for example in UNIX you can you have
+
+634
+00:42:36,599 --> 00:42:41,819
+this wildcard
+
+635
+00:42:37,710 --> 00:42:44,849
+you know Asterix I which stand for any
+
+636
+00:42:41,819 --> 00:42:45,210
+sequence of characters then the question
+
+637
+00:42:44,849 --> 00:42:48,510
+mark
+
+638
+00:42:45,210 --> 00:42:50,730
+stand for any character one single
+
+639
+00:42:48,510 --> 00:42:54,180
+character you know stand for any
+
+640
+00:42:50,730 --> 00:42:59,310
+character then you know so in UNIX for
+
+641
+00:42:54,180 --> 00:43:03,780
+example it's you can do that let's say
+
+642
+00:42:59,310 --> 00:43:05,940
+open in terminal okay let me open my
+
+643
+00:43:03,780 --> 00:43:09,930
+current directory in terminal so I'm
+
+644
+00:43:05,940 --> 00:43:15,080
+here so let's do LS okay OS this is a
+
+645
+00:43:09,930 --> 00:43:15,080
+UNIX let me move this up so you can see
+
+646
+00:43:15,440 --> 00:43:29,160
+so you see so I'm listening directories
+
+647
+00:43:19,670 --> 00:43:33,510
+LS so let's say LS Asterix a L that will
+
+648
+00:43:29,160 --> 00:43:37,080
+list any file name ending in a L okay
+
+649
+00:43:33,510 --> 00:43:41,480
+let's try it you see you see that's
+
+650
+00:43:37,080 --> 00:43:44,130
+that's that's the that's this wildcard
+
+651
+00:43:41,480 --> 00:43:48,740
+by the way this wild card is called
+
+652
+00:43:44,130 --> 00:43:52,820
+Claude this wire cards system of
+
+653
+00:43:48,740 --> 00:43:55,560
+matching text patterns is called Club it
+
+654
+00:43:52,820 --> 00:43:59,100
+came from the UNIX jargon it's called
+
+655
+00:43:55,560 --> 00:44:01,680
+Club you know so so this is club and
+
+656
+00:43:59,100 --> 00:44:03,660
+it's also in you know in Windows you
+
+657
+00:44:01,680 --> 00:44:05,310
+know you can also do that in Windows so
+
+658
+00:44:03,660 --> 00:44:07,890
+when people learn with regular
+
+659
+00:44:05,310 --> 00:44:10,110
+expression they think I already know God
+
+660
+00:44:07,890 --> 00:44:13,320
+you know what do I need you know regular
+
+661
+00:44:10,110 --> 00:44:15,570
+expression seems small complicated the
+
+662
+00:44:13,320 --> 00:44:19,020
+thing is so Club you know so you have
+
+663
+00:44:15,570 --> 00:44:23,700
+these patterns it's not very flexible so
+
+664
+00:44:19,020 --> 00:44:26,970
+when you for example you cannot use club
+
+665
+00:44:23,700 --> 00:44:31,680
+- for example - to catch or email pad
+
+666
+00:44:26,970 --> 00:44:34,470
+patterns you know because yeah because
+
+667
+00:44:31,680 --> 00:44:36,330
+if you use Club you'll get bunch of text
+
+668
+00:44:34,470 --> 00:44:39,030
+not that's not email you know it's not
+
+669
+00:44:36,330 --> 00:44:41,490
+powerful enough that is why you need use
+
+670
+00:44:39,030 --> 00:44:45,810
+you need to learn and use regular
+
+671
+00:44:41,490 --> 00:44:48,510
+expressions they serve kind of the same
+
+672
+00:44:45,810 --> 00:44:50,280
+purpose but the glob is very simple you
+
+673
+00:44:48,510 --> 00:44:53,100
+know it's just for you know very simple
+
+674
+00:44:50,280 --> 00:44:55,110
+regular expression is the you know far
+
+675
+00:44:53,100 --> 00:44:56,790
+more powerful one so I give some
+
+676
+00:44:55,110 --> 00:44:58,830
+examples where you can use regular
+
+677
+00:44:56,790 --> 00:45:02,390
+expression to match
+
+678
+00:44:58,830 --> 00:45:05,520
+thing but gloves you know just cannot do
+
+679
+00:45:02,390 --> 00:45:08,310
+and okay so let's talk about some you
+
+680
+00:45:05,520 --> 00:45:10,380
+know some common patterns for regular
+
+681
+00:45:08,310 --> 00:45:16,380
+expressions so these are the most
+
+682
+00:45:10,380 --> 00:45:19,050
+frequently used patterns and that
+
+683
+00:45:16,380 --> 00:45:21,440
+basically that's about you know okay
+
+684
+00:45:19,050 --> 00:45:25,440
+it's something else and I'll talk about
+
+685
+00:45:21,440 --> 00:45:31,110
+about using regular expression in emacs
+
+686
+00:45:25,440 --> 00:45:33,690
+let me read the comments first so dick
+
+687
+00:45:31,110 --> 00:45:34,910
+ways says today I wrote some Java
+
+688
+00:45:33,690 --> 00:45:38,730
+bytecode
+
+689
+00:45:34,910 --> 00:45:44,550
+reminds reminded me of learning assembly
+
+690
+00:45:38,730 --> 00:45:47,520
+compiler act in unit university so
+
+691
+00:45:44,550 --> 00:45:50,670
+battle of Musa is minor note I think the
+
+692
+00:45:47,520 --> 00:45:53,670
+singular is automaton while the prune
+
+693
+00:45:50,670 --> 00:45:57,060
+row is automata you are right yeah so
+
+694
+00:45:53,670 --> 00:46:01,470
+yeah yeah correction you are right
+
+695
+00:45:57,060 --> 00:46:03,870
+singer is automaton that's you know that
+
+696
+00:46:01,470 --> 00:46:08,310
+word is just so interesting to me you
+
+697
+00:46:03,870 --> 00:46:11,910
+know and ex stock prints says there is
+
+698
+00:46:08,310 --> 00:46:15,930
+no god but Emacs installment is his
+
+699
+00:46:11,910 --> 00:46:19,490
+favorite okay okay so let's talk about
+
+700
+00:46:15,930 --> 00:46:22,230
+Emacs reject syntax so I give some
+
+701
+00:46:19,490 --> 00:46:27,390
+patterns these are the most commonly
+
+702
+00:46:22,230 --> 00:46:29,070
+used so you know so if you want to learn
+
+703
+00:46:27,390 --> 00:46:33,990
+be checks you can start with these
+
+704
+00:46:29,070 --> 00:46:35,940
+patterns now it's hard to read them out
+
+705
+00:46:33,990 --> 00:46:39,570
+you know it's hard to read the regular
+
+706
+00:46:35,940 --> 00:46:41,820
+expression syntax so for those of you
+
+707
+00:46:39,570 --> 00:46:43,740
+not watching a video you just have to
+
+708
+00:46:41,820 --> 00:46:47,910
+actually go to my website and you know
+
+709
+00:46:43,740 --> 00:46:49,740
+look look at these patterns so yeah so
+
+710
+00:46:47,910 --> 00:46:52,950
+these are the common you know most
+
+711
+00:46:49,740 --> 00:46:55,620
+frequently used patterns so when you
+
+712
+00:46:52,950 --> 00:46:58,020
+want to you know again as I mentioned
+
+713
+00:46:55,620 --> 00:47:00,480
+you can just try list matching lines and
+
+714
+00:46:58,020 --> 00:47:05,070
+try the patterns and you can see you
+
+715
+00:47:00,480 --> 00:47:07,200
+will understand what they match they you
+
+716
+00:47:05,070 --> 00:47:09,720
+know they for example they do one or
+
+717
+00:47:07,200 --> 00:47:12,900
+more digits one or more than digit
+
+718
+00:47:09,720 --> 00:47:17,490
+characters one or more letters
+
+719
+00:47:12,900 --> 00:47:20,940
+well more letters digits or - or one or
+
+720
+00:47:17,490 --> 00:47:23,310
+more letter digit underscore or you know
+
+721
+00:47:20,940 --> 00:47:26,190
+one or more either digit - underscore
+
+722
+00:47:23,310 --> 00:47:30,180
+that's all common then you can also
+
+723
+00:47:26,190 --> 00:47:32,640
+match or CAC ASCII characters then you
+
+724
+00:47:30,180 --> 00:47:37,310
+can also match on an ASCII characters
+
+725
+00:47:32,640 --> 00:47:40,950
+for example you want to you have a emoji
+
+726
+00:47:37,310 --> 00:47:42,109
+let's try that so for example let's
+
+727
+00:47:40,950 --> 00:47:45,930
+match
+
+728
+00:47:42,109 --> 00:47:49,890
+so in this my Emacs block you know this
+
+729
+00:47:45,930 --> 00:47:52,349
+is 1000 lines I want to get I want to
+
+730
+00:47:49,890 --> 00:47:55,560
+get all characters that's not asking for
+
+731
+00:47:52,349 --> 00:47:58,349
+example I have some emoji characters or
+
+732
+00:47:55,560 --> 00:48:00,510
+arrow you know math summation or arrow
+
+733
+00:47:58,349 --> 00:48:06,060
+symbols I want to get all of them see
+
+734
+00:48:00,510 --> 00:48:09,810
+what they are so I call so I call this
+
+735
+00:48:06,060 --> 00:48:16,290
+matching lines and I call I give this
+
+736
+00:48:09,810 --> 00:48:21,089
+double bracket then then colon colon
+
+737
+00:48:16,290 --> 00:48:25,619
+then I say none ascii ok let's see if I
+
+738
+00:48:21,089 --> 00:48:30,839
+got the syntax correct yeah okay so I do
+
+739
+00:48:25,619 --> 00:48:35,849
+that and with a so that so double square
+
+740
+00:48:30,839 --> 00:48:39,119
+bracket then two colons then inside that
+
+741
+00:48:35,849 --> 00:48:45,420
+you say non ASCII okay this pattern will
+
+742
+00:48:39,119 --> 00:48:49,940
+match any one non ASCII character so so
+
+743
+00:48:45,420 --> 00:48:54,869
+then I put a plus sign oops
+
+744
+00:48:49,940 --> 00:48:55,849
+okay let's do it again okay let's do it
+
+745
+00:48:54,869 --> 00:49:00,420
+again
+
+746
+00:48:55,849 --> 00:49:04,099
+none ascii then I type a purse I means
+
+747
+00:49:00,420 --> 00:49:06,960
+one or mo of it okay let's say enter
+
+748
+00:49:04,099 --> 00:49:14,660
+okay so you can see the results let's
+
+749
+00:49:06,960 --> 00:49:17,849
+magnify you see I have quite a few I
+
+750
+00:49:14,660 --> 00:49:21,300
+have quite a few Unicode here so we have
+
+751
+00:49:17,849 --> 00:49:24,420
+the list ellipsis we have the curly
+
+752
+00:49:21,300 --> 00:49:26,470
+quote we have the bear symbol for
+
+753
+00:49:24,420 --> 00:49:30,190
+YouTube subscribe and bear
+
+754
+00:49:26,470 --> 00:49:35,260
+you know alert we have rooms you know
+
+755
+00:49:30,190 --> 00:49:40,420
+the room Asian rune alphabet and we have
+
+756
+00:49:35,260 --> 00:49:44,470
+the you know Unicode Z symbol which
+
+757
+00:49:40,420 --> 00:49:47,500
+stands for what is Z for natural numbers
+
+758
+00:49:44,470 --> 00:49:49,359
+integers I think and we have the
+
+759
+00:49:47,500 --> 00:49:52,420
+summation sign we have the copyright
+
+760
+00:49:49,359 --> 00:49:56,020
+sign you know so so this is how useful
+
+761
+00:49:52,420 --> 00:49:58,119
+is the unicode is how useful is the
+
+762
+00:49:56,020 --> 00:50:00,220
+regular expression you can match you
+
+763
+00:49:58,119 --> 00:50:04,109
+know these kind of things and you cannot
+
+764
+00:50:00,220 --> 00:50:07,690
+do with you know the wild card the gob
+
+765
+00:50:04,109 --> 00:50:10,630
+so ok these are the common patterns in
+
+766
+00:50:07,690 --> 00:50:13,569
+regular expression ok one more thing I
+
+767
+00:50:10,630 --> 00:50:16,660
+want to mention is how do you match a B
+
+768
+00:50:13,569 --> 00:50:20,440
+turn you know return character or tab
+
+769
+00:50:16,660 --> 00:50:23,560
+character in Emacs to do that you have
+
+770
+00:50:20,440 --> 00:50:27,670
+an image to do that Emacs you cannot you
+
+771
+00:50:23,560 --> 00:50:28,839
+cannot use the backslash in okay like if
+
+772
+00:50:27,670 --> 00:50:30,579
+you came from other programming
+
+773
+00:50:28,839 --> 00:50:33,190
+languages you know you call this
+
+774
+00:50:30,579 --> 00:50:36,430
+matching noise and then you say
+
+775
+00:50:33,190 --> 00:50:40,210
+backslash and that doesn't work so
+
+776
+00:50:36,430 --> 00:50:42,730
+instead to enter a literal newline
+
+777
+00:50:40,210 --> 00:50:48,760
+character you know to match a newline
+
+778
+00:50:42,730 --> 00:50:51,369
+you have to type ctrl Q then return so
+
+779
+00:50:48,760 --> 00:50:52,810
+ctrl Q enter you know that's what do you
+
+780
+00:50:51,369 --> 00:51:04,089
+how you type so let me show you an
+
+781
+00:50:52,810 --> 00:51:06,250
+example so let's say I want to okay so
+
+782
+00:51:04,089 --> 00:51:09,940
+let's say I want to match let's say
+
+783
+00:51:06,250 --> 00:51:11,740
+least matching lines okay I call this
+
+784
+00:51:09,940 --> 00:51:18,280
+matching lines you can see on the Left
+
+785
+00:51:11,740 --> 00:51:22,569
+list matching lines then I say I say
+
+786
+00:51:18,280 --> 00:51:28,950
+that less equal to less than okay
+
+787
+00:51:22,569 --> 00:51:32,530
+then I type less less than sign / code
+
+788
+00:51:28,950 --> 00:51:37,240
+greater than sign so that matches the
+
+789
+00:51:32,530 --> 00:51:40,359
+code tag the ending code tag then I type
+
+790
+00:51:37,240 --> 00:51:53,140
+ctrl Q control
+
+791
+00:51:40,359 --> 00:51:55,630
+you enter wait oh I have wait and I got
+
+792
+00:51:53,140 --> 00:51:57,779
+this wrong actually let's let's do it
+
+793
+00:51:55,630 --> 00:51:57,779
+again
+
+794
+00:51:57,809 --> 00:52:14,380
+this matching line is code then ctrl Q
+
+795
+00:52:05,470 --> 00:52:19,269
+ctrl J okay okay my tutorial is actually
+
+796
+00:52:14,380 --> 00:52:21,039
+incorrect oh my god for years this
+
+797
+00:52:19,269 --> 00:52:24,190
+I got this incorrect information
+
+798
+00:52:21,039 --> 00:52:29,380
+so actually you need to type ctrl Q ctrl
+
+799
+00:52:24,190 --> 00:52:32,130
+J okay okay ctrl Q ctrl J that will
+
+800
+00:52:29,380 --> 00:52:41,499
+actually insert a new line character
+
+801
+00:52:32,130 --> 00:52:46,960
+then I type that okay that will match
+
+802
+00:52:41,499 --> 00:52:52,499
+any occurrences of you know let's do it
+
+803
+00:52:46,960 --> 00:52:54,819
+enter you know match any occurrences of
+
+804
+00:52:52,499 --> 00:52:57,460
+these you know there's only one
+
+805
+00:52:54,819 --> 00:52:59,319
+occurrence you see so anyway the point
+
+806
+00:52:57,460 --> 00:53:06,849
+is when you want a new line character
+
+807
+00:52:59,319 --> 00:53:09,009
+you have to type ctrl Q ctrl J now why
+
+808
+00:53:06,849 --> 00:53:12,160
+do you you know why is that well it's
+
+809
+00:53:09,009 --> 00:53:14,829
+because it's a bit complicated it's
+
+810
+00:53:12,160 --> 00:53:17,710
+because Emacs key syntax history of
+
+811
+00:53:14,829 --> 00:53:20,799
+Emacs kissing X I have a article
+
+812
+00:53:17,710 --> 00:53:30,190
+explaining that but anyway let me go
+
+813
+00:53:20,799 --> 00:53:32,249
+fixed fix my article ctrl Q ctrl J okay
+
+814
+00:53:30,190 --> 00:53:32,249
+so
+
+815
+00:53:39,290 --> 00:53:43,550
+so that's what you need to do
+
+816
+00:53:54,690 --> 00:54:00,360
+so for several years I got this wrong
+
+817
+00:53:57,030 --> 00:54:02,670
+because you know I kept updating my
+
+818
+00:54:00,360 --> 00:54:05,550
+articles like every two years like
+
+819
+00:54:02,670 --> 00:54:06,720
+hundreds of articles and you know I try
+
+820
+00:54:05,550 --> 00:54:09,590
+to rephrase it
+
+821
+00:54:06,720 --> 00:54:15,480
+try to improve it it's rather very
+
+822
+00:54:09,590 --> 00:54:19,530
+tedious work so anyway that's corrected
+
+823
+00:54:15,480 --> 00:54:24,260
+that so anyway so so i actually that's
+
+824
+00:54:19,530 --> 00:54:26,880
+about it for a max regular expression
+
+825
+00:54:24,260 --> 00:54:31,700
+okay yeah so I've been talking for like
+
+826
+00:54:26,880 --> 00:54:34,110
+for fifteen minutes that's that's good
+
+827
+00:54:31,700 --> 00:54:36,390
+yeah so I think I don't think we could
+
+828
+00:54:34,110 --> 00:54:39,119
+not talk about so that's about the main
+
+829
+00:54:36,390 --> 00:54:43,380
+thing there are other things like case
+
+830
+00:54:39,119 --> 00:54:48,330
+how do you control case sensitivity you
+
+831
+00:54:43,380 --> 00:54:50,550
+know there are other things but you know
+
+832
+00:54:48,330 --> 00:54:53,040
+I think you it's nice to stop here
+
+833
+00:54:50,550 --> 00:54:55,980
+because you know we don't want to get
+
+834
+00:54:53,040 --> 00:54:59,580
+too much in too long if you like you
+
+835
+00:54:55,980 --> 00:55:03,030
+know you can read my Emacs tutorial
+
+836
+00:54:59,580 --> 00:55:07,050
+which gives you information in detail
+
+837
+00:55:03,030 --> 00:55:09,930
+let me type it here and let's read the
+
+838
+00:55:07,050 --> 00:55:13,650
+comments and let's just chat randomly
+
+839
+00:55:09,930 --> 00:55:16,170
+for five minutes or something you know
+
+840
+00:55:13,650 --> 00:55:21,359
+any questions comments opinions type it
+
+841
+00:55:16,170 --> 00:55:23,580
+okay so let's see - so there is no god
+
+842
+00:55:21,359 --> 00:55:27,960
+but eMac saying Stoneman okay
+
+843
+00:55:23,580 --> 00:55:31,190
+so oh there's no more comments so so far
+
+844
+00:55:27,960 --> 00:55:31,190
+so good so anything else
+
+845
+00:55:31,400 --> 00:55:41,450
+so guys guys comments okay so oops I
+
+846
+00:55:38,340 --> 00:55:41,450
+don't want to pause
+
+847
+00:55:52,869 --> 00:56:02,420
+so let me go around so pastor Ramu is
+
+848
+00:55:55,849 --> 00:56:04,520
+from Germany now Germany is right now oh
+
+849
+00:56:02,420 --> 00:56:10,910
+it's like 3 o clock in the morning
+
+850
+00:56:04,520 --> 00:56:20,420
+Wow and the thick ways we from Dec ways
+
+851
+00:56:10,910 --> 00:56:25,400
+I forgot and we from Dark Prince rupee
+
+852
+00:56:20,420 --> 00:56:27,200
+operators yeah so can you so dick way
+
+853
+00:56:25,400 --> 00:56:33,220
+says can you take a look at Ruby
+
+854
+00:56:27,200 --> 00:56:38,240
+operators well hold on a second
+
+855
+00:56:33,220 --> 00:56:40,430
+I'm not very familiar with Ruby and I
+
+856
+00:56:38,240 --> 00:56:43,970
+haven't done Ruby for you know I only
+
+857
+00:56:40,430 --> 00:56:47,270
+spent two months studying it and that
+
+858
+00:56:43,970 --> 00:56:51,619
+was like four years ago base in four or
+
+859
+00:56:47,270 --> 00:56:57,559
+five years ago well beginning in 2012 so
+
+860
+00:56:51,619 --> 00:56:59,420
+operators in Ruby Oh Dec ways is also
+
+861
+00:56:57,559 --> 00:57:04,099
+from Germany oh you you two are friends
+
+862
+00:56:59,420 --> 00:57:06,339
+is all right Pat Salome you and the tech
+
+863
+00:57:04,099 --> 00:57:06,339
+ways
+
+864
+00:57:10,450 --> 00:57:16,900
+I am using a odd blah ad blocker you see
+
+865
+00:57:14,260 --> 00:57:19,780
+my main you see right now you are seeing
+
+866
+00:57:16,900 --> 00:57:22,920
+Google Chrome which I actually don't use
+
+867
+00:57:19,780 --> 00:57:25,210
+much but basically when you use Google
+
+868
+00:57:22,920 --> 00:57:28,420
+services you have to use Google Chrome
+
+869
+00:57:25,210 --> 00:57:31,359
+kind of because Google has become so
+
+870
+00:57:28,420 --> 00:57:36,250
+evil that they you know if you use other
+
+871
+00:57:31,359 --> 00:57:37,900
+browsers often there fails and stuff you
+
+872
+00:57:36,250 --> 00:57:39,819
+know since I'm doing YouTube you know
+
+873
+00:57:37,900 --> 00:57:42,010
+which is Google's account so I you know
+
+874
+00:57:39,819 --> 00:57:44,829
+so that's why I'm using Google Chrome
+
+875
+00:57:42,010 --> 00:57:49,319
+but normally my main browser is the
+
+876
+00:57:44,829 --> 00:57:54,069
+brave browser and also Firefox browser
+
+877
+00:57:49,319 --> 00:57:56,770
+also Safari actually I used them all you
+
+878
+00:57:54,069 --> 00:57:58,750
+know for different purposes brave is a
+
+879
+00:57:56,770 --> 00:58:05,980
+browser that's based on Google Chrome
+
+880
+00:57:58,750 --> 00:58:08,950
+chromium and it has it has the adblock
+
+881
+00:58:05,980 --> 00:58:11,680
+in building you know it's a new kind of
+
+882
+00:58:08,950 --> 00:58:15,579
+system so and in Firefox
+
+883
+00:58:11,680 --> 00:58:16,720
+I have JavaScript of that so you know
+
+884
+00:58:15,579 --> 00:58:19,960
+when you basically when you have
+
+885
+00:58:16,720 --> 00:58:23,140
+JavaScript off that that makes
+
+886
+00:58:19,960 --> 00:58:27,690
+everything much safer even safer than ad
+
+887
+00:58:23,140 --> 00:58:30,549
+blockers because when JavaScript is off
+
+888
+00:58:27,690 --> 00:58:33,940
+websites can hardly do anything you know
+
+889
+00:58:30,549 --> 00:58:38,799
+all the viruses and more where they they
+
+890
+00:58:33,940 --> 00:58:42,819
+don't walk you know but when JavaScript
+
+891
+00:58:38,799 --> 00:58:45,369
+off most websites will be not readable
+
+892
+00:58:42,819 --> 00:58:49,599
+you know they they come up empty or you
+
+893
+00:58:45,369 --> 00:58:56,109
+know things are getting bad like that so
+
+894
+00:58:49,599 --> 00:58:57,970
+what about so about Ruby operators so
+
+895
+00:58:56,109 --> 00:59:03,280
+what do you want to talk about that like
+
+896
+00:58:57,970 --> 00:59:08,680
+I don't know like I don't even know what
+
+897
+00:59:03,280 --> 00:59:10,599
+are the Ruby operators like so I if I
+
+898
+00:59:08,680 --> 00:59:14,549
+recall correctly a few days ago you were
+
+899
+00:59:10,599 --> 00:59:14,549
+saying they are confusing right
+
+900
+00:59:17,680 --> 00:59:22,720
+yes I think you were saying they are
+
+901
+00:59:19,869 --> 00:59:29,970
+confusing or something like that but I
+
+902
+00:59:22,720 --> 00:59:40,780
+don't really know Ruby right right
+
+903
+00:59:29,970 --> 00:59:44,610
+takeaways anything else answer answer
+
+904
+00:59:40,780 --> 00:59:47,860
+like so what what what's about Ruby
+
+905
+00:59:44,610 --> 00:59:51,280
+so that way says they have single symbol
+
+906
+00:59:47,860 --> 00:59:52,360
+operators for many things like private
+
+907
+00:59:51,280 --> 00:59:56,950
+oh that
+
+908
+00:59:52,360 --> 01:00:00,850
+okay that I that is not I don't think
+
+909
+00:59:56,950 --> 01:00:09,040
+there are operators they are B they are
+
+910
+01:00:00,850 --> 01:00:13,000
+the let's see Ruby variables let's see
+
+911
+01:00:09,040 --> 01:00:18,550
+where is this true versus hash table
+
+912
+01:00:13,000 --> 01:00:23,080
+function rap yeah so Ruby let's go to
+
+913
+01:00:18,550 --> 01:00:26,859
+Ruby basics printing strange coding
+
+914
+01:00:23,080 --> 01:00:31,859
+strange stream manipulation numbers and
+
+915
+01:00:26,859 --> 01:00:35,140
+string conversion everything is a object
+
+916
+01:00:31,859 --> 01:00:38,790
+variables yeah so Ruby variables you
+
+917
+01:00:35,140 --> 01:00:45,550
+have this condition you have this
+
+918
+01:00:38,790 --> 01:00:50,320
+syntactical markup basically I have a
+
+919
+01:00:45,550 --> 01:00:55,410
+article about that let's see where is it
+
+920
+01:00:50,320 --> 01:00:55,410
+oh yeah so Lisa wait
+
+921
+01:01:00,200 --> 01:01:05,180
+so you have a bunch of predefined
+
+922
+01:01:02,809 --> 01:01:07,339
+variables now ruby has a bunch of
+
+923
+01:01:05,180 --> 01:01:11,839
+predefined global variables they all
+
+924
+01:01:07,339 --> 01:01:14,660
+start with a dollar sign but the thing
+
+925
+01:01:11,839 --> 01:01:18,049
+we are out here so variable name prefix
+
+926
+01:01:14,660 --> 01:01:23,150
+and variable scope so ruby has follows
+
+927
+01:01:18,049 --> 01:01:26,569
+this compiler enforced syntactical rule
+
+928
+01:01:23,150 --> 01:01:30,500
+about variable names so if it starts
+
+929
+01:01:26,569 --> 01:01:32,780
+with the dollar sign is its scope is
+
+930
+01:01:30,500 --> 01:01:36,170
+global it's a global variable if it
+
+931
+01:01:32,780 --> 01:01:40,730
+starts with a @ sign then it's a
+
+932
+01:01:36,170 --> 01:01:44,569
+instance variable of a class if we start
+
+933
+01:01:40,730 --> 01:01:47,180
+with a double at sign they enter class
+
+934
+01:01:44,569 --> 01:01:50,809
+variable so you know that's part of the
+
+935
+01:01:47,180 --> 01:01:56,079
+syntax it's it's not a operator I don't
+
+936
+01:01:50,809 --> 01:01:59,030
+think so
+
+937
+01:01:56,079 --> 01:02:02,809
+so they have single symbol operators for
+
+938
+01:01:59,030 --> 01:02:05,260
+many things like private public yes and
+
+939
+01:02:02,809 --> 01:02:07,790
+I think actually you know in my personal
+
+940
+01:02:05,260 --> 01:02:10,549
+opinion about you know programming
+
+941
+01:02:07,790 --> 01:02:13,640
+language design so these are actually
+
+942
+01:02:10,549 --> 01:02:17,030
+called cgo you know Perl began with the
+
+943
+01:02:13,640 --> 01:02:18,859
+name they are called see Joe okay and I
+
+944
+01:02:17,030 --> 01:02:21,170
+have you know I have strong opinions
+
+945
+01:02:18,859 --> 01:02:23,079
+about that actually I think that's a
+
+946
+01:02:21,170 --> 01:02:28,160
+great thing
+
+947
+01:02:23,079 --> 01:02:32,470
+let's see sorry see Joe War I actually
+
+948
+01:02:28,160 --> 01:02:35,000
+have a quite a few articles about that
+
+949
+01:02:32,470 --> 01:02:40,490
+you know because I think it's a good
+
+950
+01:02:35,000 --> 01:02:42,410
+thing because you know they me you know
+
+951
+01:02:40,490 --> 01:02:45,319
+I don't you know I don't know if you are
+
+952
+01:02:42,410 --> 01:02:49,190
+interested in that but probably because
+
+953
+01:02:45,319 --> 01:02:54,589
+this is an interesting topic about
+
+954
+01:02:49,190 --> 01:02:57,250
+programming language design okay let me
+
+955
+01:02:54,589 --> 01:02:57,250
+talk about that
+
+956
+01:02:58,170 --> 01:03:16,859
+I want to be on my own keep and have a
+
+957
+01:03:02,069 --> 01:03:20,029
+keyboard okay we got a lot of topics no
+
+958
+01:03:16,859 --> 01:03:23,250
+they I think they are great maybe I can
+
+959
+01:03:20,029 --> 01:03:26,039
+let me explain my my view okay so maybe
+
+960
+01:03:23,250 --> 01:03:28,380
+maybe your you know maybe your think
+
+961
+01:03:26,039 --> 01:03:31,559
+about maybe maybe you know possibly
+
+962
+01:03:28,380 --> 01:03:33,809
+you'll change your mind you know like
+
+963
+01:03:31,559 --> 01:03:37,109
+how how we have functional for me you
+
+964
+01:03:33,809 --> 01:03:42,569
+know we have strongly typed languages
+
+965
+01:03:37,109 --> 01:03:44,880
+for example Java C C++ : Haskell
+
+966
+01:03:42,569 --> 01:03:47,069
+especially Haskell or camel they are
+
+967
+01:03:44,880 --> 01:03:49,529
+strongly type of typed and in functional
+
+968
+01:03:47,069 --> 01:03:54,200
+programming like Haskell F sharp or
+
+969
+01:03:49,529 --> 01:03:58,049
+camel they have type inference you know
+
+970
+01:03:54,200 --> 01:04:02,000
+which is like a fancy mechanism to infer
+
+971
+01:03:58,049 --> 01:04:06,839
+types so basically if you are in a scow
+
+972
+01:04:02,000 --> 01:04:10,079
+community you know you know they have a
+
+973
+01:04:06,839 --> 01:04:12,420
+strong concept about like type you know
+
+974
+01:04:10,079 --> 01:04:14,549
+type solves everything you know like
+
+975
+01:04:12,420 --> 01:04:15,210
+they you know like type you know they
+
+976
+01:04:14,549 --> 01:04:18,180
+type
+
+977
+01:04:15,210 --> 01:04:20,789
+prevents many errors and and can be
+
+978
+01:04:18,180 --> 01:04:28,500
+useful as part of your program to
+
+979
+01:04:20,789 --> 01:04:30,690
+actually specify things and in may in
+
+980
+01:04:28,500 --> 01:04:32,730
+many ways prevent arrow so anyway so
+
+981
+01:04:30,690 --> 01:04:36,240
+they you know that's that's the point
+
+982
+01:04:32,730 --> 01:04:38,519
+about strongly typed languages the idea
+
+983
+01:04:36,240 --> 01:04:40,680
+is that that types you know prevents
+
+984
+01:04:38,519 --> 01:04:43,230
+many errors you know everything is like
+
+985
+01:04:40,680 --> 01:04:48,630
+strict you know they like almost like
+
+986
+01:04:43,230 --> 01:04:52,170
+they follow a logic types now now
+
+987
+01:04:48,630 --> 01:04:55,519
+note that these strongly typed languages
+
+988
+01:04:52,170 --> 01:04:59,609
+type the concept they are semantic
+
+989
+01:04:55,519 --> 01:05:01,799
+concept you know they are not syntax
+
+990
+01:04:59,609 --> 01:05:04,529
+they are semantics like for example you
+
+991
+01:05:01,799 --> 01:05:06,960
+declare a variable type int so this
+
+992
+01:05:04,529 --> 01:05:09,269
+variable is type int integer you know
+
+993
+01:05:06,960 --> 01:05:11,579
+like like the compiler will understand
+
+994
+01:05:09,269 --> 01:05:13,739
+that it has a meaning you know
+
+995
+01:05:11,579 --> 01:05:16,979
+semantics you know the type concept is
+
+996
+01:05:13,739 --> 01:05:20,819
+semantics now what what if you can turn
+
+997
+01:05:16,979 --> 01:05:22,739
+that concept into sync syntax so
+
+998
+01:05:20,819 --> 01:05:24,599
+whenever for example you know let's go
+
+999
+01:05:22,739 --> 01:05:27,509
+back to Ruby you know maybe you don't
+
+1000
+01:05:24,599 --> 01:05:30,269
+like Ruby but but in Ruby for example
+
+1001
+01:05:27,509 --> 01:05:31,259
+whenever you see a variable name start
+
+1002
+01:05:30,269 --> 01:05:35,459
+with the dollar sign
+
+1003
+01:05:31,259 --> 01:05:37,920
+you know immediately that this that this
+
+1004
+01:05:35,459 --> 01:05:40,950
+is a global variable it has global scope
+
+1005
+01:05:37,920 --> 01:05:43,619
+so so what I'm saying is that the
+
+1006
+01:05:40,950 --> 01:05:45,719
+semantics the meaning you know of the
+
+1007
+01:05:43,619 --> 01:05:48,299
+type you know which is you know the
+
+1008
+01:05:45,719 --> 01:05:50,329
+typed languages you know semantics now
+
+1009
+01:05:48,299 --> 01:05:52,769
+it becomes syntactic Oh
+
+1010
+01:05:50,329 --> 01:05:54,119
+which is great because you look at
+
+1011
+01:05:52,769 --> 01:05:56,640
+things you already know what it means
+
+1012
+01:05:54,119 --> 01:05:59,009
+you know so when you have a duck you
+
+1013
+01:05:56,640 --> 01:06:02,219
+know when you have a s sign you know
+
+1014
+01:05:59,009 --> 01:06:04,349
+already it's a instance variable when
+
+1015
+01:06:02,219 --> 01:06:07,019
+you have double add sign you know it's a
+
+1016
+01:06:04,349 --> 01:06:09,420
+class variable so by looking at things
+
+1017
+01:06:07,019 --> 01:06:11,039
+even without compiling you know like to
+
+1018
+01:06:09,420 --> 01:06:15,329
+humans you already know what it means
+
+1019
+01:06:11,039 --> 01:06:18,180
+but compiler also know what it means
+
+1020
+01:06:15,329 --> 01:06:20,219
+like compiler when a compiler sees a
+
+1021
+01:06:18,180 --> 01:06:22,319
+dollar sign in front of variable it
+
+1022
+01:06:20,219 --> 01:06:24,630
+knows like but because of the definition
+
+1023
+01:06:22,319 --> 01:06:29,009
+of the language it already knows this
+
+1024
+01:06:24,630 --> 01:06:32,369
+this is a global variable so so you see
+
+1025
+01:06:29,009 --> 01:06:36,180
+what I mean so this so it so we with
+
+1026
+01:06:32,369 --> 01:06:38,699
+this serial thing it kind of turns the
+
+1027
+01:06:36,180 --> 01:06:43,259
+semantic concept of types into a
+
+1028
+01:06:38,699 --> 01:06:47,069
+syntactic concept that and that is
+
+1029
+01:06:43,259 --> 01:06:49,199
+critical because because in formal
+
+1030
+01:06:47,069 --> 01:06:51,900
+language when you study formal languages
+
+1031
+01:06:49,199 --> 01:06:55,049
+which is the basically the foundation of
+
+1032
+01:06:51,900 --> 01:06:57,809
+theoretical computer science which is
+
+1033
+01:06:55,049 --> 01:07:00,089
+where regular expression came from
+
+1034
+01:06:57,809 --> 01:07:02,190
+automata you know or the regular
+
+1035
+01:07:00,089 --> 01:07:06,329
+languages you know context-free grammar
+
+1036
+01:07:02,190 --> 01:07:08,309
+they they are all formal languages now
+
+1037
+01:07:06,329 --> 01:07:11,029
+what is the formal language formal
+
+1038
+01:07:08,309 --> 01:07:13,829
+language is basically just a bunch of
+
+1039
+01:07:11,029 --> 01:07:16,709
+characters like no meaning no no
+
+1040
+01:07:13,829 --> 01:07:18,630
+semantic meaning a formal language you
+
+1041
+01:07:16,709 --> 01:07:21,509
+know study of formal language is purely
+
+1042
+01:07:18,630 --> 01:07:23,249
+just you know sequence of characters how
+
+1043
+01:07:21,509 --> 01:07:25,410
+can they be changed you know how can
+
+1044
+01:07:23,249 --> 01:07:27,510
+they be transformed that's that's
+
+1045
+01:07:25,410 --> 01:07:30,480
+that's why you define your language
+
+1046
+01:07:27,510 --> 01:07:33,420
+using you know the formal language
+
+1047
+01:07:30,480 --> 01:07:36,210
+grammar you know that that's all from
+
+1048
+01:07:33,420 --> 01:07:37,950
+that's what formal language is about you
+
+1049
+01:07:36,210 --> 01:07:40,860
+know just a bunch of character sequences
+
+1050
+01:07:37,950 --> 01:07:43,380
+or you chorus string you know a sequence
+
+1051
+01:07:40,860 --> 01:07:44,220
+of characters so what I'm saying here is
+
+1052
+01:07:43,380 --> 01:07:48,980
+that so
+
+1053
+01:07:44,220 --> 01:07:51,540
+so now you turn the type concept into a
+
+1054
+01:07:48,980 --> 01:07:54,390
+you know for example like groovy
+
+1055
+01:07:51,540 --> 01:07:57,180
+it becomes a syntactic or concept so you
+
+1056
+01:07:54,390 --> 01:07:59,550
+can actually treat it as a formal
+
+1057
+01:07:57,180 --> 01:08:00,960
+language you know it so that's my idea
+
+1058
+01:07:59,550 --> 01:08:04,770
+that's what I'm saying
+
+1059
+01:08:00,960 --> 01:08:07,920
+so in other words for example let's say
+
+1060
+01:08:04,770 --> 01:08:12,030
+we create we invent a new language now
+
+1061
+01:08:07,920 --> 01:08:16,530
+every you know suppose you know every
+
+1062
+01:08:12,030 --> 01:08:19,380
+function name start with F let's say
+
+1063
+01:08:16,530 --> 01:08:23,040
+let's just say let's not say if let's
+
+1064
+01:08:19,380 --> 01:08:26,460
+say lambda okay now if you create a
+
+1065
+01:08:23,040 --> 01:08:28,740
+language where every identifier if the
+
+1066
+01:08:26,460 --> 01:08:31,680
+identifier start with the Lamba lambda
+
+1067
+01:08:28,740 --> 01:08:33,810
+it means a function o in other words
+
+1068
+01:08:31,680 --> 01:08:36,930
+every time you define a function the
+
+1069
+01:08:33,810 --> 01:08:39,540
+compiler forces you enforce that the
+
+1070
+01:08:36,930 --> 01:08:41,910
+name must start with the lambda that's a
+
+1071
+01:08:39,540 --> 01:08:46,070
+similar idea with the cito you know this
+
+1072
+01:08:41,910 --> 01:08:48,570
+this idea is called cgo okay see Jo okay
+
+1073
+01:08:46,070 --> 01:08:51,270
+so if you have that that wouldn't that
+
+1074
+01:08:48,570 --> 01:08:53,850
+be great you know because now especially
+
+1075
+01:08:51,270 --> 01:08:56,340
+in JavaScript you know especially many
+
+1076
+01:08:53,850 --> 01:08:58,980
+of these flexible syntax languages like
+
+1077
+01:08:56,340 --> 01:09:02,520
+Ruby JavaScript where a function can be
+
+1078
+01:08:58,980 --> 01:09:04,650
+a value it can be assigned to a variable
+
+1079
+01:09:02,520 --> 01:09:06,870
+you know you get confused because a
+
+1080
+01:09:04,650 --> 01:09:09,840
+variable can be a function can be you
+
+1081
+01:09:06,870 --> 01:09:11,880
+know can be lots of things then but now
+
+1082
+01:09:09,840 --> 01:09:15,330
+if every function names start with the
+
+1083
+01:09:11,880 --> 01:09:19,590
+lambda that kind of clarifies you know
+
+1084
+01:09:15,330 --> 01:09:23,010
+so so that's that is why I think this
+
+1085
+01:09:19,590 --> 01:09:27,000
+cgo idea turning semantic concept of
+
+1086
+01:09:23,010 --> 01:09:30,570
+type into a syntactic concept or formal
+
+1087
+01:09:27,000 --> 01:09:33,630
+languages is a great thing now actually
+
+1088
+01:09:30,570 --> 01:09:36,360
+we have also other conventions we are
+
+1089
+01:09:33,630 --> 01:09:39,370
+already doing that for example Ruby is a
+
+1090
+01:09:36,360 --> 01:09:52,570
+one example another example is
+
+1091
+01:09:39,370 --> 01:09:54,850
+let me show you naming a predicate okay
+
+1092
+01:09:52,570 --> 01:09:58,660
+computer language predicate function
+
+1093
+01:09:54,850 --> 01:10:00,010
+terminology and naming convention now in
+
+1094
+01:09:58,660 --> 01:10:03,310
+Emacs Lisp
+
+1095
+01:10:00,010 --> 01:10:05,140
+if a function ends with a P that means
+
+1096
+01:10:03,310 --> 01:10:05,860
+the function returns either true or
+
+1097
+01:10:05,140 --> 01:10:08,860
+false
+
+1098
+01:10:05,860 --> 01:10:15,000
+that's a Emacs Lisp comment convention
+
+1099
+01:10:08,860 --> 01:10:18,040
+now in closure Lisp and scheme Lisp
+
+1100
+01:10:15,000 --> 01:10:20,890
+when when a function ends with a
+
+1101
+01:10:18,040 --> 01:10:23,440
+question mark that means the function
+
+1102
+01:10:20,890 --> 01:10:26,860
+always returns true or false you know
+
+1103
+01:10:23,440 --> 01:10:30,330
+this is another idea of cg.o you know
+
+1104
+01:10:26,860 --> 01:10:35,800
+well where where you specify the meaning
+
+1105
+01:10:30,330 --> 01:10:38,970
+in the syntax itself and I'm giving some
+
+1106
+01:10:35,800 --> 01:10:41,560
+examples so Emacs Lisp ending with P
+
+1107
+01:10:38,970 --> 01:10:44,380
+scheme and closure ends with a question
+
+1108
+01:10:41,560 --> 01:10:47,170
+sign same thing with Ruby Ruby also ends
+
+1109
+01:10:44,380 --> 01:10:49,720
+with if you if a function ends with a
+
+1110
+01:10:47,170 --> 01:10:51,790
+question sign it means it returns true
+
+1111
+01:10:49,720 --> 01:10:54,460
+or false okay
+
+1112
+01:10:51,790 --> 01:10:57,430
+in Wolfram language Mathematica it ends
+
+1113
+01:10:54,460 --> 01:11:01,060
+with a capital Q Q stand for question
+
+1114
+01:10:57,430 --> 01:11:03,220
+you know so here you know these are some
+
+1115
+01:11:01,060 --> 01:11:05,740
+conventions and will be too you know
+
+1116
+01:11:03,220 --> 01:11:08,680
+here are lists of names in Ruby
+
+1117
+01:11:05,740 --> 01:11:09,610
+functions you know 0 question mark hard
+
+1118
+01:11:08,680 --> 01:11:12,040
+question mark
+
+1119
+01:11:09,610 --> 01:11:15,460
+even question mark integer question mark
+
+1120
+01:11:12,040 --> 01:11:18,700
+you know then 0 question mark you know
+
+1121
+01:11:15,460 --> 01:11:21,010
+you have lots of these function names so
+
+1122
+01:11:18,700 --> 01:11:24,340
+this is another idea of the C joke where
+
+1123
+01:11:21,010 --> 01:11:27,490
+you turn the the concept of type from
+
+1124
+01:11:24,340 --> 01:11:29,670
+semantics to syntax so I think you know
+
+1125
+01:11:27,490 --> 01:11:33,360
+so in my opinion I think this is great
+
+1126
+01:11:29,670 --> 01:11:36,640
+now let me also mention that in Perl
+
+1127
+01:11:33,360 --> 01:11:38,500
+you also have CTO but policy choice is
+
+1128
+01:11:36,640 --> 01:11:41,260
+entirely different from this idea
+
+1129
+01:11:38,500 --> 01:11:44,740
+because procedure depends on value so
+
+1130
+01:11:41,260 --> 01:11:47,800
+it's it's kind of different
+
+1131
+01:11:44,740 --> 01:11:51,700
+okay but let's not you know get into
+
+1132
+01:11:47,800 --> 01:11:53,770
+that so this is the idea of the CEO so I
+
+1133
+01:11:51,700 --> 01:11:58,220
+have some articles
+
+1134
+01:11:53,770 --> 01:12:01,760
+discussing the pros and cons of CJ in
+
+1135
+01:11:58,220 --> 01:12:05,480
+detail you know a CEO of a function
+
+1136
+01:12:01,760 --> 01:12:08,600
+perhaps parameter names you know I won't
+
+1137
+01:12:05,480 --> 01:12:11,180
+function functional parameters I want to
+
+1138
+01:12:08,600 --> 01:12:13,310
+be able to we you know in a programming
+
+1139
+01:12:11,180 --> 01:12:15,290
+language you have variables you know you
+
+1140
+01:12:13,310 --> 01:12:17,420
+have global variables you have function
+
+1141
+01:12:15,290 --> 01:12:20,300
+parameters and you have local variables
+
+1142
+01:12:17,420 --> 01:12:23,690
+I want to be able to district
+
+1143
+01:12:20,300 --> 01:12:26,300
+distinguish them syntactically you know
+
+1144
+01:12:23,690 --> 01:12:28,640
+by by looking at it I know this can't
+
+1145
+01:12:26,300 --> 01:12:30,710
+this variables local variable or it's a
+
+1146
+01:12:28,640 --> 01:12:35,140
+function parameter or it's a global
+
+1147
+01:12:30,710 --> 01:12:38,720
+variable now I know of no languages that
+
+1148
+01:12:35,140 --> 01:12:43,130
+that that has this you know where it
+
+1149
+01:12:38,720 --> 01:12:46,490
+distinguish functions parameter variable
+
+1150
+01:12:43,130 --> 01:12:49,610
+by syntactically by a CEO I don't know
+
+1151
+01:12:46,490 --> 01:12:52,190
+any of that but I did create my own
+
+1152
+01:12:49,610 --> 01:12:55,730
+convention you know I experimented for a
+
+1153
+01:12:52,190 --> 01:12:58,400
+while I think it's good so anyway so
+
+1154
+01:12:55,730 --> 01:13:01,880
+that's some of the ideas about CTO so
+
+1155
+01:12:58,400 --> 01:13:07,540
+that's that's why I I think it's a good
+
+1156
+01:13:01,880 --> 01:13:07,540
+thing you know that that's about that
+
+1157
+01:13:12,720 --> 01:13:18,930
+so Dec way says every time I look at
+
+1158
+01:13:15,840 --> 01:13:21,330
+Ruby code I wrote a couple of weeks ago
+
+1159
+01:13:18,930 --> 01:13:26,520
+I need to look up what all the symbols
+
+1160
+01:13:21,330 --> 01:13:30,660
+mean yeah that's a valid reason you know
+
+1161
+01:13:26,520 --> 01:13:33,300
+but but that also applies to almost
+
+1162
+01:13:30,660 --> 01:13:36,120
+every aspect of programming language for
+
+1163
+01:13:33,300 --> 01:13:38,970
+example input in C for example for
+
+1164
+01:13:36,120 --> 01:13:40,620
+example in this in this everything is
+
+1165
+01:13:38,970 --> 01:13:44,730
+parenthesis you know you don't have to
+
+1166
+01:13:40,620 --> 01:13:46,830
+remember about the syntax but in C you
+
+1167
+01:13:44,730 --> 01:13:49,440
+know unless you already program in C for
+
+1168
+01:13:46,830 --> 01:13:52,020
+years but if you have new programmer you
+
+1169
+01:13:49,440 --> 01:13:55,230
+look at the syntax index like each one
+
+1170
+01:13:52,020 --> 01:13:58,110
+is different and and no regularity like
+
+1171
+01:13:55,230 --> 01:14:00,450
+you have to remember oh this is loop
+
+1172
+01:13:58,110 --> 01:14:03,390
+loop needs you know to be this this way
+
+1173
+01:14:00,450 --> 01:14:07,650
+you know so anyone can make the same
+
+1174
+01:14:03,390 --> 01:14:09,870
+complaint about you know C syntax which
+
+1175
+01:14:07,650 --> 01:14:22,170
+is actually about the whole language you
+
+1176
+01:14:09,870 --> 01:14:24,000
+know so that's okay so let's see yeah so
+
+1177
+01:14:22,170 --> 01:14:26,160
+you are saying you know you have to
+
+1178
+01:14:24,000 --> 01:14:29,190
+learn what the see Jose means but you
+
+1179
+01:14:26,160 --> 01:14:33,810
+know I don't think that's you know I
+
+1180
+01:14:29,190 --> 01:14:36,900
+don't think that's valid I mean it's
+
+1181
+01:14:33,810 --> 01:14:41,340
+it's valid criticism but but for example
+
+1182
+01:14:36,900 --> 01:14:43,110
+in in math you use you have plus sign
+
+1183
+01:14:41,340 --> 01:14:45,330
+you know multiply divide you have to
+
+1184
+01:14:43,110 --> 01:14:47,280
+learn that to again equal you know the
+
+1185
+01:14:45,330 --> 01:14:49,710
+reason they are not confusing it's only
+
+1186
+01:14:47,280 --> 01:14:51,990
+because you know you've been using them
+
+1187
+01:14:49,710 --> 01:14:54,090
+for years that that is actually the
+
+1188
+01:14:51,990 --> 01:14:55,860
+reason you don't you don't have to
+
+1189
+01:14:54,090 --> 01:14:59,220
+remember what the plus sign means you
+
+1190
+01:14:55,860 --> 01:15:02,970
+know and then there's the you know power
+
+1191
+01:14:59,220 --> 01:15:05,880
+side and you know in square root and so
+
+1192
+01:15:02,970 --> 01:15:08,970
+on so that so there's a you know
+
+1193
+01:15:05,880 --> 01:15:12,300
+something to be said about familiarity
+
+1194
+01:15:08,970 --> 01:15:14,280
+you know because these math symbols you
+
+1195
+01:15:12,300 --> 01:15:16,860
+are so used to them since you are age
+
+1196
+01:15:14,280 --> 01:15:19,350
+you know 5-2 king of kindergarten you
+
+1197
+01:15:16,860 --> 01:15:22,110
+know that that is that is why nobody
+
+1198
+01:15:19,350 --> 01:15:25,810
+complains but doesn't mean that this
+
+1199
+01:15:22,110 --> 01:15:28,090
+these are actually intuitive you know
+
+1200
+01:15:25,810 --> 01:15:30,690
+so familiarity is a great thing you know
+
+1201
+01:15:28,090 --> 01:15:34,180
+it's a big thing in everything we do
+
+1202
+01:15:30,690 --> 01:15:37,990
+so you see because every language is
+
+1203
+01:15:34,180 --> 01:15:40,330
+based on see why because the moment they
+
+1204
+01:15:37,990 --> 01:15:42,520
+create some new syntax people don't like
+
+1205
+01:15:40,330 --> 01:15:45,460
+it because you know most people already
+
+1206
+01:15:42,520 --> 01:15:49,600
+familiar with C that is why C syntax
+
+1207
+01:15:45,460 --> 01:15:50,980
+grows and grows you know C C++ Java goal
+
+1208
+01:15:49,600 --> 01:15:53,680
+and JavaScript
+
+1209
+01:15:50,980 --> 01:15:57,820
+you know like almost every language is C
+
+1210
+01:15:53,680 --> 01:16:01,030
+syntax and almost nobody complains only
+
+1211
+01:15:57,820 --> 01:16:03,370
+because we are so used to it but if you
+
+1212
+01:16:01,030 --> 01:16:06,730
+actually look from the beginner you know
+
+1213
+01:16:03,370 --> 01:16:09,640
+point of view 16 taxes worst because
+
+1214
+01:16:06,730 --> 01:16:13,930
+every thing is you know special every
+
+1215
+01:16:09,640 --> 01:16:16,840
+every syntax is special there's no you
+
+1216
+01:16:13,930 --> 01:16:21,580
+know it's not systematic in other words
+
+1217
+01:16:16,840 --> 01:16:25,240
+it's not systematic so when it comes to
+
+1218
+01:16:21,580 --> 01:16:27,690
+you know Ruby's CEO or you know like for
+
+1219
+01:16:25,240 --> 01:16:37,120
+example let me show you another example
+
+1220
+01:16:27,690 --> 01:16:44,050
+go Crozier okay you know typically in
+
+1221
+01:16:37,120 --> 01:16:46,570
+lists we have the convention where let's
+
+1222
+01:16:44,050 --> 01:16:50,340
+go to closure okay let's go to my
+
+1223
+01:16:46,570 --> 01:16:50,340
+closure tutorial
+
+1224
+01:16:53,699 --> 01:17:02,940
+you know kosher has a lot of these magic
+
+1225
+01:16:58,320 --> 01:17:06,030
+characters very knowing okay you can
+
+1226
+01:17:02,940 --> 01:17:09,030
+complain about Ruby wait until you code
+
+1227
+01:17:06,030 --> 01:17:13,830
+closure you closure you know is one of
+
+1228
+01:17:09,030 --> 01:17:16,199
+the least branch of Lisp family but but
+
+1229
+01:17:13,830 --> 01:17:19,380
+one thing unique about closure is that
+
+1230
+01:17:16,199 --> 01:17:21,570
+closure they created this whole bunch
+
+1231
+01:17:19,380 --> 01:17:26,100
+you know like tens of them of this
+
+1232
+01:17:21,570 --> 01:17:29,250
+special cryptic short operator kind of
+
+1233
+01:17:26,100 --> 01:17:32,489
+thing like to be part of the function
+
+1234
+01:17:29,250 --> 01:17:36,530
+name like in traditionalists emag lee's
+
+1235
+01:17:32,489 --> 01:17:40,290
+scheme this racket you know common list
+
+1236
+01:17:36,530 --> 01:17:42,929
+there is a convention where you avoid
+
+1237
+01:17:40,290 --> 01:17:46,050
+you know any of the abbreviations like
+
+1238
+01:17:42,929 --> 01:17:49,800
+typically you function name is like full
+
+1239
+01:17:46,050 --> 01:17:52,320
+function name I traditionally you know
+
+1240
+01:17:49,800 --> 01:17:56,070
+typically you rarely see abbreviations
+
+1241
+01:17:52,320 --> 01:17:58,620
+but closure is like 100 degree 180
+
+1242
+01:17:56,070 --> 01:18:01,920
+degrees turn around of that concept
+
+1243
+01:17:58,620 --> 01:18:05,160
+closure they love you know the hijiki
+
+1244
+01:18:01,920 --> 01:18:07,800
+they created this bunch of like things
+
+1245
+01:18:05,160 --> 01:18:10,050
+you know with these special characters
+
+1246
+01:18:07,800 --> 01:18:12,650
+in function name to indicate you know
+
+1247
+01:18:10,050 --> 01:18:16,050
+different meaning you know particularly
+
+1248
+01:18:12,650 --> 01:18:19,199
+semantics to that function name function
+
+1249
+01:18:16,050 --> 01:18:21,600
+you know then then you have then their
+
+1250
+01:18:19,199 --> 01:18:23,400
+function tends to be abbreviated like
+
+1251
+01:18:21,600 --> 01:18:27,300
+four letters three characters four
+
+1252
+01:18:23,400 --> 01:18:31,010
+characters so wait until you you do call
+
+1253
+01:18:27,300 --> 01:18:31,010
+culture that's you know more confusing
+
+1254
+01:18:36,719 --> 01:18:41,280
+so okay so I think that's about it for
+
+1255
+01:18:39,239 --> 01:18:46,500
+today I because I you know it's been
+
+1256
+01:18:41,280 --> 01:18:48,449
+like yeah so yeah an hour and 20 minutes
+
+1257
+01:18:46,500 --> 01:18:52,800
+right so that's it for today anything
+
+1258
+01:18:48,449 --> 01:19:00,870
+else so so thank so bad some of me so I
+
+1259
+01:18:52,800 --> 01:19:02,790
+think there is a question I remember
+
+1260
+01:19:00,870 --> 01:19:05,130
+what I wanted to tell you I want to be
+
+1261
+01:19:02,790 --> 01:19:08,520
+on my own keypad half of a keyboard
+
+1262
+01:19:05,130 --> 01:19:11,130
+basically yo s I was partly responsible
+
+1263
+01:19:08,520 --> 01:19:14,699
+for inspiration great thank you
+
+1264
+01:19:11,130 --> 01:19:16,560
+regarding these thank you yeah so we
+
+1265
+01:19:14,699 --> 01:19:19,500
+let's talk about keyboard some other
+
+1266
+01:19:16,560 --> 01:19:24,360
+time and today it's to already kind of
+
+1267
+01:19:19,500 --> 01:19:27,570
+too long so how is your web server set
+
+1268
+01:19:24,360 --> 01:19:30,690
+up to your website I think I talked
+
+1269
+01:19:27,570 --> 01:19:33,300
+about that for five minutes yesterday or
+
+1270
+01:19:30,690 --> 01:19:35,610
+the day before maybe we can talk about
+
+1271
+01:19:33,300 --> 01:19:39,900
+that it's not much I'm old school died
+
+1272
+01:19:35,610 --> 01:19:42,300
+just use a I just use a sink I can show
+
+1273
+01:19:39,900 --> 01:19:46,469
+you actually so closely its for example
+
+1274
+01:19:42,300 --> 01:19:48,960
+let's close Ruby for example my Emacs
+
+1275
+01:19:46,469 --> 01:19:53,070
+block I can now I can sync to my web
+
+1276
+01:19:48,960 --> 01:19:55,650
+server by going to Esha then just call a
+
+1277
+01:19:53,070 --> 01:19:58,680
+sink okay
+
+1278
+01:19:55,650 --> 01:20:01,080
+then that that syncs up to my server now
+
+1279
+01:19:58,680 --> 01:20:04,380
+if you go to my web server sorry
+
+1280
+01:20:01,080 --> 01:20:07,560
+Emacs blog you will see today's update
+
+1281
+01:20:04,380 --> 01:20:15,449
+you know this is temporary I'm going to
+
+1282
+01:20:07,560 --> 01:20:16,949
+remove them and stuff later so so know
+
+1283
+01:20:15,449 --> 01:20:20,840
+you don't know what it means
+
+1284
+01:20:16,949 --> 01:20:24,980
+so I read so you have to learn and
+
+1285
+01:20:20,840 --> 01:20:24,980
+connect them in your head yes
+
+1286
+01:20:27,159 --> 01:20:31,030
+okay yeah hope see you guys hope to see
+
+1287
+01:20:29,830 --> 01:20:33,159
+you guys soon
+
+1288
+01:20:31,030 --> 01:20:36,360
+if you like my stuff you know you can go
+
+1289
+01:20:33,159 --> 01:20:40,030
+to my you can support me by a you know
+
+1290
+01:20:36,360 --> 01:20:41,770
+patreon patreon Amazon gift card PayPal
+
+1291
+01:20:40,030 --> 01:20:43,900
+and stuff by the way if you use Amazon
+
+1292
+01:20:41,770 --> 01:20:46,120
+gift card use this link okay because
+
+1293
+01:20:43,900 --> 01:20:48,790
+sometimes I got people there are a
+
+1294
+01:20:46,120 --> 01:20:51,429
+couple people from from Utah do you know
+
+1295
+01:20:48,790 --> 01:20:56,800
+from French you know they use Amazon
+
+1296
+01:20:51,429 --> 01:20:58,960
+Italy but I cannot cash that yeah so if
+
+1297
+01:20:56,800 --> 01:21:02,070
+you want to serve or me or buy my MX
+
+1298
+01:20:58,960 --> 01:21:05,280
+tutorial so thank you guys for watching
+
+1299
+01:21:02,070 --> 01:21:05,280
+see you soon
+

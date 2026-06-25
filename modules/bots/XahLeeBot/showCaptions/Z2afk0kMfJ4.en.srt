@@ -1,0 +1,6768 @@
+1
+00:00:06,299 --> 00:00:10,440
+welcome to another episode of Pixar talk
+
+2
+00:00:09,599 --> 00:00:16,920
+show
+
+3
+00:00:10,440 --> 00:00:18,619
+today is 2021 April 19th and today we
+
+4
+00:00:16,920 --> 00:00:23,600
+are going to continue
+
+5
+00:00:18,619 --> 00:00:28,199
+uh uh The Saga of exploring emacs this
+
+6
+00:00:23,600 --> 00:00:30,779
+Helm source code and I do source code
+
+7
+00:00:28,199 --> 00:00:33,360
+so if you are watching me live you can
+
+8
+00:00:30,779 --> 00:00:35,660
+see in the YouTube description the that
+
+9
+00:00:33,360 --> 00:00:40,200
+is what we are going to do today
+
+10
+00:00:35,660 --> 00:00:42,420
+uh and uh yeah and if you have comments
+
+11
+00:00:40,200 --> 00:00:45,300
+questions uh type in the comment box
+
+12
+00:00:42,420 --> 00:00:47,399
+okay and today so we are going to do uh
+
+13
+00:00:45,300 --> 00:00:51,180
+emac Beast nothing else today we are
+
+14
+00:00:47,399 --> 00:00:53,039
+just going to focus on that topic and uh
+
+15
+00:00:51,180 --> 00:00:55,140
+so I'm going to do it quickly good
+
+16
+00:00:53,039 --> 00:00:58,859
+morning uh nawaf
+
+17
+00:00:55,140 --> 00:01:01,859
+uh so we are going to
+
+18
+00:00:58,859 --> 00:01:05,939
+first of all I'm going to write a emac
+
+19
+00:01:01,859 --> 00:01:08,700
+this command that will pop up a prompt
+
+20
+00:01:05,939 --> 00:01:12,600
+asking you to type some words to choose
+
+21
+00:01:08,700 --> 00:01:15,780
+among a thousand uh academic phases
+
+22
+00:01:12,600 --> 00:01:19,200
+so basically using firstly matching
+
+23
+00:01:15,780 --> 00:01:21,360
+and I'm going to use the I do mod you
+
+24
+00:01:19,200 --> 00:01:23,700
+know I Do's first First Dimension for
+
+25
+00:01:21,360 --> 00:01:26,460
+that then we are going to start to
+
+26
+00:01:23,700 --> 00:01:29,820
+continue from yesterday look for uh look
+
+27
+00:01:26,460 --> 00:01:32,759
+at the source code of Helm mod
+
+28
+00:01:29,820 --> 00:01:34,560
+then if I if we are successful that will
+
+29
+00:01:32,759 --> 00:01:36,420
+that'll take most of the time if we are
+
+30
+00:01:34,560 --> 00:01:39,000
+successful then we are going to modify
+
+31
+00:01:36,420 --> 00:01:43,500
+our Command so that it
+
+32
+00:01:39,000 --> 00:01:46,439
+um uses Helms uh uh First Imagine okay
+
+33
+00:01:43,500 --> 00:01:48,659
+okay so I'm going to turn my camera to
+
+34
+00:01:46,439 --> 00:01:52,340
+my keyboard okay
+
+35
+00:01:48,659 --> 00:01:57,600
+so because my you know my wife is
+
+36
+00:01:52,340 --> 00:01:58,740
+sleeping is she's gonna go to bed so I
+
+37
+00:01:57,600 --> 00:02:00,479
+want to
+
+38
+00:01:58,740 --> 00:02:02,280
+just show you
+
+39
+00:02:00,479 --> 00:02:05,479
+my keyboard then you are looking at my
+
+40
+00:02:02,280 --> 00:02:10,280
+keyboard This is kinesis this is kinesis
+
+41
+00:02:05,479 --> 00:02:12,959
+Advantage 2 with a linear red switches
+
+42
+00:02:10,280 --> 00:02:15,900
+and this is Ultimate hacking keyboard
+
+43
+00:02:12,959 --> 00:02:19,080
+you can see on my website
+
+44
+00:02:15,900 --> 00:02:21,420
+I have reviews and videos of it and this
+
+45
+00:02:19,080 --> 00:02:25,560
+is Advantage 2 and ottoman hacking
+
+46
+00:02:21,420 --> 00:02:28,379
+keyboard so go buy it if you like it
+
+47
+00:02:25,560 --> 00:02:31,080
+uh okay so let's begin coding I'm going
+
+48
+00:02:28,379 --> 00:02:34,080
+to do this fast today hopefully we can
+
+49
+00:02:31,080 --> 00:02:37,140
+complete what we need so for you emacs
+
+50
+00:02:34,080 --> 00:02:40,140
+users the left side the pink window is
+
+51
+00:02:37,140 --> 00:02:42,660
+my you can see all the command I call
+
+52
+00:02:40,140 --> 00:02:47,040
+for example moving closer right left up
+
+53
+00:02:42,660 --> 00:02:49,620
+down or moving by paragraph or moving up
+
+54
+00:02:47,040 --> 00:02:51,239
+uh and also you can see the keystrokes
+
+55
+00:02:49,620 --> 00:02:54,599
+on the pink window
+
+56
+00:02:51,239 --> 00:02:57,659
+and I'm using soft light keys and I'm
+
+57
+00:02:54,599 --> 00:02:59,280
+using vorac keyboard so the letters are
+
+58
+00:02:57,659 --> 00:03:01,560
+not quality
+
+59
+00:02:59,280 --> 00:03:05,280
+okay so let's first of all begin sorry
+
+60
+00:03:01,560 --> 00:03:06,780
+okay let's start to do this job okay
+
+61
+00:03:05,280 --> 00:03:10,860
+first of all
+
+62
+00:03:06,780 --> 00:03:14,459
+uh create an empty emac bit buffer then
+
+63
+00:03:10,860 --> 00:03:18,360
+we're gonna Define uh select
+
+64
+00:03:14,459 --> 00:03:21,659
+phases okay we're gonna say select
+
+65
+00:03:18,360 --> 00:03:23,580
+phrases and dark stream is gonna be
+
+66
+00:03:21,659 --> 00:03:24,780
+prompt
+
+67
+00:03:23,580 --> 00:03:29,780
+to
+
+68
+00:03:24,780 --> 00:03:29,780
+let users select a icon
+
+69
+00:03:30,180 --> 00:03:38,040
+academic phrase and insert it okay
+
+70
+00:03:35,280 --> 00:03:39,900
+version today's date so this is our
+
+71
+00:03:38,040 --> 00:03:42,540
+Command so we're gonna start to write
+
+72
+00:03:39,900 --> 00:03:48,120
+this command okay uh okay let's let's
+
+73
+00:03:42,540 --> 00:03:51,420
+begin okay so let's prevent uh Arrow
+
+74
+00:03:48,120 --> 00:03:54,659
+yeah let's do that there so let's
+
+75
+00:03:51,420 --> 00:03:57,239
+we don't care for that let's then
+
+76
+00:03:54,659 --> 00:04:00,360
+okay so we need a bunch of academic
+
+77
+00:03:57,239 --> 00:04:03,000
+phrases so let's look at yesterday we
+
+78
+00:04:00,360 --> 00:04:04,739
+have prepared a bunch of academic
+
+79
+00:04:03,000 --> 00:04:06,780
+phrases
+
+80
+00:04:04,739 --> 00:04:12,140
+yeah
+
+81
+00:04:06,780 --> 00:04:12,140
+yeah I removed it okay so we have to uh
+
+82
+00:04:12,659 --> 00:04:17,599
+yeah we have to search for okay let's
+
+83
+00:04:14,879 --> 00:04:17,599
+search for it
+
+84
+00:04:20,299 --> 00:04:25,400
+p-h-r-a-s-e-s academic phrases list okay
+
+85
+00:04:25,680 --> 00:04:28,580
+uh
+
+86
+00:04:28,820 --> 00:04:32,360
+academic phrases
+
+87
+00:04:35,940 --> 00:04:40,680
+okay
+
+88
+00:04:37,919 --> 00:04:43,460
+let me just quickly find it you wouldn't
+
+89
+00:04:40,680 --> 00:04:47,100
+be interested in this
+
+90
+00:04:43,460 --> 00:04:48,860
+analysis okay and let's do that
+
+91
+00:04:47,100 --> 00:04:53,240
+okay
+
+92
+00:04:48,860 --> 00:04:53,240
+uh academic phrases
+
+93
+00:04:56,759 --> 00:04:59,840
+now I remember
+
+94
+00:05:02,000 --> 00:05:08,520
+uh yesterday I have a collection of such
+
+95
+00:05:05,639 --> 00:05:10,500
+phrases but
+
+96
+00:05:08,520 --> 00:05:14,460
+not this
+
+97
+00:05:10,500 --> 00:05:17,419
+yeah oh okay wait page
+
+98
+00:05:14,460 --> 00:05:17,419
+not least
+
+99
+00:05:20,940 --> 00:05:23,900
+uh
+
+100
+00:05:29,100 --> 00:05:34,259
+okay let's let's try this
+
+101
+00:05:32,100 --> 00:05:35,580
+okay these are a bunch of academic
+
+102
+00:05:34,259 --> 00:05:38,160
+phrases
+
+103
+00:05:35,580 --> 00:05:41,100
+let's just use that okay
+
+104
+00:05:38,160 --> 00:05:44,660
+then paste it here so we have a bunch of
+
+105
+00:05:41,100 --> 00:05:44,660
+academic phrases now
+
+106
+00:05:46,020 --> 00:05:52,440
+we will let users choose among one of
+
+107
+00:05:49,020 --> 00:05:54,180
+these okay now make them uh add quote
+
+108
+00:05:52,440 --> 00:05:57,500
+quotation to them
+
+109
+00:05:54,180 --> 00:05:59,580
+okay and make this a okay
+
+110
+00:05:57,500 --> 00:06:04,860
+faces okay
+
+111
+00:05:59,580 --> 00:06:07,380
+then that add a parenthesis around them
+
+112
+00:06:04,860 --> 00:06:11,100
+and add a quote
+
+113
+00:06:07,380 --> 00:06:13,020
+so this is gonna cut we paste it here
+
+114
+00:06:11,100 --> 00:06:15,780
+predify the code
+
+115
+00:06:13,020 --> 00:06:18,539
+okay so that's a code okay let's delete
+
+116
+00:06:15,780 --> 00:06:20,100
+a few of them let's delete the short
+
+117
+00:06:18,539 --> 00:06:21,419
+ones
+
+118
+00:06:20,100 --> 00:06:23,160
+okay
+
+119
+00:06:21,419 --> 00:06:25,440
+uh
+
+120
+00:06:23,160 --> 00:06:27,680
+yeah because we are just testing this
+
+121
+00:06:25,440 --> 00:06:27,680
+anyway
+
+122
+00:06:28,620 --> 00:06:33,600
+okay so we we have a bunch of uh faces
+
+123
+00:06:31,560 --> 00:06:39,479
+academic phrases now
+
+124
+00:06:33,600 --> 00:06:41,759
+now we want to insert we want to uh
+
+125
+00:06:39,479 --> 00:06:45,479
+you know we we actually we need a
+
+126
+00:06:41,759 --> 00:06:48,919
+parenthesis there then we need uh to say
+
+127
+00:06:45,479 --> 00:06:48,919
+user Choice okay
+
+128
+00:06:49,199 --> 00:06:55,460
+Cho
+
+129
+00:06:52,080 --> 00:06:55,460
+I uh
+
+130
+00:06:57,539 --> 00:06:59,960
+what
+
+131
+00:07:08,460 --> 00:07:14,699
+ah I'm not with myself I forgot how to
+
+132
+00:07:11,639 --> 00:07:18,539
+spell choice c-h-o-i-c-e okay I think
+
+133
+00:07:14,699 --> 00:07:22,199
+that's it yeah Choice okay
+
+134
+00:07:18,539 --> 00:07:24,599
+stupid English spelling okay so now user
+
+135
+00:07:22,199 --> 00:07:26,699
+choice is the one user choose and chosen
+
+136
+00:07:24,599 --> 00:07:30,240
+okay so now
+
+137
+00:07:26,699 --> 00:07:32,360
+set Q user choice
+
+138
+00:07:30,240 --> 00:07:35,699
+I do
+
+139
+00:07:32,360 --> 00:07:39,440
+uh completion
+
+140
+00:07:35,699 --> 00:07:39,440
+I do completion read
+
+141
+00:07:42,360 --> 00:07:46,759
+I do completing read okay
+
+142
+00:07:51,840 --> 00:07:56,720
+okay that is the command we want
+
+143
+00:07:57,440 --> 00:08:00,800
+and uh
+
+144
+00:08:00,960 --> 00:08:06,120
+so this function I do completing read
+
+145
+00:08:03,780 --> 00:08:09,900
+and given a list of phrases it will
+
+146
+00:08:06,120 --> 00:08:13,080
+prompt user the faces okay
+
+147
+00:08:09,900 --> 00:08:16,259
+so about the buffer now let's call our
+
+148
+00:08:13,080 --> 00:08:19,440
+Command select faces So Meta X
+
+149
+00:08:16,259 --> 00:08:22,699
+select phrases enter
+
+150
+00:08:19,440 --> 00:08:22,699
+wrong arguments
+
+151
+00:08:24,479 --> 00:08:32,180
+okay so wait uh I do completing
+
+152
+00:08:28,919 --> 00:08:32,180
+uh what's going on
+
+153
+00:08:32,820 --> 00:08:39,959
+oh the first argument should be a prompt
+
+154
+00:08:37,140 --> 00:08:42,959
+pick one okay
+
+155
+00:08:39,959 --> 00:08:43,860
+evaluate the code and it's okay evaluate
+
+156
+00:08:42,959 --> 00:08:47,399
+the code
+
+157
+00:08:43,860 --> 00:08:50,459
+meta X select phrases now we got the
+
+158
+00:08:47,399 --> 00:08:52,800
+list of phrases let's say uh
+
+159
+00:08:50,459 --> 00:08:55,560
+l a
+
+160
+00:08:52,800 --> 00:08:58,860
+okay l a
+
+161
+00:08:55,560 --> 00:09:01,500
+C so that contains the word lack okay so
+
+162
+00:08:58,860 --> 00:09:04,200
+enter oh we do nothing we need to insert
+
+163
+00:09:01,500 --> 00:09:07,860
+it so now insert
+
+164
+00:09:04,200 --> 00:09:12,240
+uh insert user Choice okay now try again
+
+165
+00:09:07,860 --> 00:09:15,720
+evaluate the code metax select faces Lac
+
+166
+00:09:12,240 --> 00:09:18,360
+okay Enter then it inserts that that's
+
+167
+00:09:15,720 --> 00:09:22,320
+what we want now yesterday we found out
+
+168
+00:09:18,360 --> 00:09:25,320
+that the idols First Imagine is based on
+
+169
+00:09:22,320 --> 00:09:28,019
+is a character based first imagine that
+
+170
+00:09:25,320 --> 00:09:32,700
+is if the sentence contains I mean you
+
+171
+00:09:28,019 --> 00:09:34,820
+type whatever and and each character you
+
+172
+00:09:32,700 --> 00:09:37,800
+type is consent consider the character
+
+173
+00:09:34,820 --> 00:09:39,660
+if the sentence contains all the
+
+174
+00:09:37,800 --> 00:09:41,279
+characters you typed it doesn't matter
+
+175
+00:09:39,660 --> 00:09:44,279
+where it doesn't matter if there's
+
+176
+00:09:41,279 --> 00:09:47,339
+something in between I do will consider
+
+177
+00:09:44,279 --> 00:09:48,420
+that as part of your you know as as the
+
+178
+00:09:47,339 --> 00:09:51,779
+choice
+
+179
+00:09:48,420 --> 00:09:54,600
+until there's unique until you type more
+
+180
+00:09:51,779 --> 00:09:57,720
+when when it's Unique you just uh you'll
+
+181
+00:09:54,600 --> 00:10:00,600
+find it okay so now but now we want a
+
+182
+00:09:57,720 --> 00:10:03,300
+word based uh fuzzy matching which is
+
+183
+00:10:00,600 --> 00:10:04,880
+using help so for example let's try help
+
+184
+00:10:03,300 --> 00:10:09,959
+okay
+
+185
+00:10:04,880 --> 00:10:13,200
+h-e-l-m L meta X okay so here's helm
+
+186
+00:10:09,959 --> 00:10:15,060
+so we can say
+
+187
+00:10:13,200 --> 00:10:17,459
+you know one of the command we just
+
+188
+00:10:15,060 --> 00:10:22,500
+defined is Select phrases right
+
+189
+00:10:17,459 --> 00:10:25,920
+now I can type phrases space select it
+
+190
+00:10:22,500 --> 00:10:27,860
+will also uh match our Command name for
+
+191
+00:10:25,920 --> 00:10:31,620
+example let's try
+
+192
+00:10:27,860 --> 00:10:32,399
+p-h-r-a-s-e-s space you see it's right
+
+193
+00:10:31,620 --> 00:10:37,200
+here
+
+194
+00:10:32,399 --> 00:10:39,839
+now I say s e l you see now if I enter
+
+195
+00:10:37,200 --> 00:10:43,140
+you know I'm calling the command we just
+
+196
+00:10:39,839 --> 00:10:47,279
+wrote so okay now cancel now so you see
+
+197
+00:10:43,140 --> 00:10:50,700
+that you see that in Hell mod it's fuzzy
+
+198
+00:10:47,279 --> 00:10:53,279
+based uh First Imagine is based on word
+
+199
+00:10:50,700 --> 00:10:54,360
+based versus imagine and also order that
+
+200
+00:10:53,279 --> 00:10:57,660
+doesn't matter
+
+201
+00:10:54,360 --> 00:11:00,360
+okay so that's that's what we are going
+
+202
+00:10:57,660 --> 00:11:03,300
+to do that's uh but now
+
+203
+00:11:00,360 --> 00:11:09,000
+we are going to start to dive into the
+
+204
+00:11:03,300 --> 00:11:11,579
+Helms emac this source code and to see
+
+205
+00:11:09,000 --> 00:11:12,899
+to see
+
+206
+00:11:11,579 --> 00:11:15,180
+to see
+
+207
+00:11:12,899 --> 00:11:17,519
+if we can understand it
+
+208
+00:11:15,180 --> 00:11:20,579
+and eventually what we need to do is
+
+209
+00:11:17,519 --> 00:11:24,180
+that we want to modify this code so that
+
+210
+00:11:20,579 --> 00:11:26,040
+it uses uh instead instead of I2 it uses
+
+211
+00:11:24,180 --> 00:11:26,640
+Helms World matching
+
+212
+00:11:26,040 --> 00:11:29,120
+um
+
+213
+00:11:26,640 --> 00:11:31,560
+uh First Imagine
+
+214
+00:11:29,120 --> 00:11:33,720
+thank you George for twenty dollars
+
+215
+00:11:31,560 --> 00:11:35,880
+thank you
+
+216
+00:11:33,720 --> 00:11:37,440
+okay so let's begin let's begin the
+
+217
+00:11:35,880 --> 00:11:40,440
+journey so how long have I been talking
+
+218
+00:11:37,440 --> 00:11:40,440
+uh
+
+219
+00:11:40,800 --> 00:11:45,540
+and that can be it cannot be right I
+
+220
+00:11:43,200 --> 00:11:47,579
+already talked for 20 minutes
+
+221
+00:11:45,540 --> 00:11:50,420
+what
+
+222
+00:11:47,579 --> 00:11:50,420
+uh
+
+223
+00:11:50,639 --> 00:11:55,740
+12 minutes okay I I already talked for
+
+224
+00:11:53,339 --> 00:11:57,600
+12 minutes okay not too bad okay let's
+
+225
+00:11:55,740 --> 00:12:00,480
+begin because this is gonna be a long
+
+226
+00:11:57,600 --> 00:12:03,480
+session today so we want to start to
+
+227
+00:12:00,480 --> 00:12:05,160
+look for help okay so uh last time we
+
+228
+00:12:03,480 --> 00:12:10,320
+made some progress but let's continue
+
+229
+00:12:05,160 --> 00:12:15,060
+okay uh so first of all call Helm MX and
+
+230
+00:12:10,320 --> 00:12:18,720
+uh Ctrl H F describe function
+
+231
+00:12:15,060 --> 00:12:20,760
+so Helm so we start to look into Helm
+
+232
+00:12:18,720 --> 00:12:22,920
+source code okay Enter to look at the
+
+233
+00:12:20,760 --> 00:12:26,700
+source code here's the source code and
+
+234
+00:12:22,920 --> 00:12:27,720
+now meanwhile back here uh wait what is
+
+235
+00:12:26,700 --> 00:12:31,680
+this
+
+236
+00:12:27,720 --> 00:12:34,700
+uh what is this Woody blog okay that's
+
+237
+00:12:31,680 --> 00:12:34,700
+my word blog
+
+238
+00:12:35,040 --> 00:12:40,800
+go back to talk show uh today's talk
+
+239
+00:12:37,740 --> 00:12:42,600
+show wait today's talk show is here so
+
+240
+00:12:40,800 --> 00:12:43,800
+let's write it down okay the first
+
+241
+00:12:42,600 --> 00:12:45,540
+command the
+
+242
+00:12:43,800 --> 00:12:48,540
+Helm
+
+243
+00:12:45,540 --> 00:12:51,560
+core stack so first of all we look at
+
+244
+00:12:48,540 --> 00:12:51,560
+how meta X
+
+245
+00:12:51,720 --> 00:12:57,120
+okay then
+
+246
+00:12:53,760 --> 00:13:00,260
+yesterday we found how meta X is
+
+247
+00:12:57,120 --> 00:13:00,260
+actually calling
+
+248
+00:13:02,279 --> 00:13:05,279
+uh
+
+249
+00:13:06,000 --> 00:13:10,079
+it's actually calling
+
+250
+00:13:15,959 --> 00:13:21,740
+there how meta X read extended command
+
+251
+00:13:19,260 --> 00:13:26,160
+Okay up up array so let's copy that
+
+252
+00:13:21,740 --> 00:13:31,860
+let's make you know let's keep track
+
+253
+00:13:26,160 --> 00:13:35,760
+okay so how meta X is calling this Helm
+
+254
+00:13:31,860 --> 00:13:38,820
+MX read extended command now we look at
+
+255
+00:13:35,760 --> 00:13:41,399
+the source code of that okay
+
+256
+00:13:38,820 --> 00:13:42,899
+so here is the source code I mean let's
+
+257
+00:13:41,399 --> 00:13:47,760
+enter
+
+258
+00:13:42,899 --> 00:13:50,160
+so here is the source code and this
+
+259
+00:13:47,760 --> 00:13:53,579
+command is actually again calling
+
+260
+00:13:50,160 --> 00:13:57,120
+another command to do the work
+
+261
+00:13:53,579 --> 00:14:00,660
+so let's see what it is there it is okay
+
+262
+00:13:57,120 --> 00:14:02,339
+so this command is actually the you know
+
+263
+00:14:00,660 --> 00:14:05,459
+the heart of this command is actually
+
+264
+00:14:02,339 --> 00:14:08,940
+just a wrapper so it's calling this Helm
+
+265
+00:14:05,459 --> 00:14:12,540
+command okay let's copy go back and
+
+266
+00:14:08,940 --> 00:14:14,240
+let's record it let's put it here
+
+267
+00:14:12,540 --> 00:14:18,120
+actually actually
+
+268
+00:14:14,240 --> 00:14:19,980
+let's go back to our emac this and put
+
+269
+00:14:18,120 --> 00:14:23,240
+it there okay
+
+270
+00:14:19,980 --> 00:14:23,240
+and wait
+
+271
+00:14:23,519 --> 00:14:32,360
+uh
+
+272
+00:14:25,980 --> 00:14:32,360
+yeah here so so we want so here is the
+
+273
+00:14:35,220 --> 00:14:41,160
+Helm color stack okay so now it's
+
+274
+00:14:38,339 --> 00:14:44,100
+actually so it's actually calling help
+
+275
+00:14:41,160 --> 00:14:46,860
+the command the function help so now
+
+276
+00:14:44,100 --> 00:14:49,680
+let's describe function on Helm and go
+
+277
+00:14:46,860 --> 00:14:51,959
+to the source code of Helm okay here's a
+
+278
+00:14:49,680 --> 00:14:55,740
+code narrow to region
+
+279
+00:14:51,959 --> 00:14:59,579
+and it's 160 lines now if you remove the
+
+280
+00:14:55,740 --> 00:15:02,699
+comments it's just a 50 lines okay
+
+281
+00:14:59,579 --> 00:15:05,160
+and this command is actually again calls
+
+282
+00:15:02,699 --> 00:15:08,399
+another command to do the actual work
+
+283
+00:15:05,160 --> 00:15:11,100
+that's what we found out yesterday so it
+
+284
+00:15:08,399 --> 00:15:13,800
+is actually calling
+
+285
+00:15:11,100 --> 00:15:16,980
+um Helm internal you see
+
+286
+00:15:13,800 --> 00:15:21,600
+you see here is a local variable FN FN
+
+287
+00:15:16,980 --> 00:15:24,839
+is a function now and and uh and you
+
+288
+00:15:21,600 --> 00:15:28,199
+know is set up what value should it be
+
+289
+00:15:24,839 --> 00:15:31,380
+so it's either one of Helm nest
+
+290
+00:15:28,199 --> 00:15:33,959
+if Helm is already called or you just
+
+291
+00:15:31,380 --> 00:15:35,759
+call Helm again or it calls Helm
+
+292
+00:15:33,959 --> 00:15:39,600
+internal
+
+293
+00:15:35,759 --> 00:15:42,000
+so you know so first of all it says set
+
+294
+00:15:39,600 --> 00:15:44,820
+sets up a local variable FN then
+
+295
+00:15:42,000 --> 00:15:46,680
+eventually here is what I call what it
+
+296
+00:15:44,820 --> 00:15:53,100
+calls you know FN
+
+297
+00:15:46,680 --> 00:15:56,040
+apply FM playlist is a property list
+
+298
+00:15:53,100 --> 00:15:59,820
+so anyway so what we found is that
+
+299
+00:15:56,040 --> 00:16:01,320
+essentially this command Helm it's
+
+300
+00:15:59,820 --> 00:16:04,079
+actually not a command it's just a
+
+301
+00:16:01,320 --> 00:16:06,240
+function you cannot call this
+
+302
+00:16:04,079 --> 00:16:09,959
+interactivity because you see there's no
+
+303
+00:16:06,240 --> 00:16:13,100
+Interactive line there so this this
+
+304
+00:16:09,959 --> 00:16:16,259
+function Helm actually cause
+
+305
+00:16:13,100 --> 00:16:19,980
+uh it calls Helm internal to do work
+
+306
+00:16:16,259 --> 00:16:24,420
+okay so close that let's write it down
+
+307
+00:16:19,980 --> 00:16:29,240
+uh okay open reopen uh
+
+308
+00:16:24,420 --> 00:16:29,240
+yeah copy that and uh okay hold on
+
+309
+00:16:30,660 --> 00:16:35,000
+uh wait uh what
+
+310
+00:16:35,300 --> 00:16:43,800
+okay uh yeah so it actually says that
+
+311
+00:16:41,399 --> 00:16:48,060
+uh
+
+312
+00:16:43,800 --> 00:16:50,579
+apply Helm internal to a p list now P
+
+313
+00:16:48,060 --> 00:16:53,399
+list is some sort of property list let's
+
+314
+00:16:50,579 --> 00:16:55,560
+see what it is
+
+315
+00:16:53,399 --> 00:16:58,560
+so far so good
+
+316
+00:16:55,560 --> 00:17:01,160
+nice microphone yeah yes
+
+317
+00:16:58,560 --> 00:17:01,160
+uh
+
+318
+00:17:01,560 --> 00:17:07,919
+so let's see helm
+
+319
+00:17:04,020 --> 00:17:10,020
+I want to know what is the P list p is
+
+320
+00:17:07,919 --> 00:17:13,980
+usually a property list okay hold on a
+
+321
+00:17:10,020 --> 00:17:17,039
+second let's narrow to Define and let's
+
+322
+00:17:13,980 --> 00:17:20,220
+search for p list okay hold on a second
+
+323
+00:17:17,039 --> 00:17:21,720
+let's show the pink Window search for p
+
+324
+00:17:20,220 --> 00:17:24,179
+list okay
+
+325
+00:17:21,720 --> 00:17:27,299
+oh okay so it's an argument yes please
+
+326
+00:17:24,179 --> 00:17:29,240
+is at least like that okay property list
+
+327
+00:17:27,299 --> 00:17:31,559
+okay
+
+328
+00:17:29,240 --> 00:17:35,000
+keywords supported okay
+
+329
+00:17:31,559 --> 00:17:38,640
+okay so somewhat okay keep that in mind
+
+330
+00:17:35,000 --> 00:17:40,679
+so here is actually a sample call
+
+331
+00:17:38,640 --> 00:17:43,580
+okay
+
+332
+00:17:40,679 --> 00:17:43,580
+uh
+
+333
+00:17:47,340 --> 00:17:55,860
+okay let's open a new Emax window
+
+334
+00:17:52,140 --> 00:18:00,900
+Let's uh keep this window here
+
+335
+00:17:55,860 --> 00:18:05,000
+and actually uh let's see
+
+336
+00:18:00,900 --> 00:18:07,740
+now open last closed
+
+337
+00:18:05,000 --> 00:18:10,740
+keep this in mind okay
+
+338
+00:18:07,740 --> 00:18:10,740
+uh
+
+339
+00:18:11,100 --> 00:18:15,299
+so
+
+340
+00:18:12,299 --> 00:18:18,179
+we we you know I need to do this quickly
+
+341
+00:18:15,299 --> 00:18:21,780
+I need to make progress
+
+342
+00:18:18,179 --> 00:18:26,240
+so again we are trying to find how fuzzy
+
+343
+00:18:21,780 --> 00:18:26,240
+matching is implemented in helm
+
+344
+00:18:26,400 --> 00:18:32,640
+so here's the keywords
+
+345
+00:18:29,580 --> 00:18:35,100
+okay so okay let's let's continue on now
+
+346
+00:18:32,640 --> 00:18:38,220
+let's look at how internal okay
+
+347
+00:18:35,100 --> 00:18:40,940
+let's look at Helm internal
+
+348
+00:18:38,220 --> 00:18:45,539
+yeah describe function
+
+349
+00:18:40,940 --> 00:18:48,360
+then jump to the
+
+350
+00:18:45,539 --> 00:18:51,059
+okay actually Helm internal this is how
+
+351
+00:18:48,360 --> 00:18:54,720
+you call it let's write it down
+
+352
+00:18:51,059 --> 00:18:58,799
+uh then jump to the source code
+
+353
+00:18:54,720 --> 00:19:00,480
+okay so entry point helper okay Helm
+
+354
+00:18:58,799 --> 00:19:03,740
+internal now
+
+355
+00:19:00,480 --> 00:19:06,840
+narrow to Define
+
+356
+00:19:03,740 --> 00:19:09,600
+so this is again 100 lines okay
+
+357
+00:19:06,840 --> 00:19:12,960
+yesterday we have not look at
+
+358
+00:19:09,600 --> 00:19:15,120
+we have not looked at this command much
+
+359
+00:19:12,960 --> 00:19:18,059
+so let's continue
+
+360
+00:19:15,120 --> 00:19:21,720
+so Helm internal okay but before we do
+
+361
+00:19:18,059 --> 00:19:25,320
+that how is it called again how internal
+
+362
+00:19:21,720 --> 00:19:28,380
+optional sources sources is a list uh
+
+363
+00:19:25,320 --> 00:19:32,299
+for example a list of academic phrases
+
+364
+00:19:28,380 --> 00:19:32,299
+then input is
+
+365
+00:19:33,780 --> 00:19:38,100
+okay input is whatever user has already
+
+366
+00:19:36,360 --> 00:19:40,760
+typed I think
+
+367
+00:19:38,100 --> 00:19:43,679
+wait and prompt resume
+
+368
+00:19:40,760 --> 00:19:45,179
+pre-select buffer key map default
+
+369
+00:19:43,679 --> 00:19:48,179
+history okay
+
+370
+00:19:45,179 --> 00:19:52,620
+uh Helm internal
+
+371
+00:19:48,179 --> 00:19:53,780
+so let's look again now there is no
+
+372
+00:19:52,620 --> 00:19:56,880
+no
+
+373
+00:19:53,780 --> 00:20:00,179
+documentation for Helm internally well
+
+374
+00:19:56,880 --> 00:20:03,059
+they they there is the internal Helm
+
+375
+00:20:00,179 --> 00:20:05,400
+function called by helm for sources
+
+376
+00:20:03,059 --> 00:20:10,200
+input for for these arguments and
+
+377
+00:20:05,400 --> 00:20:15,240
+history Arc Helm okay so it seems that
+
+378
+00:20:10,200 --> 00:20:17,280
+the function Helm internal uses the same
+
+379
+00:20:15,240 --> 00:20:21,240
+argument as hell
+
+380
+00:20:17,280 --> 00:20:24,620
+now we want to be sure let's let's check
+
+381
+00:20:21,240 --> 00:20:24,620
+okay let's check a little bit
+
+382
+00:20:27,539 --> 00:20:33,840
+okay here's Helm internal and and let's
+
+383
+00:20:30,360 --> 00:20:36,299
+let's describe function on helm
+
+384
+00:20:33,840 --> 00:20:39,000
+uh it jumped
+
+385
+00:20:36,299 --> 00:20:40,740
+okay oh no no it didn't jump so here's
+
+386
+00:20:39,000 --> 00:20:44,280
+how Helm internal
+
+387
+00:20:40,740 --> 00:20:46,940
+and uh here is okay so let's move this
+
+388
+00:20:44,280 --> 00:20:46,940
+here actually
+
+389
+00:20:47,820 --> 00:20:55,940
+so here is Helm
+
+390
+00:20:51,419 --> 00:21:00,559
+so Helm course Helm internal okay
+
+391
+00:20:55,940 --> 00:21:00,559
+and the rest P lists
+
+392
+00:21:00,780 --> 00:21:06,000
+okay so Helm Internal Documentation says
+
+393
+00:21:03,960 --> 00:21:07,080
+the internal Helm function called by
+
+394
+00:21:06,000 --> 00:21:09,960
+helm
+
+395
+00:21:07,080 --> 00:21:14,400
+for this this this this this and this
+
+396
+00:21:09,960 --> 00:21:17,240
+see Helm okay so it's sources input
+
+397
+00:21:14,400 --> 00:21:17,240
+pumped resume
+
+398
+00:21:20,640 --> 00:21:29,480
+uh wait okay so narrow two region ah
+
+399
+00:21:25,559 --> 00:21:29,480
+okay now to region yeah
+
+400
+00:21:29,700 --> 00:21:33,799
+and actually widen okay
+
+401
+00:21:37,440 --> 00:21:42,600
+yeah it moved you know we lost the
+
+402
+00:21:40,620 --> 00:21:44,520
+position for Helm internal so let's
+
+403
+00:21:42,600 --> 00:21:47,179
+let's describe function let's see how
+
+404
+00:21:44,520 --> 00:21:47,179
+I'm internal
+
+405
+00:21:48,600 --> 00:21:55,799
+so Helm internal is line to that 200 I
+
+406
+00:21:52,559 --> 00:21:57,539
+mean 2 800 2800.
+
+407
+00:21:55,799 --> 00:22:02,480
+and uh
+
+408
+00:21:57,539 --> 00:22:02,480
+the function Helm is 2600 okay
+
+409
+00:22:03,960 --> 00:22:10,020
+okay Helm course Helm internal now we
+
+410
+00:22:06,659 --> 00:22:12,480
+want to make sure they use this exact is
+
+411
+00:22:10,020 --> 00:22:16,320
+their argument exactly the same
+
+412
+00:22:12,480 --> 00:22:19,460
+sources input prompt resume okay
+
+413
+00:22:16,320 --> 00:22:22,860
+sources input prompt resume then
+
+414
+00:22:19,460 --> 00:22:24,780
+pre-select yes buffer check key map
+
+415
+00:22:22,860 --> 00:22:28,140
+check default
+
+416
+00:22:24,780 --> 00:22:32,240
+check and history check okay so Helm
+
+417
+00:22:28,140 --> 00:22:32,240
+actually has one more thing allow nest
+
+418
+00:22:32,580 --> 00:22:35,299
+okay
+
+419
+00:22:35,460 --> 00:22:39,600
+so they they essentially use this the
+
+420
+00:22:37,860 --> 00:22:41,640
+same argument okay Helm and Helm
+
+421
+00:22:39,600 --> 00:22:44,520
+internal
+
+422
+00:22:41,640 --> 00:22:47,659
+now Helm course Helm internal is that
+
+423
+00:22:44,520 --> 00:22:47,659
+right uh
+
+424
+00:22:47,820 --> 00:22:50,600
+let's go down
+
+425
+00:22:50,640 --> 00:22:54,960
+yeah Helm course Helm internal okay so
+
+426
+00:22:53,220 --> 00:22:57,919
+now
+
+427
+00:22:54,960 --> 00:23:01,320
+now what does Helm internal uh do let's
+
+428
+00:22:57,919 --> 00:23:05,480
+narrow to region and let's let's see how
+
+429
+00:23:01,320 --> 00:23:05,480
+internal what does it do
+
+430
+00:23:07,260 --> 00:23:12,000
+all right
+
+431
+00:23:08,580 --> 00:23:15,539
+okay so how many lines hundred lines
+
+432
+00:23:12,000 --> 00:23:16,620
+okay so we need to I need to um focus on
+
+433
+00:23:15,539 --> 00:23:20,640
+this
+
+434
+00:23:16,620 --> 00:23:25,100
+uh so so Helm internal uh this bunch of
+
+435
+00:23:20,640 --> 00:23:25,100
+options commonly assert
+
+436
+00:23:26,520 --> 00:23:35,520
+unless so if if Helm nested
+
+437
+00:23:30,960 --> 00:23:39,360
+is not true then set Helm initial frame
+
+438
+00:23:35,520 --> 00:23:40,860
+selected frame okay uh frame is kind of
+
+439
+00:23:39,360 --> 00:23:43,860
+uh
+
+440
+00:23:40,860 --> 00:23:47,840
+panel there's something egg okay
+
+441
+00:23:43,860 --> 00:23:47,840
+then activate the advices
+
+442
+00:23:49,860 --> 00:23:56,880
+okay then
+
+443
+00:23:51,539 --> 00:24:00,860
+when so if advice add is defined is is
+
+444
+00:23:56,880 --> 00:24:04,440
+bound the function is defined then
+
+445
+00:24:00,860 --> 00:24:07,020
+advice add read password okay it's
+
+446
+00:24:04,440 --> 00:24:11,960
+related to remote
+
+447
+00:24:07,020 --> 00:24:14,820
+you know uh FTP or you know remote SSH
+
+448
+00:24:11,960 --> 00:24:19,080
+advice add
+
+449
+00:24:14,820 --> 00:24:22,620
+so when pound advice add then do these
+
+450
+00:24:19,080 --> 00:24:24,840
+things ensure line of mod is disabled in
+
+451
+00:24:22,620 --> 00:24:27,299
+Helm buffers to preserve performance
+
+452
+00:24:24,840 --> 00:24:31,140
+that's right so when you have alignment
+
+453
+00:24:27,299 --> 00:24:35,700
+mod it makes emacs very slow okay then
+
+454
+00:24:31,140 --> 00:24:38,640
+advice add line them on blah blah blah
+
+455
+00:24:35,700 --> 00:24:44,279
+then Helm log
+
+456
+00:24:38,640 --> 00:24:45,840
+okay uh okay it kind of logs okay then
+
+457
+00:24:44,279 --> 00:24:49,919
+Helm prompt
+
+458
+00:24:45,840 --> 00:24:53,460
+or pumped pattern set queue Helm pumped
+
+459
+00:24:49,919 --> 00:24:55,860
+Pumped pattern okay
+
+460
+00:24:53,460 --> 00:24:59,640
+so it looks like so far you know it's
+
+461
+00:24:55,860 --> 00:25:02,100
+calling it's setting Helm prompt so Helm
+
+462
+00:24:59,640 --> 00:25:05,039
+prompt is not a local variable you see
+
+463
+00:25:02,100 --> 00:25:08,779
+I'm trying to search for it it failed so
+
+464
+00:25:05,039 --> 00:25:13,080
+Helm prompt is a some sort of global
+
+465
+00:25:08,779 --> 00:25:15,059
+variable and but it's internal to Hell
+
+466
+00:25:13,080 --> 00:25:17,940
+mod because you can see
+
+467
+00:25:15,059 --> 00:25:19,020
+uh usually two dash means it's internal
+
+468
+00:25:17,940 --> 00:25:21,179
+to help
+
+469
+00:25:19,020 --> 00:25:22,620
+so so
+
+470
+00:25:21,179 --> 00:25:25,380
+it's
+
+471
+00:25:22,620 --> 00:25:27,179
+um it's setting Helm pump okay so now
+
+472
+00:25:25,380 --> 00:25:30,779
+then
+
+473
+00:25:27,179 --> 00:25:33,659
+let none essential true prevent Mouse
+
+474
+00:25:30,779 --> 00:25:36,900
+jumping to the upper right hand corner
+
+475
+00:25:33,659 --> 00:25:38,520
+of the frame I don't know what that what
+
+476
+00:25:36,900 --> 00:25:41,640
+bug is that
+
+477
+00:25:38,520 --> 00:25:44,400
+what is non-essential let's see
+
+478
+00:25:41,640 --> 00:25:47,600
+this y function non-essential oh it's
+
+479
+00:25:44,400 --> 00:25:47,600
+not even defined
+
+480
+00:25:47,880 --> 00:25:55,140
+okay so no essential is not a field in
+
+481
+00:25:51,720 --> 00:25:58,740
+emac this function it must be
+
+482
+00:25:55,140 --> 00:26:00,539
+oh actually it's just a variable so set
+
+483
+00:25:58,740 --> 00:26:03,620
+the variable no essential a local
+
+484
+00:26:00,539 --> 00:26:03,620
+variable to true
+
+485
+00:26:03,960 --> 00:26:09,720
+but where is it used
+
+486
+00:26:07,140 --> 00:26:12,960
+that's that's kind of strange that so
+
+487
+00:26:09,720 --> 00:26:16,320
+it's not used in this function
+
+488
+00:26:12,960 --> 00:26:19,559
+so that must mean either it's a mistake
+
+489
+00:26:16,320 --> 00:26:23,460
+you know they forgot to remove these
+
+490
+00:26:19,559 --> 00:26:26,760
+variable it's an unused variable or
+
+491
+00:26:23,460 --> 00:26:29,580
+it is actually some Global variable
+
+492
+00:26:26,760 --> 00:26:33,000
+defining Helm let's try okay
+
+493
+00:26:29,580 --> 00:26:35,039
+copy that describe variable no essential
+
+494
+00:26:33,000 --> 00:26:37,679
+yeah okay so it's actually so it's a
+
+495
+00:26:35,039 --> 00:26:39,360
+global variable in emac lisp no
+
+496
+00:26:37,679 --> 00:26:41,000
+essentially it's a variable defined in
+
+497
+00:26:39,360 --> 00:26:43,320
+simple.el
+
+498
+00:26:41,000 --> 00:26:45,779
+documentation wherever the currently
+
+499
+00:26:43,320 --> 00:26:47,460
+executing code is performing an
+
+500
+00:26:45,779 --> 00:26:51,299
+essential task
+
+501
+00:26:47,460 --> 00:26:53,460
+okay this variable should be noneal
+
+502
+00:26:51,299 --> 00:26:57,799
+only when running code that should not
+
+503
+00:26:53,460 --> 00:26:57,799
+disrupt disturb the user okay
+
+504
+00:26:58,740 --> 00:27:04,440
+okay yeah it is some kind of uh user
+
+505
+00:27:02,700 --> 00:27:07,919
+interface related thing
+
+506
+00:27:04,440 --> 00:27:09,960
+so if it's not essential then
+
+507
+00:27:07,919 --> 00:27:11,279
+Okay blah blah blah I don't okay I don't
+
+508
+00:27:09,960 --> 00:27:15,600
+care about this
+
+509
+00:27:11,279 --> 00:27:19,260
+this uh code how maybe use default as
+
+510
+00:27:15,600 --> 00:27:20,880
+input okay now I I think now we are
+
+511
+00:27:19,260 --> 00:27:23,940
+getting into the
+
+512
+00:27:20,880 --> 00:27:26,340
+important part unwind protect
+
+513
+00:27:23,940 --> 00:27:29,779
+conditional case and wine protect is
+
+514
+00:27:26,340 --> 00:27:33,960
+kind of error handling it's like uh
+
+515
+00:27:29,779 --> 00:27:36,720
+uh you know throw and catch okay in
+
+516
+00:27:33,960 --> 00:27:39,960
+that's a lisp version of
+
+517
+00:27:36,720 --> 00:27:43,740
+uh condition case an SD bug
+
+518
+00:27:39,960 --> 00:27:45,480
+you know I hate the word unless okay so
+
+519
+00:27:43,740 --> 00:27:49,799
+basically it means continue to condition
+
+520
+00:27:45,480 --> 00:27:54,860
+case if not debug okay if not debug
+
+521
+00:27:49,799 --> 00:27:54,860
+then so if it's not debug then
+
+522
+00:27:55,799 --> 00:28:02,100
+Source name current Source uh Helm okay
+
+523
+00:27:58,919 --> 00:28:05,760
+I need to go faster help buffer help me
+
+524
+00:28:02,100 --> 00:28:09,600
+initialized okay help initialize
+
+525
+00:28:05,760 --> 00:28:12,299
+resume input default sources okay then
+
+526
+00:28:09,600 --> 00:28:15,539
+comment we don't display Helm buffer
+
+527
+00:28:12,299 --> 00:28:17,480
+here to avoid popping up a window or a
+
+528
+00:28:15,539 --> 00:28:20,640
+frame when
+
+529
+00:28:17,480 --> 00:28:23,220
+exiting immediately when
+
+530
+00:28:20,640 --> 00:28:25,860
+only one candidate disavowed having the
+
+531
+00:28:23,220 --> 00:28:29,760
+helm frame fashion
+
+532
+00:28:25,860 --> 00:28:32,880
+okay let's first compute candidates and
+
+533
+00:28:29,760 --> 00:28:36,899
+if more than one display Helm buffer
+
+534
+00:28:32,880 --> 00:28:39,620
+this is done later in Helm read for mini
+
+535
+00:28:36,899 --> 00:28:39,620
+buffer okay
+
+536
+00:28:41,940 --> 00:28:48,539
+again remember our goal is to find the
+
+537
+00:28:45,360 --> 00:28:51,960
+fuzzy match engine using help
+
+538
+00:28:48,539 --> 00:28:53,640
+so all these uh so far is just interface
+
+539
+00:28:51,960 --> 00:28:56,880
+or wrappers okay
+
+540
+00:28:53,640 --> 00:28:59,340
+uh post command hook okay Helm read from
+
+541
+00:28:56,880 --> 00:29:02,100
+mini buffer okay so this part is
+
+542
+00:28:59,340 --> 00:29:03,620
+probably important okay so let's copy
+
+543
+00:29:02,100 --> 00:29:06,779
+that
+
+544
+00:29:03,620 --> 00:29:10,500
+because Helm read from mini buffer you
+
+545
+00:29:06,779 --> 00:29:12,299
+know in in emacs leaves in glue emacs
+
+546
+00:29:10,500 --> 00:29:15,179
+list there's a read for mini buffer
+
+547
+00:29:12,299 --> 00:29:18,539
+command which is a general command to
+
+548
+00:29:15,179 --> 00:29:21,539
+prompt user and let user input something
+
+549
+00:29:18,539 --> 00:29:24,120
+so apparently Helm defined its own
+
+550
+00:29:21,539 --> 00:29:26,399
+version so that's you know and it's
+
+551
+00:29:24,120 --> 00:29:28,860
+coding that and that is important so
+
+552
+00:29:26,399 --> 00:29:32,399
+let's write it down
+
+553
+00:29:28,860 --> 00:29:34,860
+uh let's write it down
+
+554
+00:29:32,399 --> 00:29:40,159
+okay let's look at the source code
+
+555
+00:29:34,860 --> 00:29:40,159
+quickly Helm read for mini buffer okay
+
+556
+00:29:43,080 --> 00:29:47,760
+so how many lines of code again 100
+
+557
+00:29:45,419 --> 00:29:51,480
+lines of code okay
+
+558
+00:29:47,760 --> 00:29:54,799
+so anyway Let's uh let's put it here and
+
+559
+00:29:51,480 --> 00:29:54,799
+let's go back to read
+
+560
+00:29:55,559 --> 00:30:00,720
+uh the the source code of
+
+561
+00:29:59,399 --> 00:30:02,700
+wait
+
+562
+00:30:00,720 --> 00:30:06,480
+yeah
+
+563
+00:30:02,700 --> 00:30:09,980
+what where are we yeah go back to read
+
+564
+00:30:06,480 --> 00:30:09,980
+the source code of
+
+565
+00:30:10,380 --> 00:30:18,059
+Helm internal right so Helm internal
+
+566
+00:30:14,039 --> 00:30:20,820
+cause Helm read for mini buffer
+
+567
+00:30:18,059 --> 00:30:23,700
+so starting here you know before
+
+568
+00:30:20,820 --> 00:30:27,120
+you know the helm you know Helm MX calls
+
+569
+00:30:23,700 --> 00:30:30,299
+Helm MX read extended command that in
+
+570
+00:30:27,120 --> 00:30:34,860
+turn calls Helm to do the work that in
+
+571
+00:30:30,299 --> 00:30:38,460
+turns cause harm internal to do its work
+
+572
+00:30:34,860 --> 00:30:41,520
+then at that point the helm internal
+
+573
+00:30:38,460 --> 00:30:43,679
+cause cause Helm read for mini buffer
+
+574
+00:30:41,520 --> 00:30:45,179
+but I don't think that's all because at
+
+575
+00:30:43,679 --> 00:30:48,960
+this point
+
+576
+00:30:45,179 --> 00:30:50,220
+it's like splitting into two uh I think
+
+577
+00:30:48,960 --> 00:30:53,039
+because
+
+578
+00:30:50,220 --> 00:30:55,919
+reach for mini buffer is just reading
+
+579
+00:30:53,039 --> 00:30:59,580
+for mini buffer Europe but but you also
+
+580
+00:30:55,919 --> 00:31:02,580
+need to update you know as user types so
+
+581
+00:30:59,580 --> 00:31:04,580
+so there is probably
+
+582
+00:31:02,580 --> 00:31:04,580
+um
+
+583
+00:31:05,039 --> 00:31:10,500
+okay let's go to okay help help me
+
+584
+00:31:07,980 --> 00:31:12,659
+internal narrow to region
+
+585
+00:31:10,500 --> 00:31:16,380
+uh
+
+586
+00:31:12,659 --> 00:31:16,380
+okay read
+
+587
+00:31:17,039 --> 00:31:23,940
+for mini buffer
+
+588
+00:31:19,980 --> 00:31:26,240
+okay so now we are near at the end of
+
+589
+00:31:23,940 --> 00:31:29,220
+the code
+
+590
+00:31:26,240 --> 00:31:34,340
+Helm meet for mini buffer okay go back
+
+591
+00:31:29,220 --> 00:31:34,340
+here paste the actual call
+
+592
+00:31:35,880 --> 00:31:39,320
+okay now go back here
+
+593
+00:31:40,260 --> 00:31:46,140
+so here it calls him read for mini
+
+594
+00:31:43,919 --> 00:31:49,220
+buffer
+
+595
+00:31:46,140 --> 00:31:49,220
+okay then
+
+596
+00:31:50,100 --> 00:31:57,320
+okay here may be a bit complex so
+
+597
+00:31:53,220 --> 00:32:02,960
+program one unless so if not Helm quit
+
+598
+00:31:57,320 --> 00:32:02,960
+then Helm execute selection action okay
+
+599
+00:32:03,299 --> 00:32:06,380
+Okay so
+
+600
+00:32:07,919 --> 00:32:12,659
+so I'm guessing you see when
+
+601
+00:32:12,779 --> 00:32:19,320
+okay you see this command Helm read for
+
+602
+00:32:16,919 --> 00:32:23,039
+mini buffer does not seem to return I
+
+603
+00:32:19,320 --> 00:32:25,580
+mean whatever it returns is not
+
+604
+00:32:23,039 --> 00:32:29,880
+you know set into a variable or captured
+
+605
+00:32:25,580 --> 00:32:31,919
+or fed into another function
+
+606
+00:32:29,880 --> 00:32:36,779
+so that means
+
+607
+00:32:31,919 --> 00:32:40,019
+when Helm read for mini buffer is called
+
+608
+00:32:36,779 --> 00:32:41,220
+possibly it sets some other variable
+
+609
+00:32:40,019 --> 00:32:44,279
+then
+
+610
+00:32:41,220 --> 00:32:46,820
+the code later on will read that as
+
+611
+00:32:44,279 --> 00:32:46,820
+input
+
+612
+00:32:48,179 --> 00:32:55,620
+okay so uh read passes so okay
+
+613
+00:32:52,620 --> 00:32:58,700
+let's press song okay
+
+614
+00:32:55,620 --> 00:32:58,700
+and see
+
+615
+00:32:58,980 --> 00:33:05,159
+yeah so you see
+
+616
+00:33:02,100 --> 00:33:10,220
+basically now the command finished
+
+617
+00:33:05,159 --> 00:33:10,220
+uh you know it's doing log and uh
+
+618
+00:33:11,539 --> 00:33:18,620
+log and update and the reset Helm
+
+619
+00:33:16,080 --> 00:33:18,620
+pattern
+
+620
+00:33:18,899 --> 00:33:23,460
+and help me ignore errors and yeah so it
+
+621
+00:33:22,260 --> 00:33:27,539
+finished
+
+622
+00:33:23,460 --> 00:33:30,360
+Hemlock save maybe so maybe it
+
+623
+00:33:27,539 --> 00:33:31,679
+so let's look at Helm read from mini
+
+624
+00:33:30,360 --> 00:33:33,720
+buffer now
+
+625
+00:33:31,679 --> 00:33:36,480
+I don't get it because
+
+626
+00:33:33,720 --> 00:33:38,820
+you know when you make this call it
+
+627
+00:33:36,480 --> 00:33:41,779
+doesn't whatever it returns is not
+
+628
+00:33:38,820 --> 00:33:41,779
+captured or something
+
+629
+00:33:42,179 --> 00:33:46,140
+you know at least you should call you
+
+630
+00:33:44,279 --> 00:33:49,320
+know uh
+
+631
+00:33:46,140 --> 00:33:51,899
+you know apply a command
+
+632
+00:33:49,320 --> 00:33:54,000
+to the return value of Helm read from
+
+633
+00:33:51,899 --> 00:33:56,580
+mini book so I don't know so let's look
+
+634
+00:33:54,000 --> 00:33:58,320
+at how read for mini buffer
+
+635
+00:33:56,580 --> 00:34:00,960
+describe function
+
+636
+00:33:58,320 --> 00:34:05,179
+okay and go to it
+
+637
+00:34:00,960 --> 00:34:08,639
+here's a code now to region
+
+638
+00:34:05,179 --> 00:34:11,339
+and it's 100 lines okay
+
+639
+00:34:08,639 --> 00:34:13,139
+Helm read for mini buffer
+
+640
+00:34:11,339 --> 00:34:17,000
+um
+
+641
+00:34:13,139 --> 00:34:17,000
+now what is the
+
+642
+00:34:18,240 --> 00:34:26,099
+what is the uh argument let's see
+
+643
+00:34:21,960 --> 00:34:29,240
+prompt input pre-select resume key map
+
+644
+00:34:26,099 --> 00:34:29,240
+default history okay
+
+645
+00:34:29,639 --> 00:34:35,579
+so yeah like I said before at this point
+
+646
+00:34:32,280 --> 00:34:37,919
+it doesn't seems to be
+
+647
+00:34:35,579 --> 00:34:40,440
+you know pure functional programming
+
+648
+00:34:37,919 --> 00:34:42,899
+anymore because
+
+649
+00:34:40,440 --> 00:34:43,740
+it's okay let's continue reading the
+
+650
+00:34:42,899 --> 00:34:47,220
+code
+
+651
+00:34:43,740 --> 00:34:50,339
+read pattern with prompt prompt and
+
+652
+00:34:47,220 --> 00:34:52,859
+initial input input for pre-select
+
+653
+00:34:50,339 --> 00:34:55,800
+resume key map
+
+654
+00:34:52,859 --> 00:34:58,079
+default history see Helm okay
+
+655
+00:34:55,800 --> 00:35:01,520
+so it's telling you to read about Helm
+
+656
+00:34:58,079 --> 00:35:01,520
+with Helm buffer
+
+657
+00:35:01,619 --> 00:35:04,619
+uh
+
+658
+00:35:05,820 --> 00:35:12,900
+history time blinking matching parents
+
+659
+00:35:10,460 --> 00:35:16,040
+Helm log
+
+660
+00:35:12,900 --> 00:35:16,040
+ham resume
+
+661
+00:35:21,960 --> 00:35:29,880
+no I don't you see I don't get it where
+
+662
+00:35:25,680 --> 00:35:33,060
+is the code for pattern matching
+
+663
+00:35:29,880 --> 00:35:35,579
+you know when Helm presents you with
+
+664
+00:35:33,060 --> 00:35:39,079
+lots of choices where's the code that
+
+665
+00:35:35,579 --> 00:35:39,079
+actually filtered them out
+
+666
+00:35:40,020 --> 00:35:44,599
+because that's what we are trying to
+
+667
+00:35:42,119 --> 00:35:44,599
+look for
+
+668
+00:35:44,820 --> 00:35:50,220
+of course we are actually in the very
+
+669
+00:35:47,820 --> 00:35:51,780
+early stage of looking at Helm source
+
+670
+00:35:50,220 --> 00:35:53,760
+code
+
+671
+00:35:51,780 --> 00:35:56,400
+uh
+
+672
+00:35:53,760 --> 00:35:58,140
+so I'm not like trying to complain or
+
+673
+00:35:56,400 --> 00:36:01,079
+anything it's just that
+
+674
+00:35:58,140 --> 00:36:03,960
+we haven't found it yet
+
+675
+00:36:01,079 --> 00:36:05,220
+so when Helm execute action at once if
+
+676
+00:36:03,960 --> 00:36:09,060
+one
+
+677
+00:36:05,220 --> 00:36:12,180
+okay uh select window Helm mini buffer
+
+678
+00:36:09,060 --> 00:36:16,140
+with set the hook
+
+679
+00:36:12,180 --> 00:36:18,599
+Helm maybe update key map
+
+680
+00:36:16,140 --> 00:36:21,000
+so is there anyone like following along
+
+681
+00:36:18,599 --> 00:36:22,920
+with me do I make sense
+
+682
+00:36:21,000 --> 00:36:26,599
+oh yeah I
+
+683
+00:36:22,920 --> 00:36:26,599
+five concurrent users
+
+684
+00:36:29,700 --> 00:36:35,040
+okay so key let's continue reading the
+
+685
+00:36:33,000 --> 00:36:40,380
+helm source code
+
+686
+00:36:35,040 --> 00:36:44,660
+okay so wait let's let's magnify okay
+
+687
+00:36:40,380 --> 00:36:44,660
+continue reading the helm source code
+
+688
+00:36:50,040 --> 00:36:58,079
+uh Helm create If no candidate Helm Mt
+
+689
+00:36:54,359 --> 00:37:00,060
+buffer true okay ensure false update
+
+690
+00:36:58,079 --> 00:37:04,020
+when no candidates
+
+691
+00:37:00,060 --> 00:37:07,440
+okay help reset default pattern okay
+
+692
+00:37:04,020 --> 00:37:09,839
+so we might want to search for the word
+
+693
+00:37:07,440 --> 00:37:12,420
+pattern because that's
+
+694
+00:37:09,839 --> 00:37:15,480
+that's the word Helm uses you know it's
+
+695
+00:37:12,420 --> 00:37:19,579
+related to First imagine so here it is
+
+696
+00:37:15,480 --> 00:37:19,579
+okay so we found this
+
+697
+00:37:20,339 --> 00:37:27,180
+set Q Helm input
+
+698
+00:37:24,060 --> 00:37:31,680
+then Helm pattern
+
+699
+00:37:27,180 --> 00:37:34,500
+okay now where is ham pattern defined
+
+700
+00:37:31,680 --> 00:37:37,820
+okay there's just only three occurrences
+
+701
+00:37:34,500 --> 00:37:37,820
+in this function
+
+702
+00:37:38,880 --> 00:37:45,720
+so Helm pattern is apparently again
+
+703
+00:37:41,520 --> 00:37:49,500
+another uh global-ish variable used by
+
+704
+00:37:45,720 --> 00:37:52,560
+Helm so describe variable Helm pattern
+
+705
+00:37:49,500 --> 00:37:53,400
+there it is the documentation Helm
+
+706
+00:37:52,560 --> 00:37:56,460
+pattern
+
+707
+00:37:53,400 --> 00:37:59,400
+is a variable defined in Helm lib okay
+
+708
+00:37:56,460 --> 00:38:01,560
+value is empty documentation the input
+
+709
+00:37:59,400 --> 00:38:03,000
+pattern used to update the helm buffer
+
+710
+00:38:01,560 --> 00:38:06,300
+yeah
+
+711
+00:38:03,000 --> 00:38:08,220
+okay so apparently when you call you
+
+712
+00:38:06,300 --> 00:38:10,560
+know one of the helm commands so it's
+
+713
+00:38:08,220 --> 00:38:13,680
+not doing things in a functional in a
+
+714
+00:38:10,560 --> 00:38:16,020
+pure functional way uh probably because
+
+715
+00:38:13,680 --> 00:38:17,280
+of reasons for reasons because when you
+
+716
+00:38:16,020 --> 00:38:19,560
+call helm
+
+717
+00:38:17,280 --> 00:38:21,660
+you know how meta X
+
+718
+00:38:19,560 --> 00:38:24,300
+it
+
+719
+00:38:21,660 --> 00:38:27,440
+you know you have the mini buffer at the
+
+720
+00:38:24,300 --> 00:38:30,780
+bottom where you type something
+
+721
+00:38:27,440 --> 00:38:34,079
+uh for example p-h-r-a
+
+722
+00:38:30,780 --> 00:38:37,079
+but however it has another buffer
+
+723
+00:38:34,079 --> 00:38:41,160
+that updates as you type
+
+724
+00:38:37,079 --> 00:38:45,359
+and this buffer is not a mini buffer
+
+725
+00:38:41,160 --> 00:38:48,000
+so this is a user interface that's uh
+
+726
+00:38:45,359 --> 00:38:52,920
+different from gnu emacs because in
+
+727
+00:38:48,000 --> 00:38:54,980
+Google emacs the update happens in the
+
+728
+00:38:52,920 --> 00:38:58,320
+mini buffer
+
+729
+00:38:54,980 --> 00:39:01,200
+most of the time I get yeah there are
+
+730
+00:38:58,320 --> 00:39:03,780
+exceptions I guess but anyway so
+
+731
+00:39:01,200 --> 00:39:06,480
+what I'm saying is that so Helm creates
+
+732
+00:39:03,780 --> 00:39:08,460
+a these different buffer called
+
+733
+00:39:06,480 --> 00:39:12,920
+candidates
+
+734
+00:39:08,460 --> 00:39:12,920
+that updates as you type
+
+735
+00:39:12,960 --> 00:39:18,420
+so that means you know so that means on
+
+736
+00:39:15,780 --> 00:39:21,660
+one hand we have the helm
+
+737
+00:39:18,420 --> 00:39:23,220
+you know read from mini buffer that's
+
+738
+00:39:21,660 --> 00:39:26,640
+taking our
+
+739
+00:39:23,220 --> 00:39:29,460
+uh whatever user types on the other hand
+
+740
+00:39:26,640 --> 00:39:32,339
+so it
+
+741
+00:39:29,460 --> 00:39:36,420
+it probably you know it has to update
+
+742
+00:39:32,339 --> 00:39:39,780
+the other buffer but how is that done uh
+
+743
+00:39:36,420 --> 00:39:42,060
+how is that done so it must be
+
+744
+00:39:39,780 --> 00:39:45,320
+I don't know how I'm not sure how it is
+
+745
+00:39:42,060 --> 00:39:45,320
+done it must be some
+
+746
+00:39:46,440 --> 00:39:54,839
+some sort of like parallel
+
+747
+00:39:50,460 --> 00:39:58,260
+uh or concurrency uh going maybe yeah I
+
+748
+00:39:54,839 --> 00:40:00,420
+yeah I don't know so
+
+749
+00:39:58,260 --> 00:40:02,520
+so Helm pattern
+
+750
+00:40:00,420 --> 00:40:04,800
+Helm pattern so you know maybe it's
+
+751
+00:40:02,520 --> 00:40:08,700
+updating some
+
+752
+00:40:04,800 --> 00:40:10,500
+variable and uh another command is
+
+753
+00:40:08,700 --> 00:40:12,780
+actually
+
+754
+00:40:10,500 --> 00:40:14,760
+uh checking the variable whenever the
+
+755
+00:40:12,780 --> 00:40:16,400
+variable changes another command is
+
+756
+00:40:14,760 --> 00:40:20,339
+running in the background or something
+
+757
+00:40:16,400 --> 00:40:22,380
+that updates the Helms
+
+758
+00:40:20,339 --> 00:40:25,020
+candidate buffer
+
+759
+00:40:22,380 --> 00:40:28,160
+so possibly that's
+
+760
+00:40:25,020 --> 00:40:31,440
+how it is done you see uh Helm create
+
+761
+00:40:28,160 --> 00:40:34,460
+you know I don't know I'm just like kind
+
+762
+00:40:31,440 --> 00:40:34,460
+of guessing right now
+
+763
+00:40:34,520 --> 00:40:39,359
+so
+
+764
+00:40:36,480 --> 00:40:43,760
+you know because we just only we be only
+
+765
+00:40:39,359 --> 00:40:43,760
+we begin to look at the helm source code
+
+766
+00:40:44,839 --> 00:40:52,800
+so run with timer and the
+
+767
+00:40:48,839 --> 00:40:56,460
+yeah so I'm not actually seeing any
+
+768
+00:40:52,800 --> 00:40:58,980
+deeper level of function course that
+
+769
+00:40:56,460 --> 00:41:01,140
+you know that's kind of a Call of
+
+770
+00:40:58,980 --> 00:41:03,240
+something so I'm not saying seeing that
+
+771
+00:41:01,140 --> 00:41:06,900
+so you can see
+
+772
+00:41:03,240 --> 00:41:11,240
+Helm execute action at once if one
+
+773
+00:41:06,900 --> 00:41:11,240
+okay Helm display buffer okay
+
+774
+00:41:12,240 --> 00:41:18,960
+a Helm display buffer when this then
+
+775
+00:41:16,560 --> 00:41:20,940
+help this book display buffer hand
+
+776
+00:41:18,960 --> 00:41:25,280
+buffer
+
+777
+00:41:20,940 --> 00:41:25,280
+uh Helen buffer is another
+
+778
+00:41:25,859 --> 00:41:31,200
+Helm buffer is another
+
+779
+00:41:28,500 --> 00:41:32,579
+local variable
+
+780
+00:41:31,200 --> 00:41:36,900
+here
+
+781
+00:41:32,579 --> 00:41:39,000
+and because but it's it's not declared
+
+782
+00:41:36,900 --> 00:41:41,339
+local in this
+
+783
+00:41:39,000 --> 00:41:44,940
+function in this Helm read for mini
+
+784
+00:41:41,339 --> 00:41:48,780
+buffer therefore it must be another
+
+785
+00:41:44,940 --> 00:41:50,180
+Global variable uh for Helm mod so let's
+
+786
+00:41:48,780 --> 00:41:53,520
+look at that
+
+787
+00:41:50,180 --> 00:41:54,720
+describe variable Helm buffer enter what
+
+788
+00:41:53,520 --> 00:41:57,240
+did it say
+
+789
+00:41:54,720 --> 00:42:00,420
+uh
+
+790
+00:41:57,240 --> 00:42:04,740
+Helm buffer is a variable defining Helm
+
+791
+00:42:00,420 --> 00:42:06,599
+lib okay its value is uh as the risk
+
+792
+00:42:04,740 --> 00:42:09,119
+helm
+
+793
+00:42:06,599 --> 00:42:12,000
+okay so documentation but for showing
+
+794
+00:42:09,119 --> 00:42:14,520
+completions so that is the
+
+795
+00:42:12,000 --> 00:42:17,660
+you know that that is the candidate
+
+796
+00:42:14,520 --> 00:42:17,660
+buffer I think
+
+797
+00:42:17,880 --> 00:42:23,220
+okay so let's look at the file Helm live
+
+798
+00:42:21,119 --> 00:42:27,839
+Helm lib okay
+
+799
+00:42:23,220 --> 00:42:31,740
+Hamlet how many lines of occurs 1700
+
+800
+00:42:27,839 --> 00:42:36,359
+let's look at the helm directory
+
+801
+00:42:31,740 --> 00:42:38,099
+so we have been looking at helm.el
+
+802
+00:42:36,359 --> 00:42:42,660
+uh
+
+803
+00:42:38,099 --> 00:42:45,839
+and we saw the mention of Helm lips so
+
+804
+00:42:42,660 --> 00:42:47,940
+just how far down we have to look so far
+
+805
+00:42:45,839 --> 00:42:52,800
+we have not found
+
+806
+00:42:47,940 --> 00:42:56,040
+the fuzzy matching code like not at all
+
+807
+00:42:52,800 --> 00:42:59,300
+so how big is helm.el
+
+808
+00:42:56,040 --> 00:43:01,940
+wait uh widen
+
+809
+00:42:59,300 --> 00:43:04,980
+helm.el is
+
+810
+00:43:01,940 --> 00:43:10,079
+7400 lines okay
+
+811
+00:43:04,980 --> 00:43:12,900
+now okay so so now what we do
+
+812
+00:43:10,079 --> 00:43:15,480
+so we we try to track the function but
+
+813
+00:43:12,900 --> 00:43:18,020
+now we are at the point there is no more
+
+814
+00:43:15,480 --> 00:43:20,460
+true track and we still haven't found
+
+815
+00:43:18,020 --> 00:43:24,599
+where is the
+
+816
+00:43:20,460 --> 00:43:27,960
+code for first imagine so so I'm just
+
+817
+00:43:24,599 --> 00:43:30,800
+starting to look random so now let's
+
+818
+00:43:27,960 --> 00:43:30,800
+uh
+
+819
+00:43:31,140 --> 00:43:35,940
+least matching lines let's look at all
+
+820
+00:43:34,020 --> 00:43:38,579
+the functions in
+
+821
+00:43:35,940 --> 00:43:41,520
+in this file helm.el
+
+822
+00:43:38,579 --> 00:43:43,800
+let's see get a sense what they are
+
+823
+00:43:41,520 --> 00:43:48,660
+okay ham log
+
+824
+00:43:43,800 --> 00:43:51,300
+Helm gets Source held selection okay
+
+825
+00:43:48,660 --> 00:43:55,740
+okay so you can see
+
+826
+00:43:51,300 --> 00:43:59,460
+you see I I see the word here pass okay
+
+827
+00:43:55,740 --> 00:44:00,380
+pass Keys okay that's false Keys that's
+
+828
+00:43:59,460 --> 00:44:04,079
+not
+
+829
+00:44:00,380 --> 00:44:08,119
+passing user input
+
+830
+00:44:04,079 --> 00:44:11,400
+we are trying to find some kind of
+
+831
+00:44:08,119 --> 00:44:14,480
+word for pattern or regular expression
+
+832
+00:44:11,400 --> 00:44:14,480
+or First Imagine
+
+833
+00:44:15,000 --> 00:44:21,060
+this huge number of functions
+
+834
+00:44:18,839 --> 00:44:24,980
+oh there it is okay so
+
+835
+00:44:21,060 --> 00:44:24,980
+so here okay here
+
+836
+00:44:25,280 --> 00:44:32,220
+fuzzy match candidate
+
+837
+00:44:28,020 --> 00:44:36,000
+Helm fuzzy search pattern okay now we
+
+838
+00:44:32,220 --> 00:44:39,359
+actually we we have found
+
+839
+00:44:36,000 --> 00:44:40,859
+we have found uh the kind of functions
+
+840
+00:44:39,359 --> 00:44:43,680
+we are looking for I mean at least
+
+841
+00:44:40,859 --> 00:44:45,839
+closer we you know how much functions
+
+842
+00:44:43,680 --> 00:44:47,099
+let's let's let's go there
+
+843
+00:44:45,839 --> 00:44:49,380
+okay
+
+844
+00:44:47,099 --> 00:44:52,319
+matching candidates
+
+845
+00:44:49,380 --> 00:44:56,339
+yeah so we can see at this point that
+
+846
+00:44:52,319 --> 00:45:00,060
+Helm has a engine it implements its own
+
+847
+00:44:56,339 --> 00:45:02,280
+engine non-trivial engine to
+
+848
+00:45:00,060 --> 00:45:04,680
+to have the feature of you know you know
+
+849
+00:45:02,280 --> 00:45:08,520
+uh fuzzy match
+
+850
+00:45:04,680 --> 00:45:11,220
+uh you know and then you have also Helm
+
+851
+00:45:08,520 --> 00:45:15,240
+Flex match
+
+852
+00:45:11,220 --> 00:45:17,160
+so quite a lot lines of code thousands
+
+853
+00:45:15,240 --> 00:45:20,760
+probably
+
+854
+00:45:17,160 --> 00:45:24,020
+so here we have Helm Flex style score
+
+855
+00:45:20,760 --> 00:45:27,720
+okay so it has a scoring system
+
+856
+00:45:24,020 --> 00:45:32,220
+uh Flex scoring system scoring algorithm
+
+857
+00:45:27,720 --> 00:45:34,920
+of flex style in Emax 27 okay
+
+858
+00:45:32,220 --> 00:45:36,119
+so here we can see regular expression
+
+859
+00:45:34,920 --> 00:45:38,220
+mentioned
+
+860
+00:45:36,119 --> 00:45:40,800
+yeah so
+
+861
+00:45:38,220 --> 00:45:44,700
+at least in part it uses regular
+
+862
+00:45:40,800 --> 00:45:46,859
+expression to do the match
+
+863
+00:45:44,700 --> 00:45:49,740
+now another question I have is whether
+
+864
+00:45:46,859 --> 00:45:51,960
+it exclusively rely on regular
+
+865
+00:45:49,740 --> 00:45:54,960
+expression or not
+
+866
+00:45:51,960 --> 00:45:57,540
+no so what does that mean so if it
+
+867
+00:45:54,960 --> 00:46:00,480
+exclusively rely on regular expression
+
+868
+00:45:57,540 --> 00:46:03,480
+that means whatever Helm does with
+
+869
+00:46:00,480 --> 00:46:05,940
+firstly imagine it actually generate a
+
+870
+00:46:03,480 --> 00:46:08,099
+regular expression then use the regular
+
+871
+00:46:05,940 --> 00:46:11,040
+expression to do the match
+
+872
+00:46:08,099 --> 00:46:12,180
+but if it does not rely on regular
+
+873
+00:46:11,040 --> 00:46:14,579
+expression
+
+874
+00:46:12,180 --> 00:46:16,079
+then that means how must have written
+
+875
+00:46:14,579 --> 00:46:19,619
+its own
+
+876
+00:46:16,079 --> 00:46:22,500
+sort of passing and you know basically a
+
+877
+00:46:19,619 --> 00:46:24,780
+compiler you know a
+
+878
+00:46:22,500 --> 00:46:29,240
+a passer
+
+879
+00:46:24,780 --> 00:46:29,240
+and again that's not trivial
+
+880
+00:46:29,460 --> 00:46:34,800
+okay so so we so at least we have found
+
+881
+00:46:32,520 --> 00:46:37,380
+some of the let's look at the command
+
+882
+00:46:34,800 --> 00:46:40,619
+fuzzy match okay
+
+883
+00:46:37,380 --> 00:46:44,099
+so let's see firstly match Helm firstly
+
+884
+00:46:40,619 --> 00:46:46,020
+match candidate okay check if Helm
+
+885
+00:46:44,099 --> 00:46:48,660
+pattern
+
+886
+00:46:46,020 --> 00:46:51,319
+firstly matches candidate
+
+887
+00:46:48,660 --> 00:46:51,319
+oh
+
+888
+00:46:52,940 --> 00:46:58,380
+uh check if Helm pattern first he
+
+889
+00:46:55,859 --> 00:47:02,880
+matches candidate this function is used
+
+890
+00:46:58,380 --> 00:47:05,579
+with sources built with Helm Source sync
+
+891
+00:47:02,880 --> 00:47:08,359
+this function is used with
+
+892
+00:47:05,579 --> 00:47:08,359
+sources
+
+893
+00:47:09,480 --> 00:47:16,619
+okay build with Helm Source sync okay so
+
+894
+00:47:13,560 --> 00:47:18,000
+by Source it means like a bunch of
+
+895
+00:47:16,619 --> 00:47:20,700
+candidates
+
+896
+00:47:18,000 --> 00:47:24,359
+so I'm guessing this means for example
+
+897
+00:47:20,700 --> 00:47:27,380
+if you are using Helm MX then the
+
+898
+00:47:24,359 --> 00:47:30,000
+candidates are or
+
+899
+00:47:27,380 --> 00:47:32,780
+emacs commands
+
+900
+00:47:30,000 --> 00:47:35,460
+so that's pretty much you know building
+
+901
+00:47:32,780 --> 00:47:38,819
+emacs but sometimes you want to have
+
+902
+00:47:35,460 --> 00:47:40,559
+let's say completion of uh a new
+
+903
+00:47:38,819 --> 00:47:41,960
+language is words
+
+904
+00:47:40,559 --> 00:47:45,180
+so
+
+905
+00:47:41,960 --> 00:47:47,400
+emacs do not have you know them ready to
+
+906
+00:47:45,180 --> 00:47:50,280
+be available so you need to use you need
+
+907
+00:47:47,400 --> 00:47:53,400
+to use Helm Source sync kind of to
+
+908
+00:47:50,280 --> 00:47:56,579
+create the sources so I suppose that's
+
+909
+00:47:53,400 --> 00:47:59,819
+the case so if that's the case then then
+
+910
+00:47:56,579 --> 00:48:03,720
+you call him first image to
+
+911
+00:47:59,819 --> 00:48:06,540
+to get a match something like that
+
+912
+00:48:03,720 --> 00:48:08,280
+okay and it is using
+
+913
+00:48:06,540 --> 00:48:11,520
+um
+
+914
+00:48:08,280 --> 00:48:13,260
+okay so you see at least it you know at
+
+915
+00:48:11,520 --> 00:48:16,440
+least part of it is based on regular
+
+916
+00:48:13,260 --> 00:48:19,500
+expression because we see Helm first the
+
+917
+00:48:16,440 --> 00:48:22,920
+regular expression cache
+
+918
+00:48:19,500 --> 00:48:25,800
+and uh okay so it's a bit complex it
+
+919
+00:48:22,920 --> 00:48:29,520
+even create cash
+
+920
+00:48:25,800 --> 00:48:32,339
+okay so it does create cache
+
+921
+00:48:29,520 --> 00:48:34,020
+so another command Helm fuzzy search
+
+922
+00:48:32,339 --> 00:48:37,260
+pattern okay
+
+923
+00:48:34,020 --> 00:48:39,720
+same as Helm fuzzy match but four
+
+924
+00:48:37,260 --> 00:48:41,339
+sources built with Helm Source in buffer
+
+925
+00:48:39,720 --> 00:48:42,839
+okay
+
+926
+00:48:41,339 --> 00:48:45,960
+uh
+
+927
+00:48:42,839 --> 00:48:48,180
+let's look at next one okay and what's
+
+928
+00:48:45,960 --> 00:48:49,740
+the next one Helm School candidate for
+
+929
+00:48:48,180 --> 00:48:52,260
+Panton
+
+930
+00:48:49,740 --> 00:48:55,220
+a science score to candidate according
+
+931
+00:48:52,260 --> 00:48:55,220
+to Patton
+
+932
+00:48:56,460 --> 00:49:03,540
+okay score is calculated okay
+
+933
+00:49:00,119 --> 00:49:06,260
+I think I got a taste of
+
+934
+00:49:03,540 --> 00:49:06,260
+them
+
+935
+00:49:06,300 --> 00:49:11,900
+uh now
+
+936
+00:49:08,520 --> 00:49:11,900
+okay wait now
+
+937
+00:49:11,940 --> 00:49:18,000
+okay let's look at this one Helm First
+
+938
+00:49:14,099 --> 00:49:21,359
+Imagine D4 sort Function One
+
+939
+00:49:18,000 --> 00:49:24,900
+the transformer for sorting candidates
+
+940
+00:49:21,359 --> 00:49:28,260
+in firstly matching okay
+
+941
+00:49:24,900 --> 00:49:29,460
+it sorts on the display part by default
+
+942
+00:49:28,260 --> 00:49:33,180
+yeah so
+
+943
+00:49:29,460 --> 00:49:36,180
+so Helm you know when you call one of
+
+944
+00:49:33,180 --> 00:49:37,980
+the helm function command
+
+945
+00:49:36,180 --> 00:49:40,980
+has you type
+
+946
+00:49:37,980 --> 00:49:43,680
+it shows you know the updated result in
+
+947
+00:49:40,980 --> 00:49:46,700
+the candidate buffer but it also
+
+948
+00:49:43,680 --> 00:49:46,700
+reorders them
+
+949
+00:49:46,740 --> 00:49:54,480
+yeah he also reorders them on the Fly
+
+950
+00:49:51,720 --> 00:49:56,520
+so basically that's what this uh you
+
+951
+00:49:54,480 --> 00:49:59,220
+know that's why it's talking about sort
+
+952
+00:49:56,520 --> 00:50:01,559
+sorting candidates okay it sorts
+
+953
+00:49:59,220 --> 00:50:05,460
+candidates by their scores as calculated
+
+954
+00:50:01,559 --> 00:50:09,720
+by helmsco candidate for patent
+
+955
+00:50:05,460 --> 00:50:11,520
+set use real to noneal to sort on the
+
+956
+00:50:09,720 --> 00:50:14,760
+real part okay
+
+957
+00:50:11,520 --> 00:50:16,619
+okay yeah so we can see
+
+958
+00:50:14,760 --> 00:50:20,460
+the
+
+959
+00:50:16,619 --> 00:50:22,020
+the first image engine actually hum has
+
+960
+00:50:20,460 --> 00:50:25,200
+an engine of it
+
+961
+00:50:22,020 --> 00:50:27,680
+and it's non-trivial oh my God it's
+
+962
+00:50:25,200 --> 00:50:27,680
+truly
+
+963
+00:50:29,940 --> 00:50:35,940
+yeah then you have Helm first the
+
+964
+00:50:31,920 --> 00:50:37,859
+default highlight match so not only you
+
+965
+00:50:35,940 --> 00:50:40,740
+need to match them and show the result
+
+966
+00:50:37,859 --> 00:50:43,020
+but you also have to highlight them on
+
+967
+00:50:40,740 --> 00:50:47,460
+the Fly
+
+968
+00:50:43,020 --> 00:50:50,880
+so we have a giant uh
+
+969
+00:50:47,460 --> 00:50:54,000
+code base here to do these things okay
+
+970
+00:50:50,880 --> 00:50:58,319
+yeah so it looks looks like you see this
+
+971
+00:50:54,000 --> 00:51:01,020
+4 000 I mean 4500 lines
+
+972
+00:50:58,319 --> 00:51:03,240
+they are all
+
+973
+00:51:01,020 --> 00:51:07,579
+you know they are almost all about
+
+974
+00:51:03,240 --> 00:51:07,579
+matching how much function
+
+975
+00:51:08,400 --> 00:51:11,300
+Okay so
+
+976
+00:51:11,579 --> 00:51:15,000
+so then we have hell match from
+
+977
+00:51:13,559 --> 00:51:19,740
+candidate
+
+978
+00:51:15,000 --> 00:51:22,400
+okay how much from candidate
+
+979
+00:51:19,740 --> 00:51:22,400
+okay
+
+980
+00:51:23,700 --> 00:51:30,119
+then we have Helm compute matches Helm
+
+981
+00:51:27,300 --> 00:51:34,579
+compute matches what does that mean
+
+982
+00:51:30,119 --> 00:51:34,579
+start Computing candidate in source
+
+983
+00:51:35,760 --> 00:51:40,619
+Okay so
+
+984
+00:51:37,260 --> 00:51:42,300
+so far as we can see
+
+985
+00:51:40,619 --> 00:51:44,300
+you know my
+
+986
+00:51:42,300 --> 00:51:44,300
+um
+
+987
+00:51:45,000 --> 00:51:49,520
+you know what we found out before seems
+
+988
+00:51:47,460 --> 00:51:53,520
+to be true
+
+989
+00:51:49,520 --> 00:51:55,680
+that you know help me helm
+
+990
+00:51:53,520 --> 00:51:57,319
+you know when you call him read for mini
+
+991
+00:51:55,680 --> 00:52:02,160
+buffer
+
+992
+00:51:57,319 --> 00:52:03,960
+it sets a bunch of values like patterns
+
+993
+00:52:02,160 --> 00:52:06,900
+and uh
+
+994
+00:52:03,960 --> 00:52:09,900
+candidates and apparently this other
+
+995
+00:52:06,900 --> 00:52:12,059
+code must be checking it on the Fly
+
+996
+00:52:09,900 --> 00:52:15,859
+in parallel
+
+997
+00:52:12,059 --> 00:52:17,700
+I don't know for sure yet but
+
+998
+00:52:15,859 --> 00:52:19,819
+you know
+
+999
+00:52:17,700 --> 00:52:19,819
+um
+
+1000
+00:52:20,220 --> 00:52:27,059
+okay then we also have Helm render
+
+1001
+00:52:24,540 --> 00:52:29,760
+source
+
+1002
+00:52:27,059 --> 00:52:33,020
+okay let me read the comments
+
+1003
+00:52:29,760 --> 00:52:33,020
+hello anime again
+
+1004
+00:52:33,839 --> 00:52:36,680
+uh
+
+1005
+00:52:39,619 --> 00:52:46,880
+okay let's uh hold on a second let's
+
+1006
+00:52:42,540 --> 00:52:46,880
+let's let's take a break for a minute
+
+1007
+00:52:48,359 --> 00:52:52,339
+so you can see me here
+
+1008
+00:53:01,319 --> 00:53:04,520
+hold on a second
+
+1009
+00:53:25,380 --> 00:53:28,579
+Okay so
+
+1010
+00:53:29,460 --> 00:53:31,579
+thank you
+
+1011
+00:53:40,319 --> 00:53:46,619
+we need a drink
+
+1012
+00:53:43,619 --> 00:53:48,540
+okay I'm so like I'm super busy right
+
+1013
+00:53:46,619 --> 00:53:54,020
+now
+
+1014
+00:53:48,540 --> 00:53:54,020
+this uh coating is not done yet
+
+1015
+00:53:55,740 --> 00:54:04,160
+we uh we spend
+
+1016
+00:53:59,819 --> 00:54:04,160
+almost an hour now looking at it
+
+1017
+00:54:15,540 --> 00:54:20,359
+and it's not trivial let's see would it
+
+1018
+00:54:18,059 --> 00:54:20,359
+be better
+
+1019
+00:54:22,079 --> 00:54:25,339
+and if I do that
+
+1020
+00:54:25,500 --> 00:54:28,500
+uh
+
+1021
+00:54:37,740 --> 00:54:42,260
+okay you cannot see much anyway
+
+1022
+00:54:43,280 --> 00:54:51,660
+so hello you look great from that angle
+
+1023
+00:54:48,420 --> 00:54:55,140
+good morning good morning float
+
+1024
+00:54:51,660 --> 00:54:57,839
+P net good morning sir I've enjoyed many
+
+1025
+00:54:55,140 --> 00:55:00,780
+of your live streams but for the first
+
+1026
+00:54:57,839 --> 00:55:02,160
+time I'm actually watching you live I I
+
+1027
+00:55:00,780 --> 00:55:06,240
+live in
+
+1028
+00:55:02,160 --> 00:55:08,520
+omia Sweden great fantastic yeah I
+
+1029
+00:55:06,240 --> 00:55:12,480
+haven't been doing a live stream at over
+
+1030
+00:55:08,520 --> 00:55:15,839
+you know during these hours so
+
+1031
+00:55:12,480 --> 00:55:17,880
+so some of you guys will find it uh I
+
+1032
+00:55:15,839 --> 00:55:19,380
+mean that's that's why you don't see me
+
+1033
+00:55:17,880 --> 00:55:21,540
+live
+
+1034
+00:55:19,380 --> 00:55:24,859
+now I have a little bit cross-eyed so
+
+1035
+00:55:21,540 --> 00:55:24,859
+let me cover one of my eyes
+
+1036
+00:55:25,200 --> 00:55:31,859
+so I can see better
+
+1037
+00:55:28,079 --> 00:55:35,839
+so now let's go back to uh Helm shall we
+
+1038
+00:55:31,859 --> 00:55:35,839
+let's go back to helm
+
+1039
+00:55:37,859 --> 00:55:46,500
+so so far we we found that
+
+1040
+00:55:42,900 --> 00:55:48,359
+you know we found that Helm has like so
+
+1041
+00:55:46,500 --> 00:55:50,520
+much code
+
+1042
+00:55:48,359 --> 00:55:52,619
+that does the
+
+1043
+00:55:50,520 --> 00:55:55,140
+fuzzy matching
+
+1044
+00:55:52,619 --> 00:55:58,319
+uh in helm
+
+1045
+00:55:55,140 --> 00:55:59,579
+and let's look at the Helms function one
+
+1046
+00:55:58,319 --> 00:56:01,680
+more time okay
+
+1047
+00:55:59,579 --> 00:56:06,119
+uh
+
+1048
+00:56:01,680 --> 00:56:10,559
+let's list all matching lines Define
+
+1049
+00:56:06,119 --> 00:56:14,640
+so 290 functions essentially so you see
+
+1050
+00:56:10,559 --> 00:56:17,400
+it's long so let's have a overview let's
+
+1051
+00:56:14,640 --> 00:56:19,880
+see what they are
+
+1052
+00:56:17,400 --> 00:56:22,920
+so Helm configuration
+
+1053
+00:56:19,880 --> 00:56:27,359
+Helm multi-key different
+
+1054
+00:56:22,920 --> 00:56:29,839
+Helm customize group Helm log Helm
+
+1055
+00:56:27,359 --> 00:56:34,339
+action at nth
+
+1056
+00:56:29,839 --> 00:56:36,240
+Helm save Helm log save maybe Helm debug
+
+1057
+00:56:34,339 --> 00:56:39,059
+Helm print
+
+1058
+00:56:36,240 --> 00:56:42,720
+Helm default directory
+
+1059
+00:56:39,059 --> 00:56:44,099
+Helm add action to Source if
+
+1060
+00:56:42,720 --> 00:56:47,220
+okay
+
+1061
+00:56:44,099 --> 00:56:49,400
+have normalized field okay let's scroll
+
+1062
+00:56:47,220 --> 00:56:49,400
+down
+
+1063
+00:56:49,460 --> 00:56:55,460
+uh Helm normalized field to help get
+
+1064
+00:56:52,740 --> 00:56:55,460
+current source
+
+1065
+00:56:55,680 --> 00:57:01,140
+okay Helm pass Keys Helm resume Helm
+
+1066
+00:56:59,040 --> 00:57:04,799
+empty Source Helm apply function from
+
+1067
+00:57:01,140 --> 00:57:07,260
+source so these are all about you know
+
+1068
+00:57:04,799 --> 00:57:12,599
+lots of them about source
+
+1069
+00:57:07,260 --> 00:57:15,059
+and about setup and about log Helm log
+
+1070
+00:57:12,599 --> 00:57:18,599
+ging stuff
+
+1071
+00:57:15,059 --> 00:57:22,140
+now what exactly does hemlock do like
+
+1072
+00:57:18,599 --> 00:57:26,240
+where does it log utility logging log
+
+1073
+00:57:22,140 --> 00:57:26,240
+message Helm debug is
+
+1074
+00:57:26,460 --> 00:57:33,180
+the Neo okay so it
+
+1075
+00:57:30,119 --> 00:57:36,720
+messages are written to the helm debug
+
+1076
+00:57:33,180 --> 00:57:40,380
+buffer okay so log is mostly from four
+
+1077
+00:57:36,720 --> 00:57:44,040
+debugging purposes okay so we can ignore
+
+1078
+00:57:40,380 --> 00:57:47,640
+Helm log you know so it turns out Helm
+
+1079
+00:57:44,040 --> 00:57:48,980
+is a huge package I mean not trivial
+
+1080
+00:57:47,640 --> 00:57:53,220
+because it
+
+1081
+00:57:48,980 --> 00:57:57,839
+even writes its own you know debugging
+
+1082
+00:57:53,220 --> 00:58:00,740
+and logging code yeah
+
+1083
+00:57:57,839 --> 00:58:00,740
+huh
+
+1084
+00:58:01,380 --> 00:58:06,180
+so so okay Hemlock we can kind of ignore
+
+1085
+00:58:04,440 --> 00:58:10,799
+then
+
+1086
+00:58:06,180 --> 00:58:15,119
+set sources uh set Source then
+
+1087
+00:58:10,799 --> 00:58:18,500
+uh empty Source okay then Source blah
+
+1088
+00:58:15,119 --> 00:58:18,500
+blah blah then resume
+
+1089
+00:58:18,540 --> 00:58:23,099
+then
+
+1090
+00:58:20,760 --> 00:58:24,780
+uh let's see
+
+1091
+00:58:23,099 --> 00:58:27,359
+then
+
+1092
+00:58:24,780 --> 00:58:29,339
+let's do this the way uh current
+
+1093
+00:58:27,359 --> 00:58:32,160
+position
+
+1094
+00:58:29,339 --> 00:58:35,700
+all the windows scrolling window in
+
+1095
+00:58:32,160 --> 00:58:38,119
+Direction initialize then initialize
+
+1096
+00:58:35,700 --> 00:58:41,579
+toggle suspend update
+
+1097
+00:58:38,119 --> 00:58:44,160
+suspend update the backward no update
+
+1098
+00:58:41,579 --> 00:58:46,859
+okay then clean up then song name blah
+
+1099
+00:58:44,160 --> 00:58:49,740
+blah and let's go down
+
+1100
+00:58:46,859 --> 00:58:52,559
+uh process candidate number limit
+
+1101
+00:58:49,740 --> 00:58:54,660
+candidate get display process pattern
+
+1102
+00:58:52,559 --> 00:58:59,119
+Transformer okay
+
+1103
+00:58:54,660 --> 00:58:59,119
+so now get candidates
+
+1104
+00:59:00,180 --> 00:59:07,319
+no okay so the part we are interested
+
+1105
+00:59:04,079 --> 00:59:11,220
+the most is probably here fuzzy match
+
+1106
+00:59:07,319 --> 00:59:14,819
+firstly search okay so keep that in mind
+
+1107
+00:59:11,220 --> 00:59:16,859
+maybe that's the part I need to dig
+
+1108
+00:59:14,819 --> 00:59:20,339
+deeper
+
+1109
+00:59:16,859 --> 00:59:22,579
+match function yeah mostly it's over
+
+1110
+00:59:20,339 --> 00:59:22,579
+here
+
+1111
+00:59:22,680 --> 00:59:27,960
+then
+
+1112
+00:59:23,940 --> 00:59:30,839
+okay then it says you know uh render
+
+1113
+00:59:27,960 --> 00:59:31,859
+Source collect matches uh then Helm
+
+1114
+00:59:30,839 --> 00:59:34,920
+update
+
+1115
+00:59:31,859 --> 00:59:38,220
+update the display redisplay buffer
+
+1116
+00:59:34,920 --> 00:59:40,980
+remove candidate cache insert header
+
+1117
+00:59:38,220 --> 00:59:44,000
+okay so then output filter
+
+1118
+00:59:40,980 --> 00:59:44,000
+okay then
+
+1119
+00:59:44,099 --> 00:59:50,819
+display my line then how move whatever
+
+1120
+00:59:48,299 --> 00:59:53,400
+that is okay that's moving closer a
+
+1121
+00:59:50,819 --> 00:59:57,540
+bunch of Cruiser movement
+
+1122
+00:59:53,400 --> 00:59:59,220
+uh Helm previous page next page uh okay
+
+1123
+00:59:57,540 --> 01:00:01,020
+okay
+
+1124
+00:59:59,220 --> 01:00:05,160
+so I think
+
+1125
+01:00:01,020 --> 01:00:06,900
+yeah in large window they I think we
+
+1126
+01:00:05,160 --> 01:00:10,799
+okay
+
+1127
+01:00:06,900 --> 01:00:15,119
+now we have completed scanning
+
+1128
+01:00:10,799 --> 01:00:18,540
+one of the source code file of helm
+
+1129
+01:00:15,119 --> 01:00:22,319
+and that is helm.el
+
+1130
+01:00:18,540 --> 01:00:24,480
+I believe that is the core or is it not
+
+1131
+01:00:22,319 --> 01:00:27,540
+the core yes that's the core that's a
+
+1132
+01:00:24,480 --> 01:00:28,619
+core of Helm package I mean meaning that
+
+1133
+01:00:27,540 --> 01:00:31,260
+the
+
+1134
+01:00:28,619 --> 01:00:34,920
+you know the the major features of
+
+1135
+01:00:31,260 --> 01:00:37,319
+helmet are done by these files so we
+
+1136
+01:00:34,920 --> 01:00:41,400
+have looked at all the functions defined
+
+1137
+01:00:37,319 --> 01:00:45,359
+in this file and yeah we got a sense of
+
+1138
+01:00:41,400 --> 01:00:48,780
+it and there are about 10 or so
+
+1139
+01:00:45,359 --> 01:00:51,059
+functions that does related to First
+
+1140
+01:00:48,780 --> 01:00:54,839
+Imagine okay
+
+1141
+01:00:51,059 --> 01:00:57,540
+now what about so at this point you know
+
+1142
+01:00:54,839 --> 01:01:00,420
+there are many you know choices where to
+
+1143
+01:00:57,540 --> 01:01:02,280
+go depending on your style so for me so
+
+1144
+01:01:00,420 --> 01:01:04,980
+we can
+
+1145
+01:01:02,280 --> 01:01:08,240
+start to look there okay there are I
+
+1146
+01:01:04,980 --> 01:01:14,819
+think three things we can start to look
+
+1147
+01:01:08,240 --> 01:01:18,599
+one is to start to look at
+
+1148
+01:01:14,819 --> 01:01:20,579
+you know uh to look in detail
+
+1149
+01:01:18,599 --> 01:01:24,420
+what are these firstly matching
+
+1150
+01:01:20,579 --> 01:01:26,579
+functions too and who is calling them
+
+1151
+01:01:24,420 --> 01:01:30,660
+you know I think that will
+
+1152
+01:01:26,579 --> 01:01:33,000
+get us to actually start to understand
+
+1153
+01:01:30,660 --> 01:01:35,339
+how does Helm
+
+1154
+01:01:33,000 --> 01:01:38,160
+uh
+
+1155
+01:01:35,339 --> 01:01:40,079
+uh match candidates
+
+1156
+01:01:38,160 --> 01:01:42,900
+you know so we are seeing a lot of
+
+1157
+01:01:40,079 --> 01:01:46,500
+regular Expressions here
+
+1158
+01:01:42,900 --> 01:01:50,040
+uh yeah so so that's one approach start
+
+1159
+01:01:46,500 --> 01:01:53,819
+to dive in depth start to look at the
+
+1160
+01:01:50,040 --> 01:01:57,059
+fuzzy functions in hell that's one
+
+1161
+01:01:53,819 --> 01:02:00,420
+approach the other approach
+
+1162
+01:01:57,059 --> 01:02:02,220
+is actually what we want to do
+
+1163
+01:02:00,420 --> 01:02:05,339
+the other approach let me show you okay
+
+1164
+01:02:02,220 --> 01:02:08,640
+so uh
+
+1165
+01:02:05,339 --> 01:02:11,760
+you know our eventual goal is to be able
+
+1166
+01:02:08,640 --> 01:02:18,240
+to modify all
+
+1167
+01:02:11,760 --> 01:02:21,240
+select phases code to use uh to use helm
+
+1168
+01:02:18,240 --> 01:02:24,359
+to use Helms first image matching system
+
+1169
+01:02:21,240 --> 01:02:27,420
+instead of using I do completing read
+
+1170
+01:02:24,359 --> 01:02:30,839
+so in that case
+
+1171
+01:02:27,420 --> 01:02:32,700
+we can directly try to find you know try
+
+1172
+01:02:30,839 --> 01:02:35,099
+to look for a function
+
+1173
+01:02:32,700 --> 01:02:37,380
+that does that and just replace these
+
+1174
+01:02:35,099 --> 01:02:40,140
+bits essentially replace this
+
+1175
+01:02:37,380 --> 01:02:41,880
+uh the function called by something in
+
+1176
+01:02:40,140 --> 01:02:44,640
+help something like that or maybe you
+
+1177
+01:02:41,880 --> 01:02:47,220
+add two or more two or three more lines
+
+1178
+01:02:44,640 --> 01:02:50,700
+so that we
+
+1179
+01:02:47,220 --> 01:02:53,539
+we actually complete our goal but this
+
+1180
+01:02:50,700 --> 01:02:56,640
+way it will be without understanding
+
+1181
+01:02:53,539 --> 01:02:58,920
+understanding exactly how Helm does the
+
+1182
+01:02:56,640 --> 01:03:01,460
+fuzzy match okay but that's a good
+
+1183
+01:02:58,920 --> 01:03:01,460
+alternative
+
+1184
+01:03:02,339 --> 01:03:07,859
+uh oh my God this is taking a long time
+
+1185
+01:03:05,640 --> 01:03:10,079
+sit Ali
+
+1186
+01:03:07,859 --> 01:03:13,319
+Daddy
+
+1187
+01:03:10,079 --> 01:03:16,799
+okay so we already spent an hour God
+
+1188
+01:03:13,319 --> 01:03:21,500
+this is taking uh
+
+1189
+01:03:16,799 --> 01:03:21,500
+much longer than I thought
+
+1190
+01:03:24,140 --> 01:03:27,680
+uh let's see
+
+1191
+01:03:32,940 --> 01:03:38,819
+how many people are watching that I
+
+1192
+01:03:35,400 --> 01:03:44,700
+think maybe I go offline and do it
+
+1193
+01:03:38,819 --> 01:03:47,819
+I don't think uh this is uh interesting
+
+1194
+01:03:44,700 --> 01:03:51,299
+so what what should we do so
+
+1195
+01:03:47,819 --> 01:03:54,720
+so this firstly match functions okay
+
+1196
+01:03:51,299 --> 01:03:56,819
+it's pretty deep okay
+
+1197
+01:03:54,720 --> 01:04:00,299
+uh because
+
+1198
+01:03:56,819 --> 01:04:04,260
+you know you for me to look at them
+
+1199
+01:04:00,299 --> 01:04:06,720
+you have to understand a lot emac lists
+
+1200
+01:04:04,260 --> 01:04:09,240
+and regular Expressions you know uh get
+
+1201
+01:04:06,720 --> 01:04:10,859
+hash okay
+
+1202
+01:04:09,240 --> 01:04:12,420
+yeah
+
+1203
+01:04:10,859 --> 01:04:15,119
+um
+
+1204
+01:04:12,420 --> 01:04:17,819
+so that's something I have to do
+
+1205
+01:04:15,119 --> 01:04:20,460
+offline probably
+
+1206
+01:04:17,819 --> 01:04:23,819
+then
+
+1207
+01:04:20,460 --> 01:04:27,539
+so the other approach is just try is to
+
+1208
+01:04:23,819 --> 01:04:30,299
+just try to find a function in helm
+
+1209
+01:04:27,539 --> 01:04:32,339
+that does the equivalent of I do
+
+1210
+01:04:30,299 --> 01:04:35,280
+complete read
+
+1211
+01:04:32,339 --> 01:04:37,680
+okay so let's search for completing read
+
+1212
+01:04:35,280 --> 01:04:40,520
+okay let's see if we can find that in
+
+1213
+01:04:37,680 --> 01:04:40,520
+Helm source code
+
+1214
+01:04:41,700 --> 01:04:44,900
+Okay so
+
+1215
+01:04:46,920 --> 01:04:50,280
+so there
+
+1216
+01:04:48,480 --> 01:04:55,200
+uh
+
+1217
+01:04:50,280 --> 01:04:58,079
+maybe something similar I'm not sure
+
+1218
+01:04:55,200 --> 01:05:01,039
+okay yeah it's let's just try random
+
+1219
+01:04:58,079 --> 01:05:01,039
+okay so actually
+
+1220
+01:05:02,760 --> 01:05:07,500
+so I think this is what we need to call
+
+1221
+01:05:06,240 --> 01:05:12,900
+helm
+
+1222
+01:05:07,500 --> 01:05:12,900
+sources Source prompt buffer
+
+1223
+01:05:13,020 --> 01:05:18,359
+okay why don't we do this
+
+1224
+01:05:15,299 --> 01:05:23,039
+let's just call this command
+
+1225
+01:05:18,359 --> 01:05:24,900
+okay so for example uh let's see okay so
+
+1226
+01:05:23,039 --> 01:05:28,859
+for example let's
+
+1227
+01:05:24,900 --> 01:05:32,039
+copy our function copy it paste it so we
+
+1228
+01:05:28,859 --> 01:05:34,140
+have two version two versions now in
+
+1229
+01:05:32,039 --> 01:05:36,180
+this version let's say helm
+
+1230
+01:05:34,140 --> 01:05:38,099
+select faces
+
+1231
+01:05:36,180 --> 01:05:41,220
+with help okay
+
+1232
+01:05:38,099 --> 01:05:45,539
+and in this version we are trying we are
+
+1233
+01:05:41,220 --> 01:05:49,319
+just going to try to call Helms commands
+
+1234
+01:05:45,539 --> 01:05:52,740
+uh by hack so right now I'm doing trial
+
+1235
+01:05:49,319 --> 01:05:55,380
+and error coding you know like
+
+1236
+01:05:52,740 --> 01:05:56,760
+not having a good understanding but
+
+1237
+01:05:55,380 --> 01:05:58,319
+let's just try
+
+1238
+01:05:56,760 --> 01:06:02,339
+okay
+
+1239
+01:05:58,319 --> 01:06:04,500
+so so sources will be of course sources
+
+1240
+01:06:02,339 --> 01:06:08,760
+will be phrases
+
+1241
+01:06:04,500 --> 01:06:12,260
+and the prompt will be just the pick one
+
+1242
+01:06:08,760 --> 01:06:12,260
+that's our prompt pick one
+
+1243
+01:06:12,539 --> 01:06:20,700
+pick a phrase okay then buffer let's say
+
+1244
+01:06:18,480 --> 01:06:24,539
+hmm
+
+1245
+01:06:20,700 --> 01:06:27,680
+okay let's say uh academic phase buffer
+
+1246
+01:06:24,539 --> 01:06:27,680
+okay so this
+
+1247
+01:06:35,160 --> 01:06:41,520
+okay
+
+1248
+01:06:36,859 --> 01:06:43,440
+then history we don't care for history
+
+1249
+01:06:41,520 --> 01:06:46,940
+so
+
+1250
+01:06:43,440 --> 01:06:46,940
+let's say Neo okay
+
+1251
+01:06:49,799 --> 01:06:53,240
+so would that
+
+1252
+01:06:53,400 --> 01:07:00,140
+I don't think that will work because the
+
+1253
+01:06:55,799 --> 01:07:00,140
+helm function actually does not return
+
+1254
+01:07:00,180 --> 01:07:05,339
+like we talked about before
+
+1255
+01:07:02,819 --> 01:07:08,420
+it does not actually
+
+1256
+01:07:05,339 --> 01:07:12,059
+like returns something for you
+
+1257
+01:07:08,420 --> 01:07:15,480
+instead of instead of yeah it doesn't I
+
+1258
+01:07:12,059 --> 01:07:18,000
+don't think it returns let's see
+
+1259
+01:07:15,480 --> 01:07:22,680
+Helm is automated compile this function
+
+1260
+01:07:18,000 --> 01:07:24,720
+okay so uh then uh that that mini buffer
+
+1261
+01:07:22,680 --> 01:07:27,599
+to execute Helm okay
+
+1262
+01:07:24,720 --> 01:07:30,539
+main function to execute helmet sources
+
+1263
+01:07:27,599 --> 01:07:33,240
+here this is this like
+
+1264
+01:07:30,539 --> 01:07:34,099
+that okay that keywords that that that
+
+1265
+01:07:33,240 --> 01:07:37,680
+that that
+
+1266
+01:07:34,099 --> 01:07:41,880
+extra local bar keywords are supported
+
+1267
+01:07:37,680 --> 01:07:44,160
+see other keyword section below basic
+
+1268
+01:07:41,880 --> 01:07:46,380
+keywords are the following
+
+1269
+01:07:44,160 --> 01:07:48,780
+so this is one of the following list of
+
+1270
+01:07:46,380 --> 01:07:50,160
+sources symbols whose value is a list of
+
+1271
+01:07:48,780 --> 01:07:54,119
+sources yeah
+
+1272
+01:07:50,160 --> 01:07:58,339
+okay so let's see oh a symbol
+
+1273
+01:07:54,119 --> 01:07:58,339
+so it actually needs a Sim
+
+1274
+01:08:00,119 --> 01:08:05,099
+a symbol or variable you know that's
+
+1275
+01:08:02,280 --> 01:08:07,920
+that's a confusing part of emac means
+
+1276
+01:08:05,099 --> 01:08:10,079
+it's not clear here whether it's a
+
+1277
+01:08:07,920 --> 01:08:10,859
+symbol or
+
+1278
+01:08:10,079 --> 01:08:13,260
+um
+
+1279
+01:08:10,859 --> 01:08:16,259
+Amino code into the documentation it
+
+1280
+01:08:13,260 --> 01:08:20,179
+should be a symbol so okay so let's say
+
+1281
+01:08:16,259 --> 01:08:24,120
+symbol let's let's put symbol there
+
+1282
+01:08:20,179 --> 01:08:27,839
+input initial input for mini buffer
+
+1283
+01:08:24,120 --> 01:08:30,659
+prompts okay okay
+
+1284
+01:08:27,839 --> 01:08:34,380
+okay okay okay
+
+1285
+01:08:30,659 --> 01:08:34,380
+then obsolete
+
+1286
+01:08:35,819 --> 01:08:39,020
+okay okay okay okay okay okay okay
+
+1287
+01:08:40,679 --> 01:08:45,179
+so you see it does not mention anything
+
+1288
+01:08:43,140 --> 01:08:48,719
+about return value
+
+1289
+01:08:45,179 --> 01:08:50,279
+as we as a presumed before it doesn't
+
+1290
+01:08:48,719 --> 01:08:53,100
+rely on
+
+1291
+01:08:50,279 --> 01:08:55,859
+you know returning something it relies
+
+1292
+01:08:53,100 --> 01:08:57,359
+on some kind of it updates something and
+
+1293
+01:08:55,859 --> 01:08:59,400
+some other function is
+
+1294
+01:08:57,359 --> 01:09:01,859
+you know looking
+
+1295
+01:08:59,400 --> 01:09:06,739
+with it looking into it so let's just
+
+1296
+01:09:01,859 --> 01:09:06,739
+try it okay so let's remove that then
+
+1297
+01:09:09,060 --> 01:09:14,400
+okay yeah but but then but then how do I
+
+1298
+01:09:12,060 --> 01:09:16,140
+um how do I get the value because I need
+
+1299
+01:09:14,400 --> 01:09:18,960
+to get a value
+
+1300
+01:09:16,140 --> 01:09:21,920
+you know the the user choose interface I
+
+1301
+01:09:18,960 --> 01:09:21,920
+don't know uh
+
+1302
+01:09:23,040 --> 01:09:28,759
+okay so so let's do set choices okay
+
+1303
+01:09:33,600 --> 01:09:37,520
+okay let's just do that okay
+
+1304
+01:09:37,799 --> 01:09:45,600
+uh eval the buffer
+
+1305
+01:09:41,339 --> 01:09:46,560
+then call it select face Helm okay call
+
+1306
+01:09:45,600 --> 01:09:49,219
+it
+
+1307
+01:09:46,560 --> 01:09:49,219
+select
+
+1308
+01:09:49,500 --> 01:09:54,859
+faces Helm okay Enter
+
+1309
+01:09:54,900 --> 01:10:01,140
+it asked me to pick a phrase but I do
+
+1310
+01:09:58,020 --> 01:10:03,540
+not see my candidates
+
+1311
+01:10:01,140 --> 01:10:06,540
+and say t
+
+1312
+01:10:03,540 --> 01:10:10,140
+yeah t-h-e no candidate
+
+1313
+01:10:06,540 --> 01:10:12,540
+let's say e okay Enter
+
+1314
+01:10:10,140 --> 01:10:13,440
+your own type of argument child or
+
+1315
+01:10:12,540 --> 01:10:17,640
+stream
+
+1316
+01:10:13,440 --> 01:10:20,520
+ciao string P Neo
+
+1317
+01:10:17,640 --> 01:10:24,360
+so let's
+
+1318
+01:10:20,520 --> 01:10:28,980
+call toggle debug on Arrow and now let's
+
+1319
+01:10:24,360 --> 01:10:31,440
+call that command again enter pick a
+
+1320
+01:10:28,980 --> 01:10:36,080
+phrase e enter
+
+1321
+01:10:31,440 --> 01:10:36,080
+so here is the arrow
+
+1322
+01:10:36,500 --> 01:10:42,060
+the error is
+
+1323
+01:10:39,179 --> 01:10:44,760
+run type argument ciao string okay
+
+1324
+01:10:42,060 --> 01:10:48,659
+insert new okay
+
+1325
+01:10:44,760 --> 01:10:50,280
+so the arrow actually came from our own
+
+1326
+01:10:48,659 --> 01:10:51,960
+code
+
+1327
+01:10:50,280 --> 01:10:55,440
+this line
+
+1328
+01:10:51,960 --> 01:10:58,739
+because apparently Helm returns nothing
+
+1329
+01:10:55,440 --> 01:11:01,380
+it just return near so our user choice
+
+1330
+01:10:58,739 --> 01:11:03,679
+is new so when you insert Neo that's the
+
+1331
+01:11:01,380 --> 01:11:03,679
+arrow
+
+1332
+01:11:03,900 --> 01:11:10,560
+yeah that's okay so again you know
+
+1333
+01:11:07,739 --> 01:11:13,260
+I know this problem already
+
+1334
+01:11:10,560 --> 01:11:16,199
+the helm
+
+1335
+01:11:13,260 --> 01:11:19,100
+is not returning anything so how do we
+
+1336
+01:11:16,199 --> 01:11:19,100
+actually get
+
+1337
+01:11:21,239 --> 01:11:24,659
+I don't know how do you actually get you
+
+1338
+01:11:24,000 --> 01:11:27,420
+know
+
+1339
+01:11:24,659 --> 01:11:30,300
+let's try again you see it doesn't show
+
+1340
+01:11:27,420 --> 01:11:34,820
+any candidates right
+
+1341
+01:11:30,300 --> 01:11:34,820
+okay I'm I think I'm gonna stop
+
+1342
+01:11:34,860 --> 01:11:43,460
+today's kind of
+
+1343
+01:11:37,739 --> 01:11:43,460
+we looked at the helm source code for
+
+1344
+01:11:43,500 --> 01:11:51,020
+for like close to 90 minutes and uh
+
+1345
+01:11:47,460 --> 01:11:56,719
+we didn't go far
+
+1346
+01:11:51,020 --> 01:11:56,719
+there is no tangible fruits
+
+1347
+01:11:59,159 --> 01:12:02,100
+yeah so it's
+
+1348
+01:12:01,080 --> 01:12:04,440
+um
+
+1349
+01:12:02,100 --> 01:12:08,159
+yeah so at this point there's another
+
+1350
+01:12:04,440 --> 01:12:09,719
+approach that is now I need to actually
+
+1351
+01:12:08,159 --> 01:12:13,739
+start to
+
+1352
+01:12:09,719 --> 01:12:16,500
+read carefully each one of each one of
+
+1353
+01:12:13,739 --> 01:12:18,780
+these functions documentation I think
+
+1354
+01:12:16,500 --> 01:12:21,480
+that would be the key
+
+1355
+01:12:18,780 --> 01:12:23,940
+so I'm gonna start to read
+
+1356
+01:12:21,480 --> 01:12:26,699
+in detail the documentation or the
+
+1357
+01:12:23,940 --> 01:12:29,100
+source code of Helm MX
+
+1358
+01:12:26,699 --> 01:12:32,640
+then Helm MX read the extended command
+
+1359
+01:12:29,100 --> 01:12:34,620
+you know actually we should do that yeah
+
+1360
+01:12:32,640 --> 01:12:38,880
+you know but overall
+
+1361
+01:12:34,620 --> 01:12:41,880
+this is um you know for those of you who
+
+1362
+01:12:38,880 --> 01:12:44,699
+do not have lots of coding experience
+
+1363
+01:12:41,880 --> 01:12:45,960
+you know if you are a student for
+
+1364
+01:12:44,699 --> 01:12:48,840
+example
+
+1365
+01:12:45,960 --> 01:12:53,820
+uh this what we did today is actually
+
+1366
+01:12:48,840 --> 01:12:56,219
+very typical day of uh coding job
+
+1367
+01:12:53,820 --> 01:13:00,659
+you know even though we spend one hour
+
+1368
+01:12:56,219 --> 01:13:03,120
+19 you know we spent 90 minutes it seems
+
+1369
+01:13:00,659 --> 01:13:05,400
+we don't have any tangible results but
+
+1370
+01:13:03,120 --> 01:13:07,980
+that's normal because you spend a lot of
+
+1371
+01:13:05,400 --> 01:13:10,199
+time to read code to understand and
+
+1372
+01:13:07,980 --> 01:13:12,659
+usually there's no documentation in you
+
+1373
+01:13:10,199 --> 01:13:15,300
+know in real life coding
+
+1374
+01:13:12,659 --> 01:13:18,239
+is you know most half of the time
+
+1375
+01:13:15,300 --> 01:13:20,880
+there's no documentation you just read
+
+1376
+01:13:18,239 --> 01:13:24,960
+the code and find and solve the problem
+
+1377
+01:13:20,880 --> 01:13:26,640
+so if you know so if this is a normal
+
+1378
+01:13:24,960 --> 01:13:29,820
+day job
+
+1379
+01:13:26,640 --> 01:13:32,100
+I only started you know one you know
+
+1380
+01:13:29,820 --> 01:13:34,860
+every day has eight hours I only you
+
+1381
+01:13:32,100 --> 01:13:38,159
+know spend one hour on it
+
+1382
+01:13:34,860 --> 01:13:40,020
+so given another two or three hours I'll
+
+1383
+01:13:38,159 --> 01:13:44,040
+probably started to
+
+1384
+01:13:40,020 --> 01:13:47,580
+understand and be able to use uh some
+
+1385
+01:13:44,040 --> 01:13:49,920
+help functions to do the first Imaging
+
+1386
+01:13:47,580 --> 01:13:52,080
+we wanted
+
+1387
+01:13:49,920 --> 01:13:55,199
+Okay so
+
+1388
+01:13:52,080 --> 01:13:57,840
+so now I think I'm going to stop but let
+
+1389
+01:13:55,199 --> 01:14:00,719
+me look a little bit more okay so
+
+1390
+01:13:57,840 --> 01:14:04,640
+let's see let me wrap up let's see what
+
+1391
+01:14:00,719 --> 01:14:04,640
+else I want to say or do
+
+1392
+01:14:04,860 --> 01:14:11,699
+um let's look chat okay let's see random
+
+1393
+01:14:08,699 --> 01:14:14,340
+chat any comments you guys and thank you
+
+1394
+01:14:11,699 --> 01:14:15,239
+George again for chikching twenty
+
+1395
+01:14:14,340 --> 01:14:18,600
+dollars
+
+1396
+01:14:15,239 --> 01:14:23,239
+fantastic and if you guys have not
+
+1397
+01:14:18,600 --> 01:14:23,239
+already joined saw Discord okay
+
+1398
+01:14:25,800 --> 01:14:33,679
+uh joined this because I Discord
+
+1399
+01:14:28,699 --> 01:14:33,679
+uh you know lots of interesting people
+
+1400
+01:14:34,080 --> 01:14:38,100
+uh there
+
+1401
+01:14:36,600 --> 01:14:40,800
+um
+
+1402
+01:14:38,100 --> 01:14:43,280
+so let's play with my camera let's see
+
+1403
+01:14:40,800 --> 01:14:43,280
+if I can
+
+1404
+01:14:45,130 --> 01:14:48,189
+[Music]
+
+1405
+01:14:49,260 --> 01:14:55,760
+if we can get
+
+1406
+01:14:51,420 --> 01:14:55,760
+a better vantage point
+
+1407
+01:14:56,060 --> 01:15:02,219
+this is night coding
+
+1408
+01:15:00,120 --> 01:15:05,179
+uh oops
+
+1409
+01:15:02,219 --> 01:15:05,179
+Okay so
+
+1410
+01:15:06,360 --> 01:15:12,540
+for a change you know uh so let's see
+
+1411
+01:15:08,880 --> 01:15:15,840
+hello hello anyone still here five
+
+1412
+01:15:12,540 --> 01:15:20,300
+people watching two likes
+
+1413
+01:15:15,840 --> 01:15:20,300
+okay I think that's it for today so
+
+1414
+01:15:20,760 --> 01:15:25,679
+I'm kind of annoyed a little bit annoyed
+
+1415
+01:15:23,940 --> 01:15:27,420
+that we
+
+1416
+01:15:25,679 --> 01:15:30,960
+you know I didn't
+
+1417
+01:15:27,420 --> 01:15:33,060
+I did you know I didn't expect it to be
+
+1418
+01:15:30,960 --> 01:15:35,820
+this complex
+
+1419
+01:15:33,060 --> 01:15:38,580
+you know Helm has you know like the
+
+1420
+01:15:35,820 --> 01:15:40,440
+entire you know that's what Helm is for
+
+1421
+01:15:38,580 --> 01:15:41,880
+it has basically the whole thing is
+
+1422
+01:15:40,440 --> 01:15:45,620
+about
+
+1423
+01:15:41,880 --> 01:15:45,620
+uh pattern matching
+
+1424
+01:15:46,500 --> 01:15:49,760
+let's put this on
+
+1425
+01:16:00,060 --> 01:16:05,699
+yeah the whole thing
+
+1426
+01:16:03,199 --> 01:16:08,940
+it's very interesting though because
+
+1427
+01:16:05,699 --> 01:16:11,659
+firstly pattern matching firstly pattern
+
+1428
+01:16:08,940 --> 01:16:16,400
+matching is one of the very useful thing
+
+1429
+01:16:11,659 --> 01:16:19,140
+that began to become fairly popular
+
+1430
+01:16:16,400 --> 01:16:20,640
+about 10 years ago
+
+1431
+01:16:19,140 --> 01:16:24,199
+because
+
+1432
+01:16:20,640 --> 01:16:29,460
+you started to see lots of applications
+
+1433
+01:16:24,199 --> 01:16:31,920
+using that and I presume they are quite
+
+1434
+01:16:29,460 --> 01:16:34,380
+a lot libraries doing that
+
+1435
+01:16:31,920 --> 01:16:37,020
+first imagine you know there are several
+
+1436
+01:16:34,380 --> 01:16:40,980
+types I haven't studied them in detail
+
+1437
+01:16:37,020 --> 01:16:43,560
+for example there's Flex matching
+
+1438
+01:16:40,980 --> 01:16:46,440
+then Helm's way I don't know if there's
+
+1439
+01:16:43,560 --> 01:16:50,520
+a proper word for Helms
+
+1440
+01:16:46,440 --> 01:16:55,020
+way of First Imagine then there is I do
+
+1441
+01:16:50,520 --> 01:17:00,620
+you know I do uses a different way
+
+1442
+01:16:55,020 --> 01:17:00,620
+uh you know different from
+
+1443
+01:17:00,659 --> 01:17:06,480
+so
+
+1444
+01:17:02,820 --> 01:17:08,940
+so if I if our jar if if you know my job
+
+1445
+01:17:06,480 --> 01:17:10,260
+basically my job is to you know I need
+
+1446
+01:17:08,940 --> 01:17:13,560
+to do this
+
+1447
+01:17:10,260 --> 01:17:16,199
+for a project I need to write a
+
+1448
+01:17:13,560 --> 01:17:19,440
+basically a command to
+
+1449
+01:17:16,199 --> 01:17:22,320
+uh you know academic phases to to choose
+
+1450
+01:17:19,440 --> 01:17:25,739
+the academic phase and I want to be able
+
+1451
+01:17:22,320 --> 01:17:27,600
+to use Helm's way of
+
+1452
+01:17:25,739 --> 01:17:31,620
+of fuzzy matching
+
+1453
+01:17:27,600 --> 01:17:34,080
+so that's what I need to do
+
+1454
+01:17:31,620 --> 01:17:36,600
+so like I said before you know one way
+
+1455
+01:17:34,080 --> 01:17:38,640
+is just actually you know since I'm a
+
+1456
+01:17:36,600 --> 01:17:41,460
+nerd I'm interested about First Imagine
+
+1457
+01:17:38,640 --> 01:17:43,980
+to dive into detail see
+
+1458
+01:17:41,460 --> 01:17:45,780
+exactly what type they are you know
+
+1459
+01:17:43,980 --> 01:17:48,679
+actually we can actually let's look at
+
+1460
+01:17:45,780 --> 01:17:48,679
+Wikipedia okay
+
+1461
+01:17:48,900 --> 01:17:53,460
+let's see what Wikipedia say about fuzzy
+
+1462
+01:17:52,260 --> 01:17:57,920
+matching
+
+1463
+01:17:53,460 --> 01:18:00,480
+now uh is there an article on Wikipedia
+
+1464
+01:17:57,920 --> 01:18:01,620
+approximate stream matching okay that's
+
+1465
+01:18:00,480 --> 01:18:03,540
+uh
+
+1466
+01:18:01,620 --> 01:18:05,780
+I suppose that's a term in computer
+
+1467
+01:18:03,540 --> 01:18:09,420
+science approximate stream matching
+
+1468
+01:18:05,780 --> 01:18:11,219
+often colloquially referred to as fuzzy
+
+1469
+01:18:09,420 --> 01:18:13,860
+stream matching it's fuzzy string
+
+1470
+01:18:11,219 --> 01:18:16,340
+searching is a is the technique of
+
+1471
+01:18:13,860 --> 01:18:20,280
+finding strings that match a pattern
+
+1472
+01:18:16,340 --> 01:18:22,920
+approximately rather than exactly the
+
+1473
+01:18:20,280 --> 01:18:24,960
+problem of approximate string matching
+
+1474
+01:18:22,920 --> 01:18:28,320
+is typically divided into two sub
+
+1475
+01:18:24,960 --> 01:18:31,500
+problems finding approximate substring
+
+1476
+01:18:28,320 --> 01:18:35,179
+matches inside a given string and
+
+1477
+01:18:31,500 --> 01:18:37,980
+finding dictionary strings that match
+
+1478
+01:18:35,179 --> 01:18:42,560
+patterns approximately
+
+1479
+01:18:37,980 --> 01:18:42,560
+finding dictionary strings that
+
+1480
+01:18:43,199 --> 01:18:48,600
+that match the pattern of sharks
+
+1481
+01:18:46,199 --> 01:18:49,800
+approximately what does that mean I
+
+1482
+01:18:48,600 --> 01:18:52,380
+don't know
+
+1483
+01:18:49,800 --> 01:18:54,120
+the okay the closest of a match is
+
+1484
+01:18:52,380 --> 01:18:56,580
+measured in terms of the number of
+
+1485
+01:18:54,120 --> 01:19:00,360
+primitive operations necessary to
+
+1486
+01:18:56,580 --> 01:19:04,500
+convert the string into a an exact match
+
+1487
+01:19:00,360 --> 01:19:07,500
+okay this this number is called the edit
+
+1488
+01:19:04,500 --> 01:19:11,840
+distance okay so it's starting to get
+
+1489
+01:19:07,500 --> 01:19:11,840
+become Technical and precise
+
+1490
+01:19:12,020 --> 01:19:17,340
+uh problems formulation in algorithms
+
+1491
+01:19:15,780 --> 01:19:21,360
+okay
+
+1492
+01:19:17,340 --> 01:19:23,940
+okay and one line versus online versus
+
+1493
+01:19:21,360 --> 01:19:27,000
+offline okay
+
+1494
+01:19:23,940 --> 01:19:28,080
+so actually so this is
+
+1495
+01:19:27,000 --> 01:19:30,840
+um
+
+1496
+01:19:28,080 --> 01:19:33,060
+yeah so this is actually a pretty common
+
+1497
+01:19:30,840 --> 01:19:34,580
+problem you can see there are quite a
+
+1498
+01:19:33,060 --> 01:19:36,239
+few
+
+1499
+01:19:34,580 --> 01:19:40,260
+algorithms
+
+1500
+01:19:36,239 --> 01:19:42,900
+for example plagiarism detection needle
+
+1501
+01:19:40,260 --> 01:19:47,340
+ham Wilson algorithm okay so you got
+
+1502
+01:19:42,900 --> 01:19:49,880
+quite a few locally sensitive hashing
+
+1503
+01:19:47,340 --> 01:19:52,739
+okay
+
+1504
+01:19:49,880 --> 01:19:54,480
+uh okay then then you have this article
+
+1505
+01:19:52,739 --> 01:19:57,000
+string metric
+
+1506
+01:19:54,480 --> 01:19:59,520
+in mathematics in computer science a
+
+1507
+01:19:57,000 --> 01:20:01,980
+stream metric
+
+1508
+01:19:59,520 --> 01:20:05,159
+is a metric that measures distance
+
+1509
+01:20:01,980 --> 01:20:07,560
+between two text string okay okay so
+
+1510
+01:20:05,159 --> 01:20:11,219
+yeah so there are quite a few different
+
+1511
+01:20:07,560 --> 01:20:13,020
+way to measure to determine whether two
+
+1512
+01:20:11,219 --> 01:20:15,540
+words are
+
+1513
+01:20:13,020 --> 01:20:17,040
+you know uh it's a match or not you know
+
+1514
+01:20:15,540 --> 01:20:20,159
+in other words
+
+1515
+01:20:17,040 --> 01:20:21,659
+this is a kind of a more formal way of
+
+1516
+01:20:20,159 --> 01:20:24,420
+of saying
+
+1517
+01:20:21,659 --> 01:20:27,480
+the difference of pattern you know first
+
+1518
+01:20:24,420 --> 01:20:30,239
+imagine used in I do mod and used in
+
+1519
+01:20:27,480 --> 01:20:32,480
+helmet they are different why because
+
+1520
+01:20:30,239 --> 01:20:36,060
+they are using two different string
+
+1521
+01:20:32,480 --> 01:20:38,580
+Matrix you know the way they measure uh
+
+1522
+01:20:36,060 --> 01:20:40,739
+distance
+
+1523
+01:20:38,580 --> 01:20:43,260
+so
+
+1524
+01:20:40,739 --> 01:20:48,360
+but I don't know if there is a name for
+
+1525
+01:20:43,260 --> 01:20:51,380
+the precise algorithm that uh that Helm
+
+1526
+01:20:48,360 --> 01:20:51,380
+uses or I do
+
+1527
+01:20:51,440 --> 01:20:56,699
+and I don't necessarily expect one
+
+1528
+01:20:54,360 --> 01:21:00,540
+because you know that's the real life
+
+1529
+01:20:56,699 --> 01:21:02,699
+coding you don't necessarily
+
+1530
+01:21:00,540 --> 01:21:04,199
+you know you just make it work uh okay
+
+1531
+01:21:02,699 --> 01:21:07,020
+so
+
+1532
+01:21:04,199 --> 01:21:10,320
+okay that's it for today
+
+1533
+01:21:07,020 --> 01:21:12,000
+uh do we have any more comments we do
+
+1534
+01:21:10,320 --> 01:21:13,739
+so
+
+1535
+01:21:12,000 --> 01:21:15,540
+okay a keyboard question then we're
+
+1536
+01:21:13,739 --> 01:21:17,880
+gonna shut down okay
+
+1537
+01:21:15,540 --> 01:21:21,360
+uh I'm thinking about getting the food
+
+1538
+01:21:17,880 --> 01:21:23,820
+pedal for the Kinesis Advantage okay I
+
+1539
+01:21:21,360 --> 01:21:28,760
+know it's pretty expensive but would you
+
+1540
+01:21:23,820 --> 01:21:28,760
+recommend it if cost was not an issue
+
+1541
+01:21:30,420 --> 01:21:36,060
+okay I'm gonna answer that then Campbell
+
+1542
+01:21:33,600 --> 01:21:38,880
+hey hey Campbell
+
+1543
+01:21:36,060 --> 01:21:42,860
+Campbell button great to see you here
+
+1544
+01:21:38,880 --> 01:21:46,800
+Campbell button is a Emax this expert
+
+1545
+01:21:42,860 --> 01:21:50,520
+actually camber button is a blender
+
+1546
+01:21:46,800 --> 01:21:54,179
+developer for for for quite a few
+
+1547
+01:21:50,520 --> 01:21:55,980
+for many years right so camera button is
+
+1548
+01:21:54,179 --> 01:21:59,040
+a
+
+1549
+01:21:55,980 --> 01:22:03,120
+you know one of the blender
+
+1550
+01:21:59,040 --> 01:22:06,360
+uh country contributor which is written
+
+1551
+01:22:03,120 --> 01:22:08,940
+in C I think C or C plus plus
+
+1552
+01:22:06,360 --> 01:22:11,340
+so can can be a button so have you so
+
+1553
+01:22:08,940 --> 01:22:13,739
+Cambria says by the way for your
+
+1554
+01:22:11,340 --> 01:22:15,960
+information emacs 27 has new functions
+
+1555
+01:22:13,739 --> 01:22:19,139
+string distance maybe of Interest okay
+
+1556
+01:22:15,960 --> 01:22:22,320
+that yes that would be that would be of
+
+1557
+01:22:19,139 --> 01:22:24,739
+interest let's let's see so finally we
+
+1558
+01:22:22,320 --> 01:22:24,739
+have someone
+
+1559
+01:22:27,420 --> 01:22:33,360
+let's check
+
+1560
+01:22:29,120 --> 01:22:35,460
+fantastic okay well wow in C code look
+
+1561
+01:22:33,360 --> 01:22:39,060
+string distance is a building function
+
+1562
+01:22:35,460 --> 01:22:41,699
+in C source code fantastic so string
+
+1563
+01:22:39,060 --> 01:22:45,380
+distance string one string two uh
+
+1564
+01:22:41,699 --> 01:22:49,139
+optional byte compare return okay return
+
+1565
+01:22:45,380 --> 01:22:52,139
+levance 10 distance okay
+
+1566
+01:22:49,139 --> 01:22:55,260
+so this is useful in case
+
+1567
+01:22:52,139 --> 01:22:58,679
+if I end up you know if I end up not
+
+1568
+01:22:55,260 --> 01:23:01,380
+wanting to use a Helm then I'm gonna
+
+1569
+01:22:58,679 --> 01:23:04,139
+this will be useful
+
+1570
+01:23:01,380 --> 01:23:07,679
+also we haven't looked at the I I do
+
+1571
+01:23:04,139 --> 01:23:09,900
+source code yet so again that's gonna I
+
+1572
+01:23:07,679 --> 01:23:12,840
+don't know how long that's gonna take
+
+1573
+01:23:09,900 --> 01:23:15,199
+but this is like real live coding that's
+
+1574
+01:23:12,840 --> 01:23:15,199
+uh
+
+1575
+01:23:15,239 --> 01:23:22,739
+fantastic so camp and Campbell is a C
+
+1576
+01:23:18,780 --> 01:23:25,739
+and C plus plus in Python expert great
+
+1577
+01:23:22,739 --> 01:23:27,600
+okay now let me answer the keyboard the
+
+1578
+01:23:25,739 --> 01:23:29,639
+question then that's it for today okay
+
+1579
+01:23:27,600 --> 01:23:33,139
+so if you like my stuff again you know
+
+1580
+01:23:29,639 --> 01:23:33,139
+you just go to my website
+
+1581
+01:23:33,900 --> 01:23:39,540
+uh you know because uh
+
+1582
+01:23:36,440 --> 01:23:42,300
+emacs tutorial or emacs you know today
+
+1583
+01:23:39,540 --> 01:23:45,300
+we're talking about emac Beast so I did
+
+1584
+01:23:42,300 --> 01:23:49,199
+a kind of tutorial I did I did lots of
+
+1585
+01:23:45,300 --> 01:23:54,960
+videos uh by now so you can patreon me
+
+1586
+01:23:49,199 --> 01:23:58,860
+or buy my emacs tutorial practical emacs
+
+1587
+01:23:54,960 --> 01:24:01,739
+tutorial okay uh you know I teach you
+
+1588
+01:23:58,860 --> 01:24:04,679
+emac this from the ground up or the the
+
+1589
+01:24:01,739 --> 01:24:07,620
+most basic practical ones so you can get
+
+1590
+01:24:04,679 --> 01:24:10,920
+up to speed very fast
+
+1591
+01:24:07,620 --> 01:24:13,020
+in a week you'll learn all the essential
+
+1592
+01:24:10,920 --> 01:24:14,520
+the most essential commands and what
+
+1593
+01:24:13,020 --> 01:24:17,280
+they mean
+
+1594
+01:24:14,520 --> 01:24:20,940
+okay thank you so let's let's go to
+
+1595
+01:24:17,280 --> 01:24:23,179
+keyboard okay let's talk about now
+
+1596
+01:24:20,940 --> 01:24:28,860
+keyboard is much easier to talk about
+
+1597
+01:24:23,179 --> 01:24:31,380
+than than than code okay so so uh the
+
+1598
+01:24:28,860 --> 01:24:32,940
+question is about the the question is
+
+1599
+01:24:31,380 --> 01:24:35,699
+about
+
+1600
+01:24:32,940 --> 01:24:38,940
+the pedal okay I don't use pedal myself
+
+1601
+01:24:35,699 --> 01:24:41,760
+for this one okay
+
+1602
+01:24:38,940 --> 01:24:44,219
+and this is fairly expensive
+
+1603
+01:24:41,760 --> 01:24:46,020
+and let me okay so the first thing you
+
+1604
+01:24:44,219 --> 01:24:48,780
+want to know is that so I have a review
+
+1605
+01:24:46,020 --> 01:24:49,800
+here actually I did a video kind of long
+
+1606
+01:24:48,780 --> 01:24:54,120
+time ago
+
+1607
+01:24:49,800 --> 01:24:55,800
+so I did a review of this pedal so the
+
+1608
+01:24:54,120 --> 01:24:58,260
+first thing you want to know is that
+
+1609
+01:24:55,800 --> 01:25:00,960
+this is not for you know most people
+
+1610
+01:24:58,260 --> 01:25:03,780
+will think okay one of the pedal will be
+
+1611
+01:25:00,960 --> 01:25:05,280
+control the other one is the old and the
+
+1612
+01:25:03,780 --> 01:25:07,679
+other one can be shipped something like
+
+1613
+01:25:05,280 --> 01:25:10,739
+that so you are thinking the pedal is
+
+1614
+01:25:07,679 --> 01:25:12,179
+going to be modifier Keys No okay you
+
+1615
+01:25:10,739 --> 01:25:15,659
+cannot do that
+
+1616
+01:25:12,179 --> 01:25:19,620
+the by default the Kinesis around Elite
+
+1617
+01:25:15,659 --> 01:25:22,860
+2 foot pedal do not allow you to do that
+
+1618
+01:25:19,620 --> 01:25:26,040
+you cannot set any of the pedal keys to
+
+1619
+01:25:22,860 --> 01:25:28,500
+be modified okay so what does it do well
+
+1620
+01:25:26,040 --> 01:25:30,900
+they do for example you can set them to
+
+1621
+01:25:28,500 --> 01:25:32,820
+any key that's not modifier for example
+
+1622
+01:25:30,900 --> 01:25:35,280
+they can be left click
+
+1623
+01:25:32,820 --> 01:25:38,940
+you know Mouse click left click right
+
+1624
+01:25:35,280 --> 01:25:42,179
+click middle click or or or pressing F1
+
+1625
+01:25:38,940 --> 01:25:45,179
+F2 things like that okay or caps lock
+
+1626
+01:25:42,179 --> 01:25:47,820
+turn on caps lock things like that so
+
+1627
+01:25:45,179 --> 01:25:50,460
+you cannot use them for modifier keys
+
+1628
+01:25:47,820 --> 01:25:53,400
+for the pedal why there's a good reason
+
+1629
+01:25:50,460 --> 01:25:55,280
+for that too so by default as far as I
+
+1630
+01:25:53,400 --> 01:25:58,440
+know you cannot do that
+
+1631
+01:25:55,280 --> 01:26:00,179
+uh possibly you can if you hack it I
+
+1632
+01:25:58,440 --> 01:26:01,199
+don't know but by default you cannot use
+
+1633
+01:26:00,179 --> 01:26:04,380
+the
+
+1634
+01:26:01,199 --> 01:26:06,300
+the foot pedal for modifier Keys why why
+
+1635
+01:26:04,380 --> 01:26:08,880
+it's a good thing because you know
+
+1636
+01:26:06,300 --> 01:26:12,600
+there's a story where there's a kid
+
+1637
+01:26:08,880 --> 01:26:15,000
+who said one of the foot pedal for push
+
+1638
+01:26:12,600 --> 01:26:16,920
+to talk when you if you are a gamer you
+
+1639
+01:26:15,000 --> 01:26:19,500
+know you press the key to then you can
+
+1640
+01:26:16,920 --> 01:26:23,100
+your microphone is on you can chat then
+
+1641
+01:26:19,500 --> 01:26:25,380
+we are done you you D you leave it then
+
+1642
+01:26:23,100 --> 01:26:27,900
+you know your microphone is shut
+
+1643
+01:26:25,380 --> 01:26:31,139
+so he got used to that then one day he's
+
+1644
+01:26:27,900 --> 01:26:35,520
+driving and talking to his mom then he
+
+1645
+01:26:31,139 --> 01:26:38,820
+does a push to chat hey Mom we are you
+
+1646
+01:26:35,520 --> 01:26:42,719
+know you you know what happens next you
+
+1647
+01:26:38,820 --> 01:26:46,320
+know there's crash you know so so it's a
+
+1648
+01:26:42,719 --> 01:26:48,120
+so be careful of that so I wouldn't Reco
+
+1649
+01:26:46,320 --> 01:26:51,179
+I you know in fact I
+
+1650
+01:26:48,120 --> 01:26:54,420
+even if it can I wouldn't recommend it
+
+1651
+01:26:51,179 --> 01:26:56,460
+because and I don't think it's a good uh
+
+1652
+01:26:54,420 --> 01:26:59,880
+efficiency in terms of efficiency
+
+1653
+01:26:56,460 --> 01:27:01,739
+because imagine you you you stamp on on
+
+1654
+01:26:59,880 --> 01:27:04,560
+a pedal then
+
+1655
+01:27:01,739 --> 01:27:06,239
+you press the key you know it's not very
+
+1656
+01:27:04,560 --> 01:27:08,940
+efficient
+
+1657
+01:27:06,239 --> 01:27:11,400
+as I said before I rather recommend like
+
+1658
+01:27:08,940 --> 01:27:13,860
+you see my keyboard before in this you
+
+1659
+01:27:11,400 --> 01:27:15,780
+know just have lots of marker keys but
+
+1660
+01:27:13,860 --> 01:27:18,840
+foot pedal is still useful because I
+
+1661
+01:27:15,780 --> 01:27:22,139
+have it I use it for example I have set
+
+1662
+01:27:18,840 --> 01:27:25,320
+up so that one is a previous application
+
+1663
+01:27:22,139 --> 01:27:27,300
+uh like like I can show you
+
+1664
+01:27:25,320 --> 01:27:30,420
+um
+
+1665
+01:27:27,300 --> 01:27:31,199
+I don't have it set up now but
+
+1666
+01:27:30,420 --> 01:27:35,179
+um
+
+1667
+01:27:31,199 --> 01:27:35,179
+but if you can see my keyboard
+
+1668
+01:27:36,420 --> 01:27:43,500
+okay so one of the pedal is previous uh
+
+1669
+01:27:40,440 --> 01:27:45,719
+previous window okay so previous windows
+
+1670
+01:27:43,500 --> 01:27:48,179
+so if I go here previous window previous
+
+1671
+01:27:45,719 --> 01:27:49,199
+window you know it can be some window
+
+1672
+01:27:48,179 --> 01:27:52,500
+here
+
+1673
+01:27:49,199 --> 01:27:55,739
+previous window you see very useful
+
+1674
+01:27:52,500 --> 01:27:58,219
+and the other is Max screen okay like
+
+1675
+01:27:55,739 --> 01:27:58,219
+that key
+
+1676
+01:27:58,320 --> 01:28:03,000
+and the other one I forgot about the
+
+1677
+01:28:00,300 --> 01:28:05,130
+other one is
+
+1678
+01:28:03,000 --> 01:28:08,249
+but uh
+
+1679
+01:28:05,130 --> 01:28:08,249
+[Music]
+
+1680
+01:28:11,580 --> 01:28:17,100
+yeah but that's what they are I mean so
+
+1681
+01:28:14,340 --> 01:28:19,860
+that's what I use for them for uh you
+
+1682
+01:28:17,100 --> 01:28:22,199
+know Max window previous window toggle
+
+1683
+01:28:19,860 --> 01:28:25,560
+toggle Max window and the other one is
+
+1684
+01:28:22,199 --> 01:28:28,020
+the meta X oh yeah Emax metax is very
+
+1685
+01:28:25,560 --> 01:28:31,560
+useful you you it's possible you can set
+
+1686
+01:28:28,020 --> 01:28:34,139
+them to be codes so one of them uh I
+
+1687
+01:28:31,560 --> 01:28:36,060
+think I had meta X so that's my
+
+1688
+01:28:34,139 --> 01:28:38,340
+recommendation you know whether you like
+
+1689
+01:28:36,060 --> 01:28:41,420
+that or not it's up to you
+
+1690
+01:28:38,340 --> 01:28:41,420
+okay thank you guys
+
+1691
+01:28:42,600 --> 01:28:46,940
+uh thank you guys for watching bye
+
+1692
+01:28:54,780 --> 01:28:58,520
+yeah okay bye
+

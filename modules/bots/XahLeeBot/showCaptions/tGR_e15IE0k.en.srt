@@ -1,0 +1,7160 @@
+1
+00:00:02,600 --> 00:00:10,440
+good morning everyone welcome to another
+
+2
+00:00:05,940 --> 00:00:14,730
+episode of Santos show so let me wait
+
+3
+00:00:10,440 --> 00:00:19,050
+for people to come on Sam Sann talk show
+
+4
+00:00:14,730 --> 00:00:23,609
+and let's put today's date in stuff into
+
+5
+00:00:19,050 --> 00:00:29,310
+the title property so today I think I'm
+
+6
+00:00:23,609 --> 00:00:33,270
+going to talk about two topics let's put
+
+7
+00:00:29,310 --> 00:00:37,430
+that two topics one is JavaScript
+
+8
+00:00:33,270 --> 00:00:42,030
+JavaScript iterators iterable generators
+
+9
+00:00:37,430 --> 00:00:45,000
+generate a function the whole shebang
+
+10
+00:00:42,030 --> 00:00:49,140
+you know the the whole so I'm thinking
+
+11
+00:00:45,000 --> 00:00:51,809
+of I'm giving you a lecture like you
+
+12
+00:00:49,140 --> 00:00:54,629
+know a tutorial that teach you about the
+
+13
+00:00:51,809 --> 00:00:59,039
+whole thing it's very complex the
+
+14
+00:00:54,629 --> 00:01:01,949
+JavaScript iterators iterable the way
+
+15
+00:00:59,039 --> 00:01:04,500
+that there are concepts and the way they
+
+16
+00:01:01,949 --> 00:01:07,890
+are implemented the mechanism in
+
+17
+00:01:04,500 --> 00:01:14,310
+JavaScript is extremely complex ok so
+
+18
+00:01:07,890 --> 00:01:16,770
+you have let me show you the so in first
+
+19
+00:01:14,310 --> 00:01:22,080
+of all you you have JavaScript interface
+
+20
+00:01:16,770 --> 00:01:25,049
+the interface defines defines iterable
+
+21
+00:01:22,080 --> 00:01:28,110
+interface then you have iterator in
+
+22
+00:01:25,049 --> 00:01:33,450
+interface then you have iterator result
+
+23
+00:01:28,110 --> 00:01:36,740
+interface yeah anyway it's very complex
+
+24
+00:01:33,450 --> 00:01:40,290
+it's the the the the also the
+
+25
+00:01:36,740 --> 00:01:42,899
+programming concept of these things
+
+26
+00:01:40,290 --> 00:01:46,500
+iterable iterators generators they are
+
+27
+00:01:42,899 --> 00:01:49,049
+no good basically they are what I would
+
+28
+00:01:46,500 --> 00:01:51,720
+call a side-effect of computer
+
+29
+00:01:49,049 --> 00:01:55,829
+engineering ok
+
+30
+00:01:51,720 --> 00:01:57,509
+so anybody here so hi guys so let me
+
+31
+00:01:55,829 --> 00:01:59,700
+know what you want me to not talk about
+
+32
+00:01:57,509 --> 00:02:02,219
+today so one topic is JavaScript
+
+33
+00:01:59,700 --> 00:02:07,049
+tutorial a lecture on JavaScript
+
+34
+00:02:02,219 --> 00:02:10,259
+iterators and in the interface so that
+
+35
+00:02:07,049 --> 00:02:13,380
+is that the other thing we might talk
+
+36
+00:02:10,259 --> 00:02:15,510
+about is YouTube stuff you
+
+37
+00:02:13,380 --> 00:02:18,930
+basically a commentary on today's
+
+38
+00:02:15,510 --> 00:02:23,100
+YouTube society the millennial
+
+39
+00:02:18,930 --> 00:02:26,760
+generation maybe some politics I mean I
+
+40
+00:02:23,100 --> 00:02:29,880
+mean it's all related you know and it's
+
+41
+00:02:26,760 --> 00:02:34,130
+pretty bad today you know it's it's
+
+42
+00:02:29,880 --> 00:02:37,500
+pretty bad and also it's very
+
+43
+00:02:34,130 --> 00:02:40,290
+interesting I mean the YouTube stuff you
+
+44
+00:02:37,500 --> 00:02:42,150
+know they are billions in billions I
+
+45
+00:02:40,290 --> 00:02:44,640
+don't know what what number exactly but
+
+46
+00:02:42,150 --> 00:02:47,490
+it's such a numbers such that if you
+
+47
+00:02:44,640 --> 00:02:49,670
+watch all your time you know all your
+
+48
+00:02:47,490 --> 00:02:53,340
+wake time watching YouTube you cannot
+
+49
+00:02:49,670 --> 00:02:55,080
+watch it you know you cannot watch maybe
+
+50
+00:02:53,340 --> 00:02:58,230
+even half of it you know in your
+
+51
+00:02:55,080 --> 00:03:00,600
+lifetime so these tremendous things
+
+52
+00:02:58,230 --> 00:03:02,910
+happening in YouTube and also the
+
+53
+00:03:00,600 --> 00:03:05,790
+important things from my perspective you
+
+54
+00:03:02,910 --> 00:03:08,910
+know my kind of perception of the world
+
+55
+00:03:05,790 --> 00:03:11,850
+the style you know the thing that makes
+
+56
+00:03:08,910 --> 00:03:16,320
+my talk so interesting is that I want to
+
+57
+00:03:11,850 --> 00:03:20,100
+say that so the YouTube I mean the
+
+58
+00:03:16,320 --> 00:03:23,960
+YouTube they the way there are tons of
+
+59
+00:03:20,100 --> 00:03:31,020
+YouTube videos they represent they are
+
+60
+00:03:23,960 --> 00:03:33,540
+they are kind of a era a new era in
+
+61
+00:03:31,020 --> 00:03:36,210
+society I mean that's you know society
+
+62
+00:03:33,540 --> 00:03:40,110
+is changing you know all the time it's
+
+63
+00:03:36,210 --> 00:03:41,940
+changing imperceptibly because you know
+
+64
+00:03:40,110 --> 00:03:44,190
+if you know you live every day you don't
+
+65
+00:03:41,940 --> 00:03:47,030
+see a change but however if you look at
+
+66
+00:03:44,190 --> 00:03:50,220
+you know in ten years period you can see
+
+67
+00:03:47,030 --> 00:03:53,450
+things are changing and today in this
+
+68
+00:03:50,220 --> 00:04:00,600
+past decade they are changing very fast
+
+69
+00:03:53,450 --> 00:04:02,430
+and you know like you know if we if you
+
+70
+00:04:00,600 --> 00:04:04,800
+look at the past hundred years or 200
+
+71
+00:04:02,430 --> 00:04:07,790
+years that's history yummy I mean you
+
+72
+00:04:04,800 --> 00:04:13,320
+observe you see how things change how
+
+73
+00:04:07,790 --> 00:04:15,990
+how perceptions how the society how the
+
+74
+00:04:13,320 --> 00:04:19,500
+morality ethics the general sense of
+
+75
+00:04:15,990 --> 00:04:22,470
+morality and the behavior the attitude
+
+76
+00:04:19,500 --> 00:04:25,350
+the mentality you know everything you
+
+77
+00:04:22,470 --> 00:04:26,940
+know it changes and also including
+
+78
+00:04:25,350 --> 00:04:29,100
+social structure
+
+79
+00:04:26,940 --> 00:04:32,820
+and of course also countries you know
+
+80
+00:04:29,100 --> 00:04:37,050
+come and go giant huge corporations come
+
+81
+00:04:32,820 --> 00:04:40,950
+and go they switch hands usually you
+
+82
+00:04:37,050 --> 00:04:44,880
+know I got after you know a few decades
+
+83
+00:04:40,950 --> 00:04:47,490
+and also corporations you know powerful
+
+84
+00:04:44,880 --> 00:04:51,270
+powerhouses governments they also come
+
+85
+00:04:47,490 --> 00:04:53,310
+and go but anyway about YouTube you know
+
+86
+00:04:51,270 --> 00:04:55,170
+YouTube is one of the technology you
+
+87
+00:04:53,310 --> 00:04:59,850
+know most of us are programmers so we
+
+88
+00:04:55,170 --> 00:05:02,160
+are engineers you know we are we these
+
+89
+00:04:59,850 --> 00:05:04,290
+are things that interests us you know
+
+90
+00:05:02,160 --> 00:05:07,890
+programming and related software and
+
+91
+00:05:04,290 --> 00:05:11,370
+technology so YouTube the today's
+
+92
+00:05:07,890 --> 00:05:15,030
+YouTube it's kind of I would say okay I
+
+93
+00:05:11,370 --> 00:05:18,900
+would say it's kind of a maybe it's it's
+
+94
+00:05:15,030 --> 00:05:22,920
+like a turning point you know how people
+
+95
+00:05:18,900 --> 00:05:26,220
+behave and and like for example you know
+
+96
+00:05:22,920 --> 00:05:28,920
+you it used to be you watch TV you know
+
+97
+00:05:26,220 --> 00:05:32,580
+where the TV the mega-corporations
+
+98
+00:05:28,920 --> 00:05:35,490
+you know they you know you have cable
+
+99
+00:05:32,580 --> 00:05:37,710
+you have you know these giant if you
+
+100
+00:05:35,490 --> 00:05:40,110
+base basically three or four giant
+
+101
+00:05:37,710 --> 00:05:41,820
+corporations that broadcasting this
+
+102
+00:05:40,110 --> 00:05:44,490
+isn't you know it's called broadcasting
+
+103
+00:05:41,820 --> 00:05:47,550
+companies so they create programs you
+
+104
+00:05:44,490 --> 00:05:51,990
+know maybe news maybe entertainment you
+
+105
+00:05:47,550 --> 00:05:55,440
+know they produce shows you know for you
+
+106
+00:05:51,990 --> 00:05:57,450
+to watch but but that era is good you
+
+107
+00:05:55,440 --> 00:06:01,980
+know because I think I'd you know I
+
+108
+00:05:57,450 --> 00:06:03,390
+don't have a TV since year 2000 so I
+
+109
+00:06:01,980 --> 00:06:05,760
+don't you know I haven't been watching
+
+110
+00:06:03,390 --> 00:06:08,400
+TV for for like 20 years
+
+111
+00:06:05,760 --> 00:06:11,520
+the only thing I watch these this you
+
+112
+00:06:08,400 --> 00:06:13,980
+know so I don't want you know I have not
+
+113
+00:06:11,520 --> 00:06:19,250
+been watching any TV programs for 20
+
+114
+00:06:13,980 --> 00:06:22,919
+years and but I do watch you know videos
+
+115
+00:06:19,250 --> 00:06:26,460
+usually you know like 10 years ago in mm
+
+116
+00:06:22,919 --> 00:06:29,520
+I I went you know I I maybe go went DVD
+
+117
+00:06:26,460 --> 00:06:32,790
+movie so by DVD movie so CD you know
+
+118
+00:06:29,520 --> 00:06:35,250
+before VCD you know v CD was never
+
+119
+00:06:32,790 --> 00:06:38,310
+popular in USA but it was popular in
+
+120
+00:06:35,250 --> 00:06:40,650
+China and Taiwan anyway I haven't
+
+121
+00:06:38,310 --> 00:06:43,350
+watched much v CD but mostly
+
+122
+00:06:40,650 --> 00:06:47,190
+it's you know I watch DVD you know
+
+123
+00:06:43,350 --> 00:06:50,130
+sometimes I watch movies and but for the
+
+124
+00:06:47,190 --> 00:06:52,770
+past ten years I basically have not been
+
+125
+00:06:50,130 --> 00:06:56,910
+doing that and the only video I watch is
+
+126
+00:06:52,770 --> 00:06:59,490
+YouTube and I used to like it because I
+
+127
+00:06:56,910 --> 00:07:04,380
+don't like programmed I don't like
+
+128
+00:06:59,490 --> 00:07:06,600
+anything that's let's prepare that's you
+
+129
+00:07:04,380 --> 00:07:10,860
+know I prefer to watch natural things
+
+130
+00:07:06,600 --> 00:07:12,660
+like people and YouTube was made by
+
+131
+00:07:10,860 --> 00:07:14,370
+people you know you watch other people
+
+132
+00:07:12,660 --> 00:07:16,740
+just like in real life you talk to
+
+133
+00:07:14,370 --> 00:07:20,190
+people you talk to people of different
+
+134
+00:07:16,740 --> 00:07:23,160
+you know may be from different countries
+
+135
+00:07:20,190 --> 00:07:25,919
+you know they and people when you talk
+
+136
+00:07:23,160 --> 00:07:28,889
+you know you are not prepared like from
+
+137
+00:07:25,919 --> 00:07:30,780
+a script you know which is on the other
+
+138
+00:07:28,889 --> 00:07:33,150
+hand it's usually the case from
+
+139
+00:07:30,780 --> 00:07:37,139
+broadcasting companies it's carefully
+
+140
+00:07:33,150 --> 00:07:39,210
+prepared program that they maximize you
+
+141
+00:07:37,139 --> 00:07:41,250
+know they have all sort of statistics
+
+142
+00:07:39,210 --> 00:07:43,620
+they want to maximize viewership you
+
+143
+00:07:41,250 --> 00:07:45,449
+know and so they have ads and so on so
+
+144
+00:07:43,620 --> 00:07:46,940
+they make money that that's the bottom
+
+145
+00:07:45,449 --> 00:07:49,470
+line
+
+146
+00:07:46,940 --> 00:07:51,840
+anyway in general I don't I don't I
+
+147
+00:07:49,470 --> 00:07:55,080
+don't like you know so I don't like
+
+148
+00:07:51,840 --> 00:07:57,680
+watching TV at all it's kind of it's
+
+149
+00:07:55,080 --> 00:08:00,240
+some sort of brainwashing it because
+
+150
+00:07:57,680 --> 00:08:02,849
+what you are is what you see and what
+
+151
+00:08:00,240 --> 00:08:05,849
+you know it's like they say what you are
+
+152
+00:08:02,849 --> 00:08:07,919
+is what you eat you know because if you
+
+153
+00:08:05,849 --> 00:08:11,250
+eat healthy food you are healthy or be
+
+154
+00:08:07,919 --> 00:08:14,280
+healthy if you eat junk food all day it
+
+155
+00:08:11,250 --> 00:08:17,490
+does things to your body so in the same
+
+156
+00:08:14,280 --> 00:08:20,610
+way as an allergy what do you see what
+
+157
+00:08:17,490 --> 00:08:25,949
+you watch who are your friends that
+
+158
+00:08:20,610 --> 00:08:28,260
+heavily influences or makes who you are
+
+159
+00:08:25,949 --> 00:08:31,590
+you know how you think about things how
+
+160
+00:08:28,260 --> 00:08:34,050
+how you view things and in fact in you
+
+161
+00:08:31,590 --> 00:08:36,029
+know in the large part this is this is
+
+162
+00:08:34,050 --> 00:08:40,080
+what culture means you know if you are
+
+163
+00:08:36,029 --> 00:08:41,729
+born in America in USA your thoughts and
+
+164
+00:08:40,080 --> 00:08:44,219
+your perceptions of the world your
+
+165
+00:08:41,729 --> 00:08:47,010
+ethics or morality so American you know
+
+166
+00:08:44,219 --> 00:08:50,810
+justice rights and every things like
+
+167
+00:08:47,010 --> 00:08:53,579
+that but if you were born in Asia that's
+
+168
+00:08:50,810 --> 00:08:54,610
+you your view of the world is entirely
+
+169
+00:08:53,579 --> 00:08:57,640
+different from our
+
+170
+00:08:54,610 --> 00:09:00,790
+America or if you were born in let's say
+
+171
+00:08:57,640 --> 00:09:04,570
+Russia or Middle East countries you know
+
+172
+00:09:00,790 --> 00:09:08,380
+or India so anyway so who you are is
+
+173
+00:09:04,570 --> 00:09:10,660
+like much of it is influenced by what do
+
+174
+00:09:08,380 --> 00:09:13,000
+you know what book helps you read you
+
+175
+00:09:10,660 --> 00:09:15,459
+know what what do you have seen you know
+
+176
+00:09:13,000 --> 00:09:19,750
+what kind of news every day you know
+
+177
+00:09:15,459 --> 00:09:22,510
+it's not like it's not like oh I have
+
+178
+00:09:19,750 --> 00:09:24,940
+read this or this this book specifically
+
+179
+00:09:22,510 --> 00:09:28,209
+no but rather most of the things you
+
+180
+00:09:24,940 --> 00:09:31,660
+that that makes who you are are the
+
+181
+00:09:28,209 --> 00:09:34,720
+things that you see every day like your
+
+182
+00:09:31,660 --> 00:09:39,160
+life you know you just they small you
+
+183
+00:09:34,720 --> 00:09:42,310
+know by micro micro units everything you
+
+184
+00:09:39,160 --> 00:09:43,959
+see everything you touch that makes who
+
+185
+00:09:42,310 --> 00:09:49,149
+you are what you know what what you
+
+186
+00:09:43,959 --> 00:09:51,279
+think about things you know so so I you
+
+187
+00:09:49,149 --> 00:09:53,490
+know anyway so I I don't like you know
+
+188
+00:09:51,279 --> 00:09:56,709
+watching TV I always prefer to watch
+
+189
+00:09:53,490 --> 00:10:00,250
+youtube videos because YouTube you know
+
+190
+00:09:56,709 --> 00:10:02,800
+at least let's say 10 years ago it was
+
+191
+00:10:00,250 --> 00:10:05,230
+all by people when you watch YouTube
+
+192
+00:10:02,800 --> 00:10:08,769
+it's just people it's just people you
+
+193
+00:10:05,230 --> 00:10:12,269
+know talking and you know talking about
+
+194
+00:10:08,769 --> 00:10:15,279
+maybe some interesting topics or some
+
+195
+00:10:12,269 --> 00:10:18,250
+natural footage about animals you know
+
+196
+00:10:15,279 --> 00:10:22,779
+see animals because they they are divers
+
+197
+00:10:18,250 --> 00:10:26,019
+or you know it's made by people but it
+
+198
+00:10:22,779 --> 00:10:27,850
+has changed the nature also has changed
+
+199
+00:10:26,019 --> 00:10:30,610
+you know you know there are a lot more
+
+200
+00:10:27,850 --> 00:10:32,920
+and more people making YouTube it's
+
+201
+00:10:30,610 --> 00:10:35,529
+almost like everyone now because as long
+
+202
+00:10:32,920 --> 00:10:37,449
+as you have a phone and everyone has the
+
+203
+00:10:35,529 --> 00:10:41,500
+phone now and you can you know you can
+
+204
+00:10:37,449 --> 00:10:44,230
+start to make videos on YouTube but the
+
+205
+00:10:41,500 --> 00:10:47,649
+nature kind of also changed the youtubes
+
+206
+00:10:44,230 --> 00:10:51,310
+stuff because you know as small people
+
+207
+00:10:47,649 --> 00:10:54,040
+making videos and actually these days
+
+208
+00:10:51,310 --> 00:10:57,640
+more people are making videos because of
+
+209
+00:10:54,040 --> 00:11:00,130
+money you know not because they happens
+
+210
+00:10:57,640 --> 00:11:02,470
+to you know make a video about something
+
+211
+00:11:00,130 --> 00:11:05,440
+they of their interests or you know they
+
+212
+00:11:02,470 --> 00:11:08,180
+have opinion about but mostly a lot you
+
+213
+00:11:05,440 --> 00:11:10,910
+know it's like in the past five years
+
+214
+00:11:08,180 --> 00:11:13,490
+maybe that's the right frame of time in
+
+215
+00:11:10,910 --> 00:11:16,640
+five five in a five you know in the in
+
+216
+00:11:13,490 --> 00:11:19,250
+the past five years you have a surge of
+
+217
+00:11:16,640 --> 00:11:21,770
+people like you know go on YouTube
+
+218
+00:11:19,250 --> 00:11:24,770
+making videos and they are so the nature
+
+219
+00:11:21,770 --> 00:11:28,640
+of YouTube videos most is it has changed
+
+220
+00:11:24,770 --> 00:11:30,710
+somewhat so it's no longer it's less
+
+221
+00:11:28,640 --> 00:11:34,010
+about you know just people average
+
+222
+00:11:30,710 --> 00:11:37,610
+people talking but rather it becomes
+
+223
+00:11:34,010 --> 00:11:41,390
+more of kind of a semi-professional okay
+
+224
+00:11:37,610 --> 00:11:43,550
+who you know everyone wants to start to
+
+225
+00:11:41,390 --> 00:11:46,730
+make a living from YouTube because you
+
+226
+00:11:43,550 --> 00:11:48,560
+have seen if you paid attention you know
+
+227
+00:11:46,730 --> 00:11:53,060
+you have seen a lot of people become
+
+228
+00:11:48,560 --> 00:11:55,250
+very wealthy you know rich by just
+
+229
+00:11:53,060 --> 00:11:57,200
+making YouTube videos that's all they
+
+230
+00:11:55,250 --> 00:11:59,650
+have to do like you can quit your job
+
+231
+00:11:57,200 --> 00:12:03,670
+you just start to talk talk on YouTube
+
+232
+00:11:59,650 --> 00:12:09,880
+but also because of these money money
+
+233
+00:12:03,670 --> 00:12:12,580
+money element you know that also changed
+
+234
+00:12:09,880 --> 00:12:16,820
+significantly I would say to a
+
+235
+00:12:12,580 --> 00:12:20,990
+significant degree the nature of videos
+
+236
+00:12:16,820 --> 00:12:23,600
+we see on YouTube because these days you
+
+237
+00:12:20,990 --> 00:12:26,390
+see a lot youtubers you know they make
+
+238
+00:12:23,600 --> 00:12:30,250
+money although they are still individual
+
+239
+00:12:26,390 --> 00:12:32,780
+but they are their content has become
+
+240
+00:12:30,250 --> 00:12:35,750
+it's almost their content has become
+
+241
+00:12:32,780 --> 00:12:38,150
+just like the TV just like what TV was
+
+242
+00:12:35,750 --> 00:12:43,580
+showing you know 10 or 20 years ago
+
+243
+00:12:38,150 --> 00:12:48,650
+it's all very scripted and lame you know
+
+244
+00:12:43,580 --> 00:12:51,620
+there's no arranging ideas there's no no
+
+245
+00:12:48,650 --> 00:12:54,170
+it's it's all smooth and pretty you know
+
+246
+00:12:51,620 --> 00:12:57,020
+its own its you know the in other words
+
+247
+00:12:54,170 --> 00:13:00,200
+it is kind of like it's all fake you
+
+248
+00:12:57,020 --> 00:13:04,910
+know because they you know just like me
+
+249
+00:13:00,200 --> 00:13:07,370
+okay I mean for example you know I if I
+
+250
+00:13:04,910 --> 00:13:09,740
+want to make my videos popular you know
+
+251
+00:13:07,370 --> 00:13:11,480
+there's a lot metrics you know YouTube
+
+252
+00:13:09,740 --> 00:13:14,240
+provides you you know when did people
+
+253
+00:13:11,480 --> 00:13:16,570
+watch which video people liked you know
+
+254
+00:13:14,240 --> 00:13:19,220
+watch them all and how many subscribers
+
+255
+00:13:16,570 --> 00:13:21,740
+subscribers you got because of this
+
+256
+00:13:19,220 --> 00:13:26,120
+video and so on so there are this all
+
+257
+00:13:21,740 --> 00:13:28,250
+measurements they tried to help you you
+
+258
+00:13:26,120 --> 00:13:30,770
+know be get popular they want to help
+
+259
+00:13:28,250 --> 00:13:33,380
+you to become popular because the more
+
+260
+00:13:30,770 --> 00:13:37,280
+popular you are the more popular YouTube
+
+261
+00:13:33,380 --> 00:13:40,130
+will be the more money they will make so
+
+262
+00:13:37,280 --> 00:13:42,920
+if I make a video and my goal is to make
+
+263
+00:13:40,130 --> 00:13:45,080
+money so I start to you know so I check
+
+264
+00:13:42,920 --> 00:13:47,630
+all these statistics in psychology
+
+265
+00:13:45,080 --> 00:13:50,690
+there's lots of turns of health you know
+
+266
+00:13:47,630 --> 00:13:52,910
+so-called help you know some provided by
+
+267
+00:13:50,690 --> 00:13:55,300
+YouTube some provided by third party
+
+268
+00:13:52,910 --> 00:13:59,150
+that this CEO you know industry
+
+269
+00:13:55,300 --> 00:14:01,340
+industries they you know they basically
+
+270
+00:13:59,150 --> 00:14:03,980
+there goes you know how to get more
+
+271
+00:14:01,340 --> 00:14:06,440
+followers you know the top ten tips to
+
+272
+00:14:03,980 --> 00:14:08,900
+get more followers or get more or how to
+
+273
+00:14:06,440 --> 00:14:12,020
+become rich by you know making videos on
+
+274
+00:14:08,900 --> 00:14:14,870
+YouTube so so you do this you know so
+
+275
+00:14:12,020 --> 00:14:16,790
+each of us you know you tend up of
+
+276
+00:14:14,870 --> 00:14:18,730
+course you want to be popular and make
+
+277
+00:14:16,790 --> 00:14:23,060
+more money so you tend to follow these
+
+278
+00:14:18,730 --> 00:14:29,900
+things and so but the result the result
+
+279
+00:14:23,060 --> 00:14:32,810
+of your video it it became like what TV
+
+280
+00:14:29,900 --> 00:14:36,440
+programs is like 20 years ago or 10
+
+281
+00:14:32,810 --> 00:14:37,400
+years ago we so what so what what what
+
+282
+00:14:36,440 --> 00:14:40,070
+does it become
+
+283
+00:14:37,400 --> 00:14:42,880
+it becomes like everything is smooth you
+
+284
+00:14:40,070 --> 00:14:45,410
+know there's no swearing you know
+
+285
+00:14:42,880 --> 00:14:48,650
+everything is nice and smooth and yeah
+
+286
+00:14:45,410 --> 00:14:52,100
+you know it's everything is Lynn you
+
+287
+00:14:48,650 --> 00:14:54,770
+know it's like because the one of the
+
+288
+00:14:52,100 --> 00:14:57,380
+reason what one of the way to become
+
+289
+00:14:54,770 --> 00:15:00,020
+popular is that you just focus on things
+
+290
+00:14:57,380 --> 00:15:02,560
+everyone agrees this is so there is no
+
+291
+00:15:00,020 --> 00:15:04,190
+unique opinions anymore there is no
+
+292
+00:15:02,560 --> 00:15:07,640
+anything that might be considered
+
+293
+00:15:04,190 --> 00:15:11,690
+offensive to some people so you you
+
+294
+00:15:07,640 --> 00:15:15,170
+cease to become truthful I mean you see
+
+295
+00:15:11,690 --> 00:15:17,570
+it ceases to become natural so it's it
+
+296
+00:15:15,170 --> 00:15:21,250
+it doesn't is when you watch which lots
+
+297
+00:15:17,570 --> 00:15:24,170
+of YouTube a lot of people they are not
+
+298
+00:15:21,250 --> 00:15:26,780
+behaving in a normal you know average
+
+299
+00:15:24,170 --> 00:15:27,740
+you know it's not like average people on
+
+300
+00:15:26,780 --> 00:15:30,530
+a streak anymore
+
+301
+00:15:27,740 --> 00:15:34,550
+it's rather they it's you know in a
+
+302
+00:15:30,530 --> 00:15:36,700
+sense it's like all fake hegemon him no
+
+303
+00:15:34,550 --> 00:15:39,440
+man
+
+304
+00:15:36,700 --> 00:15:41,570
+so Norman says making money on YouTube
+
+305
+00:15:39,440 --> 00:15:43,910
+seems similar to music writing odd
+
+306
+00:15:41,570 --> 00:15:48,220
+almost all money is captured by a very
+
+307
+00:15:43,910 --> 00:15:48,220
+tiny percentage yeah that is true too
+
+308
+00:15:52,820 --> 00:15:57,950
+yeah that is true too but but in
+
+309
+00:15:55,880 --> 00:16:00,350
+comparison anyway that's another subject
+
+310
+00:15:57,950 --> 00:16:04,220
+and you know I maybe I'll talk about
+
+311
+00:16:00,350 --> 00:16:07,340
+that so what I'm saying is that YouTube
+
+312
+00:16:04,220 --> 00:16:10,220
+has become you know it has become almost
+
+313
+00:16:07,340 --> 00:16:12,170
+just like TV for example on YouTube
+
+314
+00:16:10,220 --> 00:16:14,600
+there are a lot people for example one
+
+315
+00:16:12,170 --> 00:16:17,150
+of those you know there are thousands of
+
+316
+00:16:14,600 --> 00:16:20,720
+areas you know so what one of the things
+
+317
+00:16:17,150 --> 00:16:27,020
+people do is reviewing keyboards right
+
+318
+00:16:20,720 --> 00:16:29,750
+so anyway so so I mean you start to see
+
+319
+00:16:27,020 --> 00:16:32,240
+you know logos like 3d logos and you
+
+320
+00:16:29,750 --> 00:16:36,050
+know like when you start to watch a
+
+321
+00:16:32,240 --> 00:16:38,930
+video the first 5 seconds is a logo and
+
+322
+00:16:36,050 --> 00:16:41,650
+music just like you know movies and TV
+
+323
+00:16:38,930 --> 00:16:45,380
+those you know produce on TV because
+
+324
+00:16:41,650 --> 00:16:48,550
+logo they kind of like it's a brand you
+
+325
+00:16:45,380 --> 00:16:54,500
+know they do so they kind of want to
+
+326
+00:16:48,550 --> 00:16:56,810
+spread their brand so this is so this is
+
+327
+00:16:54,500 --> 00:16:59,150
+a negative thing it's rather a bad thing
+
+328
+00:16:56,810 --> 00:17:07,490
+because you stop seeing people you start
+
+329
+00:16:59,150 --> 00:17:09,860
+to see all these rather fake things ok
+
+330
+00:17:07,490 --> 00:17:12,260
+that's that's one of the negative aspect
+
+331
+00:17:09,860 --> 00:17:16,850
+of it but the other thing I want to say
+
+332
+00:17:12,260 --> 00:17:19,250
+is at YouTube so today you know YouTube
+
+333
+00:17:16,850 --> 00:17:21,650
+I think there is a some kind of a
+
+334
+00:17:19,250 --> 00:17:24,709
+turning point you might say not not a
+
+335
+00:17:21,650 --> 00:17:28,850
+sharp point but but in the past 5 years
+
+336
+00:17:24,709 --> 00:17:31,010
+you know there's a change in society via
+
+337
+00:17:28,850 --> 00:17:33,800
+YouTube so one of the thing I want to
+
+338
+00:17:31,010 --> 00:17:35,450
+mention is that you know before before
+
+339
+00:17:33,800 --> 00:17:37,820
+there is a video you know video is a
+
+340
+00:17:35,450 --> 00:17:40,370
+very complicated technology it's not
+
+341
+00:17:37,820 --> 00:17:44,120
+easy to do it's in fact it's the
+
+342
+00:17:40,370 --> 00:17:46,310
+extremely very extremely complicated
+
+343
+00:17:44,120 --> 00:17:48,330
+technology you know we don't have that
+
+344
+00:17:46,310 --> 00:17:53,669
+you know we begin to have you know
+
+345
+00:17:48,330 --> 00:17:56,159
+the videos in in 1990s you know the
+
+346
+00:17:53,669 --> 00:17:59,130
+first company that made it big is
+
+347
+00:17:56,159 --> 00:18:01,730
+Apple's QuickTime and by the way back
+
+348
+00:17:59,130 --> 00:18:06,480
+then so in 1990s a video is like
+
+349
+00:18:01,730 --> 00:18:09,120
+stamp-sized a video like 320 pixels by
+
+350
+00:18:06,480 --> 00:18:13,470
+you know 200 pixels that's that's a
+
+351
+00:18:09,120 --> 00:18:15,480
+quality video and lasting lasting for
+
+352
+00:18:13,470 --> 00:18:18,960
+like five seconds
+
+353
+00:18:15,480 --> 00:18:22,799
+I know because because one of the
+
+354
+00:18:18,960 --> 00:18:25,350
+subject that pushes pushes technology as
+
+355
+00:18:22,799 --> 00:18:27,929
+you know is PN you know I don't want to
+
+356
+00:18:25,350 --> 00:18:30,510
+mention a word because people Google
+
+357
+00:18:27,929 --> 00:18:34,049
+YouTube start to ban people you know
+
+358
+00:18:30,510 --> 00:18:35,850
+they say PN is the pusher of technology
+
+359
+00:18:34,049 --> 00:18:39,260
+which is true you know if you observed
+
+360
+00:18:35,850 --> 00:18:41,850
+at least in the past 20 years
+
+361
+00:18:39,260 --> 00:18:43,950
+but it goes longer than that before that
+
+362
+00:18:41,850 --> 00:18:46,710
+you know bit you know for example video
+
+363
+00:18:43,950 --> 00:18:48,840
+cassette tapes they the technology of
+
+364
+00:18:46,710 --> 00:18:55,490
+video because cassette tapes they are
+
+365
+00:18:48,840 --> 00:18:58,470
+all pushed by the PA industry anyway so
+
+366
+00:18:55,490 --> 00:19:02,970
+so yeah I was so so I was saying video
+
+367
+00:18:58,470 --> 00:19:04,549
+technology is rather very complicated
+
+368
+00:19:02,970 --> 00:19:07,559
+and difficult to do
+
+369
+00:19:04,549 --> 00:19:10,559
+it's rather so we would call it advanced
+
+370
+00:19:07,559 --> 00:19:14,909
+so starting in 1990 s of course before
+
+371
+00:19:10,559 --> 00:19:18,960
+1990s we have you know you have TV and
+
+372
+00:19:14,909 --> 00:19:21,179
+broadcasting and video tapes that is
+
+373
+00:19:18,960 --> 00:19:24,059
+also video but that's a different
+
+374
+00:19:21,179 --> 00:19:28,110
+technology that's kind of that's film
+
+375
+00:19:24,059 --> 00:19:31,710
+you know that's before the software
+
+376
+00:19:28,110 --> 00:19:35,730
+based you know digital video anyway so
+
+377
+00:19:31,710 --> 00:19:39,779
+video is a very complex technology and
+
+378
+00:19:35,730 --> 00:19:42,120
+so only so in 2000s we begin to have
+
+379
+00:19:39,779 --> 00:19:44,669
+phones you know because you most mostly
+
+380
+00:19:42,120 --> 00:19:47,220
+due to Apple you know and that every
+
+381
+00:19:44,669 --> 00:19:49,860
+phone Scott camera so but now another 10
+
+382
+00:19:47,220 --> 00:19:52,320
+years everyone has a phone and the phone
+
+383
+00:19:49,860 --> 00:19:53,970
+can you know for us you know powerful
+
+384
+00:19:52,320 --> 00:19:57,659
+computers you know everyone can make a
+
+385
+00:19:53,970 --> 00:20:01,520
+video but still video is you know video
+
+386
+00:19:57,659 --> 00:20:06,020
+is like 10 times hundred times
+
+387
+00:20:01,520 --> 00:20:08,540
+the file size of a image file so anyway
+
+388
+00:20:06,020 --> 00:20:10,790
+the video is not is how to do so so my
+
+389
+00:20:08,540 --> 00:20:13,370
+point let's get back so what I was
+
+390
+00:20:10,790 --> 00:20:15,860
+saying so before video you know we have
+
+391
+00:20:13,370 --> 00:20:18,230
+the technology to communicate is writing
+
+392
+00:20:15,860 --> 00:20:20,179
+now you know as you know writing has
+
+393
+00:20:18,230 --> 00:20:24,800
+been with us you know for thousands of
+
+394
+00:20:20,179 --> 00:20:27,800
+years and then we have printing printers
+
+395
+00:20:24,800 --> 00:20:30,980
+you know the Gruben good Gutenberg you
+
+396
+00:20:27,800 --> 00:20:35,240
+know hotels Gutenberg printing press you
+
+397
+00:20:30,980 --> 00:20:39,440
+know that's a huge leap of technology
+
+398
+00:20:35,240 --> 00:20:42,050
+that advances humanity you know because
+
+399
+00:20:39,440 --> 00:20:44,240
+printing massive printing you you you
+
+400
+00:20:42,050 --> 00:20:47,330
+start to have these you know kind of
+
+401
+00:20:44,240 --> 00:20:49,880
+publications so everyone can read stuff
+
+402
+00:20:47,330 --> 00:20:51,980
+and every kind every everyone can get
+
+403
+00:20:49,880 --> 00:20:55,040
+educated you know learn things from the
+
+404
+00:20:51,980 --> 00:20:57,790
+past thousands of years you can print
+
+405
+00:20:55,040 --> 00:21:01,520
+you know books you know thousand copies
+
+406
+00:20:57,790 --> 00:21:03,830
+before that you have to copy by manually
+
+407
+00:21:01,520 --> 00:21:08,210
+you know writing it out
+
+408
+00:21:03,830 --> 00:21:11,450
+so anyway writing and reading is one is
+
+409
+00:21:08,210 --> 00:21:14,059
+our is the technology of communication
+
+410
+00:21:11,450 --> 00:21:17,380
+that we are used to you know that's how
+
+411
+00:21:14,059 --> 00:21:22,580
+it helps us you know pass knowledge from
+
+412
+00:21:17,380 --> 00:21:25,460
+generations to generation via writing we
+
+413
+00:21:22,580 --> 00:21:28,040
+can learn and understand history like a
+
+414
+00:21:25,460 --> 00:21:31,220
+thousand ago that today you can still
+
+415
+00:21:28,040 --> 00:21:34,130
+read I mean I can most Chinese can still
+
+416
+00:21:31,220 --> 00:21:38,240
+read like you know Chinese books that's
+
+417
+00:21:34,130 --> 00:21:42,760
+written 2,000 years ago and I you know I
+
+418
+00:21:38,240 --> 00:21:47,120
+have examples but anyway so and then so
+
+419
+00:21:42,760 --> 00:21:49,330
+so so you know writing is incredible but
+
+420
+00:21:47,120 --> 00:21:53,150
+however notice that writing is rather
+
+421
+00:21:49,330 --> 00:21:55,130
+unnatural because for example when you
+
+422
+00:21:53,150 --> 00:21:57,860
+study your country usually there's a
+
+423
+00:21:55,130 --> 00:21:59,900
+statistics about literacy you know like
+
+424
+00:21:57,860 --> 00:22:02,690
+literacy rate of the country you know
+
+425
+00:21:59,900 --> 00:22:05,390
+for example China you know in knighting
+
+426
+00:22:02,690 --> 00:22:08,330
+z-- let's say nineteen fifties the
+
+427
+00:22:05,390 --> 00:22:12,509
+literacy you know percentages maybe
+
+428
+00:22:08,330 --> 00:22:17,969
+sixty percent or something I don't know
+
+429
+00:22:12,509 --> 00:22:19,979
+and some Africa and Africa countries for
+
+430
+00:22:17,969 --> 00:22:22,289
+example today they don't have much
+
+431
+00:22:19,979 --> 00:22:25,679
+literacy literacy and in fact you know
+
+432
+00:22:22,289 --> 00:22:27,949
+and you know solely literacy is a big
+
+433
+00:22:25,679 --> 00:22:30,839
+thing so so what does that mean because
+
+434
+00:22:27,949 --> 00:22:33,269
+because to learn reading and writing is
+
+435
+00:22:30,839 --> 00:22:36,029
+actually it's a learning process I mean
+
+436
+00:22:33,269 --> 00:22:39,269
+it's not like you just pony and learn it
+
+437
+00:22:36,029 --> 00:22:42,059
+on the other hand language speaking you
+
+438
+00:22:39,269 --> 00:22:43,709
+know and listening that's kind of
+
+439
+00:22:42,059 --> 00:22:45,509
+natural you know when you are born you
+
+440
+00:22:43,709 --> 00:22:48,089
+learn it you know you can talk to people
+
+441
+00:22:45,509 --> 00:22:50,879
+you can do things communicate but not
+
+442
+00:22:48,089 --> 00:22:52,859
+writing and reading that so we if you
+
+443
+00:22:50,879 --> 00:22:55,799
+learned writing and reading you are
+
+444
+00:22:52,859 --> 00:22:57,559
+considered educated you know it is you
+
+445
+00:22:55,799 --> 00:22:59,819
+know let's say a hundred years ago
+
+446
+00:22:57,559 --> 00:23:02,459
+because the writing and reading is a
+
+447
+00:22:59,819 --> 00:23:05,639
+it's a learned process it's not you know
+
+448
+00:23:02,459 --> 00:23:10,019
+it just it's not a natural thing that
+
+449
+00:23:05,639 --> 00:23:11,789
+happens so what I'm saying is that so
+
+450
+00:23:10,019 --> 00:23:15,589
+you know so if you look at reading and
+
+451
+00:23:11,789 --> 00:23:21,539
+writing you know it's it's not a natural
+
+452
+00:23:15,589 --> 00:23:24,259
+thing that happens to animals okay for
+
+453
+00:23:21,539 --> 00:23:27,659
+example talks you know dogs cats wolf
+
+454
+00:23:24,259 --> 00:23:29,009
+lions they cannot you know they don't
+
+455
+00:23:27,659 --> 00:23:30,539
+have language that they don't have
+
+456
+00:23:29,009 --> 00:23:33,389
+written language but they can
+
+457
+00:23:30,539 --> 00:23:34,709
+communicate via sound you know because
+
+458
+00:23:33,389 --> 00:23:37,859
+that is natural you know
+
+459
+00:23:34,709 --> 00:23:40,979
+woof can howl you know lion can go or
+
+460
+00:23:37,859 --> 00:23:44,579
+dogs can walk and that's you know that
+
+461
+00:23:40,979 --> 00:23:48,149
+that they communicate and dolphins and
+
+462
+00:23:44,579 --> 00:23:51,839
+whales and so on you know and same thing
+
+463
+00:23:48,149 --> 00:23:54,389
+with humans but reading and writing zetz
+
+464
+00:23:51,839 --> 00:23:57,479
+that is something different that's that
+
+465
+00:23:54,389 --> 00:24:01,889
+takes kind of artificial kind of
+
+466
+00:23:57,479 --> 00:24:04,649
+learning to do but however videos now
+
+467
+00:24:01,889 --> 00:24:07,529
+look at videos the video communication
+
+468
+00:24:04,649 --> 00:24:09,989
+it doesn't require you know it's not
+
+469
+00:24:07,529 --> 00:24:12,359
+like it bypasses reading and writing
+
+470
+00:24:09,989 --> 00:24:14,629
+when you watch a video you are watching
+
+471
+00:24:12,359 --> 00:24:17,129
+another human animal you know like me
+
+472
+00:24:14,629 --> 00:24:20,039
+talking so you don't need to have
+
+473
+00:24:17,129 --> 00:24:21,959
+literacy and stuff you know whatever I
+
+474
+00:24:20,039 --> 00:24:25,080
+say you can understand you know we are
+
+475
+00:24:21,959 --> 00:24:28,520
+communicating well this one way you
+
+476
+00:24:25,080 --> 00:24:33,420
+so I have you know two-way video chat
+
+477
+00:24:28,520 --> 00:24:36,420
+like you know Google you know help so
+
+478
+00:24:33,420 --> 00:24:40,790
+anyway so so VD in the video format is a
+
+479
+00:24:36,420 --> 00:24:43,710
+communication format that even though
+
+480
+00:24:40,790 --> 00:24:46,140
+from the perspective of software you
+
+481
+00:24:43,710 --> 00:24:48,510
+know in technology it's really very
+
+482
+00:24:46,140 --> 00:24:52,350
+complicated to create you know you have
+
+483
+00:24:48,510 --> 00:24:55,350
+all these codec formats and you know it
+
+484
+00:24:52,350 --> 00:24:57,930
+takes huge amount of disk space very
+
+485
+00:24:55,350 --> 00:25:01,040
+complicated but however the video format
+
+486
+00:24:57,930 --> 00:25:07,560
+the video of vedyam as a medium as a
+
+487
+00:25:01,040 --> 00:25:10,080
+communication method it's actually idiot
+
+488
+00:25:07,560 --> 00:25:12,350
+it is actually natural i mean that's the
+
+489
+00:25:10,080 --> 00:25:16,830
+thing that's a difference between video
+
+490
+00:25:12,350 --> 00:25:18,330
+videos and compared to writing so what
+
+491
+00:25:16,830 --> 00:25:20,310
+I'm thinking when you know when I look
+
+492
+00:25:18,330 --> 00:25:23,460
+at YouTube I want to observe the
+
+493
+00:25:20,310 --> 00:25:28,400
+observed the search of amount of number
+
+494
+00:25:23,460 --> 00:25:33,030
+people making youtubes you know the
+
+495
+00:25:28,400 --> 00:25:35,010
+commercialization aspect aside let's
+
+496
+00:25:33,030 --> 00:25:38,210
+look at just look at the communication
+
+497
+00:25:35,010 --> 00:25:41,700
+aspect of human human communication in
+
+498
+00:25:38,210 --> 00:25:45,380
+society yeah idiot it is actually some
+
+499
+00:25:41,700 --> 00:25:47,970
+kind of incredible like it's a
+
+500
+00:25:45,380 --> 00:25:52,020
+revolution I mean it's an evolution it's
+
+501
+00:25:47,970 --> 00:25:54,060
+it's it's very significant and also the
+
+502
+00:25:52,020 --> 00:25:55,440
+other thing I noticed is that you know
+
+503
+00:25:54,060 --> 00:25:57,540
+when you learn a programming language
+
+504
+00:25:55,440 --> 00:26:00,180
+like I write programming language
+
+505
+00:25:57,540 --> 00:26:07,440
+tutorials I don't like to you watch
+
+506
+00:26:00,180 --> 00:26:09,660
+videos so so so I guys say something ok
+
+507
+00:26:07,440 --> 00:26:12,300
+I'll comment you know keep keep the
+
+508
+00:26:09,660 --> 00:26:15,480
+comment coming so why why write a
+
+509
+00:26:12,300 --> 00:26:17,610
+tutorial you know before there's a video
+
+510
+00:26:15,480 --> 00:26:20,100
+era you know YouTube you know you just
+
+511
+00:26:17,610 --> 00:26:23,250
+read and write programming languages you
+
+512
+00:26:20,100 --> 00:26:26,100
+learn you learn how to do it by reading
+
+513
+00:26:23,250 --> 00:26:30,600
+you know books or websites or
+
+514
+00:26:26,100 --> 00:26:32,730
+documentation that's fairly efficient I
+
+515
+00:26:30,600 --> 00:26:35,910
+mean compared to watching someone
+
+516
+00:26:32,730 --> 00:26:39,030
+teaching you a new language via video
+
+517
+00:26:35,910 --> 00:26:40,820
+it's rather more efficient because
+
+518
+00:26:39,030 --> 00:26:43,410
+video another thing about video
+
+519
+00:26:40,820 --> 00:26:45,960
+communication as a method of
+
+520
+00:26:43,410 --> 00:26:49,230
+communication is that video is very time
+
+521
+00:26:45,960 --> 00:26:51,960
+consuming you know you like my videos is
+
+522
+00:26:49,230 --> 00:26:53,940
+like Oh an hour every day you know you
+
+523
+00:26:51,960 --> 00:26:55,740
+don't have time you know you watch few
+
+524
+00:26:53,940 --> 00:26:57,630
+people then your day is good you know
+
+525
+00:26:55,740 --> 00:27:01,380
+you don't have you don't have time to do
+
+526
+00:26:57,630 --> 00:27:03,210
+work or any other things so video the
+
+527
+00:27:01,380 --> 00:27:07,650
+other thing is it's very time consuming
+
+528
+00:27:03,210 --> 00:27:10,020
+to watch but anyway so letting
+
+529
+00:27:07,650 --> 00:27:12,510
+programming languages I noticed you know
+
+530
+00:27:10,020 --> 00:27:15,450
+in the past few years a lot people they
+
+531
+00:27:12,510 --> 00:27:19,230
+actually prefer learning a programming
+
+532
+00:27:15,450 --> 00:27:21,300
+language via video so at first you know
+
+533
+00:27:19,230 --> 00:27:24,360
+I I just you know laugh it off you know
+
+534
+00:27:21,300 --> 00:27:26,670
+I think maybe stupid stupid people but
+
+535
+00:27:24,360 --> 00:27:29,520
+actually thinking about it that's not
+
+536
+00:27:26,670 --> 00:27:32,310
+the whole story because video as I said
+
+537
+00:27:29,520 --> 00:27:36,120
+you know it is a natural medium natural
+
+538
+00:27:32,310 --> 00:27:37,920
+way we we learn things communicate like
+
+539
+00:27:36,120 --> 00:27:40,200
+you learned from your dad from your mom
+
+540
+00:27:37,920 --> 00:27:42,210
+when you are small you watch what they
+
+541
+00:27:40,200 --> 00:27:45,120
+do you watch how they do you know you
+
+542
+00:27:42,210 --> 00:27:46,950
+just see it you know even even though
+
+543
+00:27:45,120 --> 00:27:49,950
+it's not a lecture you just you know you
+
+544
+00:27:46,950 --> 00:27:52,470
+you see you see your mom and dad or your
+
+545
+00:27:49,950 --> 00:27:56,070
+you know adults to things you learn it
+
+546
+00:27:52,470 --> 00:27:59,160
+you know that's how you learn so
+
+547
+00:27:56,070 --> 00:28:01,110
+watching video so I noticed a lot you
+
+548
+00:27:59,160 --> 00:28:03,540
+know there's a lot tutorial websites
+
+549
+00:28:01,110 --> 00:28:06,510
+they have you know they have they sell
+
+550
+00:28:03,540 --> 00:28:08,430
+their videos you know like you buy this
+
+551
+00:28:06,510 --> 00:28:11,820
+tutorial then you can watch you know
+
+552
+00:28:08,430 --> 00:28:15,000
+five hours to study Python for example
+
+553
+00:28:11,820 --> 00:28:18,210
+and actually a lot people it's very
+
+554
+00:28:15,000 --> 00:28:20,840
+popular that that kind of thing so I'm
+
+555
+00:28:18,210 --> 00:28:24,480
+so I'm so I'm thinking you know actually
+
+556
+00:28:20,840 --> 00:28:28,740
+the reason it's not these popular not
+
+557
+00:28:24,480 --> 00:28:30,870
+because you know at least partly because
+
+558
+00:28:28,740 --> 00:28:35,520
+you know video is actually the natural
+
+559
+00:28:30,870 --> 00:28:43,410
+medium and okay so now here's my point
+
+560
+00:28:35,520 --> 00:28:45,990
+okay so here's my point is is that so so
+
+561
+00:28:43,410 --> 00:28:48,690
+I have seen you know the YouTube how the
+
+562
+00:28:45,990 --> 00:28:50,970
+number of videos on YouTube is searching
+
+563
+00:28:48,690 --> 00:28:52,240
+it's like I am feeding you know
+
+564
+00:28:50,970 --> 00:28:56,380
+especially in the past
+
+565
+00:28:52,240 --> 00:28:58,450
+two or three years there's a search you
+
+566
+00:28:56,380 --> 00:29:00,790
+know a wave of people starting to make
+
+567
+00:28:58,450 --> 00:29:03,640
+videos because I've seen for my Emacs
+
+568
+00:29:00,790 --> 00:29:05,679
+circles even people who never you know
+
+569
+00:29:03,640 --> 00:29:08,890
+these kick programmers who would never
+
+570
+00:29:05,679 --> 00:29:11,340
+do a video before they are starting like
+
+571
+00:29:08,890 --> 00:29:13,900
+they are starting to do some videos
+
+572
+00:29:11,340 --> 00:29:19,020
+including myself you know I I only
+
+573
+00:29:13,900 --> 00:29:22,450
+started to video like half a years ago
+
+574
+00:29:19,020 --> 00:29:25,000
+so because so why are we starting to do
+
+575
+00:29:22,450 --> 00:29:27,840
+because I know I I think you know so all
+
+576
+00:29:25,000 --> 00:29:31,120
+these we you know we see news every day
+
+577
+00:29:27,840 --> 00:29:33,850
+there we we all noticed there is this
+
+578
+00:29:31,120 --> 00:29:35,800
+search and and also there's a money the
+
+579
+00:29:33,850 --> 00:29:38,710
+lure of money you know once you know
+
+580
+00:29:35,800 --> 00:29:40,870
+because we see a lot you tube stars you
+
+581
+00:29:38,710 --> 00:29:43,000
+know they can just make a living by in
+
+582
+00:29:40,870 --> 00:29:46,540
+many cases they make huge amount of
+
+583
+00:29:43,000 --> 00:29:51,160
+money like millions million dollars you
+
+584
+00:29:46,540 --> 00:29:54,309
+know years something like that so so
+
+585
+00:29:51,160 --> 00:29:58,059
+this incredible amount of videos on
+
+586
+00:29:54,309 --> 00:30:01,809
+YouTube so so that's some of my thoughts
+
+587
+00:29:58,059 --> 00:30:04,960
+you know let me let me make a summary of
+
+588
+00:30:01,809 --> 00:30:08,650
+what I've said so far so one is that
+
+589
+00:30:04,960 --> 00:30:12,929
+there is a surge of you number of videos
+
+590
+00:30:08,650 --> 00:30:15,730
+and YouTube video makers on YouTube okay
+
+591
+00:30:12,929 --> 00:30:16,330
+there's a search of number people making
+
+592
+00:30:15,730 --> 00:30:22,570
+YouTube's
+
+593
+00:30:16,330 --> 00:30:24,400
+making videos today one two videos are
+
+594
+00:30:22,570 --> 00:30:26,500
+actually more natural as far as
+
+595
+00:30:24,400 --> 00:30:28,900
+communication goes human communication
+
+596
+00:30:26,500 --> 00:30:31,270
+is actually more natural medium than
+
+597
+00:30:28,900 --> 00:30:35,440
+reading and writing reading and writing
+
+598
+00:30:31,270 --> 00:30:37,360
+is actually if you is in some technical
+
+599
+00:30:35,440 --> 00:30:40,150
+sense it's actually unnatural it's
+
+600
+00:30:37,360 --> 00:30:43,300
+artificial okay it's not because you can
+
+601
+00:30:40,150 --> 00:30:45,910
+look at other animals so video is
+
+602
+00:30:43,300 --> 00:30:54,400
+actually the more more natural medium
+
+603
+00:30:45,910 --> 00:30:58,179
+for communication 3 ok 3 the the the way
+
+604
+00:30:54,400 --> 00:31:00,880
+I see how the incredible number of
+
+605
+00:30:58,179 --> 00:31:04,929
+videos on YouTube in elsewhere as well I
+
+606
+00:31:00,880 --> 00:31:05,860
+mean the point is the the vast quantity
+
+607
+00:31:04,929 --> 00:31:09,160
+of the video
+
+608
+00:31:05,860 --> 00:31:12,130
+your format is that I'm I'm thinking you
+
+609
+00:31:09,160 --> 00:31:17,440
+know it's it's a kind of a turning point
+
+610
+00:31:12,130 --> 00:31:19,960
+of society that you know if you study
+
+611
+00:31:17,440 --> 00:31:22,510
+society as you know long term like as a
+
+612
+00:31:19,960 --> 00:31:27,760
+history I think there's a some kind of
+
+613
+00:31:22,510 --> 00:31:32,490
+change going on like you know pop for
+
+614
+00:31:27,760 --> 00:31:36,910
+example a possible consequence is that
+
+615
+00:31:32,490 --> 00:31:39,040
+number books on you know the way we we
+
+616
+00:31:36,910 --> 00:31:43,179
+you know website so the the
+
+617
+00:31:39,040 --> 00:31:46,350
+communication by text is kind of we
+
+618
+00:31:43,179 --> 00:31:50,049
+might we might say declining okay
+
+619
+00:31:46,350 --> 00:31:52,950
+relatively at least relative to videos
+
+620
+00:31:50,049 --> 00:31:55,750
+it's absolutely declining because of
+
+621
+00:31:52,950 --> 00:31:59,110
+course video there are so many videos
+
+622
+00:31:55,750 --> 00:32:02,110
+and many of this video youtubers they
+
+623
+00:31:59,110 --> 00:32:05,280
+don't they don't write and they cannot
+
+624
+00:32:02,110 --> 00:32:09,549
+write they are unable to write an essay
+
+625
+00:32:05,280 --> 00:32:12,340
+it is true you know maybe most of them
+
+626
+00:32:09,549 --> 00:32:16,419
+or significant portion like majority
+
+627
+00:32:12,340 --> 00:32:18,750
+they they are not writer so I mean they
+
+628
+00:32:16,419 --> 00:32:21,549
+are content creators but they are unable
+
+629
+00:32:18,750 --> 00:32:24,370
+they don't have the ability to actually
+
+630
+00:32:21,549 --> 00:32:28,900
+write an essay okay but they can course
+
+631
+00:32:24,370 --> 00:32:33,840
+they can make video so anyway so few so
+
+632
+00:32:28,900 --> 00:32:39,730
+so so I'm seeing some kind of a social
+
+633
+00:32:33,840 --> 00:32:42,299
+change as a from the perspective of long
+
+634
+00:32:39,730 --> 00:32:45,910
+term let's say historian you know
+
+635
+00:32:42,299 --> 00:32:48,640
+observer you know with respect to the
+
+636
+00:32:45,910 --> 00:32:51,370
+changing in society long term so I'm
+
+637
+00:32:48,640 --> 00:32:54,880
+seeing this is kind of a change I mean
+
+638
+00:32:51,370 --> 00:32:57,610
+so let me let me let me address that
+
+639
+00:32:54,880 --> 00:33:01,840
+because I am Not sure I express my idea
+
+640
+00:32:57,610 --> 00:33:05,860
+I'm saying that there is a change in
+
+641
+00:33:01,840 --> 00:33:10,590
+society that's happening you know partly
+
+642
+00:33:05,860 --> 00:33:13,059
+due to video that possibly you know so
+
+643
+00:33:10,590 --> 00:33:15,250
+so what's the point so the point is
+
+644
+00:33:13,059 --> 00:33:18,730
+possibly in in the future we are
+
+645
+00:33:15,250 --> 00:33:20,159
+starting to see that that people in
+
+646
+00:33:18,730 --> 00:33:24,039
+general
+
+647
+00:33:20,159 --> 00:33:28,389
+they you know reading books is is
+
+648
+00:33:24,039 --> 00:33:31,330
+becoming you know a past it's not going
+
+649
+00:33:28,389 --> 00:33:36,820
+away for sure but it's kind of you know
+
+650
+00:33:31,330 --> 00:33:40,389
+become less of a primary way we
+
+651
+00:33:36,820 --> 00:33:42,039
+communicate to you know to broadcast our
+
+652
+00:33:40,389 --> 00:33:44,710
+opinions to other people
+
+653
+00:33:42,039 --> 00:33:49,720
+I think that's happening and also
+
+654
+00:33:44,710 --> 00:33:52,419
+remember because writing and and reading
+
+655
+00:33:49,720 --> 00:33:54,159
+is acquired skill you know it's actually
+
+656
+00:33:52,419 --> 00:33:56,799
+a skill you know they have you have
+
+657
+00:33:54,159 --> 00:33:58,779
+turns a book sound writing styles and
+
+658
+00:33:56,799 --> 00:34:01,600
+grandma I mean it's a skill you have to
+
+659
+00:33:58,779 --> 00:34:04,889
+practice supposed to video you know you
+
+660
+00:34:01,600 --> 00:34:08,679
+can just anyone can has ability to talk
+
+661
+00:34:04,889 --> 00:34:12,790
+so video is actually the more more the
+
+662
+00:34:08,679 --> 00:34:15,359
+more popular medium so and any massive
+
+663
+00:34:12,790 --> 00:34:19,389
+numbers we are talking about a magnitude
+
+664
+00:34:15,359 --> 00:34:21,790
+more than writing it's happening so
+
+665
+00:34:19,389 --> 00:34:25,119
+that's what I'm thinking is happening so
+
+666
+00:34:21,790 --> 00:34:28,510
+there's a major isn't some kind of shift
+
+667
+00:34:25,119 --> 00:34:30,389
+I don't know exactly what it is
+
+668
+00:34:28,510 --> 00:34:34,149
+you know of course I'm just you know
+
+669
+00:34:30,389 --> 00:34:36,819
+giving out my observations so I'm but
+
+670
+00:34:34,149 --> 00:34:40,599
+socially I'm thinking there is a massive
+
+671
+00:34:36,819 --> 00:34:44,349
+kind of some kind of shift of something
+
+672
+00:34:40,599 --> 00:34:47,619
+happening because of the quantity you
+
+673
+00:34:44,349 --> 00:34:50,169
+know because of the video becoming you
+
+674
+00:34:47,619 --> 00:34:52,060
+becoming practical you know like
+
+675
+00:34:50,169 --> 00:34:55,109
+everyone's got a phone and everyone can
+
+676
+00:34:52,060 --> 00:34:58,230
+start to make a video a channel of
+
+677
+00:34:55,109 --> 00:35:01,390
+themselves I mean this is opposed to
+
+678
+00:34:58,230 --> 00:35:04,000
+opposed to ten years ago I mean ten
+
+679
+00:35:01,390 --> 00:35:06,280
+years ago of course you have video
+
+680
+00:35:04,000 --> 00:35:08,200
+bloggers you know V bloggers of course
+
+681
+00:35:06,280 --> 00:35:11,170
+so you have bloggers then you start to
+
+682
+00:35:08,200 --> 00:35:15,250
+have deeply bloggers you know which are
+
+683
+00:35:11,170 --> 00:35:18,010
+typically tech savvy take savvy people
+
+684
+00:35:15,250 --> 00:35:20,410
+like us you know programmers we start to
+
+685
+00:35:18,010 --> 00:35:23,980
+make videos you know short short clips
+
+686
+00:35:20,410 --> 00:35:26,650
+about something you know but not but
+
+687
+00:35:23,980 --> 00:35:29,680
+today is today stiff situation is
+
+688
+00:35:26,650 --> 00:35:31,720
+stiffened it's in this video massive
+
+689
+00:35:29,680 --> 00:35:33,030
+amount of videos on YouTube they are not
+
+690
+00:35:31,720 --> 00:35:35,610
+made by you know
+
+691
+00:35:33,030 --> 00:35:37,920
+some tech-savvy you know tech head so
+
+692
+00:35:35,610 --> 00:35:41,850
+they are just by every people you know
+
+693
+00:35:37,920 --> 00:35:45,380
+average people so yeah so this these are
+
+694
+00:35:41,850 --> 00:35:50,370
+things happening about YouTube that's I
+
+695
+00:35:45,380 --> 00:35:54,750
+found quite interesting and also I
+
+696
+00:35:50,370 --> 00:35:57,180
+wanted to so since we are talking about
+
+697
+00:35:54,750 --> 00:35:59,430
+video today I you know I might as well
+
+698
+00:35:57,180 --> 00:36:03,780
+continue the subject because I was
+
+699
+00:35:59,430 --> 00:36:06,990
+looking you know I started to I started
+
+700
+00:36:03,780 --> 00:36:12,000
+to watch youtube videos seriously like
+
+701
+00:36:06,990 --> 00:36:14,040
+everyday you know starting in 2016 you
+
+702
+00:36:12,000 --> 00:36:17,700
+know you know in the beginning
+
+703
+00:36:14,040 --> 00:36:20,730
+I'm watch mostly the political ones
+
+704
+00:36:17,700 --> 00:36:23,010
+commentary because you know as you know
+
+705
+00:36:20,730 --> 00:36:26,190
+there is a rise of social just justice
+
+706
+00:36:23,010 --> 00:36:30,420
+so suddenly you see these ideas about
+
+707
+00:36:26,190 --> 00:36:33,240
+you know trans or LGBTQ you know some
+
+708
+00:36:30,420 --> 00:36:36,900
+some of them you know patriarchy some of
+
+709
+00:36:33,240 --> 00:36:39,780
+the incredibly you know art concepts you
+
+710
+00:36:36,900 --> 00:36:41,720
+know so I started to watch YouTube video
+
+711
+00:36:39,780 --> 00:36:47,270
+starting in 2016
+
+712
+00:36:41,720 --> 00:36:49,680
+late 2016 I almost watch it every day
+
+713
+00:36:47,270 --> 00:36:51,690
+before that I just watch you know I
+
+714
+00:36:49,680 --> 00:36:54,090
+happens to watch something interesting
+
+715
+00:36:51,690 --> 00:36:57,030
+about some programming lectures or
+
+716
+00:36:54,090 --> 00:37:00,000
+something but beginning around to late
+
+717
+00:36:57,030 --> 00:37:02,730
+2016 I started to watch almost every day
+
+718
+00:37:00,000 --> 00:37:06,150
+and in the first one year or two is
+
+719
+00:37:02,730 --> 00:37:09,030
+mostly political commentators you know
+
+720
+00:37:06,150 --> 00:37:11,730
+talk about the strange kind of very
+
+721
+00:37:09,030 --> 00:37:16,230
+strange the rise of social just just is
+
+722
+00:37:11,730 --> 00:37:19,530
+you know tell people okay but but
+
+723
+00:37:16,230 --> 00:37:23,250
+starting about half a year ago I started
+
+724
+00:37:19,530 --> 00:37:27,030
+to watch more and and also this is how I
+
+725
+00:37:23,250 --> 00:37:29,610
+observe this just it seems like YouTube
+
+726
+00:37:27,030 --> 00:37:32,700
+is like tremendous there's a tremendous
+
+727
+00:37:29,610 --> 00:37:34,050
+amount of videos and so I started to
+
+728
+00:37:32,700 --> 00:37:37,860
+watch or different things different
+
+729
+00:37:34,050 --> 00:37:42,000
+things on YouTube yeah and and so I I
+
+730
+00:37:37,860 --> 00:37:45,530
+gathered at least kind of of some of the
+
+731
+00:37:42,000 --> 00:37:45,530
+things I watch let's go to
+
+732
+00:37:45,690 --> 00:37:54,059
+so I gonna show you this is this is this
+
+733
+00:37:50,520 --> 00:37:58,079
+is my periodic dosage which is asian my
+
+734
+00:37:54,059 --> 00:38:03,500
+asian blogs this block began this is my
+
+735
+00:37:58,079 --> 00:38:03,500
+original block it began in 2000
+
+736
+00:38:03,780 --> 00:38:15,390
+let's see human animals archive he began
+
+737
+00:38:07,559 --> 00:38:18,030
+in 2006 okay and you know in 2006 I was
+
+738
+00:38:15,390 --> 00:38:21,180
+reading Wikipedia everyday I mean I'm
+
+739
+00:38:18,030 --> 00:38:23,190
+still really like one hour of Wikipedia
+
+740
+00:38:21,180 --> 00:38:25,950
+almost every day you know I've been
+
+741
+00:38:23,190 --> 00:38:32,940
+doing so anyway so this this is my
+
+742
+00:38:25,950 --> 00:38:36,900
+original block it began in 2006 and and
+
+743
+00:38:32,940 --> 00:38:40,109
+then of five or ten years ago I started
+
+744
+00:38:36,900 --> 00:38:44,579
+to split them out so now I have a Emacs
+
+745
+00:38:40,109 --> 00:38:47,450
+blog artist art blog about art oriented
+
+746
+00:38:44,579 --> 00:38:50,490
+stuff visual arts they are blog about
+
+747
+00:38:47,450 --> 00:38:53,940
+linguistics literature writing related
+
+748
+00:38:50,490 --> 00:38:56,039
+stuff programming blog and the math
+
+749
+00:38:53,940 --> 00:39:00,210
+block you know I have like several blogs
+
+750
+00:38:56,039 --> 00:39:05,190
+but anyway so today this blog periodic
+
+751
+00:39:00,210 --> 00:39:07,440
+passage is mostly random and mostly
+
+752
+00:39:05,190 --> 00:39:10,140
+political stuff in many of them I was
+
+753
+00:39:07,440 --> 00:39:11,369
+offensive okay so if you're gonna read
+
+754
+00:39:10,140 --> 00:39:15,960
+it it's offensive
+
+755
+00:39:11,369 --> 00:39:19,529
+you know so this is my blob of this
+
+756
+00:39:15,960 --> 00:39:22,349
+block in this is written in 2006 and you
+
+757
+00:39:19,529 --> 00:39:25,680
+can read it you know that's when the
+
+758
+00:39:22,349 --> 00:39:29,400
+word blog became you know when the word
+
+759
+00:39:25,680 --> 00:39:32,760
+blog was invented around 2003 or so okay
+
+760
+00:39:29,400 --> 00:39:36,059
+they became popular so I say you know
+
+761
+00:39:32,760 --> 00:39:39,839
+what about once upon a time there was
+
+762
+00:39:36,059 --> 00:39:43,920
+Tyree and similar war logs journals
+
+763
+00:39:39,839 --> 00:39:46,619
+travelogue and such forth in our info
+
+764
+00:39:43,920 --> 00:39:51,420
+age it is called blogs by inept
+
+765
+00:39:46,619 --> 00:39:53,000
+computing geeks okay as I despise I
+
+766
+00:39:51,420 --> 00:39:56,820
+smeared you know the computer
+
+767
+00:39:53,000 --> 00:39:59,820
+programmers I'd like I despised
+
+768
+00:39:56,820 --> 00:40:03,750
+especially the elite hacker you know the
+
+769
+00:39:59,820 --> 00:40:06,540
+UNIX philosophy types so so I say you
+
+770
+00:40:03,750 --> 00:40:09,290
+know to keep in sync with humanity of
+
+771
+00:40:06,540 --> 00:40:13,520
+fashionable business and nomenclature
+
+772
+00:40:09,290 --> 00:40:18,150
+novelty mine is called periodic passage
+
+773
+00:40:13,520 --> 00:40:20,940
+this periodic is spent on to inform the
+
+774
+00:40:18,150 --> 00:40:23,390
+informed and educate the educated and
+
+775
+00:40:20,940 --> 00:40:27,660
+all things in social things and
+
+776
+00:40:23,390 --> 00:40:29,700
+ethological if ethological things that's
+
+777
+00:40:27,660 --> 00:40:32,070
+just my blurb okay that's kind of
+
+778
+00:40:29,700 --> 00:40:34,710
+dramatic that you know that's what
+
+779
+00:40:32,070 --> 00:40:37,410
+blurbs is for you know in books you know
+
+780
+00:40:34,710 --> 00:40:39,720
+when you buy a book a printed book you
+
+781
+00:40:37,410 --> 00:40:41,940
+know you know covers phone in packs
+
+782
+00:40:39,720 --> 00:40:46,140
+usually they have a you know some quotes
+
+783
+00:40:41,940 --> 00:40:47,430
+those are called the the the proper term
+
+784
+00:40:46,140 --> 00:40:50,750
+for those are called
+
+785
+00:40:47,430 --> 00:40:53,670
+I think the proper term is blurbs I
+
+786
+00:40:50,750 --> 00:40:56,910
+blogged about it but I forgot where but
+
+787
+00:40:53,670 --> 00:40:58,800
+in well I know where I mean in my
+
+788
+00:40:56,910 --> 00:41:05,280
+English blog okay
+
+789
+00:40:58,800 --> 00:41:07,050
+but I've but in one of the article in
+
+790
+00:41:05,280 --> 00:41:09,960
+one of the other I forgot where but
+
+791
+00:41:07,050 --> 00:41:13,890
+anyway so there is a word for that you
+
+792
+00:41:09,960 --> 00:41:17,040
+know in a book in a back or front you
+
+793
+00:41:13,890 --> 00:41:20,130
+know you have these blurbs the purpose
+
+794
+00:41:17,040 --> 00:41:22,410
+of the blurbs is of course for it's
+
+795
+00:41:20,130 --> 00:41:25,500
+mostly for marketing marketing reasons
+
+796
+00:41:22,410 --> 00:41:29,190
+you know you read these blurbs it kinds
+
+797
+00:41:25,500 --> 00:41:31,830
+of convey your style what this book is
+
+798
+00:41:29,190 --> 00:41:34,920
+about whether you want to buy the book
+
+799
+00:41:31,830 --> 00:41:35,820
+things like that so this is my my blog
+
+800
+00:41:34,920 --> 00:41:38,700
+you know
+
+801
+00:41:35,820 --> 00:41:41,190
+so you you read it and you see oh is
+
+802
+00:41:38,700 --> 00:41:42,990
+this the guy I want to read all these is
+
+803
+00:41:41,190 --> 00:41:45,060
+what kind of you know I'm not gonna
+
+804
+00:41:42,990 --> 00:41:47,820
+not gonna read it you know he kind of
+
+805
+00:41:45,060 --> 00:41:51,690
+kind of gives you the style of the you
+
+806
+00:41:47,820 --> 00:41:55,140
+know my stuff but anyway so this this is
+
+807
+00:41:51,690 --> 00:41:57,690
+my uh you know blog periodic passage
+
+808
+00:41:55,140 --> 00:42:05,010
+that's what I call it so I collected a
+
+809
+00:41:57,690 --> 00:42:07,800
+bunch of you know you youtubes I've been
+
+810
+00:42:05,010 --> 00:42:10,109
+watching so and also the number of their
+
+811
+00:42:07,800 --> 00:42:12,059
+followers but anyway let's
+
+812
+00:42:10,109 --> 00:42:15,269
+go read the comments take a break hey
+
+813
+00:42:12,059 --> 00:42:18,140
+David Capello great to see you again let
+
+814
+00:42:15,269 --> 00:42:18,140
+me read the comments
+
+815
+00:42:19,489 --> 00:42:24,630
+so live stream coding seems to be a
+
+816
+00:42:22,410 --> 00:42:27,029
+chain but I never found it helpful for
+
+817
+00:42:24,630 --> 00:42:29,900
+learning yeah you know video is
+
+818
+00:42:27,029 --> 00:42:32,220
+extremely time consuming and a spade
+
+819
+00:42:29,900 --> 00:42:35,489
+especially live stream coding you know
+
+820
+00:42:32,220 --> 00:42:38,249
+in a live stream coding you don't learn
+
+821
+00:42:35,489 --> 00:42:41,519
+things you know except you watch the
+
+822
+00:42:38,249 --> 00:42:43,410
+people struggle and you know I mean
+
+823
+00:42:41,519 --> 00:42:47,489
+typically that's the case unless it's
+
+824
+00:42:43,410 --> 00:42:51,690
+very you know very prepared on you you
+
+825
+00:42:47,489 --> 00:42:54,210
+know so but interactions is good you can
+
+826
+00:42:51,690 --> 00:42:57,390
+ask someone why they code a certain way
+
+827
+00:42:54,210 --> 00:43:00,329
+yeah yeah I mean the the good point is
+
+828
+00:42:57,390 --> 00:43:02,970
+you know it's visual it's natural and
+
+829
+00:43:00,329 --> 00:43:05,609
+you know it's like what did you know
+
+830
+00:43:02,970 --> 00:43:08,519
+it's like how they say why the rush I
+
+831
+00:43:05,609 --> 00:43:11,220
+mean today we are in this digital you
+
+832
+00:43:08,519 --> 00:43:13,680
+know AI age where everyone is rushing
+
+833
+00:43:11,220 --> 00:43:16,890
+like we don't have time we need to you
+
+834
+00:43:13,680 --> 00:43:20,670
+know mastered programming language X in
+
+835
+00:43:16,890 --> 00:43:22,829
+you know in a week on the other hand you
+
+836
+00:43:20,670 --> 00:43:25,289
+know you might ask yourself why the rush
+
+837
+00:43:22,829 --> 00:43:29,150
+you know just take your time to be you
+
+838
+00:43:25,289 --> 00:43:32,130
+know watch videos or whatever you know
+
+839
+00:43:29,150 --> 00:43:35,039
+yeah you know all the technology you
+
+840
+00:43:32,130 --> 00:43:38,759
+know they on my hand it seems to benefit
+
+841
+00:43:35,039 --> 00:43:41,819
+us but on the other hand we seems to
+
+842
+00:43:38,759 --> 00:43:45,630
+work more hours you know that life gets
+
+843
+00:43:41,819 --> 00:43:47,819
+more more pressure and less happiness I
+
+844
+00:43:45,630 --> 00:43:49,920
+mean that is true you know you you there
+
+845
+00:43:47,819 --> 00:43:53,039
+are lots of studies on that measures
+
+846
+00:43:49,920 --> 00:43:56,309
+happiness across you know of every
+
+847
+00:43:53,039 --> 00:43:59,069
+country you know there's happiness index
+
+848
+00:43:56,309 --> 00:44:03,289
+you know by these organizations you know
+
+849
+00:43:59,069 --> 00:44:07,109
+III check them out every few years so
+
+850
+00:44:03,289 --> 00:44:09,450
+and if you look at society and in
+
+851
+00:44:07,109 --> 00:44:12,569
+particular USA you know you look at our
+
+852
+00:44:09,450 --> 00:44:15,029
+situation society it doesn't seems we
+
+853
+00:44:12,569 --> 00:44:18,569
+are getting happier and better it seems
+
+854
+00:44:15,029 --> 00:44:20,549
+you know the you know politics and it's
+
+855
+00:44:18,569 --> 00:44:23,430
+getting worse you know the richer gets
+
+856
+00:44:20,549 --> 00:44:25,650
+richer the poor becomes poor
+
+857
+00:44:23,430 --> 00:44:29,960
+there's huge amount of anger there's
+
+858
+00:44:25,650 --> 00:44:29,960
+injustice happening every day you know
+
+859
+00:44:30,260 --> 00:44:35,880
+so David cavero says hikes are here
+
+860
+00:44:33,839 --> 00:44:40,619
+listening to you why our programming
+
+861
+00:44:35,880 --> 00:44:44,190
+okay that is multitasking and good luck
+
+862
+00:44:40,619 --> 00:44:46,190
+if you can actually do that so what do
+
+863
+00:44:44,190 --> 00:44:49,020
+you think about YouTube video
+
+864
+00:44:46,190 --> 00:44:52,440
+recommendation algorithm I think it's
+
+865
+00:44:49,020 --> 00:44:56,670
+it's pretty bad of course confirmation
+
+866
+00:44:52,440 --> 00:44:59,760
+bias fake news spread yeah so YouTube's
+
+867
+00:44:56,670 --> 00:45:02,099
+algorithms yeah you know YouTube they do
+
+868
+00:44:59,760 --> 00:45:04,619
+that of course first of all YouTube
+
+869
+00:45:02,099 --> 00:45:06,450
+wants to make money that's all they want
+
+870
+00:45:04,619 --> 00:45:09,059
+you all these speaking companies they
+
+871
+00:45:06,450 --> 00:45:12,480
+they want to do all they can to make
+
+872
+00:45:09,059 --> 00:45:15,119
+money and you know but they always say
+
+873
+00:45:12,480 --> 00:45:17,220
+you know positive things like oh we help
+
+874
+00:45:15,119 --> 00:45:19,230
+you to find the videos you are
+
+875
+00:45:17,220 --> 00:45:21,869
+interested but that's not true that I
+
+876
+00:45:19,230 --> 00:45:25,440
+mean the the fact they are saying those
+
+877
+00:45:21,869 --> 00:45:28,529
+things in the and even down to the the
+
+878
+00:45:25,440 --> 00:45:32,190
+word choices the styling of the writing
+
+879
+00:45:28,529 --> 00:45:33,930
+style it's all crafted you know by
+
+880
+00:45:32,190 --> 00:45:37,490
+psychologists you know they have like
+
+881
+00:45:33,930 --> 00:45:40,020
+the hope department of psychologists
+
+882
+00:45:37,490 --> 00:45:42,450
+psychologists working for them you know
+
+883
+00:45:40,020 --> 00:45:46,589
+the warning style everything is is is
+
+884
+00:45:42,450 --> 00:45:49,829
+created it's written took such that with
+
+885
+00:45:46,589 --> 00:45:52,200
+the ultimate result of you using their
+
+886
+00:45:49,829 --> 00:45:57,029
+product more that's that's what it is
+
+887
+00:45:52,200 --> 00:46:02,849
+and YouTube algorithms well there's so
+
+888
+00:45:57,029 --> 00:46:05,130
+many aspects to comment about that yeah
+
+889
+00:46:02,849 --> 00:46:08,160
+put down on one hand I mean the at least
+
+890
+00:46:05,130 --> 00:46:12,869
+one of the at least the past positive
+
+891
+00:46:08,160 --> 00:46:16,920
+thing about that is you do find videos
+
+892
+00:46:12,869 --> 00:46:21,049
+that that are interesting to you that
+
+893
+00:46:16,920 --> 00:46:24,059
+otherwise you know would not come by as
+
+894
+00:46:21,049 --> 00:46:26,849
+easy you know because I go to YouTube
+
+895
+00:46:24,059 --> 00:46:30,180
+you see a lot of you know the it's it's
+
+896
+00:46:26,849 --> 00:46:32,430
+really annoying to because because I
+
+897
+00:46:30,180 --> 00:46:35,579
+have subscribed you know to let's say
+
+898
+00:46:32,430 --> 00:46:37,200
+about maybe 20 people okay so those are
+
+899
+00:46:35,579 --> 00:46:39,450
+people I'm interested
+
+900
+00:46:37,200 --> 00:46:42,180
+oh I want to observe at least let's say
+
+901
+00:46:39,450 --> 00:46:46,049
+so I mean I got a list here you can
+
+902
+00:46:42,180 --> 00:46:48,119
+check them out I was planning to talk
+
+903
+00:46:46,049 --> 00:46:50,190
+through them but maybe I won't get into
+
+904
+00:46:48,119 --> 00:46:52,290
+that you know because you know he's got
+
+905
+00:46:50,190 --> 00:46:54,450
+so many to talk but anyway so I got
+
+906
+00:46:52,290 --> 00:46:57,480
+these things I got let's say I got 20
+
+907
+00:46:54,450 --> 00:46:59,640
+people you know beginning like two years
+
+908
+00:46:57,480 --> 00:47:01,530
+ago I start to follow and watch you know
+
+909
+00:46:59,640 --> 00:47:05,069
+especially in the past six months I
+
+910
+00:47:01,530 --> 00:47:08,309
+start to really check out YouTube you
+
+911
+00:47:05,069 --> 00:47:10,950
+know what are there so I got twenty you
+
+912
+00:47:08,309 --> 00:47:15,030
+know I subscribed to I followed twenty
+
+913
+00:47:10,950 --> 00:47:17,609
+people and then you know that I want to
+
+914
+00:47:15,030 --> 00:47:19,980
+watch their things but every time you I
+
+915
+00:47:17,609 --> 00:47:21,930
+go to youtube you got this you know you
+
+916
+00:47:19,980 --> 00:47:26,160
+got these tons of videos like
+
+917
+00:47:21,930 --> 00:47:30,930
+recommendations turns it's like they are
+
+918
+00:47:26,160 --> 00:47:33,329
+trying to bury you okay and but it is
+
+919
+00:47:30,930 --> 00:47:37,410
+true like half of them you know at least
+
+920
+00:47:33,329 --> 00:47:39,329
+oh let's say let's say you know twenty
+
+921
+00:47:37,410 --> 00:47:41,579
+percent at least this half you know
+
+922
+00:47:39,329 --> 00:47:44,339
+something like that I find it
+
+923
+00:47:41,579 --> 00:47:46,619
+interesting but the thing is I don't
+
+924
+00:47:44,339 --> 00:47:47,250
+have time you know I already got 20
+
+925
+00:47:46,619 --> 00:47:49,410
+peoples
+
+926
+00:47:47,250 --> 00:47:52,170
+I subscribe to some of them put out
+
+927
+00:47:49,410 --> 00:47:55,740
+videos every day then I go to youtube
+
+928
+00:47:52,170 --> 00:47:58,260
+you got these 50 more videos and and 50
+
+929
+00:47:55,740 --> 00:48:00,839
+most you know people creating videos
+
+930
+00:47:58,260 --> 00:48:03,329
+like what's going on you know it's like
+
+931
+00:48:00,839 --> 00:48:06,200
+of course YouTube want to do that so
+
+932
+00:48:03,329 --> 00:48:08,849
+they get you know they get you know
+
+933
+00:48:06,200 --> 00:48:12,720
+they'll be happy if you spend all your
+
+934
+00:48:08,849 --> 00:48:15,059
+time just watching video on YouTube but
+
+935
+00:48:12,720 --> 00:48:17,250
+that's an issue I mean so they create
+
+936
+00:48:15,059 --> 00:48:19,890
+all these recommendations so it's like
+
+937
+00:48:17,250 --> 00:48:25,200
+so what I'm saying so is it so this
+
+938
+00:48:19,890 --> 00:48:27,119
+situation it's like they you know
+
+939
+00:48:25,200 --> 00:48:30,000
+YouTube is doing that Google is doing
+
+940
+00:48:27,119 --> 00:48:33,180
+that because they want money but it's
+
+941
+00:48:30,000 --> 00:48:35,220
+like inhuman it's inhuman because these
+
+942
+00:48:33,180 --> 00:48:39,000
+kind of things because all these little
+
+943
+00:48:35,220 --> 00:48:41,309
+things they do they change you like they
+
+944
+00:48:39,000 --> 00:48:44,910
+change your person but that's why you
+
+945
+00:48:41,309 --> 00:48:48,000
+know we have society where you know even
+
+946
+00:48:44,910 --> 00:48:50,160
+though technology is growing expands
+
+947
+00:48:48,000 --> 00:48:51,030
+exponentially you know we are trying to
+
+948
+00:48:50,160 --> 00:48:53,340
+get to Mars
+
+949
+00:48:51,030 --> 00:48:57,690
+Mars you know we have rockets flying
+
+950
+00:48:53,340 --> 00:49:01,830
+every day but on the other hand you know
+
+951
+00:48:57,690 --> 00:49:03,960
+people get depressed is is kind of you
+
+952
+00:49:01,830 --> 00:49:06,630
+know people get depressed in anger and
+
+953
+00:49:03,960 --> 00:49:10,350
+just you know if you use Twitter you
+
+954
+00:49:06,630 --> 00:49:14,310
+know it's like Oh anger this is I think
+
+955
+00:49:10,350 --> 00:49:19,310
+so so this YouTube you know thing it's
+
+956
+00:49:14,310 --> 00:49:22,260
+this cycle example okay so it's not like
+
+957
+00:49:19,310 --> 00:49:25,380
+YouTube decided they want to make you
+
+958
+00:49:22,260 --> 00:49:27,450
+unhappy but but rather all these
+
+959
+00:49:25,380 --> 00:49:30,030
+companies they want to make money so
+
+960
+00:49:27,450 --> 00:49:32,550
+they create these things and also
+
+961
+00:49:30,030 --> 00:49:36,990
+algorithmic you know control things so
+
+962
+00:49:32,550 --> 00:49:39,690
+that on the surface it seems to like it
+
+963
+00:49:36,990 --> 00:49:41,730
+me it's min to help you or whatever you
+
+964
+00:49:39,690 --> 00:49:43,650
+know pleasing oh we are helping to
+
+965
+00:49:41,730 --> 00:49:46,100
+change the world we are trying to get
+
+966
+00:49:43,650 --> 00:49:49,620
+other information to people but actually
+
+967
+00:49:46,100 --> 00:49:51,900
+that's not the true nature of their goal
+
+968
+00:49:49,620 --> 00:49:56,040
+their goal is simply to make money more
+
+969
+00:49:51,900 --> 00:49:58,470
+money and it has a impact to people you
+
+970
+00:49:56,040 --> 00:50:01,380
+know because this is deployed you know
+
+971
+00:49:58,470 --> 00:50:03,750
+this is influencing you know me you know
+
+972
+00:50:01,380 --> 00:50:07,200
+like PD literally billions of people
+
+973
+00:50:03,750 --> 00:50:09,300
+around the world if it is you know it is
+
+974
+00:50:07,200 --> 00:50:12,240
+YouTube Twitter you know Facebook
+
+975
+00:50:09,300 --> 00:50:15,270
+everything website you go to they are
+
+976
+00:50:12,240 --> 00:50:18,120
+all doing that so it is changing you
+
+977
+00:50:15,270 --> 00:50:21,110
+changing you the person it's like doing
+
+978
+00:50:18,120 --> 00:50:24,360
+things to your brain you know so that's
+
+979
+00:50:21,110 --> 00:50:26,880
+you know that's what I happen to you
+
+980
+00:50:24,360 --> 00:50:30,570
+know right that's my comment about the
+
+981
+00:50:26,880 --> 00:50:32,550
+recommendation algorithm also the other
+
+982
+00:50:30,570 --> 00:50:35,930
+thing people when people mention that
+
+983
+00:50:32,550 --> 00:50:40,500
+recommendation of this algorithm is that
+
+984
+00:50:35,930 --> 00:50:43,170
+they say you know they say that I don't
+
+985
+00:50:40,500 --> 00:50:45,270
+know if it's true or not you you know if
+
+986
+00:50:43,170 --> 00:50:49,200
+you just keep following recommendations
+
+987
+00:50:45,270 --> 00:50:52,620
+it tends to get into the fringe you know
+
+988
+00:50:49,200 --> 00:50:56,010
+you start to see your UFO stuff oh you
+
+989
+00:50:52,620 --> 00:50:58,470
+know like dramatic like we are we as
+
+990
+00:50:56,010 --> 00:51:00,720
+human animals we are attracted to drop
+
+991
+00:50:58,470 --> 00:51:03,660
+drama you know that's just psychology
+
+992
+00:51:00,720 --> 00:51:04,770
+because dramatic things like people
+
+993
+00:51:03,660 --> 00:51:06,900
+crying or people
+
+994
+00:51:04,770 --> 00:51:09,900
+you know dead or something happened
+
+995
+00:51:06,900 --> 00:51:13,170
+accident or a big explosions that
+
+996
+00:51:09,900 --> 00:51:16,530
+attract us that that gets us attention
+
+997
+00:51:13,170 --> 00:51:19,080
+because because that is important
+
+998
+00:51:16,530 --> 00:51:21,570
+because you know suppose there's no
+
+999
+00:51:19,080 --> 00:51:24,780
+taking up technology when we peep when
+
+1000
+00:51:21,570 --> 00:51:28,290
+we hear some girl crying you know or
+
+1001
+00:51:24,780 --> 00:51:30,510
+shouting for help we that kid attention
+
+1002
+00:51:28,290 --> 00:51:32,310
+because with this emergency we go there
+
+1003
+00:51:30,510 --> 00:51:34,920
+and you know help or find out what's
+
+1004
+00:51:32,310 --> 00:51:37,590
+going on or maybe a lion you know he's
+
+1005
+00:51:34,920 --> 00:51:41,070
+attacking us so we run you know oh you
+
+1006
+00:51:37,590 --> 00:51:43,940
+know things like that drama gets our
+
+1007
+00:51:41,070 --> 00:51:45,960
+attention and because of the
+
+1008
+00:51:43,940 --> 00:51:47,910
+commercialization everyone tries to make
+
+1009
+00:51:45,960 --> 00:51:50,670
+money quick baits you know quick big is
+
+1010
+00:51:47,910 --> 00:51:53,610
+based on drama so every video you know
+
+1011
+00:51:50,670 --> 00:51:56,850
+they have dramatic titles and pictures
+
+1012
+00:51:53,610 --> 00:52:00,330
+half of them is like half-naked girls of
+
+1013
+00:51:56,850 --> 00:52:03,030
+you know wardrobe accidents and things
+
+1014
+00:52:00,330 --> 00:52:07,290
+like that then other half is like about
+
+1015
+00:52:03,030 --> 00:52:09,390
+in injustice or some war or explosions
+
+1016
+00:52:07,290 --> 00:52:13,050
+you know anger you know anger gets our
+
+1017
+00:52:09,390 --> 00:52:15,150
+attention so so you click and all you fo
+
+1018
+00:52:13,050 --> 00:52:17,850
+you know US government is trying to hide
+
+1019
+00:52:15,150 --> 00:52:19,590
+you know this is this is the real photo
+
+1020
+00:52:17,850 --> 00:52:22,140
+of us so things like that
+
+1021
+00:52:19,590 --> 00:52:24,840
+so you click click click follow directly
+
+1022
+00:52:22,140 --> 00:52:26,970
+recommendation you eventually is it said
+
+1023
+00:52:24,840 --> 00:52:30,350
+I haven't tried but I beat I suppose
+
+1024
+00:52:26,970 --> 00:52:33,150
+it's true you get into the fringe okay
+
+1025
+00:52:30,350 --> 00:52:35,460
+including fringe in pilot political
+
+1026
+00:52:33,150 --> 00:52:40,740
+opponent of you you know basically fake
+
+1027
+00:52:35,460 --> 00:52:43,710
+news you know they just lie so that is
+
+1028
+00:52:40,740 --> 00:52:46,230
+also I suppose that's true I can you
+
+1029
+00:52:43,710 --> 00:52:48,720
+know I can understand see how it is true
+
+1030
+00:52:46,230 --> 00:52:51,120
+I don't know for sure but III pretty I'm
+
+1031
+00:52:48,720 --> 00:52:56,850
+pretty sure it's true so that is also a
+
+1032
+00:52:51,120 --> 00:53:00,810
+bad part and you know YouTube algorithm
+
+1033
+00:52:56,850 --> 00:53:04,170
+these algorithms they supposedly you
+
+1034
+00:53:00,810 --> 00:53:06,720
+know they are the intention is that they
+
+1035
+00:53:04,170 --> 00:53:09,360
+use algorithms which is efficient way to
+
+1036
+00:53:06,720 --> 00:53:11,790
+help them do their job you know help
+
+1037
+00:53:09,360 --> 00:53:15,720
+Google these companies you know do their
+
+1038
+00:53:11,790 --> 00:53:18,599
+job actually there's many issues because
+
+1039
+00:53:15,720 --> 00:53:22,650
+right now we don't the AI we know is
+
+1040
+00:53:18,599 --> 00:53:25,499
+sanctuary is not there yet so AI makes a
+
+1041
+00:53:22,650 --> 00:53:27,779
+lot of mistakes but also the deeper
+
+1042
+00:53:25,499 --> 00:53:30,180
+question is we actually don't know what
+
+1043
+00:53:27,779 --> 00:53:32,759
+AI is we don't know you know we don't
+
+1044
+00:53:30,180 --> 00:53:34,200
+actually like right now we don't know we
+
+1045
+00:53:32,759 --> 00:53:37,619
+don't understand what is good and bad
+
+1046
+00:53:34,200 --> 00:53:40,279
+you know the we can not but by that I
+
+1047
+00:53:37,619 --> 00:53:44,249
+mean by that I mean that we cannot
+
+1048
+00:53:40,279 --> 00:53:47,479
+algorithmically or mathematically or in
+
+1049
+00:53:44,249 --> 00:53:51,029
+some scientifically scientific way
+
+1050
+00:53:47,479 --> 00:53:53,519
+define you know in a precise way what is
+
+1051
+00:53:51,029 --> 00:53:55,549
+good what is bad we can we cannot do
+
+1052
+00:53:53,519 --> 00:53:58,289
+that because we don't even know what is
+
+1053
+00:53:55,549 --> 00:54:00,539
+consciousness so you know you know in
+
+1054
+00:53:58,289 --> 00:54:02,819
+the AI is subject as you might know you
+
+1055
+00:54:00,539 --> 00:54:05,249
+know we don't know we you know
+
+1056
+00:54:02,819 --> 00:54:08,609
+scientists you know mathematician so you
+
+1057
+00:54:05,249 --> 00:54:10,470
+know they we don't have one theory that
+
+1058
+00:54:08,609 --> 00:54:13,140
+everyone agrees so we don't know what's
+
+1059
+00:54:10,470 --> 00:54:17,819
+going on going on so these algorithms
+
+1060
+00:54:13,140 --> 00:54:19,440
+you know is in their initial stage so
+
+1061
+00:54:17,819 --> 00:54:21,779
+they are doing these recommendations you
+
+1062
+00:54:19,440 --> 00:54:25,829
+know and Google is trying to trick it
+
+1063
+00:54:21,779 --> 00:54:27,690
+then so today our palette you know the
+
+1064
+00:54:25,829 --> 00:54:32,819
+the political situation the word
+
+1065
+00:54:27,690 --> 00:54:35,099
+stability stability stability is getting
+
+1066
+00:54:32,819 --> 00:54:38,249
+worse you know as you know if you you
+
+1067
+00:54:35,099 --> 00:54:39,839
+know if you observed words you know
+
+1068
+00:54:38,249 --> 00:54:44,160
+what's going on so you know you have
+
+1069
+00:54:39,839 --> 00:54:48,420
+more Wars more kind of violence and you
+
+1070
+00:54:44,160 --> 00:54:52,710
+know and a lot of people you know at
+
+1071
+00:54:48,420 --> 00:54:55,200
+least there's this information from you
+
+1072
+00:54:52,710 --> 00:54:58,739
+know we know there's some people we you
+
+1073
+00:54:55,200 --> 00:55:02,130
+know we some people believe I believe it
+
+1074
+00:54:58,739 --> 00:55:05,160
+too you know that it's due to this
+
+1075
+00:55:02,130 --> 00:55:08,579
+technology companies Google Facebook you
+
+1076
+00:55:05,160 --> 00:55:11,579
+know Twitter they become you know
+
+1077
+00:55:08,579 --> 00:55:13,890
+massive control of information and
+
+1078
+00:55:11,579 --> 00:55:16,499
+because of their selfish reasons they
+
+1079
+00:55:13,890 --> 00:55:18,719
+they are creating this problem they are
+
+1080
+00:55:16,499 --> 00:55:22,529
+creating the wall you know they are
+
+1081
+00:55:18,719 --> 00:55:25,369
+creating all this situation I would say
+
+1082
+00:55:22,529 --> 00:55:28,229
+you know they they are significant
+
+1083
+00:55:25,369 --> 00:55:32,359
+reason to blame you know they do they
+
+1084
+00:55:28,229 --> 00:55:32,359
+have a significant responsibility
+
+1085
+00:55:33,170 --> 00:55:41,270
+so so yeah that's that about these
+
+1086
+00:55:36,890 --> 00:55:44,360
+algorithms so the newest ace took a deep
+
+1087
+00:55:41,270 --> 00:55:49,400
+dive into outright culture okay oh
+
+1088
+00:55:44,360 --> 00:55:51,230
+that's taken yeah let's try to know I'd
+
+1089
+00:55:49,400 --> 00:55:53,210
+you know you know you know these days
+
+1090
+00:55:51,230 --> 00:55:56,420
+Google are pending people so I'm not
+
+1091
+00:55:53,210 --> 00:56:00,920
+ready to be banned yet okay all right I
+
+1092
+00:55:56,420 --> 00:56:04,040
+just read that out so take a look
+
+1093
+00:56:00,920 --> 00:56:05,960
+took a deep dive into culture on YouTube
+
+1094
+00:56:04,040 --> 00:56:09,470
+and never came before hey I'm kidding
+
+1095
+00:56:05,960 --> 00:56:11,540
+but then again still here okay I took
+
+1096
+00:56:09,470 --> 00:56:13,190
+about the fact you know because I have
+
+1097
+00:56:11,540 --> 00:56:16,910
+been very careful you know I already
+
+1098
+00:56:13,190 --> 00:56:19,730
+said this I try to because Google I mean
+
+1099
+00:56:16,910 --> 00:56:23,600
+if you know I suppose if you follow me
+
+1100
+00:56:19,730 --> 00:56:25,850
+you know the situation you know you are
+
+1101
+00:56:23,600 --> 00:56:29,900
+at least somewhat familiar they are a
+
+1102
+00:56:25,850 --> 00:56:32,930
+lot of political you know have factions
+
+1103
+00:56:29,900 --> 00:56:35,990
+you know and very including violence and
+
+1104
+00:56:32,930 --> 00:56:38,180
+they are you know since the shape that's
+
+1105
+00:56:35,990 --> 00:56:40,130
+just incredible you know I couldn't
+
+1106
+00:56:38,180 --> 00:56:43,700
+possibly believe you know ten years ago
+
+1107
+00:56:40,130 --> 00:56:46,280
+it is in USA you know freedoms of speech
+
+1108
+00:56:43,700 --> 00:56:49,460
+is like the fundamental thing American
+
+1109
+00:56:46,280 --> 00:56:54,130
+thing you know but today it's like we
+
+1110
+00:56:49,460 --> 00:56:56,480
+have you know it's almost like you know
+
+1111
+00:56:54,130 --> 00:56:59,900
+politically you know it's a fashionable
+
+1112
+00:56:56,480 --> 00:57:05,690
+to to actually do not want freedom of
+
+1113
+00:56:59,900 --> 00:57:09,350
+speech you know is this incredible so in
+
+1114
+00:57:05,690 --> 00:57:11,300
+the end and we begin we begin to have
+
+1115
+00:57:09,350 --> 00:57:13,880
+these censorship among these big
+
+1116
+00:57:11,300 --> 00:57:17,360
+companies you know these serious
+
+1117
+00:57:13,880 --> 00:57:21,560
+censorship and yes in many cases it's
+
+1118
+00:57:17,360 --> 00:57:24,910
+just blatant you know some so much fake
+
+1119
+00:57:21,560 --> 00:57:29,600
+news churned out by these big named
+
+1120
+00:57:24,910 --> 00:57:31,630
+corporations like CNN you know MSNBC or
+
+1121
+00:57:29,600 --> 00:57:35,720
+you know New York Times they are
+
+1122
+00:57:31,630 --> 00:57:37,580
+churning out play blatant I mean it's
+
+1123
+00:57:35,720 --> 00:57:41,720
+not like on the borderline I mean it's
+
+1124
+00:57:37,580 --> 00:57:43,850
+just patently false false
+
+1125
+00:57:41,720 --> 00:57:45,890
+you know things they are churning out
+
+1126
+00:57:43,850 --> 00:57:48,550
+and
+
+1127
+00:57:45,890 --> 00:57:52,430
+other political reasons because you know
+
+1128
+00:57:48,550 --> 00:57:55,280
+so so it's it's really sad and
+
+1129
+00:57:52,430 --> 00:57:55,850
+incredible to see so you know as for
+
+1130
+00:57:55,280 --> 00:57:58,160
+myself
+
+1131
+00:57:55,850 --> 00:58:00,440
+you know I start to make videos and I I
+
+1132
+00:57:58,160 --> 00:58:05,780
+have been tried to be careful you know
+
+1133
+00:58:00,440 --> 00:58:08,240
+I'm not sure you know on one hand that's
+
+1134
+00:58:05,780 --> 00:58:10,310
+what really I want to talk about you
+
+1135
+00:58:08,240 --> 00:58:13,190
+know I've been you know I mean I've been
+
+1136
+00:58:10,310 --> 00:58:16,730
+communicating of that aspect too you
+
+1137
+00:58:13,190 --> 00:58:19,520
+know you almost have my videos I want to
+
+1138
+00:58:16,730 --> 00:58:22,610
+bring it out because that's that's
+
+1139
+00:58:19,520 --> 00:58:26,060
+affecting every every one of us but
+
+1140
+00:58:22,610 --> 00:58:28,370
+meanwhile you know this censorship going
+
+1141
+00:58:26,060 --> 00:58:31,130
+on you know you just have to you gotta
+
+1142
+00:58:28,370 --> 00:58:33,860
+be careful you know you cannot just jump
+
+1143
+00:58:31,130 --> 00:58:36,680
+into hot water and you're you know
+
+1144
+00:58:33,860 --> 00:58:40,220
+you'll be wipe out immediately so I also
+
+1145
+00:58:36,680 --> 00:58:42,440
+want to be careful we have not to be you
+
+1146
+00:58:40,220 --> 00:58:44,390
+know not to be banned you know you it
+
+1147
+00:58:42,440 --> 00:58:47,500
+could happen any day you know I don't I
+
+1148
+00:58:44,390 --> 00:58:50,510
+don't know it could happen you know so
+
+1149
+00:58:47,500 --> 00:58:54,290
+so if YouTube you know if you Google
+
+1150
+00:58:50,510 --> 00:58:57,110
+start to do that then you know Google
+
+1151
+00:58:54,290 --> 00:59:00,490
+and still you know I'm living on Google
+
+1152
+00:58:57,110 --> 00:59:03,350
+ads it's a sad thing you know I'm I'm
+
+1153
+00:59:00,490 --> 00:59:05,960
+you know I'm living in poverty below
+
+1154
+00:59:03,350 --> 00:59:07,910
+poverty okay it's like in USA you have
+
+1155
+00:59:05,960 --> 00:59:11,600
+this if you make this some amount of
+
+1156
+00:59:07,910 --> 00:59:14,060
+money you are poverty now of the people
+
+1157
+00:59:11,600 --> 00:59:17,420
+in poverty the amount of money are
+
+1158
+00:59:14,060 --> 00:59:21,080
+making Oh Isis my sister knows my food
+
+1159
+00:59:17,420 --> 00:59:23,480
+it's like you know the the the the 10
+
+1160
+00:59:21,080 --> 00:59:27,050
+percent at the bottom of poverty you
+
+1161
+00:59:23,480 --> 00:59:29,830
+know II it's it's a topic you know it's
+
+1162
+00:59:27,050 --> 00:59:32,690
+a sensitive topic you know he's you know
+
+1163
+00:59:29,830 --> 00:59:34,760
+so anyway so you know if Google banned
+
+1164
+00:59:32,690 --> 00:59:37,160
+me you know it's it's it's pretty bad
+
+1165
+00:59:34,760 --> 00:59:39,260
+you know it's it's like I'm dumb
+
+1166
+00:59:37,160 --> 00:59:41,270
+thankful you know so I'm kind of
+
+1167
+00:59:39,260 --> 00:59:44,360
+thinking you know I mean a situation
+
+1168
+00:59:41,270 --> 00:59:51,470
+there is this book flatland
+
+1169
+00:59:44,360 --> 00:59:54,440
+okay let's by the way comments posting
+
+1170
+00:59:51,470 --> 00:59:56,300
+them okay let's talk about it and maybe
+
+1171
+00:59:54,440 --> 00:59:59,030
+that's it you know we I've been talking
+
+1172
+00:59:56,300 --> 00:59:59,700
+for an hour now we have eight people so
+
+1173
+00:59:59,030 --> 01:00:02,070
+for
+
+1174
+00:59:59,700 --> 01:00:04,560
+your comments out there so we can talk
+
+1175
+01:00:02,070 --> 01:00:07,859
+about it and that's almost is it's
+
+1176
+01:00:04,560 --> 01:00:11,280
+almost like that's the conclusion of
+
+1177
+01:00:07,859 --> 01:00:14,250
+today's talk for today you know that's
+
+1178
+01:00:11,280 --> 01:00:17,369
+we covered the topic about videos you
+
+1179
+01:00:14,250 --> 01:00:20,160
+know the videos in the relations to
+
+1180
+01:00:17,369 --> 01:00:24,480
+society society instance something like
+
+1181
+01:00:20,160 --> 01:00:30,599
+that but anyway there is this this
+
+1182
+01:00:24,480 --> 01:00:32,700
+fiction flatland it's very popular yeah
+
+1183
+01:00:30,599 --> 01:00:40,260
+you know some of you have read you know
+
+1184
+01:00:32,700 --> 01:00:42,450
+so I highly recommended yeah be careful
+
+1185
+01:00:40,260 --> 01:00:43,430
+on YouTube we need your videos thank you
+
+1186
+01:00:42,450 --> 01:00:46,849
+David
+
+1187
+01:00:43,430 --> 01:00:49,380
+so so there's these frictions
+
+1188
+01:00:46,849 --> 01:00:52,079
+technically is classified as science
+
+1189
+01:00:49,380 --> 01:00:54,930
+fiction the name is flatland enrollments
+
+1190
+01:00:52,079 --> 01:00:57,780
+of many dimensions it's written like two
+
+1191
+01:00:54,930 --> 01:01:00,180
+hundred years ago it's incredible but
+
+1192
+01:00:57,780 --> 01:01:03,660
+you know I'm thinking this is his
+
+1193
+01:01:00,180 --> 01:01:06,690
+character in this book a square okay so
+
+1194
+01:01:03,660 --> 01:01:09,780
+he has seen the vision because he lives
+
+1195
+01:01:06,690 --> 01:01:12,900
+in a two-dimensional flat land that's
+
+1196
+01:01:09,780 --> 01:01:16,849
+his universe that's his people okay but
+
+1197
+01:01:12,900 --> 01:01:21,060
+he has a revelation because he has been
+
+1198
+01:01:16,849 --> 01:01:23,900
+touched by a 3d character 3d being like
+
+1199
+01:01:21,060 --> 01:01:25,319
+us you know so he has seen the
+
+1200
+01:01:23,900 --> 01:01:30,900
+three-dimensional world
+
+1201
+01:01:25,319 --> 01:01:33,240
+okay for for for a brief moment then he
+
+1202
+01:01:30,900 --> 01:01:37,859
+is back to his you know two-dimensional
+
+1203
+01:01:33,240 --> 01:01:41,069
+world and then but in his word you know
+
+1204
+01:01:37,859 --> 01:01:42,630
+every like every thousand years this
+
+1205
+01:01:41,069 --> 01:01:46,619
+happens you know some three dimensional
+
+1206
+01:01:42,630 --> 01:01:50,700
+beings comes to his world and select a
+
+1207
+01:01:46,619 --> 01:01:53,700
+person to reveal the true nature of the
+
+1208
+01:01:50,700 --> 01:01:56,640
+world which is three-dimensional okay so
+
+1209
+01:01:53,700 --> 01:01:59,819
+every year in in their country you know
+
+1210
+01:01:56,640 --> 01:02:02,520
+in their flatland you have this kind of
+
+1211
+01:01:59,819 --> 01:02:05,970
+strange phenomenon every thousand years
+
+1212
+01:02:02,520 --> 01:02:07,619
+because every thousand years in their
+
+1213
+01:02:05,970 --> 01:02:09,990
+history you know they have thousand
+
+1214
+01:02:07,619 --> 01:02:13,450
+years of history it's recorded every
+
+1215
+01:02:09,990 --> 01:02:15,339
+thousand years there's one guy who is
+
+1216
+01:02:13,450 --> 01:02:19,300
+and who says you know preposterous
+
+1217
+01:02:15,339 --> 01:02:22,089
+things hey who is a nutjob you know so
+
+1218
+01:02:19,300 --> 01:02:24,339
+they Joe them you know because because
+
+1219
+01:02:22,089 --> 01:02:26,650
+he's talking about crazy things that's
+
+1220
+01:02:24,339 --> 01:02:29,230
+disruption disrupting the social
+
+1221
+01:02:26,650 --> 01:02:31,329
+structure you know the churches churches
+
+1222
+01:02:29,230 --> 01:02:33,880
+you know whatever you know they are
+
+1223
+01:02:31,329 --> 01:02:36,250
+social structure because you know you
+
+1224
+01:02:33,880 --> 01:02:38,190
+have a nutjob talking about three
+
+1225
+01:02:36,250 --> 01:02:41,950
+dimensional things every thousand years
+
+1226
+01:02:38,190 --> 01:02:45,190
+so but this author these squares so he
+
+1227
+01:02:41,950 --> 01:02:48,640
+became the he became the guy you know
+
+1228
+01:02:45,190 --> 01:02:51,579
+who who got you know got the gospel of
+
+1229
+01:02:48,640 --> 01:02:54,190
+three dimensions then he's thrown back
+
+1230
+01:02:51,579 --> 01:02:56,740
+to the 2d world and he's thinking you
+
+1231
+01:02:54,190 --> 01:02:58,660
+know okay I gotta be careful
+
+1232
+01:02:56,740 --> 01:03:02,829
+I gotta be cover I gotta be careful oh
+
+1233
+01:02:58,660 --> 01:03:04,680
+you know that's not to not to be not to
+
+1234
+01:03:02,829 --> 01:03:07,089
+spread this kind of you know
+
+1235
+01:03:04,680 --> 01:03:11,440
+three-dimensional things thing things
+
+1236
+01:03:07,089 --> 01:03:13,720
+but meanwhile he he has seen it you know
+
+1237
+01:03:11,440 --> 01:03:15,609
+he has seen the truth you know the truth
+
+1238
+01:03:13,720 --> 01:03:17,740
+the three-dimensional things we are
+
+1239
+01:03:15,609 --> 01:03:20,920
+actually there is a freedom you know
+
+1240
+01:03:17,740 --> 01:03:24,280
+third dimension it's not just a flat so
+
+1241
+01:03:20,920 --> 01:03:26,980
+he's you know so he's on the other hand
+
+1242
+01:03:24,280 --> 01:03:29,800
+he won't really want to try to you know
+
+1243
+01:03:26,980 --> 01:03:32,140
+to really tell people you know like
+
+1244
+01:03:29,800 --> 01:03:34,089
+really I have seen it it's right there
+
+1245
+01:03:32,140 --> 01:03:37,030
+you know let me convince you they are me
+
+1246
+01:03:34,089 --> 01:03:39,490
+so you know instead of North West you
+
+1247
+01:03:37,030 --> 01:03:45,099
+know east south there is another thing
+
+1248
+01:03:39,490 --> 01:03:50,589
+it's called up and down but eventually
+
+1249
+01:03:45,099 --> 01:03:53,349
+he failed so he got you know so you have
+
+1250
+01:03:50,589 --> 01:04:00,790
+to read the story so he's I'm feeling
+
+1251
+01:03:53,349 --> 01:04:10,780
+I'm feeling like that you know hey Scott
+
+1252
+01:04:00,790 --> 01:04:12,810
+flatland yeah so so let me my eyes are
+
+1253
+01:04:10,780 --> 01:04:12,810
+dry
+
+1254
+01:04:13,849 --> 01:04:22,699
+my eyes are getting bad over the past
+
+1255
+01:04:16,699 --> 01:04:26,569
+few years really a few years back yeah
+
+1256
+01:04:22,699 --> 01:04:28,819
+is flatland written by a written by an
+
+1257
+01:04:26,569 --> 01:04:33,349
+English schoolmaster yes
+
+1258
+01:04:28,819 --> 01:04:36,969
+Edwin this Edwin guy Edwin Abbott kind
+
+1259
+01:04:33,349 --> 01:04:43,630
+of kind of fascinating
+
+1260
+01:04:36,969 --> 01:04:47,959
+Edwin and theology Thea theology Chien
+
+1261
+01:04:43,630 --> 01:04:50,479
+theologian yeah yeah I've read that too
+
+1262
+01:04:47,959 --> 01:04:55,699
+I've you know so I started to read this
+
+1263
+01:04:50,479 --> 01:04:58,430
+back in 2005 in 1993 and I read it you
+
+1264
+01:04:55,699 --> 01:05:02,660
+know I read it like three times over you
+
+1265
+01:04:58,430 --> 01:05:05,599
+know in different years four times
+
+1266
+01:05:02,660 --> 01:05:07,849
+almost so I have actually so I wrote
+
+1267
+01:05:05,599 --> 01:05:10,910
+this up you know I put it on a website
+
+1268
+01:05:07,849 --> 01:05:13,999
+and actually there is a annotation you
+
+1269
+01:05:10,910 --> 01:05:17,809
+know I actually made annotations of it
+
+1270
+01:05:13,999 --> 01:05:22,309
+actually not much though because some of
+
+1271
+01:05:17,809 --> 01:05:26,119
+them annotations so anyway I think
+
+1272
+01:05:22,309 --> 01:05:28,690
+that's almost it today for today's topic
+
+1273
+01:05:26,119 --> 01:05:31,759
+so we got eight people watching so maybe
+
+1274
+01:05:28,690 --> 01:05:35,329
+so if you are watching you know make
+
+1275
+01:05:31,759 --> 01:05:37,219
+some comments and maybe you know we talk
+
+1276
+01:05:35,329 --> 01:05:38,619
+five more minutes or ten more minutes in
+
+1277
+01:05:37,219 --> 01:05:43,489
+that beer today
+
+1278
+01:05:38,619 --> 01:05:46,279
+but originally I was thinking actually I
+
+1279
+01:05:43,489 --> 01:05:51,979
+have a list of these people on YouTube
+
+1280
+01:05:46,279 --> 01:05:54,380
+by follow let's go to so yeah and I know
+
+1281
+01:05:51,979 --> 01:05:56,059
+and I want to make comments you know so
+
+1282
+01:05:54,380 --> 01:05:58,099
+I want to make comments about some of
+
+1283
+01:05:56,059 --> 01:05:59,779
+them what kind of it you know the nature
+
+1284
+01:05:58,099 --> 01:06:02,390
+you know what kind of people what kind
+
+1285
+01:05:59,779 --> 01:06:04,249
+of videos are they making you know and I
+
+1286
+01:06:02,390 --> 01:06:07,989
+mean there are so many interesting
+
+1287
+01:06:04,249 --> 01:06:11,900
+things to talk about about these people
+
+1288
+01:06:07,989 --> 01:06:15,259
+so so again so make make your comments
+
+1289
+01:06:11,900 --> 01:06:17,209
+okay and that's and then you know in
+
+1290
+01:06:15,259 --> 01:06:19,150
+five or 10 minutes that that would be it
+
+1291
+01:06:17,209 --> 01:06:23,539
+for today's video
+
+1292
+01:06:19,150 --> 01:06:27,520
+let's see okay so so one that the most
+
+1293
+01:06:23,539 --> 01:06:31,420
+popular guy on on YouTube is this
+
+1294
+01:06:27,520 --> 01:06:35,380
+pew die pie yeah this this guy he's just
+
+1295
+01:06:31,420 --> 01:06:36,970
+nickname is PewDiePie and he's got 95
+
+1296
+01:06:35,380 --> 01:06:39,430
+million followers
+
+1297
+01:06:36,970 --> 01:06:42,250
+okay now you did not remember that he is
+
+1298
+01:06:39,430 --> 01:06:45,340
+the most I think he right now is the
+
+1299
+01:06:42,250 --> 01:06:48,490
+second most popular but let's just say
+
+1300
+01:06:45,340 --> 01:06:50,070
+the most the the guy was the most number
+
+1301
+01:06:48,490 --> 01:06:55,600
+of followers
+
+1302
+01:06:50,070 --> 01:06:57,880
+now that is more than any pop star you
+
+1303
+01:06:55,600 --> 01:07:00,310
+know the you know girls follow pop stars
+
+1304
+01:06:57,880 --> 01:07:03,040
+you know so what what are some today's
+
+1305
+01:07:00,310 --> 01:07:06,280
+pop stars you know the you have Nicki
+
+1306
+01:07:03,040 --> 01:07:08,740
+Minaj which is you know her you know
+
+1307
+01:07:06,280 --> 01:07:13,660
+today's generation look at these you
+
+1308
+01:07:08,740 --> 01:07:15,820
+know it's like so so what she is a
+
+1309
+01:07:13,660 --> 01:07:18,580
+singer you know one of the most popular
+
+1310
+01:07:15,820 --> 01:07:23,380
+so so you have this you know parsing
+
+1311
+01:07:18,580 --> 01:07:25,869
+singers today very popular but but no
+
+1312
+01:07:23,380 --> 01:07:30,280
+but on YouTube this guy PewDiePie is
+
+1313
+01:07:25,869 --> 01:07:34,150
+like a few times more popular than than
+
+1314
+01:07:30,280 --> 01:07:37,240
+any any movie star any any movie star
+
+1315
+01:07:34,150 --> 01:07:40,960
+any single star or any means anyone any
+
+1316
+01:07:37,240 --> 01:07:44,830
+politician any you know president of any
+
+1317
+01:07:40,960 --> 01:07:46,290
+country so you got is PewDiePie it's
+
+1318
+01:07:44,830 --> 01:07:49,840
+incredible
+
+1319
+01:07:46,290 --> 01:07:52,720
+so so I began you know as I said I start
+
+1320
+01:07:49,840 --> 01:07:55,960
+to watch more videos especially in the
+
+1321
+01:07:52,720 --> 01:07:58,900
+past six six month since I'm beginning
+
+1322
+01:07:55,960 --> 01:08:01,660
+to make video so I'd look you know I go
+
+1323
+01:07:58,900 --> 01:08:04,690
+watch his videos what what it is about I
+
+1324
+01:08:01,660 --> 01:08:06,910
+you know I go to Wikipedia study you
+
+1325
+01:08:04,690 --> 01:08:09,400
+know read about what where he came from
+
+1326
+01:08:06,910 --> 01:08:14,590
+what what does he do you know how you
+
+1327
+01:08:09,400 --> 01:08:17,319
+know it so he is so he is like he's a
+
+1328
+01:08:14,590 --> 01:08:19,810
+camera okay that's how he became popular
+
+1329
+01:08:17,319 --> 01:08:22,359
+he just play games they are quite a lot
+
+1330
+01:08:19,810 --> 01:08:25,089
+cameras on YouTube they become hugely
+
+1331
+01:08:22,359 --> 01:08:28,210
+popular so he's one of them you know he
+
+1332
+01:08:25,089 --> 01:08:29,859
+just make you know in the beginning he
+
+1333
+01:08:28,210 --> 01:08:32,020
+make playing game you know they just
+
+1334
+01:08:29,859 --> 01:08:36,220
+play games people watch that's it
+
+1335
+01:08:32,020 --> 01:08:38,680
+and so I watched you know like five of
+
+1336
+01:08:36,220 --> 01:08:41,319
+his videos you know and I watched other
+
+1337
+01:08:38,680 --> 01:08:44,529
+gamers but anyway of his video
+
+1338
+01:08:41,319 --> 01:08:47,770
+as I watched like six maybe six of them
+
+1339
+01:08:44,529 --> 01:08:52,560
+in the past you know made in the past
+
+1340
+01:08:47,770 --> 01:08:55,210
+two years a year or maybe last week okay
+
+1341
+01:08:52,560 --> 01:08:58,569
+you watch them there's nothing there's
+
+1342
+01:08:55,210 --> 01:09:00,310
+nothing on it you know it's like it's
+
+1343
+01:08:58,569 --> 01:09:03,880
+like no content
+
+1344
+01:09:00,310 --> 01:09:05,549
+there's no no content no opinions that
+
+1345
+01:09:03,880 --> 01:09:09,159
+were in any sort
+
+1346
+01:09:05,549 --> 01:09:11,920
+it's not even comedy okay technically
+
+1347
+01:09:09,159 --> 01:09:15,549
+people like him is classified as a
+
+1348
+01:09:11,920 --> 01:09:17,319
+comedian but it's not comic like you go
+
+1349
+01:09:15,549 --> 01:09:20,020
+to uni you know you go to his channel
+
+1350
+01:09:17,319 --> 01:09:22,779
+he's just talking about you know about
+
+1351
+01:09:20,020 --> 01:09:25,980
+memes about you know random things about
+
+1352
+01:09:22,779 --> 01:09:28,659
+you know that's not even it's not like
+
+1353
+01:09:25,980 --> 01:09:31,480
+for a professional comedian you know you
+
+1354
+01:09:28,659 --> 01:09:34,750
+have for example you have materials to
+
+1355
+01:09:31,480 --> 01:09:39,190
+talk about maybe you are a political
+
+1356
+01:09:34,750 --> 01:09:40,810
+commentator like like the like the you
+
+1357
+01:09:39,190 --> 01:09:42,869
+know they are quite a few number of them
+
+1358
+01:09:40,810 --> 01:09:45,489
+you know they read today's news
+
+1359
+01:09:42,869 --> 01:09:48,730
+politicians what's going on they make
+
+1360
+01:09:45,489 --> 01:09:52,119
+you know witty your commentaries about
+
+1361
+01:09:48,730 --> 01:09:54,279
+the news but that's not pewdiepie I do
+
+1362
+01:09:52,119 --> 01:09:56,920
+also there are other kind of comedians
+
+1363
+01:09:54,279 --> 01:10:00,190
+you you prepare scripts you know
+
+1364
+01:09:56,920 --> 01:10:02,579
+stand-up comedians and you know you make
+
+1365
+01:10:00,190 --> 01:10:05,800
+jokes you know some of them are funny
+
+1366
+01:10:02,579 --> 01:10:08,560
+but that's not that's not what this
+
+1367
+01:10:05,800 --> 01:10:11,440
+PewDiePie do you know you look at video
+
+1368
+01:10:08,560 --> 01:10:15,760
+this video is really it's truly rather
+
+1369
+01:10:11,440 --> 01:10:18,760
+it's just no content and but also he's a
+
+1370
+01:10:15,760 --> 01:10:21,909
+handsome guy by the way most people who
+
+1371
+01:10:18,760 --> 01:10:24,400
+are popular handsomeness or how pretty
+
+1372
+01:10:21,909 --> 01:10:27,010
+you look is actually a significant
+
+1373
+01:10:24,400 --> 01:10:30,280
+factor okay the charisma is actually
+
+1374
+01:10:27,010 --> 01:10:32,440
+sick significant because I know because
+
+1375
+01:10:30,280 --> 01:10:34,449
+I've studied psychology I study
+
+1376
+01:10:32,440 --> 01:10:38,219
+marketing in this kind of things it's
+
+1377
+01:10:34,449 --> 01:10:38,219
+one of my thing obsession
+
+1378
+01:10:39,060 --> 01:10:44,770
+yeah so one another thing he does is
+
+1379
+01:10:41,980 --> 01:10:47,860
+like you know me like reviewing mean
+
+1380
+01:10:44,770 --> 01:10:49,840
+stuff and you know means you know what
+
+1381
+01:10:47,860 --> 01:10:53,920
+that means means are just like this
+
+1382
+01:10:49,840 --> 01:10:55,660
+quema type of people they create images
+
+1383
+01:10:53,920 --> 01:11:01,260
+that are nonsense
+
+1384
+01:10:55,660 --> 01:11:02,950
+sico and they some of them are so-called
+
+1385
+01:11:01,260 --> 01:11:05,700
+extremely popular
+
+1386
+01:11:02,950 --> 01:11:09,370
+you know viral you know it's a another
+
+1387
+01:11:05,700 --> 01:11:11,740
+word in in in their group viral you know
+
+1388
+01:11:09,370 --> 01:11:12,960
+something our social media becomes very
+
+1389
+01:11:11,740 --> 01:11:15,820
+widely spread
+
+1390
+01:11:12,960 --> 01:11:19,480
+sometimes it's fake you know sometimes
+
+1391
+01:11:15,820 --> 01:11:24,520
+it's like mostly dramatic things like in
+
+1392
+01:11:19,480 --> 01:11:27,850
+nonsensical dramatic you might say
+
+1393
+01:11:24,520 --> 01:11:32,410
+stupid things you know there's no okay
+
+1394
+01:11:27,850 --> 01:11:35,560
+so in other words there is no value with
+
+1395
+01:11:32,410 --> 01:11:38,470
+respect to let's say knowledge or
+
+1396
+01:11:35,560 --> 01:11:41,080
+education or scholarship or there's
+
+1397
+01:11:38,470 --> 01:11:45,910
+nothing like that this is no like no
+
+1398
+01:11:41,080 --> 01:11:49,780
+value okay so so somehow so so he is the
+
+1399
+01:11:45,910 --> 01:11:52,120
+most popular so no 95 millions more than
+
+1400
+01:11:49,780 --> 01:11:55,300
+pop singers you know even movie stars
+
+1401
+01:11:52,120 --> 01:11:58,930
+and pop scene singers sing singers for
+
+1402
+01:11:55,300 --> 01:12:00,970
+example they they have you know maybe
+
+1403
+01:11:58,930 --> 01:12:03,760
+you are old generation you think today's
+
+1404
+01:12:00,970 --> 01:12:06,340
+Saint singers are crap you know in many
+
+1405
+01:12:03,760 --> 01:12:08,830
+ways that's true but singers at least
+
+1406
+01:12:06,340 --> 01:12:12,690
+they have the you know you must have the
+
+1407
+01:12:08,830 --> 01:12:15,580
+ability to sing which is not which is a
+
+1408
+01:12:12,690 --> 01:12:20,020
+you know it's a skill you know you have
+
+1409
+01:12:15,580 --> 01:12:23,170
+to sing but this cutie pie you know so
+
+1410
+01:12:20,020 --> 01:12:26,310
+it's not this is like few times more
+
+1411
+01:12:23,170 --> 01:12:29,740
+popular and singer so there's no there's
+
+1412
+01:12:26,310 --> 01:12:33,790
+no there is no value in their content so
+
+1413
+01:12:29,740 --> 01:12:36,460
+is it's so what how should you look at
+
+1414
+01:12:33,790 --> 01:12:39,790
+this situation it's kind of so I mean if
+
+1415
+01:12:36,460 --> 01:12:43,150
+you want me for example I like to I
+
+1416
+01:12:39,790 --> 01:12:46,900
+prefer the way I look at things I like
+
+1417
+01:12:43,150 --> 01:12:50,170
+to see them in terms of history okay I
+
+1418
+01:12:46,900 --> 01:12:52,390
+want to I like you know it just so
+
+1419
+01:12:50,170 --> 01:12:56,410
+happens I like to see them as long-term
+
+1420
+01:12:52,390 --> 01:12:59,920
+history kind of what's going on kind of
+
+1421
+01:12:56,410 --> 01:13:02,220
+a way so the way I see that this this
+
+1422
+01:12:59,920 --> 01:13:05,430
+content list you know in some sense
+
+1423
+01:13:02,220 --> 01:13:08,949
+content valueless thing created by this
+
+1424
+01:13:05,430 --> 01:13:11,260
+PewDiePie but yet yet
+
+1425
+01:13:08,949 --> 01:13:16,090
+it's you have the most foully followers
+
+1426
+01:13:11,260 --> 01:13:18,340
+and viewership so I don't know what to
+
+1427
+01:13:16,090 --> 01:13:20,590
+make it's kind of sad you know I feel so
+
+1428
+01:13:18,340 --> 01:13:22,840
+that's today's generation that's you
+
+1429
+01:13:20,590 --> 01:13:24,610
+know what what do you call millennial
+
+1430
+01:13:22,840 --> 01:13:27,370
+generation that's you know a lot of
+
+1431
+01:13:24,610 --> 01:13:30,400
+people blame the millennial generation
+
+1432
+01:13:27,370 --> 01:13:33,610
+and and I could you know you could say
+
+1433
+01:13:30,400 --> 01:13:36,790
+this is one example of what they are
+
+1434
+01:13:33,610 --> 01:13:39,640
+doing and what they what they think how
+
+1435
+01:13:36,790 --> 01:13:44,560
+they perceive things what they do with
+
+1436
+01:13:39,640 --> 01:13:47,320
+their time you know content Leslie
+
+1437
+01:13:44,560 --> 01:13:49,870
+things so what are they they go haha
+
+1438
+01:13:47,320 --> 01:13:53,199
+it's that's that that's that's what it
+
+1439
+01:13:49,870 --> 01:13:55,750
+is just like what I'm doing now okay you
+
+1440
+01:13:53,199 --> 01:14:02,320
+know you you laugh at face you show
+
+1441
+01:13:55,750 --> 01:14:05,160
+funny things that's what they do so and
+
+1442
+01:14:02,320 --> 01:14:08,650
+they are quite a lot like him and then
+
+1443
+01:14:05,160 --> 01:14:10,270
+anyway so that's one of the one of the
+
+1444
+01:14:08,650 --> 01:14:16,510
+thing okay he's the most popular
+
+1445
+01:14:10,270 --> 01:14:21,160
+youtuber okay so and there are other
+
+1446
+01:14:16,510 --> 01:14:24,120
+there are other other people some of
+
+1447
+01:14:21,160 --> 01:14:27,150
+these are political commentators
+
+1448
+01:14:24,120 --> 01:14:29,830
+fighting the social justice stuff and
+
+1449
+01:14:27,150 --> 01:14:33,429
+shoe our head okay sure our head is
+
+1450
+01:14:29,830 --> 01:14:36,850
+another very interesting character she
+
+1451
+01:14:33,429 --> 01:14:40,230
+is also she is the in the same group as
+
+1452
+01:14:36,850 --> 01:14:44,080
+the pewdiepie okay she's a girl and
+
+1453
+01:14:40,230 --> 01:14:47,770
+she's not exactly pretty okay but she
+
+1454
+01:14:44,080 --> 01:14:50,739
+you know she put on makeups but she is
+
+1455
+01:14:47,770 --> 01:14:55,719
+also classified you know technically as
+
+1456
+01:14:50,739 --> 01:14:58,530
+a comedian and she is small focused okay
+
+1457
+01:14:55,719 --> 01:15:01,920
+her content is kind of different from
+
+1458
+01:14:58,530 --> 01:15:05,830
+PewDiePie okay PewDiePie's content is
+
+1459
+01:15:01,920 --> 01:15:09,910
+most is up a political it's not like
+
+1460
+01:15:05,830 --> 01:15:13,449
+siding with any political camps like
+
+1461
+01:15:09,910 --> 01:15:16,270
+today we have you know at least in USA
+
+1462
+01:15:13,449 --> 01:15:20,140
+you have the you know you might say
+
+1463
+01:15:16,270 --> 01:15:22,750
+conservative versus the extreme it
+
+1464
+01:15:20,140 --> 01:15:24,820
+becomes the Democratic switch is
+
+1465
+01:15:22,750 --> 01:15:28,810
+becomes extremely bro because their
+
+1466
+01:15:24,820 --> 01:15:30,880
+their topics is about you know feminism
+
+1467
+01:15:28,810 --> 01:15:35,470
+in translating stuff you know like
+
+1468
+01:15:30,880 --> 01:15:37,630
+everyday and immigration oh yeah I might
+
+1469
+01:15:35,470 --> 01:15:40,120
+say you know summarizes social justice
+
+1470
+01:15:37,630 --> 01:15:43,480
+kind of thing it which is very different
+
+1471
+01:15:40,120 --> 01:15:45,790
+from Democrats let's say twenty years
+
+1472
+01:15:43,480 --> 01:15:50,440
+ago
+
+1473
+01:15:45,790 --> 01:15:54,130
+but anyway so PewDiePie he's not his
+
+1474
+01:15:50,440 --> 01:15:56,410
+videos content is like a political a
+
+1475
+01:15:54,130 --> 01:15:59,920
+political which is like is not
+
+1476
+01:15:56,410 --> 01:16:03,040
+associated with either groups but in
+
+1477
+01:15:59,920 --> 01:16:05,590
+recent months he's been smeared you know
+
+1478
+01:16:03,040 --> 01:16:07,560
+people call him you know people want to
+
+1479
+01:16:05,590 --> 01:16:11,310
+smear him but anyway anyway
+
+1480
+01:16:07,560 --> 01:16:14,290
+Chiron head she won't had this girl I
+
+1481
+01:16:11,310 --> 01:16:18,610
+knew her like since ten years ago I've
+
+1482
+01:16:14,290 --> 01:16:21,250
+heard I've seen her videos heard videos
+
+1483
+01:16:18,610 --> 01:16:24,640
+is rather more focused her videos is
+
+1484
+01:16:21,250 --> 01:16:29,530
+rather more the anti social justice
+
+1485
+01:16:24,640 --> 01:16:31,960
+people okay so her videos and many of
+
+1486
+01:16:29,530 --> 01:16:35,320
+them actually are funny I find her funny
+
+1487
+01:16:31,960 --> 01:16:37,900
+so I've watched she heard we shoe on
+
+1488
+01:16:35,320 --> 01:16:42,160
+head videos you know some of them
+
+1489
+01:16:37,900 --> 01:16:44,920
+actually at least she has put effort to
+
+1490
+01:16:42,160 --> 01:16:46,990
+make her videos funny now I don't really
+
+1491
+01:16:44,920 --> 01:16:49,180
+know what PewDiePie do because I've
+
+1492
+01:16:46,990 --> 01:16:52,060
+watched then you know at the front of
+
+1493
+01:16:49,180 --> 01:16:56,350
+five videos i watch this no not even
+
+1494
+01:16:52,060 --> 01:16:58,900
+effort to put into creating a video like
+
+1495
+01:16:56,350 --> 01:17:01,360
+maybe because he's already so popular he
+
+1496
+01:16:58,900 --> 01:17:04,440
+doesn't need to you know he just show up
+
+1497
+01:17:01,360 --> 01:17:08,560
+there with his pretty face and he just
+
+1498
+01:17:04,440 --> 01:17:12,190
+and automatically these people will talk
+
+1499
+01:17:08,560 --> 01:17:14,680
+about you know whatever he is doing but
+
+1500
+01:17:12,190 --> 01:17:17,380
+at least she won't had you can see
+
+1501
+01:17:14,680 --> 01:17:19,120
+there's some preparation required to do
+
+1502
+01:17:17,380 --> 01:17:21,190
+her videos there's scrapings
+
+1503
+01:17:19,120 --> 01:17:23,860
+you know you have to edit your videos
+
+1504
+01:17:21,190 --> 01:17:27,100
+and you know there's audio clips you
+
+1505
+01:17:23,860 --> 01:17:27,250
+know you have to you know mixing you
+
+1506
+01:17:27,100 --> 01:17:30,610
+know
+
+1507
+01:17:27,250 --> 01:17:33,010
+so anyway sure on here it was you know
+
+1508
+01:17:30,610 --> 01:17:36,570
+one medium followers you know you know
+
+1509
+01:17:33,010 --> 01:17:39,980
+these people when you have like
+
+1510
+01:17:36,570 --> 01:17:43,590
+even just a few hundred thousand
+
+1511
+01:17:39,980 --> 01:17:46,380
+followers you know have a median you get
+
+1512
+01:17:43,590 --> 01:17:49,290
+to you make a living out of you know
+
+1513
+01:17:46,380 --> 01:17:51,930
+just creating the youtubes more more
+
+1514
+01:17:49,290 --> 01:17:54,300
+than programmers you know even even you
+
+1515
+01:17:51,930 --> 01:17:56,730
+know programmers even if you you spent
+
+1516
+01:17:54,300 --> 01:18:02,060
+like five years study you work at Google
+
+1517
+01:17:56,730 --> 01:18:04,610
+they make more money than you and anyway
+
+1518
+01:18:02,060 --> 01:18:09,680
+lastly greens also popular anyway so
+
+1519
+01:18:04,610 --> 01:18:13,650
+maybe that's it for today so you know
+
+1520
+01:18:09,680 --> 01:18:15,870
+this another actually there's some quite
+
+1521
+01:18:13,650 --> 01:18:18,360
+interesting because okay this is a shoe
+
+1522
+01:18:15,870 --> 01:18:22,590
+on head okay this also you know
+
+1523
+01:18:18,360 --> 01:18:25,650
+incredible this this girl okay actually
+
+1524
+01:18:22,590 --> 01:18:28,110
+to actually talk up about this I should
+
+1525
+01:18:25,650 --> 01:18:30,960
+go to their YouTube so you can see them
+
+1526
+01:18:28,110 --> 01:18:36,030
+you know you can see their videos anyway
+
+1527
+01:18:30,960 --> 01:18:38,610
+I'm also getting tired so Scott says I
+
+1528
+01:18:36,030 --> 01:18:41,580
+think PewDiePie the issue is that there
+
+1529
+01:18:38,610 --> 01:18:45,210
+is a context that Nouveau viewers aren't
+
+1530
+01:18:41,580 --> 01:18:47,160
+getting and getting unless you've been
+
+1531
+01:18:45,210 --> 01:18:49,680
+familiar with the cultural references
+
+1532
+01:18:47,160 --> 01:18:53,900
+yeah that's true I mean you have to be
+
+1533
+01:18:49,680 --> 01:18:57,480
+your camera you have to be like a team
+
+1534
+01:18:53,900 --> 01:18:59,730
+you know teenage kind of or early
+
+1535
+01:18:57,480 --> 01:19:02,400
+twenties you know you grew up when you
+
+1536
+01:18:59,730 --> 01:19:04,610
+grew up there's already YouTube so you
+
+1537
+01:19:02,400 --> 01:19:07,350
+grew up with these kind of things you
+
+1538
+01:19:04,610 --> 01:19:10,620
+you know what's the website you know the
+
+1539
+01:19:07,350 --> 01:19:14,130
+new fashionable website and stuff anyway
+
+1540
+01:19:10,620 --> 01:19:18,300
+so some of these actually maybe I should
+
+1541
+01:19:14,130 --> 01:19:20,310
+do another video I'm thinking maybe you
+
+1542
+01:19:18,300 --> 01:19:23,280
+know I'm starting to maybe even do two
+
+1543
+01:19:20,310 --> 01:19:27,240
+videos a day so maybe in five more hours
+
+1544
+01:19:23,280 --> 01:19:30,090
+so in six you know hours maybe I do you
+
+1545
+01:19:27,240 --> 01:19:32,850
+know the problem with my videos is that
+
+1546
+01:19:30,090 --> 01:19:35,730
+I don't have a schedule so it's like
+
+1547
+01:19:32,850 --> 01:19:39,780
+just whenever I feel like I announce it
+
+1548
+01:19:35,730 --> 01:19:42,450
+two hours two hours beforehand but
+
+1549
+01:19:39,780 --> 01:19:45,810
+there's no vide schedule so people don't
+
+1550
+01:19:42,450 --> 01:19:46,620
+know so only people just happens to see
+
+1551
+01:19:45,810 --> 01:19:49,080
+it you know
+
+1552
+01:19:46,620 --> 01:19:49,650
+I'm live so people get on so there's no
+
+1553
+01:19:49,080 --> 01:19:52,830
+no
+
+1554
+01:19:49,650 --> 01:19:56,159
+schedule or no topic and that kind of
+
+1555
+01:19:52,830 --> 01:19:58,949
+you know you get less people interested
+
+1556
+01:19:56,159 --> 01:20:01,199
+you know in the topic to be on it so
+
+1557
+01:19:58,949 --> 01:20:03,570
+anyway there's some other interesting
+
+1558
+01:20:01,199 --> 01:20:07,790
+things very interesting because you have
+
+1559
+01:20:03,570 --> 01:20:11,190
+this Chinese girl okay this girl this
+
+1560
+01:20:07,790 --> 01:20:13,949
+this is in Chinese anyway she she has a
+
+1561
+01:20:11,190 --> 01:20:17,489
+YouTube channel if you search copy-paste
+
+1562
+01:20:13,949 --> 01:20:20,370
+this you'll find it I should show you
+
+1563
+01:20:17,489 --> 01:20:22,380
+but I am tired I'm gonna close down in a
+
+1564
+01:20:20,370 --> 01:20:27,719
+minute okay I just want to mention this
+
+1565
+01:20:22,380 --> 01:20:32,280
+she so this Chinese girl she make videos
+
+1566
+01:20:27,719 --> 01:20:34,340
+it's incredible I mean she okay let me
+
+1567
+01:20:32,280 --> 01:20:37,890
+let me go show you
+
+1568
+01:20:34,340 --> 01:20:40,980
+she's got four million followers that's
+
+1569
+01:20:37,890 --> 01:20:42,750
+a lot you know you make you formed four
+
+1570
+01:20:40,980 --> 01:20:45,360
+million followers that means you are a
+
+1571
+01:20:42,750 --> 01:20:51,000
+million you are a millionaire you know
+
+1572
+01:20:45,360 --> 01:20:53,610
+you make few millions a year so I said
+
+1573
+01:20:51,000 --> 01:20:56,820
+well she began in Chinese you know over
+
+1574
+01:20:53,610 --> 01:21:00,420
+China at Chinese social networks and
+
+1575
+01:20:56,820 --> 01:21:05,100
+video websites but she started to have a
+
+1576
+01:21:00,420 --> 01:21:10,770
+YouTube channel and this four million
+
+1577
+01:21:05,100 --> 01:21:13,290
+followers you know and and that means
+
+1578
+01:21:10,770 --> 01:21:19,400
+basically that pretty much means you
+
+1579
+01:21:13,290 --> 01:21:24,989
+know she and whoever her production is
+
+1580
+01:21:19,400 --> 01:21:30,330
+very rich now and her video excuse me
+
+1581
+01:21:24,989 --> 01:21:35,219
+her videos is like you can see let's go
+
+1582
+01:21:30,330 --> 01:21:38,550
+to videos basically you have this
+
+1583
+01:21:35,219 --> 01:21:42,270
+ruh-roh girl in China like in Inglewood
+
+1584
+01:21:38,550 --> 01:21:46,469
+row area and she make you know her video
+
+1585
+01:21:42,270 --> 01:21:49,909
+is like oh this tranquil beautiful
+
+1586
+01:21:46,469 --> 01:21:54,980
+scenery it's like you know ruh-roh a
+
+1587
+01:21:49,909 --> 01:22:00,389
+very pretty girl in very remote rural
+
+1588
+01:21:54,980 --> 01:22:02,909
+place in China and she prepared food she
+
+1589
+01:22:00,389 --> 01:22:03,520
+make Pam bamboo she cut you know cut
+
+1590
+01:22:02,909 --> 01:22:06,640
+bamboo
+
+1591
+01:22:03,520 --> 01:22:10,350
+to make furniture you know she prepare
+
+1592
+01:22:06,640 --> 01:22:13,270
+food by going going into the forest and
+
+1593
+01:22:10,350 --> 01:22:16,330
+the kind of food she makes they are
+
+1594
+01:22:13,270 --> 01:22:18,730
+exotic I mean they are not they are not
+
+1595
+01:22:16,330 --> 01:22:20,260
+the type of food you would any I mean
+
+1596
+01:22:18,730 --> 01:22:23,790
+even a Chinese Ruegger
+
+1597
+01:22:20,260 --> 01:22:25,930
+I don't imagine it's like very exotic
+
+1598
+01:22:23,790 --> 01:22:28,900
+traditional Chinese food you know it
+
+1599
+01:22:25,930 --> 01:22:31,090
+takes skill like learning you know to
+
+1600
+01:22:28,900 --> 01:22:34,360
+actually know how to make them you know
+
+1601
+01:22:31,090 --> 01:22:36,610
+some of them are truly exotic like you
+
+1602
+01:22:34,360 --> 01:22:38,740
+blow you have to blow you have to
+
+1603
+01:22:36,610 --> 01:22:42,760
+prepare a chicken then you have to blow
+
+1604
+01:22:38,740 --> 01:22:47,920
+the chicken up so that the air inside is
+
+1605
+01:22:42,760 --> 01:22:50,170
+for certain purposes and so on and you
+
+1606
+01:22:47,920 --> 01:22:53,760
+know she and she you know here's a video
+
+1607
+01:22:50,170 --> 01:22:56,530
+she makes a chair or bed out of bamboo
+
+1608
+01:22:53,760 --> 01:22:59,950
+from ground up like you have to go to
+
+1609
+01:22:56,530 --> 01:23:04,290
+the forest to cut cut up bamboos and you
+
+1610
+01:22:59,950 --> 01:23:07,150
+know I watched this video and I'm so um
+
+1611
+01:23:04,290 --> 01:23:10,900
+fascinated by it because first of all
+
+1612
+01:23:07,150 --> 01:23:13,120
+this is not I mean this is not a natural
+
+1613
+01:23:10,900 --> 01:23:16,000
+video I mean there's a production I
+
+1614
+01:23:13,120 --> 01:23:18,030
+think I'm pretty sure it I mean in a
+
+1615
+01:23:16,000 --> 01:23:21,640
+sense it's fake okay there's a
+
+1616
+01:23:18,030 --> 01:23:24,100
+production team behind her you know like
+
+1617
+01:23:21,640 --> 01:23:25,480
+your v-- camera main directors or maybe
+
+1618
+01:23:24,100 --> 01:23:28,650
+you know something like that it's
+
+1619
+01:23:25,480 --> 01:23:31,450
+definitely not you know someone her
+
+1620
+01:23:28,650 --> 01:23:34,800
+family members just you know make the
+
+1621
+01:23:31,450 --> 01:23:38,440
+video real-time then
+
+1622
+01:23:34,800 --> 01:23:41,650
+but however on the other hand it all
+
+1623
+01:23:38,440 --> 01:23:45,300
+looks like it all appears to be like
+
+1624
+01:23:41,650 --> 01:23:47,500
+very natural in rural so there's many
+
+1625
+01:23:45,300 --> 01:23:49,930
+interesting things going on I'm not sure
+
+1626
+01:23:47,500 --> 01:23:55,300
+quite sure what you know I haven't done
+
+1627
+01:23:49,930 --> 01:23:57,580
+research you know like sometimes often
+
+1628
+01:23:55,300 --> 01:24:00,700
+you know often like when I do my wise
+
+1629
+01:23:57,580 --> 01:24:03,460
+you know go on with my daily lives you
+
+1630
+01:24:00,700 --> 01:24:05,650
+know suddenly I start to do research you
+
+1631
+01:24:03,460 --> 01:24:07,120
+know I start to dig into this person
+
+1632
+01:24:05,650 --> 01:24:09,730
+where she came from
+
+1633
+01:24:07,120 --> 01:24:11,710
+you know what's her Chinese channels and
+
+1634
+01:24:09,730 --> 01:24:14,800
+you know because I read Chinese I can
+
+1635
+01:24:11,710 --> 01:24:17,380
+then go and further find out you know
+
+1636
+01:24:14,800 --> 01:24:20,680
+what how is this video made these years
+
+1637
+01:24:17,380 --> 01:24:24,600
+a like a production or company maybe
+
+1638
+01:24:20,680 --> 01:24:26,830
+maybe possibly even a powerful you know
+
+1639
+01:24:24,600 --> 01:24:29,140
+cooperation behind her making these
+
+1640
+01:24:26,830 --> 01:24:32,100
+videos I don't know
+
+1641
+01:24:29,140 --> 01:24:35,290
+so I haven't done any research but also
+
+1642
+01:24:32,100 --> 01:24:37,120
+you also notice you know it's fate so
+
+1643
+01:24:35,290 --> 01:24:40,120
+it's very strange you also noted this
+
+1644
+01:24:37,120 --> 01:24:42,760
+video okay she's talking to the camera
+
+1645
+01:24:40,120 --> 01:24:46,450
+to us you know so this video is actually
+
+1646
+01:24:42,760 --> 01:24:48,880
+more kind of like more on the spot you
+
+1647
+01:24:46,450 --> 01:24:52,150
+know so she's actually saying that
+
+1648
+01:24:48,880 --> 01:24:55,390
+telling us that you know I'm me and I'm
+
+1649
+01:24:52,150 --> 01:24:57,220
+just making videos you know for you know
+
+1650
+01:24:55,390 --> 01:25:00,370
+what you know - because I love my
+
+1651
+01:24:57,220 --> 01:25:01,990
+country and whatever but it's it's very
+
+1652
+01:25:00,370 --> 01:25:06,820
+strange II I mean it definitely this
+
+1653
+01:25:01,990 --> 01:25:10,020
+videos are you know it's not like it is
+
+1654
+01:25:06,820 --> 01:25:14,890
+it seems professionally made but however
+
+1655
+01:25:10,020 --> 01:25:17,260
+it's totally amateur in in in the way
+
+1656
+01:25:14,890 --> 01:25:17,740
+you know so I don't know what to make of
+
+1657
+01:25:17,260 --> 01:25:21,340
+it
+
+1658
+01:25:17,740 --> 01:25:24,100
+so I don't know so yeah but I'm just you
+
+1659
+01:25:21,340 --> 01:25:28,450
+know I the way I perceive things I just
+
+1660
+01:25:24,100 --> 01:25:31,030
+you know find it fascinating her I want
+
+1661
+01:25:28,450 --> 01:25:34,810
+to dig you know I want to dig out more
+
+1662
+01:25:31,030 --> 01:25:37,750
+and also just the videos themselves they
+
+1663
+01:25:34,810 --> 01:25:41,230
+are they are truly beautiful because all
+
+1664
+01:25:37,750 --> 01:25:44,290
+these sceneries you know this winter
+
+1665
+01:25:41,230 --> 01:25:47,230
+sceneries you know on the surface it
+
+1666
+01:25:44,290 --> 01:25:49,570
+looks like you know it's natural it's
+
+1667
+01:25:47,230 --> 01:25:52,720
+like somewhere in China ago just go out
+
+1668
+01:25:49,570 --> 01:25:56,130
+out of her home you know and walk for
+
+1669
+01:25:52,720 --> 01:25:59,380
+half an hour and then you just start to
+
+1670
+01:25:56,130 --> 01:26:02,680
+you know take video videos that seems to
+
+1671
+01:25:59,380 --> 01:26:06,940
+be the case but however these sceneries
+
+1672
+01:26:02,680 --> 01:26:09,640
+just - they are too beautiful to be true
+
+1673
+01:26:06,940 --> 01:26:13,090
+you know it's you know winter in summer
+
+1674
+01:26:09,640 --> 01:26:17,800
+and all these flowers is just incredible
+
+1675
+01:26:13,090 --> 01:26:20,110
+so yeah I don't know but but even I mean
+
+1676
+01:26:17,800 --> 01:26:24,610
+even a professional production some of
+
+1677
+01:26:20,110 --> 01:26:26,080
+these just not you cannot even I don't
+
+1678
+01:26:24,610 --> 01:26:29,200
+know how you know yeah so I don't know
+
+1679
+01:26:26,080 --> 01:26:30,850
+so it's fascinating so so I'm saying you
+
+1680
+01:26:29,200 --> 01:26:33,040
+know if if I
+
+1681
+01:26:30,850 --> 01:26:37,030
+these videos are very attractive you
+
+1682
+01:26:33,040 --> 01:26:39,460
+know I can because I don't you know but
+
+1683
+01:26:37,030 --> 01:26:40,870
+a lot of people you know she's got 40
+
+1684
+01:26:39,460 --> 01:26:44,350
+million followers
+
+1685
+01:26:40,870 --> 01:26:46,200
+I suppose you know more more of it half
+
+1686
+01:26:44,350 --> 01:26:49,180
+of it more than half of it is just
+
+1687
+01:26:46,200 --> 01:26:52,060
+average American no you know who don't
+
+1688
+01:26:49,180 --> 01:26:54,520
+don't speak Chinese but just by the
+
+1689
+01:26:52,060 --> 01:26:57,010
+video quality itself you know it's very
+
+1690
+01:26:54,520 --> 01:26:59,020
+soothing and beautiful you know you when
+
+1691
+01:26:57,010 --> 01:27:01,930
+you watch this beautiful girl do her
+
+1692
+01:26:59,020 --> 01:27:05,590
+things everyday cooking and make you
+
+1693
+01:27:01,930 --> 01:27:08,590
+know fruits and pick foods and it's just
+
+1694
+01:27:05,590 --> 01:27:12,670
+beautiful it's amazing so it's one of
+
+1695
+01:27:08,590 --> 01:27:13,210
+the this is by the way this is it's more
+
+1696
+01:27:12,670 --> 01:27:16,150
+than one
+
+1697
+01:27:13,210 --> 01:27:17,920
+okay I've noticed I've found out you
+
+1698
+01:27:16,150 --> 01:27:20,890
+know it's not just her there are other
+
+1699
+01:27:17,920 --> 01:27:23,790
+girls okay similar you know apparently
+
+1700
+01:27:20,890 --> 01:27:27,010
+it seems to me apparently
+
+1701
+01:27:23,790 --> 01:27:29,530
+you know they people discovered okay
+
+1702
+01:27:27,010 --> 01:27:32,140
+this is the way to make money
+
+1703
+01:27:29,530 --> 01:27:34,780
+apparently so there are other girls who
+
+1704
+01:27:32,140 --> 01:27:36,580
+are doing similar things and I haven't
+
+1705
+01:27:34,780 --> 01:27:39,910
+found out exactly there are different
+
+1706
+01:27:36,580 --> 01:27:42,490
+persons by the way but they are doing
+
+1707
+01:27:39,910 --> 01:27:45,970
+very almost you know identical since
+
+1708
+01:27:42,490 --> 01:27:47,790
+very similar things and you know so it's
+
+1709
+01:27:45,970 --> 01:27:52,510
+I don't know what's going on so anyway
+
+1710
+01:27:47,790 --> 01:27:54,880
+that's it for today so Scott says it
+
+1711
+01:27:52,510 --> 01:27:56,470
+helps that I have three teenage boys to
+
+1712
+01:27:54,880 --> 01:28:00,460
+decode it for me
+
+1713
+01:27:56,470 --> 01:28:04,270
+okay yes God I've seen photos of your
+
+1714
+01:28:00,460 --> 01:28:07,060
+kids children they are incredible they
+
+1715
+01:28:04,270 --> 01:28:11,850
+are beautiful so yeah so you have a lot
+
+1716
+01:28:07,060 --> 01:28:14,320
+children that know what's going on and
+
+1717
+01:28:11,850 --> 01:28:17,140
+the other thing I want to mention is
+
+1718
+01:28:14,320 --> 01:28:19,750
+that you know girls you know they are
+
+1719
+01:28:17,140 --> 01:28:22,780
+fascinating okay because then we have
+
+1720
+01:28:19,750 --> 01:28:28,480
+these videos by some of these guys who
+
+1721
+01:28:22,780 --> 01:28:30,070
+are making makeup videos and what's
+
+1722
+01:28:28,480 --> 01:28:34,960
+their name they mean let me just quickly
+
+1723
+01:28:30,070 --> 01:28:38,410
+point out James Charles and Jeffrey star
+
+1724
+01:28:34,960 --> 01:28:40,870
+they are guys okay so they got 16
+
+1725
+01:28:38,410 --> 01:28:43,570
+million followers and you can why is 40
+
+1726
+01:28:40,870 --> 01:28:44,530
+million followers they are guys okay
+
+1727
+01:28:43,570 --> 01:28:46,750
+well
+
+1728
+01:28:44,530 --> 01:28:50,740
+his neck like 19 years old the other one
+
+1729
+01:28:46,750 --> 01:28:53,320
+is more ugly and older but all they do
+
+1730
+01:28:50,740 --> 01:28:57,150
+is make up videos you know the makeup
+
+1731
+01:28:53,320 --> 01:29:00,100
+products girls love them
+
+1732
+01:28:57,150 --> 01:29:02,710
+incredible 16 million followers
+
+1733
+01:29:00,100 --> 01:29:05,500
+so so they have you know they are very
+
+1734
+01:29:02,710 --> 01:29:08,460
+rich you know they they are millionaires
+
+1735
+01:29:05,500 --> 01:29:12,100
+they are they have tens of millions
+
+1736
+01:29:08,460 --> 01:29:13,600
+incredible anyway that's it for today so
+
+1737
+01:29:12,100 --> 01:29:17,920
+thank you guys for coming
+
+1738
+01:29:13,600 --> 01:29:20,590
+some how many people I've got nine
+
+1739
+01:29:17,920 --> 01:29:24,220
+people yeah I'm getting tired seeing
+
+1740
+01:29:20,590 --> 01:29:26,410
+here talking for 90 minutes too so thank
+
+1741
+01:29:24,220 --> 01:29:28,630
+you guys for watching if you like my
+
+1742
+01:29:26,410 --> 01:29:33,520
+videos you know subscribe and thumbs up
+
+1743
+01:29:28,630 --> 01:29:37,360
+in and do my paypal okay do my patreon
+
+1744
+01:29:33,520 --> 01:29:40,420
+stuff so by the way David Camaro if you
+
+1745
+01:29:37,360 --> 01:29:43,780
+are here one day I really like to see
+
+1746
+01:29:40,420 --> 01:29:47,080
+your opinion about why you like C++ so
+
+1747
+01:29:43,780 --> 01:29:49,810
+much and by the way Scott - Scott you
+
+1748
+01:29:47,080 --> 01:29:52,090
+are also a low-level what I would
+
+1749
+01:29:49,810 --> 01:29:54,550
+consider low-level programmers you know
+
+1750
+01:29:52,090 --> 01:29:58,210
+programming see you know know a lot of
+
+1751
+01:29:54,550 --> 01:30:00,960
+details about C and you know the
+
+1752
+01:29:58,210 --> 01:30:04,600
+hardware stuff you know the optimization
+
+1753
+01:30:00,960 --> 01:30:08,980
+those kind of things are far into me
+
+1754
+01:30:04,600 --> 01:30:11,250
+okay so I love to have you guys I don't
+
+1755
+01:30:08,980 --> 01:30:14,560
+know how to do it yet you know because I
+
+1756
+01:30:11,250 --> 01:30:18,100
+have to get a way to set up so people
+
+1757
+01:30:14,560 --> 01:30:20,620
+can maybe joining me as a you know video
+
+1758
+01:30:18,100 --> 01:30:24,010
+or maybe just audio when you anyway I
+
+1759
+01:30:20,620 --> 01:30:27,220
+like to talk to you guys so what David
+
+1760
+01:30:24,010 --> 01:30:29,890
+you know tell tell us why you like C++
+
+1761
+01:30:27,220 --> 01:30:32,920
+so much because I I know you I know you
+
+1762
+01:30:29,890 --> 01:30:36,610
+are very you you have like a kind of a
+
+1763
+01:30:32,920 --> 01:30:39,850
+like a rant like you insist you know see
+
+1764
+01:30:36,610 --> 01:30:42,340
+Christmas is the best language something
+
+1765
+01:30:39,850 --> 01:30:46,500
+like that okay I just don't see it you
+
+1766
+01:30:42,340 --> 01:30:50,650
+know I think C and C++ is the worst okay
+
+1767
+01:30:46,500 --> 01:30:54,970
+so I like you to talk about why you why
+
+1768
+01:30:50,650 --> 01:30:58,239
+you why you somehow you know find C++ is
+
+1769
+01:30:54,970 --> 01:31:01,030
+the almost like not just the
+
+1770
+01:30:58,239 --> 01:31:03,249
+frak you but somehow you use I think you
+
+1771
+01:31:01,030 --> 01:31:05,679
+also find it it should be you know
+
+1772
+01:31:03,249 --> 01:31:08,050
+somehow it's a pace or something and
+
+1773
+01:31:05,679 --> 01:31:11,550
+yeah also Scott your opinions about
+
+1774
+01:31:08,050 --> 01:31:19,840
+c-plus first yeah
+
+1775
+01:31:11,550 --> 01:31:21,969
+OC yeah you know yeah so but I don't
+
+1776
+01:31:19,840 --> 01:31:24,670
+know how to do it you know I you know I
+
+1777
+01:31:21,969 --> 01:31:27,159
+can contact you guys from Twitter but I
+
+1778
+01:31:24,670 --> 01:31:28,749
+don't have idea I you know I use
+
+1779
+01:31:27,159 --> 01:31:31,030
+something I you know I don't have a plan
+
+1780
+01:31:28,749 --> 01:31:35,710
+so but anyway I just want to throw it
+
+1781
+01:31:31,030 --> 01:31:38,440
+out so I so I have to you know let's let
+
+1782
+01:31:35,710 --> 01:31:42,039
+the idea sit there so maybe we will come
+
+1783
+01:31:38,440 --> 01:31:43,749
+up with something so power L says are
+
+1784
+01:31:42,039 --> 01:31:46,389
+that's two backs our next video you can
+
+1785
+01:31:43,749 --> 01:31:48,820
+talk about personal personal life or
+
+1786
+01:31:46,389 --> 01:31:51,820
+that advice okay what about that you
+
+1787
+01:31:48,820 --> 01:31:55,030
+have to tell me though because because
+
+1788
+01:31:51,820 --> 01:31:56,860
+like for example what okay that's it for
+
+1789
+01:31:55,030 --> 01:32:00,570
+today thank you guys for watching I'll
+
+1790
+01:31:56,860 --> 01:32:00,570
+see you next time bye
+

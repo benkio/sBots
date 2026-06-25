@@ -1,0 +1,3148 @@
+1
+00:00:06,960 --> 00:00:12,599
+hello welcome to another episode of Star
+
+2
+00:00:09,900 --> 00:00:16,460
+Talk Show today we are going to code
+
+3
+00:00:12,599 --> 00:00:20,699
+Powershell so I'm gonna code Powershell
+
+4
+00:00:16,460 --> 00:00:23,760
+uh the problem is to list all
+
+5
+00:00:20,699 --> 00:00:27,599
+directories and start Powershell so
+
+6
+00:00:23,760 --> 00:00:31,380
+here's the Powershell to list all files
+
+7
+00:00:27,599 --> 00:00:34,680
+in a directory whose name contains space
+
+8
+00:00:31,380 --> 00:00:37,040
+okay so space character you know a bunch
+
+9
+00:00:34,680 --> 00:00:40,320
+of files if the file name contains space
+
+10
+00:00:37,040 --> 00:00:43,320
+listed and so we are going to write a
+
+11
+00:00:40,320 --> 00:00:45,600
+Powershell script to do that and also to
+
+12
+00:00:43,320 --> 00:00:49,440
+change the file name so if it contains a
+
+13
+00:00:45,600 --> 00:00:52,440
+space rename it to the to the underscore
+
+14
+00:00:49,440 --> 00:00:54,840
+to the low line character okay so that's
+
+15
+00:00:52,440 --> 00:00:56,899
+what we are going to code today
+
+16
+00:00:54,840 --> 00:01:01,199
+Powershell so if you are interested in
+
+17
+00:00:56,899 --> 00:01:03,960
+learning Powershell uh watch it okay and
+
+18
+00:01:01,199 --> 00:01:06,840
+here is my keyboard today I'm on using
+
+19
+00:01:03,960 --> 00:01:11,640
+the Xposed keyboard a fantastic keyboard
+
+20
+00:01:06,840 --> 00:01:15,320
+okay so you can look at my uh so exposed
+
+21
+00:01:11,640 --> 00:01:15,320
+you know you can look at my
+
+22
+00:01:15,360 --> 00:01:21,540
+website so you just search for Saudi
+
+23
+00:01:18,119 --> 00:01:25,020
+keyboard you'll find my review and the
+
+24
+00:01:21,540 --> 00:01:27,720
+expose is expose night this is a great
+
+25
+00:01:25,020 --> 00:01:29,759
+keyboard and so are the others I did the
+
+26
+00:01:27,720 --> 00:01:30,900
+review on glove 80. that's wonderful I'm
+
+27
+00:01:29,759 --> 00:01:33,780
+going to
+
+28
+00:01:30,900 --> 00:01:38,340
+uh you know
+
+29
+00:01:33,780 --> 00:01:43,320
+uh the the group 80 is gonna be my
+
+30
+00:01:38,340 --> 00:01:46,320
+men when I receive the lighter switches
+
+31
+00:01:43,320 --> 00:01:50,100
+okay so let's start to code so what is
+
+32
+00:01:46,320 --> 00:01:52,140
+this page close close keyboard close so
+
+33
+00:01:50,100 --> 00:01:56,040
+let's start through code Powershell okay
+
+34
+00:01:52,140 --> 00:01:59,520
+so start a so I mean emacs start a
+
+35
+00:01:56,040 --> 00:02:02,640
+Powershell code and pop it out and I'm
+
+36
+00:01:59,520 --> 00:02:06,060
+emacs I'm using some fly keys and I'm
+
+37
+00:02:02,640 --> 00:02:08,099
+using a vorac keyboard layout okay and
+
+38
+00:02:06,060 --> 00:02:10,280
+the Ping window shows all my command
+
+39
+00:02:08,099 --> 00:02:13,200
+codes and
+
+40
+00:02:10,280 --> 00:02:15,660
+keystrokes on the pink window
+
+41
+00:02:13,200 --> 00:02:18,660
+okay so let's begin if you have a
+
+42
+00:02:15,660 --> 00:02:20,819
+comments and questions ask me okay so
+
+43
+00:02:18,660 --> 00:02:24,120
+Powershell let's go to my Powershell
+
+44
+00:02:20,819 --> 00:02:25,680
+tutorial so I have a tutorial here
+
+45
+00:02:24,120 --> 00:02:29,040
+already
+
+46
+00:02:25,680 --> 00:02:30,480
+uh let's put the link here Powershell
+
+47
+00:02:29,040 --> 00:02:34,440
+tutorial
+
+48
+00:02:30,480 --> 00:02:37,379
+and uh so we wrote we did a live stream
+
+49
+00:02:34,440 --> 00:02:39,959
+writing a similar command before so that
+
+50
+00:02:37,379 --> 00:02:43,500
+would be here so let's look at how that
+
+51
+00:02:39,959 --> 00:02:46,379
+is done so you have set dock theme
+
+52
+00:02:43,500 --> 00:02:49,739
+uh how to use that's a code to say dot
+
+53
+00:02:46,379 --> 00:02:52,560
+theme dark theme so here is a code to
+
+54
+00:02:49,739 --> 00:02:58,379
+format the code predified Powershell
+
+55
+00:02:52,560 --> 00:03:02,040
+code and uh here is a script to convert
+
+56
+00:02:58,379 --> 00:03:05,519
+Linux and windows line ending
+
+57
+00:03:02,040 --> 00:03:08,340
+okay so we have quite a few script and
+
+58
+00:03:05,519 --> 00:03:12,540
+here is a script that rename file to
+
+59
+00:03:08,340 --> 00:03:16,200
+Hash rename the file to the
+
+60
+00:03:12,540 --> 00:03:19,500
+to the hash of the file content so in
+
+61
+00:03:16,200 --> 00:03:22,200
+this way every file if they are if their
+
+62
+00:03:19,500 --> 00:03:25,800
+content is different they will have a
+
+63
+00:03:22,200 --> 00:03:28,739
+unique name like this 64 characters or
+
+64
+00:03:25,800 --> 00:03:30,959
+so especially useful for image files
+
+65
+00:03:28,739 --> 00:03:34,680
+when you want to determine if image
+
+66
+00:03:30,959 --> 00:03:38,099
+files are used uh two image files are
+
+67
+00:03:34,680 --> 00:03:40,500
+different so that this code is very
+
+68
+00:03:38,099 --> 00:03:43,680
+similar to what we are going to do today
+
+69
+00:03:40,500 --> 00:03:46,140
+so let's put it there okay so we are
+
+70
+00:03:43,680 --> 00:03:49,500
+going to rename so let's just copy this
+
+71
+00:03:46,140 --> 00:03:51,060
+code here and let's just modify it okay
+
+72
+00:03:49,500 --> 00:03:54,420
+copy it
+
+73
+00:03:51,060 --> 00:03:56,760
+so go back to our Powershell paste it so
+
+74
+00:03:54,420 --> 00:04:00,840
+here is so first of all the name of the
+
+75
+00:03:56,760 --> 00:04:00,840
+function will be list
+
+76
+00:04:01,260 --> 00:04:08,159
+file
+
+77
+00:04:03,780 --> 00:04:09,480
+space uh what what should be the name of
+
+78
+00:04:08,159 --> 00:04:12,540
+the
+
+79
+00:04:09,480 --> 00:04:15,420
+function list file
+
+80
+00:04:12,540 --> 00:04:19,139
+name contains space okay that's a bit
+
+81
+00:04:15,420 --> 00:04:21,060
+verbose but let's do it that way so here
+
+82
+00:04:19,139 --> 00:04:23,940
+is that's this is how you define a
+
+83
+00:04:21,060 --> 00:04:27,000
+function in Powershell and then we need
+
+84
+00:04:23,940 --> 00:04:30,300
+to so here is the convention from the
+
+85
+00:04:27,000 --> 00:04:35,220
+documentation the inline
+
+86
+00:04:30,300 --> 00:04:38,340
+dark stream okay so so let's say list
+
+87
+00:04:35,220 --> 00:04:39,720
+files of current the
+
+88
+00:04:38,340 --> 00:04:40,979
+whose
+
+89
+00:04:39,720 --> 00:04:44,639
+name
+
+90
+00:04:40,979 --> 00:04:48,360
+list files whose name contains space
+
+91
+00:04:44,639 --> 00:04:49,860
+okay so that is the
+
+92
+00:04:48,360 --> 00:04:52,199
+um
+
+93
+00:04:49,860 --> 00:04:55,560
+of current okay
+
+94
+00:04:52,199 --> 00:04:58,979
+so that is the documentation so version
+
+95
+00:04:55,560 --> 00:05:00,360
+number let's put today's date and Sample
+
+96
+00:04:58,979 --> 00:05:01,199
+use
+
+97
+00:05:00,360 --> 00:05:04,020
+um
+
+98
+00:05:01,199 --> 00:05:07,620
+how shall we you know so the first state
+
+99
+00:05:04,020 --> 00:05:12,600
+stage of writing this function is the
+
+100
+00:05:07,620 --> 00:05:15,419
+design of the API of the interface
+
+101
+00:05:12,600 --> 00:05:18,479
+um so for example you know for example
+
+102
+00:05:15,419 --> 00:05:21,300
+in Powershell let's go to
+
+103
+00:05:18,479 --> 00:05:23,400
+for example let's go to web directory
+
+104
+00:05:21,300 --> 00:05:24,900
+Sally
+
+105
+00:05:23,400 --> 00:05:26,510
+info
+
+106
+00:05:24,900 --> 00:05:29,280
+okay let's go to
+
+107
+00:05:26,510 --> 00:05:32,720
+[Music]
+
+108
+00:05:29,280 --> 00:05:32,720
+uh comp
+
+109
+00:05:32,840 --> 00:05:39,720
+uh okay let's go to company and let's
+
+110
+00:05:36,180 --> 00:05:42,560
+list directory so there's a log files
+
+111
+00:05:39,720 --> 00:05:46,560
+uh let's do it again
+
+112
+00:05:42,560 --> 00:05:49,680
+so lots of files
+
+113
+00:05:46,560 --> 00:05:50,880
+okay the phone is too large so that's
+
+114
+00:05:49,680 --> 00:05:54,720
+better okay
+
+115
+00:05:50,880 --> 00:05:57,180
+so this is how you list the file duh so
+
+116
+00:05:54,720 --> 00:05:59,160
+now you want to let's let's think about
+
+117
+00:05:57,180 --> 00:06:03,180
+how we want to design the function so
+
+118
+00:05:59,160 --> 00:06:03,180
+one way is typically
+
+119
+00:06:03,539 --> 00:06:10,320
+so you you call a command that will just
+
+120
+00:06:06,780 --> 00:06:15,380
+list all files of the current
+
+121
+00:06:10,320 --> 00:06:19,620
+and subdirectories whose file name
+
+122
+00:06:15,380 --> 00:06:21,860
+contains a space okay uh
+
+123
+00:06:19,620 --> 00:06:26,039
+so
+
+124
+00:06:21,860 --> 00:06:28,520
+third recurs file filter
+
+125
+00:06:26,039 --> 00:06:28,520
+and
+
+126
+00:06:30,300 --> 00:06:36,680
+now so that's not how you want to use it
+
+127
+00:06:33,900 --> 00:06:36,680
+so
+
+128
+00:06:36,919 --> 00:06:42,120
+example let's just say example just
+
+129
+00:06:39,960 --> 00:06:44,460
+being that
+
+130
+00:06:42,120 --> 00:06:47,400
+so you just you just call this function
+
+131
+00:06:44,460 --> 00:06:50,280
+and your list
+
+132
+00:06:47,400 --> 00:06:53,000
+here I'll put a collection of file
+
+133
+00:06:50,280 --> 00:06:53,000
+objects
+
+134
+00:06:53,819 --> 00:06:59,100
+where the file names contain space you
+
+135
+00:06:57,000 --> 00:07:02,100
+know the Powershell is different from
+
+136
+00:06:59,100 --> 00:07:03,600
+bash in a sense that Powershell
+
+137
+00:07:02,100 --> 00:07:06,360
+uh
+
+138
+00:07:03,600 --> 00:07:09,419
+the data Powershell deal with is always
+
+139
+00:07:06,360 --> 00:07:12,199
+objects using object-oriented
+
+140
+00:07:09,419 --> 00:07:16,020
+programming so they are actually.net
+
+141
+00:07:12,199 --> 00:07:20,759
+microsoft.net objects whereas in bash or
+
+142
+00:07:16,020 --> 00:07:22,740
+Unix shell you just output text you know
+
+143
+00:07:20,759 --> 00:07:26,340
+it's all text processing but in
+
+144
+00:07:22,740 --> 00:07:29,039
+Powershell they actually output objects
+
+145
+00:07:26,340 --> 00:07:33,479
+which has methods and so on
+
+146
+00:07:29,039 --> 00:07:35,819
+just like op you know the.net object so
+
+147
+00:07:33,479 --> 00:07:38,699
+okay let's just let's just begin to
+
+148
+00:07:35,819 --> 00:07:41,639
+write this it this way okay so here is a
+
+149
+00:07:38,699 --> 00:07:42,900
+link uh link we don't uh okay so
+
+150
+00:07:41,639 --> 00:07:45,240
+actually
+
+151
+00:07:42,900 --> 00:07:48,419
+oh shall
+
+152
+00:07:45,240 --> 00:07:52,400
+file contains space so I'm going to
+
+153
+00:07:48,419 --> 00:07:55,620
+create this web page later so you can
+
+154
+00:07:52,400 --> 00:07:58,860
+grab the code there okay so now to write
+
+155
+00:07:55,620 --> 00:08:03,360
+the function in Powershell there are
+
+156
+00:07:58,860 --> 00:08:05,759
+what you have to do is actually so
+
+157
+00:08:03,360 --> 00:08:09,599
+actually we can delete all that let me
+
+158
+00:08:05,759 --> 00:08:13,139
+just show you okay so you just say the
+
+159
+00:08:09,599 --> 00:08:16,440
+the is an alias to get child item and
+
+160
+00:08:13,139 --> 00:08:20,000
+you say because do you want because or
+
+161
+00:08:16,440 --> 00:08:20,000
+not let's say because
+
+162
+00:08:20,759 --> 00:08:26,060
+because okay that means at least don't
+
+163
+00:08:23,580 --> 00:08:30,240
+go through all subdirectories as well
+
+164
+00:08:26,060 --> 00:08:32,580
+and then you want to say
+
+165
+00:08:30,240 --> 00:08:36,000
+now do you want to limit to directories
+
+166
+00:08:32,580 --> 00:08:38,940
+only or just files or both so if you
+
+167
+00:08:36,000 --> 00:08:41,839
+just only want files you say Dash file
+
+168
+00:08:38,940 --> 00:08:41,839
+uh
+
+169
+00:08:41,940 --> 00:08:45,080
+so this
+
+170
+00:08:48,120 --> 00:08:54,540
+this should uh should so here's a design
+
+171
+00:08:51,600 --> 00:08:58,140
+issue should it work on uh directories
+
+172
+00:08:54,540 --> 00:09:00,839
+or just files I mean without directories
+
+173
+00:08:58,140 --> 00:09:03,680
+I think it should also work on
+
+174
+00:09:00,839 --> 00:09:03,680
+directories
+
+175
+00:09:04,459 --> 00:09:09,180
+uh okay so maybe later on we can add
+
+176
+00:09:08,160 --> 00:09:12,660
+option
+
+177
+00:09:09,180 --> 00:09:17,700
+so so if so let's just say files for now
+
+178
+00:09:12,660 --> 00:09:19,560
+okay so recurs files and uh that's it so
+
+179
+00:09:17,700 --> 00:09:21,899
+actually this is the function
+
+180
+00:09:19,560 --> 00:09:23,640
+so we can
+
+181
+00:09:21,899 --> 00:09:25,320
+you know we can do it this way we can
+
+182
+00:09:23,640 --> 00:09:29,880
+just copy the code
+
+183
+00:09:25,320 --> 00:09:31,580
+paste it here paste anyway yes okay and
+
+184
+00:09:29,880 --> 00:09:34,680
+now it's
+
+185
+00:09:31,580 --> 00:09:36,920
+evaluated so now you just copy the file
+
+186
+00:09:34,680 --> 00:09:36,920
+name
+
+187
+00:09:37,320 --> 00:09:41,480
+and do it
+
+188
+00:09:42,240 --> 00:09:47,160
+you see at least all files right now
+
+189
+00:09:44,760 --> 00:09:51,140
+there's no criteria so it's simply just
+
+190
+00:09:47,160 --> 00:09:51,140
+list the files hello
+
+191
+00:09:54,740 --> 00:09:58,920
+or so
+
+192
+00:09:57,120 --> 00:10:01,680
+so
+
+193
+00:09:58,920 --> 00:10:03,720
+from England hello hi
+
+194
+00:10:01,680 --> 00:10:05,279
+uh
+
+195
+00:10:03,720 --> 00:10:08,640
+so now
+
+196
+00:10:05,279 --> 00:10:10,320
+we got so we need to put some kind of
+
+197
+00:10:08,640 --> 00:10:12,000
+criteria
+
+198
+00:10:10,320 --> 00:10:17,040
+where
+
+199
+00:10:12,000 --> 00:10:20,760
+um filter let's see how do we do this
+
+200
+00:10:17,040 --> 00:10:22,800
+so there is a filter parameter that
+
+201
+00:10:20,760 --> 00:10:27,080
+allows you to show only
+
+202
+00:10:22,800 --> 00:10:27,080
+file names of a specific
+
+203
+00:10:27,200 --> 00:10:33,480
+wildcard pattern so if you say Wild Card
+
+204
+00:10:30,839 --> 00:10:36,120
+space well card would that work
+
+205
+00:10:33,480 --> 00:10:39,720
+don't know so let's try it
+
+206
+00:10:36,120 --> 00:10:42,420
+so before we try it we need to actually
+
+207
+00:10:39,720 --> 00:10:45,180
+create a file name with the spacing it
+
+208
+00:10:42,420 --> 00:10:49,260
+so why don't we do that so go up one
+
+209
+00:10:45,180 --> 00:10:52,560
+directory and CD took some talk show and
+
+210
+00:10:49,260 --> 00:10:56,279
+make a create a new directory
+
+211
+00:10:52,560 --> 00:10:58,680
+create a new file name now you the way
+
+212
+00:10:56,279 --> 00:11:00,660
+you create a new file name in Unix is
+
+213
+00:10:58,680 --> 00:11:04,200
+just touch something something a name
+
+214
+00:11:00,660 --> 00:11:08,060
+but in Powershell it's a new item okay
+
+215
+00:11:04,200 --> 00:11:08,060
+new item file
+
+216
+00:11:08,279 --> 00:11:13,740
+type file something something like that
+
+217
+00:11:11,279 --> 00:11:19,019
+actually is let's just say new new item
+
+218
+00:11:13,740 --> 00:11:24,180
+okay AI is an ads to new Dash item so
+
+219
+00:11:19,019 --> 00:11:27,240
+let's say XX space x x y y okay so let's
+
+220
+00:11:24,180 --> 00:11:30,420
+say let's say that do it
+
+221
+00:11:27,240 --> 00:11:35,040
+okay so we created a new file now let's
+
+222
+00:11:30,420 --> 00:11:36,180
+see the there it is that's the file we
+
+223
+00:11:35,040 --> 00:11:39,420
+just created
+
+224
+00:11:36,180 --> 00:11:42,660
+so that command is just that now so now
+
+225
+00:11:39,420 --> 00:11:46,320
+we got uh now we got a
+
+226
+00:11:42,660 --> 00:11:48,380
+file name with a space now let's try our
+
+227
+00:11:46,320 --> 00:11:48,380
+uh
+
+228
+00:11:48,839 --> 00:11:54,839
+let's try uh let's try this command to
+
+229
+00:11:52,200 --> 00:11:57,779
+see if that works good child item
+
+230
+00:11:54,839 --> 00:12:03,740
+because file filter
+
+231
+00:11:57,779 --> 00:12:03,740
+do it fantastic so simple so actually
+
+232
+00:12:04,079 --> 00:12:07,500
+so actually you don't actually need
+
+233
+00:12:06,899 --> 00:12:11,640
+um
+
+234
+00:12:07,500 --> 00:12:13,320
+a function you see so this is actually
+
+235
+00:12:11,640 --> 00:12:17,519
+that's it
+
+236
+00:12:13,320 --> 00:12:20,880
+this list file names list files whose
+
+237
+00:12:17,519 --> 00:12:24,120
+name contains the space okay
+
+238
+00:12:20,880 --> 00:12:26,519
+and now it's recursive okay so we
+
+239
+00:12:24,120 --> 00:12:29,700
+essentially get one thing done
+
+240
+00:12:26,519 --> 00:12:30,959
+that's what we want to do
+
+241
+00:12:29,700 --> 00:12:36,839
+uh
+
+242
+00:12:30,959 --> 00:12:39,660
+uh so we got a command so let's see
+
+243
+00:12:36,839 --> 00:12:41,519
+yeah that's that's all it does I mean
+
+244
+00:12:39,660 --> 00:12:43,920
+that's basically
+
+245
+00:12:41,519 --> 00:12:47,820
+these files whose name contains the
+
+246
+00:12:43,920 --> 00:12:51,839
+space of calendar okay so yeah so pop it
+
+247
+00:12:47,820 --> 00:12:54,120
+back syntax code showing browser so
+
+248
+00:12:51,839 --> 00:12:57,600
+today's talks your page we
+
+249
+00:12:54,120 --> 00:12:59,279
+that's the code so simple
+
+250
+00:12:57,600 --> 00:13:01,740
+uh now
+
+251
+00:12:59,279 --> 00:13:03,180
+we need to write another command that
+
+252
+00:13:01,740 --> 00:13:07,079
+delete
+
+253
+00:13:03,180 --> 00:13:09,660
+those files okay let's just I guess
+
+254
+00:13:07,079 --> 00:13:12,440
+let's just do it then
+
+255
+00:13:09,660 --> 00:13:12,440
+uh
+
+256
+00:13:12,660 --> 00:13:17,959
+so here it will be delete file name
+
+257
+00:13:20,160 --> 00:13:25,880
+okay delete the file whose name contains
+
+258
+00:13:23,220 --> 00:13:25,880
+space okay
+
+259
+00:13:27,660 --> 00:13:35,940
+this would be dangerous to call because
+
+260
+00:13:32,959 --> 00:13:38,940
+so you need some kind of
+
+261
+00:13:35,940 --> 00:13:42,720
+mitigation to prevent accidental core
+
+262
+00:13:38,940 --> 00:13:44,820
+because you might type sorry delete for
+
+263
+00:13:42,720 --> 00:13:46,980
+example I have quite a few
+
+264
+00:13:44,820 --> 00:13:50,880
+commands written you know here is the
+
+265
+00:13:46,980 --> 00:13:54,779
+emacs DVD Max backup so if you oh and
+
+266
+00:13:50,880 --> 00:13:57,000
+there's you uh delete empty the but
+
+267
+00:13:54,779 --> 00:13:59,519
+sometimes you didn't pay attention and
+
+268
+00:13:57,000 --> 00:14:01,320
+if you call this command that will
+
+269
+00:13:59,519 --> 00:14:04,740
+delete all file names whose name
+
+270
+00:14:01,320 --> 00:14:07,880
+contains space that's disaster that's
+
+271
+00:14:04,740 --> 00:14:07,880
+going to be a disaster
+
+272
+00:14:08,160 --> 00:14:14,519
+so you want to some
+
+273
+00:14:11,639 --> 00:14:17,399
+kind of
+
+274
+00:14:14,519 --> 00:14:20,160
+you want to maybe query the user let's
+
+275
+00:14:17,399 --> 00:14:22,500
+see how we want to do this
+
+276
+00:14:20,160 --> 00:14:24,240
+actually it's so simple you know once
+
+277
+00:14:22,500 --> 00:14:27,300
+you
+
+278
+00:14:24,240 --> 00:14:29,700
+you see this is a this once you do this
+
+279
+00:14:27,300 --> 00:14:31,440
+command all you have to do is you just
+
+280
+00:14:29,700 --> 00:14:33,899
+pipe it
+
+281
+00:14:31,440 --> 00:14:35,880
+pipe it to remove
+
+282
+00:14:33,899 --> 00:14:39,680
+then
+
+283
+00:14:35,880 --> 00:14:39,680
+that's it basically
+
+284
+00:14:40,320 --> 00:14:44,000
+you know that that is it
+
+285
+00:14:48,420 --> 00:14:54,079
+yeah so turns out actually we don't need
+
+286
+00:14:51,420 --> 00:14:54,079
+a command
+
+287
+00:15:00,000 --> 00:15:03,360
+yeah so we don't actually need this
+
+288
+00:15:02,040 --> 00:15:05,279
+command
+
+289
+00:15:03,360 --> 00:15:06,899
+so uh
+
+290
+00:15:05,279 --> 00:15:09,560
+go back
+
+291
+00:15:06,899 --> 00:15:12,720
+delete yeah we don't need it because
+
+292
+00:15:09,560 --> 00:15:15,000
+once you have these I mean even this one
+
+293
+00:15:12,720 --> 00:15:18,480
+is not necessary you can just type that
+
+294
+00:15:15,000 --> 00:15:20,240
+whole thing but it's usually nice when
+
+295
+00:15:18,480 --> 00:15:23,279
+you need to do something
+
+296
+00:15:20,240 --> 00:15:25,800
+repeatedly it's nice to define a
+
+297
+00:15:23,279 --> 00:15:27,660
+function even it's trivial you know this
+
+298
+00:15:25,800 --> 00:15:30,300
+is one of the design problem language
+
+299
+00:15:27,660 --> 00:15:35,360
+design problem
+
+300
+00:15:30,300 --> 00:15:35,360
+oh thank you try remove item what if
+
+301
+00:15:35,579 --> 00:15:42,720
+uh what if you know yeah that's right
+
+302
+00:15:38,940 --> 00:15:45,600
+you know it's like the Unix dash dash
+
+303
+00:15:42,720 --> 00:15:47,779
+try sometimes you know Unix
+
+304
+00:15:45,600 --> 00:15:50,339
+Xiao convention they don't have a
+
+305
+00:15:47,779 --> 00:15:53,279
+consistent naming so sometimes it's
+
+306
+00:15:50,339 --> 00:15:55,500
+called drive but in Powershell is Dash
+
+307
+00:15:53,279 --> 00:15:56,579
+what if but
+
+308
+00:15:55,500 --> 00:15:59,339
+um
+
+309
+00:15:56,579 --> 00:16:02,699
+that doesn't you know that doesn't solve
+
+310
+00:15:59,339 --> 00:16:05,160
+the problem of accidental call
+
+311
+00:16:02,699 --> 00:16:07,199
+so anyway I think this is what we're
+
+312
+00:16:05,160 --> 00:16:09,060
+gonna do so we just
+
+313
+00:16:07,199 --> 00:16:11,519
+you know we just have this function
+
+314
+00:16:09,060 --> 00:16:14,820
+because this file name contains space
+
+315
+00:16:11,519 --> 00:16:17,459
+which is a very simple command then once
+
+316
+00:16:14,820 --> 00:16:21,199
+you want you know once you decided you
+
+317
+00:16:17,459 --> 00:16:21,199
+you want you know once you
+
+318
+00:16:21,480 --> 00:16:28,079
+you know see it then you just type
+
+319
+00:16:25,620 --> 00:16:30,300
+pipe I am
+
+320
+00:16:28,079 --> 00:16:33,180
+yeah cool
+
+321
+00:16:30,300 --> 00:16:35,940
+uh cool yeah so
+
+322
+00:16:33,180 --> 00:16:39,120
+yep I think that's it for today if
+
+323
+00:16:35,940 --> 00:16:41,459
+that's it for today for I mean for the
+
+324
+00:16:39,120 --> 00:16:43,980
+purpose we are going to do because you
+
+325
+00:16:41,459 --> 00:16:45,779
+know I'm writing this for myself because
+
+326
+00:16:43,980 --> 00:16:48,839
+I need to do it sometimes you know
+
+327
+00:16:45,779 --> 00:16:52,940
+sometimes um because a file name
+
+328
+00:16:48,839 --> 00:16:52,940
+containing a space usually is
+
+329
+00:16:53,240 --> 00:16:57,720
+problematic you know vast majority of
+
+330
+00:16:55,620 --> 00:17:00,360
+file names
+
+331
+00:16:57,720 --> 00:17:02,339
+contains a space if you are not a
+
+332
+00:17:00,360 --> 00:17:05,280
+programmer you know your mom or whoever
+
+333
+00:17:02,339 --> 00:17:07,079
+you know because it's much easier to
+
+334
+00:17:05,280 --> 00:17:09,600
+you know
+
+335
+00:17:07,079 --> 00:17:12,179
+um that is natural to have a file name
+
+336
+00:17:09,600 --> 00:17:15,360
+without space this underscore is
+
+337
+00:17:12,179 --> 00:17:17,579
+actually kind of programmers thing
+
+338
+00:17:15,360 --> 00:17:19,500
+or even Dash you know most people you
+
+339
+00:17:17,579 --> 00:17:22,199
+don't put it you don't put the you know
+
+340
+00:17:19,500 --> 00:17:26,280
+you just use a space so vast majority of
+
+341
+00:17:22,199 --> 00:17:29,940
+files contains the space and uh
+
+342
+00:17:26,280 --> 00:17:32,340
+but however for programming for website
+
+343
+00:17:29,940 --> 00:17:34,320
+you know for any technical work in
+
+344
+00:17:32,340 --> 00:17:39,140
+general you don't want a spacing file
+
+345
+00:17:34,320 --> 00:17:39,140
+name because it makes
+
+346
+00:17:40,260 --> 00:17:46,200
+you know processing those files a lot
+
+347
+00:17:42,840 --> 00:17:48,000
+more cumbersome you know
+
+348
+00:17:46,200 --> 00:17:51,179
+um
+
+349
+00:17:48,000 --> 00:17:55,140
+so that is why
+
+350
+00:17:51,179 --> 00:17:58,440
+so so for me I started to you know
+
+351
+00:17:55,140 --> 00:18:00,960
+oftentimes I want to rename files
+
+352
+00:17:58,440 --> 00:18:02,880
+you know make the space to be an
+
+353
+00:18:00,960 --> 00:18:04,919
+underscore
+
+354
+00:18:02,880 --> 00:18:07,380
+and uh
+
+355
+00:18:04,919 --> 00:18:09,000
+now I have it
+
+356
+00:18:07,380 --> 00:18:10,980
+oh wait wait
+
+357
+00:18:09,000 --> 00:18:13,140
+oh wait we got it wrong we don't want to
+
+358
+00:18:10,980 --> 00:18:15,059
+drip delete we want we just want to
+
+359
+00:18:13,140 --> 00:18:18,179
+rename that's right
+
+360
+00:18:15,059 --> 00:18:20,360
+got this all wrong so let's let's do it
+
+361
+00:18:18,179 --> 00:18:20,360
+again
+
+362
+00:18:20,760 --> 00:18:26,660
+so actually we want to rename okay
+
+363
+00:18:24,660 --> 00:18:26,660
+um
+
+364
+00:18:28,740 --> 00:18:32,179
+so rename
+
+365
+00:18:32,520 --> 00:18:36,660
+rename file
+
+366
+00:18:35,340 --> 00:18:37,980
+space
+
+367
+00:18:36,660 --> 00:18:40,919
+to
+
+368
+00:18:37,980 --> 00:18:45,440
+low line okay that's what we want to do
+
+369
+00:18:40,919 --> 00:18:45,440
+yeah so this is actually more
+
+370
+00:18:45,539 --> 00:18:51,840
+interesting okay
+
+371
+00:18:47,700 --> 00:18:55,460
+yeah you want to rename files so now
+
+372
+00:18:51,840 --> 00:18:55,460
+that's right rename file
+
+373
+00:18:57,059 --> 00:19:02,240
+that's right so now we want to
+
+374
+00:19:03,419 --> 00:19:06,380
+uh
+
+375
+00:19:07,679 --> 00:19:13,440
+so we so what we can do is that you pipe
+
+376
+00:19:11,760 --> 00:19:16,980
+it to a
+
+377
+00:19:13,440 --> 00:19:20,760
+function you know you pipe you pipe it
+
+378
+00:19:16,980 --> 00:19:25,940
+to a phone to to a code block
+
+379
+00:19:20,760 --> 00:19:25,940
+and then you can say
+
+380
+00:19:28,919 --> 00:19:33,780
+you want to rename okay so let's how do
+
+381
+00:19:31,559 --> 00:19:36,179
+you rename in Powershell I don't I don't
+
+382
+00:19:33,780 --> 00:19:40,080
+remember let's let's look at
+
+383
+00:19:36,179 --> 00:19:43,980
+um oh yeah so we have a code here
+
+384
+00:19:40,080 --> 00:19:47,960
+rename item Okay so
+
+385
+00:19:43,980 --> 00:19:47,960
+so let's copy the code here
+
+386
+00:19:58,140 --> 00:20:05,700
+so this function rename to hash
+
+387
+00:20:02,820 --> 00:20:08,419
+now to write a function in Powershell
+
+388
+00:20:05,700 --> 00:20:08,419
+the
+
+389
+00:20:08,460 --> 00:20:13,559
+you know it's very easy but however
+
+390
+00:20:11,160 --> 00:20:15,660
+there are something you want to know if
+
+391
+00:20:13,559 --> 00:20:19,160
+you want to pipe some other collection
+
+392
+00:20:15,660 --> 00:20:19,160
+of things to your function
+
+393
+00:20:19,440 --> 00:20:24,960
+yeah so yeah so here here so here now I
+
+394
+00:20:23,220 --> 00:20:27,299
+got it so first of all we have this
+
+395
+00:20:24,960 --> 00:20:30,480
+function this file name content space
+
+396
+00:20:27,299 --> 00:20:33,960
+now when we want to rename it we just
+
+397
+00:20:30,480 --> 00:20:35,100
+pipe it to another function start rename
+
+398
+00:20:33,960 --> 00:20:36,600
+file
+
+399
+00:20:35,100 --> 00:20:40,100
+that way
+
+400
+00:20:36,600 --> 00:20:42,059
+that way you you won't easily
+
+401
+00:20:40,100 --> 00:20:44,940
+accidentally
+
+402
+00:20:42,059 --> 00:20:47,460
+rename all your files so you can always
+
+403
+00:20:44,940 --> 00:20:52,520
+call this function first then just up
+
+404
+00:20:47,460 --> 00:20:52,520
+Arrow then just pipe rename okay
+
+405
+00:20:54,179 --> 00:21:00,720
+or we can add options here but let's not
+
+406
+00:20:56,880 --> 00:21:04,020
+do that now so so yeah so this is this
+
+407
+00:21:00,720 --> 00:21:05,700
+is a design okay so yeah so that's right
+
+408
+00:21:04,020 --> 00:21:09,600
+rename file
+
+409
+00:21:05,700 --> 00:21:12,179
+so the so first of all let's write a the
+
+410
+00:21:09,600 --> 00:21:14,539
+documentation how how is it supposed to
+
+411
+00:21:12,179 --> 00:21:14,539
+work
+
+412
+00:21:16,640 --> 00:21:20,660
+pipe
+
+413
+00:21:18,380 --> 00:21:23,039
+files to
+
+414
+00:21:20,660 --> 00:21:26,640
+this function
+
+415
+00:21:23,039 --> 00:21:29,600
+to rename it okay
+
+416
+00:21:26,640 --> 00:21:34,020
+now this is not a proper documentation
+
+417
+00:21:29,600 --> 00:21:36,720
+because the proper way to say is that
+
+418
+00:21:34,020 --> 00:21:39,059
+you
+
+419
+00:21:36,720 --> 00:21:41,220
+okay so we we so there are several
+
+420
+00:21:39,059 --> 00:21:42,900
+things okay so several things let's
+
+421
+00:21:41,220 --> 00:21:46,140
+let's uh
+
+422
+00:21:42,900 --> 00:21:47,940
+let's go back so one thing is how do you
+
+423
+00:21:46,140 --> 00:21:50,880
+define a function we didn't finish
+
+424
+00:21:47,940 --> 00:21:53,820
+talking about that so the
+
+425
+00:21:50,880 --> 00:21:57,960
+so that's one thing the other thing is
+
+426
+00:21:53,820 --> 00:22:00,059
+what is the proper description when you
+
+427
+00:21:57,960 --> 00:22:02,580
+have a function that takes input from a
+
+428
+00:22:00,059 --> 00:22:05,700
+pipe okay that's true thing first of all
+
+429
+00:22:02,580 --> 00:22:07,500
+let's cover the function
+
+430
+00:22:05,700 --> 00:22:09,600
+how do you define a function how do you
+
+431
+00:22:07,500 --> 00:22:12,419
+how do you how do you write a function
+
+432
+00:22:09,600 --> 00:22:16,200
+such that it takes
+
+433
+00:22:12,419 --> 00:22:19,559
+piped output as input
+
+434
+00:22:16,200 --> 00:22:23,340
+okay so uh so let's look here variable
+
+435
+00:22:19,559 --> 00:22:26,520
+Boolean conditional data structure uh
+
+436
+00:22:23,340 --> 00:22:27,720
+input output function so there it is
+
+437
+00:22:26,520 --> 00:22:30,840
+function
+
+438
+00:22:27,720 --> 00:22:34,020
+so function is very easy to write you
+
+439
+00:22:30,840 --> 00:22:36,600
+can you know just just with the keyword
+
+440
+00:22:34,020 --> 00:22:37,980
+function kind of typical
+
+441
+00:22:36,600 --> 00:22:40,940
+then
+
+442
+00:22:37,980 --> 00:22:45,000
+allowed characters in function name
+
+443
+00:22:40,940 --> 00:22:48,419
+semicolon optional if new line okay and
+
+444
+00:22:45,000 --> 00:22:51,659
+named parameters okay we don't care
+
+445
+00:22:48,419 --> 00:22:53,640
+uh any param parameter automatically
+
+446
+00:22:51,659 --> 00:22:55,860
+become
+
+447
+00:22:53,640 --> 00:23:00,539
+these option names
+
+448
+00:22:55,860 --> 00:23:03,360
+so that's fairly convenient okay but the
+
+449
+00:23:00,539 --> 00:23:06,720
+thing is that
+
+450
+00:23:03,360 --> 00:23:09,659
+if you want the function to accept piped
+
+451
+00:23:06,720 --> 00:23:13,080
+output as input then
+
+452
+00:23:09,659 --> 00:23:15,919
+you have to yeah so this section then
+
+453
+00:23:13,080 --> 00:23:15,919
+you have two
+
+454
+00:23:16,020 --> 00:23:22,440
+to create this block of code process
+
+455
+00:23:18,659 --> 00:23:24,559
+okay so here is the
+
+456
+00:23:22,440 --> 00:23:27,860
+here is the
+
+457
+00:23:24,559 --> 00:23:32,039
+thing we want okay so comment that out
+
+458
+00:23:27,860 --> 00:23:34,080
+so this is how you want this function
+
+459
+00:23:32,039 --> 00:23:36,659
+process okay
+
+460
+00:23:34,080 --> 00:23:39,799
+process so that means
+
+461
+00:23:36,659 --> 00:23:39,799
+when this function
+
+462
+00:23:41,960 --> 00:23:46,440
+receives a piped output a collection of
+
+463
+00:23:45,480 --> 00:23:49,280
+them
+
+464
+00:23:46,440 --> 00:23:49,280
+it will
+
+465
+00:23:49,320 --> 00:23:57,539
+work on each one of them one by one in
+
+466
+00:23:52,620 --> 00:23:59,820
+order by whatever code you have here
+
+467
+00:23:57,539 --> 00:24:03,539
+okay so the current piped object is
+
+468
+00:23:59,820 --> 00:24:05,880
+represented by dollar sign underscore so
+
+469
+00:24:03,539 --> 00:24:09,960
+that's a current object so you want to
+
+470
+00:24:05,880 --> 00:24:11,820
+rename that okay so that's
+
+471
+00:24:09,960 --> 00:24:15,360
+that's how you write a function that
+
+472
+00:24:11,820 --> 00:24:19,860
+accepts piped output okay now let's go
+
+473
+00:24:15,360 --> 00:24:22,820
+back to rename okay now how do you so go
+
+474
+00:24:19,860 --> 00:24:22,820
+back to Powershell
+
+475
+00:24:22,980 --> 00:24:26,580
+help rename
+
+476
+00:24:25,020 --> 00:24:30,659
+okay
+
+477
+00:24:26,580 --> 00:24:34,200
+uh okay rename item help
+
+478
+00:24:30,659 --> 00:24:37,679
+the name item
+
+479
+00:24:34,200 --> 00:24:41,400
+and let's go to online so that will show
+
+480
+00:24:37,679 --> 00:24:44,159
+the documentation in the browser now
+
+481
+00:24:41,400 --> 00:24:48,659
+JavaScript
+
+482
+00:24:44,159 --> 00:24:51,419
+okay rename item and
+
+483
+00:24:48,659 --> 00:24:55,520
+so blah blah blah blah blah blah you
+
+484
+00:24:51,419 --> 00:24:55,520
+know basically rename would be
+
+485
+00:24:55,760 --> 00:24:59,840
+rename would be something like
+
+486
+00:25:00,480 --> 00:25:05,340
+old name
+
+487
+00:25:02,340 --> 00:25:08,840
+new name something like that okay so the
+
+488
+00:25:05,340 --> 00:25:08,840
+old name will just be
+
+489
+00:25:09,299 --> 00:25:13,620
+the old Ninja will be just dollar sign
+
+490
+00:25:11,760 --> 00:25:15,659
+that that's the
+
+491
+00:25:13,620 --> 00:25:18,980
+input object
+
+492
+00:25:15,659 --> 00:25:18,980
+the new name
+
+493
+00:25:22,620 --> 00:25:27,659
+okay so now let's look at the rename
+
+494
+00:25:25,080 --> 00:25:29,460
+item the new name will be wait let's
+
+495
+00:25:27,659 --> 00:25:32,340
+look at the
+
+496
+00:25:29,460 --> 00:25:36,059
+you know again
+
+497
+00:25:32,340 --> 00:25:38,760
+and on a second let's go to talk show
+
+498
+00:25:36,059 --> 00:25:41,159
+let's put the links here
+
+499
+00:25:38,760 --> 00:25:44,600
+Powershell tutorial
+
+500
+00:25:41,159 --> 00:25:44,600
+Powershell function
+
+501
+00:25:45,600 --> 00:25:51,000
+okay and
+
+502
+00:25:47,880 --> 00:25:54,380
+and let's look at rename to Hash let's
+
+503
+00:25:51,000 --> 00:25:54,380
+see how that is done
+
+504
+00:25:56,159 --> 00:25:59,159
+okay
+
+505
+00:26:05,100 --> 00:26:10,260
+leaf and leaf base okay so when you
+
+506
+00:26:08,640 --> 00:26:15,720
+rename
+
+507
+00:26:10,260 --> 00:26:17,220
+you have to split the file path into the
+
+508
+00:26:15,720 --> 00:26:20,400
+directory path
+
+509
+00:26:17,220 --> 00:26:22,860
+and the file name part
+
+510
+00:26:20,400 --> 00:26:25,260
+then you rename
+
+511
+00:26:22,860 --> 00:26:29,900
+let's see where is the rename okay here
+
+512
+00:26:25,260 --> 00:26:29,900
+rename just new name let's magnify
+
+513
+00:26:30,179 --> 00:26:34,440
+so
+
+514
+00:26:32,159 --> 00:26:39,299
+extension so you have to get the file
+
+515
+00:26:34,440 --> 00:26:40,799
+extension new name equals to you create
+
+516
+00:26:39,299 --> 00:26:43,380
+a new name
+
+517
+00:26:40,799 --> 00:26:45,299
+then you print it
+
+518
+00:26:43,380 --> 00:26:48,120
+print the message rename something
+
+519
+00:26:45,299 --> 00:26:50,600
+something to something then you rename
+
+520
+00:26:48,120 --> 00:26:50,600
+it okay
+
+521
+00:26:51,480 --> 00:26:57,900
+so let's copy that code okay rename file
+
+522
+00:26:54,720 --> 00:27:01,460
+to Hash let's go back here
+
+523
+00:26:57,900 --> 00:27:01,460
+so let's see
+
+524
+00:27:11,600 --> 00:27:16,760
+okay we also need this section
+
+525
+00:27:17,100 --> 00:27:22,740
+so if
+
+526
+00:27:19,320 --> 00:27:25,500
+the input object is normal then just
+
+527
+00:27:22,740 --> 00:27:28,140
+print needs argument from pipe nothing
+
+528
+00:27:25,500 --> 00:27:30,419
+is done okay
+
+529
+00:27:28,140 --> 00:27:33,299
+otherwise
+
+530
+00:27:30,419 --> 00:27:36,020
+otherwise continue
+
+531
+00:27:33,299 --> 00:27:36,020
+uh
+
+532
+00:27:36,840 --> 00:27:42,840
+do we need to actually split the path
+
+533
+00:27:39,539 --> 00:27:46,260
+what is this Leaf used for
+
+534
+00:27:42,840 --> 00:27:49,080
+so split the path Leaf is the file name
+
+535
+00:27:46,260 --> 00:27:51,179
+without the directory path
+
+536
+00:27:49,080 --> 00:27:55,460
+then
+
+537
+00:27:51,179 --> 00:27:55,460
+uh then you
+
+538
+00:27:57,840 --> 00:28:02,059
+okay this is renamed to hash
+
+539
+00:28:02,279 --> 00:28:09,740
+yeah so you check if it's the file name
+
+540
+00:28:05,580 --> 00:28:09,740
+is already a hash string
+
+541
+00:28:09,840 --> 00:28:17,220
+you know rename file to Hash if it is if
+
+542
+00:28:14,039 --> 00:28:21,480
+it is do nothing otherwise start to
+
+543
+00:28:17,220 --> 00:28:24,900
+rename okay so here is the rename part
+
+544
+00:28:21,480 --> 00:28:26,840
+so to rename
+
+545
+00:28:24,900 --> 00:28:30,260
+we
+
+546
+00:28:26,840 --> 00:28:30,260
+extension name
+
+547
+00:28:31,200 --> 00:28:38,220
+okay to rename all we have to do is take
+
+548
+00:28:34,140 --> 00:28:41,279
+the yeah so here is what we want to do
+
+549
+00:28:38,220 --> 00:28:45,559
+okay so let's say old name
+
+550
+00:28:41,279 --> 00:28:45,559
+oh name equals true
+
+551
+00:28:48,059 --> 00:28:53,820
+okay here is another problem you you
+
+552
+00:28:50,700 --> 00:28:56,100
+don't want to if the parent directories
+
+553
+00:28:53,820 --> 00:28:58,799
+some parent directories contain a space
+
+554
+00:28:56,100 --> 00:29:01,740
+you don't want to rename those you only
+
+555
+00:28:58,799 --> 00:29:05,100
+want to rename the file names itself
+
+556
+00:29:01,740 --> 00:29:08,700
+not not any Parent Directory
+
+557
+00:29:05,100 --> 00:29:14,240
+because if you do that that's disaster
+
+558
+00:29:08,700 --> 00:29:14,240
+so you want to so you in so you have to
+
+559
+00:29:14,400 --> 00:29:19,679
+split the file path oh God getting more
+
+560
+00:29:17,700 --> 00:29:23,039
+complex
+
+561
+00:29:19,679 --> 00:29:26,039
+okay so you
+
+562
+00:29:23,039 --> 00:29:28,700
+so you need to get the file name part
+
+563
+00:29:26,039 --> 00:29:28,700
+first
+
+564
+00:29:33,659 --> 00:29:41,100
+okay and the dollar sign underscore is
+
+565
+00:29:37,740 --> 00:29:41,940
+the input object you need to get the
+
+566
+00:29:41,100 --> 00:29:44,659
+name
+
+567
+00:29:41,940 --> 00:29:44,659
+so
+
+568
+00:29:44,880 --> 00:29:48,740
+I believe it's that or
+
+569
+00:29:49,740 --> 00:29:54,120
+is dot name dot dot name name is a
+
+570
+00:29:52,860 --> 00:29:57,600
+method
+
+571
+00:29:54,120 --> 00:30:00,120
+okay so let's try it
+
+572
+00:29:57,600 --> 00:30:03,559
+uh because I don't I'm not sure what it
+
+573
+00:30:00,120 --> 00:30:03,559
+is so let's try
+
+574
+00:30:08,340 --> 00:30:12,980
+okay let's just try the
+
+575
+00:30:14,520 --> 00:30:23,039
+SE two files then pipe it to
+
+576
+00:30:19,740 --> 00:30:25,760
+ah let's try it here
+
+577
+00:30:23,039 --> 00:30:25,760
+duh
+
+578
+00:30:26,039 --> 00:30:30,919
+file
+
+579
+00:30:27,899 --> 00:30:30,919
+private two
+
+580
+00:30:31,340 --> 00:30:37,340
+underscore dollar sign underscore dot
+
+581
+00:30:35,159 --> 00:30:42,020
+four name okay
+
+582
+00:30:37,340 --> 00:30:42,020
+so that full name is the method
+
+583
+00:30:52,020 --> 00:30:58,140
+okay so when you use file option you
+
+584
+00:30:55,260 --> 00:31:00,620
+need to say recursive okay
+
+585
+00:30:58,140 --> 00:31:00,620
+wait
+
+586
+00:31:01,380 --> 00:31:06,919
+oh yeah so pipe two you need to say for
+
+587
+00:31:04,559 --> 00:31:06,919
+each
+
+588
+00:31:08,460 --> 00:31:14,399
+yep
+
+589
+00:31:09,840 --> 00:31:18,840
+so but if you is there a method name
+
+590
+00:31:14,399 --> 00:31:23,840
+let's try that there it is fantastic
+
+591
+00:31:18,840 --> 00:31:23,840
+so you can just say dot name okay so
+
+592
+00:31:31,679 --> 00:31:35,659
+so let's define old name
+
+593
+00:31:41,340 --> 00:31:45,020
+okay our name is that
+
+594
+00:31:47,940 --> 00:31:50,779
+then
+
+595
+00:31:52,640 --> 00:31:57,140
+new name equals to
+
+596
+00:31:57,179 --> 00:32:04,200
+now you need to find replace okay now so
+
+597
+00:32:01,140 --> 00:32:08,120
+let's see how do you how do we do find
+
+598
+00:32:04,200 --> 00:32:11,760
+replace in Powershell
+
+599
+00:32:08,120 --> 00:32:15,659
+uh find string you're given a string you
+
+600
+00:32:11,760 --> 00:32:19,460
+want to find replace Space by underscore
+
+601
+00:32:15,659 --> 00:32:19,460
+so you can see
+
+602
+00:32:20,059 --> 00:32:25,140
+miscellaneous functional in depth so
+
+603
+00:32:22,860 --> 00:32:27,480
+string so you want to go to the string
+
+604
+00:32:25,140 --> 00:32:32,220
+section rejects operations string
+
+605
+00:32:27,480 --> 00:32:34,200
+Methods okay let's see string operators
+
+606
+00:32:32,220 --> 00:32:37,620
+showing string
+
+607
+00:32:34,200 --> 00:32:41,340
+split operator
+
+608
+00:32:37,620 --> 00:32:46,440
+stream match by wild cards
+
+609
+00:32:41,340 --> 00:32:49,740
+and rejects operators okay let's go to
+
+610
+00:32:46,440 --> 00:32:52,620
+we can use rejects operators for sure
+
+611
+00:32:49,740 --> 00:32:55,200
+but maybe there's something simpler
+
+612
+00:32:52,620 --> 00:33:00,419
+let's go to string Methods
+
+613
+00:32:55,200 --> 00:33:00,419
+okay stream method example substring
+
+614
+00:33:01,020 --> 00:33:05,580
+oh so there is a replace
+
+615
+00:33:03,720 --> 00:33:08,460
+method okay
+
+616
+00:33:05,580 --> 00:33:11,100
+now a string in Powershell is an object
+
+617
+00:33:08,460 --> 00:33:14,940
+not like bash it's just a string but in
+
+618
+00:33:11,100 --> 00:33:18,600
+Powershell is an object so it has up it
+
+619
+00:33:14,940 --> 00:33:21,080
+has methods dot replace so we can say
+
+620
+00:33:18,600 --> 00:33:21,080
+here
+
+621
+00:33:21,419 --> 00:33:27,480
+so the new name Will equals to that dot
+
+622
+00:33:25,380 --> 00:33:29,600
+replace
+
+623
+00:33:27,480 --> 00:33:34,399
+uh replace
+
+624
+00:33:29,600 --> 00:33:38,700
+and here is a space replaced by
+
+625
+00:33:34,399 --> 00:33:41,159
+underscore fantastic so that so delete
+
+626
+00:33:38,700 --> 00:33:45,240
+that delete that leave
+
+627
+00:33:41,159 --> 00:33:47,159
+and let's not be named yet let's
+
+628
+00:33:45,240 --> 00:33:51,059
+Okay so
+
+629
+00:33:47,159 --> 00:33:53,360
+fire extension we don't care okay and
+
+630
+00:33:51,059 --> 00:33:56,820
+here we don't care okay
+
+631
+00:33:53,360 --> 00:33:58,080
+so and here is the old code we don't
+
+632
+00:33:56,820 --> 00:34:00,059
+care
+
+633
+00:33:58,080 --> 00:34:03,659
+purify the code
+
+634
+00:34:00,059 --> 00:34:07,340
+okay so here is the
+
+635
+00:34:03,659 --> 00:34:07,340
+now before we rename
+
+636
+00:34:07,440 --> 00:34:11,720
+comment out let's just print out
+
+637
+00:34:12,119 --> 00:34:15,859
+Echo okay Echo
+
+638
+00:34:17,700 --> 00:34:22,099
+there
+
+639
+00:34:19,200 --> 00:34:22,099
+let me go back up
+
+640
+00:34:24,300 --> 00:34:30,119
+okay I think that's it so now we copy
+
+641
+00:34:28,800 --> 00:34:33,440
+that
+
+642
+00:34:30,119 --> 00:34:33,440
+back to Powershell
+
+643
+00:34:33,960 --> 00:34:39,780
+paste the code
+
+644
+00:34:35,760 --> 00:34:42,960
+paste anyway so now it's defined now all
+
+645
+00:34:39,780 --> 00:34:47,960
+we have to do is go back go back go back
+
+646
+00:34:42,960 --> 00:34:47,960
+go back this file name contains space
+
+647
+00:34:48,960 --> 00:34:51,800
+do it
+
+648
+00:34:51,960 --> 00:34:54,440
+what
+
+649
+00:34:55,500 --> 00:35:04,400
+wait the function is now it's incorrect
+
+650
+00:34:59,280 --> 00:35:04,400
+these file names contain space what
+
+651
+00:35:06,060 --> 00:35:11,300
+so far so good refresh let's try it
+
+652
+00:35:09,060 --> 00:35:11,300
+again
+
+653
+00:35:11,339 --> 00:35:18,900
+copy it
+
+654
+00:35:14,099 --> 00:35:21,440
+cancel Define it paste
+
+655
+00:35:18,900 --> 00:35:21,440
+okay
+
+656
+00:35:25,160 --> 00:35:29,700
+this file name contains space now do it
+
+657
+00:35:28,800 --> 00:35:31,980
+again
+
+658
+00:35:29,700 --> 00:35:33,000
+yeah no it's correct
+
+659
+00:35:31,980 --> 00:35:40,579
+okay
+
+660
+00:35:33,000 --> 00:35:40,579
+now that so so now we pipe these two
+
+661
+00:35:42,060 --> 00:35:45,200
+pipe these two
+
+662
+00:35:45,599 --> 00:35:49,520
+that
+
+663
+00:35:47,640 --> 00:35:52,740
+do it
+
+664
+00:35:49,520 --> 00:35:53,940
+fantastic you see it I'll put it the new
+
+665
+00:35:52,740 --> 00:35:56,480
+name
+
+666
+00:35:53,940 --> 00:35:56,480
+so
+
+667
+00:35:56,640 --> 00:36:02,280
+so if we come uncomment that out that
+
+668
+00:35:59,460 --> 00:36:05,880
+should work okay but we want to
+
+669
+00:36:02,280 --> 00:36:07,680
+make sure that is the case let's check
+
+670
+00:36:05,880 --> 00:36:09,900
+the rename
+
+671
+00:36:07,680 --> 00:36:14,940
+item documentation
+
+672
+00:36:09,900 --> 00:36:17,579
+so syntax path and new name yeah so it
+
+673
+00:36:14,940 --> 00:36:19,800
+takes two arguments
+
+674
+00:36:17,579 --> 00:36:23,900
+uh re
+
+675
+00:36:19,800 --> 00:36:23,900
+yeah the required there
+
+676
+00:36:24,619 --> 00:36:29,820
+and let's see examples
+
+677
+00:36:30,119 --> 00:36:33,680
+I think that's it
+
+678
+00:36:35,040 --> 00:36:38,960
+yeah I think that's it so
+
+679
+00:36:39,060 --> 00:36:42,200
+so I'll put
+
+680
+00:36:46,380 --> 00:36:52,460
+okay I think that's it
+
+681
+00:36:48,540 --> 00:36:55,980
+so we just copy this again go back here
+
+682
+00:36:52,460 --> 00:36:58,619
+paste it paste anyway so we Define the
+
+683
+00:36:55,980 --> 00:37:03,599
+function now we
+
+684
+00:36:58,619 --> 00:37:05,339
+call this again now make sure
+
+685
+00:37:03,599 --> 00:37:07,980
+in the
+
+686
+00:37:05,339 --> 00:37:10,140
+okay go back to the talk show page go to
+
+687
+00:37:07,980 --> 00:37:12,500
+the directory so you see right now we
+
+688
+00:37:10,140 --> 00:37:15,900
+have one file
+
+689
+00:37:12,500 --> 00:37:20,339
+that's that contains a
+
+690
+00:37:15,900 --> 00:37:23,480
+space now let's make multiple
+
+691
+00:37:20,339 --> 00:37:23,480
+of them okay
+
+692
+00:37:24,800 --> 00:37:29,880
+one two
+
+693
+00:37:26,820 --> 00:37:31,380
+three okay let's say
+
+694
+00:37:29,880 --> 00:37:33,900
+four
+
+695
+00:37:31,380 --> 00:37:36,839
+okay so this file contained
+
+696
+00:37:33,900 --> 00:37:41,240
+two places that has a space
+
+697
+00:37:36,839 --> 00:37:41,240
+and let's make another one
+
+698
+00:37:41,579 --> 00:37:46,820
+let's let's say two space okay
+
+699
+00:37:48,420 --> 00:37:52,440
+so we have this bunch of files that
+
+700
+00:37:50,760 --> 00:37:53,880
+contain space
+
+701
+00:37:52,440 --> 00:37:57,060
+now
+
+702
+00:37:53,880 --> 00:38:00,900
+if we do it that should rename
+
+703
+00:37:57,060 --> 00:38:04,740
+now we want to make sure our code
+
+704
+00:38:00,900 --> 00:38:07,020
+is not doing something unexpected
+
+705
+00:38:04,740 --> 00:38:10,700
+because I don't want to end up
+
+706
+00:38:07,020 --> 00:38:10,700
+renaming all my files
+
+707
+00:38:11,280 --> 00:38:19,079
+oh okay there it is incorrect okay so
+
+708
+00:38:15,060 --> 00:38:22,079
+this part should be old name not
+
+709
+00:38:19,079 --> 00:38:27,119
+uh wait but
+
+710
+00:38:22,079 --> 00:38:32,820
+so rename item okay it takes just a
+
+711
+00:38:27,119 --> 00:38:36,680
+path or yes it can take a path as a as
+
+712
+00:38:32,820 --> 00:38:36,680
+opposed to a fire object
+
+713
+00:38:37,140 --> 00:38:43,220
+okay let's hope this is good now just to
+
+714
+00:38:40,800 --> 00:38:43,220
+be sure
+
+715
+00:38:43,320 --> 00:38:49,380
+uh you know I want to make a backup of
+
+716
+00:38:46,800 --> 00:38:52,040
+my sound talk show directory
+
+717
+00:38:49,380 --> 00:38:52,040
+so
+
+718
+00:38:55,500 --> 00:38:58,640
+create a zip file
+
+719
+00:38:58,680 --> 00:39:05,400
+just in case we screwed up
+
+720
+00:39:01,800 --> 00:39:08,640
+or in fact we can actually do git commit
+
+721
+00:39:05,400 --> 00:39:09,900
+okay so anyway there's a there's a zip
+
+722
+00:39:08,640 --> 00:39:12,839
+backup
+
+723
+00:39:09,900 --> 00:39:14,160
+now let's do it
+
+724
+00:39:12,839 --> 00:39:17,280
+okay
+
+725
+00:39:14,160 --> 00:39:19,520
+check this space
+
+726
+00:39:17,280 --> 00:39:23,579
+okay do it
+
+727
+00:39:19,520 --> 00:39:26,880
+fantastic go back to your character
+
+728
+00:39:23,579 --> 00:39:31,079
+there it is it works fantastic so that
+
+729
+00:39:26,880 --> 00:39:34,440
+so refresh there it is fantastic
+
+730
+00:39:31,079 --> 00:39:37,460
+fantastic so we did that we did it so
+
+731
+00:39:34,440 --> 00:39:37,460
+close close
+
+732
+00:39:37,680 --> 00:39:44,760
+syntax colored showing browser
+
+733
+00:39:41,579 --> 00:39:46,740
+so that's yeah so that's the command
+
+734
+00:39:44,760 --> 00:39:49,800
+though so that's it
+
+735
+00:39:46,740 --> 00:39:52,079
+that's what we did today so
+
+736
+00:39:49,800 --> 00:39:56,099
+good anything else
+
+737
+00:39:52,079 --> 00:39:57,900
+so now we can actually shut down I mean
+
+738
+00:39:56,099 --> 00:40:00,839
+that's it for today
+
+739
+00:39:57,900 --> 00:40:03,000
+uh or should we continue on some other
+
+740
+00:40:00,839 --> 00:40:08,119
+topic I think that's it let's keep it
+
+741
+00:40:03,000 --> 00:40:08,119
+one Topic in per live stream
+
+742
+00:40:08,640 --> 00:40:15,180
+okay so one one last check if there's
+
+743
+00:40:12,000 --> 00:40:18,119
+anything we should uh you know make it
+
+744
+00:40:15,180 --> 00:40:19,079
+better or anything I don't think so
+
+745
+00:40:18,119 --> 00:40:22,339
+um
+
+746
+00:40:19,079 --> 00:40:22,339
+yeah old name
+
+747
+00:40:23,520 --> 00:40:27,599
+yeah that
+
+748
+00:40:25,320 --> 00:40:29,040
+um yeah that's it thank you guys for
+
+749
+00:40:27,599 --> 00:40:31,980
+watching
+
+750
+00:40:29,040 --> 00:40:37,859
+if you like my stuff pay me okay so you
+
+751
+00:40:31,980 --> 00:40:40,560
+go to my Xavi dot info website and lots
+
+752
+00:40:37,859 --> 00:40:42,560
+of stuff uh programming language
+
+753
+00:40:40,560 --> 00:40:46,079
+tutorials
+
+754
+00:40:42,560 --> 00:40:48,540
+uh then there's patreon or Amazon gift
+
+755
+00:40:46,079 --> 00:40:52,500
+card me or PayPal
+
+756
+00:40:48,540 --> 00:40:58,020
+okay and oh you can buy my emacs
+
+757
+00:40:52,500 --> 00:41:01,079
+tutorial emac lisp and emacs and you can
+
+758
+00:40:58,020 --> 00:41:03,180
+also buy my JavaScript in depth one of
+
+759
+00:41:01,079 --> 00:41:06,359
+the most um
+
+760
+00:41:03,180 --> 00:41:10,040
+complex programming language maybe
+
+761
+00:41:06,359 --> 00:41:10,040
+trimming extra space
+
+762
+00:41:10,320 --> 00:41:13,920
+um
+
+763
+00:41:11,280 --> 00:41:16,619
+yeah we can do that but I don't want to
+
+764
+00:41:13,920 --> 00:41:19,700
+because
+
+765
+00:41:16,619 --> 00:41:22,980
+yeah and then start because
+
+766
+00:41:19,700 --> 00:41:24,599
+because I want the command you know
+
+767
+00:41:22,980 --> 00:41:28,320
+that's
+
+768
+00:41:24,599 --> 00:41:30,420
+I think it's better to leave the command
+
+769
+00:41:28,320 --> 00:41:33,720
+do one thing
+
+770
+00:41:30,420 --> 00:41:36,300
+because if the file they begin with the
+
+771
+00:41:33,720 --> 00:41:39,720
+space I mean this command just simply
+
+772
+00:41:36,300 --> 00:41:41,760
+change space to low line
+
+773
+00:41:39,720 --> 00:41:44,760
+uh
+
+774
+00:41:41,760 --> 00:41:47,880
+so when you see when after you call the
+
+775
+00:41:44,760 --> 00:41:50,760
+command then space becomes visible you
+
+776
+00:41:47,880 --> 00:41:53,339
+know then you might find out oh maybe I
+
+777
+00:41:50,760 --> 00:41:55,200
+have some file name incorrect you know
+
+778
+00:41:53,339 --> 00:41:57,540
+they start with the space so end with
+
+779
+00:41:55,200 --> 00:41:59,880
+some space
+
+780
+00:41:57,540 --> 00:42:03,480
+after you run this the command you'll be
+
+781
+00:41:59,880 --> 00:42:06,119
+apparent then you might want to rename
+
+782
+00:42:03,480 --> 00:42:08,460
+but you may not want to because
+
+783
+00:42:06,119 --> 00:42:10,940
+there might be a reason you begin with
+
+784
+00:42:08,460 --> 00:42:10,940
+the space
+
+785
+00:42:11,220 --> 00:42:15,079
+okay
+
+786
+00:42:12,300 --> 00:42:15,079
+bye guys
+
+787
+00:42:17,400 --> 00:42:21,859
+so I'm gonna upload the code so you can
+

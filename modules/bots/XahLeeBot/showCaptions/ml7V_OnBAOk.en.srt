@@ -1,0 +1,1492 @@
+1
+00:00:00,079 --> 00:00:08,280
+hi guys I'm going to show you code
+
+2
+00:00:04,290 --> 00:00:12,150
+prettify like for example on this page
+
+3
+00:00:08,280 --> 00:00:17,880
+it's my Python tutorial and you can see
+
+4
+00:00:12,150 --> 00:00:21,289
+here the code is colored and I'm going
+
+5
+00:00:17,880 --> 00:00:24,390
+to show you how to how to do that so
+
+6
+00:00:21,289 --> 00:00:29,039
+well I'm on my website I'm using span
+
+7
+00:00:24,390 --> 00:00:35,399
+tags like you can see here this part is
+
+8
+00:00:29,039 --> 00:00:38,940
+this part and you can see like if I if I
+
+9
+00:00:35,399 --> 00:00:43,110
+show in browser it's not correct but but
+
+10
+00:00:38,940 --> 00:00:47,430
+I have a Emacs HTML command so that adds
+
+11
+00:00:43,110 --> 00:00:50,239
+span tags to to the words and now they
+
+12
+00:00:47,430 --> 00:00:54,030
+are colored so this is one way to do it
+
+13
+00:00:50,239 --> 00:00:58,800
+but recently I decided to use a
+
+14
+00:00:54,030 --> 00:01:01,500
+JavaScript way so so we using the span
+
+15
+00:00:58,800 --> 00:01:04,379
+tag the advantage is that you do not
+
+16
+00:01:01,500 --> 00:01:07,020
+need JavaScript and it's extremely fast
+
+17
+00:01:04,379 --> 00:01:10,170
+it's very fast I mean I mean what I mean
+
+18
+00:01:07,020 --> 00:01:14,700
+is a load time it shows the color right
+
+19
+00:01:10,170 --> 00:01:17,400
+away and there's no flashing so so
+
+20
+00:01:14,700 --> 00:01:20,600
+that's the advantage the disadvantage is
+
+21
+00:01:17,400 --> 00:01:23,340
+that the text becomes incomprehensible
+
+22
+00:01:20,600 --> 00:01:26,310
+you know you cannot read it if you want
+
+23
+00:01:23,340 --> 00:01:30,210
+to edit it you have to you have to run a
+
+24
+00:01:26,310 --> 00:01:35,130
+command you know then then you can you
+
+25
+00:01:30,210 --> 00:01:38,840
+know edit it so so recently I decided to
+
+26
+00:01:35,130 --> 00:01:42,619
+try the Google's Google code pretty Phi
+
+27
+00:01:38,840 --> 00:01:46,979
+that's using javascript let me show you
+
+28
+00:01:42,619 --> 00:01:50,579
+goal and mod so so this is my goal and
+
+29
+00:01:46,979 --> 00:01:53,220
+tutorial and this is you can see the
+
+30
+00:01:50,579 --> 00:01:57,950
+code here is not colored let me go there
+
+31
+00:01:53,220 --> 00:01:57,950
+so it's here it's over here
+
+32
+00:01:58,399 --> 00:02:07,200
+pack so so this code the red the red
+
+33
+00:02:02,790 --> 00:02:10,410
+part is is over here it's it's not using
+
+34
+00:02:07,200 --> 00:02:13,950
+span tags it's just this part and
+
+35
+00:02:10,410 --> 00:02:16,560
+however if you run this is fire
+
+36
+00:02:13,950 --> 00:02:19,530
+ I have JavaScript turned off but
+
+37
+00:02:16,560 --> 00:02:24,360
+if I run this in Safari with JavaScript
+
+38
+00:02:19,530 --> 00:02:28,650
+on you can see they are coloured let's
+
+39
+00:02:24,360 --> 00:02:30,150
+see another one you see so they are
+
+40
+00:02:28,650 --> 00:02:34,260
+coloured and they are calling a
+
+41
+00:02:30,150 --> 00:02:37,590
+JavaScript the JavaScript is down here
+
+42
+00:02:34,260 --> 00:02:42,950
+you can see this line running code
+
+43
+00:02:37,590 --> 00:02:51,989
+purified and this is the JavaScript file
+
+44
+00:02:42,950 --> 00:02:55,560
+and and they are this is the website on
+
+45
+00:02:51,989 --> 00:02:58,200
+github code purify and you can use that
+
+46
+00:02:55,560 --> 00:03:02,910
+let me give you a quick demo but before
+
+47
+00:02:58,200 --> 00:03:07,530
+I do that let me turn on the global
+
+48
+00:03:02,910 --> 00:03:11,489
+command mod c om so you can see what
+
+49
+00:03:07,530 --> 00:03:14,489
+command I'm calling in in Emacs yeah
+
+50
+00:03:11,489 --> 00:03:22,370
+okay so so this is Google
+
+51
+00:03:14,489 --> 00:03:30,569
+so yeah let's start a new HTML page HTML
+
+52
+00:03:22,370 --> 00:03:33,510
+shortcut I want to let's say Python okay
+
+53
+00:03:30,569 --> 00:03:41,239
+and you don't need that actually so
+
+54
+00:03:33,510 --> 00:03:41,239
+let's say 25 and okay save it
+
+55
+00:03:45,320 --> 00:03:52,590
+so show that here it's not colored but
+
+56
+00:03:49,230 --> 00:03:56,060
+if I show in Safari it's not color
+
+57
+00:03:52,590 --> 00:03:59,540
+either because I haven't added the
+
+58
+00:03:56,060 --> 00:04:03,840
+JavaScript file so let's do that
+
+59
+00:03:59,540 --> 00:04:08,400
+pretty fine doing pretty fine copy the
+
+60
+00:04:03,840 --> 00:04:12,860
+file path close paste it here make a
+
+61
+00:04:08,400 --> 00:04:19,010
+link okay that's good go to the Safari
+
+62
+00:04:12,860 --> 00:04:22,260
+reload it's colored it's color blue so
+
+63
+00:04:19,010 --> 00:04:28,140
+let's try some big each of us with a big
+
+64
+00:04:22,260 --> 00:04:37,740
+Python let's say find okay let's try
+
+65
+00:04:28,140 --> 00:04:42,870
+that so big chunk of code show go here
+
+66
+00:04:37,740 --> 00:04:44,820
+sure you see so it's it's all colored so
+
+67
+00:04:42,870 --> 00:04:46,890
+that's what you do that's what you have
+
+68
+00:04:44,820 --> 00:04:49,950
+to do to color file you just add this
+
+69
+00:04:46,890 --> 00:04:53,640
+tag pre tag with the class name pretty
+
+70
+00:04:49,950 --> 00:04:57,990
+print and the JavaScript file and that's
+
+71
+00:04:53,640 --> 00:05:01,980
+it now you the you can have any code
+
+72
+00:04:57,990 --> 00:05:10,560
+here for example let's try this let's
+
+73
+00:05:01,980 --> 00:05:17,600
+try okay let's try some image let's
+
+74
+00:05:10,560 --> 00:05:17,600
+let's say that okay now show in Safari
+
+75
+00:05:18,860 --> 00:05:25,080
+showing Safari yeah it's also colored
+
+76
+00:05:22,290 --> 00:05:28,220
+but it's not colored well because it's
+
+77
+00:05:25,080 --> 00:05:32,520
+not specifically designed for least code
+
+78
+00:05:28,220 --> 00:05:35,820
+it only colors strings and symbols right
+
+79
+00:05:32,520 --> 00:05:37,919
+now so basically the code pretty vibe it
+
+80
+00:05:35,820 --> 00:05:40,290
+will guess what code you are using
+
+81
+00:05:37,919 --> 00:05:43,020
+because we are not we don't have any
+
+82
+00:05:40,290 --> 00:05:46,380
+information to indicate what code what
+
+83
+00:05:43,020 --> 00:05:51,150
+programming language we are using but it
+
+84
+00:05:46,380 --> 00:05:54,240
+makes a pretty good guess and if you
+
+85
+00:05:51,150 --> 00:05:56,639
+look at on their webpage basically order
+
+86
+00:05:54,240 --> 00:05:59,539
+common popular languages
+
+87
+00:05:56,639 --> 00:05:59,539
+C and Python
+
+88
+00:06:01,319 --> 00:06:07,999
+you know they support but they also
+
+89
+00:06:04,289 --> 00:06:13,349
+support other languages like closure
+
+90
+00:06:07,999 --> 00:06:15,779
+mumps memory or whatever that is you
+
+91
+00:06:13,349 --> 00:06:18,650
+know what they support other languages
+
+92
+00:06:15,779 --> 00:06:21,719
+yeah I think you have to add add a
+
+93
+00:06:18,650 --> 00:06:25,740
+JavaScript file for that but anyway I
+
+94
+00:06:21,719 --> 00:06:29,400
+think they also support two declaration
+
+95
+00:06:25,740 --> 00:06:36,500
+of code explicitly let's say let's say
+
+96
+00:06:29,400 --> 00:06:38,279
+your example let's say you know Exley's
+
+97
+00:06:36,500 --> 00:06:43,020
+yeah I like that
+
+98
+00:06:38,279 --> 00:06:49,610
+so remove that remove that copy that
+
+99
+00:06:43,020 --> 00:06:54,300
+put it here now that's Emacs this code
+
+100
+00:06:49,610 --> 00:06:57,150
+right so so the coloring still is not
+
+101
+00:06:54,300 --> 00:06:58,979
+changing because yeah because you have
+
+102
+00:06:57,150 --> 00:07:05,189
+to add the extension but what I'm saying
+
+103
+00:06:58,979 --> 00:07:07,050
+is that you can you can add specific you
+
+104
+00:07:05,189 --> 00:07:10,400
+know declaration of the programming
+
+105
+00:07:07,050 --> 00:07:14,789
+language you are using the advantage of
+
+106
+00:07:10,400 --> 00:07:15,839
+this is that so for example if I have
+
+107
+00:07:14,789 --> 00:07:18,800
+some code here
+
+108
+00:07:15,839 --> 00:07:21,479
+it may be Haskell or any new language
+
+109
+00:07:18,800 --> 00:07:23,279
+now if I read this file I mean if
+
+110
+00:07:21,479 --> 00:07:25,740
+somebody read this file it doesn't know
+
+111
+00:07:23,279 --> 00:07:29,219
+what language this is you know it could
+
+112
+00:07:25,740 --> 00:07:32,430
+be you know Common Lisp or scheme or
+
+113
+00:07:29,219 --> 00:07:37,949
+racket or you know anything but if you
+
+114
+00:07:32,430 --> 00:07:41,039
+have a code declaration part that that
+
+115
+00:07:37,949 --> 00:07:42,870
+solves this problem and you know people
+
+116
+00:07:41,039 --> 00:07:45,409
+who read the page can see oh this is
+
+117
+00:07:42,870 --> 00:07:50,509
+immigrants and also if you are
+
+118
+00:07:45,409 --> 00:07:55,279
+processing files like programmatically
+
+119
+00:07:50,509 --> 00:08:00,089
+it's also good to have the specific
+
+120
+00:07:55,279 --> 00:08:01,319
+programming language information okay so
+
+121
+00:08:00,089 --> 00:08:03,930
+so that's that
+
+122
+00:08:01,319 --> 00:08:05,039
+so that's code pretty five you know
+
+123
+00:08:03,930 --> 00:08:07,820
+that's how to use it
+
+124
+00:08:05,039 --> 00:08:14,090
+you can use it for your blogs in
+
+125
+00:08:07,820 --> 00:08:19,400
+and other writings okay I wanted to show
+
+126
+00:08:14,090 --> 00:08:22,940
+you something else that's you know on my
+
+127
+00:08:19,400 --> 00:08:27,920
+website the tutorials I write let's
+
+128
+00:08:22,940 --> 00:08:30,560
+close this ok : so on my website but
+
+129
+00:08:27,920 --> 00:08:34,490
+let's go to my email Explorer let's say
+
+130
+00:08:30,560 --> 00:08:37,180
+let's say you'll be ok I have a lot of
+
+131
+00:08:34,490 --> 00:08:41,000
+tutorials for example this is Ruby and
+
+132
+00:08:37,180 --> 00:08:43,400
+right now they are using spam spam tags
+
+133
+00:08:41,000 --> 00:08:45,950
+like you can see all these are spandex
+
+134
+00:08:43,400 --> 00:08:50,780
+so I'm trying to convert them to use
+
+135
+00:08:45,950 --> 00:08:53,030
+code 35 Google code 35 JavaScript now
+
+136
+00:08:50,780 --> 00:08:56,810
+there are two things I need to do like
+
+137
+00:08:53,030 --> 00:09:04,910
+right now you can see you can see they
+
+138
+00:08:56,810 --> 00:09:06,560
+are using this format this so so on my
+
+139
+00:09:04,910 --> 00:09:10,340
+website they are currently using this
+
+140
+00:09:06,560 --> 00:09:16,580
+format but for Google code 35 it needs
+
+141
+00:09:10,340 --> 00:09:22,070
+to be purified something like that it
+
+142
+00:09:16,580 --> 00:09:24,350
+needs to be like that and how however it
+
+143
+00:09:22,070 --> 00:09:27,320
+does not contain explicit information
+
+144
+00:09:24,350 --> 00:09:31,880
+about the programming language which I
+
+145
+00:09:27,320 --> 00:09:35,960
+do want because because I have my HTML
+
+146
+00:09:31,880 --> 00:09:39,140
+mod and I can do like this and I'll move
+
+147
+00:09:35,960 --> 00:09:41,350
+the code to here to here and I can run
+
+148
+00:09:39,140 --> 00:09:44,620
+it you know and get a result
+
+149
+00:09:41,350 --> 00:09:50,810
+so that's convenient let's put it back
+
+150
+00:09:44,620 --> 00:09:54,980
+and I can you know HTML eyes it well how
+
+151
+00:09:50,810 --> 00:09:57,260
+do we move it you know if I want but in
+
+152
+00:09:54,980 --> 00:09:59,360
+order for that to work I need the
+
+153
+00:09:57,260 --> 00:10:02,600
+information about what language it is
+
+154
+00:09:59,360 --> 00:10:04,850
+because if I do this you know it's using
+
+155
+00:10:02,600 --> 00:10:07,750
+Ruby mod how does it not it no because
+
+156
+00:10:04,850 --> 00:10:12,020
+it's grabbing the information from here
+
+157
+00:10:07,750 --> 00:10:16,550
+so if I'm going to use Google code
+
+158
+00:10:12,020 --> 00:10:19,960
+purify hi I also want the code
+
+159
+00:10:16,550 --> 00:10:24,010
+information here which
+
+160
+00:10:19,960 --> 00:10:26,290
+the format will be like that so it would
+
+161
+00:10:24,010 --> 00:10:31,470
+be like that so what so what basically
+
+162
+00:10:26,290 --> 00:10:31,470
+what I have to do is now I have to I
+
+163
+00:10:33,480 --> 00:10:41,890
+have to convert all all files of this
+
+164
+00:10:37,870 --> 00:10:44,560
+format to this format so that that's a
+
+165
+00:10:41,890 --> 00:10:46,720
+different task you know I'm just showing
+
+166
+00:10:44,560 --> 00:10:49,900
+you that you know as a matter of
+
+167
+00:10:46,720 --> 00:10:52,900
+interest you know it's a promise
+
+168
+00:10:49,900 --> 00:10:54,700
+task you know things programmers do
+
+169
+00:10:52,900 --> 00:10:57,490
+interesting things you know the things
+
+170
+00:10:54,700 --> 00:11:01,900
+that I need to do so I have I have lots
+
+171
+00:10:57,490 --> 00:11:04,600
+of tutorials on my website you know
+
+172
+00:11:01,900 --> 00:11:10,510
+different languages they are about maybe
+
+173
+00:11:04,600 --> 00:11:13,360
+500 or maybe 600 pages among among 5,000
+
+174
+00:11:10,510 --> 00:11:19,750
+pages so you know there so I I have to
+
+175
+00:11:13,360 --> 00:11:22,180
+so how do you do this conversion task so
+
+176
+00:11:19,750 --> 00:11:24,960
+so that's what I'm gonna talk about
+
+177
+00:11:22,180 --> 00:11:29,170
+that's know what I'm gonna show you
+
+178
+00:11:24,960 --> 00:11:32,650
+so one easy way is to just do a find it
+
+179
+00:11:29,170 --> 00:11:35,320
+angry face so what I'm gonna do so let's
+
+180
+00:11:32,650 --> 00:11:39,040
+see so copied I'd remove it
+
+181
+00:11:35,320 --> 00:11:44,410
+open a new buffer put it here you know
+
+182
+00:11:39,040 --> 00:11:50,560
+just for backup so so let's look at the
+
+183
+00:11:44,410 --> 00:11:53,940
+Ruby so there are lots of Ruby file
+
+184
+00:11:50,560 --> 00:11:59,590
+files and all these are using span tags
+
+185
+00:11:53,940 --> 00:12:07,390
+and there are not many Ruby files only
+
+186
+00:11:59,590 --> 00:12:11,610
+40 so what I do is let's see so I want
+
+187
+00:12:07,390 --> 00:12:14,610
+to replace that so okay here's what I do
+
+188
+00:12:11,610 --> 00:12:14,610
+it's
+
+189
+00:12:16,550 --> 00:12:28,860
+so I want to replace that by okay
+
+190
+00:12:21,930 --> 00:12:34,589
+replace that by that then replace then
+
+191
+00:12:28,860 --> 00:12:36,660
+replace this thing by by that that's
+
+192
+00:12:34,589 --> 00:12:46,110
+what I'm going to do and that should
+
+193
+00:12:36,660 --> 00:12:49,920
+work so let's do that okay so I'm using
+
+194
+00:12:46,110 --> 00:12:56,370
+I have a package let's just do it so
+
+195
+00:12:49,920 --> 00:13:03,830
+copy that paste this is what I want to
+
+196
+00:12:56,370 --> 00:13:10,410
+replace I want to replace it by that so
+
+197
+00:13:03,830 --> 00:13:13,620
+find that replaced by the head yes Ruby
+
+198
+00:13:10,410 --> 00:13:16,740
+directory HTML files my changes yes
+
+199
+00:13:13,620 --> 00:13:21,450
+fixed case such yes fixed case replaced
+
+200
+00:13:16,740 --> 00:13:27,839
+yes make backup yes okay so all these
+
+201
+00:13:21,450 --> 00:13:33,150
+are changed let's look at it so now is
+
+202
+00:13:27,839 --> 00:13:40,770
+it looks bad well I mean you know
+
+203
+00:13:33,150 --> 00:13:47,330
+because okay let's go back here and now
+
+204
+00:13:40,770 --> 00:13:50,660
+I want to change three by three code
+
+205
+00:13:47,330 --> 00:13:50,660
+code three
+
+206
+00:13:52,060 --> 00:13:59,600
+free by code free
+
+207
+00:13:54,500 --> 00:14:08,960
+maybe yes yes yes yes yes okay so these
+
+208
+00:13:59,600 --> 00:14:11,240
+are changes now go back here reload okay
+
+209
+00:14:08,960 --> 00:14:15,170
+they you don't have the boxes anymore
+
+210
+00:14:11,240 --> 00:14:17,470
+yeah yeah that looks right that's that's
+
+211
+00:14:15,170 --> 00:14:17,470
+correct
+
+212
+00:14:18,310 --> 00:14:31,580
+wait okay I made a mistake so the pretty
+
+213
+00:14:25,010 --> 00:14:34,070
+fire actually should be this is a
+
+214
+00:14:31,580 --> 00:14:39,580
+mistake the pretty five actually should
+
+215
+00:14:34,070 --> 00:14:39,580
+be code Ruby so let's do that again
+
+216
+00:14:40,960 --> 00:14:47,020
+we verify by that
+
+217
+00:14:55,400 --> 00:15:00,370
+okay reload
+
+218
+00:15:04,639 --> 00:15:13,309
+that looks right now.we Ruby and end at
+
+219
+00:15:10,339 --> 00:15:15,379
+code and the tree oh there's one more
+
+220
+00:15:13,309 --> 00:15:19,129
+thing I need to do I need to remove all
+
+221
+00:15:15,379 --> 00:15:24,139
+the span tax so what I can do you know I
+
+222
+00:15:19,129 --> 00:15:28,790
+have a command that I just call and it
+
+223
+00:15:24,139 --> 00:15:31,069
+removes all the span tax so that looks
+
+224
+00:15:28,790 --> 00:15:36,049
+good because without coloring they they
+
+225
+00:15:31,069 --> 00:15:38,959
+all look red because of my CSS and now I
+
+226
+00:15:36,049 --> 00:15:43,360
+just need to do these four whole files
+
+227
+00:15:38,959 --> 00:15:46,970
+of the Ruby directory so I can go here
+
+228
+00:15:43,360 --> 00:15:50,179
+and I'm going to use a marker to do this
+
+229
+00:15:46,970 --> 00:15:52,879
+so the current file is Ruby basics which
+
+230
+00:15:50,179 --> 00:15:53,509
+is this one so I'm gonna start with that
+
+231
+00:15:52,879 --> 00:15:58,040
+one
+
+232
+00:15:53,509 --> 00:15:59,739
+Rico Rico day Ruby Rico tomorrow so
+
+233
+00:15:58,040 --> 00:16:04,639
+let's do that
+
+234
+00:15:59,739 --> 00:16:11,829
+start Marvell wait okay start Marco
+
+235
+00:16:04,639 --> 00:16:19,790
+start mark over here now move move move
+
+236
+00:16:11,829 --> 00:16:35,350
+move three times open and call the
+
+237
+00:16:19,790 --> 00:16:38,179
+command then save then close and stop
+
+238
+00:16:35,350 --> 00:16:42,019
+recording Marco so I have a Marco
+
+239
+00:16:38,179 --> 00:16:46,660
+defined now this file happens just to
+
+240
+00:16:42,019 --> 00:16:50,509
+not have any code block so that's fine
+
+241
+00:16:46,660 --> 00:16:53,720
+so okay I'm gonna so now I can code
+
+242
+00:16:50,509 --> 00:16:58,369
+Accomack call my Marco for this file you
+
+243
+00:16:53,720 --> 00:17:02,629
+can see this file has one code block and
+
+244
+00:16:58,369 --> 00:17:06,159
+that's using span span tags you see it's
+
+245
+00:17:02,629 --> 00:17:10,269
+right here but now if I call my Marco
+
+246
+00:17:06,159 --> 00:17:10,269
+let's say code
+
+247
+00:17:11,709 --> 00:17:17,079
+okay I think that's not right
+
+248
+00:17:17,589 --> 00:17:27,310
+he shouldn't close it okay it's not
+
+249
+00:17:26,209 --> 00:17:33,500
+working
+
+250
+00:17:27,310 --> 00:17:36,340
+let's try that again call it a macro
+
+251
+00:17:33,500 --> 00:17:36,340
+okay
+
+252
+00:17:52,809 --> 00:17:56,830
+okay that's that fire
+
+253
+00:17:58,160 --> 00:18:12,890
+and open cooler these curse I don't know
+
+254
+00:18:11,060 --> 00:18:17,030
+what's going on but let's do the macro
+
+255
+00:18:12,890 --> 00:18:28,360
+again so let's see yeah let's do it with
+
+256
+00:18:17,030 --> 00:18:36,320
+this one so start recording stop wait
+
+257
+00:18:28,360 --> 00:18:44,450
+start recording move open call the
+
+258
+00:18:36,320 --> 00:18:49,430
+command save close stop recording okay
+
+259
+00:18:44,450 --> 00:18:56,690
+now let's do we we can look at it that's
+
+260
+00:18:49,430 --> 00:18:58,940
+good that this part is wrong though okay
+
+261
+00:18:56,690 --> 00:19:02,260
+I'll fix it later but let's let's
+
+262
+00:18:58,940 --> 00:19:09,410
+continue so so now I've gone this page
+
+263
+00:19:02,260 --> 00:19:11,840
+it's called my let's go my marker but
+
+264
+00:19:09,410 --> 00:19:14,110
+actually this page doesn't contain any
+
+265
+00:19:11,840 --> 00:19:14,110
+code
+
+266
+00:19:14,290 --> 00:19:20,890
+actually it does let's do that then
+
+267
+00:19:17,240 --> 00:19:22,550
+let's not do this page let's do this
+
+268
+00:19:20,890 --> 00:19:30,500
+Unicode page
+
+269
+00:19:22,550 --> 00:19:34,040
+oh it's already right so yeah there's
+
+270
+00:19:30,500 --> 00:19:38,740
+lots of spent attacks so let's call the
+
+271
+00:19:34,040 --> 00:19:38,740
+macro code the marker okay
+
+272
+00:19:41,070 --> 00:19:51,179
+something's wrong basics something
+
+273
+00:19:45,460 --> 00:19:51,179
+because it closed my Ruby basics page
+
+274
+00:19:54,690 --> 00:19:59,009
+why is it closing that page
+
+275
+00:20:03,320 --> 00:20:07,160
+you'll be Unicode
+
+276
+00:20:09,430 --> 00:20:15,570
+okay okay that's mr. again
+
+277
+00:20:26,630 --> 00:20:34,370
+record macro move move move
+
+278
+00:20:35,000 --> 00:20:51,380
+open remove tags save close stop marker
+
+279
+00:20:52,390 --> 00:21:02,200
+tomako okay yeah
+
+280
+00:20:56,080 --> 00:21:02,200
+it closed my Ruby page for some reason
+
+281
+00:21:04,990 --> 00:21:12,310
+it closed it and actually added that
+
+282
+00:21:08,530 --> 00:21:17,590
+anyway so I have to fix it
+
+283
+00:21:12,310 --> 00:21:20,750
+but normally I just I can just call
+
+284
+00:21:17,590 --> 00:21:23,870
+normally what I do is I I highlight all
+
+285
+00:21:20,750 --> 00:21:26,060
+of them and call a Primark or to
+
+286
+00:21:23,870 --> 00:21:29,960
+regionalize and everything should be
+
+287
+00:21:26,060 --> 00:21:33,830
+fixed but there's a problem I have to
+
+288
+00:21:29,960 --> 00:21:36,890
+figure out what what it is let's figure
+
+289
+00:21:33,830 --> 00:21:40,580
+it up and I mean this video is going is
+
+290
+00:21:36,890 --> 00:21:41,410
+getting long but you know you can stop
+
+291
+00:21:40,580 --> 00:21:46,100
+watching it
+
+292
+00:21:41,410 --> 00:21:50,900
+you know the good stuff the good stuff
+
+293
+00:21:46,100 --> 00:21:54,110
+is already done but let me figure out
+
+294
+00:21:50,900 --> 00:22:03,220
+what's wrong so let's try the marker
+
+295
+00:21:54,110 --> 00:22:03,220
+again we code mark well search for href
+
+296
+00:22:03,250 --> 00:22:08,500
+okay then three
+
+297
+00:22:13,240 --> 00:22:24,610
+open call that command save
+
+298
+00:22:28,950 --> 00:22:31,820
+cuz
+
+299
+00:22:32,120 --> 00:22:41,380
+stop marker okay then I'm gonna do this
+
+300
+00:22:38,960 --> 00:22:41,380
+page
+
+301
+00:22:46,680 --> 00:22:56,700
+it worked you see the spent axons
+
+302
+00:22:54,120 --> 00:22:59,550
+removed so why is it not working I don't
+
+303
+00:22:56,700 --> 00:23:04,340
+know something right so now I have it
+
+304
+00:22:59,550 --> 00:23:04,340
+walking let's try again cool Marco
+
+305
+00:23:07,760 --> 00:23:28,220
+Kohaku yeah it worked so I can just
+
+306
+00:23:12,000 --> 00:23:32,640
+repeat this so now all of them are done
+
+307
+00:23:28,220 --> 00:23:36,090
+yep see there's no span tax so let's
+
+308
+00:23:32,640 --> 00:23:39,000
+look at let's go over here you see they
+
+309
+00:23:36,090 --> 00:23:47,280
+are all red because because there's no
+
+310
+00:23:39,000 --> 00:23:49,679
+span tax that's correct that's correct
+
+311
+00:23:47,280 --> 00:23:54,929
+now all we have to do is to add the
+
+312
+00:23:49,679 --> 00:24:03,020
+JavaScript file so let's go to : so
+
+313
+00:23:54,929 --> 00:24:09,050
+basically we have to replace this by
+
+314
+00:24:03,020 --> 00:24:12,870
+that okay now let's go back to Ruby so
+
+315
+00:24:09,050 --> 00:24:17,540
+replace that by that
+
+316
+00:24:12,870 --> 00:24:21,600
+okay Ruby directory everything yes
+
+317
+00:24:17,540 --> 00:24:24,140
+now that's good now if I show this in
+
+318
+00:24:21,600 --> 00:24:24,140
+Safari
+
+319
+00:24:30,730 --> 00:24:37,420
+is not colored that's not right
+
+320
+00:24:54,010 --> 00:25:06,900
+oh yeah because it's not pretty find its
+
+321
+00:24:58,200 --> 00:25:06,900
+goal and what is the word
+
+322
+00:25:12,630 --> 00:25:23,820
+pretty print not pretty five copy-paste
+
+323
+00:25:17,310 --> 00:25:28,760
+I want pretty print so 25 pretty print
+
+324
+00:25:23,820 --> 00:25:32,060
+there will be yes now go back to Safari
+
+325
+00:25:28,760 --> 00:25:37,550
+now that's working
+
+326
+00:25:32,060 --> 00:25:42,030
+finally yeah that's what I want
+
+327
+00:25:37,550 --> 00:25:45,480
+so this way when I work with Ruby now I
+
+328
+00:25:42,030 --> 00:25:50,160
+can I can see I can see the code without
+
+329
+00:25:45,480 --> 00:25:53,280
+having to you know do that it's it's
+
+330
+00:25:50,160 --> 00:25:56,100
+much good so I I have to so that's it
+
+331
+00:25:53,280 --> 00:25:59,690
+for today I have to you know I'm just
+
+332
+00:25:56,100 --> 00:26:03,180
+going to go with my website and fix all
+
+333
+00:25:59,690 --> 00:26:05,910
+these other languages now there is one
+
+334
+00:26:03,180 --> 00:26:10,110
+thing that's interesting I just
+
+335
+00:26:05,910 --> 00:26:13,140
+mentioned the last one that is for my
+
+336
+00:26:10,110 --> 00:26:19,050
+Emacs page let's go to let's say here is
+
+337
+00:26:13,140 --> 00:26:24,530
+e my Greece basics you see they are
+
+338
+00:26:19,050 --> 00:26:30,210
+using span tags like right here you know
+
+339
+00:26:24,530 --> 00:26:33,090
+like here and however there's a
+
+340
+00:26:30,210 --> 00:26:36,990
+advantage because if you look at this in
+
+341
+00:26:33,090 --> 00:26:41,340
+Safari with JavaScript on you can move
+
+342
+00:26:36,990 --> 00:26:47,580
+your cursor to the to the functions in
+
+343
+00:26:41,340 --> 00:26:54,240
+air show the function you see let's say
+
+344
+00:26:47,580 --> 00:26:58,410
+truncate list so in order for that to
+
+345
+00:26:54,240 --> 00:27:03,810
+happen is you know I need the span tags
+
+346
+00:26:58,410 --> 00:27:10,770
+for example for example let's say go to
+
+347
+00:27:03,810 --> 00:27:13,890
+the top printing you know so when the
+
+348
+00:27:10,770 --> 00:27:16,920
+cursor is on a word message the
+
+349
+00:27:13,890 --> 00:27:19,200
+JavaScript needs a way to know that you
+
+350
+00:27:16,920 --> 00:27:22,830
+know this is a word and look up for that
+
+351
+00:27:19,200 --> 00:27:24,440
+word it works because I have written a
+
+352
+00:27:22,830 --> 00:27:28,190
+JavaScript file
+
+353
+00:27:24,440 --> 00:27:31,460
+is this file Emacs 2 tips that that
+
+354
+00:27:28,190 --> 00:27:34,460
+makes that happen but in order for this
+
+355
+00:27:31,460 --> 00:27:40,910
+to work the code needs to know where a
+
+356
+00:27:34,460 --> 00:27:43,820
+mouse is on a function name but if you
+
+357
+00:27:40,910 --> 00:27:47,300
+don't have span tag wrapped around the
+
+358
+00:27:43,820 --> 00:27:53,300
+function name it won't work like if I
+
+359
+00:27:47,300 --> 00:27:57,680
+show like if I save this and refresh
+
+360
+00:27:53,300 --> 00:28:02,720
+here it doesn't work so I need I need
+
+361
+00:27:57,680 --> 00:28:06,440
+this way so you can see you see all
+
+362
+00:28:02,720 --> 00:28:11,890
+function is is is having span tag class
+
+363
+00:28:06,440 --> 00:28:16,750
+name function name and if I save it
+
+364
+00:28:11,890 --> 00:28:21,500
+reload the new looks
+
+365
+00:28:16,750 --> 00:28:22,520
+so for Emacs lips this I have to do
+
+366
+00:28:21,500 --> 00:28:24,560
+something about it
+
+367
+00:28:22,520 --> 00:28:28,250
+you know I I would like to remove the
+
+368
+00:28:24,560 --> 00:28:33,830
+span tag but then I need to write a
+
+369
+00:28:28,250 --> 00:28:36,380
+JavaScript so that you know or modify
+
+370
+00:28:33,830 --> 00:28:41,720
+the code pretty fighter of JavaScript so
+
+371
+00:28:36,380 --> 00:28:47,510
+that this words gets wrapped with span
+
+372
+00:28:41,720 --> 00:28:52,090
+tag okay that's it that's it for today
+
+373
+00:28:47,510 --> 00:28:52,090
+thank you for watching bye
+

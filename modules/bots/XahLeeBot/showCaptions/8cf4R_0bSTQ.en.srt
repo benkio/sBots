@@ -1,0 +1,4452 @@
+1
+00:00:00,080 --> 00:00:05,440
+Good morning everyone. Welcome to
+
+2
+00:00:02,240 --> 00:00:08,000
+another episode of sound talk show. We
+
+3
+00:00:05,440 --> 00:00:11,360
+are going to code wam language today.
+
+4
+00:00:08,000 --> 00:00:14,799
+Wuam language and uh if you are watching
+
+5
+00:00:11,360 --> 00:00:18,720
+this offline play at 1.5 speed. If you
+
+6
+00:00:14,799 --> 00:00:21,279
+are here say hi. So wam language coding
+
+7
+00:00:18,720 --> 00:00:24,560
+uh this is for beginners. So if you
+
+8
+00:00:21,279 --> 00:00:27,680
+already know language then you will not
+
+9
+00:00:24,560 --> 00:00:31,279
+get much out of it. But this is for
+
+10
+00:00:27,680 --> 00:00:34,160
+beginners. So I'm going to uh work on my
+
+11
+00:00:31,279 --> 00:00:38,719
+wufam language tutorial from the ground
+
+12
+00:00:34,160 --> 00:00:41,920
+up for um for programmers. So you can
+
+13
+00:00:38,719 --> 00:00:44,480
+just search for it, you'll find it.
+
+14
+00:00:41,920 --> 00:00:46,960
+So this is uh let me see if I can see my
+
+15
+00:00:44,480 --> 00:00:50,079
+screen. Yes, everything is good. So wam
+
+16
+00:00:46,960 --> 00:00:52,719
+language uh
+
+17
+00:00:50,079 --> 00:00:54,559
+uh for programmers. Okay, so this is on
+
+18
+00:00:52,719 --> 00:00:58,320
+si.info.
+
+19
+00:00:54,559 --> 00:01:02,480
+No s in http
+
+20
+00:00:58,320 --> 00:01:05,600
+s no s okay so then you can visit it and
+
+21
+00:01:02,480 --> 00:01:09,200
+uh you can also download it here it's
+
+22
+00:01:05,600 --> 00:01:13,439
+free since few years ago uh complete
+
+23
+00:01:09,200 --> 00:01:16,159
+tutorial and I'm going to work on update
+
+24
+00:01:13,439 --> 00:01:20,400
+some part of the you know make my
+
+25
+00:01:16,159 --> 00:01:23,520
+tutorial better so on list operations so
+
+26
+00:01:20,400 --> 00:01:27,520
+here's an introduction to uh list data
+
+27
+00:01:23,520 --> 00:01:30,640
+structure in wam language and then list
+
+28
+00:01:27,520 --> 00:01:32,799
+operations. So there's tons of it like
+
+29
+00:01:30,640 --> 00:01:37,680
+in a typical programming language in
+
+30
+00:01:32,799 --> 00:01:41,200
+pearl in JavaScript in Python in Ruby uh
+
+31
+00:01:37,680 --> 00:01:44,960
+maybe you have let's say 20 operations
+
+32
+00:01:41,200 --> 00:01:47,439
+on list or methods functions but in
+
+33
+00:01:44,960 --> 00:01:51,360
+Wufam language you would have you you
+
+34
+00:01:47,439 --> 00:01:54,320
+have one 100 okay so wuam language is a
+
+35
+00:01:51,360 --> 00:01:56,880
+magnitude high higher level
+
+36
+00:01:54,320 --> 00:01:58,960
+uh I I might show some of it so but
+
+37
+00:01:56,880 --> 00:02:02,320
+anyway I'm going to work on So this is
+
+38
+00:01:58,960 --> 00:02:05,759
+Wuan language for beginners and also uh
+
+39
+00:02:02,320 --> 00:02:09,679
+I'm using Emacs the most advanced text
+
+40
+00:02:05,759 --> 00:02:12,879
+editor and uh I'm going to walk you know
+
+41
+00:02:09,679 --> 00:02:17,040
+so for those of you Emacs users this is
+
+42
+00:02:12,879 --> 00:02:21,440
+also a EMAC work session okay so let's
+
+43
+00:02:17,040 --> 00:02:24,640
+start wuam language okay start
+
+44
+00:02:21,440 --> 00:02:29,040
+uh I'm also using wuam language in emacs
+
+45
+00:02:24,640 --> 00:02:32,720
+so there is kasa wuam mode as that
+
+46
+00:02:29,040 --> 00:02:35,519
+allows me to work in wam language in
+
+47
+00:02:32,720 --> 00:02:38,319
+Emacs running the code and editing and
+
+48
+00:02:35,519 --> 00:02:41,519
+everything. So, but right now you are
+
+49
+00:02:38,319 --> 00:02:45,680
+looking at the wuam language um
+
+50
+00:02:41,519 --> 00:02:47,840
+notebook. Okay. Now for for interest why
+
+51
+00:02:45,680 --> 00:02:50,560
+don't I show something fancy here just
+
+52
+00:02:47,840 --> 00:02:53,920
+to begin with for people to come in.
+
+53
+00:02:50,560 --> 00:02:57,920
+Okay. So wra language uh download wra uh
+
+54
+00:02:53,920 --> 00:03:01,519
+let's go to wra language. So I did like
+
+55
+00:02:57,920 --> 00:03:04,879
+uh hundreds of videos before. So you can
+
+56
+00:03:01,519 --> 00:03:07,680
+watch language tutorial uh by video.
+
+57
+00:03:04,879 --> 00:03:11,440
+There's hundreds of them in the past
+
+58
+00:03:07,680 --> 00:03:14,560
+four years. Uh okay. So let me just go
+
+59
+00:03:11,440 --> 00:03:17,120
+to uh you know let's run something uh
+
+60
+00:03:14,560 --> 00:03:19,599
+interesting and fancy. Okay. So this is
+
+61
+00:03:17,120 --> 00:03:24,440
+always uh
+
+62
+00:03:19,599 --> 00:03:24,440
+fantastic example to show.
+
+63
+00:03:25,040 --> 00:03:33,840
+So okay so paste it and uh okay the font
+
+64
+00:03:29,920 --> 00:03:39,400
+is too large let's just make it 25. Okay
+
+65
+00:03:33,840 --> 00:03:39,400
+so shift enter to run it.
+
+66
+00:03:39,920 --> 00:03:46,159
+So there you have it. This is inversion
+
+67
+00:03:43,040 --> 00:03:50,720
+geometric inversion of
+
+68
+00:03:46,159 --> 00:03:53,120
+uh 3D cubes in a rectangular array. So
+
+69
+00:03:50,720 --> 00:03:56,080
+what you get is this fantastic and
+
+70
+00:03:53,120 --> 00:03:59,439
+beautiful. Okay. So this is just a demo.
+
+71
+00:03:56,080 --> 00:04:01,200
+Uh but that's we we did this live few
+
+72
+00:03:59,439 --> 00:04:03,760
+years ago. So if you search for
+
+73
+00:04:01,200 --> 00:04:07,519
+geometric inversion, in fact I I did
+
+74
+00:04:03,760 --> 00:04:10,879
+several uh videos about this. We coded
+
+75
+00:04:07,519 --> 00:04:13,519
+this live. Okay? Including full struggle
+
+76
+00:04:10,879 --> 00:04:16,000
+session and all. But but you know, so if
+
+77
+00:04:13,519 --> 00:04:18,782
+you want to do this in C, that's going
+
+78
+00:04:16,000 --> 00:04:18,782
+to be [laughter]
+
+79
+00:04:18,880 --> 00:04:24,400
+1,000 lines of code. Probably C with
+
+80
+00:04:22,000 --> 00:04:26,720
+OpenGL or whatever. If you do this in
+
+81
+00:04:24,400 --> 00:04:29,040
+Python with whatever libraries they
+
+82
+00:04:26,720 --> 00:04:33,840
+have, it's going to be few hundred lines
+
+83
+00:04:29,040 --> 00:04:35,759
+of code. Okay. So anyway, so um so here
+
+84
+00:04:33,840 --> 00:04:39,040
+is what we're going to do. Okay. So let
+
+85
+00:04:35,759 --> 00:04:42,160
+me let me let me show this. Uh this is
+
+86
+00:04:39,040 --> 00:04:44,160
+what I need to um work on. So when I
+
+87
+00:04:42,160 --> 00:04:46,960
+walk back and forth, you know, take my
+
+88
+00:04:44,160 --> 00:04:49,680
+notes, I take notes. So these are the
+
+89
+00:04:46,960 --> 00:04:53,600
+screenshots of the things notes I've
+
+90
+00:04:49,680 --> 00:04:55,520
+taken that I want I need to improve my
+
+91
+00:04:53,600 --> 00:04:58,000
+tutorial, you know, you know, create
+
+92
+00:04:55,520 --> 00:05:01,120
+more examples. Okay, so we're going to
+
+93
+00:04:58,000 --> 00:05:03,520
+uh based on this. So first of all, let's
+
+94
+00:05:01,120 --> 00:05:05,840
+do the
+
+95
+00:05:03,520 --> 00:05:08,160
+uh join. Okay, so let's start to go to
+
+96
+00:05:05,840 --> 00:05:11,120
+the wam language for programmers. Then
+
+97
+00:05:08,160 --> 00:05:15,520
+let's go to the list section.
+
+98
+00:05:11,120 --> 00:05:20,479
+list and uh list operations. So you go
+
+99
+00:05:15,520 --> 00:05:24,479
+down list op op operations copy the URL
+
+100
+00:05:20,479 --> 00:05:28,400
+and uh paste it here make a link go to
+
+101
+00:05:24,479 --> 00:05:31,759
+it list operations. Okay in fact we want
+
+102
+00:05:28,400 --> 00:05:35,280
+the one we want is join and union. This
+
+103
+00:05:31,759 --> 00:05:40,160
+one on this page there's no examples. So
+
+104
+00:05:35,280 --> 00:05:42,960
+let's show examples. So search for join.
+
+105
+00:05:40,160 --> 00:05:47,199
+Open it. Copy the file path. Close.
+
+106
+00:05:42,960 --> 00:05:50,720
+Close. And uh link paste link link uh
+
+107
+00:05:47,199 --> 00:05:53,759
+linkify. Make a list. Go to the page.
+
+108
+00:05:50,720 --> 00:05:56,000
+Okay. And uh update today's state. So
+
+109
+00:05:53,759 --> 00:05:59,120
+you can see
+
+110
+00:05:56,000 --> 00:06:00,960
+there it is. Okay. Then join. Okay. So
+
+111
+00:05:59,120 --> 00:06:04,080
+join
+
+112
+00:06:00,960 --> 00:06:08,600
+needs a example. Move friend. Pop it
+
+113
+00:06:04,080 --> 00:06:08,600
+out. Okay. Join.
+
+114
+00:06:09,840 --> 00:06:16,919
+And uh let's just say uh one two three
+
+115
+00:06:18,560 --> 00:06:22,080
+one
+
+116
+00:06:20,319 --> 00:06:24,960
+two
+
+117
+00:06:22,080 --> 00:06:30,600
+three anyone here say hi okay seven
+
+118
+00:06:24,960 --> 00:06:30,600
+people watching and let's say ABC
+
+119
+00:06:32,240 --> 00:06:40,639
+okay so let's clear clear so run it now
+
+120
+00:06:37,759 --> 00:06:44,479
+we'll just join two lists Okay. So this
+
+121
+00:06:40,639 --> 00:06:48,000
+is output and this is comma. Uh okay. So
+
+122
+00:06:44,479 --> 00:06:50,160
+now syntax showing browser. Fantastic.
+
+123
+00:06:48,000 --> 00:06:54,240
+We got an example. Now also union
+
+124
+00:06:50,160 --> 00:06:58,160
+intersection uh complement. Okay. So
+
+125
+00:06:54,240 --> 00:07:00,240
+union. Let's uh let's see.
+
+126
+00:06:58,160 --> 00:07:03,120
+Union.
+
+127
+00:07:00,240 --> 00:07:06,080
+Okay. Union.
+
+128
+00:07:03,120 --> 00:07:09,280
+Uh one, two, three. Now union is
+
+129
+00:07:06,080 --> 00:07:12,400
+interesting because um let's just say
+
+130
+00:07:09,280 --> 00:07:15,440
+because it will remove duplicate.
+
+131
+00:07:12,400 --> 00:07:19,680
+Let's say one to four.
+
+132
+00:07:15,440 --> 00:07:22,720
+Okay. Then run it. So you are looking at
+
+133
+00:07:19,680 --> 00:07:25,280
+woofi mode. If you search for it, you
+
+134
+00:07:22,720 --> 00:07:27,520
+can see for example, let me uh let me
+
+135
+00:07:25,280 --> 00:07:32,560
+show.
+
+136
+00:07:27,520 --> 00:07:36,400
+Okay. So kasawi mode. Okay. Kawufi mode.
+
+137
+00:07:32,560 --> 00:07:39,599
+And this is about 3,000 lines and you
+
+138
+00:07:36,400 --> 00:07:43,919
+can get it on GitHub. So show the
+
+139
+00:07:39,599 --> 00:07:47,199
+website. This is Wuam mode for Emacs and
+
+140
+00:07:43,919 --> 00:07:51,120
+you can get it on GitHub. Okay. Free
+
+141
+00:07:47,199 --> 00:07:52,800
+thanks to Wuam Research for supporting
+
+142
+00:07:51,120 --> 00:07:56,560
+me.
+
+143
+00:07:52,800 --> 00:08:01,199
+Okay. So that's uh Wu mode. Uh copy
+
+144
+00:07:56,560 --> 00:08:04,479
+close close. Uh now let's uh let's so
+
+145
+00:08:01,199 --> 00:08:08,960
+here is union you see 1 2 3 and 1 2 4 it
+
+146
+00:08:04,479 --> 00:08:12,319
+become becomes 1 2 3 4. So let's just uh
+
+147
+00:08:08,960 --> 00:08:14,720
+this just a simple example when you are
+
+148
+00:08:12,319 --> 00:08:16,879
+writing a tutorial the simple example is
+
+149
+00:08:14,720 --> 00:08:21,039
+the best you want the example to be the
+
+150
+00:08:16,879 --> 00:08:23,759
+simplest that that showcase what this
+
+151
+00:08:21,039 --> 00:08:27,280
+function do. Okay. So in this example
+
+152
+00:08:23,759 --> 00:08:31,680
+you can see you know the same elements
+
+153
+00:08:27,280 --> 00:08:34,399
+are not included in the result. Okay. So
+
+154
+00:08:31,680 --> 00:08:37,039
+let's close that. Uh actually so I want
+
+155
+00:08:34,399 --> 00:08:41,440
+to paste the casawi mode show in
+
+156
+00:08:37,039 --> 00:08:46,480
+browser. There it is. Uh kasawi mode for
+
+157
+00:08:41,440 --> 00:08:51,440
+emacs. Okay. So back here. So,
+
+158
+00:08:46,480 --> 00:08:55,200
+so now back to the to this page we have
+
+159
+00:08:51,440 --> 00:08:57,600
+example for join union intersection. Uh
+
+160
+00:08:55,200 --> 00:09:00,000
+actually we need to go faster because
+
+161
+00:08:57,600 --> 00:09:03,279
+there's quite a lot few things to do.
+
+162
+00:09:00,000 --> 00:09:06,279
+Okay. So, uh pop it out. So,
+
+163
+00:09:03,279 --> 00:09:06,279
+intersection
+
+164
+00:09:06,480 --> 00:09:11,360
+intersection
+
+165
+00:09:08,320 --> 00:09:14,160
+um intersection. Yeah, let's use the
+
+166
+00:09:11,360 --> 00:09:16,880
+same example. Run it on the pink window.
+
+167
+00:09:14,160 --> 00:09:19,360
+You can see all my command calls and
+
+168
+00:09:16,880 --> 00:09:22,800
+their keystroke on the left. So you see
+
+169
+00:09:19,360 --> 00:09:25,600
+I just called wu evar region and here is
+
+170
+00:09:22,800 --> 00:09:29,680
+the result the intersection of two
+
+171
+00:09:25,600 --> 00:09:33,200
+lists. Okay, put it back syntax to go to
+
+172
+00:09:29,680 --> 00:09:36,160
+the browser. Go to the browser show
+
+173
+00:09:33,200 --> 00:09:40,160
+refresh. There it is. Complement. Okay,
+
+174
+00:09:36,160 --> 00:09:43,040
+complement. Now in Python or JavaScript
+
+175
+00:09:40,160 --> 00:09:45,760
+I believe typically typically they name
+
+176
+00:09:43,040 --> 00:09:48,480
+this function as
+
+177
+00:09:45,760 --> 00:09:50,560
+uh difference of two sets but
+
+178
+00:09:48,480 --> 00:09:52,959
+mathematically you don't say difference
+
+179
+00:09:50,560 --> 00:09:55,839
+usually you say complement but
+
+180
+00:09:52,959 --> 00:09:57,839
+difference is actually the easier to
+
+181
+00:09:55,839 --> 00:10:01,519
+understand you know because one set
+
+182
+00:09:57,839 --> 00:10:04,000
+minus another but mathematically they
+
+183
+00:10:01,519 --> 00:10:06,720
+are traditionally called complement.
+
+184
+00:10:04,000 --> 00:10:09,440
+Okay. Complement
+
+185
+00:10:06,720 --> 00:10:12,880
+uh completion.
+
+186
+00:10:09,440 --> 00:10:15,200
+Okay. Complement. Uh so yeah. So let's
+
+187
+00:10:12,880 --> 00:10:17,440
+run this example.
+
+188
+00:10:15,200 --> 00:10:20,240
+Can I demonstrate compliment? Yes.
+
+189
+00:10:17,440 --> 00:10:21,760
+Because three is not in the second list.
+
+190
+00:10:20,240 --> 00:10:25,279
+Okay.
+
+191
+00:10:21,760 --> 00:10:26,959
+Syntax color. Fantastic.
+
+192
+00:10:25,279 --> 00:10:29,760
+So
+
+193
+00:10:26,959 --> 00:10:32,000
+and uh update the date. The date is
+
+194
+00:10:29,760 --> 00:10:34,079
+updated. So you got join union
+
+195
+00:10:32,000 --> 00:10:37,200
+intersection complent. It's okay. We
+
+196
+00:10:34,079 --> 00:10:41,680
+added examples. That's good enough. Uh,
+
+197
+00:10:37,200 --> 00:10:44,079
+okay. So, delete. So, this join now this
+
+198
+00:10:41,680 --> 00:10:46,160
+you see join operation is quite
+
+199
+00:10:44,079 --> 00:10:48,800
+different from the others union
+
+200
+00:10:46,160 --> 00:10:51,200
+intersection and complement because the
+
+201
+00:10:48,800 --> 00:10:56,079
+union intersection complement they are
+
+202
+00:10:51,200 --> 00:10:59,440
+set operations like in set theory. Join
+
+203
+00:10:56,079 --> 00:11:02,000
+is simply concatenate concatenate
+
+204
+00:10:59,440 --> 00:11:04,000
+you know to list. So the join needs to
+
+205
+00:11:02,000 --> 00:11:08,959
+be separate from them. They need to have
+
+206
+00:11:04,000 --> 00:11:12,640
+a new section. Okay. So join.
+
+207
+00:11:08,959 --> 00:11:16,480
+Um so let's see how we going to do this.
+
+208
+00:11:12,640 --> 00:11:19,040
+Cut cut. Yeah. So
+
+209
+00:11:16,480 --> 00:11:21,920
+new one,
+
+210
+00:11:19,040 --> 00:11:26,000
+new section and new definition list and
+
+211
+00:11:21,920 --> 00:11:30,480
+paste that there. And uh yeah and uh
+
+212
+00:11:26,000 --> 00:11:32,959
+remove this todo and date showing lists.
+
+213
+00:11:30,480 --> 00:11:36,720
+Okay. Capitalize
+
+214
+00:11:32,959 --> 00:11:40,160
+make it H2
+
+215
+00:11:36,720 --> 00:11:44,000
+showing browser. Fantastic. Join lists.
+
+216
+00:11:40,160 --> 00:11:46,640
+Then this the set union intersection
+
+217
+00:11:44,000 --> 00:11:48,320
+complement. Fantastic. Okay. Now that's
+
+218
+00:11:46,640 --> 00:11:50,720
+good.
+
+219
+00:11:48,320 --> 00:11:56,240
+Join union intersect. Yeah, that's good.
+
+220
+00:11:50,720 --> 00:11:59,760
+Okay. Now this screenshot done. Delete.
+
+221
+00:11:56,240 --> 00:12:03,519
+Next. Okay, this is about auto hotkey.
+
+222
+00:11:59,760 --> 00:12:06,079
+So we did a video two days ago about
+
+223
+00:12:03,519 --> 00:12:09,360
+auto hotkey. So that you know so let's
+
+224
+00:12:06,079 --> 00:12:11,839
+not do this. This is also auto hotkey.
+
+225
+00:12:09,360 --> 00:12:15,440
+Auto hotkey. Okay. So watch the video
+
+226
+00:12:11,839 --> 00:12:21,120
+from today's two today's ago. Hello post
+
+227
+00:12:15,440 --> 00:12:23,519
+1999. Hello ACP junior curious does join
+
+228
+00:12:21,120 --> 00:12:26,720
+decouple the elements deddup the
+
+229
+00:12:23,519 --> 00:12:28,959
+elements no they just concatenate
+
+230
+00:12:26,720 --> 00:12:31,360
+concatenate
+
+231
+00:12:28,959 --> 00:12:35,040
+uh if you want to ddup the elements
+
+232
+00:12:31,360 --> 00:12:37,440
+that's the that's called union okay I
+
+233
+00:12:35,040 --> 00:12:42,240
+hope I answered that that that's what
+
+234
+00:12:37,440 --> 00:12:44,800
+you meant okay so ne next so this join
+
+235
+00:12:42,240 --> 00:12:48,240
+union intersection needs to move up
+
+236
+00:12:44,800 --> 00:12:50,639
+because join is a very comp uh common
+
+237
+00:12:48,240 --> 00:12:54,639
+operation in all programming languages.
+
+238
+00:12:50,639 --> 00:13:00,000
+Okay. So search for join. So you go down
+
+239
+00:12:54,639 --> 00:13:03,040
+in you go down into this um this this I
+
+240
+00:13:00,000 --> 00:13:05,600
+call this uh
+
+241
+00:13:03,040 --> 00:13:08,079
+this box. Okay. So go down. So you can
+
+242
+00:13:05,600 --> 00:13:12,160
+see this box. This is this is what I
+
+243
+00:13:08,079 --> 00:13:15,040
+call topic box. Okay. Topic box. So the
+
+244
+00:13:12,160 --> 00:13:19,120
+join operation needs to go up. So search
+
+245
+00:13:15,040 --> 00:13:24,480
+for join cut. Okay. And where do you
+
+246
+00:13:19,120 --> 00:13:26,560
+want it? They you want to um see in the
+
+247
+00:13:24,480 --> 00:13:30,320
+browser it's easier to see. You want to
+
+248
+00:13:26,560 --> 00:13:33,440
+be before filter. Okay.
+
+249
+00:13:30,320 --> 00:13:36,480
+So search for filter. Yeah. Put it
+
+250
+00:13:33,440 --> 00:13:38,639
+there. Now watch the pink window. So
+
+251
+00:13:36,480 --> 00:13:43,360
+you'll show my the command I call to
+
+252
+00:13:38,639 --> 00:13:46,240
+update all topic boxes in all pages in
+
+253
+00:13:43,360 --> 00:13:50,000
+you know in in in the entire website of
+
+254
+00:13:46,240 --> 00:13:52,880
+10,000 files. So press press press
+
+255
+00:13:50,000 --> 00:13:55,200
+press. So you see
+
+256
+00:13:52,880 --> 00:13:58,160
+each page. So let me show you the
+
+257
+00:13:55,200 --> 00:14:00,800
+output. So each page you know it you
+
+258
+00:13:58,160 --> 00:14:02,480
+know there's 10,000 pages. So each page
+
+259
+00:14:00,800 --> 00:14:05,279
+they show you which page has been
+
+260
+00:14:02,480 --> 00:14:08,880
+updated which page does not have the
+
+261
+00:14:05,279 --> 00:14:11,519
+topic box before but now it's added. Um
+
+262
+00:14:08,880 --> 00:14:14,800
+so you know this is output that's a emac
+
+263
+00:14:11,519 --> 00:14:17,199
+command I wrote which is the name of
+
+264
+00:14:14,800 --> 00:14:20,199
+that command is
+
+265
+00:14:17,199 --> 00:14:20,199
+um
+
+266
+00:14:20,320 --> 00:14:26,560
+uh you see HTML update topic boxes. Can
+
+267
+00:14:24,720 --> 00:14:29,880
+you see can you guys see is everything
+
+268
+00:14:26,560 --> 00:14:29,880
+going well?
+
+269
+00:14:29,920 --> 00:14:35,839
+Yeah.
+
+270
+00:14:31,519 --> 00:14:38,320
+Okay. So now let's go back. Let's So you
+
+271
+00:14:35,839 --> 00:14:41,920
+can see in fact you can see here you can
+
+272
+00:14:38,320 --> 00:14:44,480
+see the join somewhere uh where so it's
+
+273
+00:14:41,920 --> 00:14:46,959
+at the bottom. You see? Now you click to
+
+274
+00:14:44,480 --> 00:14:50,000
+you click list operations. Now the join
+
+275
+00:14:46,959 --> 00:14:53,360
+is right here before filter. You click
+
+276
+00:14:50,000 --> 00:14:56,800
+create table and go down to the topic
+
+277
+00:14:53,360 --> 00:15:00,320
+box. And you can see the join operation
+
+278
+00:14:56,800 --> 00:15:02,720
+is right before filter. So it updates
+
+279
+00:15:00,320 --> 00:15:06,320
+any page you know it updates essentially
+
+280
+00:15:02,720 --> 00:15:09,360
+all topic boxes scattered in all pages.
+
+281
+00:15:06,320 --> 00:15:11,760
+Okay this so this one is done. So let's
+
+282
+00:15:09,360 --> 00:15:13,360
+see next
+
+283
+00:15:11,760 --> 00:15:17,519
+delete.
+
+284
+00:15:13,360 --> 00:15:19,519
+Now remember to play at 1.5 speed if you
+
+285
+00:15:17,519 --> 00:15:21,600
+are watching this offline. And any more
+
+286
+00:15:19,519 --> 00:15:25,199
+comments
+
+287
+00:15:21,600 --> 00:15:28,160
+praine? Yes. Yes. Yes. What? Uh
+
+288
+00:15:25,199 --> 00:15:31,360
+generating nested list with table. So
+
+289
+00:15:28,160 --> 00:15:33,440
+let me demonstrate this. Okay. So so you
+
+290
+00:15:31,360 --> 00:15:37,519
+got this operation list these operations
+
+291
+00:15:33,440 --> 00:15:41,199
+and one of the most useful is table and
+
+292
+00:15:37,519 --> 00:15:45,600
+I want to change some wording. Okay.
+
+293
+00:15:41,199 --> 00:15:49,600
+So generate. So copy the URL back to
+
+294
+00:15:45,600 --> 00:15:53,440
+Emacs. Close that and uh paste a link
+
+295
+00:15:49,600 --> 00:15:56,240
+linkify. Make a list. Combine the list.
+
+296
+00:15:53,440 --> 00:15:58,959
+Combine the list. Okay. Then open the
+
+297
+00:15:56,240 --> 00:16:03,600
+page showing browser. So that is a
+
+298
+00:15:58,959 --> 00:16:07,360
+table. Now search for nest.
+
+299
+00:16:03,600 --> 00:16:10,720
+Uh so this example is about creating
+
+300
+00:16:07,360 --> 00:16:14,560
+nested table. Uh uh which I can show
+
+301
+00:16:10,720 --> 00:16:17,120
+you. Okay. So for example,
+
+302
+00:16:14,560 --> 00:16:18,800
+copy that. Let's now let's do in wra
+
+303
+00:16:17,120 --> 00:16:23,839
+language.
+
+304
+00:16:18,800 --> 00:16:26,399
+Uh paste it. Shift enter to run it.
+
+305
+00:16:23,839 --> 00:16:29,680
+There it is. Now
+
+306
+00:16:26,399 --> 00:16:32,639
+do it again. Now this time show in tree
+
+307
+00:16:29,680 --> 00:16:34,880
+form.
+
+308
+00:16:32,639 --> 00:16:38,800
+You see it makes it easier to see. So
+
+309
+00:16:34,880 --> 00:16:41,199
+what this table does in this particular
+
+310
+00:16:38,800 --> 00:16:44,079
+example is it generates a
+
+311
+00:16:41,199 --> 00:16:46,320
+three-dimensional array kind of. I mean
+
+312
+00:16:44,079 --> 00:16:51,040
+you can there are many names to call it.
+
+313
+00:16:46,320 --> 00:16:54,480
+You can call it a 3D matrix or 3D array
+
+314
+00:16:51,040 --> 00:16:57,440
+or three-dimensional rectangular array
+
+315
+00:16:54,480 --> 00:17:01,680
+or you can also call it nested list.
+
+316
+00:16:57,440 --> 00:17:04,079
+Okay, many many uh name to go by. So but
+
+317
+00:17:01,680 --> 00:17:06,799
+what I want to say here is change the
+
+318
+00:17:04,079 --> 00:17:10,319
+title. So this is regarding writing. So
+
+319
+00:17:06,799 --> 00:17:12,799
+I'm saying generated a uh generating uh
+
+320
+00:17:10,319 --> 00:17:14,319
+nested list. So now I want to change it
+
+321
+00:17:12,799 --> 00:17:17,319
+to
+
+322
+00:17:14,319 --> 00:17:17,319
+rectangular
+
+323
+00:17:18,079 --> 00:17:23,640
+rect re what rectang
+
+324
+00:17:23,679 --> 00:17:27,959
+don't I have a shortcut rectang
+
+325
+00:17:28,400 --> 00:17:34,320
+oh I don't have a shortcut let's see uh
+
+326
+00:17:30,799 --> 00:17:37,520
+let's not worry about it okay
+
+327
+00:17:34,320 --> 00:17:40,480
+let's just spell it out
+
+328
+00:17:37,520 --> 00:17:42,559
+so why do I want to rename it
+
+329
+00:17:40,480 --> 00:17:44,960
+rectangular array array because that's
+
+330
+00:17:42,559 --> 00:17:49,440
+more specific because when you say
+
+331
+00:17:44,960 --> 00:17:52,400
+nested list the list may be what's soal
+
+332
+00:17:49,440 --> 00:17:54,880
+jacked array that is it doesn't it's not
+
+333
+00:17:52,400 --> 00:17:57,600
+a square rectangle it's not a square
+
+334
+00:17:54,880 --> 00:18:00,799
+array it may have you know some of the
+
+335
+00:17:57,600 --> 00:18:02,960
+leaves may just have one leaf some nods
+
+336
+00:18:00,799 --> 00:18:05,760
+have two leaf some nods may have five
+
+337
+00:18:02,960 --> 00:18:08,640
+leaf so in that case that's a nested
+
+338
+00:18:05,760 --> 00:18:11,760
+list still true but that's no longer
+
+339
+00:18:08,640 --> 00:18:14,720
+rectangular array however Ever the table
+
+340
+00:18:11,760 --> 00:18:17,120
+function only generates always
+
+341
+00:18:14,720 --> 00:18:20,640
+rectangular array. Okay. So it doesn't
+
+342
+00:18:17,120 --> 00:18:22,640
+generate arbitrary tree. So therefore
+
+343
+00:18:20,640 --> 00:18:24,799
+the naming of this title should be
+
+344
+00:18:22,640 --> 00:18:26,960
+better if you say rectangular array.
+
+345
+00:18:24,799 --> 00:18:29,600
+Okay. Also don't say generating. Don't
+
+346
+00:18:26,960 --> 00:18:33,200
+use the verb. Okay. Generate
+
+347
+00:18:29,600 --> 00:18:37,720
+just simple noun. Okay. as opposed to
+
+348
+00:18:33,200 --> 00:18:37,720
+the so-called um
+
+349
+00:18:39,120 --> 00:18:47,919
+uh it's called uh active voice. You know
+
+350
+00:18:43,520 --> 00:18:50,320
+active voice idiotic. That's a very
+
+351
+00:18:47,919 --> 00:18:53,280
+famous writing advice. You must use
+
+352
+00:18:50,320 --> 00:18:56,320
+active voice which is not true. In fact,
+
+353
+00:18:53,280 --> 00:18:59,039
+if you are writing mathematics, always
+
+354
+00:18:56,320 --> 00:19:01,760
+use passive voice. Like you don't want
+
+355
+00:18:59,039 --> 00:19:03,760
+to put yourself in the center, nor do
+
+356
+00:19:01,760 --> 00:19:06,080
+you want to tell readers about some
+
+357
+00:19:03,760 --> 00:19:09,919
+action. Oh, you got to do this or do
+
+358
+00:19:06,080 --> 00:19:12,320
+that. No. If you want to write any
+
+359
+00:19:09,919 --> 00:19:14,720
+computer documentation, especially if
+
+360
+00:19:12,320 --> 00:19:17,840
+you want to write it like a mathematics
+
+361
+00:19:14,720 --> 00:19:21,280
+code and precise, you want to write it
+
+362
+00:19:17,840 --> 00:19:23,520
+in a descriptive way. Okay? Describe.
+
+363
+00:19:21,280 --> 00:19:25,840
+Just describe exactly what happens. No
+
+364
+00:19:23,520 --> 00:19:28,400
+action at all. Don't don't say oh after
+
+365
+00:19:25,840 --> 00:19:30,320
+you do this then that then this will
+
+366
+00:19:28,400 --> 00:19:32,559
+happen you know and this is the result
+
+367
+00:19:30,320 --> 00:19:35,039
+you know don't do that you know like you
+
+368
+00:19:32,559 --> 00:19:37,600
+you like specify specification
+
+369
+00:19:35,039 --> 00:19:40,720
+mathematics it's about description okay
+
+370
+00:19:37,600 --> 00:19:43,679
+that's the way math works
+
+371
+00:19:40,720 --> 00:19:45,679
+so generate rectangular array with table
+
+372
+00:19:43,679 --> 00:19:48,080
+so that's what you say don't say
+
+373
+00:19:45,679 --> 00:19:51,039
+generating you know generating I I you
+
+374
+00:19:48,080 --> 00:19:54,160
+know so my writing style back uh 20
+
+375
+00:19:51,039 --> 00:19:57,919
+years ago I always use generating ing
+
+376
+00:19:54,160 --> 00:20:00,559
+and it's no good. Okay. So at this rate
+
+377
+00:19:57,919 --> 00:20:04,400
+we'll never go far. So there's a lot to
+
+378
+00:20:00,559 --> 00:20:07,440
+do. Okay. So that's uh done.
+
+379
+00:20:04,400 --> 00:20:10,240
+Okay. Now now there's also minor
+
+380
+00:20:07,440 --> 00:20:13,600
+details. For example, in this example uh
+
+381
+00:20:10,240 --> 00:20:17,360
+I can show you quickly. Okay. So
+
+382
+00:20:13,600 --> 00:20:20,960
+copy this example. What it does is paste
+
+383
+00:20:17,360 --> 00:20:25,840
+it. It just generates
+
+384
+00:20:20,960 --> 00:20:28,880
+a flat list from one to three instead of
+
+385
+00:20:25,840 --> 00:20:31,039
+one over two. So woofam language is
+
+386
+00:20:28,880 --> 00:20:33,840
+symbolic. So you can you know when you
+
+387
+00:20:31,039 --> 00:20:37,360
+have a fraction it generates a result in
+
+388
+00:20:33,840 --> 00:20:39,280
+fraction. You see fantastic.
+
+389
+00:20:37,360 --> 00:20:41,919
+Now there's a wording problem because
+
+390
+00:20:39,280 --> 00:20:44,799
+you see here is another technical
+
+391
+00:20:41,919 --> 00:20:46,720
+writing documentation detail about
+
+392
+00:20:44,799 --> 00:20:48,960
+formatting. You know there's so many
+
+393
+00:20:46,720 --> 00:20:50,880
+issues about technical writing or
+
+394
+00:20:48,960 --> 00:20:54,559
+documentation. There's organization,
+
+395
+00:20:50,880 --> 00:20:57,520
+there's a writing style, there is a
+
+396
+00:20:54,559 --> 00:20:59,679
+uh well and style of exposition. There's
+
+397
+00:20:57,520 --> 00:21:01,760
+a kind you know the kind of words you
+
+398
+00:20:59,679 --> 00:21:05,520
+use there and there's organization
+
+399
+00:21:01,760 --> 00:21:07,360
+issues and one of them is s syntactical
+
+400
+00:21:05,520 --> 00:21:10,240
+formatting issue like programming
+
+401
+00:21:07,360 --> 00:21:14,400
+languages you have you know function
+
+402
+00:21:10,240 --> 00:21:16,480
+methods objects variables and uh
+
+403
+00:21:14,400 --> 00:21:19,120
+arguments in this case these are
+
+404
+00:21:16,480 --> 00:21:22,400
+arguments some of them are optional. So
+
+405
+00:21:19,120 --> 00:21:24,320
+how do you indicate to people which part
+
+406
+00:21:22,400 --> 00:21:27,360
+are variables which part are function
+
+407
+00:21:24,320 --> 00:21:29,840
+name which part are object or which part
+
+408
+00:21:27,360 --> 00:21:32,000
+are you know arguments you know so
+
+409
+00:21:29,840 --> 00:21:34,960
+arguments in a sense is also a variable
+
+410
+00:21:32,000 --> 00:21:37,120
+or they are also called parameter
+
+411
+00:21:34,960 --> 00:21:40,000
+so this so there's many formatting
+
+412
+00:21:37,120 --> 00:21:42,960
+issues now in this case what I want to
+
+413
+00:21:40,000 --> 00:21:45,919
+change is this you see I I'm saying I
+
+414
+00:21:42,960 --> 00:21:49,760
+mean IMAX in fact I want to remove the I
+
+415
+00:21:45,919 --> 00:21:52,480
+okay don't say I mean I IMAX Okay. So,
+
+416
+00:21:49,760 --> 00:21:56,880
+yeah. So, let's just do that.
+
+417
+00:21:52,480 --> 00:22:00,559
+uh as to why uh well if if I explain why
+
+418
+00:21:56,880 --> 00:22:03,760
+it's gonna take a lot more time because
+
+419
+00:22:00,559 --> 00:22:05,760
+it be well in you know first of all you
+
+420
+00:22:03,760 --> 00:22:11,200
+need to understand what this does then
+
+421
+00:22:05,760 --> 00:22:15,360
+you know I so it takes a variable I is a
+
+422
+00:22:11,200 --> 00:22:18,480
+variable then here I mean means it's a
+
+423
+00:22:15,360 --> 00:22:23,760
+minimum it's a value that to begin with
+
+424
+00:22:18,480 --> 00:22:26,080
+for I okay so so this I mean refers to a
+
+425
+00:22:23,760 --> 00:22:29,520
+minimum value starting value for the
+
+426
+00:22:26,080 --> 00:22:32,400
+variable I. So that's why I name it I
+
+427
+00:22:29,520 --> 00:22:37,280
+min and s similarly IAX is the maximum
+
+428
+00:22:32,400 --> 00:22:39,679
+value and DI is the like D is delta you
+
+429
+00:22:37,280 --> 00:22:43,039
+know like differential the step okay
+
+430
+00:22:39,679 --> 00:22:47,360
+each each step you take so I you know I
+
+431
+00:22:43,039 --> 00:22:49,919
+wrote it um probably influenced from the
+
+432
+00:22:47,360 --> 00:22:51,679
+wufam language documentation you know
+
+433
+00:22:49,919 --> 00:22:54,720
+like when you write a doc you can also
+
+434
+00:22:51,679 --> 00:22:56,799
+look at other people's you know uh
+
+435
+00:22:54,720 --> 00:22:58,559
+documentation python you know so many
+
+436
+00:22:56,799 --> 00:23:01,200
+languages Python
+
+437
+00:22:58,559 --> 00:23:04,240
+uh Ruby so you can see what's their
+
+438
+00:23:01,200 --> 00:23:07,280
+documentation style Java most of them
+
+439
+00:23:04,240 --> 00:23:09,919
+are like the worst you know like
+
+440
+00:23:07,280 --> 00:23:13,280
+the Mozilla JavaScript documentation the
+
+441
+00:23:09,919 --> 00:23:15,360
+Python documentation the they are the
+
+442
+00:23:13,280 --> 00:23:17,039
+worst of the worst like they don't know
+
+443
+00:23:15,360 --> 00:23:19,760
+how to write that is like complete
+
+444
+00:23:17,039 --> 00:23:22,880
+ like and the Unix man pages
+
+445
+00:23:19,760 --> 00:23:26,720
+like it very popular you know it's like
+
+446
+00:23:22,880 --> 00:23:29,840
+this epidemic in computing industry the
+
+447
+00:23:26,720 --> 00:23:32,480
+Unix fan pages, the apach Apache
+
+448
+00:23:29,840 --> 00:23:34,400
+documentation, the you know, like they
+
+449
+00:23:32,480 --> 00:23:36,320
+don't know how to write. They just blur
+
+450
+00:23:34,400 --> 00:23:37,840
+blur,
+
+451
+00:23:36,320 --> 00:23:40,640
+you know, and they think it's funny,
+
+452
+00:23:37,840 --> 00:23:43,200
+especially in the uh with the Unix
+
+453
+00:23:40,640 --> 00:23:46,159
+documentation. Pearl, Python is all
+
+454
+00:23:43,200 --> 00:23:48,880
+crap, like the worst crap.
+
+455
+00:23:46,159 --> 00:23:53,120
+Okay, Java,
+
+456
+00:23:48,880 --> 00:23:56,640
+the language documentation is the superb
+
+457
+00:23:53,120 --> 00:24:00,320
+professionally written Java. Okay. And
+
+458
+00:23:56,640 --> 00:24:04,159
+wuam language also superb. They are in
+
+459
+00:24:00,320 --> 00:24:07,200
+these two are examples of the best
+
+460
+00:24:04,159 --> 00:24:10,159
+technical writing. Okay. However, they
+
+461
+00:24:07,200 --> 00:24:13,279
+are in completely different style. Okay.
+
+462
+00:24:10,159 --> 00:24:16,080
+Anyway, I talk about this because um
+
+463
+00:24:13,279 --> 00:24:19,279
+it's my one of my obsession uh writing
+
+464
+00:24:16,080 --> 00:24:22,640
+documentation and tutorials and writing
+
+465
+00:24:19,279 --> 00:24:25,039
+in general. Okay. Like creative writing.
+
+466
+00:24:22,640 --> 00:24:28,799
+Uh so I've been obsessing about it for
+
+467
+00:24:25,039 --> 00:24:31,200
+like 30 years like like most my life so
+
+468
+00:24:28,799 --> 00:24:33,760
+I know all these details. Anyway, so
+
+469
+00:24:31,200 --> 00:24:36,240
+this is Wuam language um documentation.
+
+470
+00:24:33,760 --> 00:24:42,240
+So anyway, let's let me just change this
+
+471
+00:24:36,240 --> 00:24:46,960
+to uh make a backup show in browser. So
+
+472
+00:24:42,240 --> 00:24:50,320
+let's update the last updated date. Then
+
+473
+00:24:46,960 --> 00:24:53,919
+let's make a change. I mean to just mean
+
+474
+00:24:50,320 --> 00:24:57,679
+okay it's not just it's just not I mean
+
+475
+00:24:53,919 --> 00:25:00,720
+okay in fact wait hold on a second I
+
+476
+00:24:57,679 --> 00:25:05,360
+mean so actually I want to change one
+
+477
+00:25:00,720 --> 00:25:12,880
+shot the I mean and I max them both okay
+
+478
+00:25:05,360 --> 00:25:18,000
+so change I am with just m do it do it
+
+479
+00:25:12,880 --> 00:25:20,880
+do it do it do it do it do it do it okay
+
+480
+00:25:18,000 --> 00:25:23,360
+Now go back to browser. Now when I
+
+481
+00:25:20,880 --> 00:25:27,440
+refresh all this IMAX aiming will be
+
+482
+00:25:23,360 --> 00:25:31,279
+changed. Do it. Fantastic. Now this DI
+
+483
+00:25:27,440 --> 00:25:35,600
+also needs to change. So search for DI.
+
+484
+00:25:31,279 --> 00:25:40,600
+Yeah. So this DI will be
+
+485
+00:25:35,600 --> 00:25:40,600
+uh just just say step. Okay.
+
+486
+00:25:41,840 --> 00:25:48,640
+Okay. This is about technical writing
+
+487
+00:25:44,240 --> 00:25:52,240
+and especially it's about uh formatting
+
+488
+00:25:48,640 --> 00:25:56,000
+syntax code formatting issues convention
+
+489
+00:25:52,240 --> 00:25:59,120
+and so okay so this part is done make
+
+490
+00:25:56,000 --> 00:26:02,480
+sure delete it okay make sure uh I got
+
+491
+00:25:59,120 --> 00:26:06,240
+it yeah
+
+492
+00:26:02,480 --> 00:26:09,600
+okay and what about this uh okay so this
+
+493
+00:26:06,240 --> 00:26:11,520
+this part is about generating nested
+
+494
+00:26:09,600 --> 00:26:14,240
+table so let me let me show you guys
+
+495
+00:26:11,520 --> 00:26:17,679
+just In general, what is the table does?
+
+496
+00:26:14,240 --> 00:26:20,240
+Okay. What is your opinion on text info?
+
+497
+00:26:17,679 --> 00:26:24,000
+Okay. Text info that's esoteric topic
+
+498
+00:26:20,240 --> 00:26:27,440
+that's related to GNU Emacs or the GNU
+
+499
+00:26:24,000 --> 00:26:31,039
+software foundation their software
+
+500
+00:26:27,440 --> 00:26:34,640
+documentation. They use a format called
+
+501
+00:26:31,039 --> 00:26:37,760
+text info. Uh I won't go into it but let
+
+502
+00:26:34,640 --> 00:26:41,919
+me talk about it for one minute. Okay.
+
+503
+00:26:37,760 --> 00:26:45,039
+In fact, you just search for si text
+
+504
+00:26:41,919 --> 00:26:49,360
+info, you'll find the article.
+
+505
+00:26:45,039 --> 00:26:51,279
+So, Emac should adopt HTML as text info
+
+506
+00:26:49,360 --> 00:26:54,720
+replacement. For example, that's one
+
+507
+00:26:51,279 --> 00:26:58,320
+article. Open it. Okay. Wait. Go back.
+
+508
+00:26:54,720 --> 00:27:00,720
+Opening a new uh page. Wait. So, the AI
+
+509
+00:26:58,320 --> 00:27:03,840
+started to talk. Kasali is a prominent
+
+510
+00:27:00,720 --> 00:27:06,480
+figure known for his extensive online
+
+511
+00:27:03,840 --> 00:27:10,400
+resources on Emacs and programming
+
+512
+00:27:06,480 --> 00:27:13,760
+including discussion on text info text
+
+513
+00:27:10,400 --> 00:27:15,553
+info documentation system. He has
+
+514
+00:27:13,760 --> 00:27:16,320
+expressed
+
+515
+00:27:15,553 --> 00:27:20,159
+[laughter]
+
+516
+00:27:16,320 --> 00:27:23,520
+criticism regarding text info advocating
+
+517
+00:27:20,159 --> 00:27:26,080
+advocating for the adoption of HTML as
+
+518
+00:27:23,520 --> 00:27:28,880
+replacement for text info in Emacs
+
+519
+00:27:26,080 --> 00:27:31,600
+documentation. That's correct. Superb
+
+520
+00:27:28,880 --> 00:27:35,600
+technology unprecedented in human
+
+521
+00:27:31,600 --> 00:27:38,480
+history with AI today and also extreme
+
+522
+00:27:35,600 --> 00:27:40,559
+very dangerous is happening. Anyway, Lee
+
+523
+00:27:38,480 --> 00:27:43,600
+argues that current text info. Anyway,
+
+524
+00:27:40,559 --> 00:27:49,799
+that's interesting. Okay, let's
+
+525
+00:27:43,600 --> 00:27:49,799
+screenshot screenshot this. Uh,
+
+526
+00:27:49,919 --> 00:27:54,080
+okay. So, but let's go just go to my
+
+527
+00:27:52,159 --> 00:27:58,240
+page. Okay. Blah blah blah blah blah
+
+528
+00:27:54,080 --> 00:28:00,320
+blah. Okay. So, uh, Ultimate Hacking
+
+529
+00:27:58,240 --> 00:28:02,880
+Keyboard, that's the one I'm using.
+
+530
+00:28:00,320 --> 00:28:05,840
+Fantastic. I did a review a week ago,
+
+531
+00:28:02,880 --> 00:28:09,279
+full in-depth review. Watch that. Okay.
+
+532
+00:28:05,840 --> 00:28:11,840
+Uh, so now, click that. Press that
+
+533
+00:28:09,279 --> 00:28:14,080
+button. That's middle click. Press that
+
+534
+00:28:11,840 --> 00:28:17,039
+button. That's middle click. Oh, this
+
+535
+00:28:14,080 --> 00:28:20,320
+this guy is a scum. He copied my website
+
+536
+00:28:17,039 --> 00:28:24,760
+and uh, you know, put on his website.
+
+537
+00:28:20,320 --> 00:28:24,760
+ scum. this guy Westy,
+
+538
+00:28:26,000 --> 00:28:31,120
+you know, so he is his page he's his
+
+539
+00:28:28,480 --> 00:28:33,360
+page is not not not now not like not
+
+540
+00:28:31,120 --> 00:28:36,320
+coming up.
+
+541
+00:28:33,360 --> 00:28:39,120
+Okay. So he's like
+
+542
+00:28:36,320 --> 00:28:41,120
+so you know some sometimes people he I
+
+543
+00:28:39,120 --> 00:28:44,240
+think he bought my tutorial like 10
+
+544
+00:28:41,120 --> 00:28:47,520
+years ago or more and he put on his
+
+545
+00:28:44,240 --> 00:28:51,120
+website and forgot about it.
+
+546
+00:28:47,520 --> 00:28:53,360
+Anyway, so tech you know hacker news
+
+547
+00:28:51,120 --> 00:28:57,919
+added he seems to have a lot of
+
+548
+00:28:53,360 --> 00:29:01,919
+interesting and stuff and uh god
+
+549
+00:28:57,919 --> 00:29:06,320
+I'm about as good as dead that's 2014
+
+550
+00:29:01,919 --> 00:29:10,080
+okay my hardship in my life
+
+551
+00:29:06,320 --> 00:29:14,240
+can program a line of lisp on his own
+
+552
+00:29:10,080 --> 00:29:17,919
+this guy whose name is um he's a German
+
+553
+00:29:14,240 --> 00:29:20,799
+guy lisp m online he goes by the handle
+
+554
+00:29:17,919 --> 00:29:24,240
+lisp M [snorts] kind of stand for list
+
+555
+00:29:20,799 --> 00:29:27,840
+machine lisp machine. Okay. He his name
+
+556
+00:29:24,240 --> 00:29:30,159
+is um
+
+557
+00:29:27,840 --> 00:29:34,399
+I shouldn't talk I talked about this
+
+558
+00:29:30,159 --> 00:29:37,600
+before but anyway he's a he's a hater.
+
+559
+00:29:34,399 --> 00:29:40,000
+Every time my post got posted somewhere
+
+560
+00:29:37,600 --> 00:29:42,559
+not by me. I never posted to hacker
+
+561
+00:29:40,000 --> 00:29:44,880
+news. Okay.
+
+562
+00:29:42,559 --> 00:29:47,120
+Um maybe one time. Okay. One time they
+
+563
+00:29:44,880 --> 00:29:49,200
+were talking about me like in the past
+
+564
+00:29:47,120 --> 00:29:52,399
+in in all my life I posted to hacker
+
+565
+00:29:49,200 --> 00:29:56,240
+news one time to reply to some some some
+
+566
+00:29:52,399 --> 00:29:59,120
+some bad about me. So I I never
+
+567
+00:29:56,240 --> 00:30:01,520
+posted my website to hacker news. Okay
+
+568
+00:29:59,120 --> 00:30:05,760
+they other people thank you guys they
+
+569
+00:30:01,520 --> 00:30:08,640
+posted. So but there's this m guy which
+
+570
+00:30:05,760 --> 00:30:12,000
+I kind of know we kind of talked like
+
+571
+00:30:08,640 --> 00:30:13,760
+almost 20 years ago. He doesn't like my
+
+572
+00:30:12,000 --> 00:30:17,120
+stuff. He doesn't like my opinion. So
+
+573
+00:30:13,760 --> 00:30:19,840
+every time he sees some post about me,
+
+574
+00:30:17,120 --> 00:30:22,000
+he's going to badmouth it. Okay, I
+
+575
+00:30:19,840 --> 00:30:24,240
+talked about this.
+
+576
+00:30:22,000 --> 00:30:28,080
+Yeah, let me mention it because because
+
+577
+00:30:24,240 --> 00:30:30,640
+this really a scum. Okay, this is vering
+
+578
+00:30:28,080 --> 00:30:33,440
+on
+
+579
+00:30:30,640 --> 00:30:35,120
+defamation. Okay, vering on defamation
+
+580
+00:30:33,440 --> 00:30:38,640
+and what's the other word? You know,
+
+581
+00:30:35,120 --> 00:30:41,039
+that's legally legal defami defamation.
+
+582
+00:30:38,640 --> 00:30:43,679
+Okay, you can sue the guy. You know, you
+
+583
+00:30:41,039 --> 00:30:45,120
+you can say, let me tell you young
+
+584
+00:30:43,679 --> 00:30:47,440
+people, if you don't know about this
+
+585
+00:30:45,120 --> 00:30:49,440
+issue, if you don't like someone, you
+
+586
+00:30:47,440 --> 00:30:52,000
+can say it. You know, I don't like this
+
+587
+00:30:49,440 --> 00:30:53,919
+guy. I think his opinion is I
+
+588
+00:30:52,000 --> 00:30:57,360
+think he's stupid. I think he's an
+
+589
+00:30:53,919 --> 00:31:00,240
+idiot. He's a He's a scumbag.
+
+590
+00:30:57,360 --> 00:31:04,320
+You can say all that, no problem. But
+
+591
+00:31:00,240 --> 00:31:08,080
+when you say something that is act
+
+592
+00:31:04,320 --> 00:31:11,440
+that's concrete but not factual
+
+593
+00:31:08,080 --> 00:31:14,000
+and and uh damaging then you got to be
+
+594
+00:31:11,440 --> 00:31:17,200
+careful. Okay. You cannot say oh this
+
+595
+00:31:14,000 --> 00:31:19,279
+guy he never coded a single line of
+
+596
+00:31:17,200 --> 00:31:21,440
+leisp
+
+597
+00:31:19,279 --> 00:31:24,640
+that's verging on defamation because
+
+598
+00:31:21,440 --> 00:31:27,279
+that's a lie or if you have or whether
+
+599
+00:31:24,640 --> 00:31:29,760
+or or you have to prove it okay because
+
+600
+00:31:27,279 --> 00:31:33,039
+that's that's damaging the rep
+
+601
+00:31:29,760 --> 00:31:35,520
+reputation of another person okay so you
+
+602
+00:31:33,039 --> 00:31:37,840
+you can say he's a face you can say
+
+603
+00:31:35,520 --> 00:31:40,320
+he's stupid no problem you know you can
+
+604
+00:31:37,840 --> 00:31:42,960
+say is a stupid or you can say I don't
+
+605
+00:31:40,320 --> 00:31:46,080
+agree with his opinion he's no job,
+
+606
+00:31:42,960 --> 00:31:50,000
+that's all fine. But if you say like he
+
+607
+00:31:46,080 --> 00:31:52,240
+oh he uh cheated on something or he
+
+608
+00:31:50,000 --> 00:31:55,200
+didn't do this or he did that something
+
+609
+00:31:52,240 --> 00:31:58,000
+nasty, you know, then you need to prove
+
+610
+00:31:55,200 --> 00:32:01,200
+it. Okay? Otherwise that's defam
+
+611
+00:31:58,000 --> 00:32:04,559
+defamation. What's the other word
+
+612
+00:32:01,200 --> 00:32:07,120
+uh you know so that's legal uh a legal
+
+613
+00:32:04,559 --> 00:32:09,440
+problem that's illegal. Okay. So but
+
+614
+00:32:07,120 --> 00:32:12,240
+there so there's this guy this M. So,
+
+615
+00:32:09,440 --> 00:32:16,000
+let me just search it so you guys know
+
+616
+00:32:12,240 --> 00:32:18,559
+cuz I because he he been doing that for
+
+617
+00:32:16,000 --> 00:32:21,559
+like 10 years, you know, like every few
+
+618
+00:32:18,559 --> 00:32:21,559
+years.
+
+619
+00:32:21,600 --> 00:32:28,240
+Okay, this guy who is Lisp M
+
+620
+00:32:25,600 --> 00:32:31,840
+Reneer Joshwick
+
+621
+00:32:28,240 --> 00:32:35,360
+a scumbag from Germany. He's a old he's
+
+622
+00:32:31,840 --> 00:32:38,000
+a old Lisper perhaps 10 years older than
+
+623
+00:32:35,360 --> 00:32:41,600
+me. So maybe he's 60 something. Okay.
+
+624
+00:32:38,000 --> 00:32:45,519
+He's a old like list machine guy from
+
+625
+00:32:41,600 --> 00:32:49,440
+the 1970s 80s.
+
+626
+00:32:45,519 --> 00:32:52,080
+So he's uh he hates me. So every time he
+
+627
+00:32:49,440 --> 00:32:54,960
+see some post so here's a collection you
+
+628
+00:32:52,080 --> 00:32:57,760
+know he just start to you know
+
+629
+00:32:54,960 --> 00:33:00,320
+bad mouth about me.
+
+630
+00:32:57,760 --> 00:33:04,320
+Okay. So I you know after he done this
+
+631
+00:33:00,320 --> 00:33:08,320
+many times I created a page by himself
+
+632
+00:33:04,320 --> 00:33:12,240
+2023 so people can actually see
+
+633
+00:33:08,320 --> 00:33:15,120
+my documentation on this scumbag. Okay,
+
+634
+00:33:12,240 --> 00:33:19,760
+this M
+
+635
+00:33:15,120 --> 00:33:25,279
+Raina Joshwick Joshwick something. Okay,
+
+636
+00:33:19,760 --> 00:33:29,039
+a German guy. Okay, so let's copy that.
+
+637
+00:33:25,279 --> 00:33:31,440
+So let's show that. Let's Sorry for the
+
+638
+00:33:29,039 --> 00:33:36,640
+digression. We going to go back to what
+
+639
+00:33:31,440 --> 00:33:39,640
+we doing. Close that. So but but
+
+640
+00:33:36,640 --> 00:33:39,640
+okay.
+
+641
+00:33:39,679 --> 00:33:44,960
+Okay. So let's go back. So we were So
+
+642
+00:33:42,399 --> 00:33:48,480
+you were saying what's your opinion on
+
+643
+00:33:44,960 --> 00:33:50,240
+tech text info. Okay. So
+
+644
+00:33:48,480 --> 00:33:53,519
+you can you know I don't like it
+
+645
+00:33:50,240 --> 00:33:55,600
+basically. I think it's it's not I don't
+
+646
+00:33:53,519 --> 00:34:00,200
+like it but it's Asian. Okay. It needs
+
+647
+00:33:55,600 --> 00:34:00,200
+to change. Um,
+
+648
+00:34:00,480 --> 00:34:04,559
+and by the way, are you are you are you
+
+649
+00:34:02,799 --> 00:34:06,720
+the
+
+650
+00:34:04,559 --> 00:34:09,679
+are you the
+
+651
+00:34:06,720 --> 00:34:11,760
+are you the guy on Discord who was
+
+652
+00:34:09,679 --> 00:34:16,159
+making trouble
+
+653
+00:34:11,760 --> 00:34:18,240
+Push or whatever the name I forgot.
+
+654
+00:34:16,159 --> 00:34:20,399
+Slander. Yeah, that's a word. Slander.
+
+655
+00:34:18,240 --> 00:34:22,800
+Defamation or slander? I don't know
+
+656
+00:34:20,399 --> 00:34:25,599
+exactly what's the difference. Um, but
+
+657
+00:34:22,800 --> 00:34:28,720
+they kind of similar. Okay, that's a le
+
+658
+00:34:25,599 --> 00:34:32,800
+that's illegal. Okay.
+
+659
+00:34:28,720 --> 00:34:35,119
+So, ACP Junior, thank you. So, Abraim
+
+660
+00:34:32,800 --> 00:34:37,839
+say, "Ignore the noise. You are a
+
+661
+00:34:35,119 --> 00:34:43,079
+resource and personally I have learned
+
+662
+00:34:37,839 --> 00:34:43,079
+loads of from your video." Thank you.
+
+663
+00:34:43,280 --> 00:34:49,119
+Thank you guys. Okay, so let's get back
+
+664
+00:34:45,280 --> 00:34:52,560
+to the coding language. Actually, we've
+
+665
+00:34:49,119 --> 00:34:56,240
+been going on for 30 minutes. There's a
+
+666
+00:34:52,560 --> 00:34:59,839
+lot to do actually. So, yeah. So let's
+
+667
+00:34:56,240 --> 00:35:02,240
+see where are we? Um okay, close that.
+
+668
+00:34:59,839 --> 00:35:06,560
+We working on list. So let's get back to
+
+669
+00:35:02,240 --> 00:35:09,680
+work on this. Okay. Yeah. So let me I'm
+
+670
+00:35:06,560 --> 00:35:12,800
+not on Discord. Oh, okay. Oh, NASA,
+
+671
+00:35:09,680 --> 00:35:14,880
+right? NASA guy. Okay. Whatever. Did Did
+
+672
+00:35:12,800 --> 00:35:16,400
+you work for NASA? Why is that NASA
+
+673
+00:35:14,880 --> 00:35:18,640
+logo?
+
+674
+00:35:16,400 --> 00:35:20,720
+Yeah, I confused you with someone else.
+
+675
+00:35:18,640 --> 00:35:22,880
+So anyway, so let's get back to Yeah,
+
+676
+00:35:20,720 --> 00:35:25,200
+let me just show you guys what table
+
+677
+00:35:22,880 --> 00:35:28,760
+does. Okay. So
+
+678
+00:35:25,200 --> 00:35:28,760
+uh so table
+
+679
+00:35:28,880 --> 00:35:34,560
+table is the most
+
+680
+00:35:31,920 --> 00:35:38,160
+used function in woof language to
+
+681
+00:35:34,560 --> 00:35:40,079
+generate a list or rectangular array. So
+
+682
+00:35:38,160 --> 00:35:43,119
+let me just demo. Okay. So because it's
+
+683
+00:35:40,079 --> 00:35:45,599
+easier if I just demo it.
+
+684
+00:35:43,119 --> 00:35:49,520
+Uh of course you can read my tutorial.
+
+685
+00:35:45,599 --> 00:35:52,880
+Everything is here. But um so
+
+686
+00:35:49,520 --> 00:35:57,440
+so let's switch to
+
+687
+00:35:52,880 --> 00:36:01,760
+wam language mode table. Okay. So the
+
+688
+00:35:57,440 --> 00:36:04,000
+simply simply case is just like that you
+
+689
+00:36:01,760 --> 00:36:05,760
+want to repeat that item three times.
+
+690
+00:36:04,000 --> 00:36:09,599
+Okay.
+
+691
+00:36:05,760 --> 00:36:12,079
+Then so uh let me show you another
+
+692
+00:36:09,599 --> 00:36:14,880
+example. So let's say for that you know
+
+693
+00:36:12,079 --> 00:36:17,599
+different expression repeat two three
+
+694
+00:36:14,880 --> 00:36:22,240
+times. Okay. Now,
+
+695
+00:36:17,599 --> 00:36:27,920
+now level up. Now you want to um you
+
+696
+00:36:22,240 --> 00:36:31,359
+want to repeat let's say uh x
+
+697
+00:36:27,920 --> 00:36:34,960
+i from one uh
+
+698
+00:36:31,359 --> 00:36:39,920
+one two three. Okay, it you get one two
+
+699
+00:36:34,960 --> 00:36:43,440
+three. Uh wait um oh yeah so this needs
+
+700
+00:36:39,920 --> 00:36:47,359
+to be x. Okay
+
+701
+00:36:43,440 --> 00:36:50,720
+x1 23. Okay. So that three is the
+
+702
+00:36:47,359 --> 00:36:54,160
+maximum value. Now if you put two
+
+703
+00:36:50,720 --> 00:36:57,680
+numbers here, let's say four
+
+704
+00:36:54,160 --> 00:37:00,680
+7, then you get four, five, six, seven.
+
+705
+00:36:57,680 --> 00:37:00,680
+Okay?
+
+706
+00:37:01,760 --> 00:37:06,320
+So all these are table this variation.
+
+707
+00:37:04,320 --> 00:37:09,359
+By the way, if you are a Python coder,
+
+708
+00:37:06,320 --> 00:37:11,200
+table is just like Python's
+
+709
+00:37:09,359 --> 00:37:13,520
+um
+
+710
+00:37:11,200 --> 00:37:17,520
+least comprehension
+
+711
+00:37:13,520 --> 00:37:21,040
+uh idiotic jargon from the Python idiots
+
+712
+00:37:17,520 --> 00:37:22,640
+and from their idiotic syntax, least
+
+713
+00:37:21,040 --> 00:37:24,960
+comprehension. They think they are
+
+714
+00:37:22,640 --> 00:37:28,000
+mathematicians, [laughter] but they
+
+715
+00:37:24,960 --> 00:37:31,599
+created the worst syntax
+
+716
+00:37:28,000 --> 00:37:33,839
+and also the worst name for the syntax.
+
+717
+00:37:31,599 --> 00:37:36,560
+The the the semantics list
+
+718
+00:37:33,839 --> 00:37:40,000
+comprehensionhension is the worst
+
+719
+00:37:36,560 --> 00:37:42,320
+possible and the name for it list
+
+720
+00:37:40,000 --> 00:37:46,320
+comprehension is the most idiotic. Okay,
+
+721
+00:37:42,320 --> 00:37:49,760
+the Python idiots, Gido Vanrosum, one of
+
+722
+00:37:46,320 --> 00:37:52,240
+the lowest IQ programming language
+
+723
+00:37:49,760 --> 00:37:54,880
+creators. Okay. But he think he's hot
+
+724
+00:37:52,240 --> 00:37:57,839
+shot, you know, Python like he's got the
+
+725
+00:37:54,880 --> 00:38:00,720
+he's got the mentality like he think
+
+726
+00:37:57,839 --> 00:38:05,119
+he's a great great designer
+
+727
+00:38:00,720 --> 00:38:08,560
+and uh but he's his his result is not as
+
+728
+00:38:05,119 --> 00:38:11,280
+so great and but he constantly has this
+
+729
+00:38:08,560 --> 00:38:13,280
+like passive aggressive
+
+730
+00:38:11,280 --> 00:38:15,920
+attitude to say yeah but I'm the
+
+731
+00:38:13,280 --> 00:38:18,000
+greatest language you know creating a
+
+732
+00:38:15,920 --> 00:38:21,359
+language is not just about solving
+
+733
+00:38:18,000 --> 00:38:25,280
+puzzles you know the way he writes like
+
+734
+00:38:21,359 --> 00:38:29,200
+G van Rosen the most idiotic guy okay so
+
+735
+00:38:25,280 --> 00:38:31,200
+table is similar to Python's list
+
+736
+00:38:29,200 --> 00:38:33,520
+comprehension okay by the way Hascal
+
+737
+00:38:31,200 --> 00:38:35,920
+also use that term which is idiotic
+
+738
+00:38:33,520 --> 00:38:38,800
+Hascal
+
+739
+00:38:35,920 --> 00:38:43,119
+in Wuen language
+
+740
+00:38:38,800 --> 00:38:45,680
+you if you want to generate any list or
+
+741
+00:38:43,119 --> 00:38:47,839
+any rectangular array you use a table
+
+742
+00:38:45,680 --> 00:38:51,839
+function okay uh these are the
+
+743
+00:38:47,839 --> 00:38:55,040
+variations I'm showing you Okay. Now, so
+
+744
+00:38:51,839 --> 00:38:57,040
+these are conse consecutive values.
+
+745
+00:38:55,040 --> 00:39:01,680
+Okay. So, but you can also have let's
+
+746
+00:38:57,040 --> 00:39:04,400
+say x uh four. So, in in in this example
+
+747
+00:39:01,680 --> 00:39:11,280
+that x let's let me show you some simple
+
+748
+00:39:04,400 --> 00:39:16,000
+example. Let's say x pi. Okay. Run it.
+
+749
+00:39:11,280 --> 00:39:19,520
+You see 4 pi 5 pi 6 pi 7 pi. It can be
+
+750
+00:39:16,000 --> 00:39:22,079
+any expression. Okay. So let's say x uh
+
+751
+00:39:19,520 --> 00:39:25,040
+power
+
+752
+00:39:22,079 --> 00:39:29,359
+second power uh wait where is the power
+
+753
+00:39:25,040 --> 00:39:33,040
+key there? Let's say x raised to second
+
+754
+00:39:29,359 --> 00:39:39,119
+power right it
+
+755
+00:39:33,040 --> 00:39:45,520
+you see 16 15 16 25 36 49 okay now let's
+
+756
+00:39:39,119 --> 00:39:48,160
+say x second power plus pi plus um
+
+757
+00:39:45,520 --> 00:39:51,520
+plus where's the plus key uh new
+
+758
+00:39:48,160 --> 00:39:55,200
+keyboard so that's wrong that's where
+
+759
+00:39:51,520 --> 00:39:58,640
+where is my plus key
+
+760
+00:39:55,200 --> 00:40:01,040
+plus key is always problematic. Okay,
+
+761
+00:39:58,640 --> 00:40:04,160
+let's say plus
+
+762
+00:40:01,040 --> 00:40:07,280
+uh three. Okay, let's it can also be pi
+
+763
+00:40:04,160 --> 00:40:08,960
+or whatever you see. Uh oh, there's a
+
+764
+00:40:07,280 --> 00:40:10,560
+number. Okay, let's not use a number
+
+765
+00:40:08,960 --> 00:40:12,079
+because when you use a number, it just
+
+766
+00:40:10,560 --> 00:40:14,400
+compute the whole thing. So, it's hard
+
+767
+00:40:12,079 --> 00:40:21,040
+to understand. So, let's use a symbol.
+
+768
+00:40:14,400 --> 00:40:25,359
+Let's say y x² + y x from 4 to 7. There
+
+769
+00:40:21,040 --> 00:40:28,640
+it is. Okay. Now you see the first part
+
+770
+00:40:25,359 --> 00:40:31,359
+can be any expression not just you know
+
+771
+00:40:28,640 --> 00:40:33,760
+simple it can be complicated equation or
+
+772
+00:40:31,359 --> 00:40:37,520
+whatever. So for example now let's add
+
+773
+00:40:33,760 --> 00:40:41,200
+another elements let's say x uh let's
+
+774
+00:40:37,520 --> 00:40:47,760
+say x * y
+
+775
+00:40:41,200 --> 00:40:50,320
+uh x * y or n plus z or whatever. Okay,
+
+776
+00:40:47,760 --> 00:40:54,880
+run it.
+
+777
+00:40:50,320 --> 00:41:00,240
+You see it it gets it's gets big. Let's
+
+778
+00:40:54,880 --> 00:41:02,800
+say let's format it. Okay,
+
+779
+00:41:00,240 --> 00:41:06,720
+there we there we have it. Now the all
+
+780
+00:41:02,800 --> 00:41:09,040
+these are flat lists. Okay, now let's
+
+781
+00:41:06,720 --> 00:41:12,599
+get into two-dimensional.
+
+782
+00:41:09,040 --> 00:41:12,599
+Okay. So,
+
+783
+00:41:14,800 --> 00:41:23,119
+two dimensional case uh example.
+
+784
+00:41:20,000 --> 00:41:27,760
+Okay. So, same thing start simple. Let's
+
+785
+00:41:23,119 --> 00:41:32,000
+start with uh just a single x. So, x uh
+
+786
+00:41:27,760 --> 00:41:35,839
+let's say now let's give a list x and y.
+
+787
+00:41:32,000 --> 00:41:39,680
+Now x from
+
+788
+00:41:35,839 --> 00:41:43,200
+one two three and y from
+
+789
+00:41:39,680 --> 00:41:45,520
+uh one two three okay let's say two okay
+
+790
+00:41:43,200 --> 00:41:49,280
+because when you have multiple nesting
+
+791
+00:41:45,520 --> 00:41:51,920
+it becomes the huge very fast okay run
+
+792
+00:41:49,280 --> 00:41:54,160
+it
+
+793
+00:41:51,920 --> 00:42:01,440
+so you see
+
+794
+00:41:54,160 --> 00:42:04,800
+x goes from 1 to 3 so x is 1 x = to 2 x
+
+795
+00:42:01,440 --> 00:42:09,520
+= to 3. Then y goes from 1 to two. So
+
+796
+00:42:04,800 --> 00:42:13,200
+for each time x changes the y uh you see
+
+797
+00:42:09,520 --> 00:42:15,839
+x now in this part x is one, y is one
+
+798
+00:42:13,200 --> 00:42:19,200
+two. Okay.
+
+799
+00:42:15,839 --> 00:42:22,319
+Now in the second part so let's format
+
+800
+00:42:19,200 --> 00:42:24,880
+it. Okay. So, let's format it so it's
+
+801
+00:42:22,319 --> 00:42:27,280
+easier to see.
+
+802
+00:42:24,880 --> 00:42:30,280
+Um,
+
+803
+00:42:27,280 --> 00:42:30,280
+what what
+
+804
+00:42:33,119 --> 00:42:39,520
+Okay. So, the second part x is 2, y is 1
+
+805
+00:42:36,640 --> 00:42:43,040
+and two. The third part x is 3, y is one
+
+806
+00:42:39,520 --> 00:42:45,009
+and three. So, this is a 2D matrix, a
+
+807
+00:42:43,040 --> 00:42:46,640
+rectangular
+
+808
+00:42:45,009 --> 00:42:49,040
+[clears throat] matrix. Actually,
+
+809
+00:42:46,640 --> 00:42:52,960
+actually, it's a bit complicated. Let's
+
+810
+00:42:49,040 --> 00:42:56,079
+make make this into this form
+
+811
+00:42:52,960 --> 00:42:58,720
+so that so the braces does not confuse
+
+812
+00:42:56,079 --> 00:43:02,520
+you. Okay, that's right.
+
+813
+00:42:58,720 --> 00:43:02,520
+Okay. So now
+
+814
+00:43:09,440 --> 00:43:16,400
+now it's much more clear. See
+
+815
+00:43:13,440 --> 00:43:18,800
+it's more it's a bit more complicated
+
+816
+00:43:16,400 --> 00:43:21,520
+here because you are using a list which
+
+817
+00:43:18,800 --> 00:43:25,280
+is represented by the braces you know
+
+818
+00:43:21,520 --> 00:43:27,520
+the curly brackets. So that
+
+819
+00:43:25,280 --> 00:43:29,920
+kind of gets you confused. So let's
+
+820
+00:43:27,520 --> 00:43:32,880
+remove that. Okay. So in this example
+
+821
+00:43:29,920 --> 00:43:34,800
+you can clearly see a two-dimensional
+
+822
+00:43:32,880 --> 00:43:38,720
+matrix. Okay. Because you have two
+
+823
+00:43:34,800 --> 00:43:43,040
+iterations X and Y. Okay. Now similarly
+
+824
+00:43:38,720 --> 00:43:48,880
+you can have any arbitrary complicated
+
+825
+00:43:43,040 --> 00:43:53,520
+expression. Okay, let's say x + y uh
+
+826
+00:43:48,880 --> 00:43:55,119
+let's say pi let's say and i the complex
+
+827
+00:43:53,520 --> 00:43:57,200
+number
+
+828
+00:43:55,119 --> 00:43:59,440
+okay
+
+829
+00:43:57,200 --> 00:44:02,480
+then you got that and this can be
+
+830
+00:43:59,440 --> 00:44:06,720
+three-dimensional okay so uh let's say
+
+831
+00:44:02,480 --> 00:44:09,040
+if you have the z component let's say -5
+
+832
+00:44:06,720 --> 00:44:14,160
+to
+
+833
+00:44:09,040 --> 00:44:18,640
+3 uh z so you want the z component
+
+834
+00:44:14,160 --> 00:44:22,240
+uh let's say time z okay here so now you
+
+835
+00:44:18,640 --> 00:44:27,200
+get a three-dimensional matrix and each
+
+836
+00:44:22,240 --> 00:44:29,599
+element is this expression okay and it
+
+837
+00:44:27,200 --> 00:44:32,560
+can also again it can contain fraction
+
+838
+00:44:29,599 --> 00:44:36,960
+okay let's actually try fraction example
+
+839
+00:44:32,560 --> 00:44:43,240
+because that's fun okay so delete that
+
+840
+00:44:36,960 --> 00:44:43,240
+and now actually this let's say squared
+
+841
+00:44:46,185 --> 00:44:51,839
+>> [sighs]
+
+842
+00:44:47,920 --> 00:44:54,319
+>> x * y^ 2 +
+
+843
+00:44:51,839 --> 00:44:59,599
+um
+
+844
+00:44:54,319 --> 00:45:01,520
++<unk> * y / z. Okay, so it's a
+
+845
+00:44:59,599 --> 00:45:03,119
+three-dimensional matrix, you know,
+
+846
+00:45:01,520 --> 00:45:06,079
+complicated
+
+847
+00:45:03,119 --> 00:45:10,000
+to read, but if you format this in wam
+
+848
+00:45:06,079 --> 00:45:14,000
+language, you get much better um shift
+
+849
+00:45:10,000 --> 00:45:18,480
+enter. you see clarity.
+
+850
+00:45:14,000 --> 00:45:22,079
+Okay. So, let's uh let's copy this.
+
+851
+00:45:18,480 --> 00:45:25,079
+Okay. Let's copy this uh screenshot so
+
+852
+00:45:22,079 --> 00:45:25,079
+that
+
+853
+00:45:27,359 --> 00:45:32,160
+is this interesting guys. Is this
+
+854
+00:45:30,240 --> 00:45:35,520
+interesting?
+
+855
+00:45:32,160 --> 00:45:38,000
+Okay. Am I losing watches? Okay. So,
+
+856
+00:45:35,520 --> 00:45:41,200
+anyway, that's a demonstration of table.
+
+857
+00:45:38,000 --> 00:45:42,800
+Okay. So, let's see.
+
+858
+00:45:41,200 --> 00:45:45,359
+Um
+
+859
+00:45:42,800 --> 00:45:48,960
+okay so let's
+
+860
+00:45:45,359 --> 00:45:52,880
+cut let's put it back in our example
+
+861
+00:45:48,960 --> 00:45:56,480
+here. So let's today's talk show
+
+862
+00:45:52,880 --> 00:45:59,119
+uh wolf frame language paste it syntax
+
+863
+00:45:56,480 --> 00:46:05,880
+collect show in browser this is today's
+
+864
+00:45:59,119 --> 00:46:05,880
+talk show here is the code we did okay
+
+865
+00:46:07,839 --> 00:46:12,720
+am I still going is it good everyone say
+
+866
+00:46:11,040 --> 00:46:14,319
+hi
+
+867
+00:46:12,720 --> 00:46:18,720
+uh
+
+868
+00:46:14,319 --> 00:46:20,720
+check audio check video check
+
+869
+00:46:18,720 --> 00:46:23,920
+Okay.
+
+870
+00:46:20,720 --> 00:46:26,960
+So, let's continue. So, let's continue.
+
+871
+00:46:23,920 --> 00:46:29,839
+Let's see. Uh where are we? So, table.
+
+872
+00:46:26,960 --> 00:46:34,160
+Okay.
+
+873
+00:46:29,839 --> 00:46:36,960
+Uh table. Yeah. So, here generate
+
+874
+00:46:34,160 --> 00:46:42,359
+generating nested list with table. Okay.
+
+875
+00:46:36,960 --> 00:46:42,359
+So, that's a example here. Um
+
+876
+00:46:45,280 --> 00:46:52,079
+Okay. So we want to yeah delete this
+
+877
+00:46:49,040 --> 00:46:54,319
+part. So actually we have already
+
+878
+00:46:52,079 --> 00:46:59,560
+demonstrated this part that's a
+
+879
+00:46:54,319 --> 00:46:59,560
+multi-dimensional example. So
+
+880
+00:47:00,480 --> 00:47:08,480
+let's go to the page and uh
+
+881
+00:47:05,359 --> 00:47:12,200
+okay so we uh
+
+882
+00:47:08,480 --> 00:47:12,200
+we want to
+
+883
+00:47:13,440 --> 00:47:18,119
+yeah so nested. So delete
+
+884
+00:47:24,079 --> 00:47:29,160
+generate a nested list. Okay,
+
+885
+00:47:35,280 --> 00:47:41,040
+remove this section basically showing
+
+886
+00:47:37,520 --> 00:47:45,200
+browser. Okay, there. Okay, we already
+
+887
+00:47:41,040 --> 00:47:47,760
+demonstrated this. Okay. So,
+
+888
+00:47:45,200 --> 00:47:49,680
+um, yeah, fantastic. So, let's delete
+
+889
+00:47:47,760 --> 00:47:52,160
+that.
+
+890
+00:47:49,680 --> 00:47:55,760
+Delete that. Next.
+
+891
+00:47:52,160 --> 00:47:59,200
+Duplicate with plus. Okay. So, I want to
+
+892
+00:47:55,760 --> 00:48:03,359
+show a different example here.
+
+893
+00:47:59,200 --> 00:48:06,880
+Yeah. So, let's go to search for pre.
+
+894
+00:48:03,359 --> 00:48:09,040
+Yeah. So, copy that.
+
+895
+00:48:06,880 --> 00:48:13,040
+Uh,
+
+896
+00:48:09,040 --> 00:48:15,760
+let's not use Z. Okay. the Z because the
+
+897
+00:48:13,040 --> 00:48:20,560
+simpler example the better. Okay, let's
+
+898
+00:48:15,760 --> 00:48:23,599
+just say three. Uh so yeah, so run it.
+
+899
+00:48:20,560 --> 00:48:30,000
+We demonstrated this before.
+
+900
+00:48:23,599 --> 00:48:33,680
+Uh okay, so now let's format it so it's
+
+901
+00:48:30,000 --> 00:48:36,400
+easier to see.
+
+902
+00:48:33,680 --> 00:48:38,640
+Okay. And
+
+903
+00:48:36,400 --> 00:48:42,160
+then
+
+904
+00:48:38,640 --> 00:48:46,839
+we want to say yeah in this example we
+
+905
+00:48:42,160 --> 00:48:46,839
+just say x + y
+
+906
+00:48:47,359 --> 00:48:51,800
+uh + y
+
+907
+00:48:57,440 --> 00:49:03,160
+then you just got numbers in each. Okay.
+
+908
+00:49:09,200 --> 00:49:15,040
+Okay. Yeah, that's better example.
+
+909
+00:49:11,680 --> 00:49:16,559
+Syntax collect. Go back here.
+
+910
+00:49:15,040 --> 00:49:18,559
+Refresh.
+
+911
+00:49:16,559 --> 00:49:21,440
+Simple example.
+
+912
+00:49:18,559 --> 00:49:24,319
+Simpler the better. Okay.
+
+913
+00:49:21,440 --> 00:49:27,920
+Duplicate with plus. Yeah, I wanted to
+
+914
+00:49:24,319 --> 00:49:30,000
+show a example where the expression gets
+
+915
+00:49:27,920 --> 00:49:33,440
+simplified.
+
+916
+00:49:30,000 --> 00:49:37,119
+so that the actual result can be easily
+
+917
+00:49:33,440 --> 00:49:39,839
+seen as a two-dimensional matrix.
+
+918
+00:49:37,119 --> 00:49:43,599
+That's what that is about.
+
+919
+00:49:39,839 --> 00:49:46,880
+Okay. So, delete this screenshot. Now,
+
+920
+00:49:43,599 --> 00:49:52,079
+what is this? Uh generate a flat list
+
+921
+00:49:46,880 --> 00:49:54,640
+H2. Okay. So in this table documentation
+
+922
+00:49:52,079 --> 00:49:57,760
+tutorial I'm writing
+
+923
+00:49:54,640 --> 00:50:00,720
+uh what I want to do is I want to
+
+924
+00:49:57,760 --> 00:50:04,119
+separate into uh different sections.
+
+925
+00:50:00,720 --> 00:50:04,119
+Okay. Because
+
+926
+00:50:04,160 --> 00:50:10,079
+uh generate a flat list. Okay. Yeah. I
+
+927
+00:50:07,520 --> 00:50:13,040
+want to yeah separate into sections. So
+
+928
+00:50:10,079 --> 00:50:14,800
+the first part is generate a flat list.
+
+929
+00:50:13,040 --> 00:50:18,160
+Then the second part is generate
+
+930
+00:50:14,800 --> 00:50:19,839
+rectangular array. Okay.
+
+931
+00:50:18,160 --> 00:50:24,079
+So
+
+932
+00:50:19,839 --> 00:50:27,400
+yeah. Okay. So go to the top
+
+933
+00:50:24,079 --> 00:50:27,400
+uh table
+
+934
+00:50:28,720 --> 00:50:31,720
+cut
+
+935
+00:50:32,880 --> 00:50:39,599
+new section the power of Emacs. Okay.
+
+936
+00:50:37,359 --> 00:50:44,800
+And this section
+
+937
+00:50:39,599 --> 00:50:47,359
+uh move that to here. Okay. So move
+
+938
+00:50:44,800 --> 00:50:50,319
+actually here and here give it a new
+
+939
+00:50:47,359 --> 00:50:54,960
+name. Okay. Generate
+
+940
+00:50:50,319 --> 00:50:58,760
+black uh black
+
+941
+00:50:54,960 --> 00:50:58,760
+beast. Okay.
+
+942
+00:51:01,359 --> 00:51:07,920
+Fantastic table. What it does? Then
+
+943
+00:51:04,640 --> 00:51:11,599
+example generating flat list then
+
+944
+00:51:07,920 --> 00:51:15,599
+generate rectangular array. Okay.
+
+945
+00:51:11,599 --> 00:51:17,680
+So that's what this is about.
+
+946
+00:51:15,599 --> 00:51:21,520
+Delete
+
+947
+00:51:17,680 --> 00:51:24,640
+uh example move up. So
+
+948
+00:51:21,520 --> 00:51:27,200
+okay, are you guys bored with this? I'm
+
+949
+00:51:24,640 --> 00:51:29,680
+alive. That's good.
+
+950
+00:51:27,200 --> 00:51:32,480
+So if you have any questions, uh just
+
+951
+00:51:29,680 --> 00:51:34,800
+ask me. Okay, there's not many people
+
+952
+00:51:32,480 --> 00:51:36,640
+watching now. So you know if you have
+
+953
+00:51:34,800 --> 00:51:39,640
+questions related to what I'm talking
+
+954
+00:51:36,640 --> 00:51:39,640
+about.
+
+955
+00:51:40,000 --> 00:51:49,200
+Uh so so this is about example of
+
+956
+00:51:45,280 --> 00:51:51,440
+symbolic expressions. So that that is a
+
+957
+00:51:49,200 --> 00:51:55,680
+flat list
+
+958
+00:51:51,440 --> 00:52:01,920
+example. So that should move up to um
+
+959
+00:51:55,680 --> 00:52:05,520
+above. Okay. Um yeah. So cut cut cut one
+
+960
+00:52:01,920 --> 00:52:08,400
+single key press and make a section
+
+961
+00:52:05,520 --> 00:52:15,200
+paste it there. delete the time and
+
+962
+00:52:08,400 --> 00:52:20,079
+to-do and cut the entire section and uh
+
+963
+00:52:15,200 --> 00:52:21,680
+go to the beginning of that tag.
+
+964
+00:52:20,079 --> 00:52:25,280
+and
+
+965
+00:52:21,680 --> 00:52:28,520
+then say nested inside this section and
+
+966
+00:52:25,280 --> 00:52:28,520
+make it
+
+967
+00:52:30,400 --> 00:52:33,640
+uh example
+
+968
+00:52:34,720 --> 00:52:38,400
+symbolic
+
+969
+00:52:36,400 --> 00:52:41,520
+expression
+
+970
+00:52:38,400 --> 00:52:45,760
+uh expression. Okay.
+
+971
+00:52:41,520 --> 00:52:47,760
+So this make this two H3
+
+972
+00:52:45,760 --> 00:52:50,000
+show in browser.
+
+973
+00:52:47,760 --> 00:52:53,839
+So you got table
+
+974
+00:52:50,000 --> 00:52:56,960
+Generate flat list section
+
+975
+00:52:53,839 --> 00:52:59,680
+subsection nested inside example
+
+976
+00:52:56,960 --> 00:53:02,640
+symbolic expression any part can be
+
+977
+00:52:59,680 --> 00:53:04,640
+symbolic. That's right.
+
+978
+00:53:02,640 --> 00:53:08,319
+Okay.
+
+979
+00:53:04,640 --> 00:53:14,160
+And then uh and go down. Yeah. So you
+
+980
+00:53:08,319 --> 00:53:18,800
+got to move remove that HR. Okay.
+
+981
+00:53:14,160 --> 00:53:21,839
+Now this generate 3D matrix. Um, do I
+
+982
+00:53:18,800 --> 00:53:24,160
+need it? No, that's a screenshot from
+
+983
+00:53:21,839 --> 00:53:27,119
+Wuam notebook.
+
+984
+00:53:24,160 --> 00:53:31,480
+Uh, I think I just Let's just move it.
+
+985
+00:53:27,119 --> 00:53:31,480
+Remove it. Okay. So,
+
+986
+00:53:35,280 --> 00:53:41,599
+search for the image file name to make
+
+987
+00:53:38,319 --> 00:53:45,760
+sure there's no it doesn't appear
+
+988
+00:53:41,599 --> 00:53:47,359
+anywhere else. No. Okay. So, open it.
+
+989
+00:53:45,760 --> 00:53:50,960
+Delete it.
+
+990
+00:53:47,359 --> 00:53:55,040
+delete the image and delete that. Okay,
+
+991
+00:53:50,960 --> 00:54:00,520
+delete that and back here. Refresh
+
+992
+00:53:55,040 --> 00:54:00,520
+arbitrary expression. Okay, so
+
+993
+00:54:01,440 --> 00:54:09,040
+yeah. So let's modify that and move it
+
+994
+00:54:04,319 --> 00:54:11,760
+to the flat example. Okay, so
+
+995
+00:54:09,040 --> 00:54:13,680
+run it.
+
+996
+00:54:11,760 --> 00:54:15,760
+Uh
+
+997
+00:54:13,680 --> 00:54:22,280
+let's say
+
+998
+00:54:15,760 --> 00:54:22,280
+divided by Z. Uh wait what?
+
+999
+00:54:22,720 --> 00:54:28,359
+Divide by Z time
+
+1000
+00:54:28,400 --> 00:54:40,319
+I pi / Z. Okay, run it.
+
+1001
+00:54:33,839 --> 00:54:44,920
+Uh actually divided by let's say X here.
+
+1002
+00:54:40,319 --> 00:54:44,920
+Okay, let's say that run it.
+
+1003
+00:54:45,359 --> 00:54:50,280
+Okay, let's just leave it like that.
+
+1004
+00:54:51,280 --> 00:54:56,240
+Uh,
+
+1005
+00:54:53,599 --> 00:54:59,200
+divided by
+
+1006
+00:54:56,240 --> 00:55:02,640
+three. Wait, where did the x Yeah, x
+
+1007
+00:54:59,200 --> 00:55:06,839
+becomes one, two, three. Yeah. So,
+
+1008
+00:55:02,640 --> 00:55:06,839
+so this is a example
+
+1009
+00:55:08,240 --> 00:55:16,480
+examp
+
+1010
+00:55:10,400 --> 00:55:18,400
+uh example of arbitrary re expression
+
+1011
+00:55:16,480 --> 00:55:21,400
+uh
+
+1012
+00:55:18,400 --> 00:55:21,400
+express
+
+1013
+00:55:23,680 --> 00:55:26,680
+uh
+
+1014
+00:55:28,400 --> 00:55:30,480
+uh
+
+1015
+00:55:32,240 --> 00:55:38,720
+Okay. So,
+
+1016
+00:55:34,880 --> 00:55:42,800
+put it back. Now,
+
+1017
+00:55:38,720 --> 00:55:48,640
+cut. Okay. Wait. Delete the section.
+
+1018
+00:55:42,800 --> 00:55:52,240
+Then cut. Then go to example above.
+
+1019
+00:55:48,640 --> 00:55:54,559
+Um, then
+
+1020
+00:55:52,240 --> 00:56:00,319
+paste it there.
+
+1021
+00:55:54,559 --> 00:56:03,319
+Then cut that. Then paste it that
+
+1022
+00:56:00,319 --> 00:56:03,319
+um
+
+1023
+00:56:10,240 --> 00:56:16,280
+syntax color the whole page. Show it.
+
+1024
+00:56:17,920 --> 00:56:26,480
+Fantastic. Now it's much more clear than
+
+1025
+00:56:23,280 --> 00:56:29,040
+before. You see that's my working on my
+
+1026
+00:56:26,480 --> 00:56:33,880
+tutorial. So this
+
+1027
+00:56:29,040 --> 00:56:33,880
+delete double check one more time.
+
+1028
+00:56:35,359 --> 00:56:42,200
+Yeah.
+
+1029
+00:56:37,040 --> 00:56:42,200
+Any questions? So next.
+
+1030
+00:56:42,480 --> 00:56:49,280
+Okay. So this we already did. Delete.
+
+1031
+00:56:46,400 --> 00:56:50,799
+Okay. Arbitrary expression. Move up.
+
+1032
+00:56:49,280 --> 00:56:54,960
+Delete.
+
+1033
+00:56:50,799 --> 00:56:57,520
+Now. Okay. So now let's talk about
+
+1034
+00:56:54,960 --> 00:57:00,559
+another page.
+
+1035
+00:56:57,520 --> 00:57:04,720
+Close. Back here. Close. Show in
+
+1036
+00:57:00,559 --> 00:57:07,520
+browser. Go to list operations.
+
+1037
+00:57:04,720 --> 00:57:12,240
+Now before we were creating using table
+
+1038
+00:57:07,520 --> 00:57:15,680
+that generates a flat list or
+
+1039
+00:57:12,240 --> 00:57:18,079
+a rectangular array nested. Okay. But
+
+1040
+00:57:15,680 --> 00:57:20,880
+now there's another function that's
+
+1041
+00:57:18,079 --> 00:57:24,559
+dedicated to just flat list. That's this
+
+1042
+00:57:20,880 --> 00:57:29,119
+one range. Okay, stop the YouTube video.
+
+1043
+00:57:24,559 --> 00:57:33,839
+Stop there. Okay, so let's paste linkify
+
+1044
+00:57:29,119 --> 00:57:37,520
+listify merge the list. Open it
+
+1045
+00:57:33,839 --> 00:57:42,559
+and the today's date update.
+
+1046
+00:57:37,520 --> 00:57:47,040
+Okay. And uh then uh pre
+
+1047
+00:57:42,559 --> 00:57:49,839
+so here is the code. That's uh so this
+
+1048
+00:57:47,040 --> 00:57:52,480
+actually
+
+1049
+00:57:49,839 --> 00:57:58,280
+Yeah. So what we want to do is we
+
+1050
+00:57:52,480 --> 00:57:58,280
+actually want to make this um
+
+1051
+00:58:01,200 --> 00:58:09,160
+okay we want to make it separate boxes.
+
+1052
+00:58:04,880 --> 00:58:09,160
+Okay. Um
+
+1053
+00:58:11,119 --> 00:58:16,880
+min
+
+1054
+00:58:13,920 --> 00:58:19,839
+paste it there. Okay. And then here's a
+
+1055
+00:58:16,880 --> 00:58:21,599
+example with steps.
+
+1056
+00:58:19,839 --> 00:58:24,240
+Steps
+
+1057
+00:58:21,599 --> 00:58:28,160
+0 to five
+
+1058
+00:58:24,240 --> 00:58:31,040
+symbolic step next step negative step.
+
+1059
+00:58:28,160 --> 00:58:35,119
+And we want to show one more example
+
+1060
+00:58:31,040 --> 00:58:37,839
+where the last item is dropped.
+
+1061
+00:58:35,119 --> 00:58:44,200
+Um
+
+1062
+00:58:37,839 --> 00:58:44,200
+so that would be for example um
+
+1063
+00:58:44,319 --> 00:58:47,880
+actually here
+
+1064
+00:58:51,040 --> 00:58:59,520
+so this for example if you say 0.7
+
+1065
+00:58:55,839 --> 00:59:03,520
+so that's not even evenly divisible then
+
+1066
+00:58:59,520 --> 00:59:08,000
+the result will not reach three
+
+1067
+00:59:03,520 --> 00:59:14,040
+Okay. So if
+
+1068
+00:59:08,000 --> 00:59:14,040
+step is not evenly divisible
+
+1069
+00:59:15,040 --> 00:59:21,880
+by max.
+
+1070
+00:59:18,160 --> 00:59:21,880
+The result
+
+1071
+00:59:22,079 --> 00:59:30,240
+does not contain max.
+
+1072
+00:59:26,960 --> 00:59:33,240
+Now did I spell divisible correct? So
+
+1073
+00:59:30,240 --> 00:59:33,240
+check
+
+1074
+00:59:33,440 --> 00:59:36,440
+but
+
+1075
+00:59:40,000 --> 00:59:44,920
+correct. Okay. So now
+
+1076
+00:59:46,880 --> 00:59:55,000
+okay
+
+1077
+00:59:49,040 --> 00:59:55,000
+syntax color show in browser. Fantastic.
+
+1078
+01:00:01,040 --> 01:00:05,400
+Okay, that's that.
+
+1079
+01:00:09,680 --> 01:00:16,799
+Okay, that's a formatting issue. Remove
+
+1080
+01:00:12,880 --> 01:00:20,160
+removing the blank line there. Delete.
+
+1081
+01:00:16,799 --> 01:00:23,599
+Okay, so now it's gets more complex. Now
+
+1082
+01:00:20,160 --> 01:00:25,520
+this is about part
+
+1083
+01:00:23,599 --> 01:00:28,960
+A.
+
+1084
+01:00:25,520 --> 01:00:31,040
+Okay, I think most people are bored. You
+
+1085
+01:00:28,960 --> 01:00:34,720
+know, you kind of know what is this
+
+1086
+01:00:31,040 --> 01:00:38,240
+about. And I have to do one, two, three,
+
+1087
+01:00:34,720 --> 01:00:42,480
+4, 5, 6, 7,
+
+1088
+01:00:38,240 --> 01:00:46,880
+8, 9, 10, 11,
+
+1089
+01:00:42,480 --> 01:00:48,720
+12 pages. Uh, 12, 13,
+
+1090
+01:00:46,880 --> 01:00:51,280
+14.
+
+1091
+01:00:48,720 --> 01:00:55,040
+You know, I got quite a few to do on
+
+1092
+01:00:51,280 --> 01:00:56,799
+this list operations with Wuam language.
+
+1093
+01:00:55,040 --> 01:00:59,119
+But I think that's it for today. Thank
+
+1094
+01:00:56,799 --> 01:01:01,760
+you guys for watching.
+
+1095
+01:00:59,119 --> 01:01:04,079
+Uh we talked about that's one hour.
+
+1096
+01:01:01,760 --> 01:01:06,880
+Okay,
+
+1097
+01:01:04,079 --> 01:01:09,520
+bye guys.
+
+1098
+01:01:06,880 --> 01:01:12,720
+Now, if you guys like my stuff, remember
+
+1099
+01:01:09,520 --> 01:01:14,240
+to go to.info
+
+1100
+01:01:12,720 --> 01:01:18,640
+http
+
+1101
+01:01:14,240 --> 01:01:21,359
+no s. Okay, then go up. Go up. Then
+
+1102
+01:01:18,640 --> 01:01:26,640
+programming language tutorials then go
+
+1103
+01:01:21,359 --> 01:01:29,839
+up a code go up codeali.info
+
+1104
+01:01:26,640 --> 01:01:32,640
+info my homepage then go to the bottom
+
+1105
+01:01:29,839 --> 01:01:35,839
+you Patreon me
+
+1106
+01:01:32,640 --> 01:01:38,400
+you Amazon gift card me and you PayPal
+
+1107
+01:01:35,839 --> 01:01:42,160
+me thank you
+
+1108
+01:01:38,400 --> 01:01:46,359
+okay that's it bye guys
+
+1109
+01:01:42,160 --> 01:01:46,359
+we shut down in one minute
+
+1110
+01:01:50,319 --> 01:01:57,520
+so we were working on this page okay
+
+1111
+01:01:52,799 --> 01:01:59,839
+close so here is our talk show today.
+
+1112
+01:01:57,520 --> 01:02:03,799
+After a while, you'll see my website
+
+1113
+01:01:59,839 --> 01:02:03,799
+updated. So,
+

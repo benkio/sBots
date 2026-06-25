@@ -1,0 +1,2884 @@
+1
+00:00:00,654 --> 00:00:05,920
+[clears throat] Welcome to another
+
+2
+00:00:02,399 --> 00:00:11,200
+episode of Kas talk show. We are going
+
+3
+00:00:05,920 --> 00:00:14,719
+to do advent of code 2025 day three.
+
+4
+00:00:11,200 --> 00:00:17,600
+Uh we started yesterday but I got a I
+
+5
+00:00:14,719 --> 00:00:19,840
+got a call. Uh so I have to go. So we
+
+6
+00:00:17,600 --> 00:00:22,800
+aborted so we're going to continue
+
+7
+00:00:19,840 --> 00:00:27,199
+yesterday.
+
+8
+00:00:22,800 --> 00:00:30,680
+Advent of code day uh 2025 day three in
+
+9
+00:00:27,199 --> 00:00:30,680
+wam language
+
+10
+00:00:32,320 --> 00:00:37,920
+if you are watching this offline play
+
+11
+00:00:34,640 --> 00:00:39,680
+1.5 speed if you are watching this uh
+
+12
+00:00:37,920 --> 00:00:41,520
+here
+
+13
+00:00:39,680 --> 00:00:45,040
+post comment okay love to see your
+
+14
+00:00:41,520 --> 00:00:49,200
+comments so let's see um yeah let's
+
+15
+00:00:45,040 --> 00:00:53,039
+begin so let's start wam language
+
+16
+00:00:49,200 --> 00:00:53,039
+the most powerful programming language
+
+17
+00:00:53,600 --> 00:00:59,199
+And I have tutorials just search for it
+
+18
+00:00:56,320 --> 00:01:02,879
+wam language for programmers. You will
+
+19
+00:00:59,199 --> 00:01:06,960
+find complete tutorial and uh where to
+
+20
+00:01:02,879 --> 00:01:11,520
+download for free. Okay. So wam language
+
+21
+00:01:06,960 --> 00:01:14,799
+new uh notebook evaluate three to start
+
+22
+00:01:11,520 --> 00:01:18,080
+the kernel and magnify.
+
+23
+00:01:14,799 --> 00:01:19,920
+So we got a notepad going. Okay. So, w
+
+24
+00:01:18,080 --> 00:01:22,159
+language.
+
+25
+00:01:19,920 --> 00:01:26,000
+Now, my keyboard. Let me show you guys
+
+26
+00:01:22,159 --> 00:01:28,400
+my keyboard. Um, my keyboard. This is
+
+27
+00:01:26,000 --> 00:01:32,159
+ultimate hacking keyboard 80. I have
+
+28
+00:01:28,400 --> 00:01:34,960
+reviews on YouTube. Okay. So, video
+
+29
+00:01:32,159 --> 00:01:36,880
+check, audio check. Okay, this is not
+
+30
+00:01:34,960 --> 00:01:39,680
+good here.
+
+31
+00:01:36,880 --> 00:01:41,200
+So, I need to bring this up somewhere
+
+32
+00:01:39,680 --> 00:01:44,880
+here.
+
+33
+00:01:41,200 --> 00:01:47,600
+Video check. Audio check.
+
+34
+00:01:44,880 --> 00:01:50,479
+Okay, let's begin. So yesterday the
+
+35
+00:01:47,600 --> 00:01:53,119
+problem was [clears throat]
+
+36
+00:01:50,479 --> 00:01:56,159
+at the end of code 2025
+
+37
+00:01:53,119 --> 00:02:00,320
+day three. The problem was given a list
+
+38
+00:01:56,159 --> 00:02:02,640
+of numbers. For each number you want to
+
+39
+00:02:00,320 --> 00:02:06,560
+pick two digits
+
+40
+00:02:02,640 --> 00:02:10,080
+in the number such such that the two
+
+41
+00:02:06,560 --> 00:02:12,000
+digits combined forms a number that is a
+
+42
+00:02:10,080 --> 00:02:15,280
+maximum.
+
+43
+00:02:12,000 --> 00:02:17,840
+Okay. So for example 9876 something
+
+44
+00:02:15,280 --> 00:02:22,720
+something something in this case the
+
+45
+00:02:17,840 --> 00:02:26,239
+answer would be 98 9 and 8 then 98 so
+
+46
+00:02:22,720 --> 00:02:29,680
+that is the largest largest two digits
+
+47
+00:02:26,239 --> 00:02:33,040
+number you can form out of this
+
+48
+00:02:29,680 --> 00:02:35,040
+number uh so the algorithm would be
+
+49
+00:02:33,040 --> 00:02:39,040
+first pick the largest digit in the
+
+50
+00:02:35,040 --> 00:02:42,160
+number but not the last one
+
+51
+00:02:39,040 --> 00:02:42,160
+not the last digit
+
+52
+00:02:42,640 --> 00:02:49,200
+Okay. Then pick a large largest digit
+
+53
+00:02:46,800 --> 00:02:54,080
+from the digits that is after the digit
+
+54
+00:02:49,200 --> 00:02:58,400
+you picked. Okay. So let's code that.
+
+55
+00:02:54,080 --> 00:03:02,080
+Okay. So let's say uh
+
+56
+00:02:58,400 --> 00:03:04,959
+let's say this example. So first of all
+
+57
+00:03:02,080 --> 00:03:09,280
+you you need to pick a digit. So this
+
+58
+00:03:04,959 --> 00:03:11,440
+this is normally a string but you can so
+
+59
+00:03:09,280 --> 00:03:13,200
+in from language you can deal with
+
+60
+00:03:11,440 --> 00:03:17,120
+string or you can deal with the number
+
+61
+00:03:13,200 --> 00:03:20,720
+and take digits. So let's see. So let's
+
+62
+00:03:17,120 --> 00:03:24,319
+see all functions
+
+63
+00:03:20,720 --> 00:03:28,560
+that whose name contains the word digit.
+
+64
+00:03:24,319 --> 00:03:31,519
+Shift enter. So you got a huge number of
+
+65
+00:03:28,560 --> 00:03:34,000
+functions whose name contains the word
+
+66
+00:03:31,519 --> 00:03:36,000
+digit. Let's do it again. So it's two
+
+67
+00:03:34,000 --> 00:03:39,200
+columns.
+
+68
+00:03:36,000 --> 00:03:41,680
+Okay. So far so good comments guys.
+
+69
+00:03:39,200 --> 00:03:44,400
+Uh let's see
+
+70
+00:03:41,680 --> 00:03:48,120
+that is my Twitter. Okay. Move from
+
+71
+00:03:44,400 --> 00:03:48,120
+notebook here.
+
+72
+00:03:48,720 --> 00:03:54,560
+Here.
+
+73
+00:03:51,599 --> 00:04:00,120
+Okay. So from digits digit signature
+
+74
+00:03:54,560 --> 00:04:00,120
+digit block uh so digit characters
+
+75
+00:04:00,640 --> 00:04:08,720
+digit Q real digits
+
+76
+00:04:04,959 --> 00:04:11,439
+from digits integer digits number digits
+
+77
+00:04:08,720 --> 00:04:13,680
+okay so let's look at integer digits
+
+78
+00:04:11,439 --> 00:04:16,720
+gives a list of the decimal digits in
+
+79
+00:04:13,680 --> 00:04:20,400
+the integer
+
+80
+00:04:16,720 --> 00:04:20,400
+okay let's just try some of
+
+81
+00:04:24,479 --> 00:04:30,759
+So if you give that number, what does it
+
+82
+00:04:27,759 --> 00:04:30,759
+return?
+
+83
+00:04:30,800 --> 00:04:37,800
+Okay, that return integer digits. That's
+
+84
+00:04:33,280 --> 00:04:37,800
+what it does. Now,
+
+85
+00:04:38,960 --> 00:04:44,720
+now what is number digits? returns the
+
+86
+00:04:41,600 --> 00:04:50,600
+digit corresponding to
+
+87
+00:04:44,720 --> 00:04:50,600
+10 to the power n in real value number.
+
+88
+00:04:50,800 --> 00:04:55,400
+Okay, not sure what's the difference.
+
+89
+00:04:57,840 --> 00:05:03,360
+Oh, this is a new function number digit.
+
+90
+00:05:00,720 --> 00:05:07,680
+Let's see. This is this is a new
+
+91
+00:05:03,360 --> 00:05:10,080
+function in the past five years.
+
+92
+00:05:07,680 --> 00:05:13,520
+Does it say
+
+93
+00:05:10,080 --> 00:05:15,440
+new in 2021?
+
+94
+00:05:13,520 --> 00:05:17,840
+That is why my Wolfman programming
+
+95
+00:05:15,440 --> 00:05:20,639
+language mod doesn't have it syntax
+
+96
+00:05:17,840 --> 00:05:22,479
+colored. So let's see what it does. I
+
+97
+00:05:20,639 --> 00:05:24,639
+think it's the same thing. I think it's
+
+98
+00:05:22,479 --> 00:05:26,880
+designed for
+
+99
+00:05:24,639 --> 00:05:30,320
+uh floating point
+
+100
+00:05:26,880 --> 00:05:31,840
+with one argument. Uh so it needs two
+
+101
+00:05:30,320 --> 00:05:34,320
+arguments.
+
+102
+00:05:31,840 --> 00:05:37,320
+So let's look at the detailed
+
+103
+00:05:34,320 --> 00:05:37,320
+documentation.
+
+104
+00:05:39,440 --> 00:05:44,880
+Okay,
+
+105
+00:05:41,600 --> 00:05:48,720
+return the digit corresponding to
+
+106
+00:05:44,880 --> 00:05:52,000
+uh 10 to the nth power in the real
+
+107
+00:05:48,720 --> 00:05:54,080
+valued number.
+
+108
+00:05:52,000 --> 00:05:56,880
+So yeah, so this is designed for
+
+109
+00:05:54,080 --> 00:06:00,240
+floating numbers I believe. So if we can
+
+110
+00:05:56,880 --> 00:06:03,199
+look at some of the examples.
+
+111
+00:06:00,240 --> 00:06:06,199
+One, two, three, four, five,
+
+112
+00:06:03,199 --> 00:06:06,199
+two.
+
+113
+00:06:11,199 --> 00:06:18,319
+Okay. So it it picks a digit. Okay. It
+
+114
+00:06:15,120 --> 00:06:21,800
+picks a digit from, you know, a position
+
+115
+00:06:18,319 --> 00:06:21,800
+in a digit,
+
+116
+00:06:22,000 --> 00:06:27,000
+right? So it allows you to pick one
+
+117
+00:06:24,000 --> 00:06:27,000
+digit.
+
+118
+00:06:32,639 --> 00:06:37,240
+Okay, let's ignore that.
+
+119
+00:06:37,440 --> 00:06:43,199
+So integer digits you want to find the
+
+120
+00:06:40,479 --> 00:06:46,319
+uh maximum the first one
+
+121
+00:06:43,199 --> 00:06:48,400
+except the last one. Okay, so you drop
+
+122
+00:06:46,319 --> 00:06:51,199
+so that returns a list. You drop the
+
+123
+00:06:48,400 --> 00:06:54,720
+list. Let's make it one uh something
+
+124
+00:06:51,199 --> 00:06:58,440
+smaller. Let's say
+
+125
+00:06:54,720 --> 00:06:58,440
+1 2 3
+
+126
+00:06:59,199 --> 00:07:05,919
+8 9.
+
+127
+00:07:02,800 --> 00:07:08,880
+Okay, let's say that number
+
+128
+00:07:05,919 --> 00:07:14,039
+91238.
+
+129
+00:07:08,880 --> 00:07:14,039
+Uh wait, let's try a different number.
+
+130
+00:07:16,800 --> 00:07:22,560
+Let's say that A1239.
+
+131
+00:07:20,639 --> 00:07:25,560
+Okay.
+
+132
+00:07:22,560 --> 00:07:25,560
+Then
+
+133
+00:07:26,160 --> 00:07:33,280
+then you want to drop drop the last
+
+134
+00:07:29,440 --> 00:07:37,039
+digit. Okay. Drop.
+
+135
+00:07:33,280 --> 00:07:40,080
+So look at the documentation. Drop gives
+
+136
+00:07:37,039 --> 00:07:42,639
+the list with the first n element drops.
+
+137
+00:07:40,080 --> 00:07:49,080
+Dropped. Give the list with the last n
+
+138
+00:07:42,639 --> 00:07:49,080
+element dropped. Okay. So drop that.
+
+139
+00:07:55,199 --> 00:08:04,240
+Drop the last one. Okay.
+
+140
+00:08:00,400 --> 00:08:08,000
+312 8123. Okay.
+
+141
+00:08:04,240 --> 00:08:10,400
+So then you want to get the maximum.
+
+142
+00:08:08,000 --> 00:08:13,039
+Okay.
+
+143
+00:08:10,400 --> 00:08:15,680
+Uh let's see the documentation. Max.
+
+144
+00:08:13,039 --> 00:08:15,680
+Okay.
+
+145
+00:08:21,680 --> 00:08:31,520
+That would be three. I mean eight. Okay.
+
+146
+00:08:25,360 --> 00:08:35,200
+Then you Okay. Then you um
+
+147
+00:08:31,520 --> 00:08:39,839
+max. Then you
+
+148
+00:08:35,200 --> 00:08:42,800
+Okay. You you Okay. You pick the max.
+
+149
+00:08:39,839 --> 00:08:44,720
+You need to know position. You need to
+
+150
+00:08:42,800 --> 00:08:48,000
+know where is the position of the
+
+151
+00:08:44,720 --> 00:08:51,279
+largest number. Then
+
+152
+00:08:48,000 --> 00:08:53,360
+then you need to remove everything all
+
+153
+00:08:51,279 --> 00:08:56,000
+the digits in front because you need to
+
+154
+00:08:53,360 --> 00:08:59,000
+pick the rest of it. Okay? So that would
+
+155
+00:08:56,000 --> 00:08:59,000
+be
+
+156
+00:08:59,120 --> 00:09:03,600
+position
+
+157
+00:09:02,080 --> 00:09:06,600
+position.
+
+158
+00:09:03,600 --> 00:09:06,600
+Uh
+
+159
+00:09:07,600 --> 00:09:13,839
+now let's make this interesting. So
+
+160
+00:09:10,000 --> 00:09:16,000
+let's make this number uh let's say 7
+
+161
+00:09:13,839 --> 00:09:19,480
+812
+
+162
+00:09:16,000 --> 00:09:19,480
+9. Okay.
+
+163
+00:09:20,800 --> 00:09:25,080
+Okay. So
+
+164
+00:09:31,279 --> 00:09:38,360
+okay then then what do you get then? Um
+
+165
+00:09:40,080 --> 00:09:45,720
+then maximum
+
+166
+00:09:42,320 --> 00:09:45,720
+is eight.
+
+167
+00:09:46,240 --> 00:09:52,920
+Okay. Correct. Then position you want to
+
+168
+00:09:49,920 --> 00:09:52,920
+know
+
+169
+00:09:56,320 --> 00:10:01,320
+position of the max
+
+170
+00:10:01,440 --> 00:10:09,120
+that would be two. The index
+
+171
+00:10:05,839 --> 00:10:12,120
+That's right. Okay. So, then you want to
+
+172
+00:10:09,120 --> 00:10:12,120
+drop
+
+173
+00:10:14,480 --> 00:10:19,519
+then you want to drop
+
+174
+00:10:17,672 --> 00:10:22,519
+[clears throat]
+
+175
+00:10:19,519 --> 00:10:22,519
+uh
+
+176
+00:10:25,519 --> 00:10:30,440
+drop the original. Um
+
+177
+00:10:39,680 --> 00:10:49,600
+from zero to um to that position you
+
+178
+00:10:45,200 --> 00:10:52,399
+picked. Okay. So what is the
+
+179
+00:10:49,600 --> 00:10:57,120
+give a list from element m through n
+
+180
+00:10:52,399 --> 00:10:58,720
+dropped. So you want to drop the first n
+
+181
+00:10:57,120 --> 00:11:01,720
+element.
+
+182
+00:10:58,720 --> 00:11:01,720
+Um
+
+183
+00:11:04,800 --> 00:11:10,440
+okay. So
+
+184
+00:11:06,959 --> 00:11:10,440
+that would be
+
+185
+00:11:11,600 --> 00:11:17,720
+basically two. Okay. Basically you want
+
+186
+00:11:14,399 --> 00:11:17,720
+two here.
+
+187
+00:11:19,040 --> 00:11:25,399
+Okay. Then you pick Then you pick the
+
+188
+00:11:22,399 --> 00:11:25,399
+max
+
+189
+00:11:32,560 --> 00:11:38,480
+which is nine. Okay. Then you pick the
+
+190
+00:11:35,760 --> 00:11:40,959
+first number.
+
+191
+00:11:38,480 --> 00:11:44,000
+Uh the first number you picked what is
+
+192
+00:11:40,959 --> 00:11:49,040
+this max eight. So the uh answer for
+
+193
+00:11:44,000 --> 00:11:51,519
+this number is 89. Okay. 89. So, so you
+
+194
+00:11:49,040 --> 00:11:55,200
+got the digit eight, you got the digit
+
+195
+00:11:51,519 --> 00:12:00,079
+nine, then you want to make it uh into a
+
+196
+00:11:55,200 --> 00:12:02,560
+number. So, you want to turn a list of
+
+197
+00:12:00,079 --> 00:12:06,200
+digits into a number. So, how do you do
+
+198
+00:12:02,560 --> 00:12:06,200
+that? Let's see.
+
+199
+00:12:06,399 --> 00:12:10,680
+That would be from digits.
+
+200
+00:12:11,760 --> 00:12:16,639
+Okay, click on that. from digits
+
+201
+00:12:14,000 --> 00:12:20,079
+construct integer from list of its
+
+202
+00:12:16,639 --> 00:12:22,399
+decimal digits. That's right.
+
+203
+00:12:20,079 --> 00:12:26,440
+Okay. You can look at the full
+
+204
+00:12:22,399 --> 00:12:26,440
+documentation here.
+
+205
+00:12:27,363 --> 00:12:33,258
+[snorts] 125.
+
+206
+00:12:29,600 --> 00:12:35,278
+Okay. So that would be
+
+207
+00:12:33,258 --> 00:12:35,278
+[clears throat]
+
+208
+00:12:37,120 --> 00:12:47,200
+from digit 89. You got 89. 89 to 89.
+
+209
+00:12:42,320 --> 00:12:50,720
+Okay. So that is effectively
+
+210
+00:12:47,200 --> 00:12:53,680
+uh how we solved it. Okay. So let's see.
+
+211
+00:12:50,720 --> 00:12:56,399
+So input the list of numbers argo steps.
+
+212
+00:12:53,680 --> 00:12:59,279
+So this these are the steps. So now we
+
+213
+00:12:56,399 --> 00:13:02,079
+just need to combine these steps into
+
+214
+00:12:59,279 --> 00:13:04,880
+one function.
+
+215
+00:13:02,079 --> 00:13:07,880
+So let's write a function. Okay. Uh
+
+216
+00:13:04,880 --> 00:13:07,880
+define
+
+217
+00:13:08,480 --> 00:13:15,959
+we can um define a function
+
+218
+00:13:12,959 --> 00:13:15,959
+extract
+
+219
+00:13:20,000 --> 00:13:23,000
+big
+
+220
+00:13:28,079 --> 00:13:36,560
+uh let's say extract max two
+
+221
+00:13:31,920 --> 00:13:38,320
+digits. Okay, let's name it that.
+
+222
+00:13:36,560 --> 00:13:42,079
+So that is a function we're going to
+
+223
+00:13:38,320 --> 00:13:45,360
+define here. And uh the so the function
+
+224
+00:13:42,079 --> 00:13:48,160
+input x is a number and what the
+
+225
+00:13:45,360 --> 00:13:51,160
+function does is this bunch of things.
+
+226
+00:13:48,160 --> 00:13:51,160
+Okay,
+
+227
+00:13:51,680 --> 00:13:57,099
+we're going to combine them into one
+
+228
+00:13:53,360 --> 00:13:57,754
+thing. Okay, so before we do that,
+
+229
+00:13:57,099 --> 00:13:58,480
+[cough]
+
+230
+00:13:57,754 --> 00:14:01,360
+[clears throat]
+
+231
+00:13:58,480 --> 00:14:03,199
+let's make a example.
+
+232
+00:14:01,360 --> 00:14:06,240
+uh
+
+233
+00:14:03,199 --> 00:14:08,880
+from language. So you can see syntax
+
+234
+00:14:06,240 --> 00:14:15,120
+color showing browser. So here is
+
+235
+00:14:08,880 --> 00:14:22,519
+today's code. And now let's put this um
+
+236
+00:14:15,120 --> 00:14:22,519
+let's put this example case into a uh
+
+237
+00:14:24,560 --> 00:14:32,440
+into a independent example. Okay. So
+
+238
+00:14:28,000 --> 00:14:32,440
+actually so
+
+239
+00:14:36,320 --> 00:14:44,399
+okay now syntax showing browser. So here
+
+240
+00:14:39,760 --> 00:14:47,600
+we have a example we want to extract
+
+241
+00:14:44,399 --> 00:14:52,880
+given a number extract two digits such
+
+242
+00:14:47,600 --> 00:14:55,279
+that they form a biggest number. Okay.
+
+243
+00:14:52,880 --> 00:14:59,959
+And then
+
+244
+00:14:55,279 --> 00:14:59,959
+then we start to code.
+
+245
+00:15:03,120 --> 00:15:07,600
+It starts to code. Okay. So here is the
+
+246
+00:15:05,839 --> 00:15:11,199
+function.
+
+247
+00:15:07,600 --> 00:15:15,199
+So given a number. So uh so wait. So
+
+248
+00:15:11,199 --> 00:15:18,199
+integer digits this is just um
+
+249
+00:15:15,199 --> 00:15:18,199
+x
+
+250
+00:15:25,600 --> 00:15:31,240
+okay so what do we want to do okay let's
+
+251
+00:15:27,920 --> 00:15:31,240
+say block
+
+252
+00:15:31,920 --> 00:15:39,560
+is a local variable so we create local
+
+253
+00:15:35,600 --> 00:15:39,560
+variable here So
+
+254
+00:15:42,800 --> 00:15:47,560
+digit list equals to
+
+255
+00:15:52,720 --> 00:16:01,320
+that. Okay.
+
+256
+00:15:55,040 --> 00:16:01,320
+Then what you want to do is you drop
+
+257
+00:16:07,440 --> 00:16:16,759
+Drop the digit list. Drop the last one.
+
+258
+00:16:12,079 --> 00:16:16,759
+Then you apply maximum.
+
+259
+00:16:20,959 --> 00:16:31,040
+Okay. And uh and this expression
+
+260
+00:16:27,040 --> 00:16:33,440
+can be written as
+
+261
+00:16:31,040 --> 00:16:35,920
+that. Okay.
+
+262
+00:16:33,440 --> 00:16:41,920
+So let's write it let's write it as so
+
+263
+00:16:35,920 --> 00:16:44,920
+you max drop then uh so this can be
+
+264
+00:16:41,920 --> 00:16:44,920
+first
+
+265
+00:16:46,079 --> 00:16:55,279
+make it easier to see uh my hands
+
+266
+00:16:51,199 --> 00:16:58,959
+type type too much is got problems
+
+267
+00:16:55,279 --> 00:17:02,160
+if you're here comment okay am I going
+
+268
+00:16:58,959 --> 00:17:05,160
+am I going well let's see uh where is my
+
+269
+00:17:02,160 --> 00:17:05,160
+YouTube
+
+270
+00:17:07,439 --> 00:17:13,600
+three people. Okay. Say hi.
+
+271
+00:17:10,799 --> 00:17:18,280
+So back to Wufam language. We are coding
+
+272
+00:17:13,600 --> 00:17:18,280
+this. Almost done. Perfect.
+
+273
+00:17:20,000 --> 00:17:30,039
+Okay. So extract. So first then okay see
+
+274
+00:17:24,959 --> 00:17:30,039
+this is a list of um
+
+275
+00:17:33,440 --> 00:17:41,919
+a list of constants. Okay so let's not
+
+276
+00:17:39,600 --> 00:17:46,000
+put value there. Let's just give a list
+
+277
+00:17:41,919 --> 00:17:48,960
+of constants. Okay.
+
+278
+00:17:46,000 --> 00:17:51,840
+So xdigit list.
+
+279
+00:17:48,960 --> 00:17:55,160
+Okay. then
+
+280
+00:17:51,840 --> 00:17:55,160
+first digits.
+
+281
+00:17:57,440 --> 00:18:02,400
+Okay, then you got the first digit. Then
+
+282
+00:18:00,160 --> 00:18:07,720
+what?
+
+283
+00:18:02,400 --> 00:18:07,720
+Then you want to take the position.
+
+284
+00:18:09,520 --> 00:18:15,080
+So this max is just the first digits.
+
+285
+00:18:17,760 --> 00:18:25,160
+Now let's change it to let leave it.
+
+286
+00:18:21,120 --> 00:18:25,160
+Okay. So position
+
+287
+00:18:25,440 --> 00:18:33,840
+and uh here is the xdigit list. Okay. So
+
+288
+00:18:31,360 --> 00:18:38,520
+that is the position of the first digit.
+
+289
+00:18:33,840 --> 00:18:38,520
+Then you drop
+
+290
+00:18:47,679 --> 00:18:56,919
+Then you drop two.
+
+291
+00:18:51,679 --> 00:18:56,919
+Yeah. So that that's the position. So
+
+292
+00:19:05,440 --> 00:19:15,280
+this would be xdigit list. you drop.
+
+293
+00:19:11,840 --> 00:19:18,400
+Okay, so you drop
+
+294
+00:19:15,280 --> 00:19:21,760
+so the first digits
+
+295
+00:19:18,400 --> 00:19:23,840
+that actually return a nested list.
+
+296
+00:19:21,760 --> 00:19:26,840
+Okay,
+
+297
+00:19:23,840 --> 00:19:26,840
+max
+
+298
+00:19:32,320 --> 00:19:39,760
+then position returns a
+
+299
+00:19:36,080 --> 00:19:42,559
+nested list with two braces. Okay, then
+
+300
+00:19:39,760 --> 00:19:46,160
+you drop. Let's look at the drop
+
+301
+00:19:42,559 --> 00:19:50,760
+documentation comments.
+
+302
+00:19:46,160 --> 00:19:50,760
+So drop. Let's see
+
+303
+00:20:04,480 --> 00:20:12,240
+if at least with element m through n
+
+304
+00:20:07,280 --> 00:20:15,760
+dropped. So first so first do that. So
+
+305
+00:20:12,240 --> 00:20:18,160
+what you want to do is that here you
+
+306
+00:20:15,760 --> 00:20:21,160
+want to say
+
+307
+00:20:18,160 --> 00:20:21,160
+flatten.
+
+308
+00:20:21,840 --> 00:20:27,039
+Okay. Flatten
+
+309
+00:20:24,160 --> 00:20:32,440
+then at least starting from the first
+
+310
+00:20:27,039 --> 00:20:32,440
+one to this position.
+
+311
+00:20:32,559 --> 00:20:38,600
+Okay. First digit position. Let's create
+
+312
+00:20:35,600 --> 00:20:38,600
+another
+
+313
+00:20:42,640 --> 00:20:50,520
+um another local variable so that it's
+
+314
+00:20:46,880 --> 00:20:50,520
+easier to read.
+
+315
+00:20:54,960 --> 00:21:02,200
+Okay, first digit position. So now you
+
+316
+00:20:59,200 --> 00:21:02,200
+flatten
+
+317
+00:21:05,600 --> 00:21:13,120
+starting from the first to the first
+
+318
+00:21:08,159 --> 00:21:19,720
+digit position. Okay. So that would be
+
+319
+00:21:13,120 --> 00:21:19,720
+you do that then you pick the max. Okay.
+
+320
+00:21:22,640 --> 00:21:29,320
+Max at that. So this would be second
+
+321
+00:21:26,320 --> 00:21:29,320
+digit.
+
+322
+00:21:33,120 --> 00:21:41,360
+Second digit equals to that. Okay. So
+
+323
+00:21:37,360 --> 00:21:44,880
+there's inconsistency naming but let's
+
+324
+00:21:41,360 --> 00:21:47,360
+don't bother. Let's move on.
+
+325
+00:21:44,880 --> 00:21:49,600
+Okay. So you got first digit then you
+
+326
+00:21:47,360 --> 00:21:53,240
+got second digit.
+
+327
+00:21:49,600 --> 00:21:53,240
+Then you just
+
+328
+00:21:54,320 --> 00:22:03,440
+then you just from digits x first digits
+
+329
+00:22:00,320 --> 00:22:05,840
+wait let's let's rename them. Okay let's
+
+330
+00:22:03,440 --> 00:22:09,559
+rename the first digit because that's
+
+331
+00:22:05,840 --> 00:22:09,559
+too long. Okay.
+
+332
+00:22:12,880 --> 00:22:17,400
+Uh let's rename then.
+
+333
+00:22:26,799 --> 00:22:33,240
+Okay. Then the second digit. Let's
+
+334
+00:22:29,760 --> 00:22:33,240
+rename them.
+
+335
+00:22:37,600 --> 00:22:46,760
+Okay. Save it. Close. Reopen. And now
+
+336
+00:22:43,360 --> 00:22:46,760
+color them.
+
+337
+00:22:47,919 --> 00:22:56,159
+Okay, now it's better. So digit list
+
+338
+00:22:52,400 --> 00:23:00,080
+digit least first digit digit first
+
+339
+00:22:56,159 --> 00:23:05,320
+first digit position second digit then
+
+340
+00:23:00,080 --> 00:23:05,320
+from digit would be just um
+
+341
+00:23:09,039 --> 00:23:14,520
+okay. So you got basically um
+
+342
+00:23:15,820 --> 00:23:17,841
+[clears throat]
+
+343
+00:23:18,400 --> 00:23:23,919
+yeah
+
+344
+00:23:20,799 --> 00:23:28,559
+that's it. I think that's it. Let's
+
+345
+00:23:23,919 --> 00:23:31,919
+shrink um let's purify our code. Okay,
+
+346
+00:23:28,559 --> 00:23:34,480
+that's the code. So if if you have this
+
+347
+00:23:31,919 --> 00:23:37,760
+function, you can call it. Let's see.
+
+348
+00:23:34,480 --> 00:23:41,760
+Let's can we can try any of these number
+
+349
+00:23:37,760 --> 00:23:44,880
+A1 A1. Let's try this one. So this Okay,
+
+350
+00:23:41,760 --> 00:23:47,919
+let's see if it works.
+
+351
+00:23:44,880 --> 00:23:51,840
+Hopefully. Did I make any error? So
+
+352
+00:23:47,919 --> 00:23:54,000
+let's um maybe indent so it's easier to
+
+353
+00:23:51,840 --> 00:23:57,720
+read.
+
+354
+00:23:54,000 --> 00:23:57,720
+Let's just run it.
+
+355
+00:23:58,880 --> 00:24:04,400
+89.
+
+356
+00:24:01,360 --> 00:24:07,760
+Fantastic. Now put a comma here so it
+
+357
+00:24:04,400 --> 00:24:10,880
+doesn't show the value of the function.
+
+358
+00:24:07,760 --> 00:24:14,960
+So run it again.
+
+359
+00:24:10,880 --> 00:24:18,440
+89. Fantastic. Now uh what what about
+
+360
+00:24:14,960 --> 00:24:18,440
+the first one?
+
+361
+00:24:19,200 --> 00:24:25,679
+Right again
+
+362
+00:24:22,480 --> 00:24:31,880
+98. That's correct. Now we can map this
+
+363
+00:24:25,679 --> 00:24:31,880
+function to the list of inputs. Okay. So
+
+364
+00:24:32,720 --> 00:24:41,919
+map this function to x input. Okay. So
+
+365
+00:24:39,520 --> 00:24:43,919
+remove that and uh that should be the
+
+366
+00:24:41,919 --> 00:24:51,360
+result.
+
+367
+00:24:43,919 --> 00:24:54,360
+Okay. 98 89 78 92. Let's check if we are
+
+368
+00:24:51,360 --> 00:24:54,360
+correct.
+
+369
+00:24:56,320 --> 00:25:05,000
+Okay. Then total 357. Let's total them
+
+370
+00:25:00,720 --> 00:25:05,000
+up. Total
+
+371
+00:25:06,000 --> 00:25:09,000
+minute
+
+372
+00:25:10,080 --> 00:25:16,240
+357.
+
+373
+00:25:11,679 --> 00:25:19,120
+Fantastic and beautiful. So this is our
+
+374
+00:25:16,240 --> 00:25:21,679
+code wam language code. One single
+
+375
+00:25:19,120 --> 00:25:24,880
+function. Okay.
+
+376
+00:25:21,679 --> 00:25:27,360
+Now I use a bunch of variables. So it
+
+377
+00:25:24,880 --> 00:25:28,960
+provides clarity.
+
+378
+00:25:27,360 --> 00:25:31,919
+Otherwise you don't need all those
+
+379
+00:25:28,960 --> 00:25:36,080
+variables. You can like munch them into
+
+380
+00:25:31,919 --> 00:25:39,039
+like one kind of cryptic pure functional
+
+381
+00:25:36,080 --> 00:25:41,279
+programming code. Okay. This is pure
+
+382
+00:25:39,039 --> 00:25:42,880
+this is this is supreme functional
+
+383
+00:25:41,279 --> 00:25:46,472
+programming.
+
+384
+00:25:42,880 --> 00:25:48,080
+Um in most other languages like
+
+385
+00:25:46,472 --> 00:25:50,880
+[clears throat] Python, JavaScript, you
+
+386
+00:25:48,080 --> 00:25:54,559
+don't have things like integer digits.
+
+387
+00:25:50,880 --> 00:25:56,880
+um possibly Python has a library that
+
+388
+00:25:54,559 --> 00:26:00,480
+added that for
+
+389
+00:25:56,880 --> 00:26:03,360
+uh it's a it's it's convenient for um
+
+390
+00:26:00,480 --> 00:26:05,200
+number theory kind of things. Okay. So
+
+391
+00:26:03,360 --> 00:26:08,480
+anyway,
+
+392
+00:26:05,200 --> 00:26:11,919
+so that is the result. Now we just need
+
+393
+00:26:08,480 --> 00:26:14,799
+to put uh use the custom input. Okay.
+
+394
+00:26:11,919 --> 00:26:18,320
+Now put it back syntax correct show in
+
+395
+00:26:14,799 --> 00:26:20,000
+browser. So that's today's talk show.
+
+396
+00:26:18,320 --> 00:26:23,679
+First
+
+397
+00:26:20,000 --> 00:26:27,039
+uh example, then our code. Now, let's
+
+398
+00:26:23,679 --> 00:26:29,840
+get our personal input.
+
+399
+00:26:27,039 --> 00:26:34,640
+Get your personal input. Okay. A bunch
+
+400
+00:26:29,840 --> 00:26:39,679
+of big numbers. Copy. No problem.
+
+401
+00:26:34,640 --> 00:26:42,400
+Okay. 200 numbers. Big. Okay.
+
+402
+00:26:39,679 --> 00:26:44,960
+Now, uh you need to save this somewhere.
+
+403
+00:26:42,400 --> 00:26:47,200
+So, let's save it. Let's pick a name.
+
+404
+00:26:44,960 --> 00:26:49,760
+Okay. Something like that. So, close.
+
+405
+00:26:47,200 --> 00:26:52,799
+Close. Save it.
+
+406
+00:26:49,760 --> 00:26:55,799
+The end of code
+
+407
+00:26:52,799 --> 00:26:55,799
+2025
+
+408
+00:26:56,080 --> 00:26:59,760
+date.
+
+409
+00:26:58,000 --> 00:27:03,320
+What?
+
+410
+00:26:59,760 --> 00:27:03,320
+What the
+
+411
+00:27:05,039 --> 00:27:08,039
+What?
+
+412
+00:27:10,000 --> 00:27:17,120
+Okay, let's try again. What? What did I
+
+413
+00:27:14,400 --> 00:27:23,200
+do?
+
+414
+00:27:17,120 --> 00:27:29,840
+Undo. Undo. Now open I slash advand of
+
+415
+00:27:23,200 --> 00:27:35,880
+code that. Okay. Now uh input copy close
+
+416
+00:27:29,840 --> 00:27:35,880
+close. Now let's modify this.
+
+417
+00:27:38,720 --> 00:27:41,720
+What?
+
+418
+00:27:42,159 --> 00:27:46,159
+2025
+
+419
+00:27:44,240 --> 00:27:49,440
+day three.
+
+420
+00:27:46,159 --> 00:27:52,440
+and uh text.
+
+421
+00:27:49,440 --> 00:27:52,440
+Okay,
+
+422
+00:27:55,679 --> 00:28:02,720
+let's see.
+
+423
+00:27:58,320 --> 00:28:06,440
+Input. Okay, so you need to say input
+
+424
+00:28:02,720 --> 00:28:06,440
+day three input.
+
+425
+00:28:12,960 --> 00:28:20,760
+Where is my Okay, there. Okay, copy
+
+426
+00:28:16,640 --> 00:28:20,760
+that. Now, save it.
+
+427
+00:28:21,360 --> 00:28:27,760
+This name.
+
+428
+00:28:24,240 --> 00:28:29,679
+Yeah. Okay. Now, uh remove that. Save
+
+429
+00:28:27,760 --> 00:28:34,240
+it.
+
+430
+00:28:29,679 --> 00:28:36,640
+Copy that. Wait. Yeah. Copy file path
+
+431
+00:28:34,240 --> 00:28:42,159
+and
+
+432
+00:28:36,640 --> 00:28:46,200
+um and link it. Let's see.
+
+433
+00:28:42,159 --> 00:28:46,200
+Yeah. Okay. So now
+
+434
+00:28:47,200 --> 00:28:54,480
+paste that and in fact let's just copy
+
+435
+00:28:50,799 --> 00:28:57,840
+the code the input here. Okay.
+
+436
+00:28:54,480 --> 00:29:02,399
+So we
+
+437
+00:28:57,840 --> 00:29:07,039
+tree. Now here's our code. Okay. Uh
+
+438
+00:29:02,399 --> 00:29:11,440
+wait. So paste it and uh make it
+
+439
+00:29:07,039 --> 00:29:15,440
+quotation mark none separator by comma.
+
+440
+00:29:11,440 --> 00:29:17,440
+Yes. Okay. Then
+
+441
+00:29:15,440 --> 00:29:20,799
+cut
+
+442
+00:29:17,440 --> 00:29:24,640
+paste. Okay. And remove the last comma.
+
+443
+00:29:20,799 --> 00:29:29,039
+So this is our input.
+
+444
+00:29:24,640 --> 00:29:32,240
+Okay. 200 200 lines 200 numbers.
+
+445
+00:29:29,039 --> 00:29:34,720
+Okay. Now if we run this, let's just run
+
+446
+00:29:32,240 --> 00:29:34,720
+it.
+
+447
+00:29:37,120 --> 00:29:40,480
+Finished.
+
+448
+00:29:39,000 --> 00:29:42,640
+[clears throat]
+
+449
+00:29:40,480 --> 00:29:47,240
+Okay, you got a problem. This is not
+
+450
+00:29:42,640 --> 00:29:47,240
+what we expected. Drop.
+
+451
+00:29:49,840 --> 00:29:56,679
+What the is a drop sequence
+
+452
+00:29:52,399 --> 00:29:56,679
+specification? Uh
+
+453
+00:29:58,799 --> 00:30:03,760
+expected position. Okay.
+
+454
+00:30:11,279 --> 00:30:15,000
+What is the prophet?
+
+455
+00:30:27,760 --> 00:30:34,880
+Nobody's here. If you are here, say hi.
+
+456
+00:30:30,880 --> 00:30:37,360
+Okay. So sequence specification drop
+
+457
+00:30:34,880 --> 00:30:39,200
+sequence specification
+
+458
+00:30:37,360 --> 00:30:43,039
+expected
+
+459
+00:30:39,200 --> 00:30:47,840
+uh so this syntax expected at position
+
+460
+00:30:43,039 --> 00:30:51,120
+two in drop. So here is input
+
+461
+00:30:47,840 --> 00:30:53,840
+then the second part is too long. That's
+
+462
+00:30:51,120 --> 00:30:58,120
+incorrect.
+
+463
+00:30:53,840 --> 00:30:58,120
+Wait what is the second part?
+
+464
+00:31:00,000 --> 00:31:06,720
+Okay. So when I call drop so you can see
+
+465
+00:31:03,440 --> 00:31:10,320
+copy that. So here is it. Okay. So
+
+466
+00:31:06,720 --> 00:31:13,440
+basically when I call drop
+
+467
+00:31:10,320 --> 00:31:15,520
+this is the first argument. Then the
+
+468
+00:31:13,440 --> 00:31:19,279
+second argument
+
+469
+00:31:15,520 --> 00:31:21,520
+I gave is this which is incorrect. It
+
+470
+00:31:19,279 --> 00:31:24,880
+should be one single number or at least
+
+471
+00:31:21,520 --> 00:31:27,520
+one or three numbers. Okay. So this is
+
+472
+00:31:24,880 --> 00:31:34,279
+basically a syntax error somewhere in
+
+473
+00:31:27,520 --> 00:31:34,279
+our drop. So let's open that. Open that.
+
+474
+00:31:34,720 --> 00:31:43,640
+So where is drop use? So flatten one two
+
+475
+00:31:39,200 --> 00:31:43,640
+digit one position. So
+
+476
+00:31:43,760 --> 00:31:49,519
+oh okay. So I think I got it. So when
+
+477
+00:31:46,880 --> 00:31:55,000
+you say position
+
+478
+00:31:49,519 --> 00:31:55,000
+of the digit uh when you say okay
+
+479
+00:31:56,559 --> 00:32:03,679
+digit one okay so when you get the
+
+480
+00:31:58,720 --> 00:32:07,840
+position of digit one if the if if that
+
+481
+00:32:03,679 --> 00:32:11,840
+digit is unique in the sequence then you
+
+482
+00:32:07,840 --> 00:32:15,039
+just got one position but if the if the
+
+483
+00:32:11,840 --> 00:32:18,960
+digit is not unique let's say two there
+
+484
+00:32:15,039 --> 00:32:22,720
+are any occurrences of two then this
+
+485
+00:32:18,960 --> 00:32:26,080
+position result is a list of positions.
+
+486
+00:32:22,720 --> 00:32:29,440
+Okay. So we only want the first one the
+
+487
+00:32:26,080 --> 00:32:32,799
+leftmost one. So so basically what you
+
+488
+00:32:29,440 --> 00:32:36,799
+have to say is you have to say position
+
+489
+00:32:32,799 --> 00:32:40,080
+return the first one. Okay. So let's see
+
+490
+00:32:36,799 --> 00:32:43,600
+pattern level spec. Oh okay. Pattern
+
+491
+00:32:40,080 --> 00:32:50,600
+level spec N.
+
+492
+00:32:43,600 --> 00:32:50,600
+Okay. So level spec would be level one
+
+493
+00:32:51,039 --> 00:33:00,000
+and return just the first one. Okay,
+
+494
+00:32:56,240 --> 00:33:03,240
+I think we can run it. It'll be correct.
+
+495
+00:33:00,000 --> 00:33:03,240
+Run it.
+
+496
+00:33:04,240 --> 00:33:09,760
+177
+
+497
+00:33:06,320 --> 00:33:12,000
+66 is our answer.
+
+498
+00:33:09,760 --> 00:33:14,960
+Now in case you are not familiar, let me
+
+499
+00:33:12,000 --> 00:33:17,440
+show this again. Okay. So, position.
+
+500
+00:33:14,960 --> 00:33:22,600
+Okay. So, position
+
+501
+00:33:17,440 --> 00:33:22,600
+digit list. Let's say um
+
+502
+00:33:24,720 --> 00:33:27,720
+what?
+
+503
+00:33:28,240 --> 00:33:32,238
+Okay. So, [clears throat]
+
+504
+00:33:34,320 --> 00:33:41,840
+let's say that digit list then let's say
+
+505
+00:33:37,519 --> 00:33:45,200
+the first digit is let's say uh five.
+
+506
+00:33:41,840 --> 00:33:49,600
+Okay. Let's remove that. So you see five
+
+507
+00:33:45,200 --> 00:33:53,279
+occur twice here. So normally
+
+508
+00:33:49,600 --> 00:33:56,480
+if you don't give optional argument you
+
+509
+00:33:53,279 --> 00:33:58,799
+know it'll return
+
+510
+00:33:56,480 --> 00:34:01,919
+it'll return
+
+511
+00:33:58,799 --> 00:34:04,960
+uh basically uh let's see
+
+512
+00:34:01,919 --> 00:34:08,639
+one and
+
+513
+00:34:04,960 --> 00:34:11,839
+two three four five six one and six.
+
+514
+00:34:08,639 --> 00:34:15,280
+Okay. So let's try it. One and six. six
+
+515
+00:34:11,839 --> 00:34:20,639
+in a nested list. You see, but now if it
+
+516
+00:34:15,280 --> 00:34:24,000
+occur multiple times, then you get um
+
+517
+00:34:20,639 --> 00:34:29,960
+I mean now you say level one but just
+
+518
+00:34:24,000 --> 00:34:29,960
+one item, you'll just return one. Okay.
+
+519
+00:34:30,000 --> 00:34:35,839
+Wait, did I I did something. Okay. Oh
+
+520
+00:34:33,200 --> 00:34:39,679
+yeah, there's a semicolon. You want to
+
+521
+00:34:35,839 --> 00:34:42,480
+remove the semicolon because semicolon
+
+522
+00:34:39,679 --> 00:34:47,480
+whenever you have a semicolon
+
+523
+00:34:42,480 --> 00:34:47,480
+semicolon is a shortcut for
+
+524
+00:34:51,679 --> 00:34:56,320
+compound expression. So whenever you
+
+525
+00:34:54,720 --> 00:34:59,320
+have
+
+526
+00:34:56,320 --> 00:34:59,320
+a
+
+527
+00:35:00,079 --> 00:35:08,800
+whenever you have semicolon
+
+528
+00:35:02,960 --> 00:35:12,480
+or with a new line that is
+
+529
+00:35:08,800 --> 00:35:17,359
+that is equivalent to
+
+530
+00:35:12,480 --> 00:35:21,040
+this. Okay. So compound expression in
+
+531
+00:35:17,359 --> 00:35:23,359
+lisp is similar to lisp's
+
+532
+00:35:21,040 --> 00:35:27,680
+p og
+
+533
+00:35:23,359 --> 00:35:30,960
+uh p o uh was it p and p o g program
+
+534
+00:35:27,680 --> 00:35:33,920
+okay so anyway
+
+535
+00:35:30,960 --> 00:35:37,920
+so so in this case when you have a
+
+536
+00:35:33,920 --> 00:35:41,040
+semicolon this BB is omitted that became
+
+537
+00:35:37,920 --> 00:35:42,880
+new so the whole thing just return new
+
+538
+00:35:41,040 --> 00:35:45,359
+because that's the last expression so
+
+539
+00:35:42,880 --> 00:35:47,200
+you don't want that. So now evaluate it
+
+540
+00:35:45,359 --> 00:35:50,480
+again.
+
+541
+00:35:47,200 --> 00:35:52,320
+You got that? Okay. Fantastic and
+
+542
+00:35:50,480 --> 00:35:54,960
+beautiful.
+
+543
+00:35:52,320 --> 00:35:58,800
+Okay. That's a explanation of position.
+
+544
+00:35:54,960 --> 00:36:02,234
+So let's copy it. Um
+
+545
+00:35:58,800 --> 00:36:02,234
+actually we done. [clears throat]
+
+546
+00:36:02,960 --> 00:36:09,240
+Let's just post the U
+
+547
+00:36:06,240 --> 00:36:09,240
+Sax.
+
+548
+00:36:10,079 --> 00:36:16,320
+Okay. That's our personal input. the big
+
+549
+00:36:12,720 --> 00:36:20,480
+one. Then 177
+
+550
+00:36:16,320 --> 00:36:23,480
+66 is our answer. Is it correct? Close
+
+551
+00:36:20,480 --> 00:36:23,480
+that.
+
+552
+00:36:27,920 --> 00:36:31,760
+Submit.
+
+553
+00:36:29,760 --> 00:36:34,480
+That's the right answer. You are one
+
+554
+00:36:31,760 --> 00:36:37,599
+gold star closer to decorating the North
+
+555
+00:36:34,480 --> 00:36:39,760
+Pole. Continue to part two. Okay, that
+
+556
+00:36:37,599 --> 00:36:43,040
+shall be tomorrow.
+
+557
+00:36:39,760 --> 00:36:47,520
+Uh maybe later today but
+
+558
+00:36:43,040 --> 00:36:50,480
+okay. So how are you guys doing? So you
+
+559
+00:36:47,520 --> 00:36:52,480
+can join my Twitter.
+
+560
+00:36:50,480 --> 00:36:55,920
+Where is my Twitter? Okay. Twitter.
+
+561
+00:36:52,480 --> 00:36:59,359
+Twitter here. Kasali Twitter.
+
+562
+00:36:55,920 --> 00:37:03,520
+That's me. That's me juggling back in uh
+
+563
+00:36:59,359 --> 00:37:06,240
+almost 20 years ago. Uh so you can join
+
+564
+00:37:03,520 --> 00:37:09,040
+my Twitter. You can join my discord.
+
+565
+00:37:06,240 --> 00:37:11,440
+Kasadi discord. We have all type of
+
+566
+00:37:09,040 --> 00:37:13,440
+characters here.
+
+567
+00:37:11,440 --> 00:37:15,920
+This annoying uh so we are doing
+
+568
+00:37:13,440 --> 00:37:17,440
+advanced code. Some people are doing it
+
+569
+00:37:15,920 --> 00:37:21,440
+in
+
+570
+00:37:17,440 --> 00:37:26,800
+uh G scheme lisp
+
+571
+00:37:21,440 --> 00:37:31,000
+and uh emory board is doing it in um
+
+572
+00:37:26,800 --> 00:37:31,000
+common list I believe.
+
+573
+00:37:31,280 --> 00:37:36,240
+Okay. So that's it. Thank you guys for
+
+574
+00:37:34,160 --> 00:37:39,760
+watching. If you like my stuff, pay me.
+
+575
+00:37:36,240 --> 00:37:45,920
+Okay. So go to kasali.info.
+
+576
+00:37:39,760 --> 00:37:51,839
+Let me show you x a h le.info.
+
+577
+00:37:45,920 --> 00:37:55,440
+http no s. Okay. Then go down. Then you
+
+578
+00:37:51,839 --> 00:37:58,560
+go pay me. Patreon. Amazon gift card me.
+
+579
+00:37:55,440 --> 00:38:03,839
+PayPal me. Okay.
+
+580
+00:37:58,560 --> 00:38:07,359
+Bye guys. We shut down in one minute.
+
+581
+00:38:03,839 --> 00:38:10,880
+So let's see. Did we do everything we
+
+582
+00:38:07,359 --> 00:38:15,440
+wanted to do? Day three. Yes.
+
+583
+00:38:10,880 --> 00:38:17,920
+Correct. Simple problem. Uh we need to
+
+584
+00:38:15,440 --> 00:38:21,800
+uh we need to fix this a little bit. So
+
+585
+00:38:17,920 --> 00:38:21,800
+let's do that. Fix
+
+586
+00:38:23,920 --> 00:38:30,079
+position
+
+587
+00:38:26,240 --> 00:38:36,119
+of this list of this item.
+
+588
+00:38:30,079 --> 00:38:36,119
+and uh at at level one
+
+589
+00:38:36,320 --> 00:38:44,160
+and uh return just one of them. Okay,
+
+590
+00:38:39,839 --> 00:38:47,160
+put it back. Syntax correct. Refresh.
+
+591
+00:38:44,160 --> 00:38:47,160
+Okay,
+
+592
+00:38:47,440 --> 00:38:50,440
+fantastic.
+
+593
+00:38:50,560 --> 00:38:56,880
+Now let's beautify this code. Can we
+
+594
+00:38:54,480 --> 00:38:59,839
+beautify like like make it really
+
+595
+00:38:56,880 --> 00:39:03,040
+minimal? Okay, we can. We can. And let
+
+596
+00:38:59,839 --> 00:39:06,920
+me just do that. Okay.
+
+597
+00:39:03,040 --> 00:39:06,920
+Uh pre
+
+598
+00:39:08,560 --> 00:39:13,680
+language code.
+
+599
+00:39:10,640 --> 00:39:17,280
+Okay. We can truly minimize this
+
+600
+00:39:13,680 --> 00:39:21,040
+function. Okay. So let me show you how.
+
+601
+00:39:17,280 --> 00:39:24,720
+So you got a bunch of um
+
+602
+00:39:21,040 --> 00:39:28,240
+first of all, let's color them.
+
+603
+00:39:24,720 --> 00:39:30,960
+Let's remove redundant call. I mean
+
+604
+00:39:28,240 --> 00:39:37,880
+redundant um
+
+605
+00:39:30,960 --> 00:39:37,880
+unnecessary number of variables. Okay.
+
+606
+00:39:49,119 --> 00:39:57,440
+Actually this is good.
+
+607
+00:39:52,240 --> 00:40:00,560
+Yeah. So, so our goal here is just to do
+
+608
+00:39:57,440 --> 00:40:04,000
+some kind of pure functional lambda
+
+609
+00:40:00,560 --> 00:40:07,599
+calculus play to make this to make this
+
+610
+00:40:04,000 --> 00:40:11,119
+function not use any local variables at
+
+611
+00:40:07,599 --> 00:40:13,599
+all yet remain efficient. Okay. Okay.
+
+612
+00:40:11,119 --> 00:40:16,160
+Let's try let's do that.
+
+613
+00:40:13,599 --> 00:40:18,480
+Uh this you can do with wam language
+
+614
+00:40:16,160 --> 00:40:21,119
+because wra language allow this kind of
+
+615
+00:40:18,480 --> 00:40:25,839
+thing. You cannot
+
+616
+00:40:21,119 --> 00:40:28,640
+you can you kind of can do it in lisp
+
+617
+00:40:25,839 --> 00:40:31,920
+like scheme lisp but not common lisp not
+
+618
+00:40:28,640 --> 00:40:35,839
+e emac lisp in schem you can somewhat do
+
+619
+00:40:31,920 --> 00:40:38,079
+it but not all the way let me show you
+
+620
+00:40:35,839 --> 00:40:41,680
+so this is pure functional programming
+
+621
+00:40:38,079 --> 00:40:43,680
+remember the goal is to remove any use
+
+622
+00:40:41,680 --> 00:40:47,440
+of local
+
+623
+00:40:43,680 --> 00:40:52,960
+constants or variables including local
+
+624
+00:40:47,440 --> 00:40:57,640
+constants okay like no variables at all.
+
+625
+00:40:52,960 --> 00:40:57,640
+Uh, okay. So, let's let's do that.
+
+626
+00:40:59,760 --> 00:41:07,520
+Okay. How you going to do it?
+
+627
+00:41:04,240 --> 00:41:12,240
+Okay. So,
+
+628
+00:41:07,520 --> 00:41:12,240
+wait. Copy that. Okay.
+
+629
+00:41:19,760 --> 00:41:26,520
+Digit list digits one digit one
+
+630
+00:41:23,520 --> 00:41:26,520
+position.
+
+631
+00:41:28,640 --> 00:41:34,800
+So position
+
+632
+00:41:31,280 --> 00:41:37,800
+you can remove. Okay. position is used
+
+633
+00:41:34,800 --> 00:41:37,800
+once.
+
+634
+00:41:43,200 --> 00:41:48,280
+Okay. One variable gun.
+
+635
+00:41:48,400 --> 00:41:52,280
+Okay. Then
+
+636
+00:41:53,440 --> 00:42:01,119
+then this flatten
+
+637
+00:41:56,160 --> 00:42:06,800
+I like it to use the add sign reduce the
+
+638
+00:42:01,119 --> 00:42:10,240
+number of nesting. Okay. Then
+
+639
+00:42:06,800 --> 00:42:13,520
+then what you're going to do is you can
+
+640
+00:42:10,240 --> 00:42:16,560
+digit one digit two.
+
+641
+00:42:13,520 --> 00:42:18,720
+So from digits digit one digit two.
+
+642
+00:42:16,560 --> 00:42:21,040
+Okay.
+
+643
+00:42:18,720 --> 00:42:25,359
+Okay, easy.
+
+644
+00:42:21,040 --> 00:42:28,319
+So, digit one is used uh several places
+
+645
+00:42:25,359 --> 00:42:32,280
+here. Okay,
+
+646
+00:42:28,319 --> 00:42:32,280
+so from digits
+
+647
+00:42:33,040 --> 00:42:36,839
+there will be a function.
+
+648
+00:42:43,680 --> 00:42:50,359
+Okay. So, first of all, you need a
+
+649
+00:42:46,000 --> 00:42:50,359
+function to uh
+
+650
+00:43:11,280 --> 00:43:16,119
+Okay. So why why
+
+651
+00:43:29,200 --> 00:43:32,200
+okay
+
+652
+00:43:33,040 --> 00:43:43,680
+so function that net x Okay so then y
+
+653
+00:43:39,599 --> 00:43:50,280
+so then this is just
+
+654
+00:43:43,680 --> 00:43:50,280
+y. Okay. So this is just actually
+
+655
+00:43:51,839 --> 00:43:59,839
+Okay. Then then then
+
+656
+00:43:56,480 --> 00:44:03,680
+this is
+
+657
+00:43:59,839 --> 00:44:08,520
+digit one we don't need.
+
+658
+00:44:03,680 --> 00:44:08,520
+Then digit two we don't need.
+
+659
+00:44:23,920 --> 00:44:32,200
+Okay. So then from digits then from
+
+660
+00:44:29,200 --> 00:44:32,200
+digits
+
+661
+00:44:32,640 --> 00:44:35,920
+at
+
+662
+00:44:34,319 --> 00:44:39,635
+that
+
+663
+00:44:35,920 --> 00:44:41,655
+digit one digit two. Okay.
+
+664
+00:44:39,635 --> 00:44:41,655
+[sighs and gasps]
+
+665
+00:44:42,400 --> 00:44:49,599
+And uh this is the expression. Okay. So,
+
+666
+00:44:46,800 --> 00:44:52,319
+do you guys see
+
+667
+00:44:49,599 --> 00:44:55,440
+what I'm doing? And you don't need the
+
+668
+00:44:52,319 --> 00:45:00,920
+block anymore.
+
+669
+00:44:55,440 --> 00:45:00,920
+So, you got a pure function.
+
+670
+00:45:01,839 --> 00:45:06,800
+Okay. Can you guys see what I'm doing?
+
+671
+00:45:03,839 --> 00:45:10,960
+Let me let me maybe
+
+672
+00:45:06,800 --> 00:45:14,480
+syntax color. I mean
+
+673
+00:45:10,960 --> 00:45:19,319
+preformat a little bit.
+
+674
+00:45:14,480 --> 00:45:19,319
+Okay. So you got
+
+675
+00:45:30,560 --> 00:45:34,040
+rename it
+
+676
+00:45:38,720 --> 00:45:46,319
+And uh wait the digit one. Oh
+
+677
+00:45:43,599 --> 00:45:50,000
+Uh god.
+
+678
+00:45:46,319 --> 00:45:54,200
+So the digit one is still there. That
+
+679
+00:45:50,000 --> 00:45:54,200
+needs to be um
+
+680
+00:45:54,720 --> 00:45:58,920
+ that digit one.
+
+681
+00:46:01,599 --> 00:46:06,920
+Hold on a second. Let me not rename
+
+682
+00:46:03,920 --> 00:46:06,920
+that.
+
+683
+00:46:09,280 --> 00:46:16,280
+Okay, so that digit one there needs to
+
+684
+00:46:13,040 --> 00:46:16,280
+be fixed.
+
+685
+00:46:17,200 --> 00:46:22,480
+Okay, we can do that. But then the code
+
+686
+00:46:19,760 --> 00:46:26,160
+becomes incomprehensible.
+
+687
+00:46:22,480 --> 00:46:29,160
+Oh, it's already is incomprehensible.
+
+688
+00:46:26,160 --> 00:46:29,160
+Okay,
+
+689
+00:46:37,040 --> 00:46:40,359
+let's see.
+
+690
+00:47:34,560 --> 00:47:37,560
+Oops.
+
+691
+00:48:07,119 --> 00:48:13,880
+Okay. So actually we simplify it
+
+692
+00:48:10,880 --> 00:48:13,880
+significantly.
+
+693
+00:48:16,319 --> 00:48:20,760
+So we don't even get any.
+
+694
+00:48:20,880 --> 00:48:27,760
+Can you guys see what I'm doing? Very
+
+695
+00:48:23,920 --> 00:48:30,559
+complicated code. So,
+
+696
+00:48:27,760 --> 00:48:36,160
+so
+
+697
+00:48:30,559 --> 00:48:40,240
+this block is equivalent to this block.
+
+698
+00:48:36,160 --> 00:48:44,000
+He he finally I got one two comments.
+
+699
+00:48:40,240 --> 00:48:47,760
+I'm doing AOC in my
+
+700
+00:48:44,000 --> 00:48:51,119
+in my own list dialect.
+
+701
+00:48:47,760 --> 00:48:53,200
+Okay, that's interesting.
+
+702
+00:48:51,119 --> 00:48:56,079
+Uh that that would be fun. Okay. So
+
+703
+00:48:53,200 --> 00:48:59,680
+anyway, so now let's comment it out and
+
+704
+00:48:56,079 --> 00:49:01,280
+let's run this. Let's see if it works.
+
+705
+00:48:59,680 --> 00:49:06,160
+357.
+
+706
+00:49:01,280 --> 00:49:09,280
+Yes, it works. Okay, so you can see um
+
+707
+00:49:06,160 --> 00:49:13,880
+these two.
+
+708
+00:49:09,280 --> 00:49:13,880
+Let me make a comment. This
+
+709
+00:49:14,720 --> 00:49:18,520
+uh let me give me a comment
+
+710
+00:49:21,760 --> 00:49:28,920
+without using any local variable or
+
+711
+00:49:25,920 --> 00:49:28,920
+constants.
+
+712
+00:49:29,680 --> 00:49:33,680
+Alternative
+
+713
+00:49:32,079 --> 00:49:37,200
+code
+
+714
+00:49:33,680 --> 00:49:39,920
+sure functional programming
+
+715
+00:49:37,200 --> 00:49:44,079
+supreme.
+
+716
+00:49:39,920 --> 00:49:47,359
+Okay. So that no local variables at all
+
+717
+00:49:44,079 --> 00:49:49,520
+but um but you do have like local
+
+718
+00:49:47,359 --> 00:49:52,400
+parameter names.
+
+719
+00:49:49,520 --> 00:49:57,319
+Um
+
+720
+00:49:52,400 --> 00:49:57,319
+anyway that okay that's it.
+
+721
+00:49:57,599 --> 00:50:01,880
+That's it. Bye.
+

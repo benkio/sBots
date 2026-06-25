@@ -1,0 +1,6764 @@
+1
+00:00:00,949 --> 00:00:16,080
+good morning guys welcome to another
+
+2
+00:00:04,049 --> 00:00:18,289
+episode of Zatoichi oh good I'm alive so
+
+3
+00:00:16,080 --> 00:00:23,490
+today we're gonna talk about geometric
+
+4
+00:00:18,289 --> 00:00:25,740
+inversion let's see let's see what we're
+
+5
+00:00:23,490 --> 00:00:31,410
+gonna talk about today I'm kind of late
+
+6
+00:00:25,740 --> 00:00:34,079
+I'm eight minutes late okay so today we
+
+7
+00:00:31,410 --> 00:00:36,380
+gonna talk about okay optional function
+
+8
+00:00:34,079 --> 00:00:40,640
+parameters in computer language
+
+9
+00:00:36,380 --> 00:00:43,410
+documentation this is one idiocy of the
+
+10
+00:00:40,640 --> 00:00:45,030
+hacker type of programmers I mean the
+
+11
+00:00:43,410 --> 00:00:48,360
+programmer ins the industry in general
+
+12
+00:00:45,030 --> 00:00:51,989
+so let's let's let's start talking about
+
+13
+00:00:48,360 --> 00:00:53,329
+that then we wait for people to come on
+
+14
+00:00:51,989 --> 00:00:56,149
+line
+
+15
+00:00:53,329 --> 00:01:00,210
+hey good morning Isaak how are you
+
+16
+00:00:56,149 --> 00:01:02,789
+so we're gonna talk about this the
+
+17
+00:01:00,210 --> 00:01:05,729
+option of functional parameter in
+
+18
+00:01:02,789 --> 00:01:09,090
+computer languages you know I don't have
+
+19
+00:01:05,729 --> 00:01:11,549
+a set of topic today yet so we're gonna
+
+20
+00:01:09,090 --> 00:01:17,759
+just see hey good morning web dog
+
+21
+00:01:11,549 --> 00:01:19,619
+haven't seen you for awhile so this in
+
+22
+00:01:17,759 --> 00:01:25,320
+computer documentation you see these
+
+23
+00:01:19,619 --> 00:01:28,710
+these documentation syntax notation for
+
+24
+00:01:25,320 --> 00:01:32,009
+functions optional parameters for
+
+25
+00:01:28,710 --> 00:01:34,020
+example this one is from Python Python 3
+
+26
+00:01:32,009 --> 00:01:37,189
+documentation same thing with Python -
+
+27
+00:01:34,020 --> 00:01:42,090
+okay so you have a function bisect
+
+28
+00:01:37,189 --> 00:01:44,880
+bisect left ok then you have several
+
+29
+00:01:42,090 --> 00:01:47,700
+arguments now some some are required
+
+30
+00:01:44,880 --> 00:01:51,509
+some are optional right so the first
+
+31
+00:01:47,700 --> 00:01:55,500
+argument is a list coma that that is
+
+32
+00:01:51,509 --> 00:01:57,810
+required then it says item item ok so
+
+33
+00:01:55,500 --> 00:02:01,729
+that's a second argument which is also
+
+34
+00:01:57,810 --> 00:02:04,439
+required then it puts a square bracket
+
+35
+00:02:01,729 --> 00:02:08,099
+then inside the square bracket you have
+
+36
+00:02:04,439 --> 00:02:10,979
+a coma then something you know so what
+
+37
+00:02:08,099 --> 00:02:13,410
+that means is that you know that means
+
+38
+00:02:10,979 --> 00:02:17,610
+this argument the
+
+39
+00:02:13,410 --> 00:02:22,410
+argument and so on is optional and the
+
+40
+00:02:17,610 --> 00:02:26,250
+the way the notation the commonly used
+
+41
+00:02:22,410 --> 00:02:29,220
+in programming industry in PHP in lots
+
+42
+00:02:26,250 --> 00:02:31,980
+of places is using the square bracket
+
+43
+00:02:29,220 --> 00:02:35,820
+for optional parameters now that's one
+
+44
+00:02:31,980 --> 00:02:39,060
+of the most idiotic thing you know so
+
+45
+00:02:35,820 --> 00:02:41,430
+this is part of my complaint this is
+
+46
+00:02:39,060 --> 00:02:43,800
+part of my complaint about programmers
+
+47
+00:02:41,430 --> 00:02:49,370
+and the programming in such industry and
+
+48
+00:02:43,800 --> 00:02:52,380
+the hacker types and all those basically
+
+49
+00:02:49,370 --> 00:02:54,660
+you know those people and all those
+
+50
+00:02:52,380 --> 00:02:58,290
+subjects they talk about the programmer
+
+51
+00:02:54,660 --> 00:03:04,200
+industry talk about that I think are
+
+52
+00:02:58,290 --> 00:03:06,390
+just utterly stupid now what why is it
+
+53
+00:03:04,200 --> 00:03:10,080
+stupid you know look at so so for
+
+54
+00:03:06,390 --> 00:03:12,810
+example this option of parameters so so
+
+55
+00:03:10,080 --> 00:03:17,400
+that example is from Python you can see
+
+56
+00:03:12,810 --> 00:03:19,880
+here and then we have another example
+
+57
+00:03:17,400 --> 00:03:24,120
+here is an example from PHP
+
+58
+00:03:19,880 --> 00:03:29,310
+documentation so you have this p IE g
+
+59
+00:03:24,120 --> 00:03:32,340
+grade okay now that's a function it the
+
+60
+00:03:29,310 --> 00:03:36,150
+first argument is a stream the second
+
+61
+00:03:32,340 --> 00:03:39,840
+argument is a array then the third
+
+62
+00:03:36,150 --> 00:03:42,720
+argument is flags and that's optional so
+
+63
+00:03:39,840 --> 00:03:44,940
+the way they indicate the you know the
+
+64
+00:03:42,720 --> 00:03:48,390
+third argument is that they put a square
+
+65
+00:03:44,940 --> 00:03:53,400
+bracket and inside it you start with a
+
+66
+00:03:48,390 --> 00:03:55,620
+coma you know so why this why is this
+
+67
+00:03:53,400 --> 00:04:01,250
+idiotic because you know this is
+
+68
+00:03:55,620 --> 00:04:06,060
+confusing because if you you know
+
+69
+00:04:01,250 --> 00:04:09,750
+because the square bracket is a valid
+
+70
+00:04:06,060 --> 00:04:12,300
+syntax in PHP and also in python
+
+71
+00:04:09,750 --> 00:04:14,459
+basically in all these languages so this
+
+72
+00:04:12,300 --> 00:04:16,530
+is confusing because you put a square
+
+73
+00:04:14,459 --> 00:04:19,350
+bracket you don't know I mean is it is
+
+74
+00:04:16,530 --> 00:04:21,690
+it does that mean for example in Python
+
+75
+00:04:19,350 --> 00:04:25,140
+when you put a square bracket after a
+
+76
+00:04:21,690 --> 00:04:27,330
+variable name that means usually means
+
+77
+00:04:25,140 --> 00:04:30,870
+you are extract
+
+78
+00:04:27,330 --> 00:04:33,389
+extracting an index of a string or a ray
+
+79
+00:04:30,870 --> 00:04:35,879
+or you know of a list or something like
+
+80
+00:04:33,389 --> 00:04:38,849
+that you know you put a square bracket
+
+81
+00:04:35,879 --> 00:04:40,949
+after some some variable name then
+
+82
+00:04:38,849 --> 00:04:43,259
+inside the square bracket maybe a number
+
+83
+00:04:40,949 --> 00:04:47,520
+like 2 you know that means you want to
+
+84
+00:04:43,259 --> 00:04:51,900
+get the second index item of that array
+
+85
+00:04:47,520 --> 00:04:54,120
+or string so so they use this square
+
+86
+00:04:51,900 --> 00:04:56,849
+bracket to indicate optional parameters
+
+87
+00:04:54,120 --> 00:05:00,409
+and then inside you you have a comma
+
+88
+00:04:56,849 --> 00:05:03,120
+this is very extremely stupid okay and
+
+89
+00:05:00,409 --> 00:05:07,169
+we also have another example this
+
+90
+00:05:03,120 --> 00:05:10,289
+example is from JavaScript documentation
+
+91
+00:05:07,169 --> 00:05:13,500
+on the Mozilla website the Firefox
+
+92
+00:05:10,289 --> 00:05:15,750
+website so I showed several examples you
+
+93
+00:05:13,500 --> 00:05:18,449
+know - I want to indicate you know so
+
+94
+00:05:15,750 --> 00:05:20,719
+this is very common you know it's it's
+
+95
+00:05:18,449 --> 00:05:23,400
+very common among programming
+
+96
+00:05:20,719 --> 00:05:25,319
+communities doesn't almost in every
+
+97
+00:05:23,400 --> 00:05:29,569
+language you have this kind of notation
+
+98
+00:05:25,319 --> 00:05:29,569
+to indicate optional parameters
+
+99
+00:05:29,580 --> 00:05:39,139
+I'm gonna check I'm gonna look at the
+
+100
+00:05:31,800 --> 00:05:42,240
+comment am I still alive yes okay so so
+
+101
+00:05:39,139 --> 00:05:43,949
+so the optional parameters yeah the the
+
+102
+00:05:42,240 --> 00:05:47,340
+square bracket you know that's very
+
+103
+00:05:43,949 --> 00:05:49,819
+idiotic you know just this thing this
+
+104
+00:05:47,340 --> 00:05:53,069
+has this this notation to indicate
+
+105
+00:05:49,819 --> 00:05:57,060
+option of members has been going on
+
+106
+00:05:53,069 --> 00:05:59,219
+since at least I would say this 1990s
+
+107
+00:05:57,060 --> 00:06:01,199
+you know nineteen nineties is basically
+
+108
+00:05:59,219 --> 00:06:06,860
+when I started to do programming so I
+
+109
+00:06:01,199 --> 00:06:10,349
+don't know if this happens earlier but
+
+110
+00:06:06,860 --> 00:06:13,830
+but you know it's very common and I have
+
+111
+00:06:10,349 --> 00:06:17,039
+never ever seen a complaint about this
+
+112
+00:06:13,830 --> 00:06:18,449
+notation you know I have never seen you
+
+113
+00:06:17,039 --> 00:06:20,400
+know programmer like programmers
+
+114
+00:06:18,449 --> 00:06:22,680
+complain about things all the time they
+
+115
+00:06:20,400 --> 00:06:25,949
+ about programming languages about
+
+116
+00:06:22,680 --> 00:06:27,990
+you know problem of design you know
+
+117
+00:06:25,949 --> 00:06:29,879
+elegance of a language or something they
+
+118
+00:06:27,990 --> 00:06:32,129
+like they like this language they don't
+
+119
+00:06:29,879 --> 00:06:35,520
+like like that language you know they
+
+120
+00:06:32,129 --> 00:06:37,740
+like Lisp oh you know they you know they
+
+121
+00:06:35,520 --> 00:06:40,380
+they may have opinion like like turns
+
+122
+00:06:37,740 --> 00:06:41,080
+over but opinions on everything however
+
+123
+00:06:40,380 --> 00:06:45,509
+I have
+
+124
+00:06:41,080 --> 00:06:50,939
+never seen one single criticism of this
+
+125
+00:06:45,509 --> 00:06:54,610
+this this very extremely obvious and
+
+126
+00:06:50,939 --> 00:06:58,569
+apparent idiocy of this notation to you
+
+127
+00:06:54,610 --> 00:07:01,539
+to indicate optional parameters in a
+
+128
+00:06:58,569 --> 00:07:05,710
+function so you know so this is one
+
+129
+00:07:01,539 --> 00:07:08,789
+example where I I find you know this
+
+130
+00:07:05,710 --> 00:07:11,770
+industry program as they did in
+
+131
+00:07:08,789 --> 00:07:14,620
+especially especially those elite
+
+132
+00:07:11,770 --> 00:07:16,840
+hackers like like they are hacker news
+
+133
+00:07:14,620 --> 00:07:19,719
+like they're post you know their blogs
+
+134
+00:07:16,840 --> 00:07:22,719
+are we treated reposted by everyone
+
+135
+00:07:19,719 --> 00:07:24,520
+everyone you know one through you know
+
+136
+00:07:22,719 --> 00:07:26,919
+they want to tell you how you should
+
+137
+00:07:24,520 --> 00:07:30,129
+format formatting styles of programming
+
+138
+00:07:26,919 --> 00:07:32,440
+languages about you know also the things
+
+139
+00:07:30,129 --> 00:07:33,610
+and in patterns and how you know
+
+140
+00:07:32,440 --> 00:07:36,310
+functional programming or
+
+141
+00:07:33,610 --> 00:07:39,039
+object-oriented programming you know but
+
+142
+00:07:36,310 --> 00:07:45,879
+never I've never seen one one criticism
+
+143
+00:07:39,039 --> 00:07:47,500
+you know bitching about this so so to me
+
+144
+00:07:45,879 --> 00:07:52,120
+you know these programmers are just
+
+145
+00:07:47,500 --> 00:07:57,490
+completely ETA idiotic very okay I mean
+
+146
+00:07:52,120 --> 00:08:00,580
+what I want to say something I want to
+
+147
+00:07:57,490 --> 00:08:03,610
+bring out this this issue so you know so
+
+148
+00:08:00,580 --> 00:08:05,979
+the question is what what is going on I
+
+149
+00:08:03,610 --> 00:08:08,529
+mean so first of all do you agree or not
+
+150
+00:08:05,979 --> 00:08:13,139
+agree this is confusing you know do you
+
+151
+00:08:08,529 --> 00:08:13,139
+do you do you see this is a very stupid
+
+152
+00:08:13,620 --> 00:08:20,500
+problem and why so if first of all do
+
+153
+00:08:17,650 --> 00:08:22,779
+you agree you know we we ask all the
+
+154
+00:08:20,500 --> 00:08:25,479
+programmers you know you you you post
+
+155
+00:08:22,779 --> 00:08:28,509
+this to your friends you ask them do you
+
+156
+00:08:25,479 --> 00:08:31,440
+find this kind of stupid it's kind of
+
+157
+00:08:28,509 --> 00:08:35,320
+you know not correct then you ask them
+
+158
+00:08:31,440 --> 00:08:37,690
+okay suppose I mean first of all whether
+
+159
+00:08:35,320 --> 00:08:40,419
+it's stupid and at what degree and this
+
+160
+00:08:37,690 --> 00:08:43,630
+is like you know a score of night
+
+161
+00:08:40,419 --> 00:08:45,970
+stability or instability or not really
+
+162
+00:08:43,630 --> 00:08:48,519
+you know like it's actually good then
+
+163
+00:08:45,970 --> 00:08:53,199
+you say you put a score of one you know
+
+164
+00:08:48,519 --> 00:08:54,970
+five is you know unsure or it's okay you
+
+165
+00:08:53,199 --> 00:08:57,550
+know something like so you use a
+
+166
+00:08:54,970 --> 00:09:01,870
+in a school you know how utterly stupid
+
+167
+00:08:57,550 --> 00:09:04,899
+it is now if if if your friends most if
+
+168
+00:09:01,870 --> 00:09:10,089
+if most of them majority of them agree
+
+169
+00:09:04,899 --> 00:09:13,810
+that that this is a stupid notation okay
+
+170
+00:09:10,089 --> 00:09:16,449
+then the next question to ask is why why
+
+171
+00:09:13,810 --> 00:09:19,240
+is it that in the in the past twenty
+
+172
+00:09:16,449 --> 00:09:21,850
+thirty years no programmers ever talked
+
+173
+00:09:19,240 --> 00:09:24,009
+about this you know you asked them that
+
+174
+00:09:21,850 --> 00:09:26,800
+I mean first of all we we have to make
+
+175
+00:09:24,009 --> 00:09:28,689
+sure is it true they are that there are
+
+176
+00:09:26,800 --> 00:09:31,509
+no programmers ever mentioned this
+
+177
+00:09:28,689 --> 00:09:33,910
+problem you you know you do a study like
+
+178
+00:09:31,509 --> 00:09:36,370
+we can put it scientifically like likes
+
+179
+00:09:33,910 --> 00:09:38,740
+you survey let's say ten thousand
+
+180
+00:09:36,370 --> 00:09:41,019
+programmers ask them if they ever heard
+
+181
+00:09:38,740 --> 00:09:45,550
+of someone who complained about this
+
+182
+00:09:41,019 --> 00:09:47,980
+issue okay so we get the statistics so I
+
+183
+00:09:45,550 --> 00:09:50,290
+would say you know for my experience no
+
+184
+00:09:47,980 --> 00:09:52,810
+you know you we are not you know very
+
+185
+00:09:50,290 --> 00:09:55,379
+like almost nobody ever mentioned this
+
+186
+00:09:52,810 --> 00:09:58,750
+problem okay so that's another thing
+
+187
+00:09:55,379 --> 00:10:01,959
+then the next question we want to ask is
+
+188
+00:09:58,750 --> 00:10:04,240
+why is it that nobody ever know
+
+189
+00:10:01,959 --> 00:10:07,689
+programmers ever talk talked about this
+
+190
+00:10:04,240 --> 00:10:10,540
+problem now is it because programmers in
+
+191
+00:10:07,689 --> 00:10:12,309
+general do not complain obviously not
+
+192
+00:10:10,540 --> 00:10:14,829
+they can pay about all kind of things
+
+193
+00:10:12,309 --> 00:10:16,809
+like the end they talk they tell you
+
+194
+00:10:14,829 --> 00:10:18,790
+what you should be doing what is the
+
+195
+00:10:16,809 --> 00:10:21,040
+correct correct way you know they have
+
+196
+00:10:18,790 --> 00:10:25,449
+like we see it all the time language
+
+197
+00:10:21,040 --> 00:10:27,670
+flame war and so on right so then okay
+
+198
+00:10:25,449 --> 00:10:29,559
+so they do it express their opinions
+
+199
+00:10:27,670 --> 00:10:32,649
+then why then why is that nobody
+
+200
+00:10:29,559 --> 00:10:35,500
+mentioned this so this this issue you
+
+201
+00:10:32,649 --> 00:10:41,319
+know this is one of the one of the issue
+
+202
+00:10:35,500 --> 00:10:44,170
+I you know I I have lots of issues you
+
+203
+00:10:41,319 --> 00:10:46,930
+know I so so why am I talking about this
+
+204
+00:10:44,170 --> 00:10:53,050
+because what I might what I am doing now
+
+205
+00:10:46,930 --> 00:10:57,839
+is I want to express okay I want to tell
+
+206
+00:10:53,050 --> 00:11:01,240
+you well it's particular to me okay I
+
+207
+00:10:57,839 --> 00:11:03,519
+want to tell you that these frustrations
+
+208
+00:11:01,240 --> 00:11:05,740
+I mean because a lot of programmers call
+
+209
+00:11:03,519 --> 00:11:07,880
+me autre where whenever I talk about
+
+210
+00:11:05,740 --> 00:11:11,900
+programming stuff you know many
+
+211
+00:11:07,880 --> 00:11:14,450
+they think me as a troll but but this is
+
+212
+00:11:11,900 --> 00:11:18,290
+one example like you know when I say you
+
+213
+00:11:14,450 --> 00:11:21,350
+know UNIX philosophy I eat you know they
+
+214
+00:11:18,290 --> 00:11:23,839
+are Voodoo's okay so of course a lot of
+
+215
+00:11:21,350 --> 00:11:27,010
+people to disagree and you guys you know
+
+216
+00:11:23,839 --> 00:11:30,890
+probably a lot of you guys do not agree
+
+217
+00:11:27,010 --> 00:11:34,040
+and so I have this bunch of opinions
+
+218
+00:11:30,890 --> 00:11:36,650
+also you know the the wrapping of lying
+
+219
+00:11:34,040 --> 00:11:40,130
+like programmers are accustomed and
+
+220
+00:11:36,650 --> 00:11:42,830
+accustomed like people are told that
+
+221
+00:11:40,130 --> 00:11:45,350
+that you should have a hard wrap of a
+
+222
+00:11:42,830 --> 00:11:52,520
+lie every 80 characters or 70 characters
+
+223
+00:11:45,350 --> 00:11:55,040
+also so so you have so so so you have
+
+224
+00:11:52,520 --> 00:11:58,100
+all these issues okay issues on my plate
+
+225
+00:11:55,040 --> 00:12:01,220
+I have I have all these issues and today
+
+226
+00:11:58,100 --> 00:12:04,190
+this optional parameter notation of a
+
+227
+00:12:01,220 --> 00:12:07,220
+function is one of the issue I want to
+
+228
+00:12:04,190 --> 00:12:10,460
+bring out to address I want to you know
+
+229
+00:12:07,220 --> 00:12:13,760
+so this is one of my complaints that I
+
+230
+00:12:10,460 --> 00:12:19,160
+feel somehow the the industry of
+
+231
+00:12:13,760 --> 00:12:21,380
+programmers are just like you know like
+
+232
+00:12:19,160 --> 00:12:24,830
+a bunch of people on a truck like they
+
+233
+00:12:21,380 --> 00:12:28,910
+never actually think they never they are
+
+234
+00:12:24,830 --> 00:12:31,580
+not thinkers they do not think just like
+
+235
+00:12:28,910 --> 00:12:33,830
+just like outside of programming like
+
+236
+00:12:31,580 --> 00:12:36,950
+like religion followers like you know
+
+237
+00:12:33,830 --> 00:12:39,640
+like like the mob like average normal
+
+238
+00:12:36,950 --> 00:12:43,250
+people in other aspects of society
+
+239
+00:12:39,640 --> 00:12:45,529
+that's what I think okay that yeah
+
+240
+00:12:43,250 --> 00:12:47,810
+perhaps that perhaps that is why but
+
+241
+00:12:45,529 --> 00:12:50,060
+anyway so I'm talking about this
+
+242
+00:12:47,810 --> 00:12:52,580
+particular issue about optional
+
+243
+00:12:50,060 --> 00:12:58,310
+parameters in functional parameters
+
+244
+00:12:52,580 --> 00:13:01,190
+notation as one of the example and I
+
+245
+00:12:58,310 --> 00:13:04,760
+like you guys to think about it you know
+
+246
+00:13:01,190 --> 00:13:06,890
+I mean of you guys who are watching old
+
+247
+00:13:04,760 --> 00:13:11,570
+you know those people are watching so
+
+248
+00:13:06,890 --> 00:13:13,360
+why is this happening so to me I mean
+
+249
+00:13:11,570 --> 00:13:17,030
+like yesterday we talked about
+
+250
+00:13:13,360 --> 00:13:19,280
+JavaScript string problems which is
+
+251
+00:13:17,030 --> 00:13:21,020
+another extreme idiocy you know they are
+
+252
+00:13:19,280 --> 00:13:25,420
+a lot like that
+
+253
+00:13:21,020 --> 00:13:28,520
+so so anyway so that is the context I
+
+254
+00:13:25,420 --> 00:13:32,779
+just want to show an example okay of the
+
+255
+00:13:28,520 --> 00:13:35,300
+issue of you know this is a you know
+
+256
+00:13:32,779 --> 00:13:37,550
+concrete example it's not like it's not
+
+257
+00:13:35,300 --> 00:13:39,890
+like I'm bullshitting I mean everything
+
+258
+00:13:37,550 --> 00:13:41,899
+I say about here you can verify you can
+
+259
+00:13:39,890 --> 00:13:43,820
+see you know there's a screenshot and
+
+260
+00:13:41,899 --> 00:13:46,190
+you can ask people ask your friend or
+
+261
+00:13:43,820 --> 00:13:49,430
+ask yourself what do you think of this
+
+262
+00:13:46,190 --> 00:13:52,040
+situation is it good or bad why you
+
+263
+00:13:49,430 --> 00:13:56,870
+never seen programmers complain
+
+264
+00:13:52,040 --> 00:14:00,050
+okay so at this point if if you agree up
+
+265
+00:13:56,870 --> 00:14:03,620
+to this point then the question is why
+
+266
+00:14:00,050 --> 00:14:05,600
+two programmers what do you think you
+
+267
+00:14:03,620 --> 00:14:07,610
+know what's happening to the programmers
+
+268
+00:14:05,600 --> 00:14:09,649
+in the programming industry I mean why
+
+269
+00:14:07,610 --> 00:14:12,320
+are programmers never see this as one of
+
+270
+00:14:09,649 --> 00:14:15,020
+the problem you want to ask that you
+
+271
+00:14:12,320 --> 00:14:19,040
+know as a philosopher you know you you
+
+272
+00:14:15,020 --> 00:14:21,410
+you spend you know like today you know
+
+273
+00:14:19,040 --> 00:14:23,540
+you spent one hour to think about this I
+
+274
+00:14:21,410 --> 00:14:25,490
+mean in a serious way that's that's what
+
+275
+00:14:23,540 --> 00:14:27,740
+philosophy is about you know you think
+
+276
+00:14:25,490 --> 00:14:29,930
+about things you keep thinking about it
+
+277
+00:14:27,740 --> 00:14:32,240
+so you think about this you know let's
+
+278
+00:14:29,930 --> 00:14:37,550
+say for example for half an hour today
+
+279
+00:14:32,240 --> 00:14:39,320
+why programmers do not you know it seems
+
+280
+00:14:37,550 --> 00:14:41,600
+like they don't care or is it because
+
+281
+00:14:39,320 --> 00:14:45,110
+they didn't see the problem or is it
+
+282
+00:14:41,600 --> 00:14:48,529
+because like they are blind or I mean
+
+283
+00:14:45,110 --> 00:14:51,140
+what is going on oh is it because this
+
+284
+00:14:48,529 --> 00:14:53,660
+is really not an issue you know this is
+
+285
+00:14:51,140 --> 00:14:56,870
+actually a good notation you know maybe
+
+286
+00:14:53,660 --> 00:14:59,149
+that's is why do so you think about it
+
+287
+00:14:56,870 --> 00:15:02,120
+you know you you think about it for half
+
+288
+00:14:59,149 --> 00:15:04,430
+an hour today tomorrow you think about
+
+289
+00:15:02,120 --> 00:15:07,490
+it for another half hour you keep
+
+290
+00:15:04,430 --> 00:15:10,880
+thinking about it every day see this
+
+291
+00:15:07,490 --> 00:15:13,670
+this is what for us for philosophy and
+
+292
+00:15:10,880 --> 00:15:15,620
+philosophers - ok you you want to
+
+293
+00:15:13,670 --> 00:15:19,730
+seriously think about this problem for
+
+294
+00:15:15,620 --> 00:15:22,459
+like four months for a year you know and
+
+295
+00:15:19,730 --> 00:15:24,200
+and you want to write a report ok in
+
+296
+00:15:22,459 --> 00:15:27,860
+fact like you have to come into a
+
+297
+00:15:24,200 --> 00:15:30,699
+conclusion like like like this you know
+
+298
+00:15:27,860 --> 00:15:33,650
+you know suppose this is the issue like
+
+299
+00:15:30,699 --> 00:15:34,490
+about the size of the universe or about
+
+300
+00:15:33,650 --> 00:15:36,589
+some important
+
+301
+00:15:34,490 --> 00:15:38,899
+think about the nature of science so you
+
+302
+00:15:36,589 --> 00:15:40,970
+know that's what philosophers do you
+
+303
+00:15:38,899 --> 00:15:42,740
+know this is just the example you know
+
+304
+00:15:40,970 --> 00:15:45,649
+typically when people think of
+
+305
+00:15:42,740 --> 00:15:47,600
+philosophy they think of Oh Greeks or
+
+306
+00:15:45,649 --> 00:15:49,459
+something something or about the
+
+307
+00:15:47,600 --> 00:15:52,940
+universal meaning of life that's
+
+308
+00:15:49,459 --> 00:15:57,040
+actually not the essence of philosophy
+
+309
+00:15:52,940 --> 00:15:59,870
+okay those are the main subjects that
+
+310
+00:15:57,040 --> 00:16:02,890
+happens to be as a consequence is
+
+311
+00:15:59,870 --> 00:16:05,540
+somehow I mean it happens to be the main
+
+312
+00:16:02,890 --> 00:16:07,310
+subjects of philosophy but that that is
+
+313
+00:16:05,540 --> 00:16:11,149
+not the essence of loss philosophy
+
+314
+00:16:07,310 --> 00:16:12,589
+philosophy is you this is me you know
+
+315
+00:16:11,149 --> 00:16:14,560
+there are many ways to define many
+
+316
+00:16:12,589 --> 00:16:18,440
+things you can ask what is philosophy
+
+317
+00:16:14,560 --> 00:16:20,450
+then you know books about economy you
+
+318
+00:16:18,440 --> 00:16:22,700
+know their economies we'll talk about
+
+319
+00:16:20,450 --> 00:16:25,870
+what is the economy you know each
+
+320
+00:16:22,700 --> 00:16:28,070
+different book will have different like
+
+321
+00:16:25,870 --> 00:16:30,680
+definitions about and there are also
+
+322
+00:16:28,070 --> 00:16:34,220
+lots of books tons of books about math
+
+323
+00:16:30,680 --> 00:16:36,709
+and and mathematicians we often talk
+
+324
+00:16:34,220 --> 00:16:39,110
+about you know have a chapter or preface
+
+325
+00:16:36,709 --> 00:16:41,329
+like what is math or what is geometry
+
+326
+00:16:39,110 --> 00:16:44,990
+and they are you know that because there
+
+327
+00:16:41,329 --> 00:16:48,260
+are so many ways to see this to give you
+
+328
+00:16:44,990 --> 00:16:51,940
+a sense what it is about you know and
+
+329
+00:16:48,260 --> 00:16:56,260
+they so so so this is one of the example
+
+330
+00:16:51,940 --> 00:17:00,470
+what philosophy is doing I'm trying to
+
+331
+00:16:56,260 --> 00:17:03,140
+show you okay so philosophy so for us so
+
+332
+00:17:00,470 --> 00:17:03,920
+you think about this problem and in a
+
+333
+00:17:03,140 --> 00:17:07,610
+serious way
+
+334
+00:17:03,920 --> 00:17:12,050
+okay this concrete example about this
+
+335
+00:17:07,610 --> 00:17:14,240
+programming documentation notation and
+
+336
+00:17:12,050 --> 00:17:17,449
+you have to come into a conclusion I
+
+337
+00:17:14,240 --> 00:17:19,939
+mean that is important too I mean
+
+338
+00:17:17,449 --> 00:17:21,470
+philosophy is not about oh you just
+
+339
+00:17:19,939 --> 00:17:23,990
+think about things like you play video
+
+340
+00:17:21,470 --> 00:17:26,540
+games and bye-bye tomorrow you forgot
+
+341
+00:17:23,990 --> 00:17:29,000
+all about it no you have to like this is
+
+342
+00:17:26,540 --> 00:17:31,610
+some serious issue you come you you have
+
+343
+00:17:29,000 --> 00:17:35,510
+to come up a conclusion I mean it's like
+
+344
+00:17:31,610 --> 00:17:37,220
+like how deep you go depends on what
+
+345
+00:17:35,510 --> 00:17:40,220
+knowledge you have I mean you can go
+
+346
+00:17:37,220 --> 00:17:43,010
+into like anthropology I mean so is this
+
+347
+00:17:40,220 --> 00:17:45,830
+is this situation this because because
+
+348
+00:17:43,010 --> 00:17:47,950
+of certain neurons in your brain you
+
+349
+00:17:45,830 --> 00:17:47,950
+know
+
+350
+00:17:48,740 --> 00:17:54,350
+you know those who study brain
+
+351
+00:17:51,860 --> 00:17:57,710
+scientists you know is that because of
+
+352
+00:17:54,350 --> 00:17:59,900
+that or is it because certain psychology
+
+353
+00:17:57,710 --> 00:18:02,570
+because being a programmer you have
+
+354
+00:17:59,900 --> 00:18:04,430
+certain psychology you know the way you
+
+355
+00:18:02,570 --> 00:18:07,059
+perceive things therefore you don't see
+
+356
+00:18:04,430 --> 00:18:10,400
+these notation problems or is it because
+
+357
+00:18:07,059 --> 00:18:12,950
+you know that it's like the the
+
+358
+00:18:10,400 --> 00:18:16,670
+conclusion is totally free okay I mean
+
+359
+00:18:12,950 --> 00:18:18,980
+your way of thinking is is free you want
+
+360
+00:18:16,670 --> 00:18:22,970
+to think about it whatever you are your
+
+361
+00:18:18,980 --> 00:18:27,740
+style your background your your the way
+
+362
+00:18:22,970 --> 00:18:30,050
+you go up whatever comes to you so if I
+
+363
+00:18:27,740 --> 00:18:32,660
+mean if you are serious about things
+
+364
+00:18:30,050 --> 00:18:35,420
+okay about every everyday things maybe
+
+365
+00:18:32,660 --> 00:18:37,429
+politics you know you come you you think
+
+366
+00:18:35,420 --> 00:18:40,280
+about this every day for full now you
+
+367
+00:18:37,429 --> 00:18:42,290
+make you you have to make a you know a
+
+368
+00:18:40,280 --> 00:18:45,679
+see if you are writing you have to
+
+369
+00:18:42,290 --> 00:18:47,510
+eventually write a report like for
+
+370
+00:18:45,679 --> 00:18:50,540
+example a government when there's some
+
+371
+00:18:47,510 --> 00:18:55,160
+disaster or pilot politicians was some
+
+372
+00:18:50,540 --> 00:18:58,880
+accident accidents you know heavy
+
+373
+00:18:55,160 --> 00:19:01,610
+accidents or some political intrigue you
+
+374
+00:18:58,880 --> 00:19:03,230
+know some you know then then the
+
+375
+00:19:01,610 --> 00:19:05,750
+government says created some
+
+376
+00:19:03,230 --> 00:19:08,570
+organization that invest investigate you
+
+377
+00:19:05,750 --> 00:19:11,390
+know create an invest investigation you
+
+378
+00:19:08,570 --> 00:19:13,580
+know with you know ten thousand hundred
+
+379
+00:19:11,390 --> 00:19:16,850
+thousand dollars you know put into
+
+380
+00:19:13,580 --> 00:19:19,070
+emails okay what just exactly what's
+
+381
+00:19:16,850 --> 00:19:22,700
+going on who is at fault you know or
+
+382
+00:19:19,070 --> 00:19:25,580
+something like that so on this problem
+
+383
+00:19:22,700 --> 00:19:29,210
+as a philosopher okay you want to think
+
+384
+00:19:25,580 --> 00:19:33,170
+and you want to make a report because
+
+385
+00:19:29,210 --> 00:19:35,929
+you know as if it's a critical critical
+
+386
+00:19:33,170 --> 00:19:38,750
+like like if you did it wrong or if your
+
+387
+00:19:35,929 --> 00:19:42,350
+report is unfair or if your report is
+
+388
+00:19:38,750 --> 00:19:45,440
+you know shoddy or you know if you
+
+389
+00:19:42,350 --> 00:19:47,300
+didn't actually you know too lazy didn't
+
+390
+00:19:45,440 --> 00:19:49,340
+actually think about it and just random
+
+391
+00:19:47,300 --> 00:19:53,090
+glided up you you'll be blamed you all
+
+392
+00:19:49,340 --> 00:19:55,450
+have problems okay or people will suffer
+
+393
+00:19:53,090 --> 00:19:58,720
+okay so think of this as a really
+
+394
+00:19:55,450 --> 00:20:02,320
+serious problem you inquire you know
+
+395
+00:19:58,720 --> 00:20:02,320
+inquire into it
+
+396
+00:20:04,300 --> 00:20:10,100
+so that that is about this situation and
+
+397
+00:20:07,610 --> 00:20:12,290
+the other thing you want to think about
+
+398
+00:20:10,100 --> 00:20:15,410
+I mean when you think about things okay
+
+399
+00:20:12,290 --> 00:20:18,350
+this is one example and this applies to
+
+400
+00:20:15,410 --> 00:20:23,480
+many examples this is this is kind of
+
+401
+00:20:18,350 --> 00:20:26,060
+what I tend to do okay I mean not that
+
+402
+00:20:23,480 --> 00:20:28,580
+it's necessarily a good thing to do
+
+403
+00:20:26,060 --> 00:20:30,940
+because first of all if you are going to
+
+404
+00:20:28,580 --> 00:20:35,390
+be a philosopher you are now going to
+
+405
+00:20:30,940 --> 00:20:38,420
+have money to live okay you know you can
+
+406
+00:20:35,390 --> 00:20:41,300
+think about this problem for 10 years
+
+407
+00:20:38,420 --> 00:20:42,830
+and you are not it's it's not something
+
+408
+00:20:41,300 --> 00:20:44,330
+that bring you money you want you know
+
+409
+00:20:42,830 --> 00:20:47,060
+you know you want something to bring
+
+410
+00:20:44,330 --> 00:20:49,550
+your money you go to Europe you mop the
+
+411
+00:20:47,060 --> 00:20:52,250
+floor toilet at McDonald's that that
+
+412
+00:20:49,550 --> 00:20:56,510
+gives you immediate money or you go work
+
+413
+00:20:52,250 --> 00:20:58,940
+for Google to write programming and
+
+414
+00:20:56,510 --> 00:21:02,000
+debug that give you money anyway but
+
+415
+00:20:58,940 --> 00:21:04,040
+still philosophy you know once it wants
+
+416
+00:21:02,000 --> 00:21:08,540
+you think about this particular issue in
+
+417
+00:21:04,040 --> 00:21:10,700
+this example about notations you I mean
+
+418
+00:21:08,540 --> 00:21:13,880
+depending on how deep you go you can
+
+419
+00:21:10,700 --> 00:21:16,430
+spend one hour every day if you keep
+
+420
+00:21:13,880 --> 00:21:19,460
+doing you can spend you know two hours
+
+421
+00:21:16,430 --> 00:21:22,430
+and four for ten years it gets deeper
+
+422
+00:21:19,460 --> 00:21:25,270
+and deeper because this notation no
+
+423
+00:21:22,430 --> 00:21:27,980
+issue let me give you an example what
+
+424
+00:21:25,270 --> 00:21:30,830
+how is it possible it becomes deeper
+
+425
+00:21:27,980 --> 00:21:33,530
+this is a notation issue then you start
+
+426
+00:21:30,830 --> 00:21:35,360
+to research into notations you know
+
+427
+00:21:33,530 --> 00:21:37,970
+there is a subject of history of
+
+428
+00:21:35,360 --> 00:21:40,160
+mathematical notations then there's also
+
+429
+00:21:37,970 --> 00:21:42,200
+the subject I mean I mean the history of
+
+430
+00:21:40,160 --> 00:21:45,500
+math notations you can study for a full
+
+431
+00:21:42,200 --> 00:21:48,170
+year okay then you study the so then
+
+432
+00:21:45,500 --> 00:21:50,930
+maybe you get into history of math
+
+433
+00:21:48,170 --> 00:21:54,110
+notations then you start to wonder ok
+
+434
+00:21:50,930 --> 00:21:58,040
+maybe only mathematicians to certain
+
+435
+00:21:54,110 --> 00:22:00,380
+things this way maybe musicians maybe
+
+436
+00:21:58,040 --> 00:22:03,410
+because musicians and mathematicians are
+
+437
+00:22:00,380 --> 00:22:05,330
+different some musicians may not you
+
+438
+00:22:03,410 --> 00:22:07,550
+know maybe fall into this trap or
+
+439
+00:22:05,330 --> 00:22:09,500
+something so you maybe you start to
+
+440
+00:22:07,550 --> 00:22:12,530
+research our musical notations and
+
+441
+00:22:09,500 --> 00:22:14,320
+history of music notations and you start
+
+442
+00:22:12,530 --> 00:22:16,779
+to research writing systems
+
+443
+00:22:14,320 --> 00:22:19,870
+this is written this is not you know the
+
+444
+00:22:16,779 --> 00:22:22,149
+notation for functional parameters is
+
+445
+00:22:19,870 --> 00:22:24,730
+not verbal it's not a speech it's at
+
+446
+00:22:22,149 --> 00:22:27,730
+Wheaton so useless maybe you start go to
+
+447
+00:22:24,730 --> 00:22:30,220
+into linguistics you know writing
+
+448
+00:22:27,730 --> 00:22:33,490
+systems of the world oh you know what
+
+449
+00:22:30,220 --> 00:22:36,759
+what what is possible then you may be
+
+450
+00:22:33,490 --> 00:22:38,769
+going to maybe you know maybe you have
+
+451
+00:22:36,759 --> 00:22:42,309
+computer programming background so you
+
+452
+00:22:38,769 --> 00:22:45,130
+start to focus on you know the syntax of
+
+453
+00:22:42,309 --> 00:22:48,070
+programming languages so and maybe you
+
+454
+00:22:45,130 --> 00:22:50,230
+know you are thinking is that the
+
+455
+00:22:48,070 --> 00:22:52,330
+programmer whatever programming language
+
+456
+00:22:50,230 --> 00:22:55,620
+they are familiar with they tend to use
+
+457
+00:22:52,330 --> 00:23:00,549
+that programming languages syntax to
+
+458
+00:22:55,620 --> 00:23:02,049
+document the the features of you know
+
+459
+00:23:00,549 --> 00:23:06,429
+the programming language maybe that's
+
+460
+00:23:02,049 --> 00:23:09,909
+what you think okay so so so you start
+
+461
+00:23:06,429 --> 00:23:12,490
+to research into the syntax of
+
+462
+00:23:09,909 --> 00:23:14,559
+programming languages and that subject
+
+463
+00:23:12,490 --> 00:23:17,169
+you know as you know by itself is very
+
+464
+00:23:14,559 --> 00:23:19,539
+broad you can spend several years into
+
+465
+00:23:17,169 --> 00:23:24,190
+it full time you know what what are the
+
+466
+00:23:19,539 --> 00:23:26,740
+possible syntax is then you know so all
+
+467
+00:23:24,190 --> 00:23:29,700
+these superb I'm giving you examples
+
+468
+00:23:26,740 --> 00:23:33,549
+what what what it means
+
+469
+00:23:29,700 --> 00:23:36,279
+philosophy okay what what does it mean
+
+470
+00:23:33,549 --> 00:23:40,059
+what what does philosophies philosophers
+
+471
+00:23:36,279 --> 00:23:46,000
+do and so you so you the goal here is
+
+472
+00:23:40,059 --> 00:23:49,210
+you want to write a thesis you know so
+
+473
+00:23:46,000 --> 00:23:52,000
+let's say code let's cover cities so it
+
+474
+00:23:49,210 --> 00:23:54,669
+can be you know ten pages it can be
+
+475
+00:23:52,000 --> 00:23:57,460
+hundred pages depending on how how much
+
+476
+00:23:54,669 --> 00:24:00,100
+research you you can't go into this okay
+
+477
+00:23:57,460 --> 00:24:02,799
+you write a thesis and you you know the
+
+478
+00:24:00,100 --> 00:24:07,330
+topic can be becomes you know the
+
+479
+00:24:02,799 --> 00:24:09,789
+direction of future notations for
+
+480
+00:24:07,330 --> 00:24:14,200
+documentation you know it can be so many
+
+481
+00:24:09,789 --> 00:24:17,019
+so many ways and it actually again
+
+482
+00:24:14,200 --> 00:24:19,360
+depends on which aspect you you know you
+
+483
+00:24:17,019 --> 00:24:22,480
+are inclined to go to maybe you are
+
+484
+00:24:19,360 --> 00:24:26,010
+bored maybe you are you know you have an
+
+485
+00:24:22,480 --> 00:24:28,059
+eye for very specific narrow perspex
+
+486
+00:24:26,010 --> 00:24:31,059
+perspective you can go Verity
+
+487
+00:24:28,059 --> 00:24:34,090
+to that for example this can you can it
+
+488
+00:24:31,059 --> 00:24:37,210
+became you can became related to for
+
+489
+00:24:34,090 --> 00:24:41,169
+more languages you know which is a very
+
+490
+00:24:37,210 --> 00:24:45,820
+deep topic in theoretical computer
+
+491
+00:24:41,169 --> 00:24:48,099
+science so anyway you know you won't
+
+492
+00:24:45,820 --> 00:24:51,489
+think about this and you write a report
+
+493
+00:24:48,099 --> 00:24:53,440
+so ok so what is my point about talking
+
+494
+00:24:51,489 --> 00:24:59,139
+about these so first of all so I wanted
+
+495
+00:24:53,440 --> 00:25:02,440
+to show you yeah ok so the first issue
+
+496
+00:24:59,139 --> 00:25:05,559
+is something personal ok I want to show
+
+497
+00:25:02,440 --> 00:25:11,049
+you some of other things I'm doing about
+
+498
+00:25:05,559 --> 00:25:13,119
+programming languages that it seems to
+
+499
+00:25:11,049 --> 00:25:15,669
+me you know the most programmers in the
+
+500
+00:25:13,119 --> 00:25:17,789
+industry they are not just they don't
+
+501
+00:25:15,669 --> 00:25:20,889
+think about it for some reason
+
+502
+00:25:17,789 --> 00:25:25,889
+that's that's one that's first issue you
+
+503
+00:25:20,889 --> 00:25:27,580
+know and the second thing is that I
+
+504
+00:25:25,889 --> 00:25:31,719
+talked about
+
+505
+00:25:27,580 --> 00:25:35,169
+what does philosophy mean okay you know
+
+506
+00:25:31,719 --> 00:25:36,849
+the kind like what one perspective you
+
+507
+00:25:35,169 --> 00:25:40,389
+know there are so many perspectives I'm
+
+508
+00:25:36,849 --> 00:25:46,089
+giving you a 1% perspective of what the
+
+509
+00:25:40,389 --> 00:25:48,669
+essence of philosophy is about yeah I
+
+510
+00:25:46,089 --> 00:25:51,039
+guess that's that's it about that and of
+
+511
+00:25:48,669 --> 00:25:53,679
+course obviously this is interesting to
+
+512
+00:25:51,039 --> 00:25:55,509
+programmers because if you're most of
+
+513
+00:25:53,679 --> 00:25:57,519
+you are programmers right and you you
+
+514
+00:25:55,509 --> 00:26:00,249
+have to you know documentation you have
+
+515
+00:25:57,519 --> 00:26:02,919
+to read every day and you know bad
+
+516
+00:26:00,249 --> 00:26:04,269
+documentation is no good to you you know
+
+517
+00:26:02,919 --> 00:26:06,309
+you waste your time
+
+518
+00:26:04,269 --> 00:26:08,649
+good documentation is good so you want
+
+519
+00:26:06,309 --> 00:26:10,929
+to know how to document and what
+
+520
+00:26:08,649 --> 00:26:13,570
+documentation which kind of notation is
+
+521
+00:26:10,929 --> 00:26:15,099
+good you know so that's you know I
+
+522
+00:26:13,570 --> 00:26:16,899
+suppose that's interesting you know
+
+523
+00:26:15,099 --> 00:26:22,479
+that's actually actually the most
+
+524
+00:26:16,899 --> 00:26:26,049
+practical aspect of this subject and ok
+
+525
+00:26:22,479 --> 00:26:29,559
+so about this you know thing so what are
+
+526
+00:26:26,049 --> 00:26:32,559
+the so there are two things I wanted two
+
+527
+00:26:29,559 --> 00:26:35,619
+more things I want to talk about so this
+
+528
+00:26:32,559 --> 00:26:38,229
+notation is bad in my opinion what is a
+
+529
+00:26:35,619 --> 00:26:41,409
+good notation to express you know
+
+530
+00:26:38,229 --> 00:26:45,130
+optional parameters that's one thing
+
+531
+00:26:41,409 --> 00:26:47,710
+the other thing is then we the other
+
+532
+00:26:45,130 --> 00:26:52,200
+question is why do programmers actually
+
+533
+00:26:47,710 --> 00:26:56,350
+you know write it this way I mean white
+
+534
+00:26:52,200 --> 00:26:58,870
+so I have some opinions about that first
+
+535
+00:26:56,350 --> 00:27:02,529
+of all the okay so my opinion about why
+
+536
+00:26:58,870 --> 00:27:04,929
+programmers actually write the optional
+
+537
+00:27:02,529 --> 00:27:08,380
+parameters in this stupid notation is
+
+538
+00:27:04,929 --> 00:27:12,429
+because this notation is the
+
+539
+00:27:08,380 --> 00:27:15,509
+conventional notation from from the
+
+540
+00:27:12,429 --> 00:27:20,429
+conventional notation of passes okay
+
+541
+00:27:15,509 --> 00:27:28,090
+because you know let me show you the
+
+542
+00:27:20,429 --> 00:27:30,789
+passes okay let's go to yeah let me I'm
+
+543
+00:27:28,090 --> 00:27:41,320
+gonna answer the question real soon so
+
+544
+00:27:30,789 --> 00:27:44,820
+let me go into the sorry pauses because
+
+545
+00:27:41,320 --> 00:27:44,820
+I'm gonna show you
+
+546
+00:27:49,590 --> 00:27:54,330
+I'm gonna show you so what what I'm
+
+547
+00:27:52,260 --> 00:27:56,760
+saying is that this notation for
+
+548
+00:27:54,330 --> 00:28:00,930
+optional parameters with the square Brad
+
+549
+00:27:56,760 --> 00:28:04,940
+bracket it came from the traditional the
+
+550
+00:28:00,930 --> 00:28:08,370
+conventional notation for expressing
+
+551
+00:28:04,940 --> 00:28:10,410
+grammar okay for me language grammar
+
+552
+00:28:08,370 --> 00:28:18,030
+okay let me show you maybe I have a
+
+553
+00:28:10,410 --> 00:28:24,330
+example here syntax Ram abacus yeah
+
+554
+00:28:18,030 --> 00:28:27,900
+Backus no no form PNF that notation the
+
+555
+00:28:24,330 --> 00:28:30,570
+square bracket the use of square bracket
+
+556
+00:28:27,900 --> 00:28:35,640
+to indicate something that optional in a
+
+557
+00:28:30,570 --> 00:28:38,010
+syntax came from the convention the
+
+558
+00:28:35,640 --> 00:28:42,000
+convention of the conventional notation
+
+559
+00:28:38,010 --> 00:28:47,640
+of expressing grammar and this notation
+
+560
+00:28:42,000 --> 00:28:52,980
+is called Backus no form in P and F P
+
+561
+00:28:47,640 --> 00:28:54,810
+and F okay that's abbreviation so do I
+
+562
+00:28:52,980 --> 00:28:59,220
+have an example yes I do have an example
+
+563
+00:28:54,810 --> 00:29:02,730
+let me show you okay here I have an
+
+564
+00:28:59,220 --> 00:29:06,480
+article here this article is I looked I
+
+565
+00:29:02,730 --> 00:29:11,220
+studied about this in depth in you know
+
+566
+00:29:06,480 --> 00:29:13,500
+I spent several week also study this so
+
+567
+00:29:11,220 --> 00:29:17,730
+this article is about what is the
+
+568
+00:29:13,500 --> 00:29:21,410
+difference between P and F EP and f AP
+
+569
+00:29:17,730 --> 00:29:25,740
+and F now if you don't know the P and F
+
+570
+00:29:21,410 --> 00:29:29,240
+is a brief abacus no no form but what it
+
+571
+00:29:25,740 --> 00:29:33,540
+is is basically it's a syntax to express
+
+572
+00:29:29,240 --> 00:29:35,820
+programming language grammar and you
+
+573
+00:29:33,540 --> 00:29:39,270
+know most most programmers don't know
+
+574
+00:29:35,820 --> 00:29:41,340
+nothing about this unless you unless you
+
+575
+00:29:39,270 --> 00:29:45,060
+are someone who start to work on passes
+
+576
+00:29:41,340 --> 00:29:47,670
+passes of all compilers now if you write
+
+577
+00:29:45,060 --> 00:29:49,620
+if you have done any study of a
+
+578
+00:29:47,670 --> 00:29:52,800
+compilers maybe it's a homework at
+
+579
+00:29:49,620 --> 00:29:57,900
+college you'll know okay so this P and F
+
+580
+00:29:52,800 --> 00:30:00,990
+is a syntax to express a programming
+
+581
+00:29:57,900 --> 00:30:03,270
+language grammar now now there are
+
+582
+00:30:00,990 --> 00:30:07,230
+several variations you know
+
+583
+00:30:03,270 --> 00:30:11,310
+EMF EB and F AP and yep okay there are
+
+584
+00:30:07,230 --> 00:30:14,160
+these three are the major variations so
+
+585
+00:30:11,310 --> 00:30:17,910
+anyway in this syntax in in this grammar
+
+586
+00:30:14,160 --> 00:30:22,260
+the bracket notation let's see if we can
+
+587
+00:30:17,910 --> 00:30:26,960
+see your example here the square bracket
+
+588
+00:30:22,260 --> 00:30:29,940
+is used to indicate optional optional
+
+589
+00:30:26,960 --> 00:30:33,300
+sequence of symbols okay so anyway so
+
+590
+00:30:29,940 --> 00:30:36,690
+this is why okay so this is my reason
+
+591
+00:30:33,300 --> 00:30:40,500
+actually I think it's true it's a fact
+
+592
+00:30:36,690 --> 00:30:45,240
+this is the reason that programmers you
+
+593
+00:30:40,500 --> 00:30:48,240
+know it's it's have it's is adopted the
+
+594
+00:30:45,240 --> 00:30:52,040
+convention of using square brackets to
+
+595
+00:30:48,240 --> 00:30:54,630
+indicate optional parameters for
+
+596
+00:30:52,040 --> 00:30:58,980
+functions optional parameters in their
+
+597
+00:30:54,630 --> 00:31:00,960
+documentation okay now remember take
+
+598
+00:30:58,980 --> 00:31:03,680
+take notice that these two are different
+
+599
+00:31:00,960 --> 00:31:06,930
+things I mean one thing is about the
+
+600
+00:31:03,680 --> 00:31:09,410
+documentation of functions in you know
+
+601
+00:31:06,930 --> 00:31:13,890
+you know documentation the notation for
+
+602
+00:31:09,410 --> 00:31:17,580
+functions for function in your
+
+603
+00:31:13,890 --> 00:31:21,240
+documentation on the other hand this P
+
+604
+00:31:17,580 --> 00:31:24,420
+and F thing is is a syntax for grammar
+
+605
+00:31:21,240 --> 00:31:26,580
+grammar specification okay they are come
+
+606
+00:31:24,420 --> 00:31:29,790
+well they are they are related subject
+
+607
+00:31:26,580 --> 00:31:31,200
+of course but but you know it's actually
+
+608
+00:31:29,790 --> 00:31:36,660
+different in why why is the
+
+609
+00:31:31,200 --> 00:31:39,690
+documentation notation so anyway so so
+
+610
+00:31:36,660 --> 00:31:41,820
+that's about what why I think program
+
+611
+00:31:39,690 --> 00:31:44,790
+are doing it that way now the other
+
+612
+00:31:41,820 --> 00:31:47,160
+question I mean so is it so given not
+
+613
+00:31:44,790 --> 00:31:49,440
+now that we know why programmer do it
+
+614
+00:31:47,160 --> 00:31:51,840
+you know what the reason that
+
+615
+00:31:49,440 --> 00:31:54,720
+programmers are using this this notation
+
+616
+00:31:51,840 --> 00:31:57,120
+is it good no still I don't think he's
+
+617
+00:31:54,720 --> 00:31:59,700
+good because it's confusing you know
+
+618
+00:31:57,120 --> 00:32:03,750
+because first of all vast majority of
+
+619
+00:31:59,700 --> 00:32:07,380
+programmers like 99.99% you know what
+
+620
+00:32:03,750 --> 00:32:11,340
+one in 10,000 only one in 10,000
+
+621
+00:32:07,380 --> 00:32:13,740
+possibly no have experience about PMF
+
+622
+00:32:11,340 --> 00:32:16,350
+okay most are not I mean as a programmer
+
+623
+00:32:13,740 --> 00:32:17,010
+daily you know your job daily job is
+
+624
+00:32:16,350 --> 00:32:20,010
+program
+
+625
+00:32:17,010 --> 00:32:22,140
+emag baseball this pool you know front
+
+626
+00:32:20,010 --> 00:32:24,840
+and back and whatever you know of gaming
+
+627
+00:32:22,140 --> 00:32:28,640
+or you are not concerned about about
+
+628
+00:32:24,840 --> 00:32:32,669
+passing you know it's not a actually
+
+629
+00:32:28,640 --> 00:32:34,850
+typical daily programming problem you
+
+630
+00:32:32,669 --> 00:32:34,850
+know you
+
+631
+00:32:35,330 --> 00:32:42,210
+so anyway anyway this notation is is bad
+
+632
+00:32:39,090 --> 00:32:46,650
+okay so the other thing is then what
+
+633
+00:32:42,210 --> 00:32:50,160
+what is the what is a better notation a
+
+634
+00:32:46,650 --> 00:32:53,419
+better way when you talk him document a
+
+635
+00:32:50,160 --> 00:32:57,360
+function to indicate optional parameters
+
+636
+00:32:53,419 --> 00:33:01,230
+now I have a pinyin of that and I show
+
+637
+00:32:57,360 --> 00:33:06,210
+example here this this is a good example
+
+638
+00:33:01,230 --> 00:33:08,580
+this example is from Wolfram research on
+
+639
+00:33:06,210 --> 00:33:13,590
+the language will move from language or
+
+640
+00:33:08,580 --> 00:33:16,710
+also known as Mathematica so you can see
+
+641
+00:33:13,590 --> 00:33:20,130
+now this may be this is too small let me
+
+642
+00:33:16,710 --> 00:33:27,600
+magnify a little bit so let me let me
+
+643
+00:33:20,130 --> 00:33:31,980
+just show this okay so here is here is a
+
+644
+00:33:27,600 --> 00:33:34,919
+example of how you document of the
+
+645
+00:33:31,980 --> 00:33:37,380
+notation to document functions
+
+646
+00:33:34,919 --> 00:33:39,990
+parameters you know and optional
+
+647
+00:33:37,380 --> 00:33:42,000
+parameters so in first you know so here
+
+648
+00:33:39,990 --> 00:33:42,660
+we have a table function table is a
+
+649
+00:33:42,000 --> 00:33:48,059
+function
+
+650
+00:33:42,660 --> 00:33:50,070
+oops so table is a function in a Wolfram
+
+651
+00:33:48,059 --> 00:33:53,490
+language so you have first of all you
+
+652
+00:33:50,070 --> 00:33:56,070
+have you know table table takes two
+
+653
+00:33:53,490 --> 00:33:58,530
+arguments so you just you know by the
+
+654
+00:33:56,070 --> 00:34:02,160
+way the square bracket in the
+
+655
+00:33:58,530 --> 00:34:04,380
+mathematical language is is like is full
+
+656
+00:34:02,160 --> 00:34:09,570
+function you know it's like parenthesis
+
+657
+00:34:04,380 --> 00:34:12,540
+in in convention in you know in Python
+
+658
+00:34:09,570 --> 00:34:16,080
+or Java or JavaScript and so on so a
+
+659
+00:34:12,540 --> 00:34:22,830
+table takes two arguments expression and
+
+660
+00:34:16,080 --> 00:34:25,139
+n okay it will generate a list so so so
+
+661
+00:34:22,830 --> 00:34:29,570
+actually you know by the way table is
+
+662
+00:34:25,139 --> 00:34:29,570
+actually like a what what's called a
+
+663
+00:34:29,980 --> 00:34:36,159
+least comprehension in Python other
+
+664
+00:34:33,520 --> 00:34:38,409
+languages or Haskell but but in
+
+665
+00:34:36,159 --> 00:34:41,500
+Mathematica is actually of function it
+
+666
+00:34:38,409 --> 00:34:44,349
+it comes in a function form okay
+
+667
+00:34:41,500 --> 00:34:47,440
+but anyway table takes two arguments the
+
+668
+00:34:44,349 --> 00:34:51,429
+second argument can actually be a list
+
+669
+00:34:47,440 --> 00:34:54,899
+so you have these you know syntax then
+
+670
+00:34:51,429 --> 00:34:58,599
+the list can actually have three items
+
+671
+00:34:54,899 --> 00:35:01,569
+and actually can have four items as well
+
+672
+00:34:58,599 --> 00:35:05,200
+so you see you begin to see you know the
+
+673
+00:35:01,569 --> 00:35:10,599
+optional arguments are basically each
+
+674
+00:35:05,200 --> 00:35:12,670
+optional argument you you you repeat the
+
+675
+00:35:10,599 --> 00:35:15,520
+whole notation for the whole function so
+
+676
+00:35:12,670 --> 00:35:18,250
+it's clear you can clear clearly see
+
+677
+00:35:15,520 --> 00:35:22,890
+that table has these one two three four
+
+678
+00:35:18,250 --> 00:35:26,530
+five six you know six variations of
+
+679
+00:35:22,890 --> 00:35:29,500
+parameters you know and and the last one
+
+680
+00:35:26,530 --> 00:35:31,240
+we can see table takes more than you
+
+681
+00:35:29,500 --> 00:35:34,630
+know infinite infinite number of
+
+682
+00:35:31,240 --> 00:35:36,849
+arguments but anyway so this is a
+
+683
+00:35:34,630 --> 00:35:39,130
+notation I think it's a way way better
+
+684
+00:35:36,849 --> 00:35:41,170
+because you can clearly see all the
+
+685
+00:35:39,130 --> 00:35:45,130
+variations and you can say and there's
+
+686
+00:35:41,170 --> 00:35:47,890
+no confusion because you know when you
+
+687
+00:35:45,130 --> 00:35:50,530
+back to the Python example when you use
+
+688
+00:35:47,890 --> 00:35:53,230
+the square bracket in here there's a
+
+689
+00:35:50,530 --> 00:35:56,770
+confusion because square bracket is
+
+690
+00:35:53,230 --> 00:35:58,450
+actually a valid syntax in Python the
+
+691
+00:35:56,770 --> 00:36:00,880
+language so when you have a square
+
+692
+00:35:58,450 --> 00:36:04,240
+bracket maybe it means you know the
+
+693
+00:36:00,880 --> 00:36:10,780
+taking the index of an array or string
+
+694
+00:36:04,240 --> 00:36:15,760
+or it can also mean had was it hash
+
+695
+00:36:10,780 --> 00:36:17,799
+table or was it but anyway you know you
+
+696
+00:36:15,760 --> 00:36:19,589
+know what I mean you know it means
+
+697
+00:36:17,799 --> 00:36:22,660
+something in a programming language so
+
+698
+00:36:19,589 --> 00:36:28,990
+so it's very confusing but okay so let's
+
+699
+00:36:22,660 --> 00:36:32,710
+go back to Mathematica so anyway so this
+
+700
+00:36:28,990 --> 00:36:36,490
+is a good example in my opinion it's how
+
+701
+00:36:32,710 --> 00:36:38,440
+you should document functions and
+
+702
+00:36:36,490 --> 00:36:42,549
+functional and functions optional
+
+703
+00:36:38,440 --> 00:36:43,480
+parameters now so so I write a lot
+
+704
+00:36:42,549 --> 00:36:48,580
+programming
+
+705
+00:36:43,480 --> 00:36:50,980
+which tutorials right so this issue is
+
+706
+00:36:48,580 --> 00:36:52,900
+also you know so it's important to me
+
+707
+00:36:50,980 --> 00:36:54,820
+because I have I write so many
+
+708
+00:36:52,900 --> 00:36:57,670
+programming language you know tutorials
+
+709
+00:36:54,820 --> 00:37:01,330
+and often I need to indicate you know
+
+710
+00:36:57,670 --> 00:37:04,570
+functions parameters specification so
+
+711
+00:37:01,330 --> 00:37:08,470
+that when whenever there's a optional
+
+712
+00:37:04,570 --> 00:37:10,720
+parameter I also I follow basically I
+
+713
+00:37:08,470 --> 00:37:14,380
+use you know the Wolfram language is
+
+714
+00:37:10,720 --> 00:37:18,280
+notation to indicate a function of
+
+715
+00:37:14,380 --> 00:37:22,480
+parameters I have some examples here but
+
+716
+00:37:18,280 --> 00:37:25,630
+we can skip that so okay so so that that
+
+717
+00:37:22,480 --> 00:37:27,340
+concludes about this topic about
+
+718
+00:37:25,630 --> 00:37:30,790
+optional functional parameters
+
+719
+00:37:27,340 --> 00:37:34,720
+in computer language dogs okay let me
+
+720
+00:37:30,790 --> 00:37:40,600
+read the comments so that was so there
+
+721
+00:37:34,720 --> 00:37:44,650
+was a rather focused discussion so that
+
+722
+00:37:40,600 --> 00:37:46,810
+was 40 minutes about that topic so break
+
+723
+00:37:44,650 --> 00:37:49,060
+the loop says hi question from from
+
+724
+00:37:46,810 --> 00:37:52,270
+yesterday's topic about Unicode in
+
+725
+00:37:49,060 --> 00:37:57,130
+JavaScript what is ideal solution to you
+
+726
+00:37:52,270 --> 00:38:03,760
+make Unicode 32 the expected standard no
+
+727
+00:37:57,130 --> 00:38:08,380
+so the ideal solution is so yeah the
+
+728
+00:38:03,760 --> 00:38:11,470
+ideal solution is to introduce a pragma
+
+729
+00:38:08,380 --> 00:38:15,250
+okay so for example let me open a new
+
+730
+00:38:11,470 --> 00:38:19,000
+buffer magnify switch to a javascript
+
+731
+00:38:15,250 --> 00:38:22,619
+mod and so the ideal solution is to
+
+732
+00:38:19,000 --> 00:38:29,710
+introduce something like this okay use
+
+733
+00:38:22,619 --> 00:38:31,840
+2019 then then you do whatever
+
+734
+00:38:29,710 --> 00:38:36,400
+for example console.log one first one
+
+735
+00:38:31,840 --> 00:38:41,890
+okay let's run it oh I have to save it
+
+736
+00:38:36,400 --> 00:38:45,190
+xx star Jas okay let's run it so you
+
+737
+00:38:41,890 --> 00:38:48,670
+know we Saudis to so what does this mean
+
+738
+00:38:45,190 --> 00:38:50,710
+so the this this is a string okay when
+
+739
+00:38:48,670 --> 00:38:53,380
+you have a string and you know it just
+
+740
+00:38:50,710 --> 00:38:56,650
+does nothing so you put this string I
+
+741
+00:38:53,380 --> 00:38:57,280
+mean in so he Emacs I mean in JavaScript
+
+742
+00:38:56,650 --> 00:39:02,470
+you or
+
+743
+00:38:57,280 --> 00:39:03,840
+have you already have these okay so
+
+744
+00:39:02,470 --> 00:39:16,510
+actually you
+
+745
+00:39:03,840 --> 00:39:19,090
+it's just use that oops they said so so
+
+746
+00:39:16,510 --> 00:39:24,970
+you have this use strict it's called I
+
+747
+00:39:19,090 --> 00:39:29,560
+think it's called pragma let's just it's
+
+748
+00:39:24,970 --> 00:39:33,690
+just go to a website so people can
+
+749
+00:39:29,560 --> 00:39:33,690
+understand what it is what it is about
+
+750
+00:39:36,270 --> 00:39:41,650
+we don't want to go to you Street
+
+751
+00:39:39,040 --> 00:39:45,670
+so JavaScript has this new strict thing
+
+752
+00:39:41,650 --> 00:39:47,710
+I mean it's created so that you know
+
+753
+00:39:45,670 --> 00:39:50,860
+it's part of the language SPECT so when
+
+754
+00:39:47,710 --> 00:39:55,660
+you have this basically the the compiler
+
+755
+00:39:50,860 --> 00:39:58,930
+will look at your code in you know will
+
+756
+00:39:55,660 --> 00:40:01,930
+assume that it is following a new spec
+
+757
+00:39:58,930 --> 00:40:04,030
+so this is what I recommend a trick I
+
+758
+00:40:01,930 --> 00:40:08,200
+you know I think the ideal solution is
+
+759
+00:40:04,030 --> 00:40:11,500
+to introduce a new you know use 2019 so
+
+760
+00:40:08,200 --> 00:40:15,700
+that will means you know in 2019 we
+
+761
+00:40:11,500 --> 00:40:19,990
+introduce we change all the behaviors of
+
+762
+00:40:15,700 --> 00:40:28,000
+the string methods behavior you know we
+
+763
+00:40:19,990 --> 00:40:31,210
+change those as a 2019 spec so when so
+
+764
+00:40:28,000 --> 00:40:34,500
+people you know so when you when your
+
+765
+00:40:31,210 --> 00:40:38,680
+source code you can add you know use
+
+766
+00:40:34,500 --> 00:40:42,340
+2019 then all the functions methods will
+
+767
+00:40:38,680 --> 00:40:45,250
+have the behavior specified you know in
+
+768
+00:40:42,340 --> 00:40:47,400
+the year 2019 so it's kind of like like
+
+769
+00:40:45,250 --> 00:40:49,660
+the way to go into a new language
+
+770
+00:40:47,400 --> 00:40:52,510
+meanwhile it will be backward compatible
+
+771
+00:40:49,660 --> 00:40:54,850
+because you know you just don't you know
+
+772
+00:40:52,510 --> 00:40:59,110
+you just write code normally without
+
+773
+00:40:54,850 --> 00:41:01,690
+that use you know 2019 string then you
+
+774
+00:40:59,110 --> 00:41:05,190
+just you know be the old behavior so I
+
+775
+00:41:01,690 --> 00:41:07,810
+think that's a elegant solution I
+
+776
+00:41:05,190 --> 00:41:11,140
+mentioned this yesterday but the
+
+777
+00:41:07,810 --> 00:41:15,640
+JavaScript standard you know they they
+
+778
+00:41:11,140 --> 00:41:18,880
+people they they decided that they are
+
+779
+00:41:15,640 --> 00:41:22,260
+not going to introduce any new you
+
+780
+00:41:18,880 --> 00:41:26,220
+strict kind of thing because I think
+
+781
+00:41:22,260 --> 00:41:31,300
+they the reason is that they think it
+
+782
+00:41:26,220 --> 00:41:35,380
+going to create more complexity which I
+
+783
+00:41:31,300 --> 00:41:46,420
+don't agree but you know but what can
+
+784
+00:41:35,380 --> 00:41:51,100
+you do so so does so I am I like am I
+
+785
+00:41:46,420 --> 00:41:53,620
+still alive let's see five people
+
+786
+00:41:51,100 --> 00:41:57,100
+watching okay I'm still alive so break
+
+787
+00:41:53,620 --> 00:41:59,230
+the loop that that is a question that is
+
+788
+00:41:57,100 --> 00:42:01,420
+he you know what I think
+
+789
+00:41:59,230 --> 00:42:03,160
+so normal says I do agree the bracket
+
+790
+00:42:01,420 --> 00:42:06,520
+notation for optional arguments is
+
+791
+00:42:03,160 --> 00:42:09,130
+irritating and confusing yeah so Norman
+
+792
+00:42:06,520 --> 00:42:11,920
+says in erland documentation they show
+
+793
+00:42:09,130 --> 00:42:15,010
+complete form of all possible ways of
+
+794
+00:42:11,920 --> 00:42:18,160
+coding a function yet so that is similar
+
+795
+00:42:15,010 --> 00:42:20,910
+to the way Mathematica is doing things
+
+796
+00:42:18,160 --> 00:42:23,080
+you know I I really like the
+
+797
+00:42:20,910 --> 00:42:26,350
+mathematical language you know that's
+
+798
+00:42:23,080 --> 00:42:29,250
+language it happens to be the language
+
+799
+00:42:26,350 --> 00:42:34,470
+it happens to be my first language and
+
+800
+00:42:29,250 --> 00:42:38,220
+but in a mathematical language like I
+
+801
+00:42:34,470 --> 00:42:40,540
+mean let's not even talking talk about I
+
+802
+00:42:38,220 --> 00:42:42,550
+mean it's not just about language
+
+803
+00:42:40,540 --> 00:42:43,870
+because for example the way they
+
+804
+00:42:42,550 --> 00:42:46,660
+document things
+
+805
+00:42:43,870 --> 00:42:49,090
+there's no jargon and and look at this
+
+806
+00:42:46,660 --> 00:42:52,090
+notation issue it's just good it just
+
+807
+00:42:49,090 --> 00:42:56,710
+could what let me explain why is it good
+
+808
+00:42:52,090 --> 00:42:58,960
+because we found the wolf and Stefan
+
+809
+00:42:56,710 --> 00:43:03,520
+wolf I'm the guy okay he created the
+
+810
+00:42:58,960 --> 00:43:08,650
+language he is a well he professionally
+
+811
+00:43:03,520 --> 00:43:10,660
+well he was a physicist okay he's a you
+
+812
+00:43:08,650 --> 00:43:15,850
+know he's his quantum physics you know
+
+813
+00:43:10,660 --> 00:43:18,520
+he's a like like he's got a degree you
+
+814
+00:43:15,850 --> 00:43:21,850
+know when he was like a king and he
+
+815
+00:43:18,520 --> 00:43:25,280
+won't MacArthur Genius award so
+
+816
+00:43:21,850 --> 00:43:29,780
+literally he's a certified genius
+
+817
+00:43:25,280 --> 00:43:32,809
+then he you know so he published physics
+
+818
+00:43:29,780 --> 00:43:36,520
+physics you know papers when he was like
+
+819
+00:43:32,809 --> 00:43:39,799
+you know king or twenties in in you know
+
+820
+00:43:36,520 --> 00:43:43,250
+professional physicists journals
+
+821
+00:43:39,799 --> 00:43:45,859
+you know then he abandon academia he
+
+822
+00:43:43,250 --> 00:43:48,680
+went to create his own business so he's
+
+823
+00:43:45,859 --> 00:43:52,190
+you know he's really like a true genius
+
+824
+00:43:48,680 --> 00:43:54,740
+not just academic genius but he's you
+
+825
+00:43:52,190 --> 00:43:57,410
+know he he he run his you know company
+
+826
+00:43:54,740 --> 00:43:59,930
+and now that that company is muffin
+
+827
+00:43:57,410 --> 00:44:02,809
+research is you know very successful and
+
+828
+00:43:59,930 --> 00:44:05,180
+also by the way it's not a public
+
+829
+00:44:02,809 --> 00:44:09,410
+company it's not like a Google Facebook
+
+830
+00:44:05,180 --> 00:44:12,680
+like IPO you know it's not public traded
+
+831
+00:44:09,410 --> 00:44:14,960
+why because he wanted that way because
+
+832
+00:44:12,680 --> 00:44:18,740
+you know if you know anything about you
+
+833
+00:44:14,960 --> 00:44:21,410
+know the corporations in USA public
+
+834
+00:44:18,740 --> 00:44:23,869
+companies means you basically well
+
+835
+00:44:21,410 --> 00:44:26,990
+essentially means you know the public
+
+836
+00:44:23,869 --> 00:44:30,140
+you know all the n anyone have who has
+
+837
+00:44:26,990 --> 00:44:32,480
+money controls it controls the direction
+
+838
+00:44:30,140 --> 00:44:34,819
+that you get like how it will go what
+
+839
+00:44:32,480 --> 00:44:35,180
+direction you become that's what it
+
+840
+00:44:34,819 --> 00:44:38,089
+means
+
+841
+00:44:35,180 --> 00:44:41,420
+you know so he doesn't want he wants a
+
+842
+00:44:38,089 --> 00:44:45,200
+full control like he's so he's kind of a
+
+843
+00:44:41,420 --> 00:44:47,480
+weird guy you know so I mean so he
+
+844
+00:44:45,200 --> 00:44:50,569
+wanted full control on every aspect of
+
+845
+00:44:47,480 --> 00:44:53,299
+his creations Mathematica you know the
+
+846
+00:44:50,569 --> 00:44:56,480
+language the programming language how it
+
+847
+00:44:53,299 --> 00:44:58,460
+should move forward you know and he's
+
+848
+00:44:56,480 --> 00:45:01,640
+doing his stuff you know research on
+
+849
+00:44:58,460 --> 00:45:04,279
+physics or such oh you know he's he's
+
+850
+00:45:01,640 --> 00:45:08,779
+very into a cellular automata you know
+
+851
+00:45:04,279 --> 00:45:11,869
+new he is at a book called a new kind of
+
+852
+00:45:08,779 --> 00:45:17,779
+science actually I I read it I read it
+
+853
+00:45:11,869 --> 00:45:19,910
+like three times cover to cover a new
+
+854
+00:45:17,779 --> 00:45:22,339
+kind of science
+
+855
+00:45:19,910 --> 00:45:26,150
+he sent me in the book he kind of we
+
+856
+00:45:22,339 --> 00:45:29,150
+kind of you know we kind of are
+
+857
+00:45:26,150 --> 00:45:34,299
+acquainted you know he's actually sent
+
+858
+00:45:29,150 --> 00:45:34,299
+me an email last year
+
+859
+00:45:35,210 --> 00:45:45,090
+anyway so Wolfram language let's see so
+
+860
+00:45:41,970 --> 00:45:47,730
+he got this book and he brought this
+
+861
+00:45:45,090 --> 00:45:50,130
+book supposedly it's like 20 years of
+
+862
+00:45:47,730 --> 00:45:52,860
+his research he's very much into this
+
+863
+00:45:50,130 --> 00:45:56,880
+it's it's basically that the subject
+
+864
+00:45:52,860 --> 00:45:58,590
+matter is a cellular automata we should
+
+865
+00:45:56,880 --> 00:46:00,710
+talk about that because that's an
+
+866
+00:45:58,590 --> 00:46:05,820
+incredible fascinating topic okay
+
+867
+00:46:00,710 --> 00:46:08,310
+cellular automata and yeah you can we
+
+868
+00:46:05,820 --> 00:46:12,540
+you can look up Wikipedia by the way you
+
+869
+00:46:08,310 --> 00:46:16,280
+know you know you it will have articles
+
+870
+00:46:12,540 --> 00:46:19,650
+and by the way it also relates to
+
+871
+00:46:16,280 --> 00:46:22,620
+automata and theoretical computer
+
+872
+00:46:19,650 --> 00:46:25,200
+science and the regular expression and
+
+873
+00:46:22,620 --> 00:46:28,740
+you know it's actually all related form
+
+874
+00:46:25,200 --> 00:46:31,020
+and formal languages yeah that's a big
+
+875
+00:46:28,740 --> 00:46:35,310
+topic to go into but anyway so he's very
+
+876
+00:46:31,020 --> 00:46:37,110
+into that guy is very much into this so
+
+877
+00:46:35,310 --> 00:46:41,850
+yeah he controlled you know he has a
+
+878
+00:46:37,110 --> 00:46:47,430
+vision you know he you know and very
+
+879
+00:46:41,850 --> 00:46:50,100
+successful so yeah so so yeah back to
+
+880
+00:46:47,430 --> 00:46:55,650
+the previous topic so I I was saying the
+
+881
+00:46:50,100 --> 00:46:58,800
+reason Mathematica is such a it's rather
+
+882
+00:46:55,650 --> 00:47:02,670
+okay let's say one of the most coherent
+
+883
+00:46:58,800 --> 00:47:08,310
+and actually elegant language it's
+
+884
+00:47:02,670 --> 00:47:10,830
+because because you you when you think
+
+885
+00:47:08,310 --> 00:47:16,830
+about things you want to think like a
+
+886
+00:47:10,830 --> 00:47:19,770
+mathematician that's okay it's that does
+
+887
+00:47:16,830 --> 00:47:24,750
+not actually capture the whole essence
+
+888
+00:47:19,770 --> 00:47:26,610
+but anyway what I'm saying is that when
+
+889
+00:47:24,750 --> 00:47:29,760
+you think about things you want to think
+
+890
+00:47:26,610 --> 00:47:33,060
+in a mathematicians way and by that I
+
+891
+00:47:29,760 --> 00:47:35,610
+mean you want to eliminate you want to
+
+892
+00:47:33,060 --> 00:47:36,450
+eliminate eliminate anything that's
+
+893
+00:47:35,610 --> 00:47:39,830
+irrelevant
+
+894
+00:47:36,450 --> 00:47:43,640
+meaning that you you whatever you say oh
+
+895
+00:47:39,830 --> 00:47:47,369
+the result only captures only it
+
+896
+00:47:43,640 --> 00:47:49,890
+represents the essence of things in
+
+897
+00:47:47,369 --> 00:47:52,970
+that's one view of math you know so what
+
+898
+00:47:49,890 --> 00:47:55,499
+is mathematics mathematics is when
+
+899
+00:47:52,970 --> 00:47:58,680
+doesn't matter what what were saying
+
+900
+00:47:55,499 --> 00:48:02,609
+anything any topic politics or economy
+
+901
+00:47:58,680 --> 00:48:06,210
+or personal or how to how to you know
+
+902
+00:48:02,609 --> 00:48:08,190
+make you know how did how do we
+
+903
+00:48:06,210 --> 00:48:10,799
+influence people how to make friends how
+
+904
+00:48:08,190 --> 00:48:14,759
+to get a girlfriend you know any topic
+
+905
+00:48:10,799 --> 00:48:18,059
+when you eliminate anything else you
+
+906
+00:48:14,759 --> 00:48:21,660
+will irrelevant and when you do that
+
+907
+00:48:18,059 --> 00:48:24,900
+successfully that that that is
+
+908
+00:48:21,660 --> 00:48:29,160
+mathematics that's one way to view it
+
+909
+00:48:24,900 --> 00:48:31,529
+okay that is also why when you see math
+
+910
+00:48:29,160 --> 00:48:34,289
+you know you know real professional math
+
+911
+00:48:31,529 --> 00:48:36,599
+it's all like it's all abstract like you
+
+912
+00:48:34,289 --> 00:48:39,240
+have you know symbols it's like what is
+
+913
+00:48:36,599 --> 00:48:41,339
+this like it's unlike physics or you
+
+914
+00:48:39,240 --> 00:48:44,519
+know black hole at least you know like
+
+915
+00:48:41,339 --> 00:48:47,099
+black hole physics physics study you
+
+916
+00:48:44,519 --> 00:48:49,140
+know and this you can you know you can
+
+917
+00:48:47,099 --> 00:48:51,269
+imagine oh it's a black hole you know
+
+918
+00:48:49,140 --> 00:48:53,759
+because star you know what's a star you
+
+919
+00:48:51,269 --> 00:48:57,749
+know it collapse you become say oh ho
+
+920
+00:48:53,759 --> 00:49:02,579
+you know in its back but math it's not
+
+921
+00:48:57,749 --> 00:49:06,359
+something you can appreciate because it
+
+922
+00:49:02,579 --> 00:49:09,559
+eliminates all all all the things you
+
+923
+00:49:06,359 --> 00:49:13,489
+can perceive but it leaves only the core
+
+924
+00:49:09,559 --> 00:49:16,200
+which is kind of the ideas of the
+
+925
+00:49:13,489 --> 00:49:18,960
+relations and logic how they relate how
+
+926
+00:49:16,200 --> 00:49:23,309
+they how things relate that is what math
+
+927
+00:49:18,960 --> 00:49:25,619
+is about the Bo math okay not calculus
+
+928
+00:49:23,309 --> 00:49:28,140
+you study in school but because for
+
+929
+00:49:25,619 --> 00:49:30,359
+example in calculus you can still see
+
+930
+00:49:28,140 --> 00:49:33,150
+all speed oh you know the change of
+
+931
+00:49:30,359 --> 00:49:34,980
+speed is you know that all derivative is
+
+932
+00:49:33,150 --> 00:49:36,839
+because you want to get the
+
+933
+00:49:34,980 --> 00:49:39,239
+instantaneous speed you know you you
+
+934
+00:49:36,839 --> 00:49:42,749
+still have the concept of moving and
+
+935
+00:49:39,239 --> 00:49:46,170
+speed and so that so also uh but once
+
+936
+00:49:42,749 --> 00:49:49,190
+you take the Bo mathematicians version
+
+937
+00:49:46,170 --> 00:49:51,210
+of calculus which is which is called
+
+938
+00:49:49,190 --> 00:49:54,420
+analysis okay
+
+939
+00:49:51,210 --> 00:49:56,880
+in USA analysis you don't have that
+
+940
+00:49:54,420 --> 00:49:59,579
+anymore but the subject is pretty much
+
+941
+00:49:56,880 --> 00:50:01,200
+the same it's calculus but the way you
+
+942
+00:49:59,579 --> 00:50:04,140
+talk about it is with
+
+943
+00:50:01,200 --> 00:50:06,120
+you know speed or movement or cars or
+
+944
+00:50:04,140 --> 00:50:10,080
+you know directions it's nothing like
+
+945
+00:50:06,120 --> 00:50:12,600
+that it's all just kind of like symbols
+
+946
+00:50:10,080 --> 00:50:18,060
+and ideas ideas represented by symbols
+
+947
+00:50:12,600 --> 00:50:20,490
+and how they relate so that's so I guess
+
+948
+00:50:18,060 --> 00:50:23,760
+what I'm explaining is the one of the
+
+949
+00:50:20,490 --> 00:50:27,510
+aspects of perspective about math in it
+
+950
+00:50:23,760 --> 00:50:31,290
+the nature of mathematics okay so back
+
+951
+00:50:27,510 --> 00:50:34,020
+to the so so what I'm saying is that it
+
+952
+00:50:31,290 --> 00:50:40,310
+is because this way because of the
+
+953
+00:50:34,020 --> 00:50:43,530
+eliminate necessarily things this way of
+
+954
+00:50:40,310 --> 00:50:46,250
+perceiving or viewing or creating
+
+955
+00:50:43,530 --> 00:50:50,360
+languages that is what why I think
+
+956
+00:50:46,250 --> 00:50:52,950
+Mathematica is very elegant and and
+
+957
+00:50:50,360 --> 00:50:56,160
+including the documentation it's it just
+
+958
+00:50:52,950 --> 00:50:58,530
+it just makes sense it but by the way he
+
+959
+00:50:56,160 --> 00:51:01,800
+is probably not the first guy who to
+
+960
+00:50:58,530 --> 00:51:05,220
+created this notation for you know
+
+961
+00:51:01,800 --> 00:51:07,500
+optional parameters he's I'm pretty sure
+
+962
+00:51:05,220 --> 00:51:10,020
+he's not the first one to do this you
+
+963
+00:51:07,500 --> 00:51:16,230
+know but you know for example we also
+
+964
+00:51:10,020 --> 00:51:19,560
+see it in Ireland and I don't know if
+
+965
+00:51:16,230 --> 00:51:21,330
+Earl and you know the guy who I'm strong
+
+966
+00:51:19,560 --> 00:51:25,500
+you know who created a line who just
+
+967
+00:51:21,330 --> 00:51:27,870
+died two days ago few days ago he he has
+
+968
+00:51:25,500 --> 00:51:29,550
+seen the Mathematica documentation
+
+969
+00:51:27,870 --> 00:51:34,410
+probably not know oh let me speak
+
+970
+00:51:29,550 --> 00:51:36,540
+actually before Mathematica okay so what
+
+971
+00:51:34,410 --> 00:51:41,220
+is the alternative notation I just
+
+972
+00:51:36,540 --> 00:51:43,080
+covered that so are you guys still with
+
+973
+00:51:41,220 --> 00:51:47,130
+me
+
+974
+00:51:43,080 --> 00:51:50,040
+so keep the comments going okay so what
+
+975
+00:51:47,130 --> 00:51:54,060
+few more comments is C so Norman says I
+
+976
+00:51:50,040 --> 00:51:57,680
+think many and most programmers use IDE
+
+977
+00:51:54,060 --> 00:52:00,810
+that allows function auto completion
+
+978
+00:51:57,680 --> 00:52:04,350
+arguments are filled in they don't be
+
+979
+00:52:00,810 --> 00:52:06,900
+sold to documentation as much yet that's
+
+980
+00:52:04,350 --> 00:52:09,330
+true but no but you still need to do
+
+981
+00:52:06,900 --> 00:52:11,640
+documentation but because how how do you
+
+982
+00:52:09,330 --> 00:52:13,610
+know what arguments are you know what
+
+983
+00:52:11,640 --> 00:52:15,390
+they mean
+
+984
+00:52:13,610 --> 00:52:19,350
+so we're dogs
+
+985
+00:52:15,390 --> 00:52:22,350
+I like the typescript probably probably
+
+986
+00:52:19,350 --> 00:52:23,250
+some other languages too way so I so
+
+987
+00:52:22,350 --> 00:52:25,830
+dogs
+
+988
+00:52:23,250 --> 00:52:29,570
+web dog says I like the typescript way
+
+989
+00:52:25,830 --> 00:52:33,030
+of expressing optional parameters with
+
+990
+00:52:29,570 --> 00:52:37,410
+question marks in the identifier yeah
+
+991
+00:52:33,030 --> 00:52:40,230
+that's yeah I suppose that's that's I
+
+992
+00:52:37,410 --> 00:52:42,990
+think I think that without using your
+
+993
+00:52:40,230 --> 00:52:45,080
+question mark is definitely better than
+
+994
+00:52:42,990 --> 00:52:49,470
+using a square bracket
+
+995
+00:52:45,080 --> 00:52:51,870
+but although I still prefer the you know
+
+996
+00:52:49,470 --> 00:52:55,260
+the way of listening everything up but
+
+997
+00:52:51,870 --> 00:53:00,450
+by the way the way of listing every out
+
+998
+00:52:55,260 --> 00:53:05,960
+is actually not optimal because because
+
+999
+00:53:00,450 --> 00:53:11,730
+if you go back to think about the the
+
+1000
+00:53:05,960 --> 00:53:13,140
+BNF notation you see if you go back to
+
+1001
+00:53:11,730 --> 00:53:19,470
+the BNF notation
+
+1002
+00:53:13,140 --> 00:53:21,900
+you cannot well you can actually but but
+
+1003
+00:53:19,470 --> 00:53:26,070
+you know listing out all the possible
+
+1004
+00:53:21,900 --> 00:53:30,660
+forms actually is impractical in the
+
+1005
+00:53:26,070 --> 00:53:41,250
+context of creating a syntax for grammar
+
+1006
+00:53:30,660 --> 00:53:43,530
+of a language okay so yeah anyway so so
+
+1007
+00:53:41,250 --> 00:53:46,080
+by the way using a question mark is also
+
+1008
+00:53:43,530 --> 00:53:51,230
+kind of common it's also a conventional
+
+1009
+00:53:46,080 --> 00:53:51,230
+practice to indicate optional parameters
+
+1010
+00:53:55,670 --> 00:54:09,920
+I think they put a question mark in
+
+1011
+00:53:59,570 --> 00:54:12,650
+front of the the name right I thought so
+
+1012
+00:54:09,920 --> 00:54:15,350
+small groups of single people like
+
+1013
+00:54:12,650 --> 00:54:18,290
+Wolfram can exert control over a
+
+1014
+00:54:15,350 --> 00:54:19,090
+language maintains conceptual integrity
+
+1015
+00:54:18,290 --> 00:54:22,250
+yeah
+
+1016
+00:54:19,090 --> 00:54:25,220
+listening every listing every
+
+1017
+00:54:22,250 --> 00:54:27,130
+permutation of the argument could get
+
+1018
+00:54:25,220 --> 00:54:29,660
+exhaustive yeah
+
+1019
+00:54:27,130 --> 00:54:32,510
+well different event on what do you mean
+
+1020
+00:54:29,660 --> 00:54:35,570
+exhaustive they are ambiguities here
+
+1021
+00:54:32,510 --> 00:54:36,560
+because one what meaning is that it gets
+
+1022
+00:54:35,570 --> 00:54:39,430
+tiresome
+
+1023
+00:54:36,560 --> 00:54:42,140
+you know people cannot possibly list all
+
+1024
+00:54:39,430 --> 00:54:44,420
+permutations of you know optional
+
+1025
+00:54:42,140 --> 00:54:46,190
+arguments that's one sense you know
+
+1026
+00:54:44,420 --> 00:54:49,330
+people get tired of it so it's not
+
+1027
+00:54:46,190 --> 00:54:52,700
+practical the other sense is that
+
+1028
+00:54:49,330 --> 00:54:55,670
+exhaustive is like comprehensive you
+
+1029
+00:54:52,700 --> 00:54:57,860
+know it's complete so obviously if you
+
+1030
+00:54:55,670 --> 00:55:02,540
+did every permutation then it's actually
+
+1031
+00:54:57,860 --> 00:55:05,090
+complete so so normal says if the
+
+1032
+00:55:02,540 --> 00:55:08,390
+language supports keyword arguments or
+
+1033
+00:55:05,090 --> 00:55:11,570
+taste takes a map argument then you can
+
+1034
+00:55:08,390 --> 00:55:16,310
+have a table listing those those instead
+
+1035
+00:55:11,570 --> 00:55:18,830
+of all permutations yeah but that's true
+
+1036
+00:55:16,310 --> 00:55:21,860
+I mean but but that would be a different
+
+1037
+00:55:18,830 --> 00:55:24,320
+thing right I mean because then you are
+
+1038
+00:55:21,860 --> 00:55:28,220
+changing the functions arguments so
+
+1039
+00:55:24,320 --> 00:55:32,270
+that's actually a different issue you
+
+1040
+00:55:28,220 --> 00:55:35,300
+know so I guess that's about yeah that's
+
+1041
+00:55:32,270 --> 00:55:40,430
+about the maybe that's about it today
+
+1042
+00:55:35,300 --> 00:55:43,030
+that's the main topic you know I didn't
+
+1043
+00:55:40,430 --> 00:55:46,370
+know what topic to talk about today
+
+1044
+00:55:43,030 --> 00:55:49,220
+every time I start to do a talk Sal
+
+1045
+00:55:46,370 --> 00:55:52,040
+talks showed like I was you know I don't
+
+1046
+00:55:49,220 --> 00:55:53,960
+know what to talk about not because I
+
+1047
+00:55:52,040 --> 00:55:55,880
+don't have topics but because you know I
+
+1048
+00:55:53,960 --> 00:55:59,180
+have so many I mean I do have so many
+
+1049
+00:55:55,880 --> 00:56:04,460
+topics but you know and it's like I have
+
+1050
+00:55:59,180 --> 00:56:07,130
+to decide then you know but usually like
+
+1051
+00:56:04,460 --> 00:56:09,820
+I just randomly picked a topic and that
+
+1052
+00:56:07,130 --> 00:56:09,820
+insert
+
+1053
+00:56:12,240 --> 00:56:18,340
+like almost an hour okay so that's one
+
+1054
+00:56:15,460 --> 00:56:22,000
+topic about optional function so normal
+
+1055
+00:56:18,340 --> 00:56:24,160
+normal says so stories about my me
+
+1056
+00:56:22,000 --> 00:56:26,980
+working at whooping I don't have much
+
+1057
+00:56:24,160 --> 00:56:30,130
+stories but actually I can tell you some
+
+1058
+00:56:26,980 --> 00:56:31,060
+yeah some experiences but actually also
+
+1059
+00:56:30,130 --> 00:56:39,040
+let me see
+
+1060
+00:56:31,060 --> 00:56:41,950
+so sorry programming experience okay
+
+1061
+00:56:39,040 --> 00:56:44,410
+let's let's try to search that sorry for
+
+1062
+00:56:41,950 --> 00:56:50,740
+memory you experience because I have
+
+1063
+00:56:44,410 --> 00:56:53,470
+written an article about that so I have
+
+1064
+00:56:50,740 --> 00:56:57,940
+an article that's my impression of Lisp
+
+1065
+00:56:53,470 --> 00:57:09,000
+from Mathematica okay then I have
+
+1066
+00:56:57,940 --> 00:57:09,000
+another article okay anyway whoops wait
+
+1067
+00:57:10,890 --> 00:57:13,890
+wait
+
+1068
+00:57:18,790 --> 00:57:26,650
+by the way this page by the way Jang
+
+1069
+00:57:22,000 --> 00:57:29,110
+bays is a great quantum mechanics
+
+1070
+00:57:26,650 --> 00:57:31,870
+physics and he's also a great
+
+1071
+00:57:29,110 --> 00:57:35,290
+mathematician I learned tremendous math
+
+1072
+00:57:31,870 --> 00:57:38,260
+from him in the past in a Google first
+
+1073
+00:57:35,290 --> 00:57:42,610
+days so I learned tremendous math from
+
+1074
+00:57:38,260 --> 00:57:46,450
+him in a span of three years and Google
+
+1075
+00:57:42,610 --> 00:57:48,790
+first shut down and he is now on Twitter
+
+1076
+00:57:46,450 --> 00:57:55,230
+so if you are on Twitter you can follow
+
+1077
+00:57:48,790 --> 00:57:58,960
+Jang pace okay and he is also category
+
+1078
+00:57:55,230 --> 00:58:01,570
+theorist he's he's very much into
+
+1079
+00:57:58,960 --> 00:58:03,730
+category theory and in fact he talked
+
+1080
+00:58:01,570 --> 00:58:07,330
+about it he talked about it all the time
+
+1081
+00:58:03,730 --> 00:58:10,330
+and he actually teaches it you know he
+
+1082
+00:58:07,330 --> 00:58:14,290
+has been teaching it for you know maybe
+
+1083
+00:58:10,330 --> 00:58:16,480
+10 over 10 years maybe and yeah I mean
+
+1084
+00:58:14,290 --> 00:58:18,640
+he's not he's not a programmer though
+
+1085
+00:58:16,480 --> 00:58:22,930
+he's not a programmer so he doesn't know
+
+1086
+00:58:18,640 --> 00:58:24,610
+he doesn't really have any you know much
+
+1087
+00:58:22,930 --> 00:58:27,610
+about anything about programming but
+
+1088
+00:58:24,610 --> 00:58:29,980
+however so he if you are into category
+
+1089
+00:58:27,610 --> 00:58:33,730
+theory you know follow him we'll check
+
+1090
+00:58:29,980 --> 00:58:36,390
+out his stuff okay so I have article
+
+1091
+00:58:33,730 --> 00:58:38,610
+here my impressions of Lisp from
+
+1092
+00:58:36,390 --> 00:58:42,460
+Mathematica because I programmed
+
+1093
+00:58:38,610 --> 00:58:46,930
+Mathematica for 10 years then in 1990s
+
+1094
+00:58:42,460 --> 00:58:48,520
+then I start to learn Lisp around 1991
+
+1095
+00:58:46,930 --> 00:58:52,690
+or 1998
+
+1096
+00:58:48,520 --> 00:58:57,880
+okay so Mathematica is actually Lisp
+
+1097
+00:58:52,690 --> 00:58:59,890
+okay you know you could say that so you
+
+1098
+00:58:57,880 --> 00:59:04,870
+know so this this article this is
+
+1099
+00:58:59,890 --> 00:59:12,970
+written in 2008 actually I think is
+
+1100
+00:59:04,870 --> 00:59:14,980
+written much earlier than that but
+
+1101
+00:59:12,970 --> 00:59:18,300
+anyway so you can see some of my
+
+1102
+00:59:14,980 --> 00:59:21,040
+histories about my impressions of Lisp
+
+1103
+00:59:18,300 --> 00:59:26,710
+basically it sucks compared to
+
+1104
+00:59:21,040 --> 00:59:29,980
+Mathematica it's like you know yeah it's
+
+1105
+00:59:26,710 --> 00:59:32,350
+true you know it's like back in 2008 you
+
+1106
+00:59:29,980 --> 00:59:35,410
+know I might when I have the
+
+1107
+00:59:32,350 --> 00:59:37,810
+for example why the you know I'm a think
+
+1108
+00:59:35,410 --> 00:59:42,430
+okay I don't actually know this that
+
+1109
+00:59:37,810 --> 00:59:44,860
+well so maybe my impression of Lisp from
+
+1110
+00:59:42,430 --> 00:59:47,590
+my experience of Mathematica is may be
+
+1111
+00:59:44,860 --> 00:59:50,790
+biased and also back then I don't know
+
+1112
+00:59:47,590 --> 00:59:53,470
+much I don't know that much about
+
+1113
+00:59:50,790 --> 00:59:56,680
+programming or computer science you know
+
+1114
+00:59:53,470 --> 00:59:59,460
+as compared to now for example at after
+
+1115
+00:59:56,680 --> 01:00:02,590
+all it's after twenty years so you know
+
+1116
+00:59:59,460 --> 01:00:05,290
+so even though I have some opinions and
+
+1117
+01:00:02,590 --> 01:00:07,780
+some of them are strong opinions but you
+
+1118
+01:00:05,290 --> 01:00:10,300
+know I'm thinking maybe actually I could
+
+1119
+01:00:07,780 --> 01:00:12,820
+be you know my my impression is wrong
+
+1120
+01:00:10,300 --> 01:00:14,980
+because I don't really know many of the
+
+1121
+01:00:12,820 --> 01:00:17,370
+topics about programming languages or
+
+1122
+01:00:14,980 --> 01:00:20,710
+design or you know stuff but now today
+
+1123
+01:00:17,370 --> 01:00:22,180
+for example today my opinion back then
+
+1124
+01:00:20,710 --> 01:00:25,690
+is absolutely correct
+
+1125
+01:00:22,180 --> 01:00:28,740
+okay like III I do not change my opinion
+
+1126
+01:00:25,690 --> 01:00:31,540
+in fact it's 10 times more solid
+
+1127
+01:00:28,740 --> 01:00:33,400
+Mathematica compared to all that list
+
+1128
+01:00:31,540 --> 01:00:36,820
+doesn't matter what list of
+
+1129
+01:00:33,400 --> 01:00:40,780
+list common list skinless racket they
+
+1130
+01:00:36,820 --> 01:00:43,750
+are in relation when you compare those
+
+1131
+01:00:40,780 --> 01:00:46,450
+lisps to Mathematica all those lists are
+
+1132
+01:00:43,750 --> 01:00:52,060
+ this is like ten times war was okay
+
+1133
+01:00:46,450 --> 01:00:55,510
+no in every aspect in syntax in
+
+1134
+01:00:52,060 --> 01:01:00,550
+semantics in how powerful it is in
+
+1135
+01:00:55,510 --> 01:01:03,970
+express ability in in how short you know
+
+1136
+01:01:00,550 --> 01:01:06,640
+you can express it in how flexible the
+
+1137
+01:01:03,970 --> 01:01:10,090
+syntax can change you know in every
+
+1138
+01:01:06,640 --> 01:01:12,790
+aspect and and and in practicality they
+
+1139
+01:01:10,090 --> 01:01:17,260
+are much more inferior than Mathematica
+
+1140
+01:01:12,790 --> 01:01:21,360
+okay I you know this idea becomes
+
+1141
+01:01:17,260 --> 01:01:24,430
+stronger and stronger over the years as
+
+1142
+01:01:21,360 --> 01:01:28,060
+I learn more languages you know and
+
+1143
+01:01:24,430 --> 01:01:33,040
+understand more you know different areas
+
+1144
+01:01:28,060 --> 01:01:35,590
+of programming and computation but there
+
+1145
+01:01:33,040 --> 01:01:39,160
+is one issue about Mathematica because
+
+1146
+01:01:35,590 --> 01:01:41,170
+its proprietary you know so all of you
+
+1147
+01:01:39,160 --> 01:01:43,600
+open source fast you can forget it
+
+1148
+01:01:41,170 --> 01:01:45,880
+immediately now you have a choice okay
+
+1149
+01:01:43,600 --> 01:01:49,290
+you have a choice
+
+1150
+01:01:45,880 --> 01:01:52,420
+when is that stick with your open source
+
+1151
+01:01:49,290 --> 01:01:54,880
+the fantasy okay stick with your open
+
+1152
+01:01:52,420 --> 01:01:57,370
+source philosophy stick with the open
+
+1153
+01:01:54,880 --> 01:02:00,310
+source mindset you know you are not ever
+
+1154
+01:01:57,370 --> 01:02:02,470
+going to touch anything that's
+
+1155
+01:02:00,310 --> 01:02:06,190
+proprietary so Mathematica is
+
+1156
+01:02:02,470 --> 01:02:08,020
+proprietary you close your toilet you
+
+1157
+01:02:06,190 --> 01:02:08,530
+know like don't look at you like you
+
+1158
+01:02:08,020 --> 01:02:10,450
+don't care
+
+1159
+01:02:08,530 --> 01:02:12,640
+think it doesn't matter what it is you
+
+1160
+01:02:10,450 --> 01:02:16,270
+don't want to hear it okay that's one of
+
+1161
+01:02:12,640 --> 01:02:19,270
+the choice you can make the other choice
+
+1162
+01:02:16,270 --> 01:02:21,580
+is then you have to like oh my god
+
+1163
+01:02:19,270 --> 01:02:24,940
+Mathematica Casali says you know
+
+1164
+01:02:21,580 --> 01:02:27,130
+Mathematica is this in that maybe you
+
+1165
+01:02:24,940 --> 01:02:28,990
+know I should look at it you know maybe
+
+1166
+01:02:27,130 --> 01:02:32,710
+I should you know even though it's
+
+1167
+01:02:28,990 --> 01:02:41,350
+proprietary but so you have a dilemma
+
+1168
+01:02:32,710 --> 01:02:43,660
+now okay method so Mathematica and so
+
+1169
+01:02:41,350 --> 01:02:45,550
+what I want to yeah I want to I was
+
+1170
+01:02:43,660 --> 01:02:48,600
+going to show you an article where I
+
+1171
+01:02:45,550 --> 01:02:54,370
+talked about some experiences where I
+
+1172
+01:02:48,600 --> 01:02:59,500
+was at Wolfram and that and you can find
+
+1173
+01:02:54,370 --> 01:03:04,810
+that Arco by I don't remember what
+
+1174
+01:02:59,500 --> 01:03:14,680
+keyword to search but but I think I can
+
+1175
+01:03:04,810 --> 01:03:19,020
+find an article by going to okay here's
+
+1176
+01:03:14,680 --> 01:03:23,200
+the keyword to search sorry Peter Novick
+
+1177
+01:03:19,020 --> 01:03:26,440
+Peter Novick is one of the Lisp God okay
+
+1178
+01:03:23,200 --> 01:03:30,360
+it's it's considerable by you know
+
+1179
+01:03:26,440 --> 01:03:36,010
+programmers as Lisp and AI God
+
+1180
+01:03:30,360 --> 01:03:40,750
+he wrote a idiotic essay that is widely
+
+1181
+01:03:36,010 --> 01:03:48,400
+spread Amanda he did hacker schools you
+
+1182
+01:03:40,750 --> 01:03:51,480
+know so I want to find my article sorry
+
+1183
+01:03:48,400 --> 01:03:51,480
+Peter Novick
+
+1184
+01:04:00,320 --> 01:04:07,670
+okay so let me try this sorry
+
+1185
+01:04:07,820 --> 01:04:21,859
+learn programming in ten years
+
+1186
+01:04:14,099 --> 01:04:21,859
+oh no Vic Vig right
+
+1187
+01:04:30,870 --> 01:04:33,870
+yeah
+
+1188
+01:04:47,370 --> 01:04:55,100
+there it is the Arco is named the
+
+1189
+01:04:52,440 --> 01:04:59,280
+condition of Industry of programmers
+
+1190
+01:04:55,100 --> 01:05:03,660
+learn Lisp in ten days okay
+
+1191
+01:04:59,280 --> 01:05:08,310
+now I wrote this in 2006 now this this
+
+1192
+01:05:03,660 --> 01:05:12,360
+essay is a reaction to the Peter Novak's
+
+1193
+01:05:08,310 --> 01:05:17,160
+article is a very popular article okay
+
+1194
+01:05:12,360 --> 01:05:19,980
+it was hugely widely spread it's called
+
+1195
+01:05:17,160 --> 01:05:23,790
+the title of that Arco is teach yourself
+
+1196
+01:05:19,980 --> 01:05:27,930
+programming in ten years it's written in
+
+1197
+01:05:23,790 --> 01:05:31,380
+2001 by Peter Novick okay the guy so you
+
+1198
+01:05:27,930 --> 01:05:35,190
+can see I have a link to his article and
+
+1199
+01:05:31,380 --> 01:05:36,900
+his and he has translated translated to
+
+1200
+01:05:35,190 --> 01:05:40,590
+many languages you know Chinese
+
+1201
+01:05:36,900 --> 01:05:43,890
+Bulgarian you know this idiot
+
+1202
+01:05:40,590 --> 01:05:46,770
+well he's not an idiot but he's but this
+
+1203
+01:05:43,890 --> 01:05:50,820
+concept in his essay is idiot okay and
+
+1204
+01:05:46,770 --> 01:05:53,040
+it's widely embraced by the elite
+
+1205
+01:05:50,820 --> 01:05:56,580
+hackers idiot in the programming
+
+1206
+01:05:53,040 --> 01:05:58,740
+community the the UNIX philosophy people
+
+1207
+01:05:56,580 --> 01:06:02,730
+the least people the common lisp
+
+1208
+01:05:58,740 --> 01:06:05,730
+fanatics you know the the hate and so of
+
+1209
+01:06:02,730 --> 01:06:08,970
+Haskell people you know they spread this
+
+1210
+01:06:05,730 --> 01:06:11,820
+every day you know learn list so so what
+
+1211
+01:06:08,970 --> 01:06:13,860
+what is this essay saying teach yourself
+
+1212
+01:06:11,820 --> 01:06:15,900
+programming ten years by Peter Novick
+
+1213
+01:06:13,860 --> 01:06:19,860
+you know what what is he saying
+
+1214
+01:06:15,900 --> 01:06:21,990
+basically he is saying that you know how
+
+1215
+01:06:19,860 --> 01:06:24,960
+common is in the industry where you have
+
+1216
+01:06:21,990 --> 01:06:28,170
+books like learn something XYZ in ten
+
+1217
+01:06:24,960 --> 01:06:31,740
+days or in one hour or in one month you
+
+1218
+01:06:28,170 --> 01:06:34,920
+know learn master C++ in a week you know
+
+1219
+01:06:31,740 --> 01:06:36,690
+master HTTP in one week you know those
+
+1220
+01:06:34,920 --> 01:06:42,200
+books are extremely popular
+
+1221
+01:06:36,690 --> 01:06:45,740
+so his essay you know it's basically an
+
+1222
+01:06:42,200 --> 01:06:48,120
+attack on on those on those you know
+
+1223
+01:06:45,740 --> 01:06:51,660
+learn something in ten days you know
+
+1224
+01:06:48,120 --> 01:06:55,020
+because so what he is saying is that you
+
+1225
+01:06:51,660 --> 01:06:56,960
+know programming you should actually you
+
+1226
+01:06:55,020 --> 01:07:00,480
+should really take your time to master
+
+1227
+01:06:56,960 --> 01:07:01,140
+master it you know so he's saying you
+
+1228
+01:07:00,480 --> 01:07:03,299
+know in ten
+
+1229
+01:07:01,140 --> 01:07:05,160
+years that's kind of exaggeration but
+
+1230
+01:07:03,299 --> 01:07:08,730
+he's saying you really should take your
+
+1231
+01:07:05,160 --> 01:07:10,920
+time to master a programming language
+
+1232
+01:07:08,730 --> 01:07:14,849
+you know and he gave his reasons
+
+1233
+01:07:10,920 --> 01:07:19,559
+okay so and programmers love this this
+
+1234
+01:07:14,849 --> 01:07:25,440
+idea so every every idiotic idiot hacker
+
+1235
+01:07:19,559 --> 01:07:27,480
+types spread this essay so so what is
+
+1236
+01:07:25,440 --> 01:07:32,099
+wrong with this essay what what is wrong
+
+1237
+01:07:27,480 --> 01:07:34,829
+with this concept so in my opinion okay
+
+1238
+01:07:32,099 --> 01:07:37,109
+so I wrote a reaction piece so this this
+
+1239
+01:07:34,829 --> 01:07:39,809
+is my reaction my the condition of
+
+1240
+01:07:37,109 --> 01:07:42,779
+industrial programmers learn Lisp in ten
+
+1241
+01:07:39,809 --> 01:07:45,690
+days so that's my title of my essay so
+
+1242
+01:07:42,779 --> 01:07:48,599
+what I am saying is that the Peter
+
+1243
+01:07:45,690 --> 01:07:50,849
+Novick guy okay he says eh I mean as a
+
+1244
+01:07:48,599 --> 01:07:53,760
+guy he's you know I think he's a good
+
+1245
+01:07:50,849 --> 01:07:56,460
+guy and he's a great expert in Common
+
+1246
+01:07:53,760 --> 01:07:59,579
+Lisp and also he's a great expert in
+
+1247
+01:07:56,460 --> 01:08:02,490
+artificial intelligence of the classic
+
+1248
+01:07:59,579 --> 01:08:05,730
+era okay anyway
+
+1249
+01:08:02,490 --> 01:08:09,420
+so what's wrong with his essay with his
+
+1250
+01:08:05,730 --> 01:08:12,930
+idea of you know how programmers should
+
+1251
+01:08:09,420 --> 01:08:18,480
+you know take years to really master
+
+1252
+01:08:12,930 --> 01:08:21,239
+language my okay so so I think it's
+
+1253
+01:08:18,480 --> 01:08:23,839
+stupid because this kind of idea is
+
+1254
+01:08:21,239 --> 01:08:28,770
+basically unrealistic I mean it's a it's
+
+1255
+01:08:23,839 --> 01:08:32,279
+a idealists notion of really it's like
+
+1256
+01:08:28,770 --> 01:08:36,239
+ignore reality you know and it does not
+
+1257
+01:08:32,279 --> 01:08:39,120
+address the heart of the problem what is
+
+1258
+01:08:36,239 --> 01:08:41,310
+a problem the phenomenon of you know
+
+1259
+01:08:39,120 --> 01:08:43,589
+learn something in one day learn
+
+1260
+01:08:41,310 --> 01:08:45,659
+something in five hours those books are
+
+1261
+01:08:43,589 --> 01:08:47,940
+very popular in fact everyone is doing
+
+1262
+01:08:45,659 --> 01:08:50,969
+that you know you when you want to find
+
+1263
+01:08:47,940 --> 01:08:52,620
+a job you want to you know study a
+
+1264
+01:08:50,969 --> 01:08:54,779
+foreign language you want to get the
+
+1265
+01:08:52,620 --> 01:08:56,580
+book that's a that teaches you you know
+
+1266
+01:08:54,779 --> 01:08:58,560
+suddenly something for dummies you know
+
+1267
+01:08:56,580 --> 01:09:00,989
+learn something in one week that's what
+
+1268
+01:08:58,560 --> 01:09:03,420
+you want everyone you know for every one
+
+1269
+01:09:00,989 --> 01:09:05,400
+of you you are not going to oh I need to
+
+1270
+01:09:03,420 --> 01:09:07,650
+actually I need to do this you know I
+
+1271
+01:09:05,400 --> 01:09:09,900
+need to take my time and I you know
+
+1272
+01:09:07,650 --> 01:09:12,330
+envision I'm going to learn it in tennis
+
+1273
+01:09:09,900 --> 01:09:14,250
+nobody is doing that you need the job
+
+1274
+01:09:12,330 --> 01:09:14,850
+like next month you you're gonna spend
+
+1275
+01:09:14,250 --> 01:09:17,250
+this much
+
+1276
+01:09:14,850 --> 01:09:19,290
+you know study this subject and get a
+
+1277
+01:09:17,250 --> 01:09:21,840
+job you know so you can feed yourself
+
+1278
+01:09:19,290 --> 01:09:25,230
+you can be alive you can you know feed
+
+1279
+01:09:21,840 --> 01:09:28,410
+your family and whatever that's reality
+
+1280
+01:09:25,230 --> 01:09:30,420
+okay so it's it's a fact of life you
+
+1281
+01:09:28,410 --> 01:09:34,410
+have to you know that's a reality so but
+
+1282
+01:09:30,420 --> 01:09:36,960
+he's sa this Peter Novick you know he
+
+1283
+01:09:34,410 --> 01:09:39,960
+says hey he's like okay let's you know
+
+1284
+01:09:36,960 --> 01:09:41,970
+yeah we ideally you know he forgot the
+
+1285
+01:09:39,960 --> 01:09:44,250
+word ideally you know so he so he's
+
+1286
+01:09:41,970 --> 01:09:46,440
+saying ideally we should you know or
+
+1287
+01:09:44,250 --> 01:09:48,330
+take our time there's no rush you know
+
+1288
+01:09:46,440 --> 01:09:50,840
+the word you know we should just relax
+
+1289
+01:09:48,330 --> 01:09:56,090
+and learn language for 10 years
+
+1290
+01:09:50,840 --> 01:10:00,000
+hideously you that that's that's that's
+
+1291
+01:09:56,090 --> 01:10:02,310
+that's ignoring reality okay that's not
+
+1292
+01:10:00,000 --> 01:10:04,290
+not looking at reality like you close
+
+1293
+01:10:02,310 --> 01:10:06,930
+your eyes you know you live in a cave
+
+1294
+01:10:04,290 --> 01:10:08,580
+you know you pretend you know you don't
+
+1295
+01:10:06,930 --> 01:10:10,710
+have to worry about job you don't have
+
+1296
+01:10:08,580 --> 01:10:12,720
+to like all the young people they don't
+
+1297
+01:10:10,710 --> 01:10:14,400
+have like they have ten years sitting at
+
+1298
+01:10:12,720 --> 01:10:16,710
+their home and doing learning foreign
+
+1299
+01:10:14,400 --> 01:10:21,930
+language you know so this is Edie
+
+1300
+01:10:16,710 --> 01:10:27,170
+idiotic concept so I wrote you know
+
+1301
+01:10:21,930 --> 01:10:32,520
+essay to you know to say my opinions but
+
+1302
+01:10:27,170 --> 01:10:35,460
+but in this essay I also mentioned some
+
+1303
+01:10:32,520 --> 01:10:42,810
+some of my experience at Wolfram
+
+1304
+01:10:35,460 --> 01:10:44,580
+research yeah so anyway so so what is my
+
+1305
+01:10:42,810 --> 01:10:46,920
+experience at Wolf and research actually
+
+1306
+01:10:44,580 --> 01:10:52,080
+I only worked there for half a year okay
+
+1307
+01:10:46,920 --> 01:10:54,090
+in 1995 I was there originally I was
+
+1308
+01:10:52,080 --> 01:10:58,260
+supposed to be there as a summer intern
+
+1309
+01:10:54,090 --> 01:11:01,230
+for four months I think yeah a summer
+
+1310
+01:10:58,260 --> 01:11:05,910
+intern you know for a month 1995 then I
+
+1311
+01:11:01,230 --> 01:11:10,200
+was going to UC Berkeley you know after
+
+1312
+01:11:05,910 --> 01:11:12,960
+the intern so I went there 1995 and I
+
+1313
+01:11:10,200 --> 01:11:16,260
+end up staying there for like half a
+
+1314
+01:11:12,960 --> 01:11:18,840
+year you know and not coming back to
+
+1315
+01:11:16,260 --> 01:11:23,510
+California you know I went to you roof
+
+1316
+01:11:18,840 --> 01:11:26,580
+and researches at Champaign Illinois
+
+1317
+01:11:23,510 --> 01:11:28,290
+okay kabaah Marsh
+
+1318
+01:11:26,580 --> 01:11:28,560
+champagne you know that's a city name
+
+1319
+01:11:28,290 --> 01:11:31,170
+you
+
+1320
+01:11:28,560 --> 01:11:34,860
+no it says it is a small college town
+
+1321
+01:11:31,170 --> 01:11:37,740
+okay anyway so in 1995 and when there
+
+1322
+01:11:34,860 --> 01:11:41,280
+was an intern in a beginning then I kind
+
+1323
+01:11:37,740 --> 01:11:43,410
+of just stayed for you know I kind of
+
+1324
+01:11:41,280 --> 01:11:48,210
+just stayed working for them for half a
+
+1325
+01:11:43,410 --> 01:11:50,310
+year eventually I came back because you
+
+1326
+01:11:48,210 --> 01:11:52,770
+eventually I decided you know I should
+
+1327
+01:11:50,310 --> 01:11:56,070
+go back to UC Berkeley but I never went
+
+1328
+01:11:52,770 --> 01:11:57,950
+you know that's kind of my life story no
+
+1329
+01:11:56,070 --> 01:12:01,890
+decision you know dude wandering around
+
+1330
+01:11:57,950 --> 01:12:06,240
+no go and just you know do whatever I do
+
+1331
+01:12:01,890 --> 01:12:09,210
+you know it so happens to be kind of
+
+1332
+01:12:06,240 --> 01:12:11,370
+like my personality my style you know
+
+1333
+01:12:09,210 --> 01:12:14,400
+it's just aimlessly emili´s you know
+
+1334
+01:12:11,370 --> 01:12:17,430
+dreaming wondering stuff so anyway so I
+
+1335
+01:12:14,400 --> 01:12:20,550
+was there for an intern but you know he
+
+1336
+01:12:17,430 --> 01:12:24,180
+he we i ID so I talked to him he kind he
+
+1337
+01:12:20,550 --> 01:12:27,780
+liked he liked me okay and he wanted me
+
+1338
+01:12:24,180 --> 01:12:30,480
+to stay and so what so what I do there I
+
+1339
+01:12:27,780 --> 01:12:32,880
+basically so by the way so I was
+
+1340
+01:12:30,480 --> 01:12:35,540
+arranging her intern but anyway so what
+
+1341
+01:12:32,880 --> 01:12:40,020
+I do there I actually there is no
+
+1342
+01:12:35,540 --> 01:12:41,970
+assigned task for me to do like you have
+
+1343
+01:12:40,020 --> 01:12:44,220
+to you know you have you have a manager
+
+1344
+01:12:41,970 --> 01:12:46,710
+you you have to do this you know by this
+
+1345
+01:12:44,220 --> 01:12:49,320
+week or by whatever you know it's like
+
+1346
+01:12:46,710 --> 01:12:53,700
+you have to this actually nothing like
+
+1347
+01:12:49,320 --> 01:12:57,510
+that actually I it happens to be that I
+
+1348
+01:12:53,700 --> 01:13:01,170
+just I was there and just do my things I
+
+1349
+01:12:57,510 --> 01:13:02,790
+you know it was I was you know I was you
+
+1350
+01:13:01,170 --> 01:13:06,000
+know I was one of the guy you know I'm
+
+1351
+01:13:02,790 --> 01:13:08,730
+so much into math and into programming
+
+1352
+01:13:06,000 --> 01:13:12,020
+like even today you know I Sydney from a
+
+1353
+01:13:08,730 --> 01:13:16,020
+computer I just have to I have to study
+
+1354
+01:13:12,020 --> 01:13:17,880
+passes or whatever you know philosophy
+
+1355
+01:13:16,020 --> 01:13:19,950
+about computer science so automata
+
+1356
+01:13:17,880 --> 01:13:23,790
+theory you know I you know I just have
+
+1357
+01:13:19,950 --> 01:13:25,590
+to it's like I have to do this so it's
+
+1358
+01:13:23,790 --> 01:13:28,100
+the same back then you know so I just
+
+1359
+01:13:25,590 --> 01:13:30,750
+I'm very into and back then I was like
+
+1360
+01:13:28,100 --> 01:13:32,760
+programming Mathematica you know all day
+
+1361
+01:13:30,750 --> 01:13:35,040
+everyday you know I read you know the
+
+1362
+01:13:32,760 --> 01:13:39,390
+mystic book you know three three times
+
+1363
+01:13:35,040 --> 01:13:41,970
+cover to cover the Mathematica manual so
+
+1364
+01:13:39,390 --> 01:13:42,360
+I was there so you know so obviously you
+
+1365
+01:13:41,970 --> 01:13:45,480
+can
+
+1366
+01:13:42,360 --> 01:13:47,130
+see that they they can see that you are
+
+1367
+01:13:45,480 --> 01:13:49,889
+going to do whatever you do because
+
+1368
+01:13:47,130 --> 01:13:53,190
+that's you had you know say anyway so
+
+1369
+01:13:49,889 --> 01:13:55,530
+they they didn't I just I was there to
+
+1370
+01:13:53,190 --> 01:14:00,300
+do this I'm just doing whatever I was
+
+1371
+01:13:55,530 --> 01:14:04,830
+doing and I was doing this visual
+
+1372
+01:14:00,300 --> 01:14:07,770
+dictionary of special plane curves okay
+
+1373
+01:14:04,830 --> 01:14:13,350
+that is the project basically this is a
+
+1374
+01:14:07,770 --> 01:14:15,989
+result of my of my walking there
+
+1375
+01:14:13,350 --> 01:14:19,860
+you got several mathematical packages
+
+1376
+01:14:15,989 --> 01:14:22,530
+the this entire website I didn't create
+
+1377
+01:14:19,860 --> 01:14:26,989
+a website when I was there but after I
+
+1378
+01:14:22,530 --> 01:14:30,150
+came back to California in 1996 1997 I
+
+1379
+01:14:26,989 --> 01:14:35,400
+created this website and this is one of
+
+1380
+01:14:30,150 --> 01:14:40,130
+the most popular website back then up to
+
+1381
+01:14:35,400 --> 01:14:45,230
+up to late 2000s up to let's say 2007
+
+1382
+01:14:40,130 --> 01:14:50,070
+it's the most popular one the let's say
+
+1383
+01:14:45,230 --> 01:14:53,639
+top 100 most popular website on top 100
+
+1384
+01:14:50,070 --> 01:14:57,929
+most popular website whose subject is
+
+1385
+01:14:53,639 --> 01:15:00,270
+mathematics yeah especially you know
+
+1386
+01:14:57,929 --> 01:15:02,960
+earlier days let's say around 2000 it's
+
+1387
+01:15:00,270 --> 01:15:06,270
+it would be top 10 something like that
+
+1388
+01:15:02,960 --> 01:15:08,639
+so this website you have animations
+
+1389
+01:15:06,270 --> 01:15:13,460
+basically it's a it's kind of a visual
+
+1390
+01:15:08,639 --> 01:15:16,770
+dictionary of special plane curves ok so
+
+1391
+01:15:13,460 --> 01:15:20,010
+you know yeah and it's got animations
+
+1392
+01:15:16,770 --> 01:15:24,449
+it's got Mathematica packages and it's
+
+1393
+01:15:20,010 --> 01:15:26,369
+got interactive geogebra so that that's
+
+1394
+01:15:24,449 --> 01:15:30,659
+what I did ok sorry this is the project
+
+1395
+01:15:26,369 --> 01:15:32,850
+I did study math study math you know
+
+1396
+01:15:30,659 --> 01:15:37,260
+calculus you know playing curves this
+
+1397
+01:15:32,850 --> 01:15:40,230
+quick geometry you know the you know
+
+1398
+01:15:37,260 --> 01:15:43,350
+there's lots of things in you know so
+
+1399
+01:15:40,230 --> 01:15:46,020
+that's what I was doing so a Wolfram
+
+1400
+01:15:43,350 --> 01:15:48,330
+research I just I was just writing
+
+1401
+01:15:46,020 --> 01:15:51,960
+mathematical code on on these kind of
+
+1402
+01:15:48,330 --> 01:15:54,860
+visualization things I you know wrote a
+
+1403
+01:15:51,960 --> 01:15:54,860
+lot of them
+
+1404
+01:15:54,979 --> 01:16:00,019
+yeah so for half a year that's that's
+
+1405
+01:15:57,380 --> 01:16:04,460
+that's why what I was doing had a
+
+1406
+01:16:00,019 --> 01:16:06,469
+Wolfram research so I think that let me
+
+1407
+01:16:04,460 --> 01:16:15,579
+read a comment and that would be it for
+
+1408
+01:16:06,469 --> 01:16:15,579
+today yeah so let's see
+
+1409
+01:16:22,409 --> 01:16:27,480
+next video of mathematica live coding
+
+1410
+01:16:25,380 --> 01:16:29,760
+actually I have encoded that Mathematica
+
+1411
+01:16:27,480 --> 01:16:33,570
+for over 10 years and in fact I don't
+
+1412
+01:16:29,760 --> 01:16:35,400
+have it I don't have it on my Mac you
+
+1413
+01:16:33,570 --> 01:16:38,280
+know I really what I need to do is to
+
+1414
+01:16:35,400 --> 01:16:43,110
+get a job because I'm like I don't have
+
+1415
+01:16:38,280 --> 01:16:46,469
+money to eat and I probably there's one
+
+1416
+01:16:43,110 --> 01:16:48,679
+possibility I can go work for Wolfram
+
+1417
+01:16:46,469 --> 01:16:52,199
+research I don't know
+
+1418
+01:16:48,679 --> 01:16:57,360
+so Norman says also curious why you seem
+
+1419
+01:16:52,199 --> 01:16:59,730
+to dislike Nelson Talib yeah he can be
+
+1420
+01:16:57,360 --> 01:17:03,270
+abrasive but yeah I think he's a
+
+1421
+01:16:59,730 --> 01:17:05,280
+crackpot you know I can't be I can't say
+
+1422
+01:17:03,270 --> 01:17:08,719
+for sure but from what I've seen so far
+
+1423
+01:17:05,280 --> 01:17:12,590
+I think he's a crackpot he if he has
+
+1424
+01:17:08,719 --> 01:17:14,370
+many of the symptoms symptoms or
+
+1425
+01:17:12,590 --> 01:17:17,760
+properties or what you say
+
+1426
+01:17:14,370 --> 01:17:21,770
+characteristics of crackpot of you know
+
+1427
+01:17:17,760 --> 01:17:24,989
+the code leader for example one of the
+
+1428
+01:17:21,770 --> 01:17:27,239
+characteristic characteristics of coat
+
+1429
+01:17:24,989 --> 01:17:29,760
+is jargons you always have lots of
+
+1430
+01:17:27,239 --> 01:17:33,870
+jargons and also the other thing is like
+
+1431
+01:17:29,760 --> 01:17:37,530
+see crucian like cut you away from any
+
+1432
+01:17:33,870 --> 01:17:40,739
+outside thinking like you know for
+
+1433
+01:17:37,530 --> 01:17:44,850
+example he he he likes to pan people
+
+1434
+01:17:40,739 --> 01:17:48,210
+like like i didn't mix like Heep and me
+
+1435
+01:17:44,850 --> 01:17:50,760
+okay yeah it's not even is it's not like
+
+1436
+01:17:48,210 --> 01:17:54,420
+I even really attacked him he just spent
+
+1437
+01:17:50,760 --> 01:17:57,510
+me on Twitter so I mean anyway that's
+
+1438
+01:17:54,420 --> 01:18:00,179
+the topic we can go into detail but
+
+1439
+01:17:57,510 --> 01:18:04,070
+probably not today today is kind of the
+
+1440
+01:18:00,179 --> 01:18:07,290
+end of it and also he kind of attract
+
+1441
+01:18:04,070 --> 01:18:09,960
+people like he forms a coat okay
+
+1442
+01:18:07,290 --> 01:18:12,480
+his followers kind of you know it's the
+
+1443
+01:18:09,960 --> 01:18:14,940
+type that forms a coat now actually you
+
+1444
+01:18:12,480 --> 01:18:20,219
+can say that you can say the same about
+
+1445
+01:18:14,940 --> 01:18:23,699
+me because my father's tends to be you
+
+1446
+01:18:20,219 --> 01:18:27,679
+know the net the mainstream the main the
+
+1447
+01:18:23,699 --> 01:18:32,750
+the non mainstream people and usually
+
+1448
+01:18:27,679 --> 01:18:36,059
+you know kind of niche and by anyway
+
+1449
+01:18:32,750 --> 01:18:39,090
+yeah so we can maybe talk about
+
+1450
+01:18:36,059 --> 01:18:42,000
+yeah actually I don't have that much to
+
+1451
+01:18:39,090 --> 01:18:45,150
+talk about him so that's probably it
+
+1452
+01:18:42,000 --> 01:18:46,829
+the nessam Talib you know and also I you
+
+1453
+01:18:45,150 --> 01:18:49,920
+know so one of the things he do is
+
+1454
+01:18:46,829 --> 01:18:52,860
+jargons he likes to create joggins okay
+
+1455
+01:18:49,920 --> 01:18:56,099
+let me I have checked out his book I
+
+1456
+01:18:52,860 --> 01:18:59,250
+mean I'm look I have spent you know a
+
+1457
+01:18:56,099 --> 01:19:02,670
+few hours to look look up what this guy
+
+1458
+01:18:59,250 --> 01:19:04,739
+is about what has he done you know he's
+
+1459
+01:19:02,670 --> 01:19:08,159
+he said he has written books you know
+
+1460
+01:19:04,739 --> 01:19:10,559
+what are those books about you know and
+
+1461
+01:19:08,159 --> 01:19:13,980
+you know the nature of those you know I
+
+1462
+01:19:10,559 --> 01:19:16,679
+have looked he likes to one of the thing
+
+1463
+01:19:13,980 --> 01:19:20,309
+he likes he likes to create jargons okay
+
+1464
+01:19:16,679 --> 01:19:23,909
+like opaque joggers which which is one
+
+1465
+01:19:20,309 --> 01:19:25,980
+of the hallmark of the code creators you
+
+1466
+01:19:23,909 --> 01:19:29,730
+know that those kind of people like the
+
+1467
+01:19:25,980 --> 01:19:32,489
+purl people Larry Walker and other
+
+1468
+01:19:29,730 --> 01:19:34,469
+crackpot sing in programming community
+
+1469
+01:19:32,489 --> 01:19:36,929
+so he liked to create jargons for
+
+1470
+01:19:34,469 --> 01:19:40,969
+example one of the jargon he created is
+
+1471
+01:19:36,929 --> 01:19:46,520
+these anti fracture is that correct
+
+1472
+01:19:40,969 --> 01:19:49,739
+something like that anti fracture and
+
+1473
+01:19:46,520 --> 01:19:53,789
+and then he liked to pen people you know
+
+1474
+01:19:49,739 --> 01:19:56,730
+he likes to then like he he wants to
+
+1475
+01:19:53,789 --> 01:20:00,989
+create a thought to to all his followers
+
+1476
+01:19:56,730 --> 01:20:04,440
+so that so that you forms a sense kind
+
+1477
+01:20:00,989 --> 01:20:06,719
+of kind of us and them you know whoever
+
+1478
+01:20:04,440 --> 01:20:09,539
+don't whoever are not smart they are
+
+1479
+01:20:06,719 --> 01:20:14,190
+stupid we we want to cut off ties with
+
+1480
+01:20:09,539 --> 01:20:17,969
+them so he likes to form these this this
+
+1481
+01:20:14,190 --> 01:20:20,099
+kind of a war between you know he and
+
+1482
+01:20:17,969 --> 01:20:22,469
+his followers in the outside so that
+
+1483
+01:20:20,099 --> 01:20:24,989
+that's another characteristics of code
+
+1484
+01:20:22,469 --> 01:20:27,719
+okay I mean if you study code which I
+
+1485
+01:20:24,989 --> 01:20:30,329
+have you know because I'm upset it's one
+
+1486
+01:20:27,719 --> 01:20:32,820
+of the topic and I spent you know I'm
+
+1487
+01:20:30,329 --> 01:20:36,449
+very interested in my whole life in the
+
+1488
+01:20:32,820 --> 01:20:39,090
+past 30 years Scientology religion you
+
+1489
+01:20:36,449 --> 01:20:42,059
+know sects different you know google of
+
+1490
+01:20:39,090 --> 01:20:45,349
+them how they from how they form what's
+
+1491
+01:20:42,059 --> 01:20:48,630
+their tactics and related to marketing
+
+1492
+01:20:45,349 --> 01:20:49,980
+brainwashing propaganda how they related
+
+1493
+01:20:48,630 --> 01:20:51,960
+what they do
+
+1494
+01:20:49,980 --> 01:20:53,700
+you know what what's their formation you
+
+1495
+01:20:51,960 --> 01:20:56,280
+know how they work you know I'm very
+
+1496
+01:20:53,700 --> 01:21:00,000
+interested in this kind of topic it's
+
+1497
+01:20:56,280 --> 01:21:03,570
+all related so so one of the thing he
+
+1498
+01:21:00,000 --> 01:21:06,420
+does is like yeah chugging chugging is
+
+1499
+01:21:03,570 --> 01:21:09,780
+one of them usually a coat or sect kind
+
+1500
+01:21:06,420 --> 01:21:12,810
+of or even a gangster they have their
+
+1501
+01:21:09,780 --> 01:21:14,850
+like a systematic way of talking about
+
+1502
+01:21:12,810 --> 01:21:18,750
+things it's all jargons like different
+
+1503
+01:21:14,850 --> 01:21:21,630
+from normal usage of the word so he's
+
+1504
+01:21:18,750 --> 01:21:23,760
+he's into Chagas this nessam guy one of
+
+1505
+01:21:21,630 --> 01:21:26,550
+the jogging is anti fragile you know
+
+1506
+01:21:23,760 --> 01:21:29,310
+like he you know he swallows will just
+
+1507
+01:21:26,550 --> 01:21:30,960
+start to say oh this is anti fat fragile
+
+1508
+01:21:29,310 --> 01:21:33,600
+pattern it's like the programming
+
+1509
+01:21:30,960 --> 01:21:37,470
+ the programming community you
+
+1510
+01:21:33,600 --> 01:21:39,870
+have patterns oh this is a factory
+
+1511
+01:21:37,470 --> 01:21:43,530
+pattern or you know they create a
+
+1512
+01:21:39,870 --> 01:21:46,440
+chargon that you know anyway jeongeun's
+
+1513
+01:21:43,530 --> 01:21:51,360
+okay that's one of the his thing I found
+
+1514
+01:21:46,440 --> 01:21:53,580
+and he'd you know so I noticed and and
+
+1515
+01:21:51,360 --> 01:21:57,810
+and yesterday you know a few days ago I
+
+1516
+01:21:53,580 --> 01:22:01,140
+have a friend or followers okay who when
+
+1517
+01:21:57,810 --> 01:22:03,720
+I was commenting on the pianist Glenn
+
+1518
+01:22:01,140 --> 01:22:05,640
+could okay I made some comment you know
+
+1519
+01:22:03,720 --> 01:22:08,970
+Glenn could is a very weird guy it's
+
+1520
+01:22:05,640 --> 01:22:11,760
+well known it's a fact that he's very
+
+1521
+01:22:08,970 --> 01:22:14,610
+weird and he has some kind of
+
+1522
+01:22:11,760 --> 01:22:18,450
+personality psychology issue it's a it's
+
+1523
+01:22:14,610 --> 01:22:21,239
+a fact okay then suddenly this my friend
+
+1524
+01:22:18,450 --> 01:22:23,580
+this my acquaintance I would say my
+
+1525
+01:22:21,239 --> 01:22:26,010
+followers he's from Russia by the by the
+
+1526
+01:22:23,580 --> 01:22:29,160
+way is that Quint egg I'm not sure it's
+
+1527
+01:22:26,010 --> 01:22:32,190
+possible anyway he over sudden he made a
+
+1528
+01:22:29,160 --> 01:22:36,720
+comment like you are wrong like like you
+
+1529
+01:22:32,190 --> 01:22:39,540
+are wrong then but I don't know what I
+
+1530
+01:22:36,720 --> 01:22:41,790
+mean what do you mean by I'm wrong I
+
+1531
+01:22:39,540 --> 01:22:43,530
+mean he said you know green code is well
+
+1532
+01:22:41,790 --> 01:22:48,239
+known you know he's well known for his
+
+1533
+01:22:43,530 --> 01:22:51,210
+weird like he has to have a specific
+
+1534
+01:22:48,239 --> 01:22:54,120
+chair it's kind of like you know a
+
+1535
+01:22:51,210 --> 01:22:56,430
+pianist a piano player usually use it on
+
+1536
+01:22:54,120 --> 01:23:01,500
+a kind of a pinch you know a piano bench
+
+1537
+01:22:56,430 --> 01:23:04,260
+but that guy he needs must
+
+1538
+01:23:01,500 --> 01:23:07,500
+it's a requirement he sit on a
+
+1539
+01:23:04,260 --> 01:23:10,139
+no mod wooden chair his dad made for him
+
+1540
+01:23:07,500 --> 01:23:12,119
+it's not a piano chair it's like a just
+
+1541
+01:23:10,139 --> 01:23:15,000
+a wooden a very strange
+
+1542
+01:23:12,119 --> 01:23:16,949
+I actually I have picture actually it's
+
+1543
+01:23:15,000 --> 01:23:19,940
+just such for Glenn could you know
+
+1544
+01:23:16,949 --> 01:23:22,650
+Wikipedia and you will see it you know
+
+1545
+01:23:19,940 --> 01:23:25,770
+so he's a very real guy we all know okay
+
+1546
+01:23:22,650 --> 01:23:27,960
+it's a fact but then suddenly my you
+
+1547
+01:23:25,770 --> 01:23:30,300
+know my acquaintance did you know
+
+1548
+01:23:27,960 --> 01:23:30,840
+kindness of my he say he says you are
+
+1549
+01:23:30,300 --> 01:23:33,000
+wrong
+
+1550
+01:23:30,840 --> 01:23:34,290
+hey I don't know what's going on you
+
+1551
+01:23:33,000 --> 01:23:37,080
+know so what what do you mean I'm good
+
+1552
+01:23:34,290 --> 01:23:39,840
+wrong like do you have what what is the
+
+1553
+01:23:37,080 --> 01:23:41,400
+reason I think I have no idea what what
+
+1554
+01:23:39,840 --> 01:23:44,099
+is going on because I thought it's a
+
+1555
+01:23:41,400 --> 01:23:44,760
+common well-known fact you know this guy
+
+1556
+01:23:44,099 --> 01:23:48,090
+is weird
+
+1557
+01:23:44,760 --> 01:23:49,530
+then he started to say you know like you
+
+1558
+01:23:48,090 --> 01:23:51,690
+know it turns out you know he say
+
+1559
+01:23:49,530 --> 01:23:54,929
+something like psychology like the
+
+1560
+01:23:51,690 --> 01:24:00,449
+almost like the entire branch of
+
+1561
+01:23:54,929 --> 01:24:02,610
+psychology is so after we made
+
+1562
+01:24:00,449 --> 01:24:04,080
+several exchanges because I was trying
+
+1563
+01:24:02,610 --> 01:24:04,800
+to find out what do you what do you mean
+
+1564
+01:24:04,080 --> 01:24:07,679
+I'm wrong
+
+1565
+01:24:04,800 --> 01:24:10,650
+I mean it's like I'm shocked other blue
+
+1566
+01:24:07,679 --> 01:24:14,190
+he says I'm wrong and this is from one
+
+1567
+01:24:10,650 --> 01:24:15,840
+of my followers you know I usually I
+
+1568
+01:24:14,190 --> 01:24:18,599
+have some sense you know who is
+
+1569
+01:24:15,840 --> 01:24:20,369
+following me you know who you know so
+
+1570
+01:24:18,599 --> 01:24:23,310
+yeah I was surprised you know what do
+
+1571
+01:24:20,369 --> 01:24:26,940
+you mean I mean he's a you know he's a
+
+1572
+01:24:23,310 --> 01:24:28,500
+friend you know suddenly he says you
+
+1573
+01:24:26,940 --> 01:24:31,860
+know you are wrong so what do you mean
+
+1574
+01:24:28,500 --> 01:24:36,300
+so after several exchanges it has it
+
+1575
+01:24:31,860 --> 01:24:39,929
+seems like he's saying that he's got the
+
+1576
+01:24:36,300 --> 01:24:42,449
+sense that all psychology is the whole
+
+1577
+01:24:39,929 --> 01:24:47,010
+the whole you know field of psychology
+
+1578
+01:24:42,449 --> 01:24:50,010
+is though eventually it turns
+
+1579
+01:24:47,010 --> 01:24:55,639
+out you know that that idea came from
+
+1580
+01:24:50,010 --> 01:24:58,310
+this nascent guide is this this this you
+
+1581
+01:24:55,639 --> 01:25:02,400
+know this guy we were talking about the
+
+1582
+01:24:58,310 --> 01:25:04,889
+the anti fragile guy so he showed me you
+
+1583
+01:25:02,400 --> 01:25:08,460
+know healing to a Twitter post by this
+
+1584
+01:25:04,889 --> 01:25:11,099
+nessam guy basically says the entire you
+
+1585
+01:25:08,460 --> 01:25:13,190
+know psychology is is idiotic you know
+
+1586
+01:25:11,099 --> 01:25:15,960
+so another characteristic
+
+1587
+01:25:13,190 --> 01:25:17,660
+characteristics of this NASM guy is like
+
+1588
+01:25:15,960 --> 01:25:20,070
+he liked to make
+
+1589
+01:25:17,660 --> 01:25:23,490
+traversée okay he liked to make
+
+1590
+01:25:20,070 --> 01:25:26,990
+statements that are wild and he's like
+
+1591
+01:25:23,490 --> 01:25:30,300
+the ho the like he says literally like
+
+1592
+01:25:26,990 --> 01:25:32,990
+like paraphrase like something like the
+
+1593
+01:25:30,300 --> 01:25:38,160
+whole entire psychology field is is
+
+1594
+01:25:32,990 --> 01:25:44,250
+idiotic is stupid you know he made a
+
+1595
+01:25:38,160 --> 01:25:47,430
+statement so that's another reason
+
+1596
+01:25:44,250 --> 01:25:51,000
+that's another trait I think I find this
+
+1597
+01:25:47,430 --> 01:25:53,490
+guy to be questionable crackpot because
+
+1598
+01:25:51,000 --> 01:25:57,180
+that's one of the it's that's one of the
+
+1599
+01:25:53,490 --> 01:25:59,190
+technique to to make yourself famous you
+
+1600
+01:25:57,180 --> 01:26:04,020
+know that you know when you make wild
+
+1601
+01:25:59,190 --> 01:26:07,320
+you know creams and then you form you
+
+1602
+01:26:04,020 --> 01:26:09,860
+firm kind of like you versus versus name
+
+1603
+01:26:07,320 --> 01:26:11,820
+situation like he also made a statement
+
+1604
+01:26:09,860 --> 01:26:15,510
+apparently I learned from high
+
+1605
+01:26:11,820 --> 01:26:16,380
+acquaintance that that that something
+
+1606
+01:26:15,510 --> 01:26:20,550
+like don't follow
+
+1607
+01:26:16,380 --> 01:26:22,980
+IDI Arctic people you know like the the
+
+1608
+01:26:20,550 --> 01:26:24,780
+idea is that the assumption is that in a
+
+1609
+01:26:22,980 --> 01:26:26,640
+world that you know most people are
+
+1610
+01:26:24,780 --> 01:26:30,210
+idiot when you see those people
+
+1611
+01:26:26,640 --> 01:26:32,640
+immediately you know make a war like cut
+
+1612
+01:26:30,210 --> 01:26:35,190
+them out don't don't ever listen it
+
+1613
+01:26:32,640 --> 01:26:37,080
+seems to suggest that you know I don't
+
+1614
+01:26:35,190 --> 01:26:41,370
+know where that came from but apparently
+
+1615
+01:26:37,080 --> 01:26:44,550
+it's from that that nasan guy so all
+
+1616
+01:26:41,370 --> 01:26:49,200
+these reasons so by the way I think it's
+
+1617
+01:26:44,550 --> 01:26:51,900
+actually true most majority of people in
+
+1618
+01:26:49,200 --> 01:26:54,810
+a world in majority of let's say let's
+
+1619
+01:26:51,900 --> 01:26:57,780
+put this way majority of opinions you
+
+1620
+01:26:54,810 --> 01:27:00,780
+see online or in real life are stupid
+
+1621
+01:26:57,780 --> 01:27:03,300
+that is actually true because you know
+
+1622
+01:27:00,780 --> 01:27:05,430
+because nobody has the time to study
+
+1623
+01:27:03,300 --> 01:27:08,940
+everything there are millions of subject
+
+1624
+01:27:05,430 --> 01:27:12,090
+matters may be social or Sciences of
+
+1625
+01:27:08,940 --> 01:27:14,430
+philosophy or how to do things so the
+
+1626
+01:27:12,090 --> 01:27:16,760
+way of life how to think you know what
+
+1627
+01:27:14,430 --> 01:27:19,290
+decisions to make you know all
+
+1628
+01:27:16,760 --> 01:27:21,180
+literature what books to read you know
+
+1629
+01:27:19,290 --> 01:27:23,310
+what programming language to learn you
+
+1630
+01:27:21,180 --> 01:27:26,220
+know like obediently an infinite number
+
+1631
+01:27:23,310 --> 01:27:30,690
+of questions about life and nobody
+
+1632
+01:27:26,220 --> 01:27:31,200
+really can possibly be well-versed in
+
+1633
+01:27:30,690 --> 01:27:33,660
+all the
+
+1634
+01:27:31,200 --> 01:27:37,860
+you know this infinite number of things
+
+1635
+01:27:33,660 --> 01:27:39,810
+so most of us you know maybe we are a
+
+1636
+01:27:37,860 --> 01:27:41,760
+little bit smart or maybe not you know
+
+1637
+01:27:39,810 --> 01:27:44,520
+you don't have to be smart but the fact
+
+1638
+01:27:41,760 --> 01:27:47,160
+is doesn't matter how smart you are
+
+1639
+01:27:44,520 --> 01:27:50,520
+you cannot know you know you only know
+
+1640
+01:27:47,160 --> 01:27:53,220
+very tiny almost instantly insignificant
+
+1641
+01:27:50,520 --> 01:27:55,890
+amount of things even about life you
+
+1642
+01:27:53,220 --> 01:27:59,670
+know about maybe you are the greatest
+
+1643
+01:27:55,890 --> 01:28:02,760
+mathematician but when it comes to real
+
+1644
+01:27:59,670 --> 01:28:05,010
+life you know what what you for example
+
+1645
+01:28:02,760 --> 01:28:07,650
+how you how politics works
+
+1646
+01:28:05,010 --> 01:28:10,470
+you don't know no idea how to run a
+
+1647
+01:28:07,650 --> 01:28:12,840
+business or what should start up to you
+
+1648
+01:28:10,470 --> 01:28:15,930
+know you know idea maybe the most stupid
+
+1649
+01:28:12,840 --> 01:28:19,260
+actually so that's a situation you know
+
+1650
+01:28:15,930 --> 01:28:21,450
+so so most opinions actually it's
+
+1651
+01:28:19,260 --> 01:28:23,790
+actually true most opinions doesn't
+
+1652
+01:28:21,450 --> 01:28:26,250
+matter in online or real life is
+
+1653
+01:28:23,790 --> 01:28:29,220
+actually stupid you know so when you
+
+1654
+01:28:26,250 --> 01:28:31,740
+hear other opinions including my you you
+
+1655
+01:28:29,220 --> 01:28:35,010
+know you you you want to think about it
+
+1656
+01:28:31,740 --> 01:28:38,610
+is this guy its opinion in this subject
+
+1657
+01:28:35,010 --> 01:28:43,980
+is this really good you know that's a
+
+1658
+01:28:38,610 --> 01:28:46,560
+good question question to ask so that's
+
+1659
+01:28:43,980 --> 01:28:48,780
+what that's what I think about that guy
+
+1660
+01:28:46,560 --> 01:28:51,030
+the nasiha thats why I think he and so I
+
+1661
+01:28:48,780 --> 01:28:54,540
+get you know I haven't released as you
+
+1662
+01:28:51,030 --> 01:29:00,300
+know spend day so you know to research
+
+1663
+01:28:54,540 --> 01:29:07,290
+what that guy is but I feel that he's a
+
+1664
+01:29:00,300 --> 01:29:08,280
+crackpot let's see okay I think that's
+
+1665
+01:29:07,290 --> 01:29:15,630
+that's it
+
+1666
+01:29:08,280 --> 01:29:19,170
+90 minutes okay curious what you seem to
+
+1667
+01:29:15,630 --> 01:29:20,160
+dislike yeah Nassim Taleb is that how
+
+1668
+01:29:19,170 --> 01:29:25,320
+you pronounce his name
+
+1669
+01:29:20,160 --> 01:29:27,600
+Nassim Taleb yeah and he also blocked me
+
+1670
+01:29:25,320 --> 01:29:30,690
+you know very early on actually I was
+
+1671
+01:29:27,600 --> 01:29:33,840
+like I was because I have friends you
+
+1672
+01:29:30,690 --> 01:29:38,040
+know suggesting I follow him you know
+
+1673
+01:29:33,840 --> 01:29:41,340
+and so I did and but I didn't
+
+1674
+01:29:38,040 --> 01:29:44,550
+immediately get any you know I I didn't
+
+1675
+01:29:41,340 --> 01:29:47,040
+find his it's wisdom or something
+
+1676
+01:29:44,550 --> 01:29:51,020
+you know and one day I made a you know
+
+1677
+01:29:47,040 --> 01:29:53,370
+kind of questionable I mean a question
+
+1678
+01:29:51,020 --> 01:29:55,830
+he's coming I forgot you can search
+
+1679
+01:29:53,370 --> 01:29:57,390
+traitor you can probably find it I'm
+
+1680
+01:29:55,830 --> 01:30:00,000
+pretty sure we can find it you know
+
+1681
+01:29:57,390 --> 01:30:03,480
+because because I did not did I did not
+
+1682
+01:30:00,000 --> 01:30:15,420
+delete it you know so then he just
+
+1683
+01:30:03,480 --> 01:30:18,450
+blocked me it's like so okay that's it
+
+1684
+01:30:15,420 --> 01:30:21,000
+for today thank you guys for watching if
+
+1685
+01:30:18,450 --> 01:30:23,700
+you like my stuff support me you know I
+
+1686
+01:30:21,000 --> 01:30:26,730
+got you know just go to any of my
+
+1687
+01:30:23,700 --> 01:30:30,720
+website you can see you know my patron
+
+1688
+01:30:26,730 --> 01:30:33,420
+my Amazon gift PayPal put your money
+
+1689
+01:30:30,720 --> 01:30:36,800
+there or Bitcoin okay so thank you guys
+
+1690
+01:30:33,420 --> 01:30:40,340
+for coming by
+
+1691
+01:30:36,800 --> 01:30:40,340
+until next time
+

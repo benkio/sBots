@@ -1,0 +1,5000 @@
+1
+00:00:00,320 --> 00:00:06,640
+Hello guys, welcome to another episode
+
+2
+00:00:03,360 --> 00:00:09,440
+of S talk show. We are going to talk
+
+3
+00:00:06,640 --> 00:00:11,920
+about functional programming uh in
+
+4
+00:00:09,440 --> 00:00:14,480
+multiple languages. Mostly we going to
+
+5
+00:00:11,920 --> 00:00:17,279
+talk about functional programming fold
+
+6
+00:00:14,480 --> 00:00:19,920
+and reduce. I'm going to demonstrate
+
+7
+00:00:17,279 --> 00:00:25,279
+them in wam language in JavaScript
+
+8
+00:00:19,920 --> 00:00:27,760
+fantastic and in JavaScript and uh in uh
+
+9
+00:00:25,279 --> 00:00:30,760
+JavaScript. Let's see JavaScript and in
+
+10
+00:00:27,760 --> 00:00:30,760
+e-magisp
+
+11
+00:00:30,960 --> 00:00:34,960
+and we're going to talk about what's the
+
+12
+00:00:32,960 --> 00:00:37,120
+difference. So the general purpose of
+
+13
+00:00:34,960 --> 00:00:40,480
+fold and reduce and what's the
+
+14
+00:00:37,120 --> 00:00:44,559
+difference between fold and reduce we
+
+15
+00:00:40,480 --> 00:00:48,160
+had a huge debate since about five
+
+16
+00:00:44,559 --> 00:00:50,719
+months ago on si discord uh a bunch of
+
+17
+00:00:48,160 --> 00:00:53,199
+nerds. So we are thinking you know
+
+18
+00:00:50,719 --> 00:00:56,320
+because in many programming languages
+
+19
+00:00:53,199 --> 00:00:58,480
+they have both fold and reduce and they
+
+20
+00:00:56,320 --> 00:01:02,399
+are slightly different. So we're going
+
+21
+00:00:58,480 --> 00:01:05,119
+to dive into why is that um and how they
+
+22
+00:01:02,399 --> 00:01:07,520
+differ and you know the origin of the
+
+23
+00:01:05,119 --> 00:01:09,680
+concept of fold and reduce. Okay so let
+
+24
+00:01:07,520 --> 00:01:11,520
+me tell you guys fold is the best thing.
+
+25
+00:01:09,680 --> 00:01:14,240
+Okay so programming language
+
+26
+00:01:11,520 --> 00:01:15,920
+documentation matters. Okay because I
+
+27
+00:01:14,240 --> 00:01:18,240
+learned
+
+28
+00:01:15,920 --> 00:01:21,439
+am I am I good? Am I good? If you are
+
+29
+00:01:18,240 --> 00:01:26,320
+here, say hi. If you are watching
+
+30
+00:01:21,439 --> 00:01:29,360
+offline, play at 1.5 speed. Okay, so let
+
+31
+00:01:26,320 --> 00:01:32,479
+me double check. Uh, so if you are here,
+
+32
+00:01:29,360 --> 00:01:34,560
+anyone here yet? Let me double check. So
+
+33
+00:01:32,479 --> 00:01:36,640
+it says error. My YouTube is not
+
+34
+00:01:34,560 --> 00:01:38,240
+receiving enough video. Okay, I don't
+
+35
+00:01:36,640 --> 00:01:39,759
+know if I'm smooth. So let me know.
+
+36
+00:01:38,240 --> 00:01:42,400
+Okay,
+
+37
+00:01:39,759 --> 00:01:44,799
+so fold and reduce the, you know, I I
+
+38
+00:01:42,400 --> 00:01:47,520
+learned I learned about fold about 30
+
+39
+00:01:44,799 --> 00:01:50,320
+years ago in the 1990s. the first time I
+
+40
+00:01:47,520 --> 00:01:52,079
+learn it in Wuam language. Okay. And I
+
+41
+00:01:50,320 --> 00:01:55,680
+was thinking so what is the purpose?
+
+42
+00:01:52,079 --> 00:01:58,240
+It's kind of odd because you you you you
+
+43
+00:01:55,680 --> 00:02:00,000
+kind of fold you know like why would
+
+44
+00:01:58,240 --> 00:02:03,680
+anyone want to do that? It seems
+
+45
+00:02:00,000 --> 00:02:06,000
+unnatural. So the documentation of a
+
+46
+00:02:03,680 --> 00:02:09,280
+programming language is supremely
+
+47
+00:02:06,000 --> 00:02:12,640
+important because
+
+48
+00:02:09,280 --> 00:02:16,959
+if now now I know you know after like 30
+
+49
+00:02:12,640 --> 00:02:22,400
+years I realized the power of fold or
+
+50
+00:02:16,959 --> 00:02:25,440
+also known as reduce it is basically
+
+51
+00:02:22,400 --> 00:02:28,160
+fold is a general
+
+52
+00:02:25,440 --> 00:02:31,840
+is a functional programming way to do
+
+53
+00:02:28,160 --> 00:02:34,640
+any loop. Okay. So any loop you want to
+
+54
+00:02:31,840 --> 00:02:37,280
+do in imperative languages, procedural
+
+55
+00:02:34,640 --> 00:02:40,640
+languages
+
+56
+00:02:37,280 --> 00:02:43,920
+uh you can do in functional way by using
+
+57
+00:02:40,640 --> 00:02:45,519
+bold. So what you do is that basically
+
+58
+00:02:43,920 --> 00:02:47,200
+you know when when you have a loop
+
+59
+00:02:45,519 --> 00:02:50,319
+doesn't matter in what language in your
+
+60
+00:02:47,200 --> 00:02:54,800
+for each you know for loop for loop is
+
+61
+00:02:50,319 --> 00:02:57,519
+most popular in C C++ Java Python you
+
+62
+00:02:54,800 --> 00:03:00,640
+know that kind of procedural and pearl
+
+63
+00:02:57,519 --> 00:03:02,640
+bash you know procedural crowd so but in
+
+64
+00:03:00,640 --> 00:03:05,760
+functional so so what do you do in for
+
+65
+00:03:02,640 --> 00:03:08,879
+loop is that usually typically for like
+
+66
+00:03:05,760 --> 00:03:15,920
+in JavaScript uh it's idiotic okay so
+
+67
+00:03:08,879 --> 00:03:19,599
+let's let's start to Um let's start a uh
+
+68
+00:03:15,920 --> 00:03:23,280
+JavaScript. Okay. So let's see if I have
+
+69
+00:03:19,599 --> 00:03:25,760
+a template for for loop. Okay. For
+
+70
+00:03:23,280 --> 00:03:27,920
+uh now I got a new keyboard. Can you
+
+71
+00:03:25,760 --> 00:03:30,239
+see? So this is ultimate hacking
+
+72
+00:03:27,920 --> 00:03:32,080
+keyboard at station. So I'm not too
+
+73
+00:03:30,239 --> 00:03:34,239
+familiar with it but anyway. So you can
+
+74
+00:03:32,080 --> 00:03:37,040
+you see the for loop in JavaScript.
+
+75
+00:03:34,239 --> 00:03:40,640
+Okay. So here is the typical form of for
+
+76
+00:03:37,040 --> 00:03:45,840
+loop. So let's say so you set I equals
+
+77
+00:03:40,640 --> 00:03:50,720
+to zero then I if I less than 9 then you
+
+78
+00:03:45,840 --> 00:03:54,720
+do I ++ which is increment I by one then
+
+79
+00:03:50,720 --> 00:03:57,760
+console log let's say and press uh print
+
+80
+00:03:54,720 --> 00:04:00,000
+I okay now let's run it
+
+81
+00:03:57,760 --> 00:04:03,040
+so you got 1 2 3 4 5 you know up to
+
+82
+00:04:00,000 --> 00:04:05,439
+eight so this is a typical for loop so
+
+83
+00:04:03,040 --> 00:04:09,280
+what do you so in so in general loop you
+
+84
+00:04:05,439 --> 00:04:11,599
+know that's a general loop in C C++ in F
+
+85
+00:04:09,280 --> 00:04:14,080
+in Java. So what you do is you you you
+
+86
+00:04:11,599 --> 00:04:16,560
+run a state and you you I mean you run a
+
+87
+00:04:14,080 --> 00:04:18,799
+loop and you change the state and and
+
+88
+00:04:16,560 --> 00:04:21,759
+tell it what to do in the body of the
+
+89
+00:04:18,799 --> 00:04:23,759
+loop. That's a for loop.
+
+90
+00:04:21,759 --> 00:04:26,560
+Very convenient. You know that's like a
+
+91
+00:04:23,759 --> 00:04:28,160
+that's a fundamental part of a
+
+92
+00:04:26,560 --> 00:04:30,479
+programming language. Like every
+
+93
+00:04:28,160 --> 00:04:33,199
+programming language allows you to loop
+
+94
+00:04:30,479 --> 00:04:36,160
+in to do loop in some way. Now how do
+
+95
+00:04:33,199 --> 00:04:38,240
+you do that in functional programming?
+
+96
+00:04:36,160 --> 00:04:40,960
+Okay. Now in functional programming of
+
+97
+00:04:38,240 --> 00:04:43,919
+course we got the map. Okay. So in
+
+98
+00:04:40,960 --> 00:04:48,400
+JavaScript let's say uh in JavaScript
+
+99
+00:04:43,919 --> 00:04:52,320
+let's say one uh okay new keyboard. So
+
+100
+00:04:48,400 --> 00:04:56,320
+what where is one? One is not that one
+
+101
+00:04:52,320 --> 00:04:57,919
+is here. One
+
+102
+00:04:56,320 --> 00:05:00,800
+two.
+
+103
+00:04:57,919 --> 00:05:02,720
+Ah god
+
+104
+00:05:00,800 --> 00:05:05,120
+new keyboard. You can't type one two
+
+105
+00:05:02,720 --> 00:05:07,440
+three anymore.
+
+106
+00:05:05,120 --> 00:05:09,919
+So are you guys here? So new keyboard,
+
+107
+00:05:07,440 --> 00:05:12,400
+new mouse. Nobody's here. Okay. So in
+
+108
+00:05:09,919 --> 00:05:16,320
+JavaScript, you got a list known as
+
+109
+00:05:12,400 --> 00:05:19,520
+array in JavaScript. So you say um
+
+110
+00:05:16,320 --> 00:05:23,280
+map. Okay. So you map then you pass a
+
+111
+00:05:19,520 --> 00:05:27,520
+function. So let's say uh console log
+
+112
+00:05:23,280 --> 00:05:30,560
+what uh console log print. So here is a
+
+113
+00:05:27,520 --> 00:05:32,479
+function. Okay. So this part is a
+
+114
+00:05:30,560 --> 00:05:36,639
+function. It just prints you know given
+
+115
+00:05:32,479 --> 00:05:39,280
+x it just print x. Then map is what you
+
+116
+00:05:36,639 --> 00:05:42,800
+do to represent the loop. So in this
+
+117
+00:05:39,280 --> 00:05:44,560
+case 1 2 3 is array you just print it.
+
+118
+00:05:42,800 --> 00:05:47,440
+Okay. So let's run that. Can we run
+
+119
+00:05:44,560 --> 00:05:51,199
+that? Okay. So
+
+120
+00:05:47,440 --> 00:05:53,759
+do that. So the first one uh what so
+
+121
+00:05:51,199 --> 00:05:53,759
+what do we uh oh there yeah here yeah
+
+122
+00:05:53,759 --> 00:05:53,759
+here yeah here yeah here yeah here yeah
+
+123
+00:05:53,759 --> 00:05:53,840
+here yeah here yeah here yeah here yeah
+
+124
+00:05:53,759 --> 00:05:53,840
+here yeah here yeah here yeah here yeah
+
+125
+00:05:53,840 --> 00:05:55,039
+here yeah here yeah here yeah here yeah
+
+126
+00:05:53,840 --> 00:05:58,479
+here yeah here yeah here's the result.
+
+127
+00:05:55,039 --> 00:06:01,680
+So 1 2 3 4 5 6 7 8 that's a four from
+
+128
+00:05:58,479 --> 00:06:04,560
+the for loop. Then 1 2 3 is from our
+
+129
+00:06:01,680 --> 00:06:09,520
+map. Okay, that's a so map is a
+
+130
+00:06:04,560 --> 00:06:13,639
+functional way. But what if your um what
+
+131
+00:06:09,520 --> 00:06:13,639
+if you want to
+
+132
+00:06:13,840 --> 00:06:18,319
+you know take the index. So you know you
+
+133
+00:06:16,560 --> 00:06:21,120
+got a bunch of you know basically when
+
+134
+00:06:18,319 --> 00:06:23,280
+when the for loop gets complicated you
+
+135
+00:06:21,120 --> 00:06:25,600
+cannot use map because for example
+
+136
+00:06:23,280 --> 00:06:28,960
+sometimes you need to know the index of
+
+137
+00:06:25,600 --> 00:06:31,680
+an item. So let's say if the fif let's
+
+138
+00:06:28,960 --> 00:06:34,880
+say let's say let's say like that okay
+
+139
+00:06:31,680 --> 00:06:39,039
+let's say four 22
+
+140
+00:06:34,880 --> 00:06:44,720
+4 two okay that's a list now let's say
+
+141
+00:06:39,039 --> 00:06:48,000
+when the when it's a even indexed
+
+142
+00:06:44,720 --> 00:06:50,479
+element you know like we skip one then
+
+143
+00:06:48,000 --> 00:06:52,240
+take the this first one then skip one
+
+144
+00:06:50,479 --> 00:06:54,319
+then take that one then skip one take
+
+145
+00:06:52,240 --> 00:06:57,280
+another one every time it's a I mean
+
+146
+00:06:54,319 --> 00:06:59,759
+every time you you skip one then you it.
+
+147
+00:06:57,280 --> 00:07:02,720
+So in this case you cannot do it with
+
+148
+00:06:59,759 --> 00:07:05,919
+map. Okay, because map every time you
+
+149
+00:07:02,720 --> 00:07:08,080
+just uh give it an item. Uh actually in
+
+150
+00:07:05,919 --> 00:07:10,880
+JavaScript you can because the second
+
+151
+00:07:08,080 --> 00:07:13,680
+argument you can pass the index of
+
+152
+00:07:10,880 --> 00:07:17,520
+array. But anyway I'm not going
+
+153
+00:07:13,680 --> 00:07:21,280
+anywhere. So so my point is when the for
+
+154
+00:07:17,520 --> 00:07:24,080
+loop can become very complicated then
+
+155
+00:07:21,280 --> 00:07:26,400
+map usually uh sometimes may not be
+
+156
+00:07:24,080 --> 00:07:29,120
+appropriate or cannot do it. Okay. So,
+
+157
+00:07:26,400 --> 00:07:31,520
+but but but there is a one way
+
+158
+00:07:29,120 --> 00:07:34,160
+functional programming way that does not
+
+159
+00:07:31,520 --> 00:07:36,240
+involve updating any state value
+
+160
+00:07:34,160 --> 00:07:40,479
+variable local variable a global
+
+161
+00:07:36,240 --> 00:07:44,800
+variable and that would be reduce. Okay?
+
+162
+00:07:40,479 --> 00:07:46,560
+Because what you do in reduce is that is
+
+163
+00:07:44,800 --> 00:07:49,120
+that basically when you do a loop you
+
+164
+00:07:46,560 --> 00:07:51,440
+you you know in functional programming
+
+165
+00:07:49,120 --> 00:07:53,759
+way you want the function to represent
+
+166
+00:07:51,440 --> 00:07:55,759
+what you want to do with a body. But
+
+167
+00:07:53,759 --> 00:07:58,240
+every loop, every time you loop, there
+
+168
+00:07:55,759 --> 00:08:01,360
+is a state. For example, in the in a
+
+169
+00:07:58,240 --> 00:08:05,120
+typical for loop case, you have the uh
+
+170
+00:08:01,360 --> 00:08:07,680
+the I which is a kind of the state
+
+171
+00:08:05,120 --> 00:08:10,720
+variable every time it increment by one
+
+172
+00:08:07,680 --> 00:08:15,280
+typic typically. So you want to be able
+
+173
+00:08:10,720 --> 00:08:19,360
+to pass a state. Okay. And you you can
+
+174
+00:08:15,280 --> 00:08:21,120
+do that. That is the code fold or called
+
+175
+00:08:19,360 --> 00:08:24,800
+reduce.
+
+176
+00:08:21,120 --> 00:08:27,800
+Okay. So in uh in so what you do is that
+
+177
+00:08:24,800 --> 00:08:27,800
+you
+
+178
+00:08:27,840 --> 00:08:33,440
+so uh okay so this is emac this let's go
+
+179
+00:08:31,120 --> 00:08:36,800
+to JavaScript because JavaScript is more
+
+180
+00:08:33,440 --> 00:08:40,080
+popular you understand it so so what you
+
+181
+00:08:36,800 --> 00:08:42,479
+do is that you have this reduce function
+
+182
+00:08:40,080 --> 00:08:46,800
+that takes a function and this function
+
+183
+00:08:42,479 --> 00:08:50,080
+will be like your for loop body like it
+
+184
+00:08:46,800 --> 00:08:52,320
+represent what you want to do with it.
+
+185
+00:08:50,080 --> 00:08:54,480
+Okay. Then you take a initial value
+
+186
+00:08:52,320 --> 00:08:57,519
+that's a beginning state. Okay. That's a
+
+187
+00:08:54,480 --> 00:09:00,240
+way to understand reduce. Okay. Initial
+
+188
+00:08:57,519 --> 00:09:03,760
+value is a beginning state. The function
+
+189
+00:09:00,240 --> 00:09:06,880
+is the body of the loop. And every and
+
+190
+00:09:03,760 --> 00:09:10,320
+the array each time you feed it that
+
+191
+00:09:06,880 --> 00:09:12,959
+that's like the um extern external
+
+192
+00:09:10,320 --> 00:09:16,399
+input. Okay. So what the function do is
+
+193
+00:09:12,959 --> 00:09:20,320
+that the function each time it takes two
+
+194
+00:09:16,399 --> 00:09:24,240
+um the function takes two
+
+195
+00:09:20,320 --> 00:09:26,480
+two argument one is the previous result
+
+196
+00:09:24,240 --> 00:09:29,440
+that's kind of the uh the state that
+
+197
+00:09:26,480 --> 00:09:32,880
+represent the state from the previous
+
+198
+00:09:29,440 --> 00:09:37,680
+iteration of the loop and then takes an
+
+199
+00:09:32,880 --> 00:09:40,480
+input from the current uh array. So the
+
+200
+00:09:37,680 --> 00:09:43,040
+function takes two arguments. One is the
+
+201
+00:09:40,480 --> 00:09:45,279
+current input from the array. The other
+
+202
+00:09:43,040 --> 00:09:48,480
+value is the previous result that
+
+203
+00:09:45,279 --> 00:09:51,839
+represent the state. So what I'm trying
+
+204
+00:09:48,480 --> 00:09:54,240
+to say is that the fold or also known as
+
+205
+00:09:51,839 --> 00:09:58,080
+reduce is the
+
+206
+00:09:54,240 --> 00:10:00,240
+general way to represent any loop. Any
+
+207
+00:09:58,080 --> 00:10:03,519
+loop you can write with for loop. You
+
+208
+00:10:00,240 --> 00:10:06,240
+can do it with reduce. Okay, that is how
+
+209
+00:10:03,519 --> 00:10:09,440
+you should understand it.
+
+210
+00:10:06,240 --> 00:10:13,760
+now. Okay. So, anyone here with me?
+
+211
+00:10:09,440 --> 00:10:17,360
+Hello. Hello. GCS GCS IV5. Did you get
+
+212
+00:10:13,760 --> 00:10:21,120
+the new IV5 added? Are you the GCS kind
+
+213
+00:10:17,360 --> 00:10:24,800
+of? I thought I uh No.
+
+214
+00:10:21,120 --> 00:10:28,959
+So, okay. Am I doing good? Okay. GCS
+
+215
+00:10:24,800 --> 00:10:33,200
+answer. Am I like doing live? And uh it
+
+216
+00:10:28,959 --> 00:10:36,240
+says my um YouTube is you know having
+
+217
+00:10:33,200 --> 00:10:39,920
+stream issues. Am I doing good?
+
+218
+00:10:36,240 --> 00:10:42,399
+Okay, my so so if you are watching this
+
+219
+00:10:39,920 --> 00:10:44,240
+offline play play at 1.5 speed. Okay,
+
+220
+00:10:42,399 --> 00:10:46,000
+let me let me uh quickly get to the
+
+221
+00:10:44,240 --> 00:10:48,320
+point because actually I want to talk
+
+222
+00:10:46,000 --> 00:10:50,320
+about lots of things about fold and
+
+223
+00:10:48,320 --> 00:10:55,279
+reduce. So basically what I'm saying
+
+224
+00:10:50,320 --> 00:10:56,959
+here is that fold I mean I mean for loop
+
+225
+00:10:55,279 --> 00:10:59,040
+you have that in every language
+
+226
+00:10:56,959 --> 00:11:01,200
+procedural language now but in
+
+227
+00:10:59,040 --> 00:11:04,160
+functional programming you have map but
+
+228
+00:11:01,200 --> 00:11:09,279
+map is insufficient to represent
+
+229
+00:11:04,160 --> 00:11:13,440
+arbitrary for loop but you got for also
+
+230
+00:11:09,279 --> 00:11:16,640
+known as reduce that is a functional
+
+231
+00:11:13,440 --> 00:11:20,000
+programming way to represent to code any
+
+232
+00:11:16,640 --> 00:11:23,040
+form of loop. Okay.
+
+233
+00:11:20,000 --> 00:11:25,760
+So that's my point and whenever you want
+
+234
+00:11:23,040 --> 00:11:28,320
+to whenever you read you know whatever
+
+235
+00:11:25,760 --> 00:11:33,839
+programming language Python
+
+236
+00:11:28,320 --> 00:11:36,640
+uh Python, JavaScript uh uh um Emac this
+
+237
+00:11:33,839 --> 00:11:39,760
+you want to understand that it is the
+
+238
+00:11:36,640 --> 00:11:42,880
+general way functional programming form
+
+239
+00:11:39,760 --> 00:11:44,880
+of general purpose loop. Okay just
+
+240
+00:11:42,880 --> 00:11:47,200
+remember that that is that is the most
+
+241
+00:11:44,880 --> 00:11:50,160
+important. Now I learned you know I
+
+242
+00:11:47,200 --> 00:11:55,040
+learned about fold like 30 years ago in
+
+243
+00:11:50,160 --> 00:11:57,680
+the early 1990s in wuam language. So um
+
+244
+00:11:55,040 --> 00:11:59,680
+so actually let let me let me write some
+
+245
+00:11:57,680 --> 00:12:04,640
+um comments so people understand what
+
+246
+00:11:59,680 --> 00:12:08,000
+we're doing. For loop uh card
+
+247
+00:12:04,640 --> 00:12:10,320
+for loop uh
+
+248
+00:12:08,000 --> 00:12:16,600
+is
+
+249
+00:12:10,320 --> 00:12:16,600
+uh loop okay loop is fundamental
+
+250
+00:12:17,600 --> 00:12:22,880
+in programming languages.
+
+251
+00:12:20,800 --> 00:12:24,480
+Okay.
+
+252
+00:12:22,880 --> 00:12:26,000
+Um
+
+253
+00:12:24,480 --> 00:12:28,720
+God
+
+254
+00:12:26,000 --> 00:12:31,200
+typically
+
+255
+00:12:28,720 --> 00:12:33,440
+in procedural
+
+256
+00:12:31,200 --> 00:12:37,639
+programming languages or also known as
+
+257
+00:12:33,440 --> 00:12:37,639
+imperative aa
+
+258
+00:12:40,480 --> 00:12:46,639
+in imperative languages
+
+259
+00:12:43,360 --> 00:12:51,920
+the most popular
+
+260
+00:12:46,639 --> 00:12:54,920
+way of loop uh of loop
+
+261
+00:12:51,920 --> 00:12:54,920
+is
+
+262
+00:12:56,399 --> 00:13:04,000
+the or loop. Okay, that's most well
+
+263
+00:13:00,880 --> 00:13:08,440
+known. Okay,
+
+264
+00:13:04,000 --> 00:13:08,440
+now in functional programming
+
+265
+00:13:09,200 --> 00:13:12,200
+languages.
+
+266
+00:13:15,760 --> 00:13:19,880
+uh new keyboard
+
+267
+00:13:21,360 --> 00:13:31,120
+in functional programming languages.
+
+268
+00:13:25,040 --> 00:13:35,920
+The most well known form of loop
+
+269
+00:13:31,120 --> 00:13:38,320
+a loop is via map
+
+270
+00:13:35,920 --> 00:13:40,959
+function. So the map function takes a
+
+271
+00:13:38,320 --> 00:13:44,880
+function and and take a list and uh
+
+272
+00:13:40,959 --> 00:13:46,800
+apply the function to each item.
+
+273
+00:13:44,880 --> 00:13:51,560
+But
+
+274
+00:13:46,800 --> 00:13:51,560
+map is not a
+
+275
+00:13:53,600 --> 00:13:59,040
+general
+
+276
+00:13:55,600 --> 00:14:01,040
+purpose loop
+
+277
+00:13:59,040 --> 00:14:04,279
+because
+
+278
+00:14:01,040 --> 00:14:04,279
+for example
+
+279
+00:14:06,639 --> 00:14:16,720
+if you ah god you let's switch to um you
+
+280
+00:14:13,040 --> 00:14:19,920
+need to Let's see. Yeah, let's switch to
+
+281
+00:14:16,720 --> 00:14:23,839
+a buffer that does not have all these
+
+282
+00:14:19,920 --> 00:14:28,320
+abbreviations. Okay. So
+
+283
+00:14:23,839 --> 00:14:31,600
+let's write it here because for example
+
+284
+00:14:28,320 --> 00:14:38,000
+um if you
+
+285
+00:14:31,600 --> 00:14:41,560
+are given a list and you want to skip
+
+286
+00:14:38,000 --> 00:14:41,560
+every element
+
+287
+00:14:45,519 --> 00:14:53,199
+and apply a function to
+
+288
+00:14:50,880 --> 00:14:56,800
+that.
+
+289
+00:14:53,199 --> 00:14:59,800
+Okay. In this case
+
+290
+00:14:56,800 --> 00:14:59,800
+uh
+
+291
+00:15:00,800 --> 00:15:10,560
+in this case you can not use map usually
+
+292
+00:15:07,040 --> 00:15:15,440
+because you don't
+
+293
+00:15:10,560 --> 00:15:17,360
+have the index of the element. If you do
+
+294
+00:15:15,440 --> 00:15:20,560
+have the index, you can check you you
+
+295
+00:15:17,360 --> 00:15:23,519
+can just check the evenness of the
+
+296
+00:15:20,560 --> 00:15:26,959
+index. For example, if the index begin
+
+297
+00:15:23,519 --> 00:15:30,399
+with zero, zero is even, you can take
+
+298
+00:15:26,959 --> 00:15:35,040
+it. One is odd, skip,
+
+299
+00:15:30,399 --> 00:15:38,399
+uh then two is even, take it. Three is
+
+300
+00:15:35,040 --> 00:15:41,440
+odd, skip and so on. Or you can take
+
+301
+00:15:38,399 --> 00:15:44,079
+every third element, you know, whatever.
+
+302
+00:15:41,440 --> 00:15:46,079
+So in that case, map usually cannot be
+
+303
+00:15:44,079 --> 00:15:47,839
+done. you need the index but in the case
+
+304
+00:15:46,079 --> 00:15:50,399
+of Java JavaScript you can do that
+
+305
+00:15:47,839 --> 00:15:53,600
+because JavaScript actually pass the
+
+306
+00:15:50,399 --> 00:15:55,759
+function the index of the element as
+
+307
+00:15:53,600 --> 00:15:58,240
+well but that's Java JavaScript in
+
+308
+00:15:55,759 --> 00:16:00,720
+usually in other programming languages
+
+309
+00:15:58,240 --> 00:16:04,639
+whenever you have map such as Python's
+
+310
+00:16:00,720 --> 00:16:06,800
+map you cannot um you know that you you
+
+311
+00:16:04,639 --> 00:16:10,320
+don't know the index you you are only
+
+312
+00:16:06,800 --> 00:16:14,160
+passed the elements of the array
+
+313
+00:16:10,320 --> 00:16:19,440
+okay so so let's delete that so Let's
+
+314
+00:16:14,160 --> 00:16:21,519
+take let's put that back here. And uh uh
+
+315
+00:16:19,440 --> 00:16:23,600
+map is not general purpose loop because
+
+316
+00:16:21,519 --> 00:16:25,279
+for example if you are that that that
+
+317
+00:16:23,600 --> 00:16:29,560
+okay
+
+318
+00:16:25,279 --> 00:16:29,560
+uh now
+
+319
+00:16:32,240 --> 00:16:35,800
+now the
+
+320
+00:16:36,320 --> 00:16:46,880
+functional pro uh functional programming
+
+321
+00:16:40,720 --> 00:16:50,759
+form of a of a
+
+322
+00:16:46,880 --> 00:16:50,759
+General purpose
+
+323
+00:16:51,920 --> 00:16:59,920
+loop is
+
+324
+00:16:55,360 --> 00:17:02,320
+bold also known as reduce. Okay, that is
+
+325
+00:16:59,920 --> 00:17:03,839
+the point I want to make. Oh god, so
+
+326
+00:17:02,320 --> 00:17:05,520
+many
+
+327
+00:17:03,839 --> 00:17:10,720
+god.
+
+328
+00:17:05,520 --> 00:17:15,439
+Okay, let's put this back. Let's
+
+329
+00:17:10,720 --> 00:17:17,919
+syntax color and let's show in browser.
+
+330
+00:17:15,439 --> 00:17:20,319
+So that's kind of the explanation we
+
+331
+00:17:17,919 --> 00:17:23,679
+did. Okay, nobody's here, nobody's
+
+332
+00:17:20,319 --> 00:17:26,160
+watching. Okay. So,
+
+333
+00:17:23,679 --> 00:17:28,720
+okay, that's about
+
+334
+00:17:26,160 --> 00:17:32,080
+bold and reduce. Let's let's demo. Okay,
+
+335
+00:17:28,720 --> 00:17:35,679
+let's demo some uh bold. Okay, wam
+
+336
+00:17:32,080 --> 00:17:38,679
+language. Uh let me show you what bold
+
+337
+00:17:35,679 --> 00:17:38,679
+does.
+
+338
+00:17:40,320 --> 00:17:47,679
+Okay, f uh f is a function. Now uh
+
+339
+00:17:45,200 --> 00:17:50,240
+initial value let well let's forget
+
+340
+00:17:47,679 --> 00:17:53,200
+about initial value okay let's just say
+
+341
+00:17:50,240 --> 00:17:56,320
+range first of all let's generate a list
+
+342
+00:17:53,200 --> 00:18:01,280
+of numbers
+
+343
+00:17:56,320 --> 00:18:04,400
+range five range six okay run it okay we
+
+344
+00:18:01,280 --> 00:18:07,360
+need to run this and paste the result
+
+345
+00:18:04,400 --> 00:18:10,360
+after that so let's do that let's stop
+
+346
+00:18:07,360 --> 00:18:10,360
+this
+
+347
+00:18:12,240 --> 00:18:18,559
+oh Okay, this actually I should show
+
+348
+00:18:14,480 --> 00:18:24,039
+that. Okay, you're all confused today.
+
+349
+00:18:18,559 --> 00:18:24,039
+So, let's do it again. Okay, range uh
+
+350
+00:18:26,480 --> 00:18:33,960
+so range six returns 1 2 3 4 5 6. Okay.
+
+351
+00:18:30,960 --> 00:18:33,960
+Now,
+
+352
+00:18:35,039 --> 00:18:42,200
+now let's take the list. So, we say fold
+
+353
+00:18:39,200 --> 00:18:42,200
+and
+
+354
+00:18:45,039 --> 00:18:51,919
+run it.
+
+355
+00:18:48,080 --> 00:18:55,440
+Okay, here is what you get. Now, that
+
+356
+00:18:51,919 --> 00:18:59,440
+might be too complicated. Let's let's
+
+357
+00:18:55,440 --> 00:19:01,440
+make it smaller. Okay. Um I mean the
+
+358
+00:18:59,440 --> 00:19:03,440
+list may be too long, hard to
+
+359
+00:19:01,440 --> 00:19:07,080
+understand. Let's just say one, two,
+
+360
+00:19:03,440 --> 00:19:07,080
+three. Okay.
+
+361
+00:19:10,000 --> 00:19:18,160
+So that's what fold does. Okay. So let's
+
+362
+00:19:14,720 --> 00:19:21,640
+let's make it larger. Okay. Fold one two
+
+363
+00:19:18,160 --> 00:19:21,640
+three four.
+
+364
+00:19:27,840 --> 00:19:33,039
+Okay. Does that make sense? F the
+
+365
+00:19:30,880 --> 00:19:34,960
+function f every time takes two
+
+366
+00:19:33,039 --> 00:19:38,160
+arguments.
+
+367
+00:19:34,960 --> 00:19:41,520
+The first item is whatever
+
+368
+00:19:38,160 --> 00:19:45,760
+the input from the list. The second item
+
+369
+00:19:41,520 --> 00:19:47,760
+wait uh the the first item is a state.
+
+370
+00:19:45,760 --> 00:19:49,760
+Okay. The first item is the state. The
+
+371
+00:19:47,760 --> 00:19:51,520
+second item is the input from the list.
+
+372
+00:19:49,760 --> 00:19:54,320
+Okay.
+
+373
+00:19:51,520 --> 00:19:56,240
+So is that clear?
+
+374
+00:19:54,320 --> 00:19:57,919
+Uh
+
+375
+00:19:56,240 --> 00:20:02,400
+is that clear? Does that make sense?
+
+376
+00:19:57,919 --> 00:20:06,240
+Anyone is here say hi. Okay.
+
+377
+00:20:02,400 --> 00:20:07,840
+Now let's demonstrate um
+
+378
+00:20:06,240 --> 00:20:10,480
+the
+
+379
+00:20:07,840 --> 00:20:13,039
+another thing about fold is that you can
+
+380
+00:20:10,480 --> 00:20:16,400
+have a init initial value let's say
+
+381
+00:20:13,039 --> 00:20:18,160
+zero. Okay
+
+382
+00:20:16,400 --> 00:20:20,720
+run it.
+
+383
+00:20:18,160 --> 00:20:23,600
+So that means you begin with a state
+
+384
+00:20:20,720 --> 00:20:26,720
+zero. So every time the first time f is
+
+385
+00:20:23,600 --> 00:20:29,840
+given two arguments the state which is
+
+386
+00:20:26,720 --> 00:20:33,600
+zero then an input from the list which
+
+387
+00:20:29,840 --> 00:20:37,280
+is one. then pass that to f again and
+
+388
+00:20:33,600 --> 00:20:41,320
+the first element is the you know it's
+
+389
+00:20:37,280 --> 00:20:41,320
+it's the uh
+
+390
+00:20:41,360 --> 00:20:46,320
+is the previous result which is a state.
+
+391
+00:20:44,080 --> 00:20:49,440
+Then the second argument is input from
+
+392
+00:20:46,320 --> 00:20:52,640
+the list. Okay. So and so on. So fold is
+
+393
+00:20:49,440 --> 00:20:55,360
+the most general form to represent
+
+394
+00:20:52,640 --> 00:20:58,400
+any loop in a functional programming
+
+395
+00:20:55,360 --> 00:21:03,120
+way. Okay. So that's demonstration of
+
+396
+00:20:58,400 --> 00:21:07,640
+fold in wam language. Now let's um
+
+397
+00:21:03,120 --> 00:21:07,640
+actually I can show you
+
+398
+00:21:09,120 --> 00:21:13,039
+let there's something interesting okay
+
+399
+00:21:11,039 --> 00:21:15,280
+actually you can show all the history of
+
+400
+00:21:13,039 --> 00:21:19,200
+the result so in wam language that's
+
+401
+00:21:15,280 --> 00:21:22,159
+called fold list so if you look at this
+
+402
+00:21:19,200 --> 00:21:26,960
+you'll understand by just looking at the
+
+403
+00:21:22,159 --> 00:21:30,480
+result so we do instead of fold we say
+
+404
+00:21:26,960 --> 00:21:33,520
+fold list and then we get a bunch list.
+
+405
+00:21:30,480 --> 00:21:38,039
+So, let me reformat them so it's easier
+
+406
+00:21:33,520 --> 00:21:38,039
+to un to see.
+
+407
+00:21:39,120 --> 00:21:47,840
+So, can you see that? That's what that's
+
+408
+00:21:41,679 --> 00:21:53,080
+the result. Okay. So, let's get the the
+
+409
+00:21:47,840 --> 00:21:53,080
+way. Okay. That's a common.
+
+410
+00:21:55,360 --> 00:22:02,720
+Okay. So that's the general purpose
+
+411
+00:22:00,480 --> 00:22:06,000
+form in functional programming for loop.
+
+412
+00:22:02,720 --> 00:22:08,640
+Let's put it back. Um put it back.
+
+413
+00:22:06,000 --> 00:22:11,039
+Syntax color show in browser. So we
+
+414
+00:22:08,640 --> 00:22:14,080
+demonstrated. So here's the code we
+
+415
+00:22:11,039 --> 00:22:17,280
+demonstrated wam language fold. And did
+
+416
+00:22:14,080 --> 00:22:21,840
+we demonstrate JavaScript fold? No. So
+
+417
+00:22:17,280 --> 00:22:24,960
+let's do so. Okay. Uh let's do so now
+
+418
+00:22:21,840 --> 00:22:29,679
+with the keyboard now. How do you uh get
+
+419
+00:22:24,960 --> 00:22:32,480
+that? Yeah. So what uh
+
+420
+00:22:29,679 --> 00:22:36,799
+yeah. So let's do a JavaScript reduce.
+
+421
+00:22:32,480 --> 00:22:40,400
+Okay. JavaScript now. Now first of all
+
+422
+00:22:36,799 --> 00:22:43,640
+you need a list of items. Let's say one
+
+423
+00:22:40,400 --> 00:22:43,640
+two three
+
+424
+00:22:44,799 --> 00:22:52,960
+uh that's
+
+425
+00:22:46,960 --> 00:22:55,600
+one two three four five. Okay. So in
+
+426
+00:22:52,960 --> 00:22:58,960
+JavaScript because it's kind of using
+
+427
+00:22:55,600 --> 00:23:02,600
+the object way. So list that's you know
+
+428
+00:22:58,960 --> 00:23:02,600
+so um
+
+429
+00:23:03,360 --> 00:23:09,919
+let's say x array
+
+430
+00:23:06,559 --> 00:23:12,240
+equals true. Now where where is equal?
+
+431
+00:23:09,919 --> 00:23:18,640
+So equal
+
+432
+00:23:12,240 --> 00:23:21,600
+that then then you say x array
+
+433
+00:23:18,640 --> 00:23:25,760
+uh oh god.
+
+434
+00:23:21,600 --> 00:23:28,799
+Okay. So x then you say x array dot
+
+435
+00:23:25,760 --> 00:23:33,919
+that's how you do it reduce you call the
+
+436
+00:23:28,799 --> 00:23:38,720
+method on it then uh actually enter then
+
+437
+00:23:33,919 --> 00:23:41,679
+you see then here is a function
+
+438
+00:23:38,720 --> 00:23:45,360
+uh let's say initial value
+
+439
+00:23:41,679 --> 00:23:47,919
+optional okay let's so let's not use
+
+440
+00:23:45,360 --> 00:23:52,000
+initial value for now let's comment out
+
+441
+00:23:47,919 --> 00:23:52,000
+so for now just zero
+
+442
+00:23:53,120 --> 00:24:00,039
+Okay. And the function what did this do?
+
+443
+00:23:56,080 --> 00:24:00,039
+Uh let's say
+
+444
+00:24:01,679 --> 00:24:06,799
+let's make them string. Okay. Because
+
+445
+00:24:03,840 --> 00:24:09,440
+when it's string it's easier to see
+
+446
+00:24:06,799 --> 00:24:12,159
+because when you add add the numbers
+
+447
+00:24:09,440 --> 00:24:14,000
+together they become a different number.
+
+448
+00:24:12,159 --> 00:24:16,320
+It's hard to tell because then you have
+
+449
+00:24:14,000 --> 00:24:18,640
+to sum them up. But if they are string
+
+450
+00:24:16,320 --> 00:24:20,880
+and you do string join you can see pre
+
+451
+00:24:18,640 --> 00:24:25,279
+what's the previous value you know four
+
+452
+00:24:20,880 --> 00:24:28,320
++ 5 is just four five 3 + 4 is just 34 a
+
+453
+00:24:25,279 --> 00:24:30,960
+string okay so we got array then array
+
+454
+00:24:28,320 --> 00:24:34,480
+reduce then this function lambda
+
+455
+00:24:30,960 --> 00:24:38,559
+function and and then you basically plus
+
+456
+00:24:34,480 --> 00:24:42,799
+is a way to join string so so if we do
+
+457
+00:24:38,559 --> 00:24:45,919
+that then let's say x result
+
+458
+00:24:42,799 --> 00:24:48,080
+and let's say equal Well, now where's my
+
+459
+00:24:45,919 --> 00:24:51,559
+equal key?
+
+460
+00:24:48,080 --> 00:24:51,559
+Okay. So,
+
+461
+00:24:52,080 --> 00:24:59,679
+okay then console log x result.
+
+462
+00:24:57,760 --> 00:25:02,559
+Um,
+
+463
+00:24:59,679 --> 00:25:09,960
+okay. Let's see what happens. Hopefully,
+
+464
+00:25:02,559 --> 00:25:09,960
+it works. No. So, you got a um
+
+465
+00:25:10,320 --> 00:25:15,360
+error and called reference array. X
+
+466
+00:25:12,720 --> 00:25:19,039
+array is not defined. Why is it not
+
+467
+00:25:15,360 --> 00:25:22,159
+defined? It's right here. No, wait. Oh,
+
+468
+00:25:19,039 --> 00:25:26,120
+JavaScript. Okay, I forgot JavaScript.
+
+469
+00:25:22,159 --> 00:25:26,120
+Uh, you need
+
+470
+00:25:27,120 --> 00:25:31,760
+Yeah. And you know, so JavaScript you
+
+471
+00:25:30,240 --> 00:25:33,279
+need
+
+472
+00:25:31,760 --> 00:25:37,919
+constant.
+
+473
+00:25:33,279 --> 00:25:41,919
+Okay. Run it. There is the result. Uh,
+
+474
+00:25:37,919 --> 00:25:44,640
+print log result is this one, two,
+
+475
+00:25:41,919 --> 00:25:48,360
+three, four, five.
+
+476
+00:25:44,640 --> 00:25:48,360
+And uh
+
+477
+00:25:52,400 --> 00:25:57,200
+does that make sense?
+
+478
+00:25:54,640 --> 00:26:00,159
+Am I making sense?
+
+479
+00:25:57,200 --> 00:26:03,279
+Okay. No, nobody is here. I think four
+
+480
+00:26:00,159 --> 00:26:06,720
+people. Okay. Say hi. If I make sense,
+
+481
+00:26:03,279 --> 00:26:09,600
+say hi. Okay. So, we are talking about
+
+482
+00:26:06,720 --> 00:26:11,679
+uh fold and reduce. We are just running
+
+483
+00:26:09,600 --> 00:26:14,240
+demonstrating them in wam language and
+
+484
+00:26:11,679 --> 00:26:16,799
+now JavaScript. So uh but this
+
+485
+00:26:14,240 --> 00:26:19,039
+JavaScript is not too clear. So actually
+
+486
+00:26:16,799 --> 00:26:21,200
+I have already written so many
+
+487
+00:26:19,039 --> 00:26:24,799
+tutorials. Let's let's see if we can
+
+488
+00:26:21,200 --> 00:26:28,080
+find a a good example of JavaScript
+
+489
+00:26:24,799 --> 00:26:30,559
+tutorials. So
+
+490
+00:26:28,080 --> 00:26:33,799
+no it just no it's a it's the same thing
+
+491
+00:26:30,559 --> 00:26:33,799
+I did.
+
+492
+00:26:35,520 --> 00:26:41,360
+Um yeah but you can you can do it this
+
+493
+00:26:38,799 --> 00:26:49,080
+way. So for example
+
+494
+00:26:41,360 --> 00:26:49,080
+uh let's say so here is a example where
+
+495
+00:26:49,200 --> 00:26:57,279
+where it makes more sense. So what this
+
+496
+00:26:52,400 --> 00:26:59,760
+do is that this array is 1 2 3 4 5 and
+
+497
+00:26:57,279 --> 00:27:03,200
+this function now we define a function.
+
+498
+00:26:59,760 --> 00:27:06,799
+The function takes two arguments x and y
+
+499
+00:27:03,200 --> 00:27:09,520
+and what and what it does is that it
+
+500
+00:27:06,799 --> 00:27:12,720
+creates a string. So those back tick
+
+501
+00:27:09,520 --> 00:27:15,760
+those are string. Okay, back tick is is
+
+502
+00:27:12,720 --> 00:27:19,120
+a string syntax. So but within the
+
+503
+00:27:15,760 --> 00:27:21,840
+string you evaluate x and you turn into
+
+504
+00:27:19,120 --> 00:27:24,799
+a string. You evaluate y you turn it
+
+505
+00:27:21,840 --> 00:27:27,520
+into a string. So you got to you so
+
+506
+00:27:24,799 --> 00:27:29,919
+basically you want to you you know
+
+507
+00:27:27,520 --> 00:27:32,320
+whenever f is given two arguments you
+
+508
+00:27:29,919 --> 00:27:35,360
+turn those two arguments into a string
+
+509
+00:27:32,320 --> 00:27:37,279
+and you put fn inside you know you know
+
+510
+00:27:35,360 --> 00:27:40,880
+wrap fn
+
+511
+00:27:37,279 --> 00:27:43,360
+um around it it returns a string okay so
+
+512
+00:27:40,880 --> 00:27:48,559
+when you run this then this is the
+
+513
+00:27:43,360 --> 00:27:52,240
+result you get okay so let's run it
+
+514
+00:27:48,559 --> 00:27:55,840
+so you see true okay so uh here true
+
+515
+00:27:52,240 --> 00:27:58,080
+Okay. So the result of that is true.
+
+516
+00:27:55,840 --> 00:28:02,240
+Okay. Here we demonstrated reduce in
+
+517
+00:27:58,080 --> 00:28:08,159
+JavaScript. I hope that is uh clear.
+
+518
+00:28:02,240 --> 00:28:11,679
+Syntax code show in browser. So we got
+
+519
+00:28:08,159 --> 00:28:15,600
+we got wam language. We got JavaScript
+
+520
+00:28:11,679 --> 00:28:17,840
+demonstration of of reduce. You know in
+
+521
+00:28:15,600 --> 00:28:20,399
+wam language it's called fold but in
+
+522
+00:28:17,840 --> 00:28:22,080
+JavaScript they call it reduce. Now why
+
+523
+00:28:20,399 --> 00:28:24,080
+is that? Let me explain because that's
+
+524
+00:28:22,080 --> 00:28:26,399
+there's more uh interesting details
+
+525
+00:28:24,080 --> 00:28:32,080
+about them
+
+526
+00:28:26,399 --> 00:28:35,600
+and we before that we explained why uh
+
+527
+00:28:32,080 --> 00:28:38,399
+fold or know as reduce they are the most
+
+528
+00:28:35,600 --> 00:28:42,240
+general form to rep functional way to
+
+529
+00:28:38,399 --> 00:28:44,880
+represent any loop. Okay. So we
+
+530
+00:28:42,240 --> 00:28:47,520
+demonstrate that. So so so what so what
+
+531
+00:28:44,880 --> 00:28:50,799
+is uh other things interesting? So we
+
+532
+00:28:47,520 --> 00:28:54,399
+explained uh so there is also emacisp
+
+533
+00:28:50,799 --> 00:28:57,840
+shall we demonstrate emac leisp okay you
+
+534
+00:28:54,399 --> 00:29:00,640
+know we can actually just copy it
+
+535
+00:28:57,840 --> 00:29:03,760
+yeah so let's just you know because I've
+
+536
+00:29:00,640 --> 00:29:06,240
+already written so many tutorials uh
+
+537
+00:29:03,760 --> 00:29:10,159
+let's yeah let's just demonstrate it
+
+538
+00:29:06,240 --> 00:29:11,760
+because it is interesting you know
+
+539
+00:29:10,159 --> 00:29:14,000
+because I talk about programming
+
+540
+00:29:11,760 --> 00:29:16,880
+languages so it's just interesting to
+
+541
+00:29:14,000 --> 00:29:19,840
+see so here's a eaglist you define a
+
+542
+00:29:16,880 --> 00:29:21,760
+variable xx that's a vector. Vector is
+
+543
+00:29:19,840 --> 00:29:24,559
+just like a list. It's it's like a
+
+544
+00:29:21,760 --> 00:29:28,000
+JavaScript array. Okay? You cannot add
+
+545
+00:29:24,559 --> 00:29:32,159
+elements to it. So it's like C array or
+
+546
+00:29:28,000 --> 00:29:34,240
+JavaScript uh well it's like C array but
+
+547
+00:29:32,159 --> 00:29:36,559
+it's not like JavaScript array because
+
+548
+00:29:34,240 --> 00:29:40,080
+in JavaScript array is actually dynamic
+
+549
+00:29:36,559 --> 00:29:43,760
+array. You can add elements. So in EMAC
+
+550
+00:29:40,080 --> 00:29:48,240
+this vector is like a C array or it's
+
+551
+00:29:43,760 --> 00:29:50,799
+like Python's tuple. Okay. So, so if so,
+
+552
+00:29:48,240 --> 00:29:53,600
+so then you have the function reduce and
+
+553
+00:29:50,799 --> 00:29:56,880
+the second argument to reduce is a is a
+
+554
+00:29:53,600 --> 00:30:02,360
+is a array vector. Okay. So, if we run
+
+555
+00:29:56,880 --> 00:30:02,360
+this, we get ABC. So, let's run it.
+
+556
+00:30:07,520 --> 00:30:14,320
+Okay, it ran but it didn't print. Well,
+
+557
+00:30:10,240 --> 00:30:17,279
+it printed. Um, so uh so let let's run
+
+558
+00:30:14,320 --> 00:30:19,760
+this way. Okay. So
+
+559
+00:30:17,279 --> 00:30:26,279
+run it. Okay. Now you can see at the
+
+560
+00:30:19,760 --> 00:30:26,279
+bottom it you know then here we
+
+561
+00:30:27,760 --> 00:30:36,880
+run it. You see the result is ABC.
+
+562
+00:30:32,000 --> 00:30:41,279
+Okay. So that's a demonstration of
+
+563
+00:30:36,880 --> 00:30:45,120
+lisp emac lisp. Okay. So next let's talk
+
+564
+00:30:41,279 --> 00:30:46,720
+about so that's uh wan language fold
+
+565
+00:30:45,120 --> 00:30:52,720
+javascript
+
+566
+00:30:46,720 --> 00:30:55,120
+reduce and uh eac list form reduce okay
+
+567
+00:30:52,720 --> 00:30:57,760
+now let's take the let's talk about you
+
+568
+00:30:55,120 --> 00:31:00,080
+know starting to get interesting because
+
+569
+00:30:57,760 --> 00:31:02,559
+um so by the way if you don't know wuam
+
+570
+00:31:00,080 --> 00:31:04,880
+language I've done
+
+571
+00:31:02,559 --> 00:31:06,640
+almost 100 videos about it just search
+
+572
+00:31:04,880 --> 00:31:09,919
+for
+
+573
+00:31:06,640 --> 00:31:11,760
+wuam language tutorial my named
+
+574
+00:31:09,919 --> 00:31:15,600
+oni.info.
+
+575
+00:31:11,760 --> 00:31:18,399
+Now remember the URL is HTTP. There's no
+
+576
+00:31:15,600 --> 00:31:21,679
+S. If the browser tells you, oh, there's
+
+577
+00:31:18,399 --> 00:31:24,799
+a security error. That's because they
+
+578
+00:31:21,679 --> 00:31:26,960
+try to censor, you know, they sensor
+
+579
+00:31:24,799 --> 00:31:30,640
+millions of websites. So just make sure
+
+580
+00:31:26,960 --> 00:31:32,559
+the HTTP there's no s. Okay. So Wam
+
+581
+00:31:30,640 --> 00:31:35,279
+language you can download it for free
+
+582
+00:31:32,559 --> 00:31:37,840
+since like few years ago. Uh it's the
+
+583
+00:31:35,279 --> 00:31:39,519
+most powerful programming language.
+
+584
+00:31:37,840 --> 00:31:42,080
+Okay. Okay. So, woofam language you know
+
+585
+00:31:39,519 --> 00:31:44,320
+I have like uh you know hundreds of
+
+586
+00:31:42,080 --> 00:31:47,840
+videos before. So, woofam language in
+
+587
+00:31:44,320 --> 00:31:52,399
+depth you can learn um from the ground
+
+588
+00:31:47,840 --> 00:31:55,360
+up. Uh let's let's make it larger. Okay.
+
+589
+00:31:52,399 --> 00:31:57,840
+uh complete tutorial for programmers
+
+590
+00:31:55,360 --> 00:32:00,559
+that is if you already have some
+
+591
+00:31:57,840 --> 00:32:03,679
+experience with a programming language
+
+592
+00:32:00,559 --> 00:32:06,080
+then you got you know bunch of like my
+
+593
+00:32:03,679 --> 00:32:08,720
+best videos general intro graphics
+
+594
+00:32:06,080 --> 00:32:12,159
+animation how to define a function and
+
+595
+00:32:08,720 --> 00:32:14,720
+miscellaneous okay I have like almost
+
+596
+00:32:12,159 --> 00:32:16,880
+100 videos so we demonstrate wam
+
+597
+00:32:14,720 --> 00:32:19,840
+language we demonstrated JavaScript we
+
+598
+00:32:16,880 --> 00:32:23,600
+demonstrated um let's go back we
+
+599
+00:32:19,840 --> 00:32:26,960
+demonstrated um
+
+600
+00:32:23,600 --> 00:32:30,640
+you know how it is a general form of for
+
+601
+00:32:26,960 --> 00:32:33,840
+loop then um what I want to show let's
+
+602
+00:32:30,640 --> 00:32:37,279
+say let's see woofam
+
+603
+00:32:33,840 --> 00:32:40,320
+wam got so many others okay nesting uh
+
+604
+00:32:37,279 --> 00:32:42,960
+like wam got
+
+605
+00:32:40,320 --> 00:32:45,360
+10 times more than 10 times like you
+
+606
+00:32:42,960 --> 00:32:47,200
+know 20 times more functions working on
+
+607
+00:32:45,360 --> 00:32:49,600
+list
+
+608
+00:32:47,200 --> 00:32:52,240
+okay programming language okay so here
+
+609
+00:32:49,600 --> 00:32:54,880
+is interesting thing
+
+610
+00:32:52,240 --> 00:32:58,880
+this we debated for a few months you
+
+611
+00:32:54,880 --> 00:33:00,799
+know on discord so let me just summarize
+
+612
+00:32:58,880 --> 00:33:04,799
+what's going on okay and that's it for
+
+613
+00:33:00,799 --> 00:33:08,559
+today so arrange so you know people say
+
+614
+00:33:04,799 --> 00:33:10,240
+that it became confusing because in some
+
+615
+00:33:08,559 --> 00:33:13,600
+programming language like like what
+
+616
+00:33:10,240 --> 00:33:16,080
+there's a question why why why is it
+
+617
+00:33:13,600 --> 00:33:18,960
+some languages call it reduce some
+
+618
+00:33:16,080 --> 00:33:20,399
+languages call it fold in fact many
+
+619
+00:33:18,960 --> 00:33:22,559
+programming language which they have
+
+620
+00:33:20,399 --> 00:33:24,960
+both in the language and they differ a
+
+621
+00:33:22,559 --> 00:33:26,880
+little bit. Okay. So why is that? And
+
+622
+00:33:24,960 --> 00:33:29,200
+the other question is what's the origin
+
+623
+00:33:26,880 --> 00:33:31,760
+of fold and reduce you know like which
+
+624
+00:33:29,200 --> 00:33:33,919
+language first had it is it from
+
+625
+00:33:31,760 --> 00:33:36,799
+theoretical computer science. Okay. So
+
+626
+00:33:33,919 --> 00:33:39,519
+here's a summary. Okay. The origin of
+
+627
+00:33:36,799 --> 00:33:42,399
+the concept of f reduce yes they are
+
+628
+00:33:39,519 --> 00:33:46,000
+from theoretical uh computer science.
+
+629
+00:33:42,399 --> 00:33:48,799
+They are from lambda calculus and from
+
+630
+00:33:46,000 --> 00:33:52,000
+recursion theory. they are they are
+
+631
+00:33:48,799 --> 00:33:55,760
+basically the s same uh subject
+
+632
+00:33:52,000 --> 00:33:57,840
+recursion the theory is also known as
+
+633
+00:33:55,760 --> 00:34:00,799
+computability theory okay lambda
+
+634
+00:33:57,840 --> 00:34:04,559
+calculus the origin of lamb lambda
+
+635
+00:34:00,799 --> 00:34:07,039
+calculus is is uh researching on
+
+636
+00:34:04,559 --> 00:34:11,040
+computability like what cannot be
+
+637
+00:34:07,039 --> 00:34:12,879
+computed okay so the arrangement of fold
+
+638
+00:34:11,040 --> 00:34:15,919
+and reduce they are the same thing they
+
+639
+00:34:12,879 --> 00:34:18,000
+are from lambda calculus and
+
+640
+00:34:15,919 --> 00:34:21,119
+computability theory Okay, that's your
+
+641
+00:34:18,000 --> 00:34:23,200
+arrangement. Now, so what is a fold in
+
+642
+00:34:21,119 --> 00:34:26,639
+general? Fold is just a function form of
+
+643
+00:34:23,200 --> 00:34:29,200
+a loop. That's it. Okay, this is the
+
+644
+00:34:26,639 --> 00:34:32,720
+best way to understand it. If you think
+
+645
+00:34:29,200 --> 00:34:36,000
+of it as something else, that's um that
+
+646
+00:34:32,720 --> 00:34:40,159
+would be misleading for you. Okay.
+
+647
+00:34:36,000 --> 00:34:43,520
+Uh hello hello nonsense name clipper.
+
+648
+00:34:40,159 --> 00:34:45,520
+And uh so but some programming language
+
+649
+00:34:43,520 --> 00:34:48,079
+name it fold and some programming
+
+650
+00:34:45,520 --> 00:34:50,320
+language name it reduce. Okay. Then
+
+651
+00:34:48,079 --> 00:34:53,919
+later on programming languages it you
+
+652
+00:34:50,320 --> 00:34:58,400
+know started to diversify such that for
+
+653
+00:34:53,919 --> 00:35:02,880
+example in G scheme lisp
+
+654
+00:34:58,400 --> 00:35:06,400
+and in F and in C++
+
+655
+00:35:02,880 --> 00:35:09,200
+they all have both fold and reduce in
+
+656
+00:35:06,400 --> 00:35:11,440
+their language. However, their fold and
+
+657
+00:35:09,200 --> 00:35:15,280
+reduce differ slightly. Basically, their
+
+658
+00:35:11,440 --> 00:35:18,320
+fold is like the fold we are doing but
+
+659
+00:35:15,280 --> 00:35:20,960
+it takes a initial value. Did I show a
+
+660
+00:35:18,320 --> 00:35:26,119
+example that takes a initial value? Yes.
+
+661
+00:35:20,960 --> 00:35:26,119
+Wam language. Okay. So
+
+662
+00:35:26,640 --> 00:35:32,800
+you know so let me let me make it make
+
+663
+00:35:30,240 --> 00:35:36,800
+this clear. Let me let me uh express
+
+664
+00:35:32,800 --> 00:35:39,200
+this in a clear way. Okay.
+
+665
+00:35:36,800 --> 00:35:43,119
+Some programming languages do not have
+
+666
+00:35:39,200 --> 00:35:45,839
+any fold or reduce at all. Okay,
+
+667
+00:35:43,119 --> 00:35:51,920
+some do. Almost all functional
+
+668
+00:35:45,839 --> 00:35:55,680
+programming languages has it. Okay, now
+
+669
+00:35:51,920 --> 00:35:58,640
+some of the languages name it fold. Some
+
+670
+00:35:55,680 --> 00:36:02,320
+of it some programming languages name it
+
+671
+00:35:58,640 --> 00:36:05,040
+reduce. Okay.
+
+672
+00:36:02,320 --> 00:36:09,520
+And some programming languages have them
+
+673
+00:36:05,040 --> 00:36:11,760
+both and they differ by they they make
+
+674
+00:36:09,520 --> 00:36:13,920
+kind of became they make a distinction.
+
+675
+00:36:11,760 --> 00:36:16,960
+They they the fold version the the
+
+676
+00:36:13,920 --> 00:36:19,520
+version they call fold takes an initial
+
+677
+00:36:16,960 --> 00:36:22,400
+value. Okay like this not optional you
+
+678
+00:36:19,520 --> 00:36:26,160
+know always have a initial value like
+
+679
+00:36:22,400 --> 00:36:28,720
+this example. Now the version in their
+
+680
+00:36:26,160 --> 00:36:31,119
+language that that's called reduce
+
+681
+00:36:28,720 --> 00:36:33,359
+usually do not like do not have a
+
+682
+00:36:31,119 --> 00:36:36,640
+initial value. It just take a function
+
+683
+00:36:33,359 --> 00:36:39,680
+and a list. Okay. So the programming
+
+684
+00:36:36,640 --> 00:36:42,320
+languages started to diversify to start
+
+685
+00:36:39,680 --> 00:36:45,040
+to you know to make a distinction. So
+
+686
+00:36:42,320 --> 00:36:48,160
+fold usually take initial value and and
+
+687
+00:36:45,040 --> 00:36:50,640
+their reduced version does not.
+
+688
+00:36:48,160 --> 00:36:53,760
+So why do they do that? you know they do
+
+689
+00:36:50,640 --> 00:36:58,160
+that kind of like for practical reasons
+
+690
+00:36:53,760 --> 00:37:00,560
+for example in in F and in skin I
+
+691
+00:36:58,160 --> 00:37:03,359
+suppose you know because when you when
+
+692
+00:37:00,560 --> 00:37:05,599
+you have optional optional value you
+
+693
+00:37:03,359 --> 00:37:09,280
+know according to the lang depending on
+
+694
+00:37:05,599 --> 00:37:12,400
+the language for example F is statically
+
+695
+00:37:09,280 --> 00:37:14,720
+typed language strongly typed so every
+
+696
+00:37:12,400 --> 00:37:18,240
+function you need to know how many
+
+697
+00:37:14,720 --> 00:37:20,640
+argument it takes in advance and they
+
+698
+00:37:18,240 --> 00:37:24,480
+also do cur ing you know it gets
+
+699
+00:37:20,640 --> 00:37:26,480
+complicated but basically so for simply
+
+700
+00:37:24,480 --> 00:37:29,119
+simp simplicity reasons for type
+
+701
+00:37:26,480 --> 00:37:32,400
+checking whatever they make it two two
+
+702
+00:37:29,119 --> 00:37:34,960
+different function one is fold that
+
+703
+00:37:32,400 --> 00:37:37,760
+takes three arguments a function initial
+
+704
+00:37:34,960 --> 00:37:40,160
+value and a list then the other one is
+
+705
+00:37:37,760 --> 00:37:43,920
+reduce takes just two arguments a
+
+706
+00:37:40,160 --> 00:37:46,480
+function and a list and it so happens
+
+707
+00:37:43,920 --> 00:37:49,280
+the list can be empty so it's easier to
+
+708
+00:37:46,480 --> 00:37:52,720
+deal with because if you have fold will
+
+709
+00:37:49,280 --> 00:37:54,720
+reduce and if the least argument happens
+
+710
+00:37:52,720 --> 00:37:56,960
+to be empty you got a problem because
+
+711
+00:37:54,720 --> 00:37:58,800
+what you going to return
+
+712
+00:37:56,960 --> 00:38:03,200
+because you don't have initial value.
+
+713
+00:37:58,800 --> 00:38:05,760
+So, so that so for practical reasons
+
+714
+00:38:03,200 --> 00:38:09,599
+according to each programming language
+
+715
+00:38:05,760 --> 00:38:12,880
+they they may have both both fold and
+
+716
+00:38:09,599 --> 00:38:14,720
+reduce and typically the fold is the one
+
+717
+00:38:12,880 --> 00:38:17,200
+that takes the initial value three
+
+718
+00:38:14,720 --> 00:38:20,400
+arguments total and reduce is the one
+
+719
+00:38:17,200 --> 00:38:24,320
+that only takes two arguments no initial
+
+720
+00:38:20,400 --> 00:38:26,720
+value. Okay. So that is
+
+721
+00:38:24,320 --> 00:38:28,320
+what I think
+
+722
+00:38:26,720 --> 00:38:30,800
+that this programming language
+
+723
+00:38:28,320 --> 00:38:32,640
+diversified. Okay. So that is in this
+
+724
+00:38:30,800 --> 00:38:36,320
+article
+
+725
+00:38:32,640 --> 00:38:40,000
+in this article I just written about.
+
+726
+00:38:36,320 --> 00:38:42,480
+Is it interesting? Am I still going?
+
+727
+00:38:40,000 --> 00:38:44,240
+Okay. So for reduce okay so arrangement
+
+728
+00:38:42,480 --> 00:38:46,720
+of the concept that's from lambda
+
+729
+00:38:44,240 --> 00:38:50,320
+calculus and recursion theory on
+
+730
+00:38:46,720 --> 00:38:52,400
+computability and diversify reduce
+
+731
+00:38:50,320 --> 00:38:56,000
+became a version of fold without the
+
+732
+00:38:52,400 --> 00:38:58,079
+initial value while fold has initial
+
+733
+00:38:56,000 --> 00:39:01,200
+value okay so they take different number
+
+734
+00:38:58,079 --> 00:39:04,480
+of arguments just uh as a convenience
+
+735
+00:39:01,200 --> 00:39:10,160
+for the programming language
+
+736
+00:39:04,480 --> 00:39:12,560
+uh now so yeah so I explained that
+
+737
+00:39:10,160 --> 00:39:14,800
+what so they do that because it's just
+
+738
+00:39:12,560 --> 00:39:17,200
+for comm for example in F you need to
+
+739
+00:39:14,800 --> 00:39:19,599
+type check you know the arity of a
+
+740
+00:39:17,200 --> 00:39:23,280
+function how many arguments so and in
+
+741
+00:39:19,599 --> 00:39:26,640
+C++ that's worse it's far worse because
+
+742
+00:39:23,280 --> 00:39:30,880
+C++ you have lots of
+
+743
+00:39:26,640 --> 00:39:34,000
+okay then so which is a better term
+
+744
+00:39:30,880 --> 00:39:36,400
+fold or reduce bold is a better term
+
+745
+00:39:34,000 --> 00:39:39,119
+because fold
+
+746
+00:39:36,400 --> 00:39:42,480
+canot you know It conveys give you a
+
+747
+00:39:39,119 --> 00:39:44,800
+sense of recursion fold like folding a
+
+748
+00:39:42,480 --> 00:39:48,400
+close you know it's recursion why is it
+
+749
+00:39:44,800 --> 00:39:52,320
+that better because because fold is the
+
+750
+00:39:48,400 --> 00:39:56,480
+essence of fold is a functional form of
+
+751
+00:39:52,320 --> 00:39:58,880
+any loop okay so you want to you know be
+
+752
+00:39:56,480 --> 00:40:02,320
+and it came from recursion theory so
+
+753
+00:39:58,880 --> 00:40:05,839
+fold the word fold give you a sense you
+
+754
+00:40:02,320 --> 00:40:07,680
+know it's changing structure it's like
+
+755
+00:40:05,839 --> 00:40:10,960
+um it's something
+
+756
+00:40:07,680 --> 00:40:14,800
+Meanwhile, reduce
+
+757
+00:40:10,960 --> 00:40:17,359
+is not so good a terminology for for
+
+758
+00:40:14,800 --> 00:40:20,320
+this because reduce what does it make
+
+759
+00:40:17,359 --> 00:40:22,640
+you think? It you know it make you think
+
+760
+00:40:20,320 --> 00:40:24,720
+reducing something. So to a lot of
+
+761
+00:40:22,640 --> 00:40:28,000
+programmers it just means oh given a
+
+762
+00:40:24,720 --> 00:40:30,560
+list you reduce it to one value. You
+
+763
+00:40:28,000 --> 00:40:32,240
+don't think of it as a general form of a
+
+764
+00:40:30,560 --> 00:40:36,320
+loop.
+
+765
+00:40:32,240 --> 00:40:40,560
+So reduce is is not a good terminology.
+
+766
+00:40:36,320 --> 00:40:43,280
+Okay, fold is better. Now
+
+767
+00:40:40,560 --> 00:40:45,680
+what why do JavaScript name call it
+
+768
+00:40:43,280 --> 00:40:48,960
+reduce in many languages? Because these
+
+769
+00:40:45,680 --> 00:40:51,280
+people, you know, when you when you use
+
+770
+00:40:48,960 --> 00:40:53,520
+reduce, you just think of, you know, you
+
+771
+00:40:51,280 --> 00:40:55,440
+got a list of numbers or values, you
+
+772
+00:40:53,520 --> 00:40:58,079
+just
+
+773
+00:40:55,440 --> 00:41:01,440
+turn them into one single value. So that
+
+774
+00:40:58,079 --> 00:41:04,560
+you know obviously that's reduce. So a
+
+775
+00:41:01,440 --> 00:41:07,280
+lot of people start to think of fold or
+
+776
+00:41:04,560 --> 00:41:09,599
+reduce as like just reduce a bunch of
+
+777
+00:41:07,280 --> 00:41:13,119
+numbers into one. That's not good
+
+778
+00:41:09,599 --> 00:41:15,920
+thinking because if you think of it that
+
+779
+00:41:13,119 --> 00:41:18,720
+way then you forgot the like the
+
+780
+00:41:15,920 --> 00:41:21,839
+arranging like the the the real purpose
+
+781
+00:41:18,720 --> 00:41:24,720
+of fold which is to represent any loop
+
+782
+00:41:21,839 --> 00:41:27,920
+in a functional programming way. No side
+
+783
+00:41:24,720 --> 00:41:31,040
+effects. Okay. No update global state or
+
+784
+00:41:27,920 --> 00:41:33,200
+local state.
+
+785
+00:41:31,040 --> 00:41:36,000
+So that's about the jargon. Fold is a
+
+786
+00:41:33,200 --> 00:41:38,000
+bit of jargon. Okay. Now some people say
+
+787
+00:41:36,000 --> 00:41:40,560
+what about parallel computation. Now
+
+788
+00:41:38,000 --> 00:41:44,000
+that's gets more complicated. Are you
+
+789
+00:41:40,560 --> 00:41:47,440
+guys watching anyone? Okay. I'm not
+
+790
+00:41:44,000 --> 00:41:51,440
+doing a good video because I uh Okay. So
+
+791
+00:41:47,440 --> 00:41:54,880
+let me explain the parallel computation
+
+792
+00:41:51,440 --> 00:41:57,520
+relation. Okay. But let me just tell you
+
+793
+00:41:54,880 --> 00:42:00,640
+directly what what is the answer. board
+
+794
+00:41:57,520 --> 00:42:02,560
+has nothing to do with par parallel
+
+795
+00:42:00,640 --> 00:42:05,440
+computation.
+
+796
+00:42:02,560 --> 00:42:08,160
+A lot of the C++
+
+797
+00:42:05,440 --> 00:42:10,480
+programmers, you know, they thought, oh,
+
+798
+00:42:08,160 --> 00:42:12,720
+reduce is actually related to uh
+
+799
+00:42:10,480 --> 00:42:16,960
+parallel computation. Wrong. That's
+
+800
+00:42:12,720 --> 00:42:19,440
+totally bad thinking. Okay, re fold has
+
+801
+00:42:16,960 --> 00:42:23,040
+nothing absolutely to do with parallel
+
+802
+00:42:19,440 --> 00:42:26,960
+computation because fold is a functional
+
+803
+00:42:23,040 --> 00:42:30,720
+form for loop. And when you do a loop
+
+804
+00:42:26,960 --> 00:42:33,599
+the sequential order is required is in
+
+805
+00:42:30,720 --> 00:42:36,880
+fact required that's the essence of
+
+806
+00:42:33,599 --> 00:42:39,920
+loop. Now remember the engine in
+
+807
+00:42:36,880 --> 00:42:43,520
+recursions theory in lambda calculus in
+
+808
+00:42:39,920 --> 00:42:45,839
+lambda church numerals numerals they are
+
+809
+00:42:43,520 --> 00:42:48,480
+all about recursion nesting and you
+
+810
+00:42:45,839 --> 00:42:53,920
+can't you know it it the sequential
+
+811
+00:42:48,480 --> 00:42:58,560
+order is absolutely necessary.
+
+812
+00:42:53,920 --> 00:43:02,240
+So why why is that some people think of
+
+813
+00:42:58,560 --> 00:43:04,800
+u you know they think of reduce as
+
+814
+00:43:02,240 --> 00:43:07,520
+parallel computation.
+
+815
+00:43:04,800 --> 00:43:10,160
+Here's why. Okay. Because
+
+816
+00:43:07,520 --> 00:43:13,839
+in some situations when you do fold you
+
+817
+00:43:10,160 --> 00:43:16,560
+can you can actually
+
+818
+00:43:13,839 --> 00:43:20,720
+ignore the sequential order. You can
+
+819
+00:43:16,560 --> 00:43:24,640
+compute them in any way you like. when
+
+820
+00:43:20,720 --> 00:43:26,800
+the operation you pass to reduce or fold
+
+821
+00:43:24,640 --> 00:43:30,000
+has some special property. Okay, let me
+
+822
+00:43:26,800 --> 00:43:32,160
+show you why. Um so what programming
+
+823
+00:43:30,000 --> 00:43:34,960
+language should I use to demonstrate
+
+824
+00:43:32,160 --> 00:43:36,960
+that uh wam language or did I um
+
+825
+00:43:34,960 --> 00:43:40,240
+actually
+
+826
+00:43:36,960 --> 00:43:44,319
+I didn't have woofam language there. So
+
+827
+00:43:40,240 --> 00:43:47,760
+let me um copy the wam language. So let
+
+828
+00:43:44,319 --> 00:43:49,839
+me show you here. Okay.
+
+829
+00:43:47,760 --> 00:43:52,839
+Um,
+
+830
+00:43:49,839 --> 00:43:52,839
+copy
+
+831
+00:43:53,200 --> 00:43:56,200
+uh,
+
+832
+00:43:57,359 --> 00:44:04,560
+paste. Okay. Shift enter to run it.
+
+833
+00:44:00,800 --> 00:44:09,200
+Okay. So, range returns 1 2 3 4 5 6.
+
+834
+00:44:04,560 --> 00:44:13,400
+Fold F1 2 3 4 5 6 returns that. And then
+
+835
+00:44:09,200 --> 00:44:13,400
+you can do fold list.
+
+836
+00:44:14,160 --> 00:44:20,480
+Okay. So, let me show that.
+
+837
+00:44:18,960 --> 00:44:26,119
+Uh
+
+838
+00:44:20,480 --> 00:44:26,119
+what you what is my key here? Here
+
+839
+00:44:27,760 --> 00:44:34,079
+shift enter.
+
+840
+00:44:30,880 --> 00:44:37,359
+So it shows you
+
+841
+00:44:34,079 --> 00:44:40,079
+um full list just shows you the whole
+
+842
+00:44:37,359 --> 00:44:43,280
+history of the computation. Okay. So
+
+843
+00:44:40,079 --> 00:44:46,000
+copy that paste paste it again. Now
+
+844
+00:44:43,280 --> 00:44:50,160
+let's show a example with a initial
+
+845
+00:44:46,000 --> 00:44:52,480
+initial value let's say zero. Okay shift
+
+846
+00:44:50,160 --> 00:44:54,000
+enter.
+
+847
+00:44:52,480 --> 00:44:58,960
+Okay
+
+848
+00:44:54,000 --> 00:45:00,960
+so that's a wra in wufam notebook.
+
+849
+00:44:58,960 --> 00:45:03,440
+So what I want to say oh yeah so
+
+850
+00:45:00,960 --> 00:45:08,160
+demonstration of the parallel
+
+851
+00:45:03,440 --> 00:45:12,960
+computation relation. Now if so happens
+
+852
+00:45:08,160 --> 00:45:16,319
+so if your function is such that the
+
+853
+00:45:12,960 --> 00:45:19,599
+argument order does not matter that
+
+854
+00:45:16,319 --> 00:45:22,560
+property is called communive okay you
+
+855
+00:45:19,599 --> 00:45:24,640
+say that operation is communive do I do
+
+856
+00:45:22,560 --> 00:45:30,359
+you guys understand what I'm saying is
+
+857
+00:45:24,640 --> 00:45:30,359
+it interesting uh what's going on here
+
+858
+00:45:31,760 --> 00:45:40,200
+okay undo so let me explain this. Okay,
+
+859
+00:45:35,760 --> 00:45:40,200
+let me just explain this. Um,
+
+860
+00:45:42,640 --> 00:45:46,960
+commutative
+
+861
+00:45:45,200 --> 00:45:49,960
+property
+
+862
+00:45:46,960 --> 00:45:49,960
+means
+
+863
+00:45:50,240 --> 00:45:54,960
+f a
+
+864
+00:45:53,440 --> 00:45:58,640
+b
+
+865
+00:45:54,960 --> 00:46:01,640
+equals to
+
+866
+00:45:58,640 --> 00:46:01,640
+um
+
+867
+00:46:05,760 --> 00:46:11,599
+ba. Okay. So,
+
+868
+00:46:09,200 --> 00:46:13,680
+so a function or operation have this
+
+869
+00:46:11,599 --> 00:46:18,760
+property that's called commutative
+
+870
+00:46:13,680 --> 00:46:18,760
+property. Okay. Now, another property
+
+871
+00:46:18,880 --> 00:46:23,680
+associative
+
+872
+00:46:21,359 --> 00:46:27,119
+property means
+
+873
+00:46:23,680 --> 00:46:29,920
+uh let's see uh actually I have written
+
+874
+00:46:27,119 --> 00:46:34,240
+um articles about it. So, let let me
+
+875
+00:46:29,920 --> 00:46:38,359
+just write it on here. Okay. So, F
+
+876
+00:46:34,240 --> 00:46:38,359
+A B Okay. So,
+
+877
+00:46:48,160 --> 00:46:51,160
+what
+
+878
+00:46:56,880 --> 00:47:03,880
+a b c
+
+879
+00:47:00,160 --> 00:47:03,880
+equals to
+
+880
+00:47:06,079 --> 00:47:12,599
+F
+
+881
+00:47:08,960 --> 00:47:12,599
+A B.
+
+882
+00:47:18,640 --> 00:47:25,440
+Okay, that's what associative property
+
+883
+00:47:21,760 --> 00:47:28,880
+means. Okay, so you got you got three
+
+884
+00:47:25,440 --> 00:47:31,359
+numbers or three elements such that you
+
+885
+00:47:28,880 --> 00:47:34,160
+apply. So let's reverse the order. Okay.
+
+886
+00:47:31,359 --> 00:47:36,880
+So, let's actually put this here because
+
+887
+00:47:34,160 --> 00:47:41,440
+it's more intuitive
+
+888
+00:47:36,880 --> 00:47:45,040
+that way. Uh,
+
+889
+00:47:41,440 --> 00:47:50,319
+okay. You got three numbers. Apply AB
+
+890
+00:47:45,040 --> 00:47:53,119
+then the result feed back to F then then
+
+891
+00:47:50,319 --> 00:47:57,359
+you know uh apply F with that result and
+
+892
+00:47:53,119 --> 00:47:59,839
+C. So if that is equals to apply
+
+893
+00:47:57,359 --> 00:48:03,920
+you know you do the BC first feed them
+
+894
+00:47:59,839 --> 00:48:06,319
+to F then the result feed them to F and
+
+895
+00:48:03,920 --> 00:48:09,440
+with that result.
+
+896
+00:48:06,319 --> 00:48:13,280
+So if the function or operation satisfy
+
+897
+00:48:09,440 --> 00:48:15,119
+this property that is called associative
+
+898
+00:48:13,280 --> 00:48:20,319
+you know you call that function
+
+899
+00:48:15,119 --> 00:48:24,319
+associative. So when a function has
+
+900
+00:48:20,319 --> 00:48:27,200
+associative property then and when the
+
+901
+00:48:24,319 --> 00:48:29,680
+function also have communive
+
+902
+00:48:27,200 --> 00:48:32,800
+commutative property
+
+903
+00:48:29,680 --> 00:48:35,359
+both of them basically is about order.
+
+904
+00:48:32,800 --> 00:48:37,520
+So commutative property is very easy to
+
+905
+00:48:35,359 --> 00:48:39,200
+understand it's just order of the
+
+906
+00:48:37,520 --> 00:48:41,839
+argument.
+
+907
+00:48:39,200 --> 00:48:44,960
+Okay the associative property is a bit
+
+908
+00:48:41,839 --> 00:48:47,920
+more complicated. it involves like
+
+909
+00:48:44,960 --> 00:48:53,040
+sequential application of the function
+
+910
+00:48:47,920 --> 00:48:55,760
+twice on three arguments. Okay. So when
+
+911
+00:48:53,040 --> 00:49:00,000
+a function has both of these properties
+
+912
+00:48:55,760 --> 00:49:02,240
+then when you do fold on the function uh
+
+913
+00:49:00,000 --> 00:49:04,319
+you know when you do fold like that on
+
+914
+00:49:02,240 --> 00:49:06,480
+the function
+
+915
+00:49:04,319 --> 00:49:09,040
+then it doesn't m matter which order you
+
+916
+00:49:06,480 --> 00:49:11,359
+take what what you can do is that you
+
+917
+00:49:09,040 --> 00:49:14,720
+can take f12
+
+918
+00:49:11,359 --> 00:49:18,800
+then do f45
+
+919
+00:49:14,720 --> 00:49:22,079
+then do f3 and six and every time you
+
+920
+00:49:18,800 --> 00:49:25,440
+got two results you feed back to f. So
+
+921
+00:49:22,079 --> 00:49:29,280
+basically all the list of numbers you
+
+922
+00:49:25,440 --> 00:49:31,359
+can think of them as fishes in a pound.
+
+923
+00:49:29,280 --> 00:49:34,000
+Every time you can just grab two fishes
+
+924
+00:49:31,359 --> 00:49:36,640
+and feed it to a function. So you can do
+
+925
+00:49:34,000 --> 00:49:38,640
+it in parallel. So grab two fish you
+
+926
+00:49:36,640 --> 00:49:41,200
+know come out result. Grab two fish come
+
+927
+00:49:38,640 --> 00:49:44,960
+out result another you know random fish
+
+928
+00:49:41,200 --> 00:49:47,440
+in the pound. Then every two result you
+
+929
+00:49:44,960 --> 00:49:50,160
+take them and feed back to the function.
+
+930
+00:49:47,440 --> 00:49:52,720
+So, so this way you reduce you know
+
+931
+00:49:50,160 --> 00:49:55,040
+every time you take two output one you
+
+932
+00:49:52,720 --> 00:49:59,760
+take two output one eventually you got
+
+933
+00:49:55,040 --> 00:50:02,079
+just one item okay so
+
+934
+00:49:59,760 --> 00:50:04,240
+you know you are doing this in a random
+
+935
+00:50:02,079 --> 00:50:09,680
+order almost
+
+936
+00:50:04,240 --> 00:50:13,280
+and the result will be correct if your
+
+937
+00:50:09,680 --> 00:50:17,040
+operation the function f has these two
+
+938
+00:50:13,280 --> 00:50:19,520
+properties commutative and associative
+
+939
+00:50:17,040 --> 00:50:21,839
+Okay. So,
+
+940
+00:50:19,520 --> 00:50:24,319
+so basically when when your oper
+
+941
+00:50:21,839 --> 00:50:27,280
+operation has these two properties, what
+
+942
+00:50:24,319 --> 00:50:30,280
+operation has that property?
+
+943
+00:50:27,280 --> 00:50:30,280
+Uh
+
+944
+00:50:32,160 --> 00:50:38,680
+so what operation has
+
+945
+00:50:39,040 --> 00:50:46,960
+the commutative property and the
+
+946
+00:50:43,119 --> 00:50:50,280
+associative property and that operation
+
+947
+00:50:46,960 --> 00:50:50,280
+would be
+
+948
+00:50:52,400 --> 00:50:57,200
+what?
+
+949
+00:50:54,240 --> 00:50:59,280
+What? Where is my question mark there?
+
+950
+00:50:57,200 --> 00:51:01,200
+Okay.
+
+951
+00:50:59,280 --> 00:51:05,800
+Example
+
+952
+00:51:01,200 --> 00:51:05,800
+plus. Why? Because
+
+953
+00:51:18,000 --> 00:51:23,760
+oops.
+
+954
+00:51:20,079 --> 00:51:27,440
+Because these two are equal. plus ab is
+
+955
+00:51:23,760 --> 00:51:30,720
+the same as plus ba and plus ab then
+
+956
+00:51:27,440 --> 00:51:36,240
+plus that result with c is the same as
+
+957
+00:51:30,720 --> 00:51:40,400
+plus bc then plus a and bc. Okay. So the
+
+958
+00:51:36,240 --> 00:51:44,680
+plus has that property
+
+959
+00:51:40,400 --> 00:51:44,680
+also multiplication
+
+960
+00:51:44,960 --> 00:51:51,040
+two. Okay. But what operation do not
+
+961
+00:51:48,640 --> 00:51:56,280
+have those property? Actually most
+
+962
+00:51:51,040 --> 00:51:56,280
+operations do not have that property.
+
+963
+00:52:00,319 --> 00:52:07,520
+Uh most most operations
+
+964
+00:52:05,280 --> 00:52:09,440
+are functions you know operation and
+
+965
+00:52:07,520 --> 00:52:13,119
+function is kind of the same operation
+
+966
+00:52:09,440 --> 00:52:15,920
+focus on the emphasis of the like the
+
+967
+00:52:13,119 --> 00:52:19,280
+operator. Okay. So for example the plus
+
+968
+00:52:15,920 --> 00:52:24,839
+you can write it as
+
+969
+00:52:19,280 --> 00:52:24,839
+can be also written as
+
+970
+00:52:25,280 --> 00:52:35,480
+um uh where is my plus sign
+
+971
+00:52:31,359 --> 00:52:35,480
+that okay so
+
+972
+00:52:40,400 --> 00:52:46,240
+so let me just write this quickly. Oh
+
+973
+00:52:43,440 --> 00:52:52,839
+god.
+
+974
+00:52:46,240 --> 00:52:52,839
+Uh, new keyboard. So, um, yeah. God,
+
+975
+00:52:57,760 --> 00:53:05,359
+this way. Okay. So,
+
+976
+00:53:00,800 --> 00:53:07,440
+and uh that is that just ABC. So, uh,
+
+977
+00:53:05,359 --> 00:53:13,440
+delete that.
+
+978
+00:53:07,440 --> 00:53:16,440
+Okay. Uh, so that wait. So that mean
+
+979
+00:53:13,440 --> 00:53:16,440
+what?
+
+980
+00:53:16,720 --> 00:53:23,960
+Okay. So that we want to write it.
+
+981
+00:53:25,680 --> 00:53:29,160
+Oh god.
+
+982
+00:53:34,559 --> 00:53:45,599
+So we want to write it like that. And
+
+983
+00:53:39,839 --> 00:53:49,520
+now just replace comma by a plus sign.
+
+984
+00:53:45,599 --> 00:53:55,760
+Do it there. There, there, there, there.
+
+985
+00:53:49,520 --> 00:54:00,240
+Okay. So this is way to this is another
+
+986
+00:53:55,760 --> 00:54:03,359
+way to write that. When we write it in
+
+987
+00:54:00,240 --> 00:54:07,040
+this way, we think of it as a functional
+
+988
+00:54:03,359 --> 00:54:09,359
+form. So we think of plus as a function.
+
+989
+00:54:07,040 --> 00:54:12,720
+When we write it this way, we think of
+
+990
+00:54:09,359 --> 00:54:16,079
+the plus as an operator. So operator is
+
+991
+00:54:12,720 --> 00:54:18,240
+kind of a syntax syntactical way to
+
+992
+00:54:16,079 --> 00:54:20,160
+represent a function. Okay, that's what
+
+993
+00:54:18,240 --> 00:54:24,160
+it means.
+
+994
+00:54:20,160 --> 00:54:26,559
+So plus sign the plus function has
+
+995
+00:54:24,160 --> 00:54:28,240
+commutative property and associative
+
+996
+00:54:26,559 --> 00:54:31,440
+property.
+
+997
+00:54:28,240 --> 00:54:34,440
+So does the multiplication. But most
+
+998
+00:54:31,440 --> 00:54:34,440
+operations
+
+999
+00:54:34,960 --> 00:54:42,400
+are not commutative
+
+1000
+00:54:38,319 --> 00:54:45,920
+and not associative. Okay, most function
+
+1001
+00:54:42,400 --> 00:54:48,920
+are not. For example, the minus uh for
+
+1002
+00:54:45,920 --> 00:54:48,920
+example
+
+1003
+00:54:50,400 --> 00:54:57,440
+uh minus
+
+1004
+00:54:53,119 --> 00:54:58,960
+or for for example
+
+1005
+00:54:57,440 --> 00:55:01,440
+matrix
+
+1006
+00:54:58,960 --> 00:55:05,200
+multiplication.
+
+1007
+00:55:01,440 --> 00:55:06,880
+Okay, do I make sense? So, so why are we
+
+1008
+00:55:05,200 --> 00:55:10,160
+talking about these two properties?
+
+1009
+00:55:06,880 --> 00:55:13,119
+Because when a function has these two
+
+1010
+00:55:10,160 --> 00:55:16,480
+properties commutative and associative
+
+1011
+00:55:13,119 --> 00:55:20,480
+then when you do fold on it the order
+
+1012
+00:55:16,480 --> 00:55:23,119
+doesn't matter anymore. So that is why
+
+1013
+00:55:20,480 --> 00:55:24,880
+that is why it started a confusion in
+
+1014
+00:55:23,119 --> 00:55:27,040
+some of the programming languages where
+
+1015
+00:55:24,880 --> 00:55:29,280
+is my page
+
+1016
+00:55:27,040 --> 00:55:33,440
+that is why in some of the programming
+
+1017
+00:55:29,280 --> 00:55:36,960
+language such as C++ okay C++ the worst
+
+1018
+00:55:33,440 --> 00:55:40,000
+what in the computing industry in C++ in
+
+1019
+00:55:36,960 --> 00:55:43,040
+their reduce they can specify you know
+
+1020
+00:55:40,000 --> 00:55:45,839
+they started to let you do parallel
+
+1021
+00:55:43,040 --> 00:55:50,240
+computation you see because when order
+
+1022
+00:55:45,839 --> 00:55:53,839
+doesn't matter anymore more. So
+
+1023
+00:55:50,240 --> 00:55:57,200
+you can do fold without following any
+
+1024
+00:55:53,839 --> 00:55:59,520
+order only if your operation has this
+
+1025
+00:55:57,200 --> 00:56:02,400
+commutative and associative properties.
+
+1026
+00:55:59,520 --> 00:56:05,520
+Okay. So when you can do them in any
+
+1027
+00:56:02,400 --> 00:56:07,359
+order then you can do you you no longer
+
+1028
+00:56:05,520 --> 00:56:09,680
+need to do them sequentially. You can do
+
+1029
+00:56:07,359 --> 00:56:12,160
+in parallel you know like bunch of
+
+1030
+00:56:09,680 --> 00:56:14,880
+fishes in a pound. You can in parallel
+
+1031
+00:56:12,160 --> 00:56:18,000
+grab two fish grab two fish feed to the
+
+1032
+00:56:14,880 --> 00:56:21,440
+function. you got two new output you
+
+1033
+00:56:18,000 --> 00:56:24,960
+know you just you can apply 1,00 uh you
+
+1034
+00:56:21,440 --> 00:56:26,799
+know processes on grabbing two fishes
+
+1035
+00:56:24,960 --> 00:56:29,359
+because order doesn't matter so you can
+
+1036
+00:56:26,799 --> 00:56:32,400
+do them in parallel okay so this is the
+
+1037
+00:56:29,359 --> 00:56:36,160
+relation this is why some people think
+
+1038
+00:56:32,400 --> 00:56:39,040
+or in C++ they started to think that
+
+1039
+00:56:36,160 --> 00:56:40,559
+reduce is some somehow connected to
+
+1040
+00:56:39,040 --> 00:56:43,520
+parallelism
+
+1041
+00:56:40,559 --> 00:56:45,520
+which is like very misleading and
+
+1042
+00:56:43,520 --> 00:56:49,040
+utterly wrong
+
+1043
+00:56:45,520 --> 00:56:52,559
+way of thinking because because fold and
+
+1044
+00:56:49,040 --> 00:56:56,240
+reduce by their very nature they must be
+
+1045
+00:56:52,559 --> 00:56:58,880
+sequential and not parallel. Okay. And
+
+1046
+00:56:56,240 --> 00:57:01,680
+what made it worse is that about 10
+
+1047
+00:56:58,880 --> 00:57:04,960
+years ago Google
+
+1048
+00:57:01,680 --> 00:57:07,760
+Google started to market this thing
+
+1049
+00:57:04,960 --> 00:57:11,359
+called map reduce.
+
+1050
+00:57:07,760 --> 00:57:13,920
+So what you know so so we before we
+
+1051
+00:57:11,359 --> 00:57:16,559
+explain the relation reduce to parallel
+
+1052
+00:57:13,920 --> 00:57:18,960
+computing why are they uh connected in
+
+1053
+00:57:16,559 --> 00:57:22,640
+fact they are not related because
+
+1054
+00:57:18,960 --> 00:57:24,880
+because when you can do parallel two two
+
+1055
+00:57:22,640 --> 00:57:27,359
+functions in uh with the commu
+
+1056
+00:57:24,880 --> 00:57:29,280
+commutative and associative property
+
+1057
+00:57:27,359 --> 00:57:33,040
+that means you can do it with for loop
+
+1058
+00:57:29,280 --> 00:57:36,559
+too you know like when you do a for loop
+
+1059
+00:57:33,040 --> 00:57:42,559
+like the the we we demonstrated for loop
+
+1060
+00:57:36,559 --> 00:57:45,520
+like I = to zero, I minus 9, I less than
+
+1061
+00:57:42,559 --> 00:57:49,359
+9 and I ++. Can you do them in random
+
+1062
+00:57:45,520 --> 00:57:51,920
+order? No, obviously not because that's
+
+1063
+00:57:49,359 --> 00:57:54,880
+the nature of for loop. You sequential
+
+1064
+00:57:51,920 --> 00:57:56,400
+order is is required.
+
+1065
+00:57:54,880 --> 00:57:59,440
+However,
+
+1066
+00:57:56,400 --> 00:58:01,839
+if the body of your for loop is just
+
+1067
+00:57:59,440 --> 00:58:04,640
+plus operation like one plus, you know,
+
+1068
+00:58:01,839 --> 00:58:07,119
+whatever plus, then you can do them in
+
+1069
+00:58:04,640 --> 00:58:10,240
+any order. But does that mean you
+
+1070
+00:58:07,119 --> 00:58:13,200
+started to think oh for loop is actually
+
+1071
+00:58:10,240 --> 00:58:16,319
+for parallel computation?
+
+1072
+00:58:13,200 --> 00:58:21,119
+That would be very bad thinking. Okay.
+
+1073
+00:58:16,319 --> 00:58:23,680
+Same thing applies to um fold or reduce.
+
+1074
+00:58:21,119 --> 00:58:26,319
+It is not parallel. It's simply a four.
+
+1075
+00:58:23,680 --> 00:58:28,799
+It's a loop. Okay.
+
+1076
+00:58:26,319 --> 00:58:30,480
+But you but it's a par it's parallel.
+
+1077
+00:58:28,799 --> 00:58:32,319
+When the operation you know have these
+
+1078
+00:58:30,480 --> 00:58:35,920
+properties then you can you can kind of
+
+1079
+00:58:32,319 --> 00:58:39,839
+do it. That's what C++ is leading people
+
+1080
+00:58:35,920 --> 00:58:43,280
+to do to think you know that C++ led
+
+1081
+00:58:39,839 --> 00:58:48,400
+people to think that way and what what
+
+1082
+00:58:43,280 --> 00:58:51,119
+made it worse is that is that in the um
+
+1083
+00:58:48,400 --> 00:58:54,559
+in there's a Google project you know
+
+1084
+00:58:51,119 --> 00:58:57,359
+like hugely popular 10 years ago around
+
+1085
+00:58:54,559 --> 00:59:00,319
+2010 you know they call it maps reduce
+
+1086
+00:58:57,359 --> 00:59:02,799
+that's a that's a time when big data you
+
+1087
+00:59:00,319 --> 00:59:04,640
+know data science big data and machine
+
+1088
+00:59:02,799 --> 00:59:08,640
+learning became popular. Google is
+
+1089
+00:59:04,640 --> 00:59:10,799
+pushing it. So they have map reduce. So
+
+1090
+00:59:08,640 --> 00:59:13,680
+does map reduce means they are related
+
+1091
+00:59:10,799 --> 00:59:16,240
+to parallel computation? No. Because
+
+1092
+00:59:13,680 --> 00:59:18,559
+why? Because Google's map reduce is just
+
+1093
+00:59:16,240 --> 00:59:20,400
+a product name. It's not computer
+
+1094
+00:59:18,559 --> 00:59:24,240
+science. It's just a product name for
+
+1095
+00:59:20,400 --> 00:59:26,079
+their you know for their platform.
+
+1096
+00:59:24,240 --> 00:59:28,400
+And and why so but why do they call it
+
+1097
+00:59:26,079 --> 00:59:30,559
+map reduce? Because that's exotic.
+
+1098
+00:59:28,400 --> 00:59:32,480
+That's dramatic. You know when you when
+
+1099
+00:59:30,559 --> 00:59:33,839
+when you say map reduce oh functional
+
+1100
+00:59:32,480 --> 00:59:36,400
+programming what is functional
+
+1101
+00:59:33,839 --> 00:59:39,200
+programming oh recussion oh science
+
+1102
+00:59:36,400 --> 00:59:41,599
+that's oh lambda that's so advanced
+
+1103
+00:59:39,200 --> 00:59:44,079
+that's what make people think so that's
+
+1104
+00:59:41,599 --> 00:59:47,119
+a map marketing jargon you know they
+
+1105
+00:59:44,079 --> 00:59:49,200
+call it map reduce and what they are
+
+1106
+00:59:47,119 --> 00:59:52,640
+doing is actually parallel computation
+
+1107
+00:59:49,200 --> 00:59:55,599
+but really but then it's not it's not
+
+1108
+00:59:52,640 --> 00:59:59,119
+it's not map reduce it's not reduce okay
+
+1109
+00:59:55,599 --> 01:00:02,079
+nothing with uh to do with
+
+1110
+00:59:59,119 --> 01:00:05,359
+functional programming. Okay. Okay.
+
+1111
+01:00:02,079 --> 01:00:08,880
+That's what I wanted to talk about
+
+1112
+01:00:05,359 --> 01:00:13,040
+today. Uh basically about this like
+
+1113
+01:00:08,880 --> 01:00:16,079
+these kind of issues. So we so we you
+
+1114
+01:00:13,040 --> 01:00:19,280
+know a bunch of us on discord on discord
+
+1115
+01:00:16,079 --> 01:00:20,880
+did I I I I I turned it off right now. I
+
+1116
+01:00:19,280 --> 01:00:24,319
+don't want to start it because then it's
+
+1117
+01:00:20,880 --> 01:00:26,640
+going to show uh private messages in the
+
+1118
+01:00:24,319 --> 01:00:29,119
+beginning. Anyway, so we you know a
+
+1119
+01:00:26,640 --> 01:00:32,400
+bunch of us started to talk debate about
+
+1120
+01:00:29,119 --> 01:00:35,680
+this since few month ago and we asked AI
+
+1121
+01:00:32,400 --> 01:00:37,599
+Gork AI. So Gork AI actually gave a lot
+
+1122
+01:00:35,680 --> 01:00:40,720
+you know so
+
+1123
+01:00:37,599 --> 01:00:43,920
+it helped uh
+
+1124
+01:00:40,720 --> 01:00:45,760
+me understand a lot of things you know
+
+1125
+01:00:43,920 --> 01:00:47,920
+you know in programming what's the
+
+1126
+01:00:45,760 --> 01:00:50,480
+history of fold and reduce and work
+
+1127
+01:00:47,920 --> 01:00:53,359
+explains origin in theory and early
+
+1128
+01:00:50,480 --> 01:00:56,000
+computing for reduce uh you know uh
+
+1129
+01:00:53,359 --> 01:01:00,319
+aggregate data from theory of lambda
+
+1130
+01:00:56,000 --> 01:01:04,319
+calculus uh and you know and and uh uh
+
+1131
+01:01:00,319 --> 01:01:06,480
+church numerals and and so so
+
+1132
+01:01:04,319 --> 01:01:10,160
+Then early implementations in
+
+1133
+01:01:06,480 --> 01:01:12,960
+programming languages then okay then
+
+1134
+01:01:10,160 --> 01:01:16,160
+rise in functional programming 1980s to
+
+1135
+01:01:12,960 --> 01:01:18,559
+1990s okay you then you have for left
+
+1136
+01:01:16,160 --> 01:01:20,640
+and for right which we didn't cover they
+
+1137
+01:01:18,559 --> 01:01:22,720
+are they are like trivial they they are
+
+1138
+01:01:20,640 --> 01:01:25,040
+just like
+
+1139
+01:01:22,720 --> 01:01:27,520
+four left just begin from from the left
+
+1140
+01:01:25,040 --> 01:01:29,119
+for right begin from the right why do
+
+1141
+01:01:27,520 --> 01:01:31,359
+you need them well you don't need them
+
+1142
+01:01:29,119 --> 01:01:34,799
+you can just reverse at least just like
+
+1143
+01:01:31,359 --> 01:01:38,000
+push and pop in a stack you know in in
+
+1144
+01:01:34,799 --> 01:01:40,480
+many programming languages you have
+
+1145
+01:01:38,000 --> 01:01:44,240
+a function called push and pop you know
+
+1146
+01:01:40,480 --> 01:01:47,839
+like to a list so push means add item to
+
+1147
+01:01:44,240 --> 01:01:51,680
+the end of list pop means take off that
+
+1148
+01:01:47,839 --> 01:01:56,960
+item from the end of list so in Python
+
+1149
+01:01:51,680 --> 01:01:59,599
+in pearl in Ruby I believe they are take
+
+1150
+01:01:56,960 --> 01:02:01,920
+it from the end of the list but however
+
+1151
+01:01:59,599 --> 01:02:05,599
+however in lisp programming language
+
+1152
+01:02:01,920 --> 01:02:10,079
+which is the push and pop are doing it
+
+1153
+01:02:05,599 --> 01:02:13,599
+to the front of the list. Okay. So,
+
+1154
+01:02:10,079 --> 01:02:15,839
+so so so when you but if you want to do
+
+1155
+01:02:13,599 --> 01:02:17,839
+it to the front and your language is
+
+1156
+01:02:15,839 --> 01:02:20,559
+doing them at the end or you have you
+
+1157
+01:02:17,839 --> 01:02:22,240
+know you can reverse the list but that's
+
+1158
+01:02:20,559 --> 01:02:24,880
+you know that takes time. So you might
+
+1159
+01:02:22,240 --> 01:02:27,200
+have another operation that works on the
+
+1160
+01:02:24,880 --> 01:02:29,200
+front of the list. So in pearl for
+
+1161
+01:02:27,200 --> 01:02:31,520
+example
+
+1162
+01:02:29,200 --> 01:02:35,520
+and in Python I believe too. And in
+
+1163
+01:02:31,520 --> 01:02:38,079
+JavaScript too, push and pop
+
+1164
+01:02:35,520 --> 01:02:40,319
+does it to the end of the list. If you
+
+1165
+01:02:38,079 --> 01:02:43,440
+wanted to do to the front of the list,
+
+1166
+01:02:40,319 --> 01:02:46,640
+you use something called shift and
+
+1167
+01:02:43,440 --> 01:02:50,160
+unshift. Okay, that's similar to push
+
+1168
+01:02:46,640 --> 01:02:53,280
+and pop, but they operate on the front
+
+1169
+01:02:50,160 --> 01:02:57,440
+of the list or array. Okay. So in a
+
+1170
+01:02:53,280 --> 01:02:59,520
+similar way when you do fold
+
+1171
+01:02:57,440 --> 01:03:02,160
+you know you you can you can you can
+
+1172
+01:02:59,520 --> 01:03:04,640
+start with the front or start from the
+
+1173
+01:03:02,160 --> 01:03:06,480
+end but sometimes it's convenient if you
+
+1174
+01:03:04,640 --> 01:03:09,119
+want to start from the other side. So
+
+1175
+01:03:06,480 --> 01:03:11,760
+that's why you have fold left and for
+
+1176
+01:03:09,119 --> 01:03:13,920
+right or also known as reduce left and
+
+1177
+01:03:11,760 --> 01:03:16,400
+reduce right. So that's what they are.
+
+1178
+01:03:13,920 --> 01:03:19,520
+Okay. So again back to history rising
+
+1179
+01:03:16,400 --> 01:03:23,039
+functional programming 1980s to 1990s
+
+1180
+01:03:19,520 --> 01:03:25,119
+and there's more uh modern adoption and
+
+1181
+01:03:23,039 --> 01:03:28,480
+distinction. So they started to have
+
+1182
+01:03:25,119 --> 01:03:32,960
+like diff a difference diversity you
+
+1183
+01:03:28,480 --> 01:03:36,000
+know uh between f and reduce
+
+1184
+01:03:32,960 --> 01:03:41,200
+um c
+
+1185
+01:03:36,000 --> 01:03:45,039
+and uh and weight. Okay. So,
+
+1186
+01:03:41,200 --> 01:03:48,799
+so actually this is the wrong link to Gu
+
+1187
+01:03:45,039 --> 01:03:50,480
+because I asked GU a lot more questions
+
+1188
+01:03:48,799 --> 01:03:53,119
+about
+
+1189
+01:03:50,480 --> 01:03:56,000
+about it relations to parallel
+
+1190
+01:03:53,119 --> 01:03:59,680
+computation. Uh why did it not show? I
+
+1191
+01:03:56,000 --> 01:04:01,920
+thought I got the latest link.
+
+1192
+01:03:59,680 --> 01:04:04,079
+Okay, I might need to update the link.
+
+1193
+01:04:01,920 --> 01:04:07,520
+Okay, so anyway, that's it for today.
+
+1194
+01:04:04,079 --> 01:04:11,920
+Thank you guys for watching. So
+
+1195
+01:04:07,520 --> 01:04:14,640
+uh yes and the many two one concept is
+
+1196
+01:04:11,920 --> 01:04:18,400
+exactly what I think of when I use here
+
+1197
+01:04:14,640 --> 01:04:20,640
+reduce. Yeah. Uh yeah that's a bad
+
+1198
+01:04:18,400 --> 01:04:23,039
+that's a misleading that's very
+
+1199
+01:04:20,640 --> 01:04:25,839
+misleading. Okay. Don't think about that
+
+1200
+01:04:23,039 --> 01:04:29,039
+because because I was telling the story
+
+1201
+01:04:25,839 --> 01:04:31,280
+when I learned it back in 30 years ago
+
+1202
+01:04:29,039 --> 01:04:33,280
+you know you I learned from Mathematica
+
+1203
+01:04:31,280 --> 01:04:36,880
+Wuam language you know. So you got this
+
+1204
+01:04:33,280 --> 01:04:40,640
+fold. So I thought it's kind of strange
+
+1205
+01:04:36,880 --> 01:04:42,319
+why why do you want to like it's kind of
+
+1206
+01:04:40,640 --> 01:04:44,960
+odd because the function takes two
+
+1207
+01:04:42,319 --> 01:04:47,039
+things and each time you you know you
+
+1208
+01:04:44,960 --> 01:04:50,160
+take the result from previous iteration
+
+1209
+01:04:47,039 --> 01:04:53,520
+then you feed it at one do you want to
+
+1210
+01:04:50,160 --> 01:04:55,599
+do that you know it's kind of odd but if
+
+1211
+01:04:53,520 --> 01:04:58,400
+you
+
+1212
+01:04:55,599 --> 01:05:03,280
+think of it as you know you if you start
+
+1213
+01:04:58,400 --> 01:05:06,000
+to think it is a general way to do loops
+
+1214
+01:05:03,280 --> 01:05:08,480
+in a functional following way. Then you
+
+1215
+01:05:06,000 --> 01:05:10,079
+realized why it is that way. Because the
+
+1216
+01:05:08,480 --> 01:05:12,640
+function, why does the function takes
+
+1217
+01:05:10,079 --> 01:05:16,240
+two items? Because one of the item is
+
+1218
+01:05:12,640 --> 01:05:19,359
+the state from previous
+
+1219
+01:05:16,240 --> 01:05:21,119
+iteration, you know, like in a loop,
+
+1220
+01:05:19,359 --> 01:05:23,599
+every time you change a state, right?
+
+1221
+01:05:21,119 --> 01:05:25,680
+When you do a loop, so if you want to do
+
+1222
+01:05:23,599 --> 01:05:27,680
+it in a functional programming way, so
+
+1223
+01:05:25,680 --> 01:05:30,640
+you save the state every time you have a
+
+1224
+01:05:27,680 --> 01:05:32,799
+state, you feed back to the function. So
+
+1225
+01:05:30,640 --> 01:05:35,520
+the function takes a previous you know
+
+1226
+01:05:32,799 --> 01:05:38,559
+state then you takes a new argument
+
+1227
+01:05:35,520 --> 01:05:40,480
+compute it got a result which is a new
+
+1228
+01:05:38,559 --> 01:05:43,039
+state then you call the function again
+
+1229
+01:05:40,480 --> 01:05:47,359
+so feed it back so that's that's why you
+
+1230
+01:05:43,039 --> 01:05:50,480
+know it's a general form of loop
+
+1231
+01:05:47,359 --> 01:05:52,640
+so but if you think of it as reduce you
+
+1232
+01:05:50,480 --> 01:05:55,599
+know the the first person who named it
+
+1233
+01:05:52,640 --> 01:05:58,000
+reduce is must be punished I think
+
+1234
+01:05:55,599 --> 01:06:02,079
+that's a programming language you know
+
+1235
+01:05:58,000 --> 01:06:03,920
+Grog I think Grog um talked about it. I
+
+1236
+01:06:02,079 --> 01:06:06,880
+you know because when you if you have
+
+1237
+01:06:03,920 --> 01:06:08,720
+the word reduce then you just think oh
+
+1238
+01:06:06,880 --> 01:06:13,440
+you just take a bunch of things and make
+
+1239
+01:06:08,720 --> 01:06:17,680
+it into one thing you lost the entire
+
+1240
+01:06:13,440 --> 01:06:19,520
+essence the idea of fold of recursion
+
+1241
+01:06:17,680 --> 01:06:22,160
+you know that the origin in lambda
+
+1242
+01:06:19,520 --> 01:06:25,160
+calculus in computability okay so that's
+
+1243
+01:06:22,160 --> 01:06:25,160
+it
+
+1244
+01:06:25,520 --> 01:06:31,920
+bye guys
+
+1245
+01:06:28,799 --> 01:06:34,480
+so did I how long did I talk for the uh
+
+1246
+01:06:31,920 --> 01:06:37,200
+I think this video is very long and
+
+1247
+01:06:34,480 --> 01:06:40,000
+rambling so anyone watching it must
+
+1248
+01:06:37,200 --> 01:06:42,720
+watch in like
+
+1249
+01:06:40,000 --> 01:06:46,039
+two times speed.
+
+1250
+01:06:42,720 --> 01:06:46,039
+Bye guys.
+

@@ -1,0 +1,6204 @@
+1
+00:00:00,080 --> 00:00:05,480
+Good morning everyone. Welcome to
+
+2
+00:00:02,720 --> 00:00:07,440
+another episode of Exon talk
+
+3
+00:00:05,480 --> 00:00:10,759
+show. Today we're going to call
+
+4
+00:00:07,440 --> 00:00:15,040
+JavaScript. I'm going to I hope to
+
+5
+00:00:10,759 --> 00:00:17,520
+explain the JavaScript iterators. So in
+
+6
+00:00:15,040 --> 00:00:21,119
+JavaScript you have iterators, then you
+
+7
+00:00:17,520 --> 00:00:23,439
+have iterables, then you have generator,
+
+8
+00:00:21,119 --> 00:00:26,400
+then you have generator functions. Very
+
+9
+00:00:23,439 --> 00:00:30,240
+complex. So I'm going to try to explain
+
+10
+00:00:26,400 --> 00:00:33,520
+that uh and uh ex you know explain my
+
+11
+00:00:30,240 --> 00:00:36,079
+work in the past uh few weeks uh lots of
+
+12
+00:00:33,520 --> 00:00:38,600
+work on JavaScript updating JavaScript
+
+13
+00:00:36,079 --> 00:00:42,239
+because they have a new version every
+
+14
+00:00:38,600 --> 00:00:45,040
+year new version every year since 2015
+
+15
+00:00:42,239 --> 00:00:48,960
+so they added features you know so you
+
+16
+00:00:45,040 --> 00:00:51,680
+got 2015 161 17 so I've been lagging
+
+17
+00:00:48,960 --> 00:00:54,120
+behind for like five years so I updated
+
+18
+00:00:51,680 --> 00:00:57,120
+a lot huge amount of it in last two
+
+19
+00:00:54,120 --> 00:01:00,079
+weeks and uh but today we're going to
+
+20
+00:00:57,120 --> 00:01:02,480
+try I'm going to try to uh I'm going to
+
+21
+00:01:00,079 --> 00:01:04,360
+try to do a good job explaining
+
+22
+00:01:02,480 --> 00:01:08,320
+iterators and
+
+23
+00:01:04,360 --> 00:01:11,200
+uh uh iterators iterate you know this
+
+24
+00:01:08,320 --> 00:01:13,760
+very complex iterators you got iterable
+
+25
+00:01:11,200 --> 00:01:16,400
+iterable object iterators and generators
+
+26
+00:01:13,760 --> 00:01:18,400
+and generator functions
+
+27
+00:01:16,400 --> 00:01:20,960
+uh then I'm going to try to explain why
+
+28
+00:01:18,400 --> 00:01:23,759
+they are bad I think they are bad in any
+
+29
+00:01:20,960 --> 00:01:26,000
+language they should be banned
+
+30
+00:01:23,759 --> 00:01:28,560
+from the perspective of programming
+
+31
+00:01:26,000 --> 00:01:29,920
+language design. Okay. And if you are
+
+32
+00:01:28,560 --> 00:01:33,920
+here, say hi. If you are watching
+
+33
+00:01:29,920 --> 00:01:37,119
+offline, play at 1.5 speed or faster
+
+34
+00:01:33,920 --> 00:01:40,799
+because I ramble. Um I hope I can get
+
+35
+00:01:37,119 --> 00:01:44,560
+focused on this these topics. So hello
+
+36
+00:01:40,799 --> 00:01:48,640
+Scott. Scott is a professional GPU
+
+37
+00:01:44,560 --> 00:01:49,960
+designer re writing in C++.
+
+38
+00:01:48,640 --> 00:01:53,119
+uh you
+
+39
+00:01:49,960 --> 00:01:57,119
+know highly respect
+
+40
+00:01:53,119 --> 00:01:59,439
+um yeah you know CPU GPU design you know
+
+41
+00:01:57,119 --> 00:02:03,360
+writing code um I don't even know what
+
+42
+00:01:59,439 --> 00:02:05,960
+it what it means Scott tried to explain
+
+43
+00:02:03,360 --> 00:02:08,640
+to me a few times but after a while I
+
+44
+00:02:05,960 --> 00:02:11,039
+forgot like so if you really want to
+
+45
+00:02:08,640 --> 00:02:12,640
+learn something you have to like work on
+
+46
+00:02:11,039 --> 00:02:15,200
+it you know you have to get into the
+
+47
+00:02:12,640 --> 00:02:18,640
+field otherwise you just forgot if you
+
+48
+00:02:15,200 --> 00:02:21,760
+just you know curious about
+
+49
+00:02:18,640 --> 00:02:24,480
+So okay so iterators so let's uh let's
+
+50
+00:02:21,760 --> 00:02:27,040
+so I start with um you know so I worked
+
+51
+00:02:24,480 --> 00:02:31,120
+on JavaScript a lot there's tremendous
+
+52
+00:02:27,040 --> 00:02:34,519
+things to add so so check out my website
+
+53
+00:02:31,120 --> 00:02:38,160
+okay so just search for JavaScript in
+
+54
+00:02:34,519 --> 00:02:41,480
+depth.info info and you will see my full
+
+55
+00:02:38,160 --> 00:02:44,800
+tutorial on JavaScript. The
+
+56
+00:02:41,480 --> 00:02:47,599
+most complicated language today well
+
+57
+00:02:44,800 --> 00:02:50,720
+less than C++. Okay, JavaScript is one
+
+58
+00:02:47,599 --> 00:02:54,560
+of is is like the top I would say top
+
+59
+00:02:50,720 --> 00:02:57,519
+three top four the most popular language
+
+60
+00:02:54,560 --> 00:03:01,519
+but also the most complicated. It's
+
+61
+00:02:57,519 --> 00:03:03,239
+tremendous baggage watts. Uh but C and
+
+62
+00:03:01,519 --> 00:03:06,959
+C++ is
+
+63
+00:03:03,239 --> 00:03:09,040
+worse in my opinion. JavaScript is got a
+
+64
+00:03:06,959 --> 00:03:13,239
+long way to go before you compare
+
+65
+00:03:09,040 --> 00:03:16,640
+compared to the [ __ ] pile of
+
+66
+00:03:13,239 --> 00:03:20,000
+C++ but JavaScript is up there. So and
+
+67
+00:03:16,640 --> 00:03:23,840
+you know since 2015 they made a lot
+
+68
+00:03:20,000 --> 00:03:28,640
+updates tremendous update. Um
+
+69
+00:03:23,840 --> 00:03:33,680
+uh so but by the way in a month ago on
+
+70
+00:03:28,640 --> 00:03:38,360
+April 28th episode 4 episode 649 I
+
+71
+00:03:33,680 --> 00:03:41,599
+explained um how JavaScript object
+
+72
+00:03:38,360 --> 00:03:43,680
+system works and why it sucks. So that's
+
+73
+00:03:41,599 --> 00:03:48,000
+a good one. Okay. So you can go check
+
+74
+00:03:43,680 --> 00:03:50,239
+out that object system. But today so so
+
+75
+00:03:48,000 --> 00:03:54,239
+JavaScript is very complex. So let's
+
+76
+00:03:50,239 --> 00:03:58,480
+look at the you know but since 2015 they
+
+77
+00:03:54,239 --> 00:04:02,319
+made a tremendous massive change like uh
+
+78
+00:03:58,480 --> 00:04:05,519
+adding features 2015 so finally like you
+
+79
+00:04:02,319 --> 00:04:07,280
+have a variable declaration that's local
+
+80
+00:04:05,519 --> 00:04:10,040
+before you cannot do that you know you
+
+81
+00:04:07,280 --> 00:04:12,959
+cannot have local variables so it's
+
+82
+00:04:10,040 --> 00:04:15,760
+tremendously like the worst language so
+
+83
+00:04:12,959 --> 00:04:18,239
+in 2015 they added you know local
+
+84
+00:04:15,760 --> 00:04:21,680
+variables let and constant then they
+
+85
+00:04:18,239 --> 00:04:24,320
+added a function arrow function because
+
+86
+00:04:21,680 --> 00:04:26,240
+for mostly for like functional
+
+87
+00:04:24,320 --> 00:04:29,120
+programming I mean it's convenient very
+
+88
+00:04:26,240 --> 00:04:31,120
+convenient they you know they added rest
+
+89
+00:04:29,120 --> 00:04:35,280
+parameters and default values for
+
+90
+00:04:31,120 --> 00:04:38,000
+function parameters very useful so
+
+91
+00:04:35,280 --> 00:04:40,600
+essentially they updated huge amount of
+
+92
+00:04:38,000 --> 00:04:44,240
+the language you know so it's JavaScript
+
+93
+00:04:40,600 --> 00:04:49,040
+today in terms of features um it's
+
+94
+00:04:44,240 --> 00:04:52,400
+comparable to other you know modern and
+
+95
+00:04:49,040 --> 00:04:54,840
+scripting languages such as Python, Ruby
+
+96
+00:04:52,400 --> 00:04:57,680
+or PHP.
+
+97
+00:04:54,840 --> 00:05:00,160
+PHP actually, you know, after the past
+
+98
+00:04:57,680 --> 00:05:02,120
+20 years, they improved a lot. PHP is
+
+99
+00:05:00,160 --> 00:05:05,440
+actually a good language
+
+100
+00:05:02,120 --> 00:05:07,600
+now. So anyway, JavaScript 2015, they
+
+101
+00:05:05,440 --> 00:05:10,240
+improved a lot. They added it's
+
+102
+00:05:07,600 --> 00:05:13,280
+basically like a complete new language.
+
+103
+00:05:10,240 --> 00:05:16,720
+Okay. So you can read um I detail you
+
+104
+00:05:13,280 --> 00:05:21,199
+know uh every each every every feature
+
+105
+00:05:16,720 --> 00:05:24,000
+added but but the thing is they did not
+
+106
+00:05:21,199 --> 00:05:27,360
+change it you know they insist that it
+
+107
+00:05:24,000 --> 00:05:30,639
+must be backward compatible. So that
+
+108
+00:05:27,360 --> 00:05:34,160
+means all the [ __ ] like the utter [ __ ]
+
+109
+00:05:30,639 --> 00:05:38,720
+in JavaScript in the past you know from
+
+110
+00:05:34,160 --> 00:05:41,199
+1995 to 2015 that's like 20 years all
+
+111
+00:05:38,720 --> 00:05:43,440
+the [ __ ] is still there. So when you
+
+112
+00:05:41,199 --> 00:05:45,880
+call JavaScript it's like you know
+
+113
+00:05:43,440 --> 00:05:48,320
+riding on a highway with lots of
+
+114
+00:05:45,880 --> 00:05:49,919
+potholes. So you have to be careful you
+
+115
+00:05:48,320 --> 00:05:52,240
+know oh you can't use this one because
+
+116
+00:05:49,919 --> 00:05:54,560
+that's oh lots of bad design you know
+
+117
+00:05:52,240 --> 00:05:56,240
+returning you know it automatically
+
+118
+00:05:54,560 --> 00:05:58,560
+converts something you know you can't
+
+119
+00:05:56,240 --> 00:06:00,560
+use so you have to use this one that
+
+120
+00:05:58,560 --> 00:06:03,759
+there there's like tens of it things
+
+121
+00:06:00,560 --> 00:06:06,440
+like that tons of it so you have to
+
+122
+00:06:03,759 --> 00:06:09,039
+avoid potholes you know when you code
+
+123
+00:06:06,440 --> 00:06:12,000
+JavaScript event you know then your code
+
+124
+00:06:09,039 --> 00:06:17,680
+is okay but but it's very comp
+
+125
+00:06:12,000 --> 00:06:22,240
+complicated okay so hello uh GNU and
+
+126
+00:06:17,680 --> 00:06:24,880
+Scott and Scott C++ with STL, you know,
+
+127
+00:06:22,240 --> 00:06:27,080
+creeping featurism to the point of ugly
+
+128
+00:06:24,880 --> 00:06:31,199
+readability. Yeah.
+
+129
+00:06:27,080 --> 00:06:32,960
+So you know we were talking about reduce
+
+130
+00:06:31,199 --> 00:06:36,080
+you know the the the functional
+
+131
+00:06:32,960 --> 00:06:38,880
+programming language reduce function and
+
+132
+00:06:36,080 --> 00:06:41,360
+I realized actually a few years ago it
+
+133
+00:06:38,880 --> 00:06:44,160
+is one of the most powerful you know the
+
+134
+00:06:41,360 --> 00:06:46,160
+you know reduce uh okay I'm starting to
+
+135
+00:06:44,160 --> 00:06:48,400
+digress but let you know let's talk
+
+136
+00:06:46,160 --> 00:06:51,199
+about that just for a moment. So reduce
+
+137
+00:06:48,400 --> 00:06:54,720
+is actually the most powerful functional
+
+138
+00:06:51,199 --> 00:06:56,960
+programming form analogous to the loop
+
+139
+00:06:54,720 --> 00:06:58,880
+because in reduce or sometimes it's
+
+140
+00:06:56,960 --> 00:07:01,520
+called fold in JavaScript you have
+
+141
+00:06:58,880 --> 00:07:04,680
+reduce so so let's go to JavaScript you
+
+142
+00:07:01,520 --> 00:07:07,599
+know so we can stay on topic uh
+
+143
+00:07:04,680 --> 00:07:09,919
+search reduce so you have array
+
+144
+00:07:07,599 --> 00:07:12,560
+prototype reduce then they added reduce
+
+145
+00:07:09,919 --> 00:07:17,759
+right few years ago so reduce you know
+
+146
+00:07:12,560 --> 00:07:20,000
+it works like like that so reduce is
+
+147
+00:07:17,759 --> 00:07:23,360
+a functional programming language
+
+148
+00:07:20,000 --> 00:07:25,680
+programming style form for any loop
+
+149
+00:07:23,360 --> 00:07:28,800
+whatsoever loop you can do you can use
+
+150
+00:07:25,680 --> 00:07:31,759
+reduce because why because basically it
+
+151
+00:07:28,800 --> 00:07:35,360
+just pass the state information to the
+
+152
+00:07:31,759 --> 00:07:38,080
+function in each loop so that's what I'm
+
+153
+00:07:35,360 --> 00:07:40,560
+saying then we were discussing on some
+
+154
+00:07:38,080 --> 00:07:44,160
+discord you know we we got some good
+
+155
+00:07:40,560 --> 00:07:45,919
+programmers here and uh so we started
+
+156
+00:07:44,160 --> 00:07:48,960
+argument and so
+
+157
+00:07:45,919 --> 00:07:51,759
+And someone showed me um let's see uh
+
+158
+00:07:48,960 --> 00:07:55,560
+someone showed me okay so let's magnify
+
+159
+00:07:51,759 --> 00:08:00,479
+uh god so control
+
+160
+00:07:55,560 --> 00:08:02,720
+plus yeah so we can magnify so let me so
+
+161
+00:08:00,479 --> 00:08:07,280
+reduce you know we talking about reduce
+
+162
+00:08:02,720 --> 00:08:09,360
+then someone showed me reduce in C++ and
+
+163
+00:08:07,280 --> 00:08:11,759
+you know one of the fascinating thing
+
+164
+00:08:09,360 --> 00:08:14,400
+okay we are digressing all over one of
+
+165
+00:08:11,759 --> 00:08:16,960
+the fascinating thing is that can reduce
+
+166
+00:08:14,400 --> 00:08:20,560
+work in parallel. So we get into
+
+167
+00:08:16,960 --> 00:08:23,280
+parallel computation you know it can if
+
+168
+00:08:20,560 --> 00:08:25,199
+the function is associative you know
+
+169
+00:08:23,280 --> 00:08:27,599
+it's starting to get complex you know so
+
+170
+00:08:25,199 --> 00:08:30,080
+this is a mathematical property of a
+
+171
+00:08:27,599 --> 00:08:34,839
+function if the function is associative
+
+172
+00:08:30,080 --> 00:08:37,519
+then reduce can kick into parallel
+
+173
+00:08:34,839 --> 00:08:40,320
+computation you know that needs to
+
+174
+00:08:37,519 --> 00:08:41,800
+explain you know but uh let's skip that
+
+175
+00:08:40,320 --> 00:08:44,320
+because I
+
+176
+00:08:41,800 --> 00:08:46,959
+want every time I start to do live
+
+177
+00:08:44,320 --> 00:08:50,800
+stream there's so many things to go into
+
+178
+00:08:46,959 --> 00:08:55,560
+so reduce can do parallelism and it
+
+179
+00:08:50,800 --> 00:08:59,760
+turns out in C++ it can be done you know
+
+180
+00:08:55,560 --> 00:09:03,360
+C++ so the guy showed me uh let's let's
+
+181
+00:08:59,760 --> 00:09:06,560
+go back so it's a few days ago so if you
+
+182
+00:09:03,360 --> 00:09:10,200
+haven't already joined Kasadi discord
+
+183
+00:09:06,560 --> 00:09:13,519
+uh the invitation link is on ksadi.info
+
+184
+00:09:10,200 --> 00:09:17,120
+info. Okay. So, Steve, you know, Steve
+
+185
+00:09:13,519 --> 00:09:19,080
+is a very uh meticulous guy. So, he
+
+186
+00:09:17,120 --> 00:09:24,040
+showed me the
+
+187
+00:09:19,080 --> 00:09:26,320
+C++ C++ reduce it can do parallel
+
+188
+00:09:24,040 --> 00:09:29,680
+computation. If you specify in the
+
+189
+00:09:26,320 --> 00:09:32,040
+argument, you know, so I I I I asked for
+
+190
+00:09:29,680 --> 00:09:34,080
+the documentation and I looked at the
+
+191
+00:09:32,040 --> 00:09:37,040
+documentation. Okay. Okay. I'm
+
+192
+00:09:34,080 --> 00:09:40,640
+digressing over, but let's just do it.
+
+193
+00:09:37,040 --> 00:09:42,800
+So the C++ uh Golang is 10 times faster
+
+194
+00:09:40,640 --> 00:09:46,279
+than JavaScript. There's lots of things
+
+195
+00:09:42,800 --> 00:09:48,560
+to talk about. C++ documentation is
+
+196
+00:09:46,279 --> 00:09:50,839
+incomprehensible. This is like the first
+
+197
+00:09:48,560 --> 00:09:54,959
+time I see C++
+
+198
+00:09:50,839 --> 00:09:57,920
+documentation. Okay, so you got reduce
+
+199
+00:09:54,959 --> 00:10:00,399
+you know imagine can you like can you
+
+200
+00:09:57,920 --> 00:10:03,519
+guys actually see it? Uh let's magnify.
+
+201
+00:10:00,399 --> 00:10:05,440
+Okay, let's magnify one more.
+
+202
+00:10:03,519 --> 00:10:08,240
+So you got it turns out you got this
+
+203
+00:10:05,440 --> 00:10:11,040
+template then you use less than equal
+
+204
+00:10:08,240 --> 00:10:13,920
+sign greater than equal sign as some
+
+205
+00:10:11,040 --> 00:10:17,760
+kind of parameter indicator. Okay. Then
+
+206
+00:10:13,920 --> 00:10:21,360
+you got this class class T class and uh
+
+207
+00:10:17,760 --> 00:10:24,240
+and and more and execution policy you
+
+208
+00:10:21,360 --> 00:10:25,959
+know t reduce parenthesis execution
+
+209
+00:10:24,240 --> 00:10:29,680
+policy
+
+210
+00:10:25,959 --> 00:10:33,360
+policy. What what the [ __ ] is that? So
+
+211
+00:10:29,680 --> 00:10:36,160
+in a parameter of a function or template
+
+212
+00:10:33,360 --> 00:10:39,600
+you got this execution policy policy.
+
+213
+00:10:36,160 --> 00:10:42,720
+Then look at this one fold left. So
+
+214
+00:10:39,600 --> 00:10:46,399
+apparently they they distinguish um
+
+215
+00:10:42,720 --> 00:10:48,640
+reduce and fold. You know someone in Kad
+
+216
+00:10:46,399 --> 00:10:50,399
+um you know in in Saudi discourse
+
+217
+00:10:48,640 --> 00:10:52,560
+someone mentioned you know actually they
+
+218
+00:10:50,399 --> 00:10:54,560
+make a distinction sometimes in some
+
+219
+00:10:52,560 --> 00:10:57,600
+languages they make a distinction
+
+220
+00:10:54,560 --> 00:10:58,959
+between reduce and fold but actually it
+
+221
+00:10:57,600 --> 00:11:01,600
+should be the same thing just different
+
+222
+00:10:58,959 --> 00:11:06,240
+languages use the different terms but
+
+223
+00:11:01,600 --> 00:11:08,480
+anyway to be specific you know so so C++
+
+224
+00:11:06,240 --> 00:11:11,040
+they have fold left and look at the
+
+225
+00:11:08,480 --> 00:11:12,720
+documentation okay so uh can you guys
+
+226
+00:11:11,040 --> 00:11:16,399
+see it you know this needs to be
+
+227
+00:11:12,720 --> 00:11:19,079
+magnified Right. Uh opening a new tab.
+
+228
+00:11:16,399 --> 00:11:21,880
+Okay. So
+
+229
+00:11:19,079 --> 00:11:24,360
+magnify you know. So in this
+
+230
+00:11:21,880 --> 00:11:29,720
+documentation they actually
+
+231
+00:11:24,360 --> 00:11:32,560
+put common syntax into the documentation
+
+232
+00:11:29,720 --> 00:11:34,720
+like this is not code. This is
+
+233
+00:11:32,560 --> 00:11:38,240
+documentation for this function. And
+
+234
+00:11:34,720 --> 00:11:40,560
+then you then you got common syntax like
+
+235
+00:11:38,240 --> 00:11:42,880
+this one says indirectly binary left
+
+236
+00:11:40,560 --> 00:11:46,399
+foldable. indirectly binary left
+
+237
+00:11:42,880 --> 00:11:49,440
+photoable and what uh and and then then
+
+238
+00:11:46,399 --> 00:11:49,440
+you got uh
+
+239
+00:11:51,160 --> 00:11:58,720
+wait okay then then you got like
+
+240
+00:11:54,839 --> 00:12:03,200
+um left fold then then you got like
+
+241
+00:11:58,720 --> 00:12:05,519
+contextual auto what what so so that's
+
+242
+00:12:03,200 --> 00:12:09,440
+so funny this is the first time I see
+
+243
+00:12:05,519 --> 00:12:11,920
+the C++ documentation okay but how do
+
+244
+00:12:09,440 --> 00:12:14,120
+you actually call it you you you know
+
+245
+00:12:11,920 --> 00:12:17,800
+the way you call it is that instead of a
+
+246
+00:12:14,120 --> 00:12:20,959
+list you you say list beginning and list
+
+247
+00:12:17,800 --> 00:12:25,600
+end because that way because for the C
+
+248
+00:12:20,959 --> 00:12:29,360
+C++ language you can reduce on part of
+
+249
+00:12:25,600 --> 00:12:32,079
+the array things like that so anyway so
+
+250
+00:12:29,360 --> 00:12:36,440
+reduce then I learned I didn't even know
+
+251
+00:12:32,079 --> 00:12:40,480
+what is C++ template you know so I asked
+
+252
+00:12:36,440 --> 00:12:40,480
+gu explained template
+
+253
+00:12:41,440 --> 00:12:48,399
+So C++ in my view is a circus language
+
+254
+00:12:44,639 --> 00:12:51,839
+you know like in Java al or um I know in
+
+255
+00:12:48,399 --> 00:12:54,160
+Java I know you know you know I know
+
+256
+00:12:51,839 --> 00:12:56,320
+basics of Java Java you don't have that
+
+257
+00:12:54,160 --> 00:12:59,720
+you can do all of these but you don't
+
+258
+00:12:56,320 --> 00:13:03,760
+have like templates and macros
+
+259
+00:12:59,720 --> 00:13:08,240
+like so it's like you know [ __ ] pile on
+
+260
+00:13:03,760 --> 00:13:11,680
+top of another beginning with Unix and E
+
+261
+00:13:08,240 --> 00:13:14,720
+in my opinion okay in my opinion Unix
+
+262
+00:13:11,680 --> 00:13:17,200
+and C they created all the damage huge
+
+263
+00:13:14,720 --> 00:13:20,800
+damage in computing industry in the past
+
+264
+00:13:17,200 --> 00:13:23,240
+30 years you know C and Unix like Unix
+
+265
+00:13:20,800 --> 00:13:26,560
+philosophy you know like bunch of
+
+266
+00:13:23,240 --> 00:13:29,600
+[ __ ] then they they they start with [ __ ]
+
+267
+00:13:26,560 --> 00:13:31,880
+then they they pile [ __ ] on top of it to
+
+268
+00:13:29,600 --> 00:13:35,040
+cover it up such as
+
+269
+00:13:31,880 --> 00:13:37,360
+C++ you know C is very popular oh but
+
+270
+00:13:35,040 --> 00:13:39,680
+it's got lots of problems Let's create,
+
+271
+00:13:37,360 --> 00:13:40,959
+you know, C++. We're going to fix, you
+
+272
+00:13:39,680 --> 00:13:44,200
+know, we're going to be backward
+
+273
+00:13:40,959 --> 00:13:47,839
+compatible and but we're going to fix
+
+274
+00:13:44,200 --> 00:13:51,959
+it. Pile piles of [ __ ] on top of
+
+275
+00:13:47,839 --> 00:13:54,880
+another. That's C and C++ in my
+
+276
+00:13:51,959 --> 00:13:59,160
+opinion. So I, you know, template. So I
+
+277
+00:13:54,880 --> 00:14:01,920
+learned about template and STL. Uh
+
+278
+00:13:59,160 --> 00:14:05,040
+yeah. Uh yeah. So I don't know anything
+
+279
+00:14:01,920 --> 00:14:08,680
+about it. So now let's go back. Okay,
+
+280
+00:14:05,040 --> 00:14:12,320
+let's digress enough. Let's go back to
+
+281
+00:14:08,680 --> 00:14:15,920
+um Yeah. So, lots of um additions to
+
+282
+00:14:12,320 --> 00:14:18,920
+JavaScript. Uh so you um JavaScript
+
+283
+00:14:15,920 --> 00:14:22,800
+Emacs. Yeah. So, this is latest edition
+
+284
+00:14:18,920 --> 00:14:26,560
+2025. It's not out yet. Every year uh in
+
+285
+00:14:22,800 --> 00:14:28,959
+June they publish the new additions but
+
+286
+00:14:26,560 --> 00:14:31,320
+but basically all the browsers already
+
+287
+00:14:28,959 --> 00:14:34,560
+implemented. So this is
+
+288
+00:14:31,320 --> 00:14:36,360
+JavaScript 2025. And the naming is
+
+289
+00:14:34,560 --> 00:14:41,600
+another
+
+290
+00:14:36,360 --> 00:14:44,240
+story, ECMAS script, EC ECMA 262, ECMAS
+
+291
+00:14:41,600 --> 00:14:46,079
+script. That's a complete [ __ ] You
+
+292
+00:14:44,240 --> 00:14:49,040
+know, this this these are the problems
+
+293
+00:14:46,079 --> 00:14:51,760
+of the coding industry. You know, why do
+
+294
+00:14:49,040 --> 00:14:54,720
+they like why you have the name ECMAS
+
+295
+00:14:51,760 --> 00:14:57,519
+script? Like well, that's because social
+
+296
+00:14:54,720 --> 00:15:00,320
+political reasons, you know, like then
+
+297
+00:14:57,519 --> 00:15:02,880
+what why does JavaScript suck? so much.
+
+298
+00:15:00,320 --> 00:15:06,079
+Why is it called JavaScript when it has
+
+299
+00:15:02,880 --> 00:15:07,480
+nothing to do with Java? Well, social
+
+300
+00:15:06,079 --> 00:15:10,240
+political
+
+301
+00:15:07,480 --> 00:15:12,399
+reasons. So in computing industry, we
+
+302
+00:15:10,240 --> 00:15:14,560
+are, you know, we have this all this all
+
+303
+00:15:12,399 --> 00:15:17,800
+this kind of [ __ ] All this kind of
+
+304
+00:15:14,560 --> 00:15:21,440
+[ __ ] ECMAScript and ECMA
+
+305
+00:15:17,800 --> 00:15:24,160
+262. Um, okay. So anyway, so that's
+
+306
+00:15:21,440 --> 00:15:27,760
+JavaScript features, you know. So check
+
+307
+00:15:24,160 --> 00:15:29,920
+it out. Okay. So there there are still a
+
+308
+00:15:27,760 --> 00:15:34,040
+few things I need to do. So you can I
+
+309
+00:15:29,920 --> 00:15:36,120
+mean okay I also have a um HTML history
+
+310
+00:15:34,040 --> 00:15:41,279
+timeline
+
+311
+00:15:36,120 --> 00:15:43,079
+because I watched HTML bone the birth of
+
+312
+00:15:41,279 --> 00:15:46,079
+HTML in
+
+313
+00:15:43,079 --> 00:15:48,399
+1993 you know when I just started to
+
+314
+00:15:46,079 --> 00:15:52,240
+learn you know coding wufan language
+
+315
+00:15:48,399 --> 00:15:55,040
+actually. So I learned HTML history. So
+
+316
+00:15:52,240 --> 00:15:59,440
+I watched the birth of HTML and
+
+317
+00:15:55,040 --> 00:16:00,600
+JavaScript and cookies and HTML 2 then
+
+318
+00:15:59,440 --> 00:16:04,120
+and
+
+319
+00:16:00,600 --> 00:16:07,240
+CSS1 then XML and
+
+320
+00:16:04,120 --> 00:16:10,720
+XHTML then today you got the
+
+321
+00:16:07,240 --> 00:16:14,600
+HTML 5 from what the [ __ ] group you know
+
+322
+00:16:10,720 --> 00:16:18,480
+that's another kind of political story.
+
+323
+00:16:14,600 --> 00:16:21,199
+Okay. So you know then you got Java uh
+
+324
+00:16:18,480 --> 00:16:24,720
+JavaScript version history. But anyway
+
+325
+00:16:21,199 --> 00:16:26,120
+check out okay check out JavaScript in
+
+326
+00:16:24,720 --> 00:16:29,440
+depth. That is
+
+327
+00:16:26,120 --> 00:16:32,079
+my tutorial which I spend I read you
+
+328
+00:16:29,440 --> 00:16:35,360
+know several versions of the JavaScript
+
+329
+00:16:32,079 --> 00:16:37,839
+specification the ECMAS script very
+
+330
+00:16:35,360 --> 00:16:40,959
+difficult to read and and could be
+
+331
+00:16:37,839 --> 00:16:45,120
+better but you know that's another story
+
+332
+00:16:40,959 --> 00:16:48,480
+you know like you read ECMAS script um
+
+333
+00:16:45,120 --> 00:16:50,759
+should I look at um no let you know
+
+334
+00:16:48,480 --> 00:16:54,079
+let's focus on you know the iterators
+
+335
+00:16:50,759 --> 00:16:56,160
+okay so but it it's very complex okay it
+
+336
+00:16:54,079 --> 00:16:57,839
+could be done much better, but I don't
+
+337
+00:16:56,160 --> 00:17:00,440
+understand why they don't, you know,
+
+338
+00:16:57,839 --> 00:17:04,000
+write it in a better
+
+339
+00:17:00,440 --> 00:17:06,720
+way. Um, yeah, that's another story to
+
+340
+00:17:04,000 --> 00:17:08,640
+talk about. Okay, JavaScript in depth.
+
+341
+00:17:06,720 --> 00:17:11,199
+Check it out. And if you like my stuff,
+
+342
+00:17:08,640 --> 00:17:13,240
+you can download the entire thing in a
+
+343
+00:17:11,199 --> 00:17:17,039
+zip
+
+344
+00:17:13,240 --> 00:17:18,959
+file. Okay, let me uh pedal my tutorial
+
+345
+00:17:17,039 --> 00:17:23,480
+a little bit. Okay. So, you can buy my
+
+346
+00:17:18,959 --> 00:17:26,400
+tutorial, you know, uh just pay me $30
+
+347
+00:17:23,480 --> 00:17:29,919
+35. So, you can use it as a reference
+
+348
+00:17:26,400 --> 00:17:32,240
+because it includes all the JavaScript
+
+349
+00:17:29,919 --> 00:17:34,720
+references as well. Object, class,
+
+350
+00:17:32,240 --> 00:17:35,720
+array, function. Then you got new things
+
+351
+00:17:34,720 --> 00:17:41,080
+like
+
+352
+00:17:35,720 --> 00:17:44,880
+symbol and set and map. Uh you know,
+
+353
+00:17:41,080 --> 00:17:48,400
+so that's my JavaScript tutorial. uh end
+
+354
+00:17:44,880 --> 00:17:52,200
+I have so actually this is not complete
+
+355
+00:17:48,400 --> 00:17:56,080
+you know so let me tell you
+
+356
+00:17:52,200 --> 00:17:58,799
+why why I wrote it you know what why I
+
+357
+00:17:56,080 --> 00:18:01,600
+think it's best I think this JavaScript
+
+358
+00:17:58,799 --> 00:18:04,520
+in depth is the best JavaScript
+
+359
+00:18:01,600 --> 00:18:08,000
+programming language tutorial and in
+
+360
+00:18:04,520 --> 00:18:10,559
+depth in English on earth okay better
+
+361
+00:18:08,000 --> 00:18:12,200
+than Mozilla you know the MD and you
+
+362
+00:18:10,559 --> 00:18:16,400
+know you guys you know everyone is
+
+363
+00:18:12,200 --> 00:18:19,520
+familiar MD and MTM used to sucks used
+
+364
+00:18:16,400 --> 00:18:21,840
+to suck so badly like mislead misleading
+
+365
+00:18:19,520 --> 00:18:25,360
+information because it's open source
+
+366
+00:18:21,840 --> 00:18:28,640
+then but about 10 years ago this uh deep
+
+367
+00:18:25,360 --> 00:18:31,280
+state they somehow made a made an
+
+368
+00:18:28,640 --> 00:18:33,960
+agreement so that they stopped all other
+
+369
+00:18:31,280 --> 00:18:36,400
+JavaScript tutorials such as for example
+
+370
+00:18:33,960 --> 00:18:39,120
+Microsoft they have their own JavaScript
+
+371
+00:18:36,400 --> 00:18:42,400
+tutorial but they killed it they all
+
+372
+00:18:39,120 --> 00:18:44,559
+focus on the Mosilla for for for reasons
+
+373
+00:18:42,400 --> 00:18:47,200
+I'm not too clear but but anyway they
+
+374
+00:18:44,559 --> 00:18:51,440
+all like pivoted just like one
+
+375
+00:18:47,200 --> 00:18:53,400
+JavaScript tutorial the Mozilla MDM
+
+376
+00:18:51,440 --> 00:18:56,240
+uh so let's show
+
+377
+00:18:53,400 --> 00:18:59,120
+it you know JavaScript Mozilla actually
+
+378
+00:18:56,240 --> 00:18:59,120
+let's search for
+
+379
+00:18:59,799 --> 00:19:05,679
+iterator so now it's known as MDM it
+
+380
+00:19:03,679 --> 00:19:07,679
+wasn't known as that it was known as
+
+381
+00:19:05,679 --> 00:19:09,840
+Mozilla something and now it's actually
+
+382
+00:19:07,679 --> 00:19:14,160
+much better much better than let's say
+
+383
+00:19:09,840 --> 00:19:16,960
+10 years ago okay but so This is the
+
+384
+00:19:14,160 --> 00:19:19,760
+kind of the JavaScript reference most of
+
+385
+00:19:16,960 --> 00:19:22,480
+people are familiar with uh and it's
+
+386
+00:19:19,760 --> 00:19:25,039
+very good and it's very update up to
+
+387
+00:19:22,480 --> 00:19:26,960
+date. I cannot compare to them today
+
+388
+00:19:25,039 --> 00:19:30,799
+actually because they are you know they
+
+389
+00:19:26,960 --> 00:19:33,640
+are done by like thousands of people. So
+
+390
+00:19:30,799 --> 00:19:36,400
+whenever you need the latest information
+
+391
+00:19:33,640 --> 00:19:38,880
+especially integration with DOM the
+
+392
+00:19:36,400 --> 00:19:41,600
+browser you know like whether this
+
+393
+00:19:38,880 --> 00:19:44,000
+feature is implemented in particular
+
+394
+00:19:41,600 --> 00:19:46,640
+browser or you know there's so much
+
+395
+00:19:44,000 --> 00:19:51,200
+complex comp complications so you have
+
+396
+00:19:46,640 --> 00:19:52,919
+to check MDN okay however MDM if you
+
+397
+00:19:51,200 --> 00:19:55,600
+read their
+
+398
+00:19:52,919 --> 00:19:58,400
+tutorial you know JavaScript tutorial to
+
+399
+00:19:55,600 --> 00:19:59,240
+this day mine is still better because I
+
+400
+00:19:58,400 --> 00:20:04,360
+tell
+
+401
+00:19:59,240 --> 00:20:08,240
+you in a way that's more um precise and
+
+402
+00:20:04,360 --> 00:20:11,760
+understandable and uh correct. Okay. So
+
+403
+00:20:08,240 --> 00:20:13,360
+you learn the good concepts from the
+
+404
+00:20:11,760 --> 00:20:15,679
+beginning. You don't learn the bad
+
+405
+00:20:13,360 --> 00:20:18,160
+concept. For example, let me tell you.
+
+406
+00:20:15,679 --> 00:20:20,720
+So properties you know JavaScript object
+
+407
+00:20:18,160 --> 00:20:23,440
+you got properties. So most people you
+
+408
+00:20:20,720 --> 00:20:28,280
+know you just write uh you know curly
+
+409
+00:20:23,440 --> 00:20:32,080
+braces a colon a value and comma and so
+
+410
+00:20:28,280 --> 00:20:35,360
+on you know property. So property is you
+
+411
+00:20:32,080 --> 00:20:37,120
+know object can have properties. Object
+
+412
+00:20:35,360 --> 00:20:40,960
+by definition is a collection of
+
+413
+00:20:37,120 --> 00:20:43,520
+properties actually plus some internal
+
+414
+00:20:40,960 --> 00:20:46,640
+behavior which is not talked about in
+
+415
+00:20:43,520 --> 00:20:49,120
+the JavaScript specification nor
+
+416
+00:20:46,640 --> 00:20:52,159
+mentioned on the MDM. Okay. So
+
+417
+00:20:49,120 --> 00:20:54,799
+JavaScript object the way the spec
+
+418
+00:20:52,159 --> 00:20:58,039
+define it is a collection of objects.
+
+419
+00:20:54,799 --> 00:21:00,720
+Okay, that's the way JavaScript
+
+420
+00:20:58,039 --> 00:21:04,200
+spec define it. Actually I have a local
+
+421
+00:21:00,720 --> 00:21:09,240
+copy. Uh I don't know if I removed it or
+
+422
+00:21:04,200 --> 00:21:13,280
+not. Uh let's search for uh search for
+
+423
+00:21:09,240 --> 00:21:16,280
+ECMA. Yeah. Uh wait, do I do I still
+
+424
+00:21:13,280 --> 00:21:20,120
+have a copy?
+
+425
+00:21:16,280 --> 00:21:22,360
+Uh yeah, I still have a copy. So, so
+
+426
+00:21:20,120 --> 00:21:23,880
+2011's spec
+
+427
+00:21:22,360 --> 00:21:27,760
+specification.
+
+428
+00:21:23,880 --> 00:21:31,000
+Uh yeah, so I actually took the time to
+
+429
+00:21:27,760 --> 00:21:33,840
+break them apart into several files by
+
+430
+00:21:31,000 --> 00:21:40,320
+chapter. So, you know, I reworked on
+
+431
+00:21:33,840 --> 00:21:42,039
+this. So, this is spec uh ECMA 262 5.1.
+
+432
+00:21:40,320 --> 00:21:45,360
+So, that's
+
+433
+00:21:42,039 --> 00:21:48,640
+2011. So, there's a spec. But anyway, so
+
+434
+00:21:45,360 --> 00:21:52,559
+then then there's 2015 spec, you know.
+
+435
+00:21:48,640 --> 00:21:54,799
+Um, so let's open it. Let's see. Uh,
+
+436
+00:21:52,559 --> 00:21:58,679
+hide show subtopics. Let's see. You
+
+437
+00:21:54,799 --> 00:22:01,520
+know, I actually worked so much on this.
+
+438
+00:21:58,679 --> 00:22:04,799
+Um, you know, so if you read the spec,
+
+439
+00:22:01,520 --> 00:22:08,080
+so let me show you the object. Okay, so
+
+440
+00:22:04,799 --> 00:22:10,240
+object definition, ordinary and exotic
+
+441
+00:22:08,080 --> 00:22:12,880
+object behaviors. Okay, that's like
+
+442
+00:22:10,240 --> 00:22:14,840
+technical detail. standard theoding
+
+443
+00:22:12,880 --> 00:22:18,120
+object, you know, it's like
+
+444
+00:22:14,840 --> 00:22:21,200
+incomprehensible. Okay,
+
+445
+00:22:18,120 --> 00:22:25,960
+so search for global. Okay, global
+
+446
+00:22:21,200 --> 00:22:29,760
+object. Uh let's go to the top. Let's
+
+447
+00:22:25,960 --> 00:22:29,760
+see. Proxy
+
+448
+00:22:30,919 --> 00:22:37,240
+uh operation on abstract operations.
+
+449
+00:22:35,039 --> 00:22:41,120
+Okay.
+
+450
+00:22:37,240 --> 00:22:44,799
+Next operations on iterator objects.
+
+451
+00:22:41,120 --> 00:22:47,600
+Okay. Uh, ordinary and exotic object
+
+452
+00:22:44,799 --> 00:22:50,640
+behaviors. Okay. Let's see. Building
+
+453
+00:22:47,600 --> 00:22:53,240
+function. Let's see. I want to look at
+
+454
+00:22:50,640 --> 00:22:59,200
+the section where they define what is
+
+455
+00:22:53,240 --> 00:22:59,200
+object. Uh, it's not this one. Anyway,
+
+456
+00:22:59,320 --> 00:23:06,480
+so so I have to think about where um
+
+457
+00:23:03,039 --> 00:23:08,720
+it's been a while. JavaScript script
+
+458
+00:23:06,480 --> 00:23:11,840
+basically they define it as a collection
+
+459
+00:23:08,720 --> 00:23:13,000
+of properties. Okay. A property is a key
+
+460
+00:23:11,840 --> 00:23:16,039
+and value
+
+461
+00:23:13,000 --> 00:23:19,120
+pair. Uh and
+
+462
+00:23:16,039 --> 00:23:22,559
+uh okay, but basically that's it. That's
+
+463
+00:23:19,120 --> 00:23:25,039
+how they define JavaScript object. But
+
+464
+00:23:22,559 --> 00:23:27,440
+actually that's not totally correct
+
+465
+00:23:25,039 --> 00:23:32,600
+because JavaScript objects such as
+
+466
+00:23:27,440 --> 00:23:35,200
+function date regular expression or map
+
+467
+00:23:32,600 --> 00:23:38,000
+set they are not just about collection
+
+468
+00:23:35,200 --> 00:23:40,000
+of pairs you know because for example a
+
+469
+00:23:38,000 --> 00:23:43,120
+function you have a function body for
+
+470
+00:23:40,000 --> 00:23:44,720
+array you have well array is kind of
+
+471
+00:23:43,120 --> 00:23:47,679
+collection of pairs because they don't
+
+472
+00:23:44,720 --> 00:23:50,000
+have real array uh then you got regular
+
+473
+00:23:47,679 --> 00:23:53,600
+expression you got a regular expression
+
+474
+00:23:50,000 --> 00:23:56,400
+you know body there and uh date for
+
+475
+00:23:53,600 --> 00:23:58,720
+example you got a date. So a collection
+
+476
+00:23:56,400 --> 00:24:01,039
+of you know JavaScript object is
+
+477
+00:23:58,720 --> 00:24:04,720
+actually just not just collection of key
+
+478
+00:24:01,039 --> 00:24:09,640
+value pairs also known as properties but
+
+479
+00:24:04,720 --> 00:24:13,120
+you got special internal data. Okay.
+
+480
+00:24:09,640 --> 00:24:14,360
+So okay so let's see if I can find the
+
+481
+00:24:13,120 --> 00:24:18,080
+official
+
+482
+00:24:14,360 --> 00:24:22,760
+documentation. Ah god search for OB.
+
+483
+00:24:18,080 --> 00:24:24,679
+Okay there. ECMAS script overview 4.21
+
+484
+00:24:22,760 --> 00:24:27,840
+objects.
+
+485
+00:24:24,679 --> 00:24:30,159
+Uh even though God this you know this is
+
+486
+00:24:27,840 --> 00:24:32,400
+how complicated it looks like. So even
+
+487
+00:24:30,159 --> 00:24:34,640
+though egg script includes syntax for
+
+488
+00:24:32,400 --> 00:24:37,440
+class definitions, eggmas script objects
+
+489
+00:24:34,640 --> 00:24:41,039
+are not fundamentally class-based such
+
+490
+00:24:37,440 --> 00:24:44,240
+as C++, small talk or Java. Instead of
+
+491
+00:24:41,039 --> 00:24:47,120
+instead object may be created in various
+
+492
+00:24:44,240 --> 00:24:50,880
+okay so that's not it. There is a place
+
+493
+00:24:47,120 --> 00:24:55,440
+where it defines um object. Okay there
+
+494
+00:24:50,880 --> 00:24:57,840
+object 4.33 member of the type object.
+
+495
+00:24:55,440 --> 00:25:00,960
+Note an object is a collection of
+
+496
+00:24:57,840 --> 00:25:03,440
+properties that has a single prototype
+
+497
+00:25:00,960 --> 00:25:06,240
+object. Okay, the prototype may be the
+
+498
+00:25:03,440 --> 00:25:09,039
+new value. Okay, so here basically let's
+
+499
+00:25:06,240 --> 00:25:12,640
+see if they have uh you know so anyway.
+
+500
+00:25:09,039 --> 00:25:15,440
+So here is their definition of object.
+
+501
+00:25:12,640 --> 00:25:18,360
+This definition is from the JavaScript
+
+502
+00:25:15,440 --> 00:25:21,440
+specific specification. It's actually
+
+503
+00:25:18,360 --> 00:25:23,400
+incorrect or rather impractical because
+
+504
+00:25:21,440 --> 00:25:26,720
+a function is
+
+505
+00:25:23,400 --> 00:25:30,960
+object and true it is a collection of
+
+506
+00:25:26,720 --> 00:25:33,600
+properties but is rarely used. Okay. And
+
+507
+00:25:30,960 --> 00:25:36,000
+it has a single prototype object meaning
+
+508
+00:25:33,600 --> 00:25:37,960
+it has a parent. You know a function you
+
+509
+00:25:36,000 --> 00:25:39,720
+create is the the parent is
+
+510
+00:25:37,960 --> 00:25:42,480
+function.prototype.
+
+511
+00:25:39,720 --> 00:25:44,799
+Okay. Okay. And the prototype may be
+
+512
+00:25:42,480 --> 00:25:48,559
+new. Okay, that's correct. But however,
+
+513
+00:25:44,799 --> 00:25:50,640
+you fail to say a function is not just a
+
+514
+00:25:48,559 --> 00:25:52,919
+collection of properties and you know it
+
+515
+00:25:50,640 --> 00:25:55,679
+because it has a function
+
+516
+00:25:52,919 --> 00:25:58,240
+body. You fail to say that. Same same
+
+517
+00:25:55,679 --> 00:26:02,799
+thing with regular expression or date
+
+518
+00:25:58,240 --> 00:26:05,440
+object or uh set or you know. So this is
+
+519
+00:26:02,799 --> 00:26:08,720
+actually you know this is what the spec
+
+520
+00:26:05,440 --> 00:26:11,520
+says but is actually not correct you
+
+521
+00:26:08,720 --> 00:26:11,520
+know.
+
+522
+00:26:12,200 --> 00:26:16,960
+So, so this is how I feel. You know,
+
+523
+00:26:15,120 --> 00:26:18,559
+what can you do? You know, you talk to
+
+524
+00:26:16,960 --> 00:26:20,400
+people, they don't they they don't
+
+525
+00:26:18,559 --> 00:26:22,679
+understand, you know, they how can you
+
+526
+00:26:20,400 --> 00:26:25,679
+possibly say the spec is
+
+527
+00:26:22,679 --> 00:26:29,279
+incorrect? But but is it can anyone
+
+528
+00:26:25,679 --> 00:26:32,080
+correct me? Am I incorrect somewhere
+
+529
+00:26:29,279 --> 00:26:34,039
+that this you know the object definition
+
+530
+00:26:32,080 --> 00:26:36,799
+from the spec is
+
+531
+00:26:34,039 --> 00:26:38,480
+incomplete? Okay. But you talk to
+
+532
+00:26:36,799 --> 00:26:40,559
+people, they don't understand. Okay.
+
+533
+00:26:38,480 --> 00:26:42,880
+That's that's kind of the situation of
+
+534
+00:26:40,559 --> 00:26:45,200
+the programming industry. Lots of things
+
+535
+00:26:42,880 --> 00:26:47,760
+you you know you dive deep you tell
+
+536
+00:26:45,200 --> 00:26:49,520
+people and they don't understand they
+
+537
+00:26:47,760 --> 00:26:52,720
+don't care. They they think you are
+
+538
+00:26:49,520 --> 00:26:55,919
+wrong and they don't care you know like
+
+539
+00:26:52,720 --> 00:26:59,960
+but like okay anyway that's about
+
+540
+00:26:55,919 --> 00:27:04,240
+JavaScript object. So where am I?
+
+541
+00:26:59,960 --> 00:27:06,960
+Um so let's go let's get back to so what
+
+542
+00:27:04,240 --> 00:27:11,279
+are we talking about eggmas script scope
+
+543
+00:27:06,960 --> 00:27:15,520
+close uh close so uh de block close so
+
+544
+00:27:11,279 --> 00:27:19,679
+we were going to talk about yeah okay so
+
+545
+00:27:15,520 --> 00:27:22,200
+my dev blog my javascript blog uh and
+
+546
+00:27:19,679 --> 00:27:26,080
+eggmas script new
+
+547
+00:27:22,200 --> 00:27:29,760
+features okay and eggmas script 2025
+
+548
+00:27:26,080 --> 00:27:32,880
+features so you got app array. So, okay.
+
+549
+00:27:29,760 --> 00:27:35,679
+So, actually now let's talk about how
+
+550
+00:27:32,880 --> 00:27:36,919
+these iterators works, shall we? It's
+
+551
+00:27:35,679 --> 00:27:39,440
+already 30
+
+552
+00:27:36,919 --> 00:27:42,400
+minutes. Do we have comments? Do we have
+
+553
+00:27:39,440 --> 00:27:45,080
+people watching? How many? Like 311.
+
+554
+00:27:42,400 --> 00:27:47,679
+Okay, great. Say hi. Okay, comment.
+
+555
+00:27:45,080 --> 00:27:50,320
+Okay. Scott says, "It'll be interesting
+
+556
+00:27:47,679 --> 00:27:53,279
+to compare JavaScript's iterators again
+
+557
+00:27:50,320 --> 00:27:54,960
+against C++ templates iterator
+
+558
+00:27:53,279 --> 00:28:00,080
+paradigm."
+
+559
+00:27:54,960 --> 00:28:04,080
+Uh I know C++ even if rarely used I know
+
+560
+00:28:00,080 --> 00:28:04,080
+uh nothing of JavaScript variant.
+
+561
+00:28:04,600 --> 00:28:11,039
+Okay. Oh okay. Iter. Okay. I cannot do I
+
+562
+00:28:08,640 --> 00:28:13,919
+I mean I know I can explain JavaScript
+
+563
+00:28:11,039 --> 00:28:16,559
+but I don't know nothing about C++
+
+564
+00:28:13,919 --> 00:28:18,720
+first. So I can I can't compare but I
+
+565
+00:28:16,559 --> 00:28:22,399
+can tell you about JavaScript
+
+566
+00:28:18,720 --> 00:28:24,799
+uh iterators. Okay. I think they are
+
+567
+00:28:22,399 --> 00:28:26,640
+slightly different actually because in
+
+568
+00:28:24,799 --> 00:28:28,760
+JavaScript. Okay. So let's talk about
+
+569
+00:28:26,640 --> 00:28:31,039
+iterators.
+
+570
+00:28:28,760 --> 00:28:33,279
+Okay. Okay. So let's talk about
+
+571
+00:28:31,039 --> 00:28:36,320
+iterators. So let me go through my
+
+572
+00:28:33,279 --> 00:28:39,200
+JavaScript in depth and find the proper
+
+573
+00:28:36,320 --> 00:28:41,840
+uh location for iterator iterators
+
+574
+00:28:39,200 --> 00:28:45,120
+because I have an article. Uh so there
+
+575
+00:28:41,840 --> 00:28:48,640
+it is iterable object. Okay. So the most
+
+576
+00:28:45,120 --> 00:28:51,279
+important about so the the the top few
+
+577
+00:28:48,640 --> 00:28:54,159
+concept about iterators in JavaScript is
+
+578
+00:28:51,279 --> 00:28:56,520
+you got iter iterable object okay that's
+
+579
+00:28:54,159 --> 00:28:59,679
+the most important that's the most
+
+580
+00:28:56,520 --> 00:29:02,880
+practical iterators it's more about
+
+581
+00:28:59,679 --> 00:29:05,600
+implementation details okay but the most
+
+582
+00:29:02,880 --> 00:29:07,760
+important thing is iterable object so
+
+583
+00:29:05,600 --> 00:29:10,320
+whenever you see a iterable object that
+
+584
+00:29:07,760 --> 00:29:13,200
+means you can use for loop for for of
+
+585
+00:29:10,320 --> 00:29:16,880
+loop or you can use spread operator or
+
+586
+00:29:13,200 --> 00:29:19,520
+you can use array from on them. So what
+
+587
+00:29:16,880 --> 00:29:21,520
+is iterable object? Iterable object is
+
+588
+00:29:19,520 --> 00:29:23,559
+like array. Okay, it's like a you know
+
+589
+00:29:21,520 --> 00:29:27,520
+just array except
+
+590
+00:29:23,559 --> 00:29:30,720
+that it's not a concrete array. Okay,
+
+591
+00:29:27,520 --> 00:29:35,279
+whenever a object is iterable, it's just
+
+592
+00:29:30,720 --> 00:29:38,399
+like array but every element is computed
+
+593
+00:29:35,279 --> 00:29:41,600
+at a time when you use it. Okay. So
+
+594
+00:29:38,399 --> 00:29:45,039
+that's the basic that's the basic
+
+595
+00:29:41,600 --> 00:29:47,159
+concept of iterable. Okay. In JavaScript
+
+596
+00:29:45,039 --> 00:29:49,760
+you also have that in
+
+597
+00:29:47,159 --> 00:29:53,760
+Python. I don't remember if in Python
+
+598
+00:29:49,760 --> 00:29:56,640
+they call iterable or um uh let let's
+
+599
+00:29:53,760 --> 00:29:59,120
+find out easily because let me digress a
+
+600
+00:29:56,640 --> 00:30:02,399
+little bit quickly find out. Okay. So in
+
+601
+00:29:59,120 --> 00:30:06,039
+Python you got uh okay so jump uh so
+
+602
+00:30:02,399 --> 00:30:06,039
+let's go to Python
+
+603
+00:30:06,440 --> 00:30:11,760
+uh you know I I think all these iterable
+
+604
+00:30:09,600 --> 00:30:14,880
+should be banned okay so but let's talk
+
+605
+00:30:11,760 --> 00:30:17,919
+about that later so in Python you also
+
+606
+00:30:14,880 --> 00:30:20,000
+got um function uh so function string
+
+607
+00:30:17,919 --> 00:30:22,720
+data types arithmetics boolean
+
+608
+00:30:20,000 --> 00:30:26,720
+conditional loop iteration so let's
+
+609
+00:30:22,720 --> 00:30:29,279
+write let's go to iterate the list um
+
+610
+00:30:26,720 --> 00:30:31,360
+innumerable uh enumerate Okay, very
+
+611
+00:30:29,279 --> 00:30:34,080
+confusing. You got you know iterable,
+
+612
+00:30:31,360 --> 00:30:37,200
+innumera, innumerable, all these jarens
+
+613
+00:30:34,080 --> 00:30:39,600
+each each language their definition
+
+614
+00:30:37,200 --> 00:30:43,840
+slightly different uh in each language.
+
+615
+00:30:39,600 --> 00:30:43,840
+Okay. So let's see
+
+616
+00:30:44,279 --> 00:30:50,880
+uh so I what I want to know is in Python
+
+617
+00:30:48,320 --> 00:30:53,919
+what is the name what is the equivalent
+
+618
+00:30:50,880 --> 00:30:57,120
+to JavaScript iterable. So if you guys
+
+619
+00:30:53,919 --> 00:30:58,679
+know say it. Okay, I know it. I have it
+
+620
+00:30:57,120 --> 00:31:01,679
+here
+
+621
+00:30:58,679 --> 00:31:01,679
+somewhere.
+
+622
+00:31:03,000 --> 00:31:08,240
+Uh okay. In JavaScript they are called
+
+623
+00:31:05,760 --> 00:31:10,760
+iterator. Okay. Officially okay. So
+
+624
+00:31:08,240 --> 00:31:14,360
+iterator in in in Python. Okay. In
+
+625
+00:31:10,760 --> 00:31:17,679
+iterator in Python is analogous to
+
+626
+00:31:14,360 --> 00:31:19,520
+JavaScript iterable. Okay. You know so
+
+627
+00:31:17,679 --> 00:31:21,200
+we getting into details. So in
+
+628
+00:31:19,520 --> 00:31:23,120
+JavaScript iterable is the most
+
+629
+00:31:21,200 --> 00:31:26,080
+important concept. basically it's mean
+
+630
+00:31:23,120 --> 00:31:28,520
+it basically just means infinite you
+
+631
+00:31:26,080 --> 00:31:32,760
+know it's like array but not
+
+632
+00:31:28,520 --> 00:31:36,640
+concrete okay so that's iterable in
+
+633
+00:31:32,760 --> 00:31:40,880
+JavaScript this is the thing you use you
+
+634
+00:31:36,640 --> 00:31:43,840
+know the the most important now so in
+
+635
+00:31:40,880 --> 00:31:46,159
+JavaScript they added a for loop which
+
+636
+00:31:43,840 --> 00:31:48,960
+is different from for loop okay so the
+
+637
+00:31:46,159 --> 00:31:50,960
+for loop is entirely different from for
+
+638
+00:31:48,960 --> 00:31:52,559
+loop because of the baggage you know to
+
+639
+00:31:50,960 --> 00:31:56,559
+the JavaScript
+
+640
+00:31:52,559 --> 00:31:58,760
+um fall in loop. Okay. So anyway, so
+
+641
+00:31:56,559 --> 00:32:02,000
+when you have a
+
+642
+00:31:58,760 --> 00:32:04,559
+iterable you can use for of loop to go
+
+643
+00:32:02,000 --> 00:32:07,960
+through it or you can use spread
+
+644
+00:32:04,559 --> 00:32:11,279
+operator which you know which make
+
+645
+00:32:07,960 --> 00:32:14,159
+it which which turns it into a array
+
+646
+00:32:11,279 --> 00:32:16,799
+basically. Okay. Or you can use array
+
+647
+00:32:14,159 --> 00:32:18,480
+from okay so I you know array from is
+
+648
+00:32:16,799 --> 00:32:21,519
+somewhere else array from turns the
+
+649
+00:32:18,480 --> 00:32:24,320
+iterable into a concrete array. Okay.
+
+650
+00:32:21,519 --> 00:32:26,640
+But if your in if if the iterable has
+
+651
+00:32:24,320 --> 00:32:27,799
+infinite items, that's one of the
+
+652
+00:32:26,640 --> 00:32:32,200
+feature of
+
+653
+00:32:27,799 --> 00:32:36,240
+iterable. Then then if you try to use
+
+654
+00:32:32,200 --> 00:32:38,559
+uh you know a spread operator of array
+
+655
+00:32:36,240 --> 00:32:40,440
+form then you got your crash you get
+
+656
+00:32:38,559 --> 00:32:42,720
+into infinite
+
+657
+00:32:40,440 --> 00:32:44,399
+recursion infinite loop. So you know
+
+658
+00:32:42,720 --> 00:32:47,600
+that's one of the bad things. So I don't
+
+659
+00:32:44,399 --> 00:32:49,600
+think you know I I I I think iterable or
+
+660
+00:32:47,600 --> 00:32:51,960
+iterator should be banned. Okay. So
+
+661
+00:32:49,600 --> 00:32:55,440
+anyway in JavaScript you got iterable.
+
+662
+00:32:51,960 --> 00:32:58,159
+Okay then you got a iterator. So why do
+
+663
+00:32:55,440 --> 00:33:01,360
+you have a iterator? So iterator
+
+664
+00:32:58,159 --> 00:33:04,960
+basically iterator is very complicated.
+
+665
+00:33:01,360 --> 00:33:08,360
+Okay iterator is there because in order
+
+666
+00:33:04,960 --> 00:33:12,720
+to implement the iterable
+
+667
+00:33:08,360 --> 00:33:16,000
+concept that's how the iterator thing is
+
+668
+00:33:12,720 --> 00:33:18,960
+created. Okay.
+
+669
+00:33:16,000 --> 00:33:21,799
+Now I will go to into tech technical
+
+670
+00:33:18,960 --> 00:33:24,399
+definitions in a
+
+671
+00:33:21,799 --> 00:33:26,480
+bit but if I do that it's very
+
+672
+00:33:24,399 --> 00:33:29,360
+complicated. Okay. So if you are very
+
+673
+00:33:26,480 --> 00:33:31,600
+advanced JavaScript programmers then you
+
+674
+00:33:29,360 --> 00:33:35,519
+want to know but but let's skip it for
+
+675
+00:33:31,600 --> 00:33:40,080
+now. Okay. So just know that iterator is
+
+676
+00:33:35,519 --> 00:33:44,039
+the underlying mechanism to make to make
+
+677
+00:33:40,080 --> 00:33:47,760
+the iterable concept work in JavaScript.
+
+678
+00:33:44,039 --> 00:33:50,559
+Okay. That's iterator. Then you got the
+
+679
+00:33:47,760 --> 00:33:52,720
+generator. Okay, so what is a generator?
+
+680
+00:33:50,559 --> 00:33:56,320
+Generator, the definition of generator
+
+681
+00:33:52,720 --> 00:34:00,559
+in JavaScript is that an object that's
+
+682
+00:33:56,320 --> 00:34:03,039
+both iterable and also iterator. Okay,
+
+683
+00:34:00,559 --> 00:34:05,039
+very complicated. You don't have to know
+
+684
+00:34:03,039 --> 00:34:08,879
+the details, but anyway, that's what it
+
+685
+00:34:05,039 --> 00:34:12,399
+is. So when your object is both iterable
+
+686
+00:34:08,879 --> 00:34:15,240
+object and is also an iterator, that
+
+687
+00:34:12,399 --> 00:34:18,240
+object is called generator.
+
+688
+00:34:15,240 --> 00:34:20,679
+Okay, this is why JavaScript sucks like
+
+689
+00:34:18,240 --> 00:34:23,599
+tremendous
+
+690
+00:34:20,679 --> 00:34:25,679
+tremendously. Then you got iterator gen
+
+691
+00:34:23,599 --> 00:34:27,359
+then you got generator function. So what
+
+692
+00:34:25,679 --> 00:34:29,760
+is generator function? Generator
+
+693
+00:34:27,359 --> 00:34:34,240
+function is a function basically it lets
+
+694
+00:34:29,760 --> 00:34:37,639
+you write generators. Okay. So because
+
+695
+00:34:34,240 --> 00:34:40,480
+if you want to write a
+
+696
+00:34:37,639 --> 00:34:41,480
+iterable manually it's very difficult.
+
+697
+00:34:40,480 --> 00:34:45,280
+You have
+
+698
+00:34:41,480 --> 00:34:47,679
+to anyway you you you have to create a
+
+699
+00:34:45,280 --> 00:34:52,200
+iterator and you in order to create an
+
+700
+00:34:47,679 --> 00:34:56,079
+iterator is like huge very
+
+701
+00:34:52,200 --> 00:34:58,240
+complicated and usually it something you
+
+702
+00:34:56,079 --> 00:35:00,160
+want something to be both iterable and
+
+703
+00:34:58,240 --> 00:35:02,560
+iterator. Why? Because it's just
+
+704
+00:35:00,160 --> 00:35:06,119
+JavaScript [ __ ] Okay, it's just
+
+705
+00:35:02,560 --> 00:35:09,680
+JavaScript [ __ ] for no other reason.
+
+706
+00:35:06,119 --> 00:35:12,720
+So, so usually you want a object to be
+
+707
+00:35:09,680 --> 00:35:15,839
+both iterable and iterator and that
+
+708
+00:35:12,720 --> 00:35:18,000
+thing is called generator. Okay, but
+
+709
+00:35:15,839 --> 00:35:19,680
+again you cannot just write it. You can
+
+710
+00:35:18,000 --> 00:35:22,880
+you you know you could you could write
+
+711
+00:35:19,680 --> 00:35:26,400
+it manually but very complicated. So you
+
+712
+00:35:22,880 --> 00:35:28,960
+have this new generator function you
+
+713
+00:35:26,400 --> 00:35:31,280
+know you just add a asterisk it allows
+
+714
+00:35:28,960 --> 00:35:34,640
+you to create
+
+715
+00:35:31,280 --> 00:35:38,200
+uh generator objects you know uh which
+
+716
+00:35:34,640 --> 00:35:40,960
+means it's iterable. Okay and also
+
+717
+00:35:38,200 --> 00:35:42,960
+iterator. Okay so that's that's the
+
+718
+00:35:40,960 --> 00:35:44,800
+basics. Okay. So that's that's the
+
+719
+00:35:42,960 --> 00:35:47,680
+basics. So iterable is the most
+
+720
+00:35:44,800 --> 00:35:51,680
+important you use every day. But then
+
+721
+00:35:47,680 --> 00:35:53,000
+the iterators and generators and uh you
+
+722
+00:35:51,680 --> 00:35:55,839
+know
+
+723
+00:35:53,000 --> 00:35:58,079
+iterator is a mechanism to create
+
+724
+00:35:55,839 --> 00:36:00,800
+iterable. Then you have generator means
+
+725
+00:35:58,079 --> 00:36:03,119
+it's both iterable and iterator. Then
+
+726
+00:36:00,800 --> 00:36:05,440
+you have generator function which lets
+
+727
+00:36:03,119 --> 00:36:10,320
+you create generators. Okay, that's how
+
+728
+00:36:05,440 --> 00:36:11,920
+it works. Now but how exactly it works?
+
+729
+00:36:10,320 --> 00:36:14,280
+Then you have to go to so-called
+
+730
+00:36:11,920 --> 00:36:17,520
+interface.
+
+731
+00:36:14,280 --> 00:36:21,280
+Okay. So in short, in order to create a
+
+732
+00:36:17,520 --> 00:36:23,920
+iterable, what does itable mean? Well,
+
+733
+00:36:21,280 --> 00:36:26,920
+if a object is a iterable, that just
+
+734
+00:36:23,920 --> 00:36:29,560
+means it has this property
+
+735
+00:36:26,920 --> 00:36:31,119
+symbol. Okay. Now, what is
+
+736
+00:36:29,560 --> 00:36:34,640
+symboliterator? That's another
+
+737
+00:36:31,119 --> 00:36:38,079
+complicated thing. Basically, that's uh
+
+738
+00:36:34,640 --> 00:36:41,200
+basically that's a random ID created on
+
+739
+00:36:38,079 --> 00:36:45,760
+the fly, but you can never see it. Okay,
+
+740
+00:36:41,200 --> 00:36:49,119
+but anyway. So for object to be iterable
+
+741
+00:36:45,760 --> 00:36:51,200
+all it takes it is is to conform
+
+742
+00:36:49,119 --> 00:36:53,680
+so-called conform to the iterable
+
+743
+00:36:51,200 --> 00:36:56,440
+interface. So what does it mean? It just
+
+744
+00:36:53,680 --> 00:36:58,599
+means you have the object must have a
+
+745
+00:36:56,440 --> 00:37:02,000
+property named
+
+746
+00:36:58,599 --> 00:37:04,160
+symbol. Okay you you can't see the value
+
+747
+00:37:02,000 --> 00:37:07,280
+of that property but but anyway that's
+
+748
+00:37:04,160 --> 00:37:10,800
+the value of this property s symbol.
+
+749
+00:37:07,280 --> 00:37:12,960
+Okay so you need to have that property.
+
+750
+00:37:10,800 --> 00:37:14,960
+then there's some special requirement
+
+751
+00:37:12,960 --> 00:37:15,800
+for that property. Okay, the value of
+
+752
+00:37:14,960 --> 00:37:18,800
+that
+
+753
+00:37:15,800 --> 00:37:21,520
+property must be a function. Okay, and
+
+754
+00:37:18,800 --> 00:37:24,960
+that function's return value must
+
+755
+00:37:21,520 --> 00:37:28,480
+conform to the iterator interface. Okay,
+
+756
+00:37:24,960 --> 00:37:31,079
+which means it's a object that has a
+
+757
+00:37:28,480 --> 00:37:34,800
+property of a string property next.
+
+758
+00:37:31,079 --> 00:37:36,720
+Okay, so so anyway, so so that's how it
+
+759
+00:37:34,800 --> 00:37:39,040
+works. That's that's the definition. If
+
+760
+00:37:36,720 --> 00:37:42,000
+you want to implement iterable or
+
+761
+00:37:39,040 --> 00:37:44,880
+iterator that's that's what it means. So
+
+762
+00:37:42,000 --> 00:37:47,760
+you got this interface okay so-called
+
+763
+00:37:44,880 --> 00:37:50,960
+interface in JavaScript that's another
+
+764
+00:37:47,760 --> 00:37:54,640
+very complic complicated thing. Now if
+
+765
+00:37:50,960 --> 00:37:56,800
+you go to Mosilla like we talked about
+
+766
+00:37:54,640 --> 00:37:58,560
+you know the Mosilla you know you know
+
+767
+00:37:56,800 --> 00:38:00,800
+the Mozilla you are familiar with they
+
+768
+00:37:58,560 --> 00:38:04,000
+they don't say interface they actually
+
+769
+00:38:00,800 --> 00:38:07,680
+call it protocol. So they say you know
+
+770
+00:38:04,000 --> 00:38:11,280
+for something to be a um iterable it
+
+771
+00:38:07,680 --> 00:38:15,119
+must conform to the iterable protocol.
+
+772
+00:38:11,280 --> 00:38:18,079
+Okay for something to be uh iterator it
+
+773
+00:38:15,119 --> 00:38:20,480
+must conform to the iterator protocol.
+
+774
+00:38:18,079 --> 00:38:23,040
+They don't use the word interface but I
+
+775
+00:38:20,480 --> 00:38:26,000
+looked up you know according to the
+
+776
+00:38:23,040 --> 00:38:28,560
+ECMAS script specification it's not
+
+777
+00:38:26,000 --> 00:38:30,640
+called interface it's called it's not
+
+778
+00:38:28,560 --> 00:38:33,200
+called protocol it's called interface.
+
+779
+00:38:30,640 --> 00:38:37,760
+Okay, that's another very complex
+
+780
+00:38:33,200 --> 00:38:40,800
+JavaScript [ __ ] involving the technical
+
+781
+00:38:37,760 --> 00:38:43,680
+matters also involving social issues,
+
+782
+00:38:40,800 --> 00:38:48,040
+you know. So, here is the JavaScript
+
+783
+00:38:43,680 --> 00:38:53,240
+ECMAS script specification for
+
+784
+00:38:48,040 --> 00:38:57,599
+um for 2025. Okay, so wait, this is
+
+785
+00:38:53,240 --> 00:39:02,079
+2024. But anyway, two uh 2024 because
+
+786
+00:38:57,599 --> 00:39:05,760
+2025 is not out yet. You see, so it says
+
+787
+00:39:02,079 --> 00:39:07,079
+the section it says iteration common
+
+788
+00:39:05,760 --> 00:39:10,480
+iteration
+
+789
+00:39:07,079 --> 00:39:13,280
+interfaces. Okay, the iterable interface
+
+790
+00:39:10,480 --> 00:39:15,880
+you see. So the iterable interface
+
+791
+00:39:13,280 --> 00:39:18,720
+includes the property described in table
+
+792
+00:39:15,880 --> 00:39:21,839
+77. Okay, so you know you got this. So
+
+793
+00:39:18,720 --> 00:39:24,839
+you got the you got the iterable
+
+794
+00:39:21,839 --> 00:39:24,839
+interface
+
+795
+00:39:24,920 --> 00:39:31,280
+uh which must have the symbol iterator
+
+796
+00:39:28,400 --> 00:39:34,320
+which they use this notation add add at
+
+797
+00:39:31,280 --> 00:39:36,880
+okay then you got iterator interface
+
+798
+00:39:34,320 --> 00:39:39,119
+then it must have the next string
+
+799
+00:39:36,880 --> 00:39:41,200
+property next and the value of that
+
+800
+00:39:39,119 --> 00:39:44,720
+property must be a function and that
+
+801
+00:39:41,200 --> 00:39:47,440
+function must conform to the iterator
+
+802
+00:39:44,720 --> 00:39:48,640
+result interface. Okay. But anyway, here
+
+803
+00:39:47,440 --> 00:39:51,280
+the point is that they call it
+
+804
+00:39:48,640 --> 00:39:54,000
+interface. But if you look at the
+
+805
+00:39:51,280 --> 00:39:54,000
+Mozilla
+
+806
+00:39:57,400 --> 00:40:02,760
+documentation, iterable, okay,
+
+807
+00:39:59,720 --> 00:40:06,000
+JavaScript iterable
+
+808
+00:40:02,760 --> 00:40:09,119
+uh just search for that. Okay, Mozilla.
+
+809
+00:40:06,000 --> 00:40:12,560
+You see they call it protocols, the
+
+810
+00:40:09,119 --> 00:40:15,040
+iteration protocol. Okay. So, so let me
+
+811
+00:40:12,560 --> 00:40:17,440
+tell you the details about this te
+
+812
+00:40:15,040 --> 00:40:21,040
+terminology and jarens which is a
+
+813
+00:40:17,440 --> 00:40:24,240
+complete science in programming. Okay.
+
+814
+00:40:21,040 --> 00:40:26,960
+So, you got two you know you you the
+
+815
+00:40:24,240 --> 00:40:29,359
+same concept the Mozilla documentation
+
+816
+00:40:26,960 --> 00:40:32,400
+call them protocols but the
+
+817
+00:40:29,359 --> 00:40:34,400
+specification call them interface. So
+
+818
+00:40:32,400 --> 00:40:38,480
+what's the situation? What's the deal?
+
+819
+00:40:34,400 --> 00:40:41,000
+Okay. So if you think about it, you see
+
+820
+00:40:38,480 --> 00:40:44,040
+the protocol is actually a better
+
+821
+00:40:41,000 --> 00:40:47,599
+terminology in the context of
+
+822
+00:40:44,040 --> 00:40:49,839
+JavaScript because in the spec in the in
+
+823
+00:40:47,599 --> 00:40:51,720
+the JavaScript spec they say interface
+
+824
+00:40:49,839 --> 00:40:55,720
+but interface is
+
+825
+00:40:51,720 --> 00:40:58,880
+actually because interface in common
+
+826
+00:40:55,720 --> 00:40:59,880
+understanding in particular particularly
+
+827
+00:40:58,880 --> 00:41:03,839
+in
+
+828
+00:40:59,880 --> 00:41:06,640
+Java Java and Goland they have a special
+
+829
+00:41:03,839 --> 00:41:10,640
+meaning usually they mean the functions
+
+830
+00:41:06,640 --> 00:41:13,040
+like the functions um so-cal signature
+
+831
+00:41:10,640 --> 00:41:16,520
+okay what kind of parameters are
+
+832
+00:41:13,040 --> 00:41:20,240
+required for the function that's called
+
+833
+00:41:16,520 --> 00:41:22,880
+interface often known as you know API
+
+834
+00:41:20,240 --> 00:41:24,800
+application programming interface so
+
+835
+00:41:22,880 --> 00:41:28,200
+when you use a function all you need to
+
+836
+00:41:24,800 --> 00:41:31,280
+know is what kind of parameters it
+
+837
+00:41:28,200 --> 00:41:33,920
+needs and what kind of things it return
+
+838
+00:41:31,280 --> 00:41:36,319
+okay that's called API interface That's
+
+839
+00:41:33,920 --> 00:41:38,560
+a common understanding of the term
+
+840
+00:41:36,319 --> 00:41:42,119
+interface in programming languages
+
+841
+00:41:38,560 --> 00:41:44,720
+especially in Java and Golan I know of
+
+842
+00:41:42,119 --> 00:41:48,640
+okay like they are defined technically
+
+843
+00:41:44,720 --> 00:41:51,160
+also in Typescript TypeScript Golan Java
+
+844
+00:41:48,640 --> 00:41:53,359
+that's a you know interface but in
+
+845
+00:41:51,160 --> 00:41:55,760
+JavaScript interface you know the
+
+846
+00:41:53,359 --> 00:41:59,280
+JavaScript spec their use of interface
+
+847
+00:41:55,760 --> 00:42:01,920
+is not that okay their interface means
+
+848
+00:41:59,280 --> 00:42:03,680
+the object must have a property certain
+
+849
+00:42:01,920 --> 00:42:06,480
+certain properties properties and the
+
+850
+00:42:03,680 --> 00:42:09,599
+properties value must be something.
+
+851
+00:42:06,480 --> 00:42:12,560
+Okay, that's a you know, so it does not
+
+852
+00:42:09,599 --> 00:42:16,079
+mean uh functions parameters and their
+
+853
+00:42:12,560 --> 00:42:18,000
+types. Okay, so that's but however
+
+854
+00:42:16,079 --> 00:42:22,440
+that's what you know that's what the
+
+855
+00:42:18,000 --> 00:42:25,760
+JavaScript spec uses the word
+
+856
+00:42:22,440 --> 00:42:27,200
+interface. So that is why in Mozilla
+
+857
+00:42:25,760 --> 00:42:29,040
+documentation they don't call it
+
+858
+00:42:27,200 --> 00:42:31,640
+interface they just say protocol. Why?
+
+859
+00:42:29,040 --> 00:42:34,720
+Because protocol is actually more
+
+860
+00:42:31,640 --> 00:42:37,920
+practical better term for JavaScript
+
+861
+00:42:34,720 --> 00:42:40,319
+because if you say interface they get
+
+862
+00:42:37,920 --> 00:42:42,800
+people get confused you know that's not
+
+863
+00:42:40,319 --> 00:42:45,440
+interface in Java in Golan in other
+
+864
+00:42:42,800 --> 00:42:48,680
+languages you know so they say protocol
+
+865
+00:42:45,440 --> 00:42:51,040
+protocol is kind of make making more
+
+866
+00:42:48,680 --> 00:42:53,640
+sense people might think of you know
+
+867
+00:42:51,040 --> 00:42:56,119
+HTTP protocol email protocol but anyway
+
+868
+00:42:53,640 --> 00:42:59,040
+protocol just means a kind of
+
+869
+00:42:56,119 --> 00:43:03,800
+specification makes better sense Okay.
+
+870
+00:42:59,040 --> 00:43:06,240
+So, Mosilla choose to use the word
+
+871
+00:43:03,800 --> 00:43:09,520
+protocol. So, there's, you know, there's
+
+872
+00:43:06,240 --> 00:43:12,000
+advantages and disadvantages. For one
+
+873
+00:43:09,520 --> 00:43:13,920
+thing, it's just incorrect. Okay.
+
+874
+00:43:12,000 --> 00:43:15,920
+Mozilla documentation, but you you
+
+875
+00:43:13,920 --> 00:43:19,760
+[ __ ] [ __ ] incorrect. That's what the
+
+876
+00:43:15,920 --> 00:43:22,000
+that's not what the spec says, you know.
+
+877
+00:43:19,760 --> 00:43:26,079
+So, they choose the word protocol
+
+878
+00:43:22,000 --> 00:43:28,480
+technically incorrect. Okay.
+
+879
+00:43:26,079 --> 00:43:30,640
+But however there's good reasons because
+
+880
+00:43:28,480 --> 00:43:32,960
+protocol is actually better understood
+
+881
+00:43:30,640 --> 00:43:36,160
+you know because then then you can say
+
+882
+00:43:32,960 --> 00:43:39,599
+the JavaScript the idiocy you know the
+
+883
+00:43:36,160 --> 00:43:41,000
+complete idiocy the JavaScript committee
+
+884
+00:43:39,599 --> 00:43:44,000
+the the
+
+885
+00:43:41,000 --> 00:43:46,720
+T3639 standard you know like right now
+
+886
+00:43:44,000 --> 00:43:49,119
+they have a comm committee T39 that's
+
+887
+00:43:46,720 --> 00:43:52,640
+called okay
+
+888
+00:43:49,119 --> 00:43:54,280
+uh like 36 or 39 let's say you know
+
+889
+00:43:52,640 --> 00:43:58,000
+there it is
+
+890
+00:43:54,280 --> 00:43:58,000
+TC39 ECMA uh
+
+891
+00:43:58,359 --> 00:44:05,560
+TC39 that's a committee that that tell
+
+892
+00:44:01,359 --> 00:44:09,400
+us what to do about JavaScript today.
+
+893
+00:44:05,560 --> 00:44:12,960
+Okay. So TC39 ECMA
+
+894
+00:44:09,400 --> 00:44:15,599
+262. So but this committee so the
+
+895
+00:44:12,960 --> 00:44:17,480
+question is why did this JavaScript
+
+896
+00:44:15,599 --> 00:44:20,240
+committee
+
+897
+00:44:17,480 --> 00:44:23,560
+idiots why did they use the interface
+
+898
+00:44:20,240 --> 00:44:26,000
+word when protocol is actually more
+
+899
+00:44:23,560 --> 00:44:28,680
+appropriate you know then that's another
+
+900
+00:44:26,000 --> 00:44:32,880
+thing to dig into
+
+901
+00:44:28,680 --> 00:44:34,040
+like so why is that I think um I think
+
+902
+00:44:32,880 --> 00:44:36,560
+actually
+
+903
+00:44:34,040 --> 00:44:38,720
+protocol I think that in a spec they
+
+904
+00:44:36,560 --> 00:44:41,760
+might already use the word protocol
+
+905
+00:44:38,720 --> 00:44:43,960
+let's let's search Okay. So that's when
+
+906
+00:44:41,760 --> 00:44:49,359
+my
+
+907
+00:44:43,960 --> 00:44:54,960
+um my uh you know my my local copy of
+
+908
+00:44:49,359 --> 00:44:57,440
+the JavaScript spec uh comes to use. So
+
+909
+00:44:54,960 --> 00:45:01,280
+search for protocol
+
+910
+00:44:57,440 --> 00:45:01,280
+uh is it C or
+
+911
+00:45:01,400 --> 00:45:08,480
+CA C. Okay. So let's search for it.
+
+912
+00:45:05,280 --> 00:45:10,319
+Let's see we'll find okay. So okay I
+
+913
+00:45:08,480 --> 00:45:14,160
+don't you know I cannot search here
+
+914
+00:45:10,319 --> 00:45:16,040
+because by default I made it to not to
+
+915
+00:45:14,160 --> 00:45:21,160
+ignore this
+
+916
+00:45:16,040 --> 00:45:25,319
+directory. Uh so let's go to uh my go
+
+917
+00:45:21,160 --> 00:45:29,119
+script. Okay search for protocol
+
+918
+00:45:25,319 --> 00:45:31,960
+and limit it to this directory. Copy the
+
+919
+00:45:29,119 --> 00:45:35,040
+directory. Okay.
+
+920
+00:45:31,960 --> 00:45:39,240
+Uh okay. Search for the word protocol
+
+921
+00:45:35,040 --> 00:45:43,599
+and uh limit it to this
+
+922
+00:45:39,240 --> 00:45:43,599
+directory. Copy and
+
+923
+00:45:44,359 --> 00:45:51,280
+uh okay so this is in Goland and if you
+
+924
+00:45:48,960 --> 00:45:54,319
+are curious about this Goland script you
+
+925
+00:45:51,280 --> 00:45:56,920
+can get it and for your own use find
+
+926
+00:45:54,319 --> 00:46:00,599
+stream uh in your
+
+927
+00:45:56,920 --> 00:46:07,000
+directory. Okay now run
+
+928
+00:46:00,599 --> 00:46:10,280
+it. Uh done. Uh so well okay so in
+
+929
+00:46:07,000 --> 00:46:14,200
+JavaScript specification
+
+930
+00:46:10,280 --> 00:46:17,040
+2025 they did not use the word
+
+931
+00:46:14,200 --> 00:46:19,240
+protocol. Okay double check. Did I use
+
+932
+00:46:17,040 --> 00:46:22,000
+the spe did I
+
+933
+00:46:19,240 --> 00:46:25,839
+uh Okay. So they did not use the word
+
+934
+00:46:22,000 --> 00:46:28,720
+protocol. Uh let's try something. Um
+
+935
+00:46:25,839 --> 00:46:29,640
+let's try something else to make sure my
+
+936
+00:46:28,720 --> 00:46:33,599
+script
+
+937
+00:46:29,640 --> 00:46:36,599
+works. Uh wait. Oh [ __ ] I have ignored
+
+938
+00:46:33,599 --> 00:46:40,040
+I have it ignored. So let's try
+
+939
+00:46:36,599 --> 00:46:45,400
+again. Oh, there it is.
+
+940
+00:46:40,040 --> 00:46:50,520
+So make it fine mod. So there it is.
+
+941
+00:46:45,400 --> 00:46:53,680
+So So indeed they use the word
+
+942
+00:46:50,520 --> 00:46:56,480
+protocol. Okay. Uni code format control
+
+943
+00:46:53,680 --> 00:47:00,880
+characters highle protocols. Okay. That
+
+944
+00:46:56,480 --> 00:47:04,599
+that is irrelevant. Let's go here. Open
+
+945
+00:47:00,880 --> 00:47:08,160
+function definition search for
+
+946
+00:47:04,599 --> 00:47:11,440
+protocol. Okay, so they do use the word
+
+947
+00:47:08,160 --> 00:47:14,520
+protocol. So note the next step throws a
+
+948
+00:47:11,440 --> 00:47:18,960
+type error to indicate that there was a
+
+949
+00:47:14,520 --> 00:47:20,960
+yield star protocol violation. Okay, so
+
+950
+00:47:18,960 --> 00:47:24,640
+in JavaScript spec they do use the
+
+951
+00:47:20,960 --> 00:47:27,119
+protocol. So maybe that's that is why
+
+952
+00:47:24,640 --> 00:47:29,800
+uh you know for the iterators they use
+
+953
+00:47:27,119 --> 00:47:32,400
+the word interface instead.
+
+954
+00:47:29,800 --> 00:47:34,920
+Okay, that's some technical detail.
+
+955
+00:47:32,400 --> 00:47:37,760
+Hello, F Hank. Ching Ching. Thank you,
+
+956
+00:47:34,920 --> 00:47:41,520
+Hank. Are you going to try a Fedora
+
+957
+00:47:37,760 --> 00:47:41,520
+atomic desktop? Not
+
+958
+00:47:41,880 --> 00:47:46,079
+likely. I, you know, first of all, I
+
+959
+00:47:44,240 --> 00:47:50,000
+need to switch to Linux, which is
+
+960
+00:47:46,079 --> 00:47:52,800
+anytime, any day soon. But I'm likely
+
+961
+00:47:50,000 --> 00:47:56,720
+uh I'm more likely to switch to the Mac
+
+962
+00:47:52,800 --> 00:47:59,160
+because Windows is like suck suck, you
+
+963
+00:47:56,720 --> 00:48:02,040
+know, sucks donkey
+
+964
+00:47:59,160 --> 00:48:05,280
+ass. Um
+
+965
+00:48:02,040 --> 00:48:08,000
+but I'm likely more likely to switch to
+
+966
+00:48:05,280 --> 00:48:10,480
+the Mac which involves you know changing
+
+967
+00:48:08,000 --> 00:48:15,280
+you know you know switching my disc uh
+
+968
+00:48:10,480 --> 00:48:17,920
+moving my files like me tedious but yeah
+
+969
+00:48:15,280 --> 00:48:19,599
+so what is atomic desktop find a fedora
+
+970
+00:48:17,920 --> 00:48:22,800
+atomic desktop to enhance your
+
+971
+00:48:19,599 --> 00:48:25,520
+experience you can find um the latest
+
+972
+00:48:22,800 --> 00:48:28,480
+version atomic desktop for fedora so
+
+973
+00:48:25,520 --> 00:48:31,480
+what does atomic signify does it mean
+
+974
+00:48:28,480 --> 00:48:34,079
+anything special or is just like a
+
+975
+00:48:31,480 --> 00:48:36,640
+jargon. Okay, you can you can tell me
+
+976
+00:48:34,079 --> 00:48:38,640
+about it. Yeah, I don't know.
+
+977
+00:48:36,640 --> 00:48:41,200
+So Scott says shouldn't be surprised you
+
+978
+00:48:38,640 --> 00:48:45,559
+that this is more of typical C++
+
+979
+00:48:41,200 --> 00:48:49,599
+reference guide readability.
+
+980
+00:48:45,559 --> 00:48:52,800
+Oh more of that typical okay so this is
+
+981
+00:48:49,599 --> 00:48:55,440
+okay so sky is saying that
+
+982
+00:48:52,800 --> 00:48:59,000
+um that is kind of more niche
+
+983
+00:48:55,440 --> 00:49:00,839
+documentation on the C++
+
+984
+00:48:59,000 --> 00:49:06,119
+templates. Okay.
+
+985
+00:49:00,839 --> 00:49:08,800
+So, so do we have um I think we kind of
+
+986
+00:49:06,119 --> 00:49:12,480
+covered we kind we kind of covered what
+
+987
+00:49:08,800 --> 00:49:17,040
+you know the iterator thing. So last 10
+
+988
+00:49:12,480 --> 00:49:20,599
+minutes is about this um this jargon
+
+989
+00:49:17,040 --> 00:49:23,559
+terminology issue protocol versus
+
+990
+00:49:20,599 --> 00:49:26,160
+interface. Why am I concerned?
+
+991
+00:49:23,559 --> 00:49:27,559
+Because first of all I'm writing my own
+
+992
+00:49:26,160 --> 00:49:31,920
+tutorial you
+
+993
+00:49:27,559 --> 00:49:36,880
+see and I claim my tutorial is better
+
+994
+00:49:31,920 --> 00:49:39,599
+than Mozilla so and more correct so so
+
+995
+00:49:36,880 --> 00:49:43,200
+that's the reason I have to be concerned
+
+996
+00:49:39,599 --> 00:49:47,240
+about which jargon am I to going to use
+
+997
+00:49:43,200 --> 00:49:50,720
+am I going to stick with the um the
+
+998
+00:49:47,240 --> 00:49:53,200
+spec you know coding interface or do I
+
+999
+00:49:50,720 --> 00:49:56,480
+like just use Mosilla
+
+1000
+00:49:53,200 --> 00:49:59,000
+you know so for that question actually
+
+1001
+00:49:56,480 --> 00:50:02,720
+Mosilla is better okay I should use
+
+1002
+00:49:59,000 --> 00:50:04,960
+protocol instead of interface because
+
+1003
+00:50:02,720 --> 00:50:07,440
+interface is just confusing that's not
+
+1004
+00:50:04,960 --> 00:50:09,760
+what you know that's what not typically
+
+1005
+00:50:07,440 --> 00:50:13,040
+programming understanding means it's not
+
+1006
+00:50:09,760 --> 00:50:17,920
+an interface okay but for now I'm
+
+1007
+00:50:13,040 --> 00:50:19,640
+choosing to stick with um the spec why
+
+1008
+00:50:17,920 --> 00:50:22,319
+because just to
+
+1009
+00:50:19,640 --> 00:50:25,200
+differentiate my tutorial
+
+1010
+00:50:22,319 --> 00:50:27,680
+from the Mozilla or the common you know
+
+1011
+00:50:25,200 --> 00:50:29,680
+the common zoomers you know the elite
+
+1012
+00:50:27,680 --> 00:50:31,640
+hackers they are running you know they
+
+1013
+00:50:29,680 --> 00:50:34,920
+are telling you what to do about
+
+1014
+00:50:31,640 --> 00:50:41,640
+JavaScript I remain a little
+
+1015
+00:50:34,920 --> 00:50:41,640
+idiosyncrasy of my tutorial okay
+
+1016
+00:50:41,720 --> 00:50:48,240
+uh so okay we we talked about the jargon
+
+1017
+00:50:45,839 --> 00:50:52,000
+we also talk about we we talked about
+
+1018
+00:50:48,240 --> 00:50:53,960
+the definition of the uh we we we you
+
+1019
+00:50:52,000 --> 00:50:57,520
+know the the meaning of
+
+1020
+00:50:53,960 --> 00:51:00,720
+iterable and uh iterator and generator
+
+1021
+00:50:57,520 --> 00:51:05,119
+in JavaScript. Okay, which is here.
+
+1022
+00:51:00,720 --> 00:51:07,920
+Let's go to the page. Um
+
+1023
+00:51:05,119 --> 00:51:11,520
+uh yeah. So actually I need to add that
+
+1024
+00:51:07,920 --> 00:51:14,720
+here. So where is it? Python uh there.
+
+1025
+00:51:11,520 --> 00:51:18,680
+Let's let's go there. Okay. So actually
+
+1026
+00:51:14,720 --> 00:51:21,359
+it's already here somewhere. Iterator
+
+1027
+00:51:18,680 --> 00:51:24,520
+interface. Okay. itterable object. So
+
+1028
+00:51:21,359 --> 00:51:29,119
+let's add it to today's talk
+
+1029
+00:51:24,520 --> 00:51:32,319
+show. Uh close that. Go to today's talk
+
+1030
+00:51:29,119 --> 00:51:36,640
+show. Not that talk in today's talk
+
+1031
+00:51:32,319 --> 00:51:39,520
+show. Show in browser. Uh yeah. So we
+
+1032
+00:51:36,640 --> 00:51:39,520
+showed
+
+1033
+00:51:39,880 --> 00:51:46,160
+um we explained how complicated it is.
+
+1034
+00:51:43,680 --> 00:51:49,040
+We did that. We work on the new page.
+
+1035
+00:51:46,160 --> 00:51:53,599
+Okay. Not yet. So you got the iterable
+
+1036
+00:51:49,040 --> 00:51:56,720
+object. Go to the bottom. Then you got
+
+1037
+00:51:53,599 --> 00:51:56,720
+the iterator
+
+1038
+00:51:56,760 --> 00:52:02,040
+object. Okay. Add the link there. Then
+
+1039
+00:52:00,720 --> 00:52:05,599
+you
+
+1040
+00:52:02,040 --> 00:52:08,800
+got then you got the generator function.
+
+1041
+00:52:05,599 --> 00:52:12,160
+Copy the file path. Close it. Close it.
+
+1042
+00:52:08,800 --> 00:52:16,520
+Wait. Reopen it. Iterable. Close it. Go
+
+1043
+00:52:12,160 --> 00:52:16,520
+back to my talk show.
+
+1044
+00:52:18,559 --> 00:52:23,200
+then okay so we got another one
+
+1045
+00:52:20,720 --> 00:52:26,000
+generator functions so let's open
+
+1046
+00:52:23,200 --> 00:52:29,319
+generator function and interface okay so
+
+1047
+00:52:26,000 --> 00:52:29,319
+copy that
+
+1048
+00:52:30,440 --> 00:52:38,880
+uh go back to talk show generators then
+
+1049
+00:52:34,559 --> 00:52:42,480
+you need copy the link paste it there
+
+1050
+00:52:38,880 --> 00:52:45,040
+linkify make a list and combine the list
+
+1051
+00:52:42,480 --> 00:52:47,760
+list okay so you got iterable able
+
+1052
+00:52:45,040 --> 00:52:49,839
+object iterator generator generator of
+
+1053
+00:52:47,760 --> 00:52:52,079
+function and interface we talked about
+
+1054
+00:52:49,839 --> 00:52:54,880
+that
+
+1055
+00:52:52,079 --> 00:52:58,200
+uh maybe that's it for today so it's one
+
+1056
+00:52:54,880 --> 00:53:02,520
+hour fantastic anything else you
+
+1057
+00:52:58,200 --> 00:53:02,520
+guys might have
+
+1058
+00:53:02,920 --> 00:53:09,680
+um but today we didn't actually do any
+
+1059
+00:53:06,480 --> 00:53:12,040
+code uh should we do any a little bit
+
+1060
+00:53:09,680 --> 00:53:15,599
+code related to
+
+1061
+00:53:12,040 --> 00:53:15,599
+iterable so let's
+
+1062
+00:53:15,839 --> 00:53:22,720
+Good sir, Diego. Hey, you might like the
+
+1063
+00:53:18,720 --> 00:53:27,280
+minimalism. Avoid Linux. Okay. Uh, it
+
+1064
+00:53:22,720 --> 00:53:27,280
+uses OS3 to make it
+
+1065
+00:53:27,559 --> 00:53:33,880
+immutable. OS3 to make it immutable.
+
+1066
+00:53:31,440 --> 00:53:37,680
+Okay. Yeah, I'm not too familiar with
+
+1067
+00:53:33,880 --> 00:53:37,680
+that, you know, but
+
+1068
+00:53:44,119 --> 00:53:53,280
+um okay, I think that's it for today. Um
+
+1069
+00:53:49,760 --> 00:53:56,960
+there could be one more thing that is
+
+1070
+00:53:53,280 --> 00:54:01,480
+I'm going to show you these uh new
+
+1071
+00:53:56,960 --> 00:54:04,800
+features. So in 2025 they added
+
+1072
+00:54:01,480 --> 00:54:08,079
+map function they added for each
+
+1073
+00:54:04,800 --> 00:54:10,720
+function they added I mean methods they
+
+1074
+00:54:08,079 --> 00:54:12,760
+added filter methods they added every
+
+1075
+00:54:10,720 --> 00:54:17,599
+sum find and more
+
+1076
+00:54:12,760 --> 00:54:19,920
+okay so they added um they added let's
+
+1077
+00:54:17,599 --> 00:54:22,800
+go to JavaScript
+
+1078
+00:54:19,920 --> 00:54:24,680
+uh let's go to this page again so new
+
+1079
+00:54:22,800 --> 00:54:29,200
+JavaScript
+
+1080
+00:54:24,680 --> 00:54:31,520
+news and 2025 Okay, copy that. They
+
+1081
+00:54:29,200 --> 00:54:35,559
+added all these functions. So, let's add
+
+1082
+00:54:31,520 --> 00:54:37,920
+it to my um talk show
+
+1083
+00:54:35,559 --> 00:54:41,400
+today. Okay, so they added these
+
+1084
+00:54:37,920 --> 00:54:44,160
+functions and there are so I documented
+
+1085
+00:54:41,400 --> 00:54:47,760
+them. Uh but there are a few more I
+
+1086
+00:54:44,160 --> 00:54:49,680
+still need to document. So, you know, so
+
+1087
+00:54:47,760 --> 00:54:52,599
+I'm thinking I can just work on one of
+
+1088
+00:54:49,680 --> 00:54:55,520
+them. Should I? Should I? Should
+
+1089
+00:54:52,599 --> 00:54:59,319
+I? You guys say something. Okay, maybe
+
+1090
+00:54:55,520 --> 00:55:03,119
+that's it for today. Then
+
+1091
+00:54:59,319 --> 00:55:06,000
+um you know I can show you know running
+
+1092
+00:55:03,119 --> 00:55:08,200
+the code. So they so they added these
+
+1093
+00:55:06,000 --> 00:55:10,720
+functions. These are functions from
+
+1094
+00:55:08,200 --> 00:55:14,119
+array you know very useful you want to
+
+1095
+00:55:10,720 --> 00:55:18,480
+map or for each or filter or every some
+
+1096
+00:55:14,119 --> 00:55:20,559
+fine but they if you have a iterable you
+
+1097
+00:55:18,480 --> 00:55:22,680
+cannot use those functions because you
+
+1098
+00:55:20,559 --> 00:55:26,160
+know they are you know those are array
+
+1099
+00:55:22,680 --> 00:55:28,680
+methods so it's very annoying so before
+
+1100
+00:55:26,160 --> 00:55:32,880
+2025 you have to convert it to array
+
+1101
+00:55:28,680 --> 00:55:35,920
+first or use for loop or use uh the
+
+1102
+00:55:32,880 --> 00:55:39,280
+spread operator or convert to array use
+
+1103
+00:55:35,920 --> 00:55:42,960
+array form. So I talked about array form
+
+1104
+00:55:39,280 --> 00:55:47,280
+but I haven't shown uh the page. So let
+
+1105
+00:55:42,960 --> 00:55:50,720
+me show you array form. Okay. So that's
+
+1106
+00:55:47,280 --> 00:55:53,680
+the page. So copy that. Let me add it
+
+1107
+00:55:50,720 --> 00:55:53,680
+here. So
+
+1108
+00:55:55,000 --> 00:56:01,119
+um so array.comform allows you to
+
+1109
+00:55:58,079 --> 00:56:04,799
+convert iterable to array first then you
+
+1110
+00:56:01,119 --> 00:56:08,000
+can use map for each functions. But now
+
+1111
+00:56:04,799 --> 00:56:11,319
+they added so that they added these
+
+1112
+00:56:08,000 --> 00:56:14,400
+functions directly to the iterator
+
+1113
+00:56:11,319 --> 00:56:18,079
+protocol prototype so that when you have
+
+1114
+00:56:14,400 --> 00:56:20,640
+a iterable you can directly say map okay
+
+1115
+00:56:18,079 --> 00:56:23,040
+let's run the code okay so let's do for
+
+1116
+00:56:20,640 --> 00:56:25,359
+each okay so let let's not look at that
+
+1117
+00:56:23,040 --> 00:56:28,799
+let's do it manually
+
+1118
+00:56:25,359 --> 00:56:30,960
+um let's try okay so uh JavaScript so we
+
+1119
+00:56:28,799 --> 00:56:33,680
+start the JavaScript first job is to
+
+1120
+00:56:30,960 --> 00:56:36,079
+create a iterable now how do you create
+
+1121
+00:56:33,680 --> 00:56:38,799
+the iterable. Well, array is already a
+
+1122
+00:56:36,079 --> 00:56:42,280
+iterable. So, this this is this thing is
+
+1123
+00:56:38,799 --> 00:56:46,480
+a iterable already. So, let's um
+
+1124
+00:56:42,280 --> 00:56:48,799
+constant x iterable. Okay. So, remember
+
+1125
+00:56:46,480 --> 00:56:52,079
+iterable is the thing you are um
+
+1126
+00:56:48,799 --> 00:56:56,000
+concerned the most. Okay. Then print it
+
+1127
+00:56:52,079 --> 00:56:58,160
+um that run it. You see you got that
+
+1128
+00:56:56,000 --> 00:57:00,799
+this is array. Okay. Array is already
+
+1129
+00:56:58,160 --> 00:57:03,119
+iterable uh iterable object. Okay.
+
+1130
+00:57:00,799 --> 00:57:05,440
+That's a distinction. Very annoying.
+
+1131
+00:57:03,119 --> 00:57:07,599
+very complex but anyway so when you have
+
+1132
+00:57:05,440 --> 00:57:10,559
+a iterable you can directly now you can
+
+1133
+00:57:07,599 --> 00:57:14,880
+directly uh map okay so let's uh let's
+
+1134
+00:57:10,559 --> 00:57:16,119
+say dot for each
+
+1135
+00:57:14,880 --> 00:57:20,000
+uh
+
+1136
+00:57:16,119 --> 00:57:22,559
+what okay then an arrow function let's
+
+1137
+00:57:20,000 --> 00:57:26,960
+say console log and you just want to
+
+1138
+00:57:22,559 --> 00:57:29,920
+print it okay so yeah so let's comment
+
+1139
+00:57:26,960 --> 00:57:31,720
+out let's run that there you have it one
+
+1140
+00:57:29,920 --> 00:57:36,240
+two three
+
+1141
+00:57:31,720 --> 00:57:38,720
+Oh, so you see, so this iterable, so how
+
+1142
+00:57:36,240 --> 00:57:41,400
+do you know it's a iterable? Uh, so let
+
+1143
+00:57:38,720 --> 00:57:46,960
+me let me let me explain.
+
+1144
+00:57:41,400 --> 00:57:48,760
+Okay, array by default is a iterable
+
+1145
+00:57:46,960 --> 00:57:52,160
+object.
+
+1146
+00:57:48,760 --> 00:57:56,160
+Okay, now you can print it. Okay, let's
+
+1147
+00:57:52,160 --> 00:58:02,079
+run it. Okay, so let's uh put the output
+
+1148
+00:57:56,160 --> 00:58:08,160
+here there. Okay. Now, now directly use
+
+1149
+00:58:02,079 --> 00:58:11,160
+the iterator method for each. Okay. And
+
+1150
+00:58:08,160 --> 00:58:15,359
+uh run it. And uh let's
+
+1151
+00:58:11,160 --> 00:58:16,119
+um let's copy the output here so it
+
+1152
+00:58:15,359 --> 00:58:19,760
+makes
+
+1153
+00:58:16,119 --> 00:58:24,440
+sense. So it's clear. Okay. Now, how do
+
+1154
+00:58:19,760 --> 00:58:24,440
+we know it's a iterable? Okay.
+
+1155
+00:58:25,000 --> 00:58:32,440
+How do we uh
+
+1156
+00:58:29,720 --> 00:58:35,319
+God know
+
+1157
+00:58:32,440 --> 00:58:38,920
+uh object
+
+1158
+00:58:35,319 --> 00:58:42,400
+is an
+
+1159
+00:58:38,920 --> 00:58:48,000
+iterable object. All you have to do is
+
+1160
+00:58:42,400 --> 00:58:48,000
+you check on the symbol dot
+
+1161
+00:58:49,160 --> 00:58:56,559
+um you can check O dang. Yeah, Dion.
+
+1162
+00:58:54,480 --> 00:58:59,160
+Dion is saying something. Dion, go
+
+1163
+00:58:56,559 --> 00:59:04,799
+[ __ ] come here. Watch my live
+
+1164
+00:58:59,160 --> 00:59:06,960
+stream. Dion Dion is gonna like argue
+
+1165
+00:59:04,799 --> 00:59:10,240
+with me about something. Yeah, that's
+
+1166
+00:59:06,960 --> 00:59:12,559
+Yeah. So, what is this? So, I I was
+
+1167
+00:59:10,240 --> 00:59:14,559
+going to say iterator should be banned.
+
+1168
+00:59:12,559 --> 00:59:16,680
+Iterable iterator should be banned. And
+
+1169
+00:59:14,559 --> 00:59:19,280
+Dion is no, you're
+
+1170
+00:59:16,680 --> 00:59:21,760
+wrong. Okay. We I actually I haven't
+
+1171
+00:59:19,280 --> 00:59:24,160
+explained why each robbo should be
+
+1172
+00:59:21,760 --> 00:59:27,920
+banned but let's finish this first.
+
+1173
+00:59:24,160 --> 00:59:30,319
+Okay. So you can check the So how do you
+
+1174
+00:59:27,920 --> 00:59:33,280
+know? So how do you how do you find out
+
+1175
+00:59:30,319 --> 00:59:35,839
+is if a object in JavaScript is
+
+1176
+00:59:33,280 --> 00:59:38,960
+iterable? Okay. So what you do is
+
+1177
+00:59:35,839 --> 00:59:41,280
+reflect has don't ask. Okay. Very
+
+1178
+00:59:38,960 --> 00:59:44,400
+complicated. Reflect has. You want to
+
+1179
+00:59:41,280 --> 00:59:46,920
+check if it has the property. Okay. So
+
+1180
+00:59:44,400 --> 00:59:49,920
+you want to check it this
+
+1181
+00:59:46,920 --> 00:59:51,720
+object whether it has the property
+
+1182
+00:59:49,920 --> 00:59:56,160
+called
+
+1183
+00:59:51,720 --> 00:59:58,880
+symbol iterator. Okay, there. Okay, so
+
+1184
+00:59:56,160 --> 01:00:03,520
+you need to print it. So what you do is
+
+1185
+00:59:58,880 --> 01:00:06,119
+console log and uh print it. Okay, now
+
+1186
+01:00:03,520 --> 01:00:12,000
+purify the
+
+1187
+01:00:06,119 --> 01:00:12,000
+code, evaluate it. You can see you got a
+
+1188
+01:00:12,599 --> 01:00:21,520
+true. So this is how you find
+
+1189
+01:00:16,599 --> 01:00:24,240
+out in a histic way how something is a
+
+1190
+01:00:21,520 --> 01:00:26,480
+iterable. Okay, a iterable object
+
+1191
+01:00:24,240 --> 01:00:28,720
+meaning that it conforms to the iterable
+
+1192
+01:00:26,480 --> 01:00:31,680
+interface meaning that it must have a
+
+1193
+01:00:28,720 --> 01:00:33,839
+property symbol iterator and the value
+
+1194
+01:00:31,680 --> 01:00:36,240
+of that property must be a function. So
+
+1195
+01:00:33,839 --> 01:00:37,880
+you can you know how do you know uh you
+
+1196
+01:00:36,240 --> 01:00:41,359
+can say
+
+1197
+01:00:37,880 --> 01:00:44,839
+iterable then you cannot use the dot you
+
+1198
+01:00:41,359 --> 01:00:49,680
+have to use this syntax because
+
+1199
+01:00:44,839 --> 01:00:52,799
+uh wait actually can you use the dot? No
+
+1200
+01:00:49,680 --> 01:00:55,359
+another complication. Okay, that's why
+
+1201
+01:00:52,799 --> 01:00:57,359
+JavaScript sucks. Like normally you just
+
+1202
+01:00:55,359 --> 01:01:00,000
+dot something property but in this case
+
+1203
+01:00:57,359 --> 01:01:03,520
+you cannot because symbol iterator is
+
+1204
+01:01:00,000 --> 01:01:07,200
+one thing itself. It's iterator is a
+
+1205
+01:01:03,520 --> 01:01:10,079
+property of the symbol object which
+
+1206
+01:01:07,200 --> 01:01:12,319
+which is has a value then you are
+
+1207
+01:01:10,079 --> 01:01:16,359
+checking you know then you want to check
+
+1208
+01:01:12,319 --> 01:01:19,040
+if iterable has that property. So, so
+
+1209
+01:01:16,359 --> 01:01:22,559
+this returns a function you can actually
+
+1210
+01:01:19,040 --> 01:01:25,280
+call it you know adding a par then you
+
+1211
+01:01:22,559 --> 01:01:29,119
+just print it. Okay. So for example I'm
+
+1212
+01:01:25,280 --> 01:01:33,119
+showing you you know run it. So you got
+
+1213
+01:01:29,119 --> 01:01:36,480
+this uh you see the return value is a
+
+1214
+01:01:33,119 --> 01:01:38,640
+array iterator. Okay. So anyway then how
+
+1215
+01:01:36,480 --> 01:01:40,680
+do you know if something is a iterator?
+
+1216
+01:01:38,640 --> 01:01:43,079
+All you have to do is
+
+1217
+01:01:40,680 --> 01:01:47,319
+to again you
+
+1218
+01:01:43,079 --> 01:01:51,920
+check how to find out
+
+1219
+01:01:47,319 --> 01:01:53,400
+uh you know I got uh this uh a brief how
+
+1220
+01:01:51,920 --> 01:01:55,559
+to find how how
+
+1221
+01:01:53,400 --> 01:02:01,280
+to find
+
+1222
+01:01:55,559 --> 01:02:06,079
+out if uh I need to turn off a brief uh
+
+1223
+01:02:01,280 --> 01:02:10,440
+but let's let's do it here.
+
+1224
+01:02:06,079 --> 01:02:13,640
+How to find out if object is
+
+1225
+01:02:10,440 --> 01:02:16,160
+iterator? Okay, so that is the key
+
+1226
+01:02:13,640 --> 01:02:19,280
+thing. All you have to do is check for
+
+1227
+01:02:16,160 --> 01:02:21,240
+the property next. Okay, this will
+
+1228
+01:02:19,280 --> 01:02:24,240
+return false. That's
+
+1229
+01:02:21,240 --> 01:02:28,480
+right. You can see force because
+
+1230
+01:02:24,240 --> 01:02:31,040
+iterable is not a iterator. So instead,
+
+1231
+01:02:28,480 --> 01:02:31,040
+but if
+
+1232
+01:02:32,040 --> 01:02:40,240
+you if you um you see if
+
+1233
+01:02:36,440 --> 01:02:42,280
+you have the iterable then you get the
+
+1234
+01:02:40,240 --> 01:02:44,880
+property
+
+1235
+01:02:42,280 --> 01:02:48,799
+symbol. The value of that property then
+
+1236
+01:02:44,880 --> 01:02:51,200
+you call it that returns a thing it
+
+1237
+01:02:48,799 --> 01:02:55,359
+which is an iterator. So this now will
+
+1238
+01:02:51,200 --> 01:02:57,079
+return true. Okayify the code run it. So
+
+1239
+01:02:55,359 --> 01:03:01,920
+you can see it's
+
+1240
+01:02:57,079 --> 01:03:03,680
+true. Okay. So you know if you are you
+
+1241
+01:03:01,920 --> 01:03:07,880
+know if you don't know check out my
+
+1242
+01:03:03,680 --> 01:03:10,880
+JavaScript tutorial I have everything in
+
+1243
+01:03:07,880 --> 01:03:10,880
+detail.
+
+1244
+01:03:11,720 --> 01:03:18,799
+Um let's go to talk show. Uh you go to
+
+1245
+01:03:15,760 --> 01:03:22,319
+iterator for example. Then you have test
+
+1246
+01:03:18,799 --> 01:03:24,240
+if object is iterable or iterator or you
+
+1247
+01:03:22,319 --> 01:03:26,280
+know or you can read about interface.
+
+1248
+01:03:24,240 --> 01:03:29,359
+then you learn how to
+
+1249
+01:03:26,280 --> 01:03:33,079
+check. Okay. Now go back to the code. So
+
+1250
+01:03:29,359 --> 01:03:37,680
+what we are doing? So we are doing
+
+1251
+01:03:33,079 --> 01:03:40,480
+um you know array is iterable and we are
+
+1252
+01:03:37,680 --> 01:03:45,839
+coding for each method directly. Why
+
+1253
+01:03:40,480 --> 01:03:45,839
+does it work? Because the because
+
+1254
+01:03:46,440 --> 01:03:52,599
+this because it's actually very
+
+1255
+01:03:49,039 --> 01:03:56,640
+complicated because this because
+
+1256
+01:03:52,599 --> 01:03:59,520
+array object array is not just iterable
+
+1257
+01:03:56,640 --> 01:04:02,680
+it's iterable it's also a iterator. So
+
+1258
+01:03:59,520 --> 01:04:05,680
+array is actually a generator.
+
+1259
+01:04:02,680 --> 01:04:10,880
+Okay. So because for example let me show
+
+1260
+01:04:05,680 --> 01:04:13,920
+you um console log reflect has. Okay. We
+
+1261
+01:04:10,880 --> 01:04:19,559
+want to check this array element then
+
+1262
+01:04:13,920 --> 01:04:24,079
+you check for the symbol property
+
+1263
+01:04:19,559 --> 01:04:27,839
+uh that will return true but also if you
+
+1264
+01:04:24,079 --> 01:04:31,119
+check the next property it also return
+
+1265
+01:04:27,839 --> 01:04:34,000
+true. So array is actually a iterable
+
+1266
+01:04:31,119 --> 01:04:37,200
+and also a iterator which we can say
+
+1267
+01:04:34,000 --> 01:04:39,480
+array is actually a generator. Okay. So
+
+1268
+01:04:37,200 --> 01:04:44,359
+verify the code run
+
+1269
+01:04:39,480 --> 01:04:48,160
+it. Uh actually false. Okay, I was
+
+1270
+01:04:44,359 --> 01:04:54,559
+wrong. So it's not a it's a iterable but
+
+1271
+01:04:48,160 --> 01:04:57,559
+it's not a iterator. Um, so why am I
+
+1272
+01:04:54,559 --> 01:04:57,559
+uh
+
+1273
+01:05:04,480 --> 01:05:10,319
+uh
+
+1274
+01:05:06,599 --> 01:05:12,359
+so iterate. So actually I don't know
+
+1275
+01:05:10,319 --> 01:05:16,680
+what's going
+
+1276
+01:05:12,359 --> 01:05:19,520
+on. Anyway, I think that's it for
+
+1277
+01:05:16,680 --> 01:05:20,760
+today. So thank you guys for watching.
+
+1278
+01:05:19,520 --> 01:05:24,400
+Bye
+
+1279
+01:05:20,760 --> 01:05:26,960
+guys. So right now uh so we are what we
+
+1280
+01:05:24,400 --> 01:05:32,160
+are doing we are demonstrating this for
+
+1281
+01:05:26,960 --> 01:05:35,880
+each method for iterator. Okay. So and
+
+1282
+01:05:32,160 --> 01:05:38,839
+we are using the for each method on the
+
+1283
+01:05:35,880 --> 01:05:42,280
+array. Now
+
+1284
+01:05:38,839 --> 01:05:45,920
+technically the for each
+
+1285
+01:05:42,280 --> 01:05:49,119
+method requires a iterator to be the
+
+1286
+01:05:45,920 --> 01:05:50,839
+parent. That is the for each method is a
+
+1287
+01:05:49,119 --> 01:05:54,400
+method of
+
+1288
+01:05:50,839 --> 01:05:55,960
+a oh [ __ ] I got it wrong. You know why
+
+1289
+01:05:54,400 --> 01:05:58,160
+this
+
+1290
+01:05:55,960 --> 01:06:00,240
+works? Even though array is not a
+
+1291
+01:05:58,160 --> 01:06:02,319
+iterator because when we use for each
+
+1292
+01:06:00,240 --> 01:06:05,920
+it's actually coding arrays methods.
+
+1293
+01:06:02,319 --> 01:06:08,079
+Okay. So it's very annoying. So very you
+
+1294
+01:06:05,920 --> 01:06:11,920
+know so very annoying. So let's not use
+
+1295
+01:06:08,079 --> 01:06:14,880
+arrays. So we need to create our own uh
+
+1296
+01:06:11,920 --> 01:06:17,799
+iterator object. Okay. So let's create
+
+1297
+01:06:14,880 --> 01:06:21,440
+uh our own iterator
+
+1298
+01:06:17,799 --> 01:06:22,680
+object. Okay, scratch that. Uh okay. So
+
+1299
+01:06:21,440 --> 01:06:26,000
+but
+
+1300
+01:06:22,680 --> 01:06:31,960
+um so what we going to do? So well let's
+
+1301
+01:06:26,000 --> 01:06:35,760
+start from fresh. Okay. Create our own
+
+1302
+01:06:31,960 --> 01:06:39,079
+iterable object so that it's not array
+
+1303
+01:06:35,760 --> 01:06:42,400
+because array got a for each
+
+1304
+01:06:39,079 --> 01:06:46,079
+method. Okay. So this in this case you
+
+1305
+01:06:42,400 --> 01:06:49,920
+need to use a generator function. So uh
+
+1306
+01:06:46,079 --> 01:06:49,920
+that means name that
+
+1307
+01:06:52,039 --> 01:07:01,799
+um genf okay generator function then you
+
+1308
+01:06:56,799 --> 01:07:01,799
+here the body says um
+
+1309
+01:07:03,559 --> 01:07:11,920
+uh let's say let let it return one two
+
+1310
+01:07:07,359 --> 01:07:16,480
+three. Okay. So one, two, three. That's
+
+1311
+01:07:11,920 --> 01:07:20,799
+a array and you want to use four of.
+
+1312
+01:07:16,480 --> 01:07:25,280
+Okay. So for a iterable there. So array
+
+1313
+01:07:20,799 --> 01:07:28,240
+is a iterable. Okay. And for each key uh
+
+1314
+01:07:25,280 --> 01:07:32,640
+let's say for each x what you want to do
+
+1315
+01:07:28,240 --> 01:07:35,319
+is you want to yield x. Okay. Pify the
+
+1316
+01:07:32,640 --> 01:07:38,000
+code.
+
+1317
+01:07:35,319 --> 01:07:42,000
+That's that defines the generator
+
+1318
+01:07:38,000 --> 01:07:45,480
+function. Okay. Then then what you say
+
+1319
+01:07:42,000 --> 01:07:47,799
+is you say
+
+1320
+01:07:45,480 --> 01:07:49,799
+um
+
+1321
+01:07:47,799 --> 01:07:52,559
+my
+
+1322
+01:07:49,799 --> 01:07:55,680
+iterable equals to the generator
+
+1323
+01:07:52,559 --> 01:07:55,680
+function. Okay.
+
+1324
+01:07:56,680 --> 01:08:02,039
+Constant you call the generator
+
+1325
+01:07:59,039 --> 01:08:04,359
+function. So the generator
+
+1326
+01:08:02,039 --> 01:08:07,680
+function
+
+1327
+01:08:04,359 --> 01:08:11,039
+returns it returns actually a generator
+
+1328
+01:08:07,680 --> 01:08:15,119
+which means it's uh iterable and also a
+
+1329
+01:08:11,039 --> 01:08:18,440
+iterator. Okay. So this will let's call
+
+1330
+01:08:15,119 --> 01:08:18,440
+it my
+
+1331
+01:08:21,319 --> 01:08:29,440
+um okay this let's say X generator. So
+
+1332
+01:08:25,839 --> 01:08:33,600
+this this x generator is a iterable and
+
+1333
+01:08:29,440 --> 01:08:36,880
+is a also a iterator. So how do we know?
+
+1334
+01:08:33,600 --> 01:08:36,880
+Let's use the test
+
+1335
+01:08:37,080 --> 01:08:45,000
+here. Uh let's see. Hold on a second. So
+
+1336
+01:08:42,480 --> 01:08:49,279
+copy cut remove
+
+1337
+01:08:45,000 --> 01:08:53,839
+that. Okay. So how do we know is itable?
+
+1338
+01:08:49,279 --> 01:08:58,120
+Okay. So so this this will be xgen.
+
+1339
+01:08:53,839 --> 01:09:03,679
+Okay. And uh how do we know if object is
+
+1340
+01:08:58,120 --> 01:09:03,679
+iterator? Let's see. Check is
+
+1341
+01:09:05,000 --> 01:09:08,880
+iterator. Check is
+
+1342
+01:09:09,239 --> 01:09:18,000
+iterable. Okay. And the check is
+
+1343
+01:09:11,759 --> 01:09:18,000
+iterator. This will be xgen. Okay.
+
+1344
+01:09:19,239 --> 01:09:25,279
+So let's remove that. Okay. So now the
+
+1345
+01:09:23,040 --> 01:09:29,040
+code is just here. Run it. True, true,
+
+1346
+01:09:25,279 --> 01:09:32,480
+true. Correct. So we we we define the
+
+1347
+01:09:29,040 --> 01:09:35,000
+generator function. Then we call the
+
+1348
+01:09:32,480 --> 01:09:38,960
+generator function which give us a
+
+1349
+01:09:35,000 --> 01:09:42,159
+generator. Predify the code. Then we can
+
+1350
+01:09:38,960 --> 01:09:46,319
+check the result. Generator is actually
+
+1351
+01:09:42,159 --> 01:09:53,080
+a iterable and is also a iterator. Okay.
+
+1352
+01:09:46,319 --> 01:09:57,760
+Now we can use the for each. Okay. So X
+
+1353
+01:09:53,080 --> 01:10:02,560
+generator dot for each. Okay. Then
+
+1354
+01:09:57,760 --> 01:10:06,000
+console log X. Okay. So now we run it.
+
+1355
+01:10:02,560 --> 01:10:08,320
+Now we get one, two, three. Okay. That's
+
+1356
+01:10:06,000 --> 01:10:09,400
+uh fantastic. Beautiful. Correct. And
+
+1357
+01:10:08,320 --> 01:10:12,040
+that
+
+1358
+01:10:09,400 --> 01:10:15,760
+concludes today's
+
+1359
+01:10:12,040 --> 01:10:19,360
+talk. Let's double check. Define a
+
+1360
+01:10:15,760 --> 01:10:21,239
+generator function. Call the generator.
+
+1361
+01:10:19,360 --> 01:10:24,480
+Get a generator
+
+1362
+01:10:21,239 --> 01:10:27,360
+object. Check the generator object is a
+
+1363
+01:10:24,480 --> 01:10:30,400
+iterable. True. Check the generator
+
+1364
+01:10:27,360 --> 01:10:34,400
+object is also iterator. Actually this
+
+1365
+01:10:30,400 --> 01:10:38,679
+is wrong. Just just that. Okay. Run it.
+
+1366
+01:10:34,400 --> 01:10:42,760
+True. Okay. Then check then call the for
+
+1367
+01:10:38,679 --> 01:10:46,960
+each. Why is the for each available?
+
+1368
+01:10:42,760 --> 01:10:50,080
+Because because if you say the generator
+
+1369
+01:10:46,960 --> 01:10:53,880
+uh check the parent. Okay. So you want
+
+1370
+01:10:50,080 --> 01:10:57,960
+to check whether the parent of generator
+
+1371
+01:10:53,880 --> 01:11:00,960
+is is is the
+
+1372
+01:10:57,960 --> 01:11:00,960
+iterator.prototype.
+
+1373
+01:11:01,400 --> 01:11:10,159
+Okay. Uh okay. Uh iterator proto. Okay.
+
+1374
+01:11:06,800 --> 01:11:14,120
+So you want to check the parent. Okay.
+
+1375
+01:11:10,159 --> 01:11:18,120
+So reflect get prototype
+
+1376
+01:11:14,120 --> 01:11:22,080
+of we want to get the prototype of that
+
+1377
+01:11:18,120 --> 01:11:23,640
+generator and make check if it's equals
+
+1378
+01:11:22,080 --> 01:11:27,320
+to iterator
+
+1379
+01:11:23,640 --> 01:11:31,520
+prototype and print
+
+1380
+01:11:27,320 --> 01:11:35,320
+it. Okay, let's make it com uh you know
+
+1381
+01:11:31,520 --> 01:11:40,520
+motor line. Okay, this will return
+
+1382
+01:11:35,320 --> 01:11:40,520
+true. Uh it returns false.
+
+1383
+01:11:43,840 --> 01:11:52,640
+Uh it returns false because you have to
+
+1384
+01:11:47,520 --> 01:11:52,640
+actually um you have to call the next
+
+1385
+01:11:56,120 --> 01:11:59,120
+dot
+
+1386
+01:12:00,679 --> 01:12:03,679
+wait
+
+1387
+01:12:03,719 --> 01:12:09,880
+got yeah yeah you need to get the symbol
+
+1388
+01:12:06,760 --> 01:12:15,480
+iterator symbol
+
+1389
+01:12:09,880 --> 01:12:20,480
+So that will return true. Okay. Run it.
+
+1390
+01:12:15,480 --> 01:12:23,920
+False. Okay. I'm now I'm now actually
+
+1391
+01:12:20,480 --> 01:12:27,920
+now this is testing my understanding of
+
+1392
+01:12:23,920 --> 01:12:27,920
+advanced JavaScript. So why is it
+
+1393
+01:12:29,080 --> 01:12:37,120
+um Oh, you have to call it. This is very
+
+1394
+01:12:32,320 --> 01:12:40,159
+confused. Yeah, call it false again. Ah,
+
+1395
+01:12:37,120 --> 01:12:44,159
+[ __ ] Let's stop trial and error. Let's
+
+1396
+01:12:40,159 --> 01:12:44,159
+just say exactly what is
+
+1397
+01:12:45,560 --> 01:12:50,370
+it. Get prototype of
+
+1398
+01:12:49,239 --> 01:12:53,569
+generator.
+
+1399
+01:12:50,370 --> 01:12:53,569
+[Music]
+
+1400
+01:12:53,800 --> 01:13:00,880
+Uh so that's a generator object
+
+1401
+01:12:57,400 --> 01:13:00,880
+generator. So
+
+1402
+01:13:01,080 --> 01:13:04,080
+generator
+
+1403
+01:13:10,440 --> 01:13:19,080
+god. What is
+
+1404
+01:13:12,840 --> 01:13:19,080
+that? Uh symbol iterator code.
+
+1405
+01:13:26,239 --> 01:13:29,280
+Why don't you just
+
+1406
+01:13:34,120 --> 01:13:40,560
+say object time? So you get the parent.
+
+1407
+01:13:38,000 --> 01:13:45,560
+Anyway, that
+
+1408
+01:13:40,560 --> 01:13:48,640
+um okay, I hope that's useful. Bye
+
+1409
+01:13:45,560 --> 01:13:52,920
+guys. So that's what we talked about.
+
+1410
+01:13:48,640 --> 01:13:55,880
+There is another item which is why
+
+1411
+01:13:52,920 --> 01:14:00,400
+um why should we
+
+1412
+01:13:55,880 --> 01:14:03,640
+ban the iterators concept or iter
+
+1413
+01:14:00,400 --> 01:14:07,760
+iterator or iterable because
+
+1414
+01:14:03,640 --> 01:14:10,760
+they you know I I think because they
+
+1415
+01:14:07,760 --> 01:14:13,520
+makes the programming language very
+
+1416
+01:14:10,760 --> 01:14:15,920
+complicated that's one reason because in
+
+1417
+01:14:13,520 --> 01:14:18,960
+the JavaScript case it's very
+
+1418
+01:14:15,920 --> 01:14:20,640
+complicated we know partly because the
+
+1419
+01:14:18,960 --> 01:14:24,400
+you know JavaScript is a very bad
+
+1420
+01:14:20,640 --> 01:14:26,800
+language. Okay, but what about in um
+
+1421
+01:14:24,400 --> 01:14:30,719
+let's say in Python you know they call
+
+1422
+01:14:26,800 --> 01:14:32,880
+it iterator. Well, I think it should be
+
+1423
+01:14:30,719 --> 01:14:36,800
+banned because when you have iterator
+
+1424
+01:14:32,880 --> 01:14:39,679
+things they they are still very
+
+1425
+01:14:36,800 --> 01:14:41,840
+complicated because because then you
+
+1426
+01:14:39,679 --> 01:14:43,560
+have a function that each time return
+
+1427
+01:14:41,840 --> 01:14:48,320
+different things.
+
+1428
+01:14:43,560 --> 01:14:50,320
+So, so it so another big reason is that
+
+1429
+01:14:48,320 --> 01:14:52,239
+it violates functional programming
+
+1430
+01:14:50,320 --> 01:14:54,640
+principle because your function is no
+
+1431
+01:14:52,239 --> 01:14:58,480
+longer function. It has a state every
+
+1432
+01:14:54,640 --> 01:15:00,440
+time it returns a different thing. Uh so
+
+1433
+01:14:58,480 --> 01:15:02,960
+violates a functional programming
+
+1434
+01:15:00,440 --> 01:15:05,840
+principle and then very complicated
+
+1435
+01:15:02,960 --> 01:15:07,880
+because then because you you you you
+
+1436
+01:15:05,840 --> 01:15:11,120
+have this kind of lazy
+
+1437
+01:15:07,880 --> 01:15:13,520
+evaluation you it's hard to predict what
+
+1438
+01:15:11,120 --> 01:15:18,239
+value it returns you know because it
+
+1439
+01:15:13,520 --> 01:15:21,280
+keeps maintains a state okay so so I
+
+1440
+01:15:18,239 --> 01:15:23,679
+think the iterator or iterable concept
+
+1441
+01:15:21,280 --> 01:15:26,239
+should should should
+
+1442
+01:15:23,679 --> 01:15:28,239
+um programming language should not have
+
+1443
+01:15:26,239 --> 01:15:30,880
+it. You know, the reason they create
+
+1444
+01:15:28,239 --> 01:15:34,400
+them, they say it's because save memory,
+
+1445
+01:15:30,880 --> 01:15:37,159
+but rarely is the case when you need,
+
+1446
+01:15:34,400 --> 01:15:40,400
+you know, 10,000 array
+
+1447
+01:15:37,159 --> 01:15:43,280
+items. And if you actually do need some
+
+1448
+01:15:40,400 --> 01:15:46,640
+kind of infinite list, I believe it's
+
+1449
+01:15:43,280 --> 01:15:48,520
+much better just to use a loop, you
+
+1450
+01:15:46,640 --> 01:15:52,080
+know, you just use a
+
+1451
+01:15:48,520 --> 01:15:54,600
+loop. Okay, so that is my reason. So I
+
+1452
+01:15:52,080 --> 01:15:58,560
+do not see why you need
+
+1453
+01:15:54,600 --> 01:16:00,640
+um so so if you guys know you know if
+
+1454
+01:15:58,560 --> 01:16:02,960
+you have a valid reason why you should
+
+1455
+01:16:00,640 --> 01:16:04,880
+have iterators or iterable concept in
+
+1456
+01:16:02,960 --> 01:16:08,840
+programming language let me know you
+
+1457
+01:16:04,880 --> 01:16:13,040
+know give me solid uh examples
+
+1458
+01:16:08,840 --> 01:16:14,199
+why you know um it's useful so I don't
+
+1459
+01:16:13,040 --> 01:16:17,199
+know
+
+1460
+01:16:14,199 --> 01:16:20,159
+myself is web assembly a better language
+
+1461
+01:16:17,199 --> 01:16:22,880
+in JavaScript uh no not really because
+
+1462
+01:16:20,159 --> 01:16:25,400
+web assembly is a very low language.
+
+1463
+01:16:22,880 --> 01:16:29,440
+It's like assembly I was looking
+
+1464
+01:16:25,400 --> 01:16:31,840
+into few days ago uh to keep myself
+
+1465
+01:16:29,440 --> 01:16:33,920
+updated you know. So web assembly is
+
+1466
+01:16:31,840 --> 01:16:36,520
+just like it's almost like assembly
+
+1467
+01:16:33,920 --> 01:16:40,840
+language. So it's very very lowle
+
+1468
+01:16:36,520 --> 01:16:43,679
+language but however it's used in
+
+1469
+01:16:40,840 --> 01:16:47,199
+browsers. So you know you know web
+
+1470
+01:16:43,679 --> 01:16:50,159
+assembly. So let's look at some code uh
+
+1471
+01:16:47,199 --> 01:16:53,679
+you know it's just like very minimal uh
+
+1472
+01:16:50,159 --> 01:16:55,840
+minimal um you know you know it's like
+
+1473
+01:16:53,679 --> 01:16:58,199
+assembly language you don't have you
+
+1474
+01:16:55,840 --> 01:17:00,719
+don't have loop you don't
+
+1475
+01:16:58,199 --> 01:17:05,040
+have you don't have fancy you know you
+
+1476
+01:17:00,719 --> 01:17:08,159
+don't have any convenient uh construct
+
+1477
+01:17:05,040 --> 01:17:09,920
+you cannot write create a list kind of
+
+1478
+01:17:08,159 --> 01:17:13,760
+like that do they have actually have
+
+1479
+01:17:09,920 --> 01:17:16,640
+code I want to see some code yeah so
+
+1480
+01:17:13,760 --> 01:17:19,000
+This this is what web web assembly looks
+
+1481
+01:17:16,640 --> 01:17:23,360
+like. Okay.
+
+1482
+01:17:19,000 --> 01:17:23,360
+Um you know so on the left is
+
+1483
+01:17:25,080 --> 01:17:31,360
+coursely language code and uh in the
+
+1484
+01:17:28,880 --> 01:17:35,440
+middle and on the right is the actual
+
+1485
+01:17:31,360 --> 01:17:39,840
+you know the binary code it produces. So
+
+1486
+01:17:35,440 --> 01:17:42,080
+web assembly is very low level.
+
+1487
+01:17:39,840 --> 01:17:45,360
+So it's analogous to assembly language
+
+1488
+01:17:42,080 --> 01:17:47,679
+in a programming language and the goal
+
+1489
+01:17:45,360 --> 01:17:51,560
+why do they have a web assembly? So it's
+
+1490
+01:17:47,679 --> 01:17:56,480
+like so that any programming language
+
+1491
+01:17:51,560 --> 01:17:57,880
+can can compile to this web assembly. So
+
+1492
+01:17:56,480 --> 01:18:01,280
+this web
+
+1493
+01:17:57,880 --> 01:18:05,120
+assembly then compile to this this you
+
+1494
+01:18:01,280 --> 01:18:11,320
+know like binary format. So so it can be
+
+1495
+01:18:05,120 --> 01:18:14,000
+very fast almost just like C speed. Why?
+
+1496
+01:18:11,320 --> 01:18:16,960
+Why you know how is it possible web
+
+1497
+01:18:14,000 --> 01:18:19,640
+assembly become very fast? Because you
+
+1498
+01:18:16,960 --> 01:18:22,159
+removed all the features of programming
+
+1499
+01:18:19,640 --> 01:18:24,480
+language you know you don't allow list
+
+1500
+01:18:22,159 --> 01:18:28,800
+you don't allow iterators you don't
+
+1501
+01:18:24,480 --> 01:18:32,040
+allow array you you don't allow you know
+
+1502
+01:18:28,800 --> 01:18:34,520
+very you know string format you don't
+
+1503
+01:18:32,040 --> 01:18:37,040
+allow lots of
+
+1504
+01:18:34,520 --> 01:18:38,960
+things. So when you don't allow them,
+
+1505
+01:18:37,040 --> 01:18:42,640
+you become very minimal programming
+
+1506
+01:18:38,960 --> 01:18:45,440
+language that close to the machine. So
+
+1507
+01:18:42,640 --> 01:18:48,159
+so so the the goal of web assembly is
+
+1508
+01:18:45,440 --> 01:18:50,280
+that it allows all other programming
+
+1509
+01:18:48,159 --> 01:18:52,520
+languages
+
+1510
+01:18:50,280 --> 01:18:56,080
+to compile
+
+1511
+01:18:52,520 --> 01:18:58,719
+into web assembly so that it can run in
+
+1512
+01:18:56,080 --> 01:19:01,360
+browser and why do people needs to do
+
+1513
+01:18:58,719 --> 01:19:04,080
+that? So that people can you know run 3D
+
+1514
+01:19:01,360 --> 01:19:06,120
+games in a browser. So that's the kind
+
+1515
+01:19:04,080 --> 01:19:09,679
+of the purpose of web
+
+1516
+01:19:06,120 --> 01:19:11,600
+assembly. So is it better language? They
+
+1517
+01:19:09,679 --> 01:19:14,320
+are kind of in different levels. So you
+
+1518
+01:19:11,600 --> 01:19:15,560
+can't really compare them. But I was
+
+1519
+01:19:14,320 --> 01:19:19,280
+reading about
+
+1520
+01:19:15,560 --> 01:19:24,000
+yesterday, you know, so far the vast
+
+1521
+01:19:19,280 --> 01:19:28,640
+majority of actual web assembly code in
+
+1522
+01:19:24,000 --> 01:19:31,840
+the world right now is all crypto scams.
+
+1523
+01:19:28,640 --> 01:19:35,520
+like when you visit a site, they run web
+
+1524
+01:19:31,840 --> 01:19:38,159
+assembly to to do crypto to use your
+
+1525
+01:19:35,520 --> 01:19:39,560
+computing power to to mine bitcoins and
+
+1526
+01:19:38,159 --> 01:19:44,159
+things like
+
+1527
+01:19:39,560 --> 01:19:44,159
+that. So anyway, that's it. Bye
+
+1528
+01:19:44,280 --> 01:19:50,480
+guys. Uh if you like my stuff, donate,
+
+1529
+01:19:47,280 --> 01:19:53,280
+okay? Thank you, Hank. And also you guys
+
+1530
+01:19:50,480 --> 01:19:55,840
+can go to my website, you know, uh you
+
+1531
+01:19:53,280 --> 01:19:58,600
+can donate. Donate sudi.info, okay? go
+
+1532
+01:19:55,840 --> 01:20:01,280
+to the bottom. Donate me big
+
+1533
+01:19:58,600 --> 01:20:04,880
+time, you know. Uh, you know, you can
+
+1534
+01:20:01,280 --> 01:20:08,840
+donate me Amazon gift card or PayPal or
+
+1535
+01:20:04,880 --> 01:20:12,800
+Patreon me or buy my entire website for
+
+1536
+01:20:08,840 --> 01:20:16,719
+300. Just 30 300. Okay, there are about
+
+1537
+01:20:12,800 --> 01:20:20,080
+6,000 articles and you can get my
+
+1538
+01:20:16,719 --> 01:20:24,080
+JavaScript in-depth in a zip file. Okay,
+
+1539
+01:20:20,080 --> 01:20:29,280
+go to my JavaScript in-depth page and uh
+
+1540
+01:20:24,080 --> 01:20:32,159
+go to uh here. Okay, go to Amazon gift
+
+1541
+01:20:29,280 --> 01:20:34,320
+card Amazon gift card. Click the link or
+
+1542
+01:20:32,159 --> 01:20:36,800
+PayPal. You have to use their link
+
+1543
+01:20:34,320 --> 01:20:39,360
+because if you use the wrong link,
+
+1544
+01:20:36,800 --> 01:20:41,920
+Amazon Germany or Amazon Japan, I won't
+
+1545
+01:20:39,360 --> 01:20:44,080
+get it. I won't be able to get money.
+
+1546
+01:20:41,920 --> 01:20:47,199
+So, use the link and use my email
+
+1547
+01:20:44,080 --> 01:20:48,600
+address. Make sure my email address is
+
+1548
+01:20:47,199 --> 01:20:52,000
+correct.
+
+1549
+01:20:48,600 --> 01:20:52,000
+Okay. Okay.
+
+1550
+01:20:57,239 --> 01:21:03,199
+Bye. Okay. Shut down. Let's see. Talk
+
+1551
+01:21:04,440 --> 01:21:08,440
+show. Uh
+

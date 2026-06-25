@@ -1,0 +1,4334 @@
+1
+00:00:01,920 --> 00:00:07,359
+Hello, good morning. Welcome to another
+
+2
+00:00:04,480 --> 00:00:11,519
+episode of Kasan Talk Show. We are going
+
+3
+00:00:07,359 --> 00:00:14,719
+to code Emac Bisp. Today, Emacs is the
+
+4
+00:00:11,519 --> 00:00:19,760
+most efficient and powerful and flexible
+
+5
+00:00:14,719 --> 00:00:22,880
+editor for programmers and writers and F
+
+6
+00:00:19,760 --> 00:00:26,480
+is the best functional programming
+
+7
+00:00:22,880 --> 00:00:29,199
+language for the industry
+
+8
+00:00:26,480 --> 00:00:32,000
+uh for the industry because on the other
+
+9
+00:00:29,199 --> 00:00:35,040
+hand, Wufam language Mathematica is the
+
+10
+00:00:32,000 --> 00:00:37,600
+best functional programming language for
+
+11
+00:00:35,040 --> 00:00:39,360
+scientific programming and engineering
+
+12
+00:00:37,600 --> 00:00:42,320
+and mathematics.
+
+13
+00:00:39,360 --> 00:00:45,640
+scientific programming used in uh if you
+
+14
+00:00:42,320 --> 00:00:49,039
+are an engineer, you research rocket
+
+15
+00:00:45,640 --> 00:00:52,239
+science, rockets, design car engines,
+
+16
+00:00:49,039 --> 00:00:56,160
+things like that. design, aerodynamics,
+
+17
+00:00:52,239 --> 00:00:58,399
+um heat conduction and you know uh
+
+18
+00:00:56,160 --> 00:01:00,960
+that's real industry not programming
+
+19
+00:00:58,399 --> 00:01:05,080
+industry but real industry design
+
+20
+00:01:00,960 --> 00:01:08,640
+bridges buildings dams hydro power
+
+21
+00:01:05,080 --> 00:01:11,360
+station space station rockets that you
+
+22
+00:01:08,640 --> 00:01:13,240
+need mathematics engineering and that
+
+23
+00:01:11,360 --> 00:01:16,960
+you need wam
+
+24
+00:01:13,240 --> 00:01:19,600
+language am I am I doing good am I doing
+
+25
+00:01:16,960 --> 00:01:22,080
+good talking checking video check audio
+
+26
+00:01:19,600 --> 00:01:24,880
+check. So, we're going to codeam uh
+
+27
+00:01:22,080 --> 00:01:26,920
+we're going to code emac lisp. We're
+
+28
+00:01:24,880 --> 00:01:30,960
+going to write a major
+
+29
+00:01:26,920 --> 00:01:33,799
+mod for f. F the programming language.
+
+30
+00:01:30,960 --> 00:01:37,680
+Okay. Uh if you are watching this
+
+31
+00:01:33,799 --> 00:01:40,720
+offline, play at 1.5 speed and skip
+
+32
+00:01:37,680 --> 00:01:42,520
+around because I ramble. If you are
+
+33
+00:01:40,720 --> 00:01:46,880
+watching
+
+34
+00:01:42,520 --> 00:01:49,640
+live, hi, welcome. And say hi here.
+
+35
+00:01:46,880 --> 00:01:52,720
+Okay. Don't be a chicken.
+
+36
+00:01:49,640 --> 00:01:55,759
+So let's begin. Okay, let's just begin.
+
+37
+00:01:52,720 --> 00:01:58,960
+We are writing a major mod. Okay, so now
+
+38
+00:01:55,759 --> 00:02:02,079
+in the past I've done one, two, three,
+
+39
+00:01:58,960 --> 00:02:03,560
+four, four videos on writing a major mod
+
+40
+00:02:02,079 --> 00:02:07,879
+from
+
+41
+00:02:03,560 --> 00:02:11,800
+scratch. So there is for Goland back in
+
+42
+00:02:07,879 --> 00:02:17,120
+2021. There is one for Python mod
+
+43
+00:02:11,800 --> 00:02:19,640
+2023 and uh part two then 2023 uh part
+
+44
+00:02:17,120 --> 00:02:23,920
+three. So, Python mod part one, two,
+
+45
+00:02:19,640 --> 00:02:27,520
+three. So, and if you want to learn how
+
+46
+00:02:23,920 --> 00:02:29,879
+to write a major mod, you can watch the
+
+47
+00:02:27,520 --> 00:02:32,879
+old videos. They are still
+
+48
+00:02:29,879 --> 00:02:34,920
+good. You know, in modern society, we
+
+49
+00:02:32,879 --> 00:02:37,840
+have this thing
+
+50
+00:02:34,920 --> 00:02:41,879
+about we only concern what's you know
+
+51
+00:02:37,840 --> 00:02:45,040
+the treats the social network post from
+
+52
+00:02:41,879 --> 00:02:47,599
+today. When it's last week, oh, you
+
+53
+00:02:45,040 --> 00:02:51,280
+know, it's old, nobody cares. But these
+
+54
+00:02:47,599 --> 00:02:54,160
+videos are still good, as good as new.
+
+55
+00:02:51,280 --> 00:02:57,480
+Uh, but today we're going to code a
+
+56
+00:02:54,160 --> 00:03:00,160
+major mod for F. And
+
+57
+00:02:57,480 --> 00:03:02,800
+also now if you want to write a major
+
+58
+00:03:00,160 --> 00:03:05,360
+mod, if you prefer reading, it's all
+
+59
+00:03:02,800 --> 00:03:09,159
+written out how to write the major mod
+
+60
+00:03:05,360 --> 00:03:13,840
+tutorial here. Okay, so you got syntax
+
+61
+00:03:09,159 --> 00:03:17,400
+coloring. Uh, just search for XR EMAC
+
+62
+00:03:13,840 --> 00:03:20,879
+tutorial. Emac list tutorial.info
+
+63
+00:03:17,400 --> 00:03:24,159
+info, you will find how to color, how to
+
+64
+00:03:20,879 --> 00:03:25,680
+do syntax coloring for your programming
+
+65
+00:03:24,159 --> 00:03:28,800
+language
+
+66
+00:03:25,680 --> 00:03:31,920
+uh and what does it you know you need to
+
+67
+00:03:28,800 --> 00:03:36,080
+use font lock mod what it is and how to
+
+68
+00:03:31,920 --> 00:03:39,040
+use it uh and how do you color comments
+
+69
+00:03:36,080 --> 00:03:42,159
+and string which is separate from the
+
+70
+00:03:39,040 --> 00:03:45,680
+font lock and then how do you write a
+
+71
+00:03:42,159 --> 00:03:49,000
+common command so I can press a key uh
+
+72
+00:03:45,680 --> 00:03:52,840
+you know so press a key this becomes
+
+73
+00:03:49,000 --> 00:03:56,799
+common. So okay so let's begin uh F.
+
+74
+00:03:52,840 --> 00:03:58,799
+So F# for example uh this is F
+
+75
+00:03:56,799 --> 00:04:02,879
+programming language. Okay, I don't know
+
+76
+00:03:58,799 --> 00:04:05,360
+how to write F. But you see let um let
+
+77
+00:04:02,879 --> 00:04:08,319
+this is set the variable and common. You
+
+78
+00:04:05,360 --> 00:04:13,120
+see how do you do that? And uncommon
+
+79
+00:04:08,319 --> 00:04:16,880
+common uncommon common. Okay. Un
+
+80
+00:04:13,120 --> 00:04:19,840
+uncommon and comment at the end of line.
+
+81
+00:04:16,880 --> 00:04:21,639
+You see that's the command common and
+
+82
+00:04:19,840 --> 00:04:25,919
+uncommon. How do you do
+
+83
+00:04:21,639 --> 00:04:29,240
+it? And keyword completion. And uh so
+
+84
+00:04:25,919 --> 00:04:32,240
+the science of writing a major mod in
+
+85
+00:04:29,240 --> 00:04:34,520
+Emacs. What is a major mod? Major mod is
+
+86
+00:04:32,240 --> 00:04:38,479
+a special
+
+87
+00:04:34,520 --> 00:04:41,560
+um customization in Emacs designed for a
+
+88
+00:04:38,479 --> 00:04:45,840
+specific programming language
+
+89
+00:04:41,560 --> 00:04:48,000
+or or even uh or or directory. For
+
+90
+00:04:45,840 --> 00:04:50,240
+example, this directory you can
+
+91
+00:04:48,000 --> 00:04:52,520
+manipulate, change file names, move
+
+92
+00:04:50,240 --> 00:04:55,919
+files.
+
+93
+00:04:52,520 --> 00:04:59,680
+That's this mod is a major mod. This mod
+
+94
+00:04:55,919 --> 00:05:02,320
+is called the ad or diode. Okay. So
+
+95
+00:04:59,680 --> 00:05:07,080
+major mod can you can write chat bots.
+
+96
+00:05:02,320 --> 00:05:10,160
+You can write uh image you know view
+
+97
+00:05:07,080 --> 00:05:12,479
+images. So you can view images you know
+
+98
+00:05:10,160 --> 00:05:17,080
+at the end of code uh you know lots of
+
+99
+00:05:12,479 --> 00:05:20,880
+images. So this end of code we did this
+
+100
+00:05:17,080 --> 00:05:23,360
+union union of a bunch of things. That's
+
+101
+00:05:20,880 --> 00:05:25,600
+woofam language. Okay. So you can view
+
+102
+00:05:23,360 --> 00:05:28,560
+image. How do you do that in Emacs?
+
+103
+00:05:25,600 --> 00:05:33,280
+Because that's a major mod designed to
+
+104
+00:05:28,560 --> 00:05:36,880
+view images. So a major mod is a
+
+105
+00:05:33,280 --> 00:05:38,600
+uh is you know it's a it's a kind it's a
+
+106
+00:05:36,880 --> 00:05:43,400
+library in
+
+107
+00:05:38,600 --> 00:05:48,560
+Emacs designed to do specific
+
+108
+00:05:43,400 --> 00:05:51,639
+tasks. Uh okay. So let's write that.
+
+109
+00:05:48,560 --> 00:05:55,680
+That's enough introduction.
+
+110
+00:05:51,639 --> 00:05:58,199
+Okay. Okay. So, I have already begin.
+
+111
+00:05:55,680 --> 00:06:02,240
+Um, let's see.
+
+112
+00:05:58,199 --> 00:06:05,319
+Uh, okay. Let's see. Softly keys. I'm
+
+113
+00:06:02,240 --> 00:06:09,120
+using softly keys. The most efficient
+
+114
+00:06:05,319 --> 00:06:14,080
+editing system for Emacs. More efficient
+
+115
+00:06:09,120 --> 00:06:16,080
+than Vim or VI or Neo Vim. Okay, that's
+
+116
+00:06:14,080 --> 00:06:20,319
+keys. So, you don't have to press
+
+117
+00:06:16,080 --> 00:06:22,639
+control or meta or old. So every key I
+
+118
+00:06:20,319 --> 00:06:25,440
+press is shown on the pink window on the
+
+119
+00:06:22,639 --> 00:06:28,080
+left along with their command name. Can
+
+120
+00:06:25,440 --> 00:06:28,080
+you see it?
+
+121
+00:06:29,639 --> 00:06:35,600
+Yes. Okay, that's enough
+
+122
+00:06:32,840 --> 00:06:40,039
+introduction. Let's get the ball
+
+123
+00:06:35,600 --> 00:06:44,960
+rolling, shall we? So um Okay.
+
+124
+00:06:40,039 --> 00:06:47,520
+Yeah. So keys. Copy that. Close that.
+
+125
+00:06:44,960 --> 00:06:49,240
+Close that. Okay. So let's just put the
+
+126
+00:06:47,520 --> 00:06:52,800
+link
+
+127
+00:06:49,240 --> 00:06:58,240
+here. Okay. But I I need to go there. Go
+
+128
+00:06:52,800 --> 00:07:01,280
+to my F mod. F. There it is. So I have
+
+129
+00:06:58,240 --> 00:07:05,919
+already written
+
+130
+00:07:01,280 --> 00:07:08,960
+uh not much though. So let me should I
+
+131
+00:07:05,919 --> 00:07:12,720
+start from scratch or should I just
+
+132
+00:07:08,960 --> 00:07:15,360
+modify this? Okay. I think I'm just
+
+133
+00:07:12,720 --> 00:07:17,520
+going to modify this because if you want
+
+134
+00:07:15,360 --> 00:07:20,680
+to start from scratch, you can just
+
+135
+00:07:17,520 --> 00:07:23,680
+watch my previous talk
+
+136
+00:07:20,680 --> 00:07:23,680
+show.
+
+137
+00:07:24,360 --> 00:07:30,560
+Uh you know, if you want to learn
+
+138
+00:07:27,520 --> 00:07:33,520
+writing a major mod from scratch, but
+
+139
+00:07:30,560 --> 00:07:36,520
+today we're going to I'm just going to
+
+140
+00:07:33,520 --> 00:07:40,080
+continue my you know,
+
+141
+00:07:36,520 --> 00:07:44,560
+quickly this my quickly done mod. Okay.
+
+142
+00:07:40,080 --> 00:07:46,560
+So this is F mod right now 220 lines. So
+
+143
+00:07:44,560 --> 00:07:48,800
+first job you know one of the first
+
+144
+00:07:46,560 --> 00:07:53,759
+thing you need to do is you need to get
+
+145
+00:07:48,800 --> 00:07:58,720
+all the keywords of the F language. Okay
+
+146
+00:07:53,759 --> 00:07:59,879
+like if um so so for that to do that uh
+
+147
+00:07:58,720 --> 00:08:04,599
+let's
+
+148
+00:07:59,879 --> 00:08:09,919
+see so yesterday we did a F
+
+149
+00:08:04,599 --> 00:08:13,840
+um find and replace script. This is uh
+
+150
+00:08:09,919 --> 00:08:16,800
+code suggested from Gro. Yesterday we
+
+151
+00:08:13,840 --> 00:08:20,479
+did a live stream and it works great.
+
+152
+00:08:16,800 --> 00:08:23,599
+One shot. So you see so the keywords you
+
+153
+00:08:20,479 --> 00:08:26,560
+know the so let is colored open should
+
+154
+00:08:23,599 --> 00:08:28,879
+be color I don't have it for should be
+
+155
+00:08:26,560 --> 00:08:32,240
+colored in should be colored do should
+
+156
+00:08:28,879 --> 00:08:34,120
+be you know so on. So the first job is
+
+157
+00:08:32,240 --> 00:08:37,000
+to find all the
+
+158
+00:08:34,120 --> 00:08:41,519
+keywords. So how do you do that?
+
+159
+00:08:37,000 --> 00:08:45,200
+Um well we go to the F language spec.
+
+160
+00:08:41,519 --> 00:08:48,680
+Okay. Can we can we do that? Uh yeah. So
+
+161
+00:08:45,200 --> 00:08:55,040
+uh first job find keywords.
+
+162
+00:08:48,680 --> 00:08:58,800
+Okay. Uh F. Uh where is it? F. I need to
+
+163
+00:08:55,040 --> 00:09:01,440
+go to my tutorial notes. I'm learning
+
+164
+00:08:58,800 --> 00:09:02,600
+notes. My learning notes. And here is
+
+165
+00:09:01,440 --> 00:09:04,880
+the full
+
+166
+00:09:02,600 --> 00:09:06,240
+documentation. So we need to look into
+
+167
+00:09:04,880 --> 00:09:10,720
+that.
+
+168
+00:09:06,240 --> 00:09:14,120
+Turn on JavaScript. Turn on. And uh go
+
+169
+00:09:10,720 --> 00:09:18,120
+back F
+
+170
+00:09:14,120 --> 00:09:21,760
+documentation. Uh we need some kind of
+
+171
+00:09:18,120 --> 00:09:25,760
+specification. F language specification.
+
+172
+00:09:21,760 --> 00:09:25,760
+Do we have that? Turn on
+
+173
+00:09:26,200 --> 00:09:33,519
+JavaScript fundamentals. Uh F
+
+174
+00:09:31,000 --> 00:09:37,200
+documentation tutorials.
+
+175
+00:09:33,519 --> 00:09:40,000
+F# guide reference. Okay. F language
+
+176
+00:09:37,200 --> 00:09:40,000
+spec. Open
+
+177
+00:09:40,279 --> 00:09:47,959
+that. So, okay, hold on a second. So, F
+
+178
+00:09:45,440 --> 00:09:52,959
+learning notes. Okay. To do
+
+179
+00:09:47,959 --> 00:09:57,040
+close this is S talk show. Now, put the
+
+180
+00:09:52,959 --> 00:09:58,440
+my learning notes there. There's a link
+
+181
+00:09:57,040 --> 00:10:02,880
+and
+
+182
+00:09:58,440 --> 00:10:06,760
+um learning notes F spec. That's what we
+
+183
+00:10:02,880 --> 00:10:12,279
+want to find. So there it is. F
+
+184
+00:10:06,760 --> 00:10:17,279
+specification version uh 4.1 in PDF
+
+185
+00:10:12,279 --> 00:10:18,680
+in doc x. Now what format is doc doc x?
+
+186
+00:10:17,279 --> 00:10:20,480
+I don't
+
+187
+00:10:18,680 --> 00:10:21,720
+know. So let's
+
+188
+00:10:20,480 --> 00:10:27,200
+[Music]
+
+189
+00:10:21,720 --> 00:10:31,800
+see. So 4.1. Okay. The latest working
+
+190
+00:10:27,200 --> 00:10:37,480
+version. Okay. Let's see the dot. Ah,
+
+191
+00:10:31,800 --> 00:10:39,720
+ Oh, that's Microsoft Word. Oh
+
+192
+00:10:37,480 --> 00:10:45,240
+
+193
+00:10:39,720 --> 00:10:48,399
+And so what about a PDF? Let's open the
+
+194
+00:10:45,240 --> 00:10:52,760
+Wait, why don't they have the F
+
+195
+00:10:48,399 --> 00:10:52,760
+specification in HTML
+
+196
+00:10:53,360 --> 00:11:00,320
+idiotic? Let's try this. RFC request for
+
+197
+00:10:56,959 --> 00:11:06,040
+comment. Okay, this is written in uh
+
+198
+00:11:00,320 --> 00:11:10,079
+read me the MD uh which is uh stand for
+
+199
+00:11:06,040 --> 00:11:12,120
+markdown. So cartesian product let's
+
+200
+00:11:10,079 --> 00:11:17,440
+just see what
+
+201
+00:11:12,120 --> 00:11:17,440
+the lead pairs okay this is just
+
+202
+00:11:17,800 --> 00:11:23,000
+partial okay well let's try the PDF
+
+203
+00:11:21,519 --> 00:11:26,640
+let's see how it
+
+204
+00:11:23,000 --> 00:11:29,440
+looks you know so our job first job is
+
+205
+00:11:26,640 --> 00:11:29,440
+to get
+
+206
+00:11:38,160 --> 00:11:45,880
+First task get all F
+
+207
+00:11:43,000 --> 00:11:49,360
+keywords. Hello
+
+208
+00:11:45,880 --> 00:11:52,800
+immortality. Okay, this is PDF. Now you
+
+209
+00:11:49,360 --> 00:11:58,040
+need to magnify for you guys. So because
+
+210
+00:11:52,800 --> 00:11:58,040
+otherwise it's you cannot read it.
+
+211
+00:11:59,279 --> 00:12:07,279
+language spec.
+
+212
+00:12:01,640 --> 00:12:12,120
+Okay. The F 4.1 language spec. Uh oh,
+
+213
+00:12:07,279 --> 00:12:15,800
+look, look, there's a there's a
+
+214
+00:12:12,120 --> 00:12:20,639
+typo. V does not yet incorporate the
+
+215
+00:12:15,800 --> 00:12:23,600
+RFC's for 4.1, but it says fee. It's
+
+216
+00:12:20,639 --> 00:12:23,600
+missing an
+
+217
+00:12:24,120 --> 00:12:31,440
+S. Okay.
+
+218
+00:12:26,760 --> 00:12:33,320
+So, so let's get a overview. What is
+
+219
+00:12:31,440 --> 00:12:37,360
+this latest
+
+220
+00:12:33,320 --> 00:12:42,360
+PDF language spec? Okay. Documentation
+
+221
+00:12:37,360 --> 00:12:44,200
+is a spec of 4.1 of F released in
+
+222
+00:12:42,360 --> 00:12:49,120
+2015.
+
+223
+00:12:44,200 --> 00:12:49,120
+Oh, that is old. That's 10 years
+
+224
+00:12:49,320 --> 00:12:56,079
+old. Okay. author Don Sim document
+
+225
+00:12:53,600 --> 00:12:59,279
+update
+
+226
+00:12:56,079 --> 00:12:59,279
+uh initial
+
+227
+00:12:59,480 --> 00:13:06,560
+updates. Okay.
+
+228
+00:13:02,279 --> 00:13:06,560
+What? Okay. So you got
+
+229
+00:13:07,079 --> 00:13:10,079
+this
+
+230
+00:13:12,360 --> 00:13:19,639
+introduction lexical analysis, whace
+
+231
+00:13:16,079 --> 00:13:23,480
+comments, conditionals, conditional
+
+232
+00:13:19,639 --> 00:13:25,560
+compilation, identifiers and
+
+233
+00:13:23,480 --> 00:13:30,440
+keywords.
+
+234
+00:13:25,560 --> 00:13:34,959
+Um there identifiers and
+
+235
+00:13:30,440 --> 00:13:34,959
+keywords. Okay. Yeah.
+
+236
+00:13:35,399 --> 00:13:44,120
+Jesus. This is BNF backas no notation.
+
+237
+00:13:42,000 --> 00:13:48,519
+BN
+
+238
+00:13:44,120 --> 00:13:52,120
+um backers know um what's the word?
+
+239
+00:13:48,519 --> 00:13:56,760
+Uh BN usually it's called
+
+240
+00:13:52,120 --> 00:14:02,440
+BNF backers no form. Okay.
+
+241
+00:13:56,760 --> 00:14:05,199
+Uh so this is so this is identifiers and
+
+242
+00:14:02,440 --> 00:14:07,600
+keywords. So those are for numbers,
+
+243
+00:14:05,199 --> 00:14:11,959
+digit letter characters, connection
+
+244
+00:14:07,600 --> 00:14:16,920
+connecting characters, uh formatting
+
+245
+00:14:11,959 --> 00:14:19,720
+characters. Okay, that's for numbers. Uh
+
+246
+00:14:16,920 --> 00:14:22,959
+yeah. Okay, then the following
+
+247
+00:14:19,720 --> 00:14:25,839
+identifiers are reserved for future use.
+
+248
+00:14:22,959 --> 00:14:30,279
+Okay. So then here you have token
+
+249
+00:14:25,839 --> 00:14:34,160
+identifier keywords. That's what we
+
+250
+00:14:30,279 --> 00:14:37,199
+want. Okay. So that's what we want. And
+
+251
+00:14:34,160 --> 00:14:40,440
+the future use. Let's copy it. Okay. So
+
+252
+00:14:37,199 --> 00:14:45,880
+this is PDF is a pain in the
+
+253
+00:14:40,440 --> 00:14:48,959
+ass. Never use PDF. Okay. Because they
+
+254
+00:14:45,880 --> 00:14:53,279
+have, you know, this is complicated.
+
+255
+00:14:48,959 --> 00:14:57,680
+When you copy, you got lots of crap.
+
+256
+00:14:53,279 --> 00:15:00,720
+Okay. So, go back to my F mod. So,
+
+257
+00:14:57,680 --> 00:15:02,680
+there's a F doc lookup. Now, I want to
+
+258
+00:15:00,720 --> 00:15:04,680
+go to the
+
+259
+00:15:02,680 --> 00:15:09,120
+keywords.
+
+260
+00:15:04,680 --> 00:15:11,000
+Functions. Okay. So, okay. F keywords. I
+
+261
+00:15:09,120 --> 00:15:14,279
+only have
+
+262
+00:15:11,000 --> 00:15:17,600
+two. So, we need to modify
+
+263
+00:15:14,279 --> 00:15:20,000
+that. Okay. Let's paste this. Okay.
+
+264
+00:15:17,600 --> 00:15:22,000
+Comment out. Let's begin to work on
+
+265
+00:15:20,000 --> 00:15:24,639
+this.
+
+266
+00:15:22,000 --> 00:15:26,959
+So I don't want that. Okay. Uh first of
+
+267
+00:15:24,639 --> 00:15:32,160
+all make a backup. I don't want that.
+
+268
+00:15:26,959 --> 00:15:32,160
+Just say Neo. Okay. Then
+
+269
+00:15:32,279 --> 00:15:39,920
+set set here so that every time when
+
+270
+00:15:35,839 --> 00:15:42,560
+this package runs again it resets
+
+271
+00:15:39,920 --> 00:15:45,440
+because if you put the value here then
+
+272
+00:15:42,560 --> 00:15:48,000
+you evaluate it it does not work. It
+
+273
+00:15:45,440 --> 00:15:51,040
+does not work when the variable already
+
+274
+00:15:48,000 --> 00:15:53,279
+has a value. So that means when you
+
+275
+00:15:51,040 --> 00:15:55,519
+reload the package, it doesn't reset
+
+276
+00:15:53,279 --> 00:15:58,160
+things by design and I don't think
+
+277
+00:15:55,519 --> 00:16:01,440
+that's a good design. So I prefer to
+
+278
+00:15:58,160 --> 00:16:05,519
+always define it declare the variable
+
+279
+00:16:01,440 --> 00:16:09,279
+but neo value then you set the value so
+
+280
+00:16:05,519 --> 00:16:12,839
+that every time when this package f mod
+
+281
+00:16:09,279 --> 00:16:15,440
+is reloaded it kinds of like reset
+
+282
+00:16:12,839 --> 00:16:16,959
+everything. Okay, this is also good
+
+283
+00:16:15,440 --> 00:16:19,519
+especially when you are doing
+
+284
+00:16:16,959 --> 00:16:21,800
+development of the major mod because you
+
+285
+00:16:19,519 --> 00:16:24,880
+need to re reload this
+
+286
+00:16:21,800 --> 00:16:28,880
+constantly. Okay, so now let's uh so so
+
+287
+00:16:24,880 --> 00:16:32,000
+so the keyword is going to be a list.
+
+288
+00:16:28,880 --> 00:16:35,320
+Okay, this means don't evaluate the
+
+289
+00:16:32,000 --> 00:16:39,279
+content of the list. Okay,
+
+290
+00:16:35,320 --> 00:16:41,920
+so okay and let's show whites space. Did
+
+291
+00:16:39,279 --> 00:16:45,519
+we copy a bunch of crap? No, because
+
+292
+00:16:41,920 --> 00:16:48,440
+usually when you copy from PDF, you got
+
+293
+00:16:45,519 --> 00:16:51,600
+bunch of mysterious
+
+294
+00:16:48,440 --> 00:16:55,120
+characters. Okay, so make it the line.
+
+295
+00:16:51,600 --> 00:16:59,120
+So turn off the white space. Then each
+
+296
+00:16:55,120 --> 00:17:05,480
+one want to be a string. So let's do it.
+
+297
+00:16:59,120 --> 00:17:05,480
+Uh quotation mark and uh space
+
+298
+00:17:07,439 --> 00:17:14,199
+uh what other space. Okay, so we got
+
+299
+00:17:11,959 --> 00:17:18,640
+that. And
+
+300
+00:17:14,199 --> 00:17:21,760
+uh are they alphabetized? Yes, but we
+
+301
+00:17:18,640 --> 00:17:24,799
+can do it again to make sure. Sort. You
+
+302
+00:17:21,760 --> 00:17:27,120
+can see the command on the pink window.
+
+303
+00:17:24,799 --> 00:17:27,880
+And let's make it one line. And let's
+
+304
+00:17:27,120 --> 00:17:31,679
+make
+
+305
+00:17:27,880 --> 00:17:32,760
+it, you know, uh not too long a line.
+
+306
+00:17:31,679 --> 00:17:34,280
+And
+
+307
+00:17:32,760 --> 00:17:36,200
+cut.
+
+308
+00:17:34,280 --> 00:17:39,039
+Paste.
+
+309
+00:17:36,200 --> 00:17:42,320
+Pretty. Fantastic.
+
+310
+00:17:39,039 --> 00:17:45,480
+Now we got lots of keywords. Okay. Now
+
+311
+00:17:42,320 --> 00:17:50,000
+go back here. That's
+
+312
+00:17:45,480 --> 00:17:53,080
+the Yeah. So we need to So wait. Uh oh.
+
+313
+00:17:50,000 --> 00:17:56,400
+Actually these are reserved
+
+314
+00:17:53,080 --> 00:18:00,080
+words. Okay. These are reserved words.
+
+315
+00:17:56,400 --> 00:18:00,080
+Okay. You need this part.
+
+316
+00:18:02,200 --> 00:18:05,200
+Keywords.
+
+317
+00:18:05,480 --> 00:18:13,360
+Copy. Paste. Show white space to see if
+
+318
+00:18:09,440 --> 00:18:13,360
+there's any No.
+
+319
+00:18:14,600 --> 00:18:23,919
+Okay. Turn off whace. Make it one line
+
+320
+00:18:18,640 --> 00:18:29,760
+per word. Now add a quotation mark and
+
+321
+00:18:23,919 --> 00:18:34,080
+uh uh then no comma. Okay. Then make it
+
+322
+00:18:29,760 --> 00:18:35,400
+one line, long line. Make it uh make it.
+
+323
+00:18:34,080 --> 00:18:38,480
+So are they
+
+324
+00:18:35,400 --> 00:18:41,919
+alphabetized? Yes. But double check to
+
+325
+00:18:38,480 --> 00:18:46,559
+make sure. Okay. Make it one line. Make
+
+326
+00:18:41,919 --> 00:18:51,120
+it short. Now this part will be a list.
+
+327
+00:18:46,559 --> 00:18:51,120
+Okay. Now this cut that
+
+328
+00:18:51,240 --> 00:18:57,600
+out. Cut this
+
+329
+00:18:53,640 --> 00:19:00,760
+out. Put it back there. 3Dify the code.
+
+330
+00:18:57,600 --> 00:19:05,280
+So that's the F
+
+331
+00:19:00,760 --> 00:19:05,280
+keywords. Okay. So now
+
+332
+00:19:07,080 --> 00:19:15,240
+next that's the keywords and this is
+
+333
+00:19:12,520 --> 00:19:18,360
+reserved words. List of
+
+334
+00:19:15,240 --> 00:19:21,000
+F reserved words.
+
+335
+00:19:18,360 --> 00:19:24,559
+Okay. Good. Yes.
+
+336
+00:19:21,000 --> 00:19:27,440
+Set F reserve words. And what do you
+
+337
+00:19:24,559 --> 00:19:29,240
+want to set them? You want to set them
+
+338
+00:19:27,440 --> 00:19:34,039
+to
+
+339
+00:19:29,240 --> 00:19:36,580
+be let's just let's just this thing this
+
+340
+00:19:34,039 --> 00:19:38,360
+thing. Okay. And
+
+341
+00:19:36,580 --> 00:19:41,360
+[Music]
+
+342
+00:19:38,360 --> 00:19:43,559
+uh let's just make it one line. Okay.
+
+343
+00:19:41,360 --> 00:19:46,880
+Like
+
+344
+00:19:43,559 --> 00:19:51,039
+that. Fantastic. And beautiful. Is it
+
+345
+00:19:46,880 --> 00:19:53,360
+beautiful? Yes. Is it fantastic? Yes.
+
+346
+00:19:51,039 --> 00:19:56,000
+So, we got keywords. Now, search for
+
+347
+00:19:53,360 --> 00:19:59,600
+keywords. Uh let's double check make
+
+348
+00:19:56,000 --> 00:20:02,240
+sure we got the quote there. Okay. And
+
+349
+00:19:59,600 --> 00:20:06,720
+okay. Now search for keywords. Where is
+
+350
+00:20:02,240 --> 00:20:08,640
+it used here? So now you need to append
+
+351
+00:20:06,720 --> 00:20:12,880
+s
+
+352
+00:20:08,640 --> 00:20:16,400
+uh reserved words. Okay. Pedify.
+
+353
+00:20:12,880 --> 00:20:18,720
+Fantastic. So this is uh all words. Now
+
+354
+00:20:16,400 --> 00:20:18,720
+search
+
+355
+00:20:19,080 --> 00:20:25,760
+again. Okay. And then another part you
+
+356
+00:20:21,919 --> 00:20:28,400
+want to use it is um let's see all
+
+357
+00:20:25,760 --> 00:20:30,799
+words. Okay, this variable is actually
+
+358
+00:20:28,400 --> 00:20:30,799
+not
+
+359
+00:20:31,080 --> 00:20:34,190
+[Music]
+
+360
+00:20:38,039 --> 00:20:49,039
+used. Yeah. Okay. Let's change that.
+
+361
+00:20:42,000 --> 00:20:53,559
+Let's change that to Neil and set s F
+
+362
+00:20:49,039 --> 00:20:57,760
+all words. Then do that.
+
+363
+00:20:53,559 --> 00:20:57,760
+Okay. Do that kind
+
+364
+00:21:02,039 --> 00:21:08,280
+of. Okay. So remove
+
+365
+00:21:05,559 --> 00:21:12,640
+that.
+
+366
+00:21:08,280 --> 00:21:17,000
+Beautiful. Okay. Now uh now the font
+
+367
+00:21:12,640 --> 00:21:20,240
+lock keywords. Okay, highlight this
+
+368
+00:21:17,000 --> 00:21:23,120
+part. Oh, when there's a Oh, okay.
+
+369
+00:21:20,240 --> 00:21:23,120
+There's also
+
+370
+00:21:23,960 --> 00:21:28,559
+functions. Okay, that's right now
+
+371
+00:21:29,320 --> 00:21:38,840
+empty. Uh it's empty list is equals to
+
+372
+00:21:33,600 --> 00:21:42,880
+Neo. So let's just say Neo and let's say
+
+373
+00:21:38,840 --> 00:21:46,640
+uh let's say for now for Neo. Okay. So
+
+374
+00:21:42,880 --> 00:21:49,840
+here's to-do need need uh DOS command
+
+375
+00:21:46,640 --> 00:21:52,400
+keywords. Okay. That was that's from
+
+376
+00:21:49,840 --> 00:21:55,000
+PowerShell. So delete that to-do need
+
+377
+00:21:52,400 --> 00:21:57,480
+color for param that's for
+
+378
+00:21:55,000 --> 00:22:01,520
+PowerShell. So remove
+
+379
+00:21:57,480 --> 00:22:05,280
+that. So we got functions. Uh functions
+
+380
+00:22:01,520 --> 00:22:08,880
+is actually not used. Uh but you got
+
+381
+00:22:05,280 --> 00:22:12,320
+keywords. Keyword is here. So keyword
+
+382
+00:22:08,880 --> 00:22:14,840
+should come before functions. Yes. So
+
+383
+00:22:12,320 --> 00:22:18,880
+put that
+
+384
+00:22:14,840 --> 00:22:22,799
+there. Okay. So rejects. So this is a
+
+385
+00:22:18,880 --> 00:22:25,280
+list of words. You make them into one
+
+386
+00:22:22,799 --> 00:22:26,520
+single regular expression by calling
+
+387
+00:22:25,280 --> 00:22:30,240
+rejects
+
+388
+00:22:26,520 --> 00:22:33,760
+opt. Okay. And uh then all these regular
+
+389
+00:22:30,240 --> 00:22:37,520
+expression of words will be colored
+
+390
+00:22:33,760 --> 00:22:37,520
+keyword phase.
+
+391
+00:22:38,440 --> 00:22:46,320
+Fantastic. Okay. So what is this? This
+
+392
+00:22:42,000 --> 00:22:47,400
+is uh this is dollar sign. Dollar sign
+
+393
+00:22:46,320 --> 00:22:50,120
+make it
+
+394
+00:22:47,400 --> 00:22:53,919
+bold. Why are we doing
+
+395
+00:22:50,120 --> 00:22:53,919
+that? Uh
+
+396
+00:22:56,120 --> 00:23:02,960
+because so this is
+
+397
+00:23:00,000 --> 00:23:06,080
+uh what is underscore? What is that
+
+398
+00:23:02,960 --> 00:23:06,080
+symbol? Okay.
+
+399
+00:23:06,200 --> 00:23:11,080
+So we don't need this. I don't I forgot
+
+400
+00:23:09,039 --> 00:23:15,600
+where it came from. From PowerShell
+
+401
+00:23:11,080 --> 00:23:18,080
+probably. So from PowerShell mod. So you
+
+402
+00:23:15,600 --> 00:23:21,159
+can you can see
+
+403
+00:23:18,080 --> 00:23:24,480
+uh lock.
+
+404
+00:23:21,159 --> 00:23:24,480
+So phone
+
+405
+00:23:26,520 --> 00:23:35,039
+lock. Yeah. So this is from
+
+406
+00:23:30,280 --> 00:23:35,039
+powershop fun lock function name
+
+407
+00:23:35,159 --> 00:23:39,960
+face. Oh beginning. Yeah. So I want to
+
+408
+00:23:38,400 --> 00:23:43,520
+highlight
+
+409
+00:23:39,960 --> 00:23:47,200
+every symbol identifier. If it start
+
+410
+00:23:43,520 --> 00:23:50,080
+with f then I want to make it color it
+
+411
+00:23:47,200 --> 00:23:52,880
+as a function because in my convention
+
+412
+00:23:50,080 --> 00:23:57,360
+all functions start with f
+
+413
+00:23:52,880 --> 00:24:00,480
+uh you know it's not very universal con
+
+414
+00:23:57,360 --> 00:24:03,440
+convention and I I'm not 100% sticking
+
+415
+00:24:00,480 --> 00:24:07,919
+to that. So actually I can remove that
+
+416
+00:24:03,440 --> 00:24:09,799
+but anyway so back to uh F. So we don't
+
+417
+00:24:07,919 --> 00:24:13,000
+we don't need
+
+418
+00:24:09,799 --> 00:24:17,520
+that. Okay. So we got
+
+419
+00:24:13,000 --> 00:24:19,320
+um we got color. So now make a backup.
+
+420
+00:24:17,520 --> 00:24:22,559
+Go to
+
+421
+00:24:19,320 --> 00:24:25,279
+directory by compile. Are you sure? Yes.
+
+422
+00:24:22,559 --> 00:24:28,720
+Is there a error? No. When you typically
+
+423
+00:24:25,279 --> 00:24:31,279
+when you bite compile uh it'll warn you
+
+424
+00:24:28,720 --> 00:24:33,600
+or error tell you some error. So there's
+
+425
+00:24:31,279 --> 00:24:37,279
+no error. Fantastic. Open the bite
+
+426
+00:24:33,600 --> 00:24:41,640
+compile file. Delete it. Close it. Now
+
+427
+00:24:37,279 --> 00:24:45,039
+eval the buffer. Now go back to our F
+
+428
+00:24:41,640 --> 00:24:49,200
+code. Close that. Close that. Close
+
+429
+00:24:45,039 --> 00:24:53,000
+that. Go to the F code. You see the four
+
+430
+00:24:49,200 --> 00:24:56,159
+and do are not colored. The try is not
+
+431
+00:24:53,000 --> 00:24:59,120
+colored. Now we close this reopen. And
+
+432
+00:24:56,159 --> 00:25:02,240
+this open is not colored. Now we close
+
+433
+00:24:59,120 --> 00:25:04,360
+this and reopen. It will reload F mod or
+
+434
+00:25:02,240 --> 00:25:08,640
+I can say
+
+435
+00:25:04,360 --> 00:25:11,760
+uh F you know. So if I call this again
+
+436
+00:25:08,640 --> 00:25:19,400
+they will be colored. Okay. Check check
+
+437
+00:25:11,760 --> 00:25:21,960
+check this open and this for in do try.
+
+438
+00:25:19,400 --> 00:25:23,720
+Okay do
+
+439
+00:25:21,960 --> 00:25:25,400
+it.
+
+440
+00:25:23,720 --> 00:25:29,279
+No
+
+441
+00:25:25,400 --> 00:25:32,880
+what didn't happen. Okay. Close it.
+
+442
+00:25:29,279 --> 00:25:36,080
+Reopen it. It didn't color. So what
+
+443
+00:25:32,880 --> 00:25:38,880
+happened with the do when open? Are they
+
+444
+00:25:36,080 --> 00:25:38,880
+not the
+
+445
+00:25:39,480 --> 00:25:46,720
+keywords?
+
+446
+00:25:41,000 --> 00:25:46,720
+Wait. Such such such such.
+
+447
+00:25:47,000 --> 00:25:51,520
+So I've got So
+
+448
+00:25:53,400 --> 00:25:58,600
+actually, so let's
+
+449
+00:25:56,760 --> 00:26:02,200
+see
+
+450
+00:25:58,600 --> 00:26:05,679
+keywords. Wait, there's
+
+451
+00:26:02,200 --> 00:26:07,960
+two. There's open. Uh, wait. So there's
+
+452
+00:26:05,679 --> 00:26:10,600
+two. Why is it not
+
+453
+00:26:07,960 --> 00:26:12,260
+colored? There's
+
+454
+00:26:10,600 --> 00:26:14,440
+two. Okay.
+
+455
+00:26:12,260 --> 00:26:19,520
+[Music]
+
+456
+00:26:14,440 --> 00:26:21,559
+Maybe evaluate it again. Now try again.
+
+457
+00:26:19,520 --> 00:26:23,159
+Sign F
+
+458
+00:26:21,559 --> 00:26:27,919
+mod.
+
+459
+00:26:23,159 --> 00:26:27,919
+Okay. Houston, we got a
+
+460
+00:26:28,679 --> 00:26:34,799
+problem. Now, is there some error
+
+461
+00:26:31,279 --> 00:26:37,200
+messages? No, there's no error. Okay, go
+
+462
+00:26:34,799 --> 00:26:39,159
+to the messages buffer. It doesn't say
+
+463
+00:26:37,200 --> 00:26:43,240
+anything. Close
+
+464
+00:26:39,159 --> 00:26:45,640
+it. So that means you just double check
+
+465
+00:26:43,240 --> 00:26:50,559
+somewhere you are not
+
+466
+00:26:45,640 --> 00:26:50,559
+careful. Am I doing good? Am I
+
+467
+00:26:51,240 --> 00:26:56,559
+alive?
+
+468
+00:26:53,320 --> 00:27:00,720
+Respond. Gun Emacs for success says,
+
+469
+00:26:56,559 --> 00:27:04,240
+"How about you? Here is Luis." Oh,
+
+470
+00:27:00,720 --> 00:27:04,240
+Louise, a new
+
+471
+00:27:04,440 --> 00:27:13,080
+name. Uh, just come to greet you. Oh,
+
+472
+00:27:09,480 --> 00:27:16,400
+hi. Great to see you again,
+
+473
+00:27:13,080 --> 00:27:20,520
+Luis. And, uh, thanks for the for the
+
+474
+00:27:16,400 --> 00:27:24,720
+many likes on YouTube, on the
+
+475
+00:27:20,520 --> 00:27:28,640
+Twitter. So, back to the code. Uh, yeah,
+
+476
+00:27:24,720 --> 00:27:31,960
+I'm alive. Thank you. Thank you, ACP. So
+
+477
+00:27:28,640 --> 00:27:35,919
+now we got a problem Houston these
+
+478
+00:27:31,960 --> 00:27:38,480
+keywords you know we are we failed
+
+479
+00:27:35,919 --> 00:27:38,480
+
+480
+00:27:38,520 --> 00:27:44,240
+failed now why did we fail you know the
+
+481
+00:27:41,919 --> 00:27:47,720
+great man says well you got to fail
+
+482
+00:27:44,240 --> 00:27:52,480
+because then you never succeed
+
+483
+00:27:47,720 --> 00:27:55,600
+something so uh so just rethink okay so
+
+484
+00:27:52,480 --> 00:27:58,080
+we got a bunch of keywords do we have do
+
+485
+00:27:55,600 --> 00:28:01,640
+yes wait let's make sure What what
+
+486
+00:27:58,080 --> 00:28:06,679
+keyword we missing? Okay, we got open
+
+487
+00:28:01,640 --> 00:28:12,320
+open for in do
+
+488
+00:28:06,679 --> 00:28:15,279
+try if else. Okay, now go back here. Now
+
+489
+00:28:12,320 --> 00:28:20,240
+close it. Reopen. It's not highlighting.
+
+490
+00:28:15,279 --> 00:28:25,919
+Okay, now go back to here. Open do. Do
+
+491
+00:28:20,240 --> 00:28:28,919
+we have open? You got open do. If okay
+
+492
+00:28:25,919 --> 00:28:31,240
+so the keywords are
+
+493
+00:28:28,919 --> 00:28:37,520
+here and
+
+494
+00:28:31,240 --> 00:28:37,520
+uh search for that keywords and uh
+
+495
+00:28:39,559 --> 00:28:46,240
+okay color it. Okay so keyword is pink.
+
+496
+00:28:47,399 --> 00:28:52,320
+So okay I think we up somewhere
+
+497
+00:28:50,640 --> 00:28:55,360
+here.
+
+498
+00:28:52,320 --> 00:28:55,360
+Let's see from
+
+499
+00:28:56,520 --> 00:29:04,320
+here. Okay. So, but let is colored now.
+
+500
+00:29:01,279 --> 00:29:04,320
+Where does lead come
+
+501
+00:29:04,760 --> 00:29:08,320
+from? Okay.
+
+502
+00:29:09,399 --> 00:29:16,720
+So, let's see. Functions. Function is
+
+503
+00:29:13,240 --> 00:29:19,559
+zero. So, where where the does let
+
+504
+00:29:16,720 --> 00:29:23,440
+come from? Search
+
+505
+00:29:19,559 --> 00:29:26,440
+for let.
+
+506
+00:29:23,440 --> 00:29:30,000
+So let is part of
+
+507
+00:29:26,440 --> 00:29:32,480
+these keywords right? So what uh so why
+
+508
+00:29:30,000 --> 00:29:32,480
+is it
+
+509
+00:29:35,880 --> 00:29:39,200
+um I
+
+510
+00:29:39,320 --> 00:29:48,600
+think okay now evaluate it maybe we
+
+511
+00:29:43,120 --> 00:29:52,000
+didn't evaluate is that right close
+
+512
+00:29:48,600 --> 00:29:52,000
+reopen same
+
+513
+00:29:56,039 --> 00:30:02,520
+problem okay I'm starting to get
+
+514
+00:29:59,720 --> 00:30:06,520
+pissed. Go back to the
+
+515
+00:30:02,520 --> 00:30:12,720
+mod. So, it's opening F
+
+516
+00:30:06,520 --> 00:30:15,440
+mod. So, let's rename this to be SF.
+
+517
+00:30:12,720 --> 00:30:15,440
+Okay, let's
+
+518
+00:30:16,919 --> 00:30:25,640
+just evaluate. Go back here. Go back
+
+519
+00:30:21,320 --> 00:30:30,000
+here. Watch this mo mode line.
+
+520
+00:30:25,640 --> 00:30:34,600
+Okay. Close it. Reopen it. Okay, it
+
+521
+00:30:30,000 --> 00:30:39,360
+means it's loaded new. You see XR F
+
+522
+00:30:34,600 --> 00:30:39,360
+here, but the coloring is not
+
+523
+00:30:39,640 --> 00:30:47,000
+happening. And meanwhile, you got the
+
+524
+00:30:42,159 --> 00:30:47,000
+let colored. What? Why is that?
+
+525
+00:31:13,919 --> 00:31:21,520
+Okay, let me think about a little
+
+526
+00:31:16,360 --> 00:31:23,840
+bit. a brief table, syntax table, group
+
+527
+00:31:21,520 --> 00:31:26,600
+F mod,
+
+528
+00:31:23,840 --> 00:31:29,600
+uh, fun lock
+
+529
+00:31:26,600 --> 00:31:34,880
+keywords. Okay, I think I'm going to
+
+530
+00:31:29,600 --> 00:31:34,880
+rewrite this a little bit. Let's see.
+
+531
+00:31:35,799 --> 00:31:41,760
+Uh, define
+
+532
+00:31:38,360 --> 00:31:44,320
+bar. Yeah.
+
+533
+00:31:41,760 --> 00:31:47,960
+So this you know this is very annoying
+
+534
+00:31:44,320 --> 00:31:50,559
+part of lisp because you got this back
+
+535
+00:31:47,960 --> 00:31:55,279
+tick they are design they they are
+
+536
+00:31:50,559 --> 00:31:57,679
+called reader macros Okay. So that
+
+537
+00:31:55,279 --> 00:32:01,039
+back tick what essentially what it means
+
+538
+00:31:57,679 --> 00:32:02,440
+is that when you have back tick parn
+
+539
+00:32:01,039 --> 00:32:04,919
+that
+
+540
+00:32:02,440 --> 00:32:08,080
+means don't
+
+541
+00:32:04,919 --> 00:32:08,919
+evaluate whatever is inside the parent
+
+542
+00:32:08,080 --> 00:32:12,720
+but
+
+543
+00:32:08,919 --> 00:32:16,159
+however do evaluate if there is a comma
+
+544
+00:32:12,720 --> 00:32:20,080
+before it. So that means you do evaluate
+
+545
+00:32:16,159 --> 00:32:21,600
+this part but do not evaluate you know
+
+546
+00:32:20,080 --> 00:32:27,039
+that
+
+547
+00:32:21,600 --> 00:32:27,039
+uh so you evaluate that part. So you
+
+548
+00:32:27,720 --> 00:32:35,080
+know okay let's see describe variable
+
+549
+00:32:31,440 --> 00:32:39,120
+what do we have this defined
+
+550
+00:32:35,080 --> 00:32:41,880
+yes keywords is defined it's this list
+
+551
+00:32:39,120 --> 00:32:46,360
+now what is the function is it
+
+552
+00:32:41,880 --> 00:32:51,039
+defined yes but the value is new that's
+
+553
+00:32:46,360 --> 00:32:53,960
+correct now so why is this fun keyword
+
+554
+00:32:51,039 --> 00:32:59,200
+face not working
+
+555
+00:32:53,960 --> 00:33:02,480
+Okay, now let's go to uh this mod. Let's
+
+556
+00:32:59,200 --> 00:33:04,360
+just do some comparison of things that's
+
+557
+00:33:02,480 --> 00:33:09,760
+that's
+
+558
+00:33:04,360 --> 00:33:16,039
+working font lock. Okay, let's go to EAC
+
+559
+00:33:09,760 --> 00:33:20,279
+this mod to see. So, so here
+
+560
+00:33:16,039 --> 00:33:24,240
+is you see here is the
+
+561
+00:33:20,279 --> 00:33:27,360
+keywords syntax coloring for my EMAC.
+
+562
+00:33:24,240 --> 00:33:30,799
+This mod tried and true. This mod I've
+
+563
+00:33:27,360 --> 00:33:34,600
+been using for 15 years and I'm using
+
+564
+00:33:30,799 --> 00:33:36,120
+right now. You see
+
+565
+00:33:34,600 --> 00:33:40,799
+elisp
+
+566
+00:33:36,120 --> 00:33:40,799
+now. So you can model
+
+567
+00:33:43,159 --> 00:33:48,200
+it. So what what what are you doing
+
+568
+00:33:46,720 --> 00:33:53,039
+here? So
+
+569
+00:33:48,200 --> 00:33:53,039
+let's so you are
+
+570
+00:33:59,720 --> 00:34:06,559
+set. You don't need the let you know. So
+
+571
+00:34:02,799 --> 00:34:09,639
+wait make a copy. So this let is empty
+
+572
+00:34:06,559 --> 00:34:12,879
+anyway. So
+
+573
+00:34:09,639 --> 00:34:16,000
+refresh syntax I mean pretty fine. So
+
+574
+00:34:12,879 --> 00:34:18,399
+you got basically this keywords needs to
+
+575
+00:34:16,000 --> 00:34:18,399
+be a
+
+576
+00:34:18,839 --> 00:34:28,040
+list. So that seems right. Seems right
+
+577
+00:34:23,520 --> 00:34:30,280
+it's a list. And then you got the
+
+578
+00:34:28,040 --> 00:34:35,119
+keywords looks
+
+579
+00:34:30,280 --> 00:34:40,079
+right. Okay. This mod seems seems right.
+
+580
+00:34:35,119 --> 00:34:40,079
+Now go back to the F
+
+581
+00:34:40,200 --> 00:34:47,599
+mod. This mod F
+
+582
+00:34:44,599 --> 00:34:47,599
+mod
+
+583
+00:34:50,760 --> 00:34:54,879
+face rejects up
+
+584
+00:34:55,720 --> 00:35:02,160
+symbols. Did we up somewhere here?
+
+585
+00:35:03,720 --> 00:35:10,560
+So F keywords these are a list of
+
+586
+00:35:10,920 --> 00:35:20,599
+strings. Is that right? Yeah. A list of
+
+587
+00:35:16,359 --> 00:35:24,599
+strings. I compile. No
+
+588
+00:35:20,599 --> 00:35:24,599
+error. Okay.
+
+589
+00:35:28,960 --> 00:35:35,160
+Close this.
+
+590
+00:35:32,280 --> 00:35:39,040
+Reopen, you know that
+
+591
+00:35:35,160 --> 00:35:39,040
+I This is
+
+592
+00:35:39,240 --> 00:35:46,800
+odd because you see this let and print
+
+593
+00:35:43,160 --> 00:35:46,800
+F, they came
+
+594
+00:35:46,839 --> 00:35:52,359
+from my old version of the mod that only
+
+595
+00:35:50,880 --> 00:35:56,320
+color these
+
+596
+00:35:52,359 --> 00:36:00,800
+two. Uh so they are still coloring these
+
+597
+00:35:56,320 --> 00:36:00,800
+two but the the
+
+598
+00:36:03,079 --> 00:36:12,480
+mod already removed it. Let's
+
+599
+00:36:07,800 --> 00:36:12,480
+see. Make sure we got it
+
+600
+00:36:12,599 --> 00:36:18,000
+right. So you see if you search for
+
+601
+00:36:18,200 --> 00:36:25,480
+print it's not even found anywhere.
+
+602
+00:36:23,200 --> 00:36:28,880
+Uh,
+
+603
+00:36:25,480 --> 00:36:32,560
+so you know one one thing we can always
+
+604
+00:36:28,880 --> 00:36:34,960
+do just restart a new Emacs. Let's see
+
+605
+00:36:32,560 --> 00:36:34,960
+if that
+
+606
+00:36:36,200 --> 00:36:44,079
+works. Oh, I already So it's here. Yeah.
+
+607
+00:36:40,720 --> 00:36:44,079
+So actually, let me show
+
+608
+00:36:44,119 --> 00:36:52,040
+you. Press a key. That will start
+
+609
+00:36:47,800 --> 00:36:56,079
+Emacs. It started here.
+
+610
+00:36:52,040 --> 00:36:58,000
+delete. Okay, try again. Press a key.
+
+611
+00:36:56,079 --> 00:37:02,480
+Yeah, you cannot see it. It started
+
+612
+00:36:58,000 --> 00:37:06,320
+here. So, here is a new fresh Emacs.
+
+613
+00:37:02,480 --> 00:37:06,320
+Now, let's go to
+
+614
+00:37:07,160 --> 00:37:15,160
+um this is my go script. Here is a F
+
+615
+00:37:12,480 --> 00:37:17,000
+script. Let's open it. Let's see if it
+
+616
+00:37:15,160 --> 00:37:21,560
+syntax
+
+617
+00:37:17,000 --> 00:37:25,520
+color. How beautiful. Can you
+
+618
+00:37:21,560 --> 00:37:28,400
+see? Magnify, magnify, magnify. So, it
+
+619
+00:37:25,520 --> 00:37:33,440
+actually works.
+
+620
+00:37:28,400 --> 00:37:33,440
+The reason it does not work over
+
+621
+00:37:33,480 --> 00:37:43,000
+here is because some residue situation
+
+622
+00:37:38,720 --> 00:37:46,000
+you know because when you code emac this
+
+623
+00:37:43,000 --> 00:37:48,720
+usually when you are developing EMAC
+
+624
+00:37:46,000 --> 00:37:51,640
+list usually you need to restart Emacs
+
+625
+00:37:48,720 --> 00:37:54,560
+because there is some
+
+626
+00:37:51,640 --> 00:37:58,680
+residue buffer variables or variables
+
+627
+00:37:54,560 --> 00:38:03,480
+something so that doesn't refresh proper
+
+628
+00:37:58,680 --> 00:38:10,200
+proply but so now I have two choices
+
+629
+00:38:03,480 --> 00:38:14,720
+of behavior. One is to be stubborn
+
+630
+00:38:10,200 --> 00:38:19,040
+obstinate and find out exactly why is it
+
+631
+00:38:14,720 --> 00:38:22,800
+not updating in this emacs. you know why
+
+632
+00:38:19,040 --> 00:38:26,680
+why is wh what exactly what variable is
+
+633
+00:38:22,800 --> 00:38:29,000
+am I um why is it not refreshing
+
+634
+00:38:26,680 --> 00:38:32,800
+properly
+
+635
+00:38:29,000 --> 00:38:35,359
+okay the other choice is just move on
+
+636
+00:38:32,800 --> 00:38:39,400
+you know close this and you know move on
+
+637
+00:38:35,359 --> 00:38:42,440
+we you know we what we uh wanted to do
+
+638
+00:38:39,400 --> 00:38:45,119
+worked most people choose this
+
+639
+00:38:42,440 --> 00:38:48,160
+way you know just move on get things
+
+640
+00:38:45,119 --> 00:38:50,880
+done but I usually choose is the
+
+641
+00:38:48,160 --> 00:38:53,599
+stubborn way because I want that's how I
+
+642
+00:38:50,880 --> 00:38:57,760
+know so many language details. I want to
+
+643
+00:38:53,599 --> 00:39:00,720
+know exactly why it's not updating some
+
+644
+00:38:57,760 --> 00:39:03,800
+you know. So let me try that for a while
+
+645
+00:39:00,720 --> 00:39:08,200
+for a little bit. Okay. So this mod
+
+646
+00:39:03,800 --> 00:39:11,680
+close now F mod works we
+
+647
+00:39:08,200 --> 00:39:14,480
+know. And also we need to fix the print
+
+648
+00:39:11,680 --> 00:39:17,599
+f is not working because that's not a
+
+649
+00:39:14,480 --> 00:39:21,640
+language keyword apparently that's a
+
+650
+00:39:17,599 --> 00:39:24,440
+function. So let's add print f to uh
+
+651
+00:39:21,640 --> 00:39:29,680
+back.
+
+652
+00:39:24,440 --> 00:39:34,400
+So so where is it syntax table? So yeah
+
+653
+00:39:29,680 --> 00:39:38,960
+so keywords the function uh functions
+
+654
+00:39:34,400 --> 00:39:38,960
+color it. Okay. So you
+
+655
+00:39:39,079 --> 00:39:46,000
+need print f.
+
+656
+00:39:42,839 --> 00:39:49,280
+Okay. Okay. So let's now just double
+
+657
+00:39:46,000 --> 00:39:51,839
+check where what possibly could be
+
+658
+00:39:49,280 --> 00:39:51,839
+wrong.
+
+659
+00:39:56,760 --> 00:40:01,720
+Okay. So you got keywords
+
+660
+00:40:08,040 --> 00:40:16,079
+Okay, reserved words F functions. You
+
+661
+00:40:12,160 --> 00:40:20,000
+got one print f. Then you got all words,
+
+662
+00:40:16,079 --> 00:40:23,440
+you know. Then then you got the coloring
+
+663
+00:40:20,000 --> 00:40:26,960
+keywords and functions. Okay, right now
+
+664
+00:40:23,440 --> 00:40:27,800
+just color those two. Then you got the
+
+665
+00:40:26,960 --> 00:40:32,359
+key
+
+666
+00:40:27,800 --> 00:40:36,839
+bindings. Then you got the syntax table.
+
+667
+00:40:32,359 --> 00:40:40,720
+Um okay then you got
+
+668
+00:40:36,839 --> 00:40:43,599
+uh then you got complete symbols
+
+669
+00:40:40,720 --> 00:40:46,800
+uh you know name completion then you got
+
+670
+00:40:43,599 --> 00:40:50,320
+you know the template abbreviation for
+
+671
+00:40:46,800 --> 00:40:55,400
+template. So I can type you know L for
+
+672
+00:40:50,320 --> 00:40:59,640
+let for example for example uh wait and
+
+673
+00:40:55,400 --> 00:41:02,640
+do L becomes let
+
+674
+00:40:59,640 --> 00:41:04,880
+fantastic I type so much I have you know
+
+675
+00:41:02,640 --> 00:41:09,400
+hand problems these days so I'm going to
+
+676
+00:41:04,880 --> 00:41:14,240
+get on to use this fantastic
+
+677
+00:41:09,400 --> 00:41:17,920
+um swab board pretty soon V A L B O A R
+
+678
+00:41:14,240 --> 00:41:21,920
+D they are magnetic magnetic
+
+679
+00:41:17,920 --> 00:41:25,119
+Wars of keys, you know, truly fantastic.
+
+680
+00:41:21,920 --> 00:41:28,200
+So, I'm going to get to use that. You
+
+681
+00:41:25,119 --> 00:41:31,480
+know, I'm going to become a
+
+682
+00:41:28,200 --> 00:41:34,960
+ because I type too
+
+683
+00:41:31,480 --> 00:41:37,200
+much despite all the fancy setup. You
+
+684
+00:41:34,960 --> 00:41:41,359
+know, the, you know, because, you know,
+
+685
+00:41:37,200 --> 00:41:46,040
+I've been typing for 30 years. And, uh,
+
+686
+00:41:41,359 --> 00:41:46,040
+anyways, let's go back to the code.
+
+687
+00:41:58,720 --> 00:42:04,319
+So I I think probably I'm just like
+
+688
+00:42:01,760 --> 00:42:07,880
+missing update something. Okay. Some
+
+689
+00:42:04,319 --> 00:42:11,560
+like something miss update.
+
+690
+00:42:07,880 --> 00:42:17,640
+Uh so let's see. So here's a brief
+
+691
+00:42:11,560 --> 00:42:21,400
+table. Alpha let CM for comment. CM for
+
+692
+00:42:17,640 --> 00:42:24,800
+um CM for block
+
+693
+00:42:21,400 --> 00:42:28,160
+comment. See? Fantastic. And you can
+
+694
+00:42:24,800 --> 00:42:29,720
+delete with delete it with a single key
+
+695
+00:42:28,160 --> 00:42:33,200
+press. You can
+
+696
+00:42:29,720 --> 00:42:36,000
+see. Okay. Undo, delete. Okay. So, back
+
+697
+00:42:33,200 --> 00:42:38,640
+to this Emacs. By the way, it's a great
+
+698
+00:42:36,000 --> 00:42:41,560
+thing to have multiple Emacs. Just press
+
+699
+00:42:38,640 --> 00:42:44,800
+a key and you can launch so many Emacs.
+
+700
+00:42:41,560 --> 00:42:46,800
+But you know one annoying thing is it
+
+701
+00:42:44,800 --> 00:42:49,040
+why is it launching in the background?
+
+702
+00:42:46,800 --> 00:42:52,319
+Usually it's in the front. Okay. So like
+
+703
+00:42:49,040 --> 00:42:55,359
+let me show you again. Press a key. You
+
+704
+00:42:52,319 --> 00:42:58,480
+got a new Emacs. So you want to set up
+
+705
+00:42:55,359 --> 00:43:01,040
+your Emacs so that it doesn't ask you,
+
+706
+00:42:58,480 --> 00:43:03,280
+you know, oh by the way there's already
+
+707
+00:43:01,040 --> 00:43:05,359
+a init file. Do you want to like
+
+708
+00:43:03,280 --> 00:43:07,200
+override or there's already a lock file
+
+709
+00:43:05,359 --> 00:43:09,520
+or something? You don't want that. You
+
+710
+00:43:07,200 --> 00:43:10,440
+don't want Emacs. You want to be able to
+
+711
+00:43:09,520 --> 00:43:14,280
+press a
+
+712
+00:43:10,440 --> 00:43:18,319
+key always start a new Emacs successful
+
+713
+00:43:14,280 --> 00:43:20,720
+successfully. So, and don't use the
+
+714
+00:43:18,319 --> 00:43:23,720
+Emacs server, you know, like because
+
+715
+00:43:20,720 --> 00:43:26,640
+that gets very
+
+716
+00:43:23,720 --> 00:43:28,640
+complicated. Press a key, new Emacs. So,
+
+717
+00:43:26,640 --> 00:43:30,880
+you can when this EMAC is running
+
+718
+00:43:28,640 --> 00:43:33,680
+something, you can just press a key and
+
+719
+00:43:30,880 --> 00:43:36,319
+do something something, you know, um on
+
+720
+00:43:33,680 --> 00:43:40,880
+a new Emacs. So, for now, close that.
+
+721
+00:43:36,319 --> 00:43:45,040
+Close that. Close that. Okay. Now, let
+
+722
+00:43:40,880 --> 00:43:46,280
+me get back my uh Okay. So, now we we
+
+723
+00:43:45,040 --> 00:43:50,400
+focus
+
+724
+00:43:46,280 --> 00:43:52,119
+on where is our problem. I think I kind
+
+725
+00:43:50,400 --> 00:43:55,520
+of know. Okay.
+
+726
+00:43:52,119 --> 00:43:59,520
+So you know the reason it's not working
+
+727
+00:43:55,520 --> 00:44:03,520
+is because this I'm pretty sure because
+
+728
+00:43:59,520 --> 00:44:06,160
+you see so this section is where we
+
+729
+00:44:03,520 --> 00:44:09,760
+actually define the mod define derived
+
+730
+00:44:06,160 --> 00:44:13,119
+mod scar mod based on fundamental
+
+731
+00:44:09,760 --> 00:44:16,480
+fundamental is do nothing mod okay in
+
+732
+00:44:13,119 --> 00:44:20,000
+EMAC there's always a major mod so you
+
+733
+00:44:16,480 --> 00:44:22,880
+cannot turn it off so in practice
+
+734
+00:44:20,000 --> 00:44:27,280
+turning off any major mod like you don't
+
+735
+00:44:22,880 --> 00:44:30,560
+want any features at all means set it to
+
+736
+00:44:27,280 --> 00:44:32,680
+fundamental mod. Okay. So this section
+
+737
+00:44:30,560 --> 00:44:34,520
+defines the
+
+738
+00:44:32,680 --> 00:44:37,839
+mod and
+
+739
+00:44:34,520 --> 00:44:41,480
+uh and if you look at the documentation
+
+740
+00:44:37,839 --> 00:44:44,319
+for the define derived mod here's the
+
+741
+00:44:41,480 --> 00:44:48,480
+documentation describe function to see
+
+742
+00:44:44,319 --> 00:44:52,000
+it. So you know so you know this is when
+
+743
+00:44:48,480 --> 00:44:56,960
+you learn how to def write a major mod.
+
+744
+00:44:52,000 --> 00:45:00,079
+So you can see it's got this bunch of um
+
+745
+00:44:56,960 --> 00:45:03,079
+keyword argument which is not standard
+
+746
+00:45:00,079 --> 00:45:06,960
+in Emacs. They are kind of a
+
+747
+00:45:03,079 --> 00:45:09,760
+hack. So you so this keyword argument
+
+748
+00:45:06,960 --> 00:45:12,160
+and one of them you know so here you see
+
+749
+00:45:09,760 --> 00:45:16,079
+keyword ar. So one of them is syntax
+
+750
+00:45:12,160 --> 00:45:18,800
+table. Okay. Then table. Okay. So what
+
+751
+00:45:16,079 --> 00:45:22,000
+does that mean? What that means is that
+
+752
+00:45:18,800 --> 00:45:25,680
+let me go to the code here. You see? So
+
+753
+00:45:22,000 --> 00:45:28,800
+what that means this line this line is
+
+754
+00:45:25,680 --> 00:45:33,160
+equivalent to let me show you. Okay.
+
+755
+00:45:28,800 --> 00:45:35,880
+This line is equivalent to
+
+756
+00:45:33,160 --> 00:45:38,680
+um
+
+757
+00:45:35,880 --> 00:45:41,000
+set syntax
+
+758
+00:45:38,680 --> 00:45:44,280
+table
+
+759
+00:45:41,000 --> 00:45:48,640
+to that.
+
+760
+00:45:44,280 --> 00:45:50,520
+Okay, this line is equivalent to that.
+
+761
+00:45:48,640 --> 00:45:53,720
+So it's some kind of a
+
+762
+00:45:50,520 --> 00:45:56,960
+shortcut. Okay, so let's remove
+
+763
+00:45:53,720 --> 00:46:00,480
+it. Remove it. Okay, and use this
+
+764
+00:45:56,960 --> 00:46:03,839
+instead. I'm pretty sure that will work.
+
+765
+00:46:00,480 --> 00:46:06,119
+But before we try purify the code now,
+
+766
+00:46:03,839 --> 00:46:10,240
+before we try, let's make
+
+767
+00:46:06,119 --> 00:46:13,119
+sure I did use the correct um I did set
+
+768
+00:46:10,240 --> 00:46:17,839
+the correct um I believe that's that.
+
+769
+00:46:13,119 --> 00:46:20,800
+But let's look up my documentation for
+
+770
+00:46:17,839 --> 00:46:23,400
+how to write the mod. Okay, let's go to
+
+771
+00:46:20,800 --> 00:46:26,800
+today's talk
+
+772
+00:46:23,400 --> 00:46:32,359
+show. Today's talk show. go to write the
+
+773
+00:46:26,800 --> 00:46:35,920
+major mod and uh syntax for syntax
+
+774
+00:46:32,359 --> 00:46:38,000
+coloring the first lesson because syntax
+
+775
+00:46:35,920 --> 00:46:38,920
+coloring is almost the first thing you
+
+776
+00:46:38,000 --> 00:46:46,280
+want to
+
+777
+00:46:38,920 --> 00:46:46,280
+do. So you go to the bottom and you see
+
+778
+00:46:46,680 --> 00:46:54,119
+uh set font lock defaults. Okay,
+
+779
+00:46:51,640 --> 00:46:58,960
+wait. So what is that?
+
+780
+00:46:54,119 --> 00:47:02,200
+No, not not syntax table. Wait, where is
+
+781
+00:46:58,960 --> 00:47:05,560
+fun lock default? Oh, wait. It's
+
+782
+00:47:02,200 --> 00:47:08,480
+here. Okay, so we are not
+
+783
+00:47:05,560 --> 00:47:11,400
+Yeah, I made a mistake. We are, you
+
+784
+00:47:08,480 --> 00:47:15,200
+know, it's not syntax
+
+785
+00:47:11,400 --> 00:47:19,240
+table that we are concerned. What we are
+
+786
+00:47:15,200 --> 00:47:22,560
+concerned is mostly this fun lock
+
+787
+00:47:19,240 --> 00:47:26,319
+keywords. So we we actually do set it
+
+788
+00:47:22,560 --> 00:47:26,319
+here. So why is it not
+
+789
+00:47:26,599 --> 00:47:30,800
+um reset the found
+
+790
+00:47:32,040 --> 00:47:38,560
+keywords? I don't
+
+791
+00:47:34,920 --> 00:47:43,200
+know, you know, but this this is kind of
+
+792
+00:47:38,560 --> 00:47:43,200
+annoying. So let's try
+
+793
+00:47:44,200 --> 00:47:49,319
+without
+
+794
+00:47:46,760 --> 00:47:52,960
+God. Maybe that.
+
+795
+00:47:49,319 --> 00:47:57,119
+Okay. Evaluate the buffer. Now go to the
+
+796
+00:47:52,960 --> 00:48:00,000
+F code. Now pay attention to this syntax
+
+797
+00:47:57,119 --> 00:48:04,640
+curing to see if they worked. Close
+
+798
+00:48:00,000 --> 00:48:07,440
+this. Reopen it. No, it didn't. Okay.
+
+799
+00:48:04,640 --> 00:48:09,319
+Okay, I give up. I'm going to, you know,
+
+800
+00:48:07,440 --> 00:48:12,000
+look around
+
+801
+00:48:09,319 --> 00:48:14,960
+offline. Uh, actually, we got a lot of
+
+802
+00:48:12,000 --> 00:48:14,960
+other things to do.
+
+803
+00:48:18,280 --> 00:48:27,520
+Um I'm I'm unsure the SWboard is truly
+
+804
+00:48:24,359 --> 00:48:30,040
+uh better for ergonomic left and right
+
+805
+00:48:27,520 --> 00:48:33,440
+finger movement seems straining. Not
+
+806
+00:48:30,040 --> 00:48:35,599
+really because on normal keyboard when
+
+807
+00:48:33,440 --> 00:48:37,839
+you want you have upper row and lower
+
+808
+00:48:35,599 --> 00:48:40,720
+row. So when you want to type upper row
+
+809
+00:48:37,839 --> 00:48:43,240
+you move up and press. If you want to
+
+810
+00:48:40,720 --> 00:48:45,319
+press the lower row, you move down and
+
+811
+00:48:43,240 --> 00:48:49,200
+press. But on
+
+812
+00:48:45,319 --> 00:48:49,200
+the Okay, let me show
+
+813
+00:48:49,480 --> 00:48:58,440
+you. Okay, we are digressing. But this
+
+814
+00:48:53,520 --> 00:49:00,960
+is interesting. So, but on the um on the
+
+815
+00:48:58,440 --> 00:49:04,000
+Swarboard when you want to type the
+
+816
+00:49:00,960 --> 00:49:06,000
+upper row, all you have to do is just
+
+817
+00:49:04,000 --> 00:49:10,160
+like move up. Like you don't even have
+
+818
+00:49:06,000 --> 00:49:12,800
+to go up so much then press down. When
+
+819
+00:49:10,160 --> 00:49:16,240
+you want to press the lower row you just
+
+820
+00:49:12,800 --> 00:49:20,000
+you know press down. And this side are
+
+821
+00:49:16,240 --> 00:49:22,880
+extra like they they provide you for
+
+822
+00:49:20,000 --> 00:49:26,079
+like control key and the meta key or
+
+823
+00:49:22,880 --> 00:49:29,359
+punctuation or whatever extra. So, this
+
+824
+00:49:26,079 --> 00:49:31,920
+is incredible
+
+825
+00:49:29,359 --> 00:49:35,720
+ergonomic finger saver and those are
+
+826
+00:49:31,920 --> 00:49:38,960
+magnetic key switches I talked about
+
+827
+00:49:35,720 --> 00:49:41,760
+previously. So, but why have I not been
+
+828
+00:49:38,960 --> 00:49:43,319
+using it after a year? Well, just
+
+829
+00:49:41,760 --> 00:49:46,559
+because I
+
+830
+00:49:43,319 --> 00:49:49,280
+just busy coding and you know I just
+
+831
+00:49:46,559 --> 00:49:52,480
+didn't play with it because once you you
+
+832
+00:49:49,280 --> 00:49:55,040
+see once once I do this I'm not going to
+
+833
+00:49:52,480 --> 00:49:56,960
+use all standard keyboard anymore.
+
+834
+00:49:55,040 --> 00:49:58,359
+That's one thing but it takes time to
+
+835
+00:49:56,960 --> 00:50:04,000
+learn that's
+
+836
+00:49:58,359 --> 00:50:07,680
+why. So my I believe that SWboard SV A L
+
+837
+00:50:04,000 --> 00:50:12,240
+B O A R D is just fantastic. Yeah. So I
+
+838
+00:50:07,680 --> 00:50:12,240
+I I'll start to get to use to use
+
+839
+00:50:14,920 --> 00:50:23,839
+it. Okay. So I think I'm going to give
+
+840
+00:50:18,720 --> 00:50:23,839
+up on why the syntax actually
+
+841
+00:50:24,760 --> 00:50:30,440
+um why is it
+
+842
+00:50:27,960 --> 00:50:33,400
+uh function
+
+843
+00:50:30,440 --> 00:50:37,520
+mod close
+
+844
+00:50:33,400 --> 00:50:37,520
+reopen? Why why is it
+
+845
+00:50:38,119 --> 00:50:45,119
+not the font lock is not resetting or
+
+846
+00:50:42,000 --> 00:50:45,119
+something? Okay.
+
+847
+00:50:47,960 --> 00:50:59,319
+Uh I don't know why is that comment a
+
+848
+00:50:53,960 --> 00:51:04,240
+brief. So make a backup. Now load
+
+849
+00:50:59,319 --> 00:51:07,880
+now by compile. Load the by compile.
+
+850
+00:51:04,240 --> 00:51:10,119
+Okay. Now go to
+
+851
+00:51:07,880 --> 00:51:15,880
+F.
+
+852
+00:51:10,119 --> 00:51:19,720
+Um where is the code? F. So go to
+
+853
+00:51:15,880 --> 00:51:25,559
+find open it close
+
+854
+00:51:19,720 --> 00:51:29,359
+open close open and so it's not working.
+
+855
+00:51:25,559 --> 00:51:29,359
+So So let's
+
+856
+00:51:30,440 --> 00:51:39,680
+see describe variable font log
+
+857
+00:51:35,000 --> 00:51:39,680
+um defaults. Let's see what
+
+858
+00:51:42,680 --> 00:51:50,160
+exactly you see for
+
+859
+00:51:46,520 --> 00:51:53,440
+keywords its value is found. So, oh, so
+
+860
+00:51:50,160 --> 00:51:53,440
+this part is not
+
+861
+00:51:54,119 --> 00:51:59,599
+evaluated. Is that
+
+862
+00:51:56,119 --> 00:51:59,599
+right? No,
+
+863
+00:51:59,960 --> 00:52:06,960
+wait. Yeah, it's very
+
+864
+00:52:03,640 --> 00:52:12,240
+annoying. You see if we go to the new
+
+865
+00:52:06,960 --> 00:52:15,559
+Emacs instance describe variable let's
+
+866
+00:52:12,240 --> 00:52:18,559
+magnify. Okay. Uh okay. So you need
+
+867
+00:52:15,559 --> 00:52:18,559
+to
+
+868
+00:52:18,599 --> 00:52:27,079
+magnify. Go to up. So now
+
+869
+00:52:22,520 --> 00:52:30,559
+describe variable font
+
+870
+00:52:27,079 --> 00:52:34,160
+lock defaults. That is a variable you
+
+871
+00:52:30,559 --> 00:52:35,640
+need to set. Then the fun lock mod will
+
+872
+00:52:34,160 --> 00:52:38,960
+just color
+
+873
+00:52:35,640 --> 00:52:42,920
+everything. So check what is the value
+
+874
+00:52:38,960 --> 00:52:47,280
+of that variable. Oh, it's actually the
+
+875
+00:52:42,920 --> 00:52:47,280
+same the same as here.
+
+876
+00:52:47,960 --> 00:52:55,680
+So so that is not the source of the
+
+877
+00:52:51,800 --> 00:52:59,040
+error. So what is so is you see this is
+
+878
+00:52:55,680 --> 00:53:01,960
+getting technical.
+
+879
+00:52:59,040 --> 00:53:05,319
+Uh, I'm not sure I should continue this
+
+880
+00:53:01,960 --> 00:53:08,640
+path because this is getting
+
+881
+00:53:05,319 --> 00:53:11,680
+esoteric, but I can continue to look
+
+882
+00:53:08,640 --> 00:53:13,440
+into why the coloring doesn't happen.
+
+883
+00:53:11,680 --> 00:53:16,079
+Should I do that or should I just move
+
+884
+00:53:13,440 --> 00:53:17,640
+on? Because then I because we move on,
+
+885
+00:53:16,079 --> 00:53:21,599
+we need to do
+
+886
+00:53:17,640 --> 00:53:23,760
+um we need to add the templates for lots
+
+887
+00:53:21,599 --> 00:53:26,400
+of these keywords. You know there's like
+
+888
+00:53:23,760 --> 00:53:28,800
+do while loop and beast and you know
+
+889
+00:53:26,400 --> 00:53:28,800
+lots of
+
+890
+00:53:28,920 --> 00:53:34,920
+others. Oh okay not showing the screen.
+
+891
+00:53:31,920 --> 00:53:38,359
+Oh that always
+
+892
+00:53:34,920 --> 00:53:41,839
+happened. So okay let me sum summarize.
+
+893
+00:53:38,359 --> 00:53:44,480
+So so right now we are trying to find
+
+894
+00:53:41,839 --> 00:53:47,599
+okay we are trying to find out why the
+
+895
+00:53:44,480 --> 00:53:50,720
+coloring is not working. But it does
+
+896
+00:53:47,599 --> 00:53:52,760
+work if you restart Emacs. You see it
+
+897
+00:53:50,720 --> 00:53:55,960
+works here.
+
+898
+00:53:52,760 --> 00:54:00,800
+But it's not working
+
+899
+00:53:55,960 --> 00:54:02,440
+here. Why is that? So, so if we go back
+
+900
+00:54:00,800 --> 00:54:07,079
+to the F
+
+901
+00:54:02,440 --> 00:54:10,359
+mod to do with the fun lock keywords not
+
+902
+00:54:07,079 --> 00:54:15,280
+set. So if we go to
+
+903
+00:54:10,359 --> 00:54:19,119
+the F file, close it, reopen. Okay. Not
+
+904
+00:54:15,280 --> 00:54:21,119
+working. Now describe variable fun
+
+905
+00:54:19,119 --> 00:54:24,240
+defaults.
+
+906
+00:54:21,119 --> 00:54:27,160
+Okay. So this fun defaults is the
+
+907
+00:54:24,240 --> 00:54:31,040
+variable you need to set. When you set
+
+908
+00:54:27,160 --> 00:54:33,920
+that then the the color that's how the
+
+909
+00:54:31,040 --> 00:54:36,079
+syntax coloring works. So we need to
+
+910
+00:54:33,920 --> 00:54:40,200
+check what is the value of the fun lock
+
+911
+00:54:36,079 --> 00:54:44,079
+defaults and it says the value is
+
+912
+00:54:40,200 --> 00:54:47,440
+this okay local in in this file. That's
+
+913
+00:54:44,079 --> 00:54:48,599
+correct right. But now if you look at
+
+914
+00:54:47,440 --> 00:54:52,960
+the
+
+915
+00:54:48,599 --> 00:54:56,160
+new instance of Emacs where this works
+
+916
+00:54:52,960 --> 00:55:01,200
+and describe variable fun lock defaults
+
+917
+00:54:56,160 --> 00:55:01,200
+you can see the value is the
+
+918
+00:55:03,480 --> 00:55:08,920
+same.
+
+919
+00:55:05,400 --> 00:55:10,440
+So so I do not
+
+920
+00:55:08,920 --> 00:55:14,079
+understand
+
+921
+00:55:10,440 --> 00:55:17,119
+why this doesn't work this no syntax.
+
+922
+00:55:14,079 --> 00:55:20,880
+Let me turn off on lock mark. Okay. Fun
+
+923
+00:55:17,119 --> 00:55:24,200
+lock mod. Turn it off. So now there's no
+
+924
+00:55:20,880 --> 00:55:29,119
+color at all. Now turn it back
+
+925
+00:55:24,200 --> 00:55:31,880
+on. You see it doesn't work. Uh so there
+
+926
+00:55:29,119 --> 00:55:34,200
+is some kind of residue. How do you call
+
+927
+00:55:31,880 --> 00:55:35,720
+it?
+
+928
+00:55:34,200 --> 00:55:39,000
+Leaked
+
+929
+00:55:35,720 --> 00:55:41,920
+variable value somewhere like
+
+930
+00:55:39,000 --> 00:55:44,559
+buff. Could it be buff or local? No.
+
+931
+00:55:41,920 --> 00:55:47,119
+It's something global.
+
+932
+00:55:44,559 --> 00:55:50,400
+something global I don't understand. So
+
+933
+00:55:47,119 --> 00:55:52,559
+this is this is very uh this would be
+
+934
+00:55:50,400 --> 00:55:54,359
+very interesting for me to look into
+
+935
+00:55:52,559 --> 00:55:58,720
+because that's when you
+
+936
+00:55:54,359 --> 00:56:01,079
+learn the deeper technical details about
+
+937
+00:55:58,720 --> 00:56:04,079
+how things
+
+938
+00:56:01,079 --> 00:56:06,720
+work. But it's getting technical I mean
+
+939
+00:56:04,079 --> 00:56:08,440
+very esoteric. I don't so I'm not sure
+
+940
+00:56:06,720 --> 00:56:10,799
+you guys would be
+
+941
+00:56:08,440 --> 00:56:13,920
+interested because then everything I
+
+942
+00:56:10,799 --> 00:56:17,440
+need to explain everything.
+
+943
+00:56:13,920 --> 00:56:20,319
+Yeah. So or we can move on. So what uh
+
+944
+00:56:17,440 --> 00:56:24,319
+if we gonna move on then then what we
+
+945
+00:56:20,319 --> 00:56:27,760
+gonna do is we move on and talk about
+
+946
+00:56:24,319 --> 00:56:31,119
+how to do Yeah. Let's move on. Okay. So
+
+947
+00:56:27,760 --> 00:56:34,160
+now let's move on. I want to get I want
+
+948
+00:56:31,119 --> 00:56:37,720
+to do some templates. Okay. So right now
+
+949
+00:56:34,160 --> 00:56:44,480
+I have Lcm TQ. So let me show
+
+950
+00:56:37,720 --> 00:56:48,640
+you. So go to the bottom. L is let CM is
+
+951
+00:56:44,480 --> 00:56:53,040
+is common block common. Okay. TQ is
+
+952
+00:56:48,640 --> 00:56:53,040
+what? Oh, TQ is triple
+
+953
+00:56:53,240 --> 00:57:01,920
+quote. Uh triple quote. Wait,
+
+954
+00:56:57,799 --> 00:57:05,680
+does F does does F support triple quote?
+
+955
+00:57:01,920 --> 00:57:09,119
+I don't think so. Wait, I don't know. I
+
+956
+00:57:05,680 --> 00:57:13,839
+forgot. This might be from PowerShell.
+
+957
+00:57:09,119 --> 00:57:15,839
+So, DTQ is for what? Okay. So, P is
+
+958
+00:57:13,839 --> 00:57:18,640
+print line. Okay. So, we got these
+
+959
+00:57:15,839 --> 00:57:21,599
+comments. So, let's add a few comments.
+
+960
+00:57:18,640 --> 00:57:24,280
+I mean the the templates. Okay. So, for
+
+961
+00:57:21,599 --> 00:57:28,839
+that we need to go to
+
+962
+00:57:24,280 --> 00:57:32,079
+F language guide somewhere.
+
+963
+00:57:28,839 --> 00:57:35,520
+U language guide. Okay. That's my
+
+964
+00:57:32,079 --> 00:57:39,520
+favorite tutorial for F official
+
+965
+00:57:35,520 --> 00:57:41,880
+Microsoft. This is the best. So you need
+
+966
+00:57:39,520 --> 00:57:44,880
+Okay. So
+
+967
+00:57:41,880 --> 00:57:44,880
+this
+
+968
+00:57:46,119 --> 00:57:51,319
+Okay. So you need um Yeah. So you need
+
+969
+00:57:50,000 --> 00:57:55,119
+to add
+
+970
+00:57:51,319 --> 00:57:59,359
+some Yeah. Let's do some a brief. Okay.
+
+971
+00:57:55,119 --> 00:58:02,599
+I mean template. So overview literal.
+
+972
+00:57:59,359 --> 00:58:04,119
+Literal are numbers and types. We don't
+
+973
+00:58:02,599 --> 00:58:08,480
+care.
+
+974
+00:58:04,119 --> 00:58:13,200
+Uh so you got let Okay. So this thing is
+
+975
+00:58:08,480 --> 00:58:13,200
+so you got triple quote there. Okay.
+
+976
+00:58:17,000 --> 00:58:25,280
+Copy. Okay. So we can
+
+977
+00:58:20,680 --> 00:58:25,280
+uh let's move it down. Okay.
+
+978
+00:58:25,720 --> 00:58:33,079
+So, so this we need this this this we
+
+979
+00:58:30,079 --> 00:58:33,079
+need
+
+980
+00:58:36,559 --> 00:58:40,400
+uh wait, how does that
+
+981
+00:58:42,760 --> 00:58:48,720
+work? Do you need the square brackets? I
+
+982
+00:58:46,240 --> 00:58:48,720
+think you
+
+983
+00:58:49,799 --> 00:58:53,799
+do. Okay.
+
+984
+00:59:00,400 --> 00:59:07,559
+Okay, lit for literal. And what else?
+
+985
+00:59:03,760 --> 00:59:09,839
+Lit for literal. That's a compiler
+
+986
+00:59:07,559 --> 00:59:12,000
+directive. So when you have lit for
+
+987
+00:59:09,839 --> 00:59:15,760
+literal, that means it tells the
+
+988
+00:59:12,000 --> 00:59:21,920
+compiler to automatically change this
+
+989
+00:59:15,760 --> 00:59:24,559
+constant into that in the compiled code.
+
+990
+00:59:21,920 --> 00:59:27,520
+Uh, okay. So, you got literal, then you
+
+991
+00:59:24,559 --> 00:59:28,440
+got uh match. Okay. So, let's copy this
+
+992
+00:59:27,520 --> 00:59:32,480
+one.
+
+993
+00:59:28,440 --> 00:59:35,480
+Match. So, you need some kind of match.
+
+994
+00:59:32,480 --> 00:59:35,480
+Okay.
+
+995
+00:59:49,079 --> 00:59:54,240
+Uh
+
+996
+00:59:50,680 --> 00:59:56,839
+so okay I think that's it you know so I
+
+997
+00:59:54,240 --> 01:00:00,400
+just need to so pattern
+
+998
+00:59:56,839 --> 01:00:03,839
+matching in F you know pattern matching
+
+999
+01:00:00,400 --> 01:00:07,079
+I learned you know I'm I'm a wuam
+
+1000
+01:00:03,839 --> 01:00:09,760
+language expert since
+
+1001
+01:00:07,079 --> 01:00:11,200
+1990s so I've been coding wufam language
+
+1002
+01:00:09,760 --> 01:00:15,680
+for like 20
+
+1003
+01:00:11,200 --> 01:00:19,280
+So I learned in F pattern matching is
+
+1004
+01:00:15,680 --> 01:00:23,079
+much inferior much less like one
+
+1005
+01:00:19,280 --> 01:00:26,760
+magnitude less powerful than wam
+
+1006
+01:00:23,079 --> 01:00:29,680
+language. Um the pattern
+
+1007
+01:00:26,760 --> 01:00:33,440
+matching the reason is because wufam
+
+1008
+01:00:29,680 --> 01:00:36,200
+language is term rewriting system. So
+
+1009
+01:00:33,440 --> 01:00:39,200
+the whole language is designed just
+
+1010
+01:00:36,200 --> 01:00:41,599
+to rewrite you know like you know
+
+1011
+01:00:39,200 --> 01:00:44,880
+replace nested you know because it's
+
+1012
+01:00:41,599 --> 01:00:46,520
+based on lisp the syntax is purely
+
+1013
+01:00:44,880 --> 01:00:49,839
+nested
+
+1014
+01:00:46,520 --> 01:00:52,960
+expression and the term rewriting system
+
+1015
+01:00:49,839 --> 01:00:56,240
+means the engine how it does computing
+
+1016
+01:00:52,960 --> 01:00:57,319
+is just replace part of expression by
+
+1017
+01:00:56,240 --> 01:01:00,319
+other
+
+1018
+01:00:57,319 --> 01:01:01,319
+things okay that's all it does wam
+
+1019
+01:01:00,319 --> 01:01:05,240
+language
+
+1020
+01:01:01,319 --> 01:01:08,319
+mathematica it's called term rewriting
+
+1021
+01:01:05,240 --> 01:01:10,480
+system. Okay. So what all it does for
+
+1022
+01:01:08,319 --> 01:01:15,119
+computation is just replace part of the
+
+1023
+01:01:10,480 --> 01:01:17,839
+expression by other parts. So it heavily
+
+1024
+01:01:15,119 --> 01:01:20,880
+relies on term rewriting on on the
+
+1025
+01:01:17,839 --> 01:01:22,440
+pattern on a pattern matching and
+
+1026
+01:01:20,880 --> 01:01:26,319
+replacement just like regular
+
+1027
+01:01:22,440 --> 01:01:28,200
+expression. Okay. Except it's not text.
+
+1028
+01:01:26,319 --> 01:01:31,040
+I mean it's not
+
+1029
+01:01:28,200 --> 01:01:32,880
+string. So that's term rewriting wam
+
+1030
+01:01:31,040 --> 01:01:36,440
+language.
+
+1031
+01:01:32,880 --> 01:01:41,880
+and uh it's purely based on nested
+
+1032
+01:01:36,440 --> 01:01:45,359
+expression but in in in but in F and
+
+1033
+01:01:41,880 --> 01:01:47,799
+Hascal they are not based on fully
+
+1034
+01:01:45,359 --> 01:01:50,799
+nested expression. Okay.
+
+1035
+01:01:47,799 --> 01:01:55,119
+So, so that means in wam language you
+
+1036
+01:01:50,799 --> 01:01:56,200
+heavily need to have patterns that match
+
+1037
+01:01:55,119 --> 01:01:59,760
+nested
+
+1038
+01:01:56,200 --> 01:02:03,359
+expressions not. So in F you only you
+
+1039
+01:01:59,760 --> 01:02:06,400
+you only match for example you can see
+
+1040
+01:02:03,359 --> 01:02:09,839
+uh pattern matching overview they show
+
+1041
+01:02:06,400 --> 01:02:12,480
+you all the patterns here. Okay.
+
+1042
+01:02:09,839 --> 01:02:15,920
+Constant pattern identifier pattern.
+
+1043
+01:02:12,480 --> 01:02:18,040
+This needs to magnify. Okay.
+
+1044
+01:02:15,920 --> 01:02:21,960
+uh you know you know
+
+1045
+01:02:18,040 --> 01:02:24,960
+so cons pattern like head and tail of a
+
+1046
+01:02:21,960 --> 01:02:24,960
+list
+
+1047
+01:02:25,079 --> 01:02:31,960
+pattern you must specify exact number of
+
+1048
+01:02:28,480 --> 01:02:35,839
+count length of the list same thing for
+
+1049
+01:02:31,960 --> 01:02:39,119
+array and parenthes size pattern is just
+
+1050
+01:02:35,839 --> 01:02:40,520
+um I believe that's just grouping so
+
+1051
+01:02:39,119 --> 01:02:45,040
+anyway that's not
+
+1052
+01:02:40,520 --> 01:02:48,480
+much so but in wolf language you can you
+
+1053
+01:02:45,040 --> 01:02:51,040
+and pattern match with trees like like
+
+1054
+01:02:48,480 --> 01:02:53,359
+uh so it's much more powerful. So
+
+1055
+01:02:51,040 --> 01:02:57,760
+anyway, back to this what we want to do
+
+1056
+01:02:53,359 --> 01:02:59,480
+is we want to write a um template for
+
+1057
+01:02:57,760 --> 01:03:02,240
+the pattern. Okay,
+
+1058
+01:02:59,480 --> 01:03:06,799
+so something like that. Okay, so
+
+1059
+01:03:02,240 --> 01:03:06,799
+whenever you see match, you replace it
+
+1060
+01:03:08,119 --> 01:03:14,880
+by something.
+
+1061
+01:03:10,760 --> 01:03:14,880
+Okay. Uh just
+
+1062
+01:03:15,000 --> 01:03:22,359
+for evaluate it back to the back to the
+
+1063
+01:03:18,960 --> 01:03:24,799
+code. So type match enter.
+
+1064
+01:03:22,359 --> 01:03:28,000
+Fantastic. Then we're going to refine it
+
+1065
+01:03:24,799 --> 01:03:30,680
+later like put put the cruiser here or
+
+1066
+01:03:28,000 --> 01:03:33,359
+something. Okay. That's that's it for
+
+1067
+01:03:30,680 --> 01:03:36,240
+today. Thank you guys for watching. So
+
+1068
+01:03:33,359 --> 01:03:36,240
+it's been an
+
+1069
+01:03:36,280 --> 01:03:43,119
+hour. Yeah, it's Yeah. So I need to do
+
+1070
+01:03:39,760 --> 01:03:44,680
+this. Uh I'm learning PowerShell. I mean
+
+1071
+01:03:43,119 --> 01:03:48,000
+F.
+
+1072
+01:03:44,680 --> 01:03:48,000
+Fantastic. Bye
+
+1073
+01:03:49,880 --> 01:03:56,000
+guys. Anything else? Uh I think that's
+
+1074
+01:03:56,920 --> 01:04:05,760
+it. So literal. Do we have it? Yes.
+
+1075
+01:04:00,720 --> 01:04:09,760
+Fantastic. So literal works liit space
+
+1076
+01:04:05,760 --> 01:04:14,000
+then you got that. Uh so typically when
+
+1077
+01:04:09,760 --> 01:04:15,319
+you type literal you want let after
+
+1078
+01:04:14,000 --> 01:04:17,640
+right I
+
+1079
+01:04:15,319 --> 01:04:21,720
+think.
+
+1080
+01:04:17,640 --> 01:04:25,359
+Yeah by by by by by
+
+1081
+01:04:21,720 --> 01:04:29,119
+Louis. So delete that literal we got let
+
+1082
+01:04:25,359 --> 01:04:32,319
+triple quote then we got uh match. So we
+
+1083
+01:04:29,119 --> 01:04:36,480
+can type match. We got that. Fantastic.
+
+1084
+01:04:32,319 --> 01:04:36,480
+Fantast fantastic. Fantastic.
+

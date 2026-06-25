@@ -1,0 +1,4764 @@
+1
+00:00:00,080 --> 00:00:08,160
+Evening. Welcome to another episode of
+
+2
+00:00:04,080 --> 00:00:11,679
+Ex talk shop. We are going to code
+
+3
+00:00:08,160 --> 00:00:14,080
+uh we are going to code JavaScript and
+
+4
+00:00:11,679 --> 00:00:16,480
+cascading stylesheet. So I'm going to
+
+5
+00:00:14,080 --> 00:00:19,199
+tell you something I discovered. Okay.
+
+6
+00:00:16,480 --> 00:00:23,359
+So S talk show welcome and uh check
+
+7
+00:00:19,199 --> 00:00:26,640
+video check audio check. So let's do it.
+
+8
+00:00:23,359 --> 00:00:32,239
+So I discovered about a month ago when
+
+9
+00:00:26,640 --> 00:00:35,360
+chatting to AI that something new I I uh
+
+10
+00:00:32,239 --> 00:00:38,879
+I was wrong for the past 20 30 years. So
+
+11
+00:00:35,360 --> 00:00:40,800
+I discovered the wide gamut colors.
+
+12
+00:00:38,879 --> 00:00:43,440
+Okay. Can you guys see it? If you are
+
+13
+00:00:40,800 --> 00:00:47,280
+here say hi. Okay. And play at 1.5
+
+14
+00:00:43,440 --> 00:00:50,719
+speed. Uh so you just gonna watch me
+
+15
+00:00:47,280 --> 00:00:54,160
+ramble. So this is I'm a old programmer
+
+16
+00:00:50,719 --> 00:00:54,160
+for over 30 years.
+
+17
+00:00:54,399 --> 00:00:59,359
+Uh hello physics.
+
+18
+00:00:56,719 --> 00:01:02,800
+Okay. So uh let's double check last
+
+19
+00:00:59,359 --> 00:01:07,040
+time. Video check, audio check.
+
+20
+00:01:02,800 --> 00:01:09,920
+Okay. So yeah. So I discovered so so
+
+21
+00:01:07,040 --> 00:01:13,520
+basically in the past 30 years I was we
+
+22
+00:01:09,920 --> 00:01:18,960
+we were taught that the color is made of
+
+23
+00:01:13,520 --> 00:01:22,479
+red, blue, green and each can have 256
+
+24
+00:01:18,960 --> 00:01:24,960
+values digital colors RGB and that
+
+25
+00:01:22,479 --> 00:01:27,759
+should cover all
+
+26
+00:01:24,960 --> 00:01:30,759
+uh colors human can see and that is
+
+27
+00:01:27,759 --> 00:01:30,759
+incorrect.
+
+28
+00:01:36,400 --> 00:01:43,920
+That is my alarm clock. Every uh 30
+
+29
+00:01:39,840 --> 00:01:46,079
+minutes I it beeps. I get up tells me to
+
+30
+00:01:43,920 --> 00:01:48,960
+get up and walk.
+
+31
+00:01:46,079 --> 00:01:51,600
+So the idea
+
+32
+00:01:48,960 --> 00:01:55,600
+red, blue, green, RGB colors. Each one
+
+33
+00:01:51,600 --> 00:01:59,040
+has 256 values that can display all
+
+34
+00:01:55,600 --> 00:02:02,799
+possible colors. That is not true. So up
+
+35
+00:01:59,040 --> 00:02:05,600
+to until around 2016,
+
+36
+00:02:02,799 --> 00:02:07,920
+we begin to have monitors or computer
+
+37
+00:02:05,600 --> 00:02:11,520
+display that are capable of displaying
+
+38
+00:02:07,920 --> 00:02:16,160
+colors outside of that. So the the
+
+39
+00:02:11,520 --> 00:02:20,160
+standard idea of RGB of 256
+
+40
+00:02:16,160 --> 00:02:24,319
+8 bits per channel or 256
+
+41
+00:02:20,160 --> 00:02:28,959
+levels per color for red, 256 color for
+
+42
+00:02:24,319 --> 00:02:34,319
+blue, 256 color for green. So altogether
+
+43
+00:02:28,959 --> 00:02:38,080
+that would be uh uh 256 times uh uh
+
+44
+00:02:34,319 --> 00:02:42,599
+raised to the third power. So uh so we
+
+45
+00:02:38,080 --> 00:02:42,599
+can do that. So let's see
+
+46
+00:02:48,000 --> 00:02:52,959
+256.
+
+47
+00:02:49,680 --> 00:02:57,440
+Okay. I got this I got this fantastic
+
+48
+00:02:52,959 --> 00:03:01,200
+code automatically increment
+
+49
+00:02:57,440 --> 00:03:05,040
+256. So 2566
+
+50
+00:03:01,200 --> 00:03:09,519
+raised by in Python I believe that's the
+
+51
+00:03:05,040 --> 00:03:13,599
+uh that's the u double asterisk that's
+
+52
+00:03:09,519 --> 00:03:17,280
+the syntax for power. So you got
+
+53
+00:03:13,599 --> 00:03:19,920
+basically 1.6 million colors. So you
+
+54
+00:03:17,280 --> 00:03:21,840
+know I thought uh that is what we can
+
+55
+00:03:19,920 --> 00:03:24,560
+see but actually no there are colors
+
+56
+00:03:21,840 --> 00:03:28,720
+that you can that's beyond that. So you
+
+57
+00:03:24,560 --> 00:03:31,760
+see so typically you see this diagram CE
+
+58
+00:03:28,720 --> 00:03:34,000
+lab very complicated. Okay. So uh can
+
+59
+00:03:31,760 --> 00:03:36,400
+you get the larger view? Well you can
+
+60
+00:03:34,000 --> 00:03:39,360
+you can if you go to Wikipedia. So
+
+61
+00:03:36,400 --> 00:03:42,080
+basically what the RGB color we see is
+
+62
+00:03:39,360 --> 00:03:44,560
+the smallest triangle here. Okay. So
+
+63
+00:03:42,080 --> 00:03:47,760
+there are colors you can see these are
+
+64
+00:03:44,560 --> 00:03:51,519
+for human eye. You can see but
+
+65
+00:03:47,760 --> 00:03:54,480
+cannot be displayed by uh your computer
+
+66
+00:03:51,519 --> 00:03:58,560
+screen for the past 30 years.
+
+67
+00:03:54,480 --> 00:04:01,519
+until around 2016 or 2015
+
+68
+00:03:58,560 --> 00:04:04,959
+uh several HP was the first then Apple
+
+69
+00:04:01,519 --> 00:04:10,000
+their phone they made display so that it
+
+70
+00:04:04,959 --> 00:04:13,599
+can display colors outside of this 256
+
+71
+00:04:10,000 --> 00:04:19,359
+RGB color. Okay, this
+
+72
+00:04:13,599 --> 00:04:23,280
+this RGB 256 levels per color channel is
+
+73
+00:04:19,359 --> 00:04:26,000
+called standard RGB sRGB. Okay, that's
+
+74
+00:04:23,280 --> 00:04:29,440
+called sRGB. So remember that. That's a
+
+75
+00:04:26,000 --> 00:04:32,479
+kind of the standard 256 colors per
+
+76
+00:04:29,440 --> 00:04:35,440
+channel or eight bits per channel. Eight
+
+77
+00:04:32,479 --> 00:04:38,479
+eight bits means um
+
+78
+00:04:35,440 --> 00:04:41,440
+eight bit means binary number. Two uh
+
+79
+00:04:38,479 --> 00:04:43,919
+eight binary numbers. So that the result
+
+80
+00:04:41,440 --> 00:04:47,280
+is 256.
+
+81
+00:04:43,919 --> 00:04:52,199
+Then you have three of 256.
+
+82
+00:04:47,280 --> 00:04:52,199
+So that that's how you get uh
+
+83
+00:04:54,400 --> 00:05:00,560
+uh 100 uh 1 million. So this is uh this
+
+84
+00:04:57,600 --> 00:05:04,600
+is in Python you can do that. Okay. So
+
+85
+00:05:00,560 --> 00:05:04,600
+let me get the math right.
+
+86
+00:05:11,360 --> 00:05:18,320
+That's right. So let me show you. So
+
+87
+00:05:15,680 --> 00:05:22,880
+this is um
+
+88
+00:05:18,320 --> 00:05:27,919
+eight bits. Okay, eight bits
+
+89
+00:05:22,880 --> 00:05:32,039
+has total value of 256.
+
+90
+00:05:27,919 --> 00:05:32,039
+Okay. And
+
+91
+00:05:33,280 --> 00:05:38,880
+eight bits per
+
+92
+00:05:35,919 --> 00:05:42,960
+color channel
+
+93
+00:05:38,880 --> 00:05:44,800
+means you got 256
+
+94
+00:05:42,960 --> 00:05:47,120
+256
+
+95
+00:05:44,800 --> 00:05:51,120
+to the powers of three times itself
+
+96
+00:05:47,120 --> 00:05:53,680
+three times. So you got 16 um medians
+
+97
+00:05:51,120 --> 00:05:55,919
+color. Okay. And turns out that's not
+
+98
+00:05:53,680 --> 00:05:58,080
+enough.
+
+99
+00:05:55,919 --> 00:06:01,120
+I mean we can see more colors than that
+
+100
+00:05:58,080 --> 00:06:03,280
+but however the computer displays
+
+101
+00:06:01,120 --> 00:06:06,639
+monitor for the past 30 years can only
+
+102
+00:06:03,280 --> 00:06:10,960
+do this can only do this much color okay
+
+103
+00:06:06,639 --> 00:06:15,360
+so copy uh cut that and uh let's put it
+
+104
+00:06:10,960 --> 00:06:18,240
+here uh since we are like uh giving a
+
+105
+00:06:15,360 --> 00:06:22,240
+lecture so this is Python code okay show
+
+106
+00:06:18,240 --> 00:06:24,479
+in browser so this is today's topics um
+
+107
+00:06:22,240 --> 00:06:27,199
+so I'm going to tell you okay so so
+
+108
+00:06:24,479 --> 00:06:29,520
+these colors if you are able to see if
+
+109
+00:06:27,199 --> 00:06:33,600
+if you have a color standard that's
+
+110
+00:06:29,520 --> 00:06:36,560
+that's bigger than sRGB standard RGB
+
+111
+00:06:33,600 --> 00:06:39,840
+that is called wide gamut color okay
+
+112
+00:06:36,560 --> 00:06:43,759
+white gamut color and there's a standard
+
+113
+00:06:39,840 --> 00:06:47,120
+for it it's called HICP3
+
+114
+00:06:43,759 --> 00:06:50,800
+and Apple kind of remain it cap Apple
+
+115
+00:06:47,120 --> 00:06:53,840
+branded branded it like with a minor
+
+116
+00:06:50,800 --> 00:06:58,000
+change and Apple calls it display three
+
+117
+00:06:53,840 --> 00:07:00,080
+uh P3 display P3. Okay. So when you shop
+
+118
+00:06:58,000 --> 00:07:02,560
+for a monitor, computer monitor, you can
+
+119
+00:07:00,080 --> 00:07:05,360
+see what is the standard output. If it
+
+120
+00:07:02,560 --> 00:07:07,120
+says sRGB, that means just 8 bits per
+
+121
+00:07:05,360 --> 00:07:10,560
+color.
+
+122
+00:07:07,120 --> 00:07:12,160
+But if it says it supports display P3 or
+
+123
+00:07:10,560 --> 00:07:15,039
+HICP3,
+
+124
+00:07:12,160 --> 00:07:19,360
+then that means it can display vivid
+
+125
+00:07:15,039 --> 00:07:21,919
+colors that most computer monitors even
+
+126
+00:07:19,360 --> 00:07:24,000
+today you cannot. Okay. So, but you can
+
+127
+00:07:21,919 --> 00:07:26,800
+see this vivid color. If you go out, you
+
+128
+00:07:24,000 --> 00:07:30,080
+know, just look at those big giant
+
+129
+00:07:26,800 --> 00:07:32,560
+screen TVs. You can see like shiny vivid
+
+130
+00:07:30,080 --> 00:07:35,280
+blue red, you know,
+
+131
+00:07:32,560 --> 00:07:37,919
+and and for the past 30 years, so I
+
+132
+00:07:35,280 --> 00:07:40,479
+didn't know that, you know, there are
+
+133
+00:07:37,919 --> 00:07:43,039
+these colors that we cannot see. Okay, I
+
+134
+00:07:40,479 --> 00:07:46,400
+mean we can see however all our monitors
+
+135
+00:07:43,039 --> 00:07:48,960
+cannot show. Okay, now so so this is
+
+136
+00:07:46,400 --> 00:07:51,039
+called white gamut colors. very
+
+137
+00:07:48,960 --> 00:07:54,160
+important because this is this is like
+
+138
+00:07:51,039 --> 00:07:57,199
+changing technology you know you know of
+
+139
+00:07:54,160 --> 00:07:59,919
+the past 50 years or 30 years we cannot
+
+140
+00:07:57,199 --> 00:08:03,120
+you know no display can possibly it's
+
+141
+00:07:59,919 --> 00:08:06,080
+like technologically impossible to show
+
+142
+00:08:03,120 --> 00:08:09,919
+colors outside of this 8 bits per you
+
+143
+00:08:06,080 --> 00:08:13,199
+know outside of this sRGB but now we can
+
+144
+00:08:09,919 --> 00:08:15,840
+since about 20 thou 2016 and [snorts] uh
+
+145
+00:08:13,199 --> 00:08:17,759
+such monitors is becoming more popular
+
+146
+00:08:15,840 --> 00:08:21,919
+so when you buy a monitor you want to
+
+147
+00:08:17,759 --> 00:08:26,879
+make sure your monitor supports
+
+148
+00:08:21,919 --> 00:08:30,720
+uh white gamut colors or display P3.
+
+149
+00:08:26,879 --> 00:08:33,760
+Okay, you can you can go to your Windows
+
+150
+00:08:30,720 --> 00:08:36,320
+and check your monitor uh spec. If it
+
+151
+00:08:33,760 --> 00:08:40,240
+says display sRGB, that means it doesn't
+
+152
+00:08:36,320 --> 00:08:42,560
+support white colors. So now now what's
+
+153
+00:08:40,240 --> 00:08:45,279
+what's interesting is that the image
+
+154
+00:08:42,560 --> 00:08:48,480
+format you know the the the format uh we
+
+155
+00:08:45,279 --> 00:08:52,240
+are most familiar with JPEG PNG they
+
+156
+00:08:48,480 --> 00:08:56,080
+actually don't really support uh white
+
+157
+00:08:52,240 --> 00:09:00,560
+gamut colors okay so meaning that the
+
+158
+00:08:56,080 --> 00:09:02,160
+image format the JPEG itself
+
+159
+00:09:00,560 --> 00:09:03,680
+you know when you store an image you
+
+160
+00:09:02,160 --> 00:09:06,560
+cannot see it first of all you need the
+
+161
+00:09:03,680 --> 00:09:10,320
+monitor you need a monitor to uh for P3
+
+162
+00:09:06,560 --> 00:09:13,200
+monitor to be able to see those colors.
+
+163
+00:09:10,320 --> 00:09:16,720
+Even if you have that and some someone
+
+164
+00:09:13,200 --> 00:09:19,440
+sent you a photo image file, JPEG,
+
+165
+00:09:16,720 --> 00:09:21,760
+the JPEG file
+
+166
+00:09:19,440 --> 00:09:23,920
+technically actually supports white
+
+167
+00:09:21,760 --> 00:09:26,080
+gamma colors, but usually not because
+
+168
+00:09:23,920 --> 00:09:29,440
+they there's a lot of reasons because
+
+169
+00:09:26,080 --> 00:09:33,440
+they they store the white color gamma.
+
+170
+00:09:29,440 --> 00:09:35,920
+It requires a ICC profile color profile
+
+171
+00:09:33,440 --> 00:09:39,040
+which is the meta data which is often
+
+172
+00:09:35,920 --> 00:09:42,560
+deleted. So basically in short in
+
+173
+00:09:39,040 --> 00:09:46,480
+practice JPEG does not display white
+
+174
+00:09:42,560 --> 00:09:50,800
+gamut colors. So any photo taken you
+
+175
+00:09:46,480 --> 00:09:55,040
+know you it the the the application to
+
+176
+00:09:50,800 --> 00:09:57,760
+uh display the JPEG will not show the
+
+177
+00:09:55,040 --> 00:10:00,080
+white gamut colors or it has been
+
+178
+00:09:57,760 --> 00:10:02,720
+removed because usually it's not
+
+179
+00:10:00,080 --> 00:10:04,720
+supported by lots of monitors. So that's
+
+180
+00:10:02,720 --> 00:10:07,846
+very interesting. Okay. So you want to
+
+181
+00:10:04,720 --> 00:10:10,480
+check you know the image format.
+
+182
+00:10:07,846 --> 00:10:12,959
+[snorts] So JPEG technically support
+
+183
+00:10:10,480 --> 00:10:16,240
+white gamut colors but not really and
+
+184
+00:10:12,959 --> 00:10:20,640
+also JPEG each color um channel is 8
+
+185
+00:10:16,240 --> 00:10:24,320
+bits only. Okay. Same thing for PNG and
+
+186
+00:10:20,640 --> 00:10:26,800
+same thing for uh webp. So webp is
+
+187
+00:10:24,320 --> 00:10:29,360
+interesting because webp is this
+
+188
+00:10:26,800 --> 00:10:31,760
+Google's new image format but it doesn't
+
+189
+00:10:29,360 --> 00:10:36,640
+support more than eight bits. But what's
+
+190
+00:10:31,760 --> 00:10:41,040
+new is that Apple begin around um
+
+191
+00:10:36,640 --> 00:10:44,480
+you see Apple MacBook Air M1 the from
+
+192
+00:10:41,040 --> 00:10:49,760
+year 2020 is supports white gamut colors
+
+193
+00:10:44,480 --> 00:10:53,399
+and also Apple iPhone uh 13 2021. Those
+
+194
+00:10:49,760 --> 00:10:53,399
+are what I have.
+
+195
+00:10:55,920 --> 00:11:02,959
+Physic Lab says I saw a old video of
+
+196
+00:10:58,640 --> 00:11:07,800
+you. No, that's um that's uh past that's
+
+197
+00:11:02,959 --> 00:11:07,800
+during my poverty days. Okay.
+
+198
+00:11:09,200 --> 00:11:14,560
+Kasan food. So you can see it. Uh that's
+
+199
+00:11:11,600 --> 00:11:18,959
+like my most popular
+
+200
+00:11:14,560 --> 00:11:22,880
+video that that one. Okay. That was uh
+
+201
+00:11:18,959 --> 00:11:26,079
+the poverty of the poverty in USA. I was
+
+202
+00:11:22,880 --> 00:11:29,200
+about to die.
+
+203
+00:11:26,079 --> 00:11:31,279
+Okay. I'm doing good now. Thank you.
+
+204
+00:11:29,200 --> 00:11:35,279
+Uh because I'm writing Python. This is a
+
+205
+00:11:31,279 --> 00:11:37,680
+revolutionary. Hey Mo actually I write a
+
+206
+00:11:35,279 --> 00:11:39,680
+lot Python but I don't you know Python
+
+207
+00:11:37,680 --> 00:11:42,399
+is a circus language. I wrote a lot of
+
+208
+00:11:39,680 --> 00:11:45,760
+Python though. Python is one of my
+
+209
+00:11:42,399 --> 00:11:49,360
+earliest tutorial. So actually I wrote a
+
+210
+00:11:45,760 --> 00:11:53,680
+lot in Python. So you can see uh yeah.
+
+211
+00:11:49,360 --> 00:11:56,959
+So let me just flame Python for for a
+
+212
+00:11:53,680 --> 00:11:59,360
+minute. Okay. So for those you guys uh
+
+213
+00:11:56,959 --> 00:12:02,000
+new guys you don't know um so there it
+
+214
+00:11:59,360 --> 00:12:05,920
+is my Python tutorial there there's a
+
+215
+00:12:02,000 --> 00:12:09,360
+poem there's a python py mighty listen
+
+216
+00:12:05,920 --> 00:12:12,480
+and tabby algorithm it puffs conundrum
+
+217
+00:12:09,360 --> 00:12:15,440
+it snuffs and cherished by those savvy
+
+218
+00:12:12,480 --> 00:12:18,320
+so this is like a positive you know uh
+
+219
+00:12:15,440 --> 00:12:20,959
+poem for python but [snorts] I learned
+
+220
+00:12:18,320 --> 00:12:22,959
+python around 2005
+
+221
+00:12:20,959 --> 00:12:26,399
+you can see the date there 2000 year
+
+222
+00:12:22,959 --> 00:12:29,440
+2005 because I hate, you know, because I
+
+223
+00:12:26,399 --> 00:12:32,000
+got so tired of the pearl [ __ ] The
+
+224
+00:12:29,440 --> 00:12:34,800
+pearl are the Unix [ __ ] You know,
+
+225
+00:12:32,000 --> 00:12:36,399
+they say, "Oh, you can dream. Do what I
+
+226
+00:12:34,800 --> 00:12:38,959
+mean." You know, that like full of
+
+227
+00:12:36,399 --> 00:12:40,959
+jarens and sloppy, you know, who who
+
+228
+00:12:38,959 --> 00:12:43,360
+cares about computer science computer
+
+229
+00:12:40,959 --> 00:12:46,959
+science? [ __ ] computer science. You
+
+230
+00:12:43,360 --> 00:12:49,040
+know, in in in in theory, they say
+
+231
+00:12:46,959 --> 00:12:51,360
+theory is everything. But in practice,
+
+232
+00:12:49,040 --> 00:12:53,200
+no. That's what Pearl people [ __ ]
+
+233
+00:12:51,360 --> 00:12:56,160
+say. you know they are the kind of the
+
+234
+00:12:53,200 --> 00:12:57,920
+Unix [ __ ] let's be let's do you
+
+235
+00:12:56,160 --> 00:13:00,399
+know let's just get things to work you
+
+236
+00:12:57,920 --> 00:13:04,000
+know this pearl [ __ ] with lots of
+
+237
+00:13:00,399 --> 00:13:06,240
+chant and jarens so I got tired of it so
+
+238
+00:13:04,000 --> 00:13:08,560
+that's when I started to learn Python
+
+239
+00:13:06,240 --> 00:13:10,399
+and also a lot a lot of people learn
+
+240
+00:13:08,560 --> 00:13:12,800
+Python [snorts] back then because of you
+
+241
+00:13:10,399 --> 00:13:15,920
+know they got tired of pearl and and
+
+242
+00:13:12,800 --> 00:13:18,240
+funny pearl died you know it's
+
+243
+00:13:15,920 --> 00:13:20,320
+impossible to believe like today but
+
+244
+00:13:18,240 --> 00:13:22,399
+back then pearl is supposed to be like
+
+245
+00:13:20,320 --> 00:13:25,040
+it's looks like pearl is going to be the
+
+246
+00:13:22,399 --> 00:13:27,839
+last scripting language forever like the
+
+247
+00:13:25,040 --> 00:13:30,800
+greatest Swiss army knife you know like
+
+248
+00:13:27,839 --> 00:13:33,120
+like people say like
+
+249
+00:13:30,800 --> 00:13:36,079
+well anyway so that that is the story of
+
+250
+00:13:33,120 --> 00:13:39,360
+Pearl okay so I learned Python in 2005
+
+251
+00:13:36,079 --> 00:13:42,079
+so I it's great change because Python
+
+252
+00:13:39,360 --> 00:13:44,240
+doesn't go for the sloppy syntax or you
+
+253
+00:13:42,079 --> 00:13:46,000
+can do whatever you ways you want you
+
+254
+00:13:44,240 --> 00:13:49,839
+know let's have fun you know what
+
+255
+00:13:46,000 --> 00:13:51,440
+whatever fun means you know so Python is
+
+256
+00:13:49,839 --> 00:13:54,399
+is
+
+257
+00:13:51,440 --> 00:13:57,199
+doesn't have those issues Okay, they are
+
+258
+00:13:54,399 --> 00:14:00,240
+not for like Unix philosophy [ __ ] you or
+
+259
+00:13:57,199 --> 00:14:02,959
+or abbreviations you know like cryptic
+
+260
+00:14:00,240 --> 00:14:05,760
+abbreviations like those pearl people
+
+261
+00:14:02,959 --> 00:14:08,160
+enjoy like every function name is like
+
+262
+00:14:05,760 --> 00:14:10,720
+cryptic you can you don't it doesn't say
+
+263
+00:14:08,160 --> 00:14:16,079
+what it does you know but Python is not
+
+264
+00:14:10,720 --> 00:14:18,480
+like that so but but after being you
+
+265
+00:14:16,079 --> 00:14:21,920
+know in Python for 10 years you learn
+
+266
+00:14:18,480 --> 00:14:23,600
+this ski van Rosen scum you know he's
+
+267
+00:14:21,920 --> 00:14:25,839
+like a particular
+
+268
+00:14:23,600 --> 00:14:28,639
+He's he think he's smart you know he
+
+269
+00:14:25,839 --> 00:14:31,040
+want to do mathematics he's like we want
+
+270
+00:14:28,639 --> 00:14:32,560
+formal you know formalization we want
+
+271
+00:14:31,040 --> 00:14:35,279
+you know there there should be only one
+
+272
+00:14:32,560 --> 00:14:38,560
+way to do things but but in fact his
+
+273
+00:14:35,279 --> 00:14:42,399
+language Python and the way he you know
+
+274
+00:14:38,560 --> 00:14:46,000
+himself is low IQ okay and Python is one
+
+275
+00:14:42,399 --> 00:14:49,199
+of the worst programming language the G
+
+276
+00:14:46,000 --> 00:14:52,480
+von Rosen is a aggressive passive
+
+277
+00:14:49,199 --> 00:14:54,880
+aggressive guy okay Python so you And
+
+278
+00:14:52,480 --> 00:14:58,720
+you can read about my Python tutorial
+
+279
+00:14:54,880 --> 00:15:02,079
+for beginners or you can you know so so
+
+280
+00:14:58,720 --> 00:15:04,880
+there's a lot so so
+
+281
+00:15:02,079 --> 00:15:10,079
+uh so Python tutorial let's say uh let's
+
+282
+00:15:04,880 --> 00:15:14,320
+see god so this uh font is so huge
+
+283
+00:15:10,079 --> 00:15:18,079
+um so let's uh python tutoriio those are
+
+284
+00:15:14,320 --> 00:15:21,440
+old scripts like you know 10 years ago
+
+285
+00:15:18,079 --> 00:15:25,360
+old web qual web crawler okay I wrote
+
+286
+00:15:21,440 --> 00:15:28,320
+this 2014 web caller. Okay. So anyway,
+
+287
+00:15:25,360 --> 00:15:31,360
+so there is Okay. So, so why Python is
+
+288
+00:15:28,320 --> 00:15:34,959
+popular? Uh there it is. Okay. So these
+
+289
+00:15:31,360 --> 00:15:38,480
+two why Python document sucks. Okay.
+
+290
+00:15:34,959 --> 00:15:41,120
+There's about 20 30 articles. Why Python
+
+291
+00:15:38,480 --> 00:15:44,720
+document sucks. Python documentation is
+
+292
+00:15:41,120 --> 00:15:46,639
+one of the worst in computing industry.
+
+293
+00:15:44,720 --> 00:15:49,440
+And there it is. Keep this under your
+
+294
+00:15:46,639 --> 00:15:52,800
+pillow. This Python [ __ ] Skidov von
+
+295
+00:15:49,440 --> 00:15:55,279
+Russen. This is his humor. He he, you
+
+296
+00:15:52,800 --> 00:15:57,839
+know, you know, he enjoy, you know, this
+
+297
+00:15:55,279 --> 00:16:00,240
+is fun to him. Keep this under your
+
+298
+00:15:57,839 --> 00:16:03,920
+pillow. If you go to the official Python
+
+299
+00:16:00,240 --> 00:16:07,040
+documentation, you'll see that uh
+
+300
+00:16:03,920 --> 00:16:09,199
+phrase. Okay. But but but the Python
+
+301
+00:16:07,040 --> 00:16:11,040
+documentation, yeah, if it's great, I
+
+302
+00:16:09,199 --> 00:16:13,199
+keep it under my pill. But the Python
+
+303
+00:16:11,040 --> 00:16:16,560
+documentation is the worst [ __ ]
+
+304
+00:16:13,199 --> 00:16:19,199
+possible. Second to the Unix man pages.
+
+305
+00:16:16,560 --> 00:16:22,079
+Okay. The Unix man page pages are the
+
+306
+00:16:19,199 --> 00:16:23,600
+worst [ __ ] possible. That's number one.
+
+307
+00:16:22,079 --> 00:16:26,959
+The second one is the Python
+
+308
+00:16:23,600 --> 00:16:29,920
+documentation. The worst crap like
+
+309
+00:16:26,959 --> 00:16:32,079
+passive aggressive [ __ ] the Python
+
+310
+00:16:29,920 --> 00:16:34,720
+documentation. So I got like 20 30
+
+311
+00:16:32,079 --> 00:16:37,920
+articles about it in detail if you want
+
+312
+00:16:34,720 --> 00:16:40,720
+to dive. Then there is this uh Python
+
+313
+00:16:37,920 --> 00:16:43,440
+sucks. Why the Python the language is
+
+314
+00:16:40,720 --> 00:16:46,959
+[ __ ] you know all all over like almost
+
+315
+00:16:43,440 --> 00:16:49,920
+in every aspect the GO vonrosome idiots.
+
+316
+00:16:46,959 --> 00:16:52,720
+Okay. So, why for for example the the
+
+317
+00:16:49,920 --> 00:16:55,279
+Python the kido von Rosome [ __ ] he
+
+318
+00:16:52,720 --> 00:16:56,959
+he wrote an article
+
+319
+00:16:55,279 --> 00:16:59,120
+uh he wrote an article. Okay. So he
+
+320
+00:16:56,959 --> 00:17:02,480
+wrote an article he's he's this passive
+
+321
+00:16:59,120 --> 00:17:05,600
+aggressive guy uh uh let's see you know
+
+322
+00:17:02,480 --> 00:17:09,280
+he wrote article back in 2010 the fate
+
+323
+00:17:05,600 --> 00:17:12,079
+of lambda in Python 3000 you know and
+
+324
+00:17:09,280 --> 00:17:15,600
+he's got a name Python 3000 you know
+
+325
+00:17:12,079 --> 00:17:18,400
+he's like he he he he he's a vision you
+
+326
+00:17:15,600 --> 00:17:20,720
+know he's an idiot but he has a vision
+
+327
+00:17:18,400 --> 00:17:22,400
+he want Python to be the most easy to
+
+328
+00:17:20,720 --> 00:17:25,600
+learn programming language for all
+
+329
+00:17:22,400 --> 00:17:28,160
+children which basically failed Python
+
+330
+00:17:25,600 --> 00:17:30,480
+became popular because of Google. Okay,
+
+331
+00:17:28,160 --> 00:17:32,720
+Google like saved Python. Python, you
+
+332
+00:17:30,480 --> 00:17:34,880
+know, Google started to use Python that
+
+333
+00:17:32,720 --> 00:17:38,400
+made Python known by other people. Then
+
+334
+00:17:34,880 --> 00:17:40,799
+around 2010, Python is just [ __ ] too
+
+335
+00:17:38,400 --> 00:17:44,080
+lousy. It's about to die again, taken
+
+336
+00:17:40,799 --> 00:17:46,720
+over over by Ruby. Then Google saved it
+
+337
+00:17:44,080 --> 00:17:48,799
+again because of the machine learning,
+
+338
+00:17:46,720 --> 00:17:50,960
+you know, Google churns out Python code,
+
+339
+00:17:48,799 --> 00:17:53,039
+you know, like Python, you know, so
+
+340
+00:17:50,960 --> 00:17:55,280
+that's why Python became popular. But
+
+341
+00:17:53,039 --> 00:17:57,919
+Python by itself is like dying like
+
+342
+00:17:55,280 --> 00:18:00,400
+because it's [ __ ] But the Gavo van
+
+343
+00:17:57,919 --> 00:18:03,679
+Russamome guy he's he's like a you know
+
+344
+00:18:00,400 --> 00:18:06,880
+he's an idiot but he's like he's got a
+
+345
+00:18:03,679 --> 00:18:09,919
+vision and he he think himself is like
+
+346
+00:18:06,880 --> 00:18:11,600
+one of the great uh uh language designer
+
+347
+00:18:09,919 --> 00:18:14,240
+you know like he wrote articles like
+
+348
+00:18:11,600 --> 00:18:16,799
+full of that attitude
+
+349
+00:18:14,240 --> 00:18:18,720
+passive aggressive you know he he not
+
+350
+00:18:16,799 --> 00:18:20,960
+like me oh I'm the greatest what you
+
+351
+00:18:18,720 --> 00:18:23,120
+know whatever claims you make or oh I
+
+352
+00:18:20,960 --> 00:18:25,360
+hate that [ __ ] I hate this [ __ ] he
+
+353
+00:18:23,120 --> 00:18:27,760
+doesn't say that okay because that's not
+
+354
+00:18:25,360 --> 00:18:30,080
+polite These people don't do that, but
+
+355
+00:18:27,760 --> 00:18:32,480
+they but they like they have a passive
+
+356
+00:18:30,080 --> 00:18:36,000
+aggressive way to say things. That's a
+
+357
+00:18:32,480 --> 00:18:38,720
+Gon Rosen. The fate of reducing Python
+
+358
+00:18:36,000 --> 00:18:40,720
+30,000. What does it mean? It means he
+
+359
+00:18:38,720 --> 00:18:42,480
+[ __ ] hates functional programming.
+
+360
+00:18:40,720 --> 00:18:45,120
+Okay, that's what basically that's what
+
+361
+00:18:42,480 --> 00:18:48,400
+he means. And he don't understand not a
+
+362
+00:18:45,120 --> 00:18:53,280
+thing like you read in detail of his
+
+363
+00:18:48,400 --> 00:18:55,679
+crap. He he don't understand the P glo
+
+364
+00:18:53,280 --> 00:18:58,000
+[ __ ] Okay.
+
+365
+00:18:55,679 --> 00:19:02,000
+So he wrote this article and he's he's
+
+366
+00:18:58,000 --> 00:19:05,280
+made fun by the scheme people of course
+
+367
+00:19:02,000 --> 00:19:07,919
+uh you know so the scheme these people
+
+368
+00:19:05,280 --> 00:19:10,320
+the fate of lambda in PRT scheme 3000
+
+369
+00:19:07,919 --> 00:19:14,000
+you know this is this this article is
+
+370
+00:19:10,320 --> 00:19:17,039
+incredibly insulting and idiotic to the
+
+371
+00:19:14,000 --> 00:19:19,280
+extreme because on one hand he wanted to
+
+372
+00:19:17,039 --> 00:19:22,000
+dis functional programming because he
+
+373
+00:19:19,280 --> 00:19:24,559
+don't he you know either he he he don't
+
+374
+00:19:22,000 --> 00:19:26,400
+like it or he don't understand it
+
+375
+00:19:24,559 --> 00:19:29,039
+somehow it doesn't you know fit his
+
+376
+00:19:26,400 --> 00:19:32,080
+brand. So he he wrote an article saying
+
+377
+00:19:29,039 --> 00:19:34,320
+that in Python 3000 which is Python 3
+
+378
+00:19:32,080 --> 00:19:37,039
+you know this is written in 2008. He
+
+379
+00:19:34,320 --> 00:19:39,760
+says oh we're going to remove uh reduce
+
+380
+00:19:37,039 --> 00:19:44,000
+in Python 3 which they did. Okay these
+
+381
+00:19:39,760 --> 00:19:48,480
+[ __ ] ghosome idiots he removed
+
+382
+00:19:44,000 --> 00:19:50,880
+reduce in Python 3. Okay. But but you
+
+383
+00:19:48,480 --> 00:19:54,240
+know the but but you don't say you know
+
+384
+00:19:50,880 --> 00:19:56,000
+like like normally you could just say oh
+
+385
+00:19:54,240 --> 00:19:59,919
+you know I'm thinking about you know
+
+386
+00:19:56,000 --> 00:20:03,200
+what like about reduce in Python 3. But
+
+387
+00:19:59,919 --> 00:20:06,240
+no he's like he needs to be dramatic the
+
+388
+00:20:03,200 --> 00:20:09,440
+fate of reduce in Python 3000. You know
+
+389
+00:20:06,240 --> 00:20:12,080
+that that this is a classic typical way
+
+390
+00:20:09,440 --> 00:20:14,960
+showing his writing style. You know this
+
+391
+00:20:12,080 --> 00:20:18,720
+passive passive aggressive [ __ ] is
+
+392
+00:20:14,960 --> 00:20:21,760
+gavon rom the fate of reduce in python
+
+393
+00:20:18,720 --> 00:20:24,160
+3000 okay so well on one hand he wanted
+
+394
+00:20:21,760 --> 00:20:26,400
+to remove it because he you know the
+
+395
+00:20:24,160 --> 00:20:29,919
+reason is idiotic you know he doesn't
+
+396
+00:20:26,400 --> 00:20:32,159
+like functional programming basically
+
+397
+00:20:29,919 --> 00:20:34,559
+but on the other hand he's trying to
+
+398
+00:20:32,159 --> 00:20:36,880
+defend you see he's trying to tell you
+
+399
+00:20:34,559 --> 00:20:40,159
+in this article the fate of reduce he's
+
+400
+00:20:36,880 --> 00:20:42,880
+trying to tell you that this reduce is
+
+401
+00:20:40,159 --> 00:20:45,600
+this basically he's he's trying to say
+
+402
+00:20:42,880 --> 00:20:49,280
+functional programming is no good
+
+403
+00:20:45,600 --> 00:20:52,880
+effectively. That's what he's saying.
+
+404
+00:20:49,280 --> 00:20:54,159
+Okay. So, so that's why most functional
+
+405
+00:20:52,880 --> 00:20:57,200
+programmers, you know, they don't like
+
+406
+00:20:54,159 --> 00:21:01,120
+Python because and also Python's lambda
+
+407
+00:20:57,200 --> 00:21:03,600
+is broken and cannot be fixed. Uh where
+
+408
+00:21:01,120 --> 00:21:07,200
+is that article? You know, this is very
+
+409
+00:21:03,600 --> 00:21:11,120
+well known Python lambda broken. So the
+
+410
+00:21:07,200 --> 00:21:14,080
+the the the how Abison who wrote this
+
+411
+00:21:11,120 --> 00:21:16,799
+famous book he made a comment you know
+
+412
+00:21:14,080 --> 00:21:20,080
+he's they started to teach uh using
+
+413
+00:21:16,799 --> 00:21:22,400
+Python because Python is popular uh but
+
+414
+00:21:20,080 --> 00:21:24,240
+however you have this lambda problem
+
+415
+00:21:22,400 --> 00:21:28,360
+well they you know they're going to
+
+416
+00:21:24,240 --> 00:21:28,360
+accept accept it
+
+417
+00:21:28,880 --> 00:21:34,159
+lambda uh okay anyway I talked about
+
+418
+00:21:31,600 --> 00:21:36,559
+this uh many times before that's a huge
+
+419
+00:21:34,159 --> 00:21:36,559
+digression
+
+420
+00:21:38,159 --> 00:21:43,280
+uh he removed it because it exposed a
+
+421
+00:21:40,960 --> 00:21:46,000
+weak point about the language itself,
+
+422
+00:21:43,280 --> 00:21:50,520
+namely real parallelism.
+
+423
+00:21:46,000 --> 00:21:50,520
+Oh, really? That's interesting. Yeah.
+
+424
+00:21:54,240 --> 00:21:59,520
+Uh
+
+425
+00:21:56,000 --> 00:22:01,805
+some Sara Ziza says, "Hi, I've enjoyed
+
+426
+00:21:59,520 --> 00:22:04,400
+your videos and your website for a few
+
+427
+00:22:01,805 --> 00:22:06,480
+[snorts] years now. found you when I
+
+428
+00:22:04,400 --> 00:22:09,280
+discovered Emacs and this about five
+
+429
+00:22:06,480 --> 00:22:12,880
+years back. Hope you are well. I'm well.
+
+430
+00:22:09,280 --> 00:22:17,760
+Thank you. Thank you very much.
+
+431
+00:22:12,880 --> 00:22:22,320
+Uh yeah. So I well yeah my my life is
+
+432
+00:22:17,760 --> 00:22:25,840
+kind of uh a tragedy shall we say.
+
+433
+00:22:22,320 --> 00:22:29,120
+Anyway, so so there is um so there there
+
+434
+00:22:25,840 --> 00:22:32,240
+was the rant the huge rant about Python.
+
+435
+00:22:29,120 --> 00:22:35,919
+So I was I wanted to tell you guys so I
+
+436
+00:22:32,240 --> 00:22:38,480
+got this Python tutorial okay about I
+
+437
+00:22:35,919 --> 00:22:40,400
+don't know few hundred pages or 100. So
+
+438
+00:22:38,480 --> 00:22:42,960
+let's go let's see how many pages
+
+439
+00:22:40,400 --> 00:22:46,960
+actually
+
+440
+00:22:42,960 --> 00:22:52,159
+uh Python go to it go to a directory go
+
+441
+00:22:46,960 --> 00:22:55,440
+down only eight 180 uh about 150
+
+442
+00:22:52,159 --> 00:22:58,480
+articles okay so my Python tutorial is
+
+443
+00:22:55,440 --> 00:23:01,360
+actually not big small um and not
+
+444
+00:22:58,480 --> 00:23:03,760
+advanced but great for beginners okay
+
+445
+00:23:01,360 --> 00:23:05,280
+but I wanted to tell you is that go to
+
+446
+00:23:03,760 --> 00:23:08,080
+the bottom there's there's this
+
+447
+00:23:05,280 --> 00:23:10,559
+collection of why Python sucks
+
+448
+00:23:08,080 --> 00:23:12,480
+This for you guys, you know, you might
+
+449
+00:23:10,559 --> 00:23:14,640
+want to read if you are a beginner, read
+
+450
+00:23:12,480 --> 00:23:16,960
+a Python tutorial, okay? But otherwise,
+
+451
+00:23:14,640 --> 00:23:19,679
+you can, you know, if you are uh
+
+452
+00:23:16,960 --> 00:23:22,320
+seasoned, you or Unix hacker or
+
+453
+00:23:19,679 --> 00:23:26,080
+whatever, you might check out why Python
+
+454
+00:23:22,320 --> 00:23:28,880
+sucks and there are like 30 50 uh
+
+455
+00:23:26,080 --> 00:23:33,440
+articles and then why Python
+
+456
+00:23:28,880 --> 00:23:36,880
+documentation sucks. The [ __ ] Python.
+
+457
+00:23:33,440 --> 00:23:39,440
+Okay, that's a huge digression. So uh so
+
+458
+00:23:36,880 --> 00:23:41,840
+we let's go back to the color space. So
+
+459
+00:23:39,440 --> 00:23:44,720
+we were talking about the colors. Okay.
+
+460
+00:23:41,840 --> 00:23:47,280
+So close that. Yeah. I wanted to talk
+
+461
+00:23:44,720 --> 00:23:50,720
+about the colors. So you so I I I
+
+462
+00:23:47,280 --> 00:23:53,120
+learned for the first time about this
+
+463
+00:23:50,720 --> 00:23:58,320
+about the fact that we have colors that
+
+464
+00:23:53,120 --> 00:24:03,039
+we can see but it's outside of this 256
+
+465
+00:23:58,320 --> 00:24:06,159
+colors RGB [ __ ] Okay. Because I because
+
+466
+00:24:03,039 --> 00:24:09,440
+you know because since like 1992
+
+467
+00:24:06,159 --> 00:24:11,919
+when you know back then uh a monitor is
+
+468
+00:24:09,440 --> 00:24:16,640
+either monochrome like black and white
+
+469
+00:24:11,919 --> 00:24:20,640
+only two colors or you can display 256
+
+470
+00:24:16,640 --> 00:24:24,000
+colors. Okay. Only so and
+
+471
+00:24:20,640 --> 00:24:27,120
+then then later on you can display uh
+
+472
+00:24:24,000 --> 00:24:30,159
+millions of colors because of this
+
+473
+00:24:27,120 --> 00:24:31,679
+three 8 bits you know RGB. So then they
+
+474
+00:24:30,159 --> 00:24:35,360
+say, "Oh, you can that's all the
+
+475
+00:24:31,679 --> 00:24:38,559
+possible colors you can see all the like
+
+476
+00:24:35,360 --> 00:24:40,640
+every like like that's the marketing
+
+477
+00:24:38,559 --> 00:24:43,200
+that that you know set into your brain."
+
+478
+00:24:40,640 --> 00:24:45,120
+But that's not true. So today we know
+
+479
+00:24:43,200 --> 00:24:51,360
+well a lot you know people know this
+
+480
+00:24:45,120 --> 00:24:53,360
+long ago that RGB is just small colors
+
+481
+00:24:51,360 --> 00:24:56,159
+you know we can see in fact there's so
+
+482
+00:24:53,360 --> 00:25:00,799
+many more colors that we can see outside
+
+483
+00:24:56,159 --> 00:25:03,039
+of this sRGB. Okay. So that this journey
+
+484
+00:25:00,799 --> 00:25:05,120
+so I started because I was chatting to
+
+485
+00:25:03,039 --> 00:25:08,480
+uh AI.
+
+486
+00:25:05,120 --> 00:25:11,600
+I chatted to AI by voice for 20 minutes
+
+487
+00:25:08,480 --> 00:25:14,000
+you know [clears throat] AI taught me
+
+488
+00:25:11,600 --> 00:25:17,760
+you know so like I was learning you know
+
+489
+00:25:14,000 --> 00:25:21,200
+why do I know how did I know started to
+
+490
+00:25:17,760 --> 00:25:24,400
+know about this because I was doing uh
+
+491
+00:25:21,200 --> 00:25:29,600
+CSS okay I was catching up uh with my
+
+492
+00:25:24,400 --> 00:25:32,080
+CSS tutorial CSS tutorial CSS cascading
+
+493
+00:25:29,600 --> 00:25:35,440
+stylesheet is getting
+
+494
+00:25:32,080 --> 00:25:38,720
+very complex you need a PhD D degree to
+
+495
+00:25:35,440 --> 00:25:41,440
+understand. Okay. So I have massively
+
+496
+00:25:38,720 --> 00:25:43,840
+expanded my
+
+497
+00:25:41,440 --> 00:25:46,799
+visual uh cascading stylesheet tutorial
+
+498
+00:25:43,840 --> 00:25:50,400
+in the past two months almost working on
+
+499
+00:25:46,799 --> 00:25:52,559
+it every day. Okay. So it's very complex
+
+500
+00:25:50,400 --> 00:25:55,919
+now but it's very interesting because
+
+501
+00:25:52,559 --> 00:25:59,039
+you know anyway so watch my past few
+
+502
+00:25:55,919 --> 00:26:01,600
+videos I talked about uh which which are
+
+503
+00:25:59,039 --> 00:26:03,600
+about CSS. Okay. So, but one of the
+
+504
+00:26:01,600 --> 00:26:06,320
+thing is about you you got this colors
+
+505
+00:26:03,600 --> 00:26:08,480
+thing. Okay, you got this um web
+
+506
+00:26:06,320 --> 00:26:10,400
+tutorial. So, let's go to web blog. You
+
+507
+00:26:08,480 --> 00:26:13,200
+got this
+
+508
+00:26:10,400 --> 00:26:16,799
+incomprehensible color thing. Okay, so
+
+509
+00:26:13,200 --> 00:26:19,200
+you got this. They added HW
+
+510
+00:26:16,799 --> 00:26:22,240
+B color. Like you are you are wondering
+
+511
+00:26:19,200 --> 00:26:26,640
+like what what the [ __ ] is HW color? We
+
+512
+00:26:22,240 --> 00:26:28,240
+got RGB. We got HSL. Why do we have this
+
+513
+00:26:26,640 --> 00:26:30,320
+HWB
+
+514
+00:26:28,240 --> 00:26:32,559
+color? And they call it color space.
+
+515
+00:26:30,320 --> 00:26:35,919
+Okay. So you got the you know you got
+
+516
+00:26:32,559 --> 00:26:39,120
+your standard RGB look like that popular
+
+517
+00:26:35,919 --> 00:26:42,000
+among the Unix idiots. You know this
+
+518
+00:26:39,120 --> 00:26:46,000
+three hex you know six hexadimals. This
+
+519
+00:26:42,000 --> 00:26:49,919
+started by the CUNIX [ __ ]
+
+520
+00:26:46,000 --> 00:26:52,000
+Then you got uh you know RGB you know
+
+521
+00:26:49,919 --> 00:26:54,400
+function which use number instead of
+
+522
+00:26:52,000 --> 00:26:58,159
+instead of hexadimal. Okay. Then then
+
+523
+00:26:54,400 --> 00:27:01,120
+you got um then you got HSL. This is
+
+524
+00:26:58,159 --> 00:27:03,440
+more intuitive because you can hue, you
+
+525
+00:27:01,120 --> 00:27:06,559
+know, hue is just a rainbow. You can
+
+526
+00:27:03,440 --> 00:27:09,440
+increase the uh uh parameter and change
+
+527
+00:27:06,559 --> 00:27:13,279
+the hue basically rainbow. Okay. So,
+
+528
+00:27:09,440 --> 00:27:16,799
+saturation from gray to fully colored
+
+529
+00:27:13,279 --> 00:27:19,919
+and lightness from black dark to bright.
+
+530
+00:27:16,799 --> 00:27:23,120
+So if you put saturation 200 and
+
+531
+00:27:19,919 --> 00:27:26,400
+lightness to um let's say 50 then you
+
+532
+00:27:23,120 --> 00:27:29,120
+got the full saturation red and this and
+
+533
+00:27:26,400 --> 00:27:32,880
+hue is the rainbow. Okay. So red,
+
+534
+00:27:29,120 --> 00:27:35,120
+orange, yellow, green, blue, um purple,
+
+535
+00:27:32,880 --> 00:27:38,480
+violet, purple, right? So very
+
+536
+00:27:35,120 --> 00:27:41,679
+intuitive. Okay. So you got HSL, you
+
+537
+00:27:38,480 --> 00:27:43,279
+know, hue hue, saturation, lightness.
+
+538
+00:27:41,679 --> 00:27:45,840
+Okay.
+
+539
+00:27:43,279 --> 00:27:47,360
+much better than the R, you know, RGB
+
+540
+00:27:45,840 --> 00:27:49,679
+[ __ ]
+
+541
+00:27:47,360 --> 00:27:52,159
+But most people, you know, the the idiot
+
+542
+00:27:49,679 --> 00:27:54,320
+industrial coders, they they like RGB.
+
+543
+00:27:52,159 --> 00:27:56,640
+They always, you know, it's like the C
+
+544
+00:27:54,320 --> 00:28:00,240
+and Unix [ __ ] They spread this
+
+545
+00:27:56,640 --> 00:28:03,120
+[ __ ] in comprehensible [ __ ] And why
+
+546
+00:28:00,240 --> 00:28:05,679
+250? That just happens to be because
+
+547
+00:28:03,120 --> 00:28:09,679
+because your bits is like eight bits.
+
+548
+00:28:05,679 --> 00:28:12,480
+That's 250. You know they they so so so
+
+549
+00:28:09,679 --> 00:28:16,880
+each color channel you have like 256
+
+550
+00:28:12,480 --> 00:28:19,600
+levels. Why the magic number 256? Just
+
+551
+00:28:16,880 --> 00:28:23,440
+because you happen to your bits happen
+
+552
+00:28:19,600 --> 00:28:27,600
+to be that way. Okay. This Unix C idiots
+
+553
+00:28:23,440 --> 00:28:31,440
+I despise them so much. So but anyway so
+
+554
+00:28:27,600 --> 00:28:34,399
+we got HSL uh model which is in CSS like
+
+555
+00:28:31,440 --> 00:28:38,399
+over 15 years ago. That's great, right?
+
+556
+00:28:34,399 --> 00:28:42,320
+But then but then but but then today you
+
+557
+00:28:38,399 --> 00:28:47,200
+look at the you know color spec you got
+
+558
+00:28:42,320 --> 00:28:49,520
+HWB HWB is also is still the sRGB space
+
+559
+00:28:47,200 --> 00:28:52,960
+they they just it's a new model it's a
+
+560
+00:28:49,520 --> 00:28:55,120
+hue whiteness and blackness okay so you
+
+561
+00:28:52,960 --> 00:29:00,320
+got so [snorts] okay one of these days I
+
+562
+00:28:55,120 --> 00:29:04,080
+need to add a uh interactive app uh app
+
+563
+00:29:00,320 --> 00:29:07,360
+uh so then okay hi
+
+564
+00:29:04,080 --> 00:29:10,799
+That's white blackness
+
+565
+00:29:07,360 --> 00:29:13,120
+uh hue whiteness blackness. Okay. So I
+
+566
+00:29:10,799 --> 00:29:16,559
+need to add interactive app. So here's
+
+567
+00:29:13,120 --> 00:29:19,360
+some color samples. Then you got um then
+
+568
+00:29:16,559 --> 00:29:22,159
+I explained the white color gamut which
+
+569
+00:29:19,360 --> 00:29:25,039
+I discovered. How I discovered because
+
+570
+00:29:22,159 --> 00:29:28,799
+the because CSS when you look into the
+
+571
+00:29:25,039 --> 00:29:32,960
+CSS then you got this lab color LCH
+
+572
+00:29:28,799 --> 00:29:36,080
+color. Then you also got um
+
+573
+00:29:32,960 --> 00:29:39,279
+OK lab color, OK LCH color. Like what
+
+574
+00:29:36,080 --> 00:29:42,559
+the [ __ ] are they? You don't know. Okay,
+
+575
+00:29:39,279 --> 00:29:45,120
+so very fairly comp complicated. Okay,
+
+576
+00:29:42,559 --> 00:29:50,240
+so basically there are so many of them.
+
+577
+00:29:45,120 --> 00:29:52,960
+But basically the basically the OKLC is
+
+578
+00:29:50,240 --> 00:29:56,559
+is is
+
+579
+00:29:52,960 --> 00:30:01,120
+a intuitive color space. They call it
+
+580
+00:29:56,559 --> 00:30:04,000
+color space. um intuitive it's like HSL
+
+581
+00:30:01,120 --> 00:30:07,200
+okay it's like the hue
+
+582
+00:30:04,000 --> 00:30:10,159
+it's it's like the hue saturation uh
+
+583
+00:30:07,200 --> 00:30:13,120
+brightness
+
+584
+00:30:10,159 --> 00:30:16,080
+but however
+
+585
+00:30:13,120 --> 00:30:19,360
+this hue saturation lightness is got
+
+586
+00:30:16,080 --> 00:30:23,120
+some problems because actually you see
+
+587
+00:30:19,360 --> 00:30:25,440
+even if we set the lightness at 50 it
+
+588
+00:30:23,120 --> 00:30:29,679
+doesn't change okay we just change the
+
+589
+00:30:25,440 --> 00:30:31,840
+hue but however when we change the hue
+
+590
+00:30:29,679 --> 00:30:34,399
+the percept you know we don't perceive
+
+591
+00:30:31,840 --> 00:30:36,960
+them as the same lightness you see some
+
+592
+00:30:34,399 --> 00:30:39,760
+of them are darker like the when you
+
+593
+00:30:36,960 --> 00:30:43,039
+when the hue becomes blue you know it's
+
+594
+00:30:39,760 --> 00:30:48,159
+it's it's significantly darker than
+
+595
+00:30:43,039 --> 00:30:51,360
+let's say when be when it's c you see so
+
+596
+00:30:48,159 --> 00:30:54,399
+what they want what people want is a is
+
+597
+00:30:51,360 --> 00:30:57,120
+a color system such that
+
+598
+00:30:54,399 --> 00:30:59,360
+you know hue is just changing hue while
+
+599
+00:30:57,120 --> 00:31:02,399
+brightness remains
+
+600
+00:30:59,360 --> 00:31:05,840
+remains the same as as we human eyes
+
+601
+00:31:02,399 --> 00:31:11,279
+perceive it. Okay. So that basically the
+
+602
+00:31:05,840 --> 00:31:15,520
+result of that design is the OK LCH.
+
+603
+00:31:11,279 --> 00:31:17,520
+Okay. Then the OK lab is a is a is a
+
+604
+00:31:15,520 --> 00:31:21,840
+linear version.
+
+605
+00:31:17,520 --> 00:31:23,520
+OK LCH is like a polar version. Okay.
+
+606
+00:31:21,840 --> 00:31:26,080
+Um
+
+607
+00:31:23,520 --> 00:31:29,039
+okay. and and before then that's why
+
+608
+00:31:26,080 --> 00:31:33,600
+that's how you have the lab lab and the
+
+609
+00:31:29,039 --> 00:31:36,559
+LCH so okay lab and okay LCH is derived
+
+610
+00:31:33,600 --> 00:31:39,440
+or improvement from the lab and the LCH
+
+611
+00:31:36,559 --> 00:31:41,919
+color so each one is very complicated
+
+612
+00:31:39,440 --> 00:31:44,559
+you know the color science by itself
+
+613
+00:31:41,919 --> 00:31:46,799
+requires a PhD okay then you also have
+
+614
+00:31:44,559 --> 00:31:49,440
+color function you know like color you
+
+615
+00:31:46,799 --> 00:31:52,640
+can specify what the color space like
+
+616
+00:31:49,440 --> 00:31:56,559
+you can say display P3 which we talked
+
+617
+00:31:52,640 --> 00:31:59,360
+about or recre 2020. That's another
+
+618
+00:31:56,559 --> 00:32:01,519
+standardized color space. Or there's
+
+619
+00:31:59,360 --> 00:32:04,000
+A98-RGB,
+
+620
+00:32:01,519 --> 00:32:06,320
+which I don't understand. Adobe RGB.
+
+621
+00:32:04,000 --> 00:32:09,120
+Then there's Prooto RGB. I don't
+
+622
+00:32:06,320 --> 00:32:11,519
+understand. Okay. So, there's sRGB,
+
+623
+00:32:09,120 --> 00:32:14,559
+which we understand. That's just
+
+624
+00:32:11,519 --> 00:32:16,480
+standard RGB, 256
+
+625
+00:32:14,559 --> 00:32:20,640
+levels per channel. Okay. [snorts] Then
+
+626
+00:32:16,480 --> 00:32:23,200
+you got sRGB linear. Then you got XYZ
+
+627
+00:32:20,640 --> 00:32:26,159
+D50. Okay. I don't understand. So color
+
+628
+00:32:23,200 --> 00:32:30,159
+very complex. So basically I was trying
+
+629
+00:32:26,159 --> 00:32:32,960
+to improve my CSS tutorial about colors.
+
+630
+00:32:30,159 --> 00:32:36,559
+Then I discovered what the [ __ ] are this
+
+631
+00:32:32,960 --> 00:32:41,360
+this okay lab and and weird name too you
+
+632
+00:32:36,559 --> 00:32:44,799
+know. Okay LCS like then I discovered oh
+
+633
+00:32:41,360 --> 00:32:48,240
+oh so there's the so so so all the past
+
+634
+00:32:44,799 --> 00:32:51,039
+30 years I I got the wrong information.
+
+635
+00:32:48,240 --> 00:32:54,640
+there are colors we can see but it's not
+
+636
+00:32:51,039 --> 00:32:56,720
+possible with the sRGB [ __ ] you know the
+
+637
+00:32:54,640 --> 00:32:59,120
+8 bit [ __ ]
+
+638
+00:32:56,720 --> 00:33:03,840
+so I learned a lot okay then also about
+
+639
+00:32:59,120 --> 00:33:07,679
+the color um image format so that's of
+
+640
+00:33:03,840 --> 00:33:10,399
+course uh tied with it because uh
+
+641
+00:33:07,679 --> 00:33:12,399
+because the image format the JPEG and
+
+642
+00:33:10,399 --> 00:33:15,679
+PNG they don't support basically they
+
+643
+00:33:12,399 --> 00:33:19,039
+don't support um
+
+644
+00:33:15,679 --> 00:33:21,519
+this this uh wide gamut colors. Okay.
+
+645
+00:33:19,039 --> 00:33:24,320
+So, I learned it from talking to AI when
+
+646
+00:33:21,519 --> 00:33:27,519
+I was asking about some CSS question
+
+647
+00:33:24,320 --> 00:33:30,240
+like what what is the sRGB? I heard of
+
+648
+00:33:27,519 --> 00:33:34,559
+RGB but I don't remember ever heard of
+
+649
+00:33:30,240 --> 00:33:36,960
+sRGB. So, I asked AI. Then AI started to
+
+650
+00:33:34,559 --> 00:33:38,960
+tell me one thing after another. So, I
+
+651
+00:33:36,960 --> 00:33:40,640
+learned oh Jesus you know very
+
+652
+00:33:38,960 --> 00:33:43,279
+interesting.
+
+653
+00:33:40,640 --> 00:33:46,320
+So that's the how I learned that about
+
+654
+00:33:43,279 --> 00:33:49,600
+this uh white gamut colors. Okay. and
+
+655
+00:33:46,320 --> 00:33:51,279
+display P3. Then there's image format
+
+656
+00:33:49,600 --> 00:33:52,799
+because even if you have the right
+
+657
+00:33:51,279 --> 00:33:56,320
+monitor
+
+658
+00:33:52,799 --> 00:33:59,440
+that can display white color gamut, but
+
+659
+00:33:56,320 --> 00:34:01,840
+the image format does not. So meaning
+
+660
+00:33:59,440 --> 00:34:04,559
+that the vast majority of images of the
+
+661
+00:34:01,840 --> 00:34:07,200
+JPEG or the PNG, they don't they simply
+
+662
+00:34:04,559 --> 00:34:11,040
+don't support it. Okay, actually they
+
+663
+00:34:07,200 --> 00:34:13,919
+do, but but most people I mean they they
+
+664
+00:34:11,040 --> 00:34:17,280
+simply ignore it. I mean so they in so
+
+665
+00:34:13,919 --> 00:34:19,839
+practically speaking JPEG and PNG they
+
+666
+00:34:17,280 --> 00:34:24,480
+basically practically speaking they
+
+667
+00:34:19,839 --> 00:34:27,440
+don't support the wide color gamut. So
+
+668
+00:34:24,480 --> 00:34:30,879
+even if you got got you know you know
+
+669
+00:34:27,440 --> 00:34:33,760
+someone send you image and you have the
+
+670
+00:34:30,879 --> 00:34:36,560
+nice monitor you cannot see it because
+
+671
+00:34:33,760 --> 00:34:38,800
+it's this uh format doesn't store it. So
+
+672
+00:34:36,560 --> 00:34:41,520
+what you need is
+
+673
+00:34:38,800 --> 00:34:46,079
+this Apple HIC
+
+674
+00:34:41,520 --> 00:34:48,960
+uh hicc format or AVIF or JPEG XL. So
+
+675
+00:34:46,079 --> 00:34:51,359
+you need this uh image format. Okay. So
+
+676
+00:34:48,960 --> 00:34:55,280
+that's uh that's what I want to say
+
+677
+00:34:51,359 --> 00:34:58,240
+today this discovery about this um and
+
+678
+00:34:55,280 --> 00:35:00,800
+WEBP is another format. WEBP is a format
+
+679
+00:34:58,240 --> 00:35:02,800
+by Google starting about 15 years ago
+
+680
+00:35:00,800 --> 00:35:06,720
+and unfortunately
+
+681
+00:35:02,800 --> 00:35:09,119
+it's no good. Okay. it. Um
+
+682
+00:35:06,720 --> 00:35:11,839
+well actually Amazon is using it. So if
+
+683
+00:35:09,119 --> 00:35:14,320
+you go to Amazon
+
+684
+00:35:11,839 --> 00:35:19,440
+Amazon.com you can see so let me show
+
+685
+00:35:14,320 --> 00:35:21,839
+you. Okay so if you go to Amazon um
+
+686
+00:35:19,440 --> 00:35:24,079
+uh click below to continue shopping
+
+687
+00:35:21,839 --> 00:35:27,920
+because they are trying to check if you
+
+688
+00:35:24,079 --> 00:35:29,839
+are a bot. Okay. So let me do a
+
+689
+00:35:27,920 --> 00:35:32,960
+screenshot.
+
+690
+00:35:29,839 --> 00:35:36,000
+So if you go to Amazon and let's say you
+
+691
+00:35:32,960 --> 00:35:40,560
+just uh watch. Okay, let's drag that to
+
+692
+00:35:36,000 --> 00:35:42,880
+my folder. Okay, that's PNG. Uh, drag
+
+693
+00:35:40,560 --> 00:35:47,240
+this dress to my folder. That's also
+
+694
+00:35:42,880 --> 00:35:47,240
+PNG. Um,
+
+695
+00:35:47,599 --> 00:35:52,640
+uh, wait, that depends on what, uh,
+
+696
+00:35:50,320 --> 00:35:54,720
+that's also uh I think it depends on
+
+697
+00:35:52,640 --> 00:35:57,359
+your browser.
+
+698
+00:35:54,720 --> 00:35:59,760
+They what kind of image what type of
+
+699
+00:35:57,359 --> 00:36:03,520
+image they serve depends on your
+
+700
+00:35:59,760 --> 00:36:06,520
+browser, I think. Let's see. Uh track
+
+701
+00:36:03,520 --> 00:36:06,520
+ball
+
+702
+00:36:08,160 --> 00:36:15,440
+what
+
+703
+00:36:10,320 --> 00:36:21,280
+Amazon luxury no all departments
+
+704
+00:36:15,440 --> 00:36:23,440
+okay let's see if I that JPEG okay so
+
+705
+00:36:21,280 --> 00:36:27,839
+okay it depends on your browser I'm
+
+706
+00:36:23,440 --> 00:36:30,240
+pretty sure if so if we go here
+
+707
+00:36:27,839 --> 00:36:33,200
+uh
+
+708
+00:36:30,240 --> 00:36:36,200
+No,
+
+709
+00:36:33,200 --> 00:36:36,200
+Amazon.com.
+
+710
+00:36:49,200 --> 00:36:53,640
+Okay. What the [ __ ] is this?
+
+711
+00:36:57,440 --> 00:37:02,400
+Okay.
+
+712
+00:36:59,200 --> 00:37:04,480
+Now let's try again.
+
+713
+00:37:02,400 --> 00:37:07,480
+Watch.
+
+714
+00:37:04,480 --> 00:37:07,480
+No.
+
+715
+00:37:08,240 --> 00:37:15,560
+Okay. No. So I think you need to let's
+
+716
+00:37:11,440 --> 00:37:15,560
+say track B
+
+717
+00:37:15,920 --> 00:37:21,440
+because I was just checking today there.
+
+718
+00:37:18,160 --> 00:37:23,119
+There it is. You can see it returns a
+
+719
+00:37:21,440 --> 00:37:25,440
+webp.
+
+720
+00:37:23,119 --> 00:37:29,520
+Uh you can check the file name. That's a
+
+721
+00:37:25,440 --> 00:37:32,960
+webp image. Okay. So, Amazon is is
+
+722
+00:37:29,520 --> 00:37:35,520
+heavily using the WEBP format.
+
+723
+00:37:32,960 --> 00:37:37,839
+Uh, but WEBP is no good. It turns out
+
+724
+00:37:35,520 --> 00:37:40,560
+it's only 8 bits per channel. So, it
+
+725
+00:37:37,839 --> 00:37:42,160
+doesn't really support the white color
+
+726
+00:37:40,560 --> 00:37:46,960
+gamut
+
+727
+00:37:42,160 --> 00:37:49,520
+for the future. And uh and also um
+
+728
+00:37:46,960 --> 00:37:52,079
+well, I mean, yeah. So, it doesn't
+
+729
+00:37:49,520 --> 00:37:54,240
+support that.
+
+730
+00:37:52,079 --> 00:37:57,040
+Okay. So, I think that's it for today. I
+
+731
+00:37:54,240 --> 00:37:59,440
+was going to code
+
+732
+00:37:57,040 --> 00:38:01,680
+uh I was going to code some JavaScript
+
+733
+00:37:59,440 --> 00:38:04,320
+still. Should we do it? Yeah, I think
+
+734
+00:38:01,680 --> 00:38:07,680
+so. Let's why not since I'm you know
+
+735
+00:38:04,320 --> 00:38:10,640
+just random doing talk show. Okay. So,
+
+736
+00:38:07,680 --> 00:38:12,800
+showing browser what we have here. So, I
+
+737
+00:38:10,640 --> 00:38:16,160
+wanted to code. So, we talked about the
+
+738
+00:38:12,800 --> 00:38:19,839
+white gamut colors. We talked about the
+
+739
+00:38:16,160 --> 00:38:24,720
+AI chatbot and we talked about the new
+
+740
+00:38:19,839 --> 00:38:28,240
+image format. HIC, AV, AVIF, JPEG, SL,
+
+741
+00:38:24,720 --> 00:38:30,880
+XL, they all save the same image much
+
+742
+00:38:28,240 --> 00:38:33,280
+more compressed than JPEG. So JPEG might
+
+743
+00:38:30,880 --> 00:38:36,720
+be 1 megabyte with one of these that
+
+744
+00:38:33,280 --> 00:38:38,640
+might be you know uh half of it or you
+
+745
+00:38:36,720 --> 00:38:41,680
+know they are much more better
+
+746
+00:38:38,640 --> 00:38:43,760
+compression also [snorts] they support
+
+747
+00:38:41,680 --> 00:38:47,920
+white gamut you know they and also they
+
+748
+00:38:43,760 --> 00:38:51,440
+are each of them they are all more than
+
+749
+00:38:47,920 --> 00:38:53,680
+a bits per channel.
+
+750
+00:38:51,440 --> 00:38:56,240
+Uh so these are like these these are
+
+751
+00:38:53,680 --> 00:38:59,440
+basically the future you know that like
+
+752
+00:38:56,240 --> 00:39:01,520
+like the um and they they've been around
+
+753
+00:38:59,440 --> 00:39:04,320
+over 10 years ago. They've been around
+
+754
+00:39:01,520 --> 00:39:09,599
+even even 10 years ago but it's very
+
+755
+00:39:04,320 --> 00:39:12,320
+slow to catch up. Okay. So anyway so the
+
+756
+00:39:09,599 --> 00:39:14,560
+so about colors. Okay. So what else? Uh
+
+757
+00:39:12,320 --> 00:39:17,280
+I think that's it. Then the next thing I
+
+758
+00:39:14,560 --> 00:39:20,079
+want to do is to
+
+759
+00:39:17,280 --> 00:39:24,000
+actually I want I want to code. Okay. So
+
+760
+00:39:20,079 --> 00:39:26,640
+I want to code JavaScript. So that for
+
+761
+00:39:24,000 --> 00:39:29,119
+example
+
+762
+00:39:26,640 --> 00:39:32,400
+uh yeah do I want to code? Yeah because
+
+763
+00:39:29,119 --> 00:39:36,960
+uh for example if you go to HSL colors
+
+764
+00:39:32,400 --> 00:39:39,839
+at the bottom I have this um these color
+
+765
+00:39:36,960 --> 00:39:42,560
+samples. So you can see
+
+766
+00:39:39,839 --> 00:39:46,000
+what happens if you increase one
+
+767
+00:39:42,560 --> 00:39:49,119
+parameter. Okay. So this is HSL hue
+
+768
+00:39:46,000 --> 00:39:52,079
+saturation lightness. So if you increase
+
+769
+00:39:49,119 --> 00:39:54,640
+hue that's the rainbow you change the
+
+770
+00:39:52,079 --> 00:39:58,400
+color then if you increase saturation
+
+771
+00:39:54,640 --> 00:40:01,760
+you get you know more saturated or dark
+
+772
+00:39:58,400 --> 00:40:04,480
+gray or if you increase lightness you go
+
+773
+00:40:01,760 --> 00:40:08,800
+from black to white.
+
+774
+00:40:04,480 --> 00:40:12,079
+So I want to do the same for HWB. HB is
+
+775
+00:40:08,800 --> 00:40:15,760
+white black I mean hue whiteness
+
+776
+00:40:12,079 --> 00:40:18,880
+blackness. You know this this image
+
+777
+00:40:15,760 --> 00:40:23,200
+format is quite id idiotic this color
+
+778
+00:40:18,880 --> 00:40:26,880
+because when okay so the way it works is
+
+779
+00:40:23,200 --> 00:40:29,599
+that hue is the same okay rainbow hue
+
+780
+00:40:26,880 --> 00:40:32,000
+okay but the whiteness is like the the
+
+781
+00:40:29,599 --> 00:40:34,480
+greater the number the more white it
+
+782
+00:40:32,000 --> 00:40:37,200
+became okay that's the whiteness part
+
+783
+00:40:34,480 --> 00:40:40,240
+the blackness part is the greater the
+
+784
+00:40:37,200 --> 00:40:44,960
+value the the the more black it became
+
+785
+00:40:40,240 --> 00:40:47,200
+okay it seems intuitive you know hue a
+
+786
+00:40:44,960 --> 00:40:49,520
+mix of whiteness and blackness. Okay.
+
+787
+00:40:47,200 --> 00:40:52,480
+But then what happens is that if the
+
+788
+00:40:49,520 --> 00:40:55,440
+whiteness and blackness
+
+789
+00:40:52,480 --> 00:40:58,480
+together they are some is over 50 I mean
+
+790
+00:40:55,440 --> 00:41:01,599
+over 100 then you get all gray. So you
+
+791
+00:40:58,480 --> 00:41:04,400
+you see look at this example. When you
+
+792
+00:41:01,599 --> 00:41:06,319
+increase the whiteness and the blackness
+
+793
+00:41:04,400 --> 00:41:09,520
+together
+
+794
+00:41:06,319 --> 00:41:11,359
+after 50 it's it's all gray. It's it's
+
+795
+00:41:09,520 --> 00:41:12,560
+all you know all the same color become
+
+796
+00:41:11,359 --> 00:41:14,400
+all gray.
+
+797
+00:41:12,560 --> 00:41:16,160
+So I
+
+798
+00:41:14,400 --> 00:41:19,280
+someone thought you know the the guy
+
+799
+00:41:16,160 --> 00:41:22,240
+whoever you know invented this this
+
+800
+00:41:19,280 --> 00:41:24,000
+color uh format.
+
+801
+00:41:22,240 --> 00:41:26,160
+I don't think I don't think it's
+
+802
+00:41:24,000 --> 00:41:30,640
+intuitive at all. But anyway this is
+
+803
+00:41:26,160 --> 00:41:35,119
+part of the sRGB. So this is 100% the
+
+804
+00:41:30,640 --> 00:41:40,079
+same as the RGB
+
+805
+00:41:35,119 --> 00:41:43,119
+and also the same as the HSL. Okay.
+
+806
+00:41:40,079 --> 00:41:46,560
+These are not white gamut. Okay. So
+
+807
+00:41:43,119 --> 00:41:49,760
+important to remember. So the RGB
+
+808
+00:41:46,560 --> 00:41:54,400
+and the HS
+
+809
+00:41:49,760 --> 00:41:58,640
+RGB and the HWB they are all they are
+
+810
+00:41:54,400 --> 00:42:01,119
+all the standard RGB color space sRGB
+
+811
+00:41:58,640 --> 00:42:03,920
+space. Okay. Now if you want colors
+
+812
+00:42:01,119 --> 00:42:08,800
+outside of them then you need then you
+
+813
+00:42:03,920 --> 00:42:12,720
+start with um lab LCH
+
+814
+00:42:08,800 --> 00:42:15,599
+uh and uh the okay LCH okay LCH is
+
+815
+00:42:12,720 --> 00:42:19,920
+considered the best. Okay. So what I
+
+816
+00:42:15,599 --> 00:42:24,640
+want to do is I want to create like
+
+817
+00:42:19,920 --> 00:42:28,720
+like all possible patch of um
+
+818
+00:42:24,640 --> 00:42:30,720
+colors that shows what happens if you
+
+819
+00:42:28,720 --> 00:42:33,520
+increase the parameter. You see this is
+
+820
+00:42:30,720 --> 00:42:37,040
+very odd because well first of all my
+
+821
+00:42:33,520 --> 00:42:38,560
+monitor the one you are seeing cannot
+
+822
+00:42:37,040 --> 00:42:41,359
+display
+
+823
+00:42:38,560 --> 00:42:44,560
+white color gamut. Okay, that means when
+
+824
+00:42:41,359 --> 00:42:46,960
+you have colors outside of the sRGB, my
+
+825
+00:42:44,560 --> 00:42:50,640
+monitor will show them as the same
+
+826
+00:42:46,960 --> 00:42:52,560
+color. Okay, so
+
+827
+00:42:50,640 --> 00:42:54,160
+so first of all, even if I do this, I
+
+828
+00:42:52,560 --> 00:42:57,119
+can't, you know, I cannot see the
+
+829
+00:42:54,160 --> 00:43:00,480
+difference. I need to go to my iPad, I
+
+830
+00:42:57,119 --> 00:43:02,800
+mean my iPhone, iPhone, if you have
+
+831
+00:43:00,480 --> 00:43:05,119
+Apple phone, it can show the difference.
+
+832
+00:43:02,800 --> 00:43:08,240
+Okay, one of the site you can check is
+
+833
+00:43:05,119 --> 00:43:12,079
+that there are white color gamma test.
+
+834
+00:43:08,240 --> 00:43:16,960
+Okay, colored let's say search white
+
+835
+00:43:12,079 --> 00:43:19,680
+color gamma test. So there's a website
+
+836
+00:43:16,960 --> 00:43:21,359
+here. Okay, white gamma test page. I
+
+837
+00:43:19,680 --> 00:43:23,280
+don't know who is this guy, but I
+
+838
+00:43:21,359 --> 00:43:25,520
+suppose it's
+
+839
+00:43:23,280 --> 00:43:27,839
+you know I'm pretty I know it's not
+
+840
+00:43:25,520 --> 00:43:31,839
+virus. Okay, at least you can you can
+
+841
+00:43:27,839 --> 00:43:34,880
+just go uh check. So if you So you see
+
+842
+00:43:31,839 --> 00:43:38,000
+there's a red image here.
+
+843
+00:43:34,880 --> 00:43:40,640
+Now on my monitor it's all just red but
+
+844
+00:43:38,000 --> 00:43:42,960
+if you are on iPhone you'll see a W.
+
+845
+00:43:40,640 --> 00:43:47,280
+Okay. You will see a W. I I checked I
+
+846
+00:43:42,960 --> 00:43:49,520
+saw it. Okay. So only on some monitors
+
+847
+00:43:47,280 --> 00:43:52,880
+that can is capable of white gamut
+
+848
+00:43:49,520 --> 00:43:55,359
+you'll see a W.
+
+849
+00:43:52,880 --> 00:43:59,520
+But my screen cannot do it. Okay. So the
+
+850
+00:43:55,359 --> 00:44:03,760
+the the screen I'm using now. So,
+
+851
+00:43:59,520 --> 00:44:06,160
+so that's a thing. Um, and uh,
+
+852
+00:44:03,760 --> 00:44:08,800
+yeah. So, that's so very interesting. I
+
+853
+00:44:06,160 --> 00:44:11,200
+find this, you know, very interesting.
+
+854
+00:44:08,800 --> 00:44:14,560
+This is like in interesting in the sense
+
+855
+00:44:11,200 --> 00:44:16,720
+it's a technology progress.
+
+856
+00:44:14,560 --> 00:44:18,560
+You see,
+
+857
+00:44:16,720 --> 00:44:21,920
+you know, in the past 30 years, we we we
+
+858
+00:44:18,560 --> 00:44:24,880
+we cannot make monitors that display
+
+859
+00:44:21,920 --> 00:44:27,440
+more than eight bits per channel, but
+
+860
+00:44:24,880 --> 00:44:30,079
+now we can. It's one of the technology
+
+861
+00:44:27,440 --> 00:44:32,160
+progress and that made you realize
+
+862
+00:44:30,079 --> 00:44:34,480
+that's how you realize that you know
+
+863
+00:44:32,160 --> 00:44:37,839
+what what possible colors we can
+
+864
+00:44:34,480 --> 00:44:40,560
+actually see.
+
+865
+00:44:37,839 --> 00:44:43,040
+Uh you know by the way the display P3 is
+
+866
+00:44:40,560 --> 00:44:46,000
+not all the colors it's actually only
+
+867
+00:44:43,040 --> 00:44:47,440
+half of the colors we can see. So you
+
+868
+00:44:46,000 --> 00:44:50,000
+can see you know you can go check
+
+869
+00:44:47,440 --> 00:44:54,400
+Wikipedia they will show you lots of
+
+870
+00:44:50,000 --> 00:44:58,880
+these you know image diagrams CIE color
+
+871
+00:44:54,400 --> 00:45:01,440
+space. So actually the sRGB is the
+
+872
+00:44:58,880 --> 00:45:04,400
+smallest that's 8 bit per channel right
+
+873
+00:45:01,440 --> 00:45:05,920
+but then you have larger triangles
+
+874
+00:45:04,400 --> 00:45:10,960
+that's
+
+875
+00:45:05,920 --> 00:45:13,359
+DCIP3 that's a display P3 even that is
+
+876
+00:45:10,960 --> 00:45:15,760
+is not all the possible colors we can
+
+877
+00:45:13,359 --> 00:45:18,960
+see. So we can see all these color this
+
+878
+00:45:15,760 --> 00:45:20,640
+kind of funky shaped you know we can see
+
+879
+00:45:18,960 --> 00:45:25,520
+all of them like in nature you go
+
+880
+00:45:20,640 --> 00:45:28,560
+outside the flowers or whatever but
+
+881
+00:45:25,520 --> 00:45:31,280
+but you see even Apple's you know latest
+
+882
+00:45:28,560 --> 00:45:34,240
+iPhone display they can only show like
+
+883
+00:45:31,280 --> 00:45:38,079
+half of the possible colors we can see.
+
+884
+00:45:34,240 --> 00:45:40,240
+So that's uh interesting. Okay,
+
+885
+00:45:38,079 --> 00:45:42,160
+I think that's it, you know, but I was
+
+886
+00:45:40,240 --> 00:45:46,920
+going to, you know, so yeah, so I was
+
+887
+00:45:42,160 --> 00:45:46,920
+going to code JavaScript to show the
+
+888
+00:45:47,040 --> 00:45:51,560
+uh I don't know. So
+
+889
+00:45:52,720 --> 00:45:56,280
+physics says
+
+890
+00:45:57,520 --> 00:46:03,280
+uh what uh physics says, do you think we
+
+891
+00:46:00,480 --> 00:46:06,280
+would have Emacs if Unix and C never
+
+892
+00:46:03,280 --> 00:46:06,280
+existed?
+
+893
+00:46:11,760 --> 00:46:18,880
+Yes, I think so. I think by the time
+
+894
+00:46:14,960 --> 00:46:22,560
+Emacs was created, there is no Unix.
+
+895
+00:46:18,880 --> 00:46:25,920
+Okay, so physics lab, are you still
+
+896
+00:46:22,560 --> 00:46:30,880
+here? Now, how long have I been talking?
+
+897
+00:46:25,920 --> 00:46:34,319
+Uh, maybe I should get start. Uh,
+
+898
+00:46:30,880 --> 00:46:38,160
+I've been talking for 47 minutes. I need
+
+899
+00:46:34,319 --> 00:46:40,800
+a drink and I need to
+
+900
+00:46:38,160 --> 00:46:43,280
+if we are going to continue either I
+
+901
+00:46:40,800 --> 00:46:45,520
+stop now or
+
+902
+00:46:43,280 --> 00:46:47,440
+I need a break. I need a drink. Okay.
+
+903
+00:46:45,520 --> 00:46:50,000
+So, let me get a drink. So, I want to
+
+904
+00:46:47,440 --> 00:46:53,440
+code.
+
+905
+00:46:50,000 --> 00:46:56,079
+So, the question uh do you think if we
+
+906
+00:46:53,440 --> 00:47:00,000
+would have Emacs if Unix and C never
+
+907
+00:46:56,079 --> 00:47:01,520
+exist? Yes, we do. because Emacs was
+
+908
+00:47:00,000 --> 00:47:05,680
+created
+
+909
+00:47:01,520 --> 00:47:09,040
+before Unix existed. Okay, we can ask
+
+910
+00:47:05,680 --> 00:47:11,760
+well we can the easiest most convenient
+
+911
+00:47:09,040 --> 00:47:15,200
+and fun way to know the answer is just
+
+912
+00:47:11,760 --> 00:47:17,760
+ask AI because it's just incredible.
+
+913
+00:47:15,200 --> 00:47:19,920
+Okay, but
+
+914
+00:47:17,760 --> 00:47:23,359
+uh Jesus, what super growth? I don't
+
+915
+00:47:19,920 --> 00:47:26,880
+want super growth [ __ ]
+
+916
+00:47:23,359 --> 00:47:30,560
+Or I can show you um
+
+917
+00:47:26,880 --> 00:47:33,440
+I can show you my documents about em you
+
+918
+00:47:30,560 --> 00:47:35,839
+know I can show you historical documents
+
+919
+00:47:33,440 --> 00:47:40,560
+about
+
+920
+00:47:35,839 --> 00:47:44,680
+Emacs. Okay. So like Wikipedia let's the
+
+921
+00:47:40,560 --> 00:47:44,680
+easiest way is just ask
+
+922
+00:48:00,800 --> 00:48:09,680
+Did Emacs is exist before Unix?
+
+923
+00:48:06,640 --> 00:48:12,800
+>> No. Emacs was created in the mid70s on
+
+924
+00:48:09,680 --> 00:48:15,520
+Unix like systems at MIT. Unix itself
+
+925
+00:48:12,800 --> 00:48:18,520
+started in the early '7s. So, Emacs came
+
+926
+00:48:15,520 --> 00:48:18,520
+after
+
+927
+00:48:25,359 --> 00:48:35,440
+Okay, it says no because it says that
+
+928
+00:48:30,240 --> 00:48:38,400
+Emacs was created. Wait, stop. Stop.
+
+929
+00:48:35,440 --> 00:48:41,920
+So, it says Emacs. Okay, magnify. Emacs
+
+930
+00:48:38,400 --> 00:48:45,200
+was created in 1976 at MIT. That's
+
+931
+00:48:41,920 --> 00:48:47,520
+correct. On the IT operating system.
+
+932
+00:48:45,200 --> 00:48:50,960
+That's correct. However, Unix
+
+933
+00:48:47,520 --> 00:48:53,520
+development started in 1969 at Bell
+
+934
+00:48:50,960 --> 00:48:56,800
+Labs. That's true.
+
+935
+00:48:53,520 --> 00:49:00,160
+And the first Emacs that ran on Unix
+
+936
+00:48:56,800 --> 00:49:04,000
+didn't appear until early 80s. That's
+
+937
+00:49:00,160 --> 00:49:06,720
+what I that's what I mean. Okay. Well,
+
+938
+00:49:04,000 --> 00:49:09,119
+so I mean they are they are independent.
+
+939
+00:49:06,720 --> 00:49:12,720
+Okay. Emacs didn't begin because of
+
+940
+00:49:09,119 --> 00:49:16,000
+Unix. Emacs began on the IT operating
+
+941
+00:49:12,720 --> 00:49:18,640
+system. Okay. So even if Unix did not
+
+942
+00:49:16,000 --> 00:49:21,839
+exist, Emacs
+
+943
+00:49:18,640 --> 00:49:25,359
+uh exist.
+
+944
+00:49:21,839 --> 00:49:30,480
+Okay. So I uh going to get a drink and
+
+945
+00:49:25,359 --> 00:49:33,200
+uh uh oh actually let me actually
+
+946
+00:49:30,480 --> 00:49:36,240
+either stop or continue. What do you
+
+947
+00:49:33,200 --> 00:49:38,400
+guys think?
+
+948
+00:49:36,240 --> 00:49:40,880
+Broad doesn't know EMAC history. I know
+
+949
+00:49:38,400 --> 00:49:44,319
+about techco and early Emacs and modern
+
+950
+00:49:40,880 --> 00:49:46,559
+Emacs tidy integration.
+
+951
+00:49:44,319 --> 00:49:49,839
+Okay. Modern Emacs with tight
+
+952
+00:49:46,559 --> 00:49:54,520
+integration. Wait, you see this is still
+
+953
+00:49:49,839 --> 00:49:54,520
+listening to my talk. What the [ __ ]
+
+954
+00:49:55,760 --> 00:50:03,559
+You know you you have to know that GNU
+
+955
+00:49:59,200 --> 00:50:03,559
+Emacs G and U.
+
+956
+00:50:04,640 --> 00:50:08,800
+Okay. Wait.
+
+957
+00:50:06,720 --> 00:50:11,359
+You know sometimes this AI kept
+
+958
+00:50:08,800 --> 00:50:15,240
+listening to me. You see even I stopped
+
+959
+00:50:11,359 --> 00:50:15,240
+it. Stop.
+
+960
+00:50:17,760 --> 00:50:23,640
+Hello. Are you still eavesdropping on
+
+961
+00:50:20,640 --> 00:50:23,640
+me?
+
+962
+00:50:23,760 --> 00:50:29,880
+Yes, it is [ __ ] stupid. Can you stop
+
+963
+00:50:26,880 --> 00:50:29,880
+listening?
+
+964
+00:50:34,319 --> 00:50:37,839
+Are you still listening?
+
+965
+00:50:47,839 --> 00:50:53,720
+It's got a problem.
+
+966
+00:50:50,720 --> 00:50:53,720
+Refresh.
+
+967
+00:50:54,640 --> 00:50:57,640
+Hello.
+
+968
+00:51:03,119 --> 00:51:06,880
+Are you still listening?
+
+969
+00:51:07,760 --> 00:51:12,160
+You know, sometimes it shows it stopped,
+
+970
+00:51:10,160 --> 00:51:15,559
+but actually it's still listening to
+
+971
+00:51:12,160 --> 00:51:15,559
+your talk.
+
+972
+00:51:15,680 --> 00:51:18,640
+Uh, [sighs]
+
+973
+00:51:16,800 --> 00:51:22,000
+so one solution is just turn your
+
+974
+00:51:18,640 --> 00:51:24,160
+microphone off.
+
+975
+00:51:22,000 --> 00:51:28,079
+So anyway, one thing to remember is that
+
+976
+00:51:24,160 --> 00:51:31,760
+GNU Emacs, the GNU stand for GNU is not
+
+977
+00:51:28,079 --> 00:51:36,400
+Unix. Okay? So Richard Sman he doesn't
+
+978
+00:51:31,760 --> 00:51:39,839
+you know he hated Unix because Unix was
+
+979
+00:51:36,400 --> 00:51:43,839
+commercial entity. So GNU so so Richard
+
+980
+00:51:39,839 --> 00:51:46,800
+Sman created GNU [snorts] GNU is I think
+
+981
+00:51:43,839 --> 00:51:50,160
+is the first so-called recursive
+
+982
+00:51:46,800 --> 00:51:53,040
+acronym. Okay, that's what nerds call
+
+983
+00:51:50,160 --> 00:51:57,680
+it, but it's idiotic. But anyway, he
+
+984
+00:51:53,040 --> 00:51:59,760
+designed GNU to be GNU is not Unix.
+
+985
+00:51:57,680 --> 00:52:03,920
+Meaning that he doesn't want Unix. He's
+
+986
+00:51:59,760 --> 00:52:07,839
+creating Emacs and GCC compiler and and
+
+987
+00:52:03,920 --> 00:52:10,319
+the the uh what's his operating system
+
+988
+00:52:07,839 --> 00:52:12,079
+then to replace Unix. That's what is
+
+989
+00:52:10,319 --> 00:52:14,880
+intention.
+
+990
+00:52:12,079 --> 00:52:19,440
+Okay. He don't want Unix because Unix
+
+991
+00:52:14,880 --> 00:52:22,240
+belong to AT&T proprietary system. Okay,
+
+992
+00:52:19,440 --> 00:52:26,599
+that's a short digression. Okay, so
+
+993
+00:52:22,240 --> 00:52:26,599
+that's Unix pests.
+
+994
+00:52:29,440 --> 00:52:37,280
+Uh Unix is a proprietary system
+
+995
+00:52:33,760 --> 00:52:42,400
+uh you know owned by AT&T. You can see
+
+996
+00:52:37,280 --> 00:52:47,839
+you can see from many of these old
+
+997
+00:52:42,400 --> 00:52:51,680
+uh t-shirt you know so this BSD you BSC
+
+998
+00:52:47,839 --> 00:52:54,960
+Unix is poking that thing that globe
+
+999
+00:52:51,680 --> 00:52:57,599
+that's that's um that is used to be
+
+1000
+00:52:54,960 --> 00:53:03,640
+known as AT&T
+
+1001
+00:52:57,599 --> 00:53:03,640
+death star okay that's a logo of AT&T
+
+1002
+00:53:04,319 --> 00:53:08,559
+okay so let me show show you some guys
+
+1003
+00:53:06,319 --> 00:53:10,960
+something. Okay, I keep talking until we
+
+1004
+00:53:08,559 --> 00:53:14,000
+going to stop soon, I think. Okay, kasar
+
+1005
+00:53:10,960 --> 00:53:17,520
+code kasadi.info.
+
+1006
+00:53:14,000 --> 00:53:20,480
+Then you go to uh logo uh history. Do we
+
+1007
+00:53:17,520 --> 00:53:23,359
+have here somewhere logo design software
+
+1008
+00:53:20,480 --> 00:53:28,880
+industry? Okay, then you enlarge this
+
+1009
+00:53:23,359 --> 00:53:32,800
+window. Then you go to uh let's
+
+1010
+00:53:28,880 --> 00:53:35,839
+okay then you go to uh AT&T. So this is
+
+1011
+00:53:32,800 --> 00:53:38,240
+logo design of software industry but you
+
+1012
+00:53:35,839 --> 00:53:41,440
+go to purpose of logos and principles of
+
+1013
+00:53:38,240 --> 00:53:44,400
+logo design. Then you can see some some
+
+1014
+00:53:41,440 --> 00:53:48,319
+of the examples of nonsoftware
+
+1015
+00:53:44,400 --> 00:53:50,400
+corporations logo. Okay. Such as so by
+
+1016
+00:53:48,319 --> 00:53:54,079
+the way herd is the operating system
+
+1017
+00:53:50,400 --> 00:53:57,680
+Richard Sman was going to create to
+
+1018
+00:53:54,079 --> 00:54:00,559
+replace Unix but it is it became the
+
+1019
+00:53:57,680 --> 00:54:03,359
+greatest vapor wear because after 40
+
+1020
+00:54:00,559 --> 00:54:05,520
+years it's still not there. I mean
+
+1021
+00:54:03,359 --> 00:54:08,480
+there's a version like like beta you
+
+1022
+00:54:05,520 --> 00:54:11,359
+know but basically not practical. So
+
+1023
+00:54:08,480 --> 00:54:14,960
+Herd is the is Richard Stman's operating
+
+1024
+00:54:11,359 --> 00:54:18,319
+system. Okay. GNU herd remember GNU GNU
+
+1025
+00:54:14,960 --> 00:54:22,720
+stand for GNU is not Unix because
+
+1026
+00:54:18,319 --> 00:54:26,240
+Richard Snowman they despise the Unix
+
+1027
+00:54:22,720 --> 00:54:30,480
+because it's proprietary by the by the
+
+1028
+00:54:26,240 --> 00:54:34,480
+blood sucking AT&T corporation you see
+
+1029
+00:54:30,480 --> 00:54:39,119
+so here is the logo of AT&T this logo
+
+1030
+00:54:34,480 --> 00:54:42,520
+was known as the death star
+
+1031
+00:54:39,119 --> 00:54:42,520
+is A
+
+1032
+00:54:44,480 --> 00:54:50,800
+death star is a joke from the
+
+1033
+00:54:48,319 --> 00:54:54,079
+Star Trek movie. You know this kill you
+
+1034
+00:54:50,800 --> 00:54:56,079
+know you know this death star. Okay. So
+
+1035
+00:54:54,079 --> 00:54:58,240
+I'm [laughter] I'm talking about this
+
+1036
+00:54:56,079 --> 00:55:01,119
+because you zoomers probably don't know
+
+1037
+00:54:58,240 --> 00:55:04,559
+because you want bone. Okay. But every
+
+1038
+00:55:01,119 --> 00:55:10,319
+everyone knows this in the past 30 40
+
+1039
+00:55:04,559 --> 00:55:13,680
+five 50 years. Okay. So, so AT&T
+
+1040
+00:55:10,319 --> 00:55:17,839
+back then is owner creator of Unix and
+
+1041
+00:55:13,680 --> 00:55:20,400
+AT&T is a big super greedy commercial
+
+1042
+00:55:17,839 --> 00:55:23,200
+organization. Okay? Like they they they
+
+1043
+00:55:20,400 --> 00:55:26,160
+do everything you can to squeeze suck
+
+1044
+00:55:23,200 --> 00:55:29,680
+your blood. That's what AT&T the like
+
+1045
+00:55:26,160 --> 00:55:32,319
+the it's like today's um Google, okay?
+
+1046
+00:55:29,680 --> 00:55:34,319
+It's like today's Google, Microsoft, but
+
+1047
+00:55:32,319 --> 00:55:36,160
+back then AT&T, you know, they owns a
+
+1048
+00:55:34,319 --> 00:55:39,200
+telephone like all the telephone
+
+1049
+00:55:36,160 --> 00:55:41,760
+networks. So the government, so they the
+
+1050
+00:55:39,200 --> 00:55:45,440
+su government split them off things like
+
+1051
+00:55:41,760 --> 00:55:48,799
+that. Okay, so AT&T is the AT&T logo was
+
+1052
+00:55:45,440 --> 00:55:51,119
+that they changed it to like this about
+
+1053
+00:55:48,799 --> 00:55:54,319
+15 years ago. Okay, they kind of
+
+1054
+00:55:51,119 --> 00:55:57,760
+simplified it. But this logo which I
+
+1055
+00:55:54,319 --> 00:56:02,240
+think is was a great logo but it is
+
+1056
+00:55:57,760 --> 00:56:04,799
+known nickname is AT&T Death Star. Why
+
+1057
+00:56:02,240 --> 00:56:07,040
+death star? Because most nerds you know
+
+1058
+00:56:04,799 --> 00:56:10,240
+they don't we don't like this big
+
+1059
+00:56:07,040 --> 00:56:14,240
+corporation. Okay. It's from Star Trek
+
+1060
+00:56:10,240 --> 00:56:17,599
+and the AT&T. So you can see the AT&T
+
+1061
+00:56:14,240 --> 00:56:20,960
+logo here from the Berkeley. Berkeley is
+
+1062
+00:56:17,599 --> 00:56:23,520
+from UC Berkeley. But UC Berkeley is a
+
+1063
+00:56:20,960 --> 00:56:26,000
+university 1 hour drive from where I
+
+1064
+00:56:23,520 --> 00:56:28,079
+live. Okay. In San Francisco.
+
+1065
+00:56:26,000 --> 00:56:30,480
+So the UC you know that that's the
+
+1066
+00:56:28,079 --> 00:56:33,520
+beginning of the BSD the Unix. Okay.
+
+1067
+00:56:30,480 --> 00:56:37,040
+That's kind of the the university branch
+
+1068
+00:56:33,520 --> 00:56:41,440
+of uh Unix. Okay. So they you can see
+
+1069
+00:56:37,040 --> 00:56:44,960
+the this is the uh beasty uh uh this got
+
+1070
+00:56:41,440 --> 00:56:49,280
+a name. The name is Beasty, right? So
+
+1071
+00:56:44,960 --> 00:56:52,240
+this character is the mascot of
+
+1072
+00:56:49,280 --> 00:56:54,960
+free BSD. Okay, BSD before there's no
+
+1073
+00:56:52,240 --> 00:56:56,799
+different branch of BSD. They split.
+
+1074
+00:56:54,960 --> 00:56:59,680
+Okay, that but anyway, so this is the
+
+1075
+00:56:56,799 --> 00:57:02,400
+mascot of BSD. So they were poking
+
+1076
+00:56:59,680 --> 00:57:07,359
+making fun of the AT&T.
+
+1077
+00:57:02,400 --> 00:57:10,319
+Okay. And this this shirt is from uh I
+
+1078
+00:57:07,359 --> 00:57:14,760
+don't know when I forgot when so like 18
+
+1079
+00:57:10,319 --> 00:57:14,760
+1980s. Okay. 1980s.
+
+1080
+00:57:14,799 --> 00:57:19,599
+So what I want to so what I'm telling
+
+1081
+00:57:17,200 --> 00:57:21,680
+you is that you forgot you know like
+
+1082
+00:57:19,599 --> 00:57:25,339
+young younger people you don't know you
+
+1083
+00:57:21,680 --> 00:57:26,319
+thought oh Emacs is for Unix. No,
+
+1084
+00:57:25,339 --> 00:57:29,280
+[laughter]
+
+1085
+00:57:26,319 --> 00:57:32,640
+Emac. Emac is not for Unix. First of
+
+1086
+00:57:29,280 --> 00:57:34,960
+all, it is on the IT operating system,
+
+1087
+00:57:32,640 --> 00:57:39,680
+you know, it's completely nothing to do
+
+1088
+00:57:34,960 --> 00:57:42,079
+with Unix. It's, you know, and then glue
+
+1089
+00:57:39,680 --> 00:57:45,040
+they hated Unix. They wanted to replace
+
+1090
+00:57:42,079 --> 00:57:46,880
+Unix. The the least people and the C
+
+1091
+00:57:45,040 --> 00:57:50,000
+[ __ ] they don't get along. They
+
+1092
+00:57:46,880 --> 00:57:52,240
+hate each other. Okay. So, it's the the
+
+1093
+00:57:50,000 --> 00:57:54,640
+Emacs is not Unix. Okay. Emacs
+
+1094
+00:57:52,240 --> 00:57:58,400
+everything the way Emacs you know the
+
+1095
+00:57:54,640 --> 00:58:01,680
+big monstrosity the list is nothing like
+
+1096
+00:57:58,400 --> 00:58:05,280
+Unix the man page the Unix small is
+
+1097
+00:58:01,680 --> 00:58:10,079
+beautiful for [ __ ] nothing like it okay
+
+1098
+00:58:05,280 --> 00:58:12,960
+so I despise the Unix I I love Emacs I
+
+1099
+00:58:10,079 --> 00:58:15,599
+despise the Unix [ __ ]
+
+1100
+00:58:12,960 --> 00:58:17,599
+nothing like the Unix okay so you guys I
+
+1101
+00:58:15,599 --> 00:58:19,839
+mean the you new people don't know
+
+1102
+00:58:17,599 --> 00:58:23,280
+because they thought today you know it
+
+1103
+00:58:19,839 --> 00:58:27,359
+is dead l is said they thought oh GNU is
+
+1104
+00:58:23,280 --> 00:58:30,319
+just Linux I mean GNU is yeah
+
+1105
+00:58:27,359 --> 00:58:33,520
+you guys don't know even you know even
+
+1106
+00:58:30,319 --> 00:58:37,040
+Unix is history like the some ecosystem
+
+1107
+00:58:33,520 --> 00:58:39,280
+the HP Unix they are all history
+
+1108
+00:58:37,040 --> 00:58:41,280
+you know so you don't even know this you
+
+1109
+00:58:39,280 --> 00:58:43,680
+know all these Unixes you you just know
+
+1110
+00:58:41,280 --> 00:58:45,920
+Linux and you thought you know oh yeah
+
+1111
+00:58:43,680 --> 00:58:49,160
+Emacs is designed for Linux you know
+
+1112
+00:58:45,920 --> 00:58:49,160
+that what
+
+1113
+00:58:49,599 --> 00:58:53,760
+oh god
+
+1114
+00:58:50,960 --> 00:58:57,520
+I'm 40, man. I grew up with AT&T. Oh,
+
+1115
+00:58:53,760 --> 00:58:59,839
+okay. So, yeah. So, okay. Oh, okay.
+
+1116
+00:58:57,520 --> 00:59:02,400
+Sorry, I didn't know. Well, I mean a lot
+
+1117
+00:58:59,839 --> 00:59:04,400
+young people. Okay. Still,
+
+1118
+00:59:02,400 --> 00:59:06,960
+um
+
+1119
+00:59:04,400 --> 00:59:10,079
+I don't mean you. Okay. So, uh I think
+
+1120
+00:59:06,960 --> 00:59:13,040
+Okay, that's it.
+
+1121
+00:59:10,079 --> 00:59:16,160
+E replacement for some Unix tools.
+
+1122
+00:59:13,040 --> 00:59:18,799
+That's true. That's true. G is throwing.
+
+1123
+00:59:16,160 --> 00:59:20,720
+Yeah, rewrote the Unix tool. Right. So
+
+1124
+00:59:18,799 --> 00:59:23,440
+the programming interface was same
+
+1125
+00:59:20,720 --> 00:59:26,559
+similar. Yeah. They you know you know
+
+1126
+00:59:23,440 --> 00:59:30,240
+like most Unix Linux you know the the
+
+1127
+00:59:26,559 --> 00:59:34,000
+the Unix tools in Linux most of them are
+
+1128
+00:59:30,240 --> 00:59:37,000
+from KU. Uh but
+
+1129
+00:59:34,000 --> 00:59:37,000
+anyway
+
+1130
+00:59:41,119 --> 00:59:48,240
+well see well so about what Emacs was
+
+1131
+00:59:45,920 --> 00:59:52,079
+written in there's you know that's a big
+
+1132
+00:59:48,240 --> 00:59:55,680
+history because Emacs was not wait the
+
+1133
+00:59:52,079 --> 00:59:58,880
+first Emacs is of course the tech maros
+
+1134
+00:59:55,680 --> 01:00:02,160
+which is not it's just a macro for the
+
+1135
+00:59:58,880 --> 01:00:04,880
+tech editor okay I never used it, but
+
+1136
+01:00:02,160 --> 01:00:07,359
+it's like it's key macro. Okay, key
+
+1137
+01:00:04,880 --> 01:00:10,240
+marker from the teco text editor. That's
+
+1138
+01:00:07,359 --> 01:00:15,920
+what Emac stand for.
+
+1139
+01:00:10,240 --> 01:00:18,319
+Uh uh it's called uh EMAC stand for uh
+
+1140
+01:00:15,920 --> 01:00:22,480
+what is the E stand for? Techo Marco.
+
+1141
+01:00:18,319 --> 01:00:25,440
+Okay, Emacs like you can find it uh in
+
+1142
+01:00:22,480 --> 01:00:28,480
+Wikipedia. Okay, so originally the EMAC
+
+1143
+01:00:25,440 --> 01:00:30,960
+stand for editor Marco. That's right,
+
+1144
+01:00:28,480 --> 01:00:34,000
+editor Marco. And that editor means the
+
+1145
+01:00:30,960 --> 01:00:36,240
+techo editor. Okay. So, [snorts]
+
+1146
+01:00:34,000 --> 01:00:39,280
+so then people I think the first then
+
+1147
+01:00:36,240 --> 01:00:43,599
+then Gossen James Goslin the guy who
+
+1148
+01:00:39,280 --> 01:00:45,599
+started Java he wrote it in
+
+1149
+01:00:43,599 --> 01:00:48,880
+I think he's the first one who wrote it
+
+1150
+01:00:45,599 --> 01:00:52,960
+in C and the
+
+1151
+01:00:48,880 --> 01:00:57,200
+the wine bike guy uh what's his name? Uh
+
+1152
+01:00:52,960 --> 01:01:00,480
+who he wrote Emacs in um Lisp the first
+
+1153
+01:00:57,200 --> 01:01:00,480
+Lisp. Okay.
+
+1154
+01:01:01,760 --> 01:01:07,440
+Anyway, Richard Stolman took the Emacs
+
+1155
+01:01:04,960 --> 01:01:10,680
+from James Goslin and basically from
+
+1156
+01:01:07,440 --> 01:01:10,680
+there on
+
+1157
+01:01:12,400 --> 01:01:18,480
+no there there's there was a Emac
+
+1158
+01:01:14,960 --> 01:01:22,319
+version written uh by um what's his
+
+1159
+01:01:18,480 --> 01:01:26,400
+name? So okay. So
+
+1160
+01:01:22,319 --> 01:01:30,400
+there was a EMAC version by
+
+1161
+01:01:26,400 --> 01:01:36,640
+let's go to EMAC tutorial. Then let's go
+
+1162
+01:01:30,400 --> 01:01:38,799
+to EMAC uh miscellaneous. Then uh Emacs
+
+1163
+01:01:36,640 --> 01:01:42,720
+this miscellaneous index. EMAC this
+
+1164
+01:01:38,799 --> 01:01:45,280
+misellaneous technical SS index. EMAC
+
+1165
+01:01:42,720 --> 01:01:50,240
+vers index. EMAC miscellaneous index
+
+1166
+01:01:45,280 --> 01:01:54,160
+there. And uh um
+
+1167
+01:01:50,240 --> 01:01:57,599
+there is the uh
+
+1168
+01:01:54,160 --> 01:02:02,000
+non techchnical essays on emac dis. No,
+
+1169
+01:01:57,599 --> 01:02:05,280
+I want the emacs controversy part. Uh
+
+1170
+01:02:02,000 --> 01:02:08,440
+okay, it's not even here. So it's part
+
+1171
+01:02:05,280 --> 01:02:08,440
+of that.
+
+1172
+01:02:09,280 --> 01:02:12,280
+want.
+
+1173
+01:02:24,799 --> 01:02:29,920
+All this I got too many articles that's
+
+1174
+01:02:27,280 --> 01:02:34,960
+hard to organize them. Yeah. Controversy
+
+1175
+01:02:29,920 --> 01:02:37,200
+index. So why is this not on a homepage?
+
+1176
+01:02:34,960 --> 01:02:40,960
+Okay. So anyway, you go to the Emacs
+
+1177
+01:02:37,200 --> 01:02:45,839
+controversy index. There is Daniel
+
+1178
+01:02:40,960 --> 01:02:48,079
+Wineb. Okay. Daniel Wreb
+
+1179
+01:02:45,839 --> 01:02:52,480
+who died
+
+1180
+01:02:48,079 --> 01:02:56,880
+he died in 2012. Okay.
+
+1181
+01:02:52,480 --> 01:03:00,880
+So he he wrote the first Emacs entirely
+
+1182
+01:02:56,880 --> 01:03:03,839
+in lisp. Okay. So
+
+1183
+01:03:00,880 --> 01:03:09,359
+uh so here you can see this is a page
+
+1184
+01:03:03,839 --> 01:03:13,000
+from his blog about Emacs history. Okay.
+
+1185
+01:03:09,359 --> 01:03:13,000
+Okay. Bye guys.
+
+1186
+01:03:13,599 --> 01:03:16,599
+Bye.
+
+1187
+01:03:17,200 --> 01:03:22,960
+So anything else I missing? Uh let's
+
+1188
+01:03:20,400 --> 01:03:25,119
+see. Uh that's good. That's good.
+
+1189
+01:03:22,960 --> 01:03:27,039
+Anything I want else I want to say?
+
+1190
+01:03:25,119 --> 01:03:30,160
+Okay. No.
+
+1191
+01:03:27,039 --> 01:03:30,160
+Bye guys.
+

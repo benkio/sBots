@@ -1,0 +1,6668 @@
+1
+00:00:08,000 --> 00:00:11,440
+welcome to another episode of sun talk
+
+2
+00:00:10,320 --> 00:00:13,759
+show
+
+3
+00:00:11,440 --> 00:00:14,960
+so today we are going to do emaclis
+
+4
+00:00:13,759 --> 00:00:16,640
+coding
+
+5
+00:00:14,960 --> 00:00:18,080
+and
+
+6
+00:00:16,640 --> 00:00:20,960
+the first
+
+7
+00:00:18,080 --> 00:00:22,000
+30 minutes i'm going to do emac this
+
+8
+00:00:20,960 --> 00:00:23,119
+coding
+
+9
+00:00:22,000 --> 00:00:25,199
+so
+
+10
+00:00:23,119 --> 00:00:26,640
+then after that i'm going to give you
+
+11
+00:00:25,199 --> 00:00:28,480
+some updates
+
+12
+00:00:26,640 --> 00:00:30,560
+on what's going on with my
+
+13
+00:00:28,480 --> 00:00:32,000
+life my websites
+
+14
+00:00:30,560 --> 00:00:34,880
+um
+
+15
+00:00:32,000 --> 00:00:36,960
+wufang language stuff like keys news
+
+16
+00:00:34,880 --> 00:00:38,320
+some news about star flight keys my
+
+17
+00:00:36,960 --> 00:00:40,000
+package
+
+18
+00:00:38,320 --> 00:00:43,040
+and wufam language
+
+19
+00:00:40,000 --> 00:00:45,920
+my favorite language
+
+20
+00:00:43,040 --> 00:00:48,079
+okay i'm doing gums um
+
+21
+00:00:45,920 --> 00:00:50,480
+so the first 30 minutes or so i'm going
+
+22
+00:00:48,079 --> 00:00:52,320
+to do emac this coding so we are going
+
+23
+00:00:50,480 --> 00:00:56,160
+to write a command
+
+24
+00:00:52,320 --> 00:00:59,120
+that um delete emacs trash files for
+
+25
+00:00:56,160 --> 00:01:01,920
+example let's go to emacs init
+
+26
+00:00:59,120 --> 00:01:04,799
+so you can see this is my emacs init
+
+27
+00:01:01,920 --> 00:01:07,760
+directory so let me turn on the
+
+28
+00:01:04,799 --> 00:01:10,240
+highlight uh current line so you can see
+
+29
+00:01:07,760 --> 00:01:13,280
+where is my cursor so you see this this
+
+30
+00:01:10,240 --> 00:01:15,680
+is my emacs init directory and in your
+
+31
+00:01:13,280 --> 00:01:18,159
+emacs init directory you have several
+
+32
+00:01:15,680 --> 00:01:21,040
+trash files not trash files but emacs
+
+33
+00:01:18,159 --> 00:01:21,040
+state for example
+
+34
+00:01:21,600 --> 00:01:26,400
+uh you have the bookmarks file which is
+
+35
+00:01:24,000 --> 00:01:29,360
+important uh you know your bookmarks
+
+36
+00:01:26,400 --> 00:01:32,159
+then you have the emacs desktop file
+
+37
+00:01:29,360 --> 00:01:34,640
+this file records um
+
+38
+00:01:32,159 --> 00:01:37,759
+which buffers are open which files are
+
+39
+00:01:34,640 --> 00:01:41,119
+open and their cruiser position so that
+
+40
+00:01:37,759 --> 00:01:43,200
+when you restart emacs they will it will
+
+41
+00:01:41,119 --> 00:01:46,960
+open you know all your
+
+42
+00:01:43,200 --> 00:01:49,200
+uh open files in previous session and
+
+43
+00:01:46,960 --> 00:01:52,720
+also when you open a file
+
+44
+00:01:49,200 --> 00:01:55,680
+it will place the cursor on your last
+
+45
+00:01:52,720 --> 00:01:56,880
+cruiser position when you close the file
+
+46
+00:01:55,680 --> 00:02:01,119
+excuse me
+
+47
+00:01:56,880 --> 00:02:01,119
+so i'm chewing gum let me speed it up
+
+48
+00:02:04,079 --> 00:02:06,399
+so
+
+49
+00:02:05,520 --> 00:02:08,479
+so
+
+50
+00:02:06,399 --> 00:02:11,360
+you know then there's i do
+
+51
+00:02:08,479 --> 00:02:13,440
+you know i do is a mod um so it records
+
+52
+00:02:11,360 --> 00:02:14,640
+you know several information states of
+
+53
+00:02:13,440 --> 00:02:17,440
+your emacs
+
+54
+00:02:14,640 --> 00:02:18,640
+uh they are convenient um
+
+55
+00:02:17,440 --> 00:02:20,160
+features
+
+56
+00:02:18,640 --> 00:02:20,959
+and recent
+
+57
+00:02:20,160 --> 00:02:22,480
+f
+
+58
+00:02:20,959 --> 00:02:26,080
+which records
+
+59
+00:02:22,480 --> 00:02:26,080
+recently opened files
+
+60
+00:02:26,239 --> 00:02:31,040
+and you know so sometimes when you you
+
+61
+00:02:29,200 --> 00:02:33,840
+you want to remove all those files or
+
+62
+00:02:31,040 --> 00:02:36,959
+these trash files so i'm going to we are
+
+63
+00:02:33,840 --> 00:02:40,239
+going to write a command from scratch
+
+64
+00:02:36,959 --> 00:02:40,239
+that you can call the command
+
+65
+00:02:40,400 --> 00:02:44,800
+and also give it a key so you press a
+
+66
+00:02:42,400 --> 00:02:46,560
+few keys and it will delete certain you
+
+67
+00:02:44,800 --> 00:02:48,560
+know these trash files
+
+68
+00:02:46,560 --> 00:02:51,599
+so you know for
+
+69
+00:02:48,560 --> 00:02:53,840
+privacy purposes or whatever
+
+70
+00:02:51,599 --> 00:02:56,080
+and this is also great if you are
+
+71
+00:02:53,840 --> 00:02:58,239
+learning emaclis so you can write this
+
+72
+00:02:56,080 --> 00:02:59,360
+you know you can copy what i'm doing and
+
+73
+00:02:58,239 --> 00:03:01,760
+you can
+
+74
+00:02:59,360 --> 00:03:03,200
+so the command your command will delete
+
+75
+00:03:01,760 --> 00:03:06,560
+certain files
+
+76
+00:03:03,200 --> 00:03:08,560
+uh your whatever your files your um
+
+77
+00:03:06,560 --> 00:03:11,680
+files you want to delete now you just
+
+78
+00:03:08,560 --> 00:03:14,239
+you can do it just by pressing a key
+
+79
+00:03:11,680 --> 00:03:17,519
+so let's do that you know so i have been
+
+80
+00:03:14,239 --> 00:03:18,800
+sick in the past week
+
+81
+00:03:17,519 --> 00:03:21,519
+uh
+
+82
+00:03:18,800 --> 00:03:24,159
+code basically code uh it's not covet
+
+83
+00:03:21,519 --> 00:03:27,120
+it's so code so
+
+84
+00:03:24,159 --> 00:03:29,760
+yeah so i've been sick and uh we and i
+
+85
+00:03:27,120 --> 00:03:31,760
+haven't done a um
+
+86
+00:03:29,760 --> 00:03:34,400
+you know wufang language for a long time
+
+87
+00:03:31,760 --> 00:03:35,440
+so i want to also get back to wufang
+
+88
+00:03:34,400 --> 00:03:38,560
+language
+
+89
+00:03:35,440 --> 00:03:41,440
+you know i've updated you know i
+
+90
+00:03:38,560 --> 00:03:43,360
+recently i did a lot of things um
+
+91
+00:03:41,440 --> 00:03:45,680
+you know i have updated my wolfram
+
+92
+00:03:43,360 --> 00:03:48,400
+language tutorial from language basics
+
+93
+00:03:45,680 --> 00:03:50,080
+sufam language you know strings
+
+94
+00:03:48,400 --> 00:03:52,720
+list of functions how do you find the
+
+95
+00:03:50,080 --> 00:03:54,959
+documentation of a function
+
+96
+00:03:52,720 --> 00:03:58,799
+so all you have to do is just search for
+
+97
+00:03:54,959 --> 00:04:01,840
+example from language tutorials
+
+98
+00:03:58,799 --> 00:04:01,840
+excuse me
+
+99
+00:04:04,239 --> 00:04:08,959
+oh hi so
+
+100
+00:04:06,000 --> 00:04:11,280
+truly through on discord uh i believe i
+
+101
+00:04:08,959 --> 00:04:13,519
+talked to you on voice last time great
+
+102
+00:04:11,280 --> 00:04:16,160
+to see you great to see you
+
+103
+00:04:13,519 --> 00:04:16,959
+so wufang language is fantastic okay so
+
+104
+00:04:16,160 --> 00:04:18,959
+uh
+
+105
+00:04:16,959 --> 00:04:20,639
+i'm going to get back to working on that
+
+106
+00:04:18,959 --> 00:04:23,759
+and if you haven't already you know you
+
+107
+00:04:20,639 --> 00:04:25,919
+can download it for free i did like over
+
+108
+00:04:23,759 --> 00:04:28,639
+10 videos in the past you know in the
+
+109
+00:04:25,919 --> 00:04:30,160
+recent half a year and you know check
+
+110
+00:04:28,639 --> 00:04:31,840
+out you know great
+
+111
+00:04:30,160 --> 00:04:32,960
+language
+
+112
+00:04:31,840 --> 00:04:34,720
+uh
+
+113
+00:04:32,960 --> 00:04:37,680
+in my opinion you know the best language
+
+114
+00:04:34,720 --> 00:04:40,479
+the most high level by bio magnitude you
+
+115
+00:04:37,680 --> 00:04:42,960
+know programming language on earth
+
+116
+00:04:40,479 --> 00:04:45,199
+no nothing comes close not haskell not
+
+117
+00:04:42,960 --> 00:04:47,520
+closure not overland whatever you know
+
+118
+00:04:45,199 --> 00:04:49,840
+nothing comes close the highest level so
+
+119
+00:04:47,520 --> 00:04:52,400
+i did several videos uh in the past
+
+120
+00:04:49,840 --> 00:04:56,400
+about that so you uh go check them out
+
+121
+00:04:52,400 --> 00:04:58,400
+so let's begin today's uh main thing
+
+122
+00:04:56,400 --> 00:05:00,160
+yeah so i've been sick yeah i talked
+
+123
+00:04:58,400 --> 00:05:02,080
+about that yeah so movement language
+
+124
+00:05:00,160 --> 00:05:03,360
+okay so
+
+125
+00:05:02,080 --> 00:05:06,960
+um
+
+126
+00:05:03,360 --> 00:05:06,960
+yeah so let's do today
+
+127
+00:05:07,440 --> 00:05:11,840
+let's start to code emaclis okay if you
+
+128
+00:05:09,919 --> 00:05:14,160
+have questions comments post it okay i'd
+
+129
+00:05:11,840 --> 00:05:16,320
+love to see your questions and comments
+
+130
+00:05:14,160 --> 00:05:18,560
+and donate to me okay if you like my
+
+131
+00:05:16,320 --> 00:05:19,520
+stuff if you enjoy what i do
+
+132
+00:05:18,560 --> 00:05:21,440
+you know
+
+133
+00:05:19,520 --> 00:05:22,479
+buy me a drink you know five dollars or
+
+134
+00:05:21,440 --> 00:05:25,039
+whatever
+
+135
+00:05:22,479 --> 00:05:27,120
+paypal or patreon you know
+
+136
+00:05:25,039 --> 00:05:28,960
+you know where to find the my website
+
+137
+00:05:27,120 --> 00:05:31,600
+it's on my website
+
+138
+00:05:28,960 --> 00:05:34,320
+so okay so let's begin to do today's
+
+139
+00:05:31,600 --> 00:05:37,039
+thing um
+
+140
+00:05:34,320 --> 00:05:39,759
+so so emacs has all these you know
+
+141
+00:05:37,039 --> 00:05:41,840
+random files littered let's you know so
+
+142
+00:05:39,759 --> 00:05:44,479
+we are going to write a command to clean
+
+143
+00:05:41,840 --> 00:05:46,880
+them up to delete those files
+
+144
+00:05:44,479 --> 00:05:48,400
+uh there are a lot of design decisions
+
+145
+00:05:46,880 --> 00:05:50,800
+for example when you call the command
+
+146
+00:05:48,400 --> 00:05:53,840
+should it just delete it or should it
+
+147
+00:05:50,800 --> 00:05:53,840
+make a backup first
+
+148
+00:05:55,520 --> 00:05:58,560
+uh
+
+149
+00:05:56,560 --> 00:06:01,120
+well i don't know so let's you know
+
+150
+00:05:58,560 --> 00:06:04,240
+let's go through it and see so first of
+
+151
+00:06:01,120 --> 00:06:06,639
+all which command you want to
+
+152
+00:06:04,240 --> 00:06:09,199
+do so let's see
+
+153
+00:06:06,639 --> 00:06:12,000
+so in your emacs directory
+
+154
+00:06:09,199 --> 00:06:14,479
+um okay let's close this so in a pink
+
+155
+00:06:12,000 --> 00:06:18,319
+window is all my emacs command cores and
+
+156
+00:06:14,479 --> 00:06:20,639
+their keystroke you can see any any uh
+
+157
+00:06:18,319 --> 00:06:23,199
+anything i type you can see it's
+
+158
+00:06:20,639 --> 00:06:24,720
+reflected in a pink window so i press a
+
+159
+00:06:23,199 --> 00:06:26,880
+key
+
+160
+00:06:24,720 --> 00:06:29,039
+i press a key for example delete that
+
+161
+00:06:26,880 --> 00:06:33,199
+block and you can see
+
+162
+00:06:29,039 --> 00:06:35,440
+that command is that and the key is e
+
+163
+00:06:33,199 --> 00:06:38,240
+and i'm using a vora keyboard and i'm
+
+164
+00:06:35,440 --> 00:06:40,720
+using soft light keys
+
+165
+00:06:38,240 --> 00:06:43,440
+okay so it undo so
+
+166
+00:06:40,720 --> 00:06:45,199
+so now let's work on the emac this light
+
+167
+00:06:43,440 --> 00:06:47,280
+coding so
+
+168
+00:06:45,199 --> 00:06:49,599
+so first of all the first question is
+
+169
+00:06:47,280 --> 00:06:52,479
+what command do we want to do because
+
+170
+00:06:49,599 --> 00:06:56,080
+there are several let me let me see okay
+
+171
+00:06:52,479 --> 00:06:59,360
+so let's go to my emacs innate directory
+
+172
+00:06:56,080 --> 00:07:01,599
+uh and uh
+
+173
+00:06:59,360 --> 00:07:04,080
+uh what's your favorite font is that a
+
+174
+00:07:01,599 --> 00:07:06,000
+true question you know i did a lot video
+
+175
+00:07:04,080 --> 00:07:07,360
+on that
+
+176
+00:07:06,000 --> 00:07:09,599
+answer okay
+
+177
+00:07:07,360 --> 00:07:11,440
+if you are not a true answer i did a lot
+
+178
+00:07:09,599 --> 00:07:14,080
+of video on that
+
+179
+00:07:11,440 --> 00:07:16,160
+so emacs innate directory so let's see
+
+180
+00:07:14,080 --> 00:07:18,880
+first of all let's quickly decide which
+
+181
+00:07:16,160 --> 00:07:18,880
+command so
+
+182
+00:07:20,639 --> 00:07:25,680
+recent f okay
+
+183
+00:07:22,960 --> 00:07:27,759
+so let's see recent f
+
+184
+00:07:25,680 --> 00:07:31,840
+so there's recent f
+
+185
+00:07:27,759 --> 00:07:34,240
+and this i do uh yeah i do we need to
+
+186
+00:07:31,840 --> 00:07:36,880
+delete
+
+187
+00:07:34,240 --> 00:07:39,840
+i do okay so let's let's
+
+188
+00:07:36,880 --> 00:07:42,319
+okay let's start to do it uh
+
+189
+00:07:39,840 --> 00:07:44,800
+so let's copy the file path show the
+
+190
+00:07:42,319 --> 00:07:47,039
+pink window copy the file path paste it
+
+191
+00:07:44,800 --> 00:07:48,800
+here so i do last is one of the things
+
+192
+00:07:47,039 --> 00:07:50,960
+we want to delete
+
+193
+00:07:48,800 --> 00:07:54,319
+and
+
+194
+00:07:50,960 --> 00:07:56,879
+and places we can safely delete
+
+195
+00:07:54,319 --> 00:07:59,280
+two without thinking too much
+
+196
+00:07:56,879 --> 00:08:01,520
+and smacks items yeah we need to delete
+
+197
+00:07:59,280 --> 00:08:04,240
+that but we don't use that anymore since
+
+198
+00:08:01,520 --> 00:08:06,400
+emacs 28 in my last video i talked about
+
+199
+00:08:04,240 --> 00:08:06,400
+that
+
+200
+00:08:07,440 --> 00:08:09,680
+so
+
+201
+00:08:11,440 --> 00:08:17,199
+okay so let's let's just let's just
+
+202
+00:08:13,919 --> 00:08:20,720
+focus on these three okay
+
+203
+00:08:17,199 --> 00:08:23,039
+so i do last so let's first of all clean
+
+204
+00:08:20,720 --> 00:08:25,759
+clean up i do okay so i do
+
+205
+00:08:23,039 --> 00:08:27,759
+you know i do is a is a emax
+
+206
+00:08:25,759 --> 00:08:29,759
+feature where you
+
+207
+00:08:27,759 --> 00:08:32,640
+where it pops up you know when you
+
+208
+00:08:29,759 --> 00:08:35,039
+switch to buffer
+
+209
+00:08:32,640 --> 00:08:36,640
+you know it pops up the vertical choices
+
+210
+00:08:35,039 --> 00:08:37,919
+of a selection so it's a convenient
+
+211
+00:08:36,640 --> 00:08:39,839
+feature
+
+212
+00:08:37,919 --> 00:08:41,839
+okay that's not do i do because i need
+
+213
+00:08:39,839 --> 00:08:44,800
+to explain you know
+
+214
+00:08:41,839 --> 00:08:47,920
+for you emacs new emacs users you made
+
+215
+00:08:44,800 --> 00:08:50,320
+you know it's get gets complicated let's
+
+216
+00:08:47,920 --> 00:08:53,040
+let's do the places first okay so let me
+
+217
+00:08:50,320 --> 00:08:56,080
+show you what that is you go to
+
+218
+00:08:53,040 --> 00:08:58,880
+search for saudi emacs okay so you
+
+219
+00:08:56,080 --> 00:09:02,480
+search for saudi emacs there it is saudi
+
+220
+00:08:58,880 --> 00:09:05,360
+emacs tutorial then you go to the init
+
+221
+00:09:02,480 --> 00:09:08,560
+section emacs tutorial init so this is
+
+222
+00:09:05,360 --> 00:09:09,680
+all about how to customize emacs
+
+223
+00:09:08,560 --> 00:09:12,959
+so
+
+224
+00:09:09,680 --> 00:09:16,640
+uh you know what is init file uh how do
+
+225
+00:09:12,959 --> 00:09:18,080
+you make the standard copy cut paste and
+
+226
+00:09:16,640 --> 00:09:20,399
+do keys
+
+227
+00:09:18,080 --> 00:09:22,800
+uh font setup you know your question
+
+228
+00:09:20,399 --> 00:09:25,120
+which what's your favorite font there's
+
+229
+00:09:22,800 --> 00:09:26,880
+a link here that talks about my favorite
+
+230
+00:09:25,120 --> 00:09:29,440
+font
+
+231
+00:09:26,880 --> 00:09:32,720
+uh in fact you know i i did a youtube
+
+232
+00:09:29,440 --> 00:09:32,720
+video so watch those
+
+233
+00:09:33,440 --> 00:09:40,800
+so emacs init so one of them is
+
+234
+00:09:38,399 --> 00:09:44,080
+places okay you know you know emacs
+
+235
+00:09:40,800 --> 00:09:45,920
+command names is not intuitive like you
+
+236
+00:09:44,080 --> 00:09:47,839
+know for example let's open the file
+
+237
+00:09:45,920 --> 00:09:49,839
+places you know
+
+238
+00:09:47,839 --> 00:09:52,000
+what you know what what these places
+
+239
+00:09:49,839 --> 00:09:54,560
+what does it mean so
+
+240
+00:09:52,000 --> 00:09:56,959
+well it means that emacs record your
+
+241
+00:09:54,560 --> 00:09:59,360
+cruiser position right now you see you
+
+242
+00:09:56,959 --> 00:10:01,040
+see look at my cruiser position you see
+
+243
+00:09:59,360 --> 00:10:02,800
+its position there
+
+244
+00:10:01,040 --> 00:10:05,279
+now i close the buffer
+
+245
+00:10:02,800 --> 00:10:08,079
+and that we open it the cursor will be
+
+246
+00:10:05,279 --> 00:10:10,320
+in the same place for example i close it
+
+247
+00:10:08,079 --> 00:10:13,200
+you know press the key close now i want
+
+248
+00:10:10,320 --> 00:10:16,240
+to open last closed so i have a macro
+
+249
+00:10:13,200 --> 00:10:18,800
+open last closed you can see my cursor
+
+250
+00:10:16,240 --> 00:10:20,800
+is in the same place
+
+251
+00:10:18,800 --> 00:10:23,680
+but if you want to turn that off you
+
+252
+00:10:20,800 --> 00:10:26,240
+know we can turn that off so anyway that
+
+253
+00:10:23,680 --> 00:10:28,240
+that feature is that that command uh
+
+254
+00:10:26,240 --> 00:10:31,279
+what's the command it's called play it's
+
+255
+00:10:28,240 --> 00:10:34,240
+places okay so let's find it there okay
+
+256
+00:10:31,279 --> 00:10:35,279
+you see restore things restore open
+
+257
+00:10:34,240 --> 00:10:38,000
+files
+
+258
+00:10:35,279 --> 00:10:40,640
+save user position save command history
+
+259
+00:10:38,000 --> 00:10:43,360
+so one of them is save cruiser position
+
+260
+00:10:40,640 --> 00:10:48,160
+and this mod is called
+
+261
+00:10:43,360 --> 00:10:50,800
+save place okay so emacs name is not
+
+262
+00:10:48,160 --> 00:10:53,519
+intuitive it's it you know this this mod
+
+263
+00:10:50,800 --> 00:10:56,000
+is called save place it means save the
+
+264
+00:10:53,519 --> 00:10:58,959
+cruiser position okay
+
+265
+00:10:56,000 --> 00:11:02,240
+so and when you have this smart on it
+
+266
+00:10:58,959 --> 00:11:03,360
+will you know it will create this file
+
+267
+00:11:02,240 --> 00:11:05,200
+places
+
+268
+00:11:03,360 --> 00:11:08,399
+that records you know the cruiser
+
+269
+00:11:05,200 --> 00:11:11,680
+position you can see here is a file and
+
+270
+00:11:08,399 --> 00:11:16,399
+here that number is the cruiser position
+
+271
+00:11:11,680 --> 00:11:18,399
+you know basically the 2 264th
+
+272
+00:11:16,399 --> 00:11:19,360
+character essentially
+
+273
+00:11:18,399 --> 00:11:20,640
+so
+
+274
+00:11:19,360 --> 00:11:22,880
+so now
+
+275
+00:11:20,640 --> 00:11:24,560
+we want to write a command that delete
+
+276
+00:11:22,880 --> 00:11:26,320
+this file okay so
+
+277
+00:11:24,560 --> 00:11:28,800
+let's just start to write the command
+
+278
+00:11:26,320 --> 00:11:32,000
+okay so let's um
+
+279
+00:11:28,800 --> 00:11:32,000
+emac this okay
+
+280
+00:11:32,240 --> 00:11:36,320
+uh
+
+281
+00:11:33,120 --> 00:11:39,440
+you know so i'm using side html mod and
+
+282
+00:11:36,320 --> 00:11:41,200
+i'm also using emac this mod so for
+
+283
+00:11:39,440 --> 00:11:43,920
+example i type d
+
+284
+00:11:41,200 --> 00:11:45,920
+space it becomes different space it
+
+285
+00:11:43,920 --> 00:11:48,880
+becomes a template for defining a
+
+286
+00:11:45,920 --> 00:11:51,079
+function in emaclis you can see this is
+
+287
+00:11:48,880 --> 00:11:54,639
+my command e magnus
+
+288
+00:11:51,079 --> 00:11:57,040
+ximaxidsmart and xyhtml
+
+289
+00:11:54,639 --> 00:11:58,959
+mod
+
+290
+00:11:57,040 --> 00:12:01,040
+you know so if you like my stuff you can
+
+291
+00:11:58,959 --> 00:12:04,560
+buy them it's not free but it's open
+
+292
+00:12:01,040 --> 00:12:04,560
+source it's free software
+
+293
+00:12:06,399 --> 00:12:11,760
+okay so we are going to write a command
+
+294
+00:12:09,360 --> 00:12:13,600
+delete places so let's start to document
+
+295
+00:12:11,760 --> 00:12:16,720
+it um
+
+296
+00:12:13,600 --> 00:12:16,720
+delete the
+
+297
+00:12:17,279 --> 00:12:21,360
+uh how do you how do you say delete the
+
+298
+00:12:19,200 --> 00:12:22,839
+temp file not it's not the temp file
+
+299
+00:12:21,360 --> 00:12:26,560
+it's
+
+300
+00:12:22,839 --> 00:12:30,320
+um delete the
+
+301
+00:12:26,560 --> 00:12:33,120
+file for places okay what you know
+
+302
+00:12:30,320 --> 00:12:36,320
+uh we need to think of uh better writing
+
+303
+00:12:33,120 --> 00:12:38,800
+for the documentation you know so
+
+304
+00:12:36,320 --> 00:12:41,360
+so new users can understand exactly what
+
+305
+00:12:38,800 --> 00:12:43,040
+you mean so yeah let's do that so delete
+
+306
+00:12:41,360 --> 00:12:46,079
+the file so first of all what's the mod
+
+307
+00:12:43,040 --> 00:12:48,480
+name save places okay so this file is
+
+308
+00:12:46,079 --> 00:12:51,440
+called save phrases so in order to write
+
+309
+00:12:48,480 --> 00:12:54,480
+this documentation we actually need to
+
+310
+00:12:51,440 --> 00:12:56,639
+start to um
+
+311
+00:12:54,480 --> 00:12:59,360
+start to look into
+
+312
+00:12:56,639 --> 00:13:01,519
+emac lisp you know the emac system the
+
+313
+00:12:59,360 --> 00:13:04,160
+whole system so i'm you know so
+
+314
+00:13:01,519 --> 00:13:06,160
+meanwhile you are learning emacs this
+
+315
+00:13:04,160 --> 00:13:08,800
+coding but you are also learning you
+
+316
+00:13:06,160 --> 00:13:11,600
+know look at watch how i go about
+
+317
+00:13:08,800 --> 00:13:13,760
+finding information about things so save
+
+318
+00:13:11,600 --> 00:13:17,519
+places is the file okay so this is the
+
+319
+00:13:13,760 --> 00:13:19,680
+same places dot el okay that's a file in
+
+320
+00:13:17,519 --> 00:13:21,120
+the e-magnesis directory but but how do
+
+321
+00:13:19,680 --> 00:13:23,279
+you um
+
+322
+00:13:21,120 --> 00:13:25,519
+there it is okay so the mod is called
+
+323
+00:13:23,279 --> 00:13:28,000
+say place is smart okay
+
+324
+00:13:25,519 --> 00:13:31,440
+so here is the mod here's a
+
+325
+00:13:28,000 --> 00:13:34,320
+mod name this is the command you call
+
+326
+00:13:31,440 --> 00:13:36,160
+to turn this smart on or off okay now
+
+327
+00:13:34,320 --> 00:13:37,920
+once we got the command so this is the
+
+328
+00:13:36,160 --> 00:13:40,079
+first thing we need to know once we got
+
+329
+00:13:37,920 --> 00:13:41,360
+the command name you can call describe
+
+330
+00:13:40,079 --> 00:13:42,160
+function
+
+331
+00:13:41,360 --> 00:13:44,959
+then
+
+332
+00:13:42,160 --> 00:13:47,279
+type save save play smart and it will
+
+333
+00:13:44,959 --> 00:13:50,079
+show the documentation for the save play
+
+334
+00:13:47,279 --> 00:13:52,560
+smart then you can jump to the source
+
+335
+00:13:50,079 --> 00:13:55,279
+code you see save place dot e l so you
+
+336
+00:13:52,560 --> 00:13:57,920
+can open it you can see this is a source
+
+337
+00:13:55,279 --> 00:14:00,000
+code for save place you know so there's
+
+338
+00:13:57,920 --> 00:14:01,279
+a documentation near you know say play
+
+339
+00:14:00,000 --> 00:14:03,519
+smart
+
+340
+00:14:01,279 --> 00:14:05,760
+the neo means automatically save place
+
+341
+00:14:03,519 --> 00:14:07,040
+in each file meaning you know cruiser
+
+342
+00:14:05,760 --> 00:14:09,360
+position
+
+343
+00:14:07,040 --> 00:14:12,639
+this means when you visit the file visit
+
+344
+00:14:09,360 --> 00:14:14,800
+means open you know the e-max idiotic
+
+345
+00:14:12,639 --> 00:14:15,760
+non-intuitive names they refuse to
+
+346
+00:14:14,800 --> 00:14:19,120
+change
+
+347
+00:14:15,760 --> 00:14:21,920
+visit file means open the file okay
+
+348
+00:14:19,120 --> 00:14:24,639
+so places means who's the position so
+
+349
+00:14:21,920 --> 00:14:27,519
+this means when you open a file point
+
+350
+00:14:24,639 --> 00:14:29,920
+goes to the last place where it was
+
+351
+00:14:27,519 --> 00:14:32,880
+when you previously previously visited
+
+352
+00:14:29,920 --> 00:14:34,959
+the same file so what is a point point
+
+353
+00:14:32,880 --> 00:14:39,839
+is the cursor position okay that's the
+
+354
+00:14:34,959 --> 00:14:42,639
+emax jargon so point is cruiser position
+
+355
+00:14:39,839 --> 00:14:44,639
+visit file means open the file
+
+356
+00:14:42,639 --> 00:14:46,720
+and place means crucial position okay
+
+357
+00:14:44,639 --> 00:14:49,360
+that's uh you know so
+
+358
+00:14:46,720 --> 00:14:52,079
+you know you wonder why not many you
+
+359
+00:14:49,360 --> 00:14:54,959
+people use emacs because you know
+
+360
+00:14:52,079 --> 00:14:58,000
+the tech nerds say oh emacs is the best
+
+361
+00:14:54,959 --> 00:14:58,800
+thing but meanwhile there's lots of you
+
+362
+00:14:58,000 --> 00:15:00,639
+know
+
+363
+00:14:58,800 --> 00:15:02,320
+like learning and frustration this is
+
+364
+00:15:00,639 --> 00:15:04,639
+one good example
+
+365
+00:15:02,320 --> 00:15:07,519
+the emacs ground people they should okay
+
+366
+00:15:04,639 --> 00:15:07,519
+i read you know i
+
+367
+00:15:07,600 --> 00:15:15,519
+i you know try to you know try to
+
+368
+00:15:12,160 --> 00:15:18,480
+try to um tell people you know so we we
+
+369
+00:15:15,519 --> 00:15:20,480
+we we want intuitive names so that once
+
+370
+00:15:18,480 --> 00:15:23,440
+you have intuitive names people
+
+371
+00:15:20,480 --> 00:15:25,199
+understand that makes emacs easier to
+
+372
+00:15:23,440 --> 00:15:27,920
+use you know so
+
+373
+00:15:25,199 --> 00:15:29,920
+you know so for example change this you
+
+374
+00:15:27,920 --> 00:15:32,079
+know these
+
+375
+00:15:29,920 --> 00:15:35,040
+this incomprehensible jargons you know
+
+376
+00:15:32,079 --> 00:15:38,079
+emacs use these jargons because emacs is
+
+377
+00:15:35,040 --> 00:15:41,279
+the first almost the first text editor
+
+378
+00:15:38,079 --> 00:15:43,040
+okay 40 years ago so they
+
+379
+00:15:41,279 --> 00:15:45,120
+you know they're gonna say the emacs
+
+380
+00:15:43,040 --> 00:15:47,360
+defend you know the e-max phonetics will
+
+381
+00:15:45,120 --> 00:15:49,440
+say we are the first you know the you
+
+382
+00:15:47,360 --> 00:15:52,800
+know cruiser cruiser is not called
+
+383
+00:15:49,440 --> 00:15:52,800
+cruiser it should be called
+
+384
+00:15:52,839 --> 00:15:59,279
+point cut you know should be called keo
+
+385
+00:15:56,800 --> 00:16:01,839
+and paste should be called yank because
+
+386
+00:15:59,279 --> 00:16:03,279
+we begin you know yeah but things change
+
+387
+00:16:01,839 --> 00:16:05,279
+you know so
+
+388
+00:16:03,279 --> 00:16:07,360
+you know use the more intuitive
+
+389
+00:16:05,279 --> 00:16:08,639
+intuitive names that's better for the
+
+390
+00:16:07,360 --> 00:16:11,440
+emacs
+
+391
+00:16:08,639 --> 00:16:14,160
+for the future of emacs so
+
+392
+00:16:11,440 --> 00:16:17,199
+so anyway so so here is the miner mod
+
+393
+00:16:14,160 --> 00:16:18,240
+say places mod okay
+
+394
+00:16:17,199 --> 00:16:20,560
+so you
+
+395
+00:16:18,240 --> 00:16:22,480
+so what we do so let's close that so
+
+396
+00:16:20,560 --> 00:16:24,959
+this is the mod so first of all we need
+
+397
+00:16:22,480 --> 00:16:27,839
+to document um
+
+398
+00:16:24,959 --> 00:16:31,279
+document our function
+
+399
+00:16:27,839 --> 00:16:34,240
+and delete the file
+
+400
+00:16:31,279 --> 00:16:34,240
+used for
+
+401
+00:16:34,480 --> 00:16:39,839
+safe smart okay that's how that's that's
+
+402
+00:16:37,440 --> 00:16:41,600
+more um
+
+403
+00:16:39,839 --> 00:16:44,079
+that's kind of
+
+404
+00:16:41,600 --> 00:16:46,240
+understandable way of document take
+
+405
+00:16:44,079 --> 00:16:48,720
+document
+
+406
+00:16:46,240 --> 00:16:50,639
+documenting this function so now we need
+
+407
+00:16:48,720 --> 00:16:52,639
+to rename the function
+
+408
+00:16:50,639 --> 00:16:55,120
+let's name it
+
+409
+00:16:52,639 --> 00:16:55,120
+delete
+
+410
+00:16:56,050 --> 00:16:59,210
+[Music]
+
+411
+00:16:59,519 --> 00:17:04,319
+delete trash file so so how do you
+
+412
+00:17:02,160 --> 00:17:07,919
+trash file okay how do you you know you
+
+413
+00:17:04,319 --> 00:17:07,919
+have to name the function property
+
+414
+00:17:11,120 --> 00:17:16,160
+uh how do you call it should it call
+
+415
+00:17:13,199 --> 00:17:19,679
+trash file it's not exactly a trash file
+
+416
+00:17:16,160 --> 00:17:21,199
+it's not a temp file neither it's not a
+
+417
+00:17:19,679 --> 00:17:22,319
+cache file
+
+418
+00:17:21,199 --> 00:17:25,199
+so
+
+419
+00:17:22,319 --> 00:17:26,640
+uh so how do you properly call
+
+420
+00:17:25,199 --> 00:17:29,280
+this
+
+421
+00:17:26,640 --> 00:17:31,600
+name this function you can say state
+
+422
+00:17:29,280 --> 00:17:34,480
+file
+
+423
+00:17:31,600 --> 00:17:36,400
+delete state file for places and that
+
+424
+00:17:34,480 --> 00:17:39,200
+doesn't you know like what the is
+
+425
+00:17:36,400 --> 00:17:39,200
+state file so
+
+426
+00:17:41,039 --> 00:17:45,039
+okay let's just you know let's um think
+
+427
+00:17:44,000 --> 00:17:47,840
+about
+
+428
+00:17:45,039 --> 00:17:50,880
+about it later let's just use this name
+
+429
+00:17:47,840 --> 00:17:53,360
+delete file for places okay that's not a
+
+430
+00:17:50,880 --> 00:17:55,120
+very good name but let's do it for now
+
+431
+00:17:53,360 --> 00:17:56,799
+so delete the file used for say
+
+432
+00:17:55,120 --> 00:17:59,840
+placesmart okay
+
+433
+00:17:56,799 --> 00:18:03,760
+so uh version number and okay so now we
+
+434
+00:17:59,840 --> 00:18:05,840
+evaluate the buffer so you can see
+
+435
+00:18:03,760 --> 00:18:07,039
+we evaluated buffer and we now we can
+
+436
+00:18:05,840 --> 00:18:10,880
+call
+
+437
+00:18:07,039 --> 00:18:13,679
+uh we can call describe function
+
+438
+00:18:10,880 --> 00:18:16,559
+okay describe function and type start
+
+439
+00:18:13,679 --> 00:18:18,400
+delete file for places and now we can
+
+440
+00:18:16,559 --> 00:18:19,440
+you can see the documentation for our
+
+441
+00:18:18,400 --> 00:18:22,240
+function
+
+442
+00:18:19,440 --> 00:18:24,720
+ddf delete the file used for save play
+
+443
+00:18:22,240 --> 00:18:26,799
+smart now you can see that save play
+
+444
+00:18:24,720 --> 00:18:30,000
+smart is highlighted
+
+445
+00:18:26,799 --> 00:18:32,960
+it's linked why because we put this
+
+446
+00:18:30,000 --> 00:18:36,480
+markup you know this uh markup so now
+
+447
+00:18:32,960 --> 00:18:38,960
+you can actually jump to the file
+
+448
+00:18:36,480 --> 00:18:40,880
+uh wait yeah you can now you can jump to
+
+449
+00:18:38,960 --> 00:18:42,960
+the save place command
+
+450
+00:18:40,880 --> 00:18:44,160
+say play smart command then you can jump
+
+451
+00:18:42,960 --> 00:18:46,240
+to the
+
+452
+00:18:44,160 --> 00:18:48,640
+save place source code you know
+
+453
+00:18:46,240 --> 00:18:48,640
+anyway
+
+454
+00:18:48,960 --> 00:18:53,440
+let's focus let's get back to focus on
+
+455
+00:18:51,039 --> 00:18:55,679
+writing this function so dd delete the
+
+456
+00:18:53,440 --> 00:18:56,640
+file used for save place is smart
+
+457
+00:18:55,679 --> 00:18:58,799
+now
+
+458
+00:18:56,640 --> 00:19:01,120
+now we can actually start to delete file
+
+459
+00:18:58,799 --> 00:19:02,080
+okay so let's delete file
+
+460
+00:19:01,120 --> 00:19:04,960
+okay
+
+461
+00:19:02,080 --> 00:19:06,960
+and go back to where is the file located
+
+462
+00:19:04,960 --> 00:19:08,240
+let's go back to talk show
+
+463
+00:19:06,960 --> 00:19:10,799
+uh here
+
+464
+00:19:08,240 --> 00:19:13,840
+okay so
+
+465
+00:19:10,799 --> 00:19:15,360
+so there is the file path and that will
+
+466
+00:19:13,840 --> 00:19:17,280
+work okay
+
+467
+00:19:15,360 --> 00:19:21,120
+that will actually work
+
+468
+00:19:17,280 --> 00:19:21,120
+okay prettify the code
+
+469
+00:19:21,760 --> 00:19:25,200
+that will actually work okay evaluate
+
+470
+00:19:24,000 --> 00:19:28,480
+the buffer
+
+471
+00:19:25,200 --> 00:19:31,919
+now split the buffer now go to my
+
+472
+00:19:28,480 --> 00:19:35,039
+init file use my bookmark and
+
+473
+00:19:31,919 --> 00:19:37,840
+go jump to the diode the directory so
+
+474
+00:19:35,039 --> 00:19:40,400
+you can see here is my directory so here
+
+475
+00:19:37,840 --> 00:19:44,480
+is the places file we have that there
+
+476
+00:19:40,400 --> 00:19:44,480
+now let's i'm going to call the command
+
+477
+00:19:44,559 --> 00:19:48,720
+it should delete this file okay let's
+
+478
+00:19:46,880 --> 00:19:51,840
+let's call the command
+
+479
+00:19:48,720 --> 00:19:54,080
+so copy copy the file the command name
+
+480
+00:19:51,840 --> 00:19:58,320
+mentax
+
+481
+00:19:54,080 --> 00:19:58,320
+start delete file for places okay
+
+482
+00:19:59,679 --> 00:20:02,400
+do it
+
+483
+00:20:00,880 --> 00:20:06,320
+okay done
+
+484
+00:20:02,400 --> 00:20:07,840
+now go back to the diode buffer and
+
+485
+00:20:06,320 --> 00:20:10,240
+press
+
+486
+00:20:07,840 --> 00:20:11,200
+g for refresh okay
+
+487
+00:20:10,240 --> 00:20:12,080
+g
+
+488
+00:20:11,200 --> 00:20:15,039
+you see
+
+489
+00:20:12,080 --> 00:20:16,559
+that file is gone
+
+490
+00:20:15,039 --> 00:20:19,600
+so we
+
+491
+00:20:16,559 --> 00:20:21,520
+complete success fantastic fantastic we
+
+492
+00:20:19,600 --> 00:20:24,720
+you know we have finished one of our
+
+493
+00:20:21,520 --> 00:20:27,120
+tasks now but there's uh issues to fix
+
+494
+00:20:24,720 --> 00:20:29,840
+because you see right now we are hot we
+
+495
+00:20:27,120 --> 00:20:30,640
+have hard coded the file path that's no
+
+496
+00:20:29,840 --> 00:20:32,480
+good
+
+497
+00:20:30,640 --> 00:20:35,039
+because on your machine you are not
+
+498
+00:20:32,480 --> 00:20:38,480
+exhaust so it won't work so first thing
+
+499
+00:20:35,039 --> 00:20:40,159
+to fix is to change that to a
+
+500
+00:20:38,480 --> 00:20:42,720
+you know abbreviation you know that
+
+501
+00:20:40,159 --> 00:20:44,640
+tioda means the home directory so that
+
+502
+00:20:42,720 --> 00:20:46,080
+will work okay
+
+503
+00:20:44,640 --> 00:20:48,480
+but that's not all
+
+504
+00:20:46,080 --> 00:20:50,720
+because emacs init file
+
+505
+00:20:48,480 --> 00:20:52,720
+there are several locations depending on
+
+506
+00:20:50,720 --> 00:20:55,280
+the user depending on your machine
+
+507
+00:20:52,720 --> 00:20:57,600
+depending how your emacs in it is set up
+
+508
+00:20:55,280 --> 00:20:59,840
+so for example on windows
+
+509
+00:20:57,600 --> 00:20:59,840
+um
+
+510
+00:21:01,200 --> 00:21:07,840
+you know on windows your emacs
+
+511
+00:21:04,159 --> 00:21:10,400
+directory might be in app data you know
+
+512
+00:21:07,840 --> 00:21:12,480
+app data local or app data
+
+513
+00:21:10,400 --> 00:21:13,919
+you know app data local
+
+514
+00:21:12,480 --> 00:21:17,120
+emacs
+
+515
+00:21:13,919 --> 00:21:19,200
+or app data local roaming and you know
+
+516
+00:21:17,120 --> 00:21:20,080
+the in on windows
+
+517
+00:21:19,200 --> 00:21:24,720
+so
+
+518
+00:21:20,080 --> 00:21:26,240
+you need to change these hard-coded um
+
+519
+00:21:24,720 --> 00:21:28,640
+file path
+
+520
+00:21:26,240 --> 00:21:30,799
+so that it's flexible how do you do that
+
+521
+00:21:28,640 --> 00:21:34,400
+this this one
+
+522
+00:21:30,799 --> 00:21:37,200
+you see say place file is a variable
+
+523
+00:21:34,400 --> 00:21:38,960
+that variable the value of that variable
+
+524
+00:21:37,200 --> 00:21:41,200
+is the file path
+
+525
+00:21:38,960 --> 00:21:43,760
+where the save place you know stores the
+
+526
+00:21:41,200 --> 00:21:47,360
+data so you want to use that variable
+
+527
+00:21:43,760 --> 00:21:50,000
+okay so copy that get back to emax
+
+528
+00:21:47,360 --> 00:21:52,240
+so there is a variable now
+
+529
+00:21:50,000 --> 00:21:55,120
+we want to look at the documentation for
+
+530
+00:21:52,240 --> 00:21:56,720
+this variable so describe variable okay
+
+531
+00:21:55,120 --> 00:21:59,440
+describe variable
+
+532
+00:21:56,720 --> 00:22:02,880
+yes save place file okay so you can see
+
+533
+00:21:59,440 --> 00:22:05,760
+the documentation for the variable so
+
+534
+00:22:02,880 --> 00:22:09,679
+save place file is a variable defined in
+
+535
+00:22:05,760 --> 00:22:12,640
+say place dot e l okay its value is that
+
+536
+00:22:09,679 --> 00:22:15,440
+okay that's fantastic
+
+537
+00:22:12,640 --> 00:22:17,120
+so now all we have to do is just to uh
+
+538
+00:22:15,440 --> 00:22:20,159
+yeah so
+
+539
+00:22:17,120 --> 00:22:23,600
+so instead of you know delete file so
+
+540
+00:22:20,159 --> 00:22:25,600
+let's just copy that here
+
+541
+00:22:23,600 --> 00:22:26,400
+there so
+
+542
+00:22:25,600 --> 00:22:28,559
+there
+
+543
+00:22:26,400 --> 00:22:30,320
+so that's the that's the thing we want
+
+544
+00:22:28,559 --> 00:22:32,080
+we don't want this one anymore now
+
+545
+00:22:30,320 --> 00:22:34,080
+prettify the code
+
+546
+00:22:32,080 --> 00:22:36,400
+uh pretty fine okay
+
+547
+00:22:34,080 --> 00:22:40,559
+that should be it
+
+548
+00:22:36,400 --> 00:22:43,120
+okay now let's save the file
+
+549
+00:22:40,559 --> 00:22:46,159
+evaluate the code show the ping window
+
+550
+00:22:43,120 --> 00:22:48,640
+evaluate the buffer now emacs know the
+
+551
+00:22:46,159 --> 00:22:51,760
+updated version of this command now
+
+552
+00:22:48,640 --> 00:22:53,440
+let's go back to my init file again jump
+
+553
+00:22:51,760 --> 00:22:57,039
+to the directory
+
+554
+00:22:53,440 --> 00:23:00,320
+check for the places file no it's gone
+
+555
+00:22:57,039 --> 00:23:02,880
+so now we need to recreate the places
+
+556
+00:23:00,320 --> 00:23:06,480
+file okay that's how do you do that so
+
+557
+00:23:02,880 --> 00:23:06,480
+we can do that by
+
+558
+00:23:06,880 --> 00:23:12,240
+call say play smart let's turn it on and
+
+559
+00:23:09,200 --> 00:23:16,240
+off maybe it will create the places file
+
+560
+00:23:12,240 --> 00:23:16,960
+again okay so call it say play smart do
+
+561
+00:23:16,240 --> 00:23:19,600
+it
+
+562
+00:23:16,960 --> 00:23:22,000
+uh no match okay i got a space okay do
+
+563
+00:23:19,600 --> 00:23:24,640
+it now it's disabled you can see in the
+
+564
+00:23:22,000 --> 00:23:25,760
+mini buffer it says disabled okay
+
+565
+00:23:24,640 --> 00:23:27,280
+now let's
+
+566
+00:23:25,760 --> 00:23:30,559
+call it again
+
+567
+00:23:27,280 --> 00:23:35,200
+enable it okay mini buffer says save
+
+568
+00:23:30,559 --> 00:23:35,600
+place mod enabled okay now refresh
+
+569
+00:23:35,200 --> 00:23:38,320
+do diode
+
+570
+00:23:35,600 --> 00:23:40,640
+see places no
+
+571
+00:23:38,320 --> 00:23:43,600
+okay maybe we need to close some file
+
+572
+00:23:40,640 --> 00:23:46,720
+and reopen it so close this file reopen
+
+573
+00:23:43,600 --> 00:23:49,200
+it back to the diode buffer
+
+574
+00:23:46,720 --> 00:23:52,320
+refresh
+
+575
+00:23:49,200 --> 00:23:53,919
+uh do we have the places file place no
+
+576
+00:23:52,320 --> 00:23:56,799
+okay
+
+577
+00:23:53,919 --> 00:23:59,520
+okay so uh that's a bit confusing so you
+
+578
+00:23:56,799 --> 00:24:04,240
+see what we are trying to do now is to
+
+579
+00:23:59,520 --> 00:24:06,799
+get the save play smart to create its
+
+580
+00:24:04,240 --> 00:24:09,200
+you know the places file you know one
+
+581
+00:24:06,799 --> 00:24:11,600
+easy way is just quit emacs if we quit
+
+582
+00:24:09,200 --> 00:24:13,360
+emacs now and restart
+
+583
+00:24:11,600 --> 00:24:15,120
+he'll show up
+
+584
+00:24:13,360 --> 00:24:17,440
+yeah but i'm trying to work around you
+
+585
+00:24:15,120 --> 00:24:19,840
+know so you know i'm kind of trying to
+
+586
+00:24:17,440 --> 00:24:19,840
+show you
+
+587
+00:24:20,240 --> 00:24:24,320
+uh how to
+
+588
+00:24:22,240 --> 00:24:26,159
+go about look for information and stuff
+
+589
+00:24:24,320 --> 00:24:28,559
+so right now we can you know one easy
+
+590
+00:24:26,159 --> 00:24:31,840
+way is just quick emacs restart then
+
+591
+00:24:28,559 --> 00:24:35,440
+you'll see the places file
+
+592
+00:24:31,840 --> 00:24:38,000
+other way is to find out
+
+593
+00:24:35,440 --> 00:24:40,240
+if there's a command in the same place
+
+594
+00:24:38,000 --> 00:24:42,640
+mod that actually does the save for
+
+595
+00:24:40,240 --> 00:24:43,600
+example one easy thing we can do is just
+
+596
+00:24:42,640 --> 00:24:45,360
+try
+
+597
+00:24:43,600 --> 00:24:46,640
+to meta x
+
+598
+00:24:45,360 --> 00:24:48,720
+save place
+
+599
+00:24:46,640 --> 00:24:51,200
+you know there's probably a
+
+600
+00:24:48,720 --> 00:24:51,200
+command
+
+601
+00:24:52,080 --> 00:24:56,400
+uh save place
+
+602
+00:24:53,760 --> 00:25:00,440
+toggle save place globally okay wow
+
+603
+00:24:56,400 --> 00:25:00,440
+there's quite a few
+
+604
+00:25:01,840 --> 00:25:06,000
+okay i don't know where it is okay so
+
+605
+00:25:03,840 --> 00:25:08,000
+let's let's let's
+
+606
+00:25:06,000 --> 00:25:09,760
+describe function
+
+607
+00:25:08,000 --> 00:25:12,799
+say play smart
+
+608
+00:25:09,760 --> 00:25:16,400
+so we can wait uh
+
+609
+00:25:12,799 --> 00:25:19,279
+turn it on and describe function
+
+610
+00:25:16,400 --> 00:25:21,919
+say play smart okay now we look at the
+
+611
+00:25:19,279 --> 00:25:24,880
+documentation of say play smart and go
+
+612
+00:25:21,919 --> 00:25:28,000
+into the go into the file wait let's
+
+613
+00:25:24,880 --> 00:25:28,000
+read the documentation
+
+614
+00:25:29,360 --> 00:25:34,240
+true okay that's the emax jargon again
+
+615
+00:25:31,760 --> 00:25:35,120
+the neo means just true okay neo means
+
+616
+00:25:34,240 --> 00:25:37,200
+force
+
+617
+00:25:35,120 --> 00:25:39,200
+so the neo means automatically say place
+
+618
+00:25:37,200 --> 00:25:41,440
+in each file say the cursor position
+
+619
+00:25:39,200 --> 00:25:44,159
+inch file this means when you open a
+
+620
+00:25:41,440 --> 00:25:45,760
+file point uh you know blah blah blah
+
+621
+00:25:44,159 --> 00:25:47,360
+okay
+
+622
+00:25:45,760 --> 00:25:49,360
+this is a minor mod if called
+
+623
+00:25:47,360 --> 00:25:50,799
+interactively toggle the save place
+
+624
+00:25:49,360 --> 00:25:53,440
+smart mod
+
+625
+00:25:50,799 --> 00:25:57,840
+uh if the prefix argument is positive
+
+626
+00:25:53,440 --> 00:25:57,840
+yeah yeah yeah okay so
+
+627
+00:26:02,880 --> 00:26:07,520
+so how long have i been talking we've
+
+628
+00:26:04,559 --> 00:26:10,080
+been talking for 30 minutes let's um
+
+629
+00:26:07,520 --> 00:26:12,000
+let's get on to let's get on so let's go
+
+630
+00:26:10,080 --> 00:26:14,559
+into let's jump into the source code
+
+631
+00:26:12,000 --> 00:26:16,159
+okay jump into the source code expand
+
+632
+00:26:14,559 --> 00:26:19,919
+window
+
+633
+00:26:16,159 --> 00:26:19,919
+so first thing i do is uh
+
+634
+00:26:20,000 --> 00:26:24,559
+call the command list matching lines
+
+635
+00:26:22,240 --> 00:26:27,200
+okay and type defend
+
+636
+00:26:24,559 --> 00:26:30,080
+okay that will list all the function
+
+637
+00:26:27,200 --> 00:26:31,600
+definitions in this file so now we have
+
+638
+00:26:30,080 --> 00:26:35,039
+other functions
+
+639
+00:26:31,600 --> 00:26:37,279
+so say place to at least say place uh at
+
+640
+00:26:35,039 --> 00:26:39,279
+least two file okay that is probably
+
+641
+00:26:37,279 --> 00:26:40,960
+what
+
+642
+00:26:39,279 --> 00:26:43,679
+you know the command that actually saved
+
+643
+00:26:40,960 --> 00:26:47,240
+to the file this function say place a
+
+644
+00:26:43,679 --> 00:26:47,240
+list to file
+
+645
+00:26:52,080 --> 00:26:57,360
+okay let's open it let's jump to it
+
+646
+00:26:54,960 --> 00:26:59,279
+and now let's search the function name
+
+647
+00:26:57,360 --> 00:27:02,799
+to see where this function is called
+
+648
+00:26:59,279 --> 00:27:04,880
+okay search okay there it is say place
+
+649
+00:27:02,799 --> 00:27:06,480
+key or e-max hook
+
+650
+00:27:04,880 --> 00:27:08,720
+okay
+
+651
+00:27:06,480 --> 00:27:11,200
+yeah so you see
+
+652
+00:27:08,720 --> 00:27:13,360
+this function say place key or e-max
+
+653
+00:27:11,200 --> 00:27:15,919
+hook
+
+654
+00:27:13,360 --> 00:27:15,919
+is a hook
+
+655
+00:27:16,720 --> 00:27:22,720
+that is probably added to the e-max quit
+
+656
+00:27:19,840 --> 00:27:24,960
+hook so when emacs quit
+
+657
+00:27:22,720 --> 00:27:27,919
+this function is called and what does
+
+658
+00:27:24,960 --> 00:27:31,760
+this function do this function calls the
+
+659
+00:27:27,919 --> 00:27:33,520
+command say places 80s to file indeed
+
+660
+00:27:31,760 --> 00:27:36,399
+you know just as my
+
+661
+00:27:33,520 --> 00:27:36,399
+you know i'll guess
+
+662
+00:27:36,960 --> 00:27:41,679
+excuse me i got a code
+
+663
+00:27:39,200 --> 00:27:41,679
+so you see
+
+664
+00:27:45,440 --> 00:27:51,760
+so excuse me so emax so the way it works
+
+665
+00:27:49,360 --> 00:27:54,320
+the same place let's go to my init file
+
+666
+00:27:51,760 --> 00:27:56,159
+okay you need file i'll go to diet so
+
+667
+00:27:54,320 --> 00:27:57,440
+when does the save play smart save the
+
+668
+00:27:56,159 --> 00:27:59,840
+file well
+
+669
+00:27:57,440 --> 00:28:01,760
+it costs you know when you turn on the
+
+670
+00:27:59,840 --> 00:28:02,799
+save place
+
+671
+00:28:01,760 --> 00:28:06,080
+mod
+
+672
+00:28:02,799 --> 00:28:08,640
+basically it adds this function
+
+673
+00:28:06,080 --> 00:28:09,520
+say place key or emax hook
+
+674
+00:28:08,640 --> 00:28:10,559
+to
+
+675
+00:28:09,520 --> 00:28:14,799
+the
+
+676
+00:28:10,559 --> 00:28:14,799
+to the emax quit hook okay
+
+677
+00:28:15,679 --> 00:28:20,080
+and what this function so that means
+
+678
+00:28:17,360 --> 00:28:22,159
+when emacs quick quit this function will
+
+679
+00:28:20,080 --> 00:28:24,320
+be called and what this function do it
+
+680
+00:28:22,159 --> 00:28:26,880
+this function just called
+
+681
+00:28:24,320 --> 00:28:29,679
+say place eighties to file you save the
+
+682
+00:28:26,880 --> 00:28:31,760
+file and so we can call it ourself so we
+
+683
+00:28:29,679 --> 00:28:34,159
+can actually just
+
+684
+00:28:31,760 --> 00:28:36,159
+evaluate this code okay you see
+
+685
+00:28:34,159 --> 00:28:38,320
+you see we got a
+
+686
+00:28:36,159 --> 00:28:40,320
+we got the emac this code here we can
+
+687
+00:28:38,320 --> 00:28:43,360
+evaluate this code right away
+
+688
+00:28:40,320 --> 00:28:46,159
+and once we do you'll see a places file
+
+689
+00:28:43,360 --> 00:28:48,080
+in the in my emacs init directory so
+
+690
+00:28:46,159 --> 00:28:50,399
+let's do it okay now watch the pink
+
+691
+00:28:48,080 --> 00:28:51,679
+window you can see the command cool
+
+692
+00:28:50,399 --> 00:28:54,480
+do it
+
+693
+00:28:51,679 --> 00:28:59,120
+okay it doesn't well it yeah it did okay
+
+694
+00:28:54,480 --> 00:29:00,559
+so you see if our last sex
+
+695
+00:28:59,120 --> 00:29:03,600
+that means
+
+696
+00:29:00,559 --> 00:29:06,480
+symbolic expression okay so
+
+697
+00:29:03,600 --> 00:29:08,320
+that means we just code we just evaluate
+
+698
+00:29:06,480 --> 00:29:11,360
+this this function
+
+699
+00:29:08,320 --> 00:29:12,640
+and now in this direct buffer in my init
+
+700
+00:29:11,360 --> 00:29:16,320
+directory
+
+701
+00:29:12,640 --> 00:29:17,600
+now press g to refresh refresh there it
+
+702
+00:29:16,320 --> 00:29:20,240
+is
+
+703
+00:29:17,600 --> 00:29:22,559
+places you see the file reappears you
+
+704
+00:29:20,240 --> 00:29:24,799
+see fantastic
+
+705
+00:29:22,559 --> 00:29:28,240
+so now open it you can you can see this
+
+706
+00:29:24,799 --> 00:29:29,840
+is all my wow lots of places uh in this
+
+707
+00:29:28,240 --> 00:29:32,159
+section in this
+
+708
+00:29:29,840 --> 00:29:35,120
+emacs session you know
+
+709
+00:29:32,159 --> 00:29:38,399
+it restores all the places
+
+710
+00:29:35,120 --> 00:29:39,360
+okay so you know you see a large file
+
+711
+00:29:38,399 --> 00:29:41,600
+let's
+
+712
+00:29:39,360 --> 00:29:43,840
+now let's do a backup okay now i have a
+
+713
+00:29:41,600 --> 00:29:46,000
+personal command i just press a key it
+
+714
+00:29:43,840 --> 00:29:49,039
+does a backup on this file so that
+
+715
+00:29:46,000 --> 00:29:51,279
+command is make backup and save if you
+
+716
+00:29:49,039 --> 00:29:54,320
+search that command name on the web you
+
+717
+00:29:51,279 --> 00:29:57,120
+will find the code you can use it okay
+
+718
+00:29:54,320 --> 00:30:00,080
+so now we made the backup now let's call
+
+719
+00:29:57,120 --> 00:30:02,960
+our command again
+
+720
+00:30:00,080 --> 00:30:05,600
+uh let's call our command again to
+
+721
+00:30:02,960 --> 00:30:07,360
+uh let's go to the emac list okay where
+
+722
+00:30:05,600 --> 00:30:09,120
+is our emac disk
+
+723
+00:30:07,360 --> 00:30:10,159
+close that
+
+724
+00:30:09,120 --> 00:30:12,640
+uh
+
+725
+00:30:10,159 --> 00:30:13,919
+there so let's you know let's call our
+
+726
+00:30:12,640 --> 00:30:16,640
+command again
+
+727
+00:30:13,919 --> 00:30:21,200
+it should delete the places file okay so
+
+728
+00:30:16,640 --> 00:30:25,120
+delete this file okay so let's call
+
+729
+00:30:21,200 --> 00:30:27,279
+delete file for places okay do it
+
+730
+00:30:25,120 --> 00:30:30,559
+now go to diet
+
+731
+00:30:27,279 --> 00:30:31,600
+type g for refresh refresh fantastic
+
+732
+00:30:30,559 --> 00:30:34,320
+it's good
+
+733
+00:30:31,600 --> 00:30:37,279
+so our code is
+
+734
+00:30:34,320 --> 00:30:39,279
+success in final okay now
+
+735
+00:30:37,279 --> 00:30:40,880
+maybe some cleanup so we don't need this
+
+736
+00:30:39,279 --> 00:30:43,440
+part anymore
+
+737
+00:30:40,880 --> 00:30:45,679
+we don't need the let
+
+738
+00:30:43,440 --> 00:30:47,919
+so delete the led that's it simple
+
+739
+00:30:45,679 --> 00:30:52,000
+simple and functional now
+
+740
+00:30:47,919 --> 00:30:54,880
+pop it back to my html file so you can
+
+741
+00:30:52,000 --> 00:30:56,559
+see it's here you can see now show in
+
+742
+00:30:54,880 --> 00:31:00,799
+browser
+
+743
+00:30:56,559 --> 00:31:02,559
+there it is our code today and let's
+
+744
+00:31:00,799 --> 00:31:04,480
+syntax color it
+
+745
+00:31:02,559 --> 00:31:07,279
+you know so let's
+
+746
+00:31:04,480 --> 00:31:10,799
+my own command html file
+
+747
+00:31:07,279 --> 00:31:12,480
+html mod showing browser again you can
+
+748
+00:31:10,799 --> 00:31:14,720
+see now
+
+749
+00:31:12,480 --> 00:31:17,519
+today that's our fruit
+
+750
+00:31:14,720 --> 00:31:19,440
+for the past 30 minutes we did it
+
+751
+00:31:17,519 --> 00:31:22,640
+fantastic
+
+752
+00:31:19,440 --> 00:31:22,640
+thank you ben
+
+753
+00:31:23,360 --> 00:31:26,399
+thank you ben
+
+754
+00:31:24,559 --> 00:31:29,919
+holtzmann
+
+755
+00:31:26,399 --> 00:31:29,919
+for the money fantastic
+
+756
+00:31:30,080 --> 00:31:36,159
+fantastic i can buy a drink or a coffee
+
+757
+00:31:33,679 --> 00:31:36,880
+or something a burger
+
+758
+00:31:36,159 --> 00:31:38,320
+uh
+
+759
+00:31:36,880 --> 00:31:40,559
+so now
+
+760
+00:31:38,320 --> 00:31:43,200
+fantastic
+
+761
+00:31:40,559 --> 00:31:46,240
+okay so we did one of them now they are
+
+762
+00:31:43,200 --> 00:31:47,360
+you know safe places so that's
+
+763
+00:31:46,240 --> 00:31:49,679
+fairly
+
+764
+00:31:47,360 --> 00:31:51,840
+uh good you know this
+
+765
+00:31:49,679 --> 00:31:54,559
+complete yeah fairly complete you know
+
+766
+00:31:51,840 --> 00:31:57,039
+reasonable complete this is the final
+
+767
+00:31:54,559 --> 00:32:00,880
+version i i don't think there's anything
+
+768
+00:31:57,039 --> 00:32:02,799
+else to do so that's one thing done
+
+769
+00:32:00,880 --> 00:32:06,880
+okay that's one thing done now let's go
+
+770
+00:32:02,799 --> 00:32:08,640
+back to my emacs init directory okay so
+
+771
+00:32:06,880 --> 00:32:11,600
+you can see there are some others for
+
+772
+00:32:08,640 --> 00:32:13,519
+example this i do
+
+773
+00:32:11,600 --> 00:32:16,159
+you know we can write a command to clear
+
+774
+00:32:13,519 --> 00:32:20,080
+that i do so what does that do is that i
+
+775
+00:32:16,159 --> 00:32:22,399
+do is like you know it records
+
+776
+00:32:20,080 --> 00:32:25,519
+when you do switch to buffer command you
+
+777
+00:32:22,399 --> 00:32:28,159
+know when you code the command switch to
+
+778
+00:32:25,519 --> 00:32:30,320
+buffer let me show you where okay so
+
+779
+00:32:28,159 --> 00:32:32,799
+hold on a second
+
+780
+00:32:30,320 --> 00:32:32,799
+cancel
+
+781
+00:32:33,279 --> 00:32:38,000
+you see there's a command switch to
+
+782
+00:32:34,880 --> 00:32:42,399
+buffer very very commonly used command
+
+783
+00:32:38,000 --> 00:32:44,640
+so i do mod allows you to have a
+
+784
+00:32:42,399 --> 00:32:46,080
+kind of very convenient interface for
+
+785
+00:32:44,640 --> 00:32:48,640
+completion
+
+786
+00:32:46,080 --> 00:32:51,120
+so you know so that's i do mod you know
+
+787
+00:32:48,640 --> 00:32:53,760
+there are many varieties
+
+788
+00:32:51,120 --> 00:32:56,640
+uh for example helm you know some of you
+
+789
+00:32:53,760 --> 00:32:58,559
+use helm some of you use iv
+
+790
+00:32:56,640 --> 00:33:01,200
+iv something something this this is
+
+791
+00:32:58,559 --> 00:33:03,760
+quite a lot you know this in recently i
+
+792
+00:33:01,200 --> 00:33:05,039
+learned this there's a vertical
+
+793
+00:33:03,760 --> 00:33:07,279
+there's a
+
+794
+00:33:05,039 --> 00:33:08,559
+margin marching liner you know the new
+
+795
+00:33:07,279 --> 00:33:11,519
+generation
+
+796
+00:33:08,559 --> 00:33:15,279
+new generations of emac this coders
+
+797
+00:33:11,519 --> 00:33:16,720
+so anyway so i do is a building
+
+798
+00:33:15,279 --> 00:33:19,600
+uh e-max
+
+799
+00:33:16,720 --> 00:33:21,440
+mod minor mod that has this convenience
+
+800
+00:33:19,600 --> 00:33:22,880
+you know
+
+801
+00:33:21,440 --> 00:33:26,640
+so
+
+802
+00:33:22,880 --> 00:33:28,320
+so why is i do mod record
+
+803
+00:33:26,640 --> 00:33:30,640
+you know this file what what is this
+
+804
+00:33:28,320 --> 00:33:31,600
+files for so that when you switch to
+
+805
+00:33:30,640 --> 00:33:33,600
+buffer
+
+806
+00:33:31,600 --> 00:33:36,799
+it will remember
+
+807
+00:33:33,600 --> 00:33:39,039
+you know which buffer you know is
+
+808
+00:33:36,799 --> 00:33:43,440
+the most recent he used
+
+809
+00:33:39,039 --> 00:33:43,440
+you know it's very typical in emacs
+
+810
+00:33:43,600 --> 00:33:49,120
+where you have like a hundred buffers
+
+811
+00:33:46,159 --> 00:33:49,919
+open that's actually pretty common
+
+812
+00:33:49,120 --> 00:33:52,159
+you know
+
+813
+00:33:49,919 --> 00:33:54,399
+after you use emacs for a week you know
+
+814
+00:33:52,159 --> 00:33:56,720
+sometimes people don't quit emacs i quit
+
+815
+00:33:54,399 --> 00:34:00,480
+every day i quit every actually every
+
+816
+00:33:56,720 --> 00:34:04,000
+few hours because if you code emac this
+
+817
+00:34:00,480 --> 00:34:06,159
+often you want to restart because
+
+818
+00:34:04,000 --> 00:34:08,480
+you know well i'm not going to explain
+
+819
+00:34:06,159 --> 00:34:10,079
+but basically when you if you code a lot
+
+820
+00:34:08,480 --> 00:34:13,599
+emac this
+
+821
+00:34:10,079 --> 00:34:15,679
+you necessarily okay necessarily you
+
+822
+00:34:13,599 --> 00:34:18,960
+have to do a lot restart
+
+823
+00:34:15,679 --> 00:34:20,399
+so i restart my emacs almost
+
+824
+00:34:18,960 --> 00:34:23,040
+every day every day
+
+825
+00:34:20,399 --> 00:34:25,359
+you know at least once
+
+826
+00:34:23,040 --> 00:34:28,159
+but you know i've been using emacs for
+
+827
+00:34:25,359 --> 00:34:30,960
+20 years for some period for some years
+
+828
+00:34:28,159 --> 00:34:34,639
+you know early days you know from year
+
+829
+00:34:30,960 --> 00:34:37,760
+1999 i don't create emacs you know emacs
+
+830
+00:34:34,639 --> 00:34:39,760
+once open it lasts for days for weeks so
+
+831
+00:34:37,760 --> 00:34:43,119
+sometimes you have 100 you know
+
+832
+00:34:39,760 --> 00:34:44,480
+literally over 100 buffers open
+
+833
+00:34:43,119 --> 00:34:46,800
+so
+
+834
+00:34:44,480 --> 00:34:49,200
+so when you switch to when you call
+
+835
+00:34:46,800 --> 00:34:51,440
+switch to buffer you know the i do
+
+836
+00:34:49,200 --> 00:34:54,159
+feature allows you to it remembers which
+
+837
+00:34:51,440 --> 00:34:55,760
+buffer you use most often so the choices
+
+838
+00:34:54,159 --> 00:34:57,040
+shows up on top
+
+839
+00:34:55,760 --> 00:34:59,839
+you know
+
+840
+00:34:57,040 --> 00:35:01,760
+so that's why i do mod has this
+
+841
+00:34:59,839 --> 00:35:02,560
+file
+
+842
+00:35:01,760 --> 00:35:04,880
+now
+
+843
+00:35:02,560 --> 00:35:06,720
+i talked about last in my last video
+
+844
+00:35:04,880 --> 00:35:08,880
+emacs 28
+
+845
+00:35:06,720 --> 00:35:12,400
+has a new feature fido
+
+846
+00:35:08,880 --> 00:35:14,160
+so basically i do be became essentially
+
+847
+00:35:12,400 --> 00:35:17,200
+obsolete you know
+
+848
+00:35:14,160 --> 00:35:19,280
+basically you don't use i do anymore
+
+849
+00:35:17,200 --> 00:35:20,720
+emacs 28 is great you know lots of
+
+850
+00:35:19,280 --> 00:35:23,119
+features
+
+851
+00:35:20,720 --> 00:35:24,800
+uh i i like to mention especially one of
+
+852
+00:35:23,119 --> 00:35:27,760
+the feature is
+
+853
+00:35:24,800 --> 00:35:28,640
+compiled natively compiled emac list
+
+854
+00:35:27,760 --> 00:35:31,040
+code
+
+855
+00:35:28,640 --> 00:35:32,000
+that that is that is one of the great
+
+856
+00:35:31,040 --> 00:35:34,720
+feature
+
+857
+00:35:32,000 --> 00:35:35,839
+in the past 10 years because that means
+
+858
+00:35:34,720 --> 00:35:38,160
+now
+
+859
+00:35:35,839 --> 00:35:40,000
+when you write emacs list code
+
+860
+00:35:38,160 --> 00:35:42,480
+your code is as
+
+861
+00:35:40,000 --> 00:35:46,079
+efficient as if you write the same thing
+
+862
+00:35:42,480 --> 00:35:50,800
+in python or ruby or php or javascript
+
+863
+00:35:46,079 --> 00:35:53,520
+okay so emacs this now is comparable
+
+864
+00:35:50,800 --> 00:35:54,960
+uh to to these languages in in terms of
+
+865
+00:35:53,520 --> 00:35:57,599
+speed
+
+866
+00:35:54,960 --> 00:35:59,520
+okay native compilation
+
+867
+00:35:57,599 --> 00:36:03,280
+now that that works great if you are
+
+868
+00:35:59,520 --> 00:36:05,599
+using on linux but on windows um
+
+869
+00:36:03,280 --> 00:36:07,920
+it's more complex because
+
+870
+00:36:05,599 --> 00:36:10,960
+it's hard to compile
+
+871
+00:36:07,920 --> 00:36:13,920
+emac emacs on windows because you need
+
+872
+00:36:10,960 --> 00:36:15,440
+the gnu compiler the gnu c combine you
+
+873
+00:36:13,920 --> 00:36:17,839
+you you need those
+
+874
+00:36:15,440 --> 00:36:20,560
+and on windows it's usually hard to work
+
+875
+00:36:17,839 --> 00:36:22,560
+with gnu compilers
+
+876
+00:36:20,560 --> 00:36:24,480
+so anyway but anyway it's a great
+
+877
+00:36:22,560 --> 00:36:26,320
+feature okay so sooner or later it's
+
+878
+00:36:24,480 --> 00:36:30,000
+going to be popular on windows as well
+
+879
+00:36:26,320 --> 00:36:30,000
+because people you know have
+
+880
+00:36:30,160 --> 00:36:32,800
+uh
+
+881
+00:36:31,200 --> 00:36:35,440
+you know they they will provide
+
+882
+00:36:32,800 --> 00:36:36,720
+precompiled version for for you uh for
+
+883
+00:36:35,440 --> 00:36:38,079
+windows
+
+884
+00:36:36,720 --> 00:36:40,800
+so anyway so
+
+885
+00:36:38,079 --> 00:36:42,960
+emacs 28 is great native compilation of
+
+886
+00:36:40,800 --> 00:36:45,119
+emac this code so that means your code
+
+887
+00:36:42,960 --> 00:36:47,520
+your emac this code whatever you do you
+
+888
+00:36:45,119 --> 00:36:50,240
+know i've i've done a lot of video
+
+889
+00:36:47,520 --> 00:36:53,440
+of in in the past year you can watch
+
+890
+00:36:50,240 --> 00:36:55,440
+using emaclis to do text processing
+
+891
+00:36:53,440 --> 00:36:57,200
+that's the that's the best feature of
+
+892
+00:36:55,440 --> 00:36:59,119
+emac list
+
+893
+00:36:57,200 --> 00:37:01,359
+you go through a thousand few thousand
+
+894
+00:36:59,119 --> 00:37:05,200
+files you want to change something text
+
+895
+00:37:01,359 --> 00:37:06,079
+processing with e-mag lisp and e-magnets
+
+896
+00:37:05,200 --> 00:37:08,640
+is
+
+897
+00:37:06,079 --> 00:37:12,160
+more suitable than any other language
+
+898
+00:37:08,640 --> 00:37:14,880
+emac this is for text processing tasks
+
+899
+00:37:12,160 --> 00:37:17,920
+emac disk is more powerful
+
+900
+00:37:14,880 --> 00:37:22,320
+more powerful more flexible and easier
+
+901
+00:37:17,920 --> 00:37:25,359
+to use than ruby perl python php
+
+902
+00:37:22,320 --> 00:37:26,160
+javascript or golan trust me on that
+
+903
+00:37:25,359 --> 00:37:28,640
+okay
+
+904
+00:37:26,160 --> 00:37:31,599
+because i've i've done that for 10 years
+
+905
+00:37:28,640 --> 00:37:32,800
+writing text processing jobs using email
+
+906
+00:37:31,599 --> 00:37:34,079
+list
+
+907
+00:37:32,800 --> 00:37:38,079
+but however
+
+908
+00:37:34,079 --> 00:37:40,800
+there was a major flaw and that flaw is
+
+909
+00:37:38,079 --> 00:37:43,119
+it's like you know three times slower
+
+910
+00:37:40,800 --> 00:37:46,560
+than using any of the others
+
+911
+00:37:43,119 --> 00:37:50,560
+and uh but now that is fixed okay
+
+912
+00:37:46,560 --> 00:37:53,280
+now that so so so now emac this became
+
+913
+00:37:50,560 --> 00:37:55,599
+the best language
+
+914
+00:37:53,280 --> 00:37:59,760
+kind of by bio magnitude the best
+
+915
+00:37:55,599 --> 00:38:02,160
+language if you if your job is to do
+
+916
+00:37:59,760 --> 00:38:05,119
+small scale text processing you know
+
+917
+00:38:02,160 --> 00:38:07,599
+typically processing a few thousand
+
+918
+00:38:05,119 --> 00:38:09,599
+files ten thousand files no problem
+
+919
+00:38:07,599 --> 00:38:11,680
+but you if you are gonna text process a
+
+920
+00:38:09,599 --> 00:38:12,720
+medium files you know if you are at
+
+921
+00:38:11,680 --> 00:38:14,960
+google
+
+922
+00:38:12,720 --> 00:38:16,880
+then it's not probably it's you know
+
+923
+00:38:14,960 --> 00:38:18,320
+then you want gold and
+
+924
+00:38:16,880 --> 00:38:21,280
+gold golan c
+
+925
+00:38:18,320 --> 00:38:24,480
+c plus first or java you know
+
+926
+00:38:21,280 --> 00:38:26,079
+or or meta language you know or camel or
+
+927
+00:38:24,480 --> 00:38:28,320
+you know
+
+928
+00:38:26,079 --> 00:38:30,640
+but for a typical practical you know
+
+929
+00:38:28,320 --> 00:38:33,599
+programmers you know you or
+
+930
+00:38:30,640 --> 00:38:36,000
+as small companies
+
+931
+00:38:33,599 --> 00:38:38,320
+uh if you want to do text processing
+
+932
+00:38:36,000 --> 00:38:40,160
+processing images is truly the best
+
+933
+00:38:38,320 --> 00:38:42,240
+language why
+
+934
+00:38:40,160 --> 00:38:45,359
+the fundamental reason is because it
+
+935
+00:38:42,240 --> 00:38:45,359
+provides the
+
+936
+00:38:45,520 --> 00:38:50,960
+essentially a data structure called rope
+
+937
+00:38:48,720 --> 00:38:52,640
+or similar to rope okay basically
+
+938
+00:38:50,960 --> 00:38:54,800
+essentially what it means is that it
+
+939
+00:38:52,640 --> 00:38:56,000
+provides a data structure that allows
+
+940
+00:38:54,800 --> 00:38:59,280
+you to
+
+941
+00:38:56,000 --> 00:39:01,040
+have a glorified uh string which is
+
+942
+00:38:59,280 --> 00:39:03,200
+called buffer okay
+
+943
+00:39:01,040 --> 00:39:04,960
+meaning that you can
+
+944
+00:39:03,200 --> 00:39:06,800
+you know a buffer
+
+945
+00:39:04,960 --> 00:39:08,960
+data structure is just like a string
+
+946
+00:39:06,800 --> 00:39:11,040
+it's like an elaborate string you know
+
+947
+00:39:08,960 --> 00:39:13,280
+typically in other programming languages
+
+948
+00:39:11,040 --> 00:39:17,119
+you have the string data type right per
+
+949
+00:39:13,280 --> 00:39:19,440
+ruby python javascript in golan
+
+950
+00:39:17,119 --> 00:39:22,000
+java or even see you know you have a
+
+951
+00:39:19,440 --> 00:39:23,520
+string data structure and typically they
+
+952
+00:39:22,000 --> 00:39:25,280
+are immutable
+
+953
+00:39:23,520 --> 00:39:27,760
+and typically you know it's not
+
+954
+00:39:25,280 --> 00:39:30,079
+efficient when you want to edit modify
+
+955
+00:39:27,760 --> 00:39:32,800
+the stream because every time you change
+
+956
+00:39:30,079 --> 00:39:34,560
+the string you take a substring or you
+
+957
+00:39:32,800 --> 00:39:35,359
+do regular expression
+
+958
+00:39:34,560 --> 00:39:37,280
+to
+
+959
+00:39:35,359 --> 00:39:38,160
+you know capture or replace part of the
+
+960
+00:39:37,280 --> 00:39:40,880
+string
+
+961
+00:39:38,160 --> 00:39:44,000
+it has to create recreate yes to create
+
+962
+00:39:40,880 --> 00:39:47,280
+a new string from scratch
+
+963
+00:39:44,000 --> 00:39:48,880
+and that is very uh computational costly
+
+964
+00:39:47,280 --> 00:39:52,160
+you know so
+
+965
+00:39:48,880 --> 00:39:54,240
+but in e-max lips this you have this
+
+966
+00:39:52,160 --> 00:39:56,000
+kind of a glow of
+
+967
+00:39:54,240 --> 00:39:59,040
+uh
+
+968
+00:39:56,000 --> 00:40:01,760
+glorified strings data structure called
+
+969
+00:39:59,040 --> 00:40:06,079
+buffer okay now technically that's
+
+970
+00:40:01,760 --> 00:40:07,920
+called uh rope data type okay um
+
+971
+00:40:06,079 --> 00:40:10,960
+let me see if i can
+
+972
+00:40:07,920 --> 00:40:13,040
+find you show some wikipedia articles so
+
+973
+00:40:10,960 --> 00:40:14,079
+here's the rope data structure
+
+974
+00:40:13,040 --> 00:40:15,200
+now
+
+975
+00:40:14,079 --> 00:40:18,079
+emac
+
+976
+00:40:15,200 --> 00:40:20,640
+this is not using buffer it's not using
+
+977
+00:40:18,079 --> 00:40:22,640
+rope i believe i believe it's not but
+
+978
+00:40:20,640 --> 00:40:24,880
+it's using something similar
+
+979
+00:40:22,640 --> 00:40:27,359
+but but essentially the idea is that the
+
+980
+00:40:24,880 --> 00:40:30,079
+buffer data type allows you to have a
+
+981
+00:40:27,359 --> 00:40:31,520
+it's like a string but you can have a
+
+982
+00:40:30,079 --> 00:40:32,560
+cruiser position
+
+983
+00:40:31,520 --> 00:40:35,680
+you can
+
+984
+00:40:32,560 --> 00:40:38,800
+delete any part of it you can go to any
+
+985
+00:40:35,680 --> 00:40:39,599
+other part delete part of it or insert
+
+986
+00:40:38,800 --> 00:40:43,440
+you know
+
+987
+00:40:39,599 --> 00:40:43,440
+or go here insert something
+
+988
+00:40:43,920 --> 00:40:48,640
+so if you do this if you do this a lot
+
+989
+00:40:46,720 --> 00:40:49,599
+with a typical programming language
+
+990
+00:40:48,640 --> 00:40:50,480
+string
+
+991
+00:40:49,599 --> 00:40:53,440
+very
+
+992
+00:40:50,480 --> 00:40:54,720
+that's very inefficient okay you need
+
+993
+00:40:53,440 --> 00:40:57,119
+you need a
+
+994
+00:40:54,720 --> 00:41:00,560
+dedicated data structure for these and
+
+995
+00:40:57,119 --> 00:41:04,480
+that is in e-max that's e-max buffer so
+
+996
+00:41:00,560 --> 00:41:06,319
+that is why e-max buffer
+
+997
+00:41:04,480 --> 00:41:07,119
+you know that's the nature of emacs you
+
+998
+00:41:06,319 --> 00:41:09,119
+know
+
+999
+00:41:07,119 --> 00:41:10,720
+that's what emacs is designed for you
+
+1000
+00:41:09,119 --> 00:41:13,839
+know the the
+
+1001
+00:41:10,720 --> 00:41:16,160
+buffer so but with emac base you can
+
+1002
+00:41:13,839 --> 00:41:19,359
+control it programmatically
+
+1003
+00:41:16,160 --> 00:41:21,920
+so that is that's why emacs is a
+
+1004
+00:41:19,359 --> 00:41:23,680
+kind of a magnitude
+
+1005
+00:41:21,920 --> 00:41:27,280
+the most the best
+
+1006
+00:41:23,680 --> 00:41:30,560
+language for text processing beyond
+
+1007
+00:41:27,280 --> 00:41:32,640
+uh pearl python ruby javascript any of
+
+1008
+00:41:30,560 --> 00:41:36,079
+the others or golan
+
+1009
+00:41:32,640 --> 00:41:38,000
+why because it has the
+
+1010
+00:41:36,079 --> 00:41:41,119
+uh the
+
+1011
+00:41:38,000 --> 00:41:43,119
+the the data dedicated uh data structure
+
+1012
+00:41:41,119 --> 00:41:46,079
+for
+
+1013
+00:41:43,119 --> 00:41:48,800
+basically manipulating constantly
+
+1014
+00:41:46,079 --> 00:41:51,119
+manipulating strings okay that's kind of
+
+1015
+00:41:48,800 --> 00:41:53,440
+a large digression um
+
+1016
+00:41:51,119 --> 00:41:56,000
+okay let's undo
+
+1017
+00:41:53,440 --> 00:41:56,960
+yeah okay i don't want to screw up my
+
+1018
+00:41:56,000 --> 00:41:58,560
+page
+
+1019
+00:41:56,960 --> 00:42:00,720
+okay so
+
+1020
+00:41:58,560 --> 00:42:04,079
+i think that's it for today so thank you
+
+1021
+00:42:00,720 --> 00:42:06,319
+a lot for choo choo of lamio thank you
+
+1022
+00:42:04,079 --> 00:42:06,319
+great
+
+1023
+00:42:07,200 --> 00:42:12,640
+fantastic so this is a question
+
+1024
+00:42:09,440 --> 00:42:17,520
+can you serve emac lisp via language
+
+1025
+00:42:12,640 --> 00:42:17,520
+server protocol and emax in demon mod
+
+1026
+00:42:18,720 --> 00:42:23,440
+uh what what do you mean okay so answer
+
+1027
+00:42:21,119 --> 00:42:26,319
+my question okay you are you are still
+
+1028
+00:42:23,440 --> 00:42:29,200
+here right so what do you mean so emacs
+
+1029
+00:42:26,319 --> 00:42:31,760
+gets kind of slow if it is open for too
+
+1030
+00:42:29,200 --> 00:42:35,440
+long i need to learn more garbage
+
+1031
+00:42:31,760 --> 00:42:35,440
+collection techniques
+
+1032
+00:42:36,000 --> 00:42:41,280
+okay so there are two questions one is
+
+1033
+00:42:38,720 --> 00:42:43,599
+about e-max being slow when it's open
+
+1034
+00:42:41,280 --> 00:42:45,680
+for too long
+
+1035
+00:42:43,599 --> 00:42:46,960
+not really
+
+1036
+00:42:45,680 --> 00:42:49,200
+i would say not
+
+1037
+00:42:46,960 --> 00:42:50,000
+not really okay so emacs you can you
+
+1038
+00:42:49,200 --> 00:42:52,319
+know
+
+1039
+00:42:50,000 --> 00:42:55,119
+i wouldn't say so okay so you know you
+
+1040
+00:42:52,319 --> 00:42:56,319
+can have emacs open for several days for
+
+1041
+00:42:55,119 --> 00:43:00,000
+a week
+
+1042
+00:42:56,319 --> 00:43:02,480
+it doesn't really get slow it doesn't
+
+1043
+00:43:00,000 --> 00:43:04,800
+leak memory
+
+1044
+00:43:02,480 --> 00:43:04,800
+um
+
+1045
+00:43:06,079 --> 00:43:09,440
+you know
+
+1046
+00:43:06,960 --> 00:43:12,240
+well arguably it gets slower but you
+
+1047
+00:43:09,440 --> 00:43:14,560
+know so that's why i recommend you know
+
+1048
+00:43:12,240 --> 00:43:16,640
+you know you just restart emacs every
+
+1049
+00:43:14,560 --> 00:43:19,040
+every few days so every day
+
+1050
+00:43:16,640 --> 00:43:22,319
+um that depends on your workflow you
+
+1051
+00:43:19,040 --> 00:43:24,560
+know for you know for me these days i
+
+1052
+00:43:22,319 --> 00:43:26,640
+restart emacs every every few hours
+
+1053
+00:43:24,560 --> 00:43:28,960
+actually
+
+1054
+00:43:26,640 --> 00:43:31,280
+so let's for example so let's see what
+
+1055
+00:43:28,960 --> 00:43:34,560
+what what buffers i have opened so for
+
+1056
+00:43:31,280 --> 00:43:37,040
+example i have um and i'm not going to
+
+1057
+00:43:34,560 --> 00:43:39,520
+restart now so anyway
+
+1058
+00:43:37,040 --> 00:43:41,680
+yeah i would recommend restart emacs and
+
+1059
+00:43:39,520 --> 00:43:42,880
+and also re emacs that doesn't really
+
+1060
+00:43:41,680 --> 00:43:45,200
+get slow
+
+1061
+00:43:42,880 --> 00:43:47,200
+uh as opposed to
+
+1062
+00:43:45,200 --> 00:43:49,760
+many other applications today for
+
+1063
+00:43:47,200 --> 00:43:53,440
+example browser you know browser once
+
+1064
+00:43:49,760 --> 00:43:54,560
+you use few days it really gets slow
+
+1065
+00:43:53,440 --> 00:43:56,800
+because it's
+
+1066
+00:43:54,560 --> 00:43:57,920
+it's actually is far more complex than
+
+1067
+00:43:56,800 --> 00:44:00,640
+emacs
+
+1068
+00:43:57,920 --> 00:44:02,880
+browser today
+
+1069
+00:44:00,640 --> 00:44:05,920
+in terms of lines of code or in terms of
+
+1070
+00:44:02,880 --> 00:44:09,359
+the technology the browser is a
+
+1071
+00:44:05,920 --> 00:44:10,480
+magnitude more complex than entire emacs
+
+1072
+00:44:09,359 --> 00:44:12,480
+these
+
+1073
+00:44:10,480 --> 00:44:15,040
+entire emacs
+
+1074
+00:44:12,480 --> 00:44:15,920
+so but so i would say emacs is not you
+
+1075
+00:44:15,040 --> 00:44:18,400
+know
+
+1076
+00:44:15,920 --> 00:44:20,480
+it doesn't have you know these
+
+1077
+00:44:18,400 --> 00:44:23,680
+leak memory problems yeah there's
+
+1078
+00:44:20,480 --> 00:44:25,680
+garbage collection but it's like
+
+1079
+00:44:23,680 --> 00:44:29,040
+i wouldn't say it's a big deal okay so
+
+1080
+00:44:25,680 --> 00:44:31,359
+that that's my uh answer for that as for
+
+1081
+00:44:29,040 --> 00:44:33,599
+uh emac this
+
+1082
+00:44:31,359 --> 00:44:36,160
+you know there's a emac this language
+
+1083
+00:44:33,599 --> 00:44:40,000
+server protocol
+
+1084
+00:44:36,160 --> 00:44:42,960
+okay that's uh let me answer about that
+
+1085
+00:44:40,000 --> 00:44:44,480
+can i serve you at least two over this
+
+1086
+00:44:42,960 --> 00:44:48,599
+two
+
+1087
+00:44:44,480 --> 00:44:48,599
+years code um
+
+1088
+00:44:50,880 --> 00:44:53,440
+uh
+
+1089
+00:44:51,920 --> 00:44:55,359
+like i don't know what you mean so you
+
+1090
+00:44:53,440 --> 00:44:58,000
+know let me so let me explain okay and
+
+1091
+00:44:55,359 --> 00:44:59,599
+answer you know as i go
+
+1092
+00:44:58,000 --> 00:45:00,720
+you know and and
+
+1093
+00:44:59,599 --> 00:45:03,280
+you know
+
+1094
+00:45:00,720 --> 00:45:06,079
+so so so you have the you know the
+
+1095
+00:45:03,280 --> 00:45:08,319
+language server protocol the language
+
+1096
+00:45:06,079 --> 00:45:10,640
+server protocol is something microsoft
+
+1097
+00:45:08,319 --> 00:45:12,560
+invented it's a protocol it's a
+
+1098
+00:45:10,640 --> 00:45:16,240
+communication protocol
+
+1099
+00:45:12,560 --> 00:45:18,079
+um you know basically your standard
+
+1100
+00:45:16,240 --> 00:45:19,680
+you know protocol meaning like a
+
+1101
+00:45:18,079 --> 00:45:22,480
+standard format
+
+1102
+00:45:19,680 --> 00:45:25,280
+that is used between applications for
+
+1103
+00:45:22,480 --> 00:45:28,400
+example between the emacs
+
+1104
+00:45:25,280 --> 00:45:29,520
+between emacs or any text editor and
+
+1105
+00:45:28,400 --> 00:45:31,280
+some
+
+1106
+00:45:29,520 --> 00:45:33,599
+programming language engine some
+
+1107
+00:45:31,280 --> 00:45:35,839
+compiler for example for example if you
+
+1108
+00:45:33,599 --> 00:45:37,200
+are coding c
+
+1109
+00:45:35,839 --> 00:45:39,040
+or java
+
+1110
+00:45:37,200 --> 00:45:41,200
+for example
+
+1111
+00:45:39,040 --> 00:45:41,200
+so
+
+1112
+00:45:41,280 --> 00:45:45,040
+so
+
+1113
+00:45:42,079 --> 00:45:47,040
+you know or you know so on one side you
+
+1114
+00:45:45,040 --> 00:45:49,680
+have the editor you know you have emacs
+
+1115
+00:45:47,040 --> 00:45:53,440
+you have veeam you have vs code so we
+
+1116
+00:45:49,680 --> 00:45:55,359
+can open this in vs code for example
+
+1117
+00:45:53,440 --> 00:45:57,520
+open evs code
+
+1118
+00:45:55,359 --> 00:46:00,560
+so let's open this page microsoft
+
+1119
+00:45:57,520 --> 00:46:03,200
+showing vs code so any editor you know
+
+1120
+00:46:00,560 --> 00:46:06,400
+any editor so you have the editor
+
+1121
+00:46:03,200 --> 00:46:08,560
+then the editor editor you know editor
+
+1122
+00:46:06,400 --> 00:46:12,000
+needs to do several things syntax
+
+1123
+00:46:08,560 --> 00:46:17,119
+highlight highlighting for example in my
+
+1124
+00:46:12,000 --> 00:46:18,079
+email xr html mod i can delete the whole
+
+1125
+00:46:17,119 --> 00:46:20,400
+uh
+
+1126
+00:46:18,079 --> 00:46:20,400
+um
+
+1127
+00:46:20,960 --> 00:46:24,560
+group for example we i have a list here
+
+1128
+00:46:23,599 --> 00:46:27,520
+you know
+
+1129
+00:46:24,560 --> 00:46:28,560
+an ordered list i can select it you know
+
+1130
+00:46:27,520 --> 00:46:30,960
+i can
+
+1131
+00:46:28,560 --> 00:46:32,720
+press one key or select the whole
+
+1132
+00:46:30,960 --> 00:46:34,079
+an older list
+
+1133
+00:46:32,720 --> 00:46:37,359
+okay
+
+1134
+00:46:34,079 --> 00:46:39,359
+now how does that do how how does it
+
+1135
+00:46:37,359 --> 00:46:41,359
+how does it know where is the beginning
+
+1136
+00:46:39,359 --> 00:46:43,200
+where's the end well
+
+1137
+00:46:41,359 --> 00:46:44,240
+there are several methods
+
+1138
+00:46:43,200 --> 00:46:47,280
+the way
+
+1139
+00:46:44,240 --> 00:46:49,599
+a traditional emacs this you know emacs
+
+1140
+00:46:47,280 --> 00:46:51,680
+mod do is that
+
+1141
+00:46:49,599 --> 00:46:53,760
+for example let's show
+
+1142
+00:46:51,680 --> 00:46:54,640
+so i press the key
+
+1143
+00:46:53,760 --> 00:46:57,839
+okay
+
+1144
+00:46:54,640 --> 00:46:58,880
+so that's a tab e is the key i press you
+
+1145
+00:46:57,839 --> 00:46:59,680
+know in
+
+1146
+00:46:58,880 --> 00:47:03,440
+in
+
+1147
+00:46:59,680 --> 00:47:05,760
+html mod so the command is html select
+
+1148
+00:47:03,440 --> 00:47:08,000
+element it will select
+
+1149
+00:47:05,760 --> 00:47:10,640
+the previous group of element you know
+
+1150
+00:47:08,000 --> 00:47:14,720
+for example if my cursor is here i press
+
+1151
+00:47:10,640 --> 00:47:16,160
+the key it will select the entire
+
+1152
+00:47:14,720 --> 00:47:19,040
+uh
+
+1153
+00:47:16,160 --> 00:47:21,200
+unloaded list okay so that's a command
+
+1154
+00:47:19,040 --> 00:47:23,760
+then you can jump to the source code
+
+1155
+00:47:21,200 --> 00:47:25,920
+jump to it here is the source code
+
+1156
+00:47:23,760 --> 00:47:29,119
+written in emac list
+
+1157
+00:47:25,920 --> 00:47:30,880
+so you can see let's now go to diet you
+
+1158
+00:47:29,119 --> 00:47:34,319
+can see here is my
+
+1159
+00:47:30,880 --> 00:47:36,480
+you know html mark and here is the
+
+1160
+00:47:34,319 --> 00:47:38,960
+source code so
+
+1161
+00:47:36,480 --> 00:47:40,800
+this is written in emaclis so this emac
+
+1162
+00:47:38,960 --> 00:47:44,160
+this code
+
+1163
+00:47:40,800 --> 00:47:45,599
+it will it will try to find you know
+
+1164
+00:47:44,160 --> 00:47:48,079
+where is the beginning with the end and
+
+1165
+00:47:45,599 --> 00:47:50,480
+make a selection okay
+
+1166
+00:47:48,079 --> 00:47:53,200
+so the editor
+
+1167
+00:47:50,480 --> 00:47:55,359
+has all these tasks that helps you do
+
+1168
+00:47:53,200 --> 00:47:58,800
+editing and including one of the tasks
+
+1169
+00:47:55,359 --> 00:48:01,119
+is is syntax highlighting and another
+
+1170
+00:47:58,800 --> 00:48:02,000
+task is common for example i can press a
+
+1171
+00:48:01,119 --> 00:48:02,960
+key
+
+1172
+00:48:02,000 --> 00:48:06,319
+you know
+
+1173
+00:48:02,960 --> 00:48:08,559
+then i have html comment you know i can
+
+1174
+00:48:06,319 --> 00:48:10,800
+press the key again it toggles the
+
+1175
+00:48:08,559 --> 00:48:13,839
+comment okay for example the delete i
+
+1176
+00:48:10,800 --> 00:48:16,960
+can select the whole comment you see
+
+1177
+00:48:13,839 --> 00:48:20,319
+so how does the editor know where to add
+
+1178
+00:48:16,960 --> 00:48:23,520
+a comment and what character to add well
+
+1179
+00:48:20,319 --> 00:48:25,280
+in this case again it's emac list so we
+
+1180
+00:48:23,520 --> 00:48:27,760
+again we can jump to the code you can
+
+1181
+00:48:25,280 --> 00:48:29,839
+see that here's the code
+
+1182
+00:48:27,760 --> 00:48:32,240
+you know that finds the beginning and
+
+1183
+00:48:29,839 --> 00:48:33,520
+end and and finds
+
+1184
+00:48:32,240 --> 00:48:38,240
+you know
+
+1185
+00:48:33,520 --> 00:48:41,040
+so editor needs to do all sort of tasks
+
+1186
+00:48:38,240 --> 00:48:44,319
+and traditionally the editor does the
+
+1187
+00:48:41,040 --> 00:48:46,559
+job by in in the email case you use the
+
+1188
+00:48:44,319 --> 00:48:47,760
+emac this programming language
+
+1189
+00:48:46,559 --> 00:48:50,880
+in vi
+
+1190
+00:48:47,760 --> 00:48:53,680
+you know you use whatever vi you know c
+
+1191
+00:48:50,880 --> 00:48:57,119
+code basically they implemented you know
+
+1192
+00:48:53,680 --> 00:48:59,280
+and in vs code traditionally you use the
+
+1193
+00:48:57,119 --> 00:49:01,520
+javascript you know vs code is written
+
+1194
+00:48:59,280 --> 00:49:03,119
+in javascript so you use the javascript
+
+1195
+00:49:01,520 --> 00:49:04,480
+to find the location and you do the
+
+1196
+00:49:03,119 --> 00:49:05,920
+thing
+
+1197
+00:49:04,480 --> 00:49:07,760
+including
+
+1198
+00:49:05,920 --> 00:49:08,640
+syntax color
+
+1199
+00:49:07,760 --> 00:49:11,839
+now
+
+1200
+00:49:08,640 --> 00:49:12,880
+about 10 years ago microsoft came up
+
+1201
+00:49:11,839 --> 00:49:14,640
+with
+
+1202
+00:49:12,880 --> 00:49:16,800
+the
+
+1203
+00:49:14,640 --> 00:49:19,920
+language server protocol okay i have an
+
+1204
+00:49:16,800 --> 00:49:19,920
+article on that okay
+
+1205
+00:49:23,920 --> 00:49:31,040
+okay so if you search for xr emacs
+
+1206
+00:49:27,599 --> 00:49:33,520
+search for that
+
+1207
+00:49:31,040 --> 00:49:36,480
+you know so this is my essay language
+
+1208
+00:49:33,520 --> 00:49:40,240
+server protocol kiosk emacs so
+
+1209
+00:49:36,480 --> 00:49:43,359
+10 years ago well 2019 years ago 2006
+
+1210
+00:49:40,240 --> 00:49:45,760
+2005 microsoft
+
+1211
+00:49:43,359 --> 00:49:48,240
+invented the language server protocol
+
+1212
+00:49:45,760 --> 00:49:49,760
+which is a communication protocol used
+
+1213
+00:49:48,240 --> 00:49:51,760
+between
+
+1214
+00:49:49,760 --> 00:49:53,599
+applications
+
+1215
+00:49:51,760 --> 00:49:57,599
+essentially between the editor text
+
+1216
+00:49:53,599 --> 00:50:00,160
+editor vi emacs vs code
+
+1217
+00:49:57,599 --> 00:50:03,440
+visual studio code or whatever you know
+
+1218
+00:50:00,160 --> 00:50:04,640
+the between text editor and the compiler
+
+1219
+00:50:03,440 --> 00:50:05,839
+engine
+
+1220
+00:50:04,640 --> 00:50:07,920
+so
+
+1221
+00:50:05,839 --> 00:50:11,359
+when you when the text editor needs to
+
+1222
+00:50:07,920 --> 00:50:14,079
+do something such as such as a
+
+1223
+00:50:11,359 --> 00:50:16,400
+comment you know comment uncommon code
+
+1224
+00:50:14,079 --> 00:50:18,880
+or syntax screen
+
+1225
+00:50:16,400 --> 00:50:21,440
+the editor
+
+1226
+00:50:18,880 --> 00:50:23,520
+uses the language server protocol it
+
+1227
+00:50:21,440 --> 00:50:26,079
+basically sends a message
+
+1228
+00:50:23,520 --> 00:50:28,960
+to the compiler engine in the case you
+
+1229
+00:50:26,079 --> 00:50:31,040
+know for example i'm working on html so
+
+1230
+00:50:28,960 --> 00:50:34,240
+it sends a
+
+1231
+00:50:31,040 --> 00:50:37,040
+language server protocol message to
+
+1232
+00:50:34,240 --> 00:50:38,720
+some sort of html parser for example it
+
+1233
+00:50:37,040 --> 00:50:40,559
+can send to browser
+
+1234
+00:50:38,720 --> 00:50:42,240
+then the browser gets a message and
+
+1235
+00:50:40,559 --> 00:50:44,640
+reply
+
+1236
+00:50:42,240 --> 00:50:46,640
+sends back to the emacs you know sends
+
+1237
+00:50:44,640 --> 00:50:48,800
+back information to emacs
+
+1238
+00:50:46,640 --> 00:50:51,680
+tells you tells emacs that where is the
+
+1239
+00:50:48,800 --> 00:50:54,960
+beginning where's the end and you should
+
+1240
+00:50:51,680 --> 00:50:56,319
+do you know what you should do to those
+
+1241
+00:50:54,960 --> 00:50:59,280
+positions
+
+1242
+00:50:56,319 --> 00:51:00,960
+that's the purpose of language server
+
+1243
+00:50:59,280 --> 00:51:01,920
+protocol
+
+1244
+00:51:00,960 --> 00:51:03,680
+so
+
+1245
+00:51:01,920 --> 00:51:05,680
+so now the question is why do you need
+
+1246
+00:51:03,680 --> 00:51:07,040
+it you know for example in emacs you
+
+1247
+00:51:05,680 --> 00:51:08,400
+have emac this
+
+1248
+00:51:07,040 --> 00:51:10,880
+why do you need
+
+1249
+00:51:08,400 --> 00:51:13,520
+you know a language server protocol why
+
+1250
+00:51:10,880 --> 00:51:15,520
+do you know why do you need to
+
+1251
+00:51:13,520 --> 00:51:17,440
+now it's more complex because now you
+
+1252
+00:51:15,520 --> 00:51:20,240
+need to use a protocol you need to talk
+
+1253
+00:51:17,440 --> 00:51:23,200
+to some another application
+
+1254
+00:51:20,240 --> 00:51:25,280
+you know in this case html parser or if
+
+1255
+00:51:23,200 --> 00:51:28,319
+you are coding c you know you talk to
+
+1256
+00:51:25,280 --> 00:51:30,400
+the c compiler you know air vm compiler
+
+1257
+00:51:28,319 --> 00:51:31,680
+whatever tools you know the
+
+1258
+00:51:30,400 --> 00:51:33,920
+what they call
+
+1259
+00:51:31,680 --> 00:51:35,440
+these days you know the tooling you know
+
+1260
+00:51:33,920 --> 00:51:37,440
+the tooling
+
+1261
+00:51:35,440 --> 00:51:40,079
+so you use the language server protocol
+
+1262
+00:51:37,440 --> 00:51:42,559
+to talk to dedicated
+
+1263
+00:51:40,079 --> 00:51:45,760
+tools that understand the language
+
+1264
+00:51:42,559 --> 00:51:47,920
+javascript compiler
+
+1265
+00:51:45,760 --> 00:51:51,839
+then you know why do you need to do that
+
+1266
+00:51:47,920 --> 00:51:55,200
+well the reason is that
+
+1267
+00:51:51,839 --> 00:51:57,119
+for many languages for example emacs
+
+1268
+00:51:55,200 --> 00:51:58,960
+for example javascript
+
+1269
+00:51:57,119 --> 00:52:02,160
+javascript you know
+
+1270
+00:51:58,960 --> 00:52:04,000
+or c or c plus first
+
+1271
+00:52:02,160 --> 00:52:06,079
+or java
+
+1272
+00:52:04,000 --> 00:52:08,960
+these languages
+
+1273
+00:52:06,079 --> 00:52:12,400
+the task of passing the languages
+
+1274
+00:52:08,960 --> 00:52:15,119
+today becomes extremely complex
+
+1275
+00:52:12,400 --> 00:52:16,160
+so you can write for example in emac
+
+1276
+00:52:15,119 --> 00:52:19,839
+list
+
+1277
+00:52:16,160 --> 00:52:19,839
+you know for example i have a javascript
+
+1278
+00:52:22,400 --> 00:52:27,760
+uh for example it's you know so you are
+
+1279
+00:52:24,720 --> 00:52:28,640
+looking at such javascript mod okay
+
+1280
+00:52:27,760 --> 00:52:30,480
+so
+
+1281
+00:52:28,640 --> 00:52:33,040
+you know you are looking at javascript
+
+1282
+00:52:30,480 --> 00:52:34,480
+javascript mod so i can
+
+1283
+00:52:33,040 --> 00:52:36,160
+console.log
+
+1284
+00:52:34,480 --> 00:52:37,920
+three plus four
+
+1285
+00:52:36,160 --> 00:52:41,760
+i can evaluate it
+
+1286
+00:52:37,920 --> 00:52:45,520
+i need to save the file so xx dot job
+
+1287
+00:52:41,760 --> 00:52:48,000
+dot js okay i save the file i can run it
+
+1288
+00:52:45,520 --> 00:52:51,760
+you can see the result is seven
+
+1289
+00:52:48,000 --> 00:52:54,559
+so again how do i do that well
+
+1290
+00:52:51,760 --> 00:52:58,000
+let me show you okay
+
+1291
+00:52:54,559 --> 00:53:01,280
+so again i use emac this you know i have
+
+1292
+00:52:58,000 --> 00:53:03,200
+lots of code you know 700 you know 2 000
+
+1293
+00:53:01,280 --> 00:53:05,119
+you know 600
+
+1294
+00:53:03,200 --> 00:53:07,200
+lines of code
+
+1295
+00:53:05,119 --> 00:53:09,839
+to do all these things
+
+1296
+00:53:07,200 --> 00:53:11,920
+but javascript is a you know javascript
+
+1297
+00:53:09,839 --> 00:53:15,520
+or c or any language is fairly complex
+
+1298
+00:53:11,920 --> 00:53:19,520
+these days so so my mod for example
+
+1299
+00:53:15,520 --> 00:53:19,520
+doesn't do lots of things you know
+
+1300
+00:53:22,000 --> 00:53:26,960
+for example variables for example
+
+1301
+00:53:24,000 --> 00:53:29,200
+variables constant okay
+
+1302
+00:53:26,960 --> 00:53:31,920
+let's say constant
+
+1303
+00:53:29,200 --> 00:53:34,079
+v equals to three okay
+
+1304
+00:53:31,920 --> 00:53:35,359
+now let's say i want to
+
+1305
+00:53:34,079 --> 00:53:38,160
+print v
+
+1306
+00:53:35,359 --> 00:53:40,640
+now you see i would like the v to be
+
+1307
+00:53:38,160 --> 00:53:43,119
+highlighted i want all variables to be
+
+1308
+00:53:40,640 --> 00:53:44,000
+highlighted but it's not
+
+1309
+00:53:43,119 --> 00:53:45,839
+why
+
+1310
+00:53:44,000 --> 00:53:47,680
+because in order to write
+
+1311
+00:53:45,839 --> 00:53:49,839
+write that code to
+
+1312
+00:53:47,680 --> 00:53:53,040
+to highlight all variables it's very
+
+1313
+00:53:49,839 --> 00:53:57,520
+difficult you know you you need a
+
+1314
+00:53:53,040 --> 00:53:59,599
+complete javascript parser
+
+1315
+00:53:57,520 --> 00:54:01,920
+you cannot just do it with regular
+
+1316
+00:53:59,599 --> 00:54:04,160
+expression you know in order to properly
+
+1317
+00:54:01,920 --> 00:54:06,880
+highlight or or variables local
+
+1318
+00:54:04,160 --> 00:54:08,240
+variables you need a complete javascript
+
+1319
+00:54:06,880 --> 00:54:10,640
+engine
+
+1320
+00:54:08,240 --> 00:54:13,520
+so that is why
+
+1321
+00:54:10,640 --> 00:54:15,839
+the language server protocols comes in
+
+1322
+00:54:13,520 --> 00:54:18,800
+because there are lots of javascript
+
+1323
+00:54:15,839 --> 00:54:20,880
+dedicated javascript engines written by
+
+1324
+00:54:18,800 --> 00:54:22,240
+you know professionals for 10 years you
+
+1325
+00:54:20,880 --> 00:54:25,040
+know
+
+1326
+00:54:22,240 --> 00:54:26,640
+so you use language server protocol
+
+1327
+00:54:25,040 --> 00:54:28,960
+you know you send the message you know
+
+1328
+00:54:26,640 --> 00:54:31,920
+emacs send the message to them they
+
+1329
+00:54:28,960 --> 00:54:34,640
+reply tell you where are the positions
+
+1330
+00:54:31,920 --> 00:54:37,200
+of the local variables then
+
+1331
+00:54:34,640 --> 00:54:39,599
+your emacs can just highlight them
+
+1332
+00:54:37,200 --> 00:54:40,640
+so in this way
+
+1333
+00:54:39,599 --> 00:54:41,599
+the
+
+1334
+00:54:40,640 --> 00:54:43,760
+task
+
+1335
+00:54:41,599 --> 00:54:46,000
+of dealing with the language in a in the
+
+1336
+00:54:43,760 --> 00:54:48,640
+editor is much simpler
+
+1337
+00:54:46,000 --> 00:54:51,280
+you know you don't you know you
+
+1338
+00:54:48,640 --> 00:54:54,400
+just send a message to the
+
+1339
+00:54:51,280 --> 00:54:56,480
+data dedicated compilers or whatever to
+
+1340
+00:54:54,400 --> 00:54:58,480
+do the job for you
+
+1341
+00:54:56,480 --> 00:55:00,559
+so that's the that's the microsoft
+
+1342
+00:54:58,480 --> 00:55:01,599
+invention language server protocol and
+
+1343
+00:55:00,559 --> 00:55:03,680
+today
+
+1344
+00:55:01,599 --> 00:55:05,280
+you have a lot of emac smart for
+
+1345
+00:55:03,680 --> 00:55:07,520
+javascript for
+
+1346
+00:55:05,280 --> 00:55:10,240
+for for java for c
+
+1347
+00:55:07,520 --> 00:55:13,760
+that uses this so instead of you know
+
+1348
+00:55:10,240 --> 00:55:13,760
+instead of using instead of
+
+1349
+00:55:14,480 --> 00:55:18,720
+for example such javascript mod instead
+
+1350
+00:55:17,200 --> 00:55:21,119
+of writing a
+
+1351
+00:55:18,720 --> 00:55:23,920
+mod you know in emac this or whatever
+
+1352
+00:55:21,119 --> 00:55:26,160
+language you know to do the very complex
+
+1353
+00:55:23,920 --> 00:55:28,640
+you know for example you need to know or
+
+1354
+00:55:26,160 --> 00:55:31,760
+the key word in the language for example
+
+1355
+00:55:28,640 --> 00:55:34,079
+all these are keywords in javascript
+
+1356
+00:55:31,760 --> 00:55:35,920
+it's not it's not it's not really
+
+1357
+00:55:34,079 --> 00:55:38,079
+trivial you have to know that you know
+
+1358
+00:55:35,920 --> 00:55:40,400
+you have to pass the language so now you
+
+1359
+00:55:38,079 --> 00:55:42,000
+just use language server protocol you
+
+1360
+00:55:40,400 --> 00:55:44,319
+know
+
+1361
+00:55:42,000 --> 00:55:46,880
+so that this data dedicated compilers
+
+1362
+00:55:44,319 --> 00:55:48,640
+can do it for you
+
+1363
+00:55:46,880 --> 00:55:51,599
+so that's uh that's the job of language
+
+1364
+00:55:48,640 --> 00:55:51,599
+server protocol so
+
+1365
+00:55:52,640 --> 00:55:57,200
+so mike
+
+1366
+00:55:53,680 --> 00:56:01,119
+i suppose your question is
+
+1367
+00:55:57,200 --> 00:56:03,920
+why don't we use that um
+
+1368
+00:56:01,119 --> 00:56:05,680
+so you know my opinion on this
+
+1369
+00:56:03,920 --> 00:56:06,799
+is no good
+
+1370
+00:56:05,680 --> 00:56:08,559
+uh
+
+1371
+00:56:06,799 --> 00:56:10,160
+it's not a strong opinion i mean it's
+
+1372
+00:56:08,559 --> 00:56:13,119
+very you know
+
+1373
+00:56:10,160 --> 00:56:14,480
+language server protocol
+
+1374
+00:56:13,119 --> 00:56:16,559
+is
+
+1375
+00:56:14,480 --> 00:56:19,599
+extremely useful
+
+1376
+00:56:16,559 --> 00:56:20,400
+and it is truly is actually the proper
+
+1377
+00:56:19,599 --> 00:56:24,480
+way
+
+1378
+00:56:20,400 --> 00:56:26,400
+to do things okay because
+
+1379
+00:56:24,480 --> 00:56:29,680
+you know in editor you have lots of
+
+1380
+00:56:26,400 --> 00:56:32,960
+languages java javascript c plus plus
+
+1381
+00:56:29,680 --> 00:56:35,599
+you know terms of language is haskall
+
+1382
+00:56:32,960 --> 00:56:38,319
+uh so on one hand you can write emac
+
+1383
+00:56:35,599 --> 00:56:41,040
+this code to deal with them on the other
+
+1384
+00:56:38,319 --> 00:56:43,599
+hand you can use dedicated tools you
+
+1385
+00:56:41,040 --> 00:56:45,680
+know dedicated javascript compilers has
+
+1386
+00:56:43,599 --> 00:56:47,040
+got compilers for them
+
+1387
+00:56:45,680 --> 00:56:49,040
+then you use the language server
+
+1388
+00:56:47,040 --> 00:56:51,359
+protocol to talk to them that is
+
+1389
+00:56:49,040 --> 00:56:53,200
+actually the proper way you know proper
+
+1390
+00:56:51,359 --> 00:56:54,000
+engineering
+
+1391
+00:56:53,200 --> 00:56:57,359
+but
+
+1392
+00:56:54,000 --> 00:57:01,839
+this is a there's a critical practical
+
+1393
+00:56:57,359 --> 00:57:03,920
+flaw that is it kills emacs okay
+
+1394
+00:57:01,839 --> 00:57:07,119
+that is my claim that you know that is
+
+1395
+00:57:03,920 --> 00:57:08,960
+my claim it kills emacs
+
+1396
+00:57:07,119 --> 00:57:12,559
+it kills immaculate
+
+1397
+00:57:08,960 --> 00:57:16,079
+you know because after after 10 years
+
+1398
+00:57:12,559 --> 00:57:18,319
+emac this is gonna
+
+1399
+00:57:16,079 --> 00:57:19,760
+it's going to lose
+
+1400
+00:57:18,319 --> 00:57:23,119
+its
+
+1401
+00:57:19,760 --> 00:57:25,760
+major uh characteristic major advantage
+
+1402
+00:57:23,119 --> 00:57:29,280
+the emac this is very powerful today
+
+1403
+00:57:25,760 --> 00:57:31,200
+because because of the emac beast
+
+1404
+00:57:29,280 --> 00:57:33,280
+because we can you know i can write all
+
+1405
+00:57:31,200 --> 00:57:36,079
+these tools to do it
+
+1406
+00:57:33,280 --> 00:57:37,119
+but now but emac this has kind of been
+
+1407
+00:57:36,079 --> 00:57:38,799
+dying
+
+1408
+00:57:37,119 --> 00:57:41,440
+a little you know
+
+1409
+00:57:38,799 --> 00:57:43,280
+well in max 28 we have native comp
+
+1410
+00:57:41,440 --> 00:57:45,280
+compilation with the emac beast so
+
+1411
+00:57:43,280 --> 00:57:47,200
+that's fantastic
+
+1412
+00:57:45,280 --> 00:57:50,400
+but i would push for
+
+1413
+00:57:47,200 --> 00:57:51,760
+more improvement of emac lisp
+
+1414
+00:57:50,400 --> 00:57:53,200
+you know i'm
+
+1415
+00:57:51,760 --> 00:57:55,680
+i would not
+
+1416
+00:57:53,200 --> 00:57:58,079
+you know i'm not too excited about
+
+1417
+00:57:55,680 --> 00:58:00,559
+language server protocol because that
+
+1418
+00:57:58,079 --> 00:58:02,480
+will kill emacs
+
+1419
+00:58:00,559 --> 00:58:05,119
+so i would push for
+
+1420
+00:58:02,480 --> 00:58:07,440
+more improvement of emac disk
+
+1421
+00:58:05,119 --> 00:58:09,599
+and push for you know we have a lot you
+
+1422
+00:58:07,440 --> 00:58:10,960
+know if you read my
+
+1423
+00:58:09,599 --> 00:58:14,160
+uh article
+
+1424
+00:58:10,960 --> 00:58:18,480
+i go into detail and i go into detail i
+
+1425
+00:58:14,160 --> 00:58:21,839
+tell you there are a lot great emacs
+
+1426
+00:58:18,480 --> 00:58:24,480
+compiler experts who are also emac these
+
+1427
+00:58:21,839 --> 00:58:26,160
+experts at least several of them for
+
+1428
+00:58:24,480 --> 00:58:27,440
+example mara jean
+
+1429
+00:58:26,160 --> 00:58:30,160
+have a book
+
+1430
+00:58:27,440 --> 00:58:32,880
+hoverback he is a javascript
+
+1431
+00:58:30,160 --> 00:58:34,079
+expert okay he has written javascript
+
+1432
+00:58:32,880 --> 00:58:38,640
+compilers
+
+1433
+00:58:34,079 --> 00:58:42,720
+in macbeth or in javascript then we have
+
+1434
+00:58:38,640 --> 00:58:45,920
+you know anyway these are people who are
+
+1435
+00:58:42,720 --> 00:58:48,319
+compiler experts of various languages
+
+1436
+00:58:45,920 --> 00:58:53,280
+christopher wellers is a great
+
+1437
+00:58:48,319 --> 00:58:53,280
+deep imac this expert you know
+
+1438
+00:58:53,920 --> 00:59:00,319
+the heart of emac this including c you
+
+1439
+00:58:56,079 --> 00:59:01,839
+know c implementation of images in c so
+
+1440
+00:59:00,319 --> 00:59:04,880
+he knows a lot
+
+1441
+00:59:01,839 --> 00:59:07,680
+and he has has also written you know a
+
+1442
+00:59:04,880 --> 00:59:10,720
+very deep code and uh
+
+1443
+00:59:07,680 --> 00:59:13,760
+emax flightcheck author
+
+1444
+00:59:10,720 --> 00:59:15,680
+uh luna rum you know he's also expert
+
+1445
+00:59:13,760 --> 00:59:19,839
+and phil hagerberg
+
+1446
+00:59:15,680 --> 00:59:19,839
+expert enclosure expert in
+
+1447
+00:59:20,319 --> 00:59:24,240
+uh
+
+1448
+00:59:21,119 --> 00:59:27,599
+in also uh what's the language
+
+1449
+00:59:24,240 --> 00:59:27,599
+uh luna um
+
+1450
+00:59:29,040 --> 00:59:35,200
+anyway so this and stephanie he's a
+
+1451
+00:59:32,640 --> 00:59:36,960
+functional programming professor he's we
+
+1452
+00:59:35,200 --> 00:59:39,119
+do research in functional programming
+
+1453
+00:59:36,960 --> 00:59:40,400
+languages great guy
+
+1454
+00:59:39,119 --> 00:59:44,839
+john wigley
+
+1455
+00:59:40,400 --> 00:59:48,799
+is a c plus plus compiler expert for 10
+
+1456
+00:59:44,839 --> 00:59:50,240
+years steve yag is also a language
+
+1457
+00:59:48,799 --> 00:59:52,720
+researcher at
+
+1458
+00:59:50,240 --> 00:59:56,400
+at google for 10 years he no longer
+
+1459
+00:59:52,720 --> 00:59:59,359
+works at google and last magna
+
+1460
+00:59:56,400 --> 01:00:00,880
+inga prince sen inga
+
+1461
+00:59:59,359 --> 01:00:02,480
+and
+
+1462
+01:00:00,880 --> 01:00:04,559
+okay i don't know how to pronounce this
+
+1463
+01:00:02,480 --> 01:00:08,160
+guy's name you know
+
+1464
+01:00:04,559 --> 01:00:10,720
+and eric lord ludhan he's uh famous for
+
+1465
+01:00:08,160 --> 01:00:13,119
+c that he write javascript
+
+1466
+01:00:10,720 --> 01:00:15,119
+java you know he's expert
+
+1467
+01:00:13,119 --> 01:00:17,440
+you know all these are emac this expert
+
+1468
+01:00:15,119 --> 01:00:20,319
+at least and compiler expert
+
+1469
+01:00:17,440 --> 01:00:22,319
+expert of many different languages james
+
+1470
+01:00:20,319 --> 01:00:26,480
+clark is the top most
+
+1471
+01:00:22,319 --> 01:00:29,040
+expert in xml okay he wrote xml mod in
+
+1472
+01:00:26,480 --> 01:00:31,440
+e-mac this that's better than any any
+
+1473
+01:00:29,040 --> 01:00:32,880
+xml mod in the world
+
+1474
+01:00:31,440 --> 01:00:34,960
+okay so
+
+1475
+01:00:32,880 --> 01:00:36,319
+why am i mentioning these people because
+
+1476
+01:00:34,960 --> 01:00:38,720
+these people
+
+1477
+01:00:36,319 --> 01:00:40,839
+are great emac experts and great
+
+1478
+01:00:38,720 --> 01:00:42,400
+compiler experts
+
+1479
+01:00:40,839 --> 01:00:45,520
+they
+
+1480
+01:00:42,400 --> 01:00:47,920
+they can write if you give them
+
+1481
+01:00:45,520 --> 01:00:49,839
+if you improve emac lisp you know i
+
+1482
+01:00:47,920 --> 01:00:52,319
+don't want i don't want i don't want
+
+1483
+01:00:49,839 --> 01:00:54,400
+language server protocol crap you know i
+
+1484
+01:00:52,319 --> 01:00:56,640
+don't want emacs starting to use
+
+1485
+01:00:54,400 --> 01:01:00,079
+language server protocol and talk to
+
+1486
+01:00:56,640 --> 01:01:03,680
+someone some other tools okay
+
+1487
+01:01:00,079 --> 01:01:06,559
+let's improve emac disk okay let's do
+
+1488
+01:01:03,680 --> 01:01:09,599
+this dmacc needs still needs a lot of
+
+1489
+01:01:06,559 --> 01:01:12,559
+improvements let's improve emac this
+
+1490
+01:01:09,599 --> 01:01:15,119
+and these people
+
+1491
+01:01:12,559 --> 01:01:16,720
+including including me you know i can do
+
+1492
+01:01:15,119 --> 01:01:19,760
+whatever i can
+
+1493
+01:01:16,720 --> 01:01:23,200
+in some higher level kind of code
+
+1494
+01:01:19,760 --> 01:01:24,960
+we we will improve we will make emacs we
+
+1495
+01:01:23,200 --> 01:01:28,960
+will create
+
+1496
+01:01:24,960 --> 01:01:31,920
+language tools emac list
+
+1497
+01:01:28,960 --> 01:01:34,079
+possibly even better than the dedicated
+
+1498
+01:01:31,920 --> 01:01:36,240
+compilers out there okay
+
+1499
+01:01:34,079 --> 01:01:38,880
+now in some languages such as c plus
+
+1500
+01:01:36,240 --> 01:01:41,440
+plus that's impractical because c plus
+
+1501
+01:01:38,880 --> 01:01:43,599
+plus and c
+
+1502
+01:01:41,440 --> 01:01:45,760
+these kind of languages they require you
+
+1503
+01:01:43,599 --> 01:01:47,760
+know they have like 40 years of history
+
+1504
+01:01:45,760 --> 01:01:50,559
+they require very very
+
+1505
+01:01:47,760 --> 01:01:53,599
+complicated compiler optimal
+
+1506
+01:01:50,559 --> 01:01:56,160
+optimizers and so on in passes
+
+1507
+01:01:53,599 --> 01:01:58,240
+so in those languages is kind of
+
+1508
+01:01:56,160 --> 01:02:00,720
+hopeless but still
+
+1509
+01:01:58,240 --> 01:02:02,880
+my position you know i would recommend
+
+1510
+01:02:00,720 --> 01:02:05,359
+i'm doing my talk show so
+
+1511
+01:02:02,880 --> 01:02:07,839
+i'm going you know on a
+
+1512
+01:02:05,359 --> 01:02:10,880
+i'm i'm telling you guys
+
+1513
+01:02:07,839 --> 01:02:14,079
+let's focus on emac this okay
+
+1514
+01:02:10,880 --> 01:02:17,359
+learn emac this like today we've done
+
+1515
+01:02:14,079 --> 01:02:19,599
+and let's improve emacs this let's
+
+1516
+01:02:17,359 --> 01:02:20,640
+put more focus on emac this
+
+1517
+01:02:19,599 --> 01:02:23,280
+not
+
+1518
+01:02:20,640 --> 01:02:25,839
+the language server protocol so i don't
+
+1519
+01:02:23,280 --> 01:02:26,960
+i don't use it myself i never used it
+
+1520
+01:02:25,839 --> 01:02:29,359
+myself
+
+1521
+01:02:26,960 --> 01:02:31,839
+i prefer to
+
+1522
+01:02:29,359 --> 01:02:33,520
+you know i prefer going in the emax
+
+1523
+01:02:31,839 --> 01:02:35,839
+native way
+
+1524
+01:02:33,520 --> 01:02:37,839
+okay that's my question that's my answer
+
+1525
+01:02:35,839 --> 01:02:40,640
+i don't know if i answered your question
+
+1526
+01:02:37,839 --> 01:02:43,440
+so your question about emac this so your
+
+1527
+01:02:40,640 --> 01:02:45,680
+question is about
+
+1528
+01:02:43,440 --> 01:02:47,280
+can you use language server protocol on
+
+1529
+01:02:45,680 --> 01:02:49,280
+emaclis
+
+1530
+01:02:47,280 --> 01:02:52,480
+uh
+
+1531
+01:02:49,280 --> 01:02:55,440
+yes but in that case there's not much
+
+1532
+01:02:52,480 --> 01:02:58,319
+for that because emac this the best tool
+
+1533
+01:02:55,440 --> 01:03:00,640
+the tooling for emac this language
+
+1534
+01:02:58,319 --> 01:03:03,839
+is emac list itself
+
+1535
+01:03:00,640 --> 01:03:05,520
+so in the emac this case you don't you
+
+1536
+01:03:03,839 --> 01:03:08,000
+don't even you don't you know you don't
+
+1537
+01:03:05,520 --> 01:03:08,720
+use language server protocol because you
+
+1538
+01:03:08,000 --> 01:03:10,480
+are
+
+1539
+01:03:08,720 --> 01:03:12,799
+you are using emacs that's the best
+
+1540
+01:03:10,480 --> 01:03:15,520
+tooling so in the imac this case you
+
+1541
+01:03:12,799 --> 01:03:19,839
+don't use language server portal
+
+1542
+01:03:15,520 --> 01:03:19,839
+so i hope i answered that question um
+
+1543
+01:03:21,839 --> 01:03:27,200
+uh an e-max demon mod you know that's
+
+1544
+01:03:24,559 --> 01:03:30,559
+another thing that's great you know um
+
+1545
+01:03:27,200 --> 01:03:31,839
+i don't use myself because
+
+1546
+01:03:30,559 --> 01:03:34,160
+um
+
+1547
+01:03:31,839 --> 01:03:36,720
+e-max demon mod you know i can press a
+
+1548
+01:03:34,160 --> 01:03:37,920
+key it will start another e-max for
+
+1549
+01:03:36,720 --> 01:03:40,319
+example
+
+1550
+01:03:37,920 --> 01:03:42,720
+uh did i do it all right let me show so
+
+1551
+01:03:40,319 --> 01:03:44,640
+for example i press key
+
+1552
+01:03:42,720 --> 01:03:46,400
+you know i'm starting another emacs
+
+1553
+01:03:44,640 --> 01:03:47,760
+instance totally
+
+1554
+01:03:46,400 --> 01:03:50,000
+unconnected
+
+1555
+01:03:47,760 --> 01:03:52,400
+i press the key again
+
+1556
+01:03:50,000 --> 01:03:54,640
+i have another emacs instance
+
+1557
+01:03:52,400 --> 01:03:57,359
+so now i can change the background let's
+
+1558
+01:03:54,640 --> 01:04:00,640
+say set background color okay
+
+1559
+01:03:57,359 --> 01:04:04,640
+say brian background color uh
+
+1560
+01:04:00,640 --> 01:04:06,160
+set background color okay let's say
+
+1561
+01:04:04,640 --> 01:04:08,160
+10 okay
+
+1562
+01:04:06,160 --> 01:04:10,240
+now this one
+
+1563
+01:04:08,160 --> 01:04:11,520
+say background color
+
+1564
+01:04:10,240 --> 01:04:14,480
+let's say
+
+1565
+01:04:11,520 --> 01:04:14,480
+silver okay
+
+1566
+01:04:15,680 --> 01:04:19,200
+uh let's say cone silk
+
+1567
+01:04:19,280 --> 01:04:23,119
+okay so you can see i have now three
+
+1568
+01:04:21,680 --> 01:04:26,000
+emax
+
+1569
+01:04:23,119 --> 01:04:29,359
+instances instances independent of
+
+1570
+01:04:26,000 --> 01:04:31,440
+independent of each other so in this way
+
+1571
+01:04:29,359 --> 01:04:34,160
+i don't have to
+
+1572
+01:04:31,440 --> 01:04:35,839
+wait for something that's stuck you know
+
+1573
+01:04:34,160 --> 01:04:37,680
+for example in this buffer if i'm
+
+1574
+01:04:35,839 --> 01:04:40,079
+learning something that's stuck for a
+
+1575
+01:04:37,680 --> 01:04:41,280
+while isha or whatever you know eshel is
+
+1576
+01:04:40,079 --> 01:04:43,680
+very fast
+
+1577
+01:04:41,280 --> 01:04:46,480
+but anyway you know i can just run
+
+1578
+01:04:43,680 --> 01:04:48,559
+something else over here you know i can
+
+1579
+01:04:46,480 --> 01:04:52,160
+you know i can start to look at my talk
+
+1580
+01:04:48,559 --> 01:04:54,400
+show page you know so that's
+
+1581
+01:04:52,160 --> 01:04:55,359
+so i don't use steamer myself demon is
+
+1582
+01:04:54,400 --> 01:04:58,079
+usually
+
+1583
+01:04:55,359 --> 01:04:58,960
+if you want to emax to start up fast you
+
+1584
+01:04:58,079 --> 01:05:00,880
+know i
+
+1585
+01:04:58,960 --> 01:05:02,799
+you know i can start another emacs
+
+1586
+01:05:00,880 --> 01:05:04,400
+instance you know two seconds three
+
+1587
+01:05:02,799 --> 01:05:07,039
+seconds you know
+
+1588
+01:05:04,400 --> 01:05:08,640
+so i don't i don't use demon so anyway i
+
+1589
+01:05:07,039 --> 01:05:10,160
+hope that answered the question that's
+
+1590
+01:05:08,640 --> 01:05:11,280
+it okay
+
+1591
+01:05:10,160 --> 01:05:14,079
+so
+
+1592
+01:05:11,280 --> 01:05:17,200
+thank you guys for watching so we talked
+
+1593
+01:05:14,079 --> 01:05:20,079
+for 7 70 minutes that's it we we shut
+
+1594
+01:05:17,200 --> 01:05:23,599
+down okay so let's let me close my
+
+1595
+01:05:20,079 --> 01:05:25,039
+emacs instances
+
+1596
+01:05:23,599 --> 01:05:26,720
+okay that's it
+
+1597
+01:05:25,039 --> 01:05:28,480
+uh
+
+1598
+01:05:26,720 --> 01:05:30,880
+so i'm shutting down
+
+1599
+01:05:28,480 --> 01:05:31,680
+uh close that code set
+
+1600
+01:05:30,880 --> 01:05:33,920
+so
+
+1601
+01:05:31,680 --> 01:05:34,880
+e-max language protocol we talked about
+
+1602
+01:05:33,920 --> 01:05:36,960
+that
+
+1603
+01:05:34,880 --> 01:05:38,559
+so
+
+1604
+01:05:36,960 --> 01:05:39,760
+yeah that's it thank you guys for
+
+1605
+01:05:38,559 --> 01:05:41,920
+watching
+
+1606
+01:05:39,760 --> 01:05:44,240
+so let's paste the link here
+
+1607
+01:05:41,920 --> 01:05:47,520
+um
+
+1608
+01:05:44,240 --> 01:05:50,640
+so today we wrote this code fantastic
+
+1609
+01:05:47,520 --> 01:05:54,799
+because i delete file for places
+
+1610
+01:05:50,640 --> 01:05:54,799
+uh who who is watching five people
+
+1611
+01:05:55,760 --> 01:05:58,319
+bye guys
+
+1612
+01:05:58,640 --> 01:06:05,119
+okay so i wanna talk random for for two
+
+1613
+01:06:02,000 --> 01:06:06,720
+minutes or so so i i got sick last week
+
+1614
+01:06:05,119 --> 01:06:09,039
+a code
+
+1615
+01:06:06,720 --> 01:06:11,119
+um
+
+1616
+01:06:09,039 --> 01:06:15,039
+what else
+
+1617
+01:06:11,119 --> 01:06:17,039
+so class software keys is now in emacs i
+
+1618
+01:06:15,039 --> 01:06:19,839
+mean it's in um
+
+1619
+01:06:17,039 --> 01:06:19,839
+let's go to
+
+1620
+01:06:20,160 --> 01:06:28,400
+emacs blog
+
+1621
+01:06:22,480 --> 01:06:33,760
+so xonfly keys is now in gnu alpha
+
+1622
+01:06:28,400 --> 01:06:35,520
+so if you don't know gnu alpha is in uh
+
+1623
+01:06:33,760 --> 01:06:37,839
+el paso so it's
+
+1624
+01:06:35,520 --> 01:06:38,880
+you can get it from
+
+1625
+01:06:37,839 --> 01:06:40,799
+you know
+
+1626
+01:06:38,880 --> 01:06:43,039
+airport is the
+
+1627
+01:06:40,799 --> 01:06:46,559
+e-max repository
+
+1628
+01:06:43,039 --> 01:06:49,200
+hosted by free software foundation
+
+1629
+01:06:46,559 --> 01:06:50,240
+but it's not part of the officially gnu
+
+1630
+01:06:49,200 --> 01:06:51,760
+you know
+
+1631
+01:06:50,240 --> 01:06:54,319
+project
+
+1632
+01:06:51,760 --> 01:06:57,760
+by the way ergo e-max mod is officially
+
+1633
+01:06:54,319 --> 01:06:58,799
+in a gnu e-max gnu
+
+1634
+01:06:57,760 --> 01:07:01,200
+part of the
+
+1635
+01:06:58,799 --> 01:07:02,559
+gnu project
+
+1636
+01:07:01,200 --> 01:07:05,200
+but
+
+1637
+01:07:02,559 --> 01:07:08,160
+you know you know i had to sign paper
+
+1638
+01:07:05,200 --> 01:07:11,520
+and nanganu alpha is
+
+1639
+01:07:08,160 --> 01:07:12,960
+you know so it's e-max
+
+1640
+01:07:11,520 --> 01:07:16,319
+it's free software foundation's
+
+1641
+01:07:12,960 --> 01:07:18,880
+repository for emacs packages but they
+
+1642
+01:07:16,319 --> 01:07:20,240
+are not officially part of the gnu
+
+1643
+01:07:18,880 --> 01:07:22,960
+project
+
+1644
+01:07:20,240 --> 01:07:25,280
+uh so it's like it's like male part okay
+
+1645
+01:07:22,960 --> 01:07:27,039
+so it's like mel so anyway stuff like
+
+1646
+01:07:25,280 --> 01:07:28,720
+keys is there
+
+1647
+01:07:27,039 --> 01:07:30,960
+um
+
+1648
+01:07:28,720 --> 01:07:32,559
+what else um
+
+1649
+01:07:30,960 --> 01:07:34,480
+that's it i'm getting hungry so thank
+
+1650
+01:07:32,559 --> 01:07:37,039
+you guys for watching
+
+1651
+01:07:34,480 --> 01:07:39,839
+uh let's see what else thank you guys
+
+1652
+01:07:37,039 --> 01:07:43,839
+for watching um
+
+1653
+01:07:39,839 --> 01:07:43,839
+what other news um
+
+1654
+01:07:44,079 --> 01:07:49,200
+yeah i'm getting tired so
+
+1655
+01:07:46,319 --> 01:07:52,079
+yeah so next few days i'm gonna start to
+
+1656
+01:07:49,200 --> 01:07:54,799
+do live stream more again
+
+1657
+01:07:52,079 --> 01:07:57,599
+uh maybe every two or three days
+
+1658
+01:07:54,799 --> 01:08:01,280
+and it's been a while we did wufang
+
+1659
+01:07:57,599 --> 01:08:04,160
+language i'm going to do that again
+
+1660
+01:08:01,280 --> 01:08:04,160
+thank you guys bye
+
+1661
+01:08:09,520 --> 01:08:12,960
+oh yeah shut down so
+
+1662
+01:08:14,880 --> 01:08:17,520
+in stream
+
+1663
+01:08:19,759 --> 01:08:26,159
+i'm hungry so
+
+1664
+01:08:21,839 --> 01:08:26,159
+yeah i'm gonna eat so
+
+1665
+01:08:26,239 --> 01:08:30,480
+visual
+
+1666
+01:08:27,839 --> 01:08:34,600
+vs code close
+
+1667
+01:08:30,480 --> 01:08:34,600
+close vs go close
+

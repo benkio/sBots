@@ -1,0 +1,3388 @@
+1
+00:00:01,319 --> 00:00:06,480
+hello guys welcome to another episode
+
+2
+00:00:03,840 --> 00:00:09,440
+ofan talk show we are going to code
+
+3
+00:00:06,480 --> 00:00:11,719
+wolam language Mathematica doing plain
+
+4
+00:00:09,440 --> 00:00:15,679
+curves geometry
+
+5
+00:00:11,719 --> 00:00:19,359
+today so let me introduce my keyboard
+
+6
+00:00:15,679 --> 00:00:21,840
+glove at keyboard ultimate hacking
+
+7
+00:00:19,359 --> 00:00:24,160
+keyboard on my website you can see
+
+8
+00:00:21,840 --> 00:00:27,760
+reviews and on YouTube video
+
+9
+00:00:24,160 --> 00:00:30,320
+reviews and next next video we are going
+
+10
+00:00:27,760 --> 00:00:36,399
+to do this okay it's been a long time
+
+11
+00:00:30,320 --> 00:00:41,800
+this is this is s board data hand s v a
+
+12
+00:00:36,399 --> 00:00:44,000
+l b o a Rd SP board data hand a very
+
+13
+00:00:41,800 --> 00:00:46,079
+special input device I think it's the
+
+14
+00:00:44,000 --> 00:00:50,600
+best so next
+
+15
+00:00:46,079 --> 00:00:53,120
+videoa talk show we'll be doing this so
+
+16
+00:00:50,600 --> 00:00:57,000
+so okay so that is my keyboards
+
+17
+00:00:53,120 --> 00:01:00,840
+introduction now let's go to the
+
+18
+00:00:57,000 --> 00:01:04,159
+um let's start to do
+
+19
+00:01:00,840 --> 00:01:07,720
+today's uh talk show so let me switch
+
+20
+00:01:04,159 --> 00:01:10,200
+screen there we have it okay comments
+
+21
+00:01:07,720 --> 00:01:13,640
+and comments okay you ask me questions
+
+22
+00:01:10,200 --> 00:01:18,920
+Hello steo sup what's up wolam language
+
+23
+00:01:13,640 --> 00:01:22,560
+coding okay so so let's uh ready
+
+24
+00:01:18,920 --> 00:01:24,840
+ready uh so my keyboard my emac so I'm
+
+25
+00:01:22,560 --> 00:01:27,680
+using emac the Ping window shows all my
+
+26
+00:01:24,840 --> 00:01:30,600
+command course as I move cluer or delete
+
+27
+00:01:27,680 --> 00:01:33,399
+things or insert things you can see all
+
+28
+00:01:30,600 --> 00:01:37,960
+the command names on the right and the
+
+29
+00:01:33,399 --> 00:01:40,680
+key I type on the left I'm using sof
+
+30
+00:01:37,960 --> 00:01:45,200
+keys of course you can get it free on
+
+31
+00:01:40,680 --> 00:01:47,360
+GitHub it's part of the G emx repo uh
+
+32
+00:01:45,200 --> 00:01:50,560
+Sly Keys the most efficient key binding
+
+33
+00:01:47,360 --> 00:01:52,920
+system and I'm using a v keyboard layout
+
+34
+00:01:50,560 --> 00:01:54,719
+so today we are going to do some fun
+
+35
+00:01:52,920 --> 00:01:58,200
+thing actually I'm just going to work on
+
+36
+00:01:54,719 --> 00:02:00,640
+my website mathematics okay mathematics
+
+37
+00:01:58,200 --> 00:02:03,399
+extremely interesting subject
+
+38
+00:02:00,640 --> 00:02:05,920
+I'm going to work on the project special
+
+39
+00:02:03,399 --> 00:02:07,200
+plan curves the project I worked I
+
+40
+00:02:05,920 --> 00:02:12,800
+started in
+
+41
+00:02:07,200 --> 00:02:15,519
+1995 or 1994 okay so it's uh visual
+
+42
+00:02:12,800 --> 00:02:18,200
+dictionary of SP special plan curbs so
+
+43
+00:02:15,519 --> 00:02:20,840
+this website is my most famous popular
+
+44
+00:02:18,200 --> 00:02:23,879
+website linked by a thousand you know
+
+45
+00:02:20,840 --> 00:02:25,640
+over a thousand universities back then
+
+46
+00:02:23,879 --> 00:02:28,480
+uh 20 years ago
+
+47
+00:02:25,640 --> 00:02:30,720
+so uh and they are Asian you know if you
+
+48
+00:02:28,480 --> 00:02:32,879
+look at them today it's kind of asan but
+
+49
+00:02:30,720 --> 00:02:36,800
+back then it's the bleeding edge
+
+50
+00:02:32,879 --> 00:02:39,480
+technology using uh animations uh these
+
+51
+00:02:36,800 --> 00:02:42,280
+are this used to be videos but now I
+
+52
+00:02:39,480 --> 00:02:44,959
+turned them into GIF because the codc
+
+53
+00:02:42,280 --> 00:02:49,640
+used used by the QuickTime movie
+
+54
+00:02:44,959 --> 00:02:51,599
+animation format is gun obsolet so the
+
+55
+00:02:49,640 --> 00:02:54,519
+video players won't play so I have to
+
+56
+00:02:51,599 --> 00:02:58,280
+turn them into GIF so you are looking at
+
+57
+00:02:54,519 --> 00:03:00,840
+hypo tror curve so anyway so this is you
+
+58
+00:02:58,280 --> 00:03:04,080
+know all the special PL plan curves okay
+
+59
+00:03:00,840 --> 00:03:06,959
+they are two dimensional Curves in the
+
+60
+00:03:04,080 --> 00:03:10,400
+plane uh and they have tremendous number
+
+61
+00:03:06,959 --> 00:03:12,879
+of properties so wolam language okay so
+
+62
+00:03:10,400 --> 00:03:16,000
+the good you know what's good for you uh
+
+63
+00:03:12,879 --> 00:03:18,120
+maybe you will learn some wolam language
+
+64
+00:03:16,000 --> 00:03:21,200
+so let me introduce you wolam language
+
+65
+00:03:18,120 --> 00:03:23,480
+you can see we already started uh if you
+
+66
+00:03:21,200 --> 00:03:27,680
+don't know uh let me do some
+
+67
+00:03:23,480 --> 00:03:30,080
+introduction wolam language X okay so
+
+68
+00:03:27,680 --> 00:03:32,400
+wolam language in depth you search for
+
+69
+00:03:30,080 --> 00:03:35,480
+that and search my name you'll find it
+
+70
+00:03:32,400 --> 00:03:37,200
+wam language in depth and if you are
+
+71
+00:03:35,480 --> 00:03:41,280
+impatient you know you don't want to
+
+72
+00:03:37,200 --> 00:03:45,280
+watch long maybe perhaps rambling video
+
+73
+00:03:41,280 --> 00:03:48,280
+uh live stream you can just go to this
+
+74
+00:03:45,280 --> 00:03:51,920
+my tutorial okay so
+
+75
+00:03:48,280 --> 00:03:53,879
+and if you want a kind of comprehensive
+
+76
+00:03:51,920 --> 00:03:57,079
+today I'm kind of just doing random I'm
+
+77
+00:03:53,879 --> 00:04:00,920
+just going to work on my you know uh
+
+78
+00:03:57,079 --> 00:04:04,079
+curves conic sections and uh
+
+79
+00:04:00,920 --> 00:04:07,840
+and uh you know but if you want a
+
+80
+00:04:04,079 --> 00:04:09,879
+systematic tutorial on wolam language so
+
+81
+00:04:07,840 --> 00:04:12,840
+you can find them on my wolam language
+
+82
+00:04:09,879 --> 00:04:15,239
+in depth so there's some like
+
+83
+00:04:12,840 --> 00:04:18,239
+introduction how does the wolam language
+
+84
+00:04:15,239 --> 00:04:22,040
+work uh you know so there are there are
+
+85
+00:04:18,239 --> 00:04:25,639
+like 50 over 50 uh videos but some of
+
+86
+00:04:22,040 --> 00:04:28,919
+the best I put them here okay so just go
+
+87
+00:04:25,639 --> 00:04:30,560
+to wolam language in depth search for
+
+88
+00:04:28,919 --> 00:04:32,720
+Kali
+
+89
+00:04:30,560 --> 00:04:35,720
+my name and you can download wolf
+
+90
+00:04:32,720 --> 00:04:40,039
+language for free it was it became free
+
+91
+00:04:35,720 --> 00:04:43,039
+about uh six years ago by now okay and
+
+92
+00:04:40,039 --> 00:04:45,199
+uh so you what you get is a wolam script
+
+93
+00:04:43,039 --> 00:04:50,400
+which is like a text
+
+94
+00:04:45,199 --> 00:04:55,880
+based uh for example uh What uh turn it
+
+95
+00:04:50,400 --> 00:04:59,800
+back uh magnify okay
+
+96
+00:04:55,880 --> 00:05:02,039
+so so you can start wolm script and you
+
+97
+00:04:59,800 --> 00:05:05,440
+get text spased so you can watch my
+
+98
+00:05:02,039 --> 00:05:08,759
+video I have lots of demo uh but
+
+99
+00:05:05,440 --> 00:05:10,560
+now we don't want that okay so wolf
+
+100
+00:05:08,759 --> 00:05:11,720
+language you can download it for free
+
+101
+00:05:10,560 --> 00:05:14,240
+but they
+
+102
+00:05:11,720 --> 00:05:17,160
+don't uh they don't have like they
+
+103
+00:05:14,240 --> 00:05:21,360
+cannot do Graphics if you use the wfam
+
+104
+00:05:17,160 --> 00:05:24,840
+engine so what you can do is that you
+
+105
+00:05:21,360 --> 00:05:29,000
+download um you know you you you
+
+106
+00:05:24,840 --> 00:05:32,000
+download wam engine then then you
+
+107
+00:05:29,000 --> 00:05:36,039
+download the Jupiter you know there's a
+
+108
+00:05:32,000 --> 00:05:38,800
+Jupiter package created by wolam
+
+109
+00:05:36,039 --> 00:05:42,280
+research by the company that allows you
+
+110
+00:05:38,800 --> 00:05:45,000
+to have Graphics in the Jupiter notebook
+
+111
+00:05:42,280 --> 00:05:47,160
+okay that is a case you don't want to
+
+112
+00:05:45,000 --> 00:05:51,080
+pay you know if you are the open source
+
+113
+00:05:47,160 --> 00:05:53,120
+like I just want free things uh but then
+
+114
+00:05:51,080 --> 00:05:56,280
+I mean if you are really into it you
+
+115
+00:05:53,120 --> 00:05:58,240
+know you can just pay and buy wolfan
+
+116
+00:05:56,280 --> 00:06:00,560
+Mathematica that's that's what I
+
+117
+00:05:58,240 --> 00:06:03,280
+recommend
+
+118
+00:06:00,560 --> 00:06:05,680
+okay so curves so let me show you some
+
+119
+00:06:03,280 --> 00:06:08,960
+curves you know so is huge amount
+
+120
+00:06:05,680 --> 00:06:11,759
+involute involute is used for Gears uh
+
+121
+00:06:08,960 --> 00:06:13,880
+the design of Gears so what is involute
+
+122
+00:06:11,759 --> 00:06:16,560
+for example if you take a string you
+
+123
+00:06:13,880 --> 00:06:17,840
+wrap it around a circle and you unwrap
+
+124
+00:06:16,560 --> 00:06:21,039
+the
+
+125
+00:06:17,840 --> 00:06:23,880
+string that string the end of the string
+
+126
+00:06:21,039 --> 00:06:28,880
+will Trace out what's called involute so
+
+127
+00:06:23,880 --> 00:06:31,440
+this is used for uh gear design and uh
+
+128
+00:06:28,880 --> 00:06:34,720
+gear design uh for example all these
+
+129
+00:06:31,440 --> 00:06:38,039
+teeth of the gears you have to be you
+
+130
+00:06:34,720 --> 00:06:40,039
+know like normally if you don't know
+
+131
+00:06:38,039 --> 00:06:42,560
+anything about gears you just think of
+
+132
+00:06:40,039 --> 00:06:45,520
+them as like triangles you know that
+
+133
+00:06:42,560 --> 00:06:48,599
+should work but act but in
+
+134
+00:06:45,520 --> 00:06:51,400
+practice not really I mean the triangles
+
+135
+00:06:48,599 --> 00:06:53,560
+yeah it gives you the basic idea but in
+
+136
+00:06:51,400 --> 00:06:56,479
+in practice if you want to for example
+
+137
+00:06:53,560 --> 00:06:58,840
+put this in car for example car you have
+
+138
+00:06:56,479 --> 00:07:01,800
+gears you need you need this you know
+
+139
+00:06:58,840 --> 00:07:03,680
+you have you need lots of these if you
+
+140
+00:07:01,800 --> 00:07:06,039
+just have triangles they are not not
+
+141
+00:07:03,680 --> 00:07:09,120
+efficient they they they you know you
+
+142
+00:07:06,039 --> 00:07:13,479
+you need them to move smoothly and uh
+
+143
+00:07:09,120 --> 00:07:16,479
+with maximum efficiency right so so in
+
+144
+00:07:13,479 --> 00:07:19,479
+order to do that you need you know you
+
+145
+00:07:16,479 --> 00:07:23,879
+need to find the geometry of the teeth
+
+146
+00:07:19,479 --> 00:07:28,400
+and that is an application of this
+
+147
+00:07:23,879 --> 00:07:31,440
+involute thing okay so tremendous amount
+
+148
+00:07:28,400 --> 00:07:33,840
+of um
+
+149
+00:07:31,440 --> 00:07:35,720
+uh you know properties very interesting
+
+150
+00:07:33,840 --> 00:07:38,240
+properties for example this Lem muscate
+
+151
+00:07:35,720 --> 00:07:41,319
+of Boni it looks like that like a
+
+152
+00:07:38,240 --> 00:07:43,160
+infinity symbol and here's their
+
+153
+00:07:41,319 --> 00:07:46,479
+equations you know polar equation
+
+154
+00:07:43,160 --> 00:07:49,800
+parametric equation and many properties
+
+155
+00:07:46,479 --> 00:07:53,240
+for example this one uh blah blah blah
+
+156
+00:07:49,800 --> 00:07:55,919
+the distance is such and such that you
+
+157
+00:07:53,240 --> 00:08:00,800
+know from here to here and here to
+
+158
+00:07:55,919 --> 00:08:02,879
+there there their multiplication
+
+159
+00:08:00,800 --> 00:08:05,120
+uh product is
+
+160
+00:08:02,879 --> 00:08:07,759
+constant okay something something okay
+
+161
+00:08:05,120 --> 00:08:10,360
+you can read it in detail and how how
+
+162
+00:08:07,759 --> 00:08:14,080
+this curve has a relationship to
+
+163
+00:08:10,360 --> 00:08:18,000
+hyperbola okay so and also if you have a
+
+164
+00:08:14,080 --> 00:08:21,840
+Taurus or donut you cut it around right
+
+165
+00:08:18,000 --> 00:08:27,479
+around there then that cross-section
+
+166
+00:08:21,840 --> 00:08:30,000
+is is this lemiscate the Bui okay uh
+
+167
+00:08:27,479 --> 00:08:32,120
+like the infinity symbol okay but you
+
+168
+00:08:30,000 --> 00:08:35,800
+have to cut it right there right at the
+
+169
+00:08:32,120 --> 00:08:39,000
+inner border okay so you cut a donut at
+
+170
+00:08:35,800 --> 00:08:42,399
+you have a crosssection and and you see
+
+171
+00:08:39,000 --> 00:08:45,200
+all these they they show you how to use
+
+172
+00:08:42,399 --> 00:08:49,279
+gears uh linkages these are called
+
+173
+00:08:45,200 --> 00:08:52,519
+linkages to trace out the lemc of Boni
+
+174
+00:08:49,279 --> 00:08:55,920
+and this is useful if you want to
+
+175
+00:08:52,519 --> 00:08:58,440
+translate a vctor linear motion to a
+
+176
+00:08:55,920 --> 00:09:02,120
+circular motion so for example in
+
+177
+00:08:58,440 --> 00:09:05,200
+robotics for example robotic dogs you
+
+178
+00:09:02,120 --> 00:09:08,480
+know how their legs are move only move
+
+179
+00:09:05,200 --> 00:09:11,720
+in certain way so you have to use these
+
+180
+00:09:08,480 --> 00:09:16,000
+linkages so a lot of application you
+
+181
+00:09:11,720 --> 00:09:17,760
+know linkage by itself is a is a field
+
+182
+00:09:16,000 --> 00:09:21,959
+uh in
+
+183
+00:09:17,760 --> 00:09:25,360
+robotics so all these uh you know so
+
+184
+00:09:21,959 --> 00:09:28,480
+tremendous uh uh interesting things
+
+185
+00:09:25,360 --> 00:09:29,880
+about plane curves for example this
+
+186
+00:09:28,480 --> 00:09:33,279
+orthoptics
+
+187
+00:09:29,880 --> 00:09:36,560
+and I optic okay I wrote this long ago
+
+188
+00:09:33,279 --> 00:09:38,680
+you know 25 years ago 1995 when I was
+
+189
+00:09:36,560 --> 00:09:42,279
+younger when I was a team you know when
+
+190
+00:09:38,680 --> 00:09:44,120
+I was like a hot shot uh so you guys you
+
+191
+00:09:42,279 --> 00:09:46,160
+know if you are young you know you don't
+
+192
+00:09:44,120 --> 00:09:48,600
+have nothing to do you hang full CH
+
+193
+00:09:46,160 --> 00:09:49,959
+every day do something you know do
+
+194
+00:09:48,600 --> 00:09:55,399
+something when you are
+
+195
+00:09:49,959 --> 00:09:57,200
+young uh so this optic also uh orthoptic
+
+196
+00:09:55,399 --> 00:09:59,760
+is optic actually I don't remember what
+
+197
+00:09:57,200 --> 00:10:02,640
+they are an orthoptic curve is a locus
+
+198
+00:09:59,760 --> 00:10:06,079
+of all points where the curves tangents
+
+199
+00:10:02,640 --> 00:10:10,640
+meet at right angles okay you know
+
+200
+00:10:06,079 --> 00:10:12,839
+anyway so you can anyway so there's you
+
+201
+00:10:10,640 --> 00:10:15,959
+know lots of information so today we
+
+202
+00:10:12,839 --> 00:10:19,440
+just going to I'm going to you know one
+
+203
+00:10:15,959 --> 00:10:24,519
+of my my project is update this website
+
+204
+00:10:19,440 --> 00:10:27,800
+so all this website I need to update so
+
+205
+00:10:24,519 --> 00:10:29,920
+um you know so update this 25 years
+
+206
+00:10:27,800 --> 00:10:33,240
+project okay that's what I'm doing today
+
+207
+00:10:29,920 --> 00:10:36,680
+I'm just going to do some plot and uh
+
+208
+00:10:33,240 --> 00:10:40,079
+and some wolam language code you know
+
+209
+00:10:36,680 --> 00:10:43,200
+some of them is easy to plot for example
+
+210
+00:10:40,079 --> 00:10:46,440
+the the thing we want to plot today is
+
+211
+00:10:43,200 --> 00:10:49,880
+um for example you have sign and cosine
+
+212
+00:10:46,440 --> 00:10:53,600
+or this one is beautiful this is this is
+
+213
+00:10:49,880 --> 00:10:56,560
+this this is algorithmic art or
+
+214
+00:10:53,600 --> 00:11:00,680
+mathematical artwork beautiful they are
+
+215
+00:10:56,560 --> 00:11:02,839
+actually a plot of a of a a 2D equation
+
+216
+00:11:00,680 --> 00:11:05,880
+you know they are a part of this thing
+
+217
+00:11:02,839 --> 00:11:09,959
+okay so let's just show it you know
+
+218
+00:11:05,880 --> 00:11:09,959
+paste it run it run the
+
+219
+00:11:14,959 --> 00:11:21,320
+code there you have it so it's simply a
+
+220
+00:11:18,720 --> 00:11:22,959
+all these points are the solutions of
+
+221
+00:11:21,320 --> 00:11:27,200
+this equation
+
+222
+00:11:22,959 --> 00:11:30,440
+amazing is it is it amazing is it
+
+223
+00:11:27,200 --> 00:11:32,680
+beautiful so that's one thing you know
+
+224
+00:11:30,440 --> 00:11:35,519
+you can generate artwork and this is the
+
+225
+00:11:32,680 --> 00:11:38,600
+illustration of s and cosine you see
+
+226
+00:11:35,519 --> 00:11:41,639
+this animation I created like 25 years
+
+227
+00:11:38,600 --> 00:11:45,720
+ago this is a fundamental illustration
+
+228
+00:11:41,639 --> 00:11:48,680
+of the entire trigonometry thing okay
+
+229
+00:11:45,720 --> 00:11:51,480
+the entire trigonometry is basically
+
+230
+00:11:48,680 --> 00:11:54,320
+just the sign function s or cosine I
+
+231
+00:11:51,480 --> 00:11:57,120
+mean the the all the sign cosine
+
+232
+00:11:54,320 --> 00:12:00,480
+cosecant secant tangent cotangent can be
+
+233
+00:11:57,120 --> 00:12:03,040
+simply defined by just by sign
+
+234
+00:12:00,480 --> 00:12:07,839
+okay so but what does the sign function
+
+235
+00:12:03,040 --> 00:12:10,120
+mean it it's captured by this animation
+
+236
+00:12:07,839 --> 00:12:11,959
+so the sign function is basically just
+
+237
+00:12:10,120 --> 00:12:15,639
+the trace of
+
+238
+00:12:11,959 --> 00:12:17,120
+the basically it captures the circular
+
+239
+00:12:15,639 --> 00:12:20,760
+motion okay
+
+240
+00:12:17,120 --> 00:12:24,000
+circular circular circular motion to
+
+241
+00:12:20,760 --> 00:12:27,480
+linear motion that's that is the essence
+
+242
+00:12:24,000 --> 00:12:29,959
+of what what the sign function do and uh
+
+243
+00:12:27,480 --> 00:12:34,639
+and therefore the entire
+
+244
+00:12:29,959 --> 00:12:37,560
+trigonometry okay so so when you use you
+
+245
+00:12:34,639 --> 00:12:40,079
+know so all these are done with wam
+
+246
+00:12:37,560 --> 00:12:42,279
+language actually not some of them are
+
+247
+00:12:40,079 --> 00:12:45,600
+not because for example these two are
+
+248
+00:12:42,279 --> 00:12:49,199
+not ploted by wam because I started to
+
+249
+00:12:45,600 --> 00:12:51,959
+use some other uh software but
+
+250
+00:12:49,199 --> 00:12:54,839
+anyway what we have to do is that you
+
+251
+00:12:51,959 --> 00:12:57,480
+know for this for simple plot you can
+
+252
+00:12:54,839 --> 00:12:59,680
+you you know you can just you can just
+
+253
+00:12:57,480 --> 00:13:02,440
+you know plot you know in
+
+254
+00:12:59,680 --> 00:13:05,360
+language like like you are using a
+
+255
+00:13:02,440 --> 00:13:07,760
+graphing calculator but some others
+
+256
+00:13:05,360 --> 00:13:09,519
+require programming for example this
+
+257
+00:13:07,760 --> 00:13:12,160
+helex
+
+258
+00:13:09,519 --> 00:13:16,040
+projection you see when you project the
+
+259
+00:13:12,160 --> 00:13:18,600
+helex like that then the projection is
+
+260
+00:13:16,040 --> 00:13:21,320
+actually a sign curve okay so that's
+
+261
+00:13:18,600 --> 00:13:25,160
+another way to generate the sign curve
+
+262
+00:13:21,320 --> 00:13:27,600
+you see so this is this is why these
+
+263
+00:13:25,160 --> 00:13:29,760
+curves plain curves has tremendous you
+
+264
+00:13:27,600 --> 00:13:32,440
+know visually very interesting
+
+265
+00:13:29,760 --> 00:13:36,800
+mathematical properties you see you
+
+266
+00:13:32,440 --> 00:13:40,959
+project the helex then it is a sign
+
+267
+00:13:36,800 --> 00:13:45,600
+curve uh of course and also if you roll
+
+268
+00:13:40,959 --> 00:13:49,279
+a cylinder with a a blackly cut cylinder
+
+269
+00:13:45,600 --> 00:13:52,399
+you know that also traces out a S curve
+
+270
+00:13:49,279 --> 00:13:56,120
+and then you also can see S curve in two
+
+271
+00:13:52,399 --> 00:13:57,839
+dimensional sign curve so this is a uh
+
+272
+00:13:56,120 --> 00:14:01,440
+two-dimensional uh
+
+273
+00:13:57,839 --> 00:14:04,680
+function uh actually a function that
+
+274
+00:14:01,440 --> 00:14:07,240
+takes two arguments X X and Y and
+
+275
+00:14:04,680 --> 00:14:09,759
+returns one single value Returns the
+
+276
+00:14:07,240 --> 00:14:13,079
+height okay so the graph of that
+
+277
+00:14:09,759 --> 00:14:15,639
+function is this kind of cubic wave so
+
+278
+00:14:13,079 --> 00:14:18,680
+it's basically just sign okay I believe
+
+279
+00:14:15,639 --> 00:14:22,000
+this is just s time cosine uh yeah s
+
+280
+00:14:18,680 --> 00:14:26,279
+Time s sin x * sin y you get this
+
+281
+00:14:22,000 --> 00:14:29,560
+surface okay uh in fact we can plot that
+
+282
+00:14:26,279 --> 00:14:32,600
+okay so do we have it plotted uh yeah
+
+283
+00:14:29,560 --> 00:14:36,360
+so our job today is simply I mean I'm
+
+284
+00:14:32,600 --> 00:14:40,519
+just going to you know do some PL so um
+
+285
+00:14:36,360 --> 00:14:43,519
+so for example um plot
+
+286
+00:14:40,519 --> 00:14:43,519
+3D
+
+287
+00:14:50,519 --> 00:14:54,079
+uh okay
+
+288
+00:14:54,959 --> 00:15:03,320
+three okay plus 3D that and uh what what
+
+289
+00:14:59,920 --> 00:15:06,600
+is the sign goes from zero
+
+290
+00:15:03,320 --> 00:15:12,759
+to Pi okay
+
+291
+00:15:06,600 --> 00:15:15,880
+then X goes from 0 to Pi then
+
+292
+00:15:12,759 --> 00:15:21,000
+um y goes to 0
+
+293
+00:15:15,880 --> 00:15:27,759
+to Pi okay let's run it okay you got one
+
+294
+00:15:21,000 --> 00:15:27,759
+piece of it so let's say uh 4 pi
+
+295
+00:15:30,199 --> 00:15:36,279
+there it is okay so you see we need to
+
+296
+00:15:34,240 --> 00:15:39,279
+update so that's what I'm doing I need
+
+297
+00:15:36,279 --> 00:15:41,480
+to update this graph okay uh there is
+
+298
+00:15:39,279 --> 00:15:42,680
+something we don't want because right
+
+299
+00:15:41,480 --> 00:15:45,600
+now you
+
+300
+00:15:42,680 --> 00:15:49,639
+see
+
+301
+00:15:45,600 --> 00:15:51,279
+it's higher than you know this I I want
+
+302
+00:15:49,639 --> 00:15:54,680
+them to look like
+
+303
+00:15:51,279 --> 00:15:57,160
+that so what do you do so any questions
+
+304
+00:15:54,680 --> 00:16:00,920
+comments is it
+
+305
+00:15:57,160 --> 00:16:00,920
+good so
+
+306
+00:16:05,199 --> 00:16:09,360
+so what I'm saying is that some of them
+
+307
+00:16:07,160 --> 00:16:11,720
+just require a simple plot and While
+
+308
+00:16:09,360 --> 00:16:15,160
+others require some coding okay this one
+
+309
+00:16:11,720 --> 00:16:19,880
+is another beautiful one I call this one
+
+310
+00:16:15,160 --> 00:16:24,480
+B Cube so this is this is again a simple
+
+311
+00:16:19,880 --> 00:16:28,639
+plot of a equation of equation of three
+
+312
+00:16:24,480 --> 00:16:29,920
+variables X Y and Z and that equation is
+
+313
+00:16:28,639 --> 00:16:34,920
+this
+
+314
+00:16:29,920 --> 00:16:37,360
+one okay so in fact we can copy and and
+
+315
+00:16:34,920 --> 00:16:37,360
+and do
+
+316
+00:16:50,759 --> 00:16:57,040
+it uh why is this one taking so long
+
+317
+00:16:54,720 --> 00:17:00,839
+taking longer than
+
+318
+00:16:57,040 --> 00:17:03,439
+expected oh okay there it is so once you
+
+319
+00:17:00,839 --> 00:17:07,160
+get the graphics you
+
+320
+00:17:03,439 --> 00:17:10,679
+can you can actually rotate it so this
+
+321
+00:17:07,160 --> 00:17:12,799
+is the beauty if you actually buy wolam
+
+322
+00:17:10,679 --> 00:17:15,240
+language you know if you just download
+
+323
+00:17:12,799 --> 00:17:20,640
+the free wolam engine you don't get that
+
+324
+00:17:15,240 --> 00:17:23,720
+but you can then you use the
+
+325
+00:17:20,640 --> 00:17:26,319
+um you know that that what's the name
+
+326
+00:17:23,720 --> 00:17:30,480
+notepad you know you can download it
+
+327
+00:17:26,319 --> 00:17:32,640
+free then you can have this
+
+328
+00:17:30,480 --> 00:17:34,559
+um but anyway there there is a issue
+
+329
+00:17:32,640 --> 00:17:36,720
+like whenever you rotate they kind of
+
+330
+00:17:34,559 --> 00:17:40,480
+shrink too because I mean they have to
+
+331
+00:17:36,720 --> 00:17:44,240
+shink within the
+
+332
+00:17:40,480 --> 00:17:48,039
+um yeah that's you know you can fix that
+
+333
+00:17:44,240 --> 00:17:49,960
+by by creating a spherical border but
+
+334
+00:17:48,039 --> 00:17:53,919
+anyway
+
+335
+00:17:49,960 --> 00:17:57,159
+so anyway I'm I I want first of all
+
+336
+00:17:53,919 --> 00:18:00,120
+let's update this this Graphics
+
+337
+00:17:57,159 --> 00:18:02,520
+okay uh
+
+338
+00:18:00,120 --> 00:18:04,159
+and I don't like this color okay I don't
+
+339
+00:18:02,520 --> 00:18:07,679
+like this
+
+340
+00:18:04,159 --> 00:18:10,200
+color oh all you have to do is AIS ratio
+
+341
+00:18:07,679 --> 00:18:14,640
+you know I mean the you see right now
+
+342
+00:18:10,200 --> 00:18:19,039
+they are not plotted in in aspect ratio
+
+343
+00:18:14,640 --> 00:18:19,039
+I mean in um what's the
+
+344
+00:18:23,320 --> 00:18:30,559
+name okay let's see let's do that let's
+
+345
+00:18:26,640 --> 00:18:34,840
+do that again mesh style plot style
+
+346
+00:18:30,559 --> 00:18:39,600
+let's click on that uh plot style oh you
+
+347
+00:18:34,840 --> 00:18:44,240
+can change color okay
+
+348
+00:18:39,600 --> 00:18:44,240
+so I don't like this color
+
+349
+00:18:47,280 --> 00:18:55,280
+Okay theme image size export image uh
+
+350
+00:18:52,200 --> 00:18:59,360
+light lighting lighting is always
+
+351
+00:18:55,280 --> 00:19:00,240
+interesting neutral okay and I don't
+
+352
+00:18:59,360 --> 00:19:02,559
+want
+
+353
+00:19:00,240 --> 00:19:06,320
+neutral
+
+354
+00:19:02,559 --> 00:19:09,480
+so background access
+
+355
+00:19:06,320 --> 00:19:14,360
+Viewpoint aspect ratio okay the the
+
+356
+00:19:09,480 --> 00:19:14,360
+feature the the thing I'm looking for
+
+357
+00:19:16,159 --> 00:19:19,159
+is
+
+358
+00:19:22,559 --> 00:19:29,640
+uh aspic
+
+359
+00:19:25,640 --> 00:19:29,640
+ratio one
+
+360
+00:19:30,760 --> 00:19:39,000
+oh that's the no that's the whole uh oh
+
+361
+00:19:35,440 --> 00:19:39,000
+you should be
+
+362
+00:19:41,640 --> 00:19:45,799
+automatic uh no we
+
+363
+00:19:46,480 --> 00:19:56,720
+want what uh okay let's look up aspect
+
+364
+00:19:52,520 --> 00:20:00,640
+ratio we want it to be stretch Graphics
+
+365
+00:19:56,720 --> 00:20:04,400
+to figure out in close
+
+366
+00:20:00,640 --> 00:20:08,159
+region determines ratio of the actual
+
+367
+00:20:04,400 --> 00:20:08,159
+coordinate values
+
+368
+00:20:08,880 --> 00:20:16,200
+okay so you see from here to here is one
+
+369
+00:20:13,240 --> 00:20:19,720
+I mean it's two but from here to here is
+
+370
+00:20:16,200 --> 00:20:24,320
+10 so they kind of compressed it
+
+371
+00:20:19,720 --> 00:20:28,080
+vertically which is uh not what I
+
+372
+00:20:24,320 --> 00:20:31,000
+want so let's see what's some examples
+
+373
+00:20:28,080 --> 00:20:31,000
+to f F
+
+374
+00:20:36,120 --> 00:20:44,480
+that okay so wait a minute
+
+375
+00:20:40,960 --> 00:20:49,720
+the aspect ratio
+
+376
+00:20:44,480 --> 00:20:49,720
+is aspect ratio is
+
+377
+00:20:50,440 --> 00:20:56,000
+um is not exactly what we
+
+378
+00:20:56,200 --> 00:21:00,600
+want box ratios let's
+
+379
+00:21:02,720 --> 00:21:10,240
+see okay let's see box ratios yeah box
+
+380
+00:21:06,760 --> 00:21:10,240
+ratio automatic I
+
+381
+00:21:19,240 --> 00:21:23,960
+think there it is now it's more
+
+382
+00:21:22,240 --> 00:21:27,720
+beautiful now it's
+
+383
+00:21:23,960 --> 00:21:30,799
+soothing okay now 3 Pi 4 Pi is too much
+
+384
+00:21:27,720 --> 00:21:30,799
+let's just say two 2
+
+385
+00:21:31,440 --> 00:21:36,960
+pi okay 2 pi is not enough let's say 3
+
+386
+00:21:38,000 --> 00:21:44,960
+Pi uh need a bit more let's see one two
+
+387
+00:21:42,880 --> 00:21:48,360
+one
+
+388
+00:21:44,960 --> 00:21:52,240
+two okay so it's
+
+389
+00:21:48,360 --> 00:21:54,679
+more aesthetically pleasing if you cut
+
+390
+00:21:52,240 --> 00:21:57,600
+it right on the
+
+391
+00:21:54,679 --> 00:22:00,640
+ridge yeah so instead of instead of you
+
+392
+00:21:57,600 --> 00:22:04,400
+know you have the flat boundary so you
+
+393
+00:22:00,640 --> 00:22:07,919
+want to cut it right on the ridge so you
+
+394
+00:22:04,400 --> 00:22:09,370
+can do that by simply
+
+395
+00:22:07,919 --> 00:22:10,880
+um
+
+396
+00:22:09,370 --> 00:22:15,360
+[Music]
+
+397
+00:22:10,880 --> 00:22:15,360
+simply start with pi/
+
+398
+00:22:15,600 --> 00:22:18,600
+2
+
+399
+00:22:22,039 --> 00:22:28,640
+okay
+
+400
+00:22:23,720 --> 00:22:28,640
+uh yeah but um
+
+401
+00:22:28,960 --> 00:22:33,919
+now that's good now to put it 4
+
+402
+00:22:34,320 --> 00:22:40,559
+Pi okay that's kind of what I want now
+
+403
+00:22:38,559 --> 00:22:44,360
+the next thing is that I don't like the
+
+404
+00:22:40,559 --> 00:22:47,320
+lighting okay so actually copy
+
+405
+00:22:44,360 --> 00:22:52,039
+that I'm going to use my let's see what
+
+406
+00:22:47,320 --> 00:22:56,279
+is this yeah close that close that
+
+407
+00:22:52,039 --> 00:22:58,840
+uh I'm going to use wam
+
+408
+00:22:56,279 --> 00:23:04,080
+language in
+
+409
+00:22:58,840 --> 00:23:07,840
+in emac so if you don't know what that
+
+410
+00:23:04,080 --> 00:23:09,320
+is I have a wolf and language mod that
+
+411
+00:23:07,840 --> 00:23:13,960
+allows you to
+
+412
+00:23:09,320 --> 00:23:14,919
+work with wolam engine or wolam script
+
+413
+00:23:13,960 --> 00:23:18,919
+in
+
+414
+00:23:14,919 --> 00:23:22,480
+emx so you can download it for free it's
+
+415
+00:23:18,919 --> 00:23:23,799
+here uh wait it's here okay you can
+
+416
+00:23:22,480 --> 00:23:26,440
+download
+
+417
+00:23:23,799 --> 00:23:28,840
+it so what's the benefit well the
+
+418
+00:23:26,440 --> 00:23:31,320
+benefit is you know you can use em Max
+
+419
+00:23:28,840 --> 00:23:32,760
+so you have the full power but except
+
+420
+00:23:31,320 --> 00:23:35,320
+you cannot do
+
+421
+00:23:32,760 --> 00:23:38,480
+Graphics uh but however you can still
+
+422
+00:23:35,320 --> 00:23:41,440
+edit it easier but
+
+423
+00:23:38,480 --> 00:23:42,960
+um so showing browser okay that's what
+
+424
+00:23:41,440 --> 00:23:46,720
+we plotted
+
+425
+00:23:42,960 --> 00:23:48,960
+today uh yeah now we want to change the
+
+426
+00:23:46,720 --> 00:23:53,799
+lighting
+
+427
+00:23:48,960 --> 00:23:53,799
+okay uh let's see
+
+428
+00:24:16,880 --> 00:24:19,480
+copy
+
+429
+00:24:26,559 --> 00:24:30,360
+that okay so
+
+430
+00:24:30,440 --> 00:24:36,640
+do I really want to change yes because
+
+431
+00:24:33,080 --> 00:24:39,559
+that image is like 20 uh 20 years ago
+
+432
+00:24:36,640 --> 00:24:43,399
+you see they don't have
+
+433
+00:24:39,559 --> 00:24:45,399
+Alias um but now I want to change color
+
+434
+00:24:43,399 --> 00:24:50,720
+okay I don't like the coloring so what
+
+435
+00:24:45,399 --> 00:24:57,480
+you do is you just look at
+
+436
+00:24:50,720 --> 00:24:57,480
+the the documentation for plot 3D okay
+
+437
+00:25:06,960 --> 00:25:12,240
+in particular what you need is an option
+
+438
+00:25:10,440 --> 00:25:14,200
+okay so let's
+
+439
+00:25:12,240 --> 00:25:18,640
+magnify plus
+
+440
+00:25:14,200 --> 00:25:21,320
+3D uh you have a option for lighting now
+
+441
+00:25:18,640 --> 00:25:24,000
+lighting is one of the most spectacular
+
+442
+00:25:21,320 --> 00:25:27,799
+thing because then you can do
+
+443
+00:25:24,000 --> 00:25:31,640
+transparency you can do spec uh specular
+
+444
+00:25:27,799 --> 00:25:33,960
+lightning like that is that is reflect
+
+445
+00:25:31,640 --> 00:25:36,840
+reflexive like
+
+446
+00:25:33,960 --> 00:25:39,840
+shiny uh you can do lots of things so
+
+447
+00:25:36,840 --> 00:25:43,960
+but you need
+
+448
+00:25:39,840 --> 00:25:46,720
+the uh lighting okay then you can change
+
+449
+00:25:43,960 --> 00:25:46,720
+the mesh
+
+450
+00:25:46,880 --> 00:25:56,279
+style yeah so and so this four
+
+451
+00:25:52,159 --> 00:26:00,000
+of I okay lighting okay so this is what
+
+452
+00:25:56,279 --> 00:26:00,000
+we want lighting
+
+453
+00:26:04,320 --> 00:26:10,440
+option automatic
+
+454
+00:26:07,279 --> 00:26:13,640
+none okay so let's just do this uh
+
+455
+00:26:10,440 --> 00:26:17,640
+several of them okay copy
+
+456
+00:26:13,640 --> 00:26:21,840
+copy copy copy copy okay so we have a
+
+457
+00:26:17,640 --> 00:26:24,840
+bunch of them we try different lightning
+
+458
+00:26:21,840 --> 00:26:24,840
+okay
+
+459
+00:26:24,960 --> 00:26:32,279
+uh okay so lighting what is it supposed
+
+460
+00:26:28,120 --> 00:26:36,559
+to to be is supposed to be automatic or
+
+461
+00:26:32,279 --> 00:26:39,919
+a light named light or a sequence of
+
+462
+00:26:36,559 --> 00:26:41,600
+light sources okay uh possible named
+
+463
+00:26:39,919 --> 00:26:46,919
+light
+
+464
+00:26:41,600 --> 00:26:46,919
+standard neutral accent okay let's
+
+465
+00:26:50,520 --> 00:26:56,799
+try so that is one of the um
+
+466
+00:27:14,159 --> 00:27:19,320
+okay
+
+467
+00:27:16,200 --> 00:27:26,360
+so yeah lighting standard what's the
+
+468
+00:27:19,320 --> 00:27:26,360
+other neutral accent 3 point
+
+469
+00:27:47,919 --> 00:27:53,360
+okay let's try
+
+470
+00:27:49,600 --> 00:27:53,360
+this see what
+
+471
+00:27:55,760 --> 00:28:06,159
+happens oh okay uh now this is like this
+
+472
+00:28:00,720 --> 00:28:09,000
+is like nuclear disaster fire burned out
+
+473
+00:28:06,159 --> 00:28:11,919
+so this is good
+
+474
+00:28:09,000 --> 00:28:17,559
+but I don't like
+
+475
+00:28:11,919 --> 00:28:17,559
+it you know what we see here is
+
+476
+00:28:21,200 --> 00:28:29,640
+the you see what we see here it was the
+
+477
+00:28:26,399 --> 00:28:32,840
+standard back in 19
+
+478
+00:28:29,640 --> 00:28:38,080
+1890s so I still prefer
+
+479
+00:28:32,840 --> 00:28:38,080
+that uh yeah but now you have
+
+480
+00:28:39,159 --> 00:28:46,320
+to so I don't like this light so you
+
+481
+00:28:43,080 --> 00:28:46,320
+know lighting is fairly
+
+482
+00:28:51,559 --> 00:28:58,240
+complicated
+
+483
+00:28:53,440 --> 00:29:02,399
+uh so wait uh so you might need to spe
+
+484
+00:28:58,240 --> 00:29:05,360
+specify three light sources possible
+
+485
+00:29:02,399 --> 00:29:08,159
+name lighting setting include
+
+486
+00:29:05,360 --> 00:29:12,000
+standard uh standard doesn't do much
+
+487
+00:29:08,159 --> 00:29:12,000
+let's turn on JavaScript
+
+488
+00:29:12,919 --> 00:29:19,960
+yes okay so you have ambient light
+
+489
+00:29:16,399 --> 00:29:25,559
+directional light Point light each light
+
+490
+00:29:19,960 --> 00:29:29,320
+source SI can be of the following forms
+
+491
+00:29:25,559 --> 00:29:31,960
+okay uh wa why is this
+
+492
+00:29:29,320 --> 00:29:31,960
+oh okay
+
+493
+00:29:34,170 --> 00:29:40,200
+[Music]
+
+494
+00:29:36,159 --> 00:29:44,679
+so directional light spherical Point
+
+495
+00:29:40,200 --> 00:29:46,440
+light okay so you know you can just play
+
+496
+00:29:44,679 --> 00:29:49,760
+with light for
+
+497
+00:29:46,440 --> 00:29:51,880
+hours so you have Spotlight Point light
+
+498
+00:29:49,760 --> 00:29:56,200
+directional
+
+499
+00:29:51,880 --> 00:29:56,200
+light okay so directional
+
+500
+00:29:56,679 --> 00:30:07,159
+light is is okay so it's like um
+
+501
+00:30:02,159 --> 00:30:07,159
+infinite parallel projection
+
+502
+00:30:08,760 --> 00:30:18,200
+okay so you give it that
+
+503
+00:30:13,399 --> 00:30:18,200
+then okay so you can kind
+
+504
+00:30:18,600 --> 00:30:22,000
+of so
+
+505
+00:30:23,600 --> 00:30:29,960
+lightning okay so lightning so we can so
+
+506
+00:30:31,799 --> 00:30:37,039
+here so we have a directional
+
+507
+00:30:35,519 --> 00:30:40,080
+light
+
+508
+00:30:37,039 --> 00:30:42,120
+here and
+
+509
+00:30:40,080 --> 00:30:46,480
+uh yeah
+
+510
+00:30:42,120 --> 00:30:49,039
+so you don't want that so but you want
+
+511
+00:30:46,480 --> 00:30:53,559
+this to be a list of
+
+512
+00:30:49,039 --> 00:30:58,360
+things so here is the RGB color let's
+
+513
+00:30:53,559 --> 00:31:03,039
+just say red okay and then you give it
+
+514
+00:30:58,360 --> 00:31:03,039
+what are these two these are two
+
+515
+00:31:08,440 --> 00:31:15,360
+positions okay so those two are two
+
+516
+00:31:12,120 --> 00:31:18,720
+points from so the light forms a
+
+517
+00:31:15,360 --> 00:31:21,919
+direction from this point to that point
+
+518
+00:31:18,720 --> 00:31:21,919
+so this is
+
+519
+00:31:22,120 --> 00:31:29,480
+5555 okay so this lighting is like from
+
+520
+00:31:25,799 --> 00:31:29,480
+top to down
+
+521
+00:31:31,840 --> 00:31:41,320
+seems like okay I don't think I want
+
+522
+00:31:36,279 --> 00:31:41,320
+that so this is a directional
+
+523
+00:31:47,760 --> 00:31:53,120
+light okay directional light color and
+
+524
+00:31:51,279 --> 00:31:55,679
+point is a
+
+525
+00:31:53,120 --> 00:31:58,480
+three-dimensional graphics directive
+
+526
+00:31:55,679 --> 00:32:02,639
+that specifies the directional light of
+
+527
+00:31:58,480 --> 00:32:04,720
+color from the point PT to the center of
+
+528
+00:32:02,639 --> 00:32:07,639
+the bounding
+
+529
+00:32:04,720 --> 00:32:13,720
+box okay to the center of the bounding
+
+530
+00:32:07,639 --> 00:32:16,360
+box okay so let's say color red then you
+
+531
+00:32:13,720 --> 00:32:17,399
+just need one element here so you don't
+
+532
+00:32:16,360 --> 00:32:20,799
+need
+
+533
+00:32:17,399 --> 00:32:24,919
+to and where do you want it be so let's
+
+534
+00:32:20,799 --> 00:32:30,679
+just say Above So 0
+
+535
+00:32:24,919 --> 00:32:30,679
+0 uh 100 okay let's see what
+
+536
+00:32:36,039 --> 00:32:39,039
+happens
+
+537
+00:32:39,440 --> 00:32:49,039
+yeah so you are shining a red light on
+
+538
+00:32:43,360 --> 00:32:49,039
+it directly then you got that
+
+539
+00:32:49,919 --> 00:32:56,000
+so yeah and we don't you don't seems to
+
+540
+00:32:53,519 --> 00:32:59,720
+see shadows and all that let's see one
+
+541
+00:32:56,000 --> 00:32:59,720
+one what happens
+
+542
+00:33:00,200 --> 00:33:07,240
+oh we do see Shadows but this
+
+543
+00:33:04,240 --> 00:33:10,000
+is very very strong
+
+544
+00:33:07,240 --> 00:33:15,320
+light so you have some kind you know you
+
+545
+00:33:10,000 --> 00:33:15,320
+have a red light on it from the
+
+546
+00:33:16,279 --> 00:33:23,480
+side yeah actually from the the light
+
+547
+00:33:19,279 --> 00:33:26,120
+point is somewhere here you know on the
+
+548
+00:33:23,480 --> 00:33:28,240
+on the x equals to zero I mean on the
+
+549
+00:33:26,120 --> 00:33:29,360
+plane
+
+550
+00:33:28,240 --> 00:33:34,279
+uh
+
+551
+00:33:29,360 --> 00:33:37,159
+so but if we raise it a little bit
+
+552
+00:33:34,279 --> 00:33:39,720
+see yeah you can you still get kind of
+
+553
+00:33:37,159 --> 00:33:39,720
+that like
+
+554
+00:33:41,440 --> 00:33:46,440
+that okay so that is a directional light
+
+555
+00:33:45,440 --> 00:33:51,240
+but
+
+556
+00:33:46,440 --> 00:33:56,639
+then it's just one lighting okay
+
+557
+00:33:51,240 --> 00:33:56,639
+so uh let's see blue what happens
+
+558
+00:34:02,000 --> 00:34:06,720
+okay this is like very
+
+559
+00:34:07,679 --> 00:34:13,800
+creepy
+
+560
+00:34:10,119 --> 00:34:18,240
+uh yeah but that's not what we so we we
+
+561
+00:34:13,800 --> 00:34:20,359
+do want some kind of Shadow or um so
+
+562
+00:34:18,240 --> 00:34:23,760
+that will depends
+
+563
+00:34:20,359 --> 00:34:23,760
+on the
+
+564
+00:34:24,879 --> 00:34:30,280
+surface yeah specularity okay okay so
+
+565
+00:34:28,280 --> 00:34:33,760
+copy
+
+566
+00:34:30,280 --> 00:34:40,520
+that so let's try this
+
+567
+00:34:33,760 --> 00:34:40,520
+one plus style okay so you need plus
+
+568
+00:34:41,720 --> 00:34:48,599
+style so
+
+569
+00:34:44,520 --> 00:34:48,599
+let's so you need
+
+570
+00:34:49,919 --> 00:34:57,720
+a plus style at Leist and uh one of that
+
+571
+00:34:54,760 --> 00:34:59,320
+is specularity which is which spec
+
+572
+00:34:57,720 --> 00:35:02,480
+specifies the
+
+573
+00:34:59,320 --> 00:35:07,160
+shiny the reflective properties of the
+
+574
+00:35:02,480 --> 00:35:07,160
+surface okay so let's try
+
+575
+00:35:09,079 --> 00:35:13,000
+that there we have it there we have some
+
+576
+00:35:12,200 --> 00:35:19,760
+kind
+
+577
+00:35:13,000 --> 00:35:19,760
+of oh wow look it changes as you
+
+578
+00:35:21,000 --> 00:35:26,280
+move let's see it
+
+579
+00:35:23,599 --> 00:35:29,839
+does
+
+580
+00:35:26,280 --> 00:35:32,640
+wow so the light is not fixed to the
+
+581
+00:35:29,839 --> 00:35:32,640
+surface you
+
+582
+00:35:41,000 --> 00:35:50,119
+see see you see quite
+
+583
+00:35:45,760 --> 00:35:53,000
+amazing so we here what we have uh yeah
+
+584
+00:35:50,119 --> 00:35:58,839
+we have Direction light and we have
+
+585
+00:35:53,000 --> 00:35:58,839
+the reflectiveness of the surface
+
+586
+00:36:01,760 --> 00:36:05,680
+and
+
+587
+00:36:03,599 --> 00:36:09,720
+uh so you
+
+588
+00:36:05,680 --> 00:36:11,960
+need you need two lights okay so let's
+
+589
+00:36:09,720 --> 00:36:15,040
+let's
+
+590
+00:36:11,960 --> 00:36:18,839
+actually put two lights let's say this
+
+591
+00:36:15,040 --> 00:36:18,839
+one blue
+
+592
+00:36:19,200 --> 00:36:28,160
+um uh red is from where red is 0 0 100
+
+593
+00:36:24,200 --> 00:36:28,160
+red is from the top
+
+594
+00:36:29,480 --> 00:36:33,240
+okay uh let's
+
+595
+00:36:37,000 --> 00:36:44,760
+see
+
+596
+00:36:38,520 --> 00:36:48,079
+100 100 100 okay that's kind of from one
+
+597
+00:36:44,760 --> 00:36:50,119
+corner and the other one is from a
+
+598
+00:36:48,079 --> 00:36:54,200
+different Corner
+
+599
+00:36:50,119 --> 00:36:54,200
+okay so let's try
+
+600
+00:36:54,760 --> 00:37:02,440
+that oops something is wrong oh yeah you
+
+601
+00:36:59,880 --> 00:37:02,440
+need a
+
+602
+00:37:12,880 --> 00:37:16,400
+comma still
+
+603
+00:37:23,400 --> 00:37:27,400
+wrong oh
+
+604
+00:37:42,560 --> 00:37:45,079
+okay
+
+605
+00:37:55,680 --> 00:38:01,720
+now beautiful now this is looking like a
+
+606
+00:38:11,359 --> 00:38:17,160
+seashell yeah but it's still doesn't
+
+607
+00:38:14,280 --> 00:38:18,920
+like give you the natural
+
+608
+00:38:17,160 --> 00:38:21,760
+look
+
+609
+00:38:18,920 --> 00:38:24,119
+um you know like this one is actually
+
+610
+00:38:21,760 --> 00:38:24,119
+pretty
+
+611
+00:38:24,359 --> 00:38:30,960
+good so anyway I think I need to think
+
+612
+00:38:28,119 --> 00:38:35,960
+about how to do this how long have I
+
+613
+00:38:30,960 --> 00:38:35,960
+been talking 15 minutes already any
+
+614
+00:38:43,560 --> 00:38:47,720
+questions good night
+
+615
+00:38:46,319 --> 00:38:49,200
+steel okay
+
+616
+00:38:47,720 --> 00:38:52,400
+[Music]
+
+617
+00:38:49,200 --> 00:38:57,599
+so you know I did it's
+
+618
+00:38:52,400 --> 00:38:58,800
+like 40 minutes spent just on this
+
+619
+00:38:57,599 --> 00:39:02,800
+simple
+
+620
+00:38:58,800 --> 00:39:06,520
+thing um so you can
+
+621
+00:39:02,800 --> 00:39:09,680
+see you can really spend hours to play
+
+622
+00:39:06,520 --> 00:39:13,440
+with this lightning
+
+623
+00:39:09,680 --> 00:39:17,560
+stuff but I was surprised that this
+
+624
+00:39:13,440 --> 00:39:20,800
+lighting changed in real time it wasn't
+
+625
+00:39:17,560 --> 00:39:20,800
+uh so 20 years
+
+626
+00:39:21,280 --> 00:39:28,800
+ago so the lightning seems to be not
+
+627
+00:39:25,839 --> 00:39:32,520
+fixed to the surface
+
+628
+00:39:28,800 --> 00:39:36,000
+which is properly done uh because you
+
+629
+00:39:32,520 --> 00:39:36,000
+don't want it to stick to the
+
+630
+00:39:37,119 --> 00:39:43,359
+surface and
+
+631
+00:39:40,160 --> 00:39:44,680
+uh well I mean so we have to make
+
+632
+00:39:43,359 --> 00:39:48,520
+judgment
+
+633
+00:39:44,680 --> 00:39:51,880
+on like artistic
+
+634
+00:39:48,520 --> 00:39:55,160
+judgment you know like which one looks
+
+635
+00:39:51,880 --> 00:39:58,040
+better you know this doesn't look so
+
+636
+00:39:55,160 --> 00:40:01,040
+right because you don't see the
+
+637
+00:39:58,040 --> 00:40:02,520
+here and Valley you know it looks like
+
+638
+00:40:01,040 --> 00:40:05,960
+you know
+
+639
+00:40:02,520 --> 00:40:07,520
+just so you
+
+640
+00:40:05,960 --> 00:40:10,200
+need
+
+641
+00:40:07,520 --> 00:40:13,599
+specularity let's
+
+642
+00:40:10,200 --> 00:40:16,720
+say 10
+
+643
+00:40:13,599 --> 00:40:20,040
+let okay so what so you need some kind
+
+644
+00:40:16,720 --> 00:40:22,520
+of ambient light okay so let's go back
+
+645
+00:40:20,040 --> 00:40:25,160
+let's add some ambient
+
+646
+00:40:22,520 --> 00:40:28,520
+light so I think we're going to finish
+
+647
+00:40:25,160 --> 00:40:33,000
+that and uh then May maybe that's it we
+
+648
+00:40:28,520 --> 00:40:36,240
+just add some so here is a point
+
+649
+00:40:33,000 --> 00:40:40,720
+light okay I think I prefer Point light
+
+650
+00:40:36,240 --> 00:40:43,200
+instead of um instead of directional
+
+651
+00:40:40,720 --> 00:40:43,200
+light
+
+652
+00:40:50,000 --> 00:40:58,640
+so yeah so there direction we delete
+
+653
+00:40:55,240 --> 00:40:58,640
+that so
+
+654
+00:41:06,760 --> 00:41:10,280
+let's see what happens with
+
+655
+00:41:12,839 --> 00:41:19,480
+this okay still not
+
+656
+00:41:15,640 --> 00:41:21,560
+much okay so but now let's add some
+
+657
+00:41:19,480 --> 00:41:25,520
+ambient
+
+658
+00:41:21,560 --> 00:41:29,240
+light Point light directional light
+
+659
+00:41:25,520 --> 00:41:29,240
+lightning you want
+
+660
+00:41:38,040 --> 00:41:43,480
+okay you see
+
+661
+00:41:41,640 --> 00:41:48,440
+the
+
+662
+00:41:43,480 --> 00:41:48,440
+there so you want some ambient
+
+663
+00:41:48,920 --> 00:41:51,920
+light
+
+664
+00:41:53,440 --> 00:41:57,440
+here uh
+
+665
+00:42:07,440 --> 00:42:13,520
+lighting
+
+666
+00:42:09,680 --> 00:42:17,359
+none ambient light orange okay let's add
+
+667
+00:42:13,520 --> 00:42:17,359
+some ambient light
+
+668
+00:42:38,839 --> 00:42:41,640
+uh what is
+
+669
+00:42:42,720 --> 00:42:47,880
+the ambient
+
+670
+00:42:45,359 --> 00:42:49,559
+lights blue red
+
+671
+00:42:47,880 --> 00:42:52,680
+Brown
+
+672
+00:42:49,559 --> 00:42:56,839
+uh blue red yellow let's see what
+
+673
+00:42:52,680 --> 00:42:56,839
+happens if you do yellow
+
+674
+00:43:00,240 --> 00:43:04,200
+okay the ambient light is
+
+675
+00:43:14,880 --> 00:43:21,960
+not so if you turn Li To
+
+676
+00:43:19,920 --> 00:43:24,520
+None
+
+677
+00:43:21,960 --> 00:43:27,720
+maybe because when you have lighting
+
+678
+00:43:24,520 --> 00:43:34,280
+then the ambient light has no effect
+
+679
+00:43:27,720 --> 00:43:34,280
+so if you turn all the lightings to
+
+680
+00:43:39,480 --> 00:43:45,800
+none this is not
+
+681
+00:43:41,570 --> 00:43:51,040
+[Laughter]
+
+682
+00:43:45,800 --> 00:43:51,040
+good what so what if you take our
+
+683
+00:43:51,520 --> 00:43:57,040
+specularity no you do need some kind of
+
+684
+00:43:54,040 --> 00:43:57,040
+lighting
+
+685
+00:43:57,400 --> 00:44:02,839
+so
+
+686
+00:43:58,800 --> 00:44:05,440
+uh you see This is complicated because
+
+687
+00:44:02,839 --> 00:44:10,559
+besides all these different
+
+688
+00:44:05,440 --> 00:44:14,440
+lighting you can also change the
+
+689
+00:44:10,559 --> 00:44:17,880
+surface color for example you can
+
+690
+00:44:14,440 --> 00:44:20,839
+see Mater material shading material
+
+691
+00:44:17,880 --> 00:44:23,640
+shading is a three-dimensional graphics
+
+692
+00:44:20,839 --> 00:44:26,520
+directive specifying that the surface
+
+693
+00:44:23,640 --> 00:44:27,920
+that follow are to be drawn with a
+
+694
+00:44:26,520 --> 00:44:31,079
+material
+
+695
+00:44:27,920 --> 00:44:34,079
+okay material appearance and then you
+
+696
+00:44:31,079 --> 00:44:37,520
+can have a color as option so you have
+
+697
+00:44:34,079 --> 00:44:41,280
+some examples aluminum
+
+698
+00:44:37,520 --> 00:44:43,960
+brass oh
+
+699
+00:44:41,280 --> 00:44:47,319
+aluminum that's interesting so then
+
+700
+00:44:43,960 --> 00:44:51,520
+there's plastic silver so let's
+
+701
+00:44:47,319 --> 00:44:54,760
+try aluminum or
+
+702
+00:44:51,520 --> 00:44:55,559
+aluminium as that as that keyword I used
+
+703
+00:44:54,760 --> 00:44:58,640
+to
+
+704
+00:44:55,559 --> 00:45:02,200
+say uh actually this is very interesting
+
+705
+00:44:58,640 --> 00:45:04,160
+so let's try let's try iron because iron
+
+706
+00:45:02,200 --> 00:45:07,240
+is easy to
+
+707
+00:45:04,160 --> 00:45:08,359
+type and then you have plastic okay so
+
+708
+00:45:07,240 --> 00:45:10,040
+here is
+
+709
+00:45:08,359 --> 00:45:13,119
+the
+
+710
+00:45:10,040 --> 00:45:16,880
+specular reflection Viewpoint specular
+
+711
+00:45:13,119 --> 00:45:21,000
+diffusion and light
+
+712
+00:45:16,880 --> 00:45:23,720
+okay let's try this okay material
+
+713
+00:45:21,000 --> 00:45:23,720
+shading
+
+714
+00:45:24,000 --> 00:45:30,559
+copy uh
+
+715
+00:45:27,240 --> 00:45:33,440
+uh where do we put that okay yeah that's
+
+716
+00:45:30,559 --> 00:45:33,440
+not what what we
+
+717
+00:45:35,480 --> 00:45:45,240
+want material shading material okay so
+
+718
+00:45:41,000 --> 00:45:49,160
+iron so that is that and how do
+
+719
+00:45:45,240 --> 00:45:49,160
+you where do you put
+
+720
+00:45:53,480 --> 00:45:59,800
+it wow very very
+
+721
+00:46:04,319 --> 00:46:12,200
+involved okay so you can map it to
+
+722
+00:46:08,640 --> 00:46:15,520
+texture uh lighting three point okay
+
+723
+00:46:12,200 --> 00:46:19,720
+material shading iron
+
+724
+00:46:15,520 --> 00:46:19,720
+H yeah that's I don't think
+
+725
+00:46:22,000 --> 00:46:27,079
+that's I don't think that's what
+
+726
+00:46:28,760 --> 00:46:34,760
+I don't think this will work but we can
+
+727
+00:46:38,040 --> 00:46:42,000
+try oh it kind of
+
+728
+00:46:42,960 --> 00:46:52,880
+worked but now it's
+
+729
+00:46:45,960 --> 00:46:52,880
+more crazy so now you just take out the
+
+730
+00:46:54,440 --> 00:47:04,079
+lightning now you just REM move the our
+
+731
+00:46:58,800 --> 00:47:08,319
+custom lighting and uh put it
+
+732
+00:47:04,079 --> 00:47:08,319
+to three point
+
+733
+00:47:17,240 --> 00:47:25,720
+okay three point you know the W language
+
+734
+00:47:21,119 --> 00:47:27,640
+started to have these string based names
+
+735
+00:47:25,720 --> 00:47:29,319
+which is always
+
+736
+00:47:27,640 --> 00:47:31,680
+problematic to deal with in a
+
+737
+00:47:29,319 --> 00:47:34,200
+programming language like JavaScript
+
+738
+00:47:31,680 --> 00:47:35,880
+also has lots of that JavaScript
+
+739
+00:47:34,200 --> 00:47:39,000
+especially with the
+
+740
+00:47:35,880 --> 00:47:42,559
+CSS you started had to have a lot of
+
+741
+00:47:39,000 --> 00:47:45,240
+option names that's simply a string so
+
+742
+00:47:42,559 --> 00:47:48,280
+when when that is the case usually you
+
+743
+00:47:45,240 --> 00:47:50,119
+cannot do keyword completions because
+
+744
+00:47:48,280 --> 00:47:52,079
+you know
+
+745
+00:47:50,119 --> 00:47:54,880
+but you
+
+746
+00:47:52,079 --> 00:47:57,720
+see for example you don't
+
+747
+00:47:54,880 --> 00:48:03,280
+know what possible options for the
+
+748
+00:47:57,720 --> 00:48:06,280
+material shading except a literal list
+
+749
+00:48:03,280 --> 00:48:06,280
+but
+
+750
+00:48:07,000 --> 00:48:12,720
+um anyway so let's keep going with this
+
+751
+00:48:14,440 --> 00:48:19,880
+okay okay so now we actually get some
+
+752
+00:48:17,760 --> 00:48:23,760
+kind of
+
+753
+00:48:19,880 --> 00:48:28,559
+wow material shading
+
+754
+00:48:23,760 --> 00:48:31,800
+iron it's just
+
+755
+00:48:28,559 --> 00:48:34,640
+wow spectacular actually
+
+756
+00:48:31,800 --> 00:48:37,520
+actually this is spectacular we can
+
+757
+00:48:34,640 --> 00:48:37,520
+let's just use
+
+758
+00:48:40,760 --> 00:48:48,720
+this you know actually yeah so consider
+
+759
+00:48:45,400 --> 00:48:51,000
+this like done uh what wait a minute I
+
+760
+00:48:48,720 --> 00:48:51,000
+want
+
+761
+00:48:51,640 --> 00:48:58,720
+to okay so this is this is uh iron let's
+
+762
+00:48:55,880 --> 00:48:58,720
+say silver
+
+763
+00:49:03,559 --> 00:49:11,119
+fantastic yeah let's use this okay
+
+764
+00:49:07,160 --> 00:49:15,440
+so this is like consider today's
+
+765
+00:49:11,119 --> 00:49:17,720
+work okay captured now let's go back to
+
+766
+00:49:15,440 --> 00:49:22,119
+my curve
+
+767
+00:49:17,720 --> 00:49:25,000
+page syntax showing browser and we need
+
+768
+00:49:22,119 --> 00:49:30,520
+to go to sign
+
+769
+00:49:25,000 --> 00:49:33,160
+curve um sign curve and the the surface
+
+770
+00:49:30,520 --> 00:49:35,000
+wavy surface okay so we're going to
+
+771
+00:49:33,160 --> 00:49:40,799
+replace that
+
+772
+00:49:35,000 --> 00:49:43,520
+by uh wait so you need to add image that
+
+773
+00:49:40,799 --> 00:49:46,839
+is one okay so rename
+
+774
+00:49:43,520 --> 00:49:49,520
+it wavy surface
+
+775
+00:49:46,839 --> 00:49:52,760
+okay
+
+776
+00:49:49,520 --> 00:49:55,200
+uh yeah okay so
+
+777
+00:49:52,760 --> 00:49:59,280
+that redo
+
+778
+00:49:55,200 --> 00:50:00,440
+it okay remove that and show in browser
+
+779
+00:49:59,280 --> 00:50:02,720
+showing
+
+780
+00:50:00,440 --> 00:50:08,000
+browser
+
+781
+00:50:02,720 --> 00:50:11,880
+magnify go down go down go down go down
+
+782
+00:50:08,000 --> 00:50:15,240
+fantastic beautiful
+
+783
+00:50:11,880 --> 00:50:16,400
+whoa fantastic okay that's that's what
+
+784
+00:50:15,240 --> 00:50:19,319
+I'm going to
+
+785
+00:50:16,400 --> 00:50:23,599
+use
+
+786
+00:50:19,319 --> 00:50:27,160
+so let's see yep going to use that one
+
+787
+00:50:23,599 --> 00:50:32,799
+better than this one this is is see this
+
+788
+00:50:27,160 --> 00:50:37,359
+is a difference of Technology after 25
+
+789
+00:50:32,799 --> 00:50:39,880
+years okay so um yep and I'm going to so
+
+790
+00:50:37,359 --> 00:50:41,960
+I'm going to copy the code so here's the
+
+791
+00:50:39,880 --> 00:50:45,359
+code copy
+
+792
+00:50:41,960 --> 00:50:48,839
+it and just put the code
+
+793
+00:50:45,359 --> 00:50:50,640
+here move from language put it there
+
+794
+00:50:48,839 --> 00:50:55,760
+syntax
+
+795
+00:50:50,640 --> 00:50:57,319
+CCT and uh showing browser so fantastic
+
+796
+00:50:55,760 --> 00:50:59,040
+I think that's it we we're going to we
+
+797
+00:50:57,319 --> 00:51:04,200
+just show this
+
+798
+00:50:59,040 --> 00:51:04,200
+one uh that already took 40 50
+
+799
+00:51:04,880 --> 00:51:13,720
+minutes okay any things
+
+800
+00:51:08,480 --> 00:51:17,680
+guys so next we're going to do is uh I'm
+
+801
+00:51:13,720 --> 00:51:21,160
+going to do this okay next video in two
+
+802
+00:51:17,680 --> 00:51:24,359
+days probably two days two or three no
+
+803
+00:51:21,160 --> 00:51:29,119
+more than three we're going to do
+
+804
+00:51:24,359 --> 00:51:32,200
+this data hand small board live I'm
+
+805
+00:51:29,119 --> 00:51:34,160
+going to show you guys okay and anything
+
+806
+00:51:32,200 --> 00:51:35,480
+else do you guys have any questions
+
+807
+00:51:34,160 --> 00:51:39,280
+about W
+
+808
+00:51:35,480 --> 00:51:42,880
+language we're going to shut down in two
+
+809
+00:51:39,280 --> 00:51:44,799
+minutes uh so I'm actually pretty happy
+
+810
+00:51:42,880 --> 00:51:47,920
+you know so one of these days I'm going
+
+811
+00:51:44,799 --> 00:51:51,359
+to do I'm going to code this animation
+
+812
+00:51:47,920 --> 00:51:54,200
+in wam language you see when you want
+
+813
+00:51:51,359 --> 00:51:56,880
+things like this like today what we did
+
+814
+00:51:54,200 --> 00:51:58,920
+is simply plot okay or we have have to
+
+815
+00:51:56,880 --> 00:52:01,760
+do is just you know type the function
+
+816
+00:51:58,920 --> 00:52:06,079
+name you know just plot it try different
+
+817
+00:52:01,760 --> 00:52:08,480
+color and see what we want but you you
+
+818
+00:52:06,079 --> 00:52:12,240
+know then you get more involved then you
+
+819
+00:52:08,480 --> 00:52:15,160
+have to uh do visual uh Graphics
+
+820
+00:52:12,240 --> 00:52:17,559
+programming like that and this one is
+
+821
+00:52:15,160 --> 00:52:21,240
+actually pretty simple too and this one
+
+822
+00:52:17,559 --> 00:52:22,880
+also you need to do some kind of uh
+
+823
+00:52:21,240 --> 00:52:25,720
+Graphics
+
+824
+00:52:22,880 --> 00:52:28,359
+programming and these two and and in all
+
+825
+00:52:25,720 --> 00:52:32,240
+these cases is actually pretty simple
+
+826
+00:52:28,359 --> 00:52:35,319
+but I can show you a more uh difficult
+
+827
+00:52:32,240 --> 00:52:38,920
+case Okay a more difficult case is this
+
+828
+00:52:35,319 --> 00:52:41,480
+one you see this you see this conic
+
+829
+00:52:38,920 --> 00:52:45,359
+sections so they are a double
+
+830
+00:52:41,480 --> 00:52:48,799
+cone then you slice them with a
+
+831
+00:52:45,359 --> 00:52:51,960
+plane you know parallel plane then you
+
+832
+00:52:48,799 --> 00:52:56,960
+get that so this will be more difficult
+
+833
+00:52:51,960 --> 00:53:01,440
+to do and and one of these um coming
+
+834
+00:52:56,960 --> 00:53:01,440
+weeks I'm going to do one of
+
+835
+00:53:07,599 --> 00:53:14,079
+that Luke Smith Lucas Smith oh hi for
+
+836
+00:53:12,559 --> 00:53:18,520
+the for the moment I thought you are
+
+837
+00:53:14,079 --> 00:53:23,040
+Luke Smith the Luke Smith guy lenux guy
+
+838
+00:53:18,520 --> 00:53:27,160
+uh fantastic good night okay uh bye
+
+839
+00:53:23,040 --> 00:53:30,480
+guys okay now I clean up and bye guys
+
+840
+00:53:27,160 --> 00:53:33,359
+so sign curve sign curve beautiful I
+
+841
+00:53:30,480 --> 00:53:37,680
+really I'm pretty happy with today's
+
+842
+00:53:33,359 --> 00:53:41,040
+result this this thing pretty happy yeah
+
+843
+00:53:37,680 --> 00:53:43,799
+um okay so that is that we did today
+
+844
+00:53:41,040 --> 00:53:46,160
+close that uh what is is close that
+
+845
+00:53:43,799 --> 00:53:51,440
+coning section talk
+
+846
+00:53:46,160 --> 00:53:56,200
+show close that Boven okay so the W
+
+847
+00:53:51,440 --> 00:53:56,200
+documentation okay that's it bye
+

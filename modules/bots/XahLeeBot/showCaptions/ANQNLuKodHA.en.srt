@@ -1,0 +1,6311 @@
+1
+00:00:04,500 --> 00:00:10,860
+hello guys welcome to another episode of
+
+2
+00:00:07,560 --> 00:00:12,900
+Star Talk show so we are going to code
+
+3
+00:00:10,860 --> 00:00:16,560
+emac lisp
+
+4
+00:00:12,900 --> 00:00:20,279
+uh we are going to code a major mod for
+
+5
+00:00:16,560 --> 00:00:22,380
+python a python major mod from scratch
+
+6
+00:00:20,279 --> 00:00:25,080
+um if you search the web just search for
+
+7
+00:00:22,380 --> 00:00:27,599
+Sardi uh emac beasts how to write a
+
+8
+00:00:25,080 --> 00:00:30,779
+major mod I already have a tutorial here
+
+9
+00:00:27,599 --> 00:00:34,020
+in fact I did a video last year on
+
+10
+00:00:30,779 --> 00:00:36,600
+writing a Golan mod from scratch
+
+11
+00:00:34,020 --> 00:00:38,640
+okay so we are going to follow the
+
+12
+00:00:36,600 --> 00:00:41,579
+tutorial I'm gonna do it from scratch
+
+13
+00:00:38,640 --> 00:00:44,399
+and I'm gonna show you how to do it live
+
+14
+00:00:41,579 --> 00:00:46,860
+but if you want to read you know this
+
+15
+00:00:44,399 --> 00:00:49,680
+old tutorials about how to write a major
+
+16
+00:00:46,860 --> 00:00:52,140
+mod okay and
+
+17
+00:00:49,680 --> 00:00:56,340
+okay so today's talk show writing a
+
+18
+00:00:52,140 --> 00:01:00,840
+major mod python emac beast and last
+
+19
+00:00:56,340 --> 00:01:04,440
+time about you know uh 2022 November
+
+20
+00:01:00,840 --> 00:01:07,560
+10th we we did a video starting to write
+
+21
+00:01:04,440 --> 00:01:09,780
+it but we didn't write the major mod
+
+22
+00:01:07,560 --> 00:01:12,299
+but we expand
+
+23
+00:01:09,780 --> 00:01:14,520
+why do I want to do it so anyway it's
+
+24
+00:01:12,299 --> 00:01:17,460
+gonna be focused today so
+
+25
+00:01:14,520 --> 00:01:18,900
+um hope you guys emacs fans will get
+
+26
+00:01:17,460 --> 00:01:21,420
+used out of this
+
+27
+00:01:18,900 --> 00:01:24,299
+uh it's pretty easy okay so let's start
+
+28
+00:01:21,420 --> 00:01:25,680
+okay so let's write a major mod from
+
+29
+00:01:24,299 --> 00:01:29,580
+scratch
+
+30
+00:01:25,680 --> 00:01:33,560
+um so let's start a emac beast code
+
+31
+00:01:29,580 --> 00:01:38,759
+okay so actually uh let's see new file
+
+32
+00:01:33,560 --> 00:01:40,280
+something save it as XX let's say
+
+33
+00:01:38,759 --> 00:01:48,060
+um
+
+34
+00:01:40,280 --> 00:01:52,320
+let's say python Mod Dot El okay so here
+
+35
+00:01:48,060 --> 00:01:55,079
+is a file uh date okay
+
+36
+00:01:52,320 --> 00:01:58,380
+let's see so copy it post the link here
+
+37
+00:01:55,079 --> 00:02:03,240
+link it so you can go through it easily
+
+38
+00:01:58,380 --> 00:02:05,820
+so a major mod major mod
+
+39
+00:02:03,240 --> 00:02:07,740
+for python okay if you have common and
+
+40
+00:02:05,820 --> 00:02:09,560
+questions posted okay love to see your
+
+41
+00:02:07,740 --> 00:02:12,120
+comments
+
+42
+00:02:09,560 --> 00:02:15,000
+Crazy Frog I don't know what that means
+
+43
+00:02:12,120 --> 00:02:18,360
+I definitely made good use of your otmax
+
+44
+00:02:15,000 --> 00:02:21,120
+major mod tutorial oh great fantastic
+
+45
+00:02:18,360 --> 00:02:23,160
+okay major mod for python uh on the pink
+
+46
+00:02:21,120 --> 00:02:25,379
+window you can see all my command cores
+
+47
+00:02:23,160 --> 00:02:27,780
+as I type or move Cruiser or whatever
+
+48
+00:02:25,379 --> 00:02:30,060
+you can see all the command names and
+
+49
+00:02:27,780 --> 00:02:32,780
+the keystroke on the left I'm using a
+
+50
+00:02:30,060 --> 00:02:36,660
+vorac keyboard layout this is Xposed
+
+51
+00:02:32,780 --> 00:02:40,200
+expose keyboard you can search and find
+
+52
+00:02:36,660 --> 00:02:43,260
+it on my website because Audi exposed
+
+53
+00:02:40,200 --> 00:02:46,140
+Saudi keyboard blog you'll find it one
+
+54
+00:02:43,260 --> 00:02:50,400
+of my favorite ergonomic keyboard
+
+55
+00:02:46,140 --> 00:02:52,800
+okay and okay so a major mod so
+
+56
+00:02:50,400 --> 00:02:55,920
+right so write the major Mark you know I
+
+57
+00:02:52,800 --> 00:02:58,800
+uh so I don't remember so let's go to
+
+58
+00:02:55,920 --> 00:03:00,300
+um let's just go to the tutorial so the
+
+59
+00:02:58,800 --> 00:03:02,459
+to write the major amount the first
+
+60
+00:03:00,300 --> 00:03:06,780
+thing you want to do is syntax coloring
+
+61
+00:03:02,459 --> 00:03:09,180
+so uh so for example uh so let's see so
+
+62
+00:03:06,780 --> 00:03:11,819
+this is the code this is basically all
+
+63
+00:03:09,180 --> 00:03:14,819
+there is to it
+
+64
+00:03:11,819 --> 00:03:18,840
+so we want to first of all a mod name
+
+65
+00:03:14,819 --> 00:03:20,099
+let's say some python mod so change that
+
+66
+00:03:18,840 --> 00:03:21,540
+to
+
+67
+00:03:20,099 --> 00:03:25,680
+uh
+
+68
+00:03:21,540 --> 00:03:27,780
+saw python okay change change okay so
+
+69
+00:03:25,680 --> 00:03:31,500
+the first thing you want to Define is
+
+70
+00:03:27,780 --> 00:03:33,840
+highlight now in emac this there is no
+
+71
+00:03:31,500 --> 00:03:37,739
+package or March there is no namespace
+
+72
+00:03:33,840 --> 00:03:41,159
+so every function in your package in
+
+73
+00:03:37,739 --> 00:03:45,480
+your list code must begin with a
+
+74
+00:03:41,159 --> 00:03:50,640
+prefix so in our case it's a python okay
+
+75
+00:03:45,480 --> 00:03:52,560
+for this example so some python uh so
+
+76
+00:03:50,640 --> 00:03:54,959
+I'm gonna explain everything okay so
+
+77
+00:03:52,560 --> 00:03:57,480
+first of all you define these keywords
+
+78
+00:03:54,959 --> 00:04:00,239
+that you want to highlight
+
+79
+00:03:57,480 --> 00:04:02,040
+in writing a major mod to to the first
+
+80
+00:04:00,239 --> 00:04:03,780
+thing you want to do there are several
+
+81
+00:04:02,040 --> 00:04:06,120
+things you want to do for a major mod
+
+82
+00:04:03,780 --> 00:04:09,720
+for programming language syntax current
+
+83
+00:04:06,120 --> 00:04:13,200
+that's the most most common and basic
+
+84
+00:04:09,720 --> 00:04:15,239
+feature you need then you
+
+85
+00:04:13,200 --> 00:04:18,299
+in order to do syntax highlight
+
+86
+00:04:15,239 --> 00:04:20,100
+highlighting highlighting there
+
+87
+00:04:18,299 --> 00:04:22,620
+two major ways
+
+88
+00:04:20,100 --> 00:04:24,660
+vast majority of major mod for
+
+89
+00:04:22,620 --> 00:04:28,259
+programming languages they use the font
+
+90
+00:04:24,660 --> 00:04:31,020
+lock mod so font lock Mark mod is kind
+
+91
+00:04:28,259 --> 00:04:35,759
+of a library that
+
+92
+00:04:31,020 --> 00:04:38,580
+you can call to to to syntax color
+
+93
+00:04:35,759 --> 00:04:40,320
+the buffer so if you are writing a
+
+94
+00:04:38,580 --> 00:04:43,320
+programming language major mod you
+
+95
+00:04:40,320 --> 00:04:46,979
+usually want to use Font like mod the
+
+96
+00:04:43,320 --> 00:04:50,699
+other way is to go low level so you
+
+97
+00:04:46,979 --> 00:04:53,460
+actually so that means for every string
+
+98
+00:04:50,699 --> 00:04:57,419
+of text you use regular expression to
+
+99
+00:04:53,460 --> 00:05:01,139
+find that keywords or whatever then you
+
+100
+00:04:57,419 --> 00:05:04,380
+call then you add a um
+
+101
+00:05:01,139 --> 00:05:06,360
+you add a string properties text
+
+102
+00:05:04,380 --> 00:05:09,180
+properties it's called text properties
+
+103
+00:05:06,360 --> 00:05:11,960
+you can see here okay so you add text
+
+104
+00:05:09,180 --> 00:05:15,440
+properties basically it means you know
+
+105
+00:05:11,960 --> 00:05:19,620
+that from position to certain position
+
+106
+00:05:15,440 --> 00:05:22,500
+you add a text property to that text in
+
+107
+00:05:19,620 --> 00:05:25,020
+the buffer so that emac supports that
+
+108
+00:05:22,500 --> 00:05:27,539
+feature so for example like this put
+
+109
+00:05:25,020 --> 00:05:30,660
+text property begin that's a position or
+
+110
+00:05:27,539 --> 00:05:33,960
+integer then then you specify your phone
+
+111
+00:05:30,660 --> 00:05:36,060
+lock phase you specify what color or
+
+112
+00:05:33,960 --> 00:05:39,780
+background color or underline or both
+
+113
+00:05:36,060 --> 00:05:41,880
+things like that so again in summary two
+
+114
+00:05:39,780 --> 00:05:44,460
+ways to do
+
+115
+00:05:41,880 --> 00:05:46,919
+uh syntax coloring there's another way
+
+116
+00:05:44,460 --> 00:05:49,800
+actually but there's another another way
+
+117
+00:05:46,919 --> 00:05:51,720
+is overlay highlight anyway for writing
+
+118
+00:05:49,800 --> 00:05:54,180
+a major mod for programming language two
+
+119
+00:05:51,720 --> 00:05:58,560
+primary ways one is
+
+120
+00:05:54,180 --> 00:06:03,000
+you use the font lock mod which is like
+
+121
+00:05:58,560 --> 00:06:06,600
+a library okay a vast majority of a
+
+122
+00:06:03,000 --> 00:06:09,720
+major mod do that or you can go a low
+
+123
+00:06:06,600 --> 00:06:11,699
+level use text properties which means
+
+124
+00:06:09,720 --> 00:06:15,360
+you use a regular expression lots of
+
+125
+00:06:11,699 --> 00:06:19,080
+them to search you know particular word
+
+126
+00:06:15,360 --> 00:06:22,919
+or phrase then add a coloring property
+
+127
+00:06:19,080 --> 00:06:26,460
+like font size font to use color
+
+128
+00:06:22,919 --> 00:06:29,039
+background color for one color Okay so
+
+129
+00:06:26,460 --> 00:06:32,160
+you know so this is low level not many
+
+130
+00:06:29,039 --> 00:06:33,840
+people do that so most people just use a
+
+131
+00:06:32,160 --> 00:06:37,199
+front lock mod
+
+132
+00:06:33,840 --> 00:06:39,120
+okay so scene so for a major mod the
+
+133
+00:06:37,199 --> 00:06:42,720
+things you want to do is syntax coloring
+
+134
+00:06:39,120 --> 00:06:46,500
+that's one primary thing then then you
+
+135
+00:06:42,720 --> 00:06:48,840
+want to uh color the comments and the
+
+136
+00:06:46,500 --> 00:06:53,580
+stream okay so for example let's see
+
+137
+00:06:48,840 --> 00:06:58,100
+let's go to python uh wait let's go to
+
+138
+00:06:53,580 --> 00:06:58,100
+let's go to a python file okay
+
+139
+00:06:58,620 --> 00:07:04,800
+I hope I can do this in uh in in 40
+
+140
+00:07:02,699 --> 00:07:07,259
+minutes uh very
+
+141
+00:07:04,800 --> 00:07:10,680
+um condensed okay so here is a python
+
+142
+00:07:07,259 --> 00:07:13,800
+file this is the default Emax python mod
+
+143
+00:07:10,680 --> 00:07:17,220
+so you can see there are some comments
+
+144
+00:07:13,800 --> 00:07:19,380
+and you can see here is a string and
+
+145
+00:07:17,220 --> 00:07:22,979
+here are common so you also need to
+
+146
+00:07:19,380 --> 00:07:27,120
+color common in string okay so that's
+
+147
+00:07:22,979 --> 00:07:29,280
+that's part of syntax coloring but in
+
+148
+00:07:27,120 --> 00:07:32,220
+the emac system you have to do them
+
+149
+00:07:29,280 --> 00:07:34,919
+separately kind of okay so I'm gonna
+
+150
+00:07:32,220 --> 00:07:37,860
+explain everything
+
+151
+00:07:34,919 --> 00:07:39,599
+so then so syntax cutting that's one
+
+152
+00:07:37,860 --> 00:07:42,419
+thing you want to do then you need
+
+153
+00:07:39,599 --> 00:07:46,440
+keyword completion of course very
+
+154
+00:07:42,419 --> 00:07:49,620
+um useful for example in in Python if I
+
+155
+00:07:46,440 --> 00:07:51,120
+say p Okay so
+
+156
+00:07:49,620 --> 00:07:58,160
+let's see
+
+157
+00:07:51,120 --> 00:07:58,160
+control meta I to complete and
+
+158
+00:07:58,319 --> 00:08:04,460
+wait do I still control meta I
+
+159
+00:08:01,680 --> 00:08:04,460
+now
+
+160
+00:08:07,880 --> 00:08:14,360
+completion a point yeah the the default
+
+161
+00:08:11,340 --> 00:08:14,360
+python mods
+
+162
+00:08:15,180 --> 00:08:20,639
+they don't have that for some reason but
+
+163
+00:08:18,000 --> 00:08:23,940
+anyway so keyword completion is is one
+
+164
+00:08:20,639 --> 00:08:27,360
+of the most useful thing uh you want
+
+165
+00:08:23,940 --> 00:08:29,759
+you know the default I would say most
+
+166
+00:08:27,360 --> 00:08:31,680
+building emacs programming language mods
+
+167
+00:08:29,759 --> 00:08:34,860
+they don't have
+
+168
+00:08:31,680 --> 00:08:37,919
+a very good keyword completion so you
+
+169
+00:08:34,860 --> 00:08:41,880
+have to install external packages such
+
+170
+00:08:37,919 --> 00:08:44,399
+as icomplete and others but anyway if
+
+171
+00:08:41,880 --> 00:08:48,720
+you code emac this the default emac this
+
+172
+00:08:44,399 --> 00:08:49,560
+mod has a kind of okay key uh completion
+
+173
+00:08:48,720 --> 00:08:52,200
+so
+
+174
+00:08:49,560 --> 00:08:54,240
+keyword completion is something you a
+
+175
+00:08:52,200 --> 00:08:57,000
+feature you need for your major mod very
+
+176
+00:08:54,240 --> 00:08:59,220
+useful so you need to write that
+
+177
+00:08:57,000 --> 00:09:01,680
+okay and the
+
+178
+00:08:59,220 --> 00:09:03,720
+that is almost that's a that's a
+
+179
+00:09:01,680 --> 00:09:06,360
+fundamental so if you got the syntax
+
+180
+00:09:03,720 --> 00:09:08,640
+coloring done and you if you got the
+
+181
+00:09:06,360 --> 00:09:12,180
+keyword completion done oh and another
+
+182
+00:09:08,640 --> 00:09:16,260
+thing is that you want a comment command
+
+183
+00:09:12,180 --> 00:09:19,140
+so for example in Python 2 comment or
+
+184
+00:09:16,260 --> 00:09:22,200
+uncomment a line that is also very
+
+185
+00:09:19,140 --> 00:09:25,040
+critical so these three things you need
+
+186
+00:09:22,200 --> 00:09:28,560
+to do syntax cutting
+
+187
+00:09:25,040 --> 00:09:31,140
+keywords including string and the
+
+188
+00:09:28,560 --> 00:09:33,839
+comment that's one thing
+
+189
+00:09:31,140 --> 00:09:37,680
+common command that's also critical
+
+190
+00:09:33,839 --> 00:09:39,959
+essential okay then keyword completion
+
+191
+00:09:37,680 --> 00:09:42,240
+you know completion completing function
+
+192
+00:09:39,959 --> 00:09:44,760
+names building function names keywords
+
+193
+00:09:42,240 --> 00:09:47,339
+for each Loop while loop you know things
+
+194
+00:09:44,760 --> 00:09:50,519
+like that so you can just type while and
+
+195
+00:09:47,339 --> 00:09:53,820
+you'll complete you know um
+
+196
+00:09:50,519 --> 00:09:56,700
+and preferably with a template you know
+
+197
+00:09:53,820 --> 00:09:59,459
+with all the arguments you know so these
+
+198
+00:09:56,700 --> 00:10:02,339
+three things that's the most important
+
+199
+00:09:59,459 --> 00:10:04,200
+then there are other things like such as
+
+200
+00:10:02,339 --> 00:10:07,440
+pressure key to look up the
+
+201
+00:10:04,200 --> 00:10:09,600
+documentation you can have that in
+
+202
+00:10:07,440 --> 00:10:13,200
+others okay so let's start you know
+
+203
+00:10:09,600 --> 00:10:16,640
+let's let's uh let's try to quickly um
+
+204
+00:10:13,200 --> 00:10:16,640
+get uh things to work
+
+205
+00:10:17,100 --> 00:10:23,160
+uh what what and what did I just close
+
+206
+00:10:19,740 --> 00:10:26,279
+the bunch of uh suffering replace it's
+
+207
+00:10:23,160 --> 00:10:28,200
+gonna replace go okay so so now we start
+
+208
+00:10:26,279 --> 00:10:31,080
+to write the mod so we are we are going
+
+209
+00:10:28,200 --> 00:10:34,980
+to use the font lock mod font lock font
+
+210
+00:10:31,080 --> 00:10:36,720
+lock mod is uh loaded by default so you
+
+211
+00:10:34,980 --> 00:10:39,060
+don't have to require it
+
+212
+00:10:36,720 --> 00:10:41,640
+okay so first of all you specify a
+
+213
+00:10:39,060 --> 00:10:44,220
+variable that says what kind of word you
+
+214
+00:10:41,640 --> 00:10:46,980
+want to find highlight so for for
+
+215
+00:10:44,220 --> 00:10:49,560
+example so in the python case
+
+216
+00:10:46,980 --> 00:10:51,660
+uh let's go to let's see what are some
+
+217
+00:10:49,560 --> 00:10:53,779
+of the keywords
+
+218
+00:10:51,660 --> 00:10:53,779
+um
+
+219
+00:10:54,060 --> 00:11:01,140
+okay so let's let's see so keywords
+
+220
+00:10:57,660 --> 00:11:04,140
+import you want to color okay uh import
+
+221
+00:11:01,140 --> 00:11:04,140
+and
+
+222
+00:11:05,420 --> 00:11:12,720
+import and the dev try except Global
+
+223
+00:11:10,620 --> 00:11:14,760
+okay let's start with those
+
+224
+00:11:12,720 --> 00:11:15,899
+so so
+
+225
+00:11:14,760 --> 00:11:18,300
+the
+
+226
+00:11:15,899 --> 00:11:21,720
+so you want to Define this variable and
+
+227
+00:11:18,300 --> 00:11:24,839
+you want to say import and this is a
+
+228
+00:11:21,720 --> 00:11:28,440
+regular expression okay import
+
+229
+00:11:24,839 --> 00:11:33,800
+uh Dev
+
+230
+00:11:28,440 --> 00:11:33,800
+try let's see let's copy that
+
+231
+00:11:39,000 --> 00:11:45,600
+try except
+
+232
+00:11:41,640 --> 00:11:49,160
+return so those are all uh important
+
+233
+00:11:45,600 --> 00:11:49,160
+keywords global
+
+234
+00:11:50,519 --> 00:11:57,660
+4 in
+
+235
+00:11:53,640 --> 00:12:00,300
+okay let's just say that and
+
+236
+00:11:57,660 --> 00:12:03,899
+so okay
+
+237
+00:12:00,300 --> 00:12:06,899
+so first of all you need to Define this
+
+238
+00:12:03,899 --> 00:12:10,320
+a variable and this variable needs to be
+
+239
+00:12:06,899 --> 00:12:14,160
+a list of least like in this format okay
+
+240
+00:12:10,320 --> 00:12:18,060
+this is so important Okay so
+
+241
+00:12:14,160 --> 00:12:21,240
+so let's just say for now so
+
+242
+00:12:18,060 --> 00:12:25,079
+each element first of all the first part
+
+243
+00:12:21,240 --> 00:12:27,000
+is a it's a conspire
+
+244
+00:12:25,079 --> 00:12:30,240
+you know I'm not gonna explain just fine
+
+245
+00:12:27,000 --> 00:12:32,700
+just follow this syntax okay so maybe I
+
+246
+00:12:30,240 --> 00:12:35,880
+can make this easier to read this way so
+
+247
+00:12:32,700 --> 00:12:40,320
+this part is a regular expression and we
+
+248
+00:12:35,880 --> 00:12:44,639
+want to color them with uh this this
+
+249
+00:12:40,320 --> 00:12:48,120
+uh this face so this this this variable
+
+250
+00:12:44,639 --> 00:12:51,240
+fun log function name phase is building
+
+251
+00:12:48,120 --> 00:12:53,399
+it's from the front lock mod so this
+
+252
+00:12:51,240 --> 00:12:57,660
+variable basically Define a bunch of
+
+253
+00:12:53,399 --> 00:12:59,820
+colors that is used for function okay
+
+254
+00:12:57,660 --> 00:13:01,980
+so let's just say that
+
+255
+00:12:59,820 --> 00:13:05,459
+um so actually many of these are not
+
+256
+00:13:01,980 --> 00:13:07,740
+functions they are keywords Okay so
+
+257
+00:13:05,459 --> 00:13:10,500
+yeah so anyway so let's just go with
+
+258
+00:13:07,740 --> 00:13:12,480
+that for now and this part we want a
+
+259
+00:13:10,500 --> 00:13:14,820
+constant phase let's just read and it's
+
+260
+00:13:12,480 --> 00:13:17,279
+just not using okay
+
+261
+00:13:14,820 --> 00:13:19,980
+so we got a bunch of keywords and here
+
+262
+00:13:17,279 --> 00:13:23,100
+is the part where you define the major
+
+263
+00:13:19,980 --> 00:13:25,860
+mod so you can use the function to
+
+264
+00:13:23,100 --> 00:13:27,620
+define derived mod and give uh you know
+
+265
+00:13:25,860 --> 00:13:30,300
+you can look up the documentation
+
+266
+00:13:27,620 --> 00:13:33,360
+describe function then you'll see the
+
+267
+00:13:30,300 --> 00:13:36,600
+full uh documentation for how do you use
+
+268
+00:13:33,360 --> 00:13:40,980
+this define derived mod okay
+
+269
+00:13:36,600 --> 00:13:45,360
+uh but basically here is your mod name
+
+270
+00:13:40,980 --> 00:13:48,779
+and which mod you want to paste your mod
+
+271
+00:13:45,360 --> 00:13:51,600
+from so Fender mod fundamental mod is a
+
+272
+00:13:48,779 --> 00:13:54,360
+mod that's that has no features
+
+273
+00:13:51,600 --> 00:13:57,839
+so you can base it on fundamental mods
+
+274
+00:13:54,360 --> 00:14:02,360
+or more typically you want to base it um
+
+275
+00:13:57,839 --> 00:14:02,360
+uh program mod it's called
+
+276
+00:14:03,959 --> 00:14:09,500
+let's see
+
+277
+00:14:06,180 --> 00:14:13,560
+program mod I forgot what's the name
+
+278
+00:14:09,500 --> 00:14:15,839
+I have explained Nation here so how to
+
+279
+00:14:13,560 --> 00:14:23,240
+write keywords so if you go to syntax
+
+280
+00:14:15,839 --> 00:14:23,240
+coloring then you have a fundamental mod
+
+281
+00:14:24,860 --> 00:14:31,980
+uh there is one called Pro program smart
+
+282
+00:14:28,740 --> 00:14:34,800
+I forgot I forgot so let's you know one
+
+283
+00:14:31,980 --> 00:14:38,820
+easy way to find find what it should be
+
+284
+00:14:34,800 --> 00:14:42,000
+is just go to this swipe function python
+
+285
+00:14:38,820 --> 00:14:44,220
+mod okay so you can jump to you see
+
+286
+00:14:42,000 --> 00:14:47,040
+here's a python documentation just jump
+
+287
+00:14:44,220 --> 00:14:50,100
+to the source code you can see
+
+288
+00:14:47,040 --> 00:14:53,940
+the source code they also called define
+
+289
+00:14:50,100 --> 00:14:57,320
+derived mod oh yeah prog mod so they so
+
+290
+00:14:53,940 --> 00:15:00,300
+the python mod is based on top of the
+
+291
+00:14:57,320 --> 00:15:01,320
+prog mod the Pio Gmod doesn't do much
+
+292
+00:15:00,300 --> 00:15:03,779
+anyway
+
+293
+00:15:01,320 --> 00:15:07,740
+so anyway so you can base your mod close
+
+294
+00:15:03,779 --> 00:15:12,779
+close you can based mod your mod on uh
+
+295
+00:15:07,740 --> 00:15:16,579
+um prog mod which is like the basic no
+
+296
+00:15:12,779 --> 00:15:20,279
+feature mod for programming languages
+
+297
+00:15:16,579 --> 00:15:23,880
+and here the third argument is a short
+
+298
+00:15:20,279 --> 00:15:25,740
+stream that is the display string for
+
+299
+00:15:23,880 --> 00:15:29,240
+your mod for example I'm right now
+
+300
+00:15:25,740 --> 00:15:32,820
+inside emagly smart but you can see here
+
+301
+00:15:29,240 --> 00:15:35,940
+over here the mod name is summation
+
+302
+00:15:32,820 --> 00:15:39,959
+e-lisp so that's a short display string
+
+303
+00:15:35,940 --> 00:15:41,940
+for your mod so here you can say so
+
+304
+00:15:39,959 --> 00:15:44,699
+let's say I want to
+
+305
+00:15:41,940 --> 00:15:46,920
+you know for my personal brand I use the
+
+306
+00:15:44,699 --> 00:15:50,519
+summation
+
+307
+00:15:46,920 --> 00:15:53,699
+let's just say that so when I when I met
+
+308
+00:15:50,519 --> 00:15:56,820
+her x sub python mod this string will
+
+309
+00:15:53,699 --> 00:15:58,079
+show up in the in the button mod line
+
+310
+00:15:56,820 --> 00:15:59,760
+okay
+
+311
+00:15:58,079 --> 00:16:02,399
+so major amount so here's the
+
+312
+00:15:59,760 --> 00:16:05,399
+documentation major mod for editing uh
+
+313
+00:16:02,399 --> 00:16:07,800
+Python language code okay and let's put
+
+314
+00:16:05,399 --> 00:16:10,860
+the version here okay
+
+315
+00:16:07,800 --> 00:16:14,399
+so that's a string and uh
+
+316
+00:16:10,860 --> 00:16:18,420
+and let's uh
+
+317
+00:16:14,399 --> 00:16:22,019
+okay and that's it so right now this mod
+
+318
+00:16:18,420 --> 00:16:24,240
+is just one single line and this is how
+
+319
+00:16:22,019 --> 00:16:26,760
+it works so you all you have to do is
+
+320
+00:16:24,240 --> 00:16:28,860
+set the variable font loud defaults
+
+321
+00:16:26,760 --> 00:16:32,040
+that's building that's from the front
+
+322
+00:16:28,860 --> 00:16:36,120
+lock package all you have to do is just
+
+323
+00:16:32,040 --> 00:16:38,759
+set that value to to this python
+
+324
+00:16:36,120 --> 00:16:40,860
+highlight you that we have defined here
+
+325
+00:16:38,759 --> 00:16:45,060
+okay that's it
+
+326
+00:16:40,860 --> 00:16:47,699
+so this is all for a major mark this is
+
+327
+00:16:45,060 --> 00:16:50,880
+the most simple you know major amount so
+
+328
+00:16:47,699 --> 00:16:54,120
+let's evaluate it okay now emacs knows
+
+329
+00:16:50,880 --> 00:16:55,860
+that now let's open the python uh
+
+330
+00:16:54,120 --> 00:16:59,399
+code
+
+331
+00:16:55,860 --> 00:17:02,600
+so let's see let's uh open some pattern
+
+332
+00:16:59,399 --> 00:17:06,120
+code copy it close close
+
+333
+00:17:02,600 --> 00:17:11,160
+okay now let's open new buffer
+
+334
+00:17:06,120 --> 00:17:13,640
+and paste it save it as xxxtest dot py
+
+335
+00:17:11,160 --> 00:17:13,640
+okay
+
+336
+00:17:14,280 --> 00:17:20,339
+okay now right now because start p y by
+
+337
+00:17:17,939 --> 00:17:22,640
+default it loads the python mod you can
+
+338
+00:17:20,339 --> 00:17:25,919
+see in the mount line here
+
+339
+00:17:22,640 --> 00:17:30,660
+but we want some pattern mods so what we
+
+340
+00:17:25,919 --> 00:17:32,640
+do is just met IX now let's call XA
+
+341
+00:17:30,660 --> 00:17:36,179
+python mod
+
+342
+00:17:32,640 --> 00:17:38,039
+now look at this uh common you know look
+
+343
+00:17:36,179 --> 00:17:41,039
+at the color carefully see how they
+
+344
+00:17:38,039 --> 00:17:42,480
+changes okay do it
+
+345
+00:17:41,039 --> 00:17:45,539
+done
+
+346
+00:17:42,480 --> 00:17:48,780
+so you can see you see we don't have the
+
+347
+00:17:45,539 --> 00:17:51,960
+syntax coloring for comment note we have
+
+348
+00:17:48,780 --> 00:17:54,299
+syntax coloring for string oh well for
+
+349
+00:17:51,960 --> 00:17:58,140
+string it already does because we based
+
+350
+00:17:54,299 --> 00:18:01,919
+on WE based on our mod on fog mod so
+
+351
+00:17:58,140 --> 00:18:04,620
+park mod by default either it colors you
+
+352
+00:18:01,919 --> 00:18:07,620
+know the kind of very common
+
+353
+00:18:04,620 --> 00:18:09,720
+Syntax for Strings so we got the color
+
+354
+00:18:07,620 --> 00:18:14,280
+info string but we don't have a color
+
+355
+00:18:09,720 --> 00:18:15,480
+info comment but however you see this
+
+356
+00:18:14,280 --> 00:18:18,120
+in
+
+357
+00:18:15,480 --> 00:18:19,919
+you see that's the word in that's got
+
+358
+00:18:18,120 --> 00:18:21,059
+colored you know several words got
+
+359
+00:18:19,919 --> 00:18:23,520
+colored
+
+360
+00:18:21,059 --> 00:18:28,200
+find in
+
+361
+00:18:23,520 --> 00:18:28,200
+not find but in import
+
+362
+00:18:28,919 --> 00:18:35,160
+you know and let's say
+
+363
+00:18:31,440 --> 00:18:37,860
+okay we got string four you see four in
+
+364
+00:18:35,160 --> 00:18:40,799
+you see we got syntax coloring and
+
+365
+00:18:37,860 --> 00:18:43,320
+return so that is the most basic okay
+
+366
+00:18:40,799 --> 00:18:45,780
+very easy very easy to do but we got
+
+367
+00:18:43,320 --> 00:18:49,260
+some errors look at look at this for
+
+368
+00:18:45,780 --> 00:18:52,559
+example in coding but part of the word i
+
+369
+00:18:49,260 --> 00:18:55,620
+n is color blue it's hard to see but you
+
+370
+00:18:52,559 --> 00:18:59,100
+can maybe see like that
+
+371
+00:18:55,620 --> 00:19:01,980
+you see and also this input you know
+
+372
+00:18:59,100 --> 00:19:04,860
+input i n is colored blue that's
+
+373
+00:19:01,980 --> 00:19:07,440
+incorrect and this format the word
+
+374
+00:19:04,860 --> 00:19:08,760
+format for is colored so that's
+
+375
+00:19:07,440 --> 00:19:10,440
+incorrect
+
+376
+00:19:08,760 --> 00:19:12,900
+Okay so
+
+377
+00:19:10,440 --> 00:19:16,980
+yeah but we got you know this is almost
+
+378
+00:19:12,900 --> 00:19:19,980
+like uh 50 of the things we need
+
+379
+00:19:16,980 --> 00:19:23,039
+comments and questions
+
+380
+00:19:19,980 --> 00:19:25,280
+okay so let's go on so we got that so
+
+381
+00:19:23,039 --> 00:19:25,280
+now
+
+382
+00:19:26,340 --> 00:19:33,720
+uh so now we need to so this is just a
+
+383
+00:19:30,480 --> 00:19:36,900
+test what we we actually need to do is
+
+384
+00:19:33,720 --> 00:19:39,360
+now to collect all the keywords of the
+
+385
+00:19:36,900 --> 00:19:41,700
+Python language and collect all function
+
+386
+00:19:39,360 --> 00:19:44,100
+names things like that
+
+387
+00:19:41,700 --> 00:19:46,919
+to color them properly
+
+388
+00:19:44,100 --> 00:19:50,039
+okay so you know in a typical language
+
+389
+00:19:46,919 --> 00:19:52,340
+you have variable names colored in one
+
+390
+00:19:50,039 --> 00:19:55,020
+way variable names function names
+
+391
+00:19:52,340 --> 00:19:58,679
+keywords keywords are typically part of
+
+392
+00:19:55,020 --> 00:20:03,360
+the syntax such as for Loop if statement
+
+393
+00:19:58,679 --> 00:20:05,299
+while loop you know um
+
+394
+00:20:03,360 --> 00:20:07,980
+so function names variable names
+
+395
+00:20:05,299 --> 00:20:11,580
+keywords then you typically also
+
+396
+00:20:07,980 --> 00:20:13,380
+sometimes you have types you know you
+
+397
+00:20:11,580 --> 00:20:16,140
+have a different color for
+
+398
+00:20:13,380 --> 00:20:19,799
+type specifications such as string
+
+399
+00:20:16,140 --> 00:20:22,860
+object class things like that
+
+400
+00:20:19,799 --> 00:20:26,700
+so we dive into detail to now we next so
+
+401
+00:20:22,860 --> 00:20:29,880
+now next thing we dive into detail about
+
+402
+00:20:26,700 --> 00:20:33,179
+so so right now what we need to do is to
+
+403
+00:20:29,880 --> 00:20:35,160
+find actually find a list of all
+
+404
+00:20:33,179 --> 00:20:37,080
+Python language
+
+405
+00:20:35,160 --> 00:20:39,780
+um
+
+406
+00:20:37,080 --> 00:20:42,059
+functional keyword names okay so there
+
+407
+00:20:39,780 --> 00:20:45,059
+are many ways to do that
+
+408
+00:20:42,059 --> 00:20:47,720
+one way is you look up the python
+
+409
+00:20:45,059 --> 00:20:47,720
+documentation
+
+410
+00:20:48,240 --> 00:20:55,640
+okay so I have it somewhere here I mean
+
+411
+00:20:52,020 --> 00:20:55,640
+python on Windows
+
+412
+00:20:57,419 --> 00:21:03,179
+come with a documentation in the let's
+
+413
+00:21:01,260 --> 00:21:04,620
+open it
+
+414
+00:21:03,179 --> 00:21:07,880
+yeah
+
+415
+00:21:04,620 --> 00:21:07,880
+let's open it
+
+416
+00:21:11,580 --> 00:21:17,299
+okay so on Windows python documentation
+
+417
+00:21:14,400 --> 00:21:23,820
+comes with this kind of standard
+
+418
+00:21:17,299 --> 00:21:26,220
+uh see this is called CM chm format
+
+419
+00:21:23,820 --> 00:21:28,740
+that's a good tip to know so you don't
+
+420
+00:21:26,220 --> 00:21:30,900
+have to search the web so the python
+
+421
+00:21:28,740 --> 00:21:33,900
+documentation you you know you can look
+
+422
+00:21:30,900 --> 00:21:37,799
+up the language reference and try to
+
+423
+00:21:33,900 --> 00:21:41,220
+grab you know a list of all the keywords
+
+424
+00:21:37,799 --> 00:21:43,919
+and building identifiers and function
+
+425
+00:21:41,220 --> 00:21:46,919
+names that's one way to do it okay you
+
+426
+00:21:43,919 --> 00:21:50,820
+look up look you look at the language
+
+427
+00:21:46,919 --> 00:21:52,260
+spect okay the other way is to kind of
+
+428
+00:21:50,820 --> 00:21:55,100
+cheat
+
+429
+00:21:52,260 --> 00:21:58,320
+we what we do is we just look at
+
+430
+00:21:55,100 --> 00:22:01,799
+building python mod for example
+
+431
+00:21:58,320 --> 00:22:05,100
+describe function python jump to the
+
+432
+00:22:01,799 --> 00:22:07,500
+source code and let's just start to
+
+433
+00:22:05,100 --> 00:22:10,980
+search for you know see if they have a
+
+434
+00:22:07,500 --> 00:22:14,460
+list of word uh
+
+435
+00:22:10,980 --> 00:22:16,559
+usually but but often
+
+436
+00:22:14,460 --> 00:22:17,940
+half of the time it's hard to find
+
+437
+00:22:16,559 --> 00:22:20,880
+because
+
+438
+00:22:17,940 --> 00:22:23,220
+you know you can code emac this in so so
+
+439
+00:22:20,880 --> 00:22:24,960
+many ways so sometimes you don't see at
+
+440
+00:22:23,220 --> 00:22:28,679
+least a
+
+441
+00:22:24,960 --> 00:22:31,500
+you know words at all and usually
+
+442
+00:22:28,679 --> 00:22:35,280
+okay here so for example here we see a
+
+443
+00:22:31,500 --> 00:22:38,159
+list of uh python fun log keywords so
+
+444
+00:22:35,280 --> 00:22:41,880
+these are so called keywords meaning
+
+445
+00:22:38,159 --> 00:22:44,460
+that they are words that's part of the
+
+446
+00:22:41,880 --> 00:22:46,440
+syntax of python but they are not
+
+447
+00:22:44,460 --> 00:22:48,539
+function names they are not variable
+
+448
+00:22:46,440 --> 00:22:51,299
+names okay
+
+449
+00:22:48,539 --> 00:22:53,760
+so keyword usually have a kind of a
+
+450
+00:22:51,299 --> 00:22:57,000
+special specific meaning to the
+
+451
+00:22:53,760 --> 00:22:59,159
+in the context of writing a compiler so
+
+452
+00:22:57,000 --> 00:23:01,700
+these are called keywords
+
+453
+00:22:59,159 --> 00:23:04,380
+and you also have reserved words
+
+454
+00:23:01,700 --> 00:23:06,960
+reserved words are like keywords but
+
+455
+00:23:04,380 --> 00:23:09,480
+that are not currently used currently
+
+456
+00:23:06,960 --> 00:23:14,159
+defined okay so you got keywords here
+
+457
+00:23:09,480 --> 00:23:17,059
+then you got uh what is python 3.5 pep
+
+458
+00:23:14,159 --> 00:23:17,059
+
+459
+00:23:17,360 --> 00:23:23,159
+the python Community like they like this
+
+460
+00:23:20,280 --> 00:23:25,380
+pep they have this pep thing okay so we
+
+461
+00:23:23,159 --> 00:23:28,559
+got a keywords we got what they what are
+
+462
+00:23:25,380 --> 00:23:30,840
+these symbols start
+
+463
+00:23:28,559 --> 00:23:34,159
+okay these are kind of these are just
+
+464
+00:23:30,840 --> 00:23:34,159
+like function names okay
+
+465
+00:23:34,440 --> 00:23:39,600
+okay so you know this is gonna be uh
+
+466
+00:23:37,860 --> 00:23:41,280
+this you know
+
+467
+00:23:39,600 --> 00:23:43,500
+if you're gonna write the python mod
+
+468
+00:23:41,280 --> 00:23:46,080
+this is you know tip for any language
+
+469
+00:23:43,500 --> 00:23:48,600
+this will take an hour or more of or
+
+470
+00:23:46,080 --> 00:23:50,340
+even few days to gather all the you want
+
+471
+00:23:48,600 --> 00:23:52,620
+to make them correct you know you you
+
+472
+00:23:50,340 --> 00:23:54,659
+want to determine just what type of
+
+473
+00:23:52,620 --> 00:23:56,220
+words are there function keywords you
+
+474
+00:23:54,659 --> 00:24:01,039
+know depending on a language you know
+
+475
+00:23:56,220 --> 00:24:01,039
+functional language is Java JavaScript
+
+476
+00:24:01,700 --> 00:24:07,740
+they all have very different ideas of
+
+477
+00:24:05,460 --> 00:24:10,260
+what's a keyword what's a you know
+
+478
+00:24:07,740 --> 00:24:12,840
+function name and things like that so
+
+479
+00:24:10,260 --> 00:24:14,820
+this step is you know take some research
+
+480
+00:24:12,840 --> 00:24:17,820
+usually you you have to
+
+481
+00:24:14,820 --> 00:24:19,740
+find all the different types of keywords
+
+482
+00:24:17,820 --> 00:24:23,220
+and
+
+483
+00:24:19,740 --> 00:24:25,919
+and gather them okay so here these are
+
+484
+00:24:23,220 --> 00:24:28,140
+basically here in the python case this
+
+485
+00:24:25,919 --> 00:24:32,360
+uh as far as I know these are building
+
+486
+00:24:28,140 --> 00:24:32,360
+function uh not really
+
+487
+00:24:32,820 --> 00:24:38,280
+uh
+
+488
+00:24:35,100 --> 00:24:42,799
+let's see do they have length uh let's
+
+489
+00:24:38,280 --> 00:24:42,799
+search for length no okay
+
+490
+00:24:42,960 --> 00:24:48,679
+anyway so you have these words you need
+
+491
+00:24:45,840 --> 00:24:48,679
+sometimes
+
+492
+00:24:49,380 --> 00:24:54,780
+okay so then you have these words these
+
+493
+00:24:52,919 --> 00:24:56,159
+are you know all these are kind of
+
+494
+00:24:54,780 --> 00:24:59,760
+keywords
+
+495
+00:24:56,159 --> 00:25:03,480
+in Python 2 standard era okay so okay
+
+496
+00:24:59,760 --> 00:25:05,520
+that's one way to grab all these names
+
+497
+00:25:03,480 --> 00:25:09,480
+um
+
+498
+00:25:05,520 --> 00:25:13,140
+let me just get the basics okay so the
+
+499
+00:25:09,480 --> 00:25:16,940
+basics yeah so I want this okay
+
+500
+00:25:13,140 --> 00:25:16,940
+so let's start to code them
+
+501
+00:25:17,400 --> 00:25:21,440
+so I want this kind of
+
+502
+00:25:24,179 --> 00:25:30,480
+oh they also have some commentary look
+
+503
+00:25:27,659 --> 00:25:33,419
+forcing none and through our list listed
+
+504
+00:25:30,480 --> 00:25:36,299
+as keywords in on Python 3 dark but
+
+505
+00:25:33,419 --> 00:25:39,120
+since they are also qualified they also
+
+506
+00:25:36,299 --> 00:25:41,760
+qualify as constants they are Quantified
+
+507
+00:25:39,120 --> 00:25:44,760
+like that in order to keep found lock
+
+508
+00:25:41,760 --> 00:25:46,740
+consistent between Python versions
+
+509
+00:25:44,760 --> 00:25:51,179
+okay whatever
+
+510
+00:25:46,740 --> 00:25:54,840
+uh python fairly complex okay so let's
+
+511
+00:25:51,179 --> 00:25:56,940
+for now our goal is just to grab some of
+
+512
+00:25:54,840 --> 00:25:58,860
+these words okay
+
+513
+00:25:56,940 --> 00:26:01,700
+don't worry about too much about
+
+514
+00:25:58,860 --> 00:26:01,700
+anything else
+
+515
+00:26:03,419 --> 00:26:11,100
+okay so some of these we want and we
+
+516
+00:26:07,440 --> 00:26:14,100
+also want some of these okay
+
+517
+00:26:11,100 --> 00:26:14,100
+uh
+
+518
+00:26:14,220 --> 00:26:16,940
+mad
+
+519
+00:26:22,140 --> 00:26:29,659
+foreign
+
+520
+00:26:24,779 --> 00:26:29,659
+okay so we got a bunch of words now
+
+521
+00:26:31,580 --> 00:26:34,580
+uh
+
+522
+00:26:35,120 --> 00:26:42,539
+okay so now we need to kind of classify
+
+523
+00:26:40,140 --> 00:26:45,059
+which uh which which group are which
+
+524
+00:26:42,539 --> 00:26:47,039
+let's just try to do it quickly without
+
+525
+00:26:45,059 --> 00:26:49,620
+being correct okay
+
+526
+00:26:47,039 --> 00:26:53,039
+so some python 2
+
+527
+00:26:49,620 --> 00:26:56,039
+okay I don't care about python 2.
+
+528
+00:26:53,039 --> 00:26:56,039
+uh
+
+529
+00:26:58,740 --> 00:27:03,200
+okay what do you do what to do
+
+530
+00:27:01,200 --> 00:27:03,200
+um
+
+531
+00:27:03,600 --> 00:27:07,860
+let's just okay so
+
+532
+00:27:06,120 --> 00:27:10,320
+so first of all
+
+533
+00:27:07,860 --> 00:27:13,980
+you got a bunch of let's let's just
+
+534
+00:27:10,320 --> 00:27:17,700
+classify them into two groups okay so
+
+535
+00:27:13,980 --> 00:27:21,659
+let's just say one is keywords
+
+536
+00:27:17,700 --> 00:27:24,659
+okay such as you know these these and
+
+537
+00:27:21,659 --> 00:27:26,960
+the other one let's say is underscore
+
+538
+00:27:24,659 --> 00:27:26,960
+words
+
+539
+00:27:29,760 --> 00:27:34,440
+no I don't know what's the proper name
+
+540
+00:27:32,159 --> 00:27:36,919
+for this kind of thing import you know
+
+541
+00:27:34,440 --> 00:27:42,500
+underscore underscore module underscore
+
+542
+00:27:36,919 --> 00:27:45,960
+uh are they they are constants I believe
+
+543
+00:27:42,500 --> 00:27:50,220
+uh not really but they are
+
+544
+00:27:45,960 --> 00:27:53,059
+variable names with a specific meaning
+
+545
+00:27:50,220 --> 00:27:53,059
+in Python
+
+546
+00:27:53,400 --> 00:27:59,400
+so for now just for for our purposes
+
+547
+00:27:57,000 --> 00:28:02,700
+let's just say let's just group them
+
+548
+00:27:59,400 --> 00:28:05,039
+into low-lying words okay so we have two
+
+549
+00:28:02,700 --> 00:28:07,559
+so basically now the problem once you
+
+550
+00:28:05,039 --> 00:28:10,679
+gather the bunch of words and you
+
+551
+00:28:07,559 --> 00:28:12,779
+classified you know so you want to you
+
+552
+00:28:10,679 --> 00:28:15,240
+want to generate this regular expression
+
+553
+00:28:12,779 --> 00:28:17,760
+you don't want to do it manually because
+
+554
+00:28:15,240 --> 00:28:20,400
+that's you know too much problem so
+
+555
+00:28:17,760 --> 00:28:23,100
+let's let's do that okay
+
+556
+00:28:20,400 --> 00:28:24,419
+so first thing is you want
+
+557
+00:28:23,100 --> 00:28:27,539
+um
+
+558
+00:28:24,419 --> 00:28:30,240
+okay so let's copy this
+
+559
+00:28:27,539 --> 00:28:34,820
+so you want let's say
+
+560
+00:28:30,240 --> 00:28:38,480
+and let's remove that this is empty okay
+
+561
+00:28:34,820 --> 00:28:38,480
+actually so
+
+562
+00:28:39,659 --> 00:28:50,299
+okay so here is keywords okay
+
+563
+00:28:45,240 --> 00:28:50,299
+set Q keywords uh actually
+
+564
+00:28:57,179 --> 00:29:03,559
+so python keywords okay so let's just
+
+565
+00:29:00,960 --> 00:29:03,559
+say
+
+566
+00:29:06,240 --> 00:29:11,640
+God okay so let's just say all of these
+
+567
+00:29:10,500 --> 00:29:15,900
+okay
+
+568
+00:29:11,640 --> 00:29:17,460
+so we want to okay so let's look at my
+
+569
+00:29:15,900 --> 00:29:20,419
+tutorial
+
+570
+00:29:17,460 --> 00:29:20,419
+because I
+
+571
+00:29:22,620 --> 00:29:28,500
+okay let's magnify
+
+572
+00:29:25,740 --> 00:29:31,679
+writing a mod for language that has
+
+573
+00:29:28,500 --> 00:29:35,399
+hundreds of keywords indeed so what is
+
+574
+00:29:31,679 --> 00:29:38,159
+the way to do it okay here is already a
+
+575
+00:29:35,399 --> 00:29:40,700
+template yeah here's how you do it okay
+
+576
+00:29:38,159 --> 00:29:40,700
+uh
+
+577
+00:29:47,820 --> 00:29:52,580
+uh yeah okay let's
+
+578
+00:29:49,740 --> 00:29:52,580
+let's do this
+
+579
+00:29:52,760 --> 00:30:01,860
+so this thing this whole thing needs to
+
+580
+00:29:57,299 --> 00:30:04,140
+be a list okay so we got a here we got a
+
+581
+00:30:01,860 --> 00:30:05,520
+list of keywords okay
+
+582
+00:30:04,140 --> 00:30:09,020
+cut it
+
+583
+00:30:05,520 --> 00:30:09,020
+and paste it here
+
+584
+00:30:09,600 --> 00:30:15,000
+okay and this we don't need okay so we
+
+585
+00:30:12,360 --> 00:30:18,200
+now we got a list of keywords
+
+586
+00:30:15,000 --> 00:30:21,600
+each one each element is a string
+
+587
+00:30:18,200 --> 00:30:24,020
+and now we do the same thing
+
+588
+00:30:21,600 --> 00:30:25,980
+for a list of
+
+589
+00:30:24,020 --> 00:30:28,200
+low-lying words
+
+590
+00:30:25,980 --> 00:30:32,000
+okay
+
+591
+00:30:28,200 --> 00:30:32,000
+and that will be
+
+592
+00:30:35,340 --> 00:30:40,860
+this group okay actually that belongs to
+
+593
+00:30:38,580 --> 00:30:44,100
+keywords basically there
+
+594
+00:30:40,860 --> 00:30:47,659
+okay so here is a bunch of low-lying
+
+595
+00:30:44,100 --> 00:30:51,899
+words that's right put it here
+
+596
+00:30:47,659 --> 00:30:55,020
+syntax clean clean syntax okay
+
+597
+00:30:51,899 --> 00:30:58,380
+so now we got a bunch of keywords and a
+
+598
+00:30:55,020 --> 00:31:02,000
+bunch of low-lying words now
+
+599
+00:30:58,380 --> 00:31:05,820
+our job is to
+
+600
+00:31:02,000 --> 00:31:08,640
+properly create these
+
+601
+00:31:05,820 --> 00:31:11,159
+example highlights
+
+602
+00:31:08,640 --> 00:31:12,720
+to feed it into
+
+603
+00:31:11,159 --> 00:31:16,020
+the
+
+604
+00:31:12,720 --> 00:31:19,919
+as the value of unlock defaults okay
+
+605
+00:31:16,020 --> 00:31:23,600
+so these highlights needs to be a okay
+
+606
+00:31:19,919 --> 00:31:23,600
+so let's see how we do it
+
+607
+00:31:24,299 --> 00:31:29,700
+there it is okay
+
+608
+00:31:26,760 --> 00:31:32,460
+so now the problem is you got the list
+
+609
+00:31:29,700 --> 00:31:35,580
+of keywords a string you want to turn
+
+610
+00:31:32,460 --> 00:31:39,120
+them into one single regular expression
+
+611
+00:31:35,580 --> 00:31:42,899
+you know okay how do you do that that is
+
+612
+00:31:39,120 --> 00:31:44,460
+done by rejects opt okay let's describe
+
+613
+00:31:42,899 --> 00:31:48,179
+function look at the documentation
+
+614
+00:31:44,460 --> 00:31:50,640
+rejects UPS okay here's the syntax
+
+615
+00:31:48,179 --> 00:31:54,779
+returns a regular expression to match a
+
+616
+00:31:50,640 --> 00:31:58,940
+string in the least strings okay
+
+617
+00:31:54,779 --> 00:31:58,940
+so here's the syntax okay
+
+618
+00:32:00,140 --> 00:32:05,700
+so
+
+619
+00:32:01,679 --> 00:32:07,620
+we just need to so we need uh here is
+
+620
+00:32:05,700 --> 00:32:10,919
+the
+
+621
+00:32:07,620 --> 00:32:12,480
+sound python words okay that's a
+
+622
+00:32:10,919 --> 00:32:15,840
+variable
+
+623
+00:32:12,480 --> 00:32:19,140
+I mean that's at least the words and you
+
+624
+00:32:15,840 --> 00:32:22,020
+have options so uh the the second
+
+625
+00:32:19,140 --> 00:32:24,059
+argument uh optional parent let's say we
+
+626
+00:32:22,020 --> 00:32:26,820
+don't care about it okay
+
+627
+00:32:24,059 --> 00:32:29,039
+you can you can read the dot later but
+
+628
+00:32:26,820 --> 00:32:31,080
+let's just say for now so rejects up
+
+629
+00:32:29,039 --> 00:32:35,640
+this will generate a bunch of regular
+
+630
+00:32:31,080 --> 00:32:36,899
+expression cut we're gonna put it
+
+631
+00:32:35,640 --> 00:32:39,200
+here
+
+632
+00:32:36,899 --> 00:32:42,779
+so
+
+633
+00:32:39,200 --> 00:32:46,620
+so I actually put it
+
+634
+00:32:42,779 --> 00:32:51,860
+you know replacing these this part okay
+
+635
+00:32:46,620 --> 00:32:51,860
+put it there it's gonna generate uh wait
+
+636
+00:32:51,960 --> 00:32:57,720
+okay it's this part is gonna generate a
+
+637
+00:32:55,500 --> 00:33:00,679
+bunch of uh I mean one regular
+
+638
+00:32:57,720 --> 00:33:00,679
+expression okay
+
+639
+00:33:00,899 --> 00:33:05,960
+and now let's let's clean it
+
+640
+00:33:07,140 --> 00:33:12,539
+okay
+
+641
+00:33:09,360 --> 00:33:15,120
+then this regular all these words we
+
+642
+00:33:12,539 --> 00:33:17,159
+want them to be colored with
+
+643
+00:33:15,120 --> 00:33:19,559
+uh
+
+644
+00:33:17,159 --> 00:33:22,380
+function name no we don't want function
+
+645
+00:33:19,559 --> 00:33:23,399
+name we want the keyword name okay so
+
+646
+00:33:22,380 --> 00:33:26,940
+let's
+
+647
+00:33:23,399 --> 00:33:29,279
+go to the major amount tutorial
+
+648
+00:33:26,940 --> 00:33:30,840
+here is when you want to look up font
+
+649
+00:33:29,279 --> 00:33:35,700
+lock
+
+650
+00:33:30,840 --> 00:33:38,399
+mod so in order to do syntax coloring we
+
+651
+00:33:35,700 --> 00:33:40,559
+are using the
+
+652
+00:33:38,399 --> 00:33:44,640
+hold on a second we are using the build
+
+653
+00:33:40,559 --> 00:33:45,659
+Library phone lock mod and so we need to
+
+654
+00:33:44,640 --> 00:33:48,720
+understand
+
+655
+00:33:45,659 --> 00:33:52,799
+about a little bit about fun like mod
+
+656
+00:33:48,720 --> 00:33:56,700
+okay so fun lock mod it defines a bunch
+
+657
+00:33:52,799 --> 00:33:59,100
+of uh building variables okay and also
+
+658
+00:33:56,700 --> 00:34:01,679
+defines a bunch of face
+
+659
+00:33:59,100 --> 00:34:04,559
+you can read it and you under you have a
+
+660
+00:34:01,679 --> 00:34:06,720
+very good understanding so right now we
+
+661
+00:34:04,559 --> 00:34:10,980
+just want to know what are the building
+
+662
+00:34:06,720 --> 00:34:13,619
+phase in front lock mod so here they are
+
+663
+00:34:10,980 --> 00:34:17,159
+fun log mods faces so you they are
+
+664
+00:34:13,619 --> 00:34:19,919
+building so you can use it so now this
+
+665
+00:34:17,159 --> 00:34:21,060
+is what we want from our keyword phase
+
+666
+00:34:19,919 --> 00:34:23,820
+okay
+
+667
+00:34:21,060 --> 00:34:26,159
+so here instead of founder function name
+
+668
+00:34:23,820 --> 00:34:29,960
+phase let's just save unlock keyword
+
+669
+00:34:26,159 --> 00:34:29,960
+face paste that's good
+
+670
+00:34:30,119 --> 00:34:32,839
+now
+
+671
+00:34:33,599 --> 00:34:39,179
+by the way this this value is a bit
+
+672
+00:34:36,720 --> 00:34:42,599
+complicated when you do a major mod you
+
+673
+00:34:39,179 --> 00:34:47,460
+might get a lot errors because this
+
+674
+00:34:42,599 --> 00:34:51,300
+the value for the font lock defaults
+
+675
+00:34:47,460 --> 00:34:52,679
+is a list of a part is a is at least a
+
+676
+00:34:51,300 --> 00:34:55,800
+particular form
+
+677
+00:34:52,679 --> 00:34:57,780
+so each element of the list may also
+
+678
+00:34:55,800 --> 00:35:00,119
+require to be a list
+
+679
+00:34:57,780 --> 00:35:02,580
+okay and sometimes they needs to be a
+
+680
+00:35:00,119 --> 00:35:06,180
+function or string there are several
+
+681
+00:35:02,580 --> 00:35:08,160
+Alternatives so when you when you try to
+
+682
+00:35:06,180 --> 00:35:10,079
+create this value for the fun log
+
+683
+00:35:08,160 --> 00:35:12,839
+defaults variable
+
+684
+00:35:10,079 --> 00:35:14,940
+you might so you you want to be careful
+
+685
+00:35:12,839 --> 00:35:17,339
+okay either either just follow whatever
+
+686
+00:35:14,940 --> 00:35:19,940
+I have under my tutorial or you just
+
+687
+00:35:17,339 --> 00:35:23,460
+want to be careful because it can get
+
+688
+00:35:19,940 --> 00:35:26,160
+very complex quickly okay
+
+689
+00:35:23,460 --> 00:35:27,180
+so for example let's see the structure
+
+690
+00:35:26,160 --> 00:35:29,220
+so
+
+691
+00:35:27,180 --> 00:35:32,700
+first of all it's at least
+
+692
+00:35:29,220 --> 00:35:35,700
+then the first element is a pair is a
+
+693
+00:35:32,700 --> 00:35:38,460
+cost pair so you can see conspire is is
+
+694
+00:35:35,700 --> 00:35:41,280
+parenthesis with a dot in the middle so
+
+695
+00:35:38,460 --> 00:35:44,760
+conspire has two things the first part
+
+696
+00:35:41,280 --> 00:35:48,480
+is a regular expression which this
+
+697
+00:35:44,760 --> 00:35:50,339
+generates the second part is the
+
+698
+00:35:48,480 --> 00:35:53,040
+uh the face
+
+699
+00:35:50,339 --> 00:35:55,560
+the face you want to use okay that's one
+
+700
+00:35:53,040 --> 00:35:58,920
+thing now
+
+701
+00:35:55,560 --> 00:36:01,920
+we want to do another one okay so copy
+
+702
+00:35:58,920 --> 00:36:04,260
+that paste it here delete that so the
+
+703
+00:36:01,920 --> 00:36:05,820
+second part will be the low-lying words
+
+704
+00:36:04,260 --> 00:36:07,099
+okay
+
+705
+00:36:05,820 --> 00:36:10,140
+here
+
+706
+00:36:07,099 --> 00:36:14,839
+and and the low line words what kind of
+
+707
+00:36:10,140 --> 00:36:14,839
+uh color you want let's say
+
+708
+00:36:16,760 --> 00:36:24,060
+uh variable name phase warning phase
+
+709
+00:36:20,099 --> 00:36:27,000
+let's say building phase okay
+
+710
+00:36:24,060 --> 00:36:29,579
+now this this one lock faces those are
+
+711
+00:36:27,000 --> 00:36:32,760
+building variables they you know they
+
+712
+00:36:29,579 --> 00:36:34,440
+are predefined how how some string looks
+
+713
+00:36:32,760 --> 00:36:37,380
+color coloring
+
+714
+00:36:34,440 --> 00:36:40,079
+uh but depending on your language you
+
+715
+00:36:37,380 --> 00:36:42,180
+know you most languages do not have all
+
+716
+00:36:40,079 --> 00:36:44,160
+of these for example pre-plus
+
+717
+00:36:42,180 --> 00:36:46,820
+pre-process surface
+
+718
+00:36:44,160 --> 00:36:49,680
+regular expression group impact slash
+
+719
+00:36:46,820 --> 00:36:53,280
+coloring then you have string phase
+
+720
+00:36:49,680 --> 00:36:55,619
+typeface uh variable name phase warning
+
+721
+00:36:53,280 --> 00:36:58,260
+phase constant phase you know many
+
+722
+00:36:55,619 --> 00:37:00,599
+languages don't have constant common
+
+723
+00:36:58,260 --> 00:37:01,740
+phase and some languages you have
+
+724
+00:37:00,599 --> 00:37:05,579
+special
+
+725
+00:37:01,740 --> 00:37:07,920
+thing like class or something or in
+
+726
+00:37:05,579 --> 00:37:10,619
+Haskell for example you have different
+
+727
+00:37:07,920 --> 00:37:12,560
+things that's not there so when it's not
+
+728
+00:37:10,619 --> 00:37:16,320
+there you have to create your own face
+
+729
+00:37:12,560 --> 00:37:19,680
+so here is how you define your own you
+
+730
+00:37:16,320 --> 00:37:23,400
+know particular coloring like background
+
+731
+00:37:19,680 --> 00:37:25,740
+coloring and so on so for now let's just
+
+732
+00:37:23,400 --> 00:37:28,140
+try find like building phase for the
+
+733
+00:37:25,740 --> 00:37:31,800
+low-lying words okay so I think that's
+
+734
+00:37:28,140 --> 00:37:34,200
+it so if we so now let's uh that's it
+
+735
+00:37:31,800 --> 00:37:36,480
+okay so you see
+
+736
+00:37:34,200 --> 00:37:38,359
+that's all there it is now let's try it
+
+737
+00:37:36,480 --> 00:37:41,640
+okay
+
+738
+00:37:38,359 --> 00:37:45,300
+uh let's try it let's just make them
+
+739
+00:37:41,640 --> 00:37:47,579
+clean even the buffer is there any error
+
+740
+00:37:45,300 --> 00:37:51,300
+no it doesn't look like it show message
+
+741
+00:37:47,579 --> 00:37:52,079
+buffer no Arrow so now let's go to
+
+742
+00:37:51,300 --> 00:37:57,380
+um
+
+743
+00:37:52,079 --> 00:37:57,380
+let's go to uh example python code
+
+744
+00:37:57,839 --> 00:38:03,359
+close this
+
+745
+00:38:00,119 --> 00:38:05,700
+example python code where is it
+
+746
+00:38:03,359 --> 00:38:08,099
+uh we
+
+747
+00:38:05,700 --> 00:38:12,119
+somewhere here yeah here
+
+748
+00:38:08,099 --> 00:38:14,579
+copy the file path close close
+
+749
+00:38:12,119 --> 00:38:17,220
+put the final path here so we can open
+
+750
+00:38:14,579 --> 00:38:19,500
+it easily
+
+751
+00:38:17,220 --> 00:38:22,260
+okay open it
+
+752
+00:38:19,500 --> 00:38:24,599
+now we are going to call
+
+753
+00:38:22,260 --> 00:38:26,640
+let's remove the comments let's remove
+
+754
+00:38:24,599 --> 00:38:28,500
+the bunch of comments
+
+755
+00:38:26,640 --> 00:38:30,500
+so that
+
+756
+00:38:28,500 --> 00:38:30,500
+um
+
+757
+00:38:32,579 --> 00:38:40,020
+so that we can see the rest of this
+
+758
+00:38:36,839 --> 00:38:43,740
+easy yeah okay that's it
+
+759
+00:38:40,020 --> 00:38:46,560
+okay so now we are going to call
+
+760
+00:38:43,740 --> 00:38:50,160
+some python mod again so it should
+
+761
+00:38:46,560 --> 00:38:50,760
+refresh and and now check the
+
+762
+00:38:50,160 --> 00:38:53,220
+um
+
+763
+00:38:50,760 --> 00:38:56,040
+the coloring changes right now it's in
+
+764
+00:38:53,220 --> 00:38:57,800
+Python mod you can see here so let's do
+
+765
+00:38:56,040 --> 00:38:59,760
+it
+
+766
+00:38:57,800 --> 00:39:02,520
+do it
+
+767
+00:38:59,760 --> 00:39:04,140
+done Okay so
+
+768
+00:39:02,520 --> 00:39:07,320
+so you can see
+
+769
+00:39:04,140 --> 00:39:11,839
+we we don't have the common color we
+
+770
+00:39:07,320 --> 00:39:11,839
+still need to fix that and actually
+
+771
+00:39:11,880 --> 00:39:17,640
+nothing is colored so we screwed up
+
+772
+00:39:14,700 --> 00:39:19,560
+right now only the string is color so we
+
+773
+00:39:17,640 --> 00:39:22,200
+made some mistake you see nothing is
+
+774
+00:39:19,560 --> 00:39:25,740
+colored the import should be color but
+
+775
+00:39:22,200 --> 00:39:28,440
+now it's not now let's look at uh the
+
+776
+00:39:25,740 --> 00:39:31,740
+message buffers to see yeah there is
+
+777
+00:39:28,440 --> 00:39:34,020
+some error error during redisplay
+
+778
+00:39:31,740 --> 00:39:37,260
+cheat for unlock signaled invalid
+
+779
+00:39:34,020 --> 00:39:39,839
+function so that means
+
+780
+00:39:37,260 --> 00:39:42,900
+you got some error you know when you try
+
+781
+00:39:39,839 --> 00:39:44,940
+to you know it's trying to color and it
+
+782
+00:39:42,900 --> 00:39:47,700
+doesn't work so close it
+
+783
+00:39:44,940 --> 00:39:48,900
+so what is the area well the arrow is
+
+784
+00:39:47,700 --> 00:39:53,099
+here
+
+785
+00:39:48,900 --> 00:39:55,260
+because when you use the apostrophe
+
+786
+00:39:53,099 --> 00:39:57,540
+for the that means quote okay that's
+
+787
+00:39:55,260 --> 00:39:59,579
+shortcut for quote that means this list
+
+788
+00:39:57,540 --> 00:40:02,700
+is not evaluated
+
+789
+00:39:59,579 --> 00:40:05,640
+so this list you know so this part
+
+790
+00:40:02,700 --> 00:40:08,400
+rejects up this function is not being
+
+791
+00:40:05,640 --> 00:40:09,900
+evaluated so
+
+792
+00:40:08,400 --> 00:40:12,240
+that's not good
+
+793
+00:40:09,900 --> 00:40:14,700
+you know this part wheel needs to be
+
+794
+00:40:12,240 --> 00:40:18,119
+become a regular expression so to
+
+795
+00:40:14,700 --> 00:40:22,140
+evaluate it you just add a
+
+796
+00:40:18,119 --> 00:40:25,079
+comma in front okay and you also need to
+
+797
+00:40:22,140 --> 00:40:26,520
+change the apostrophe to a back tick
+
+798
+00:40:25,079 --> 00:40:28,880
+instead
+
+799
+00:40:26,520 --> 00:40:28,880
+okay
+
+800
+00:40:29,400 --> 00:40:35,160
+that okay
+
+801
+00:40:31,859 --> 00:40:38,640
+evaluate it now let's go back to the
+
+802
+00:40:35,160 --> 00:40:41,099
+python mod and now
+
+803
+00:40:38,640 --> 00:40:43,440
+now it's default python mod now let's
+
+804
+00:40:41,099 --> 00:40:44,700
+Circle
+
+805
+00:40:43,440 --> 00:40:47,160
+okay
+
+806
+00:40:44,700 --> 00:40:50,579
+so now you can see the summation sign
+
+807
+00:40:47,160 --> 00:40:53,880
+there now this is some python mod you
+
+808
+00:40:50,579 --> 00:40:57,420
+can see import is colored
+
+809
+00:40:53,880 --> 00:41:00,780
+and the Z part of the command is colored
+
+810
+00:40:57,420 --> 00:41:01,680
+and you can see and or they are colored
+
+811
+00:41:00,780 --> 00:41:04,320
+but
+
+812
+00:41:01,680 --> 00:41:07,800
+kind of incorrect
+
+813
+00:41:04,320 --> 00:41:09,060
+and string is colored here
+
+814
+00:41:07,800 --> 00:41:12,420
+C
+
+815
+00:41:09,060 --> 00:41:14,700
+and yeah so now it's better we we made
+
+816
+00:41:12,420 --> 00:41:18,020
+the improvements so you can see
+
+817
+00:41:14,700 --> 00:41:18,020
+yeah so now
+
+818
+00:41:20,040 --> 00:41:27,020
+now let's do that now let's add
+
+819
+00:41:25,020 --> 00:41:27,020
+um
+
+820
+00:41:27,300 --> 00:41:33,839
+let's make it so that when we whenever
+
+821
+00:41:30,300 --> 00:41:37,980
+we open a DOT py file it will
+
+822
+00:41:33,839 --> 00:41:40,440
+automatically load XA python mod okay
+
+823
+00:41:37,980 --> 00:41:44,460
+so let me read the comment the python
+
+824
+00:41:40,440 --> 00:41:48,500
+community refers to them as Thunder okay
+
+825
+00:41:44,460 --> 00:41:51,000
+the devil underscore
+
+826
+00:41:48,500 --> 00:41:54,300
+this thunder
+
+827
+00:41:51,000 --> 00:41:56,700
+and they are usually magic methods that
+
+828
+00:41:54,300 --> 00:41:57,960
+gets caught by the language at some
+
+829
+00:41:56,700 --> 00:42:00,660
+point okay
+
+830
+00:41:57,960 --> 00:42:03,240
+uh yeah yeah
+
+831
+00:42:00,660 --> 00:42:05,640
+I I don't like python you know I I think
+
+832
+00:42:03,240 --> 00:42:08,040
+python really sucks anyway
+
+833
+00:42:05,640 --> 00:42:10,500
+so now
+
+834
+00:42:08,040 --> 00:42:12,680
+so actually so now let's change the name
+
+835
+00:42:10,500 --> 00:42:16,740
+Thunder
+
+836
+00:42:12,680 --> 00:42:18,140
+like this yeah no lying words let's see
+
+837
+00:42:16,740 --> 00:42:22,980
+dunda
+
+838
+00:42:18,140 --> 00:42:27,660
+t-u-n-d-e uh Thunder words okay
+
+839
+00:42:22,980 --> 00:42:32,000
+just for fun now next now let's
+
+840
+00:42:27,660 --> 00:42:32,000
+let's make a a
+
+841
+00:42:32,280 --> 00:42:37,680
+let's set up let's change our code so
+
+842
+00:42:35,700 --> 00:42:41,599
+that whenever people
+
+843
+00:42:37,680 --> 00:42:45,720
+use open say dot py file here load
+
+844
+00:42:41,599 --> 00:42:47,940
+python mod okay how do you do that
+
+845
+00:42:45,720 --> 00:42:50,820
+uh
+
+846
+00:42:47,940 --> 00:42:54,380
+so let's see let's go back to my
+
+847
+00:42:50,820 --> 00:42:54,380
+tutorial uh
+
+848
+00:43:04,619 --> 00:43:12,060
+yeah so it's not here because that
+
+849
+00:43:08,160 --> 00:43:16,079
+because so you can just click search
+
+850
+00:43:12,060 --> 00:43:17,100
+you can just click search type major
+
+851
+00:43:16,079 --> 00:43:20,260
+and
+
+852
+00:43:17,100 --> 00:43:20,260
+[Music]
+
+853
+00:43:22,500 --> 00:43:24,920
+uh
+
+854
+00:43:29,940 --> 00:43:36,119
+there it is set default major mod okay
+
+855
+00:43:33,480 --> 00:43:38,040
+this is a generic
+
+856
+00:43:36,119 --> 00:43:40,920
+question
+
+857
+00:43:38,040 --> 00:43:43,619
+you know not necessarily just for major
+
+858
+00:43:40,920 --> 00:43:45,300
+mod writers so that's not that's why
+
+859
+00:43:43,619 --> 00:43:47,760
+it's not part of the
+
+860
+00:43:45,300 --> 00:43:50,420
+how to write a major mod
+
+861
+00:43:47,760 --> 00:43:50,420
+chapter
+
+862
+00:43:50,940 --> 00:43:56,060
+so this is how do you okay here is what
+
+863
+00:43:54,240 --> 00:43:58,800
+you need to do
+
+864
+00:43:56,060 --> 00:44:01,859
+associate major amount by file name
+
+865
+00:43:58,800 --> 00:44:05,660
+extension okay so all you have to do is
+
+866
+00:44:01,859 --> 00:44:09,420
+here in the body of your major mod code
+
+867
+00:44:05,660 --> 00:44:14,400
+let's put that okay
+
+868
+00:44:09,420 --> 00:44:17,940
+so setup files ending in py to open ink
+
+869
+00:44:14,400 --> 00:44:21,300
+sub python mode Okay so
+
+870
+00:44:17,940 --> 00:44:23,819
+Auto mod list is a building variable you
+
+871
+00:44:21,300 --> 00:44:27,240
+can describe variable and see the
+
+872
+00:44:23,819 --> 00:44:30,780
+documentation and
+
+873
+00:44:27,240 --> 00:44:32,760
+current value so you'll find a python
+
+874
+00:44:30,780 --> 00:44:34,260
+mod there so for example let's search
+
+875
+00:44:32,760 --> 00:44:37,440
+for python
+
+876
+00:44:34,260 --> 00:44:38,700
+there it is actually that one I added
+
+877
+00:44:37,440 --> 00:44:41,700
+myself
+
+878
+00:44:38,700 --> 00:44:42,780
+search again python
+
+879
+00:44:41,700 --> 00:44:47,040
+you see
+
+880
+00:44:42,780 --> 00:44:48,900
+dot p y i w so python mod
+
+881
+00:44:47,040 --> 00:44:53,040
+so there it is okay
+
+882
+00:44:48,900 --> 00:44:55,220
+so all you have to do is add a let's say
+
+883
+00:44:53,040 --> 00:44:57,260
+dot py
+
+884
+00:44:55,220 --> 00:45:02,040
+and uh
+
+885
+00:44:57,260 --> 00:45:03,599
+okay now that's one more thing done one
+
+886
+00:45:02,040 --> 00:45:07,020
+more thing fixed
+
+887
+00:45:03,599 --> 00:45:10,079
+okay Eva the buffer
+
+888
+00:45:07,020 --> 00:45:12,480
+open that python file now it's already
+
+889
+00:45:10,079 --> 00:45:14,940
+opened before so right now it's still
+
+890
+00:45:12,480 --> 00:45:18,079
+python mod close it
+
+891
+00:45:14,940 --> 00:45:18,079
+open it again
+
+892
+00:45:18,599 --> 00:45:24,420
+didn't work okay close it
+
+893
+00:45:21,780 --> 00:45:27,740
+he wow the buffer
+
+894
+00:45:24,420 --> 00:45:27,740
+open that file
+
+895
+00:45:28,440 --> 00:45:36,020
+did not work it's still loading the
+
+896
+00:45:31,079 --> 00:45:36,020
+default python mod close it what
+
+897
+00:45:49,500 --> 00:45:54,300
+oh that's right that's right because
+
+898
+00:45:52,440 --> 00:45:58,260
+yeah
+
+899
+00:45:54,300 --> 00:46:02,300
+in order for this to take effect user
+
+900
+00:45:58,260 --> 00:46:02,300
+must call python mod
+
+901
+00:46:02,579 --> 00:46:06,500
+so you know user must
+
+902
+00:46:06,540 --> 00:46:12,560
+uh
+
+903
+00:46:08,280 --> 00:46:12,560
+yeah so you need to load
+
+904
+00:46:14,760 --> 00:46:20,880
+and no this part actually this part
+
+905
+00:46:17,520 --> 00:46:21,540
+needs to be done outside of the miner
+
+906
+00:46:20,880 --> 00:46:24,480
+mod
+
+907
+00:46:21,540 --> 00:46:28,260
+you see needs to be done here so that
+
+908
+00:46:24,480 --> 00:46:31,380
+when user loads your mod then this is
+
+909
+00:46:28,260 --> 00:46:32,520
+set globally you know so okay now let's
+
+910
+00:46:31,380 --> 00:46:35,819
+eval
+
+911
+00:46:32,520 --> 00:46:38,700
+first of all let's open the file close
+
+912
+00:46:35,819 --> 00:46:42,060
+it now eval buffer
+
+913
+00:46:38,700 --> 00:46:46,920
+okay open the file again you can see
+
+914
+00:46:42,060 --> 00:46:50,040
+it's in some python mod now fantastic
+
+915
+00:46:46,920 --> 00:46:53,099
+okay one more thing fixed okay now let's
+
+916
+00:46:50,040 --> 00:46:55,800
+fix next thing now you see this
+
+917
+00:46:53,099 --> 00:47:00,000
+this declaration in the beginning
+
+918
+00:46:55,800 --> 00:47:03,300
+you need that in uh here too
+
+919
+00:47:00,000 --> 00:47:05,579
+so there's a emacs convention when you
+
+920
+00:47:03,300 --> 00:47:09,480
+write the major mod the first line must
+
+921
+00:47:05,579 --> 00:47:15,180
+follow that convention so let's let's go
+
+922
+00:47:09,480 --> 00:47:19,260
+back to writing on my major mod and
+
+923
+00:47:15,180 --> 00:47:23,280
+so write the major mod open it go there
+
+924
+00:47:19,260 --> 00:47:24,540
+and the first thing syntax coloring open
+
+925
+00:47:23,280 --> 00:47:25,619
+it
+
+926
+00:47:24,540 --> 00:47:28,460
+okay
+
+927
+00:47:25,619 --> 00:47:28,460
+and
+
+928
+00:47:29,280 --> 00:47:34,980
+and here we can copy our kind of
+
+929
+00:47:32,640 --> 00:47:38,220
+template copy that
+
+930
+00:47:34,980 --> 00:47:40,440
+so here is the convention okay
+
+931
+00:47:38,220 --> 00:47:44,160
+so the convention start with three
+
+932
+00:47:40,440 --> 00:47:48,420
+semicolon and the name of the file so
+
+933
+00:47:44,160 --> 00:47:51,420
+the name of the file will be that copy
+
+934
+00:47:48,420 --> 00:47:51,420
+foreign
+
+935
+00:47:51,720 --> 00:47:58,920
+then
+
+936
+00:47:54,380 --> 00:48:03,720
+then you wanna say Okay major amount for
+
+937
+00:47:58,920 --> 00:48:06,480
+editing python code okay then you have
+
+938
+00:48:03,720 --> 00:48:09,300
+to have that to declare the default
+
+939
+00:48:06,480 --> 00:48:13,260
+encoding for your file utf-8 is good
+
+940
+00:48:09,300 --> 00:48:15,680
+okay then you say lexical binding true
+
+941
+00:48:13,260 --> 00:48:15,680
+okay
+
+942
+00:48:16,200 --> 00:48:20,819
+so let's let's equal binding t means
+
+943
+00:48:19,260 --> 00:48:23,579
+true that is a
+
+944
+00:48:20,819 --> 00:48:28,079
+that is a variable
+
+945
+00:48:23,579 --> 00:48:30,119
+building Emax that tells emacs to
+
+946
+00:48:28,079 --> 00:48:32,819
+interpret your code
+
+947
+00:48:30,119 --> 00:48:35,700
+to use lexical
+
+948
+00:48:32,819 --> 00:48:37,920
+binding okay that's a bit complex but
+
+949
+00:48:35,700 --> 00:48:40,020
+you know but in you know just follow
+
+950
+00:48:37,920 --> 00:48:42,660
+this okay you'll be good
+
+951
+00:48:40,020 --> 00:48:45,060
+so anyway so here this line you need
+
+952
+00:48:42,660 --> 00:48:48,180
+have to have this line two
+
+953
+00:48:45,060 --> 00:48:49,740
+it's not necessary okay but by emacs
+
+954
+00:48:48,180 --> 00:48:52,440
+convention if you are writing a major
+
+955
+00:48:49,740 --> 00:48:55,260
+mod you should have this line okay so
+
+956
+00:48:52,440 --> 00:48:59,400
+add that okay that's one thing fixed
+
+957
+00:48:55,260 --> 00:49:01,920
+now there's a other emacs convention for
+
+958
+00:48:59,400 --> 00:49:04,760
+the file header you know so if you
+
+959
+00:49:01,920 --> 00:49:04,760
+follow my
+
+960
+00:49:04,880 --> 00:49:10,200
+emacs you know how to write a major Mark
+
+961
+00:49:07,680 --> 00:49:14,460
+tutorial you know basically you just
+
+962
+00:49:10,200 --> 00:49:16,800
+copy this template okay which is that's
+
+963
+00:49:14,460 --> 00:49:20,819
+uh kind of the you know so there are
+
+964
+00:49:16,800 --> 00:49:22,859
+certain conventional headers because you
+
+965
+00:49:20,819 --> 00:49:26,099
+know for example author version name
+
+966
+00:49:22,859 --> 00:49:28,079
+created you know because when you load
+
+967
+00:49:26,099 --> 00:49:32,400
+your package to
+
+968
+00:49:28,079 --> 00:49:34,800
+canoe emacs repository alpha or male
+
+969
+00:49:32,400 --> 00:49:36,119
+part you know the external repository
+
+970
+00:49:34,800 --> 00:49:39,240
+for IMAX
+
+971
+00:49:36,119 --> 00:49:41,760
+they require this
+
+972
+00:49:39,240 --> 00:49:43,380
+these headers because they're gonna pass
+
+973
+00:49:41,760 --> 00:49:44,579
+you know they're gonna automatically
+
+974
+00:49:43,380 --> 00:49:47,520
+pass
+
+975
+00:49:44,579 --> 00:49:50,819
+your version name author and GitHub
+
+976
+00:49:47,520 --> 00:49:53,400
+location things like that okay
+
+977
+00:49:50,819 --> 00:49:55,560
+so for now we don't care it's not you
+
+978
+00:49:53,400 --> 00:49:58,400
+know really necessary for how the code
+
+979
+00:49:55,560 --> 00:50:02,040
+to work okay so let's just remove that
+
+980
+00:49:58,400 --> 00:50:06,599
+let's let's just say that remove that
+
+981
+00:50:02,040 --> 00:50:09,359
+okay remove that okay so now
+
+982
+00:50:06,599 --> 00:50:12,960
+here is our complete code for python mod
+
+983
+00:50:09,359 --> 00:50:16,980
+yeah now let's eval again
+
+984
+00:50:12,960 --> 00:50:18,300
+go to uh now and now open this let's
+
+985
+00:50:16,980 --> 00:50:22,440
+remove that
+
+986
+00:50:18,300 --> 00:50:25,680
+Eva now open this file let's fix the
+
+987
+00:50:22,440 --> 00:50:28,079
+next thing to fix okay next thing we
+
+988
+00:50:25,680 --> 00:50:30,060
+want the comment to be colored okay
+
+989
+00:50:28,079 --> 00:50:32,520
+let's fix that
+
+990
+00:50:30,060 --> 00:50:33,599
+color the comments okay how do you do
+
+991
+00:50:32,520 --> 00:50:35,880
+that
+
+992
+00:50:33,599 --> 00:50:39,260
+okay go back to the
+
+993
+00:50:35,880 --> 00:50:39,260
+to my tutorial
+
+994
+00:50:40,319 --> 00:50:42,319
+um
+
+995
+00:50:43,079 --> 00:50:48,480
+color comment okay very easy okay all
+
+996
+00:50:46,319 --> 00:50:49,920
+you have to do here's the example you
+
+997
+00:50:48,480 --> 00:50:53,400
+know
+
+998
+00:50:49,920 --> 00:50:54,839
+wait it's let me make the magnifying
+
+999
+00:50:53,400 --> 00:50:57,540
+let's
+
+1000
+00:50:54,839 --> 00:50:59,839
+let's magnify my font so you can see
+
+1001
+00:50:57,540 --> 00:50:59,839
+better
+
+1002
+00:51:04,020 --> 00:51:11,760
+magnify for every uh every tab Okay so
+
+1003
+00:51:09,660 --> 00:51:14,760
+yeah so uh
+
+1004
+00:51:11,760 --> 00:51:18,540
+the coloring of
+
+1005
+00:51:14,760 --> 00:51:21,359
+stream and comment okay in the case of
+
+1006
+00:51:18,540 --> 00:51:24,059
+in the way emac Beast works is that
+
+1007
+00:51:21,359 --> 00:51:26,819
+these two comes together okay it's a bit
+
+1008
+00:51:24,059 --> 00:51:30,599
+complex but just read it you'll see how
+
+1009
+00:51:26,819 --> 00:51:31,680
+to do it okay so all we have to do is
+
+1010
+00:51:30,599 --> 00:51:34,859
+um
+
+1011
+00:51:31,680 --> 00:51:37,380
+here is all the code okay let's just
+
+1012
+00:51:34,859 --> 00:51:42,500
+copy it
+
+1013
+00:51:37,380 --> 00:51:42,500
+uh let's see okay so let's see what
+
+1014
+00:51:43,380 --> 00:51:51,720
+so Define VA syntax table Neo oh yeah so
+
+1015
+00:51:48,300 --> 00:51:55,760
+you need a syntax table okay this this
+
+1016
+00:51:51,720 --> 00:51:55,760
+part is a bit complex let me explain
+
+1017
+00:51:57,200 --> 00:52:03,180
+so how long have we been oh God we
+
+1018
+00:52:00,780 --> 00:52:05,640
+already been talking for one hour how is
+
+1019
+00:52:03,180 --> 00:52:11,220
+how am I doing am I doing good should I
+
+1020
+00:52:05,640 --> 00:52:13,280
+like end let's finish the common syntax
+
+1021
+00:52:11,220 --> 00:52:16,319
+and uh
+
+1022
+00:52:13,280 --> 00:52:19,760
+coloring and the strings coloring then
+
+1023
+00:52:16,319 --> 00:52:19,760
+maybe that'll be it
+
+1024
+00:52:19,980 --> 00:52:25,559
+okay is it because your mod was added
+
+1025
+00:52:22,619 --> 00:52:27,359
+later than the default uh yeah so that
+
+1026
+00:52:25,559 --> 00:52:29,940
+question is about
+
+1027
+00:52:27,359 --> 00:52:33,900
+about adding the hook
+
+1028
+00:52:29,940 --> 00:52:35,960
+uh no that's not because of that the
+
+1029
+00:52:33,900 --> 00:52:35,960
+um
+
+1030
+00:52:37,260 --> 00:52:43,619
+when you add you know when you add when
+
+1031
+00:52:40,380 --> 00:52:48,000
+you call add to list
+
+1032
+00:52:43,619 --> 00:52:51,540
+to a variable whose value is at least
+
+1033
+00:52:48,000 --> 00:52:53,940
+the new item then then you you know say
+
+1034
+00:52:51,540 --> 00:52:57,540
+what's a new item the new item will be
+
+1035
+00:52:53,940 --> 00:53:00,059
+added in front of the list okay and when
+
+1036
+00:52:57,540 --> 00:53:03,000
+you when emacs read the list usually
+
+1037
+00:53:00,059 --> 00:53:07,559
+whatever the first item that matches
+
+1038
+00:53:03,000 --> 00:53:08,540
+your uh be used so
+
+1039
+00:53:07,559 --> 00:53:11,640
+so
+
+1040
+00:53:08,540 --> 00:53:14,520
+previously the reason we didn't get this
+
+1041
+00:53:11,640 --> 00:53:18,000
+to work not is not because it already
+
+1042
+00:53:14,520 --> 00:53:20,220
+exists because it already the py regular
+
+1043
+00:53:18,000 --> 00:53:23,940
+expression already exists you know but
+
+1044
+00:53:20,220 --> 00:53:27,359
+it it's in the later part of the list
+
+1045
+00:53:23,940 --> 00:53:32,220
+you you you you could go all the way by
+
+1046
+00:53:27,359 --> 00:53:34,020
+removing the existing py okay uh
+
+1047
+00:53:32,220 --> 00:53:36,839
+if you want to do that search for
+
+1048
+00:53:34,020 --> 00:53:40,980
+Association table I mean Association
+
+1049
+00:53:36,839 --> 00:53:42,599
+list okay so this these Basics then data
+
+1050
+00:53:40,980 --> 00:53:43,980
+structure
+
+1051
+00:53:42,599 --> 00:53:46,140
+um
+
+1052
+00:53:43,980 --> 00:53:49,559
+function data structure
+
+1053
+00:53:46,140 --> 00:53:52,740
+list this data structure then there is
+
+1054
+00:53:49,559 --> 00:53:55,680
+Association list that's what this
+
+1055
+00:53:52,740 --> 00:53:59,940
+variable Auto mod a list
+
+1056
+00:53:55,680 --> 00:54:02,760
+is AED stand for Association list and in
+
+1057
+00:53:59,940 --> 00:54:06,180
+this page you can see how do you remove
+
+1058
+00:54:02,760 --> 00:54:07,380
+items and stuff there okay I'm not gonna
+
+1059
+00:54:06,180 --> 00:54:09,240
+go into
+
+1060
+00:54:07,380 --> 00:54:11,339
+but anyway typically
+
+1061
+00:54:09,240 --> 00:54:13,740
+you know you don't bother with that you
+
+1062
+00:54:11,339 --> 00:54:17,400
+just add in front overrides whatever
+
+1063
+00:54:13,740 --> 00:54:19,559
+exists there okay let's go back to how
+
+1064
+00:54:17,400 --> 00:54:24,420
+to color the
+
+1065
+00:54:19,559 --> 00:54:26,099
+um the string and the comments okay hold
+
+1066
+00:54:24,420 --> 00:54:27,960
+on a second let me read the comments
+
+1067
+00:54:26,099 --> 00:54:30,059
+more
+
+1068
+00:54:27,960 --> 00:54:32,940
+uh everything's good thank you for this
+
+1069
+00:54:30,059 --> 00:54:35,700
+information thank you I'm new to emacs
+
+1070
+00:54:32,940 --> 00:54:38,300
+okay thank you fantastic
+
+1071
+00:54:35,700 --> 00:54:38,300
+so now
+
+1072
+00:54:38,520 --> 00:54:46,260
+Let's uh
+
+1073
+00:54:40,800 --> 00:54:49,500
+uh let's recap okay so we are doing so
+
+1074
+00:54:46,260 --> 00:54:53,579
+let's go back so we are writing a major
+
+1075
+00:54:49,500 --> 00:54:56,040
+mod for Python and first thing
+
+1076
+00:54:53,579 --> 00:54:59,819
+is that we are doing syntax coloring
+
+1077
+00:54:56,040 --> 00:55:02,940
+okay and we already did syntax coloring
+
+1078
+00:54:59,819 --> 00:55:05,640
+for these keywords in special words
+
+1079
+00:55:02,940 --> 00:55:07,460
+then the next thing we want to do is
+
+1080
+00:55:05,640 --> 00:55:12,059
+syntax color
+
+1081
+00:55:07,460 --> 00:55:14,099
+the common end string okay in emac this
+
+1082
+00:55:12,059 --> 00:55:16,380
+the way emacs works is that they are
+
+1083
+00:55:14,099 --> 00:55:19,619
+done separately they are not done by a
+
+1084
+00:55:16,380 --> 00:55:23,040
+regular expression okay so how do you do
+
+1085
+00:55:19,619 --> 00:55:26,760
+that so it's you can see here so we just
+
+1086
+00:55:23,040 --> 00:55:30,599
+follow so the way you do that is that
+
+1087
+00:55:26,760 --> 00:55:35,160
+you need to set up a syntax table okay
+
+1088
+00:55:30,599 --> 00:55:38,579
+now syntax table in emac is part of the
+
+1089
+00:55:35,160 --> 00:55:43,980
+emacs system so it's how emacs do things
+
+1090
+00:55:38,579 --> 00:55:47,220
+so in emac this the language there is a
+
+1091
+00:55:43,980 --> 00:55:51,240
+a concept called syntax table
+
+1092
+00:55:47,220 --> 00:55:54,359
+and only only is specific to emac this
+
+1093
+00:55:51,240 --> 00:55:55,619
+you will not find this concept in other
+
+1094
+00:55:54,359 --> 00:55:58,500
+languages
+
+1095
+00:55:55,619 --> 00:56:02,400
+so you have the concept of syntax table
+
+1096
+00:55:58,500 --> 00:56:05,280
+okay so you can click here and see so a
+
+1097
+00:56:02,400 --> 00:56:08,819
+syntax table is basically emacs as a way
+
+1098
+00:56:05,280 --> 00:56:12,559
+to classify for each and every character
+
+1099
+00:56:08,819 --> 00:56:16,740
+for example double quote English letters
+
+1100
+00:56:12,559 --> 00:56:19,800
+comma or underscore every character or
+
+1101
+00:56:16,740 --> 00:56:22,440
+semicolon punctuation or Unicode any
+
+1102
+00:56:19,800 --> 00:56:24,059
+Unicode character so ten thousand tens
+
+1103
+00:56:22,440 --> 00:56:28,380
+of thousand characters
+
+1104
+00:56:24,059 --> 00:56:31,800
+for every character they e-max this
+
+1105
+00:56:28,380 --> 00:56:34,440
+classified group The each character by
+
+1106
+00:56:31,800 --> 00:56:38,040
+by their type okay so you have a type
+
+1107
+00:56:34,440 --> 00:56:40,200
+called uh words for example
+
+1108
+00:56:38,040 --> 00:56:42,540
+English in English letter characters
+
+1109
+00:56:40,200 --> 00:56:45,480
+they are part of the word
+
+1110
+00:56:42,540 --> 00:56:50,880
+class okay then you have a punctuation
+
+1111
+00:56:45,480 --> 00:56:54,000
+class that's comma semicolon plus minus
+
+1112
+00:56:50,880 --> 00:56:57,720
+PSI you know and things like that and
+
+1113
+00:56:54,000 --> 00:57:01,020
+so punctuation so that's what syntax
+
+1114
+00:56:57,720 --> 00:57:03,000
+table is so it's a way it classifies
+
+1115
+00:57:01,020 --> 00:57:07,559
+each and every character into certain
+
+1116
+00:57:03,000 --> 00:57:11,579
+types okay so you can see
+
+1117
+00:57:07,559 --> 00:57:13,920
+so you have this uh class of uh
+
+1118
+00:57:11,579 --> 00:57:16,020
+syntax okay
+
+1119
+00:57:13,920 --> 00:57:19,140
+you have white space character you have
+
+1120
+00:57:16,020 --> 00:57:22,440
+words typically are English letters or
+
+1121
+00:57:19,140 --> 00:57:26,599
+Chinese letters or Russian you know
+
+1122
+00:57:22,440 --> 00:57:30,359
+you have symbols okay symbols now
+
+1123
+00:57:26,599 --> 00:57:34,140
+symbols in basically means characters
+
+1124
+00:57:30,359 --> 00:57:37,800
+that are allowed in identifiers meaning
+
+1125
+00:57:34,140 --> 00:57:41,220
+that in variable names in the function
+
+1126
+00:57:37,800 --> 00:57:44,760
+names in programming language so
+
+1127
+00:57:41,220 --> 00:57:49,920
+emac this is coding symbols symbol okay
+
+1128
+00:57:44,760 --> 00:57:52,099
+so anyway syntax table is a mechanism to
+
+1129
+00:57:49,920 --> 00:57:54,359
+classify
+
+1130
+00:57:52,099 --> 00:57:55,980
+characters into
+
+1131
+00:57:54,359 --> 00:58:00,059
+type of characters so you have white
+
+1132
+00:57:55,980 --> 00:58:01,800
+space word symbols punctuation string
+
+1133
+00:58:00,059 --> 00:58:04,859
+delimiter
+
+1134
+00:58:01,800 --> 00:58:07,140
+you have brackets left bracket and white
+
+1135
+00:58:04,859 --> 00:58:09,420
+right bracket you have common start
+
+1136
+00:58:07,140 --> 00:58:10,800
+common in and you have Escape character
+
+1137
+00:58:09,420 --> 00:58:13,559
+so
+
+1138
+00:58:10,800 --> 00:58:15,359
+and there's a few more okay this this is
+
+1139
+00:58:13,559 --> 00:58:17,339
+not all but you can look up the
+
+1140
+00:58:15,359 --> 00:58:18,540
+documentation you can do there's few
+
+1141
+00:58:17,339 --> 00:58:21,480
+more
+
+1142
+00:58:18,540 --> 00:58:25,020
+now let me talk a bit about synax table
+
+1143
+00:58:21,480 --> 00:58:28,319
+now syntax table concept is unique in
+
+1144
+00:58:25,020 --> 00:58:30,720
+emac disp nowhere else not it's I don't
+
+1145
+00:58:28,319 --> 00:58:35,160
+think it even exists in other text
+
+1146
+00:58:30,720 --> 00:58:36,900
+editors such as VI or vs code I don't
+
+1147
+00:58:35,160 --> 00:58:39,839
+think so I'm not sure but I don't think
+
+1148
+00:58:36,900 --> 00:58:40,980
+so so it's pretty unique in emacs and
+
+1149
+00:58:39,839 --> 00:58:42,299
+it's
+
+1150
+00:58:40,980 --> 00:58:44,640
+it's
+
+1151
+00:58:42,299 --> 00:58:47,059
+um it's very cryptic okay it's hard to
+
+1152
+00:58:44,640 --> 00:58:50,960
+work with and it's very quick cryptic
+
+1153
+00:58:47,059 --> 00:58:55,200
+however it's it's very fundamental to
+
+1154
+00:58:50,960 --> 00:58:58,020
+emacs emac this so in fact when you use
+
+1155
+00:58:55,200 --> 00:59:02,520
+you know when you move your cursor
+
+1156
+00:58:58,020 --> 00:59:05,640
+backward by word or forward by word or
+
+1157
+00:59:02,520 --> 00:59:09,240
+you know backward by word they all
+
+1158
+00:59:05,640 --> 00:59:12,240
+actually rely on syntax table
+
+1159
+00:59:09,240 --> 00:59:14,760
+because how does the command know when
+
+1160
+00:59:12,240 --> 00:59:16,559
+should it stop you know when is the end
+
+1161
+00:59:14,760 --> 00:59:19,559
+of the world
+
+1162
+00:59:16,559 --> 00:59:24,059
+emacs knows that because of syntax table
+
+1163
+00:59:19,559 --> 00:59:26,940
+okay so every major mod
+
+1164
+00:59:24,059 --> 00:59:30,720
+uh set up its own syntax table you can
+
+1165
+00:59:26,940 --> 00:59:33,359
+you know it's just a kind of a list of
+
+1166
+00:59:30,720 --> 00:59:35,819
+things you can modify for example here's
+
+1167
+00:59:33,359 --> 00:59:37,920
+the code how you change certain
+
+1168
+00:59:35,819 --> 00:59:39,780
+characters
+
+1169
+00:59:37,920 --> 00:59:41,760
+you know for example
+
+1170
+00:59:39,780 --> 00:59:43,980
+um
+
+1171
+00:59:41,760 --> 00:59:45,359
+you know so you can read it for detail
+
+1172
+00:59:43,980 --> 00:59:48,839
+so you can
+
+1173
+00:59:45,359 --> 00:59:51,180
+so every major mod basically has its own
+
+1174
+00:59:48,839 --> 00:59:52,740
+syntax table there's a default one you
+
+1175
+00:59:51,180 --> 00:59:55,859
+can derive from
+
+1176
+00:59:52,740 --> 00:59:59,160
+so every major mod have a different
+
+1177
+00:59:55,859 --> 01:00:01,500
+concept of what kind of character is the
+
+1178
+00:59:59,160 --> 01:00:05,400
+letter what character is a punctuation
+
+1179
+01:00:01,500 --> 01:00:08,460
+okay so for example in emac Beast you
+
+1180
+01:00:05,400 --> 01:00:09,960
+know if you load emac new emac this
+
+1181
+01:00:08,460 --> 01:00:12,119
+mod
+
+1182
+01:00:09,960 --> 01:00:15,720
+then the parent
+
+1183
+01:00:12,119 --> 01:00:18,720
+the parentheses will be part of the
+
+1184
+01:00:15,720 --> 01:00:22,740
+uh they they will belong to the class
+
+1185
+01:00:18,720 --> 01:00:25,440
+left bracket and Red Bracket however
+
+1186
+01:00:22,740 --> 01:00:28,579
+the square bracket
+
+1187
+01:00:25,440 --> 01:00:28,579
+character you know
+
+1188
+01:00:28,619 --> 01:00:34,079
+is not is not part you know the left
+
+1189
+01:00:31,619 --> 01:00:40,819
+square bracket is not part of the class
+
+1190
+01:00:34,079 --> 01:00:40,819
+left bracket in emac list mod Okay so
+
+1191
+01:00:40,920 --> 01:00:45,119
+you know it just so happens that it did
+
+1192
+01:00:43,859 --> 01:00:48,000
+it that way
+
+1193
+01:00:45,119 --> 01:00:51,000
+so the point here is that every major
+
+1194
+01:00:48,000 --> 01:00:56,099
+mod have kind of their own particular
+
+1195
+01:00:51,000 --> 01:00:56,099
+concept of what is a punctuation uh
+
+1196
+01:00:57,000 --> 01:01:05,460
+uh mostly they are the same but you know
+
+1197
+01:01:00,619 --> 01:01:07,799
+they may be different Okay so
+
+1198
+01:01:05,460 --> 01:01:12,740
+so we are talking about syntax table
+
+1199
+01:01:07,799 --> 01:01:12,740
+okay very uh critical concept
+
+1200
+01:01:14,579 --> 01:01:22,319
+Okay so
+
+1201
+01:01:17,640 --> 01:01:25,680
+in order to create color for the common
+
+1202
+01:01:22,319 --> 01:01:28,799
+and string
+
+1203
+01:01:25,680 --> 01:01:32,040
+all you have to do is you have to set up
+
+1204
+01:01:28,799 --> 01:01:34,799
+a syntax table that tells emacs which
+
+1205
+01:01:32,040 --> 01:01:37,920
+character is the beginning of a string
+
+1206
+01:01:34,799 --> 01:01:39,599
+you know the string delimiter and which
+
+1207
+01:01:37,920 --> 01:01:42,839
+character is the beginning of common
+
+1208
+01:01:39,599 --> 01:01:45,660
+okay now this this is actually fairly
+
+1209
+01:01:42,839 --> 01:01:46,980
+complex okay but let's just follow the
+
+1210
+01:01:45,660 --> 01:01:49,260
+template here
+
+1211
+01:01:46,980 --> 01:01:52,140
+you know because syntax table is very
+
+1212
+01:01:49,260 --> 01:01:55,559
+very hard to understand in complex okay
+
+1213
+01:01:52,140 --> 01:01:57,000
+so let's create a syntax table and the
+
+1214
+01:01:55,559 --> 01:02:00,240
+our mod is
+
+1215
+01:01:57,000 --> 01:02:02,160
+let's change our mod is the python mod
+
+1216
+01:02:00,240 --> 01:02:05,819
+so python
+
+1217
+01:02:02,160 --> 01:02:09,240
+example okay change those words
+
+1218
+01:02:05,819 --> 01:02:11,940
+okay first of all we Define a variable
+
+1219
+01:02:09,240 --> 01:02:14,400
+sub python mod
+
+1220
+01:02:11,940 --> 01:02:16,680
+you know instead of defined by you can
+
+1221
+01:02:14,400 --> 01:02:18,359
+just say Define okay
+
+1222
+01:02:16,680 --> 01:02:20,880
+and
+
+1223
+01:02:18,359 --> 01:02:23,579
+in if you are writing a major mod you
+
+1224
+01:02:20,880 --> 01:02:26,819
+use you should use Define VAR
+
+1225
+01:02:23,579 --> 01:02:28,880
+but typically we can just do a set queue
+
+1226
+01:02:26,819 --> 01:02:31,980
+it's simple okay you can look up Define
+
+1227
+01:02:28,880 --> 01:02:35,160
+yourself okay so
+
+1228
+01:02:31,980 --> 01:02:38,700
+so anyway defined by is basically like
+
+1229
+01:02:35,160 --> 01:02:40,260
+set queue Okay just set up a variable so
+
+1230
+01:02:38,700 --> 01:02:44,640
+you set up a variable
+
+1231
+01:02:40,260 --> 01:02:46,579
+uh which allows you to also include a
+
+1232
+01:02:44,640 --> 01:02:50,040
+documentation for for the variable
+
+1233
+01:02:46,579 --> 01:02:53,400
+that's basically what defined by is if
+
+1234
+01:02:50,040 --> 01:02:56,819
+you use set queue then you don't you you
+
+1235
+01:02:53,400 --> 01:03:00,180
+know you cannot have documentation okay
+
+1236
+01:02:56,819 --> 01:03:03,420
+so you set up a variable okay so syntax
+
+1237
+01:03:00,180 --> 01:03:05,819
+table for a python mod then here's the
+
+1238
+01:03:03,420 --> 01:03:07,260
+value okay then you say set Q
+
+1239
+01:03:05,819 --> 01:03:09,619
+uh
+
+1240
+01:03:07,260 --> 01:03:12,839
+so you first of all
+
+1241
+01:03:09,619 --> 01:03:15,540
+you create a
+
+1242
+01:03:12,839 --> 01:03:17,960
+copy you know you make syntax table
+
+1243
+01:03:15,540 --> 01:03:21,900
+which create a default synapse table
+
+1244
+01:03:17,960 --> 01:03:26,059
+then you want to say
+
+1245
+01:03:21,900 --> 01:03:26,059
+so what we want to say here
+
+1246
+01:03:27,180 --> 01:03:34,500
+okay so yeah so this is for python so in
+
+1247
+01:03:30,720 --> 01:03:37,380
+the python case the pound sign is the
+
+1248
+01:03:34,500 --> 01:03:39,660
+start of common okay and the end of
+
+1249
+01:03:37,380 --> 01:03:40,740
+comment is a new line so that's how you
+
+1250
+01:03:39,660 --> 01:03:42,359
+do it
+
+1251
+01:03:40,740 --> 01:03:45,960
+okay
+
+1252
+01:03:42,359 --> 01:03:48,839
+uh okay so let's do the common
+
+1253
+01:03:45,960 --> 01:03:52,079
+part first okay then
+
+1254
+01:03:48,839 --> 01:03:53,819
+then this we don't care so actually just
+
+1255
+01:03:52,079 --> 01:03:55,859
+copy that
+
+1256
+01:03:53,819 --> 01:03:58,640
+you need that okay so hold on a second
+
+1257
+01:03:55,859 --> 01:03:58,640
+let me show you
+
+1258
+01:04:00,599 --> 01:04:08,599
+so copy this so we set up
+
+1259
+01:04:05,280 --> 01:04:08,599
+syntax table
+
+1260
+01:04:10,740 --> 01:04:15,500
+here okay we set up syntax table
+
+1261
+01:04:17,900 --> 01:04:22,319
+let's say scene
+
+1262
+01:04:25,559 --> 01:04:30,319
+okay
+
+1263
+01:04:27,660 --> 01:04:33,859
+let's put some
+
+1264
+01:04:30,319 --> 01:04:33,859
+clarification here
+
+1265
+01:04:38,400 --> 01:04:44,420
+clean them up
+
+1266
+01:04:40,140 --> 01:04:44,420
+so it's more compact
+
+1267
+01:04:46,319 --> 01:04:50,940
+okay and then
+
+1268
+01:04:48,839 --> 01:04:55,140
+syntax table
+
+1269
+01:04:50,940 --> 01:04:57,540
+okay so we set up the character pound
+
+1270
+01:04:55,140 --> 01:04:58,980
+sign and new line to belong to the
+
+1271
+01:04:57,540 --> 01:05:01,400
+comment
+
+1272
+01:04:58,980 --> 01:05:04,619
+character beginning and end of comment
+
+1273
+01:05:01,400 --> 01:05:06,240
+then all we have to do
+
+1274
+01:05:04,619 --> 01:05:09,119
+is
+
+1275
+01:05:06,240 --> 01:05:12,839
+in uh
+
+1276
+01:05:09,119 --> 01:05:15,140
+you know definition of the mod we just
+
+1277
+01:05:12,839 --> 01:05:15,140
+say
+
+1278
+01:05:17,220 --> 01:05:23,880
+we just set the syntax table to
+
+1279
+01:05:20,760 --> 01:05:27,839
+some python mods index table so this
+
+1280
+01:05:23,880 --> 01:05:33,119
+means when plus when when user
+
+1281
+01:05:27,839 --> 01:05:35,599
+loads some python mod it will set up
+
+1282
+01:05:33,119 --> 01:05:40,680
+syntax table to be that
+
+1283
+01:05:35,599 --> 01:05:43,680
+the value of syntax table is above a
+
+1284
+01:05:40,680 --> 01:05:46,619
+specific you know it's above a local
+
+1285
+01:05:43,680 --> 01:05:49,559
+buffer logo so every buffer has its own
+
+1286
+01:05:46,619 --> 01:05:51,119
+syntax table which may be different from
+
+1287
+01:05:49,559 --> 01:05:54,000
+others okay
+
+1288
+01:05:51,119 --> 01:05:57,540
+so when you do that so that's it that's
+
+1289
+01:05:54,000 --> 01:05:59,880
+what you do but syntax table is not a
+
+1290
+01:05:57,540 --> 01:06:02,520
+variable so there's actually no variable
+
+1291
+01:05:59,880 --> 01:06:04,799
+you can there's no variable name it's
+
+1292
+01:06:02,520 --> 01:06:05,819
+just local to each buffer it's kind of
+
+1293
+01:06:04,799 --> 01:06:09,359
+hidden
+
+1294
+01:06:05,819 --> 01:06:12,180
+so anyway so that's it so okay so that's
+
+1295
+01:06:09,359 --> 01:06:13,980
+our code so far let's
+
+1296
+01:06:12,180 --> 01:06:16,260
+um
+
+1297
+01:06:13,980 --> 01:06:18,059
+you know let's let's look at the whole
+
+1298
+01:06:16,260 --> 01:06:23,579
+okay that's it
+
+1299
+01:06:18,059 --> 01:06:25,680
+that's okay now let's eval the buffer
+
+1300
+01:06:23,579 --> 01:06:27,799
+Ivana buffer
+
+1301
+01:06:25,680 --> 01:06:30,839
+open this file
+
+1302
+01:06:27,799 --> 01:06:33,859
+fantastic you can see we got the common
+
+1303
+01:06:30,839 --> 01:06:33,859
+colored now
+
+1304
+01:06:34,500 --> 01:06:39,720
+okay and string is already common now
+
+1305
+01:06:37,079 --> 01:06:42,000
+stream how do you comment string is very
+
+1306
+01:06:39,720 --> 01:06:44,339
+similar you know all you have to do is
+
+1307
+01:06:42,000 --> 01:06:46,559
+you set up you know just this line you
+
+1308
+01:06:44,339 --> 01:06:49,260
+set up a
+
+1309
+01:06:46,559 --> 01:06:50,940
+you know you modify you you make the
+
+1310
+01:06:49,260 --> 01:06:54,420
+strings
+
+1311
+01:06:50,940 --> 01:06:58,319
+beginning and end delimiters to be the
+
+1312
+01:06:54,420 --> 01:07:01,020
+string syntax table okay that's you know
+
+1313
+01:06:58,319 --> 01:07:03,359
+read read my page you'll see okay but
+
+1314
+01:07:01,020 --> 01:07:06,299
+but right now it's already works it
+
+1315
+01:07:03,359 --> 01:07:09,780
+already works because close it because
+
+1316
+01:07:06,299 --> 01:07:12,960
+we based on our mod um programming mod
+
+1317
+01:07:09,780 --> 01:07:16,079
+which which you know already
+
+1318
+01:07:12,960 --> 01:07:16,980
+um set up the syntax table correctly for
+
+1319
+01:07:16,079 --> 01:07:20,280
+the
+
+1320
+01:07:16,980 --> 01:07:22,920
+for the double quote okay so what's the
+
+1321
+01:07:20,280 --> 01:07:25,559
+next thing we want to fix one more okay
+
+1322
+01:07:22,920 --> 01:07:28,440
+let's do one more
+
+1323
+01:07:25,559 --> 01:07:30,780
+one more thing which is the command
+
+1324
+01:07:28,440 --> 01:07:33,960
+command
+
+1325
+01:07:30,780 --> 01:07:37,319
+okay uh yeah we need a way you know we
+
+1326
+01:07:33,960 --> 01:07:40,140
+need to comment and you know for example
+
+1327
+01:07:37,319 --> 01:07:44,039
+comment this out
+
+1328
+01:07:40,140 --> 01:07:46,260
+so right now it doesn't work you know so
+
+1329
+01:07:44,039 --> 01:07:48,839
+so you need a command to do that and
+
+1330
+01:07:46,260 --> 01:07:51,420
+that's very easy okay you click you know
+
+1331
+01:07:48,839 --> 01:07:54,859
+how to write a common uncommon command
+
+1332
+01:07:51,420 --> 01:07:58,260
+for major mod all you have to do
+
+1333
+01:07:54,859 --> 01:08:01,520
+is just set two local variables these
+
+1334
+01:07:58,260 --> 01:08:01,520
+two okay copy it
+
+1335
+01:08:02,579 --> 01:08:08,359
+yeah copy it and close this let's go
+
+1336
+01:08:06,059 --> 01:08:08,359
+here
+
+1337
+01:08:10,079 --> 01:08:15,839
+okay then come and start pound sign okay
+
+1338
+01:08:14,339 --> 01:08:19,799
+common end
+
+1339
+01:08:15,839 --> 01:08:22,319
+uh common and it should be yeah empty
+
+1340
+01:08:19,799 --> 01:08:25,440
+okay that's all you have to do
+
+1341
+01:08:22,319 --> 01:08:28,560
+okay give out the buffer
+
+1342
+01:08:25,440 --> 01:08:30,480
+open the python file now let's try the
+
+1343
+01:08:28,560 --> 01:08:32,699
+common dream
+
+1344
+01:08:30,480 --> 01:08:36,960
+there is a command called common dream
+
+1345
+01:08:32,699 --> 01:08:39,900
+it is common Dash dwim that's building
+
+1346
+01:08:36,960 --> 01:08:42,500
+emacs so now if you call that let's see
+
+1347
+01:08:39,900 --> 01:08:42,500
+for example
+
+1348
+01:08:44,960 --> 01:08:52,199
+dwim okay
+
+1349
+01:08:47,460 --> 01:08:54,620
+uh d d w i m okay do it you see it adds
+
+1350
+01:08:52,199 --> 01:08:54,620
+a comment
+
+1351
+01:08:54,900 --> 01:08:59,759
+you see
+
+1352
+01:08:56,279 --> 01:09:01,739
+so now if you select this line for
+
+1353
+01:08:59,759 --> 01:09:03,120
+example select select let's call it
+
+1354
+01:09:01,739 --> 01:09:05,219
+again
+
+1355
+01:09:03,120 --> 01:09:08,339
+comment down
+
+1356
+01:09:05,219 --> 01:09:11,160
+code select them code again and comment
+
+1357
+01:09:08,339 --> 01:09:14,100
+okay so now comment and uncomment now
+
+1358
+01:09:11,160 --> 01:09:16,259
+works in your major amount okay
+
+1359
+01:09:14,100 --> 01:09:19,380
+close it
+
+1360
+01:09:16,259 --> 01:09:21,960
+uh okay now opening it again
+
+1361
+01:09:19,380 --> 01:09:23,699
+now there's one more uh you know there's
+
+1362
+01:09:21,960 --> 01:09:26,759
+a lot of things we need to do so right
+
+1363
+01:09:23,699 --> 01:09:28,140
+now you see this is incorrect you know
+
+1364
+01:09:26,759 --> 01:09:30,120
+we don't want part of the word
+
+1365
+01:09:28,140 --> 01:09:33,000
+highlighted in other parts
+
+1366
+01:09:30,120 --> 01:09:35,460
+so and also here
+
+1367
+01:09:33,000 --> 01:09:39,299
+so to fix that
+
+1368
+01:09:35,460 --> 01:09:40,980
+you can reorder
+
+1369
+01:09:39,299 --> 01:09:42,980
+you kind of
+
+1370
+01:09:40,980 --> 01:09:42,980
+um
+
+1371
+01:09:44,580 --> 01:09:51,540
+no way to fix that you have to hear this
+
+1372
+01:09:48,600 --> 01:09:54,120
+part generates a regular expression uh
+
+1373
+01:09:51,540 --> 01:09:55,980
+it takes a second argument that that
+
+1374
+01:09:54,120 --> 01:09:57,960
+says
+
+1375
+01:09:55,980 --> 01:10:01,080
+you want the regular expression to match
+
+1376
+01:09:57,960 --> 01:10:05,100
+only when they are at the boundary of a
+
+1377
+01:10:01,080 --> 01:10:07,699
+word so you just say word here okay
+
+1378
+01:10:05,100 --> 01:10:11,300
+so you can look up describe function
+
+1379
+01:10:07,699 --> 01:10:14,820
+rejects up so you can see
+
+1380
+01:10:11,300 --> 01:10:17,340
+the documentation it describes here so
+
+1381
+01:10:14,820 --> 01:10:21,659
+you know
+
+1382
+01:10:17,340 --> 01:10:25,560
+there okay so close that so and let's do
+
+1383
+01:10:21,659 --> 01:10:26,820
+the same thing for uh this okay even the
+
+1384
+01:10:25,560 --> 01:10:29,159
+buffer
+
+1385
+01:10:26,820 --> 01:10:31,679
+open this file
+
+1386
+01:10:29,159 --> 01:10:34,500
+let's go
+
+1387
+01:10:31,679 --> 01:10:37,800
+up let's see does that still happen
+
+1388
+01:10:34,500 --> 01:10:38,820
+still happens okay close it even a
+
+1389
+01:10:37,800 --> 01:10:43,280
+buffer
+
+1390
+01:10:38,820 --> 01:10:43,280
+open it it still happens
+
+1391
+01:10:43,580 --> 01:10:48,800
+this end wait so why is it
+
+1392
+01:10:54,120 --> 01:10:58,980
+okay we don't want word we want symbol
+
+1393
+01:10:57,360 --> 01:11:00,719
+okay
+
+1394
+01:10:58,980 --> 01:11:01,739
+symbol means
+
+1395
+01:11:00,719 --> 01:11:05,040
+um
+
+1396
+01:11:01,739 --> 01:11:06,780
+you know symbol means identifier okay so
+
+1397
+01:11:05,040 --> 01:11:10,320
+let's let's try that
+
+1398
+01:11:06,780 --> 01:11:13,620
+not sure it works but let's try it
+
+1399
+01:11:10,320 --> 01:11:17,280
+anyway Eva the buffer
+
+1400
+01:11:13,620 --> 01:11:22,380
+okay did we actually uh it should work
+
+1401
+01:11:17,280 --> 01:11:24,719
+okay he vowed a buffer open it it worked
+
+1402
+01:11:22,380 --> 01:11:28,699
+you see
+
+1403
+01:11:24,719 --> 01:11:28,699
+you see now if I type end
+
+1404
+01:11:30,140 --> 01:11:36,179
+now it's colored correctly you know and
+
+1405
+01:11:34,020 --> 01:11:39,239
+in Python is like
+
+1406
+01:11:36,179 --> 01:11:40,800
+it's a logical end okay
+
+1407
+01:11:39,239 --> 01:11:44,219
+fantastic
+
+1408
+01:11:40,800 --> 01:11:46,020
+okay I think that's it for today so any
+
+1409
+01:11:44,219 --> 01:11:47,400
+comments and questions
+
+1410
+01:11:46,020 --> 01:11:51,840
+so
+
+1411
+01:11:47,400 --> 01:11:53,340
+we got syntax coloring to work
+
+1412
+01:11:51,840 --> 01:11:55,980
+we got
+
+1413
+01:11:53,340 --> 01:11:59,100
+you know we got color comments in color
+
+1414
+01:11:55,980 --> 01:12:00,540
+stream to work now we have also common
+
+1415
+01:11:59,100 --> 01:12:05,460
+command
+
+1416
+01:12:00,540 --> 01:12:06,420
+that is that is 60 of your major mod so
+
+1417
+01:12:05,460 --> 01:12:10,020
+you are
+
+1418
+01:12:06,420 --> 01:12:12,719
+you know we are pretty good pretty good
+
+1419
+01:12:10,020 --> 01:12:15,960
+so of course you have to you have to
+
+1420
+01:12:12,719 --> 01:12:19,260
+write a lot more syntax color into fi
+
+1421
+01:12:15,960 --> 01:12:24,600
+you know close for example
+
+1422
+01:12:19,260 --> 01:12:27,120
+and the next thing is to write a
+
+1423
+01:12:24,600 --> 01:12:31,620
+completion command that's very useful
+
+1424
+01:12:27,120 --> 01:12:34,320
+but I but that's it for today it's uh 70
+
+1425
+01:12:31,620 --> 01:12:36,780
+minutes yeah so thank you guys for
+
+1426
+01:12:34,320 --> 01:12:40,219
+watching okay so if you like my stuff
+
+1427
+01:12:36,780 --> 01:12:45,440
+you know go you know go to my website
+
+1428
+01:12:40,219 --> 01:12:45,440
+saree.info uh so you can buy
+
+1429
+01:12:46,140 --> 01:12:51,900
+you know you can patreon me you know
+
+1430
+01:12:48,600 --> 01:12:53,760
+patreon me five bucks or give Amazon
+
+1431
+01:12:51,900 --> 01:12:57,120
+gift card you know
+
+1432
+01:12:53,760 --> 01:13:00,780
+20 bucks would be nice or PayPal you
+
+1433
+01:12:57,120 --> 01:13:03,179
+know and you can also buy
+
+1434
+01:13:00,780 --> 01:13:05,340
+my emacs tutorial
+
+1435
+01:13:03,179 --> 01:13:09,060
+so
+
+1436
+01:13:05,340 --> 01:13:10,440
+uh and emac this tutorial so where do I
+
+1437
+01:13:09,060 --> 01:13:13,980
+have the link
+
+1438
+01:13:10,440 --> 01:13:18,800
+by xiaomi Max tutorial you know as a
+
+1439
+01:13:13,980 --> 01:13:22,620
+donation so what you get is the complete
+
+1440
+01:13:18,800 --> 01:13:25,679
+tutorial my emacs and emac this tutorial
+
+1441
+01:13:22,620 --> 01:13:27,659
+so it's you can use it as a reference
+
+1442
+01:13:25,679 --> 01:13:28,980
+it's instantaneous you don't have to go
+
+1443
+01:13:27,659 --> 01:13:30,780
+to website
+
+1444
+01:13:28,980 --> 01:13:31,860
+okay that's it thank you guys for
+
+1445
+01:13:30,780 --> 01:13:34,679
+watching
+
+1446
+01:13:31,860 --> 01:13:37,940
+so let's read the comments and shut down
+
+1447
+01:13:34,679 --> 01:13:37,940
+in three minutes
+
+1448
+01:13:39,960 --> 01:13:46,440
+uh other lines you put in their special
+
+1449
+01:13:43,260 --> 01:13:50,900
+type of comments
+
+1450
+01:13:46,440 --> 01:13:50,900
+which I I'm sorry uh which line
+
+1451
+01:13:53,400 --> 01:13:59,100
+I'm not familiar with emacs in is a more
+
+1452
+01:13:56,580 --> 01:14:04,199
+like syntax highlighting and LSP
+
+1453
+01:13:59,100 --> 01:14:06,480
+features okay liko or high liquor 12.
+
+1454
+01:14:04,199 --> 01:14:08,820
+well for this video you have to be a
+
+1455
+01:14:06,480 --> 01:14:12,239
+Emax user to
+
+1456
+01:14:08,820 --> 01:14:14,820
+to benefit from this at all because if
+
+1457
+01:14:12,239 --> 01:14:16,920
+you are not emacs user this is not
+
+1458
+01:14:14,820 --> 01:14:19,020
+useful to you and
+
+1459
+01:14:16,920 --> 01:14:22,199
+you know you don't have to worry about
+
+1460
+01:14:19,020 --> 01:14:25,040
+it it you know so
+
+1461
+01:14:22,199 --> 01:14:25,040
+you know yeah
+
+1462
+01:14:25,199 --> 01:14:30,360
+because this we are writing a major
+
+1463
+01:14:27,179 --> 01:14:32,460
+amount to color you know syntax color
+
+1464
+01:14:30,360 --> 01:14:36,420
+a programming language
+
+1465
+01:14:32,460 --> 01:14:38,820
+in emacs so you know so different
+
+1466
+01:14:36,420 --> 01:14:41,640
+languages you know I actually I don't
+
+1467
+01:14:38,820 --> 01:14:45,120
+have experience in writing a syntax
+
+1468
+01:14:41,640 --> 01:14:48,540
+coloring package for in Vim in vs code I
+
+1469
+01:14:45,120 --> 01:14:51,679
+don't have experience but I have
+
+1470
+01:14:48,540 --> 01:14:55,440
+put as far as I know they you know each
+
+1471
+01:14:51,679 --> 01:14:57,000
+editor they do it rather completely
+
+1472
+01:14:55,440 --> 01:15:00,239
+differently
+
+1473
+01:14:57,000 --> 01:15:03,239
+you know so ideally you know the ideal
+
+1474
+01:15:00,239 --> 01:15:06,239
+situation is that oh you need doesn't
+
+1475
+01:15:03,239 --> 01:15:09,600
+matter which editor you just need a
+
+1476
+01:15:06,239 --> 01:15:10,739
+grammar specification you know for the
+
+1477
+01:15:09,600 --> 01:15:12,600
+language
+
+1478
+01:15:10,739 --> 01:15:16,440
+some kind of standard grammar
+
+1479
+01:15:12,600 --> 01:15:19,020
+specification put it there and and ban
+
+1480
+01:15:16,440 --> 01:15:22,020
+you'll just color everything and you
+
+1481
+01:15:19,020 --> 01:15:26,400
+also have common and common command you
+
+1482
+01:15:22,020 --> 01:15:30,000
+know ideally but that's not reality so
+
+1483
+01:15:26,400 --> 01:15:34,380
+in emacs editor you have to code emac
+
+1484
+01:15:30,000 --> 01:15:37,620
+this and quite esoteric you know in Vim
+
+1485
+01:15:34,380 --> 01:15:41,760
+you use Vim script or whatever
+
+1486
+01:15:37,620 --> 01:15:45,000
+and neovim you use luaus I suppose but
+
+1487
+01:15:41,760 --> 01:15:47,640
+the mechanism how they think is not over
+
+1488
+01:15:45,000 --> 01:15:52,400
+it's all different as far as I know in
+
+1489
+01:15:47,640 --> 01:15:52,400
+vs code is another way okay so
+
+1490
+01:15:56,000 --> 01:16:04,140
+okay so there's a the lines in major
+
+1491
+01:15:59,100 --> 01:16:06,719
+mode line 35 E major mods so oh that so
+
+1492
+01:16:04,140 --> 01:16:09,659
+that is kind of interesting so you can
+
+1493
+01:16:06,719 --> 01:16:15,140
+learn everything about that just search
+
+1494
+01:16:09,659 --> 01:16:15,140
+emacs tutorial uh just search for
+
+1495
+01:16:15,600 --> 01:16:21,060
+that that
+
+1496
+01:16:18,080 --> 01:16:22,679
+is actually it's a bit complex but
+
+1497
+01:16:21,060 --> 01:16:24,120
+that's that's actually just the
+
+1498
+01:16:22,679 --> 01:16:28,440
+character
+
+1499
+01:16:24,120 --> 01:16:32,000
+Line Feed okay so the form feed okay uh
+
+1500
+01:16:28,440 --> 01:16:32,000
+let's just search for feed
+
+1501
+01:16:32,520 --> 01:16:38,340
+okay here form feed okay so this is the
+
+1502
+01:16:36,540 --> 01:16:40,260
+Emax convention
+
+1503
+01:16:38,340 --> 01:16:43,020
+okay let me explain that and that's it
+
+1504
+01:16:40,260 --> 01:16:45,780
+for today so in order to understand this
+
+1505
+01:16:43,020 --> 01:16:48,600
+thing com you know I'm giving you a
+
+1506
+01:16:45,780 --> 01:16:50,880
+rather in-depth explanation this thing
+
+1507
+01:16:48,600 --> 01:16:52,440
+you are seeing you know it displays a
+
+1508
+01:16:50,880 --> 01:16:55,920
+line it's actually just one single
+
+1509
+01:16:52,440 --> 01:16:57,900
+character that character is the ASCII 12
+
+1510
+01:16:55,920 --> 01:17:01,020
+character it's called form feed
+
+1511
+01:16:57,900 --> 01:17:04,080
+character okay so it is a Emax
+
+1512
+01:17:01,020 --> 01:17:08,580
+convention emac this convention since 40
+
+1513
+01:17:04,080 --> 01:17:11,580
+years ago that you use this character
+
+1514
+01:17:08,580 --> 01:17:11,580
+foreign
+
+1515
+01:17:15,600 --> 01:17:20,340
+sorry
+
+1516
+01:17:17,040 --> 01:17:22,679
+as a section marker you know you can
+
+1517
+01:17:20,340 --> 01:17:24,780
+still see it in for example let's go to
+
+1518
+01:17:22,679 --> 01:17:27,659
+diode
+
+1519
+01:17:24,780 --> 01:17:31,620
+describe function diode okay so let's go
+
+1520
+01:17:27,659 --> 01:17:34,920
+to source code of emacs uh you know
+
+1521
+01:17:31,620 --> 01:17:38,460
+build in emac this
+
+1522
+01:17:34,920 --> 01:17:41,460
+code so if you open any one of them
+
+1523
+01:17:38,460 --> 01:17:44,340
+you'll see it okay so you see
+
+1524
+01:17:41,460 --> 01:17:47,940
+so form V character now typically it
+
+1525
+01:17:44,340 --> 01:17:50,100
+will display in emacs as as the correct
+
+1526
+01:17:47,940 --> 01:17:52,500
+Arrow here just display that way you
+
+1527
+01:17:50,100 --> 01:17:55,280
+will not see this line
+
+1528
+01:17:52,500 --> 01:17:55,280
+but however
+
+1529
+01:17:55,500 --> 01:18:00,360
+you uh there's a packages or you can
+
+1530
+01:17:58,440 --> 01:18:01,620
+search on my site you know if you read
+
+1531
+01:18:00,360 --> 01:18:04,440
+this article you'll know everything
+
+1532
+01:18:01,620 --> 01:18:07,980
+about it you know different ways to
+
+1533
+01:18:04,440 --> 01:18:11,040
+different conventions to insert a
+
+1534
+01:18:07,980 --> 01:18:12,420
+section break in your source code you
+
+1535
+01:18:11,040 --> 01:18:14,400
+know there are
+
+1536
+01:18:12,420 --> 01:18:17,280
+there's no standard you know you
+
+1537
+01:18:14,400 --> 01:18:21,239
+sometimes you see this which is the most
+
+1538
+01:18:17,280 --> 01:18:24,060
+idiotic you'll see that in C Java kind
+
+1539
+01:18:21,239 --> 01:18:26,219
+of you know so anyway in emacs this it's
+
+1540
+01:18:24,060 --> 01:18:30,780
+a convention you use this Single
+
+1541
+01:18:26,219 --> 01:18:33,239
+Character ASCII 12 called form feed to
+
+1542
+01:18:30,780 --> 01:18:36,360
+indicate section break
+
+1543
+01:18:33,239 --> 01:18:38,460
+and it's a convention okay and there is
+
+1544
+01:18:36,360 --> 01:18:39,840
+a way there's a keystroke you can jump
+
+1545
+01:18:38,460 --> 01:18:43,500
+by the form
+
+1546
+01:18:39,840 --> 01:18:45,719
+by this bisection or narrow two section
+
+1547
+01:18:43,500 --> 01:18:49,199
+okay just read the article
+
+1548
+01:18:45,719 --> 01:18:51,540
+and there is there are packages and or
+
+1549
+01:18:49,199 --> 01:18:54,300
+functions is you know you can search on
+
+1550
+01:18:51,540 --> 01:18:55,560
+melpa that will display this form feed
+
+1551
+01:18:54,300 --> 01:18:58,020
+as a line
+
+1552
+01:18:55,560 --> 01:19:00,659
+so that's what you are seeing
+
+1553
+01:18:58,020 --> 01:19:02,820
+so you know so I also have my custom
+
+1554
+01:19:00,659 --> 01:19:03,659
+command for example if I want to add
+
+1555
+01:19:02,820 --> 01:19:05,580
+that
+
+1556
+01:19:03,659 --> 01:19:06,239
+I can just say
+
+1557
+01:19:05,580 --> 01:19:09,179
+um
+
+1558
+01:19:06,239 --> 01:19:12,179
+space look look at look at the Ping
+
+1559
+01:19:09,179 --> 01:19:14,820
+Windows space yeah okay so I have the
+
+1560
+01:19:12,179 --> 01:19:18,679
+command size insert from feed if you
+
+1561
+01:19:14,820 --> 01:19:18,679
+just search for that you'll find
+
+1562
+01:19:19,440 --> 01:19:27,300
+uh you know you'll find my article
+
+1563
+01:19:22,620 --> 01:19:31,100
+display short form feed a slime okay
+
+1564
+01:19:27,300 --> 01:19:31,100
+okay so that's that's about that
+
+1565
+01:19:31,440 --> 01:19:38,940
+you can insert the character in playing
+
+1566
+01:19:34,380 --> 01:19:42,300
+glue emacs you just control Q control L
+
+1567
+01:19:38,940 --> 01:19:45,120
+okay Ctrl Q control L okay that's what
+
+1568
+01:19:42,300 --> 01:19:48,800
+you do you yeah that's how you insert
+
+1569
+01:19:45,120 --> 01:19:48,800
+that character okay bye guys
+
+1570
+01:19:50,100 --> 01:19:55,260
+fantastic bye donate okay thank you guys
+
+1571
+01:19:53,340 --> 01:19:56,600
+don't don't forget that's the most
+
+1572
+01:19:55,260 --> 01:20:01,080
+important
+
+1573
+01:19:56,600 --> 01:20:02,940
+because I get a million thanks that
+
+1574
+01:20:01,080 --> 01:20:04,500
+doesn't do anything to me
+
+1575
+01:20:02,940 --> 01:20:06,420
+you know
+
+1576
+01:20:04,500 --> 01:20:07,920
+by
+
+1577
+01:20:06,420 --> 01:20:10,820
+close
+
+1578
+01:20:07,920 --> 01:20:10,820
+uh
+

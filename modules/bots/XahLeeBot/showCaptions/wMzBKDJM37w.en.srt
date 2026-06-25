@@ -1,0 +1,5528 @@
+1
+00:00:06,560 --> 00:00:09,519
+good morning everyone welcome to another
+
+2
+00:00:08,720 --> 00:00:12,639
+episode of
+
+3
+00:00:09,519 --> 00:00:16,160
+sound talk show today is 2000
+
+4
+00:00:12,639 --> 00:00:19,279
+21st and today is july
+
+5
+00:00:16,160 --> 00:00:21,840
+18th july 18th six o'clock
+
+6
+00:00:19,279 --> 00:00:23,840
+in the afternoon san francisco time if
+
+7
+00:00:21,840 --> 00:00:25,060
+you are not going to go to san francisco
+
+8
+00:00:23,840 --> 00:00:26,960
+you take the train
+
+9
+00:00:25,060 --> 00:00:30,560
+[Laughter]
+
+10
+00:00:26,960 --> 00:00:33,600
+okay today we are going to do emac lisp
+
+11
+00:00:30,560 --> 00:00:35,440
+fantastic lots of uh tons of things to
+
+12
+00:00:33,600 --> 00:00:37,520
+do with these fingers i'm going to
+
+13
+00:00:35,440 --> 00:00:41,120
+change the world
+
+14
+00:00:37,520 --> 00:00:43,520
+that's you guys i'm too old so
+
+15
+00:00:41,120 --> 00:00:44,320
+emac this today okay so looking look
+
+16
+00:00:43,520 --> 00:00:47,600
+look at this
+
+17
+00:00:44,320 --> 00:00:50,879
+lisp machine keyboard
+
+18
+00:00:47,600 --> 00:00:55,360
+you have control meta super hyper
+
+19
+00:00:50,879 --> 00:00:58,719
+shift symbol this machine keyboard okay
+
+20
+00:00:55,360 --> 00:01:00,239
+so we are going to do so show today's
+
+21
+00:00:58,719 --> 00:01:04,000
+page we are going to code some
+
+22
+00:01:00,239 --> 00:01:04,400
+emac bisp and live and then we are going
+
+23
+00:01:04,000 --> 00:01:07,600
+to
+
+24
+00:01:04,400 --> 00:01:08,880
+uh random okay so your comments is
+
+25
+00:01:07,600 --> 00:01:11,200
+appreciated
+
+26
+00:01:08,880 --> 00:01:13,200
+type your comments now now before we
+
+27
+00:01:11,200 --> 00:01:16,640
+begin let me check if i'm
+
+28
+00:01:13,200 --> 00:01:19,439
+alive check video check audio check
+
+29
+00:01:16,640 --> 00:01:20,400
+indeed i'm getting better at this game
+
+30
+00:01:19,439 --> 00:01:23,439
+so
+
+31
+00:01:20,400 --> 00:01:26,640
+so today we going to do let's
+
+32
+00:01:23,439 --> 00:01:27,680
+let's begin the show okay we're gonna do
+
+33
+00:01:26,640 --> 00:01:30,720
+emac list
+
+34
+00:01:27,680 --> 00:01:34,000
+and and look at my notes page
+
+35
+00:01:30,720 --> 00:01:36,320
+so you have uh so what is it we are
+
+36
+00:01:34,000 --> 00:01:36,799
+going to do so let me show you the page
+
+37
+00:01:36,320 --> 00:01:40,320
+here
+
+38
+00:01:36,799 --> 00:01:43,680
+in the browser and you can see emac this
+
+39
+00:01:40,320 --> 00:01:46,560
+to do so uh
+
+40
+00:01:43,680 --> 00:01:47,200
+reformat split element right split
+
+41
+00:01:46,560 --> 00:01:50,320
+element
+
+42
+00:01:47,200 --> 00:01:53,360
+yeah that that is the one
+
+43
+00:01:50,320 --> 00:01:57,119
+okay so i'm going to copy that
+
+44
+00:01:53,360 --> 00:01:59,439
+paste it here so you can see my
+
+45
+00:01:57,119 --> 00:02:00,320
+emacs command course on the pink window
+
+46
+00:01:59,439 --> 00:02:03,280
+on the left
+
+47
+00:02:00,320 --> 00:02:05,840
+okay right so we are going to write this
+
+48
+00:02:03,280 --> 00:02:05,840
+command
+
+49
+00:02:06,840 --> 00:02:13,760
+uh write this command
+
+50
+00:02:10,319 --> 00:02:16,800
+and join
+
+51
+00:02:13,760 --> 00:02:20,640
+element okay so you can see
+
+52
+00:02:16,800 --> 00:02:24,640
+right htm html
+
+53
+00:02:20,640 --> 00:02:27,760
+split element and html join element okay
+
+54
+00:02:24,640 --> 00:02:31,040
+so actually the join should go first
+
+55
+00:02:27,760 --> 00:02:34,239
+uh okay so we're gonna do
+
+56
+00:02:31,040 --> 00:02:36,239
+the join first i'm gonna show you what
+
+57
+00:02:34,239 --> 00:02:40,080
+what that is about for example
+
+58
+00:02:36,239 --> 00:02:43,440
+so you go to emacs blog so uh you you
+
+59
+00:02:40,080 --> 00:02:46,640
+questions posted okay comment so let's
+
+60
+00:02:43,440 --> 00:02:50,879
+pop out the chat
+
+61
+00:02:46,640 --> 00:02:54,800
+here so i can see who is talking
+
+62
+00:02:50,879 --> 00:02:56,400
+uh one last check is my video technology
+
+63
+00:02:54,800 --> 00:02:58,800
+working
+
+64
+00:02:56,400 --> 00:03:01,120
+i think so okay oh there's a comment
+
+65
+00:02:58,800 --> 00:03:01,120
+great
+
+66
+00:03:01,680 --> 00:03:08,720
+if he has a view doc okay view docs
+
+67
+00:03:04,959 --> 00:03:11,440
+sucks donkey ass i mentioned that before
+
+68
+00:03:08,720 --> 00:03:12,959
+and it's coded by a guy who lives in
+
+69
+00:03:11,440 --> 00:03:19,840
+japan i kind of know him
+
+70
+00:03:12,959 --> 00:03:19,840
+by mel uh
+
+71
+00:03:20,080 --> 00:03:24,720
+yeah view doc the emacs emacs mod that
+
+72
+00:03:23,360 --> 00:03:28,080
+allows you to view
+
+73
+00:03:24,720 --> 00:03:30,879
+pdf in emacs inside emacs
+
+74
+00:03:28,080 --> 00:03:32,640
+uh that sucks donkey s in fact i can
+
+75
+00:03:30,879 --> 00:03:34,879
+show you okay
+
+76
+00:03:32,640 --> 00:03:36,159
+uh hold hold on a second let me let's do
+
+77
+00:03:34,879 --> 00:03:38,239
+this first okay
+
+78
+00:03:36,159 --> 00:03:40,720
+so i want to continue let's get on with
+
+79
+00:03:38,239 --> 00:03:45,280
+the talk show and uh
+
+80
+00:03:40,720 --> 00:03:48,400
+talk about emacs view doc
+
+81
+00:03:45,280 --> 00:03:52,480
+uh view doc that
+
+82
+00:03:48,400 --> 00:03:54,560
+is view pdf in emacs okay
+
+83
+00:03:52,480 --> 00:03:56,080
+we're gonna talk about that but first of
+
+84
+00:03:54,560 --> 00:03:58,799
+all let me show you what i'm gonna do so
+
+85
+00:03:56,080 --> 00:04:01,439
+go to emacs blog let's do some emacs
+
+86
+00:03:58,799 --> 00:04:02,080
+this coding first you see we got a bunch
+
+87
+00:04:01,439 --> 00:04:05,200
+of lists
+
+88
+00:04:02,080 --> 00:04:06,480
+here uh and here's the source code you
+
+89
+00:04:05,200 --> 00:04:10,400
+can see beginning
+
+90
+00:04:06,480 --> 00:04:12,400
+with uh this one emacs less known tips
+
+91
+00:04:10,400 --> 00:04:15,120
+so i've been working on these pages
+
+92
+00:04:12,400 --> 00:04:15,840
+so we got a bunch of list items i what i
+
+93
+00:04:15,120 --> 00:04:18,959
+want to
+
+94
+00:04:15,840 --> 00:04:20,160
+do is join these two you see join these
+
+95
+00:04:18,959 --> 00:04:22,320
+two for example
+
+96
+00:04:20,160 --> 00:04:23,440
+how you gonna so basically i'm going to
+
+97
+00:04:22,320 --> 00:04:27,840
+delete
+
+98
+00:04:23,440 --> 00:04:28,639
+this end ul tag and beginning url tag
+
+99
+00:04:27,840 --> 00:04:31,840
+delete them
+
+100
+00:04:28,639 --> 00:04:34,800
+so if you show in browser you see now
+
+101
+00:04:31,840 --> 00:04:36,639
+they are like one list
+
+102
+00:04:34,800 --> 00:04:38,560
+but how do you normally do it for
+
+103
+00:04:36,639 --> 00:04:40,800
+example you can delete backward word
+
+104
+00:04:38,560 --> 00:04:42,639
+then then delete two extra characters
+
+105
+00:04:40,800 --> 00:04:43,759
+that's one way that's no good because
+
+106
+00:04:42,639 --> 00:04:46,160
+then you have these
+
+107
+00:04:43,759 --> 00:04:47,840
+dangling you know half-assed characters
+
+108
+00:04:46,160 --> 00:04:51,840
+left there you don't know if your
+
+109
+00:04:47,840 --> 00:04:55,040
+html you you want to keep your html
+
+110
+00:04:51,840 --> 00:04:59,199
+always well-formed okay you don't want
+
+111
+00:04:55,040 --> 00:05:00,080
+at any time if possible uh have your url
+
+112
+00:04:59,199 --> 00:05:02,479
+more phone
+
+113
+00:05:00,080 --> 00:05:04,560
+more formed url so another way so you
+
+114
+00:05:02,479 --> 00:05:07,280
+know one way is just dd backward word
+
+115
+00:05:04,560 --> 00:05:09,759
+that's no good uh another way is if for
+
+116
+00:05:07,280 --> 00:05:12,960
+example i press two key compact
+
+117
+00:05:09,759 --> 00:05:13,759
+those lines together then i press one
+
+118
+00:05:12,960 --> 00:05:16,960
+key to delete
+
+119
+00:05:13,759 --> 00:05:20,080
+that single line and this works
+
+120
+00:05:16,960 --> 00:05:21,759
+but it's still a manual job so i want
+
+121
+00:05:20,080 --> 00:05:22,240
+the command so i can just call the
+
+122
+00:05:21,759 --> 00:05:24,320
+command
+
+123
+00:05:22,240 --> 00:05:25,280
+so for example put the cursor here and
+
+124
+00:05:24,320 --> 00:05:28,800
+call the command
+
+125
+00:05:25,280 --> 00:05:31,199
+and you'll just uh do that okay so let's
+
+126
+00:05:28,800 --> 00:05:33,440
+let's start to write that okay so let's
+
+127
+00:05:31,199 --> 00:05:33,440
+um
+
+128
+00:05:33,680 --> 00:05:37,120
+let's hope we can finish this in 10
+
+129
+00:05:35,680 --> 00:05:38,880
+minutes then then we're gonna
+
+130
+00:05:37,120 --> 00:05:40,560
+continue talking about lots of
+
+131
+00:05:38,880 --> 00:05:44,560
+interesting things okay
+
+132
+00:05:40,560 --> 00:05:45,440
+so uh so yeah so begin so begin the lisp
+
+133
+00:05:44,560 --> 00:05:48,000
+code
+
+134
+00:05:45,440 --> 00:05:49,120
+begin it begin at the beginning
+
+135
+00:05:48,000 --> 00:05:52,560
+different
+
+136
+00:05:49,120 --> 00:05:55,039
+so we have a emac list so uh what is a
+
+137
+00:05:52,560 --> 00:05:58,319
+command name we want to write
+
+138
+00:05:55,039 --> 00:06:01,520
+uh html join elements
+
+139
+00:05:58,319 --> 00:06:04,880
+so you know i i might change the name
+
+140
+00:06:01,520 --> 00:06:07,600
+into html merge siblings
+
+141
+00:06:04,880 --> 00:06:08,800
+okay at this point it's important to
+
+142
+00:06:07,600 --> 00:06:13,360
+understand what's going on
+
+143
+00:06:08,800 --> 00:06:16,319
+because html syntax is a tree
+
+144
+00:06:13,360 --> 00:06:17,919
+okay comments questions html syntax is a
+
+145
+00:06:16,319 --> 00:06:20,319
+tree so let me show you
+
+146
+00:06:17,919 --> 00:06:21,360
+these fantastic let me let me let me do
+
+147
+00:06:20,319 --> 00:06:25,120
+this fantastic
+
+148
+00:06:21,360 --> 00:06:28,160
+okay so let's screen capture let me
+
+149
+00:06:25,120 --> 00:06:32,840
+show you the wonderful
+
+150
+00:06:28,160 --> 00:06:35,120
+the wonder of the pain computing
+
+151
+00:06:32,840 --> 00:06:37,600
+okay pan computing let me
+
+152
+00:06:35,120 --> 00:06:39,120
+show you okay so i got this pen and you
+
+153
+00:06:37,600 --> 00:06:42,720
+go buy it
+
+154
+00:06:39,120 --> 00:06:44,960
+you go buy it
+
+155
+00:06:42,720 --> 00:06:46,160
+it's a lot of cables so it's not
+
+156
+00:06:44,960 --> 00:06:49,840
+wireless so
+
+157
+00:06:46,160 --> 00:06:53,039
+so this is uh huiong cheap
+
+158
+00:06:49,840 --> 00:06:53,599
+and it's fantastic works truly great i
+
+159
+00:06:53,039 --> 00:06:56,319
+think it's
+
+160
+00:06:53,599 --> 00:06:58,400
+fifty dollars or sixty dollars or forty
+
+161
+00:06:56,319 --> 00:07:00,479
+something
+
+162
+00:06:58,400 --> 00:07:02,720
+so i'm gonna show you pain computing and
+
+163
+00:07:00,479 --> 00:07:04,000
+i'm gonna you know i'm going to explain
+
+164
+00:07:02,720 --> 00:07:09,039
+what's going on with the
+
+165
+00:07:04,000 --> 00:07:12,160
+um the html okay so
+
+166
+00:07:09,039 --> 00:07:16,240
+so so so yeah so
+
+167
+00:07:12,160 --> 00:07:20,000
+so i'm going to start to draw so
+
+168
+00:07:16,240 --> 00:07:22,560
+you see okay so html html here
+
+169
+00:07:20,000 --> 00:07:24,639
+html is a tree so normally you have a
+
+170
+00:07:22,560 --> 00:07:28,319
+tree right so you have a tree
+
+171
+00:07:24,639 --> 00:07:28,639
+here is a root and here's a nod and here
+
+172
+00:07:28,319 --> 00:07:31,759
+is
+
+173
+00:07:28,639 --> 00:07:34,160
+a children you know so
+
+174
+00:07:31,759 --> 00:07:35,120
+when you merge two elements basically
+
+175
+00:07:34,160 --> 00:07:37,919
+what happens
+
+176
+00:07:35,120 --> 00:07:39,280
+is that these two elements are siblings
+
+177
+00:07:37,919 --> 00:07:42,400
+brothers or sisters
+
+178
+00:07:39,280 --> 00:07:44,960
+so these two elements so so
+
+179
+00:07:42,400 --> 00:07:47,759
+you want them to become for example this
+
+180
+00:07:44,960 --> 00:07:47,759
+is a new tree
+
+181
+00:07:47,919 --> 00:07:52,400
+you want them to become so this becomes
+
+182
+00:07:54,160 --> 00:07:57,599
+one tree so these two become smudged
+
+183
+00:07:57,039 --> 00:08:01,199
+into
+
+184
+00:07:57,599 --> 00:08:04,400
+just one single children so
+
+185
+00:08:01,199 --> 00:08:07,280
+the proper name from a tree perspective
+
+186
+00:08:04,400 --> 00:08:07,840
+would be merged siblings merge siblings
+
+187
+00:08:07,280 --> 00:08:10,319
+above
+
+188
+00:08:07,840 --> 00:08:11,280
+or merge siblings down there's a
+
+189
+00:08:10,319 --> 00:08:14,720
+difference
+
+190
+00:08:11,280 --> 00:08:17,840
+you see because for example you
+
+191
+00:08:14,720 --> 00:08:20,560
+because html because the way the syntax
+
+192
+00:08:17,840 --> 00:08:22,560
+it's actually uh ordered so the
+
+193
+00:08:20,560 --> 00:08:22,800
+children's are actually ordered so this
+
+194
+00:08:22,560 --> 00:08:25,919
+is
+
+195
+00:08:22,800 --> 00:08:27,120
+one second children third children and
+
+196
+00:08:25,919 --> 00:08:31,039
+this is first children
+
+197
+00:08:27,120 --> 00:08:34,159
+second children so so again so this is
+
+198
+00:08:31,039 --> 00:08:38,080
+root okay r for root
+
+199
+00:08:34,159 --> 00:08:40,320
+okay r o o t okay
+
+200
+00:08:38,080 --> 00:08:43,200
+so let's cross out cross that out you
+
+201
+00:08:40,320 --> 00:08:43,919
+can you can i can use the eraser feature
+
+202
+00:08:43,200 --> 00:08:46,959
+fantastic
+
+203
+00:08:43,919 --> 00:08:50,000
+pen computing okay uh and and
+
+204
+00:08:46,959 --> 00:08:54,560
+okay so again we label one
+
+205
+00:08:50,000 --> 00:08:56,959
+two three now what is that one that is
+
+206
+00:08:54,560 --> 00:09:00,160
+that is two okay so basically the first
+
+207
+00:08:56,959 --> 00:09:00,160
+one disappeared
+
+208
+00:09:00,880 --> 00:09:06,160
+so if we do it this way then the command
+
+209
+00:09:04,160 --> 00:09:09,200
+the proper name of this command would be
+
+210
+00:09:06,160 --> 00:09:13,120
+merge sibling
+
+211
+00:09:09,200 --> 00:09:14,959
+too much to the next sibling
+
+212
+00:09:13,120 --> 00:09:16,640
+so you have two of them much to the
+
+213
+00:09:14,959 --> 00:09:17,920
+previous sibling or much to the next
+
+214
+00:09:16,640 --> 00:09:21,120
+sibling or much
+
+215
+00:09:17,920 --> 00:09:23,279
+much sibling above or much sibling below
+
+216
+00:09:21,120 --> 00:09:25,040
+so that depends on where your where your
+
+217
+00:09:23,279 --> 00:09:27,200
+cursor is at
+
+218
+00:09:25,040 --> 00:09:29,040
+so that's uh that's our pin computing
+
+219
+00:09:27,200 --> 00:09:32,080
+okay so let's save this
+
+220
+00:09:29,040 --> 00:09:33,360
+let's save this uh save it as a
+
+221
+00:09:32,080 --> 00:09:36,640
+screenshot okay
+
+222
+00:09:33,360 --> 00:09:39,279
+so now let's go back no that's it for
+
+223
+00:09:36,640 --> 00:09:39,920
+ping computing and now i'm going to show
+
+224
+00:09:39,279 --> 00:09:42,560
+you
+
+225
+00:09:39,920 --> 00:09:44,160
+where you go by that you go buy that for
+
+226
+00:09:42,560 --> 00:09:47,440
+my website of course
+
+227
+00:09:44,160 --> 00:09:49,920
+so some keyboard blog you go down
+
+228
+00:09:47,440 --> 00:09:51,519
+and so recently i've been updating lots
+
+229
+00:09:49,920 --> 00:09:54,720
+of these pain computing
+
+230
+00:09:51,519 --> 00:09:55,360
+um technologies they are fairly complex
+
+231
+00:09:54,720 --> 00:09:58,080
+because
+
+232
+00:09:55,360 --> 00:10:00,080
+unlike a mouse you know a mouse the
+
+233
+00:09:58,080 --> 00:10:01,839
+technology is very
+
+234
+00:10:00,080 --> 00:10:03,680
+pretty simple i mean there's just
+
+235
+00:10:01,839 --> 00:10:06,240
+basically one or two technology
+
+236
+00:10:03,680 --> 00:10:08,640
+you know before you have a ball okay i'm
+
+237
+00:10:06,240 --> 00:10:11,600
+not going to explain but before
+
+238
+00:10:08,640 --> 00:10:13,600
+uh the mouse you have a uh ball just
+
+239
+00:10:11,600 --> 00:10:16,480
+like a trackball okay so
+
+240
+00:10:13,600 --> 00:10:19,600
+so uh okay let's let's wonder about a
+
+241
+00:10:16,480 --> 00:10:21,680
+little bit
+
+242
+00:10:19,600 --> 00:10:22,880
+and they explain the history of the
+
+243
+00:10:21,680 --> 00:10:25,760
+mouse okay
+
+244
+00:10:22,880 --> 00:10:27,200
+so this is what a mouse looks like back
+
+245
+00:10:25,760 --> 00:10:29,519
+in the 1990s
+
+246
+00:10:27,200 --> 00:10:31,760
+you know that's what i use so optical
+
+247
+00:10:29,519 --> 00:10:32,800
+technology is actually a great fantastic
+
+248
+00:10:31,760 --> 00:10:34,880
+technology
+
+249
+00:10:32,800 --> 00:10:36,000
+you know with the ball you have to clean
+
+250
+00:10:34,880 --> 00:10:38,560
+it like
+
+251
+00:10:36,000 --> 00:10:41,040
+every few months you know it becomes you
+
+252
+00:10:38,560 --> 00:10:44,640
+know you open this up it's full of gum
+
+253
+00:10:41,040 --> 00:10:47,519
+gump and dust
+
+254
+00:10:44,640 --> 00:10:48,240
+and so they get they got they get clock
+
+255
+00:10:47,519 --> 00:10:51,519
+clocked
+
+256
+00:10:48,240 --> 00:10:54,560
+you know so this is before 1990s
+
+257
+00:10:51,519 --> 00:10:56,800
+then you have optical mouse and optical
+
+258
+00:10:54,560 --> 00:10:58,560
+mouse the best example the the first the
+
+259
+00:10:56,800 --> 00:11:01,519
+basic the first one
+
+260
+00:10:58,560 --> 00:11:02,800
+thank you microsoft microsoft invented
+
+261
+00:11:01,519 --> 00:11:05,040
+it
+
+262
+00:11:02,800 --> 00:11:07,600
+uh you know we don't remember microsoft
+
+263
+00:11:05,040 --> 00:11:10,880
+as the innovator but microsoft
+
+264
+00:11:07,600 --> 00:11:11,839
+invented the first kind of okay at least
+
+265
+00:11:10,880 --> 00:11:14,880
+they made the
+
+266
+00:11:11,839 --> 00:11:17,680
+most popular in teddy mouse okay not
+
+267
+00:11:14,880 --> 00:11:19,920
+this one this one is the later version
+
+268
+00:11:17,680 --> 00:11:21,440
+so let's turn on let's actually use my
+
+269
+00:11:19,920 --> 00:11:23,600
+pen i can
+
+270
+00:11:21,440 --> 00:11:25,040
+this you know on windows the pen is
+
+271
+00:11:23,600 --> 00:11:27,360
+actually a great
+
+272
+00:11:25,040 --> 00:11:29,279
+replacement for mouse so you see i can
+
+273
+00:11:27,360 --> 00:11:32,480
+swipe with the pen
+
+274
+00:11:29,279 --> 00:11:35,440
+you know so uh so
+
+275
+00:11:32,480 --> 00:11:36,079
+did i turn on the javascript yes okay so
+
+276
+00:11:35,440 --> 00:11:38,880
+let's
+
+277
+00:11:36,079 --> 00:11:39,839
+play this video yeah so here is a
+
+278
+00:11:38,880 --> 00:11:42,720
+microsoft
+
+279
+00:11:39,839 --> 00:11:43,600
+ad for the for the scroll wheel yeah
+
+280
+00:11:42,720 --> 00:11:47,360
+they also
+
+281
+00:11:43,600 --> 00:11:50,160
+kind of invented the swap wheel now the
+
+282
+00:11:47,360 --> 00:11:50,959
+the classic one of this mouse intel
+
+283
+00:11:50,160 --> 00:11:52,880
+anyway i
+
+284
+00:11:50,959 --> 00:11:54,120
+i don't know if i have a page but anyway
+
+285
+00:11:52,880 --> 00:11:57,440
+that's the you know
+
+286
+00:11:54,120 --> 00:12:00,959
+1997 in teddy mouse optical
+
+287
+00:11:57,440 --> 00:12:04,959
+and not just optical uh but also
+
+288
+00:12:00,959 --> 00:12:07,600
+scroll wheel fantastic uh invention okay
+
+289
+00:12:04,959 --> 00:12:08,639
+you need a square square wheel so so
+
+290
+00:12:07,600 --> 00:12:12,720
+then
+
+291
+00:12:08,639 --> 00:12:14,800
+so then you have optical which is uh
+
+292
+00:12:12,720 --> 00:12:17,200
+infrared then you have started to have
+
+293
+00:12:14,800 --> 00:12:18,560
+laser mouse so i have all details what's
+
+294
+00:12:17,200 --> 00:12:20,160
+the difference between
+
+295
+00:12:18,560 --> 00:12:22,240
+optical you know what's the difference
+
+296
+00:12:20,160 --> 00:12:24,560
+between laser and
+
+297
+00:12:22,240 --> 00:12:27,760
+optical sensor optical sensor usually
+
+298
+00:12:24,560 --> 00:12:27,760
+means infrared
+
+299
+00:12:28,959 --> 00:12:33,120
+but anyway so mouse technology is uh you
+
+300
+00:12:32,000 --> 00:12:35,839
+know there's not
+
+301
+00:12:33,120 --> 00:12:36,720
+that many variations and similarly for
+
+302
+00:12:35,839 --> 00:12:38,560
+trackball okay
+
+303
+00:12:36,720 --> 00:12:41,040
+so anyway you see these gaming mouse
+
+304
+00:12:38,560 --> 00:12:44,399
+they got two sensors you know they got
+
+305
+00:12:41,040 --> 00:12:47,920
+dark field [ __ ] dark field [ __ ] and
+
+306
+00:12:44,399 --> 00:12:51,279
+whatever [ __ ] this gamer idiots uh
+
+307
+00:12:47,920 --> 00:12:54,079
+so so you know mouse then
+
+308
+00:12:51,279 --> 00:12:54,399
+trackball is uh technology is pretty
+
+309
+00:12:54,079 --> 00:12:56,959
+much
+
+310
+00:12:54,399 --> 00:12:58,800
+the same then but however when it comes
+
+311
+00:12:56,959 --> 00:13:01,600
+to campaign computing the
+
+312
+00:12:58,800 --> 00:13:02,000
+the the technology is very diverse okay
+
+313
+00:13:01,600 --> 00:13:05,360
+you
+
+314
+00:13:02,000 --> 00:13:07,200
+have you know i cannot even explain it
+
+315
+00:13:05,360 --> 00:13:08,399
+com total completely different uh
+
+316
+00:13:07,200 --> 00:13:11,760
+technology for ex
+
+317
+00:13:08,399 --> 00:13:13,680
+example your phone you know your phone
+
+318
+00:13:11,760 --> 00:13:15,440
+you use your finger that's usually uh
+
+319
+00:13:13,680 --> 00:13:18,800
+capacitance okay
+
+320
+00:13:15,440 --> 00:13:21,279
+touch screen capacitance then then
+
+321
+00:13:18,800 --> 00:13:22,959
+this then you have the digital paper
+
+322
+00:13:21,279 --> 00:13:24,800
+okay digital paper that's a
+
+323
+00:13:22,959 --> 00:13:26,320
+different technology that's not
+
+324
+00:13:24,800 --> 00:13:29,200
+capacitance okay
+
+325
+00:13:26,320 --> 00:13:30,240
+then you have uh okay so there's a
+
+326
+00:13:29,200 --> 00:13:33,920
+problem with a
+
+327
+00:13:30,240 --> 00:13:36,560
+vivavi uh browser you cannot swipe to go
+
+328
+00:13:33,920 --> 00:13:38,560
+back so i have to
+
+329
+00:13:36,560 --> 00:13:40,399
+that's a problem okay so i have to click
+
+330
+00:13:38,560 --> 00:13:44,240
+on that little triangle that's
+
+331
+00:13:40,399 --> 00:13:44,800
+stupid vavaldi so anyway so if you use
+
+332
+00:13:44,240 --> 00:13:48,079
+uh so
+
+333
+00:13:44,800 --> 00:13:50,320
+anyway so the pen computing
+
+334
+00:13:48,079 --> 00:13:52,000
+technology are very diverse and totally
+
+335
+00:13:50,320 --> 00:13:54,399
+different so then you have
+
+336
+00:13:52,000 --> 00:13:56,880
+okay display paper display ink phone
+
+337
+00:13:54,399 --> 00:13:58,959
+thanks to emily emily who gave us
+
+338
+00:13:56,880 --> 00:14:01,839
+supply this photo and then you have
+
+339
+00:13:58,959 --> 00:14:03,360
+drawing tablet and joint have a
+
+340
+00:14:01,839 --> 00:14:05,279
+over the years different makers
+
+341
+00:14:03,360 --> 00:14:07,519
+different brand they have
+
+342
+00:14:05,279 --> 00:14:08,560
+different technologies you know so this
+
+343
+00:14:07,519 --> 00:14:11,760
+is what i'm using
+
+344
+00:14:08,560 --> 00:14:12,480
+you go buy this one right now okay go to
+
+345
+00:14:11,760 --> 00:14:16,480
+amazon
+
+346
+00:14:12,480 --> 00:14:19,600
+and i i get a dollar or two so uh
+
+347
+00:14:16,480 --> 00:14:19,920
+you know and so i i highly recommend
+
+348
+00:14:19,600 --> 00:14:22,079
+this
+
+349
+00:14:19,920 --> 00:14:24,240
+i don't draw but i do write notes you
+
+350
+00:14:22,079 --> 00:14:27,279
+know i do write notes a lot
+
+351
+00:14:24,240 --> 00:14:27,279
+so for example
+
+352
+00:14:29,199 --> 00:14:31,839
+for
+
+353
+00:14:32,240 --> 00:14:38,720
+example i am m and you can draw
+
+354
+00:14:36,079 --> 00:14:39,839
+math so you need to actually you need a
+
+355
+00:14:38,720 --> 00:14:43,040
+bigger
+
+356
+00:14:39,839 --> 00:14:47,680
+so you can do mathematics so this is x y
+
+357
+00:14:43,040 --> 00:14:50,959
+axis this is y axis and this is sine
+
+358
+00:14:47,680 --> 00:14:54,720
+and and this is cosine
+
+359
+00:14:50,959 --> 00:14:57,360
+and this is fourier analysis
+
+360
+00:14:54,720 --> 00:14:59,519
+okay so this is fantastic don't save
+
+361
+00:14:57,360 --> 00:15:02,720
+that and we have a tree and
+
+362
+00:14:59,519 --> 00:15:04,639
+yeah so the drawing the the pen
+
+363
+00:15:02,720 --> 00:15:06,560
+computing technology is very diverse
+
+364
+00:15:04,639 --> 00:15:10,880
+then you have these uh
+
+365
+00:15:06,560 --> 00:15:13,199
+okay so this kind of thing you know
+
+366
+00:15:10,880 --> 00:15:14,480
+i was fascinated because you have this
+
+367
+00:15:13,199 --> 00:15:16,800
+this kind of pen
+
+368
+00:15:14,480 --> 00:15:18,000
+are the cheapest pen they are called
+
+369
+00:15:16,800 --> 00:15:20,000
+inactive pen
+
+370
+00:15:18,000 --> 00:15:21,839
+inactive that means there's no battery
+
+371
+00:15:20,000 --> 00:15:23,600
+in it inactive so this
+
+372
+00:15:21,839 --> 00:15:27,040
+essentially they are just finger
+
+373
+00:15:23,600 --> 00:15:30,959
+emulators so you see this tip
+
+374
+00:15:27,040 --> 00:15:33,199
+and also the the most common tip
+
+375
+00:15:30,959 --> 00:15:35,040
+i i don't have it i have it somewhere
+
+376
+00:15:33,199 --> 00:15:37,839
+here
+
+377
+00:15:35,040 --> 00:15:38,399
+oh [ __ ] that where did i put it anyway
+
+378
+00:15:37,839 --> 00:15:41,440
+the
+
+379
+00:15:38,399 --> 00:15:42,639
+common tip is a rubber tip and usually
+
+380
+00:15:41,440 --> 00:15:44,880
+when you use that on
+
+381
+00:15:42,639 --> 00:15:46,079
+enough you know it's uh too much
+
+382
+00:15:44,880 --> 00:15:48,800
+friction okay
+
+383
+00:15:46,079 --> 00:15:50,240
+so anyway you have this kind of tip and
+
+384
+00:15:48,800 --> 00:15:52,240
+also you have this kind of
+
+385
+00:15:50,240 --> 00:15:55,120
+tip but anyway this type of pen is uh
+
+386
+00:15:52,240 --> 00:15:58,759
+basically finger emulator
+
+387
+00:15:55,120 --> 00:16:02,560
+they emulate the electricity um
+
+388
+00:15:58,759 --> 00:16:02,560
+conductiveness of the finger
+
+389
+00:16:02,880 --> 00:16:08,320
+and they are cheap you know one or five
+
+390
+00:16:05,920 --> 00:16:10,880
+dollars you get two or some things uh
+
+391
+00:16:08,320 --> 00:16:11,600
+many many on amazon okay but then you
+
+392
+00:16:10,880 --> 00:16:13,680
+have these
+
+393
+00:16:11,600 --> 00:16:14,880
+active pin so there's a battery in it
+
+394
+00:16:13,680 --> 00:16:17,600
+you can see your light
+
+395
+00:16:14,880 --> 00:16:19,600
+so they they are you know made most of
+
+396
+00:16:17,600 --> 00:16:23,199
+the all these are made in china
+
+397
+00:16:19,600 --> 00:16:25,120
+of course then this you know if you buy
+
+398
+00:16:23,199 --> 00:16:27,680
+apple pencil the official apple one or
+
+399
+00:16:25,120 --> 00:16:29,440
+the microsoft uh surface tablet you know
+
+400
+00:16:27,680 --> 00:16:31,839
+they they are hundred dollars
+
+401
+00:16:29,440 --> 00:16:33,440
+but these made in china twenty dollars
+
+402
+00:16:31,839 --> 00:16:36,320
+thirty dollars
+
+403
+00:16:33,440 --> 00:16:38,240
+this one turned out is this sucks donkey
+
+404
+00:16:36,320 --> 00:16:41,519
+ass okay so it's the worst crap
+
+405
+00:16:38,240 --> 00:16:44,160
+it broke literally in 44
+
+406
+00:16:41,519 --> 00:16:46,160
+days you know when you read amazon
+
+407
+00:16:44,160 --> 00:16:48,079
+reviews you see lots of comments
+
+408
+00:16:46,160 --> 00:16:50,880
+a lot of them you know you look at one
+
+409
+00:16:48,079 --> 00:16:51,680
+stars one one stars comments and lots of
+
+410
+00:16:50,880 --> 00:16:53,759
+them say
+
+411
+00:16:51,680 --> 00:16:55,759
+say oh this book in in three days
+
+412
+00:16:53,759 --> 00:16:58,000
+something and sometimes these wonder
+
+413
+00:16:55,759 --> 00:16:59,199
+are these people who you know are they
+
+414
+00:16:58,000 --> 00:17:01,600
+real
+
+415
+00:16:59,199 --> 00:17:03,600
+but act but this one actually broke 40
+
+416
+00:17:01,600 --> 00:17:06,240
+41 days you know
+
+417
+00:17:03,600 --> 00:17:06,799
+one one day i plugged it in the you know
+
+418
+00:17:06,240 --> 00:17:10,400
+the
+
+419
+00:17:06,799 --> 00:17:13,520
+light um what's the problem
+
+420
+00:17:10,400 --> 00:17:14,400
+the button uh the button to turn on no
+
+421
+00:17:13,520 --> 00:17:16,880
+longer works
+
+422
+00:17:14,400 --> 00:17:19,679
+yeah it just happened one day i and it's
+
+423
+00:17:16,880 --> 00:17:22,959
+not because i i didn't do anything to it
+
+424
+00:17:19,679 --> 00:17:23,919
+so this one sucks okay so so this type
+
+425
+00:17:22,959 --> 00:17:26,640
+is um
+
+426
+00:17:23,919 --> 00:17:28,720
+active pin there's a battery in it and
+
+427
+00:17:26,640 --> 00:17:32,000
+uh
+
+428
+00:17:28,720 --> 00:17:34,480
+so this you use um you know this one
+
+429
+00:17:32,000 --> 00:17:35,280
+you can use on server surface book or
+
+430
+00:17:34,480 --> 00:17:37,600
+apple so
+
+431
+00:17:35,280 --> 00:17:38,480
+this so how do i know how do you know
+
+432
+00:17:37,600 --> 00:17:40,799
+what
+
+433
+00:17:38,480 --> 00:17:42,160
+this one works on surface book or apple
+
+434
+00:17:40,799 --> 00:17:43,840
+because apple pen
+
+435
+00:17:42,160 --> 00:17:45,520
+pencil apple pencil and microsoft
+
+436
+00:17:43,840 --> 00:17:48,240
+surface pen
+
+437
+00:17:45,520 --> 00:17:50,240
+they are not compatible so because the
+
+438
+00:17:48,240 --> 00:17:52,960
+technology is different
+
+439
+00:17:50,240 --> 00:17:54,000
+so anyway so there's this type then then
+
+440
+00:17:52,960 --> 00:17:57,280
+you have the
+
+441
+00:17:54,000 --> 00:17:59,360
+um by the way if you are using a
+
+442
+00:17:57,280 --> 00:18:01,120
+microsoft surface tablet this one is the
+
+443
+00:17:59,360 --> 00:18:04,080
+best okay renaissance
+
+444
+00:18:01,120 --> 00:18:06,640
+uh thirty dollars cheap instead of one
+
+445
+00:18:04,080 --> 00:18:10,320
+hundred dollars the microsoft one okay
+
+446
+00:18:06,640 --> 00:18:14,080
+so so this uh so this
+
+447
+00:18:10,320 --> 00:18:17,120
+uh so so then then you have the drawing
+
+448
+00:18:14,080 --> 00:18:19,919
+tablet okay which
+
+449
+00:18:17,120 --> 00:18:20,480
+wacom is the most famous you know for
+
+450
+00:18:19,919 --> 00:18:23,200
+for
+
+451
+00:18:20,480 --> 00:18:25,520
+30 years or 20 years but today you have
+
+452
+00:18:23,200 --> 00:18:25,520
+a lot
+
+453
+00:18:25,840 --> 00:18:30,799
+okay so it's fantastic okay so you can
+
+454
+00:18:28,240 --> 00:18:34,320
+buy this and use on any computer okay
+
+455
+00:18:30,799 --> 00:18:38,480
+so let's uh copy that let's copy that
+
+456
+00:18:34,320 --> 00:18:38,480
+and then paste in a talk show let's see
+
+457
+00:18:39,679 --> 00:18:45,520
+talk show so we we haven't done
+
+458
+00:18:42,960 --> 00:18:49,200
+it so any comments so i love you you
+
+459
+00:18:45,520 --> 00:18:52,559
+inspired my emacs journey thank you
+
+460
+00:18:49,200 --> 00:18:54,400
+thank you um
+
+461
+00:18:52,559 --> 00:18:56,640
+okay so that's the digression let's go
+
+462
+00:18:54,400 --> 00:18:57,520
+back to emacs this is something i want
+
+463
+00:18:56,640 --> 00:19:00,799
+to talk about
+
+464
+00:18:57,520 --> 00:19:01,600
+i forgot i don't know so how long i've
+
+465
+00:19:00,799 --> 00:19:04,640
+been talking
+
+466
+00:19:01,600 --> 00:19:08,400
+30 minutes 20 20 minutes already okay
+
+467
+00:19:04,640 --> 00:19:12,880
+so so let's go back to uh
+
+468
+00:19:08,400 --> 00:19:15,120
+code okay so code where is my code
+
+469
+00:19:12,880 --> 00:19:17,360
+okay yeah so we were talking about
+
+470
+00:19:15,120 --> 00:19:19,840
+drawing elements drawing elements the
+
+471
+00:19:17,360 --> 00:19:21,039
+where is it yeah so you have to
+
+472
+00:19:19,840 --> 00:19:24,080
+understand the tree
+
+473
+00:19:21,039 --> 00:19:26,000
+what are you doing to the tree
+
+474
+00:19:24,080 --> 00:19:27,360
+okay so the proper name so there are
+
+475
+00:19:26,000 --> 00:19:29,760
+different kind of names
+
+476
+00:19:27,360 --> 00:19:32,080
+so so now let me talk about the naming
+
+477
+00:19:29,760 --> 00:19:34,000
+issue the naming issue of function
+
+478
+00:19:32,080 --> 00:19:35,919
+uh function names or variable names in
+
+479
+00:19:34,000 --> 00:19:38,559
+programming okay it's uh
+
+480
+00:19:35,919 --> 00:19:40,080
+it's part of linguistics for example
+
+481
+00:19:38,559 --> 00:19:43,360
+normally you can say join
+
+482
+00:19:40,080 --> 00:19:45,919
+text okay so for example for
+
+483
+00:19:43,360 --> 00:19:46,799
+for this command okay so for ex for this
+
+484
+00:19:45,919 --> 00:19:48,559
+command
+
+485
+00:19:46,799 --> 00:19:51,760
+uh let's show the pink window so for
+
+486
+00:19:48,559 --> 00:19:54,960
+this command for example let's go to
+
+487
+00:19:51,760 --> 00:19:58,080
+emacs bookmark so i want to
+
+488
+00:19:54,960 --> 00:20:01,600
+remove these you know url
+
+489
+00:19:58,080 --> 00:20:02,640
+tags right so this command you can call
+
+490
+00:20:01,600 --> 00:20:06,159
+it
+
+491
+00:20:02,640 --> 00:20:09,840
+you can call it join text okay
+
+492
+00:20:06,159 --> 00:20:14,080
+or you can say join elements okay
+
+493
+00:20:09,840 --> 00:20:17,360
+or you can say merge siblings okay
+
+494
+00:20:14,080 --> 00:20:20,400
+s i b l i n g s okay so
+
+495
+00:20:17,360 --> 00:20:22,480
+this much siblings this naming scheme
+
+496
+00:20:20,400 --> 00:20:23,679
+is from the perspective or treat of a
+
+497
+00:20:22,480 --> 00:20:27,200
+tree okay
+
+498
+00:20:23,679 --> 00:20:29,760
+while these two you know join tags
+
+499
+00:20:27,200 --> 00:20:30,559
+is this naming scheme is from the
+
+500
+00:20:29,760 --> 00:20:34,000
+perspective
+
+501
+00:20:30,559 --> 00:20:37,039
+of syntax manipulation okay
+
+502
+00:20:34,000 --> 00:20:38,400
+so which one is best uh um you know
+
+503
+00:20:37,039 --> 00:20:40,000
+depends
+
+504
+00:20:38,400 --> 00:20:41,520
+so i might change your name but let's
+
+505
+00:20:40,000 --> 00:20:45,120
+not worry about it now let's
+
+506
+00:20:41,520 --> 00:20:48,240
+keep coding okay so okay let's
+
+507
+00:20:45,120 --> 00:20:50,559
+let's start to code okay so uh let's put
+
+508
+00:20:48,240 --> 00:20:53,520
+the example here
+
+509
+00:20:50,559 --> 00:20:54,480
+uh so actually let's write the docs
+
+510
+00:20:53,520 --> 00:20:57,600
+stocks
+
+511
+00:20:54,480 --> 00:21:01,520
+stream so let's escape
+
+512
+00:20:57,600 --> 00:21:04,480
+the double quote okay i have a command
+
+513
+00:21:01,520 --> 00:21:05,280
+escape quotes okay so that's uh because
+
+514
+00:21:04,480 --> 00:21:08,640
+you have
+
+515
+00:21:05,280 --> 00:21:09,360
+called inside quote you need a backslash
+
+516
+00:21:08,640 --> 00:21:12,480
+okay
+
+517
+00:21:09,360 --> 00:21:16,640
+so johnny
+
+518
+00:21:12,480 --> 00:21:17,039
+uh let's see join elemental tag let's
+
+519
+00:21:16,640 --> 00:21:19,520
+say
+
+520
+00:21:17,039 --> 00:21:20,640
+tag because tag is from the syntax
+
+521
+00:21:19,520 --> 00:21:24,000
+perspective
+
+522
+00:21:20,640 --> 00:21:24,480
+while the elements is from kind of the
+
+523
+00:21:24,000 --> 00:21:27,120
+dom
+
+524
+00:21:24,480 --> 00:21:28,080
+perspective you see so we have several
+
+525
+00:21:27,120 --> 00:21:31,120
+naming schemes
+
+526
+00:21:28,080 --> 00:21:34,720
+different perspectives
+
+527
+00:21:31,120 --> 00:21:38,320
+naming naming of things
+
+528
+00:21:34,720 --> 00:21:41,440
+linguistic interest okay
+
+529
+00:21:38,320 --> 00:21:42,240
+and okay so that's what we were talking
+
+530
+00:21:41,440 --> 00:21:44,799
+about
+
+531
+00:21:42,240 --> 00:21:45,360
+so now let's just say join tax for now
+
+532
+00:21:44,799 --> 00:21:47,760
+okay
+
+533
+00:21:45,360 --> 00:21:48,720
+now but actually joint tax is kind of
+
+534
+00:21:47,760 --> 00:21:51,520
+ambiguous
+
+535
+00:21:48,720 --> 00:21:53,360
+because we talked about you see you can
+
+536
+00:21:51,520 --> 00:21:54,799
+when you want to merge two children you
+
+537
+00:21:53,360 --> 00:21:57,039
+can
+
+538
+00:21:54,799 --> 00:21:58,080
+you know you can merge below or above
+
+539
+00:21:57,039 --> 00:21:59,919
+you know because
+
+540
+00:21:58,080 --> 00:22:01,600
+by default the children's are actually
+
+541
+00:21:59,919 --> 00:22:05,280
+numbered so
+
+542
+00:22:01,600 --> 00:22:07,120
+you want to say join tags below or join
+
+543
+00:22:05,280 --> 00:22:09,520
+tags
+
+544
+00:22:07,120 --> 00:22:09,520
+above
+
+545
+00:22:10,840 --> 00:22:13,840
+uh
+
+546
+00:22:14,960 --> 00:22:19,919
+let's say above okay let's just say
+
+547
+00:22:16,880 --> 00:22:22,400
+let's let's now let's now focus on e-max
+
+548
+00:22:19,919 --> 00:22:27,760
+this coding
+
+549
+00:22:22,400 --> 00:22:31,280
+okay so let's see so so join
+
+550
+00:22:27,760 --> 00:22:35,919
+the current element to the
+
+551
+00:22:31,280 --> 00:22:35,919
+previous okay uh then
+
+552
+00:22:37,600 --> 00:22:44,960
+let's say below actually e-l-o-w
+
+553
+00:22:41,760 --> 00:22:48,559
+join tax joint tax joint tax
+
+554
+00:22:44,960 --> 00:22:50,799
+um yeah let's just say joint joint tax
+
+555
+00:22:48,559 --> 00:22:50,799
+okay
+
+556
+00:22:51,280 --> 00:22:59,760
+join the current elements with
+
+557
+00:22:54,720 --> 00:22:59,760
+the previous one okay
+
+558
+00:23:00,720 --> 00:23:02,960
+for
+
+559
+00:23:03,760 --> 00:23:09,840
+for example
+
+560
+00:23:10,640 --> 00:23:15,840
+so if your cursor is here for example
+
+561
+00:23:19,600 --> 00:23:28,320
+actually cat let's
+
+562
+00:23:22,799 --> 00:23:32,000
+do this dog for example
+
+563
+00:23:28,320 --> 00:23:32,000
+that becomes
+
+564
+00:23:35,520 --> 00:23:38,400
+that okay
+
+565
+00:23:40,320 --> 00:23:46,240
+that's what we are writing okay so
+
+566
+00:23:43,360 --> 00:23:47,520
+so first of all you want to find so we
+
+567
+00:23:46,240 --> 00:23:50,720
+start to code this command
+
+568
+00:23:47,520 --> 00:23:54,000
+so first of all you want to find uh
+
+569
+00:23:50,720 --> 00:23:57,200
+what what is your current
+
+570
+00:23:54,000 --> 00:23:58,640
+[ __ ] this is gonna take half an hour an
+
+571
+00:23:57,200 --> 00:24:01,520
+hour
+
+572
+00:23:58,640 --> 00:24:03,919
+all this talking i mean starting to code
+
+573
+00:24:01,520 --> 00:24:05,679
+now is going to take an hour so first of
+
+574
+00:24:03,919 --> 00:24:09,440
+all
+
+575
+00:24:05,679 --> 00:24:10,240
+you so our cursor is here you want to
+
+576
+00:24:09,440 --> 00:24:15,039
+find
+
+577
+00:24:10,240 --> 00:24:15,039
+the current tag name
+
+578
+00:24:16,880 --> 00:24:21,039
+you know so now now we run into a user
+
+579
+00:24:20,320 --> 00:24:24,720
+interface
+
+580
+00:24:21,039 --> 00:24:28,320
+design issue so
+
+581
+00:24:24,720 --> 00:24:29,360
+one way to do it is you tell the user to
+
+582
+00:24:28,320 --> 00:24:32,240
+place a cursor
+
+583
+00:24:29,360 --> 00:24:33,120
+on the tag inside the tag then when you
+
+584
+00:24:32,240 --> 00:24:35,679
+call the command
+
+585
+00:24:33,120 --> 00:24:38,799
+you'll you know join them the other way
+
+586
+00:24:35,679 --> 00:24:41,840
+is to put the cursor between
+
+587
+00:24:38,799 --> 00:24:45,200
+these uh sibling elements
+
+588
+00:24:41,840 --> 00:24:46,080
+so which way is the proper it probably
+
+589
+00:24:45,200 --> 00:24:48,400
+should be between
+
+590
+00:24:46,080 --> 00:24:48,400
+okay
+
+591
+00:24:51,600 --> 00:24:55,120
+okay so uh actually
+
+592
+00:24:57,679 --> 00:25:02,320
+ah this is going to take 20 min 30
+
+593
+00:25:00,799 --> 00:25:06,000
+minutes at least
+
+594
+00:25:02,320 --> 00:25:06,000
+this is going to take 30 minutes
+
+595
+00:25:08,720 --> 00:25:14,159
+so any comments any any should should i
+
+596
+00:25:11,520 --> 00:25:17,520
+continue should i continue um
+
+597
+00:25:14,159 --> 00:25:20,080
+you know i i should i think
+
+598
+00:25:17,520 --> 00:25:22,559
+so first thing first thing you want to
+
+599
+00:25:20,080 --> 00:25:23,279
+find out what is the tag you are trying
+
+600
+00:25:22,559 --> 00:25:26,640
+to merge
+
+601
+00:25:23,279 --> 00:25:26,640
+okay first job
+
+602
+00:25:27,440 --> 00:25:32,000
+first find out what's
+
+603
+00:25:32,240 --> 00:25:39,120
+the tag you want to merge okay
+
+604
+00:25:35,760 --> 00:25:40,400
+so let's let's start coding okay search
+
+605
+00:25:39,120 --> 00:25:44,159
+for word
+
+606
+00:25:40,400 --> 00:25:47,919
+search for word for left bracket
+
+607
+00:25:44,159 --> 00:25:50,559
+okay then so let's declare two positions
+
+608
+00:25:47,919 --> 00:25:51,279
+p1 p2 search for search backward
+
+609
+00:25:50,559 --> 00:25:54,799
+actually
+
+610
+00:25:51,279 --> 00:25:58,080
+search backward okay search backward for
+
+611
+00:25:54,799 --> 00:26:00,400
+for left bracket okay
+
+612
+00:25:58,080 --> 00:26:00,400
+then
+
+613
+00:26:01,279 --> 00:26:07,200
+then um then get the tag name so
+
+614
+00:26:04,559 --> 00:26:10,159
+actually i have a command for that
+
+615
+00:26:07,200 --> 00:26:11,760
+uh so let's let's look at my command
+
+616
+00:26:10,159 --> 00:26:13,840
+because i have already written the
+
+617
+00:26:11,760 --> 00:26:17,279
+command
+
+618
+00:26:13,840 --> 00:26:20,480
+so let's go to html mod
+
+619
+00:26:17,279 --> 00:26:24,240
+let's go to this source code and let's
+
+620
+00:26:20,480 --> 00:26:28,159
+list this matching list
+
+621
+00:26:24,240 --> 00:26:31,919
+matching lines so these are all defense
+
+622
+00:26:28,159 --> 00:26:34,159
+and so here is the function we want you
+
+623
+00:26:31,919 --> 00:26:34,159
+see
+
+624
+00:26:34,799 --> 00:26:41,840
+so get tag name okay so get tag name
+
+625
+00:26:39,200 --> 00:26:44,240
+so let's jump to it so here is the
+
+626
+00:26:41,840 --> 00:26:44,240
+function
+
+627
+00:26:44,640 --> 00:26:47,760
+uh the function returns the tag name
+
+628
+00:26:46,960 --> 00:26:52,400
+yeah so
+
+629
+00:26:47,760 --> 00:26:55,200
+get tag name so search backward
+
+630
+00:26:52,400 --> 00:26:55,679
+okay search backward forward char
+
+631
+00:26:55,200 --> 00:26:58,480
+forward
+
+632
+00:26:55,679 --> 00:26:59,600
+chart one so that the cursor is inside
+
+633
+00:26:58,480 --> 00:27:07,840
+the tag
+
+634
+00:26:59,600 --> 00:27:07,840
+then call
+
+635
+00:27:09,279 --> 00:27:17,360
+so actually so forward char
+
+636
+00:27:13,520 --> 00:27:19,120
+um position to the left okay actually we
+
+637
+00:27:17,360 --> 00:27:22,559
+don't need to forward char
+
+638
+00:27:19,120 --> 00:27:23,360
+so okay so we need to it takes one
+
+639
+00:27:22,559 --> 00:27:27,679
+argument
+
+640
+00:27:23,360 --> 00:27:30,320
+the argument is point okay
+
+641
+00:27:27,679 --> 00:27:31,520
+you know search backward we'll put the
+
+642
+00:27:30,320 --> 00:27:33,360
+kuza
+
+643
+00:27:31,520 --> 00:27:35,200
+on the left of that character by the way
+
+644
+00:27:33,360 --> 00:27:36,240
+the the character is going to be your
+
+645
+00:27:35,200 --> 00:27:38,320
+i-beam so
+
+646
+00:27:36,240 --> 00:27:41,600
+e-max cruiser is actually between
+
+647
+00:27:38,320 --> 00:27:44,640
+characters it's not on the character so
+
+648
+00:27:41,600 --> 00:27:48,000
+so search search backward
+
+649
+00:27:44,640 --> 00:27:51,360
+then call then then we need a variable
+
+650
+00:27:48,000 --> 00:27:55,039
+tag name okay so
+
+651
+00:27:51,360 --> 00:28:02,559
+set tag name to be
+
+652
+00:27:55,039 --> 00:28:06,960
+that okay prettify the code
+
+653
+00:28:02,559 --> 00:28:06,960
+okay so so we got the tag name
+
+654
+00:28:09,440 --> 00:28:18,880
+so let's see so we got the tag name then
+
+655
+00:28:16,480 --> 00:28:20,159
+then we need to find out is it beginning
+
+656
+00:28:18,880 --> 00:28:23,039
+or end tag
+
+657
+00:28:20,159 --> 00:28:24,320
+uh i don't like let's not get too
+
+658
+00:28:23,039 --> 00:28:26,720
+complex let's just
+
+659
+00:28:24,320 --> 00:28:28,840
+get a draft version working okay let's
+
+660
+00:28:26,720 --> 00:28:31,919
+just get a prototype working
+
+661
+00:28:28,840 --> 00:28:33,039
+because i'm in a talk show i cannot
+
+662
+00:28:31,919 --> 00:28:37,039
+think too much
+
+663
+00:28:33,039 --> 00:28:40,960
+let's just get a prototype walking so
+
+664
+00:28:37,039 --> 00:28:44,240
+so we so we first
+
+665
+00:28:40,960 --> 00:28:46,880
+move here and we get a tag name
+
+666
+00:28:44,240 --> 00:28:48,720
+and and make sure that that should be
+
+667
+00:28:46,880 --> 00:28:52,480
+your ending tag okay
+
+668
+00:28:48,720 --> 00:28:55,600
+so so this matching functions
+
+669
+00:28:52,480 --> 00:28:59,679
+uh is ending tag
+
+670
+00:28:55,600 --> 00:29:03,600
+i have a command that tells me
+
+671
+00:28:59,679 --> 00:29:13,840
+is opening tag okay so here
+
+672
+00:29:03,600 --> 00:29:13,840
+so this command is opening tag
+
+673
+00:29:15,679 --> 00:29:22,240
+html is opening tag and what
+
+674
+00:29:18,720 --> 00:29:24,480
+uh tag begin position so what um
+
+675
+00:29:22,240 --> 00:29:28,000
+what argument does it take return true
+
+676
+00:29:24,480 --> 00:29:31,120
+if current tag is opening tag
+
+677
+00:29:28,000 --> 00:29:33,840
+self closing text such as hr
+
+678
+00:29:31,120 --> 00:29:36,799
+br also returns true this function
+
+679
+00:29:33,840 --> 00:29:40,159
+assumes your cursor is inside the tag
+
+680
+00:29:36,799 --> 00:29:44,240
+tag position is the position to the left
+
+681
+00:29:40,159 --> 00:29:48,159
+of yeah okay so so why don't we set
+
+682
+00:29:44,240 --> 00:29:52,000
+p1 equals to point so we can say
+
+683
+00:29:48,159 --> 00:29:55,840
+p1 here and then
+
+684
+00:29:52,000 --> 00:29:55,840
+we give the argument p1
+
+685
+00:29:59,760 --> 00:30:05,360
+okay is open tag p
+
+686
+00:30:02,960 --> 00:30:05,360
+set
+
+687
+00:30:07,520 --> 00:30:14,559
+okay so we know
+
+688
+00:30:11,360 --> 00:30:15,840
+this is open tag okay so this is uh open
+
+689
+00:30:14,559 --> 00:30:18,240
+or closed
+
+690
+00:30:15,840 --> 00:30:19,760
+we are trying to check you know whether
+
+691
+00:30:18,240 --> 00:30:21,919
+that is open or closed
+
+692
+00:30:19,760 --> 00:30:24,559
+it should be your closed so this should
+
+693
+00:30:21,919 --> 00:30:24,559
+be false
+
+694
+00:30:30,480 --> 00:30:37,840
+if it's open tag
+
+695
+00:30:39,840 --> 00:30:42,320
+um
+
+696
+00:30:46,480 --> 00:30:51,679
+let's rename that okay above above is
+
+697
+00:30:49,520 --> 00:30:52,880
+open text so we are trying to check this
+
+698
+00:30:51,679 --> 00:31:05,840
+tag okay
+
+699
+00:30:52,880 --> 00:31:05,840
+so if that is a open tag error
+
+700
+00:31:07,200 --> 00:31:09,519
+okay
+
+701
+00:31:12,080 --> 00:31:19,840
+let's just say tag problem
+
+702
+00:31:23,600 --> 00:31:27,039
+so arrow tag is not closing tag so you
+
+703
+00:31:26,720 --> 00:31:31,279
+see
+
+704
+00:31:27,039 --> 00:31:37,519
+we expect this tag to be a closing tag
+
+705
+00:31:31,279 --> 00:31:37,519
+so so otherwise continue
+
+706
+00:31:39,200 --> 00:31:46,000
+then we search forward twice
+
+707
+00:31:42,720 --> 00:31:50,000
+okay so let's i mean i just want to
+
+708
+00:31:46,000 --> 00:31:50,000
+get the prototype going so
+
+709
+00:31:50,799 --> 00:31:57,919
+search forward search forward
+
+710
+00:31:54,799 --> 00:32:01,840
+then search forward that
+
+711
+00:31:57,919 --> 00:32:01,840
+okay so we were
+
+712
+00:32:04,720 --> 00:32:07,760
+we were on
+
+713
+00:32:08,159 --> 00:32:14,159
+cruiser is currently here then
+
+714
+00:32:11,760 --> 00:32:16,399
+can you see because it's going here we
+
+715
+00:32:14,159 --> 00:32:21,279
+so you want to search forward
+
+716
+00:32:16,399 --> 00:32:21,279
+okay so we need another point p0
+
+717
+00:32:22,240 --> 00:32:29,519
+now p0 is the original position
+
+718
+00:32:25,279 --> 00:32:33,360
+of the cursor okay set p0
+
+719
+00:32:29,519 --> 00:32:34,799
+point okay p0 is the original position
+
+720
+00:32:33,360 --> 00:32:38,480
+of the cursor
+
+721
+00:32:34,799 --> 00:32:42,080
+now go to char p0
+
+722
+00:32:38,480 --> 00:32:45,200
+so we return the cursor to to
+
+723
+00:32:42,080 --> 00:32:45,760
+two here between the text okay so go to
+
+724
+00:32:45,200 --> 00:32:49,600
+char
+
+725
+00:32:45,760 --> 00:32:52,640
+point zero then search for word for that
+
+726
+00:32:49,600 --> 00:32:56,640
+okay for for the greatest
+
+727
+00:32:52,640 --> 00:33:00,880
+sign then our cursor should be
+
+728
+00:32:56,640 --> 00:33:00,880
+here okay and
+
+729
+00:33:09,519 --> 00:33:16,559
+and then search forward um
+
+730
+00:33:13,519 --> 00:33:20,799
+search forward for that okay
+
+731
+00:33:16,559 --> 00:33:20,799
+search for all that backward char
+
+732
+00:33:21,200 --> 00:33:24,399
+backward child move cursor backward by
+
+733
+00:33:24,000 --> 00:33:29,120
+one
+
+734
+00:33:24,399 --> 00:33:32,480
+okay then then
+
+735
+00:33:29,120 --> 00:33:32,480
+then our cursor is
+
+736
+00:33:33,840 --> 00:33:40,240
+is here then we want to check is
+
+737
+00:33:37,440 --> 00:33:40,240
+on okay
+
+738
+00:33:42,159 --> 00:33:49,200
+below so so let's rename the
+
+739
+00:33:46,640 --> 00:33:50,000
+above is open let me let me show you
+
+740
+00:33:49,200 --> 00:33:53,840
+okay he's
+
+741
+00:33:50,000 --> 00:33:53,840
+open tag above
+
+742
+00:33:54,880 --> 00:34:00,159
+okay now we need another variable is
+
+743
+00:33:57,120 --> 00:34:00,159
+open tag below
+
+744
+00:34:03,200 --> 00:34:11,359
+below means below the cursor okay so
+
+745
+00:34:06,960 --> 00:34:14,480
+set is open tag below
+
+746
+00:34:11,359 --> 00:34:20,000
+so we are trying to double check
+
+747
+00:34:14,480 --> 00:34:23,280
+if this
+
+748
+00:34:20,000 --> 00:34:25,760
+tag is a open tag okay
+
+749
+00:34:23,280 --> 00:34:27,359
+it should be true because otherwise it's
+
+750
+00:34:25,760 --> 00:34:31,200
+arrow
+
+751
+00:34:27,359 --> 00:34:35,839
+so it's open tag below how do you know
+
+752
+00:34:31,200 --> 00:34:35,839
+uh well you you call this function okay
+
+753
+00:34:42,480 --> 00:34:51,760
+okay so so then if that
+
+754
+00:34:46,399 --> 00:34:54,800
+is also true then we are ready to go
+
+755
+00:34:51,760 --> 00:34:57,119
+okay then we just want to
+
+756
+00:34:54,800 --> 00:34:59,839
+delete the tag then delete the yield
+
+757
+00:34:57,119 --> 00:34:59,839
+attack okay
+
+758
+00:35:00,839 --> 00:35:07,119
+okay
+
+759
+00:35:03,440 --> 00:35:08,160
+uh said open yeah his tag is is open tag
+
+760
+00:35:07,119 --> 00:35:11,200
+below okay
+
+761
+00:35:08,160 --> 00:35:15,040
+so is the tag open
+
+762
+00:35:11,200 --> 00:35:18,240
+below okay so is it true so
+
+763
+00:35:15,040 --> 00:35:20,800
+so if
+
+764
+00:35:18,240 --> 00:35:24,240
+it's true that that's good otherwise
+
+765
+00:35:20,800 --> 00:35:24,240
+it's a user error okay
+
+766
+00:35:24,880 --> 00:35:31,839
+uh okay so
+
+767
+00:35:34,800 --> 00:35:45,839
+okay tag above
+
+768
+00:35:47,920 --> 00:35:53,599
+so let's change name okay let's let's
+
+769
+00:35:50,960 --> 00:35:54,079
+let's change name above below let's
+
+770
+00:35:53,599 --> 00:35:59,440
+change
+
+771
+00:35:54,079 --> 00:36:02,160
+above to before
+
+772
+00:35:59,440 --> 00:36:05,440
+there there and let's change the name
+
+773
+00:36:02,160 --> 00:36:05,440
+below to after
+
+774
+00:36:06,400 --> 00:36:09,920
+fuzzing on semantics
+
+775
+00:36:10,640 --> 00:36:13,839
+do it do it
+
+776
+00:36:14,400 --> 00:36:21,119
+do it okay wait
+
+777
+00:36:17,920 --> 00:36:24,400
+why is it three times let's say
+
+778
+00:36:21,119 --> 00:36:29,200
+it's open tag before oh yeah so we
+
+779
+00:36:24,400 --> 00:36:33,200
+need to rename yeah so now
+
+780
+00:36:29,200 --> 00:36:35,839
+okay now is is open tag after
+
+781
+00:36:33,200 --> 00:36:36,320
+is that true i mean that's a variable
+
+782
+00:36:35,839 --> 00:36:40,640
+okay
+
+783
+00:36:36,320 --> 00:36:43,440
+now you check if
+
+784
+00:36:40,640 --> 00:36:44,400
+is open tag after okay that's that's
+
+785
+00:36:43,440 --> 00:36:46,640
+ambiguous
+
+786
+00:36:44,400 --> 00:36:48,880
+okay let's forget about renaming that's
+
+787
+00:36:46,640 --> 00:36:48,880
+not
+
+788
+00:36:49,760 --> 00:36:54,480
+so it's open tag after so if it's true
+
+789
+00:36:52,960 --> 00:36:56,800
+then that's good otherwise it's
+
+790
+00:36:54,480 --> 00:36:58,160
+error okay so it's true so what else
+
+791
+00:36:56,800 --> 00:37:01,760
+what do we do
+
+792
+00:36:58,160 --> 00:37:04,800
+then we now
+
+793
+00:37:01,760 --> 00:37:08,320
+delete the
+
+794
+00:37:04,800 --> 00:37:10,560
+tag below yeah
+
+795
+00:37:08,320 --> 00:37:10,560
+so
+
+796
+00:37:12,160 --> 00:37:15,040
+search for what
+
+797
+00:37:15,280 --> 00:37:18,800
+okay p1 p2
+
+798
+00:37:18,960 --> 00:37:25,440
+p3 p4 let's name the tag this way okay
+
+799
+00:37:22,400 --> 00:37:26,720
+so you see the tag we are concerned
+
+800
+00:37:25,440 --> 00:37:30,960
+about
+
+801
+00:37:26,720 --> 00:37:33,119
+is these four i mean these two tags with
+
+802
+00:37:30,960 --> 00:37:34,160
+each tag has a beginning and end
+
+803
+00:37:33,119 --> 00:37:37,119
+position
+
+804
+00:37:34,160 --> 00:37:38,240
+so i'm going to name these four
+
+805
+00:37:37,119 --> 00:37:42,880
+positions
+
+806
+00:37:38,240 --> 00:37:46,960
+like these okay so here's p1 p2
+
+807
+00:37:42,880 --> 00:37:47,920
+then p3 p4 okay the cursor position is
+
+808
+00:37:46,960 --> 00:37:51,599
+p0
+
+809
+00:37:47,920 --> 00:37:55,440
+okay so let's rename rename
+
+810
+00:37:51,599 --> 00:37:59,200
+our variables okay shrink p1 p2
+
+811
+00:37:55,440 --> 00:38:05,839
+p3 p4 okay so
+
+812
+00:37:59,200 --> 00:38:05,839
+so the first one is p1 that's right
+
+813
+00:38:10,240 --> 00:38:15,119
+okay so so so the first one is p1
+
+814
+00:38:15,920 --> 00:38:19,839
+then p2
+
+815
+00:38:22,079 --> 00:38:29,680
+then okay then search forward
+
+816
+00:38:26,079 --> 00:38:33,680
+that okay
+
+817
+00:38:29,680 --> 00:38:37,440
+then you have p2 then
+
+818
+00:38:33,680 --> 00:38:39,119
+go to char p0 which is a cruiser
+
+819
+00:38:37,440 --> 00:38:47,280
+position
+
+820
+00:38:39,119 --> 00:38:50,400
+then search forward
+
+821
+00:38:47,280 --> 00:38:54,560
+that okay
+
+822
+00:38:50,400 --> 00:38:54,560
+then set p4
+
+823
+00:38:55,359 --> 00:39:03,280
+okay then search backward
+
+824
+00:38:58,839 --> 00:39:08,320
+that then set
+
+825
+00:39:03,280 --> 00:39:08,320
+p3 point fantastic
+
+826
+00:39:11,040 --> 00:39:19,119
+okay so we got p1 p2 p3 p4
+
+827
+00:39:15,599 --> 00:39:20,240
+again let me remind you guys the tags we
+
+828
+00:39:19,119 --> 00:39:23,599
+are concerned is
+
+829
+00:39:20,240 --> 00:39:26,839
+mostly just these two and we need these
+
+830
+00:39:23,599 --> 00:39:30,720
+four positions p1 p2
+
+831
+00:39:26,839 --> 00:39:34,640
+and p4 and p3 okay
+
+832
+00:39:30,720 --> 00:39:38,640
+so we first of all get the point
+
+833
+00:39:34,640 --> 00:39:42,240
+positions properly then we
+
+834
+00:39:38,640 --> 00:39:45,680
+then we do the code okay so so we don't
+
+835
+00:39:42,240 --> 00:39:45,680
+we no longer need this
+
+836
+00:39:52,000 --> 00:40:11,839
+is open tag after so is open tag
+
+837
+00:39:55,520 --> 00:40:11,839
+before so actually we don't need
+
+838
+00:40:16,160 --> 00:40:22,640
+is open tag before p1
+
+839
+00:40:19,599 --> 00:40:27,200
+that checks the p1 is
+
+840
+00:40:22,640 --> 00:40:27,200
+open tag that's that checks p2
+
+841
+00:40:27,760 --> 00:40:36,839
+he's open tag before he's open tag after
+
+842
+00:40:32,240 --> 00:40:39,839
+okay wait that's p3 okay
+
+843
+00:40:36,839 --> 00:40:39,839
+so
+
+844
+00:40:40,640 --> 00:40:43,280
+so if
+
+845
+00:40:50,800 --> 00:40:57,119
+so you need all okay all statement
+
+846
+00:40:53,839 --> 00:41:00,160
+so if
+
+847
+00:40:57,119 --> 00:41:02,480
+it's open tag before
+
+848
+00:41:00,160 --> 00:41:02,480
+true
+
+849
+00:41:04,079 --> 00:41:10,960
+and or
+
+850
+00:41:07,359 --> 00:41:10,960
+is open tag after
+
+851
+00:41:11,920 --> 00:41:15,680
+so either one of these conditions is an
+
+852
+00:41:14,560 --> 00:41:18,880
+error okay
+
+853
+00:41:15,680 --> 00:41:24,000
+so here is a statement to check
+
+854
+00:41:18,880 --> 00:41:24,000
+the open tag before
+
+855
+00:41:28,720 --> 00:41:33,599
+okay this is probably confusing but uh
+
+856
+00:41:31,520 --> 00:41:34,720
+but if you are coding you know you know
+
+857
+00:41:33,599 --> 00:41:39,680
+what i mean
+
+858
+00:41:34,720 --> 00:41:39,680
+so if either one of these case is true
+
+859
+00:41:40,880 --> 00:41:45,040
+is it's open tag after
+
+860
+00:41:45,599 --> 00:41:52,880
+then it's an error okay user error
+
+861
+00:41:49,520 --> 00:41:57,760
+okay there it is
+
+862
+00:41:52,880 --> 00:41:57,760
+otherwise it's we are good to go so
+
+863
+00:41:59,040 --> 00:42:03,839
+so now we delete the tag okay
+
+864
+00:42:10,240 --> 00:42:14,880
+yeah so so so so so actually let me let
+
+865
+00:42:13,760 --> 00:42:18,480
+me do this way it's
+
+866
+00:42:14,880 --> 00:42:23,040
+simpler okay let's do this simpler
+
+867
+00:42:18,480 --> 00:42:23,040
+if let's not if when
+
+868
+00:42:27,200 --> 00:42:31,839
+okay when
+
+869
+00:42:34,400 --> 00:42:39,359
+okay so this is what we want okay that
+
+870
+00:42:42,839 --> 00:42:45,839
+and
+
+871
+00:42:52,880 --> 00:42:59,920
+okay so actually it's pretty fine okay
+
+872
+00:42:56,240 --> 00:43:03,280
+so this is a good error checking
+
+873
+00:42:59,920 --> 00:43:04,240
+now if everything is good now we start
+
+874
+00:43:03,280 --> 00:43:07,359
+to
+
+875
+00:43:04,240 --> 00:43:10,319
+do things okay we start to do
+
+876
+00:43:07,359 --> 00:43:10,319
+things here
+
+877
+00:43:10,480 --> 00:43:14,160
+now we start to delete the tag okay so
+
+878
+00:43:13,119 --> 00:43:16,880
+how do you do
+
+879
+00:43:14,160 --> 00:43:18,079
+you first of all you go to you want to
+
+880
+00:43:16,880 --> 00:43:21,599
+delete the bottom
+
+881
+00:43:18,079 --> 00:43:25,280
+tag first delete this one first
+
+882
+00:43:21,599 --> 00:43:28,319
+so p3 and p4 okay so it's easy
+
+883
+00:43:25,280 --> 00:43:32,800
+delete region
+
+884
+00:43:28,319 --> 00:43:36,640
+posit position 3 position 4 okay
+
+885
+00:43:32,800 --> 00:43:41,839
+then delete region position 1
+
+886
+00:43:36,640 --> 00:43:41,839
+position 2 fantastic oh jesus
+
+887
+00:43:42,319 --> 00:43:46,800
+we did this faster than i thought
+
+888
+00:43:44,880 --> 00:43:50,560
+possible
+
+889
+00:43:46,800 --> 00:43:53,920
+okay okay here's our code
+
+890
+00:43:50,560 --> 00:43:54,720
+okay now you know the documentation is a
+
+891
+00:43:53,920 --> 00:43:57,920
+little bit
+
+892
+00:43:54,720 --> 00:43:58,240
+verbose but it's necessary you need to
+
+893
+00:43:57,920 --> 00:44:00,480
+have
+
+894
+00:43:58,240 --> 00:44:02,800
+examples because it's quite confusing
+
+895
+00:44:00,480 --> 00:44:03,599
+with the opening tag and closing tag you
+
+896
+00:44:02,800 --> 00:44:09,839
+know
+
+897
+00:44:03,599 --> 00:44:09,839
+but uh but i think that's it that's it
+
+898
+00:44:12,079 --> 00:44:17,440
+let's think okay i think that's that's
+
+899
+00:44:14,319 --> 00:44:19,200
+right so evaluate the buffer
+
+900
+00:44:17,440 --> 00:44:21,119
+so now we have the function we can
+
+901
+00:44:19,200 --> 00:44:22,079
+actually try it now okay i forgot to
+
+902
+00:44:21,119 --> 00:44:24,400
+show the pink window
+
+903
+00:44:22,079 --> 00:44:25,599
+so actually we can try it now so let's
+
+904
+00:44:24,400 --> 00:44:29,359
+go to
+
+905
+00:44:25,599 --> 00:44:32,400
+uh emacs blog so let's work on this
+
+906
+00:44:29,359 --> 00:44:34,240
+okay so you can see we're gonna work on
+
+907
+00:44:32,400 --> 00:44:37,599
+them on those first so first of all
+
+908
+00:44:34,240 --> 00:44:41,280
+put the cursor here
+
+909
+00:44:37,599 --> 00:44:44,560
+call it meta x okay you cannot see it so
+
+910
+00:44:41,280 --> 00:44:48,720
+let me put it here okay call it
+
+911
+00:44:44,560 --> 00:44:54,000
+paste size html join text
+
+912
+00:44:48,720 --> 00:44:57,280
+do it oh it worked
+
+913
+00:44:54,000 --> 00:45:00,160
+you see you see so let's see undo
+
+914
+00:44:57,280 --> 00:45:00,960
+you see you see the difference and we do
+
+915
+00:45:00,160 --> 00:45:04,400
+undo
+
+916
+00:45:00,960 --> 00:45:08,800
+redo and do we do fantastic
+
+917
+00:45:04,400 --> 00:45:12,480
+one shot coding no trial and error
+
+918
+00:45:08,800 --> 00:45:16,000
+that is kind of my style you spend one
+
+919
+00:45:12,480 --> 00:45:18,640
+year to study the problem then you just
+
+920
+00:45:16,000 --> 00:45:21,440
+call it one shot
+
+921
+00:45:18,640 --> 00:45:23,359
+okay so but you see it leaves lots of
+
+922
+00:45:21,440 --> 00:45:24,400
+spaces so let's try another one okay so
+
+923
+00:45:23,359 --> 00:45:27,599
+you see this
+
+924
+00:45:24,400 --> 00:45:30,720
+element this list and this one you see
+
+925
+00:45:27,599 --> 00:45:33,920
+now we want to delete merge these two
+
+926
+00:45:30,720 --> 00:45:38,000
+you know so i can call this command
+
+927
+00:45:33,920 --> 00:45:40,160
+sidechain html join text do it
+
+928
+00:45:38,000 --> 00:45:42,960
+it did it but however there's you know
+
+929
+00:45:40,160 --> 00:45:45,200
+it leaves empty space
+
+930
+00:45:42,960 --> 00:45:46,560
+you know we can add some cleanup codes
+
+931
+00:45:45,200 --> 00:45:49,440
+so so that you
+
+932
+00:45:46,560 --> 00:45:51,280
+automatically remove the empty space but
+
+933
+00:45:49,440 --> 00:45:54,000
+let's leave it okay
+
+934
+00:45:51,280 --> 00:45:56,880
+so let's leave it so actually let's
+
+935
+00:45:54,000 --> 00:46:00,319
+continue coding our code do it
+
+936
+00:45:56,880 --> 00:46:03,599
+do it do it do it
+
+937
+00:46:00,319 --> 00:46:06,720
+so merge all these beasts okay now
+
+938
+00:46:03,599 --> 00:46:09,760
+no okay so there's one more here do it
+
+939
+00:46:06,720 --> 00:46:10,480
+okay now compact the spaces let's
+
+940
+00:46:09,760 --> 00:46:14,800
+manually
+
+941
+00:46:10,480 --> 00:46:17,680
+fix the empty lines okay
+
+942
+00:46:14,800 --> 00:46:20,480
+then show in browser you see now it's
+
+943
+00:46:17,680 --> 00:46:22,880
+very compact before each one is a
+
+944
+00:46:20,480 --> 00:46:23,680
+an ordered list now it's just one
+
+945
+00:46:22,880 --> 00:46:27,599
+unordered
+
+946
+00:46:23,680 --> 00:46:27,599
+list with all the items
+
+947
+00:46:27,680 --> 00:46:31,520
+okay fantastic we did we did this we did
+
+948
+00:46:30,400 --> 00:46:34,880
+this guys
+
+949
+00:46:31,520 --> 00:46:38,240
+finished now copy the entire code
+
+950
+00:46:34,880 --> 00:46:41,280
+delete it go to talk show
+
+951
+00:46:38,240 --> 00:46:42,240
+go to this talk show here's the emacs
+
+952
+00:46:41,280 --> 00:46:46,319
+code
+
+953
+00:46:42,240 --> 00:46:48,800
+paste it there show in browser okay
+
+954
+00:46:46,319 --> 00:46:49,760
+now it shows like garbage because we did
+
+955
+00:46:48,800 --> 00:46:52,400
+not escape
+
+956
+00:46:49,760 --> 00:46:53,119
+the greater than n less than equal sign
+
+957
+00:46:52,400 --> 00:46:56,160
+but
+
+958
+00:46:53,119 --> 00:46:58,160
+let's do it now let's make that
+
+959
+00:46:56,160 --> 00:46:59,920
+you know you see you see it adds these
+
+960
+00:46:58,160 --> 00:47:02,960
+uh html
+
+961
+00:46:59,920 --> 00:47:05,680
+entities you know very complex
+
+962
+00:47:02,960 --> 00:47:07,520
+you know entities html entities is a
+
+963
+00:47:05,680 --> 00:47:09,359
+escape mechanism
+
+964
+00:47:07,520 --> 00:47:11,599
+but now if we show in browser it's
+
+965
+00:47:09,359 --> 00:47:15,520
+fantastic you know you see
+
+966
+00:47:11,599 --> 00:47:18,640
+it now it's even colored okay
+
+967
+00:47:15,520 --> 00:47:21,359
+that completes today's main topic
+
+968
+00:47:18,640 --> 00:47:22,240
+and actually we did it pretty fast so
+
+969
+00:47:21,359 --> 00:47:26,319
+you know
+
+970
+00:47:22,240 --> 00:47:29,440
+and we rambled about other things so
+
+971
+00:47:26,319 --> 00:47:30,400
+that's one thing well we did it okay so
+
+972
+00:47:29,440 --> 00:47:32,079
+anything else
+
+973
+00:47:30,400 --> 00:47:35,760
+am i still talking are you guys still
+
+974
+00:47:32,079 --> 00:47:35,760
+watching five people
+
+975
+00:47:35,839 --> 00:47:39,520
+six people okay six people and uh let's
+
+976
+00:47:39,200 --> 00:47:44,880
+check
+
+977
+00:47:39,520 --> 00:47:44,880
+obs audio check video check
+
+978
+00:47:45,839 --> 00:47:50,400
+okay i'm done with this this code let's
+
+979
+00:47:48,800 --> 00:47:53,839
+talk about something else
+
+980
+00:47:50,400 --> 00:47:53,839
+random okay
+
+981
+00:47:54,160 --> 00:48:00,319
+five people watching oh yeah so dark
+
+982
+00:47:56,880 --> 00:48:03,599
+view so you want to know about dark view
+
+983
+00:48:00,319 --> 00:48:05,920
+emacs dark view it sucks
+
+984
+00:48:03,599 --> 00:48:07,040
+okay just don't don't use it basically
+
+985
+00:48:05,920 --> 00:48:09,680
+it sucks
+
+986
+00:48:07,040 --> 00:48:11,760
+uh let me explain okay so so hold on a
+
+987
+00:48:09,680 --> 00:48:14,559
+second let me clean up here
+
+988
+00:48:11,760 --> 00:48:14,960
+where are we so we got a talk show we
+
+989
+00:48:14,559 --> 00:48:17,520
+got
+
+990
+00:48:14,960 --> 00:48:19,359
+uh we talked about drawing tablets uh
+
+991
+00:48:17,520 --> 00:48:21,359
+technology
+
+992
+00:48:19,359 --> 00:48:24,160
+let's let's let's put the code at the
+
+993
+00:48:21,359 --> 00:48:24,160
+bottom okay
+
+994
+00:48:26,800 --> 00:48:33,359
+so okay yeah so we talked about
+
+995
+00:48:30,480 --> 00:48:36,720
+showing browser we talked about drawing
+
+996
+00:48:33,359 --> 00:48:36,720
+tablet technology
+
+997
+00:48:38,480 --> 00:48:49,839
+we talked about mouse technologies
+
+998
+00:48:42,240 --> 00:48:49,839
+okay copy it
+
+999
+00:48:51,680 --> 00:48:55,520
+mouse technology
+
+1000
+00:48:58,480 --> 00:49:05,119
+tech why is it not
+
+1001
+00:49:02,079 --> 00:49:05,119
+expanding [ __ ]
+
+1002
+00:49:08,480 --> 00:49:12,880
+okay now you see we have a situation you
+
+1003
+00:49:11,520 --> 00:49:16,079
+see we need to merge
+
+1004
+00:49:12,880 --> 00:49:19,280
+this unordered list into one
+
+1005
+00:49:16,079 --> 00:49:20,640
+unordered list so we can just call our
+
+1006
+00:49:19,280 --> 00:49:22,559
+command you see
+
+1007
+00:49:20,640 --> 00:49:24,559
+what i want to do is you see i want to
+
+1008
+00:49:22,559 --> 00:49:28,839
+merge delete these two so i
+
+1009
+00:49:24,559 --> 00:49:31,839
+call out command x html join text
+
+1010
+00:49:28,839 --> 00:49:31,839
+fantastic
+
+1011
+00:49:33,280 --> 00:49:39,680
+oh there's one more okay uh
+
+1012
+00:49:36,480 --> 00:49:42,559
+okay now you know so this
+
+1013
+00:49:39,680 --> 00:49:43,520
+command join html tags tags is going to
+
+1014
+00:49:42,559 --> 00:49:46,640
+be part of
+
+1015
+00:49:43,520 --> 00:49:46,640
+html mod
+
+1016
+00:49:47,280 --> 00:49:50,319
+okay so so let's talk about dark view
+
+1017
+00:49:49,520 --> 00:49:53,640
+okay
+
+1018
+00:49:50,319 --> 00:49:57,680
+who is asking didn't
+
+1019
+00:49:53,640 --> 00:50:01,119
+conclude okay dylan
+
+1020
+00:49:57,680 --> 00:50:03,280
+conkling okay so
+
+1021
+00:50:01,119 --> 00:50:05,200
+so yeah so so dark view let me show you
+
+1022
+00:50:03,280 --> 00:50:08,559
+my page okay you go to
+
+1023
+00:50:05,200 --> 00:50:09,760
+emacs tutorial emacs tutorial go to
+
+1024
+00:50:08,559 --> 00:50:12,800
+emacs tutorial
+
+1025
+00:50:09,760 --> 00:50:16,160
+search for pdf uh
+
+1026
+00:50:12,800 --> 00:50:16,880
+search for wait what what search for
+
+1027
+00:50:16,160 --> 00:50:20,240
+view okay
+
+1028
+00:50:16,880 --> 00:50:22,480
+type vi ew okay so you have view image
+
+1029
+00:50:20,240 --> 00:50:25,520
+file
+
+1030
+00:50:22,480 --> 00:50:26,400
+uh you know you can view images inside
+
+1031
+00:50:25,520 --> 00:50:28,880
+html
+
+1032
+00:50:26,400 --> 00:50:30,880
+and even gif okay let me show you this
+
+1033
+00:50:28,880 --> 00:50:34,880
+is funny okay this is
+
+1034
+00:50:30,880 --> 00:50:37,440
+microsoft clipper in vim
+
+1035
+00:50:34,880 --> 00:50:38,079
+you can also view gif animations in
+
+1036
+00:50:37,440 --> 00:50:41,359
+emacs
+
+1037
+00:50:38,079 --> 00:50:42,800
+you know why don't we show you uh so we
+
+1038
+00:50:41,359 --> 00:50:46,000
+open this page
+
+1039
+00:50:42,800 --> 00:50:49,520
+search for gif for example so
+
+1040
+00:50:46,000 --> 00:50:54,079
+here is uh for example let's magnify
+
+1041
+00:50:49,520 --> 00:50:57,040
+so you can you can see here is the file
+
+1042
+00:50:54,079 --> 00:50:58,319
+vi creepy assistant okay you can open
+
+1043
+00:50:57,040 --> 00:51:01,520
+the file
+
+1044
+00:50:58,319 --> 00:51:03,760
+you know that's a file and
+
+1045
+00:51:01,520 --> 00:51:03,760
+but
+
+1046
+00:51:05,119 --> 00:51:08,319
+you can show it to i believe you can
+
+1047
+00:51:08,000 --> 00:51:11,760
+show
+
+1048
+00:51:08,319 --> 00:51:15,040
+animation so describe mod
+
+1049
+00:51:11,760 --> 00:51:16,960
+i forgot what's the you can go frame by
+
+1050
+00:51:15,040 --> 00:51:19,359
+frame
+
+1051
+00:51:16,960 --> 00:51:20,559
+you know increase speed decrease speed
+
+1052
+00:51:19,359 --> 00:51:22,880
+transform reset
+
+1053
+00:51:20,559 --> 00:51:24,400
+image whatever you know the one of the
+
+1054
+00:51:22,880 --> 00:51:27,359
+issue is
+
+1055
+00:51:24,400 --> 00:51:31,119
+in e-max is although it can do lots of
+
+1056
+00:51:27,359 --> 00:51:31,119
+things but you have to figure out
+
+1057
+00:51:31,599 --> 00:51:38,880
+so image increase speed so what is the
+
+1058
+00:51:35,359 --> 00:51:38,880
+command to make it animate
+
+1059
+00:51:40,720 --> 00:51:44,160
+i don't know you know i don't so in in
+
+1060
+00:51:42,880 --> 00:51:46,160
+general you know
+
+1061
+00:51:44,160 --> 00:51:47,839
+so basically the doc view or image
+
+1062
+00:51:46,160 --> 00:51:49,920
+viewer in emacs is that something
+
+1063
+00:51:47,839 --> 00:51:50,960
+occasionally casually if you want to
+
+1064
+00:51:49,920 --> 00:51:53,520
+casually view an
+
+1065
+00:51:50,960 --> 00:51:54,160
+image in imax this is fantastic for
+
+1066
+00:51:53,520 --> 00:51:57,440
+example
+
+1067
+00:51:54,160 --> 00:52:00,240
+you're looking at you're looking at a
+
+1068
+00:51:57,440 --> 00:52:02,079
+image directory so every one of these is
+
+1069
+00:52:00,240 --> 00:52:05,599
+images for example i can
+
+1070
+00:52:02,079 --> 00:52:06,240
+open it and and actually i customized my
+
+1071
+00:52:05,599 --> 00:52:08,880
+keys
+
+1072
+00:52:06,240 --> 00:52:10,720
+so that i press right arrow you see the
+
+1073
+00:52:08,880 --> 00:52:13,839
+next image in the directory
+
+1074
+00:52:10,720 --> 00:52:16,880
+so you can use emacs as an image browser
+
+1075
+00:52:13,839 --> 00:52:20,000
+fantastic can you do that in actually
+
+1076
+00:52:16,880 --> 00:52:24,000
+you can do that in vs code as well
+
+1077
+00:52:20,000 --> 00:52:25,440
+yeah and this is uh svg okay that's why
+
+1078
+00:52:24,000 --> 00:52:28,480
+okay uh [ __ ]
+
+1079
+00:52:25,440 --> 00:52:30,079
+svg funked it up so here's the svg file
+
+1080
+00:52:28,480 --> 00:52:33,040
+so anyway so
+
+1081
+00:52:30,079 --> 00:52:33,599
+you know you can view images in emacs
+
+1082
+00:52:33,040 --> 00:52:35,760
+okay
+
+1083
+00:52:33,599 --> 00:52:39,760
+but you actually you can do it in in vs
+
+1084
+00:52:35,760 --> 00:52:44,160
+code too so let's call the command
+
+1085
+00:52:39,760 --> 00:52:46,240
+vs code open console opening vs code
+
+1086
+00:52:44,160 --> 00:52:48,000
+so let's see what happens there it is
+
+1087
+00:52:46,240 --> 00:52:52,800
+okay close this one yeah
+
+1088
+00:52:48,000 --> 00:52:54,319
+so there's your image okay so in vs code
+
+1089
+00:52:52,800 --> 00:52:56,160
+the thing about vs code is that you
+
+1090
+00:52:54,319 --> 00:52:56,480
+don't have to think you know you just do
+
+1091
+00:52:56,160 --> 00:53:00,400
+it
+
+1092
+00:52:56,480 --> 00:53:01,839
+in emacs you have to this you know years
+
+1093
+00:53:00,400 --> 00:53:04,800
+of trouble to figure out
+
+1094
+00:53:01,839 --> 00:53:06,160
+you know how to do this or that so in vs
+
+1095
+00:53:04,800 --> 00:53:09,680
+code you can actually go to the
+
+1096
+00:53:06,160 --> 00:53:14,319
+directory just by clicking that
+
+1097
+00:53:09,680 --> 00:53:17,520
+uh wait let's click on that
+
+1098
+00:53:14,319 --> 00:53:19,200
+and i don't use emacs i don't use uh vs
+
+1099
+00:53:17,520 --> 00:53:22,640
+code so i don't
+
+1100
+00:53:19,200 --> 00:53:28,400
+no but anyway you can just uh what is
+
+1101
+00:53:22,640 --> 00:53:31,280
+the source control
+
+1102
+00:53:28,400 --> 00:53:31,839
+new file open new folder okay so you can
+
+1103
+00:53:31,280 --> 00:53:34,960
+actually
+
+1104
+00:53:31,839 --> 00:53:37,119
+open the new folder and
+
+1105
+00:53:34,960 --> 00:53:39,920
+open this folder okay let's just say
+
+1106
+00:53:37,119 --> 00:53:39,920
+select folder
+
+1107
+00:53:41,280 --> 00:53:44,800
+do you trust the authors of the files in
+
+1108
+00:53:43,839 --> 00:53:48,000
+this folder
+
+1109
+00:53:44,800 --> 00:53:49,760
+yes why are you asking code provides
+
+1110
+00:53:48,000 --> 00:53:52,800
+feature that may automatically
+
+1111
+00:53:49,760 --> 00:53:56,240
+execute files in this folder what no i
+
+1112
+00:53:52,800 --> 00:53:59,200
+don't have search code
+
+1113
+00:53:56,240 --> 00:54:00,800
+yeah trust orders shut the [ __ ] up okay
+
+1114
+00:53:59,200 --> 00:54:03,040
+so you can see
+
+1115
+00:54:00,800 --> 00:54:05,200
+here is the image directory so now you
+
+1116
+00:54:03,040 --> 00:54:07,839
+can just uh
+
+1117
+00:54:05,200 --> 00:54:09,119
+press use the arrow key and hold and and
+
+1118
+00:54:07,839 --> 00:54:11,920
+and
+
+1119
+00:54:09,119 --> 00:54:12,640
+or you can click you know to go to you
+
+1120
+00:54:11,920 --> 00:54:15,040
+know
+
+1121
+00:54:12,640 --> 00:54:16,319
+so you can also use vs code as an image
+
+1122
+00:54:15,040 --> 00:54:20,319
+browser
+
+1123
+00:54:16,319 --> 00:54:22,240
+so but anyway you want to know about pdf
+
+1124
+00:54:20,319 --> 00:54:23,599
+so in this image directory do we have
+
+1125
+00:54:22,240 --> 00:54:26,800
+any pdf
+
+1126
+00:54:23,599 --> 00:54:30,559
+no okay so i need to go to another
+
+1127
+00:54:26,800 --> 00:54:33,680
+um by the way you can also
+
+1128
+00:54:30,559 --> 00:54:36,079
+view them as thumbnails okay let's
+
+1129
+00:54:33,680 --> 00:54:36,880
+you know call meta x terms okay let me
+
+1130
+00:54:36,079 --> 00:54:40,720
+show you
+
+1131
+00:54:36,880 --> 00:54:46,000
+meta x thumbs in emacs okay
+
+1132
+00:54:40,720 --> 00:54:46,000
+so show it yeah
+
+1133
+00:54:46,960 --> 00:54:53,839
+type plus to display more images
+
+1134
+00:54:54,079 --> 00:54:59,920
+what yeah okay it's not working yeah
+
+1135
+00:54:58,160 --> 00:55:02,799
+that's a problem with emacs you have to
+
+1136
+00:54:59,920 --> 00:55:02,799
+figure it out
+
+1137
+00:55:03,359 --> 00:55:07,440
+okay so anyway let's let's show pdf okay
+
+1138
+00:55:06,079 --> 00:55:12,319
+so let's close that
+
+1139
+00:55:07,440 --> 00:55:12,319
+close that close that um
+
+1140
+00:55:12,960 --> 00:55:17,359
+yeah i didn't talk about opening pdf
+
+1141
+00:55:16,079 --> 00:55:19,440
+files because it
+
+1142
+00:55:17,359 --> 00:55:21,440
+really it sucks so bad so i didn't
+
+1143
+00:55:19,440 --> 00:55:22,799
+include that in my tutorial i don't
+
+1144
+00:55:21,440 --> 00:55:25,680
+think so
+
+1145
+00:55:22,799 --> 00:55:26,640
+i may have wrote about it i don't
+
+1146
+00:55:25,680 --> 00:55:29,359
+remember
+
+1147
+00:55:26,640 --> 00:55:30,559
+so let's go to my keyboard directory
+
+1148
+00:55:29,359 --> 00:55:33,119
+okay
+
+1149
+00:55:30,559 --> 00:55:34,559
+so you can see keyboard block then let's
+
+1150
+00:55:33,119 --> 00:55:37,680
+go to
+
+1151
+00:55:34,559 --> 00:55:40,000
+uh let's go to a image directory let's
+
+1152
+00:55:37,680 --> 00:55:40,000
+see
+
+1153
+00:55:41,359 --> 00:55:46,839
+yeah so image directory and there is
+
+1154
+00:55:45,050 --> 00:55:48,720
+[Music]
+
+1155
+00:55:46,839 --> 00:55:51,839
+some
+
+1156
+00:55:48,720 --> 00:55:52,240
+you know so here's images okay so now
+
+1157
+00:55:51,839 --> 00:55:55,280
+let's
+
+1158
+00:55:52,240 --> 00:55:58,720
+view this in microsoft um you know
+
+1159
+00:55:55,280 --> 00:56:02,319
+the folder explorer
+
+1160
+00:55:58,720 --> 00:56:05,680
+and hold down control
+
+1161
+00:56:02,319 --> 00:56:05,680
+v l
+
+1162
+00:56:05,760 --> 00:56:10,799
+extra large icons okay so you can see
+
+1163
+00:56:08,880 --> 00:56:13,520
+all these are images and some of them
+
+1164
+00:56:10,799 --> 00:56:16,400
+are pdf for example this one
+
+1165
+00:56:13,520 --> 00:56:17,440
+the bray browser okay let's double click
+
+1166
+00:56:16,400 --> 00:56:20,720
+so it opens
+
+1167
+00:56:17,440 --> 00:56:21,200
+in bray browser so it's a pdf now let's
+
+1168
+00:56:20,720 --> 00:56:24,240
+try
+
+1169
+00:56:21,200 --> 00:56:27,359
+to open this in emacs okay
+
+1170
+00:56:24,240 --> 00:56:31,599
+so copy the file path
+
+1171
+00:56:27,359 --> 00:56:34,400
+shrink the window back to emacs
+
+1172
+00:56:31,599 --> 00:56:34,720
+open that file path okay which is this
+
+1173
+00:56:34,400 --> 00:56:38,319
+one
+
+1174
+00:56:34,720 --> 00:56:41,680
+right so search for pdf
+
+1175
+00:56:38,319 --> 00:56:45,280
+there is the file okay
+
+1176
+00:56:41,680 --> 00:56:47,520
+cl shows xpm layout you know this is the
+
+1177
+00:56:45,280 --> 00:56:50,480
+inventor the creator of the
+
+1178
+00:56:47,520 --> 00:56:51,280
+mechanical typewriter about 200 or 300
+
+1179
+00:56:50,480 --> 00:56:54,559
+years ago
+
+1180
+00:56:51,280 --> 00:56:57,520
+so he wrote something so let's open it
+
+1181
+00:56:54,559 --> 00:56:57,520
+there it is okay
+
+1182
+00:56:57,599 --> 00:57:03,280
+you know actually you know you are not
+
+1183
+00:57:01,040 --> 00:57:05,520
+seeing the pdf because actually because
+
+1184
+00:57:03,280 --> 00:57:07,520
+in my configuration i turn it off
+
+1185
+00:57:05,520 --> 00:57:09,839
+because every time you open pdf it
+
+1186
+00:57:07,520 --> 00:57:12,640
+takes a long time for emacs because what
+
+1187
+00:57:09,839 --> 00:57:15,280
+emacs is doing is is it is
+
+1188
+00:57:12,640 --> 00:57:16,240
+it is trying to convert the pdf to an
+
+1189
+00:57:15,280 --> 00:57:18,640
+image file
+
+1190
+00:57:16,240 --> 00:57:19,280
+then display those image file which is
+
+1191
+00:57:18,640 --> 00:57:22,079
+uh
+
+1192
+00:57:19,280 --> 00:57:22,960
+idiotic you know if you really think
+
+1193
+00:57:22,079 --> 00:57:26,960
+about it that's a
+
+1194
+00:57:22,960 --> 00:57:30,640
+extreme idiocy if you are any company
+
+1195
+00:57:26,960 --> 00:57:31,280
+and if you claim oh our products support
+
+1196
+00:57:30,640 --> 00:57:34,480
+viewing
+
+1197
+00:57:31,280 --> 00:57:36,720
+pdf but actually what you do is that you
+
+1198
+00:57:34,480 --> 00:57:39,119
+you turn you convert that pdf to an
+
+1199
+00:57:36,720 --> 00:57:42,640
+image and display that
+
+1200
+00:57:39,119 --> 00:57:43,280
+your company will cease to exist right
+
+1201
+00:57:42,640 --> 00:57:46,400
+away
+
+1202
+00:57:43,280 --> 00:57:48,480
+okay the customer is gonna say go [ __ ]
+
+1203
+00:57:46,400 --> 00:57:51,119
+yourself you [ __ ]
+
+1204
+00:57:48,480 --> 00:57:52,079
+that's but but in emacs that's okay oh
+
+1205
+00:57:51,119 --> 00:57:53,920
+yeah the free
+
+1206
+00:57:52,079 --> 00:57:56,079
+freedom you know that this is what
+
+1207
+00:57:53,920 --> 00:57:58,720
+happens that you know the
+
+1208
+00:57:56,079 --> 00:58:00,799
+you know because emacs is a code so when
+
+1209
+00:57:58,720 --> 00:58:02,880
+people see this situation they don't
+
+1210
+00:58:00,799 --> 00:58:05,040
+they don't feel it's bad they think oh
+
+1211
+00:58:02,880 --> 00:58:07,760
+fantastic emacs and even
+
+1212
+00:58:05,040 --> 00:58:08,319
+display pdf okay let me show you this
+
+1213
+00:58:07,760 --> 00:58:11,760
+let's
+
+1214
+00:58:08,319 --> 00:58:14,319
+uh let's actually view the pdf so
+
+1215
+00:58:11,760 --> 00:58:17,200
+so what you do to view it i turned it
+
+1216
+00:58:14,319 --> 00:58:20,720
+off myself in my config okay so but
+
+1217
+00:58:17,200 --> 00:58:23,760
+to view it you say meta x um
+
+1218
+00:58:20,720 --> 00:58:27,359
+view doc okay stupid command names okay
+
+1219
+00:58:23,760 --> 00:58:31,440
+uh dark view
+
+1220
+00:58:27,359 --> 00:58:31,440
+wait do we have a dark
+
+1221
+00:58:33,520 --> 00:58:40,400
+dark view mod okay there it is
+
+1222
+00:58:36,880 --> 00:58:42,799
+dock view mod okay let's try it
+
+1223
+00:58:40,400 --> 00:58:42,799
+do it
+
+1224
+00:58:47,040 --> 00:58:51,200
+type cc to toggle between editing or
+
+1225
+00:58:49,520 --> 00:58:52,000
+viewing the document why is it not
+
+1226
+00:58:51,200 --> 00:58:56,240
+showing
+
+1227
+00:58:52,000 --> 00:58:56,240
+yeah maybe because i'm on windows
+
+1228
+00:58:59,599 --> 00:59:02,880
+wait wait this is still fundamental mod
+
+1229
+00:59:02,240 --> 00:59:05,839
+okay so
+
+1230
+00:59:02,880 --> 00:59:05,839
+actually wait
+
+1231
+00:59:10,000 --> 00:59:21,200
+uh it says stock view but why is it
+
+1232
+00:59:18,720 --> 00:59:22,079
+uh what what is stock view mod okay so
+
+1233
+00:59:21,200 --> 00:59:25,040
+actually let's
+
+1234
+00:59:22,079 --> 00:59:25,359
+describe function let's see dark view
+
+1235
+00:59:25,040 --> 00:59:27,920
+mod
+
+1236
+00:59:25,359 --> 00:59:30,079
+is an auto auto loaded interactive
+
+1237
+00:59:27,920 --> 00:59:32,880
+compatible
+
+1238
+00:59:30,079 --> 00:59:35,520
+major mod in dark view buffers hello
+
+1239
+00:59:32,880 --> 00:59:35,520
+braveheart
+
+1240
+00:59:37,200 --> 00:59:44,960
+so guys comment
+
+1241
+00:59:40,559 --> 00:59:46,480
+dylan so dylan do you have a question
+
+1242
+00:59:44,960 --> 00:59:48,400
+about dark view
+
+1243
+00:59:46,480 --> 00:59:49,680
+i mean what do you like you don't know
+
+1244
+00:59:48,400 --> 00:59:54,160
+how to use it or
+
+1245
+00:59:49,680 --> 00:59:56,319
+what is it uh you want me to talk about
+
+1246
+00:59:54,160 --> 00:59:57,440
+so you say stock view mod is an emax
+
+1247
+00:59:56,319 --> 01:00:02,079
+document viewer
+
+1248
+00:59:57,440 --> 01:00:04,480
+it displays pdf ps which is postscript
+
+1249
+01:00:02,079 --> 01:00:06,559
+uh and dvi files you know those are 30
+
+1250
+01:00:04,480 --> 01:00:09,920
+years old stuff
+
+1251
+01:00:06,559 --> 01:00:12,319
+very few people use those these days
+
+1252
+01:00:09,920 --> 01:00:13,440
+uh and you know you see it says here as
+
+1253
+01:00:12,319 --> 01:00:16,960
+png images
+
+1254
+01:00:13,440 --> 01:00:19,359
+so it converts pdf to png first okay
+
+1255
+01:00:16,960 --> 01:00:20,559
+so let's see dark view i want to get it
+
+1256
+01:00:19,359 --> 01:00:28,880
+to show pdf
+
+1257
+01:00:20,559 --> 01:00:32,720
+that but how do how but um i don't know
+
+1258
+01:00:28,880 --> 01:00:32,720
+on windows is um
+
+1259
+01:00:34,480 --> 01:00:47,599
+so so so dylan are you still here
+
+1260
+01:00:43,680 --> 01:00:47,599
+dark view mod why is it not
+
+1261
+01:00:53,760 --> 01:01:10,480
+i don't know why is it not showing
+
+1262
+01:00:57,200 --> 01:01:13,760
+the pdf
+
+1263
+01:01:10,480 --> 01:01:13,760
+describe function
+
+1264
+01:01:15,280 --> 01:01:25,839
+tank view mod image
+
+1265
+01:01:18,319 --> 01:01:25,839
+next line
+
+1266
+01:01:35,760 --> 01:01:40,799
+okay dark view first page let's try that
+
+1267
+01:01:38,400 --> 01:01:40,799
+command
+
+1268
+01:01:48,640 --> 01:01:55,599
+wrong argument type this p t
+
+1269
+01:01:52,559 --> 01:01:57,680
+yeah okay let's go to
+
+1270
+01:01:55,599 --> 01:01:59,520
+you know let me try actually to get this
+
+1271
+01:01:57,680 --> 01:02:02,160
+to work
+
+1272
+01:01:59,520 --> 01:02:04,400
+okay so let's go to my exhaust settings
+
+1273
+01:02:02,160 --> 01:02:07,760
+okay
+
+1274
+01:02:04,400 --> 01:02:20,960
+search for dark
+
+1275
+01:02:07,760 --> 01:02:25,119
+dark view okay yeah
+
+1276
+01:02:20,960 --> 01:02:29,760
+uh let's search for pdf okay pdf
+
+1277
+01:02:25,119 --> 01:02:29,760
+so by the way yesterday i we did a uh
+
+1278
+01:02:31,440 --> 01:02:36,559
+anac says you you don't have a clue
+
+1279
+01:02:33,839 --> 01:02:39,200
+about dark view
+
+1280
+01:02:36,559 --> 01:02:42,799
+yeah but didn't is asking the question i
+
+1281
+01:02:39,200 --> 01:02:48,240
+don't know if data is still here or not
+
+1282
+01:02:42,799 --> 01:02:50,559
+so pdf okay so let's look at pdf
+
+1283
+01:02:48,240 --> 01:02:51,599
+run current file okay i don't care about
+
+1284
+01:02:50,559 --> 01:02:54,160
+that
+
+1285
+01:02:51,599 --> 01:02:54,160
+let's see
+
+1286
+01:02:59,119 --> 01:03:03,839
+so where is uh
+
+1287
+01:03:06,640 --> 01:03:13,920
+so okay so let's go to my other innate
+
+1288
+01:03:10,240 --> 01:03:16,079
+directory search for pdf
+
+1289
+01:03:13,920 --> 01:03:17,520
+there it is you see here is my setting
+
+1290
+01:03:16,079 --> 01:03:20,559
+that turns it off
+
+1291
+01:03:17,520 --> 01:03:24,000
+here okay so you see this line
+
+1292
+01:03:20,559 --> 01:03:26,960
+open p open pdf files in hex
+
+1293
+01:03:24,000 --> 01:03:29,119
+mod because i don't want it to start to
+
+1294
+01:03:26,960 --> 01:03:33,280
+convert the pdf into images
+
+1295
+01:03:29,119 --> 01:03:37,920
+it slows you down and it freezes emacs
+
+1296
+01:03:33,280 --> 01:03:41,760
+so if we uncomment out this line now
+
+1297
+01:03:37,920 --> 01:03:44,960
+which file is this emacs init
+
+1298
+01:03:41,760 --> 01:03:48,160
+file association okay so let's say we
+
+1299
+01:03:44,960 --> 01:03:48,160
+comment that out
+
+1300
+01:03:49,440 --> 01:03:56,880
+actually yeah okay so let's say we
+
+1301
+01:03:53,119 --> 01:03:59,280
+let's do this okay hold on a second
+
+1302
+01:03:56,880 --> 01:04:00,000
+instead of comment out let's just say
+
+1303
+01:03:59,280 --> 01:04:04,319
+pdf
+
+1304
+01:04:00,000 --> 01:04:04,960
+let's say dark view mod okay i have a
+
+1305
+01:04:04,319 --> 01:04:08,160
+brief
+
+1306
+01:04:04,960 --> 01:04:11,599
+annoying okay let's
+
+1307
+01:04:08,160 --> 01:04:12,640
+evaluate that and let's go back to the
+
+1308
+01:04:11,599 --> 01:04:15,119
+pdf
+
+1309
+01:04:12,640 --> 01:04:15,119
+file
+
+1310
+01:04:21,599 --> 01:04:29,200
+where is the pdf file [ __ ]
+
+1311
+01:04:25,119 --> 01:04:34,160
+so let's go to keyboard go down
+
+1312
+01:04:29,200 --> 01:04:34,160
+go to the image file path
+
+1313
+01:04:36,000 --> 01:04:42,400
+so there it is the file let's open it
+
+1314
+01:04:40,079 --> 01:04:42,400
+okay
+
+1315
+01:04:44,799 --> 01:04:47,920
+dark view mod
+
+1316
+01:04:48,799 --> 01:04:54,319
+cc type cc to toggle between editing or
+
+1317
+01:04:53,280 --> 01:04:57,359
+viewing dog
+
+1318
+01:04:54,319 --> 01:05:00,400
+cc cc
+
+1319
+01:04:57,359 --> 01:05:00,400
+it's not doing nothing
+
+1320
+01:05:06,839 --> 01:05:10,240
+anyways uh so do i still want to try
+
+1321
+01:05:09,440 --> 01:05:12,799
+that
+
+1322
+01:05:10,240 --> 01:05:14,480
+let's let's try to get this to work okay
+
+1323
+01:05:12,799 --> 01:05:17,760
+so actually so let's
+
+1324
+01:05:14,480 --> 01:05:23,680
+try comment this comment this out
+
+1325
+01:05:17,760 --> 01:05:26,480
+okay now quit emacs relaunch
+
+1326
+01:05:23,680 --> 01:05:27,599
+so i just removed my config file to
+
+1327
+01:05:26,480 --> 01:05:31,119
+prevent
+
+1328
+01:05:27,599 --> 01:05:35,599
+viewing pdf as a you know a
+
+1329
+01:05:31,119 --> 01:05:36,640
+doc view so now here is a pdf file so
+
+1330
+01:05:35,599 --> 01:05:40,799
+you can see
+
+1331
+01:05:36,640 --> 01:05:40,799
+let's open it open max
+
+1332
+01:05:46,079 --> 01:05:51,119
+dock view mod yeah i don't know i don't
+
+1333
+01:05:48,960 --> 01:05:52,799
+know why it's not working on windows and
+
+1334
+01:05:51,119 --> 01:05:53,680
+i'm not gonna you know it's it's not
+
+1335
+01:05:52,799 --> 01:05:56,720
+good okay
+
+1336
+01:05:53,680 --> 01:06:00,400
+but if you know instead you want to do
+
+1337
+01:05:56,720 --> 01:06:02,720
+this instead okay so let's start
+
+1338
+01:06:00,400 --> 01:06:04,720
+let's start casa command mod so you can
+
+1339
+01:06:02,720 --> 01:06:08,400
+see all my commands so i just call
+
+1340
+01:06:04,720 --> 01:06:10,640
+command open
+
+1341
+01:06:08,400 --> 01:06:10,640
+in
+
+1342
+01:06:11,520 --> 01:06:18,400
+and wait the command is just open
+
+1343
+01:06:15,680 --> 01:06:21,200
+you know opening external app okay so
+
+1344
+01:06:18,400 --> 01:06:23,760
+here's a command you can see
+
+1345
+01:06:21,200 --> 01:06:25,440
+then it opens in whatever whatever the
+
+1346
+01:06:23,760 --> 01:06:28,160
+default app to open
+
+1347
+01:06:25,440 --> 01:06:30,400
+to view the pdf which is much better you
+
+1348
+01:06:28,160 --> 01:06:33,039
+see this is the real pdf viewer
+
+1349
+01:06:30,400 --> 01:06:33,440
+in a browser actually you know in these
+
+1350
+01:06:33,039 --> 01:06:35,680
+days
+
+1351
+01:06:33,440 --> 01:06:36,960
+since about five five or ten years ago
+
+1352
+01:06:35,680 --> 01:06:40,079
+every browser
+
+1353
+01:06:36,960 --> 01:06:40,880
+can view pdf every browser becomes a pdf
+
+1354
+01:06:40,079 --> 01:06:43,039
+viewer
+
+1355
+01:06:40,880 --> 01:06:44,480
+and the way they do that is that
+
+1356
+01:06:43,039 --> 01:06:48,559
+actually the browsers
+
+1357
+01:06:44,480 --> 01:06:50,559
+use contains javascript code
+
+1358
+01:06:48,559 --> 01:06:53,200
+so the pdf viewer is actually written in
+
+1359
+01:06:50,559 --> 01:06:55,440
+javascript code in the browser
+
+1360
+01:06:53,200 --> 01:06:56,480
+i do i think i remember seeing the code
+
+1361
+01:06:55,440 --> 01:06:58,799
+actually so
+
+1362
+01:06:56,480 --> 01:07:01,039
+you know i can actually show the source
+
+1363
+01:06:58,799 --> 01:07:02,720
+code you know if you just look into the
+
+1364
+01:07:01,039 --> 01:07:05,280
+browser's directory
+
+1365
+01:07:02,720 --> 01:07:05,760
+so every browser you know chrome and
+
+1366
+01:07:05,280 --> 01:07:09,039
+also
+
+1367
+01:07:05,760 --> 01:07:12,160
+you know well
+
+1368
+01:07:09,039 --> 01:07:14,000
+firefox also firefox uh
+
+1369
+01:07:12,160 --> 01:07:17,039
+both of them you know any chromebase or
+
+1370
+01:07:14,000 --> 01:07:19,440
+firefox or or even microsoft edge before
+
+1371
+01:07:17,039 --> 01:07:19,440
+chrome
+
+1372
+01:07:20,319 --> 01:07:25,200
+[ __ ] or blink uh before the blink engine
+
+1373
+01:07:22,799 --> 01:07:26,640
+they they all can view pdf
+
+1374
+01:07:25,200 --> 01:07:30,240
+you know they have a javascript code
+
+1375
+01:07:26,640 --> 01:07:30,240
+okay so that's it for that
+
+1376
+01:07:34,319 --> 01:07:37,440
+okay thank you guys for watching now
+
+1377
+01:07:36,400 --> 01:07:40,240
+support my work
+
+1378
+01:07:37,440 --> 01:07:41,599
+okay pay me paypal or patreon or
+
+1379
+01:07:40,240 --> 01:07:44,960
+whatever you know give
+
+1380
+01:07:41,599 --> 01:07:48,559
+gift card or whatever amazon gift card
+
+1381
+01:07:44,960 --> 01:07:48,559
+buy my emacs tutorial
+
+1382
+01:07:49,039 --> 01:07:57,839
+okay that's it bye guys
+

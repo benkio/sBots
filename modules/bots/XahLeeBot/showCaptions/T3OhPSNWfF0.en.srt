@@ -1,0 +1,4592 @@
+1
+00:00:05,759 --> 00:00:10,160
+good morning everyone
+
+2
+00:00:06,960 --> 00:00:14,240
+welcome to another episode of talk show
+
+3
+00:00:10,160 --> 00:00:17,520
+today is 2021 may
+
+4
+00:00:14,240 --> 00:00:20,160
+5th and we are going to do
+
+5
+00:00:17,520 --> 00:00:21,439
+javascript coding okay we are going to
+
+6
+00:00:20,160 --> 00:00:24,800
+continue
+
+7
+00:00:21,439 --> 00:00:28,080
+uh the javascript coding
+
+8
+00:00:24,800 --> 00:00:30,640
+to create a diagram interactive
+
+9
+00:00:28,080 --> 00:00:31,519
+diagram compute calculation so let me
+
+10
+00:00:30,640 --> 00:00:35,280
+show you
+
+11
+00:00:31,519 --> 00:00:38,000
+uh so i did a video uh but i did
+
+12
+00:00:35,280 --> 00:00:40,079
+two two or three videos before working
+
+13
+00:00:38,000 --> 00:00:42,079
+on the interactive diagram so what's
+
+14
+00:00:40,079 --> 00:00:44,480
+interactive diagram
+
+15
+00:00:42,079 --> 00:00:45,600
+let me show you okay so search for
+
+16
+00:00:44,480 --> 00:00:48,800
+diagram
+
+17
+00:00:45,600 --> 00:00:51,520
+so you just go to uh
+
+18
+00:00:48,800 --> 00:00:52,800
+sally keyboard okay just go to saudi
+
+19
+00:00:51,520 --> 00:00:57,199
+keyboard
+
+20
+00:00:52,800 --> 00:00:58,160
+and you you pick you know just go to any
+
+21
+00:00:57,199 --> 00:01:01,440
+keyboard page
+
+22
+00:00:58,160 --> 00:01:02,640
+and go to the keyboard guide then go to
+
+23
+00:01:01,440 --> 00:01:07,040
+my blog
+
+24
+00:01:02,640 --> 00:01:08,960
+then then uh diagram so there it is
+
+25
+00:01:07,040 --> 00:01:11,840
+background work in progress
+
+26
+00:01:08,960 --> 00:01:13,760
+so you can see this okay so i need to
+
+27
+00:01:11,840 --> 00:01:16,000
+turn on javascript
+
+28
+00:01:13,760 --> 00:01:17,280
+refresh so you can see the background so
+
+29
+00:01:16,000 --> 00:01:19,920
+this is what we did
+
+30
+00:01:17,280 --> 00:01:20,880
+uh in last two or three videos uh coding
+
+31
+00:01:19,920 --> 00:01:24,720
+javascript
+
+32
+00:01:20,880 --> 00:01:27,680
+with svg scalable scalable graph
+
+33
+00:01:24,720 --> 00:01:28,560
+scalable vector graphics to create this
+
+34
+00:01:27,680 --> 00:01:32,560
+so for example
+
+35
+00:01:28,560 --> 00:01:36,159
+empty then you see
+
+36
+00:01:32,560 --> 00:01:39,360
+when you start to type and you
+
+37
+00:01:36,159 --> 00:01:42,880
+start to see the diagram
+
+38
+00:01:39,360 --> 00:01:45,600
+so so you can see right now there's a
+
+39
+00:01:42,880 --> 00:01:46,880
+for example if i just type t h t h t h t
+
+40
+00:01:45,600 --> 00:01:49,840
+h t h
+
+41
+00:01:46,880 --> 00:01:51,439
+you can see the th becomes the most
+
+42
+00:01:49,840 --> 00:01:54,799
+frequent and here is the
+
+43
+00:01:51,439 --> 00:01:58,479
+uh data so th occurs
+
+44
+00:01:54,799 --> 00:02:02,079
+zero point nineteen percent of the time
+
+45
+00:01:58,479 --> 00:02:05,360
+and ht occurs zero point uh
+
+46
+00:02:02,079 --> 00:02:08,640
+uh for example th space
+
+47
+00:02:05,360 --> 00:02:10,720
+th space th space th space th space
+
+48
+00:02:08,640 --> 00:02:12,400
+so anyway so that's a background so but
+
+49
+00:02:10,720 --> 00:02:15,200
+as you said you can see
+
+50
+00:02:12,400 --> 00:02:18,160
+this diagram is not so good uh it's not
+
+51
+00:02:15,200 --> 00:02:18,160
+done yet because
+
+52
+00:02:19,760 --> 00:02:23,280
+because when you type when you copy for
+
+53
+00:02:21,680 --> 00:02:26,480
+example let's copy the
+
+54
+00:02:23,280 --> 00:02:29,040
+entire page here and paste it here
+
+55
+00:02:26,480 --> 00:02:30,879
+you see when you have lots of text the
+
+56
+00:02:29,040 --> 00:02:33,200
+diagram gets jumbled up
+
+57
+00:02:30,879 --> 00:02:35,360
+so we need to truncate we have quite a
+
+58
+00:02:33,200 --> 00:02:39,440
+few things to do we have to truncate
+
+59
+00:02:35,360 --> 00:02:41,440
+uh the you know the you know after
+
+60
+00:02:39,440 --> 00:02:42,959
+you know we want to have the option to
+
+61
+00:02:41,440 --> 00:02:45,920
+show the top
+
+62
+00:02:42,959 --> 00:02:46,879
+20 bi-grams something like that and also
+
+63
+00:02:45,920 --> 00:02:48,879
+you can see the
+
+64
+00:02:46,879 --> 00:02:50,160
+data is you know you also need to
+
+65
+00:02:48,879 --> 00:02:51,920
+truncate
+
+66
+00:02:50,160 --> 00:02:53,440
+right now it's showing percentage for
+
+67
+00:02:51,920 --> 00:02:56,640
+example th
+
+68
+00:02:53,440 --> 00:02:59,680
+shows 0.06
+
+69
+00:02:56,640 --> 00:03:03,040
+uh times relative to all the
+
+70
+00:02:59,680 --> 00:03:04,239
+other diagrams now it's better to show
+
+71
+00:03:03,040 --> 00:03:07,760
+the count instead
+
+72
+00:03:04,239 --> 00:03:10,319
+like how how many times th occurred
+
+73
+00:03:07,760 --> 00:03:11,280
+so and also you see the label is no good
+
+74
+00:03:10,319 --> 00:03:14,480
+so
+
+75
+00:03:11,280 --> 00:03:18,159
+let's go go back here and
+
+76
+00:03:14,480 --> 00:03:21,840
+there they are them
+
+77
+00:03:18,159 --> 00:03:25,360
+they him he she
+
+78
+00:03:21,840 --> 00:03:26,159
+uh you know so so there are quite a few
+
+79
+00:03:25,360 --> 00:03:28,239
+things to do
+
+80
+00:03:26,159 --> 00:03:30,159
+and also you see the label for the
+
+81
+00:03:28,239 --> 00:03:30,959
+diagram they need to have a count
+
+82
+00:03:30,159 --> 00:03:34,159
+showing
+
+83
+00:03:30,959 --> 00:03:36,319
+uh beside the label so let's
+
+84
+00:03:34,159 --> 00:03:37,360
+let's continue doing coding that diagram
+
+85
+00:03:36,319 --> 00:03:40,400
+okay so
+
+86
+00:03:37,360 --> 00:03:40,400
+copy the url
+
+87
+00:03:40,480 --> 00:03:44,959
+go to talk show showing page uh go back
+
+88
+00:03:43,680 --> 00:03:48,640
+here open this file
+
+89
+00:03:44,959 --> 00:03:52,000
+show in page the here is the talk show
+
+90
+00:03:48,640 --> 00:03:55,439
+page and we are going to paste
+
+91
+00:03:52,000 --> 00:03:58,640
+here so that's today's spike i'm showing
+
+92
+00:03:55,439 --> 00:04:02,480
+browser diagram calculator okay so
+
+93
+00:03:58,640 --> 00:04:05,200
+we are going to start to code that
+
+94
+00:04:02,480 --> 00:04:05,599
+open that background calculator and here
+
+95
+00:04:05,200 --> 00:04:08,799
+is
+
+96
+00:04:05,599 --> 00:04:11,920
+the web page
+
+97
+00:04:08,799 --> 00:04:14,400
+now um
+
+98
+00:04:11,920 --> 00:04:16,639
+so you can kind of ignore all these
+
+99
+00:04:14,400 --> 00:04:20,079
+that's a google tracker the google
+
+100
+00:04:16,639 --> 00:04:24,000
+uh you know statistics uh so you
+
+101
+00:04:20,079 --> 00:04:24,000
+basically on this page uh
+
+102
+00:04:24,960 --> 00:04:28,160
+uh do i have to so if you don't know
+
+103
+00:04:27,520 --> 00:04:30,400
+what i'm doing
+
+104
+00:04:28,160 --> 00:04:31,360
+so check out the previous two videos
+
+105
+00:04:30,400 --> 00:04:34,479
+just go to
+
+106
+00:04:31,360 --> 00:04:35,520
+saudi youtube youtube saudi account then
+
+107
+00:04:34,479 --> 00:04:38,960
+today's date
+
+108
+00:04:35,520 --> 00:04:42,080
+then find the preview then find
+
+109
+00:04:38,960 --> 00:04:44,960
+the previous javascript uh
+
+110
+00:04:42,080 --> 00:04:46,880
+topics you will find those two
+
+111
+00:04:44,960 --> 00:04:49,600
+javascript diagrams we
+
+112
+00:04:46,880 --> 00:04:51,040
+we code it from scratch no other
+
+113
+00:04:49,600 --> 00:04:54,720
+libraries required
+
+114
+00:04:51,040 --> 00:04:57,040
+plain javascript okay no comments okay
+
+115
+00:04:54,720 --> 00:04:58,960
+two people watching that's just a bot
+
+116
+00:04:57,040 --> 00:05:00,720
+and z trump crazy
+
+117
+00:04:58,960 --> 00:05:02,080
+okay so i'm going to start to code
+
+118
+00:05:00,720 --> 00:05:04,320
+diagrams uh if
+
+119
+00:05:02,080 --> 00:05:06,320
+there's no people watching i'm just
+
+120
+00:05:04,320 --> 00:05:07,280
+going to code quickly so background
+
+121
+00:05:06,320 --> 00:05:11,840
+calculator so
+
+122
+00:05:07,280 --> 00:05:11,840
+here is the code
+
+123
+00:05:12,000 --> 00:05:15,600
+uh yeah i'm going to so yeah if you
+
+124
+00:05:14,800 --> 00:05:18,479
+don't know what i'm
+
+125
+00:05:15,600 --> 00:05:19,280
+you know we did the previous two or
+
+126
+00:05:18,479 --> 00:05:21,600
+three videos
+
+127
+00:05:19,280 --> 00:05:23,440
+explained all these details so first of
+
+128
+00:05:21,600 --> 00:05:26,880
+all what what do we need to do for
+
+129
+00:05:23,440 --> 00:05:31,199
+so first of all these percentage let's
+
+130
+00:05:26,880 --> 00:05:31,199
+get them into count instead okay so
+
+131
+00:05:32,080 --> 00:05:38,000
+so but first of all the the html file
+
+132
+00:05:35,520 --> 00:05:38,639
+let me show you the few important things
+
+133
+00:05:38,000 --> 00:05:41,440
+here so
+
+134
+00:05:38,639 --> 00:05:42,800
+the important things in the html is just
+
+135
+00:05:41,440 --> 00:05:46,000
+these three lines
+
+136
+00:05:42,800 --> 00:05:47,039
+the first line is the uh four lines okay
+
+137
+00:05:46,000 --> 00:05:49,680
+so
+
+138
+00:05:47,039 --> 00:05:50,400
+this one two three four these four lines
+
+139
+00:05:49,680 --> 00:05:54,240
+the first one
+
+140
+00:05:50,400 --> 00:05:55,039
+is the text area text area that's where
+
+141
+00:05:54,240 --> 00:05:57,600
+that's a
+
+142
+00:05:55,039 --> 00:06:00,319
+that's a box you type text the second
+
+143
+00:05:57,600 --> 00:06:02,720
+one is the svg display area which is
+
+144
+00:06:00,319 --> 00:06:06,240
+actually just the empty dive
+
+145
+00:06:02,720 --> 00:06:07,360
+uh that's you need that so that you can
+
+146
+00:06:06,240 --> 00:06:12,240
+tell javascript to
+
+147
+00:06:07,360 --> 00:06:15,840
+insert the svg graphics there
+
+148
+00:06:12,240 --> 00:06:17,360
+then then there is this show box showbox
+
+149
+00:06:15,840 --> 00:06:20,720
+is kind of the
+
+150
+00:06:17,360 --> 00:06:24,800
+the place you want to insert the data
+
+151
+00:06:20,720 --> 00:06:27,440
+you know the data how the number of
+
+152
+00:06:24,800 --> 00:06:28,400
+occurrences the count of currencies are
+
+153
+00:06:27,440 --> 00:06:31,039
+background
+
+154
+00:06:28,400 --> 00:06:32,840
+then the last one is the javascript code
+
+155
+00:06:31,039 --> 00:06:35,280
+of course
+
+156
+00:06:32,840 --> 00:06:39,360
+so yeah so remember
+
+157
+00:06:35,280 --> 00:06:42,240
+the text area then the display area
+
+158
+00:06:39,360 --> 00:06:43,360
+id then the show box id then the
+
+159
+00:06:42,240 --> 00:06:44,880
+javascript diagram
+
+160
+00:06:43,360 --> 00:06:48,479
+calculator okay let's open the
+
+161
+00:06:44,880 --> 00:06:51,360
+javascript now magnify
+
+162
+00:06:48,479 --> 00:06:53,360
+uh i mean full screen window so here is
+
+163
+00:06:51,360 --> 00:06:55,759
+the
+
+164
+00:06:53,360 --> 00:06:57,520
+explanation the documentation of what
+
+165
+00:06:55,759 --> 00:07:01,039
+this script is doing
+
+166
+00:06:57,520 --> 00:07:04,880
+okay then the first part uh is
+
+167
+00:07:01,039 --> 00:07:08,160
+we want to get those you know important
+
+168
+00:07:04,880 --> 00:07:10,800
+html elements text area
+
+169
+00:07:08,160 --> 00:07:12,080
+the show box and the display area we
+
+170
+00:07:10,800 --> 00:07:14,720
+want to grab it
+
+171
+00:07:12,080 --> 00:07:16,000
+then there's a bunch of functions string
+
+172
+00:07:14,720 --> 00:07:18,880
+two diagram okay so
+
+173
+00:07:16,000 --> 00:07:20,080
+this function takes a string and returns
+
+174
+00:07:18,880 --> 00:07:23,759
+a
+
+175
+00:07:20,080 --> 00:07:27,759
+javascript map object where
+
+176
+00:07:23,759 --> 00:07:31,520
+the keys are the diagram strings
+
+177
+00:07:27,759 --> 00:07:34,720
+you know th or ab or bc cd
+
+178
+00:07:31,520 --> 00:07:37,919
+then the the value is the
+
+179
+00:07:34,720 --> 00:07:40,160
+number of occurrences count
+
+180
+00:07:37,919 --> 00:07:41,120
+so that's one function uh string two
+
+181
+00:07:40,160 --> 00:07:44,240
+diagram
+
+182
+00:07:41,120 --> 00:07:46,720
+then we have salt map so it's a map
+
+183
+00:07:44,240 --> 00:07:49,759
+object and returns an array of entries
+
+184
+00:07:46,720 --> 00:07:51,360
+sorted by the values okay we need to
+
+185
+00:07:49,759 --> 00:07:55,360
+sort it because when you
+
+186
+00:07:51,360 --> 00:07:55,360
+display the diagram you want them sorted
+
+187
+00:07:55,520 --> 00:07:59,919
+okay so let's get familiar with what
+
+188
+00:07:58,000 --> 00:08:00,479
+functions we have in this javascript
+
+189
+00:07:59,919 --> 00:08:03,120
+page
+
+190
+00:08:00,479 --> 00:08:04,080
+so sort map we got that we covered that
+
+191
+00:08:03,120 --> 00:08:06,240
+then we have
+
+192
+00:08:04,080 --> 00:08:07,199
+uh map filter okay what does this do
+
+193
+00:08:06,240 --> 00:08:13,840
+returns a
+
+194
+00:08:07,199 --> 00:08:13,840
+new map where a function
+
+195
+00:08:14,160 --> 00:08:19,120
+f key value returns true uh what
+
+196
+00:08:21,440 --> 00:08:27,599
+yeah so you want to filter the map
+
+197
+00:08:24,479 --> 00:08:29,680
+uh given a function as a criteria
+
+198
+00:08:27,599 --> 00:08:32,640
+if the function the function takes two
+
+199
+00:08:29,680 --> 00:08:34,959
+arguments key and value of the map
+
+200
+00:08:32,640 --> 00:08:36,800
+and if it returns true that means that
+
+201
+00:08:34,959 --> 00:08:40,240
+element
+
+202
+00:08:36,800 --> 00:08:43,039
+stays in the map
+
+203
+00:08:40,240 --> 00:08:43,680
+okay so filter yeah why do you want to
+
+204
+00:08:43,039 --> 00:08:46,880
+filter
+
+205
+00:08:43,680 --> 00:08:47,839
+the map because in a diagram sometimes
+
+206
+00:08:46,880 --> 00:08:51,040
+you have
+
+207
+00:08:47,839 --> 00:08:54,959
+you know punctuations period space or
+
+208
+00:08:51,040 --> 00:08:56,880
+comma or question mark or exclamation
+
+209
+00:08:54,959 --> 00:08:59,760
+mark or you know all sort of thing
+
+210
+00:08:56,880 --> 00:09:00,880
+typically when you compute diagrams you
+
+211
+00:08:59,760 --> 00:09:04,560
+don't consider
+
+212
+00:09:00,880 --> 00:09:07,519
+you know punctuations or other or emoji
+
+213
+00:09:04,560 --> 00:09:09,360
+as part of the diagram you only usually
+
+214
+00:09:07,519 --> 00:09:12,959
+you are only concerned with
+
+215
+00:09:09,360 --> 00:09:16,480
+um the letters
+
+216
+00:09:12,959 --> 00:09:17,040
+the alphabets okay but we should have a
+
+217
+00:09:16,480 --> 00:09:20,640
+option
+
+218
+00:09:17,040 --> 00:09:24,080
+so that uh so that
+
+219
+00:09:20,640 --> 00:09:26,640
+people can click um
+
+220
+00:09:24,080 --> 00:09:29,279
+you know whether we want to have the
+
+221
+00:09:26,640 --> 00:09:32,880
+diagram just the letters or uh
+
+222
+00:09:29,279 --> 00:09:35,200
+or or including punctuation so we need
+
+223
+00:09:32,880 --> 00:09:36,640
+options so let's write down what we need
+
+224
+00:09:35,200 --> 00:09:40,399
+to do okay so let's
+
+225
+00:09:36,640 --> 00:09:43,519
+write down something we need to add
+
+226
+00:09:40,399 --> 00:09:46,959
+uh okay add a
+
+227
+00:09:43,519 --> 00:09:50,320
+option so that the
+
+228
+00:09:46,959 --> 00:09:52,560
+diagram is just letters
+
+229
+00:09:50,320 --> 00:09:52,560
+or
+
+230
+00:09:53,920 --> 00:10:00,920
+may include punctuation
+
+231
+00:09:57,120 --> 00:10:05,839
+and any other character such as space
+
+232
+00:10:00,920 --> 00:10:05,839
+okay um
+
+233
+00:10:06,880 --> 00:10:10,720
+that's one thing we need to do and
+
+234
+00:10:08,800 --> 00:10:13,519
+another thing we need to do is
+
+235
+00:10:10,720 --> 00:10:13,519
+add option
+
+236
+00:10:14,320 --> 00:10:22,480
+so that
+
+237
+00:10:19,040 --> 00:10:26,000
+only the top 20
+
+238
+00:10:22,480 --> 00:10:32,560
+diagram are included in the
+
+239
+00:10:26,000 --> 00:10:34,720
+chart okay yeah that's
+
+240
+00:10:32,560 --> 00:10:37,600
+two things we need to do so far and
+
+241
+00:10:34,720 --> 00:10:40,880
+let's continue to look at the code okay
+
+242
+00:10:37,600 --> 00:10:45,279
+uh map filter we need okay then
+
+243
+00:10:40,880 --> 00:10:45,279
+we have then we have a
+
+244
+00:10:45,360 --> 00:10:51,760
+function filter map takes a map
+
+245
+00:10:48,720 --> 00:10:54,160
+objects returns a map object
+
+246
+00:10:51,760 --> 00:11:00,720
+with keys that contain chart that's not
+
+247
+00:10:54,160 --> 00:11:03,680
+english letter
+
+248
+00:11:00,720 --> 00:11:04,240
+so this is this is a specific filter
+
+249
+00:11:03,680 --> 00:11:08,320
+function
+
+250
+00:11:04,240 --> 00:11:12,480
+for our diagram it filters out uh
+
+251
+00:11:08,320 --> 00:11:15,120
+any diagram that contains none letter
+
+252
+00:11:12,480 --> 00:11:18,079
+okay so let's rename it because this is
+
+253
+00:11:15,120 --> 00:11:22,399
+this is not a good name so filter map
+
+254
+00:11:18,079 --> 00:11:25,760
+let's rename it so okay go to top call
+
+255
+00:11:22,399 --> 00:11:29,839
+find and replace type in filter map
+
+256
+00:11:25,760 --> 00:11:29,839
+enter then replace it by
+
+257
+00:11:32,000 --> 00:11:39,279
+filter map letters only okay
+
+258
+00:11:36,160 --> 00:11:42,720
+do that do that do that okay
+
+259
+00:11:39,279 --> 00:11:45,839
+so we have this function defined here
+
+260
+00:11:42,720 --> 00:11:49,600
+and called here okay
+
+261
+00:11:45,839 --> 00:11:52,240
+filter map letters only now it
+
+262
+00:11:49,600 --> 00:11:53,279
+the function name explains itself
+
+263
+00:11:52,240 --> 00:11:55,519
+fantastic this
+
+264
+00:11:53,279 --> 00:11:56,800
+is one of the good thing you want to do
+
+265
+00:11:55,519 --> 00:12:00,000
+when you have
+
+266
+00:11:56,800 --> 00:12:00,560
+code when it comes to the naming of
+
+267
+00:12:00,000 --> 00:12:02,720
+functions
+
+268
+00:12:00,560 --> 00:12:05,040
+by just reading the name of the function
+
+269
+00:12:02,720 --> 00:12:08,959
+you understand what it does
+
+270
+00:12:05,040 --> 00:12:11,920
+okay filter map letters only um
+
+271
+00:12:08,959 --> 00:12:14,720
+let's see what else takes the map
+
+272
+00:12:11,920 --> 00:12:16,880
+objects returns a map object where keys
+
+273
+00:12:14,720 --> 00:12:19,279
+that contain char that's not english
+
+274
+00:12:16,880 --> 00:12:19,279
+letter
+
+275
+00:12:21,040 --> 00:12:25,839
+with only keys that that
+
+276
+00:12:28,720 --> 00:12:39,839
+uh uh wait
+
+277
+00:12:46,160 --> 00:12:51,279
+with with only keys that contain
+
+278
+00:12:51,680 --> 00:12:54,880
+contains only english letter okay that's
+
+279
+00:12:54,079 --> 00:12:58,639
+not so
+
+280
+00:12:54,880 --> 00:13:00,560
+well worded but let's let's leave it
+
+281
+00:12:58,639 --> 00:13:03,200
+let's not spend too too much time on
+
+282
+00:13:00,560 --> 00:13:06,240
+these uh filter map letters only then
+
+283
+00:13:03,200 --> 00:13:09,360
+the next function f compute
+
+284
+00:13:06,240 --> 00:13:12,639
+percentage okay given a diagram
+
+285
+00:13:09,360 --> 00:13:15,440
+map object return a map object
+
+286
+00:13:12,639 --> 00:13:17,440
+where the values are ratio of sum of
+
+287
+00:13:15,440 --> 00:13:20,240
+values okay
+
+288
+00:13:17,440 --> 00:13:22,240
+so technically this is not a percentage
+
+289
+00:13:20,240 --> 00:13:22,560
+because if you want percentage you need
+
+290
+00:13:22,240 --> 00:13:26,320
+to
+
+291
+00:13:22,560 --> 00:13:26,320
+multiply them by 100
+
+292
+00:13:26,639 --> 00:13:33,440
+okay so this compute percentage um
+
+293
+00:13:30,800 --> 00:13:36,240
+so where is it called it's called once
+
+294
+00:13:33,440 --> 00:13:36,240
+here okay
+
+295
+00:13:36,320 --> 00:13:40,240
+okay then let's see next
+
+296
+00:13:42,240 --> 00:13:46,720
+so so the next function is draw svg okay
+
+297
+00:13:46,079 --> 00:13:49,920
+so draw
+
+298
+00:13:46,720 --> 00:13:53,519
+svg is a bit big not too many lines
+
+299
+00:13:49,920 --> 00:13:56,880
+20 lines true svg
+
+300
+00:13:53,519 --> 00:14:00,079
+draw svg text takes a map
+
+301
+00:13:56,880 --> 00:14:03,440
+object and create a svg
+
+302
+00:14:00,079 --> 00:14:06,639
+a bar chart
+
+303
+00:14:03,440 --> 00:14:09,040
+and insert the svg element into the
+
+304
+00:14:06,639 --> 00:14:13,920
+display
+
+305
+00:14:09,040 --> 00:14:13,920
+svg display area element
+
+306
+00:14:14,880 --> 00:14:21,839
+okay so it just takes a map
+
+307
+00:14:18,800 --> 00:14:21,839
+object that's right
+
+308
+00:14:23,600 --> 00:14:28,079
+okay so that's this function we are
+
+309
+00:14:25,680 --> 00:14:31,279
+almost done we are basically done then
+
+310
+00:14:28,079 --> 00:14:33,680
+we have this update function uh which
+
+311
+00:14:31,279 --> 00:14:35,519
+caused all our functions before update
+
+312
+00:14:33,680 --> 00:14:38,800
+uh constant diagram
+
+313
+00:14:35,519 --> 00:14:40,639
+equals to f string to diagram okay
+
+314
+00:14:38,800 --> 00:14:43,040
+you take a string and convert it to
+
+315
+00:14:40,639 --> 00:14:46,160
+diagram and the string
+
+316
+00:14:43,040 --> 00:14:49,920
+came from the html implement
+
+317
+00:14:46,160 --> 00:14:52,880
+input element text area dot value
+
+318
+00:14:49,920 --> 00:14:52,880
+so that's a string
+
+319
+00:14:53,279 --> 00:14:56,959
+and you turn it to diagram so you got a
+
+320
+00:14:55,680 --> 00:15:00,000
+background map
+
+321
+00:14:56,959 --> 00:15:04,000
+object okay then
+
+322
+00:15:00,000 --> 00:15:09,199
+you take the background map
+
+323
+00:15:04,000 --> 00:15:12,240
+then you sort it then you filter it
+
+324
+00:15:09,199 --> 00:15:15,360
+and leaving only letter by grams then
+
+325
+00:15:12,240 --> 00:15:18,399
+you compute percentage
+
+326
+00:15:15,360 --> 00:15:24,160
+okay then you have the percent
+
+327
+00:15:18,399 --> 00:15:24,160
+percentage map okay then you draw svg
+
+328
+00:15:24,399 --> 00:15:27,839
+percentage map
+
+329
+00:15:30,959 --> 00:15:36,800
+okay there is something we want to fix
+
+330
+00:15:33,360 --> 00:15:40,079
+we want to change the draw svg to take
+
+331
+00:15:36,800 --> 00:15:41,920
+a should you be
+
+332
+00:15:40,079 --> 00:15:43,360
+percent i mean should should the
+
+333
+00:15:41,920 --> 00:15:47,680
+argument be a
+
+334
+00:15:43,360 --> 00:15:50,880
+map of bi-gram counts or should it be a
+
+335
+00:15:47,680 --> 00:15:50,880
+map of bi-gram
+
+336
+00:15:52,839 --> 00:15:56,800
+percentage
+
+337
+00:15:54,399 --> 00:15:59,279
+i should i think it should be just by
+
+338
+00:15:56,800 --> 00:16:02,240
+diagram count
+
+339
+00:15:59,279 --> 00:16:02,639
+so okay so so that's minor issues so you
+
+340
+00:16:02,240 --> 00:16:06,399
+know
+
+341
+00:16:02,639 --> 00:16:09,040
+this is about uh the code design of the
+
+342
+00:16:06,399 --> 00:16:09,839
+code function you know design of the
+
+343
+00:16:09,040 --> 00:16:14,399
+function should
+
+344
+00:16:09,839 --> 00:16:14,399
+should destroy svg function
+
+345
+00:16:14,560 --> 00:16:23,839
+take let's write it down
+
+346
+00:16:19,199 --> 00:16:23,839
+uh let's write it down okay
+
+347
+00:16:25,120 --> 00:16:32,399
+should should the function take function
+
+348
+00:16:29,120 --> 00:16:35,519
+argument the map of
+
+349
+00:16:32,399 --> 00:16:40,959
+diagram count or
+
+350
+00:16:35,519 --> 00:16:40,959
+map map of diagram percentage
+
+351
+00:16:41,440 --> 00:16:48,839
+it should be count
+
+352
+00:16:44,800 --> 00:16:51,920
+because that's better design
+
+353
+00:16:48,839 --> 00:16:55,519
+because count is more
+
+354
+00:16:51,920 --> 00:16:57,680
+common you know yeah so this is the
+
+355
+00:16:55,519 --> 00:17:01,519
+minor point we want to fix
+
+356
+00:16:57,680 --> 00:17:05,439
+okay uh
+
+357
+00:17:01,519 --> 00:17:07,280
+okay so so now let's go back to the draw
+
+358
+00:17:05,439 --> 00:17:10,079
+svg function
+
+359
+00:17:07,280 --> 00:17:10,480
+so we can see the joys vg function is
+
+360
+00:17:10,079 --> 00:17:13,679
+there
+
+361
+00:17:10,480 --> 00:17:14,720
+and and continue here the function
+
+362
+00:17:13,679 --> 00:17:18,240
+update
+
+363
+00:17:14,720 --> 00:17:22,319
+then we draw the svg then we
+
+364
+00:17:18,240 --> 00:17:25,360
+the show box is where the
+
+365
+00:17:22,319 --> 00:17:28,400
+you know the the textual data
+
+366
+00:17:25,360 --> 00:17:30,880
+is going to be inserted so show box
+
+367
+00:17:28,400 --> 00:17:31,600
+text content equals through json string
+
+368
+00:17:30,880 --> 00:17:36,320
+file
+
+369
+00:17:31,600 --> 00:17:36,320
+then percentage map okay so here
+
+370
+00:17:36,720 --> 00:17:40,799
+one of the thing we want to change is
+
+371
+00:17:38,720 --> 00:17:42,480
+not we don't want the percentage map we
+
+372
+00:17:40,799 --> 00:17:42,799
+want the count because the percent you
+
+373
+00:17:42,480 --> 00:17:45,600
+know
+
+374
+00:17:42,799 --> 00:17:48,160
+it's too too too many digits so let's
+
+375
+00:17:45,600 --> 00:17:48,160
+change it to
+
+376
+00:17:58,840 --> 00:18:03,120
+count
+
+377
+00:18:00,160 --> 00:18:04,400
+okay so before we uh count so we need to
+
+378
+00:18:03,120 --> 00:18:08,240
+also hold on a second
+
+379
+00:18:04,400 --> 00:18:08,240
+so let's copy that
+
+380
+00:18:09,200 --> 00:18:12,400
+filtered map
+
+381
+00:18:12,559 --> 00:18:19,600
+diagram map okay so we want a
+
+382
+00:18:16,400 --> 00:18:21,039
+constant constant name will be filtered
+
+383
+00:18:19,600 --> 00:18:25,120
+by gram map
+
+384
+00:18:21,039 --> 00:18:25,120
+and the value will be
+
+385
+00:18:25,760 --> 00:18:32,000
+this okay so we want just the letters of
+
+386
+00:18:30,160 --> 00:18:35,039
+the diagram
+
+387
+00:18:32,000 --> 00:18:37,840
+okay so copy that then
+
+388
+00:18:35,039 --> 00:18:37,840
+this part
+
+389
+00:18:38,320 --> 00:18:46,160
+let me show you
+
+390
+00:18:42,640 --> 00:18:50,240
+so it will be just that okay then
+
+391
+00:18:46,160 --> 00:18:52,320
+filtered then the sh then
+
+392
+00:18:50,240 --> 00:18:53,360
+when we want to insert the data it
+
+393
+00:18:52,320 --> 00:18:56,640
+should just be
+
+394
+00:18:53,360 --> 00:18:58,880
+filtered by gram map okay so now
+
+395
+00:18:56,640 --> 00:19:00,240
+i think we fixed one thing predefined
+
+396
+00:18:58,880 --> 00:19:04,400
+the code
+
+397
+00:19:00,240 --> 00:19:08,000
+and now we um predefined the code
+
+398
+00:19:04,400 --> 00:19:09,679
+now now this is actually a typescript
+
+399
+00:19:08,000 --> 00:19:11,360
+file you can see at the bottom it's a
+
+400
+00:19:09,679 --> 00:19:15,200
+typescript
+
+401
+00:19:11,360 --> 00:19:18,320
+uh and how can you tell also because
+
+402
+00:19:15,200 --> 00:19:21,440
+you see this thing that's a type
+
+403
+00:19:18,320 --> 00:19:22,640
+that's you know typescript is a superset
+
+404
+00:19:21,440 --> 00:19:26,480
+of javascript
+
+405
+00:19:22,640 --> 00:19:29,520
+so any javascript is also typescript
+
+406
+00:19:26,480 --> 00:19:31,600
+but however so typescript so what's a
+
+407
+00:19:29,520 --> 00:19:34,799
+superset you know it typescript
+
+408
+00:19:31,600 --> 00:19:38,559
+adds types you can declare types
+
+409
+00:19:34,799 --> 00:19:41,200
+in a javascript variable so here
+
+410
+00:19:38,559 --> 00:19:44,000
+you are looking at this html input
+
+411
+00:19:41,200 --> 00:19:47,200
+element that's a typescript thing
+
+412
+00:19:44,000 --> 00:19:50,960
+that says this text area is
+
+413
+00:19:47,200 --> 00:19:54,559
+of the type html input element
+
+414
+00:19:50,960 --> 00:19:57,679
+so that's uh so that's so this is
+
+415
+00:19:54,559 --> 00:19:58,960
+this is from typescript so because this
+
+416
+00:19:57,679 --> 00:20:01,520
+file is typescript
+
+417
+00:19:58,960 --> 00:20:02,960
+we need to compile it to javascript
+
+418
+00:20:01,520 --> 00:20:06,400
+otherwise the browser wouldn't
+
+419
+00:20:02,960 --> 00:20:10,960
+understand so let's compile okay
+
+420
+00:20:06,400 --> 00:20:13,360
+compile typescript compile file enter
+
+421
+00:20:10,960 --> 00:20:14,400
+great it says shell command succeeded
+
+422
+00:20:13,360 --> 00:20:17,679
+without
+
+423
+00:20:14,400 --> 00:20:19,760
+with no output now if we go to diode
+
+424
+00:20:17,679 --> 00:20:21,200
+you can see this is our typescript and
+
+425
+00:20:19,760 --> 00:20:23,280
+this is the javascript
+
+426
+00:20:21,200 --> 00:20:25,039
+and you can open the javascript
+
+427
+00:20:23,280 --> 00:20:27,600
+basically you can see
+
+428
+00:20:25,039 --> 00:20:28,480
+the code is basically the same except
+
+429
+00:20:27,600 --> 00:20:32,320
+you see
+
+430
+00:20:28,480 --> 00:20:36,000
+it removed it removed you know that
+
+431
+00:20:32,320 --> 00:20:39,360
+typescript thing so okay so anyway
+
+432
+00:20:36,000 --> 00:20:42,799
+so back to this file close close close
+
+433
+00:20:39,360 --> 00:20:44,240
+so you see now we go back to javascript
+
+434
+00:20:42,799 --> 00:20:47,440
+to the browser
+
+435
+00:20:44,240 --> 00:20:48,240
+refresh fantastic now let's magnify you
+
+436
+00:20:47,440 --> 00:20:51,120
+see
+
+437
+00:20:48,240 --> 00:20:54,799
+now we got the count instead of the huge
+
+438
+00:20:51,120 --> 00:20:59,039
+you know decimal numbers that's ratio
+
+439
+00:20:54,799 --> 00:21:02,080
+now this is fantastic
+
+440
+00:20:59,039 --> 00:21:05,440
+okay now now let's type a b a
+
+441
+00:21:02,080 --> 00:21:07,600
+b let's copy the a b space okay copy
+
+442
+00:21:05,440 --> 00:21:10,240
+paste paste paste paste paste paste
+
+443
+00:21:07,600 --> 00:21:13,520
+space paste paste
+
+444
+00:21:10,240 --> 00:21:15,440
+so a b becomes the most frequent okay
+
+445
+00:21:13,520 --> 00:21:16,880
+now we actually fixed one thing now
+
+446
+00:21:15,440 --> 00:21:19,919
+let's go back to the code
+
+447
+00:21:16,880 --> 00:21:22,400
+go to the top let's see what else we
+
+448
+00:21:19,919 --> 00:21:22,400
+need to do
+
+449
+00:21:25,679 --> 00:21:30,080
+okay we need to add two options add a
+
+450
+00:21:28,400 --> 00:21:33,039
+option so that only the top
+
+451
+00:21:30,080 --> 00:21:36,159
+200 top 20 background are included okay
+
+452
+00:21:33,039 --> 00:21:36,159
+let's do this one
+
+453
+00:21:37,520 --> 00:21:43,520
+add a option so that only the top two 20
+
+454
+00:21:40,880 --> 00:21:46,799
+diagrams are included okay
+
+455
+00:21:43,520 --> 00:21:49,840
+so we need to add option in the html
+
+456
+00:21:46,799 --> 00:21:53,280
+you know a checkbox so how do we do that
+
+457
+00:21:49,840 --> 00:21:57,280
+that's easy you go to sardi
+
+458
+00:21:53,280 --> 00:21:58,080
+javascript just search for javascript in
+
+459
+00:21:57,280 --> 00:22:01,280
+depth okay
+
+460
+00:21:58,080 --> 00:22:04,640
+hold on a second js in depth
+
+461
+00:22:01,280 --> 00:22:08,240
+you'll find my website
+
+462
+00:22:04,640 --> 00:22:09,440
+javascript in depth go there then you go
+
+463
+00:22:08,240 --> 00:22:12,640
+to dom
+
+464
+00:22:09,440 --> 00:22:16,080
+with dom is the document object model
+
+465
+00:22:12,640 --> 00:22:19,360
+which is the basically an api
+
+466
+00:22:16,080 --> 00:22:22,320
+in browser that
+
+467
+00:22:19,360 --> 00:22:24,559
+lets you code javascript and connect to
+
+468
+00:22:22,320 --> 00:22:25,360
+all the browsers elements such as the
+
+469
+00:22:24,559 --> 00:22:28,559
+window
+
+470
+00:22:25,360 --> 00:22:31,280
+such as the text box such as click
+
+471
+00:22:28,559 --> 00:22:32,159
+you know getting a click of move the
+
+472
+00:22:31,280 --> 00:22:34,960
+elements
+
+473
+00:22:32,159 --> 00:22:35,440
+anything you want you know that's how
+
+474
+00:22:34,960 --> 00:22:37,919
+web
+
+475
+00:22:35,440 --> 00:22:40,640
+applications are written javascript and
+
+476
+00:22:37,919 --> 00:22:41,520
+dom dom is kind of the api that controls
+
+477
+00:22:40,640 --> 00:22:44,320
+the browser
+
+478
+00:22:41,520 --> 00:22:45,280
+and by the way it's also how typescript
+
+479
+00:22:44,320 --> 00:22:48,880
+that that's how
+
+480
+00:22:45,280 --> 00:22:54,240
+also the atom editor
+
+481
+00:22:48,880 --> 00:22:56,480
+uh and
+
+482
+00:22:54,240 --> 00:22:57,760
+vs code microsoft vs code they are
+
+483
+00:22:56,480 --> 00:23:01,440
+written in this
+
+484
+00:22:57,760 --> 00:23:03,780
+api called electron which is uh
+
+485
+00:23:01,440 --> 00:23:04,880
+pretty good and electron is written
+
+486
+00:23:03,780 --> 00:23:08,240
+[Music]
+
+487
+00:23:04,880 --> 00:23:10,000
+using the google chrome's browser and
+
+488
+00:23:08,240 --> 00:23:12,080
+you know it's full it's just basically
+
+489
+00:23:10,000 --> 00:23:14,480
+written in javascript and dom
+
+490
+00:23:12,080 --> 00:23:15,679
+so dom is the all important thing when
+
+491
+00:23:14,480 --> 00:23:18,080
+you call javascript
+
+492
+00:23:15,679 --> 00:23:20,000
+so we are here where are we here because
+
+493
+00:23:18,080 --> 00:23:21,760
+we need to add a check box
+
+494
+00:23:20,000 --> 00:23:24,720
+so i'm going to show you how to add the
+
+495
+00:23:21,760 --> 00:23:27,039
+checkbox you see a checkbox
+
+496
+00:23:24,720 --> 00:23:28,480
+so here's how you write the uh checkbox
+
+497
+00:23:27,039 --> 00:23:31,679
+so married
+
+498
+00:23:28,480 --> 00:23:33,280
+no yes so you click you click on that
+
+499
+00:23:31,679 --> 00:23:36,720
+you can see the result
+
+500
+00:23:33,280 --> 00:23:39,760
+update as you click so okay
+
+501
+00:23:36,720 --> 00:23:40,159
+check box so here is the html code copy
+
+502
+00:23:39,760 --> 00:23:44,400
+it
+
+503
+00:23:40,159 --> 00:23:47,760
+uh copy it shrink back to the browser
+
+504
+00:23:44,400 --> 00:23:51,039
+close that go to the html file
+
+505
+00:23:47,760 --> 00:23:54,720
+so paste the text box uh check box here
+
+506
+00:23:51,039 --> 00:23:58,799
+so we have here the code
+
+507
+00:23:54,720 --> 00:24:02,000
+check box one uh let's rename it id
+
+508
+00:23:58,799 --> 00:24:05,120
+check box uh show top 20 okay so you
+
+509
+00:24:02,000 --> 00:24:09,279
+you'll say
+
+510
+00:24:05,120 --> 00:24:09,279
+show top 20 okay
+
+511
+00:24:10,480 --> 00:24:18,000
+type check box name show top 20
+
+512
+00:24:14,720 --> 00:24:22,320
+and value uh
+
+513
+00:24:18,000 --> 00:24:22,320
+value we don't care about value uh
+
+514
+00:24:22,400 --> 00:24:30,799
+what the value should be
+
+515
+00:24:26,400 --> 00:24:35,120
+okay i forgot okay value is optional if
+
+516
+00:24:30,799 --> 00:24:35,120
+omitted the default value is on
+
+517
+00:24:39,200 --> 00:24:43,200
+yeah we don't need the value check is
+
+518
+00:24:42,080 --> 00:24:46,480
+optional okay
+
+519
+00:24:43,200 --> 00:24:47,679
+so so by default it's checked we don't
+
+520
+00:24:46,480 --> 00:24:50,720
+need the value
+
+521
+00:24:47,679 --> 00:24:53,919
+delete the value
+
+522
+00:24:50,720 --> 00:24:57,679
+okay so that's a show check box
+
+523
+00:24:53,919 --> 00:25:01,200
+and uh let's put a label
+
+524
+00:24:57,679 --> 00:25:04,400
+for the uh
+
+525
+00:25:01,200 --> 00:25:04,400
+show top 20
+
+526
+00:25:05,760 --> 00:25:08,880
+so that's the label
+
+527
+00:25:11,520 --> 00:25:19,440
+show top 20 only so here we got that
+
+528
+00:25:16,000 --> 00:25:20,880
+and the result we don't need this result
+
+529
+00:25:19,440 --> 00:25:24,640
+box we don't need okay
+
+530
+00:25:20,880 --> 00:25:25,200
+now show in browser so you see we got
+
+531
+00:25:24,640 --> 00:25:28,240
+the check
+
+532
+00:25:25,200 --> 00:25:30,720
+box working now it does nothing because
+
+533
+00:25:28,240 --> 00:25:32,720
+we haven't done any javascript to it
+
+534
+00:25:30,720 --> 00:25:34,799
+now let's go to the javascript and do
+
+535
+00:25:32,720 --> 00:25:38,799
+something to it
+
+536
+00:25:34,799 --> 00:25:40,559
+okay so copy the id for this input box
+
+537
+00:25:38,799 --> 00:25:43,600
+that's what we need copy it
+
+538
+00:25:40,559 --> 00:25:44,640
+now open the javascript file and at the
+
+539
+00:25:43,600 --> 00:25:47,520
+top
+
+540
+00:25:44,640 --> 00:25:50,159
+over here we're going to add it here so
+
+541
+00:25:47,520 --> 00:25:50,159
+copy that
+
+542
+00:25:51,919 --> 00:26:00,080
+there it is so this line
+
+543
+00:25:55,120 --> 00:26:00,080
+we'll grab this checkbox element
+
+544
+00:26:00,159 --> 00:26:06,480
+that's right now but how do you know
+
+545
+00:26:03,440 --> 00:26:11,039
+that checkbox is checked or not
+
+546
+00:26:06,480 --> 00:26:14,400
+we go back to the checkbox tutorial
+
+547
+00:26:11,039 --> 00:26:16,960
+so here is the javascript that tells you
+
+548
+00:26:14,400 --> 00:26:17,679
+how to know if a checkbox is checked or
+
+549
+00:26:16,960 --> 00:26:22,840
+not
+
+550
+00:26:17,679 --> 00:26:25,520
+so copy the code back to javascript code
+
+551
+00:26:22,840 --> 00:26:29,120
+then then uh
+
+552
+00:26:25,520 --> 00:26:32,080
+then you go back to uh
+
+553
+00:26:29,120 --> 00:26:32,740
+go back to all the way to the bottom
+
+554
+00:26:32,080 --> 00:26:35,039
+then you
+
+555
+00:26:32,740 --> 00:26:38,240
+[Music]
+
+556
+00:26:35,039 --> 00:26:40,000
+uh first of all create an empty area
+
+557
+00:26:38,240 --> 00:26:44,320
+just paste it here okay paste
+
+558
+00:26:40,000 --> 00:26:47,919
+the paste our code here uh
+
+559
+00:26:44,320 --> 00:26:53,840
+so this part is what we are going to add
+
+560
+00:26:47,919 --> 00:26:53,840
+so we want to
+
+561
+00:26:54,000 --> 00:26:57,440
+we want to first of all add event
+
+562
+00:26:56,000 --> 00:27:00,480
+listener okay
+
+563
+00:26:57,440 --> 00:27:04,840
+so add event listener so
+
+564
+00:27:00,480 --> 00:27:07,279
+uh okay so what's the name of our
+
+565
+00:27:04,840 --> 00:27:12,000
+checkbox
+
+566
+00:27:07,279 --> 00:27:13,279
+show top 20 okay show top 20 add event
+
+567
+00:27:12,000 --> 00:27:16,080
+listener
+
+568
+00:27:13,279 --> 00:27:17,520
+then input input means whenever it
+
+569
+00:27:16,080 --> 00:27:20,240
+changed
+
+570
+00:27:17,520 --> 00:27:22,399
+that's right so you see we can see
+
+571
+00:27:20,240 --> 00:27:23,360
+example from the code here so here's the
+
+572
+00:27:22,399 --> 00:27:27,200
+checkbox at
+
+573
+00:27:23,360 --> 00:27:29,919
+event listener yeah so if
+
+574
+00:27:27,200 --> 00:27:31,360
+so the event name is input that means
+
+575
+00:27:29,919 --> 00:27:34,960
+whenever the checkbox
+
+576
+00:27:31,360 --> 00:27:36,559
+is changed then it will call this
+
+577
+00:27:34,960 --> 00:27:40,080
+function okay
+
+578
+00:27:36,559 --> 00:27:41,600
+now don't don't worry about the third
+
+579
+00:27:40,080 --> 00:27:44,000
+argument you can look up
+
+580
+00:27:41,600 --> 00:27:46,640
+you can look up the event listener if
+
+581
+00:27:44,000 --> 00:27:49,760
+you are interested
+
+582
+00:27:46,640 --> 00:27:53,440
+so show so this line showed
+
+583
+00:27:49,760 --> 00:27:56,080
+top 20 dot event listener
+
+584
+00:27:53,440 --> 00:27:58,960
+and blah blah blah this line means
+
+585
+00:27:56,080 --> 00:28:03,200
+whenever the check box is changed
+
+586
+00:27:58,960 --> 00:28:05,200
+it will call the function f update okay
+
+587
+00:28:03,200 --> 00:28:06,720
+so that means when it's whenever it's
+
+588
+00:28:05,200 --> 00:28:09,200
+changed uh close that
+
+589
+00:28:06,720 --> 00:28:11,760
+whenever it's changed constant torque
+
+590
+00:28:09,200 --> 00:28:15,120
+shot so whenever it's changed
+
+591
+00:28:11,760 --> 00:28:18,880
+it will redraw the svg basically
+
+592
+00:28:15,120 --> 00:28:21,360
+so okay so what else we
+
+593
+00:28:18,880 --> 00:28:23,360
+we need to do so about the check box
+
+594
+00:28:21,360 --> 00:28:25,600
+okay uh
+
+595
+00:28:23,360 --> 00:28:25,600
+okay
+
+596
+00:28:26,880 --> 00:28:30,399
+okay so when whenever now whenever the
+
+597
+00:28:28,960 --> 00:28:33,440
+checkbox is changed
+
+598
+00:28:30,399 --> 00:28:34,559
+it will redraw it but however our code
+
+599
+00:28:33,440 --> 00:28:36,880
+to redraw it
+
+600
+00:28:34,559 --> 00:28:37,600
+has not changed so right now it does
+
+601
+00:28:36,880 --> 00:28:41,679
+nothing
+
+602
+00:28:37,600 --> 00:28:41,679
+we need to add code
+
+603
+00:28:42,840 --> 00:28:49,200
+uh and we still don't know how to
+
+604
+00:28:46,559 --> 00:28:49,840
+know in javascript how do you how do you
+
+605
+00:28:49,200 --> 00:28:53,039
+know
+
+606
+00:28:49,840 --> 00:28:55,120
+whether the checkbox is checked right
+
+607
+00:28:53,039 --> 00:28:58,159
+now so far this line only
+
+608
+00:28:55,120 --> 00:28:59,760
+tells the javascript to run the update
+
+609
+00:28:58,159 --> 00:29:01,760
+code whenever it's changed
+
+610
+00:28:59,760 --> 00:29:03,840
+so how do you know it's checked so back
+
+611
+00:29:01,760 --> 00:29:06,320
+to the code here
+
+612
+00:29:03,840 --> 00:29:07,360
+uh color picker not color picker the
+
+613
+00:29:06,320 --> 00:29:10,840
+show check box
+
+614
+00:29:07,360 --> 00:29:13,279
+so how do you know it's checked here
+
+615
+00:29:10,840 --> 00:29:18,559
+okay
+
+616
+00:29:13,279 --> 00:29:18,559
+so here is the code that tells you
+
+617
+00:29:19,919 --> 00:29:25,120
+so here is the code okay so let's let me
+
+618
+00:29:22,799 --> 00:29:28,320
+simplify this so you can see
+
+619
+00:29:25,120 --> 00:29:28,960
+so here is a sample update function then
+
+620
+00:29:28,320 --> 00:29:32,640
+you have
+
+621
+00:29:28,960 --> 00:29:35,600
+showbox one text content
+
+622
+00:29:32,640 --> 00:29:36,880
+equals to check box one checked to
+
+623
+00:29:35,600 --> 00:29:39,200
+string okay
+
+624
+00:29:36,880 --> 00:29:41,039
+so how do you know it's checked simple
+
+625
+00:29:39,200 --> 00:29:44,960
+check checkbox start checked
+
+626
+00:29:41,039 --> 00:29:48,080
+it will return true or false okay
+
+627
+00:29:44,960 --> 00:29:55,840
+so this code we need to so
+
+628
+00:29:48,080 --> 00:29:55,840
+now let's modify the update code here
+
+629
+00:30:04,000 --> 00:30:11,840
+uh wait uh
+
+630
+00:30:08,000 --> 00:30:11,840
+show top
+
+631
+00:30:12,480 --> 00:30:22,960
+dot checked okay this will tell us
+
+632
+00:30:15,600 --> 00:30:25,200
+it will be true or false so
+
+633
+00:30:22,960 --> 00:30:25,200
+if
+
+634
+00:30:26,320 --> 00:30:30,240
+this is true then
+
+635
+00:30:34,320 --> 00:30:41,760
+then you need a code
+
+636
+00:30:37,840 --> 00:30:41,760
+truncate the bi-gram map
+
+637
+00:30:42,159 --> 00:30:48,720
+else else do nothing okay
+
+638
+00:30:45,919 --> 00:30:51,840
+so how do you do this so we need to
+
+639
+00:30:48,720 --> 00:30:51,840
+write a function
+
+640
+00:30:56,000 --> 00:31:02,000
+that truncates map
+
+641
+00:30:59,440 --> 00:31:02,000
+object
+
+642
+00:31:02,720 --> 00:31:06,320
+okay we need to write that function and
+
+643
+00:31:05,519 --> 00:31:10,000
+okay so
+
+644
+00:31:06,320 --> 00:31:10,000
+uh overall how do you do this
+
+645
+00:31:10,080 --> 00:31:14,799
+uh so background map equals to
+
+646
+00:31:16,880 --> 00:31:35,200
+string 2 diagram
+
+647
+00:31:32,720 --> 00:31:35,200
+okay
+
+648
+00:31:40,240 --> 00:31:43,840
+any any comments questions comments no
+
+649
+00:31:42,880 --> 00:31:47,440
+comments
+
+650
+00:31:43,840 --> 00:31:50,559
+hello justine hello justine hey hey
+
+651
+00:31:47,440 --> 00:31:51,519
+justine the haskell coder justine from
+
+652
+00:31:50,559 --> 00:31:54,559
+canada
+
+653
+00:31:51,519 --> 00:32:01,840
+hey uh so okay
+
+654
+00:31:54,559 --> 00:32:01,840
+so so let's uh let's let's let's do this
+
+655
+00:32:01,919 --> 00:32:08,960
+uh coding you know coding and thinking
+
+656
+00:32:05,840 --> 00:32:12,840
+that's um and i need to
+
+657
+00:32:08,960 --> 00:32:14,159
+like talk i need to keep talking because
+
+658
+00:32:12,840 --> 00:32:16,559
+otherwise
+
+659
+00:32:14,159 --> 00:32:19,519
+uh it wouldn't be a good video so i so i
+
+660
+00:32:16,559 --> 00:32:21,919
+need to talk what i'm thinking so
+
+661
+00:32:19,519 --> 00:32:22,559
+so what we we need to okay so if it's
+
+662
+00:32:21,919 --> 00:32:24,799
+checked
+
+663
+00:32:22,559 --> 00:32:24,799
+then
+
+664
+00:32:26,480 --> 00:32:33,039
+yeah we need some sort of um
+
+665
+00:32:29,840 --> 00:32:35,600
+okay let me just do it and uh
+
+666
+00:32:33,039 --> 00:32:35,600
+explain
+
+667
+00:32:38,320 --> 00:32:42,000
+so first of all okay cut that first of
+
+668
+00:32:40,640 --> 00:32:45,200
+all background map is
+
+669
+00:32:42,000 --> 00:32:47,440
+that uh
+
+670
+00:32:45,200 --> 00:32:49,679
+yeah this is not so good so let's say
+
+671
+00:32:47,440 --> 00:32:53,120
+bi-gram map one okay
+
+672
+00:32:49,679 --> 00:32:57,840
+then background map two
+
+673
+00:32:53,120 --> 00:32:57,840
+let's say background map two okay
+
+674
+00:33:04,960 --> 00:33:14,480
+yeah so okay okay let's let's use a um
+
+675
+00:33:10,000 --> 00:33:17,600
+let's use a ternary expression
+
+676
+00:33:14,480 --> 00:33:22,320
+uh ternary let's use a if expression
+
+677
+00:33:17,600 --> 00:33:25,679
+okay i'm gonna show you what that is um
+
+678
+00:33:22,320 --> 00:33:28,720
+ah where is my shortcut if expression
+
+679
+00:33:25,679 --> 00:33:31,360
+so here we have a if statement but we
+
+680
+00:33:28,720 --> 00:33:36,640
+want the if expression
+
+681
+00:33:31,360 --> 00:33:41,279
+instead okay there it is so if the test
+
+682
+00:33:36,640 --> 00:33:41,279
+is that if that's true then
+
+683
+00:33:42,880 --> 00:33:46,640
+truncate the bigram map okay
+
+684
+00:33:48,880 --> 00:33:56,320
+otherwise the background map
+
+685
+00:33:52,000 --> 00:33:56,320
+will be just remain the same okay
+
+686
+00:33:56,480 --> 00:34:02,080
+basically that's that's uh that's what
+
+687
+00:33:59,360 --> 00:34:02,080
+we want to do
+
+688
+00:34:03,200 --> 00:34:08,320
+now we need a function to truncate
+
+689
+00:34:05,679 --> 00:34:08,320
+that's right
+
+690
+00:34:14,240 --> 00:34:20,639
+okay pretty fine
+
+691
+00:34:17,760 --> 00:34:21,679
+yeah cannot predefine because uh what's
+
+692
+00:34:20,639 --> 00:34:24,960
+going on
+
+693
+00:34:21,679 --> 00:34:28,720
+formatting something something line 140
+
+694
+00:34:24,960 --> 00:34:31,679
+unexpected token there okay
+
+695
+00:34:28,720 --> 00:34:33,040
+apparently deno cannot you know accept
+
+696
+00:34:31,679 --> 00:34:34,879
+this thing
+
+697
+00:34:33,040 --> 00:34:37,119
+and they know freaked out oh yeah
+
+698
+00:34:34,879 --> 00:34:39,839
+because we don't have a value
+
+699
+00:34:37,119 --> 00:34:40,720
+so okay so we need to give it a dummy
+
+700
+00:34:39,839 --> 00:34:44,480
+value here
+
+701
+00:34:40,720 --> 00:34:48,879
+okay now predefined the code yeah works
+
+702
+00:34:44,480 --> 00:34:51,040
+okay now shrink the window now
+
+703
+00:34:48,879 --> 00:34:52,960
+truncate the bygram map okay so now we
+
+704
+00:34:51,040 --> 00:34:54,480
+need to write a function that truncates
+
+705
+00:34:52,960 --> 00:34:57,359
+the bygram map
+
+706
+00:34:54,480 --> 00:35:01,599
+how to do that we i've already written a
+
+707
+00:34:57,359 --> 00:35:04,720
+code let's just copy it okay that's not
+
+708
+00:35:01,599 --> 00:35:07,520
+i've already written the code before
+
+709
+00:35:04,720 --> 00:35:09,200
+uh you can find it let's okay let's
+
+710
+00:35:07,520 --> 00:35:12,560
+let's go
+
+711
+00:35:09,200 --> 00:35:13,520
+kazadi keyboard okay search for exalty
+
+712
+00:35:12,560 --> 00:35:16,300
+keyboard block
+
+713
+00:35:13,520 --> 00:35:17,599
+go there then you go to
+
+714
+00:35:16,300 --> 00:35:22,640
+[Music]
+
+715
+00:35:17,599 --> 00:35:27,680
+layout then you go to this page
+
+716
+00:35:22,640 --> 00:35:27,680
+uh then you go to uh let's go to um
+
+717
+00:35:29,520 --> 00:35:37,920
+okay go go the way down
+
+718
+00:35:32,960 --> 00:35:40,640
+and here here is interactive
+
+719
+00:35:37,920 --> 00:35:42,000
+character counter okay so i already have
+
+720
+00:35:40,640 --> 00:35:46,240
+a code here
+
+721
+00:35:42,000 --> 00:35:49,359
+that allows you to truncate for example
+
+722
+00:35:46,240 --> 00:35:51,599
+top 30 only you see that option
+
+723
+00:35:49,359 --> 00:35:54,400
+so that option is what we need the code
+
+724
+00:35:51,599 --> 00:35:54,400
+is already here
+
+725
+00:35:57,040 --> 00:36:03,599
+so um yeah so
+
+726
+00:36:00,400 --> 00:36:04,640
+copy this url back to browser open that
+
+727
+00:36:03,599 --> 00:36:08,000
+url
+
+728
+00:36:04,640 --> 00:36:10,640
+in my local file so you can see
+
+729
+00:36:08,000 --> 00:36:11,440
+this is the local version of that web
+
+730
+00:36:10,640 --> 00:36:15,440
+page
+
+731
+00:36:11,440 --> 00:36:19,920
+and search for javascript so you can see
+
+732
+00:36:15,440 --> 00:36:23,760
+in this file xr keyboard library.js
+
+733
+00:36:19,920 --> 00:36:27,839
+i already have a truncate map
+
+734
+00:36:23,760 --> 00:36:31,359
+function so let's search for it
+
+735
+00:36:27,839 --> 00:36:33,839
+t r u n c okay
+
+736
+00:36:31,359 --> 00:36:35,040
+there it is this is the function let's
+
+737
+00:36:33,839 --> 00:36:38,560
+just copy it
+
+738
+00:36:35,040 --> 00:36:39,760
+close it close it now we are backing our
+
+739
+00:36:38,560 --> 00:36:44,079
+background stuff
+
+740
+00:36:39,760 --> 00:36:46,160
+here so so the truncate function let's
+
+741
+00:36:44,079 --> 00:36:48,079
+paste it here let's see if it works i
+
+742
+00:36:46,160 --> 00:36:51,359
+mean let's see let's have a look
+
+743
+00:36:48,079 --> 00:36:51,359
+so truncate map
+
+744
+00:36:51,760 --> 00:36:57,359
+takes a map and end return a new map
+
+745
+00:36:55,440 --> 00:37:00,800
+containing only the top and
+
+746
+00:36:57,359 --> 00:37:08,000
+entries top means value is bigger number
+
+747
+00:37:00,800 --> 00:37:10,320
+okay okay so
+
+748
+00:37:08,000 --> 00:37:11,040
+so we cannot actually use this function
+
+749
+00:37:10,320 --> 00:37:14,400
+because
+
+750
+00:37:11,040 --> 00:37:18,160
+this function truncates the map
+
+751
+00:37:14,400 --> 00:37:22,320
+but however the map it assumes the maps
+
+752
+00:37:18,160 --> 00:37:22,960
+key and value pairs the keys are single
+
+753
+00:37:22,320 --> 00:37:26,160
+characters
+
+754
+00:37:22,960 --> 00:37:28,240
+and value is a number so
+
+755
+00:37:26,160 --> 00:37:29,359
+it so it truncates containing only the
+
+756
+00:37:28,240 --> 00:37:32,400
+top and
+
+757
+00:37:29,359 --> 00:37:37,839
+entries top means value is bigger number
+
+758
+00:37:32,400 --> 00:37:37,839
+okay actually we can use this
+
+759
+00:37:39,599 --> 00:37:43,839
+yeah so i get okay so let's copy the
+
+760
+00:37:42,560 --> 00:37:47,040
+code
+
+761
+00:37:43,839 --> 00:37:49,920
+and put the code here
+
+762
+00:37:47,040 --> 00:37:52,320
+uh let's put the code above you know
+
+763
+00:37:49,920 --> 00:37:56,960
+near the filter
+
+764
+00:37:52,320 --> 00:37:59,280
+okay so let's put the code here
+
+765
+00:37:56,960 --> 00:37:59,280
+here
+
+766
+00:38:02,880 --> 00:38:09,839
+okay truncate map now let's go down
+
+767
+00:38:05,920 --> 00:38:12,880
+go down to where we are uh
+
+768
+00:38:09,839 --> 00:38:19,359
+where here it says truncate diagram
+
+769
+00:38:12,880 --> 00:38:23,200
+we'll just call the function
+
+770
+00:38:19,359 --> 00:38:25,760
+that and the 20 we want the top 20
+
+771
+00:38:23,200 --> 00:38:31,440
+diagrams so that should work
+
+772
+00:38:25,760 --> 00:38:31,440
+should we will see if it does or not
+
+773
+00:38:31,520 --> 00:38:36,640
+prettify the code okay it made it into
+
+774
+00:38:34,640 --> 00:38:41,599
+one line good
+
+775
+00:38:36,640 --> 00:38:41,599
+compile the code typescript compile file
+
+776
+00:38:41,680 --> 00:38:49,839
+arrow property checked does not exist
+
+777
+00:38:46,480 --> 00:38:50,800
+on type html element yeah this is very
+
+778
+00:38:49,839 --> 00:38:52,880
+annoying
+
+779
+00:38:50,800 --> 00:38:54,240
+this is one of the annoying thing about
+
+780
+00:38:52,880 --> 00:38:57,440
+typescript
+
+781
+00:38:54,240 --> 00:38:59,200
+so in order to fix that because it's
+
+782
+00:38:57,440 --> 00:39:00,640
+basically it's saying the problem is
+
+783
+00:38:59,200 --> 00:39:04,079
+here the
+
+784
+00:39:00,640 --> 00:39:05,839
+show top 20 dot checked it returns true
+
+785
+00:39:04,079 --> 00:39:10,320
+or false
+
+786
+00:39:05,839 --> 00:39:10,320
+but however typescript is having problem
+
+787
+00:39:10,480 --> 00:39:14,560
+knowing what exactly type it returns you
+
+788
+00:39:13,280 --> 00:39:17,280
+see
+
+789
+00:39:14,560 --> 00:39:17,920
+it sees you see it says property checked
+
+790
+00:39:17,280 --> 00:39:21,920
+does not
+
+791
+00:39:17,920 --> 00:39:24,960
+exist on type html element
+
+792
+00:39:21,920 --> 00:39:26,480
+so here is the html element the show top
+
+793
+00:39:24,960 --> 00:39:29,680
+20
+
+794
+00:39:26,480 --> 00:39:32,560
+it doesn't have checked property but
+
+795
+00:39:29,680 --> 00:39:33,040
+but actually the html input element does
+
+796
+00:39:32,560 --> 00:39:36,079
+have it
+
+797
+00:39:33,040 --> 00:39:39,839
+so you actually have to kind of say this
+
+798
+00:39:36,079 --> 00:39:43,760
+uh let me show you okay so
+
+799
+00:39:39,839 --> 00:39:47,040
+so okay let me show you
+
+800
+00:39:43,760 --> 00:39:48,480
+hold on a second copy that let's let me
+
+801
+00:39:47,040 --> 00:39:52,160
+show you the modified
+
+802
+00:39:48,480 --> 00:39:54,960
+version okay
+
+803
+00:39:52,160 --> 00:39:56,960
+so this is what you need to add okay so
+
+804
+00:39:54,960 --> 00:40:00,320
+let's remove the first one
+
+805
+00:39:56,960 --> 00:40:03,839
+predefine the code there it is okay
+
+806
+00:40:00,320 --> 00:40:06,720
+compile the code again do it
+
+807
+00:40:03,839 --> 00:40:07,839
+arrow cannot find name oh yeah cannot
+
+808
+00:40:06,720 --> 00:40:11,440
+find name
+
+809
+00:40:07,839 --> 00:40:12,960
+by grab map yeah because we renamed it
+
+810
+00:40:11,440 --> 00:40:15,200
+to bi-gram map too
+
+811
+00:40:12,960 --> 00:40:15,200
+so
+
+812
+00:40:18,160 --> 00:40:27,520
+so here
+
+813
+00:40:24,560 --> 00:40:27,520
+yeah put it there
+
+814
+00:40:30,319 --> 00:40:34,480
+now there's uh some ink efficiencies
+
+815
+00:40:33,440 --> 00:40:37,680
+going on but
+
+816
+00:40:34,480 --> 00:40:39,760
+let's not worry about it why why is
+
+817
+00:40:37,680 --> 00:40:42,560
+there in efficiency because you see
+
+818
+00:40:39,760 --> 00:40:44,400
+we are sorting the map here but however
+
+819
+00:40:42,560 --> 00:40:46,960
+when you do the truncate
+
+820
+00:40:44,400 --> 00:40:48,640
+you are also salting it you know you
+
+821
+00:40:46,960 --> 00:40:49,760
+need to sort it before you truncate
+
+822
+00:40:48,640 --> 00:40:52,800
+because you want the
+
+823
+00:40:49,760 --> 00:40:56,240
+top 20 so it's no good to have
+
+824
+00:40:52,800 --> 00:40:58,400
+sort kind of repeated so you basically
+
+825
+00:40:56,240 --> 00:41:01,440
+you want to sort it first
+
+826
+00:40:58,400 --> 00:41:02,560
+yeah but that's uh you know we if we are
+
+827
+00:41:01,440 --> 00:41:05,200
+going to fix that
+
+828
+00:41:02,560 --> 00:41:06,240
+that's gonna take another five or ten
+
+829
+00:41:05,200 --> 00:41:08,880
+minutes uh
+
+830
+00:41:06,240 --> 00:41:10,000
+but we have a lot to do so let's just
+
+831
+00:41:08,880 --> 00:41:13,040
+skip it
+
+832
+00:41:10,000 --> 00:41:13,599
+for the video okay so now compile the
+
+833
+00:41:13,040 --> 00:41:16,160
+script
+
+834
+00:41:13,599 --> 00:41:16,160
+it works
+
+835
+00:41:16,960 --> 00:41:20,160
+so let's check the code before we check
+
+836
+00:41:19,200 --> 00:41:23,680
+it in the browser
+
+837
+00:41:20,160 --> 00:41:27,119
+so we have map one let's rename
+
+838
+00:41:23,680 --> 00:41:30,000
+map one to uh you know because
+
+839
+00:41:27,119 --> 00:41:31,760
+it's not good to have data to have data
+
+840
+00:41:30,000 --> 00:41:33,520
+names like one two three because you
+
+841
+00:41:31,760 --> 00:41:35,839
+have no idea what the
+
+842
+00:41:33,520 --> 00:41:35,839
+um
+
+843
+00:41:39,119 --> 00:41:42,720
+yeah but but sometimes it's a pain okay
+
+844
+00:41:42,319 --> 00:41:45,599
+so
+
+845
+00:41:42,720 --> 00:41:48,000
+map one map two map two is the map we
+
+846
+00:41:45,599 --> 00:41:52,480
+are going to work on
+
+847
+00:41:48,000 --> 00:41:53,359
+so if it's so it if the show top 20 is
+
+848
+00:41:52,480 --> 00:41:56,640
+checked
+
+849
+00:41:53,359 --> 00:41:57,200
+we truncate it good otherwise we just
+
+850
+00:41:56,640 --> 00:42:00,720
+use
+
+851
+00:41:57,200 --> 00:42:01,599
+uh map one okay so we already written
+
+852
+00:42:00,720 --> 00:42:05,520
+that function
+
+853
+00:42:01,599 --> 00:42:08,240
+good then sort map
+
+854
+00:42:05,520 --> 00:42:08,240
+map2
+
+855
+00:42:08,880 --> 00:42:12,960
+okay we don't need to sort it anymore
+
+856
+00:42:10,960 --> 00:42:16,160
+because the
+
+857
+00:42:12,960 --> 00:42:17,200
+when you truncate it's already sorted
+
+858
+00:42:16,160 --> 00:42:18,720
+let's check
+
+859
+00:42:17,200 --> 00:42:20,319
+let's check the truncate function
+
+860
+00:42:18,720 --> 00:42:24,240
+documentation all the code
+
+861
+00:42:20,319 --> 00:42:30,480
+so let's jump to truncate here
+
+862
+00:42:24,240 --> 00:42:32,240
+so it's sorting it
+
+863
+00:42:30,480 --> 00:42:33,760
+i don't think yeah i don't think we need
+
+864
+00:42:32,240 --> 00:42:36,560
+to sort any
+
+865
+00:42:33,760 --> 00:42:36,560
+more so let's
+
+866
+00:42:37,119 --> 00:42:45,839
+let's uh let's kind of try to be smart
+
+867
+00:42:40,079 --> 00:42:45,839
+we don't need to sort anymore
+
+868
+00:42:46,720 --> 00:42:49,040
+okay
+
+869
+00:42:51,359 --> 00:42:55,680
+then what is the percentage map
+
+870
+00:42:56,079 --> 00:43:00,319
+that's for the svg that's for feeding it
+
+871
+00:42:59,119 --> 00:43:03,520
+to the svg
+
+872
+00:43:00,319 --> 00:43:08,240
+draw svg function okay
+
+873
+00:43:03,520 --> 00:43:12,480
+so compile it again go back to browser
+
+874
+00:43:08,240 --> 00:43:15,359
+magnify go to the
+
+875
+00:43:12,480 --> 00:43:15,359
+go to the
+
+876
+00:43:15,920 --> 00:43:22,400
+diagram calculator refresh
+
+877
+00:43:19,040 --> 00:43:26,720
+okay copy the entire page
+
+878
+00:43:22,400 --> 00:43:30,720
+copy it select or copy then select this
+
+879
+00:43:26,720 --> 00:43:33,520
+paste looks like it's working
+
+880
+00:43:30,720 --> 00:43:33,920
+now if we you see if we uncheck the show
+
+881
+00:43:33,520 --> 00:43:37,200
+top
+
+882
+00:43:33,920 --> 00:43:39,760
+20 only uncheck
+
+883
+00:43:37,200 --> 00:43:40,240
+it is working fantastic okay so when you
+
+884
+00:43:39,760 --> 00:43:42,560
+uncheck
+
+885
+00:43:40,240 --> 00:43:44,560
+it's not sorted so actually we need that
+
+886
+00:43:42,560 --> 00:43:47,839
+sort function back
+
+887
+00:43:44,560 --> 00:43:50,079
+so this is uh this is one shot coding
+
+888
+00:43:47,839 --> 00:43:53,839
+this you know this is kind of my my
+
+889
+00:43:50,079 --> 00:43:56,720
+style of coding because i prefer to
+
+890
+00:43:53,839 --> 00:43:57,839
+understand almost everything then just
+
+891
+00:43:56,720 --> 00:44:01,680
+do it once
+
+892
+00:43:57,839 --> 00:44:02,240
+instead of uh i believe most programmers
+
+893
+00:44:01,680 --> 00:44:04,480
+prefer
+
+894
+00:44:02,240 --> 00:44:06,079
+trial and error like go do a little bit
+
+895
+00:44:04,480 --> 00:44:09,280
+as you go
+
+896
+00:44:06,079 --> 00:44:13,839
+okay refresh
+
+897
+00:44:09,280 --> 00:44:17,760
+yeah show top 120 only select all copy
+
+898
+00:44:13,839 --> 00:44:18,480
+paste here and unclick show top right
+
+899
+00:44:17,760 --> 00:44:23,040
+20.
+
+900
+00:44:18,480 --> 00:44:26,640
+it's still not wait refresh
+
+901
+00:44:23,040 --> 00:44:26,640
+select or let's try it again
+
+902
+00:44:27,359 --> 00:44:32,720
+ah it's not oh yeah i see so you need to
+
+903
+00:44:32,079 --> 00:44:37,839
+actually
+
+904
+00:44:32,720 --> 00:44:37,839
+you you need to sort
+
+905
+00:44:39,440 --> 00:44:44,240
+actually actually this line should be
+
+906
+00:44:43,280 --> 00:44:47,680
+moved up
+
+907
+00:44:44,240 --> 00:44:51,920
+yeah okay so hold on a second so so
+
+908
+00:44:47,680 --> 00:44:55,119
+yeah let's fix this minor details
+
+909
+00:44:51,920 --> 00:44:59,119
+so first of all you have the row map
+
+910
+00:44:55,119 --> 00:45:02,319
+the raw diagram then
+
+911
+00:44:59,119 --> 00:45:05,839
+then you want to
+
+912
+00:45:02,319 --> 00:45:05,839
+sort map okay
+
+913
+00:45:07,440 --> 00:45:12,240
+okay so so let's do it here so you can
+
+914
+00:45:11,040 --> 00:45:15,280
+see
+
+915
+00:45:12,240 --> 00:45:15,280
+what's going on
+
+916
+00:45:17,200 --> 00:45:24,640
+so here replace it by
+
+917
+00:45:21,119 --> 00:45:24,640
+that okay yeah
+
+918
+00:45:27,119 --> 00:45:36,880
+yeah so background map 2 is sorted
+
+919
+00:45:31,680 --> 00:45:36,880
+uh then you don't need to sort here
+
+920
+00:45:44,839 --> 00:45:47,839
+anymore
+
+921
+00:45:50,400 --> 00:45:56,400
+so let's rename it
+
+922
+00:45:53,440 --> 00:46:00,720
+instead of diagram two let's just say
+
+923
+00:45:56,400 --> 00:46:03,040
+background map sorted
+
+924
+00:46:00,720 --> 00:46:03,040
+okay
+
+925
+00:46:13,440 --> 00:46:21,520
+compile it back to browser
+
+926
+00:46:17,680 --> 00:46:24,960
+refresh copy the entire page
+
+927
+00:46:21,520 --> 00:46:28,720
+entire page paste it here
+
+928
+00:46:24,960 --> 00:46:31,920
+and click show top 20 fantastic
+
+929
+00:46:28,720 --> 00:46:36,240
+how code is working now
+
+930
+00:46:31,920 --> 00:46:36,240
+let's see the next thing we need to do
+
+931
+00:46:36,480 --> 00:46:40,400
+what time is it 504 i have to go in five
+
+932
+00:46:39,359 --> 00:46:43,200
+minutes
+
+933
+00:46:40,400 --> 00:46:44,480
+uh okay so let's go let's see the next
+
+934
+00:46:43,200 --> 00:46:48,960
+thing we need to do
+
+935
+00:46:44,480 --> 00:46:51,520
+uh add an option so that only the top
+
+936
+00:46:48,960 --> 00:46:53,839
+20 diagrams are included okay that's
+
+937
+00:46:51,520 --> 00:46:53,839
+done
+
+938
+00:46:55,280 --> 00:46:59,200
+now here now add option so that the
+
+939
+00:46:58,160 --> 00:47:03,040
+background is just
+
+940
+00:46:59,200 --> 00:47:06,480
+letter or may include punctuation
+
+941
+00:47:03,040 --> 00:47:07,119
+and other character okay um okay we need
+
+942
+00:47:06,480 --> 00:47:10,319
+to do that
+
+943
+00:47:07,119 --> 00:47:11,440
+eventually let's just do it now okay so
+
+944
+00:47:10,319 --> 00:47:14,160
+now
+
+945
+00:47:11,440 --> 00:47:16,240
+we already done an option a checkbox
+
+946
+00:47:14,160 --> 00:47:17,760
+before so now we can actually do it
+
+947
+00:47:16,240 --> 00:47:21,760
+quickly
+
+948
+00:47:17,760 --> 00:47:24,800
+so close that go to the html file
+
+949
+00:47:21,760 --> 00:47:27,839
+copy the the checkbox code
+
+950
+00:47:24,800 --> 00:47:31,040
+and now this should be show
+
+951
+00:47:27,839 --> 00:47:31,040
+show letters only
+
+952
+00:47:33,040 --> 00:47:39,839
+okay show letters only
+
+953
+00:47:42,160 --> 00:47:46,079
+okay and it should be checked by default
+
+954
+00:47:45,040 --> 00:47:49,920
+yes
+
+955
+00:47:46,079 --> 00:47:52,319
+okay now we copy that now we go back to
+
+956
+00:47:49,920 --> 00:47:55,359
+the javascript code
+
+957
+00:47:52,319 --> 00:47:59,359
+go to the top we
+
+958
+00:47:55,359 --> 00:48:03,359
+need to add another element
+
+959
+00:47:59,359 --> 00:48:06,880
+show letters only okay
+
+960
+00:48:03,359 --> 00:48:09,359
+now go to the bottom
+
+961
+00:48:06,880 --> 00:48:10,480
+and we need to add another event
+
+962
+00:48:09,359 --> 00:48:15,520
+listener
+
+963
+00:48:10,480 --> 00:48:15,520
+okay for the show letters only
+
+964
+00:48:17,440 --> 00:48:20,880
+so we have three event listeners the
+
+965
+00:48:19,839 --> 00:48:22,880
+text area
+
+966
+00:48:20,880 --> 00:48:25,599
+the show top 20 check box and show
+
+967
+00:48:22,880 --> 00:48:28,480
+letters only check box okay
+
+968
+00:48:25,599 --> 00:48:29,760
+now when if the show letters only is
+
+969
+00:48:28,480 --> 00:48:33,520
+true
+
+970
+00:48:29,760 --> 00:48:37,920
+we need to you know we need to kind of
+
+971
+00:48:33,520 --> 00:48:37,920
+the truncate we need to filter okay so
+
+972
+00:48:40,160 --> 00:48:43,839
+yeah so so so we are getting into a kind
+
+973
+00:48:43,280 --> 00:48:46,480
+of
+
+974
+00:48:43,839 --> 00:48:48,559
+efficiency issue again we need to like
+
+975
+00:48:46,480 --> 00:48:52,480
+refactor our code
+
+976
+00:48:48,559 --> 00:48:53,839
+because if we just add another constant
+
+977
+00:48:52,480 --> 00:48:57,040
+variable
+
+978
+00:48:53,839 --> 00:49:00,160
+that's inefficient memory wise
+
+979
+00:48:57,040 --> 00:49:00,800
+because every time you know so because
+
+980
+00:49:00,160 --> 00:49:02,720
+this way
+
+981
+00:49:00,800 --> 00:49:04,480
+you have several copies of the
+
+982
+00:49:02,720 --> 00:49:06,319
+background you know one version is the
+
+983
+00:49:04,480 --> 00:49:08,640
+original version
+
+984
+00:49:06,319 --> 00:49:09,440
+then you have a sorted version then you
+
+985
+00:49:08,640 --> 00:49:14,000
+have a
+
+986
+00:49:09,440 --> 00:49:16,319
+uh show letters only version you know
+
+987
+00:49:14,000 --> 00:49:18,000
+you know if you are a perfectionist
+
+988
+00:49:16,319 --> 00:49:19,520
+that's not
+
+989
+00:49:18,000 --> 00:49:21,760
+that's not good you don't want to have
+
+990
+00:49:19,520 --> 00:49:24,800
+several copies of the
+
+991
+00:49:21,760 --> 00:49:25,440
+of this almost the same data that you
+
+992
+00:49:24,800 --> 00:49:28,800
+don't use
+
+993
+00:49:25,440 --> 00:49:31,680
+you just want one copy so
+
+994
+00:49:28,800 --> 00:49:33,839
+so we need to do some refactor but again
+
+995
+00:49:31,680 --> 00:49:35,119
+i'm doing a video so maybe let's just
+
+996
+00:49:33,839 --> 00:49:38,160
+push on okay
+
+997
+00:49:35,119 --> 00:49:40,079
+yeah let's just push up uh
+
+998
+00:49:38,160 --> 00:49:42,160
+you know refactor that's you know
+
+999
+00:49:40,079 --> 00:49:43,839
+refactoring code how you
+
+1000
+00:49:42,160 --> 00:49:45,839
+design your code that's a very
+
+1001
+00:49:43,839 --> 00:49:48,000
+interesting topic uh you know
+
+1002
+00:49:45,839 --> 00:49:49,359
+we can actually dive in depth in you
+
+1003
+00:49:48,000 --> 00:49:51,599
+know and
+
+1004
+00:49:49,359 --> 00:49:53,280
+into that and we are seeing an example
+
+1005
+00:49:51,599 --> 00:49:58,559
+of of the situation
+
+1006
+00:49:53,280 --> 00:50:01,040
+where um you know you have the
+
+1007
+00:49:58,559 --> 00:50:02,240
+choice of either you know having several
+
+1008
+00:50:01,040 --> 00:50:04,880
+constants of this
+
+1009
+00:50:02,240 --> 00:50:06,559
+almost the same data or not anyway let's
+
+1010
+00:50:04,880 --> 00:50:09,520
+let's move on to
+
+1011
+00:50:06,559 --> 00:50:09,520
+the next thing so
+
+1012
+00:50:10,720 --> 00:50:15,680
+so show uh let's see uh
+
+1013
+00:50:17,040 --> 00:50:21,680
+so basically you want that okay so
+
+1014
+00:50:22,079 --> 00:50:29,040
+so if the short letter only is checked
+
+1015
+00:50:25,520 --> 00:50:30,880
+then what you do then you
+
+1016
+00:50:29,040 --> 00:50:34,319
+you want to filter okay then you
+
+1017
+00:50:30,880 --> 00:50:34,319
+basically filter
+
+1018
+00:50:34,640 --> 00:50:41,839
+you kind of call this code yeah
+
+1019
+00:50:43,839 --> 00:50:47,040
+uh so um
+
+1020
+00:50:48,319 --> 00:50:51,680
+yeah so let's do that okay so first of
+
+1021
+00:50:50,800 --> 00:50:54,720
+all if
+
+1022
+00:50:51,680 --> 00:50:58,400
+expression okay then
+
+1023
+00:50:54,720 --> 00:50:58,400
+the condition is this one
+
+1024
+00:50:58,800 --> 00:51:05,520
+okay then so if it is
+
+1025
+00:51:02,160 --> 00:51:05,520
+checked we want to
+
+1026
+00:51:05,599 --> 00:51:13,440
+filter that's right
+
+1027
+00:51:08,640 --> 00:51:18,160
+otherwise don't
+
+1028
+00:51:13,440 --> 00:51:22,720
+okay and this will be a new variable
+
+1029
+00:51:18,160 --> 00:51:27,040
+and this will be um
+
+1030
+00:51:22,720 --> 00:51:32,319
+this name of the variable will be
+
+1031
+00:51:27,040 --> 00:51:36,960
+three okay that's kind of stupid
+
+1032
+00:51:32,319 --> 00:51:40,079
+okay then
+
+1033
+00:51:36,960 --> 00:51:40,079
+okay yeah so so
+
+1034
+00:51:40,720 --> 00:51:47,839
+yeah so we so this will be like that
+
+1035
+00:51:44,559 --> 00:51:50,000
+so this diagram x will be four okay
+
+1036
+00:51:47,839 --> 00:51:53,040
+so actually so let's let's again
+
+1037
+00:51:50,000 --> 00:51:53,040
+refactor a little bit
+
+1038
+00:52:01,680 --> 00:52:06,319
+and let's refactor you know so actually
+
+1039
+00:52:04,559 --> 00:52:09,280
+we can
+
+1040
+00:52:06,319 --> 00:52:11,520
+at this point either we refactor first
+
+1041
+00:52:09,280 --> 00:52:12,160
+of all rename some of these and refactor
+
+1042
+00:52:11,520 --> 00:52:15,119
+so that
+
+1043
+00:52:12,160 --> 00:52:16,720
+it doesn't duplicate or we can just try
+
+1044
+00:52:15,119 --> 00:52:19,280
+it okay let's just try it
+
+1045
+00:52:16,720 --> 00:52:20,000
+javascript compile file it should work
+
+1046
+00:52:19,280 --> 00:52:23,920
+let's check
+
+1047
+00:52:20,000 --> 00:52:26,880
+first so background map three
+
+1048
+00:52:23,920 --> 00:52:28,319
+if show letters only is checked then we
+
+1049
+00:52:26,880 --> 00:52:32,480
+filter it
+
+1050
+00:52:28,319 --> 00:52:37,440
+otherwise don't okay then
+
+1051
+00:52:32,480 --> 00:52:37,440
+okay then okay this is silly then
+
+1052
+00:52:37,760 --> 00:52:52,400
+yeah yeah yeah so this is silly
+
+1053
+00:52:47,359 --> 00:52:52,400
+then then we compute the percentage
+
+1054
+00:52:53,200 --> 00:52:58,400
+okay percentage map actually we don't
+
+1055
+00:52:55,440 --> 00:53:03,359
+need that variable
+
+1056
+00:52:58,400 --> 00:53:08,079
+we just start to draw the svg then
+
+1057
+00:53:03,359 --> 00:53:08,079
+stream file and print the
+
+1058
+00:53:08,240 --> 00:53:15,599
+the diagram values yeah yes
+
+1059
+00:53:11,520 --> 00:53:20,480
+compile the code back to browser
+
+1060
+00:53:15,599 --> 00:53:20,480
+magnify go to the top refresh
+
+1061
+00:53:20,640 --> 00:53:26,720
+test to see if this works
+
+1062
+00:53:23,680 --> 00:53:29,760
+yeah now select all
+
+1063
+00:53:26,720 --> 00:53:33,119
+copy go here
+
+1064
+00:53:29,760 --> 00:53:35,359
+select or paste so you can see
+
+1065
+00:53:33,119 --> 00:53:36,640
+there's a lot of punctuation here you
+
+1066
+00:53:35,359 --> 00:53:39,839
+know there's a
+
+1067
+00:53:36,640 --> 00:53:42,800
+space there's a emoji there is
+
+1068
+00:53:39,839 --> 00:53:44,160
+you know quite a lot of punctuation and
+
+1069
+00:53:42,800 --> 00:53:49,680
+brackets
+
+1070
+00:53:44,160 --> 00:53:49,680
+but now let's uncheck show letters only
+
+1071
+00:53:51,680 --> 00:53:56,960
+okay it's actually working so you can
+
+1072
+00:53:53,760 --> 00:53:59,839
+see we have you know that
+
+1073
+00:53:56,960 --> 00:54:00,880
+showing up there so let's try this okay
+
+1074
+00:53:59,839 --> 00:54:03,839
+let's just type
+
+1075
+00:54:00,880 --> 00:54:04,319
+the brackets let's just type comma comma
+
+1076
+00:54:03,839 --> 00:54:08,319
+comma
+
+1077
+00:54:04,319 --> 00:54:11,599
+comma uh yeah so you see
+
+1078
+00:54:08,319 --> 00:54:14,800
+comma comma space space space space
+
+1079
+00:54:11,599 --> 00:54:17,440
+yeah so you see it's uh yeah so
+
+1080
+00:54:14,800 --> 00:54:17,440
+it's working
+
+1081
+00:54:17,839 --> 00:54:26,480
+okay it's working now
+
+1082
+00:54:21,760 --> 00:54:26,480
+now i have to go actually so um
+
+1083
+00:54:27,040 --> 00:54:31,680
+so until next time i guess we will do
+
+1084
+00:54:29,520 --> 00:54:34,240
+another video to continue
+
+1085
+00:54:31,680 --> 00:54:35,599
+to make this diagram calculator
+
+1086
+00:54:34,240 --> 00:54:38,480
+interactive background
+
+1087
+00:54:35,599 --> 00:54:40,799
+bar chart to be beautiful there are
+
+1088
+00:54:38,480 --> 00:54:44,400
+quite a few things we need to fix yet
+
+1089
+00:54:40,799 --> 00:54:47,040
+for example the count does not show up
+
+1090
+00:54:44,400 --> 00:54:48,640
+along with the label and also the top
+
+1091
+00:54:47,040 --> 00:54:50,720
+one
+
+1092
+00:54:48,640 --> 00:54:52,480
+you know the most frequent which is the
+
+1093
+00:54:50,720 --> 00:54:54,640
+comma comma comma you cannot
+
+1094
+00:54:52,480 --> 00:54:57,520
+see the label because it actually went
+
+1095
+00:54:54,640 --> 00:55:00,000
+outside of the svg
+
+1096
+00:54:57,520 --> 00:55:01,359
+and that's a bit tedious to fix because
+
+1097
+00:55:00,000 --> 00:55:05,200
+then you need to adjust
+
+1098
+00:55:01,359 --> 00:55:07,520
+all the height of the box
+
+1099
+00:55:05,200 --> 00:55:08,480
+and you know today we haven't touched
+
+1100
+00:55:07,520 --> 00:55:12,319
+any of the
+
+1101
+00:55:08,480 --> 00:55:15,599
+svg code you know you can see
+
+1102
+00:55:12,319 --> 00:55:19,040
+the svg code is uh you know this
+
+1103
+00:55:15,599 --> 00:55:22,160
+draw svg svg code
+
+1104
+00:55:19,040 --> 00:55:24,720
+we need to change the height you know uh
+
+1105
+00:55:22,160 --> 00:55:24,720
+you know that
+
+1106
+00:55:25,200 --> 00:55:28,799
+so that's it for today so thank you for
+
+1107
+00:55:28,079 --> 00:55:30,960
+watching
+
+1108
+00:55:28,799 --> 00:55:32,559
+yeah i guess that's that's it and if you
+
+1109
+00:55:30,960 --> 00:55:36,799
+like my stuff
+
+1110
+00:55:32,559 --> 00:55:40,480
+patreon me amazon gift card me
+
+1111
+00:55:36,799 --> 00:55:45,440
+paypal me or
+
+1112
+00:55:40,480 --> 00:55:48,480
+buy javascript in depth
+
+1113
+00:55:45,440 --> 00:55:50,079
+javascript in depth tutorial okay thank
+
+1114
+00:55:48,480 --> 00:55:52,240
+you guys for watching
+
+1115
+00:55:50,079 --> 00:55:53,280
+yeah that's it for today i'm gonna shut
+
+1116
+00:55:52,240 --> 00:55:54,880
+down in
+
+1117
+00:55:53,280 --> 00:55:56,559
+two minutes also thank you for
+
+1118
+00:55:54,880 --> 00:56:01,040
+demonstration
+
+1119
+00:55:56,559 --> 00:56:04,240
+thank you esteban
+
+1120
+00:56:01,040 --> 00:56:07,119
+oh oh vera where you from
+
+1121
+00:56:04,240 --> 00:56:08,400
+so let's chat random chat you know let's
+
+1122
+00:56:07,119 --> 00:56:12,000
+chat random chat
+
+1123
+00:56:08,400 --> 00:56:15,040
+justin hayes jones
+
+1124
+00:56:12,000 --> 00:56:18,400
+justin hayes jones he is a
+
+1125
+00:56:15,040 --> 00:56:21,599
+uh haskell expert
+
+1126
+00:56:18,400 --> 00:56:24,400
+actually i think you are more of the uh
+
+1127
+00:56:21,599 --> 00:56:25,520
+scholar expert right you call scholar in
+
+1128
+00:56:24,400 --> 00:56:28,799
+a day job
+
+1129
+00:56:25,520 --> 00:56:29,200
+and if you guys search he he's got a
+
+1130
+00:56:28,799 --> 00:56:33,040
+view
+
+1131
+00:56:29,200 --> 00:56:35,760
+youtube account doing tutorials of scala
+
+1132
+00:56:33,040 --> 00:56:37,680
+coding right
+
+1133
+00:56:35,760 --> 00:56:39,040
+yeah i'm okay that's it for today i'm
+
+1134
+00:56:37,680 --> 00:56:42,480
+gonna shut down so
+
+1135
+00:56:39,040 --> 00:56:46,640
+yeah fantastic we yeah so
+
+1136
+00:56:42,480 --> 00:56:50,079
+today we did this javascript svg
+
+1137
+00:56:46,640 --> 00:56:53,520
+bar chart and uh you know although
+
+1138
+00:56:50,079 --> 00:56:59,370
+you know it took an hour but it's
+
+1139
+00:56:53,520 --> 00:57:02,679
+pretty smooth okay my my alarm clock
+
+1140
+00:56:59,370 --> 00:57:02,679
+[Music]
+
+1141
+00:57:05,359 --> 00:57:09,280
+crap okay
+
+1142
+00:57:11,680 --> 00:57:14,240
+cables
+
+1143
+00:57:15,760 --> 00:57:22,559
+i need to i need to get a wireless
+
+1144
+00:57:19,040 --> 00:57:22,559
+headphone or something this
+
+1145
+00:57:24,160 --> 00:57:27,280
+yeah that's it for today thank you guys
+
+1146
+00:57:25,760 --> 00:57:29,520
+for watching
+
+1147
+00:57:27,280 --> 00:57:29,520
+bye
+
+1148
+00:57:34,079 --> 00:57:41,839
+mexico fantastic
+

@@ -1,0 +1,4640 @@
+1
+00:00:06,600 --> 00:00:11,040
+hello guys good morning welcome to
+
+2
+00:00:08,519 --> 00:00:14,040
+another episode of K talk show K talk
+
+3
+00:00:11,040 --> 00:00:17,840
+show K talk
+
+4
+00:00:14,040 --> 00:00:21,279
+show how are you guys so we are going to
+
+5
+00:00:17,840 --> 00:00:23,960
+code emac L today and maybe random okay
+
+6
+00:00:21,279 --> 00:00:27,640
+I've got so many things to do so
+
+7
+00:00:23,960 --> 00:00:30,679
+many so many things to do so chat okay
+
+8
+00:00:27,640 --> 00:00:31,640
+chat and give give me money okay PayPal
+
+9
+00:00:30,679 --> 00:00:34,520
+and
+
+10
+00:00:31,640 --> 00:00:37,640
+patreon okay so many things to do so
+
+11
+00:00:34,520 --> 00:00:41,000
+shall we begin with uh emac L coding
+
+12
+00:00:37,640 --> 00:00:42,960
+directly or shall we like talk random
+
+13
+00:00:41,000 --> 00:00:47,440
+because I got so many topics you know
+
+14
+00:00:42,960 --> 00:00:50,280
+the SVG you know so onar Discord we have
+
+15
+00:00:47,440 --> 00:00:54,239
+a lot of discussions
+
+16
+00:00:50,280 --> 00:00:56,120
+about CSS pixel what does a pixel mean
+
+17
+00:00:54,239 --> 00:00:58,840
+you know it's not what you think it
+
+18
+00:00:56,120 --> 00:01:01,680
+means you know the definition of a pixel
+
+19
+00:00:58,840 --> 00:01:05,040
+and SVG versus canvas and and and lots
+
+20
+00:01:01,680 --> 00:01:08,439
+of things and a fantastic Indian movie
+
+21
+00:01:05,040 --> 00:01:11,280
+okay I've been listening to it for for 3
+
+22
+00:01:08,439 --> 00:01:14,159
+hours yesterday and research this is
+
+23
+00:01:11,280 --> 00:01:18,680
+Hindi language can you see
+
+24
+00:01:14,159 --> 00:01:21,600
+it you see so this movie okay fantastic
+
+25
+00:01:18,680 --> 00:01:25,240
+this CL clip I've been listening to it
+
+26
+00:01:21,600 --> 00:01:30,040
+for three hours so anyway let's begin
+
+27
+00:01:25,240 --> 00:01:31,920
+coding emac list shall we uh okay yeah
+
+28
+00:01:30,040 --> 00:01:36,640
+because usually you know
+
+29
+00:01:31,920 --> 00:01:40,759
+when uh let's start emac list okay uh on
+
+30
+00:01:36,640 --> 00:01:43,439
+my emac list on my emac blog there's a
+
+31
+00:01:40,759 --> 00:01:47,439
+lot updates you can go read it okay Kasa
+
+32
+00:01:43,439 --> 00:01:50,119
+emac blog so you see usually I'm doing
+
+33
+00:01:47,439 --> 00:01:52,840
+live stream because it's something for
+
+34
+00:01:50,119 --> 00:01:55,280
+me it's not just entertainment for you
+
+35
+00:01:52,840 --> 00:01:58,200
+guys but something actually I need to do
+
+36
+00:01:55,280 --> 00:02:01,119
+for working on my website so lots of
+
+37
+00:01:58,200 --> 00:02:07,520
+commands I need to do uh what I want to
+
+38
+00:02:01,119 --> 00:02:12,120
+do is write a command that moves a file
+
+39
+00:02:07,520 --> 00:02:14,040
+in a website to another okay basically
+
+40
+00:02:12,120 --> 00:02:16,640
+this is what I want to
+
+41
+00:02:14,040 --> 00:02:21,599
+do okay
+
+42
+00:02:16,640 --> 00:02:24,800
+so uh okay so let's so I'm using soft
+
+43
+00:02:21,599 --> 00:02:27,239
+flag keys if you don't know uh let me
+
+44
+00:02:24,800 --> 00:02:29,599
+show you quickly s FL Keys here's a
+
+45
+00:02:27,239 --> 00:02:32,800
+source code 4,000 lines of code go to
+
+46
+00:02:29,599 --> 00:02:36,120
+the top and uh here's a URL open it
+
+47
+00:02:32,800 --> 00:02:38,720
+showing browser emac Sly Keys it's a
+
+48
+00:02:36,120 --> 00:02:41,000
+model key binding system for emx and you
+
+49
+00:02:38,720 --> 00:02:44,599
+can read the details you can learn
+
+50
+00:02:41,000 --> 00:02:46,879
+there's a dedicated video and uh and
+
+51
+00:02:44,599 --> 00:02:49,640
+what does it mean keybinding system like
+
+52
+00:02:46,879 --> 00:02:53,200
+this okay so basically you don't have to
+
+53
+00:02:49,640 --> 00:02:57,640
+press control or meta or all keys
+
+54
+00:02:53,200 --> 00:02:59,480
+anymore most most of the time 90% 99% of
+
+55
+00:02:57,640 --> 00:03:01,959
+those keys you don't have to press
+
+56
+00:02:59,480 --> 00:03:04,280
+anymore that's s like keys and on the
+
+57
+00:03:01,959 --> 00:03:09,440
+pink window you can see all my emac
+
+58
+00:03:04,280 --> 00:03:13,360
+command Calles and uh you see as I as I
+
+59
+00:03:09,440 --> 00:03:15,840
+type them all the emac command course
+
+60
+00:03:13,360 --> 00:03:17,480
+and the keystrokes okay command names on
+
+61
+00:03:15,840 --> 00:03:19,879
+the right keystrokes on the left I'm
+
+62
+00:03:17,480 --> 00:03:23,560
+using aora keyboard of course if you go
+
+63
+00:03:19,879 --> 00:03:26,920
+to my keyboard website s keyboard blog
+
+64
+00:03:23,560 --> 00:03:26,920
+and you go
+
+65
+00:03:28,680 --> 00:03:32,840
+to
+
+66
+00:03:30,200 --> 00:03:36,159
+there layout there it
+
+67
+00:03:32,840 --> 00:03:38,360
+is keyboard layout design ergonomic
+
+68
+00:03:36,159 --> 00:03:39,959
+keyboard layout so you can see all the
+
+69
+00:03:38,360 --> 00:03:45,640
+possible keyboard layout all the
+
+70
+00:03:39,959 --> 00:03:49,400
+efficient quy warak KAC comac DH Workman
+
+71
+00:03:45,640 --> 00:03:51,879
+okay so I am using the vorak you can see
+
+72
+00:03:49,400 --> 00:03:53,560
+the heat map and you can see the quality
+
+73
+00:03:51,879 --> 00:03:58,000
+is
+
+74
+00:03:53,560 --> 00:04:02,959
+sucks okay so so are we ready to code
+
+75
+00:03:58,000 --> 00:04:05,879
+ready Sly keys okay close close ready to
+
+76
+00:04:02,959 --> 00:04:09,480
+code today's talk show page let's see
+
+77
+00:04:05,879 --> 00:04:13,720
+what you guys are saying oh Bey
+
+78
+00:04:09,480 --> 00:04:17,440
+Beaver six hello hello hello hello hello
+
+79
+00:04:13,720 --> 00:04:18,280
+okay hello okay let's begin so I want to
+
+80
+00:04:17,440 --> 00:04:21,880
+for
+
+81
+00:04:18,280 --> 00:04:24,720
+example uh let me show you so you go
+
+82
+00:04:21,880 --> 00:04:26,000
+to okay let me let me let me show you my
+
+83
+00:04:24,720 --> 00:04:29,240
+stuff
+
+84
+00:04:26,000 --> 00:04:31,600
+okay JavaScript uh what's what's going
+
+85
+00:04:29,240 --> 00:04:31,600
+on
+
+86
+00:04:33,240 --> 00:04:41,440
+yeah oh I did I press a key by mistake
+
+87
+00:04:37,240 --> 00:04:43,639
+what is this okay so I'm in a browser
+
+88
+00:04:41,440 --> 00:04:46,000
+JavaScript in
+
+89
+00:04:43,639 --> 00:04:48,400
+depth okay that's the best JavaScript
+
+90
+00:04:46,000 --> 00:04:50,039
+tutorial ever in English language
+
+91
+00:04:48,400 --> 00:04:52,840
+doesn't matter it's a printed book or
+
+92
+00:04:50,039 --> 00:04:55,960
+not okay JavaScript in depth so in this
+
+93
+00:04:52,840 --> 00:04:59,720
+directory so let's go to it JavaScript
+
+94
+00:04:55,960 --> 00:05:04,520
+okay so you can see this directory has 9
+
+95
+00:04:59,720 --> 00:05:08,560
+,900 files so they include they include
+
+96
+00:05:04,520 --> 00:05:11,400
+my blocks web D blocks they include CSS
+
+97
+00:05:08,560 --> 00:05:15,759
+files for example let's open it okay
+
+98
+00:05:11,400 --> 00:05:18,680
+this is Javascript code CSS SPX sizing
+
+99
+00:05:15,759 --> 00:05:21,039
+so box sizing is one of the CSS stuff so
+
+100
+00:05:18,680 --> 00:05:21,840
+anyway in this directory you have CSS
+
+101
+00:05:21,039 --> 00:05:25,919
+you
+
+102
+00:05:21,840 --> 00:05:29,919
+have you have JavaScript you have HTML 5
+
+103
+00:05:25,919 --> 00:05:32,600
+for example HTML 5 video audio tutorial
+
+104
+00:05:29,919 --> 00:05:36,280
+this is how you can embed a video or
+
+105
+00:05:32,600 --> 00:05:41,080
+audio in um file in
+
+106
+00:05:36,280 --> 00:05:45,759
+your in your uh in HTML page you know I
+
+107
+00:05:41,080 --> 00:05:47,960
+noticed recently Firefox is having
+
+108
+00:05:45,759 --> 00:05:53,080
+problem playing
+
+109
+00:05:47,960 --> 00:05:56,680
+some video files okay it shows finally
+
+110
+00:05:53,080 --> 00:05:59,479
+it's stuck yeah fire fire Firefox
+
+111
+00:05:56,680 --> 00:06:01,240
+recently in the past month or so start
+
+112
+00:05:59,479 --> 00:06:04,639
+started to have this
+
+113
+00:06:01,240 --> 00:06:07,520
+problem it's stuck but anyway okay
+
+114
+00:06:04,639 --> 00:06:10,759
+digression so let let's show this in
+
+115
+00:06:07,520 --> 00:06:13,800
+okay so there it is let's see let's try
+
+116
+00:06:10,759 --> 00:06:17,039
+it again yeah okay now it's
+
+117
+00:06:13,800 --> 00:06:20,080
+smooth okay anyway so in this directory
+
+118
+00:06:17,039 --> 00:06:21,919
+you have CSS tutorials you have HTML
+
+119
+00:06:20,080 --> 00:06:24,080
+tutorials then you have JavaScript
+
+120
+00:06:21,919 --> 00:06:28,000
+tutorials let's open one of them showing
+
+121
+00:06:24,080 --> 00:06:30,039
+browser this is Javascript map object
+
+122
+00:06:28,000 --> 00:06:32,440
+which is essentially a hash table or
+
+123
+00:06:30,039 --> 00:06:34,599
+python dictionary it's different from
+
+124
+00:06:32,440 --> 00:06:39,400
+object okay it's different from object
+
+125
+00:06:34,599 --> 00:06:42,880
+it's new since about 200 15 because it's
+
+126
+00:06:39,400 --> 00:06:45,639
+different from the object object because
+
+127
+00:06:42,880 --> 00:06:50,080
+the object object it's a key value
+
+128
+00:06:45,639 --> 00:06:52,919
+pair collection of however it's not a
+
+129
+00:06:50,080 --> 00:06:55,120
+good one because Javas script suck so
+
+130
+00:06:52,919 --> 00:06:59,400
+badly because you cannot get the number
+
+131
+00:06:55,120 --> 00:07:01,039
+of items you know how sucky is it is
+
+132
+00:06:59,400 --> 00:07:03,280
+when you have a hash table or a
+
+133
+00:07:01,039 --> 00:07:05,599
+dictionary and you cannot get the number
+
+134
+00:07:03,280 --> 00:07:08,400
+of items and if you made a mistake it
+
+135
+00:07:05,599 --> 00:07:11,840
+goes to the parent object you know
+
+136
+00:07:08,400 --> 00:07:15,120
+inheritance you know it search search a
+
+137
+00:07:11,840 --> 00:07:17,759
+key in in your parent chain so idiotic
+
+138
+00:07:15,120 --> 00:07:20,520
+therefore JavaScript in 2015 have the
+
+139
+00:07:17,759 --> 00:07:22,520
+map object it's new so anyway that's an
+
+140
+00:07:20,520 --> 00:07:25,879
+example so now go back to the directory
+
+141
+00:07:22,520 --> 00:07:27,800
+so you have CSS tutorial you have HTML
+
+142
+00:07:25,879 --> 00:07:30,000
+tutorial you have JavaScript tutorial
+
+143
+00:07:27,800 --> 00:07:33,280
+All in One Directory okay
+
+144
+00:07:30,000 --> 00:07:37,000
+because this directory is created
+
+145
+00:07:33,280 --> 00:07:39,560
+sometimes like almost 15 years ago 15
+
+146
+00:07:37,000 --> 00:07:41,199
+years ago okay let's go toar JavaScript
+
+147
+00:07:39,560 --> 00:07:46,039
+blog okay
+
+148
+00:07:41,199 --> 00:07:49,360
+open web dev blog and let's go to web de
+
+149
+00:07:46,039 --> 00:07:54,560
+blog I archive and go to all the way to
+
+150
+00:07:49,360 --> 00:07:54,560
+the bottom so this blog began in
+
+151
+00:07:54,960 --> 00:08:03,520
+2010 this this dedicated URL began in 20
+
+152
+00:07:59,919 --> 00:08:06,440
+but actually my my webd blog began you
+
+153
+00:08:03,520 --> 00:08:09,919
+know begins you know in in my other
+
+154
+00:08:06,440 --> 00:08:13,919
+blogs you know after a few years I
+
+155
+00:08:09,919 --> 00:08:17,919
+separate them to into specific topics so
+
+156
+00:08:13,919 --> 00:08:21,919
+2010 is the year I began this
+
+157
+00:08:17,919 --> 00:08:26,639
+dedicated blog that's all blogging
+
+158
+00:08:21,919 --> 00:08:28,960
+related to CSS HTML JavaScript okay and
+
+159
+00:08:26,639 --> 00:08:32,039
+also web browsers you know web browser
+
+160
+00:08:28,960 --> 00:08:36,039
+change and Google Shenanigans like
+
+161
+00:08:32,039 --> 00:08:39,560
+Google search issues they censorship and
+
+162
+00:08:36,039 --> 00:08:43,919
+basically all related on web stuff okay
+
+163
+00:08:39,560 --> 00:08:43,919
+so this is s web dev
+
+164
+00:08:44,040 --> 00:08:50,959
+blog okay and recently we have you know
+
+165
+00:08:47,760 --> 00:08:53,360
+howar is a CSS pixel very complicated
+
+166
+00:08:50,959 --> 00:08:56,440
+that's a different topic anyway back to
+
+167
+00:08:53,360 --> 00:09:00,399
+my topic so I was saying you know when
+
+168
+00:08:56,440 --> 00:09:02,640
+you do a website you know over 10 years
+
+169
+00:09:00,399 --> 00:09:04,200
+over 20 years that's a very interesting
+
+170
+00:09:02,640 --> 00:09:06,680
+question it's a very interesting
+
+171
+00:09:04,200 --> 00:09:08,640
+phenomenon by the way you know most of
+
+172
+00:09:06,680 --> 00:09:11,839
+you guys are young guys you know maybe
+
+173
+00:09:08,640 --> 00:09:14,600
+10 maybe 20 something maybe in college
+
+174
+00:09:11,839 --> 00:09:18,200
+and maybe you are thinking of blogging
+
+175
+00:09:14,600 --> 00:09:21,839
+you know then all of a sudden you became
+
+176
+00:09:18,200 --> 00:09:26,680
+a old fought like me I've been blogging
+
+177
+00:09:21,839 --> 00:09:30,880
+for 25 25 years technically speaking
+
+178
+00:09:26,680 --> 00:09:33,560
+1997 that's when I began okay okay let
+
+179
+00:09:30,880 --> 00:09:36,160
+me just talk you know so this my
+
+180
+00:09:33,560 --> 00:09:39,440
+earliest first project is this
+
+181
+00:09:36,160 --> 00:09:42,480
+mathematics this is cited by over a
+
+182
+00:09:39,440 --> 00:09:45,279
+thousand University math departments
+
+183
+00:09:42,480 --> 00:09:48,399
+okay on curves you know important when
+
+184
+00:09:45,279 --> 00:09:50,920
+you study calculus and be Beyond anyway
+
+185
+00:09:48,399 --> 00:09:57,320
+so this is my first project in
+
+186
+00:09:50,920 --> 00:10:00,200
+1997 1997 okay CSS is not invented yet
+
+187
+00:09:57,320 --> 00:10:03,279
+1997 there's no C
+
+188
+00:10:00,200 --> 00:10:06,200
+CSS and there's barely JavaScript
+
+189
+00:10:03,279 --> 00:10:08,519
+JavaScript just began nobody is going to
+
+190
+00:10:06,200 --> 00:10:10,959
+use it because it's idiotic considered
+
+191
+00:10:08,519 --> 00:10:14,120
+by programmers it's for non programmers
+
+192
+00:10:10,959 --> 00:10:18,680
+to do something pretty you know anyway
+
+193
+00:10:14,120 --> 00:10:21,959
+so 19 1997 that's when I began writing
+
+194
+00:10:18,680 --> 00:10:26,839
+blog okay or or you know blog is not a
+
+195
+00:10:21,959 --> 00:10:29,680
+word at that time the word blog became
+
+196
+00:10:26,839 --> 00:10:33,360
+invented in
+
+197
+00:10:29,680 --> 00:10:36,240
+I don't know 2000 after 2000 after year
+
+198
+00:10:33,360 --> 00:10:39,560
+2000 okay so
+
+199
+00:10:36,240 --> 00:10:42,360
+anyway so I'm you I'm old
+
+200
+00:10:39,560 --> 00:10:44,800
+so the thing interesting about blogging
+
+201
+00:10:42,360 --> 00:10:48,440
+is that when you get old you know after
+
+202
+00:10:44,800 --> 00:10:51,200
+10 years 20 years you have like a
+
+203
+00:10:48,440 --> 00:10:54,000
+thousand blog entries you know you you
+
+204
+00:10:51,200 --> 00:10:55,720
+can see what happens in the world or
+
+205
+00:10:54,000 --> 00:10:57,880
+what happens to you depending on your
+
+206
+00:10:55,720 --> 00:11:00,440
+nature the nature of your blog what kind
+
+207
+00:10:57,880 --> 00:11:02,360
+of things you blog about you block about
+
+208
+00:11:00,440 --> 00:11:04,320
+your personal stuff your personal views
+
+209
+00:11:02,360 --> 00:11:07,560
+or you block about programming languages
+
+210
+00:11:04,320 --> 00:11:10,560
+or mathematics mathematics never change
+
+211
+00:11:07,560 --> 00:11:12,920
+okay all these are still good all this
+
+212
+00:11:10,560 --> 00:11:16,320
+the mathematics doesn't change you know
+
+213
+00:11:12,920 --> 00:11:18,519
+for example hyper hyperbola but of
+
+214
+00:11:16,320 --> 00:11:22,040
+course they got replaced by
+
+215
+00:11:18,519 --> 00:11:25,720
+Wikipedia Wikipedia began around 2002
+
+216
+00:11:22,040 --> 00:11:29,639
+okay and they saw your nice information
+
+217
+00:11:25,720 --> 00:11:32,839
+that doesn't exist anywhere 2002 okay
+
+218
+00:11:29,639 --> 00:11:35,480
+they copy it they rephrase it they put
+
+219
+00:11:32,839 --> 00:11:38,279
+you know let's let's go to conic section
+
+220
+00:11:35,480 --> 00:11:41,880
+okay conic section the
+
+221
+00:11:38,279 --> 00:11:45,440
+most uh well-known kind of thing in in
+
+222
+00:11:41,880 --> 00:11:47,480
+calculus in algebra in in in you know if
+
+223
+00:11:45,440 --> 00:11:50,839
+you are a colleges college student or
+
+224
+00:11:47,480 --> 00:11:55,720
+High School Stu high school student you
+
+225
+00:11:50,839 --> 00:11:59,440
+study uh what they call it analytic
+
+226
+00:11:55,720 --> 00:12:01,760
+geometry uh anyway yeah analy anyway
+
+227
+00:11:59,440 --> 00:12:06,920
+this belongs to analytic geometry or
+
+228
+00:12:01,760 --> 00:12:10,399
+anyway so so Wikipedia they copy part of
+
+229
+00:12:06,920 --> 00:12:12,920
+your information they'll rephrase it and
+
+230
+00:12:10,399 --> 00:12:16,399
+at the bottom they'll say reference you
+
+231
+00:12:12,920 --> 00:12:19,160
+know but usually typically after five
+
+232
+00:12:16,399 --> 00:12:21,639
+years that's gone because people addit
+
+233
+00:12:19,160 --> 00:12:24,320
+addit you know people come and go you
+
+234
+00:12:21,639 --> 00:12:26,160
+know your arranging you know five years
+
+235
+00:12:24,320 --> 00:12:29,160
+ago you know they got information from
+
+236
+00:12:26,160 --> 00:12:31,760
+you but after so many edit you know
+
+237
+00:12:29,160 --> 00:12:36,519
+basically your link get removed that's
+
+238
+00:12:31,760 --> 00:12:39,839
+what happened in fact the my first
+
+239
+00:12:36,519 --> 00:12:42,199
+awareness of the Wikipedia thing there's
+
+240
+00:12:39,839 --> 00:12:45,320
+exist some thing called Wikipedia
+
+241
+00:12:42,199 --> 00:12:48,519
+started by this guy lots of controversy
+
+242
+00:12:45,320 --> 00:12:52,600
+my first aware I first became aware of
+
+243
+00:12:48,519 --> 00:12:55,600
+the Wikipedia is around 2003 because
+
+244
+00:12:52,600 --> 00:12:57,800
+they linked to my conic sections page
+
+245
+00:12:55,600 --> 00:12:59,639
+this page you know with a reference you
+
+246
+00:12:57,800 --> 00:13:03,399
+know you know
+
+247
+00:12:59,639 --> 00:13:06,800
+information you know reference from Sali
+
+248
+00:13:03,399 --> 00:13:09,440
+that's that's my first um awareness of
+
+249
+00:13:06,800 --> 00:13:13,639
+Wikipedia but anyway
+
+250
+00:13:09,440 --> 00:13:15,800
+so so if you blog you know then if you
+
+251
+00:13:13,639 --> 00:13:17,399
+continue most people don't continue okay
+
+252
+00:13:15,800 --> 00:13:19,160
+don't think about you're going to blog
+
+253
+00:13:17,399 --> 00:13:22,920
+and you're gonna make money and also
+
+254
+00:13:19,160 --> 00:13:25,360
+you're not going to make a dime okay you
+
+255
+00:13:22,920 --> 00:13:29,680
+you'll make a dollar or two1 dollar a
+
+256
+00:13:25,360 --> 00:13:30,959
+month a dollar uh a week me all all a
+
+257
+00:13:29,680 --> 00:13:34,360
+day
+
+258
+00:13:30,959 --> 00:13:36,240
+okay anyway so after many you know 10
+
+259
+00:13:34,360 --> 00:13:39,120
+years 20 years of blogging you have so
+
+260
+00:13:36,240 --> 00:13:42,000
+many thousand Pages you can have kind of
+
+261
+00:13:39,120 --> 00:13:43,959
+look back and lots of links are dead and
+
+262
+00:13:42,000 --> 00:13:48,519
+you can see kind
+
+263
+00:13:43,959 --> 00:13:51,199
+of your evolution of your thinking or or
+
+264
+00:13:48,519 --> 00:13:53,399
+even a document
+
+265
+00:13:51,199 --> 00:13:56,320
+documentation of what happened on the
+
+266
+00:13:53,399 --> 00:13:59,800
+internet for the past 20 years which I
+
+267
+00:13:56,320 --> 00:14:02,240
+kind of have okay so anyway
+
+268
+00:13:59,800 --> 00:14:05,160
+my yeah so I'm okay I'm not going to
+
+269
+00:14:02,240 --> 00:14:07,800
+show it because otherwise we're going to
+
+270
+00:14:05,160 --> 00:14:09,320
+talk about this nonstop okay so let's
+
+271
+00:14:07,800 --> 00:14:12,759
+see
+
+272
+00:14:09,320 --> 00:14:15,399
+so let's go back to code iMac Le okay so
+
+273
+00:14:12,759 --> 00:14:18,959
+I was saying that so when you block you
+
+274
+00:14:15,399 --> 00:14:23,079
+have files in a directory and after you
+
+275
+00:14:18,959 --> 00:14:24,720
+know after 10 years 20 years they
+
+276
+00:14:23,079 --> 00:14:28,240
+become you
+
+277
+00:14:24,720 --> 00:14:30,560
+know they are not as structured as you
+
+278
+00:14:28,240 --> 00:14:34,240
+used think because things come and go
+
+279
+00:14:30,560 --> 00:14:36,320
+new ideas new CPU new operating system
+
+280
+00:14:34,240 --> 00:14:40,160
+and you might have changed from Mac to
+
+281
+00:14:36,320 --> 00:14:42,680
+Windows due to many reasons or Linux and
+
+282
+00:14:40,160 --> 00:14:46,000
+change back and so on and maybe you lost
+
+283
+00:14:42,680 --> 00:14:48,079
+your drive and so the file structure and
+
+284
+00:14:46,000 --> 00:14:50,079
+you got more topic to add you know in
+
+285
+00:14:48,079 --> 00:14:52,720
+the beginning maybe you are blogging
+
+286
+00:14:50,079 --> 00:14:55,279
+JavaScript then you started to blog some
+
+287
+00:14:52,720 --> 00:14:58,279
+CSS and you know so your direct
+
+288
+00:14:55,279 --> 00:15:02,360
+directory structure is not going to be
+
+289
+00:14:58,279 --> 00:15:05,000
+very nice you know that's why for almost
+
+290
+00:15:02,360 --> 00:15:07,519
+all major corporation website you
+
+291
+00:15:05,000 --> 00:15:10,440
+usually you often you have dead links
+
+292
+00:15:07,519 --> 00:15:12,759
+dead dead links you know because they
+
+293
+00:15:10,440 --> 00:15:14,880
+they have to reorganize their their
+
+294
+00:15:12,759 --> 00:15:17,880
+directory structure you know put you
+
+295
+00:15:14,880 --> 00:15:19,639
+know proper you know and the Personnel
+
+296
+00:15:17,880 --> 00:15:22,040
+the programmer come and go you know you
+
+297
+00:15:19,639 --> 00:15:26,880
+you got fired they hired new people or
+
+298
+00:15:22,040 --> 00:15:29,480
+things like that or you quit so lots and
+
+299
+00:15:26,880 --> 00:15:32,480
+companies got bought out
+
+300
+00:15:29,480 --> 00:15:34,800
+and you know so lots of change so
+
+301
+00:15:32,480 --> 00:15:37,240
+basically what I'm what I want to do is
+
+302
+00:15:34,800 --> 00:15:40,480
+that in this directory JavaScript
+
+303
+00:15:37,240 --> 00:15:43,319
+directory which contains CSS and HTML
+
+304
+00:15:40,480 --> 00:15:45,839
+and JavaScript I want
+
+305
+00:15:43,319 --> 00:15:47,839
+to okay let's go up to the Parent
+
+306
+00:15:45,839 --> 00:15:51,199
+Directory I want to create a new
+
+307
+00:15:47,839 --> 00:15:55,680
+directory okay so here is a c JavaScript
+
+308
+00:15:51,199 --> 00:15:59,839
+directory I want to create let's say CSS
+
+309
+00:15:55,680 --> 00:16:01,880
+okay so create a new directory and let's
+
+310
+00:15:59,839 --> 00:16:05,839
+go back to the JavaScript
+
+311
+00:16:01,880 --> 00:16:05,839
+directory I want to
+
+312
+00:16:06,079 --> 00:16:13,639
+move okay I want to move all these CSS
+
+313
+00:16:09,600 --> 00:16:17,560
+files into this CSS directory so
+
+314
+00:16:13,639 --> 00:16:20,480
+separate them reorganize them you cannot
+
+315
+00:16:17,560 --> 00:16:23,360
+simply move them okay because for
+
+316
+00:16:20,480 --> 00:16:27,120
+example let's let's show this example
+
+317
+00:16:23,360 --> 00:16:31,800
+CSS 2D transformation showing
+
+318
+00:16:27,120 --> 00:16:34,839
+browser okay so CSS this this is kind of
+
+319
+00:16:31,800 --> 00:16:39,160
+by by now it's old this is like new in
+
+320
+00:16:34,839 --> 00:16:42,000
+2013 okay so you can actually GE do
+
+321
+00:16:39,160 --> 00:16:46,319
+geometric transformation of text or
+
+322
+00:16:42,000 --> 00:16:49,399
+images okay so this is a tutorial right
+
+323
+00:16:46,319 --> 00:16:53,759
+now let's say I want to let's say I move
+
+324
+00:16:49,399 --> 00:16:56,440
+this file move in emac diet very
+
+325
+00:16:53,759 --> 00:17:01,040
+convenient okay so now I moved into this
+
+326
+00:16:56,440 --> 00:17:04,720
+directory open it show browser okay now
+
+327
+00:17:01,040 --> 00:17:07,880
+but all your links are now you
+
+328
+00:17:04,720 --> 00:17:10,480
+see now you see the panel okay I want to
+
+329
+00:17:07,880 --> 00:17:15,079
+check how do you change color color
+
+330
+00:17:10,480 --> 00:17:18,520
+syntax click file not found okay so you
+
+331
+00:17:15,079 --> 00:17:20,400
+cannot simply just move it you have to
+
+332
+00:17:18,520 --> 00:17:23,559
+CH you have you move it you have to
+
+333
+00:17:20,400 --> 00:17:26,319
+change all your links inside this HTML
+
+334
+00:17:23,559 --> 00:17:26,319
+all of them
+
+335
+00:17:26,480 --> 00:17:32,840
+okay and that's not okay and all other
+
+336
+00:17:30,360 --> 00:17:36,840
+files that links to this
+
+337
+00:17:32,840 --> 00:17:39,240
+page the link are also broken so you
+
+338
+00:17:36,840 --> 00:17:42,360
+also need to you you need to go to your
+
+339
+00:17:39,240 --> 00:17:45,039
+entire directory structure find all
+
+340
+00:17:42,360 --> 00:17:49,000
+links that links to this particular
+
+341
+00:17:45,039 --> 00:17:51,559
+directory file and move it and and and
+
+342
+00:17:49,000 --> 00:17:54,400
+and and change the link in each one of
+
+343
+00:17:51,559 --> 00:17:57,679
+them so change all the links
+
+344
+00:17:54,400 --> 00:17:59,919
+so here summary of what you need to do
+
+345
+00:17:57,679 --> 00:18:03,120
+okay this seems trivial you know if you
+
+346
+00:17:59,919 --> 00:18:04,600
+never coded this as a programmer usually
+
+347
+00:18:03,120 --> 00:18:08,640
+you
+
+348
+00:18:04,600 --> 00:18:11,520
+underestimate the the humongous of the
+
+349
+00:18:08,640 --> 00:18:15,520
+task you know you might say oh it's one
+
+350
+00:18:11,520 --> 00:18:17,320
+hour actually I did this in
+
+351
+00:18:15,520 --> 00:18:22,240
+2010 or
+
+352
+00:18:17,320 --> 00:18:24,559
+2011 I separated Kali org kali.org into
+
+353
+00:18:22,240 --> 00:18:28,120
+kinfo and several other
+
+354
+00:18:24,559 --> 00:18:31,600
+domains and so I need to do this and I
+
+355
+00:18:28,120 --> 00:18:33,799
+end end up spending one month actually
+
+356
+00:18:31,600 --> 00:18:36,679
+more than a month to write a script to
+
+357
+00:18:33,799 --> 00:18:40,080
+to do this to to to separate these
+
+358
+00:18:36,679 --> 00:18:44,039
+domains you know and I started to move
+
+359
+00:18:40,080 --> 00:18:47,520
+them and after 10 years around
+
+360
+00:18:44,039 --> 00:18:50,600
+2020 I move moved all of them my
+
+361
+00:18:47,520 --> 00:18:54,880
+different domains back into just two now
+
+362
+00:18:50,600 --> 00:18:54,880
+kali.org and.info
+
+363
+00:18:55,360 --> 00:19:01,120
+okay this is my main page Sali or
+
+364
+00:18:58,919 --> 00:19:05,360
+kali.org
+
+365
+00:19:01,120 --> 00:19:09,600
+and then kali. info okay now I only I
+
+366
+00:19:05,360 --> 00:19:12,320
+just these two are my main domains so
+
+367
+00:19:09,600 --> 00:19:17,360
+you see I used to have a wordy English
+
+368
+00:19:12,320 --> 00:19:20,039
+domain Anda Arts C music domaina Visual
+
+369
+00:19:17,360 --> 00:19:23,000
+Arts and second life you know different
+
+370
+00:19:20,039 --> 00:19:24,919
+domains I move them all back so now it's
+
+371
+00:19:23,000 --> 00:19:29,280
+just k.org
+
+372
+00:19:24,919 --> 00:19:32,880
+and.info kinfo is technical stuff
+
+373
+00:19:29,280 --> 00:19:34,720
+mathematics emac programming JavaScript
+
+374
+00:19:32,880 --> 00:19:36,960
+other programming languages and so on
+
+375
+00:19:34,720 --> 00:19:42,520
+Technical and unic
+
+376
+00:19:36,960 --> 00:19:45,679
+code okay and uh and keyboard and or is
+
+377
+00:19:42,520 --> 00:19:49,919
+a bunch of other things non technical
+
+378
+00:19:45,679 --> 00:19:53,080
+Humanity songs and music English grammar
+
+379
+00:19:49,919 --> 00:19:56,480
+style literature you know comments
+
+380
+00:19:53,080 --> 00:19:58,360
+thoughts uh Arts okay let's open each
+
+381
+00:19:56,480 --> 00:20:01,320
+one of them in Second Life explore
+
+382
+00:19:58,360 --> 00:20:04,679
+coration and politics okay I'm not
+
+383
+00:20:01,320 --> 00:20:08,400
+showing here I'm not going to show it
+
+384
+00:20:04,679 --> 00:20:12,679
+but anyway there is that too so here's
+
+385
+00:20:08,400 --> 00:20:15,960
+wordy English it's literature vocabulary
+
+386
+00:20:12,679 --> 00:20:20,000
+and all that style logic
+
+387
+00:20:15,960 --> 00:20:22,360
+Linguistics and uh here is collection of
+
+388
+00:20:20,000 --> 00:20:26,080
+songs
+
+389
+00:20:22,360 --> 00:20:30,840
+you the anthropology and ethology and
+
+390
+00:20:26,080 --> 00:20:34,080
+ethn e the anthropology and ethology and
+
+391
+00:20:30,840 --> 00:20:34,080
+ethnology and
+
+392
+00:20:34,400 --> 00:20:42,640
+sexuality you look into them
+
+393
+00:20:37,600 --> 00:20:44,919
+via the music the songs that human sings
+
+394
+00:20:42,640 --> 00:20:48,280
+about you know there's a lot to look
+
+395
+00:20:44,919 --> 00:20:51,400
+into that a lot you know you look at in
+
+396
+00:20:48,280 --> 00:20:53,080
+fact you look at the songs of let's say
+
+397
+00:20:51,400 --> 00:20:55,799
+different culture you know most of you
+
+398
+00:20:53,080 --> 00:20:58,960
+guys are American of course we speak
+
+399
+00:20:55,799 --> 00:21:01,159
+English but you can but but you can look
+
+400
+00:20:58,960 --> 00:21:04,240
+at Chinese or Russian songs but let's
+
+401
+00:21:01,159 --> 00:21:07,200
+say just English maybe pop songs or
+
+402
+00:21:04,240 --> 00:21:09,200
+maybe may it be blue jazz or whatever
+
+403
+00:21:07,200 --> 00:21:12,080
+you can look at you know you look at the
+
+404
+00:21:09,200 --> 00:21:14,559
+lyrics you look at what are they singing
+
+405
+00:21:12,080 --> 00:21:16,799
+what are they saying what kind of thing
+
+406
+00:21:14,559 --> 00:21:19,559
+what are they saying over the past 100
+
+407
+00:21:16,799 --> 00:21:22,400
+years over the past 200 years over the
+
+408
+00:21:19,559 --> 00:21:24,679
+past 500 years or a thousand years you
+
+409
+00:21:22,400 --> 00:21:27,600
+look at what they seeing you know that's
+
+410
+00:21:24,679 --> 00:21:30,799
+part of humanity you know so that's
+
+411
+00:21:27,600 --> 00:21:37,200
+that's the my blog
+
+412
+00:21:30,799 --> 00:21:39,200
+okay uh so it has so far about 460 songs
+
+413
+00:21:37,200 --> 00:21:43,919
+of all kind of All
+
+414
+00:21:39,200 --> 00:21:46,640
+Sorts uh and and there's Arts okay arts
+
+415
+00:21:43,919 --> 00:21:50,679
+in humanity from
+
+416
+00:21:46,640 --> 00:21:52,680
+today's from today's memes you know the
+
+417
+00:21:50,679 --> 00:21:53,960
+Zuma memes
+
+418
+00:21:52,680 --> 00:21:57,559
+[Music]
+
+419
+00:21:53,960 --> 00:22:00,400
+edsc which are these you know the the
+
+420
+00:21:57,559 --> 00:22:02,600
+most beautiful is a Duma girl okay
+
+421
+00:22:00,400 --> 00:22:06,000
+anyway these are memes okay memes in the
+
+422
+00:22:02,600 --> 00:22:10,120
+past about 20 years and this is the most
+
+423
+00:22:06,000 --> 00:22:14,000
+idiotic this is today today's Zuma
+
+424
+00:22:10,120 --> 00:22:16,799
+okay the most idiotic is this
+
+425
+00:22:14,000 --> 00:22:18,480
+today's Zuma thing this what Jack or
+
+426
+00:22:16,799 --> 00:22:23,039
+whatever Jack you
+
+427
+00:22:18,480 --> 00:22:25,960
+know and before that is the uh is the
+
+428
+00:22:23,039 --> 00:22:29,720
+Rage Comic that's much better it's it's
+
+429
+00:22:25,960 --> 00:22:32,200
+much better okay today is is just like
+
+430
+00:22:29,720 --> 00:22:34,799
+de brainless you know today you got this
+
+431
+00:22:32,200 --> 00:22:36,640
+into this situation this you got this
+
+432
+00:22:34,799 --> 00:22:39,960
+brainless
+
+433
+00:22:36,640 --> 00:22:42,039
+things Rage Comic actually has some you
+
+434
+00:22:39,960 --> 00:22:44,159
+know contains information cultural
+
+435
+00:22:42,039 --> 00:22:47,520
+information reflect the thoughts and so
+
+436
+00:22:44,159 --> 00:22:49,600
+on you know Rage Comic anyway so anyway
+
+437
+00:22:47,520 --> 00:22:52,200
+what I'm saying is that so these are you
+
+438
+00:22:49,600 --> 00:22:55,320
+know in the past 20 years the art of the
+
+439
+00:22:52,200 --> 00:22:58,640
+past 20 years but of course then you can
+
+440
+00:22:55,320 --> 00:23:01,360
+go to Asian stuff you know these are
+
+441
+00:22:58,640 --> 00:23:04,240
+Asian classic Western this is Western
+
+442
+00:23:01,360 --> 00:23:08,200
+okay remember it's western western is
+
+443
+00:23:04,240 --> 00:23:13,039
+not the entire Earth okay to the most
+
+444
+00:23:08,200 --> 00:23:18,080
+American they think it's the ENT entire
+
+445
+00:23:13,039 --> 00:23:21,120
+Earth but then even more Asian the Greek
+
+446
+00:23:18,080 --> 00:23:23,919
+stuff the Greek stuff the Greek stuff is
+
+447
+00:23:21,120 --> 00:23:26,559
+the best stuff I love
+
+448
+00:23:23,919 --> 00:23:29,480
+them okay anyway that's a lot of
+
+449
+00:23:26,559 --> 00:23:32,559
+digression so what what I was saying was
+
+450
+00:23:29,480 --> 00:23:35,960
+that you know so let's get back to the
+
+451
+00:23:32,559 --> 00:23:39,919
+main topic okay so I have cad.org
+
+452
+00:23:35,960 --> 00:23:41,159
+and.info that's my main thing okay so I
+
+453
+00:23:39,919 --> 00:23:43,480
+was talking
+
+454
+00:23:41,159 --> 00:23:46,039
+about you know I need to move
+
+455
+00:23:43,480 --> 00:23:48,919
+directories so I mean I need to
+
+456
+00:23:46,039 --> 00:23:51,720
+reorganize my directory structure so you
+
+457
+00:23:48,919 --> 00:23:55,880
+cannot simply just move the file you
+
+458
+00:23:51,720 --> 00:23:58,520
+have to do two things okay one is that
+
+459
+00:23:55,880 --> 00:24:01,600
+you do move the file
+
+460
+00:23:58,520 --> 00:24:04,039
+and change all the link all the links
+
+461
+00:24:01,600 --> 00:24:06,760
+within this file because otherwise they
+
+462
+00:24:04,039 --> 00:24:09,919
+don't work okay so you have to change
+
+463
+00:24:06,760 --> 00:24:13,080
+all the links in this file now what does
+
+464
+00:24:09,919 --> 00:24:17,640
+a link mean well typically it's the you
+
+465
+00:24:13,080 --> 00:24:19,640
+know a HF but that's not all okay you
+
+466
+00:24:17,640 --> 00:24:22,520
+know when you actually do this a lot
+
+467
+00:24:19,640 --> 00:24:26,600
+complexities for example here's a CSS
+
+468
+00:24:22,520 --> 00:24:29,679
+file so it's the tag is not anchor is
+
+469
+00:24:26,600 --> 00:24:32,679
+not a so you have to also do that and
+
+470
+00:24:29,679 --> 00:24:35,399
+you also to have to do uh let's see do I
+
+471
+00:24:32,679 --> 00:24:37,799
+have a image no but I do have it here
+
+472
+00:24:35,399 --> 00:24:40,720
+okay so the link doesn't
+
+473
+00:24:37,799 --> 00:24:43,880
+work but so anyway so you also have to
+
+474
+00:24:40,720 --> 00:24:46,440
+change image embedded image you know so
+
+475
+00:24:43,880 --> 00:24:50,960
+quite a few so you need to change all
+
+476
+00:24:46,440 --> 00:24:53,679
+links in this P page that you are moving
+
+477
+00:24:50,960 --> 00:24:59,760
+that's one thing the second thing is
+
+478
+00:24:53,679 --> 00:24:59,760
+that you need to go through your entire
+
+479
+00:25:00,200 --> 00:25:07,000
+uh domain okay so let's show you let's
+
+480
+00:25:03,880 --> 00:25:11,880
+see so we are in power Shell let's show
+
+481
+00:25:07,000 --> 00:25:16,960
+some power shell okay magnify so
+
+482
+00:25:11,880 --> 00:25:20,200
+the okay so uh okay magnify you need
+
+483
+00:25:16,960 --> 00:25:22,880
+to you know this is a characteristic of
+
+484
+00:25:20,200 --> 00:25:25,360
+power shell I don't like that it it it
+
+485
+00:25:22,880 --> 00:25:30,559
+kind of truncate
+
+486
+00:25:25,360 --> 00:25:34,720
+your long lines so anyway so the
+
+487
+00:25:30,559 --> 00:25:40,159
+recursive file and let's limit it to
+
+488
+00:25:34,720 --> 00:25:41,880
+HTML filter okay that ending
+
+489
+00:25:40,159 --> 00:25:45,919
+HTML
+
+490
+00:25:41,880 --> 00:25:48,799
+so you see it's endless it's about so
+
+491
+00:25:45,919 --> 00:25:48,799
+let's see
+
+492
+00:25:50,720 --> 00:25:55,720
+measure let's see how many files 8,000
+
+493
+00:25:53,880 --> 00:26:00,279
+files in
+
+494
+00:25:55,720 --> 00:26:04,440
+cinfo 8,000 h HTML files of course you
+
+495
+00:26:00,279 --> 00:26:06,799
+have JPEG files 5,000 JPEG files you
+
+496
+00:26:04,440 --> 00:26:12,640
+have PNG
+
+497
+00:26:06,799 --> 00:26:16,399
+files okay also 5,000 PNG files oh and
+
+498
+00:26:12,640 --> 00:26:18,840
+uh you also you might have JP EEG
+
+499
+00:26:16,399 --> 00:26:22,640
+depending on the spelling you know let's
+
+500
+00:26:18,840 --> 00:26:27,039
+see I have zero because I normalized all
+
+501
+00:26:22,640 --> 00:26:30,279
+the jpeg file names into just jpg not
+
+502
+00:26:27,039 --> 00:26:31,520
+you know but you also have you know I
+
+503
+00:26:30,279 --> 00:26:35,480
+started to
+
+504
+00:26:31,520 --> 00:26:37,240
+use web P files so I have eight web P
+
+505
+00:26:35,480 --> 00:26:41,640
+files
+
+506
+00:26:37,240 --> 00:26:43,360
+anyway so back to the original topic so
+
+507
+00:26:41,640 --> 00:26:46,760
+I was talking
+
+508
+00:26:43,360 --> 00:26:49,880
+about why do I need to restructure the
+
+509
+00:26:46,760 --> 00:26:51,559
+directory and what does it involve so
+
+510
+00:26:49,880 --> 00:26:54,520
+you have to go
+
+511
+00:26:51,559 --> 00:26:58,039
+through all files in your
+
+512
+00:26:54,520 --> 00:27:00,960
+directory that links to the file that
+
+513
+00:26:58,039 --> 00:27:03,799
+you are moving and for each of the link
+
+514
+00:27:00,960 --> 00:27:07,520
+you have to change them okay so this is
+
+515
+00:27:03,799 --> 00:27:11,399
+not a trivial task now this task is
+
+516
+00:27:07,520 --> 00:27:12,559
+belongs to the category the field of
+
+517
+00:27:11,399 --> 00:27:15,960
+text
+
+518
+00:27:12,559 --> 00:27:21,039
+processing and emac is the best tool not
+
+519
+00:27:15,960 --> 00:27:23,440
+Pearl not python not whatever emac if
+
+520
+00:27:21,039 --> 00:27:26,919
+you are going to do emac I mean if you
+
+521
+00:27:23,440 --> 00:27:30,320
+are going to do text processing emac is
+
+522
+00:27:26,919 --> 00:27:33,080
+FAS Superior than all the others Pearl
+
+523
+00:27:30,320 --> 00:27:36,039
+python bash power shell okay because
+
+524
+00:27:33,080 --> 00:27:39,679
+emac has the buffer concept which allows
+
+525
+00:27:36,039 --> 00:27:41,320
+you to you know which a buffer is kind
+
+526
+00:27:39,679 --> 00:27:43,159
+of like
+
+527
+00:27:41,320 --> 00:27:44,799
+a
+
+528
+00:27:43,159 --> 00:27:49,000
+glorified
+
+529
+00:27:44,799 --> 00:27:50,240
+string okay so in this huge giant string
+
+530
+00:27:49,000 --> 00:27:52,720
+it can be one
+
+531
+00:27:50,240 --> 00:27:55,960
+megabyte long you
+
+532
+00:27:52,720 --> 00:27:59,279
+know you can you you have the concept of
+
+533
+00:27:55,960 --> 00:28:02,039
+a CER which is is like the current index
+
+534
+00:27:59,279 --> 00:28:04,440
+of your position you can get a position
+
+535
+00:28:02,039 --> 00:28:06,080
+you can copy part of the string move
+
+536
+00:28:04,440 --> 00:28:09,399
+part of the string to other part you
+
+537
+00:28:06,080 --> 00:28:12,640
+know that's what buffer is and you can
+
+538
+00:28:09,399 --> 00:28:15,120
+manipulate it programate
+
+539
+00:28:12,640 --> 00:28:18,559
+programmatically this is this is emac
+
+540
+00:28:15,120 --> 00:28:21,480
+disp okay no other language is better
+
+541
+00:28:18,559 --> 00:28:24,840
+than this for text processing not even
+
+542
+00:28:21,480 --> 00:28:27,720
+go land not even not anything okay not
+
+543
+00:28:24,840 --> 00:28:30,720
+even not wolam language neither if you
+
+544
+00:28:27,720 --> 00:28:30,720
+want to do text
+
+545
+00:28:31,600 --> 00:28:37,080
+processing emac list is the best
+
+546
+00:28:34,559 --> 00:28:40,440
+language okay this is a kind of
+
+547
+00:28:37,080 --> 00:28:42,640
+information few people know not not
+
+548
+00:28:40,440 --> 00:28:46,279
+rightly
+
+549
+00:28:42,640 --> 00:28:47,919
+um no okay so anyway back to this so we
+
+550
+00:28:46,279 --> 00:28:50,960
+are going to write this command let's
+
+551
+00:28:47,919 --> 00:28:53,279
+look at the commment and let's see what
+
+552
+00:28:50,960 --> 00:28:56,000
+what what you guys are saying any
+
+553
+00:28:53,279 --> 00:28:56,000
+questions
+
+554
+00:28:56,399 --> 00:28:59,399
+questions
+
+555
+00:29:03,720 --> 00:29:09,360
+so hey S I don't have bucks to spend 200
+
+556
+00:29:06,640 --> 00:29:12,519
+ergonomic keyboard so I'm stuck with
+
+557
+00:29:09,360 --> 00:29:14,399
+Island switch laptop keyboard to make it
+
+558
+00:29:12,519 --> 00:29:16,640
+more comfortable to type I've moved
+
+559
+00:29:14,399 --> 00:29:19,240
+standard positions keys on Roll upward
+
+560
+00:29:16,640 --> 00:29:22,200
+that's no good okay that's no good you
+
+561
+00:29:19,240 --> 00:29:25,840
+don't have money you know go out run buy
+
+562
+00:29:22,200 --> 00:29:28,360
+a $40 China Cheapo mechanical keyboard
+
+563
+00:29:25,840 --> 00:29:30,600
+right now you know you going to
+
+564
+00:29:28,360 --> 00:29:32,799
+you typing on laptop you're going to
+
+565
+00:29:30,600 --> 00:29:35,840
+have you're going to become a
+
+566
+00:29:32,799 --> 00:29:38,600
+within a year if you type too much and
+
+567
+00:29:35,840 --> 00:29:41,720
+you know you are like me I did this for
+
+568
+00:29:38,600 --> 00:29:45,000
+10 years so you are thinking okay I
+
+569
+00:29:41,720 --> 00:29:47,200
+don't have money to spend for even $40 I
+
+570
+00:29:45,000 --> 00:29:49,440
+I don't have but I'm just going to
+
+571
+00:29:47,200 --> 00:29:53,440
+create a way I'm very creative I'm going
+
+572
+00:29:49,440 --> 00:29:56,840
+to spend 100 hours you know to to to
+
+573
+00:29:53,440 --> 00:29:59,919
+change this coding you know to to remap
+
+574
+00:29:56,840 --> 00:30:02,640
+keys no that's no good okay you spend
+
+575
+00:29:59,919 --> 00:30:06,080
+huge amount of time and it do does it
+
+576
+00:30:02,640 --> 00:30:08,120
+does you no good it doesn't help much it
+
+577
+00:30:06,080 --> 00:30:11,960
+help like maybe
+
+578
+00:30:08,120 --> 00:30:15,440
+1% go out run buy the cheapest Chinese
+
+579
+00:30:11,960 --> 00:30:20,000
+chipot like $30 you can buy it I'm sure
+
+580
+00:30:15,440 --> 00:30:23,240
+you have $30 okay just do that okay do
+
+581
+00:30:20,000 --> 00:30:24,840
+not you know do not you know do do this
+
+582
+00:30:23,240 --> 00:30:28,200
+you know like move your standard
+
+583
+00:30:24,840 --> 00:30:30,279
+position you know that's crap
+
+584
+00:30:28,200 --> 00:30:33,000
+the first thing you need to do if you
+
+585
+00:30:30,279 --> 00:30:36,200
+are concerned about ergonomic or if you
+
+586
+00:30:33,000 --> 00:30:41,200
+have hand pen okay the first thing after
+
+587
+00:30:36,200 --> 00:30:46,159
+that then use S flag keys I mean well
+
+588
+00:30:41,200 --> 00:30:46,159
+yes or evil mod if you want
+
+589
+00:30:50,039 --> 00:30:55,799
+that okay s so you have a question this
+
+590
+00:30:53,440 --> 00:30:57,840
+also allows me to pump press control key
+
+591
+00:30:55,799 --> 00:31:00,320
+but I I still think how how should I
+
+592
+00:30:57,840 --> 00:31:03,960
+configure modifier Keys okay forget
+
+593
+00:31:00,320 --> 00:31:06,639
+about that it's very complex I myself
+
+594
+00:31:03,960 --> 00:31:08,840
+I'm the master okay I'm the master of
+
+595
+00:31:06,639 --> 00:31:11,440
+the key binding the ergonomic of key
+
+596
+00:31:08,840 --> 00:31:15,080
+binding all those information but I can
+
+597
+00:31:11,440 --> 00:31:18,519
+tell you like after 20 years the first
+
+598
+00:31:15,080 --> 00:31:21,399
+most important thing is you go out
+
+599
+00:31:18,519 --> 00:31:24,039
+immediately you don't have money okay do
+
+600
+00:31:21,399 --> 00:31:26,880
+it right now go out immediately spend
+
+601
+00:31:24,039 --> 00:31:29,639
+$30 on Amazon or wherever you are in
+
+602
+00:31:26,880 --> 00:31:32,240
+Europe you know buy the Chinese Cheapo
+
+603
+00:31:29,639 --> 00:31:34,360
+the Chinese now they are massive they
+
+604
+00:31:32,240 --> 00:31:37,519
+they massively produce the cheapest
+
+605
+00:31:34,360 --> 00:31:40,399
+thing and actually you you won't break
+
+606
+00:31:37,519 --> 00:31:43,679
+okay just go out buy a Chinese chipo $30
+
+607
+00:31:40,399 --> 00:31:47,720
+you want mechanical key switches okay
+
+608
+00:31:43,679 --> 00:31:51,399
+and you want linear switch no blue not
+
+609
+00:31:47,720 --> 00:31:54,840
+the blue clicky switch not the brown you
+
+610
+00:31:51,399 --> 00:31:54,840
+know go to Amazon right
+
+611
+00:31:54,919 --> 00:32:00,840
+away okay s keyboard board okay s
+
+612
+00:31:58,639 --> 00:32:03,799
+keyboard you click on the normal
+
+613
+00:32:00,840 --> 00:32:06,679
+keyboard section these are all expensive
+
+614
+00:32:03,799 --> 00:32:10,080
+ okay you can buy this
+
+615
+00:32:06,679 --> 00:32:13,159
+one okay you want a linear switch okay
+
+616
+00:32:10,080 --> 00:32:17,960
+okay this key is kind of more expensive
+
+617
+00:32:13,159 --> 00:32:18,799
+like $70 or even up to 150 they are kind
+
+618
+00:32:17,960 --> 00:32:21,919
+you
+
+619
+00:32:18,799 --> 00:32:24,080
+know you can buy it you know it's I can
+
+620
+00:32:21,919 --> 00:32:26,600
+recommend it's not bad but just buy a
+
+621
+00:32:24,080 --> 00:32:31,919
+cheapo okay if you don't have money this
+
+622
+00:32:26,600 --> 00:32:38,639
+one is actually uh $50 or something H
+
+623
+00:32:31,919 --> 00:32:41,960
+Amazon fmrg LX okay let's
+
+624
+00:32:38,639 --> 00:32:45,080
+um okay so this one is 60 yeah maybe a
+
+625
+00:32:41,960 --> 00:32:47,399
+bit expensive but there are tons okay
+
+626
+00:32:45,080 --> 00:32:52,120
+you see there are tons you know you just
+
+627
+00:32:47,399 --> 00:32:55,279
+like this 25 25 bucks 28 works okay make
+
+628
+00:32:52,120 --> 00:32:59,039
+sure you get you know me real mechanical
+
+629
+00:32:55,279 --> 00:33:01,279
+switch and linear okay
+
+630
+00:32:59,039 --> 00:33:03,559
+so that's the first thing you need to do
+
+631
+00:33:01,279 --> 00:33:05,760
+I'm talking a lot about this because
+
+632
+00:33:03,559 --> 00:33:08,760
+it's the most important after my 20
+
+633
+00:33:05,760 --> 00:33:10,919
+years experience okay don't forget about
+
+634
+00:33:08,760 --> 00:33:15,600
+your I'm going to change control this
+
+635
+00:33:10,919 --> 00:33:18,600
+that forget that about that just do this
+
+636
+00:33:15,600 --> 00:33:23,200
+okay now the second
+
+637
+00:33:18,600 --> 00:33:25,440
+thing is just use Sly Keys okay that's
+
+638
+00:33:23,200 --> 00:33:27,880
+also important so you don't you don't
+
+639
+00:33:25,440 --> 00:33:30,120
+actually have to press control at all oh
+
+640
+00:33:27,880 --> 00:33:32,840
+I have thought about this I've been I've
+
+641
+00:33:30,120 --> 00:33:36,000
+been like changing my key every week
+
+642
+00:33:32,840 --> 00:33:38,679
+every week like Change Control to this
+
+643
+00:33:36,000 --> 00:33:41,000
+or swap you know change the position of
+
+644
+00:33:38,679 --> 00:33:43,200
+control and caps lock or control and all
+
+645
+00:33:41,000 --> 00:33:44,960
+which one is better on Windows what
+
+646
+00:33:43,200 --> 00:33:47,360
+happens if you do this on window on the
+
+647
+00:33:44,960 --> 00:33:50,360
+Mac what if you want a universal way so
+
+648
+00:33:47,360 --> 00:33:55,240
+it works both on Windows and and Linux
+
+649
+00:33:50,360 --> 00:33:57,360
+ okay so first thing to do go out
+
+650
+00:33:55,240 --> 00:33:59,399
+buy a mechanical keyboard if you don't
+
+651
+00:33:57,360 --> 00:34:02,240
+have money buy the cheap one if you have
+
+652
+00:33:59,399 --> 00:34:03,559
+money buy the one I have I recommend it
+
+653
+00:34:02,240 --> 00:34:06,840
+many times
+
+654
+00:34:03,559 --> 00:34:13,000
+okay like uh like the you know
+
+655
+00:34:06,840 --> 00:34:18,879
+the uh okay I can recommend glove 0 this
+
+656
+00:34:13,000 --> 00:34:21,639
+is my favorite okay Glo 80 and uh K KES
+
+657
+00:34:18,879 --> 00:34:24,280
+360 I'm using right now and also the
+
+658
+00:34:21,639 --> 00:34:27,480
+ultimate hacking I'm currently using as
+
+659
+00:34:24,280 --> 00:34:31,679
+a marro it's fantastic and Al I can
+
+660
+00:34:27,480 --> 00:34:35,639
+recommend the expose s
+
+661
+00:34:31,679 --> 00:34:38,040
+okay if you have money buy this okay if
+
+662
+00:34:35,639 --> 00:34:42,480
+you don't buy the Chinese chipo okay
+
+663
+00:34:38,040 --> 00:34:45,599
+that's first thing after that then two
+
+664
+00:34:42,480 --> 00:34:49,000
+things then then you need to do one
+
+665
+00:34:45,599 --> 00:34:55,079
+thing switch to Stu like ke if you are
+
+666
+00:34:49,000 --> 00:34:57,920
+using emac or or use the Vim Evo mod
+
+667
+00:34:55,079 --> 00:35:00,680
+okay so that that's your question that
+
+668
+00:34:57,920 --> 00:35:04,200
+is my answer to that
+
+669
+00:35:00,680 --> 00:35:06,960
+question now I'm absolute okay listen my
+
+670
+00:35:04,200 --> 00:35:09,560
+advice is not okay you know what you are
+
+671
+00:35:06,960 --> 00:35:12,160
+doing is pretty good but maybe you can
+
+672
+00:35:09,560 --> 00:35:14,839
+also do this no that's not my answer my
+
+673
+00:35:12,160 --> 00:35:16,599
+answer is that stop that okay
+
+674
+00:35:14,839 --> 00:35:19,040
+that's wasting your time and that's not
+
+675
+00:35:16,599 --> 00:35:21,560
+going to help you at all and don't think
+
+676
+00:35:19,040 --> 00:35:23,280
+about oh I'm just going to switch to vak
+
+677
+00:35:21,560 --> 00:35:25,839
+vak is more efficient I'm going to
+
+678
+00:35:23,280 --> 00:35:28,520
+switch to coac it's even more efficient
+
+679
+00:35:25,839 --> 00:35:30,920
+than crap
+
+680
+00:35:28,520 --> 00:35:34,000
+okay go out buy a mechanical chip when
+
+681
+00:35:30,920 --> 00:35:36,280
+mechanical switch linear light switch
+
+682
+00:35:34,000 --> 00:35:38,200
+first thing the second
+
+683
+00:35:36,280 --> 00:35:41,800
+thing
+
+684
+00:35:38,200 --> 00:35:46,000
+is stop using Control Alt you know that
+
+685
+00:35:41,800 --> 00:35:51,480
+those keys okay and that you can do on
+
+686
+00:35:46,000 --> 00:35:55,240
+emac use Sly keys or you can try the Evo
+
+687
+00:35:51,480 --> 00:35:57,640
+mod you know of course I recommend sof
+
+688
+00:35:55,240 --> 00:36:00,040
+Keys uh but you know know Evo mod is
+
+689
+00:35:57,640 --> 00:36:02,520
+also
+
+690
+00:36:00,040 --> 00:36:05,319
+okay another thing is is that you can
+
+691
+00:36:02,520 --> 00:36:08,319
+turn on sticky keys okay I have all this
+
+692
+00:36:05,319 --> 00:36:12,359
+information on my website on on the you
+
+693
+00:36:08,319 --> 00:36:16,440
+know on on how to on touch typing issues
+
+694
+00:36:12,359 --> 00:36:19,560
+um uh typing issues also on software
+
+695
+00:36:16,440 --> 00:36:22,280
+issues what software can you switch keys
+
+696
+00:36:19,560 --> 00:36:25,800
+in on the Mac on the windows on Linux
+
+697
+00:36:22,280 --> 00:36:27,800
+and the entire you know tens of articles
+
+698
+00:36:25,800 --> 00:36:29,640
+on emac key reming how do you do that
+
+699
+00:36:27,800 --> 00:36:32,240
+and so on but
+
+700
+00:36:29,640 --> 00:36:36,440
+anyway anyway
+
+701
+00:36:32,240 --> 00:36:39,760
+so uh okay so I digress so much are we
+
+702
+00:36:36,440 --> 00:36:42,000
+still going to code emac this I hope so
+
+703
+00:36:39,760 --> 00:36:42,000
+let's
+
+704
+00:36:46,359 --> 00:36:53,000
+see laptop keyboard is the worst okay
+
+705
+00:36:49,920 --> 00:36:56,400
+that's the worst that's what got me RI
+
+706
+00:36:53,000 --> 00:36:58,960
+back in 2005 I have full documentation
+
+707
+00:36:56,400 --> 00:37:03,680
+detail details in my blog just search
+
+708
+00:36:58,960 --> 00:37:07,200
+for S RSI you know you will find a 10 uh
+
+709
+00:37:03,680 --> 00:37:07,200
+more than 10 articles about
+
+710
+00:37:13,160 --> 00:37:25,079
+it so that's the my answer to Rusty okay
+
+711
+00:37:17,839 --> 00:37:25,079
+next Jen how are you uh long time uh
+
+712
+00:37:25,599 --> 00:37:31,640
+audience can I find a job after reading
+
+713
+00:37:28,640 --> 00:37:34,680
+every word of JavaScript in depth yes of
+
+714
+00:37:31,640 --> 00:37:36,920
+course you will JavaScript is a one of
+
+715
+00:37:34,680 --> 00:37:39,800
+the most popular language are you in
+
+716
+00:37:36,920 --> 00:37:43,040
+China J I think you are in China yes
+
+717
+00:37:39,800 --> 00:37:43,040
+you'll find a job for
+
+718
+00:37:44,200 --> 00:37:48,839
+sure what makes emac special okay I'm
+
+719
+00:37:47,040 --> 00:37:53,520
+going to skip that question because
+
+720
+00:37:48,839 --> 00:37:58,599
+that's just that's just uh too that's
+
+721
+00:37:53,520 --> 00:37:58,599
+too frequently Asked question
+
+722
+00:38:07,560 --> 00:38:12,839
+okay another question why don't you like
+
+723
+00:38:09,839 --> 00:38:16,359
+multi-display workflow
+
+724
+00:38:12,839 --> 00:38:18,800
+H I have article on that did you did you
+
+725
+00:38:16,359 --> 00:38:21,040
+read the article and then you have the
+
+726
+00:38:18,800 --> 00:38:22,480
+question or are you just asking out of
+
+727
+00:38:21,040 --> 00:38:25,480
+the blue
+
+728
+00:38:22,480 --> 00:38:28,680
+because uh I want to go back to code
+
+729
+00:38:25,480 --> 00:38:32,359
+okay because we already talked for 50
+
+730
+00:38:28,680 --> 00:38:35,800
+minutes something like that already 40
+
+731
+00:38:32,359 --> 00:38:38,560
+minutes and we haven't start coding yet
+
+732
+00:38:35,800 --> 00:38:41,599
+okay let's let's go back let's start
+
+733
+00:38:38,560 --> 00:38:45,359
+coding okay you guys you like my stuff
+
+734
+00:38:41,599 --> 00:38:48,880
+pay me okay PayPal or
+
+735
+00:38:45,359 --> 00:38:51,319
+patreon ch ch thank you Ben thank you
+
+736
+00:38:48,880 --> 00:38:55,119
+Ben
+
+737
+00:38:51,319 --> 00:38:58,599
+fantastic any questions you have
+
+738
+00:38:55,119 --> 00:39:01,160
+Ben so let's go let's let's start to
+
+739
+00:38:58,599 --> 00:39:04,359
+work on uh work on
+
+740
+00:39:01,160 --> 00:39:08,240
+um coding emx because that's what I want
+
+741
+00:39:04,359 --> 00:39:10,440
+to do so let's move this back
+
+742
+00:39:08,240 --> 00:39:15,079
+okay okay
+
+743
+00:39:10,440 --> 00:39:15,079
+so so coding on emx oh my
+
+744
+00:39:15,119 --> 00:39:22,319
+God okay
+
+745
+00:39:17,160 --> 00:39:22,319
+so what was the page we are talking
+
+746
+00:39:22,560 --> 00:39:28,440
+about make
+
+747
+00:39:25,440 --> 00:39:28,440
+sure
+
+748
+00:39:28,680 --> 00:39:32,079
+okay so we just move
+
+749
+00:39:33,040 --> 00:39:38,359
+that transformation yeah so we are
+
+750
+00:39:36,400 --> 00:39:41,079
+talking about CSS
+
+751
+00:39:38,359 --> 00:39:43,800
+transformation not SVG
+
+752
+00:39:41,079 --> 00:39:46,960
+transformation so CS transformation make
+
+753
+00:39:43,800 --> 00:39:50,960
+sure yeah it's back you see
+
+754
+00:39:46,960 --> 00:39:54,480
+now now all the link
+
+755
+00:39:50,960 --> 00:39:58,400
+works okay my CSS tutorial you can also
+
+756
+00:39:54,480 --> 00:39:58,400
+read it visual CSS
+
+757
+00:40:02,760 --> 00:40:09,240
+okay
+
+758
+00:40:04,760 --> 00:40:09,240
+so okay so let's start to code
+
+759
+00:40:10,520 --> 00:40:16,400
+this good to see you hope you are doing
+
+760
+00:40:13,359 --> 00:40:22,280
+well and yeah thank you you must be a
+
+761
+00:40:16,400 --> 00:40:23,640
+old reader of me so you know my history
+
+762
+00:40:22,280 --> 00:40:27,280
+thank
+
+763
+00:40:23,640 --> 00:40:32,160
+you uh so
+
+764
+00:40:27,280 --> 00:40:34,880
+okay now uh you need to uh change of
+
+765
+00:40:32,160 --> 00:40:38,920
+mindset so now we're going to start to
+
+766
+00:40:34,880 --> 00:40:43,280
+code okay so remove this so what is this
+
+767
+00:40:38,920 --> 00:40:48,480
+keyboard blog close web dat blog
+
+768
+00:40:43,280 --> 00:40:50,560
+okay close close JavaScript map object
+
+769
+00:40:48,480 --> 00:40:54,920
+tutorial okay
+
+770
+00:40:50,560 --> 00:40:58,520
+so HTML video okay
+
+771
+00:40:54,920 --> 00:41:01,720
+so I don't want want close that close
+
+772
+00:40:58,520 --> 00:41:04,040
+that so okay back to talk show so back
+
+773
+00:41:01,720 --> 00:41:04,040
+to
+
+774
+00:41:06,640 --> 00:41:11,880
+code okay let's just write it
+
+775
+00:41:25,240 --> 00:41:31,920
+out
+
+776
+00:41:27,440 --> 00:41:36,040
+suppose you need to move the
+
+777
+00:41:31,920 --> 00:41:36,040
+file named x.
+
+778
+00:41:37,119 --> 00:41:43,319
+HTML
+
+779
+00:41:38,640 --> 00:41:43,319
+to let's say
+
+780
+00:41:52,119 --> 00:41:56,599
+why okay let's say we are not changing
+
+781
+00:41:54,640 --> 00:41:59,520
+the file name so you are just moving a
+
+782
+00:41:56,599 --> 00:41:59,520
+file to a different
+
+783
+00:42:07,760 --> 00:42:12,760
+directory and of course you need to make
+
+784
+00:42:10,160 --> 00:42:15,240
+sure the file doesn't already exist in
+
+785
+00:42:12,760 --> 00:42:17,280
+the new directory you want to move to so
+
+786
+00:42:15,240 --> 00:42:20,319
+lots of details lots
+
+787
+00:42:17,280 --> 00:42:23,440
+of if you make a mistake when doing this
+
+788
+00:42:20,319 --> 00:42:25,640
+kind of move you screw up your site okay
+
+789
+00:42:23,440 --> 00:42:27,640
+you might have deleted some files so
+
+790
+00:42:25,640 --> 00:42:30,040
+when you do this is your you of course
+
+791
+00:42:27,640 --> 00:42:34,359
+you want the backup first and and get
+
+792
+00:42:30,040 --> 00:42:34,359
+commit and things like that
+
+793
+00:42:35,800 --> 00:42:43,640
+so two things you need to do uh change
+
+794
+00:42:39,119 --> 00:42:46,440
+all links in the file x.
+
+795
+00:42:43,640 --> 00:42:51,119
+HTML okay so
+
+796
+00:42:46,440 --> 00:42:53,640
+that so they still
+
+797
+00:42:51,119 --> 00:42:55,160
+work
+
+798
+00:42:53,640 --> 00:42:58,160
+okay
+
+799
+00:42:55,160 --> 00:42:58,160
+to
+
+800
+00:42:59,079 --> 00:43:06,440
+go through all
+
+801
+00:43:02,839 --> 00:43:10,720
+files in your
+
+802
+00:43:06,440 --> 00:43:10,720
+domain check every
+
+803
+00:43:11,200 --> 00:43:20,720
+file that has link to x.
+
+804
+00:43:16,240 --> 00:43:23,720
+HTML change all the links okay that's
+
+805
+00:43:20,720 --> 00:43:27,119
+the two things you need to
+
+806
+00:43:23,720 --> 00:43:30,680
+do okay so you know this this will take
+
+807
+00:43:27,119 --> 00:43:32,960
+more than one hour but let me just code
+
+808
+00:43:30,680 --> 00:43:35,200
+the outline how do you do this like
+
+809
+00:43:32,960 --> 00:43:37,319
+General okay General concept how many
+
+810
+00:43:35,200 --> 00:43:39,319
+people are watching am I doing good am I
+
+811
+00:43:37,319 --> 00:43:43,400
+still good
+
+812
+00:43:39,319 --> 00:43:47,960
+seven okay so let me tell you what to do
+
+813
+00:43:43,400 --> 00:43:51,559
+okay so uh let's let's just try one of
+
+814
+00:43:47,960 --> 00:43:51,559
+these uh 2D
+
+815
+00:43:55,079 --> 00:44:00,240
+transform
+
+816
+00:43:56,880 --> 00:44:00,240
+so okay
+
+817
+00:44:02,880 --> 00:44:10,359
+so so hold on a second I want to wait
+
+818
+00:44:07,240 --> 00:44:14,319
+let's just do it okay so yeah 2D
+
+819
+00:44:10,359 --> 00:44:17,079
+transform refresh copy the path back to
+
+820
+00:44:14,319 --> 00:44:20,800
+emac so let's
+
+821
+00:44:17,079 --> 00:44:23,800
+say let's say I want to move this file
+
+822
+00:44:20,800 --> 00:44:26,400
+okay let's do a demo let's complete just
+
+823
+00:44:23,800 --> 00:44:29,359
+moving one page because usually when you
+
+824
+00:44:26,400 --> 00:44:31,440
+want to move like you have several you
+
+825
+00:44:29,359 --> 00:44:34,839
+know I want to move all these you know
+
+826
+00:44:31,440 --> 00:44:34,839
+CSS files to a new
+
+827
+00:44:35,200 --> 00:44:40,880
+directory so but I'm just going to code
+
+828
+00:44:38,359 --> 00:44:44,280
+so it works for one file then you know
+
+829
+00:44:40,880 --> 00:44:46,920
+you can work out the details later so
+
+830
+00:44:44,280 --> 00:44:49,240
+close that so what I want to do is okay
+
+831
+00:44:46,920 --> 00:44:53,720
+so suppose this is you know this is a
+
+832
+00:44:49,240 --> 00:44:57,960
+file you need to move okay and uh okay
+
+833
+00:44:53,720 --> 00:44:57,960
+so let's suppose let's just be
+
+834
+00:45:03,440 --> 00:45:10,000
+exact okay we want to move uh not
+
+835
+00:45:11,000 --> 00:45:19,400
+that we want to move this file
+
+836
+00:45:15,599 --> 00:45:19,400
+path to the
+
+837
+00:45:22,440 --> 00:45:27,839
+the
+
+838
+00:45:24,400 --> 00:45:30,559
+Okay so
+
+839
+00:45:27,839 --> 00:45:32,960
+so how so what so how do you do so first
+
+840
+00:45:30,559 --> 00:45:35,520
+of all so of course we need to change
+
+841
+00:45:32,960 --> 00:45:39,200
+all links in the file
+
+842
+00:45:35,520 --> 00:45:41,760
+okay so you so how do you change the
+
+843
+00:45:39,200 --> 00:45:41,760
+link
+
+844
+00:45:43,559 --> 00:45:46,839
+okay for
+
+845
+00:45:47,040 --> 00:45:52,040
+example uh find
+
+846
+00:45:54,880 --> 00:46:03,119
+all HTML Tex that contains
+
+847
+00:46:00,119 --> 00:46:03,119
+a
+
+848
+00:46:06,280 --> 00:46:11,400
+link examples okay that's one
+
+849
+00:46:13,240 --> 00:46:17,359
+example okay another
+
+850
+00:46:18,119 --> 00:46:21,119
+example
+
+851
+00:46:21,400 --> 00:46:28,599
+uh okay uh we don't need the rest of it
+
+852
+00:46:26,720 --> 00:46:33,280
+okay that's another example
+
+853
+00:46:28,599 --> 00:46:33,280
+HF okay another example let's
+
+854
+00:46:35,000 --> 00:46:40,720
+say you know sometimes they don't have
+
+855
+00:46:37,359 --> 00:46:44,040
+dot dot and sometimes they have this
+
+856
+00:46:40,720 --> 00:46:46,559
+form and sometimes they have you know
+
+857
+00:46:44,040 --> 00:46:49,319
+fairly fairly complex when you actually
+
+858
+00:46:46,559 --> 00:46:54,359
+do this for example sometimes they have
+
+859
+00:46:49,319 --> 00:46:54,359
+this form okay let me just write it
+
+860
+00:46:54,800 --> 00:46:57,800
+out
+
+861
+00:46:59,920 --> 00:47:06,000
+okay so here are some of the examples of
+
+862
+00:47:02,599 --> 00:47:08,079
+variations and also images okay so
+
+863
+00:47:06,000 --> 00:47:11,920
+actually this file doesn't contain any
+
+864
+00:47:08,079 --> 00:47:15,119
+image so let's try another file with a
+
+865
+00:47:11,920 --> 00:47:15,119
+image so we can
+
+866
+00:47:15,160 --> 00:47:23,480
+illustrate uh CSS
+
+867
+00:47:18,599 --> 00:47:27,319
+selectors uh color Okay so let's find a
+
+868
+00:47:23,480 --> 00:47:30,960
+page that contains image okay so Box
+
+869
+00:47:27,319 --> 00:47:32,400
+model border outline margin and padding
+
+870
+00:47:30,960 --> 00:47:37,319
+box
+
+871
+00:47:32,400 --> 00:47:40,720
+sizing box Shadow layout okay so we have
+
+872
+00:47:37,319 --> 00:47:43,319
+let's let's see this one okay this one
+
+873
+00:47:40,720 --> 00:47:49,240
+is a tutorial on how do
+
+874
+00:47:43,319 --> 00:47:52,200
+you uh overlay text over image so you
+
+875
+00:47:49,240 --> 00:47:56,319
+see this this is text and the background
+
+876
+00:47:52,200 --> 00:47:57,319
+is image so let's copy that
+
+877
+00:47:56,319 --> 00:48:00,599
+open
+
+878
+00:47:57,319 --> 00:48:04,640
+it search for image so for example here
+
+879
+00:48:00,599 --> 00:48:08,000
+is the image tag image tag contains link
+
+880
+00:48:04,640 --> 00:48:10,680
+to a image you see so you so here is
+
+881
+00:48:08,000 --> 00:48:13,800
+another example of
+
+882
+00:48:10,680 --> 00:48:16,720
+a a link to you need to
+
+883
+00:48:13,800 --> 00:48:20,040
+check and this is not all you see so
+
+884
+00:48:16,720 --> 00:48:23,559
+when you actually do this it's fairly
+
+885
+00:48:20,040 --> 00:48:24,640
+complex fairly complex oh my God and
+
+886
+00:48:23,559 --> 00:48:28,720
+also when
+
+887
+00:48:24,640 --> 00:48:32,280
+you when you actually trying to find
+
+888
+00:48:28,720 --> 00:48:37,640
+what's the full path of these of one of
+
+889
+00:48:32,280 --> 00:48:40,559
+these links it's very very very complex
+
+890
+00:48:37,640 --> 00:48:43,920
+you have you know you have the relative
+
+891
+00:48:40,559 --> 00:48:46,760
+link relative path then you have full
+
+892
+00:48:43,920 --> 00:48:50,920
+path then you have domain
+
+893
+00:48:46,760 --> 00:48:52,920
+path very complex okay um and the domain
+
+894
+00:48:50,920 --> 00:48:55,319
+path some of them point to your own
+
+895
+00:48:52,920 --> 00:48:58,359
+website for example this one so I can
+
+896
+00:48:55,319 --> 00:49:00,000
+open it showing browser you see that's a
+
+897
+00:48:58,359 --> 00:49:03,480
+emac
+
+898
+00:49:00,000 --> 00:49:05,480
+command and but you know so so the file
+
+899
+00:49:03,480 --> 00:49:09,000
+path for this is
+
+900
+00:49:05,480 --> 00:49:13,799
+actually this okay correspond to that
+
+901
+00:49:09,000 --> 00:49:19,359
+file path so so anyway so
+
+902
+00:49:13,799 --> 00:49:19,359
+so so okay let's let's narrow down the
+
+903
+00:49:20,559 --> 00:49:26,280
+analysis okay so first of all is all the
+
+904
+00:49:23,880 --> 00:49:29,640
+different HTML tag
+
+905
+00:49:26,280 --> 00:49:35,280
+that contains a link reference okay so
+
+906
+00:49:29,640 --> 00:49:35,280
+and these are examples uh the second
+
+907
+00:49:40,000 --> 00:49:48,880
+example for each link path there are
+
+908
+00:49:44,040 --> 00:49:52,960
+many variations for example so let's so
+
+909
+00:49:48,880 --> 00:49:52,960
+this is actually we want to do them
+
+910
+00:49:54,520 --> 00:49:57,520
+here
+
+911
+00:50:04,839 --> 00:50:12,799
+okay so these are examples of the
+
+912
+00:50:07,599 --> 00:50:12,799
+variations of the file path
+
+913
+00:50:13,400 --> 00:50:18,200
+itself God we going to this is going to
+
+914
+00:50:16,040 --> 00:50:18,200
+be
+
+915
+00:50:21,319 --> 00:50:26,640
+endless so there's a question from Ben
+
+916
+00:50:24,160 --> 00:50:28,839
+good to see you uh Ben says it seems you
+
+917
+00:50:26,640 --> 00:50:32,760
+don't use the Palm rests with the glove
+
+918
+00:50:28,839 --> 00:50:38,200
+0 very often any reason yeah I I thought
+
+919
+00:50:32,760 --> 00:50:41,520
+I told I spoke about reasons many times
+
+920
+00:50:38,200 --> 00:50:44,720
+because you know did you watch my video
+
+921
+00:50:41,520 --> 00:50:48,680
+for glove 0 review so if you go to my
+
+922
+00:50:44,720 --> 00:50:51,400
+glove 0 keyboard review page you know I
+
+923
+00:50:48,680 --> 00:50:53,760
+have full detailed reviews and photos
+
+924
+00:50:51,400 --> 00:50:57,319
+and there's a video one hour
+
+925
+00:50:53,760 --> 00:51:00,440
+alone about the whole thing thing and
+
+926
+00:50:57,319 --> 00:51:03,839
+there's like five minutes of it talking
+
+927
+00:51:00,440 --> 00:51:06,640
+about Palm rest in general I don't use
+
+928
+00:51:03,839 --> 00:51:09,079
+Palm rest okay it's not good that you
+
+929
+00:51:06,640 --> 00:51:12,000
+rest your palm when you actually need to
+
+930
+00:51:09,079 --> 00:51:15,319
+type a lot like for example when you
+
+931
+00:51:12,000 --> 00:51:18,640
+need to type continuously for let's say
+
+932
+00:51:15,319 --> 00:51:21,400
+5 minutes or more you don't you do not
+
+933
+00:51:18,640 --> 00:51:23,040
+rest your pal on the pal rest doesn't
+
+934
+00:51:21,400 --> 00:51:26,559
+matter how good it
+
+935
+00:51:23,040 --> 00:51:30,319
+is you you you want to you know lift
+
+936
+00:51:26,559 --> 00:51:32,480
+your palm up like vertical and hit the
+
+937
+00:51:30,319 --> 00:51:34,319
+keys like a hammer like the way you do
+
+938
+00:51:32,480 --> 00:51:36,799
+playing piano okay
+
+939
+00:51:34,319 --> 00:51:41,040
+that's that is
+
+940
+00:51:36,799 --> 00:51:44,440
+a kind of common touch typing advice
+
+941
+00:51:41,040 --> 00:51:46,040
+okay do not rest your pal on the pal
+
+942
+00:51:44,440 --> 00:51:49,119
+rest you know if you're just going to
+
+943
+00:51:46,040 --> 00:51:52,599
+type a sloppy maybe you are tired that's
+
+944
+00:51:49,119 --> 00:51:54,359
+fine but in my in my past you know 10
+
+945
+00:51:52,599 --> 00:51:56,440
+years
+
+946
+00:51:54,359 --> 00:51:58,640
+experience when you actually need to
+
+947
+00:51:56,440 --> 00:52:01,200
+start to typee a lot like like for
+
+948
+00:51:58,640 --> 00:52:04,559
+example writing a blog or code you know
+
+949
+00:52:01,200 --> 00:52:06,839
+do not rest on the pal rest because in
+
+950
+00:52:04,559 --> 00:52:09,000
+the past 10 years my experience
+
+951
+00:52:06,839 --> 00:52:13,599
+experience sometimes in argument with
+
+952
+00:52:09,000 --> 00:52:18,280
+people online you know I too lazy to
+
+953
+00:52:13,599 --> 00:52:24,119
+raise my palm and after 30 minutes not
+
+954
+00:52:18,280 --> 00:52:24,119
+it's not feeling good okay so that is uh
+
+955
+00:52:24,280 --> 00:52:30,240
+why okay so let's go back to coding okay
+
+956
+00:52:30,640 --> 00:52:36,200
+uh so how do you solve this issue so we
+
+957
+00:52:33,880 --> 00:52:39,520
+have we we have outlined some of the
+
+958
+00:52:36,200 --> 00:52:43,280
+issues about changing link so I have
+
+959
+00:52:39,520 --> 00:52:46,799
+discovered one of the best way is that
+
+960
+00:52:43,280 --> 00:52:50,359
+to change the link first of all
+
+961
+00:52:46,799 --> 00:52:54,240
+um oh my God this is tedious this is I'm
+
+962
+00:52:50,359 --> 00:52:57,040
+not sure I can finish it in
+
+963
+00:52:54,240 --> 00:53:00,440
+another
+
+964
+00:52:57,040 --> 00:53:05,880
+you know it will need at least 30 more
+
+965
+00:53:00,440 --> 00:53:07,680
+minutes because okay so so I'm G to go
+
+966
+00:53:05,880 --> 00:53:11,200
+as far as we can okay let me just
+
+967
+00:53:07,680 --> 00:53:13,440
+quickly so the first thing you need to
+
+968
+00:53:11,200 --> 00:53:15,720
+solve you know remember the first thing
+
+969
+00:53:13,440 --> 00:53:19,240
+we need to solve is to change all links
+
+970
+00:53:15,720 --> 00:53:23,359
+in that file okay and we have all these
+
+971
+00:53:19,240 --> 00:53:25,440
+different TXS for link and and for the
+
+972
+00:53:23,359 --> 00:53:30,040
+file path we have all this very
+
+973
+00:53:25,440 --> 00:53:33,359
+Creations so the easiest way to
+
+974
+00:53:30,040 --> 00:53:37,640
+normalize all these different links is
+
+975
+00:53:33,359 --> 00:53:40,359
+first of all by changing name or to file
+
+976
+00:53:37,640 --> 00:53:43,319
+path so you don't want this you don't
+
+977
+00:53:40,359 --> 00:53:46,040
+want this fully qualified domain if you
+
+978
+00:53:43,319 --> 00:53:48,440
+see that you have to write a command to
+
+979
+00:53:46,040 --> 00:53:52,960
+check if that domain name is your own
+
+980
+00:53:48,440 --> 00:53:57,119
+website if it is then change this path
+
+981
+00:53:52,960 --> 00:53:59,559
+to the actual file path for example open
+
+982
+00:53:57,119 --> 00:54:02,880
+that that is this
+
+983
+00:53:59,559 --> 00:54:06,400
+page copy the file path you can see
+
+984
+00:54:02,880 --> 00:54:10,359
+that's a command name close it paste the
+
+985
+00:54:06,400 --> 00:54:12,559
+file path here make common so when you
+
+986
+00:54:10,359 --> 00:54:17,160
+see this you want to have a command that
+
+987
+00:54:12,559 --> 00:54:20,680
+change them all to the full file path so
+
+988
+00:54:17,160 --> 00:54:24,160
+all of these becomes full file path that
+
+989
+00:54:20,680 --> 00:54:27,200
+is when it becomes very easy for you to
+
+990
+00:54:24,160 --> 00:54:30,280
+compare if two links are pointing to the
+
+991
+00:54:27,200 --> 00:54:32,000
+same file because otherwise you know all
+
+992
+00:54:30,280 --> 00:54:35,920
+these index actually may be different
+
+993
+00:54:32,000 --> 00:54:39,559
+files depending on which of the
+
+994
+00:54:35,920 --> 00:54:42,520
+link they are embedded in which file and
+
+995
+00:54:39,559 --> 00:54:44,559
+and depending on that file directory so
+
+996
+00:54:42,520 --> 00:54:46,720
+each of these even the same name they
+
+997
+00:54:44,559 --> 00:54:49,480
+don't they don't they don't point to the
+
+998
+00:54:46,720 --> 00:54:52,720
+same file so the first job is that you
+
+999
+00:54:49,480 --> 00:54:58,960
+want to convert all these variations of
+
+1000
+00:54:52,720 --> 00:55:01,960
+path or URL in into a actual file path
+
+1001
+00:54:58,960 --> 00:55:05,799
+okay and in order to do that you have to
+
+1002
+00:55:01,960 --> 00:55:09,559
+deal with uh relative links so you need
+
+1003
+00:55:05,799 --> 00:55:13,200
+to know you know you get a file path you
+
+1004
+00:55:09,559 --> 00:55:15,640
+know the value of hrf then you need to
+
+1005
+00:55:13,200 --> 00:55:18,680
+know the
+
+1006
+00:55:15,640 --> 00:55:22,240
+directory this link of the file is
+
+1007
+00:55:18,680 --> 00:55:26,280
+located so you have to resolve the
+
+1008
+00:55:22,240 --> 00:55:28,440
+relative link to a full path
+
+1009
+00:55:26,280 --> 00:55:30,520
+okay so anyway let me Demo a command so
+
+1010
+00:55:28,440 --> 00:55:32,880
+I already you know like I said I already
+
+1011
+00:55:30,520 --> 00:55:35,200
+wrote this command 10 years ago now I
+
+1012
+00:55:32,880 --> 00:55:38,160
+just need to uh rewrite them so let me
+
+1013
+00:55:35,200 --> 00:55:40,799
+show you okay so for
+
+1014
+00:55:38,160 --> 00:55:43,760
+example for example showing browser you
+
+1015
+00:55:40,799 --> 00:55:46,920
+know CSS 2D transformation so at the at
+
+1016
+00:55:43,760 --> 00:55:49,280
+the bottom you'll see a lot of links and
+
+1017
+00:55:46,920 --> 00:55:52,440
+those are here okay
+
+1018
+00:55:49,280 --> 00:55:54,280
+so so you want to so how do you convert
+
+1019
+00:55:52,440 --> 00:55:56,480
+them to for example I already have a
+
+1020
+00:55:54,280 --> 00:56:01,119
+command so let me show you
+
+1021
+00:55:56,480 --> 00:56:06,039
+okay uh this block okay so let's
+
+1022
+00:56:01,119 --> 00:56:06,039
+try control w
+
+1023
+00:56:06,480 --> 00:56:15,680
+h okay uh wait control WT you see each
+
+1024
+00:56:11,839 --> 00:56:19,280
+of these relative link becomes
+
+1025
+00:56:15,680 --> 00:56:22,400
+this this another complex this is not
+
+1026
+00:56:19,280 --> 00:56:25,440
+exactly a file path this is a full file
+
+1027
+00:56:22,400 --> 00:56:29,119
+path of in h in url
+
+1028
+00:56:25,440 --> 00:56:32,440
+format you see you have the file colon
+
+1029
+00:56:29,119 --> 00:56:35,039
+slash slash slash triple slash and you
+
+1030
+00:56:32,440 --> 00:56:38,760
+have the drive letter this format is
+
+1031
+00:56:35,039 --> 00:56:41,200
+this is a URL format and and that format
+
+1032
+00:56:38,760 --> 00:56:45,839
+is actually what the
+
+1033
+00:56:41,200 --> 00:56:48,359
+browser uh the browser URL field shows
+
+1034
+00:56:45,839 --> 00:56:53,240
+okay so but anyway this is kind of like
+
+1035
+00:56:48,359 --> 00:56:56,880
+a full path okay so so that command I
+
+1036
+00:56:53,240 --> 00:56:56,880
+just called is uh
+
+1037
+00:56:58,640 --> 00:57:07,440
+um let's see where is
+
+1038
+00:57:02,480 --> 00:57:09,400
+it there it is HTML local links to full
+
+1039
+00:57:07,440 --> 00:57:12,440
+path
+
+1040
+00:57:09,400 --> 00:57:16,480
+okay and I have another command that
+
+1041
+00:57:12,440 --> 00:57:20,039
+turns a full path like that back into
+
+1042
+00:57:16,480 --> 00:57:26,400
+relative path so let me do it so the key
+
+1043
+00:57:20,039 --> 00:57:30,520
+is tap w h you see now they are back to
+
+1044
+00:57:26,400 --> 00:57:33,000
+um relative path let me show you the
+
+1045
+00:57:30,520 --> 00:57:35,039
+complexity okay so for example let's
+
+1046
+00:57:33,000 --> 00:57:39,880
+copy this
+
+1047
+00:57:35,039 --> 00:57:43,280
+one so you see this one is a relative
+
+1048
+00:57:39,880 --> 00:57:46,640
+path but however you can make it into a
+
+1049
+00:57:43,280 --> 00:57:46,640
+domain so let me show
+
+1050
+00:57:51,680 --> 00:57:58,039
+you you see these two are actually
+
+1051
+00:57:55,359 --> 00:58:00,400
+equivalent because you know equivalent
+
+1052
+00:57:58,039 --> 00:58:03,160
+as far as user is concerned let me show
+
+1053
+00:58:00,400 --> 00:58:05,559
+you you see if I click that it just go
+
+1054
+00:58:03,160 --> 00:58:05,559
+to my
+
+1055
+00:58:05,920 --> 00:58:12,240
+website so what I'm talking uh so yeah
+
+1056
+00:58:08,960 --> 00:58:18,200
+so let's try the command
+
+1057
+00:58:12,240 --> 00:58:21,559
+to turn them into relative links okay so
+
+1058
+00:58:18,200 --> 00:58:24,960
+do that do that and do that you see okay
+
+1059
+00:58:21,559 --> 00:58:27,119
+it skips the domain uh yeah in my case
+
+1060
+00:58:24,960 --> 00:58:29,240
+it skip the domain but anyway so that's
+
+1061
+00:58:27,119 --> 00:58:31,960
+some of the
+
+1062
+00:58:29,240 --> 00:58:36,160
+complexity okay so I think maybe that's
+
+1063
+00:58:31,960 --> 00:58:41,200
+it for today I mean yeah because to
+
+1064
+00:58:36,160 --> 00:58:41,200
+actually code this uh it take an
+
+1065
+00:58:45,559 --> 00:58:51,280
+hour so I lost people okay so seven
+
+1066
+00:58:48,559 --> 00:58:53,720
+people watching it that's about it I
+
+1067
+00:58:51,280 --> 00:58:56,200
+think anything
+
+1068
+00:58:53,720 --> 00:58:58,920
+else
+
+1069
+00:58:56,200 --> 00:59:03,359
+does does my explanation of the Palm
+
+1070
+00:58:58,920 --> 00:59:05,240
+rest work Ben so you know actually I do
+
+1071
+00:59:03,359 --> 00:59:07,559
+have you know if you just search for
+
+1072
+00:59:05,240 --> 00:59:07,559
+Palm
+
+1073
+00:59:07,720 --> 00:59:14,319
+rest uh kadi keyboard
+
+1074
+00:59:10,440 --> 00:59:17,480
+search Palm rest so I I have an article
+
+1075
+00:59:14,319 --> 00:59:20,440
+on best Palm
+
+1076
+00:59:17,480 --> 00:59:23,599
+rest let's open some of them it's
+
+1077
+00:59:20,440 --> 00:59:27,760
+interesting how to PR okay so these are
+
+1078
+00:59:23,599 --> 00:59:31,599
+you know so base pump rest is the tower
+
+1079
+00:59:27,760 --> 00:59:31,599
+okay I have it here can you guys
+
+1080
+00:59:33,000 --> 00:59:41,520
+see you see so let me open
+
+1081
+00:59:37,720 --> 00:59:45,039
+that you see bath
+
+1082
+00:59:41,520 --> 00:59:47,400
+Tower so actually you know it should be
+
+1083
+00:59:45,039 --> 00:59:50,240
+thicker it should be like that
+
+1084
+00:59:47,400 --> 00:59:53,480
+actually so you
+
+1085
+00:59:50,240 --> 00:59:56,520
+see you know I have it like that but one
+
+1086
+00:59:53,480 --> 01:00:00,520
+more fold
+
+1087
+00:59:56,520 --> 01:00:03,319
+because the kesis physic is high so
+
+1088
+01:00:00,520 --> 01:00:05,920
+actually now it's too high but
+
+1089
+01:00:03,319 --> 01:00:09,559
+anyway this is the best pum rest okay
+
+1090
+01:00:05,920 --> 01:00:12,720
+it's cheap bath Towers you know a dollar
+
+1091
+01:00:09,559 --> 01:00:18,079
+or two you buy at Walmart you don't need
+
+1092
+01:00:12,720 --> 01:00:20,839
+the expensive luxury Elite $10 each
+
+1093
+01:00:18,079 --> 01:00:23,359
+ones you know just buy the cheap one and
+
+1094
+01:00:20,839 --> 01:00:27,680
+you can fold it and if it's 30 just
+
+1095
+01:00:23,359 --> 01:00:31,720
+store them to the wash machine
+
+1096
+01:00:27,680 --> 01:00:34,079
+right you know $2 each as opposed to if
+
+1097
+01:00:31,720 --> 01:00:37,799
+you actually buy the Palm rest you know
+
+1098
+01:00:34,079 --> 01:00:41,200
+Palm rest on Amazon they are $5 or $10
+
+1099
+01:00:37,799 --> 01:00:43,039
+they have fancy robust it's not good you
+
+1100
+01:00:41,200 --> 01:00:45,039
+know the the issue with the tower is
+
+1101
+01:00:43,039 --> 01:00:48,680
+that it doesn't look professional that's
+
+1102
+01:00:45,039 --> 01:00:50,920
+the thing you know if so if you at at a
+
+1103
+01:00:48,680 --> 01:00:53,000
+work in the office you probably don't
+
+1104
+01:00:50,920 --> 01:00:56,480
+want this because your coworker is going
+
+1105
+01:00:53,000 --> 01:00:59,640
+to see what the is this
+
+1106
+01:00:56,480 --> 01:01:02,480
+guy but this is actually the most
+
+1107
+01:00:59,640 --> 01:01:05,359
+practical the cheapest the most
+
+1108
+01:01:02,480 --> 01:01:07,400
+comfortable the most fitting the most
+
+1109
+01:01:05,359 --> 01:01:10,200
+efficient and the most
+
+1110
+01:01:07,400 --> 01:01:12,920
+economic okay bath
+
+1111
+01:01:10,200 --> 01:01:15,440
+Tower but even with bath Tower when you
+
+1112
+01:01:12,920 --> 01:01:19,280
+type a lot I recommend you don't don't
+
+1113
+01:01:15,440 --> 01:01:22,559
+rest on it okay don't rest your hand on
+
+1114
+01:01:19,280 --> 01:01:22,559
+the on the palm
+
+1115
+01:01:23,000 --> 01:01:28,720
+rest okay then
+
+1116
+01:01:25,119 --> 01:01:32,160
+uh okay that's it so I bought a can SP
+
+1117
+01:01:28,720 --> 01:01:32,160
+on your review
+
+1118
+01:01:32,200 --> 01:01:38,760
+fantastic oh you're going to switch to
+
+1119
+01:01:34,400 --> 01:01:41,039
+callac DH okay I don't y that's not
+
+1120
+01:01:38,760 --> 01:01:46,680
+bad
+
+1121
+01:01:41,039 --> 01:01:50,079
+uh okay bye guys bye guys coffee and I'm
+
+1122
+01:01:46,680 --> 01:01:53,440
+done today so we did some we we didn't
+
+1123
+01:01:50,079 --> 01:01:55,440
+really do coding but that's okay
+
+1124
+01:01:53,440 --> 01:01:58,599
+because a lot of people you know when
+
+1125
+01:01:55,440 --> 01:02:02,760
+you start to Cod stuff uh a lot of
+
+1126
+01:01:58,599 --> 01:02:04,359
+people you alienate a lot of people CH
+
+1127
+01:02:02,760 --> 01:02:08,920
+thank
+
+1128
+01:02:04,359 --> 01:02:13,079
+you thank you master
+
+1129
+01:02:08,920 --> 01:02:17,680
+Mater okay that's it anything else okay
+
+1130
+01:02:13,079 --> 01:02:20,319
+anything else so let's see so here is
+
+1131
+01:02:17,680 --> 01:02:22,680
+what we talked about we we we B
+
+1132
+01:02:20,319 --> 01:02:25,039
+basically talked
+
+1133
+01:02:22,680 --> 01:02:28,079
+about blogging
+
+1134
+01:02:25,039 --> 01:02:30,920
+personal blog you know what what happens
+
+1135
+01:02:28,079 --> 01:02:34,160
+when you blogged for 20 years you know
+
+1136
+01:02:30,920 --> 01:02:38,440
+or half of your life happen most of my
+
+1137
+01:02:34,160 --> 01:02:42,480
+life and uh the issues when you blog for
+
+1138
+01:02:38,440 --> 01:02:45,359
+a long duration for 20 years the dead
+
+1139
+01:02:42,480 --> 01:02:49,319
+links and change of structure and you
+
+1140
+01:02:45,359 --> 01:02:51,400
+know what happens to other
+
+1141
+01:02:49,319 --> 01:02:52,520
+corporations you know happens to them
+
+1142
+01:02:51,400 --> 01:02:56,799
+all the
+
+1143
+01:02:52,520 --> 01:03:00,200
+time and uh what what is the things you
+
+1144
+01:02:56,799 --> 01:03:02,839
+need to do in order to restructure your
+
+1145
+01:03:00,200 --> 01:03:05,440
+website you know the
+
+1146
+01:03:02,839 --> 01:03:08,520
+issues why two glasses that's also
+
+1147
+01:03:05,440 --> 01:03:13,640
+talked about in the past five videos
+
+1148
+01:03:08,520 --> 01:03:18,200
+okay one is NE cited this one is old old
+
+1149
+01:03:13,640 --> 01:03:20,520
+man's reading glass okay of course I if
+
+1150
+01:03:18,200 --> 01:03:22,720
+I'm not too lazy I should get one you
+
+1151
+01:03:20,520 --> 01:03:25,440
+know nice glass but yeah I need to do
+
+1152
+01:03:22,720 --> 01:03:28,079
+that but I just
+
+1153
+01:03:25,440 --> 01:03:30,960
+I just have not done that yet cuz I'm
+
+1154
+01:03:28,079 --> 01:03:34,480
+kind of lazy all I'm interested is
+
+1155
+01:03:30,960 --> 01:03:36,000
+coding and n and about technology about
+
+1156
+01:03:34,480 --> 01:03:39,079
+mathematics you
+
+1157
+01:03:36,000 --> 01:03:43,160
+know and I also have contact lenses but
+
+1158
+01:03:39,079 --> 01:03:43,160
+contact lenses is not is less
+
+1159
+01:03:44,240 --> 01:03:48,480
+comfortable okay thank you guys
+
+1160
+01:03:48,960 --> 01:03:51,960
+bye
+

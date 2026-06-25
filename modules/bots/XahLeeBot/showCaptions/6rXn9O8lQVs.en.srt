@@ -1,0 +1,8952 @@
+1
+00:00:05,779 --> 00:00:15,199
+good morning welcome to another episode
+
+2
+00:00:09,510 --> 00:00:21,289
+of XR talk show today is Friday 10th
+
+3
+00:00:15,199 --> 00:00:25,590
+2019 and we are going to do a lecture
+
+4
+00:00:21,289 --> 00:00:28,019
+closure the concept of closure and I'm
+
+5
+00:00:25,590 --> 00:00:31,009
+going to show you what it is and I'm
+
+6
+00:00:28,019 --> 00:00:38,129
+going to code it in eMac Lisp in
+
+7
+00:00:31,009 --> 00:00:43,649
+JavaScript in Python okay so so yeah so
+
+8
+00:00:38,129 --> 00:00:51,149
+let's start let's go to talk so talk
+
+9
+00:00:43,649 --> 00:00:54,199
+show and closure and we're gonna put
+
+10
+00:00:51,149 --> 00:00:54,199
+that here
+
+11
+00:00:56,910 --> 00:01:06,629
+so closure okay JavaScript eMac this
+
+12
+00:01:01,980 --> 00:01:06,629
+title I'm gonna show you what it is
+
+13
+00:01:07,409 --> 00:01:15,659
+closure and other things okay so
+
+14
+00:01:21,369 --> 00:01:27,969
+Oh three people watching great so if you
+
+15
+00:01:24,939 --> 00:01:31,659
+are here say hi and I'm going to go
+
+16
+00:01:27,969 --> 00:01:36,700
+straight to closure let's see if my if I
+
+17
+00:01:31,659 --> 00:01:40,119
+have my windows set up correctly see I'm
+
+18
+00:01:36,700 --> 00:01:44,909
+talking and my hands that's good
+
+19
+00:01:40,119 --> 00:01:46,329
+and so let's let's start so let's go to
+
+20
+00:01:44,909 --> 00:01:50,649
+sorry
+
+21
+00:01:46,329 --> 00:01:55,899
+closure okay I have several articles
+
+22
+00:01:50,649 --> 00:01:58,420
+about closure and this is the main one
+
+23
+00:01:55,899 --> 00:02:01,329
+what is closure in programming languages
+
+24
+00:01:58,420 --> 00:02:04,599
+and I'm gonna show you JavaScript
+
+25
+00:02:01,329 --> 00:02:06,840
+closure in JavaScript and in Python and
+
+26
+00:02:04,599 --> 00:02:11,680
+the emag this Python 3 okay
+
+27
+00:02:06,840 --> 00:02:13,510
+good morning break the loop so break the
+
+28
+00:02:11,680 --> 00:02:16,690
+loop says I finally got the mouse I'm
+
+29
+00:02:13,510 --> 00:02:20,370
+happy with thought GTECH g90 3 worked
+
+30
+00:02:16,690 --> 00:02:23,410
+from not my left what works for my
+
+31
+00:02:20,370 --> 00:02:26,190
+left-handed has million buttons infinity
+
+32
+00:02:23,410 --> 00:02:29,500
+squirrel and true programmable binding
+
+33
+00:02:26,190 --> 00:02:37,060
+oh that's great
+
+34
+00:02:29,500 --> 00:02:42,940
+so g90 3 now which one is gene 8:03
+
+35
+00:02:37,060 --> 00:02:45,250
+let's go to make you what let's I'm glad
+
+36
+00:02:42,940 --> 00:02:49,329
+let's get back to closure but let's look
+
+37
+00:02:45,250 --> 00:02:53,200
+at this just quickly g90 300k this one
+
+38
+00:02:49,329 --> 00:02:56,919
+this one is expensive fancy Mouse
+
+39
+00:02:53,200 --> 00:03:00,459
+Wireless and super light well not super
+
+40
+00:02:56,919 --> 00:03:04,630
+light but fairly light compared to all
+
+41
+00:03:00,459 --> 00:03:07,720
+the other wireless ones and it's
+
+42
+00:03:04,630 --> 00:03:09,519
+dedicated you know it's it's designed
+
+43
+00:03:07,720 --> 00:03:13,450
+for Wireless Gaming Mouse
+
+44
+00:03:09,519 --> 00:03:15,220
+that's great I didn't like this one in
+
+45
+00:03:13,450 --> 00:03:18,040
+particular I mean not yet this is this
+
+46
+00:03:15,220 --> 00:03:22,510
+one it's not my idea because the number
+
+47
+00:03:18,040 --> 00:03:24,160
+buttons are not that much because you
+
+48
+00:03:22,510 --> 00:03:26,620
+know you have to on the left side and
+
+49
+00:03:24,160 --> 00:03:28,930
+two on the right side and I don't like
+
+50
+00:03:26,620 --> 00:03:32,200
+ambidextrous mouse wait you know they
+
+51
+00:03:28,930 --> 00:03:34,850
+have ambidextrous mouse is a fancy
+
+52
+00:03:32,200 --> 00:03:37,160
+jargon using the mouse
+
+53
+00:03:34,850 --> 00:03:41,930
+scamming community they called
+
+54
+00:03:37,160 --> 00:03:46,460
+ambidextrous ambidextrous means it means
+
+55
+00:03:41,930 --> 00:03:49,670
+is a characterization characterization
+
+56
+00:03:46,460 --> 00:03:51,980
+of people's ability to use both right
+
+57
+00:03:49,670 --> 00:03:53,030
+hand and left hand so you know some
+
+58
+00:03:51,980 --> 00:03:55,070
+people are right-handed
+
+59
+00:03:53,030 --> 00:03:57,890
+some people are left-handed and some
+
+60
+00:03:55,070 --> 00:04:00,320
+people is said to be ambidextrous
+
+61
+00:03:57,890 --> 00:04:04,670
+meaning that they can use either hand
+
+62
+00:04:00,320 --> 00:04:07,370
+equally well actually I haven't I'm not
+
+63
+00:04:04,670 --> 00:04:10,460
+sure that is actually true or what
+
+64
+00:04:07,370 --> 00:04:13,370
+percentage of people are actually like
+
+65
+00:04:10,460 --> 00:04:16,330
+that you know I actually I haven't
+
+66
+00:04:13,370 --> 00:04:19,730
+thought about this thinking about it now
+
+67
+00:04:16,330 --> 00:04:21,830
+but anyway that you know the ability to
+
+68
+00:04:19,730 --> 00:04:25,460
+use both right hand and left hand that
+
+69
+00:04:21,830 --> 00:04:28,400
+concept has always fascinated me and I
+
+70
+00:04:25,460 --> 00:04:30,230
+always tried to do that but naturally
+
+71
+00:04:28,400 --> 00:04:32,210
+I'm right-handed but I always try
+
+72
+00:04:30,230 --> 00:04:34,190
+everything to you know I learned
+
+73
+00:04:32,210 --> 00:04:35,960
+something with my sometimes with my left
+
+74
+00:04:34,190 --> 00:04:38,630
+hand at first you know sometimes I use
+
+75
+00:04:35,960 --> 00:04:41,450
+my left hand to wash my teeth and I've
+
+76
+00:04:38,630 --> 00:04:43,280
+learned to write with my left hand not
+
+77
+00:04:41,450 --> 00:04:45,380
+where I haven't been practicing it but
+
+78
+00:04:43,280 --> 00:04:48,080
+you know I try to do everything with
+
+79
+00:04:45,380 --> 00:04:50,840
+left hand as well you know because the
+
+80
+00:04:48,080 --> 00:04:53,240
+idea of ambidextrous meaning you know
+
+81
+00:04:50,840 --> 00:04:55,160
+it's a capability you know in a sense
+
+82
+00:04:53,240 --> 00:04:57,830
+like a Superman you know if you can do
+
+83
+00:04:55,160 --> 00:05:00,260
+everything in so well with both hands
+
+84
+00:04:57,830 --> 00:05:02,090
+you know for that is great so I've been
+
+85
+00:05:00,260 --> 00:05:05,270
+trying to do that but anyway back to the
+
+86
+00:05:02,090 --> 00:05:09,440
+mouse you know ambidextrous so that word
+
+87
+00:05:05,270 --> 00:05:12,140
+actually describes a the ability to you
+
+88
+00:05:09,440 --> 00:05:15,950
+know the suttas kind of natural ability
+
+89
+00:05:12,140 --> 00:05:19,370
+to use either hand but in the mouse
+
+90
+00:05:15,950 --> 00:05:22,910
+communities is simply useful as a jargon
+
+91
+00:05:19,370 --> 00:05:25,340
+you know most it basically just means
+
+92
+00:05:22,910 --> 00:05:28,370
+the mouse is symmetric you know you know
+
+93
+00:05:25,340 --> 00:05:30,170
+symmetric now I don't like symmetric
+
+94
+00:05:28,370 --> 00:05:32,380
+Mouse's because when you have a
+
+95
+00:05:30,170 --> 00:05:35,000
+symmetric Mouse that actually
+
+96
+00:05:32,380 --> 00:05:37,700
+practically it just means you know
+
+97
+00:05:35,000 --> 00:05:40,940
+whatever it buttons on the other side
+
+98
+00:05:37,700 --> 00:05:43,070
+you'll never use it or you know you it
+
+99
+00:05:40,940 --> 00:05:46,669
+because you won't it won't be optimal
+
+100
+00:05:43,070 --> 00:05:48,740
+you know it won't be your it will be
+
+101
+00:05:46,669 --> 00:05:50,930
+hard to use you know so
+
+102
+00:05:48,740 --> 00:05:53,300
+you know if on the other side whatever
+
+103
+00:05:50,930 --> 00:05:56,930
+number buttons they have maybe you can
+
+104
+00:05:53,300 --> 00:06:02,060
+only use one of them you know so I don't
+
+105
+00:05:56,930 --> 00:06:04,520
+like ambidextrous Mouse's you know and
+
+106
+00:06:02,060 --> 00:06:07,700
+it got you know these three buttons on
+
+107
+00:06:04,520 --> 00:06:09,920
+top this button you know that this
+
+108
+00:06:07,700 --> 00:06:13,430
+button you know one of them is
+
+109
+00:06:09,920 --> 00:06:17,150
+controlling the spin way we are let me
+
+110
+00:06:13,430 --> 00:06:19,250
+show you yeah since I'm ok I'm going to
+
+111
+00:06:17,150 --> 00:06:21,800
+get back to the closure okay but this
+
+112
+00:06:19,250 --> 00:06:25,340
+mouse is just the fast main topic let me
+
+113
+00:06:21,800 --> 00:06:32,480
+show you on a second it let's see let me
+
+114
+00:06:25,340 --> 00:06:34,520
+point to as Windex that's some mouse
+
+115
+00:06:32,480 --> 00:06:38,960
+right so you got this button
+
+116
+00:06:34,520 --> 00:06:44,540
+okay this that's the you see now it's
+
+117
+00:06:38,960 --> 00:06:47,870
+spin mod it stings if I press that now
+
+118
+00:06:44,540 --> 00:06:50,810
+it's creaky it doesn't spin so it's it's
+
+119
+00:06:47,870 --> 00:06:54,140
+logic Logitech mouse has this feature if
+
+120
+00:06:50,810 --> 00:06:57,080
+they call it hyper wheel I think the
+
+121
+00:06:54,140 --> 00:07:01,190
+mechanism it's pretended you know it's
+
+122
+00:06:57,080 --> 00:07:03,790
+patent you know so I think because you
+
+123
+00:07:01,190 --> 00:07:06,740
+don't see it anywhere because they have
+
+124
+00:07:03,790 --> 00:07:11,360
+guests they have a paid animation but
+
+125
+00:07:06,740 --> 00:07:16,370
+anyway I spin wheel is absolutely
+
+126
+00:07:11,360 --> 00:07:20,300
+necessary because let's see let's show
+
+127
+00:07:16,370 --> 00:07:23,930
+for example you can see spin query in
+
+128
+00:07:20,300 --> 00:07:27,850
+action hold on a second you see I can
+
+129
+00:07:23,930 --> 00:07:31,960
+again you know it's spring query action
+
+130
+00:07:27,850 --> 00:07:35,450
+you know it's fantastic now especially
+
+131
+00:07:31,960 --> 00:07:37,280
+in linux especially if you are linux
+
+132
+00:07:35,450 --> 00:07:40,220
+operating system because linux operating
+
+133
+00:07:37,280 --> 00:07:43,060
+system is suck so bad in every way okay
+
+134
+00:07:40,220 --> 00:07:45,680
+because because it doesn't have excel
+
+135
+00:07:43,060 --> 00:07:48,200
+accelerated wheel you know in some
+
+136
+00:07:45,680 --> 00:07:51,050
+browsers you might have it but it's it
+
+137
+00:07:48,200 --> 00:07:54,320
+doesn't have a system-wide acceleration
+
+138
+00:07:51,050 --> 00:07:56,920
+of scrolling and you know when you look
+
+139
+00:07:54,320 --> 00:08:01,160
+into it you know on website on dark
+
+140
+00:07:56,920 --> 00:08:02,400
+linux side oh you know that's idiot
+
+141
+00:08:01,160 --> 00:08:04,800
+linux people this
+
+142
+00:08:02,400 --> 00:08:07,530
+oh you cannot be done oh it's difficult
+
+143
+00:08:04,800 --> 00:08:09,630
+to do all we don't want it because the
+
+144
+00:08:07,530 --> 00:08:12,840
+third button is because for this or that
+
+145
+00:08:09,630 --> 00:08:15,570
+you know this is stupid
+
+146
+00:08:12,840 --> 00:08:18,150
+Linux people you know that that is why
+
+147
+00:08:15,570 --> 00:08:20,009
+they never get anywhere the Linux system
+
+148
+00:08:18,150 --> 00:08:22,259
+although it's open-source it really
+
+149
+00:08:20,009 --> 00:08:24,330
+should have already been wiped out
+
+150
+00:08:22,259 --> 00:08:27,300
+Microsoft you know Windows so whatever
+
+151
+00:08:24,330 --> 00:08:28,979
+it's free you know three people but the
+
+152
+00:08:27,300 --> 00:08:33,060
+the system is just so badly that's why
+
+153
+00:08:28,979 --> 00:08:37,200
+in general Linux things and these hacker
+
+154
+00:08:33,060 --> 00:08:38,820
+types kicks us in your sense never go
+
+155
+00:08:37,200 --> 00:08:42,000
+anywhere
+
+156
+00:08:38,820 --> 00:08:44,159
+I mean this this without scrolling who
+
+157
+00:08:42,000 --> 00:08:47,520
+your acceleration it's patently stupid
+
+158
+00:08:44,159 --> 00:08:50,010
+okay because on Linux you know we if you
+
+159
+00:08:47,520 --> 00:08:52,709
+don't have a squirrel acceleration like
+
+160
+00:08:50,010 --> 00:08:57,540
+right now you know I see look look at
+
+161
+00:08:52,709 --> 00:08:59,550
+the actually Emma on a Mac because on a
+
+162
+00:08:57,540 --> 00:09:02,060
+Mac you have a acceleration you know
+
+163
+00:08:59,550 --> 00:09:06,540
+building and on Windows there's a
+
+164
+00:09:02,060 --> 00:09:09,450
+Scorpio acceleration on Windows the last
+
+165
+00:09:06,540 --> 00:09:13,820
+time I looked at which is about four
+
+166
+00:09:09,450 --> 00:09:17,310
+years ago or five you do not have
+
+167
+00:09:13,820 --> 00:09:20,670
+Scorpio acceleration by default okay but
+
+168
+00:09:17,310 --> 00:09:23,700
+if you buy any Logitech mouse or
+
+169
+00:09:20,670 --> 00:09:26,520
+Microsoft Mouse then you have Scorpio
+
+170
+00:09:23,700 --> 00:09:30,330
+acceleration without it's extremely
+
+171
+00:09:26,520 --> 00:09:32,310
+stupid like right actually you know you
+
+172
+00:09:30,330 --> 00:09:34,620
+know it's like then you have to use page
+
+173
+00:09:32,310 --> 00:09:39,209
+now and the problem with page time is
+
+174
+00:09:34,620 --> 00:09:41,760
+that you know sometimes you like page up
+
+175
+00:09:39,209 --> 00:09:43,800
+like this is half way like you have an
+
+176
+00:09:41,760 --> 00:09:47,700
+image that's half way you page down your
+
+177
+00:09:43,800 --> 00:09:51,150
+holy see the other half you know so it's
+
+178
+00:09:47,700 --> 00:09:52,800
+it's this so it's not good okay you want
+
+179
+00:09:51,150 --> 00:09:56,490
+then then you have to use arrow keys
+
+180
+00:09:52,800 --> 00:10:00,540
+like you know just a little bit you know
+
+181
+00:09:56,490 --> 00:10:05,550
+it's really stupid but on a Mac or
+
+182
+00:10:00,540 --> 00:10:11,220
+Windows when you if you have a Scorpio
+
+183
+00:10:05,550 --> 00:10:13,440
+acceleration that means that means for
+
+184
+00:10:11,220 --> 00:10:15,990
+example I actually turn it off because I
+
+185
+00:10:13,440 --> 00:10:21,050
+have spin wheel but let me show
+
+186
+00:10:15,990 --> 00:10:24,209
+you when I have a smoke wheel squirting
+
+187
+00:10:21,050 --> 00:10:25,350
+queer acceleration turning down so I'm
+
+188
+00:10:24,209 --> 00:10:27,720
+turning out wrong
+
+189
+00:10:25,350 --> 00:10:31,529
+right now so I can go to like any page
+
+190
+00:10:27,720 --> 00:10:33,899
+by any position in this long page by
+
+191
+00:10:31,529 --> 00:10:35,820
+just the flick you know like I can go
+
+192
+00:10:33,899 --> 00:10:37,890
+slowly like Grenaa I'm going very slowly
+
+193
+00:10:35,820 --> 00:10:40,860
+or I can flick you know all the way to
+
+194
+00:10:37,890 --> 00:10:44,399
+the bottom you see you see how that is
+
+195
+00:10:40,860 --> 00:10:49,110
+you know like like this this this page
+
+196
+00:10:44,399 --> 00:10:53,100
+is 1 2 3 4 5 6 7 8 9 10 11 12
+
+197
+00:10:49,110 --> 00:10:59,130
+you know it's like 20 pages 20 screen
+
+198
+00:10:53,100 --> 00:11:00,570
+pages now with queer acceleration I can
+
+199
+00:10:59,130 --> 00:11:05,160
+go all the way down okay
+
+200
+00:11:00,570 --> 00:11:09,410
+1 2 3 you know just 3 wipes now if I do
+
+201
+00:11:05,160 --> 00:11:12,300
+not have acceleration it's it's like and
+
+202
+00:11:09,410 --> 00:11:14,130
+this by the way I think when you turn
+
+203
+00:11:12,300 --> 00:11:16,740
+this all the way to the left is still
+
+204
+00:11:14,130 --> 00:11:19,380
+have acceleration so it's actually this
+
+205
+00:11:16,740 --> 00:11:22,140
+is already actually working well but on
+
+206
+00:11:19,380 --> 00:11:24,270
+Linux it's like use it doesn't matter
+
+207
+00:11:22,140 --> 00:11:27,959
+how fast you try to score it's like each
+
+208
+00:11:24,270 --> 00:11:33,120
+time it's like you know it's it's
+
+209
+00:11:27,959 --> 00:11:35,730
+extremely painful okay so this is one
+
+210
+00:11:33,120 --> 00:11:37,920
+another example of the extreme idiocy of
+
+211
+00:11:35,730 --> 00:11:39,779
+the Linux people the hacker types you
+
+212
+00:11:37,920 --> 00:11:42,029
+know I know a lot of you they all say
+
+213
+00:11:39,779 --> 00:11:44,490
+every time we talk about need not say oh
+
+214
+00:11:42,029 --> 00:11:47,910
+well I have no problem with Linux Venus
+
+215
+00:11:44,490 --> 00:11:51,540
+works great for me yeah that's all you
+
+216
+00:11:47,910 --> 00:11:53,760
+are not actually you you are you are
+
+217
+00:11:51,540 --> 00:11:55,950
+delusional you are not actually you know
+
+218
+00:11:53,760 --> 00:11:58,230
+you are pious you don't see so many
+
+219
+00:11:55,950 --> 00:12:01,070
+aspects of things any I mean let's be
+
+220
+00:11:58,230 --> 00:12:04,880
+concrete this is one concrete example
+
+221
+00:12:01,070 --> 00:12:07,529
+try to tell me that you know accelerate
+
+222
+00:12:04,880 --> 00:12:10,020
+accelerated score doesn't matter try try
+
+223
+00:12:07,529 --> 00:12:12,300
+to say that you can't not you know and
+
+224
+00:12:10,020 --> 00:12:14,790
+also a lot of people Linux for example
+
+225
+00:12:12,300 --> 00:12:17,490
+in this case then they might say oh I
+
+226
+00:12:14,790 --> 00:12:19,440
+don't need it because you know I page
+
+227
+00:12:17,490 --> 00:12:22,110
+pitch down you know pay chip works fine
+
+228
+00:12:19,440 --> 00:12:25,440
+for me I actually know because a lot of
+
+229
+00:12:22,110 --> 00:12:27,329
+us it is it's simply your habit like
+
+230
+00:12:25,440 --> 00:12:29,790
+right now like if today I don't have
+
+231
+00:12:27,329 --> 00:12:33,180
+spin wheel I don't have Logitech mouse
+
+232
+00:12:29,790 --> 00:12:36,210
+and suppose I don't have a you know
+
+233
+00:12:33,180 --> 00:12:39,590
+Elena's I just you just get used to it
+
+234
+00:12:36,210 --> 00:12:43,590
+you know that's how flexible adaptation
+
+235
+00:12:39,590 --> 00:12:47,910
+humans ah you know like we went to the
+
+236
+00:12:43,590 --> 00:12:49,620
+moon fifty years ago without you know at
+
+237
+00:12:47,910 --> 00:12:54,300
+the time we don't have computers we
+
+238
+00:12:49,620 --> 00:12:56,070
+don't how computers you know it's what
+
+239
+00:12:54,300 --> 00:12:59,100
+what's the memory size one g one
+
+240
+00:12:56,070 --> 00:13:01,200
+megabyte size you know we are still
+
+241
+00:12:59,100 --> 00:13:03,210
+using slider rules you know but we went
+
+242
+00:13:01,200 --> 00:13:07,290
+to the moon that's extremely complicated
+
+243
+00:13:03,210 --> 00:13:12,480
+engineering you know but we we you know
+
+244
+00:13:07,290 --> 00:13:15,300
+human you know we we you know how
+
+245
+00:13:12,480 --> 00:13:18,480
+difficult something is it's all relative
+
+246
+00:13:15,300 --> 00:13:21,570
+you know we just work we just walk
+
+247
+00:13:18,480 --> 00:13:23,580
+through it so we can almost overcome in
+
+248
+00:13:21,570 --> 00:13:26,790
+a sense overcome anything you know you
+
+249
+00:13:23,580 --> 00:13:29,310
+know people in prison you know there are
+
+250
+00:13:26,790 --> 00:13:31,140
+great mathematicians who are in prison
+
+251
+00:13:29,310 --> 00:13:33,810
+you know like all their life or
+
+252
+00:13:31,140 --> 00:13:36,540
+something or you know for decades and
+
+253
+00:13:33,810 --> 00:13:39,180
+they created you know some of the
+
+254
+00:13:36,540 --> 00:13:40,950
+greatest theories or you're not even
+
+255
+00:13:39,180 --> 00:13:43,140
+mathematicians you can see you know some
+
+256
+00:13:40,950 --> 00:13:46,290
+of the people in fictions or in movies
+
+257
+00:13:43,140 --> 00:13:51,570
+you know people in prison they just do
+
+258
+00:13:46,290 --> 00:13:52,290
+things they get creative you know and so
+
+259
+00:13:51,570 --> 00:13:54,780
+you know sense
+
+260
+00:13:52,290 --> 00:13:57,960
+back to today you know we are all kind
+
+261
+00:13:54,780 --> 00:14:02,070
+of very spoiled you know we we leave our
+
+262
+00:13:57,960 --> 00:14:05,310
+social networks you know and anyway back
+
+263
+00:14:02,070 --> 00:14:10,710
+on back to the acceleration so I turned
+
+264
+00:14:05,310 --> 00:14:14,040
+the acceleration off because and because
+
+265
+00:14:10,710 --> 00:14:17,430
+I have spin wheel so wheel I just
+
+266
+00:14:14,040 --> 00:14:19,920
+when you have spin wheel it's best not
+
+267
+00:14:17,430 --> 00:14:24,510
+to have external acceleration because
+
+268
+00:14:19,920 --> 00:14:26,730
+the speed you scroll the page will be
+
+269
+00:14:24,510 --> 00:14:29,910
+solely depend on how fast you spin a
+
+270
+00:14:26,730 --> 00:14:33,720
+wheel so you can you can control it you
+
+271
+00:14:29,910 --> 00:14:36,330
+know more precisely for example this is
+
+272
+00:14:33,720 --> 00:14:39,840
+my email page I can spin it lets show
+
+273
+00:14:36,330 --> 00:14:43,540
+let me show you okay let me let me show
+
+274
+00:14:39,840 --> 00:14:46,240
+you okay you see right now even in email
+
+275
+00:14:43,540 --> 00:14:51,459
+I turned off acceleration you can turn
+
+276
+00:14:46,240 --> 00:14:53,920
+it off by if you just such Sally Emacs
+
+277
+00:14:51,459 --> 00:14:59,079
+Mouse okay yeah
+
+278
+00:14:53,920 --> 00:15:03,269
+sir the Emacs Marseille that you can
+
+279
+00:14:59,079 --> 00:15:08,279
+find how to set up the acceleration in
+
+280
+00:15:03,269 --> 00:15:14,069
+Emacs okay not not this one
+
+281
+00:15:08,279 --> 00:15:14,069
+how do you change keybinding computer
+
+282
+00:15:16,920 --> 00:15:21,060
+Emacs mouse setup
+
+283
+00:15:27,220 --> 00:15:33,020
+well it's here you know you just go to
+
+284
+00:15:30,320 --> 00:15:36,350
+the keyboard setup and you'll find a
+
+285
+00:15:33,020 --> 00:15:37,690
+link to the yeah there how to set mouse
+
+286
+00:15:36,350 --> 00:15:40,280
+buttons
+
+287
+00:15:37,690 --> 00:15:43,580
+how does make masks we will not
+
+288
+00:15:40,280 --> 00:15:48,710
+accelerate yeah this page so anyway that
+
+289
+00:15:43,580 --> 00:15:52,610
+that is about mouse acceleration now
+
+290
+00:15:48,710 --> 00:15:56,480
+let's go back to yeah so this mouse
+
+291
+00:15:52,610 --> 00:15:58,820
+again you know hey I always have each to
+
+292
+00:15:56,480 --> 00:16:01,550
+buy another mouse even though I have you
+
+293
+00:15:58,820 --> 00:16:05,750
+know I have you know quite a few they
+
+294
+00:16:01,550 --> 00:16:09,230
+are not ideal but you know so this was
+
+295
+00:16:05,750 --> 00:16:11,840
+great because it's wireless but it's not
+
+296
+00:16:09,230 --> 00:16:15,380
+ideal to me though because it's
+
+297
+00:16:11,840 --> 00:16:17,300
+symmetric but it's you know it's
+
+298
+00:16:15,380 --> 00:16:22,760
+Wireless the one of the great thing
+
+299
+00:16:17,300 --> 00:16:24,500
+about it isn't it is Wireless there's a
+
+300
+00:16:22,760 --> 00:16:26,120
+lot of things about you know I in
+
+301
+00:16:24,500 --> 00:16:28,280
+general I don't like Wireless things
+
+302
+00:16:26,120 --> 00:16:31,660
+because when you have wireless it's
+
+303
+00:16:28,280 --> 00:16:35,390
+prone to you know hacking you know they
+
+304
+00:16:31,660 --> 00:16:38,300
+hackers they can listen to your your
+
+305
+00:16:35,390 --> 00:16:41,420
+mouse devices they you know whenever you
+
+306
+00:16:38,300 --> 00:16:44,540
+have higher wireless it's always prone
+
+307
+00:16:41,420 --> 00:16:48,320
+to that risk and doesn't matter it's
+
+308
+00:16:44,540 --> 00:16:53,270
+Bluetooth or or you know customized
+
+309
+00:16:48,320 --> 00:16:55,610
+radio wave it always prone to being
+
+310
+00:16:53,270 --> 00:16:58,700
+hacked and you don't know yeah I mean
+
+311
+00:16:55,610 --> 00:17:04,790
+you can know those things so let's get
+
+312
+00:16:58,700 --> 00:17:07,160
+back to the mouse is so let's see let's
+
+313
+00:17:04,790 --> 00:17:10,070
+get back to the comment so I got eight
+
+314
+00:17:07,160 --> 00:17:12,230
+people watching so feel free to you know
+
+315
+00:17:10,070 --> 00:17:14,630
+comment like I say anything opinions you
+
+316
+00:17:12,230 --> 00:17:18,830
+have so break the loop break the loop
+
+317
+00:17:14,630 --> 00:17:22,010
+are you smart squeal I use mouse wheel
+
+318
+00:17:18,830 --> 00:17:24,440
+lean left and lean right for two more
+
+319
+00:17:22,010 --> 00:17:25,370
+buttons okay yeah not sure if that's
+
+320
+00:17:24,440 --> 00:17:28,460
+right okay
+
+321
+00:17:25,370 --> 00:17:31,040
+and I refined those two DPI buttons
+
+322
+00:17:28,460 --> 00:17:34,820
+below mouse wheel to other functions
+
+323
+00:17:31,040 --> 00:17:37,640
+total you have imbalance not easy press
+
+324
+00:17:34,820 --> 00:17:40,310
+too difficult okay yeah the other thing
+
+325
+00:17:37,640 --> 00:17:43,610
+not ideal to me about these
+
+326
+00:17:40,310 --> 00:17:46,490
+Logitech mouse is you see the middle
+
+327
+00:17:43,610 --> 00:17:48,920
+buttons it's kind of like two tiny small
+
+328
+00:17:46,490 --> 00:17:54,080
+ones in the middle you know so that's
+
+329
+00:17:48,920 --> 00:17:58,760
+not I mean it's not ideal that is all
+
+330
+00:17:54,080 --> 00:18:01,100
+but you know we like when you look at
+
+331
+00:17:58,760 --> 00:18:01,670
+people who are obsessed about mouse or
+
+332
+00:18:01,100 --> 00:18:04,550
+keyboard
+
+333
+00:18:01,670 --> 00:18:06,560
+you always find people like they always
+
+334
+00:18:04,550 --> 00:18:08,510
+complain yeah I looked at all the
+
+335
+00:18:06,560 --> 00:18:10,940
+hundreds of keyboards or Mouse but they
+
+336
+00:18:08,510 --> 00:18:12,590
+are not ideal because this one is
+
+337
+00:18:10,940 --> 00:18:14,750
+missing that you know each person has
+
+338
+00:18:12,590 --> 00:18:20,000
+always have differences little
+
+339
+00:18:14,750 --> 00:18:21,890
+preferences so anyway so I'm glad you
+
+340
+00:18:20,000 --> 00:18:25,400
+find you know the idea Mouse for you
+
+341
+00:18:21,890 --> 00:18:27,800
+yeah so of you guys out there you want
+
+342
+00:18:25,400 --> 00:18:29,900
+to buy a mouse go to my website ok sorry
+
+343
+00:18:27,800 --> 00:18:34,150
+just search for my mouse page I have
+
+344
+00:18:29,900 --> 00:18:37,790
+tons of reviews and buy it for my web
+
+345
+00:18:34,150 --> 00:18:41,240
+web page so let's see where's a mouse
+
+346
+00:18:37,790 --> 00:18:43,160
+mouse mouse trackball you know here's
+
+347
+00:18:41,240 --> 00:18:46,760
+another interesting topic you see this
+
+348
+00:18:43,160 --> 00:18:49,700
+Apple scums Apple and Google you know
+
+349
+00:18:46,760 --> 00:18:52,100
+these companies comes you see this this
+
+350
+00:18:49,700 --> 00:18:55,790
+mass this is you know what that is that
+
+351
+00:18:52,100 --> 00:18:59,570
+is a Unicode okay that is a Unicode four
+
+352
+00:18:55,790 --> 00:19:02,120
+three button Mouse now when you are in
+
+353
+00:18:59,570 --> 00:19:03,830
+Mac OS you know when when you are in
+
+354
+00:19:02,120 --> 00:19:07,280
+your apples platform you know I follow
+
+355
+00:19:03,830 --> 00:19:11,630
+you know Mac that they show the three
+
+356
+00:19:07,280 --> 00:19:14,030
+button Mouse like that so what so this
+
+357
+00:19:11,630 --> 00:19:16,070
+is a situation where the emoji you know
+
+358
+00:19:14,030 --> 00:19:18,950
+the Unicode character emoji has become
+
+359
+00:19:16,070 --> 00:19:21,530
+very politicized and commercialized you
+
+360
+00:19:18,950 --> 00:19:23,950
+know the idea the idea of Unicode aside
+
+361
+00:19:21,530 --> 00:19:26,300
+for communication you know it helps or
+
+362
+00:19:23,950 --> 00:19:29,390
+human animals you know you have one
+
+363
+00:19:26,300 --> 00:19:32,270
+encoding and you can have you know you
+
+364
+00:19:29,390 --> 00:19:34,040
+can express Chinese English Italian and
+
+365
+00:19:32,270 --> 00:19:37,490
+French you know o in one language you
+
+366
+00:19:34,040 --> 00:19:40,850
+know Germany or Japanese you know in one
+
+367
+00:19:37,490 --> 00:19:42,860
+encoding so you have multiple language
+
+368
+00:19:40,850 --> 00:19:45,740
+and and then you have emojis you know
+
+369
+00:19:42,860 --> 00:19:49,820
+it's supposed to help us communicate or
+
+370
+00:19:45,740 --> 00:19:52,299
+fulfill you know but today you know it
+
+371
+00:19:49,820 --> 00:19:55,979
+seems about five years ago
+
+372
+00:19:52,299 --> 00:19:58,690
+they these emojis become political
+
+373
+00:19:55,979 --> 00:20:01,929
+political eyes and they are also users
+
+374
+00:19:58,690 --> 00:20:05,440
+or commercializing marketing tool so
+
+375
+00:20:01,929 --> 00:20:10,989
+because for example let's go to Unicode
+
+376
+00:20:05,440 --> 00:20:13,479
+okay so here's a Unicode page and you go
+
+377
+00:20:10,989 --> 00:20:17,799
+to the tech okay these are a bunch of
+
+378
+00:20:13,479 --> 00:20:21,219
+technical technology called devices that
+
+379
+00:20:17,799 --> 00:20:24,759
+has a emoji representation now you see
+
+380
+00:20:21,219 --> 00:20:27,190
+this character is three button Mouse but
+
+381
+00:20:24,759 --> 00:20:29,259
+if you are on a Mac it shows like that I
+
+382
+00:20:27,190 --> 00:20:32,799
+mean does that look like three button
+
+383
+00:20:29,259 --> 00:20:35,169
+mouse - you know but of course Apple you
+
+384
+00:20:32,799 --> 00:20:38,349
+know the Apple wants you to think you
+
+385
+00:20:35,169 --> 00:20:41,529
+know Apple or Mac Mac fans you know they
+
+386
+00:20:38,349 --> 00:20:43,539
+think this is superior this is their
+
+387
+00:20:41,529 --> 00:20:46,389
+version of three button Mouse you know
+
+388
+00:20:43,539 --> 00:20:49,419
+with touching or that you know they like
+
+389
+00:20:46,389 --> 00:20:52,089
+you but it's not it does not communicate
+
+390
+00:20:49,419 --> 00:20:54,729
+you know first of all if you look at the
+
+391
+00:20:52,089 --> 00:20:57,309
+mouse population you know the the mouse
+
+392
+00:20:54,729 --> 00:21:00,820
+market you know people what people think
+
+393
+00:20:57,309 --> 00:21:03,190
+when they when it comes to three button
+
+394
+00:21:00,820 --> 00:21:06,369
+Mouse you know the vast majority are not
+
+395
+00:21:03,190 --> 00:21:08,859
+not Apple Mouse you know it's just the
+
+396
+00:21:06,369 --> 00:21:13,690
+elite you know the well thing you need
+
+397
+00:21:08,859 --> 00:21:15,459
+facts so but you know so it does not
+
+398
+00:21:13,690 --> 00:21:17,109
+serve the purpose of communication
+
+399
+00:21:15,459 --> 00:21:19,779
+anymore you know that these companies
+
+400
+00:21:17,109 --> 00:21:23,049
+each company they just use it to promote
+
+401
+00:21:19,779 --> 00:21:25,839
+their own product their own platform so
+
+402
+00:21:23,049 --> 00:21:30,070
+you know how Mac OS 3 word of mouth
+
+403
+00:21:25,839 --> 00:21:32,379
+looks like that and you know so you have
+
+404
+00:21:30,070 --> 00:21:35,459
+this this one is called one-button Mouse
+
+405
+00:21:32,379 --> 00:21:41,139
+this one is too bad a mouse emoji you
+
+406
+00:21:35,459 --> 00:21:42,849
+know so it's like political you know it
+
+407
+00:21:41,139 --> 00:21:47,559
+doesn't you know it does not serve the
+
+408
+00:21:42,849 --> 00:21:50,079
+purpose of communication and the same
+
+409
+00:21:47,559 --> 00:21:52,599
+way for other emojis you know and also
+
+410
+00:21:50,079 --> 00:21:55,059
+Google Google is one of the most evil
+
+411
+00:21:52,599 --> 00:21:58,089
+him in there emoji as well you know like
+
+412
+00:21:55,059 --> 00:22:00,789
+these emojis when you are on Android or
+
+413
+00:21:58,089 --> 00:22:05,770
+Google Chrome book you know Google
+
+414
+00:22:00,789 --> 00:22:08,710
+platform Chrome OS they here
+
+415
+00:22:05,770 --> 00:22:11,140
+they all these emojis look like androids
+
+416
+00:22:08,710 --> 00:22:13,990
+android heads you know like with with a
+
+417
+00:22:11,140 --> 00:22:16,270
+used tray of antennae but now they
+
+418
+00:22:13,990 --> 00:22:18,910
+remove that it looks like extremely
+
+419
+00:22:16,270 --> 00:22:20,890
+creepy you know it's like this blob you
+
+420
+00:22:18,910 --> 00:22:25,260
+know this this semicircular plop
+
+421
+00:22:20,890 --> 00:22:25,260
+actually I have a article on these
+
+422
+00:22:25,470 --> 00:22:30,730
+politics of emoji Unicode for
+
+423
+00:22:28,780 --> 00:22:37,030
+programmers emoji equivalents
+
+424
+00:22:30,730 --> 00:22:43,600
+I don't I don't have it linked there
+
+425
+00:22:37,030 --> 00:22:48,550
+because it's a emoji politics let me
+
+426
+00:22:43,600 --> 00:22:52,030
+show you this page okay then there is
+
+427
+00:22:48,550 --> 00:22:54,460
+the social justice aspect okay we're not
+
+428
+00:22:52,030 --> 00:22:56,140
+going to talk about about that today we
+
+429
+00:22:54,460 --> 00:22:59,860
+talk I talked about that before but
+
+430
+00:22:56,140 --> 00:23:01,870
+anyway look at these are Google's emoji
+
+431
+00:22:59,860 --> 00:23:05,470
+for smiley so you know what they'd look
+
+432
+00:23:01,870 --> 00:23:08,740
+like this creepier is you know it's a
+
+433
+00:23:05,470 --> 00:23:12,760
+matter of judgment but this was not what
+
+434
+00:23:08,740 --> 00:23:14,760
+emoji Smiley's common conception of
+
+435
+00:23:12,760 --> 00:23:16,270
+Smiley's with this you know
+
+436
+00:23:14,760 --> 00:23:21,040
+semi-circular
+
+437
+00:23:16,270 --> 00:23:24,250
+blob you know and it really looks creepy
+
+438
+00:23:21,040 --> 00:23:29,530
+to me it looks like that because it was
+
+439
+00:23:24,250 --> 00:23:32,380
+you know the rip it was represented by
+
+440
+00:23:29,530 --> 00:23:35,160
+Android you know the android logo mascot
+
+441
+00:23:32,380 --> 00:23:39,490
+for Google's Android phone you know with
+
+442
+00:23:35,160 --> 00:23:42,040
+kind of part you know robot with antenna
+
+443
+00:23:39,490 --> 00:23:44,770
+you know Google's logos and mascot has
+
+444
+00:23:42,040 --> 00:23:49,390
+always been very cold and very ugly and
+
+445
+00:23:44,770 --> 00:23:52,570
+very for some reason Google you know and
+
+446
+00:23:49,390 --> 00:23:55,090
+they become an evil empire so somehow
+
+447
+00:23:52,570 --> 00:23:57,970
+reflects actually their their choice of
+
+448
+00:23:55,090 --> 00:24:00,670
+emoji because look emoji and logos
+
+449
+00:23:57,970 --> 00:24:03,550
+because look at google chrome logo you
+
+450
+00:24:00,670 --> 00:24:06,100
+know it looks like a UFO like like if
+
+451
+00:24:03,550 --> 00:24:11,550
+you look at all Google's logos or their
+
+452
+00:24:06,100 --> 00:24:15,880
+products logos oh one exception : okay
+
+453
+00:24:11,550 --> 00:24:18,370
+there is my exception : : has this cute
+
+454
+00:24:15,880 --> 00:24:21,400
+mask mascot of a
+
+455
+00:24:18,370 --> 00:24:25,179
+you know gopher so this is one example
+
+456
+00:24:21,400 --> 00:24:27,070
+exception : but all kugels product you
+
+457
+00:24:25,179 --> 00:24:31,150
+look at their logos they are they are
+
+458
+00:24:27,070 --> 00:24:38,409
+always kind of cold the void of any
+
+459
+00:24:31,150 --> 00:24:40,510
+humanity the void of any you know
+
+460
+00:24:38,409 --> 00:24:43,630
+humanity or animals or anything like
+
+461
+00:24:40,510 --> 00:24:46,059
+that it's always like you know just
+
+462
+00:24:43,630 --> 00:24:47,799
+coding machine when it's machinery like
+
+463
+00:24:46,059 --> 00:24:51,850
+you know like you know google chrome
+
+464
+00:24:47,799 --> 00:24:55,360
+logo so for some reason you know
+
+465
+00:24:51,850 --> 00:25:02,590
+Google's logo has this kind of neck has
+
+466
+00:24:55,360 --> 00:25:05,380
+this kind of situation across Google you
+
+467
+00:25:02,590 --> 00:25:10,570
+know and this is even before Google
+
+468
+00:25:05,380 --> 00:25:12,669
+became evil so for some reason I I'm not
+
+469
+00:25:10,570 --> 00:25:13,600
+sure why I'm not sure maybe there is a
+
+470
+00:25:12,669 --> 00:25:17,860
+company-wide
+
+471
+00:25:13,600 --> 00:25:20,049
+you know thesis about you know what
+
+472
+00:25:17,860 --> 00:25:23,080
+their logo should be too you know maybe
+
+473
+00:25:20,049 --> 00:25:26,230
+they have a internal publication you
+
+474
+00:25:23,080 --> 00:25:28,840
+know to all the logo designers but I'm
+
+475
+00:25:26,230 --> 00:25:32,860
+guessing parties because Google has
+
+476
+00:25:28,840 --> 00:25:34,480
+always been very engineer driven you
+
+477
+00:25:32,860 --> 00:25:36,360
+know company you know at least in the
+
+478
+00:25:34,480 --> 00:25:38,940
+beginning in the first ten years
+
+479
+00:25:36,360 --> 00:25:41,490
+everything is based on statistics
+
+480
+00:25:38,940 --> 00:25:45,039
+measurements you know so they are like
+
+481
+00:25:41,490 --> 00:25:47,950
+in a sense inhuman that's what you know
+
+482
+00:25:45,039 --> 00:25:51,340
+that's what that word means in human
+
+483
+00:25:47,950 --> 00:25:54,309
+because they you know human or being
+
+484
+00:25:51,340 --> 00:25:56,770
+human is not necessarily a good thing in
+
+485
+00:25:54,309 --> 00:25:59,710
+many respects because human as human
+
+486
+00:25:56,770 --> 00:26:02,260
+animals we have we have prejudices we
+
+487
+00:25:59,710 --> 00:26:04,870
+have biases you know it's building you
+
+488
+00:26:02,260 --> 00:26:10,230
+know in our brain it's actually just
+
+489
+00:26:04,870 --> 00:26:13,570
+building and so we are you know our
+
+490
+00:26:10,230 --> 00:26:16,690
+emotions in the good parts the bad parts
+
+491
+00:26:13,570 --> 00:26:19,000
+you know empathy our connection to other
+
+492
+00:26:16,690 --> 00:26:20,890
+people love in hate you know it's all
+
+493
+00:26:19,000 --> 00:26:23,559
+part of us that's what we call it human
+
+494
+00:26:20,890 --> 00:26:27,870
+you know its humanity you know humanity
+
+495
+00:26:23,559 --> 00:26:31,210
+the human issue you know that's a big
+
+496
+00:26:27,870 --> 00:26:31,990
+unsolved and almost undefinable issue
+
+497
+00:26:31,210 --> 00:26:37,150
+with
+
+498
+00:26:31,990 --> 00:26:39,270
+you know that's humanity that's that's
+
+499
+00:26:37,150 --> 00:26:43,540
+the thing about humanity you know so but
+
+500
+00:26:39,270 --> 00:26:47,050
+but Google has been always machine and
+
+501
+00:26:43,540 --> 00:26:49,720
+engineering statistics statistics driven
+
+502
+00:26:47,050 --> 00:26:53,680
+and by the way also it
+
+503
+00:26:49,720 --> 00:26:57,760
+we actually it's impossible today we
+
+504
+00:26:53,680 --> 00:27:01,240
+don't have a way to define what humanity
+
+505
+00:26:57,760 --> 00:27:03,340
+means actually in any precise or
+
+506
+00:27:01,240 --> 00:27:07,330
+mathematical way so that's also part of
+
+507
+00:27:03,340 --> 00:27:10,720
+the problem so anyway that's digression
+
+508
+00:27:07,330 --> 00:27:13,540
+ok that's let's go back to the Commons
+
+509
+00:27:10,720 --> 00:27:16,660
+then we're gonna then we're gonna start
+
+510
+00:27:13,540 --> 00:27:19,000
+to talk about closure I'm gonna I'm
+
+511
+00:27:16,660 --> 00:27:21,910
+going to talk about that project that
+
+512
+00:27:19,000 --> 00:27:24,120
+subject for sure because there was what
+
+513
+00:27:21,910 --> 00:27:35,230
+was promised
+
+514
+00:27:24,120 --> 00:27:38,530
+ok so Hugh Jones zen says you it then
+
+515
+00:27:35,230 --> 00:27:40,390
+says I cannot buy this in China I cannot
+
+516
+00:27:38,530 --> 00:27:42,520
+buy this in China maybe you can add
+
+517
+00:27:40,390 --> 00:27:46,270
+promotion link to some Chinese online
+
+518
+00:27:42,520 --> 00:27:50,950
+store I don't have a variation with that
+
+519
+00:27:46,270 --> 00:27:53,370
+I don't have anything like like that so
+
+520
+00:27:50,950 --> 00:27:57,220
+I don't know actually
+
+521
+00:27:53,370 --> 00:27:59,800
+those Chinese you know online shops they
+
+522
+00:27:57,220 --> 00:28:02,170
+have they have affiliation I haven't
+
+523
+00:27:59,800 --> 00:28:04,990
+looked into so you know if you are in
+
+524
+00:28:02,170 --> 00:28:08,470
+China just I guess buy it from China but
+
+525
+00:28:04,990 --> 00:28:11,920
+actually if you are in China then I do
+
+526
+00:28:08,470 --> 00:28:15,100
+not recommend you buy this American not
+
+527
+00:28:11,920 --> 00:28:19,030
+eat a go you know or European things
+
+528
+00:28:15,100 --> 00:28:21,490
+because in China this logitech orders
+
+529
+00:28:19,030 --> 00:28:23,710
+they are you know extremely expensive
+
+530
+00:28:21,490 --> 00:28:29,560
+you know they are more expensive than if
+
+531
+00:28:23,710 --> 00:28:32,260
+you buy it in US and on the other hand
+
+532
+00:28:29,560 --> 00:28:35,410
+why are in China you have tons of you
+
+533
+00:28:32,260 --> 00:28:38,170
+know almost equivalent you know and they
+
+534
+00:28:35,410 --> 00:28:40,540
+are like five times cheaper so actually
+
+535
+00:28:38,170 --> 00:28:44,380
+in China I would recommend you just buy
+
+536
+00:28:40,540 --> 00:28:46,240
+a you know spend some good money buy or
+
+537
+00:28:44,380 --> 00:28:50,290
+Chinese ones in China
+
+538
+00:28:46,240 --> 00:28:53,230
+because that way the ratio of quality
+
+539
+00:28:50,290 --> 00:28:58,540
+features over the price is much better
+
+540
+00:28:53,230 --> 00:29:00,670
+than if you buy a logitech so break the
+
+541
+00:28:58,540 --> 00:29:03,340
+loop says I require ambidextrous miles
+
+542
+00:29:00,670 --> 00:29:06,340
+because I'm left-handed
+
+543
+00:29:03,340 --> 00:29:09,180
+yeah that's that is true you know there
+
+544
+00:29:06,340 --> 00:29:12,880
+there are left-handed Mouse's you know
+
+545
+00:29:09,180 --> 00:29:16,150
+there are a few of them they actually
+
+546
+00:29:12,880 --> 00:29:17,860
+they are rare but but I have a page you
+
+547
+00:29:16,150 --> 00:29:20,470
+know that show a few left-handed but
+
+548
+00:29:17,860 --> 00:29:23,110
+then it's real then you know the
+
+549
+00:29:20,470 --> 00:29:24,670
+features are not comparable because the
+
+550
+00:29:23,110 --> 00:29:27,010
+image some of them don't have wireless
+
+551
+00:29:24,670 --> 00:29:31,930
+some of them are you know not gaming you
+
+552
+00:29:27,010 --> 00:29:34,360
+know yeah so so yeah just got with the
+
+553
+00:29:31,930 --> 00:29:40,210
+ambidextrous mouse or rather the
+
+554
+00:29:34,360 --> 00:29:42,970
+symmetric shaped mass yes infinity score
+
+555
+00:29:40,210 --> 00:29:46,240
+is good so do you do usually have it set
+
+556
+00:29:42,970 --> 00:29:53,280
+on smooth yeah I always have a set on
+
+557
+00:29:46,240 --> 00:29:56,620
+spin spin mod yes smooth but you know
+
+558
+00:29:53,280 --> 00:29:59,950
+occasionally I find clicky better I mean
+
+559
+00:29:56,620 --> 00:30:03,520
+occasionally you know just occasionally
+
+560
+00:29:59,950 --> 00:30:05,980
+quickie is better for some sometimes I
+
+561
+00:30:03,520 --> 00:30:09,670
+want quickie but usually I'm just too
+
+562
+00:30:05,980 --> 00:30:13,240
+lazy to switch to quickie but also when
+
+563
+00:30:09,670 --> 00:30:16,420
+you switch to creaky then I want the
+
+564
+00:30:13,240 --> 00:30:19,030
+acceleration but then I have to go to
+
+565
+00:30:16,420 --> 00:30:21,310
+preferences to say that up oh you know
+
+566
+00:30:19,030 --> 00:30:26,250
+so that's too much trouble so usually I
+
+567
+00:30:21,310 --> 00:30:26,250
+I just always have it on spinning mod oh
+
+568
+00:30:26,490 --> 00:30:30,730
+yeah
+
+569
+00:30:27,610 --> 00:30:33,160
+so but I used to you know I usually have
+
+570
+00:30:30,730 --> 00:30:35,980
+another Mouse on my left hand you know I
+
+571
+00:30:33,160 --> 00:30:38,440
+I always use two Mouse's so on that
+
+572
+00:30:35,980 --> 00:30:41,110
+Mouse or something sometimes it's a
+
+573
+00:30:38,440 --> 00:30:43,450
+trackball that Mouse is creaky so
+
+574
+00:30:41,110 --> 00:30:50,230
+whenever I want to quickly I just use
+
+575
+00:30:43,450 --> 00:30:52,360
+that Mouse so no man says I know man
+
+576
+00:30:50,230 --> 00:30:55,500
+infrared Wireless is close to impossible
+
+577
+00:30:52,360 --> 00:30:58,030
+to hack unless you are in the same room
+
+578
+00:30:55,500 --> 00:30:59,710
+well yeah of course you have to be in
+
+579
+00:30:58,030 --> 00:31:03,880
+the same room you have to be in a range
+
+580
+00:30:59,710 --> 00:31:07,059
+right I have always found a Google
+
+581
+00:31:03,880 --> 00:31:09,640
+design you are aesthetically aesthetic
+
+582
+00:31:07,059 --> 00:31:16,360
+ugly okay hi can you explain why Emacs
+
+583
+00:31:09,640 --> 00:31:19,210
+is bad with big files it's just it's
+
+584
+00:31:16,360 --> 00:31:22,659
+just because green Dex asked that
+
+585
+00:31:19,210 --> 00:31:25,029
+question that's just because I don't
+
+586
+00:31:22,659 --> 00:31:27,039
+have technical details but I'm pretty
+
+587
+00:31:25,029 --> 00:31:29,590
+sure I know the answer the answer is
+
+588
+00:31:27,039 --> 00:31:33,520
+just because that's the way Emacs was
+
+589
+00:31:29,590 --> 00:31:35,470
+coded the design of the you know how it
+
+590
+00:31:33,520 --> 00:31:42,130
+is coded in the beginning thirty years
+
+591
+00:31:35,470 --> 00:31:44,559
+ago yeah you know so I don't know the
+
+592
+00:31:42,130 --> 00:31:46,419
+technical details i you know and i don't
+
+593
+00:31:44,559 --> 00:31:48,669
+actually know much about low-level
+
+594
+00:31:46,419 --> 00:31:51,789
+programming but I suppose you it has to
+
+595
+00:31:48,669 --> 00:31:55,510
+do how do you implement you know like
+
+596
+00:31:51,789 --> 00:31:58,299
+you have you know in the in a case of
+
+597
+00:31:55,510 --> 00:32:00,850
+Emacs when you read okay here's a reason
+
+598
+00:31:58,299 --> 00:32:03,669
+when you read a fire when you open up
+
+599
+00:32:00,850 --> 00:32:06,610
+fire into a buffer in Emacs it has to
+
+600
+00:32:03,669 --> 00:32:08,049
+read it has to load the whole file you
+
+601
+00:32:06,610 --> 00:32:11,159
+know from the first character to the
+
+602
+00:32:08,049 --> 00:32:16,299
+last character into memory okay
+
+603
+00:32:11,159 --> 00:32:19,480
+that was what Emacs has to do and that
+
+604
+00:32:16,299 --> 00:32:20,919
+is I know that is not the case in modern
+
+605
+00:32:19,480 --> 00:32:23,980
+editors I don't think so
+
+606
+00:32:20,919 --> 00:32:27,070
+so again I'm not sure about details but
+
+607
+00:32:23,980 --> 00:32:28,750
+I'm pretty sure that is the reason one
+
+608
+00:32:27,070 --> 00:32:32,230
+thing I know for sure is that when you
+
+609
+00:32:28,750 --> 00:32:33,880
+open a file in Emacs it it becomes a
+
+610
+00:32:32,230 --> 00:32:36,789
+buffer right it has to load the whole
+
+611
+00:32:33,880 --> 00:32:40,299
+thing into the buffer and also the other
+
+612
+00:32:36,789 --> 00:32:45,880
+thing is that Emacs Church kusa position
+
+613
+00:32:40,299 --> 00:32:51,210
+by is called the point you know for
+
+614
+00:32:45,880 --> 00:32:56,080
+example I guess a point point point
+
+615
+00:32:51,210 --> 00:32:58,120
+point to register anyway so you know for
+
+616
+00:32:56,080 --> 00:33:00,669
+example I can code is command describe
+
+617
+00:32:58,120 --> 00:33:05,080
+cha and you know tell me what position I
+
+618
+00:33:00,669 --> 00:33:08,049
+am on so the position is just for
+
+619
+00:33:05,080 --> 00:33:11,049
+example the beginning of buffer if my
+
+620
+00:33:08,049 --> 00:33:14,050
+kusa is that at the beginning that kusa
+
+621
+00:33:11,049 --> 00:33:16,960
+position called point is what okay
+
+622
+00:33:14,050 --> 00:33:19,870
+with one for example I call describe key
+
+623
+00:33:16,960 --> 00:33:23,500
+describe cha and you can see he says
+
+624
+00:33:19,870 --> 00:33:27,750
+what here so the cursor position is you
+
+625
+00:33:23,500 --> 00:33:31,120
+know your where your cursor is and that
+
+626
+00:33:27,750 --> 00:33:33,220
+when you called eMac so every command in
+
+627
+00:33:31,120 --> 00:33:36,880
+Emacs and you know moving cursor or
+
+628
+00:33:33,220 --> 00:33:39,340
+whatever it's it's actually coding eMac
+
+629
+00:33:36,880 --> 00:33:42,760
+this command and eMac this command in
+
+630
+00:33:39,340 --> 00:33:45,040
+turn is working with kusa positions so
+
+631
+00:33:42,760 --> 00:33:51,450
+it has to know so in other in other
+
+632
+00:33:45,040 --> 00:33:55,620
+words the maximum file Emacs can open
+
+633
+00:33:51,450 --> 00:33:59,440
+depends on you know the maximum integer
+
+634
+00:33:55,620 --> 00:34:02,680
+Emacs can represent so a few years ago
+
+635
+00:33:59,440 --> 00:34:05,020
+almost 10 years ago now so Emacs has a
+
+636
+00:34:02,680 --> 00:34:07,840
+limitation you cannot open any file
+
+637
+00:34:05,020 --> 00:34:09,580
+larger than few hundred megabytes
+
+638
+00:34:07,840 --> 00:34:12,760
+something like that this was 10 years
+
+639
+00:34:09,580 --> 00:34:18,160
+ago because because the maximum integer
+
+640
+00:34:12,760 --> 00:34:20,260
+it was to raise to 28 or something I
+
+641
+00:34:18,160 --> 00:34:22,780
+think to raise to 28 today something
+
+642
+00:34:20,260 --> 00:34:26,560
+like that anyway so integer he has to
+
+643
+00:34:22,780 --> 00:34:29,650
+you know the maximum number of
+
+644
+00:34:26,560 --> 00:34:35,169
+characters must be less than the maximum
+
+645
+00:34:29,650 --> 00:34:37,030
+of number representable integers anyway
+
+646
+00:34:35,169 --> 00:34:39,700
+so that was the case today I don't know
+
+647
+00:34:37,030 --> 00:34:42,340
+what is actually we can find out by just
+
+648
+00:34:39,700 --> 00:34:46,500
+calling max into it
+
+649
+00:34:42,340 --> 00:34:58,900
+let's see switch to eMac be smart max in
+
+650
+00:34:46,500 --> 00:35:01,270
+touch okay so wait control max anyway
+
+651
+00:34:58,900 --> 00:35:03,850
+there is a variable that shows you what
+
+652
+00:35:01,270 --> 00:35:08,590
+is a maximum integer and that is
+
+653
+00:35:03,850 --> 00:35:12,360
+basically the maximum file size you can
+
+654
+00:35:08,590 --> 00:35:12,360
+open basically something like that
+
+655
+00:35:19,540 --> 00:35:29,869
+okay let's go let's go talk about crow
+
+656
+00:35:23,180 --> 00:35:34,580
+sure so let's talk about closure so
+
+657
+00:35:29,869 --> 00:35:37,430
+first of all so what so I'm gonna tell
+
+658
+00:35:34,580 --> 00:35:39,500
+you what is a closure okay now remember
+
+659
+00:35:37,430 --> 00:35:42,320
+these okay carefully closure is a
+
+660
+00:35:39,500 --> 00:35:44,800
+feature programming language closure has
+
+661
+00:35:42,320 --> 00:35:47,540
+nothing whatsoever with to do with
+
+662
+00:35:44,800 --> 00:35:49,070
+theoretical computer science it has
+
+663
+00:35:47,540 --> 00:35:52,070
+absolutely nothing to do with
+
+664
+00:35:49,070 --> 00:35:55,070
+mathematics now some of you advanced
+
+665
+00:35:52,070 --> 00:35:57,290
+people may not agree okay when I say
+
+666
+00:35:55,070 --> 00:35:59,470
+closure has nothing to do with math you
+
+667
+00:35:57,290 --> 00:36:02,510
+may say oh I disagree because you know
+
+668
+00:35:59,470 --> 00:36:05,390
+well that's up to debate okay so anyway
+
+669
+00:36:02,510 --> 00:36:07,940
+I'm just going to give you my point of
+
+670
+00:36:05,390 --> 00:36:10,160
+view now first of all you want to
+
+671
+00:36:07,940 --> 00:36:13,430
+understand what closure is right closure
+
+672
+00:36:10,160 --> 00:36:15,260
+is kind of advanced you know we would
+
+673
+00:36:13,430 --> 00:36:20,240
+call it advanced concept in programming
+
+674
+00:36:15,260 --> 00:36:22,490
+or programming languages so if you are
+
+675
+00:36:20,240 --> 00:36:24,740
+you know if you are beginner programmers
+
+676
+00:36:22,490 --> 00:36:25,310
+you know if you have just two years or
+
+677
+00:36:24,740 --> 00:36:27,170
+something
+
+678
+00:36:25,310 --> 00:36:30,560
+you may not know what it is but I'm
+
+679
+00:36:27,170 --> 00:36:33,260
+teaching you what it is okay first of
+
+680
+00:36:30,560 --> 00:36:37,310
+all understand that closure is a feature
+
+681
+00:36:33,260 --> 00:36:40,130
+a specific feature of programming
+
+682
+00:36:37,310 --> 00:36:42,740
+languages so that means in some
+
+683
+00:36:40,130 --> 00:36:45,740
+languages you you know for example in
+
+684
+00:36:42,740 --> 00:36:49,580
+some languages a function can take a
+
+685
+00:36:45,740 --> 00:36:53,420
+function as argument you know and return
+
+686
+00:36:49,580 --> 00:36:56,800
+a function as a result you know some
+
+687
+00:36:53,420 --> 00:37:01,730
+some programming languages can do that
+
+688
+00:36:56,800 --> 00:37:04,070
+Haskell can do that Lisp cannot do that
+
+689
+00:37:01,730 --> 00:37:07,430
+in general but you you kind of other
+
+690
+00:37:04,070 --> 00:37:09,740
+walk around a JavaScript can do that you
+
+691
+00:37:07,430 --> 00:37:12,470
+know a function take a function as input
+
+692
+00:37:09,740 --> 00:37:15,440
+and as argument you know in return a
+
+693
+00:37:12,470 --> 00:37:18,680
+function as result so JavaScript can do
+
+694
+00:37:15,440 --> 00:37:20,210
+that Haskell can do that Mathematica can
+
+695
+00:37:18,680 --> 00:37:22,700
+do that you know some programming
+
+696
+00:37:20,210 --> 00:37:26,990
+languages can do that some others cannot
+
+697
+00:37:22,700 --> 00:37:28,700
+well you know programming languages they
+
+698
+00:37:26,990 --> 00:37:30,680
+have different features you know so
+
+699
+00:37:28,700 --> 00:37:32,470
+that's you know that's you
+
+700
+00:37:30,680 --> 00:37:37,060
+Frances in programming languages so
+
+701
+00:37:32,470 --> 00:37:39,200
+remember closure is just a feature of a
+
+702
+00:37:37,060 --> 00:37:41,720
+specific feature programming language
+
+703
+00:37:39,200 --> 00:37:47,000
+some language some languages supported
+
+704
+00:37:41,720 --> 00:37:48,860
+some not and also you know when you have
+
+705
+00:37:47,000 --> 00:37:51,020
+a feature in particular language some
+
+706
+00:37:48,860 --> 00:37:52,820
+people some programmers love it you know
+
+707
+00:37:51,020 --> 00:37:54,950
+like it you know some some other
+
+708
+00:37:52,820 --> 00:37:57,680
+programmers don't care for it you know
+
+709
+00:37:54,950 --> 00:37:59,810
+some programmers Nico I never used that
+
+710
+00:37:57,680 --> 00:38:01,610
+feature in fact I think that feature is
+
+711
+00:37:59,810 --> 00:38:03,710
+harmful you know some people may say
+
+712
+00:38:01,610 --> 00:38:05,690
+that deviant depending on what feature
+
+713
+00:38:03,710 --> 00:38:07,610
+it is depending on who you ask
+
+714
+00:38:05,690 --> 00:38:11,120
+depending on what what programming
+
+715
+00:38:07,610 --> 00:38:14,170
+language it is so first of all remember
+
+716
+00:38:11,120 --> 00:38:17,360
+closure closure is just a feature
+
+717
+00:38:14,170 --> 00:38:19,640
+programming language you know a specific
+
+718
+00:38:17,360 --> 00:38:20,300
+feature some people like it some people
+
+719
+00:38:19,640 --> 00:38:23,530
+don't
+
+720
+00:38:20,300 --> 00:38:26,270
+in C you know you don't have that in
+
+721
+00:38:23,530 --> 00:38:28,820
+general you know imperative programming
+
+722
+00:38:26,270 --> 00:38:33,110
+languages you don't have that in C C++
+
+723
+00:38:28,820 --> 00:38:35,720
+Java you know I'm I might be wrong today
+
+724
+00:38:33,110 --> 00:38:37,760
+because they might have added that in
+
+725
+00:38:35,720 --> 00:38:40,820
+the past five years because in the past
+
+726
+00:38:37,760 --> 00:38:43,760
+five years you know a lot of functional
+
+727
+00:38:40,820 --> 00:38:46,850
+programming concept are introduced to
+
+728
+00:38:43,760 --> 00:38:49,430
+the imperative programming languages
+
+729
+00:38:46,850 --> 00:38:53,900
+such as Java you know they they began to
+
+730
+00:38:49,430 --> 00:38:57,500
+have lambda you know and okay so again
+
+731
+00:38:53,900 --> 00:39:00,470
+so it's a feature okay now what No okay
+
+732
+00:38:57,500 --> 00:39:03,320
+so some people like it some people may
+
+733
+00:39:00,470 --> 00:39:04,370
+not like it and it's is it necessary no
+
+734
+00:39:03,320 --> 00:39:08,060
+it's not necessary
+
+735
+00:39:04,370 --> 00:39:11,000
+again again it's just a feature and it's
+
+736
+00:39:08,060 --> 00:39:13,490
+not even necessarily okay in my opinion
+
+737
+00:39:11,000 --> 00:39:17,660
+I don't even I don't like it okay in my
+
+738
+00:39:13,490 --> 00:39:20,800
+opinion I do not like closure okay and I
+
+739
+00:39:17,660 --> 00:39:24,380
+never use it and I will never use it
+
+740
+00:39:20,800 --> 00:39:26,570
+basically period okay I will I do I have
+
+741
+00:39:24,380 --> 00:39:29,750
+never been programming for 20 years I
+
+742
+00:39:26,570 --> 00:39:31,640
+have never used closure and I will never
+
+743
+00:39:29,750 --> 00:39:33,740
+basically I will never use closure
+
+744
+00:39:31,640 --> 00:39:36,170
+unless you know if one day are working a
+
+745
+00:39:33,740 --> 00:39:38,930
+company you know when you work with you
+
+746
+00:39:36,170 --> 00:39:40,460
+know companies project you cannot just
+
+747
+00:39:38,930 --> 00:39:42,890
+do what you want you know you have to
+
+748
+00:39:40,460 --> 00:39:44,450
+follow you know already you know maybe
+
+749
+00:39:42,890 --> 00:39:46,550
+there's already closure you
+
+750
+00:39:44,450 --> 00:39:49,280
+you know the what what's already
+
+751
+00:39:46,550 --> 00:39:52,100
+existing style you know and you follow
+
+752
+00:39:49,280 --> 00:39:55,190
+the company's guidelines you know that's
+
+753
+00:39:52,100 --> 00:39:57,530
+when you work in a team but personally I
+
+754
+00:39:55,190 --> 00:39:59,440
+will never use closure I will never you
+
+755
+00:39:57,530 --> 00:40:02,960
+know recommend it I don't like it okay
+
+756
+00:39:59,440 --> 00:40:06,170
+and you know and to me of course it's
+
+757
+00:40:02,960 --> 00:40:07,490
+it's obviously not necessary and in fact
+
+758
+00:40:06,170 --> 00:40:09,440
+I think it's harmful
+
+759
+00:40:07,490 --> 00:40:11,840
+you know when use the way I look at
+
+760
+00:40:09,440 --> 00:40:12,860
+other you know is this is a matter of
+
+761
+00:40:11,840 --> 00:40:15,290
+opinion okay
+
+762
+00:40:12,860 --> 00:40:17,750
+some people may agree some people do not
+
+763
+00:40:15,290 --> 00:40:19,280
+agree I don't like closure okay that's
+
+764
+00:40:17,750 --> 00:40:21,320
+it I don't like it I'm gonna tell you
+
+765
+00:40:19,280 --> 00:40:23,720
+why I don't like it you know after I
+
+766
+00:40:21,320 --> 00:40:26,240
+explain what it is and so on but first
+
+767
+00:40:23,720 --> 00:40:29,750
+of all and first of all I want to try to
+
+768
+00:40:26,240 --> 00:40:38,360
+teach you any of you new programmers
+
+769
+00:40:29,750 --> 00:40:40,700
+okay what closure is let's see okay now
+
+770
+00:40:38,360 --> 00:40:45,470
+again guys don't don't host anything
+
+771
+00:40:40,700 --> 00:40:49,270
+that can get me banned okay so so back
+
+772
+00:40:45,470 --> 00:40:51,590
+to closure so culture is a feature a
+
+773
+00:40:49,270 --> 00:40:55,730
+specific feature programming language
+
+774
+00:40:51,590 --> 00:41:03,290
+and of some programming languages and
+
+775
+00:40:55,730 --> 00:41:06,110
+the JavaScript has it Python 3 has it
+
+776
+00:41:03,290 --> 00:41:08,180
+Python 2 does not have it okay python 2
+
+777
+00:41:06,110 --> 00:41:09,860
+you cannot do it but python 3
+
+778
+00:41:08,180 --> 00:41:11,900
+you know it's a new version version of
+
+779
+00:41:09,860 --> 00:41:16,340
+Python you you have you have it you know
+
+780
+00:41:11,900 --> 00:41:20,270
+you can do it and eMac please has it ok
+
+781
+00:41:16,340 --> 00:41:23,060
+so but it was introduced about three or
+
+782
+00:41:20,270 --> 00:41:25,040
+four years ago so before that you don't
+
+783
+00:41:23,060 --> 00:41:27,470
+have that you don't have closure in eMac
+
+784
+00:41:25,040 --> 00:41:29,480
+this book but they added that ok so
+
+785
+00:41:27,470 --> 00:41:31,250
+again it's a feature of programming
+
+786
+00:41:29,480 --> 00:41:33,830
+languages some languages has it some
+
+787
+00:41:31,250 --> 00:41:36,890
+doesn't so what what what is it what
+
+788
+00:41:33,830 --> 00:41:37,790
+does I do okay now the other thing
+
+789
+00:41:36,890 --> 00:41:40,330
+important too
+
+790
+00:41:37,790 --> 00:41:44,240
+now I'm going to give you itemized
+
+791
+00:41:40,330 --> 00:41:47,060
+things I want you to remember I kind of
+
+792
+00:41:44,240 --> 00:41:51,260
+you know I tend to be repetitive you
+
+793
+00:41:47,060 --> 00:41:53,390
+know repeat you know myself but but I
+
+794
+00:41:51,260 --> 00:41:56,690
+kind of think that's also important
+
+795
+00:41:53,390 --> 00:41:58,020
+because because when you go out read the
+
+796
+00:41:56,690 --> 00:42:01,380
+online where
+
+797
+00:41:58,020 --> 00:42:03,720
+sites you know the you type closure you
+
+798
+00:42:01,380 --> 00:42:06,270
+you'll find hundreds you know of
+
+799
+00:42:03,720 --> 00:42:08,820
+articles what is closure you know they
+
+800
+00:42:06,270 --> 00:42:12,120
+tends to be in my opinion they usually
+
+801
+00:42:08,820 --> 00:42:14,790
+tend to be confusing and they don't
+
+802
+00:42:12,120 --> 00:42:17,490
+capture the gist of things and also
+
+803
+00:42:14,790 --> 00:42:19,740
+today half of them is just clickbait you
+
+804
+00:42:17,490 --> 00:42:22,800
+know companies they they want to make
+
+805
+00:42:19,740 --> 00:42:25,260
+money so they want to create write up
+
+806
+00:42:22,800 --> 00:42:27,770
+articles so the people can't go to their
+
+807
+00:42:25,260 --> 00:42:30,510
+website they so you know they get money
+
+808
+00:42:27,770 --> 00:42:32,430
+from their ads even though they don't
+
+809
+00:42:30,510 --> 00:42:34,680
+care nothing about programming languages
+
+810
+00:42:32,430 --> 00:42:37,110
+they just copy-paste your phone
+
+811
+00:42:34,680 --> 00:42:40,620
+Wikipedia or other things you know they
+
+812
+00:42:37,110 --> 00:42:43,590
+hire cheap labors you know in China or
+
+813
+00:42:40,620 --> 00:42:48,330
+whatever you know they pay you five five
+
+814
+00:42:43,590 --> 00:42:50,850
+bucks you know how to so you as a
+
+815
+00:42:48,330 --> 00:42:52,740
+beginner program you copy and paste you
+
+816
+00:42:50,850 --> 00:42:55,440
+know information for them and you create
+
+817
+00:42:52,740 --> 00:42:57,120
+an article and then they put on their
+
+818
+00:42:55,440 --> 00:42:59,640
+website you know what is closure you
+
+819
+00:42:57,120 --> 00:43:01,290
+know the ten things you need to know
+
+820
+00:42:59,640 --> 00:43:03,720
+about closure things like that you know
+
+821
+00:43:01,290 --> 00:43:07,530
+they are tons of web websites like that
+
+822
+00:43:03,720 --> 00:43:09,330
+that's one thing but then another thing
+
+823
+00:43:07,530 --> 00:43:10,950
+is that a lot of programmers they don't
+
+824
+00:43:09,330 --> 00:43:12,330
+really understand well you know they
+
+825
+00:43:10,950 --> 00:43:14,430
+don't understand for them you know we
+
+826
+00:43:12,330 --> 00:43:16,500
+just including a lot of these elite
+
+827
+00:43:14,430 --> 00:43:19,320
+hacker types they you know like for
+
+828
+00:43:16,500 --> 00:43:21,870
+example Perl people 20 years ago they
+
+829
+00:43:19,320 --> 00:43:23,660
+have yeah I'm gonna show you they have a
+
+830
+00:43:21,870 --> 00:43:27,180
+article in their poor documentation
+
+831
+00:43:23,660 --> 00:43:29,820
+official documentation they tell you
+
+832
+00:43:27,180 --> 00:43:35,520
+what is closure let me show you this is
+
+833
+00:43:29,820 --> 00:43:38,270
+so funny kosher okay this is this is
+
+834
+00:43:35,520 --> 00:43:41,820
+what Perl people say what is a closure
+
+835
+00:43:38,270 --> 00:43:47,760
+20 bout 20 years ago 15 years ago in
+
+836
+00:43:41,820 --> 00:43:52,190
+their official documentation let's see
+
+837
+00:43:47,760 --> 00:43:57,560
+if I can find my article for Unicode
+
+838
+00:43:52,190 --> 00:43:57,560
+tutorial PostScript to check HTML face
+
+839
+00:43:58,820 --> 00:44:08,190
+product maybe it's you they are that is
+
+840
+00:44:03,120 --> 00:44:11,460
+the one this is Perl talk you know Pro
+
+841
+00:44:08,190 --> 00:44:22,020
+Fe o / FAQ seven
+
+842
+00:44:11,460 --> 00:44:25,950
+okay I might be it's so here it is per
+
+843
+00:44:22,020 --> 00:44:28,589
+doc / FAQ 7 what is closure closure are
+
+844
+00:44:25,950 --> 00:44:32,880
+documented in put out here okay close
+
+845
+00:44:28,589 --> 00:44:35,750
+your document in / ref okay here the
+
+846
+00:44:32,880 --> 00:44:39,210
+page you are looking at is Pearl FAQ
+
+847
+00:44:35,750 --> 00:44:42,780
+okay frequently asked questions that's a
+
+848
+00:44:39,210 --> 00:44:45,530
+common turn through our 1990s but today
+
+849
+00:44:42,780 --> 00:44:48,300
+you probably may not be familiar with
+
+850
+00:44:45,530 --> 00:44:51,089
+FAQ you know that means frequency ask
+
+851
+00:44:48,300 --> 00:44:55,550
+questions but here is the official
+
+852
+00:44:51,089 --> 00:44:55,550
+Darkon closure let's let's see
+
+853
+00:45:07,190 --> 00:45:13,079
+yeah okay let me just show you some of
+
+854
+00:45:10,170 --> 00:45:15,299
+the you know you read this and you can
+
+855
+00:45:13,079 --> 00:45:18,839
+see you can get the context you know the
+
+856
+00:45:15,299 --> 00:45:21,239
+idiocy of these people this this are
+
+857
+00:45:18,839 --> 00:45:23,400
+considered elite hacker programmers you
+
+858
+00:45:21,239 --> 00:45:27,029
+know remember we are looking at pearl
+
+859
+00:45:23,400 --> 00:45:30,059
+red / dark / if you know that's the one
+
+860
+00:45:27,029 --> 00:45:32,819
+of the official documentation pearl and
+
+861
+00:45:30,059 --> 00:45:35,069
+the paragraph is a chapter on pearl
+
+862
+00:45:32,819 --> 00:45:38,009
+references the concept of referencing
+
+863
+00:45:35,069 --> 00:45:42,630
+okay this is official documentation of
+
+864
+00:45:38,009 --> 00:45:44,700
+pearl and the other page here / FAQ 7 is
+
+865
+00:45:42,630 --> 00:45:47,220
+also a visual documentation of pearl
+
+866
+00:45:44,700 --> 00:45:49,799
+they talk about you know they trying to
+
+867
+00:45:47,220 --> 00:45:54,150
+tell you what is the closure let's be
+
+868
+00:45:49,799 --> 00:45:56,670
+the few paragraphs no so here's a here's
+
+869
+00:45:54,150 --> 00:45:59,519
+it is what is a closure closure are
+
+870
+00:45:56,670 --> 00:46:01,619
+documented in paragraph okay but let's
+
+871
+00:45:59,519 --> 00:46:05,999
+keep reading on closure is a computer
+
+872
+00:46:01,619 --> 00:46:08,609
+science term which closure is a computer
+
+873
+00:46:05,999 --> 00:46:12,920
+science term with a precise but how to
+
+874
+00:46:08,609 --> 00:46:15,960
+explain meaning usually closures are
+
+875
+00:46:12,920 --> 00:46:19,259
+implemented in pearls anonymous funk
+
+876
+00:46:15,960 --> 00:46:22,019
+subroutines with lasting references to
+
+877
+00:46:19,259 --> 00:46:26,249
+lexical variables outside their own
+
+878
+00:46:22,019 --> 00:46:29,220
+scopes lists lexical magically refer to
+
+879
+00:46:26,249 --> 00:46:31,650
+the variable that were around when the
+
+880
+00:46:29,220 --> 00:46:35,880
+subroutine was defined deep binding this
+
+881
+00:46:31,650 --> 00:46:38,849
+is this is complete idiotic nonsensical
+
+882
+00:46:35,880 --> 00:46:39,809
+and they don't know it's like convoluted
+
+883
+00:46:38,849 --> 00:46:41,489
+they don't even know what they are
+
+884
+00:46:39,809 --> 00:46:44,730
+talking about first of all closure is a
+
+885
+00:46:41,489 --> 00:46:47,039
+computer science term wrong closure is
+
+886
+00:46:44,730 --> 00:46:50,609
+has nothing to do with computer science
+
+887
+00:46:47,039 --> 00:46:53,400
+okay closure has no foothold in in
+
+888
+00:46:50,609 --> 00:46:55,799
+theory theoretical computer science
+
+889
+00:46:53,400 --> 00:46:58,670
+closure has no foothold in computer
+
+890
+00:46:55,799 --> 00:47:02,789
+science period rather closure is a
+
+891
+00:46:58,670 --> 00:47:07,700
+computer engineering kind of thing
+
+892
+00:47:02,789 --> 00:47:12,440
+aspect okay closure is it has to do with
+
+893
+00:47:07,700 --> 00:47:15,440
+practical programming closure is a
+
+894
+00:47:12,440 --> 00:47:18,930
+computer programming language feature
+
+895
+00:47:15,440 --> 00:47:20,460
+that exists in some languages but not in
+
+896
+00:47:18,930 --> 00:47:22,190
+others it so it you know is
+
+897
+00:47:20,460 --> 00:47:24,570
+just a pract it's just a computer
+
+898
+00:47:22,190 --> 00:47:27,570
+engineering issue it has nothing to do
+
+899
+00:47:24,570 --> 00:47:30,000
+with computer science and you know look
+
+900
+00:47:27,570 --> 00:47:32,970
+at this how they tried they phrase it
+
+901
+00:47:30,000 --> 00:47:36,060
+you know the way they write it means you
+
+902
+00:47:32,970 --> 00:47:38,640
+know it means they have no understanding
+
+903
+00:47:36,060 --> 00:47:40,790
+what it is this is typical of
+
+904
+00:47:38,640 --> 00:47:43,589
+programmers this is typical of
+
+905
+00:47:40,790 --> 00:47:46,890
+programmers understanding when they when
+
+906
+00:47:43,589 --> 00:47:49,500
+they try to explain something in
+
+907
+00:47:46,890 --> 00:47:51,240
+programming even for something they
+
+908
+00:47:49,500 --> 00:47:53,849
+think they know well okay this is
+
+909
+00:47:51,240 --> 00:47:56,099
+typical this paragraph about you know
+
+910
+00:47:53,849 --> 00:47:59,099
+people trying to explain what closure
+
+911
+00:47:56,099 --> 00:48:01,320
+this is you know and what I'm saying
+
+912
+00:47:59,099 --> 00:48:03,690
+applies to this or all these UNIX
+
+913
+00:48:01,320 --> 00:48:05,910
+ this UNIX you think they are
+
+914
+00:48:03,690 --> 00:48:08,250
+you know you think they are smart the C
+
+915
+00:48:05,910 --> 00:48:09,599
+programmers like they actually don't
+
+916
+00:48:08,250 --> 00:48:11,670
+understand what they are talking about
+
+917
+00:48:09,599 --> 00:48:14,339
+because they don't they don't have a
+
+918
+00:48:11,670 --> 00:48:17,220
+clear mathematical grasp of what's
+
+919
+00:48:14,339 --> 00:48:20,369
+actually going on instead what they have
+
+920
+00:48:17,220 --> 00:48:22,800
+instead is the programmers that you need
+
+921
+00:48:20,369 --> 00:48:24,900
+hackers they call blog you know there's
+
+922
+00:48:22,800 --> 00:48:29,220
+some stupid job it's like they
+
+923
+00:48:24,900 --> 00:48:31,619
+grow things gr okay it's like it's like
+
+924
+00:48:29,220 --> 00:48:33,380
+some kind of empathy that they they feel
+
+925
+00:48:31,619 --> 00:48:39,900
+like like the the UNIX philosophy
+
+926
+00:48:33,380 --> 00:48:41,849
+ the Eric yes are Eric Raymond
+
+927
+00:48:39,900 --> 00:48:43,950
+you know the guy who created past
+
+928
+00:48:41,849 --> 00:48:45,450
+bizarre and Cathedral you know it will
+
+929
+00:48:43,950 --> 00:48:48,810
+who wrote that crap
+
+930
+00:48:45,450 --> 00:48:51,240
+so so this UNIX philosophy type of
+
+931
+00:48:48,810 --> 00:48:53,940
+people they did they like to say they
+
+932
+00:48:51,240 --> 00:48:55,410
+croak it's like they've they feel they
+
+933
+00:48:53,940 --> 00:48:59,130
+feel how things are they didn't you know
+
+934
+00:48:55,410 --> 00:49:01,700
+they K that that is what this probe
+
+935
+00:48:59,130 --> 00:49:05,099
+people is doing this is a very concrete
+
+936
+00:49:01,700 --> 00:49:08,570
+exhibition of these UNIX this
+
+937
+00:49:05,099 --> 00:49:11,670
+idiotic elite hacker type of programmers
+
+938
+00:49:08,570 --> 00:49:14,609
+I'm giving you a concrete example you
+
+939
+00:49:11,670 --> 00:49:17,280
+know and I'm showing you my opinion and
+
+940
+00:49:14,609 --> 00:49:20,339
+he is example I say this is an
+
+941
+00:49:17,280 --> 00:49:25,349
+exhibition of their this is an
+
+942
+00:49:20,339 --> 00:49:28,890
+exhibition of a illustration of how they
+
+943
+00:49:25,349 --> 00:49:30,930
+you know how the situation of where they
+
+944
+00:49:28,890 --> 00:49:33,930
+think they understand something and how
+
+945
+00:49:30,930 --> 00:49:35,820
+they try to explain it okay
+
+946
+00:49:33,930 --> 00:49:38,430
+so they say you know crochet is a
+
+947
+00:49:35,820 --> 00:49:41,580
+computer science term which is incorrect
+
+948
+00:49:38,430 --> 00:49:44,490
+then they say then they say look at the
+
+949
+00:49:41,580 --> 00:49:47,190
+way how they how they say things crochet
+
+950
+00:49:44,490 --> 00:49:50,340
+is a computer science term with a
+
+951
+00:49:47,190 --> 00:49:54,330
+precise but how to and how to explain
+
+952
+00:49:50,340 --> 00:49:55,890
+meaning that is stupid you know first of
+
+953
+00:49:54,330 --> 00:49:58,680
+all the first sentence describing
+
+954
+00:49:55,890 --> 00:50:01,200
+closure they are actually not trying to
+
+955
+00:49:58,680 --> 00:50:05,310
+define what closure is but however they
+
+956
+00:50:01,200 --> 00:50:07,800
+are trying to give you a flavor of what
+
+957
+00:50:05,310 --> 00:50:09,680
+they think closure is you know it's a
+
+958
+00:50:07,800 --> 00:50:13,140
+they say it's a computer science term
+
+959
+00:50:09,680 --> 00:50:16,040
+but and they say it's precise but hard
+
+960
+00:50:13,140 --> 00:50:18,840
+to explain it's it's almost like
+
+961
+00:50:16,040 --> 00:50:21,270
+mathematically that's self contradictory
+
+962
+00:50:18,840 --> 00:50:23,130
+that means they don't understand you
+
+963
+00:50:21,270 --> 00:50:26,490
+know they either don't understand what
+
+964
+00:50:23,130 --> 00:50:29,340
+it is or it means they are unable to and
+
+965
+00:50:26,490 --> 00:50:32,180
+explain what it is like that like they
+
+966
+00:50:29,340 --> 00:50:36,570
+do not understand something fook fully
+
+967
+00:50:32,180 --> 00:50:38,490
+100% but they but they kind of
+
+968
+00:50:36,570 --> 00:50:41,130
+understand it and you know that's what
+
+969
+00:50:38,490 --> 00:50:42,630
+they say you know with a precise but how
+
+970
+00:50:41,130 --> 00:50:44,160
+to explain meaning what do you mean
+
+971
+00:50:42,630 --> 00:50:47,940
+something is precise about how drink
+
+972
+00:50:44,160 --> 00:50:50,100
+spread okay let's take it for face value
+
+973
+00:50:47,940 --> 00:50:52,920
+yeah there is it is true that something
+
+974
+00:50:50,100 --> 00:50:56,430
+could be precise but sometimes hard to
+
+975
+00:50:52,920 --> 00:50:59,640
+explain okay yeah let's say so let's
+
+976
+00:50:56,430 --> 00:51:02,460
+accept that okay then they say usually
+
+977
+00:50:59,640 --> 00:51:05,370
+closure are implemented in Perl
+
+978
+00:51:02,460 --> 00:51:08,090
+as you know anonymous subroutines and so
+
+979
+00:51:05,370 --> 00:51:11,220
+on that you see you can see here
+
+980
+00:51:08,090 --> 00:51:14,940
+immediately they switch you know they
+
+981
+00:51:11,220 --> 00:51:17,010
+kind of switch the approach you know so
+
+982
+00:51:14,940 --> 00:51:21,060
+instead of turning you what closure is
+
+983
+00:51:17,010 --> 00:51:25,440
+in general this immediately tell you
+
+984
+00:51:21,060 --> 00:51:27,180
+what closure is implemented in Perl so
+
+985
+00:51:25,440 --> 00:51:30,600
+they are not even telling you what
+
+986
+00:51:27,180 --> 00:51:34,320
+closure is in Perl but they tell you how
+
+987
+00:51:30,600 --> 00:51:39,120
+closure is implemented in Perl as a way
+
+988
+00:51:34,320 --> 00:51:41,070
+to kind of explain what closure is this
+
+989
+00:51:39,120 --> 00:51:43,110
+is their method of trying to explain
+
+990
+00:51:41,070 --> 00:51:44,910
+something you know so they don't know
+
+991
+00:51:43,110 --> 00:51:46,560
+what closure is maximal
+
+992
+00:51:44,910 --> 00:51:47,850
+you know mathematically you know with
+
+993
+00:51:46,560 --> 00:51:49,170
+not
+
+994
+00:51:47,850 --> 00:51:51,210
+they don't know what closure is in
+
+995
+00:51:49,170 --> 00:51:54,510
+computer science they don't know what
+
+996
+00:51:51,210 --> 00:51:56,700
+closures is in general they are they
+
+997
+00:51:54,510 --> 00:51:58,200
+fail to explain it they are unable to or
+
+998
+00:51:56,700 --> 00:52:01,680
+they choose not to okay
+
+999
+00:51:58,200 --> 00:52:04,850
+then they start to say they start
+
+1000
+00:52:01,680 --> 00:52:07,410
+directly to go into how closure is
+
+1001
+00:52:04,850 --> 00:52:10,050
+implemented in Perl and usually with a
+
+1002
+00:52:07,410 --> 00:52:11,640
+qualification usually closed you are
+
+1003
+00:52:10,050 --> 00:52:14,460
+implementing in pro as anonymous
+
+1004
+00:52:11,640 --> 00:52:17,010
+function subroutines and so on so they
+
+1005
+00:52:14,460 --> 00:52:19,560
+don't even try to directly explain what
+
+1006
+00:52:17,010 --> 00:52:22,080
+closure is in pro the language you know
+
+1007
+00:52:19,560 --> 00:52:25,680
+because you know again as I said closure
+
+1008
+00:52:22,080 --> 00:52:29,150
+is a specific feature and in different
+
+1009
+00:52:25,680 --> 00:52:32,070
+languages and also they the way they
+
+1010
+00:52:29,150 --> 00:52:33,840
+close your exhibit you know behave in
+
+1011
+00:52:32,070 --> 00:52:36,630
+different languages also kind of differ
+
+1012
+00:52:33,840 --> 00:52:39,840
+so again like I said before closure is
+
+1013
+00:52:36,630 --> 00:52:42,600
+not a mathematical concept it has
+
+1014
+00:52:39,840 --> 00:52:47,220
+nothing to do with math or theoretical
+
+1015
+00:52:42,600 --> 00:52:51,180
+computer science this this kind of proof
+
+1016
+00:52:47,220 --> 00:52:54,000
+you know is it proves my solidify my my
+
+1017
+00:52:51,180 --> 00:52:56,520
+point that closure is not has nothing to
+
+1018
+00:52:54,000 --> 00:52:58,920
+do with method theoretical computer
+
+1019
+00:52:56,520 --> 00:53:01,920
+science rather it's computer engineering
+
+1020
+00:52:58,920 --> 00:53:03,870
+thing you know different languages have
+
+1021
+00:53:01,920 --> 00:53:06,390
+different language designs some has
+
+1022
+00:53:03,870 --> 00:53:09,030
+closure some does not does not end of
+
+1023
+00:53:06,390 --> 00:53:11,520
+those languages that has closure they
+
+1024
+00:53:09,030 --> 00:53:15,300
+actually do you know the way they kind
+
+1025
+00:53:11,520 --> 00:53:17,370
+of the semantics is a little bit
+
+1026
+00:53:15,300 --> 00:53:19,830
+different you know they kind of you know
+
+1027
+00:53:17,370 --> 00:53:23,550
+so anyway back to the pros so they try
+
+1028
+00:53:19,830 --> 00:53:25,140
+to East they try to convey to to the
+
+1029
+00:53:23,550 --> 00:53:27,210
+readers you know this is frequently
+
+1030
+00:53:25,140 --> 00:53:30,060
+asked question they try to answer the
+
+1031
+00:53:27,210 --> 00:53:33,150
+question what is the closure by by the
+
+1032
+00:53:30,060 --> 00:53:37,020
+by the ways of trying to explain how it
+
+1033
+00:53:33,150 --> 00:53:38,760
+is usually implemented in Perl that's
+
+1034
+00:53:37,020 --> 00:53:40,950
+what they that's what they are doing you
+
+1035
+00:53:38,760 --> 00:53:42,870
+know as anonymous subroutines with a
+
+1036
+00:53:40,950 --> 00:53:44,400
+lasting reference and look at the way
+
+1037
+00:53:42,870 --> 00:53:46,620
+they explain things you know as
+
+1038
+00:53:44,400 --> 00:53:49,470
+anonymous subroutines with lasting
+
+1039
+00:53:46,620 --> 00:53:52,500
+references to lexical variables outside
+
+1040
+00:53:49,470 --> 00:53:55,830
+their own scopes let's that's just a
+
+1041
+00:53:52,500 --> 00:53:58,680
+full mouthful now the dyslexic not now
+
+1042
+00:53:55,830 --> 00:54:00,930
+granted that closure is not a it's it's
+
+1043
+00:53:58,680 --> 00:54:01,440
+it's it's not a simple concept
+
+1044
+00:54:00,930 --> 00:54:05,700
+it's act
+
+1045
+00:54:01,440 --> 00:54:08,700
+slightly complex then then is dyslexic
+
+1046
+00:54:05,700 --> 00:54:11,040
+us magically referred to the variables
+
+1047
+00:54:08,700 --> 00:54:14,280
+that were around when the subroutines
+
+1048
+00:54:11,040 --> 00:54:15,990
+was defined yeah then you know see look
+
+1049
+00:54:14,280 --> 00:54:18,270
+at the way you know they drag in the
+
+1050
+00:54:15,990 --> 00:54:20,040
+world magical you know pro people like
+
+1051
+00:54:18,270 --> 00:54:23,250
+nerves that you know they love the world
+
+1052
+00:54:20,040 --> 00:54:27,119
+magic begin you know the things like
+
+1053
+00:54:23,250 --> 00:54:34,230
+that okay then second paragraph closures
+
+1054
+00:54:27,119 --> 00:54:37,890
+are coaches are now if you keep comments
+
+1055
+00:54:34,230 --> 00:54:40,470
+coming okay keep the comments coming
+
+1056
+00:54:37,890 --> 00:54:47,400
+typed a beanie your thoughts your
+
+1057
+00:54:40,470 --> 00:54:49,319
+comments let's get back to the pearl I'm
+
+1058
+00:54:47,400 --> 00:54:51,359
+trying to do I'm trying to finish this
+
+1059
+00:54:49,319 --> 00:54:53,880
+quickly I'm trying to get to the main
+
+1060
+00:54:51,359 --> 00:54:56,670
+dish where I began to explain what
+
+1061
+00:54:53,880 --> 00:54:58,950
+closure is to beginning of beginner
+
+1062
+00:54:56,670 --> 00:55:02,220
+programmers then I'm going to go into
+
+1063
+00:54:58,950 --> 00:55:04,800
+why I don't like it you know so um so
+
+1064
+00:55:02,220 --> 00:55:07,680
+the second paragraph of these sales Pro
+
+1065
+00:55:04,800 --> 00:55:10,050
+people say Scotia are most often used in
+
+1066
+00:55:07,680 --> 00:55:12,930
+programming languages where you can have
+
+1067
+00:55:10,050 --> 00:55:16,920
+the return value of a function be itself
+
+1068
+00:55:12,930 --> 00:55:18,839
+a function as you can in Perl know that
+
+1069
+00:55:16,920 --> 00:55:21,210
+some languages provide anonymous
+
+1070
+00:55:18,839 --> 00:55:24,599
+functions but are not capable providing
+
+1071
+00:55:21,210 --> 00:55:29,819
+proper closures the Python language type
+
+1072
+00:55:24,599 --> 00:55:32,069
+a language for example this is this is
+
+1073
+00:55:29,819 --> 00:55:35,430
+one thing Perl people love to do you
+
+1074
+00:55:32,069 --> 00:55:37,140
+know they want to you know while they
+
+1075
+00:55:35,430 --> 00:55:41,970
+are trying to explain to you what
+
+1076
+00:55:37,140 --> 00:55:44,730
+closure is they may also mix in you know
+
+1077
+00:55:41,970 --> 00:55:47,280
+mixed named propaganda they want to tell
+
+1078
+00:55:44,730 --> 00:55:49,980
+you how great pearl at the language the
+
+1079
+00:55:47,280 --> 00:55:52,619
+language is then they want to drag in
+
+1080
+00:55:49,980 --> 00:55:55,349
+Python because you know Perry and Python
+
+1081
+00:55:52,619 --> 00:55:58,050
+was you know the arc enemies you know
+
+1082
+00:55:55,349 --> 00:56:00,960
+they want to drag in Python and slide
+
+1083
+00:55:58,050 --> 00:56:02,940
+you know you know like Polito Python a
+
+1084
+00:56:00,960 --> 00:56:05,430
+little bit you know so here they are
+
+1085
+00:56:02,940 --> 00:56:09,300
+trying to say basically what they are
+
+1086
+00:56:05,430 --> 00:56:12,420
+saying is that this this is actually
+
+1087
+00:56:09,300 --> 00:56:14,640
+isn't wrong you know well basically
+
+1088
+00:56:12,420 --> 00:56:16,799
+is party your own party incorrect you
+
+1089
+00:56:14,640 --> 00:56:18,690
+know they are saying Crozier is most
+
+1090
+00:56:16,799 --> 00:56:21,150
+often used in programming languages
+
+1091
+00:56:18,690 --> 00:56:28,440
+where you can have the return value of
+
+1092
+00:56:21,150 --> 00:56:30,900
+function P itself a function that's act
+
+1093
+00:56:28,440 --> 00:56:34,289
+that does not act actually address what
+
+1094
+00:56:30,900 --> 00:56:36,660
+the heart of the thing but you know it
+
+1095
+00:56:34,289 --> 00:56:38,250
+is true that you create a closure by by
+
+1096
+00:56:36,660 --> 00:56:41,039
+having a function that returns a
+
+1097
+00:56:38,250 --> 00:56:43,349
+function that is that is what they are
+
+1098
+00:56:41,039 --> 00:56:46,470
+trying to say okay and that is also why
+
+1099
+00:56:43,349 --> 00:56:50,369
+closure is just no good okay I did I
+
+1100
+00:56:46,470 --> 00:56:53,130
+don't I close okay anyway then you look
+
+1101
+00:56:50,369 --> 00:56:55,650
+at the so you see as you can improve
+
+1102
+00:56:53,130 --> 00:56:57,690
+that that's how they want to drag in you
+
+1103
+00:56:55,650 --> 00:57:01,829
+know that's how they want to put a
+
+1104
+00:56:57,690 --> 00:57:03,839
+little bit of promotion of pro when you
+
+1105
+00:57:01,829 --> 00:57:05,819
+do when you start to do these did they
+
+1106
+00:57:03,839 --> 00:57:08,730
+do these throughout their documentation
+
+1107
+00:57:05,819 --> 00:57:13,769
+okay I've read the entirety of Perl the
+
+1108
+00:57:08,730 --> 00:57:16,680
+entirety of Perl documentation basically
+
+1109
+00:57:13,769 --> 00:57:20,970
+what forward you know the entirety of
+
+1110
+00:57:16,680 --> 00:57:23,150
+product okay that's this a book I've
+
+1111
+00:57:20,970 --> 00:57:28,829
+read the entirety you know several times
+
+1112
+00:57:23,150 --> 00:57:37,500
+and in fact I've read all books Pro in
+
+1113
+00:57:28,829 --> 00:57:40,019
+the 1990s all of them right you know I
+
+1114
+00:57:37,500 --> 00:57:45,259
+have written a review of all the books
+
+1115
+00:57:40,019 --> 00:57:47,670
+power books survey 2002 okay from - from
+
+1116
+00:57:45,259 --> 00:57:50,579
+1998 to 2002
+
+1117
+00:57:47,670 --> 00:57:54,299
+I have read all basically the top five
+
+1118
+00:57:50,579 --> 00:57:56,579
+per books they exist and this is my page
+
+1119
+00:57:54,299 --> 00:58:00,299
+I talk about you know I give you a
+
+1120
+00:57:56,579 --> 00:58:02,670
+review of each and besides you know
+
+1121
+00:58:00,299 --> 00:58:04,490
+besides this book I've read the entirety
+
+1122
+00:58:02,670 --> 00:58:09,119
+of Pro talk you know several times
+
+1123
+00:58:04,490 --> 00:58:12,869
+word-for-word every every word of it so
+
+1124
+00:58:09,119 --> 00:58:15,420
+and and then then then the photographer
+
+1125
+00:58:12,869 --> 00:58:17,700
+nation then they drag in Python they say
+
+1126
+00:58:15,420 --> 00:58:20,640
+you know Python cannot do it that's true
+
+1127
+00:58:17,700 --> 00:58:24,259
+in Python - well Python three improved
+
+1128
+00:58:20,640 --> 00:58:24,259
+it okay and I'm going to show you
+
+1129
+00:58:25,790 --> 00:58:32,340
+so the let's go with let's go let's go
+
+1130
+00:58:30,180 --> 00:58:35,400
+to a third paragraph so in human terms
+
+1131
+00:58:32,340 --> 00:58:39,540
+it's a funny way of passing arguments to
+
+1132
+00:58:35,400 --> 00:58:43,740
+a subroutine when you define it as well
+
+1133
+00:58:39,540 --> 00:58:47,310
+as when you call it in human terms it's
+
+1134
+00:58:43,740 --> 00:58:52,230
+a funny way of passing arguments to a
+
+1135
+00:58:47,310 --> 00:58:58,050
+subroutine when you define it as well as
+
+1136
+00:58:52,230 --> 00:58:59,730
+when you call it what do you mean it's a
+
+1137
+00:58:58,050 --> 00:59:04,080
+funny way of passing arguments to a
+
+1138
+00:58:59,730 --> 00:59:07,290
+subroutine I'm a little bit unfocused
+
+1139
+00:59:04,080 --> 00:59:12,090
+and I'm quite sure what it means I'm you
+
+1140
+00:59:07,290 --> 00:59:19,050
+know I'm getting tired now it's useful
+
+1141
+00:59:12,090 --> 00:59:21,300
+for saying you know anyway yeah
+
+1142
+00:59:19,050 --> 00:59:22,950
+anyway that's their explanation of
+
+1143
+00:59:21,300 --> 00:59:25,800
+closure in the Perl
+
+1144
+00:59:22,950 --> 00:59:30,660
+oh wait hold on a second actually yeah
+
+1145
+00:59:25,800 --> 00:59:33,870
+we are back here so anyway yeah so this
+
+1146
+00:59:30,660 --> 00:59:38,850
+is pearl effect queue and we go to the
+
+1147
+00:59:33,870 --> 00:59:41,730
+paragraph and Pro ref says anonymous
+
+1148
+00:59:38,850 --> 00:59:45,830
+subroutine address closures with respect
+
+1149
+00:59:41,730 --> 00:59:52,910
+to my variables that is really quickly
+
+1150
+00:59:45,830 --> 00:59:57,300
+visible within anyway so that is Perl
+
+1151
+00:59:52,910 --> 01:00:06,390
+official explanation of closure okay and
+
+1152
+00:59:57,300 --> 01:00:09,330
+I'm going to tell you what closure is so
+
+1153
+01:00:06,390 --> 01:00:13,950
+let's read a comment of it let me drink
+
+1154
+01:00:09,330 --> 01:00:18,530
+and take a break so are you guys--you're
+
+1155
+01:00:13,950 --> 01:00:18,530
+here say something six people
+
+1156
+01:00:29,730 --> 01:00:36,030
+so normally is asking a question and
+
+1157
+01:00:32,559 --> 01:00:40,450
+that question is probably a bit advanced
+
+1158
+01:00:36,030 --> 01:00:42,579
+and but I want to finish my beginners
+
+1159
+01:00:40,450 --> 01:00:45,069
+tutorial on closure but let me just read
+
+1160
+01:00:42,579 --> 01:00:49,000
+out a comment for now so Norma says what
+
+1161
+01:00:45,069 --> 01:00:54,339
+do you think about closures that aren't
+
+1162
+01:00:49,000 --> 01:00:57,520
+returned from their containing scope for
+
+1163
+01:00:54,339 --> 01:01:06,280
+example if you create a local helper
+
+1164
+01:00:57,520 --> 01:01:14,200
+function local helper function in the
+
+1165
+01:01:06,280 --> 01:01:17,130
+parent lexical scope in the parent
+
+1166
+01:01:14,200 --> 01:01:17,130
+lexical scope
+
+1167
+01:01:20,730 --> 01:01:30,780
+what do you mean like so are you so
+
+1168
+01:01:25,500 --> 01:01:33,359
+nested function right and I don't quite
+
+1169
+01:01:30,780 --> 01:01:39,030
+understand the question so let me know
+
+1170
+01:01:33,359 --> 01:01:40,950
+what exactly what you mean in order to
+
+1171
+01:01:39,030 --> 01:01:43,410
+close as far as I know in order to
+
+1172
+01:01:40,950 --> 01:01:46,020
+create a closure you have to have a
+
+1173
+01:01:43,410 --> 01:01:48,450
+function that returns a function but
+
+1174
+01:01:46,020 --> 01:01:50,550
+again the definition of closure is a bit
+
+1175
+01:01:48,450 --> 01:01:53,250
+depending on what we mean because we may
+
+1176
+01:01:50,550 --> 01:01:55,560
+not be using thinking of the same
+
+1177
+01:01:53,250 --> 01:01:58,829
+definition closure so what what do you
+
+1178
+01:01:55,560 --> 01:02:00,210
+mean you know so no man so explain you
+
+1179
+01:01:58,829 --> 01:02:03,150
+know let me know what what do you mean
+
+1180
+01:02:00,210 --> 01:02:05,280
+yeah I'll get to it so let me get back
+
+1181
+01:02:03,150 --> 01:02:07,380
+to so what is closure okay let me
+
+1182
+01:02:05,280 --> 01:02:10,440
+explain what is a closure closure is a
+
+1183
+01:02:07,380 --> 01:02:13,950
+feature of is a specific feature of
+
+1184
+01:02:10,440 --> 01:02:17,010
+programming language closure now that
+
+1185
+01:02:13,950 --> 01:02:23,760
+the the closure function closure is a
+
+1186
+01:02:17,010 --> 01:02:26,730
+feature of a function okay it's part of
+
+1187
+01:02:23,760 --> 01:02:32,760
+a function you know it's it's this
+
+1188
+01:02:26,730 --> 01:02:37,530
+feature is tied to function so what what
+
+1189
+01:02:32,760 --> 01:02:40,260
+it means in a sentence is that okay
+
+1190
+01:02:37,530 --> 01:02:43,319
+here's one way to put it it here is what
+
+1191
+01:02:40,260 --> 01:02:47,369
+means the the best explanation of
+
+1192
+01:02:43,319 --> 01:02:50,550
+closure in one sentence of the century
+
+1193
+01:02:47,369 --> 01:02:54,210
+of humanity of the whole history of
+
+1194
+01:02:50,550 --> 01:02:59,900
+humanity this is the best summary of in
+
+1195
+01:02:54,210 --> 01:02:59,900
+in one sentence what closure is okay
+
+1196
+01:03:02,150 --> 01:03:10,619
+closure is a function is a function in a
+
+1197
+01:03:07,950 --> 01:03:12,420
+programming language you know crochets
+
+1198
+01:03:10,619 --> 01:03:17,160
+of is the functioning of programming
+
+1199
+01:03:12,420 --> 01:03:21,420
+language that the functions local
+
+1200
+01:03:17,160 --> 01:03:27,230
+variables walks always just walks that's
+
+1201
+01:03:21,420 --> 01:03:32,640
+all okay that is the best explanation of
+
+1202
+01:03:27,230 --> 01:03:34,980
+closure of the entire history of
+
+1203
+01:03:32,640 --> 01:03:37,680
+humanity okay what is closure
+
+1204
+01:03:34,980 --> 01:03:39,359
+Crozier is a function in a foreign
+
+1205
+01:03:37,680 --> 01:03:43,140
+language kosher is a function such that
+
+1206
+01:03:39,359 --> 01:03:51,990
+its local variables always just walks
+
+1207
+01:03:43,140 --> 01:03:55,109
+okay okay that's that's what it means no
+
+1208
+01:03:51,990 --> 01:03:56,880
+okay so the that kind that may be
+
+1209
+01:03:55,109 --> 01:03:59,460
+personal what do you mean to always walk
+
+1210
+01:03:56,880 --> 01:04:02,070
+of course local variables always walks
+
+1211
+01:03:59,460 --> 01:04:05,220
+what do you mean it always works I mean
+
+1212
+01:04:02,070 --> 01:04:08,460
+are there examples where local variables
+
+1213
+01:04:05,220 --> 01:04:10,320
+does not walk I mean you mean if that's
+
+1214
+01:04:08,460 --> 01:04:12,480
+a case that's a bug in the programming
+
+1215
+01:04:10,320 --> 01:04:15,840
+language right oh it's a you know it's
+
+1216
+01:04:12,480 --> 01:04:17,730
+yeah it's a book how is it possible what
+
+1217
+01:04:15,840 --> 01:04:19,500
+do you mean you're a local variable
+
+1218
+01:04:17,730 --> 01:04:21,810
+doesn't work what what do you mean
+
+1219
+01:04:19,500 --> 01:04:26,010
+always walk well let me show you an
+
+1220
+01:04:21,810 --> 01:04:32,369
+example where a local variable does not
+
+1221
+01:04:26,010 --> 01:04:35,790
+work let's make sure that's let's begin
+
+1222
+01:04:32,369 --> 01:04:40,140
+the journey into closure okay this is
+
+1223
+01:04:35,790 --> 01:04:42,450
+this is a this is a journey into closure
+
+1224
+01:04:40,140 --> 01:04:45,359
+you cannot refuse to and not understand
+
+1225
+01:04:42,450 --> 01:04:48,600
+you will understand your you'll see step
+
+1226
+01:04:45,359 --> 01:04:50,970
+by step the gist the nature of closure
+
+1227
+01:04:48,600 --> 01:04:53,990
+why it arise you know what is the
+
+1228
+01:04:50,970 --> 01:04:59,160
+original problem why does it arise okay
+
+1229
+01:04:53,990 --> 01:05:05,700
+so let's let's use JavaScript and let's
+
+1230
+01:04:59,160 --> 01:05:07,640
+yeah because this arrow function let's
+
+1231
+01:05:05,700 --> 01:05:09,630
+see actually I can do it you know I
+
+1232
+01:05:07,640 --> 01:05:15,090
+haven't done this before
+
+1233
+01:05:09,630 --> 01:05:19,910
+let's see so are you guys always with me
+
+1234
+01:05:15,090 --> 01:05:23,220
+give me something feedback you know
+
+1235
+01:05:19,910 --> 01:05:27,480
+three people okay I'm losing people fast
+
+1236
+01:05:23,220 --> 01:05:31,230
+you know it's like I'm kind of
+
+1237
+01:05:27,480 --> 01:05:34,410
+discouraged oh yeah okay let me try to
+
+1238
+01:05:31,230 --> 01:05:36,510
+get over this quickly so we want to
+
+1239
+01:05:34,410 --> 01:05:38,700
+define a function so we define a
+
+1240
+01:05:36,510 --> 01:05:41,940
+function f okay f is a constant function
+
+1241
+01:05:38,700 --> 01:05:45,540
+and okay a constant function that takes
+
+1242
+01:05:41,940 --> 01:05:48,630
+a value of x and returns a value let's
+
+1243
+01:05:45,540 --> 01:05:52,410
+just say return okay so let's say
+
+1244
+01:05:48,630 --> 01:05:57,810
+return X okay here so we have a function
+
+1245
+01:05:52,410 --> 01:06:01,350
+that returns X and let's call it let's
+
+1246
+01:05:57,810 --> 01:06:05,100
+say three and let's run it okay save it
+
+1247
+01:06:01,350 --> 01:06:07,890
+save the file as that and let's run it
+
+1248
+01:06:05,100 --> 01:06:10,440
+and we got the answer three so we have a
+
+1249
+01:06:07,890 --> 01:06:12,990
+function we defined a function this is a
+
+1250
+01:06:10,440 --> 01:06:15,300
+lambda function anonymous function it's
+
+1251
+01:06:12,990 --> 01:06:17,580
+just a function expression okay function
+
+1252
+01:06:15,300 --> 01:06:21,030
+takes a variable X and we just return
+
+1253
+01:06:17,580 --> 01:06:22,830
+and let's say we turned X plus 1 so we
+
+1254
+01:06:21,030 --> 01:06:27,390
+get some difference so you know it
+
+1255
+01:06:22,830 --> 01:06:31,890
+returns for so and we assign to a name f
+
+1256
+01:06:27,390 --> 01:06:34,740
+so f is a function so f3 you know
+
+1257
+01:06:31,890 --> 01:06:36,750
+returns 4 okay now we have a function
+
+1258
+01:06:34,740 --> 01:06:40,890
+now let's define some local variables
+
+1259
+01:06:36,750 --> 01:06:47,970
+okay it's local variables let's say okay
+
+1260
+01:06:40,890 --> 01:06:53,550
+so we let's try to do that so let y
+
+1261
+01:06:47,970 --> 01:06:57,750
+equals to 3 okay yeah y equals to 3 and
+
+1262
+01:06:53,550 --> 01:07:01,140
+let's say X plus y okay now we have a
+
+1263
+01:06:57,750 --> 01:07:06,270
+function that has a local variable Y
+
+1264
+01:07:01,140 --> 01:07:10,320
+okay and this function returns X plus y
+
+1265
+01:07:06,270 --> 01:07:13,440
+okay let's write 6 that's the right
+
+1266
+01:07:10,320 --> 01:07:16,320
+answer because we give it 3 and the
+
+1267
+01:07:13,440 --> 01:07:19,440
+returns 6 because 3 plus 3 is 6
+
+1268
+01:07:16,320 --> 01:07:22,710
+okay so so far so good
+
+1269
+01:07:19,440 --> 01:07:26,040
+so we have a local variable now what I
+
+1270
+01:07:22,710 --> 01:07:30,860
+want to show you is a situation when
+
+1271
+01:07:26,040 --> 01:07:30,860
+local variable does not work anymore
+
+1272
+01:07:32,100 --> 01:07:43,940
+the it does not work anymore that's a
+
+1273
+01:07:35,970 --> 01:07:47,280
+tricky situation okay ok let's do it
+
+1274
+01:07:43,940 --> 01:07:49,950
+so in this function I'm going to define
+
+1275
+01:07:47,280 --> 01:07:52,170
+another function inside this function so
+
+1276
+01:07:49,950 --> 01:07:54,200
+it is kind of a nested function you know
+
+1277
+01:07:52,170 --> 01:07:57,010
+inside this function so let's do that
+
+1278
+01:07:54,200 --> 01:08:02,800
+let's just say let okay
+
+1279
+01:07:57,010 --> 01:08:05,440
+that's in in RF okay it's kind of you
+
+1280
+01:08:02,800 --> 01:08:10,349
+know let's say if - yeah let's call it f
+
+1281
+01:08:05,440 --> 01:08:10,349
+- then so let's call the first one F one
+
+1282
+01:08:11,070 --> 01:08:19,210
+so we have a inner function f2 and this
+
+1283
+01:08:15,790 --> 01:08:22,710
+inner function let's say it takes no
+
+1284
+01:08:19,210 --> 01:08:25,359
+argument okay and let's say it returns
+
+1285
+01:08:22,710 --> 01:08:33,460
+three okay this is just for now it
+
+1286
+01:08:25,359 --> 01:08:37,049
+returns three now let's let's do that so
+
+1287
+01:08:33,460 --> 01:08:44,040
+that we so we get in ten take
+
+1288
+01:08:37,049 --> 01:08:44,040
+indentations so actually
+
+1289
+01:08:51,190 --> 01:08:59,330
+okay so anyway so we define a function
+
+1290
+01:08:55,220 --> 01:09:02,930
+f2 inside inside this f1 function and
+
+1291
+01:08:59,330 --> 01:09:09,080
+this f2 function takes no arguments and
+
+1292
+01:09:02,930 --> 01:09:13,610
+it returns let's say now it lets it
+
+1293
+01:09:09,080 --> 01:09:19,010
+returns 3 ok let's say it returns 2 and
+
+1294
+01:09:13,610 --> 01:09:20,870
+now let's run it it returns 6 that's
+
+1295
+01:09:19,010 --> 01:09:23,000
+still good because you know nothing
+
+1296
+01:09:20,870 --> 01:09:25,070
+changed we actually we define the inner
+
+1297
+01:09:23,000 --> 01:09:28,040
+function people we did nothing we didn't
+
+1298
+01:09:25,070 --> 01:09:30,650
+call it or anything so it still so so
+
+1299
+01:09:28,040 --> 01:09:36,380
+far so good now let's do something else
+
+1300
+01:09:30,650 --> 01:09:45,770
+now let us return now let the main
+
+1301
+01:09:36,380 --> 01:09:49,130
+function returns f2 let's see how our
+
+1302
+01:09:45,770 --> 01:09:52,910
+second we were we want to create a
+
+1303
+01:09:49,130 --> 01:09:57,160
+situation where a local function a local
+
+1304
+01:09:52,910 --> 01:10:00,320
+variable in a function no longer works
+
+1305
+01:09:57,160 --> 01:10:03,230
+so a local variable in your function no
+
+1306
+01:10:00,320 --> 01:10:06,100
+longer works so let's add a local
+
+1307
+01:10:03,230 --> 01:10:06,100
+variable here
+
+1308
+01:10:10,750 --> 01:10:25,060
+okay so let's see let's return Y okay
+
+1309
+01:10:25,150 --> 01:10:32,840
+yeah let's just return that and we've
+
+1310
+01:10:28,610 --> 01:10:35,450
+done f2 so what I'm doing here is you
+
+1311
+01:10:32,840 --> 01:10:40,900
+see the F Y is a function it has a local
+
+1312
+01:10:35,450 --> 01:10:43,640
+variable Y and it also has a local
+
+1313
+01:10:40,900 --> 01:10:46,520
+function you know a function f2 inside
+
+1314
+01:10:43,640 --> 01:10:51,890
+this function and this function returns
+
+1315
+01:10:46,520 --> 01:10:55,550
+the local variable Y and this f1
+
+1316
+01:10:51,890 --> 01:10:58,450
+function actually returns f2 so this f1
+
+1317
+01:10:55,550 --> 01:11:01,160
+function actually returns a function and
+
+1318
+01:10:58,450 --> 01:11:04,640
+you know returns the in of inner
+
+1319
+01:11:01,160 --> 01:11:09,560
+function so what happens if we call f1
+
+1320
+01:11:04,640 --> 01:11:12,260
+if we call f1 you know it's actually
+
+1321
+01:11:09,560 --> 01:11:17,260
+just returning f2 so let's try to run it
+
+1322
+01:11:12,260 --> 01:11:17,260
+so you see it returns the function f2
+
+1323
+01:11:18,250 --> 01:11:28,580
+now now there's an interesting thing
+
+1324
+01:11:21,410 --> 01:11:35,720
+here this this variable Y is is is local
+
+1325
+01:11:28,580 --> 01:11:40,550
+to f1 ok let's do this ok so if so let's
+
+1326
+01:11:35,720 --> 01:11:47,900
+let's let okay let's let F 3 equals 2 f1
+
+1327
+01:11:40,550 --> 01:11:50,780
+okay now remember remember f1 returns a
+
+1328
+01:11:47,900 --> 01:11:56,680
+function so what we are doing is that we
+
+1329
+01:11:50,780 --> 01:11:59,300
+whatever it returns we assign a name f3
+
+1330
+01:11:56,680 --> 01:12:01,760
+you see what I mean so we can write
+
+1331
+01:11:59,300 --> 01:12:04,160
+so whatever you'd be turns it returns a
+
+1332
+01:12:01,760 --> 01:12:07,520
+function you know and now we give it you
+
+1333
+01:12:04,160 --> 01:12:09,680
+know we assign it to f3 so now we can
+
+1334
+01:12:07,520 --> 01:12:13,640
+call f3
+
+1335
+01:12:09,680 --> 01:12:19,340
+let's call f3 and let's see what it
+
+1336
+01:12:13,640 --> 01:12:21,499
+returns it returns 3 you see what
+
+1337
+01:12:19,340 --> 01:12:24,689
+happens here is that this
+
+1338
+01:12:21,499 --> 01:12:28,619
+f1 returns a function what does a return
+
+1339
+01:12:24,689 --> 01:12:32,340
+it returns this function f2 here and
+
+1340
+01:12:28,619 --> 01:12:36,269
+what does this f 2 to F 2 is actually
+
+1341
+01:12:32,340 --> 01:12:41,969
+taking a variable Y that's defining f1
+
+1342
+01:12:36,269 --> 01:12:46,260
+and they just retired so so so that
+
+1343
+01:12:41,969 --> 01:12:48,510
+that's why this f3 returns 3 so it all
+
+1344
+01:12:46,260 --> 01:12:50,999
+works but what's a what's a deal so
+
+1345
+01:12:48,510 --> 01:12:54,389
+there's an interesting interesting thing
+
+1346
+01:12:50,999 --> 01:13:00,989
+going on because when you return why you
+
+1347
+01:12:54,389 --> 01:13:02,669
+see this Y this Y is part of f1 but f1
+
+1348
+01:13:00,989 --> 01:13:05,880
+is already done for you know
+
+1349
+01:13:02,669 --> 01:13:09,389
+over here when you co f1 is always
+
+1350
+01:13:05,880 --> 01:13:13,800
+already finished but now when you call
+
+1351
+01:13:09,389 --> 01:13:17,519
+f3 that why came from f1 but however it
+
+1352
+01:13:13,800 --> 01:13:21,659
+kind of you know it kind of still is
+
+1353
+01:13:17,519 --> 01:13:24,479
+still there so so this is actually what
+
+1354
+01:13:21,659 --> 01:13:27,679
+this is what I'm trying to say when a
+
+1355
+01:13:24,479 --> 01:13:31,469
+functions local variable no longer works
+
+1356
+01:13:27,679 --> 01:13:36,209
+actually I it was a incorrect statement
+
+1357
+01:13:31,469 --> 01:13:38,309
+what I'm trying to say it's not it's
+
+1358
+01:13:36,209 --> 01:13:41,939
+it's not about the local function no
+
+1359
+01:13:38,309 --> 01:13:45,179
+longer works but rather a variable used
+
+1360
+01:13:41,939 --> 01:13:47,550
+by the function you have a situation
+
+1361
+01:13:45,179 --> 01:13:51,059
+where a variable used by the function
+
+1362
+01:13:47,550 --> 01:13:54,510
+can sometimes no longer exist because
+
+1363
+01:13:51,059 --> 01:13:58,110
+look at this f2 is a function it uses
+
+1364
+01:13:54,510 --> 01:14:01,229
+the variable Y but Y is defined as a
+
+1365
+01:13:58,110 --> 01:14:04,079
+local function in f1 so in many
+
+1366
+01:14:01,229 --> 01:14:08,189
+programming languages when f1 is done
+
+1367
+01:14:04,079 --> 01:14:08,639
+after its code the Y variable is already
+
+1368
+01:14:08,189 --> 01:14:12,539
+gone
+
+1369
+01:14:08,639 --> 01:14:16,169
+so the f2 you have a situation this f2
+
+1370
+01:14:12,539 --> 01:14:21,570
+has a variable that's already you know
+
+1371
+01:14:16,169 --> 01:14:24,119
+doesn't exist anymore so so in some
+
+1372
+01:14:21,570 --> 01:14:28,709
+languages you cannot have the situation
+
+1373
+01:14:24,119 --> 01:14:30,929
+like this so it's an issue you know this
+
+1374
+01:14:28,709 --> 01:14:33,239
+so this is actually why this is a
+
+1375
+01:14:30,929 --> 01:14:35,330
+complicated advanced issue about
+
+1376
+01:14:33,239 --> 01:14:39,210
+closures so what I'm saying is that
+
+1377
+01:14:35,330 --> 01:14:42,150
+so so designer Landry language designers
+
+1378
+01:14:39,210 --> 01:14:45,090
+and implement you know who implement
+
+1379
+01:14:42,150 --> 01:14:48,750
+this have have to come away so that when
+
+1380
+01:14:45,090 --> 01:14:50,940
+a function is going away but however if
+
+1381
+01:14:48,750 --> 01:14:52,500
+it's variable is still used by some
+
+1382
+01:14:50,940 --> 01:14:56,610
+other function you know it's still used
+
+1383
+01:14:52,500 --> 01:15:00,420
+somewhere it should still work okay so
+
+1384
+01:14:56,610 --> 01:15:05,430
+this is why so this should still work
+
+1385
+01:15:00,420 --> 01:15:08,010
+and this situation where a functions
+
+1386
+01:15:05,430 --> 01:15:11,160
+variable whatever variable it uses is
+
+1387
+01:15:08,010 --> 01:15:15,590
+guaranteed to always walk this is called
+
+1388
+01:15:11,160 --> 01:15:15,590
+closure okay this is what closure is
+
+1389
+01:15:15,920 --> 01:15:23,940
+okay so yeah so that that is what
+
+1390
+01:15:19,920 --> 01:15:26,010
+closure is okay it's is that clear or is
+
+1391
+01:15:23,940 --> 01:15:29,400
+that you know it's a little bit
+
+1392
+01:15:26,010 --> 01:15:31,230
+complicated so actually my that one
+
+1393
+01:15:29,400 --> 01:15:32,940
+single sentence explanation
+
+1394
+01:15:31,230 --> 01:15:36,690
+you know closure is just a function
+
+1395
+01:15:32,940 --> 01:15:38,460
+where it's the variable it uses always
+
+1396
+01:15:36,690 --> 01:15:40,770
+walks not local variable that's a
+
+1397
+01:15:38,460 --> 01:15:43,200
+mistake so it's so closure is just a
+
+1398
+01:15:40,770 --> 01:15:46,500
+function such that all the variables
+
+1399
+01:15:43,200 --> 01:15:47,250
+such that such a it just always works as
+
+1400
+01:15:46,500 --> 01:15:50,220
+expected
+
+1401
+01:15:47,250 --> 01:15:52,530
+you know that's one way to put it almost
+
+1402
+01:15:50,220 --> 01:15:59,070
+specifically the variable it uses always
+
+1403
+01:15:52,530 --> 01:16:00,720
+just walks but there's a problem here
+
+1404
+01:15:59,070 --> 01:16:05,540
+when you have a closure there's a issue
+
+1405
+01:16:00,720 --> 01:16:05,540
+for example let's see let's say
+
+1406
+01:16:10,409 --> 01:16:20,100
+for example let's say let's do y equals
+
+1407
+01:16:14,719 --> 01:16:24,360
+2y plus 1 okay let's do that we run that
+
+1408
+01:16:20,100 --> 01:16:28,290
+so it returns 4 right and let's run it
+
+1409
+01:16:24,360 --> 01:16:33,239
+again you can see we run it several
+
+1410
+01:16:28,290 --> 01:16:36,120
+times you see the result is 4 5 6 7 why
+
+1411
+01:16:33,239 --> 01:16:40,020
+because it actually maintained you see
+
+1412
+01:16:36,120 --> 01:16:42,719
+this variable Y is a kind of a internal
+
+1413
+01:16:40,020 --> 01:16:45,270
+variable nobody can access this variable
+
+1414
+01:16:42,719 --> 01:16:47,730
+Y because F Y is already called but
+
+1415
+01:16:45,270 --> 01:16:51,540
+however it's still there it's maintained
+
+1416
+01:16:47,730 --> 01:16:55,080
+it kinds of maintains it comes with the
+
+1417
+01:16:51,540 --> 01:16:58,620
+F 2 function so closure another way to
+
+1418
+01:16:55,080 --> 01:17:02,100
+say what closure is and this is an the
+
+1419
+01:16:58,620 --> 01:17:04,440
+most standard way to when people say
+
+1420
+01:17:02,100 --> 01:17:09,000
+what closure is is that it's a function
+
+1421
+01:17:04,440 --> 01:17:11,610
+that that has its own lexical
+
+1422
+01:17:09,000 --> 01:17:14,909
+environment that's how people say it you
+
+1423
+01:17:11,610 --> 01:17:17,010
+know it has its own lexical environment
+
+1424
+01:17:14,909 --> 01:17:19,949
+it just means that you know all the
+
+1425
+01:17:17,010 --> 01:17:21,630
+variable uses it still come with it you
+
+1426
+01:17:19,949 --> 01:17:23,370
+know it's like you have an environment
+
+1427
+01:17:21,630 --> 01:17:26,400
+it's still you know you have a bubble
+
+1428
+01:17:23,370 --> 01:17:30,270
+that comes along with a function and you
+
+1429
+01:17:26,400 --> 01:17:32,250
+know and it's enclosed you know that why
+
+1430
+01:17:30,270 --> 01:17:35,429
+is it called closure because it's some
+
+1431
+01:17:32,250 --> 01:17:38,820
+kind of a enclosed thing you know this
+
+1432
+01:17:35,429 --> 01:17:41,880
+whole thing the whole variables that's
+
+1433
+01:17:38,820 --> 01:17:43,710
+used with the function f to come with it
+
+1434
+01:17:41,880 --> 01:17:47,280
+you know wherever you return a function
+
+1435
+01:17:43,710 --> 01:17:49,260
+whatever variables it uses always stay
+
+1436
+01:17:47,280 --> 01:17:51,600
+with the function so any when you define
+
+1437
+01:17:49,260 --> 01:17:52,440
+a function in a language that supports
+
+1438
+01:17:51,600 --> 01:17:54,480
+closure
+
+1439
+01:17:52,440 --> 01:17:57,900
+it means whenever whenever you have a
+
+1440
+01:17:54,480 --> 01:18:00,570
+function it just maintains you know all
+
+1441
+01:17:57,900 --> 01:18:02,820
+the variable environment with the
+
+1442
+01:18:00,570 --> 01:18:04,500
+function that is all it is you know so
+
+1443
+01:18:02,820 --> 01:18:07,620
+that the reason it's called closure
+
+1444
+01:18:04,500 --> 01:18:12,300
+because it's like a enclosure actually a
+
+1445
+01:18:07,620 --> 01:18:14,760
+proper term is Mexico enclosure okay so
+
+1446
+01:18:12,300 --> 01:18:16,800
+what so I you know you can you can read
+
+1447
+01:18:14,760 --> 01:18:18,960
+this article you know I'm doing video so
+
+1448
+01:18:16,800 --> 01:18:22,650
+I'm kind of verbose and but you see my
+
+1449
+01:18:18,960 --> 01:18:23,820
+visual facial expressions and you kind
+
+1450
+01:18:22,650 --> 01:18:26,610
+of get to see
+
+1451
+01:18:23,820 --> 01:18:29,430
+you know my process of thinking through
+
+1452
+01:18:26,610 --> 01:18:31,980
+it you know I hope that's helpful but in
+
+1453
+01:18:29,430 --> 01:18:34,470
+you know if you are impatient you can
+
+1454
+01:18:31,980 --> 01:18:36,000
+read this article because I have I have
+
+1455
+01:18:34,470 --> 01:18:38,790
+several articles I have one in
+
+1456
+01:18:36,000 --> 01:18:44,010
+JavaScript and in Python 3 I show you
+
+1457
+01:18:38,790 --> 01:18:45,030
+how to do closure like this article in
+
+1458
+01:18:44,010 --> 01:18:47,490
+Python 3
+
+1459
+01:18:45,030 --> 01:18:52,950
+you know I show you how closure is done
+
+1460
+01:18:47,490 --> 01:18:56,070
+in Python 3 and actually I also I don't
+
+1461
+01:18:52,950 --> 01:18:59,790
+have an example in eMac list and I was
+
+1462
+01:18:56,070 --> 01:19:03,270
+thinking of coding it in real time but I
+
+1463
+01:18:59,790 --> 01:19:06,780
+probably talked for too long I spent too
+
+1464
+01:19:03,270 --> 01:19:10,770
+much time on the rental closure on the
+
+1465
+01:19:06,780 --> 01:19:12,450
+from the Perl people so I was thinking
+
+1466
+01:19:10,770 --> 01:19:15,330
+of doing a real time coding of closure
+
+1467
+01:19:12,450 --> 01:19:19,680
+showing you how closure is studying emag
+
+1468
+01:19:15,330 --> 01:19:22,470
+Lisp which is anyway so I think let's
+
+1469
+01:19:19,680 --> 01:19:26,100
+keep that but anyway so so you can read
+
+1470
+01:19:22,470 --> 01:19:31,380
+this are code that that explains several
+
+1471
+01:19:26,100 --> 01:19:39,540
+issues about closure ok for example
+
+1472
+01:19:31,380 --> 01:19:42,840
+there is a I'm going to get to some of
+
+1473
+01:19:39,540 --> 01:19:44,730
+the items so the better name for closure
+
+1474
+01:19:42,840 --> 01:19:46,680
+is lexical in closure
+
+1475
+01:19:44,730 --> 01:19:49,500
+okay it's called closure because it's
+
+1476
+01:19:46,680 --> 01:19:52,950
+some kind of enclosure because it when
+
+1477
+01:19:49,500 --> 01:19:55,470
+you define a function it encloses
+
+1478
+01:19:52,950 --> 01:20:00,710
+everything it uses you know it comes as
+
+1479
+01:19:55,470 --> 01:20:04,110
+one package you know so but the most
+
+1480
+01:20:00,710 --> 01:20:06,270
+important and practical consequence the
+
+1481
+01:20:04,110 --> 01:20:11,640
+most important thing people use closure
+
+1482
+01:20:06,270 --> 01:20:14,400
+for is actually the state function that
+
+1483
+01:20:11,640 --> 01:20:17,850
+maintains state that's what people use
+
+1484
+01:20:14,400 --> 01:20:20,550
+it for that's the gist that's the the
+
+1485
+01:20:17,850 --> 01:20:24,120
+the consequence that that is the use of
+
+1486
+01:20:20,550 --> 01:20:26,360
+closure you know it's not about you know
+
+1487
+01:20:24,120 --> 01:20:28,440
+the enclosure or think that that's just
+
+1488
+01:20:26,360 --> 01:20:30,480
+technicality that's just computer
+
+1489
+01:20:28,440 --> 01:20:33,150
+science technicality
+
+1490
+01:20:30,480 --> 01:20:34,680
+when programmers use closure what you
+
+1491
+01:20:33,150 --> 01:20:37,230
+really want what do you want this
+
+1492
+01:20:34,680 --> 01:20:39,510
+feature what you really want is
+
+1493
+01:20:37,230 --> 01:20:43,410
+you want a function okay you want a
+
+1494
+01:20:39,510 --> 01:20:45,540
+function to have a internal state you
+
+1495
+01:20:43,410 --> 01:20:47,610
+know like our example you know it can
+
+1496
+01:20:45,540 --> 01:20:49,410
+you call it multiple times and it
+
+1497
+01:20:47,610 --> 01:20:51,660
+returns multiple different values
+
+1498
+01:20:49,410 --> 01:20:53,850
+because you know there's a change of
+
+1499
+01:20:51,660 --> 01:20:58,080
+state you can change the state or you
+
+1500
+01:20:53,850 --> 01:21:00,590
+can change Y to something else that's
+
+1501
+01:20:58,080 --> 01:21:03,330
+what closure is useful that's the
+
+1502
+01:21:00,590 --> 01:21:06,290
+manifestation of closure that the actual
+
+1503
+01:21:03,330 --> 01:21:09,660
+use of closure maintaining a state and
+
+1504
+01:21:06,290 --> 01:21:12,150
+also because of this closure is no
+
+1505
+01:21:09,660 --> 01:21:15,770
+longer technically closure is not a
+
+1506
+01:21:12,150 --> 01:21:19,500
+function anymore it is not the math map
+
+1507
+01:21:15,770 --> 01:21:21,600
+mathematicians ideal concept of function
+
+1508
+01:21:19,500 --> 01:21:25,560
+because it has side effects
+
+1509
+01:21:21,600 --> 01:21:28,050
+because the functions return value no
+
+1510
+01:21:25,560 --> 01:21:29,850
+longer depends on the input you know
+
+1511
+01:21:28,050 --> 01:21:32,340
+because right now we have a function we
+
+1512
+01:21:29,850 --> 01:21:34,860
+cover multiple times each time the input
+
+1513
+01:21:32,340 --> 01:21:37,470
+is the same you know no value but
+
+1514
+01:21:34,860 --> 01:21:41,520
+however the return value changes is
+
+1515
+01:21:37,470 --> 01:21:44,310
+different each time you call it so so in
+
+1516
+01:21:41,520 --> 01:21:46,970
+a math sense in a function of pure
+
+1517
+01:21:44,310 --> 01:21:50,220
+functional programming since closure is
+
+1518
+01:21:46,970 --> 01:21:52,290
+what is you know it's a it's the thing
+
+1519
+01:21:50,220 --> 01:21:54,480
+you don't want because it has side
+
+1520
+01:21:52,290 --> 01:21:57,480
+effect you know it's no longer pure
+
+1521
+01:21:54,480 --> 01:22:00,510
+function this is the reason I don't like
+
+1522
+01:21:57,480 --> 01:22:03,210
+closure and okay so let me get let me
+
+1523
+01:22:00,510 --> 01:22:06,570
+get clear let me summarize a little bit
+
+1524
+01:22:03,210 --> 01:22:08,280
+it just creates the the one hours of
+
+1525
+01:22:06,570 --> 01:22:10,020
+talk first of all closure is the
+
+1526
+01:22:08,280 --> 01:22:11,910
+programming language feature some
+
+1527
+01:22:10,020 --> 01:22:14,220
+programming language it has it some
+
+1528
+01:22:11,910 --> 01:22:16,830
+doesn't okay some people like it some
+
+1529
+01:22:14,220 --> 01:22:18,570
+doesn't it's not really necessary you
+
+1530
+01:22:16,830 --> 01:22:22,380
+know because it's just a programming
+
+1531
+01:22:18,570 --> 01:22:24,780
+language feature now crow sure what
+
+1532
+01:22:22,380 --> 01:22:28,350
+closure is is actually it's a function
+
+1533
+01:22:24,780 --> 01:22:31,620
+such that it comes with a environment of
+
+1534
+01:22:28,350 --> 01:22:33,510
+all the variable it uses so that you
+
+1535
+01:22:31,620 --> 01:22:36,600
+know the function still works as you
+
+1536
+01:22:33,510 --> 01:22:38,760
+would expect you know people's people
+
+1537
+01:22:36,600 --> 01:22:41,880
+would say you know it's a function with
+
+1538
+01:22:38,760 --> 01:22:44,610
+its own lexico environment that's what
+
+1539
+01:22:41,880 --> 01:22:47,400
+closure is now why is it called closure
+
+1540
+01:22:44,610 --> 01:22:49,739
+it is because it's some kind of a
+
+1541
+01:22:47,400 --> 01:22:50,890
+enclosure you know it's like close you
+
+1542
+01:22:49,739 --> 01:22:53,080
+know it's
+
+1543
+01:22:50,890 --> 01:22:54,610
+he says it's a it's a house it's a
+
+1544
+01:22:53,080 --> 01:22:57,310
+circle you know it's a pub oh it's a
+
+1545
+01:22:54,610 --> 01:23:03,880
+lexicon enclosure that is why it's
+
+1546
+01:22:57,310 --> 01:23:06,730
+called Crozier now now why now let me
+
+1547
+01:23:03,880 --> 01:23:09,250
+talk about why why I don't like it I
+
+1548
+01:23:06,730 --> 01:23:11,710
+don't think it's good thing okay in
+
+1549
+01:23:09,250 --> 01:23:13,690
+competing in programming what no no wait
+
+1550
+01:23:11,710 --> 01:23:17,130
+hold on a second now let me talk about
+
+1551
+01:23:13,690 --> 01:23:19,990
+why why is it useful why people like it
+
+1552
+01:23:17,130 --> 01:23:24,060
+the reason people like it the reason
+
+1553
+01:23:19,990 --> 01:23:26,770
+that the the it's use is because it
+
+1554
+01:23:24,060 --> 01:23:30,340
+creates a situation where you can
+
+1555
+01:23:26,770 --> 01:23:33,100
+function that maintains state you know
+
+1556
+01:23:30,340 --> 01:23:35,560
+you know and there's a consequence you
+
+1557
+01:23:33,100 --> 01:23:38,860
+can also have a function in fact this is
+
+1558
+01:23:35,560 --> 01:23:42,100
+the heart of object-oriented programming
+
+1559
+01:23:38,860 --> 01:23:45,760
+okay when you define your class what
+
+1560
+01:23:42,100 --> 01:23:48,340
+does class me class is a closure that
+
+1561
+01:23:45,760 --> 01:23:52,450
+says that is the technical essence of a
+
+1562
+01:23:48,340 --> 01:23:56,410
+class of object-oriented programming the
+
+1563
+01:23:52,450 --> 01:24:01,170
+class concept in Java in Python in Ruby
+
+1564
+01:23:56,410 --> 01:24:04,270
+okay a class technically speaking is
+
+1565
+01:24:01,170 --> 01:24:08,140
+from the perspective of computer
+
+1566
+01:24:04,270 --> 01:24:11,650
+language design class of olp is a
+
+1567
+01:24:08,140 --> 01:24:14,140
+closure okay that's what it is because
+
+1568
+01:24:11,650 --> 01:24:18,640
+of the feature programming language
+
+1569
+01:24:14,140 --> 01:24:20,800
+feature of crows closure that is how you
+
+1570
+01:24:18,640 --> 01:24:23,830
+can define class otherwise class is
+
+1571
+01:24:20,800 --> 01:24:26,500
+impossible you know because of the
+
+1572
+01:24:23,830 --> 01:24:26,950
+closure feature the lexical in closure
+
+1573
+01:24:26,500 --> 01:24:29,770
+you know
+
+1574
+01:24:26,950 --> 01:24:36,190
+therefore you can define a class in Java
+
+1575
+01:24:29,770 --> 01:24:38,740
+in in Python okay so but why do people
+
+1576
+01:24:36,190 --> 01:24:41,830
+want to use closure what is it you store
+
+1577
+01:24:38,740 --> 01:24:44,440
+that used for now that basically the
+
+1578
+01:24:41,830 --> 01:24:46,990
+only reason that the reason is that it
+
+1579
+01:24:44,440 --> 01:24:48,940
+allows function to ever state such as
+
+1580
+01:24:46,990 --> 01:24:51,370
+when you sting over P for example when
+
+1581
+01:24:48,940 --> 01:24:54,850
+you have a class you have you know sorts
+
+1582
+01:24:51,370 --> 01:24:57,310
+called fields you know member members of
+
+1583
+01:24:54,850 --> 01:25:00,490
+the class you have methods those are or
+
+1584
+01:24:57,310 --> 01:25:03,340
+local to the function the class so class
+
+1585
+01:25:00,490 --> 01:25:04,570
+in oak yes in your case is kind of the
+
+1586
+01:25:03,340 --> 01:25:07,300
+outer function
+
+1587
+01:25:04,570 --> 01:25:10,500
+and the methods are the enough inner
+
+1588
+01:25:07,300 --> 01:25:13,060
+function such as the f2 here and the
+
+1589
+01:25:10,500 --> 01:25:15,639
+fields or members you know member
+
+1590
+01:25:13,060 --> 01:25:18,909
+variables static variables of a crisis
+
+1591
+01:25:15,639 --> 01:25:21,369
+like the variable y here so that's what
+
+1592
+01:25:18,909 --> 01:25:23,800
+you know oh he came from they came from
+
+1593
+01:25:21,369 --> 01:25:29,170
+you kind of came from the functional
+
+1594
+01:25:23,800 --> 01:25:31,929
+programming kind of okay this this is
+
+1595
+01:25:29,170 --> 01:25:35,590
+not real history okay I'm just saying
+
+1596
+01:25:31,929 --> 01:25:37,420
+technically speaking okay anyway so what
+
+1597
+01:25:35,590 --> 01:25:39,880
+what's the closure useful it's used for
+
+1598
+01:25:37,420 --> 01:25:42,730
+the state you know for function to have
+
+1599
+01:25:39,880 --> 01:25:44,980
+a state now if you don't have a closure
+
+1600
+01:25:42,730 --> 01:25:46,420
+can you still do that yes all you have
+
+1601
+01:25:44,980 --> 01:25:49,030
+to do is just use global variables
+
+1602
+01:25:46,420 --> 01:25:51,670
+that's a simple way so you just have a
+
+1603
+01:25:49,030 --> 01:25:53,199
+function that uses global variables you
+
+1604
+01:25:51,670 --> 01:25:55,869
+know each function can use global
+
+1605
+01:25:53,199 --> 01:25:57,429
+variables then you each function can
+
+1606
+01:25:55,869 --> 01:25:58,840
+have maintain a state you can do
+
+1607
+01:25:57,429 --> 01:26:02,590
+whatever you want you can do whatever
+
+1608
+01:25:58,840 --> 01:26:04,810
+you want to do with closure so if you
+
+1609
+01:26:02,590 --> 01:26:06,909
+have a language that do not have closure
+
+1610
+01:26:04,810 --> 01:26:09,820
+that's good because I don't like closure
+
+1611
+01:26:06,909 --> 01:26:12,190
+because everything everything possible
+
+1612
+01:26:09,820 --> 01:26:14,170
+you know doesn't matter what a closure
+
+1613
+01:26:12,190 --> 01:26:16,929
+can do you can do it with your function
+
+1614
+01:26:14,170 --> 01:26:19,750
+just by using global variables now you
+
+1615
+01:26:16,929 --> 01:26:22,420
+might come friend oh yeah but but but oh
+
+1616
+01:26:19,750 --> 01:26:25,090
+sure global variables is bad because you
+
+1617
+01:26:22,420 --> 01:26:27,610
+have different functions they may stamp
+
+1618
+01:26:25,090 --> 01:26:29,170
+on each other that is true well how do
+
+1619
+01:26:27,610 --> 01:26:32,889
+you solve that you can solve it by
+
+1620
+01:26:29,170 --> 01:26:37,170
+creating a scheme such that the global
+
+1621
+01:26:32,889 --> 01:26:40,570
+variable names used by each function is
+
+1622
+01:26:37,170 --> 01:26:43,119
+like a random systemically random and
+
+1623
+01:26:40,570 --> 01:26:45,280
+connected to the function such as you
+
+1624
+01:26:43,119 --> 01:26:47,619
+know cryptography you know public
+
+1625
+01:26:45,280 --> 01:26:50,610
+encryption you have terror of keys you
+
+1626
+01:26:47,619 --> 01:26:54,489
+know that's one way to solve it and and
+
+1627
+01:26:50,610 --> 01:26:56,530
+you know anyway that's that's that's
+
+1628
+01:26:54,489 --> 01:26:58,780
+kind of my steam towards those people
+
+1629
+01:26:56,530 --> 01:27:00,670
+who like closures in those videos ok
+
+1630
+01:26:58,780 --> 01:27:03,550
+programmer the hacker types they don't
+
+1631
+01:27:00,670 --> 01:27:05,260
+understand what it is but anyways what
+
+1632
+01:27:03,550 --> 01:27:08,739
+I'm saying about this global variable
+
+1633
+01:27:05,260 --> 01:27:11,380
+use is actually it's actually true that
+
+1634
+01:27:08,739 --> 01:27:14,920
+is the practical equivalent of closure
+
+1635
+01:27:11,380 --> 01:27:16,900
+you don't need closure it is from a
+
+1636
+01:27:14,920 --> 01:27:17,710
+functional point of view functional
+
+1637
+01:27:16,900 --> 01:27:19,780
+meaning it
+
+1638
+01:27:17,710 --> 01:27:23,710
+meaning that what your program actually
+
+1639
+01:27:19,780 --> 01:27:25,600
+do everything that's with closure you
+
+1640
+01:27:23,710 --> 01:27:28,990
+can do just by using global variables
+
+1641
+01:27:25,600 --> 01:27:30,400
+such a simple idea you know this you
+
+1642
+01:27:28,990 --> 01:27:34,000
+know this is nothing you don't need
+
+1643
+01:27:30,400 --> 01:27:36,940
+closure at all now the next pub in last
+
+1644
+01:27:34,000 --> 01:27:39,190
+part why I don't like closure okay first
+
+1645
+01:27:36,940 --> 01:27:42,190
+of all the reason I don't like closure
+
+1646
+01:27:39,190 --> 01:27:44,230
+is one it's not function it's not
+
+1647
+01:27:42,190 --> 01:27:46,390
+mathematical function anymore you are
+
+1648
+01:27:44,230 --> 01:27:49,180
+getting into Opie oh you are getting
+
+1649
+01:27:46,390 --> 01:27:51,730
+into you know a function a pure function
+
+1650
+01:27:49,180 --> 01:27:55,390
+by definition is such that a function
+
+1651
+01:27:51,730 --> 01:27:56,020
+output always depends on the input it's
+
+1652
+01:27:55,390 --> 01:28:00,790
+a map
+
+1653
+01:27:56,020 --> 01:28:02,860
+okay same emote input always have the
+
+1654
+01:28:00,790 --> 01:28:04,060
+same output but that's another case when
+
+1655
+01:28:02,860 --> 01:28:06,480
+you have a closure when you have a
+
+1656
+01:28:04,060 --> 01:28:09,760
+closure you you start to have you know
+
+1657
+01:28:06,480 --> 01:28:12,130
+you know it's almost like anything flies
+
+1658
+01:28:09,760 --> 01:28:14,410
+anything can fly you know you can have a
+
+1659
+01:28:12,130 --> 01:28:16,720
+function that returns a function that
+
+1660
+01:28:14,410 --> 01:28:19,540
+returns a function that has you know so
+
+1661
+01:28:16,720 --> 01:28:21,790
+many levels of inner variables you could
+
+1662
+01:28:19,540 --> 01:28:24,010
+you know I can we can actually start to
+
+1663
+01:28:21,790 --> 01:28:26,890
+code it you know you can have you can
+
+1664
+01:28:24,010 --> 01:28:30,880
+have not you know what what opie class
+
+1665
+01:28:26,890 --> 01:28:33,130
+you know you call class you know class
+
+1666
+01:28:30,880 --> 01:28:35,500
+variables you can actually have several
+
+1667
+01:28:33,130 --> 01:28:38,640
+levels of class variables you know you
+
+1668
+01:28:35,500 --> 01:28:41,920
+saw so you are in you I have like
+
+1669
+01:28:38,640 --> 01:28:43,870
+several levels of a closures so when we
+
+1670
+01:28:41,920 --> 01:28:47,530
+say closure we can actually talk about
+
+1671
+01:28:43,870 --> 01:28:50,050
+you know closure closure level and level
+
+1672
+01:28:47,530 --> 01:28:52,660
+enclosures you know it quickly becomes
+
+1673
+01:28:50,050 --> 01:28:56,050
+bizarre and complicated and in an
+
+1674
+01:28:52,660 --> 01:28:58,030
+extremely useless you know so that's
+
+1675
+01:28:56,050 --> 01:28:59,800
+what you know so first of all I don't
+
+1676
+01:28:58,030 --> 01:29:02,680
+like closure because it's it's not a
+
+1677
+01:28:59,800 --> 01:29:05,050
+function anymore and also because it
+
+1678
+01:29:02,680 --> 01:29:06,490
+gets you can get extremely complex you
+
+1679
+01:29:05,050 --> 01:29:09,670
+know when you have when you start have
+
+1680
+01:29:06,490 --> 01:29:11,590
+closure because you know the reason
+
+1681
+01:29:09,670 --> 01:29:14,620
+mathematicians of pure functional
+
+1682
+01:29:11,590 --> 01:29:16,150
+programming the reason we like the
+
+1683
+01:29:14,620 --> 01:29:19,120
+concept of pure functional programming
+
+1684
+01:29:16,150 --> 01:29:22,420
+is because functions has no side of it
+
+1685
+01:29:19,120 --> 01:29:24,310
+closure by the very nature but at very
+
+1686
+01:29:22,420 --> 01:29:27,700
+definition it's a function with side
+
+1687
+01:29:24,310 --> 01:29:31,090
+effect it's no good okay so that's why I
+
+1688
+01:29:27,700 --> 01:29:33,250
+don't like Roger secondary secondary
+
+1689
+01:29:31,090 --> 01:29:36,849
+the second reason is that when whenever
+
+1690
+01:29:33,250 --> 01:29:38,860
+you want to create a closure you cannot
+
+1691
+01:29:36,849 --> 01:29:40,960
+just say you know you cannot just say
+
+1692
+01:29:38,860 --> 01:29:42,789
+define closure like different closure
+
+1693
+01:29:40,960 --> 01:29:45,300
+and you know define your closure you can
+
+1694
+01:29:42,789 --> 01:29:49,329
+that's not how it's done
+
+1695
+01:29:45,300 --> 01:29:53,860
+you always overall the language I know
+
+1696
+01:29:49,329 --> 01:29:57,719
+of Python job well I don't know about
+
+1697
+01:29:53,860 --> 01:29:59,940
+Java but Python I know eMac this
+
+1698
+01:29:57,719 --> 01:30:03,099
+actually I don't know
+
+1699
+01:29:59,940 --> 01:30:06,340
+anyway job at least JavaScript in in
+
+1700
+01:30:03,099 --> 01:30:08,650
+Python ok at least JavaScript script in
+
+1701
+01:30:06,340 --> 01:30:10,420
+Python I don't know at the moment about
+
+1702
+01:30:08,650 --> 01:30:13,300
+email at least I have to think about it
+
+1703
+01:30:10,420 --> 01:30:15,699
+but anyway at least Python in JavaScript
+
+1704
+01:30:13,300 --> 01:30:18,929
+when you want to create a closure you
+
+1705
+01:30:15,699 --> 01:30:22,599
+always have to do the way the only way
+
+1706
+01:30:18,929 --> 01:30:25,889
+the prototypical way you create a
+
+1707
+01:30:22,599 --> 01:30:29,230
+closure is by defining a function
+
+1708
+01:30:25,889 --> 01:30:31,539
+defining a inner function and return the
+
+1709
+01:30:29,230 --> 01:30:34,150
+inner function that is how you create a
+
+1710
+01:30:31,539 --> 01:30:37,420
+closure after you do that then you have
+
+1711
+01:30:34,150 --> 01:30:40,389
+to assign you have to code a function
+
+1712
+01:30:37,420 --> 01:30:43,570
+and assign it to another function just
+
+1713
+01:30:40,389 --> 01:30:46,260
+like the example we have here so so in a
+
+1714
+01:30:43,570 --> 01:30:49,449
+sense it's rather extremely complicated
+
+1715
+01:30:46,260 --> 01:30:51,760
+in fact when you look at this form this
+
+1716
+01:30:49,449 --> 01:30:54,730
+is how you define class and how you
+
+1717
+01:30:51,760 --> 01:30:58,239
+create object it's almost identical you
+
+1718
+01:30:54,730 --> 01:31:01,500
+see this F 1 here is a class you know
+
+1719
+01:30:58,239 --> 01:31:04,960
+and this F 3 here is the instant
+
+1720
+01:31:01,500 --> 01:31:08,500
+instantiation of a object from the class
+
+1721
+01:31:04,960 --> 01:31:10,329
+f1 you know this is the or engine you
+
+1722
+01:31:08,500 --> 01:31:13,110
+know so anyway when you want to create
+
+1723
+01:31:10,329 --> 01:31:16,929
+query closure this is almost like like
+
+1724
+01:31:13,110 --> 01:31:19,480
+the only way you do it this and PI and
+
+1725
+01:31:16,929 --> 01:31:22,329
+in fact by the definition of closure you
+
+1726
+01:31:19,480 --> 01:31:24,309
+can see that this is just there's no way
+
+1727
+01:31:22,329 --> 01:31:27,039
+out because closure by definition is a
+
+1728
+01:31:24,309 --> 01:31:30,429
+function that comes with its lexical
+
+1729
+01:31:27,039 --> 01:31:33,130
+environment and only if I oh I think I'm
+
+1730
+01:31:30,429 --> 01:31:35,619
+I'm not sure theoretically theoretically
+
+1731
+01:31:33,130 --> 01:31:37,630
+but I think only via this way you know
+
+1732
+01:31:35,619 --> 01:31:40,750
+having inner functions that's how you
+
+1733
+01:31:37,630 --> 01:31:43,480
+can create closure ok so you can see
+
+1734
+01:31:40,750 --> 01:31:44,590
+it's fairly you know very extremely
+
+1735
+01:31:43,480 --> 01:31:48,340
+complicated thing
+
+1736
+01:31:44,590 --> 01:31:50,530
+I don't like it okay so I think that's
+
+1737
+01:31:48,340 --> 01:31:55,120
+kind of conclude actually that concludes
+
+1738
+01:31:50,530 --> 01:31:57,700
+what I have to say about closure 19
+
+1739
+01:31:55,120 --> 01:32:00,280
+minutes talk okay so if you if you guys
+
+1740
+01:31:57,700 --> 01:32:02,910
+have a comment type it you know really
+
+1741
+01:32:00,280 --> 01:32:05,830
+within 10 minutes and we can go over and
+
+1742
+01:32:02,910 --> 01:32:09,580
+I think maybe that's that would be it
+
+1743
+01:32:05,830 --> 01:32:13,450
+today Lots meant today about closure
+
+1744
+01:32:09,580 --> 01:32:15,460
+because you know it is it is one of the
+
+1745
+01:32:13,450 --> 01:32:19,660
+big rant he might you know twenty years
+
+1746
+01:32:15,460 --> 01:32:21,310
+of coding in the first five you know in
+
+1747
+01:32:19,660 --> 01:32:24,820
+the first ten years I actually don't
+
+1748
+01:32:21,310 --> 01:32:33,040
+quite understand what it is and then but
+
+1749
+01:32:24,820 --> 01:32:36,040
+you know anyway so let's see what so
+
+1750
+01:32:33,040 --> 01:32:38,350
+type your comments and so I'm gonna go
+
+1751
+01:32:36,040 --> 01:32:43,420
+through the comments hey hey George
+
+1752
+01:32:38,350 --> 01:32:47,380
+so Roman says so again okay hold on
+
+1753
+01:32:43,420 --> 01:32:49,740
+sugar shack heart keeps this web page
+
+1754
+01:32:47,380 --> 01:32:53,920
+what this web page is about
+
+1755
+01:32:49,740 --> 01:32:57,520
+we are fi view large files okay that's
+
+1756
+01:32:53,920 --> 01:32:59,530
+about how to view large file related to
+
+1757
+01:32:57,520 --> 01:33:03,220
+view large file open large files in
+
+1758
+01:32:59,530 --> 01:33:05,890
+Emacs okay you guys can read that thank
+
+1759
+01:33:03,220 --> 01:33:07,930
+you for the link in Norman says what do
+
+1760
+01:33:05,890 --> 01:33:11,050
+you think about closures that aren't
+
+1761
+01:33:07,930 --> 01:33:14,290
+written okay yeah the week in Norman
+
+1762
+01:33:11,050 --> 01:33:16,930
+says not only the local variables always
+
+1763
+01:33:14,290 --> 01:33:19,270
+work but each closures variables are
+
+1764
+01:33:16,930 --> 01:33:22,740
+independent of other made it the same
+
+1765
+01:33:19,270 --> 01:33:22,740
+way yes that is true
+
+1766
+01:33:23,110 --> 01:33:31,900
+well anyway yeah so Norman is mentioning
+
+1767
+01:33:27,040 --> 01:33:35,470
+about anyway so next question is is list
+
+1768
+01:33:31,900 --> 01:33:39,790
+was learning well that depends that
+
+1769
+01:33:35,470 --> 01:33:43,870
+depends on a lot factors but if you just
+
+1770
+01:33:39,790 --> 01:33:47,620
+plant the ask me that question my answer
+
+1771
+01:33:43,870 --> 01:33:50,170
+is no you know because a lot my
+
+1772
+01:33:47,620 --> 01:33:54,070
+followers is actually list fan they
+
+1773
+01:33:50,170 --> 01:33:56,469
+follow me because of my you know my this
+
+1774
+01:33:54,070 --> 01:34:00,610
+excellent expertise
+
+1775
+01:33:56,469 --> 01:34:03,310
+and also you know we you know suppose
+
+1776
+01:34:00,610 --> 01:34:06,760
+supposedly we like to promote Lee's well
+
+1777
+01:34:03,310 --> 01:34:09,610
+actually so anyway that depends on a lot
+
+1778
+01:34:06,760 --> 01:34:11,080
+of things you know whenever people ask
+
+1779
+01:34:09,610 --> 01:34:14,020
+you know which language is worth
+
+1780
+01:34:11,080 --> 01:34:16,600
+learning and there's an answer usually
+
+1781
+01:34:14,020 --> 01:34:18,790
+that just it's just nonsense you know so
+
+1782
+01:34:16,600 --> 01:34:21,250
+I can tell you I mean if you ask me it's
+
+1783
+01:34:18,790 --> 01:34:24,040
+Lisp was learning I say no
+
+1784
+01:34:21,250 --> 01:34:27,010
+yah you know there's no much meaning to
+
+1785
+01:34:24,040 --> 01:34:28,750
+that you know forget about that but so
+
+1786
+01:34:27,010 --> 01:34:30,280
+it means a lot of things like what's
+
+1787
+01:34:28,750 --> 01:34:32,170
+your call you know and what's your
+
+1788
+01:34:30,280 --> 01:34:32,650
+personal situation for example what's
+
+1789
+01:34:32,170 --> 01:34:35,260
+your goal
+
+1790
+01:34:32,650 --> 01:34:38,739
+do you want a language that actually
+
+1791
+01:34:35,260 --> 01:34:40,900
+gets you bread if if so no no don't
+
+1792
+01:34:38,739 --> 01:34:43,719
+learn this okay now if you are
+
+1793
+01:34:40,900 --> 01:34:46,690
+interested in history of artificial
+
+1794
+01:34:43,719 --> 01:34:48,670
+intelligence you know suppose that is
+
+1795
+01:34:46,690 --> 01:34:51,880
+the specific question you have strong
+
+1796
+01:34:48,670 --> 01:34:54,520
+interest then then then absolutely you
+
+1797
+01:34:51,880 --> 01:34:57,430
+have to learn no learn please because
+
+1798
+01:34:54,520 --> 01:35:02,260
+that is the this is the kind of the
+
+1799
+01:34:57,430 --> 01:35:06,250
+entire 30 years of lisps artificial
+
+1800
+01:35:02,260 --> 01:35:08,860
+intelligence history okay then if your
+
+1801
+01:35:06,250 --> 01:35:11,920
+question is you know you are interested
+
+1802
+01:35:08,860 --> 01:35:14,320
+in programming language design or
+
+1803
+01:35:11,920 --> 01:35:18,730
+concepts in programming languages is it
+
+1804
+01:35:14,320 --> 01:35:22,150
+what is Lisp was running then the answer
+
+1805
+01:35:18,730 --> 01:35:25,449
+is yes I would say so among others you
+
+1806
+01:35:22,150 --> 01:35:28,090
+know at Haskell is also a good choice
+
+1807
+01:35:25,449 --> 01:35:30,550
+Haskell F sharp or camo you know those
+
+1808
+01:35:28,090 --> 01:35:32,400
+are all good choices or Idris or
+
+1809
+01:35:30,550 --> 01:35:34,890
+you know there's AMI
+
+1810
+01:35:32,400 --> 01:35:38,350
+there's fourth you know and there's
+
+1811
+01:35:34,890 --> 01:35:41,469
+mercury logical language okay Prolog for
+
+1812
+01:35:38,350 --> 01:35:44,770
+example mercury Prolog in terms of
+
+1813
+01:35:41,469 --> 01:35:48,310
+languages so if you are interested in
+
+1814
+01:35:44,770 --> 01:35:51,280
+maybe some some kind of programming
+
+1815
+01:35:48,310 --> 01:35:53,380
+language design yeah Lisp is you know
+
+1816
+01:35:51,280 --> 01:35:56,770
+one of them you know and let's say top
+
+1817
+01:35:53,380 --> 01:35:59,380
+two you know you you know you learn Lisp
+
+1818
+01:35:56,770 --> 01:36:02,500
+is a good thing you know you learn the
+
+1819
+01:35:59,380 --> 01:36:04,780
+parentheses nested parentheses it's kind
+
+1820
+01:36:02,500 --> 01:36:08,710
+of unusual but you also learn the
+
+1821
+01:36:04,780 --> 01:36:09,679
+concept of kind of a systemic systematic
+
+1822
+01:36:08,710 --> 01:36:12,289
+syntax
+
+1823
+01:36:09,679 --> 01:36:14,360
+and how they can be transformed you
+
+1824
+01:36:12,289 --> 01:36:17,630
+start to learn markers lists markers
+
+1825
+01:36:14,360 --> 01:36:20,719
+which is extremely easy attic okay but
+
+1826
+01:36:17,630 --> 01:36:23,869
+but however it's a jump point to the
+
+1827
+01:36:20,719 --> 01:36:26,929
+much more important concept of pattern
+
+1828
+01:36:23,869 --> 01:36:29,869
+matching not her scalp and imagine but
+
+1829
+01:36:26,929 --> 01:36:33,920
+symbolic pad imagine okay in Mathematica
+
+1830
+01:36:29,869 --> 01:36:36,739
+this Marco is a step is a step you know
+
+1831
+01:36:33,920 --> 01:36:40,459
+it's a jump point to get you into the
+
+1832
+01:36:36,739 --> 01:36:44,269
+beautiful world of symbolic Pat imagine
+
+1833
+01:36:40,459 --> 01:36:47,079
+which in turn is a step towards
+
+1834
+01:36:44,269 --> 01:36:47,079
+understanding
+
+1835
+01:36:52,780 --> 01:36:59,329
+computer algebra systems in
+
+1836
+01:36:56,420 --> 01:37:01,969
+understanding implementing computer
+
+1837
+01:36:59,329 --> 01:37:04,729
+algebra systems or how they work such as
+
+1838
+01:37:01,969 --> 01:37:07,429
+Mathematica maple and a bunch of others
+
+1839
+01:37:04,729 --> 01:37:10,639
+symbolic meaning that you can solve
+
+1840
+01:37:07,429 --> 01:37:15,709
+symbolic equations symbolic derivatives
+
+1841
+01:37:10,639 --> 01:37:19,159
+or integration drip in in symbolic forms
+
+1842
+01:37:15,709 --> 01:37:21,590
+a symbolic computation that's
+
+1843
+01:37:19,159 --> 01:37:25,489
+Mathematica in this okay so let me
+
+1844
+01:37:21,590 --> 01:37:27,079
+summarize so this yeah this if you are
+
+1845
+01:37:25,489 --> 01:37:31,130
+interested you know one of the things
+
+1846
+01:37:27,079 --> 01:37:34,039
+you may learn from Lisp is this Marco's
+
+1847
+01:37:31,130 --> 01:37:36,889
+which is idiotic concept freak most
+
+1848
+01:37:34,039 --> 01:37:38,959
+frequently cited by whispers in common
+
+1849
+01:37:36,889 --> 01:37:39,619
+lisp as made knows those people are
+
+1850
+01:37:38,959 --> 01:37:44,179
+idiots
+
+1851
+01:37:39,619 --> 01:37:47,449
+okay sir says sorry says but however
+
+1852
+01:37:44,179 --> 01:37:51,199
+least Marco's is a stepping stone to
+
+1853
+01:37:47,449 --> 01:37:55,309
+understand symbolic pattern matching
+
+1854
+01:37:51,199 --> 01:37:59,209
+which is not in Haskell not in in Okemah
+
+1855
+01:37:55,309 --> 01:38:04,010
+not in you know the other ones they are
+
+1856
+01:37:59,209 --> 01:38:05,349
+in Mathematica okay symbolic pattern
+
+1857
+01:38:04,010 --> 01:38:08,030
+matching
+
+1858
+01:38:05,349 --> 01:38:11,209
+now symbolic pattern matching is a
+
+1859
+01:38:08,030 --> 01:38:14,749
+stepping stone to understand how
+
+1860
+01:38:11,209 --> 01:38:16,969
+computer algebra system works that is
+
+1861
+01:38:14,749 --> 01:38:19,429
+symbolic solutions to you know
+
+1862
+01:38:16,969 --> 01:38:22,670
+integration derivatives or manipulation
+
+1863
+01:38:19,429 --> 01:38:25,130
+of formulas and so on
+
+1864
+01:38:22,670 --> 01:38:28,340
+okay so that that that is kind of my
+
+1865
+01:38:25,130 --> 01:38:31,220
+coverage of which is least worthwhile
+
+1866
+01:38:28,340 --> 01:38:34,010
+okay in general you know if most people
+
+1867
+01:38:31,220 --> 01:38:35,720
+asking questions then you know you have
+
+1868
+01:38:34,010 --> 01:38:37,910
+so many criterias
+
+1869
+01:38:35,720 --> 01:38:40,790
+is it good for looking for a job it's
+
+1870
+01:38:37,910 --> 01:38:43,220
+good for bread is it good for you know
+
+1871
+01:38:40,790 --> 01:38:43,970
+interesting you know so many is it still
+
+1872
+01:38:43,220 --> 01:38:46,040
+relevant
+
+1873
+01:38:43,970 --> 01:38:48,790
+you know least today is really not
+
+1874
+01:38:46,040 --> 01:38:52,280
+relevant not even relevant in artificial
+
+1875
+01:38:48,790 --> 01:38:55,190
+artificial intelligence today okay this
+
+1876
+01:38:52,280 --> 01:38:57,080
+means totally irrelevant you know have
+
+1877
+01:38:55,190 --> 01:39:01,250
+no basically no place
+
+1878
+01:38:57,080 --> 01:39:03,550
+it's practically correct it's correct to
+
+1879
+01:39:01,250 --> 01:39:06,950
+say please today
+
+1880
+01:39:03,550 --> 01:39:10,130
+practically has no place no position no
+
+1881
+01:39:06,950 --> 01:39:13,130
+footprint in today's artificial
+
+1882
+01:39:10,130 --> 01:39:15,350
+intelligence computation community okay
+
+1883
+01:39:13,130 --> 01:39:19,130
+they are not done in this you know this
+
+1884
+01:39:15,350 --> 01:39:21,980
+has no place so so that's another point
+
+1885
+01:39:19,130 --> 01:39:24,200
+for you to church whether you want to go
+
+1886
+01:39:21,980 --> 01:39:27,160
+into this you know this so so in my
+
+1887
+01:39:24,200 --> 01:39:36,020
+opinion if you the blank question is no
+
+1888
+01:39:27,160 --> 01:39:40,820
+but anyway so yeah that's my take so
+
+1889
+01:39:36,020 --> 01:39:43,370
+Erland so okay so let me go over the
+
+1890
+01:39:40,820 --> 01:39:48,260
+comments I gotta go to a bathroom too so
+
+1891
+01:39:43,370 --> 01:39:51,470
+we'll be done so so home right George do
+
+1892
+01:39:48,260 --> 01:39:54,470
+you like my answers is it good is it
+
+1893
+01:39:51,470 --> 01:39:57,230
+does it answer or does it yeah let me
+
+1894
+01:39:54,470 --> 01:40:00,980
+know because I you know I always of
+
+1895
+01:39:57,230 --> 01:40:02,780
+course you know people like to know if
+
+1896
+01:40:00,980 --> 01:40:05,810
+I've did good you know let me know
+
+1897
+01:40:02,780 --> 01:40:08,030
+so normal say it's for fun or personal
+
+1898
+01:40:05,810 --> 01:40:10,310
+interest maybe for work or practical use
+
+1899
+01:40:08,030 --> 01:40:13,610
+no yeah that's so good I would say it's
+
+1900
+01:40:10,310 --> 01:40:17,810
+I agree with that the new says this was
+
+1901
+01:40:13,610 --> 01:40:21,110
+using Aryan to your end of 1980s yes up
+
+1902
+01:40:17,810 --> 01:40:23,270
+to 19 yeah up to 19 early 1990s yeah
+
+1903
+01:40:21,110 --> 01:40:26,750
+it's kind of way I winter as they say
+
+1904
+01:40:23,270 --> 01:40:30,620
+Daniel says the progress development and
+
+1905
+01:40:26,750 --> 01:40:32,900
+evolution of Lisp was tightly related to
+
+1906
+01:40:30,620 --> 01:40:35,210
+the other progress development and
+
+1907
+01:40:32,900 --> 01:40:36,590
+evolution of AI that is correct
+
+1908
+01:40:35,210 --> 01:40:39,320
+Norman says
+
+1909
+01:40:36,590 --> 01:40:42,680
+I didn't appreciate how good had a
+
+1910
+01:40:39,320 --> 01:40:46,100
+matching is until I had known Olin okay
+
+1911
+01:40:42,680 --> 01:40:48,830
+I have a question mr. Lance is Islands
+
+1912
+01:40:46,100 --> 01:40:52,010
+Panama Jane is a symbolic that is my
+
+1913
+01:40:48,830 --> 01:40:54,650
+question because in my learnings I
+
+1914
+01:40:52,010 --> 01:40:57,890
+learned that Haskel symbolic has cow you
+
+1915
+01:40:54,650 --> 01:40:59,870
+know pattern matching or camel may of
+
+1916
+01:40:57,890 --> 01:41:02,660
+had a matching is entirely different
+
+1917
+01:40:59,870 --> 01:41:06,140
+because they are a symbolic so they are
+
+1918
+01:41:02,660 --> 01:41:10,100
+not when you and because of that it's
+
+1919
+01:41:06,140 --> 01:41:14,120
+entirely different thing from languages
+
+1920
+01:41:10,100 --> 01:41:16,880
+with symbolic pattern matching because
+
+1921
+01:41:14,120 --> 01:41:21,290
+we are matching by values you know this
+
+1922
+01:41:16,880 --> 01:41:23,720
+is a huge difference the nature is their
+
+1923
+01:41:21,290 --> 01:41:25,520
+power their computation nature is
+
+1924
+01:41:23,720 --> 01:41:27,890
+entirely different so it's all an
+
+1925
+01:41:25,520 --> 01:41:30,950
+alliance pan-dimensional is about
+
+1926
+01:41:27,890 --> 01:41:33,880
+symbolic because when you have symbolic
+
+1927
+01:41:30,950 --> 01:41:36,980
+pattern matching what it means is that
+
+1928
+01:41:33,880 --> 01:41:41,120
+what you have is like is it specific
+
+1929
+01:41:36,980 --> 01:41:45,230
+basically transformation of syntax or
+
+1930
+01:41:41,120 --> 01:41:48,620
+transformation of source code list motto
+
+1931
+01:41:45,230 --> 01:41:50,510
+is like very puny it's like impractical
+
+1932
+01:41:48,620 --> 01:41:53,240
+you know it's just a little bit of that
+
+1933
+01:41:50,510 --> 01:41:55,220
+transformation of source code like if
+
+1934
+01:41:53,240 --> 01:41:58,340
+you are into lists you know if you read
+
+1935
+01:41:55,220 --> 01:42:00,590
+into common list phonetics they like to
+
+1936
+01:41:58,340 --> 01:42:04,460
+say all this you know this whistle
+
+1937
+01:42:00,590 --> 01:42:06,890
+language that that can language that
+
+1938
+01:42:04,460 --> 01:42:09,410
+trance or Scott returns source code that
+
+1939
+01:42:06,890 --> 01:42:12,950
+programs that modify itself is the least
+
+1940
+01:42:09,410 --> 01:42:15,260
+common list they are idiots the the the
+
+1941
+01:42:12,950 --> 01:42:17,810
+the least mark and the reason they said
+
+1942
+01:42:15,260 --> 01:42:20,720
+eyes because this mark was you know but
+
+1943
+01:42:17,810 --> 01:42:25,610
+actually please Marcos is actually in an
+
+1944
+01:42:20,720 --> 01:42:28,420
+ineffectual it's like it's like 5% of
+
+1945
+01:42:25,610 --> 01:42:32,540
+you know fact yeah five percent of real
+
+1946
+01:42:28,420 --> 01:42:34,340
+symbolic pattern matching feature a full
+
+1947
+01:42:32,540 --> 01:42:36,740
+symbolic pattern matching feature in
+
+1948
+01:42:34,340 --> 01:42:40,150
+Mathematica and other languages this
+
+1949
+01:42:36,740 --> 01:42:43,210
+this others okay of obscure but anyway
+
+1950
+01:42:40,150 --> 01:42:46,400
+Mathematica is that from everyone so the
+
+1951
+01:42:43,210 --> 01:42:49,620
+so why is this people like EDR like
+
+1952
+01:42:46,400 --> 01:42:51,630
+idiotic like that common is because it
+
+1953
+01:42:49,620 --> 01:42:53,310
+the reason I say is that because you
+
+1954
+01:42:51,630 --> 01:42:55,590
+know I've been fighting with commonly
+
+1955
+01:42:53,310 --> 01:42:57,720
+Spurs for over 10 years they call me a
+
+1956
+01:42:55,590 --> 01:43:00,180
+troll okay you I've seen professor
+
+1957
+01:42:57,720 --> 01:43:03,300
+Stephen professors they may make the
+
+1958
+01:43:00,180 --> 01:43:05,880
+extreme idiotic and incorrect
+
+1959
+01:43:03,300 --> 01:43:08,420
+you know the expressions about comedies
+
+1960
+01:43:05,880 --> 01:43:12,420
+the reason they are like that is because
+
+1961
+01:43:08,420 --> 01:43:19,320
+the common list was I mean in touch with
+
+1962
+01:43:12,420 --> 01:43:21,510
+is mostly since 1990s by 1990s this has
+
+1963
+01:43:19,320 --> 01:43:24,720
+already gone down here you know as
+
+1964
+01:43:21,510 --> 01:43:26,430
+already is not the head of this okay so
+
+1965
+01:43:24,720 --> 01:43:29,070
+the people after nineteen eighties that
+
+1966
+01:43:26,430 --> 01:43:29,720
+you know enthusiasts you know the
+
+1967
+01:43:29,070 --> 01:43:33,920
+phonetics
+
+1968
+01:43:29,720 --> 01:43:36,600
+they list has become this you know
+
+1969
+01:43:33,920 --> 01:43:39,240
+mythical language and you know at least
+
+1970
+01:43:36,600 --> 01:43:42,420
+this has already died maybe it becomes
+
+1971
+01:43:39,240 --> 01:43:46,560
+common lisp okay he has already fell out
+
+1972
+01:43:42,420 --> 01:43:48,330
+from the hate of language research so
+
+1973
+01:43:46,560 --> 01:43:51,330
+instead of you have this common list
+
+1974
+01:43:48,330 --> 01:43:54,630
+which is extremely ugly in late late
+
+1975
+01:43:51,330 --> 01:43:57,900
+1980s extremely ugly language that tries
+
+1976
+01:43:54,630 --> 01:44:00,660
+to you know merge all the commercial
+
+1977
+01:43:57,900 --> 01:44:03,150
+versions of the list was a kind of they
+
+1978
+01:44:00,660 --> 01:44:06,030
+try to you know go go forward as a
+
+1979
+01:44:03,150 --> 01:44:08,520
+standard you know because back then in
+
+1980
+01:44:06,030 --> 01:44:11,250
+1980s list there are so many lists
+
+1981
+01:44:08,520 --> 01:44:14,540
+ireland's and they are at war you know
+
+1982
+01:44:11,250 --> 01:44:17,390
+see serious language war like each other
+
+1983
+01:44:14,540 --> 01:44:20,070
+fight you know just like today we've I
+
+1984
+01:44:17,390 --> 01:44:22,230
+call you an you are you
+
+1985
+01:44:20,070 --> 01:44:24,900
+know because you are at least why you
+
+1986
+01:44:22,230 --> 01:44:28,050
+know I'm the best I'm this X okay and
+
+1987
+01:44:24,900 --> 01:44:29,220
+somebody least pieces know you guys knew
+
+1988
+01:44:28,050 --> 01:44:32,430
+to are idiots
+
+1989
+01:44:29,220 --> 01:44:34,650
+this P is the best people are doing that
+
+1990
+01:44:32,430 --> 01:44:36,960
+back then I because I read history I've
+
+1991
+01:44:34,650 --> 01:44:38,820
+seen it I've seen it I didn't you know
+
+1992
+01:44:36,960 --> 01:44:41,790
+until I read at the moment I read her
+
+1993
+01:44:38,820 --> 01:44:44,700
+iMac I was I was going like oh my god I
+
+1994
+01:44:41,790 --> 01:44:46,620
+didn't even realized you know you have
+
+1995
+01:44:44,700 --> 01:44:48,750
+to take history because once you dig
+
+1996
+01:44:46,620 --> 01:44:52,050
+into use so so many things you don't
+
+1997
+01:44:48,750 --> 01:44:54,210
+realize you know yeah we you know I only
+
+1998
+01:44:52,050 --> 01:44:57,480
+read a little bit but I did realize you
+
+1999
+01:44:54,210 --> 01:45:00,060
+know it was like that you know but
+
+2000
+01:44:57,480 --> 01:45:03,540
+anyway by 1990s the lispers you know
+
+2001
+01:45:00,060 --> 01:45:05,520
+they most people just just
+
+2002
+01:45:03,540 --> 01:45:08,810
+like everyone this was they are not they
+
+2003
+01:45:05,520 --> 01:45:12,150
+don't dig history into that deep well
+
+2004
+01:45:08,810 --> 01:45:14,850
+what they are actually are rather just
+
+2005
+01:45:12,150 --> 01:45:16,830
+the phonetics just like today on Hacker
+
+2006
+01:45:14,850 --> 01:45:19,590
+News you know you have average
+
+2007
+01:45:16,830 --> 01:45:21,480
+programmers they read someone wrote
+
+2008
+01:45:19,590 --> 01:45:24,570
+something and they get excited and they
+
+2009
+01:45:21,480 --> 01:45:26,610
+from that day are they tell everyone oh
+
+2010
+01:45:24,570 --> 01:45:30,150
+we always should we all should do
+
+2011
+01:45:26,610 --> 01:45:31,680
+patterns X you know oh you know from now
+
+2012
+01:45:30,150 --> 01:45:32,970
+on something something is good something
+
+2013
+01:45:31,680 --> 01:45:34,920
+something is bad
+
+2014
+01:45:32,970 --> 01:45:39,390
+those are idiots okay agile you know
+
+2015
+01:45:34,920 --> 01:45:40,200
+that and UNIX philosophy as well that so
+
+2016
+01:45:39,390 --> 01:45:42,240
+the list first
+
+2017
+01:45:40,200 --> 01:45:46,350
+you know communists but i from what i
+
+2018
+01:45:42,240 --> 01:45:48,690
+see by 1990s they are not original I
+
+2019
+01:45:46,350 --> 01:45:52,200
+mean just just like any other
+
+2020
+01:45:48,690 --> 01:45:55,320
+programmers they they are prone to fall
+
+2021
+01:45:52,200 --> 01:45:57,360
+into fads and fashions and beliefs and
+
+2022
+01:45:55,320 --> 01:45:59,850
+you know they want to believe you know
+
+2023
+01:45:57,360 --> 01:46:03,960
+they want to believe that Lisp is these
+
+2024
+01:45:59,850 --> 01:46:06,630
+great wonderful things and in turn they
+
+2025
+01:46:03,960 --> 01:46:11,370
+don't get into something in detail I
+
+2026
+01:46:06,630 --> 01:46:15,180
+mean also even in 1990s compared to Java
+
+2027
+01:46:11,370 --> 01:46:18,750
+ok Java you know this please leaves this
+
+2028
+01:46:15,180 --> 01:46:21,000
+was mainstream but by 1990s by 1998 it
+
+2029
+01:46:18,750 --> 01:46:25,130
+was not mainstream it's kind of the
+
+2030
+01:46:21,000 --> 01:46:26,630
+niche ok the main streams are Java C C++
+
+2031
+01:46:25,130 --> 01:46:31,140
+okay
+
+2032
+01:46:26,630 --> 01:46:33,270
+so in comparison this is still better I
+
+2033
+01:46:31,140 --> 01:46:36,390
+mean in my opinion better than Java you
+
+2034
+01:46:33,270 --> 01:46:38,790
+know so to a lot lispers back then when
+
+2035
+01:46:36,390 --> 01:46:42,020
+they talk about these things they are
+
+2036
+01:46:38,790 --> 01:46:44,490
+thinking of you know their mindset is
+
+2037
+01:46:42,020 --> 01:46:48,120
+comparison in comparison to Java
+
+2038
+01:46:44,490 --> 01:46:50,640
+therefore list be superior that I agree
+
+2039
+01:46:48,120 --> 01:46:52,920
+ok that's my opinion because I like
+
+2040
+01:46:50,640 --> 01:46:56,400
+functional programming I despise you
+
+2041
+01:46:52,920 --> 01:46:58,470
+know the imperative you know so when
+
+2042
+01:46:56,400 --> 01:47:01,500
+when these lists phonetics they are
+
+2043
+01:46:58,470 --> 01:47:03,690
+saying this is so great or superior they
+
+2044
+01:47:01,500 --> 01:47:09,600
+kind of also they are in comparison to
+
+2045
+01:47:03,690 --> 01:47:13,770
+Java you know see you know they are not
+
+2046
+01:47:09,600 --> 01:47:16,650
+really you know thinking about symbolic
+
+2047
+01:47:13,770 --> 01:47:17,610
+pattern matching you know they they like
+
+2048
+01:47:16,650 --> 01:47:19,380
+they
+
+2049
+01:47:17,610 --> 01:47:21,710
+they don't know Mathematica they you
+
+2050
+01:47:19,380 --> 01:47:23,760
+know they they didn't take into
+
+2051
+01:47:21,710 --> 01:47:26,310
+specifics of things they are just
+
+2052
+01:47:23,760 --> 01:47:30,780
+following trends just like average other
+
+2053
+01:47:26,310 --> 01:47:32,940
+programmers so that is why you know I
+
+2054
+01:47:30,780 --> 01:47:34,830
+think a lot of these lispers but you
+
+2055
+01:47:32,940 --> 01:47:37,230
+know when you read a lot I mean even
+
+2056
+01:47:34,830 --> 01:47:40,110
+today you have a lot phonetics you know
+
+2057
+01:47:37,230 --> 01:47:43,380
+they say good things about this and to
+
+2058
+01:47:40,110 --> 01:47:45,960
+me their ideas basically they are you
+
+2059
+01:47:43,380 --> 01:47:48,990
+know they are just incorrect they are
+
+2060
+01:47:45,960 --> 01:47:51,300
+just you know factually technically
+
+2061
+01:47:48,990 --> 01:47:55,680
+incorrect they are spreading incorrect
+
+2062
+01:47:51,300 --> 01:47:57,360
+information but those are informations
+
+2063
+01:47:55,680 --> 01:47:59,130
+you know people want to believe you know
+
+2064
+01:47:57,360 --> 01:48:01,980
+just like religion you know if you are a
+
+2065
+01:47:59,130 --> 01:48:04,470
+fan of this you know where are your
+
+2066
+01:48:01,980 --> 01:48:06,420
+families because it's kind of niche
+
+2067
+01:48:04,470 --> 01:48:08,070
+right because it's kind of all the
+
+2068
+01:48:06,420 --> 01:48:10,770
+parentheses because you know it's
+
+2069
+01:48:08,070 --> 01:48:13,020
+unusual and you are and you are you know
+
+2070
+01:48:10,770 --> 01:48:17,190
+you are an unusual guy so you want to
+
+2071
+01:48:13,020 --> 01:48:20,480
+you we are in this group of you know the
+
+2072
+01:48:17,190 --> 01:48:22,830
+mainstream so we want to we like it I
+
+2073
+01:48:20,480 --> 01:48:25,050
+like it too you know first of all
+
+2074
+01:48:22,830 --> 01:48:29,490
+compared to Java Perl absolutely I like
+
+2075
+01:48:25,050 --> 01:48:34,110
+this but it so happens you know I also
+
+2076
+01:48:29,490 --> 01:48:36,960
+tends to you know I don't like you know
+
+2077
+01:48:34,110 --> 01:48:39,770
+I you know I don't I tend to be non
+
+2078
+01:48:36,960 --> 01:48:42,090
+conformal even in the nonconformist
+
+2079
+01:48:39,770 --> 01:48:43,500
+community but anyway that just made me
+
+2080
+01:48:42,090 --> 01:48:45,810
+okay
+
+2081
+01:48:43,500 --> 01:48:50,840
+so although Mathematica had imagined so
+
+2082
+01:48:45,810 --> 01:48:50,840
+enormous is all the mathematics cause so
+
+2083
+01:48:50,930 --> 01:48:56,880
+so tenuous a sleaze problems lots of
+
+2084
+01:48:54,180 --> 01:49:00,360
+dialects lack of well-known libraries
+
+2085
+01:48:56,880 --> 01:49:02,430
+that is true even today we are syntax
+
+2086
+01:49:00,360 --> 01:49:05,610
+that does not contribute to abstract
+
+2087
+01:49:02,430 --> 01:49:08,100
+people in dynamic typing act that is
+
+2088
+01:49:05,610 --> 01:49:11,430
+also true I mean one part for example
+
+2089
+01:49:08,100 --> 01:49:13,950
+one problem along this line is that you
+
+2090
+01:49:11,430 --> 01:49:18,240
+know in Lisp you cannot have a function
+
+2091
+01:49:13,950 --> 01:49:20,400
+that we turn a function you know you you
+
+2092
+01:49:18,240 --> 01:49:22,770
+can but you have to go what you can you
+
+2093
+01:49:20,400 --> 01:49:26,700
+have to go around things you know it's
+
+2094
+01:49:22,770 --> 01:49:29,460
+it's not practical so on the other hand
+
+2095
+01:49:26,700 --> 01:49:30,810
+in JavaScript and Python you can
+
+2096
+01:49:29,460 --> 01:49:33,570
+trivially in
+
+2097
+01:49:30,810 --> 01:49:36,930
+you do it all the time have a function
+
+2098
+01:49:33,570 --> 01:49:40,020
+that returns a function you know but in
+
+2099
+01:49:36,930 --> 01:49:42,540
+this it's easy you know it's a problem
+
+2100
+01:49:40,020 --> 01:49:45,390
+and it's so therefore it's not a idiom
+
+2101
+01:49:42,540 --> 01:49:48,980
+so you know so that's one of the problem
+
+2102
+01:49:45,390 --> 01:49:53,700
+teneo mention about this issue you know
+
+2103
+01:49:48,980 --> 01:49:57,330
+I think you know I think that's what you
+
+2104
+01:49:53,700 --> 01:49:59,250
+are saying part you know I suppose so
+
+2105
+01:49:57,330 --> 01:50:00,840
+so Norman says although mathematical
+
+2106
+01:49:59,250 --> 01:50:04,800
+spanner matching is probably more
+
+2107
+01:50:00,840 --> 01:50:07,460
+powerful I think Daniel says notice that
+
+2108
+01:50:04,800 --> 01:50:09,600
+programming language might not be very
+
+2109
+01:50:07,460 --> 01:50:11,580
+important okay good answer
+
+2110
+01:50:09,600 --> 01:50:16,710
+great thank you George can you explain
+
+2111
+01:50:11,580 --> 01:50:19,650
+symbolic Fanta matching that's that's
+
+2112
+01:50:16,710 --> 01:50:24,330
+another topic ok I hope it I did cover
+
+2113
+01:50:19,650 --> 01:50:26,880
+that it's just like least Marcos but but
+
+2114
+01:50:24,330 --> 01:50:30,300
+actually designed for it yeah I hope to
+
+2115
+01:50:26,880 --> 01:50:35,630
+show you actually um if you like to know
+
+2116
+01:50:30,300 --> 01:50:35,630
+that right now I have an article sorry
+
+2117
+01:50:38,420 --> 01:50:49,590
+problems I have actually pattern
+
+2118
+01:50:44,700 --> 01:50:55,190
+matching several articles I have one
+
+2119
+01:50:49,590 --> 01:50:55,190
+specific article that tries to teach
+
+2120
+01:50:58,739 --> 01:51:03,870
+yeah anyway maybe I hope so maybe next
+
+2121
+01:51:02,040 --> 01:51:07,200
+time I'll explain that because I have
+
+2122
+01:51:03,870 --> 01:51:10,170
+like over ten articles about that about
+
+2123
+01:51:07,200 --> 01:51:12,210
+pattern matching so you get you know you
+
+2124
+01:51:10,170 --> 01:51:15,150
+can read just such folks are the least
+
+2125
+01:51:12,210 --> 01:51:16,770
+pattern matching so Norman says Orleans
+
+2126
+01:51:15,150 --> 01:51:18,810
+phantom answering does not involve
+
+2127
+01:51:16,770 --> 01:51:22,530
+source code transformation it matches
+
+2128
+01:51:18,810 --> 01:51:24,450
+the shape of data okay using no more
+
+2129
+01:51:22,530 --> 01:51:27,540
+type syntax so I think that's
+
+2130
+01:51:24,450 --> 01:51:30,989
+value-based pana matching yes so I think
+
+2131
+01:51:27,540 --> 01:51:34,890
+that's I I don't know for sure but I
+
+2132
+01:51:30,989 --> 01:51:38,510
+think that's the same class as hash
+
+2133
+01:51:34,890 --> 01:51:42,060
+Scouts or or cameras have imagined so
+
+2134
+01:51:38,510 --> 01:51:44,760
+you know they do match structures and
+
+2135
+01:51:42,060 --> 01:51:46,980
+and also they match values and type as
+
+2136
+01:51:44,760 --> 01:51:50,130
+well did you know that the type of
+
+2137
+01:51:46,980 --> 01:51:53,280
+values and structures so George says
+
+2138
+01:51:50,130 --> 01:51:55,500
+program predicted wrong when he said
+
+2139
+01:51:53,280 --> 01:51:58,020
+that list will be the next big language
+
+2140
+01:51:55,500 --> 01:52:01,310
+yeah I mean a lot of these big people
+
+2141
+01:51:58,020 --> 01:52:05,219
+you know I mean the job program you know
+
+2142
+01:52:01,310 --> 01:52:07,230
+when you list a lot of celebrities they
+
+2143
+01:52:05,219 --> 01:52:10,230
+always have you know big things to say
+
+2144
+01:52:07,230 --> 01:52:12,719
+for example Bill Gates you know he's he
+
+2145
+01:52:10,230 --> 01:52:14,580
+was with richest people in a world he
+
+2146
+01:52:12,719 --> 01:52:16,230
+always have opinions and whenever he
+
+2147
+01:52:14,580 --> 01:52:18,330
+said something all the people is going
+
+2148
+01:52:16,230 --> 01:52:21,000
+you know oh yeah this or that they
+
+2149
+01:52:18,330 --> 01:52:23,460
+follow him and similarly a lot of these
+
+2150
+01:52:21,000 --> 01:52:27,030
+celebrities they always have big things
+
+2151
+01:52:23,460 --> 01:52:30,630
+to say and all the programmers is like
+
+2152
+01:52:27,030 --> 01:52:32,330
+following them and kind of once they say
+
+2153
+01:52:30,630 --> 01:52:34,469
+something and all the program means
+
+2154
+01:52:32,330 --> 01:52:38,130
+programmers you know is like believing
+
+2155
+01:52:34,469 --> 01:52:41,310
+and the you you began to have a fat you
+
+2156
+01:52:38,130 --> 01:52:44,610
+know program is one of the guy who's who
+
+2157
+01:52:41,310 --> 01:52:48,780
+kind of began a fad about common lisp
+
+2158
+01:52:44,610 --> 01:52:51,590
+know about least in in 2002 also because
+
+2159
+01:52:48,780 --> 01:52:54,390
+of his you know article about lisp
+
+2160
+01:52:51,590 --> 01:52:57,330
+because he wrote a list so to yahoo for
+
+2161
+01:52:54,390 --> 01:52:59,850
+millions of dollars anyway what i want
+
+2162
+01:52:57,330 --> 01:53:03,120
+to say about that is where whenever some
+
+2163
+01:52:59,850 --> 01:53:06,140
+people famous people they become famous
+
+2164
+01:53:03,120 --> 01:53:09,930
+for a reason mostly because they are
+
+2165
+01:53:06,140 --> 01:53:12,270
+they are successful in particular thing
+
+2166
+01:53:09,930 --> 01:53:14,700
+they are doing for example Bill Gates
+
+2167
+01:53:12,270 --> 01:53:17,430
+what is good he good for he's good for
+
+2168
+01:53:14,700 --> 01:53:20,160
+running a company he is expert in that
+
+2169
+01:53:17,430 --> 01:53:24,510
+no doubt he's a he's a expert in
+
+2170
+01:53:20,160 --> 01:53:26,940
+entrepreneur and so therefore if he has
+
+2171
+01:53:24,510 --> 01:53:29,880
+an opinion that's related to
+
+2172
+01:53:26,940 --> 01:53:32,969
+entrepreneurship about stardom listen
+
+2173
+01:53:29,880 --> 01:53:38,100
+okay if he has opinion about anything
+
+2174
+01:53:32,969 --> 01:53:40,310
+else it's probably good to ignore he
+
+2175
+01:53:38,100 --> 01:53:42,810
+because he don't know about it
+
+2176
+01:53:40,310 --> 01:53:46,290
+including programming he is not known
+
+2177
+01:53:42,810 --> 01:53:49,020
+for as a great greatest programmer
+
+2178
+01:53:46,290 --> 01:53:52,860
+rather you know his successes came from
+
+2179
+01:53:49,020 --> 01:53:55,680
+his ability to run start a company and
+
+2180
+01:53:52,860 --> 01:53:58,770
+sell the company same thing as an
+
+2181
+01:53:55,680 --> 01:54:04,080
+example program what is he good for he
+
+2182
+01:53:58,770 --> 01:54:06,780
+is good for you know writing the common
+
+2183
+01:54:04,080 --> 01:54:09,300
+list program and soda to Yahoo for
+
+2184
+01:54:06,780 --> 01:54:12,900
+millions of dollars he is good for that
+
+2185
+01:54:09,300 --> 01:54:16,260
+so he so whenever he has opinions about
+
+2186
+01:54:12,900 --> 01:54:19,080
+Common Lisp or lisman general we listen
+
+2187
+01:54:16,260 --> 01:54:21,270
+about programming okay technical
+
+2188
+01:54:19,080 --> 01:54:23,280
+opinions not about whether Lisp is a
+
+2189
+01:54:21,270 --> 01:54:27,860
+good language or not that's kind of a
+
+2190
+01:54:23,280 --> 01:54:32,250
+different field you know the he you know
+
+2191
+01:54:27,860 --> 01:54:34,500
+that because to speak as an expert in
+
+2192
+01:54:32,250 --> 01:54:36,540
+about which programming is better than
+
+2193
+01:54:34,500 --> 01:54:39,690
+others you actually have to be well
+
+2194
+01:54:36,540 --> 01:54:42,060
+known as a programming language designer
+
+2195
+01:54:39,690 --> 01:54:45,060
+and also expert in all these languages
+
+2196
+01:54:42,060 --> 01:54:47,580
+also you have maybe wrote several great
+
+2197
+01:54:45,060 --> 01:54:50,730
+you know well-known programs critical
+
+2198
+01:54:47,580 --> 01:54:53,760
+programs in in different languages then
+
+2199
+01:54:50,730 --> 01:54:56,790
+we can accept you as someone who is
+
+2200
+01:54:53,760 --> 01:54:58,410
+expert when when you have a comment
+
+2201
+01:54:56,790 --> 01:54:59,250
+about which language to learn but
+
+2202
+01:54:58,410 --> 01:55:01,469
+program
+
+2203
+01:54:59,250 --> 01:55:03,719
+go ahead Graham is not really not that
+
+2204
+01:55:01,469 --> 01:55:05,489
+you know he might know he of course he
+
+2205
+01:55:03,719 --> 01:55:08,940
+know other languages but he is mostly
+
+2206
+01:55:05,489 --> 01:55:11,190
+well known for expert comedies
+
+2207
+01:55:08,940 --> 01:55:14,460
+programmers who has written his this
+
+2208
+01:55:11,190 --> 01:55:16,860
+program Webster and he's also known for
+
+2209
+01:55:14,460 --> 01:55:19,260
+really starting a company you know he's
+
+2210
+01:55:16,860 --> 01:55:22,050
+known for an entrepreneurship so
+
+2211
+01:55:19,260 --> 01:55:23,670
+whenever he has a opinion about these
+
+2212
+01:55:22,050 --> 01:55:25,740
+specific topics
+
+2213
+01:55:23,670 --> 01:55:28,860
+I think the
+
+2214
+01:55:25,740 --> 01:55:31,200
+good opinions but otherwise screw it
+
+2215
+01:55:28,860 --> 01:55:33,360
+okay same thing you know a lot Nobel
+
+2216
+01:55:31,200 --> 01:55:35,250
+Prize winners politicians you know
+
+2217
+01:55:33,360 --> 01:55:38,880
+whoever you know they have all sort of
+
+2218
+01:55:35,250 --> 01:55:40,590
+ideas you know whatever they say all you
+
+2219
+01:55:38,880 --> 01:55:43,080
+know celebrities like stars
+
+2220
+01:55:40,590 --> 01:55:45,230
+you know the today's singer so movie
+
+2221
+01:55:43,080 --> 01:55:48,870
+stars you know they have opinions about
+
+2222
+01:55:45,230 --> 01:55:51,180
+politics or how a country should run do
+
+2223
+01:55:48,870 --> 01:55:53,760
+you actually believe them do you think
+
+2224
+01:55:51,180 --> 01:55:58,320
+you should believe them you know judge
+
+2225
+01:55:53,760 --> 01:56:03,570
+for yourself okay that's it for today so
+
+2226
+01:55:58,320 --> 01:56:05,670
+thank you guys for watching now if you
+
+2227
+01:56:03,570 --> 01:56:08,370
+like my show you know I have patron and
+
+2228
+01:56:05,670 --> 01:56:12,180
+PayPal on any of my blogs you can go to
+
+2229
+01:56:08,370 --> 01:56:15,750
+you can see there's a link to my patron
+
+2230
+01:56:12,180 --> 01:56:19,040
+and also my PayPal pages my PayPal you
+
+2231
+01:56:15,750 --> 01:56:22,860
+know it all Amazon gifts so drop a few
+
+2232
+01:56:19,040 --> 01:56:27,120
+bucks that will be appreciated and
+
+2233
+01:56:22,860 --> 01:56:29,880
+otherwise hope to see you next time link
+
+2234
+01:56:27,120 --> 01:56:32,520
+to my blogs link to my talk show spread
+
+2235
+01:56:29,880 --> 01:56:35,070
+it there'll be a fish you know that'll
+
+2236
+01:56:32,520 --> 01:56:36,560
+be great thank you see you guys next
+
+2237
+01:56:35,070 --> 01:56:42,920
+time
+
+2238
+01:56:36,560 --> 01:56:42,920
+that was two hours stalkers bye
+

@@ -1,0 +1,5232 @@
+1
+00:00:04,259 --> 00:00:06,560
+foreign
+
+2
+00:00:09,679 --> 00:00:16,219
+welcome to another episode of Casino
+
+3
+00:00:13,380 --> 00:00:16,219
+talk show
+
+4
+00:00:17,279 --> 00:00:24,240
+so today we are going to code emac bisp
+
+5
+00:00:20,279 --> 00:00:26,340
+and some randomish okay randomish so I'd
+
+6
+00:00:24,240 --> 00:00:28,980
+love to see your comments and questions
+
+7
+00:00:26,340 --> 00:00:33,660
+hey Huang
+
+8
+00:00:28,980 --> 00:00:34,820
+Huang uh Chinese blood full channel from
+
+9
+00:00:33,660 --> 00:00:38,399
+Germany
+
+10
+00:00:34,820 --> 00:00:41,460
+so I like I'm going to coat my uh just
+
+11
+00:00:38,399 --> 00:00:44,160
+I'm gonna work on my uh emac Beast
+
+12
+00:00:41,460 --> 00:00:46,739
+coding uh it's probably going to be
+
+13
+00:00:44,160 --> 00:00:50,219
+boring for you because I'm going to
+
+14
+00:00:46,739 --> 00:00:53,280
+continue uh what we did last time that
+
+15
+00:00:50,219 --> 00:00:56,460
+we didn't finish and we got distracted
+
+16
+00:00:53,280 --> 00:01:01,079
+into talking some other subject
+
+17
+00:00:56,460 --> 00:01:03,660
+so emacs coding and then I'm gonna talk
+
+18
+00:01:01,079 --> 00:01:06,119
+some random maybe some randomish uh
+
+19
+00:01:03,660 --> 00:01:08,520
+things okay and by the way right now
+
+20
+00:01:06,119 --> 00:01:11,640
+there's a emacs online conference going
+
+21
+00:01:08,520 --> 00:01:14,880
+on so if you just go to search for emacs
+
+22
+00:01:11,640 --> 00:01:18,420
+conference uh so there are a lot emacs
+
+23
+00:01:14,880 --> 00:01:21,180
+experts and emac this experts they are
+
+24
+00:01:18,420 --> 00:01:23,580
+you know talking about emac stuff so go
+
+25
+00:01:21,180 --> 00:01:25,740
+watch them okay if you are emacs user
+
+26
+00:01:23,580 --> 00:01:26,520
+and interested in himac Beast go watch
+
+27
+00:01:25,740 --> 00:01:29,159
+them
+
+28
+00:01:26,520 --> 00:01:32,520
+a view emacs fans you know many of you
+
+29
+00:01:29,159 --> 00:01:36,180
+emacs fans hello Tito emacs fam and
+
+30
+00:01:32,520 --> 00:01:38,820
+hello names uh nimsu names who are you
+
+31
+00:01:36,180 --> 00:01:41,100
+so anyway so
+
+32
+00:01:38,820 --> 00:01:43,259
+so yeah emacs conference is going on so
+
+33
+00:01:41,100 --> 00:01:45,600
+you can go watch just uh search for it
+
+34
+00:01:43,259 --> 00:01:47,880
+you know and I uh
+
+35
+00:01:45,600 --> 00:01:52,740
+I did a Twitter let me show you okay so
+
+36
+00:01:47,880 --> 00:01:55,259
+this is interesting so uh twitter.com
+
+37
+00:01:52,740 --> 00:01:59,220
+I mean I'm going to show you one of the
+
+38
+00:01:55,259 --> 00:02:00,259
+link one of the Articles okay uh and I'm
+
+39
+00:01:59,220 --> 00:02:02,880
+gonna
+
+40
+00:02:00,259 --> 00:02:04,979
+you know I'm gonna talk random a little
+
+41
+00:02:02,880 --> 00:02:06,899
+bit random today so I'm gonna you know
+
+42
+00:02:04,979 --> 00:02:08,640
+first of all emac stuff let me show you
+
+43
+00:02:06,899 --> 00:02:11,940
+I'm gonna talk about that later okay
+
+44
+00:02:08,640 --> 00:02:14,940
+that is uh okay hold on a second
+
+45
+00:02:11,940 --> 00:02:17,819
+uh so where is the emacs conference
+
+46
+00:02:14,940 --> 00:02:19,860
+thing so that's Richard Stroman but hold
+
+47
+00:02:17,819 --> 00:02:21,480
+on a second
+
+48
+00:02:19,860 --> 00:02:24,060
+uh
+
+49
+00:02:21,480 --> 00:02:27,480
+yeah okay okay so emacs conference is
+
+50
+00:02:24,060 --> 00:02:30,060
+going on in emacs 29 is upcoming
+
+51
+00:02:27,480 --> 00:02:32,340
+fantastic okay so let me mention a few
+
+52
+00:02:30,060 --> 00:02:35,120
+things random things
+
+53
+00:02:32,340 --> 00:02:35,120
+uh
+
+54
+00:02:36,180 --> 00:02:40,800
+and trees yeah let me talk about these
+
+55
+00:02:38,940 --> 00:02:44,640
+things three-seater is a new password
+
+56
+00:02:40,800 --> 00:02:46,500
+for editors uh kind of similar for in
+
+57
+00:02:44,640 --> 00:02:49,800
+purpose for the language protocol
+
+58
+00:02:46,500 --> 00:02:52,700
+language server protocol okay so first
+
+59
+00:02:49,800 --> 00:02:55,620
+of all so check out this emacs talk okay
+
+60
+00:02:52,700 --> 00:02:57,300
+uh I know this guy a little bit
+
+61
+00:02:55,620 --> 00:03:01,019
+um
+
+62
+00:02:57,300 --> 00:03:04,140
+10 reasons why you should use eshow emac
+
+63
+00:03:01,019 --> 00:03:07,200
+Beast shell okay so that's Isha and you
+
+64
+00:03:04,140 --> 00:03:11,099
+have seen me see you have seen me using
+
+65
+00:03:07,200 --> 00:03:14,599
+Esha before for example get uh status
+
+66
+00:03:11,099 --> 00:03:18,239
+you know I can do the git status
+
+67
+00:03:14,599 --> 00:03:21,300
+written in emac bisp purely e-mac this
+
+68
+00:03:18,239 --> 00:03:23,459
+written so there is a video God you know
+
+69
+00:03:21,300 --> 00:03:25,920
+this open source phonetics free software
+
+70
+00:03:23,459 --> 00:03:28,440
+Foundation phonetics you can their
+
+71
+00:03:25,920 --> 00:03:30,860
+website is hard to see you know there is
+
+72
+00:03:28,440 --> 00:03:30,860
+a video
+
+73
+00:03:32,220 --> 00:03:37,980
+uh what
+
+74
+00:03:34,920 --> 00:03:40,819
+the [ __ ] is the video did we have a
+
+75
+00:03:37,980 --> 00:03:40,819
+JavaScript on
+
+76
+00:03:41,640 --> 00:03:48,060
+pack two talks uh 10 top 10 reasons why
+
+77
+00:03:44,879 --> 00:03:51,540
+you should use should be using Isha this
+
+78
+00:03:48,060 --> 00:03:56,700
+guy is Abraham Howard Abraham okay
+
+79
+00:03:51,540 --> 00:04:01,860
+Howard Abraham and Howard Abrams and he
+
+80
+00:03:56,700 --> 00:04:05,580
+has been coding uh emac this
+
+81
+00:04:01,860 --> 00:04:07,860
+I think yeah I think so well you know at
+
+82
+00:04:05,580 --> 00:04:10,099
+least he's been using emacs for 10 20
+
+83
+00:04:07,860 --> 00:04:11,659
+years 20 years or something or even more
+
+84
+00:04:10,099 --> 00:04:15,420
+so
+
+85
+00:04:11,659 --> 00:04:19,519
+where is where is the
+
+86
+00:04:15,420 --> 00:04:19,519
+video Let's Open that one okay
+
+87
+00:04:19,799 --> 00:04:25,259
+God this you know free software
+
+88
+00:04:22,019 --> 00:04:28,860
+Foundation website they they this is one
+
+89
+00:04:25,259 --> 00:04:31,680
+of the problem this phonetics problem
+
+90
+00:04:28,860 --> 00:04:33,780
+find out how to watch and participate oh
+
+91
+00:04:31,680 --> 00:04:35,880
+find out how to watch and participate
+
+92
+00:04:33,780 --> 00:04:38,520
+there you go and this is one thing good
+
+93
+00:04:35,880 --> 00:04:39,900
+about them so because all the videos you
+
+94
+00:04:38,520 --> 00:04:43,820
+can just
+
+95
+00:04:39,900 --> 00:04:43,820
+play and download a card
+
+96
+00:04:45,720 --> 00:04:51,960
+refresh
+
+97
+00:04:48,479 --> 00:04:54,660
+ah God you know this is a free software
+
+98
+00:04:51,960 --> 00:04:58,259
+Foundation website problematic am I
+
+99
+00:04:54,660 --> 00:05:01,199
+doing good talk a video check audio
+
+100
+00:04:58,259 --> 00:05:04,680
+check okay so anyway so
+
+101
+00:05:01,199 --> 00:05:06,840
+this guy you know so so emacs conference
+
+102
+00:05:04,680 --> 00:05:08,699
+okay if you want to learn it in like
+
+103
+00:05:06,840 --> 00:05:10,139
+this you can learn from them you know
+
+104
+00:05:08,699 --> 00:05:11,820
+besides me
+
+105
+00:05:10,139 --> 00:05:14,880
+okay that's one thing let me talk about
+
+106
+00:05:11,820 --> 00:05:17,940
+so this let me talk about uh this fun
+
+107
+00:05:14,880 --> 00:05:20,639
+thing okay uh
+
+108
+00:05:17,940 --> 00:05:22,979
+this one fun thing you are watching
+
+109
+00:05:20,639 --> 00:05:24,120
+hello everyone great gun
+
+110
+00:05:22,979 --> 00:05:28,380
+dark
+
+111
+00:05:24,120 --> 00:05:30,780
+so you know I would Proclaim that the
+
+112
+00:05:28,380 --> 00:05:34,919
+real artificial intelligence
+
+113
+00:05:30,780 --> 00:05:36,900
+year 2023 is the year of the Rio the
+
+114
+00:05:34,919 --> 00:05:39,539
+starting of the Rio artificial
+
+115
+00:05:36,900 --> 00:05:41,400
+intelligence is getting amazing okay so
+
+116
+00:05:39,539 --> 00:05:45,060
+you are looking at right now is this
+
+117
+00:05:41,400 --> 00:05:47,400
+China you know this China's AI bot that
+
+118
+00:05:45,060 --> 00:05:50,580
+does drawing so basically what you do is
+
+119
+00:05:47,400 --> 00:05:53,840
+you post an image or picture or photo or
+
+120
+00:05:50,580 --> 00:05:57,780
+drawing whatever and it returns a
+
+121
+00:05:53,840 --> 00:05:59,940
+beautified version of it okay you know
+
+122
+00:05:57,780 --> 00:06:02,940
+in the beginning I think this is lousy
+
+123
+00:05:59,940 --> 00:06:04,620
+because this this image for example yeah
+
+124
+00:06:02,940 --> 00:06:06,539
+it's beautiful but it you know someone
+
+125
+00:06:04,620 --> 00:06:08,759
+someone did this I'm gonna show you more
+
+126
+00:06:06,539 --> 00:06:10,800
+so this image is beautiful but it
+
+127
+00:06:08,759 --> 00:06:13,259
+doesn't capture the essence of the
+
+128
+00:06:10,800 --> 00:06:16,680
+character you know it this this this
+
+129
+00:06:13,259 --> 00:06:18,780
+beautiful dude doesn't look like me at
+
+130
+00:06:16,680 --> 00:06:20,880
+all you can tell if you just see that
+
+131
+00:06:18,780 --> 00:06:22,919
+you know this is sorry
+
+132
+00:06:20,880 --> 00:06:25,259
+so
+
+133
+00:06:22,919 --> 00:06:28,139
+so you know like a caricature you know
+
+134
+00:06:25,259 --> 00:06:31,440
+have you seen uh
+
+135
+00:06:28,139 --> 00:06:33,319
+career culture let me explain this
+
+136
+00:06:31,440 --> 00:06:36,600
+career card
+
+137
+00:06:33,319 --> 00:06:39,360
+okay so you'll see some examples that's
+
+138
+00:06:36,600 --> 00:06:41,460
+the essence of a correct caricature okay
+
+139
+00:06:39,360 --> 00:06:45,300
+JavaScript
+
+140
+00:06:41,460 --> 00:06:47,160
+by the way uh Brave browser
+
+141
+00:06:45,300 --> 00:06:49,740
+I'm using right now you are looking at
+
+142
+00:06:47,160 --> 00:06:51,960
+Brave browser I recommend it okay I
+
+143
+00:06:49,740 --> 00:06:53,520
+recommend web browser it's Bill is
+
+144
+00:06:51,960 --> 00:06:56,400
+started by the guy who created
+
+145
+00:06:53,520 --> 00:06:59,460
+JavaScript once you know after he got
+
+146
+00:06:56,400 --> 00:07:01,620
+kicked out by the social justice scan
+
+147
+00:06:59,460 --> 00:07:04,560
+you know so great browser is great I
+
+148
+00:07:01,620 --> 00:07:06,240
+recommend it I'm also using Firefox by
+
+149
+00:07:04,560 --> 00:07:08,280
+the way I'm using also using you know I
+
+150
+00:07:06,240 --> 00:07:11,220
+use multiple browsers
+
+151
+00:07:08,280 --> 00:07:13,319
+so very browser the brave company now
+
+152
+00:07:11,220 --> 00:07:15,720
+they have a search
+
+153
+00:07:13,319 --> 00:07:18,240
+you know so that's what I'm using it
+
+154
+00:07:15,720 --> 00:07:19,800
+just I think it just started so this
+
+155
+00:07:18,240 --> 00:07:22,099
+search engine is different from Earth
+
+156
+00:07:19,800 --> 00:07:25,139
+from others because this search engine
+
+157
+00:07:22,099 --> 00:07:28,440
+it's not just a wrapper to Google or
+
+158
+00:07:25,139 --> 00:07:31,319
+Microsoft Bing or Yahoo or whatever they
+
+159
+00:07:28,440 --> 00:07:34,380
+are independent so this is uh very good
+
+160
+00:07:31,319 --> 00:07:37,620
+okay so I'm trying it out so almost all
+
+161
+00:07:34,380 --> 00:07:41,039
+the others you know Echo ecosia search
+
+162
+00:07:37,620 --> 00:07:43,680
+Styx search they are paid or based on
+
+163
+00:07:41,039 --> 00:07:46,020
+you know Google search engine and all
+
+164
+00:07:43,680 --> 00:07:47,940
+others they kind of they are just a
+
+165
+00:07:46,020 --> 00:07:50,759
+wrapper so this is an independent search
+
+166
+00:07:47,940 --> 00:07:52,979
+engine I recommend it okay Brave search
+
+167
+00:07:50,759 --> 00:07:57,360
+you can just search search it and you'll
+
+168
+00:07:52,979 --> 00:08:00,180
+find it okay so actually I'm starting to
+
+169
+00:07:57,360 --> 00:08:03,539
+talk about lots of things but so let's
+
+170
+00:08:00,180 --> 00:08:05,060
+write it down so we have a topic okay
+
+171
+00:08:03,539 --> 00:08:08,580
+three-seater
+
+172
+00:08:05,060 --> 00:08:11,039
+emacs conference okay
+
+173
+00:08:08,580 --> 00:08:14,819
+uh that's we that we already talked
+
+174
+00:08:11,039 --> 00:08:15,660
+about talked about emacs conference and
+
+175
+00:08:14,819 --> 00:08:20,180
+uh
+
+176
+00:08:15,660 --> 00:08:24,020
+uh Brave browser
+
+177
+00:08:20,180 --> 00:08:25,860
+Brave search okay those are fantastic
+
+178
+00:08:24,020 --> 00:08:28,139
+and uh
+
+179
+00:08:25,860 --> 00:08:30,120
+and we are talking about character we'll
+
+180
+00:08:28,139 --> 00:08:33,240
+come back to it okay
+
+181
+00:08:30,120 --> 00:08:37,380
+so in the show in browser okay
+
+182
+00:08:33,240 --> 00:08:39,899
+that's today's talk show uh and let's go
+
+183
+00:08:37,380 --> 00:08:41,459
+to my programming blog showing browser
+
+184
+00:08:39,899 --> 00:08:45,300
+so
+
+185
+00:08:41,459 --> 00:08:47,640
+so you know Brandon Ike the guy created
+
+186
+00:08:45,300 --> 00:08:50,459
+JavaScript and he created web browser
+
+187
+00:08:47,640 --> 00:08:53,459
+and now there's a brave search engine so
+
+188
+00:08:50,459 --> 00:08:57,240
+and what about DuckDuckGo you should not
+
+189
+00:08:53,459 --> 00:09:00,600
+use the go because you know I I tried it
+
+190
+00:08:57,240 --> 00:09:05,040
+I've been using I tried it since 2018.
+
+191
+00:09:00,600 --> 00:09:07,920
+uh it's got problems uh but the
+
+192
+00:09:05,040 --> 00:09:11,760
+the most serious problem
+
+193
+00:09:07,920 --> 00:09:14,580
+is this one the girl started to censor
+
+194
+00:09:11,760 --> 00:09:16,800
+because of the Ukraine war you know he
+
+195
+00:09:14,580 --> 00:09:19,740
+started he think that
+
+196
+00:09:16,800 --> 00:09:22,279
+you know he he started to sense the
+
+197
+00:09:19,740 --> 00:09:25,940
+information so from this guy Gabriel
+
+198
+00:09:22,279 --> 00:09:29,399
+Weinberg I suppose that's uh he's a boss
+
+199
+00:09:25,940 --> 00:09:31,500
+who created DuckDuckGo but anyway now he
+
+200
+00:09:29,399 --> 00:09:34,279
+started to censor you know since the
+
+201
+00:09:31,500 --> 00:09:37,200
+ship is like when opinions is like
+
+202
+00:09:34,279 --> 00:09:39,180
+opinions you like yeah you know we we
+
+203
+00:09:37,200 --> 00:09:42,480
+are doctor girl we don't do we you know
+
+204
+00:09:39,180 --> 00:09:44,519
+we don't uh get your private information
+
+205
+00:09:42,480 --> 00:09:46,140
+but when when the information is really
+
+206
+00:09:44,519 --> 00:09:48,300
+something you don't like like really
+
+207
+00:09:46,140 --> 00:09:51,180
+really something you hate like each one
+
+208
+00:09:48,300 --> 00:09:53,640
+of us have something we really hate you
+
+209
+00:09:51,180 --> 00:09:56,040
+know maybe Religion different religion
+
+210
+00:09:53,640 --> 00:09:59,279
+or or politics you know
+
+211
+00:09:56,040 --> 00:10:00,899
+daddy that you know then he says he's
+
+212
+00:09:59,279 --> 00:10:04,200
+gonna sense
+
+213
+00:10:00,899 --> 00:10:06,839
+so Duck Duck Go it's no good okay
+
+214
+00:10:04,200 --> 00:10:09,480
+uh and there are not many choices today
+
+215
+00:10:06,839 --> 00:10:11,519
+okay so that's one thing Duck Duck Go so
+
+216
+00:10:09,480 --> 00:10:15,240
+let's let's go back to what we want to
+
+217
+00:10:11,519 --> 00:10:18,480
+talk about so so yeah so go uh let me
+
+218
+00:10:15,240 --> 00:10:21,000
+copy this okay so copy it so we have a
+
+219
+00:10:18,480 --> 00:10:24,180
+um record of the links we talked about
+
+220
+00:10:21,000 --> 00:10:26,220
+so later on people can go through my
+
+221
+00:10:24,180 --> 00:10:29,640
+page and
+
+222
+00:10:26,220 --> 00:10:32,459
+see the links okay now yeah back to the
+
+223
+00:10:29,640 --> 00:10:34,680
+QQ AI drawing bar so we were talking
+
+224
+00:10:32,459 --> 00:10:36,540
+about
+
+225
+00:10:34,680 --> 00:10:38,459
+you know this this strong I'm gonna show
+
+226
+00:10:36,540 --> 00:10:40,380
+you a lot okay so first of all you have
+
+227
+00:10:38,459 --> 00:10:43,380
+creature you know you know if you know
+
+228
+00:10:40,380 --> 00:10:46,140
+what creature is you know essentially
+
+229
+00:10:43,380 --> 00:10:49,200
+you know they look cartoonish but the
+
+230
+00:10:46,140 --> 00:10:52,320
+essence of caricature is that you take a
+
+231
+00:10:49,200 --> 00:10:55,200
+look at them you immediately know
+
+232
+00:10:52,320 --> 00:10:57,079
+who are they you know what what you know
+
+233
+00:10:55,200 --> 00:10:59,940
+who are they because they capture the
+
+234
+00:10:57,079 --> 00:11:03,720
+characteristics of the person
+
+235
+00:10:59,940 --> 00:11:07,200
+you know he is he is uh Obama for
+
+236
+00:11:03,720 --> 00:11:11,540
+example uh who is this the Zuckerberg I
+
+237
+00:11:07,200 --> 00:11:14,160
+think this is the movie star Leonardo
+
+238
+00:11:11,540 --> 00:11:17,579
+dicapio you know anyway you get you get
+
+239
+00:11:14,160 --> 00:11:20,700
+point you know so character so at first
+
+240
+00:11:17,579 --> 00:11:23,100
+why when I saw this uh
+
+241
+00:11:20,700 --> 00:11:25,200
+Chinese AI drawing but you know I think
+
+242
+00:11:23,100 --> 00:11:27,260
+this is no good because it doesn't
+
+243
+00:11:25,200 --> 00:11:30,959
+capture the essence but actually
+
+244
+00:11:27,260 --> 00:11:33,000
+actually it's amazing okay I find it
+
+245
+00:11:30,959 --> 00:11:35,700
+amazing because
+
+246
+00:11:33,000 --> 00:11:37,260
+what essentially you do is it let me
+
+247
+00:11:35,700 --> 00:11:39,420
+show you some more okay so that's me
+
+248
+00:11:37,260 --> 00:11:42,660
+someone did it
+
+249
+00:11:39,420 --> 00:11:44,820
+uh you know so I I was saying my first
+
+250
+00:11:42,660 --> 00:11:47,220
+impression no it's not good because it
+
+251
+00:11:44,820 --> 00:11:49,380
+does you know the drawing it generates
+
+252
+00:11:47,220 --> 00:11:51,660
+does not capture the essence of the
+
+253
+00:11:49,380 --> 00:11:54,839
+original but
+
+254
+00:11:51,660 --> 00:11:57,600
+but that's actually not not not its
+
+255
+00:11:54,839 --> 00:12:00,420
+purpose it has something else very very
+
+256
+00:11:57,600 --> 00:12:02,760
+I'm very impressed you know today and
+
+257
+00:12:00,420 --> 00:12:07,140
+you know in the past week there's also
+
+258
+00:12:02,760 --> 00:12:09,600
+the open AI chat GPT it's quite amazing
+
+259
+00:12:07,140 --> 00:12:11,640
+okay quite amazing the artificial
+
+260
+00:12:09,600 --> 00:12:15,420
+intelligence is
+
+261
+00:12:11,640 --> 00:12:17,700
+is becoming uh is becoming human-like
+
+262
+00:12:15,420 --> 00:12:20,279
+now these days and and by the way this
+
+263
+00:12:17,700 --> 00:12:22,800
+QQ drawing is this is the first time you
+
+264
+00:12:20,279 --> 00:12:25,500
+know I have seen artificial generated
+
+265
+00:12:22,800 --> 00:12:27,899
+drawings before they suck you know they
+
+266
+00:12:25,500 --> 00:12:31,200
+they usually sucks very bad you know
+
+267
+00:12:27,899 --> 00:12:33,060
+they try to draw in the you know and
+
+268
+00:12:31,200 --> 00:12:36,300
+also you have
+
+269
+00:12:33,060 --> 00:12:38,339
+they they are creepy you know artificial
+
+270
+00:12:36,300 --> 00:12:40,260
+you know AI generated drawing they are
+
+271
+00:12:38,339 --> 00:12:43,500
+very creepy and but this is the first
+
+272
+00:12:40,260 --> 00:12:45,959
+time I'm fairly impressed okay so so
+
+273
+00:12:43,500 --> 00:12:47,880
+look at this you know this is the chat
+
+274
+00:12:45,959 --> 00:12:51,480
+you know this is a meme
+
+275
+00:12:47,880 --> 00:12:54,720
+so it becomes that okay but but let me
+
+276
+00:12:51,480 --> 00:12:56,519
+show you but but you see if you give it
+
+277
+00:12:54,720 --> 00:13:00,779
+a drawing like that some kind of cartoon
+
+278
+00:12:56,519 --> 00:13:03,959
+and it it changes into these things
+
+279
+00:13:00,779 --> 00:13:06,600
+okay that's another example okay
+
+280
+00:13:03,959 --> 00:13:09,899
+but then if you give it a drawing you
+
+281
+00:13:06,600 --> 00:13:12,380
+know some fuzzy photo it transforms you
+
+282
+00:13:09,899 --> 00:13:15,420
+know into this beautiful
+
+283
+00:13:12,380 --> 00:13:17,940
+guy you know you so
+
+284
+00:13:15,420 --> 00:13:20,279
+so I mean if you are a iPod what what
+
+285
+00:13:17,940 --> 00:13:23,040
+what are you supposed to do you know so
+
+286
+00:13:20,279 --> 00:13:25,440
+it's very creative you know it's
+
+287
+00:13:23,040 --> 00:13:27,120
+creativity it you know it has a license
+
+288
+00:13:25,440 --> 00:13:29,639
+you know it takes the license of
+
+289
+00:13:27,120 --> 00:13:32,700
+creativity and transform that's a that's
+
+290
+00:13:29,639 --> 00:13:34,019
+a purpose of this drawing but not to
+
+291
+00:13:32,700 --> 00:13:37,260
+replicate
+
+292
+00:13:34,019 --> 00:13:39,360
+in in a drawing form of the original but
+
+293
+00:13:37,260 --> 00:13:43,560
+rather it's kind of transformed beautify
+
+294
+00:13:39,360 --> 00:13:47,040
+it beautify it into uh
+
+295
+00:13:43,560 --> 00:13:51,180
+kind of this style of uh drawing this is
+
+296
+00:13:47,040 --> 00:13:53,399
+not exactly anime okay you know you know
+
+297
+00:13:51,180 --> 00:13:55,920
+if you know you could call it anime but
+
+298
+00:13:53,399 --> 00:13:57,120
+it's not exactly anime for example this
+
+299
+00:13:55,920 --> 00:13:59,820
+one
+
+300
+00:13:57,120 --> 00:14:02,040
+but look there's some some so many more
+
+301
+00:13:59,820 --> 00:14:04,920
+okay so let me show you some of the
+
+302
+00:14:02,040 --> 00:14:09,899
+amazing ones okay
+
+303
+00:14:04,920 --> 00:14:13,500
+so so here we have a fat you know woman
+
+304
+00:14:09,899 --> 00:14:16,079
+and notice that the face is not shown
+
+305
+00:14:13,500 --> 00:14:18,839
+but however it came out with this
+
+306
+00:14:16,079 --> 00:14:22,079
+beautiful image with the face you know
+
+307
+00:14:18,839 --> 00:14:24,860
+and with the elaborate necklace you see
+
+308
+00:14:22,079 --> 00:14:27,660
+that that choker
+
+309
+00:14:24,860 --> 00:14:30,600
+it's a women's thing you know it's like
+
+310
+00:14:27,660 --> 00:14:33,540
+you are like a dog you know
+
+311
+00:14:30,600 --> 00:14:37,260
+uh and that's another thing that's
+
+312
+00:14:33,540 --> 00:14:38,519
+that's the phenomenon of sexuality you
+
+313
+00:14:37,260 --> 00:14:40,800
+know how
+
+314
+00:14:38,519 --> 00:14:43,320
+you know you can see a lot of that in
+
+315
+00:14:40,800 --> 00:14:45,779
+women's stress that of their own choice
+
+316
+00:14:43,320 --> 00:14:48,360
+you know they put something on their
+
+317
+00:14:45,779 --> 00:14:51,360
+neck that seems like they you know it's
+
+318
+00:14:48,360 --> 00:14:55,260
+gonna choke them or it's like a dog dog
+
+319
+00:14:51,360 --> 00:14:58,399
+leash but however women do that you know
+
+320
+00:14:55,260 --> 00:15:02,160
+that's so that's
+
+321
+00:14:58,399 --> 00:15:04,620
+thousands or millions of years of human
+
+322
+00:15:02,160 --> 00:15:07,380
+sexuality okay so anyway that's another
+
+323
+00:15:04,620 --> 00:15:09,959
+thing so anyway this drawing you see
+
+324
+00:15:07,380 --> 00:15:12,240
+that it transforms these faceless image
+
+325
+00:15:09,959 --> 00:15:14,660
+into this beautiful uh drawing so that's
+
+326
+00:15:12,240 --> 00:15:14,660
+amazing
+
+327
+00:15:15,000 --> 00:15:19,800
+foreign
+
+328
+00:15:16,860 --> 00:15:23,459
+and also look at the pattern you know
+
+329
+00:15:19,800 --> 00:15:26,940
+look at the pattern on her bra
+
+330
+00:15:23,459 --> 00:15:29,339
+you know so this so this is a drone by
+
+331
+00:15:26,940 --> 00:15:31,639
+AI you know artificial intelligence they
+
+332
+00:15:29,339 --> 00:15:34,680
+they create the drawing but also the
+
+333
+00:15:31,639 --> 00:15:36,720
+patterns on the brothers and which you
+
+334
+00:15:34,680 --> 00:15:38,279
+don't see you know in general photos is
+
+335
+00:15:36,720 --> 00:15:41,100
+quite amazing
+
+336
+00:15:38,279 --> 00:15:44,519
+so I'm I'm very fairly impressed for the
+
+337
+00:15:41,100 --> 00:15:47,760
+first time uh by other visual artificial
+
+338
+00:15:44,519 --> 00:15:50,880
+intelligence generated drawing okay
+
+339
+00:15:47,760 --> 00:15:53,519
+uh no I haven't tried it myself but
+
+340
+00:15:50,880 --> 00:15:55,680
+apparently you can go and try it and you
+
+341
+00:15:53,519 --> 00:15:57,720
+know someone tried it you know I if I
+
+342
+00:15:55,680 --> 00:16:00,180
+really want to try I have to I don't
+
+343
+00:15:57,720 --> 00:16:02,279
+know exactly what is what what is this
+
+344
+00:16:00,180 --> 00:16:05,699
+AI bot you know I have two I haven't
+
+345
+00:16:02,279 --> 00:16:08,100
+looked yet so you I need to talk to my
+
+346
+00:16:05,699 --> 00:16:09,600
+China friends programmers and they they
+
+347
+00:16:08,100 --> 00:16:11,399
+all know
+
+348
+00:16:09,600 --> 00:16:13,980
+but if you search it you'll probably
+
+349
+00:16:11,399 --> 00:16:16,980
+probably find it okay so this is a
+
+350
+00:16:13,980 --> 00:16:19,800
+Chinese website apparently so let's go
+
+351
+00:16:16,980 --> 00:16:23,699
+let's let's go next Okay so
+
+352
+00:16:19,800 --> 00:16:25,680
+and and look at this one you know
+
+353
+00:16:23,699 --> 00:16:28,320
+a photo of two
+
+354
+00:16:25,680 --> 00:16:30,660
+beautiful girls and and what's that
+
+355
+00:16:28,320 --> 00:16:33,540
+that's a guy or something and it
+
+356
+00:16:30,660 --> 00:16:37,860
+transformed it just by cutting off that
+
+357
+00:16:33,540 --> 00:16:39,480
+guy he changed it and put a girl there
+
+358
+00:16:37,860 --> 00:16:42,899
+quite amazing
+
+359
+00:16:39,480 --> 00:16:45,060
+uh again so and another thing cultural
+
+360
+00:16:42,899 --> 00:16:48,420
+thing you are seeing here is that you
+
+361
+00:16:45,060 --> 00:16:50,820
+see that those uh patterns those are uh
+
+362
+00:16:48,420 --> 00:16:54,899
+logos of the gaming
+
+363
+00:16:50,820 --> 00:16:58,100
+keyboard and mouse company called
+
+364
+00:16:54,899 --> 00:16:58,100
+what's the name guys
+
+365
+00:16:58,259 --> 00:17:02,660
+if you are watching guys say something
+
+366
+00:16:59,880 --> 00:17:02,660
+okay comment
+
+367
+00:17:02,699 --> 00:17:07,439
+so uh
+
+368
+00:17:04,579 --> 00:17:10,380
+this brand okay so let's go to my
+
+369
+00:17:07,439 --> 00:17:13,260
+keyboard blog blog let me just tell you
+
+370
+00:17:10,380 --> 00:17:15,959
+random things okay my keyboard blog and
+
+371
+00:17:13,260 --> 00:17:17,819
+you can find the name of that brand
+
+372
+00:17:15,959 --> 00:17:19,880
+called
+
+373
+00:17:17,819 --> 00:17:19,880
+um
+
+374
+00:17:23,600 --> 00:17:29,400
+razor you know never you know never buy
+
+375
+00:17:27,120 --> 00:17:31,919
+Razer keyboard okay raise the product
+
+376
+00:17:29,400 --> 00:17:34,200
+Razer product is no good
+
+377
+00:17:31,919 --> 00:17:39,179
+and in fact I think Razer product
+
+378
+00:17:34,200 --> 00:17:42,120
+happened to be founded by a Chinese guy
+
+379
+00:17:39,179 --> 00:17:44,340
+so don't buy razor okay so anyway that's
+
+380
+00:17:42,120 --> 00:17:46,440
+the logo of the razor let's show girls
+
+381
+00:17:44,340 --> 00:17:48,799
+that's what it is but today you don't
+
+382
+00:17:46,440 --> 00:17:52,740
+see this kind of thing in USA because
+
+383
+00:17:48,799 --> 00:17:56,940
+USA the white man culture banned it
+
+384
+00:17:52,740 --> 00:17:56,940
+so anyway that's that then
+
+385
+00:17:57,140 --> 00:18:02,820
+you have uh
+
+386
+00:18:00,480 --> 00:18:05,580
+then you have this
+
+387
+00:18:02,820 --> 00:18:07,679
+you know I I'm not you know I don't know
+
+388
+00:18:05,580 --> 00:18:09,720
+what that is some kind of sexual thing
+
+389
+00:18:07,679 --> 00:18:12,960
+okay
+
+390
+00:18:09,720 --> 00:18:16,140
+then you just change it to birds
+
+391
+00:18:12,960 --> 00:18:19,919
+so very creative okay
+
+392
+00:18:16,140 --> 00:18:22,919
+uh then then you have there it is Elon
+
+393
+00:18:19,919 --> 00:18:27,360
+Musk you know Elon Musk so the open AI
+
+394
+00:18:22,919 --> 00:18:29,760
+company recently uh open AI let me show
+
+395
+00:18:27,360 --> 00:18:32,880
+you okay so that that's another amazing
+
+396
+00:18:29,760 --> 00:18:35,460
+thing okay you you it generates text
+
+397
+00:18:32,880 --> 00:18:38,400
+okay I don't have uh let's start
+
+398
+00:18:35,460 --> 00:18:41,280
+JavaScript it generates text in point oh
+
+399
+00:18:38,400 --> 00:18:45,179
+yeah so let me show you one okay
+
+400
+00:18:41,280 --> 00:18:47,640
+let me show you one so open Ai and hold
+
+401
+00:18:45,179 --> 00:18:50,280
+on a second so I want to open that and
+
+402
+00:18:47,640 --> 00:18:54,980
+open Wikipedia okay
+
+403
+00:18:50,280 --> 00:18:58,500
+so open AI let's magnify
+
+404
+00:18:54,980 --> 00:19:02,460
+you know it was started by Elon Musk and
+
+405
+00:18:58,500 --> 00:19:04,980
+others so not by Google Okay so this one
+
+406
+00:19:02,460 --> 00:19:07,200
+is different from Google's AI you know
+
+407
+00:19:04,980 --> 00:19:11,100
+Google is most famous for lots of AI
+
+408
+00:19:07,200 --> 00:19:14,280
+begin it so the the right now it's
+
+409
+00:19:11,100 --> 00:19:15,900
+called chat GPT okay you know just go
+
+410
+00:19:14,280 --> 00:19:17,039
+there and try it it's amazing let me
+
+411
+00:19:15,900 --> 00:19:19,100
+show you
+
+412
+00:19:17,039 --> 00:19:19,100
+um
+
+413
+00:19:19,220 --> 00:19:25,200
+copy the link
+
+414
+00:19:21,740 --> 00:19:29,220
+it's put into my talk show
+
+415
+00:19:25,200 --> 00:19:30,600
+so that you can see the topics we talked
+
+416
+00:19:29,220 --> 00:19:32,880
+about okay
+
+417
+00:19:30,600 --> 00:19:35,820
+chat GPT
+
+418
+00:19:32,880 --> 00:19:38,480
+okay so the
+
+419
+00:19:35,820 --> 00:19:38,480
+um right
+
+420
+00:19:39,419 --> 00:19:45,960
+chat GPT open Ai and uh okay close that
+
+421
+00:19:44,100 --> 00:19:49,260
+and
+
+422
+00:19:45,960 --> 00:19:51,860
+we yeah so then then there's the emacs
+
+423
+00:19:49,260 --> 00:19:56,460
+uh feature let me let me write it down
+
+424
+00:19:51,860 --> 00:19:59,299
+emacs 29 coming that's fantastic okay
+
+425
+00:19:56,460 --> 00:19:59,299
+um and uh
+
+426
+00:20:00,900 --> 00:20:06,660
+yeah so there it is Elon Musk okay
+
+427
+00:20:04,020 --> 00:20:10,700
+okay about the
+
+428
+00:20:06,660 --> 00:20:10,700
+chat GPT let me show you okay
+
+429
+00:20:14,700 --> 00:20:20,520
+it it can generate poem and in fact it
+
+430
+00:20:18,059 --> 00:20:23,760
+generates a poem you know you just just
+
+431
+00:20:20,520 --> 00:20:27,539
+type Saudi generator poem for sorry and
+
+432
+00:20:23,760 --> 00:20:30,840
+it shows uh you know someone did it you
+
+433
+00:20:27,539 --> 00:20:32,460
+know a friend the William on Discord on
+
+434
+00:20:30,840 --> 00:20:36,120
+Sunday scored
+
+435
+00:20:32,460 --> 00:20:40,620
+okay so it generated you know this poem
+
+436
+00:20:36,120 --> 00:20:43,440
+for my website can you guys see it
+
+437
+00:20:40,620 --> 00:20:46,580
+yeah you can okay
+
+438
+00:20:43,440 --> 00:20:46,580
+so um
+
+439
+00:20:50,880 --> 00:20:57,960
+okay so so so
+
+440
+00:20:53,820 --> 00:21:00,419
+you know so it um it's magnify
+
+441
+00:20:57,960 --> 00:21:03,179
+you cannot
+
+442
+00:21:00,419 --> 00:21:06,200
+so it generates a poem you know a poem
+
+443
+00:21:03,179 --> 00:21:10,080
+about kasari.org
+
+444
+00:21:06,200 --> 00:21:13,320
+pentameter okay so it then the AI says
+
+445
+00:21:10,080 --> 00:21:16,020
+this is a website built by xabi a guy
+
+446
+00:21:13,320 --> 00:21:18,960
+who knows his stuff and wants to share
+
+447
+00:21:16,020 --> 00:21:21,900
+it with you the site is crammed with
+
+448
+00:21:18,960 --> 00:21:23,640
+info on all sorts of things from
+
+449
+00:21:21,900 --> 00:21:26,400
+programming to sex
+
+450
+00:21:23,640 --> 00:21:29,340
+there's something for everyone
+
+451
+00:21:26,400 --> 00:21:31,260
+so if you are looking for knowledge or
+
+452
+00:21:29,340 --> 00:21:35,039
+just a good laugh
+
+453
+00:21:31,260 --> 00:21:37,440
+you need to check out sally.org the best
+
+454
+00:21:35,039 --> 00:21:40,740
+website around
+
+455
+00:21:37,440 --> 00:21:42,960
+generated by AI how does it know how
+
+456
+00:21:40,740 --> 00:21:45,720
+does it know my website and in the
+
+457
+00:21:42,960 --> 00:21:48,179
+description you look at this poem and
+
+458
+00:21:45,720 --> 00:21:52,159
+it's actually young big pentameter you
+
+459
+00:21:48,179 --> 00:21:56,159
+know I'm not too you know that's a a
+
+460
+00:21:52,159 --> 00:21:58,620
+specific pattern of poem okay I don't
+
+461
+00:21:56,159 --> 00:22:00,960
+know exactly how it works but it's so it
+
+462
+00:21:58,620 --> 00:22:06,840
+knows my website and the description
+
+463
+00:22:00,960 --> 00:22:09,960
+given is very accurate okay and then
+
+464
+00:22:06,840 --> 00:22:12,419
+you know very accurate and also kind of
+
+465
+00:22:09,960 --> 00:22:15,600
+in my style the way I would write it you
+
+466
+00:22:12,419 --> 00:22:18,299
+know it's amazing then I asked the guy
+
+467
+00:22:15,600 --> 00:22:21,419
+will you know
+
+468
+00:22:18,299 --> 00:22:24,720
+a friend you know on this disco too okay
+
+469
+00:22:21,419 --> 00:22:27,480
+tell it to generate a poem in Limerick
+
+470
+00:22:24,720 --> 00:22:29,940
+okay I want I want to check if this is
+
+471
+00:22:27,480 --> 00:22:32,820
+real you know you know let's see
+
+472
+00:22:29,940 --> 00:22:34,559
+generate a study about sadi.org in
+
+473
+00:22:32,820 --> 00:22:38,880
+Limerick and it does
+
+474
+00:22:34,559 --> 00:22:41,640
+it says there was a geek named xsa who
+
+475
+00:22:38,880 --> 00:22:44,700
+ran a website with much Flair
+
+476
+00:22:41,640 --> 00:22:47,400
+he would write code all day and all
+
+477
+00:22:44,700 --> 00:22:50,600
+night and his site was really something
+
+478
+00:22:47,400 --> 00:22:53,640
+quite right you know one of the
+
+479
+00:22:50,600 --> 00:22:57,720
+catchphrase I use often is all day and
+
+480
+00:22:53,640 --> 00:23:00,120
+night and this poem just used it that
+
+481
+00:22:57,720 --> 00:23:03,059
+and here's another version Limerick okay
+
+482
+00:23:00,120 --> 00:23:07,020
+about saudi.org there was a geek named
+
+483
+00:23:03,059 --> 00:23:10,080
+sa who ran a website called saudi.org he
+
+484
+00:23:07,020 --> 00:23:15,000
+was quite the geek and knew a lot of
+
+485
+00:23:10,080 --> 00:23:18,600
+stuff and his website was really awesome
+
+486
+00:23:15,000 --> 00:23:21,120
+okay uh so yeah so this open AI is just
+
+487
+00:23:18,600 --> 00:23:23,400
+amazing and it can generate code you
+
+488
+00:23:21,120 --> 00:23:25,320
+know not always correct but you know so
+
+489
+00:23:23,400 --> 00:23:28,440
+right now on Twitter
+
+490
+00:23:25,320 --> 00:23:31,260
+uh right now Elon musk's Twitter if you
+
+491
+00:23:28,440 --> 00:23:34,679
+just search it you know chat gbg you'll
+
+492
+00:23:31,260 --> 00:23:36,299
+find a ton of amazing quite amazing you
+
+493
+00:23:34,679 --> 00:23:40,740
+know um
+
+494
+00:23:36,299 --> 00:23:43,620
+machine generated text okay and it can
+
+495
+00:23:40,740 --> 00:23:46,320
+also generate a story like
+
+496
+00:23:43,620 --> 00:23:49,200
+like I would you know it I would say
+
+497
+00:23:46,320 --> 00:23:50,520
+it's already past the tuning test you
+
+498
+00:23:49,200 --> 00:23:51,960
+know the test for artificial
+
+499
+00:23:50,520 --> 00:23:53,520
+intelligence I would say it's already
+
+500
+00:23:51,960 --> 00:23:54,840
+passed
+
+501
+00:23:53,520 --> 00:23:58,039
+so
+
+502
+00:23:54,840 --> 00:24:01,860
+you know we you know so this I would say
+
+503
+00:23:58,039 --> 00:24:03,780
+2023 is the year of the real AI so are
+
+504
+00:24:01,860 --> 00:24:06,780
+you guys still there say something okay
+
+505
+00:24:03,780 --> 00:24:09,720
+if you guys watch us okay so there is
+
+506
+00:24:06,780 --> 00:24:12,960
+you know uh
+
+507
+00:24:09,720 --> 00:24:15,539
+chat GPT okay quite amazing and on
+
+508
+00:24:12,960 --> 00:24:19,500
+Discord we talked about it and a lot of
+
+509
+00:24:15,539 --> 00:24:23,700
+people Dion uh friend the Dion is the
+
+510
+00:24:19,500 --> 00:24:26,940
+biggest sponsor of my work okay
+
+511
+00:24:23,700 --> 00:24:30,960
+so uh you know and you know he is the
+
+512
+00:24:26,940 --> 00:24:33,179
+biggest uh don't don't know and we have
+
+513
+00:24:30,960 --> 00:24:37,080
+you know so a lot of people we have you
+
+514
+00:24:33,179 --> 00:24:39,900
+know tried the opening AI chatbot quite
+
+515
+00:24:37,080 --> 00:24:42,120
+amazing okay lots of uh oh yeah here
+
+516
+00:24:39,900 --> 00:24:45,360
+uh quite a lot a lot of amazing things
+
+517
+00:24:42,120 --> 00:24:48,120
+the the thing
+
+518
+00:24:45,360 --> 00:24:51,840
+so so anyway let's go back to the this
+
+519
+00:24:48,120 --> 00:24:55,760
+qqai the China AI so there's Elon Musk
+
+520
+00:24:51,840 --> 00:24:59,340
+you know with his fire gun
+
+521
+00:24:55,760 --> 00:25:00,240
+flamethrower and they and there it is a
+
+522
+00:24:59,340 --> 00:25:01,740
+result
+
+523
+00:25:00,240 --> 00:25:04,620
+um you know
+
+524
+00:25:01,740 --> 00:25:08,100
+so let's look at the next one
+
+525
+00:25:04,620 --> 00:25:10,380
+the next one a pretty girl a Chinese
+
+526
+00:25:08,100 --> 00:25:12,960
+girl or something or something it
+
+527
+00:25:10,380 --> 00:25:15,539
+doesn't look like Japanese it looks like
+
+528
+00:25:12,960 --> 00:25:18,360
+then a pretty girl is just a pretty girl
+
+529
+00:25:15,539 --> 00:25:19,440
+he returns pretty girl okay
+
+530
+00:25:18,360 --> 00:25:22,200
+um
+
+531
+00:25:19,440 --> 00:25:24,480
+and also you know look at the patterns
+
+532
+00:25:22,200 --> 00:25:27,360
+on her clothing
+
+533
+00:25:24,480 --> 00:25:29,520
+you know this this is not
+
+534
+00:25:27,360 --> 00:25:33,240
+I you know I wouldn't say this is this
+
+535
+00:25:29,520 --> 00:25:35,580
+is not trivial and to create this in a
+
+536
+00:25:33,240 --> 00:25:38,460
+drawing style and create arbitrary
+
+537
+00:25:35,580 --> 00:25:39,600
+patterns on the Fly you know depending
+
+538
+00:25:38,460 --> 00:25:42,539
+on whatever
+
+539
+00:25:39,600 --> 00:25:44,580
+uh images I don't think that you know
+
+540
+00:25:42,539 --> 00:25:46,559
+each one is different so it's quite
+
+541
+00:25:44,580 --> 00:25:49,380
+amazing
+
+542
+00:25:46,559 --> 00:25:51,900
+so then here's the example of a guy
+
+543
+00:25:49,380 --> 00:25:57,600
+you know so it becomes this handsome
+
+544
+00:25:51,900 --> 00:26:03,020
+hunk but one issue is that his bulge is
+
+545
+00:25:57,600 --> 00:26:06,360
+good so that's that's a flaw okay
+
+546
+00:26:03,020 --> 00:26:09,240
+then so here is the Snowden famous
+
+547
+00:26:06,360 --> 00:26:11,880
+Snowden becomes the head
+
+548
+00:26:09,240 --> 00:26:14,279
+and then this is another funny one so
+
+549
+00:26:11,880 --> 00:26:15,120
+you know this is a famous painting that
+
+550
+00:26:14,279 --> 00:26:18,659
+got
+
+551
+00:26:15,120 --> 00:26:25,440
+damaged you know by some idiot you know
+
+552
+00:26:18,659 --> 00:26:28,740
+uh rework and then it becomes that girl
+
+553
+00:26:25,440 --> 00:26:32,520
+okay uh yeah so
+
+554
+00:26:28,740 --> 00:26:35,100
+so that's about this this qqai drawing
+
+555
+00:26:32,520 --> 00:26:38,340
+thing oh yeah so then you have this
+
+556
+00:26:35,100 --> 00:26:42,120
+Korean you know North Korea
+
+557
+00:26:38,340 --> 00:26:44,340
+King John E or something you know so it
+
+558
+00:26:42,120 --> 00:26:47,820
+becomes that
+
+559
+00:26:44,340 --> 00:26:49,620
+so again the it doesn't capture the
+
+560
+00:26:47,820 --> 00:26:52,679
+character but however
+
+561
+00:26:49,620 --> 00:26:56,100
+however it's very creative and somehow
+
+562
+00:26:52,679 --> 00:26:58,679
+the spirit of the image is captured
+
+563
+00:26:56,100 --> 00:27:01,380
+okay let me show you a lot more so then
+
+564
+00:26:58,679 --> 00:27:04,620
+here's the Jesus you know the
+
+565
+00:27:01,380 --> 00:27:06,120
+virgin virgin Mary you know with the
+
+566
+00:27:04,620 --> 00:27:09,059
+baby
+
+567
+00:27:06,120 --> 00:27:12,240
+I suppose I suppose that's what that you
+
+568
+00:27:09,059 --> 00:27:15,059
+know then you got that beautiful and
+
+569
+00:27:12,240 --> 00:27:18,419
+then
+
+570
+00:27:15,059 --> 00:27:19,200
+okay this is UNA Obama you know the you
+
+571
+00:27:18,419 --> 00:27:21,179
+know
+
+572
+00:27:19,200 --> 00:27:23,700
+uh
+
+573
+00:27:21,179 --> 00:27:26,360
+you know you so let me show you if you
+
+574
+00:27:23,700 --> 00:27:26,360
+guys don't know
+
+575
+00:27:26,700 --> 00:27:31,080
+yeah I'm not gonna show it so when Obama
+
+576
+00:27:29,340 --> 00:27:34,260
+is outright
+
+577
+00:27:31,080 --> 00:27:37,320
+and so his name you know he's in jail
+
+578
+00:27:34,260 --> 00:27:41,340
+because he killed people so Ted
+
+579
+00:27:37,320 --> 00:27:42,539
+uh Ted something okay you know so here's
+
+580
+00:27:41,340 --> 00:27:45,840
+a
+
+581
+00:27:42,539 --> 00:27:48,620
+a result of his real photo
+
+582
+00:27:45,840 --> 00:27:48,620
+mugshot
+
+583
+00:27:48,720 --> 00:27:55,679
+so so yeah so and here is another
+
+584
+00:27:52,020 --> 00:27:58,980
+example of extreme creativity you know
+
+585
+00:27:55,679 --> 00:28:02,059
+you give it this image then it returns
+
+586
+00:27:58,980 --> 00:28:02,059
+this with this
+
+587
+00:28:02,299 --> 00:28:08,100
+melancing fingers and fingernails you
+
+588
+00:28:05,880 --> 00:28:11,640
+know and something like with a computer
+
+589
+00:28:08,100 --> 00:28:15,480
+screen on the nail and also a kind of
+
+590
+00:28:11,640 --> 00:28:16,440
+face with some kind of mask or scar you
+
+591
+00:28:15,480 --> 00:28:19,559
+see
+
+592
+00:28:16,440 --> 00:28:22,320
+quite amazing you know it takes
+
+593
+00:28:19,559 --> 00:28:25,500
+some creativity to create okay
+
+594
+00:28:22,320 --> 00:28:27,360
+so so that then that's that's here's
+
+595
+00:28:25,500 --> 00:28:31,020
+another interesting one so you give it a
+
+596
+00:28:27,360 --> 00:28:34,740
+photo of a supposedly UFO this this is a
+
+597
+00:28:31,020 --> 00:28:36,900
+you know somewhat popular incident where
+
+598
+00:28:34,740 --> 00:28:40,860
+I you know on YouTube you can find it
+
+599
+00:28:36,900 --> 00:28:42,000
+where you have a USA jet fighters on a
+
+600
+00:28:40,860 --> 00:28:44,940
+carrier
+
+601
+00:28:42,000 --> 00:28:48,360
+found some unidentified flying object
+
+602
+00:28:44,940 --> 00:28:51,120
+you know like UFO so they this is
+
+603
+00:28:48,360 --> 00:28:54,120
+supposed to be the video footage of it
+
+604
+00:28:51,120 --> 00:28:56,880
+uh it's on YouTube over and also the Joe
+
+605
+00:28:54,120 --> 00:28:59,820
+Rogan idiot talks about it
+
+606
+00:28:56,880 --> 00:29:00,779
+so you give it that image and it returns
+
+607
+00:28:59,820 --> 00:29:02,460
+this
+
+608
+00:29:00,779 --> 00:29:07,380
+you know this
+
+609
+00:29:02,460 --> 00:29:11,520
+strange thing you know again I would say
+
+610
+00:29:07,380 --> 00:29:13,919
+it captures the kind of the
+
+611
+00:29:11,520 --> 00:29:16,440
+the spirit the the background the
+
+612
+00:29:13,919 --> 00:29:20,240
+context you know of the things so so
+
+613
+00:29:16,440 --> 00:29:20,240
+what is this thing you know
+
+614
+00:29:22,080 --> 00:29:26,279
+you know I
+
+615
+00:29:23,460 --> 00:29:28,740
+you can tell it's like a dish and a
+
+616
+00:29:26,279 --> 00:29:29,940
+needle or something but it's very
+
+617
+00:29:28,740 --> 00:29:32,720
+strange
+
+618
+00:29:29,940 --> 00:29:32,720
+yeah so
+
+619
+00:29:33,120 --> 00:29:38,340
+so then let's see next okay so do we
+
+620
+00:29:35,880 --> 00:29:40,080
+have anything else okay so you can see a
+
+621
+00:29:38,340 --> 00:29:43,679
+lot more and you can try it yourself
+
+622
+00:29:40,080 --> 00:29:47,340
+okay people generate it I uh posted the
+
+623
+00:29:43,679 --> 00:29:49,140
+link so there's a link to 4chan
+
+624
+00:29:47,340 --> 00:29:53,039
+you know so
+
+625
+00:29:49,140 --> 00:29:54,539
+you know yesterday I looked at all these
+
+626
+00:29:53,039 --> 00:29:57,360
+um
+
+627
+00:29:54,539 --> 00:30:01,980
+I'm I'm fairly I'm fairly impressed okay
+
+628
+00:29:57,360 --> 00:30:04,919
+I'm fairly uh impressed by by these uh
+
+629
+00:30:01,980 --> 00:30:07,799
+and there are some you know some you
+
+630
+00:30:04,919 --> 00:30:10,020
+know again this is another creativity so
+
+631
+00:30:07,799 --> 00:30:14,000
+you show this face giant phase and
+
+632
+00:30:10,020 --> 00:30:14,000
+become they become just Lakes
+
+633
+00:30:18,000 --> 00:30:22,580
+so uh so what you guys are saying
+
+634
+00:30:20,399 --> 00:30:27,179
+YouTube is not allowing me to write
+
+635
+00:30:22,580 --> 00:30:30,179
+censorship okay okay guys start AOC with
+
+636
+00:30:27,179 --> 00:30:34,159
+gpt3
+
+637
+00:30:30,179 --> 00:30:37,559
+I don't know what that means exactly
+
+638
+00:30:34,159 --> 00:30:41,779
+uh Anonymous says care to comment on
+
+639
+00:30:37,559 --> 00:30:45,179
+team pool's compound being rated in the
+
+640
+00:30:41,779 --> 00:30:47,419
+ensuing Eagle battle oh I didn't know
+
+641
+00:30:45,179 --> 00:30:47,419
+that
+
+642
+00:30:51,720 --> 00:30:56,820
+well that's about politics I'm not going
+
+643
+00:30:54,120 --> 00:30:59,399
+to talk about you know
+
+644
+00:30:56,820 --> 00:31:00,179
+too much about politics team pool you
+
+645
+00:30:59,399 --> 00:31:02,220
+know
+
+646
+00:31:00,179 --> 00:31:05,279
+let me just let me give you a comment
+
+647
+00:31:02,220 --> 00:31:08,820
+about team pool team pool I started to
+
+648
+00:31:05,279 --> 00:31:12,000
+follow team pool around 2006.
+
+649
+00:31:08,820 --> 00:31:14,580
+you know I mean 2016.
+
+650
+00:31:12,000 --> 00:31:17,220
+you know that's the election year
+
+651
+00:31:14,580 --> 00:31:18,899
+you know that's when you suddenly all of
+
+652
+00:31:17,220 --> 00:31:21,440
+a sudden you have all these strange
+
+653
+00:31:18,899 --> 00:31:25,380
+jargons you know safe space
+
+654
+00:31:21,440 --> 00:31:27,000
+Mains trading man spreading you know all
+
+655
+00:31:25,380 --> 00:31:28,559
+these strange jargons all of a sudden
+
+656
+00:31:27,000 --> 00:31:30,179
+you know over
+
+657
+00:31:28,559 --> 00:31:32,820
+then
+
+658
+00:31:30,179 --> 00:31:35,940
+then I started to notice this guy team
+
+659
+00:31:32,820 --> 00:31:37,919
+pool you know he's doing documentary on
+
+660
+00:31:35,940 --> 00:31:42,000
+the ground you know he's a journal
+
+661
+00:31:37,919 --> 00:31:45,419
+journalist independent journalist he
+
+662
+00:31:42,000 --> 00:31:49,620
+you know he for example back in 2008
+
+663
+00:31:45,419 --> 00:31:52,320
+also there's a Occupy Wall Street right
+
+664
+00:31:49,620 --> 00:31:54,539
+he's so he's there and he actually won
+
+665
+00:31:52,320 --> 00:31:56,940
+journalism Awards you know because he's
+
+666
+00:31:54,539 --> 00:31:59,820
+on the street document what people are
+
+667
+00:31:56,940 --> 00:32:03,059
+saying you know so
+
+668
+00:31:59,820 --> 00:32:07,260
+I didn't know who who he is you know but
+
+669
+00:32:03,059 --> 00:32:09,419
+you know back in 2016 then 2017 you know
+
+670
+00:32:07,260 --> 00:32:11,520
+the Trump years you know you have all
+
+671
+00:32:09,419 --> 00:32:15,000
+these you know
+
+672
+00:32:11,520 --> 00:32:17,760
+eventually it's called cultural War you
+
+673
+00:32:15,000 --> 00:32:19,740
+know social justice Warrior and so so
+
+674
+00:32:17,760 --> 00:32:21,659
+anyway I found this guy you know I
+
+675
+00:32:19,740 --> 00:32:24,659
+remember it's back in Berkeley UC
+
+676
+00:32:21,659 --> 00:32:26,820
+Berkeley the origin
+
+677
+00:32:24,659 --> 00:32:29,279
+you know UC Berkeley is our engine of
+
+678
+00:32:26,820 --> 00:32:33,179
+free speech you know because of the
+
+679
+00:32:29,279 --> 00:32:35,220
+Vietnam War remember the Vietnam War you
+
+680
+00:32:33,179 --> 00:32:36,960
+know UC Berkeley you have students you
+
+681
+00:32:35,220 --> 00:32:39,059
+know protesting
+
+682
+00:32:36,960 --> 00:32:42,059
+you know that that's what made Free
+
+683
+00:32:39,059 --> 00:32:44,580
+Speech famous UC Berkeley started and
+
+684
+00:32:42,059 --> 00:32:48,480
+back then USA is mostly a Christian
+
+685
+00:32:44,580 --> 00:32:51,360
+Nation so you cannot say [ __ ] you know
+
+686
+00:32:48,480 --> 00:32:54,779
+on [ __ ] or [ __ ] or swear any kind of
+
+687
+00:32:51,360 --> 00:32:56,760
+swear you get banned okay it's ruled by
+
+688
+00:32:54,779 --> 00:33:00,059
+Christians
+
+689
+00:32:56,760 --> 00:33:03,059
+USA so anyway you you know UC Berkeley
+
+690
+00:33:00,059 --> 00:33:06,179
+is famous for for Free Speech but in
+
+691
+00:33:03,059 --> 00:33:07,200
+2017 you know when the social justice
+
+692
+00:33:06,179 --> 00:33:11,340
+thing
+
+693
+00:33:07,200 --> 00:33:15,059
+started to appear then on UC Berkeley
+
+694
+00:33:11,340 --> 00:33:19,080
+you have protest that burns that burns
+
+695
+00:33:15,059 --> 00:33:22,200
+American flag that burns Free Speech
+
+696
+00:33:19,080 --> 00:33:25,039
+sign and beating people
+
+697
+00:33:22,200 --> 00:33:27,179
+you know bloody bloody
+
+698
+00:33:25,039 --> 00:33:32,700
+and you know
+
+699
+00:33:27,179 --> 00:33:35,700
+so that so starting in 2016 to 2019 I
+
+700
+00:33:32,700 --> 00:33:37,260
+started to watch a lot what's going on
+
+701
+00:33:35,700 --> 00:33:40,019
+you know
+
+702
+00:33:37,260 --> 00:33:42,000
+kind of strange okay that's anyway
+
+703
+00:33:40,019 --> 00:33:45,419
+so Team Four that's how I started to
+
+704
+00:33:42,000 --> 00:33:47,580
+know team pool the first time ever is
+
+705
+00:33:45,419 --> 00:33:49,980
+when he is at UC Berkeley you know
+
+706
+00:33:47,580 --> 00:33:52,260
+protest and he interviewed people like I
+
+707
+00:33:49,980 --> 00:33:54,659
+don't know who he is I just happened to
+
+708
+00:33:52,260 --> 00:33:57,679
+see YouTube okay but eventually I
+
+709
+00:33:54,659 --> 00:34:02,580
+watched then basically around 2017
+
+710
+00:33:57,679 --> 00:34:04,980
+through 2019 I watched team pool every
+
+711
+00:34:02,580 --> 00:34:07,740
+every other day okay
+
+712
+00:34:04,980 --> 00:34:10,379
+several hours a week and so I've been
+
+713
+00:34:07,740 --> 00:34:14,280
+watching Team pool a lot
+
+714
+00:34:10,379 --> 00:34:16,619
+so I find him I judge him to be a good
+
+715
+00:34:14,280 --> 00:34:19,500
+guy good person good person on the
+
+716
+00:34:16,619 --> 00:34:21,240
+ground doing you know documentary and
+
+717
+00:34:19,500 --> 00:34:23,460
+journalism
+
+718
+00:34:21,240 --> 00:34:28,639
+but team pool
+
+719
+00:34:23,460 --> 00:34:32,339
+began started to degrade starting around
+
+720
+00:34:28,639 --> 00:34:34,679
+2019 okay instead of going to the ground
+
+721
+00:34:32,339 --> 00:34:38,700
+and actually document you know things
+
+722
+00:34:34,679 --> 00:34:40,980
+interview people he started to just sit
+
+723
+00:34:38,700 --> 00:34:43,320
+on his computer like me like me right
+
+724
+00:34:40,980 --> 00:34:46,619
+now and just going through news You Know
+
+725
+00:34:43,320 --> 00:34:50,460
+Drama news oh social justice Warrior did
+
+726
+00:34:46,619 --> 00:34:52,320
+this today oh Trump dad oh CNN is you
+
+727
+00:34:50,460 --> 00:34:55,379
+know he started to do that
+
+728
+00:34:52,320 --> 00:34:57,000
+every and and before it was like one
+
+729
+00:34:55,379 --> 00:34:59,339
+video every
+
+730
+00:34:57,000 --> 00:35:02,520
+two days or three you know because it
+
+731
+00:34:59,339 --> 00:35:06,839
+takes time for him to go to places
+
+732
+00:35:02,520 --> 00:35:09,780
+but starting around 2019 he's churning
+
+733
+00:35:06,839 --> 00:35:12,180
+out two or three videos every day
+
+734
+00:35:09,780 --> 00:35:15,720
+team pool okay meanwhile he's getting
+
+735
+00:35:12,180 --> 00:35:18,359
+more and more popular his his viewers by
+
+736
+00:35:15,720 --> 00:35:19,920
+now it's like uh you know more than a
+
+737
+00:35:18,359 --> 00:35:22,619
+million two million or something maybe
+
+738
+00:35:19,920 --> 00:35:25,500
+and he started to have multiple channels
+
+739
+00:35:22,619 --> 00:35:26,760
+and it is just every day he's just
+
+740
+00:35:25,500 --> 00:35:29,640
+sitting there
+
+741
+00:35:26,760 --> 00:35:32,400
+show you new news website drama you know
+
+742
+00:35:29,640 --> 00:35:35,700
+talking about Drama Oh beating oh bloody
+
+743
+00:35:32,400 --> 00:35:38,220
+here or you know Trump or whatever Biden
+
+744
+00:35:35,700 --> 00:35:40,800
+Hunter Biden
+
+745
+00:35:38,220 --> 00:35:44,520
+and uh
+
+746
+00:35:40,800 --> 00:35:47,220
+and and he's like a you know alarming
+
+747
+00:35:44,520 --> 00:35:49,680
+you know he so he he went down you know
+
+748
+00:35:47,220 --> 00:35:52,140
+he he so in my mind
+
+749
+00:35:49,680 --> 00:35:54,780
+he's just flying drama
+
+750
+00:35:52,140 --> 00:35:57,060
+you know the more drama the more viewers
+
+751
+00:35:54,780 --> 00:35:59,040
+viewers you have like right now I'm
+
+752
+00:35:57,060 --> 00:36:01,380
+doing you know I'm talking about
+
+753
+00:35:59,040 --> 00:36:04,020
+politics a little bit
+
+754
+00:36:01,380 --> 00:36:05,940
+you know if I just do emac this coding
+
+755
+00:36:04,020 --> 00:36:09,780
+oh I got you know
+
+756
+00:36:05,940 --> 00:36:11,760
+200 watch per video now if I talk about
+
+757
+00:36:09,780 --> 00:36:15,480
+the social justice or this kind of thing
+
+758
+00:36:11,760 --> 00:36:19,740
+oh one thousand two thousand watches and
+
+759
+00:36:15,480 --> 00:36:22,560
+if I add a caption you know oh you know
+
+760
+00:36:19,740 --> 00:36:26,160
+AI is taking over the world oh my God
+
+761
+00:36:22,560 --> 00:36:29,040
+then I'm gonna have ten thousand views
+
+762
+00:36:26,160 --> 00:36:30,960
+drama that's what tempo is doing and
+
+763
+00:36:29,040 --> 00:36:32,400
+let's let's go to
+
+764
+00:36:30,960 --> 00:36:36,980
+um
+
+765
+00:36:32,400 --> 00:36:36,980
+okay I actually have a um
+
+766
+00:36:37,859 --> 00:36:44,160
+article about him I started to document
+
+767
+00:36:40,560 --> 00:36:46,980
+you know I started to clean up my
+
+768
+00:36:44,160 --> 00:36:49,140
+my political blog
+
+769
+00:36:46,980 --> 00:36:52,440
+of random thoughts
+
+770
+00:36:49,140 --> 00:36:56,040
+that I wrote down in the past five years
+
+771
+00:36:52,440 --> 00:36:58,920
+I started to kind of clean them up move
+
+772
+00:36:56,040 --> 00:37:01,260
+things around so they the goal is to so
+
+773
+00:36:58,920 --> 00:37:03,780
+they become more coherent so now I have
+
+774
+00:37:01,260 --> 00:37:05,579
+I have a kind of an article a page on
+
+775
+00:37:03,780 --> 00:37:08,160
+Temple
+
+776
+00:37:05,579 --> 00:37:10,920
+you know and this one is very famous you
+
+777
+00:37:08,160 --> 00:37:15,540
+know there it is Joe Rogan Joe Rogan
+
+778
+00:37:10,920 --> 00:37:19,740
+Temple Jack Dorsey and this
+
+779
+00:37:15,540 --> 00:37:23,220
+the Vijaya you know the Jack Dorsey and
+
+780
+00:37:19,740 --> 00:37:26,339
+vijayaka they are scums okay in my
+
+781
+00:37:23,220 --> 00:37:30,180
+opinion they are criminals of humanity
+
+782
+00:37:26,339 --> 00:37:32,280
+okay these are these people these two
+
+783
+00:37:30,180 --> 00:37:35,700
+so anyway this video is very popular
+
+784
+00:37:32,280 --> 00:37:37,440
+okay several million views the first day
+
+785
+00:37:35,700 --> 00:37:40,200
+you know
+
+786
+00:37:37,440 --> 00:37:43,500
+it's about you know Twitter is doing a
+
+787
+00:37:40,200 --> 00:37:46,800
+lot of censorship okay so team pool is
+
+788
+00:37:43,500 --> 00:37:50,160
+in fact expert you know so
+
+789
+00:37:46,800 --> 00:37:53,040
+okay I'm starting to uh getting into a
+
+790
+00:37:50,160 --> 00:37:55,680
+lot of other things okay team pool
+
+791
+00:37:53,040 --> 00:37:58,079
+so Tempo originally is a great
+
+792
+00:37:55,680 --> 00:38:02,160
+journalist actually deserve the word
+
+793
+00:37:58,079 --> 00:38:04,500
+journalist okay journalist by today it's
+
+794
+00:38:02,160 --> 00:38:06,359
+it's rotted you know it's rotten you
+
+795
+00:38:04,500 --> 00:38:09,660
+know if you hear someone is journalist
+
+796
+00:38:06,359 --> 00:38:12,180
+you know it's a it's [ __ ] okay so I
+
+797
+00:38:09,660 --> 00:38:15,540
+don't even use the word journalism like
+
+798
+00:38:12,180 --> 00:38:17,880
+is you know used to be like 20 years ago
+
+799
+00:38:15,540 --> 00:38:21,119
+journalism is like a great because
+
+800
+00:38:17,880 --> 00:38:23,099
+journalism report the truth you know if
+
+801
+00:38:21,119 --> 00:38:26,220
+you have a big organization like Google
+
+802
+00:38:23,099 --> 00:38:30,020
+or government or China okay China China
+
+803
+00:38:26,220 --> 00:38:32,700
+is another big dramatic thing
+
+804
+00:38:30,020 --> 00:38:35,099
+journalists reported you know if you are
+
+805
+00:38:32,700 --> 00:38:38,060
+corrupt if you take a lot of Vibes you
+
+806
+00:38:35,099 --> 00:38:40,859
+know moving millions of dollars you know
+
+807
+00:38:38,060 --> 00:38:44,280
+journalists report them you know that's
+
+808
+00:38:40,859 --> 00:38:46,020
+like the foundation of the USA principle
+
+809
+00:38:44,280 --> 00:38:48,780
+you know
+
+810
+00:38:46,020 --> 00:38:51,300
+but today journalism they work for the
+
+811
+00:38:48,780 --> 00:38:55,260
+they they every day what they report is
+
+812
+00:38:51,300 --> 00:38:56,940
+the government things you know the
+
+813
+00:38:55,260 --> 00:38:58,740
+government tell them and big
+
+814
+00:38:56,940 --> 00:39:00,839
+corporations like Google tell them what
+
+815
+00:38:58,740 --> 00:39:03,480
+to say
+
+816
+00:39:00,839 --> 00:39:06,900
+so anyway team pool was once a great
+
+817
+00:39:03,480 --> 00:39:10,020
+journalist and around 2019 he started to
+
+818
+00:39:06,900 --> 00:39:12,359
+do like cultural Wars you know like two
+
+819
+00:39:10,020 --> 00:39:15,540
+or three videos every day and he just
+
+820
+00:39:12,359 --> 00:39:16,940
+sit there and point you point you to you
+
+821
+00:39:15,540 --> 00:39:20,280
+know
+
+822
+00:39:16,940 --> 00:39:23,460
+different websites like Fox News or CNN
+
+823
+00:39:20,280 --> 00:39:24,839
+oh yeah and then he just babble and team
+
+824
+00:39:23,460 --> 00:39:29,460
+pool
+
+825
+00:39:24,839 --> 00:39:31,859
+also he's his IQ is low okay he said
+
+826
+00:39:29,460 --> 00:39:32,820
+many times that he doesn't
+
+827
+00:39:31,859 --> 00:39:35,160
+um
+
+828
+00:39:32,820 --> 00:39:37,079
+he doesn't you know he he never had a
+
+829
+00:39:35,160 --> 00:39:38,160
+degree in fact he's a high school
+
+830
+00:39:37,079 --> 00:39:40,560
+dropout
+
+831
+00:39:38,160 --> 00:39:42,839
+which is fine I'm also you know I never
+
+832
+00:39:40,560 --> 00:39:46,920
+I don't have any degree I learned math
+
+833
+00:39:42,839 --> 00:39:49,560
+in programming mostly by myself okay
+
+834
+00:39:46,920 --> 00:39:51,540
+so team pool but he but he's you know
+
+835
+00:39:49,560 --> 00:39:55,260
+he's he's
+
+836
+00:39:51,540 --> 00:39:57,780
+he walk you know he walk for whatever he
+
+837
+00:39:55,260 --> 00:39:59,520
+does okay I mean he worked for it you
+
+838
+00:39:57,780 --> 00:40:01,859
+know so
+
+839
+00:39:59,520 --> 00:40:04,800
+no degree that's fine but however team
+
+840
+00:40:01,859 --> 00:40:08,820
+pool is not very smart and then he start
+
+841
+00:40:04,800 --> 00:40:10,320
+you know he he started to like emphasize
+
+842
+00:40:08,820 --> 00:40:11,040
+oh
+
+843
+00:40:10,320 --> 00:40:14,400
+um
+
+844
+00:40:11,040 --> 00:40:17,640
+idiot basically opinions about Society
+
+845
+00:40:14,400 --> 00:40:20,220
+about philosophy about economics you
+
+846
+00:40:17,640 --> 00:40:23,339
+know he don't know any of that but when
+
+847
+00:40:20,220 --> 00:40:26,460
+he covered news he'll just inject his
+
+848
+00:40:23,339 --> 00:40:27,960
+opinions about oh I think you know blah
+
+849
+00:40:26,460 --> 00:40:32,339
+blah blah
+
+850
+00:40:27,960 --> 00:40:36,060
+so team pool is was a great journalist
+
+851
+00:40:32,339 --> 00:40:39,420
+but in 2019 he started to do
+
+852
+00:40:36,060 --> 00:40:41,880
+a cultural War you know flying drama
+
+853
+00:40:39,420 --> 00:40:45,960
+make himself more money
+
+854
+00:40:41,880 --> 00:40:47,640
+and he also started to and his IQ is
+
+855
+00:40:45,960 --> 00:40:49,920
+pretty low okay
+
+856
+00:40:47,640 --> 00:40:53,339
+low IQ
+
+857
+00:40:49,920 --> 00:40:55,800
+okay and and look at the way he you know
+
+858
+00:40:53,339 --> 00:40:58,680
+these uh clickbaits that's his you know
+
+859
+00:40:55,800 --> 00:41:02,400
+very popular among all YouTubers you
+
+860
+00:40:58,680 --> 00:41:05,300
+know USC giant title dramatic title then
+
+861
+00:41:02,400 --> 00:41:08,339
+some face you know some
+
+862
+00:41:05,300 --> 00:41:10,440
+we gotta you know this this page
+
+863
+00:41:08,339 --> 00:41:13,020
+deserves uh
+
+864
+00:41:10,440 --> 00:41:14,820
+Big Image you know German that's what
+
+865
+00:41:13,020 --> 00:41:16,920
+they do you know they they that's what
+
+866
+00:41:14,820 --> 00:41:19,740
+this kind of thing make money you know
+
+867
+00:41:16,920 --> 00:41:21,300
+find drama and lots of YouTube stars are
+
+868
+00:41:19,740 --> 00:41:23,640
+like that you know almost all of them
+
+869
+00:41:21,300 --> 00:41:26,940
+all of them because this this is the way
+
+870
+00:41:23,640 --> 00:41:29,540
+to get yourself popular okay so team
+
+871
+00:41:26,940 --> 00:41:29,540
+pool so
+
+872
+00:41:29,760 --> 00:41:34,140
+ah
+
+873
+00:41:31,380 --> 00:41:37,680
+okay so but there's one thing I want to
+
+874
+00:41:34,140 --> 00:41:40,619
+say about team pool I highly respect he
+
+875
+00:41:37,680 --> 00:41:43,380
+is not a bad person okay even though he
+
+876
+00:41:40,619 --> 00:41:45,780
+did this clickbait and talking idiotic
+
+877
+00:41:43,380 --> 00:41:47,760
+things you know he covers some news you
+
+878
+00:41:45,780 --> 00:41:51,240
+know some news that usually the
+
+879
+00:41:47,760 --> 00:41:54,720
+mainstream will not cover okay
+
+880
+00:41:51,240 --> 00:41:57,900
+so but when doing that he tends to be
+
+881
+00:41:54,720 --> 00:42:00,060
+alarmist you know he kept saying oh oh
+
+882
+00:41:57,900 --> 00:42:02,520
+Civil War is happening you know you've
+
+883
+00:42:00,060 --> 00:42:04,920
+been saying that for like three years at
+
+884
+00:42:02,520 --> 00:42:08,160
+this Civil War which in some sense is
+
+885
+00:42:04,920 --> 00:42:10,680
+true then you start you know
+
+886
+00:42:08,160 --> 00:42:12,420
+blah blah blah drama okay but there's
+
+887
+00:42:10,680 --> 00:42:16,440
+one thing about team pool
+
+888
+00:42:12,420 --> 00:42:17,880
+that he is a good person okay that is
+
+889
+00:42:16,440 --> 00:42:19,800
+why I still
+
+890
+00:42:17,880 --> 00:42:21,720
+I don't watch him anymore you know
+
+891
+00:42:19,800 --> 00:42:22,740
+because I got other things to do not
+
+892
+00:42:21,720 --> 00:42:24,960
+because
+
+893
+00:42:22,740 --> 00:42:27,300
+you know I got you know I'm getting old
+
+894
+00:42:24,960 --> 00:42:30,660
+I have like maybe five more years to
+
+895
+00:42:27,300 --> 00:42:33,359
+code so I got lots of math proofs Theory
+
+896
+00:42:30,660 --> 00:42:36,540
+type Theory differential geometry I want
+
+897
+00:42:33,359 --> 00:42:40,260
+to go into I want in in a lot of emac
+
+898
+00:42:36,540 --> 00:42:42,480
+beasts work I need to do so I don't
+
+899
+00:42:40,260 --> 00:42:45,000
+I haven't been watching Team pool since
+
+900
+00:42:42,480 --> 00:42:49,980
+in fact I haven't been watching any of
+
+901
+00:42:45,000 --> 00:42:53,400
+these uh various popular people Laura
+
+902
+00:42:49,980 --> 00:42:56,880
+and Southern Jordan Peterson Dave Rubin
+
+903
+00:42:53,400 --> 00:42:59,599
+uh Lindsay Shepherd these are some of
+
+904
+00:42:56,880 --> 00:43:03,180
+the very famous
+
+905
+00:42:59,599 --> 00:43:06,119
+anti-social just just to scan people but
+
+906
+00:43:03,180 --> 00:43:09,420
+I haven't watched them since about 2019
+
+907
+00:43:06,119 --> 00:43:12,300
+okay so but one thing
+
+908
+00:43:09,420 --> 00:43:14,099
+I want to emphasize about team poor the
+
+909
+00:43:12,300 --> 00:43:17,339
+person is that he
+
+910
+00:43:14,099 --> 00:43:21,060
+does not lie okay or at least not
+
+911
+00:43:17,339 --> 00:43:21,740
+intentionally I I think you know for my
+
+912
+00:43:21,060 --> 00:43:25,079
+own
+
+913
+00:43:21,740 --> 00:43:28,500
+observations of all these drama people
+
+914
+00:43:25,079 --> 00:43:31,680
+or you know these people cultural World
+
+915
+00:43:28,500 --> 00:43:33,000
+stuff Tempo is not a bad person I would
+
+916
+00:43:31,680 --> 00:43:34,740
+say
+
+917
+00:43:33,000 --> 00:43:37,560
+Jordan Peterson
+
+918
+00:43:34,740 --> 00:43:40,020
+is not a bad person he's he's great
+
+919
+00:43:37,560 --> 00:43:42,060
+Lord and certain okay let me let me let
+
+920
+00:43:40,020 --> 00:43:43,560
+me talk about law assistant okay all
+
+921
+00:43:42,060 --> 00:43:46,980
+these people are great okay lower
+
+922
+00:43:43,560 --> 00:43:48,920
+uncertain Lawrence southern team pool
+
+923
+00:43:46,980 --> 00:43:52,079
+Dave Rubin
+
+924
+00:43:48,920 --> 00:43:53,760
+Lindsay Shepherd are very famous for you
+
+925
+00:43:52,079 --> 00:43:57,359
+know I'm not going to go into because
+
+926
+00:43:53,760 --> 00:43:59,760
+you can talk about this for for a year
+
+927
+00:43:57,359 --> 00:44:01,740
+so these are good people okay good
+
+928
+00:43:59,760 --> 00:44:03,780
+people about that they they don't lie
+
+929
+00:44:01,740 --> 00:44:04,859
+maybe you know they have opinions maybe
+
+930
+00:44:03,780 --> 00:44:07,280
+that's
+
+931
+00:44:04,859 --> 00:44:10,440
+wrong or incorrect but they don't do
+
+932
+00:44:07,280 --> 00:44:13,380
+nasty things now especially I want to
+
+933
+00:44:10,440 --> 00:44:17,000
+say about Lauren Southern
+
+934
+00:44:13,380 --> 00:44:17,000
+okay this Stefan
+
+935
+00:44:18,079 --> 00:44:23,700
+he's kind of a crackpot okay he's I
+
+936
+00:44:21,720 --> 00:44:25,980
+don't you know I don't like him he's a
+
+937
+00:44:23,700 --> 00:44:27,300
+crack part sort of people
+
+938
+00:44:25,980 --> 00:44:31,020
+uh
+
+939
+00:44:27,300 --> 00:44:34,160
+but in lower and Southern it's a it's a
+
+940
+00:44:31,020 --> 00:44:34,160
+great fantastic
+
+941
+00:44:34,680 --> 00:44:37,819
+person okay
+
+942
+00:44:38,460 --> 00:44:42,660
+because
+
+943
+00:44:40,140 --> 00:44:43,859
+we
+
+944
+00:44:42,660 --> 00:44:46,220
+you know
+
+945
+00:44:43,859 --> 00:44:48,960
+I'm getting emotional because
+
+946
+00:44:46,220 --> 00:44:51,060
+these are about
+
+947
+00:44:48,960 --> 00:44:55,020
+you know what they do a lot of these
+
+948
+00:44:51,060 --> 00:44:58,680
+social justice uh scumbags that
+
+949
+00:44:55,020 --> 00:45:01,079
+beat people up or they reach you know
+
+950
+00:44:58,680 --> 00:45:03,540
+when I talk about social justice
+
+951
+00:45:01,079 --> 00:45:05,640
+Warriors I don't mean just oh some blue
+
+952
+00:45:03,540 --> 00:45:10,980
+hair on Twitter you know some some
+
+953
+00:45:05,640 --> 00:45:12,839
+activists there are top leaders that you
+
+954
+00:45:10,980 --> 00:45:16,800
+know those are on Twitter usually they
+
+955
+00:45:12,839 --> 00:45:18,780
+are just pawns Pawn pawns a chest like a
+
+956
+00:45:16,800 --> 00:45:20,160
+chess game in scammers they make a lot
+
+957
+00:45:18,780 --> 00:45:23,160
+of money
+
+958
+00:45:20,160 --> 00:45:25,380
+but they are top leaders in USA that are
+
+959
+00:45:23,160 --> 00:45:29,400
+doing these things that lead you know
+
+960
+00:45:25,380 --> 00:45:29,400
+that create this phenomenon
+
+961
+00:45:31,440 --> 00:45:37,200
+so what I want to say about Lauren
+
+962
+00:45:34,200 --> 00:45:40,560
+certain is that she's not she's not very
+
+963
+00:45:37,200 --> 00:45:43,260
+you know she's not a academic type of
+
+964
+00:45:40,560 --> 00:45:45,180
+person like me like I you know what I am
+
+965
+00:45:43,260 --> 00:45:47,579
+you know we study we talk about
+
+966
+00:45:45,180 --> 00:45:49,500
+philosophy or stuff she's she's not like
+
+967
+00:45:47,579 --> 00:45:51,300
+that she's just a
+
+968
+00:45:49,500 --> 00:45:53,099
+pretty girl but
+
+969
+00:45:51,300 --> 00:45:58,200
+from what I have seen
+
+970
+00:45:53,099 --> 00:46:01,020
+I judge her to be a great great person
+
+971
+00:45:58,200 --> 00:46:03,500
+okay lower uncertain
+
+972
+00:46:01,020 --> 00:46:03,500
+okay
+
+973
+00:46:04,079 --> 00:46:09,300
+okay so team pool so
+
+974
+00:46:07,859 --> 00:46:11,359
+you know I
+
+975
+00:46:09,300 --> 00:46:11,359
+um
+
+976
+00:46:23,520 --> 00:46:29,640
+okay I think maybe that's it for today
+
+977
+00:46:26,099 --> 00:46:31,800
+so we all uh we we talked for 15 minutes
+
+978
+00:46:29,640 --> 00:46:34,079
+so this um
+
+979
+00:46:31,800 --> 00:46:34,619
+yeah the very interesting
+
+980
+00:46:34,079 --> 00:46:37,980
+um
+
+981
+00:46:34,619 --> 00:46:41,940
+you know artificial intelligence stuff
+
+982
+00:46:37,980 --> 00:46:44,660
+uh and also this one if you guys you
+
+983
+00:46:41,940 --> 00:46:48,300
+know follow some of the drama online
+
+984
+00:46:44,660 --> 00:46:51,300
+this is the sister of
+
+985
+00:46:48,300 --> 00:46:55,220
+um sapiro you know the famous you know
+
+986
+00:46:51,300 --> 00:46:55,220
+another guy famous sapiro
+
+987
+00:46:55,500 --> 00:47:00,540
+you know this is this is her YouTube
+
+988
+00:46:58,319 --> 00:47:03,839
+She's beautiful you know she's singing
+
+989
+00:47:00,540 --> 00:47:08,220
+There's a YouTube video of her in fact I
+
+990
+00:47:03,839 --> 00:47:11,420
+also have I also have a Blog of her
+
+991
+00:47:08,220 --> 00:47:11,420
+let's go to art
+
+992
+00:47:13,079 --> 00:47:18,720
+so there's some odd Pages
+
+993
+00:47:16,020 --> 00:47:21,440
+um you know this photo I took
+
+994
+00:47:18,720 --> 00:47:21,440
+very beautiful
+
+995
+00:47:27,720 --> 00:47:33,260
+uh so let's see yeah so there it is
+
+996
+00:47:31,460 --> 00:47:37,140
+Abigail
+
+997
+00:47:33,260 --> 00:47:40,160
+Shapiro okay that's the sister of uh Ben
+
+998
+00:47:37,140 --> 00:47:44,220
+Shapiro so she
+
+999
+00:47:40,160 --> 00:47:46,500
+she's doing that her hair girl face but
+
+1000
+00:47:44,220 --> 00:47:49,859
+there's a video you know you search you
+
+1001
+00:47:46,500 --> 00:47:51,839
+can see her sing she sings opera so they
+
+1002
+00:47:49,859 --> 00:47:53,280
+are kind of affluent you know upper
+
+1003
+00:47:51,839 --> 00:47:55,740
+class people
+
+1004
+00:47:53,280 --> 00:47:59,660
+and then you know so this drawing
+
+1005
+00:47:55,740 --> 00:47:59,660
+becomes that it's beautiful
+
+1006
+00:48:00,240 --> 00:48:04,920
+you know when you talk about some of
+
+1007
+00:48:02,160 --> 00:48:08,300
+these people you know this
+
+1008
+00:48:04,920 --> 00:48:11,760
+um you know kind of celeb celebrity
+
+1009
+00:48:08,300 --> 00:48:14,280
+in the cultural War
+
+1010
+00:48:11,760 --> 00:48:16,500
+um you know any of these people or a lot
+
+1011
+00:48:14,280 --> 00:48:18,060
+more you know actually I have a Blog so
+
+1012
+00:48:16,500 --> 00:48:21,180
+let me just show it since we are talking
+
+1013
+00:48:18,060 --> 00:48:22,700
+about politics you know just in Trudeau
+
+1014
+00:48:21,180 --> 00:48:25,140
+the Canadian
+
+1015
+00:48:22,700 --> 00:48:28,460
+leader basically
+
+1016
+00:48:25,140 --> 00:48:32,180
+you know these gender things this uh
+
+1017
+00:48:28,460 --> 00:48:34,980
+antifa you know flying a Russian flag
+
+1018
+00:48:32,180 --> 00:48:37,079
+beating people you know burning people
+
+1019
+00:48:34,980 --> 00:48:39,060
+alive you know
+
+1020
+00:48:37,079 --> 00:48:42,599
+all this happening
+
+1021
+00:48:39,060 --> 00:48:45,119
+and but okay so all these people you
+
+1022
+00:48:42,599 --> 00:48:47,940
+know almost any one of them
+
+1023
+00:48:45,119 --> 00:48:51,420
+you you know when you talk about
+
+1024
+00:48:47,940 --> 00:48:54,359
+you you'll see everyone is you know
+
+1025
+00:48:51,420 --> 00:48:57,240
+talking about their opinions uh dramatic
+
+1026
+00:48:54,359 --> 00:49:01,940
+different opinions attacks you know
+
+1027
+00:48:57,240 --> 00:49:01,940
+almost like random you know it's a chaos
+
+1028
+00:49:02,000 --> 00:49:07,680
+chaos you know like for example Jordan
+
+1029
+00:49:04,619 --> 00:49:10,200
+Peterson which I respect you know
+
+1030
+00:49:07,680 --> 00:49:13,140
+you know you know something he says
+
+1031
+00:49:10,200 --> 00:49:15,480
+Jordan Peterson I don't agree but in
+
+1032
+00:49:13,140 --> 00:49:18,660
+general I would you know I would I think
+
+1033
+00:49:15,480 --> 00:49:20,760
+Jordan Peterson is a great person okay
+
+1034
+00:49:18,660 --> 00:49:23,880
+a great person
+
+1035
+00:49:20,760 --> 00:49:25,440
+and but of course what I'm trying to say
+
+1036
+00:49:23,880 --> 00:49:28,380
+is that when you talk about these people
+
+1037
+00:49:25,440 --> 00:49:30,060
+some people will disagree including some
+
+1038
+00:49:28,380 --> 00:49:32,760
+of you you know they'll say oh Jordan
+
+1039
+00:49:30,060 --> 00:49:34,980
+Peterson is actually the most evil you
+
+1040
+00:49:32,760 --> 00:49:37,319
+know you know they'll say the same thing
+
+1041
+00:49:34,980 --> 00:49:38,579
+about lmus about anyone you know because
+
+1042
+00:49:37,319 --> 00:49:40,859
+this
+
+1043
+00:49:38,579 --> 00:49:44,099
+this is politics we are talking about
+
+1044
+00:49:40,859 --> 00:49:46,160
+politics politics you know
+
+1045
+00:49:44,099 --> 00:49:46,160
+um
+
+1046
+00:49:47,280 --> 00:49:52,200
+okay so that's
+
+1047
+00:49:49,079 --> 00:49:55,079
+um so that's it you know um
+
+1048
+00:49:52,200 --> 00:49:58,619
+that's I think that's it for today
+
+1049
+00:49:55,079 --> 00:50:00,960
+uh let's see what else we might have to
+
+1050
+00:49:58,619 --> 00:50:03,859
+say
+
+1051
+00:50:00,960 --> 00:50:03,859
+uh
+
+1052
+00:50:08,760 --> 00:50:17,520
+oh yeah so there's the chat GPT
+
+1053
+00:50:13,440 --> 00:50:20,280
+uh so emacs 29 is coming and it has
+
+1054
+00:50:17,520 --> 00:50:22,140
+fantastic features okay I recommend you
+
+1055
+00:50:20,280 --> 00:50:27,060
+watch uh
+
+1056
+00:50:22,140 --> 00:50:30,480
+this guy so this guy emacs 29 is nine
+
+1057
+00:50:27,060 --> 00:50:32,099
+what can we expect so a lot fantastic
+
+1058
+00:50:30,480 --> 00:50:36,839
+features
+
+1059
+00:50:32,099 --> 00:50:39,660
+and one of the most important I mean one
+
+1060
+00:50:36,839 --> 00:50:44,819
+of the most deep and
+
+1061
+00:50:39,660 --> 00:50:47,819
+for me is let's go through my emacs blog
+
+1062
+00:50:44,819 --> 00:50:49,680
+you know emacs 99 features and one of
+
+1063
+00:50:47,819 --> 00:50:53,819
+the most
+
+1064
+00:50:49,680 --> 00:50:56,640
+deep for me is the there's a parser
+
+1065
+00:50:53,819 --> 00:51:00,000
+called three-seater
+
+1066
+00:50:56,640 --> 00:51:03,359
+and emacs 29 is starting to support it I
+
+1067
+00:51:00,000 --> 00:51:06,540
+think this is more important than the
+
+1068
+00:51:03,359 --> 00:51:08,160
+language server protocol now if you
+
+1069
+00:51:06,540 --> 00:51:10,020
+don't know what about you if you don't
+
+1070
+00:51:08,160 --> 00:51:12,900
+know what that is don't worry about it
+
+1071
+00:51:10,020 --> 00:51:16,140
+because it's a bit more complex and
+
+1072
+00:51:12,900 --> 00:51:16,920
+advanced it's about syntax coloring it's
+
+1073
+00:51:16,140 --> 00:51:21,119
+about
+
+1074
+00:51:16,920 --> 00:51:23,220
+formatting code it's about the engine
+
+1075
+00:51:21,119 --> 00:51:25,140
+you know what it is does what does it
+
+1076
+00:51:23,220 --> 00:51:28,380
+take to do this kind of thing
+
+1077
+00:51:25,140 --> 00:51:29,819
+so you know this one of the issue I'm
+
+1078
+00:51:28,380 --> 00:51:32,940
+concerned with
+
+1079
+00:51:29,819 --> 00:51:35,819
+I'm very interested in you know for the
+
+1080
+00:51:32,940 --> 00:51:38,880
+past you know 10 or 15 years so I
+
+1081
+00:51:35,819 --> 00:51:42,480
+started to write a page that collects
+
+1082
+00:51:38,880 --> 00:51:44,760
+many of my articles on these things I've
+
+1083
+00:51:42,480 --> 00:51:47,940
+written before in the past 15 years or
+
+1084
+00:51:44,760 --> 00:51:50,640
+so so many articles for example you have
+
+1085
+00:51:47,940 --> 00:51:53,280
+Auto formatting you know
+
+1086
+00:51:50,640 --> 00:51:55,440
+for example in Golan there's a tool you
+
+1087
+00:51:53,280 --> 00:51:57,800
+can press the button and have your
+
+1088
+00:51:55,440 --> 00:52:01,500
+entire
+
+1089
+00:51:57,800 --> 00:52:04,020
+code Auto formatted you know even if
+
+1090
+00:52:01,500 --> 00:52:06,780
+your whole code is one you know
+
+1091
+00:52:04,020 --> 00:52:10,079
+one single line you know so there's a
+
+1092
+00:52:06,780 --> 00:52:13,800
+goal and auto format it's this begin
+
+1093
+00:52:10,079 --> 00:52:17,760
+with Golan around 2008.
+
+1094
+00:52:13,800 --> 00:52:20,220
+fantastic then it started a movement so
+
+1095
+00:52:17,760 --> 00:52:22,260
+now you also have one for python you can
+
+1096
+00:52:20,220 --> 00:52:25,260
+just you know I demonstrated this before
+
+1097
+00:52:22,260 --> 00:52:29,099
+so you press the key then it auto format
+
+1098
+00:52:25,260 --> 00:52:30,920
+the entire entire file or all files in
+
+1099
+00:52:29,099 --> 00:52:33,359
+your directory
+
+1100
+00:52:30,920 --> 00:52:36,300
+and then you of course you have for
+
+1101
+00:52:33,359 --> 00:52:39,119
+JavaScript which is stay now okay and
+
+1102
+00:52:36,300 --> 00:52:43,559
+you have also one for Powershell which
+
+1103
+00:52:39,119 --> 00:52:46,260
+requires some code to make it work and
+
+1104
+00:52:43,559 --> 00:52:50,339
+then you have
+
+1105
+00:52:46,260 --> 00:52:54,119
+yeah so in this article 2007
+
+1106
+00:52:50,339 --> 00:52:55,140
+I I wrote up the idea that you should
+
+1107
+00:52:54,119 --> 00:52:57,780
+never
+
+1108
+00:52:55,140 --> 00:53:00,480
+you know typically before before goal
+
+1109
+00:52:57,780 --> 00:53:02,880
+and scope format what programmers do and
+
+1110
+00:53:00,480 --> 00:53:05,400
+all the style guys tell programmers how
+
+1111
+00:53:02,880 --> 00:53:07,760
+you should indent okay this line should
+
+1112
+00:53:05,400 --> 00:53:11,040
+indent oh you know
+
+1113
+00:53:07,760 --> 00:53:13,740
+Richie style or C style or whatever [ __ ]
+
+1114
+00:53:11,040 --> 00:53:16,800
+you know they tell you how to manually
+
+1115
+00:53:13,740 --> 00:53:18,900
+like you know how many space versus tabs
+
+1116
+00:53:16,800 --> 00:53:21,660
+or whatever crap
+
+1117
+00:53:18,900 --> 00:53:23,940
+what you should really have is just just
+
+1118
+00:53:21,660 --> 00:53:26,220
+like the goal and auto format you know
+
+1119
+00:53:23,940 --> 00:53:28,200
+you press the button the machine can do
+
+1120
+00:53:26,220 --> 00:53:30,599
+it okay you have compilers you have
+
+1121
+00:53:28,200 --> 00:53:32,940
+passes machine can do it it's just that
+
+1122
+00:53:30,599 --> 00:53:36,240
+this programmer idiots
+
+1123
+00:53:32,940 --> 00:53:39,599
+you know since the year 2000 Pro python
+
+1124
+00:53:36,240 --> 00:53:43,020
+email especially insulting is the Emax
+
+1125
+00:53:39,599 --> 00:53:46,400
+lisp people [ __ ] idiots you know
+
+1126
+00:53:43,020 --> 00:53:46,400
+because emac this
+
+1127
+00:53:48,240 --> 00:53:50,300
+um
+
+1128
+00:53:50,339 --> 00:53:57,660
+because emac this code
+
+1129
+00:53:53,280 --> 00:53:58,859
+emac lists or List syntax in general is
+
+1130
+00:53:57,660 --> 00:54:01,980
+the most
+
+1131
+00:53:58,859 --> 00:54:03,540
+easy to do automatic formatting but the
+
+1132
+00:54:01,980 --> 00:54:05,640
+least first people don't they don't know
+
+1133
+00:54:03,540 --> 00:54:07,559
+they tell you oh you should you
+
+1134
+00:54:05,640 --> 00:54:09,599
+shouldn't have you know blah blah blah
+
+1135
+00:54:07,559 --> 00:54:12,660
+you should put all your parents parents
+
+1136
+00:54:09,599 --> 00:54:15,740
+together then you have the power edit
+
+1137
+00:54:12,660 --> 00:54:19,680
+mod the most idiotic [ __ ]
+
+1138
+00:54:15,740 --> 00:54:23,819
+that induces you to manual manually
+
+1139
+00:54:19,680 --> 00:54:27,660
+detailing your code per edit okay if you
+
+1140
+00:54:23,819 --> 00:54:29,940
+are in the emacs community you'll think
+
+1141
+00:54:27,660 --> 00:54:33,540
+all the emacs phonetics they are say
+
+1142
+00:54:29,940 --> 00:54:35,760
+part edit is the best thing it's in fact
+
+1143
+00:54:33,540 --> 00:54:38,880
+in my opinion it's the worst idiotic
+
+1144
+00:54:35,760 --> 00:54:43,440
+[ __ ] because with pi edit what it really
+
+1145
+00:54:38,880 --> 00:54:45,960
+do is to induce you to manual format
+
+1146
+00:54:43,440 --> 00:54:48,680
+your code that's what power added do
+
+1147
+00:54:45,960 --> 00:54:48,680
+does okay
+
+1148
+00:54:50,240 --> 00:54:56,940
+for example this code okay let's go to
+
+1149
+00:54:53,280 --> 00:54:59,339
+emac this mod so if you I can you know I
+
+1150
+00:54:56,940 --> 00:55:01,800
+can remove the format if I want to
+
+1151
+00:54:59,339 --> 00:55:05,579
+format them you press one button okay
+
+1152
+00:55:01,800 --> 00:55:08,700
+press one button format the entire block
+
+1153
+00:55:05,579 --> 00:55:12,059
+okay that's the way to go
+
+1154
+00:55:08,700 --> 00:55:14,160
+even better is is like the Golan python
+
+1155
+00:55:12,059 --> 00:55:16,859
+then or JavaScript Powershell you know
+
+1156
+00:55:14,160 --> 00:55:20,160
+you press the button format the whole
+
+1157
+00:55:16,859 --> 00:55:23,220
+code for whole page four whole file okay
+
+1158
+00:55:20,160 --> 00:55:26,099
+that's the way you want to go you don't
+
+1159
+00:55:23,220 --> 00:55:27,780
+want style guide [ __ ] okay you don't
+
+1160
+00:55:26,099 --> 00:55:31,040
+want to style guide you don't want Power
+
+1161
+00:55:27,780 --> 00:55:31,040
+edit [ __ ] okay
+
+1162
+00:55:31,559 --> 00:55:35,460
+and
+
+1163
+00:55:32,940 --> 00:55:37,619
+but my point is that you see when you
+
+1164
+00:55:35,460 --> 00:55:41,040
+are in the language you know for example
+
+1165
+00:55:37,619 --> 00:55:43,619
+in Python in emac this all the all the
+
+1166
+00:55:41,040 --> 00:55:46,140
+high priests they tell you that you
+
+1167
+00:55:43,619 --> 00:55:48,480
+should follow this this that that's the
+
+1168
+00:55:46,140 --> 00:55:50,819
+worst thing okay
+
+1169
+00:55:48,480 --> 00:55:53,940
+what you really should is just like
+
+1170
+00:55:50,819 --> 00:55:55,859
+write a tool like go format you know or
+
+1171
+00:55:53,940 --> 00:55:58,559
+want any one of these that just format
+
+1172
+00:55:55,859 --> 00:56:01,500
+it automatically so you don't have like
+
+1173
+00:55:58,559 --> 00:56:03,960
+formatting style debates anymore okay
+
+1174
+00:56:01,500 --> 00:56:09,180
+that's what that's how things should be
+
+1175
+00:56:03,960 --> 00:56:11,880
+and this begin to happen with Golan by
+
+1176
+00:56:09,180 --> 00:56:14,579
+raw Pike fantastic you know raw pack is
+
+1177
+00:56:11,880 --> 00:56:19,380
+a Unix phonetics you know I don't like
+
+1178
+00:56:14,579 --> 00:56:21,900
+Unix I I'm a Unix hater raw pack is a
+
+1179
+00:56:19,380 --> 00:56:24,839
+Unix Fanatics and he is also one of the
+
+1180
+00:56:21,900 --> 00:56:27,599
+most dramatic talkative Pro Unix people
+
+1181
+00:56:24,839 --> 00:56:30,960
+he write a lot but he also it turns out
+
+1182
+00:56:27,599 --> 00:56:33,599
+he's super smart and and his language go
+
+1183
+00:56:30,960 --> 00:56:36,780
+land I very much like you know I think
+
+1184
+00:56:33,599 --> 00:56:39,660
+it's the best language for at least you
+
+1185
+00:56:36,780 --> 00:56:42,300
+know kind of low level thing go like
+
+1186
+00:56:39,660 --> 00:56:45,300
+so I have a whole tutorial so so raw
+
+1187
+00:56:42,300 --> 00:56:48,780
+Pike okay he and and other people you
+
+1188
+00:56:45,300 --> 00:56:51,960
+know he they created uh go land with the
+
+1189
+00:56:48,780 --> 00:56:54,000
+idea go format automatically format okay
+
+1190
+00:56:51,960 --> 00:56:56,520
+this is a revolution this is a
+
+1191
+00:56:54,000 --> 00:56:58,319
+revolutionary programming language let
+
+1192
+00:56:56,520 --> 00:57:00,720
+me tell you the history you don't you
+
+1193
+00:56:58,319 --> 00:57:03,140
+don't see this kind of History anyway on
+
+1194
+00:57:00,720 --> 00:57:06,660
+Hacker News you don't see you just see
+
+1195
+00:57:03,140 --> 00:57:09,780
+babbling all the time
+
+1196
+00:57:06,660 --> 00:57:12,059
+okay so go from Oman go run a pike or
+
+1197
+00:57:09,780 --> 00:57:15,420
+and he's and and several others I forgot
+
+1198
+00:57:12,059 --> 00:57:17,579
+the name Thomas uh something you know
+
+1199
+00:57:15,420 --> 00:57:20,880
+you can you can look up Wikipedia so
+
+1200
+00:57:17,579 --> 00:57:24,300
+wrap anyway go from Golan
+
+1201
+00:57:20,880 --> 00:57:26,819
+around 2008 is the first one
+
+1202
+00:57:24,300 --> 00:57:29,760
+practically you know the most effect is
+
+1203
+00:57:26,819 --> 00:57:32,700
+practically the first one to create the
+
+1204
+00:57:29,760 --> 00:57:35,040
+phenomena the revolution the idea the
+
+1205
+00:57:32,700 --> 00:57:37,200
+concept to spread the concept that
+
+1206
+00:57:35,040 --> 00:57:39,420
+formatting code should be done
+
+1207
+00:57:37,200 --> 00:57:42,119
+automatically by your password by your
+
+1208
+00:57:39,420 --> 00:57:44,760
+password tool okay that's
+
+1209
+00:57:42,119 --> 00:57:45,720
+that's that Golan then you started to
+
+1210
+00:57:44,760 --> 00:57:48,180
+have
+
+1211
+00:57:45,720 --> 00:57:50,520
+first internal I suppose and then
+
+1212
+00:57:48,180 --> 00:57:53,640
+JavaScript and today I believe you also
+
+1213
+00:57:50,520 --> 00:57:56,640
+have in C for C or C plus plus you know
+
+1214
+00:57:53,640 --> 00:57:58,619
+Auto format because before this day
+
+1215
+00:57:56,640 --> 00:58:01,800
+before this school land
+
+1216
+00:57:58,619 --> 00:58:04,079
+people you know this [ __ ] scams they
+
+1217
+00:58:01,800 --> 00:58:06,599
+tell you to do style guide they tell you
+
+1218
+00:58:04,079 --> 00:58:08,940
+to like you know indentation you know
+
+1219
+00:58:06,599 --> 00:58:11,579
+they actually manual every editor is
+
+1220
+00:58:08,940 --> 00:58:14,520
+just all manual how many how many
+
+1221
+00:58:11,579 --> 00:58:15,780
+characters your you know one line should
+
+1222
+00:58:14,520 --> 00:58:19,200
+have
+
+1223
+00:58:15,780 --> 00:58:21,119
+uh let me let me do that
+
+1224
+00:58:19,200 --> 00:58:23,520
+you know like how many characters should
+
+1225
+00:58:21,119 --> 00:58:26,339
+the line have you know you should you
+
+1226
+00:58:23,520 --> 00:58:29,400
+know [ __ ] idiotic [ __ ]
+
+1227
+00:58:26,339 --> 00:58:32,160
+and I wrote about this so I wrote about
+
+1228
+00:58:29,400 --> 00:58:34,619
+this in 2007.
+
+1229
+00:58:32,160 --> 00:58:37,319
+okay but nobody nobody you know they
+
+1230
+00:58:34,619 --> 00:58:40,680
+they think I'm a troll and blah blah
+
+1231
+00:58:37,319 --> 00:58:44,099
+blah and the power addict the power edit
+
+1232
+00:58:40,680 --> 00:58:46,920
+author says oh what do you say you know
+
+1233
+00:58:44,099 --> 00:58:51,200
+what what you propose is actually uh
+
+1234
+00:58:46,920 --> 00:58:51,200
+very difficult or impossible to do
+
+1235
+00:58:51,559 --> 00:58:59,040
+I I don't get it I have no idea why he
+
+1236
+00:58:55,980 --> 00:59:01,680
+says that the author of pie that you
+
+1237
+00:58:59,040 --> 00:59:03,119
+know he says he says that you know what
+
+1238
+00:59:01,680 --> 00:59:04,920
+you are suggesting is actually
+
+1239
+00:59:03,119 --> 00:59:08,940
+impossible
+
+1240
+00:59:04,920 --> 00:59:11,460
+it's extremely idiotic you know
+
+1241
+00:59:08,940 --> 00:59:14,599
+the least language syntax is the most
+
+1242
+00:59:11,460 --> 00:59:17,280
+easy to do compared to Golan python
+
+1243
+00:59:14,599 --> 00:59:20,579
+JavaScript you know
+
+1244
+00:59:17,280 --> 00:59:22,980
+because because the characteristics of
+
+1245
+00:59:20,579 --> 00:59:27,380
+the least syntax is that they are
+
+1246
+00:59:22,980 --> 00:59:27,380
+uniform regular okay most mostly
+
+1247
+00:59:28,920 --> 00:59:34,559
+so um
+
+1248
+00:59:31,140 --> 00:59:36,540
+yeah so so all these articles they they
+
+1249
+00:59:34,559 --> 00:59:39,000
+are already and also about syntax
+
+1250
+00:59:36,540 --> 00:59:42,000
+coloring you know
+
+1251
+00:59:39,000 --> 00:59:44,040
+so anyway so today you have three Sita
+
+1252
+00:59:42,000 --> 00:59:47,160
+which I I'll be you know watch this
+
+1253
+00:59:44,040 --> 00:59:49,680
+video okay three seater I think I'll be
+
+1254
+00:59:47,160 --> 00:59:52,079
+spending a lot of time in in next year
+
+1255
+00:59:49,680 --> 00:59:55,280
+to study and uh
+
+1256
+00:59:52,079 --> 00:59:59,460
+do something about it in my emac
+
+1257
+00:59:55,280 --> 01:00:01,859
+packages and also studying pasta which
+
+1258
+00:59:59,460 --> 01:00:06,480
+is a project I kind of
+
+1259
+01:00:01,859 --> 01:00:08,700
+stopped you know I I started to um
+
+1260
+01:00:06,480 --> 01:00:12,119
+you know I want to write a pasta but I
+
+1261
+01:00:08,700 --> 01:00:14,520
+kind of stopped so now I gonna start to
+
+1262
+01:00:12,119 --> 01:00:17,160
+work on them again
+
+1263
+01:00:14,520 --> 01:00:19,680
+okay so that's that's it for today thank
+
+1264
+01:00:17,160 --> 01:00:21,960
+you guys for watching donate okay
+
+1265
+01:00:19,680 --> 01:00:24,839
+now if you like my videos or some parts
+
+1266
+01:00:21,960 --> 01:00:27,200
+you like spread it okay post your
+
+1267
+01:00:24,839 --> 01:00:30,180
+Twitter or blog or whatever
+
+1268
+01:00:27,200 --> 01:00:32,720
+and also comment on YouTube with the
+
+1269
+01:00:30,180 --> 01:00:32,720
+timestamp
+
+1270
+01:00:34,079 --> 01:00:37,160
+okay that's it
+
+1271
+01:00:52,079 --> 01:00:55,099
+any ring
+
+1272
+01:00:56,760 --> 01:01:00,740
+yeah that's it that's it for today
+
+1273
+01:01:01,260 --> 01:01:07,619
+uh Zionism yeah don't you know don't
+
+1274
+01:01:04,920 --> 01:01:10,460
+don't post those you know controversial
+
+1275
+01:01:07,619 --> 01:01:10,460
+stuff
+
+1276
+01:01:12,260 --> 01:01:19,140
+you know about
+
+1277
+01:01:15,000 --> 01:01:22,380
+yeah I'm not gonna get into that topic
+
+1278
+01:01:19,140 --> 01:01:25,920
+um and also that topic you know it's not
+
+1279
+01:01:22,380 --> 01:01:28,559
+it's not too relevant to Chinese blood
+
+1280
+01:01:25,920 --> 01:01:31,760
+people like you know me because to me
+
+1281
+01:01:28,559 --> 01:01:31,760
+they are just all white people
+
+1282
+01:01:34,619 --> 01:01:36,799
+um
+
+1283
+01:01:38,220 --> 01:01:45,780
+okay so that's it for today
+
+1284
+01:01:41,099 --> 01:01:48,299
+yes this this uh Abba gel Superior she
+
+1285
+01:01:45,780 --> 01:01:51,799
+she's beautiful
+
+1286
+01:01:48,299 --> 01:01:51,799
+that's what I see beauty
+
+1287
+01:01:51,960 --> 01:01:56,900
+um
+
+1288
+01:01:52,920 --> 01:01:56,900
+yeah so that's it bye guys
+
+1289
+01:01:59,160 --> 01:02:02,599
+what else
+
+1290
+01:02:00,540 --> 01:02:02,599
+um
+
+1291
+01:02:06,480 --> 01:02:13,680
+that's it bye guys donate okay
+
+1292
+01:02:09,900 --> 01:02:17,640
+go to PayPal go to patreon go to my
+
+1293
+01:02:13,680 --> 01:02:20,700
+website you'll find those you know links
+
+1294
+01:02:17,640 --> 01:02:23,880
+because money
+
+1295
+01:02:20,700 --> 01:02:26,280
+you know is actually how things work you
+
+1296
+01:02:23,880 --> 01:02:28,980
+know because you see all the all the
+
+1297
+01:02:26,280 --> 01:02:32,720
+scams all the you know
+
+1298
+01:02:28,980 --> 01:02:32,720
+this cultural World whatever
+
+1299
+01:02:33,240 --> 01:02:37,740
+you know if you wonder why does it
+
+1300
+01:02:34,920 --> 01:02:39,359
+what's the root cause for them to happen
+
+1301
+01:02:37,740 --> 01:02:42,079
+money okay
+
+1302
+01:02:39,359 --> 01:02:42,079
+ultimately
+
+1303
+01:02:43,500 --> 01:02:51,020
+you know I I code open so yeah anyway
+
+1304
+01:02:47,280 --> 01:02:55,819
+ah so let's see emacs block close close
+
+1305
+01:02:51,020 --> 01:02:55,819
+all these today's talk show yeah
+
+1306
+01:02:56,520 --> 01:03:02,460
+yeah so we didn't code emac this today
+
+1307
+01:02:59,339 --> 01:03:04,940
+that's fine because I'm gonna do it
+
+1308
+01:03:02,460 --> 01:03:04,940
+offline
+

@@ -1,0 +1,5912 @@
+1
+00:00:06,879 --> 00:00:11,599
+good morning guys welcome to another
+
+2
+00:00:09,040 --> 00:00:13,920
+episode of sun talk show
+
+3
+00:00:11,599 --> 00:00:14,639
+fantastic we got a lot to do
+
+4
+00:00:13,920 --> 00:00:17,680
+so
+
+5
+00:00:14,639 --> 00:00:22,480
+today the main thing is going to be emac
+
+6
+00:00:17,680 --> 00:00:25,599
+this coding so check my live so video
+
+7
+00:00:22,480 --> 00:00:26,640
+check audio check uh good i'm good to go
+
+8
+00:00:25,599 --> 00:00:29,359
+so
+
+9
+00:00:26,640 --> 00:00:32,160
+the main thing today is gonna be emac
+
+10
+00:00:29,359 --> 00:00:35,120
+this coding so i'm going to code emaclis
+
+11
+00:00:32,160 --> 00:00:37,840
+and i'm going to give you a tutorial
+
+12
+00:00:35,120 --> 00:00:38,800
+you know as i go so those of you emacs
+
+13
+00:00:37,840 --> 00:00:40,559
+users
+
+14
+00:00:38,800 --> 00:00:43,840
+this is a good time
+
+15
+00:00:40,559 --> 00:00:46,079
+to ask you ask me questions and if you
+
+16
+00:00:43,840 --> 00:00:48,719
+want to learn lisp this is a good day
+
+17
+00:00:46,079 --> 00:00:51,600
+okay so
+
+18
+00:00:48,719 --> 00:00:53,840
+uh so i'm going to start to do it but
+
+19
+00:00:51,600 --> 00:00:56,239
+before we do anything the first 10
+
+20
+00:00:53,840 --> 00:00:59,039
+minutes let me show you
+
+21
+00:00:56,239 --> 00:01:02,000
+a website dark theme
+
+22
+00:00:59,039 --> 00:01:05,199
+many of you requested dark themes so now
+
+23
+00:01:02,000 --> 00:01:06,880
+my website you can see dark theme
+
+24
+00:01:05,199 --> 00:01:08,880
+okay so you can see
+
+25
+00:01:06,880 --> 00:01:11,280
+there are several articles you know the
+
+26
+00:01:08,880 --> 00:01:14,880
+you know dark theme uh
+
+27
+00:01:11,280 --> 00:01:17,920
+quite novel you know a novelty so if you
+
+28
+00:01:14,880 --> 00:01:18,640
+for example in on windows if your system
+
+29
+00:01:17,920 --> 00:01:21,680
+is
+
+30
+00:01:18,640 --> 00:01:23,360
+set to light then you got the light
+
+31
+00:01:21,680 --> 00:01:28,159
+theme
+
+32
+00:01:23,360 --> 00:01:28,159
+you know but if your system is set to um
+
+33
+00:01:28,240 --> 00:01:32,240
+set to dark
+
+34
+00:01:30,000 --> 00:01:36,159
+then the website automatically becomes
+
+35
+00:01:32,240 --> 00:01:40,640
+dark okay that's css magic let me show
+
+36
+00:01:36,159 --> 00:01:43,520
+you the magic css magic okay so you open
+
+37
+00:01:40,640 --> 00:01:44,960
+that so this is the line you want okay
+
+38
+00:01:43,520 --> 00:01:46,240
+so
+
+39
+00:01:44,960 --> 00:01:47,600
+this is the
+
+40
+00:01:46,240 --> 00:01:51,200
+line so
+
+41
+00:01:47,600 --> 00:01:53,119
+there is a new css
+
+42
+00:01:51,200 --> 00:01:56,000
+function or whatever property you call
+
+43
+00:01:53,119 --> 00:01:57,600
+it so prefer color theme doc
+
+44
+00:01:56,000 --> 00:01:59,920
+okay if that's
+
+45
+00:01:57,600 --> 00:02:02,079
+true then you want to set body
+
+46
+00:01:59,920 --> 00:02:04,079
+background color uh
+
+47
+00:02:02,079 --> 00:02:06,640
+you know background color black and
+
+48
+00:02:04,079 --> 00:02:08,560
+color white text color white
+
+49
+00:02:06,640 --> 00:02:11,200
+then you need to also change the link
+
+50
+00:02:08,560 --> 00:02:13,440
+color because otherwise it's blue which
+
+51
+00:02:11,200 --> 00:02:16,640
+is doesn't work with a
+
+52
+00:02:13,440 --> 00:02:17,920
+dark dark background it's you cannot see
+
+53
+00:02:16,640 --> 00:02:21,599
+it
+
+54
+00:02:17,920 --> 00:02:24,800
+so css magic okay talking about css
+
+55
+00:02:21,599 --> 00:02:27,040
+magic if you don't know web dev you can
+
+56
+00:02:24,800 --> 00:02:29,840
+learn from the ground up
+
+57
+00:02:27,040 --> 00:02:32,800
+in the most efficient way the css
+
+58
+00:02:29,840 --> 00:02:34,160
+introduction to css just search for xr
+
+59
+00:02:32,800 --> 00:02:38,800
+css
+
+60
+00:02:34,160 --> 00:02:42,000
+xrd css you'll find my tutorial okay
+
+61
+00:02:38,800 --> 00:02:45,840
+introduction to css fantastic dark theme
+
+62
+00:02:42,000 --> 00:02:46,959
+okay and okay so now so that's about css
+
+63
+00:02:45,840 --> 00:02:49,920
+so
+
+64
+00:02:46,959 --> 00:02:51,280
+let's copy that close that go to talk
+
+65
+00:02:49,920 --> 00:02:54,160
+show today
+
+66
+00:02:51,280 --> 00:02:56,400
+show in browser and we are going to
+
+67
+00:02:54,160 --> 00:02:58,560
+cover several other things let me go one
+
+68
+00:02:56,400 --> 00:03:00,879
+by one and we are going to code emac
+
+69
+00:02:58,560 --> 00:03:03,120
+list okay
+
+70
+00:03:00,879 --> 00:03:09,120
+uh dark theme so
+
+71
+00:03:03,120 --> 00:03:09,120
+dark theme visual css we already have it
+
+72
+00:03:09,760 --> 00:03:13,760
+so today's topics we talked about dark
+
+73
+00:03:12,159 --> 00:03:15,360
+theme so and
+
+74
+00:03:13,760 --> 00:03:18,480
+you know there are several problems i
+
+75
+00:03:15,360 --> 00:03:21,920
+need to fix okay so for example let me
+
+76
+00:03:18,480 --> 00:03:25,200
+show you so you know every two or three
+
+77
+00:03:21,920 --> 00:03:28,440
+hours i stand up and walk around
+
+78
+00:03:25,200 --> 00:03:28,440
+like this
+
+79
+00:03:35,680 --> 00:03:38,480
+hold on a second
+
+80
+00:03:45,440 --> 00:03:52,400
+so this is the surface tablet so you can
+
+81
+00:03:48,640 --> 00:03:54,879
+see and every few hours i walk around
+
+82
+00:03:52,400 --> 00:03:57,360
+back and forth like this
+
+83
+00:03:54,879 --> 00:04:01,000
+and this is the surface pen and i take
+
+84
+00:03:57,360 --> 00:04:01,000
+notes okay
+
+85
+00:04:03,760 --> 00:04:08,799
+to prevent ass rot
+
+86
+00:04:07,120 --> 00:04:12,159
+so this is
+
+87
+00:04:08,799 --> 00:04:15,519
+this is analogous to
+
+88
+00:04:12,159 --> 00:04:17,440
+to you using uh those of you using let
+
+89
+00:04:15,519 --> 00:04:20,239
+me show you my keyboard blog okay
+
+90
+00:04:17,440 --> 00:04:25,040
+because our keyboard blog
+
+91
+00:04:20,239 --> 00:04:25,040
+and you can see one of our friend
+
+92
+00:04:26,320 --> 00:04:31,919
+has bought a standing desk
+
+93
+00:04:29,759 --> 00:04:34,000
+so if you don't have standing desk you
+
+94
+00:04:31,919 --> 00:04:35,440
+can do walk around back and forth you
+
+95
+00:04:34,000 --> 00:04:38,240
+know with a tablet
+
+96
+00:04:35,440 --> 00:04:39,919
+tablet and do reading documentations
+
+97
+00:04:38,240 --> 00:04:43,759
+because you need to i need to read
+
+98
+00:04:39,919 --> 00:04:46,960
+documentation that's my obsession so
+
+99
+00:04:43,759 --> 00:04:50,080
+pop out chat so let's see what you guys
+
+100
+00:04:46,960 --> 00:04:50,080
+are saying okay
+
+101
+00:04:54,000 --> 00:04:58,080
+good morning
+
+102
+00:04:55,520 --> 00:05:00,400
+so if you have a question for me tag me
+
+103
+00:04:58,080 --> 00:05:02,800
+okay put my name to it
+
+104
+00:05:00,400 --> 00:05:06,000
+once you don't want pure background uh
+
+105
+00:05:02,800 --> 00:05:08,320
+you know i don't care about you know
+
+106
+00:05:06,000 --> 00:05:11,600
+when it comes to dark theme there's lots
+
+107
+00:05:08,320 --> 00:05:13,840
+of idiocies and fat in fact dark theme
+
+108
+00:05:11,600 --> 00:05:16,479
+is a fad okay it's not good for your
+
+109
+00:05:13,840 --> 00:05:20,080
+eyes in fact the
+
+110
+00:05:16,479 --> 00:05:21,600
+black text on white background is better
+
+111
+00:05:20,080 --> 00:05:24,400
+for your eyes
+
+112
+00:05:21,600 --> 00:05:26,720
+but for example you know before i did my
+
+113
+00:05:24,400 --> 00:05:28,960
+you know i i have lots of articles on
+
+114
+00:05:26,720 --> 00:05:30,560
+that but i'm not going to go into that
+
+115
+00:05:28,960 --> 00:05:32,720
+but you can see different you know
+
+116
+00:05:30,560 --> 00:05:34,960
+discord for example they choose uh you
+
+117
+00:05:32,720 --> 00:05:38,000
+know they don't want a pure black
+
+118
+00:05:34,960 --> 00:05:40,720
+background but i want pure black
+
+119
+00:05:38,000 --> 00:05:40,720
+background okay
+
+120
+00:05:40,800 --> 00:05:46,400
+so anyway so i'm so i walk around so one
+
+121
+00:05:43,600 --> 00:05:48,960
+of my friends get got the standing desk
+
+122
+00:05:46,400 --> 00:05:50,800
+you can you know go to my website and
+
+123
+00:05:48,960 --> 00:05:54,000
+buy it
+
+124
+00:05:50,800 --> 00:05:56,479
+and so i take notes so you see here are
+
+125
+00:05:54,000 --> 00:05:59,199
+the things i need to fix when i have a
+
+126
+00:05:56,479 --> 00:06:01,199
+dark theme so for example you go to so
+
+127
+00:05:59,199 --> 00:06:03,600
+first of all copy that
+
+128
+00:06:01,199 --> 00:06:05,520
+so on the pink window is all my emacs
+
+129
+00:06:03,600 --> 00:06:09,120
+command course
+
+130
+00:06:05,520 --> 00:06:12,319
+uh and keystrokes i'm using xr fly keys
+
+131
+00:06:09,120 --> 00:06:14,080
+and i'm using a vora keyboard so this is
+
+132
+00:06:12,319 --> 00:06:18,000
+ah i've got so many
+
+133
+00:06:14,080 --> 00:06:20,160
+uh basic things to go over so you can
+
+134
+00:06:18,000 --> 00:06:24,000
+see
+
+135
+00:06:20,160 --> 00:06:25,199
+so we talked about standing table and we
+
+136
+00:06:24,000 --> 00:06:27,759
+okay so
+
+137
+00:06:25,199 --> 00:06:30,400
+so you you go here then you can see my
+
+138
+00:06:27,759 --> 00:06:32,880
+keyboards okay so reviews kinesis
+
+139
+00:06:30,400 --> 00:06:35,280
+advantage 2 and ultimate hacking
+
+140
+00:06:32,880 --> 00:06:39,039
+keyboard on top that's that one
+
+141
+00:06:35,280 --> 00:06:41,280
+so i want to go over
+
+142
+00:06:39,039 --> 00:06:43,280
+you know i'm going all over the place i
+
+143
+00:06:41,280 --> 00:06:45,919
+don't if i don't follow a list or
+
+144
+00:06:43,280 --> 00:06:49,120
+something i get um
+
+145
+00:06:45,919 --> 00:06:51,919
+lost so let's let's talk about one thing
+
+146
+00:06:49,120 --> 00:06:51,919
+at a time so
+
+147
+00:06:52,160 --> 00:06:55,360
+so dark theme
+
+148
+00:06:53,919 --> 00:06:58,800
+css
+
+149
+00:06:55,360 --> 00:07:03,039
+standing deck desk and walk around
+
+150
+00:06:58,800 --> 00:07:05,919
+and i was going to say you see so these
+
+151
+00:07:03,039 --> 00:07:07,759
+are my notes right i take notes and i do
+
+152
+00:07:05,919 --> 00:07:10,080
+a screenshot then
+
+153
+00:07:07,759 --> 00:07:11,199
+i'm back here sitting on my power
+
+154
+00:07:10,080 --> 00:07:12,560
+station
+
+155
+00:07:11,199 --> 00:07:14,880
+then i
+
+156
+00:07:12,560 --> 00:07:18,400
+you know work on these things so for
+
+157
+00:07:14,880 --> 00:07:21,599
+example here are the things i you know
+
+158
+00:07:18,400 --> 00:07:24,240
+today's notes several things i did
+
+159
+00:07:21,599 --> 00:07:27,440
+uh i need to do
+
+160
+00:07:24,240 --> 00:07:32,479
+so for for example this one
+
+161
+00:07:27,440 --> 00:07:32,479
+let me show you some examples okay um
+
+162
+00:07:34,800 --> 00:07:40,160
+dutch so any of you are here to learn
+
+163
+00:07:37,759 --> 00:07:43,039
+lisp so if you are here to learn this
+
+164
+00:07:40,160 --> 00:07:45,520
+say it okay so we focus we get on to
+
+165
+00:07:43,039 --> 00:07:48,080
+writing the emac list tutorial
+
+166
+00:07:45,520 --> 00:07:51,039
+so there's a question from the german do
+
+167
+00:07:48,080 --> 00:07:56,240
+you have any tips tutorials regarding
+
+168
+00:07:51,039 --> 00:07:56,240
+implementing an emax major mod with
+
+169
+00:07:57,039 --> 00:08:03,919
+with a repo inferior lisp
+
+170
+00:08:01,360 --> 00:08:07,039
+no i don't have a tutorial for that for
+
+171
+00:08:03,919 --> 00:08:09,520
+example he's talking about uh let's go
+
+172
+00:08:07,039 --> 00:08:12,400
+to talk show page okay so show the pink
+
+173
+00:08:09,520 --> 00:08:14,879
+window and you can go drop into each
+
+174
+00:08:12,400 --> 00:08:17,039
+other so this lets you do
+
+175
+00:08:14,879 --> 00:08:19,520
+shell in
+
+176
+00:08:17,039 --> 00:08:22,160
+emac bisp and or you can go to the
+
+177
+00:08:19,520 --> 00:08:25,160
+standard shell
+
+178
+00:08:22,160 --> 00:08:25,160
+uh
+
+179
+00:08:27,280 --> 00:08:32,000
+you know so here is a standard shell
+
+180
+00:08:29,680 --> 00:08:34,560
+because i'm on windows so i don't have
+
+181
+00:08:32,000 --> 00:08:37,599
+the uh normally splash if you're on
+
+182
+00:08:34,560 --> 00:08:40,479
+linux so so you know he's talking about
+
+183
+00:08:37,599 --> 00:08:42,080
+how do you implement this kind of thing
+
+184
+00:08:40,479 --> 00:08:44,080
+the the
+
+185
+00:08:42,080 --> 00:08:46,320
+um
+
+186
+00:08:44,080 --> 00:08:48,240
+wait that's the issue yeah so how so
+
+187
+00:08:46,320 --> 00:08:49,279
+right now the second window is running
+
+188
+00:08:48,240 --> 00:08:52,000
+dos
+
+189
+00:08:49,279 --> 00:08:53,839
+uh and you can also learn in powershell
+
+190
+00:08:52,000 --> 00:08:55,120
+in fact
+
+191
+00:08:53,839 --> 00:08:56,880
+but i don't have the powershell
+
+192
+00:08:55,120 --> 00:08:58,399
+installed so how do you implement this
+
+193
+00:08:56,880 --> 00:09:00,399
+how do you write this i don't have a
+
+194
+00:08:58,399 --> 00:09:03,519
+tutorial for that okay
+
+195
+00:09:00,399 --> 00:09:06,080
+um yeah okay
+
+196
+00:09:03,519 --> 00:09:08,800
+of course i have a you know emac this
+
+197
+00:09:06,080 --> 00:09:11,680
+tutorial on writing a major mod
+
+198
+00:09:08,800 --> 00:09:13,680
+so those of you want to learn lisp begin
+
+199
+00:09:11,680 --> 00:09:15,440
+there
+
+200
+00:09:13,680 --> 00:09:19,440
+okay so
+
+201
+00:09:15,440 --> 00:09:21,200
+so so let's uh close each out close the
+
+202
+00:09:19,440 --> 00:09:23,200
+windows stars
+
+203
+00:09:21,200 --> 00:09:27,040
+kill it yes
+
+204
+00:09:23,200 --> 00:09:30,160
+and let's go back focus on the talk show
+
+205
+00:09:27,040 --> 00:09:31,839
+um i'm going to go over these things i
+
+206
+00:09:30,160 --> 00:09:32,959
+need to do i'm you know showing my
+
+207
+00:09:31,839 --> 00:09:34,720
+workflow
+
+208
+00:09:32,959 --> 00:09:37,279
+in emacs
+
+209
+00:09:34,720 --> 00:09:38,240
+so here is some of the typical problems
+
+210
+00:09:37,279 --> 00:09:41,440
+when you
+
+211
+00:09:38,240 --> 00:09:44,320
+have a dark theme for example the cg
+
+212
+00:09:41,440 --> 00:09:47,839
+svg clock doesn't look so nice and the
+
+213
+00:09:44,320 --> 00:09:51,120
+linux icon disappeared into the ether
+
+214
+00:09:47,839 --> 00:09:55,440
+you know in the pearl icon and the tcp
+
+215
+00:09:51,120 --> 00:09:58,320
+ip icon so if we go to the windows
+
+216
+00:09:55,440 --> 00:10:01,440
+uh settings and go to light theme now
+
+217
+00:09:58,320 --> 00:10:04,560
+you can see the svg clock
+
+218
+00:10:01,440 --> 00:10:06,240
+learn svg okay learn svg in one hour you
+
+219
+00:10:04,560 --> 00:10:09,360
+you'll know you'll learn how to write
+
+220
+00:10:06,240 --> 00:10:11,519
+this clock in javascript javascript so
+
+221
+00:10:09,360 --> 00:10:13,600
+and if you like my stuff okay all these
+
+222
+00:10:11,519 --> 00:10:15,600
+tutorials pay me
+
+223
+00:10:13,600 --> 00:10:16,480
+you know that's better than 1 000 thank
+
+224
+00:10:15,600 --> 00:10:19,600
+you
+
+225
+00:10:16,480 --> 00:10:23,279
+you know pay me paypal whatever uh or
+
+226
+00:10:19,600 --> 00:10:24,160
+uh google super super chat youtube
+
+227
+00:10:23,279 --> 00:10:27,680
+okay
+
+228
+00:10:24,160 --> 00:10:30,800
+so i'll buy my tutorials so let me uh
+
+229
+00:10:27,680 --> 00:10:33,680
+get back so you see so the svg clock
+
+230
+00:10:30,800 --> 00:10:36,640
+pearl icon linux icon
+
+231
+00:10:33,680 --> 00:10:38,240
+and if you go to dark theme they become
+
+232
+00:10:36,640 --> 00:10:39,360
+you know they disappear so there are
+
+233
+00:10:38,240 --> 00:10:41,120
+several
+
+234
+00:10:39,360 --> 00:10:43,040
+uh
+
+235
+00:10:41,120 --> 00:10:44,399
+lots of things you need to go over and
+
+236
+00:10:43,040 --> 00:10:46,160
+fix
+
+237
+00:10:44,399 --> 00:10:48,079
+and we are going to i'm going to fix
+
+238
+00:10:46,160 --> 00:10:49,760
+them some of them today okay so here's
+
+239
+00:10:48,079 --> 00:10:51,680
+my notes again
+
+240
+00:10:49,760 --> 00:10:54,560
+um
+
+241
+00:10:51,680 --> 00:10:56,720
+okay so let's do some fix the first
+
+242
+00:10:54,560 --> 00:10:59,519
+thing i want to fix is
+
+243
+00:10:56,720 --> 00:11:00,560
+the unicode okay so you go to start
+
+244
+00:10:59,519 --> 00:11:02,880
+website
+
+245
+00:11:00,560 --> 00:11:08,560
+then you go to the unicode
+
+246
+00:11:02,880 --> 00:11:08,560
+you go to emoji okay now you can change
+
+247
+00:11:08,959 --> 00:11:12,560
+you know you can use the emoji
+
+248
+00:11:11,440 --> 00:11:15,680
+font
+
+249
+00:11:12,560 --> 00:11:18,399
+or you can use the symbol font okay this
+
+250
+00:11:15,680 --> 00:11:20,000
+is not a good example let's go to
+
+251
+00:11:18,399 --> 00:11:24,000
+um
+
+252
+00:11:20,000 --> 00:11:24,880
+hands okay so emoji font
+
+253
+00:11:24,000 --> 00:11:27,200
+or
+
+254
+00:11:24,880 --> 00:11:29,920
+symbol font you see when you use symbol
+
+255
+00:11:27,200 --> 00:11:32,480
+font many of them become
+
+256
+00:11:29,920 --> 00:11:34,800
+disappears when you select it then you
+
+257
+00:11:32,480 --> 00:11:37,279
+can see you see
+
+258
+00:11:34,800 --> 00:11:39,360
+let's magnify okay so you can see the
+
+259
+00:11:37,279 --> 00:11:41,440
+full glory
+
+260
+00:11:39,360 --> 00:11:44,399
+so you need to fix that
+
+261
+00:11:41,440 --> 00:11:46,079
+so let's fix that okay copy the ui all
+
+262
+00:11:44,399 --> 00:11:49,040
+marker keys okay
+
+263
+00:11:46,079 --> 00:11:50,880
+switch to the last window then i mean
+
+264
+00:11:49,040 --> 00:11:52,959
+emax
+
+265
+00:11:50,880 --> 00:11:56,560
+show the ping window
+
+266
+00:11:52,959 --> 00:11:59,040
+open the link from the
+
+267
+00:11:56,560 --> 00:12:00,639
+clipboard so right now you are looking
+
+268
+00:11:59,040 --> 00:12:02,880
+at this page
+
+269
+00:12:00,639 --> 00:12:05,200
+this is the source code for that page
+
+270
+00:12:02,880 --> 00:12:08,240
+now go to the top
+
+271
+00:12:05,200 --> 00:12:11,839
+now turn on global highline mod so you
+
+272
+00:12:08,240 --> 00:12:14,959
+can see where my cursor is okay now go
+
+273
+00:12:11,839 --> 00:12:17,680
+to the css split the window
+
+274
+00:12:14,959 --> 00:12:21,839
+enter to open it
+
+275
+00:12:17,680 --> 00:12:24,399
+so the to fix this problem so emoji font
+
+276
+00:12:21,839 --> 00:12:26,720
+symbol font you see
+
+277
+00:12:24,399 --> 00:12:29,440
+so when you use symbol font
+
+278
+00:12:26,720 --> 00:12:29,440
+the color
+
+279
+00:12:30,480 --> 00:12:33,680
+should be white text color should be
+
+280
+00:12:32,800 --> 00:12:38,040
+white
+
+281
+00:12:33,680 --> 00:12:38,040
+so for example you can see
+
+282
+00:12:40,480 --> 00:12:45,600
+so you can see when there's a dark theme
+
+283
+00:12:43,360 --> 00:12:46,560
+the color here
+
+284
+00:12:45,600 --> 00:12:49,279
+white
+
+285
+00:12:46,560 --> 00:12:53,200
+okay but however for some reason the it
+
+286
+00:12:49,279 --> 00:12:57,560
+doesn't affect the emoji text that's a
+
+287
+00:12:53,200 --> 00:12:57,560
+problem so let's search for emoji
+
+288
+00:13:12,800 --> 00:13:19,279
+background color transparent okay this
+
+289
+00:13:15,920 --> 00:13:22,000
+is not probably that's probably not that
+
+290
+00:13:19,279 --> 00:13:25,519
+that's probably the problem
+
+291
+00:13:22,000 --> 00:13:25,519
+okay let's comment it out
+
+292
+00:13:26,720 --> 00:13:32,399
+refresh
+
+293
+00:13:28,800 --> 00:13:32,399
+oh okay that's why now
+
+294
+00:13:32,639 --> 00:13:37,120
+change to emoji change it to symbol now
+
+295
+00:13:35,839 --> 00:13:40,000
+it works
+
+296
+00:13:37,120 --> 00:13:45,040
+okay the reason it looks yellow is
+
+297
+00:13:40,000 --> 00:13:47,519
+because my unicode is marked up
+
+298
+00:13:45,040 --> 00:13:49,920
+using the mark
+
+299
+00:13:47,519 --> 00:13:53,279
+tag you can see there
+
+300
+00:13:49,920 --> 00:13:56,480
+and by default the mark tag
+
+301
+00:13:53,279 --> 00:13:58,480
+tag has a yellow background
+
+302
+00:13:56,480 --> 00:14:03,480
+so
+
+303
+00:13:58,480 --> 00:14:03,480
+so that is why you have to
+
+304
+00:14:05,279 --> 00:14:10,160
+okay so let's say background color white
+
+305
+00:14:07,920 --> 00:14:10,160
+okay
+
+306
+00:14:10,880 --> 00:14:17,160
+refresh
+
+307
+00:14:13,279 --> 00:14:17,160
+okay i'm not sure
+
+308
+00:14:20,800 --> 00:14:24,720
+okay now when you say you know
+
+309
+00:14:25,199 --> 00:14:29,320
+this doesn't look so good
+
+310
+00:14:31,040 --> 00:14:37,680
+uh so this is a css i need to fix
+
+311
+00:14:36,079 --> 00:14:41,600
+andre
+
+312
+00:14:37,680 --> 00:14:41,600
+cabrella thank you so much
+
+313
+00:14:42,480 --> 00:14:47,120
+thank you so if you have a question you
+
+314
+00:14:44,959 --> 00:14:48,720
+know that's a dedicated
+
+315
+00:14:47,120 --> 00:14:51,199
+payment for the question if you have a
+
+316
+00:14:48,720 --> 00:14:53,440
+question ask me okay
+
+317
+00:14:51,199 --> 00:14:53,440
+uh
+
+318
+00:14:55,440 --> 00:15:00,240
+yeah okay so
+
+319
+00:14:57,680 --> 00:15:04,079
+now we need to fix this problem i'm kind
+
+320
+00:15:00,240 --> 00:15:06,399
+of you know this is a issue that
+
+321
+00:15:04,079 --> 00:15:09,440
+i'm wondering if i should go through it
+
+322
+00:15:06,399 --> 00:15:11,839
+because or should we just start to code
+
+323
+00:15:09,440 --> 00:15:13,519
+emac this because today we are supposed
+
+324
+00:15:11,839 --> 00:15:16,000
+to do emac this
+
+325
+00:15:13,519 --> 00:15:18,399
+uh this problem is actually
+
+326
+00:15:16,000 --> 00:15:20,399
+a bit nasty
+
+327
+00:15:18,399 --> 00:15:23,760
+and probably not interesting to most
+
+328
+00:15:20,399 --> 00:15:23,760
+people about css
+
+329
+00:15:25,519 --> 00:15:30,240
+so how do you so how do you fix that so
+
+330
+00:15:27,839 --> 00:15:32,240
+if if we make the background white that
+
+331
+00:15:30,240 --> 00:15:34,320
+doesn't look so well because you know
+
+332
+00:15:32,240 --> 00:15:36,000
+you don't want this kind of thing happen
+
+333
+00:15:34,320 --> 00:15:37,680
+so
+
+334
+00:15:36,000 --> 00:15:40,480
+but if the
+
+335
+00:15:37,680 --> 00:15:44,560
+if the background you know if the theme
+
+336
+00:15:40,480 --> 00:15:44,560
+is light then that works fine
+
+337
+00:15:44,639 --> 00:15:50,160
+let's shrink uh
+
+338
+00:15:47,759 --> 00:15:52,480
+yeah it doesn't even i mean i don't want
+
+339
+00:15:50,160 --> 00:15:55,839
+that effect you see
+
+340
+00:15:52,480 --> 00:15:55,839
+can you see that
+
+341
+00:15:56,160 --> 00:15:58,399
+um
+
+342
+00:16:03,279 --> 00:16:07,839
+so
+
+343
+00:16:04,320 --> 00:16:10,720
+you know if it was transparent so when
+
+344
+00:16:07,839 --> 00:16:12,000
+it's transparent watch these okay
+
+345
+00:16:10,720 --> 00:16:14,480
+watch this
+
+346
+00:16:12,000 --> 00:16:15,920
+now if you refresh now that's better
+
+347
+00:16:14,480 --> 00:16:17,759
+transparent
+
+348
+00:16:15,920 --> 00:16:21,040
+now
+
+349
+00:16:17,759 --> 00:16:24,639
+however when it's transparent and it and
+
+350
+00:16:21,040 --> 00:16:24,639
+if you make it dark theme
+
+351
+00:16:25,600 --> 00:16:29,600
+so this is background color transparent
+
+352
+00:16:28,160 --> 00:16:31,360
+okay
+
+353
+00:16:29,600 --> 00:16:34,160
+and
+
+354
+00:16:31,360 --> 00:16:37,199
+make it dark theme
+
+355
+00:16:34,160 --> 00:16:41,360
+then you use the symbols font okay let's
+
+356
+00:16:37,199 --> 00:16:41,360
+go here symbols font so
+
+357
+00:16:41,440 --> 00:16:46,800
+when it's symbols font
+
+358
+00:16:44,480 --> 00:16:46,800
+it
+
+359
+00:16:48,959 --> 00:16:55,199
+it it sets the font to symbol font but
+
+360
+00:16:52,720 --> 00:16:56,480
+however why is the text not becoming
+
+361
+00:16:55,199 --> 00:16:58,959
+white
+
+362
+00:16:56,480 --> 00:17:01,120
+that's a problem because that's the
+
+363
+00:16:58,959 --> 00:17:02,240
+issue because for example if you go to
+
+364
+00:17:01,120 --> 00:17:05,280
+the top
+
+365
+00:17:02,240 --> 00:17:08,959
+you can see i mean
+
+366
+00:17:05,280 --> 00:17:08,959
+color white is the default
+
+367
+00:17:11,199 --> 00:17:17,280
+i mean color black is the default
+
+368
+00:17:14,079 --> 00:17:19,839
+okay color black is the default
+
+369
+00:17:17,280 --> 00:17:19,839
+but
+
+370
+00:17:21,679 --> 00:17:26,480
+color black is a default but if you go
+
+371
+00:17:24,319 --> 00:17:26,480
+to
+
+372
+00:17:27,360 --> 00:17:34,480
+but if we have a dark theme
+
+373
+00:17:30,240 --> 00:17:35,919
+then the color is white however it's not
+
+374
+00:17:34,480 --> 00:17:37,280
+it's not
+
+375
+00:17:35,919 --> 00:17:39,760
+effective
+
+376
+00:17:37,280 --> 00:17:43,200
+you know i think maybe i know why so
+
+377
+00:17:39,760 --> 00:17:43,200
+let's go back to the
+
+378
+00:17:45,120 --> 00:17:49,919
+okay let's go back to the emoji page
+
+379
+00:17:50,080 --> 00:17:55,440
+so showing browser here's the emoji page
+
+380
+00:17:53,280 --> 00:17:56,320
+search for javascript
+
+381
+00:17:55,440 --> 00:17:59,360
+so
+
+382
+00:17:56,320 --> 00:18:01,919
+the javascript that changes the font
+
+383
+00:17:59,360 --> 00:18:04,480
+when you click on that
+
+384
+00:18:01,919 --> 00:18:06,000
+is this javascript okay
+
+385
+00:18:04,480 --> 00:18:08,080
+this javascript
+
+386
+00:18:06,000 --> 00:18:10,400
+and you are looking at typescript
+
+387
+00:18:08,080 --> 00:18:12,480
+actually typescript is basically a
+
+388
+00:18:10,400 --> 00:18:16,240
+superset of javascript
+
+389
+00:18:12,480 --> 00:18:18,720
+so any javascript is also typescript
+
+390
+00:18:16,240 --> 00:18:20,400
+so we are looking at the javascript
+
+391
+00:18:18,720 --> 00:18:22,799
+typescript code
+
+392
+00:18:20,400 --> 00:18:24,960
+and we are looking at for example okay
+
+393
+00:18:22,799 --> 00:18:28,320
+let me show you okay some some some
+
+394
+00:18:24,960 --> 00:18:31,039
+tutorial about javascript and webdav so
+
+395
+00:18:28,320 --> 00:18:32,400
+okay so you can see
+
+396
+00:18:31,039 --> 00:18:34,960
+here
+
+397
+00:18:32,400 --> 00:18:37,120
+here is a button you see
+
+398
+00:18:34,960 --> 00:18:39,440
+it's a radio button
+
+399
+00:18:37,120 --> 00:18:39,440
+that
+
+400
+00:18:40,720 --> 00:18:46,240
+so this is the button id kind of unicode
+
+401
+00:18:43,600 --> 00:18:48,960
+font change 27
+
+402
+00:18:46,240 --> 00:18:51,360
+uh so search for that
+
+403
+00:18:48,960 --> 00:18:52,720
+okay go to the javascript
+
+404
+00:18:51,360 --> 00:18:56,000
+source code
+
+405
+00:18:52,720 --> 00:18:57,760
+search for that there it is you you find
+
+406
+00:18:56,000 --> 00:19:00,559
+several references
+
+407
+00:18:57,760 --> 00:19:04,640
+and here we set the event so that when
+
+408
+00:19:00,559 --> 00:19:04,640
+people click on it it does something
+
+409
+00:19:06,400 --> 00:19:11,760
+and
+
+410
+00:19:08,720 --> 00:19:12,799
+query select all change font okay so
+
+411
+00:19:11,760 --> 00:19:15,440
+here
+
+412
+00:19:12,799 --> 00:19:18,000
+is the function that actually
+
+413
+00:19:15,440 --> 00:19:18,000
+changes
+
+414
+00:19:18,799 --> 00:19:23,600
+so
+
+415
+00:19:20,640 --> 00:19:27,919
+what we want to check is whether it
+
+416
+00:19:23,600 --> 00:19:30,320
+changes any color in this source code
+
+417
+00:19:27,919 --> 00:19:31,760
+so let's search for color to see if
+
+418
+00:19:30,320 --> 00:19:33,400
+anything
+
+419
+00:19:31,760 --> 00:19:36,499
+there it is okay
+
+420
+00:19:33,400 --> 00:19:36,499
+[Music]
+
+421
+00:19:36,960 --> 00:19:40,640
+pop-up
+
+422
+00:19:38,000 --> 00:19:43,280
+style color dark red okay
+
+423
+00:19:40,640 --> 00:19:46,000
+that we don't want to change
+
+424
+00:19:43,280 --> 00:19:46,000
+and uh
+
+425
+00:19:46,080 --> 00:19:53,440
+background color silver that's fine
+
+426
+00:19:50,160 --> 00:19:56,799
+and set attribute new nonset attribute
+
+427
+00:19:53,440 --> 00:19:56,799
+style color dot green
+
+428
+00:19:57,120 --> 00:19:59,919
+what is that
+
+429
+00:20:02,960 --> 00:20:09,559
+function show info
+
+430
+00:20:05,120 --> 00:20:09,559
+function show info okay
+
+431
+00:20:23,919 --> 00:20:31,960
+uh where does the dark dark green come
+
+432
+00:20:26,640 --> 00:20:31,960
+from what is the show info hiding from
+
+433
+00:20:34,320 --> 00:20:37,919
+info oh
+
+434
+00:20:35,679 --> 00:20:41,919
+that's when you click on this show
+
+435
+00:20:37,919 --> 00:20:45,280
+character info that's the dark green so
+
+436
+00:20:41,919 --> 00:20:48,720
+for example let's go to food
+
+437
+00:20:45,280 --> 00:20:51,360
+you click on show character info
+
+438
+00:20:48,720 --> 00:20:55,280
+then it shows the
+
+439
+00:20:51,360 --> 00:20:58,720
+the unicode name and the unicode
+
+440
+00:20:55,280 --> 00:21:00,799
+code point id for the character
+
+441
+00:20:58,720 --> 00:21:03,679
+this is convenient feature so that
+
+442
+00:21:00,799 --> 00:21:05,679
+because it it lets you see the
+
+443
+00:21:03,679 --> 00:21:06,880
+everything and be able to search for
+
+444
+00:21:05,679 --> 00:21:09,039
+them
+
+445
+00:21:06,880 --> 00:21:13,039
+because otherwise you have to hoover
+
+446
+00:21:09,039 --> 00:21:13,039
+through each one so that's the show info
+
+447
+00:21:15,520 --> 00:21:20,880
+and green is fine okay so
+
+448
+00:21:18,400 --> 00:21:20,880
+so now
+
+449
+00:21:21,600 --> 00:21:27,520
+okay so toggle show info that's fine so
+
+450
+00:21:25,280 --> 00:21:30,960
+color dark green so
+
+451
+00:21:27,520 --> 00:21:32,720
+so no color is changed in this
+
+452
+00:21:30,960 --> 00:21:35,919
+file okay
+
+453
+00:21:32,720 --> 00:21:39,840
+so the problem is probably not caused by
+
+454
+00:21:35,919 --> 00:21:39,840
+this file so let's go back here
+
+455
+00:21:41,760 --> 00:21:45,840
+symbol
+
+456
+00:21:43,440 --> 00:21:45,840
+so
+
+457
+00:21:48,480 --> 00:21:54,280
+so let's go back to the css page
+
+458
+00:21:59,840 --> 00:22:03,120
+you know one easy way
+
+459
+00:22:03,440 --> 00:22:07,840
+one easy way to fix this let's just
+
+460
+00:22:08,080 --> 00:22:13,840
+this is getting boring so let's just fix
+
+461
+00:22:10,880 --> 00:22:16,480
+this quickly so unicode emoji so when
+
+462
+00:22:13,840 --> 00:22:20,919
+there is a dark theme you want the
+
+463
+00:22:16,480 --> 00:22:20,919
+background color to be black
+
+464
+00:22:28,880 --> 00:22:34,880
+and you want the color to be white
+
+465
+00:22:33,360 --> 00:22:37,039
+refresh
+
+466
+00:22:34,880 --> 00:22:37,840
+okay
+
+467
+00:22:37,039 --> 00:22:40,000
+okay
+
+468
+00:22:37,840 --> 00:22:40,880
+i'm not going to do anything about this
+
+469
+00:22:40,000 --> 00:22:44,000
+let's
+
+470
+00:22:40,880 --> 00:22:46,480
+continue okay so consider that fixed
+
+471
+00:22:44,000 --> 00:22:46,480
+kind of
+
+472
+00:22:52,640 --> 00:22:55,640
+okay
+
+473
+00:22:56,320 --> 00:23:05,120
+copy it to my other sides
+
+474
+00:22:59,840 --> 00:23:07,440
+okay so next let's see what to do next
+
+475
+00:23:05,120 --> 00:23:08,960
+copy that
+
+476
+00:23:07,440 --> 00:23:12,000
+go to talk show
+
+477
+00:23:08,960 --> 00:23:12,000
+today's talk show
+
+478
+00:23:12,480 --> 00:23:18,080
+show in browser d that showing browser
+
+479
+00:23:15,520 --> 00:23:19,120
+close close close
+
+480
+00:23:18,080 --> 00:23:22,720
+okay
+
+481
+00:23:19,120 --> 00:23:23,600
+so here's some things we need to fix
+
+482
+00:23:22,720 --> 00:23:26,000
+and
+
+483
+00:23:23,600 --> 00:23:27,679
+there's more to fix
+
+484
+00:23:26,000 --> 00:23:30,559
+there's more to fix
+
+485
+00:23:27,679 --> 00:23:32,400
+but that's that's it about that let's
+
+486
+00:23:30,559 --> 00:23:35,400
+get on to the next
+
+487
+00:23:32,400 --> 00:23:35,400
+topic
+
+488
+00:23:36,320 --> 00:23:43,520
+okay so i want to show you some
+
+489
+00:23:40,640 --> 00:23:46,559
+some uh recent
+
+490
+00:23:43,520 --> 00:23:49,279
+happenings with my keyboard okay so i
+
+491
+00:23:46,559 --> 00:23:51,360
+did a lot huge amount of work on
+
+492
+00:23:49,279 --> 00:23:54,400
+keyboard layout international keyboard
+
+493
+00:23:51,360 --> 00:23:58,720
+layout for example you have the canadian
+
+494
+00:23:54,400 --> 00:24:00,880
+layout canadian multi-lingual layout
+
+495
+00:23:58,720 --> 00:24:04,360
+then you have
+
+496
+00:24:00,880 --> 00:24:04,360
+german layout
+
+497
+00:24:04,400 --> 00:24:10,000
+and you have french layout french you
+
+498
+00:24:07,760 --> 00:24:13,039
+know french actually have several layout
+
+499
+00:24:10,000 --> 00:24:15,600
+and they recently in the past two years
+
+500
+00:24:13,039 --> 00:24:17,279
+that's the french government began a new
+
+501
+00:24:15,600 --> 00:24:19,919
+layout for french
+
+502
+00:24:17,279 --> 00:24:22,480
+you know so what i want to say is that
+
+503
+00:24:19,919 --> 00:24:23,679
+after you study all these layouts you
+
+504
+00:24:22,480 --> 00:24:26,000
+find that
+
+505
+00:24:23,679 --> 00:24:29,200
+there's a spanish spanish layout there's
+
+506
+00:24:26,000 --> 00:24:30,880
+a spanish layout for latin america like
+
+507
+00:24:29,200 --> 00:24:33,679
+mexico
+
+508
+00:24:30,880 --> 00:24:36,320
+uh argentina
+
+509
+00:24:33,679 --> 00:24:38,000
+and there's a spanish spanish layout for
+
+510
+00:24:36,320 --> 00:24:39,760
+spain in europe
+
+511
+00:24:38,000 --> 00:24:42,240
+they are different
+
+512
+00:24:39,760 --> 00:24:44,960
+you see but after you study all this
+
+513
+00:24:42,240 --> 00:24:48,000
+layout and especially uh for example
+
+514
+00:24:44,960 --> 00:24:51,600
+canadian french so french layout you
+
+515
+00:24:48,000 --> 00:24:54,000
+know so you have the french layout for
+
+516
+00:24:51,600 --> 00:24:56,480
+french people in france
+
+517
+00:24:54,000 --> 00:24:59,200
+then you have a
+
+518
+00:24:56,480 --> 00:25:01,440
+canadian french layout
+
+519
+00:24:59,200 --> 00:25:03,120
+you know for for the eastern part of
+
+520
+00:25:01,440 --> 00:25:05,279
+canadian quebec
+
+521
+00:25:03,120 --> 00:25:07,520
+then that's not enough then you have a
+
+522
+00:25:05,279 --> 00:25:09,200
+get back french canadian layout they are
+
+523
+00:25:07,520 --> 00:25:11,520
+they are different by a little bit they
+
+524
+00:25:09,200 --> 00:25:13,440
+are and and they are all inefficient
+
+525
+00:25:11,520 --> 00:25:15,520
+they are the most inefficient then they
+
+526
+00:25:13,440 --> 00:25:18,159
+are you know they are
+
+527
+00:25:15,520 --> 00:25:20,400
+the worst possible you know so after you
+
+528
+00:25:18,159 --> 00:25:23,200
+study you look at all the
+
+529
+00:25:20,400 --> 00:25:25,919
+international layouts you find that most
+
+530
+00:25:23,200 --> 00:25:27,919
+of them are just crap
+
+531
+00:25:25,919 --> 00:25:29,919
+and there's so many you know there's
+
+532
+00:25:27,919 --> 00:25:31,919
+there's fujikis there's
+
+533
+00:25:29,919 --> 00:25:33,440
+you know us international finnish
+
+534
+00:25:31,919 --> 00:25:34,400
+multilingual
+
+535
+00:25:33,440 --> 00:25:36,799
+dutch
+
+536
+00:25:34,400 --> 00:25:38,960
+belgium they speak the same language you
+
+537
+00:25:36,799 --> 00:25:39,679
+know just like you know the
+
+538
+00:25:38,960 --> 00:25:42,559
+but
+
+539
+00:25:39,679 --> 00:25:43,840
+and you might say oh well maybe because
+
+540
+00:25:42,559 --> 00:25:45,440
+they are you know
+
+541
+00:25:43,840 --> 00:25:47,039
+even though it's the same language but
+
+542
+00:25:45,440 --> 00:25:50,320
+their habit is different or something
+
+543
+00:25:47,039 --> 00:25:52,640
+not really you know so so this
+
+544
+00:25:50,320 --> 00:25:54,840
+okay so you see that's a thing i need to
+
+545
+00:25:52,640 --> 00:25:59,200
+fix
+
+546
+00:25:54,840 --> 00:26:02,799
+i uh with the dark layout so this is svg
+
+547
+00:25:59,200 --> 00:26:05,679
+right no this is png
+
+548
+00:26:02,799 --> 00:26:08,320
+okay so apparently this this png is
+
+549
+00:26:05,679 --> 00:26:10,159
+using a transparent background so that's
+
+550
+00:26:08,320 --> 00:26:12,720
+why
+
+551
+00:26:10,159 --> 00:26:15,200
+yeah so you see so lots of little things
+
+552
+00:26:12,720 --> 00:26:17,840
+you need to fix when you do the
+
+553
+00:26:15,200 --> 00:26:21,279
+dark theme kind of thing so anyway you
+
+554
+00:26:17,840 --> 00:26:23,440
+know esther estonian icelandic italian
+
+555
+00:26:21,279 --> 00:26:25,679
+you know icelandic for example their
+
+556
+00:26:23,440 --> 00:26:27,200
+language is like northern europe you
+
+557
+00:26:25,679 --> 00:26:29,760
+know like
+
+558
+00:26:27,200 --> 00:26:32,080
+the whole thing is crap you know the
+
+559
+00:26:29,760 --> 00:26:33,840
+keyboard layout is is just crap the
+
+560
+00:26:32,080 --> 00:26:36,559
+international you know each one of them
+
+561
+00:26:33,840 --> 00:26:37,679
+sucks donkey ass to the extreme to the
+
+562
+00:26:36,559 --> 00:26:40,159
+extreme
+
+563
+00:26:37,679 --> 00:26:42,240
+and and and besides that they they
+
+564
+00:26:40,159 --> 00:26:46,080
+create so many variations each one of
+
+565
+00:26:42,240 --> 00:26:49,600
+them is like useless idiotic
+
+566
+00:26:46,080 --> 00:26:51,760
+not even cons considering efficiency
+
+567
+00:26:49,600 --> 00:26:53,919
+uh reasons for example efficiency
+
+568
+00:26:51,760 --> 00:26:57,840
+meaning like borax you know you know
+
+569
+00:26:53,919 --> 00:27:00,640
+about work quality work comac i mean not
+
+570
+00:26:57,840 --> 00:27:02,480
+even consid considering efficiency all
+
+571
+00:27:00,640 --> 00:27:04,559
+those international layout they are just
+
+572
+00:27:02,480 --> 00:27:06,960
+idiotic extreme
+
+573
+00:27:04,559 --> 00:27:09,600
+same language then you have several
+
+574
+00:27:06,960 --> 00:27:11,919
+layouts then different region you know
+
+575
+00:27:09,600 --> 00:27:14,159
+maybe they have a special layout
+
+576
+00:27:11,919 --> 00:27:15,919
+and they don't improve anything at all
+
+577
+00:27:14,159 --> 00:27:17,760
+just because they just you know have a
+
+578
+00:27:15,919 --> 00:27:19,840
+layout just because they it's it's
+
+579
+00:27:17,760 --> 00:27:22,840
+theirs you know it's
+
+580
+00:27:19,840 --> 00:27:22,840
+individualistic
+
+581
+00:27:22,880 --> 00:27:28,080
+so okay let's that's enough about the
+
+582
+00:27:25,440 --> 00:27:30,559
+dark thing let's turn them back to the
+
+583
+00:27:28,080 --> 00:27:31,360
+light theme so we can proper properly
+
+584
+00:27:30,559 --> 00:27:34,799
+see
+
+585
+00:27:31,360 --> 00:27:37,039
+the things okay so
+
+586
+00:27:34,799 --> 00:27:40,000
+so yeah so that's the issue about
+
+587
+00:27:37,039 --> 00:27:42,480
+international layout so i have an
+
+588
+00:27:40,000 --> 00:27:44,799
+article specific you know dedicated to
+
+589
+00:27:42,480 --> 00:27:49,360
+that that's this one idiocy of keyboard
+
+590
+00:27:44,799 --> 00:27:51,600
+layouts quad z and other t and so on
+
+591
+00:27:49,360 --> 00:27:53,679
+you know that's what i found and the
+
+592
+00:27:51,600 --> 00:27:55,760
+issue is very complex different language
+
+593
+00:27:53,679 --> 00:27:58,640
+and sometimes you have you know
+
+594
+00:27:55,760 --> 00:28:00,640
+especially in europe you have several
+
+595
+00:27:58,640 --> 00:28:02,640
+countries but they speak the same
+
+596
+00:28:00,640 --> 00:28:04,799
+language
+
+597
+00:28:02,640 --> 00:28:06,559
+you know but but then um
+
+598
+00:28:04,799 --> 00:28:09,919
+so which layout should they use you know
+
+599
+00:28:06,559 --> 00:28:11,919
+very complex and they and
+
+600
+00:28:09,919 --> 00:28:14,080
+the most commonly used layouts
+
+601
+00:28:11,919 --> 00:28:16,960
+throughout these countries are just most
+
+602
+00:28:14,080 --> 00:28:17,760
+idiotic
+
+603
+00:28:16,960 --> 00:28:20,399
+and
+
+604
+00:28:17,760 --> 00:28:23,200
+and this also happened to the japanese
+
+605
+00:28:20,399 --> 00:28:25,760
+layout too you know japanese is
+
+606
+00:28:23,200 --> 00:28:27,600
+another totally different story because
+
+607
+00:28:25,760 --> 00:28:30,399
+you know the writing system you cannot
+
+608
+00:28:27,600 --> 00:28:32,399
+simply type it you have to use a input
+
+609
+00:28:30,399 --> 00:28:36,000
+system
+
+610
+00:28:32,399 --> 00:28:38,880
+so two days ago a few days ago i did a
+
+611
+00:28:36,000 --> 00:28:41,120
+talk show on how to input chinese
+
+612
+00:28:38,880 --> 00:28:45,840
+all the related things you you want to
+
+613
+00:28:41,120 --> 00:28:45,840
+know about chinese input methods okay
+
+614
+00:28:46,080 --> 00:28:49,360
+and
+
+615
+00:28:46,799 --> 00:28:51,840
+but anyway let's go back to japanese so
+
+616
+00:28:49,360 --> 00:28:53,760
+japanese input methods
+
+617
+00:28:51,840 --> 00:28:55,919
+so japanese you have the first of all
+
+618
+00:28:53,760 --> 00:28:57,520
+you need to learn about the input method
+
+619
+00:28:55,919 --> 00:28:59,760
+before you do that you need to learn
+
+620
+00:28:57,520 --> 00:29:01,520
+about the japanese writing system
+
+621
+00:28:59,760 --> 00:29:03,520
+because otherwise you are lost you don't
+
+622
+00:29:01,520 --> 00:29:06,000
+know what's going on so you need to be
+
+623
+00:29:03,520 --> 00:29:07,360
+somewhat familiar with the japanese info
+
+624
+00:29:06,000 --> 00:29:09,600
+inputs
+
+625
+00:29:07,360 --> 00:29:12,640
+the japanese language the japanese
+
+626
+00:29:09,600 --> 00:29:13,679
+writing system a little bit then you can
+
+627
+00:29:12,640 --> 00:29:15,039
+study
+
+628
+00:29:13,679 --> 00:29:17,520
+the japanese
+
+629
+00:29:15,039 --> 00:29:20,960
+input method like how how do you type
+
+630
+00:29:17,520 --> 00:29:23,840
+this kind of their writing system then
+
+631
+00:29:20,960 --> 00:29:27,120
+okay once you know this then you get you
+
+632
+00:29:23,840 --> 00:29:30,799
+get into the
+
+633
+00:29:27,120 --> 00:29:32,399
+the the the many varieties of japanese
+
+634
+00:29:30,799 --> 00:29:34,559
+keyboard layout
+
+635
+00:29:32,399 --> 00:29:36,720
+because once you have an input system
+
+636
+00:29:34,559 --> 00:29:39,279
+then you have different keyboard layout
+
+637
+00:29:36,720 --> 00:29:41,600
+you know they have different uh
+
+638
+00:29:39,279 --> 00:29:43,919
+they have actually different inputs uh
+
+639
+00:29:41,600 --> 00:29:46,159
+methods for japanese so that's
+
+640
+00:29:43,919 --> 00:29:49,440
+interesting but you know so get back to
+
+641
+00:29:46,159 --> 00:29:51,679
+my point is that the most popular
+
+642
+00:29:49,440 --> 00:29:53,440
+like if you just go to japan and the
+
+643
+00:29:51,679 --> 00:29:56,559
+most popular keyboard layout is
+
+644
+00:29:53,440 --> 00:29:59,279
+basically just the usa keyboard okay and
+
+645
+00:29:56,559 --> 00:30:02,000
+they use a input system the most popular
+
+646
+00:29:59,279 --> 00:30:04,559
+ one of the you know among the other
+
+647
+00:30:02,000 --> 00:30:07,520
+different japanese input systems one of
+
+648
+00:30:04,559 --> 00:30:09,039
+them is most popular used by 99.9
+
+649
+00:30:07,520 --> 00:30:12,159
+percent of people
+
+650
+00:30:09,039 --> 00:30:15,200
+and that input method for japanese is
+
+651
+00:30:12,159 --> 00:30:16,159
+the most idiotic inefficient one
+
+652
+00:30:15,200 --> 00:30:16,960
+okay
+
+653
+00:30:16,159 --> 00:30:19,279
+so
+
+654
+00:30:16,960 --> 00:30:21,360
+this layout is happens you know
+
+655
+00:30:19,279 --> 00:30:22,880
+very interesting
+
+656
+00:30:21,360 --> 00:30:26,240
+you know there are many
+
+657
+00:30:22,880 --> 00:30:28,880
+efficient japanese input systems
+
+658
+00:30:26,240 --> 00:30:30,799
+but but very few use them you know nerds
+
+659
+00:30:28,880 --> 00:30:32,640
+typically yeah nerds like us you know
+
+660
+00:30:30,799 --> 00:30:34,480
+use them but most
+
+661
+00:30:32,640 --> 00:30:35,279
+people don't
+
+662
+00:30:34,480 --> 00:30:37,520
+so
+
+663
+00:30:35,279 --> 00:30:40,159
+that's interesting and this just like
+
+664
+00:30:37,520 --> 00:30:42,720
+the u.s situation you know the quality
+
+665
+00:30:40,159 --> 00:30:45,039
+most people use quality input system
+
+666
+00:30:42,720 --> 00:30:47,760
+right you know you know about quality
+
+667
+00:30:45,039 --> 00:30:50,559
+most people use quality which is very
+
+668
+00:30:47,760 --> 00:30:52,880
+one of the most inefficient system okay
+
+669
+00:30:50,559 --> 00:30:54,080
+so i think let's go back let's start to
+
+670
+00:30:52,880 --> 00:30:56,559
+code emac
+
+671
+00:30:54,080 --> 00:30:56,559
+shall we
+
+672
+00:31:00,159 --> 00:31:05,200
+okay so let's
+
+673
+00:31:02,240 --> 00:31:07,679
+so let's um
+
+674
+00:31:05,200 --> 00:31:08,960
+so yeah so recently you know in the past
+
+675
+00:31:07,679 --> 00:31:10,799
+few days i
+
+676
+00:31:08,960 --> 00:31:12,080
+spent a lot of time working on this
+
+677
+00:31:10,799 --> 00:31:14,799
+different
+
+678
+00:31:12,080 --> 00:31:17,679
+uh international input system it's it's
+
+679
+00:31:14,799 --> 00:31:19,679
+a very huge topic okay let me tell you
+
+680
+00:31:17,679 --> 00:31:21,360
+let me tell you the story how did i
+
+681
+00:31:19,679 --> 00:31:23,679
+start to do this
+
+682
+00:31:21,360 --> 00:31:25,760
+you know about 10 years ago i began to
+
+683
+00:31:23,679 --> 00:31:27,679
+write um
+
+684
+00:31:25,760 --> 00:31:30,240
+you know i i began to have a page
+
+685
+00:31:27,679 --> 00:31:33,039
+listing the different you know countries
+
+686
+00:31:30,240 --> 00:31:35,519
+keyboard layouts why
+
+687
+00:31:33,039 --> 00:31:36,399
+partly because of curiosity okay let me
+
+688
+00:31:35,519 --> 00:31:38,480
+show you
+
+689
+00:31:36,399 --> 00:31:42,880
+this article
+
+690
+00:31:38,480 --> 00:31:45,519
+so in in 2009 i began to do it you know
+
+691
+00:31:42,880 --> 00:31:48,159
+part of the reason is just curiosity
+
+692
+00:31:45,519 --> 00:31:50,960
+because back then i was i was doing the
+
+693
+00:31:48,159 --> 00:31:54,000
+ergo e-max project you know the ergo
+
+694
+00:31:50,960 --> 00:31:54,000
+e-max project
+
+695
+00:31:54,640 --> 00:31:58,159
+the ergo emax project
+
+696
+00:31:59,600 --> 00:32:02,240
+and uh
+
+697
+00:32:02,480 --> 00:32:07,519
+you know ergo e max you know which is an
+
+698
+00:32:04,720 --> 00:32:08,720
+efficient key binding system for emacs
+
+699
+00:32:07,519 --> 00:32:12,000
+so this
+
+700
+00:32:08,720 --> 00:32:13,200
+this this begins in 2007
+
+701
+00:32:12,000 --> 00:32:16,399
+okay
+
+702
+00:32:13,200 --> 00:32:19,039
+so around 2009 i started you know once
+
+703
+00:32:16,399 --> 00:32:20,880
+you do this you you're running into like
+
+704
+00:32:19,039 --> 00:32:22,559
+people will ask you people from
+
+705
+00:32:20,880 --> 00:32:24,480
+different countries or maybe you should
+
+706
+00:32:22,559 --> 00:32:26,240
+change this to something because they
+
+707
+00:32:24,480 --> 00:32:28,880
+their keyboard doesn't have that key
+
+708
+00:32:26,240 --> 00:32:31,760
+something like that so you started to
+
+709
+00:32:28,880 --> 00:32:34,480
+hear about international keyboards you
+
+710
+00:32:31,760 --> 00:32:36,399
+know like you know iceland italia you
+
+711
+00:32:34,480 --> 00:32:38,640
+know you start to know about them but i
+
+712
+00:32:36,399 --> 00:32:42,880
+have no idea what what's out there you
+
+713
+00:32:38,640 --> 00:32:43,919
+know i just know english i'm american
+
+714
+00:32:42,880 --> 00:32:45,919
+so
+
+715
+00:32:43,919 --> 00:32:48,480
+so um
+
+716
+00:32:45,919 --> 00:32:50,720
+so so you started to so i started to
+
+717
+00:32:48,480 --> 00:32:54,080
+look you know what what keyboard layouts
+
+718
+00:32:50,720 --> 00:32:54,840
+other countries use then then i started
+
+719
+00:32:54,080 --> 00:32:56,640
+to
+
+720
+00:32:54,840 --> 00:32:59,120
+see
+
+721
+00:32:56,640 --> 00:33:02,320
+they they suck donkey ass you know they
+
+722
+00:32:59,120 --> 00:33:04,320
+are so idiotic to the extreme
+
+723
+00:33:02,320 --> 00:33:06,640
+but there are many issues okay so so
+
+724
+00:33:04,320 --> 00:33:08,559
+first of all so you you started to you
+
+725
+00:33:06,640 --> 00:33:10,799
+know get a list of the different
+
+726
+00:33:08,559 --> 00:33:11,679
+countries keyboard layout that's one
+
+727
+00:33:10,799 --> 00:33:14,720
+thing
+
+728
+00:33:11,679 --> 00:33:16,720
+then in order to study efficiency let's
+
+729
+00:33:14,720 --> 00:33:20,480
+let's go to french okay
+
+730
+00:33:16,720 --> 00:33:23,279
+so for example here's french
+
+731
+00:33:20,480 --> 00:33:26,240
+now if you want to know some ideas so
+
+732
+00:33:23,279 --> 00:33:29,039
+i some idea about the efficiency of the
+
+733
+00:33:26,240 --> 00:33:31,039
+french layout what you need to know is
+
+734
+00:33:29,039 --> 00:33:32,880
+that what extra
+
+735
+00:33:31,039 --> 00:33:35,600
+um alphabet
+
+736
+00:33:32,880 --> 00:33:37,679
+they you know french language use that's
+
+737
+00:33:35,600 --> 00:33:40,000
+not in english
+
+738
+00:33:37,679 --> 00:33:41,519
+so for example let's go to german okay
+
+739
+00:33:40,000 --> 00:33:43,840
+so in german
+
+740
+00:33:41,519 --> 00:33:45,120
+in german you have these
+
+741
+00:33:43,840 --> 00:33:48,480
+these
+
+742
+00:33:45,120 --> 00:33:50,880
+four extra characters you know a oou
+
+743
+00:33:48,480 --> 00:33:54,399
+with a omelet you know how you call that
+
+744
+00:33:50,880 --> 00:33:56,080
+you know so those are called
+
+745
+00:33:54,399 --> 00:33:58,559
+you know i have a let me show you yeah
+
+746
+00:33:56,080 --> 00:34:03,120
+so let me just keep talking about this
+
+747
+00:33:58,559 --> 00:34:03,120
+let me explain the full glory so
+
+748
+00:34:03,360 --> 00:34:08,800
+so first of all you need to know about
+
+749
+00:34:05,919 --> 00:34:12,079
+that key you need to know about compose
+
+750
+00:34:08,800 --> 00:34:14,320
+key you need to know about old graph key
+
+751
+00:34:12,079 --> 00:34:18,240
+then you need to learn about that key
+
+752
+00:34:14,320 --> 00:34:18,240
+okay there's the example of that key
+
+753
+00:34:19,200 --> 00:34:24,159
+uh that key
+
+754
+00:34:21,040 --> 00:34:26,879
+that keys you know uh
+
+755
+00:34:24,159 --> 00:34:29,599
+do i have an actual physical keyboard
+
+756
+00:34:26,879 --> 00:34:32,879
+that shows that key yeah there is uh for
+
+757
+00:34:29,599 --> 00:34:35,359
+example this this for example this key
+
+758
+00:34:32,879 --> 00:34:37,280
+right here that's that key if you press
+
+759
+00:34:35,359 --> 00:34:40,079
+it it doesn't do anything
+
+760
+00:34:37,280 --> 00:34:41,919
+for example you press this key
+
+761
+00:34:40,079 --> 00:34:44,000
+it does nothing but
+
+762
+00:34:41,919 --> 00:34:45,760
+the next key you press
+
+763
+00:34:44,000 --> 00:34:48,079
+will become
+
+764
+00:34:45,760 --> 00:34:50,320
+that letter with the hat you know so
+
+765
+00:34:48,079 --> 00:34:53,440
+that's what that keys are so you need to
+
+766
+00:34:50,320 --> 00:34:53,440
+learn about that key
+
+767
+00:34:56,879 --> 00:35:02,160
+you need to learn about
+
+768
+00:35:00,160 --> 00:35:04,160
+old graph key you need to learn about
+
+769
+00:35:02,160 --> 00:35:06,400
+compose keys so this article explain
+
+770
+00:35:04,160 --> 00:35:07,839
+them in detail okay
+
+771
+00:35:06,400 --> 00:35:09,920
+then after that
+
+772
+00:35:07,839 --> 00:35:12,480
+if you want to know the efficiency of
+
+773
+00:35:09,920 --> 00:35:14,560
+french or germany layout then you have
+
+774
+00:35:12,480 --> 00:35:15,359
+to
+
+775
+00:35:14,560 --> 00:35:18,400
+learn
+
+776
+00:35:15,359 --> 00:35:19,520
+what extra characters those languages
+
+777
+00:35:18,400 --> 00:35:22,480
+contain
+
+778
+00:35:19,520 --> 00:35:23,680
+you know not in english not in latin
+
+779
+00:35:22,480 --> 00:35:26,079
+alphabet
+
+780
+00:35:23,680 --> 00:35:27,839
+so in the case of german you have these
+
+781
+00:35:26,079 --> 00:35:30,400
+um
+
+782
+00:35:27,839 --> 00:35:32,560
+you have these characters okay what are
+
+783
+00:35:30,400 --> 00:35:35,359
+the what what are the names of those
+
+784
+00:35:32,560 --> 00:35:35,359
+those are called
+
+785
+00:35:35,440 --> 00:35:41,760
+diacritic marks okay diacritic marks
+
+786
+00:35:38,800 --> 00:35:44,800
+look at this page diagratic marks each
+
+787
+00:35:41,760 --> 00:35:47,839
+one has a name so you have a cute accent
+
+788
+00:35:44,800 --> 00:35:51,440
+you have grave accent you have a this
+
+789
+00:35:47,839 --> 00:35:53,440
+hat is called circumflex and this
+
+790
+00:35:51,440 --> 00:35:55,200
+and this there's a two there are two
+
+791
+00:35:53,440 --> 00:35:58,560
+names for that that's a
+
+792
+00:35:55,200 --> 00:35:59,760
+diuresis or omelet okay so
+
+793
+00:35:58,560 --> 00:36:03,440
+german
+
+794
+00:35:59,760 --> 00:36:05,440
+language uses those okay
+
+795
+00:36:03,440 --> 00:36:06,560
+then you have cedella you have
+
+796
+00:36:05,440 --> 00:36:09,760
+uh
+
+797
+00:36:06,560 --> 00:36:12,880
+micron and others okay macron brave
+
+798
+00:36:09,760 --> 00:36:15,280
+brave and karen and tioda and tioda is
+
+799
+00:36:12,880 --> 00:36:17,119
+used in spanish and and you know you
+
+800
+00:36:15,280 --> 00:36:18,480
+started to get in to get into
+
+801
+00:36:17,119 --> 00:36:20,320
+linguistics
+
+802
+00:36:18,480 --> 00:36:22,960
+the orthography
+
+803
+00:36:20,320 --> 00:36:24,640
+of writing systems you know you have to
+
+804
+00:36:22,960 --> 00:36:27,440
+because you know
+
+805
+00:36:24,640 --> 00:36:29,440
+i was just unassuming doing a list of
+
+806
+00:36:27,440 --> 00:36:31,280
+you know firing country keyboards then
+
+807
+00:36:29,440 --> 00:36:32,560
+you have to start it to gradually know
+
+808
+00:36:31,280 --> 00:36:34,320
+these things
+
+809
+00:36:32,560 --> 00:36:36,960
+so and
+
+810
+00:36:34,320 --> 00:36:40,480
+it gets steep because for example these
+
+811
+00:36:36,960 --> 00:36:43,440
+are accent marks right but not the tioda
+
+812
+00:36:40,480 --> 00:36:46,960
+okay so the spanish
+
+813
+00:36:43,440 --> 00:36:49,839
+nino nino nina nina you know
+
+814
+00:36:46,960 --> 00:36:51,599
+that that means children
+
+815
+00:36:49,839 --> 00:36:54,480
+boys or girls you know
+
+816
+00:36:51,599 --> 00:36:56,720
+that character is not a accent that
+
+817
+00:36:54,480 --> 00:36:59,440
+that's part of the alphabet okay that's
+
+818
+00:36:56,720 --> 00:37:02,400
+one of the letter in spanish
+
+819
+00:36:59,440 --> 00:37:05,760
+so it's this is not a
+
+820
+00:37:02,400 --> 00:37:06,960
+diacritic this is a letter by itself
+
+821
+00:37:05,760 --> 00:37:09,359
+okay so
+
+822
+00:37:06,960 --> 00:37:11,760
+you know it's very interesting so
+
+823
+00:37:09,359 --> 00:37:14,079
+linguistics then
+
+824
+00:37:11,760 --> 00:37:15,839
+in a german case for example then you
+
+825
+00:37:14,079 --> 00:37:17,680
+have this character you know then you
+
+826
+00:37:15,839 --> 00:37:19,839
+dive into the so it's not just
+
+827
+00:37:17,680 --> 00:37:22,720
+linguistics but the history of the
+
+828
+00:37:19,839 --> 00:37:25,440
+german writing system that's where you
+
+829
+00:37:22,720 --> 00:37:28,160
+have to get dive into the history of the
+
+830
+00:37:25,440 --> 00:37:29,920
+german writing system but so apparently
+
+831
+00:37:28,160 --> 00:37:31,040
+this character
+
+832
+00:37:29,920 --> 00:37:32,640
+is it
+
+833
+00:37:31,040 --> 00:37:34,880
+or
+
+834
+00:37:32,640 --> 00:37:36,320
+chef chefs i don't know how to say them
+
+835
+00:37:34,880 --> 00:37:39,040
+sharp ex
+
+836
+00:37:36,320 --> 00:37:41,680
+you know this complex history so it's so
+
+837
+00:37:39,040 --> 00:37:44,079
+and in fact it turns out there's no
+
+838
+00:37:41,680 --> 00:37:46,240
+universal agreement among the german
+
+839
+00:37:44,079 --> 00:37:47,920
+people about what whether you should
+
+840
+00:37:46,240 --> 00:37:50,640
+have that or not have that you know
+
+841
+00:37:47,920 --> 00:37:52,800
+there's a like uncertain status
+
+842
+00:37:50,640 --> 00:37:55,200
+for example the capital you know capital
+
+843
+00:37:52,800 --> 00:37:58,240
+version of this letter
+
+844
+00:37:55,200 --> 00:38:00,720
+is basically never used so like only in
+
+845
+00:37:58,240 --> 00:38:02,839
+recent years like in the past decade
+
+846
+00:38:00,720 --> 00:38:06,079
+i believe you know you can read
+
+847
+00:38:02,839 --> 00:38:07,760
+wikipedia only in the past decade they
+
+848
+00:38:06,079 --> 00:38:10,640
+german government or something they
+
+849
+00:38:07,760 --> 00:38:12,640
+started to say oh actually we do need a
+
+850
+00:38:10,640 --> 00:38:14,400
+capital version of this data things like
+
+851
+00:38:12,640 --> 00:38:17,040
+that so it's
+
+852
+00:38:14,400 --> 00:38:19,520
+so very complex so you dive into
+
+853
+00:38:17,040 --> 00:38:20,880
+linguistics orthography and even the
+
+854
+00:38:19,520 --> 00:38:22,720
+history of it
+
+855
+00:38:20,880 --> 00:38:24,880
+then
+
+856
+00:38:22,720 --> 00:38:27,920
+if you want to access whether this
+
+857
+00:38:24,880 --> 00:38:30,560
+layout is efficient or not then you have
+
+858
+00:38:27,920 --> 00:38:33,839
+to have a statistics of the german
+
+859
+00:38:30,560 --> 00:38:36,480
+language you know just how just how
+
+860
+00:38:33,839 --> 00:38:38,800
+you know how often how often are these
+
+861
+00:38:36,480 --> 00:38:41,760
+characters used it turns out they are
+
+862
+00:38:38,800 --> 00:38:44,560
+not used much okay in the case of german
+
+863
+00:38:41,760 --> 00:38:45,520
+and but in french
+
+864
+00:38:44,560 --> 00:38:48,240
+you know
+
+865
+00:38:45,520 --> 00:38:50,560
+in french in uh french french language
+
+866
+00:38:48,240 --> 00:38:53,839
+language for example the
+
+867
+00:38:50,560 --> 00:38:56,880
+acute e this one is very
+
+868
+00:38:53,839 --> 00:38:59,520
+is free it is fairly frequently used for
+
+869
+00:38:56,880 --> 00:39:02,800
+example let's go to
+
+870
+00:38:59,520 --> 00:39:04,640
+let's go to uh french letter frequency
+
+871
+00:39:02,800 --> 00:39:06,320
+you know you know i started to study a
+
+872
+00:39:04,640 --> 00:39:07,440
+little bit these
+
+873
+00:39:06,320 --> 00:39:09,680
+oh actually
+
+874
+00:39:07,440 --> 00:39:12,079
+so you know actually the
+
+875
+00:39:09,680 --> 00:39:14,400
+acute e where is it here okay it's
+
+876
+00:39:12,079 --> 00:39:17,520
+actually not that much
+
+877
+00:39:14,400 --> 00:39:17,520
+used neither
+
+878
+00:39:17,839 --> 00:39:21,280
+so you started to you know so you need
+
+879
+00:39:19,839 --> 00:39:23,920
+to know the
+
+880
+00:39:21,280 --> 00:39:26,400
+letter frequency of each of these
+
+881
+00:39:23,920 --> 00:39:28,240
+languages that's what you started to get
+
+882
+00:39:26,400 --> 00:39:29,760
+into
+
+883
+00:39:28,240 --> 00:39:32,800
+okay
+
+884
+00:39:29,760 --> 00:39:32,800
+then it's um
+
+885
+00:39:32,880 --> 00:39:38,320
+then what else uh
+
+886
+00:39:35,440 --> 00:39:40,400
+german language yeah then statistics of
+
+887
+00:39:38,320 --> 00:39:43,400
+the letter frequency
+
+888
+00:39:40,400 --> 00:39:43,400
+then
+
+889
+00:39:44,720 --> 00:39:48,000
+very interesting okay so that's you know
+
+890
+00:39:46,880 --> 00:39:48,960
+that
+
+891
+00:39:48,000 --> 00:39:51,440
+then
+
+892
+00:39:48,960 --> 00:39:54,560
+then if you want to you know then i
+
+893
+00:39:51,440 --> 00:39:57,359
+started to look into the history for
+
+894
+00:39:54,560 --> 00:40:00,480
+example you know for the french keyboard
+
+895
+00:39:57,359 --> 00:40:01,359
+i know that they use um where is it okay
+
+896
+00:40:00,480 --> 00:40:02,880
+french
+
+897
+00:40:01,359 --> 00:40:05,119
+french keyboard you know there are
+
+898
+00:40:02,880 --> 00:40:08,880
+several versions there's a french asset
+
+899
+00:40:05,119 --> 00:40:11,200
+used in france there is you know
+
+900
+00:40:08,880 --> 00:40:13,119
+canadian french layout used in canada
+
+901
+00:40:11,200 --> 00:40:15,760
+then there's a quebec french then
+
+902
+00:40:13,119 --> 00:40:17,359
+there's a canadian multilingual layout
+
+903
+00:40:15,760 --> 00:40:19,040
+you know it's like
+
+904
+00:40:17,359 --> 00:40:21,119
+so many choices for nothing for
+
+905
+00:40:19,040 --> 00:40:23,520
+idiotically you know for nothing
+
+906
+00:40:21,119 --> 00:40:25,839
+canadian multi-lingual layout
+
+907
+00:40:23,520 --> 00:40:28,079
+that is for canadian who wants to type
+
+908
+00:40:25,839 --> 00:40:31,200
+french
+
+909
+00:40:28,079 --> 00:40:31,200
+english and french but
+
+910
+00:40:31,359 --> 00:40:35,920
+and and
+
+911
+00:40:32,319 --> 00:40:38,640
+and possibly other languages you know
+
+912
+00:40:35,920 --> 00:40:40,560
+so when you study this then you start to
+
+913
+00:40:38,640 --> 00:40:43,119
+know so you have to know for example so
+
+914
+00:40:40,560 --> 00:40:46,000
+what what exactly is the difference
+
+915
+00:40:43,119 --> 00:40:47,359
+of the french language between
+
+916
+00:40:46,000 --> 00:40:49,680
+the
+
+917
+00:40:47,359 --> 00:40:51,920
+people in france and people in quebec
+
+918
+00:40:49,680 --> 00:40:54,079
+for example you have to know because
+
+919
+00:40:51,920 --> 00:40:55,440
+otherwise you cannot judge you know
+
+920
+00:40:54,079 --> 00:40:57,520
+whether
+
+921
+00:40:55,440 --> 00:41:00,079
+it's justified to have a different
+
+922
+00:40:57,520 --> 00:41:02,880
+version of layout
+
+923
+00:41:00,079 --> 00:41:05,680
+so but basically i find that it's just
+
+924
+00:41:02,880 --> 00:41:08,480
+not necessary it's more just of a
+
+925
+00:41:05,680 --> 00:41:10,079
+history kind of thing then i started to
+
+926
+00:41:08,480 --> 00:41:11,680
+dig into so
+
+927
+00:41:10,079 --> 00:41:13,119
+so who
+
+928
+00:41:11,680 --> 00:41:15,359
+which
+
+929
+00:41:13,119 --> 00:41:17,760
+created the asset you know first of all
+
+930
+00:41:15,359 --> 00:41:21,119
+you have ascertained right which they
+
+931
+00:41:17,760 --> 00:41:23,440
+as a t layout basically they swap three
+
+932
+00:41:21,119 --> 00:41:24,480
+pairs of keys from croti
+
+933
+00:41:23,440 --> 00:41:26,640
+okay so
+
+934
+00:41:24,480 --> 00:41:28,880
+where do i say that okay let me see if i
+
+935
+00:41:26,640 --> 00:41:28,880
+can
+
+936
+00:41:29,040 --> 00:41:34,560
+french assetty so
+
+937
+00:41:32,079 --> 00:41:37,680
+i explained somewhere i forgot where
+
+938
+00:41:34,560 --> 00:41:40,240
+okay okay i know i remember where so
+
+939
+00:41:37,680 --> 00:41:40,240
+here okay
+
+940
+00:41:40,319 --> 00:41:42,560
+uh
+
+941
+00:41:44,640 --> 00:41:49,440
+yeah so one of the thing i learned is
+
+942
+00:41:46,720 --> 00:41:52,560
+that you know there's a chord z
+
+943
+00:41:49,440 --> 00:41:54,720
+layout and as a answer t so first thing
+
+944
+00:41:52,560 --> 00:41:57,200
+you might be wondering so why do they
+
+945
+00:41:54,720 --> 00:41:58,480
+quote z for example they swap
+
+946
+00:41:57,200 --> 00:42:00,400
+z and y
+
+947
+00:41:58,480 --> 00:42:02,960
+they swap these two letters so you
+
+948
+00:42:00,400 --> 00:42:04,720
+wonder why do they do that then you know
+
+949
+00:42:02,960 --> 00:42:08,480
+then you have to find out which language
+
+950
+00:42:04,720 --> 00:42:10,880
+uses this chord z layout
+
+951
+00:42:08,480 --> 00:42:12,319
+and basically my conclusion is that
+
+952
+00:42:10,880 --> 00:42:14,839
+there's like no
+
+953
+00:42:12,319 --> 00:42:18,079
+no good reason it's just
+
+954
+00:42:14,839 --> 00:42:21,040
+idiotic similarly for the azerty okay as
+
+955
+00:42:18,079 --> 00:42:22,560
+a tea this is not really good reason
+
+956
+00:42:21,040 --> 00:42:24,480
+you know if they
+
+957
+00:42:22,560 --> 00:42:26,640
+yeah so
+
+958
+00:42:24,480 --> 00:42:30,839
+that's interesting you know so
+
+959
+00:42:26,640 --> 00:42:30,839
+many of the interesting details
+
+960
+00:42:30,960 --> 00:42:37,200
+okay so uh let's what else let's go
+
+961
+00:42:34,400 --> 00:42:37,200
+let's go to
+
+962
+00:42:37,520 --> 00:42:41,599
+i already talked for 30 minutes let's
+
+963
+00:42:39,599 --> 00:42:43,680
+talk about let's do emacs then let's
+
+964
+00:42:41,599 --> 00:42:46,400
+start to do emacs
+
+965
+00:42:43,680 --> 00:42:48,240
+okay so let's go to talk show today's
+
+966
+00:42:46,400 --> 00:42:51,200
+talk show let's see if there's anything
+
+967
+00:42:48,240 --> 00:42:54,400
+i want to talk about so i did a new page
+
+968
+00:42:51,200 --> 00:42:59,040
+for windows logo key so this page is all
+
+969
+00:42:54,400 --> 00:43:00,880
+shortcuts involving the windows logo key
+
+970
+00:42:59,040 --> 00:43:03,599
+uh then
+
+971
+00:43:00,880 --> 00:43:06,960
+okay so for those of you using emacs
+
+972
+00:43:03,599 --> 00:43:08,240
+thanks to my friends you guys on saw
+
+973
+00:43:06,960 --> 00:43:11,839
+discord
+
+974
+00:43:08,240 --> 00:43:13,760
+uh who is this guy so
+
+975
+00:43:11,839 --> 00:43:17,040
+go to emacs
+
+976
+00:43:13,760 --> 00:43:19,040
+info i think info so he told me
+
+977
+00:43:17,040 --> 00:43:21,839
+you know so there's a
+
+978
+00:43:19,040 --> 00:43:24,839
+running emacs on android let's have the
+
+979
+00:43:21,839 --> 00:43:28,240
+glory look emacs in
+
+980
+00:43:24,839 --> 00:43:31,359
+android okay
+
+981
+00:43:28,240 --> 00:43:33,920
+so where do you download that so so what
+
+982
+00:43:31,359 --> 00:43:36,000
+you do is you so i updated
+
+983
+00:43:33,920 --> 00:43:37,920
+my page
+
+984
+00:43:36,000 --> 00:43:38,800
+uh you download
+
+985
+00:43:37,920 --> 00:43:42,079
+this
+
+986
+00:43:38,800 --> 00:43:44,000
+these um android operating system so you
+
+987
+00:43:42,079 --> 00:43:45,119
+download these turmerics
+
+988
+00:43:44,000 --> 00:43:48,319
+okay
+
+989
+00:43:45,119 --> 00:43:51,599
+then it's kind of a package
+
+990
+00:43:48,319 --> 00:43:54,319
+manager for android os so once you
+
+991
+00:43:51,599 --> 00:43:57,359
+download termix then you can install top
+
+992
+00:43:54,319 --> 00:43:58,319
+and all the unix stuff theme emacs and
+
+993
+00:43:57,359 --> 00:44:03,200
+stuff
+
+994
+00:43:58,319 --> 00:44:03,200
+okay so that's a tip for you emacs users
+
+995
+00:44:04,720 --> 00:44:10,800
+thanks to info okay so
+
+996
+00:44:06,880 --> 00:44:10,800
+what's the next thing what what else
+
+997
+00:44:12,560 --> 00:44:18,319
+okay so there's this keyboard from japan
+
+998
+00:44:15,359 --> 00:44:20,800
+from japan keyboard meet up a few years
+
+999
+00:44:18,319 --> 00:44:23,280
+ago you know this is
+
+1000
+00:44:20,800 --> 00:44:24,240
+not a practical keyboard
+
+1001
+00:44:23,280 --> 00:44:27,520
+uh
+
+1002
+00:44:24,240 --> 00:44:27,520
+but it's interesting so
+
+1003
+00:44:27,680 --> 00:44:33,280
+okay so anyway i let let's do emac this
+
+1004
+00:44:30,720 --> 00:44:36,160
+okay so let's start
+
+1005
+00:44:33,280 --> 00:44:38,319
+so what i want to do today is to write
+
+1006
+00:44:36,160 --> 00:44:41,760
+the emac list code so let's do it
+
+1007
+00:44:38,319 --> 00:44:44,960
+quickly i hope i can finish this in
+
+1008
+00:44:41,760 --> 00:44:44,960
+in 20 minutes okay
+
+1009
+00:44:46,000 --> 00:44:50,400
+write a emac so in fact it's in the talk
+
+1010
+00:44:49,599 --> 00:44:52,000
+show
+
+1011
+00:44:50,400 --> 00:44:53,040
+title okay
+
+1012
+00:44:52,000 --> 00:44:56,160
+so
+
+1013
+00:44:53,040 --> 00:44:58,880
+emacs list live coding so you want to
+
+1014
+00:44:56,160 --> 00:45:00,880
+call this key so call this command so
+
+1015
+00:44:58,880 --> 00:45:05,800
+let me show you what that command do so
+
+1016
+00:45:00,880 --> 00:45:05,800
+for example i write a lot um
+
+1017
+00:45:07,119 --> 00:45:09,920
+and where is it
+
+1018
+00:45:13,520 --> 00:45:19,800
+let's clean up it this a little bit so
+
+1019
+00:45:20,720 --> 00:45:24,560
+join
+
+1020
+00:45:22,000 --> 00:45:25,760
+remove the white space okay
+
+1021
+00:45:24,560 --> 00:45:28,000
+then
+
+1022
+00:45:25,760 --> 00:45:30,800
+put that there put that there show in
+
+1023
+00:45:28,000 --> 00:45:32,560
+browser so here are the things we talked
+
+1024
+00:45:30,800 --> 00:45:35,760
+about and
+
+1025
+00:45:32,560 --> 00:45:35,760
+we want to
+
+1026
+00:45:36,319 --> 00:45:40,800
+code emac this yeah so
+
+1027
+00:45:39,200 --> 00:45:43,760
+yeah so
+
+1028
+00:45:40,800 --> 00:45:45,760
+so for example i write lots of tons of
+
+1029
+00:45:43,760 --> 00:45:47,359
+pages about
+
+1030
+00:45:45,760 --> 00:45:49,599
+keyboard shortcuts
+
+1031
+00:45:47,359 --> 00:45:54,000
+so for example if you look at the source
+
+1032
+00:45:49,599 --> 00:45:54,000
+code for this page let's open it
+
+1033
+00:45:54,800 --> 00:45:59,200
+it looks like that okay so for example
+
+1034
+00:45:57,040 --> 00:46:02,640
+let's go to the top
+
+1035
+00:45:59,200 --> 00:46:05,280
+so you can see this one window tab
+
+1036
+00:46:02,640 --> 00:46:08,319
+correspond to there you see
+
+1037
+00:46:05,280 --> 00:46:10,400
+so but how do you so it's very tedious
+
+1038
+00:46:08,319 --> 00:46:13,040
+so you know for example i want if i want
+
+1039
+00:46:10,400 --> 00:46:16,240
+the windows for example this
+
+1040
+00:46:13,040 --> 00:46:18,720
+this windows key for example i can
+
+1041
+00:46:16,240 --> 00:46:20,480
+i can either do
+
+1042
+00:46:18,720 --> 00:46:22,400
+is actually it's hard to do for example
+
+1043
+00:46:20,480 --> 00:46:28,000
+window okay i'm using
+
+1044
+00:46:22,400 --> 00:46:32,160
+html mod okay let me show you
+
+1045
+00:46:28,000 --> 00:46:36,160
+here's a source code for html mod 4 000
+
+1046
+00:46:32,160 --> 00:46:38,800
+lines almost 5 000 here's the top and
+
+1047
+00:46:36,160 --> 00:46:40,240
+here's a home page you go to the page
+
+1048
+00:46:38,800 --> 00:46:43,119
+showing browser
+
+1049
+00:46:40,240 --> 00:46:46,319
+i did a video on that so if you like it
+
+1050
+00:46:43,119 --> 00:46:49,040
+supported me support me okay buy it this
+
+1051
+00:46:46,319 --> 00:46:51,040
+is one of the most complex
+
+1052
+00:46:49,040 --> 00:46:53,119
+major mod i've done i've you know i have
+
+1053
+00:46:51,040 --> 00:46:55,119
+so quite a few but this is one of the
+
+1054
+00:46:53,119 --> 00:46:56,560
+most complex
+
+1055
+00:46:55,119 --> 00:46:58,960
+lots of features
+
+1056
+00:46:56,560 --> 00:47:03,040
+you are looking at me using it every day
+
+1057
+00:46:58,960 --> 00:47:06,319
+you know right my 10 000 pages html
+
+1058
+00:47:03,040 --> 00:47:07,359
+10 000 articles in 20 years
+
+1059
+00:47:06,319 --> 00:47:10,880
+so
+
+1060
+00:47:07,359 --> 00:47:13,119
+okay so let's copy that so go to okay so
+
+1061
+00:47:10,880 --> 00:47:14,400
+wait copy
+
+1062
+00:47:13,119 --> 00:47:16,960
+talk show
+
+1063
+00:47:14,400 --> 00:47:19,280
+go to this talk show
+
+1064
+00:47:16,960 --> 00:47:22,079
+okay so
+
+1065
+00:47:19,280 --> 00:47:24,400
+make a link there so we have it
+
+1066
+00:47:22,079 --> 00:47:26,800
+html mod then
+
+1067
+00:47:24,400 --> 00:47:29,119
+i'm going to talk about
+
+1068
+00:47:26,800 --> 00:47:29,839
+so for example the windows page how do
+
+1069
+00:47:29,119 --> 00:47:33,280
+you
+
+1070
+00:47:29,839 --> 00:47:34,559
+create that markup so in html mod you
+
+1071
+00:47:33,280 --> 00:47:35,760
+press tab
+
+1072
+00:47:34,559 --> 00:47:38,240
+then k
+
+1073
+00:47:35,760 --> 00:47:39,280
+for key kbd
+
+1074
+00:47:38,240 --> 00:47:44,240
+mark
+
+1075
+00:47:39,280 --> 00:47:46,559
+uh tag okay so you got the key oh wait
+
+1076
+00:47:44,240 --> 00:47:48,000
+let's do it again what
+
+1077
+00:47:46,559 --> 00:47:50,319
+kbd
+
+1078
+00:47:48,000 --> 00:47:52,720
+okay only it does only one character
+
+1079
+00:47:50,319 --> 00:47:54,480
+okay that's idiotic undo you want to
+
+1080
+00:47:52,720 --> 00:47:55,680
+select the word
+
+1081
+00:47:54,480 --> 00:47:57,200
+tab
+
+1082
+00:47:55,680 --> 00:48:00,480
+k
+
+1083
+00:47:57,200 --> 00:48:02,880
+enter so you now you got that now
+
+1084
+00:48:00,480 --> 00:48:05,200
+wrap a p tag around it
+
+1085
+00:48:02,880 --> 00:48:07,599
+showing browser so you got now you got
+
+1086
+00:48:05,200 --> 00:48:10,000
+the windows key
+
+1087
+00:48:07,599 --> 00:48:12,319
+okay so how do you do that so but you
+
+1088
+00:48:10,000 --> 00:48:15,040
+don't have this symbol so
+
+1089
+00:48:12,319 --> 00:48:18,839
+so it's tedious it's fairly tedious so
+
+1090
+00:48:15,040 --> 00:48:22,480
+what i do so i have a command so i just
+
+1091
+00:48:18,839 --> 00:48:24,640
+say window okay then i call the command
+
+1092
+00:48:22,480 --> 00:48:26,960
+watch the pink window you'll see my
+
+1093
+00:48:24,640 --> 00:48:28,160
+command name and keystroke okay press
+
+1094
+00:48:26,960 --> 00:48:29,839
+press
+
+1095
+00:48:28,160 --> 00:48:32,640
+okay
+
+1096
+00:48:29,839 --> 00:48:36,160
+so you got that okay i should have so
+
+1097
+00:48:32,640 --> 00:48:37,599
+actually what i should do is type w-i-n
+
+1098
+00:48:36,160 --> 00:48:41,520
+okay
+
+1099
+00:48:37,599 --> 00:48:43,119
+press press so you got that
+
+1100
+00:48:41,520 --> 00:48:45,839
+that's how you got that
+
+1101
+00:48:43,119 --> 00:48:48,960
+so that command is this one
+
+1102
+00:48:45,839 --> 00:48:49,920
+html keyboard shortcut markup
+
+1103
+00:48:48,960 --> 00:48:53,760
+okay
+
+1104
+00:48:49,920 --> 00:48:56,800
+so what if i want tab so tab
+
+1105
+00:48:53,760 --> 00:48:59,760
+uh tab press two keys you gotta tab what
+
+1106
+00:48:56,800 --> 00:49:02,240
+what about command cmd
+
+1107
+00:48:59,760 --> 00:49:03,200
+press it you got a command okay so let's
+
+1108
+00:49:02,240 --> 00:49:05,359
+um
+
+1109
+00:49:03,200 --> 00:49:08,079
+clean this up
+
+1110
+00:49:05,359 --> 00:49:09,760
+show in browser so you can see that's
+
+1111
+00:49:08,079 --> 00:49:12,480
+what we added
+
+1112
+00:49:09,760 --> 00:49:15,280
+but what if you want the window plus tab
+
+1113
+00:49:12,480 --> 00:49:17,760
+you know for example windows tab windows
+
+1114
+00:49:15,280 --> 00:49:20,319
+tab do does does this
+
+1115
+00:49:17,760 --> 00:49:22,400
+kind of idiotic you know the window gui
+
+1116
+00:49:20,319 --> 00:49:25,280
+is one of the worst because every time
+
+1117
+00:49:22,400 --> 00:49:26,480
+you do that for example usually it's alt
+
+1118
+00:49:25,280 --> 00:49:29,839
+tab okay
+
+1119
+00:49:26,480 --> 00:49:32,319
+you see all tab is instantaneous okay
+
+1120
+00:49:29,839 --> 00:49:34,319
+it's a bit digression or tap right but
+
+1121
+00:49:32,319 --> 00:49:36,720
+what if you want it if you release the
+
+1122
+00:49:34,319 --> 00:49:38,720
+old it goes away but what if you want it
+
+1123
+00:49:36,720 --> 00:49:40,720
+to stay so you do
+
+1124
+00:49:38,720 --> 00:49:43,920
+old control
+
+1125
+00:49:40,720 --> 00:49:46,319
+tab okay then it stays there you see
+
+1126
+00:49:43,920 --> 00:49:48,880
+then you can use arrows or whatever
+
+1127
+00:49:46,319 --> 00:49:51,200
+okay this is this is good okay this is
+
+1128
+00:49:48,880 --> 00:49:54,079
+better than old tab
+
+1129
+00:49:51,200 --> 00:49:55,280
+anyway that that's another topic so but
+
+1130
+00:49:54,079 --> 00:49:58,319
+however
+
+1131
+00:49:55,280 --> 00:49:58,319
+since windows
+
+1132
+00:49:59,040 --> 00:50:05,760
+vista or something that you have
+
+1133
+00:50:01,520 --> 00:50:06,559
+window tab you know hold on window tab
+
+1134
+00:50:05,760 --> 00:50:09,280
+so
+
+1135
+00:50:06,559 --> 00:50:12,400
+it tries to emulate the mac basically so
+
+1136
+00:50:09,280 --> 00:50:15,040
+you got this uh cancel do it again but
+
+1137
+00:50:12,400 --> 00:50:18,160
+however it's extremely annoying like
+
+1138
+00:50:15,040 --> 00:50:20,960
+every you know when mac does something
+
+1139
+00:50:18,160 --> 00:50:23,839
+innovation it's fantastic it just works
+
+1140
+00:50:20,960 --> 00:50:26,400
+but when windows tries to do it it sucks
+
+1141
+00:50:23,839 --> 00:50:28,400
+donkey ass because every time you press
+
+1142
+00:50:26,400 --> 00:50:31,200
+window tab
+
+1143
+00:50:28,400 --> 00:50:33,680
+you see that you see the title take a
+
+1144
+00:50:31,200 --> 00:50:36,240
+second to pop up very frustrating when
+
+1145
+00:50:33,680 --> 00:50:38,160
+you actually work on you know computer
+
+1146
+00:50:36,240 --> 00:50:40,960
+for several hours a day
+
+1147
+00:50:38,160 --> 00:50:43,359
+it takes a second you know for the
+
+1148
+00:50:40,960 --> 00:50:46,480
+titles to pop up then all the things
+
+1149
+00:50:43,359 --> 00:50:49,359
+adjusted a bit so it's like
+
+1150
+00:50:46,480 --> 00:50:51,920
+it your eyes
+
+1151
+00:50:49,359 --> 00:50:54,160
+you know let's but
+
+1152
+00:50:51,920 --> 00:50:55,760
+old control tab doesn't happen it's
+
+1153
+00:50:54,160 --> 00:50:58,160
+instantaneous you know that's what you
+
+1154
+00:50:55,760 --> 00:51:00,079
+want you want instantaneous
+
+1155
+00:50:58,160 --> 00:51:02,640
+you know on a mac you also have this
+
+1156
+00:51:00,079 --> 00:51:05,119
+animation but it just works it's just
+
+1157
+00:51:02,640 --> 00:51:07,119
+it's beautiful and it works fine but on
+
+1158
+00:51:05,119 --> 00:51:10,160
+windows
+
+1159
+00:51:07,119 --> 00:51:13,040
+you know so all tab alt control tab it
+
+1160
+00:51:10,160 --> 00:51:15,359
+works okay instantaneous and no no like
+
+1161
+00:51:13,040 --> 00:51:18,960
+moving a little bit after you do it
+
+1162
+00:51:15,359 --> 00:51:20,559
+but now but now windows tries to make it
+
+1163
+00:51:18,960 --> 00:51:23,680
+you know
+
+1164
+00:51:20,559 --> 00:51:25,440
+fancy window tab
+
+1165
+00:51:23,680 --> 00:51:28,240
+animation then you have to wait a little
+
+1166
+00:51:25,440 --> 00:51:33,119
+bit for them to adjust and then the
+
+1167
+00:51:28,240 --> 00:51:35,200
+title pops up window idiocy
+
+1168
+00:51:33,119 --> 00:51:37,440
+okay linux is worse by the way every
+
+1169
+00:51:35,200 --> 00:51:40,640
+time i flame windows i have to add linux
+
+1170
+00:51:37,440 --> 00:51:43,200
+is more far more worse because the
+
+1171
+00:51:40,640 --> 00:51:45,119
+linux idiots
+
+1172
+00:51:43,200 --> 00:51:48,079
+you can even install it
+
+1173
+00:51:45,119 --> 00:51:51,760
+without spending a few months studying
+
+1174
+00:51:48,079 --> 00:51:54,720
+you know computer science stuff
+
+1175
+00:51:51,760 --> 00:51:57,920
+so anyway so the task the problem now is
+
+1176
+00:51:54,720 --> 00:52:00,800
+that so there's this command i can
+
+1177
+00:51:57,920 --> 00:52:02,839
+help me add this um
+
+1178
+00:52:00,800 --> 00:52:05,440
+you know html stuff
+
+1179
+00:52:02,839 --> 00:52:07,119
+but over the years i made a lot of
+
+1180
+00:52:05,440 --> 00:52:09,040
+changes and now that command doesn't
+
+1181
+00:52:07,119 --> 00:52:11,200
+work so well for example
+
+1182
+00:52:09,040 --> 00:52:15,680
+windows tab okay
+
+1183
+00:52:11,200 --> 00:52:16,640
+so i can do it in several ways w
+
+1184
+00:52:15,680 --> 00:52:18,880
+dash
+
+1185
+00:52:16,640 --> 00:52:22,640
+and you have
+
+1186
+00:52:18,880 --> 00:52:24,960
+so w is agree for width for me so
+
+1187
+00:52:22,640 --> 00:52:26,720
+i don't want with okay
+
+1188
+00:52:24,960 --> 00:52:28,319
+w dash
+
+1189
+00:52:26,720 --> 00:52:30,079
+tab okay
+
+1190
+00:52:28,319 --> 00:52:34,319
+call the command
+
+1191
+00:52:30,079 --> 00:52:37,040
+now you see the tab character is not
+
+1192
+00:52:34,319 --> 00:52:39,200
+doesn't have the keyboard markup so
+
+1193
+00:52:37,040 --> 00:52:42,160
+that's actually not good
+
+1194
+00:52:39,200 --> 00:52:45,160
+but however let's say
+
+1195
+00:52:42,160 --> 00:52:45,160
+w
+
+1196
+00:52:47,359 --> 00:52:54,079
+dash t for example call the command
+
+1197
+00:52:51,760 --> 00:52:56,079
+yeah it doesn't work so well so it's
+
+1198
+00:52:54,079 --> 00:52:58,640
+quite tedious to write this so what i
+
+1199
+00:52:56,079 --> 00:53:00,960
+want to do is fix it okay so for example
+
+1200
+00:52:58,640 --> 00:53:03,680
+so let's call let's show the source code
+
+1201
+00:53:00,960 --> 00:53:03,680
+of that command
+
+1202
+00:53:05,680 --> 00:53:10,480
+describe key press the key
+
+1203
+00:53:08,240 --> 00:53:14,000
+then you can see the short
+
+1204
+00:53:10,480 --> 00:53:16,160
+source code so tab jump to it here's the
+
+1205
+00:53:14,000 --> 00:53:18,400
+source code
+
+1206
+00:53:16,160 --> 00:53:20,240
+so this code began
+
+1207
+00:53:18,400 --> 00:53:22,400
+like 10 years ago but i don't have the
+
+1208
+00:53:20,240 --> 00:53:27,400
+beginning version date this code began
+
+1209
+00:53:22,400 --> 00:53:27,400
+10 years ago it went through every um
+
+1210
+00:53:28,800 --> 00:53:33,839
+you know because in the past year i did
+
+1211
+00:53:30,720 --> 00:53:36,880
+a lot of changes to my html mods so
+
+1212
+00:53:33,839 --> 00:53:38,240
+right now the this function is kind of
+
+1213
+00:53:36,880 --> 00:53:40,559
+um
+
+1214
+00:53:38,240 --> 00:53:43,200
+not so good
+
+1215
+00:53:40,559 --> 00:53:46,000
+it wasn't so good in the first place so
+
+1216
+00:53:43,200 --> 00:53:48,480
+what i want to do is to rewrite it
+
+1217
+00:53:46,000 --> 00:53:50,720
+but i i think i'm not going to do it
+
+1218
+00:53:48,480 --> 00:53:52,800
+today because we already talked one hour
+
+1219
+00:53:50,720 --> 00:53:53,510
+about other things
+
+1220
+00:53:52,800 --> 00:53:54,960
+um
+
+1221
+00:53:53,510 --> 00:53:59,280
+[Music]
+
+1222
+00:53:54,960 --> 00:53:59,280
+rsi pen right here right now
+
+1223
+00:53:59,839 --> 00:54:04,240
+too much typing
+
+1224
+00:54:01,680 --> 00:54:07,040
+okay i think that's it for today
+
+1225
+00:54:04,240 --> 00:54:07,040
+anything else
+
+1226
+00:54:07,839 --> 00:54:15,040
+sadena is the greatest letter making
+
+1227
+00:54:10,880 --> 00:54:17,119
+people misspelling words as ever so
+
+1228
+00:54:15,040 --> 00:54:19,200
+so i can talk let's talk five more
+
+1229
+00:54:17,119 --> 00:54:22,160
+minutes on something so any questions
+
+1230
+00:54:19,200 --> 00:54:25,599
+for me about emacs or stuff let's talk
+
+1231
+00:54:22,160 --> 00:54:28,160
+about keyboards maybe
+
+1232
+00:54:25,599 --> 00:54:29,760
+so you see all these tabs are the things
+
+1233
+00:54:28,160 --> 00:54:31,200
+i need to do
+
+1234
+00:54:29,760 --> 00:54:33,920
+um
+
+1235
+00:54:31,200 --> 00:54:36,480
+you know or review my old articles like
+
+1236
+00:54:33,920 --> 00:54:38,880
+1000 articles
+
+1237
+00:54:36,480 --> 00:54:42,240
+um
+
+1238
+00:54:38,880 --> 00:54:44,720
+so here is the wikipedia on keyboard
+
+1239
+00:54:42,240 --> 00:54:46,480
+layout you know wikipedia has grown and
+
+1240
+00:54:44,720 --> 00:54:48,480
+grown like
+
+1241
+00:54:46,480 --> 00:54:51,440
+you don't even know it behind you after
+
+1242
+00:54:48,480 --> 00:54:56,160
+10 years it has grown so much much more
+
+1243
+00:54:51,440 --> 00:54:56,160
+information and detail about many things
+
+1244
+00:54:56,559 --> 00:55:01,119
+i learned a lot from wikipedia of course
+
+1245
+00:54:58,880 --> 00:55:03,520
+not just you know on keyboard layout or
+
+1246
+00:55:01,119 --> 00:55:04,799
+math and lots of other things
+
+1247
+00:55:03,520 --> 00:55:07,119
+so
+
+1248
+00:55:04,799 --> 00:55:08,799
+here is interesting it's a chromebook
+
+1249
+00:55:07,119 --> 00:55:11,200
+photo of chromebook
+
+1250
+00:55:08,799 --> 00:55:15,680
+and why is it interesting because you
+
+1251
+00:55:11,200 --> 00:55:15,680
+can see uh what is it um
+
+1252
+00:55:16,799 --> 00:55:21,040
+is it the that key or something or the
+
+1253
+00:55:19,280 --> 00:55:24,880
+oh oh this
+
+1254
+00:55:21,040 --> 00:55:24,880
+i believe it's actually it's a
+
+1255
+00:55:25,440 --> 00:55:29,680
+old graph so you can see the old graph
+
+1256
+00:55:27,760 --> 00:55:30,799
+key there
+
+1257
+00:55:29,680 --> 00:55:34,520
+uh
+
+1258
+00:55:30,799 --> 00:55:34,520
+but what is this
+
+1259
+00:55:38,720 --> 00:55:41,599
+okay um
+
+1260
+00:55:42,079 --> 00:55:47,200
+so anyway so wikipedia powershell
+
+1261
+00:55:44,799 --> 00:55:48,880
+powershell my tutorial on powerful show
+
+1262
+00:55:47,200 --> 00:55:51,359
+if you haven't learned
+
+1263
+00:55:48,880 --> 00:55:53,200
+it yet learn it okay it's a powershell
+
+1264
+00:55:51,359 --> 00:55:56,319
+is fantastic
+
+1265
+00:55:53,200 --> 00:55:57,920
+you can see that's
+
+1266
+00:55:56,319 --> 00:56:00,559
+powershell
+
+1267
+00:55:57,920 --> 00:56:04,240
+so you can see i want to for example
+
+1268
+00:56:00,559 --> 00:56:07,680
+here is let's delete okay so let me show
+
+1269
+00:56:04,240 --> 00:56:10,960
+you again so i'm in this file this file
+
+1270
+00:56:07,680 --> 00:56:14,480
+is html mod source code i want to go to
+
+1271
+00:56:10,960 --> 00:56:17,520
+diode i just press two keys drop me to
+
+1272
+00:56:14,480 --> 00:56:19,119
+the diode and highlight the current file
+
+1273
+00:56:17,520 --> 00:56:22,160
+html mod
+
+1274
+00:56:19,119 --> 00:56:25,200
+and you see all those uh great ones
+
+1275
+00:56:22,160 --> 00:56:28,960
+those are backup files press the key
+
+1276
+00:56:25,200 --> 00:56:31,440
+to delete them delete them yes okay so
+
+1277
+00:56:28,960 --> 00:56:35,040
+all these are my packages
+
+1278
+00:56:31,440 --> 00:56:35,040
+and what do i want to do
+
+1279
+00:56:35,280 --> 00:56:40,880
+why am i talking about that yeah i
+
+1280
+00:56:37,200 --> 00:56:43,280
+wanted to yeah powershell okay so
+
+1281
+00:56:40,880 --> 00:56:46,079
+i'm using soft light keys another one my
+
+1282
+00:56:43,280 --> 00:56:47,920
+package is free on my website so i pre
+
+1283
+00:56:46,079 --> 00:56:49,839
+you know if i want to
+
+1284
+00:56:47,920 --> 00:56:51,440
+show this directory in powershell i
+
+1285
+00:56:49,839 --> 00:56:53,839
+press a key
+
+1286
+00:56:51,440 --> 00:56:55,680
+you know now i'm in powershell in this
+
+1287
+00:56:53,839 --> 00:56:56,839
+directory
+
+1288
+00:56:55,680 --> 00:57:00,400
+uh
+
+1289
+00:56:56,839 --> 00:57:02,960
+and and if you are on linux of course it
+
+1290
+00:57:00,400 --> 00:57:05,680
+goes to bash on the mac same thing it
+
+1291
+00:57:02,960 --> 00:57:08,400
+goes to z shell
+
+1292
+00:57:05,680 --> 00:57:10,559
+so powershell okay exit
+
+1293
+00:57:08,400 --> 00:57:12,400
+so what else
+
+1294
+00:57:10,559 --> 00:57:16,400
+that's it for today
+
+1295
+00:57:12,400 --> 00:57:16,400
+okay that yeah that's it for today so
+
+1296
+00:57:17,119 --> 00:57:24,160
+uh be on a tivo is a efficient layout
+
+1297
+00:57:21,119 --> 00:57:26,799
+for poochie keys you know my website is
+
+1298
+00:57:24,160 --> 00:57:29,359
+kind of the first one to
+
+1299
+00:57:26,799 --> 00:57:31,599
+to talk about this it's a designed by
+
+1300
+00:57:29,359 --> 00:57:33,760
+one of the guy um
+
+1301
+00:57:31,599 --> 00:57:34,640
+you know but then his website went down
+
+1302
+00:57:33,760 --> 00:57:36,400
+so
+
+1303
+00:57:34,640 --> 00:57:38,240
+they actually they have a link to my
+
+1304
+00:57:36,400 --> 00:57:41,280
+website now
+
+1305
+00:57:38,240 --> 00:57:46,040
+uh this so this wikipedia article is in
+
+1306
+00:57:41,280 --> 00:57:46,040
+puji keys pojiki's version
+
+1307
+00:57:58,799 --> 00:58:03,599
+yeah so here is link to my site
+
+1308
+00:58:03,920 --> 00:58:09,799
+uh what else
+
+1309
+00:58:06,480 --> 00:58:09,799
+let's see
+
+1310
+00:58:09,839 --> 00:58:15,920
+so here is the mozilla reference on
+
+1311
+00:58:13,760 --> 00:58:17,839
+you know i was looking at this when i
+
+1312
+00:58:15,920 --> 00:58:21,160
+was trying to do the
+
+1313
+00:58:17,839 --> 00:58:21,160
+dark thing
+
+1314
+00:58:22,880 --> 00:58:27,839
+okay one hour talk thank you guys for
+
+1315
+00:58:25,119 --> 00:58:30,319
+watching that's it for today
+
+1316
+00:58:27,839 --> 00:58:32,000
+and thank you andre
+
+1317
+00:58:30,319 --> 00:58:37,000
+bye guys
+
+1318
+00:58:32,000 --> 00:58:37,000
+so i'm shutting down in a minute
+
+1319
+00:58:41,520 --> 00:58:47,760
+delete
+
+1320
+00:58:42,559 --> 00:58:49,040
+delete windows logo key shortcut shrink
+
+1321
+00:58:47,760 --> 00:58:51,599
+dd
+
+1322
+00:58:49,040 --> 00:58:54,480
+in browser tv close
+
+1323
+00:58:51,599 --> 00:58:55,280
+show in browser so this is today's talk
+
+1324
+00:58:54,480 --> 00:58:56,880
+show
+
+1325
+00:58:55,280 --> 00:58:57,599
+close
+
+1326
+00:58:56,880 --> 00:59:03,559
+uh
+
+1327
+00:58:57,599 --> 00:59:03,559
+refresh what is this site html mode
+
+1328
+00:59:04,799 --> 00:59:10,480
+we already have it close that
+
+1329
+00:59:07,839 --> 00:59:10,480
+close that
+
+1330
+00:59:10,960 --> 00:59:14,160
+okay undo
+
+1331
+00:59:12,319 --> 00:59:18,000
+you know let me show you what i want to
+
+1332
+00:59:14,160 --> 00:59:21,359
+do with this so if you go to you know
+
+1333
+00:59:18,000 --> 00:59:23,839
+the index do it yourself keyboard
+
+1334
+00:59:21,359 --> 00:59:26,319
+and if you scroll down
+
+1335
+00:59:23,839 --> 00:59:28,160
+scroll down
+
+1336
+00:59:26,319 --> 00:59:29,359
+scroll down
+
+1337
+00:59:28,160 --> 00:59:31,359
+you can see
+
+1338
+00:59:29,359 --> 00:59:33,680
+it's here
+
+1339
+00:59:31,359 --> 00:59:34,880
+you know but however
+
+1340
+00:59:33,680 --> 00:59:36,480
+this is
+
+1341
+00:59:34,880 --> 00:59:38,000
+there's a better place
+
+1342
+00:59:36,480 --> 00:59:40,400
+to
+
+1343
+00:59:38,000 --> 00:59:43,520
+you know there's a better index page to
+
+1344
+00:59:40,400 --> 00:59:44,640
+play to place this keyboard and that
+
+1345
+00:59:43,520 --> 00:59:48,480
+would be
+
+1346
+00:59:44,640 --> 00:59:49,599
+under the fun section so you go to fun
+
+1347
+00:59:48,480 --> 00:59:51,520
+so
+
+1348
+00:59:49,599 --> 00:59:54,799
+on this index page
+
+1349
+00:59:51,520 --> 00:59:57,280
+it's a bunch of interesting other teas
+
+1350
+00:59:54,799 --> 01:00:00,559
+weird keyboard and you know
+
+1351
+00:59:57,280 --> 01:00:02,559
+many interesting things for example
+
+1352
+01:00:00,559 --> 01:00:03,280
+backlit
+
+1353
+01:00:02,559 --> 01:00:06,000
+uh
+
+1354
+01:00:03,280 --> 01:00:08,400
+keys keypads you know for example this
+
+1355
+01:00:06,000 --> 01:00:10,160
+is this one is a classic this is the
+
+1356
+01:00:08,400 --> 01:00:12,880
+oldest
+
+1357
+01:00:10,160 --> 01:00:14,559
+used to sell for like two thousand or
+
+1358
+01:00:12,880 --> 01:00:16,640
+three thousand dollars
+
+1359
+01:00:14,559 --> 01:00:20,880
+this you know this is the granddaddy
+
+1360
+01:00:16,640 --> 01:00:23,920
+back in 2000 year 2000 okay
+
+1361
+01:00:20,880 --> 01:00:24,880
+optimus olympus
+
+1362
+01:00:23,920 --> 01:00:27,520
+but
+
+1363
+01:00:24,880 --> 01:00:29,839
+it turned they turned out they
+
+1364
+01:00:27,520 --> 01:00:32,880
+never practical but this you know was
+
+1365
+01:00:29,839 --> 01:00:34,640
+the first backlit you know a keyboard
+
+1366
+01:00:32,880 --> 01:00:37,839
+not backlit with a
+
+1367
+01:00:34,640 --> 01:00:37,839
+screen on each key
+
+1368
+01:00:37,920 --> 01:00:42,960
+so this front section
+
+1369
+01:00:40,640 --> 01:00:47,599
+you know so we have all these kind of
+
+1370
+01:00:42,960 --> 01:00:49,680
+weird um keyboard this this one is a
+
+1371
+01:00:47,599 --> 01:00:53,680
+art craft
+
+1372
+01:00:49,680 --> 01:00:56,559
+keyboard dedicated each one cost you 300
+
+1373
+01:00:53,680 --> 01:00:59,119
+dollars or 400 dollars you know it's
+
+1374
+01:00:56,559 --> 01:01:02,400
+crafted crafted by a guy
+
+1375
+01:00:59,119 --> 01:01:03,920
+to emulate retro feel
+
+1376
+01:01:02,400 --> 01:01:06,160
+about
+
+1377
+01:01:03,920 --> 01:01:08,799
+more than 10 years ago but they still
+
+1378
+01:01:06,160 --> 01:01:12,720
+he's still around
+
+1379
+01:01:08,799 --> 01:01:15,119
+so many interesting things okay so
+
+1380
+01:01:12,720 --> 01:01:18,640
+one of the section on this
+
+1381
+01:01:15,119 --> 01:01:22,000
+fun keyboard section is the
+
+1382
+01:01:18,640 --> 01:01:23,200
+thousands keys keyboard with a thousand
+
+1383
+01:01:22,000 --> 01:01:26,720
+keys
+
+1384
+01:01:23,200 --> 01:01:29,119
+you know so this is hyper seven this is
+
+1385
+01:01:26,720 --> 01:01:32,079
+this this one is loved on reddit all the
+
+1386
+01:01:29,119 --> 01:01:33,839
+time by the least people or similar
+
+1387
+01:01:32,079 --> 01:01:35,119
+or something like that you know hyper
+
+1388
+01:01:33,839 --> 01:01:38,960
+seven
+
+1389
+01:01:35,119 --> 01:01:40,960
+one thousand keys so this one is got 213
+
+1390
+01:01:38,960 --> 01:01:43,440
+keys
+
+1391
+01:01:40,960 --> 01:01:46,079
+not not good okay i wouldn't say it's
+
+1392
+01:01:43,440 --> 01:01:48,720
+good at all i wouldn't i wouldn't use it
+
+1393
+01:01:46,079 --> 01:01:52,079
+and then you have this keyboard monster
+
+1394
+01:01:48,720 --> 01:01:53,440
+using the motrons one hand one-handed
+
+1395
+01:01:52,079 --> 01:01:54,720
+keyboard
+
+1396
+01:01:53,440 --> 01:01:56,480
+two of them
+
+1397
+01:01:54,720 --> 01:01:58,880
+then you have this
+
+1398
+01:01:56,480 --> 01:02:01,680
+keyboard this keyboard the way you use
+
+1399
+01:01:58,880 --> 01:02:03,680
+it it's for disabled person the way you
+
+1400
+01:02:01,680 --> 01:02:05,359
+use this keyboard is supposed to be like
+
+1401
+01:02:03,680 --> 01:02:08,240
+this
+
+1402
+01:02:05,359 --> 01:02:09,039
+use your mouth you know
+
+1403
+01:02:08,240 --> 01:02:11,599
+so
+
+1404
+01:02:09,039 --> 01:02:14,720
+but then this guy a friend he put them
+
+1405
+01:02:11,599 --> 01:02:17,359
+together you know he he you know this uh
+
+1406
+01:02:14,720 --> 01:02:19,359
+a friend on twitter so so his twitter
+
+1407
+01:02:17,359 --> 01:02:21,039
+account is
+
+1408
+01:02:19,359 --> 01:02:23,280
+you can see it
+
+1409
+01:02:21,039 --> 01:02:24,559
+david core okay
+
+1410
+01:02:23,280 --> 01:02:27,200
+there
+
+1411
+01:02:24,559 --> 01:02:29,520
+so so this section is just a bunch of
+
+1412
+01:02:27,200 --> 01:02:32,400
+keyboard with a thousand keys and look
+
+1413
+01:02:29,520 --> 01:02:36,319
+at this one you know
+
+1414
+01:02:32,400 --> 01:02:39,280
+so he's got one two three four five
+
+1415
+01:02:36,319 --> 01:02:42,079
+you know he's got the motron keyboard
+
+1416
+01:02:39,280 --> 01:02:43,079
+then he's got you know a motron keyboard
+
+1417
+01:02:42,079 --> 01:02:46,480
+has
+
+1418
+01:02:43,079 --> 01:02:48,799
+126 keys 126.
+
+1419
+01:02:46,480 --> 01:02:51,440
+plus he's got one two three four five
+
+1420
+01:02:48,799 --> 01:02:54,559
+six six
+
+1421
+01:02:51,440 --> 01:02:57,839
+strips of the x keys
+
+1422
+01:02:54,559 --> 01:03:00,720
+strip each one has about 12 keys so he
+
+1423
+01:02:57,839 --> 01:03:02,640
+got six of them you know
+
+1424
+01:03:00,720 --> 01:03:05,200
+seven actually
+
+1425
+01:03:02,640 --> 01:03:08,720
+one thousand k so so this one thousand
+
+1426
+01:03:05,200 --> 01:03:11,280
+keys keyboard means you press one button
+
+1427
+01:03:08,720 --> 01:03:13,760
+and your launch nukes everything you do
+
+1428
+01:03:11,280 --> 01:03:17,119
+is just one button press okay
+
+1429
+01:03:13,760 --> 01:03:20,240
+so this so there is this one
+
+1430
+01:03:17,119 --> 01:03:20,240
+kanji keyboard
+
+1431
+01:03:20,880 --> 01:03:24,720
+okay
+
+1432
+01:03:22,160 --> 01:03:27,440
+these are real keyboards but then you
+
+1433
+01:03:24,720 --> 01:03:29,200
+know one of them is the most idiotic
+
+1434
+01:03:27,440 --> 01:03:31,760
+that is
+
+1435
+01:03:29,200 --> 01:03:34,319
+posted all the time i i don't
+
+1436
+01:03:31,760 --> 01:03:36,400
+i don't find it funny okay this one this
+
+1437
+01:03:34,319 --> 01:03:37,440
+is april fool's joke
+
+1438
+01:03:36,400 --> 01:03:39,839
+uh
+
+1439
+01:03:37,440 --> 01:03:42,799
+google's april fools
+
+1440
+01:03:39,839 --> 01:03:43,760
+joke from japan japan's google you know
+
+1441
+01:03:42,799 --> 01:03:46,480
+they
+
+1442
+01:03:43,760 --> 01:03:46,480
+they did this
+
+1443
+01:03:46,720 --> 01:03:51,760
+you know so a lot of people like it and
+
+1444
+01:03:49,119 --> 01:03:54,400
+it's continuously posted
+
+1445
+01:03:51,760 --> 01:03:54,400
+every year
+
+1446
+01:03:54,880 --> 01:04:01,520
+but it's you know it's not interesting
+
+1447
+01:03:56,799 --> 01:04:01,520
+at all okay that's it bye
+
+1448
+01:04:01,920 --> 01:04:07,200
+and she's the most beautiful girl you
+
+1449
+01:04:04,079 --> 01:04:08,640
+know you may know or may not know her
+
+1450
+01:04:07,200 --> 01:04:12,400
+and
+
+1451
+01:04:08,640 --> 01:04:15,760
+i happens to know her and she's the most
+
+1452
+01:04:12,400 --> 01:04:15,760
+beautiful girl in the world
+
+1453
+01:04:23,280 --> 01:04:28,640
+dentist
+
+1454
+01:04:24,839 --> 01:04:30,799
+then no taking system yeah so that about
+
+1455
+01:04:28,640 --> 01:04:33,440
+that note-taking system
+
+1456
+01:04:30,799 --> 01:04:34,319
+that's you know that unpronounceable
+
+1457
+01:04:33,440 --> 01:04:37,280
+name
+
+1458
+01:04:34,319 --> 01:04:39,760
+in fact one of our member here
+
+1459
+01:04:37,280 --> 01:04:42,960
+he's part of the author involved with
+
+1460
+01:04:39,760 --> 01:04:44,880
+that system okay he posts here often
+
+1461
+01:04:42,960 --> 01:04:47,359
+um
+
+1462
+01:04:44,880 --> 01:04:49,440
+this guy
+
+1463
+01:04:47,359 --> 01:04:51,920
+okay so he
+
+1464
+01:04:49,440 --> 01:04:55,839
+he works with that he's the author of
+
+1465
+01:04:51,920 --> 01:04:55,839
+some packages about that and
+
+1466
+01:04:56,480 --> 01:05:03,880
+and you can find his website you know so
+
+1467
+01:05:00,079 --> 01:05:03,880
+he's also on twitter
+
+1468
+01:05:08,799 --> 01:05:15,200
+yeah there it is so that's him so you
+
+1469
+01:05:11,680 --> 01:05:18,160
+can on twitter on medium and he's got a
+
+1470
+01:05:15,200 --> 01:05:21,200
+github he's uh you know
+
+1471
+01:05:18,160 --> 01:05:21,200
+so you can find
+
+1472
+01:05:21,680 --> 01:05:24,799
+you know interesting so
+
+1473
+01:05:24,880 --> 01:05:29,760
+so if you have any questions about that
+
+1474
+01:05:26,880 --> 01:05:33,039
+system notating system you can ask him
+
+1475
+01:05:29,760 --> 01:05:36,319
+he's the he's the expert
+
+1476
+01:05:33,039 --> 01:05:37,920
+of course he's also a e-max user he
+
+1477
+01:05:36,319 --> 01:05:40,920
+lives in emacs
+
+1478
+01:05:37,920 --> 01:05:40,920
+bye
+

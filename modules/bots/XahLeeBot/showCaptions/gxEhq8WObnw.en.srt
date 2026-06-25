@@ -1,0 +1,5624 @@
+1
+00:00:01,680 --> 00:00:08,240
+Good morning guys. Good morning
+
+2
+00:00:03,760 --> 00:00:12,480
+everyone. Welcome to another episode of
+
+3
+00:00:08,240 --> 00:00:16,400
+talk show. We are going to code geometry
+
+4
+00:00:12,480 --> 00:00:18,560
+mathematics graphics programming using
+
+5
+00:00:16,400 --> 00:00:22,560
+wuam language.
+
+6
+00:00:18,560 --> 00:00:24,960
+Uh so if you are here say hi. Uh this is
+
+7
+00:00:22,560 --> 00:00:28,560
+like randomish. So I'm just going to
+
+8
+00:00:24,960 --> 00:00:30,720
+work on my website. You are looking at a
+
+9
+00:00:28,560 --> 00:00:33,280
+visual dictionary of special plane
+
+10
+00:00:30,720 --> 00:00:36,559
+curves. Search for it. You will find it.
+
+11
+00:00:33,280 --> 00:00:41,120
+This is mathematics, geometry. Pertinent
+
+12
+00:00:36,559 --> 00:00:43,440
+to those of you studying uh calculus or
+
+13
+00:00:41,120 --> 00:00:46,879
+college students,
+
+14
+00:00:43,440 --> 00:00:48,879
+elementary. This is like college level.
+
+15
+00:00:46,879 --> 00:00:50,719
+Um
+
+16
+00:00:48,879 --> 00:00:54,719
+if you are watching this offline, play
+
+17
+00:00:50,719 --> 00:00:56,879
+at 1.5 speed. Uh what I'm going to do is
+
+18
+00:00:54,719 --> 00:01:00,640
+just I'm just going to work on my
+
+19
+00:00:56,879 --> 00:01:02,640
+website and if you have questions um you
+
+20
+00:01:00,640 --> 00:01:04,239
+can ask me about programming about
+
+21
+00:01:02,640 --> 00:01:07,360
+mathematics
+
+22
+00:01:04,239 --> 00:01:10,720
+and otherwise you just um you just can
+
+23
+00:01:07,360 --> 00:01:14,240
+you can watch me code or
+
+24
+00:01:10,720 --> 00:01:17,040
+fall asleep something like ASMR stuff.
+
+25
+00:01:14,240 --> 00:01:19,920
+Okay. So we're gonna go slowly and
+
+26
+00:01:17,040 --> 00:01:24,159
+drink. So if you don't know already my
+
+27
+00:01:19,920 --> 00:01:28,240
+gears like Emacs the most advanced text
+
+28
+00:01:24,159 --> 00:01:30,240
+text editor and
+
+29
+00:01:28,240 --> 00:01:33,200
+okay if you don't my if you don't know
+
+30
+00:01:30,240 --> 00:01:36,320
+my gears well let me show you okay so
+
+31
+00:01:33,200 --> 00:01:40,640
+talk show today's talk show 2026
+
+32
+00:01:36,320 --> 00:01:43,360
+March 4th episode 774
+
+33
+00:01:40,640 --> 00:01:45,920
+so let's go down so we are in Emacs
+
+34
+00:01:43,360 --> 00:01:49,040
+delete that show in browser so now it's
+
+35
+00:01:45,920 --> 00:01:52,000
+better and delete that todo hack. Uh, so
+
+36
+00:01:49,040 --> 00:01:54,159
+I'm using this ultimate hacking keyboard
+
+37
+00:01:52,000 --> 00:01:59,000
+80. UHK80.
+
+38
+00:01:54,159 --> 00:01:59,000
+You can find it in my reviews
+
+39
+00:01:59,360 --> 00:02:08,000
+on YouTube. This keyboard. Okay. Uh K80.
+
+40
+00:02:04,000 --> 00:02:09,599
+And that's NAI
+
+41
+00:02:08,000 --> 00:02:12,160
+track.
+
+42
+00:02:09,599 --> 00:02:16,000
+Fantastic. That's my favorite
+
+43
+00:02:12,160 --> 00:02:19,280
+trackboard. And this one is Logitech.
+
+44
+00:02:16,000 --> 00:02:22,400
+uh very popular Logitech G502.
+
+45
+00:02:19,280 --> 00:02:23,840
+I have it for like by now seven years. I
+
+46
+00:02:22,400 --> 00:02:27,599
+think I've been using it for seven
+
+47
+00:02:23,840 --> 00:02:29,280
+years. Okay. And uh I'm using Emacs of
+
+48
+00:02:27,599 --> 00:02:31,440
+course.
+
+49
+00:02:29,280 --> 00:02:34,239
+And if you don't know already uh
+
+50
+00:02:31,440 --> 00:02:37,599
+actually show you know just show let me
+
+51
+00:02:34,239 --> 00:02:40,560
+show you visual dictionary of special
+
+52
+00:02:37,599 --> 00:02:43,680
+plane curves. Okay. And search for it
+
+53
+00:02:40,560 --> 00:02:46,000
+you'll find it. And we end. I'm using
+
+54
+00:02:43,680 --> 00:02:48,720
+SFly keys. The most efficient key
+
+55
+00:02:46,000 --> 00:02:52,000
+binding system in the universe more
+
+56
+00:02:48,720 --> 00:02:54,800
+efficient than Vim or Neo Vim. There are
+
+57
+00:02:52,000 --> 00:02:58,560
+videos you can watch and it's download.
+
+58
+00:02:54,800 --> 00:03:00,720
+It's free. It's for Emacs. Uh if you are
+
+59
+00:02:58,560 --> 00:03:03,360
+programmer, if you are a writer, this
+
+60
+00:03:00,720 --> 00:03:06,400
+would be most suitable.
+
+61
+00:03:03,360 --> 00:03:08,879
+Uh this is critical because it's going
+
+62
+00:03:06,400 --> 00:03:12,239
+to change your life if you are a writer
+
+63
+00:03:08,879 --> 00:03:14,480
+or a programmer because you're gonna you
+
+64
+00:03:12,239 --> 00:03:17,280
+know you need to write or codes and this
+
+65
+00:03:14,480 --> 00:03:20,879
+is the most efficient
+
+66
+00:03:17,280 --> 00:03:24,159
+fly keys emac
+
+67
+00:03:20,879 --> 00:03:27,200
+let's see and wam language I introduced
+
+68
+00:03:24,159 --> 00:03:31,120
+many times search for kasar wam language
+
+69
+00:03:27,200 --> 00:03:33,120
+for programmers kasali.info info my name
+
+70
+00:03:31,120 --> 00:03:35,599
+you'll find it
+
+71
+00:03:33,120 --> 00:03:38,480
+complete tutorial from the ground up for
+
+72
+00:03:35,599 --> 00:03:40,879
+programmers if you know Python or
+
+73
+00:03:38,480 --> 00:03:44,159
+JavaScript it's fantastic and you can
+
+74
+00:03:40,879 --> 00:03:47,599
+download it free since few years ago the
+
+75
+00:03:44,159 --> 00:03:50,799
+most advanced programming language by a
+
+76
+00:03:47,599 --> 00:03:52,480
+magnitude woof language okay so you can
+
+77
+00:03:50,799 --> 00:03:55,599
+download so and that's what we're going
+
+78
+00:03:52,480 --> 00:03:58,080
+to do uh so if you are looking at the
+
+79
+00:03:55,599 --> 00:04:03,120
+thumbnail of today's YouTube that's this
+
+80
+00:03:58,080 --> 00:04:07,040
+one Let's let's run. Okay. So, um
+
+81
+00:04:03,120 --> 00:04:09,120
+so shift shift enter. Okay. So, it
+
+82
+00:04:07,040 --> 00:04:12,720
+generates a new one. I I don't want this
+
+83
+00:04:09,120 --> 00:04:14,400
+one too big. Okay. Let's just um shift
+
+84
+00:04:12,720 --> 00:04:18,799
+enter
+
+85
+00:04:14,400 --> 00:04:22,079
+and what? Shift enter generates a a new
+
+86
+00:04:18,799 --> 00:04:24,720
+one. Okay, that's a code that is wam
+
+87
+00:04:22,079 --> 00:04:28,000
+language you're looking at.
+
+88
+00:04:24,720 --> 00:04:31,759
+Uh okay. So, wuam language download
+
+89
+00:04:28,000 --> 00:04:34,800
+introduction and um you can download you
+
+90
+00:04:31,759 --> 00:04:37,520
+can I have like 100 videos about wam
+
+91
+00:04:34,800 --> 00:04:40,000
+language. Okay, that's introduction
+
+92
+00:04:37,520 --> 00:04:43,199
+about wam language and what else? Let's
+
+93
+00:04:40,000 --> 00:04:45,919
+go back and today we're going to use a
+
+94
+00:04:43,199 --> 00:04:48,960
+lot of wam language packages for doing
+
+95
+00:04:45,919 --> 00:04:51,520
+plain curves. So, you can see uh it's
+
+96
+00:04:48,960 --> 00:04:53,919
+all free. It's on GitHub. So, just
+
+97
+00:04:51,520 --> 00:04:57,840
+search for it. Search for Wuam language
+
+98
+00:04:53,919 --> 00:05:01,520
+packages by my name. You can find all
+
+99
+00:04:57,840 --> 00:05:05,320
+these packages. Fantastic and beautiful.
+
+100
+00:05:01,520 --> 00:05:05,320
+Cheers. Red wine.
+
+101
+00:05:10,400 --> 00:05:17,680
+You see you're looking at this is
+
+102
+00:05:13,280 --> 00:05:20,479
+normals of of the curve deltoid.
+
+103
+00:05:17,680 --> 00:05:24,400
+Normals of the deltoid. Let me just go
+
+104
+00:05:20,479 --> 00:05:29,520
+over this. illustrate tangent.
+
+105
+00:05:24,400 --> 00:05:33,440
+Nomos of a deltoid. Nomos of a parabola.
+
+106
+00:05:29,520 --> 00:05:35,199
+Nomos of a asteroid. This star- shaped
+
+107
+00:05:33,440 --> 00:05:38,639
+thing is called asteroid. We talked
+
+108
+00:05:35,199 --> 00:05:41,199
+about in the past week. And the nomos of
+
+109
+00:05:38,639 --> 00:05:43,360
+a asteroid forms another asteroid. You
+
+110
+00:05:41,199 --> 00:05:45,600
+can you can see it forms another
+
+111
+00:05:43,360 --> 00:05:47,759
+asteroid in different orientation.
+
+112
+00:05:45,600 --> 00:05:51,360
+Fascinating.
+
+113
+00:05:47,759 --> 00:05:53,440
+This is normals of a cardioid. Cardioid
+
+114
+00:05:51,360 --> 00:05:56,000
+means heart-shaped
+
+115
+00:05:53,440 --> 00:05:58,400
+curve. This curve and the known of a
+
+116
+00:05:56,000 --> 00:06:01,199
+cardioid is another cardioid. You can
+
+117
+00:05:58,400 --> 00:06:04,560
+see it generates inside it a little this
+
+118
+00:06:01,199 --> 00:06:06,720
+this is like a ass curve because it
+
+119
+00:06:04,560 --> 00:06:08,880
+shape the shape looks like a S but they
+
+120
+00:06:06,720 --> 00:06:12,240
+call it heart because they you know like
+
+121
+00:06:08,880 --> 00:06:15,440
+the heart but you know they call it
+
+122
+00:06:12,240 --> 00:06:19,360
+cardioid and but it generates a smaller
+
+123
+00:06:15,440 --> 00:06:21,360
+cardioid inside. Uh I should have the
+
+124
+00:06:19,360 --> 00:06:24,319
+normal lines longer so you can actually
+
+125
+00:06:21,360 --> 00:06:25,680
+see it. But is that actually true or is
+
+126
+00:06:24,319 --> 00:06:29,440
+it just looks like you see in
+
+127
+00:06:25,680 --> 00:06:31,360
+mathematics you can't you cannot say
+
+128
+00:06:29,440 --> 00:06:33,600
+something is true just by the look of
+
+129
+00:06:31,360 --> 00:06:40,639
+it. You see in mathematics you have to
+
+130
+00:06:33,600 --> 00:06:44,000
+do proof. Okay. So but this visual tools
+
+131
+00:06:40,639 --> 00:06:47,440
+illustrates the truth or they can help
+
+132
+00:06:44,000 --> 00:06:50,800
+you find what is true. then you can do
+
+133
+00:06:47,440 --> 00:06:54,000
+proofs, okay? You know, um because when
+
+134
+00:06:50,800 --> 00:06:57,120
+something is obviously not true and when
+
+135
+00:06:54,000 --> 00:06:59,440
+you do a illustration, usually it just
+
+136
+00:06:57,120 --> 00:07:01,759
+doesn't work. You know, you can tell
+
+137
+00:06:59,440 --> 00:07:05,919
+right away it's not true. So anyway, so
+
+138
+00:07:01,759 --> 00:07:07,440
+this is this is normal normals of
+
+139
+00:07:05,919 --> 00:07:11,599
+ellipse.
+
+140
+00:07:07,440 --> 00:07:13,280
+Okay. Uh and they form a curve. Uh I'm
+
+141
+00:07:11,599 --> 00:07:15,919
+not sure there's a name for that curve.
+
+142
+00:07:13,280 --> 00:07:18,639
+that that thing in the middle
+
+143
+00:07:15,919 --> 00:07:22,160
+the envelope of the normals of ellipse.
+
+144
+00:07:18,639 --> 00:07:24,880
+Okay. And this one is the nor uh normals
+
+145
+00:07:22,160 --> 00:07:27,759
+of deltoid. Jesus, why do I always have
+
+146
+00:07:24,880 --> 00:07:30,479
+like normals? Okay. Anyway, so those all
+
+147
+00:07:27,759 --> 00:07:33,360
+the above are normals. Okay. Then use
+
+148
+00:07:30,479 --> 00:07:37,120
+normals are by the way normals are the
+
+149
+00:07:33,360 --> 00:07:39,280
+line that is perpendicular to tangent.
+
+150
+00:07:37,120 --> 00:07:42,000
+Okay. Now if you don't know, let me just
+
+151
+00:07:39,280 --> 00:07:43,840
+like I can explain this. So even if you
+
+152
+00:07:42,000 --> 00:07:46,639
+don't know any mathematics you will
+
+153
+00:07:43,840 --> 00:07:48,479
+understand
+
+154
+00:07:46,639 --> 00:07:52,160
+you know they they don't teach like that
+
+155
+00:07:48,479 --> 00:07:54,879
+in school. But so what is tangent?
+
+156
+00:07:52,160 --> 00:07:57,680
+Tangent is the most fundamental
+
+157
+00:07:54,879 --> 00:08:00,240
+intuitive idea. When you have a curve
+
+158
+00:07:57,680 --> 00:08:03,360
+like in a plane like for example this
+
+159
+00:08:00,240 --> 00:08:06,720
+one sign that's sign curve and any point
+
+160
+00:08:03,360 --> 00:08:09,599
+on the plane then there is a line
+
+161
+00:08:06,720 --> 00:08:13,440
+passing that point that is the most
+
+162
+00:08:09,599 --> 00:08:16,919
+fitting at that point you see that line
+
+163
+00:08:13,440 --> 00:08:16,919
+is called tangent
+
+164
+00:08:17,440 --> 00:08:22,720
+line line of the curve at that point.
+
+165
+00:08:20,479 --> 00:08:25,039
+Okay at the at the point on the curve is
+
+166
+00:08:22,720 --> 00:08:27,039
+C. So if the point is here the tangent
+
+167
+00:08:25,039 --> 00:08:28,879
+is this. If the point is there the
+
+168
+00:08:27,039 --> 00:08:31,120
+tangent is that you see there there is
+
+169
+00:08:28,879 --> 00:08:33,279
+one line such that it's like
+
+170
+00:08:31,120 --> 00:08:36,719
+mathematically it's the most fitting you
+
+171
+00:08:33,279 --> 00:08:39,599
+know there's one now how do you exactly
+
+172
+00:08:36,719 --> 00:08:42,640
+define that you know so anyway I'm
+
+173
+00:08:39,599 --> 00:08:45,600
+explaining to you the intuitive notion
+
+174
+00:08:42,640 --> 00:08:48,080
+of tangent tangent lines it's most it's
+
+175
+00:08:45,600 --> 00:08:50,399
+like the most fundamental idea in
+
+176
+00:08:48,080 --> 00:08:53,760
+differential geometry which is the
+
+177
+00:08:50,399 --> 00:08:57,120
+geometry for
+
+178
+00:08:53,760 --> 00:09:00,160
+uh relativity Okay, like most physics
+
+179
+00:08:57,120 --> 00:09:02,160
+differential geometry is um basically
+
+180
+00:09:00,160 --> 00:09:05,519
+when you study physics it is
+
+181
+00:09:02,160 --> 00:09:07,440
+differential geometry that is you would
+
+182
+00:09:05,519 --> 00:09:10,880
+be concerned about okay about the
+
+183
+00:09:07,440 --> 00:09:12,560
+universe okay so tangent is the most
+
+184
+00:09:10,880 --> 00:09:15,519
+fundamental idea so you got tangent
+
+185
+00:09:12,560 --> 00:09:17,839
+lines so you see so I I explained the
+
+186
+00:09:15,519 --> 00:09:19,760
+intuitive notion of tangent you see when
+
+187
+00:09:17,839 --> 00:09:22,640
+you have a curve like a smooth curve
+
+188
+00:09:19,760 --> 00:09:25,839
+there's and given a point on a curve
+
+189
+00:09:22,640 --> 00:09:28,959
+there's one line line that's most
+
+190
+00:09:25,839 --> 00:09:32,560
+fitting. You know there's one and only
+
+191
+00:09:28,959 --> 00:09:34,399
+one. Okay. So that's a intuitive notion.
+
+192
+00:09:32,560 --> 00:09:36,640
+But what what is it? How do you define
+
+193
+00:09:34,399 --> 00:09:39,279
+precisely mathematics?
+
+194
+00:09:36,640 --> 00:09:41,360
+Well, that's when you need to study
+
+195
+00:09:39,279 --> 00:09:43,920
+analytic geometry. You know that's what
+
+196
+00:09:41,360 --> 00:09:46,640
+that's what that's when you go to school
+
+197
+00:09:43,920 --> 00:09:48,640
+to study mathematics. You see you
+
+198
+00:09:46,640 --> 00:09:52,480
+started to have a coordinate you know
+
+199
+00:09:48,640 --> 00:09:55,120
+x-axis yaxis. Then you define you you
+
+200
+00:09:52,480 --> 00:09:58,560
+know you can specify a point by the x
+
+201
+00:09:55,120 --> 00:10:01,600
+you know a number x coordinate and y
+
+202
+00:09:58,560 --> 00:10:05,279
+coordinate and you can define a curve
+
+203
+00:10:01,600 --> 00:10:08,560
+now by giving a function you know like t
+
+204
+00:10:05,279 --> 00:10:11,600
+x equals to this function value y equals
+
+205
+00:10:08,560 --> 00:10:16,160
+to that function's value. So at any time
+
+206
+00:10:11,600 --> 00:10:18,959
+t you got two numbers x and y that
+
+207
+00:10:16,160 --> 00:10:21,279
+specify a point. So at any time you got
+
+208
+00:10:18,959 --> 00:10:25,040
+a point. So, so you started to have a
+
+209
+00:10:21,279 --> 00:10:27,519
+curve you see and if the curve is smooth
+
+210
+00:10:25,040 --> 00:10:30,480
+that's advanced idea. So, but
+
+211
+00:10:27,519 --> 00:10:33,839
+intuitively we we all think of curve as
+
+212
+00:10:30,480 --> 00:10:36,560
+smooth but anyway so then you can you
+
+213
+00:10:33,839 --> 00:10:39,680
+you you got a point on a curve you can
+
+214
+00:10:36,560 --> 00:10:41,839
+define you can have a
+
+215
+00:10:39,680 --> 00:10:43,760
+line is also a curve so you can have a
+
+216
+00:10:41,839 --> 00:10:46,959
+equation for a line. So you start
+
+217
+00:10:43,760 --> 00:10:49,120
+started to get um
+
+218
+00:10:46,959 --> 00:10:51,200
+precise you know like mathematics you
+
+219
+00:10:49,120 --> 00:10:54,399
+know you can define what is a line you
+
+220
+00:10:51,200 --> 00:10:56,959
+know so then okay but uh basically the
+
+221
+00:10:54,399 --> 00:10:59,519
+quick answer to the tangent is that
+
+222
+00:10:56,959 --> 00:11:02,399
+tangent is a derivative for the
+
+223
+00:10:59,519 --> 00:11:04,240
+functions of x and functions of y okay
+
+224
+00:11:02,399 --> 00:11:06,640
+now if you don't know calculus you don't
+
+225
+00:11:04,240 --> 00:11:08,880
+know what I mean but
+
+226
+00:11:06,640 --> 00:11:11,200
+that's you know then you can learn it
+
+227
+00:11:08,880 --> 00:11:14,480
+but the intuitive notion that I'm
+
+228
+00:11:11,200 --> 00:11:18,000
+explaining you know the tangent line.
+
+229
+00:11:14,480 --> 00:11:21,279
+Okay. And in in mathematics basically
+
+230
+00:11:18,000 --> 00:11:23,600
+that just means derivative
+
+231
+00:11:21,279 --> 00:11:25,760
+of the x component function and y
+
+232
+00:11:23,600 --> 00:11:28,720
+component. That's how you find the line.
+
+233
+00:11:25,760 --> 00:11:31,200
+Well, you find the tangent vector. Okay,
+
+234
+00:11:28,720 --> 00:11:34,320
+that's like a arrow on this point. You
+
+235
+00:11:31,200 --> 00:11:37,600
+know, the length of the arrow indicates
+
+236
+00:11:34,320 --> 00:11:40,320
+how fast the the the point is moving on
+
+237
+00:11:37,600 --> 00:11:43,600
+the curve. Okay.
+
+238
+00:11:40,320 --> 00:11:46,399
+Anyway, so we talked we talked about the
+
+239
+00:11:43,600 --> 00:11:48,800
+intuitive notion of tangent. Okay. Now,
+
+240
+00:11:46,399 --> 00:11:51,360
+what is a normal? Like we we showed we
+
+241
+00:11:48,800 --> 00:11:53,120
+we showed many normals. Normals are very
+
+242
+00:11:51,360 --> 00:11:56,320
+simple to understand. Once you got a
+
+243
+00:11:53,120 --> 00:12:02,800
+tangent, the normal
+
+244
+00:11:56,320 --> 00:12:06,880
+line of a point on the curve is the line
+
+245
+00:12:02,800 --> 00:12:08,800
+that passes the point and perpendicular
+
+246
+00:12:06,880 --> 00:12:10,720
+to the tangent.
+
+247
+00:12:08,800 --> 00:12:12,880
+Okay? So all you have to do is find the
+
+248
+00:12:10,720 --> 00:12:15,680
+tangent first. Then you draw a line
+
+249
+00:12:12,880 --> 00:12:18,160
+perpendicular perpendicular to the
+
+250
+00:12:15,680 --> 00:12:20,800
+tangent and pass in that point you know.
+
+251
+00:12:18,160 --> 00:12:22,560
+So for this one it would be like that.
+
+252
+00:12:20,800 --> 00:12:25,040
+For this tangent line it would be the
+
+253
+00:12:22,560 --> 00:12:26,800
+normal would be that the normal of the
+
+254
+00:12:25,040 --> 00:12:29,600
+curve at that point would be something
+
+255
+00:12:26,800 --> 00:12:31,760
+like that and that here and that here.
+
+256
+00:12:29,600 --> 00:12:35,040
+You see those are normal lines. Okay.
+
+257
+00:12:31,760 --> 00:12:37,040
+These are tangent. Okay. So um can we
+
+258
+00:12:35,040 --> 00:12:41,118
+actually plot it? Yes we can. you know,
+
+259
+00:12:37,040 --> 00:12:42,800
+you just type that you can
+
+260
+00:12:41,118 --> 00:12:45,279
+[laughter]
+
+261
+00:12:42,800 --> 00:12:49,040
+should I should should we plot it, you
+
+262
+00:12:45,279 --> 00:12:51,680
+know? So, actually we can, but I I I
+
+263
+00:12:49,040 --> 00:12:54,000
+have something else planned to do
+
+264
+00:12:51,680 --> 00:12:56,320
+anyway. So, actually let let's let's
+
+265
+00:12:54,000 --> 00:12:59,200
+plot it since we, you know, started to
+
+266
+00:12:56,320 --> 00:13:04,440
+talk about this um okay plane curve
+
+267
+00:12:59,200 --> 00:13:04,440
+plot. So let's go to um
+
+268
+00:13:04,480 --> 00:13:11,120
+okay so envelope let's just go to uh
+
+269
+00:13:08,560 --> 00:13:14,399
+let's just let me just do my things let
+
+270
+00:13:11,120 --> 00:13:17,839
+me just show you okay we already have
+
+271
+00:13:14,399 --> 00:13:21,519
+wam language open so oh yeah so you want
+
+272
+00:13:17,839 --> 00:13:25,760
+to plot it easy so let's see
+
+273
+00:13:21,519 --> 00:13:28,079
+so already paste it paste and magnify
+
+274
+00:13:25,760 --> 00:13:30,880
+please because otherwise it's too small
+
+275
+00:13:28,079 --> 00:13:33,600
+for people to t and what we want to plot
+
+276
+00:13:30,880 --> 00:13:36,480
+is this sign curve t and sine. So the
+
+277
+00:13:33,600 --> 00:13:39,120
+parameters are
+
+278
+00:13:36,480 --> 00:13:40,880
+here is just t and sign. Okay. So
+
+279
+00:13:39,120 --> 00:13:44,240
+actually we can plot it and see what
+
+280
+00:13:40,880 --> 00:13:50,160
+happened. Oh, it went crazy. So you know
+
+281
+00:13:44,240 --> 00:13:56,240
+so um so t and t from 0 to six. Okay. So
+
+282
+00:13:50,160 --> 00:13:58,639
+go back here t from 0 to six. So simple
+
+283
+00:13:56,240 --> 00:14:01,440
+not I don't want that you know super
+
+284
+00:13:58,639 --> 00:14:04,000
+complicated
+
+285
+00:14:01,440 --> 00:14:08,320
+um
+
+286
+00:14:04,000 --> 00:14:12,959
+delete T2 what six okay
+
+287
+00:14:08,320 --> 00:14:15,959
+six and uh costic style plot range
+
+288
+00:14:12,959 --> 00:14:15,959
+deleted
+
+289
+00:14:16,160 --> 00:14:22,240
+okay axis force deleted by default axis
+
+290
+00:14:19,680 --> 00:14:26,399
+will true is true we because we want to
+
+291
+00:14:22,240 --> 00:14:29,199
+see the axis background hue H 0 0 Hue 0
+
+292
+00:14:26,399 --> 00:14:32,240
+0 means black. I don't want black. Make
+
+293
+00:14:29,199 --> 00:14:36,399
+it white by default. Aspect ratio
+
+294
+00:14:32,240 --> 00:14:39,199
+automatic. That's good. Uh costic line
+
+295
+00:14:36,399 --> 00:14:42,399
+style. We don't want. What? By the way,
+
+296
+00:14:39,199 --> 00:14:45,760
+what does costic mean? Costic is a ray
+
+297
+00:14:42,399 --> 00:14:47,600
+from a light source. You see you got
+
+298
+00:14:45,760 --> 00:14:50,639
+this thing. This thing is a circle. You
+
+299
+00:14:47,600 --> 00:14:52,320
+see s cosine cosine s parametric
+
+300
+00:14:50,639 --> 00:14:54,320
+equation. That's the equation of a
+
+301
+00:14:52,320 --> 00:14:56,240
+circle. So here you got a circle
+
+302
+00:14:54,320 --> 00:14:58,160
+basically half of a circle because it
+
+303
+00:14:56,240 --> 00:15:00,880
+goes from
+
+304
+00:14:58,160 --> 00:15:04,000
+uh pi to 2 pi. You see it adds a little
+
+305
+00:15:00,880 --> 00:15:07,519
+number. You see we add that that those
+
+306
+00:15:04,000 --> 00:15:10,560
+tiny number to prevent like division by
+
+307
+00:15:07,519 --> 00:15:13,680
+zero and division by infinity something
+
+308
+00:15:10,560 --> 00:15:16,800
+like that. So that's why we add that
+
+309
+00:15:13,680 --> 00:15:18,800
+those but actually I don't think may not
+
+310
+00:15:16,800 --> 00:15:22,800
+be necessary. Let's try it again. You
+
+311
+00:15:18,800 --> 00:15:26,480
+see it's not necessary. So this tiny
+
+312
+00:15:22,800 --> 00:15:31,920
+number let's remove it. So in this case
+
+313
+00:15:26,480 --> 00:15:36,560
+we are plotting cosine and s
+
+314
+00:15:31,920 --> 00:15:40,320
+cosine t is the number for the x
+
+315
+00:15:36,560 --> 00:15:42,800
+coordinate a number. Okay sin t is a
+
+316
+00:15:40,320 --> 00:15:45,920
+number for the ycoordinate cosine and s.
+
+317
+00:15:42,800 --> 00:15:48,959
+Okay. And t is a t is time. You can
+
+318
+00:15:45,920 --> 00:15:53,920
+think of it as time. So t goes from pi
+
+319
+00:15:48,959 --> 00:15:57,279
+to 2 pi. And in steps of pi over 40. So
+
+320
+00:15:53,920 --> 00:16:01,279
+40 steps. Okay. So we go over half pi in
+
+321
+00:15:57,279 --> 00:16:05,040
+40 steps. Shift enter. Fantastic. And
+
+322
+00:16:01,279 --> 00:16:08,399
+beautiful. That's what it you see. So t
+
+323
+00:16:05,040 --> 00:16:10,560
+you know that curve is this one. And
+
+324
+00:16:08,399 --> 00:16:12,240
+what what what are the lines? The lines
+
+325
+00:16:10,560 --> 00:16:14,399
+are
+
+326
+00:16:12,240 --> 00:16:17,680
+light rays. Okay. Think of them as light
+
+327
+00:16:14,399 --> 00:16:20,639
+rays. So we got that which is called
+
+328
+00:16:17,680 --> 00:16:24,800
+costics. Okay. So we got this costic
+
+329
+00:16:20,639 --> 00:16:27,759
+origin from zero x coordinate is zero
+
+330
+00:16:24,800 --> 00:16:30,320
+and ycoordinate is 5,000. Basically it's
+
+331
+00:16:27,759 --> 00:16:32,880
+a vertical line. The light source is
+
+332
+00:16:30,320 --> 00:16:36,320
+very high above you know above these
+
+333
+00:16:32,880 --> 00:16:38,959
+graphics. Can you guys see me? Okay. If
+
+334
+00:16:36,320 --> 00:16:41,680
+you are uh enjoying this video say hi.
+
+335
+00:16:38,959 --> 00:16:44,959
+Okay. Say say in the comment.
+
+336
+00:16:41,680 --> 00:16:47,519
+Uh any questions comment you can see it.
+
+337
+00:16:44,959 --> 00:16:50,399
+Okay. So, so you got this light source
+
+338
+00:16:47,519 --> 00:16:53,600
+like somewhere above. Then it shoots a
+
+339
+00:16:50,399 --> 00:16:56,480
+light down to the circle. Then it
+
+340
+00:16:53,600 --> 00:16:58,959
+reflects off when it hits the circle.
+
+341
+00:16:56,480 --> 00:17:01,839
+That's reflects
+
+342
+00:16:58,959 --> 00:17:04,799
+and refract. You see some of them
+
+343
+00:17:01,839 --> 00:17:07,839
+reflect the the the yellow lines reflect
+
+344
+00:17:04,799 --> 00:17:11,280
+the red lines refract. That's how you
+
+345
+00:17:07,839 --> 00:17:14,240
+get this thing. Okay. Is that is that
+
+346
+00:17:11,280 --> 00:17:16,480
+beautiful? Does that make sense?
+
+347
+00:17:14,240 --> 00:17:19,439
+So that's that's this one. Okay. So
+
+348
+00:17:16,480 --> 00:17:22,000
+that's this this one. Okay. So costic
+
+349
+00:17:19,439 --> 00:17:24,880
+line style we say random you know we
+
+350
+00:17:22,000 --> 00:17:27,919
+actually say random uh two colors. Okay.
+
+351
+00:17:24,880 --> 00:17:32,080
+But here we wanted to show demonstrate
+
+352
+00:17:27,919 --> 00:17:36,320
+this uh tangent and normal. So
+
+353
+00:17:32,080 --> 00:17:39,280
+so we do we want to do s cosine t206.
+
+354
+00:17:36,320 --> 00:17:41,919
+Okay. Costic line length we don't care.
+
+355
+00:17:39,280 --> 00:17:44,080
+Uh costic or engine we don't care. line
+
+356
+00:17:41,919 --> 00:17:46,480
+length, we don't care. Plot dot force,
+
+357
+00:17:44,080 --> 00:17:49,200
+we don't care. Anyway, let's just draw
+
+358
+00:17:46,480 --> 00:17:52,799
+it. Let's see what happens. Okay. Oh,
+
+359
+00:17:49,200 --> 00:17:56,080
+you got this thing. Okay. So,
+
+360
+00:17:52,799 --> 00:18:00,160
+uh let's
+
+361
+00:17:56,080 --> 00:18:04,640
+delete that costic origin plot force.
+
+362
+00:18:00,160 --> 00:18:07,760
+What else we have here? Uh oh, you
+
+363
+00:18:04,640 --> 00:18:10,880
+missed you missed the comma. That's why.
+
+364
+00:18:07,760 --> 00:18:15,760
+Show. Okay. Nothing.
+
+365
+00:18:10,880 --> 00:18:20,000
+Okay. So, costic origin. So, power plot
+
+366
+00:18:15,760 --> 00:18:22,320
+plot dot force plot curve force. Oh, you
+
+367
+00:18:20,000 --> 00:18:26,080
+obviously you want to plot the curve.
+
+368
+00:18:22,320 --> 00:18:28,960
+Delete that. So, if we show here plot
+
+369
+00:18:26,080 --> 00:18:32,480
+curve, let's say, oh, you forgot the
+
+370
+00:18:28,960 --> 00:18:35,679
+comma. That's why.
+
+371
+00:18:32,480 --> 00:18:37,280
+Amazing. I forgot a comma there.
+
+372
+00:18:35,679 --> 00:18:39,440
+Uh,
+
+373
+00:18:37,280 --> 00:18:41,840
+fantastic. You see? Fantastic and
+
+374
+00:18:39,440 --> 00:18:45,440
+beautiful pl curve. Let's say true.
+
+375
+00:18:41,840 --> 00:18:47,840
+Okay, pl curve. True.
+
+376
+00:18:45,440 --> 00:18:51,120
+That's right. That's what we want. Shift
+
+377
+00:18:47,840 --> 00:18:53,840
+enter. Fantastic. And beautiful. I don't
+
+378
+00:18:51,120 --> 00:18:56,160
+like this color. So, let's do it again.
+
+379
+00:18:53,840 --> 00:18:58,400
+Shift enter.
+
+380
+00:18:56,160 --> 00:19:04,000
+Better. But let's try again. Shift
+
+381
+00:18:58,400 --> 00:19:06,080
+enter. Okay. I like this better. So,
+
+382
+00:19:04,000 --> 00:19:10,160
+costics.
+
+383
+00:19:06,080 --> 00:19:14,080
+costics means
+
+384
+00:19:10,160 --> 00:19:16,240
+the the light rays reflected from a
+
+385
+00:19:14,080 --> 00:19:20,400
+curve. So you can now you can see this
+
+386
+00:19:16,240 --> 00:19:23,120
+blue is a circle half of a circle and
+
+387
+00:19:20,400 --> 00:19:26,640
+the light parallel light rays hits it
+
+388
+00:19:23,120 --> 00:19:30,240
+from above then some of it reflected off
+
+389
+00:19:26,640 --> 00:19:34,960
+then you got this thing like ass shaped
+
+390
+00:19:30,240 --> 00:19:37,919
+thing that's called the costics of this
+
+391
+00:19:34,960 --> 00:19:42,000
+curve at
+
+392
+00:19:37,919 --> 00:19:45,200
+a parallel um rays okay that's called
+
+393
+00:19:42,000 --> 00:19:49,240
+catacostic and and this refraction
+
+394
+00:19:45,200 --> 00:19:49,240
+is called um
+
+395
+00:19:49,440 --> 00:19:54,000
+uh calacostic and what's the other word
+
+396
+00:19:52,080 --> 00:19:58,320
+um anyway that's called costics okay
+
+397
+00:19:54,000 --> 00:20:01,200
+that's like optics the study of optics
+
+398
+00:19:58,320 --> 00:20:04,799
+so anyway so we are trying to illustrate
+
+399
+00:20:01,200 --> 00:20:07,520
+about this uh normals and tangency we
+
+400
+00:20:04,799 --> 00:20:09,039
+are trying to explain what is a normal
+
+401
+00:20:07,520 --> 00:20:12,480
+so
+
+402
+00:20:09,039 --> 00:20:16,960
+what what do we have here shift enter so
+
+403
+00:20:12,480 --> 00:20:18,799
+why are we plotting all these. Uh oh,
+
+404
+00:20:16,960 --> 00:20:23,039
+you need
+
+405
+00:20:18,799 --> 00:20:28,000
+Okay, so you need um
+
+406
+00:20:23,039 --> 00:20:30,640
+you need plot range. Copy that.
+
+407
+00:20:28,000 --> 00:20:35,200
+Copy.
+
+408
+00:20:30,640 --> 00:20:36,880
+Okay. So, you want a plot range here.
+
+409
+00:20:35,200 --> 00:20:40,720
+Paste.
+
+410
+00:20:36,880 --> 00:20:43,679
+Okay. Plot range. Let's say zero. Let's
+
+411
+00:20:40,720 --> 00:20:49,360
+say -6
+
+412
+00:20:43,679 --> 00:20:52,360
+to 6. That's for x and y. Let's say
+
+413
+00:20:49,360 --> 00:20:52,360
+um
+
+414
+00:20:52,720 --> 00:21:00,720
+-3 to 3. Okay. Shift enter. Fantastic.
+
+415
+00:20:57,760 --> 00:21:03,280
+And beautiful. So we started to see u
+
+416
+00:21:00,720 --> 00:21:05,919
+that. Okay. Now we just delete all this.
+
+417
+00:21:03,280 --> 00:21:08,480
+Actually we don't need this. We don't
+
+418
+00:21:05,919 --> 00:21:12,320
+want costic. Delete it. Costic line
+
+419
+00:21:08,480 --> 00:21:14,880
+length. Delete it. Okay. Plot dots
+
+420
+00:21:12,320 --> 00:21:16,880
+force. Delete it. Okay. Delete. Delete.
+
+421
+00:21:14,880 --> 00:21:18,400
+Delete.
+
+422
+00:21:16,880 --> 00:21:21,679
+Delete.
+
+423
+00:21:18,400 --> 00:21:24,720
+Plot range. Actually, plot range also.
+
+424
+00:21:21,679 --> 00:21:26,799
+Okay. Leave it. Curve style. We don't
+
+425
+00:21:24,720 --> 00:21:31,840
+care. Delete.
+
+426
+00:21:26,799 --> 00:21:35,200
+Okay. Now, delete. Shift. Enter.
+
+427
+00:21:31,840 --> 00:21:40,159
+Okay. We started to have a nice sign.
+
+428
+00:21:35,200 --> 00:21:41,760
+Okay. Now, plot range from zero to six.
+
+429
+00:21:40,159 --> 00:21:44,640
+X0.
+
+430
+00:21:41,760 --> 00:21:48,080
+Okay. Shift enter. Fantastic. Now we
+
+431
+00:21:44,640 --> 00:21:50,640
+talking. Now we wanted to show tangent
+
+432
+00:21:48,080 --> 00:21:53,799
+tangent line length. Okay. So let's give
+
+433
+00:21:50,640 --> 00:21:53,799
+our option
+
+434
+00:21:53,919 --> 00:22:03,120
+uh tangent line length
+
+435
+00:21:59,280 --> 00:22:06,559
+uh let's say 10. 20. Okay. 20 is good.
+
+436
+00:22:03,120 --> 00:22:08,799
+Good. Shift enter. Fantastic. Can you
+
+437
+00:22:06,559 --> 00:22:11,200
+see the tangent line at one that point
+
+438
+00:22:08,799 --> 00:22:14,960
+that point that point? Okay. Now you
+
+439
+00:22:11,200 --> 00:22:17,200
+need some um you want to specify
+
+440
+00:22:14,960 --> 00:22:19,520
+specific points for the tangent. Okay.
+
+441
+00:22:17,200 --> 00:22:26,679
+So you got to enter a point like that.
+
+442
+00:22:19,520 --> 00:22:26,679
+So let's see. Um you got to enter a
+
+443
+00:22:27,600 --> 00:22:33,120
+Okay. So let's say
+
+444
+00:22:30,159 --> 00:22:35,039
+1.5 or
+
+445
+00:22:33,120 --> 00:22:38,080
+1.5.
+
+446
+00:22:35,039 --> 00:22:40,320
+When the t parameter is 1.5, what you
+
+447
+00:22:38,080 --> 00:22:43,120
+get? Shift enter. Oh, there. Right
+
+448
+00:22:40,320 --> 00:22:47,200
+there. So that's your tangent line.
+
+449
+00:22:43,120 --> 00:22:49,919
+Okay. Now you also draw normal. Okay. So
+
+450
+00:22:47,200 --> 00:22:51,760
+normal
+
+451
+00:22:49,919 --> 00:22:55,280
+line
+
+452
+00:22:51,760 --> 00:22:58,480
+length. That's what you want. 20. Okay.
+
+453
+00:22:55,280 --> 00:23:01,120
+So you're going to draw a line
+
+454
+00:22:58,480 --> 00:23:03,919
+normal at that curve point. So let's do
+
+455
+00:23:01,120 --> 00:23:08,640
+it. Fantastic and beautiful. Can you
+
+456
+00:23:03,919 --> 00:23:12,080
+see? So now we have actually illustrated
+
+457
+00:23:08,640 --> 00:23:14,159
+the concepts of tangent and normal. So
+
+458
+00:23:12,080 --> 00:23:17,840
+let's change that again. So that makes
+
+459
+00:23:14,159 --> 00:23:20,960
+it more kind of um
+
+460
+00:23:17,840 --> 00:23:22,720
+make sense. Okay. Tangent and normal.
+
+461
+00:23:20,960 --> 00:23:26,320
+Fantastic.
+
+462
+00:23:22,720 --> 00:23:30,960
+So save this as untitled. Okay, let's
+
+463
+00:23:26,320 --> 00:23:34,400
+save it. Okay, so we were explaining the
+
+464
+00:23:30,960 --> 00:23:36,320
+tangent lines and normal lines of
+
+465
+00:23:34,400 --> 00:23:40,080
+intuitively
+
+466
+00:23:36,320 --> 00:23:42,000
+and so we we we talked about this uh so
+
+467
+00:23:40,080 --> 00:23:44,320
+review. Okay. So now you understand
+
+468
+00:23:42,000 --> 00:23:47,760
+tangent and normal. So you see these are
+
+469
+00:23:44,320 --> 00:23:51,039
+normal lines to this triangular shaped
+
+470
+00:23:47,760 --> 00:23:54,559
+thing called deltoid.
+
+471
+00:23:51,039 --> 00:23:58,000
+Okay. Now this is the blue is a parabola
+
+472
+00:23:54,559 --> 00:24:00,720
+and you draw all the normal lines to all
+
+473
+00:23:58,000 --> 00:24:04,080
+the points on the parabola you get this
+
+474
+00:24:00,720 --> 00:24:08,640
+you get this um you you get you they
+
+475
+00:24:04,080 --> 00:24:12,320
+form they form this V-shaped thing and I
+
+476
+00:24:08,640 --> 00:24:15,760
+believe that's called semicubic parabola
+
+477
+00:24:12,320 --> 00:24:20,320
+okay you see so we say that the envelope
+
+478
+00:24:15,760 --> 00:24:24,720
+of the um t the envelope of normals of
+
+479
+00:24:20,320 --> 00:24:27,520
+parabola is the semicubic
+
+480
+00:24:24,720 --> 00:24:30,240
+um
+
+481
+00:24:27,520 --> 00:24:33,360
+what was it called semicubic I forgot
+
+482
+00:24:30,240 --> 00:24:37,200
+anyway so anyway so so they form this
+
+483
+00:24:33,360 --> 00:24:39,520
+shape okay now this asteroid
+
+484
+00:24:37,200 --> 00:24:43,440
+in the middle this this star- shaped
+
+485
+00:24:39,520 --> 00:24:47,600
+thing ninja dot I call it ninja dot you
+
+486
+00:24:43,440 --> 00:24:51,279
+know so if you draw normals to all
+
+487
+00:24:47,600 --> 00:24:54,400
+points on this asteroid you at this
+
+488
+00:24:51,279 --> 00:24:56,320
+another asteroid. Fascinating. You see,
+
+489
+00:24:54,400 --> 00:24:58,400
+then you you draw the normals of that
+
+490
+00:24:56,320 --> 00:25:01,120
+asteroid is another asteroid, you know,
+
+491
+00:24:58,400 --> 00:25:02,640
+then then it's just bigger. So it's like
+
+492
+00:25:01,120 --> 00:25:06,080
+um
+
+493
+00:25:02,640 --> 00:25:08,880
+amazing properties. Okay.
+
+494
+00:25:06,080 --> 00:25:11,919
+Then this normals of the card you get
+
+495
+00:25:08,880 --> 00:25:14,159
+the smaller normal normal. So okay. So
+
+496
+00:25:11,919 --> 00:25:17,919
+actually did we you know we can actually
+
+497
+00:25:14,159 --> 00:25:21,039
+verify so you know so that the things we
+
+498
+00:25:17,919 --> 00:25:24,159
+are talking about this is this visual
+
+499
+00:25:21,039 --> 00:25:27,440
+dictionary of of special plane curves
+
+500
+00:25:24,159 --> 00:25:31,600
+they explain many of the plane curves
+
+501
+00:25:27,440 --> 00:25:33,200
+definition and properties visually so
+
+502
+00:25:31,600 --> 00:25:36,320
+you don't even have to know any
+
+503
+00:25:33,200 --> 00:25:38,640
+mathematics you can see and tell see and
+
+504
+00:25:36,320 --> 00:25:41,760
+tell you see this is the definition of
+
+505
+00:25:38,640 --> 00:25:43,919
+parabola can you can you like you
+
+506
+00:25:41,760 --> 00:25:46,720
+You you should re you should look at
+
+507
+00:25:43,919 --> 00:25:50,159
+this and immediately
+
+508
+00:25:46,720 --> 00:25:54,480
+like understand what is the meaning of
+
+509
+00:25:50,159 --> 00:25:58,159
+parabola parabola by looking at this uh
+
+510
+00:25:54,480 --> 00:25:59,760
+closely the meaning of parabola okay
+
+511
+00:25:58,159 --> 00:26:04,080
+uh
+
+512
+00:25:59,760 --> 00:26:08,000
+yeah any anyway so let's make that video
+
+513
+00:26:04,080 --> 00:26:10,559
+loop because uh
+
+514
+00:26:08,000 --> 00:26:13,679
+okay showing browser
+
+515
+00:26:10,559 --> 00:26:16,960
+go down. Go down. Go down. Let's play it
+
+516
+00:26:13,679 --> 00:26:20,559
+will loop. It will be better. Okay. So,
+
+517
+00:26:16,960 --> 00:26:23,559
+um yeah.
+
+518
+00:26:20,559 --> 00:26:23,559
+Cheers.
+
+519
+00:26:26,400 --> 00:26:31,919
+So, we talked for 30 minutes. We got a
+
+520
+00:26:29,919 --> 00:26:34,240
+lot to go because I was planning to
+
+521
+00:26:31,919 --> 00:26:37,760
+code, but I'm going to code. Okay. So,
+
+522
+00:26:34,240 --> 00:26:40,640
+but first of all, uh
+
+523
+00:26:37,760 --> 00:26:44,720
+what I've done is I
+
+524
+00:26:40,640 --> 00:26:48,320
+taught you guys some elementary geometry
+
+525
+00:26:44,720 --> 00:26:51,600
+of plank curves very the especially the
+
+526
+00:26:48,320 --> 00:26:53,520
+very interesting fascinating aspects
+
+527
+00:26:51,600 --> 00:26:55,679
+without having to know any ma
+
+528
+00:26:53,520 --> 00:26:57,919
+mathematics.
+
+529
+00:26:55,679 --> 00:27:00,480
+So for you programmers, you know, this
+
+530
+00:26:57,919 --> 00:27:03,120
+would be uh hopeful hopefully it's
+
+531
+00:27:00,480 --> 00:27:05,440
+interesting. Okay, we talked we talked
+
+532
+00:27:03,120 --> 00:27:08,400
+about tangents and uh tangents and
+
+533
+00:27:05,440 --> 00:27:11,600
+normal lines and so anyway visual pl uh
+
+534
+00:27:08,400 --> 00:27:16,240
+plank cups. Okay. So we I wanted to see
+
+535
+00:27:11,600 --> 00:27:18,320
+yeah we were wondering about um
+
+536
+00:27:16,240 --> 00:27:22,400
+uh you see we were talking about
+
+537
+00:27:18,320 --> 00:27:26,400
+cardioid the normals of a cardioid do
+
+538
+00:27:22,400 --> 00:27:32,159
+they form a is this actually cardioid we
+
+539
+00:27:26,400 --> 00:27:34,320
+can look at here. So cardioid um because
+
+540
+00:27:32,159 --> 00:27:37,600
+everything I wrote there you know I
+
+541
+00:27:34,320 --> 00:27:41,120
+verified it long ago. So this this curve
+
+542
+00:27:37,600 --> 00:27:45,919
+is cardioid. You see in this picture is
+
+543
+00:27:41,120 --> 00:27:49,200
+formed by all its tangents.
+
+544
+00:27:45,919 --> 00:27:52,000
+Okay. So anyway the cardioid is normally
+
+545
+00:27:49,200 --> 00:27:53,520
+defined as a curve rolling on another
+
+546
+00:27:52,000 --> 00:27:58,480
+curve
+
+547
+00:27:53,520 --> 00:28:00,720
+like that. Okay. Now now um now yes.
+
+548
+00:27:58,480 --> 00:28:03,120
+Okay. So you can see properties evolute
+
+549
+00:28:00,720 --> 00:28:05,600
+the evolute of a cardioid equals to
+
+550
+00:28:03,120 --> 00:28:09,039
+itself.
+
+551
+00:28:05,600 --> 00:28:12,159
+Fascinating. So it is indeed true that
+
+552
+00:28:09,039 --> 00:28:15,200
+is what we were illustrating in this
+
+553
+00:28:12,159 --> 00:28:18,240
+image in this you see this is to
+
+554
+00:28:15,200 --> 00:28:21,679
+illustrate that the evolute evolute is
+
+555
+00:28:18,240 --> 00:28:25,279
+another concept but anyway evolute is
+
+556
+00:28:21,679 --> 00:28:29,520
+kind of like the is kind of equivalent
+
+557
+00:28:25,279 --> 00:28:32,399
+to the envelope formed by all the normal
+
+558
+00:28:29,520 --> 00:28:35,919
+lines. So basically this this this thing
+
+559
+00:28:32,399 --> 00:28:38,880
+inside is a another cardioid. You see
+
+560
+00:28:35,919 --> 00:28:42,960
+this thing you see is a is called
+
+561
+00:28:38,880 --> 00:28:45,039
+cardioid meaning heart shaped but the
+
+562
+00:28:42,960 --> 00:28:48,240
+the the things inside that's another
+
+563
+00:28:45,039 --> 00:28:50,559
+cardioid. Okay. Fascinating.
+
+564
+00:28:48,240 --> 00:28:53,120
+So anyway we were talking about so so
+
+565
+00:28:50,559 --> 00:28:56,640
+and here so then we were talking about
+
+566
+00:28:53,120 --> 00:28:59,360
+okay normal survey deltoid then we we
+
+567
+00:28:56,640 --> 00:29:02,000
+started so these are seeant okay these
+
+568
+00:28:59,360 --> 00:29:05,520
+red lines are called seeant
+
+569
+00:29:02,000 --> 00:29:08,000
+okay we seeant is basically just given a
+
+570
+00:29:05,520 --> 00:29:10,000
+curve and given any two points on the
+
+571
+00:29:08,000 --> 00:29:12,799
+curve you draw a line between them
+
+572
+00:29:10,000 --> 00:29:16,559
+that's a seeant okay so seeant doesn't
+
+573
+00:29:12,799 --> 00:29:21,039
+have any like special meaning to a curve
+
+574
+00:29:16,559 --> 00:29:24,640
+meanwhile Now the tangent has very
+
+575
+00:29:21,039 --> 00:29:27,440
+significant meaning on a curve. Tangent
+
+576
+00:29:24,640 --> 00:29:32,320
+must be precise. Okay. And because it
+
+577
+00:29:27,440 --> 00:29:34,559
+has it tangent is basically the heart of
+
+578
+00:29:32,320 --> 00:29:38,159
+calculus. Okay. Like when you study
+
+579
+00:29:34,559 --> 00:29:40,640
+calculus from a geometric point of view
+
+580
+00:29:38,159 --> 00:29:43,679
+the entire calculus is just about
+
+581
+00:29:40,640 --> 00:29:46,480
+tangent. Okay. like how do you find so
+
+582
+00:29:43,679 --> 00:29:48,720
+so there's this line that approximate a
+
+583
+00:29:46,480 --> 00:29:53,039
+curve at that point that's a tangent
+
+584
+00:29:48,720 --> 00:29:55,840
+okay so the entire calculus from a from
+
+585
+00:29:53,039 --> 00:29:58,399
+a geometric point of view is is just
+
+586
+00:29:55,840 --> 00:30:01,440
+about tangent okay
+
+587
+00:29:58,399 --> 00:30:05,399
+that's one way to look at it one you
+
+588
+00:30:01,440 --> 00:30:05,399
+know one one way
+
+589
+00:30:08,480 --> 00:30:15,600
+um does that um you know I'm thinking
+
+590
+00:30:12,240 --> 00:30:18,399
+How accurate is it?
+
+591
+00:30:15,600 --> 00:30:21,039
+Uh I mean
+
+592
+00:30:18,399 --> 00:30:24,159
+so that's interesting. You see I was you
+
+593
+00:30:21,039 --> 00:30:26,080
+know I made a random observation
+
+594
+00:30:24,159 --> 00:30:28,799
+commentary
+
+595
+00:30:26,080 --> 00:30:30,799
+extended
+
+596
+00:30:28,799 --> 00:30:33,919
+that
+
+597
+00:30:30,799 --> 00:30:39,240
+from a from a geometric point of view
+
+598
+00:30:33,919 --> 00:30:39,240
+tangent is what calculus is all about.
+
+599
+00:30:40,320 --> 00:30:47,919
+So but are there part of calculus or
+
+600
+00:30:43,440 --> 00:30:53,159
+analysis that's like beyond
+
+601
+00:30:47,919 --> 00:30:53,159
+you know is is is not based on tangent
+
+602
+00:30:56,000 --> 00:31:01,919
+actually I don't think so you know
+
+603
+00:30:58,240 --> 00:31:04,480
+that's a quite significant commentary so
+
+604
+00:31:01,919 --> 00:31:08,559
+actually so let's check
+
+605
+00:31:04,480 --> 00:31:11,440
+um AI to verify okay so right now we
+
+606
+00:31:08,559 --> 00:31:15,679
+digress into the AI I let's see AI how
+
+607
+00:31:11,440 --> 00:31:22,880
+good is AI can AI verify my claim my
+
+608
+00:31:15,679 --> 00:31:25,360
+extle random observation so the claim is
+
+609
+00:31:22,880 --> 00:31:28,240
+from a geometric
+
+610
+00:31:25,360 --> 00:31:33,279
+point of view
+
+611
+00:31:28,240 --> 00:31:36,960
+tangent is what calculus it tangent is
+
+612
+00:31:33,279 --> 00:31:41,200
+the art of
+
+613
+00:31:36,960 --> 00:31:45,279
+calculus Okay.
+
+614
+00:31:41,200 --> 00:31:49,039
+Is this statement valid? Let's, you
+
+615
+00:31:45,279 --> 00:31:51,519
+know, let's ask. Okay. So, uh let's move
+
+616
+00:31:49,039 --> 00:31:55,279
+that here. So, that's that's like what
+
+617
+00:31:51,519 --> 00:31:58,480
+we were talking about today.
+
+618
+00:31:55,279 --> 00:32:01,600
+Um showing browser. So, this is this
+
+619
+00:31:58,480 --> 00:32:04,080
+page is today's talk show notes. Okay.
+
+620
+00:32:01,600 --> 00:32:06,640
+Those are links we talk we were talking
+
+621
+00:32:04,080 --> 00:32:12,360
+about. So, this is like what we were
+
+622
+00:32:06,640 --> 00:32:12,360
+doing right now. So, let's ask Guac
+
+623
+00:32:12,480 --> 00:32:18,760
+AI help me. I don't know anything. I'm a
+
+624
+00:32:15,760 --> 00:32:18,760
+zoomer.
+
+625
+00:32:20,132 --> 00:32:22,152
+[laughter]
+
+626
+00:32:22,720 --> 00:32:27,600
+From a geometric point of view, tangent
+
+627
+00:32:25,279 --> 00:32:31,080
+is the heart of calculus. Is this
+
+628
+00:32:27,600 --> 00:32:31,080
+statement valid?
+
+629
+00:32:32,000 --> 00:32:37,600
+Okay. Uh, let's magnify. Control
+
+630
+00:32:34,720 --> 00:32:39,200
+magnify. Let's see.
+
+631
+00:32:37,600 --> 00:32:42,480
+Okay.
+
+632
+00:32:39,200 --> 00:32:44,640
+Yes, the statement is quite valid
+
+633
+00:32:42,480 --> 00:32:47,679
+especially when viewed from a geometric
+
+634
+00:32:44,640 --> 00:32:50,960
+historical motivational perspective.
+
+635
+00:32:47,679 --> 00:32:53,760
+Okay. The concept of the tangent line
+
+636
+00:32:50,960 --> 00:32:57,200
+really is one of the deepest
+
+637
+00:32:53,760 --> 00:33:00,000
+deepest conceptual heart if not the
+
+638
+00:32:57,200 --> 00:33:02,320
+heart of calculus. You see particularly
+
+639
+00:33:00,000 --> 00:33:04,880
+in the way calculus was originally
+
+640
+00:33:02,320 --> 00:33:07,679
+discovered invented.
+
+641
+00:33:04,880 --> 00:33:10,640
+Amazing. Such a deep statement, you
+
+642
+00:33:07,679 --> 00:33:13,440
+know, such a deep observation.
+
+643
+00:33:10,640 --> 00:33:16,000
+Here are the main reasons why this view
+
+644
+00:33:13,440 --> 00:33:18,880
+is widely shared among mathematicians
+
+645
+00:33:16,000 --> 00:33:22,960
+and good teachers.
+
+646
+00:33:18,880 --> 00:33:24,960
+He say he says I'm a good teacher. Great
+
+647
+00:33:22,960 --> 00:33:27,440
+historical engine. The tangent problem
+
+648
+00:33:24,960 --> 00:33:30,640
+was one of the two birth places of
+
+649
+00:33:27,440 --> 00:33:33,840
+calculus. Oh, tangent problem.
+
+650
+00:33:30,640 --> 00:33:36,240
+uh given an arbitrary curve, how do you
+
+651
+00:33:33,840 --> 00:33:39,519
+define and find the tangent line at any
+
+652
+00:33:36,240 --> 00:33:42,240
+point? Okay. Okay. Anyway, it's so you
+
+653
+00:33:39,519 --> 00:33:44,159
+know you guys can read about this later
+
+654
+00:33:42,240 --> 00:33:46,960
+because we going to do some you know we
+
+655
+00:33:44,159 --> 00:33:50,799
+got more things to do but or you can ask
+
+656
+00:33:46,960 --> 00:33:52,880
+AI yourself but that proves my point.
+
+657
+00:33:50,799 --> 00:33:56,080
+Okay. So anyway, so what what is the
+
+658
+00:33:52,880 --> 00:33:57,679
+reason that let let's just go over
+
+659
+00:33:56,080 --> 00:34:00,559
+historical arrangement the tangent
+
+660
+00:33:57,679 --> 00:34:03,279
+problem was one of the first what was
+
+661
+00:34:00,559 --> 00:34:05,840
+one of the two birth places of calculus.
+
+662
+00:34:03,279 --> 00:34:08,079
+Okay, it says the derivative is
+
+663
+00:34:05,840 --> 00:34:09,599
+literally defined via tangent. That's
+
+664
+00:34:08,079 --> 00:34:11,520
+right.
+
+665
+00:34:09,599 --> 00:34:14,879
+You know geometry you have the tangent
+
+666
+00:34:11,520 --> 00:34:17,200
+but but if you do like algebra you know
+
+667
+00:34:14,879 --> 00:34:19,760
+that's basically that means uh
+
+668
+00:34:17,200 --> 00:34:24,480
+derivative. Okay, we we I talked about
+
+669
+00:34:19,760 --> 00:34:26,800
+before like uh 20 minutes ago. So local
+
+670
+00:34:24,480 --> 00:34:28,960
+linear approximation the most important
+
+671
+00:34:26,800 --> 00:34:31,359
+idea in all of differential calculus.
+
+672
+00:34:28,960 --> 00:34:34,320
+That's right. That's a tangent contrast
+
+673
+00:34:31,359 --> 00:34:36,480
+with integral calculus. Well, okay.
+
+674
+00:34:34,320 --> 00:34:41,359
+integral calculus you got the kind of
+
+675
+00:34:36,480 --> 00:34:44,480
+the area um notion like inf inf infinite
+
+676
+00:34:41,359 --> 00:34:47,599
+sum but they are related they are tied
+
+677
+00:34:44,480 --> 00:34:51,200
+together by the fundamental theorem of
+
+678
+00:34:47,599 --> 00:34:54,320
+calculus okay so let's see what it says
+
+679
+00:34:51,200 --> 00:34:58,720
+contrast with integral calculus uh I
+
+680
+00:34:54,320 --> 00:35:02,160
+dare you to ask I am what what is I am a
+
+681
+00:34:58,720 --> 00:35:04,640
+zoomer am [laughter] I a zoomer
+
+682
+00:35:02,160 --> 00:35:08,640
+Hello. Hello ACP.
+
+683
+00:35:04,640 --> 00:35:10,800
+So then then okay contrast with integral
+
+684
+00:35:08,640 --> 00:35:13,680
+calculus while the fundamental theorem
+
+685
+00:35:10,800 --> 00:35:17,200
+of calculus links differential
+
+686
+00:35:13,680 --> 00:35:19,680
+differentiation and integration the
+
+687
+00:35:17,200 --> 00:35:22,320
+geometric heart of integration is
+
+688
+00:35:19,680 --> 00:35:26,480
+usually considered to be the area under
+
+689
+00:35:22,320 --> 00:35:28,720
+the curve. Okay. So this um so you could
+
+690
+00:35:26,480 --> 00:35:31,680
+say you know so so they are talking
+
+691
+00:35:28,720 --> 00:35:34,400
+about the
+
+692
+00:35:31,680 --> 00:35:38,640
+you see normally calculus you can you
+
+693
+00:35:34,400 --> 00:35:41,920
+can separate it into like differential
+
+694
+00:35:38,640 --> 00:35:45,599
+uh diff derivative or differentiation
+
+695
+00:35:41,920 --> 00:35:48,560
+aspect versus the integration or
+
+696
+00:35:45,599 --> 00:35:51,520
+infinite sum aspect.
+
+697
+00:35:48,560 --> 00:35:55,839
+You see, so one one of them one part of
+
+698
+00:35:51,520 --> 00:36:00,240
+calculus you call it um
+
+699
+00:35:55,839 --> 00:36:01,839
+derivative you call it uh
+
+700
+00:36:00,240 --> 00:36:04,800
+you know you you call differential
+
+701
+00:36:01,839 --> 00:36:07,520
+calculus. The other part you call it
+
+702
+00:36:04,800 --> 00:36:10,000
+integral calculus you know like usually
+
+703
+00:36:07,520 --> 00:36:12,800
+you can classify calculus you can
+
+704
+00:36:10,000 --> 00:36:16,480
+separate calculus into like these two
+
+705
+00:36:12,800 --> 00:36:19,359
+branches but but that's shallow view but
+
+706
+00:36:16,480 --> 00:36:21,440
+you like usually in advanced calculus
+
+707
+00:36:19,359 --> 00:36:24,240
+you don't do that they are together
+
+708
+00:36:21,440 --> 00:36:26,720
+because they are tied together by the by
+
+709
+00:36:24,240 --> 00:36:30,320
+the fundamental theorem of the calculus
+
+710
+00:36:26,720 --> 00:36:32,800
+that's one of the most um fascinating
+
+711
+00:36:30,320 --> 00:36:34,240
+subject you
+
+712
+00:36:32,800 --> 00:36:36,800
+Like when when when you study
+
+713
+00:36:34,240 --> 00:36:40,800
+mathematics like sometimes you can when
+
+714
+00:36:36,800 --> 00:36:44,079
+you learn some theorem it sends chills
+
+715
+00:36:40,800 --> 00:36:45,920
+down your spine
+
+716
+00:36:44,079 --> 00:36:47,760
+for some certain people for me for
+
+717
+00:36:45,920 --> 00:36:50,640
+example
+
+718
+00:36:47,760 --> 00:36:54,240
+that's that's when you are extremely
+
+719
+00:36:50,640 --> 00:36:56,640
+obsessed about the topic because then
+
+720
+00:36:54,240 --> 00:36:59,680
+then you learn something that's just
+
+721
+00:36:56,640 --> 00:37:02,960
+amazing that's just incredible.
+
+722
+00:36:59,680 --> 00:37:06,480
+So one of the first you know so in my in
+
+723
+00:37:02,960 --> 00:37:10,400
+my life I have experienced a few of them
+
+724
+00:37:06,480 --> 00:37:13,680
+okay one of them is fundamental the
+
+725
+00:37:10,400 --> 00:37:19,599
+theorem of calculus okay that's amazing
+
+726
+00:37:13,680 --> 00:37:22,560
+so that's a amazing trip in mathematics
+
+727
+00:37:19,599 --> 00:37:24,960
+so I'm telling you guys you know so you
+
+728
+00:37:22,560 --> 00:37:29,760
+might get inspiration you might you know
+
+729
+00:37:24,960 --> 00:37:33,119
+you can see how I find this mathematics
+
+730
+00:37:29,760 --> 00:37:36,560
+So amazing, so fascinating. So you can
+
+731
+00:37:33,119 --> 00:37:40,640
+see um fascinating you know this
+
+732
+00:37:36,560 --> 00:37:42,400
+fundamental theorem of calculus
+
+733
+00:37:40,640 --> 00:37:44,640
+but I'm not going to tell you what that
+
+734
+00:37:42,400 --> 00:37:46,640
+is because then you it's like you know
+
+735
+00:37:44,640 --> 00:37:49,200
+then you you need you need to study
+
+736
+00:37:46,640 --> 00:37:52,000
+calculus okay so I give you some
+
+737
+00:37:49,200 --> 00:37:55,040
+motivation
+
+738
+00:37:52,000 --> 00:37:57,040
+um you know any and you know so but
+
+739
+00:37:55,040 --> 00:37:59,040
+because we you know we are doing
+
+740
+00:37:57,040 --> 00:38:01,920
+something else we got to code we got to
+
+741
+00:37:59,040 --> 00:38:01,920
+do code and
+
+742
+00:38:10,640 --> 00:38:16,000
+So you can you know there's a lot other
+
+743
+00:38:13,680 --> 00:38:17,680
+channels videos you can watch and
+
+744
+00:38:16,000 --> 00:38:19,920
+professors
+
+745
+00:38:17,680 --> 00:38:22,480
+you can go learn about calculus in
+
+746
+00:38:19,920 --> 00:38:26,880
+detail. Okay. But I'm I'm you know we
+
+747
+00:38:22,480 --> 00:38:29,040
+are doing um we are doing something a
+
+748
+00:38:26,880 --> 00:38:31,920
+different topic. Okay. copy the link and
+
+749
+00:38:29,040 --> 00:38:35,839
+go back to the talk show
+
+750
+00:38:31,920 --> 00:38:40,760
+and post. Uh, so let's remove that. Uh,
+
+751
+00:38:35,839 --> 00:38:40,760
+wait, remove that.
+
+752
+00:38:42,800 --> 00:38:50,160
+Okay, that's my question. And Gu
+
+753
+00:38:45,200 --> 00:38:53,280
+answers, yes, I'm correct what Gu says.
+
+754
+00:38:50,160 --> 00:38:56,160
+Fantastic. Okay.
+
+755
+00:38:53,280 --> 00:38:58,640
+Okay. So we talked about uh we we talked
+
+756
+00:38:56,160 --> 00:39:02,240
+we you know we kind of random went over
+
+757
+00:38:58,640 --> 00:39:06,000
+about or like the like basics of of of
+
+758
+00:39:02,240 --> 00:39:10,079
+playing curves okay tangent normals okay
+
+759
+00:39:06,000 --> 00:39:12,400
+let's go quickly so you know we
+
+760
+00:39:10,079 --> 00:39:14,640
+I'm just actually just beginning like
+
+761
+00:39:12,400 --> 00:39:17,359
+I'm trying to give you a introduction of
+
+762
+00:39:14,640 --> 00:39:19,760
+some of the
+
+763
+00:39:17,359 --> 00:39:22,320
+the plank things like why why are we
+
+764
+00:39:19,760 --> 00:39:25,680
+doing this but we even we haven't begin
+
+765
+00:39:22,320 --> 00:39:28,400
+to talk about what I wanted to do today.
+
+766
+00:39:25,680 --> 00:39:31,680
+Uh yeah. So you see you got quite a lot
+
+767
+00:39:28,400 --> 00:39:33,680
+to go. Even we only talked about
+
+768
+00:39:31,680 --> 00:39:35,920
+tangents.
+
+769
+00:39:33,680 --> 00:39:38,240
+Okay. Then we talked about normals. Then
+
+770
+00:39:35,920 --> 00:39:41,520
+we talked about seeant. Seeant is just
+
+771
+00:39:38,240 --> 00:39:44,240
+like any two points on the curve given
+
+772
+00:39:41,520 --> 00:39:48,320
+given then you can connect a line
+
+773
+00:39:44,240 --> 00:39:51,599
+between them. That line is called seeant
+
+774
+00:39:48,320 --> 00:39:55,520
+for you know between that two points on
+
+775
+00:39:51,599 --> 00:39:58,480
+the curve. Okay. So seeant is not very
+
+776
+00:39:55,520 --> 00:40:01,839
+significant. Okay, the sign significance
+
+777
+00:39:58,480 --> 00:40:04,800
+is is the tangent that like we what we
+
+778
+00:40:01,839 --> 00:40:07,599
+just talked about. That's that's like
+
+779
+00:40:04,800 --> 00:40:09,839
+the the the heart of calculus. Okay,
+
+780
+00:40:07,599 --> 00:40:12,880
+that's very significant. What about
+
+781
+00:40:09,839 --> 00:40:15,359
+normal? Well, normal is just just per
+
+782
+00:40:12,880 --> 00:40:18,480
+perpendicular to the tangent. Okay, so
+
+783
+00:40:15,359 --> 00:40:22,800
+normal is is basically like tangent.
+
+784
+00:40:18,480 --> 00:40:24,720
+Okay. So like is like another view you
+
+785
+00:40:22,800 --> 00:40:26,320
+know. So basically normal is just
+
+786
+00:40:24,720 --> 00:40:29,599
+tangent
+
+787
+00:40:26,320 --> 00:40:32,400
+I mean like tangent. Okay. So seeant
+
+788
+00:40:29,599 --> 00:40:34,560
+doesn't mean much. Seeant just you know
+
+789
+00:40:32,400 --> 00:40:36,720
+you you can generate pretty pictures.
+
+790
+00:40:34,560 --> 00:40:38,880
+Okay. For example this curve this this
+
+791
+00:40:36,720 --> 00:40:40,640
+this this
+
+792
+00:40:38,880 --> 00:40:45,040
+curve by the way is one of the
+
+793
+00:40:40,640 --> 00:40:48,400
+fascinating uh curve. uh it's called um
+
+794
+00:40:45,040 --> 00:40:50,800
+logarithmic spiral but a better name
+
+795
+00:40:48,400 --> 00:40:53,040
+would be equal angular spiral. It's also
+
+796
+00:40:50,800 --> 00:40:55,839
+known as equal angular spiral because
+
+797
+00:40:53,040 --> 00:41:01,200
+when you draw a angle from the center of
+
+798
+00:40:55,839 --> 00:41:04,480
+the spiral it hits the curve for any
+
+799
+00:41:01,200 --> 00:41:06,960
+point on a curve the angle is the same.
+
+800
+00:41:04,480 --> 00:41:10,240
+Okay? It doesn't matter where where you
+
+801
+00:41:06,960 --> 00:41:14,240
+know if you draw a line array point you
+
+802
+00:41:10,240 --> 00:41:17,839
+know when it intersects a curve doesn't
+
+803
+00:41:14,240 --> 00:41:21,119
+matter which line it always the angle is
+
+804
+00:41:17,839 --> 00:41:27,720
+the same. It's called equal angular
+
+805
+00:41:21,119 --> 00:41:27,720
+spiral. Okay. Uh of course it's also on
+
+806
+00:41:27,920 --> 00:41:34,240
+on my website uh visual dictionary of
+
+807
+00:41:32,079 --> 00:41:36,160
+special plane curves. Okay. You go
+
+808
+00:41:34,240 --> 00:41:38,480
+there,
+
+809
+00:41:36,160 --> 00:41:41,680
+you go to
+
+810
+00:41:38,480 --> 00:41:44,319
+spirals. Okay. So there this this one
+
+811
+00:41:41,680 --> 00:41:47,040
+equal angular spiral. And the
+
+812
+00:41:44,319 --> 00:41:49,680
+mathematician Jacob
+
+813
+00:41:47,040 --> 00:41:53,000
+says
+
+814
+00:41:49,680 --> 00:41:53,000
+he says
+
+815
+00:41:56,319 --> 00:42:01,839
+when I die I want this curve inscribed
+
+816
+00:41:59,599 --> 00:42:05,920
+on my tome.
+
+817
+00:42:01,839 --> 00:42:09,040
+Okay. This guy, this guy uh James Jax
+
+818
+00:42:05,920 --> 00:42:13,200
+Boni, you know, one of the mathematician
+
+819
+00:42:09,040 --> 00:42:15,680
+family. So, so in 1600s
+
+820
+00:42:13,200 --> 00:42:18,880
+they lived. So, you can you can go to
+
+821
+00:42:15,680 --> 00:42:22,480
+Wikipedia, you can actually see the
+
+822
+00:42:18,880 --> 00:42:24,640
+home, but I don't think that's a um
+
+823
+00:42:22,480 --> 00:42:29,160
+original, but you know, people rebuild
+
+824
+00:42:24,640 --> 00:42:29,160
+it because it became very famous.
+
+825
+00:42:30,160 --> 00:42:36,160
+uh you know let's search it I talked
+
+826
+00:42:33,119 --> 00:42:38,960
+about this before like a few years ago
+
+827
+00:42:36,160 --> 00:42:42,800
+two years ago or so uh but let's show it
+
+828
+00:42:38,960 --> 00:42:44,960
+again so you see this is Latin
+
+829
+00:42:42,800 --> 00:42:49,359
+means
+
+830
+00:42:44,960 --> 00:42:51,760
+although changed I arise the same okay
+
+831
+00:42:49,359 --> 00:42:55,280
+so that's a
+
+832
+00:42:51,760 --> 00:42:59,359
+tomb or how do you pronounce it tomb on
+
+833
+00:42:55,280 --> 00:43:02,079
+this this mathematician's grave but I I
+
+834
+00:42:59,359 --> 00:43:04,079
+think that's um
+
+835
+00:43:02,079 --> 00:43:05,920
+you know they they they remade you know
+
+836
+00:43:04,079 --> 00:43:10,319
+they they they
+
+837
+00:43:05,920 --> 00:43:12,400
+uh remade this just just to sustain this
+
+838
+00:43:10,319 --> 00:43:15,280
+this quote because that's what he
+
+839
+00:43:12,400 --> 00:43:18,319
+wanted. But
+
+840
+00:43:15,280 --> 00:43:21,359
+uh but also very interesting is that you
+
+841
+00:43:18,319 --> 00:43:25,040
+see they actually made a mistake.
+
+842
+00:43:21,359 --> 00:43:29,440
+The guy the guy
+
+843
+00:43:25,040 --> 00:43:32,720
+drew a spiral that is not equal angular
+
+844
+00:43:29,440 --> 00:43:36,880
+spiral. Okay. So you see equal angular
+
+845
+00:43:32,720 --> 00:43:38,880
+spiral has this property. Any line you
+
+846
+00:43:36,880 --> 00:43:43,520
+draw from passing the center of the
+
+847
+00:43:38,880 --> 00:43:46,079
+spiral intersect with the spiral in
+
+848
+00:43:43,520 --> 00:43:50,319
+in in the same angle in in the the the
+
+849
+00:43:46,079 --> 00:43:52,800
+the value
+
+850
+00:43:50,319 --> 00:43:55,440
+of the angle made by the intersection is
+
+851
+00:43:52,800 --> 00:43:58,000
+the same regardless what what is your
+
+852
+00:43:55,440 --> 00:43:59,839
+orientation of the line. Okay, that
+
+853
+00:43:58,000 --> 00:44:03,680
+defines
+
+854
+00:43:59,839 --> 00:44:05,839
+this spiral. Okay, it that's when this
+
+855
+00:44:03,680 --> 00:44:08,640
+spiral is called equal angular spiral
+
+856
+00:44:05,839 --> 00:44:14,000
+also known as logarithmic spiral because
+
+857
+00:44:08,640 --> 00:44:17,200
+the formula is a log logarithm. Okay.
+
+858
+00:44:14,000 --> 00:44:20,160
+uh somewhere okay you can you can you
+
+859
+00:44:17,200 --> 00:44:22,880
+know exponential
+
+860
+00:44:20,160 --> 00:44:24,640
+it's a log logarithmic spiral okay
+
+861
+00:44:22,880 --> 00:44:29,119
+somehow I don't have the formula here
+
+862
+00:44:24,640 --> 00:44:30,960
+annoying I need to I should add it
+
+863
+00:44:29,119 --> 00:44:33,760
+because because it's well known as a
+
+864
+00:44:30,960 --> 00:44:36,000
+logarithmic spiral in fact logarithmic
+
+865
+00:44:33,760 --> 00:44:39,119
+spiral is the name I believe more
+
+866
+00:44:36,000 --> 00:44:41,119
+popular than equal angular equal angular
+
+867
+00:44:39,119 --> 00:44:44,880
+spiral is a better name because it
+
+868
+00:44:41,119 --> 00:44:48,800
+describe the definition the definitive
+
+869
+00:44:44,880 --> 00:44:51,040
+name for this spiral it it tamount it
+
+870
+00:44:48,800 --> 00:44:53,680
+it's equivalent to the definition of the
+
+871
+00:44:51,040 --> 00:44:57,200
+spiral okay when you say logarithmic
+
+872
+00:44:53,680 --> 00:45:01,280
+spiral well that's because the formula
+
+873
+00:44:57,200 --> 00:45:04,800
+turns out is a logarithm because um if
+
+874
+00:45:01,280 --> 00:45:06,960
+you um
+
+875
+00:45:04,800 --> 00:45:08,640
+but that's not that's not a good name
+
+876
+00:45:06,960 --> 00:45:12,079
+okay
+
+877
+00:45:08,640 --> 00:45:14,640
+anyway so that's a definition of of this
+
+878
+00:45:12,079 --> 00:45:16,800
+spiral equal angular. Okay. So you can
+
+879
+00:45:14,640 --> 00:45:20,880
+see the property illustrated here. You
+
+880
+00:45:16,800 --> 00:45:23,440
+see any line passing the center
+
+881
+00:45:20,880 --> 00:45:26,560
+intersect the curve
+
+882
+00:45:23,440 --> 00:45:28,880
+at the same angle.
+
+883
+00:45:26,560 --> 00:45:31,760
+Okay. So this spiral is actually a
+
+884
+00:45:28,880 --> 00:45:34,160
+family of spiral. It's not like a it's
+
+885
+00:45:31,760 --> 00:45:37,440
+not a single specific one. There's like
+
+886
+00:45:34,160 --> 00:45:42,720
+a bunch of them defined by the angle. So
+
+887
+00:45:37,440 --> 00:45:46,240
+given an given an angle less than 90°
+
+888
+00:45:42,720 --> 00:45:48,720
+you got one equal angular spiral. Okay
+
+889
+00:45:46,240 --> 00:45:51,200
+that's a definition.
+
+890
+00:45:48,720 --> 00:45:53,280
+Now there are other spirals that's not
+
+891
+00:45:51,200 --> 00:45:55,599
+like that. So for example this
+
+892
+00:45:53,280 --> 00:45:58,720
+Archimedian spiral is not like that.
+
+893
+00:45:55,599 --> 00:46:01,599
+Okay, it you know you draw a line
+
+894
+00:45:58,720 --> 00:46:05,440
+passing the center it intersect the
+
+895
+00:46:01,599 --> 00:46:07,119
+curve depends on you know
+
+896
+00:46:05,440 --> 00:46:09,920
+you know the intersection have different
+
+897
+00:46:07,119 --> 00:46:12,000
+angles depending on how
+
+898
+00:46:09,920 --> 00:46:14,880
+you know your orientation of the line
+
+899
+00:46:12,000 --> 00:46:17,280
+okay so
+
+900
+00:46:14,880 --> 00:46:20,240
+so for this curve that's you know it's
+
+901
+00:46:17,280 --> 00:46:23,280
+not equal angular okay it has other
+
+902
+00:46:20,240 --> 00:46:25,359
+other properties okay other properties
+
+903
+00:46:23,280 --> 00:46:28,720
+that's why this is called archdium
+
+904
+00:46:25,359 --> 00:46:31,839
+spiral. But
+
+905
+00:46:28,720 --> 00:46:35,040
+but but the graveyard, you know, the
+
+906
+00:46:31,839 --> 00:46:37,839
+carpenter or whatever, he doesn't know
+
+907
+00:46:35,040 --> 00:46:41,359
+about the mathematics. So he drew an
+
+908
+00:46:37,839 --> 00:46:44,720
+Archimedian spiral on the grave. So
+
+909
+00:46:41,359 --> 00:46:47,440
+that's that's funny.
+
+910
+00:46:44,720 --> 00:46:49,280
+So you can read. So we talked, you know,
+
+911
+00:46:47,440 --> 00:46:52,000
+I talked about this like two years ago.
+
+912
+00:46:49,280 --> 00:46:53,599
+I told told this story. So you can go to
+
+913
+00:46:52,000 --> 00:46:57,280
+Wikipedia.
+
+914
+00:46:53,599 --> 00:46:59,599
+Uh this is Latin Adam motata
+
+915
+00:46:57,280 --> 00:47:02,800
+vircle something like that. So you can
+
+916
+00:46:59,599 --> 00:47:05,440
+you know you can see interesting uh
+
+917
+00:47:02,800 --> 00:47:07,680
+because it's a
+
+918
+00:47:05,440 --> 00:47:09,359
+it's interesting
+
+919
+00:47:07,680 --> 00:47:13,760
+mathematical
+
+920
+00:47:09,359 --> 00:47:16,560
+fact. Okay. So um
+
+921
+00:47:13,760 --> 00:47:21,280
+uh so anyway so that's that's a that's
+
+922
+00:47:16,560 --> 00:47:25,520
+the uh that's a guy Jacob Bernoli
+
+923
+00:47:21,280 --> 00:47:29,440
+one of the uh one of the great you know
+
+924
+00:47:25,520 --> 00:47:32,800
+uh mathematician okay
+
+925
+00:47:29,440 --> 00:47:35,280
+so Wikipedia of course Wikipedia has an
+
+926
+00:47:32,800 --> 00:47:39,119
+article on that Wikipedia got all sort
+
+927
+00:47:35,280 --> 00:47:41,599
+of articles okay there it is log read
+
+928
+00:47:39,119 --> 00:47:45,520
+you see they call logarithmic spiral but
+
+929
+00:47:41,599 --> 00:47:48,800
+it's better it's it's better the better
+
+930
+00:47:45,520 --> 00:47:51,119
+name would be equal angular spiral
+
+931
+00:47:48,800 --> 00:47:54,720
+because that name defines the spiral
+
+932
+00:47:51,119 --> 00:47:57,839
+that's a property of it okay so there it
+
+933
+00:47:54,720 --> 00:47:59,440
+is so you can see the logarithm
+
+934
+00:47:57,839 --> 00:48:03,040
+um
+
+935
+00:47:59,440 --> 00:48:06,800
+formula in Wikipedia uh do they do they
+
+936
+00:48:03,040 --> 00:48:09,238
+show it like the the formula would be um
+
+937
+00:48:06,800 --> 00:48:09,520
+there okay they you
+
+938
+00:48:09,238 --> 00:48:11,599
+>> [laughter]
+
+939
+00:48:09,520 --> 00:48:13,280
+>> that or that you see that's a
+
+940
+00:48:11,599 --> 00:48:16,880
+exponential
+
+941
+00:48:13,280 --> 00:48:20,400
+formula involving exponent
+
+942
+00:48:16,880 --> 00:48:22,800
+and here it you know you you rewrite it
+
+943
+00:48:20,400 --> 00:48:26,240
+so you become you got the logarithm
+
+944
+00:48:22,800 --> 00:48:29,359
+natural logarithm okay so that's why I
+
+945
+00:48:26,240 --> 00:48:31,520
+didn't include the formula I mean I have
+
+946
+00:48:29,359 --> 00:48:36,800
+the formula here so let's see where is
+
+947
+00:48:31,520 --> 00:48:40,079
+it archimemed not aramedian so we want
+
+948
+00:48:36,800 --> 00:48:43,040
+equal angular So equal angular. So you
+
+949
+00:48:40,079 --> 00:48:45,440
+go formula section
+
+950
+00:48:43,040 --> 00:48:47,520
+uh formula. So you got you see you got
+
+951
+00:48:45,440 --> 00:48:51,839
+the exponent
+
+952
+00:48:47,520 --> 00:48:53,760
+E is the E is the
+
+953
+00:48:51,839 --> 00:48:57,440
+uh
+
+954
+00:48:53,760 --> 00:49:00,160
+the special constant that
+
+955
+00:48:57,440 --> 00:49:02,960
+how do they call that constant? Was that
+
+956
+00:49:00,160 --> 00:49:05,520
+called Olo's constant? you know, it's
+
+957
+00:49:02,960 --> 00:49:08,480
+like
+
+958
+00:49:05,520 --> 00:49:11,200
+anyway, so
+
+959
+00:49:08,480 --> 00:49:14,720
+I, you know, m, you know, maybe you guys
+
+960
+00:49:11,200 --> 00:49:18,720
+get the idea. Okay, so anyway, I I I
+
+961
+00:49:14,720 --> 00:49:20,240
+think I kind of just rambled for an
+
+962
+00:49:18,720 --> 00:49:23,760
+hour.
+
+963
+00:49:20,240 --> 00:49:26,720
+Is it 50 minutes? Not an hour yet. But
+
+964
+00:49:23,760 --> 00:49:29,040
+we didn't get to do what we I wanted to
+
+965
+00:49:26,720 --> 00:49:31,200
+do. Oiler.
+
+966
+00:49:29,040 --> 00:49:36,119
+Okay. Is that is that called oilless
+
+967
+00:49:31,200 --> 00:49:36,119
+number uh oiler constant
+
+968
+00:49:36,800 --> 00:49:42,079
+oilers constant? Okay. Defined because
+
+969
+00:49:39,920 --> 00:49:44,640
+it could be no oil constant means
+
+970
+00:49:42,079 --> 00:49:46,800
+something else. You see it's a bit
+
+971
+00:49:44,640 --> 00:49:51,200
+tricky. You see oiler constant means
+
+972
+00:49:46,800 --> 00:49:54,640
+something else. Um
+
+973
+00:49:51,200 --> 00:49:59,200
+let's go there. You see oilers constant
+
+974
+00:49:54,640 --> 00:50:03,200
+means this oiler maceroni constant which
+
+975
+00:49:59,200 --> 00:50:06,640
+is 0.5 something that which is not the
+
+976
+00:50:03,200 --> 00:50:09,920
+other the the one we are looking we are
+
+977
+00:50:06,640 --> 00:50:13,359
+thinking of is the other I think
+
+978
+00:50:09,920 --> 00:50:15,520
+Wikipedia will mention it to avoid
+
+979
+00:50:13,359 --> 00:50:17,680
+confusion the one we are looking at is
+
+980
+00:50:15,520 --> 00:50:21,000
+called um
+
+981
+00:50:17,680 --> 00:50:21,000
+let's see
+
+982
+00:50:21,040 --> 00:50:24,880
+you know if you click on that not
+
+983
+00:50:23,280 --> 00:50:28,400
+logarithm
+
+984
+00:50:24,880 --> 00:50:31,520
+there you know the base e uh you'll get
+
+985
+00:50:28,400 --> 00:50:36,000
+to it
+
+986
+00:50:31,520 --> 00:50:41,359
+okay yeah so there it is
+
+987
+00:50:36,000 --> 00:50:43,920
+number okay so the number e is a
+
+988
+00:50:41,359 --> 00:50:46,960
+mathematical constant approximately
+
+989
+00:50:43,920 --> 00:50:50,559
+equal to 2.718
+
+990
+00:50:46,960 --> 00:50:52,240
+something that is the base of the
+
+991
+00:50:50,559 --> 00:50:55,440
+natural logarithm
+
+992
+00:50:52,240 --> 00:50:58,400
+and exponential function. It is
+
+993
+00:50:55,440 --> 00:51:01,520
+sometimes called Oiler's number. You
+
+994
+00:50:58,400 --> 00:51:03,680
+see, by the way, that's called Oiler. I
+
+995
+00:51:01,520 --> 00:51:07,680
+think that's pronounced Oiler. The guy's
+
+996
+00:51:03,680 --> 00:51:09,520
+name, Swiss mathematician, Leonard
+
+997
+00:51:07,680 --> 00:51:12,960
+Oiler,
+
+998
+00:51:09,520 --> 00:51:15,680
+but usually I like to pronounce it Ula
+
+999
+00:51:12,960 --> 00:51:18,400
+because that's how English pronounce it,
+
+1000
+00:51:15,680 --> 00:51:20,240
+ula. Anyway, I think it's oiler
+
+1001
+00:51:18,400 --> 00:51:23,760
+something.
+
+1002
+00:51:20,240 --> 00:51:26,079
+But but anyway, you can see that
+
+1003
+00:51:23,760 --> 00:51:28,720
+uh you can see that
+
+1004
+00:51:26,079 --> 00:51:32,480
+you see this this this number
+
+1005
+00:51:28,720 --> 00:51:35,680
+mathematical constant e is uh my wife is
+
+1006
+00:51:32,480 --> 00:51:38,559
+back. I I should go to dinner soon. But
+
+1007
+00:51:35,680 --> 00:51:40,480
+you can see that this this this
+
+1008
+00:51:38,559 --> 00:51:41,920
+you see they they they don't have
+
+1009
+00:51:40,480 --> 00:51:44,319
+actually they don't they don't have a
+
+1010
+00:51:41,920 --> 00:51:46,640
+name. They should have you know but we
+
+1011
+00:51:44,319 --> 00:51:50,800
+don't actually have a name for this
+
+1012
+00:51:46,640 --> 00:51:53,359
+number. We we usually just say e you
+
+1013
+00:51:50,800 --> 00:51:55,359
+know the you know the base of natural
+
+1014
+00:51:53,359 --> 00:51:58,240
+logarithm
+
+1015
+00:51:55,359 --> 00:52:01,839
+sometimes we say oilless number oilless
+
+1016
+00:51:58,240 --> 00:52:05,520
+number but it's different from
+
+1017
+00:52:01,839 --> 00:52:08,720
+it's different from this um
+
+1018
+00:52:05,520 --> 00:52:11,839
+oilless constant you see this oilless
+
+1019
+00:52:08,720 --> 00:52:16,160
+constant is equals to 0
+
+1020
+00:52:11,839 --> 00:52:18,559
+uh five something you see very confusing
+
+1021
+00:52:16,160 --> 00:52:21,520
+very confusing
+
+1022
+00:52:18,559 --> 00:52:25,920
+Okay, I think you know my wife is back.
+
+1023
+00:52:21,520 --> 00:52:27,966
+So, let me say hi to her.
+
+1024
+00:52:25,920 --> 00:52:29,760
+Sweet family.
+
+1025
+00:52:27,966 --> 00:52:32,559
+[laughter] You know, when you have a
+
+1026
+00:52:29,760 --> 00:52:34,640
+wife, everything is good. Provided that
+
+1027
+00:52:32,559 --> 00:52:37,200
+you have a good wife. You know, in
+
+1028
+00:52:34,640 --> 00:52:39,839
+America society,
+
+1029
+00:52:37,200 --> 00:52:42,640
+you get a girl, you got a wife, you
+
+1030
+00:52:39,839 --> 00:52:43,680
+ and you got you get divorce. you
+
+1031
+00:52:42,640 --> 00:52:46,000
+got [laughter]
+
+1032
+00:52:43,680 --> 00:52:47,680
+in America society, you got lots of
+
+1033
+00:52:46,000 --> 00:52:52,160
+problems
+
+1034
+00:52:47,680 --> 00:52:56,240
+um due to the huge amount of corruption
+
+1035
+00:52:52,160 --> 00:52:58,079
+in the past like 20 or 30 years. Okay,
+
+1036
+00:52:56,240 --> 00:52:59,599
+hold on a second. Let me say hi to my
+
+1037
+00:52:58,079 --> 00:53:05,079
+wife
+
+1038
+00:52:59,599 --> 00:53:05,079
+and we get we'll be back. Um,
+
+1039
+00:53:32,160 --> 00:53:37,800
+Hold on a second.
+
+1040
+00:53:34,319 --> 00:53:37,800
+Be right back.
+
+1041
+00:56:30,559 --> 00:56:38,000
+Hello guys, I'm back.
+
+1042
+00:56:34,400 --> 00:56:39,520
+Welcome back to the live streaming
+
+1043
+00:56:38,000 --> 00:56:42,559
+stuff.
+
+1044
+00:56:39,520 --> 00:56:49,240
+So, I'm having red wine.
+
+1045
+00:56:42,559 --> 00:56:49,240
+My red wine is we are the red wine.
+
+1046
+00:56:50,000 --> 00:56:53,079
+So So
+
+1047
+00:56:54,160 --> 00:57:00,280
+this is the last struggle of the red
+
+1048
+00:56:57,280 --> 00:57:00,280
+wine.
+
+1049
+00:57:15,280 --> 00:57:21,240
+Okay,
+
+1050
+00:57:16,880 --> 00:57:21,240
+we need to go by
+
+1051
+00:57:23,520 --> 00:57:33,440
+so we were talking about the number
+
+1052
+00:57:28,480 --> 00:57:35,359
+versus constant very confusing
+
+1053
+00:57:33,440 --> 00:57:38,319
+actually I don't know what is the
+
+1054
+00:57:35,359 --> 00:57:42,000
+constant I know it because of the uni
+
+1055
+00:57:38,319 --> 00:57:44,880
+code uh because there's a unic code for
+
+1056
+00:57:42,000 --> 00:57:48,799
+that for for this constant. It looks
+
+1057
+00:57:44,880 --> 00:57:51,839
+like um anyway anyway so let's not go
+
+1058
+00:57:48,799 --> 00:57:55,119
+over there. So but
+
+1059
+00:57:51,839 --> 00:57:57,920
+but you see it's different from
+
+1060
+00:57:55,119 --> 00:58:00,960
+this e so
+
+1061
+00:57:57,920 --> 00:58:05,359
+number okay so like there is no I guess
+
+1062
+00:58:00,960 --> 00:58:10,160
+the best name is just number but very
+
+1063
+00:58:05,359 --> 00:58:14,319
+confusing with the constant okay
+
+1064
+00:58:10,160 --> 00:58:16,880
+so you see Wikipedia title they even you
+
+1065
+00:58:14,319 --> 00:58:22,200
+know they don't name it number they
+
+1066
+00:58:16,880 --> 00:58:22,200
+actually the Wikipedia title is like
+
+1067
+00:58:23,520 --> 00:58:29,200
+yeah the mathematical constant but they
+
+1068
+00:58:26,079 --> 00:58:31,760
+named you know here they say's number
+
+1069
+00:58:29,200 --> 00:58:37,319
+but
+
+1070
+00:58:31,760 --> 00:58:37,319
+was it or something like that
+
+1071
+00:58:39,599 --> 00:58:45,200
+so anyway this this number is
+
+1072
+00:58:41,920 --> 00:58:50,480
+significant okay especially in calculus
+
+1073
+00:58:45,200 --> 00:58:50,480
+because it um is sign significant
+
+1074
+00:58:50,720 --> 00:58:56,079
+Okay. So we we talked about like we were
+
+1075
+00:58:53,520 --> 00:58:58,400
+going over we were just going over
+
+1076
+00:58:56,079 --> 00:59:02,799
+curves. Yeah. So we were talking about
+
+1077
+00:58:58,400 --> 00:59:04,880
+this this uh logarithmic spiral equal
+
+1078
+00:59:02,799 --> 00:59:07,520
+angular spiral
+
+1079
+00:59:04,880 --> 00:59:11,119
+and we mentioned this mathematician you
+
+1080
+00:59:07,520 --> 00:59:13,520
+know who has this on the grave and the
+
+1081
+00:59:11,119 --> 00:59:16,799
+grave engraver got it wrong. You know
+
+1082
+00:59:13,520 --> 00:59:20,400
+they got aimed spiral. [laughter]
+
+1083
+00:59:16,799 --> 00:59:24,359
+quite funny. Okay,
+
+1084
+00:59:20,400 --> 00:59:24,359
+but anyway, so
+
+1085
+00:59:31,680 --> 00:59:37,839
+but why are we talking about the spiral?
+
+1086
+00:59:35,359 --> 00:59:40,400
+That's because
+
+1087
+00:59:37,839 --> 00:59:45,359
+Oh yeah. That's because of from this
+
+1088
+00:59:40,400 --> 00:59:51,119
+illustration we happened to use seeant
+
+1089
+00:59:45,359 --> 00:59:54,559
+to to draw pretty pictures of this
+
+1090
+00:59:51,119 --> 00:59:59,119
+equal angular spiral. Okay. So that's
+
+1091
+00:59:54,559 --> 01:00:02,799
+why we started to mention this this uh
+
+1092
+00:59:59,119 --> 01:00:05,200
+jackup boni and logarithmic spiral you
+
+1093
+01:00:02,799 --> 01:00:08,720
+know stuff.
+
+1094
+01:00:05,200 --> 01:00:11,040
+Uh okay. So you see so
+
+1095
+01:00:08,720 --> 01:00:15,599
+basically today we are actually just
+
+1096
+01:00:11,040 --> 01:00:18,400
+going over my plane curve
+
+1097
+01:00:15,599 --> 01:00:22,880
+uh package wam language package. You can
+
+1098
+01:00:18,400 --> 01:00:26,400
+download it here and showing you the
+
+1099
+01:00:22,880 --> 01:00:31,200
+example illustrations feature gallery.
+
+1100
+01:00:26,400 --> 01:00:34,799
+And I was just going through them and
+
+1101
+01:00:31,200 --> 01:00:37,280
+doing explanations on why they are
+
+1102
+01:00:34,799 --> 01:00:39,280
+interesting. Okay, like these are the
+
+1103
+01:00:37,280 --> 01:00:42,319
+fundamental
+
+1104
+01:00:39,280 --> 01:00:44,319
+interesting concepts in analytic
+
+1105
+01:00:42,319 --> 01:00:48,720
+geometry
+
+1106
+01:00:44,319 --> 01:00:52,400
+with respect to calculus. Okay.
+
+1107
+01:00:48,720 --> 01:00:55,920
+Uh so we talked about tangents, normals
+
+1108
+01:00:52,400 --> 01:01:00,480
+and normals and seeants. Okay. an equal
+
+1109
+01:00:55,920 --> 01:01:04,880
+angular spiral. And this is uh this star
+
+1110
+01:01:00,480 --> 01:01:08,000
+shaped thing that's a hypotcoid
+
+1111
+01:01:04,880 --> 01:01:10,799
+which means you roll a circle on another
+
+1112
+01:01:08,000 --> 01:01:14,000
+circle inside another circle. We talked
+
+1113
+01:01:10,799 --> 01:01:16,880
+about like yesterday many times uh in
+
+1114
+01:01:14,000 --> 01:01:19,920
+the past week several videos [snorts]
+
+1115
+01:01:16,880 --> 01:01:24,640
+and this you know just just generates
+
+1116
+01:01:19,920 --> 01:01:27,760
+pretty pictures. Okay. and uh and uh uh
+
+1117
+01:01:24,640 --> 01:01:30,400
+hypotrocoid. Okay. So also known as
+
+1118
+01:01:27,760 --> 01:01:32,880
+spyroraph.
+
+1119
+01:01:30,400 --> 01:01:36,960
+Okay. Then there's optical properties
+
+1120
+01:01:32,880 --> 01:01:41,200
+like we talked about costics. Okay. Uh
+
+1121
+01:01:36,960 --> 01:01:44,640
+of parabola parabola the most well known
+
+1122
+01:01:41,200 --> 01:01:46,799
+uh for example we can see it in
+
+1123
+01:01:44,640 --> 01:01:51,040
+flashlight
+
+1124
+01:01:46,799 --> 01:01:53,040
+uh you know this par parabolic mirror.
+
+1125
+01:01:51,040 --> 01:01:56,799
+Okay. Then then you know there are
+
+1126
+01:01:53,040 --> 01:02:00,640
+several okay so optical properties uh of
+
+1127
+01:01:56,799 --> 01:02:02,880
+ellipses uh you know have you guys seen
+
+1128
+01:02:00,640 --> 01:02:05,359
+the elliptical
+
+1129
+01:02:02,880 --> 01:02:09,240
+pool table
+
+1130
+01:02:05,359 --> 01:02:09,240
+that's um
+
+1131
+01:02:11,520 --> 01:02:16,640
+you know if you guys know interested in
+
+1132
+01:02:13,920 --> 01:02:21,280
+mathematics you have seen this because
+
+1133
+01:02:16,640 --> 01:02:23,760
+this is the most like interesting thing.
+
+1134
+01:02:21,280 --> 01:02:26,240
+So, it's a poor table, but it's a
+
+1135
+01:02:23,760 --> 01:02:29,200
+elliptical shape, you know, but if you
+
+1136
+01:02:26,240 --> 01:02:33,040
+don't know mathematics, you you this you
+
+1137
+01:02:29,200 --> 01:02:35,200
+probably never seen this before, but I'm
+
+1138
+01:02:33,040 --> 01:02:37,119
+showing you for the first time. So, you
+
+1139
+01:02:35,200 --> 01:02:40,319
+see, you got a pool table. You know, a
+
+1140
+01:02:37,119 --> 01:02:44,400
+lot of people are interested in this.
+
+1141
+01:02:40,319 --> 01:02:47,680
+But, but you if the table is shaped like
+
+1142
+01:02:44,400 --> 01:02:50,720
+a ellipse, then you got properties such
+
+1143
+01:02:47,680 --> 01:02:53,359
+that they reflect
+
+1144
+01:02:50,720 --> 01:02:56,559
+from one point it will bounce off the
+
+1145
+01:02:53,359 --> 01:02:59,760
+table to the other point. Those points
+
+1146
+01:02:56,559 --> 01:03:02,319
+are called focal of the ellipse. Okay,
+
+1147
+01:02:59,760 --> 01:03:06,160
+very interesting things. So there's a
+
+1148
+01:03:02,319 --> 01:03:10,400
+lot pictures and people have buil
+
+1149
+01:03:06,160 --> 01:03:14,000
+elliptical pool tables. Uh okay, so th
+
+1150
+01:03:10,400 --> 01:03:16,960
+those are you know this for you nerds.
+
+1151
+01:03:14,000 --> 01:03:19,920
+Anyway, so [sighs]
+
+1152
+01:03:16,960 --> 01:03:23,640
+you know, it's like a common topic
+
+1153
+01:03:19,920 --> 01:03:23,640
+talked about for
+
+1154
+01:03:24,559 --> 01:03:31,760
+uh like 50 years or more. So anyway,
+
+1155
+01:03:28,799 --> 01:03:37,160
+where am I? Where was I? So I'm kind of
+
+1156
+01:03:31,760 --> 01:03:37,160
+I'm now right now 20% drunk.
+
+1157
+01:03:37,599 --> 01:03:46,160
+So that means we're going to stop. Okay.
+
+1158
+01:03:41,920 --> 01:03:48,960
+So So
+
+1159
+01:03:46,160 --> 01:03:55,520
+as far as this package goes, this you
+
+1160
+01:03:48,960 --> 01:04:00,319
+know so we we can talk about um costics.
+
+1161
+01:03:55,520 --> 01:04:04,160
+One feature of the package is to draw
+
+1162
+01:04:00,319 --> 01:04:07,039
+costics. So you can see costic length to
+
+1163
+01:04:04,160 --> 01:04:09,599
+allow you to visualize
+
+1164
+01:04:07,039 --> 01:04:12,640
+optical properties. So for example this
+
+1165
+01:04:09,599 --> 01:04:15,280
+one we used in our thumbnail kind of
+
+1166
+01:04:12,640 --> 01:04:17,440
+similar to that
+
+1167
+01:04:15,280 --> 01:04:19,839
+then you can also draw osculating
+
+1168
+01:04:17,440 --> 01:04:24,000
+circles. Now osculating circle is the
+
+1169
+01:04:19,839 --> 01:04:27,119
+most interesting. Osculate means kiss.
+
+1170
+01:04:24,000 --> 01:04:30,119
+Okay in Latin I believe
+
+1171
+01:04:27,119 --> 01:04:30,119
+um
+
+1172
+01:04:30,880 --> 01:04:38,079
+osculate means kiss in Latin. Osculate
+
+1173
+01:04:34,799 --> 01:04:40,960
+is a versatile verb with meaning
+
+1174
+01:04:38,079 --> 01:04:43,680
+spanning affection, biology and
+
+1175
+01:04:40,960 --> 01:04:47,599
+mathematics. Okay. Affectionate
+
+1176
+01:04:43,680 --> 01:04:50,319
+affection that kiss.
+
+1177
+01:04:47,599 --> 01:04:54,000
+Osculate to mean kiss. Okay. So, but
+
+1178
+01:04:50,319 --> 01:04:57,680
+what is origin? So
+
+1179
+01:04:54,000 --> 01:05:00,640
+the word originates from Latin. Osculum
+
+1180
+01:04:57,680 --> 01:05:04,799
+meaning little mouth or kiss. Okay. So
+
+1181
+01:05:00,640 --> 01:05:10,720
+it from Latin but basically osculating
+
+1182
+01:05:04,799 --> 01:05:13,760
+circle means that um where are we?
+
+1183
+01:05:10,720 --> 01:05:16,480
+Okay that's osculating circle is like
+
+1184
+01:05:13,760 --> 01:05:19,920
+tangent like the idea of tangent but
+
+1185
+01:05:16,480 --> 01:05:22,880
+it's but it but it's a circle that is
+
+1186
+01:05:19,920 --> 01:05:26,799
+the most fitting circle at that point on
+
+1187
+01:05:22,880 --> 01:05:30,079
+the curve. So given a curve and given
+
+1188
+01:05:26,799 --> 01:05:35,680
+any one point on the curve you have a
+
+1189
+01:05:30,079 --> 01:05:37,599
+circle that kind of is the most
+
+1190
+01:05:35,680 --> 01:05:40,799
+fitting
+
+1191
+01:05:37,599 --> 01:05:44,000
+to that point. Okay. So that so for
+
+1192
+01:05:40,799 --> 01:05:46,240
+example this point on this sign curve at
+
+1193
+01:05:44,000 --> 01:05:49,760
+this point you got this circle. This
+
+1194
+01:05:46,240 --> 01:05:52,960
+circle is called the osculating circle
+
+1195
+01:05:49,760 --> 01:05:55,760
+at that point of this sign curve. Okay.
+
+1196
+01:05:52,960 --> 01:05:57,599
+Now how is this curve defined? Basically
+
+1197
+01:05:55,760 --> 01:05:59,280
+this circle I mean how is this circle
+
+1198
+01:05:57,599 --> 01:06:03,520
+defined? The circle is basically the
+
+1199
+01:05:59,280 --> 01:06:07,280
+most fitting circle that fits the point
+
+1200
+01:06:03,520 --> 01:06:10,160
+which means basically the curvature
+
+1201
+01:06:07,280 --> 01:06:12,799
+the concept of curvature.
+
+1202
+01:06:10,160 --> 01:06:15,440
+Okay. So the curvature the concept of co
+
+1203
+01:06:12,799 --> 01:06:19,760
+curvature means you know
+
+1204
+01:06:15,440 --> 01:06:22,799
+which is very intuitive like if for
+
+1205
+01:06:19,760 --> 01:06:25,680
+example here the curve is very more
+
+1206
+01:06:22,799 --> 01:06:28,559
+tight then over here for example imagine
+
+1207
+01:06:25,680 --> 01:06:32,079
+you are driving a car around this
+
+1208
+01:06:28,559 --> 01:06:35,920
+ellipse. So over here when you pass you
+
+1209
+01:06:32,079 --> 01:06:39,039
+don't you don't feel much you know sway
+
+1210
+01:06:35,920 --> 01:06:43,039
+like but if you are driving at the same
+
+1211
+01:06:39,039 --> 01:06:46,240
+speed when you pass over the major axis
+
+1212
+01:06:43,039 --> 01:06:50,160
+then you feel like there's a like strong
+
+1213
+01:06:46,240 --> 01:06:53,280
+sway sway right so that that's a concept
+
+1214
+01:06:50,160 --> 01:06:56,640
+of curvature because at that point at
+
+1215
+01:06:53,280 --> 01:06:58,880
+the major axis theure then then over
+
+1216
+01:06:56,640 --> 01:07:02,480
+here
+
+1217
+01:06:58,880 --> 01:07:04,960
+so you Guys, what see what I mean? So
+
+1218
+01:07:02,480 --> 01:07:07,200
+that the concept of curvature is
+
+1219
+01:07:04,960 --> 01:07:11,359
+captured by
+
+1220
+01:07:07,200 --> 01:07:13,760
+this so-called osculating circle. Okay.
+
+1221
+01:07:11,359 --> 01:07:18,079
+At any point on a curve, this is
+
+1222
+01:07:13,760 --> 01:07:21,599
+fantastic concept. Um anyway, so then we
+
+1223
+01:07:18,079 --> 01:07:23,680
+can draw the so ascaline circle also you
+
+1224
+01:07:21,599 --> 01:07:26,559
+know you can just call it kissing
+
+1225
+01:07:23,680 --> 01:07:30,400
+kissing circle. Okay, kissing circle of
+
+1226
+01:07:26,559 --> 01:07:36,400
+a point on a curve. So you can draw that
+
+1227
+01:07:30,400 --> 01:07:39,520
+for spirals and for um
+
+1228
+01:07:36,400 --> 01:07:42,720
+for okay for cyclloid. Now this curve is
+
+1229
+01:07:39,520 --> 01:07:46,000
+another fascinating property. You know
+
+1230
+01:07:42,720 --> 01:07:49,680
+this curve is created when you draw a
+
+1231
+01:07:46,000 --> 01:07:53,119
+circle on a line. So for example the
+
+1232
+01:07:49,680 --> 01:07:55,920
+bicycle if you ride the bicycle at night
+
+1233
+01:07:53,119 --> 01:07:58,079
+you know you attach a lead or reflector
+
+1234
+01:07:55,920 --> 01:08:02,079
+on the wheel.
+
+1235
+01:07:58,079 --> 01:08:05,839
+So as you ride along and and on look you
+
+1236
+01:08:02,079 --> 01:08:08,240
+you'll see the light will trace out a
+
+1237
+01:08:05,839 --> 01:08:11,680
+curve like that on the wheel. Okay on
+
+1238
+01:08:08,240 --> 01:08:13,680
+the rim of the wheel. This curve is
+
+1239
+01:08:11,680 --> 01:08:15,920
+called cyclloid. Okay that's called
+
+1240
+01:08:13,680 --> 01:08:18,239
+cyclloid.
+
+1241
+01:08:15,920 --> 01:08:22,000
+Why is this curve interesting? Because
+
+1242
+01:08:18,239 --> 01:08:25,920
+th this curve happens to be the optimal
+
+1243
+01:08:22,000 --> 01:08:31,359
+curve. If you want a ball
+
+1244
+01:08:25,920 --> 01:08:34,319
+to fall down to roll down from one point
+
+1245
+01:08:31,359 --> 01:08:36,799
+to another point on the ground, okay?
+
+1246
+01:08:34,319 --> 01:08:39,359
+Like you can have a straight line or you
+
+1247
+01:08:36,799 --> 01:08:42,719
+can have like a semiircle or you can
+
+1248
+01:08:39,359 --> 01:08:46,400
+have however curve you want. If you want
+
+1249
+01:08:42,719 --> 01:08:52,480
+the fastest curve according by gravity,
+
+1250
+01:08:46,400 --> 01:08:55,839
+then the optimal path is this cyclloid.
+
+1251
+01:08:52,480 --> 01:09:01,040
+Okay. And this cyclloid is defined by
+
+1252
+01:08:55,839 --> 01:09:04,719
+rolling a circle on a line. Okay. So,
+
+1253
+01:09:01,040 --> 01:09:07,520
+okay. So, uh so that's why
+
+1254
+01:09:04,719 --> 01:09:10,239
+for example you can see an animation.
+
+1255
+01:09:07,520 --> 01:09:12,480
+This this is why this visual dictionary
+
+1256
+01:09:10,239 --> 01:09:14,960
+of special plane curves are so
+
+1257
+01:09:12,480 --> 01:09:18,400
+interesting.
+
+1258
+01:09:14,960 --> 01:09:22,239
+Uh that one cycle. Okay. So you can see
+
+1259
+01:09:18,400 --> 01:09:24,560
+an animation there.
+
+1260
+01:09:22,239 --> 01:09:27,120
+Okay. So why why is this interesting?
+
+1261
+01:09:24,560 --> 01:09:32,120
+because that that is that's that's that
+
+1262
+01:09:27,120 --> 01:09:32,120
+is the solution to the uh bracken
+
+1263
+01:09:35,920 --> 01:09:43,440
+the problem called brackenome something.
+
+1264
+01:09:38,719 --> 01:09:47,759
+Okay, that is the um like what what is
+
+1265
+01:09:43,440 --> 01:09:50,799
+the path so that when you
+
+1266
+01:09:47,759 --> 01:09:54,159
+face a marble it will fall down the
+
+1267
+01:09:50,799 --> 01:09:57,760
+fastest. So if you search on the web
+
+1268
+01:09:54,159 --> 01:09:59,920
+Wikipedia and you'll see lots of um
+
+1269
+01:09:57,760 --> 01:10:02,800
+answers okay
+
+1270
+01:09:59,920 --> 01:10:06,239
+cyclloid. So just search for the curve
+
+1271
+01:10:02,800 --> 01:10:09,199
+cyclloid. Okay.
+
+1272
+01:10:06,239 --> 01:10:12,640
+Uh and uh
+
+1273
+01:10:09,199 --> 01:10:14,159
+okay that is the cyclloid curve and the
+
+1274
+01:10:12,640 --> 01:10:17,440
+reason
+
+1275
+01:10:14,159 --> 01:10:20,640
+we are talking about that is because you
+
+1276
+01:10:17,440 --> 01:10:22,960
+know again this package can draw it. I
+
+1277
+01:10:20,640 --> 01:10:28,880
+mean it can draw the evolute. Okay,
+
+1278
+01:10:22,960 --> 01:10:31,280
+evolute is again is the um
+
+1279
+01:10:28,880 --> 01:10:36,400
+locus of
+
+1280
+01:10:31,280 --> 01:10:39,280
+kissing circles. Okay. So cyclloid which
+
+1281
+01:10:36,400 --> 01:10:41,840
+is a curve traced out by rolling a
+
+1282
+01:10:39,280 --> 01:10:43,760
+circle. Okay. It has a property such
+
+1283
+01:10:41,840 --> 01:10:47,840
+that
+
+1284
+01:10:43,760 --> 01:10:52,320
+such that the locus of its
+
+1285
+01:10:47,840 --> 01:10:54,400
+of its kissing circles the center all
+
+1286
+01:10:52,320 --> 01:10:57,840
+the centers of the kissing circles on
+
+1287
+01:10:54,400 --> 01:11:02,080
+the curve is itself it's another
+
+1288
+01:10:57,840 --> 01:11:04,560
+cyclloid okay you can see here so the
+
+1289
+01:11:02,080 --> 01:11:06,560
+package just illustrate that okay so you
+
+1290
+01:11:04,560 --> 01:11:08,960
+can type this and you'll show you draw
+
+1291
+01:11:06,560 --> 01:11:11,199
+that anyway that's you know this is
+
+1292
+01:11:08,960 --> 01:11:13,920
+called evolute
+
+1293
+01:11:11,199 --> 01:11:17,120
+Uh anyway asteroid also has that
+
+1294
+01:11:13,920 --> 01:11:20,719
+property. The evolute of asteroid is
+
+1295
+01:11:17,120 --> 01:11:25,360
+itself. It creates another asteroid.
+
+1296
+01:11:20,719 --> 01:11:27,280
+Asteroid. Okay. Anyway, so we started to
+
+1297
+01:11:25,360 --> 01:11:32,760
+show you know we just talked about the
+
+1298
+01:11:27,280 --> 01:11:32,760
+properties of this um you know so this
+
+1299
+01:11:33,760 --> 01:11:40,640
+features of this package. Okay. So again
+
+1300
+01:11:36,560 --> 01:11:43,840
+you can you can uh get it just go to
+
+1301
+01:11:40,640 --> 01:11:48,800
+GitHub by search for wuam pack wam
+
+1302
+01:11:43,840 --> 01:11:51,520
+language package packages by si and wuam
+
+1303
+01:11:48,800 --> 01:11:54,960
+plank curve package you can get this
+
+1304
+01:11:51,520 --> 01:11:58,640
+package it's on github okay
+
+1305
+01:11:54,960 --> 01:12:01,440
+and we we basically today we
+
+1306
+01:11:58,640 --> 01:12:05,280
+spend
+
+1307
+01:12:01,440 --> 01:12:07,679
+70 minutes going over
+
+1308
+01:12:05,280 --> 01:12:11,159
+um why this is interesting. So, let's
+
+1309
+01:12:07,679 --> 01:12:11,159
+turn on JavaScript.
+
+1310
+01:12:11,360 --> 01:12:16,440
+Okay, I think that's it for today. Uh,
+
+1311
+01:12:16,560 --> 01:12:23,800
+actually,
+
+1312
+01:12:18,320 --> 01:12:23,800
+uh, wait, don't I have any um,
+
+1313
+01:12:24,239 --> 01:12:29,080
+wow, I didn't add any graphics.
+
+1314
+01:12:29,520 --> 01:12:34,640
+What
+
+1315
+01:12:31,199 --> 01:12:40,480
+did I did I not add any graphics?
+
+1316
+01:12:34,640 --> 01:12:45,040
+Amazing. I didn't on the um
+
+1317
+01:12:40,480 --> 01:12:48,560
+what I didn't uh interesting.
+
+1318
+01:12:45,040 --> 01:12:52,400
+So, let's go to get
+
+1319
+01:12:48,560 --> 01:12:55,360
+directory and uh
+
+1320
+01:12:52,400 --> 01:12:58,080
+plank curve.
+
+1321
+01:12:55,360 --> 01:13:03,440
+Let's go to plan curve
+
+1322
+01:12:58,080 --> 01:13:08,320
+plur plot. So, here is the package. But
+
+1323
+01:13:03,440 --> 01:13:11,320
+wow, I didn't include any uh images.
+
+1324
+01:13:08,320 --> 01:13:11,320
+Amazing.
+
+1325
+01:13:12,560 --> 01:13:22,960
+But I did include it on my website.
+
+1326
+01:13:18,560 --> 01:13:26,719
+You see? Okay. So,
+
+1327
+01:13:22,960 --> 01:13:30,080
+I got So, there's uh things to do there.
+
+1328
+01:13:26,719 --> 01:13:33,440
+I need to update the GitHub.
+
+1329
+01:13:30,080 --> 01:13:38,080
+Anyway, I think I'm like
+
+1330
+01:13:33,440 --> 01:13:41,199
+20% drunk. Uh, and I don't
+
+1331
+01:13:38,080 --> 01:13:43,679
+I need there's a lot coding I need to
+
+1332
+01:13:41,199 --> 01:13:46,239
+do, but I don't feel like doing it right
+
+1333
+01:13:43,679 --> 01:13:52,560
+now. So, this there's more to it. Okay.
+
+1334
+01:13:46,239 --> 01:13:56,320
+So there's u as you know uh this cateic
+
+1335
+01:13:52,560 --> 01:14:00,239
+optical properties there is the kissing
+
+1336
+01:13:56,320 --> 01:14:01,760
+circles which creates evolutes
+
+1337
+01:14:00,239 --> 01:14:05,199
+illustration
+
+1338
+01:14:01,760 --> 01:14:08,719
+then there is there's more there is um
+
+1339
+01:14:05,199 --> 01:14:11,920
+okay there's also radio which is very
+
+1340
+01:14:08,719 --> 01:14:14,400
+much related to kissing circles okay I'm
+
+1341
+01:14:11,920 --> 01:14:18,480
+not going to explain
+
+1342
+01:14:14,400 --> 01:14:20,320
+because I'm kind of tired and drunk and
+
+1343
+01:14:18,480 --> 01:14:23,120
+this neco
+
+1344
+01:14:20,320 --> 01:14:25,360
+concoid of neomedes. Okay, that's
+
+1345
+01:14:23,120 --> 01:14:28,400
+another
+
+1346
+01:14:25,360 --> 01:14:31,600
+uh way to generate a curve. Okay, so
+
+1347
+01:14:28,400 --> 01:14:34,000
+again it can be done by this package to
+
+1348
+01:14:31,600 --> 01:14:40,719
+illustrate it.
+
+1349
+01:14:34,000 --> 01:14:42,640
+Then there is conic inverse into lemicon
+
+1350
+01:14:40,719 --> 01:14:46,080
+pascal
+
+1351
+01:14:42,640 --> 01:14:49,199
+at their focus. Okay. So, oh there's
+
+1352
+01:14:46,080 --> 01:14:52,640
+okay. So, there's inversion. So, you can
+
+1353
+01:14:49,199 --> 01:14:55,760
+invert a curve with respect to a circle.
+
+1354
+01:14:52,640 --> 01:14:58,880
+For example, this picture shows the
+
+1355
+01:14:55,760 --> 01:15:02,400
+inversion of a parabola
+
+1356
+01:14:58,880 --> 01:15:06,880
+with respect to the circle
+
+1357
+01:15:02,400 --> 01:15:11,280
+centered at the vertex of the parabola.
+
+1358
+01:15:06,880 --> 01:15:14,840
+Then you get these red dots. Okay,
+
+1359
+01:15:11,280 --> 01:15:14,840
+that's a inversion.
+
+1360
+01:15:15,520 --> 01:15:21,840
+of the parabola at the vertex of the
+
+1361
+01:15:18,320 --> 01:15:25,199
+parabola what you get the red dots is
+
+1362
+01:15:21,840 --> 01:15:29,360
+the seesoid of dacos
+
+1363
+01:15:25,199 --> 01:15:33,360
+a variation curve like 2,00 or 3,000
+
+1364
+01:15:29,360 --> 01:15:35,840
+years old so seesoid of dios uh what is
+
+1365
+01:15:33,360 --> 01:15:38,800
+the property of the seisoid is this one
+
+1366
+01:15:35,840 --> 01:15:40,560
+okay this curve I think it's a cubic
+
+1367
+01:15:38,800 --> 01:15:43,120
+curve
+
+1368
+01:15:40,560 --> 01:15:46,480
+what's the property I forgot okay But
+
+1369
+01:15:43,120 --> 01:15:50,080
+you you but you can look up
+
+1370
+01:15:46,480 --> 01:15:54,960
+let's see plank curves. So seesoid.
+
+1371
+01:15:50,080 --> 01:15:58,239
+So you need to go to check uh seesoid.
+
+1372
+01:15:54,960 --> 01:16:04,400
+Let's see Asian curve. Seesoid of diaos.
+
+1373
+01:15:58,239 --> 01:16:08,800
+It's it's a curve created in 250 BC.
+
+1374
+01:16:04,400 --> 01:16:11,360
+So about 2,000 years ago trying to solve
+
+1375
+01:16:08,800 --> 01:16:13,360
+the um
+
+1376
+01:16:11,360 --> 01:16:16,560
+trying to solve doubling the cube
+
+1377
+01:16:13,360 --> 01:16:20,239
+problem. Okay. So anyway, so it looks
+
+1378
+01:16:16,560 --> 01:16:24,880
+like that kind of like a ivory. That's
+
+1379
+01:16:20,239 --> 01:16:29,920
+what seesoid means. Okay. So the name
+
+1380
+01:16:24,880 --> 01:16:33,760
+seesoid means ivory, ivyshaped ivy,
+
+1381
+01:16:29,920 --> 01:16:37,040
+which is a plant. Okay.
+
+1382
+01:16:33,760 --> 01:16:39,840
+Anyway, so this curve is, you know, is
+
+1383
+01:16:37,040 --> 01:16:42,080
+called seesoid of
+
+1384
+01:16:39,840 --> 01:16:46,320
+diaos. you know, I'm not sure how to
+
+1385
+01:16:42,080 --> 01:16:49,360
+pronounce the name Diaos, but anyway,
+
+1386
+01:16:46,320 --> 01:16:54,800
+but anyway, this curve
+
+1387
+01:16:49,360 --> 01:16:59,520
+is created 2,000 years ago. Okay? And
+
+1388
+01:16:54,800 --> 01:17:02,640
+and what we are talking about is that
+
+1389
+01:16:59,520 --> 01:17:05,360
+that parabola, the inversion of parabola
+
+1390
+01:17:02,640 --> 01:17:08,080
+at the vertex of the parabola is a
+
+1391
+01:17:05,360 --> 01:17:10,239
+cysoid of diagos. Very interesting.
+
+1392
+01:17:08,080 --> 01:17:13,120
+Okay.
+
+1393
+01:17:10,239 --> 01:17:16,320
+and uh inversion there's a lot of the
+
+1394
+01:17:13,120 --> 01:17:19,199
+properties inversion of a hyperola um
+
+1395
+01:17:16,320 --> 01:17:21,920
+lots of okay so we haven't
+
+1396
+01:17:19,199 --> 01:17:24,400
+okay I'm not going to go over them
+
+1397
+01:17:21,920 --> 01:17:26,880
+anyway so today we basically just went
+
+1398
+01:17:24,400 --> 01:17:29,840
+over this package plank curve bot
+
+1399
+01:17:26,880 --> 01:17:35,199
+package and why
+
+1400
+01:17:29,840 --> 01:17:38,560
+why why it uh the features
+
+1401
+01:17:35,199 --> 01:17:42,080
+why why why why it you know many of the
+
+1402
+01:17:38,560 --> 01:17:45,360
+features does interesting illustrations
+
+1403
+01:17:42,080 --> 01:17:49,040
+like fundamental to
+
+1404
+01:17:45,360 --> 01:17:51,520
+curves geometry. Okay. Okay. That's it
+
+1405
+01:17:49,040 --> 01:17:55,600
+for today.
+
+1406
+01:17:51,520 --> 01:17:55,600
+Okay. Bye guys. Bye.
+

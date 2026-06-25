@@ -1,0 +1,2480 @@
+1
+00:00:00,719 --> 00:00:06,480
+Hello guys. Hello guys. Good morning.
+
+2
+00:00:03,040 --> 00:00:09,440
+Welcome to another episode of talk show.
+
+3
+00:00:06,480 --> 00:00:12,559
+We are going to code JavaScript. Today
+
+4
+00:00:09,440 --> 00:00:17,760
+JavaScript and uh we are going to write
+
+5
+00:00:12,559 --> 00:00:22,000
+a JavaScript application that transforms
+
+6
+00:00:17,760 --> 00:00:23,920
+English letters to this squared version
+
+7
+00:00:22,000 --> 00:00:26,640
+of Unicode.
+
+8
+00:00:23,920 --> 00:00:29,599
+Uh so if you are watching this offline,
+
+9
+00:00:26,640 --> 00:00:32,000
+play at 1.5 speed minimum because I
+
+10
+00:00:29,599 --> 00:00:33,760
+ramble. If you are here, say hi. I love
+
+11
+00:00:32,000 --> 00:00:37,040
+to see your comments. Okay. So
+
+12
+00:00:33,760 --> 00:00:40,719
+JavaScript coding. Uh so let's we have I
+
+13
+00:00:37,040 --> 00:00:44,000
+have some examples. Unicode search uh
+
+14
+00:00:40,719 --> 00:00:46,960
+fire. So that's unic code search written
+
+15
+00:00:44,000 --> 00:00:49,920
+in JavaScript in fact TypeScript. Now
+
+16
+00:00:46,960 --> 00:00:52,719
+there's some other examples that similar
+
+17
+00:00:49,920 --> 00:00:54,399
+to today. So for example here is upside
+
+18
+00:00:52,719 --> 00:00:56,800
+down
+
+19
+00:00:54,399 --> 00:01:01,199
+ABC
+
+20
+00:00:56,800 --> 00:01:03,359
+upside down text. So that's one example.
+
+21
+00:01:01,199 --> 00:01:06,720
+Actually we just going to copy the code
+
+22
+00:01:03,359 --> 00:01:10,200
+so uh so it's easier so we don't have to
+
+23
+00:01:06,720 --> 00:01:10,200
+rewrite everything.
+
+24
+00:01:11,920 --> 00:01:19,280
+Okay. So that's upside down text and uh
+
+25
+00:01:15,360 --> 00:01:24,880
+then you have let's see then you have
+
+26
+00:01:19,280 --> 00:01:26,400
+math font. So let's see a b cde e f
+
+27
+00:01:24,880 --> 00:01:32,240
+something
+
+28
+00:01:26,400 --> 00:01:35,520
+how are you today and you can change to
+
+29
+00:01:32,240 --> 00:01:37,840
+bold or double stroke. Now these are
+
+30
+00:01:35,520 --> 00:01:41,759
+unic code characters. For example, copy
+
+31
+00:01:37,840 --> 00:01:44,880
+it. Copy it back to here. Open a uh back
+
+32
+00:01:41,759 --> 00:01:49,040
+to here. And uh let's say
+
+33
+00:01:44,880 --> 00:01:52,240
+um let's paste it here.
+
+34
+00:01:49,040 --> 00:01:54,799
+Uh it's showing browser. Okay. So So
+
+35
+00:01:52,240 --> 00:01:59,200
+these are characters. For example, in
+
+36
+00:01:54,799 --> 00:02:02,719
+Emacs, you can you can call uh describe
+
+37
+00:01:59,200 --> 00:02:05,680
+char. Uh not there. Yeah.
+
+38
+00:02:02,719 --> 00:02:09,119
+uh describe char and you can see that
+
+39
+00:02:05,680 --> 00:02:11,680
+character is this character and the unic
+
+40
+00:02:09,119 --> 00:02:15,280
+code name is mathematical doublestroke
+
+41
+00:02:11,680 --> 00:02:18,319
+small a so it is actually a character
+
+42
+00:02:15,280 --> 00:02:22,560
+okay these are not you know using uh
+
+43
+00:02:18,319 --> 00:02:25,760
+different font so that's a example of
+
+44
+00:02:22,560 --> 00:02:27,920
+you know uh math fonts so let's uh paste
+
+45
+00:02:25,760 --> 00:02:30,800
+the link here
+
+46
+00:02:27,920 --> 00:02:35,120
+so delete delete delete that delete uh
+
+47
+00:02:30,800 --> 00:02:39,760
+copy that wait Uh so copy the uh URL
+
+48
+00:02:35,120 --> 00:02:43,760
+make a link make a list go to the uh URL
+
+49
+00:02:39,760 --> 00:02:48,160
+go to the bottom search for so here copy
+
+50
+00:02:43,760 --> 00:02:51,760
+the extract the URL close it and paste
+
+51
+00:02:48,160 --> 00:02:54,160
+it here make a linkify them make a list
+
+52
+00:02:51,760 --> 00:02:57,040
+and D the first one show in browser so
+
+53
+00:02:54,160 --> 00:03:01,840
+we have you know upside down text math
+
+54
+00:02:57,040 --> 00:03:07,120
+font and rune so so select
+
+55
+00:03:01,840 --> 00:03:09,519
+A B C D E F something. So there are some
+
+56
+00:03:07,120 --> 00:03:13,280
+examples and you can choose different
+
+57
+00:03:09,519 --> 00:03:17,280
+rune type um
+
+58
+00:03:13,280 --> 00:03:21,040
+rune characters and then then there is
+
+59
+00:03:17,280 --> 00:03:25,680
+another example uh that's Braille. Okay.
+
+60
+00:03:21,040 --> 00:03:28,480
+So A B CDE E F. So we what we are doing
+
+61
+00:03:25,680 --> 00:03:31,200
+is just we are uh converting the
+
+62
+00:03:28,480 --> 00:03:33,519
+characters to different
+
+63
+00:03:31,200 --> 00:03:38,319
+different unicode characters. Basically
+
+64
+00:03:33,519 --> 00:03:40,879
+this is actually not a uh translation
+
+65
+00:03:38,319 --> 00:03:44,560
+because for example for the rune you
+
+66
+00:03:40,879 --> 00:03:48,400
+know it doesn't this is actually not the
+
+67
+00:03:44,560 --> 00:03:51,440
+correct translation for something.
+
+68
+00:03:48,400 --> 00:03:54,239
+So anyway, so let's start to do it. And
+
+69
+00:03:51,440 --> 00:03:56,959
+uh let's copy the code.
+
+70
+00:03:54,239 --> 00:04:00,480
+Uh uh let's copy the code. Let's see
+
+71
+00:03:56,959 --> 00:04:05,360
+which one I want to use. So upside down.
+
+72
+00:04:00,480 --> 00:04:09,879
+Go back and font size. Uh font size. Can
+
+73
+00:04:05,360 --> 00:04:09,879
+can you see? Hold on a second.
+
+74
+00:04:29,759 --> 00:04:34,320
+Okay. So, let's go back. Let's start.
+
+75
+00:04:32,560 --> 00:04:37,120
+Um,
+
+76
+00:04:34,320 --> 00:04:40,479
+let's test my audio. Audio is good.
+
+77
+00:04:37,120 --> 00:04:46,000
+Okay. So, we want to pick one of these
+
+78
+00:04:40,479 --> 00:04:49,680
+as a prototype. So, convert ma math
+
+79
+00:04:46,000 --> 00:04:52,639
+font. Uh, let's see. Let's see some
+
+80
+00:04:49,680 --> 00:04:54,720
+others. run.
+
+81
+00:04:52,639 --> 00:04:58,960
+Okay, so
+
+82
+00:04:54,720 --> 00:05:03,160
+got other examples. Hold on a second. My
+
+83
+00:04:58,960 --> 00:05:03,160
+uh my wife is talking.
+
+84
+00:05:06,479 --> 00:05:13,720
+So So let me uh
+
+85
+00:05:10,240 --> 00:05:13,720
+hold on a second.
+
+86
+00:05:25,440 --> 00:05:33,080
+So let me just code um silently for a
+
+87
+00:05:29,759 --> 00:05:33,080
+while. Okay.
+
+88
+00:06:23,600 --> 00:06:27,479
+So, hold on a second.
+
+89
+00:08:23,520 --> 00:08:28,120
+So, okay, hold on a second, guys.
+
+90
+00:09:04,480 --> 00:09:10,560
+Sorry about that. I'm back. So, let's
+
+91
+00:09:07,519 --> 00:09:14,560
+continue coding. So, okay. So, so we
+
+92
+00:09:10,560 --> 00:09:16,480
+going to copy this file, math font. Um,
+
+93
+00:09:14,560 --> 00:09:19,839
+God. Okay. Hold on a second. So, close
+
+94
+00:09:16,480 --> 00:09:23,040
+that. Uh, so go back to talk show. So
+
+95
+00:09:19,839 --> 00:09:26,720
+today's talk show and uh the the one we
+
+96
+00:09:23,040 --> 00:09:31,680
+want is the unic code letters. Okay. So
+
+97
+00:09:26,720 --> 00:09:35,040
+search for section uh uh section D
+
+98
+00:09:31,680 --> 00:09:36,560
+that. So we want to open this file. So
+
+99
+00:09:35,040 --> 00:09:39,920
+we're going to write the application in
+
+100
+00:09:36,560 --> 00:09:42,160
+JavaScript to convert ABC to the squared
+
+101
+00:09:39,920 --> 00:09:44,160
+version. So we need a JavaScript file.
+
+102
+00:09:42,160 --> 00:09:48,640
+Make a backup backup. Go to the
+
+103
+00:09:44,160 --> 00:09:51,040
+directory and rename this uh TypeScript.
+
+104
+00:09:48,640 --> 00:09:53,600
+Okay. So this this this is going to be
+
+105
+00:09:51,040 --> 00:09:58,080
+our typescript file. So delete it or
+
+106
+00:09:53,600 --> 00:10:02,000
+copy the file path and uh so go back
+
+107
+00:09:58,080 --> 00:10:05,120
+here and showing browser. So we going to
+
+108
+00:10:02,000 --> 00:10:08,800
+in the at the beginning we going to make
+
+109
+00:10:05,120 --> 00:10:12,480
+a section new section box. Okay. So here
+
+110
+00:10:08,800 --> 00:10:16,079
+is a typescript. Okay. Close it. And now
+
+111
+00:10:12,480 --> 00:10:19,760
+we going to copy the file. So copy. So
+
+112
+00:10:16,079 --> 00:10:22,480
+go to the directory search for math. Uh
+
+113
+00:10:19,760 --> 00:10:27,000
+so search uh let's list JavaScript
+
+114
+00:10:22,480 --> 00:10:27,000
+files. Okay. So list.ts.
+
+115
+00:10:27,200 --> 00:10:34,000
+Um so what? God. So do it again. Back
+
+116
+00:10:32,320 --> 00:10:37,120
+slash.ts
+
+117
+00:10:34,000 --> 00:10:40,800
+because the dot means any character. So
+
+118
+00:10:37,120 --> 00:10:44,240
+we got a bunch of uh so math font. So
+
+119
+00:10:40,800 --> 00:10:46,880
+this file we want to copy. So open it.
+
+120
+00:10:44,240 --> 00:10:49,600
+Copy. Close it. Close it. Close it.
+
+121
+00:10:46,880 --> 00:10:53,519
+Close it. Okay. Open the JavaS here.
+
+122
+00:10:49,600 --> 00:10:56,880
+Open. Uh, so it's here. And uh, paste
+
+123
+00:10:53,519 --> 00:11:02,079
+it. And uh, save it. Okay. Now, close
+
+124
+00:10:56,880 --> 00:11:04,480
+it. So, we got we loaded. So, so uh, so
+
+125
+00:11:02,079 --> 00:11:09,120
+we loaded the JavaScript in this new
+
+126
+00:11:04,480 --> 00:11:12,160
+section. Now, we need to get that uh, we
+
+127
+00:11:09,120 --> 00:11:16,160
+need to get that HTML.
+
+128
+00:11:12,160 --> 00:11:19,680
+Okay. Am I doing good? Am I doing good?
+
+129
+00:11:16,160 --> 00:11:24,560
+Okay. So, let's get the HTML. So, math
+
+130
+00:11:19,680 --> 00:11:29,600
+font. So, there uh so open uh math font
+
+131
+00:11:24,560 --> 00:11:32,240
+page. Uh wait, what is this page? Okay,
+
+132
+00:11:29,600 --> 00:11:36,240
+it's not here. So, close it. Uh search
+
+133
+00:11:32,240 --> 00:11:40,399
+for math font. Okay, open. We need to
+
+134
+00:11:36,240 --> 00:11:44,959
+get the HTML. So that would be
+
+135
+00:11:40,399 --> 00:11:48,480
+so copy the entire thing cut. Okay. Then
+
+136
+00:11:44,959 --> 00:11:52,560
+go to our squared character page and go
+
+137
+00:11:48,480 --> 00:11:56,000
+to the top and uh
+
+138
+00:11:52,560 --> 00:12:00,640
+and uh we
+
+139
+00:11:56,000 --> 00:12:03,040
+so paste it there and uh
+
+140
+00:12:00,640 --> 00:12:07,120
+and delete that.
+
+141
+00:12:03,040 --> 00:12:10,399
+Put it here. Comment out for now. DD
+
+142
+00:12:07,120 --> 00:12:14,240
+section. So we made a duplicate. So this
+
+143
+00:12:10,399 --> 00:12:18,240
+is the A B CDE E F. Okay. This is the
+
+144
+00:12:14,240 --> 00:12:19,760
+math font. So can we magnify? Yeah.
+
+145
+00:12:18,240 --> 00:12:22,880
+Let's
+
+146
+00:12:19,760 --> 00:12:28,240
+let's magnify.
+
+147
+00:12:22,880 --> 00:12:30,560
+Okay. So this is for math. So um so
+
+148
+00:12:28,240 --> 00:12:32,959
+let's
+
+149
+00:12:30,560 --> 00:12:35,440
+so let's
+
+150
+00:12:32,959 --> 00:12:37,920
+see. So that's exactly the same. So we
+
+151
+00:12:35,440 --> 00:12:40,320
+don't need that. Okay. So now we all we
+
+152
+00:12:37,920 --> 00:12:41,920
+need to do first of all is trick the
+
+153
+00:12:40,320 --> 00:12:44,320
+interface
+
+154
+00:12:41,920 --> 00:12:48,000
+the HTML part. Then we're going to
+
+155
+00:12:44,320 --> 00:12:51,000
+modify the JavaScript part. So convert
+
+156
+00:12:48,000 --> 00:12:51,000
+uh
+
+157
+00:12:52,000 --> 00:12:57,920
+alphabet
+
+158
+00:12:54,079 --> 00:13:00,079
+to squared
+
+159
+00:12:57,920 --> 00:13:01,519
+characters
+
+160
+00:13:00,079 --> 00:13:04,000
+something like that. Okay. That's a
+
+161
+00:13:01,519 --> 00:13:07,920
+title and the display.
+
+162
+00:13:04,000 --> 00:13:13,399
+The display is the area that you want to
+
+163
+00:13:07,920 --> 00:13:13,399
+display it. So, uh let's rename it.
+
+164
+00:13:14,240 --> 00:13:17,240
+So,
+
+165
+00:13:17,600 --> 00:13:20,600
+display
+
+166
+00:13:22,800 --> 00:13:28,760
+copy it.
+
+167
+00:13:24,959 --> 00:13:28,760
+Replace display
+
+168
+00:13:29,519 --> 00:13:36,320
+square
+
+169
+00:13:31,519 --> 00:13:41,120
+char. Okay. Then put a random number.
+
+170
+00:13:36,320 --> 00:13:44,639
+Do that and search for JavaScript.
+
+171
+00:13:41,120 --> 00:13:48,959
+Search for JavaScript. Open it.
+
+172
+00:13:44,639 --> 00:13:52,480
+Do the same replacement. Uh,
+
+173
+00:13:48,959 --> 00:13:56,519
+wait. Not the popup.
+
+174
+00:13:52,480 --> 00:13:56,519
+Not uni code popup.
+
+175
+00:13:58,079 --> 00:14:04,880
+Uni code popup
+
+176
+00:14:00,560 --> 00:14:07,839
+highlighting. So wait, where is our
+
+177
+00:14:04,880 --> 00:14:10,639
+um
+
+178
+00:14:07,839 --> 00:14:13,199
+oh typescript this is a mistake. Okay,
+
+179
+00:14:10,639 --> 00:14:16,320
+so open that.
+
+180
+00:14:13,199 --> 00:14:19,440
+Compile it. Uh wait, not that key.
+
+181
+00:14:16,320 --> 00:14:22,480
+Compile it.
+
+182
+00:14:19,440 --> 00:14:25,839
+So we got the JavaScript file. Okay,
+
+183
+00:14:22,480 --> 00:14:30,160
+refresh. Uh
+
+184
+00:14:25,839 --> 00:14:32,639
+there. Okay. So So close that. Close
+
+185
+00:14:30,160 --> 00:14:35,839
+that. Close that. Close that. So this
+
+186
+00:14:32,639 --> 00:14:39,199
+needs to rem rename JavaScript. Okay.
+
+187
+00:14:35,839 --> 00:14:42,480
+Then then what did do we copy? Oh yeah,
+
+188
+00:14:39,199 --> 00:14:46,959
+that uh so we need to Yeah. So open open
+
+189
+00:14:42,480 --> 00:14:49,920
+this JavaS uh open the TypeScript and uh
+
+190
+00:14:46,959 --> 00:14:54,720
+do the replacement
+
+191
+00:14:49,920 --> 00:14:57,839
+change. Okay, let's change that.
+
+192
+00:14:54,720 --> 00:14:59,360
+Okay. And uh
+
+193
+00:14:57,839 --> 00:15:02,720
+and
+
+194
+00:14:59,360 --> 00:15:04,880
+now go back to the file. So now show in
+
+195
+00:15:02,720 --> 00:15:08,480
+browser we need to change convert
+
+196
+00:15:04,880 --> 00:15:10,480
+alphabet to squared uh characters. Now
+
+197
+00:15:08,480 --> 00:15:12,959
+there are two versions of squared
+
+198
+00:15:10,480 --> 00:15:15,360
+characters. One is white, one is black.
+
+199
+00:15:12,959 --> 00:15:19,519
+So we need to make a choice. So these
+
+200
+00:15:15,360 --> 00:15:22,959
+are radio buttons. Okay. Uh
+
+201
+00:15:19,519 --> 00:15:25,279
+now right now it doesn't work because
+
+202
+00:15:22,959 --> 00:15:28,279
+because we didn't compile it. So compile
+
+203
+00:15:25,279 --> 00:15:28,279
+it,
+
+204
+00:15:28,480 --> 00:15:31,480
+refresh
+
+205
+00:15:31,680 --> 00:15:39,519
+ABC. Okay. So let's say double stroke or
+
+206
+00:15:35,600 --> 00:15:41,920
+italic or script. Okay. Actually that
+
+207
+00:15:39,519 --> 00:15:45,360
+should be a bigger size. So let's
+
+208
+00:15:41,920 --> 00:15:49,519
+change. So okay, hold on a second. So we
+
+209
+00:15:45,360 --> 00:15:52,480
+need to uh ching Hank. Hello Hank. Thank
+
+210
+00:15:49,519 --> 00:15:57,199
+you. Any tips for running a low
+
+211
+00:15:52,480 --> 00:16:00,079
+headcount tech business such as yours?
+
+212
+00:15:57,199 --> 00:16:03,199
+Uh, most of my time in professional tech
+
+213
+00:16:00,079 --> 00:16:05,360
+was in falling MSP.
+
+214
+00:16:03,199 --> 00:16:09,639
+I don't think selling things I can't
+
+215
+00:16:05,360 --> 00:16:09,639
+deliver like them is fun.
+
+216
+00:16:10,000 --> 00:16:16,320
+Uh, MSP
+
+217
+00:16:12,320 --> 00:16:18,959
+I don't know what that is. And uh
+
+218
+00:16:16,320 --> 00:16:21,759
+uh any tips for running a low headcount
+
+219
+00:16:18,959 --> 00:16:24,959
+tech business? I'm probably the wrong
+
+220
+00:16:21,759 --> 00:16:29,040
+guy to ask that because I don't actually
+
+221
+00:16:24,959 --> 00:16:32,399
+have a business and I'm not making
+
+222
+00:16:29,040 --> 00:16:34,959
+uh almost zero amount
+
+223
+00:16:32,399 --> 00:16:37,600
+except you guys donations. So yeah, I
+
+224
+00:16:34,959 --> 00:16:39,360
+don't really know. I'm just a tech head.
+
+225
+00:16:37,600 --> 00:16:42,880
+So I'm I'm you know focusing on
+
+226
+00:16:39,360 --> 00:16:47,040
+technology programming languages mostly.
+
+227
+00:16:42,880 --> 00:16:51,519
+um in mathematics. So so let's get back
+
+228
+00:16:47,040 --> 00:16:54,560
+to the code here. Um so we
+
+229
+00:16:51,519 --> 00:16:59,199
+so we frank and double stroke. Okay. So
+
+230
+00:16:54,560 --> 00:17:02,800
+that let's rename franctor to
+
+231
+00:16:59,199 --> 00:17:05,679
+uh type face uh
+
+232
+00:17:02,800 --> 00:17:10,880
+uh white square boxes. So we got two
+
+233
+00:17:05,679 --> 00:17:16,199
+versions uh let's see squared negative.
+
+234
+00:17:10,880 --> 00:17:16,199
+Okay. So y is white and let's say
+
+235
+00:17:17,360 --> 00:17:21,919
+frctor
+
+236
+00:17:19,439 --> 00:17:26,480
+replace to
+
+237
+00:17:21,919 --> 00:17:29,679
+white letters white box letters
+
+238
+00:17:26,480 --> 00:17:31,440
+something like that. Okay then open the
+
+239
+00:17:29,679 --> 00:17:34,240
+JavaScript
+
+240
+00:17:31,440 --> 00:17:38,320
+uh close that open the open our
+
+241
+00:17:34,240 --> 00:17:40,559
+JavaScript file. Um
+
+242
+00:17:38,320 --> 00:17:44,400
+where is our JavaScript file? So search
+
+243
+00:17:40,559 --> 00:17:46,080
+for JS. Yeah, there. Okay. So find and
+
+244
+00:17:44,400 --> 00:17:50,080
+replace.
+
+245
+00:17:46,080 --> 00:17:53,520
+Do that. Frantor replace to white box
+
+246
+00:17:50,080 --> 00:17:55,200
+letters. Okay. Now go back here and
+
+247
+00:17:53,520 --> 00:17:58,960
+frank
+
+248
+00:17:55,200 --> 00:18:04,799
+then double stroke replace
+
+249
+00:17:58,960 --> 00:18:08,160
+by black box letters. Do it. And go back
+
+250
+00:18:04,799 --> 00:18:13,440
+to JavaScript. Do the same replacement
+
+251
+00:18:08,160 --> 00:18:16,880
+there. Okay. Now, now this this uh bold
+
+252
+00:18:13,440 --> 00:18:20,320
+we don't need itallic we don't need math
+
+253
+00:18:16,880 --> 00:18:22,880
+script we don't need uh mono space we
+
+254
+00:18:20,320 --> 00:18:26,320
+don't need showing browser okay so we
+
+255
+00:18:22,880 --> 00:18:28,160
+got just two choices now we need to name
+
+256
+00:18:26,320 --> 00:18:30,240
+them
+
+257
+00:18:28,160 --> 00:18:34,559
+uh
+
+258
+00:18:30,240 --> 00:18:38,640
+let's say letter uh
+
+259
+00:18:34,559 --> 00:18:42,400
+white squared letters
+
+260
+00:18:38,640 --> 00:18:46,080
+let's Just say white. Okay, white and uh
+
+261
+00:18:42,400 --> 00:18:48,400
+black. Showing browser. Uh black.
+
+262
+00:18:46,080 --> 00:18:52,880
+Showing browser. White and black. Two
+
+263
+00:18:48,400 --> 00:18:55,440
+choices. Now go back to uh TypeScript.
+
+264
+00:18:52,880 --> 00:18:59,120
+Let's remove the things we don't need.
+
+265
+00:18:55,440 --> 00:19:02,400
+So So this is kind of long. Let's make
+
+266
+00:18:59,120 --> 00:19:06,640
+it one line. Make it one line. One line.
+
+267
+00:19:02,400 --> 00:19:08,799
+One line. One line. One line. Okay. Now
+
+268
+00:19:06,640 --> 00:19:10,799
+many of these we don't need. So this is
+
+269
+00:19:08,799 --> 00:19:14,400
+white box letters. We need to change
+
+270
+00:19:10,799 --> 00:19:20,960
+that. Change all these characters. And
+
+271
+00:19:14,400 --> 00:19:24,320
+black box letters. And this uh math bold
+
+272
+00:19:20,960 --> 00:19:27,280
+we don't need. Delete.
+
+273
+00:19:24,320 --> 00:19:32,400
+Italic. We don't need delete. Math
+
+274
+00:19:27,280 --> 00:19:36,320
+script. Delete. And uh this
+
+275
+00:19:32,400 --> 00:19:38,799
+math mono. Delete. Delete. Okay. So we
+
+276
+00:19:36,320 --> 00:19:42,400
+got so so let's change this to the
+
+277
+00:19:38,799 --> 00:19:46,880
+letter uh uh
+
+278
+00:19:42,400 --> 00:19:49,600
+uh square letters. Okay. So
+
+279
+00:19:46,880 --> 00:19:53,120
+so
+
+280
+00:19:49,600 --> 00:19:56,400
+okay so press a key to format it. Now
+
+281
+00:19:53,120 --> 00:19:58,400
+I'm using Kasa JavaScript mod and I'm
+
+282
+00:19:56,400 --> 00:20:02,480
+using
+
+283
+00:19:58,400 --> 00:20:04,400
+uh Emacs Kasafly keys and the pink
+
+284
+00:20:02,480 --> 00:20:07,520
+window shows all my command calls on the
+
+285
+00:20:04,400 --> 00:20:10,080
+right and the keystroke on the left. So
+
+286
+00:20:07,520 --> 00:20:12,400
+Kafly keys if you don't know already
+
+287
+00:20:10,080 --> 00:20:15,120
+it's the most efficient key binding
+
+288
+00:20:12,400 --> 00:20:17,280
+system in the universe more efficient
+
+289
+00:20:15,120 --> 00:20:20,080
+than BIM. So here's the source code.
+
+290
+00:20:17,280 --> 00:20:22,480
+Open it. Showing browser. You can
+
+291
+00:20:20,080 --> 00:20:24,559
+download it for free. This is for Emacs.
+
+292
+00:20:22,480 --> 00:20:27,840
+So you don't have to press control meta
+
+293
+00:20:24,559 --> 00:20:31,120
+or old. Okay. More efficient than BIM.
+
+294
+00:20:27,840 --> 00:20:33,200
+So some fly keys. So and the you know
+
+295
+00:20:31,120 --> 00:20:37,039
+the pink window shows the command codes.
+
+296
+00:20:33,200 --> 00:20:38,960
+So here we got we got this. We need to
+
+297
+00:20:37,039 --> 00:20:40,880
+replace them. Okay. So how do you do
+
+298
+00:20:38,960 --> 00:20:43,280
+this efficiently?
+
+299
+00:20:40,880 --> 00:20:46,400
+Uh
+
+300
+00:20:43,280 --> 00:20:49,230
+you see you need to replace the right
+
+301
+00:20:46,400 --> 00:20:50,960
+column to this. Um
+
+302
+00:20:49,230 --> 00:20:54,640
+[Music]
+
+303
+00:20:50,960 --> 00:20:57,760
+okay so let's show let's demonstrate
+
+304
+00:20:54,640 --> 00:21:00,159
+some EMAC efficiency. Now if you are
+
+305
+00:20:57,760 --> 00:21:02,559
+using Emacs check out my commands on the
+
+306
+00:21:00,159 --> 00:21:05,720
+ping window. Okay so I'm just going to
+
+307
+00:21:02,559 --> 00:21:05,720
+do it
+
+308
+00:21:06,080 --> 00:21:12,799
+management managed service provider. Oh,
+
+309
+00:21:09,760 --> 00:21:17,200
+okay. Yeah, I don't know about business
+
+310
+00:21:12,799 --> 00:21:20,000
+side of things. I just know tech. Uh,
+
+311
+00:21:17,200 --> 00:21:22,960
+can I make my own key binds based on
+
+312
+00:21:20,000 --> 00:21:24,559
+yours? Of course. Stop keys. Just try.
+
+313
+00:21:22,960 --> 00:21:27,360
+There's a tutorials, there's
+
+314
+00:21:24,559 --> 00:21:29,600
+customization pages, you know, lots of
+
+315
+00:21:27,360 --> 00:21:32,320
+So, anyway, let's So, we need to turn
+
+316
+00:21:29,600 --> 00:21:36,640
+this. So, let's see.
+
+317
+00:21:32,320 --> 00:21:42,320
+Okay. So, now we got that. Now let's say
+
+318
+00:21:36,640 --> 00:21:45,679
+uh my own command insert a Z. Okay. So
+
+319
+00:21:42,320 --> 00:21:52,679
+starting a 26. So there we made it.
+
+320
+00:21:45,679 --> 00:21:52,679
+Okay. Then we need to let's say add
+
+321
+00:21:54,640 --> 00:22:01,120
+that.
+
+322
+00:21:56,240 --> 00:22:03,520
+Fantastic. And then let's just say
+
+323
+00:22:01,120 --> 00:22:07,280
+quotation mark
+
+324
+00:22:03,520 --> 00:22:11,360
+uh none. Okay. Fantastic. Now do it
+
+325
+00:22:07,280 --> 00:22:14,559
+again. Now this times square brackets
+
+326
+00:22:11,360 --> 00:22:17,840
+comma. Fantastic. Is that fantastic and
+
+327
+00:22:14,559 --> 00:22:21,039
+beautiful? So we got that.
+
+328
+00:22:17,840 --> 00:22:24,240
+Uh and then we don't need this this this
+
+329
+00:22:21,039 --> 00:22:28,080
+part anymore. Okay. So go back and go
+
+330
+00:22:24,240 --> 00:22:30,320
+down here. Delete that. So shrink shrink
+
+331
+00:22:28,080 --> 00:22:35,440
+and uh shrink shrink shrink. So that's
+
+332
+00:22:30,320 --> 00:22:38,240
+one line. Okay. And then we need to do
+
+333
+00:22:35,440 --> 00:22:40,480
+the same thing here. Okay. Uh okay.
+
+334
+00:22:38,240 --> 00:22:42,480
+We're going to do this all over again so
+
+335
+00:22:40,480 --> 00:22:45,200
+you can watch it again. So first of all,
+
+336
+00:22:42,480 --> 00:22:50,280
+we need all the black
+
+337
+00:22:45,200 --> 00:22:50,280
+uh black characters.
+
+338
+00:22:50,720 --> 00:22:58,720
+Okay, let's just copy it here. the black
+
+339
+00:22:54,640 --> 00:23:00,400
+squared characters. Copy it. Close it.
+
+340
+00:22:58,720 --> 00:23:02,880
+Actually, we shouldn't close it. Yeah.
+
+341
+00:23:00,400 --> 00:23:07,280
+Okay. Reopen. So, go back here. Paste
+
+342
+00:23:02,880 --> 00:23:12,559
+the black. Make them into one by each uh
+
+343
+00:23:07,280 --> 00:23:14,799
+one online each. Then, let's say
+
+344
+00:23:12,559 --> 00:23:17,760
+um
+
+345
+00:23:14,799 --> 00:23:21,360
+yeah. So, let's go here.
+
+346
+00:23:17,760 --> 00:23:25,679
+Insert column a start with a 26 of them.
+
+347
+00:23:21,360 --> 00:23:28,159
+There we go. And now
+
+348
+00:23:25,679 --> 00:23:29,840
+now rectangle
+
+349
+00:23:28,159 --> 00:23:35,440
+insert
+
+350
+00:23:29,840 --> 00:23:40,400
+that that. Okay. Then now
+
+351
+00:23:35,440 --> 00:23:44,720
+quotation mark none. Okay. Now
+
+352
+00:23:40,400 --> 00:23:46,960
+now now add a square bracket around it
+
+353
+00:23:44,720 --> 00:23:49,360
+with a comma at the end. So those
+
+354
+00:23:46,960 --> 00:23:51,760
+commands are called
+
+355
+00:23:49,360 --> 00:23:54,640
+uh sort lines. Okay. If you are
+
+356
+00:23:51,760 --> 00:23:56,640
+wondering you know for efficiency so
+
+357
+00:23:54,640 --> 00:23:59,200
+quot lines you can search on the web
+
+358
+00:23:56,640 --> 00:24:02,400
+you'll find the command.
+
+359
+00:23:59,200 --> 00:24:06,640
+So we got that the black letters then
+
+360
+00:24:02,400 --> 00:24:08,720
+then uh then we don't need this uh
+
+361
+00:24:06,640 --> 00:24:11,440
+thing. Okay so shrink shrink shrink
+
+362
+00:24:08,720 --> 00:24:14,400
+shrink shrink shrink shrink fantastic
+
+363
+00:24:11,440 --> 00:24:16,320
+and beautiful and now formatted auto
+
+364
+00:24:14,400 --> 00:24:18,799
+format.
+
+365
+00:24:16,320 --> 00:24:22,559
+Okay. Now version of course this is
+
+366
+00:24:18,799 --> 00:24:24,080
+copyright copyright by me uh you can use
+
+367
+00:24:22,559 --> 00:24:27,279
+it
+
+368
+00:24:24,080 --> 00:24:30,880
+if you link to the if you must give
+
+369
+00:24:27,279 --> 00:24:34,000
+credit and link to my website. Okay so
+
+370
+00:24:30,880 --> 00:24:36,640
+copyright and version number and okay so
+
+371
+00:24:34,000 --> 00:24:41,200
+I think that's it. So we got double
+
+372
+00:24:36,640 --> 00:24:43,679
+check double check uh black box letters
+
+373
+00:24:41,200 --> 00:24:46,400
+when you copy paste and turned one line
+
+374
+00:24:43,679 --> 00:24:49,520
+into multi-line did you mark a region?
+
+375
+00:24:46,400 --> 00:24:54,080
+No. So when there's no region it
+
+376
+00:24:49,520 --> 00:24:57,200
+automatically works on a block of text
+
+377
+00:24:54,080 --> 00:25:02,000
+block similar to paragraph it's defined
+
+378
+00:24:57,200 --> 00:25:03,840
+by empty lines. Okay. So so for example
+
+379
+00:25:02,000 --> 00:25:05,760
+you know this would be a block. If I
+
+380
+00:25:03,840 --> 00:25:11,559
+have something here, then this would be
+
+381
+00:25:05,760 --> 00:25:11,559
+part of a block block text block. Okay.
+
+382
+00:25:12,400 --> 00:25:17,520
+Or you can make a selection and do that.
+
+383
+00:25:14,559 --> 00:25:19,760
+Okay. So anyway, so so we got the code.
+
+384
+00:25:17,520 --> 00:25:23,679
+So we got that code. And is there
+
+385
+00:25:19,760 --> 00:25:27,360
+anything we need to change? I think not.
+
+386
+00:25:23,679 --> 00:25:30,880
+So the rest is kind of, you know, is
+
+387
+00:25:27,360 --> 00:25:33,919
+JavaScript DOM. Okay. So
+
+388
+00:25:30,880 --> 00:25:37,679
+um but should I go explain it? But let's
+
+389
+00:25:33,919 --> 00:25:40,880
+make the code work first. Okay. So tap C
+
+390
+00:25:37,679 --> 00:25:44,159
+to compile the TypeScript file. So now
+
+391
+00:25:40,880 --> 00:25:46,480
+we got the hide hide the details. So
+
+392
+00:25:44,159 --> 00:25:48,799
+here here's a JavaScript. Okay. Now
+
+393
+00:25:46,480 --> 00:25:50,880
+close close
+
+394
+00:25:48,799 --> 00:25:54,960
+show in browser.
+
+395
+00:25:50,880 --> 00:25:58,240
+There it is. So select all ABC.
+
+396
+00:25:54,960 --> 00:26:01,120
+Fantastic. D E F
+
+397
+00:25:58,240 --> 00:26:04,559
+and something. So now if I want a black
+
+398
+00:26:01,120 --> 00:26:06,480
+version, fantastic. Okay, so that is
+
+399
+00:26:04,559 --> 00:26:09,520
+done. Now
+
+400
+00:26:06,480 --> 00:26:12,799
+how does it work? I mean uh so let's go
+
+401
+00:26:09,520 --> 00:26:15,600
+to the uh JavaScript again. Open a
+
+402
+00:26:12,799 --> 00:26:18,080
+TypeScript file. How does it work? Well,
+
+403
+00:26:15,600 --> 00:26:20,240
+that if you want to know, just search
+
+404
+00:26:18,080 --> 00:26:25,520
+for
+
+405
+00:26:20,240 --> 00:26:27,120
+search for JavaScript in depth. Okay.
+
+406
+00:26:25,520 --> 00:26:29,760
+anxiety.info.
+
+407
+00:26:27,120 --> 00:26:31,440
+Then there is a DOM section. This is all
+
+408
+00:26:29,760 --> 00:26:33,760
+you need. You don't need a framework.
+
+409
+00:26:31,440 --> 00:26:36,720
+You don't need any libraries framework.
+
+410
+00:26:33,760 --> 00:26:38,880
+Okay. So, DOM scripting tutorial from
+
+411
+00:26:36,720 --> 00:26:40,400
+from the ground up. Okay. beginning
+
+412
+00:26:38,880 --> 00:26:43,520
+friendly
+
+413
+00:26:40,400 --> 00:26:49,840
+uh and using no frameworks and you can
+
+414
+00:26:43,520 --> 00:26:52,480
+you can so so so what we want here is
+
+415
+00:26:49,840 --> 00:26:56,640
+you know you first of all you create use
+
+416
+00:26:52,480 --> 00:27:00,960
+HTML to create this input elements and
+
+417
+00:26:56,640 --> 00:27:03,600
+uh that you can find you know HTML input
+
+418
+00:27:00,960 --> 00:27:08,480
+so here is how do you create a button
+
+419
+00:27:03,600 --> 00:27:12,400
+click click click and then input text
+
+420
+00:27:08,480 --> 00:27:15,200
+Jenny something, you know. Uh, and
+
+421
+00:27:12,400 --> 00:27:18,480
+here's a code. Here's HTML code. Here's
+
+422
+00:27:15,200 --> 00:27:22,720
+a JavaScript code. Very simple. And, uh,
+
+423
+00:27:18,480 --> 00:27:26,159
+then text area.
+
+424
+00:27:22,720 --> 00:27:29,919
+This is a example what what we are using
+
+425
+00:27:26,159 --> 00:27:32,320
+today text area. Okay.
+
+426
+00:27:29,919 --> 00:27:34,799
+And then then you have radio buttons.
+
+427
+00:27:32,320 --> 00:27:37,200
+Okay. Radio button. This is origin of
+
+428
+00:27:34,799 --> 00:27:39,200
+radio button. This is what it it means
+
+429
+00:27:37,200 --> 00:27:43,200
+because when when you press a button
+
+430
+00:27:39,200 --> 00:27:45,440
+down, the other buttons pops up. If you
+
+431
+00:27:43,200 --> 00:27:48,320
+are young, you you haven't seen these.
+
+432
+00:27:45,440 --> 00:27:51,120
+Uh but if you are older like me, you
+
+433
+00:27:48,320 --> 00:27:52,799
+know, these are standard radios on cars.
+
+434
+00:27:51,120 --> 00:27:54,399
+So that's why they are called radio
+
+435
+00:27:52,799 --> 00:27:58,159
+buttons.
+
+436
+00:27:54,399 --> 00:28:01,039
+So for example, you click bird, then the
+
+437
+00:27:58,159 --> 00:28:04,159
+the other buttons are deselected. You
+
+438
+00:28:01,039 --> 00:28:08,080
+click cat or click dog. So here's a
+
+439
+00:28:04,159 --> 00:28:10,960
+code. So that's what we used. So you
+
+440
+00:28:08,080 --> 00:28:13,760
+know we got a radio button here.
+
+441
+00:28:10,960 --> 00:28:15,840
+So if you want to know how the code
+
+442
+00:28:13,760 --> 00:28:18,559
+works, you can look at the code and look
+
+443
+00:28:15,840 --> 00:28:23,120
+look at my DOM tutorial. And I think
+
+444
+00:28:18,559 --> 00:28:26,240
+that's it. Okay. So is there anything I
+
+445
+00:28:23,120 --> 00:28:29,840
+want to um
+
+446
+00:28:26,240 --> 00:28:34,080
+display square chart? So where okay that
+
+447
+00:28:29,840 --> 00:28:37,679
+is the selector. Okay. Update. Uh I
+
+448
+00:28:34,080 --> 00:28:39,919
+think that's it. So compile it again to
+
+449
+00:28:37,679 --> 00:28:43,200
+make sure we got the latest version.
+
+450
+00:28:39,919 --> 00:28:46,000
+Close it. Show in browser. Fantastic.
+
+451
+00:28:43,200 --> 00:28:48,240
+And this let's you know this font are
+
+452
+00:28:46,000 --> 00:28:51,520
+too small. I want I want to make some
+
+453
+00:28:48,240 --> 00:28:55,440
+change. So let's go up here. Display
+
+454
+00:28:51,520 --> 00:28:57,600
+square char. So find it. Okay. So let's
+
+455
+00:28:55,440 --> 00:28:59,440
+add a style.
+
+456
+00:28:57,600 --> 00:29:02,000
+Uh
+
+457
+00:28:59,440 --> 00:29:06,640
+uh. Wait, wrong key.
+
+458
+00:29:02,000 --> 00:29:08,640
+add a style and font family. So, open a
+
+459
+00:29:06,640 --> 00:29:12,559
+new file.
+
+460
+00:29:08,640 --> 00:29:15,200
+Turn to CSS mod font family. Actually,
+
+461
+00:29:12,559 --> 00:29:20,640
+font size. That's what we want. Font
+
+462
+00:29:15,200 --> 00:29:24,559
+size. Okay. Uh 1.5. Okay. That. Okay.
+
+463
+00:29:20,640 --> 00:29:26,559
+So, select that. Put that there.
+
+464
+00:29:24,559 --> 00:29:30,399
+Showing browser.
+
+465
+00:29:26,559 --> 00:29:33,600
+Okay. That's that's good.
+
+466
+00:29:30,399 --> 00:29:36,480
+Okay. Anything else? So fantastic. Now
+
+467
+00:29:33,600 --> 00:29:39,679
+we got this application
+
+468
+00:29:36,480 --> 00:29:42,159
+say fantastic
+
+469
+00:29:39,679 --> 00:29:44,559
+black. Okay. Actually we need to make
+
+470
+00:29:42,159 --> 00:29:46,720
+some changes. What if if you have a
+
+471
+00:29:44,559 --> 00:29:49,840
+capital letter because then now it
+
+472
+00:29:46,720 --> 00:29:52,720
+doesn't change. So uh that's pretty easy
+
+473
+00:29:49,840 --> 00:29:55,600
+to fix. Okay.
+
+474
+00:29:52,720 --> 00:29:58,799
+So go to the JavaScript file again. Open
+
+475
+00:29:55,600 --> 00:30:00,559
+it. Then somewhere you you want to
+
+476
+00:29:58,799 --> 00:30:03,200
+lowerase
+
+477
+00:30:00,559 --> 00:30:05,679
+um
+
+478
+00:30:03,200 --> 00:30:07,840
+yeah somewhere you want to lowerase the
+
+479
+00:30:05,679 --> 00:30:12,399
+input.
+
+480
+00:30:07,840 --> 00:30:16,159
+So function update uh for each
+
+481
+00:30:12,399 --> 00:30:20,000
+replace regular expression. Uh so let's
+
+482
+00:30:16,159 --> 00:30:25,520
+see what is this. So,
+
+483
+00:30:20,000 --> 00:30:28,559
+so font map is a new map. Then function
+
+484
+00:30:25,520 --> 00:30:33,520
+update. So, here is
+
+485
+00:30:28,559 --> 00:30:35,520
+uh type face value query selector input
+
+486
+00:30:33,520 --> 00:30:37,760
+type face
+
+487
+00:30:35,520 --> 00:30:42,399
+uh then
+
+488
+00:30:37,760 --> 00:30:45,600
+input text box. Yeah. So, there
+
+489
+00:30:42,399 --> 00:30:49,399
+here is how you get the value. Wait. So
+
+490
+00:30:45,600 --> 00:30:49,399
+where is the input
+
+491
+00:30:53,120 --> 00:31:00,320
+uh document query selector input input
+
+492
+00:30:57,039 --> 00:31:05,120
+name type face. So let's go back here.
+
+493
+00:31:00,320 --> 00:31:07,600
+Okay. So here is the input type face.
+
+494
+00:31:05,120 --> 00:31:10,480
+You know that's the that's the radio
+
+495
+00:31:07,600 --> 00:31:13,039
+button. Okay. So
+
+496
+00:31:10,480 --> 00:31:17,360
+name type face. Okay. What type face to
+
+497
+00:31:13,039 --> 00:31:20,000
+use? Then the value is that. Okay. Okay.
+
+498
+00:31:17,360 --> 00:31:23,919
+Now back to JavaScript
+
+499
+00:31:20,000 --> 00:31:26,000
+TypeScript. So the type face this is how
+
+500
+00:31:23,919 --> 00:31:32,520
+you get the value. Okay. Type face
+
+501
+00:31:26,000 --> 00:31:32,520
+value. Okay. Then the result equals to
+
+502
+00:31:36,320 --> 00:31:42,000
+then you result.
+
+503
+00:31:39,600 --> 00:31:44,720
+Let's see
+
+504
+00:31:42,000 --> 00:31:46,480
+the result. You know, if you are
+
+505
+00:31:44,720 --> 00:31:49,440
+wondering why do I have a bunch of
+
+506
+00:31:46,480 --> 00:31:51,519
+numbers there at the end of the
+
+507
+00:31:49,440 --> 00:31:54,080
+variable, that's because I have a habit
+
+508
+00:31:51,519 --> 00:31:56,000
+to make every variable unique
+
+509
+00:31:54,080 --> 00:31:59,919
+universally,
+
+510
+00:31:56,000 --> 00:32:04,000
+but that's kind of that's over um that's
+
+511
+00:31:59,919 --> 00:32:07,919
+over the top. So, let's change that uh
+
+512
+00:32:04,000 --> 00:32:10,960
+result. Let's just say three uh three
+
+513
+00:32:07,919 --> 00:32:10,960
+digits. Okay.
+
+514
+00:32:11,279 --> 00:32:17,600
+Okay, that's kind of smaller value.
+
+515
+00:32:13,679 --> 00:32:22,720
+Okay, highlight it. So,
+
+516
+00:32:17,600 --> 00:32:27,480
+so for each replace. So, here result you
+
+517
+00:32:22,720 --> 00:32:27,480
+need to lowerase it. Okay, so
+
+518
+00:32:27,760 --> 00:32:32,679
+wait uh input box.
+
+519
+00:32:34,399 --> 00:32:39,360
+Okay, so you need to lower case. So, how
+
+520
+00:32:36,480 --> 00:32:42,320
+do you lower case? Well, let's go to
+
+521
+00:32:39,360 --> 00:32:45,600
+JavaScript in depth.
+
+522
+00:32:42,320 --> 00:32:48,480
+Okay, JavaScript in depth. That's about
+
+523
+00:32:45,600 --> 00:32:50,080
+strings. So, let's go to strings, string
+
+524
+00:32:48,480 --> 00:32:52,960
+overview,
+
+525
+00:32:50,080 --> 00:32:56,320
+uh string operations. Okay, substring
+
+526
+00:32:52,960 --> 00:33:00,399
+length, join string, string methods.
+
+527
+00:32:56,320 --> 00:33:03,519
+Okay, methods. Uh then you got so a
+
+528
+00:33:00,399 --> 00:33:06,720
+bunch of methods you want to
+
+529
+00:33:03,519 --> 00:33:10,240
+uh lowerase. Okay. Search string search
+
+530
+00:33:06,720 --> 00:33:13,200
+convert to array letter case. Okay. Put
+
+531
+00:33:10,240 --> 00:33:15,840
+a type two lower case. Okay. That's how
+
+532
+00:33:13,200 --> 00:33:20,640
+you do it. Two uppercase two lower case.
+
+533
+00:33:15,840 --> 00:33:24,159
+Okay. So close that. So that's that's
+
+534
+00:33:20,640 --> 00:33:26,720
+going to be two lowerase
+
+535
+00:33:24,159 --> 00:33:29,039
+completion
+
+536
+00:33:26,720 --> 00:33:33,120
+there.
+
+537
+00:33:29,039 --> 00:33:36,399
+Uh so this is what this is a uh method.
+
+538
+00:33:33,120 --> 00:33:38,799
+Okay. So two lower case then dot. Okay.
+
+539
+00:33:36,399 --> 00:33:41,919
+Now compile it.
+
+540
+00:33:38,799 --> 00:33:45,279
+Okay. Now back to the browser. I mean
+
+541
+00:33:41,919 --> 00:33:51,120
+showing browser. Let's try
+
+542
+00:33:45,279 --> 00:33:53,679
+ABC then ABC. Fantastic and beautiful.
+
+543
+00:33:51,120 --> 00:33:57,039
+Okay. That's it for today. If you love
+
+544
+00:33:53,679 --> 00:34:00,480
+it, if you like my stuff, donate. Okay.
+
+545
+00:33:57,039 --> 00:34:02,559
+So go to Unicode. Go to uh go to the top
+
+546
+00:34:00,480 --> 00:34:07,200
+kasal.info.
+
+547
+00:34:02,559 --> 00:34:10,320
+info and go to the bottom. PayPal me,
+
+548
+00:34:07,200 --> 00:34:12,560
+Patreon me, or Amazon gift card me.
+
+549
+00:34:10,320 --> 00:34:14,399
+Okay, if you are working as a
+
+550
+00:34:12,560 --> 00:34:18,159
+professional in programming or
+
+551
+00:34:14,399 --> 00:34:21,599
+otherwise, pay me $100. Okay, $100 a
+
+552
+00:34:18,159 --> 00:34:24,320
+year is not bad.
+
+553
+00:34:21,599 --> 00:34:27,359
+If you are not having a job, if you are
+
+554
+00:34:24,320 --> 00:34:30,839
+neat, you know, pay me a few bucks. That
+
+555
+00:34:27,359 --> 00:34:30,839
+would be appreciated.
+
+556
+00:34:32,159 --> 00:34:37,599
+Uh my first version of DOM tutorial is
+
+557
+00:34:34,720 --> 00:34:40,000
+2005 years. I've been you know I've been
+
+558
+00:34:37,599 --> 00:34:43,520
+around for quite a while. You know I
+
+559
+00:34:40,000 --> 00:34:50,200
+watched the birth of HTML then
+
+560
+00:34:43,520 --> 00:34:50,200
+JavaScript then CSS beginning in 1995.
+
+561
+00:34:50,480 --> 00:34:57,040
+I love those spines. I'm amazed what
+
+562
+00:34:53,919 --> 00:35:00,480
+binds. GPS
+
+563
+00:34:57,040 --> 00:35:04,440
+the key bindings. Okay. most efficient
+
+564
+00:35:00,480 --> 00:35:04,440
+coder Diego. Hi.
+
+565
+00:35:04,720 --> 00:35:10,680
+Okay, that's it. Thank you guys for
+
+566
+00:35:06,640 --> 00:35:10,680
+watching. Bye, guys.
+
+567
+00:35:11,359 --> 00:35:17,280
+And thank you, Hank. Yeah, I don't know
+
+568
+00:35:13,760 --> 00:35:20,320
+anything about business. You need to
+
+569
+00:35:17,280 --> 00:35:24,000
+you need to like register a business,
+
+570
+00:35:20,320 --> 00:35:27,280
+you know. So, I'm I'm a nerd. So when it
+
+571
+00:35:24,000 --> 00:35:29,760
+comes to financial issues, filling
+
+572
+00:35:27,280 --> 00:35:32,800
+paperwork, you know, business is lots of
+
+573
+00:35:29,760 --> 00:35:35,839
+filling paperworks or then then you also
+
+574
+00:35:32,800 --> 00:35:38,079
+need to contact lawyers sometimes. I
+
+575
+00:35:35,839 --> 00:35:40,079
+don't know,
+
+576
+00:35:38,079 --> 00:35:42,240
+I could be good, you know, like a nerd,
+
+577
+00:35:40,079 --> 00:35:46,240
+you know, a nerd is such that you can
+
+578
+00:35:42,240 --> 00:35:48,400
+focus on one thing. So there, you know,
+
+579
+00:35:46,240 --> 00:35:50,880
+let's talk random for a bit, you know.
+
+580
+00:35:48,400 --> 00:35:53,440
+So I'm a nerd, right? I'm very extreme
+
+581
+00:35:50,880 --> 00:35:56,160
+case of a nerd. So I'm very good at
+
+582
+00:35:53,440 --> 00:35:59,119
+computers, mathematics, you know. So but
+
+583
+00:35:56,160 --> 00:36:01,040
+I thought you know I have thought as as
+
+584
+00:35:59,119 --> 00:36:03,680
+well as many other nerds you know we are
+
+585
+00:36:01,040 --> 00:36:05,839
+not good at socialization. We are not
+
+586
+00:36:03,680 --> 00:36:08,240
+good at business. We are not good at
+
+587
+00:36:05,839 --> 00:36:11,599
+talking to people. We are not good at
+
+588
+00:36:08,240 --> 00:36:14,400
+being a salesman being a smooth talker
+
+589
+00:36:11,599 --> 00:36:17,760
+or we and we are not good at negotiation
+
+590
+00:36:14,400 --> 00:36:20,079
+things like that. But however we could
+
+591
+00:36:17,760 --> 00:36:22,400
+because we we are nerds you know so
+
+592
+00:36:20,079 --> 00:36:24,800
+given a thing a technology or whatever
+
+593
+00:36:22,400 --> 00:36:27,359
+we can okay this is a task we need to
+
+594
+00:36:24,800 --> 00:36:29,520
+figure it out what to do you know we can
+
+595
+00:36:27,359 --> 00:36:32,400
+focus on that so for example there are
+
+596
+00:36:29,520 --> 00:36:34,880
+some nerds you know like often nerds you
+
+597
+00:36:32,400 --> 00:36:37,040
+know you don't get girlfriends but then
+
+598
+00:36:34,880 --> 00:36:40,079
+but you can focus on that so girlfriend
+
+599
+00:36:37,040 --> 00:36:41,680
+is a problem we start to analyze you
+
+600
+00:36:40,079 --> 00:36:44,000
+know how do you get a girlfriend you
+
+601
+00:36:41,680 --> 00:36:47,119
+know how you know that like analyze in
+
+602
+00:36:44,000 --> 00:36:50,160
+every way then you you know create a
+
+603
+00:36:47,119 --> 00:36:52,240
+plan like some some things you should do
+
+604
+00:36:50,160 --> 00:36:54,560
+some things you should not do and what
+
+605
+00:36:52,240 --> 00:36:57,280
+should your behavior be you know then
+
+606
+00:36:54,560 --> 00:36:59,359
+you create a you know to-do list you
+
+607
+00:36:57,280 --> 00:37:00,880
+know these are things you do to do in
+
+608
+00:36:59,359 --> 00:37:05,359
+order to get a girlfriend things like
+
+609
+00:37:00,880 --> 00:37:08,960
+that so similarly for for being a good
+
+610
+00:37:05,359 --> 00:37:11,200
+uh lawyer salesman or being able to talk
+
+611
+00:37:08,960 --> 00:37:15,680
+to a lot of people or being able to give
+
+612
+00:37:11,200 --> 00:37:19,200
+a lecture uh those things. In fact, many
+
+613
+00:37:15,680 --> 00:37:21,760
+nerds has written about it. So, you
+
+614
+00:37:19,200 --> 00:37:23,920
+could, you know, pick one of the the
+
+615
+00:37:21,760 --> 00:37:27,200
+things you don't know uh well and do
+
+616
+00:37:23,920 --> 00:37:30,160
+that. But, but usually it's just not not
+
+617
+00:37:27,200 --> 00:37:33,359
+uh you know, doesn't interest me that
+
+618
+00:37:30,160 --> 00:37:37,720
+much, you know.
+
+619
+00:37:33,359 --> 00:37:37,720
+Yeah. Pen spinning. Fantastic.
+
+620
+00:37:39,599 --> 00:37:43,320
+Okay. Bye, guys.
+

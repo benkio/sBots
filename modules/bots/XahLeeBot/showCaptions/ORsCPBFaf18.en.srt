@@ -1,0 +1,6140 @@
+1
+00:00:00,880 --> 00:00:07,040
+Hey guys, welcome to another episode of
+
+2
+00:00:04,080 --> 00:00:10,240
+Casan Talk Show. Welcome to another
+
+3
+00:00:07,040 --> 00:00:13,360
+episode of Casar Talk Show. We are going
+
+4
+00:00:10,240 --> 00:00:15,920
+to code geometry today. Geometry
+
+5
+00:00:13,360 --> 00:00:19,600
+animation. We are going to code what's
+
+6
+00:00:15,920 --> 00:00:22,080
+this called? Um hypocyclloid and
+
+7
+00:00:19,600 --> 00:00:24,560
+apocyclloid. So you see these curves,
+
+8
+00:00:22,080 --> 00:00:28,080
+these are rolling circles around another
+
+9
+00:00:24,560 --> 00:00:31,359
+circle. And uh let's just copy the code
+
+10
+00:00:28,080 --> 00:00:33,440
+and let's uh start with language. Let me
+
+11
+00:00:31,359 --> 00:00:36,719
+show you guys. So we just going to code
+
+12
+00:00:33,440 --> 00:00:38,879
+it. And uh if you are into mathematics,
+
+13
+00:00:36,719 --> 00:00:40,879
+geometry or if you are learning
+
+14
+00:00:38,879 --> 00:00:43,920
+calculus, you might find this
+
+15
+00:00:40,879 --> 00:00:46,879
+interesting. Uh otherwise it's probably
+
+16
+00:00:43,920 --> 00:00:51,200
+boring for you. Okay. Coding session uh
+
+17
+00:00:46,879 --> 00:00:56,000
+of wam language. Now let's magnify.
+
+18
+00:00:51,200 --> 00:00:59,120
+So here's a code. Shift control N to
+
+19
+00:00:56,000 --> 00:01:02,879
+make it type set. Fantastic. Okay. 150
+
+20
+00:00:59,120 --> 00:01:08,159
+is probably too large. 125. Okay. Now,
+
+21
+00:01:02,879 --> 00:01:10,799
+shift enter to run it. So, you got um
+
+22
+00:01:08,159 --> 00:01:13,600
+so it's plotting all these curves. These
+
+23
+00:01:10,799 --> 00:01:16,960
+are called epotcoid.
+
+24
+00:01:13,600 --> 00:01:18,720
+Okay. There there they are. Uh, and what
+
+25
+00:01:16,960 --> 00:01:22,080
+we going to do today is actually
+
+26
+00:01:18,720 --> 00:01:24,960
+generate animation of one of them called
+
+27
+00:01:22,080 --> 00:01:27,040
+asteroid. This one red. Okay, this one
+
+28
+00:01:24,960 --> 00:01:29,200
+four cusps
+
+29
+00:01:27,040 --> 00:01:30,960
+like asteroid star. Okay, we're going to
+
+30
+00:01:29,200 --> 00:01:34,159
+code that. So, if you are watching this
+
+31
+00:01:30,960 --> 00:01:36,880
+offline, play at 1.5 speed. If you are
+
+32
+00:01:34,159 --> 00:01:39,759
+watching live here, say hi. Love to see
+
+33
+00:01:36,880 --> 00:01:41,920
+your comments. Okay. Uh, so you are
+
+34
+00:01:39,759 --> 00:01:44,880
+looking at uh, you know, Wuang language.
+
+35
+00:01:41,920 --> 00:01:47,439
+Um, so by the way, let me do 2 minutes
+
+36
+00:01:44,880 --> 00:01:50,640
+intro. Okay. So, wufam language you just
+
+37
+00:01:47,439 --> 00:01:53,439
+search for it. You search for
+
+38
+00:01:50,640 --> 00:01:56,799
+you search for kasali download wam
+
+39
+00:01:53,439 --> 00:02:00,640
+engine kasali wuam programming language
+
+40
+00:01:56,799 --> 00:02:05,000
+wra language for programmers on my
+
+41
+00:02:00,640 --> 00:02:05,000
+website x a h.info.
+
+42
+00:02:05,759 --> 00:02:10,239
+Okay. Then you know you will find a
+
+43
+00:02:08,080 --> 00:02:13,200
+download link. You go there to download
+
+44
+00:02:10,239 --> 00:02:16,319
+it. It's free. It's like four or five
+
+45
+00:02:13,200 --> 00:02:18,720
+gigabytes. It's huge. Okay. Wam language
+
+46
+00:02:16,319 --> 00:02:20,879
+and then you you can download. Okay.
+
+47
+00:02:18,720 --> 00:02:23,599
+Then you can download just read my
+
+48
+00:02:20,879 --> 00:02:26,080
+articles. Okay. So my I got this website
+
+49
+00:02:23,599 --> 00:02:28,720
+wuam language for programmers. You you
+
+50
+00:02:26,080 --> 00:02:31,120
+got the download link then you can go to
+
+51
+00:02:28,720 --> 00:02:34,160
+uh difference between wam language wam
+
+52
+00:02:31,120 --> 00:02:36,560
+engine mathematica wam script. What are
+
+53
+00:02:34,160 --> 00:02:38,720
+they describe description then you go
+
+54
+00:02:36,560 --> 00:02:41,599
+there. Then you also want to download
+
+55
+00:02:38,720 --> 00:02:44,800
+the woofam research woof language for
+
+56
+00:02:41,599 --> 00:02:48,000
+Jupiter so that you get this graphical
+
+57
+00:02:44,800 --> 00:02:52,000
+user interface otherwise what you get is
+
+58
+00:02:48,000 --> 00:02:54,640
+a um comm command com command line
+
+59
+00:02:52,000 --> 00:02:57,120
+terminal okay so that's the introduction
+
+60
+00:02:54,640 --> 00:03:00,160
+to get wang language so let's uh let's
+
+61
+00:02:57,120 --> 00:03:04,159
+start just to do this okay so what I
+
+62
+00:03:00,160 --> 00:03:06,560
+want to do today is this one okay so
+
+63
+00:03:04,159 --> 00:03:09,200
+yeah do do we have enough intro yeah so
+
+64
+00:03:06,560 --> 00:03:12,800
+I want to do the asteroid. Okay. So, let
+
+65
+00:03:09,200 --> 00:03:15,200
+me go to it. So, and also this is my
+
+66
+00:03:12,800 --> 00:03:18,400
+website. Search for visual dictionary of
+
+67
+00:03:15,200 --> 00:03:22,159
+spatial plane curves. You'll find my
+
+68
+00:03:18,400 --> 00:03:26,000
+website kari.info there. X a h le e.
+
+69
+00:03:22,159 --> 00:03:28,800
+Okay. Uh and my website haven't been
+
+70
+00:03:26,000 --> 00:03:32,000
+updated for the past 20 days because
+
+71
+00:03:28,800 --> 00:03:34,560
+there are some issues but that will be
+
+72
+00:03:32,000 --> 00:03:37,599
+fixed soon. So anyway, you go to my
+
+73
+00:03:34,560 --> 00:03:40,239
+website then you go down. So we going to
+
+74
+00:03:37,599 --> 00:03:42,159
+do today this one. Okay. So we going to
+
+75
+00:03:40,239 --> 00:03:45,680
+generate this. We're going to write code
+
+76
+00:03:42,159 --> 00:03:48,080
+for this one. Rolling a circle around
+
+77
+00:03:45,680 --> 00:03:49,599
+another circle. The smaller circle is
+
+78
+00:03:48,080 --> 00:03:53,599
+1/4
+
+79
+00:03:49,599 --> 00:03:56,319
+the size of the larger circle by radius.
+
+80
+00:03:53,599 --> 00:03:58,319
+Then the you know if you put a point on
+
+81
+00:03:56,319 --> 00:04:00,959
+the rim of the circle you'll trace out
+
+82
+00:03:58,319 --> 00:04:05,760
+this curve. It's called asteroid.
+
+83
+00:04:00,959 --> 00:04:08,720
+Asteroid. And it is a special case of
+
+84
+00:04:05,760 --> 00:04:11,040
+what's called hypotcoid. So you see all
+
+85
+00:04:08,720 --> 00:04:14,959
+these are hypotrocoid. This kind of
+
+86
+00:04:11,040 --> 00:04:17,919
+curve in the toy market is known as
+
+87
+00:04:14,959 --> 00:04:21,359
+spiral graph. Okay? Because they market
+
+88
+00:04:17,919 --> 00:04:24,639
+that toy about 50 years ago.
+
+89
+00:04:21,359 --> 00:04:27,759
+Um anyway so we're going to gener we
+
+90
+00:04:24,639 --> 00:04:30,560
+going to uh code this animation. So we
+
+91
+00:04:27,759 --> 00:04:33,600
+this this is about woofam language uh
+
+92
+00:04:30,560 --> 00:04:36,000
+doing creating a animation and what
+
+93
+00:04:33,600 --> 00:04:37,919
+effective what that means what
+
+94
+00:04:36,000 --> 00:04:40,160
+effectively you need to learn is that
+
+95
+00:04:37,919 --> 00:04:43,440
+you're going to draw a graph you're
+
+96
+00:04:40,160 --> 00:04:44,880
+going to draw a list of graphics. So
+
+97
+00:04:43,440 --> 00:04:47,600
+you're going to draw a sequence of
+
+98
+00:04:44,880 --> 00:04:50,400
+graphics then you can then then then it
+
+99
+00:04:47,600 --> 00:04:54,479
+became animation because animation is
+
+100
+00:04:50,400 --> 00:04:56,880
+just a list of uh images. Okay. Uh, and
+
+101
+00:04:54,479 --> 00:04:58,720
+the key to know is that you want to draw
+
+102
+00:04:56,880 --> 00:05:02,080
+a circle, then you want to draw a
+
+103
+00:04:58,720 --> 00:05:04,320
+smaller circle, and you want to know at
+
+104
+00:05:02,080 --> 00:05:06,880
+each graphics where to position the
+
+105
+00:05:04,320 --> 00:05:09,520
+circle and where to position the dot.
+
+106
+00:05:06,880 --> 00:05:12,160
+That's that's the essence of what you
+
+107
+00:05:09,520 --> 00:05:14,479
+need to know to create this animation.
+
+108
+00:05:12,160 --> 00:05:16,479
+Okay, so that's intro. So, let me just
+
+109
+00:05:14,479 --> 00:05:20,000
+drink some
+
+110
+00:05:16,479 --> 00:05:23,479
+juice. This is uh this is like guava
+
+111
+00:05:20,000 --> 00:05:23,479
+juice. Fantastic.
+
+112
+00:05:30,080 --> 00:05:35,320
+And this is red wine. Fantastic.
+
+113
+00:05:39,360 --> 00:05:43,440
+Okay. So, let's see. Let's begin. Okay.
+
+114
+00:05:41,600 --> 00:05:45,840
+Let's begin to do that. So, close that.
+
+115
+00:05:43,440 --> 00:05:49,600
+So, I want to copy the link to today's
+
+116
+00:05:45,840 --> 00:05:52,960
+talk show. Uh, paste the link there.
+
+117
+00:05:49,600 --> 00:05:56,240
+Linkify. So, asteroid. Okay, asteroid
+
+118
+00:05:52,960 --> 00:05:58,960
+and we so show in browser. So we go to
+
+119
+00:05:56,240 --> 00:06:01,600
+asteroid. We want to generate this code.
+
+120
+00:05:58,960 --> 00:06:05,680
+I already have the package. Now if you
+
+121
+00:06:01,600 --> 00:06:09,120
+don't know, just search for
+
+122
+00:06:05,680 --> 00:06:11,759
+wolf package.
+
+123
+00:06:09,120 --> 00:06:13,520
+Okay, GitHub. Kasali wam package. You
+
+124
+00:06:11,759 --> 00:06:16,400
+know, you can actually go to either one
+
+125
+00:06:13,520 --> 00:06:20,319
+of these. I got several packages on
+
+126
+00:06:16,400 --> 00:06:23,919
+GitHub. So So GitHub uh kar wu mode. go
+
+127
+00:06:20,319 --> 00:06:27,600
+to my homepage on GitHub and plank curve
+
+128
+00:06:23,919 --> 00:06:29,919
+plank curve generator. So there so the
+
+129
+00:06:27,600 --> 00:06:33,120
+this package that's for wam language
+
+130
+00:06:29,919 --> 00:06:36,720
+turn on JavaScript
+
+131
+00:06:33,120 --> 00:06:39,520
+you can find the code for this asteroid
+
+132
+00:06:36,720 --> 00:06:42,800
+so for that and for that it's already
+
+133
+00:06:39,520 --> 00:06:45,360
+done so you can just grab the code
+
+134
+00:06:42,800 --> 00:06:49,199
+from this GitHub plank curve generator
+
+135
+00:06:45,360 --> 00:06:51,120
+okay but what I want to do is to extract
+
+136
+00:06:49,199 --> 00:06:54,000
+it and update the code because those
+
+137
+00:06:51,120 --> 00:06:56,479
+code are written like almost unchanged
+
+138
+00:06:54,000 --> 00:06:58,639
+from 199 1997,
+
+139
+00:06:56,479 --> 00:07:00,560
+30 years ago. So, we're going to update
+
+140
+00:06:58,639 --> 00:07:02,880
+it, refresh it. I show I'm going to show
+
+141
+00:07:00,560 --> 00:07:07,680
+you how to do it. Okay. So, let's just
+
+142
+00:07:02,880 --> 00:07:10,720
+go to my git, search for generate um
+
+143
+00:07:07,680 --> 00:07:14,479
+blink of generator. That's a package.
+
+144
+00:07:10,720 --> 00:07:18,080
+And uh let's delete
+
+145
+00:07:14,479 --> 00:07:23,520
+delete the Emacs backup. Okay. Delete
+
+146
+00:07:18,080 --> 00:07:26,639
+and refresh. Okay. Now, uh now let's uh
+
+147
+00:07:23,520 --> 00:07:30,800
+those are images. Okay. Open. Next.
+
+148
+00:07:26,639 --> 00:07:33,759
+Next. Next. Next. Next.
+
+149
+00:07:30,800 --> 00:07:37,520
+Uh, we did this yesterday. Uh, was it?
+
+150
+00:07:33,759 --> 00:07:40,080
+Uh, we did this um well, we did Yeah, we
+
+151
+00:07:37,520 --> 00:07:44,880
+did that yesterday or two days ago.
+
+152
+00:07:40,080 --> 00:07:46,560
+Okay. So, the one we want is uh go
+
+153
+00:07:44,880 --> 00:07:49,919
+there.
+
+154
+00:07:46,560 --> 00:07:52,720
+Search for asteroid. Okay. So, let me
+
+155
+00:07:49,919 --> 00:07:55,360
+just do it. Let me show you the code in
+
+156
+00:07:52,720 --> 00:08:00,400
+a in a moment. Okay. non asteroid. So
+
+157
+00:07:55,360 --> 00:08:02,639
+search WL WL is the file name extension
+
+158
+00:08:00,400 --> 00:08:04,479
+for Wam language.
+
+159
+00:08:02,639 --> 00:08:07,919
+Um
+
+160
+00:08:04,479 --> 00:08:10,919
+okay, that's a bunch of examples of wam
+
+161
+00:08:07,919 --> 00:08:10,919
+language.
+
+162
+00:08:13,360 --> 00:08:19,360
+Okay, that's the one we want. And so
+
+163
+00:08:16,720 --> 00:08:21,039
+search for
+
+164
+00:08:19,360 --> 00:08:24,919
+Okay.
+
+165
+00:08:21,039 --> 00:08:24,919
+Search search search.
+
+166
+00:08:34,399 --> 00:08:41,120
+Okay. It's um
+
+167
+00:08:37,839 --> 00:08:44,320
+it's actually
+
+168
+00:08:41,120 --> 00:08:48,160
+here. Okay. It's defined in terms of
+
+169
+00:08:44,320 --> 00:08:50,080
+this function hypotcoid. Okay. So, we
+
+170
+00:08:48,160 --> 00:08:51,760
+just going to copy that. Hold on a
+
+171
+00:08:50,080 --> 00:08:56,160
+second.
+
+172
+00:08:51,760 --> 00:08:58,480
+So, we go we we going to go to um
+
+173
+00:08:56,160 --> 00:09:00,560
+envelope. We going to create a code
+
+174
+00:08:58,480 --> 00:09:04,839
+here. Okay.
+
+175
+00:09:00,560 --> 00:09:04,839
+I put Yeah.
+
+176
+00:09:12,880 --> 00:09:18,080
+Yeah, we're going to co create Wuan
+
+177
+00:09:15,200 --> 00:09:24,640
+language code here.
+
+178
+00:09:18,080 --> 00:09:26,800
+Um, yeah. And, uh, so, so syntax, go to
+
+179
+00:09:24,640 --> 00:09:30,080
+the browser, refresh. You can see we
+
+180
+00:09:26,800 --> 00:09:32,959
+started to have the code there. And the
+
+181
+00:09:30,080 --> 00:09:35,680
+code is going to be, uh, of course, not
+
+182
+00:09:32,959 --> 00:09:38,880
+just that, but um,
+
+183
+00:09:35,680 --> 00:09:40,560
+let's go back to the package. because
+
+184
+00:09:38,880 --> 00:09:43,200
+that
+
+185
+00:09:40,560 --> 00:09:48,240
+uh
+
+186
+00:09:43,200 --> 00:09:52,040
+yeah here we want to know this the code
+
+187
+00:09:48,240 --> 00:09:52,040
+is actually that
+
+188
+00:09:53,519 --> 00:09:57,000
+okay there
+
+189
+00:09:58,160 --> 00:10:03,160
+okay so it's uh
+
+190
+00:10:04,000 --> 00:10:11,040
+okay so there okay now we don't need
+
+191
+00:10:08,000 --> 00:10:16,920
+that anymore. Let's go back. Go back to
+
+192
+00:10:11,040 --> 00:10:16,920
+our code here. Okay,
+
+193
+00:10:17,279 --> 00:10:23,920
+put it back. Syntax code showing browser
+
+194
+00:10:21,040 --> 00:10:26,480
+asteroid page. Go down. Go down there.
+
+195
+00:10:23,920 --> 00:10:29,360
+Rolling a circle there. Here's a code.
+
+196
+00:10:26,480 --> 00:10:32,320
+Okay, now will that code run? Yes, of
+
+197
+00:10:29,360 --> 00:10:34,399
+course. Uh but we want to improve it.
+
+198
+00:10:32,320 --> 00:10:38,000
+But before we do, let me just show you.
+
+199
+00:10:34,399 --> 00:10:41,040
+Let's just run it. Okay.
+
+200
+00:10:38,000 --> 00:10:43,279
+Uh so it's the code is independent. So
+
+201
+00:10:41,040 --> 00:10:46,560
+any person see this code they can just
+
+202
+00:10:43,279 --> 00:10:51,440
+copy it and run it in wam language.
+
+203
+00:10:46,560 --> 00:10:55,120
+Okay. So let's select all paste shift
+
+204
+00:10:51,440 --> 00:10:58,480
+control n to show type set. You see
+
+205
+00:10:55,120 --> 00:11:00,399
+fantastic type setting with automatic
+
+206
+00:10:58,480 --> 00:11:02,240
+line
+
+207
+00:11:00,399 --> 00:11:04,399
+uh management. So you don't like
+
+208
+00:11:02,240 --> 00:11:08,480
+formatting code formatting. You can see
+
+209
+00:11:04,399 --> 00:11:11,200
+there's a indentation there is line wrap
+
+210
+00:11:08,480 --> 00:11:13,279
+automatically. You see it it's
+
+211
+00:11:11,200 --> 00:11:18,000
+controlled automatically.
+
+212
+00:11:13,279 --> 00:11:22,000
+Okay. Now shift enter to run it. So it's
+
+213
+00:11:18,000 --> 00:11:25,360
+done. It's done. All you have to do is
+
+214
+00:11:22,000 --> 00:11:27,200
+just actual code call
+
+215
+00:11:25,360 --> 00:11:29,760
+the function. So that's the function
+
+216
+00:11:27,200 --> 00:11:34,399
+name. Shift enter.
+
+217
+00:11:29,760 --> 00:11:36,160
+No, it didn't work. Why? Because uh oh
+
+218
+00:11:34,399 --> 00:11:41,279
+uh wait
+
+219
+00:11:36,160 --> 00:11:43,920
+astro generator uh two
+
+220
+00:11:41,279 --> 00:11:48,440
+not three. What
+
+221
+00:11:43,920 --> 00:11:48,440
+was it? Two or three? So
+
+222
+00:11:54,880 --> 00:12:00,880
+two. Okay. So why I copied it wrong
+
+223
+00:11:58,000 --> 00:12:03,200
+before? Why do we have three there? Two.
+
+224
+00:12:00,880 --> 00:12:05,680
+Shift enter.
+
+225
+00:12:03,200 --> 00:12:08,480
+So there it is. It generated a bunch of
+
+226
+00:12:05,680 --> 00:12:10,639
+images. And now go all the way down. So
+
+227
+00:12:08,480 --> 00:12:13,920
+each one of this is image. You can
+
+228
+00:12:10,639 --> 00:12:18,000
+export those graphics. Now what we want
+
+229
+00:12:13,920 --> 00:12:21,680
+to do is that but we want to animate
+
+230
+00:12:18,000 --> 00:12:28,240
+this list of images. So you just say
+
+231
+00:12:21,680 --> 00:12:30,560
+list animate. Okay. Add shift enter.
+
+232
+00:12:28,240 --> 00:12:33,440
+There it is. There it is.
+
+233
+00:12:30,560 --> 00:12:36,639
+Okay, fantastic. We got a code. Now the
+
+234
+00:12:33,440 --> 00:12:40,160
+job now is to
+
+235
+00:12:36,639 --> 00:12:43,360
+optimize the code. Okay, so now it's
+
+236
+00:12:40,160 --> 00:12:45,600
+about very technical details of Wufam
+
+237
+00:12:43,360 --> 00:12:49,519
+language. How do you
+
+238
+00:12:45,600 --> 00:12:53,279
+um like coding wam language coding very
+
+239
+00:12:49,519 --> 00:12:56,959
+technical details. Okay. And so if you
+
+240
+00:12:53,279 --> 00:12:59,360
+uh we already explained how to generate
+
+241
+00:12:56,959 --> 00:13:02,000
+this image like all you have to do is
+
+242
+00:12:59,360 --> 00:13:04,079
+like you you need to know at each frame
+
+243
+00:13:02,000 --> 00:13:06,320
+like the mathematically you need to know
+
+244
+00:13:04,079 --> 00:13:09,040
+at each frame where is the position of
+
+245
+00:13:06,320 --> 00:13:12,639
+the circle and uh where is the position
+
+246
+00:13:09,040 --> 00:13:13,760
+of the dot. You just draw the dot in the
+
+247
+00:13:12,639 --> 00:13:15,440
+circle.
+
+248
+00:13:13,760 --> 00:13:17,360
+Um,
+
+249
+00:13:15,440 --> 00:13:18,800
+okay. But how do you do that in Wuen
+
+250
+00:13:17,360 --> 00:13:21,760
+language? Okay, that's what we're going
+
+251
+00:13:18,800 --> 00:13:23,360
+to dive into. And so it's going to be
+
+252
+00:13:21,760 --> 00:13:26,720
+from now on it's going to be very
+
+253
+00:13:23,360 --> 00:13:28,800
+technical. Uh, you guys, you know, so if
+
+254
+00:13:26,720 --> 00:13:30,959
+you are still interested, you can keep
+
+255
+00:13:28,800 --> 00:13:34,320
+watching. Okay.
+
+256
+00:13:30,959 --> 00:13:36,560
+Okay. So um, so this is like okay very
+
+257
+00:13:34,320 --> 00:13:39,519
+technical wam language stuff. So let me
+
+258
+00:13:36,560 --> 00:13:42,399
+just do that. So asteroid version two.
+
+259
+00:13:39,519 --> 00:13:45,040
+So why did did we get this three?
+
+260
+00:13:42,399 --> 00:13:48,040
+shouldn't be there. Okay, that's a
+
+261
+00:13:45,040 --> 00:13:48,040
+mistake.
+
+262
+00:13:48,800 --> 00:13:52,440
+No. Um,
+
+263
+00:13:59,360 --> 00:14:05,519
+do that make sense? That make sense?
+
+264
+00:14:03,040 --> 00:14:09,040
+That make sense? Anyone? A everyone.
+
+265
+00:14:05,519 --> 00:14:12,399
+Okay. Astro in. Okay. So there's a
+
+266
+00:14:09,040 --> 00:14:17,240
+astrogenerator tool.
+
+267
+00:14:12,399 --> 00:14:17,240
+I see. So there is uh
+
+268
+00:14:22,160 --> 00:14:25,720
+okay. So
+
+269
+00:14:28,079 --> 00:14:34,320
+two and what is uh what is the one? I
+
+270
+00:14:31,680 --> 00:14:39,000
+forgot. What is the one?
+
+271
+00:14:34,320 --> 00:14:39,000
+Let's just let's just um
+
+272
+00:14:40,000 --> 00:14:46,720
+let's just code it.
+
+273
+00:14:42,800 --> 00:14:49,720
+Yeah. Okay. Let's create a new
+
+274
+00:14:46,720 --> 00:14:49,720
+window.
+
+275
+00:14:54,639 --> 00:14:58,199
+What the
+
+276
+00:15:21,440 --> 00:15:26,079
+Okay. The first one that is the treml of
+
+277
+00:15:24,399 --> 00:15:30,399
+Archimedes.
+
+278
+00:15:26,079 --> 00:15:30,399
+So we don't want that. Okay.
+
+279
+00:15:31,839 --> 00:15:36,360
+We don't we don't want the
+
+280
+00:15:37,760 --> 00:15:45,920
+tremor of alimedes. Okay, that's the
+
+281
+00:15:41,279 --> 00:15:49,440
+first one. The second one animation is
+
+282
+00:15:45,920 --> 00:15:52,399
+uh special case of hypotrocoid. Okay,
+
+283
+00:15:49,440 --> 00:15:54,720
+that's what we want. And the third one
+
+284
+00:15:52,399 --> 00:15:57,519
+generates animation that trace the curve
+
+285
+00:15:54,720 --> 00:16:00,800
+astro showing that is the envelope of
+
+286
+00:15:57,519 --> 00:16:03,839
+coaxial axis. Okay, that we don't care.
+
+287
+00:16:00,800 --> 00:16:06,560
+We did that yesterday. Uh so the we just
+
+288
+00:16:03,839 --> 00:16:08,079
+want the second one. So do we have like
+
+289
+00:16:06,560 --> 00:16:12,480
+this
+
+290
+00:16:08,079 --> 00:16:15,120
+inline documentation there? No. So,
+
+291
+00:16:12,480 --> 00:16:19,720
+so this let's rename the function
+
+292
+00:16:15,120 --> 00:16:19,720
+because I don't want it um
+
+293
+00:16:20,800 --> 00:16:26,720
+you know because this hypotcoal
+
+294
+00:16:23,360 --> 00:16:29,759
+generator it is a special case the
+
+295
+00:16:26,720 --> 00:16:32,720
+asteroid now remember this asteroid this
+
+296
+00:16:29,759 --> 00:16:35,839
+curve we are doing asteroid it is a
+
+297
+00:16:32,720 --> 00:16:39,519
+special case of the hypotcoid
+
+298
+00:16:35,839 --> 00:16:42,720
+you see so hypotcoid means you roll a
+
+299
+00:16:39,519 --> 00:16:45,839
+circle circle inside a circle. They they
+
+300
+00:16:42,720 --> 00:16:49,920
+are all generated by rolling a circle
+
+301
+00:16:45,839 --> 00:16:52,959
+inside a circle. Okay, the curve they
+
+302
+00:16:49,920 --> 00:16:55,759
+create is all called hypotracoy.
+
+303
+00:16:52,959 --> 00:16:57,519
+So the asteroid is just a special case
+
+304
+00:16:55,759 --> 00:16:59,519
+of hypotcoid.
+
+305
+00:16:57,519 --> 00:17:02,320
+So
+
+306
+00:16:59,519 --> 00:17:05,760
+now we don't need um you know we we
+
+307
+00:17:02,320 --> 00:17:08,880
+don't want actually um
+
+308
+00:17:05,760 --> 00:17:13,880
+like we don't need um
+
+309
+00:17:08,880 --> 00:17:13,880
+let's just delete this um
+
+310
+00:17:14,160 --> 00:17:23,959
+so actually this is what you want. Okay.
+
+311
+00:17:17,039 --> 00:17:23,959
+So delete that generator search um
+
+312
+00:17:31,919 --> 00:17:37,919
+delete that. Okay. So let's just improve
+
+313
+00:17:35,360 --> 00:17:40,919
+the code. That's what we're doing. So,
+
+314
+00:17:37,919 --> 00:17:40,919
+um,
+
+315
+00:17:41,840 --> 00:17:46,760
+let's say let's rename it
+
+316
+00:17:53,679 --> 00:18:00,400
+animate. Okay, let's re rename it
+
+317
+00:17:57,520 --> 00:18:04,880
+hypotco animate.
+
+318
+00:18:00,400 --> 00:18:08,640
+Okay, that's our new name. Okay. And uh
+
+319
+00:18:04,880 --> 00:18:11,200
+and okay, hold on a second. Then this
+
+320
+00:18:08,640 --> 00:18:14,559
+options, we don't want that because we
+
+321
+00:18:11,200 --> 00:18:16,640
+are not writing a package. So So we
+
+322
+00:18:14,559 --> 00:18:19,679
+don't want the options. Let's just
+
+323
+00:18:16,640 --> 00:18:22,480
+remove. So this this options is how you
+
+324
+00:18:19,679 --> 00:18:25,120
+define optional parameters.
+
+325
+00:18:22,480 --> 00:18:29,760
+Okay. Delete that.
+
+326
+00:18:25,120 --> 00:18:33,200
+Now we uh just going to Okay,
+
+327
+00:18:29,760 --> 00:18:36,559
+we just going to uh Yeah. So this is a
+
+328
+00:18:33,200 --> 00:18:40,320
+parameter and this is suppose this is 0
+
+329
+00:18:36,559 --> 00:18:44,320
+to 2 pi
+
+330
+00:18:40,320 --> 00:18:47,280
+in in steps of um
+
+331
+00:18:44,320 --> 00:18:51,679
+in steps of
+
+332
+00:18:47,280 --> 00:18:55,760
+2 pi divided by 80. Okay,
+
+333
+00:18:51,679 --> 00:18:58,559
+that will create 81 frames basically.
+
+334
+00:18:55,760 --> 00:19:00,799
+Delete that. Delete that. Okay, so this
+
+335
+00:18:58,559 --> 00:19:05,039
+this is a function actually you want to
+
+336
+00:19:00,799 --> 00:19:09,440
+write. Okay, there
+
+337
+00:19:05,039 --> 00:19:13,760
+clear. So let's start to so
+
+338
+00:19:09,440 --> 00:19:16,160
+clear that symbol name. We start fresh
+
+339
+00:19:13,760 --> 00:19:19,520
+in case you know it's already defined or
+
+340
+00:19:16,160 --> 00:19:22,320
+in case we need to re-evaluate it. Am I
+
+341
+00:19:19,520 --> 00:19:24,160
+doing good? Say hi. Okay, you know if
+
+342
+00:19:22,320 --> 00:19:26,720
+you enjoyed watching this, you know,
+
+343
+00:19:24,160 --> 00:19:29,840
+thumb up my videos. Show it to your
+
+344
+00:19:26,720 --> 00:19:32,240
+friends. Okay, because I don't do
+
+345
+00:19:29,840 --> 00:19:36,640
+dramatic So if you like my stuff,
+
+346
+00:19:32,240 --> 00:19:39,520
+show it to your friends and thumb up.
+
+347
+00:19:36,640 --> 00:19:43,360
+Okay. So, so we got the we writing again
+
+348
+00:19:39,520 --> 00:19:45,919
+wam language code. Okay.
+
+349
+00:19:43,360 --> 00:19:49,240
+A little drink
+
+350
+00:19:45,919 --> 00:19:49,240
+red wine.
+
+351
+00:19:50,640 --> 00:19:54,280
+Let's finish it
+
+352
+00:19:56,799 --> 00:20:03,440
+again. The good code the goal is to have
+
+353
+00:20:00,720 --> 00:20:06,559
+independent code. So it's going to be
+
+354
+00:20:03,440 --> 00:20:10,480
+just 50 lines actually for like 40 lines
+
+355
+00:20:06,559 --> 00:20:13,120
+of code. So people can directly copy
+
+356
+00:20:10,480 --> 00:20:16,720
+from the website you know like copy and
+
+357
+00:20:13,120 --> 00:20:18,880
+paste in Wuam language or or wam alpha.
+
+358
+00:20:16,720 --> 00:20:21,039
+It will generate a code. You don't need
+
+359
+00:20:18,880 --> 00:20:23,760
+to look for like where do I download the
+
+360
+00:20:21,039 --> 00:20:26,080
+package? How do you install the package
+
+361
+00:20:23,760 --> 00:20:27,600
+in the wuam language init directory?
+
+362
+00:20:26,080 --> 00:20:30,320
+where is the init directory things like
+
+363
+00:20:27,600 --> 00:20:32,880
+that you know like or Python like how do
+
+364
+00:20:30,320 --> 00:20:35,919
+you install a py uh you know package in
+
+365
+00:20:32,880 --> 00:20:38,320
+Python or JavaScript do you need mpm you
+
+366
+00:20:35,919 --> 00:20:41,440
+don't need all that just copy the code
+
+367
+00:20:38,320 --> 00:20:44,559
+paste it run it it'll work okay because
+
+368
+00:20:41,440 --> 00:20:49,679
+the code is not too complicated like 30
+
+369
+00:20:44,559 --> 00:20:51,919
+lines um it ops okay so I'm so that's
+
+370
+00:20:49,679 --> 00:20:55,360
+what we are doing writing this animation
+
+371
+00:20:51,919 --> 00:20:59,760
+and uh I'm doing uh going through them
+
+372
+00:20:55,360 --> 00:21:02,240
+with explanation. Okay. So, so first of
+
+373
+00:20:59,760 --> 00:21:04,640
+all, this module you don't want uh you
+
+374
+00:21:02,240 --> 00:21:07,120
+want just block. Okay. If you don't know
+
+375
+00:21:04,640 --> 00:21:09,520
+what that is, search for my website
+
+376
+00:21:07,120 --> 00:21:14,159
+kardi.info
+
+377
+00:21:09,520 --> 00:21:16,559
+um sard wra
+
+378
+00:21:14,159 --> 00:21:18,960
+programming
+
+379
+00:21:16,559 --> 00:21:22,000
+local variable. You'll find the page
+
+380
+00:21:18,960 --> 00:21:25,760
+that explains the difference between
+
+381
+00:21:22,000 --> 00:21:29,360
+module block and width. Okay.
+
+382
+00:21:25,760 --> 00:21:31,919
+So we should use block. Okay. Okay. Let
+
+383
+00:21:29,360 --> 00:21:35,039
+me let me just code it because if I keep
+
+384
+00:21:31,919 --> 00:21:37,760
+explaining explanation this will never
+
+385
+00:21:35,039 --> 00:21:41,880
+finish. I let me code it for 10 minutes
+
+386
+00:21:37,760 --> 00:21:41,880
+and then we can explain.
+
+387
+00:21:43,200 --> 00:21:49,039
+So you so this is a definition of a
+
+388
+00:21:45,600 --> 00:21:51,520
+function by a pattern. So hypotcoal
+
+389
+00:21:49,039 --> 00:21:53,440
+animate. So you need okay. So then you
+
+390
+00:21:51,520 --> 00:21:57,360
+need a documentation because what are
+
+391
+00:21:53,440 --> 00:22:01,720
+the parameters? So we did we do need the
+
+392
+00:21:57,360 --> 00:22:01,720
+documentation for the hypot.
+
+393
+00:22:03,840 --> 00:22:10,159
+Okay. So
+
+394
+00:22:06,320 --> 00:22:12,559
+yeah. So you Yeah. Okay. So it's pretty
+
+395
+00:22:10,159 --> 00:22:14,159
+copy that.
+
+396
+00:22:12,559 --> 00:22:19,600
+Okay.
+
+397
+00:22:14,159 --> 00:22:23,520
+Uh did that. Go back here. You kind of
+
+398
+00:22:19,600 --> 00:22:26,480
+need the documentation there
+
+399
+00:22:23,520 --> 00:22:32,600
+and uh
+
+400
+00:22:26,480 --> 00:22:32,600
+okay documentation that that that
+
+401
+00:22:33,919 --> 00:22:39,000
+uh hypotcoid okay so
+
+402
+00:22:39,840 --> 00:22:46,240
+well okay so one of them is optional
+
+403
+00:22:43,120 --> 00:22:50,559
+okay so let's just say that generates an
+
+404
+00:22:46,240 --> 00:22:53,200
+animation that uh generate a
+
+405
+00:22:50,559 --> 00:22:56,880
+list of graphics that trace out
+
+406
+00:22:53,200 --> 00:23:00,480
+hypotcoid by means of roulette by means
+
+407
+00:22:56,880 --> 00:23:02,240
+of roulette of two circles. Now that's
+
+408
+00:23:00,480 --> 00:23:05,600
+two
+
+409
+00:23:02,240 --> 00:23:12,480
+uh verbose and technical. Let's just say
+
+410
+00:23:05,600 --> 00:23:16,400
+by means of by by rolling a circle
+
+411
+00:23:12,480 --> 00:23:18,720
+inside another. Okay, this is more more
+
+412
+00:23:16,400 --> 00:23:21,039
+practical wording you know be before
+
+413
+00:23:18,720 --> 00:23:24,320
+that it's you know if you say roulette
+
+414
+00:23:21,039 --> 00:23:27,840
+of two circles that's more academic so I
+
+415
+00:23:24,320 --> 00:23:29,360
+don't I don't want that anymore
+
+416
+00:23:27,840 --> 00:23:31,840
+because
+
+417
+00:23:29,360 --> 00:23:35,120
+you know the society moves on it tends
+
+418
+00:23:31,840 --> 00:23:37,679
+to be less formal like you don't you
+
+419
+00:23:35,120 --> 00:23:40,640
+don't need those jargon words you know
+
+420
+00:23:37,679 --> 00:23:43,360
+rolling two circles is perfectly precise
+
+421
+00:23:40,640 --> 00:23:48,559
+and clear rolling a circle inside
+
+422
+00:23:43,360 --> 00:23:52,480
+another okay I mean it's clear enough so
+
+423
+00:23:48,559 --> 00:23:55,360
+so so that that is that that function
+
+424
+00:23:52,480 --> 00:23:59,360
+does that okay so actually
+
+425
+00:23:55,360 --> 00:24:04,159
+uh you should okay so actually delete
+
+426
+00:23:59,360 --> 00:24:09,720
+that okay because we renamed it
+
+427
+00:24:04,159 --> 00:24:09,720
+uh okay so there is more here
+
+428
+00:24:10,159 --> 00:24:16,960
+now okay so um charcoal animate. So this
+
+429
+00:24:14,240 --> 00:24:20,159
+is this generate a list of graphics that
+
+430
+00:24:16,960 --> 00:24:22,320
+trace our hypotcoid by rolling this is
+
+431
+00:24:20,159 --> 00:24:25,279
+lowerase hypot by rolling a circle
+
+432
+00:24:22,320 --> 00:24:28,640
+inside another. Okay. Then you can say
+
+433
+00:24:25,279 --> 00:24:32,679
+you can give a uh option of tmin to
+
+434
+00:24:28,640 --> 00:24:32,679
+t-max and t-step
+
+435
+00:24:32,720 --> 00:24:37,559
+uh
+
+436
+00:24:34,559 --> 00:24:37,559
+start
+
+437
+00:24:40,559 --> 00:24:48,799
+and stop at the range t min t map tep.
+
+438
+00:24:45,520 --> 00:24:52,240
+Okay. So that is optional.
+
+439
+00:24:48,799 --> 00:24:54,240
+Now uh now okay. So now actually so you
+
+440
+00:24:52,240 --> 00:24:57,520
+need so here are the parameters. A is
+
+441
+00:24:54,240 --> 00:25:00,159
+the radius of the fixed circle.
+
+442
+00:24:57,520 --> 00:25:04,080
+B is the radius of the rolling circle.
+
+443
+00:25:00,159 --> 00:25:06,799
+Okay. A greater than b.
+
+444
+00:25:04,080 --> 00:25:09,600
+Okay. Actually a could be uh less than
+
+445
+00:25:06,799 --> 00:25:12,159
+b. a greater than b. A could be less
+
+446
+00:25:09,600 --> 00:25:14,400
+than b.
+
+447
+00:25:12,159 --> 00:25:16,480
+Uh h is a distance from the tracing
+
+448
+00:25:14,400 --> 00:25:19,760
+point to the center of the circle. Okay,
+
+449
+00:25:16,480 --> 00:25:21,840
+that's important. Let's put that there.
+
+450
+00:25:19,760 --> 00:25:24,080
+special options are number of frames.
+
+451
+00:25:21,840 --> 00:25:29,720
+No, we don't want that anymore. So you
+
+452
+00:25:24,080 --> 00:25:29,720
+see we used to have a option um
+
+453
+00:25:30,080 --> 00:25:36,000
+because when you are writing a package
+
+454
+00:25:32,320 --> 00:25:38,080
+it's nice to have like a option like
+
+455
+00:25:36,000 --> 00:25:41,520
+more formal you know like every function
+
+456
+00:25:38,080 --> 00:25:44,159
+has options but if you are just you know
+
+457
+00:25:41,520 --> 00:25:46,159
+writing a code directly um you don't
+
+458
+00:25:44,159 --> 00:25:48,720
+want the options
+
+459
+00:25:46,159 --> 00:25:51,679
+you know you you that would be just
+
+460
+00:25:48,720 --> 00:25:53,360
+controlled by the steps here. Okay. So
+
+461
+00:25:51,679 --> 00:25:55,440
+if you want num you know number of
+
+462
+00:25:53,360 --> 00:25:57,360
+frames is controlled basically by the
+
+463
+00:25:55,440 --> 00:26:02,559
+step they are the same thing but but
+
+464
+00:25:57,360 --> 00:26:06,240
+using different ways to express it
+
+465
+00:26:02,559 --> 00:26:09,360
+hello from Iceland oh hi don't matter
+
+466
+00:26:06,240 --> 00:26:12,000
+name don't matter are you Iceland are
+
+467
+00:26:09,360 --> 00:26:14,400
+you mart by chance I don't think you are
+
+468
+00:26:12,000 --> 00:26:17,600
+mavvert
+
+469
+00:26:14,400 --> 00:26:21,200
+is our friend from Iceland
+
+470
+00:26:17,600 --> 00:26:25,279
+on our discord but I guess you are
+
+471
+00:26:21,200 --> 00:26:27,600
+Um, hello. So,
+
+472
+00:26:25,279 --> 00:26:30,240
+are you starting to learn Woof language?
+
+473
+00:26:27,600 --> 00:26:34,159
+Have you ever used it before? Okay. So,
+
+474
+00:26:30,240 --> 00:26:37,919
+let's let's go back to this. Um,
+
+475
+00:26:34,159 --> 00:26:40,240
+okay. Start stop. Uh, so so right now we
+
+476
+00:26:37,919 --> 00:26:43,200
+are doing the inline documentation for
+
+477
+00:26:40,240 --> 00:26:46,000
+this and also we are like
+
+478
+00:26:43,200 --> 00:26:48,640
+actually designing the function
+
+479
+00:26:46,000 --> 00:26:51,440
+parameters.
+
+480
+00:26:48,640 --> 00:26:56,200
+I'm a different mukver. Okay, that's
+
+481
+00:26:51,440 --> 00:26:56,200
+cool. Cool. Okay, so
+
+482
+00:26:56,880 --> 00:27:01,039
+Okay, delete that. And other options are
+
+483
+00:26:59,120 --> 00:27:03,200
+passed to graphics. No, we don't want to
+
+484
+00:27:01,039 --> 00:27:07,279
+do that anymore. Okay, control the
+
+485
+00:27:03,200 --> 00:27:10,000
+number of rotations. Uh,
+
+486
+00:27:07,279 --> 00:27:13,760
+okay. Yes, that's that's the number of
+
+487
+00:27:10,000 --> 00:27:17,720
+rotations. Um, it's should I mention
+
+488
+00:27:13,760 --> 00:27:17,720
+that here? Yeah.
+
+489
+00:27:19,919 --> 00:27:26,000
+Okay. Uh
+
+490
+00:27:23,120 --> 00:27:28,159
+if not specified an internal algorithm
+
+491
+00:27:26,000 --> 00:27:31,120
+will figure out the number of rotations
+
+492
+00:27:28,159 --> 00:27:36,080
+so that the curve is closed.
+
+493
+00:27:31,120 --> 00:27:37,919
+Oh that's w that's extra touch.
+
+494
+00:27:36,080 --> 00:27:40,480
+You see this this is actually
+
+495
+00:27:37,919 --> 00:27:42,880
+significant. So
+
+496
+00:27:40,480 --> 00:27:45,120
+I wrote an algorithm that you need to
+
+497
+00:27:42,880 --> 00:27:48,159
+determine
+
+498
+00:27:45,120 --> 00:27:50,880
+like you are given a radius of the large
+
+499
+00:27:48,159 --> 00:27:53,360
+circle and given the radius of the small
+
+500
+00:27:50,880 --> 00:27:56,080
+smaller circle. You can assume the
+
+501
+00:27:53,360 --> 00:27:58,159
+larger circle has radius one. Okay. So
+
+502
+00:27:56,080 --> 00:28:02,320
+the smaller circle is a fraction you
+
+503
+00:27:58,159 --> 00:28:04,880
+know or I mean it could be actually not
+
+504
+00:28:02,320 --> 00:28:07,279
+a real number but I mean if if the small
+
+505
+00:28:04,880 --> 00:28:10,640
+the radius of the smaller circle is not
+
+506
+00:28:07,279 --> 00:28:15,520
+a real number then I think the the curve
+
+507
+00:28:10,640 --> 00:28:18,080
+never repeat it never repeats. Okay, I
+
+508
+00:28:15,520 --> 00:28:21,600
+think you know you need you need to
+
+509
+00:28:18,080 --> 00:28:23,520
+prove but I I'm pretty sure. Okay, but
+
+510
+00:28:21,600 --> 00:28:27,039
+anyway, so
+
+511
+00:28:23,520 --> 00:28:30,159
+so but if your smaller circles radius is
+
+512
+00:28:27,039 --> 00:28:32,159
+a fraction of the larger one, then you
+
+513
+00:28:30,159 --> 00:28:35,200
+can determine
+
+514
+00:28:32,159 --> 00:28:38,960
+how many like what's the range like t
+
+515
+00:28:35,200 --> 00:28:42,399
+min like how many rotations it needs to
+
+516
+00:28:38,960 --> 00:28:47,279
+go before it repeats. Okay. So you there
+
+517
+00:28:42,399 --> 00:28:51,279
+is that um magic number. So where did I
+
+518
+00:28:47,279 --> 00:28:55,279
+say you know? So in my code it's encoded
+
+519
+00:28:51,279 --> 00:28:58,000
+somewhere. Okay. I don't remember.
+
+520
+00:28:55,279 --> 00:29:02,440
+So anyway that's a okay. So that's
+
+521
+00:28:58,000 --> 00:29:02,440
+that's a nice uh thing.
+
+522
+00:29:05,679 --> 00:29:10,960
+Okay. So those remove that because we
+
+523
+00:29:08,480 --> 00:29:13,440
+don't need the number of frames thing.
+
+524
+00:29:10,960 --> 00:29:15,440
+Okay. And also you you have this
+
+525
+00:29:13,440 --> 00:29:19,120
+situation
+
+526
+00:29:15,440 --> 00:29:22,320
+uh zero you know t mean greater than
+
+527
+00:29:19,120 --> 00:29:24,480
+zero t max greater than t min less than
+
+528
+00:29:22,320 --> 00:29:26,320
+infinity. Okay. Then you got the
+
+529
+00:29:24,480 --> 00:29:30,000
+example.
+
+530
+00:29:26,320 --> 00:29:32,799
+Well no we don't want this. We don't we
+
+531
+00:29:30,000 --> 00:29:35,799
+no longer want number of frames. Okay.
+
+532
+00:29:32,799 --> 00:29:35,799
+So
+
+533
+00:29:36,159 --> 00:29:42,399
+uh so that's kind of a example. Okay. So
+
+534
+00:29:39,919 --> 00:29:46,960
+this comment up
+
+535
+00:29:42,399 --> 00:29:51,600
+okay it's kind of tedious so far. So so
+
+536
+00:29:46,960 --> 00:29:54,080
+you see this is a usage inline inline
+
+537
+00:29:51,600 --> 00:29:57,440
+documentations inline documentation
+
+538
+00:29:54,080 --> 00:30:00,559
+string. Okay. And here are two examples
+
+539
+00:29:57,440 --> 00:30:04,240
+of actually calling it this. The first
+
+540
+00:30:00,559 --> 00:30:07,279
+one this creates a asteroid. Okay. The
+
+541
+00:30:04,240 --> 00:30:09,440
+second one creates you know one and two
+
+542
+00:30:07,279 --> 00:30:13,840
+over five. I'm I'm not sure some you
+
+543
+00:30:09,440 --> 00:30:16,240
+know some some other um thing. So now we
+
+544
+00:30:13,840 --> 00:30:19,200
+are you know now now we we understand
+
+545
+00:30:16,240 --> 00:30:20,720
+the parameters now we are coding. Okay.
+
+546
+00:30:19,200 --> 00:30:23,200
+So
+
+547
+00:30:20,720 --> 00:30:26,320
+so what you want to do first of all let
+
+548
+00:30:23,200 --> 00:30:28,960
+me let me uh write a few things. Okay. I
+
+549
+00:30:26,320 --> 00:30:34,760
+want to clear up the parameters. So let
+
+550
+00:30:28,960 --> 00:30:34,760
+me just show you so that
+
+551
+00:30:36,960 --> 00:30:42,039
+okay so first of all uh wait
+
+552
+00:30:43,360 --> 00:30:48,880
+okay first of all if there is no
+
+553
+00:30:45,600 --> 00:30:52,240
+parameters um
+
+554
+00:30:48,880 --> 00:30:55,240
+well what what happens if there's no
+
+555
+00:30:52,240 --> 00:30:55,240
+parameters
+
+556
+00:30:56,880 --> 00:31:04,880
+if there is no parameter You could say
+
+557
+00:31:00,880 --> 00:31:10,880
+one and uh let's say
+
+558
+00:31:04,880 --> 00:31:17,200
+okay one over four okay one uh one over
+
+559
+00:31:10,880 --> 00:31:20,240
+four then that is zero okay so if there
+
+560
+00:31:17,200 --> 00:31:23,200
+is no parameters let's let's just draw
+
+561
+00:31:20,240 --> 00:31:26,559
+the asteroid okay
+
+562
+00:31:23,200 --> 00:31:28,480
+now if so then
+
+563
+00:31:26,559 --> 00:31:34,480
+then you need to give a parameter,
+
+564
+00:31:28,480 --> 00:31:38,480
+right? Then you that then um
+
+565
+00:31:34,480 --> 00:31:41,200
+that would equals to Oh god, how do you
+
+566
+00:31:38,480 --> 00:31:43,360
+do this?
+
+567
+00:31:41,200 --> 00:31:45,440
+Um,
+
+568
+00:31:43,360 --> 00:31:47,600
+okay. This is more difficult than I
+
+569
+00:31:45,440 --> 00:31:49,679
+imagined
+
+570
+00:31:47,600 --> 00:31:53,440
+because
+
+571
+00:31:49,679 --> 00:31:56,480
+I was imagining I can just explain this
+
+572
+00:31:53,440 --> 00:32:00,159
+and we'll have the code and we'll you
+
+573
+00:31:56,480 --> 00:32:02,559
+know we are done in in 30 minutes but
+
+574
+00:32:00,159 --> 00:32:08,159
+actually
+
+575
+00:32:02,559 --> 00:32:10,720
+now but now I run into a situation that
+
+576
+00:32:08,159 --> 00:32:14,519
+that you see I I haven't explained this
+
+577
+00:32:10,720 --> 00:32:14,519
+part um
+
+578
+00:32:15,120 --> 00:32:21,600
+Okay, the the options uh the options we
+
+579
+00:32:18,320 --> 00:32:23,679
+don't need. Okay,
+
+580
+00:32:21,600 --> 00:32:25,600
+because we don't want options. So you so
+
+581
+00:32:23,679 --> 00:32:28,880
+you first of all you need to think about
+
+582
+00:32:25,600 --> 00:32:31,200
+what do you need want to do. So what we
+
+583
+00:32:28,880 --> 00:32:34,640
+want to think about right now is what
+
+584
+00:32:31,200 --> 00:32:38,240
+kind of forms of this function accept.
+
+585
+00:32:34,640 --> 00:32:41,919
+Okay, so if there's no argument that's
+
+586
+00:32:38,240 --> 00:32:43,440
+one form we accept. Then we we just make
+
+587
+00:32:41,919 --> 00:32:46,320
+it
+
+588
+00:32:43,440 --> 00:32:51,399
+uh do the asteroid the you know we just
+
+589
+00:32:46,320 --> 00:32:51,399
+assume the default parameter. Okay.
+
+590
+00:32:51,600 --> 00:33:00,240
+Then we also can have this form right?
+
+591
+00:32:57,360 --> 00:33:03,120
+Yeah. And what but what else is here
+
+592
+00:33:00,240 --> 00:33:06,440
+some other well there's you see you see
+
+593
+00:33:03,120 --> 00:33:06,440
+this function.
+
+594
+00:33:07,600 --> 00:33:16,720
+Okay. It does require two
+
+595
+00:33:12,080 --> 00:33:19,919
+parameters. Okay. Well, kind of. So, the
+
+596
+00:33:16,720 --> 00:33:24,000
+first parameter is required because it
+
+597
+00:33:19,919 --> 00:33:27,120
+specifies the size of the circles and
+
+598
+00:33:24,000 --> 00:33:29,279
+the distance from the
+
+599
+00:33:27,120 --> 00:33:32,000
+from the tracing point to the center of
+
+600
+00:33:29,279 --> 00:33:34,559
+the circle on the rolling circle. Okay.
+
+601
+00:33:32,000 --> 00:33:37,600
+So, the first parameter is required. But
+
+602
+00:33:34,559 --> 00:33:40,000
+in fact you can reduce the two circles
+
+603
+00:33:37,600 --> 00:33:42,240
+into just one radius to to their
+
+604
+00:33:40,000 --> 00:33:45,360
+fraction like you you can re you know
+
+605
+00:33:42,240 --> 00:33:47,120
+reduce them to a fraction anyway. So
+
+606
+00:33:45,360 --> 00:33:48,720
+that's the first parameter. What about
+
+607
+00:33:47,120 --> 00:33:51,600
+the second parameter? The second
+
+608
+00:33:48,720 --> 00:33:54,159
+parameter is um
+
+609
+00:33:51,600 --> 00:33:56,799
+they basically control the starting
+
+610
+00:33:54,159 --> 00:33:58,640
+frame and ending frame of the rolling
+
+611
+00:33:56,799 --> 00:34:01,600
+circle. Right?
+
+612
+00:33:58,640 --> 00:34:03,600
+And then the the third argument I mean
+
+613
+00:34:01,600 --> 00:34:06,720
+the third part is the number of the
+
+614
+00:34:03,600 --> 00:34:08,800
+steps okay how how much steps you do
+
+615
+00:34:06,720 --> 00:34:14,320
+each time.
+
+616
+00:34:08,800 --> 00:34:18,159
+So the steps can be
+
+617
+00:34:14,320 --> 00:34:22,320
+omitted if
+
+618
+00:34:18,159 --> 00:34:26,720
+um if you see if the radius ratio is a
+
+619
+00:34:22,320 --> 00:34:29,280
+is a rational number otherwise because
+
+620
+00:34:26,720 --> 00:34:31,919
+if you know it's getting complicated if
+
+621
+00:34:29,280 --> 00:34:35,760
+the ratio of two circles is rational
+
+622
+00:34:31,919 --> 00:34:38,320
+number then you can figure out
+
+623
+00:34:35,760 --> 00:34:41,359
+you then you can figure out actually the
+
+624
+00:34:38,320 --> 00:34:43,919
+the start and the the max, you know, the
+
+625
+00:34:41,359 --> 00:34:47,599
+range.
+
+626
+00:34:43,919 --> 00:34:49,919
+You can figure that out. And okay, the
+
+627
+00:34:47,599 --> 00:34:52,079
+step you can always figure out the step
+
+628
+00:34:49,919 --> 00:34:55,599
+you like always just generate 80 of
+
+629
+00:34:52,079 --> 00:34:58,320
+them. Actually, no. It depends on how
+
+630
+00:34:55,599 --> 00:35:01,760
+many, you know, like some of these needs
+
+631
+00:34:58,320 --> 00:35:04,320
+a lot of steps to be smooth. Okay. Do
+
+632
+00:35:01,760 --> 00:35:06,480
+you guys know what I'm doing? Um, am I
+
+633
+00:35:04,320 --> 00:35:08,560
+like getting too complicated? Because
+
+634
+00:35:06,480 --> 00:35:11,119
+some of these
+
+635
+00:35:08,560 --> 00:35:14,240
+parameters let's see where is today. So
+
+636
+00:35:11,119 --> 00:35:16,560
+we did this today. Let's see uh that you
+
+637
+00:35:14,240 --> 00:35:19,200
+see now better picture. You see some of
+
+638
+00:35:16,560 --> 00:35:21,520
+these for example let's say that one
+
+639
+00:35:19,200 --> 00:35:23,520
+that one takes a lot of turns you know
+
+640
+00:35:21,520 --> 00:35:27,359
+three four like it could be like you
+
+641
+00:35:23,520 --> 00:35:30,240
+have to turn make 100 turns. So even a
+
+642
+00:35:27,359 --> 00:35:32,800
+thousand turns. Okay. So some of these
+
+643
+00:35:30,240 --> 00:35:35,680
+parameters really requires you make a
+
+644
+00:35:32,800 --> 00:35:37,839
+thousand turns. And for those that
+
+645
+00:35:35,680 --> 00:35:42,240
+requires a thousand turns the number of
+
+646
+00:35:37,839 --> 00:35:45,280
+steps needs to be very small like 0.1.
+
+647
+00:35:42,240 --> 00:35:49,200
+So effectively if you want a smooth
+
+648
+00:35:45,280 --> 00:35:51,839
+animation you going to have an animation
+
+649
+00:35:49,200 --> 00:35:56,640
+with you know
+
+650
+00:35:51,839 --> 00:35:59,119
+1,00 frames. Okay. Now for the simple
+
+651
+00:35:56,640 --> 00:36:01,359
+one like the asteroid you know you just
+
+652
+00:35:59,119 --> 00:36:04,160
+you you just need 40 frames. That's
+
+653
+00:36:01,359 --> 00:36:06,880
+smooth. But for for for some of these
+
+654
+00:36:04,160 --> 00:36:09,119
+potentially you can have like 10,000 you
+
+655
+00:36:06,880 --> 00:36:11,680
+need 10,000 frames because they need to
+
+656
+00:36:09,119 --> 00:36:18,720
+turn you know
+
+657
+00:36:11,680 --> 00:36:21,599
+uh like uh like 10,000 uh rounds.
+
+658
+00:36:18,720 --> 00:36:24,720
+Okay. So so right now we are thinking
+
+659
+00:36:21,599 --> 00:36:27,680
+about this parameter you know part
+
+660
+00:36:24,720 --> 00:36:32,320
+beginning is easy we can always start at
+
+661
+00:36:27,680 --> 00:36:36,400
+zero. Now the t-max the maximum where do
+
+662
+00:36:32,320 --> 00:36:38,880
+you when do you stop that needs to be
+
+663
+00:36:36,400 --> 00:36:40,960
+figured out. Okay. So you can give a
+
+664
+00:36:38,880 --> 00:36:42,880
+value
+
+665
+00:36:40,960 --> 00:36:46,240
+it won't work because for all these
+
+666
+00:36:42,880 --> 00:36:47,839
+cases if you just say 0 to 2 pi they
+
+667
+00:36:46,240 --> 00:36:49,920
+don't draw nothing you know they just
+
+668
+00:36:47,839 --> 00:36:51,839
+stop right away you know like you don't
+
+669
+00:36:49,920 --> 00:36:54,240
+you don't get a curve you don't you
+
+670
+00:36:51,839 --> 00:36:58,560
+don't get this you know pretty curve you
+
+671
+00:36:54,240 --> 00:37:00,560
+just you just get like a a stroke.
+
+672
+00:36:58,560 --> 00:37:04,160
+So
+
+673
+00:37:00,560 --> 00:37:07,760
+well anyways the the the tax can be
+
+674
+00:37:04,160 --> 00:37:11,920
+figure out figured out if the radius I
+
+675
+00:37:07,760 --> 00:37:17,440
+mean if if the ratio of the circles
+
+676
+00:37:11,920 --> 00:37:20,079
+radius uh fraction is a fraction. Okay
+
+677
+00:37:17,440 --> 00:37:23,040
+then steps can always be figured out.
+
+678
+00:37:20,079 --> 00:37:25,680
+Okay. So what we need to think about now
+
+679
+00:37:23,040 --> 00:37:29,839
+is about the design of this function
+
+680
+00:37:25,680 --> 00:37:31,920
+like like what do you do you require
+
+681
+00:37:29,839 --> 00:37:34,920
+the second parameter? That's the
+
+682
+00:37:31,920 --> 00:37:34,920
+question.
+
+683
+00:37:36,079 --> 00:37:42,640
+Uh
+
+684
+00:37:38,800 --> 00:37:45,359
+you see if you do not require the second
+
+685
+00:37:42,640 --> 00:37:47,920
+parameter meaning that
+
+686
+00:37:45,359 --> 00:37:50,880
+people can omitt it then you need to
+
+687
+00:37:47,920 --> 00:37:53,440
+figure out what is the second parameter
+
+688
+00:37:50,880 --> 00:37:57,800
+but
+
+689
+00:37:53,440 --> 00:37:57,800
+you can't do that well
+
+690
+00:37:57,839 --> 00:38:02,720
+okay you run into a lot of issues what
+
+691
+00:38:00,160 --> 00:38:07,440
+one of them is that if the ra if the
+
+692
+00:38:02,720 --> 00:38:07,440
+ratio is a real number not a fraction
+
+693
+00:38:07,760 --> 00:38:11,079
+Then basically
+
+694
+00:38:11,280 --> 00:38:15,839
+you just have to like create a magic
+
+695
+00:38:13,599 --> 00:38:20,560
+number when to stop because it never
+
+696
+00:38:15,839 --> 00:38:24,240
+repeats. Okay, the that's one issue.
+
+697
+00:38:20,560 --> 00:38:28,000
+When the ratio of the two circles radius
+
+698
+00:38:24,240 --> 00:38:31,200
+is not a rational number, you have to
+
+699
+00:38:28,000 --> 00:38:33,359
+magically figure out when to stop. Okay,
+
+700
+00:38:31,200 --> 00:38:36,000
+that's one issue. The other issue is
+
+701
+00:38:33,359 --> 00:38:38,720
+that
+
+702
+00:38:36,000 --> 00:38:41,680
+when you have a situation where you know
+
+703
+00:38:38,720 --> 00:38:46,640
+you have to figure out how how how many
+
+704
+00:38:41,680 --> 00:38:50,079
+turns they stop okay when that is large
+
+705
+00:38:46,640 --> 00:38:54,480
+you see I don't think you want the
+
+706
+00:38:50,079 --> 00:38:57,200
+function to automatically generate
+
+707
+00:38:54,480 --> 00:38:59,119
+like two billion frames you know because
+
+708
+00:38:57,200 --> 00:39:01,760
+your your wuam language is going to
+
+709
+00:38:59,119 --> 00:39:05,599
+crash
+
+710
+00:39:01,760 --> 00:39:09,920
+So when when so you have to say like
+
+711
+00:39:05,599 --> 00:39:11,520
+some kind of maximum number of frames
+
+712
+00:39:09,920 --> 00:39:13,680
+um
+
+713
+00:39:11,520 --> 00:39:15,680
+even though it doesn't complete like
+
+714
+00:39:13,680 --> 00:39:17,920
+when you have this complicated case.
+
+715
+00:39:15,680 --> 00:39:20,240
+Okay.
+
+716
+00:39:17,920 --> 00:39:23,680
+Okay. So when you design this you you
+
+717
+00:39:20,240 --> 00:39:26,079
+you came upon these issues.
+
+718
+00:39:23,680 --> 00:39:28,800
+Do I make sense?
+
+719
+00:39:26,079 --> 00:39:33,119
+Do I make sense? Uh you guys like some
+
+720
+00:39:28,800 --> 00:39:35,760
+of you are know what I'm talking about.
+
+721
+00:39:33,119 --> 00:39:38,160
+Uh name says, "Enjoying the stream.
+
+722
+00:39:35,760 --> 00:39:42,560
+Thanks. Geometry visualization is really
+
+723
+00:39:38,160 --> 00:39:45,680
+cool." Thank you. Hi. Um
+
+724
+00:39:42,560 --> 00:39:48,400
+hi uh Mechi.
+
+725
+00:39:45,680 --> 00:39:52,640
+Okay, we we kind of got a issue here.
+
+726
+00:39:48,400 --> 00:39:56,240
+But let's see what I did 30 years ago
+
+727
+00:39:52,640 --> 00:39:58,800
+because 30 years ago because usually I
+
+728
+00:39:56,240 --> 00:40:00,720
+think a lot. So 30 years ago let's see
+
+729
+00:39:58,800 --> 00:40:03,440
+what we did.
+
+730
+00:40:00,720 --> 00:40:06,480
+So it will automatically
+
+731
+00:40:03,440 --> 00:40:11,320
+you see the so okay so indeed it
+
+732
+00:40:06,480 --> 00:40:11,320
+automatically generate the T minax
+
+733
+00:40:11,839 --> 00:40:18,000
+the optional list T minstep control
+
+734
+00:40:15,040 --> 00:40:20,400
+number of rotations if not specified an
+
+735
+00:40:18,000 --> 00:40:23,359
+internal algorithm will figure out the
+
+736
+00:40:20,400 --> 00:40:25,119
+number of rotations so that the curve is
+
+737
+00:40:23,359 --> 00:40:27,040
+closed
+
+738
+00:40:25,119 --> 00:40:29,839
+right
+
+739
+00:40:27,040 --> 00:40:32,720
+but
+
+740
+00:40:29,839 --> 00:40:35,920
+But if you see the ratio of the radius
+
+741
+00:40:32,720 --> 00:40:39,040
+is not a rational number. You cannot the
+
+742
+00:40:35,920 --> 00:40:42,079
+curve is not closed.
+
+743
+00:40:39,040 --> 00:40:44,400
+So what do you do in that situation? The
+
+744
+00:40:42,079 --> 00:40:47,400
+documentation didn't say okay that's a
+
+745
+00:40:44,400 --> 00:40:47,400
+flow.
+
+746
+00:40:48,480 --> 00:40:53,200
+Okay. So now let's look at the code.
+
+747
+00:40:51,119 --> 00:40:56,480
+Okay. Now let's you know we haven't
+
+748
+00:40:53,200 --> 00:41:01,839
+decided what what are the um parameters
+
+749
+00:40:56,480 --> 00:41:03,760
+yet. So that's so it's a bit um
+
+750
+00:41:01,839 --> 00:41:07,520
+you know we haven't decided what to do
+
+751
+00:41:03,760 --> 00:41:10,240
+there. So let's comment up
+
+752
+00:41:07,520 --> 00:41:13,760
+but what we
+
+753
+00:41:10,240 --> 00:41:17,839
+okay so let's comment out so let's look
+
+754
+00:41:13,760 --> 00:41:21,680
+at the code what we actually do so if t
+
+755
+00:41:17,839 --> 00:41:27,400
+range um let's see
+
+756
+00:41:21,680 --> 00:41:27,400
+so if t r range is not given
+
+757
+00:41:27,520 --> 00:41:30,920
+then we
+
+758
+00:41:33,359 --> 00:41:41,960
+okay Okay. So,
+
+759
+00:41:37,359 --> 00:41:41,960
+this is interesting. Um,
+
+760
+00:41:44,560 --> 00:41:51,040
+I think you know this is not good
+
+761
+00:41:47,280 --> 00:41:53,440
+because I talked for 10 minutes on very
+
+762
+00:41:51,040 --> 00:41:55,920
+technical details. I I don't think
+
+763
+00:41:53,440 --> 00:41:59,599
+people are interested
+
+764
+00:41:55,920 --> 00:42:02,880
+and we haven't actually talked about the
+
+765
+00:41:59,599 --> 00:42:06,000
+more interesting stuff of of stuff of
+
+766
+00:42:02,880 --> 00:42:07,760
+how do you actually find figure out
+
+767
+00:42:06,000 --> 00:42:12,000
+that's what people want to know. How do
+
+768
+00:42:07,760 --> 00:42:16,640
+you figure out at at at any time where
+
+769
+00:42:12,000 --> 00:42:19,200
+are where is a circle? Okay, so
+
+770
+00:42:16,640 --> 00:42:21,520
+you know like at given moment where is a
+
+771
+00:42:19,200 --> 00:42:25,920
+circle and where's a dot. So those are
+
+772
+00:42:21,520 --> 00:42:29,359
+in this um you know people want to know
+
+773
+00:42:25,920 --> 00:42:32,800
+where is the code. So anyway
+
+774
+00:42:29,359 --> 00:42:36,960
+the formula for for this hypotco curve
+
+775
+00:42:32,800 --> 00:42:39,520
+uh this cosine sign. Okay. But the the
+
+776
+00:42:36,960 --> 00:42:43,680
+part where you figure out which position
+
+777
+00:42:39,520 --> 00:42:49,280
+it is is um
+
+778
+00:42:43,680 --> 00:42:50,960
+is this one. Okay. Okay. Well,
+
+779
+00:42:49,280 --> 00:42:53,280
+you guys don't know what I'm doing
+
+780
+00:42:50,960 --> 00:42:55,200
+because
+
+781
+00:42:53,280 --> 00:42:59,359
+if you are not familiar with Wolfam
+
+782
+00:42:55,200 --> 00:43:02,240
+language, then you don't know. So,
+
+783
+00:42:59,359 --> 00:43:05,240
+okay. So, what we going to do here?
+
+784
+00:43:02,240 --> 00:43:05,240
+Well,
+
+785
+00:43:07,280 --> 00:43:15,960
+yeah. So, what are we doing? So, you
+
+786
+00:43:09,760 --> 00:43:15,960
+need to simplify the code. Okay. Um
+
+787
+00:43:16,800 --> 00:43:24,240
+yeah so previously we assumed
+
+788
+00:43:21,040 --> 00:43:28,319
+so if we assume this is optional so you
+
+789
+00:43:24,240 --> 00:43:32,760
+see if this is optional so if it's if we
+
+790
+00:43:28,319 --> 00:43:32,760
+get automatic that means
+
+791
+00:43:32,960 --> 00:43:40,480
+by default
+
+792
+00:43:35,040 --> 00:43:45,040
+if we get that default then um then what
+
+793
+00:43:40,480 --> 00:43:48,760
+we do is you get the number.
+
+794
+00:43:45,040 --> 00:43:48,760
+Oh, okay.
+
+795
+00:43:52,240 --> 00:43:58,400
+Zero to rationalize. Okay. So, you just
+
+796
+00:43:55,440 --> 00:44:02,160
+force it into a rational number. That's
+
+797
+00:43:58,400 --> 00:44:05,520
+what I that's what we did. You see?
+
+798
+00:44:02,160 --> 00:44:08,000
+So what happens when the ra uh when the
+
+799
+00:44:05,520 --> 00:44:10,079
+ratio of the
+
+800
+00:44:08,000 --> 00:44:13,280
+circles radiuses
+
+801
+00:44:10,079 --> 00:44:15,680
+uh is not a rational number
+
+802
+00:44:13,280 --> 00:44:19,280
+because that is a if that's the case the
+
+803
+00:44:15,680 --> 00:44:21,839
+the the curve will never repeat. Well if
+
+804
+00:44:19,280 --> 00:44:24,240
+that's the case you just force it into a
+
+805
+00:44:21,839 --> 00:44:27,680
+rational number like closest rational
+
+806
+00:44:24,240 --> 00:44:32,160
+number. That's what I did here.
+
+807
+00:44:27,680 --> 00:44:34,240
+Very good. Okay. Um,
+
+808
+00:44:32,160 --> 00:44:40,040
+yeah. So, you see that's that's what we
+
+809
+00:44:34,240 --> 00:44:40,040
+did here. That's the code. Um,
+
+810
+00:44:42,480 --> 00:44:49,440
+yeah. Okay. So, that's one thing. So,
+
+811
+00:44:44,880 --> 00:44:52,480
+this this block deals with
+
+812
+00:44:49,440 --> 00:44:55,119
+deal with when this
+
+813
+00:44:52,480 --> 00:45:00,640
+two and you know beginning and you know
+
+814
+00:44:55,119 --> 00:45:04,200
+start and stop and steps is optional.
+
+815
+00:45:00,640 --> 00:45:04,200
+Okay. So,
+
+816
+00:45:05,200 --> 00:45:09,520
+how you guys doing? So, I actually I'm
+
+817
+00:45:07,359 --> 00:45:12,079
+thinking of stopping. How long have I
+
+818
+00:45:09,520 --> 00:45:14,800
+been talking? 45 minutes. Okay. Should I
+
+819
+00:45:12,079 --> 00:45:17,040
+continue? Actually, I should I should
+
+820
+00:45:14,800 --> 00:45:19,359
+continue
+
+821
+00:45:17,040 --> 00:45:21,599
+until I have like, you know, complete
+
+822
+00:45:19,359 --> 00:45:25,359
+code so I can paste it, people can use
+
+823
+00:45:21,599 --> 00:45:28,319
+it. I should. Yeah. Okay. Let's
+
+824
+00:45:25,359 --> 00:45:30,720
+continue. Okay. So let's quickly let's
+
+825
+00:45:28,319 --> 00:45:33,440
+continue on that. Okay, that's what we
+
+826
+00:45:30,720 --> 00:45:36,800
+Okay. Okay.
+
+827
+00:45:33,440 --> 00:45:39,200
+So t min Okay. So let let's focus let's
+
+828
+00:45:36,800 --> 00:45:42,960
+go back to the design of the function
+
+829
+00:45:39,200 --> 00:45:45,520
+parameters. Okay. So what I used to have
+
+830
+00:45:42,960 --> 00:45:49,760
+is this thing. Okay. So this is what I
+
+831
+00:45:45,520 --> 00:45:53,200
+used to have. Now let's let's redesign
+
+832
+00:45:49,760 --> 00:45:55,359
+to be simpler because
+
+833
+00:45:53,200 --> 00:45:58,240
+so when there's no parameter just do
+
+834
+00:45:55,359 --> 00:46:01,599
+that. When this that parameter do that
+
+835
+00:45:58,240 --> 00:46:04,240
+then um
+
+836
+00:46:01,599 --> 00:46:07,119
+wait when when there's that parameter
+
+837
+00:46:04,240 --> 00:46:10,119
+what you want to do is
+
+838
+00:46:07,119 --> 00:46:10,119
+um
+
+839
+00:46:12,480 --> 00:46:17,400
+yeah so actually here.
+
+840
+00:46:26,240 --> 00:46:33,160
+Can we actually bring it here like that?
+
+841
+00:46:30,160 --> 00:46:33,160
+Uh
+
+842
+00:46:38,000 --> 00:46:45,599
+t min is always just zero. Okay, so
+
+843
+00:46:41,760 --> 00:46:48,480
+forget about t min. T min is always just
+
+844
+00:46:45,599 --> 00:46:50,319
+zero. So forget about that. Forget about
+
+845
+00:46:48,480 --> 00:46:57,640
+region. Let me just fix the code
+
+846
+00:46:50,319 --> 00:46:57,640
+quickly. Okay. Uh what does this now?
+
+847
+00:46:57,839 --> 00:47:08,599
+Okay. So t min is just always zero and t
+
+848
+00:47:03,040 --> 00:47:08,599
+max is going to be
+
+849
+00:47:17,520 --> 00:47:24,319
+Fascinating. Rationalize times 2 pi.
+
+850
+00:47:22,720 --> 00:47:27,200
+Fascinating.
+
+851
+00:47:24,319 --> 00:47:30,200
+Okay.
+
+852
+00:47:27,200 --> 00:47:30,200
+Okay.
+
+853
+00:47:38,160 --> 00:47:46,880
+And the t-step is what is tep? T-step is
+
+854
+00:47:43,200 --> 00:47:49,880
+t max and minus t mean. Okay.
+
+855
+00:47:46,880 --> 00:47:49,880
+So,
+
+856
+00:47:53,200 --> 00:48:01,240
+and so actually you need the a there for
+
+857
+00:47:57,680 --> 00:48:01,240
+this to work.
+
+858
+00:48:09,920 --> 00:48:16,200
+Okay. So, you need quite you need a few
+
+859
+00:48:12,640 --> 00:48:16,200
+things. Um,
+
+860
+00:48:23,760 --> 00:48:27,720
+okay. So,
+
+861
+00:48:46,079 --> 00:48:56,160
+Okay. So you just need to define
+
+862
+00:48:50,640 --> 00:49:00,319
+these three values. Okay. T minstep.
+
+863
+00:48:56,160 --> 00:49:03,200
+You need to define them. And we can do
+
+864
+00:49:00,319 --> 00:49:08,559
+that by
+
+865
+00:49:03,200 --> 00:49:15,240
+T min is simply zero. Okay.
+
+866
+00:49:08,559 --> 00:49:15,240
+And T-max is like um
+
+867
+00:49:16,400 --> 00:49:24,599
+do I make sense? Is it good?
+
+868
+00:49:19,839 --> 00:49:24,599
+T-max is like that. Okay.
+
+869
+00:49:24,640 --> 00:49:31,680
+T min is like zero. T-max is like
+
+870
+00:49:28,640 --> 00:49:34,680
+actually you need to take
+
+871
+00:49:31,680 --> 00:49:34,680
+um
+
+872
+00:49:34,880 --> 00:49:43,200
+rationalized b you need to take um
+
+873
+00:49:39,040 --> 00:49:45,520
+numerator rationalized b
+
+874
+00:49:43,200 --> 00:49:48,240
+you need to take I think you need to
+
+875
+00:49:45,520 --> 00:49:52,720
+take consideration of a you are missing
+
+876
+00:49:48,240 --> 00:49:55,359
+a here so maybe it's like that okay do
+
+877
+00:49:52,720 --> 00:49:59,280
+you guys know what I mean um maybe you
+
+878
+00:49:55,359 --> 00:50:01,599
+don't so going to bed. Tune in next
+
+879
+00:49:59,280 --> 00:50:04,160
+time. My first time seeing Wolf, but
+
+880
+00:50:01,599 --> 00:50:07,040
+very interesting. Thank you. Good night.
+
+881
+00:50:04,160 --> 00:50:10,520
+Good night.
+
+882
+00:50:07,040 --> 00:50:10,520
+Okay. So,
+
+883
+00:50:11,119 --> 00:50:18,400
+Okay. So, we continue to to do this.
+
+884
+00:50:13,760 --> 00:50:22,400
+Yes. Okay. Then, uh then you got teps.
+
+885
+00:50:18,400 --> 00:50:26,000
+Let's say t steps equals to
+
+886
+00:50:22,400 --> 00:50:30,000
+um tep equals to the numerical code
+
+887
+00:50:26,000 --> 00:50:32,079
+value of
+
+888
+00:50:30,000 --> 00:50:35,839
+okay let's forget about numeric code for
+
+889
+00:50:32,079 --> 00:50:39,720
+now okay so
+
+890
+00:50:35,839 --> 00:50:39,720
+that um
+
+891
+00:50:40,880 --> 00:50:47,920
+okay so number of frames we don't need
+
+892
+00:50:44,720 --> 00:50:53,200
+that we don't have that values anymore
+
+893
+00:50:47,920 --> 00:50:57,599
+So t-step is just by default is um what
+
+894
+00:50:53,200 --> 00:51:01,440
+is the default number of frames? 41.
+
+895
+00:50:57,599 --> 00:51:03,599
+Okay, let's just say 40. Okay.
+
+896
+00:51:01,440 --> 00:51:06,880
+Uh yeah, we don't we don't have the
+
+897
+00:51:03,599 --> 00:51:10,920
+number of frames anymore
+
+898
+00:51:06,880 --> 00:51:10,920
+because we don't want it.
+
+899
+00:51:11,839 --> 00:51:19,359
+Okay.
+
+900
+00:51:13,599 --> 00:51:24,280
+Okay. So number of frames 41. So teps is
+
+901
+00:51:19,359 --> 00:51:24,280
+just uh divided by 41
+
+902
+00:51:26,400 --> 00:51:31,599
+which actually creates 42 number of
+
+903
+00:51:29,599 --> 00:51:34,599
+frames.
+
+904
+00:51:31,599 --> 00:51:34,599
+Wait.
+
+905
+00:51:45,390 --> 00:51:47,410
+[snorts]
+
+906
+00:51:58,559 --> 00:52:04,880
+Okay. So anyway, so let's just do that.
+
+907
+00:52:01,520 --> 00:52:07,880
+Do that. Okay.
+
+908
+00:52:04,880 --> 00:52:07,880
+So
+
+909
+00:52:16,400 --> 00:52:24,839
+Don't do that. That that that.
+
+910
+00:52:21,359 --> 00:52:24,839
+What is that?
+
+911
+00:52:44,400 --> 00:52:49,720
+Okay, that's what this will do. Okay,
+
+912
+00:52:58,480 --> 00:53:04,920
+wait. It's already there.
+
+913
+00:53:01,920 --> 00:53:04,920
+Yeah.
+
+914
+00:53:05,839 --> 00:53:11,599
+Yeah, it's already here. So, one A, B,
+
+915
+00:53:08,800 --> 00:53:18,000
+and H. Okay.
+
+916
+00:53:11,599 --> 00:53:20,079
+So, so this you see that defines
+
+917
+00:53:18,000 --> 00:53:22,880
+so if you
+
+918
+00:53:20,079 --> 00:53:26,960
+don't give the second argument then it
+
+919
+00:53:22,880 --> 00:53:31,359
+will actually create the second argument
+
+920
+00:53:26,960 --> 00:53:34,800
+like like here you just call this this
+
+921
+00:53:31,359 --> 00:53:37,200
+okay so this this part delete okay so
+
+922
+00:53:34,800 --> 00:53:41,280
+you see if no if you do not give any
+
+923
+00:53:37,200 --> 00:53:43,760
+argument then you will call that
+
+924
+00:53:41,280 --> 00:53:48,000
+If but if you only give one the you know
+
+925
+00:53:43,760 --> 00:53:51,839
+the this argument then it will
+
+926
+00:53:48,000 --> 00:53:56,640
+it will create t minep
+
+927
+00:53:51,839 --> 00:53:59,599
+okay and uh t min is always zero okay so
+
+928
+00:53:56,640 --> 00:54:06,480
+you don't need t min t min is always
+
+929
+00:53:59,599 --> 00:54:09,760
+like zero okay then t- max is
+
+930
+00:54:06,480 --> 00:54:12,000
+numerical b actually let's remove that b
+
+931
+00:54:09,760 --> 00:54:15,680
+/ a
+
+932
+00:54:12,000 --> 00:54:19,839
+uh then the numerator then times 2 pi
+
+933
+00:54:15,680 --> 00:54:24,400
+hopefully I think that's that then tep
+
+934
+00:54:19,839 --> 00:54:28,319
+is t max
+
+935
+00:54:24,400 --> 00:54:30,400
+divided by uh t-max now be careful the
+
+936
+00:54:28,319 --> 00:54:35,359
+capital letter so we are using lower
+
+937
+00:54:30,400 --> 00:54:38,000
+case so tmax just t-max divided by 41
+
+938
+00:54:35,359 --> 00:54:40,160
+okay so actually you don't need that
+
+939
+00:54:38,000 --> 00:54:45,200
+because now
+
+940
+00:54:40,160 --> 00:54:48,640
+uh because it's just there t-max so you
+
+941
+00:54:45,200 --> 00:54:51,839
+don't need that parameter anymore
+
+942
+00:54:48,640 --> 00:54:53,839
+t-max is just that okay you only need
+
+943
+00:54:51,839 --> 00:54:57,119
+one
+
+944
+00:54:53,839 --> 00:55:01,040
+uh local variable in that case just put
+
+945
+00:54:57,119 --> 00:55:05,680
+it there okay in that case you know it's
+
+946
+00:55:01,040 --> 00:55:09,440
+just just that
+
+947
+00:55:05,680 --> 00:55:13,920
+okay one local variable t-max X T max is
+
+948
+00:55:09,440 --> 00:55:17,520
+defined by B / A and rationalize and
+
+949
+00:55:13,920 --> 00:55:20,960
+then then times 2 pi then take the
+
+950
+00:55:17,520 --> 00:55:23,599
+numerator. Um
+
+951
+00:55:20,960 --> 00:55:28,119
+yeah that's how many number of turns you
+
+952
+00:55:23,599 --> 00:55:28,119
+want. Okay. Kind of
+
+953
+00:55:30,640 --> 00:55:37,599
+then then you just call so after the
+
+954
+00:55:34,960 --> 00:55:39,200
+block of code. Yeah. Then you just call
+
+955
+00:55:37,599 --> 00:55:43,760
+this
+
+956
+00:55:39,200 --> 00:55:48,400
+T mean zero T- max is is T max and then
+
+957
+00:55:43,760 --> 00:55:51,400
+the steps is T- max over 4 O1.
+
+958
+00:55:48,400 --> 00:55:51,400
+Okay.
+
+959
+00:55:51,599 --> 00:55:57,760
+After 20 minutes, we did that one. We're
+
+960
+00:55:55,119 --> 00:56:00,880
+trying to simplify the code. Okay. Now,
+
+961
+00:55:57,760 --> 00:56:03,200
+now, now here, now the full code here.
+
+962
+00:56:00,880 --> 00:56:05,520
+Let's highlight the ops. Okay. Now, we
+
+963
+00:56:03,200 --> 00:56:10,359
+got too many highlights.
+
+964
+00:56:05,520 --> 00:56:10,359
+Action patterns. Um,
+
+965
+00:56:10,640 --> 00:56:14,640
+option. You don't know. You guys don't
+
+966
+00:56:12,960 --> 00:56:18,960
+know what I'm doing, but just let me do
+
+967
+00:56:14,640 --> 00:56:22,000
+it. Okay. Remove that. And the options.
+
+968
+00:56:18,960 --> 00:56:26,079
+Uh, yeah, it occurs there. So, delete
+
+969
+00:56:22,000 --> 00:56:28,400
+it. Okay. Now, go to the options. You
+
+970
+00:56:26,079 --> 00:56:30,880
+don't go to the options. You don't want
+
+971
+00:56:28,400 --> 00:56:34,720
+this anymore.
+
+972
+00:56:30,880 --> 00:56:38,720
+Okay. So, delete, delete, delete. Okay.
+
+973
+00:56:34,720 --> 00:56:41,440
+We remove that option. And then we got
+
+974
+00:56:38,720 --> 00:56:44,319
+this number of frames. Let's also remove
+
+975
+00:56:41,440 --> 00:56:47,839
+it. Okay. But before you see, we were
+
+976
+00:56:44,319 --> 00:56:51,040
+defining the T-min teps. Now, we don't
+
+977
+00:56:47,839 --> 00:56:53,359
+need that. We don't need this block of
+
+978
+00:56:51,040 --> 00:56:56,480
+code anymore.
+
+979
+00:56:53,359 --> 00:56:59,920
+Delete. And
+
+980
+00:56:56,480 --> 00:57:03,839
+now um
+
+981
+00:56:59,920 --> 00:57:06,079
+you see now hold on a second. So tmax.
+
+982
+00:57:03,839 --> 00:57:08,240
+So number of frames. Let's remove the
+
+983
+00:57:06,079 --> 00:57:10,559
+number of frames variable. So you see
+
+984
+00:57:08,240 --> 00:57:13,280
+there's a local variable
+
+985
+00:57:10,559 --> 00:57:17,680
+n of frames. Let's see if it's still
+
+986
+00:57:13,280 --> 00:57:21,520
+somewhere. No. So delete that. Okay. and
+
+987
+00:57:17,680 --> 00:57:24,559
+the t minax is also no longer needed.
+
+988
+00:57:21,520 --> 00:57:26,640
+So, so this second parameter is no
+
+989
+00:57:24,559 --> 00:57:28,960
+longer needed.
+
+990
+00:57:26,640 --> 00:57:32,559
+Okay. So,
+
+991
+00:57:28,960 --> 00:57:35,359
+well actually it is needed. So, we so
+
+992
+00:57:32,559 --> 00:57:38,000
+let's uh modify that. So, it's going to
+
+993
+00:57:35,359 --> 00:57:42,280
+be it's going to be let me show you.
+
+994
+00:57:38,000 --> 00:57:42,280
+Okay. Uh
+
+995
+00:57:47,119 --> 00:57:52,480
+Okay. So instead of that now it's going
+
+996
+00:57:49,680 --> 00:57:56,160
+to become like that. So except we need
+
+997
+00:57:52,480 --> 00:57:59,520
+uh these matches. So these are patterns.
+
+998
+00:57:56,160 --> 00:58:02,000
+That means a pattern of a list of three
+
+999
+00:57:59,520 --> 00:58:05,119
+things. Each thing can be anything
+
+1000
+00:58:02,000 --> 00:58:08,799
+that's the that's a low line.
+
+1001
+00:58:05,119 --> 00:58:11,440
+And we name each one by the first one is
+
+1002
+00:58:08,799 --> 00:58:14,240
+we name it T min when it matches. The
+
+1003
+00:58:11,440 --> 00:58:17,680
+second one we we name it T-max. The
+
+1004
+00:58:14,240 --> 00:58:20,240
+third one we name it T step. So so this
+
+1005
+00:58:17,680 --> 00:58:23,520
+again it's a list of three things. It's
+
+1006
+00:58:20,240 --> 00:58:26,319
+a pattern. Okay. And each element we
+
+1007
+00:58:23,520 --> 00:58:28,400
+name it when it matches. Okay. So we
+
+1008
+00:58:26,319 --> 00:58:30,720
+don't need this you know. So but but
+
+1009
+00:58:28,400 --> 00:58:33,720
+this part originally this this part
+
+1010
+00:58:30,720 --> 00:58:33,720
+means
+
+1011
+00:58:33,839 --> 00:58:39,680
+means this is this is one thing it's a
+
+1012
+00:58:36,640 --> 00:58:42,559
+pattern okay it's a pattern
+
+1013
+00:58:39,680 --> 00:58:45,760
+of anything it could be any it will
+
+1014
+00:58:42,559 --> 00:58:49,040
+match any item
+
+1015
+00:58:45,760 --> 00:58:51,599
+uh except the item must be a list. The
+
+1016
+00:58:49,040 --> 00:58:54,319
+item must have the head list. Okay. So
+
+1017
+00:58:51,599 --> 00:58:57,839
+this part means it will match anything
+
+1018
+00:58:54,319 --> 00:59:00,640
+but it must be a list. And then we name
+
+1019
+00:58:57,839 --> 00:59:03,760
+it T range. Okay.
+
+1020
+00:59:00,640 --> 00:59:06,720
+But and and also this part will also
+
+1021
+00:59:03,760 --> 00:59:09,520
+match zero item if there's no item. In
+
+1022
+00:59:06,720 --> 00:59:12,559
+that case it will return
+
+1023
+00:59:09,520 --> 00:59:15,280
+it will provide this list of one value
+
+1024
+00:59:12,559 --> 00:59:17,440
+automatic symbol. Okay that's what this
+
+1025
+00:59:15,280 --> 00:59:19,440
+means. So but anyway so now we just
+
+1026
+00:59:17,440 --> 00:59:22,559
+delete that make it simpler. We made it
+
+1027
+00:59:19,440 --> 00:59:25,040
+into this form. Okay. So now when when
+
+1028
+00:59:22,559 --> 00:59:28,240
+whenever you see this pattern you know
+
+1029
+00:59:25,040 --> 00:59:30,799
+hypotcoal animate a list three things
+
+1030
+00:59:28,240 --> 00:59:34,160
+and another another list of three things
+
+1031
+00:59:30,799 --> 00:59:39,119
+what you do is then you do this uh this
+
+1032
+00:59:34,160 --> 00:59:41,440
+this this okay um okay we are still in
+
+1033
+00:59:39,119 --> 00:59:43,599
+the process of simplifying the code we
+
+1034
+00:59:41,440 --> 00:59:46,720
+are making a lot of progress make a
+
+1035
+00:59:43,599 --> 00:59:51,680
+backup uh so let me code again so this
+
+1036
+00:59:46,720 --> 00:59:53,280
+is the deep wam language coding okay So
+
+1037
+00:59:51,680 --> 00:59:56,319
+t-minax
+
+1038
+00:59:53,280 --> 00:59:58,319
+do we have tmin? So uh before we do
+
+1039
+00:59:56,319 --> 01:00:02,319
+anything
+
+1040
+00:59:58,319 --> 01:00:04,400
+let me put the code back syntax color
+
+1041
+01:00:02,319 --> 01:00:07,680
+showing browser. So we are looking back
+
+1042
+01:00:04,400 --> 01:00:10,240
+at the page asteroid
+
+1043
+01:00:07,680 --> 01:00:13,280
+this animation that's a code we are
+
+1044
+01:00:10,240 --> 01:00:17,280
+writing and here's a code. Okay that's
+
+1045
+01:00:13,280 --> 01:00:20,799
+we are currently working on okay so this
+
+1046
+01:00:17,280 --> 01:00:24,319
+code let's pop it out again. Make a
+
+1047
+01:00:20,799 --> 01:00:27,359
+backup. Pop it out. Okay. So, we clear
+
+1048
+01:00:24,319 --> 01:00:29,599
+the symbol. Then we define the usage.
+
+1049
+01:00:27,359 --> 01:00:32,400
+Make it clear to people what it's
+
+1050
+01:00:29,599 --> 01:00:37,839
+actually doing. Great.
+
+1051
+01:00:32,400 --> 01:00:41,119
+Then uh let's shrink it. Um well
+
+1052
+01:00:37,839 --> 01:00:47,680
+uh then we have this. This is like this
+
+1053
+01:00:41,119 --> 01:00:52,799
+is uh uh case for asteroid. Okay. And uh
+
+1054
+01:00:47,680 --> 01:00:55,799
+and what about this one? This is uh some
+
+1055
+01:00:52,799 --> 01:00:55,799
+hype.
+
+1056
+01:00:59,359 --> 01:01:04,079
+We don't know what this look shows.
+
+1057
+01:01:01,680 --> 01:01:07,440
+Okay, we don't know what it looks like,
+
+1058
+01:01:04,079 --> 01:01:10,880
+but so those uh let's move it to the
+
+1059
+01:01:07,440 --> 01:01:13,040
+bottom. Okay, let's move it to the
+
+1060
+01:01:10,880 --> 01:01:17,359
+bottom so that those are actual
+
+1061
+01:01:13,040 --> 01:01:20,480
+examples. Okay, now go back to our code.
+
+1062
+01:01:17,359 --> 01:01:25,920
+Now go back to defining our code. So
+
+1063
+01:01:20,480 --> 01:01:29,920
+when there's no argument uh then just do
+
+1064
+01:01:25,920 --> 01:01:36,760
+that. Okay. When there is one parameter
+
+1065
+01:01:29,920 --> 01:01:36,760
+then you do you do that. Okay. So
+
+1066
+01:01:38,000 --> 01:01:41,000
+yeah.
+
+1067
+01:01:43,680 --> 01:01:49,599
+Okay. then then otherwise normally it
+
+1068
+01:01:47,280 --> 01:01:53,839
+should take two parameters like this.
+
+1069
+01:01:49,599 --> 01:01:57,040
+Okay. Um wait let me define another one.
+
+1070
+01:01:53,839 --> 01:02:01,200
+So if there is two parameters but the
+
+1071
+01:01:57,040 --> 01:02:05,640
+second one only has two values then you
+
+1072
+01:02:01,200 --> 01:02:05,640
+do it like um
+
+1073
+01:02:09,680 --> 01:02:16,480
+hold on a second let me show you. Okay,
+
+1074
+01:02:12,240 --> 01:02:19,119
+then you do it like t max
+
+1075
+01:02:16,480 --> 01:02:23,040
+minus t min
+
+1076
+01:02:19,119 --> 01:02:25,040
+divided by 41.
+
+1077
+01:02:23,040 --> 01:02:28,799
+Okay.
+
+1078
+01:02:25,040 --> 01:02:32,079
+So if user gives two arguments but the
+
+1079
+01:02:28,799 --> 01:02:36,400
+second argument only has two items then
+
+1080
+01:02:32,079 --> 01:02:38,160
+you automatically transform it into the
+
+1081
+01:02:36,400 --> 01:02:42,880
+second argument going to have three
+
+1082
+01:02:38,160 --> 01:02:46,000
+items like that. Okay. Then
+
+1083
+01:02:42,880 --> 01:02:49,920
+then the final like the most general the
+
+1084
+01:02:46,000 --> 01:02:54,240
+form. So when when this pattern is found
+
+1085
+01:02:49,920 --> 01:02:56,400
+then we do this. Okay. Uh we want to do
+
+1086
+01:02:54,240 --> 01:03:00,040
+so let's now let's look at the code.
+
+1087
+01:02:56,400 --> 01:03:00,040
+Okay. So now
+
+1088
+01:03:00,079 --> 01:03:07,599
+comma comma space change that for easy
+
+1089
+01:03:03,760 --> 01:03:10,599
+reading. Okay. Uh
+
+1090
+01:03:07,599 --> 01:03:10,599
+uh.
+
+1091
+01:03:12,079 --> 01:03:19,760
+Okay. And uh let's highlight the
+
+1092
+01:03:16,000 --> 01:03:25,039
+keywords. Okay. Just
+
+1093
+01:03:19,760 --> 01:03:28,000
+highlight the keywords. Okay. Then
+
+1094
+01:03:25,039 --> 01:03:31,839
+you need a margin. You see? So what is
+
+1095
+01:03:28,000 --> 01:03:34,799
+margin used for? Margin is for Yeah.
+
+1096
+01:03:31,839 --> 01:03:36,720
+When you actually finally plot, you want
+
+1097
+01:03:34,799 --> 01:03:38,720
+a little
+
+1098
+01:03:36,720 --> 01:03:42,799
+room
+
+1099
+01:03:38,720 --> 01:03:45,440
+outside of the circle so that um
+
+1100
+01:03:42,799 --> 01:03:48,720
+so that it looks nice. Okay, that's what
+
+1101
+01:03:45,440 --> 01:03:51,720
+this margin is is.
+
+1102
+01:03:48,720 --> 01:03:51,720
+Um
+
+1103
+01:03:51,839 --> 01:03:59,880
+and uh this can be simplified. Let me
+
+1104
+01:03:55,599 --> 01:03:59,880
+just show you. So
+
+1105
+01:04:03,119 --> 01:04:13,799
+replace module by just one one two three
+
+1106
+01:04:06,559 --> 01:04:13,799
+four uh let's say three run it
+
+1107
+01:04:13,920 --> 01:04:22,240
+yeah so that you see so this module mod
+
+1108
+01:04:17,680 --> 01:04:24,480
+so this part this part can be simplified
+
+1109
+01:04:22,240 --> 01:04:27,480
+as
+
+1110
+01:04:24,480 --> 01:04:27,480
+Um,
+
+1111
+01:04:36,880 --> 01:04:43,640
+just multiply that. Okay. Yeah, let's do
+
+1112
+01:04:40,640 --> 01:04:43,640
+that.
+
+1113
+01:04:53,839 --> 01:05:02,799
+Okay. So, yeah. So, simplify the code.
+
+1114
+01:05:00,160 --> 01:05:07,680
+Okay. So, we are close. We are close.
+
+1115
+01:05:02,799 --> 01:05:09,359
+Okay. So, you got the margin.
+
+1116
+01:05:07,680 --> 01:05:11,599
+Uh
+
+1117
+01:05:09,359 --> 01:05:16,200
+then you got Okay. Margin is kind of
+
+1118
+01:05:11,599 --> 01:05:16,200
+just a value. Now, HB.
+
+1119
+01:05:17,680 --> 01:05:25,760
+So here is T-max T min and here you
+
+1120
+01:05:22,640 --> 01:05:28,480
+don't need to compile. Okay, compile is
+
+1121
+01:05:25,760 --> 01:05:32,079
+like
+
+1122
+01:05:28,480 --> 01:05:34,960
+I don't think you want to uh you know so
+
+1123
+01:05:32,079 --> 01:05:37,920
+this code is written 30 years ago. Do I
+
+1124
+01:05:34,960 --> 01:05:40,319
+should I still use compile?
+
+1125
+01:05:37,920 --> 01:05:43,200
+You can look at woof language creates a
+
+1126
+01:05:40,319 --> 01:05:45,760
+compiled function that evaluates
+
+1127
+01:05:43,200 --> 01:05:48,000
+expression assuming numerical values.
+
+1128
+01:05:45,760 --> 01:05:50,799
+Okay,
+
+1129
+01:05:48,000 --> 01:05:54,400
+you see uh basically the purpose of this
+
+1130
+01:05:50,799 --> 01:05:57,280
+compile is just to make
+
+1131
+01:05:54,400 --> 01:06:00,880
+it's just to make evaluating this
+
+1132
+01:05:57,280 --> 01:06:02,400
+expression uh faster basically this s
+
+1133
+01:06:00,880 --> 01:06:07,520
+cosine
+
+1134
+01:06:02,400 --> 01:06:11,079
+but today I don't think you need it
+
+1135
+01:06:07,520 --> 01:06:11,079
+you see because
+
+1136
+01:06:11,520 --> 01:06:18,039
+if you use it then it can gets
+
+1137
+01:06:14,400 --> 01:06:18,039
+complicated did.
+
+1138
+01:06:23,359 --> 01:06:31,359
+Okay. So, actually that's, you know, um
+
+1139
+01:06:28,960 --> 01:06:35,799
+let's not use compile. Do I still make
+
+1140
+01:06:31,359 --> 01:06:35,799
+sense? Um
+
+1141
+01:06:36,880 --> 01:06:43,319
+so, this is like a function. Okay. So
+
+1142
+01:06:39,599 --> 01:06:43,319
+this is a function.
+
+1143
+01:06:44,480 --> 01:06:47,720
+Let's see.
+
+1144
+01:06:52,880 --> 01:07:00,760
+Yeah, that kind of creates a numerical
+
+1145
+01:06:55,280 --> 01:07:00,760
+code function. We can leave it.
+
+1146
+01:07:22,799 --> 01:07:25,799
+What?
+
+1147
+01:07:30,559 --> 01:07:35,319
+So here you basically
+
+1148
+01:07:39,119 --> 01:07:43,880
+basically you are doing
+
+1149
+01:07:48,799 --> 01:07:57,240
+Okay. So, well, so what you're doing is
+
+1150
+01:07:54,240 --> 01:07:57,240
+that
+
+1151
+01:08:17,120 --> 01:08:24,920
+Um, and this curve function. No, let's
+
+1152
+01:08:21,920 --> 01:08:24,920
+see.
+
+1153
+01:08:25,120 --> 01:08:31,199
+And we color it. Yeah, you just need
+
+1154
+01:08:27,759 --> 01:08:36,520
+one. Okay, you don't need two. So, this
+
+1155
+01:08:31,199 --> 01:08:36,520
+color function make them one.
+
+1156
+01:08:42,799 --> 01:08:49,359
+You can just say power
+
+1157
+01:08:45,440 --> 01:08:53,159
+uh you know and uh let's not
+
+1158
+01:08:49,359 --> 01:08:53,159
+compile
+
+1159
+01:08:53,279 --> 01:09:04,199
+Okay. And uh function of x. Yes, that's
+
+1160
+01:08:58,400 --> 01:09:04,199
+a function of x. Okay. So
+
+1161
+01:09:05,920 --> 01:09:10,960
+Okay. So that's your parameters that's
+
+1162
+01:09:08,319 --> 01:09:18,480
+your actual the function what the
+
+1163
+01:09:10,960 --> 01:09:21,839
+function actually do okay and uh you can
+
+1164
+01:09:18,480 --> 01:09:23,920
+you you don't need um
+
+1165
+01:09:21,839 --> 01:09:28,719
+those are small numbers you don't need
+
+1166
+01:09:23,920 --> 01:09:31,600
+compile okay so you just need to
+
+1167
+01:09:28,719 --> 01:09:34,600
+uh power function is a function okay
+
+1168
+01:09:31,600 --> 01:09:34,600
+function
+
+1169
+01:09:42,719 --> 01:09:49,120
+Okay, a function of of one single value
+
+1170
+01:09:46,400 --> 01:09:53,600
+t. Okay.
+
+1171
+01:09:49,120 --> 01:09:56,080
+And in fact, you can just remove t by uh
+
+1172
+01:09:53,600 --> 01:09:58,960
+that.
+
+1173
+01:09:56,080 --> 01:10:01,360
+Okay. That's uh like
+
+1174
+01:09:58,960 --> 01:10:03,840
+so this defines a function. Okay. This
+
+1175
+01:10:01,360 --> 01:10:06,800
+defines a function. This function is
+
+1176
+01:10:03,840 --> 01:10:09,920
+just two um
+
+1177
+01:10:06,800 --> 01:10:12,640
+a single variable but returns a vector.
+
+1178
+01:10:09,920 --> 01:10:17,199
+Okay. So you don't then you don't need
+
+1179
+01:10:12,640 --> 01:10:21,679
+this uh compile xy. Okay. Delete delete.
+
+1180
+01:10:17,199 --> 01:10:25,360
+Okay. Then you delete delete. Okay. You
+
+1181
+01:10:21,679 --> 01:10:28,719
+now you simplify a simple function. Then
+
+1182
+01:10:25,360 --> 01:10:31,360
+this uh then you need actually put that
+
+1183
+01:10:28,719 --> 01:10:34,880
+there. That's your function
+
+1184
+01:10:31,360 --> 01:10:39,040
+uh power function. Um then your function
+
+1185
+01:10:34,880 --> 01:10:42,239
+needs to be mapped here. So your
+
+1186
+01:10:39,040 --> 01:10:45,239
+function is point
+
+1187
+01:10:42,239 --> 01:10:45,239
+paraffen
+
+1188
+01:10:46,320 --> 01:10:49,320
+um
+
+1189
+01:10:52,719 --> 01:10:55,719
+wait
+
+1190
+01:11:22,560 --> 01:11:28,440
+Wait, that's duplicate.
+
+1191
+01:11:24,960 --> 01:11:28,440
+Okay. So
+
+1192
+01:11:29,120 --> 01:11:32,120
+function.
+
+1193
+01:11:43,920 --> 01:11:50,600
+So what did the point? So each one is a
+
+1194
+01:11:47,600 --> 01:11:50,600
+point.
+
+1195
+01:12:30,239 --> 01:12:36,159
+Okay, I think I think that will do. Do I
+
+1196
+01:12:33,440 --> 01:12:40,400
+make sense? Is anyone still watching me
+
+1197
+01:12:36,159 --> 01:12:45,440
+like uh understand wam language coding?
+
+1198
+01:12:40,400 --> 01:12:47,920
+Okay, not many. So anyway, so Oh god. So
+
+1199
+01:12:45,440 --> 01:12:51,600
+thinking about this live stream I've
+
+1200
+01:12:47,920 --> 01:12:54,640
+been doing for 70 minutes. Oh god,
+
+1201
+01:12:51,600 --> 01:12:58,000
+coding takes some time.
+
+1202
+01:12:54,640 --> 01:13:01,600
+Okay, that's true.
+
+1203
+01:12:58,000 --> 01:13:05,600
+So this will generate a bunch of list
+
+1204
+01:13:01,600 --> 01:13:08,560
+and uh can we actually just run it? No,
+
+1205
+01:13:05,600 --> 01:13:10,960
+instead of thinking about Oh god. Then
+
+1206
+01:13:08,560 --> 01:13:13,600
+you got the center. Why do you need a
+
+1207
+01:13:10,960 --> 01:13:17,600
+center?
+
+1208
+01:13:13,600 --> 01:13:20,159
+Okay, you need the center because
+
+1209
+01:13:17,600 --> 01:13:23,040
+then the last frame you kind of don't
+
+1210
+01:13:20,159 --> 01:13:26,000
+need.
+
+1211
+01:13:23,040 --> 01:13:29,760
+Uh
+
+1212
+01:13:26,000 --> 01:13:33,040
+yeah. So you see so we got lots of
+
+1213
+01:13:29,760 --> 01:13:35,920
+things going on. We But will the code
+
+1214
+01:13:33,040 --> 01:13:39,440
+run? I'm pretty sure it will. Okay,
+
+1215
+01:13:35,920 --> 01:13:42,880
+let's copy the code. Let's just try to
+
+1216
+01:13:39,440 --> 01:13:46,560
+run it. Okay. So we you see before it
+
+1217
+01:13:42,880 --> 01:13:50,000
+was like that. Fantastic. Now copy all.
+
+1218
+01:13:46,560 --> 01:13:53,920
+Now um
+
+1219
+01:13:50,000 --> 01:13:56,480
+select select all paste it.
+
+1220
+01:13:53,920 --> 01:13:58,159
+Okay. You got some issues. You see those
+
+1221
+01:13:56,480 --> 01:14:00,239
+red?
+
+1222
+01:13:58,159 --> 01:14:03,679
+Yeah those red that means you got a
+
+1223
+01:14:00,239 --> 01:14:07,760
+problem. Wam language notebook is great.
+
+1224
+01:14:03,679 --> 01:14:11,920
+It helps because now you see um you got
+
+1225
+01:14:07,760 --> 01:14:14,000
+a problem because the red uh oh you got
+
+1226
+01:14:11,920 --> 01:14:16,400
+you got
+
+1227
+01:14:14,000 --> 01:14:19,040
+you got more than one problem. You see
+
+1228
+01:14:16,400 --> 01:14:22,480
+the red is already the pattern. So you
+
+1229
+01:14:19,040 --> 01:14:25,679
+don't need inside the you don't they are
+
+1230
+01:14:22,480 --> 01:14:29,280
+not local variables. You see they are
+
+1231
+01:14:25,679 --> 01:14:32,719
+already part of the pattern named
+
+1232
+01:14:29,280 --> 01:14:35,040
+pattern. Okay. And also this equal sign
+
+1233
+01:14:32,719 --> 01:14:36,960
+is incorrect. That should be just that.
+
+1234
+01:14:35,040 --> 01:14:41,520
+Okay.
+
+1235
+01:14:36,960 --> 01:14:44,159
+Yeah. So copy all
+
+1236
+01:14:41,520 --> 01:14:50,159
+uh let's see try one more time. So that
+
+1237
+01:14:44,159 --> 01:14:52,560
+is that that is that is that and uh then
+
+1238
+01:14:50,159 --> 01:14:57,920
+that is that let's make it let's now
+
+1239
+01:14:52,560 --> 01:15:01,040
+make it one line. Okay. Now copy all,
+
+1240
+01:14:57,920 --> 01:15:03,600
+select all, paste.
+
+1241
+01:15:01,040 --> 01:15:07,000
+Now will it run? If I run this, will it
+
+1242
+01:15:03,600 --> 01:15:07,000
+create animation?
+
+1243
+01:15:08,640 --> 01:15:15,440
+Possibly it will. Okay, I'm pretty sure
+
+1244
+01:15:11,840 --> 01:15:19,400
+it just um
+
+1245
+01:15:15,440 --> 01:15:19,400
+Let's just try it. Okay.
+
+1246
+01:15:21,199 --> 01:15:27,440
+Okay, we got an error.
+
+1247
+01:15:24,080 --> 01:15:32,239
+You see you see you see the you see the
+
+1248
+01:15:27,440 --> 01:15:35,120
+circle seems to run but the dots is not
+
+1249
+01:15:32,239 --> 01:15:37,040
+working. You see the circle is running
+
+1250
+01:15:35,120 --> 01:15:39,280
+they are turning they are turning they
+
+1251
+01:15:37,040 --> 01:15:41,360
+are turning but you are missing the
+
+1252
+01:15:39,280 --> 01:15:45,600
+dots.
+
+1253
+01:15:41,360 --> 01:15:49,080
+Okay. So we can fix that by point list.
+
+1254
+01:15:45,600 --> 01:15:49,080
+So you see
+
+1255
+01:15:50,000 --> 01:15:56,440
+this. Okay. So the point we got it
+
+1256
+01:15:52,400 --> 01:15:56,440
+wrong. Yeah. So, okay.
+
+1257
+01:16:33,920 --> 01:16:42,199
+I'm not sure why.
+
+1258
+01:16:37,120 --> 01:16:42,199
+Let's do it again. Shift, enter.
+
+1259
+01:16:42,320 --> 01:16:47,280
+Fantastic. And beautiful.
+
+1260
+01:16:45,120 --> 01:16:51,120
+Fantastic and beautiful. You see we
+
+1261
+01:16:47,280 --> 01:16:53,360
+cleaned we cleaned up the code and now
+
+1262
+01:16:51,120 --> 01:16:56,080
+we are doing it correctly. Okay. Now,
+
+1263
+01:16:53,360 --> 01:17:04,199
+okay. So, fantastic. Now, hold on a
+
+1264
+01:16:56,080 --> 01:17:04,199
+second. Now, let's just uh list anime
+
+1265
+01:17:04,320 --> 01:17:09,199
+at
+
+1266
+01:17:06,719 --> 01:17:13,360
+that and
+
+1267
+01:17:09,199 --> 01:17:16,400
+and copy or select or paste. You just
+
+1268
+01:17:13,360 --> 01:17:18,880
+show animations.
+
+1269
+01:17:16,400 --> 01:17:21,600
+So the first one is asteroid. We are
+
+1270
+01:17:18,880 --> 01:17:24,320
+familiar with it works fantastic and
+
+1271
+01:17:21,600 --> 01:17:27,199
+beautiful. And now we we have improved
+
+1272
+01:17:24,320 --> 01:17:29,920
+the code. The second one is this. You
+
+1273
+01:17:27,199 --> 01:17:34,239
+see this now here is more interesting.
+
+1274
+01:17:29,920 --> 01:17:36,800
+You see now you cannot quite see what
+
+1275
+01:17:34,239 --> 01:17:39,120
+the curve is because there are not
+
+1276
+01:17:36,800 --> 01:17:43,760
+enough
+
+1277
+01:17:39,120 --> 01:17:46,960
+um there are not enough frames. Okay. So
+
+1278
+01:17:43,760 --> 01:17:49,840
+this is when you need to okay we run
+
+1279
+01:17:46,960 --> 01:17:51,679
+into a issue. You see if you say 80
+
+1280
+01:17:49,840 --> 01:17:53,600
+frame
+
+1281
+01:17:51,679 --> 01:17:58,880
+you see you can't just say that. If you
+
+1282
+01:17:53,600 --> 01:18:02,000
+say that then it won't it won't um
+
+1283
+01:17:58,880 --> 01:18:05,440
+it won't create enough
+
+1284
+01:18:02,000 --> 01:18:08,560
+turn. You see now it's nice but it
+
+1285
+01:18:05,440 --> 01:18:10,560
+stopped. You see? So we got a design
+
+1286
+01:18:08,560 --> 01:18:13,120
+actually. So we got a problem in our
+
+1287
+01:18:10,560 --> 01:18:16,120
+function design. You see, you can't just
+
+1288
+01:18:13,120 --> 01:18:16,120
+because,
+
+1289
+01:18:18,640 --> 01:18:23,920
+you know, you need
+
+1290
+01:18:21,280 --> 01:18:26,080
+you need a program to figure out how
+
+1291
+01:18:23,920 --> 01:18:31,560
+many turns
+
+1292
+01:18:26,080 --> 01:18:31,560
+it'll make to complete the curve.
+
+1293
+01:18:31,679 --> 01:18:36,400
+So,
+
+1294
+01:18:33,199 --> 01:18:38,560
+so if you omit the second parameter, if
+
+1295
+01:18:36,400 --> 01:18:41,600
+you omit the second parameter, it will
+
+1296
+01:18:38,560 --> 01:18:44,800
+figure out how many turns to do that.
+
+1297
+01:18:41,600 --> 01:18:48,480
+However, but then you don't have the uh
+
+1298
+01:18:44,800 --> 01:18:51,600
+number of frames. You see?
+
+1299
+01:18:48,480 --> 01:18:53,440
+So, but if you
+
+1300
+01:18:51,600 --> 01:18:55,360
+automatically
+
+1301
+01:18:53,440 --> 01:18:59,760
+have a default value for number of
+
+1302
+01:18:55,360 --> 01:19:02,239
+frames such that each turn has 40
+
+1303
+01:18:59,760 --> 01:19:04,640
+frames. So, if you're going to if you
+
+1304
+01:19:02,239 --> 01:19:09,679
+make five turns that's going to be five
+
+1305
+01:19:04,640 --> 01:19:13,280
+time 40 uh 200 frames, right?
+
+1306
+01:19:09,679 --> 01:19:16,800
+But if you do that then the problem is
+
+1307
+01:19:13,280 --> 01:19:20,080
+for some of these parameters let's say 2
+
+1308
+01:19:16,800 --> 01:19:24,719
+over 91 it's going to make you has it
+
+1309
+01:19:20,080 --> 01:19:29,840
+has to make 91 turns then 91 turns times
+
+1310
+01:19:24,719 --> 01:19:34,239
+40 frames you're going to have
+
+1311
+01:19:29,840 --> 01:19:38,159
+two thou uh uh 90 * 41
+
+1312
+01:19:34,239 --> 01:19:41,280
+right think of you know you uh you're
+
+1313
+01:19:38,159 --> 01:19:43,520
+going to have like few thousand frames.
+
+1314
+01:19:41,280 --> 01:19:47,440
+So that's kind of problem. So that means
+
+1315
+01:19:43,520 --> 01:19:50,640
+so the issue is like
+
+1316
+01:19:47,440 --> 01:19:53,040
+the issue is like about figuring
+
+1317
+01:19:50,640 --> 01:19:55,520
+figuring out the automatic parameters
+
+1318
+01:19:53,040 --> 01:19:57,679
+the default values like like it's about
+
+1319
+01:19:55,520 --> 01:20:00,560
+the dis
+
+1320
+01:19:57,679 --> 01:20:03,199
+design of the function. Uh that's a
+
+1321
+01:20:00,560 --> 01:20:06,320
+headache because
+
+1322
+01:20:03,199 --> 01:20:09,600
+ideally you don't want a separate option
+
+1323
+01:20:06,320 --> 01:20:12,000
+that says how many number of frames.
+
+1324
+01:20:09,600 --> 01:20:14,800
+Anyway, we we we got a code. Okay, so we
+
+1325
+01:20:12,000 --> 01:20:17,679
+got a code pretty pretty good. Uh let's
+
+1326
+01:20:14,800 --> 01:20:20,480
+put it back. Syntax correct show in
+
+1327
+01:20:17,679 --> 01:20:22,880
+browser. So
+
+1328
+01:20:20,480 --> 01:20:26,400
+you know when when my website is fixed,
+
+1329
+01:20:22,880 --> 01:20:29,199
+you go to si.info info special plan
+
+1330
+01:20:26,400 --> 01:20:31,520
+curves visual dictionary of special plan
+
+1331
+01:20:29,199 --> 01:20:34,320
+curves search for it you'll find
+
+1332
+01:20:31,520 --> 01:20:39,199
+asteroid you got this animation then you
+
+1333
+01:20:34,320 --> 01:20:42,320
+got this code you can just copy
+
+1334
+01:20:39,199 --> 01:20:45,360
+um you know so that's what we did uh but
+
+1335
+01:20:42,320 --> 01:20:48,080
+we didn't but we need to make a backup
+
+1336
+01:20:45,360 --> 01:20:50,400
+we need to uh work more on this so this
+
+1337
+01:20:48,080 --> 01:20:53,120
+is not the final code but I think that's
+
+1338
+01:20:50,400 --> 01:20:54,960
+it for today
+
+1339
+01:20:53,120 --> 01:20:59,199
+Um,
+
+1340
+01:20:54,960 --> 01:21:01,360
+Melchi says, "Have to go to bed." Okay.
+
+1341
+01:20:59,199 --> 01:21:04,159
+Uh, now,
+
+1342
+01:21:01,360 --> 01:21:07,280
+okay. Good night.
+
+1343
+01:21:04,159 --> 01:21:09,760
+Okay. I think that's it. Um, yeah. So,
+
+1344
+01:21:07,280 --> 01:21:13,120
+we um
+
+1345
+01:21:09,760 --> 01:21:16,400
+Yeah. So, how long have it? So, it's 80
+
+1346
+01:21:13,120 --> 01:21:18,880
+minutes coding. Okay. 80 minutes coding.
+
+1347
+01:21:16,400 --> 01:21:21,760
+It's pretty good.
+
+1348
+01:21:18,880 --> 01:21:24,560
+Um
+
+1349
+01:21:21,760 --> 01:21:26,320
+the thing is that we have to figure out
+
+1350
+01:21:24,560 --> 01:21:31,360
+you know quite a few things to figure
+
+1351
+01:21:26,320 --> 01:21:34,640
+out. Um so it's pretty good and the code
+
+1352
+01:21:31,360 --> 01:21:36,800
+is not the best yet actually. There's
+
+1353
+01:21:34,640 --> 01:21:39,199
+quite there's quite a few things we need
+
+1354
+01:21:36,800 --> 01:21:42,199
+to do.
+
+1355
+01:21:39,199 --> 01:21:42,199
+Um,
+
+1356
+01:21:42,880 --> 01:21:47,480
+and yeah, there's quite a few things.
+
+1357
+01:21:55,520 --> 01:22:01,360
+Okay. Why is this range list? Do we need
+
+1358
+01:21:58,320 --> 01:22:04,360
+it? Okay, we kind of do.
+
+1359
+01:22:01,360 --> 01:22:04,360
+Uh
+
+1360
+01:22:08,960 --> 01:22:14,320
+okay. So,
+
+1361
+01:22:11,120 --> 01:22:18,639
+so we got a code but we haven't gone
+
+1362
+01:22:14,320 --> 01:22:21,360
+through it completely yet. There is
+
+1363
+01:22:18,639 --> 01:22:24,560
+improvements to do.
+
+1364
+01:22:21,360 --> 01:22:27,199
+Okay. And uh
+
+1365
+01:22:24,560 --> 01:22:30,560
+but so far so good.
+
+1366
+01:22:27,199 --> 01:22:35,120
+Uh yeah and we need to figure out the
+
+1367
+01:22:30,560 --> 01:22:37,920
+automatic parameters. Okay.
+
+1368
+01:22:35,120 --> 01:22:39,840
+Do you guys know what I'm saying? It's a
+
+1369
+01:22:37,920 --> 01:22:43,360
+bit complicated.
+
+1370
+01:22:39,840 --> 01:22:45,840
+This is about designing of the functions
+
+1371
+01:22:43,360 --> 01:22:47,440
+API, the functions
+
+1372
+01:22:45,840 --> 01:22:50,080
+parameters
+
+1373
+01:22:47,440 --> 01:22:53,199
+such that
+
+1374
+01:22:50,080 --> 01:22:56,800
+the user do not have to figure out, you
+
+1375
+01:22:53,199 --> 01:22:58,880
+know, it it should be
+
+1376
+01:22:56,800 --> 01:23:02,239
+it should be able to automatically
+
+1377
+01:22:58,880 --> 01:23:06,560
+figure out how many turns this this
+
+1378
+01:23:02,239 --> 01:23:09,600
+thing needs to do and also automatically
+
+1379
+01:23:06,560 --> 01:23:11,920
+figure out how many number of frames
+
+1380
+01:23:09,600 --> 01:23:16,159
+yet
+
+1381
+01:23:11,920 --> 01:23:20,159
+yet it's not so like overwhelming. It's
+
+1382
+01:23:16,159 --> 01:23:24,000
+not like thousands of frames
+
+1383
+01:23:20,159 --> 01:23:26,239
+but also you don't want a situation like
+
+1384
+01:23:24,000 --> 01:23:29,600
+this right this right now. I mean so
+
+1385
+01:23:26,239 --> 01:23:31,760
+this one for example it did you know it
+
+1386
+01:23:29,600 --> 01:23:36,000
+figure out how many turns and frames but
+
+1387
+01:23:31,760 --> 01:23:38,560
+the the the frame number is not enough.
+
+1388
+01:23:36,000 --> 01:23:42,320
+Okay. So maybe what we can do is that
+
+1389
+01:23:38,560 --> 01:23:45,360
+make the friend number by default I mean
+
+1390
+01:23:42,320 --> 01:23:47,760
+compute it like how many you need then
+
+1391
+01:23:45,360 --> 01:23:50,080
+put a maximum limit. Yeah that's what
+
+1392
+01:23:47,760 --> 01:23:51,760
+you should
+
+1393
+01:23:50,080 --> 01:23:54,320
+you know like the maximum number of
+
+1394
+01:23:51,760 --> 01:23:56,239
+frames is 400 let's say we can actually
+
+1395
+01:23:54,320 --> 01:23:59,120
+code that.
+
+1396
+01:23:56,239 --> 01:24:00,719
+So we can code that by like right here.
+
+1397
+01:23:59,120 --> 01:24:05,920
+So,
+
+1398
+01:24:00,719 --> 01:24:09,520
+so if you know, so t-max t um yeah, so
+
+1399
+01:24:05,920 --> 01:24:13,760
+actually the it's about this t-step.
+
+1400
+01:24:09,520 --> 01:24:17,679
+So that would be here. So there so t-max
+
+1401
+01:24:13,760 --> 01:24:21,600
+divided by 41. No, you need to um so
+
+1402
+01:24:17,679 --> 01:24:25,520
+let's actually we can fix this. Okay,
+
+1403
+01:24:21,600 --> 01:24:30,360
+so what you want to do is
+
+1404
+01:24:25,520 --> 01:24:30,360
+t-max. Okay. Then t-step.
+
+1405
+01:24:30,639 --> 01:24:37,719
+Okay. Now
+
+1406
+01:24:33,360 --> 01:24:37,719
+tep you can say
+
+1407
+01:24:39,840 --> 01:24:45,920
+that. Okay. That's what we have right
+
+1408
+01:24:42,320 --> 01:24:48,880
+now. TEP is just equals to that. But
+
+1409
+01:24:45,920 --> 01:24:52,800
+that creates a problem because for some
+
+1410
+01:24:48,880 --> 01:24:56,800
+of them such as this the number of steps
+
+1411
+01:24:52,800 --> 01:24:58,639
+is too not is not small enough because
+
+1412
+01:24:56,800 --> 01:25:01,040
+it's not
+
+1413
+01:24:58,639 --> 01:25:05,239
+enough number of frames.
+
+1414
+01:25:01,040 --> 01:25:05,239
+So what you want is
+
+1415
+01:25:06,960 --> 01:25:12,000
+uh
+
+1416
+01:25:09,280 --> 01:25:16,400
+wait tmax. So that's how many number of
+
+1417
+01:25:12,000 --> 01:25:19,400
+turns. Okay. No. So let's define another
+
+1418
+01:25:16,400 --> 01:25:19,400
+uh
+
+1419
+01:25:20,480 --> 01:25:25,400
+x turns equals to
+
+1420
+01:25:26,639 --> 01:25:33,679
+something. Okay like that x turns equals
+
+1421
+01:25:30,560 --> 01:25:39,400
+to that
+
+1422
+01:25:33,679 --> 01:25:39,400
+then t max = to
+
+1423
+01:25:40,000 --> 01:25:48,480
+x turns * 2 pi. Okay.
+
+1424
+01:25:44,080 --> 01:25:53,120
+Uh so that's number of turns you need
+
+1425
+01:25:48,480 --> 01:25:56,000
+and this is tmax. So step will be equals
+
+1426
+01:25:53,120 --> 01:25:59,760
+to
+
+1427
+01:25:56,000 --> 01:26:04,360
+yeah step will be equals to
+
+1428
+01:25:59,760 --> 01:26:04,360
+let's say t max
+
+1429
+01:26:06,800 --> 01:26:13,880
+um what what is it
+
+1430
+01:26:09,840 --> 01:26:13,880
+divided by 41
+
+1431
+01:26:14,159 --> 01:26:17,800
+divided by
+
+1432
+01:26:19,760 --> 01:26:26,480
+number of turns times 41.
+
+1433
+01:26:23,840 --> 01:26:29,520
+Okay, fantastic.
+
+1434
+01:26:26,480 --> 01:26:32,480
+You see, can you guys see what I'm
+
+1435
+01:26:29,520 --> 01:26:34,719
+doing? Like, does it make sense? Lots of
+
+1436
+01:26:32,480 --> 01:26:38,560
+technical details. You see, so this
+
+1437
+01:26:34,719 --> 01:26:42,800
+would be perfect. So if given if the
+
+1438
+01:26:38,560 --> 01:26:45,840
+user doesn't say how many you know
+
+1439
+01:26:42,800 --> 01:26:48,639
+start and end points then you figure it
+
+1440
+01:26:45,840 --> 01:26:52,400
+out by comput computing the number of
+
+1441
+01:26:48,639 --> 01:26:55,040
+turns then computing
+
+1442
+01:26:52,400 --> 01:26:59,440
+the t-max would be 2 pi times number of
+
+1443
+01:26:55,040 --> 01:27:01,840
+turns right then the step would be
+
+1444
+01:26:59,440 --> 01:27:06,560
+t max
+
+1445
+01:27:01,840 --> 01:27:09,920
+divided by tons times 41 that's right So
+
+1446
+01:27:06,560 --> 01:27:14,239
+for each turn you want 41 number of
+
+1447
+01:27:09,920 --> 01:27:18,400
+frames something like that
+
+1448
+01:27:14,239 --> 01:27:21,520
+and wait but if it's over a thousand
+
+1449
+01:27:18,400 --> 01:27:25,239
+then don't do that. So you want to say
+
+1450
+01:27:21,520 --> 01:27:25,239
+max of
+
+1451
+01:27:25,360 --> 01:27:33,560
+Okay. M maximum of Yeah. maximum of
+
+1452
+01:27:30,560 --> 01:27:33,560
+either
+
+1453
+01:27:33,679 --> 01:27:41,040
+that or let's say uh
+
+1454
+01:27:38,880 --> 01:27:42,880
+400.
+
+1455
+01:27:41,040 --> 01:27:48,480
+Okay. You don't want that too many.
+
+1456
+01:27:42,880 --> 01:27:51,840
+Okay. So that see
+
+1457
+01:27:48,480 --> 01:27:55,360
+fantastic. So copy all.
+
+1458
+01:27:51,840 --> 01:28:00,560
+Now go here. Select or paste. Shift
+
+1459
+01:27:55,360 --> 01:28:02,719
+enter. Let's see. Will it do it?
+
+1460
+01:28:00,560 --> 01:28:06,960
+You see the trick is the second one.
+
+1461
+01:28:02,719 --> 01:28:12,159
+Let's play it now. Is it
+
+1462
+01:28:06,960 --> 01:28:14,159
+Wait. Oh Okay. We No, we didn't do
+
+1463
+01:28:12,159 --> 01:28:16,560
+it correctly.
+
+1464
+01:28:14,159 --> 01:28:19,800
+Oh, the you you don't want max. You want
+
+1465
+01:28:16,560 --> 01:28:19,800
+the min
+
+1466
+01:28:20,000 --> 01:28:24,360
+the minimum of
+
+1467
+01:28:25,760 --> 01:28:30,520
+Oh, wait. So, actually, so
+
+1468
+01:28:33,120 --> 01:28:39,280
+divided by
+
+1469
+01:28:36,320 --> 01:28:44,000
+the max
+
+1470
+01:28:39,280 --> 01:28:48,080
+Okay, I think that divided by
+
+1471
+01:28:44,000 --> 01:28:52,159
+right. Okay, copy that. Select all
+
+1472
+01:28:48,080 --> 01:28:55,440
+paste. Shift enter.
+
+1473
+01:28:52,159 --> 01:28:57,920
+Okay, that one we already know. Now the
+
+1474
+01:28:55,440 --> 01:29:01,199
+second one. Oh god, the second one is
+
+1475
+01:28:57,920 --> 01:29:05,960
+not showing. No good. Oh, it's
+
+1476
+01:29:01,199 --> 01:29:05,960
+still computing. What?
+
+1477
+01:29:07,360 --> 01:29:14,199
+Okay. Now, is it using too much memory?
+
+1478
+01:29:10,400 --> 01:29:14,199
+Looks like it's froze.
+
+1479
+01:29:20,800 --> 01:29:27,120
+Oh, there it is. Fantastic and
+
+1480
+01:29:23,920 --> 01:29:31,040
+beautiful. Can you see? We fixed that.
+
+1481
+01:29:27,120 --> 01:29:33,600
+Fantastic and beautiful. Automatically
+
+1482
+01:29:31,040 --> 01:29:36,000
+figured it out.
+
+1483
+01:29:33,600 --> 01:29:39,520
+Perfect.
+
+1484
+01:29:36,000 --> 01:29:43,199
+So 400 is too many frames. Okay, let we
+
+1485
+01:29:39,520 --> 01:29:47,679
+don't want 400. Let's say 200
+
+1486
+01:29:43,199 --> 01:29:50,960
+automatically figure it out. And also
+
+1487
+01:29:47,679 --> 01:29:52,639
+also we want a numerical. Okay, so let's
+
+1488
+01:29:50,960 --> 01:29:55,639
+say
+
+1489
+01:29:52,639 --> 01:29:55,639
+n.
+
+1490
+01:29:56,880 --> 01:30:03,440
+Okay, fantastic. We did this perfectly.
+
+1491
+01:30:00,239 --> 01:30:05,520
+Shift enter. Let's run it again. Okay,
+
+1492
+01:30:03,440 --> 01:30:07,280
+the first one is done. Good. Now we wait
+
+1493
+01:30:05,520 --> 01:30:11,880
+for the second one. The second one is
+
+1494
+01:30:07,280 --> 01:30:11,880
+the fantastic and beautiful.
+
+1495
+01:30:12,719 --> 01:30:19,600
+Perfect. Okay, that's it for today.
+
+1496
+01:30:16,239 --> 01:30:22,560
+Thank you guys for watching. Um, see you
+
+1497
+01:30:19,600 --> 01:30:25,920
+next time. If you like my stuff, donate,
+
+1498
+01:30:22,560 --> 01:30:28,880
+okay? Go to kasi.info, my website. At
+
+1499
+01:30:25,920 --> 01:30:31,920
+the bottom, you know, you can find my
+
+1500
+01:30:28,880 --> 01:30:37,440
+PayPal and Patreon and donate to me,
+
+1501
+01:30:31,920 --> 01:30:41,120
+okay? That's what makes the work going.
+
+1502
+01:30:37,440 --> 01:30:43,920
+Okay. So, that is good. So, in fact, we
+
+1503
+01:30:41,120 --> 01:30:47,280
+can actually make it uh you know, we can
+
+1504
+01:30:43,920 --> 01:30:51,679
+adjust this a little bit more. Let's say
+
+1505
+01:30:47,280 --> 01:30:54,480
+250 frames. Okay. And
+
+1506
+01:30:51,679 --> 01:30:57,520
+put the code back. Syntax correct
+
+1507
+01:30:54,480 --> 01:31:00,239
+showing browser. So, in a few days I'll
+
+1508
+01:30:57,520 --> 01:31:03,360
+update my website. So, so the code will
+
+1509
+01:31:00,239 --> 01:31:05,840
+be all here and correct. Okay. Now the
+
+1510
+01:31:03,360 --> 01:31:08,000
+code is actually taking too much space.
+
+1511
+01:31:05,840 --> 01:31:10,480
+So actually
+
+1512
+01:31:08,000 --> 01:31:13,600
+anyway the there's needs to be more to
+
+1513
+01:31:10,480 --> 01:31:15,920
+be done with the code. Okay.
+
+1514
+01:31:13,600 --> 01:31:18,560
+Oh and we need to generate this one. So
+
+1515
+01:31:15,920 --> 01:31:21,199
+this one is the rolling circle is three
+
+1516
+01:31:18,560 --> 01:31:27,679
+over four. So actually we can do that by
+
+1517
+01:31:21,199 --> 01:31:29,520
+just copy this. Um copy this. Copy.
+
+1518
+01:31:27,679 --> 01:31:32,639
+So
+
+1519
+01:31:29,520 --> 01:31:37,199
+paste it. We don't care about the second
+
+1520
+01:31:32,639 --> 01:31:43,719
+part. Figure it out yourself. Delete. Uh
+
+1521
+01:31:37,199 --> 01:31:43,719
+then the the rolling circle is 3 over 4,
+
+1522
+01:31:43,840 --> 01:31:48,280
+right? And do it.
+
+1523
+01:31:53,520 --> 01:32:01,520
+Okay. Why is it okay? So there it is.
+
+1524
+01:31:56,800 --> 01:32:04,239
+Oh, so wait. Okay. No, wrong.
+
+1525
+01:32:01,520 --> 01:32:06,320
+This is not the right graphics we are
+
+1526
+01:32:04,239 --> 01:32:10,920
+looking for.
+
+1527
+01:32:06,320 --> 01:32:10,920
+Although it is um
+
+1528
+01:32:11,840 --> 01:32:19,840
+it is a true hypotcoid but
+
+1529
+01:32:16,880 --> 01:32:23,440
+circle radius the rolling circle radius
+
+1530
+01:32:19,840 --> 01:32:26,080
+3 over four. Wait.
+
+1531
+01:32:23,440 --> 01:32:29,280
+Oh, then then then then you need to also
+
+1532
+01:32:26,080 --> 01:32:35,400
+say the radius I mean the distance from
+
+1533
+01:32:29,280 --> 01:32:35,400
+the bar to that is that. Okay, do it.
+
+1534
+01:32:41,679 --> 01:32:49,159
+There it is. Fantastic and beautiful.
+
+1535
+01:32:45,840 --> 01:32:49,159
+Bye guys.
+

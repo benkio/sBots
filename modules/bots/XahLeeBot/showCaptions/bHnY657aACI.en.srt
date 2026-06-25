@@ -1,0 +1,3892 @@
+1
+00:00:08,099 --> 00:00:13,200
+hello good morning everyone welcome to
+
+2
+00:00:10,380 --> 00:00:15,299
+another episode of Santa show so today
+
+3
+00:00:13,200 --> 00:00:17,940
+we are going to do wolfam language
+
+4
+00:00:15,299 --> 00:00:21,300
+coding a very interesting problem okay
+
+5
+00:00:17,940 --> 00:00:24,840
+uh the wufam language live coding and
+
+6
+00:00:21,300 --> 00:00:28,140
+I'm going to code a problem where okay
+
+7
+00:00:24,840 --> 00:00:31,380
+so you read a text file
+
+8
+00:00:28,140 --> 00:00:34,920
+or files in a directory and you want to
+
+9
+00:00:31,380 --> 00:00:38,899
+tally word count you want to get a word
+
+10
+00:00:34,920 --> 00:00:41,460
+frequency list first you know such as
+
+11
+00:00:38,899 --> 00:00:44,399
+what which word are used the most
+
+12
+00:00:41,460 --> 00:00:46,559
+frequently you know in English
+
+13
+00:00:44,399 --> 00:00:49,320
+so you can look up Wikipedia you know
+
+14
+00:00:46,559 --> 00:00:52,020
+the most frequently used word I you me
+
+15
+00:00:49,320 --> 00:00:54,000
+how are you where you know things like
+
+16
+00:00:52,020 --> 00:00:56,340
+that so you want to you know get all
+
+17
+00:00:54,000 --> 00:00:59,100
+files and entirely count the word
+
+18
+00:00:56,340 --> 00:01:02,579
+frequency that's one problem the second
+
+19
+00:00:59,100 --> 00:01:06,420
+problem is that you want to find the
+
+20
+00:01:02,579 --> 00:01:09,479
+most frequently used in order uh the
+
+21
+00:01:06,420 --> 00:01:12,000
+most frequently used word pairs like a
+
+22
+00:01:09,479 --> 00:01:16,380
+phrase a phrase of two words or three
+
+23
+00:01:12,000 --> 00:01:19,220
+words so for example uh you are that's
+
+24
+00:01:16,380 --> 00:01:21,600
+probably one of the top frequently used
+
+25
+00:01:19,220 --> 00:01:26,520
+where are you know that's another
+
+26
+00:01:21,600 --> 00:01:28,619
+example there are there is what for uh
+
+27
+00:01:26,520 --> 00:01:29,780
+you know for example when you use your
+
+28
+00:01:28,619 --> 00:01:33,540
+phone
+
+29
+00:01:29,780 --> 00:01:36,479
+to uh chat you know phone will usually
+
+30
+00:01:33,540 --> 00:01:38,520
+make such suggestions so that's the you
+
+31
+00:01:36,479 --> 00:01:41,340
+know you want to tidy the frequency of
+
+32
+00:01:38,520 --> 00:01:43,560
+the diagram words okay
+
+33
+00:01:41,340 --> 00:01:46,500
+so that's the second problem
+
+34
+00:01:43,560 --> 00:01:50,100
+now that so that's one problem okay the
+
+35
+00:01:46,500 --> 00:01:52,920
+other problem we we I'm going to do it
+
+36
+00:01:50,100 --> 00:01:55,680
+uh together today is that you want to
+
+37
+00:01:52,920 --> 00:01:57,840
+count the letter frequency you know
+
+38
+00:01:55,680 --> 00:02:00,780
+which letter I must use a frequent
+
+39
+00:01:57,840 --> 00:02:04,979
+frequently let's see let me let me show
+
+40
+00:02:00,780 --> 00:02:07,500
+you okay uh shorthand system
+
+41
+00:02:04,979 --> 00:02:09,720
+okay for example you are looking at my
+
+42
+00:02:07,500 --> 00:02:13,080
+keyboard I mean this this is a keyboard
+
+43
+00:02:09,720 --> 00:02:15,540
+layout this is quality you know q w e r
+
+44
+00:02:13,080 --> 00:02:18,720
+t y you know so the red circle the the
+
+45
+00:02:15,540 --> 00:02:22,140
+bigger the circle the more frequent uh
+
+46
+00:02:18,720 --> 00:02:23,459
+that letter appears so for example you
+
+47
+00:02:22,140 --> 00:02:26,520
+have different
+
+48
+00:02:23,459 --> 00:02:29,220
+um keyboard layout so you can see in
+
+49
+00:02:26,520 --> 00:02:31,860
+this world I like uh you know most
+
+50
+00:02:29,220 --> 00:02:34,739
+frequently used letters uh you know home
+
+51
+00:02:31,860 --> 00:02:37,860
+row so the problem is to go through a
+
+52
+00:02:34,739 --> 00:02:39,840
+directory of files entirely you know and
+
+53
+00:02:37,860 --> 00:02:42,480
+to see which letter are most frequently
+
+54
+00:02:39,840 --> 00:02:45,900
+used you know get all of them
+
+55
+00:02:42,480 --> 00:02:48,420
+and percentage you know so
+
+56
+00:02:45,900 --> 00:02:50,099
+so that is the two problems and also
+
+57
+00:02:48,420 --> 00:02:52,200
+then after that then you want to do
+
+58
+00:02:50,099 --> 00:02:55,319
+bigrams okay so let me show you an
+
+59
+00:02:52,200 --> 00:02:58,500
+example of diagrams uh so you have
+
+60
+00:02:55,319 --> 00:03:00,300
+little layout a little frequency
+
+61
+00:02:58,500 --> 00:03:03,060
+so I'm going to do this in Wolfram
+
+62
+00:03:00,300 --> 00:03:05,099
+language today then perhaps tomorrow you
+
+63
+00:03:03,060 --> 00:03:09,239
+know the in my next few videos I'm going
+
+64
+00:03:05,099 --> 00:03:13,080
+to do it in JavaScript in Python in
+
+65
+00:03:09,239 --> 00:03:15,120
+Golan uh let me show you okay so
+
+66
+00:03:13,080 --> 00:03:17,700
+actually so you know since I'm doing
+
+67
+00:03:15,120 --> 00:03:20,159
+video it's better to just
+
+68
+00:03:17,700 --> 00:03:24,080
+show and tell you know since I'm doing
+
+69
+00:03:20,159 --> 00:03:26,400
+it so uh some programming language
+
+70
+00:03:24,080 --> 00:03:28,680
+tutorials I'm going to do it in Wolfram
+
+71
+00:03:26,400 --> 00:03:31,260
+language today next
+
+72
+00:03:28,680 --> 00:03:33,720
+week or a few days I'm gonna to do it do
+
+73
+00:03:31,260 --> 00:03:37,319
+the same problem in emac this in
+
+74
+00:03:33,720 --> 00:03:40,260
+JavaScript in Powershell in Golan in
+
+75
+00:03:37,319 --> 00:03:43,860
+Python okay can you can you see that in
+
+76
+00:03:40,260 --> 00:03:47,280
+Python in Gola and Powershell uh
+
+77
+00:03:43,860 --> 00:03:49,680
+you know so you know and let's compare
+
+78
+00:03:47,280 --> 00:03:52,019
+which programming language is the
+
+79
+00:03:49,680 --> 00:03:54,480
+fastest which programming language is
+
+80
+00:03:52,019 --> 00:03:56,099
+the shortest source code
+
+81
+00:03:54,480 --> 00:03:58,319
+you know I already know the answer
+
+82
+00:03:56,099 --> 00:04:00,599
+that's a wolfam language because it's
+
+83
+00:03:58,319 --> 00:04:03,480
+you know because I you know all these
+
+84
+00:04:00,599 --> 00:04:07,140
+functions we need today is building
+
+85
+00:04:03,480 --> 00:04:10,640
+okay hello Reaper hello immortality hey
+
+86
+00:04:07,140 --> 00:04:15,060
+immortality are you the triangle guy
+
+87
+00:04:10,640 --> 00:04:17,340
+server okay so we so let's do it okay
+
+88
+00:04:15,060 --> 00:04:19,680
+okay so that is the background that
+
+89
+00:04:17,340 --> 00:04:21,720
+that's what we are going to do I hope 30
+
+90
+00:04:19,680 --> 00:04:25,860
+minutes 40 minutes okay so I need to
+
+91
+00:04:21,720 --> 00:04:27,720
+keep my time so okay and and let me show
+
+92
+00:04:25,860 --> 00:04:29,940
+you again let me talk about the keyboard
+
+93
+00:04:27,720 --> 00:04:32,460
+so this the keyboard you see I'm using
+
+94
+00:04:29,940 --> 00:04:34,979
+this is a fantastic one of the best
+
+95
+00:04:32,460 --> 00:04:38,940
+ergonomic keyboard I recommend is cheap
+
+96
+00:04:34,979 --> 00:04:41,220
+too 100 150 I recommend it very much so
+
+97
+00:04:38,940 --> 00:04:43,800
+you go buy it they send me a sample so
+
+98
+00:04:41,220 --> 00:04:46,139
+and I really love it so okay so I have
+
+99
+00:04:43,800 --> 00:04:48,900
+like lots of tutorials on my website
+
+100
+00:04:46,139 --> 00:04:50,880
+about this keyboard okay and uh so you
+
+101
+00:04:48,900 --> 00:04:54,360
+go check it out and
+
+102
+00:04:50,880 --> 00:04:57,060
+you know I recommend it uh and you know
+
+103
+00:04:54,360 --> 00:04:58,979
+next week also I I I'm going to do a
+
+104
+00:04:57,060 --> 00:05:03,419
+review of this keyboard by itself okay
+
+105
+00:04:58,979 --> 00:05:07,199
+so this is the expose night okay
+
+106
+00:05:03,419 --> 00:05:09,360
+uh so okay now buffam language okay now
+
+107
+00:05:07,199 --> 00:05:11,699
+if you don't know okay so let's go to
+
+108
+00:05:09,360 --> 00:05:14,759
+structure let's start to do stuff okay
+
+109
+00:05:11,699 --> 00:05:18,900
+on the pink window is uh over my emacs
+
+110
+00:05:14,759 --> 00:05:21,600
+commands Okay and uh let's uh so let me
+
+111
+00:05:18,900 --> 00:05:24,960
+show you wolfam language so if you don't
+
+112
+00:05:21,600 --> 00:05:27,840
+know you know I did you know 20 or 30
+
+113
+00:05:24,960 --> 00:05:30,180
+over language tutorials in the past if
+
+114
+00:05:27,840 --> 00:05:33,120
+you don't know go
+
+115
+00:05:30,180 --> 00:05:35,220
+I'm gonna I'm not going to repeat the
+
+116
+00:05:33,120 --> 00:05:37,560
+basic stuff like where do where do you
+
+117
+00:05:35,220 --> 00:05:39,600
+download uh you know where do you
+
+118
+00:05:37,560 --> 00:05:41,520
+download how you know when you we you
+
+119
+00:05:39,600 --> 00:05:44,100
+know I'm not going to repeat them so if
+
+120
+00:05:41,520 --> 00:05:47,220
+you don't know just search for Sardi
+
+121
+00:05:44,100 --> 00:05:51,060
+wufam language then you'll find My wufam
+
+122
+00:05:47,220 --> 00:05:54,780
+Language tutorial and several my you
+
+123
+00:05:51,060 --> 00:05:56,639
+know those best of my videos I collect
+
+124
+00:05:54,780 --> 00:06:00,120
+them here so you can start to watch them
+
+125
+00:05:56,639 --> 00:06:01,740
+hear that one which I've done a few
+
+126
+00:06:00,120 --> 00:06:04,139
+weeks ago
+
+127
+00:06:01,740 --> 00:06:06,780
+and several others so watch those okay
+
+128
+00:06:04,139 --> 00:06:08,639
+if you are new to wufam language so
+
+129
+00:06:06,780 --> 00:06:11,460
+today yeah so
+
+130
+00:06:08,639 --> 00:06:14,340
+okay so so that is the background so
+
+131
+00:06:11,460 --> 00:06:16,500
+let's copy and let's show today's talk
+
+132
+00:06:14,340 --> 00:06:20,400
+show page and make a record of what we
+
+133
+00:06:16,500 --> 00:06:23,520
+talked about so uh here's a showing
+
+134
+00:06:20,400 --> 00:06:26,340
+browser so you can see Xbox Knight
+
+135
+00:06:23,520 --> 00:06:28,500
+keyboard okay fantastic uh Wolfram
+
+136
+00:06:26,340 --> 00:06:31,500
+Language tutorial tutorial so you can
+
+137
+00:06:28,500 --> 00:06:33,120
+people can go to it and here is a
+
+138
+00:06:31,500 --> 00:06:34,620
+description of the problem we're going
+
+139
+00:06:33,120 --> 00:06:37,500
+to do
+
+140
+00:06:34,620 --> 00:06:40,080
+um do one file first then we're gonna do
+
+141
+00:06:37,500 --> 00:06:42,900
+all files in your directory
+
+142
+00:06:40,080 --> 00:06:45,660
+okay so the next question let me talk
+
+143
+00:06:42,900 --> 00:06:49,319
+about why do I need to do it so
+
+144
+00:06:45,660 --> 00:06:53,460
+uh so the reason I need to do
+
+145
+00:06:49,319 --> 00:06:56,220
+letter frequency count is because uh let
+
+146
+00:06:53,460 --> 00:07:00,979
+me show is because you know I have this
+
+147
+00:06:56,220 --> 00:07:00,979
+project of ergonomic keyboard layout
+
+148
+00:07:01,560 --> 00:07:07,199
+yeah I mean ergonomic keyboard layout
+
+149
+00:07:03,960 --> 00:07:09,479
+like letter letter layout so in this
+
+150
+00:07:07,199 --> 00:07:11,520
+project you know how do I get you know
+
+151
+00:07:09,479 --> 00:07:13,319
+how do I know that e occurs the most
+
+152
+00:07:11,520 --> 00:07:15,419
+frequent how do I know the size of the
+
+153
+00:07:13,319 --> 00:07:18,660
+circles because you need a statistical
+
+154
+00:07:15,419 --> 00:07:20,819
+data so these are already compiled but
+
+155
+00:07:18,660 --> 00:07:22,919
+it's incomplete so I need to do a lot
+
+156
+00:07:20,819 --> 00:07:26,460
+more and for example you also need to do
+
+157
+00:07:22,919 --> 00:07:29,639
+this for different languages for French
+
+158
+00:07:26,460 --> 00:07:32,340
+uh French German you know different
+
+159
+00:07:29,639 --> 00:07:34,919
+languages or Russian you know in the
+
+160
+00:07:32,340 --> 00:07:37,500
+case of Russian you have Russian
+
+161
+00:07:34,919 --> 00:07:39,620
+you know you have Russian language
+
+162
+00:07:37,500 --> 00:07:39,620
+um
+
+163
+00:07:40,220 --> 00:07:45,840
+uh layout you know you have French
+
+164
+00:07:44,099 --> 00:07:48,000
+and you have Russian you know you can
+
+165
+00:07:45,840 --> 00:07:51,060
+see so you need to do this for every
+
+166
+00:07:48,000 --> 00:07:53,099
+language in tally so this so so I need
+
+167
+00:07:51,060 --> 00:07:55,500
+the statistics right now I just have
+
+168
+00:07:53,099 --> 00:07:57,979
+like very simple English so that's why
+
+169
+00:07:55,500 --> 00:08:01,259
+you need to know the letter frequency
+
+170
+00:07:57,979 --> 00:08:03,000
+okay and why do I need why do I why do
+
+171
+00:08:01,259 --> 00:08:05,539
+you need to know the letter Bagram
+
+172
+00:08:03,000 --> 00:08:08,460
+frequency because
+
+173
+00:08:05,539 --> 00:08:10,319
+means two letters together you need to
+
+174
+00:08:08,460 --> 00:08:12,840
+know which two letters happens the most
+
+175
+00:08:10,319 --> 00:08:15,360
+why do you need to know know that
+
+176
+00:08:12,840 --> 00:08:17,340
+because when you study the layout
+
+177
+00:08:15,360 --> 00:08:20,759
+efficiency you know you want to find the
+
+178
+00:08:17,340 --> 00:08:25,020
+best layout the diagram is significant
+
+179
+00:08:20,759 --> 00:08:25,860
+uh criteria you know it's a significant
+
+180
+00:08:25,020 --> 00:08:28,139
+um
+
+181
+00:08:25,860 --> 00:08:30,660
+thing to consider when you are designing
+
+182
+00:08:28,139 --> 00:08:31,919
+the best letter layout so for example
+
+183
+00:08:30,660 --> 00:08:33,959
+where is
+
+184
+00:08:31,919 --> 00:08:36,060
+um I have talked about that somewhere
+
+185
+00:08:33,959 --> 00:08:38,520
+here okay
+
+186
+00:08:36,060 --> 00:08:41,279
+the most efficient layout let's see yeah
+
+187
+00:08:38,520 --> 00:08:44,219
+there it is so you can see here is a
+
+188
+00:08:41,279 --> 00:08:47,399
+pre-computed two letter sequence by Gram
+
+189
+00:08:44,219 --> 00:08:48,839
+count this is from Google actually you
+
+190
+00:08:47,399 --> 00:08:51,360
+know which is great you know they they
+
+191
+00:08:48,839 --> 00:08:53,700
+they they they base their copas you know
+
+192
+00:08:51,360 --> 00:08:57,959
+the source from
+
+193
+00:08:53,700 --> 00:09:02,220
+10 million uh books you know books but
+
+194
+00:08:57,959 --> 00:09:04,260
+the the the input source is significant
+
+195
+00:09:02,220 --> 00:09:06,240
+you know because you don't want when you
+
+196
+00:09:04,260 --> 00:09:08,339
+want when when you design a data layout
+
+197
+00:09:06,240 --> 00:09:11,519
+you don't want to paste them on some
+
+198
+00:09:08,339 --> 00:09:13,680
+academic textbook or formal writing
+
+199
+00:09:11,519 --> 00:09:15,779
+because when you say when you type you
+
+200
+00:09:13,680 --> 00:09:17,459
+know to your mom hi Mom what are you
+
+201
+00:09:15,779 --> 00:09:19,560
+doing today or to your friends you know
+
+202
+00:09:17,459 --> 00:09:22,920
+you don't type those jargons chemistry
+
+203
+00:09:19,560 --> 00:09:25,320
+physics academic you know style of
+
+204
+00:09:22,920 --> 00:09:28,440
+writing form formal formality you know
+
+205
+00:09:25,320 --> 00:09:30,420
+you should so therefore it is important
+
+206
+00:09:28,440 --> 00:09:32,640
+when you do this kind of uh frequency
+
+207
+00:09:30,420 --> 00:09:35,279
+and you know statistics
+
+208
+00:09:32,640 --> 00:09:37,019
+in the in the in the case of Designing a
+
+209
+00:09:35,279 --> 00:09:40,019
+keyboard layout layout you want to
+
+210
+00:09:37,019 --> 00:09:42,120
+consider what type of the input okay for
+
+211
+00:09:40,019 --> 00:09:44,459
+example when you know today you have
+
+212
+00:09:42,120 --> 00:09:46,519
+lots of typing websites you know type
+
+213
+00:09:44,459 --> 00:09:50,339
+race you can compete with your friends
+
+214
+00:09:46,519 --> 00:09:53,399
+uh the inputs are typically the most
+
+215
+00:09:50,339 --> 00:09:55,560
+basic commonly used English letters but
+
+216
+00:09:53,399 --> 00:09:58,320
+if you so let's say you can type 80
+
+217
+00:09:55,560 --> 00:09:59,160
+words per minute but if you switch it to
+
+218
+00:09:58,320 --> 00:10:01,940
+a
+
+219
+00:09:59,160 --> 00:10:05,040
+for example a math textbook you're gonna
+
+220
+00:10:01,940 --> 00:10:07,500
+significantly significantly slow you
+
+221
+00:10:05,040 --> 00:10:10,440
+down because the input matters okay so
+
+222
+00:10:07,500 --> 00:10:12,480
+this is reason why I need to do you know
+
+223
+00:10:10,440 --> 00:10:16,220
+I'm you know once I have the statistics
+
+224
+00:10:12,480 --> 00:10:20,700
+I'm going to replace this uh static
+
+225
+00:10:16,220 --> 00:10:22,860
+image by a JavaScript generated so I can
+
+226
+00:10:20,700 --> 00:10:25,500
+you know so it allows you to type your
+
+227
+00:10:22,860 --> 00:10:28,080
+own input and get at least the frequency
+
+228
+00:10:25,500 --> 00:10:30,240
+of diagrams so that that is why I need
+
+229
+00:10:28,080 --> 00:10:33,540
+this project
+
+230
+00:10:30,240 --> 00:10:36,120
+so that is for the letter frequency okay
+
+231
+00:10:33,540 --> 00:10:39,959
+letter frequency then the other project
+
+232
+00:10:36,120 --> 00:10:42,660
+I need to do is to uh to get the word
+
+233
+00:10:39,959 --> 00:10:45,600
+frequency and background words
+
+234
+00:10:42,660 --> 00:10:48,300
+word phrases why do you need to do that
+
+235
+00:10:45,600 --> 00:10:51,120
+because I'm creating a shorthand system
+
+236
+00:10:48,300 --> 00:10:54,420
+for example these are abbreviations okay
+
+237
+00:10:51,120 --> 00:10:57,899
+you know tentatively named shorthand
+
+238
+00:10:54,420 --> 00:11:00,240
+okay so let me show you
+
+239
+00:10:57,899 --> 00:11:02,339
+so you you are looking at my emacs a
+
+240
+00:11:00,240 --> 00:11:04,019
+brief for example if I want to type the
+
+241
+00:11:02,339 --> 00:11:07,500
+word reference okay
+
+242
+00:11:04,019 --> 00:11:09,420
+I can just type r f r okay that becomes
+
+243
+00:11:07,500 --> 00:11:11,459
+reference so
+
+244
+00:11:09,420 --> 00:11:14,760
+if I want to type the word question it's
+
+245
+00:11:11,459 --> 00:11:17,519
+just Q it becomes question okay so this
+
+246
+00:11:14,760 --> 00:11:19,560
+is a brief system you know in emacs you
+
+247
+00:11:17,519 --> 00:11:20,640
+know I have like a thousands a thousand
+
+248
+00:11:19,560 --> 00:11:23,760
+of them
+
+249
+00:11:20,640 --> 00:11:25,800
+so in order to tally this
+
+250
+00:11:23,760 --> 00:11:27,839
+you need to know
+
+251
+00:11:25,800 --> 00:11:30,839
+you know in order to design this
+
+252
+00:11:27,839 --> 00:11:32,459
+shorthand system for typing not for you
+
+253
+00:11:30,839 --> 00:11:36,420
+know there are lots of shorthand systems
+
+254
+00:11:32,459 --> 00:11:39,000
+for writing for manuscripting
+
+255
+00:11:36,420 --> 00:11:41,160
+you know scripting style cursive style
+
+256
+00:11:39,000 --> 00:11:44,220
+of writing but this is a shorthand
+
+257
+00:11:41,160 --> 00:11:46,740
+system for typing so in order to design
+
+258
+00:11:44,220 --> 00:11:49,140
+this you need to choose you know what
+
+259
+00:11:46,740 --> 00:11:52,260
+letters to expand to what you need to
+
+260
+00:11:49,140 --> 00:11:54,779
+know the word frequency and also a
+
+261
+00:11:52,260 --> 00:11:56,160
+phrase frequency for example I can type
+
+262
+00:11:54,779 --> 00:11:59,220
+for example
+
+263
+00:11:56,160 --> 00:12:01,019
+online for example uh very common when
+
+264
+00:11:59,220 --> 00:12:03,660
+you want to say by the way by the way
+
+265
+00:12:01,019 --> 00:12:07,440
+okay press enter it becomes by the way
+
+266
+00:12:03,660 --> 00:12:10,320
+you just type BTW so that's a phrase
+
+267
+00:12:07,440 --> 00:12:14,339
+that saves you like 10 keystrokes okay
+
+268
+00:12:10,320 --> 00:12:16,680
+this is a great hand saver so I want to
+
+269
+00:12:14,339 --> 00:12:18,420
+of course you need time to learn so this
+
+270
+00:12:16,680 --> 00:12:20,820
+is the reason you need the word
+
+271
+00:12:18,420 --> 00:12:23,640
+frequency okay of course there are lots
+
+272
+00:12:20,820 --> 00:12:26,100
+of reasons in crypto graph you know
+
+273
+00:12:23,640 --> 00:12:28,560
+crypto analysis and so on
+
+274
+00:12:26,100 --> 00:12:30,260
+So eventually I'm going to write a
+
+275
+00:12:28,560 --> 00:12:32,640
+JavaScript
+
+276
+00:12:30,260 --> 00:12:35,700
+interactive JavaScript
+
+277
+00:12:32,640 --> 00:12:39,060
+page so you can you know paste or type
+
+278
+00:12:35,700 --> 00:12:42,000
+and you count your words and so on so
+
+279
+00:12:39,060 --> 00:12:44,579
+that is the reason okay
+
+280
+00:12:42,000 --> 00:12:46,800
+so now let's start coding movement
+
+281
+00:12:44,579 --> 00:12:49,740
+language or you know we already spent 10
+
+282
+00:12:46,800 --> 00:12:52,019
+minutes talking about it okay so
+
+283
+00:12:49,740 --> 00:12:53,760
+so again watch my old wolfam language
+
+284
+00:12:52,019 --> 00:12:56,279
+videos okay because I have the
+
+285
+00:12:53,760 --> 00:12:59,519
+beginnings uh beginner stuff okay so
+
+286
+00:12:56,279 --> 00:13:02,459
+let's speak in Wolf and language okay
+
+287
+00:12:59,519 --> 00:13:04,200
+questions comment posted okay
+
+288
+00:13:02,459 --> 00:13:06,720
+uh no I'm not trying to go with my
+
+289
+00:13:04,200 --> 00:13:09,720
+username I'm on Discord is CCP email
+
+290
+00:13:06,720 --> 00:13:12,000
+okay yeah okay I recognize
+
+291
+00:13:09,720 --> 00:13:15,600
+uh okay let's begin so wufan language
+
+292
+00:13:12,000 --> 00:13:18,420
+taddy so first of all so let's um uh
+
+293
+00:13:15,600 --> 00:13:21,120
+let's uh let's go to
+
+294
+00:13:18,420 --> 00:13:22,860
+okay first of all let's go to Alice in
+
+295
+00:13:21,120 --> 00:13:28,019
+Wonderland okay
+
+296
+00:13:22,860 --> 00:13:30,540
+so let's get Alice in Wonderland uh yeah
+
+297
+00:13:28,019 --> 00:13:34,380
+so vocabulary etymology literature
+
+298
+00:13:30,540 --> 00:13:37,079
+Classics uh it's for something fancy
+
+299
+00:13:34,380 --> 00:13:39,260
+okay Arabian Nights the story of the
+
+300
+00:13:37,079 --> 00:13:41,760
+king
+
+301
+00:13:39,260 --> 00:13:46,279
+copy it
+
+302
+00:13:41,760 --> 00:13:46,279
+okay language uh let's see
+
+303
+00:13:48,300 --> 00:13:51,480
+what
+
+304
+00:13:49,560 --> 00:13:56,040
+started
+
+305
+00:13:51,480 --> 00:13:58,980
+okay wait what what the what are those
+
+306
+00:13:56,040 --> 00:14:02,480
+you know I have sticky keys on so
+
+307
+00:13:58,980 --> 00:14:02,480
+Wolfram desktop started
+
+308
+00:14:02,880 --> 00:14:09,060
+is this show meta programming was
+
+309
+00:14:05,880 --> 00:14:11,399
+created like literally writing a novel
+
+310
+00:14:09,060 --> 00:14:15,000
+is this how meta programming is created
+
+311
+00:14:11,399 --> 00:14:17,519
+like literally writing a novel
+
+312
+00:14:15,000 --> 00:14:19,860
+uh what do you mean I'm not sure what do
+
+313
+00:14:17,519 --> 00:14:22,260
+you mean so starting with language okay
+
+314
+00:14:19,860 --> 00:14:25,380
+wolf and documentation that's not what
+
+315
+00:14:22,260 --> 00:14:29,700
+we need we need to uh wolfam language
+
+316
+00:14:25,380 --> 00:14:34,500
+okay so there it is now magnify so you
+
+317
+00:14:29,700 --> 00:14:36,120
+can see so let's put this here and let's
+
+318
+00:14:34,500 --> 00:14:37,980
+uh
+
+319
+00:14:36,120 --> 00:14:41,060
+input okay
+
+320
+00:14:37,980 --> 00:14:41,060
+X input
+
+321
+00:14:42,540 --> 00:14:48,959
+so here is gonna be a whole whole string
+
+322
+00:14:45,480 --> 00:14:52,279
+uh well there's a problem because
+
+323
+00:14:48,959 --> 00:14:52,279
+Okay so
+
+324
+00:14:53,820 --> 00:14:59,480
+let's the fisherman and the genie okay
+
+325
+00:14:59,579 --> 00:15:06,260
+let's just say that now is there a now
+
+326
+00:15:03,779 --> 00:15:06,260
+enter
+
+327
+00:15:06,959 --> 00:15:09,620
+okay
+
+328
+00:15:10,079 --> 00:15:19,440
+so we have our text input okay
+
+329
+00:15:15,180 --> 00:15:23,040
+now actually I know so we need to
+
+330
+00:15:19,440 --> 00:15:24,660
+first of all we need to count word okay
+
+331
+00:15:23,040 --> 00:15:27,540
+count Words okay
+
+332
+00:15:24,660 --> 00:15:30,779
+for each word how many times it appears
+
+333
+00:15:27,540 --> 00:15:32,519
+that's what we need to do and as it
+
+334
+00:15:30,779 --> 00:15:33,720
+turns out there's a building function
+
+335
+00:15:32,519 --> 00:15:36,420
+for it
+
+336
+00:15:33,720 --> 00:15:38,279
+fantastic saves your time that is the
+
+337
+00:15:36,420 --> 00:15:40,440
+nature that is the characteristics of
+
+338
+00:15:38,279 --> 00:15:41,339
+Wolfram language almost you know lots of
+
+339
+00:15:40,440 --> 00:15:43,260
+things
+
+340
+00:15:41,339 --> 00:15:45,839
+because otherwise you have to type you
+
+341
+00:15:43,260 --> 00:15:48,480
+know spend an hour just to call this let
+
+342
+00:15:45,839 --> 00:15:50,040
+me show you okay uh I don't know where
+
+343
+00:15:48,480 --> 00:15:54,320
+it is
+
+344
+00:15:50,040 --> 00:15:54,320
+so what you do is you just go to wufan
+
+345
+00:15:56,100 --> 00:16:00,959
+documentation search for Wolf and dark
+
+346
+00:15:58,320 --> 00:16:03,000
+okay wolfam language you know I've been
+
+347
+00:16:00,959 --> 00:16:07,740
+coding Wolfram language for
+
+348
+00:16:03,000 --> 00:16:10,940
+15 years mostly in the 1990s so they are
+
+349
+00:16:07,740 --> 00:16:13,920
+seven seven thousand building functions
+
+350
+00:16:10,940 --> 00:16:15,300
+everything is built in seven thousand of
+
+351
+00:16:13,920 --> 00:16:17,720
+it
+
+352
+00:16:15,300 --> 00:16:19,920
+so you click on uh streaming
+
+353
+00:16:17,720 --> 00:16:21,959
+manipulation then you click on working
+
+354
+00:16:19,920 --> 00:16:25,260
+with templates you click on text
+
+355
+00:16:21,959 --> 00:16:29,639
+manipulation and text analysis that's
+
+356
+00:16:25,260 --> 00:16:31,560
+right text analysis so over here is you
+
+357
+00:16:29,639 --> 00:16:32,579
+know the function we need is already
+
+358
+00:16:31,560 --> 00:16:36,480
+here
+
+359
+00:16:32,579 --> 00:16:39,300
+World count okay that that will uh total
+
+360
+00:16:36,480 --> 00:16:41,940
+number of words in a text okay
+
+361
+00:16:39,300 --> 00:16:45,720
+that's not what we want what we want is
+
+362
+00:16:41,940 --> 00:16:49,199
+what counts count of words or in grams
+
+363
+00:16:45,720 --> 00:16:51,600
+okay so that's a function that's
+
+364
+00:16:49,199 --> 00:16:53,880
+in what frequency okay there are several
+
+365
+00:16:51,600 --> 00:16:56,579
+okay so it's opioid then you have letter
+
+366
+00:16:53,880 --> 00:16:59,579
+counts then you have character counts
+
+367
+00:16:56,579 --> 00:17:01,199
+okay that's so that's all we you know
+
+368
+00:16:59,579 --> 00:17:03,420
+all the things we need is already
+
+369
+00:17:01,199 --> 00:17:05,819
+building okay so what count what
+
+370
+00:17:03,420 --> 00:17:08,400
+frequency letter counts uh character
+
+371
+00:17:05,819 --> 00:17:11,100
+counts let's see let's do the word first
+
+372
+00:17:08,400 --> 00:17:14,000
+World counts caves on the association
+
+373
+00:17:11,100 --> 00:17:16,860
+which means a dictionary or hash table
+
+374
+00:17:14,000 --> 00:17:19,919
+whose keys are the distinct words
+
+375
+00:17:16,860 --> 00:17:22,799
+identified in string and whose values
+
+376
+00:17:19,919 --> 00:17:24,839
+give the number of times those words
+
+377
+00:17:22,799 --> 00:17:28,380
+appear in string that's what we want
+
+378
+00:17:24,839 --> 00:17:31,860
+okay then you can also give a number
+
+379
+00:17:28,380 --> 00:17:34,860
+then that will give you n grams like two
+
+380
+00:17:31,860 --> 00:17:37,559
+letter two words three so three words
+
+381
+00:17:34,860 --> 00:17:40,620
+phrase fantastic that's that's fantastic
+
+382
+00:17:37,559 --> 00:17:45,020
+okay that's what we're gonna do
+
+383
+00:17:40,620 --> 00:17:45,020
+so World counts so easy so easy
+
+384
+00:17:46,320 --> 00:17:56,419
+wait counts okay so what counts uh yeah
+
+385
+00:17:50,880 --> 00:17:56,419
+and what is our variable X inputs okay
+
+386
+00:17:57,000 --> 00:18:00,559
+do it do it
+
+387
+00:18:01,260 --> 00:18:05,880
+loading from Wolfram research server oh
+
+388
+00:18:04,140 --> 00:18:07,620
+my God I don't like it that means it
+
+389
+00:18:05,880 --> 00:18:09,720
+connects to internet for some reason
+
+390
+00:18:07,620 --> 00:18:11,100
+this function is not
+
+391
+00:18:09,720 --> 00:18:14,460
+uh
+
+392
+00:18:11,100 --> 00:18:17,820
+in a kernel I don't I don't I haven't
+
+393
+00:18:14,460 --> 00:18:22,380
+spent time to look for y okay so there
+
+394
+00:18:17,820 --> 00:18:24,360
+it is so and uh and occurs 11 times V
+
+395
+00:18:22,380 --> 00:18:26,280
+occurs nine times that's just what
+
+396
+00:18:24,360 --> 00:18:29,000
+that's just this paragraph okay that's
+
+397
+00:18:26,280 --> 00:18:29,000
+just this
+
+398
+00:18:29,460 --> 00:18:35,460
+this Arabian Nights Arabian nights I
+
+399
+00:18:33,000 --> 00:18:39,600
+highly recommend it okay it's uh Arabian
+
+400
+00:18:35,460 --> 00:18:42,780
+90s uh this is Alan Alan Alan bought the
+
+401
+00:18:39,600 --> 00:18:44,700
+book fantastic okay you you go you can
+
+402
+00:18:42,780 --> 00:18:47,100
+buy this book or you could you can read
+
+403
+00:18:44,700 --> 00:18:49,700
+my annotated Arabian Nights the
+
+404
+00:18:47,100 --> 00:18:51,720
+fishermen and the genie fantastic
+
+405
+00:18:49,700 --> 00:18:54,799
+wonderful story
+
+406
+00:18:51,720 --> 00:18:57,720
+what one of my favorite top top five
+
+407
+00:18:54,799 --> 00:19:00,120
+favorite literature
+
+408
+00:18:57,720 --> 00:19:02,340
+okay and it's nothing it's nothing like
+
+409
+00:19:00,120 --> 00:19:05,820
+what Disney tells you Disney you know
+
+410
+00:19:02,340 --> 00:19:09,539
+Disney is not Disney's American nights
+
+411
+00:19:05,820 --> 00:19:13,080
+one thousand and one American nights
+
+412
+00:19:09,539 --> 00:19:15,720
+okay fish fisherman Genie
+
+413
+00:19:13,080 --> 00:19:18,419
+so that the World Cup that is just the
+
+414
+00:19:15,720 --> 00:19:21,799
+first paragraph So let's go back so we
+
+415
+00:19:18,419 --> 00:19:21,799
+already have the answer here
+
+416
+00:19:21,960 --> 00:19:26,299
+okay that that's the um
+
+417
+00:19:27,419 --> 00:19:32,220
+so what we gonna do now so we can start
+
+418
+00:19:30,299 --> 00:19:34,679
+to read the file
+
+419
+00:19:32,220 --> 00:19:37,320
+yeah that's what eventually I need to do
+
+420
+00:19:34,679 --> 00:19:39,900
+uh let me just show you some of the
+
+421
+00:19:37,320 --> 00:19:41,700
+Let's see we can start to read a file or
+
+422
+00:19:39,900 --> 00:19:43,620
+we can start to do the letter count
+
+423
+00:19:41,700 --> 00:19:45,360
+because eventually we need to read the
+
+424
+00:19:43,620 --> 00:19:45,960
+whole directory
+
+425
+00:19:45,360 --> 00:19:47,160
+um
+
+426
+00:19:45,960 --> 00:19:50,280
+and
+
+427
+00:19:47,160 --> 00:19:52,500
+and by the way the return value that
+
+428
+00:19:50,280 --> 00:19:54,840
+this return thing that that is a
+
+429
+00:19:52,500 --> 00:19:57,179
+dictionary or hash table in woven
+
+430
+00:19:54,840 --> 00:19:58,980
+language it's called Association so if
+
+431
+00:19:57,179 --> 00:20:02,039
+you don't know already
+
+432
+00:19:58,980 --> 00:20:05,160
+uh you know you can look into uh let's
+
+433
+00:20:02,039 --> 00:20:05,880
+close this uh what's this is close
+
+434
+00:20:05,160 --> 00:20:08,900
+um
+
+435
+00:20:05,880 --> 00:20:08,900
+pop this back
+
+436
+00:20:09,419 --> 00:20:12,960
+um
+
+437
+00:20:10,559 --> 00:20:15,360
+let's see yeah show show today's talk
+
+438
+00:20:12,960 --> 00:20:17,820
+show uh
+
+439
+00:20:15,360 --> 00:20:19,799
+you go to you know you go to My woofam
+
+440
+00:20:17,820 --> 00:20:22,559
+Language tutorial I have the complete
+
+441
+00:20:19,799 --> 00:20:27,740
+tutorial telling you what is Association
+
+442
+00:20:22,559 --> 00:20:27,740
+okay so Association this is here
+
+443
+00:20:29,640 --> 00:20:36,240
+map array delete element so those are
+
+444
+00:20:32,640 --> 00:20:36,240
+these position and
+
+445
+00:20:36,780 --> 00:20:42,380
+Loop function Advanced winds Association
+
+446
+00:20:45,240 --> 00:20:50,220
+there is a data structure data structure
+
+447
+00:20:47,760 --> 00:20:53,000
+so Association okay so in other
+
+448
+00:20:50,220 --> 00:20:55,919
+languages it's called hash table or
+
+449
+00:20:53,000 --> 00:20:58,620
+dictionary or map
+
+450
+00:20:55,919 --> 00:21:02,059
+uh okay so that's a that's what it
+
+451
+00:20:58,620 --> 00:21:02,059
+returns uh let's
+
+452
+00:21:04,380 --> 00:21:09,660
+okay there's a question about meta
+
+453
+00:21:06,660 --> 00:21:12,360
+programming so what is the question Jr
+
+454
+00:21:09,660 --> 00:21:14,000
+is this how meta programming was created
+
+455
+00:21:12,360 --> 00:21:16,440
+like
+
+456
+00:21:14,000 --> 00:21:18,419
+detroiting a novel
+
+457
+00:21:16,440 --> 00:21:21,480
+no I don't want you I don't know what
+
+458
+00:21:18,419 --> 00:21:24,299
+you mean I just wanted to know how or
+
+459
+00:21:21,480 --> 00:21:27,660
+what is the intuition to better
+
+460
+00:21:24,299 --> 00:21:29,760
+understanding meta programming okay uh
+
+461
+00:21:27,660 --> 00:21:32,520
+meta programming meta programming basic
+
+462
+00:21:29,760 --> 00:21:35,100
+basically you program your program in
+
+463
+00:21:32,520 --> 00:21:37,799
+some sense okay uh let's not talk about
+
+464
+00:21:35,100 --> 00:21:40,260
+that you know we can talk about the next
+
+465
+00:21:37,799 --> 00:21:43,860
+oh Jesus
+
+466
+00:21:40,260 --> 00:21:43,860
+a spam
+
+467
+00:21:46,280 --> 00:21:53,880
+uh we gotta deal with Spam add moderator
+
+468
+00:21:50,460 --> 00:21:56,539
+hide user put uh
+
+469
+00:21:53,880 --> 00:21:56,539
+God
+
+470
+00:22:00,679 --> 00:22:05,400
+okay that's so what we're gonna do next
+
+471
+00:22:03,720 --> 00:22:09,120
+essentially that's already the answer
+
+472
+00:22:05,400 --> 00:22:11,460
+what we're gonna do next is uh we want
+
+473
+00:22:09,120 --> 00:22:14,159
+to okay let's let me just go through
+
+474
+00:22:11,460 --> 00:22:16,380
+then okay that's word count let's know
+
+475
+00:22:14,159 --> 00:22:18,600
+what's the other what frequency gives
+
+476
+00:22:16,380 --> 00:22:21,080
+the frequency of word in text okay let's
+
+477
+00:22:18,600 --> 00:22:21,080
+try that
+
+478
+00:22:25,860 --> 00:22:32,100
+gives the frequency of words in text
+
+479
+00:22:29,880 --> 00:22:35,159
+okay so
+
+480
+00:22:32,100 --> 00:22:38,580
+in this case you
+
+481
+00:22:35,159 --> 00:22:40,400
+have to give a word and basically it
+
+482
+00:22:38,580 --> 00:22:43,679
+divides by the total
+
+483
+00:22:40,400 --> 00:22:46,679
+that's not very
+
+484
+00:22:43,679 --> 00:22:49,380
+that's not what we want we already have
+
+485
+00:22:46,679 --> 00:22:52,020
+the frequency list basically the word
+
+486
+00:22:49,380 --> 00:22:55,140
+frequency just gives you a percentage
+
+487
+00:22:52,020 --> 00:22:56,580
+out of the total you can compute it
+
+488
+00:22:55,140 --> 00:22:59,880
+yourself okay
+
+489
+00:22:56,580 --> 00:23:02,220
+so that's not what we want
+
+490
+00:22:59,880 --> 00:23:06,059
+so let's look at letter counts okay
+
+491
+00:23:02,220 --> 00:23:08,340
+letter counts gives an association a
+
+492
+00:23:06,059 --> 00:23:11,340
+hash table whose keys are the distinct
+
+493
+00:23:08,340 --> 00:23:13,380
+letters right and whose values gives the
+
+494
+00:23:11,340 --> 00:23:16,080
+number of times those letters appear
+
+495
+00:23:13,380 --> 00:23:18,240
+that's what we want let's do it
+
+496
+00:23:16,080 --> 00:23:21,080
+okay
+
+497
+00:23:18,240 --> 00:23:21,080
+uh
+
+498
+00:23:23,580 --> 00:23:28,700
+so
+
+499
+00:23:25,380 --> 00:23:28,700
+data account okay
+
+500
+00:23:34,919 --> 00:23:39,600
+Burnette
+
+501
+00:23:36,840 --> 00:23:44,760
+okay there it is now let's do bigrams
+
+502
+00:23:39,600 --> 00:23:47,820
+okay so uh consecutive two letters let's
+
+503
+00:23:44,760 --> 00:23:51,419
+see the little frequency okay
+
+504
+00:23:47,820 --> 00:23:53,720
+there it is so fantastic simple so
+
+505
+00:23:51,419 --> 00:23:53,720
+simple
+
+506
+00:23:53,880 --> 00:23:58,440
+so essentially we already solve the
+
+507
+00:23:55,799 --> 00:23:59,460
+problem now let's do a diagram for words
+
+508
+00:23:58,440 --> 00:24:01,980
+okay
+
+509
+00:23:59,460 --> 00:24:04,679
+so let's do background for words and
+
+510
+00:24:01,980 --> 00:24:06,780
+let's see what we get oh my God loading
+
+511
+00:24:04,679 --> 00:24:10,140
+from Wolf and research
+
+512
+00:24:06,780 --> 00:24:11,280
+I don't understand why is this function
+
+513
+00:24:10,140 --> 00:24:14,960
+um
+
+514
+00:24:11,280 --> 00:24:14,960
+not part of the kernel
+
+515
+00:24:19,380 --> 00:24:24,919
+okay later count uh wait what
+
+516
+00:24:24,960 --> 00:24:30,120
+oh it's still
+
+517
+00:24:27,120 --> 00:24:30,120
+computing
+
+518
+00:24:34,740 --> 00:24:39,299
+ah I don't like this it's actually it's
+
+519
+00:24:37,260 --> 00:24:41,039
+you know talking to the internet and do
+
+520
+00:24:39,299 --> 00:24:43,020
+the Computing but anyway here's the
+
+521
+00:24:41,039 --> 00:24:46,799
+result okay
+
+522
+00:24:43,020 --> 00:24:51,780
+so this result is not is
+
+523
+00:24:46,799 --> 00:24:54,679
+not ideal because you see it includes
+
+524
+00:24:51,780 --> 00:24:54,679
+the comma
+
+525
+00:24:59,460 --> 00:25:05,400
+oh wait it doesn't actually include the
+
+526
+00:25:01,440 --> 00:25:06,659
+comma but the reason it's all one is
+
+527
+00:25:05,400 --> 00:25:10,980
+because
+
+528
+00:25:06,659 --> 00:25:14,780
+our input text is too short
+
+529
+00:25:10,980 --> 00:25:19,140
+so you you don't get things like it is
+
+530
+00:25:14,780 --> 00:25:21,419
+what is where is you are things like
+
+531
+00:25:19,140 --> 00:25:25,020
+that you don't get it because you're you
+
+532
+00:25:21,419 --> 00:25:27,539
+know our input is only one paragraph
+
+533
+00:25:25,020 --> 00:25:30,480
+yeah here so okay
+
+534
+00:25:27,539 --> 00:25:32,520
+so essentially we already
+
+535
+00:25:30,480 --> 00:25:35,000
+have what we want let's see what we're
+
+536
+00:25:32,520 --> 00:25:35,000
+gonna do
+
+537
+00:25:36,600 --> 00:25:41,700
+oh there's a question do you prefer
+
+538
+00:25:38,340 --> 00:25:44,340
+Wolfram over python of course by a
+
+539
+00:25:41,700 --> 00:25:48,600
+magnitude you know if you haven't seen
+
+540
+00:25:44,340 --> 00:25:51,559
+my talk show watch uh by a magnitude by
+
+541
+00:25:48,600 --> 00:25:53,600
+uh watch this video on my website
+
+542
+00:25:51,559 --> 00:25:56,159
+saudi.info okay
+
+543
+00:25:53,600 --> 00:25:58,380
+xrd.info home page
+
+544
+00:25:56,159 --> 00:26:00,419
+then this video
+
+545
+00:25:58,380 --> 00:26:03,059
+2021
+
+546
+00:26:00,419 --> 00:26:06,000
+February 6th
+
+547
+00:26:03,059 --> 00:26:08,100
+you know you jump to 18 minutes you'll
+
+548
+00:26:06,000 --> 00:26:10,799
+see my
+
+549
+00:26:08,100 --> 00:26:14,960
+kind of uh give you I give you a
+
+550
+00:26:10,799 --> 00:26:14,960
+characteristics of different languages
+
+551
+00:26:15,419 --> 00:26:20,039
+Java closure JavaScript this and Wolfram
+
+552
+00:26:18,240 --> 00:26:21,900
+language rule Farm language is a
+
+553
+00:26:20,039 --> 00:26:24,240
+magnitude
+
+554
+00:26:21,900 --> 00:26:27,539
+uh better than them okay
+
+555
+00:26:24,240 --> 00:26:30,720
+as far as in terms of
+
+556
+00:26:27,539 --> 00:26:33,120
+ease of use in terms of you know superb
+
+557
+00:26:30,720 --> 00:26:36,659
+documentation ease of use and you know
+
+558
+00:26:33,120 --> 00:26:39,900
+understand the fastest way to do biom
+
+559
+00:26:36,659 --> 00:26:42,779
+magnitude uh then all of them
+
+560
+00:26:39,900 --> 00:26:45,659
+each line of wolf and language equals to
+
+561
+00:26:42,779 --> 00:26:48,480
+10 to 10 000 lines of other languages
+
+562
+00:26:45,659 --> 00:26:50,580
+including Haskell or lisp
+
+563
+00:26:48,480 --> 00:26:52,200
+the reason is because you know we are
+
+564
+00:26:50,580 --> 00:26:54,240
+not even counting
+
+565
+00:26:52,200 --> 00:26:56,340
+mathematical functions because you can
+
+566
+00:26:54,240 --> 00:26:59,400
+do integrals solve differential
+
+567
+00:26:56,340 --> 00:27:02,279
+equations and so on if you count those
+
+568
+00:26:59,400 --> 00:27:05,760
+then one line of movement language is
+
+569
+00:27:02,279 --> 00:27:09,120
+ten thousand lines of of all the others
+
+570
+00:27:05,760 --> 00:27:11,220
+JavaScript go and Java but if you do not
+
+571
+00:27:09,120 --> 00:27:13,140
+count those if you count things like you
+
+572
+00:27:11,220 --> 00:27:13,980
+know just simple functions like this one
+
+573
+00:27:13,140 --> 00:27:17,279
+you know
+
+574
+00:27:13,980 --> 00:27:19,679
+how many lines does it take to do a word
+
+575
+00:27:17,279 --> 00:27:22,860
+count well in Python in most other
+
+576
+00:27:19,679 --> 00:27:26,340
+languages you do a hash table then you
+
+577
+00:27:22,860 --> 00:27:29,700
+tidy you know like 10 lines
+
+578
+00:27:26,340 --> 00:27:32,539
+five lines so you know
+
+579
+00:27:29,700 --> 00:27:32,539
+Okay so
+
+580
+00:27:32,760 --> 00:27:38,179
+so what we're gonna do next
+
+581
+00:27:35,159 --> 00:27:38,179
+um let's see
+
+582
+00:27:38,400 --> 00:27:43,799
+now nltk now I'm not sure you know and
+
+583
+00:27:41,880 --> 00:27:46,980
+we'll find language language includes
+
+584
+00:27:43,799 --> 00:27:49,679
+lots of AI stuff like uh
+
+585
+00:27:46,980 --> 00:27:53,279
+you know what Wolfram Stefan Wolfram
+
+586
+00:27:49,679 --> 00:27:56,159
+would say is um it has basically all the
+
+587
+00:27:53,279 --> 00:27:58,140
+algorithms in computer science all the
+
+588
+00:27:56,159 --> 00:28:00,659
+Practical algorithms you need building
+
+589
+00:27:58,140 --> 00:28:02,700
+for example you um
+
+590
+00:28:00,659 --> 00:28:04,679
+stream levithian this you know for
+
+591
+00:28:02,700 --> 00:28:06,779
+example word counts letter counts you
+
+592
+00:28:04,679 --> 00:28:07,620
+know that's you need algorithm inside a
+
+593
+00:28:06,779 --> 00:28:11,820
+building
+
+594
+00:28:07,620 --> 00:28:14,039
+uh again 7 000 building functions out of
+
+595
+00:28:11,820 --> 00:28:16,740
+the box you do not need to load the
+
+596
+00:28:14,039 --> 00:28:18,960
+library like in in Python when you want
+
+597
+00:28:16,740 --> 00:28:21,120
+a regular expression you need to load a
+
+598
+00:28:18,960 --> 00:28:24,000
+regular expression Library same thing
+
+599
+00:28:21,120 --> 00:28:26,400
+with Golan if you want to Traverse
+
+600
+00:28:24,000 --> 00:28:31,080
+directory you need to load a you know
+
+601
+00:28:26,400 --> 00:28:33,539
+system OS Library you know that
+
+602
+00:28:31,080 --> 00:28:34,980
+in Wolfram language is you know you just
+
+603
+00:28:33,539 --> 00:28:37,919
+call the function right away you don't
+
+604
+00:28:34,980 --> 00:28:40,380
+need to load Library okay
+
+605
+00:28:37,919 --> 00:28:41,279
+so what we're gonna do next
+
+606
+00:28:40,380 --> 00:28:43,260
+um
+
+607
+00:28:41,279 --> 00:28:45,179
+I'm thinking maybe that's it for today
+
+608
+00:28:43,260 --> 00:28:46,020
+let's keep this short
+
+609
+00:28:45,179 --> 00:28:49,820
+um
+
+610
+00:28:46,020 --> 00:28:49,820
+okay let's see let's see
+
+611
+00:28:50,340 --> 00:28:54,480
+you know actually what I need to do is
+
+612
+00:28:52,559 --> 00:28:56,220
+actually I need to Traverse the
+
+613
+00:28:54,480 --> 00:28:58,279
+directory but
+
+614
+00:28:56,220 --> 00:28:58,279
+um
+
+615
+00:28:59,520 --> 00:29:04,980
+okay let's let's try to do that okay so
+
+616
+00:29:02,700 --> 00:29:07,440
+first of all let me let me let me let me
+
+617
+00:29:04,980 --> 00:29:11,299
+do um
+
+618
+00:29:07,440 --> 00:29:15,440
+okay now let's let me do this in the
+
+619
+00:29:11,299 --> 00:29:15,440
+ufam language mod okay
+
+620
+00:29:16,140 --> 00:29:22,080
+let me show you what that is so I can so
+
+621
+00:29:19,080 --> 00:29:26,039
+I have written example language mod in
+
+622
+00:29:22,080 --> 00:29:28,440
+images that allows you to uh code Wu
+
+623
+00:29:26,039 --> 00:29:30,659
+from language in iMac Beast so you can
+
+624
+00:29:28,440 --> 00:29:32,580
+see the uh
+
+625
+00:29:30,659 --> 00:29:34,559
+you know the web page you just search
+
+626
+00:29:32,580 --> 00:29:37,440
+for it you'll find it it's on GitHub
+
+627
+00:29:34,559 --> 00:29:39,179
+okay and there's a video so it's on
+
+628
+00:29:37,440 --> 00:29:43,440
+GitHub you you know you just go to
+
+629
+00:29:39,179 --> 00:29:46,440
+download so it allows you to code wufam
+
+630
+00:29:43,440 --> 00:29:48,059
+language in emacs because that way it's
+
+631
+00:29:46,440 --> 00:29:50,640
+much faster
+
+632
+00:29:48,059 --> 00:29:53,159
+okay and uh and uh
+
+633
+00:29:50,640 --> 00:29:54,480
+yeah and you can download wufan language
+
+634
+00:29:53,159 --> 00:29:56,700
+there okay
+
+635
+00:29:54,480 --> 00:29:59,039
+okay so um
+
+636
+00:29:56,700 --> 00:30:01,679
+so let's start to code that okay so
+
+637
+00:29:59,039 --> 00:30:07,140
+Wolfram so World count
+
+638
+00:30:01,679 --> 00:30:11,279
+so completion uh counts okay so impress
+
+639
+00:30:07,140 --> 00:30:13,320
+so X input equals to
+
+640
+00:30:11,279 --> 00:30:19,260
+so we want to
+
+641
+00:30:13,320 --> 00:30:22,559
+do something okay so what counts X input
+
+642
+00:30:19,260 --> 00:30:25,200
+so for example I can evaluate that okay
+
+643
+00:30:22,559 --> 00:30:27,860
+so let's do the same thing let's copy
+
+644
+00:30:25,200 --> 00:30:27,860
+the source code
+
+645
+00:30:28,500 --> 00:30:32,760
+okay this time let's just copy the whole
+
+646
+00:30:31,320 --> 00:30:37,860
+thing okay
+
+647
+00:30:32,760 --> 00:30:39,000
+now open it okay and remove all double
+
+648
+00:30:37,860 --> 00:30:42,059
+quote
+
+649
+00:30:39,000 --> 00:30:44,880
+wait do I have double quote there
+
+650
+00:30:42,059 --> 00:30:46,620
+because in order Okay no Okay copy it
+
+651
+00:30:44,880 --> 00:30:49,200
+close it
+
+652
+00:30:46,620 --> 00:30:53,419
+put the whole thing here okay so here is
+
+653
+00:30:49,200 --> 00:30:53,419
+a giant text input text okay
+
+654
+00:30:54,059 --> 00:31:00,860
+so now
+
+655
+00:30:55,740 --> 00:31:00,860
+now let's run this word count do it
+
+656
+00:31:02,820 --> 00:31:08,039
+there it is wait what okay so it's
+
+657
+00:31:06,240 --> 00:31:12,120
+repeating the output
+
+658
+00:31:08,039 --> 00:31:16,080
+so let's go down there it is okay so
+
+659
+00:31:12,120 --> 00:31:18,240
+here is the result word count
+
+660
+00:31:16,080 --> 00:31:19,620
+uh it's a long list
+
+661
+00:31:18,240 --> 00:31:23,940
+see
+
+662
+00:31:19,620 --> 00:31:29,520
+yeah so V you see V happens V happened
+
+663
+00:31:23,940 --> 00:31:31,440
+300 376 times and happened 319 times now
+
+664
+00:31:29,520 --> 00:31:32,640
+you have lots of words now it makes
+
+665
+00:31:31,440 --> 00:31:36,179
+sense
+
+666
+00:31:32,640 --> 00:31:39,000
+so these 200 uh that's a Unicode
+
+667
+00:31:36,179 --> 00:31:40,559
+something that yeah that's a Cody quote
+
+668
+00:31:39,000 --> 00:31:44,520
+I think
+
+669
+00:31:40,559 --> 00:31:46,980
+of happened 158 times okay so let's do
+
+670
+00:31:44,520 --> 00:31:49,039
+this again now let's
+
+671
+00:31:46,980 --> 00:31:49,039
+um
+
+672
+00:31:51,179 --> 00:31:54,320
+okay let's run it
+
+673
+00:31:55,320 --> 00:32:01,440
+uh okay so copy the text new buffer
+
+674
+00:31:58,860 --> 00:32:04,100
+paste it here now let's make them into
+
+675
+00:32:01,440 --> 00:32:04,100
+one
+
+676
+00:32:05,220 --> 00:32:13,220
+each line each word by a line itself so
+
+677
+00:32:08,399 --> 00:32:13,220
+I'm gonna do some emacs find and replace
+
+678
+00:32:13,679 --> 00:32:18,320
+okay now it's much easier to see
+
+679
+00:32:19,260 --> 00:32:25,380
+okay that's the word count okay so close
+
+680
+00:32:21,899 --> 00:32:27,500
+that don't save now we also need
+
+681
+00:32:25,380 --> 00:32:27,500
+um
+
+682
+00:32:27,720 --> 00:32:34,740
+letter counts okay now words counts now
+
+683
+00:32:31,140 --> 00:32:37,220
+let's do a word counts by Gram and let
+
+684
+00:32:34,740 --> 00:32:37,220
+her come
+
+685
+00:32:38,399 --> 00:32:41,840
+Okay so
+
+686
+00:32:45,779 --> 00:32:48,799
+there it is
+
+687
+00:32:54,000 --> 00:32:59,340
+okay so word count uh what kind of
+
+688
+00:32:57,059 --> 00:33:02,539
+diagram okay let's do a comeback diagram
+
+689
+00:32:59,340 --> 00:33:02,539
+and let's see what happens
+
+690
+00:33:05,460 --> 00:33:10,860
+you know it's great in when I'm using
+
+691
+00:33:08,580 --> 00:33:12,960
+Wolfram script it doesn't connect to
+
+692
+00:33:10,860 --> 00:33:14,760
+internet I don't think so that is great
+
+693
+00:33:12,960 --> 00:33:20,940
+so here is the result
+
+694
+00:33:14,760 --> 00:33:23,840
+now let's let's separate into the um
+
+695
+00:33:20,940 --> 00:33:23,840
+each line
+
+696
+00:33:25,679 --> 00:33:31,440
+fantastic
+
+697
+00:33:27,179 --> 00:33:33,480
+so you can see oh wait I don't want that
+
+698
+00:33:31,440 --> 00:33:35,600
+so I want
+
+699
+00:33:33,480 --> 00:33:35,600
+um
+
+700
+00:33:36,659 --> 00:33:39,500
+it's undo
+
+701
+00:33:40,140 --> 00:33:45,360
+so you want to replace
+
+702
+00:33:42,960 --> 00:33:48,200
+that
+
+703
+00:33:45,360 --> 00:33:48,200
+by
+
+704
+00:33:52,799 --> 00:33:56,760
+wait what do you want to replace you
+
+705
+00:33:55,200 --> 00:33:59,279
+want to replace
+
+706
+00:33:56,760 --> 00:34:00,720
+that
+
+707
+00:33:59,279 --> 00:34:05,179
+by
+
+708
+00:34:00,720 --> 00:34:05,179
+a new line okay do it
+
+709
+00:34:06,299 --> 00:34:14,760
+okay there it is so the phrase
+
+710
+00:34:10,740 --> 00:34:18,060
+what is this 200 character damn
+
+711
+00:34:14,760 --> 00:34:23,659
+okay that's not good let's uh
+
+712
+00:34:18,060 --> 00:34:27,179
+so of the happens 100 you know 33 times
+
+713
+00:34:23,659 --> 00:34:29,879
+2D happens 32 times the fisherman
+
+714
+00:34:27,179 --> 00:34:33,179
+happens 23 times fantastic
+
+715
+00:34:29,879 --> 00:34:36,000
+so that's spy gram okay so let's try
+
+716
+00:34:33,179 --> 00:34:38,720
+trigram what happens if you have a
+
+717
+00:34:36,000 --> 00:34:38,720
+trigram
+
+718
+00:34:39,480 --> 00:34:46,399
+I mean three word phrases let's run it
+
+719
+00:34:43,740 --> 00:34:46,399
+hello
+
+720
+00:34:47,359 --> 00:34:51,800
+I don't know who are you I don't
+
+721
+00:34:52,200 --> 00:34:58,520
+so here's a result and now we place
+
+722
+00:34:58,800 --> 00:35:03,740
+that by a new line replace all
+
+723
+00:35:03,780 --> 00:35:10,680
+okay so fishermen the fishermen
+
+724
+00:35:08,220 --> 00:35:13,560
+something
+
+725
+00:35:10,680 --> 00:35:15,780
+you know I think I think there's a flaw
+
+726
+00:35:13,560 --> 00:35:18,560
+in Wolfram language here this character
+
+727
+00:35:15,780 --> 00:35:18,560
+that's you know
+
+728
+00:35:19,200 --> 00:35:25,020
+it's incorrect
+
+729
+00:35:21,359 --> 00:35:29,540
+um you know I think it's wrongly read
+
+730
+00:35:25,020 --> 00:35:29,540
+the curly double quote here
+
+731
+00:35:30,060 --> 00:35:34,640
+so you can see there are many Unicode
+
+732
+00:35:32,339 --> 00:35:34,640
+characters
+
+733
+00:35:34,859 --> 00:35:38,420
+such as you know that
+
+734
+00:35:36,960 --> 00:35:41,099
+that
+
+735
+00:35:38,420 --> 00:35:44,520
+uh thing
+
+736
+00:35:41,099 --> 00:35:48,300
+by the way this is you know I have this
+
+737
+00:35:44,520 --> 00:35:50,640
+is my work I have annotated this
+
+738
+00:35:48,300 --> 00:35:53,700
+this work so you can hoover the mouse
+
+739
+00:35:50,640 --> 00:36:00,680
+and see what we thought means
+
+740
+00:35:53,700 --> 00:36:00,680
+and uh held you know so they're at
+
+741
+00:36:00,780 --> 00:36:05,540
+yeah so you can see there's a curly
+
+742
+00:36:03,000 --> 00:36:05,540
+quote there
+
+743
+00:36:05,780 --> 00:36:13,079
+uh might and Men that's a poem
+
+744
+00:36:09,839 --> 00:36:16,260
+you know so this story uh lovely story
+
+745
+00:36:13,079 --> 00:36:20,880
+okay the Arabian Nights the Fisher man
+
+746
+00:36:16,260 --> 00:36:23,820
+and the genie and then here comes a poem
+
+747
+00:36:20,880 --> 00:36:26,780
+oh toilet through the glooms of the
+
+748
+00:36:23,820 --> 00:36:30,720
+night in Peril and in pain
+
+749
+00:36:26,780 --> 00:36:33,140
+cytolin stint for Daily Bread comes not
+
+750
+00:36:30,720 --> 00:36:36,839
+by might and Men
+
+751
+00:36:33,140 --> 00:36:40,320
+seized thou not the Fisher seek afloat
+
+752
+00:36:36,839 --> 00:36:43,260
+upon the sea he spread while glimmer
+
+753
+00:36:40,320 --> 00:36:46,859
+stars of the night are set in Tangled
+
+754
+00:36:43,260 --> 00:36:50,220
+skin I love this I love it
+
+755
+00:36:46,859 --> 00:36:52,980
+so go read it okay search for Saudi
+
+756
+00:36:50,220 --> 00:36:54,720
+Arabian Nights you'll find it okay so
+
+757
+00:36:52,980 --> 00:36:56,579
+that's the word count that's a
+
+758
+00:36:54,720 --> 00:36:58,740
+three-letter words count
+
+759
+00:36:56,579 --> 00:37:00,000
+um you know this
+
+760
+00:36:58,740 --> 00:37:02,400
+so
+
+761
+00:37:00,000 --> 00:37:04,800
+so let's find out what exactly what
+
+762
+00:37:02,400 --> 00:37:06,060
+happened here why is it those where are
+
+763
+00:37:04,800 --> 00:37:09,920
+those um
+
+764
+00:37:06,060 --> 00:37:09,920
+funny characters let's see
+
+765
+00:37:10,560 --> 00:37:18,180
+so let's try to search this line if it
+
+766
+00:37:13,680 --> 00:37:20,760
+okay such i f r i t by the way if it
+
+767
+00:37:18,180 --> 00:37:24,720
+means Genie okay in Disney speak in
+
+768
+00:37:20,760 --> 00:37:26,880
+American speak that's Genie Everett
+
+769
+00:37:24,720 --> 00:37:31,880
+okay search again
+
+770
+00:37:26,880 --> 00:37:31,880
+search again search again if it
+
+771
+00:37:32,099 --> 00:37:34,640
+okay
+
+772
+00:37:35,060 --> 00:37:38,420
+uh well
+
+773
+00:37:39,599 --> 00:37:47,760
+let's try this one the if it okay search
+
+774
+00:37:43,820 --> 00:37:50,960
+the if rate
+
+775
+00:37:47,760 --> 00:37:53,760
+okay search search search search
+
+776
+00:37:50,960 --> 00:37:55,740
+okay I don't know which one is that it
+
+777
+00:37:53,760 --> 00:37:57,720
+happens a lot let's go to the bottom
+
+778
+00:37:55,740 --> 00:37:59,760
+okay
+
+779
+00:37:57,720 --> 00:38:02,040
+see something
+
+780
+00:37:59,760 --> 00:38:03,359
+you know we want to try to find out what
+
+781
+00:38:02,040 --> 00:38:05,940
+are these
+
+782
+00:38:03,359 --> 00:38:08,520
+you know what are these slash something
+
+783
+00:38:05,940 --> 00:38:10,140
+I think it's some problem with Wolfram
+
+784
+00:38:08,520 --> 00:38:14,400
+language
+
+785
+00:38:10,140 --> 00:38:17,420
+you know it interpreted the encoding
+
+786
+00:38:14,400 --> 00:38:17,420
+incorrectly I think
+
+787
+00:38:18,780 --> 00:38:24,140
+puso shell okay let's try to find whoso
+
+788
+00:38:21,780 --> 00:38:24,140
+Shell
+
+789
+00:38:24,599 --> 00:38:29,839
+also
+
+790
+00:38:27,119 --> 00:38:29,839
+shell
+
+791
+00:38:29,880 --> 00:38:37,680
+okay that's a single quote
+
+792
+00:38:33,060 --> 00:38:41,280
+single curly quote apparently
+
+793
+00:38:37,680 --> 00:38:44,579
+let's try to do it again yeah so who's
+
+794
+00:38:41,280 --> 00:38:47,060
+the shell who's a shell so single curly
+
+795
+00:38:44,579 --> 00:38:50,940
+quote becomes
+
+796
+00:38:47,060 --> 00:38:53,880
+slash two three zero let's let's see if
+
+797
+00:38:50,940 --> 00:38:57,780
+that's true okay so in emacs what you
+
+798
+00:38:53,880 --> 00:39:00,619
+can do is this is the power of E Max so
+
+799
+00:38:57,780 --> 00:39:00,619
+a new buffer
+
+800
+00:39:01,680 --> 00:39:10,380
+type a single quote magnify and the code
+
+801
+00:39:05,579 --> 00:39:12,859
+describe chart so it's going to tell you
+
+802
+00:39:10,380 --> 00:39:17,660
+that
+
+803
+00:39:12,859 --> 00:39:17,660
+the code point is 44
+
+804
+00:39:18,839 --> 00:39:23,720
+uh the code point is 44
+
+805
+00:39:24,780 --> 00:39:32,520
+yeah but that
+
+806
+00:39:26,820 --> 00:39:35,880
+but in Octo it's 54 in HEX decimal is 2C
+
+807
+00:39:32,520 --> 00:39:38,880
+that does not explain where it is 230
+
+808
+00:39:35,880 --> 00:39:41,460
+come from so I think what happens what
+
+809
+00:39:38,880 --> 00:39:44,040
+happened is that
+
+810
+00:39:41,460 --> 00:39:47,599
+the Wolfram language has encoding
+
+811
+00:39:44,040 --> 00:39:47,599
+incorrect I'm guessing
+
+812
+00:39:48,540 --> 00:39:54,300
+okay I think that's it for today so 40
+
+813
+00:39:51,359 --> 00:39:56,820
+yeah 40 minutes so
+
+814
+00:39:54,300 --> 00:40:00,000
+yeah so let's um
+
+815
+00:39:56,820 --> 00:40:01,859
+so we do we did World count now let's do
+
+816
+00:40:00,000 --> 00:40:03,000
+letter com okay let's just do little
+
+817
+00:40:01,859 --> 00:40:05,460
+count
+
+818
+00:40:03,000 --> 00:40:07,820
+do it run it
+
+819
+00:40:05,460 --> 00:40:11,579
+okay so letter count is pretty short
+
+820
+00:40:07,820 --> 00:40:12,740
+copy it new buffer paste it here
+
+821
+00:40:11,579 --> 00:40:15,720
+replace
+
+822
+00:40:12,740 --> 00:40:18,119
+comma by comma
+
+823
+00:40:15,720 --> 00:40:21,000
+new line
+
+824
+00:40:18,119 --> 00:40:23,940
+okay let's account fantastic that
+
+825
+00:40:21,000 --> 00:40:26,460
+account is easy okay but now let's see
+
+826
+00:40:23,940 --> 00:40:28,339
+letter count by five grams okay two
+
+827
+00:40:26,460 --> 00:40:31,079
+letter
+
+828
+00:40:28,339 --> 00:40:37,520
+two-letter consecutive letters okay
+
+829
+00:40:31,079 --> 00:40:37,520
+there it is copy new offer replace
+
+830
+00:40:41,099 --> 00:40:46,560
+Okay so
+
+831
+00:40:43,560 --> 00:40:50,359
+uh it's not sorted okay when you do
+
+832
+00:40:46,560 --> 00:40:50,359
+letter count it doesn't sort it
+
+833
+00:40:50,880 --> 00:40:56,540
+okay but we can sort it with emacs magic
+
+834
+00:40:53,700 --> 00:40:59,160
+or we can sort it with Wolfram
+
+835
+00:40:56,540 --> 00:41:00,000
+I'm not going to do it
+
+836
+00:40:59,160 --> 00:41:04,320
+um
+
+837
+00:41:00,000 --> 00:41:08,400
+okay so close uh don't save uh curse
+
+838
+00:41:04,320 --> 00:41:10,619
+don't save okay so that is the basically
+
+839
+00:41:08,400 --> 00:41:13,740
+the solution okay
+
+840
+00:41:10,619 --> 00:41:17,540
+so now pop this back
+
+841
+00:41:13,740 --> 00:41:17,540
+to a HTML page
+
+842
+00:41:17,579 --> 00:41:20,599
+showing browser
+
+843
+00:41:20,700 --> 00:41:27,260
+okay that is today's
+
+844
+00:41:23,220 --> 00:41:27,260
+um Talk show that's the input
+
+845
+00:41:29,099 --> 00:41:32,520
+and it's no good it's
+
+846
+00:41:31,320 --> 00:41:34,859
+um
+
+847
+00:41:32,520 --> 00:41:36,780
+because the input is so long it's better
+
+848
+00:41:34,859 --> 00:41:38,640
+if you read it from the text okay let's
+
+849
+00:41:36,780 --> 00:41:41,520
+do one more thing let's read it from a
+
+850
+00:41:38,640 --> 00:41:44,280
+file okay so let's get to the path of
+
+851
+00:41:41,520 --> 00:41:46,800
+the file here
+
+852
+00:41:44,280 --> 00:41:51,060
+okay that is the file
+
+853
+00:41:46,800 --> 00:41:54,180
+copy the file path back to emacs and uh
+
+854
+00:41:51,060 --> 00:41:58,740
+pop this wufam language out here is a
+
+855
+00:41:54,180 --> 00:42:00,900
+file path and let's remove the whole
+
+856
+00:41:58,740 --> 00:42:03,839
+text here
+
+857
+00:42:00,900 --> 00:42:06,480
+so we want to read this file so how do
+
+858
+00:42:03,839 --> 00:42:08,099
+you read go back to family Language
+
+859
+00:42:06,480 --> 00:42:09,720
+tutorial
+
+860
+00:42:08,099 --> 00:42:13,260
+then
+
+861
+00:42:09,720 --> 00:42:15,859
+here is a read file
+
+862
+00:42:13,260 --> 00:42:19,040
+read file okay so that's what you do
+
+863
+00:42:15,859 --> 00:42:19,040
+copy it
+
+864
+00:42:19,740 --> 00:42:26,760
+okay read and give a directory so the
+
+865
+00:42:23,339 --> 00:42:30,780
+directory file path is that
+
+866
+00:42:26,760 --> 00:42:35,780
+okay content Okay so
+
+867
+00:42:30,780 --> 00:42:35,780
+uh that's that will be just X input
+
+868
+00:42:38,480 --> 00:42:47,240
+comment that out
+
+869
+00:42:41,760 --> 00:42:47,240
+there it is now let's do this again
+
+870
+00:42:51,300 --> 00:42:54,680
+would come do it
+
+871
+00:42:56,640 --> 00:43:04,339
+uh okay so you need to put a semicolon
+
+872
+00:42:59,880 --> 00:43:04,339
+so it doesn't show the input do it again
+
+873
+00:43:05,760 --> 00:43:12,300
+there is a result okay so copy it new
+
+874
+00:43:09,660 --> 00:43:15,720
+buffer paste it
+
+875
+00:43:12,300 --> 00:43:18,960
+replace comma by comma
+
+876
+00:43:15,720 --> 00:43:20,160
+new line go to the top there it is
+
+877
+00:43:18,960 --> 00:43:22,440
+welcome
+
+878
+00:43:20,160 --> 00:43:25,560
+fantastic okay
+
+879
+00:43:22,440 --> 00:43:29,160
+now since we are reading the file and
+
+880
+00:43:25,560 --> 00:43:32,940
+the source of the file is a HTML file so
+
+881
+00:43:29,160 --> 00:43:34,619
+you start to get lots of these HTML
+
+882
+00:43:32,940 --> 00:43:37,560
+um
+
+883
+00:43:34,619 --> 00:43:40,440
+tax so now let's write another command
+
+884
+00:43:37,560 --> 00:43:44,540
+to replace those HTML tags so we're
+
+885
+00:43:40,440 --> 00:43:44,540
+gonna write we're gonna do find replace
+
+886
+00:43:45,000 --> 00:43:50,040
+any pattern like that we're gonna
+
+887
+00:43:46,980 --> 00:43:51,960
+replace delete them okay so let's do
+
+888
+00:43:50,040 --> 00:43:55,200
+find replace so how do you do find
+
+889
+00:43:51,960 --> 00:43:58,140
+replacing Wolfram language well there is
+
+890
+00:43:55,200 --> 00:44:00,980
+uh finding stream functions so you need
+
+891
+00:43:58,140 --> 00:44:00,980
+you go to stream
+
+892
+00:44:01,500 --> 00:44:06,839
+then you uh
+
+893
+00:44:04,020 --> 00:44:10,859
+insert into string delete substring
+
+894
+00:44:06,839 --> 00:44:13,680
+search test pattern matching and string
+
+895
+00:44:10,859 --> 00:44:16,579
+replace okay so that is what you want
+
+896
+00:44:13,680 --> 00:44:16,579
+string replace
+
+897
+00:44:18,060 --> 00:44:20,720
+yeah
+
+898
+00:44:20,900 --> 00:44:27,680
+so we're gonna
+
+899
+00:44:23,400 --> 00:44:27,680
+what we're gonna do is that
+
+900
+00:44:37,680 --> 00:44:45,300
+okay so replace so we're gonna
+
+901
+00:44:41,880 --> 00:44:48,359
+stream replace input so here is the
+
+902
+00:44:45,300 --> 00:44:50,720
+input first argument the second argument
+
+903
+00:44:48,359 --> 00:44:54,480
+is you want to
+
+904
+00:44:50,720 --> 00:44:58,380
+have a pattern so you know in here you
+
+905
+00:44:54,480 --> 00:45:00,599
+replace stock by cat but what we want to
+
+906
+00:44:58,380 --> 00:45:02,460
+do is a pattern here
+
+907
+00:45:00,599 --> 00:45:04,020
+so
+
+908
+00:45:02,460 --> 00:45:06,180
+um
+
+909
+00:45:04,020 --> 00:45:08,040
+so we want let's use a regular
+
+910
+00:45:06,180 --> 00:45:11,460
+expression
+
+911
+00:45:08,040 --> 00:45:15,240
+okay regular expression
+
+912
+00:45:11,460 --> 00:45:15,240
+that and
+
+913
+00:45:16,200 --> 00:45:25,500
+then here is anything not that okay one
+
+914
+00:45:21,960 --> 00:45:26,880
+or more okay and replace it by empty
+
+915
+00:45:25,500 --> 00:45:32,480
+string okay
+
+916
+00:45:26,880 --> 00:45:32,480
+and it returns a new screen so
+
+917
+00:45:33,000 --> 00:45:39,540
+so set it back to input okay now now
+
+918
+00:45:36,960 --> 00:45:43,819
+let's run this again
+
+919
+00:45:39,540 --> 00:45:43,819
+and put a semicolon here
+
+920
+00:45:46,319 --> 00:45:53,579
+now run it
+
+921
+00:45:48,359 --> 00:45:56,400
+now we we will not see those HTML markup
+
+922
+00:45:53,579 --> 00:46:00,119
+yeah indeed there it is
+
+923
+00:45:56,400 --> 00:46:03,900
+so new buffer paste it here replace
+
+924
+00:46:00,119 --> 00:46:07,020
+comma by new line replace or go to the
+
+925
+00:46:03,900 --> 00:46:10,440
+top there is fantastic that's fantastic
+
+926
+00:46:07,020 --> 00:46:14,640
+that's it for today that's it so now our
+
+927
+00:46:10,440 --> 00:46:17,540
+code is fantastic just very short delete
+
+928
+00:46:14,640 --> 00:46:17,540
+that cling up
+
+929
+00:46:17,700 --> 00:46:24,780
+put it back to HTML page
+
+930
+00:46:20,760 --> 00:46:27,480
+syntax color them showing browser
+
+931
+00:46:24,780 --> 00:46:29,579
+there it is our result this wolfam
+
+932
+00:46:27,480 --> 00:46:31,800
+language code okay that's it for today
+
+933
+00:46:29,579 --> 00:46:34,859
+thank you guys for watching
+
+934
+00:46:31,800 --> 00:46:37,619
+if you pay me okay donate me okay like
+
+935
+00:46:34,859 --> 00:46:41,040
+my stuff uh you know pay me
+
+936
+00:46:37,619 --> 00:46:42,960
+so you go to guitar talk show you uh you
+
+937
+00:46:41,040 --> 00:46:45,060
+know you go to my Saudi website you can
+
+938
+00:46:42,960 --> 00:46:49,260
+see at the bottom
+
+939
+00:46:45,060 --> 00:46:51,839
+patreon me Amazon gift card me
+
+940
+00:46:49,260 --> 00:46:54,380
+okay thank you guys for watching any
+
+941
+00:46:51,839 --> 00:46:54,380
+other questions
+
+942
+00:46:55,380 --> 00:46:58,380
+uh
+
+943
+00:47:04,859 --> 00:47:07,819
+sleeping
+
+944
+00:47:08,660 --> 00:47:12,660
+emacs uh
+
+945
+00:47:17,880 --> 00:47:20,880
+emacs
+
+946
+00:47:29,640 --> 00:47:34,339
+is a YouTube song
+
+947
+00:47:39,660 --> 00:47:43,040
+okay thank you guys
+
+948
+00:47:44,339 --> 00:47:46,940
+bye guys
+
+949
+00:47:47,819 --> 00:47:54,000
+okay so Nick so next coming weeks I'm
+
+950
+00:47:51,480 --> 00:47:56,760
+going to write the same thing exactly
+
+951
+00:47:54,000 --> 00:48:00,420
+like today but in
+
+952
+00:47:56,760 --> 00:48:03,240
+I'm gonna do in you know
+
+953
+00:48:00,420 --> 00:48:04,740
+in in JavaScript in emac beasts that
+
+954
+00:48:03,240 --> 00:48:08,220
+should be easy you make this in
+
+955
+00:48:04,740 --> 00:48:09,540
+JavaScript in Powershell in Golan in
+
+956
+00:48:08,220 --> 00:48:11,280
+Python
+
+957
+00:48:09,540 --> 00:48:13,800
+yeah that's that's the language I'm
+
+958
+00:48:11,280 --> 00:48:15,720
+gonna do exactly the same thing so then
+
+959
+00:48:13,800 --> 00:48:18,000
+another day we're gonna compare which
+
+960
+00:48:15,720 --> 00:48:20,180
+one is the fastest which one has the
+
+961
+00:48:18,000 --> 00:48:23,099
+shortest code
+
+962
+00:48:20,180 --> 00:48:25,200
+obviously Wolfram language you know it's
+
+963
+00:48:23,099 --> 00:48:28,040
+two lines done
+
+964
+00:48:25,200 --> 00:48:28,040
+by
+
+965
+00:48:28,440 --> 00:48:33,000
+shutting down shutting down in in a
+
+966
+00:48:30,839 --> 00:48:35,700
+minute okay
+
+967
+00:48:33,000 --> 00:48:39,560
+so I talked all the things I want to
+
+968
+00:48:35,700 --> 00:48:39,560
+talk about yeah so
+
+969
+00:48:41,880 --> 00:48:46,740
+yeah but we didn't do the directory but
+
+970
+00:48:44,520 --> 00:48:48,359
+that's you know that's easy you just
+
+971
+00:48:46,740 --> 00:48:52,460
+read the whole
+
+972
+00:48:48,359 --> 00:48:52,460
+bunch of files in your directory um
+
+973
+00:48:52,560 --> 00:48:55,040
+uh okay
+

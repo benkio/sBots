@@ -1,0 +1,5004 @@
+1
+00:00:00,400 --> 00:00:06,240
+Good morning everyone. I'm alive.
+
+2
+00:00:02,639 --> 00:00:08,800
+Welcome to another episode of talk show.
+
+3
+00:00:06,240 --> 00:00:11,440
+Video check, audio check. So we are
+
+4
+00:00:08,800 --> 00:00:13,840
+going to code Emac Lisp today. Pure
+
+5
+00:00:11,440 --> 00:00:17,199
+Emacis. If you are here, say hi. If you
+
+6
+00:00:13,840 --> 00:00:21,520
+are not here, play at 1.5 speed because
+
+7
+00:00:17,199 --> 00:00:23,519
+I ramble just like the Joe Rogan monkey.
+
+8
+00:00:21,520 --> 00:00:25,279
+Okay, so we're going to code several
+
+9
+00:00:23,519 --> 00:00:27,199
+things, but let's see, you know, if we
+
+10
+00:00:25,279 --> 00:00:29,599
+have time, we're going to go to the next
+
+11
+00:00:27,199 --> 00:00:32,480
+one and next one. So the first one I
+
+12
+00:00:29,599 --> 00:00:36,480
+want to do you know I I the title of
+
+13
+00:00:32,480 --> 00:00:38,879
+today is HTML amp% code decoding code
+
+14
+00:00:36,480 --> 00:00:41,600
+and let me show you that command. Okay
+
+15
+00:00:38,879 --> 00:00:44,960
+something let's say you know on my on my
+
+16
+00:00:41,600 --> 00:00:47,280
+Twitter uh let's say you copied some
+
+17
+00:00:44,960 --> 00:00:50,160
+text that's my keyboard by the way glove
+
+18
+00:00:47,280 --> 00:00:53,280
+80 fantastic I have reviews video
+
+19
+00:00:50,160 --> 00:00:56,399
+reviews and on sali.info info, lots of
+
+20
+00:00:53,280 --> 00:01:00,559
+photos. Okay. Glove 80 keyboard. And you
+
+21
+00:00:56,399 --> 00:01:04,640
+can see, you know, several uh photos of
+
+22
+00:01:00,559 --> 00:01:06,400
+it. Uh glove 80. And uh so that's that
+
+23
+00:01:04,640 --> 00:01:08,640
+one. And this is ultimate hacking
+
+24
+00:01:06,400 --> 00:01:12,080
+keyboard. By the way, there's Ultimate
+
+25
+00:01:08,640 --> 00:01:14,560
+Hacking 80 coming up. I think I'm going
+
+26
+00:01:12,080 --> 00:01:16,560
+to review. Uh I need to contact them.
+
+27
+00:01:14,560 --> 00:01:18,960
+They, you know, anyway, I think I'm
+
+28
+00:01:16,560 --> 00:01:21,520
+going to review it. So, Glove 80,
+
+29
+00:01:18,960 --> 00:01:23,600
+fantastic. Okay. So, GLV ultimate
+
+30
+00:01:21,520 --> 00:01:29,280
+hacking keyboard. Okay. And you can find
+
+31
+00:01:23,600 --> 00:01:32,240
+it on sudi.info and um and my YouTube.
+
+32
+00:01:29,280 --> 00:01:35,119
+Search for it. You'll find it. Okay. I
+
+33
+00:01:32,240 --> 00:01:38,960
+need to adjust. So, this one is uh
+
+34
+00:01:35,119 --> 00:01:42,720
+Swarboard SV A L B O A R D. Fantastic
+
+35
+00:01:38,960 --> 00:01:44,799
+device. I have a uh I have video reviews
+
+36
+00:01:42,720 --> 00:01:47,680
+on it too, but other people have
+
+37
+00:01:44,799 --> 00:01:51,040
+reviewed it. I'll be using it, you know,
+
+38
+00:01:47,680 --> 00:01:54,079
+down the road. So today uh let's code
+
+39
+00:01:51,040 --> 00:01:56,240
+let's start coding email list shall we
+
+40
+00:01:54,079 --> 00:01:59,439
+shall we? Okay. So, video check, audio
+
+41
+00:01:56,240 --> 00:02:03,360
+check. Good. Okay. Let's go.
+
+42
+00:01:59,439 --> 00:02:06,320
+So, let's see. So, the uh so the the the
+
+43
+00:02:03,360 --> 00:02:08,800
+title is HTML amperand. Okay. So, let's
+
+44
+00:02:06,320 --> 00:02:12,400
+say you know let's let's say if I copy
+
+45
+00:02:08,800 --> 00:02:15,520
+something from uh Twitter or anywhere
+
+46
+00:02:12,400 --> 00:02:18,480
+um you know this is a device about
+
+47
+00:02:15,520 --> 00:02:21,520
+keyboard. Copy it.
+
+48
+00:02:18,480 --> 00:02:26,560
+And let's say if there's some amperand
+
+49
+00:02:21,520 --> 00:02:29,680
+uh this and that.
+
+50
+00:02:26,560 --> 00:02:32,560
+Okay. And you want to put on your blog.
+
+51
+00:02:29,680 --> 00:02:35,040
+So you cut that and uh you know paste it
+
+52
+00:02:32,560 --> 00:02:38,239
+on your blog and make it paragraph
+
+53
+00:02:35,040 --> 00:02:40,720
+showing browser and you got that. But
+
+54
+00:02:38,239 --> 00:02:43,040
+actually that is technically invalid
+
+55
+00:02:40,720 --> 00:02:45,360
+because for the amperand character you
+
+56
+00:02:43,040 --> 00:02:47,120
+need to encode it. Okay. So let's
+
+57
+00:02:45,360 --> 00:02:49,360
+magnify.
+
+58
+00:02:47,120 --> 00:02:52,080
+So you need to actually encode that amp
+
+59
+00:02:49,360 --> 00:02:55,280
+percent. So there's a command uh let's
+
+60
+00:02:52,080 --> 00:02:58,480
+see what is a key. Press
+
+61
+00:02:55,280 --> 00:03:00,879
+uh press press
+
+62
+00:02:58,480 --> 00:03:05,200
+undefined. I forgot what's a key. So
+
+63
+00:03:00,879 --> 00:03:10,879
+let's press and uh control H. Let's see.
+
+64
+00:03:05,200 --> 00:03:13,040
+Search for amperand. Okay. Tap j. That's
+
+65
+00:03:10,879 --> 00:03:15,040
+keyboard layout. Okay. So you can see
+
+66
+00:03:13,040 --> 00:03:16,560
+all my command codes and the command
+
+67
+00:03:15,040 --> 00:03:19,519
+name on the right side in the pink
+
+68
+00:03:16,560 --> 00:03:23,360
+window. Command keystrokes on the left.
+
+69
+00:03:19,519 --> 00:03:25,760
+Okay. Tap j on bora keyboard. Encode
+
+70
+00:03:23,360 --> 00:03:28,800
+amperson entity. Okay. Search for
+
+71
+00:03:25,760 --> 00:03:33,040
+ampersand. And there's also decode amp%
+
+72
+00:03:28,800 --> 00:03:35,440
+entity. Tap j. Okay. So
+
+73
+00:03:33,040 --> 00:03:40,560
+place a cursor anywhere in the on in
+
+74
+00:03:35,440 --> 00:03:43,519
+this block of text. Tap j.
+
+75
+00:03:40,560 --> 00:03:45,280
+You see they encoded the whole thing. So
+
+76
+00:03:43,519 --> 00:03:49,280
+that's not what you want. You see now it
+
+77
+00:03:45,280 --> 00:03:51,680
+becomes you know paragraph. So undo. So
+
+78
+00:03:49,280 --> 00:03:54,640
+basically you want to make it you know
+
+79
+00:03:51,680 --> 00:03:58,560
+let's remove the paragraph. Okay. So
+
+80
+00:03:54,640 --> 00:04:03,760
+save it. Close. Reopen. So there we are.
+
+81
+00:03:58,560 --> 00:04:07,040
+And uh and uh tap j. You see that emp%
+
+82
+00:04:03,760 --> 00:04:09,840
+got encoded. Now you put in the you put
+
+83
+00:04:07,040 --> 00:04:13,599
+in the paragraph show in browser. Now
+
+84
+00:04:09,840 --> 00:04:16,639
+that is correct. Okay. Similarly, if you
+
+85
+00:04:13,599 --> 00:04:19,840
+have programming languages such as x =
+
+86
+00:04:16,639 --> 00:04:23,040
+to 3, if
+
+87
+00:04:19,840 --> 00:04:25,919
+you know x= to 3 something, you also
+
+88
+00:04:23,040 --> 00:04:29,360
+want to encode that greater than sign
+
+89
+00:04:25,919 --> 00:04:30,960
+because that is uh technically require
+
+90
+00:04:29,360 --> 00:04:36,400
+well
+
+91
+00:04:30,960 --> 00:04:39,600
+it is in XML it's required but in HTML 5
+
+92
+00:04:36,400 --> 00:04:42,400
+uh as long as you have space around it
+
+93
+00:04:39,600 --> 00:04:44,720
+that's kind of okay but strict you Oh,
+
+94
+00:04:42,400 --> 00:04:48,960
+you should encode it. So, let's try it
+
+95
+00:04:44,720 --> 00:04:50,560
+again. So, tap j. You see now it's good.
+
+96
+00:04:48,960 --> 00:04:53,759
+Fantastic.
+
+97
+00:04:50,560 --> 00:04:57,680
+Okay. So, that command is uh let's see
+
+98
+00:04:53,759 --> 00:05:02,880
+describe key tab jet. That command is
+
+99
+00:04:57,680 --> 00:05:05,840
+this encode HTML encode entity. Okay,
+
+100
+00:05:02,880 --> 00:05:08,160
+let's open it. And you can see the code
+
+101
+00:05:05,840 --> 00:05:10,080
+the the code is actually on this page
+
+102
+00:05:08,160 --> 00:05:13,680
+showing browser.
+
+103
+00:05:10,080 --> 00:05:17,680
+So you can grab it but it doesn't work.
+
+104
+00:05:13,680 --> 00:05:21,039
+It won't work because it requires my
+
+105
+00:05:17,680 --> 00:05:24,080
+other packages replace pairs region. So
+
+106
+00:05:21,039 --> 00:05:27,600
+you can see this command is written in a
+
+107
+00:05:24,080 --> 00:05:30,240
+very compact way
+
+108
+00:05:27,600 --> 00:05:32,639
+you know replace entities very compact.
+
+109
+00:05:30,240 --> 00:05:34,960
+So you do do is find replace you know
+
+110
+00:05:32,639 --> 00:05:37,120
+this amperand characters and less than
+
+111
+00:05:34,960 --> 00:05:39,759
+and greater than
+
+112
+00:05:37,120 --> 00:05:43,199
+and uh it's calling one of my function
+
+113
+00:05:39,759 --> 00:05:47,680
+my package replace pairs and you can get
+
+114
+00:05:43,199 --> 00:05:50,479
+that uh by click on that you get this uh
+
+115
+00:05:47,680 --> 00:05:52,800
+you can get the source code. So actually
+
+116
+00:05:50,479 --> 00:05:56,160
+if you want to use this command you can
+
+117
+00:05:52,800 --> 00:05:59,600
+copy it and grab it. But however what I
+
+118
+00:05:56,160 --> 00:06:03,120
+want to do is I want to replace the um
+
+119
+00:05:59,600 --> 00:06:06,479
+custom call I mean replace using my
+
+120
+00:06:03,120 --> 00:06:08,800
+custom function. So it so it is not so
+
+121
+00:06:06,479 --> 00:06:11,280
+it doesn't have dependencies.
+
+122
+00:06:08,800 --> 00:06:13,120
+So it's pure e- magnes.
+
+123
+00:06:11,280 --> 00:06:15,919
+Okay, that's what we're going to do.
+
+124
+00:06:13,120 --> 00:06:19,120
+Okay, that's and also once you highlight
+
+125
+00:06:15,919 --> 00:06:22,560
+it, you can see let's see open it back
+
+126
+00:06:19,120 --> 00:06:25,919
+close uh close. You can see it actually
+
+127
+00:06:22,560 --> 00:06:28,479
+highlight where wherever this uh change
+
+128
+00:06:25,919 --> 00:06:31,280
+occurs. So that is a great feature.
+
+129
+00:06:28,479 --> 00:06:33,919
+Okay, that's one of the things I want to
+
+130
+00:06:31,280 --> 00:06:36,319
+do, but I was going to do others. Okay,
+
+131
+00:06:33,919 --> 00:06:38,000
+let's just since we already spent five
+
+132
+00:06:36,319 --> 00:06:42,080
+minutes talking about this, let's just
+
+133
+00:06:38,000 --> 00:06:44,319
+do this. Okay, so let's uh amperand. So
+
+134
+00:06:42,080 --> 00:06:47,919
+where is that's let's let's move to the
+
+135
+00:06:44,319 --> 00:06:49,680
+top. Okay, so put it there. Show in
+
+136
+00:06:47,919 --> 00:06:53,199
+browser. This one the first one we're
+
+137
+00:06:49,680 --> 00:06:57,039
+going to do. Okay, let's rewrite it.
+
+138
+00:06:53,199 --> 00:07:01,520
+Okay, so percent in code. So let's um
+
+139
+00:06:57,039 --> 00:07:04,880
+let's do it. Okay, so the key is tab j
+
+140
+00:07:01,520 --> 00:07:07,360
+in sa html mod. That's the command. Jump
+
+141
+00:07:04,880 --> 00:07:12,160
+to the source code. And what we going to
+
+142
+00:07:07,360 --> 00:07:15,599
+do is we just going to copy
+
+143
+00:07:12,160 --> 00:07:17,520
+make a new buffer. Paste it there and uh
+
+144
+00:07:15,599 --> 00:07:22,240
+save it.
+
+145
+00:07:17,520 --> 00:07:25,599
+xx today's state command name.
+
+146
+00:07:22,240 --> 00:07:29,599
+So we're going to work work on this. Uh
+
+147
+00:07:25,599 --> 00:07:31,599
+make it underline underscore. Okay. So
+
+148
+00:07:29,599 --> 00:07:34,160
+uh wait
+
+149
+00:07:31,599 --> 00:07:38,080
+a percent there. There it is. Okay. So
+
+150
+00:07:34,160 --> 00:07:41,840
+you need not to make this bigger. So uh
+
+151
+00:07:38,080 --> 00:07:46,240
+you can do shift paren then it hides all
+
+152
+00:07:41,840 --> 00:07:49,039
+the details. So this all my commands.
+
+153
+00:07:46,240 --> 00:07:53,840
+So there it is. Open it. Okay. At the
+
+154
+00:07:49,039 --> 00:07:57,840
+top add x UTF. That's the abbreviation
+
+155
+00:07:53,840 --> 00:08:01,759
+for this declaration. Lexico binding and
+
+156
+00:07:57,840 --> 00:08:04,000
+UTFA encoding. Okay. Save it. Make a
+
+157
+00:08:01,759 --> 00:08:06,000
+backup. Okay. So, we're going to modify
+
+158
+00:08:04,000 --> 00:08:08,639
+this command. So, actually we can write
+
+159
+00:08:06,000 --> 00:08:11,360
+it from scratch. Okay. Let's see what is
+
+160
+00:08:08,639 --> 00:08:15,360
+uh Oh my god, the font is so large now
+
+161
+00:08:11,360 --> 00:08:17,440
+that I'm not not used to.
+
+162
+00:08:15,360 --> 00:08:20,240
+Okay. Comments if you are here. Okay. If
+
+163
+00:08:17,440 --> 00:08:23,520
+you are not here, watch at 1.5 speed.
+
+164
+00:08:20,240 --> 00:08:26,240
+Okay. replace HTML characters amp% less
+
+165
+00:08:23,520 --> 00:08:29,599
+than greater than to this this encoding
+
+166
+00:08:26,240 --> 00:08:32,399
+on current current text block or
+
+167
+00:08:29,599 --> 00:08:37,200
+selection. Okay, we're going to modify
+
+168
+00:08:32,399 --> 00:08:40,800
+this change the date. So let's think.
+
+169
+00:08:37,200 --> 00:08:43,039
+So effectively what this command the
+
+170
+00:08:40,800 --> 00:08:46,560
+requirement is that first of all you
+
+171
+00:08:43,039 --> 00:08:51,519
+need to make a se uh you need to set up
+
+172
+00:08:46,560 --> 00:08:55,440
+a block that is uh you know like what
+
+173
+00:08:51,519 --> 00:08:58,000
+region you want to uh deal with. Okay.
+
+174
+00:08:55,440 --> 00:09:01,839
+And we have it here. So let's you know
+
+175
+00:08:58,000 --> 00:09:05,120
+this is one gga line. This one ga line a
+
+176
+00:09:01,839 --> 00:09:07,040
+long line. That's I I like that format
+
+177
+00:09:05,120 --> 00:09:09,200
+very much. Okay. because I've been
+
+178
+00:09:07,040 --> 00:09:12,480
+coding wufam language. This is normal
+
+179
+00:09:09,200 --> 00:09:16,320
+one, you know, one gig got long line.
+
+180
+00:09:12,480 --> 00:09:19,519
+But let's reformat it so it's uh easier
+
+181
+00:09:16,320 --> 00:09:22,959
+to read. Okay. So you got if statement
+
+182
+00:09:19,519 --> 00:09:26,320
+then that else then you got another if
+
+183
+00:09:22,959 --> 00:09:31,680
+statement then then you got list. Okay.
+
+184
+00:09:26,320 --> 00:09:34,160
+Jump to the back. Put a uh then okay now
+
+185
+00:09:31,680 --> 00:09:38,160
+now purify the code. Now it's much
+
+186
+00:09:34,160 --> 00:09:40,640
+better. Do it again. Uh
+
+187
+00:09:38,160 --> 00:09:42,800
+so the first job is to determine the
+
+188
+00:09:40,640 --> 00:09:46,000
+beginning position and end position. We
+
+189
+00:09:42,800 --> 00:09:50,160
+want to work on this. Okay.
+
+190
+00:09:46,000 --> 00:09:52,959
+Okay. So so that is what this this block
+
+191
+00:09:50,160 --> 00:09:58,160
+of code does.
+
+192
+00:09:52,959 --> 00:10:00,720
+Video check, audio check. Good. Okay.
+
+193
+00:09:58,160 --> 00:10:03,839
+Okay. So now
+
+194
+00:10:00,720 --> 00:10:06,959
+uh this block of code so so this
+
+195
+00:10:03,839 --> 00:10:09,519
+function takes a begin end got now the
+
+196
+00:10:06,959 --> 00:10:14,160
+font is very large okay but it's good
+
+197
+00:10:09,519 --> 00:10:18,079
+for the YouTube so region begin end
+
+198
+00:10:14,160 --> 00:10:21,200
+then report true if it's true you print
+
+199
+00:10:18,079 --> 00:10:24,640
+the report and if it's true highlight
+
+200
+00:10:21,200 --> 00:10:29,040
+then you highlight the changed locations
+
+201
+00:10:24,640 --> 00:10:32,160
+okay so okay let me just work on this.
+
+202
+00:10:29,040 --> 00:10:35,120
+So, so that's this. So, begin end that's
+
+203
+00:10:32,160 --> 00:10:38,800
+our local variables. That's each one is
+
+204
+00:10:35,120 --> 00:10:41,920
+a integer meaning the cursor position.
+
+205
+00:10:38,800 --> 00:10:46,000
+Okay. And then we set sequence set this
+
+206
+00:10:41,920 --> 00:10:49,279
+beginning end variable. Then if if the
+
+207
+00:10:46,000 --> 00:10:51,279
+parameters begin end are already given
+
+208
+00:10:49,279 --> 00:10:54,959
+you see that's you know that's the
+
+209
+00:10:51,279 --> 00:10:59,279
+parameter then just return a list. So
+
+210
+00:10:54,959 --> 00:11:02,640
+you know make them the same otherwise.
+
+211
+00:10:59,279 --> 00:11:06,720
+So if beginning end is undefined new
+
+212
+00:11:02,640 --> 00:11:09,680
+then determine if region is active. If
+
+213
+00:11:06,720 --> 00:11:12,240
+so then you just say region beginning
+
+214
+00:11:09,680 --> 00:11:14,000
+and region end. Okay. That returns the
+
+215
+00:11:12,240 --> 00:11:16,959
+beginning and end position of a
+
+216
+00:11:14,000 --> 00:11:19,200
+selection. Okay. Now if there's no
+
+217
+00:11:16,959 --> 00:11:22,000
+active region then what you have to do
+
+218
+00:11:19,200 --> 00:11:24,880
+is you need to go to search to the
+
+219
+00:11:22,000 --> 00:11:28,399
+beginning of the empty line and search
+
+220
+00:11:24,880 --> 00:11:32,560
+for the end of empty line. So that's the
+
+221
+00:11:28,399 --> 00:11:36,480
+text block or known as paragraph kind
+
+222
+00:11:32,560 --> 00:11:40,720
+of. Okay. So that is this code this long
+
+223
+00:11:36,480 --> 00:11:49,200
+line is about. Okay. So let's purify uh
+
+224
+00:11:40,720 --> 00:11:51,440
+shall we? Uh so if that then that that
+
+225
+00:11:49,200 --> 00:11:56,720
+okay
+
+226
+00:11:51,440 --> 00:12:01,519
+uh so if so that's a lot of code wait if
+
+227
+00:11:56,720 --> 00:12:05,279
+that that okay so this this save
+
+228
+00:12:01,519 --> 00:12:08,720
+excursion again if that that that that
+
+229
+00:12:05,279 --> 00:12:13,040
+that that that
+
+230
+00:12:08,720 --> 00:12:16,320
+okay so this block of mode
+
+231
+00:12:13,040 --> 00:12:20,480
+basically just set the beginning and end
+
+232
+00:12:16,320 --> 00:12:22,000
+position. Okay, that is clear. Yes.
+
+233
+00:12:20,480 --> 00:12:24,160
+Next.
+
+234
+00:12:22,000 --> 00:12:26,639
+So, we got beginning and position now.
+
+235
+00:12:24,160 --> 00:12:29,040
+So, the next part is the replacement.
+
+236
+00:12:26,639 --> 00:12:31,360
+So, in between the beginning and end
+
+237
+00:12:29,040 --> 00:12:34,360
+positions, we want to do some text
+
+238
+00:12:31,360 --> 00:12:34,360
+replacement.
+
+239
+00:12:34,639 --> 00:12:39,920
+Okay. Oh, there's a misspelling. Okay.
+
+240
+00:12:37,120 --> 00:12:41,440
+Printed below if any this command. Okay.
+
+241
+00:12:39,920 --> 00:12:44,959
+So,
+
+242
+00:12:41,440 --> 00:12:48,240
+so now this is the heart of the program
+
+243
+00:12:44,959 --> 00:12:51,680
+this line. So, I'm calling a you know,
+
+244
+00:12:48,240 --> 00:12:54,880
+so let's look up the documentation of
+
+245
+00:12:51,680 --> 00:12:57,760
+replace pairs region.
+
+246
+00:12:54,880 --> 00:13:00,079
+There it is. And you can read about the
+
+247
+00:12:57,760 --> 00:13:03,680
+documentation and that is in this
+
+248
+00:13:00,079 --> 00:13:05,920
+package. Okay. And this package is I
+
+249
+00:13:03,680 --> 00:13:08,560
+showed you guys it's online. You can
+
+250
+00:13:05,920 --> 00:13:10,480
+grab it. Okay. It's very convenient
+
+251
+00:13:08,560 --> 00:13:12,560
+because you
+
+252
+00:13:10,480 --> 00:13:16,079
+close close close. So you all you have
+
+253
+00:13:12,560 --> 00:13:19,360
+to say is a beginning and position then
+
+254
+00:13:16,079 --> 00:13:22,399
+uh a list of pairs of find replace.
+
+255
+00:13:19,360 --> 00:13:25,760
+Okay. Now this this code is actually a
+
+256
+00:13:22,399 --> 00:13:28,000
+bit tricky. is not as easy as you as it
+
+257
+00:13:25,760 --> 00:13:30,560
+seems because you would think all you
+
+258
+00:13:28,000 --> 00:13:34,000
+have to do is just do find replace this
+
+259
+00:13:30,560 --> 00:13:37,519
+then find replace the second pair then
+
+260
+00:13:34,000 --> 00:13:40,639
+sequentially you know for each pair of
+
+261
+00:13:37,519 --> 00:13:43,279
+text and replacement you just do it that
+
+262
+00:13:40,639 --> 00:13:47,200
+would be incorrect because if you do
+
+263
+00:13:43,279 --> 00:13:50,959
+that you got it you got this recursive
+
+264
+00:13:47,200 --> 00:13:53,360
+problem did I explain it somewhere yes I
+
+265
+00:13:50,959 --> 00:13:57,680
+have okay so let me let Let me show you
+
+266
+00:13:53,360 --> 00:14:01,440
+guys that this is a very interesting
+
+267
+00:13:57,680 --> 00:14:04,800
+generic algorithmic problem. Uh you
+
+268
+00:14:01,440 --> 00:14:10,320
+would have a recursive problem. So So
+
+269
+00:14:04,800 --> 00:14:13,839
+how do I where is it? So let's describe
+
+270
+00:14:10,320 --> 00:14:16,720
+this function. Go to that function's
+
+271
+00:14:13,839 --> 00:14:20,160
+source code. This package go to the
+
+272
+00:14:16,720 --> 00:14:23,920
+homepage for this package which is here.
+
+273
+00:14:20,160 --> 00:14:28,160
+Open it. show in browser. So this is
+
+274
+00:14:23,920 --> 00:14:31,519
+subreplace pairs.el. You can grab it the
+
+275
+00:14:28,160 --> 00:14:33,440
+code right there and it offers you all
+
+276
+00:14:31,519 --> 00:14:35,920
+these very convenient functions
+
+277
+00:14:33,440 --> 00:14:38,560
+including regular expression multiple
+
+278
+00:14:35,920 --> 00:14:40,959
+pairs.
+
+279
+00:14:38,560 --> 00:14:45,120
+So but
+
+280
+00:14:40,959 --> 00:14:48,560
+but there is a find replace feedback
+
+281
+00:14:45,120 --> 00:14:51,920
+feedback loop problem described here. So
+
+282
+00:14:48,560 --> 00:14:54,079
+you open it then you can see let's say
+
+283
+00:14:51,920 --> 00:14:56,240
+if you have replaced pairs you know you
+
+284
+00:14:54,079 --> 00:14:59,360
+you want to replace text in a region
+
+285
+00:14:56,240 --> 00:15:03,519
+multiple pairs. So let's say the input
+
+286
+00:14:59,360 --> 00:15:07,360
+string is ABC D. Very simple. Now you
+
+287
+00:15:03,519 --> 00:15:11,440
+have two pairs. You want replace A by C
+
+288
+00:15:07,360 --> 00:15:15,680
+and C by D. Okay, very simple. So what
+
+289
+00:15:11,440 --> 00:15:19,680
+you should get is CB D
+
+290
+00:15:15,680 --> 00:15:22,320
+because A by C gets you, you know, let's
+
+291
+00:15:19,680 --> 00:15:25,680
+magnify. Can you magnify to see the full
+
+292
+00:15:22,320 --> 00:15:29,839
+glory? So you got ABC D. You got two
+
+293
+00:15:25,680 --> 00:15:35,360
+pairs of replacement. A2 C and C2 D. So
+
+294
+00:15:29,839 --> 00:15:39,279
+A2 C is C, C2 D is D. So you you should
+
+295
+00:15:35,360 --> 00:15:43,199
+have C B D there.
+
+296
+00:15:39,279 --> 00:15:46,480
+But if you do this sequentially,
+
+297
+00:15:43,199 --> 00:15:51,680
+A becomes C and C becomes D, you will
+
+298
+00:15:46,480 --> 00:15:55,279
+get DB D. That would be incorrect. Okay.
+
+299
+00:15:51,680 --> 00:15:57,600
+So that is why so this especially
+
+300
+00:15:55,279 --> 00:16:00,880
+happens real world example if you do
+
+301
+00:15:57,600 --> 00:16:04,079
+this uh amperand replacement
+
+302
+00:16:00,880 --> 00:16:08,000
+because this amperand you got into a
+
+303
+00:16:04,079 --> 00:16:10,480
+situation of kind of recursive amperand
+
+304
+00:16:08,000 --> 00:16:13,680
+you know that's kind of complic
+
+305
+00:16:10,480 --> 00:16:17,680
+complicated issue but you know it's
+
+306
+00:16:13,680 --> 00:16:21,680
+incorrect. So this so this this is the
+
+307
+00:16:17,680 --> 00:16:24,000
+find replace feedback feedback loop
+
+308
+00:16:21,680 --> 00:16:26,160
+problem
+
+309
+00:16:24,000 --> 00:16:29,839
+and
+
+310
+00:16:26,160 --> 00:16:32,720
+my functions here fixed it. So my
+
+311
+00:16:29,839 --> 00:16:35,920
+function does it correctly that is why
+
+312
+00:16:32,720 --> 00:16:38,720
+we are uh let's close that close that
+
+313
+00:16:35,920 --> 00:16:41,120
+close that you know we can simply do
+
+314
+00:16:38,720 --> 00:16:44,000
+this no problem.
+
+315
+00:16:41,120 --> 00:16:46,160
+Okay. So, but
+
+316
+00:16:44,000 --> 00:16:49,360
+oh god, you know, coding is already
+
+317
+00:16:46,160 --> 00:16:52,160
+always tedious. Uh, hungry man Hasa have
+
+318
+00:16:49,360 --> 00:16:54,320
+a massive coding stream.
+
+319
+00:16:52,160 --> 00:16:57,519
+Uh, yeah, three people are watching.
+
+320
+00:16:54,320 --> 00:16:59,759
+That's kind of sad. So, anyway, Emac is
+
+321
+00:16:57,519 --> 00:17:03,600
+this. That's kind of esoteric topic.
+
+322
+00:16:59,759 --> 00:17:06,400
+Okay. So, so, so let's, so
+
+323
+00:17:03,600 --> 00:17:09,199
+our job now is to rewrite this. Okay.
+
+324
+00:17:06,400 --> 00:17:11,919
+Let's just do it quickly. Okay.
+
+325
+00:17:09,199 --> 00:17:14,480
+So you given a text we given a text we
+
+326
+00:17:11,919 --> 00:17:18,240
+want to replace do find replace of these
+
+327
+00:17:14,480 --> 00:17:21,520
+multiple pairs. So what can you do
+
+328
+00:17:18,240 --> 00:17:24,079
+is first of all you got these uh pairs
+
+329
+00:17:21,520 --> 00:17:26,959
+you can define it you know this multiple
+
+330
+00:17:24,079 --> 00:17:30,000
+pairs then you want to go through each
+
+331
+00:17:26,959 --> 00:17:32,480
+uh wait um you don't want to go through
+
+332
+00:17:30,000 --> 00:17:35,280
+each one of them what you can do is uh
+
+333
+00:17:32,480 --> 00:17:38,919
+let's see um replace string okay let let
+
+334
+00:17:35,280 --> 00:17:38,919
+me just do Good.
+
+335
+00:17:46,799 --> 00:17:53,840
+Okay. So, this is a function. Wait,
+
+336
+00:17:49,440 --> 00:17:56,080
+that's not uh colored. That means should
+
+337
+00:17:53,840 --> 00:17:57,679
+I color it? Yeah, I should. This is
+
+338
+00:17:56,080 --> 00:18:00,240
+actually
+
+339
+00:17:57,679 --> 00:18:03,679
+So, you can do this replace string.
+
+340
+00:18:00,240 --> 00:18:08,840
+Let's copy the documentation.
+
+341
+00:18:03,679 --> 00:18:08,840
+Close that. Close that. Go back here.
+
+342
+00:18:08,960 --> 00:18:17,160
+Uh so here is the replace string. Now
+
+343
+00:18:12,080 --> 00:18:17,160
+it's not colored. Let's color it. Okay.
+
+344
+00:18:17,200 --> 00:18:21,679
+Uh normally you shouldn't use this
+
+345
+00:18:19,120 --> 00:18:28,760
+function because this function is for is
+
+346
+00:18:21,679 --> 00:18:28,760
+meant for interactive use. Um let's see
+
+347
+00:18:31,520 --> 00:18:36,240
+from string to string.
+
+348
+00:18:34,400 --> 00:18:38,400
+Okay. You don't want that because not
+
+349
+00:18:36,240 --> 00:18:40,640
+that's not regular expression. Okay, so
+
+350
+00:18:38,400 --> 00:18:48,200
+you want to do
+
+351
+00:18:40,640 --> 00:18:48,200
+replace rejects. Okay, that is the
+
+352
+00:18:49,120 --> 00:18:56,160
+function you want replace using regular
+
+353
+00:18:52,000 --> 00:18:59,840
+expression. Uh okay. So
+
+354
+00:18:56,160 --> 00:19:03,520
+delimited start and backward region non
+
+355
+00:18:59,840 --> 00:19:09,240
+continuous. Okay, this is tricky
+
+356
+00:19:03,520 --> 00:19:09,240
+argument backward and uh region nontuous
+
+357
+00:19:09,840 --> 00:19:16,160
+dashp means whether it's true or false
+
+358
+00:19:13,039 --> 00:19:21,400
+are passed to perform replace which see
+
+359
+00:19:16,160 --> 00:19:21,400
+oh god what the [ __ ] is perform replace
+
+360
+00:19:24,160 --> 00:19:28,559
+okay let's highlight highlight this
+
+361
+00:19:27,039 --> 00:19:33,520
+nonontiguous
+
+362
+00:19:28,559 --> 00:19:37,760
+p okay okay The neo region nonontiguous
+
+363
+00:19:33,520 --> 00:19:39,520
+P means that the region is composed of
+
+364
+00:19:37,760 --> 00:19:41,280
+nonontinuous
+
+365
+00:19:39,520 --> 00:19:45,919
+nonontiguous
+
+366
+00:19:41,280 --> 00:19:48,320
+pieces. That's a idiot idioty of English
+
+367
+00:19:45,919 --> 00:19:53,240
+you know just say nonontinuous
+
+368
+00:19:48,320 --> 00:19:53,240
+but in English we have nonontiguous
+
+369
+00:19:53,919 --> 00:20:00,679
+okay so this means that the region is
+
+370
+00:19:56,320 --> 00:20:00,679
+composed wait uh
+
+371
+00:20:01,679 --> 00:20:07,600
+okay this region is composed of non
+
+372
+00:20:04,799 --> 00:20:10,640
+contiguous pieces the most common
+
+373
+00:20:07,600 --> 00:20:12,160
+example of this is a rectangular region
+
+374
+00:20:10,640 --> 00:20:15,160
+Oh.
+
+375
+00:20:12,160 --> 00:20:15,160
+Oh.
+
+376
+00:20:18,640 --> 00:20:24,559
+Oh. So you So this replace can actually
+
+377
+00:20:22,160 --> 00:20:26,559
+work on a rectangle.
+
+378
+00:20:24,559 --> 00:20:28,240
+Do you guys know what I mean? So for
+
+379
+00:20:26,559 --> 00:20:31,760
+example, let me demonstrate. So
+
+380
+00:20:28,240 --> 00:20:34,760
+rectangle is like this. Okay.
+
+381
+00:20:31,760 --> 00:20:34,760
+Uh
+
+382
+00:20:37,280 --> 00:20:43,960
+let's see what is a key. I don't use
+
+383
+00:20:39,440 --> 00:20:43,960
+this key too much. Uh
+
+384
+00:20:44,400 --> 00:20:50,880
+space I believe. Wait.
+
+385
+00:20:47,280 --> 00:20:54,240
+Uh okay. Let's see. Search for
+
+386
+00:20:50,880 --> 00:20:58,559
+rectangle. Rectangle. Rectangle. Open
+
+387
+00:20:54,240 --> 00:21:05,000
+rectangle. Q. Rectangle mark mod R R.
+
+388
+00:20:58,559 --> 00:21:05,000
+Okay. So, let me show you. So, let's say
+
+389
+00:21:05,600 --> 00:21:14,000
+uh backspace R. Okay. Now you can see I
+
+390
+00:21:09,520 --> 00:21:16,240
+can select the rectangle. You see? So I
+
+391
+00:21:14,000 --> 00:21:19,200
+can now delete this re rectangle. Let's
+
+392
+00:21:16,240 --> 00:21:21,760
+see. Delete it. You see? Uh wait, not
+
+393
+00:21:19,200 --> 00:21:26,320
+that key.
+
+394
+00:21:21,760 --> 00:21:29,679
+Uh but anyway, so you see you can you
+
+395
+00:21:26,320 --> 00:21:34,080
+can start to type you know it insert the
+
+396
+00:21:29,679 --> 00:21:36,559
+rectangle. So undo
+
+397
+00:21:34,080 --> 00:21:38,159
+undo.
+
+398
+00:21:36,559 --> 00:21:39,760
+Undo.
+
+399
+00:21:38,159 --> 00:21:44,400
+Undo.
+
+400
+00:21:39,760 --> 00:21:47,679
+Undo. Undo. Don't Don't [ __ ] up my code.
+
+401
+00:21:44,400 --> 00:21:51,360
+Redo. Okay. So So that means So this
+
+402
+00:21:47,679 --> 00:21:53,039
+means region non continuous. That means
+
+403
+00:21:51,360 --> 00:21:55,840
+this
+
+404
+00:21:53,039 --> 00:21:57,600
+replace string or the regular expression
+
+405
+00:21:55,840 --> 00:22:01,640
+version actually can work on a
+
+406
+00:21:57,600 --> 00:22:01,640
+rectangle. That's interesting.
+
+407
+00:22:02,000 --> 00:22:06,320
+Okay. That's uh that's interesting to
+
+408
+00:22:04,480 --> 00:22:09,679
+know.
+
+409
+00:22:06,320 --> 00:22:13,120
+uh but uh we don't need it. Okay. So
+
+410
+00:22:09,679 --> 00:22:16,000
+let's see uh let's just start to code.
+
+411
+00:22:13,120 --> 00:22:18,720
+Okay. Let's just uh put this in one
+
+412
+00:22:16,000 --> 00:22:20,640
+line. Let's just start to code. Regular
+
+413
+00:22:18,720 --> 00:22:25,520
+expression
+
+414
+00:22:20,640 --> 00:22:28,320
+uh add. So wait a percent. So what is
+
+415
+00:22:25,520 --> 00:22:30,960
+the regular expression? Let's let's see.
+
+416
+00:22:28,320 --> 00:22:32,960
+Okay. Delete.
+
+417
+00:22:30,960 --> 00:22:36,880
+Change brackets
+
+418
+00:22:32,960 --> 00:22:41,120
+square bracket to none. do it. Okay, now
+
+419
+00:22:36,880 --> 00:22:44,559
+it's much better. Uh, actually you need
+
+420
+00:22:41,120 --> 00:22:48,080
+and let's just type them
+
+421
+00:22:44,559 --> 00:22:55,240
+emp% back slashbackslash
+
+422
+00:22:48,080 --> 00:22:55,240
+and uh vertical line then that
+
+423
+00:22:55,919 --> 00:23:01,280
+then backslash back slash back slash
+
+424
+00:22:58,320 --> 00:23:06,960
+vertical line then greater than equal
+
+425
+00:23:01,280 --> 00:23:10,159
+sign. Wait, what? Oh yeah.
+
+426
+00:23:06,960 --> 00:23:12,240
+Okay. This means regular expression or.
+
+427
+00:23:10,159 --> 00:23:15,280
+So you find that character or that
+
+428
+00:23:12,240 --> 00:23:17,840
+character or that character.
+
+429
+00:23:15,280 --> 00:23:21,880
+This will do it one shot. I hope. Let's
+
+430
+00:23:17,840 --> 00:23:21,880
+see. Uh
+
+431
+00:23:23,360 --> 00:23:30,400
+did okay. Two string.
+
+432
+00:23:26,080 --> 00:23:33,280
+Oh then it depends. Oh [ __ ]
+
+433
+00:23:30,400 --> 00:23:35,679
+Uh Jesus. Can we actually do this? You
+
+434
+00:23:33,280 --> 00:23:40,200
+know the two string needs to be
+
+435
+00:23:35,679 --> 00:23:40,200
+dependent on what is matched.
+
+436
+00:23:45,760 --> 00:23:50,400
+Yeah, it will be dependent on what is
+
+437
+00:23:48,480 --> 00:23:54,240
+matched.
+
+438
+00:23:50,400 --> 00:23:56,960
+But do we get the ampand recursive
+
+439
+00:23:54,240 --> 00:23:59,039
+feedback problem? I don't think so. For
+
+440
+00:23:56,960 --> 00:24:05,000
+for example, let's just say the two
+
+441
+00:23:59,039 --> 00:24:05,000
+string is emp%. Okay. Wait.
+
+442
+00:24:05,120 --> 00:24:10,720
+Okay. Two string is just an amperand.
+
+443
+00:24:08,400 --> 00:24:14,159
+Okay. Let's ignore that greater than
+
+444
+00:24:10,720 --> 00:24:17,159
+less than for now. Okay. Then optional
+
+445
+00:24:14,159 --> 00:24:17,159
+delimited.
+
+446
+00:24:18,640 --> 00:24:25,760
+Uh what does that mean? Delimited
+
+447
+00:24:22,400 --> 00:24:29,600
+uh describe function delimited. What
+
+448
+00:24:25,760 --> 00:24:33,679
+does what does that mean? The third arg
+
+449
+00:24:29,600 --> 00:24:38,640
+delimited prefix arg if interactive.
+
+450
+00:24:33,679 --> 00:24:42,480
+Okay. If n means replace only matches
+
+451
+00:24:38,640 --> 00:24:44,960
+surrounded by word boundaries. Oh, okay.
+
+452
+00:24:42,480 --> 00:24:47,039
+Oh, we don't we don't care you know it's
+
+453
+00:24:44,960 --> 00:24:52,240
+basically just means word boundary.
+
+454
+00:24:47,039 --> 00:24:54,799
+Okay. Close that. So delimited.
+
+455
+00:24:52,240 --> 00:24:57,279
+No, we don't want the word boundary. and
+
+456
+00:24:54,799 --> 00:25:01,760
+start end. That's our start and end
+
+457
+00:24:57,279 --> 00:25:07,200
+position. So that would be X begin
+
+458
+00:25:01,760 --> 00:25:11,279
+and X end. Okay. And backward no Neo
+
+459
+00:25:07,200 --> 00:25:13,919
+region non continuous Neo. Okay. So Neo
+
+460
+00:25:11,279 --> 00:25:17,200
+Neo remove that. So that is our
+
+461
+00:25:13,919 --> 00:25:21,679
+function. Now
+
+462
+00:25:17,200 --> 00:25:25,440
+now let's uh remove that. Delete. Let's
+
+463
+00:25:21,679 --> 00:25:25,440
+just say that. Okay.
+
+464
+00:25:30,799 --> 00:25:39,039
+Yeah. So, but you need
+
+465
+00:25:35,840 --> 00:25:41,440
+now. Okay. So wait does the regular
+
+466
+00:25:39,039 --> 00:25:43,600
+expression the second argument the
+
+467
+00:25:41,440 --> 00:25:46,159
+replacement does it take a function
+
+468
+00:25:43,600 --> 00:25:49,159
+because this is important the two string
+
+469
+00:25:46,159 --> 00:25:49,159
+part
+
+470
+00:25:49,760 --> 00:25:55,480
+because we need it to depend on what we
+
+471
+00:25:52,480 --> 00:25:55,480
+found.
+
+472
+00:25:56,320 --> 00:26:02,640
+Okay. Yes indeed it does. So stand for
+
+473
+00:26:00,240 --> 00:26:05,520
+whatever match the whole or regular
+
+474
+00:26:02,640 --> 00:26:08,960
+expression and n. Okay.
+
+475
+00:26:05,520 --> 00:26:12,520
+uh stand for whatever match the nth.
+
+476
+00:26:08,960 --> 00:26:12,520
+Okay. So
+
+477
+00:26:17,120 --> 00:26:20,120
+yep.
+
+478
+00:26:21,919 --> 00:26:29,039
+And does it take a lisp expression? It
+
+479
+00:26:24,799 --> 00:26:31,279
+does. Okay. So this will work.
+
+480
+00:26:29,039 --> 00:26:34,880
+Okay. But now let's look at the source
+
+481
+00:26:31,279 --> 00:26:38,480
+code of this docu this uh rejects. Let's
+
+482
+00:26:34,880 --> 00:26:42,640
+see if it's very complex. Yeah,
+
+483
+00:26:38,480 --> 00:26:45,520
+it's fairly complex because
+
+484
+00:26:42,640 --> 00:26:48,880
+you know because it's doing interactive
+
+485
+00:26:45,520 --> 00:26:52,559
+and uh so meaning that means if we use
+
+486
+00:26:48,880 --> 00:26:54,400
+this function it's going to be fairly
+
+487
+00:26:52,559 --> 00:27:00,200
+slow.
+
+488
+00:26:54,400 --> 00:27:00,200
+Okay, it's going to be fairly slow.
+
+489
+00:27:14,400 --> 00:27:21,640
+Oh god. And that's going to be fair.
+
+490
+00:27:16,720 --> 00:27:21,640
+That's going to be fairly slow. So
+
+491
+00:27:22,080 --> 00:27:27,360
+yeah, you run into a lot of issues. I
+
+492
+00:27:24,400 --> 00:27:30,080
+mean, not really problems, but you know,
+
+493
+00:27:27,360 --> 00:27:32,640
+decisions you can you have to make. for
+
+494
+00:27:30,080 --> 00:27:35,760
+example, I can simply stick with what I
+
+495
+00:27:32,640 --> 00:27:38,000
+have here. But then that means you know
+
+496
+00:27:35,760 --> 00:27:40,080
+other people needs to download the extra
+
+497
+00:27:38,000 --> 00:27:42,799
+package.
+
+498
+00:27:40,080 --> 00:27:47,039
+So that's why we are trying to write it
+
+499
+00:27:42,799 --> 00:27:48,960
+you know without dependencies.
+
+500
+00:27:47,039 --> 00:27:51,840
+But then
+
+501
+00:27:48,960 --> 00:27:54,960
+we run into issue because then we if we
+
+502
+00:27:51,840 --> 00:27:58,000
+call call this command uh let's remove
+
+503
+00:27:54,960 --> 00:28:02,399
+that. Let's also remove that. If we call
+
+504
+00:27:58,000 --> 00:28:05,200
+this command, this is supposed to be
+
+505
+00:28:02,399 --> 00:28:07,039
+interactive use then therefore it is
+
+506
+00:28:05,200 --> 00:28:09,600
+slower.
+
+507
+00:28:07,039 --> 00:28:13,200
+Um but let's just do it for now. Okay.
+
+508
+00:28:09,600 --> 00:28:16,159
+So make that one line, comment it out
+
+509
+00:28:13,200 --> 00:28:18,880
+and pify the whole code and I think
+
+510
+00:28:16,159 --> 00:28:23,520
+that's it.
+
+511
+00:28:18,880 --> 00:28:25,440
+So we can evaluate the buffer. Okay. So
+
+512
+00:28:23,520 --> 00:28:28,480
+and right now it just changed. So
+
+513
+00:28:25,440 --> 00:28:32,440
+optional you need to remove that.
+
+514
+00:28:28,480 --> 00:28:32,440
+Uh that should work.
+
+515
+00:28:32,960 --> 00:28:39,880
+But uh does that have the recursive
+
+516
+00:28:36,880 --> 00:28:39,880
+problem?
+
+517
+00:28:41,520 --> 00:28:49,840
+No. Because in this case
+
+518
+00:28:45,440 --> 00:28:51,520
+each of the character is distinct. Okay.
+
+519
+00:28:49,840 --> 00:28:54,159
+Do you guys know what I'm saying?
+
+520
+00:28:51,520 --> 00:28:56,000
+Because for the recursive for the
+
+521
+00:28:54,159 --> 00:28:58,960
+feedback
+
+522
+00:28:56,000 --> 00:29:02,679
+for this find replace feedback loop
+
+523
+00:28:58,960 --> 00:29:02,679
+problem to occur.
+
+524
+00:29:04,559 --> 00:29:10,799
+For that problem to occur
+
+525
+00:29:07,919 --> 00:29:13,360
+one of the requirement is that one of
+
+526
+00:29:10,799 --> 00:29:17,279
+the your replacement character also
+
+527
+00:29:13,360 --> 00:29:20,880
+occurs in your find character. Okay. you
+
+528
+00:29:17,279 --> 00:29:23,360
+I mean the one of your
+
+529
+00:29:20,880 --> 00:29:26,720
+okay here's a way to put it the subse
+
+530
+00:29:23,360 --> 00:29:28,240
+what one one of your subsequent
+
+531
+00:29:26,720 --> 00:29:29,760
+find
+
+532
+00:29:28,240 --> 00:29:33,360
+string
+
+533
+00:29:29,760 --> 00:29:36,000
+occurs in previous
+
+534
+00:29:33,360 --> 00:29:40,799
+replacement string. So for example here
+
+535
+00:29:36,000 --> 00:29:46,159
+a replaced by c and c replaced by d. So
+
+536
+00:29:40,799 --> 00:29:49,360
+this second pair CD occurs
+
+537
+00:29:46,159 --> 00:29:52,559
+and the that fine string C happens in
+
+538
+00:29:49,360 --> 00:29:56,320
+the previous pair of the replacement
+
+539
+00:29:52,559 --> 00:29:59,679
+string. So when this situation happens
+
+540
+00:29:56,320 --> 00:30:02,000
+then you got this find replace feedback
+
+541
+00:29:59,679 --> 00:30:04,799
+loop problem.
+
+542
+00:30:02,000 --> 00:30:07,840
+Okay. But
+
+543
+00:30:04,799 --> 00:30:10,720
+in our case what we want to uh let's
+
+544
+00:30:07,840 --> 00:30:17,440
+type it again. So wait does it occur?
+
+545
+00:30:10,720 --> 00:30:19,600
+Let's see. That becomes uh amp and less
+
+546
+00:30:17,440 --> 00:30:23,799
+than becomes
+
+547
+00:30:19,600 --> 00:30:23,799
+uh less than that.
+
+548
+00:30:24,159 --> 00:30:32,480
+Okay. And greater than becomes greater
+
+549
+00:30:28,960 --> 00:30:34,080
+than. So does any of the
+
+550
+00:30:32,480 --> 00:30:37,360
+character
+
+551
+00:30:34,080 --> 00:30:40,559
+in the find string occurs in the
+
+552
+00:30:37,360 --> 00:30:43,039
+previous replacement string? No. That
+
+553
+00:30:40,559 --> 00:30:48,159
+means fantastic. That means we can just
+
+554
+00:30:43,039 --> 00:30:50,480
+go ahead using the no-brainer approach.
+
+555
+00:30:48,159 --> 00:30:56,840
+Okay. What is a no-brainer approach? Is
+
+556
+00:30:50,480 --> 00:30:56,840
+this okay? So let me show you. So um
+
+557
+00:30:59,200 --> 00:31:08,960
+so while not when while not when while
+
+558
+00:31:04,640 --> 00:31:13,120
+okay why do I have a shortcut no while
+
+559
+00:31:08,960 --> 00:31:15,679
+okay so while search for word
+
+560
+00:31:13,120 --> 00:31:18,960
+yeah let's do this no-brainer approach
+
+561
+00:31:15,679 --> 00:31:23,039
+emperand so while you find search for
+
+562
+00:31:18,960 --> 00:31:25,600
+that Um
+
+563
+00:31:23,039 --> 00:31:28,720
+okay before you do find replace you want
+
+564
+00:31:25,600 --> 00:31:31,120
+to narrow to region. Okay narrow to
+
+565
+00:31:28,720 --> 00:31:34,799
+region region beginning and region end.
+
+566
+00:31:31,120 --> 00:31:37,279
+That means limit the buffer to just the
+
+567
+00:31:34,799 --> 00:31:43,039
+posit the region you are interested.
+
+568
+00:31:37,279 --> 00:31:44,720
+Okay. Then we search for then we go to
+
+569
+00:31:43,039 --> 00:31:47,760
+chart
+
+570
+00:31:44,720 --> 00:31:51,279
+point mean go to the beginning of the
+
+571
+00:31:47,760 --> 00:31:54,799
+region then start search
+
+572
+00:31:51,279 --> 00:31:57,120
+then okay bound no arrow uh we don't
+
+573
+00:31:54,799 --> 00:32:00,080
+care no arrow
+
+574
+00:31:57,120 --> 00:32:04,960
+wait bound no error count we don't care
+
+575
+00:32:00,080 --> 00:32:07,200
+okay then replace it with um replace it
+
+576
+00:32:04,960 --> 00:32:11,799
+with
+
+577
+00:32:07,200 --> 00:32:11,799
+empas Same replace by that.
+
+578
+00:32:12,720 --> 00:32:19,440
+Okay. Then
+
+579
+00:32:14,960 --> 00:32:21,840
+fix case. Yes. Literal yes. And strings
+
+580
+00:32:19,440 --> 00:32:25,559
+are that we don't care. Okay. Beautify
+
+581
+00:32:21,840 --> 00:32:25,559
+the code. Fantastic.
+
+582
+00:32:27,360 --> 00:32:36,000
+Okay. And in fact make it one line. So
+
+583
+00:32:30,159 --> 00:32:40,480
+this this is one unit. Okay.
+
+584
+00:32:36,000 --> 00:32:44,120
+in fact make it unit syntactically a
+
+585
+00:32:40,480 --> 00:32:44,120
+unit too.
+
+586
+00:32:44,640 --> 00:32:49,679
+So that you see that's the beauty of the
+
+587
+00:32:47,360 --> 00:32:52,640
+lisp syntax.
+
+588
+00:32:49,679 --> 00:32:57,039
+And now
+
+589
+00:32:52,640 --> 00:33:01,039
+cut that and paste and paste repeat
+
+590
+00:32:57,039 --> 00:33:03,679
+beautify it. And now we just do the less
+
+591
+00:33:01,039 --> 00:33:07,360
+than.
+
+592
+00:33:03,679 --> 00:33:10,080
+Okay. less than. Okay.
+
+593
+00:33:07,360 --> 00:33:12,320
+Then greater than
+
+594
+00:33:10,080 --> 00:33:14,880
+greater than. Fantastic. We are doing
+
+595
+00:33:12,320 --> 00:33:19,200
+this replacement sequentially. Each time
+
+596
+00:33:14,880 --> 00:33:22,320
+we go to the beginning, then while it's
+
+597
+00:33:19,200 --> 00:33:26,240
+found do the replace. So you can see
+
+598
+00:33:22,320 --> 00:33:29,760
+when you compare the code, you can see
+
+599
+00:33:26,240 --> 00:33:32,799
+this block versus versus our previous
+
+600
+00:33:29,760 --> 00:33:36,760
+one single line. This line. Okay, I got
+
+601
+00:33:32,799 --> 00:33:36,760
+a call. Let's see.
+
+602
+00:33:44,080 --> 00:33:49,519
+Spam,
+
+603
+00:33:45,760 --> 00:33:52,240
+spam and scam.
+
+604
+00:33:49,519 --> 00:33:56,399
+Our modern life
+
+605
+00:33:52,240 --> 00:33:59,279
+are funed with spam and scam,
+
+606
+00:33:56,399 --> 00:34:02,840
+scam and spam and marketing [ __ ]
+
+607
+00:33:59,279 --> 00:34:02,840
+American life.
+
+608
+00:34:02,880 --> 00:34:10,960
+So ACP says how is save restriction
+
+609
+00:34:07,519 --> 00:34:13,919
+different from save excursion? They are
+
+610
+00:34:10,960 --> 00:34:17,440
+entirely different. Okay. So save
+
+611
+00:34:13,919 --> 00:34:20,159
+excursion is very common. That means
+
+612
+00:34:17,440 --> 00:34:23,119
+just save the cursor position and the
+
+613
+00:34:20,159 --> 00:34:26,879
+buffer the current buffer. So here you
+
+614
+00:34:23,119 --> 00:34:30,159
+can do whatever code you know and when
+
+615
+00:34:26,879 --> 00:34:32,639
+this code is done it'll return the
+
+616
+00:34:30,159 --> 00:34:35,200
+current cursor position and the current
+
+617
+00:34:32,639 --> 00:34:37,359
+buffer. Okay inside the code you can
+
+618
+00:34:35,200 --> 00:34:40,240
+switch to another buffer like you know
+
+619
+00:34:37,359 --> 00:34:44,240
+you can switch to another file but once
+
+620
+00:34:40,240 --> 00:34:47,520
+it's done it this save excursion means
+
+621
+00:34:44,240 --> 00:34:50,639
+return it to to whatever the current
+
+622
+00:34:47,520 --> 00:34:53,919
+buffer. Okay, that's why it's called an
+
+623
+00:34:50,639 --> 00:34:56,320
+excursion. You know, that's a
+
+624
+00:34:53,919 --> 00:35:01,400
+you know, let's digress to the
+
+625
+00:34:56,320 --> 00:35:01,400
+department of English linguistics
+
+626
+00:35:01,440 --> 00:35:07,119
+excursion.
+
+627
+00:35:03,040 --> 00:35:10,880
+A usual a a usually short journey made
+
+628
+00:35:07,119 --> 00:35:12,720
+for pleasure, an outing. That's exactly
+
+629
+00:35:10,880 --> 00:35:16,400
+right. You know, we are doing a
+
+630
+00:35:12,720 --> 00:35:20,240
+excursion save excursion.
+
+631
+00:35:16,400 --> 00:35:22,400
+Now save restriction is is something
+
+632
+00:35:20,240 --> 00:35:24,480
+else. Save restriction that means you
+
+633
+00:35:22,400 --> 00:35:27,599
+see when you have this narrow to region
+
+634
+00:35:24,480 --> 00:35:30,320
+you can call it. So for example I select
+
+635
+00:35:27,599 --> 00:35:34,880
+this let's say I select you know let's
+
+636
+00:35:30,320 --> 00:35:41,200
+say I select this part. Okay. Now call
+
+637
+00:35:34,880 --> 00:35:44,000
+meta x narrow to region. Okay. So do it
+
+638
+00:35:41,200 --> 00:35:46,720
+then your whole buffer become just that
+
+639
+00:35:44,000 --> 00:35:50,640
+you know Emac pretends the other part
+
+640
+00:35:46,720 --> 00:35:53,119
+doesn't exist. So this way allows you to
+
+641
+00:35:50,640 --> 00:35:54,720
+you know you can move to the end it'll
+
+642
+00:35:53,119 --> 00:35:56,480
+stuck there you can move to the
+
+643
+00:35:54,720 --> 00:35:59,680
+beginning you're stuck there you know so
+
+644
+00:35:56,480 --> 00:36:02,640
+you don't have to worry about
+
+645
+00:35:59,680 --> 00:36:04,480
+uh the previous part and after you know
+
+646
+00:36:02,640 --> 00:36:08,880
+especially when you are doing find and
+
+647
+00:36:04,480 --> 00:36:11,200
+replace right so okay now we can return
+
+648
+00:36:08,880 --> 00:36:12,720
+it by call
+
+649
+00:36:11,200 --> 00:36:16,400
+widen
+
+650
+00:36:12,720 --> 00:36:19,440
+do it so now you return so you undo the
+
+651
+00:36:16,400 --> 00:36:21,520
+narrow to region okay That's this narrow
+
+652
+00:36:19,440 --> 00:36:25,520
+to region.
+
+653
+00:36:21,520 --> 00:36:28,720
+Okay. So that's fantastic.
+
+654
+00:36:25,520 --> 00:36:30,800
+But what does the So but then why do you
+
+655
+00:36:28,720 --> 00:36:34,400
+need save restriction? Save restriction
+
+656
+00:36:30,800 --> 00:36:38,800
+is basically undo whatever narrow to
+
+657
+00:36:34,400 --> 00:36:41,280
+region. You see once you narrowed
+
+658
+00:36:38,800 --> 00:36:43,359
+if you do it manually
+
+659
+00:36:41,280 --> 00:36:47,200
+you know you have that then you call
+
+660
+00:36:43,359 --> 00:36:50,240
+widen to widen it. then you just extend
+
+661
+00:36:47,200 --> 00:36:54,320
+the whole you know undo the narrow to
+
+662
+00:36:50,240 --> 00:36:56,960
+region but however you can
+
+663
+00:36:54,320 --> 00:36:59,839
+narrow to region let's do it narrow to
+
+664
+00:36:56,960 --> 00:37:02,560
+region and now I select this charact
+
+665
+00:36:59,839 --> 00:37:06,000
+this word and narrow to region again
+
+666
+00:37:02,560 --> 00:37:09,359
+narrow you see now I the whole buffer is
+
+667
+00:37:06,000 --> 00:37:11,760
+just like that one word but now if I do
+
+668
+00:37:09,359 --> 00:37:15,520
+widen
+
+669
+00:37:11,760 --> 00:37:18,480
+it undo all the narrowing you see it
+
+670
+00:37:15,520 --> 00:37:20,720
+undo all the narrowing but that's not
+
+671
+00:37:18,480 --> 00:37:23,040
+what you want. You you just want to undo
+
+672
+00:37:20,720 --> 00:37:25,680
+one level of narrowing.
+
+673
+00:37:23,040 --> 00:37:29,200
+Okay, so that is what this save
+
+674
+00:37:25,680 --> 00:37:32,720
+restriction is for. Okay, let's make it
+
+675
+00:37:29,200 --> 00:37:34,960
+back. Okay, so it returns the previous
+
+676
+00:37:32,720 --> 00:37:37,760
+you know whatever previous narrowing
+
+677
+00:37:34,960 --> 00:37:40,720
+that may be in effect.
+
+678
+00:37:37,760 --> 00:37:44,560
+Okay, that answers that question.
+
+679
+00:37:40,720 --> 00:37:47,440
+Okay. So now uh now comment out then we
+
+680
+00:37:44,560 --> 00:37:50,480
+don't need that comment out. Okay. Let's
+
+681
+00:37:47,440 --> 00:37:52,640
+purify the buffer.
+
+682
+00:37:50,480 --> 00:37:55,680
+Fantastic. In fact I think that's the
+
+683
+00:37:52,640 --> 00:37:58,480
+code. That's what we want. Okay. And
+
+684
+00:37:55,680 --> 00:38:01,280
+then then this comment you know we don't
+
+685
+00:37:58,480 --> 00:38:04,079
+actually need them
+
+686
+00:38:01,280 --> 00:38:08,160
+and comment out. Okay that's the whole
+
+687
+00:38:04,079 --> 00:38:10,320
+code. And this decode amperand basically
+
+688
+00:38:08,160 --> 00:38:12,480
+reverse. So, this part will get more
+
+689
+00:38:10,320 --> 00:38:16,079
+complex. Anyway, let's not worry about
+
+690
+00:38:12,480 --> 00:38:19,839
+it. Okay, delete it. Now, go back here.
+
+691
+00:38:16,079 --> 00:38:23,520
+Now, let's uh I think that's it. Uh
+
+692
+00:38:19,839 --> 00:38:28,240
+let's see. So, we don't use our custom
+
+693
+00:38:23,520 --> 00:38:32,079
+commands and remove that and purify, you
+
+694
+00:38:28,240 --> 00:38:36,079
+know, let's make it not purify the code
+
+695
+00:38:32,079 --> 00:38:38,640
+and remove the comment purify. Pify
+
+696
+00:38:36,079 --> 00:38:42,320
+purify. Okay, so the whole code is like
+
+697
+00:38:38,640 --> 00:38:44,720
+in one buffer.
+
+698
+00:38:42,320 --> 00:38:48,720
+Okay,
+
+699
+00:38:44,720 --> 00:38:51,280
+one last check before we run it.
+
+700
+00:38:48,720 --> 00:38:57,079
+Uh, replace match. What? What? What?
+
+701
+00:38:51,280 --> 00:38:57,079
+What is this? It is incorrect. What?
+
+702
+00:38:57,599 --> 00:39:06,160
+Replace match uh
+
+703
+00:39:01,440 --> 00:39:12,119
+optional fixed case literal. Oh, we mean
+
+704
+00:39:06,160 --> 00:39:12,119
+uh fixed case. So, it should be just T.
+
+705
+00:39:13,680 --> 00:39:20,480
+Okay. So, that is that. So, let's see.
+
+706
+00:39:17,040 --> 00:39:24,400
+Go to the beginning of the region to the
+
+707
+00:39:20,480 --> 00:39:27,599
+replacement while still found. Keep
+
+708
+00:39:24,400 --> 00:39:29,839
+doing the replacement until it's force.
+
+709
+00:39:27,599 --> 00:39:33,200
+Then exit. Then next, go to the
+
+710
+00:39:29,839 --> 00:39:36,160
+beginning. Do that until fantastic. I
+
+711
+00:39:33,200 --> 00:39:39,839
+think that's it. Evaluate the buffer.
+
+712
+00:39:36,160 --> 00:39:43,520
+Make a backup. Go to the directory.
+
+713
+00:39:39,839 --> 00:39:46,560
+Hide the details
+
+714
+00:39:43,520 --> 00:39:51,200
+by compile. Yes.
+
+715
+00:39:46,560 --> 00:39:54,160
+Warning. Oh, warning. Unused lexical
+
+716
+00:39:51,200 --> 00:39:57,760
+report. That's right. So, we got some
+
+717
+00:39:54,160 --> 00:39:59,839
+extra argument here. They are not used,
+
+718
+00:39:57,760 --> 00:40:01,680
+which is a feature because we want to
+
+719
+00:39:59,839 --> 00:40:03,920
+highlight it. But for for now, let's
+
+720
+00:40:01,680 --> 00:40:06,400
+remove it. Okay, we're going to add it
+
+721
+00:40:03,920 --> 00:40:10,560
+later. Okay, so eval the buffer. Go to
+
+722
+00:40:06,400 --> 00:40:12,960
+the directory by compile it. Yes, now no
+
+723
+00:40:10,560 --> 00:40:15,760
+error this time. Fantastic. Open it.
+
+724
+00:40:12,960 --> 00:40:19,280
+Delete it. Close it. Eval the buffer.
+
+725
+00:40:15,760 --> 00:40:23,040
+Fantastic. Now we can try.
+
+726
+00:40:19,280 --> 00:40:25,200
+So go to go to go to go to here. Go to
+
+727
+00:40:23,040 --> 00:40:29,680
+here. Okay.
+
+728
+00:40:25,200 --> 00:40:34,160
+And can we undo what? Uh wait.
+
+729
+00:40:29,680 --> 00:40:37,160
+Uh what did we So uh okay so we got this
+
+730
+00:40:34,160 --> 00:40:37,160
+um
+
+731
+00:40:37,920 --> 00:40:42,680
+let's just say that okay
+
+732
+00:40:43,119 --> 00:40:50,680
+this and that this and that this and
+
+733
+00:40:46,079 --> 00:40:50,680
+that. Okay. So
+
+734
+00:40:50,720 --> 00:40:58,560
+describe key tab j.
+
+735
+00:40:54,720 --> 00:41:01,359
+Okay. So html encode emperand entity.
+
+736
+00:40:58,560 --> 00:41:04,800
+And now it's in defined in this file we
+
+737
+00:41:01,359 --> 00:41:07,520
+just created. So that this step verifies
+
+738
+00:41:04,800 --> 00:41:10,079
+we are running the correct code because
+
+739
+00:41:07,520 --> 00:41:12,640
+we I you know we have another version
+
+740
+00:41:10,079 --> 00:41:17,760
+but but this version is you know the one
+
+741
+00:41:12,640 --> 00:41:21,440
+we created. Okay. So now go back. So now
+
+742
+00:41:17,760 --> 00:41:24,240
+tap j
+
+743
+00:41:21,440 --> 00:41:26,560
+arrow wrong number of argument. What the
+
+744
+00:41:24,240 --> 00:41:29,920
+[ __ ]
+
+745
+00:41:26,560 --> 00:41:32,920
+Uh message and wait. What what's going
+
+746
+00:41:29,920 --> 00:41:32,920
+on?
+
+747
+00:41:33,280 --> 00:41:41,200
+Go to messages buffer. Okay. So
+
+748
+00:41:38,720 --> 00:41:44,560
+wrong number of arguments something
+
+749
+00:41:41,200 --> 00:41:47,599
+optional. Okay. So I think I can I think
+
+750
+00:41:44,560 --> 00:41:50,599
+I understand what it means.
+
+751
+00:41:47,599 --> 00:41:50,599
+What?
+
+752
+00:41:51,280 --> 00:41:57,200
+Oh yeah. Because you see we removed two
+
+753
+00:41:54,880 --> 00:42:00,560
+arguments. So now it's just two
+
+754
+00:41:57,200 --> 00:42:03,839
+arguments beginning end. But however in
+
+755
+00:42:00,560 --> 00:42:07,200
+this section interactive we fed four
+
+756
+00:42:03,839 --> 00:42:10,240
+arguments neo neo tt. So let's just
+
+757
+00:42:07,200 --> 00:42:12,240
+remove that. Okay.
+
+758
+00:42:10,240 --> 00:42:15,119
+So now
+
+759
+00:42:12,240 --> 00:42:18,480
+in fact this is optional. So this we
+
+760
+00:42:15,119 --> 00:42:22,240
+don't even need you know. So evaluate
+
+761
+00:42:18,480 --> 00:42:24,400
+it. Go back to here.
+
+762
+00:42:22,240 --> 00:42:28,480
+Tap J.
+
+763
+00:42:24,400 --> 00:42:31,920
+Fantastic and beautiful.
+
+764
+00:42:28,480 --> 00:42:35,200
+Okay there is a search failed message
+
+765
+00:42:31,920 --> 00:42:37,119
+which is you know so undo. Let's go back
+
+766
+00:42:35,200 --> 00:42:40,560
+to the code.
+
+767
+00:42:37,119 --> 00:42:42,880
+Search failed. Let's make it pretty so
+
+768
+00:42:40,560 --> 00:42:45,880
+it doesn't say that.
+
+769
+00:42:42,880 --> 00:42:45,880
+Uh
+
+770
+00:42:51,119 --> 00:42:57,599
+so you know so search for word it failed
+
+771
+00:42:55,040 --> 00:43:02,240
+don't complain okay
+
+772
+00:42:57,599 --> 00:43:05,240
+just do that bound neo and no error true
+
+773
+00:43:02,240 --> 00:43:05,240
+okay
+
+774
+00:43:07,520 --> 00:43:13,599
+okay to repeat that that that that That
+
+775
+00:43:10,960 --> 00:43:17,280
+that that that that prefy the code.
+
+776
+00:43:13,599 --> 00:43:19,520
+Evolve the buffer. Go back here. Try it.
+
+777
+00:43:17,280 --> 00:43:22,520
+Tap J.
+
+778
+00:43:19,520 --> 00:43:22,520
+Fantastic.
+
+779
+00:43:22,560 --> 00:43:27,040
+And now there's it's saying you know it
+
+780
+00:43:24,640 --> 00:43:30,800
+gives you a message change printed below
+
+781
+00:43:27,040 --> 00:43:33,119
+if any. So that's the report feature you
+
+782
+00:43:30,800 --> 00:43:36,319
+know in our original code. Now this is
+
+783
+00:43:33,119 --> 00:43:39,200
+our new code. Now let's make this one
+
+784
+00:43:36,319 --> 00:43:42,079
+line again. So you see that's why I like
+
+785
+00:43:39,200 --> 00:43:45,359
+single line format. If you seen my live
+
+786
+00:43:42,079 --> 00:43:48,480
+stream about wam language how everything
+
+787
+00:43:45,359 --> 00:43:52,960
+is automatic that's fantastic.
+
+788
+00:43:48,480 --> 00:43:57,440
+Okay but anyway so so should we okay
+
+789
+00:43:52,960 --> 00:44:00,400
+let's leave it like that. Okay so now uh
+
+790
+00:43:57,440 --> 00:44:03,359
+we want to add a report feature. Let's
+
+791
+00:44:00,400 --> 00:44:06,960
+see let's think about what feature we
+
+792
+00:44:03,359 --> 00:44:08,720
+want. So here is our original code.
+
+793
+00:44:06,960 --> 00:44:12,319
+Um,
+
+794
+00:44:08,720 --> 00:44:14,319
+so we got begin, end, then report.
+
+795
+00:44:12,319 --> 00:44:17,200
+Report just, you know, usually it's not
+
+796
+00:44:14,319 --> 00:44:20,960
+useful because it just prints a bunch of
+
+797
+00:44:17,200 --> 00:44:24,880
+lines, but highlight is very useful.
+
+798
+00:44:20,960 --> 00:44:26,880
+Okay, so we want we do want highlight.
+
+799
+00:44:24,880 --> 00:44:31,079
+Okay, so copy that. Let's add that
+
+800
+00:44:26,880 --> 00:44:31,079
+feature. Now, this is extra.
+
+801
+00:44:31,920 --> 00:44:39,680
+We already finished the task, but now we
+
+802
+00:44:36,240 --> 00:44:41,760
+do some extra stuff. So far so good. Is
+
+803
+00:44:39,680 --> 00:44:45,119
+it fun?
+
+804
+00:44:41,760 --> 00:44:47,599
+Thank you guys for watching. Pay me. Uh
+
+805
+00:44:45,119 --> 00:44:51,760
+yeah. Yes.
+
+806
+00:44:47,599 --> 00:44:56,240
+Sorry.info. Okay. Excursion. We had one
+
+807
+00:44:51,760 --> 00:45:00,000
+excursion. So now uh today's ad is
+
+808
+00:44:56,240 --> 00:45:02,400
+sponsored by you. So kasadi.infocus info
+
+809
+00:45:00,000 --> 00:45:06,960
+casad code.info
+
+810
+00:45:02,400 --> 00:45:10,960
+no https because this Google and firefox
+
+811
+00:45:06,960 --> 00:45:14,640
+scums they they are deep us scums these
+
+812
+00:45:10,960 --> 00:45:18,079
+days they prevent you from visiting
+
+813
+00:45:14,640 --> 00:45:21,280
+websites that's not https and worse they
+
+814
+00:45:18,079 --> 00:45:24,079
+automatically change anything to the s
+
+815
+00:45:21,280 --> 00:45:26,240
+they add s you know for example my
+
+816
+00:45:24,079 --> 00:45:28,640
+site.info
+
+817
+00:45:26,240 --> 00:45:31,680
+info
+
+818
+00:45:28,640 --> 00:45:34,240
+sorry.info info works. But if you use
+
+819
+00:45:31,680 --> 00:45:35,839
+Google or if you click, you know, from
+
+820
+00:45:34,240 --> 00:45:38,160
+Twitter, you know, if you are using
+
+821
+00:45:35,839 --> 00:45:39,760
+Google Chrome or Firefox, they
+
+822
+00:45:38,160 --> 00:45:43,440
+automatically
+
+823
+00:45:39,760 --> 00:45:49,040
+add a S to your URL and then then they
+
+824
+00:45:43,440 --> 00:45:52,240
+will say, oh, error, security failure,
+
+825
+00:45:49,040 --> 00:45:55,200
+scary tactics. Then you can't visit my
+
+826
+00:45:52,240 --> 00:45:57,920
+website because security. Oh, there must
+
+827
+00:45:55,200 --> 00:46:01,839
+be some hackers going on.
+
+828
+00:45:57,920 --> 00:46:04,319
+[ __ ] Google. [ __ ] Firefox. Okay.
+
+829
+00:46:01,839 --> 00:46:08,880
+Excali.info. Then you go all the way
+
+830
+00:46:04,319 --> 00:46:11,680
+down slowly. You got coding stuff. You
+
+831
+00:46:08,880 --> 00:46:14,319
+got mathematics. You got lots of stuff.
+
+832
+00:46:11,680 --> 00:46:18,000
+And you got to the place where you can
+
+833
+00:46:14,319 --> 00:46:22,240
+pay me. Patreon, Amazon gift card,
+
+834
+00:46:18,000 --> 00:46:25,440
+PayPal. $100 is nice
+
+835
+00:46:22,240 --> 00:46:29,440
+if you have a job. Okay. So, let's go
+
+836
+00:46:25,440 --> 00:46:31,599
+back to code. So now we need to add this
+
+837
+00:46:29,440 --> 00:46:35,440
+highlight feature. How can you do that?
+
+838
+00:46:31,599 --> 00:46:39,440
+How can you in EMAC how can you make it
+
+839
+00:46:35,440 --> 00:46:42,240
+highlight something programmatically?
+
+840
+00:46:39,440 --> 00:46:44,160
+Uh you know so we can for example this
+
+841
+00:46:42,240 --> 00:46:46,400
+beginning end we can do it
+
+842
+00:46:44,160 --> 00:46:48,400
+interactively. Press press press press
+
+843
+00:46:46,400 --> 00:46:51,040
+and you can see all the beginning got
+
+844
+00:46:48,400 --> 00:46:53,359
+highlighted. What about the end? Press
+
+845
+00:46:51,040 --> 00:46:56,240
+press press press. Oh they become pink.
+
+846
+00:46:53,359 --> 00:46:59,680
+Fantastic. So good for your eyes and
+
+847
+00:46:56,240 --> 00:47:02,319
+helps you programming help humanity.
+
+848
+00:46:59,680 --> 00:47:04,880
+That command is called highlight symbol
+
+849
+00:47:02,319 --> 00:47:07,280
+at point building. Okay. But how do you
+
+850
+00:47:04,880 --> 00:47:11,920
+do it programmatically?
+
+851
+00:47:07,280 --> 00:47:15,599
+We can do that by here. Okay. So once we
+
+852
+00:47:11,920 --> 00:47:18,800
+found a replacement, we highlight the
+
+853
+00:47:15,599 --> 00:47:23,119
+region. Okay. How do you do that?
+
+854
+00:47:18,800 --> 00:47:26,079
+Uh basically you go to search for kasar
+
+855
+00:47:23,119 --> 00:47:31,119
+eac lisp
+
+856
+00:47:26,079 --> 00:47:35,040
+and then go to create a major mode. Then
+
+857
+00:47:31,119 --> 00:47:36,560
+you there is a section about
+
+858
+00:47:35,040 --> 00:47:40,280
+highlighting
+
+859
+00:47:36,560 --> 00:47:40,280
+uh it's called
+
+860
+00:47:40,560 --> 00:47:48,000
+uh font face uh major mode font face
+
+861
+00:47:44,240 --> 00:47:50,720
+syntax table font face no brief uh what
+
+862
+00:47:48,000 --> 00:47:54,160
+is it uh
+
+863
+00:47:50,720 --> 00:47:57,760
+it's called overlay there it is can you
+
+864
+00:47:54,160 --> 00:48:02,240
+see overlay highlighting click on that
+
+865
+00:47:57,760 --> 00:48:04,560
+tells you all about it how to do it.
+
+866
+00:48:02,240 --> 00:48:07,839
+Okay. So then all you have to do is you
+
+867
+00:48:04,560 --> 00:48:10,240
+just copy the code.
+
+868
+00:48:07,839 --> 00:48:13,920
+Okay. Back to Emacs.
+
+869
+00:48:10,240 --> 00:48:18,880
+Close that. So we want to highlight. So
+
+870
+00:48:13,920 --> 00:48:22,720
+paste the code. Uh make over overlay
+
+871
+00:48:18,880 --> 00:48:26,000
+bold region. Make region bold using
+
+872
+00:48:22,720 --> 00:48:28,800
+overlay. Okay. So what are the
+
+873
+00:48:26,000 --> 00:48:33,119
+difference? Cuz over remove. Okay. So
+
+874
+00:48:28,800 --> 00:48:35,040
+this remove we don't care and this this
+
+875
+00:48:33,119 --> 00:48:37,920
+we don't we don't need the defend
+
+876
+00:48:35,040 --> 00:48:42,319
+anymore.
+
+877
+00:48:37,920 --> 00:48:45,680
+Okay. So it's just that okay overlay put
+
+878
+00:48:42,319 --> 00:48:48,960
+make overlay you need to have a
+
+879
+00:48:45,680 --> 00:48:51,359
+beginning and end position to make it.
+
+880
+00:48:48,960 --> 00:48:56,520
+So how you want to make so where is the
+
+881
+00:48:51,359 --> 00:48:56,520
+beginning position that would be
+
+882
+00:48:56,800 --> 00:49:02,040
+so begin would be match beginning.
+
+883
+00:49:07,359 --> 00:49:14,240
+Okay so match beginning yes and end
+
+884
+00:49:10,800 --> 00:49:17,680
+would be match end. Okay, zero means the
+
+885
+00:49:14,240 --> 00:49:22,160
+whole match the expression which is just
+
+886
+00:49:17,680 --> 00:49:24,480
+the amperand. Okay, but
+
+887
+00:49:22,160 --> 00:49:27,280
+plus
+
+888
+00:49:24,480 --> 00:49:32,240
+you want to plus one, two, three, four
+
+889
+00:49:27,280 --> 00:49:35,559
+characters. So match n + 4. Okay. So,
+
+890
+00:49:32,240 --> 00:49:35,559
+let's see.
+
+891
+00:49:35,760 --> 00:49:42,400
+O overlay put set mark. That we don't
+
+892
+00:49:39,680 --> 00:49:47,800
+need that. We don't need that. We don't
+
+893
+00:49:42,400 --> 00:49:47,800
+need pedify the code. There it is.
+
+894
+00:49:49,520 --> 00:49:53,920
+You
+
+895
+00:49:51,599 --> 00:49:56,720
+So, let's purify the code. So, you do
+
+896
+00:49:53,920 --> 00:49:59,280
+the search, you replace it, then you
+
+897
+00:49:56,720 --> 00:50:03,280
+highlight it.
+
+898
+00:49:59,280 --> 00:50:06,280
+Okay. So cut the code and also put it
+
+899
+00:50:03,280 --> 00:50:06,280
+here.
+
+900
+00:50:06,800 --> 00:50:10,440
+Okay. So
+
+901
+00:50:10,559 --> 00:50:16,800
+paste purify fantastic eval buffer. Go
+
+902
+00:50:14,960 --> 00:50:21,359
+back to
+
+903
+00:50:16,800 --> 00:50:23,680
+the test page. Now undo. Close. Save.
+
+904
+00:50:21,359 --> 00:50:25,760
+Close. Reopen.
+
+905
+00:50:23,680 --> 00:50:29,359
+Now
+
+906
+00:50:25,760 --> 00:50:32,559
+tap J.
+
+907
+00:50:29,359 --> 00:50:37,760
+No highlight.
+
+908
+00:50:32,559 --> 00:50:40,640
+Oh, wait. It did. You know, it's bold.
+
+909
+00:50:37,760 --> 00:50:44,480
+Okay. I don't want bold. So, let's go
+
+910
+00:50:40,640 --> 00:50:47,599
+back. Let's say red.
+
+911
+00:50:44,480 --> 00:50:50,319
+Can we Do we have a red face? Face
+
+912
+00:50:47,599 --> 00:50:52,640
+highlight. Oh, okay. Maybe use face
+
+913
+00:50:50,319 --> 00:50:56,000
+highlight.
+
+914
+00:50:52,640 --> 00:50:59,119
+Uh, instead face bold, use face
+
+915
+00:50:56,000 --> 00:51:02,720
+highlight. Okay. Let's use the standard
+
+916
+00:50:59,119 --> 00:51:06,640
+highlight color in Emacs. Okay. So,
+
+917
+00:51:02,720 --> 00:51:10,480
+instead of bold, just say highlight.
+
+918
+00:51:06,640 --> 00:51:13,839
+Instead of a bold, just say highlight.
+
+919
+00:51:10,480 --> 00:51:19,760
+Make a backup. Go to the directory by
+
+920
+00:51:13,839 --> 00:51:23,680
+compile. Yes. Uh oh, you got error. Oh,
+
+921
+00:51:19,760 --> 00:51:26,880
+and use lexical argument.
+
+922
+00:51:23,680 --> 00:51:28,800
+Oh, that's right. You forgot to check
+
+923
+00:51:26,880 --> 00:51:32,200
+you know maybe user don't want to
+
+924
+00:51:28,800 --> 00:51:32,200
+highlight it.
+
+925
+00:51:33,440 --> 00:51:39,839
+Actually we always want to highlight it.
+
+926
+00:51:37,280 --> 00:51:42,400
+Yeah. So let's just you know let's just
+
+927
+00:51:39,839 --> 00:51:46,000
+always highlight it.
+
+928
+00:51:42,400 --> 00:51:49,559
+Okay. So interactive list
+
+929
+00:51:46,000 --> 00:51:49,559
+Neo true.
+
+930
+00:51:49,760 --> 00:51:54,720
+Well wait well we don't need that
+
+931
+00:51:52,319 --> 00:51:57,280
+argument. just always just highlight it.
+
+932
+00:51:54,720 --> 00:52:00,400
+So we don't need that.
+
+933
+00:51:57,280 --> 00:52:04,400
+Okay. If the buffer make a backup go to
+
+934
+00:52:00,400 --> 00:52:08,079
+a directory by compile it by compile and
+
+935
+00:52:04,400 --> 00:52:11,200
+no error open it close it rem uh delete
+
+936
+00:52:08,079 --> 00:52:14,559
+it. Close it back to the testing page.
+
+937
+00:52:11,200 --> 00:52:18,480
+And this line we don't need anymore. You
+
+938
+00:52:14,559 --> 00:52:22,960
+see this? You see before we have this
+
+939
+00:52:18,480 --> 00:52:27,680
+one single line and now we need this
+
+940
+00:52:22,960 --> 00:52:31,280
+entire block you know like 15 lines
+
+941
+00:52:27,680 --> 00:52:34,480
+but our code is now faster because
+
+942
+00:52:31,280 --> 00:52:37,119
+faster and no dependency so let's just
+
+943
+00:52:34,480 --> 00:52:41,520
+remove that you know that that's what I
+
+944
+00:52:37,119 --> 00:52:45,680
+wanted evaluate it go here close it
+
+945
+00:52:41,520 --> 00:52:47,760
+reopen now look carefully especially
+
+946
+00:52:45,680 --> 00:52:50,640
+Check the highlighting. Okay, the
+
+947
+00:52:47,760 --> 00:52:54,160
+amperand is red because I'm using some
+
+948
+00:52:50,640 --> 00:52:55,920
+HTML mod. It it just highlight the
+
+949
+00:52:54,160 --> 00:52:59,520
+amperand.
+
+950
+00:52:55,920 --> 00:53:05,760
+Okay. And and let's say x greater than
+
+951
+00:52:59,520 --> 00:53:09,040
+one. Okay. Y - 2, you know, extra. Okay.
+
+952
+00:53:05,760 --> 00:53:14,440
+Save it. Now put the cursor somewhere
+
+953
+00:53:09,040 --> 00:53:14,440
+there and tap J.
+
+954
+00:53:15,760 --> 00:53:20,200
+Fantastic. And wrong.
+
+955
+00:53:21,359 --> 00:53:26,880
+Okay. The replacement is correct, but
+
+956
+00:53:24,160 --> 00:53:29,880
+it's highlighting
+
+957
+00:53:26,880 --> 00:53:29,880
+[ __ ]
+
+958
+00:53:35,599 --> 00:53:41,680
+It's highlighting.
+
+959
+00:53:38,079 --> 00:53:44,800
+Okay. Oh, wait.
+
+960
+00:53:41,680 --> 00:53:47,599
+Okay. So, I don't know exactly what's
+
+961
+00:53:44,800 --> 00:53:51,119
+going on, but let's we can just try out
+
+962
+00:53:47,599 --> 00:53:54,880
+an error here. So, don't don't plus
+
+963
+00:53:51,119 --> 00:53:58,079
+four. Okay, I think it um
+
+964
+00:53:54,880 --> 00:54:02,000
+yeah, so evaluate it. I think this
+
+965
+00:53:58,079 --> 00:54:05,280
+replace match automatically update the
+
+966
+00:54:02,000 --> 00:54:09,280
+match end. Okay, so now evaluate the
+
+967
+00:54:05,280 --> 00:54:13,440
+buffer. Go here. Go to the HTML.
+
+968
+00:54:09,280 --> 00:54:18,040
+Undo. Close. Reopen
+
+969
+00:54:13,440 --> 00:54:18,040
+now. Tap J.
+
+970
+00:54:18,400 --> 00:54:25,760
+Fantastic and beautiful.
+
+971
+00:54:21,520 --> 00:54:28,400
+That's superb. Superb and success.
+
+972
+00:54:25,760 --> 00:54:30,079
+Now let's make it list and showing
+
+973
+00:54:28,400 --> 00:54:34,240
+browser.
+
+974
+00:54:30,079 --> 00:54:38,880
+Fantastic. Correct code. Valid HTML. You
+
+975
+00:54:34,240 --> 00:54:41,040
+can pass this to HTML W3C validator and
+
+976
+00:54:38,880 --> 00:54:43,200
+it'll work.
+
+977
+00:54:41,040 --> 00:54:47,200
+Okay, I think that's it for today. Thank
+
+978
+00:54:43,200 --> 00:54:50,400
+you guys for watching. Uh ACP says the
+
+979
+00:54:47,200 --> 00:54:52,960
+match beginning end has changed after
+
+980
+00:54:50,400 --> 00:54:56,400
+replacement. Yes,
+
+981
+00:54:52,960 --> 00:54:59,359
+that is why I was adding you know I was
+
+982
+00:54:56,400 --> 00:55:05,200
+make you know adding four you know this
+
+983
+00:54:59,359 --> 00:55:10,000
+that you know that's why but apparently
+
+984
+00:55:05,200 --> 00:55:12,400
+when you do the replacement here it also
+
+985
+00:55:10,000 --> 00:55:16,319
+automatically update the match end
+
+986
+00:55:12,400 --> 00:55:19,200
+position. You see is do I is it clear?
+
+987
+00:55:16,319 --> 00:55:21,760
+So let me explain. Okay. So suppose you
+
+988
+00:55:19,200 --> 00:55:23,520
+are you know trying to find the greater
+
+989
+00:55:21,760 --> 00:55:26,559
+than sign.
+
+990
+00:55:23,520 --> 00:55:29,680
+So once you call this search forward it
+
+991
+00:55:26,559 --> 00:55:32,800
+will have a match beginning and match
+
+992
+00:55:29,680 --> 00:55:36,400
+end position and these two functions
+
+993
+00:55:32,800 --> 00:55:40,880
+will get you their value which are
+
+994
+00:55:36,400 --> 00:55:42,960
+integers. Okay. So this you know so
+
+995
+00:55:40,880 --> 00:55:46,240
+match beginning and match end they will
+
+996
+00:55:42,960 --> 00:55:48,960
+differ by one obviously because you only
+
+997
+00:55:46,240 --> 00:55:50,559
+searched for one character right one
+
+998
+00:55:48,960 --> 00:55:54,000
+character.
+
+999
+00:55:50,559 --> 00:55:57,599
+So then you do the replace match which
+
+1000
+00:55:54,000 --> 00:56:01,839
+actually added one two three uh three oh
+
+1001
+00:55:57,599 --> 00:56:05,200
+not four it added three more characters.
+
+1002
+00:56:01,839 --> 00:56:08,640
+So I thought then you might you know you
+
+1003
+00:56:05,200 --> 00:56:13,119
+need to add four to the match end but
+
+1004
+00:56:08,640 --> 00:56:16,640
+apparently that's incorrect because
+
+1005
+00:56:13,119 --> 00:56:19,440
+if you when you call the m replace match
+
+1006
+00:56:16,640 --> 00:56:22,960
+it actually update the match end
+
+1007
+00:56:19,440 --> 00:56:25,599
+position so you don't have to like add
+
+1008
+00:56:22,960 --> 00:56:28,319
+extra. Okay, this is actually better.
+
+1009
+00:56:25,599 --> 00:56:32,079
+This is smart. Okay, so evaluate the
+
+1010
+00:56:28,319 --> 00:56:35,040
+buffer. Let's try it again.
+
+1011
+00:56:32,079 --> 00:56:39,280
+you know. Okay. So, showing browser.
+
+1012
+00:56:35,040 --> 00:56:42,079
+Let's just copy that. Copy back here.
+
+1013
+00:56:39,280 --> 00:56:44,640
+Let's open a new buffer and let's make
+
+1014
+00:56:42,079 --> 00:56:47,280
+it fundamental mod so it doesn't
+
+1015
+00:56:44,640 --> 00:56:49,680
+highlight anything. So now let's
+
+1016
+00:56:47,280 --> 00:56:53,760
+manually call
+
+1017
+00:56:49,680 --> 00:56:57,040
+HTML amperand
+
+1018
+00:56:53,760 --> 00:57:01,200
+encode ampers entity. Do it.
+
+1019
+00:56:57,040 --> 00:57:04,400
+Fantastic. And beautiful success.
+
+1020
+00:57:01,200 --> 00:57:07,760
+So fantastic. Now let's close that and
+
+1021
+00:57:04,400 --> 00:57:12,640
+put the code back. So this we got this
+
+1022
+00:57:07,760 --> 00:57:14,319
+fantastic and beautiful code. Copy it.
+
+1023
+00:57:12,640 --> 00:57:16,000
+Uh
+
+1024
+00:57:14,319 --> 00:57:18,799
+so let me let me show you the
+
+1025
+00:57:16,000 --> 00:57:22,960
+difference. Okay. So let's see. So this
+
+1026
+00:57:18,799 --> 00:57:28,000
+is the old code here. So let's paste the
+
+1027
+00:57:22,960 --> 00:57:31,359
+new code here. So update the pages state
+
+1028
+00:57:28,000 --> 00:57:35,119
+and uh let's
+
+1029
+00:57:31,359 --> 00:57:39,280
+emac this. Okay, here's a new code
+
+1030
+00:57:35,119 --> 00:57:42,240
+syntax color show in browser. So now you
+
+1031
+00:57:39,280 --> 00:57:46,000
+got two version of code. So the first
+
+1032
+00:57:42,240 --> 00:57:48,000
+one is what we coded today.
+
+1033
+00:57:46,000 --> 00:57:53,359
+Fantastic and beautiful. You can see the
+
+1034
+00:57:48,000 --> 00:57:55,920
+date 2025 August 11th. the the now the
+
+1035
+00:57:53,359 --> 00:57:59,839
+previous version if you scroll down is
+
+1036
+00:57:55,920 --> 00:58:03,280
+this one 2025 February last time I
+
+1037
+00:57:59,839 --> 00:58:04,880
+updated you see the previous version is
+
+1038
+00:58:03,280 --> 00:58:07,200
+tur
+
+1039
+00:58:04,880 --> 00:58:10,960
+you know this one single line does it
+
+1040
+00:58:07,200 --> 00:58:12,480
+does the heart of the problem
+
+1041
+00:58:10,960 --> 00:58:15,280
+but
+
+1042
+00:58:12,480 --> 00:58:17,760
+if you are a user you go here then you
+
+1043
+00:58:15,280 --> 00:58:20,400
+try it oh it doesn't work replace pair
+
+1044
+00:58:17,760 --> 00:58:23,920
+is not found and you go back oh you look
+
+1045
+00:58:20,400 --> 00:58:26,000
+oh you need to this package. And what is
+
+1046
+00:58:23,920 --> 00:58:29,359
+this package? Oh, then you need to
+
+1047
+00:58:26,000 --> 00:58:32,559
+download this one. That's dependency.
+
+1048
+00:58:29,359 --> 00:58:37,119
+Dependency is the worst [ __ ] in coding.
+
+1049
+00:58:32,559 --> 00:58:39,520
+Okay, like today's JavaScript mpm
+
+1050
+00:58:37,119 --> 00:58:43,119
+you open the gate then the flood of [ __ ]
+
+1051
+00:58:39,520 --> 00:58:48,400
+comes in to your computer.
+
+1052
+00:58:43,119 --> 00:58:52,720
+Okay. So, so, so now the code is verbose
+
+1053
+00:58:48,400 --> 00:58:56,480
+30 more lines but there's no dependency.
+
+1054
+00:58:52,720 --> 00:58:59,440
+Okay, we finished that and uh you know
+
+1055
+00:58:56,480 --> 00:59:02,799
+very good but there's ex this second
+
+1056
+00:58:59,440 --> 00:59:05,359
+problem. Now we need to do the decode.
+
+1057
+00:59:02,799 --> 00:59:09,920
+Now, the the decoding is a bit more
+
+1058
+00:59:05,359 --> 00:59:14,319
+complex because if you do the decoding,
+
+1059
+00:59:09,920 --> 00:59:16,559
+I think you're going to run into the um
+
+1060
+00:59:14,319 --> 00:59:18,319
+you you're going to run into this
+
+1061
+00:59:16,559 --> 00:59:21,920
+problem
+
+1062
+00:59:18,319 --> 00:59:24,920
+of where is it? Did I close it? Yeah.
+
+1063
+00:59:21,920 --> 00:59:24,920
+Jesus.
+
+1064
+00:59:24,960 --> 00:59:30,799
+You're going to run into the feedback
+
+1065
+00:59:27,280 --> 00:59:33,359
+loop problem. Okay. So, let me So, let's
+
+1066
+00:59:30,799 --> 00:59:36,160
+Okay. [ __ ] Where is it? Okay, let me
+
+1067
+00:59:33,359 --> 00:59:39,960
+let me put it the link. Okay, so copy
+
+1068
+00:59:36,160 --> 00:59:39,960
+that. Close it.
+
+1069
+00:59:40,160 --> 00:59:47,599
+Go to today's talk show. Paste this
+
+1070
+00:59:43,599 --> 00:59:50,240
+link. Okay, entity. Open it and search
+
+1071
+00:59:47,599 --> 00:59:53,599
+for replace.
+
+1072
+00:59:50,240 --> 00:59:58,880
+Okay, so search for package. Okay, there
+
+1073
+00:59:53,599 --> 01:00:02,400
+it is. Open it. Copy it. Close. Close.
+
+1074
+00:59:58,880 --> 01:00:06,480
+Put a link here. Linkify. make a list
+
+1075
+01:00:02,400 --> 01:00:11,599
+and join the list showing browser. There
+
+1076
+01:00:06,480 --> 01:00:13,200
+it is. So this package it explains this
+
+1077
+01:00:11,599 --> 01:00:17,119
+feedback
+
+1078
+01:00:13,200 --> 01:00:19,760
+loop problem. So open that copy the URL
+
+1079
+01:00:17,119 --> 01:00:23,280
+back to Emacs and
+
+1080
+01:00:19,760 --> 01:00:27,760
+and uh put it here because we talked
+
+1081
+01:00:23,280 --> 01:00:31,520
+about this issue today. So feedback loop
+
+1082
+01:00:27,760 --> 01:00:34,720
+loop. So when you are doing the decoding
+
+1083
+01:00:31,520 --> 01:00:37,440
+of the amperand encoding,
+
+1084
+01:00:34,720 --> 01:00:41,200
+you're going to have this feedback
+
+1085
+01:00:37,440 --> 01:00:43,280
+feedback loop problem. Let's see.
+
+1086
+01:00:41,200 --> 01:00:46,240
+So
+
+1087
+01:00:43,280 --> 01:00:50,559
+any of the fine characters do they
+
+1088
+01:00:46,240 --> 01:00:52,720
+appear in previous um replacement
+
+1089
+01:00:50,559 --> 01:00:55,440
+character?
+
+1090
+01:00:52,720 --> 01:00:58,160
+Oh actually no.
+
+1091
+01:00:55,440 --> 01:01:02,079
+So again the problem is
+
+1092
+01:00:58,160 --> 01:01:03,599
+for each pair of find replacement
+
+1093
+01:01:02,079 --> 01:01:06,319
+any
+
+1094
+01:01:03,599 --> 01:01:08,880
+subsequent find
+
+1095
+01:01:06,319 --> 01:01:12,000
+string
+
+1096
+01:01:08,880 --> 01:01:15,280
+if they appear as a substring of the
+
+1097
+01:01:12,000 --> 01:01:18,000
+previous replacement string then you got
+
+1098
+01:01:15,280 --> 01:01:22,960
+a problem.
+
+1099
+01:01:18,000 --> 01:01:27,040
+So does the problem occur here? uh you
+
+1100
+01:01:22,960 --> 01:01:32,599
+know it's kind of like tricky to
+
+1101
+01:01:27,040 --> 01:01:32,599
+to know. So let's let's make it easier.
+
+1102
+01:01:33,760 --> 01:01:40,559
+Okay. So now it's easier to see. So does
+
+1103
+01:01:36,640 --> 01:01:43,200
+any of the left hand side appear? Here's
+
+1104
+01:01:40,559 --> 01:01:47,280
+the left hand side. Does it appear as a
+
+1105
+01:01:43,200 --> 01:01:49,599
+substring of the previous right hand
+
+1106
+01:01:47,280 --> 01:01:54,799
+side?
+
+1107
+01:01:49,599 --> 01:01:58,559
+this no and this part no. Okay. So that
+
+1108
+01:01:54,799 --> 01:02:01,599
+means in fact the decode can also be
+
+1109
+01:01:58,559 --> 01:02:04,799
+easily coded just like we did here.
+
+1110
+01:02:01,599 --> 01:02:08,400
+Basically you just copy and paste and
+
+1111
+01:02:04,799 --> 01:02:11,040
+just replace you know the swap the you
+
+1112
+01:02:08,400 --> 01:02:15,200
+know swap these characters. Okay that's
+
+1113
+01:02:11,040 --> 01:02:18,240
+it. Thank you guys for watching.
+
+1114
+01:02:15,200 --> 01:02:20,079
+Fantastic. It's clear you know like when
+
+1115
+01:02:18,240 --> 01:02:22,240
+when you know like if you are a
+
+1116
+01:02:20,079 --> 01:02:25,680
+professor
+
+1117
+01:02:22,240 --> 01:02:28,480
+or if you are a lecturer lecturer you
+
+1118
+01:02:25,680 --> 01:02:31,839
+know the happiest thing is that when you
+
+1119
+01:02:28,480 --> 01:02:34,240
+you know explain something your student
+
+1120
+01:02:31,839 --> 01:02:37,520
+understand is attentive that's actually
+
+1121
+01:02:34,240 --> 01:02:39,520
+that the happiest
+
+1122
+01:02:37,520 --> 01:02:43,200
+you know that you know that that is what
+
+1123
+01:02:39,520 --> 01:02:46,000
+the professor lecture lecturer is doing
+
+1124
+01:02:43,200 --> 01:02:48,079
+their that means their intention is
+
+1125
+01:02:46,000 --> 01:02:49,680
+achieved that that means they are
+
+1126
+01:02:48,079 --> 01:02:52,640
+successful.
+
+1127
+01:02:49,680 --> 01:02:55,359
+So if you are a student in college you
+
+1128
+01:02:52,640 --> 01:02:58,400
+know I don't by the way ACP how how old
+
+1129
+01:02:55,359 --> 01:03:01,680
+are you you know I have all kind of uh
+
+1130
+01:02:58,400 --> 01:03:05,440
+audiences from teenagers to
+
+1131
+01:03:01,680 --> 01:03:07,760
+professionals and some professors too.
+
+1132
+01:03:05,440 --> 01:03:10,720
+So you know if so if you are in college
+
+1133
+01:03:07,760 --> 01:03:13,119
+you know
+
+1134
+01:03:10,720 --> 01:03:15,039
+usually I mean if you are in college you
+
+1135
+01:03:13,119 --> 01:03:17,440
+know the you know you you want to learn
+
+1136
+01:03:15,039 --> 01:03:20,000
+something that's that's what that's why
+
+1137
+01:03:17,440 --> 01:03:22,400
+you are in college for but the problem
+
+1138
+01:03:20,000 --> 01:03:24,559
+is for most people you know your parents
+
+1139
+01:03:22,400 --> 01:03:26,880
+paid it you know like you go to college
+
+1140
+01:03:24,559 --> 01:03:29,599
+to [ __ ] around
+
+1141
+01:03:26,880 --> 01:03:32,720
+you don't you get bor bored about
+
+1142
+01:03:29,599 --> 01:03:34,640
+whatever biology or mathematics you know
+
+1143
+01:03:32,720 --> 01:03:36,160
+you don't care
+
+1144
+01:03:34,640 --> 01:03:38,079
+But
+
+1145
+01:03:36,160 --> 01:03:40,000
+if you really want to learn, of course,
+
+1146
+01:03:38,079 --> 01:03:43,920
+you pay attention to the lecture. But
+
+1147
+01:03:40,000 --> 01:03:46,960
+then there's other problems such as
+
+1148
+01:03:43,920 --> 01:03:49,920
+half of the time the teachers, you know,
+
+1149
+01:03:46,960 --> 01:03:53,599
+the professors or lecturers are not that
+
+1150
+01:03:49,920 --> 01:03:55,680
+good. They also got problems, you know,
+
+1151
+01:03:53,599 --> 01:03:57,520
+they they, you know, they, you know,
+
+1152
+01:03:55,680 --> 01:03:59,280
+they are bored. you know they don't want
+
+1153
+01:03:57,520 --> 01:04:01,280
+to you know do the teaching you know
+
+1154
+01:03:59,280 --> 01:04:03,839
+they got other things to do or they got
+
+1155
+01:04:01,280 --> 01:04:06,319
+a problem they got some personal issues
+
+1156
+01:04:03,839 --> 01:04:08,480
+whatever you know or they are just not
+
+1157
+01:04:06,319 --> 01:04:12,640
+good at teaching because there's huge
+
+1158
+01:04:08,480 --> 01:04:14,799
+amount of corruption going on in in USA
+
+1159
+01:04:12,640 --> 01:04:17,599
+United States of America in the past you
+
+1160
+01:04:14,799 --> 01:04:19,760
+know let's say 20 years so these
+
+1161
+01:04:17,599 --> 01:04:22,000
+professors you know they are there not
+
+1162
+01:04:19,760 --> 01:04:24,079
+really to enjoy teaching they are just
+
+1163
+01:04:22,000 --> 01:04:28,400
+there because
+
+1164
+01:04:24,079 --> 01:04:31,039
+because they are good um
+
+1165
+01:04:28,400 --> 01:04:33,359
+you know they obey they are good obeyers
+
+1166
+01:04:31,039 --> 01:04:36,319
+so they get paid you know they get jobs
+
+1167
+01:04:33,359 --> 01:04:38,559
+you know especially the social sciences
+
+1168
+01:04:36,319 --> 01:04:42,319
+professors you know they teach you about
+
+1169
+01:04:38,559 --> 01:04:46,240
+feminism and uh stuff and gender stuff
+
+1170
+01:04:42,319 --> 01:04:48,000
+those are all super corrupted.
+
+1171
+01:04:46,240 --> 01:04:51,039
+So
+
+1172
+01:04:48,000 --> 01:04:54,240
+yeah, you are in college to learn but
+
+1173
+01:04:51,039 --> 01:04:56,880
+maybe you are not but even if you are
+
+1174
+01:04:54,240 --> 01:05:00,640
+half of the professors are not that you
+
+1175
+01:04:56,880 --> 01:05:02,400
+know they got the problems too anyway.
+
+1176
+01:05:00,640 --> 01:05:04,880
+So that's why you came to the right
+
+1177
+01:05:02,400 --> 01:05:08,160
+place if you want to learn Emacs. You
+
+1178
+01:05:04,880 --> 01:05:14,680
+got a dedicated obsessive
+
+1179
+01:05:08,160 --> 01:05:14,680
+lover of Emac this. Okay. Bye guys.
+
+1180
+01:05:14,880 --> 01:05:18,839
+shut down in one minute.
+
+1181
+01:05:23,039 --> 01:05:27,480
+Oh, far removed from college.
+
+1182
+01:05:31,680 --> 01:05:38,640
+Fantastic. And good luck.
+
+1183
+01:05:35,599 --> 01:05:42,640
+Okay, bye guys. Shut down in one minute.
+
+1184
+01:05:38,640 --> 01:05:44,960
+Uh, by the way, I got fairly popular on
+
+1185
+01:05:42,640 --> 01:05:48,000
+Twitter somewhat. I mean uh you know in
+
+1186
+01:05:44,960 --> 01:05:50,960
+the past three days I became I got like
+
+1187
+01:05:48,000 --> 01:05:53,520
+few hundred or was it a hundred more
+
+1188
+01:05:50,960 --> 01:05:57,760
+followers
+
+1189
+01:05:53,520 --> 01:06:02,799
+began by a post about Emacs about the
+
+1190
+01:05:57,760 --> 01:06:04,880
+Emacs couer font problem because if you
+
+1191
+01:06:02,799 --> 01:06:07,280
+are using Emacs
+
+1192
+01:06:04,880 --> 01:06:12,400
+oh [ __ ]
+
+1193
+01:06:07,280 --> 01:06:16,680
+whatever I was doing uh so let's okay so
+
+1194
+01:06:12,400 --> 01:06:16,680
+uh let's open a new one.
+
+1195
+01:06:17,039 --> 01:06:22,240
+Okay. So,
+
+1196
+01:06:20,079 --> 01:06:24,079
+control.
+
+1197
+01:06:22,240 --> 01:06:28,880
+Okay.
+
+1198
+01:06:24,079 --> 01:06:31,119
+Okay. So, now let's start EMAC 30.
+
+1199
+01:06:28,880 --> 01:06:34,880
+Uh,
+
+1200
+01:06:31,119 --> 01:06:38,240
+no. Uh, wait. Okay. Q means no personal
+
+1201
+01:06:34,880 --> 01:06:41,280
+in files. Launch the plane emacs. There
+
+1202
+01:06:38,240 --> 01:06:44,319
+it is. Instantaneous. Okay.
+
+1203
+01:06:41,280 --> 01:06:47,440
+Then you magnify. Let's see. Was it
+
+1204
+01:06:44,319 --> 01:06:51,000
+control alt? Yeah. Control alt scroll.
+
+1205
+01:06:47,440 --> 01:06:51,000
+So you magnify.
+
+1206
+01:06:51,760 --> 01:06:57,200
+Okay. Then you enlarge the window. So
+
+1207
+01:06:54,559 --> 01:07:01,359
+there you got Emacs. So this is plain
+
+1208
+01:06:57,200 --> 01:07:05,039
+glue emac. Now you
+
+1209
+01:07:01,359 --> 01:07:07,760
+control X. Wait. What's the key? Ctrl XB
+
+1210
+01:07:05,039 --> 01:07:13,359
+to switch to a buffer. You see that ugly
+
+1211
+01:07:07,760 --> 01:07:18,000
+font that most ugly possible this [ __ ]
+
+1212
+01:07:13,359 --> 01:07:20,960
+Now what font is that? Control H. Uh
+
+1213
+01:07:18,000 --> 01:07:25,440
+wait there's no shortcut. So you have to
+
+1214
+01:07:20,960 --> 01:07:27,920
+do meta x
+
+1215
+01:07:25,440 --> 01:07:30,799
+describe. You see this ugly font
+
+1216
+01:07:27,920 --> 01:07:34,559
+describe chart.
+
+1217
+01:07:30,799 --> 01:07:37,599
+Okay. Then that will tell you let's
+
+1218
+01:07:34,559 --> 01:07:41,119
+magnify again.
+
+1219
+01:07:37,599 --> 01:07:43,119
+Then that will it will tell you okay now
+
+1220
+01:07:41,119 --> 01:07:47,200
+how do you switch the cursor to the
+
+1221
+01:07:43,119 --> 01:07:51,039
+other panel? Well that's controll X
+
+1222
+01:07:47,200 --> 01:07:53,520
+control XO. You know this is how Emacs
+
+1223
+01:07:51,039 --> 01:07:56,480
+[ __ ] up your fingers.
+
+1224
+01:07:53,520 --> 01:07:59,440
+After a year you become a [ __ ] thanks
+
+1225
+01:07:56,480 --> 01:08:03,119
+to Emacs and the Emacs fanatic
+
+1226
+01:07:59,440 --> 01:08:05,599
+[ __ ] They refuse to change. Emacs
+
+1227
+01:08:03,119 --> 01:08:08,640
+is actually the the most the editor the
+
+1228
+01:08:05,599 --> 01:08:11,599
+software that's the most responsible for
+
+1229
+01:08:08,640 --> 01:08:14,319
+repetitive string injury you know
+
+1230
+01:08:11,599 --> 01:08:16,880
+crippled programmers. So anyway in this
+
+1231
+01:08:14,319 --> 01:08:21,520
+window you can see what is my font you
+
+1232
+01:08:16,880 --> 01:08:24,560
+see there it is couer new that is like
+
+1233
+01:08:21,520 --> 01:08:28,719
+that that font couer
+
+1234
+01:08:24,560 --> 01:08:32,000
+is about 100 years old. Okay, that's
+
+1235
+01:08:28,719 --> 01:08:36,799
+that font is 100 years old and courier
+
+1236
+01:08:32,000 --> 01:08:39,600
+new is like 30 years old. So the Emacs
+
+1237
+01:08:36,799 --> 01:08:41,520
+on Windows is still using this this font
+
+1238
+01:08:39,600 --> 01:08:44,799
+by default.
+
+1239
+01:08:41,520 --> 01:08:47,040
+Very bad. So I posted that and that
+
+1240
+01:08:44,799 --> 01:08:49,440
+became somewhat popular. Then I posted
+
+1241
+01:08:47,040 --> 01:08:51,759
+another thing about
+
+1242
+01:08:49,440 --> 01:08:54,960
+you followed the wrong guy and then a
+
+1243
+01:08:51,759 --> 01:09:01,319
+lot people like 100 s.
+
+1244
+01:08:54,960 --> 01:09:01,319
+So now I have 5 5,666
+
+1245
+01:09:01,359 --> 01:09:08,880
+followers.
+
+1246
+01:09:04,080 --> 01:09:11,120
+Oh. Oh, it's not 666, it's 69. I got 69
+
+1247
+01:09:08,880 --> 01:09:14,480
+followers.
+
+1248
+01:09:11,120 --> 01:09:17,120
+Uh, and uh, recent and yesterday and
+
+1249
+01:09:14,480 --> 01:09:21,560
+today, Brendan Ike, the creator of
+
+1250
+01:09:17,120 --> 01:09:21,560
+JavaScript, followed me.
+
+1251
+01:09:22,080 --> 01:09:25,880
+Okay. Okay. Bye.
+

@@ -1,0 +1,6392 @@
+1
+00:00:03,560 --> 00:00:11,880
+good morning everyone welcome to another
+
+2
+00:00:07,710 --> 00:00:16,800
+episode of saw talk show today is July
+
+3
+00:00:11,880 --> 00:00:20,220
+10th 2019 3 o clock p.m. California time
+
+4
+00:00:16,800 --> 00:00:27,060
+and today we are going to do a goal and
+
+5
+00:00:20,220 --> 00:00:29,670
+a live goal and programming and we are
+
+6
+00:00:27,060 --> 00:00:33,329
+going to write a small script that
+
+7
+00:00:29,670 --> 00:00:38,070
+process thousands 5 thousands of files
+
+8
+00:00:33,329 --> 00:00:42,420
+10 thousands of files to generate a list
+
+9
+00:00:38,070 --> 00:00:44,789
+of links basically so in this you will
+
+10
+00:00:42,420 --> 00:00:48,090
+learn you know if you are new to this is
+
+11
+00:00:44,789 --> 00:00:49,649
+kind of for beginners and you will learn
+
+12
+00:00:48,090 --> 00:00:51,329
+you know if you don't know goal and
+
+13
+00:00:49,649 --> 00:00:54,600
+you'll learn some goal and you hope
+
+14
+00:00:51,329 --> 00:00:57,690
+hopefully you learned something about :
+
+15
+00:00:54,600 --> 00:01:00,989
+or inspire you to learn the goal and
+
+16
+00:00:57,690 --> 00:01:04,890
+language now of programming languages I
+
+17
+00:01:00,989 --> 00:01:09,920
+love : because of the industrial
+
+18
+00:01:04,890 --> 00:01:15,270
+languages a man Perl Python Ruby Java
+
+19
+00:01:09,920 --> 00:01:18,650
+JavaScript for example including closure
+
+20
+00:01:15,270 --> 00:01:22,140
+you know for example all these languages
+
+21
+00:01:18,650 --> 00:01:25,590
+: is my favorite so these are industrial
+
+22
+00:01:22,140 --> 00:01:28,350
+languages my favorite languages exact of
+
+23
+00:01:25,590 --> 00:01:32,100
+them all is actually Mathematica but
+
+24
+00:01:28,350 --> 00:01:34,710
+that is a math language or science
+
+25
+00:01:32,100 --> 00:01:37,770
+oriented math language anyway so in
+
+26
+00:01:34,710 --> 00:01:41,909
+industrial languages my favorite is :
+
+27
+00:01:37,770 --> 00:01:45,450
+because : is is actually the same the
+
+28
+00:01:41,909 --> 00:01:47,850
+most simple to learn the concept of :
+
+29
+00:01:45,450 --> 00:01:50,460
+you know the programming language model
+
+30
+00:01:47,850 --> 00:01:56,520
+is very simple it's simpler than Python
+
+31
+00:01:50,460 --> 00:02:01,500
+Perl Ruby JavaScript ok and 3 and it is
+
+32
+00:01:56,520 --> 00:02:07,950
+fast let's see sorry : it's fast
+
+33
+00:02:01,500 --> 00:02:10,229
+it's almost as fast as see you know so I
+
+34
+00:02:07,950 --> 00:02:12,640
+have a tutorial about : you can you know
+
+35
+00:02:10,229 --> 00:02:15,850
+if you like to study :
+
+36
+00:02:12,640 --> 00:02:18,250
+read from my tutorial so it's simple the
+
+37
+00:02:15,850 --> 00:02:20,920
+language is very simple and it's super
+
+38
+00:02:18,250 --> 00:02:24,460
+fast it's as as fast as you can get
+
+39
+00:02:20,920 --> 00:02:28,120
+these similar to see the speed of : and
+
+40
+00:02:24,460 --> 00:02:31,120
+it can be compiled or it can be run as a
+
+41
+00:02:28,120 --> 00:02:32,830
+script just like Python or Perl like you
+
+42
+00:02:31,120 --> 00:02:36,640
+don't have to go through the Commun Oh
+
+43
+00:02:32,830 --> 00:02:40,120
+read Co compile then run the code this
+
+44
+00:02:36,640 --> 00:02:43,080
+loop you just write it and run it you
+
+45
+00:02:40,120 --> 00:02:47,980
+can if you want you know just like
+
+46
+00:02:43,080 --> 00:02:50,350
+python ruby and but if you want you can
+
+47
+00:02:47,980 --> 00:02:52,600
+also compare it so you got a binary and
+
+48
+00:02:50,350 --> 00:02:54,160
+send it to a friend and your friend can
+
+49
+00:02:52,600 --> 00:02:58,150
+run the program so it becomes a
+
+50
+00:02:54,160 --> 00:03:00,970
+independent application you know your
+
+51
+00:02:58,150 --> 00:03:02,890
+friend do not need does not need to
+
+52
+00:03:00,970 --> 00:03:08,020
+install you know got the goal and you
+
+53
+00:03:02,890 --> 00:03:10,140
+know language which is the case for you
+
+54
+00:03:08,020 --> 00:03:14,110
+know if it is Python or Ruby
+
+55
+00:03:10,140 --> 00:03:16,090
+so so this is a good great advantage you
+
+56
+00:03:14,110 --> 00:03:20,049
+can just compare the code and you run
+
+57
+00:03:16,090 --> 00:03:22,840
+anywhere you know actually does so it's
+
+58
+00:03:20,049 --> 00:03:26,110
+it's the language is very simple and
+
+59
+00:03:22,840 --> 00:03:28,180
+it's very fast faster like six times in
+
+60
+00:03:26,110 --> 00:03:32,650
+general six times faster than Ruby
+
+61
+00:03:28,180 --> 00:03:36,280
+Python pro and it can be compiled or run
+
+62
+00:03:32,650 --> 00:03:40,480
+as a scripting language and the
+
+63
+00:03:36,280 --> 00:03:42,730
+documentation of Golan is superb is the
+
+64
+00:03:40,480 --> 00:03:45,700
+most it's the best documentation ever
+
+65
+00:03:42,730 --> 00:03:48,480
+you know it's a you know I read you know
+
+66
+00:03:45,700 --> 00:03:49,930
+ten tenths of documentation in the past
+
+67
+00:03:48,480 --> 00:03:54,100
+thirty years
+
+68
+00:03:49,930 --> 00:03:56,049
+the Golan is tops one of the top you
+
+69
+00:03:54,100 --> 00:03:59,830
+know top you know the great
+
+70
+00:03:56,049 --> 00:04:01,810
+documentation Israel actually among all
+
+71
+00:03:59,830 --> 00:04:03,760
+programming languages in technology
+
+72
+00:04:01,810 --> 00:04:06,760
+programming language expect or
+
+73
+00:04:03,760 --> 00:04:10,810
+programming language documentation or
+
+74
+00:04:06,760 --> 00:04:13,989
+the the documentation for application
+
+75
+00:04:10,810 --> 00:04:18,010
+for such as Apache UNIX you know UNIX
+
+76
+00:04:13,989 --> 00:04:21,190
+main page paint main pages and you know
+
+77
+00:04:18,010 --> 00:04:23,950
+many you know documentation so goal and
+
+78
+00:04:21,190 --> 00:04:26,380
+documentation is is the best most most
+
+79
+00:04:23,950 --> 00:04:28,810
+the documentation Xin
+
+80
+00:04:26,380 --> 00:04:33,940
+the programming industry is crap it's
+
+81
+00:04:28,810 --> 00:04:37,810
+like below the standard even but go line
+
+82
+00:04:33,940 --> 00:04:43,300
+is is truly great yeah so simple
+
+83
+00:04:37,810 --> 00:04:46,780
+language very fast you you use it as a
+
+84
+00:04:43,300 --> 00:04:48,760
+script or it can be compiled you know
+
+85
+00:04:46,780 --> 00:04:52,380
+you can use it as a system language is
+
+86
+00:04:48,760 --> 00:04:56,740
+it's designed to be a system language
+
+87
+00:04:52,380 --> 00:05:00,640
+like C or C++ and then it the
+
+88
+00:04:56,740 --> 00:05:02,530
+documentation is superb and it supports
+
+89
+00:05:00,640 --> 00:05:06,010
+functional programming
+
+90
+00:05:02,530 --> 00:05:07,900
+I am always haha I have always been a
+
+91
+00:05:06,010 --> 00:05:10,360
+functional programmer for the you know
+
+92
+00:05:07,900 --> 00:05:13,170
+this beginning in the 1990s with
+
+93
+00:05:10,360 --> 00:05:16,390
+Mathematica I do not like
+
+94
+00:05:13,170 --> 00:05:20,740
+object-oriented programming at all in my
+
+95
+00:05:16,390 --> 00:05:22,330
+own programming I never do use the
+
+96
+00:05:20,740 --> 00:05:24,460
+object oriented model
+
+97
+00:05:22,330 --> 00:05:26,530
+I always just do functional programming
+
+98
+00:05:24,460 --> 00:05:28,390
+style you just write functions no
+
+99
+00:05:26,530 --> 00:05:32,800
+objects then oh no you know this
+
+100
+00:05:28,390 --> 00:05:35,470
+inheritance crap okay so golden supports
+
+101
+00:05:32,800 --> 00:05:38,350
+functional programming well you know
+
+102
+00:05:35,470 --> 00:05:41,440
+colon is not extreme like Haskell where
+
+103
+00:05:38,350 --> 00:05:43,840
+you have then then you have like monads
+
+104
+00:05:41,440 --> 00:05:47,980
+okay you have currying you have you know
+
+105
+00:05:43,840 --> 00:05:49,960
+all those less practical things but
+
+106
+00:05:47,980 --> 00:05:52,870
+Colin's supposed function of programming
+
+107
+00:05:49,960 --> 00:05:58,180
+because very well because a function can
+
+108
+00:05:52,870 --> 00:06:01,300
+return a function function is a is a is
+
+109
+00:05:58,180 --> 00:06:03,820
+a expression you know by itself function
+
+110
+00:06:01,300 --> 00:06:06,910
+can return a function and function can
+
+111
+00:06:03,820 --> 00:06:09,700
+take a function as argument so in that
+
+112
+00:06:06,910 --> 00:06:12,570
+purse you know in that respect it really
+
+113
+00:06:09,700 --> 00:06:15,850
+is what you need
+
+114
+00:06:12,570 --> 00:06:18,880
+so : so let's start coding : okay so
+
+115
+00:06:15,850 --> 00:06:20,920
+let's begin so let's see how many of you
+
+116
+00:06:18,880 --> 00:06:24,460
+are watching two or three people so if
+
+117
+00:06:20,920 --> 00:06:28,360
+you like I mean okay so you are you are
+
+118
+00:06:24,460 --> 00:06:30,820
+here and once again so let's you know
+
+119
+00:06:28,360 --> 00:06:37,770
+say hi or seen something oh hey good
+
+120
+00:06:30,820 --> 00:06:40,300
+morning break the loop hey saw well well
+
+121
+00:06:37,770 --> 00:06:43,360
+what was your engine amount of
+
+122
+00:06:40,300 --> 00:06:46,180
+the motivation in learning what you are
+
+123
+00:06:43,360 --> 00:06:48,250
+simply curious about its syntax so I
+
+124
+00:06:46,180 --> 00:06:51,480
+don't know if I already answered that
+
+125
+00:06:48,250 --> 00:06:55,960
+question so my original motive a
+
+126
+00:06:51,480 --> 00:07:02,140
+motivation for learning go why was i
+
+127
+00:06:55,960 --> 00:07:04,000
+studying go in the beginning I forgot at
+
+128
+00:07:02,140 --> 00:07:05,620
+the moment but anyway I wouldn't here's
+
+129
+00:07:04,000 --> 00:07:08,260
+what I can tell you at the beginning
+
+130
+00:07:05,620 --> 00:07:10,630
+when I first heard that Google you know
+
+131
+00:07:08,260 --> 00:07:13,120
+somebody in the Google Rob Pike and
+
+132
+00:07:10,630 --> 00:07:16,750
+friends you know they created : this is
+
+133
+00:07:13,120 --> 00:07:20,200
+like 10 years ago so it's like 2008 also
+
+134
+00:07:16,750 --> 00:07:22,630
+you know when that you know many
+
+135
+00:07:20,200 --> 00:07:24,730
+languages are coming up so when I first
+
+136
+00:07:22,630 --> 00:07:27,700
+heard that Google created goal and I
+
+137
+00:07:24,730 --> 00:07:31,270
+think it's crap you know I thought I
+
+138
+00:07:27,700 --> 00:07:33,190
+will never learn it I you know because
+
+139
+00:07:31,270 --> 00:07:35,830
+you know I saw back then I was thinking
+
+140
+00:07:33,190 --> 00:07:39,040
+so the so we we have you know we have
+
+141
+00:07:35,830 --> 00:07:41,980
+Java you know created in 1995 I can't
+
+142
+00:07:39,040 --> 00:07:45,520
+understand Java you know again except we
+
+143
+00:07:41,980 --> 00:07:49,750
+need a new language Java because it has
+
+144
+00:07:45,520 --> 00:07:51,820
+a new virtual machine you know the model
+
+145
+00:07:49,750 --> 00:07:54,100
+you know you like supposed to run
+
+146
+00:07:51,820 --> 00:07:57,280
+everywhere by having this virtual
+
+147
+00:07:54,100 --> 00:07:59,380
+machine where where every everywhere
+
+148
+00:07:57,280 --> 00:08:03,370
+where Java runs you have to install this
+
+149
+00:07:59,380 --> 00:08:05,590
+virtual machine and that concept is not
+
+150
+00:08:03,370 --> 00:08:09,190
+new with Java anyway you know but
+
+151
+00:08:05,590 --> 00:08:11,050
+however it was Java is the this is about
+
+152
+00:08:09,190 --> 00:08:13,510
+the supposed it's the first one to make
+
+153
+00:08:11,050 --> 00:08:16,180
+that concept popular you would run a
+
+154
+00:08:13,510 --> 00:08:20,710
+java you run a virtual machine you know
+
+155
+00:08:16,180 --> 00:08:23,410
+at the end so Java and Java is kind of
+
+156
+00:08:20,710 --> 00:08:26,730
+supposed to be a replacement of C first
+
+157
+00:08:23,410 --> 00:08:31,360
+for us now C++ I despise okay it's a
+
+158
+00:08:26,730 --> 00:08:34,750
+wholly complicated you know crap you
+
+159
+00:08:31,360 --> 00:08:37,980
+know a pile piles of a pound
+
+160
+00:08:34,750 --> 00:08:40,420
+ you know let's see press worse okay
+
+161
+00:08:37,980 --> 00:08:44,410
+so why people use it because they
+
+162
+00:08:40,420 --> 00:08:46,360
+achieve you know speed they grow they
+
+163
+00:08:44,410 --> 00:08:48,220
+become popular because of the UNIX
+
+164
+00:08:46,360 --> 00:08:51,520
+philosophy you know basically you create
+
+165
+00:08:48,220 --> 00:08:54,180
+a virus get people used to it then it
+
+166
+00:08:51,520 --> 00:08:56,490
+becomes popular industry has to support
+
+167
+00:08:54,180 --> 00:08:58,740
+then you you know add a little bit you
+
+168
+00:08:56,490 --> 00:09:02,400
+know features and try to fix it you know
+
+169
+00:08:58,740 --> 00:09:07,920
+that's us that's my my perspective of
+
+170
+00:09:02,400 --> 00:09:10,230
+the entire C C++ and D you know that
+
+171
+00:09:07,920 --> 00:09:14,730
+kind of line of you know the popularity
+
+172
+00:09:10,230 --> 00:09:16,410
+in industry so I thought Java was you
+
+173
+00:09:14,730 --> 00:09:19,380
+know there's a good reason for Java to
+
+174
+00:09:16,410 --> 00:09:21,390
+exist because you know it can replace C+
+
+175
+00:09:19,380 --> 00:09:24,390
+first you know I'll say you know it's
+
+176
+00:09:21,390 --> 00:09:27,960
+decide you know a coherent fee without
+
+177
+00:09:24,390 --> 00:09:30,600
+you know not picking back on the history
+
+178
+00:09:27,960 --> 00:09:34,110
+the baggage of see you know so you have
+
+179
+00:09:30,600 --> 00:09:36,840
+Java like the new okay but you know Java
+
+180
+00:09:34,110 --> 00:09:39,510
+is I don't like I don't think I I don't
+
+181
+00:09:36,840 --> 00:09:44,330
+like Java at all but anyway so I think
+
+182
+00:09:39,510 --> 00:09:47,370
+there's a reason for it to get invented
+
+183
+00:09:44,330 --> 00:09:50,850
+so anyway 1995 send in do you have
+
+184
+00:09:47,370 --> 00:09:53,760
+JavaScript anyway so what so what was I
+
+185
+00:09:50,850 --> 00:09:55,860
+saying so I was saying yeah so when okay
+
+186
+00:09:53,760 --> 00:09:59,700
+so you have Java so Mac from some
+
+187
+00:09:55,860 --> 00:10:02,580
+Microsystems then the Microsoft you know
+
+188
+00:09:59,700 --> 00:10:05,640
+they get jealous they had to create
+
+189
+00:10:02,580 --> 00:10:08,250
+c-sharp you know like what the
+
+190
+00:10:05,640 --> 00:10:12,480
+so what why do you need c-sharp why are
+
+191
+00:10:08,250 --> 00:10:14,280
+you doing it so it's C sharp turns out
+
+192
+00:10:12,480 --> 00:10:18,270
+is is you know some people will
+
+193
+00:10:14,280 --> 00:10:21,810
+criticize will claim it's just a copy of
+
+194
+00:10:18,270 --> 00:10:24,030
+Java you know a like a copycat but
+
+195
+00:10:21,810 --> 00:10:25,800
+according to the inventor you know
+
+196
+00:10:24,030 --> 00:10:28,170
+according through some people you know
+
+197
+00:10:25,800 --> 00:10:31,980
+they don't think it that way they think
+
+198
+00:10:28,170 --> 00:10:35,970
+actually so you know there are arguments
+
+199
+00:10:31,980 --> 00:10:39,000
+about why C sharp is necessary but at
+
+200
+00:10:35,970 --> 00:10:41,790
+you know anyway case it's necessary in a
+
+201
+00:10:39,000 --> 00:10:44,190
+sense it's Microsoft's version because
+
+202
+00:10:41,790 --> 00:10:46,650
+when you create a language and everyone
+
+203
+00:10:44,190 --> 00:10:48,870
+wants to use it you have advantages as
+
+204
+00:10:46,650 --> 00:10:51,840
+the owner of the language you have quite
+
+205
+00:10:48,870 --> 00:10:55,020
+a lot of that advantage so Microsoft is
+
+206
+00:10:51,840 --> 00:10:57,330
+not gonna you know you know that your
+
+207
+00:10:55,020 --> 00:11:01,020
+Sun Microsystems do stuff so so they
+
+208
+00:10:57,330 --> 00:11:05,340
+create the c-sharp you know then you
+
+209
+00:11:01,020 --> 00:11:07,410
+know so and you know many languages and
+
+210
+00:11:05,340 --> 00:11:09,810
+they are kind of similar okay
+
+211
+00:11:07,410 --> 00:11:12,600
+which is in general not a good thing to
+
+212
+00:11:09,810 --> 00:11:14,940
+programmers because as from an
+
+213
+00:11:12,600 --> 00:11:18,120
+engineering perspective you rather want
+
+214
+00:11:14,940 --> 00:11:20,370
+you know one system you know you don't
+
+215
+00:11:18,120 --> 00:11:22,350
+want to placate like copy a little
+
+216
+00:11:20,370 --> 00:11:25,530
+variation here just because different
+
+217
+00:11:22,350 --> 00:11:27,240
+corporate interests you know you know so
+
+218
+00:11:25,530 --> 00:11:30,390
+anyway so that that's you know the
+
+219
+00:11:27,240 --> 00:11:33,480
+ending you have C shop then and then you
+
+220
+00:11:30,390 --> 00:11:35,970
+have F sharp now F shop is interesting
+
+221
+00:11:33,480 --> 00:11:38,370
+now if you don't know F shop is a
+
+222
+00:11:35,970 --> 00:11:45,690
+functional programming language it's
+
+223
+00:11:38,370 --> 00:11:50,880
+based upon the oak ammo which is based
+
+224
+00:11:45,690 --> 00:11:54,590
+upon camel which is based upon M L now
+
+225
+00:11:50,880 --> 00:11:58,260
+the mal stand for meta language which is
+
+226
+00:11:54,590 --> 00:12:00,390
+what Haskell is based upon so mal the
+
+227
+00:11:58,260 --> 00:12:02,630
+meta language you know usually called
+
+228
+00:12:00,390 --> 00:12:04,830
+mal and there are several variations
+
+229
+00:12:02,630 --> 00:12:07,260
+there is another variation called
+
+230
+00:12:04,830 --> 00:12:10,080
+standard ml so you have this in the
+
+231
+00:12:07,260 --> 00:12:13,800
+beginning you have ml which is meta
+
+232
+00:12:10,080 --> 00:12:17,060
+language it's designed to do proofs in
+
+233
+00:12:13,800 --> 00:12:20,930
+mathematics it's a functional language
+
+234
+00:12:17,060 --> 00:12:24,360
+it's you know so mu is this is like
+
+235
+00:12:20,930 --> 00:12:26,730
+1970s I think so you have ml meta
+
+236
+00:12:24,360 --> 00:12:30,360
+language then you have some variations
+
+237
+00:12:26,730 --> 00:12:32,540
+standard ml then you have you have camel
+
+238
+00:12:30,360 --> 00:12:36,530
+then you have Oh camel which is
+
+239
+00:12:32,540 --> 00:12:41,330
+originally it means it means object
+
+240
+00:12:36,530 --> 00:12:43,320
+camel okay then you have F sharp
+
+241
+00:12:41,330 --> 00:12:47,580
+somewhere in between then you have
+
+242
+00:12:43,320 --> 00:12:49,890
+Haskell okay you know it's the this so
+
+243
+00:12:47,580 --> 00:12:52,080
+this bunch of languages are in one
+
+244
+00:12:49,890 --> 00:12:57,060
+family they are like close you know
+
+245
+00:12:52,080 --> 00:12:59,190
+almost the same so ff-shop so why do why
+
+246
+00:12:57,060 --> 00:13:01,500
+does Microsoft to F sharp you know of
+
+247
+00:12:59,190 --> 00:13:04,170
+course you know it's a good thing in a
+
+248
+00:13:01,500 --> 00:13:06,840
+sense that first of all Microsoft want
+
+249
+00:13:04,170 --> 00:13:10,410
+their own versions you know Microsoft is
+
+250
+00:13:06,840 --> 00:13:12,680
+an industrial cooperation while the
+
+251
+00:13:10,410 --> 00:13:16,230
+Haskell and ma are they are typically
+
+252
+00:13:12,680 --> 00:13:18,840
+using academia in research so they don't
+
+253
+00:13:16,230 --> 00:13:21,549
+have much exposure to you know to the
+
+254
+00:13:18,840 --> 00:13:26,649
+vast majority of programmers
+
+255
+00:13:21,549 --> 00:13:29,230
+and you know they are some you know so
+
+256
+00:13:26,649 --> 00:13:31,679
+it's time you know because you know that
+
+257
+00:13:29,230 --> 00:13:34,989
+we have technological progress so
+
+258
+00:13:31,679 --> 00:13:39,100
+Microsoft decided it's it's mature now
+
+259
+00:13:34,989 --> 00:13:41,379
+to introduce functional language as part
+
+260
+00:13:39,100 --> 00:13:44,379
+of the Microsoft you know call product
+
+261
+00:13:41,379 --> 00:13:46,119
+you know and to the you know vast
+
+262
+00:13:44,379 --> 00:13:47,379
+majority of programmers industry
+
+263
+00:13:46,119 --> 00:13:50,259
+programmers
+
+264
+00:13:47,379 --> 00:13:52,389
+it's kind of very pure you know
+
+265
+00:13:50,259 --> 00:13:56,169
+functional programming f-sharp is you
+
+266
+00:13:52,389 --> 00:13:59,379
+know based of Kokomo so Microsoft
+
+267
+00:13:56,169 --> 00:14:02,589
+created f-sharp this is around I think
+
+268
+00:13:59,379 --> 00:14:04,809
+two thousand five two thousand seven two
+
+269
+00:14:02,589 --> 00:14:07,899
+thousand five and this is also you know
+
+270
+00:14:04,809 --> 00:14:14,290
+in mm it's also the time where a Haskell
+
+271
+00:14:07,899 --> 00:14:16,540
+became increasingly popular so anyway so
+
+272
+00:14:14,290 --> 00:14:20,949
+you know we have so many languages right
+
+273
+00:14:16,540 --> 00:14:25,929
+so so then around 2008 then and then
+
+274
+00:14:20,949 --> 00:14:28,600
+Google Inc created : and I read okay oh
+
+275
+00:14:25,929 --> 00:14:31,360
+it's from Google and oh it's based on
+
+276
+00:14:28,600 --> 00:14:34,919
+UNIX philosophy well they didn't say
+
+277
+00:14:31,360 --> 00:14:38,169
+that but it's based on the guy who who
+
+278
+00:14:34,919 --> 00:14:42,309
+fathers you know who advocate see the
+
+279
+00:14:38,169 --> 00:14:45,759
+eunuch UNIX philosophy crap okay it's
+
+280
+00:14:42,309 --> 00:14:48,040
+it's created by Rob Pike and friends you
+
+281
+00:14:45,759 --> 00:14:51,100
+know you know Rob pack the UNIX people
+
+282
+00:14:48,040 --> 00:14:53,949
+I despise I you know I talked about this
+
+283
+00:14:51,100 --> 00:14:56,589
+many times in my videos I despise the
+
+284
+00:14:53,949 --> 00:15:00,759
+UNIX philosophy I think it's a code it
+
+285
+00:14:56,589 --> 00:15:03,160
+has no content absolutely so so I heard
+
+286
+00:15:00,759 --> 00:15:08,049
+okay Golan you know this UNIX philosophy
+
+287
+00:15:03,160 --> 00:15:10,239
+you know Rob Pike created : so hey so my
+
+288
+00:15:08,049 --> 00:15:12,789
+opinion is it's it's you know I'm not
+
+289
+00:15:10,239 --> 00:15:16,289
+you know it's it's a worst it's probably
+
+290
+00:15:12,789 --> 00:15:16,289
+the worst possible
+
+291
+00:15:16,350 --> 00:15:25,329
+okay so that was back in 2007 also when
+
+292
+00:15:20,019 --> 00:15:27,879
+we created but maybe three five four
+
+293
+00:15:25,329 --> 00:15:31,509
+years ago I think four years ago
+
+294
+00:15:27,879 --> 00:15:33,879
+let's see goal and it stuck in my
+
+295
+00:15:31,509 --> 00:15:34,570
+tutorial I so I started to write this
+
+296
+00:15:33,879 --> 00:15:40,930
+tutor
+
+297
+00:15:34,570 --> 00:15:50,320
+in 2016 so I yeah I guess around 2016 I
+
+298
+00:15:40,930 --> 00:15:54,780
+started to learn Golan but why I don't
+
+299
+00:15:50,320 --> 00:15:57,820
+remember actually why I you know what
+
+300
+00:15:54,780 --> 00:15:59,800
+what is the impulse whatever
+
+301
+00:15:57,820 --> 00:16:03,100
+what's the reason that made me start to
+
+302
+00:15:59,800 --> 00:16:06,430
+learn : I don't yeah I don't remember I
+
+303
+00:16:03,100 --> 00:16:09,370
+could find out though because you know
+
+304
+00:16:06,430 --> 00:16:12,790
+because I write blogs so if I go to my
+
+305
+00:16:09,370 --> 00:16:15,580
+programming blog and go to swimming blog
+
+306
+00:16:12,790 --> 00:16:17,650
+archive then just go through the you
+
+307
+00:16:15,580 --> 00:16:20,290
+know years after year you know studying
+
+308
+00:16:17,650 --> 00:16:23,200
+maybe 2014 yeah you know you might I
+
+309
+00:16:20,290 --> 00:16:27,310
+might find you know my blog where I
+
+310
+00:16:23,200 --> 00:16:30,130
+talked about something about Golan you
+
+311
+00:16:27,310 --> 00:16:32,830
+know that that's one of the advantage of
+
+312
+00:16:30,130 --> 00:16:35,200
+keeping a diary that's what that's the
+
+313
+00:16:32,830 --> 00:16:39,580
+purpose of diary so I don't remember
+
+314
+00:16:35,200 --> 00:16:41,500
+what how I got into Golan now but but I
+
+315
+00:16:39,580 --> 00:16:43,780
+do remember when I don't go then you
+
+316
+00:16:41,500 --> 00:16:45,880
+know I read I read that you know when
+
+317
+00:16:43,780 --> 00:16:47,890
+you start to learn language usually the
+
+318
+00:16:45,880 --> 00:16:49,960
+first task is that there are so many
+
+319
+00:16:47,890 --> 00:16:52,510
+tutorials you know you search for :
+
+320
+00:16:49,960 --> 00:16:55,930
+tutorial they are like tens of them and
+
+321
+00:16:52,510 --> 00:16:58,000
+you have to judge you know use your
+
+322
+00:16:55,930 --> 00:16:58,900
+experience to judge which one is
+
+323
+00:16:58,000 --> 00:17:01,480
+actually good
+
+324
+00:16:58,900 --> 00:17:05,650
+which one is just crap you know created
+
+325
+00:17:01,480 --> 00:17:07,600
+by this you know small corporate small
+
+326
+00:17:05,650 --> 00:17:09,880
+companies they just want ad money you
+
+327
+00:17:07,600 --> 00:17:11,920
+know they just they hire people like for
+
+328
+00:17:09,880 --> 00:17:14,410
+$1 an hour or something like that you
+
+329
+00:17:11,920 --> 00:17:16,960
+know cheap to create to pump out a
+
+330
+00:17:14,410 --> 00:17:19,630
+tutorial for Golan for Thomas Cuba for
+
+331
+00:17:16,960 --> 00:17:22,840
+everything for PHP you know you know so
+
+332
+00:17:19,630 --> 00:17:24,820
+because they are because a lot of people
+
+333
+00:17:22,840 --> 00:17:26,230
+you know they want to get into
+
+334
+00:17:24,820 --> 00:17:27,790
+programming you know they have no
+
+335
+00:17:26,230 --> 00:17:30,460
+engineering background they are not
+
+336
+00:17:27,790 --> 00:17:31,560
+interested in math or they know is that
+
+337
+00:17:30,460 --> 00:17:33,700
+they heard Oh
+
+338
+00:17:31,560 --> 00:17:35,200
+programmers can make a lot money they
+
+339
+00:17:33,700 --> 00:17:37,450
+heard so they want to get into
+
+340
+00:17:35,200 --> 00:17:39,730
+programming so when you know you typed
+
+341
+00:17:37,450 --> 00:17:41,440
+any programming tutorial : or whatever
+
+342
+00:17:39,730 --> 00:17:44,080
+language JavaScript you will find a
+
+343
+00:17:41,440 --> 00:17:47,380
+bunch of these websites they they are
+
+344
+00:17:44,080 --> 00:17:47,760
+just like the almost like spam they you
+
+345
+00:17:47,380 --> 00:17:51,600
+know the
+
+346
+00:17:47,760 --> 00:17:54,660
+just create sites to attract to get ads
+
+347
+00:17:51,600 --> 00:17:56,460
+money you know basically so and you can
+
+348
+00:17:54,660 --> 00:17:59,730
+always you know what you can always tell
+
+349
+00:17:56,460 --> 00:18:02,580
+from these this website basically the
+
+350
+00:17:59,730 --> 00:18:05,700
+first thing you know the first like
+
+351
+00:18:02,580 --> 00:18:08,280
+litmus test is that it's a website
+
+352
+00:18:05,700 --> 00:18:13,680
+pretty you know for example it's they
+
+353
+00:18:08,280 --> 00:18:15,750
+say : okay let's say : tutorial you know
+
+354
+00:18:13,680 --> 00:18:19,920
+you know the way you judge you might
+
+355
+00:18:15,750 --> 00:18:22,920
+still have yeah okay so you know the way
+
+356
+00:18:19,920 --> 00:18:27,450
+you judge for example : to Tokyo okay
+
+357
+00:18:22,920 --> 00:18:30,600
+this is official : but whatever that is
+
+358
+00:18:27,450 --> 00:18:34,110
+go to Tokyo yeah this go tutorial this
+
+359
+00:18:30,600 --> 00:18:37,110
+from this tutorial point tutorial point
+
+360
+00:18:34,110 --> 00:18:39,900
+is one of the commercial you know is one
+
+361
+00:18:37,110 --> 00:18:42,900
+of the low quality in my opinion website
+
+362
+00:18:39,900 --> 00:18:45,870
+that creates tutorials for every
+
+363
+00:18:42,900 --> 00:18:48,330
+language you know they they focus on you
+
+364
+00:18:45,870 --> 00:18:50,850
+know their audience their primary
+
+365
+00:18:48,330 --> 00:18:53,100
+audience is people who has no
+
+366
+00:18:50,850 --> 00:18:54,480
+engineering background not necessarily
+
+367
+00:18:53,100 --> 00:18:57,690
+interesting programming you know they
+
+368
+00:18:54,480 --> 00:19:01,200
+they focus on the masses so anyway so
+
+369
+00:18:57,690 --> 00:19:03,540
+the first the lid much you know when one
+
+370
+00:19:01,200 --> 00:19:06,090
+way you can tell which tutorial soccer
+
+371
+00:19:03,540 --> 00:19:08,310
+decide if you check their website if
+
+372
+00:19:06,090 --> 00:19:11,520
+they looks all pretty like this one like
+
+373
+00:19:08,310 --> 00:19:13,860
+like here you know oh no go pretty logo
+
+374
+00:19:11,520 --> 00:19:17,790
+nice you know graphics like nice logo
+
+375
+00:19:13,860 --> 00:19:18,990
+nice you know social network links you
+
+376
+00:19:17,790 --> 00:19:20,760
+know actually you have two
+
+377
+00:19:18,990 --> 00:19:24,090
+yeah social networks you know they want
+
+378
+00:19:20,760 --> 00:19:27,810
+you to spread then you know it's it's
+
+379
+00:19:24,090 --> 00:19:32,190
+it's the the content of the site is
+
+380
+00:19:27,810 --> 00:19:35,520
+probably not not that good anyway I
+
+381
+00:19:32,190 --> 00:19:38,250
+digressed a lot actually and also look
+
+382
+00:19:35,520 --> 00:19:40,230
+at this you know they they pop up
+
+383
+00:19:38,250 --> 00:19:43,770
+this they want you to subscribe or
+
+384
+00:19:40,230 --> 00:19:46,680
+whatever you know is and they make
+
+385
+00:19:43,770 --> 00:19:54,480
+money they do actually they do make a
+
+386
+00:19:46,680 --> 00:19:56,940
+lot money and you know this anyway so
+
+387
+00:19:54,480 --> 00:19:59,220
+anyway I do remember that you know one
+
+388
+00:19:56,940 --> 00:20:01,140
+thing I remember about : he said I start
+
+389
+00:19:59,220 --> 00:20:03,800
+to read it it's very simple
+
+390
+00:20:01,140 --> 00:20:08,010
+that's that's the first thing that
+
+391
+00:20:03,800 --> 00:20:10,340
+attract you know I find it good it the
+
+392
+00:20:08,010 --> 00:20:13,020
+the whole language like I am Telling You
+
+393
+00:20:10,340 --> 00:20:15,210
+you can learn you know in your day or
+
+394
+00:20:13,020 --> 00:20:18,990
+two basically almost the whole like
+
+395
+00:20:15,210 --> 00:20:20,850
+which is not the case with Python
+
+396
+00:20:18,990 --> 00:20:24,450
+you know because each language you know
+
+397
+00:20:20,850 --> 00:20:27,840
+at least Python Java they kind they all
+
+398
+00:20:24,450 --> 00:20:29,940
+have a model or Haskell or camera you
+
+399
+00:20:27,840 --> 00:20:33,180
+know they they all kind of have a model
+
+400
+00:20:29,940 --> 00:20:36,690
+behind like how how that how the
+
+401
+00:20:33,180 --> 00:20:42,350
+language work works and and this model
+
+402
+00:20:36,690 --> 00:20:45,600
+is almost never explicitly talked about
+
+403
+00:20:42,350 --> 00:20:47,820
+instead instead as a programmer when you
+
+404
+00:20:45,600 --> 00:20:51,060
+learn a language you simply just work
+
+405
+00:20:47,820 --> 00:20:53,100
+you know you just get the feel of it you
+
+406
+00:20:51,060 --> 00:20:57,330
+know you know but this model is never
+
+407
+00:20:53,100 --> 00:21:00,300
+really explicitly talked about no
+
+408
+00:20:57,330 --> 00:21:03,000
+document documented for example like you
+
+409
+00:21:00,300 --> 00:21:05,460
+know for example if you say : versus
+
+410
+00:21:03,000 --> 00:21:08,520
+Python versus Rubio versus Java
+
+411
+00:21:05,460 --> 00:21:09,810
+JavaScript any language you know you you
+
+412
+00:21:08,520 --> 00:21:13,230
+compare you know so what's the
+
+413
+00:21:09,810 --> 00:21:16,680
+difference between them nobody almost
+
+414
+00:21:13,230 --> 00:21:21,600
+basically only your handful people can
+
+415
+00:21:16,680 --> 00:21:22,830
+actually explain because you know like I
+
+416
+00:21:21,600 --> 00:21:25,200
+can explain what's the difference
+
+417
+00:21:22,830 --> 00:21:27,540
+between : any two language let say
+
+418
+00:21:25,200 --> 00:21:30,210
+between : o or Python you know pythons
+
+419
+00:21:27,540 --> 00:21:32,850
+very popular well I can start to explain
+
+420
+00:21:30,210 --> 00:21:35,190
+oh you if you ask yourself or any other
+
+421
+00:21:32,850 --> 00:21:36,930
+programmer they can start to explain you
+
+422
+00:21:35,190 --> 00:21:39,720
+know if they have experience let's say
+
+423
+00:21:36,930 --> 00:21:42,030
+five years programming they can start
+
+424
+00:21:39,720 --> 00:21:44,370
+OCO lines like this or and you know you
+
+425
+00:21:42,030 --> 00:21:47,520
+really you know the they have this or
+
+426
+00:21:44,370 --> 00:21:50,370
+that functions different features colons
+
+427
+00:21:47,520 --> 00:21:52,740
+number is that you know Python is
+
+428
+00:21:50,370 --> 00:21:54,930
+untyped you know colon is type they can
+
+429
+00:21:52,740 --> 00:21:59,130
+explain in this loose manner
+
+430
+00:21:54,930 --> 00:22:00,810
+okay this loose manner but but then you
+
+431
+00:21:59,130 --> 00:22:02,220
+for example then you ask them so what's
+
+432
+00:22:00,810 --> 00:22:05,400
+the difference between type in and
+
+433
+00:22:02,220 --> 00:22:08,010
+untyped they they you know because it's
+
+434
+00:22:05,400 --> 00:22:11,010
+actually very complex is the whole thing
+
+435
+00:22:08,010 --> 00:22:15,090
+is in entire complex so very few people
+
+436
+00:22:11,010 --> 00:22:18,840
+actually can explain the real wait weeks
+
+437
+00:22:15,090 --> 00:22:20,340
+brain differences the real way to
+
+438
+00:22:18,840 --> 00:22:24,690
+explain the differences between
+
+439
+00:22:20,340 --> 00:22:28,530
+languages is is you know to properly
+
+440
+00:22:24,690 --> 00:22:30,540
+explain is to actually invoke to to to
+
+441
+00:22:28,530 --> 00:22:32,820
+describe you know each language they
+
+442
+00:22:30,540 --> 00:22:38,190
+have a model actually they have kind of
+
+443
+00:22:32,820 --> 00:22:41,520
+a semantic model behind them and that is
+
+444
+00:22:38,190 --> 00:22:45,660
+like almost never explained or
+
+445
+00:22:41,520 --> 00:22:48,240
+documented why because because it's very
+
+446
+00:22:45,660 --> 00:22:52,860
+difficult it's extremely difficult to
+
+447
+00:22:48,240 --> 00:22:57,600
+actually explicitly explain or codify or
+
+448
+00:22:52,860 --> 00:22:59,220
+you know - right right out how the how
+
+449
+00:22:57,600 --> 00:23:04,610
+the model how the language actually
+
+450
+00:22:59,220 --> 00:23:07,500
+works it's very difficult you know so
+
+451
+00:23:04,610 --> 00:23:10,980
+that that is why okay so let me read
+
+452
+00:23:07,500 --> 00:23:12,870
+some comments I I talked about for 20
+
+453
+00:23:10,980 --> 00:23:18,470
+minutes let me read some comments then
+
+454
+00:23:12,870 --> 00:23:20,600
+we start - then we start to code :
+
+455
+00:23:18,470 --> 00:23:23,370
+greetings
+
+456
+00:23:20,600 --> 00:23:26,460
+Bartholomew bass Alamo
+
+457
+00:23:23,370 --> 00:23:29,900
+the Battle of MU J s Bethel o meu
+
+458
+00:23:26,460 --> 00:23:33,630
+JavaScript okay so your JavaScript code
+
+459
+00:23:29,900 --> 00:23:37,520
+greeting stick ways hikes are you
+
+460
+00:23:33,630 --> 00:23:45,480
+inspire me to make my own Do It Yourself
+
+461
+00:23:37,520 --> 00:23:48,540
+keyboard cool great so okay so so let's
+
+462
+00:23:45,480 --> 00:23:51,620
+start coding : okay so if then we need
+
+463
+00:23:48,540 --> 00:23:54,570
+I'm going to give you a I'm going to
+
+464
+00:23:51,620 --> 00:23:58,230
+tell you why what are we going to do
+
+465
+00:23:54,570 --> 00:24:01,620
+okay so I'm going to if you go to my
+
+466
+00:23:58,230 --> 00:24:06,680
+website homepage scroll all the way to
+
+467
+00:24:01,620 --> 00:24:10,110
+the bottom you will see a site map a
+
+468
+00:24:06,680 --> 00:24:12,030
+site map is basically a list of links
+
+469
+00:24:10,110 --> 00:24:14,640
+all your you know basically all the
+
+470
+00:24:12,030 --> 00:24:18,930
+pages on your web website it was popular
+
+471
+00:24:14,640 --> 00:24:23,010
+popular in mm so anyway so this this is
+
+472
+00:24:18,930 --> 00:24:28,950
+my site map I can randomize the the
+
+473
+00:24:23,010 --> 00:24:31,890
+links I have like $3,000 costs
+
+474
+00:24:28,950 --> 00:24:37,260
+so you know sometimes I cannot find you
+
+475
+00:24:31,890 --> 00:24:42,690
+know the article what what did I just
+
+476
+00:24:37,260 --> 00:24:45,140
+click I think I clicked on a ad by
+
+477
+00:24:42,690 --> 00:24:49,050
+mistake
+
+478
+00:24:45,140 --> 00:24:52,230
+so anyway sitemap okay so what we want
+
+479
+00:24:49,050 --> 00:24:56,130
+to do is to to create a go landscape to
+
+480
+00:24:52,230 --> 00:24:58,560
+generate this content so every month for
+
+481
+00:24:56,130 --> 00:25:01,610
+example every month I render script and
+
+482
+00:24:58,560 --> 00:25:04,650
+this page will be generated for me
+
+483
+00:25:01,610 --> 00:25:05,700
+instead of man manually but so let me
+
+484
+00:25:04,650 --> 00:25:10,800
+show you okay go
+
+485
+00:25:05,700 --> 00:25:18,090
+sorry sitemap change sitemap go okay
+
+486
+00:25:10,800 --> 00:25:24,450
+Oh bathroom okay those Jas does not
+
+487
+00:25:18,090 --> 00:25:32,760
+stand for JavaScript okay so here okay
+
+488
+00:25:24,450 --> 00:25:34,140
+so a sitemap now let me explain first
+
+489
+00:25:32,760 --> 00:25:35,730
+first of all there is a different
+
+490
+00:25:34,140 --> 00:25:39,530
+meaning let me explain what's a sitemap
+
+491
+00:25:35,730 --> 00:25:42,600
+there's this more than that okay so so
+
+492
+00:25:39,530 --> 00:25:48,240
+let me show you a sitemap file so go
+
+493
+00:25:42,600 --> 00:25:57,330
+through my web page go to what's going
+
+494
+00:25:48,240 --> 00:26:01,550
+on okay so back go to sorry
+
+495
+00:25:57,330 --> 00:26:04,080
+info sitemap okay sitemap is this file
+
+496
+00:26:01,550 --> 00:26:07,560
+there is a standard called
+
+497
+00:26:04,080 --> 00:26:07,950
+sitemap okay and this is this is the
+
+498
+00:26:07,560 --> 00:26:12,120
+file
+
+499
+00:26:07,950 --> 00:26:16,760
+it's basically XML file you can see it's
+
+500
+00:26:12,120 --> 00:26:20,010
+an XML file and each line is a URL
+
+501
+00:26:16,760 --> 00:26:23,940
+essentially and that that that is it so
+
+502
+00:26:20,010 --> 00:26:26,790
+this file is named sitemap out XML it's
+
+503
+00:26:23,940 --> 00:26:28,980
+a XML file and this is a standard is
+
+504
+00:26:26,790 --> 00:26:33,060
+there suspect if you just search for
+
+505
+00:26:28,980 --> 00:26:36,270
+sitemap and this sitemap is in your home
+
+506
+00:26:33,060 --> 00:26:37,800
+directory of any web site optional it's
+
+507
+00:26:36,270 --> 00:26:40,800
+optional you don't have it's not
+
+508
+00:26:37,800 --> 00:26:42,600
+necessary but it's good to have so
+
+509
+00:26:40,800 --> 00:26:45,510
+what's the purpose of side
+
+510
+00:26:42,600 --> 00:26:47,549
+the purpose of sitemap is that search
+
+511
+00:26:45,510 --> 00:26:50,970
+engines you know web crawlers Google
+
+512
+00:26:47,549 --> 00:26:54,980
+Microsoft Bing or you know any search
+
+513
+00:26:50,970 --> 00:26:58,320
+engine they can easily find all the
+
+514
+00:26:54,980 --> 00:27:00,809
+content on you on any domain you know
+
+515
+00:26:58,320 --> 00:27:03,270
+any website you know so they can index
+
+516
+00:27:00,809 --> 00:27:05,340
+it so this is easy you know this is a
+
+517
+00:27:03,270 --> 00:27:10,590
+mechanism how they do that
+
+518
+00:27:05,340 --> 00:27:12,150
+it's a optional without sitemap then you
+
+519
+00:27:10,590 --> 00:27:15,179
+know the search engine the web crawler
+
+520
+00:27:12,150 --> 00:27:17,970
+has to like visit every of your website
+
+521
+00:27:15,179 --> 00:27:20,850
+every every page and they try to extract
+
+522
+00:27:17,970 --> 00:27:23,190
+the page and try to follow those links
+
+523
+00:27:20,850 --> 00:27:26,340
+you know then eventually they get a list
+
+524
+00:27:23,190 --> 00:27:29,100
+of all the URL on your website so that's
+
+525
+00:27:26,340 --> 00:27:31,770
+very inefficient so they created this
+
+526
+00:27:29,100 --> 00:27:34,409
+Google I think Google is part of the
+
+527
+00:27:31,770 --> 00:27:37,679
+original creator who created this site
+
+528
+00:27:34,409 --> 00:27:41,100
+map around 2002 or something
+
+529
+00:27:37,679 --> 00:27:50,340
+to facilitate to help you know help
+
+530
+00:27:41,100 --> 00:27:53,220
+themselves basically so that's that that
+
+531
+00:27:50,340 --> 00:27:58,110
+that's what site map is okay so I
+
+532
+00:27:53,220 --> 00:28:00,929
+actually so I actually I have a code to
+
+533
+00:27:58,110 --> 00:28:05,809
+generate sitemap in colon and also in
+
+534
+00:28:00,929 --> 00:28:05,809
+eMac this and also
+
+535
+00:28:13,940 --> 00:28:26,720
+so I actually so I have a so this is
+
+536
+00:28:20,890 --> 00:28:29,570
+this is actually a emag Lisp code to
+
+537
+00:28:26,720 --> 00:28:33,290
+generate site map and so anyway so
+
+538
+00:28:29,570 --> 00:28:36,860
+anyway I have this : script it's already
+
+539
+00:28:33,290 --> 00:28:41,770
+written that generates the site map this
+
+540
+00:28:36,860 --> 00:28:45,290
+file so let's go to my goal and script
+
+541
+00:28:41,770 --> 00:29:00,290
+so this is my goal and script to
+
+542
+00:28:45,290 --> 00:29:02,270
+generate send map it's 295 295 you can
+
+543
+00:29:00,290 --> 00:29:05,720
+see a let's go to the directory this is
+
+544
+00:29:02,270 --> 00:29:06,200
+the file so this is the directory start
+
+545
+00:29:05,720 --> 00:29:16,190
+web
+
+546
+00:29:06,200 --> 00:29:19,580
+sorry info and and if you scroll down so
+
+547
+00:29:16,190 --> 00:29:24,320
+you can see this sitemap file I open it
+
+548
+00:29:19,580 --> 00:29:27,920
+you know and this file is 3600 lines
+
+549
+00:29:24,320 --> 00:29:32,870
+okay now let's delete it so select the
+
+550
+00:29:27,920 --> 00:29:36,830
+whole thing it okay select the whole
+
+551
+00:29:32,870 --> 00:29:40,070
+thing delete it save okay now let's go
+
+552
+00:29:36,830 --> 00:29:43,520
+to directory refresh you can see it's
+
+553
+00:29:40,070 --> 00:29:46,850
+now 0 bytes basically we delete it it's
+
+554
+00:29:43,520 --> 00:29:51,170
+just e the whole file okay so it's gone
+
+555
+00:29:46,850 --> 00:29:54,200
+delete I deleted and now I'm going to
+
+556
+00:29:51,170 --> 00:29:58,430
+regenerate it by running this : script
+
+557
+00:29:54,200 --> 00:30:01,100
+so I run it it's running it will
+
+558
+00:29:58,430 --> 00:30:03,380
+actually generate the sitemap file for
+
+559
+00:30:01,100 --> 00:30:07,820
+all my domains sorry
+
+560
+00:30:03,380 --> 00:30:11,360
+in folk sorry okay and so on so you see
+
+561
+00:30:07,820 --> 00:30:12,770
+it says file saved to here and I'll save
+
+562
+00:30:11,360 --> 00:30:15,560
+to you know it generates a bunch of
+
+563
+00:30:12,770 --> 00:30:19,640
+sitemap files for each of my domain so
+
+564
+00:30:15,560 --> 00:30:27,140
+you can see here is the calidad info now
+
+565
+00:30:19,640 --> 00:30:30,370
+if i go back to the directory refresh
+
+566
+00:30:27,140 --> 00:30:33,860
+you can see the sitemap file is back
+
+567
+00:30:30,370 --> 00:30:38,050
+let's open it you know it's still it's
+
+568
+00:30:33,860 --> 00:30:42,020
+just you know the scriptures generated
+
+569
+00:30:38,050 --> 00:30:45,370
+so you see so that is great this is very
+
+570
+00:30:42,020 --> 00:30:50,690
+useful you know cola and creating
+
+571
+00:30:45,370 --> 00:30:52,460
+sitemap so every time you know every
+
+572
+00:30:50,690 --> 00:30:57,710
+month I just run this script you know
+
+573
+00:30:52,460 --> 00:30:59,660
+any generate sitemap any comments
+
+574
+00:30:57,710 --> 00:31:03,550
+questions comments in opinions posted
+
+575
+00:30:59,660 --> 00:31:08,240
+okay I'd love to see that so let's see
+
+576
+00:31:03,550 --> 00:31:11,810
+okay so so but what what are we going to
+
+577
+00:31:08,240 --> 00:31:16,160
+do you see it generates a sitemap dot
+
+578
+00:31:11,810 --> 00:31:19,520
+XML file but that that file is not this
+
+579
+00:31:16,160 --> 00:31:24,890
+page because this page is you know this
+
+580
+00:31:19,520 --> 00:31:26,870
+page is from you know you go to the
+
+581
+00:31:24,890 --> 00:31:31,040
+bottom you know you go to you click on
+
+582
+00:31:26,870 --> 00:31:34,490
+sitemap this this page is for users for
+
+583
+00:31:31,040 --> 00:31:37,610
+people to visit while the sitemap dot
+
+584
+00:31:34,490 --> 00:31:41,090
+XML that file is for for machines for
+
+585
+00:31:37,610 --> 00:31:44,240
+web crawlers to quote so what I want is
+
+586
+00:31:41,090 --> 00:31:47,450
+to modify my goal and code this code
+
+587
+00:31:44,240 --> 00:31:52,900
+let's make a backup so make a goat
+
+588
+00:31:47,450 --> 00:31:56,600
+modify this script so that it actually
+
+589
+00:31:52,900 --> 00:32:00,110
+every time I create a sitemap dot XML it
+
+590
+00:31:56,600 --> 00:32:03,080
+will also update and generate this page
+
+591
+00:32:00,110 --> 00:32:06,680
+so let me let's open this page and see
+
+592
+00:32:03,080 --> 00:32:09,410
+what it looks like so this is a page you
+
+593
+00:32:06,680 --> 00:32:15,040
+know excel code sitemap okay so let's go
+
+594
+00:32:09,410 --> 00:32:18,950
+down so you can see last update July 8
+
+595
+00:32:15,040 --> 00:32:19,670
+and you got this bunch of let's view it
+
+596
+00:32:18,950 --> 00:32:24,790
+locally
+
+597
+00:32:19,670 --> 00:32:28,160
+okay let's view it in my Firefox browser
+
+598
+00:32:24,790 --> 00:32:33,640
+so this this is the sitemap page you
+
+599
+00:32:28,160 --> 00:32:35,600
+know 3,000 4,000 lines so every time
+
+600
+00:32:33,640 --> 00:32:38,660
+every month you know I
+
+601
+00:32:35,600 --> 00:32:42,169
+have to regenerate this this list of
+
+602
+00:32:38,660 --> 00:32:44,660
+links manually for example let's delete
+
+603
+00:32:42,169 --> 00:32:48,049
+the whole thing okay showing browser now
+
+604
+00:32:44,660 --> 00:32:51,160
+the whole list is good so how do i
+
+605
+00:32:48,049 --> 00:32:54,799
+generate it how do i generate it i go to
+
+606
+00:32:51,160 --> 00:32:58,340
+my site map file sorry info okay is
+
+607
+00:32:54,799 --> 00:33:03,200
+exciting for a sitemap XML file I open
+
+608
+00:32:58,340 --> 00:33:07,490
+it this is a sitemap sitemap XML copy
+
+609
+00:33:03,200 --> 00:33:13,480
+the whole content close it create a new
+
+610
+00:33:07,490 --> 00:33:17,390
+buffer paste it okay and the switch to X
+
+611
+00:33:13,480 --> 00:33:20,950
+HTML mod okay now I call the command to
+
+612
+00:33:17,390 --> 00:33:30,020
+remove all the tags you see these tags
+
+613
+00:33:20,950 --> 00:33:32,120
+let's say way XML a way why it's not
+
+614
+00:33:30,020 --> 00:33:35,740
+okay so it's colored okay so you see all
+
+615
+00:33:32,120 --> 00:33:38,720
+these tags I want to remove them all is
+
+616
+00:33:35,740 --> 00:33:41,390
+instead of an XML I want just the least
+
+617
+00:33:38,720 --> 00:33:46,970
+you know all these I want to create a
+
+618
+00:33:41,390 --> 00:33:49,010
+linked list of links so I delete so
+
+619
+00:33:46,970 --> 00:33:52,190
+first thing I do is delete all the tags
+
+620
+00:33:49,010 --> 00:33:55,490
+I can I can call this command so HTML
+
+621
+00:33:52,190 --> 00:33:58,429
+remove HTML tags so all the tags are
+
+622
+00:33:55,490 --> 00:34:00,049
+removed then I call another command it's
+
+623
+00:33:58,429 --> 00:34:05,809
+it's let's just do it
+
+624
+00:34:00,049 --> 00:34:15,040
+so I call command sapphire link of I it
+
+625
+00:34:05,809 --> 00:34:19,879
+will take wait wait
+
+626
+00:34:15,040 --> 00:34:22,810
+so I call command wait
+
+627
+00:34:19,879 --> 00:34:28,580
+let's go command okay so the command is
+
+628
+00:34:22,810 --> 00:34:30,649
+line is to list so it's cord echo it it
+
+629
+00:34:28,580 --> 00:34:35,659
+will take three seconds because there
+
+630
+00:34:30,649 --> 00:34:39,409
+are thousands of them oh we're actually
+
+631
+00:34:35,659 --> 00:34:42,080
+this wait this is oh it's done okay so
+
+632
+00:34:39,409 --> 00:34:46,970
+you see it turns the whole thing into a
+
+633
+00:34:42,080 --> 00:34:49,859
+list then I copy the whole thing close
+
+634
+00:34:46,970 --> 00:34:54,899
+this file and you
+
+635
+00:34:49,859 --> 00:34:59,539
+I paste it here I paste it here and show
+
+636
+00:34:54,899 --> 00:35:03,239
+in browser so now I got the you know new
+
+637
+00:34:59,539 --> 00:35:05,730
+you know list of links so what what I
+
+638
+00:35:03,239 --> 00:35:08,819
+want to do is to do this in goal and you
+
+639
+00:35:05,730 --> 00:35:10,799
+know to make it automatic okay that's a
+
+640
+00:35:08,819 --> 00:35:16,970
+lot of talk so let's let's start coding
+
+641
+00:35:10,799 --> 00:35:25,730
+so you go in goal and let's start coding
+
+642
+00:35:16,970 --> 00:35:36,329
+should we are we so is the good so far
+
+643
+00:35:25,730 --> 00:35:39,089
+so we should start coding : yeah let's
+
+644
+00:35:36,329 --> 00:35:42,599
+start coding : so let me take a break
+
+645
+00:35:39,089 --> 00:35:46,489
+and you know think we you know we gather
+
+646
+00:35:42,599 --> 00:35:46,489
+my thoughts and we will not
+
+647
+00:35:50,300 --> 00:35:59,810
+oh so Derek ways says how does the list
+
+648
+00:35:56,990 --> 00:36:03,730
+get the titles of the link well that
+
+649
+00:35:59,810 --> 00:36:06,890
+yeah that's a part of the Emacs command
+
+650
+00:36:03,730 --> 00:36:10,690
+so let me show you
+
+651
+00:36:06,890 --> 00:36:15,380
+so that's part of the wait
+
+652
+00:36:10,690 --> 00:36:26,020
+he's my Emacs stuck okay no okay so let
+
+653
+00:36:15,380 --> 00:36:26,020
+me show you the is it gonna index blog I
+
+654
+00:36:26,740 --> 00:36:30,740
+don't know where that is
+
+655
+00:36:28,640 --> 00:36:33,080
+so anyway go let's go to my computing
+
+656
+00:36:30,740 --> 00:36:39,230
+block okay so I let me show you the
+
+657
+00:36:33,080 --> 00:36:42,020
+command so so so suppose I have a file
+
+658
+00:36:39,230 --> 00:36:44,330
+path okay let's go here okay so so go
+
+659
+00:36:42,020 --> 00:36:47,930
+here let's say you know here's a file
+
+660
+00:36:44,330 --> 00:36:51,500
+path of my blog and I just go a command
+
+661
+00:36:47,930 --> 00:36:57,830
+it becomes a link but however if I
+
+662
+00:36:51,500 --> 00:37:01,370
+called the HTML lines to list each line
+
+663
+00:36:57,830 --> 00:37:04,670
+also becomes a link if it is a file path
+
+664
+00:37:01,370 --> 00:37:09,110
+of my website you know it's very
+
+665
+00:37:04,670 --> 00:37:10,910
+convenient and what does so so we can
+
+666
+00:37:09,110 --> 00:37:15,230
+look at the code for example the code
+
+667
+00:37:10,910 --> 00:37:18,380
+code is that okay so so it's part of the
+
+668
+00:37:15,230 --> 00:37:22,160
+exciting moment we go into it here is
+
+669
+00:37:18,380 --> 00:37:29,350
+the source code this so here is a
+
+670
+00:37:22,160 --> 00:37:29,350
+function and if you search for title
+
+671
+00:37:30,010 --> 00:37:35,870
+yeah so here is the actually here there
+
+672
+00:37:33,020 --> 00:37:39,530
+is a function that excited email get
+
+673
+00:37:35,870 --> 00:37:43,730
+HTML file title basically it takes a
+
+674
+00:37:39,530 --> 00:37:48,260
+file path and it returns the title of
+
+675
+00:37:43,730 --> 00:37:51,530
+the file the title of the file is is
+
+676
+00:37:48,260 --> 00:37:53,810
+from the you know the title tag that
+
+677
+00:37:51,530 --> 00:37:59,960
+that's how it you know that is so it's
+
+678
+00:37:53,810 --> 00:38:04,540
+just Emacs stuff Emacs so eMac in Emacs
+
+679
+00:37:59,960 --> 00:38:04,540
+please so many technologies too
+
+680
+00:38:05,450 --> 00:38:10,349
+so anyway that's you know that's a
+
+681
+00:38:07,740 --> 00:38:13,140
+that's a advantage of learning MA at
+
+682
+00:38:10,349 --> 00:38:17,040
+least you can just create what you need
+
+683
+00:38:13,140 --> 00:38:24,290
+to be done you know for yourself you
+
+684
+00:38:17,040 --> 00:38:28,079
+know so I'm thinkin so now we need to do
+
+685
+00:38:24,290 --> 00:38:29,880
+great so we we need to code goal and I
+
+686
+00:38:28,079 --> 00:38:34,020
+guess a lot so are you guys interested
+
+687
+00:38:29,880 --> 00:38:38,010
+in : because I I guess I talked a lot
+
+688
+00:38:34,020 --> 00:38:45,150
+for 40 minutes okay so we if we're gonna
+
+689
+00:38:38,010 --> 00:38:48,260
+go to goal and this this is only 200
+
+690
+00:38:45,150 --> 00:38:48,260
+lines of code
+
+691
+00:38:49,369 --> 00:38:55,050
+now I'm guessing you guys anyone know
+
+692
+00:38:53,130 --> 00:39:01,319
+goal and you know because in general
+
+693
+00:38:55,050 --> 00:39:04,800
+people don't so you saw I you know I'm
+
+694
+00:39:01,319 --> 00:39:10,349
+thinking I need to explain but it's this
+
+695
+00:39:04,800 --> 00:39:14,000
+let me just code it then yeah let me
+
+696
+00:39:10,349 --> 00:39:19,200
+just start to code it yeah and you know
+
+697
+00:39:14,000 --> 00:39:23,599
+so it's best less about tutorial then
+
+698
+00:39:19,200 --> 00:39:29,520
+anyway so okay let's just start code so
+
+699
+00:39:23,599 --> 00:39:32,940
+so anyway so here is a list of paths
+
+700
+00:39:29,520 --> 00:39:38,010
+each one is a path to a domain website
+
+701
+00:39:32,940 --> 00:39:40,740
+domain okay so great so let's to goal
+
+702
+00:39:38,010 --> 00:39:44,220
+and so each one is a domain name and
+
+703
+00:39:40,740 --> 00:39:47,180
+let's comment out because we just need
+
+704
+00:39:44,220 --> 00:39:49,950
+to do one let's just do Kesari down info
+
+705
+00:39:47,180 --> 00:39:54,530
+as an example because that's what we
+
+706
+00:39:49,950 --> 00:39:58,230
+need to do we need to when it generates
+
+707
+00:39:54,530 --> 00:40:00,839
+so here's what happens okay let me let's
+
+708
+00:39:58,230 --> 00:40:07,970
+specify more clearly what's going to
+
+709
+00:40:00,839 --> 00:40:11,010
+happen so this : script it will take a
+
+710
+00:40:07,970 --> 00:40:14,310
+file path the file path is supposed to
+
+711
+00:40:11,010 --> 00:40:16,800
+be the route path of a website okay you
+
+712
+00:40:14,310 --> 00:40:19,620
+take a list of file path
+
+713
+00:40:16,800 --> 00:40:22,700
+let's just focus on one so you take a
+
+714
+00:40:19,620 --> 00:40:25,770
+route of a file path of a website okay
+
+715
+00:40:22,700 --> 00:40:29,520
+then you will go into that directory it
+
+716
+00:40:25,770 --> 00:40:34,140
+will visit every HTML file
+
+717
+00:40:29,520 --> 00:40:37,170
+you know thousand in dot HTML then it
+
+718
+00:40:34,140 --> 00:40:41,130
+will create basically a create create a
+
+719
+00:40:37,170 --> 00:40:43,770
+list of all the files then it will put
+
+720
+00:40:41,130 --> 00:40:48,990
+all of them into the file name sitemap
+
+721
+00:40:43,770 --> 00:40:52,620
+at the root directory so that's what it
+
+722
+00:40:48,990 --> 00:40:55,770
+does that that is a essence what this
+
+723
+00:40:52,620 --> 00:40:59,340
+little script does it takes the root
+
+724
+00:40:55,770 --> 00:41:01,860
+file path it visit visits every file in
+
+725
+00:40:59,340 --> 00:41:04,200
+that directory and just generate the
+
+726
+00:41:01,860 --> 00:41:08,130
+report in XML format you know and
+
+727
+00:41:04,200 --> 00:41:11,790
+inputting you know the output is the new
+
+728
+00:41:08,130 --> 00:41:13,830
+file set mapped out XML and it has some
+
+729
+00:41:11,790 --> 00:41:16,410
+features such as you know there are
+
+730
+00:41:13,830 --> 00:41:19,050
+certain paths certain directory name you
+
+731
+00:41:16,410 --> 00:41:20,910
+want to be excluded you know for example
+
+732
+00:41:19,050 --> 00:41:23,850
+this
+
+733
+00:41:20,910 --> 00:41:26,040
+these are documentation like Miro
+
+734
+00:41:23,850 --> 00:41:29,610
+documentation I don't want to be part of
+
+735
+00:41:26,040 --> 00:41:32,040
+my website so this directory will be
+
+736
+00:41:29,610 --> 00:41:35,790
+excluded you know things like that you
+
+737
+00:41:32,040 --> 00:41:38,610
+know and and also get directory you know
+
+738
+00:41:35,790 --> 00:41:41,880
+it should be excluded so yeah so this
+
+739
+00:41:38,610 --> 00:41:45,290
+that's what this script does so yeah let
+
+740
+00:41:41,880 --> 00:41:48,480
+me go over the general structure so you
+
+741
+00:41:45,290 --> 00:41:51,990
+you you know you know you declare
+
+742
+00:41:48,480 --> 00:41:55,680
+package every every go language every go
+
+743
+00:41:51,990 --> 00:41:58,440
+file must have a package so if you
+
+744
+00:41:55,680 --> 00:42:08,640
+create a script the package should be
+
+745
+00:41:58,440 --> 00:42:12,420
+just the main yeah I'm trying to so that
+
+746
+00:42:08,640 --> 00:42:15,840
+that is the basic of : so you know like
+
+747
+00:42:12,420 --> 00:42:18,480
+if you visit my : tutorial you are see
+
+748
+00:42:15,840 --> 00:42:23,850
+this is basically the structure the
+
+749
+00:42:18,480 --> 00:42:26,430
+structure of every : source code file
+
+750
+00:42:23,850 --> 00:42:30,660
+every goal and source code every one of
+
+751
+00:42:26,430 --> 00:42:32,880
+them have these parts package
+
+752
+00:42:30,660 --> 00:42:34,980
+men okay then import something something
+
+753
+00:42:32,880 --> 00:42:38,370
+that very import you can a bunch of them
+
+754
+00:42:34,980 --> 00:42:41,460
+then function men every goal I must have
+
+755
+00:42:38,370 --> 00:42:44,520
+that every goal and final source code so
+
+756
+00:42:41,460 --> 00:42:49,140
+back to our code so we have package man
+
+757
+00:42:44,520 --> 00:42:50,820
+we have we have import let's go let's go
+
+758
+00:42:49,140 --> 00:42:55,640
+back you know it's the same thing here
+
+759
+00:42:50,820 --> 00:43:00,330
+so package man then import then then
+
+760
+00:42:55,640 --> 00:43:03,200
+then you have then you have you have a
+
+761
+00:43:00,330 --> 00:43:07,410
+main or let me show you where okay so
+
+762
+00:43:03,200 --> 00:43:09,840
+then you have let's focus on one place
+
+763
+00:43:07,410 --> 00:43:12,090
+instead of jumping jumping around so you
+
+764
+00:43:09,840 --> 00:43:14,990
+need package man then you have a bunch
+
+765
+00:43:12,090 --> 00:43:24,480
+of import library names then you have
+
+766
+00:43:14,990 --> 00:43:28,770
+let's go down then you have men okay
+
+767
+00:43:24,480 --> 00:43:32,010
+here at the bottom every go file must
+
+768
+00:43:28,770 --> 00:43:35,220
+have this main function this is when the
+
+769
+00:43:32,010 --> 00:43:37,140
+program start to run okay so all the
+
+770
+00:43:35,220 --> 00:43:38,340
+things before that they are just trunk
+
+771
+00:43:37,140 --> 00:43:40,260
+function definitions
+
+772
+00:43:38,340 --> 00:43:42,930
+you know like off or variable
+
+773
+00:43:40,260 --> 00:43:45,840
+definitions like kind of global constant
+
+774
+00:43:42,930 --> 00:43:48,930
+function definitions so so in the end
+
+775
+00:43:45,840 --> 00:43:51,570
+the whole program is just this min we
+
+776
+00:43:48,930 --> 00:43:55,440
+are running this so what does it do so
+
+777
+00:43:51,570 --> 00:43:59,730
+it so that let's look at the main okay
+
+778
+00:43:55,440 --> 00:44:03,030
+so it declares a variable out bytes
+
+779
+00:43:59,730 --> 00:44:06,830
+which is a sequence kind of a you know
+
+780
+00:44:03,030 --> 00:44:14,430
+it's it's basically just array of bytes
+
+781
+00:44:06,830 --> 00:44:16,530
+then for each directory to process you
+
+782
+00:44:14,430 --> 00:44:22,950
+know so it's pretty simple for each
+
+783
+00:44:16,530 --> 00:44:31,130
+directory to process we we set the path
+
+784
+00:44:22,950 --> 00:44:31,130
+to URL directory path to URL
+
+785
+00:44:33,680 --> 00:44:40,650
+get matched so what does it mean path to
+
+786
+00:44:38,070 --> 00:44:46,200
+URL so what does get matched does get
+
+787
+00:44:40,650 --> 00:44:52,400
+matched returns that pair from mmm whose
+
+788
+00:44:46,200 --> 00:44:52,400
+key is prefix in X evening what
+
+789
+00:45:00,740 --> 00:45:06,400
+is some kind of file name filter anyway
+
+790
+00:45:04,010 --> 00:45:12,339
+so
+
+791
+00:45:06,400 --> 00:45:12,339
+so for each directory to process you get
+
+792
+00:45:13,869 --> 00:45:25,190
+path to URL then out bytes then out by D
+
+793
+00:45:18,170 --> 00:45:34,280
+equals to sitemap these path to URL then
+
+794
+00:45:25,190 --> 00:45:38,089
+saved to path file path join then write
+
+795
+00:45:34,280 --> 00:45:40,550
+to file then just print so it's so
+
+796
+00:45:38,089 --> 00:45:47,119
+simple but I have to wrap my brain
+
+797
+00:45:40,550 --> 00:45:48,950
+around it so what so so this is the
+
+798
+00:45:47,119 --> 00:45:51,500
+whole this is the thing this program is
+
+799
+00:45:48,950 --> 00:45:56,359
+doing but what exactly is easier doing
+
+800
+00:45:51,500 --> 00:45:58,670
+so out by is just a sequence of bytes so
+
+801
+00:45:56,359 --> 00:46:01,099
+in : you create you know basically it's
+
+802
+00:45:58,670 --> 00:46:04,000
+like a stream so eventually you are
+
+803
+00:46:01,099 --> 00:46:09,650
+saving out bytes to file you can easy
+
+804
+00:46:04,000 --> 00:46:15,680
+save two variables save to path so here
+
+805
+00:46:09,650 --> 00:46:23,900
+is the path to save to destination of
+
+806
+00:46:15,680 --> 00:46:28,190
+file name file path we the to process so
+
+807
+00:46:23,900 --> 00:46:31,849
+anyway so this is a save to pass then
+
+808
+00:46:28,190 --> 00:46:34,250
+you write it out fights you know you
+
+809
+00:46:31,849 --> 00:46:38,270
+write the bytes you just generated to
+
+810
+00:46:34,250 --> 00:46:43,280
+the file path then you just print you
+
+811
+00:46:38,270 --> 00:46:44,540
+know it's done okay so you so you did
+
+812
+00:46:43,280 --> 00:46:48,770
+declare bytes
+
+813
+00:46:44,540 --> 00:46:56,329
+that's the byte to output then you say
+
+814
+00:46:48,770 --> 00:47:01,880
+sitemap we pass to URL so what what is
+
+815
+00:46:56,329 --> 00:47:05,569
+this V so what does sitemap do so let's
+
+816
+00:47:01,880 --> 00:47:11,299
+look at so it looks like so sitemap
+
+817
+00:47:05,569 --> 00:47:14,480
+returns a bunch of bytes right so it's
+
+818
+00:47:11,299 --> 00:47:18,590
+the site sitemap generates the
+
+819
+00:47:14,480 --> 00:47:20,840
+or sitemap file it returns a bunch of
+
+820
+00:47:18,590 --> 00:47:23,450
+bytes then you save these bytes to a
+
+821
+00:47:20,840 --> 00:47:26,090
+file so that's so sad map returns the
+
+822
+00:47:23,450 --> 00:47:29,030
+bytes essentially yet that represents a
+
+823
+00:47:26,090 --> 00:47:32,570
+sitemap file so how does it work it out
+
+824
+00:47:29,030 --> 00:47:36,680
+it takes two functions so let's look a
+
+825
+00:47:32,570 --> 00:47:42,230
+sitemap function so sitemap function is
+
+826
+00:47:36,680 --> 00:47:46,430
+this chunk like 20 lines so let's look
+
+827
+00:47:42,230 --> 00:47:51,290
+at look at look at the Declaration so
+
+828
+00:47:46,430 --> 00:48:00,890
+sitemap takes a directory string then it
+
+829
+00:47:51,290 --> 00:48:03,590
+takes a another string path to URL okay
+
+830
+00:48:00,890 --> 00:48:06,740
+I understand so it takes two arguments
+
+831
+00:48:03,590 --> 00:48:09,440
+two strings and it returns a byte okay
+
+832
+00:48:06,740 --> 00:48:12,770
+the the return value represents the
+
+833
+00:48:09,440 --> 00:48:16,130
+whole XML file so you can see the first
+
+834
+00:48:12,770 --> 00:48:19,840
+line you see it's trying to generate the
+
+835
+00:48:16,130 --> 00:48:22,580
+XML file the first line then you know
+
+836
+00:48:19,840 --> 00:48:25,040
+you know it generates the whole XML file
+
+837
+00:48:22,580 --> 00:48:27,200
+basically but anyway it takes two
+
+838
+00:48:25,040 --> 00:48:32,480
+arguments to stream so what are those
+
+839
+00:48:27,200 --> 00:48:34,580
+strings so the the first string I should
+
+840
+00:48:32,480 --> 00:48:39,620
+have some documentation I didn't do
+
+841
+00:48:34,580 --> 00:48:41,540
+documentation so dou X okay the
+
+842
+00:48:39,620 --> 00:48:48,670
+directory the first argument is a
+
+843
+00:48:41,540 --> 00:48:48,670
+directory to descend into that's the X
+
+844
+00:48:51,720 --> 00:48:58,430
+then the second argument has to URL way
+
+845
+00:48:55,530 --> 00:48:58,430
+way um
+
+846
+00:49:10,030 --> 00:49:15,450
+I'm surprised I didn't write
+
+847
+00:49:11,920 --> 00:49:18,160
+documentation for these paths to URL and
+
+848
+00:49:15,450 --> 00:49:21,910
+now looking at it you know I wrote these
+
+849
+00:49:18,160 --> 00:49:26,740
+like four months ago it's not true
+
+850
+00:49:21,910 --> 00:49:29,410
+obvious it's not very obvious you know
+
+851
+00:49:26,740 --> 00:49:32,560
+the idea of programmed so this is not
+
+852
+00:49:29,410 --> 00:49:34,359
+good you know that well I mean in the
+
+853
+00:49:32,560 --> 00:49:37,180
+industry if you look at the source code
+
+854
+00:49:34,359 --> 00:49:40,359
+they are much far worse you know this is
+
+855
+00:49:37,180 --> 00:49:44,160
+actually clinging and short very clean
+
+856
+00:49:40,359 --> 00:49:47,500
+code but still it's not ideal because
+
+857
+00:49:44,160 --> 00:49:49,450
+ideally you look at like if you look at
+
+858
+00:49:47,500 --> 00:49:51,280
+the main it should be all just obvious
+
+859
+00:49:49,450 --> 00:49:53,800
+then you know you look at for one you
+
+860
+00:49:51,280 --> 00:49:56,410
+know have ten seconds you understand
+
+861
+00:49:53,800 --> 00:50:01,450
+every function what exactly it's doing
+
+862
+00:49:56,410 --> 00:50:05,830
+but in my case it's not so slight you
+
+863
+00:50:01,450 --> 00:50:08,380
+know so so you look at the main so it
+
+864
+00:50:05,830 --> 00:50:10,950
+declare out bite okay that's easy to
+
+865
+00:50:08,380 --> 00:50:15,280
+understand then it loops through
+
+866
+00:50:10,950 --> 00:50:19,830
+directory to process so directory to
+
+867
+00:50:15,280 --> 00:50:23,410
+process is very simple it's a list of
+
+868
+00:50:19,830 --> 00:50:26,410
+you know directories we want to go into
+
+869
+00:50:23,410 --> 00:50:29,260
+you know the root directory for each
+
+870
+00:50:26,410 --> 00:50:34,920
+website okay so that's directory to
+
+871
+00:50:29,260 --> 00:50:37,450
+process then so you look through them
+
+872
+00:50:34,920 --> 00:50:41,020
+when you look through them you give them
+
+873
+00:50:37,450 --> 00:50:46,740
+two values this is the syntax of for
+
+874
+00:50:41,020 --> 00:50:49,330
+loop of a range so the first variable is
+
+875
+00:50:46,740 --> 00:50:52,359
+underscore that means it's a bit that
+
+876
+00:50:49,330 --> 00:50:55,060
+that basically is an index like 0 1 2 3
+
+877
+00:50:52,359 --> 00:50:57,940
+4 and so on we don't need that so that's
+
+878
+00:50:55,060 --> 00:51:02,170
+why we use underscore the second one V
+
+879
+00:50:57,940 --> 00:51:06,220
+is a variable so V is actually each of
+
+880
+00:51:02,170 --> 00:51:10,780
+the value of the list that's right
+
+881
+00:51:06,220 --> 00:51:13,180
+II V is each of the roots path okay so
+
+882
+00:51:10,780 --> 00:51:17,890
+these just a directory ok so far so good
+
+883
+00:51:13,180 --> 00:51:21,460
+so V is just the directory let's make a
+
+884
+00:51:17,890 --> 00:51:24,370
+backup let's modify it so you know we
+
+885
+00:51:21,460 --> 00:51:28,720
+replaced by the
+
+886
+00:51:24,370 --> 00:51:46,310
+rude okay and it's clinging about miss
+
+887
+00:51:28,720 --> 00:51:48,470
+so V is rude okay so Jude Jude Jude okay
+
+888
+00:51:46,310 --> 00:51:48,950
+that that should be it let's run it
+
+889
+00:51:48,470 --> 00:51:53,810
+again
+
+890
+00:51:48,950 --> 00:51:56,410
+so it is look at it should walk it's
+
+891
+00:51:53,810 --> 00:51:59,540
+done okay so now it's still walking so
+
+892
+00:51:56,410 --> 00:52:02,570
+so weak so we got so far
+
+893
+00:51:59,540 --> 00:52:05,450
+Ruta we go through that each ruder is
+
+894
+00:52:02,570 --> 00:52:08,780
+the directory okay then what we do is
+
+895
+00:52:05,450 --> 00:52:11,420
+that I learned to make long variable
+
+896
+00:52:08,780 --> 00:52:16,100
+parameter names so that they are self
+
+897
+00:52:11,420 --> 00:52:19,730
+document document maintain yes yeah I I
+
+898
+00:52:16,100 --> 00:52:22,490
+also do that I you know that's actually
+
+899
+00:52:19,730 --> 00:52:25,070
+my habit too because my variable in
+
+900
+00:52:22,490 --> 00:52:31,820
+function names tends to be long like 30
+
+901
+00:52:25,070 --> 00:52:34,040
+30 characters you know this interesting
+
+902
+00:52:31,820 --> 00:52:37,220
+thing right try to code :
+
+903
+00:52:34,040 --> 00:52:43,100
+you know goal and is in the community in
+
+904
+00:52:37,220 --> 00:52:47,420
+the style you know in assists sis system
+
+905
+00:52:43,100 --> 00:52:50,410
+programming how they could you know the
+
+906
+00:52:47,420 --> 00:52:53,690
+the is basically C and c plus plus
+
+907
+00:52:50,410 --> 00:52:56,030
+community and this community therefore
+
+908
+00:52:53,690 --> 00:53:00,760
+my style is rather different from
+
+909
+00:52:56,030 --> 00:53:03,260
+scripting community bash Python Perl
+
+910
+00:53:00,760 --> 00:53:05,480
+JavaScript these scripting languages
+
+911
+00:53:03,260 --> 00:53:11,840
+there's a difference there's a bit
+
+912
+00:53:05,480 --> 00:53:14,990
+different so in C kind of languages they
+
+913
+00:53:11,840 --> 00:53:18,620
+tend to be short very short characters
+
+914
+00:53:14,990 --> 00:53:21,730
+so so what I was saying is a wide when I
+
+915
+00:53:18,620 --> 00:53:24,350
+try to go why sorry to code goal and
+
+916
+00:53:21,730 --> 00:53:26,900
+it's interesting because it changed
+
+917
+00:53:24,350 --> 00:53:30,680
+it's new it's fresh you know it changed
+
+918
+00:53:26,900 --> 00:53:32,750
+changes your habit change change my
+
+919
+00:53:30,680 --> 00:53:35,630
+habit change a little bit to follow the
+
+920
+00:53:32,750 --> 00:53:36,990
+goal and conventions you know they you
+
+921
+00:53:35,630 --> 00:53:39,300
+know they don't want
+
+922
+00:53:36,990 --> 00:53:44,210
+elaborate 30 character names they
+
+923
+00:53:39,300 --> 00:53:46,070
+weren't used typically a short you know
+
+924
+00:53:44,210 --> 00:53:49,530
+anyways
+
+925
+00:53:46,070 --> 00:53:58,730
+say anyway so ruta is a directory so the
+
+926
+00:53:49,530 --> 00:54:03,630
+first thing we want to do is to yeah I
+
+927
+00:53:58,730 --> 00:54:05,790
+prefer long name you know it's the
+
+928
+00:54:03,630 --> 00:54:09,089
+interesting question because I don't you
+
+929
+00:54:05,790 --> 00:54:11,849
+know I think there is no right answer
+
+930
+00:54:09,089 --> 00:54:16,349
+because I think it's like people say
+
+931
+00:54:11,849 --> 00:54:19,200
+there's actually this it just depends on
+
+932
+00:54:16,349 --> 00:54:21,089
+some kind of balance depending on the
+
+933
+00:54:19,200 --> 00:54:22,890
+context different depending on the
+
+934
+00:54:21,089 --> 00:54:25,170
+function what situation
+
+935
+00:54:22,890 --> 00:54:27,540
+what meaning of the variable at the time
+
+936
+00:54:25,170 --> 00:54:30,210
+it's kind of depends on that that
+
+937
+00:54:27,540 --> 00:54:33,089
+because on one hand you you could go
+
+938
+00:54:30,210 --> 00:54:35,220
+overboard with long names like when you
+
+939
+00:54:33,089 --> 00:54:39,930
+have lots of low names then it becomes
+
+940
+00:54:35,220 --> 00:54:42,030
+less readable on the other hand if you
+
+941
+00:54:39,930 --> 00:54:44,849
+name everything you know one or two
+
+942
+00:54:42,030 --> 00:54:48,330
+characters that's obviously bad you know
+
+943
+00:54:44,849 --> 00:54:51,030
+so so another interesting thing is that
+
+944
+00:54:48,330 --> 00:54:53,160
+we actually you know as a programming
+
+945
+00:54:51,030 --> 00:54:57,869
+practice convention we don't have a
+
+946
+00:54:53,160 --> 00:55:00,270
+solid science on this issue you know
+
+947
+00:54:57,869 --> 00:55:02,369
+ideally we could have you know let's say
+
+948
+00:55:00,270 --> 00:55:07,530
+there's a solid subject you know like
+
+949
+00:55:02,369 --> 00:55:10,530
+like science scientific based study like
+
+950
+00:55:07,530 --> 00:55:13,410
+maybe we have us eventually we might
+
+951
+00:55:10,530 --> 00:55:15,300
+have maybe 10 10 or 20 years later but
+
+952
+00:55:13,410 --> 00:55:19,890
+we right now we don't have like Assad
+
+953
+00:55:15,300 --> 00:55:23,270
+solid science about like exact formula
+
+954
+00:55:19,890 --> 00:55:26,339
+or algorithm that says when exactly is a
+
+955
+00:55:23,270 --> 00:55:29,460
+variable name you know what how many
+
+956
+00:55:26,339 --> 00:55:32,220
+characters it should be that's too much
+
+957
+00:55:29,460 --> 00:55:34,170
+too hopeful right now like right now all
+
+958
+00:55:32,220 --> 00:55:36,900
+the programming you know this is part of
+
+959
+00:55:34,170 --> 00:55:38,940
+the problem in programming you know
+
+960
+00:55:36,900 --> 00:55:41,160
+debates or among different languages
+
+961
+00:55:38,940 --> 00:55:42,960
+like oh which one is better or your
+
+962
+00:55:41,160 --> 00:55:45,750
+language is better or mines whether you
+
+963
+00:55:42,960 --> 00:55:49,050
+know we have tons of these debates you
+
+964
+00:55:45,750 --> 00:55:51,890
+know arguments sometimes city and you
+
+965
+00:55:49,050 --> 00:55:55,220
+know once in a while every year we
+
+966
+00:55:51,890 --> 00:56:00,390
+PhD thesis you know they try to study
+
+967
+00:55:55,220 --> 00:56:04,500
+for example there are several PhD study
+
+968
+00:56:00,390 --> 00:56:07,470
+you know research about the naming of
+
+969
+00:56:04,500 --> 00:56:09,540
+variables like whether snake case is
+
+970
+00:56:07,470 --> 00:56:11,490
+better or camel case is better like
+
+971
+00:56:09,540 --> 00:56:14,310
+which one is so actually more readable
+
+972
+00:56:11,490 --> 00:56:17,400
+which one takes more training you know
+
+973
+00:56:14,310 --> 00:56:19,740
+which one actually you know you know
+
+974
+00:56:17,400 --> 00:56:22,050
+there are several study but it turns out
+
+975
+00:56:19,740 --> 00:56:26,430
+it's not conclusive you know like they
+
+976
+00:56:22,050 --> 00:56:32,520
+don't have a good answer to that
+
+977
+00:56:26,430 --> 00:56:36,950
+greetings Tenniel greetings so so anyway
+
+978
+00:56:32,520 --> 00:56:39,930
+we digressed anyway let's back to this I
+
+979
+00:56:36,950 --> 00:56:42,810
+don't think I'm doing a good job of this
+
+980
+00:56:39,930 --> 00:56:48,410
+to me this goal encoding we just keep
+
+981
+00:56:42,810 --> 00:56:52,020
+digressing but anyway so so get matched
+
+982
+00:56:48,410 --> 00:56:55,320
+what does get matched to get match takes
+
+983
+00:56:52,020 --> 00:56:59,430
+two arguments so the first one is a
+
+984
+00:56:55,320 --> 00:57:04,320
+directory root directory of a website
+
+985
+00:56:59,430 --> 00:57:07,620
+path and the second argument is the path
+
+986
+00:57:04,320 --> 00:57:11,090
+to URL that is confusing what what is
+
+987
+00:57:07,620 --> 00:57:11,090
+the path to URL
+
+988
+00:57:11,320 --> 00:57:14,389
+[Music]
+
+989
+00:57:17,530 --> 00:57:30,160
+oh okay I see okay so the path to URL is
+
+990
+00:57:26,680 --> 00:57:35,650
+kind is a hash table in goal and you
+
+991
+00:57:30,160 --> 00:57:39,850
+don't have a hash table well in Cola and
+
+992
+00:57:35,650 --> 00:57:42,430
+hash table is actually called map data
+
+993
+00:57:39,850 --> 00:57:43,720
+structure they have a data structure
+
+994
+00:57:42,430 --> 00:57:47,290
+called map okay
+
+995
+00:57:43,720 --> 00:57:49,150
+so the keys are string and the value is
+
+996
+00:57:47,290 --> 00:57:52,420
+also a string that's how you declare it
+
+997
+00:57:49,150 --> 00:57:56,290
+in : it's a hash table or in Python it's
+
+998
+00:57:52,420 --> 00:58:00,970
+called a dictionary so the path to URL
+
+999
+00:57:56,290 --> 00:58:06,820
+is a dictionary so keys are the route
+
+1000
+00:58:00,970 --> 00:58:10,120
+the path of a website of a domain the
+
+1001
+00:58:06,820 --> 00:58:13,060
+value is its domain name basically the
+
+1002
+00:58:10,120 --> 00:58:16,270
+URL so we need these obviously so you
+
+1003
+00:58:13,060 --> 00:58:19,240
+need you know the keys are the directory
+
+1004
+00:58:16,270 --> 00:58:22,630
+path the value is the actual domain name
+
+1005
+00:58:19,240 --> 00:58:27,880
+so you need this so this hash table this
+
+1006
+00:58:22,630 --> 00:58:33,700
+dictionary is called the path to URL Oh
+
+1007
+00:58:27,880 --> 00:58:36,130
+okay so so this skit matched function
+
+1008
+00:58:33,700 --> 00:58:38,200
+takes two arguments a root directory and
+
+1009
+00:58:36,130 --> 00:58:43,680
+our dictionary so let's see what does it
+
+1010
+00:58:38,200 --> 00:58:52,660
+do so get matched return a pair from
+
+1011
+00:58:43,680 --> 00:58:58,530
+okay so this is so bad documentation
+
+1012
+00:58:52,660 --> 00:58:58,530
+like how much return the pair from mm
+
+1013
+00:58:59,250 --> 00:59:09,070
+returns up here from mmm from okay I see
+
+1014
+00:59:03,070 --> 00:59:14,830
+what it is so so basically given a root
+
+1015
+00:59:09,070 --> 00:59:18,820
+path of a website you want to get the
+
+1016
+00:59:14,830 --> 00:59:24,420
+don't domain name so how we do that is
+
+1017
+00:59:18,820 --> 00:59:27,280
+via this get matched function you know
+
+1018
+00:59:24,420 --> 00:59:30,160
+okay so I get what and so I see what
+
+1019
+00:59:27,280 --> 00:59:31,720
+it's doing so you know so get matched
+
+1020
+00:59:30,160 --> 00:59:37,150
+actually
+
+1021
+00:59:31,720 --> 00:59:39,980
+take a dictionary or you know take this
+
+1022
+00:59:37,150 --> 00:59:44,780
+structure to get the result
+
+1023
+00:59:39,980 --> 00:59:47,330
+so basically given a file path that's a
+
+1024
+00:59:44,780 --> 00:59:49,700
+root path of a website you want to get
+
+1025
+00:59:47,330 --> 00:59:54,110
+the actual tone domain name cost for
+
+1026
+00:59:49,700 --> 01:00:00,260
+that so that's what this get matched
+
+1027
+00:59:54,110 --> 01:00:04,100
+does so this path to URL this path to
+
+1028
+01:00:00,260 --> 01:00:08,720
+URL is actually a list of two items the
+
+1029
+01:00:04,100 --> 01:00:13,040
+first item is the file path to a website
+
+1030
+01:00:08,720 --> 01:00:17,540
+domain the second item is the actual URL
+
+1031
+01:00:13,040 --> 01:00:24,650
+for that that okay path to URL that's
+
+1032
+01:00:17,540 --> 01:00:26,930
+also badly named you know it's bad you
+
+1033
+01:00:24,650 --> 01:00:31,280
+know it's not really path to URL it's
+
+1034
+01:00:26,930 --> 01:00:34,370
+actually just a pair of you know yeah
+
+1035
+01:00:31,280 --> 01:00:36,320
+yeah it's it's not good name because
+
+1036
+01:00:34,370 --> 01:00:39,380
+path to your you you know when you think
+
+1037
+01:00:36,320 --> 01:00:44,080
+a path to your URL you think of it as a
+
+1038
+01:00:39,380 --> 01:00:44,080
+function it's not a function he's just
+
+1039
+01:00:46,810 --> 01:00:54,980
+you know it just you know it in gold on
+
+1040
+01:00:52,310 --> 01:00:57,770
+its array you know it's just a you know
+
+1041
+01:00:54,980 --> 01:01:03,290
+it's a slice it's it's just a array of
+
+1042
+01:00:57,770 --> 01:01:07,700
+two items anyway so bad so okay so now I
+
+1043
+01:01:03,290 --> 01:01:10,340
+understand path to URL then we get to
+
+1044
+01:01:07,700 --> 01:01:14,590
+the side map okay now it's easy to
+
+1045
+01:01:10,340 --> 01:01:22,310
+understand site map takes a Rooter and
+
+1046
+01:01:14,590 --> 01:01:25,910
+takes a so this is all so badly
+
+1047
+01:01:22,310 --> 01:01:29,180
+structured so site map takes two
+
+1048
+01:01:25,910 --> 01:01:33,830
+argument a root directory you know then
+
+1049
+01:01:29,180 --> 01:01:37,310
+the second argument kind of repeats the
+
+1050
+01:01:33,830 --> 01:01:39,290
+first argument the sake second egg egg
+
+1051
+01:01:37,310 --> 01:01:42,500
+argument actually should just be a
+
+1052
+01:01:39,290 --> 01:01:45,290
+domain name string that correspond to
+
+1053
+01:01:42,500 --> 01:01:49,010
+this root but instead the
+
+1054
+01:01:45,290 --> 01:01:51,710
+second argument is at least with two
+
+1055
+01:01:49,010 --> 01:01:53,870
+elements the surface element is ruder
+
+1056
+01:01:51,710 --> 01:01:57,740
+the second element is a director is a
+
+1057
+01:01:53,870 --> 01:02:05,330
+domain name anyway so so that's that's
+
+1058
+01:01:57,740 --> 01:02:07,480
+what site map is okay so so actually I
+
+1059
+01:02:05,330 --> 01:02:10,340
+think I'm you know I'm going to just
+
+1060
+01:02:07,480 --> 01:02:12,500
+skip the coding today because it's
+
+1061
+01:02:10,340 --> 01:02:16,460
+already one hour unless you guys want to
+
+1062
+01:02:12,500 --> 01:02:24,110
+see it because we already talked for one
+
+1063
+01:02:16,460 --> 01:02:27,710
+hour okay
+
+1064
+01:02:24,110 --> 01:02:30,650
+oh boy we avoid that words okay yes so
+
+1065
+01:02:27,710 --> 01:02:34,910
+clean code I have heard is the more what
+
+1066
+01:02:30,650 --> 01:02:38,600
+the you hear when when people when
+
+1067
+01:02:34,910 --> 01:02:41,900
+someone reading in your code the unclear
+
+1068
+01:02:38,600 --> 01:02:45,740
+your code actually is yeah the more you
+
+1069
+01:02:41,900 --> 01:02:49,420
+hear what the the less clean code
+
+1070
+01:02:45,740 --> 01:02:54,950
+it is yeah that makes sense
+
+1071
+01:02:49,420 --> 01:02:58,940
+so anyway I digress Rollins yeah so easy
+
+1072
+01:02:54,950 --> 01:03:03,790
+it's actually so now actually we
+
+1073
+01:02:58,940 --> 01:03:07,220
+understand what this site map is doing
+
+1074
+01:03:03,790 --> 01:03:11,210
+site map is the heart of the whole thing
+
+1075
+01:03:07,220 --> 01:03:16,820
+basically so the site map boy does is
+
+1076
+01:03:11,210 --> 01:03:19,370
+that it takes a route path stream then
+
+1077
+01:03:16,820 --> 01:03:22,400
+it takes basically the second it needs a
+
+1078
+01:03:19,370 --> 01:03:27,350
+domain name for that stream then it
+
+1079
+01:03:22,400 --> 01:03:30,560
+generates a site map and the output as
+
+1080
+01:03:27,350 --> 01:03:33,530
+you know is a byte stream you know is a
+
+1081
+01:03:30,560 --> 01:03:41,420
+byte slice slice a bytes a sequence of
+
+1082
+01:03:33,530 --> 01:03:45,260
+bytes then we look into the code you can
+
+1083
+01:03:41,420 --> 01:03:48,380
+see so what does what is it doing so it
+
+1084
+01:03:45,260 --> 01:03:51,440
+use append to append the output so first
+
+1085
+01:03:48,380 --> 01:03:55,880
+of all we declare the output output is a
+
+1086
+01:03:51,440 --> 01:03:58,040
+sequence of bytes and the first sequence
+
+1087
+01:03:55,880 --> 01:03:58,790
+you know the first puncher is basically
+
+1088
+01:03:58,040 --> 01:04:04,700
+this
+
+1089
+01:03:58,790 --> 01:04:09,320
+in XML for the sitemap then it just call
+
+1090
+01:04:04,700 --> 01:04:14,150
+append so app and output then you append
+
+1091
+01:04:09,320 --> 01:04:22,780
+the second line and you know then then
+
+1092
+01:04:14,150 --> 01:04:25,790
+you start to walk yeah so it then use
+
+1093
+01:04:22,780 --> 01:04:30,980
+okay wait you define a function that
+
+1094
+01:04:25,790 --> 01:04:34,190
+walks a directory yeah so we need to go
+
+1095
+01:04:30,980 --> 01:04:40,010
+into a directory we need to find Oh HTML
+
+1096
+01:04:34,190 --> 01:04:44,000
+files then transform from a file path
+
+1097
+01:04:40,010 --> 01:04:48,470
+into a URL you know with the help of the
+
+1098
+01:04:44,000 --> 01:04:54,740
+domain name so that is this function
+
+1099
+01:04:48,470 --> 01:05:00,410
+this this P Walker function so then we
+
+1100
+01:04:54,740 --> 01:05:08,900
+actually call the worker function you
+
+1101
+01:05:00,410 --> 01:05:11,450
+know with the fire route right we call
+
+1102
+01:05:08,900 --> 01:05:22,390
+the walk function we call the P Walker
+
+1103
+01:05:11,450 --> 01:05:22,390
+function we wait let's go back
+
+1104
+01:05:25,010 --> 01:05:34,430
+so we call the worker function so what
+
+1105
+01:05:31,250 --> 01:05:39,050
+does the worker function do basically
+
+1106
+01:05:34,430 --> 01:05:42,280
+the worker function just append stuff to
+
+1107
+01:05:39,050 --> 01:05:44,900
+the output variable you know just
+
+1108
+01:05:42,280 --> 01:05:46,580
+basically for each file
+
+1109
+01:05:44,900 --> 01:05:50,170
+edie encounters in your directory for
+
+1110
+01:05:46,580 --> 01:06:00,680
+each file it just append a line to the
+
+1111
+01:05:50,170 --> 01:06:03,020
+output you know then then it yeah it
+
+1112
+01:06:00,680 --> 01:06:06,970
+just does that so it works by side
+
+1113
+01:06:03,020 --> 01:06:10,580
+effect it's not functional programming
+
+1114
+01:06:06,970 --> 01:06:14,300
+in the in this case it's kind of
+
+1115
+01:06:10,580 --> 01:06:18,740
+necessary in that way because go line is
+
+1116
+01:06:14,300 --> 01:06:20,750
+not Haskell you know so you need so for
+
+1117
+01:06:18,740 --> 01:06:25,010
+each file you just need to append a line
+
+1118
+01:06:20,750 --> 01:06:29,150
+to the output XML so after that so we
+
+1119
+01:06:25,010 --> 01:06:32,960
+call the file path walk then call the
+
+1120
+01:06:29,150 --> 01:06:38,780
+pee walker function that that basically
+
+1121
+01:06:32,960 --> 01:06:41,869
+basically traverse the directory then we
+
+1122
+01:06:38,780 --> 01:06:44,800
+checked the arrow go line is known for
+
+1123
+01:06:41,869 --> 01:06:49,880
+error checking which is very annoying
+
+1124
+01:06:44,800 --> 01:06:53,990
+then you know then it's done you just
+
+1125
+01:06:49,880 --> 01:06:58,850
+append the last line for the XML file
+
+1126
+01:06:53,990 --> 01:07:02,270
+URL set then return output you know the
+
+1127
+01:06:58,850 --> 01:07:05,420
+output is a sequence of bytes yeah that
+
+1128
+01:07:02,270 --> 01:07:12,710
+all makes sense so this is the sitemap
+
+1129
+01:07:05,420 --> 01:07:15,260
+function yeah so here we call the
+
+1130
+01:07:12,710 --> 01:07:18,109
+sitemap function it returns the sequence
+
+1131
+01:07:15,260 --> 01:07:20,240
+of bytes we assigned to out by saying we
+
+1132
+01:07:18,109 --> 01:07:24,980
+just saved to the file so that's that's
+
+1133
+01:07:20,240 --> 01:07:28,640
+how it does pretty bad I mean the bet
+
+1134
+01:07:24,980 --> 01:07:31,450
+the code is not bad but it's not optimal
+
+1135
+01:07:28,640 --> 01:07:33,859
+because it's not optimal in this it's
+
+1136
+01:07:31,450 --> 01:07:36,650
+actually very efficient you know I wrote
+
+1137
+01:07:33,859 --> 01:07:38,750
+this code I know it's very extremely
+
+1138
+01:07:36,650 --> 01:07:40,610
+efficient you cannot be part
+
+1139
+01:07:38,750 --> 01:07:45,580
+to be more efficient in other words
+
+1140
+01:07:40,610 --> 01:07:48,760
+there is no inefficiencies but however
+
+1141
+01:07:45,580 --> 01:07:51,710
+it can be refactored
+
+1142
+01:07:48,760 --> 01:07:53,150
+because we see for example the get
+
+1143
+01:07:51,710 --> 01:07:58,160
+matched is a bad name
+
+1144
+01:07:53,150 --> 01:08:00,640
+yeah it's not and the said map is also
+
+1145
+01:07:58,160 --> 01:08:03,290
+[Music]
+
+1146
+01:08:00,640 --> 01:08:06,020
+you know it should be maybe called
+
+1147
+01:08:03,290 --> 01:08:10,550
+January sitemap is a better name instead
+
+1148
+01:08:06,020 --> 01:08:12,230
+of just said man also the argument it
+
+1149
+01:08:10,550 --> 01:08:18,170
+should be a domain name a second
+
+1150
+01:08:12,230 --> 01:08:20,960
+argument you know like when you code to
+
+1151
+01:08:18,170 --> 01:08:22,880
+yourself is everything is obvious you
+
+1152
+01:08:20,960 --> 01:08:25,250
+know especially like now I'm from here
+
+1153
+01:08:22,880 --> 01:08:29,029
+with this code now I can start to do
+
+1154
+01:08:25,250 --> 01:08:32,660
+what we originally need to do which is
+
+1155
+01:08:29,029 --> 01:08:36,830
+you know which is also ok so what we
+
+1156
+01:08:32,660 --> 01:08:42,259
+need to do now is to so after all this
+
+1157
+01:08:36,830 --> 01:08:46,430
+is done ok we saw right here we need to
+
+1158
+01:08:42,259 --> 01:08:49,069
+open this file open this this file I
+
+1159
+01:08:46,430 --> 01:08:52,819
+mean let me write it down so open this
+
+1160
+01:08:49,069 --> 01:08:56,390
+file actually there's a file path local
+
+1161
+01:08:52,819 --> 01:09:01,759
+file path so so we need to open this
+
+1162
+01:08:56,390 --> 01:09:06,460
+file ok this file which corresponds to
+
+1163
+01:09:01,759 --> 01:09:06,460
+this URL so we need to open this file
+
+1164
+01:09:06,549 --> 01:09:20,259
+delete you know find the well let's
+
+1165
+01:09:11,390 --> 01:09:28,310
+delete the list of links generate a new
+
+1166
+01:09:20,259 --> 01:09:34,390
+list of links based on XML file based on
+
+1167
+01:09:28,310 --> 01:09:36,560
+our XML the based on the XML we already
+
+1168
+01:09:34,390 --> 01:09:40,460
+generated because you see we already
+
+1169
+01:09:36,560 --> 01:09:45,109
+generated XML file where each line is
+
+1170
+01:09:40,460 --> 01:09:48,710
+basically the file the domain name the
+
+1171
+01:09:45,109 --> 01:09:53,890
+URL so we so you can see so right now we
+
+1172
+01:09:48,710 --> 01:09:57,590
+can see it doesn't work we cannot just
+
+1173
+01:09:53,890 --> 01:10:01,430
+do it because we need to because when
+
+1174
+01:09:57,590 --> 01:10:05,960
+the sitemap the way sitemap function
+
+1175
+01:10:01,430 --> 01:10:08,510
+works is that is simply Traverse into a
+
+1176
+01:10:05,960 --> 01:10:12,410
+directory for each file it encounters it
+
+1177
+01:10:08,510 --> 01:10:15,410
+just add that line into the output which
+
+1178
+01:10:12,410 --> 01:10:18,320
+is a byte sequence you know just you
+
+1179
+01:10:15,410 --> 01:10:22,010
+know into a five into the base sequence
+
+1180
+01:10:18,320 --> 01:10:24,860
+output it does not it does not actually
+
+1181
+01:10:22,010 --> 01:10:27,440
+generate a structure of all the files
+
+1182
+01:10:24,860 --> 01:10:30,290
+you know like a list of files it does
+
+1183
+01:10:27,440 --> 01:10:33,550
+not generate a list of files rather it
+
+1184
+01:10:30,290 --> 01:10:40,190
+directly dump you know the file path to
+
+1185
+01:10:33,550 --> 01:10:42,410
+the XML file therefore but now we
+
+1186
+01:10:40,190 --> 01:10:45,440
+actually need you know at least a file
+
+1187
+01:10:42,410 --> 01:10:48,110
+so we run into a problem because we
+
+1188
+01:10:45,440 --> 01:10:54,950
+don't have a structure that's list of
+
+1189
+01:10:48,110 --> 01:10:58,190
+files so we need to either modify you
+
+1190
+01:10:54,950 --> 01:11:01,040
+know the sitemap functions so that way
+
+1191
+01:10:58,190 --> 01:11:03,860
+so instead of just directly output you
+
+1192
+01:11:01,040 --> 01:11:05,780
+know append to the output instead of it
+
+1193
+01:11:03,860 --> 01:11:10,850
+instead of that we actually generate the
+
+1194
+01:11:05,780 --> 01:11:13,790
+list of files then we can do you know we
+
+1195
+01:11:10,850 --> 01:11:17,090
+can convert the whole list into a output
+
+1196
+01:11:13,790 --> 01:11:19,790
+XML file so that way we have a list of
+
+1197
+01:11:17,090 --> 01:11:22,040
+files then now we need to generate the
+
+1198
+01:11:19,790 --> 01:11:24,290
+list of files over here on this page we
+
+1199
+01:11:22,040 --> 01:11:27,160
+can use that structure so that's what we
+
+1200
+01:11:24,290 --> 01:11:34,280
+need to do so
+
+1201
+01:11:27,160 --> 01:11:41,989
+so then insert into the page and save it
+
+1202
+01:11:34,280 --> 01:11:46,340
+yeah so that's what we need to do god so
+
+1203
+01:11:41,989 --> 01:11:50,989
+at this point should i we already talked
+
+1204
+01:11:46,340 --> 01:11:56,120
+for our kind of should I start to code
+
+1205
+01:11:50,989 --> 01:11:58,220
+it you know we could yeah we could
+
+1206
+01:11:56,120 --> 01:12:00,739
+actually start to code now no you know
+
+1207
+01:11:58,220 --> 01:12:03,170
+now we you know we spend the time to
+
+1208
+01:12:00,739 --> 01:12:06,500
+look into actually this is this is not
+
+1209
+01:12:03,170 --> 01:12:08,720
+this is actually a real live coding yeah
+
+1210
+01:12:06,500 --> 01:12:10,820
+doesn't make sense you know it really
+
+1211
+01:12:08,720 --> 01:12:13,490
+live codings like that it takes time to
+
+1212
+01:12:10,820 --> 01:12:16,370
+read the code to understand what you
+
+1213
+01:12:13,490 --> 01:12:19,760
+know the code you haven't touched for a
+
+1214
+01:12:16,370 --> 01:12:24,470
+few months now I do I do understand how
+
+1215
+01:12:19,760 --> 01:12:28,580
+it works now I know now we have we have
+
+1216
+01:12:24,470 --> 01:12:32,000
+a clear steps you know of what we need
+
+1217
+01:12:28,580 --> 01:12:34,670
+to do you know aspect and we know how to
+
+1218
+01:12:32,000 --> 01:12:42,980
+do that so we need what we need to do is
+
+1219
+01:12:34,670 --> 01:12:46,430
+we go to the site map function we go
+
+1220
+01:12:42,980 --> 01:12:48,410
+through this function and we need to
+
+1221
+01:12:46,430 --> 01:12:53,320
+first of all the first thing is to
+
+1222
+01:12:48,410 --> 01:12:56,570
+modify the code so that it generate it
+
+1223
+01:12:53,320 --> 01:12:59,270
+generate a list of files instead of you
+
+1224
+01:12:56,570 --> 01:13:02,140
+know directory direct output
+
+1225
+01:12:59,270 --> 01:13:02,140
+yeah we can do that
+
+1226
+01:13:07,410 --> 01:13:17,920
+yeah so um so what went our intent so
+
+1227
+01:13:16,210 --> 01:13:20,950
+I'm thinking let's do ten more minutes
+
+1228
+01:13:17,920 --> 01:13:24,370
+okay ten more minutes doesn't matter we
+
+1229
+01:13:20,950 --> 01:13:28,110
+finish it or not then thou be it for
+
+1230
+01:13:24,370 --> 01:13:33,120
+today because this is getting long and
+
+1231
+01:13:28,110 --> 01:13:33,120
+you know a lot talking and I'm tired too
+
+1232
+01:13:33,780 --> 01:13:47,380
+ I don't have my power drinks I wait
+
+1233
+01:13:40,870 --> 01:13:50,950
+do I have you see this is my issue let's
+
+1234
+01:13:47,380 --> 01:13:55,870
+see if I can you see my inner my energy
+
+1235
+01:13:50,950 --> 01:14:11,440
+drinks this is and I need a new one so
+
+1236
+01:13:55,870 --> 01:14:14,890
+let me get pipe and pineapple flavored
+
+1237
+01:14:11,440 --> 01:14:20,350
+pen this is a cheap brand of redbull
+
+1238
+01:14:14,890 --> 01:14:28,950
+essentially that's what it is a cheap
+
+1239
+01:14:20,350 --> 01:14:33,370
+brand of redbull and it's two dollars a
+
+1240
+01:14:28,950 --> 01:14:36,130
+pop I've been drinking these kind of
+
+1241
+01:14:33,370 --> 01:14:39,340
+energy drinks for like five years six
+
+1242
+01:14:36,130 --> 01:14:42,670
+years oh my god it's actually no good
+
+1243
+01:14:39,340 --> 01:14:49,330
+it's addictive I used to drink sugar at
+
+1244
+01:14:42,670 --> 01:14:51,850
+once in that that that destruction that
+
+1245
+01:14:49,330 --> 01:14:55,690
+that's very destructive to your body son
+
+1246
+01:14:51,850 --> 01:14:58,720
+I never drink pop drinks with sugar like
+
+1247
+01:14:55,690 --> 01:15:00,970
+Coke Pepsi I never in my in my life well
+
+1248
+01:14:58,720 --> 01:15:02,880
+you know when I was young maybe once you
+
+1249
+01:15:00,970 --> 01:15:06,730
+know you know I when I was younger like
+
+1250
+01:15:02,880 --> 01:15:10,630
+1300 below I drink that but as adults
+
+1251
+01:15:06,730 --> 01:15:13,770
+since 15 I never drink Pepsi you know
+
+1252
+01:15:10,630 --> 01:15:16,720
+any any sort of the sugar dream never in
+
+1253
+01:15:13,770 --> 01:15:19,020
+but however five years ago I started to
+
+1254
+01:15:16,720 --> 01:15:21,070
+drink this energy drink sugar at once I
+
+1255
+01:15:19,020 --> 01:15:24,220
+I did that for
+
+1256
+01:15:21,070 --> 01:15:26,350
+like four years three years or so and
+
+1257
+01:15:24,220 --> 01:15:28,630
+that's very bad it does bad things to
+
+1258
+01:15:26,350 --> 01:15:30,730
+your body you know in your body in your
+
+1259
+01:15:28,630 --> 01:15:34,380
+thighs you know especially girls you
+
+1260
+01:15:30,730 --> 01:15:38,350
+know women this is of great concern to
+
+1261
+01:15:34,380 --> 01:15:40,270
+females on their thighs they have what's
+
+1262
+01:15:38,350 --> 01:15:43,090
+called sailor loose you know the like
+
+1263
+01:15:40,270 --> 01:15:44,890
+you can you know it doesn't look good
+
+1264
+01:15:43,090 --> 01:15:47,410
+you know that's kind of say the rules
+
+1265
+01:15:44,890 --> 01:15:49,510
+you know when you drink sugar a drink
+
+1266
+01:15:47,410 --> 01:15:51,760
+you start I start to have that you know
+
+1267
+01:15:49,510 --> 01:15:55,660
+sugar drink so sugar is the thing you
+
+1268
+01:15:51,760 --> 01:15:58,600
+don't want so now I don't drink any
+
+1269
+01:15:55,660 --> 01:16:06,730
+sugared energy energy energy drink
+
+1270
+01:15:58,600 --> 01:16:09,340
+anymore okay so yeah maybe I should stop
+
+1271
+01:16:06,730 --> 01:16:12,040
+now I mean your random talking a lot so
+
+1272
+01:16:09,340 --> 01:16:14,320
+actually that's good that's what saw
+
+1273
+01:16:12,040 --> 01:16:17,170
+talk show is so thank you guys for
+
+1274
+01:16:14,320 --> 01:16:22,030
+watching thank you dick ways so that
+
+1275
+01:16:17,170 --> 01:16:26,440
+ways so what what so so you are also
+
+1276
+01:16:22,030 --> 01:16:29,740
+program away are you from and I like
+
+1277
+01:16:26,440 --> 01:16:34,510
+like in USA or in what country that's
+
+1278
+01:16:29,740 --> 01:16:37,390
+always interesting and one question okay
+
+1279
+01:16:34,510 --> 01:16:40,210
+so what question cake they know yeah oh
+
+1280
+01:16:37,390 --> 01:16:42,780
+yeah you you were here before so what's
+
+1281
+01:16:40,210 --> 01:16:42,780
+up Danielle
+
+1282
+01:16:52,200 --> 01:16:59,230
+rust versus see okay I can actually I
+
+1283
+01:16:56,290 --> 01:17:00,970
+can talk about that right now because I
+
+1284
+01:16:59,230 --> 01:17:05,440
+actually I don't have much to talk about
+
+1285
+01:17:00,970 --> 01:17:08,230
+that okay because first of all I don't
+
+1286
+01:17:05,440 --> 01:17:10,450
+know see you at all okay you know people
+
+1287
+01:17:08,230 --> 01:17:12,850
+may get any impression I know see
+
+1288
+01:17:10,450 --> 01:17:19,570
+actually I don't know see I do not know
+
+1289
+01:17:12,850 --> 01:17:21,580
+see I do not know C++ you know yeah III
+
+1290
+01:17:19,570 --> 01:17:25,540
+I despise them I hate them
+
+1291
+01:17:21,580 --> 01:17:29,140
+no dude I don't know C actually started
+
+1292
+01:17:25,540 --> 01:17:32,260
+like I meaning that I've never coded
+
+1293
+01:17:29,140 --> 01:17:34,750
+more than ten lines of C or I've ever
+
+1294
+01:17:32,260 --> 01:17:37,000
+did is maybe hello what you know a
+
+1295
+01:17:34,750 --> 01:17:39,130
+factorial when I was learning it you
+
+1296
+01:17:37,000 --> 01:17:41,440
+know I'm not you know I never actually
+
+1297
+01:17:39,130 --> 01:17:45,250
+spent much time doing it so I never I
+
+1298
+01:17:41,440 --> 01:17:48,070
+don't know C I don't know C prospers and
+
+1299
+01:17:45,250 --> 01:17:51,160
+what so in my programming experience
+
+1300
+01:17:48,070 --> 01:17:55,090
+mostly I do web programming and the
+
+1301
+01:17:51,160 --> 01:17:57,340
+scientific programming that's mostly
+
+1302
+01:17:55,090 --> 01:18:00,489
+server you know web you know web server
+
+1303
+01:17:57,340 --> 01:18:02,680
+phone in front a number or back in and
+
+1304
+01:18:00,489 --> 01:18:06,910
+scientific programming mostly
+
+1305
+01:18:02,680 --> 01:18:09,850
+mathematics geometry visualization in
+
+1306
+01:18:06,910 --> 01:18:13,260
+Mathematica mostly and I was mostly in
+
+1307
+01:18:09,850 --> 01:18:15,090
+1990s and 2000s and I still do today
+
+1308
+01:18:13,260 --> 01:18:19,570
+geometric you know geometry
+
+1309
+01:18:15,090 --> 01:18:21,670
+visualization of math fantastic so and
+
+1310
+01:18:19,570 --> 01:18:24,370
+III have a thing about programming
+
+1311
+01:18:21,670 --> 01:18:26,620
+languages so I learned oh and also I
+
+1312
+01:18:24,370 --> 01:18:29,110
+most my experience I'm a functional
+
+1313
+01:18:26,620 --> 01:18:32,980
+programmer I mentioned before especially
+
+1314
+01:18:29,110 --> 01:18:35,800
+with Mathematica and I never used Opie
+
+1315
+01:18:32,980 --> 01:18:37,330
+technology I never in my code you know
+
+1316
+01:18:35,800 --> 01:18:39,220
+when you woke up in a company maybe
+
+1317
+01:18:37,330 --> 01:18:42,760
+you're it's different because you have
+
+1318
+01:18:39,220 --> 01:18:45,610
+to follow you know programs that already
+
+1319
+01:18:42,760 --> 01:18:49,000
+exist you know Opie style whatever but
+
+1320
+01:18:45,610 --> 01:18:52,060
+in my own code I never used Opie you
+
+1321
+01:18:49,000 --> 01:18:54,820
+know in JavaScript not in JavaScript not
+
+1322
+01:18:52,060 --> 01:18:57,970
+in Python not in :
+
+1323
+01:18:54,820 --> 01:19:02,440
+you know colon has interface as the the
+
+1324
+01:18:57,970 --> 01:19:05,979
+interface mechanism in colon is the Opie
+
+1325
+01:19:02,440 --> 01:19:09,400
+mechanism for : oh oh
+
+1326
+01:19:05,979 --> 01:19:11,439
+Golan doesn't have a you know object
+
+1327
+01:19:09,400 --> 01:19:13,329
+like Java or Python
+
+1328
+01:19:11,439 --> 01:19:16,860
+Golan doesn't have that but rather it
+
+1329
+01:19:13,329 --> 01:19:22,239
+has interface and struct that's how you
+
+1330
+01:19:16,860 --> 01:19:24,849
+have the whole Opie paradin so anyway so
+
+1331
+01:19:22,239 --> 01:19:26,559
+I don't use Opie at all in this in any
+
+1332
+01:19:24,849 --> 01:19:28,239
+language I don't I'd because I don't
+
+1333
+01:19:26,559 --> 01:19:31,300
+like it I don't like I don't think it's
+
+1334
+01:19:28,239 --> 01:19:35,340
+good and most my so I love poor me
+
+1335
+01:19:31,300 --> 01:19:39,400
+languages so most my experience and my
+
+1336
+01:19:35,340 --> 01:19:42,729
+my prospects perspective my I came from
+
+1337
+01:19:39,400 --> 01:19:45,729
+a math bike background so first of all
+
+1338
+01:19:42,729 --> 01:19:48,309
+I'm a mathematician first if if that you
+
+1339
+01:19:45,729 --> 01:19:50,439
+know math is very difficult you know you
+
+1340
+01:19:48,309 --> 01:19:53,550
+could say I'm an amateur mathematician
+
+1341
+01:19:50,439 --> 01:19:57,010
+so math first then eyes you know
+
+1342
+01:19:53,550 --> 01:20:00,429
+programming so my perspective is more
+
+1343
+01:19:57,010 --> 01:20:03,519
+more math oriented and high-level
+
+1344
+01:20:00,429 --> 01:20:05,829
+language oriented so I don't actually
+
+1345
+01:20:03,519 --> 01:20:09,369
+have much experience with system
+
+1346
+01:20:05,829 --> 01:20:11,590
+programming like see and and and no
+
+1347
+01:20:09,369 --> 01:20:15,309
+experience with experience with C or C
+
+1348
+01:20:11,590 --> 01:20:17,170
+first verse I don't know Linux kernel I
+
+1349
+01:20:15,309 --> 01:20:19,510
+don't know about drivers how to read a
+
+1350
+01:20:17,170 --> 01:20:21,309
+driver you know those kind of thing I
+
+1351
+01:20:19,510 --> 01:20:23,769
+don't know I you know I don't have much
+
+1352
+01:20:21,309 --> 01:20:26,199
+experience I don't I don't have any
+
+1353
+01:20:23,769 --> 01:20:28,900
+experience I don't I don't I never coded
+
+1354
+01:20:26,199 --> 01:20:33,209
+assembly language you know but I study
+
+1355
+01:20:28,900 --> 01:20:37,059
+them I especially in past few years I I
+
+1356
+01:20:33,209 --> 01:20:41,320
+tried to study some some some of them so
+
+1357
+01:20:37,059 --> 01:20:43,900
+my opinion about see about rust versus
+
+1358
+01:20:41,320 --> 01:20:46,780
+see I don't have much your opinion you
+
+1359
+01:20:43,900 --> 01:20:49,239
+accept that they are low level languages
+
+1360
+01:20:46,780 --> 01:20:53,889
+I don't like them okay don't you step
+
+1361
+01:20:49,239 --> 01:20:57,099
+and and see yeah I I don't like them
+
+1362
+01:20:53,889 --> 01:20:59,409
+because not okay here's here's what's
+
+1363
+01:20:57,099 --> 01:21:01,900
+important I mean maybe it's fun to say
+
+1364
+01:20:59,409 --> 01:21:06,070
+okay it's what talk show is about being
+
+1365
+01:21:01,900 --> 01:21:08,019
+dramatic okay I don't like them not
+
+1366
+01:21:06,070 --> 01:21:11,229
+because they are low level languages
+
+1367
+01:21:08,019 --> 01:21:14,619
+okay obviously low level languages such
+
+1368
+01:21:11,229 --> 01:21:17,199
+as C rust assembly they are incredibly
+
+1369
+01:21:14,619 --> 01:21:19,719
+they are fundamental they are absolutely
+
+1370
+01:21:17,199 --> 01:21:21,670
+essential they are the
+
+1371
+01:21:19,719 --> 01:21:24,190
+cleaning of all programming languages
+
+1372
+01:21:21,670 --> 01:21:26,440
+you need them okay assembly of course
+
+1373
+01:21:24,190 --> 01:21:29,530
+obviously machine language assembly you
+
+1374
+01:21:26,440 --> 01:21:31,869
+see you need them absolutely
+
+1375
+01:21:29,530 --> 01:21:33,789
+personally I don't I don't like them
+
+1376
+01:21:31,869 --> 01:21:35,260
+because you know I tend to be the math
+
+1377
+01:21:33,789 --> 01:21:39,670
+oriented high level
+
+1378
+01:21:35,260 --> 01:21:41,590
+I prefer high level languages but of
+
+1379
+01:21:39,670 --> 01:21:45,309
+course the low level languages are
+
+1380
+01:21:41,590 --> 01:21:46,840
+critical and important but that's not
+
+1381
+01:21:45,309 --> 01:21:49,539
+the reason I don't like see you or us
+
+1382
+01:21:46,840 --> 01:21:52,570
+the reason I don't like see it's not
+
+1383
+01:21:49,539 --> 01:21:55,179
+rust okay but C C and C plus the first
+
+1384
+01:21:52,570 --> 01:21:58,119
+is because the way they are designed
+
+1385
+01:21:55,179 --> 01:22:00,550
+I mean they are all Anglo level language
+
+1386
+01:21:58,119 --> 01:22:04,030
+okay that's fine but the way they are
+
+1387
+01:22:00,550 --> 01:22:06,340
+designed in many ways in my opinion is
+
+1388
+01:22:04,030 --> 01:22:10,329
+the worst crap it's a from the UNIX
+
+1389
+01:22:06,340 --> 01:22:12,729
+philosophy okay the the the
+
+1390
+01:22:10,329 --> 01:22:17,380
+the the the you know you know the UNIX
+
+1391
+01:22:12,729 --> 01:22:20,229
+philosophy they are the virus they see
+
+1392
+01:22:17,380 --> 01:22:22,780
+and UNIX is what creating in my opinion
+
+1393
+01:22:20,229 --> 01:22:25,749
+this is a dramatic saying okay they are
+
+1394
+01:22:22,780 --> 01:22:28,030
+thus the the father of everything that's
+
+1395
+01:22:25,749 --> 01:22:29,499
+wrong about computing industry so every
+
+1396
+01:22:28,030 --> 01:22:32,349
+time you run into a problem
+
+1397
+01:22:29,499 --> 01:22:38,559
+bad design you know no documentation I
+
+1398
+01:22:32,349 --> 01:22:42,219
+blame it on C&C and UNIX okay and okay
+
+1399
+01:22:38,559 --> 01:22:45,010
+so what about rust so so as far as
+
+1400
+01:22:42,219 --> 01:22:47,979
+language is concerned the newer newer
+
+1401
+01:22:45,010 --> 01:22:51,130
+language are always better then then
+
+1402
+01:22:47,979 --> 01:22:54,190
+then the decade before that so every
+
+1403
+01:22:51,130 --> 01:22:56,409
+decade you decade you have new languages
+
+1404
+01:22:54,190 --> 01:23:00,280
+in general they are just better period
+
+1405
+01:22:56,409 --> 01:23:06,070
+okay so rust and see I I would think
+
+1406
+01:23:00,280 --> 01:23:09,460
+Russ is good you know so I would in my
+
+1407
+01:23:06,070 --> 01:23:11,559
+ideas so you know first of all like I
+
+1408
+01:23:09,460 --> 01:23:13,360
+said before technically technically I
+
+1409
+01:23:11,559 --> 01:23:15,880
+don't know anything about them so take
+
+1410
+01:23:13,360 --> 01:23:18,969
+my opinion is just opinion
+
+1411
+01:23:15,880 --> 01:23:21,039
+I don't like rust either because you
+
+1412
+01:23:18,969 --> 01:23:23,530
+know because it's a fad it's a fashion
+
+1413
+01:23:21,039 --> 01:23:25,749
+you know because especially industrial
+
+1414
+01:23:23,530 --> 01:23:28,479
+programming most programmers is
+
+1415
+01:23:25,749 --> 01:23:30,400
+especially these elite hacker types they
+
+1416
+01:23:28,479 --> 01:23:32,409
+tell you what to do every day they tell
+
+1417
+01:23:30,400 --> 01:23:33,250
+you you know how you should format your
+
+1418
+01:23:32,409 --> 01:23:35,830
+code these
+
+1419
+01:23:33,250 --> 01:23:40,420
+people on Hacker News you know you know
+
+1420
+01:23:35,830 --> 01:23:41,290
+the that they tend to all are big fans
+
+1421
+01:23:40,420 --> 01:23:43,570
+of rust
+
+1422
+01:23:41,290 --> 01:23:45,520
+you know because why because verse
+
+1423
+01:23:43,570 --> 01:23:47,230
+allows you to control memory and so on
+
+1424
+01:23:45,520 --> 01:23:49,570
+and compilers and you know those
+
+1425
+01:23:47,230 --> 01:23:52,480
+complicated stuff they tend to Oh like
+
+1426
+01:23:49,570 --> 01:23:54,610
+love it like for example on social media
+
+1427
+01:23:52,480 --> 01:23:57,580
+on Twitter you will see a lot of people
+
+1428
+01:23:54,610 --> 01:24:00,340
+old rust oh yeah you know we this is so
+
+1429
+01:23:57,580 --> 01:24:03,190
+cool what's this this is that that but
+
+1430
+01:24:00,340 --> 01:24:05,440
+this seems to not like :
+
+1431
+01:24:03,190 --> 01:24:09,060
+because : is just simpler and higher
+
+1432
+01:24:05,440 --> 01:24:13,600
+kind of kind of high level you see more
+
+1433
+01:24:09,060 --> 01:24:18,460
+like ooh you know more you know this fat
+
+1434
+01:24:13,600 --> 01:24:20,260
+on rust you know you see this phenomenon
+
+1435
+01:24:18,460 --> 01:24:23,430
+so that's what I'm saying so that's why
+
+1436
+01:24:20,260 --> 01:24:28,810
+I don't like them so technically I
+
+1437
+01:24:23,430 --> 01:24:29,860
+cannot comment on rust well Russ was you
+
+1438
+01:24:28,810 --> 01:24:31,900
+know technique here
+
+1439
+01:24:29,860 --> 01:24:34,870
+I don't know technique technical details
+
+1440
+01:24:31,900 --> 01:24:37,750
+about them but but I can say for sure
+
+1441
+01:24:34,870 --> 01:24:40,840
+rusty is better than C so if you want to
+
+1442
+01:24:37,750 --> 01:24:43,480
+learn rust versus C not for a job but
+
+1443
+01:24:40,840 --> 01:24:45,340
+just for you know your own I would
+
+1444
+01:24:43,480 --> 01:24:47,470
+choose rust for sure
+
+1445
+01:24:45,340 --> 01:24:49,960
+because you may experience the
+
+1446
+01:24:47,470 --> 01:24:52,060
+conclusions that the later language like
+
+1447
+01:24:49,960 --> 01:24:54,430
+after 10 years is always better
+
+1448
+01:24:52,060 --> 01:24:57,820
+that's just the way things are because
+
+1449
+01:24:54,430 --> 01:25:01,350
+there are tremendous changes in industry
+
+1450
+01:24:57,820 --> 01:25:05,790
+in CPU you know later are always better
+
+1451
+01:25:01,350 --> 01:25:09,250
+like after a period of 10 years not less
+
+1452
+01:25:05,790 --> 01:25:11,860
+and see you know I don't actually yeah
+
+1453
+01:25:09,250 --> 01:25:12,790
+so but then there's the situation where
+
+1454
+01:25:11,860 --> 01:25:15,340
+rust
+
+1455
+01:25:12,790 --> 01:25:17,800
+there's a fad phenomenon with rust and
+
+1456
+01:25:15,340 --> 01:25:20,160
+that I don't like so my comment about
+
+1457
+01:25:17,800 --> 01:25:23,530
+them is just mostly a kind of social
+
+1458
+01:25:20,160 --> 01:25:30,790
+social ones yeah about raw C&C so that
+
+1459
+01:25:23,530 --> 01:25:41,170
+that's it that's it for today so the so
+
+1460
+01:25:30,790 --> 01:25:43,930
+the new essays so path Allah meeya says
+
+1461
+01:25:41,170 --> 01:25:45,760
+well people people praise the see force
+
+1462
+01:25:43,930 --> 01:25:47,030
+P so much do you think speed is
+
+1463
+01:25:45,760 --> 01:25:50,030
+important nowadays
+
+1464
+01:25:47,030 --> 01:25:52,190
+much as qeh tea has become you know see
+
+1465
+01:25:50,030 --> 01:25:54,530
+you know speak yeah you know that you
+
+1466
+01:25:52,190 --> 01:25:58,280
+know why see and all these garbage
+
+1467
+01:25:54,530 --> 01:26:03,770
+garbage is thrive because one thing
+
+1468
+01:25:58,280 --> 01:26:06,050
+sweet like was you know that's
+
+1469
+01:26:03,770 --> 01:26:07,579
+why they they become this virus that
+
+1470
+01:26:06,050 --> 01:26:11,000
+spread you know they will say oh because
+
+1471
+01:26:07,579 --> 01:26:13,880
+we have asked I'm faster than you see
+
+1472
+01:26:11,000 --> 01:26:15,710
+and UNIX is such that they they they are
+
+1473
+01:26:13,880 --> 01:26:17,960
+the worst engineering the worst
+
+1474
+01:26:15,710 --> 01:26:20,539
+architecture than the no brainer no
+
+1475
+01:26:17,960 --> 01:26:23,210
+design no you know sloppy you know and
+
+1476
+01:26:20,539 --> 01:26:25,460
+thinking not extensible that because
+
+1477
+01:26:23,210 --> 01:26:29,360
+there's no design went into it all they
+
+1478
+01:26:25,460 --> 01:26:30,800
+care is one thing that every dummy we
+
+1479
+01:26:29,360 --> 01:26:34,099
+all know about this thing's sweet
+
+1480
+01:26:30,800 --> 01:26:36,619
+you know they they were very fast so so
+
+1481
+01:26:34,099 --> 01:26:39,619
+so so that's why that's one of the
+
+1482
+01:26:36,619 --> 01:26:42,170
+fundamental reason see lives the UNIX
+
+1483
+01:26:39,619 --> 01:26:45,340
+virus and see you know you have this
+
+1484
+01:26:42,170 --> 01:26:50,059
+garbage it just strives you know they
+
+1485
+01:26:45,340 --> 01:26:55,460
+anyway that's kind of a you know rant
+
+1486
+01:26:50,059 --> 01:26:57,320
+that's my okay tenuous a so the most
+
+1487
+01:26:55,460 --> 01:27:01,730
+important thing about UNIX is that
+
+1488
+01:26:57,320 --> 01:27:04,059
+hordes of people ends up running running
+
+1489
+01:27:01,730 --> 01:27:13,849
+away screaming from their proprietary
+
+1490
+01:27:04,059 --> 01:27:15,949
+systems so to flock to frog to UNIX the
+
+1491
+01:27:13,849 --> 01:27:18,849
+most important thing about UNIX is that
+
+1492
+01:27:15,949 --> 01:27:23,409
+hordes of people and ended up running
+
+1493
+01:27:18,849 --> 01:27:27,349
+away screaming from there no that's not
+
+1494
+01:27:23,409 --> 01:27:30,710
+well that then the now say is so many
+
+1495
+01:27:27,349 --> 01:27:32,780
+some so many of those coming coming a
+
+1496
+01:27:30,710 --> 01:27:35,389
+word of closed or proprietary operating
+
+1497
+01:27:32,780 --> 01:27:39,829
+systems Ward Gardens no that's that's
+
+1498
+01:27:35,389 --> 01:27:41,270
+that's better I know what you are saying
+
+1499
+01:27:39,829 --> 01:27:44,980
+you are saying basically you are saying
+
+1500
+01:27:41,270 --> 01:27:47,929
+so like Microsoft and and you know they
+
+1501
+01:27:44,980 --> 01:27:49,969
+know that's that's that's that that's
+
+1502
+01:27:47,929 --> 01:27:53,090
+what people would call apocryphal
+
+1503
+01:27:49,969 --> 01:27:55,579
+history that's what UNIX lovers love to
+
+1504
+01:27:53,090 --> 01:27:57,769
+say they they believe that they think oh
+
+1505
+01:27:55,579 --> 01:28:00,500
+because UNIX is free see that's not true
+
+1506
+01:27:57,769 --> 01:28:03,740
+UNIX was proprietary
+
+1507
+01:28:00,500 --> 01:28:08,060
+very evil the most evil proprietary
+
+1508
+01:28:03,740 --> 01:28:11,540
+system from AT&T okay that's a history
+
+1509
+01:28:08,060 --> 01:28:13,550
+of UNIX it just happens to be you know
+
+1510
+01:28:11,540 --> 01:28:18,380
+Linux came from that you know happens to
+
+1511
+01:28:13,550 --> 01:28:21,980
+be GPL licensed and FreeBSD you know it
+
+1512
+01:28:18,380 --> 01:28:27,320
+was you know Kim is another offshoot of
+
+1513
+01:28:21,980 --> 01:28:35,200
+the UNIX system you know hey this is
+
+1514
+01:28:27,320 --> 01:28:38,240
+sorry rent so for example sabe UNIX
+
+1515
+01:28:35,200 --> 01:28:41,900
+pestilence you know I'm gonna show you
+
+1516
+01:28:38,240 --> 01:28:46,730
+some historical images how UNIX was the
+
+1517
+01:28:41,900 --> 01:28:48,650
+hated commercial that huge you know like
+
+1518
+01:28:46,730 --> 01:28:52,130
+like what you would regard as you know
+
+1519
+01:28:48,650 --> 01:28:55,940
+Apple Microsoft you know a lot we were
+
+1520
+01:28:52,130 --> 01:28:58,790
+these people yeah UNIX fans you know so
+
+1521
+01:28:55,940 --> 01:29:01,850
+I'm gonna show you some some artifact
+
+1522
+01:28:58,790 --> 01:29:05,540
+you know this this our code artifact you
+
+1523
+01:29:01,850 --> 01:29:08,030
+see this t-shirt that's FreeBSD okay
+
+1524
+01:29:05,540 --> 01:29:10,700
+this is this is back then toss it was
+
+1525
+01:29:08,030 --> 01:29:15,410
+running FreeBSD okay okay dude look at
+
+1526
+01:29:10,700 --> 01:29:19,040
+this one you got is BSD daemon you know
+
+1527
+01:29:15,410 --> 01:29:22,760
+this mascot called his name is PC I
+
+1528
+01:29:19,040 --> 01:29:25,160
+think was it miss your Chuck this is
+
+1529
+01:29:22,760 --> 01:29:28,670
+some confusion there anyway you did this
+
+1530
+01:29:25,160 --> 01:29:31,850
+this PSD mascot logo okay now he is
+
+1531
+01:29:28,670 --> 01:29:37,150
+poking the AT&T logo Death Star
+
+1532
+01:29:31,850 --> 01:29:44,630
+now this is what used to be AT&T logo
+
+1533
+01:29:37,150 --> 01:29:47,290
+eighty and Auntie go let's see what's
+
+1534
+01:29:44,630 --> 01:29:52,190
+their current logo I think it's a
+
+1535
+01:29:47,290 --> 01:29:55,550
+variation you know you see there's there
+
+1536
+01:29:52,190 --> 01:29:58,580
+it is it yeah this this is a modern one
+
+1537
+01:29:55,550 --> 01:30:01,850
+the old logo is a bit different it's got
+
+1538
+01:29:58,580 --> 01:30:04,250
+most stripes so anyway that's AT&T okay
+
+1539
+01:30:01,850 --> 01:30:07,310
+they used to remember they used in I
+
+1540
+01:30:04,250 --> 01:30:11,800
+this is before my time in 70s or
+
+1541
+01:30:07,310 --> 01:30:11,800
+something they used to be this powerful
+
+1542
+01:30:12,460 --> 01:30:17,179
+monopoly you know
+
+1543
+01:30:14,150 --> 01:30:19,489
+but so-called so-called monopoly they
+
+1544
+01:30:17,179 --> 01:30:24,080
+got broken up by the government into
+
+1545
+01:30:19,489 --> 01:30:27,860
+different companies but anyway AT&T owns
+
+1546
+01:30:24,080 --> 01:30:30,800
+UNIX UNIX is was proprietary by AT&T so
+
+1547
+01:30:27,860 --> 01:30:33,320
+you see this these comics on a t-shirt
+
+1548
+01:30:30,800 --> 01:30:36,170
+you know that's making fun of it you
+
+1549
+01:30:33,320 --> 01:30:39,980
+know the free the berkeley for point in
+
+1550
+01:30:36,170 --> 01:30:41,540
+pop for you know people forgot history
+
+1551
+01:30:39,980 --> 01:30:44,840
+by the way I'm not saying you are wrong
+
+1552
+01:30:41,540 --> 01:30:49,659
+okay so I mean definitely did I mean the
+
+1553
+01:30:44,840 --> 01:30:52,640
+UNIX I mean definitely there is some
+
+1554
+01:30:49,659 --> 01:30:55,880
+some connotation I don't know where it
+
+1555
+01:30:52,640 --> 01:30:58,460
+originates I mean the point is that
+
+1556
+01:30:55,880 --> 01:31:02,810
+definitely there is certain Association
+
+1557
+01:30:58,460 --> 01:31:05,510
+of free software open source with UNIX I
+
+1558
+01:31:02,810 --> 01:31:10,070
+mean I don't know when it began I think
+
+1559
+01:31:05,510 --> 01:31:14,000
+it's starting with FreeBSD okay but but
+
+1560
+01:31:10,070 --> 01:31:17,000
+you know it definitely is not the
+
+1561
+01:31:14,000 --> 01:31:20,630
+history of UNIX in originally you see
+
+1562
+01:31:17,000 --> 01:31:22,880
+remember the name GNU you know the free
+
+1563
+01:31:20,630 --> 01:31:24,710
+software foundation goon project which
+
+1564
+01:31:22,880 --> 01:31:27,020
+is a project to create a free operating
+
+1565
+01:31:24,710 --> 01:31:30,550
+system you know what it stands for it
+
+1566
+01:31:27,020 --> 01:31:35,449
+stands for glue is not Unix
+
+1567
+01:31:30,550 --> 01:31:38,540
+now look at that cute demon you know
+
+1568
+01:31:35,449 --> 01:31:44,120
+this by the way this is Linux conference
+
+1569
+01:31:38,540 --> 01:31:46,370
+back in 2000 I went to this is not
+
+1570
+01:31:44,120 --> 01:31:48,820
+Factory this is not my photo but anyway
+
+1571
+01:31:46,370 --> 01:31:51,920
+so kunu is not Unix
+
+1572
+01:31:48,820 --> 01:31:54,500
+remember that name what it does what
+
+1573
+01:31:51,920 --> 01:31:56,960
+does it stand for no is not Unix
+
+1574
+01:31:54,500 --> 01:31:59,480
+why is that so what do you need you know
+
+1575
+01:31:56,960 --> 01:32:01,730
+why do they these cool new people make
+
+1576
+01:31:59,480 --> 01:32:04,070
+you know create a name that snow is not
+
+1577
+01:32:01,730 --> 01:32:07,280
+Unix that you know part of the reason
+
+1578
+01:32:04,070 --> 01:32:09,860
+it's a snob again is Unix the
+
+1579
+01:32:07,280 --> 01:32:12,140
+proprietary system you know say so we
+
+1580
+01:32:09,860 --> 01:32:14,320
+are not UNIX you go yourself
+
+1581
+01:32:12,140 --> 01:32:17,150
+you know is not Unix that's that's my
+
+1582
+01:32:14,320 --> 01:32:20,659
+perspective that's my interpretation of
+
+1583
+01:32:17,150 --> 01:32:22,159
+it okay you know I've run into many UNIX
+
+1584
+01:32:20,659 --> 01:32:24,469
+fans of course they don't have that
+
+1585
+01:32:22,159 --> 01:32:26,810
+interpretation they would like to they
+
+1586
+01:32:24,469 --> 01:32:27,409
+prefer to think oh it's just a fun you
+
+1587
+01:32:26,810 --> 01:32:30,139
+know it
+
+1588
+01:32:27,409 --> 01:32:39,289
+the fun way to to promote eunuchs and
+
+1589
+01:32:30,139 --> 01:32:41,599
+new you know this so anyways
+
+1590
+01:32:39,289 --> 01:32:42,439
+so that's it for today thank you guys
+
+1591
+01:32:41,599 --> 01:32:44,780
+for watching
+
+1592
+01:32:42,439 --> 01:32:47,150
+that's it long read everything looks
+
+1593
+01:32:44,780 --> 01:32:50,239
+like almost every video ends up me
+
+1594
+01:32:47,150 --> 01:32:52,550
+ranting again is you know if open either
+
+1595
+01:32:50,239 --> 01:32:54,650
+open source or UNIX philosophy oh you
+
+1596
+01:32:52,550 --> 01:32:56,360
+know free software foundation anyway
+
+1597
+01:32:54,650 --> 01:33:00,159
+that's it for today thank you guys for
+
+1598
+01:32:56,360 --> 01:33:00,159
+watching fight
+

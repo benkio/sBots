@@ -1,0 +1,5664 @@
+1
+00:00:05,360 --> 00:00:10,480
+Hello guys. Good morning. Welcome to
+
+2
+00:00:07,920 --> 00:00:12,920
+another episode of Xah Talk Show. So,
+
+3
+00:00:10,480 --> 00:00:15,080
+today we are going to do
+
+4
+00:00:12,920 --> 00:00:17,640
+uh I'm going to show you regular
+
+5
+00:00:15,080 --> 00:00:19,880
+expressions in Emacs. Regular
+
+6
+00:00:17,640 --> 00:00:21,840
+expressions, okay? So, this is going to
+
+7
+00:00:19,880 --> 00:00:23,600
+be a full tutorial on regular
+
+8
+00:00:21,840 --> 00:00:24,600
+expressions
+
+9
+00:00:23,600 --> 00:00:27,240
+um
+
+10
+00:00:24,600 --> 00:00:29,240
+covering Emacs regular expressions. Now,
+
+11
+00:00:27,240 --> 00:00:31,720
+Emacs regular expression is a little bit
+
+12
+00:00:29,240 --> 00:00:33,520
+different from other
+
+13
+00:00:31,720 --> 00:00:36,120
+regular expression in other languages
+
+14
+00:00:33,520 --> 00:00:38,600
+such as Pearl, Python, Ruby, Java,
+
+15
+00:00:36,120 --> 00:00:41,280
+JavaScript. You know, every language
+
+16
+00:00:38,600 --> 00:00:44,320
+since about 2005 have regular expression
+
+17
+00:00:41,280 --> 00:00:46,440
+built in because it's a very powerful
+
+18
+00:00:44,320 --> 00:00:48,680
+for text processing, for doing, you
+
+19
+00:00:46,440 --> 00:00:50,960
+know, manipulating strings, find and
+
+20
+00:00:48,680 --> 00:00:54,120
+replace and so on. So, every language
+
+21
+00:00:50,960 --> 00:00:57,280
+has it and it's extremely useful, but
+
+22
+00:00:54,120 --> 00:00:59,560
+regular expression is a bit hard to um
+
+23
+00:00:57,280 --> 00:01:01,520
+understand. Take some experience, okay?
+
+24
+00:00:59,560 --> 00:01:03,760
+But, I'm going to show you. So, I'm
+
+25
+00:01:01,520 --> 00:01:06,480
+going to show you uh
+
+26
+00:01:03,760 --> 00:01:09,200
+teach you Emacs regular expression.
+
+27
+00:01:06,480 --> 00:01:11,080
+Okay, from the ground up.
+
+28
+00:01:09,200 --> 00:01:12,800
+How to call regular expression by
+
+29
+00:01:11,080 --> 00:01:15,200
+command line, you know, lots of tips.
+
+30
+00:01:12,800 --> 00:01:18,040
+And also for Emacs these programmers,
+
+31
+00:01:15,200 --> 00:01:19,640
+okay? So, we uh let's begin, okay? So,
+
+32
+00:01:18,040 --> 00:01:21,960
+if you have a questions on Emacs and
+
+33
+00:01:19,640 --> 00:01:25,000
+stuff, just post in the comments, okay?
+
+34
+00:01:21,960 --> 00:01:27,200
+And support me by my tutorials and you
+
+35
+00:01:25,000 --> 00:01:30,000
+know, buy my Emacs tutorials. You can
+
+36
+00:01:27,200 --> 00:01:32,240
+find the link on my website xahlee.org.
+
+37
+00:01:30,000 --> 00:01:34,720
+You'll find it.
+
+38
+00:01:32,240 --> 00:01:36,520
+Just search for xahlee Emacs. Okay, so
+
+39
+00:01:34,720 --> 00:01:39,280
+so let me so let's begin, okay? Let's
+
+40
+00:01:36,520 --> 00:01:41,280
+begin quickly. So, I'm using Emacs, of
+
+41
+00:01:39,280 --> 00:01:43,080
+course, and show today's talk show. So,
+
+42
+00:01:41,280 --> 00:01:44,880
+this is today's talk show. That's what
+
+43
+00:01:43,080 --> 00:01:47,640
+I'm going to cover. What's regular
+
+44
+00:01:44,880 --> 00:01:49,840
+expression? Why not use wildcard, you
+
+45
+00:01:47,640 --> 00:01:52,320
+know, glob pattern? What's you know, why
+
+46
+00:01:49,840 --> 00:01:54,360
+not use wildcard? What's what's the
+
+47
+00:01:52,320 --> 00:01:57,440
+difference? Examples of regular
+
+48
+00:01:54,360 --> 00:01:59,800
+expression and Emacs regular expression.
+
+49
+00:01:57,440 --> 00:02:03,000
+Using Emacs regular expression by
+
+50
+00:01:59,800 --> 00:02:04,960
+command interactive command. And then
+
+51
+00:02:03,000 --> 00:02:06,560
+the best way to test regular expression
+
+52
+00:02:04,960 --> 00:02:09,000
+because regular expression is fairly
+
+53
+00:02:06,560 --> 00:02:11,120
+complex. So, I show you how to the best
+
+54
+00:02:09,000 --> 00:02:12,680
+way to do to test it, you know, when you
+
+55
+00:02:11,120 --> 00:02:15,520
+have, you know,
+
+56
+00:02:12,680 --> 00:02:17,680
+lots of complex patterns. And uh
+
+57
+00:02:15,520 --> 00:02:20,760
+then I cover some Emacs regular
+
+58
+00:02:17,680 --> 00:02:22,800
+expression, you know, the syntax.
+
+59
+00:02:20,760 --> 00:02:24,200
+Then I talk about I'm going to talk
+
+60
+00:02:22,800 --> 00:02:25,760
+about Emacs Lisp
+
+61
+00:02:24,200 --> 00:02:28,360
+uh regular expression, which is a
+
+62
+00:02:25,760 --> 00:02:30,800
+string. Okay, so I'm using the keyboard
+
+63
+00:02:28,360 --> 00:02:33,080
+Kinesis Advantage keyboard. You can see
+
+64
+00:02:30,800 --> 00:02:35,640
+if you just search for uh Xahri
+
+65
+00:02:33,080 --> 00:02:38,760
+ergonomic keyboard reviews. So, I'm
+
+66
+00:02:35,640 --> 00:02:40,040
+using this one is Kinesis Advantage, my
+
+67
+00:02:38,760 --> 00:02:42,160
+favorite
+
+68
+00:02:40,040 --> 00:02:43,920
+one of, you know, my main drive one of
+
+69
+00:02:42,160 --> 00:02:46,280
+my favorite. And the other one on top
+
+70
+00:02:43,920 --> 00:02:49,520
+here is Ultimate Hacking Keyboard. Okay,
+
+71
+00:02:46,280 --> 00:02:52,040
+that's the best keyboard macro.
+
+72
+00:02:49,520 --> 00:02:53,840
+Um the greatest macro keyboard macro
+
+73
+00:02:52,040 --> 00:02:56,800
+features. So, I got both of them.
+
+74
+00:02:53,840 --> 00:02:58,520
+Fantastic. Okay, so so let me talk about
+
+75
+00:02:56,800 --> 00:03:00,760
+So, let's begin uh Emacs regular
+
+76
+00:02:58,520 --> 00:03:03,160
+expression, okay? And here's a funny
+
+77
+00:03:00,760 --> 00:03:05,519
+picture. You see those things, those are
+
+78
+00:03:03,160 --> 00:03:08,760
+regular expressions. And in this case,
+
+79
+00:03:05,519 --> 00:03:10,680
+it's complex ones. Complex ones, so you
+
+80
+00:03:08,760 --> 00:03:13,560
+have lots of these
+
+81
+00:03:10,680 --> 00:03:15,560
+uh so-called toothpick syndrome. Okay,
+
+82
+00:03:13,560 --> 00:03:18,600
+so and we have a record here. So, you
+
+83
+00:03:15,560 --> 00:03:21,640
+can see the complexities here.
+
+84
+00:03:18,600 --> 00:03:23,440
+And then you can see this one, this
+
+85
+00:03:21,640 --> 00:03:26,239
+part, you know,
+
+86
+00:03:23,440 --> 00:03:28,320
+uh 10 backslashes.
+
+87
+00:03:26,239 --> 00:03:30,360
+And you can see uh there there is more,
+
+88
+00:03:28,320 --> 00:03:32,480
+there's a record and
+
+89
+00:03:30,360 --> 00:03:35,840
+10, you know, so what's the record? 10
+
+90
+00:03:32,480 --> 00:03:38,040
+17 17 there. This is a code, actual
+
+91
+00:03:35,840 --> 00:03:39,760
+source code in Emacs.
+
+92
+00:03:38,040 --> 00:03:41,600
+You know, if you, you know, in this
+
+93
+00:03:39,760 --> 00:03:43,040
+file. We we, you know, we can look at
+
+94
+00:03:41,600 --> 00:03:44,760
+it. Y-
+
+95
+00:03:43,040 --> 00:03:47,040
+You know, if you go to this website,
+
+96
+00:03:44,760 --> 00:03:48,800
+Emacs Lisp toothpick syndrome, just
+
+97
+00:03:47,040 --> 00:03:50,440
+search for it. You'll find it and you
+
+98
+00:03:48,800 --> 00:03:52,840
+can y- you can
+
+99
+00:03:50,440 --> 00:03:54,560
+uh see the source code where it to find
+
+100
+00:03:52,840 --> 00:03:56,960
+it. Okay, so that's really good. So,
+
+101
+00:03:54,560 --> 00:03:59,960
+let's begin. So, what So, let me Okay,
+
+102
+00:03:56,960 --> 00:04:02,160
+so let's begin regular expression. My
+
+103
+00:03:59,960 --> 00:04:04,040
+keyboard is okay. So, regular expression
+
+104
+00:04:02,160 --> 00:04:08,240
+is a uh
+
+105
+00:04:04,040 --> 00:04:10,200
+is is a is a syntax to match patterns in
+
+106
+00:04:08,240 --> 00:04:11,440
+a string. Okay, so let me demonstrate.
+
+107
+00:04:10,200 --> 00:04:13,880
+First of all,
+
+108
+00:04:11,440 --> 00:04:16,000
+you are probably familiar with uh
+
+109
+00:04:13,880 --> 00:04:18,079
+wildcard, for example.
+
+110
+00:04:16,000 --> 00:04:21,959
+Okay, so let's turn on Let's go to
+
+111
+00:04:18,079 --> 00:04:24,440
+PowerShell. Okay, Let's magnify. So,
+
+112
+00:04:21,959 --> 00:04:26,640
+uh okay, so let's let me adjust this a
+
+113
+00:04:24,440 --> 00:04:28,720
+little bit. So, this is this is
+
+114
+00:04:26,640 --> 00:04:32,360
+PowerShell.
+
+115
+00:04:28,720 --> 00:04:35,280
+Uh so, let's list directories, okay? Duh
+
+116
+00:04:32,360 --> 00:04:38,440
+recurse, we don't need recurse. Okay, uh
+
+117
+00:04:35,280 --> 00:04:41,960
+and filter, okay? Let's say filter, I
+
+118
+00:04:38,440 --> 00:04:42,960
+want to list all HTML files. So, you see
+
+119
+00:04:41,960 --> 00:04:45,919
+that
+
+120
+00:04:42,960 --> 00:04:49,240
+star sign, that's asterisk, that's a
+
+121
+00:04:45,919 --> 00:04:51,800
+pattern. That means any file name
+
+122
+00:04:49,240 --> 00:04:55,240
+zero or one more character followed by
+
+123
+00:04:51,800 --> 00:04:57,280
+HTML. So, enter. So, you can see a whole
+
+124
+00:04:55,240 --> 00:04:59,200
+list of South Talk Show. So, let's do it
+
+125
+00:04:57,280 --> 00:05:01,400
+again, okay? So, let's
+
+126
+00:04:59,200 --> 00:05:04,800
+Let's do it. If you um
+
+127
+00:05:01,400 --> 00:05:04,800
+let's see recurse.
+
+128
+00:05:05,919 --> 00:05:11,560
+Uh recurse uh re
+
+129
+00:05:09,280 --> 00:05:15,520
+curse, yeah. Recurse.
+
+130
+00:05:11,560 --> 00:05:18,000
+Filter, recurse, then
+
+131
+00:05:15,520 --> 00:05:20,680
+So, if I don't do If I don't use the
+
+132
+00:05:18,000 --> 00:05:23,400
+filter option, you are going to see a
+
+133
+00:05:20,680 --> 00:05:25,280
+lot JPEG files, PNG files, those are
+
+134
+00:05:23,400 --> 00:05:27,480
+image files.
+
+135
+00:05:25,280 --> 00:05:30,200
+So, let let me show you, okay? So, for
+
+136
+00:05:27,480 --> 00:05:31,520
+example, open them in desktop. So, you
+
+137
+00:05:30,200 --> 00:05:33,240
+can see
+
+138
+00:05:31,520 --> 00:05:36,480
+this is the
+
+139
+00:05:33,240 --> 00:05:38,200
+you know, uh lots of past talk show uh
+
+140
+00:05:36,480 --> 00:05:42,200
+stuff.
+
+141
+00:05:38,200 --> 00:05:44,840
+Image files, okay? So, JPEG and PNG. So,
+
+142
+00:05:42,200 --> 00:05:47,560
+let me focus, okay? So, So, now we do
+
+143
+00:05:44,840 --> 00:05:50,760
+just these HTML files and let's say
+
+144
+00:05:47,560 --> 00:05:50,760
+recursive, okay?
+
+145
+00:05:52,320 --> 00:05:59,440
+Okay? So, now it's just HTML files. Now,
+
+146
+00:05:55,400 --> 00:06:02,600
+what if Now, let's try JPEG, okay? JPEG.
+
+147
+00:05:59,440 --> 00:06:06,760
+So, it lists on only JPEG files that
+
+148
+00:06:02,600 --> 00:06:09,560
+file names ending in .jpg. Now, what if
+
+149
+00:06:06,760 --> 00:06:12,760
+you want Let's try PNG, okay?
+
+150
+00:06:09,560 --> 00:06:14,720
+So, all these are wildcard wildcards.
+
+151
+00:06:12,760 --> 00:06:17,480
+They The purpose of wildcard is also to
+
+152
+00:06:14,720 --> 00:06:20,560
+match patterns, okay? Let me get go go
+
+153
+00:06:17,480 --> 00:06:24,320
+get going faster. Hey, Reaper.
+
+154
+00:06:20,560 --> 00:06:26,080
+So, PNG so So, we can list PNG files. We
+
+155
+00:06:24,320 --> 00:06:28,640
+can list HTML
+
+156
+00:06:26,080 --> 00:06:30,880
+files. We can list JPEG files. What if
+
+157
+00:06:28,640 --> 00:06:34,280
+What if you want to list
+
+158
+00:06:30,880 --> 00:06:36,760
+either PNG files or JPEG files? You
+
+159
+00:06:34,280 --> 00:06:37,600
+cannot do that. You cannot do that with
+
+160
+00:06:36,760 --> 00:06:40,880
+the
+
+161
+00:06:37,600 --> 00:06:43,320
+wildcard. In Unix, this this kind of
+
+162
+00:06:40,880 --> 00:06:46,160
+pattern matching is called glob, g l o
+
+163
+00:06:43,320 --> 00:06:48,919
+b, okay? That's a Unix name for this
+
+164
+00:06:46,160 --> 00:06:51,400
+type of pattern matching. In in
+
+165
+00:06:48,919 --> 00:06:52,960
+Microsoft, it's just called wildcard
+
+166
+00:06:51,400 --> 00:06:55,640
+patterns.
+
+167
+00:06:52,960 --> 00:06:58,320
+Okay, so let me show you, okay? Um
+
+168
+00:06:55,640 --> 00:07:01,400
+PowerShell. So, you you search for Sandy
+
+169
+00:06:58,320 --> 00:07:02,960
+PowerShell tutorial and you can search
+
+170
+00:07:01,400 --> 00:07:05,680
+for uh
+
+171
+00:07:02,960 --> 00:07:07,919
+wildcard string wildcard. You can So,
+
+172
+00:07:05,680 --> 00:07:10,280
+you can see these are the patterns. So,
+
+173
+00:07:07,919 --> 00:07:12,919
+you can have asterisk that matches any
+
+174
+00:07:10,280 --> 00:07:15,360
+character zero or more times. So,
+
+175
+00:07:12,919 --> 00:07:16,240
+So, this is this is wildcard pattern.
+
+176
+00:07:15,360 --> 00:07:17,520
+Now,
+
+177
+00:07:16,240 --> 00:07:20,080
+but there's a limitation. There's a
+
+178
+00:07:17,520 --> 00:07:22,600
+severe limitation. You cannot list, you
+
+179
+00:07:20,080 --> 00:07:25,360
+know, either JPEG files or PNG files,
+
+180
+00:07:22,600 --> 00:07:27,120
+okay? So, what you do? You can Now, you
+
+181
+00:07:25,360 --> 00:07:28,400
+can do regular expression, okay? Let me
+
+182
+00:07:27,120 --> 00:07:29,480
+show you.
+
+183
+00:07:28,400 --> 00:07:32,080
+So,
+
+184
+00:07:29,480 --> 00:07:34,160
+So, here's article um
+
+185
+00:07:32,080 --> 00:07:35,240
+Let me copy that to to my talk show,
+
+186
+00:07:34,160 --> 00:07:38,040
+okay?
+
+187
+00:07:35,240 --> 00:07:40,440
+Talk show. Uh today's talk show. Go to
+
+188
+00:07:38,040 --> 00:07:42,280
+today today's talk show and uh let's
+
+189
+00:07:40,440 --> 00:07:45,160
+post the link here.
+
+190
+00:07:42,280 --> 00:07:48,080
+Okay, PowerShell wildcards. Then I'm
+
+191
+00:07:45,160 --> 00:07:50,800
+going to show you um
+
+192
+00:07:48,080 --> 00:07:53,920
+uh yeah, this file by pattern, okay?
+
+193
+00:07:50,800 --> 00:07:56,240
+This is uh PowerShell, okay? So, you can
+
+194
+00:07:53,920 --> 00:07:57,720
+do it by wildcards. We we demonstrated
+
+195
+00:07:56,240 --> 00:08:00,760
+and
+
+196
+00:07:57,720 --> 00:08:01,920
+and here's how you do it by uh
+
+197
+00:08:00,760 --> 00:08:04,560
+um
+
+198
+00:08:01,920 --> 00:08:07,000
+by regular expression pattern, okay? So,
+
+199
+00:08:04,560 --> 00:08:11,880
+so let me let me show you.
+
+200
+00:08:07,000 --> 00:08:13,520
+So, because then we want to pivot to
+
+201
+00:08:11,880 --> 00:08:16,080
+where, okay?
+
+202
+00:08:13,520 --> 00:08:19,400
+Pivot to where
+
+203
+00:08:16,080 --> 00:08:20,960
+where object and the file name I match,
+
+204
+00:08:19,400 --> 00:08:22,360
+okay? So,
+
+205
+00:08:20,960 --> 00:08:25,560
+yeah.
+
+206
+00:08:22,360 --> 00:08:28,040
+You want to to Okay, so
+
+207
+00:08:25,560 --> 00:08:28,040
+where
+
+208
+00:08:28,800 --> 00:08:32,919
+Okay, so let's let me just copy it.
+
+209
+00:08:35,440 --> 00:08:42,800
+Okay? So, you So, now we modify this.
+
+210
+00:08:39,760 --> 00:08:42,800
+And let's see.
+
+211
+00:08:44,080 --> 00:08:51,640
+JPEG or PNG, okay? So, now we do it. Now
+
+212
+00:08:48,560 --> 00:08:55,680
+you can see this is JPEG files and we
+
+213
+00:08:51,640 --> 00:08:58,760
+also got PNG files. So, again, here is
+
+214
+00:08:55,680 --> 00:09:00,480
+the syntax and this part you are seeing,
+
+215
+00:08:58,760 --> 00:09:02,680
+that's regular expression. That's the
+
+216
+00:09:00,480 --> 00:09:05,600
+power of regular expression. You cannot
+
+217
+00:09:02,680 --> 00:09:07,680
+do it with wildcards, okay?
+
+218
+00:09:05,600 --> 00:09:09,120
+So, that's why
+
+219
+00:09:07,680 --> 00:09:10,560
+you know, you need regular expression.
+
+220
+00:09:09,120 --> 00:09:12,120
+That's uh you know, and regular
+
+221
+00:09:10,560 --> 00:09:14,000
+expression can do lots of things, okay?
+
+222
+00:09:12,120 --> 00:09:16,480
+Let's let's get on quick quicker, okay?
+
+223
+00:09:14,000 --> 00:09:17,680
+So, I have an article here explaining
+
+224
+00:09:16,480 --> 00:09:20,400
+what's the difference between regular
+
+225
+00:09:17,680 --> 00:09:22,320
+expression and wildcards, okay? Then
+
+226
+00:09:20,400 --> 00:09:24,520
+Okay, then Emacs, okay? So, let me show
+
+227
+00:09:22,320 --> 00:09:26,720
+you, so
+
+228
+00:09:24,520 --> 00:09:29,280
+Okay, so go to the file name directory.
+
+229
+00:09:26,720 --> 00:09:32,120
+So, again, this is a bunch of image
+
+230
+00:09:29,280 --> 00:09:34,480
+files. Uh let's hide the So, here you
+
+231
+00:09:32,120 --> 00:09:37,120
+can see a bunch of image files. Some of
+
+232
+00:09:34,480 --> 00:09:38,480
+them are PNG, some of them are JPEG,
+
+233
+00:09:37,120 --> 00:09:40,120
+okay?
+
+234
+00:09:38,480 --> 00:09:43,280
+Now, suppose so
+
+235
+00:09:40,120 --> 00:09:46,480
+So, I want to list all lines that
+
+236
+00:09:43,280 --> 00:09:48,600
+ends in PNG, okay? So, I do it. This
+
+237
+00:09:46,480 --> 00:09:50,240
+command is called list matching lines.
+
+238
+00:09:48,600 --> 00:09:52,040
+You can see here list matching lines,
+
+239
+00:09:50,240 --> 00:09:53,160
+okay? Do it.
+
+240
+00:09:52,040 --> 00:09:56,480
+Um
+
+241
+00:09:53,160 --> 00:10:00,120
+PNG, okay? So,
+
+242
+00:09:56,480 --> 00:10:04,360
+you give a regular expression. Uh
+
+243
+00:10:00,120 --> 00:10:06,440
+Uh backslash uh backslash.png
+
+244
+00:10:04,360 --> 00:10:09,120
+and uh give a dollar sign, that means
+
+245
+00:10:06,440 --> 00:10:11,120
+match the end. Okay? So, you
+
+246
+00:10:09,120 --> 00:10:14,120
+um
+
+247
+00:10:11,120 --> 00:10:16,920
+Okay, so my window is uh
+
+248
+00:10:14,120 --> 00:10:21,120
+let's do it again, okay? So, you can see
+
+249
+00:10:16,920 --> 00:10:23,520
+you can see here are all the PNG files.
+
+250
+00:10:21,120 --> 00:10:25,240
+That's using a regular expression, okay?
+
+251
+00:10:23,520 --> 00:10:28,520
+Now, let's try
+
+252
+00:10:25,240 --> 00:10:31,480
+let's try again, but this time
+
+253
+00:10:28,520 --> 00:10:33,760
+JPEG, okay? So, you can see JPEG. Now,
+
+254
+00:10:31,480 --> 00:10:36,280
+what if you want both JPEG and PNG,
+
+255
+00:10:33,760 --> 00:10:38,840
+okay? Let's do it. Let's do it again.
+
+256
+00:10:36,280 --> 00:10:43,360
+So, JPEG and
+
+257
+00:10:38,840 --> 00:10:45,120
+and then uh then you want to say all, so
+
+258
+00:10:43,360 --> 00:10:48,200
+let me magnify so
+
+259
+00:10:45,120 --> 00:10:48,200
+if you can see it.
+
+260
+00:10:49,080 --> 00:10:53,720
+So, you can say JPEG
+
+261
+00:10:52,120 --> 00:10:56,600
+backslash
+
+262
+00:10:53,720 --> 00:10:58,680
+vertical symbol then
+
+263
+00:10:56,600 --> 00:11:00,480
+backslash
+
+264
+00:10:58,680 --> 00:11:02,640
+.png,
+
+265
+00:11:00,480 --> 00:11:04,320
+okay? That's the syntax. We are using
+
+266
+00:11:02,640 --> 00:11:07,000
+regular expression, okay? So, you can
+
+267
+00:11:04,320 --> 00:11:09,160
+see list matching list lines matching
+
+268
+00:11:07,000 --> 00:11:11,839
+rejects.
+
+269
+00:11:09,160 --> 00:11:13,560
+Okay, so here you can see that's PNG
+
+270
+00:11:11,839 --> 00:11:14,640
+files uh
+
+271
+00:11:13,560 --> 00:11:17,560
+uh
+
+272
+00:11:14,640 --> 00:11:20,400
+it's all then there it is, JPEG files.
+
+273
+00:11:17,560 --> 00:11:22,760
+There it is. So, that's demonstration of
+
+274
+00:11:20,400 --> 00:11:25,600
+regular expression, okay? Very very uh
+
+275
+00:11:22,760 --> 00:11:28,520
+useful. You should uh master it. It
+
+276
+00:11:25,600 --> 00:11:29,680
+takes a bit time to learn, so you know
+
+277
+00:11:28,520 --> 00:11:31,160
+uh
+
+278
+00:11:29,680 --> 00:11:32,720
+um
+
+279
+00:11:31,160 --> 00:11:35,640
+because it's uh
+
+280
+00:11:32,720 --> 00:11:37,120
+slightly uh complex. Okay. So, regular
+
+281
+00:11:35,640 --> 00:11:40,120
+expression, we're going to cover the
+
+282
+00:11:37,120 --> 00:11:42,360
+syntax, but first of all, so you can as
+
+283
+00:11:40,120 --> 00:11:45,080
+you can see already, you know, the
+
+284
+00:11:42,360 --> 00:11:46,800
+syntax is not too intuitive, you know,
+
+285
+00:11:45,080 --> 00:11:49,240
+because you have the backslash, you
+
+286
+00:11:46,800 --> 00:11:51,080
+know, if you look at
+
+287
+00:11:49,240 --> 00:11:53,200
+if you you know, you have the backslash
+
+288
+00:11:51,080 --> 00:11:54,360
+and and things like that.
+
+289
+00:11:53,200 --> 00:11:56,920
+So,
+
+290
+00:11:54,360 --> 00:12:00,360
+one of the easiest way, okay, cancel.
+
+291
+00:11:56,920 --> 00:12:03,280
+One of the easiest easiest way in Emacs
+
+292
+00:12:00,360 --> 00:12:06,240
+to test regular expression is by using
+
+293
+00:12:03,280 --> 00:12:09,160
+this command, list matching lines. Okay.
+
+294
+00:12:06,240 --> 00:12:12,960
+So, there's a full article on that. Um
+
+295
+00:12:09,160 --> 00:12:12,960
+list matching lines um
+
+296
+00:12:14,480 --> 00:12:17,400
+Uh
+
+297
+00:12:15,440 --> 00:12:20,640
+search text in current current file.
+
+298
+00:12:17,400 --> 00:12:23,000
+Okay, there's a Okay, there is a
+
+299
+00:12:20,640 --> 00:12:23,920
+uh there's a separate I should relink
+
+300
+00:12:23,000 --> 00:12:26,240
+them.
+
+301
+00:12:23,920 --> 00:12:29,120
+Anyway, so this article explains list
+
+302
+00:12:26,240 --> 00:12:32,400
+matching lines command, you know,
+
+303
+00:12:29,120 --> 00:12:34,400
+is it has an alias. It's an alias of
+
+304
+00:12:32,400 --> 00:12:36,960
+occur command, so you can use also use
+
+305
+00:12:34,400 --> 00:12:40,400
+they are the same thing, occur.
+
+306
+00:12:36,960 --> 00:12:42,040
+So, this command is the most easy way to
+
+307
+00:12:40,400 --> 00:12:44,120
+test regular expression. So, what do you
+
+308
+00:12:42,040 --> 00:12:47,400
+do? So, if you have a bunch of files,
+
+309
+00:12:44,120 --> 00:12:50,839
+let's say let's say copy, close, new
+
+310
+00:12:47,400 --> 00:12:53,280
+buffer, paste, and magnify, and let's
+
+311
+00:12:50,839 --> 00:12:55,400
+remove all the
+
+312
+00:12:53,280 --> 00:12:59,040
+all the line beginning, I mean, all the
+
+313
+00:12:55,400 --> 00:13:00,960
+Unix stuff. Okay. So, you see now we
+
+314
+00:12:59,040 --> 00:13:03,839
+have a bunch bunch of files, some of
+
+315
+00:13:00,960 --> 00:13:08,160
+them are PNG, some of them are JPEG.
+
+316
+00:13:03,839 --> 00:13:11,520
+Uh search JPEG. Okay. So, um
+
+317
+00:13:08,160 --> 00:13:12,960
+So, now we want to So,
+
+318
+00:13:11,520 --> 00:13:14,680
+So, yeah, if you want to test regular
+
+319
+00:13:12,960 --> 00:13:16,839
+expression, just put
+
+320
+00:13:14,680 --> 00:13:18,200
+that's too complex. Let's say let's say
+
+321
+00:13:16,839 --> 00:13:20,400
+this, okay?
+
+322
+00:13:18,200 --> 00:13:21,680
+cat
+
+323
+00:13:20,400 --> 00:13:23,520
+caught
+
+324
+00:13:21,680 --> 00:13:25,560
+uh
+
+325
+00:13:23,520 --> 00:13:28,800
+sit, there's no such word, I don't
+
+326
+00:13:25,560 --> 00:13:30,440
+think. Cut, okay?
+
+327
+00:13:28,800 --> 00:13:32,960
+You know, so you can test regular
+
+328
+00:13:30,440 --> 00:13:36,280
+expression by calling list matching
+
+329
+00:13:32,960 --> 00:13:38,440
+lines and you know, and then you type
+
+330
+00:13:36,280 --> 00:13:40,680
+your regular expression. So, it doesn't
+
+331
+00:13:38,440 --> 00:13:42,040
+match anything. So, let's try again, but
+
+332
+00:13:40,680 --> 00:13:45,320
+this time
+
+333
+00:13:42,040 --> 00:13:48,160
+we want regular expression to be c
+
+334
+00:13:45,320 --> 00:13:50,680
+.t. Now, in regular expression, a dot
+
+335
+00:13:48,160 --> 00:13:52,160
+means any any character, just like the
+
+336
+00:13:50,680 --> 00:13:54,240
+on oh
+
+337
+00:13:52,160 --> 00:13:58,680
+uh almost like the
+
+338
+00:13:54,240 --> 00:14:00,720
+uh asterisk. Like okay, so c.t enter.
+
+339
+00:13:58,680 --> 00:14:02,880
+So, you can see it matches all these
+
+340
+00:14:00,720 --> 00:14:06,120
+three lines.
+
+341
+00:14:02,880 --> 00:14:08,880
+Uh but let's say let's put a dog.
+
+342
+00:14:06,120 --> 00:14:12,840
+Okay, and do it again. List matching
+
+343
+00:14:08,880 --> 00:14:14,560
+lines c.t. So, you see it doesn't it it
+
+344
+00:14:12,840 --> 00:14:17,240
+didn't list dog. So, that's regular
+
+345
+00:14:14,560 --> 00:14:19,200
+expression. We just extracted lines
+
+346
+00:14:17,240 --> 00:14:21,360
+containing those words. It you know,
+
+347
+00:14:19,200 --> 00:14:24,160
+that that So, this is a this is the best
+
+348
+00:14:21,360 --> 00:14:26,600
+way to test regular expression, you
+
+349
+00:14:24,160 --> 00:14:28,360
+know, remember that. Okay, because
+
+350
+00:14:26,600 --> 00:14:30,160
+uh when you use Emacs it
+
+351
+00:14:28,360 --> 00:14:32,040
+eventually you'll have complex regular
+
+352
+00:14:30,160 --> 00:14:34,880
+expressions involving programming
+
+353
+00:14:32,040 --> 00:14:36,880
+language syntax and uh backslash, you
+
+354
+00:14:34,880 --> 00:14:38,520
+know, escape. So, anyway, so list
+
+355
+00:14:36,880 --> 00:14:40,839
+matching lines, this is a great way to
+
+356
+00:14:38,520 --> 00:14:44,600
+test regular expressions, okay?
+
+357
+00:14:40,839 --> 00:14:47,360
+So, close. So, close. Uh and uh let's
+
+358
+00:14:44,600 --> 00:14:50,120
+see what's next. List matching lines.
+
+359
+00:14:47,360 --> 00:14:52,360
+Okay, why not wildcard? We explained.
+
+360
+00:14:50,120 --> 00:14:55,000
+Simple example of regular expression, we
+
+361
+00:14:52,360 --> 00:14:56,839
+explained. Now, Emacs regular expression
+
+362
+00:14:55,000 --> 00:14:59,360
+by interactive command, that's list
+
+363
+00:14:56,839 --> 00:15:02,000
+matching lines, that's the example. Uh
+
+364
+00:14:59,360 --> 00:15:04,480
+and there is also um
+
+365
+00:15:02,000 --> 00:15:06,320
+and if you are programming Emacs Lisp,
+
+366
+00:15:04,480 --> 00:15:08,920
+you know, in my tutorial in my in my
+
+367
+00:15:06,320 --> 00:15:10,280
+video I talked about coding Emacs Lisp a
+
+368
+00:15:08,920 --> 00:15:12,080
+lot.
+
+369
+00:15:10,280 --> 00:15:13,680
+Of course, you can use also use regular
+
+370
+00:15:12,080 --> 00:15:15,960
+expression, but
+
+371
+00:15:13,680 --> 00:15:17,520
+in there you have to uh
+
+372
+00:15:15,960 --> 00:15:18,680
+turn the regular expression into a
+
+373
+00:15:17,520 --> 00:15:21,160
+string.
+
+374
+00:15:18,680 --> 00:15:25,920
+For example, for For right now we are
+
+375
+00:15:21,160 --> 00:15:26,760
+trying to list, uh let's let's list um
+
+376
+00:15:25,920 --> 00:15:30,120
+uh
+
+377
+00:15:26,760 --> 00:15:30,120
+let's say
+
+378
+00:15:31,640 --> 00:15:35,200
+But anyway, in Emacs this you need it
+
+379
+00:15:33,520 --> 00:15:37,600
+becomes a string. And when you have a
+
+380
+00:15:35,200 --> 00:15:39,800
+string, you need to do a lot escape,
+
+381
+00:15:37,600 --> 00:15:42,320
+okay? That's so
+
+382
+00:15:39,800 --> 00:15:44,480
+so that's the thing to watch out. I'm
+
+383
+00:15:42,320 --> 00:15:47,160
+going to explain that later, okay? So
+
+384
+00:15:44,480 --> 00:15:50,520
+then next Emacs regular expression
+
+385
+00:15:47,160 --> 00:15:52,200
+commands, okay? Best uh uh
+
+386
+00:15:50,520 --> 00:15:55,000
+regular expression commands, that's
+
+387
+00:15:52,200 --> 00:15:56,840
+that's list matching lines, okay?
+
+388
+00:15:55,000 --> 00:15:58,480
+So let's go back show here show it
+
+389
+00:15:56,840 --> 00:16:00,320
+again.
+
+390
+00:15:58,480 --> 00:16:03,520
+So list matching lines is one of the
+
+391
+00:16:00,320 --> 00:16:06,280
+most frequently used and it's a it's
+
+392
+00:16:03,520 --> 00:16:08,520
+it's a it's the best
+
+393
+00:16:06,280 --> 00:16:10,320
+command to test your regular expression.
+
+394
+00:16:08,520 --> 00:16:13,720
+Now, the other
+
+395
+00:16:10,320 --> 00:16:16,360
+Now, the other most commonly used
+
+396
+00:16:13,720 --> 00:16:19,760
+command interactive commands in Emacs is
+
+397
+00:16:16,360 --> 00:16:23,080
+query replace regex, okay? So let's say
+
+398
+00:16:19,760 --> 00:16:24,240
+I want to replace all the words wildcard
+
+399
+00:16:23,080 --> 00:16:27,200
+by
+
+400
+00:16:24,240 --> 00:16:28,600
+regex, okay? Wait, let's say I want to
+
+401
+00:16:27,200 --> 00:16:30,160
+replace all
+
+402
+00:16:28,600 --> 00:16:32,160
+all the word regex by regular
+
+403
+00:16:30,160 --> 00:16:35,400
+expression, the full name, okay? So what
+
+404
+00:16:32,160 --> 00:16:38,720
+I do, I just call
+
+405
+00:16:35,400 --> 00:16:41,200
+query replace regex, okay? You can see
+
+406
+00:16:38,720 --> 00:16:43,800
+cancel. You can see in you know, that's
+
+407
+00:16:41,200 --> 00:16:46,880
+the command I called. So call it and
+
+408
+00:16:43,800 --> 00:16:50,240
+type regex.
+
+409
+00:16:46,880 --> 00:16:53,040
+Okay, enter. Then type
+
+410
+00:16:50,240 --> 00:16:55,040
+regular expression.
+
+411
+00:16:53,040 --> 00:16:55,640
+Okay, do it what?
+
+412
+00:16:55,040 --> 00:16:58,240
+Uh
+
+413
+00:16:55,640 --> 00:17:00,240
+okay, wait. So we don't want the P at
+
+414
+00:16:58,240 --> 00:17:02,480
+the end. So replace regex by regular
+
+415
+00:17:00,240 --> 00:17:04,480
+expression. Do it. You see? Yes, yes,
+
+416
+00:17:02,480 --> 00:17:08,160
+yes, yes. Do you want to replace? Yes,
+
+417
+00:17:04,480 --> 00:17:10,040
+yes, yes. Okay. So cancel.
+
+418
+00:17:08,160 --> 00:17:12,760
+Okay, that's that's one regular
+
+419
+00:17:10,040 --> 00:17:15,400
+expression. That's uh so this command,
+
+420
+00:17:12,760 --> 00:17:17,839
+query replace regex, very useful. So
+
+421
+00:17:15,400 --> 00:17:20,240
+these two commands, remember this, these
+
+422
+00:17:17,839 --> 00:17:23,439
+two commands is the most useful and most
+
+423
+00:17:20,240 --> 00:17:25,360
+frequently used commands in Emacs that
+
+424
+00:17:23,439 --> 00:17:27,959
+involves a regular expression when you
+
+425
+00:17:25,360 --> 00:17:30,880
+want to find some text or replace some
+
+426
+00:17:27,959 --> 00:17:32,720
+text, okay? These two commands.
+
+427
+00:17:30,880 --> 00:17:34,760
+And they are the most useful if you want
+
+428
+00:17:32,720 --> 00:17:36,360
+to test, you know, when you are going
+
+429
+00:17:34,760 --> 00:17:37,960
+about learning the regular expression
+
+430
+00:17:36,360 --> 00:17:40,320
+syntax, okay?
+
+431
+00:17:37,960 --> 00:17:42,480
+Now, let's go on. Next Next is let's
+
+432
+00:17:40,320 --> 00:17:45,160
+cover regular expression syntax. So,
+
+433
+00:17:42,480 --> 00:17:47,680
+what is the syntax, okay?
+
+434
+00:17:45,160 --> 00:17:47,680
+So,
+
+435
+00:17:48,840 --> 00:17:53,680
+So, let me let me comment. So, hello
+
+436
+00:17:51,120 --> 00:17:56,240
+guys. Hey, hey Justin.
+
+437
+00:17:53,680 --> 00:17:58,680
+So, regular expression
+
+438
+00:17:56,240 --> 00:18:01,200
+is is somewhat complex, okay? You know,
+
+439
+00:17:58,680 --> 00:18:04,120
+I I had I have by now
+
+440
+00:18:01,200 --> 00:18:06,960
+20 years experience using regular
+
+441
+00:18:04,120 --> 00:18:09,960
+expression in Pearl, in starting in
+
+442
+00:18:06,960 --> 00:18:11,960
+Pearl, in Unix grep, in you know, in
+
+443
+00:18:09,960 --> 00:18:14,840
+different languages, in Python, in
+
+444
+00:18:11,960 --> 00:18:16,040
+Wolfram language.
+
+445
+00:18:14,840 --> 00:18:17,720
+Um
+
+446
+00:18:16,040 --> 00:18:19,520
+You know, a few few weeks ago we I
+
+447
+00:18:17,720 --> 00:18:21,720
+demonstrated Wolfram language regular
+
+448
+00:18:19,520 --> 00:18:24,120
+expression in Wolfram language. And
+
+449
+00:18:21,720 --> 00:18:27,680
+okay, so regular expression
+
+450
+00:18:24,120 --> 00:18:29,560
+So, I I I want to tell you it's not
+
+451
+00:18:27,680 --> 00:18:31,520
+very
+
+452
+00:18:29,560 --> 00:18:34,280
+easy to understand, okay? You You'll run
+
+453
+00:18:31,520 --> 00:18:36,320
+into frustrate frustrations for sure. I
+
+454
+00:18:34,280 --> 00:18:39,200
+can tell you that. But, you you'll
+
+455
+00:18:36,320 --> 00:18:42,280
+gradually learn, okay, over over over
+
+456
+00:18:39,200 --> 00:18:45,160
+the years, okay, over a month or so.
+
+457
+00:18:42,280 --> 00:18:47,320
+So, let let me demonstrate some So, so
+
+458
+00:18:45,160 --> 00:18:49,600
+regular expression syntax, okay? Let's
+
+459
+00:18:47,320 --> 00:18:52,600
+let let me see where how do I want to
+
+460
+00:18:49,600 --> 00:18:55,920
+cover that. Um
+
+461
+00:18:52,600 --> 00:18:57,720
+It can get quite esoteric. So,
+
+462
+00:18:55,920 --> 00:18:59,840
+So, I'm not going to cover the whole
+
+463
+00:18:57,720 --> 00:19:01,640
+thing because the whole thing we would
+
+464
+00:18:59,840 --> 00:19:03,640
+um
+
+465
+00:19:01,640 --> 00:19:05,160
+You know, you have if you are seeing
+
+466
+00:19:03,640 --> 00:19:06,960
+regular expression for the first time,
+
+467
+00:19:05,160 --> 00:19:08,600
+it's no good to learn the whole thing.
+
+468
+00:19:06,960 --> 00:19:11,400
+You want to learn some simple ones. So,
+
+469
+00:19:08,600 --> 00:19:13,160
+let me just cover some of the simplest
+
+470
+00:19:11,400 --> 00:19:15,440
+patterns, okay?
+
+471
+00:19:13,160 --> 00:19:18,200
+So, the simplest patterns in regular
+
+472
+00:19:15,440 --> 00:19:23,400
+expression, let's write it out.
+
+473
+00:19:18,200 --> 00:19:26,000
+Most simple re uh regular expression. I
+
+474
+00:19:23,400 --> 00:19:28,360
+have a shortcut. So, most simple regular
+
+475
+00:19:26,000 --> 00:19:30,400
+expression, okay? So, show the pink
+
+476
+00:19:28,360 --> 00:19:32,960
+window. Uh
+
+477
+00:19:30,400 --> 00:19:35,920
+most simple regular expression
+
+478
+00:19:32,960 --> 00:19:38,600
+syntax or patterns, okay?
+
+479
+00:19:35,920 --> 00:19:40,080
+So, dot Let me just write it out, so
+
+480
+00:19:38,600 --> 00:19:42,080
+it's
+
+481
+00:19:40,080 --> 00:19:45,160
+So, you can easily uh everything I
+
+482
+00:19:42,080 --> 00:19:47,320
+talked today is all in my tutorial. So,
+
+483
+00:19:45,160 --> 00:19:49,480
+you can, you know, just search for study
+
+484
+00:19:47,320 --> 00:19:53,600
+Emacs regular expression, then you will
+
+485
+00:19:49,480 --> 00:19:55,080
+find a a series of articles like all the
+
+486
+00:19:53,600 --> 00:19:57,440
+way um
+
+487
+00:19:55,080 --> 00:19:59,200
+down here. You see this section, this
+
+488
+00:19:57,440 --> 00:20:01,520
+box. So, this article is regular
+
+489
+00:19:59,200 --> 00:20:05,280
+expression, what is what it is compared
+
+490
+00:20:01,520 --> 00:20:07,440
+to wildcards, the syntax, and how is
+
+491
+00:20:05,280 --> 00:20:10,280
+Emacs regular expression syntax differ
+
+492
+00:20:07,440 --> 00:20:13,640
+from Python, Java, JavaScript, okay? For
+
+493
+00:20:10,280 --> 00:20:15,520
+you programmers, you can read this page.
+
+494
+00:20:13,640 --> 00:20:17,840
+Then there's a regular expression, how
+
+495
+00:20:15,520 --> 00:20:20,800
+is it used in Emac Lisp, and so on,
+
+496
+00:20:17,840 --> 00:20:23,280
+okay? So, let me right now cover So, so,
+
+497
+00:20:20,800 --> 00:20:25,360
+you know, you can just read my tutorial
+
+498
+00:20:23,280 --> 00:20:26,960
+if you are just want to read it. So,
+
+499
+00:20:25,360 --> 00:20:28,560
+right right now, let me cover some of
+
+500
+00:20:26,960 --> 00:20:32,080
+the most used patterns in regular
+
+501
+00:20:28,560 --> 00:20:36,680
+expression, okay? So, a dot Now, a dot
+
+502
+00:20:32,080 --> 00:20:36,680
+means any character, okay?
+
+503
+00:20:36,800 --> 00:20:41,720
+Uh then
+
+504
+00:20:39,000 --> 00:20:44,600
+then you have the most common pattern is
+
+505
+00:20:41,720 --> 00:20:46,960
+the square bracket. So, the square
+
+506
+00:20:44,600 --> 00:20:49,360
+bracket, so let me actually
+
+507
+00:20:46,960 --> 00:20:53,720
+add the
+
+508
+00:20:49,360 --> 00:20:56,360
+You will see what I'm doing later, okay?
+
+509
+00:20:53,720 --> 00:20:56,360
+Uh
+
+510
+00:20:56,640 --> 00:21:01,560
+So,
+
+511
+00:20:57,680 --> 00:21:03,600
+a square bracket a square bracket, then
+
+512
+00:21:01,560 --> 00:21:07,240
+0 to
+
+513
+00:21:03,600 --> 00:21:11,560
+then uh wait. ABC
+
+514
+00:21:07,240 --> 00:21:13,520
+any of the chars ABC, okay?
+
+515
+00:21:11,560 --> 00:21:15,600
+X, for example, you can put any
+
+516
+00:21:13,520 --> 00:21:17,400
+characters here. So, if you have a
+
+517
+00:21:15,600 --> 00:21:19,000
+sequence of, you know, any character you
+
+518
+00:21:17,400 --> 00:21:21,000
+want to match,
+
+519
+00:21:19,000 --> 00:21:23,000
+you add a square bracket that they'll
+
+520
+00:21:21,000 --> 00:21:24,640
+match in. So, these are the most simple.
+
+521
+00:21:23,000 --> 00:21:26,840
+So, next
+
+522
+00:21:24,640 --> 00:21:29,080
+Now, when you use a square bracket,
+
+523
+00:21:26,840 --> 00:21:32,720
+there's a special syntax that allows you
+
+524
+00:21:29,080 --> 00:21:36,960
+to say A to B, I mean A to Z. That means
+
+525
+00:21:32,720 --> 00:21:41,240
+match anything from A to Z, okay?
+
+526
+00:21:36,960 --> 00:21:44,080
+Any of the chars uh A to
+
+527
+00:21:41,240 --> 00:21:47,040
+Z, okay? That's a like special case with
+
+528
+00:21:44,080 --> 00:21:48,680
+the square bracket syntax. That's why,
+
+529
+00:21:47,040 --> 00:21:52,440
+you know, regular expression is slightly
+
+530
+00:21:48,680 --> 00:21:55,200
+complex slightly complex. Okay, so
+
+531
+00:21:52,440 --> 00:21:58,600
+So, A to Z, then you can also, of
+
+532
+00:21:55,200 --> 00:22:01,400
+course, you can do zero to nine.
+
+533
+00:21:58,600 --> 00:22:04,200
+Any of the digit.
+
+534
+00:22:01,400 --> 00:22:07,400
+Okay. Uh zero
+
+535
+00:22:04,200 --> 00:22:11,920
+zero to nine, okay? So, that allows you
+
+536
+00:22:07,400 --> 00:22:15,560
+to So, so now, so okay, so so next, we
+
+537
+00:22:11,920 --> 00:22:18,600
+have a um
+
+538
+00:22:15,560 --> 00:22:21,480
+So, so far we covered uh certain
+
+539
+00:22:18,600 --> 00:22:25,000
+patterns that allows you to either match
+
+540
+00:22:21,480 --> 00:22:27,840
+an arbitrary character or a a set of
+
+541
+00:22:25,000 --> 00:22:31,560
+characters or, you know, a ordered
+
+542
+00:22:27,840 --> 00:22:31,560
+sequence, you know, of characters.
+
+543
+00:22:31,640 --> 00:22:37,720
+But But now, let me introduce another uh
+
+544
+00:22:35,960 --> 00:22:39,800
+symbol uh
+
+545
+00:22:37,720 --> 00:22:43,680
+uh syntax in regular expression that is
+
+546
+00:22:39,800 --> 00:22:46,960
+the plus sign, okay? Plus sign means one
+
+547
+00:22:43,680 --> 00:22:50,840
+or more of the previous
+
+548
+00:22:46,960 --> 00:22:54,960
+pattern, okay? So, for example
+
+549
+00:22:50,840 --> 00:22:56,640
+So, for example, if you want to match
+
+550
+00:22:54,960 --> 00:22:58,880
+um
+
+551
+00:22:56,640 --> 00:23:02,280
+Let Let me Let me Let me give you this
+
+552
+00:22:58,880 --> 00:23:06,080
+example, okay? A to Z plus, okay? So,
+
+553
+00:23:02,280 --> 00:23:09,080
+what does that mean? That means match
+
+554
+00:23:06,080 --> 00:23:12,080
+one or more. That's a plus sign. One or
+
+555
+00:23:09,080 --> 00:23:14,720
+more of the previous pattern.
+
+556
+00:23:12,080 --> 00:23:17,520
+Now, the previ- the previous pattern is
+
+557
+00:23:14,720 --> 00:23:19,000
+any of A to Z. So, this basically means
+
+558
+00:23:17,520 --> 00:23:21,560
+match any
+
+559
+00:23:19,000 --> 00:23:28,560
+match a word, basically.
+
+560
+00:23:21,560 --> 00:23:33,640
+So, match a sequence of lower case
+
+561
+00:23:28,560 --> 00:23:38,240
+English alphabet. Okay? So, let me
+
+562
+00:23:33,640 --> 00:23:42,240
+clean up this and let's view them in X
+
+563
+00:23:38,240 --> 00:23:44,280
+view them in HTML. Show it in browser.
+
+564
+00:23:42,240 --> 00:23:46,080
+So, here are the
+
+565
+00:23:44,280 --> 00:23:48,840
+regular expression patterns we have
+
+566
+00:23:46,080 --> 00:23:51,200
+covered so far. And these are the most
+
+567
+00:23:48,840 --> 00:23:52,400
+frequently used. Okay, so begin learning
+
+568
+00:23:51,200 --> 00:23:54,520
+by
+
+569
+00:23:52,400 --> 00:23:56,440
+you know, trying trying regular
+
+570
+00:23:54,520 --> 00:23:58,320
+expression commands with these patterns,
+
+571
+00:23:56,440 --> 00:24:01,520
+okay? So, let let's demo. Let's start to
+
+572
+00:23:58,320 --> 00:24:04,760
+demo. So, let's say if your buffer has
+
+573
+00:24:01,520 --> 00:24:09,120
+lot lots of this. So, let's begin.
+
+574
+00:24:04,760 --> 00:24:10,640
+Uh let Okay, so let's open something.
+
+575
+00:24:09,120 --> 00:24:12,640
+Something.
+
+576
+00:24:10,640 --> 00:24:13,720
+Magnify.
+
+577
+00:24:12,640 --> 00:24:16,560
+Uh
+
+578
+00:24:13,720 --> 00:24:19,400
+997 cats
+
+579
+00:24:16,560 --> 00:24:19,400
+and
+
+580
+00:24:19,880 --> 00:24:26,360
+uh 70 dogs, okay? So, I want to extract
+
+581
+00:24:24,560 --> 00:24:31,040
+all the numbers
+
+582
+00:24:26,360 --> 00:24:31,040
+here, okay? So, what you can do is um
+
+583
+00:24:31,680 --> 00:24:36,280
+uh
+
+584
+00:24:33,240 --> 00:24:38,480
+Let let's say I want to put a quote, for
+
+585
+00:24:36,280 --> 00:24:41,960
+example.
+
+586
+00:24:38,480 --> 00:24:44,280
+Uh for example, this part I want it to
+
+587
+00:24:41,960 --> 00:24:47,040
+turn into that.
+
+588
+00:24:44,280 --> 00:24:49,280
+Okay? And suppose I have thousands of
+
+589
+00:24:47,040 --> 00:24:53,160
+these lines. How do you do that? Regular
+
+590
+00:24:49,280 --> 00:24:55,520
+expression, okay? So, so what we do is
+
+591
+00:24:53,160 --> 00:24:59,400
+query replace with regular expression
+
+592
+00:24:55,520 --> 00:25:01,960
+query replace rejects here.
+
+593
+00:24:59,400 --> 00:25:02,760
+Then give you a regular expression. Let
+
+594
+00:25:01,960 --> 00:25:04,720
+me
+
+595
+00:25:02,760 --> 00:25:07,160
+Let's demonstrate this, okay? So,
+
+596
+00:25:04,720 --> 00:25:08,640
+magnify the mini buffer.
+
+597
+00:25:07,160 --> 00:25:13,240
+Uh
+
+598
+00:25:08,640 --> 00:25:13,240
+the mini buffer. So, I want to say
+
+599
+00:25:14,240 --> 00:25:18,840
+Okay, this involves capture, okay? So,
+
+600
+00:25:19,240 --> 00:25:22,960
+Okay, capture is a new concept we
+
+601
+00:25:21,160 --> 00:25:24,720
+haven't introduced yet. Let Let's just
+
+602
+00:25:22,960 --> 00:25:27,760
+list the all the lines containing
+
+603
+00:25:24,720 --> 00:25:33,400
+numbers, okay? So, list matching lines
+
+604
+00:25:27,760 --> 00:25:38,120
+then square bracket magnify then zero uh
+
+605
+00:25:33,400 --> 00:25:40,960
+zero to nine, then add a plus, okay? So,
+
+606
+00:25:38,120 --> 00:25:43,440
+that will list all lines matching this,
+
+607
+00:25:40,960 --> 00:25:46,080
+you see? So, we are look we are, you
+
+608
+00:25:43,440 --> 00:25:48,200
+know, so here's a result including the
+
+609
+00:25:46,080 --> 00:25:49,280
+double quote lines.
+
+610
+00:25:48,200 --> 00:25:52,520
+Okay?
+
+611
+00:25:49,280 --> 00:25:55,800
+So, we have demonstrated
+
+612
+00:25:52,520 --> 00:25:57,240
+this one with the plus sign, okay?
+
+613
+00:25:55,800 --> 00:25:59,400
+So,
+
+614
+00:25:57,240 --> 00:26:01,520
+Okay, so that's so far so good. So,
+
+615
+00:25:59,400 --> 00:26:04,400
+that's the basic, you know, that's some
+
+616
+00:26:01,520 --> 00:26:07,160
+of the most simple patterns, okay?
+
+617
+00:26:04,400 --> 00:26:11,000
+How long have I been going? Uh 27
+
+618
+00:26:07,160 --> 00:26:13,480
+minutes, okay? So,
+
+619
+00:26:11,000 --> 00:26:15,280
+we got I'm going to cover up cover and
+
+620
+00:26:13,480 --> 00:26:16,320
+you know, we are hopefully 10 more
+
+621
+00:26:15,280 --> 00:26:18,400
+minutes or
+
+622
+00:26:16,320 --> 00:26:21,280
+20 minutes, then
+
+623
+00:26:18,400 --> 00:26:24,160
+that's it for today.
+
+624
+00:26:21,280 --> 00:26:29,120
+Uh okay, so regular expression, the most
+
+625
+00:26:24,160 --> 00:26:29,120
+basic patterns, okay? So,
+
+626
+00:26:29,560 --> 00:26:34,280
+So, where is the syntax here, okay? On
+
+627
+00:26:31,720 --> 00:26:35,720
+this page. So,
+
+628
+00:26:34,280 --> 00:26:38,720
+yeah.
+
+629
+00:26:35,720 --> 00:26:41,720
+So, so far so good. Now, let's Let me
+
+630
+00:26:38,720 --> 00:26:41,720
+introduce
+
+631
+00:26:42,080 --> 00:26:47,760
+So, we got we covered many of these
+
+632
+00:26:44,120 --> 00:26:49,200
+patterns. Let Let me introduce
+
+633
+00:26:47,760 --> 00:26:51,480
+capture, okay?
+
+634
+00:26:49,200 --> 00:26:54,920
+Now, for example,
+
+635
+00:26:51,480 --> 00:26:58,120
+we want to replace this line by
+
+636
+00:26:54,920 --> 00:26:59,280
+by let's say adding a quote
+
+637
+00:26:58,120 --> 00:27:01,200
+around
+
+638
+00:26:59,280 --> 00:27:04,400
+around the pattern we want. So, what we
+
+639
+00:27:01,200 --> 00:27:07,640
+do is So, there is a pattern. So, let's
+
+640
+00:27:04,400 --> 00:27:10,960
+go back here. Let's write it out.
+
+641
+00:27:07,640 --> 00:27:12,040
+So, there is the syntax where
+
+642
+00:27:10,960 --> 00:27:14,520
+you
+
+643
+00:27:12,040 --> 00:27:17,520
+you put um
+
+644
+00:27:14,520 --> 00:27:20,120
+backslash backslash
+
+645
+00:27:17,520 --> 00:27:22,360
+parentheses
+
+646
+00:27:20,120 --> 00:27:26,920
+pattern, okay?
+
+647
+00:27:22,360 --> 00:27:26,920
+That means capture the pattern, okay?
+
+648
+00:27:30,600 --> 00:27:34,720
+So, this pattern should be a regular
+
+649
+00:27:32,480 --> 00:27:36,480
+expression, okay? Whatever it is. You
+
+650
+00:27:34,720 --> 00:27:38,600
+know, this regular expression can be
+
+651
+00:27:36,480 --> 00:27:40,640
+anything we covered before. So, that
+
+652
+00:27:38,600 --> 00:27:43,000
+means capture the pattern. So, what what
+
+653
+00:27:40,640 --> 00:27:45,680
+does capture means? It means that when
+
+654
+00:27:43,000 --> 00:27:49,000
+you want to do replacement, you can
+
+655
+00:27:45,680 --> 00:27:50,520
+refer to the pattern and add some more
+
+656
+00:27:49,000 --> 00:27:52,200
+text.
+
+657
+00:27:50,520 --> 00:27:56,480
+You know, surrounding it, things like
+
+658
+00:27:52,200 --> 00:27:58,280
+that. So, let's let me demonstrate.
+
+659
+00:27:56,480 --> 00:28:02,040
+Okay, showing browser first of all, so
+
+660
+00:27:58,280 --> 00:28:07,080
+we can see there it is. Uh actually,
+
+661
+00:28:02,040 --> 00:28:07,080
+I want to add. So, this is just
+
+662
+00:28:07,640 --> 00:28:11,360
+So, that means the pattern, okay?
+
+663
+00:28:09,480 --> 00:28:14,240
+Capture, okay? So, let's demonstrate
+
+664
+00:28:11,360 --> 00:28:15,360
+capture. So, delete those. So, I want to
+
+665
+00:28:14,240 --> 00:28:18,560
+add a
+
+666
+00:28:15,360 --> 00:28:21,120
+double quote, okay? So,
+
+667
+00:28:18,560 --> 00:28:21,120
+call
+
+668
+00:28:21,680 --> 00:28:28,440
+query replace rejects, okay? Now, enter
+
+669
+00:28:25,200 --> 00:28:32,760
+regular expression, okay? Now,
+
+670
+00:28:28,440 --> 00:28:35,520
+let's magnify. So, backslash
+
+671
+00:28:32,760 --> 00:28:36,800
+left paren
+
+672
+00:28:35,520 --> 00:28:39,880
+then
+
+673
+00:28:36,800 --> 00:28:43,440
+a square bracket left square bracket
+
+674
+00:28:39,880 --> 00:28:46,600
+then 0 to 9. I want to match anything
+
+675
+00:28:43,440 --> 00:28:49,720
+any digit 0 to 9,
+
+676
+00:28:46,600 --> 00:28:53,400
+okay? Then
+
+677
+00:28:49,720 --> 00:28:55,920
+backslash, then paren, right paren,
+
+678
+00:28:53,400 --> 00:28:59,000
+okay? So, I So, I'm going to capture
+
+679
+00:28:55,920 --> 00:29:01,880
+this, but we forgot we need to say one
+
+680
+00:28:59,000 --> 00:29:05,160
+or more, so add a plus sign.
+
+681
+00:29:01,880 --> 00:29:06,880
+Okay? So, now this is uh
+
+682
+00:29:05,160 --> 00:29:08,640
+Let me Yeah, so
+
+683
+00:29:06,880 --> 00:29:10,800
+now you can see.
+
+684
+00:29:08,640 --> 00:29:12,760
+Okay, so that's the pattern
+
+685
+00:29:10,800 --> 00:29:13,800
+with the parenthesis capture, okay? So,
+
+686
+00:29:12,760 --> 00:29:16,080
+enter.
+
+687
+00:29:13,800 --> 00:29:20,440
+Now, Emacs asks you what do you want to
+
+688
+00:29:16,080 --> 00:29:22,080
+replace it with, okay? So, let's say
+
+689
+00:29:20,440 --> 00:29:23,440
+a quote,
+
+690
+00:29:22,080 --> 00:29:26,120
+then
+
+691
+00:29:23,440 --> 00:29:28,360
+backslash one. That refers to the
+
+692
+00:29:26,120 --> 00:29:30,760
+pattern we just captured. It's one
+
+693
+00:29:28,360 --> 00:29:32,000
+because it's the first pattern, okay?
+
+694
+00:29:30,760 --> 00:29:35,600
+Then
+
+695
+00:29:32,000 --> 00:29:38,520
+then uh quote again, okay? Enter. So,
+
+696
+00:29:35,600 --> 00:29:41,720
+Emacs found it. It asks you if you want
+
+697
+00:29:38,520 --> 00:29:45,480
+to replace it or not. So, type yes, type
+
+698
+00:29:41,720 --> 00:29:47,400
+Y to replace, type N to say no.
+
+699
+00:29:45,480 --> 00:29:49,640
+And uh type A
+
+700
+00:29:47,400 --> 00:29:53,040
+exclamation to replace them all. So,
+
+701
+00:29:49,640 --> 00:29:55,360
+anyway, let's say yes, okay? Yes.
+
+702
+00:29:53,040 --> 00:29:58,400
+Yes. Okay, so you see
+
+703
+00:29:55,360 --> 00:30:00,920
+this is regular expression. We are using
+
+704
+00:29:58,400 --> 00:30:03,360
+a pattern that captures and replaces.
+
+705
+00:30:00,920 --> 00:30:04,640
+Now, let's do it again.
+
+706
+00:30:03,360 --> 00:30:06,520
+So,
+
+707
+00:30:04,640 --> 00:30:08,440
+this time
+
+708
+00:30:06,520 --> 00:30:12,320
+our regular expression is going to be
+
+709
+00:30:08,440 --> 00:30:14,280
+instead of the quote, let's say
+
+710
+00:30:12,320 --> 00:30:15,600
+Okay, wait, wait. Let Let Let's do this,
+
+711
+00:30:14,280 --> 00:30:17,120
+okay? So,
+
+712
+00:30:15,600 --> 00:30:19,840
+in programming languages, many
+
+713
+00:30:17,120 --> 00:30:21,760
+programming languages uses double quote,
+
+714
+00:30:19,840 --> 00:30:24,880
+but some programming languages use
+
+715
+00:30:21,760 --> 00:30:26,800
+single quote. So, this time, let's say I
+
+716
+00:30:24,880 --> 00:30:29,840
+want to cut This is a programming
+
+717
+00:30:26,800 --> 00:30:32,160
+language, let's say I want to convert
+
+718
+00:30:29,840 --> 00:30:33,800
+double quote to single quote, but not
+
+719
+00:30:32,160 --> 00:30:38,040
+just every
+
+720
+00:30:33,800 --> 00:30:38,040
+quote because uh hold on a second.
+
+721
+00:30:38,800 --> 00:30:44,040
+For example, some other words are also
+
+722
+00:30:41,400 --> 00:30:45,360
+uh quoted. I only want to
+
+723
+00:30:44,040 --> 00:30:47,680
+replace
+
+724
+00:30:45,360 --> 00:30:49,880
+digits that has a quote to change this
+
+725
+00:30:47,680 --> 00:30:51,880
+part to single quote and also this part.
+
+726
+00:30:49,880 --> 00:30:56,480
+Okay, let's do it.
+
+727
+00:30:51,880 --> 00:31:00,080
+Let's say change double quoted
+
+728
+00:30:56,480 --> 00:31:02,720
+numbers to single quote. Okay, that's
+
+729
+00:31:00,080 --> 00:31:04,840
+what we want to do. Okay, so query
+
+730
+00:31:02,720 --> 00:31:07,520
+replace rejects
+
+731
+00:31:04,840 --> 00:31:10,800
+and the pattern
+
+732
+00:31:07,520 --> 00:31:12,000
+the pattern will be
+
+733
+00:31:10,800 --> 00:31:14,240
+uh
+
+734
+00:31:12,000 --> 00:31:17,640
+You want to capture it? Yes.
+
+735
+00:31:14,240 --> 00:31:20,240
+Okay, so we need a double quote there.
+
+736
+00:31:17,640 --> 00:31:21,280
+Okay. That's the pattern.
+
+737
+00:31:20,240 --> 00:31:23,160
+Enter.
+
+738
+00:31:21,280 --> 00:31:25,440
+Now, what do you want to replace it?
+
+739
+00:31:23,160 --> 00:31:29,080
+Well, I want to replace it by a single
+
+740
+00:31:25,440 --> 00:31:33,360
+quote. Okay, so just type single quote.
+
+741
+00:31:29,080 --> 00:31:35,800
+And also Okay, so we just want to
+
+742
+00:31:33,360 --> 00:31:37,720
+backslash one. Single quote backslash
+
+743
+00:31:35,800 --> 00:31:38,720
+one. That refers to the capture. Okay,
+
+744
+00:31:37,720 --> 00:31:43,160
+do it.
+
+745
+00:31:38,720 --> 00:31:44,920
+Yes, yes. You see? Fantastic. Okay.
+
+746
+00:31:43,160 --> 00:31:47,200
+Uh and
+
+747
+00:31:44,920 --> 00:31:49,320
+Okay, so now so far so good. So that's a
+
+748
+00:31:47,200 --> 00:31:52,080
+basic introduction to regular
+
+749
+00:31:49,320 --> 00:31:53,280
+expressions. So you learned you learned,
+
+750
+00:31:52,080 --> 00:31:56,800
+you know,
+
+751
+00:31:53,280 --> 00:31:59,840
+a set of characters or a wildcard
+
+752
+00:31:56,800 --> 00:32:03,120
+and also repeating a pattern one or more
+
+753
+00:31:59,840 --> 00:32:06,880
+times or and you also
+
+754
+00:32:03,120 --> 00:32:08,560
+learned how to capture a pattern. Okay.
+
+755
+00:32:06,880 --> 00:32:10,800
+So let me demonstrate the next thing.
+
+756
+00:32:08,560 --> 00:32:13,600
+Okay, so let's copy that. Close that.
+
+757
+00:32:10,800 --> 00:32:18,400
+Let's put a text box
+
+758
+00:32:13,600 --> 00:32:23,280
+and so we can have a reference later on.
+
+759
+00:32:18,400 --> 00:32:24,920
+Okay, so now let's So so far that's some
+
+760
+00:32:23,280 --> 00:32:28,160
+of the
+
+761
+00:32:24,920 --> 00:32:29,960
+some of the regular expression
+
+762
+00:32:28,160 --> 00:32:32,800
+um
+
+763
+00:32:29,960 --> 00:32:34,760
+syntax. Okay, there's there are a lot
+
+764
+00:32:32,800 --> 00:32:35,600
+more, but I'm not going to cover them
+
+765
+00:32:34,760 --> 00:32:36,640
+all
+
+766
+00:32:35,600 --> 00:32:40,040
+today.
+
+767
+00:32:36,640 --> 00:32:41,600
+Let's go on. Let's go on to but that's a
+
+768
+00:32:40,040 --> 00:32:44,360
+basic idea. Okay, let me show you one
+
+769
+00:32:41,600 --> 00:32:46,960
+more thing. In Emac that this is
+
+770
+00:32:44,360 --> 00:32:52,200
+important specific to Emacs.
+
+771
+00:32:46,960 --> 00:32:55,160
+In Emacs, if you want to replace
+
+772
+00:32:52,200 --> 00:32:58,120
+if you want to include a new a line
+
+773
+00:32:55,160 --> 00:33:03,520
+return in Emacs, you have to type
+
+774
+00:32:58,120 --> 00:33:05,760
+control Q enter, okay? For example,
+
+775
+00:33:03,520 --> 00:33:10,440
+uh let's copy that, okay? So, let's copy
+
+776
+00:33:05,760 --> 00:33:10,440
+that. Let's Let's paste it here. Let's
+
+777
+00:33:11,000 --> 00:33:20,120
+In Emacs, if you want to include a new
+
+778
+00:33:15,720 --> 00:33:21,760
+line char, you cannot use backslash n,
+
+779
+00:33:20,120 --> 00:33:24,400
+okay?
+
+780
+00:33:21,760 --> 00:33:24,400
+Uh
+
+781
+00:33:24,560 --> 00:33:29,800
+you
+
+782
+00:33:26,880 --> 00:33:29,800
+have to
+
+783
+00:33:31,000 --> 00:33:36,880
+use
+
+784
+00:33:33,680 --> 00:33:39,880
+You have to press control
+
+785
+00:33:36,880 --> 00:33:39,880
+plus Q
+
+786
+00:33:42,120 --> 00:33:47,480
+enter, okay? That's how you do it. So,
+
+787
+00:33:44,600 --> 00:33:48,480
+let's For example, let's try something.
+
+788
+00:33:47,480 --> 00:33:53,120
+cat
+
+789
+00:33:48,480 --> 00:33:55,320
+dog some, okay? Now,
+
+790
+00:33:53,120 --> 00:33:58,200
+let's try it.
+
+791
+00:33:55,320 --> 00:34:01,320
+So, now let's say I want to replace cat
+
+792
+00:33:58,200 --> 00:34:04,120
+dog in two lines into one single line,
+
+793
+00:34:01,320 --> 00:34:07,240
+okay? Into one single line with a space
+
+794
+00:34:04,120 --> 00:34:10,679
+in between, okay? So, I call
+
+795
+00:34:07,240 --> 00:34:13,080
+query replace rejects, okay?
+
+796
+00:34:10,679 --> 00:34:17,200
+cat
+
+797
+00:34:13,080 --> 00:34:19,840
+backslash n dog enter.
+
+798
+00:34:17,200 --> 00:34:22,560
+You see, it gives you an error, okay? It
+
+799
+00:34:19,840 --> 00:34:25,600
+gives you an error. So, cancel. So, now
+
+800
+00:34:22,560 --> 00:34:25,600
+let's try again.
+
+801
+00:34:26,440 --> 00:34:32,879
+Uh query replace rejects
+
+802
+00:34:29,399 --> 00:34:38,320
+cat Now, I want the enter, so
+
+803
+00:34:32,879 --> 00:34:38,320
+a line return, so I press control Q
+
+804
+00:34:38,600 --> 00:34:41,280
+enter.
+
+805
+00:34:41,639 --> 00:34:47,320
+Um actually, that's control Q control J.
+
+806
+00:34:44,919 --> 00:34:49,520
+Let's try again. It's a bit complex,
+
+807
+00:34:47,320 --> 00:34:53,879
+okay? So, let's try again.
+
+808
+00:34:49,520 --> 00:34:57,440
+Query replace rejects cat control Q
+
+809
+00:34:53,879 --> 00:34:58,800
+control J, okay?
+
+810
+00:34:57,440 --> 00:35:01,040
+Uh
+
+811
+00:34:58,800 --> 00:35:03,280
+what?
+
+812
+00:35:01,040 --> 00:35:06,880
+Oh, I pressed the wrong key. Uh
+
+813
+00:35:03,280 --> 00:35:08,240
+so, that's why it's a bit complex, so
+
+814
+00:35:06,880 --> 00:35:09,600
+try it again.
+
+815
+00:35:08,240 --> 00:35:14,560
+Cat
+
+816
+00:35:09,600 --> 00:35:17,600
+control Q control J, okay?
+
+817
+00:35:14,560 --> 00:35:20,800
+Dog. Now, you can see in the mini buffer
+
+818
+00:35:17,600 --> 00:35:22,880
+uh the mini buffer is kind of
+
+819
+00:35:20,800 --> 00:35:25,320
+it doesn't show both lines, okay? There
+
+820
+00:35:22,880 --> 00:35:28,640
+it is. Okay, so you can see that's how
+
+821
+00:35:25,320 --> 00:35:31,520
+you enter a line return. Control Q
+
+822
+00:35:28,640 --> 00:35:33,480
+control J, okay? This is a bit
+
+823
+00:35:31,520 --> 00:35:35,720
+um
+
+824
+00:35:33,480 --> 00:35:39,400
+different. You cannot use backslash n,
+
+825
+00:35:35,720 --> 00:35:43,480
+okay? Enter. Then, replace it by
+
+826
+00:35:39,400 --> 00:35:47,920
+cat space dog, okay? Do it.
+
+827
+00:35:43,480 --> 00:35:47,920
+Yes. Okay, that's how you do it.
+
+828
+00:35:48,040 --> 00:35:54,480
+Uh what if you have uh more So, what if
+
+829
+00:35:52,000 --> 00:35:59,360
+you have um
+
+830
+00:35:54,480 --> 00:35:59,360
+what if you have anything? So,
+
+831
+00:35:59,440 --> 00:36:04,400
+So, what if you have What if you want to
+
+832
+00:36:01,840 --> 00:36:06,600
+replace anything that's Let me show you
+
+833
+00:36:04,400 --> 00:36:09,600
+a more complex example of regular
+
+834
+00:36:06,600 --> 00:36:11,800
+expression using capture, okay? So, if
+
+835
+00:36:09,600 --> 00:36:14,080
+cat and uh
+
+836
+00:36:11,800 --> 00:36:17,520
+let's say tiger
+
+837
+00:36:14,080 --> 00:36:21,360
+uh cat and uh let's say
+
+838
+00:36:17,520 --> 00:36:23,440
+uh rabbit. You want to replace any two
+
+839
+00:36:21,360 --> 00:36:25,160
+lines
+
+840
+00:36:23,440 --> 00:36:28,360
+Let me write it down.
+
+841
+00:36:25,160 --> 00:36:32,800
+Replace any two
+
+842
+00:36:28,360 --> 00:36:34,440
+such that the first line
+
+843
+00:36:32,800 --> 00:36:37,480
+is
+
+844
+00:36:34,440 --> 00:36:37,480
+cat, okay?
+
+845
+00:36:39,360 --> 00:36:46,120
+And the second line is anything.
+
+846
+00:36:43,560 --> 00:36:46,120
+Okay?
+
+847
+00:36:46,880 --> 00:36:54,400
+Replace them into one single line, okay?
+
+848
+00:36:51,560 --> 00:36:57,840
+That's That's what we want to do, okay?
+
+849
+00:36:54,400 --> 00:36:59,240
+So, let's Let's add some more examples.
+
+850
+00:36:57,840 --> 00:37:04,720
+Cat
+
+851
+00:36:59,240 --> 00:37:04,720
+something and something, okay? So,
+
+852
+00:37:05,480 --> 00:37:10,600
+and uh let's say A, let's add some more
+
+853
+00:37:08,600 --> 00:37:12,920
+random text, okay?
+
+854
+00:37:10,600 --> 00:37:16,560
+So, now let's do the regular expression.
+
+855
+00:37:12,920 --> 00:37:16,560
+Query replace rejects.
+
+856
+00:37:16,760 --> 00:37:26,040
+Okay, the first line is cat, then
+
+857
+00:37:20,480 --> 00:37:29,160
+control Q control J for a return.
+
+858
+00:37:26,040 --> 00:37:32,040
+The second line, we want to capture it.
+
+859
+00:37:29,160 --> 00:37:34,920
+So, that's going to be backspace
+
+860
+00:37:32,040 --> 00:37:34,920
+backslash
+
+861
+00:37:35,000 --> 00:37:40,560
+backslash and uh
+
+862
+00:37:38,120 --> 00:37:44,240
+left paren.
+
+863
+00:37:40,560 --> 00:37:46,960
+Then square bracket because we want to
+
+864
+00:37:44,240 --> 00:37:50,160
+capture A to Z
+
+865
+00:37:46,960 --> 00:37:52,600
+or space.
+
+866
+00:37:50,160 --> 00:37:54,040
+Okay, or
+
+867
+00:37:52,600 --> 00:38:02,000
+zero
+
+868
+00:37:54,040 --> 00:38:02,000
+to zero to nine or capital A to Z.
+
+869
+00:38:02,320 --> 00:38:07,000
+Okay, any any one of those characters.
+
+870
+00:38:05,560 --> 00:38:11,920
+Then
+
+871
+00:38:07,000 --> 00:38:11,920
+one or more plus, okay? Then
+
+872
+00:38:11,960 --> 00:38:18,640
+backslash right parenthesis, okay? So,
+
+873
+00:38:15,880 --> 00:38:21,400
+that captures whatever is on the second
+
+874
+00:38:18,640 --> 00:38:24,760
+line, okay?
+
+875
+00:38:21,400 --> 00:38:27,000
+Double check, is that right? Yes.
+
+876
+00:38:24,760 --> 00:38:29,240
+But the first line must begin with cat.
+
+877
+00:38:27,000 --> 00:38:32,560
+Okay, so do it. Now, what do you want to
+
+878
+00:38:29,240 --> 00:38:34,480
+replace by? Replace by cat. Same thing
+
+879
+00:38:32,560 --> 00:38:36,800
+as the first line.
+
+880
+00:38:34,480 --> 00:38:38,000
+Then
+
+881
+00:38:36,800 --> 00:38:41,160
+control
+
+882
+00:38:38,000 --> 00:38:44,080
+Q control J to
+
+883
+00:38:41,160 --> 00:38:46,680
+add a line return. Then
+
+884
+00:38:44,080 --> 00:38:48,160
+backslash one. Okay, that's the pattern
+
+885
+00:38:46,680 --> 00:38:49,200
+we captured. Okay.
+
+886
+00:38:48,160 --> 00:38:51,840
+Enter.
+
+887
+00:38:49,200 --> 00:38:54,680
+So, found one instance. Yes Yes or no?
+
+888
+00:38:51,840 --> 00:38:56,120
+Yes, replace.
+
+889
+00:38:54,680 --> 00:38:57,920
+Oh, we don't want
+
+890
+00:38:56,120 --> 00:39:01,120
+mistake.
+
+891
+00:38:57,920 --> 00:39:02,680
+Anyway, we the the second the second
+
+892
+00:39:01,120 --> 00:39:05,120
+the replacement we don't want the new
+
+893
+00:39:02,680 --> 00:39:06,920
+line, we want the space. But I entered
+
+894
+00:39:05,120 --> 00:39:09,200
+the new line instead. So, okay, let's
+
+895
+00:39:06,920 --> 00:39:11,840
+try again.
+
+896
+00:39:09,200 --> 00:39:14,280
+Uh actually, so this So, this time it's
+
+897
+00:39:11,840 --> 00:39:15,320
+easier because you can just modify it.
+
+898
+00:39:14,280 --> 00:39:18,240
+Okay.
+
+899
+00:39:15,320 --> 00:39:21,040
+So, like that. Okay, enter. Yes yes yes
+
+900
+00:39:18,240 --> 00:39:24,240
+yes. Okay. That's how you do it.
+
+901
+00:39:21,040 --> 00:39:24,240
+Okay. So,
+
+902
+00:39:26,600 --> 00:39:34,200
+Okay, so now let's let's see next.
+
+903
+00:39:31,000 --> 00:39:36,080
+40 minutes. Okay, so So, now let's talk
+
+904
+00:39:34,200 --> 00:39:38,400
+about
+
+905
+00:39:36,080 --> 00:39:41,000
+So, those are some of the most
+
+906
+00:39:38,400 --> 00:39:43,120
+frequently used patterns and examples.
+
+907
+00:39:41,000 --> 00:39:44,560
+Now, let's talk about
+
+908
+00:39:43,120 --> 00:39:49,360
+um
+
+909
+00:39:44,560 --> 00:39:49,360
+regular expressions in Emac Lisp.
+
+910
+00:39:51,080 --> 00:39:55,920
+Okay, so
+
+911
+00:39:53,000 --> 00:39:58,040
+So, let's any any comments and
+
+912
+00:39:55,920 --> 00:40:00,600
+questions? Are you guys six people
+
+913
+00:39:58,040 --> 00:40:00,600
+watching?
+
+914
+00:40:01,280 --> 00:40:04,800
+So,
+
+915
+00:40:02,640 --> 00:40:07,800
+let's cover some regular expression in
+
+916
+00:40:04,800 --> 00:40:09,480
+Emac Lisp. Okay, so the
+
+917
+00:40:07,800 --> 00:40:11,840
+Yeah, let's do that. So, the most
+
+918
+00:40:09,480 --> 00:40:15,080
+frequently used regular expression
+
+919
+00:40:11,840 --> 00:40:17,560
+functions in Emac Lisp is are these.
+
+920
+00:40:15,080 --> 00:40:19,360
+Okay. So, you have
+
+921
+00:40:17,560 --> 00:40:20,800
+research-forward
+
+922
+00:40:19,360 --> 00:40:22,760
+that we are searching a regular
+
+923
+00:40:20,800 --> 00:40:25,160
+expression pattern
+
+924
+00:40:22,760 --> 00:40:27,360
+to the right forward.
+
+925
+00:40:25,160 --> 00:40:30,200
+And uh
+
+926
+00:40:27,360 --> 00:40:33,600
+when it's found, it will return true,
+
+927
+00:40:30,200 --> 00:40:36,880
+and it will also move the cruiser to to
+
+928
+00:40:33,600 --> 00:40:39,560
+whatever the pattern matched uh place
+
+929
+00:40:36,880 --> 00:40:39,560
+position.
+
+930
+00:40:39,640 --> 00:40:44,160
+So So, these are the most frequently
+
+931
+00:40:42,200 --> 00:40:46,920
+used regular expression functions in
+
+932
+00:40:44,160 --> 00:40:50,040
+Emacs Lisp. Okay? Research-forward.
+
+933
+00:40:46,920 --> 00:40:54,200
+And by the way, research-forward is a
+
+934
+00:40:50,040 --> 00:40:56,240
+has an alias, more intuitive name.
+
+935
+00:40:54,200 --> 00:40:58,600
+Search-forward-regexp.
+
+936
+00:40:56,240 --> 00:41:01,000
+Okay, that's a more intuitive name, but
+
+937
+00:40:58,600 --> 00:41:04,160
+they are the same function. It's just an
+
+938
+00:41:01,000 --> 00:41:06,280
+alias. Okay? So, research-forward, then
+
+939
+00:41:04,160 --> 00:41:07,760
+you also have research-backward,
+
+940
+00:41:06,280 --> 00:41:09,720
+then you have
+
+941
+00:41:07,760 --> 00:41:12,080
+skip-chars-forward
+
+942
+00:41:09,720 --> 00:41:14,560
+and skip-chars-backward.
+
+943
+00:41:12,080 --> 00:41:17,440
+And
+
+944
+00:41:14,560 --> 00:41:19,720
+Okay, that's skip-chars-forward and
+
+945
+00:41:17,440 --> 00:41:21,760
+backward is a bit variation. Okay? I'm
+
+946
+00:41:19,720 --> 00:41:24,400
+not going to explain now.
+
+947
+00:41:21,760 --> 00:41:27,400
+Then you have the string-match. Now,
+
+948
+00:41:24,400 --> 00:41:30,800
+string-match is
+
+949
+00:41:27,400 --> 00:41:33,680
+is when you want to match a string with
+
+950
+00:41:30,800 --> 00:41:36,480
+a regular expression. Meanwhile, the
+
+951
+00:41:33,680 --> 00:41:39,440
+research-forward and research-backward
+
+952
+00:41:36,480 --> 00:41:41,440
+are trying to match the text in a
+
+953
+00:41:39,440 --> 00:41:44,080
+buffer. Okay? Like, right now, you are
+
+954
+00:41:41,440 --> 00:41:46,160
+looking at a buffer. It's So,
+
+955
+00:41:44,080 --> 00:41:48,160
+So, because Emacs Lisp, you know, unlike
+
+956
+00:41:46,160 --> 00:41:49,720
+other languages where you just you don't
+
+957
+00:41:48,160 --> 00:41:51,640
+have the buffer thing. You don't have
+
+958
+00:41:49,720 --> 00:41:54,120
+the, you know, text editor. It's not a
+
+959
+00:41:51,640 --> 00:41:57,000
+text editor. In In Python, in PHP, in
+
+960
+00:41:54,120 --> 00:41:59,760
+Java, you have a string instead. So, you
+
+961
+00:41:57,000 --> 00:42:01,360
+always basically you have functions to
+
+962
+00:41:59,760 --> 00:42:02,840
+match,
+
+963
+00:42:01,360 --> 00:42:04,400
+you know, a regular expression in a
+
+964
+00:42:02,840 --> 00:42:06,840
+string.
+
+965
+00:42:04,400 --> 00:42:10,760
+And in Emacs, that's this command,
+
+966
+00:42:06,840 --> 00:42:10,760
+string-match. Okay? But
+
+967
+00:42:11,080 --> 00:42:15,760
+most of the time, you are working with
+
+968
+00:42:13,880 --> 00:42:17,560
+text in a buffer. Like right now, you
+
+969
+00:42:15,760 --> 00:42:20,360
+are looking at the buffer. So,
+
+970
+00:42:17,560 --> 00:42:22,880
+you you you know, there's no string to
+
+971
+00:42:20,360 --> 00:42:25,760
+match. I mean, actually the whole text
+
+972
+00:42:22,880 --> 00:42:28,560
+in a buffer are kind of strings. So, so
+
+973
+00:42:25,760 --> 00:42:31,320
+you want to match the text in a buffer.
+
+974
+00:42:28,560 --> 00:42:33,440
+So, most of the time you want to use
+
+975
+00:42:31,320 --> 00:42:35,840
+research forward and research backward,
+
+976
+00:42:33,440 --> 00:42:35,840
+okay?
+
+977
+00:42:35,920 --> 00:42:40,800
+Uh okay, so there's a lot to cover and
+
+978
+00:42:39,000 --> 00:42:42,760
+you know, and uh
+
+979
+00:42:40,800 --> 00:42:45,280
+Let Let me just uh show an example,
+
+980
+00:42:42,760 --> 00:42:47,280
+okay? So, let let's try to show some
+
+981
+00:42:45,280 --> 00:42:48,280
+semi example.
+
+982
+00:42:47,280 --> 00:42:52,800
+Uh
+
+983
+00:42:48,280 --> 00:42:55,440
+okay, so let Let me quickly demonstrate.
+
+984
+00:42:52,800 --> 00:42:58,240
+Okay, so let's go here. Let's paste it
+
+985
+00:42:55,440 --> 00:43:03,040
+here and let's open that, okay? So, same
+
+986
+00:42:58,240 --> 00:43:03,040
+thing we like before. Now, this time
+
+987
+00:43:03,080 --> 00:43:09,800
+uh this time we are going to use a
+
+988
+00:43:07,240 --> 00:43:13,760
+We are doing it programmatically
+
+989
+00:43:09,800 --> 00:43:16,400
+using Emacs Lisp. We want to replace any
+
+990
+00:43:13,760 --> 00:43:20,000
+number quoted with double quote by a
+
+991
+00:43:16,400 --> 00:43:23,920
+single quote, okay? Uh
+
+992
+00:43:20,000 --> 00:43:27,880
+in Elisp, okay? So, now what do we do?
+
+993
+00:43:23,920 --> 00:43:27,880
+We do uh like this, okay?
+
+994
+00:43:28,360 --> 00:43:35,880
+Uh first of all, turn this into a Emacs
+
+995
+00:43:31,880 --> 00:43:35,880
+Lisp mode, okay? So, hold on a second.
+
+996
+00:43:36,040 --> 00:43:38,880
+Uh
+
+997
+00:43:41,360 --> 00:43:44,200
+Wait.
+
+998
+00:43:50,480 --> 00:43:56,320
+Uh okay, so hold on a second.
+
+999
+00:43:54,160 --> 00:43:56,320
+Uh
+
+1000
+00:44:01,120 --> 00:44:08,440
+So, we start a new Emacs Lisp block,
+
+1001
+00:44:04,960 --> 00:44:10,720
+put it the put the text inside, then
+
+1002
+00:44:08,440 --> 00:44:13,920
+start a new buffer, okay? So, now we are
+
+1003
+00:44:10,720 --> 00:44:17,280
+in Emacs Lisp. So, let's do research
+
+1004
+00:44:13,920 --> 00:44:19,240
+forward, okay? Now, regular expression,
+
+1005
+00:44:17,280 --> 00:44:22,440
+we want a
+
+1006
+00:44:19,240 --> 00:44:25,440
+0 to 9, a digit,
+
+1007
+00:44:22,440 --> 00:44:26,520
+one or more digits, then we and we want
+
+1008
+00:44:25,440 --> 00:44:28,000
+to
+
+1009
+00:44:26,520 --> 00:44:30,080
+uh
+
+1010
+00:44:28,000 --> 00:44:34,760
+one or more digits, we we want to
+
+1011
+00:44:30,080 --> 00:44:34,760
+capture it. So, to capture, you need
+
+1012
+00:44:35,480 --> 00:44:39,720
+backslash paren.
+
+1013
+00:44:37,680 --> 00:44:42,960
+But, here is a complexity. You need
+
+1014
+00:44:39,720 --> 00:44:44,800
+actually two backslash, because normally
+
+1015
+00:44:42,960 --> 00:44:48,280
+a regular expression, you know, to
+
+1016
+00:44:44,800 --> 00:44:51,000
+capture, you use backslash parenthesis.
+
+1017
+00:44:48,280 --> 00:44:53,800
+But, now in Emacs Lisp, regular
+
+1018
+00:44:51,000 --> 00:44:55,520
+expression is a string, so you can see,
+
+1019
+00:44:53,800 --> 00:44:58,640
+you know, it's a string. And inside the
+
+1020
+00:44:55,520 --> 00:45:01,640
+string, a backslash
+
+1021
+00:44:58,640 --> 00:45:04,560
+is a escape mechanism. So, in order to
+
+1022
+00:45:01,640 --> 00:45:07,400
+add a backslash, you need backslash
+
+1023
+00:45:04,560 --> 00:45:09,040
+backslash. So, so this is when you
+
+1024
+00:45:07,400 --> 00:45:11,760
+started to see
+
+1025
+00:45:09,040 --> 00:45:12,880
+lots of the backslash, okay?
+
+1026
+00:45:11,760 --> 00:45:14,840
+So,
+
+1027
+00:45:12,880 --> 00:45:18,120
+this is how you capture
+
+1028
+00:45:14,840 --> 00:45:20,920
+a sequence of digits, okay? One or more.
+
+1029
+00:45:18,120 --> 00:45:24,280
+So, once you capture, and also
+
+1030
+00:45:20,920 --> 00:45:26,840
+also, you need to add that double quote,
+
+1031
+00:45:24,280 --> 00:45:29,480
+because you want to capture, you know,
+
+1032
+00:45:26,840 --> 00:45:32,040
+double quote, then digit inside. So, you
+
+1033
+00:45:29,480 --> 00:45:33,440
+need add a to add a double quote here.
+
+1034
+00:45:32,040 --> 00:45:36,520
+So, how do you add a double quote?
+
+1035
+00:45:33,440 --> 00:45:38,800
+Again, backslash quote. That's how you
+
+1036
+00:45:36,520 --> 00:45:41,560
+add a double quote inside the string.
+
+1037
+00:45:38,800 --> 00:45:43,200
+And same thing here. So, that is our
+
+1038
+00:45:41,560 --> 00:45:45,640
+regular expression. So, we want to
+
+1039
+00:45:43,200 --> 00:45:47,680
+search forward by that pattern.
+
+1040
+00:45:45,640 --> 00:45:49,600
+And optional bound no error, we don't
+
+1041
+00:45:47,680 --> 00:45:52,640
+care, okay? Come on, we don't care about
+
+1042
+00:45:49,600 --> 00:45:54,920
+those options, okay? So, now this is the
+
+1043
+00:45:52,640 --> 00:45:58,040
+code. Now, we just
+
+1044
+00:45:54,920 --> 00:46:01,040
+evaluate it, and it should move the
+
+1045
+00:45:58,040 --> 00:46:03,640
+cursor to to the place where it matches,
+
+1046
+00:46:01,040 --> 00:46:07,640
+okay? Now, let's evaluate the code. Do
+
+1047
+00:46:03,640 --> 00:46:10,000
+it. There There it is, you see?
+
+1048
+00:46:07,640 --> 00:46:13,360
+So, for example, let's change
+
+1049
+00:46:10,000 --> 00:46:16,320
+this add more number, okay? Okay, so
+
+1050
+00:46:13,360 --> 00:46:18,560
+let's add some more random number, okay?
+
+1051
+00:46:16,320 --> 00:46:20,480
+Now, let's try again. Evaluate it, you
+
+1052
+00:46:18,560 --> 00:46:23,640
+see? It
+
+1053
+00:46:20,480 --> 00:46:26,280
+And we can
+
+1054
+00:46:23,640 --> 00:46:29,080
+you know, we can add lots of things
+
+1055
+00:46:26,280 --> 00:46:31,280
+here. Let's try it again. Do it, you
+
+1056
+00:46:29,080 --> 00:46:33,000
+see? It always
+
+1057
+00:46:31,280 --> 00:46:34,840
+you know, it it found a pattern. Now,
+
+1058
+00:46:33,000 --> 00:46:38,200
+what if you want to replace it? Let me
+
+1059
+00:46:34,840 --> 00:46:41,600
+show you, okay? So, replace so let's
+
+1060
+00:46:38,200 --> 00:46:41,600
+group the whole thing.
+
+1061
+00:46:41,760 --> 00:46:50,160
+Let's group the whole thing into one
+
+1062
+00:46:45,360 --> 00:46:53,360
+block of code like that, okay? Then
+
+1063
+00:46:50,160 --> 00:46:55,400
+so to replace, what you do is
+
+1064
+00:46:53,360 --> 00:46:55,400
+uh
+
+1065
+00:46:56,320 --> 00:46:58,480
+uh
+
+1066
+00:47:02,680 --> 00:47:07,960
+replace match, okay? So
+
+1067
+00:47:05,800 --> 00:47:11,000
+So, here you want to put what you want
+
+1068
+00:47:07,960 --> 00:47:13,600
+to replace by. So, you want to replace
+
+1069
+00:47:11,000 --> 00:47:13,600
+by
+
+1070
+00:47:13,840 --> 00:47:18,200
+\1.
+
+1071
+00:47:15,640 --> 00:47:20,880
+I think that work, okay?
+
+1072
+00:47:18,200 --> 00:47:20,880
+So
+
+1073
+00:47:25,000 --> 00:47:28,720
+Okay, so let's let's don't care about
+
+1074
+00:47:27,160 --> 00:47:30,960
+the option.
+
+1075
+00:47:28,720 --> 00:47:33,520
+So, now if we call
+
+1076
+00:47:30,960 --> 00:47:35,560
+let's make it clean, okay? Now, if we
+
+1077
+00:47:33,520 --> 00:47:38,240
+call this command
+
+1078
+00:47:35,560 --> 00:47:39,920
+it should replace the first occurrence
+
+1079
+00:47:38,240 --> 00:47:42,080
+of this thing.
+
+1080
+00:47:39,920 --> 00:47:43,120
+Replace the double quote by a single
+
+1081
+00:47:42,080 --> 00:47:45,960
+quote.
+
+1082
+00:47:43,120 --> 00:47:47,200
+Okay, let's put the cats before, okay?
+
+1083
+00:47:45,960 --> 00:47:49,600
+Um
+
+1084
+00:47:47,200 --> 00:47:52,160
+so that let's put more double quote, so
+
+1085
+00:47:49,600 --> 00:47:52,160
+we can
+
+1086
+00:47:53,200 --> 00:47:59,320
+let's put the double quote here.
+
+1087
+00:47:56,640 --> 00:48:02,000
+So, we know that the command skipped
+
+1088
+00:47:59,320 --> 00:48:04,080
+that part, okay? So, now let's evaluate,
+
+1089
+00:48:02,000 --> 00:48:06,160
+okay?
+
+1090
+00:48:04,080 --> 00:48:08,240
+Do it. You see?
+
+1091
+00:48:06,160 --> 00:48:10,720
+It did the replacement, but we make made
+
+1092
+00:48:08,240 --> 00:48:14,000
+a mistake. We need to add a single quote
+
+1093
+00:48:10,720 --> 00:48:16,360
+here. So, undo single quote. There it
+
+1094
+00:48:14,000 --> 00:48:18,440
+is, okay? Let's do it again. Watch this
+
+1095
+00:48:16,360 --> 00:48:20,520
+line, okay? Do it.
+
+1096
+00:48:18,440 --> 00:48:23,240
+Fantastic, okay? So, that's a
+
+1097
+00:48:20,520 --> 00:48:25,960
+demonstration of regular expression in
+
+1098
+00:48:23,240 --> 00:48:28,680
+Emacs Lisp. Now,
+
+1099
+00:48:25,960 --> 00:48:31,560
+the few things you want to uh know,
+
+1100
+00:48:28,680 --> 00:48:34,160
+important tips, okay? So, first of all,
+
+1101
+00:48:31,560 --> 00:48:36,440
+the most important functions in Emacs
+
+1102
+00:48:34,160 --> 00:48:39,560
+Lisp for regular expression, that's uh
+
+1103
+00:48:36,440 --> 00:48:41,600
+research forward, research backward, and
+
+1104
+00:48:39,560 --> 00:48:43,320
+also skip chars forward. You can read
+
+1105
+00:48:41,600 --> 00:48:45,840
+about it later.
+
+1106
+00:48:43,320 --> 00:48:48,800
+Skip chars backward and string match,
+
+1107
+00:48:45,840 --> 00:48:51,560
+okay? And what if you
+
+1108
+00:48:48,800 --> 00:48:55,040
+Excuse me. What if you want to get the
+
+1109
+00:48:51,560 --> 00:48:56,920
+matched string or patterns? So, those
+
+1110
+00:48:55,040 --> 00:49:00,000
+are these commands.
+
+1111
+00:48:56,920 --> 00:49:02,880
+And uh we have demonstrated one of them,
+
+1112
+00:49:00,000 --> 00:49:05,120
+uh which is this replace match, okay?
+
+1113
+00:49:02,880 --> 00:49:07,640
+That's how you replace,
+
+1114
+00:49:05,120 --> 00:49:10,080
+which we have demonstrated, okay? So,
+
+1115
+00:49:07,640 --> 00:49:12,880
+these are the most important regular
+
+1116
+00:49:10,080 --> 00:49:16,560
+expression functions, the most used
+
+1117
+00:49:12,880 --> 00:49:19,160
+by far, by 90 over 90% are these, okay?
+
+1118
+00:49:16,560 --> 00:49:21,280
+So, you are learning Emacs Lisp, these
+
+1119
+00:49:19,160 --> 00:49:24,000
+are the functions you want to master.
+
+1120
+00:49:21,280 --> 00:49:26,240
+And also, this is how you test regular
+
+1121
+00:49:24,000 --> 00:49:28,800
+expression, the most simple and
+
+1122
+00:49:26,240 --> 00:49:31,120
+efficient way, in my opinion, how you
+
+1123
+00:49:28,800 --> 00:49:33,920
+test regular expression in Emacs Lisp
+
+1124
+00:49:31,120 --> 00:49:35,640
+code. Because the pattern can gets very
+
+1125
+00:49:33,920 --> 00:49:38,240
+complex, you know, especially with the
+
+1126
+00:49:35,640 --> 00:49:40,400
+backslash. So, you can just type, you
+
+1127
+00:49:38,240 --> 00:49:43,040
+know, research forward,
+
+1128
+00:49:40,400 --> 00:49:44,360
+then put whatever whatever text at the
+
+1129
+00:49:43,040 --> 00:49:46,400
+bottom,
+
+1130
+00:49:44,360 --> 00:49:49,040
+then you
+
+1131
+00:49:46,400 --> 00:49:50,360
+you try your uh pattern here, regular
+
+1132
+00:49:49,040 --> 00:49:52,240
+expression,
+
+1133
+00:49:50,360 --> 00:49:57,040
+then whatever that then you just
+
+1134
+00:49:52,240 --> 00:49:58,920
+evaluate this code, you know, by calling
+
+1135
+00:49:57,040 --> 00:50:01,240
+eval-last-sex.
+
+1136
+00:49:58,920 --> 00:50:03,800
+You see that? So you see we made another
+
+1137
+00:50:01,240 --> 00:50:07,800
+change, you know, 70 becomes single
+
+1138
+00:50:03,800 --> 00:50:07,800
+quote. Okay, that's the
+
+1139
+00:50:07,840 --> 00:50:11,160
+most used regular expression functions
+
+1140
+00:50:10,120 --> 00:50:13,160
+and
+
+1141
+00:50:11,160 --> 00:50:16,440
+how you test regular expression in Emacs
+
+1142
+00:50:13,160 --> 00:50:18,840
+Lisp. Okay, that's that's that.
+
+1143
+00:50:16,440 --> 00:50:20,800
+And let's see what what what's the next
+
+1144
+00:50:18,840 --> 00:50:22,880
+thing.
+
+1145
+00:50:20,800 --> 00:50:26,560
+Find replace string in a buffer. You can
+
+1146
+00:50:22,880 --> 00:50:30,160
+read that. Lots of examples. Uh
+
+1147
+00:50:26,560 --> 00:50:32,360
+Okay, I think that's it for today. So
+
+1148
+00:50:30,160 --> 00:50:34,720
+yeah, so you know, basic coverage of
+
+1149
+00:50:32,360 --> 00:50:37,520
+regular expression in Emacs Lisp.
+
+1150
+00:50:34,720 --> 00:50:40,840
+I hope I'm not too repetitious. Now, if
+
+1151
+00:50:37,520 --> 00:50:43,400
+you like my stuff, okay, look here. Buy
+
+1152
+00:50:40,840 --> 00:50:46,600
+Kxai Emacs tutorial. Okay, so click on
+
+1153
+00:50:43,400 --> 00:50:49,080
+that. Go to PayPal, pay me, or you can
+
+1154
+00:50:46,600 --> 00:50:51,920
+pay me by Patreon.
+
+1155
+00:50:49,080 --> 00:50:54,080
+Uh or you can just PayPal me or Amazon
+
+1156
+00:50:51,920 --> 00:50:57,080
+gift card. Okay.
+
+1157
+00:50:54,080 --> 00:50:57,080
+Kxali.info
+
+1158
+00:50:58,400 --> 00:51:05,160
+Show JavaScript. Turn on JavaScript. So
+
+1159
+00:51:02,440 --> 00:51:08,800
+I did a lot tutorials in different
+
+1160
+00:51:05,160 --> 00:51:12,320
+languages and at the bottom you can see
+
+1161
+00:51:08,800 --> 00:51:14,920
+Patreon me five bucks. Five bucks.
+
+1162
+00:51:12,320 --> 00:51:16,480
+Amazon gift card me.
+
+1163
+00:51:14,920 --> 00:51:19,920
+PayPal me.
+
+1164
+00:51:16,480 --> 00:51:22,360
+Or Bitcoin me. Okay? Thank you guys.
+
+1165
+00:51:19,920 --> 00:51:25,160
+So let's see questions. How come your
+
+1166
+00:51:22,360 --> 00:51:27,280
+tone is what you stay consistent? Yeah,
+
+1167
+00:51:25,160 --> 00:51:28,560
+today I try to be
+
+1168
+00:51:27,280 --> 00:51:30,320
+calm
+
+1169
+00:51:28,560 --> 00:51:33,520
+instead of
+
+1170
+00:51:30,320 --> 00:51:34,920
+instead of something else.
+
+1171
+00:51:33,520 --> 00:51:37,320
+Uh
+
+1172
+00:51:34,920 --> 00:51:40,800
+okay, so
+
+1173
+00:51:37,320 --> 00:51:42,480
+Okay, so thank you guys. Hey Justin. And
+
+1174
+00:51:40,800 --> 00:51:44,520
+hey Reaper.
+
+1175
+00:51:42,480 --> 00:51:46,240
+Leaning toothpick syndrome. Yeah, so
+
+1176
+00:51:44,520 --> 00:51:49,040
+that's it for today.
+
+1177
+00:51:46,240 --> 00:51:52,040
+So the leaning toothpick syndrome, very
+
+1178
+00:51:49,040 --> 00:51:55,560
+interesting, you know, it's uh
+
+1179
+00:51:52,040 --> 00:51:57,640
+happens with Emacs regular expression.
+
+1180
+00:51:55,560 --> 00:51:59,800
+Okay, so I'm going to shut down in 2
+
+1181
+00:51:57,640 --> 00:52:02,600
+minutes or so. So, let's look random a
+
+1182
+00:51:59,800 --> 00:52:05,200
+little bit. Random, okay? So,
+
+1183
+00:52:02,600 --> 00:52:08,360
+uh random, for example, what is this
+
+1184
+00:52:05,200 --> 00:52:10,360
+keyboard blog? I want to uh tell you
+
+1185
+00:52:08,360 --> 00:52:15,080
+something about regular expression
+
+1186
+00:52:10,360 --> 00:52:18,960
+related uh yeah, the difference
+
+1187
+00:52:15,080 --> 00:52:19,560
+of Emacs Lisp regular expression versus
+
+1188
+00:52:18,960 --> 00:52:21,720
+uh
+
+1189
+00:52:19,560 --> 00:52:23,560
+other languages regular expression,
+
+1190
+00:52:21,720 --> 00:52:27,240
+okay? It's
+
+1191
+00:52:23,560 --> 00:52:30,440
+Here are the main major differences. You
+
+1192
+00:52:27,240 --> 00:52:32,520
+see, in most other languages
+
+1193
+00:52:30,440 --> 00:52:34,680
+when you capture, you just use
+
+1194
+00:52:32,520 --> 00:52:37,240
+parentheses, okay?
+
+1195
+00:52:34,680 --> 00:52:40,760
+But, in Emacs
+
+1196
+00:52:37,240 --> 00:52:43,720
+you have to use backslash parentheses.
+
+1197
+00:52:40,760 --> 00:52:46,160
+Now, because Emacs
+
+1198
+00:52:43,720 --> 00:52:48,680
+string Now, Emacs doesn't have a
+
+1199
+00:52:46,160 --> 00:52:51,360
+separate syntax for regular expression
+
+1200
+00:52:48,680 --> 00:52:54,120
+string versus a regular string. You see,
+
+1201
+00:52:51,360 --> 00:52:55,240
+in Python, for example, in Python, in
+
+1202
+00:52:54,120 --> 00:52:59,840
+Perl
+
+1203
+00:52:55,240 --> 00:53:01,840
+in JavaScript, and uh I think in Java,
+
+1204
+00:52:59,840 --> 00:53:03,400
+as well. In almost all the other
+
+1205
+00:53:01,840 --> 00:53:05,720
+languages
+
+1206
+00:53:03,400 --> 00:53:07,520
+a regular expression is a string.
+
+1207
+00:53:05,720 --> 00:53:10,520
+However
+
+1208
+00:53:07,520 --> 00:53:12,320
+that string has a special semantics than
+
+1209
+00:53:10,520 --> 00:53:14,320
+a normal string.
+
+1210
+00:53:12,320 --> 00:53:16,840
+You know, because the regular expression
+
+1211
+00:53:14,320 --> 00:53:19,880
+string the backslash has a special
+
+1212
+00:53:16,840 --> 00:53:22,680
+meaning. For example, backslash d means
+
+1213
+00:53:19,880 --> 00:53:25,840
+a digit, okay?
+
+1214
+00:53:22,680 --> 00:53:28,680
+But, in Emacs Lisp, there's no separate
+
+1215
+00:53:25,840 --> 00:53:30,840
+thing. Everything is a string, okay?
+
+1216
+00:53:28,680 --> 00:53:34,280
+String is a data type, and regular
+
+1217
+00:53:30,840 --> 00:53:37,160
+expression is expressed in a string.
+
+1218
+00:53:34,280 --> 00:53:39,320
+So, in a string
+
+1219
+00:53:37,160 --> 00:53:41,760
+backslash has special meaning. So, if
+
+1220
+00:53:39,320 --> 00:53:44,000
+you want a backslash, you have to double
+
+1221
+00:53:41,760 --> 00:53:46,600
+backslash, okay? So, anyway,
+
+1222
+00:53:44,000 --> 00:53:48,400
+so Emacs Lisp, you know, parenthesis is
+
+1223
+00:53:46,600 --> 00:53:51,600
+literal. So, if you want to capture, you
+
+1224
+00:53:48,400 --> 00:53:54,840
+have to backslash parenthesis.
+
+1225
+00:53:51,600 --> 00:53:57,080
+And because it's a string, so therefore,
+
+1226
+00:53:54,840 --> 00:54:00,160
+you need another backslash to escape the
+
+1227
+00:53:57,080 --> 00:54:02,920
+backslash. So, that looks like that.
+
+1228
+00:54:00,160 --> 00:54:05,840
+So, this is the most This is probably
+
+1229
+00:54:02,920 --> 00:54:07,440
+the most important difference. Okay?
+
+1230
+00:54:05,840 --> 00:54:09,640
+Then there are others. For example, in
+
+1231
+00:54:07,440 --> 00:54:11,120
+other languages, you have backslash D
+
+1232
+00:54:09,640 --> 00:54:13,120
+for digits.
+
+1233
+00:54:11,120 --> 00:54:15,600
+But in Emacs Lisp, you don't have that.
+
+1234
+00:54:13,120 --> 00:54:19,160
+You either use, like we showed before, 0
+
+1235
+00:54:15,600 --> 00:54:23,200
+to 9, or you can use this kind of longer
+
+1236
+00:54:19,160 --> 00:54:26,800
+syntax. That's POSIX syntax. Okay? And
+
+1237
+00:54:23,200 --> 00:54:30,320
+similarly for word and whitespace. Okay?
+
+1238
+00:54:26,800 --> 00:54:32,480
+So, that's some some of the um
+
+1239
+00:54:30,320 --> 00:54:33,960
+that that's the most important
+
+1240
+00:54:32,480 --> 00:54:35,960
+differences.
+
+1241
+00:54:33,960 --> 00:54:39,000
+Okay. Now, yeah, I'm going to shut down.
+
+1242
+00:54:35,960 --> 00:54:39,000
+So, let me show uh
+
+1243
+00:54:39,280 --> 00:54:44,520
+Perl style. So, what There's a question,
+
+1244
+00:54:41,680 --> 00:54:48,120
+what regular flav- what regular
+
+1245
+00:54:44,520 --> 00:54:49,720
+expression flavor do you prefer?
+
+1246
+00:54:48,120 --> 00:54:52,000
+Um Perl style. Yeah, so regular
+
+1247
+00:54:49,720 --> 00:54:54,000
+expression, you know, over the past 30
+
+1248
+00:54:52,000 --> 00:54:54,920
+30 years, they are
+
+1249
+00:54:54,000 --> 00:54:57,520
+uh
+
+1250
+00:54:54,920 --> 00:55:00,520
+there are a handful of variants.
+
+1251
+00:54:57,520 --> 00:55:02,880
+Obviously, Emacs Lisp syntax is very
+
+1252
+00:55:00,520 --> 00:55:04,040
+different from all the others.
+
+1253
+00:55:02,880 --> 00:55:05,880
+By the way, there's some more
+
+1254
+00:55:04,040 --> 00:55:08,400
+interesting things about Emacs Lisp
+
+1255
+00:55:05,880 --> 00:55:10,600
+regular expression we haven't covered.
+
+1256
+00:55:08,400 --> 00:55:13,760
+Uh for example, in Emacs Lisp regular
+
+1257
+00:55:10,600 --> 00:55:16,280
+expression, you can have
+
+1258
+00:55:13,760 --> 00:55:18,240
+uh where is it? Syntax regular
+
+1259
+00:55:16,280 --> 00:55:19,760
+expression syntax in Emacs regular
+
+1260
+00:55:18,240 --> 00:55:22,120
+expression,
+
+1261
+00:55:19,760 --> 00:55:24,920
+you have certain regular expression
+
+1262
+00:55:22,120 --> 00:55:26,200
+patterns that's
+
+1263
+00:55:24,920 --> 00:55:31,360
+that's
+
+1264
+00:55:26,200 --> 00:55:33,840
+associated with the Emacs Lisp
+
+1265
+00:55:31,360 --> 00:55:35,920
+um syntax table.
+
+1266
+00:55:33,840 --> 00:55:38,480
+You know, that's getting esoteric
+
+1267
+00:55:35,920 --> 00:55:41,040
+because in Emacs Lisp that the language,
+
+1268
+00:55:38,480 --> 00:55:44,280
+you have the concept called syntax
+
+1269
+00:55:41,040 --> 00:55:46,720
+table. Okay. Uh which is very hard to
+
+1270
+00:55:44,280 --> 00:55:48,400
+work with, but the basic idea is that
+
+1271
+00:55:46,720 --> 00:55:50,120
+every character
+
+1272
+00:55:48,400 --> 00:55:53,520
+in Unicode
+
+1273
+00:55:50,120 --> 00:55:56,960
+is categorized into
+
+1274
+00:55:53,520 --> 00:55:58,240
+a class. So, you have like for for
+
+1275
+00:55:56,960 --> 00:56:01,120
+example,
+
+1276
+00:55:58,240 --> 00:56:03,880
+alphabets, you know, A to Z and any
+
+1277
+00:56:01,120 --> 00:56:05,600
+letters in Russian alphabet or Chinese
+
+1278
+00:56:03,880 --> 00:56:06,600
+characters, those are
+
+1279
+00:56:05,600 --> 00:56:07,960
+Let
+
+1280
+00:56:06,600 --> 00:56:09,960
+Let me Let me show it, okay? So, you
+
+1281
+00:56:07,960 --> 00:56:13,400
+have this
+
+1282
+00:56:09,960 --> 00:56:17,080
+Uh okay, so let's see uh syntax table.
+
+1283
+00:56:13,400 --> 00:56:18,880
+This is kind of esoteric, so
+
+1284
+00:56:17,080 --> 00:56:21,560
+Let's see, where is it?
+
+1285
+00:56:18,880 --> 00:56:23,360
+Yeah, syntax table. So, you can see
+
+1286
+00:56:21,560 --> 00:56:25,200
+So, here on the left, you you are
+
+1287
+00:56:23,360 --> 00:56:28,760
+looking at some of the regular
+
+1288
+00:56:25,200 --> 00:56:32,080
+expression syntax in Emacs Lisp flavor.
+
+1289
+00:56:28,760 --> 00:56:35,680
+That does not exist, okay? Starting from
+
+1290
+00:56:32,080 --> 00:56:37,880
+here. That does not exist anywhere else.
+
+1291
+00:56:35,680 --> 00:56:40,680
+Okay, this this this are Emacs Lisp
+
+1292
+00:56:37,880 --> 00:56:43,000
+specific. Okay, and they refer to the
+
+1293
+00:56:40,680 --> 00:56:46,200
+syntax table. Their meaning is connected
+
+1294
+00:56:43,000 --> 00:56:48,720
+to the syntax table concept. And what is
+
+1295
+00:56:46,200 --> 00:56:51,960
+the syntax table? That's a special thing
+
+1296
+00:56:48,720 --> 00:56:54,640
+in Emacs Lisp in Emacs, okay?
+
+1297
+00:56:51,960 --> 00:56:58,000
+Which basically categorize
+
+1298
+00:56:54,640 --> 00:57:01,480
+characters according to their type, like
+
+1299
+00:56:58,000 --> 00:57:06,200
+punctuation, symbol, word,
+
+1300
+00:57:01,480 --> 00:57:07,200
+things like that. So, syntax table is
+
+1301
+00:57:06,200 --> 00:57:09,640
+uh
+
+1302
+00:57:07,200 --> 00:57:12,240
+is specific is buffer local. It's
+
+1303
+00:57:09,640 --> 00:57:13,840
+specific to each buffer.
+
+1304
+00:57:12,240 --> 00:57:16,440
+Which means
+
+1305
+00:57:13,840 --> 00:57:18,400
+depending on what major mode you are in,
+
+1306
+00:57:16,440 --> 00:57:20,480
+your syntax table,
+
+1307
+00:57:18,400 --> 00:57:21,920
+which characters belongs to what class,
+
+1308
+00:57:20,480 --> 00:57:24,440
+may be different.
+
+1309
+00:57:21,920 --> 00:57:26,880
+For example, in Emacs Lisp in Emacs Lisp
+
+1310
+00:57:24,440 --> 00:57:28,640
+major mode, so you know,
+
+1311
+00:57:26,880 --> 00:57:30,960
+a dash
+
+1312
+00:57:28,640 --> 00:57:33,160
+is considered part of the symbols
+
+1313
+00:57:30,960 --> 00:57:34,640
+syntax.
+
+1314
+00:57:33,160 --> 00:57:38,200
+But in
+
+1315
+00:57:34,640 --> 00:57:41,280
+in in Goland, for example, a dash is a
+
+1316
+00:57:38,200 --> 00:57:43,040
+punctuation, you see? So, when you use
+
+1317
+00:57:41,280 --> 00:57:45,920
+So, that means when you use the regular
+
+1318
+00:57:43,040 --> 00:57:48,720
+expression in Emacs to match a symbol
+
+1319
+00:57:45,920 --> 00:57:50,360
+such as that one,
+
+1320
+00:57:48,720 --> 00:57:52,920
+you know, that matches the beginning of
+
+1321
+00:57:50,360 --> 00:57:55,600
+symbol you'll you'll fail.
+
+1322
+00:57:52,920 --> 00:57:58,160
+It will behave differently depending
+
+1323
+00:57:55,600 --> 00:57:59,520
+what is the current buffer's major mode,
+
+1324
+00:57:58,160 --> 00:58:01,680
+whether it's, you know, because the
+
+1325
+00:57:59,520 --> 00:58:04,560
+syntax stable are different, okay? I
+
+1326
+00:58:01,680 --> 00:58:07,960
+don't know if I make sense. So,
+
+1327
+00:58:04,560 --> 00:58:09,800
+so, the point is that Emacs Lisp has
+
+1328
+00:58:07,960 --> 00:58:11,760
+regular expression has something
+
+1329
+00:58:09,800 --> 00:58:14,840
+particular to Emacs Lisp.
+
+1330
+00:58:11,760 --> 00:58:17,120
+It's not in other regular expression.
+
+1331
+00:58:14,840 --> 00:58:19,280
+Now, as far as your question, you know,
+
+1332
+00:58:17,120 --> 00:58:20,960
+the regular expression variations, let
+
+1333
+00:58:19,280 --> 00:58:23,360
+me show you some
+
+1334
+00:58:20,960 --> 00:58:23,360
+um
+
+1335
+00:58:28,160 --> 00:58:33,040
+So, search for Xah Lee regular
+
+1336
+00:58:29,960 --> 00:58:35,600
+expression index, so you can see
+
+1337
+00:58:33,040 --> 00:58:36,680
+I have written a lot a lot
+
+1338
+00:58:35,600 --> 00:58:38,840
+uh
+
+1339
+00:58:36,680 --> 00:58:41,000
+tons of articles on regular expression.
+
+1340
+00:58:38,840 --> 00:58:43,640
+For example, complete coverage of
+
+1341
+00:58:41,000 --> 00:58:45,240
+JavaScript regular expression, more than
+
+1342
+00:58:43,640 --> 00:58:48,120
+10 articles.
+
+1343
+00:58:45,240 --> 00:58:50,640
+Uh you know, what function to use.
+
+1344
+00:58:48,120 --> 00:58:54,080
+Uh complete coverage of Python regular
+
+1345
+00:58:50,640 --> 00:58:56,120
+expression. Uh you know, 20 articles.
+
+1346
+00:58:54,080 --> 00:58:57,880
+Goland regular expression, Perl regular
+
+1347
+00:58:56,120 --> 00:59:00,600
+expression, PowerShell regular
+
+1348
+00:58:57,880 --> 00:59:02,720
+expression, Wolfram language regular
+
+1349
+00:59:00,600 --> 00:59:05,880
+regular expression.
+
+1350
+00:59:02,720 --> 00:59:07,680
+And Emacs Lisp regular expression. So,
+
+1351
+00:59:05,880 --> 00:59:09,480
+and uh
+
+1352
+00:59:07,680 --> 00:59:12,000
+but but the question about, you know,
+
+1353
+00:59:09,480 --> 00:59:14,800
+which one I prefer, usually
+
+1354
+00:59:12,000 --> 00:59:17,080
+I don't use the two, you know, the two
+
+1355
+00:59:14,800 --> 00:59:19,400
+advanced regular expression such as
+
+1356
+00:59:17,080 --> 00:59:21,720
+backtracking and stuff. Like, whenever I
+
+1357
+00:59:19,400 --> 00:59:23,880
+need to do that, I simply
+
+1358
+00:59:21,720 --> 00:59:26,040
+I simply manipulate, you know,
+
+1359
+00:59:23,880 --> 00:59:29,520
+do more more than one pattern instead.
+
+1360
+00:59:26,040 --> 00:59:31,360
+Like, if if if I found this and check
+
+1361
+00:59:29,520 --> 00:59:34,080
+whether some other condition is met, you
+
+1362
+00:59:31,360 --> 00:59:36,680
+know, you just have two if statements.
+
+1363
+00:59:34,080 --> 00:59:39,400
+Uh that make thing thing that make
+
+1364
+00:59:36,680 --> 00:59:42,480
+things much more simpler
+
+1365
+00:59:39,400 --> 00:59:46,280
+and much more flexible.
+
+1366
+00:59:42,480 --> 00:59:48,560
+Instead of relying on a specific
+
+1367
+00:59:46,280 --> 00:59:51,280
+variation of a regular expression to
+
+1368
+00:59:48,560 --> 00:59:53,480
+have a particular feature. Because when
+
+1369
+00:59:51,280 --> 00:59:55,040
+you started to use backtracking and
+
+1370
+00:59:53,480 --> 00:59:58,320
+things like that,
+
+1371
+00:59:55,040 --> 01:00:00,280
+the syntax gets complex, you know, um
+
+1372
+00:59:58,320 --> 01:00:02,800
+okay, that you know, that's kind of
+
+1373
+01:00:00,280 --> 01:00:06,080
+advanced, you know, and uh
+
+1374
+01:00:02,800 --> 01:00:06,080
+Okay, that's it. Um
+
+1375
+01:00:06,240 --> 01:00:10,960
+Oh, yeah. So, yeah, so good point.
+
+1376
+01:00:08,240 --> 01:00:13,160
+Justin says that a nice function in
+
+1377
+01:00:10,960 --> 01:00:14,840
+Emacs, a nice command
+
+1378
+01:00:13,160 --> 01:00:16,920
+to test regular expression is
+
+1379
+01:00:14,840 --> 01:00:18,480
+highlight-lines-matching-rejects.
+
+1380
+01:00:16,920 --> 01:00:21,000
+Yeah, that's that's fantastic
+
+1381
+01:00:18,480 --> 01:00:22,440
+suggestion. I should add that.
+
+1382
+01:00:21,000 --> 01:00:24,000
+Thank you. I should add that to my
+
+1383
+01:00:22,440 --> 01:00:26,840
+tutorial. So, let me show you. So, I
+
+1384
+01:00:24,000 --> 01:00:29,280
+want to add uh match
+
+1385
+01:00:26,840 --> 01:00:32,280
+uh let's say I want to match a sequence
+
+1386
+01:00:29,280 --> 01:00:35,240
+of digits, okay? So,
+
+1387
+01:00:32,280 --> 01:00:37,240
+I just call um
+
+1388
+01:00:35,240 --> 01:00:40,160
+Yeah, rejects-to-highlight. So, the
+
+1389
+01:00:37,240 --> 01:00:42,680
+command is called uh highlight-rejects,
+
+1390
+01:00:40,160 --> 01:00:46,240
+okay? That's the command name. So,
+
+1391
+01:00:42,680 --> 01:00:49,160
+I press a key. So, so by default, you
+
+1392
+01:00:46,240 --> 01:00:52,000
+know, so 0 to 9
+
+1393
+01:00:49,160 --> 01:00:54,960
+plus, okay? Do it. And what color?
+
+1394
+01:00:52,000 --> 01:00:56,720
+Yellow, okay? There it is. So, this is
+
+1395
+01:00:54,960 --> 01:00:59,160
+fantastic. You can You see all the
+
+1396
+01:00:56,720 --> 01:01:01,280
+numbers are now colored. I I can easily
+
+1397
+01:00:59,160 --> 01:01:02,920
+see if you are in a programming source
+
+1398
+01:01:01,280 --> 01:01:06,280
+code.
+
+1399
+01:01:02,920 --> 01:01:06,280
+Okay, thank you guys.
+
+1400
+01:01:08,920 --> 01:01:14,960
+Okay, another question about
+
+1401
+01:01:11,840 --> 01:01:17,000
+command-line calendar. Okay.
+
+1402
+01:01:14,960 --> 01:01:17,920
+Well, that's another another day, okay?
+
+1403
+01:01:17,000 --> 01:01:19,840
+So,
+
+1404
+01:01:17,920 --> 01:01:21,920
+thank you guys for watching. I'm getting
+
+1405
+01:01:19,840 --> 01:01:24,200
+tired. It's 1 hour. Thank you guys for
+
+1406
+01:01:21,920 --> 01:01:25,160
+watching. Donate, okay? Donate. Thank
+
+1407
+01:01:24,200 --> 01:01:28,120
+you.
+
+1408
+01:01:25,160 --> 01:01:30,880
+And uh share my videos, okay?
+
+1409
+01:01:28,120 --> 01:01:33,440
+You know, you might like it. Click like.
+
+1410
+01:01:30,880 --> 01:01:35,920
+You know, that's a YouTube controlling
+
+1411
+01:01:33,440 --> 01:01:37,600
+things, but
+
+1412
+01:01:35,920 --> 01:01:40,200
+uh you know,
+
+1413
+01:01:37,600 --> 01:01:43,080
+if you like my video, share it.
+
+1414
+01:01:40,200 --> 01:01:43,080
+Thank you. Bye.
+
+1415
+01:01:49,480 --> 01:01:53,720
+Uh Shut down. Shut down here.
+
+1416
+01:01:57,480 --> 01:02:00,360
+Thank you. Thank you.
+

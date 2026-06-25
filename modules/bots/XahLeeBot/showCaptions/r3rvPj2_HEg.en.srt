@@ -1,0 +1,5660 @@
+1
+00:00:02,159 --> 00:00:09,599
+Hello, good evening everyone. Welcome to
+
+2
+00:00:05,520 --> 00:00:12,320
+another episode of talk show. I talk and
+
+3
+00:00:09,599 --> 00:00:15,440
+show. So we are going to do wuam
+
+4
+00:00:12,320 --> 00:00:19,359
+language coding advent of code
+
+5
+00:00:15,440 --> 00:00:21,359
+day 8 2025. Let me show you my
+
+6
+00:00:19,359 --> 00:00:25,119
+keyboards. This is ultimate hacking
+
+7
+00:00:21,359 --> 00:00:28,480
+keyboard UHK80.
+
+8
+00:00:25,119 --> 00:00:31,279
+Okay. And nia track ball and Logitech.
+
+9
+00:00:28,480 --> 00:00:34,000
+So I have reviews on YouTube. Just
+
+10
+00:00:31,279 --> 00:00:37,360
+search it. You'll find it. Okay. So
+
+11
+00:00:34,000 --> 00:00:43,760
+let's go to my screen. So let's go to my
+
+12
+00:00:37,360 --> 00:00:46,640
+screen. Advent of code 2025 day 8
+
+13
+00:00:43,760 --> 00:00:48,879
+with Wufam language. The most advanced
+
+14
+00:00:46,640 --> 00:00:52,079
+programming language.
+
+15
+00:00:48,879 --> 00:00:54,239
+Starting it. Let's see how it goes. You
+
+16
+00:00:52,079 --> 00:00:56,480
+know, as the days goes by, it'll get
+
+17
+00:00:54,239 --> 00:00:59,760
+more and more difficult. I hope you are
+
+18
+00:00:56,480 --> 00:01:03,520
+not going just going to stare at me
+
+19
+00:00:59,760 --> 00:01:06,720
+staring at the screen. So three shift
+
+20
+00:01:03,520 --> 00:01:10,400
+enter to start the kernel
+
+21
+00:01:06,720 --> 00:01:14,080
+and the magnify 250
+
+22
+00:01:10,400 --> 00:01:17,119
+starting the kernel. Uh how I hate the
+
+23
+00:01:14,080 --> 00:01:18,960
+Windows uh auto clip. You see when if
+
+24
+00:01:17,119 --> 00:01:21,439
+you turn it off then you don't have the
+
+25
+00:01:18,960 --> 00:01:25,119
+the key features. You see you can have
+
+26
+00:01:21,439 --> 00:01:28,159
+the keyboard features of uh auto
+
+27
+00:01:25,119 --> 00:01:31,040
+automatic clip.
+
+28
+00:01:28,159 --> 00:01:33,119
+So I want that but I don't want you know
+
+29
+00:01:31,040 --> 00:01:37,439
+I don't want when you drag to the edges
+
+30
+00:01:33,119 --> 00:01:39,360
+it automatically become uh full screen.
+
+31
+00:01:37,439 --> 00:01:41,439
+So that's annoying. So anyway there is
+
+32
+00:01:39,360 --> 00:01:44,240
+wang language and here is a band of
+
+33
+00:01:41,439 --> 00:01:46,960
+code. So all clear to go. So if you are
+
+34
+00:01:44,240 --> 00:01:48,320
+here watching it say hi love to see your
+
+35
+00:01:46,960 --> 00:01:51,759
+comments. If you are watching this
+
+36
+00:01:48,320 --> 00:01:54,720
+offline, play at 1.5 speed minimum.
+
+37
+00:01:51,759 --> 00:01:57,600
+Okay. So let's prepare and let's see
+
+38
+00:01:54,720 --> 00:01:59,360
+let's uh see how we go how it goes.
+
+39
+00:01:57,600 --> 00:02:01,360
+Okay. Advent of code day eight
+
+40
+00:01:59,360 --> 00:02:04,079
+exploration.
+
+41
+00:02:01,360 --> 00:02:06,479
+Okay. So now so okay so we have
+
+42
+00:02:04,079 --> 00:02:09,360
+experience advent of code is very lousy
+
+43
+00:02:06,479 --> 00:02:12,160
+website because they they hardcoded
+
+44
+00:02:09,360 --> 00:02:14,480
+their website design. So you see when
+
+45
+00:02:12,160 --> 00:02:17,040
+your phone is large they you know they
+
+46
+00:02:14,480 --> 00:02:19,520
+they you have to then you have to scroll
+
+47
+00:02:17,040 --> 00:02:23,599
+the windows like you have to scroll
+
+48
+00:02:19,520 --> 00:02:26,560
+horizontal scroll very annoying
+
+49
+00:02:23,599 --> 00:02:29,520
+you know they don't they don't wrap
+
+50
+00:02:26,560 --> 00:02:32,400
+this is hardcoded website design okay
+
+51
+00:02:29,520 --> 00:02:35,680
+very bad okay anyway let's uh read it in
+
+52
+00:02:32,400 --> 00:02:39,200
+Emacs so today's talk show uh yes event
+
+53
+00:02:35,680 --> 00:02:41,519
+code uh day eight and this uh in the
+
+54
+00:02:39,200 --> 00:02:44,239
+past month or who we've been doing all
+
+55
+00:02:41,519 --> 00:02:46,879
+the advent of code. Some of the part two
+
+56
+00:02:44,239 --> 00:02:49,599
+we failed. So we didn't we failed. Uh
+
+57
+00:02:46,879 --> 00:02:53,760
+usually I mention it here. So day seven
+
+58
+00:02:49,599 --> 00:02:55,519
+part two we I failed. Uh I didn't
+
+59
+00:02:53,760 --> 00:02:58,560
+mention that in the title. I think that
+
+60
+00:02:55,519 --> 00:03:01,519
+one I failed. Okay. So well we can
+
+61
+00:02:58,560 --> 00:03:04,319
+complete it later but no worry. Uh so
+
+62
+00:03:01,519 --> 00:03:07,840
+anyway so so this so yeah so this is
+
+63
+00:03:04,319 --> 00:03:12,599
+today and let's uh start to um look at
+
+64
+00:03:07,840 --> 00:03:12,599
+um where where are we? So the the
+
+65
+00:03:13,840 --> 00:03:22,480
+okay so there problem okay uh start and
+
+66
+00:03:19,760 --> 00:03:24,319
+here's a problem so okay so blah blah
+
+67
+00:03:22,480 --> 00:03:28,560
+blah blah blah blah blah blah blah blah
+
+68
+00:03:24,319 --> 00:03:31,920
+blah day eight okay let's let's just go
+
+69
+00:03:28,560 --> 00:03:34,920
+slowly okay so [clears throat]
+
+70
+00:03:31,920 --> 00:03:34,920
+uh
+
+71
+00:03:35,760 --> 00:03:41,280
+kasar
+
+72
+00:03:37,920 --> 00:03:44,879
+world wrap. I want to uh word wrap. You
+
+73
+00:03:41,280 --> 00:03:47,599
+see, I don't want this um you see when
+
+74
+00:03:44,879 --> 00:03:50,879
+when the line is too long beyond the
+
+75
+00:03:47,599 --> 00:03:53,040
+edges of the window. Emacs will do a
+
+76
+00:03:50,879 --> 00:03:56,319
+wrap, of course. Very nice. However, it
+
+77
+00:03:53,040 --> 00:03:58,640
+it wrap at you know uh it doesn't wrap
+
+78
+00:03:56,319 --> 00:04:02,319
+at the word boundary. So, I want to turn
+
+79
+00:03:58,640 --> 00:04:06,319
+the word boundary sago
+
+80
+00:04:02,319 --> 00:04:08,799
+uh word uh boundary. So, I have a
+
+81
+00:04:06,319 --> 00:04:10,959
+command somewhere. So I forgot what is
+
+82
+00:04:08,799 --> 00:04:14,319
+the key or the command name. So let's
+
+83
+00:04:10,959 --> 00:04:18,079
+look for it. Press space. Press um press
+
+84
+00:04:14,319 --> 00:04:20,720
+space and uh control H.
+
+85
+00:04:18,079 --> 00:04:23,919
+Then just search for word. Okay. Search
+
+86
+00:04:20,720 --> 00:04:27,680
+current word. Count words. I spell word.
+
+87
+00:04:23,919 --> 00:04:31,120
+I search for word. Word. Insert word.
+
+88
+00:04:27,680 --> 00:04:35,120
+Insert word toggle.
+
+89
+00:04:31,120 --> 00:04:38,160
+Uh word wrap. So space and space edge.
+
+90
+00:04:35,120 --> 00:04:41,360
+Space N. space edge. Fantastic and
+
+91
+00:04:38,160 --> 00:04:44,479
+beautiful. So that's a EMAC tip for
+
+92
+00:04:41,360 --> 00:04:47,440
+those of you Emacs users. Say hi. Okay,
+
+93
+00:04:44,479 --> 00:04:49,759
+if you are here. So let's see advent of
+
+94
+00:04:47,440 --> 00:04:52,320
+code. So equipped with a new
+
+95
+00:04:49,759 --> 00:04:56,240
+understanding of teleporter maintenance,
+
+96
+00:04:52,320 --> 00:05:00,240
+you confidently step into onto the
+
+97
+00:04:56,240 --> 00:05:01,840
+repaired teleporter pad. You m
+
+98
+00:05:00,240 --> 00:05:05,440
+rematerialize
+
+99
+00:05:01,840 --> 00:05:08,639
+on an unfamiliar teleporter pad and find
+
+100
+00:05:05,440 --> 00:05:11,199
+yourself in a vast underground space
+
+101
+00:05:08,639 --> 00:05:12,960
+which contains a giant playground. You
+
+102
+00:05:11,199 --> 00:05:14,320
+know that's incomprehensible. I don't
+
+103
+00:05:12,960 --> 00:05:16,800
+know what you're talking about. very
+
+104
+00:05:14,320 --> 00:05:19,680
+annoying advent of code story because
+
+105
+00:05:16,800 --> 00:05:22,639
+usually they are irrelevant like you can
+
+106
+00:05:19,680 --> 00:05:25,600
+skip you know the irrelevant like and
+
+107
+00:05:22,639 --> 00:05:27,919
+and also ugly story like they don't they
+
+108
+00:05:25,600 --> 00:05:30,400
+don't tell you something interesting u
+
+109
+00:05:27,919 --> 00:05:32,320
+you know it's just like irrelevant and
+
+110
+00:05:30,400 --> 00:05:35,120
+jarens you know there's no no
+
+111
+00:05:32,320 --> 00:05:37,840
+interesting thing going on stupid advent
+
+112
+00:05:35,120 --> 00:05:40,639
+of code but the problems the advent of
+
+113
+00:05:37,840 --> 00:05:43,600
+code the design you see the gist of the
+
+114
+00:05:40,639 --> 00:05:46,400
+advent of code of v of code is the
+
+115
+00:05:43,600 --> 00:05:49,840
+programming exercise. So, and so their
+
+116
+00:05:46,400 --> 00:05:52,160
+problem I would say is very good uh you
+
+117
+00:05:49,840 --> 00:05:54,160
+know they are not trivial and uh you
+
+118
+00:05:52,160 --> 00:05:55,919
+know each one takes like several hours
+
+119
+00:05:54,160 --> 00:05:58,800
+to do.
+
+120
+00:05:55,919 --> 00:06:01,039
+So the so you see to create the problem
+
+121
+00:05:58,800 --> 00:06:04,080
+you also one of the difficulty is that
+
+122
+00:06:01,039 --> 00:06:07,600
+you have to create the input. So
+
+123
+00:06:04,080 --> 00:06:10,160
+effectively the guy I'm certain he has
+
+124
+00:06:07,600 --> 00:06:12,880
+to write a program that generates the
+
+125
+00:06:10,160 --> 00:06:14,880
+inputs and the you know it's not it's
+
+126
+00:06:12,880 --> 00:06:16,720
+not trivial to generate these inputs
+
+127
+00:06:14,880 --> 00:06:18,560
+because you have to generate different
+
+128
+00:06:16,720 --> 00:06:20,800
+input for different people but the the
+
+129
+00:06:18,560 --> 00:06:24,000
+but the whatever you generate must be
+
+130
+00:06:20,800 --> 00:06:26,800
+valid input you know so there's there
+
+131
+00:06:24,000 --> 00:06:30,880
+are constraints so he creates a vend of
+
+132
+00:06:26,800 --> 00:06:35,360
+a code a problem for you but to generate
+
+133
+00:06:30,880 --> 00:06:38,080
+the valid input is a programming ex
+
+134
+00:06:35,360 --> 00:06:40,080
+exercise by itself, you know. So that's
+
+135
+00:06:38,080 --> 00:06:41,680
+I think that's interesting. Okay, so
+
+136
+00:06:40,080 --> 00:06:45,120
+let's move on. Let's see if we can
+
+137
+00:06:41,680 --> 00:06:48,960
+quickly solve this. Uh but you know, I I
+
+138
+00:06:45,120 --> 00:06:51,039
+want I I um I want to read read it.
+
+139
+00:06:48,960 --> 00:06:53,039
+Okay, the plan is to connect the
+
+140
+00:06:51,039 --> 00:06:55,680
+junction boxes with long strings of
+
+141
+00:06:53,039 --> 00:06:57,759
+lights. Most of the junction boxes don't
+
+142
+00:06:55,680 --> 00:06:59,919
+provide electricity. However, when two
+
+143
+00:06:57,759 --> 00:07:02,400
+junction boxes are connected by a string
+
+144
+00:06:59,919 --> 00:07:04,560
+of lights, electricity can pass between
+
+145
+00:07:02,400 --> 00:07:07,599
+those two junction boxes. Okay, junction
+
+146
+00:07:04,560 --> 00:07:09,520
+boxes. You want to connect them? The
+
+147
+00:07:07,599 --> 00:07:12,240
+elves are trying to figure out which
+
+148
+00:07:09,520 --> 00:07:15,199
+junction boxes to connect so that
+
+149
+00:07:12,240 --> 00:07:17,520
+electricity can reach every junction
+
+150
+00:07:15,199 --> 00:07:19,919
+box. Okay,
+
+151
+00:07:17,520 --> 00:07:21,840
+you got junction boxes and they you got
+
+152
+00:07:19,919 --> 00:07:24,800
+you need to connect them. They even have
+
+153
+00:07:21,840 --> 00:07:29,280
+a list of also another thing you can do
+
+154
+00:07:24,800 --> 00:07:32,400
+is you can uh put a break uh at places
+
+155
+00:07:29,280 --> 00:07:34,960
+where there's a period. So one sentence
+
+156
+00:07:32,400 --> 00:07:38,880
+per line that's a unit because sentence
+
+157
+00:07:34,960 --> 00:07:41,360
+is a semantic unit unit of English.
+
+158
+00:07:38,880 --> 00:07:42,960
+Okay. Uh anyway the elves are trying to
+
+159
+00:07:41,360 --> 00:07:45,759
+figure out which junction boxes to
+
+160
+00:07:42,960 --> 00:07:49,280
+connect so that electricity can reach
+
+161
+00:07:45,759 --> 00:07:51,199
+every junction box. So, so they have
+
+162
+00:07:49,280 --> 00:07:54,160
+they even have a list of all the
+
+163
+00:07:51,199 --> 00:07:56,240
+junction boxes positions in 3D space.
+
+164
+00:07:54,160 --> 00:07:58,879
+Okay.
+
+165
+00:07:56,240 --> 00:08:02,240
+So, I actually I started to read this. I
+
+166
+00:07:58,879 --> 00:08:05,440
+I spend like uh three minutes to read
+
+167
+00:08:02,240 --> 00:08:08,960
+this this before. So, I so now I know
+
+168
+00:08:05,440 --> 00:08:11,680
+this these are kind of um so anyway each
+
+169
+00:08:08,960 --> 00:08:14,960
+line is a three numbers and those
+
+170
+00:08:11,680 --> 00:08:17,440
+numbers are XYZ coordinates. So each
+
+171
+00:08:14,960 --> 00:08:19,360
+line essentially represent a point in
+
+172
+00:08:17,440 --> 00:08:21,840
+space. Okay. Is that right? Something
+
+173
+00:08:19,360 --> 00:08:24,160
+like that. The list describes the
+
+174
+00:08:21,840 --> 00:08:27,280
+position of 20 junctions. So let's uh
+
+175
+00:08:24,160 --> 00:08:30,560
+make it one line
+
+176
+00:08:27,280 --> 00:08:34,399
+per uh sentence. Okay.
+
+177
+00:08:30,560 --> 00:08:37,200
+So so there's your input.
+
+178
+00:08:34,399 --> 00:08:40,320
+Uh so the so the list describes the
+
+179
+00:08:37,200 --> 00:08:43,039
+position of 20 junction boxes. Why 20?
+
+180
+00:08:40,320 --> 00:08:46,080
+Because there are 20 lines I think. Yes,
+
+181
+00:08:43,039 --> 00:08:49,040
+exactly. Okay, one per line. Each
+
+182
+00:08:46,080 --> 00:08:53,440
+position is given as XYZ coordinates. So
+
+183
+00:08:49,040 --> 00:08:58,480
+the first junction box in the list is X1
+
+184
+00:08:53,440 --> 00:09:01,040
+162 817 812. Is that right? Yes. Okay.
+
+185
+00:08:58,480 --> 00:09:04,720
+So each one is a point. Each line is a
+
+186
+00:09:01,040 --> 00:09:07,120
+point. To save to save on string lights,
+
+187
+00:09:04,720 --> 00:09:10,080
+the elves would like to focus on
+
+188
+00:09:07,120 --> 00:09:12,160
+connecting pairs of junction boxes that
+
+189
+00:09:10,080 --> 00:09:14,320
+are as close together as possible
+
+190
+00:09:12,160 --> 00:09:17,279
+according to straight line distance.
+
+191
+00:09:14,320 --> 00:09:21,920
+Okay. So each one of these is a point in
+
+192
+00:09:17,279 --> 00:09:26,000
+3D space. So you you want to find um so
+
+193
+00:09:21,920 --> 00:09:29,600
+given you want to find so you got this
+
+194
+00:09:26,000 --> 00:09:32,959
+bunch of points you want to find like
+
+195
+00:09:29,600 --> 00:09:35,279
+closest pair something like that. Okay
+
+196
+00:09:32,959 --> 00:09:38,320
+in this example the two junction boxes
+
+197
+00:09:35,279 --> 00:09:41,279
+which are closest together are that and
+
+198
+00:09:38,320 --> 00:09:44,800
+that. Okay so you got a bunch of points.
+
+199
+00:09:41,279 --> 00:09:47,600
+Now each pair of points
+
+200
+00:09:44,800 --> 00:09:49,760
+has a distance between them. Now of all
+
+201
+00:09:47,600 --> 00:09:53,600
+these possible distances you want to
+
+202
+00:09:49,760 --> 00:09:56,640
+find the shortest one and then specify
+
+203
+00:09:53,600 --> 00:09:58,880
+which two points you know has that
+
+204
+00:09:56,640 --> 00:10:02,080
+distance. Okay. So that's these two
+
+205
+00:09:58,880 --> 00:10:04,800
+distance. Okay. So to find the distance
+
+206
+00:10:02,080 --> 00:10:08,880
+you you use a Pythagorean
+
+207
+00:10:04,800 --> 00:10:11,200
+Pythagorean theorem like twice. Okay. So
+
+208
+00:10:08,880 --> 00:10:13,839
+anyway so so by connecting these two
+
+209
+00:10:11,200 --> 00:10:18,399
+junction boxes together. So you you find
+
+210
+00:10:13,839 --> 00:10:21,200
+the nearest two points you connect them
+
+211
+00:10:18,399 --> 00:10:23,440
+uh by connecting because electricity can
+
+212
+00:10:21,200 --> 00:10:26,480
+flow between them they became part of
+
+213
+00:10:23,440 --> 00:10:28,720
+the same circuit something okay after
+
+214
+00:10:26,480 --> 00:10:31,200
+connecting them there is a single
+
+215
+00:10:28,720 --> 00:10:35,279
+circuit which contains two junction
+
+216
+00:10:31,200 --> 00:10:38,240
+boxes okay and the rema remaining 18
+
+217
+00:10:35,279 --> 00:10:40,480
+junction boxes remain in their own
+
+218
+00:10:38,240 --> 00:10:43,760
+individual circuits okay whatever that
+
+219
+00:10:40,480 --> 00:10:47,440
+means now the two junction boxes which
+
+220
+00:10:43,760 --> 00:10:50,800
+are closest together but aren't already
+
+221
+00:10:47,440 --> 00:10:53,600
+directly connected are
+
+222
+00:10:50,800 --> 00:10:57,120
+okay are that okay that's the the two
+
+223
+00:10:53,600 --> 00:11:01,079
+closest you know right
+
+224
+00:10:57,120 --> 00:11:01,079
+after connecting them
+
+225
+00:11:02,640 --> 00:11:10,079
+since this 162 something and is already
+
+226
+00:11:06,959 --> 00:11:12,959
+connected to another junction box there
+
+227
+00:11:10,079 --> 00:11:16,000
+is now a single circuit which contains
+
+228
+00:11:12,959 --> 00:11:17,680
+three junction boxes.
+
+229
+00:11:16,000 --> 00:11:21,519
+What?
+
+230
+00:11:17,680 --> 00:11:24,079
+Which contains three junction boxes and
+
+231
+00:11:21,519 --> 00:11:28,120
+an additional 17 circuits which contain
+
+232
+00:11:24,079 --> 00:11:28,120
+one junction box each.
+
+233
+00:11:28,399 --> 00:11:35,120
+What after connecting them since this
+
+234
+00:11:32,800 --> 00:11:37,839
+point is already connected to another
+
+235
+00:11:35,120 --> 00:11:41,160
+junction box is it?
+
+236
+00:11:37,839 --> 00:11:41,160
+Is it
+
+237
+00:11:43,600 --> 00:11:48,720
+okay? I don't get it. Okay, but let's
+
+238
+00:11:45,839 --> 00:11:51,760
+move on. The next two junction boxes to
+
+239
+00:11:48,720 --> 00:11:53,600
+connect are that and that. Okay, after
+
+240
+00:11:51,760 --> 00:11:57,600
+connecting them, there is a circuit
+
+241
+00:11:53,600 --> 00:12:00,240
+containing three junction boxes.
+
+242
+00:11:57,600 --> 00:12:03,839
+A circuit containing two junction boxes.
+
+243
+00:12:00,240 --> 00:12:06,880
+And okay, okay, I don't understand what
+
+244
+00:12:03,839 --> 00:12:09,200
+is going on. Then the next two junction
+
+245
+00:12:06,880 --> 00:12:11,360
+boxes are that because these two
+
+246
+00:12:09,200 --> 00:12:13,760
+something
+
+247
+00:12:11,360 --> 00:12:16,959
+uh because these two junction boxes are
+
+248
+00:12:13,760 --> 00:12:20,320
+already in the same circuit. So let's
+
+249
+00:12:16,959 --> 00:12:23,600
+highlight some numbers. Let's see. 431.
+
+250
+00:12:20,320 --> 00:12:25,200
+Okay. 431. So this point occurred
+
+251
+00:12:23,600 --> 00:12:28,079
+previously.
+
+252
+00:12:25,200 --> 00:12:30,880
+What about this 425?
+
+253
+00:12:28,079 --> 00:12:33,760
+It also occurred previously.
+
+254
+00:12:30,880 --> 00:12:36,720
+So already in the same circuit
+
+255
+00:12:33,760 --> 00:12:39,200
+something. Okay, then this process
+
+256
+00:12:36,720 --> 00:12:41,279
+continues for a while and elves are
+
+257
+00:12:39,200 --> 00:12:43,920
+concerned they don't have enough
+
+258
+00:12:41,279 --> 00:12:45,839
+extension cable for all these circuits.
+
+259
+00:12:43,920 --> 00:12:47,920
+They would like to know how big the
+
+260
+00:12:45,839 --> 00:12:50,480
+circuits will be. I don't understand.
+
+261
+00:12:47,920 --> 00:12:53,839
+After making the 10 shortest
+
+262
+00:12:50,480 --> 00:12:56,000
+connections, there are 11 circuits. One
+
+263
+00:12:53,839 --> 00:13:00,560
+circuit which contains five junction
+
+264
+00:12:56,000 --> 00:13:02,959
+boxes. One circuit contains four. Okay.
+
+265
+00:13:00,560 --> 00:13:05,120
+I don't understand. Your list contains
+
+266
+00:13:02,959 --> 00:13:08,000
+many junction boxes. Connect together
+
+267
+00:13:05,120 --> 00:13:10,320
+the 1,000
+
+268
+00:13:08,000 --> 00:13:13,839
+pairs of junction boxes which are
+
+269
+00:13:10,320 --> 00:13:16,639
+closest together. Afterwards, what what
+
+270
+00:13:13,839 --> 00:13:19,680
+do you get if you multiply together the
+
+271
+00:13:16,639 --> 00:13:23,040
+the sizes of the three largest circuits?
+
+272
+00:13:19,680 --> 00:13:27,839
+Okay. [snorts] Okay.
+
+273
+00:13:23,040 --> 00:13:30,240
+Uh I don't understand so far. So, so,
+
+274
+00:13:27,839 --> 00:13:33,519
+so I just know there's some, you know,
+
+275
+00:13:30,240 --> 00:13:36,560
+there's just two closest point. But
+
+276
+00:13:33,519 --> 00:13:39,760
+after that, what happens? So, you got
+
+277
+00:13:36,560 --> 00:13:43,040
+these points. Okay? They call it
+
+278
+00:13:39,760 --> 00:13:46,320
+junction boxes. Okay? Each point is a
+
+279
+00:13:43,040 --> 00:13:53,240
+junction box.
+
+280
+00:13:46,320 --> 00:13:53,240
+Okay? And uh Okay. And uh
+
+281
+00:13:53,519 --> 00:13:59,760
+so you want to connect pairs of junction
+
+282
+00:13:56,240 --> 00:14:03,360
+boxes. You want to connect points.
+
+283
+00:13:59,760 --> 00:14:06,639
+So so okay. And uh you want to connect
+
+284
+00:14:03,360 --> 00:14:10,320
+them the the you want to pick two points
+
+285
+00:14:06,639 --> 00:14:12,959
+that's the closest. Okay.
+
+286
+00:14:10,320 --> 00:14:15,920
+So you see this problem. Let's see how
+
+287
+00:14:12,959 --> 00:14:21,279
+large is our input because then you have
+
+288
+00:14:15,920 --> 00:14:25,199
+combinatorial um pairings. So
+
+289
+00:14:21,279 --> 00:14:28,240
+if you have 20 of points then what are
+
+290
+00:14:25,199 --> 00:14:31,040
+the possible um
+
+291
+00:14:28,240 --> 00:14:34,240
+pairings? Let's say
+
+292
+00:14:31,040 --> 00:14:37,240
+20 * 19. Yeah, that would be 20
+
+293
+00:14:34,240 --> 00:14:37,240
+factorial.
+
+294
+00:14:37,680 --> 00:14:44,279
+So if you have 20 points, how many
+
+295
+00:14:40,320 --> 00:14:44,279
+possible um
+
+296
+00:14:46,160 --> 00:14:49,880
+pairings are there?
+
+297
+00:14:53,839 --> 00:15:01,760
+Wait, no, not 20 factorial. So uh 20
+
+298
+00:14:58,320 --> 00:15:04,760
+something like 20 * 19.
+
+299
+00:15:01,760 --> 00:15:04,760
+What?
+
+300
+00:15:12,399 --> 00:15:15,399
+Okay.
+
+301
+00:15:24,000 --> 00:15:29,199
+So, the first one you you have 20
+
+302
+00:15:26,560 --> 00:15:31,040
+points. Okay, you pick the first one. 20
+
+303
+00:15:29,199 --> 00:15:35,440
+possibilities.
+
+304
+00:15:31,040 --> 00:15:38,440
+Then you got 19 possibilities. Okay.
+
+305
+00:15:35,440 --> 00:15:38,440
+Then
+
+306
+00:15:45,680 --> 00:15:48,680
+so,
+
+307
+00:15:49,040 --> 00:15:56,600
+so we talking about how many possible
+
+308
+00:15:51,279 --> 00:15:56,600
+edges are there? Um
+
+309
+00:16:01,680 --> 00:16:08,199
+so the first line will be uh
+
+310
+00:16:10,320 --> 00:16:21,079
+19 that's 20 minus one.
+
+311
+00:16:14,639 --> 00:16:21,079
+Now the second then you need to uh
+
+312
+00:16:22,079 --> 00:16:29,440
+h so this is not actually [laughter]
+
+313
+00:16:26,160 --> 00:16:32,160
+now I need to draw okay so you know so I
+
+314
+00:16:29,440 --> 00:16:34,480
+need to draw this is like
+
+315
+00:16:32,160 --> 00:16:39,079
+but anyway I don't think this problem is
+
+316
+00:16:34,480 --> 00:16:39,079
+asking that but um
+
+317
+00:16:41,040 --> 00:16:48,440
+so let's see open with open with
+
+318
+00:16:43,680 --> 00:16:48,440
+snipping pin sniping. Let's do that.
+
+319
+00:16:52,079 --> 00:16:57,399
+You know, just suppose um you got
+
+320
+00:16:57,600 --> 00:17:05,280
+let's say one, two, three, four.
+
+321
+00:17:02,320 --> 00:17:07,839
+So you got four total. Okay. So the
+
+322
+00:17:05,280 --> 00:17:10,880
+first one you want to try one, two,
+
+323
+00:17:07,839 --> 00:17:15,120
+three. So that's three possibilities.
+
+324
+00:17:10,880 --> 00:17:18,160
+Okay. And then you got then the let's
+
+325
+00:17:15,120 --> 00:17:19,760
+label them. One,
+
+326
+00:17:18,160 --> 00:17:22,959
+two.
+
+327
+00:17:19,760 --> 00:17:28,839
+Wait. Uh, where's undo? Where is my
+
+328
+00:17:22,959 --> 00:17:28,839
+undo? Can you see it? Okay.
+
+329
+00:17:29,360 --> 00:17:35,200
+Two.
+
+330
+00:17:31,039 --> 00:17:39,679
+It's name three name then three four.
+
+331
+00:17:35,200 --> 00:17:43,120
+Okay. That's the name of the nod. Okay.
+
+332
+00:17:39,679 --> 00:17:46,640
+Um and
+
+333
+00:17:43,120 --> 00:17:50,880
+okay we can do prettier. That's the
+
+334
+00:17:46,640 --> 00:17:54,080
+first one. Okay. And uh we can
+
+335
+00:17:50,880 --> 00:17:56,799
+so the you then the first one is one two
+
+336
+00:17:54,080 --> 00:17:59,840
+three. The second one is uh two three.
+
+337
+00:17:56,799 --> 00:18:02,840
+So second one has two possibilities. One
+
+338
+00:17:59,840 --> 00:18:02,840
+two
+
+339
+00:18:04,400 --> 00:18:12,320
+three. So the first one
+
+340
+00:18:07,600 --> 00:18:15,320
+or not. Okay. So the first one has three
+
+341
+00:18:12,320 --> 00:18:15,320
+possibilities.
+
+342
+00:18:15,440 --> 00:18:20,480
+The second one has how many
+
+343
+00:18:17,360 --> 00:18:24,840
+possibilities? Just two. Okay. Then the
+
+344
+00:18:20,480 --> 00:18:24,840
+third one has only one possibility.
+
+345
+00:18:25,600 --> 00:18:34,559
+Yeah. So if you have 20 knots then then
+
+346
+00:18:30,400 --> 00:18:38,080
+then the um the
+
+347
+00:18:34,559 --> 00:18:46,400
+so you add them together right? So 3 + 2
+
+348
+00:18:38,080 --> 00:18:50,799
++ 1 5 1 2 3 4 5 6 3 + 2 + 1 six one two
+
+349
+00:18:46,400 --> 00:18:55,679
+So right. So you see 1 2 3 4 5 six
+
+350
+00:18:50,799 --> 00:19:00,919
+edges. So if you have 20 nodes
+
+351
+00:18:55,679 --> 00:19:00,919
+then you're going to have uh
+
+352
+00:19:01,760 --> 00:19:12,240
+19 + 18 plus um so that would be
+
+353
+00:19:08,880 --> 00:19:16,480
+sum okay we are digressing we are not
+
+354
+00:19:12,240 --> 00:19:22,559
+doing the problem but um
+
+355
+00:19:16,480 --> 00:19:28,440
+sum x from 1 to 18.
+
+356
+00:19:22,559 --> 00:19:28,440
+Wait, X. You need to say X. Okay.
+
+357
+00:19:29,360 --> 00:19:33,120
+190. Okay. So,
+
+358
+00:19:32,463 --> 00:19:34,799
+[clears throat]
+
+359
+00:19:33,120 --> 00:19:39,200
+if you're going to brute force the
+
+360
+00:19:34,799 --> 00:19:41,919
+problem, you got a you got 190 uh
+
+361
+00:19:39,200 --> 00:19:44,559
+distance to measure, which is not too
+
+362
+00:19:41,919 --> 00:19:46,960
+bad.
+
+363
+00:19:44,559 --> 00:19:48,799
+190 distance to measure. Okay. Not too
+
+364
+00:19:46,960 --> 00:19:50,880
+bad.
+
+365
+00:19:48,799 --> 00:19:53,919
+But that's
+
+366
+00:19:50,880 --> 00:19:56,320
+for 20. But how many do you have? Then
+
+367
+00:19:53,919 --> 00:20:01,280
+let's go to my personal input. Let's
+
+368
+00:19:56,320 --> 00:20:03,039
+see. Okay. Select all. Copy. Back to
+
+369
+00:20:01,280 --> 00:20:06,960
+Emacs.
+
+370
+00:20:03,039 --> 00:20:10,559
+Go to talk show. Search for text. Okay.
+
+371
+00:20:06,960 --> 00:20:12,320
+We prepared this file. File. Save it.
+
+372
+00:20:10,559 --> 00:20:16,720
+1,00.
+
+373
+00:20:12,320 --> 00:20:19,600
+Okay. Save it. So, if you got 1,000, I'm
+
+374
+00:20:16,720 --> 00:20:22,600
+pretty sure
+
+375
+00:20:19,600 --> 00:20:22,600
+uh
+
+376
+00:20:26,000 --> 00:20:33,919
+you got 500,000 pairings.
+
+377
+00:20:30,000 --> 00:20:36,559
+Good evening, Aspiring Windows. Hi, good
+
+378
+00:20:33,919 --> 00:20:39,919
+morning. Hello. Hello, coffee. Coffee
+
+379
+00:20:36,559 --> 00:20:44,400
+and uh coffee and aspiring window
+
+380
+00:20:39,919 --> 00:20:48,159
+compositor. You guys are from
+
+381
+00:20:44,400 --> 00:20:50,240
+Scandinavia, Northern Europe somewhere
+
+382
+00:20:48,159 --> 00:20:52,960
+or somewhere. You know, I always get
+
+383
+00:20:50,240 --> 00:20:55,760
+confused which one is which. The Sweden,
+
+384
+00:20:52,960 --> 00:20:59,120
+Finland, Norway, Norway is in the
+
+385
+00:20:55,760 --> 00:21:03,840
+middle. Finland is on the right near
+
+386
+00:20:59,120 --> 00:21:06,240
+Russia. Uh on the left is uh Sweden or
+
+387
+00:21:03,840 --> 00:21:08,640
+Swiss, you know, it's very confusing
+
+388
+00:21:06,240 --> 00:21:10,960
+names. You got Swiss, you you got
+
+389
+00:21:08,640 --> 00:21:13,520
+Switzerland, you got Sweden, you got
+
+390
+00:21:10,960 --> 00:21:18,640
+also Holland,
+
+391
+00:21:13,520 --> 00:21:21,280
+but anyway, I think it's um it's uh
+
+392
+00:21:18,640 --> 00:21:23,679
+and aspiring window manager. Yes, India.
+
+393
+00:21:21,280 --> 00:21:27,360
+I was about to say.
+
+394
+00:21:23,679 --> 00:21:30,320
+So anyway, uh so yeah, so so we got you
+
+395
+00:21:27,360 --> 00:21:33,120
+know, we are digressing. Okay, so
+
+396
+00:21:30,320 --> 00:21:36,799
+so anyway, so we don't understand the
+
+397
+00:21:33,120 --> 00:21:38,640
+problem yet actually. So, we got
+
+398
+00:21:36,799 --> 00:21:43,880
+Yeah, we don't understand the problem.
+
+399
+00:21:38,640 --> 00:21:43,880
+So, what what is the problem? God [ __ ]
+
+400
+00:21:46,799 --> 00:21:52,720
+Have you guys So, have you guys uh So,
+
+401
+00:21:49,120 --> 00:21:55,840
+we got more people. Hi, AC from Fairfax,
+
+402
+00:21:52,720 --> 00:21:58,320
+Virginia. Fairfax. I I I don't know
+
+403
+00:21:55,840 --> 00:22:01,360
+where is Fairfax.
+
+404
+00:21:58,320 --> 00:22:03,120
+Virginia. Uh VA is Virginia, right? I
+
+405
+00:22:01,360 --> 00:22:07,039
+believe
+
+406
+00:22:03,120 --> 00:22:08,720
+uh that's the like on the east side of
+
+407
+00:22:07,039 --> 00:22:13,520
+USA.
+
+408
+00:22:08,720 --> 00:22:16,799
+Um so anyway, so this problem [ __ ] you
+
+409
+00:22:13,520 --> 00:22:18,400
+know we spend like how many we spend 30
+
+410
+00:22:16,799 --> 00:22:22,159
+30 minutes and we don't know what's
+
+411
+00:22:18,400 --> 00:22:25,440
+going on yet. So we got bunch of points
+
+412
+00:22:22,159 --> 00:22:28,320
+and you you and okay so you got so we
+
+413
+00:22:25,440 --> 00:22:31,120
+got list of coordinates each one is XYZ
+
+414
+00:22:28,320 --> 00:22:34,159
+coordinate. you got 20 of them in the
+
+415
+00:22:31,120 --> 00:22:37,600
+sample input. Okay. So, you want to find
+
+416
+00:22:34,159 --> 00:22:40,559
+the the uh
+
+417
+00:22:37,600 --> 00:22:43,600
+you want to find uh
+
+418
+00:22:40,559 --> 00:22:45,840
+a pair of them that are closest, you
+
+419
+00:22:43,600 --> 00:22:51,400
+know, the the the the least distance.
+
+420
+00:22:45,840 --> 00:22:51,400
+Okay. So, in order to do that,
+
+421
+00:22:51,760 --> 00:22:55,679
+so so we already have a problem. You
+
+422
+00:22:54,159 --> 00:22:59,600
+know, let's say you got a bunch of
+
+423
+00:22:55,679 --> 00:23:02,960
+points. You want to find the the the two
+
+424
+00:22:59,600 --> 00:23:06,240
+points that's the closest. Okay.
+
+425
+00:23:02,960 --> 00:23:09,919
+Uh but if you have
+
+426
+00:23:06,240 --> 00:23:13,240
+let's see how many am I am I correct in
+
+427
+00:23:09,919 --> 00:23:13,240
+this measurement.
+
+428
+00:23:15,039 --> 00:23:19,240
+You see I think I am
+
+429
+00:23:20,159 --> 00:23:24,120
+like do you guys see?
+
+430
+00:23:24,559 --> 00:23:30,240
+So this is about you know you can you
+
+431
+00:23:26,960 --> 00:23:33,039
+can this is a simple um
+
+432
+00:23:30,240 --> 00:23:35,760
+um
+
+433
+00:23:33,039 --> 00:23:38,159
+graph theory problem. So given n knots
+
+434
+00:23:35,760 --> 00:23:39,919
+how many edges how many possible edges
+
+435
+00:23:38,159 --> 00:23:43,039
+are there?
+
+436
+00:23:39,919 --> 00:23:47,200
+I think it's just uh the sum summation
+
+437
+00:23:43,039 --> 00:23:49,919
+of the number of knots. Okay.
+
+438
+00:23:47,200 --> 00:23:54,080
+Uh if you go to Wikipedia it'll tell you
+
+439
+00:23:49,919 --> 00:23:57,360
+right away and you can also ask gu. But
+
+440
+00:23:54,080 --> 00:24:00,880
+let's check our math again. So uh see
+
+441
+00:23:57,360 --> 00:24:06,480
+four you know we start with four nodes.
+
+442
+00:24:00,880 --> 00:24:10,000
+So 1 2 3 then the second one is one two
+
+443
+00:24:06,480 --> 00:24:13,279
+the third one is one.
+
+444
+00:24:10,000 --> 00:24:16,480
+Yeah. So the second one right? So one
+
+445
+00:24:13,279 --> 00:24:20,720
+two. Yeah. So basically uh then you sum
+
+446
+00:24:16,480 --> 00:24:23,520
+them up. So you sum them.
+
+447
+00:24:20,720 --> 00:24:26,880
+Now is there a name for this sequential
+
+448
+00:24:23,520 --> 00:24:30,559
+sum like 1 + 2 + 3? I know if they are
+
+449
+00:24:26,880 --> 00:24:34,000
+multiplication that's factorial but I
+
+450
+00:24:30,559 --> 00:24:36,000
+forgot you know this math.
+
+451
+00:24:34,000 --> 00:24:38,240
+Um
+
+452
+00:24:36,000 --> 00:24:42,600
+okay let's let's just digress then.
+
+453
+00:24:38,240 --> 00:24:42,600
+Let's ask uh guac
+
+454
+00:24:44,880 --> 00:24:54,080
+where is where is guac?
+
+455
+00:24:48,320 --> 00:24:57,080
+Okay. It's uh here. Okay. So let's ask
+
+456
+00:24:54,080 --> 00:24:57,080
+oak
+
+457
+00:24:57,347 --> 00:24:59,367
+[laughter]
+
+458
+00:25:00,559 --> 00:25:05,600
+given n
+
+459
+00:25:02,799 --> 00:25:09,000
+how many edges
+
+460
+00:25:05,600 --> 00:25:09,000
+are there?
+
+461
+00:25:09,279 --> 00:25:17,400
+Okay will answer it I'm pretty sure.
+
+462
+00:25:14,400 --> 00:25:17,400
+magnify.
+
+463
+00:25:22,240 --> 00:25:29,520
+Okay. Given end nodes with no self loops
+
+464
+00:25:26,320 --> 00:25:35,120
+and no multiple edges between. Okay.
+
+465
+00:25:29,520 --> 00:25:39,960
+Then the answer is what? Factorial n
+
+466
+00:25:35,120 --> 00:25:39,960
+minus what the [ __ ] is uh
+
+467
+00:25:47,039 --> 00:25:50,840
+this um
+
+468
+00:25:53,919 --> 00:25:59,919
+oh yeah so that I think that's you know
+
+469
+00:25:56,480 --> 00:26:02,720
+that's the um
+
+470
+00:25:59,919 --> 00:26:06,559
+that is the uh you know so if you change
+
+471
+00:26:02,720 --> 00:26:10,799
+this to n that will give you the formula
+
+472
+00:26:06,559 --> 00:26:13,360
+basically n * n n minus - one not
+
+473
+00:26:10,799 --> 00:26:18,320
+directed. Okay. Undirected symbol. Yeah.
+
+474
+00:26:13,360 --> 00:26:20,880
+N * n minus one divided by 2 fac. Is
+
+475
+00:26:18,320 --> 00:26:24,480
+that right? So this it will give you
+
+476
+00:26:20,880 --> 00:26:28,159
+symbolic result. Okay. Yep. It not
+
+477
+00:26:24,480 --> 00:26:30,640
+factorial fraction this. Okay. So so we
+
+478
+00:26:28,159 --> 00:26:32,960
+are learning several things. For one
+
+479
+00:26:30,640 --> 00:26:35,360
+thing the guac is not showing the
+
+480
+00:26:32,960 --> 00:26:39,440
+formula correctly. It's not rendered
+
+481
+00:26:35,360 --> 00:26:40,960
+rendering them correctly. That's uh lat
+
+482
+00:26:39,440 --> 00:26:44,640
+tech
+
+483
+00:26:40,960 --> 00:26:47,520
+format which sucks. Okay. This damage
+
+484
+00:26:44,640 --> 00:26:49,679
+from Donald Gruth.
+
+485
+00:26:47,520 --> 00:26:53,200
+We you know became very popular because
+
+486
+00:26:49,679 --> 00:26:56,480
+it's free like cigarette given to
+
+487
+00:26:53,200 --> 00:27:00,640
+children you know that's a huge damage
+
+488
+00:26:56,480 --> 00:27:03,279
+to computing industry this tech. Okay.
+
+489
+00:27:00,640 --> 00:27:06,320
+And uh damaged to mathematicians like
+
+490
+00:27:03,279 --> 00:27:08,159
+widely adopted.
+
+491
+00:27:06,320 --> 00:27:10,960
+If you want to know more about that,
+
+492
+00:27:08,159 --> 00:27:15,120
+search on.info
+
+493
+00:27:10,960 --> 00:27:17,600
+on why latte sucks or why tech sucks. I
+
+494
+00:27:15,120 --> 00:27:21,840
+have an article on that. Okay, so
+
+495
+00:27:17,600 --> 00:27:24,400
+anyway, so the given nodes,
+
+496
+00:27:21,840 --> 00:27:26,320
+how many possible edges are there? The
+
+497
+00:27:24,400 --> 00:27:29,600
+that this is a solution. Okay, you just
+
+498
+00:27:26,320 --> 00:27:33,200
+sum this one to n and uh you have a
+
+499
+00:27:29,600 --> 00:27:39,279
+closed form. So that's 1 /
+
+500
+00:27:33,200 --> 00:27:42,559
+2 * n * n uh uh emphasis one. Okay. So,
+
+501
+00:27:39,279 --> 00:27:46,559
+so that answered one question and uh so
+
+502
+00:27:42,559 --> 00:27:50,080
+uh so we have if we have 1,000
+
+503
+00:27:46,559 --> 00:27:53,640
+nodes which is my input then I have to
+
+504
+00:27:50,080 --> 00:27:53,640
+do 500,000
+
+505
+00:27:55,120 --> 00:28:02,480
+times of checking the distance which is
+
+506
+00:27:57,840 --> 00:28:07,480
+500,000 not too big we can do it I mean
+
+507
+00:28:02,480 --> 00:28:07,480
+uh so that's a brute force way.
+
+508
+00:28:07,760 --> 00:28:12,080
+So, we don't, you know, we don't know
+
+509
+00:28:09,679 --> 00:28:16,080
+exactly what's the problem yet, but we
+
+510
+00:28:12,080 --> 00:28:18,960
+do know that we absolutely have to find
+
+511
+00:28:16,080 --> 00:28:23,240
+one pair that's closest. Is that right?
+
+512
+00:28:18,960 --> 00:28:23,240
+Actually, we don't even know that
+
+513
+00:28:23,760 --> 00:28:30,480
+we just digressing talk show of
+
+514
+00:28:26,799 --> 00:28:32,960
+digression. Okay. Oh, [ __ ]
+
+515
+00:28:30,480 --> 00:28:35,279
+So, are you guys making sense? Am I
+
+516
+00:28:32,960 --> 00:28:37,360
+making sense here?
+
+517
+00:28:35,279 --> 00:28:39,279
+So what is the problem yet? We don't
+
+518
+00:28:37,360 --> 00:28:43,120
+know. But
+
+519
+00:28:39,279 --> 00:28:45,039
+okay, have you guys done the problem?
+
+520
+00:28:43,120 --> 00:28:47,679
+So in this example, the two junction
+
+521
+00:28:45,039 --> 00:28:49,760
+boxes which are close together. Okay. By
+
+522
+00:28:47,679 --> 00:28:51,760
+connecting these two junction. So you do
+
+523
+00:28:49,760 --> 00:28:53,679
+have to it looks like you do have to
+
+524
+00:28:51,760 --> 00:28:57,600
+find at least one pair that's the
+
+525
+00:28:53,679 --> 00:29:00,240
+closest. Okay. Now what what are some
+
+526
+00:28:57,600 --> 00:29:03,240
+other ways to find the closest you know?
+
+527
+00:29:00,240 --> 00:29:03,240
+So
+
+528
+00:29:04,720 --> 00:29:09,240
+let's see um
+
+529
+00:29:10,399 --> 00:29:15,200
+you know we we are in 3D space is there
+
+530
+00:29:13,200 --> 00:29:18,000
+some like shortcut
+
+531
+00:29:15,200 --> 00:29:20,640
+uh obviously
+
+532
+00:29:18,000 --> 00:29:23,679
+you know if the coordinate are all equal
+
+533
+00:29:20,640 --> 00:29:26,880
+then you know one one thing we can do is
+
+534
+00:29:23,679 --> 00:29:30,159
+we check if any two coordinates let's
+
+535
+00:29:26,880 --> 00:29:33,120
+say the x coordinates are equal
+
+536
+00:29:30,159 --> 00:29:35,440
+then that means the two points lies in
+
+537
+00:29:33,120 --> 00:29:39,200
+the same plane.
+
+538
+00:29:35,440 --> 00:29:41,919
+Okay. Then then must then it could be
+
+539
+00:29:39,200 --> 00:29:45,600
+shorter. But um
+
+540
+00:29:41,919 --> 00:29:49,520
+so but then if we find two points such
+
+541
+00:29:45,600 --> 00:29:52,799
+that two of their coordinates are equal
+
+542
+00:29:49,520 --> 00:29:55,679
+then that means they they lie not on the
+
+543
+00:29:52,799 --> 00:29:59,520
+same only not they lie in the same plane
+
+544
+00:29:55,679 --> 00:30:01,840
+but they also lie in the same axis. So
+
+545
+00:29:59,520 --> 00:30:04,720
+their distance is simply the difference
+
+546
+00:30:01,840 --> 00:30:06,559
+of the third coordinate.
+
+547
+00:30:04,720 --> 00:30:08,640
+Okay.
+
+548
+00:30:06,559 --> 00:30:11,840
+So you don't have to do the square root
+
+549
+00:30:08,640 --> 00:30:15,919
+you know the normal distance formula of
+
+550
+00:30:11,840 --> 00:30:17,520
+basically x^2 + y^2 + z² then square
+
+551
+00:30:15,919 --> 00:30:20,080
+root
+
+552
+00:30:17,520 --> 00:30:22,880
+but I mean but that's uh not many
+
+553
+00:30:20,080 --> 00:30:27,760
+operations needed. So, if you're going
+
+554
+00:30:22,880 --> 00:30:30,240
+to do this for 1,000 um
+
+555
+00:30:27,760 --> 00:30:35,880
+you know, if you have 1,000 points, then
+
+556
+00:30:30,240 --> 00:30:35,880
+you're going to do this 500,000 times,
+
+557
+00:30:36,960 --> 00:30:42,080
+then you just compare, pick the
+
+558
+00:30:39,600 --> 00:30:44,799
+shortest. But what? Okay. So, anyway, so
+
+559
+00:30:42,080 --> 00:30:47,039
+what is the problem then? By connecting
+
+560
+00:30:44,799 --> 00:30:49,279
+these two junction boxes together
+
+561
+00:30:47,039 --> 00:30:51,279
+because electricity can flow between
+
+562
+00:30:49,279 --> 00:30:56,360
+them they become part of the same
+
+563
+00:30:51,279 --> 00:30:56,360
+circuit. Okay. Like whatever
+
+564
+00:30:56,960 --> 00:31:01,919
+uh after after connecting them there is
+
+565
+00:30:59,440 --> 00:31:05,440
+a single circuit which contains two
+
+566
+00:31:01,919 --> 00:31:08,080
+junction boxes and the remaining 18
+
+567
+00:31:05,440 --> 00:31:10,720
+junction boxes remain in their own
+
+568
+00:31:08,080 --> 00:31:14,039
+individual circles. Okay. Circuits.
+
+569
+00:31:10,720 --> 00:31:14,039
+Okay. Whatever
+
+570
+00:31:15,360 --> 00:31:22,640
+uh northern Virginia in DC. Oh yeah,
+
+571
+00:31:19,039 --> 00:31:25,919
+it's uh near DC. Uh what's about the
+
+572
+00:31:22,640 --> 00:31:29,559
+binomial formula? Binomial formula is
+
+573
+00:31:25,919 --> 00:31:29,559
+just um
+
+574
+00:31:32,000 --> 00:31:37,679
+but well I don't I don't know so I
+
+575
+00:31:34,240 --> 00:31:40,000
+forgot you know. So anyway so but um but
+
+576
+00:31:37,679 --> 00:31:43,200
+where is it? So you are looking at the
+
+577
+00:31:40,000 --> 00:31:48,000
+brave. So what is the brave saying? Oh
+
+578
+00:31:43,200 --> 00:31:51,279
+[ __ ] So brave is saying that okay so
+
+579
+00:31:48,000 --> 00:31:53,440
+you got a formula undirected okay then
+
+580
+00:31:51,279 --> 00:31:56,320
+if you want directed you got that
+
+581
+00:31:53,440 --> 00:31:59,919
+formula if you want undirected but you
+
+582
+00:31:56,320 --> 00:32:02,399
+do include self loops that is the point
+
+583
+00:31:59,919 --> 00:32:05,279
+connecting it to itself like you make a
+
+584
+00:32:02,399 --> 00:32:07,840
+loop then you then then it's binomial
+
+585
+00:32:05,279 --> 00:32:11,519
+formula if you want directed and self
+
+586
+00:32:07,840 --> 00:32:14,159
+loop allowed then it's that [snorts] and
+
+587
+00:32:11,519 --> 00:32:16,559
+if you have undirect okay you know So
+
+588
+00:32:14,159 --> 00:32:19,600
+that's you know that's graph theory but
+
+589
+00:32:16,559 --> 00:32:22,240
+the most common you know the most the
+
+590
+00:32:19,600 --> 00:32:25,279
+the normal in the normal graph is just
+
+591
+00:32:22,240 --> 00:32:27,600
+this okay undirected and simple okay you
+
+592
+00:32:25,279 --> 00:32:30,640
+don't have like a point connect to
+
+593
+00:32:27,600 --> 00:32:33,200
+itself nor do you have directed arrows
+
+594
+00:32:30,640 --> 00:32:35,919
+okay you just you know simple just like
+
+595
+00:32:33,200 --> 00:32:39,519
+we the way we did it okay like you know
+
+596
+00:32:35,919 --> 00:32:43,919
+you just connect dots
+
+597
+00:32:39,519 --> 00:32:46,080
+so the binomial formula it says if you
+
+598
+00:32:43,919 --> 00:32:48,880
+have this condition then that formula
+
+599
+00:32:46,080 --> 00:32:52,480
+comes up. Okay, binomial formula is a
+
+600
+00:32:48,880 --> 00:32:56,480
+formula when you multiply
+
+601
+00:32:52,480 --> 00:33:00,000
+uh binomial a polomial
+
+602
+00:32:56,480 --> 00:33:02,880
+of two terms okay that you get the exp
+
+603
+00:33:00,000 --> 00:33:05,440
+that's how you count the exponential or
+
+604
+00:33:02,880 --> 00:33:07,519
+you can get that from Pascal's triangle
+
+605
+00:33:05,440 --> 00:33:11,399
+so if you don't know about that look up
+
+606
+00:33:07,519 --> 00:33:11,399
+okay Pascal's triangle
+
+607
+00:33:12,240 --> 00:33:18,480
+okay so anyway so the so we uh so so We
+
+608
+00:33:16,880 --> 00:33:21,039
+read the problem, but we don't
+
+609
+00:33:18,480 --> 00:33:23,360
+understand the problem yet. So, we know
+
+610
+00:33:21,039 --> 00:33:26,360
+you need to find two points that's
+
+611
+00:33:23,360 --> 00:33:26,360
+closest.
+
+612
+00:33:27,440 --> 00:33:33,159
+Okay. Then what? Um,
+
+613
+00:33:36,559 --> 00:33:43,200
+so you so there are 20 points, right? So
+
+614
+00:33:39,600 --> 00:33:47,519
+in this example, copy copy new. So there
+
+615
+00:33:43,200 --> 00:33:49,919
+are 20 points there. Okay. 20. So now if
+
+616
+00:33:47,519 --> 00:33:52,640
+you found two of them that's the
+
+617
+00:33:49,919 --> 00:33:56,039
+closest. Okay.
+
+618
+00:33:52,640 --> 00:33:56,039
+Then what?
+
+619
+00:33:57,279 --> 00:34:02,480
+Why does it say this is already
+
+620
+00:33:59,600 --> 00:34:06,200
+connected to another? I don't understand
+
+621
+00:34:02,480 --> 00:34:06,200
+this 162.
+
+622
+00:34:11,359 --> 00:34:16,000
+There is now a single circuit which
+
+623
+00:34:13,599 --> 00:34:20,399
+contains the three junction boxes. So
+
+624
+00:34:16,000 --> 00:34:24,320
+where is this 162 connected to?
+
+625
+00:34:20,399 --> 00:34:29,159
+It didn't say like what the [ __ ] is this
+
+626
+00:34:24,320 --> 00:34:29,159
+stupid elves and [ __ ]
+
+627
+00:34:29,520 --> 00:34:35,280
+Equipped with a new understanding of
+
+628
+00:34:32,079 --> 00:34:39,648
+teleporter maintenance, you confidently
+
+629
+00:34:35,280 --> 00:34:41,679
+step onto the repair teleporter pad. You
+
+630
+00:34:39,648 --> 00:34:45,919
+[snorts] rematerialize
+
+631
+00:34:41,679 --> 00:34:48,320
+on an unfamiliar teleporter pad and uh
+
+632
+00:34:45,919 --> 00:34:51,040
+find yourself in a vast underground
+
+633
+00:34:48,320 --> 00:34:53,599
+space which contains a giant playground.
+
+634
+00:34:51,040 --> 00:34:55,839
+Okay. Across the playground, a group of
+
+635
+00:34:53,599 --> 00:34:59,760
+elves are working on setting up an
+
+636
+00:34:55,839 --> 00:35:03,359
+ambitious Christmas [ __ ] Through
+
+637
+00:34:59,760 --> 00:35:05,760
+careful rigging, they have suspended a
+
+638
+00:35:03,359 --> 00:35:09,760
+large number of small electrical
+
+639
+00:35:05,760 --> 00:35:12,160
+junction boxes. Suspended. Okay, their
+
+640
+00:35:09,760 --> 00:35:15,599
+plan is to connect the junction boxes
+
+641
+00:35:12,160 --> 00:35:17,599
+with long strings of lights. Okay, most
+
+642
+00:35:15,599 --> 00:35:19,920
+of the junction boxes don't provide
+
+643
+00:35:17,599 --> 00:35:22,079
+electricity.
+
+644
+00:35:19,920 --> 00:35:25,040
+However, when two junction boxes are
+
+645
+00:35:22,079 --> 00:35:27,839
+connected by a string of lights,
+
+646
+00:35:25,040 --> 00:35:29,839
+electricity can pass between two. Okay,
+
+647
+00:35:27,839 --> 00:35:32,960
+the elves are trying to figure out which
+
+648
+00:35:29,839 --> 00:35:35,440
+junction boxes to connect so that
+
+649
+00:35:32,960 --> 00:35:38,440
+electricity can reach every junction
+
+650
+00:35:35,440 --> 00:35:38,440
+box.
+
+651
+00:35:39,520 --> 00:35:44,720
+Okay, they even have a list of all the
+
+652
+00:35:41,440 --> 00:35:46,480
+junction boxes positions. Okay, so this
+
+653
+00:35:44,720 --> 00:35:49,040
+you got a bunch of points. The list
+
+654
+00:35:46,480 --> 00:35:52,480
+describe the positions of 20 junction
+
+655
+00:35:49,040 --> 00:35:56,320
+boxes. Okay,
+
+656
+00:35:52,480 --> 00:35:57,920
+so you connected a pair of them. Then it
+
+657
+00:35:56,320 --> 00:36:00,400
+says
+
+658
+00:35:57,920 --> 00:36:03,040
+after connecting them there is a single
+
+659
+00:36:00,400 --> 00:36:10,280
+circuit which contains two junction
+
+660
+00:36:03,040 --> 00:36:10,280
+boxes and the remaining remaining 18.
+
+661
+00:36:17,119 --> 00:36:22,960
+Okay. So wait, so you connected these
+
+662
+00:36:19,839 --> 00:36:26,480
+two then? Okay, so there's another new
+
+663
+00:36:22,960 --> 00:36:33,839
+pair involving the first point.
+
+664
+00:36:26,480 --> 00:36:37,440
+Okay, so 162 A17 A12. Okay, there it is.
+
+665
+00:36:33,839 --> 00:36:39,680
+So once you connect these two, then it
+
+666
+00:36:37,440 --> 00:36:42,240
+says now the two junction boxes which
+
+667
+00:36:39,680 --> 00:36:45,200
+are closest together but aren't already
+
+668
+00:36:42,240 --> 00:36:48,160
+directed connected. Okay. So once you
+
+669
+00:36:45,200 --> 00:36:54,040
+find two closest
+
+670
+00:36:48,160 --> 00:36:54,040
+then you look at the rest. Uh wait,
+
+671
+00:37:00,400 --> 00:37:07,880
+you see this 162
+
+672
+00:37:04,000 --> 00:37:07,880
+is already connected.
+
+673
+00:37:17,359 --> 00:37:21,760
+I don't understand what the [ __ ] is
+
+674
+00:37:19,200 --> 00:37:21,760
+this.
+
+675
+00:37:34,079 --> 00:37:40,320
+Do you guys understand?
+
+676
+00:37:37,200 --> 00:37:43,640
+Have you guys done the advent of code
+
+677
+00:37:40,320 --> 00:37:43,640
+day eight?
+
+678
+00:37:43,680 --> 00:37:49,359
+Very annoying. You know, you know, we
+
+679
+00:37:45,920 --> 00:37:51,760
+spent like 30 minutes and we don't
+
+680
+00:37:49,359 --> 00:37:55,240
+understand the problem yet.
+
+681
+00:37:51,760 --> 00:37:55,240
+Junction boxes
+
+682
+00:37:55,496 --> 00:38:00,160
+[sighs] uh after connecting them since
+
+683
+00:37:58,079 --> 00:38:03,520
+that is already connected to another
+
+684
+00:38:00,160 --> 00:38:06,880
+junction box. There's now a single. So,
+
+685
+00:38:03,520 --> 00:38:09,880
+so these two are closest. Then it's
+
+686
+00:38:06,880 --> 00:38:09,880
+claiming
+
+687
+00:38:12,800 --> 00:38:20,800
+now it's claiming these two are closest
+
+688
+00:38:17,119 --> 00:38:23,760
+the second closest. So which involves
+
+689
+00:38:20,800 --> 00:38:27,520
+one of the same point in the first pair.
+
+690
+00:38:23,760 --> 00:38:30,079
+Okay, that's what it's trying to claim.
+
+691
+00:38:27,520 --> 00:38:32,480
+The two junction boxes which are closest
+
+692
+00:38:30,079 --> 00:38:34,079
+together but aren't already directly
+
+693
+00:38:32,480 --> 00:38:38,800
+connected.
+
+694
+00:38:34,079 --> 00:38:43,160
+Okay. So he claims this is a second pair
+
+695
+00:38:38,800 --> 00:38:43,160
+among all the pairs
+
+696
+00:38:46,000 --> 00:38:51,359
+and and they are not already connect
+
+697
+00:38:49,040 --> 00:38:54,880
+directly connected between these two.
+
+698
+00:38:51,359 --> 00:38:57,280
+Okay. So after so you so now it's saying
+
+699
+00:38:54,880 --> 00:39:00,839
+that you you you make a connection you
+
+700
+00:38:57,280 --> 00:39:00,839
+connect these two
+
+701
+00:39:01,040 --> 00:39:06,560
+since that is already connect to another
+
+702
+00:39:04,480 --> 00:39:09,839
+there is now a single circuit which
+
+703
+00:39:06,560 --> 00:39:13,599
+contains three junction boxes. Okay. So
+
+704
+00:39:09,839 --> 00:39:15,760
+you you find you find another pair
+
+705
+00:39:13,599 --> 00:39:18,240
+that's closest.
+
+706
+00:39:15,760 --> 00:39:22,400
+Then
+
+707
+00:39:18,240 --> 00:39:27,920
+if if this new pair contains already
+
+708
+00:39:22,400 --> 00:39:31,200
+contains a point in your previous then
+
+709
+00:39:27,920 --> 00:39:35,200
+you know then they are like together.
+
+710
+00:39:31,200 --> 00:39:38,400
+Okay. Otherwise not.
+
+711
+00:39:35,200 --> 00:39:42,160
+Okay. So the next two junction boxes to
+
+712
+00:39:38,400 --> 00:39:44,240
+connect are these two. Okay.
+
+713
+00:39:42,160 --> 00:39:46,240
+Then after connecting them there is a
+
+714
+00:39:44,240 --> 00:39:48,880
+circuit contain containing three
+
+715
+00:39:46,240 --> 00:39:52,359
+junction boxes. Circuit containing two
+
+716
+00:39:48,880 --> 00:39:52,359
+junction boxes
+
+717
+00:39:54,480 --> 00:40:01,119
+and 15. Okay. So basically
+
+718
+00:39:57,680 --> 00:40:05,040
+you find the list of pairs
+
+719
+00:40:01,119 --> 00:40:07,200
+the edges by their distance. Okay. So in
+
+720
+00:40:05,040 --> 00:40:10,480
+other words, each edge between two
+
+721
+00:40:07,200 --> 00:40:14,240
+points has a has a weight. That's the
+
+722
+00:40:10,480 --> 00:40:19,280
+distance between them. So you rank them
+
+723
+00:40:14,240 --> 00:40:21,839
+from the smallest first. So you once you
+
+724
+00:40:19,280 --> 00:40:24,800
+have the smallest, you know, they form a
+
+725
+00:40:21,839 --> 00:40:28,160
+pair, you consider them connected. So
+
+726
+00:40:24,800 --> 00:40:31,359
+every time you add a new pair
+
+727
+00:40:28,160 --> 00:40:32,960
+of closest, you go through the rank. You
+
+728
+00:40:31,359 --> 00:40:37,760
+know every time you add a pair you
+
+729
+00:40:32,960 --> 00:40:40,320
+consider how many disjoint
+
+730
+00:40:37,760 --> 00:40:44,079
+graphs are there
+
+731
+00:40:40,320 --> 00:40:48,800
+something like that. Um
+
+732
+00:40:44,079 --> 00:40:52,079
+yeah how many disjoint you know
+
+733
+00:40:48,800 --> 00:40:54,560
+so let's see um
+
+734
+00:40:52,079 --> 00:40:56,880
+AC says the goal is to connect all nodes
+
+735
+00:40:54,560 --> 00:40:59,599
+into one big circuit using the shortest
+
+736
+00:40:56,880 --> 00:41:02,400
+amount of edges possible meaning we need
+
+737
+00:40:59,599 --> 00:41:06,160
+to always connect to closest nodes that
+
+738
+00:41:02,400 --> 00:41:09,119
+aren't already connected. Oh,
+
+739
+00:41:06,160 --> 00:41:13,963
+so looks like you have read the problem
+
+740
+00:41:09,119 --> 00:41:15,040
+and uh you found the uh Looks like
+
+741
+00:41:13,963 --> 00:41:18,079
+[laughter]
+
+742
+00:41:15,040 --> 00:41:20,400
+you you beat me. So, but let me So, are
+
+743
+00:41:18,079 --> 00:41:22,800
+you going to solve it? Can you like can
+
+744
+00:41:20,400 --> 00:41:25,599
+you solve it in whatever language? What
+
+745
+00:41:22,800 --> 00:41:28,000
+language do you use?
+
+746
+00:41:25,599 --> 00:41:31,703
+Can you can you solve it? I'm I'm I'm
+
+747
+00:41:28,000 --> 00:41:31,703
+slow. I'm kind of slow. [laughter]
+
+748
+00:41:32,560 --> 00:41:38,160
+So anyway, so
+
+749
+00:41:34,960 --> 00:41:40,240
+so you are saying, you know, I'm going
+
+750
+00:41:38,160 --> 00:41:42,880
+to connect all nodes into one big
+
+751
+00:41:40,240 --> 00:41:45,359
+circuit
+
+752
+00:41:42,880 --> 00:41:48,359
+using the shortest amount of edges
+
+753
+00:41:45,359 --> 00:41:48,359
+possible.
+
+754
+00:41:51,920 --> 00:41:59,760
+Okay, I don't quite get it though.
+
+755
+00:41:55,359 --> 00:42:02,880
+So you see, so each edge has a distance.
+
+756
+00:41:59,760 --> 00:42:06,880
+I'm thinking alone. Okay. So, see if you
+
+757
+00:42:02,880 --> 00:42:09,599
+can solve it uh using mm uh wam
+
+758
+00:42:06,880 --> 00:42:12,480
+language. I didn't know you also using
+
+759
+00:42:09,599 --> 00:42:15,119
+wam language. Okay. You might have
+
+760
+00:42:12,480 --> 00:42:18,079
+mentioned but I don't know.
+
+761
+00:42:15,119 --> 00:42:20,960
+So anyway, so so yeah, let me continue
+
+762
+00:42:18,079 --> 00:42:23,440
+to read um you know the way I understand
+
+763
+00:42:20,960 --> 00:42:26,880
+it
+
+764
+00:42:23,440 --> 00:42:30,480
+uh analysis like this is the
+
+765
+00:42:26,880 --> 00:42:32,560
+interpretation part you know even this
+
+766
+00:42:30,480 --> 00:42:35,520
+is even before actually we already did
+
+767
+00:42:32,560 --> 00:42:38,240
+some analysis we already did some
+
+768
+00:42:35,520 --> 00:42:42,000
+partial analysis but we don't fully
+
+769
+00:42:38,240 --> 00:42:44,960
+understand the problem yet
+
+770
+00:42:42,000 --> 00:42:48,480
+so it's saying the next two junction
+
+771
+00:42:44,960 --> 00:42:50,319
+boxes that after connecting them the
+
+772
+00:42:48,480 --> 00:42:52,560
+circuits containing three junction
+
+773
+00:42:50,319 --> 00:42:55,359
+boxes.
+
+774
+00:42:52,560 --> 00:42:57,520
+Okay. Then next the next two is that
+
+775
+00:42:55,359 --> 00:42:59,599
+because these two junction boxes were
+
+776
+00:42:57,520 --> 00:43:01,440
+already in the same circuit nothing
+
+777
+00:42:59,599 --> 00:43:04,440
+happens.
+
+778
+00:43:01,440 --> 00:43:04,440
+Okay.
+
+779
+00:43:05,599 --> 00:43:10,079
+The process continues for a while and
+
+780
+00:43:08,000 --> 00:43:12,880
+elves are concerned they are they don't
+
+781
+00:43:10,079 --> 00:43:15,200
+have enough extension cables. They would
+
+782
+00:43:12,880 --> 00:43:18,200
+like to know how big the circuit will
+
+783
+00:43:15,200 --> 00:43:18,200
+be.
+
+784
+00:43:19,200 --> 00:43:24,319
+After making the 10 shortest
+
+785
+00:43:21,520 --> 00:43:29,760
+connections, there are 11 circuits.
+
+786
+00:43:24,319 --> 00:43:31,359
+Okay? Meaning that there are 11 distinct
+
+787
+00:43:29,760 --> 00:43:34,359
+disjoint
+
+788
+00:43:31,359 --> 00:43:34,359
+graphs.
+
+789
+00:43:34,720 --> 00:43:40,160
+That's you know and circuit is also a
+
+790
+00:43:37,839 --> 00:43:43,599
+technical term in graph theory. So it's
+
+791
+00:43:40,160 --> 00:43:46,400
+just like they are connected group.
+
+792
+00:43:43,599 --> 00:43:49,599
+Okay. So so so after making 10 shortest
+
+793
+00:43:46,400 --> 00:43:51,680
+connections. So you follow you go
+
+794
+00:43:49,599 --> 00:43:54,000
+through the shortest
+
+795
+00:43:51,680 --> 00:43:57,200
+you simply go through each shortest you
+
+796
+00:43:54,000 --> 00:43:59,520
+know rank them. Then after you did 10 of
+
+797
+00:43:57,200 --> 00:44:02,160
+them let's see what is the
+
+798
+00:43:59,520 --> 00:44:05,599
+configuration. So it turns out there are
+
+799
+00:44:02,160 --> 00:44:08,800
+11 circuits. So 11 separate groups. One
+
+800
+00:44:05,599 --> 00:44:10,880
+circuit which contains five junction you
+
+801
+00:44:08,800 --> 00:44:14,079
+know. So, so one group you have five
+
+802
+00:44:10,880 --> 00:44:17,839
+dots. They are all connected in some
+
+803
+00:44:14,079 --> 00:44:20,720
+way. Another group
+
+804
+00:44:17,839 --> 00:44:22,480
+contains four junction box. So, so, so
+
+805
+00:44:20,720 --> 00:44:25,599
+wait there's a there's a difference.
+
+806
+00:44:22,480 --> 00:44:31,040
+Okay. So, in graph theory a circuit is a
+
+807
+00:44:25,599 --> 00:44:33,920
+loop but in here it is not. It's simply
+
+808
+00:44:31,040 --> 00:44:36,880
+you know for you know so for example if
+
+809
+00:44:33,920 --> 00:44:39,119
+I have
+
+810
+00:44:36,880 --> 00:44:45,400
+you know so there there's a difference
+
+811
+00:44:39,119 --> 00:44:45,400
+okay so if I can do another screenshot
+
+812
+00:44:46,960 --> 00:44:51,920
+there's a difference
+
+813
+00:44:49,200 --> 00:44:56,800
+let's let's be elaborate okay let me
+
+814
+00:44:51,920 --> 00:44:58,800
+just draw and uh and just talk okay so
+
+815
+00:44:56,800 --> 00:45:01,920
+in graph theory
+
+816
+00:44:58,800 --> 00:45:04,560
+Let's magnify. You need to magnify this.
+
+817
+00:45:01,920 --> 00:45:09,520
+Yeah. Jesus.
+
+818
+00:45:04,560 --> 00:45:14,240
+So if you have a point point
+
+819
+00:45:09,520 --> 00:45:18,960
+uh point, okay, in graph theory,
+
+820
+00:45:14,240 --> 00:45:21,359
+a circuit is when they form a loop.
+
+821
+00:45:18,960 --> 00:45:24,640
+Okay. But
+
+822
+00:45:21,359 --> 00:45:27,599
+let's say one, two, three, four. One,
+
+823
+00:45:24,640 --> 00:45:33,040
+two, three, four.
+
+824
+00:45:27,599 --> 00:45:36,400
+One, two, three, four. Okay. But so in
+
+825
+00:45:33,040 --> 00:45:39,599
+graph theory, a circuit is a loop. I'm
+
+826
+00:45:36,400 --> 00:45:43,680
+pretty sure. But here,
+
+827
+00:45:39,599 --> 00:45:46,960
+this elves elves thing, a circuit may be
+
+828
+00:45:43,680 --> 00:45:49,839
+may not be a a a loop. It may be just
+
+829
+00:45:46,960 --> 00:45:51,680
+like that. It's like a, you know, it's
+
+830
+00:45:49,839 --> 00:45:54,000
+just just just that they are all
+
+831
+00:45:51,680 --> 00:45:56,000
+connected.
+
+832
+00:45:54,000 --> 00:45:59,520
+So it's just called connected. Okay.
+
+833
+00:45:56,000 --> 00:46:03,040
+Okay, I think that's a proper term. Um,
+
+834
+00:45:59,520 --> 00:46:05,760
+so save this. Okay, so
+
+835
+00:46:03,040 --> 00:46:07,680
+so it's a bit confusing.
+
+836
+00:46:05,760 --> 00:46:10,319
+Um,
+
+837
+00:46:07,680 --> 00:46:12,720
+so let's go back to the problem. Okay.
+
+838
+00:46:10,319 --> 00:46:14,480
+Um,
+
+839
+00:46:12,720 --> 00:46:16,400
+so let me let me let me try to
+
+840
+00:46:14,480 --> 00:46:19,920
+understand. Let me hold on a second. Let
+
+841
+00:46:16,400 --> 00:46:22,800
+me I mean read the comment later. So So
+
+842
+00:46:19,920 --> 00:46:26,000
+anyway, so after so you go through the
+
+843
+00:46:22,800 --> 00:46:28,720
+ranking of distances, you connect them
+
+844
+00:46:26,000 --> 00:46:34,000
+you know one by one. So after you made
+
+845
+00:46:28,720 --> 00:46:37,520
+10 of them. So there are 11 groups. 11
+
+846
+00:46:34,000 --> 00:46:39,599
+uh groups. Okay. One of them contain
+
+847
+00:46:37,520 --> 00:46:43,119
+five points. One one of them contain
+
+848
+00:46:39,599 --> 00:46:46,560
+four points. Uh and and two of them each
+
+849
+00:46:43,119 --> 00:46:49,280
+has two points. Okay. So basically like
+
+850
+00:46:46,560 --> 00:46:51,040
+just pair of points like they are single
+
+851
+00:46:49,280 --> 00:46:54,000
+lines.
+
+852
+00:46:51,040 --> 00:46:56,319
+Um you know you got two of them and then
+
+853
+00:46:54,000 --> 00:46:58,319
+you got seven of them. Each one is a
+
+854
+00:46:56,319 --> 00:47:00,800
+single junction boxes. So meaning that
+
+855
+00:46:58,319 --> 00:47:03,280
+they are just seven. They are remaining
+
+856
+00:47:00,800 --> 00:47:05,119
+seven points that's not connected at
+
+857
+00:47:03,280 --> 00:47:07,839
+all.
+
+858
+00:47:05,119 --> 00:47:12,200
+Then it says multiplying together sizes
+
+859
+00:47:07,839 --> 00:47:12,200
+of the three largest circuits.
+
+860
+00:47:12,560 --> 00:47:19,040
+Okay. 54 and one of the circuit of size
+
+861
+00:47:15,839 --> 00:47:22,640
+two. So you multiply uh together the
+
+862
+00:47:19,040 --> 00:47:25,760
+size of the three largest produces 40.
+
+863
+00:47:22,640 --> 00:47:28,319
+Tricky. Why three? You know, so it's
+
+864
+00:47:25,760 --> 00:47:30,319
+getting into magic numbers in
+
+865
+00:47:28,319 --> 00:47:32,480
+programmer's jargon. You have these
+
+866
+00:47:30,319 --> 00:47:34,960
+magic numbers.
+
+867
+00:47:32,480 --> 00:47:38,560
+You got two magic numbers. First of all,
+
+868
+00:47:34,960 --> 00:47:41,440
+it's just you pick the top 10. Why 10?
+
+869
+00:47:38,560 --> 00:47:45,040
+It's not specified. Just pick the
+
+870
+00:47:41,440 --> 00:47:47,920
+connect the top 10 shortest. Okay, just
+
+871
+00:47:45,040 --> 00:47:51,920
+do that. Then after you do that, then
+
+872
+00:47:47,920 --> 00:47:55,359
+you pick the three largest,
+
+873
+00:47:51,920 --> 00:47:57,680
+you know, so-called circuits.
+
+874
+00:47:55,359 --> 00:48:00,240
+Okay, then you multiply them, you got
+
+875
+00:47:57,680 --> 00:48:03,119
+40. Okay, your list contains many
+
+876
+00:48:00,240 --> 00:48:06,800
+junction boxes. Connect together the the
+
+877
+00:48:03,119 --> 00:48:08,880
+first 1,000 pairs of the junction boxes
+
+878
+00:48:06,800 --> 00:48:11,280
+which are closest together. Okay, I
+
+879
+00:48:08,880 --> 00:48:13,200
+think I understand the problem now.
+
+880
+00:48:11,280 --> 00:48:15,920
+Afterwards, what do you get if you
+
+881
+00:48:13,200 --> 00:48:20,040
+multiply together the sizes of the three
+
+882
+00:48:15,920 --> 00:48:20,040
+largest circuits? Okay.
+
+883
+00:48:20,560 --> 00:48:26,160
+So the problem is
+
+884
+00:48:24,079 --> 00:48:28,480
+more straightforward than I thought.
+
+885
+00:48:26,160 --> 00:48:32,640
+Basically you just so you give you are
+
+886
+00:48:28,480 --> 00:48:35,520
+given a bunch of dots in three space.
+
+887
+00:48:32,640 --> 00:48:38,760
+You want to find you want to compute all
+
+888
+00:48:35,520 --> 00:48:38,760
+the distances.
+
+889
+00:48:38,800 --> 00:48:46,160
+You want to find the the top uh how
+
+890
+00:48:42,400 --> 00:48:49,040
+many? The top uh 1,000. Okay. You want
+
+891
+00:48:46,160 --> 00:48:52,040
+to find the top 1,000 shortest
+
+892
+00:48:49,040 --> 00:48:52,040
+distances.
+
+893
+00:48:56,240 --> 00:49:02,720
+Okay. Then
+
+894
+00:48:59,920 --> 00:49:05,680
+the top 1,00 shortest distances. Then
+
+895
+00:49:02,720 --> 00:49:08,559
+you then you have to like then you have
+
+896
+00:49:05,680 --> 00:49:12,200
+to connect them. Oh god. So the problem
+
+897
+00:49:08,559 --> 00:49:12,200
+is not so trivial.
+
+898
+00:49:12,480 --> 00:49:20,359
+First part of the problem is to find
+
+899
+00:49:15,440 --> 00:49:20,359
+these top 10,00 shortest distances.
+
+900
+00:49:20,880 --> 00:49:26,319
+Then you connect them. Meaning that you
+
+901
+00:49:23,119 --> 00:49:29,440
+you want to find all these distances
+
+902
+00:49:26,319 --> 00:49:31,440
+which one shares the same point. So you
+
+903
+00:49:29,440 --> 00:49:33,520
+are basically you are building a group.
+
+904
+00:49:31,440 --> 00:49:36,520
+I mean not group you are building a
+
+905
+00:49:33,520 --> 00:49:36,520
+graph.
+
+906
+00:49:36,720 --> 00:49:39,720
+Okay.
+
+907
+00:49:40,000 --> 00:49:44,160
+So you you are you are actually building
+
+908
+00:49:42,000 --> 00:49:46,000
+a graph. Then you want to know you know
+
+909
+00:49:44,160 --> 00:49:49,119
+you want to know which one is separate
+
+910
+00:49:46,000 --> 00:49:50,880
+which one is not. So you form several
+
+911
+00:49:49,119 --> 00:49:53,440
+you know
+
+912
+00:49:50,880 --> 00:49:55,119
+uh
+
+913
+00:49:53,440 --> 00:49:57,280
+disjoint
+
+914
+00:49:55,119 --> 00:50:00,559
+graphs
+
+915
+00:49:57,280 --> 00:50:02,720
+then you pick the top three that's got
+
+916
+00:50:00,559 --> 00:50:06,000
+the most number of points and just
+
+917
+00:50:02,720 --> 00:50:08,160
+multiply them. Okay. Uh yeah I
+
+918
+00:50:06,000 --> 00:50:11,200
+understand the problem and the problem
+
+919
+00:50:08,160 --> 00:50:14,000
+is not easy. We're going to do it
+
+920
+00:50:11,200 --> 00:50:16,720
+tomorrow.
+
+921
+00:50:14,000 --> 00:50:18,559
+So, let's see. AC.
+
+922
+00:50:16,720 --> 00:50:21,359
+Yes. Wan language. That's why I love
+
+923
+00:50:18,559 --> 00:50:24,800
+your work. Thank you. So, Wuan language.
+
+924
+00:50:21,359 --> 00:50:28,559
+Yes. Fantastic. May we maybe we should
+
+925
+00:50:24,800 --> 00:50:31,200
+uh start by looking at all nodes. Find
+
+926
+00:50:28,559 --> 00:50:33,760
+the two that are close together. Connect
+
+927
+00:50:31,200 --> 00:50:36,800
+them. Yeah. Start somewhere. That's good
+
+928
+00:50:33,760 --> 00:50:39,599
+approach. Now, we have one pair and n
+
+929
+00:50:36,800 --> 00:50:41,839
+minus one. That's right.
+
+930
+00:50:39,599 --> 00:50:45,130
+Yeah. So we can start to work on that.
+
+931
+00:50:41,839 --> 00:50:45,920
+Oh god. This problem you know. So
+
+932
+00:50:45,130 --> 00:50:49,839
+[laughter]
+
+933
+00:50:45,920 --> 00:50:51,920
+we are correct. We have to.
+
+934
+00:50:49,839 --> 00:50:54,240
+So the first problem you know let's we
+
+935
+00:50:51,920 --> 00:50:56,960
+can we can write it out. So we we're not
+
+936
+00:50:54,240 --> 00:51:00,400
+going to do this today. We we just
+
+937
+00:50:56,960 --> 00:51:04,800
+analyze the problem. Okay. Today the
+
+938
+00:51:00,400 --> 00:51:08,599
+problem is to analyze the problem.
+
+939
+00:51:04,800 --> 00:51:08,599
+So problem
+
+940
+00:51:09,119 --> 00:51:15,440
+actually so let's see let's say
+
+941
+00:51:12,960 --> 00:51:19,599
+okay so we
+
+942
+00:51:15,440 --> 00:51:22,480
+cut close and open that paste it okay
+
+943
+00:51:19,599 --> 00:51:25,599
+that's a problem description and
+
+944
+00:51:22,480 --> 00:51:30,920
+unedited by me okay so we got that so
+
+945
+00:51:25,599 --> 00:51:30,920
+now analysis of the problem
+
+946
+00:51:32,079 --> 00:51:37,680
+two parts Let's
+
+947
+00:51:35,599 --> 00:51:40,000
+first
+
+948
+00:51:37,680 --> 00:51:43,040
+find the
+
+949
+00:51:40,000 --> 00:51:44,880
+least of uh
+
+950
+00:51:43,040 --> 00:51:50,480
+shortest
+
+951
+00:51:44,880 --> 00:51:57,400
+distances among the points. Okay.
+
+952
+00:51:50,480 --> 00:51:57,400
+Find the top 10 one uh top 1,000
+
+953
+00:51:58,160 --> 00:52:03,160
+shortest distance among the points.
+
+954
+00:52:00,160 --> 00:52:03,160
+Okay,
+
+955
+00:52:03,280 --> 00:52:08,079
+that's that's that's that's one that's a
+
+956
+00:52:05,920 --> 00:52:11,079
+big problem. That's the first problem.
+
+957
+00:52:08,079 --> 00:52:11,079
+Okay,
+
+958
+00:52:11,119 --> 00:52:15,800
+then rank them
+
+959
+00:52:17,520 --> 00:52:23,440
+shortest come first. Okay.
+
+960
+00:52:21,280 --> 00:52:27,559
+Uh yeah, of course that's kind of
+
+961
+00:52:23,440 --> 00:52:27,559
+together. That's one problem.
+
+962
+00:52:28,400 --> 00:52:33,359
+Okay. Then
+
+963
+00:52:31,200 --> 00:52:36,960
+for each
+
+964
+00:52:33,359 --> 00:52:39,440
+start from the shortest
+
+965
+00:52:36,960 --> 00:52:41,440
+connect
+
+966
+00:52:39,440 --> 00:52:46,119
+uh
+
+967
+00:52:41,440 --> 00:52:46,119
+the points um
+
+968
+00:52:46,720 --> 00:52:53,440
+do this for
+
+969
+00:52:49,440 --> 00:52:57,200
+all the 1K
+
+970
+00:52:53,440 --> 00:52:59,359
+uh distances you found.
+
+971
+00:52:57,200 --> 00:53:01,359
+The result
+
+972
+00:52:59,359 --> 00:53:03,200
+is a
+
+973
+00:53:01,359 --> 00:53:08,119
+bunch
+
+974
+00:53:03,200 --> 00:53:08,119
+of this joint
+
+975
+00:53:08,800 --> 00:53:14,079
+graphs. Okay, it it may be this joint,
+
+976
+00:53:11,839 --> 00:53:15,760
+it may not be.
+
+977
+00:53:14,079 --> 00:53:17,839
+So
+
+978
+00:53:15,760 --> 00:53:20,160
+it you know it's possible that all of
+
+979
+00:53:17,839 --> 00:53:22,079
+them got connected.
+
+980
+00:53:20,160 --> 00:53:25,359
+Is it possible? Actually we don't know
+
+981
+00:53:22,079 --> 00:53:27,119
+that depends on the number of nodes and
+
+982
+00:53:25,359 --> 00:53:29,599
+you know we are going to connect
+
+983
+00:53:27,119 --> 00:53:32,160
+basically we have 1,000 edges we're
+
+984
+00:53:29,599 --> 00:53:34,000
+going to connect but how many how many
+
+985
+00:53:32,160 --> 00:53:36,800
+um
+
+986
+00:53:34,000 --> 00:53:39,839
+yeah I think we have 1,000 nodes right
+
+987
+00:53:36,800 --> 00:53:42,480
+so let's search for
+
+988
+00:53:39,839 --> 00:53:47,680
+how many uh yeah we have exactly one
+
+989
+00:53:42,480 --> 00:53:50,000
+1,00 points so it may so happens that it
+
+990
+00:53:47,680 --> 00:53:53,200
+just becomes a line so then everything
+
+991
+00:53:50,000 --> 00:53:55,839
+is connected it
+
+992
+00:53:53,200 --> 00:53:58,960
+then then the answer is just you know
+
+993
+00:53:55,839 --> 00:54:01,839
+the top three is just 1,00. So 1,00
+
+994
+00:53:58,960 --> 00:54:06,000
+times oh it's tricky because it says
+
+995
+00:54:01,839 --> 00:54:08,880
+find the top three. So
+
+996
+00:54:06,000 --> 00:54:11,359
+it may so happens that the whole result
+
+997
+00:54:08,880 --> 00:54:14,000
+is one one single graph one single line
+
+998
+00:54:11,359 --> 00:54:17,040
+connect them all. So, so the first group
+
+999
+00:54:14,000 --> 00:54:19,920
+will have 1,000 items.
+
+1000
+00:54:17,040 --> 00:54:24,599
+Then the second group will um let's see
+
+1001
+00:54:19,920 --> 00:54:24,599
+let's look at the problem the problem
+
+1002
+00:54:26,000 --> 00:54:30,119
+you know. So the first group
+
+1003
+00:54:30,480 --> 00:54:35,200
+multiply you know so what do you do get
+
+1004
+00:54:32,880 --> 00:54:38,240
+if you multiply together sizes of the
+
+1005
+00:54:35,200 --> 00:54:41,680
+three largest circuits. Okay, so the
+
+1006
+00:54:38,240 --> 00:54:45,599
+first largest circuit is 1,000 points
+
+1007
+00:54:41,680 --> 00:54:48,000
+1,00. So you want to m multiply that by
+
+1008
+00:54:45,599 --> 00:54:50,000
+the second largest circuit which is
+
+1009
+00:54:48,000 --> 00:54:54,000
+none.
+
+1010
+00:54:50,000 --> 00:54:57,680
+So the size is zero. So 1,00 multiply by
+
+1011
+00:54:54,000 --> 00:55:00,960
+0 is zero and again so it's zero. So
+
+1012
+00:54:57,680 --> 00:55:04,720
+it's it's zero.
+
+1013
+00:55:00,960 --> 00:55:09,040
+That's one possible answer. Okay, that
+
+1014
+00:55:04,720 --> 00:55:11,359
+if it so happens that all your points,
+
+1015
+00:55:09,040 --> 00:55:13,520
+you know, 10,00 points are connected by
+
+1016
+00:55:11,359 --> 00:55:16,800
+10,000 lines.
+
+1017
+00:55:13,520 --> 00:55:18,800
+Okay, but okay. So, let's go back to our
+
+1018
+00:55:16,800 --> 00:55:23,400
+analysis.
+
+1019
+00:55:18,800 --> 00:55:23,400
+Where where is our analysis? So,
+
+1020
+00:55:36,559 --> 00:55:44,200
+problem is pick the three
+
+1021
+00:55:41,200 --> 00:55:44,200
+largest
+
+1022
+00:55:46,800 --> 00:55:52,000
+disjoint graphs
+
+1023
+00:55:50,480 --> 00:55:55,599
+multiply
+
+1024
+00:55:52,000 --> 00:55:59,040
+their sizes.
+
+1025
+00:55:55,599 --> 00:56:02,720
+That's what they want. Okay.
+
+1026
+00:55:59,040 --> 00:56:05,839
+Okay. So, well, so the first problem
+
+1027
+00:56:02,720 --> 00:56:08,960
+find the distances. So, we have to we're
+
+1028
+00:56:05,839 --> 00:56:12,400
+going to code this like tomorrow,
+
+1029
+00:56:08,960 --> 00:56:15,400
+but we can think about it now. So,
+
+1030
+00:56:12,400 --> 00:56:15,400
+uh
+
+1031
+00:56:15,599 --> 00:56:21,040
+you know, so Wuam language they have
+
+1032
+00:56:17,839 --> 00:56:23,760
+like 1,000 building functions on graph.
+
+1033
+00:56:21,040 --> 00:56:25,920
+So maybe [laughter]
+
+1034
+00:56:23,760 --> 00:56:28,319
+maybe it's just like already building
+
+1035
+00:56:25,920 --> 00:56:31,359
+function
+
+1036
+00:56:28,319 --> 00:56:33,839
+um you know because
+
+1037
+00:56:31,359 --> 00:56:37,599
+that's true you know so because we can
+
+1038
+00:56:33,839 --> 00:56:42,240
+look at so this gives us a opportunity
+
+1039
+00:56:37,599 --> 00:56:44,960
+to um let's go to wuam documentation to
+
+1040
+00:56:42,240 --> 00:56:48,559
+learn about graph theory it's been quite
+
+1041
+00:56:44,960 --> 00:56:50,960
+a while when I did graph theory so you
+
+1042
+00:56:48,559 --> 00:56:52,960
+know so they have a dedicated section on
+
+1043
+00:56:50,960 --> 00:56:55,680
+graph and networks.
+
+1044
+00:56:52,960 --> 00:56:58,400
+Okay. Uh construction and representation
+
+1045
+00:56:55,680 --> 00:57:01,760
+and visualization which is the most
+
+1046
+00:56:58,400 --> 00:57:04,640
+fancy uh you know
+
+1047
+00:57:01,760 --> 00:57:07,920
+visualization we can
+
+1048
+00:57:04,640 --> 00:57:10,160
+uh but okay so but they so let's see uh
+
+1049
+00:57:07,920 --> 00:57:13,280
+graph and networks. So what do you have?
+
+1050
+00:57:10,160 --> 00:57:15,760
+So you got graph
+
+1051
+00:57:13,280 --> 00:57:17,680
+graph data. So you got you know you got
+
+1052
+00:57:15,760 --> 00:57:21,280
+quite a few
+
+1053
+00:57:17,680 --> 00:57:24,000
+and uh so anyway so let's go back to our
+
+1054
+00:57:21,280 --> 00:57:28,280
+problem. So what uh can we do find you
+
+1055
+00:57:24,000 --> 00:57:28,280
+know find the uh
+
+1056
+00:57:30,240 --> 00:57:37,200
+oh it's a bit tricky. So if we do by
+
+1057
+00:57:33,680 --> 00:57:40,480
+brute force then we have to do this
+
+1058
+00:57:37,200 --> 00:57:44,640
+500,000 times
+
+1059
+00:57:40,480 --> 00:57:46,240
+500,000 times which is doable in a few
+
+1060
+00:57:44,640 --> 00:57:50,880
+seconds
+
+1061
+00:57:46,240 --> 00:57:53,520
+uh because of computing power right
+
+1062
+00:57:50,880 --> 00:57:57,200
+and uh and the distance is just going to
+
+1063
+00:57:53,520 --> 00:58:00,160
+the distance by the way if you haven't
+
+1064
+00:57:57,200 --> 00:58:04,119
+that the distance is just this formula
+
+1065
+00:58:00,160 --> 00:58:04,119
+okay x2.
+
+1066
+00:58:04,319 --> 00:58:11,480
+Um well actually so the distance let me
+
+1067
+00:58:07,599 --> 00:58:11,480
+write it down here
+
+1068
+00:58:19,520 --> 00:58:26,640
+A B C okay that's a point let's say
+
+1069
+00:58:22,720 --> 00:58:31,400
+that's coordinate and uh x
+
+1070
+00:58:26,640 --> 00:58:31,400
+uh y z
+
+1071
+00:58:32,160 --> 00:58:39,280
+is okay so basically basically
+
+1072
+00:58:35,599 --> 00:58:44,319
+is uh so let me show you how to do this
+
+1073
+00:58:39,280 --> 00:58:48,760
+quickly in wam language that and square
+
+1074
+00:58:44,319 --> 00:58:48,760
+root of it. Okay.
+
+1075
+00:58:50,079 --> 00:58:58,640
+Okay. So let's do let's do that. Okay.
+
+1076
+00:58:53,760 --> 00:59:04,079
+Copy that pop out. So comment and uh so
+
+1077
+00:58:58,640 --> 00:59:06,240
+wait uh okay. So warm language.
+
+1078
+00:59:04,079 --> 00:59:09,119
+So comment the distance between that
+
+1079
+00:59:06,240 --> 00:59:11,440
+that is we can compute that just that
+
+1080
+00:59:09,119 --> 00:59:13,839
+that that that's a solution. Okay. Do
+
+1081
+00:59:11,440 --> 00:59:18,599
+it.
+
+1082
+00:59:13,839 --> 00:59:18,599
+It'll show you the actual formula.
+
+1083
+00:59:26,480 --> 00:59:32,920
+Uh no
+
+1084
+00:59:29,359 --> 00:59:32,920
+wait. Uh
+
+1085
+00:59:33,200 --> 00:59:41,319
+you you need to do the sum. You forgot
+
+1086
+00:59:35,920 --> 00:59:41,319
+not not square root. Okay. Uh,
+
+1087
+00:59:43,599 --> 00:59:47,400
+you need to do
+
+1088
+00:59:56,000 --> 00:59:59,400
+is that right?
+
+1089
+00:59:59,440 --> 01:00:06,640
+That's right. Okay. So, that that's the
+
+1090
+01:00:02,960 --> 01:00:10,319
+formula. Okay. That's a formula for
+
+1091
+01:00:06,640 --> 01:00:14,960
+computing the distance between two
+
+1092
+01:00:10,319 --> 01:00:17,760
+BD coordinate corn coordinates. Okay.
+
+1093
+01:00:14,960 --> 01:00:20,960
+Right. So we can so we need to do this
+
+1094
+01:00:17,760 --> 01:00:23,599
+for 500,000 times
+
+1095
+01:00:20,960 --> 01:00:25,359
+which is easy. You finish in few
+
+1096
+01:00:23,599 --> 01:00:29,520
+seconds.
+
+1097
+01:00:25,359 --> 01:00:33,680
+Um then we just sort them 500,000. Can
+
+1098
+01:00:29,520 --> 01:00:36,720
+you uh so how many? So if you let's say
+
+1099
+01:00:33,680 --> 01:00:40,839
+array how many items can you have before
+
+1100
+01:00:36,720 --> 01:00:40,839
+your browser will crash
+
+1101
+01:00:41,200 --> 01:00:45,520
+500,000
+
+1102
+01:00:43,839 --> 01:00:50,640
+items.
+
+1103
+01:00:45,520 --> 01:00:54,040
+You can ask guac or you can try it. Um
+
+1104
+01:00:50,640 --> 01:00:54,040
+where is guac
+
+1105
+01:00:54,720 --> 01:01:01,200
+and see a new guac.
+
+1106
+01:00:57,760 --> 01:01:04,160
+Uh no I don't want to go history. Okay.
+
+1107
+01:01:01,200 --> 01:01:09,839
+Go new. Uh,
+
+1108
+01:01:04,160 --> 01:01:12,000
+would browser crash if I have 5,000k
+
+1109
+01:01:09,839 --> 01:01:15,720
+items
+
+1110
+01:01:12,000 --> 01:01:15,720
+in a array?
+
+1111
+01:01:16,160 --> 01:01:22,000
+Yes, the browser will very often crash
+
+1112
+01:01:19,200 --> 01:01:26,240
+or become completely unresponsive for a
+
+1113
+01:01:22,000 --> 01:01:28,640
+long time. Oh, if you try to create an
+
+1114
+01:01:26,240 --> 01:01:31,520
+array with 500,000
+
+1115
+01:01:28,640 --> 01:01:34,319
+elements, but it heavily depends. Okay,
+
+1116
+01:01:31,520 --> 01:01:37,119
+so actually you cannot do this brute
+
+1117
+01:01:34,319 --> 01:01:42,359
+force.
+
+1118
+01:01:37,119 --> 01:01:42,359
+Well, actually yeah. So um
+
+1119
+01:01:44,000 --> 01:01:52,880
+do you use uh old tab? Uh yes because
+
+1120
+01:01:48,240 --> 01:01:56,079
+well no because I have uh hoover click
+
+1121
+01:01:52,880 --> 01:01:58,480
+auto you know I hoover the mouse pointer
+
+1122
+01:01:56,079 --> 01:02:01,680
+to whatever windows it will
+
+1123
+01:01:58,480 --> 01:02:04,480
+automatically activate that window. Okay
+
+1124
+01:02:01,680 --> 01:02:07,040
+so this is supremely convenient. I
+
+1125
+01:02:04,480 --> 01:02:09,200
+highly recommend it. That's why you see
+
+1126
+01:02:07,040 --> 01:02:12,799
+all my windows, you can you can see they
+
+1127
+01:02:09,200 --> 01:02:15,760
+always have a little area that's exposed
+
+1128
+01:02:12,799 --> 01:02:18,400
+that allows me to easily switch to all
+
+1129
+01:02:15,760 --> 01:02:24,240
+my windows. I just you see can you see
+
+1130
+01:02:18,400 --> 01:02:27,240
+my mouse hand you know like you can
+
+1131
+01:02:24,240 --> 01:02:27,240
+oops
+
+1132
+01:02:27,520 --> 01:02:33,920
+you see I can just move you know so this
+
+1133
+01:02:30,480 --> 01:02:37,119
+is supremely uh hand saver if you have
+
+1134
+01:02:33,920 --> 01:02:38,799
+hand pen. Okay, I highly recommend it.
+
+1135
+01:02:37,119 --> 01:02:42,160
+How to do that? You can do that on
+
+1136
+01:02:38,799 --> 01:02:44,160
+Windows, on Mac and on Linux. Uh if you
+
+1137
+01:02:42,160 --> 01:02:48,240
+search my website for example today's
+
+1138
+01:02:44,160 --> 01:02:50,640
+talk show, go to my uh keyboard page. Uh
+
+1139
+01:02:48,240 --> 01:02:53,599
+you'll find all kind of you will find
+
+1140
+01:02:50,640 --> 01:02:56,240
+tutorials
+
+1141
+01:02:53,599 --> 01:02:59,040
+uh programming keys. Okay, that's how
+
+1142
+01:02:56,240 --> 01:03:01,119
+you you can find it. you know, configure
+
+1143
+01:02:59,040 --> 01:03:03,680
+keyboard and mouse for Windows, Linux,
+
+1144
+01:03:01,119 --> 01:03:06,880
+Mac, everything you want to know in EMAs
+
+1145
+01:03:03,680 --> 01:03:08,799
+and all sticky keys and mouse uh
+
+1146
+01:03:06,880 --> 01:03:12,960
+autoclick how you do it on Windows,
+
+1147
+01:03:08,799 --> 01:03:16,319
+Linux or Mac how to it's fully detailed
+
+1148
+01:03:12,960 --> 01:03:19,359
+there. Okay, so highly recommend that.
+
+1149
+01:03:16,319 --> 01:03:22,480
+Uh otherwise, you know, otherwise I have
+
+1150
+01:03:19,359 --> 01:03:25,839
+a a key shortcut. This key I press,
+
+1151
+01:03:22,480 --> 01:03:29,240
+you'll just go to the last window. Okay.
+
+1152
+01:03:25,839 --> 01:03:29,240
+So anyway,
+
+1153
+01:03:30,240 --> 01:03:35,359
+okay. So, um Okay. So, I think that's
+
+1154
+01:03:33,520 --> 01:03:37,520
+it. So, we learned, you know, we
+
+1155
+01:03:35,359 --> 01:03:40,400
+actually you you can't really do this
+
+1156
+01:03:37,520 --> 01:03:45,039
+brute force. So, it's a bit tricky uh
+
+1157
+01:03:40,400 --> 01:03:47,839
+because 500,000 items will crash
+
+1158
+01:03:45,039 --> 01:03:49,599
+browser.
+
+1159
+01:03:47,839 --> 01:03:52,480
+I mean you I mean you can have more
+
+1160
+01:03:49,599 --> 01:03:56,000
+memory but I mean so typically no you
+
+1161
+01:03:52,480 --> 01:03:59,280
+shouldn't you know uh it'll crash most
+
+1162
+01:03:56,000 --> 01:04:02,559
+people's browser if you have 500,000
+
+1163
+01:03:59,280 --> 01:04:04,480
+items I think I think grog is
+
+1164
+01:04:02,559 --> 01:04:08,079
+you know you can try it you know we can
+
+1165
+01:04:04,480 --> 01:04:10,240
+actually just try it now um
+
+1166
+01:04:08,079 --> 01:04:12,880
+but yeah probably so you don't want to
+
+1167
+01:04:10,240 --> 01:04:16,400
+do brute force and also you want the
+
+1168
+01:04:12,880 --> 01:04:19,119
+first 1,000 of them you don't want you
+
+1169
+01:04:16,400 --> 01:04:22,079
+know So,
+
+1170
+01:04:19,119 --> 01:04:24,640
+so what do you have to do to optimize
+
+1171
+01:04:22,079 --> 01:04:28,559
+you know so you first of all you find
+
+1172
+01:04:24,640 --> 01:04:32,720
+for each of the point you find
+
+1173
+01:04:28,559 --> 01:04:35,599
+you try to find it so that so that they
+
+1174
+01:04:32,720 --> 01:04:37,119
+um let's put this back
+
+1175
+01:04:35,599 --> 01:04:41,359
+uh
+
+1176
+01:04:37,119 --> 01:04:45,599
+yeah so that's the solution yeah
+
+1177
+01:04:41,359 --> 01:04:48,160
+put it back syntax color showing browser
+
+1178
+01:04:45,599 --> 01:04:51,880
+go down so you can So let's go to the
+
+1179
+01:04:48,160 --> 01:04:51,880
+problem. Uh
+
+1180
+01:04:53,760 --> 01:05:01,440
+so let's look at um
+
+1181
+01:04:56,799 --> 01:05:03,760
+yeah I mean so so they so you
+
+1182
+01:05:01,440 --> 01:05:05,599
+in your problem you want the first 1000
+
+1183
+01:05:03,760 --> 01:05:09,280
+of them. So basically you want to
+
+1184
+01:05:05,599 --> 01:05:12,000
+compare find find two points such that
+
+1185
+01:05:09,280 --> 01:05:13,520
+they have the same
+
+1186
+01:05:12,000 --> 01:05:17,280
+xcoordinate.
+
+1187
+01:05:13,520 --> 01:05:20,319
+they share one or more
+
+1188
+01:05:17,280 --> 01:05:24,000
+uh coordinates, okay? Like identical
+
+1189
+01:05:20,319 --> 01:05:28,240
+ycoordinate or identical x coordinate or
+
+1190
+01:05:24,000 --> 01:05:32,880
+or z. So once they share a coordinate,
+
+1191
+01:05:28,240 --> 01:05:35,359
+it's it's more likely they are shorter.
+
+1192
+01:05:32,880 --> 01:05:38,480
+If they share two coordinates, it's even
+
+1193
+01:05:35,359 --> 01:05:42,000
+more it's it's it's very likely they are
+
+1194
+01:05:38,480 --> 01:05:44,559
+among the top 10,00. Okay. Shortest
+
+1195
+01:05:42,000 --> 01:05:46,400
+because
+
+1196
+01:05:44,559 --> 01:05:49,119
+Yeah. But but this doesn't does not
+
+1197
+01:05:46,400 --> 01:05:51,200
+guarantee though. Yeah, it is true. It
+
+1198
+01:05:49,119 --> 01:05:54,160
+doesn't guarantee it'll be shortest
+
+1199
+01:05:51,200 --> 01:05:56,960
+because you see this is tricky. So in
+
+1200
+01:05:54,160 --> 01:05:59,200
+three space you can imagine two very
+
+1201
+01:05:56,960 --> 01:06:00,559
+close points
+
+1202
+01:05:59,200 --> 01:06:03,119
+but they don't they don't share
+
+1203
+01:06:00,559 --> 01:06:06,400
+coordinate. They are not on the same XY
+
+1204
+01:06:03,119 --> 01:06:08,640
+or Z-axis direction. Nor are they in the
+
+1205
+01:06:06,400 --> 01:06:11,119
+same like orthogonal plane. They are
+
+1206
+01:06:08,640 --> 01:06:13,440
+like diagonal to each other. So they
+
+1207
+01:06:11,119 --> 01:06:16,480
+don't share anything. They don't share
+
+1208
+01:06:13,440 --> 01:06:18,720
+any of the coordinates. So but but
+
+1209
+01:06:16,480 --> 01:06:22,079
+imagine they are very close together.
+
+1210
+01:06:18,720 --> 01:06:25,280
+Meanwhile you can have other points they
+
+1211
+01:06:22,079 --> 01:06:27,680
+share the same like x-axis direction or
+
+1212
+01:06:25,280 --> 01:06:31,359
+y or z
+
+1213
+01:06:27,680 --> 01:06:34,799
+but they are further apart. So,
+
+1214
+01:06:31,359 --> 01:06:38,880
+so by by by trying to find the same
+
+1215
+01:06:34,799 --> 01:06:42,640
+coordinate does not guarantee
+
+1216
+01:06:38,880 --> 01:06:45,920
+that the first shortest
+
+1217
+01:06:42,640 --> 01:06:51,760
+1,000 of them is going to be like that.
+
+1218
+01:06:45,920 --> 01:06:54,559
+In fact, the first 1,000 shortest
+
+1219
+01:06:51,760 --> 01:06:57,760
+bunch of numbers may none of them share
+
+1220
+01:06:54,559 --> 01:07:00,000
+any coordinate. Imagine all of them are
+
+1221
+01:06:57,760 --> 01:07:01,839
+inside this ball, you know. Imagine all
+
+1222
+01:07:00,000 --> 01:07:05,680
+of them are inside this ball while all
+
+1223
+01:07:01,839 --> 01:07:09,440
+the rest numbers like on a grid. They
+
+1224
+01:07:05,680 --> 01:07:12,240
+share coordinates. But then you got this
+
+1225
+01:07:09,440 --> 01:07:17,160
+10,000, you know, lots of numbers inside
+
+1226
+01:07:12,240 --> 01:07:17,160
+this tiny bowl. So,
+
+1227
+01:07:19,039 --> 01:07:23,440
+okay. So, this is interesting question.
+
+1228
+01:07:21,119 --> 01:07:28,039
+The first problem is how do you find the
+
+1229
+01:07:23,440 --> 01:07:28,039
+first shortest distances
+
+1230
+01:07:28,240 --> 01:07:32,240
+you know you you can try to find the
+
+1231
+01:07:30,160 --> 01:07:35,920
+shared coordinate but that doesn't
+
+1232
+01:07:32,240 --> 01:07:38,920
+guarantee your work
+
+1233
+01:07:35,920 --> 01:07:38,920
+Jesus
+
+1234
+01:07:41,920 --> 01:07:46,799
+so this is a computational geometry
+
+1235
+01:07:44,720 --> 01:07:50,000
+problem actually I don't know what is
+
+1236
+01:07:46,799 --> 01:07:52,160
+the solution I don't I'm guessing there
+
+1237
+01:07:50,000 --> 01:07:54,799
+is no propos solution other than just
+
+1238
+01:07:52,160 --> 01:07:57,359
+brute force.
+
+1239
+01:07:54,799 --> 01:08:00,799
+Very interesting computational geometry
+
+1240
+01:07:57,359 --> 01:08:04,520
+problem. We can ask guac. Okay,
+
+1241
+01:08:00,799 --> 01:08:04,520
+let's let's try
+
+1242
+01:08:04,559 --> 01:08:09,599
+uh
+
+1243
+01:08:07,520 --> 01:08:12,599
+let's see
+
+1244
+01:08:09,599 --> 01:08:12,599
+this
+
+1245
+01:08:13,599 --> 01:08:19,600
+first part about finding list of
+
+1246
+01:08:17,920 --> 01:08:24,719
+shortest
+
+1247
+01:08:19,600 --> 01:08:26,640
+distances is a classic
+
+1248
+01:08:24,719 --> 01:08:29,520
+computational
+
+1249
+01:08:26,640 --> 01:08:33,799
+geometry problem.
+
+1250
+01:08:29,520 --> 01:08:33,799
+Okay, let's ask a book.
+
+1251
+01:08:34,960 --> 01:08:38,920
+Given end points
+
+1252
+01:08:42,480 --> 01:08:49,520
+in space in in in
+
+1253
+01:08:46,159 --> 01:08:52,880
+3D space okay in actually it works in 2D
+
+1254
+01:08:49,520 --> 01:08:56,159
+too. So let's just say 2D. Let's make it
+
+1255
+01:08:52,880 --> 01:08:59,279
+simple. given end points in two 2D
+
+1256
+01:08:56,159 --> 01:09:03,080
+space. Uh
+
+1257
+01:08:59,279 --> 01:09:03,080
+that's a good
+
+1258
+01:09:04,480 --> 01:09:16,040
+algorithm to find the top 10 shortest
+
+1259
+01:09:11,759 --> 01:09:16,040
+distances between
+
+1260
+01:09:16,799 --> 01:09:25,759
+any two points.
+
+1261
+01:09:19,920 --> 01:09:29,600
+Okay, let's ask guac. Let's see AI how
+
+1262
+01:09:25,759 --> 01:09:33,440
+advanced are you and also teach me
+
+1263
+01:09:29,600 --> 01:09:36,400
+computational geometry let's see
+
+1264
+01:09:33,440 --> 01:09:38,480
+given end points in two space 2D space
+
+1265
+01:09:36,400 --> 01:09:41,759
+what is a good algorithm to find the top
+
+1266
+01:09:38,480 --> 01:09:45,600
+10 shortest okay are you going to do is
+
+1267
+01:09:41,759 --> 01:09:47,839
+it going to brute force
+
+1268
+01:09:45,600 --> 01:09:50,560
+here's the most practical and efficient
+
+1269
+01:09:47,839 --> 01:09:53,600
+approaches to find the top 10 shortest
+
+1270
+01:09:50,560 --> 01:09:56,400
+distances the 10 smallest is pair-wise
+
+1271
+01:09:53,600 --> 01:09:59,600
+distances plus the corresponding pairs
+
+1272
+01:09:56,400 --> 01:10:02,400
+among end points in 2D ordered from best
+
+1273
+01:09:59,600 --> 01:10:06,320
+to worst in terms of practicality versus
+
+1274
+01:10:02,400 --> 01:10:10,239
+a symptoic performance. fantastic
+
+1275
+01:10:06,320 --> 01:10:13,760
+fully addressed solution is telling us
+
+1276
+01:10:10,239 --> 01:10:17,760
+quick rank ranking approaches okay and
+
+1277
+01:10:13,760 --> 01:10:22,888
+even a year perspective okay uh and less
+
+1278
+01:10:17,760 --> 01:10:22,888
+than 5,000 okay brute force [laughter]
+
+1279
+01:10:25,120 --> 01:10:32,003
+if if n is less than 5,000 which is true
+
+1280
+01:10:28,480 --> 01:10:34,023
+for our problem it says brute force
+
+1281
+01:10:32,003 --> 01:10:34,023
+[laughter]
+
+1282
+01:10:36,800 --> 01:10:45,360
+If if n is less than 50,000
+
+1283
+01:10:40,320 --> 01:10:48,239
+then we have to do kd tree all pairs k n
+
+1284
+01:10:45,360 --> 01:10:51,920
+then it's going to be n
+
+1285
+01:10:48,239 --> 01:10:55,840
+log n + n * n
+
+1286
+01:10:51,920 --> 01:10:59,520
+complexity uh Jesus if n is less than
+
+1287
+01:10:55,840 --> 01:11:01,840
+few million divide and conquer
+
+1288
+01:10:59,520 --> 01:11:04,754
+Jesus basically it just says brute force
+
+1289
+01:11:01,840 --> 01:11:06,774
+what the [ __ ] [ __ ]
+
+1290
+01:11:04,754 --> 01:11:06,774
+[laughter]
+
+1291
+01:11:11,120 --> 01:11:15,360
+I think that's the that's we need to
+
+1292
+01:11:13,600 --> 01:11:17,679
+calculate the distance between every
+
+1293
+01:11:15,360 --> 01:11:20,320
+possible pair then sort all pairs from
+
+1294
+01:11:17,679 --> 01:11:23,320
+shorties. Yeah, that's that's brute
+
+1295
+01:11:20,320 --> 01:11:23,320
+force.
+
+1296
+01:11:24,800 --> 01:11:30,400
+Do you use all tab? Okay. Okay. I think
+
+1297
+01:11:27,280 --> 01:11:32,239
+that's that's it for today. Um, so we're
+
+1298
+01:11:30,400 --> 01:11:34,080
+going to try to code it tomorrow.
+
+1299
+01:11:32,239 --> 01:11:37,360
+Actually, we need to think about more
+
+1300
+01:11:34,080 --> 01:11:41,760
+about this. I mean, are we going to just
+
+1301
+01:11:37,360 --> 01:11:43,679
+brute force it? That's crazy.
+
+1302
+01:11:41,760 --> 01:11:46,000
+I don't suppose, you know, advent of
+
+1303
+01:11:43,679 --> 01:11:50,120
+code, they're going to
+
+1304
+01:11:46,000 --> 01:11:50,120
+ask you to brute force
+
+1305
+01:11:50,400 --> 01:11:55,840
+uh 500,000.
+
+1306
+01:11:53,520 --> 01:11:58,719
+Okay. If you keep all the possible pairs
+
+1307
+01:11:55,840 --> 01:12:01,280
+in your array, then your array it'll
+
+1308
+01:11:58,719 --> 01:12:05,360
+crash the computer, right? But you don't
+
+1309
+01:12:01,280 --> 01:12:08,159
+you only they only want the top 1,000
+
+1310
+01:12:05,360 --> 01:12:10,960
+shortest distances. That's what they
+
+1311
+01:12:08,159 --> 01:12:13,280
+want. They don't want the entire you
+
+1312
+01:12:10,960 --> 01:12:15,120
+know
+
+1313
+01:12:13,280 --> 01:12:18,800
+500,000
+
+1314
+01:12:15,120 --> 01:12:20,080
+possible pairs between two points,
+
+1315
+01:12:18,800 --> 01:12:22,800
+right?
+
+1316
+01:12:20,080 --> 01:12:25,440
+So um
+
+1317
+01:12:22,800 --> 01:12:27,520
+so maybe brute force is the only way I I
+
+1318
+01:12:25,440 --> 01:12:32,280
+mean I can't think of the other any
+
+1319
+01:12:27,520 --> 01:12:32,280
+other way just except brute force.
+
+1320
+01:12:32,560 --> 01:12:37,360
+Okay. But and but the but the problem is
+
+1321
+01:12:34,640 --> 01:12:40,960
+more than that. Once you find this list
+
+1322
+01:12:37,360 --> 01:12:44,560
+of shortest distances, you have to
+
+1323
+01:12:40,960 --> 01:12:48,159
+um then you have to like
+
+1324
+01:12:44,560 --> 01:12:51,320
+you have to basically build the graph to
+
+1325
+01:12:48,159 --> 01:12:51,320
+you know
+
+1326
+01:12:52,480 --> 01:12:57,199
+then that's another thing that's that's
+
+1327
+01:12:55,360 --> 01:13:00,080
+require thinking you know how do you
+
+1328
+01:12:57,199 --> 01:13:04,040
+build a graph and you need to you need
+
+1329
+01:13:00,080 --> 01:13:04,040
+to have a data structure
+
+1330
+01:13:04,960 --> 01:13:10,159
+Oh yeah. So, so every time you started
+
+1331
+01:13:07,440 --> 01:13:13,280
+to have a connection between two points,
+
+1332
+01:13:10,159 --> 01:13:15,280
+you put these two points into a group uh
+
+1333
+01:13:13,280 --> 01:13:21,760
+let's say
+
+1334
+01:13:15,280 --> 01:13:24,239
+array array of these two points.
+
+1335
+01:13:21,760 --> 01:13:27,679
+Also, it would be helpful if you label
+
+1336
+01:13:24,239 --> 01:13:30,320
+each point. Give them them a name like
+
+1337
+01:13:27,679 --> 01:13:34,640
+by the index. That's nice. So you can
+
+1338
+01:13:30,320 --> 01:13:38,159
+say say you know 0.1 connect to 11
+
+1339
+01:13:34,640 --> 01:13:40,640
+right. So you so each index is got a
+
+1340
+01:13:38,159 --> 01:13:43,600
+coordinate for that point then you can
+
+1341
+01:13:40,640 --> 01:13:45,280
+build a group um you can build the graph
+
+1342
+01:13:43,600 --> 01:13:48,640
+by
+
+1343
+01:13:45,280 --> 01:13:51,280
+put them into array. So array is a list
+
+1344
+01:13:48,640 --> 01:13:54,400
+of indexes
+
+1345
+01:13:51,280 --> 01:13:57,040
+uh list of pairs of indexes means that
+
+1346
+01:13:54,400 --> 01:13:58,800
+they are connected. So when you have one
+
+1347
+01:13:57,040 --> 01:14:00,800
+array that means all these are
+
+1348
+01:13:58,800 --> 01:14:03,120
+connected.
+
+1349
+01:14:00,800 --> 01:14:08,880
+Okay. So at at the end you want to find
+
+1350
+01:14:03,120 --> 01:14:10,880
+the the the the one array with the
+
+1351
+01:14:08,880 --> 01:14:13,360
+with the
+
+1352
+01:14:10,880 --> 01:14:16,400
+unique number of point indexes. So you
+
+1353
+01:14:13,360 --> 01:14:21,280
+need to like merge them merge the edges
+
+1354
+01:14:16,400 --> 01:14:23,920
+and just count the indexes unique ones
+
+1355
+01:14:21,280 --> 01:14:26,159
+find to find the largest.
+
+1356
+01:14:23,920 --> 01:14:28,080
+Then you pick the largest three and
+
+1357
+01:14:26,159 --> 01:14:33,360
+multiply them together. I think we got
+
+1358
+01:14:28,080 --> 01:14:35,120
+the algorithm basically. So, but um
+
+1359
+01:14:33,360 --> 01:14:38,159
+yeah, but we're gonna do it tomorrow
+
+1360
+01:14:35,120 --> 01:14:42,440
+then. I mean, maybe you after tomorrow,
+
+1361
+01:14:38,159 --> 01:14:42,440
+but we're going to do it next.
+
+1362
+01:14:42,560 --> 01:14:48,719
+Yeah, brute force. Good luck, guys. Good
+
+1363
+01:14:44,800 --> 01:14:50,719
+luck, AC. Let's see. You know, so don't
+
+1364
+01:14:48,719 --> 01:14:53,360
+don't rely on me. So you guys going to
+
+1365
+01:14:50,719 --> 01:14:55,760
+go walk, you know, go walk in your
+
+1366
+01:14:53,360 --> 01:14:57,760
+favorite programming language. You can
+
+1367
+01:14:55,760 --> 01:15:01,679
+do it in Python, in JavaScript, in
+
+1368
+01:14:57,760 --> 01:15:07,920
+Goland, in F, in C, in whatever you
+
+1369
+01:15:01,679 --> 01:15:09,760
+think is the best Rust Rust lens. Um,
+
+1370
+01:15:07,920 --> 01:15:11,520
+very interesting. Okay, so that's it for
+
+1371
+01:15:09,760 --> 01:15:13,280
+today. Thank you guys for watching. Bye
+
+1372
+01:15:11,520 --> 01:15:16,239
+guys.
+
+1373
+01:15:13,280 --> 01:15:18,159
+It was a you know, we didn't do we
+
+1374
+01:15:16,239 --> 01:15:21,040
+didn't code anything, but it's
+
+1375
+01:15:18,159 --> 01:15:22,800
+interesting. It's like reading poetry,
+
+1376
+01:15:21,040 --> 01:15:25,440
+you know, [laughter]
+
+1377
+01:15:22,800 --> 01:15:28,159
+we avoid the hard part. The hard part is
+
+1378
+01:15:25,440 --> 01:15:30,560
+the actual coding, but we can talk about
+
+1379
+01:15:28,159 --> 01:15:35,560
+the problem. You know, it's like people
+
+1380
+01:15:30,560 --> 01:15:35,560
+talk about like philosophy
+
+1381
+01:15:36,560 --> 01:15:40,280
+uh okay by
+
+1382
+01:15:44,159 --> 01:15:48,880
+so I'm shutting down. So shut down. So
+
+1383
+01:15:47,120 --> 01:15:53,280
+let's see.
+
+1384
+01:15:48,880 --> 01:15:59,360
+plus that. Okay. And this is we drew the
+
+1385
+01:15:53,280 --> 01:16:02,800
+graph and we need to put the graph um
+
+1386
+01:15:59,360 --> 01:16:05,360
+into our uh screenshot
+
+1387
+01:16:02,800 --> 01:16:10,640
+into our talk show so that people can
+
+1388
+01:16:05,360 --> 01:16:14,960
+later uh so uh so this delete.
+
+1389
+01:16:10,640 --> 01:16:17,199
+Okay. So now this today's talk show and
+
+1390
+01:16:14,960 --> 01:16:21,000
+let's put the
+
+1391
+01:16:17,199 --> 01:16:21,000
+uh screenshot here.
+
+1392
+01:16:21,040 --> 01:16:26,719
+Fantastic my fantastic Emacs command.
+
+1393
+01:16:24,159 --> 01:16:29,440
+Can you see that somewhere there? Okay.
+
+1394
+01:16:26,719 --> 01:16:32,320
+Showing browser. So we did the
+
+1395
+01:16:29,440 --> 01:16:35,280
+screenshot explaining about our approach
+
+1396
+01:16:32,320 --> 01:16:38,880
+the graph theory. Fantastic.
+
+1397
+01:16:35,280 --> 01:16:44,360
+And for you programmers, AC and Oh
+
+1398
+01:16:38,880 --> 01:16:44,360
+Jesus, AC is already giving out a
+
+1399
+01:16:45,760 --> 01:16:50,199
+solution. Wow.
+
+1400
+01:16:52,880 --> 01:16:58,440
+Wow. Fantastic. Is that Wait
+
+1401
+01:16:58,560 --> 01:17:02,360
+compression? What?
+
+1402
+01:17:07,199 --> 01:17:12,880
+Rank rank equals to constant array.
+
+1403
+01:17:10,800 --> 01:17:16,000
+What? That doesn't make sense to me.
+
+1404
+01:17:12,880 --> 01:17:18,480
+What are you doing? So anyway, so we
+
+1405
+01:17:16,000 --> 01:17:21,199
+going to
+
+1406
+01:17:18,480 --> 01:17:24,239
+Okay, so that's it for today. So, uh,
+
+1407
+01:17:21,199 --> 01:17:26,800
+let me just I'm going to shut down.
+
+1408
+01:17:24,239 --> 01:17:29,800
+Thank you guys for watching.
+
+1409
+01:17:26,800 --> 01:17:29,800
+Um
+
+1410
+01:17:44,719 --> 01:17:47,719
+I
+
+1411
+01:17:49,199 --> 01:17:55,360
+So yeah, AC I'm not sure what what what
+
+1412
+01:17:52,080 --> 01:17:59,880
+code are you posting? What? That doesn't
+
+1413
+01:17:55,360 --> 01:17:59,880
+look like solution to me. What
+
+1414
+01:18:00,400 --> 01:18:09,239
+I mean maybe that's part of the you know
+
+1415
+01:18:03,360 --> 01:18:09,239
+whatever you are doing. Anyway, bye.
+

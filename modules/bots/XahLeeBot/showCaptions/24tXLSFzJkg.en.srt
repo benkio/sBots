@@ -1,0 +1,1880 @@
+1
+00:00:00,680 --> 00:00:10,349
+hello everyone today I'm going to show
+
+2
+00:00:04,950 --> 00:00:13,920
+you how to write grip in Emacs Lisp so
+
+3
+00:00:10,349 --> 00:00:20,210
+this is another spontaneous recording
+
+4
+00:00:13,920 --> 00:00:23,130
+and yes how to write grabbing Emacs Lisp
+
+5
+00:00:20,210 --> 00:00:25,680
+so let's start okay first of all I
+
+6
+00:00:23,130 --> 00:00:30,170
+remembered let's do this quickly now I
+
+7
+00:00:25,680 --> 00:00:35,399
+know how to to which is to turn along my
+
+8
+00:00:30,170 --> 00:00:41,370
+key log so command LACMA yes that's one
+
+9
+00:00:35,399 --> 00:00:44,570
+yes and it's a global command lock mark
+
+10
+00:00:41,370 --> 00:00:44,570
+yes and
+
+11
+00:00:50,620 --> 00:00:56,980
+okay good so now you see this on this
+
+12
+00:00:54,670 --> 00:00:58,989
+screen it's showing the command I'm
+
+13
+00:00:56,980 --> 00:01:01,989
+using so you know I get questions like
+
+14
+00:00:58,989 --> 00:01:04,150
+what did you do to do this what command
+
+15
+00:01:01,989 --> 00:01:08,830
+did you call so now you can see it there
+
+16
+00:01:04,150 --> 00:01:12,030
+so first of all right its tongue sorry
+
+17
+00:01:08,830 --> 00:01:14,890
+Emacs me smart you see it's right there
+
+18
+00:01:12,030 --> 00:01:19,600
+okay so let's try to grab grab means
+
+19
+00:01:14,890 --> 00:01:22,030
+find text in your directory I have
+
+20
+00:01:19,600 --> 00:01:24,210
+written these like tens of times over
+
+21
+00:01:22,030 --> 00:01:30,910
+the past 10 years because that's what I
+
+22
+00:01:24,210 --> 00:01:31,960
+need to do and so okay so that's
+
+23
+00:01:30,910 --> 00:01:35,680
+different
+
+24
+00:01:31,960 --> 00:01:39,100
+let's let's begin defend let's just name
+
+25
+00:01:35,680 --> 00:01:43,240
+X X because it's easier to type for this
+
+26
+00:01:39,100 --> 00:01:45,729
+one no bar so okay you want to write a
+
+27
+00:01:43,240 --> 00:01:52,619
+grip let's start with documentation
+
+28
+00:01:45,729 --> 00:01:52,619
+that's what I do always so X X will find
+
+29
+00:01:53,369 --> 00:02:08,920
+prompt for directory and okay prompt for
+
+30
+00:02:03,179 --> 00:02:12,550
+let's see prompt for text to find and
+
+31
+00:02:08,920 --> 00:02:15,760
+prompt for directory and then print
+
+32
+00:02:12,550 --> 00:02:20,740
+result something like that okay so let's
+
+33
+00:02:15,760 --> 00:02:25,690
+begin so prompt text to find prompt for
+
+34
+00:02:20,740 --> 00:02:28,900
+directory from results okay so okay I am
+
+35
+00:02:25,690 --> 00:02:30,880
+this to be like 15 minutes but now I'm
+
+36
+00:02:28,900 --> 00:02:34,030
+starting to code it I don't think I can
+
+37
+00:02:30,880 --> 00:02:37,480
+finish in 15 minutes it might be up to
+
+38
+00:02:34,030 --> 00:02:41,830
+20 minutes or 30 minutes okay now it's
+
+39
+00:02:37,480 --> 00:02:47,020
+5:01 let's see how let me let me try to
+
+40
+00:02:41,830 --> 00:02:52,750
+be as fat as you know quick and not you
+
+41
+00:02:47,020 --> 00:02:57,400
+know be verbose in stuff okay so you
+
+42
+00:02:52,750 --> 00:02:59,840
+need Tom okay well let's save the file
+
+43
+00:02:57,400 --> 00:03:03,110
+xx start yeah let's just say that
+
+44
+00:02:59,840 --> 00:03:07,760
+and I don't want to overwrite execs it's
+
+45
+00:03:03,110 --> 00:03:11,599
+not yeah so he max let's go to my Emacs
+
+46
+00:03:07,760 --> 00:03:15,230
+blog because this is my Emacs tutorial
+
+47
+00:03:11,599 --> 00:03:17,630
+and actually I use it myself because I
+
+48
+00:03:15,230 --> 00:03:20,330
+don't remember things actually I have
+
+49
+00:03:17,630 --> 00:03:21,769
+written in detail how to write a grave
+
+50
+00:03:20,330 --> 00:03:24,530
+somewhere here like that's probably
+
+51
+00:03:21,769 --> 00:03:28,370
+scripty script examples
+
+52
+00:03:24,530 --> 00:03:31,489
+yeah I've have written that detailed
+
+53
+00:03:28,370 --> 00:03:34,040
+tutorial before well it's not look at
+
+54
+00:03:31,489 --> 00:03:36,500
+that because it's no fun to not the
+
+55
+00:03:34,040 --> 00:03:43,220
+interactive I mean in real time that's
+
+56
+00:03:36,500 --> 00:03:46,340
+the point of videos so okay prompt for
+
+57
+00:03:43,220 --> 00:03:50,180
+text to find yeah let's see how do you
+
+58
+00:03:46,340 --> 00:03:54,049
+get prompt e command example Emacs Lisp
+
+59
+00:03:50,180 --> 00:03:57,319
+how do you get prompt from user get
+
+60
+00:03:54,049 --> 00:03:59,630
+buffer string get user input that's
+
+61
+00:03:57,319 --> 00:04:01,840
+that's the one you want rich stream so
+
+62
+00:03:59,630 --> 00:04:08,859
+that's what we want
+
+63
+00:04:01,840 --> 00:04:08,859
+restream no okay I don't have pay I
+
+64
+00:04:10,329 --> 00:04:15,019
+don't have a shortcut for that that's no
+
+65
+00:04:13,040 --> 00:04:17,299
+good because I need anything I'd you
+
+66
+00:04:15,019 --> 00:04:26,990
+know so the way I usually walk is
+
+67
+00:04:17,299 --> 00:04:34,520
+because I'm using its open a new frame I
+
+68
+00:04:26,990 --> 00:04:41,120
+think know what I'm talking to people my
+
+69
+00:04:34,520 --> 00:04:43,880
+faculties is looking at 50% the other
+
+70
+00:04:41,120 --> 00:04:45,190
+half needs to be concerned about how to
+
+71
+00:04:43,880 --> 00:04:47,860
+talk to people
+
+72
+00:04:45,190 --> 00:04:51,700
+okay what's the command to open a new
+
+73
+00:04:47,860 --> 00:04:59,479
+frame okay traditionally Emacs is
+
+74
+00:04:51,700 --> 00:05:06,770
+control x5 I think okay canto X 5 Wow
+
+75
+00:04:59,479 --> 00:05:11,289
+let's see control X 5 control H find new
+
+76
+00:05:06,770 --> 00:05:11,289
+frame let's see where is it other frame
+
+77
+00:05:14,170 --> 00:05:28,220
+we frame anyway so inks a ficus you can
+
+78
+00:05:23,030 --> 00:05:32,630
+do shift control and so there make frame
+
+79
+00:05:28,220 --> 00:05:38,180
+command and he's found a cx-5 - that's a
+
+80
+00:05:32,630 --> 00:05:41,390
+traditional key and and ink supply keys
+
+81
+00:05:38,180 --> 00:05:47,390
+is space and I like what I did I am
+
+82
+00:05:41,390 --> 00:05:49,990
+space and hi there it is a new frame III
+
+83
+00:05:47,390 --> 00:05:53,570
+call this command everyday but you know
+
+84
+00:05:49,990 --> 00:05:54,500
+I just forgot so a new frame so what are
+
+85
+00:05:53,570 --> 00:05:56,870
+we gonna do yeah
+
+86
+00:05:54,500 --> 00:06:01,760
+Reed string yeah so I was saying I
+
+87
+00:05:56,870 --> 00:06:02,780
+opened a new frame and let's go to Emacs
+
+88
+00:06:01,760 --> 00:06:07,250
+Lee smart
+
+89
+00:06:02,780 --> 00:06:10,340
+jump to the file and jump to the file
+
+90
+00:06:07,250 --> 00:06:15,080
+you see because the way I woke out my
+
+91
+00:06:10,340 --> 00:06:17,540
+mods he makes this stuff packages is
+
+92
+00:06:15,080 --> 00:06:21,890
+that whenever I try to do something you
+
+93
+00:06:17,540 --> 00:06:25,760
+see obviously here I need let's try this
+
+94
+00:06:21,890 --> 00:06:27,830
+okay I need a brief to expand to the
+
+95
+00:06:25,760 --> 00:06:30,110
+that template so let's do that
+
+96
+00:06:27,830 --> 00:06:32,780
+I may not be able to finish you know
+
+97
+00:06:30,110 --> 00:06:35,330
+writing a graph is key because it's
+
+98
+00:06:32,780 --> 00:06:36,770
+already five minutes but you know I'm
+
+99
+00:06:35,330 --> 00:06:41,240
+just going to show you my workflow
+
+100
+00:06:36,770 --> 00:06:43,100
+anyway so great so yeah you see all
+
+101
+00:06:41,240 --> 00:06:46,220
+these are our briefs now we want to
+
+102
+00:06:43,100 --> 00:06:51,770
+letter please make a copy and let's say
+
+103
+00:06:46,220 --> 00:06:56,450
+how s and okay split let's find
+
+104
+00:06:51,770 --> 00:06:57,590
+tweed string okay there it is already so
+
+105
+00:06:56,450 --> 00:07:01,160
+copy that
+
+106
+00:06:57,590 --> 00:07:05,540
+come back here copy paste they need Eve
+
+107
+00:07:01,160 --> 00:07:09,440
+above him safe did we just involve our
+
+108
+00:07:05,540 --> 00:07:11,750
+yes we didn't even save so now that will
+
+109
+00:07:09,440 --> 00:07:15,979
+work but it won't because you need to
+
+110
+00:07:11,750 --> 00:07:19,479
+reopen it close yes the open you see
+
+111
+00:07:15,979 --> 00:07:22,130
+that is good that's what I want so now
+
+112
+00:07:19,479 --> 00:07:22,980
+you know now I can go back here and
+
+113
+00:07:22,130 --> 00:07:30,060
+commit
+
+114
+00:07:22,980 --> 00:07:34,110
+like I would say oops hunting I do okay
+
+115
+00:07:30,060 --> 00:07:40,530
+yeah so actually so is and usually I
+
+116
+00:07:34,110 --> 00:07:43,230
+need to sort this so now my ass is like
+
+117
+00:07:40,530 --> 00:07:49,200
+sorted you know so did with the others
+
+118
+00:07:43,230 --> 00:07:52,530
+and I go to the top inserted a state I
+
+119
+00:07:49,200 --> 00:07:55,470
+want in this format and delete the
+
+120
+00:07:52,530 --> 00:08:03,650
+earlier one and now I can do a mess
+
+121
+00:07:55,470 --> 00:08:10,670
+which is magic magic mod magic status
+
+122
+00:08:03,650 --> 00:08:10,670
+you can see here it makes okay it's wait
+
+123
+00:08:10,760 --> 00:08:16,380
+how when you coca man it doesn't list I
+
+124
+00:08:14,160 --> 00:08:18,570
+guess so it's just keys oh there's
+
+125
+00:08:16,380 --> 00:08:19,170
+another thing I want to actually let me
+
+126
+00:08:18,570 --> 00:08:21,810
+do that
+
+127
+00:08:19,170 --> 00:08:28,920
+yeah so I'm trying to write a regret
+
+128
+00:08:21,810 --> 00:08:42,900
+grab but you know I did and what's the
+
+129
+00:08:28,920 --> 00:08:45,240
+word distracted I get yeah there's the
+
+130
+00:08:42,900 --> 00:08:48,690
+thing I want to turn on okay I mean
+
+131
+00:08:45,240 --> 00:08:51,350
+let's try that and do I want to show my
+
+132
+00:08:48,690 --> 00:08:51,350
+stuff
+
+133
+00:08:52,670 --> 00:09:00,540
+kick up kick ass
+
+134
+00:08:54,990 --> 00:09:02,820
+yeah it's it's yeah there is a Mac
+
+135
+00:09:00,540 --> 00:09:05,850
+utility that shows the keys I'm typing
+
+136
+00:09:02,820 --> 00:09:11,330
+so let's try that extensions
+
+137
+00:09:05,850 --> 00:09:19,250
+I believe it's extensions and security
+
+138
+00:09:11,330 --> 00:09:22,680
+actions photos no sanctions no it's the
+
+139
+00:09:19,250 --> 00:09:27,590
+accessibility this is okay anyway let's
+
+140
+00:09:22,680 --> 00:09:27,590
+not talk about things so much
+
+141
+00:09:31,329 --> 00:09:42,670
+diction diction again use well anyway so
+
+142
+00:09:36,290 --> 00:09:46,240
+it's not what is it
+
+143
+00:09:42,670 --> 00:09:50,839
+let's let me show you this key cast okay
+
+144
+00:09:46,240 --> 00:09:59,899
+he cast he cast is so utility for Mac
+
+145
+00:09:50,839 --> 00:10:03,589
+that shows your keys what what this is
+
+146
+00:09:59,899 --> 00:10:04,730
+some kind of the spam website yeah this
+
+147
+00:10:03,589 --> 00:10:07,509
+is the one we want
+
+148
+00:10:04,730 --> 00:10:10,899
+maybe it's the same thing maybe it's not
+
+149
+00:10:07,509 --> 00:10:12,120
+okay so this is the utility you can use
+
+150
+00:10:10,899 --> 00:10:15,190
+to
+
+151
+00:10:12,120 --> 00:10:15,190
+[Music]
+
+152
+00:10:23,310 --> 00:10:26,990
+what his
+
+153
+00:10:30,240 --> 00:10:39,330
+key cast okay key see a STR not cast
+
+154
+00:10:36,740 --> 00:10:41,480
+okay apparently they are quite a few of
+
+155
+00:10:39,330 --> 00:10:41,480
+them
+
+156
+00:10:56,350 --> 00:11:05,530
+yeah and I hesitate in turning out get
+
+157
+00:11:02,260 --> 00:11:08,590
+home because you know it's open source
+
+158
+00:11:05,530 --> 00:11:11,890
+but I haven't looked at the source code
+
+159
+00:11:08,590 --> 00:11:14,110
+but I even I did even if I did I don't
+
+160
+00:11:11,890 --> 00:11:20,730
+understand it because I think it's C
+
+161
+00:11:14,110 --> 00:11:20,730
+code the C language C language sucks
+
+162
+00:11:22,080 --> 00:11:28,750
+security and privacy okay there it is
+
+163
+00:11:24,840 --> 00:11:37,180
+security and privacy and it's wholly
+
+164
+00:11:28,750 --> 00:11:40,060
+important accessibility and I know okay
+
+165
+00:11:37,180 --> 00:11:43,060
+and it's just tired on because it's
+
+166
+00:11:40,060 --> 00:11:46,270
+probably trustworthy you know like fear
+
+167
+00:11:43,060 --> 00:11:51,010
+that once I turn on you know it's
+
+168
+00:11:46,270 --> 00:11:54,450
+sending my keystrokes to the FBI I don't
+
+169
+00:11:51,010 --> 00:11:57,210
+know if I'm gonna be censored for this
+
+170
+00:11:54,450 --> 00:12:00,610
+you don't even want to mention the name
+
+171
+00:11:57,210 --> 00:12:04,600
+so anyway so key cast app so I have to
+
+172
+00:12:00,610 --> 00:12:12,630
+find the app let's try right had one to
+
+173
+00:12:04,600 --> 00:12:18,070
+see even why is it grayed out because I
+
+174
+00:12:12,630 --> 00:12:19,810
+have to do this all and now then it's
+
+175
+00:12:18,070 --> 00:12:22,930
+man I don't want to do it now
+
+176
+00:12:19,810 --> 00:12:27,010
+so let's skip sorry about that forget
+
+177
+00:12:22,930 --> 00:12:30,700
+about the whole thing then well just
+
+178
+00:12:27,010 --> 00:12:37,300
+just just use okay so you know just look
+
+179
+00:12:30,700 --> 00:12:39,630
+at this window it's good enough so check
+
+180
+00:12:37,300 --> 00:12:39,630
+for changes
+
+181
+00:12:43,360 --> 00:12:51,440
+so I added more well I didn't wanna
+
+182
+00:12:47,120 --> 00:12:54,019
+breathe okay this is becoming no good
+
+183
+00:12:51,440 --> 00:13:03,110
+because I'm talking too much let's get
+
+184
+00:12:54,019 --> 00:13:06,320
+back to the restraint okay type fine
+
+185
+00:13:03,110 --> 00:13:08,649
+string let's see if I can still do this
+
+186
+00:13:06,320 --> 00:13:12,500
+five twelve his job mean it's already
+
+187
+00:13:08,649 --> 00:13:18,709
+option initially input and it's skip the
+
+188
+00:13:12,500 --> 00:13:25,630
+whole thing set Q mine strain that's
+
+189
+00:13:18,709 --> 00:13:29,540
+just use short short words yeah yeah and
+
+190
+00:13:25,630 --> 00:13:33,199
+find the directory so pump pump for
+
+191
+00:13:29,540 --> 00:13:36,250
+directory name read directory name read
+
+192
+00:13:33,199 --> 00:13:44,260
+directory name okay that's good
+
+193
+00:13:36,250 --> 00:13:52,880
+the to search okay let's say skip that
+
+194
+00:13:44,260 --> 00:13:57,680
+set Q yeah the to search yes the okay
+
+195
+00:13:52,880 --> 00:14:05,800
+the dou X so I'm using these names so
+
+196
+00:13:57,680 --> 00:14:09,850
+that it's easier to find you see and
+
+197
+00:14:05,800 --> 00:14:09,850
+feed of that and
+
+198
+00:14:16,490 --> 00:14:24,870
+okay fine strange that let's just say
+
+199
+00:14:21,480 --> 00:14:30,149
+that let's just say that with temp of
+
+200
+00:14:24,870 --> 00:14:33,510
+with temp of yes okay now you need to
+
+201
+00:14:30,149 --> 00:14:40,730
+traverse directory in order to do that
+
+202
+00:14:33,510 --> 00:14:41,880
+you use directory recursively something
+
+203
+00:14:40,730 --> 00:14:44,779
+okay
+
+204
+00:14:41,880 --> 00:14:49,199
+you see you see I'm using my Emacs Lisp
+
+205
+00:14:44,779 --> 00:14:51,089
+tutorial myself to find things but if
+
+206
+00:14:49,199 --> 00:14:53,100
+you are not used to that of course there
+
+207
+00:14:51,089 --> 00:14:56,130
+are so many other ways to find the
+
+208
+00:14:53,100 --> 00:14:58,470
+functions you want for example I don't I
+
+209
+00:14:56,130 --> 00:15:00,839
+don't remember the file name actually
+
+210
+00:14:58,470 --> 00:15:02,430
+the file name I want is directory files
+
+211
+00:15:00,839 --> 00:15:04,709
+recursively
+
+212
+00:15:02,430 --> 00:15:10,560
+but I just remember recursively so you
+
+213
+00:15:04,709 --> 00:15:13,370
+can do this actually you need to control
+
+214
+00:15:10,560 --> 00:15:17,300
+you then do that on purpose
+
+215
+00:15:13,370 --> 00:15:21,089
+basically that that's a that's the
+
+216
+00:15:17,300 --> 00:15:23,670
+apropos command directory you see it
+
+217
+00:15:21,089 --> 00:15:30,810
+shows here such so that that's what you
+
+218
+00:15:23,670 --> 00:15:34,470
+want so that X rejects rejects is going
+
+219
+00:15:30,810 --> 00:15:41,819
+to be okay actually you need another
+
+220
+00:15:34,470 --> 00:15:46,160
+prompt file name rejects let's do that
+
+221
+00:15:41,819 --> 00:15:46,160
+read read stream
+
+222
+00:15:46,490 --> 00:16:06,500
+restream file name rejects Naomi checks
+
+223
+00:15:56,120 --> 00:16:13,230
+regular expression okay so that's good
+
+224
+00:16:06,500 --> 00:16:18,890
+fine every checks and write V file
+
+225
+00:16:13,230 --> 00:16:18,890
+directory recursively let's see
+
+226
+00:16:19,310 --> 00:16:33,210
+alright the hex reject is gonna be that
+
+227
+00:16:27,360 --> 00:16:38,029
+you don't need that so now you have that
+
+228
+00:16:33,210 --> 00:16:38,029
+now before we do anything let's just
+
+229
+00:16:38,240 --> 00:16:53,240
+message see if we got a right find
+
+230
+00:16:45,620 --> 00:16:53,240
+stream the X
+
+231
+00:16:55,860 --> 00:17:09,150
+file name rejects I don't like that name
+
+232
+00:16:59,620 --> 00:17:13,500
+is too long okay and evaluate the puffle
+
+233
+00:17:09,150 --> 00:17:20,319
+now let's just call the function X X and
+
+234
+00:17:13,500 --> 00:17:24,480
+find string let's say TTT directly to
+
+235
+00:17:20,319 --> 00:17:29,529
+such yes file name rejects let's say
+
+236
+00:17:24,480 --> 00:17:33,370
+HTML dollar sign and let's go to a
+
+237
+00:17:29,529 --> 00:17:38,890
+message both yes I got so the program is
+
+238
+00:17:33,370 --> 00:17:40,779
+running that's good you know just make
+
+239
+00:17:38,890 --> 00:17:43,899
+sure show up before we do anything else
+
+240
+00:17:40,779 --> 00:17:46,919
+make sure it's the structure is good
+
+241
+00:17:43,899 --> 00:17:51,100
+with temp buffer okay
+
+242
+00:17:46,919 --> 00:17:53,649
+5:16 almost an almost with ten buffer
+
+243
+00:17:51,100 --> 00:17:58,120
+okay you need to walk directory yeah so
+
+244
+00:17:53,649 --> 00:18:07,240
+what directory directory because really
+
+245
+00:17:58,120 --> 00:18:13,480
+that's going to return a list file is
+
+246
+00:18:07,240 --> 00:18:18,480
+let's just say that so and of course you
+
+247
+00:18:13,480 --> 00:18:18,480
+need this to be here as well
+
+248
+00:18:26,919 --> 00:18:35,570
+well I already know he's walking so fire
+
+249
+00:18:30,799 --> 00:18:38,179
+list now with now what you need to do is
+
+250
+00:18:35,570 --> 00:18:40,850
+that so it returns a fire list of file
+
+251
+00:18:38,179 --> 00:18:46,910
+paths so for each one you want to open
+
+252
+00:18:40,850 --> 00:18:50,090
+it and such it and if it's there print
+
+253
+00:18:46,910 --> 00:18:53,030
+it and close it so now you would need to
+
+254
+00:18:50,090 --> 00:18:57,200
+walk directory directory fabrica yeah so
+
+255
+00:18:53,030 --> 00:19:01,220
+what you do is map car and well map see
+
+256
+00:18:57,200 --> 00:19:05,919
+some app see you need to give a function
+
+257
+00:19:01,220 --> 00:19:09,080
+here and the sequence is going to be
+
+258
+00:19:05,919 --> 00:19:11,630
+fire list so that's going to go through
+
+259
+00:19:09,080 --> 00:19:18,679
+it you don't need that anymore
+
+260
+00:19:11,630 --> 00:19:21,289
+so let's into some map car so X X is
+
+261
+00:19:18,679 --> 00:19:27,440
+going to be the file path and the body
+
+262
+00:19:21,289 --> 00:19:32,179
+is let's say that X let's do that
+
+263
+00:19:27,440 --> 00:19:40,070
+IVA and run it yes fine strain TT that
+
+264
+00:19:32,179 --> 00:19:42,590
+that rejects that okay so you see it's
+
+265
+00:19:40,070 --> 00:19:47,140
+it's printing all this path so that's
+
+266
+00:19:42,590 --> 00:19:49,900
+also working and now so you see we are
+
+267
+00:19:47,140 --> 00:19:53,240
+dissecting the problem into each
+
+268
+00:19:49,900 --> 00:19:58,970
+components you know and in each step we
+
+269
+00:19:53,240 --> 00:20:01,340
+make sure it's working so so X is a file
+
+270
+00:19:58,970 --> 00:20:07,220
+and now you want to open it yeah with
+
+271
+00:20:01,340 --> 00:20:12,559
+temper temper and with temper for insert
+
+272
+00:20:07,220 --> 00:20:13,190
+contents insert file contents that's
+
+273
+00:20:12,559 --> 00:20:16,549
+right
+
+274
+00:20:13,190 --> 00:20:18,909
+is that what we want no that's not what
+
+275
+00:20:16,549 --> 00:20:18,909
+we want
+
+276
+00:20:24,070 --> 00:20:30,200
+well I was going to look up my older
+
+277
+00:20:27,379 --> 00:20:33,889
+code but didn't let's not do that now so
+
+278
+00:20:30,200 --> 00:20:35,750
+so let's see here's the file contents in
+
+279
+00:20:33,889 --> 00:20:39,409
+the content of file file name after
+
+280
+00:20:35,750 --> 00:20:42,559
+point returns to these service returns
+
+281
+00:20:39,409 --> 00:20:48,769
+list of absolute file name and number of
+
+282
+00:20:42,559 --> 00:20:50,149
+characters inserted but yeah that's I'm
+
+283
+00:20:48,769 --> 00:20:53,990
+pretty sure that's what I want
+
+284
+00:20:50,149 --> 00:20:59,929
+so insert the file content hex that's
+
+285
+00:20:53,990 --> 00:21:09,379
+right you don't need that and go to go
+
+286
+00:20:59,929 --> 00:21:11,179
+to char but beginning of buffer this we
+
+287
+00:21:09,379 --> 00:21:13,399
+want to go to beneath beginning of we
+
+288
+00:21:11,179 --> 00:21:17,000
+can just say 1 because 1 is the painting
+
+289
+00:21:13,399 --> 00:21:22,759
+I was going to do point mean but one is
+
+290
+00:21:17,000 --> 00:21:25,399
+ok ok now we the way we open usually do
+
+291
+00:21:22,759 --> 00:21:27,679
+is you can use finite file but that's
+
+292
+00:21:25,399 --> 00:21:30,679
+not what you want because fine file has
+
+293
+00:21:27,679 --> 00:21:32,809
+you know it has lots of side effects for
+
+294
+00:21:30,679 --> 00:21:35,049
+example when you find file which is open
+
+295
+00:21:32,809 --> 00:21:37,879
+the file it will load the mod oder
+
+296
+00:21:35,049 --> 00:21:40,610
+automatically you know in Emacs this
+
+297
+00:21:37,879 --> 00:21:42,980
+model HTML mod and that usually is very
+
+298
+00:21:40,610 --> 00:21:47,929
+slow because it's going to do syntax
+
+299
+00:21:42,980 --> 00:21:52,190
+highlighting and stuff lots of stuff for
+
+300
+00:21:47,929 --> 00:21:56,870
+example it's going to also run for
+
+301
+00:21:52,190 --> 00:21:59,720
+example let's say hook because you can
+
+302
+00:21:56,870 --> 00:22:02,450
+look at that hook for our hook and you
+
+303
+00:21:59,720 --> 00:22:05,149
+see these are the values so each value
+
+304
+00:22:02,450 --> 00:22:07,340
+is a function so if you use fine file it
+
+305
+00:22:05,149 --> 00:22:10,250
+opens the file then it runs a bunch of
+
+306
+00:22:07,340 --> 00:22:14,120
+functions like you know tens of
+
+307
+00:22:10,250 --> 00:22:16,220
+functions from each minor mod of major
+
+308
+00:22:14,120 --> 00:22:19,519
+mod because that you know that that
+
+309
+00:22:16,220 --> 00:22:22,000
+makes Emacs convenient I actually don't
+
+310
+00:22:19,519 --> 00:22:24,409
+use many packages but for you if you
+
+311
+00:22:22,000 --> 00:22:27,009
+describe variable on this you probably
+
+312
+00:22:24,409 --> 00:22:30,230
+gonna see a few times more than me so
+
+313
+00:22:27,009 --> 00:22:33,019
+you don't want if you writing script you
+
+314
+00:22:30,230 --> 00:22:35,090
+know I can run this in patch so you
+
+315
+00:22:33,019 --> 00:22:36,080
+don't want to use fine fire in general
+
+316
+00:22:35,090 --> 00:22:39,169
+so what do you do
+
+317
+00:22:36,080 --> 00:22:42,049
+you use with temper for instead with ten
+
+318
+00:22:39,169 --> 00:22:45,830
+buffer then instead of fire content it's
+
+319
+00:22:42,049 --> 00:22:48,380
+much faster it doesn't and also it
+
+320
+00:22:45,830 --> 00:22:50,240
+doesn't have undue because when you're
+
+321
+00:22:48,380 --> 00:22:54,529
+writing a script you don't need you know
+
+322
+00:22:50,240 --> 00:22:58,700
+you don't want undo so go to cha one
+
+323
+00:22:54,529 --> 00:23:01,490
+then now we want to search the text okay
+
+324
+00:22:58,700 --> 00:23:05,360
+how do you such tanks such for what
+
+325
+00:23:01,490 --> 00:23:11,840
+that's the that's a thing
+
+326
+00:23:05,360 --> 00:23:15,080
+so such forward find stream bound bound
+
+327
+00:23:11,840 --> 00:23:21,789
+we don't want bound and kneel because if
+
+328
+00:23:15,080 --> 00:23:25,700
+you don't say weight bound you know but
+
+329
+00:23:21,789 --> 00:23:28,360
+Borneo is a position if you say bound
+
+330
+00:23:25,700 --> 00:23:32,000
+ten years only such after the tenth
+
+331
+00:23:28,360 --> 00:23:34,610
+character so you don't want a bound and
+
+332
+00:23:32,000 --> 00:23:37,130
+you want no arrow true and you don't
+
+333
+00:23:34,610 --> 00:23:38,720
+want women to have count you want to not
+
+334
+00:23:37,130 --> 00:23:41,090
+know arrow because otherwise if you
+
+335
+00:23:38,720 --> 00:23:42,860
+cannot find it it'll stop your program
+
+336
+00:23:41,090 --> 00:23:48,190
+you you know with an arrow
+
+337
+00:23:42,860 --> 00:23:52,190
+so such forward so so that's it so if
+
+338
+00:23:48,190 --> 00:23:55,490
+such forward if it's find you we return
+
+339
+00:23:52,190 --> 00:24:02,149
+true so if it's true then let's just say
+
+340
+00:23:55,490 --> 00:24:08,750
+print it print print let's
+
+341
+00:24:02,149 --> 00:24:10,909
+yeah well print see okay it's just you
+
+342
+00:24:08,750 --> 00:24:14,169
+want to print let's say from the
+
+343
+00:24:10,909 --> 00:24:23,799
+beginning of line to end of line line
+
+344
+00:24:14,169 --> 00:24:30,799
+okay so print buffer substring no
+
+345
+00:24:23,799 --> 00:24:37,120
+properties beginning of line my
+
+346
+00:24:30,799 --> 00:24:37,120
+beginning position yeah my in position
+
+347
+00:24:37,289 --> 00:24:43,299
+that's right that's what you want to do
+
+348
+00:24:39,789 --> 00:24:45,940
+so if I'll do that if it's not found do
+
+349
+00:24:43,299 --> 00:24:47,610
+nothing new you can just say new you
+
+350
+00:24:45,940 --> 00:24:50,679
+know you can
+
+351
+00:24:47,610 --> 00:24:54,580
+well in this case you know instead of
+
+352
+00:24:50,679 --> 00:24:58,269
+doing that you can just say when when
+
+353
+00:24:54,580 --> 00:25:03,610
+it's like if but without the else part
+
+354
+00:24:58,269 --> 00:25:07,779
+so so you don't need the new anymore so
+
+355
+00:25:03,610 --> 00:25:11,019
+you see match match yes so Eve out the
+
+356
+00:25:07,779 --> 00:25:13,289
+buffer so we are I think okay so instead
+
+357
+00:25:11,019 --> 00:25:21,370
+of file go to the beginning wins when
+
+358
+00:25:13,289 --> 00:25:23,559
+such forward find string neo T then
+
+359
+00:25:21,370 --> 00:25:27,129
+you've true then printed so let's try
+
+360
+00:25:23,559 --> 00:25:31,840
+that okay and and now let's try to do
+
+361
+00:25:27,129 --> 00:25:36,820
+that okay call xx find string let's do
+
+362
+00:25:31,840 --> 00:25:42,690
+that you know we can actually use
+
+363
+00:25:36,820 --> 00:25:45,789
+rejects find find string yeah rejects
+
+364
+00:25:42,690 --> 00:25:46,740
+because script by default is rejects so
+
+365
+00:25:45,789 --> 00:25:50,049
+let's do that
+
+366
+00:25:46,740 --> 00:25:53,879
+so it's rejects you want instead for
+
+367
+00:25:50,049 --> 00:26:00,789
+such forward you want such forward
+
+368
+00:25:53,879 --> 00:26:07,509
+research forward yeah so that's what you
+
+369
+00:26:00,789 --> 00:26:11,200
+want that's good eval buffer okay let's
+
+370
+00:26:07,509 --> 00:26:15,820
+try go that rejects what me check shall
+
+371
+00:26:11,200 --> 00:26:17,950
+we say let's say a scowl because well
+
+372
+00:26:15,820 --> 00:26:20,289
+it's not it's just fantasy
+
+373
+00:26:17,950 --> 00:26:26,350
+it's try that first so this directory
+
+374
+00:26:20,289 --> 00:26:31,659
+yes in filename rejects that okay please
+
+375
+00:26:26,350 --> 00:26:36,370
+please make it work who hate didn't work
+
+376
+00:26:31,659 --> 00:26:39,909
+yes okay so wait so did it work
+
+377
+00:26:36,370 --> 00:26:42,190
+yes now because I know it's spinning to
+
+378
+00:26:39,909 --> 00:26:45,610
+message which is actually a bad idea
+
+379
+00:26:42,190 --> 00:26:50,110
+let's copy it close it new puffer paste
+
+380
+00:26:45,610 --> 00:26:50,559
+you see and it's printing like a string
+
+381
+00:26:50,110 --> 00:26:52,929
+we
+
+382
+00:26:50,559 --> 00:26:55,840
+which we don't want we want to just
+
+383
+00:26:52,929 --> 00:26:59,139
+without printing this quote so let's say
+
+384
+00:26:55,840 --> 00:27:02,320
+such for a scar okay you see so you'd
+
+385
+00:26:59,139 --> 00:27:05,379
+find in the other Emacs directory my
+
+386
+00:27:02,320 --> 00:27:08,320
+Emacs directory all the lines containing
+
+387
+00:27:05,379 --> 00:27:11,950
+a scowl and okay so that's basically it
+
+388
+00:27:08,320 --> 00:27:15,190
+and okay 26 minutes okay if I have half
+
+389
+00:27:11,950 --> 00:27:18,370
+half an hour that's too long so but we
+
+390
+00:27:15,190 --> 00:27:21,869
+need to refine this program you see when
+
+391
+00:27:18,370 --> 00:27:31,720
+you print it out you also want to print
+
+392
+00:27:21,869 --> 00:27:35,379
+let's see where is it print you also
+
+393
+00:27:31,720 --> 00:27:38,019
+want to print file name print file name
+
+394
+00:27:35,379 --> 00:27:40,629
+but actually yeah you want to print file
+
+395
+00:27:38,019 --> 00:27:43,059
+name and print that then you also want
+
+396
+00:27:40,629 --> 00:27:45,580
+to you know this lots refinement you
+
+397
+00:27:43,059 --> 00:27:50,009
+want to do you also want to make it so
+
+398
+00:27:45,580 --> 00:27:53,080
+that ad buffered text properties to the
+
+399
+00:27:50,009 --> 00:27:55,960
+printed output so that user can press
+
+400
+00:27:53,080 --> 00:28:00,639
+ENTER and jump to that occurrence right
+
+401
+00:27:55,960 --> 00:28:03,100
+away so yeah so so so anyway so that's
+
+402
+00:28:00,639 --> 00:28:05,379
+the basics of I'm you know the time is
+
+403
+00:28:03,100 --> 00:28:08,139
+up so that's the basic I have ever have
+
+404
+00:28:05,379 --> 00:28:12,759
+written the package you can use actually
+
+405
+00:28:08,139 --> 00:28:18,610
+are I recently did a demo of it so find
+
+406
+00:28:12,759 --> 00:28:20,799
+package you know it does all these you
+
+407
+00:28:18,610 --> 00:28:23,799
+know nicely so for example let's try
+
+408
+00:28:20,799 --> 00:28:33,159
+that some fine text you know so I let's
+
+409
+00:28:23,799 --> 00:28:36,190
+say fine text okay let's go yes I wanted
+
+410
+00:28:33,159 --> 00:28:39,639
+directory that okay you see now it's
+
+411
+00:28:36,190 --> 00:28:44,669
+good you see it shows you and I can
+
+412
+00:28:39,639 --> 00:28:47,559
+press ENTER and jump to the location
+
+413
+00:28:44,669 --> 00:28:50,019
+okay that's it thank you for watching
+
+414
+00:28:47,559 --> 00:28:55,119
+and I've been wanting to do more videos
+
+415
+00:28:50,019 --> 00:28:58,240
+and if you like you know hit me up you
+
+416
+00:28:55,119 --> 00:29:00,639
+know like comment on the YouTube and I
+
+417
+00:28:58,240 --> 00:29:02,409
+would like to I'm thinking you know but
+
+418
+00:29:00,639 --> 00:29:04,540
+you know I don't want to say I'm
+
+419
+00:29:02,409 --> 00:29:08,020
+planning it because every time I plan
+
+420
+00:29:04,540 --> 00:29:10,120
+something it's just you know I have
+
+421
+00:29:08,020 --> 00:29:12,910
+pressure like you know it needs to be
+
+422
+00:29:10,120 --> 00:29:17,170
+good it does come out usually this way I
+
+423
+00:29:12,910 --> 00:29:20,020
+was a so I like to do maybe interviews
+
+424
+00:29:17,170 --> 00:29:23,730
+like Sasha has done like with Emacs
+
+425
+00:29:20,020 --> 00:29:28,000
+people so you can you know we can do
+
+426
+00:29:23,730 --> 00:29:30,910
+like I interview you and you can talk
+
+427
+00:29:28,000 --> 00:29:34,180
+about your experiences you know let's
+
+428
+00:29:30,910 --> 00:29:35,710
+focus on some topic like and also I have
+
+429
+00:29:34,180 --> 00:29:38,170
+some questions I would like to get
+
+430
+00:29:35,710 --> 00:29:40,270
+answered for example use a use a package
+
+431
+00:29:38,170 --> 00:29:42,220
+that's a great package by the Emacs
+
+432
+00:29:40,270 --> 00:29:45,790
+maintain current maintainer
+
+433
+00:29:42,220 --> 00:29:49,900
+John Wiggly he's a great guy and he's
+
+434
+00:29:45,790 --> 00:29:54,130
+you know he's a he's a a Maglis expert
+
+435
+00:29:49,900 --> 00:29:57,130
+of course he's expert know and he's also
+
+436
+00:29:54,130 --> 00:30:00,550
+expert at Haskell that's quite
+
+437
+00:29:57,130 --> 00:30:02,680
+interesting and he's also you know C
+
+438
+00:30:00,550 --> 00:30:06,460
+compiler expert because I think that's
+
+439
+00:30:02,680 --> 00:30:09,190
+his job for like 10 or 20 20 years so
+
+440
+00:30:06,460 --> 00:30:11,410
+that would be interesting and and also
+
+441
+00:30:09,190 --> 00:30:19,180
+there's a lot other people I like to
+
+442
+00:30:11,410 --> 00:30:25,090
+talk to I recently Howard Howard what's
+
+443
+00:30:19,180 --> 00:30:28,090
+his name Howard Adams you know and shift
+
+444
+00:30:25,090 --> 00:30:31,780
+row I've met Jeff Joe is a guy who runs
+
+445
+00:30:28,090 --> 00:30:35,710
+Emacs meet up San Francisco
+
+446
+00:30:31,780 --> 00:30:39,850
+it's a great guy but anyway I'm I want
+
+447
+00:30:35,710 --> 00:30:44,860
+to mention you know talking about people
+
+448
+00:30:39,850 --> 00:30:46,870
+they would say Sasha yeah Sasha is busy
+
+449
+00:30:44,860 --> 00:30:48,730
+with her and well not not this person
+
+450
+00:30:46,870 --> 00:30:53,020
+but Sasha she's busy
+
+451
+00:30:48,730 --> 00:30:56,110
+Howard Abrams so yes it would be great
+
+452
+00:30:53,020 --> 00:30:59,770
+to have them you know you know in video
+
+453
+00:30:56,110 --> 00:31:02,350
+Jong Wiggly or Howard Adams Jeff Shaw
+
+454
+00:30:59,770 --> 00:31:04,660
+and there's a lot of people you know I
+
+455
+00:31:02,350 --> 00:31:07,810
+can't just you know right now go of list
+
+456
+00:31:04,660 --> 00:31:10,980
+him this a lot Emacs developers I know
+
+457
+00:31:07,810 --> 00:31:15,310
+you know but it has 10 20 years like
+
+458
+00:31:10,980 --> 00:31:17,210
+Stefan what's his last name he was the
+
+459
+00:31:15,310 --> 00:31:20,520
+previous maintainer
+
+460
+00:31:17,210 --> 00:31:25,110
+and I actually never seen him on video
+
+461
+00:31:20,520 --> 00:31:30,000
+oh I you know no top talk to him life I
+
+462
+00:31:25,110 --> 00:31:33,690
+never met him in your life and a lot of
+
+463
+00:31:30,000 --> 00:31:35,820
+people so you know if you are interested
+
+464
+00:31:33,690 --> 00:31:41,910
+check you know chapter me you know the
+
+465
+00:31:35,820 --> 00:31:43,770
+email me or Twitter otherwise so let's
+
+466
+00:31:41,910 --> 00:31:48,210
+see if we can get it going you know it
+
+467
+00:31:43,770 --> 00:31:50,460
+would be great to have that okay let's
+
+468
+00:31:48,210 --> 00:31:54,720
+say for for today thank you for watching
+
+469
+00:31:50,460 --> 00:31:58,370
+and to thumpa thumbs up please thank you
+
+470
+00:31:54,720 --> 00:31:58,370
+thank you bye
+

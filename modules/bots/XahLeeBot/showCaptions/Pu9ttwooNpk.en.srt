@@ -1,0 +1,4208 @@
+1
+00:00:02,870 --> 00:00:08,309
+good morning everyone
+
+2
+00:00:05,150 --> 00:00:09,290
+welcome to another episode of Zatoichi
+
+3
+00:00:08,309 --> 00:00:15,809
+Oh
+
+4
+00:00:09,290 --> 00:00:17,250
+today is July 26th midnight five minutes
+
+5
+00:00:15,809 --> 00:00:21,630
+after midnight
+
+6
+00:00:17,250 --> 00:00:25,859
+San Francisco time and today we are
+
+7
+00:00:21,630 --> 00:00:31,949
+going to talk about math algebraic
+
+8
+00:00:25,859 --> 00:00:35,880
+structure a combinatorial exploration of
+
+9
+00:00:31,949 --> 00:00:44,370
+algebraic structure now let me set up
+
+10
+00:00:35,880 --> 00:00:48,770
+these this stupid you know this this OBS
+
+11
+00:00:44,370 --> 00:00:48,770
+I always have problems with the video
+
+12
+00:00:49,100 --> 00:01:03,680
+okay maybe that's that's fine so let's
+
+13
+00:00:55,110 --> 00:01:09,720
+see if I'm alive yes I'm alive okay so
+
+14
+00:01:03,680 --> 00:01:13,290
+see get this I got this stupid camera
+
+15
+00:01:09,720 --> 00:01:17,990
+this logitech 920 in which is extremely
+
+16
+00:01:13,290 --> 00:01:17,990
+bad okay don't buy it
+
+17
+00:01:22,430 --> 00:01:33,600
+yeah it's still no good okay maybe that
+
+18
+00:01:30,799 --> 00:01:38,390
+then that's not big enough you know if
+
+19
+00:01:33,600 --> 00:01:43,820
+this okay so let's let's fix this knit
+
+20
+00:01:38,390 --> 00:01:48,479
+so we have one person here say I and
+
+21
+00:01:43,820 --> 00:01:53,600
+this is getting silly it's becoming
+
+22
+00:01:48,479 --> 00:01:53,600
+small and no good
+
+23
+00:02:02,500 --> 00:02:10,710
+okay let's just do it it's just too like
+
+24
+00:02:07,000 --> 00:02:16,170
+that okay so we're gonna talk about
+
+25
+00:02:10,710 --> 00:02:24,480
+interesting stuff the combinatorial
+
+26
+00:02:16,170 --> 00:02:29,530
+exploration of of group like structure
+
+27
+00:02:24,480 --> 00:02:36,640
+so so you guys say hi here okay type
+
+28
+00:02:29,530 --> 00:02:40,000
+something so we're gonna talk about that
+
+29
+00:02:36,640 --> 00:02:41,590
+and what else something else you know
+
+30
+00:02:40,000 --> 00:02:46,090
+maybe something else but we're gonna
+
+31
+00:02:41,590 --> 00:02:48,400
+start with that I guess so guys if you
+
+32
+00:02:46,090 --> 00:02:50,740
+are new here type ok type your
+
+33
+00:02:48,400 --> 00:02:54,990
+thoughts/opinions whatever just say hi
+
+34
+00:02:50,740 --> 00:02:57,400
+okay that way the video will be better
+
+35
+00:02:54,990 --> 00:03:00,630
+so we're gonna talk about these group
+
+36
+00:02:57,400 --> 00:03:03,310
+like structures now I did a video like
+
+37
+00:03:00,630 --> 00:03:07,930
+so right now it's after midnight so I
+
+38
+00:03:03,310 --> 00:03:13,720
+have to keep my voice low and I did a
+
+39
+00:03:07,930 --> 00:03:18,610
+video about 2 months ago that's where I
+
+40
+00:03:13,720 --> 00:03:21,160
+teach about group theory ok I teach you
+
+41
+00:03:18,610 --> 00:03:24,400
+good theory which is a fundamental part
+
+42
+00:03:21,160 --> 00:03:27,760
+of mathematics for mathematicians but
+
+43
+00:03:24,400 --> 00:03:30,480
+you don't need any math background so
+
+44
+00:03:27,760 --> 00:03:35,890
+you can learn cool theory very
+
+45
+00:03:30,480 --> 00:03:38,650
+fundamental it's like ABC for every
+
+46
+00:03:35,890 --> 00:03:41,650
+mathematicians group theory ok the
+
+47
+00:03:38,650 --> 00:03:44,769
+basics of group theory and you can check
+
+48
+00:03:41,650 --> 00:03:47,830
+out that video you know just such my
+
+49
+00:03:44,769 --> 00:03:51,760
+name on YouTube my channel look for
+
+50
+00:03:47,830 --> 00:03:55,330
+group theory and symmetry so that's one
+
+51
+00:03:51,760 --> 00:03:57,400
+our introduction you know a pretty good
+
+52
+00:03:55,330 --> 00:04:00,010
+one on group theory so if you are
+
+53
+00:03:57,400 --> 00:04:02,380
+programmer my main audience are
+
+54
+00:04:00,010 --> 00:04:05,019
+programmers you know you know it's a
+
+55
+00:04:02,380 --> 00:04:06,820
+good to learn but today we can't we
+
+56
+00:04:05,019 --> 00:04:10,450
+cannot talk about something similar so
+
+57
+00:04:06,820 --> 00:04:13,490
+in math there's a branch called haja
+
+58
+00:04:10,450 --> 00:04:18,350
+bruh the primary branches of math
+
+59
+00:04:13,490 --> 00:04:23,330
+classic readers analysis geometry and
+
+60
+00:04:18,350 --> 00:04:26,680
+algebra okay analysis is like calculus
+
+61
+00:04:23,330 --> 00:04:30,220
+it's like you study infinity and
+
+62
+00:04:26,680 --> 00:04:32,780
+infinitely small numbers and continuity
+
+63
+00:04:30,220 --> 00:04:36,830
+things like that derivatives integrals
+
+64
+00:04:32,780 --> 00:04:40,820
+that's all analysis now R Chopra is
+
+65
+00:04:36,830 --> 00:04:42,950
+about structure we're gonna which is
+
+66
+00:04:40,820 --> 00:04:46,220
+what we're gonna talk about and then
+
+67
+00:04:42,950 --> 00:04:49,640
+there's another topic of geometry they
+
+68
+00:04:46,220 --> 00:04:52,310
+are kind of all interrelated but anyway
+
+69
+00:04:49,640 --> 00:04:57,050
+classically math are divided into these
+
+70
+00:04:52,310 --> 00:05:03,890
+these three main branches analysis
+
+71
+00:04:57,050 --> 00:05:05,780
+algebra and geometry okay so we're gonna
+
+72
+00:05:03,890 --> 00:05:09,200
+talk about group theory group structures
+
+73
+00:05:05,780 --> 00:05:11,140
+ok so there's something interesting so I
+
+74
+00:05:09,200 --> 00:05:15,050
+was reading Wikipedia about these
+
+75
+00:05:11,140 --> 00:05:17,450
+different group like structures so what
+
+76
+00:05:15,050 --> 00:05:24,800
+what are what is a group like structure
+
+77
+00:05:17,450 --> 00:05:35,120
+let me show you ok let's see what I want
+
+78
+00:05:24,800 --> 00:05:39,410
+to say oops ok groups the nature of
+
+79
+00:05:35,120 --> 00:05:46,310
+associative property of algebra ok let
+
+80
+00:05:39,410 --> 00:05:46,850
+me let me relax okay so in big group
+
+81
+00:05:46,310 --> 00:05:49,270
+structure
+
+82
+00:05:46,850 --> 00:05:54,140
+it's amazing you see all these amazing
+
+83
+00:05:49,270 --> 00:05:57,650
+beautiful abstract pictures you know
+
+84
+00:05:54,140 --> 00:06:01,370
+they say math is the most the beauty of
+
+85
+00:05:57,650 --> 00:06:06,230
+math lies in its you know the beauty of
+
+86
+00:06:01,370 --> 00:06:09,650
+math is so abstract its austere that is
+
+87
+00:06:06,230 --> 00:06:13,490
+the beauty of math you cannot see it
+
+88
+00:06:09,650 --> 00:06:15,380
+it's intangible but well but sometimes
+
+89
+00:06:13,490 --> 00:06:17,720
+you can represent them as you know
+
+90
+00:06:15,380 --> 00:06:20,930
+pictures and you know they show the
+
+91
+00:06:17,720 --> 00:06:23,510
+structure of math so all these are these
+
+92
+00:06:20,930 --> 00:06:26,450
+are cyclic you know representation
+
+93
+00:06:23,510 --> 00:06:27,790
+graphic graphical representation of
+
+94
+00:06:26,450 --> 00:06:33,220
+cyclic
+
+95
+00:06:27,790 --> 00:06:36,850
+oops you know group is groups is about
+
+96
+00:06:33,220 --> 00:06:40,870
+symmetry so as oh these are dihedral
+
+97
+00:06:36,850 --> 00:06:43,630
+groups then we have cyclic groups you
+
+98
+00:06:40,870 --> 00:06:46,000
+know all these are groups you know it's
+
+99
+00:06:43,630 --> 00:06:48,280
+called groups in math groups is
+
+100
+00:06:46,000 --> 00:06:51,580
+basically a structure a meter I'm going
+
+101
+00:06:48,280 --> 00:06:53,020
+to explain what group is okay so you
+
+102
+00:06:51,580 --> 00:06:55,480
+know this is just a warm-up
+
+103
+00:06:53,020 --> 00:07:01,000
+say hi okay say hi type type your
+
+104
+00:06:55,480 --> 00:07:03,130
+opinions type where you came from so so
+
+105
+00:07:01,000 --> 00:07:06,280
+I was reading about this so let me tell
+
+106
+00:07:03,130 --> 00:07:10,930
+you what is group about what what are
+
+107
+00:07:06,280 --> 00:07:12,760
+these structures about okay so and this
+
+108
+00:07:10,930 --> 00:07:14,560
+is very interesting I was reading this
+
+109
+00:07:12,760 --> 00:07:16,540
+and I was thinking about something and
+
+110
+00:07:14,560 --> 00:07:18,460
+there's some questions I do not
+
+111
+00:07:16,540 --> 00:07:23,080
+understand you know to understand you
+
+112
+00:07:18,460 --> 00:07:25,510
+know it would be you know to understand
+
+113
+00:07:23,080 --> 00:07:28,390
+these fully is like it's basically like
+
+114
+00:07:25,510 --> 00:07:32,530
+a mastered master's degree in you know
+
+115
+00:07:28,390 --> 00:07:40,270
+mathematics anyway so let me show you
+
+116
+00:07:32,530 --> 00:07:42,550
+what is a group let's see should we go
+
+117
+00:07:40,270 --> 00:07:46,570
+to Wikipedia and use the group
+
+118
+00:07:42,550 --> 00:07:49,750
+definitions okay okay group this is a
+
+119
+00:07:46,570 --> 00:07:53,910
+group abstract this is the abstract
+
+120
+00:07:49,750 --> 00:07:53,910
+definition of a group so
+
+121
+00:07:57,630 --> 00:08:06,870
+okay so this is abstract definition a
+
+122
+00:08:01,000 --> 00:08:17,160
+group a group a group is a set and a
+
+123
+00:08:06,870 --> 00:08:17,160
+operation binary operation on the set
+
+124
+00:08:17,310 --> 00:08:28,289
+such that the binary operation satisfies
+
+125
+00:08:24,340 --> 00:08:32,229
+some axioms you know some requirements
+
+126
+00:08:28,289 --> 00:08:36,789
+so a group which is a it's a set let's
+
+127
+00:08:32,229 --> 00:08:42,370
+say s okay we denote the set was s in a
+
+128
+00:08:36,789 --> 00:08:53,200
+binary operation we write it like that
+
+129
+00:08:42,370 --> 00:08:55,000
+for example let's it's okay we we write
+
+130
+00:08:53,200 --> 00:08:57,940
+it like that it can be any symbol in
+
+131
+00:08:55,000 --> 00:09:00,070
+this matter so on the set so you know a
+
+132
+00:08:57,940 --> 00:09:05,800
+binary operation operation on the set
+
+133
+00:09:00,070 --> 00:09:09,779
+such that the binary operation satisfies
+
+134
+00:09:05,800 --> 00:09:09,779
+these axioms so first of all
+
+135
+00:09:15,190 --> 00:09:28,500
+now let's just go to Wikipedia I'm not
+
+136
+00:09:22,000 --> 00:09:28,500
+so ready ready today
+
+137
+00:09:40,540 --> 00:09:45,960
+we add all the requirements are here
+
+138
+00:09:43,060 --> 00:09:49,360
+actually associative key because
+
+139
+00:09:45,960 --> 00:09:54,930
+associativity identity invertibility and
+
+140
+00:09:49,360 --> 00:09:57,030
+commune community VT okay which is not
+
+141
+00:09:54,930 --> 00:10:00,930
+required yeah
+
+142
+00:09:57,030 --> 00:10:11,640
+so let's write out associativity
+
+143
+00:10:00,930 --> 00:10:17,200
+identity inverse okay I tend to G
+
+144
+00:10:11,640 --> 00:10:19,540
+inverse associativity had identity
+
+145
+00:10:17,200 --> 00:10:26,010
+inverse and community of G okay so a
+
+146
+00:10:19,540 --> 00:10:34,780
+group of is a set of things s let's say
+
+147
+00:10:26,010 --> 00:10:38,320
+let's say the set is okay so let's say
+
+148
+00:10:34,780 --> 00:10:43,120
+ABC okay the set has three things a and
+
+149
+00:10:38,320 --> 00:10:48,610
+B and C you know three letters and let's
+
+150
+00:10:43,120 --> 00:10:56,640
+say the operation is denoted by a star
+
+151
+00:10:48,610 --> 00:10:56,640
+sign okay and so the binary operation
+
+152
+00:10:58,380 --> 00:11:10,620
+okay so so for example a times B equals
+
+153
+00:11:04,300 --> 00:11:15,160
+to something okay and you know P times C
+
+154
+00:11:10,620 --> 00:11:17,560
+equals to something and same thing for
+
+155
+00:11:15,160 --> 00:11:20,170
+over for every two elements so the
+
+156
+00:11:17,560 --> 00:11:23,230
+binary operation the reason it's called
+
+157
+00:11:20,170 --> 00:11:25,180
+binary because it takes two elements so
+
+158
+00:11:23,230 --> 00:11:28,690
+you take two elements and equals to
+
+159
+00:11:25,180 --> 00:11:32,170
+something equals to another elements in
+
+160
+00:11:28,690 --> 00:11:34,090
+the set okay and so P times C can be
+
+161
+00:11:32,170 --> 00:11:36,220
+anything anything you want
+
+162
+00:11:34,090 --> 00:11:38,920
+doesn't matter it's not required in a
+
+163
+00:11:36,220 --> 00:11:41,530
+group definition but as long as you have
+
+164
+00:11:38,920 --> 00:11:45,790
+a binary operation on any two elements
+
+165
+00:11:41,530 --> 00:11:49,450
+in a set you return another element in a
+
+166
+00:11:45,790 --> 00:11:51,530
+set that's that's what binary operation
+
+167
+00:11:49,450 --> 00:11:56,360
+means
+
+168
+00:11:51,530 --> 00:12:05,400
+so but the binary operation must satisfy
+
+169
+00:11:56,360 --> 00:12:09,300
+some axioms one is associated and one is
+
+170
+00:12:05,400 --> 00:12:18,530
+identity and one is inverse so
+
+171
+00:12:09,300 --> 00:12:31,190
+associativity means it means a B times C
+
+172
+00:12:18,530 --> 00:12:36,030
+equals to a associativity means this
+
+173
+00:12:31,190 --> 00:12:40,170
+meaning that you you use the group
+
+174
+00:12:36,030 --> 00:12:42,920
+operation or any two elements its switch
+
+175
+00:12:40,170 --> 00:12:42,920
+is a way
+
+176
+00:12:51,020 --> 00:12:56,570
+you have high associativity on any two
+
+177
+00:12:53,899 --> 00:13:00,800
+elements then you apply it with another
+
+178
+00:12:56,570 --> 00:13:04,399
+elements we are equals to basically
+
+179
+00:13:00,800 --> 00:13:07,279
+amount amounts to order so a B first
+
+180
+00:13:04,399 --> 00:13:10,040
+then multiplied by C we are equals
+
+181
+00:13:07,279 --> 00:13:16,010
+through B times C first they multiplied
+
+182
+00:13:10,040 --> 00:13:21,110
+by a so ABC are any elements in a group
+
+183
+00:13:16,010 --> 00:13:24,200
+so if this is satisfied we say that it
+
+184
+00:13:21,110 --> 00:13:27,170
+has associative property for for this
+
+185
+00:13:24,200 --> 00:13:29,899
+binary operation okay so that's one of
+
+186
+00:13:27,170 --> 00:13:32,180
+the requirement so when you have a set
+
+187
+00:13:29,899 --> 00:13:34,880
+and a binary operation such that is
+
+188
+00:13:32,180 --> 00:13:37,760
+satisfy this it's one of the requirement
+
+189
+00:13:34,880 --> 00:13:40,459
+if you want to call this thing a group
+
+190
+00:13:37,760 --> 00:13:43,990
+you know a group is a set in the binary
+
+191
+00:13:40,459 --> 00:13:48,740
+operation so there is identity identity
+
+192
+00:13:43,990 --> 00:13:53,990
+identity means a times I equals to I
+
+193
+00:13:48,740 --> 00:14:02,899
+times a equals to a let me write it this
+
+194
+00:13:53,990 --> 00:14:07,790
+way okay so there is a element we called
+
+195
+00:14:02,899 --> 00:14:10,730
+I such that any element time is that
+
+196
+00:14:07,790 --> 00:14:14,360
+element equals to the element itself you
+
+197
+00:14:10,730 --> 00:14:19,220
+know a times I equals to a and I times a
+
+198
+00:14:14,360 --> 00:14:22,880
+equals to a to so ap a can be in any
+
+199
+00:14:19,220 --> 00:14:25,730
+element or it requires is that their
+
+200
+00:14:22,880 --> 00:14:28,910
+eggs there is a element you know there
+
+201
+00:14:25,730 --> 00:14:33,020
+is a you know element you know in a
+
+202
+00:14:28,910 --> 00:14:38,589
+group such that these two are true and
+
+203
+00:14:33,020 --> 00:14:38,589
+we call this element I the identity
+
+204
+00:14:42,250 --> 00:14:53,120
+is called the identity element or simply
+
+205
+00:14:46,580 --> 00:14:57,650
+just identity okay and another
+
+206
+00:14:53,120 --> 00:15:02,920
+requirement is the inverse element for
+
+207
+00:14:57,650 --> 00:15:10,660
+any element X there is another element
+
+208
+00:15:02,920 --> 00:15:19,900
+we write we write negative x such that x
+
+209
+00:15:10,660 --> 00:15:19,900
+times negative x equals to hi okay and
+
+210
+00:15:23,800 --> 00:15:29,560
+okay and negative x times x equals y
+
+211
+00:15:30,040 --> 00:15:36,980
+yeah so these are the requirements when
+
+212
+00:15:34,010 --> 00:15:39,470
+when when you have a binary operation
+
+213
+00:15:36,980 --> 00:15:42,830
+and you have a set you have a binary
+
+214
+00:15:39,470 --> 00:15:45,140
+operation that operates on the set any
+
+215
+00:15:42,830 --> 00:15:48,860
+two elements returns on other elements
+
+216
+00:15:45,140 --> 00:15:54,380
+in a set and if this binary operation
+
+217
+00:15:48,860 --> 00:15:57,110
+satisfies these three properties then we
+
+218
+00:15:54,380 --> 00:15:58,940
+call this whole thing we call it a group
+
+219
+00:15:57,110 --> 00:16:01,780
+that's what it means
+
+220
+00:15:58,940 --> 00:16:01,780
+abstractly
+
+221
+00:16:04,120 --> 00:16:15,629
+okay so that's a group now you see this
+
+222
+00:16:07,689 --> 00:16:18,759
+table you see this table that there are
+
+223
+00:16:15,629 --> 00:16:23,170
+all these properties properties are
+
+224
+00:16:18,759 --> 00:16:28,149
+listed above then on the left side the
+
+225
+00:16:23,170 --> 00:16:30,699
+different names mathematicians give to
+
+226
+00:16:28,149 --> 00:16:33,370
+the structure that satisfy this property
+
+227
+00:16:30,699 --> 00:16:38,139
+you know the properties are totality
+
+228
+00:16:33,370 --> 00:16:41,139
+associativity identity invertibility and
+
+229
+00:16:38,139 --> 00:16:53,980
+community with a commute commute to
+
+230
+00:16:41,139 --> 00:16:56,079
+commute commutativity so what that what
+
+231
+00:16:53,980 --> 00:16:58,870
+does I mean for example group we talked
+
+232
+00:16:56,079 --> 00:17:01,569
+about group we you know we discussed the
+
+233
+00:16:58,870 --> 00:17:04,569
+definition of a group so if we look at a
+
+234
+00:17:01,569 --> 00:17:07,860
+group the first property totality what
+
+235
+00:17:04,569 --> 00:17:10,990
+does that mean that means it basically
+
+236
+00:17:07,860 --> 00:17:14,890
+it just means that the binary operation
+
+237
+00:17:10,990 --> 00:17:19,539
+the output of the binary operation the
+
+238
+00:17:14,890 --> 00:17:21,610
+return value is always an element in a
+
+239
+00:17:19,539 --> 00:17:24,579
+set you know if it doesn't become
+
+240
+00:17:21,610 --> 00:17:26,589
+something else you know so that's a CV
+
+241
+00:17:24,579 --> 00:17:30,419
+requirement but anyway that's what
+
+242
+00:17:26,589 --> 00:17:33,940
+totality means over here and
+
+243
+00:17:30,419 --> 00:17:35,919
+associativity we discussed identity we
+
+244
+00:17:33,940 --> 00:17:38,980
+discussed you know there's a element
+
+245
+00:17:35,919 --> 00:17:43,029
+such we had a I equals to a in IAE quest
+
+246
+00:17:38,980 --> 00:17:46,230
+to hey when there's inverse element we
+
+247
+00:17:43,029 --> 00:17:55,270
+discussed then there's a communit
+
+248
+00:17:46,230 --> 00:17:57,600
+commutativity which means a times B come
+
+249
+00:17:55,270 --> 00:17:57,600
+here
+
+250
+00:17:59,480 --> 00:18:14,909
+community with tea coming to tea with
+
+251
+00:18:04,289 --> 00:18:17,700
+tea which means a times B equals to B
+
+252
+00:18:14,909 --> 00:18:21,059
+times a you know basically it means
+
+253
+00:18:17,700 --> 00:18:23,159
+older doesn't matter by the way the
+
+254
+00:18:21,059 --> 00:18:25,710
+binary operation we use this notation
+
+255
+00:18:23,159 --> 00:18:28,740
+but there is another notation we can say
+
+256
+00:18:25,710 --> 00:18:31,710
+functional notation so if you are
+
+257
+00:18:28,740 --> 00:18:38,220
+familiar with functions in programming
+
+258
+00:18:31,710 --> 00:18:44,940
+that we would write this as a P equals
+
+259
+00:18:38,220 --> 00:18:47,369
+to C we write it like that the C equals
+
+260
+00:18:44,940 --> 00:18:53,419
+to a you know this is the functional
+
+261
+00:18:47,369 --> 00:18:53,419
+notation so let me put some
+
+262
+00:19:11,980 --> 00:19:23,030
+these are the group axioms one two three
+
+263
+00:19:15,680 --> 00:19:26,030
+and this is what commutativity means now
+
+264
+00:19:23,030 --> 00:19:28,550
+a group does not require these okay
+
+265
+00:19:26,030 --> 00:19:30,760
+now let's go back go back and look at
+
+266
+00:19:28,550 --> 00:19:34,340
+the table so you have these properties
+
+267
+00:19:30,760 --> 00:19:37,580
+now you see this table shows you know
+
+268
+00:19:34,340 --> 00:19:40,730
+what the structure names mathematician
+
+269
+00:19:37,580 --> 00:19:43,970
+calls for various if they satisfy
+
+270
+00:19:40,730 --> 00:19:44,770
+certain certain properties but not
+
+271
+00:19:43,970 --> 00:19:52,220
+others
+
+272
+00:19:44,770 --> 00:19:54,710
+now this sorry so I was reading this
+
+273
+00:19:52,220 --> 00:19:58,000
+today and there is a very interesting
+
+274
+00:19:54,710 --> 00:20:02,030
+thing I was thinking now I'm pretty sure
+
+275
+00:19:58,000 --> 00:20:05,690
+I'm pretty sure that mathematicians has
+
+276
+00:20:02,030 --> 00:20:10,460
+studied this before but however at one
+
+277
+00:20:05,690 --> 00:20:13,880
+time I asked I asked a mathematician
+
+278
+00:20:10,460 --> 00:20:21,220
+John bass and he told me he have not
+
+279
+00:20:13,880 --> 00:20:23,810
+seen it basically okay I'm gonna expand
+
+280
+00:20:21,220 --> 00:20:26,780
+when you look at this table what do you
+
+281
+00:20:23,810 --> 00:20:30,590
+want to know is what is the nature what
+
+282
+00:20:26,780 --> 00:20:34,070
+is the nature of these properties I mean
+
+283
+00:20:30,590 --> 00:20:36,830
+so what so what is identity you know
+
+284
+00:20:34,070 --> 00:20:39,380
+okay we understand identity basically
+
+285
+00:20:36,830 --> 00:20:43,940
+means there's an element you know such
+
+286
+00:20:39,380 --> 00:20:46,730
+that does not matter what that element
+
+287
+00:20:43,940 --> 00:20:49,820
+is combined with any other it will
+
+288
+00:20:46,730 --> 00:20:52,910
+always return the other element so it's
+
+289
+00:20:49,820 --> 00:20:55,340
+as if you know identity element
+
+290
+00:20:52,910 --> 00:20:57,770
+functions like you know it does nothing
+
+291
+00:20:55,340 --> 00:21:02,630
+you know it it just returns the other
+
+292
+00:20:57,770 --> 00:21:04,730
+elements you know so you want to
+
+293
+00:21:02,630 --> 00:21:08,000
+understand you know I want to understand
+
+294
+00:21:04,730 --> 00:21:09,920
+you know as a mathematician you want to
+
+295
+00:21:08,000 --> 00:21:15,280
+understand what is the nature of
+
+296
+00:21:09,920 --> 00:21:18,200
+identity so for you know we so you know
+
+297
+00:21:15,280 --> 00:21:21,700
+in a thought process like we are
+
+298
+00:21:18,200 --> 00:21:25,669
+exploring what it really means
+
+299
+00:21:21,700 --> 00:21:30,080
+so we can see the definition of a
+
+300
+00:21:25,669 --> 00:21:33,500
+identity element so it you know we
+
+301
+00:21:30,080 --> 00:21:36,830
+usually say so there exists an element
+
+302
+00:21:33,500 --> 00:21:41,540
+such that you know such a such and that
+
+303
+00:21:36,830 --> 00:21:44,690
+these two equations are satisfied so it
+
+304
+00:21:41,540 --> 00:21:48,740
+seems that the item identity element is
+
+305
+00:21:44,690 --> 00:21:54,100
+something something about a special
+
+306
+00:21:48,740 --> 00:22:01,030
+element in the group you know in a set
+
+307
+00:21:54,100 --> 00:22:06,280
+or in other way to to say it is that
+
+308
+00:22:01,030 --> 00:22:11,450
+when we define our binary operation we
+
+309
+00:22:06,280 --> 00:22:13,460
+we make sure that you know this happens
+
+310
+00:22:11,450 --> 00:22:16,910
+you know there's you know there's an
+
+311
+00:22:13,460 --> 00:22:23,299
+element such that it times anything
+
+312
+00:22:16,910 --> 00:22:25,370
+returns the other thing P you know so
+
+313
+00:22:23,299 --> 00:22:28,100
+that's what we are doing you know we are
+
+314
+00:22:25,370 --> 00:22:30,350
+I'm trying to explore you know like look
+
+315
+00:22:28,100 --> 00:22:32,090
+into the nature what is the nature of
+
+316
+00:22:30,350 --> 00:22:35,470
+identity so what what do you mean by the
+
+317
+00:22:32,090 --> 00:22:38,299
+nature of it you know for example you
+
+318
+00:22:35,470 --> 00:22:42,200
+could cook up any things you know any
+
+319
+00:22:38,299 --> 00:22:45,140
+property up here and you know so why is
+
+320
+00:22:42,200 --> 00:22:47,840
+you know so one of the question is why
+
+321
+00:22:45,140 --> 00:22:50,360
+are these properties you know listed in
+
+322
+00:22:47,840 --> 00:22:52,490
+this table why not others for example
+
+323
+00:22:50,360 --> 00:22:54,679
+there are many other you could cook up
+
+324
+00:22:52,490 --> 00:22:57,380
+many other requirements you could say
+
+325
+00:22:54,679 --> 00:23:00,200
+you know you know if the binary
+
+326
+00:22:57,380 --> 00:23:03,280
+operation is such that you know eight
+
+327
+00:23:00,200 --> 00:23:05,990
+times itself five times equals to an
+
+328
+00:23:03,280 --> 00:23:08,780
+identity element you know you could just
+
+329
+00:23:05,990 --> 00:23:11,179
+say anything and you could put it here
+
+330
+00:23:08,780 --> 00:23:15,320
+then you have more you know different
+
+331
+00:23:11,179 --> 00:23:20,510
+structures so why what what is it that
+
+332
+00:23:15,320 --> 00:23:23,960
+makes you know what is the qualification
+
+333
+00:23:20,510 --> 00:23:26,280
+for these you know properties listed on
+
+334
+00:23:23,960 --> 00:23:28,980
+on this table
+
+335
+00:23:26,280 --> 00:23:31,830
+now one perspective is that we could
+
+336
+00:23:28,980 --> 00:23:36,320
+simply say oh this is just historical on
+
+337
+00:23:31,830 --> 00:23:39,060
+this this is simply you know historical
+
+338
+00:23:36,320 --> 00:23:42,270
+you know just because mathematicians
+
+339
+00:23:39,060 --> 00:23:44,700
+happened to look into these particular
+
+340
+00:23:42,270 --> 00:23:47,880
+things but that's not a good answer
+
+341
+00:23:44,700 --> 00:23:52,410
+because when we study math we we really
+
+342
+00:23:47,880 --> 00:23:54,410
+want to actually look usually okay it's
+
+343
+00:23:52,410 --> 00:23:58,130
+almost always there is something
+
+344
+00:23:54,410 --> 00:24:01,470
+intrinsic something critical something
+
+345
+00:23:58,130 --> 00:24:04,590
+you know it's like a defining quality
+
+346
+00:24:01,470 --> 00:24:09,090
+you know if such if something satisfies
+
+347
+00:24:04,590 --> 00:24:12,240
+these then it changes you know it has
+
+348
+00:24:09,090 --> 00:24:14,550
+important consequences or it changes the
+
+349
+00:24:12,240 --> 00:24:16,380
+nature of things you know suddenly black
+
+350
+00:24:14,550 --> 00:24:16,760
+becomes white you know something like
+
+351
+00:24:16,380 --> 00:24:23,010
+that
+
+352
+00:24:16,760 --> 00:24:28,050
+you know oh you know that is what the
+
+353
+00:24:23,010 --> 00:24:29,940
+defining quality means you know so if
+
+354
+00:24:28,050 --> 00:24:32,580
+you have something your all or sometimes
+
+355
+00:24:29,940 --> 00:24:35,790
+we say it's a characteristics of
+
+356
+00:24:32,580 --> 00:24:38,430
+something so if something holds some
+
+357
+00:24:35,790 --> 00:24:41,220
+certain property we can say oh this will
+
+358
+00:24:38,430 --> 00:24:43,110
+always behave this way that will always
+
+359
+00:24:41,220 --> 00:24:45,390
+behave that way you know we want to
+
+360
+00:24:43,110 --> 00:24:47,880
+capture the essence you know math is the
+
+361
+00:24:45,390 --> 00:24:53,490
+heart of math is all about you know
+
+362
+00:24:47,880 --> 00:24:56,400
+capturing the essence of things so when
+
+363
+00:24:53,490 --> 00:25:00,420
+we look at this table you really want to
+
+364
+00:24:56,400 --> 00:25:02,970
+know you know what is the why are these
+
+365
+00:25:00,420 --> 00:25:07,350
+properties on top you know what made
+
+366
+00:25:02,970 --> 00:25:09,930
+them what what is the defining qualities
+
+367
+00:25:07,350 --> 00:25:15,630
+for them to appear you know these things
+
+368
+00:25:09,930 --> 00:25:18,900
+on top so that is the that is the that
+
+369
+00:25:15,630 --> 00:25:21,090
+is the main thing I'm looking into you
+
+370
+00:25:18,900 --> 00:25:23,670
+know that's you know today's topic
+
+371
+00:25:21,090 --> 00:25:27,320
+that's that is why I started to look
+
+372
+00:25:23,670 --> 00:25:27,320
+into this find this interesting
+
+373
+00:25:28,830 --> 00:25:35,880
+okay that's one thing so so we have you
+
+374
+00:25:32,980 --> 00:25:38,370
+know we try to explore what is identity
+
+375
+00:25:35,880 --> 00:25:41,260
+then what about invertibility
+
+376
+00:25:38,370 --> 00:25:44,250
+invertibility you know we can see that
+
+377
+00:25:41,260 --> 00:25:48,160
+invert abilities means you know x times
+
+378
+00:25:44,250 --> 00:25:51,670
+the inverse of x equals to I the
+
+379
+00:25:48,160 --> 00:25:56,050
+identity elements so the definition of
+
+380
+00:25:51,670 --> 00:25:59,950
+inverse relies on the concept of
+
+381
+00:25:56,050 --> 00:26:03,180
+identity so the inverse element you know
+
+382
+00:25:59,950 --> 00:26:10,210
+so inverse at in you know and identity
+
+383
+00:26:03,180 --> 00:26:12,460
+these two things are related but right
+
+384
+00:26:10,210 --> 00:26:15,130
+now right now we I don't understand
+
+385
+00:26:12,460 --> 00:26:21,240
+exactly what is you know what captures
+
+386
+00:26:15,130 --> 00:26:21,240
+what is the nature of identity yet
+
+387
+00:26:25,420 --> 00:26:31,850
+now you see there's a difference between
+
+388
+00:26:28,330 --> 00:26:35,090
+definition and the essence of things for
+
+389
+00:26:31,850 --> 00:26:37,490
+example so what is identity we know what
+
+390
+00:26:35,090 --> 00:26:39,590
+is identity by this definition you know
+
+391
+00:26:37,490 --> 00:26:42,980
+this element you know it combines with
+
+392
+00:26:39,590 --> 00:26:45,550
+anything returns the other thing that is
+
+393
+00:26:42,980 --> 00:26:50,080
+a definition and it's simple enough but
+
+394
+00:26:45,550 --> 00:26:53,990
+what I want you know what we want is to
+
+395
+00:26:50,080 --> 00:26:56,810
+to see White Way is identity important I
+
+396
+00:26:53,990 --> 00:27:00,350
+mean what Qualis qualify it you know
+
+397
+00:26:56,810 --> 00:27:02,330
+what what makes it what's the difference
+
+398
+00:27:00,350 --> 00:27:06,530
+does it make you know that that's the
+
+399
+00:27:02,330 --> 00:27:09,830
+thing so anyway we try to explore the
+
+400
+00:27:06,530 --> 00:27:12,320
+you know the the nature of identity and
+
+401
+00:27:09,830 --> 00:27:14,540
+we try to look at invertibility so
+
+402
+00:27:12,320 --> 00:27:17,270
+identity we are we are not sure exactly
+
+403
+00:27:14,540 --> 00:27:20,270
+what what is its nature you know I think
+
+404
+00:27:17,270 --> 00:27:22,280
+one way to find out is to study all
+
+405
+00:27:20,270 --> 00:27:25,280
+these structures you know studies
+
+406
+00:27:22,280 --> 00:27:28,780
+structures that does not have identity
+
+407
+00:27:25,280 --> 00:27:31,700
+requirement and see how it differs from
+
+408
+00:27:28,780 --> 00:27:35,390
+structures that has the identity
+
+409
+00:27:31,700 --> 00:27:37,520
+requirement you know maybe if we think
+
+410
+00:27:35,390 --> 00:27:42,500
+about this for one hour you know two
+
+411
+00:27:37,520 --> 00:27:45,350
+hours like you can do it you know I I I
+
+412
+00:27:42,500 --> 00:27:48,980
+might do it you know like take a walk
+
+413
+00:27:45,350 --> 00:27:52,690
+and think about it you know look at you
+
+414
+00:27:48,980 --> 00:27:56,060
+know look at simple structures like a
+
+415
+00:27:52,690 --> 00:28:00,640
+set with only two elements or only three
+
+416
+00:27:56,060 --> 00:28:05,150
+and you can write a computer program to
+
+417
+00:28:00,640 --> 00:28:08,270
+enumerate all possible binary functions
+
+418
+00:28:05,150 --> 00:28:12,290
+on the you know on a set of three
+
+419
+00:28:08,270 --> 00:28:14,270
+elements so yeah actually that's that
+
+420
+00:28:12,290 --> 00:28:16,640
+may be something I'm going to do you
+
+421
+00:28:14,270 --> 00:28:20,600
+know so you enumerate all possible
+
+422
+00:28:16,640 --> 00:28:24,560
+binary operations on a set of three
+
+423
+00:28:20,600 --> 00:28:26,660
+elements then you know you have a you
+
+424
+00:28:24,560 --> 00:28:29,450
+have different structures and you can
+
+425
+00:28:26,660 --> 00:28:31,200
+see which one satisfies identity which
+
+426
+00:28:29,450 --> 00:28:33,990
+one does not
+
+427
+00:28:31,200 --> 00:28:38,160
+and do the same thing for four elements
+
+428
+00:28:33,990 --> 00:28:41,640
+or two elements then maybe you'll see a
+
+429
+00:28:38,160 --> 00:28:45,780
+pattern maybe you'll see a pattern then
+
+430
+00:28:41,640 --> 00:28:49,400
+then at that point maybe we all realize
+
+431
+00:28:45,780 --> 00:28:52,620
+we all see what is the real significance
+
+432
+00:28:49,400 --> 00:28:56,130
+you know the essence of the identity
+
+433
+00:28:52,620 --> 00:28:59,010
+thing so that's one of the thing you
+
+434
+00:28:56,130 --> 00:29:02,640
+know we you know we we want to study
+
+435
+00:28:59,010 --> 00:29:05,490
+identity and then in what ability we
+
+436
+00:29:02,640 --> 00:29:11,510
+already talked about it apparently it's
+
+437
+00:29:05,490 --> 00:29:13,860
+dependent identity concept now
+
+438
+00:29:11,510 --> 00:29:18,210
+commutativity which is you know very
+
+439
+00:29:13,860 --> 00:29:20,420
+simple a times B equals to B times a we
+
+440
+00:29:18,210 --> 00:29:24,180
+know that for now
+
+441
+00:29:20,420 --> 00:29:25,320
+well let's not ignore let's talk about
+
+442
+00:29:24,180 --> 00:29:29,430
+that okay come here
+
+443
+00:29:25,320 --> 00:29:32,040
+commuted commutativity that's very
+
+444
+00:29:29,430 --> 00:29:36,650
+simple concept it simply means the you
+
+445
+00:29:32,040 --> 00:29:41,100
+know whether the order matters you know
+
+446
+00:29:36,650 --> 00:29:44,400
+so why is this significant this one is
+
+447
+00:29:41,100 --> 00:29:47,190
+obvious because obviously when you have
+
+448
+00:29:44,400 --> 00:29:50,790
+a binary operation you know a function
+
+449
+00:29:47,190 --> 00:29:53,670
+that takes two arguments so then there's
+
+450
+00:29:50,790 --> 00:29:56,850
+a situation you know whether the order
+
+451
+00:29:53,670 --> 00:29:58,710
+matters that's you know that's just
+
+452
+00:29:56,850 --> 00:30:01,350
+nature it just happens there's this
+
+453
+00:29:58,710 --> 00:30:06,330
+situation whether D if you swap the
+
+454
+00:30:01,350 --> 00:30:09,780
+order they come out the same thing so we
+
+455
+00:30:06,330 --> 00:30:12,270
+can see so that is the commutativity if
+
+456
+00:30:09,780 --> 00:30:16,200
+the order does not matter then we say
+
+457
+00:30:12,270 --> 00:30:20,820
+it's communicative you know order
+
+458
+00:30:16,200 --> 00:30:22,710
+doesn't matter so but what is the nature
+
+459
+00:30:20,820 --> 00:30:24,780
+you know what is the heart of
+
+460
+00:30:22,710 --> 00:30:30,300
+commutativity this part we really
+
+461
+00:30:24,780 --> 00:30:31,860
+understand well because because you know
+
+462
+00:30:30,300 --> 00:30:33,990
+I'm trying to explain the way I think
+
+463
+00:30:31,860 --> 00:30:36,630
+because you know why is so so what is
+
+464
+00:30:33,990 --> 00:30:38,570
+the why why is this one important
+
+465
+00:30:36,630 --> 00:30:41,570
+because
+
+466
+00:30:38,570 --> 00:30:44,810
+because it's a natural condition that
+
+467
+00:30:41,570 --> 00:30:48,200
+happens you know the community like once
+
+468
+00:30:44,810 --> 00:30:50,120
+you define the concept of a binary
+
+469
+00:30:48,200 --> 00:30:53,540
+operation you have a function that takes
+
+470
+00:30:50,120 --> 00:30:56,360
+two things and return another thing once
+
+471
+00:30:53,540 --> 00:30:59,090
+you you have the very concept of binary
+
+472
+00:30:56,360 --> 00:31:02,420
+operation then you have this situation
+
+473
+00:30:59,090 --> 00:31:06,470
+where whether the order matters that is
+
+474
+00:31:02,420 --> 00:31:09,020
+commutativity so we can see you know
+
+475
+00:31:06,470 --> 00:31:11,450
+when we study these you know groups you
+
+476
+00:31:09,020 --> 00:31:15,380
+know abstract structure we can see why
+
+477
+00:31:11,450 --> 00:31:17,990
+this admin becomes you know we can see
+
+478
+00:31:15,380 --> 00:31:20,120
+why this column is there because you
+
+479
+00:31:17,990 --> 00:31:24,470
+know it's just you have this situation
+
+480
+00:31:20,120 --> 00:31:28,610
+you need to talk about but so far it's
+
+481
+00:31:24,470 --> 00:31:33,080
+not so clear to us you know why we have
+
+482
+00:31:28,610 --> 00:31:38,780
+this identity thing and invertibility
+
+483
+00:31:33,080 --> 00:31:43,520
+thing I'm not sure I don't know ok let's
+
+484
+00:31:38,780 --> 00:31:46,340
+let's go to the other okay so what about
+
+485
+00:31:43,520 --> 00:31:47,690
+totality now totality we talked about
+
+486
+00:31:46,340 --> 00:31:51,170
+you know basically when you have a
+
+487
+00:31:47,690 --> 00:31:54,920
+binary operation then you have a result
+
+488
+00:31:51,170 --> 00:31:58,720
+the result is either you know part of
+
+489
+00:31:54,920 --> 00:32:03,800
+the set that is a requirement
+
+490
+00:31:58,720 --> 00:32:06,170
+so that's totality which is not very
+
+491
+00:32:03,800 --> 00:32:10,070
+interesting because obviously when we
+
+492
+00:32:06,170 --> 00:32:14,450
+when we want to study a set and in the
+
+493
+00:32:10,070 --> 00:32:17,420
+end a binary operation on the set we
+
+494
+00:32:14,450 --> 00:32:19,880
+require it returns something you know
+
+495
+00:32:17,420 --> 00:32:24,370
+it'll be a value is something in the set
+
+496
+00:32:19,880 --> 00:32:31,880
+otherwise it does not make sense for us
+
+497
+00:32:24,370 --> 00:32:34,040
+so this totality thing is here we
+
+498
+00:32:31,880 --> 00:32:35,870
+understand what that is but why is it
+
+499
+00:32:34,040 --> 00:32:37,550
+here you know it doesn't seems
+
+500
+00:32:35,870 --> 00:32:42,309
+interesting the reason it's here is
+
+501
+00:32:37,550 --> 00:32:44,710
+because apparently for mathematicians
+
+502
+00:32:42,309 --> 00:32:48,340
+there are situations when they study
+
+503
+00:32:44,710 --> 00:32:51,700
+many you know math same math same things
+
+504
+00:32:48,340 --> 00:32:54,279
+or physics things there's a situation
+
+505
+00:32:51,700 --> 00:32:57,489
+where you do not know the domain of a
+
+506
+00:32:54,279 --> 00:33:01,330
+function so when you have a function
+
+507
+00:32:57,489 --> 00:33:04,779
+which but you don't know exactly you
+
+508
+00:33:01,330 --> 00:33:08,169
+know what what is a set of possible
+
+509
+00:33:04,779 --> 00:33:13,779
+input use you say that function is
+
+510
+00:33:08,169 --> 00:33:16,179
+partial function so anyway it's just
+
+511
+00:33:13,779 --> 00:33:18,489
+something that happens mathematicians
+
+512
+00:33:16,179 --> 00:33:20,799
+happens to have you have total function
+
+513
+00:33:18,489 --> 00:33:23,700
+you have partial function total function
+
+514
+00:33:20,799 --> 00:33:28,269
+means a function that where at every
+
+515
+00:33:23,700 --> 00:33:31,179
+elements in a given set can be the input
+
+516
+00:33:28,269 --> 00:33:35,469
+to the function partial function means
+
+517
+00:33:31,179 --> 00:33:38,619
+only parts only a subset of a given set
+
+518
+00:33:35,469 --> 00:33:40,119
+can be the input arguments to the
+
+519
+00:33:38,619 --> 00:33:43,089
+function you know that's partial
+
+520
+00:33:40,119 --> 00:33:45,639
+function but it turns out you know when
+
+521
+00:33:43,089 --> 00:33:48,849
+you study physics or math you know there
+
+522
+00:33:45,639 --> 00:33:50,859
+are some situations you don't know
+
+523
+00:33:48,849 --> 00:33:53,080
+what's the domain of the function you
+
+524
+00:33:50,859 --> 00:33:54,849
+know the function you know you you know
+
+525
+00:33:53,080 --> 00:34:00,399
+the definition of a function but you
+
+526
+00:33:54,849 --> 00:34:03,879
+don't exactly know you know the you do
+
+527
+00:34:00,399 --> 00:34:06,629
+not have the exact subset so that's why
+
+528
+00:34:03,879 --> 00:34:10,809
+you have partial function so this
+
+529
+00:34:06,629 --> 00:34:13,359
+totality requirement is here I suppose
+
+530
+00:34:10,809 --> 00:34:15,819
+it's just because it's convenient for
+
+531
+00:34:13,359 --> 00:34:18,909
+mathematicians when they study you know
+
+532
+00:34:15,819 --> 00:34:21,730
+both things they can see oh how these
+
+533
+00:34:18,909 --> 00:34:25,539
+have you know totality requirement or it
+
+534
+00:34:21,730 --> 00:34:28,029
+does not have totality requirement in
+
+535
+00:34:25,539 --> 00:34:31,450
+other words the table parity is sometime
+
+536
+00:34:28,029 --> 00:34:34,359
+it's called closure you know just means
+
+537
+00:34:31,450 --> 00:34:37,740
+a function that returns an element and
+
+538
+00:34:34,359 --> 00:34:41,379
+that elements also belongs to the set
+
+539
+00:34:37,740 --> 00:34:44,649
+the domain of the function U when this
+
+540
+00:34:41,379 --> 00:34:46,839
+property is satisfied you say the you
+
+541
+00:34:44,649 --> 00:34:50,799
+say the function is closed you know you
+
+542
+00:34:46,839 --> 00:34:54,159
+call it closure so anyway we have looked
+
+543
+00:34:50,799 --> 00:34:55,389
+at all these different properties now
+
+544
+00:34:54,159 --> 00:34:59,380
+there's another one
+
+545
+00:34:55,389 --> 00:35:02,819
+that's associative 'ti now this one is
+
+546
+00:34:59,380 --> 00:35:05,349
+also very interesting associativity and
+
+547
+00:35:02,819 --> 00:35:09,220
+I do know what is the nature of
+
+548
+00:35:05,349 --> 00:35:13,569
+associate associativity so I'm going to
+
+549
+00:35:09,220 --> 00:35:15,670
+explain so in this table we understand
+
+550
+00:35:13,569 --> 00:35:20,740
+so far we understand the nature of
+
+551
+00:35:15,670 --> 00:35:23,410
+karmic commutativity and we understand
+
+552
+00:35:20,740 --> 00:35:27,660
+the nature of associativity I'm going
+
+553
+00:35:23,410 --> 00:35:31,089
+which I'm going to explain but the
+
+554
+00:35:27,660 --> 00:35:34,890
+identity we don't quite understand what
+
+555
+00:35:31,089 --> 00:35:40,329
+is its nature and invertibility which is
+
+556
+00:35:34,890 --> 00:35:43,180
+in turn depends on identity but we have
+
+557
+00:35:40,329 --> 00:35:47,010
+talked about how do we explore that it's
+
+558
+00:35:43,180 --> 00:35:50,740
+very interesting so let me talk about
+
+559
+00:35:47,010 --> 00:35:55,750
+associativity then then let me talk
+
+560
+00:35:50,740 --> 00:35:59,049
+about a combinatorial extra exploration
+
+561
+00:35:55,750 --> 00:36:01,990
+exploration of these the whole thing so
+
+562
+00:35:59,049 --> 00:36:06,609
+what is associative ax T I have written
+
+563
+00:36:01,990 --> 00:36:11,039
+an article here now there is a funny
+
+564
+00:36:06,609 --> 00:36:11,039
+comics funny video
+
+565
+00:36:14,210 --> 00:36:23,070
+now this video is not about
+
+566
+00:36:18,170 --> 00:36:25,980
+associativity but is rather about you
+
+567
+00:36:23,070 --> 00:36:31,290
+know about operation precedence that
+
+568
+00:36:25,980 --> 00:36:35,270
+nummy-nummy show that um this video is
+
+569
+00:36:31,290 --> 00:36:35,270
+wrong should be like that
+
+570
+00:36:36,890 --> 00:36:49,890
+silence display narration apparently
+
+571
+00:36:44,550 --> 00:36:53,850
+it's a Korean game show you know so she
+
+572
+00:36:49,890 --> 00:36:56,610
+made a mistake anyway so associativity
+
+573
+00:36:53,850 --> 00:37:03,090
+so where does associativity came from
+
+574
+00:36:56,610 --> 00:37:07,320
+now remember associative 'ti is is this
+
+575
+00:37:03,090 --> 00:37:10,350
+property this property okay it's also
+
+576
+00:37:07,320 --> 00:37:12,660
+written here in here I use the symbol
+
+577
+00:37:10,350 --> 00:37:17,160
+plus sign but the symbol doesn't matter
+
+578
+00:37:12,660 --> 00:37:20,610
+you can use any symbol so when a binary
+
+579
+00:37:17,160 --> 00:37:25,080
+operation satisfy this we say it's
+
+580
+00:37:20,610 --> 00:37:28,700
+associative so why why do you have this
+
+581
+00:37:25,080 --> 00:37:32,760
+you know it appears you know like for
+
+582
+00:37:28,700 --> 00:37:36,480
+commutativity it's obviously about order
+
+583
+00:37:32,760 --> 00:37:41,130
+you know a times B or B times a but then
+
+584
+00:37:36,480 --> 00:37:44,100
+the associativity it appears to be older
+
+585
+00:37:41,130 --> 00:37:48,780
+but then you know it's hard to explain
+
+586
+00:37:44,100 --> 00:37:51,840
+the key to understand this associativity
+
+587
+00:37:48,780 --> 00:37:54,030
+why is it there I mean you know what
+
+588
+00:37:51,840 --> 00:37:54,630
+made this happen I mean why do you have
+
+589
+00:37:54,030 --> 00:37:56,970
+this
+
+590
+00:37:54,630 --> 00:38:03,330
+what made it happen the key to see that
+
+591
+00:37:56,970 --> 00:38:05,670
+is this if you rewrite this operator by
+
+592
+00:38:03,330 --> 00:38:09,390
+a function notation so you write it like
+
+593
+00:38:05,670 --> 00:38:14,810
+this so f is our binary operation so we
+
+594
+00:38:09,390 --> 00:38:14,810
+say a P then you say
+
+595
+00:38:14,960 --> 00:38:27,710
+f oops wait a second I got screwed up
+
+596
+00:38:23,280 --> 00:38:31,170
+somewhere okay here so we say function
+
+597
+00:38:27,710 --> 00:38:45,930
+first argument second of the second
+
+598
+00:38:31,170 --> 00:38:52,230
+argument okay it's equal to BC so his
+
+599
+00:38:45,930 --> 00:38:56,060
+equals two so that's what it means you
+
+600
+00:38:52,230 --> 00:39:01,620
+know we read it this way so this is the
+
+601
+00:38:56,060 --> 00:39:05,130
+notation using operators and this is the
+
+602
+00:39:01,620 --> 00:39:09,840
+notation using functional notation so we
+
+603
+00:39:05,130 --> 00:39:12,450
+call a function and two arguments and
+
+604
+00:39:09,840 --> 00:39:16,260
+the first argument is again calling a
+
+605
+00:39:12,450 --> 00:39:21,930
+function with two arguments a B so this
+
+606
+00:39:16,260 --> 00:39:25,500
+means you you call function a B you know
+
+607
+00:39:21,930 --> 00:39:28,920
+FA B it returns a thing then you call F
+
+608
+00:39:25,500 --> 00:39:32,610
+again on that thing and see it returns a
+
+609
+00:39:28,920 --> 00:39:35,610
+value now as opposed to the other way
+
+610
+00:39:32,610 --> 00:39:39,030
+you call F a B you know as a second
+
+611
+00:39:35,610 --> 00:39:42,300
+argument then you apply the function
+
+612
+00:39:39,030 --> 00:39:45,960
+again with a so if you do it this way if
+
+613
+00:39:42,300 --> 00:39:49,500
+you write it this way you can see it is
+
+614
+00:39:45,960 --> 00:39:53,760
+about order you know over here using the
+
+615
+00:39:49,500 --> 00:39:56,100
+binary operator notation you kind of not
+
+616
+00:39:53,760 --> 00:39:59,190
+sure because parentheses means to it
+
+617
+00:39:56,100 --> 00:40:01,920
+first you know but with the functional
+
+618
+00:39:59,190 --> 00:40:06,410
+notation you can clearly see it's kind
+
+619
+00:40:01,920 --> 00:40:09,050
+of about order okay so we can see that
+
+620
+00:40:06,410 --> 00:40:12,930
+associativity is kind of a nested
+
+621
+00:40:09,050 --> 00:40:15,870
+application of functions now this is the
+
+622
+00:40:12,930 --> 00:40:20,190
+him this is important so associativity
+
+623
+00:40:15,870 --> 00:40:29,069
+is actually about nesting
+
+624
+00:40:20,190 --> 00:40:32,309
+functions okay and okay so so why does
+
+625
+00:40:29,069 --> 00:40:34,319
+it happen you see it happens it happens
+
+626
+00:40:32,309 --> 00:40:37,920
+in a natural way
+
+627
+00:40:34,319 --> 00:40:40,440
+just like the commutativity so it
+
+628
+00:40:37,920 --> 00:40:42,930
+happens when you have a binary operation
+
+629
+00:40:40,440 --> 00:40:47,819
+okay there's three things that made it
+
+630
+00:40:42,930 --> 00:40:50,520
+happen one you have a binary operation
+
+631
+00:40:47,819 --> 00:40:52,170
+when you define a binary operation when
+
+632
+00:40:50,520 --> 00:40:55,680
+you define a binary operation the first
+
+633
+00:40:52,170 --> 00:40:58,440
+thing that happens is you have the other
+
+634
+00:40:55,680 --> 00:41:01,650
+thing you know the commutativity issue
+
+635
+00:40:58,440 --> 00:41:06,030
+that comes up okay so you have a binary
+
+636
+00:41:01,650 --> 00:41:09,750
+operation then you have a elements you
+
+637
+00:41:06,030 --> 00:41:12,140
+have a set of three elements okay you
+
+638
+00:41:09,750 --> 00:41:15,809
+have a set of three elements at least
+
+639
+00:41:12,140 --> 00:41:18,960
+three or more it doesn't happen when
+
+640
+00:41:15,809 --> 00:41:20,910
+when your set is only two elements but
+
+641
+00:41:18,960 --> 00:41:28,109
+when your set has three elements at
+
+642
+00:41:20,910 --> 00:41:30,960
+least okay and when you nest functions
+
+643
+00:41:28,109 --> 00:41:34,049
+that is you apply the binary operation
+
+644
+00:41:30,960 --> 00:41:37,200
+twice you know at least two times then
+
+645
+00:41:34,049 --> 00:41:41,839
+you start to have this situation you
+
+646
+00:41:37,200 --> 00:41:45,119
+have this situation called associativity
+
+647
+00:41:41,839 --> 00:41:49,170
+that is you know whether this is equal
+
+648
+00:41:45,119 --> 00:41:52,950
+to that so you can see associativity
+
+649
+00:41:49,170 --> 00:41:55,650
+it's just like commutativity it happens
+
+650
+00:41:52,950 --> 00:41:58,859
+naturally you know it happens naturally
+
+651
+00:41:55,650 --> 00:42:01,380
+you have this phenomenon that occurs you
+
+652
+00:41:58,859 --> 00:42:03,329
+know whether these two equal or whether
+
+653
+00:42:01,380 --> 00:42:07,230
+they do not equal it just occurs
+
+654
+00:42:03,329 --> 00:42:09,740
+naturally so now if we go back to the
+
+655
+00:42:07,230 --> 00:42:09,740
+table
+
+656
+00:42:11,990 --> 00:42:21,180
+if we go to okay a mess go back to the
+
+657
+00:42:17,340 --> 00:42:23,460
+math blog you go back to the table you
+
+658
+00:42:21,180 --> 00:42:26,000
+can now we look at all the properties we
+
+659
+00:42:23,460 --> 00:42:30,420
+can see now we understand what
+
+660
+00:42:26,000 --> 00:42:37,200
+associative T we understand the nature
+
+661
+00:42:30,420 --> 00:42:40,619
+of associativity okay so that's that's
+
+662
+00:42:37,200 --> 00:42:43,410
+the first thing we want to explain you
+
+663
+00:42:40,619 --> 00:42:47,970
+know we want to understand the nature of
+
+664
+00:42:43,410 --> 00:42:50,849
+these properties you know why why they
+
+665
+00:42:47,970 --> 00:42:53,369
+are there so so far we don't know why
+
+666
+00:42:50,849 --> 00:42:56,760
+identity is there we don't know why
+
+667
+00:42:53,369 --> 00:43:01,410
+invertibility is there and we can find
+
+668
+00:42:56,760 --> 00:43:06,450
+out by writing a program that enumerate
+
+669
+00:43:01,410 --> 00:43:09,540
+all possible structures have two
+
+670
+00:43:06,450 --> 00:43:11,849
+elements and three elements and four
+
+671
+00:43:09,540 --> 00:43:15,930
+elements you know all possibly you know
+
+672
+00:43:11,849 --> 00:43:19,760
+we create a binary function you know all
+
+673
+00:43:15,930 --> 00:43:25,320
+possible binary functions and we can see
+
+674
+00:43:19,760 --> 00:43:28,050
+which one of them will have identity and
+
+675
+00:43:25,320 --> 00:43:31,260
+which one we are not then maybe we will
+
+676
+00:43:28,050 --> 00:43:34,050
+see a pattern you know and then we can
+
+677
+00:43:31,260 --> 00:43:39,119
+maybe you understand the nature of
+
+678
+00:43:34,050 --> 00:43:41,250
+identity why it comes up okay that's one
+
+679
+00:43:39,119 --> 00:43:43,890
+thing you know so far we that's one
+
+680
+00:43:41,250 --> 00:43:46,830
+thing we talked about you know we which
+
+681
+00:43:43,890 --> 00:43:50,339
+is about trying to understand the nature
+
+682
+00:43:46,830 --> 00:43:55,710
+of these properties now there's another
+
+683
+00:43:50,339 --> 00:44:00,800
+thing let's talk about you see this
+
+684
+00:43:55,710 --> 00:44:04,710
+table so we have these properties now
+
+685
+00:44:00,800 --> 00:44:07,859
+you look at for example you know so you
+
+686
+00:44:04,710 --> 00:44:10,200
+have different structures depending on
+
+687
+00:44:07,859 --> 00:44:12,420
+which property is required you have
+
+688
+00:44:10,200 --> 00:44:15,930
+different names for different structures
+
+689
+00:44:12,420 --> 00:44:20,059
+now notice that there is no structure
+
+690
+00:44:15,930 --> 00:44:23,689
+that says that satisfies totality as
+
+691
+00:44:20,059 --> 00:44:27,380
+chitta vritti identity but not
+
+692
+00:44:23,689 --> 00:44:29,749
+invertibility and non commutativity you
+
+693
+00:44:27,380 --> 00:44:32,689
+see so we want that first three columns
+
+694
+00:44:29,749 --> 00:44:35,719
+scream but we want the last two columns
+
+695
+00:44:32,689 --> 00:44:38,869
+read we don't see that you know it
+
+696
+00:44:35,719 --> 00:44:45,349
+doesn't exist here so that's a question
+
+697
+00:44:38,869 --> 00:44:47,209
+so that means that means one either that
+
+698
+00:44:45,349 --> 00:44:48,699
+structure is impossible
+
+699
+00:44:47,209 --> 00:44:51,519
+you know it's mathematical
+
+700
+00:44:48,699 --> 00:44:55,279
+mathematically impossible to have that
+
+701
+00:44:51,519 --> 00:44:58,479
+it see it is impossible to have a group
+
+702
+00:44:55,279 --> 00:45:02,719
+like structure such that it has
+
+703
+00:44:58,479 --> 00:45:05,509
+associativity he has identity but it
+
+704
+00:45:02,719 --> 00:45:10,189
+does not have invertibility and does not
+
+705
+00:45:05,509 --> 00:45:13,670
+have commutativity okay maybe that's the
+
+706
+00:45:10,189 --> 00:45:16,039
+case that is why such a structure does
+
+707
+00:45:13,670 --> 00:45:20,589
+not show here but on the other hand
+
+708
+00:45:16,039 --> 00:45:24,170
+maybe it's because this table is not
+
+709
+00:45:20,589 --> 00:45:27,079
+complete you know it does you know maybe
+
+710
+00:45:24,170 --> 00:45:30,499
+that structure exists maybe it's not
+
+711
+00:45:27,079 --> 00:45:34,699
+named or maybe simply because the table
+
+712
+00:45:30,499 --> 00:45:39,829
+just do not list it so that is the thing
+
+713
+00:45:34,699 --> 00:45:43,309
+so at this point we can see that why not
+
+714
+00:45:39,829 --> 00:45:47,529
+let us do all the possible you know we
+
+715
+00:45:43,309 --> 00:45:50,569
+we want to enumerate all possible
+
+716
+00:45:47,529 --> 00:45:52,099
+structures you know doesn't matter they
+
+717
+00:45:50,569 --> 00:45:56,089
+have a name or they don't have a name
+
+718
+00:45:52,099 --> 00:45:58,880
+you know we could you know you know
+
+719
+00:45:56,089 --> 00:46:01,969
+because you know each of the cell is
+
+720
+00:45:58,880 --> 00:46:05,059
+either green or red so it's like you
+
+721
+00:46:01,969 --> 00:46:10,939
+know yes and no so we want to create a
+
+722
+00:46:05,059 --> 00:46:15,559
+table of 1 2 3 4 5 5 columns of all
+
+723
+00:46:10,939 --> 00:46:18,259
+possible combinations you know 5 columns
+
+724
+00:46:15,559 --> 00:46:20,180
+so yes yes yes you know no no things
+
+725
+00:46:18,259 --> 00:46:24,049
+like that
+
+726
+00:46:20,180 --> 00:46:26,089
+oh hi hi hi Syd come Oni such a
+
+727
+00:46:24,049 --> 00:46:34,190
+structure is there on a tape or a third
+
+728
+00:46:26,089 --> 00:46:38,119
+form lasts more noise oh yes Jesus how
+
+729
+00:46:34,190 --> 00:46:41,990
+could I have missed it oh my god okay so
+
+730
+00:46:38,119 --> 00:46:45,710
+yeah so you are right so but it's you
+
+731
+00:46:41,990 --> 00:46:48,950
+know come back so so it is possible I
+
+732
+00:46:45,710 --> 00:46:50,980
+mean so what we want to do what we might
+
+733
+00:46:48,950 --> 00:46:53,210
+try to do is you know make all possible
+
+734
+00:46:50,980 --> 00:46:56,049
+combinations of 1 & 0
+
+735
+00:46:53,210 --> 00:47:00,890
+you know true or false so there would be
+
+736
+00:46:56,049 --> 00:47:04,160
+1 2 3 4 5 5 columns each column has two
+
+737
+00:47:00,890 --> 00:47:08,839
+possibilities true or false so that
+
+738
+00:47:04,160 --> 00:47:14,380
+means 2 raised to the 5th power so what
+
+739
+00:47:08,839 --> 00:47:14,380
+is that 2 raised to the 5th 5th power
+
+740
+00:47:21,880 --> 00:47:37,040
+4 so 2 raise to 2 is 4 4 times 4 is 16
+
+741
+00:47:29,470 --> 00:47:47,500
+16 times 2 again is 32 so that there
+
+742
+00:47:37,040 --> 00:47:50,839
+should be 32 32 rows now of the 32 rows
+
+743
+00:47:47,500 --> 00:47:51,560
+obviously some of them may not be
+
+744
+00:47:50,839 --> 00:47:54,200
+possible
+
+745
+00:47:51,560 --> 00:47:57,440
+you know mathematically not possible so
+
+746
+00:47:54,200 --> 00:48:00,410
+we removed them so what we will let be
+
+747
+00:47:57,440 --> 00:48:04,250
+left with you know a bunch of things and
+
+748
+00:48:00,410 --> 00:48:07,310
+maybe that will be exactly you know like
+
+749
+00:48:04,250 --> 00:48:11,900
+what this table shows you know maybe not
+
+750
+00:48:07,310 --> 00:48:15,530
+I'm not sure because because this table
+
+751
+00:48:11,900 --> 00:48:19,160
+is from Wikipedia this table is from
+
+752
+00:48:15,530 --> 00:48:22,220
+Wikipedia you know Wikipedia's thousands
+
+753
+00:48:19,160 --> 00:48:26,119
+ten thousands of math articles about
+
+754
+00:48:22,220 --> 00:48:30,109
+these algebraic structures so but is in
+
+755
+00:48:26,119 --> 00:48:35,300
+the table here we say no oh it's
+
+756
+00:48:30,109 --> 00:48:39,079
+actually here much magma okay so the
+
+757
+00:48:35,300 --> 00:48:44,000
+table here it doesn't you know it
+
+758
+00:48:39,079 --> 00:48:48,369
+doesn't exactly say what is the criteria
+
+759
+00:48:44,000 --> 00:48:48,369
+of this you know it doesn't really say
+
+760
+00:48:50,820 --> 00:48:56,640
+and at least a bunch of profit but so
+
+761
+00:48:53,730 --> 00:48:59,850
+anyway so my point here is that you know
+
+762
+00:48:56,640 --> 00:49:01,680
+so we you know that's something we we
+
+763
+00:48:59,850 --> 00:49:04,410
+want to do I mean if you have a
+
+764
+00:49:01,680 --> 00:49:06,570
+mathematician this is something when you
+
+765
+00:49:04,410 --> 00:49:08,550
+read this table that's probably
+
+766
+00:49:06,570 --> 00:49:12,900
+something you want to do because then
+
+767
+00:49:08,550 --> 00:49:14,400
+you I mean if the result is exactly this
+
+768
+00:49:12,900 --> 00:49:16,560
+then you know okay
+
+769
+00:49:14,400 --> 00:49:19,950
+you know you would learn something you
+
+770
+00:49:16,560 --> 00:49:22,200
+know these are the you know actually the
+
+771
+00:49:19,950 --> 00:49:25,710
+essential because all the others are are
+
+772
+00:49:22,200 --> 00:49:28,140
+impossible okay so so far we talked
+
+773
+00:49:25,710 --> 00:49:30,900
+about two things one is that we want to
+
+774
+00:49:28,140 --> 00:49:35,040
+look into the nature you know the the
+
+775
+00:49:30,900 --> 00:49:38,580
+nature the order the the defining the
+
+776
+00:49:35,040 --> 00:49:40,770
+quantification of these properties I
+
+777
+00:49:38,580 --> 00:49:43,200
+mean why are these properties there why
+
+778
+00:49:40,770 --> 00:49:46,770
+not others for example other properties
+
+779
+00:49:43,200 --> 00:49:49,710
+such as you know if you have studied
+
+780
+00:49:46,770 --> 00:49:52,020
+group theory you know there's a symmetry
+
+781
+00:49:49,710 --> 00:49:55,580
+group there is a cyclic group there is
+
+782
+00:49:52,020 --> 00:49:58,770
+dihedral group you know they all have
+
+783
+00:49:55,580 --> 00:50:03,570
+more requirements so why are not those
+
+784
+00:49:58,770 --> 00:50:08,490
+you know visited here for example so in
+
+785
+00:50:03,570 --> 00:50:11,730
+other words what is the defining quality
+
+786
+00:50:08,490 --> 00:50:14,280
+for these properties to show up here now
+
+787
+00:50:11,730 --> 00:50:17,910
+we have understand we have understood
+
+788
+00:50:14,280 --> 00:50:20,190
+two of them one is the commutativity
+
+789
+00:50:17,910 --> 00:50:22,650
+which happens when you have a binary
+
+790
+00:50:20,190 --> 00:50:24,900
+operation do you have the other thing
+
+791
+00:50:22,650 --> 00:50:27,870
+you know it just happens naturally and
+
+792
+00:50:24,900 --> 00:50:30,360
+we understand associativity which is
+
+793
+00:50:27,870 --> 00:50:33,150
+when you have a binary operation when
+
+794
+00:50:30,360 --> 00:50:36,360
+you apply it twice and when you have a
+
+795
+00:50:33,150 --> 00:50:38,580
+set of at least three elements then you
+
+796
+00:50:36,360 --> 00:50:40,830
+have the situation of associativity
+
+797
+00:50:38,580 --> 00:50:44,700
+whether it's true or whether it's force
+
+798
+00:50:40,830 --> 00:50:46,890
+so these two things commutativity and
+
+799
+00:50:44,700 --> 00:50:50,760
+associativity we understand why it
+
+800
+00:50:46,890 --> 00:50:53,670
+happens and we can see why it is
+
+801
+00:50:50,760 --> 00:50:55,860
+important because its intrinsic it just
+
+802
+00:50:53,670 --> 00:50:58,290
+happens when you have a you know when
+
+803
+00:50:55,860 --> 00:50:58,800
+you define this kind of thing but I
+
+804
+00:50:58,290 --> 00:51:00,900
+don't
+
+805
+00:50:58,800 --> 00:51:04,540
+and then at energy we don't know
+
+806
+00:51:00,900 --> 00:51:06,910
+totality we know okay that's a you know
+
+807
+00:51:04,540 --> 00:51:10,090
+that's the first first thing the nature
+
+808
+00:51:06,910 --> 00:51:14,380
+of these properties so the other thing
+
+809
+00:51:10,090 --> 00:51:18,370
+that you're the idea is exhaustive list
+
+810
+00:51:14,380 --> 00:51:20,320
+of all possible qualifications I mean
+
+811
+00:51:18,370 --> 00:51:25,150
+all possible combinations of these
+
+812
+00:51:20,320 --> 00:51:28,330
+properties and to see Ariat match you
+
+813
+00:51:25,150 --> 00:51:31,960
+know the table on the left if it does
+
+814
+00:51:28,330 --> 00:51:34,780
+not match then you know it's very
+
+815
+00:51:31,960 --> 00:51:38,260
+interesting then we try to find out why
+
+816
+00:51:34,780 --> 00:51:41,320
+we try to find out what is a
+
+817
+00:51:38,260 --> 00:51:44,940
+qualification for Wikipedia to list only
+
+818
+00:51:41,320 --> 00:51:47,560
+these roles and not others for example
+
+819
+00:51:44,940 --> 00:51:50,200
+so what I'm saying is that you know as a
+
+820
+00:51:47,560 --> 00:51:52,480
+mathematician or programmer interesting
+
+821
+00:51:50,200 --> 00:51:55,120
+math that's what when you you know when
+
+822
+00:51:52,480 --> 00:51:58,300
+I look at this that's what I want to do
+
+823
+00:51:55,120 --> 00:52:01,210
+you know that you know now there is
+
+824
+00:51:58,300 --> 00:52:02,770
+another thing last thing so before we
+
+825
+00:52:01,210 --> 00:52:04,660
+talk about two things there's one more
+
+826
+00:52:02,770 --> 00:52:06,750
+thing I want to talk about you know four
+
+827
+00:52:04,660 --> 00:52:11,670
+or five minutes and I'll be it for today
+
+828
+00:52:06,750 --> 00:52:11,670
+so the last last thing is that
+
+829
+00:52:18,300 --> 00:52:21,519
+[Music]
+
+830
+00:52:35,220 --> 00:52:41,290
+okay the last thing is actually related
+
+831
+00:52:39,070 --> 00:52:44,460
+to what we talked about now let's go
+
+832
+00:52:41,290 --> 00:52:49,420
+back to the Hanako about associativity
+
+833
+00:52:44,460 --> 00:52:51,990
+okay this is really interesting so let
+
+834
+00:52:49,420 --> 00:52:57,040
+me show you where okay the combinatorial
+
+835
+00:52:51,990 --> 00:52:58,540
+listing of binary operations in a set so
+
+836
+00:52:57,040 --> 00:53:01,270
+what do you do is you know you have a
+
+837
+00:52:58,540 --> 00:53:03,760
+set let's say you know beginning with
+
+838
+00:53:01,270 --> 00:53:05,350
+two elements but two elements is to
+
+839
+00:53:03,760 --> 00:53:08,590
+symbol you know you have binary
+
+840
+00:53:05,350 --> 00:53:13,300
+operations on two element sets you only
+
+841
+00:53:08,590 --> 00:53:15,820
+have four possible you know results so
+
+842
+00:53:13,300 --> 00:53:17,290
+you could have three elements and after
+
+843
+00:53:15,820 --> 00:53:19,570
+you've done with three elements you
+
+844
+00:53:17,290 --> 00:53:22,780
+start to explore four elements you know
+
+845
+00:53:19,570 --> 00:53:25,600
+set with four elements and so on in five
+
+846
+00:53:22,780 --> 00:53:28,900
+and six so you you you want to list all
+
+847
+00:53:25,600 --> 00:53:36,730
+possible binary operations on a set of
+
+848
+00:53:28,900 --> 00:53:38,260
+three elements then you can see you can
+
+849
+00:53:36,730 --> 00:53:42,430
+see all you have all these possibilities
+
+850
+00:53:38,260 --> 00:53:45,070
+oh and this also you apply the binary
+
+851
+00:53:42,430 --> 00:53:51,510
+operation twice so you have all these
+
+852
+00:53:45,070 --> 00:53:51,510
+possibilities and you simplify you
+
+853
+00:53:56,220 --> 00:54:02,470
+you yeah so if you remove the commute
+
+854
+00:54:00,220 --> 00:54:04,780
+you know the commutativity you know the
+
+855
+00:54:02,470 --> 00:54:07,089
+order if that doesn't matter then you
+
+856
+00:54:04,780 --> 00:54:11,410
+use you simplify it down to these these
+
+857
+00:54:07,089 --> 00:54:14,470
+three possibilities and that's you know
+
+858
+00:54:11,410 --> 00:54:16,780
+that that that is basically that becomes
+
+859
+00:54:14,470 --> 00:54:21,400
+the associativity the question of
+
+860
+00:54:16,780 --> 00:54:26,440
+associative associative property so in
+
+861
+00:54:21,400 --> 00:54:30,940
+this way by you know just enumerated all
+
+862
+00:54:26,440 --> 00:54:34,839
+possible application of binary operation
+
+863
+00:54:30,940 --> 00:54:40,119
+we can see how associativity came came
+
+864
+00:54:34,839 --> 00:54:44,380
+up so this but there's more you know so
+
+865
+00:54:40,119 --> 00:54:46,780
+so all all so far we talk about binary
+
+866
+00:54:44,380 --> 00:54:50,140
+operations but what if a function takes
+
+867
+00:54:46,780 --> 00:54:54,369
+three arguments so you have a function
+
+868
+00:54:50,140 --> 00:54:57,160
+taking three arguments so so you can see
+
+869
+00:54:54,369 --> 00:55:01,390
+when you have three arguments now the
+
+870
+00:54:57,160 --> 00:55:03,849
+commuted commutativity property is gets
+
+871
+00:55:01,390 --> 00:55:06,130
+more complex because before it's just
+
+872
+00:55:03,849 --> 00:55:08,710
+two things you know you swap their order
+
+873
+00:55:06,130 --> 00:55:12,760
+but now you have three things now
+
+874
+00:55:08,710 --> 00:55:17,079
+there's six possible permutations you
+
+875
+00:55:12,760 --> 00:55:20,050
+know order so so you can see you know
+
+876
+00:55:17,079 --> 00:55:21,880
+when you have ternary operations you
+
+877
+00:55:20,050 --> 00:55:24,069
+know an argument you know a function
+
+878
+00:55:21,880 --> 00:55:27,490
+with three arguments you you started to
+
+879
+00:55:24,069 --> 00:55:36,220
+have more complex ideas that's you know
+
+880
+00:55:27,490 --> 00:55:40,300
+that's similar to commutativity and if
+
+881
+00:55:36,220 --> 00:55:42,670
+we go further we apply the function more
+
+882
+00:55:40,300 --> 00:55:45,849
+than once so we apply a function and
+
+883
+00:55:42,670 --> 00:55:49,150
+apply the function again you can you can
+
+884
+00:55:45,849 --> 00:55:52,660
+see that we started to get a very more
+
+885
+00:55:49,150 --> 00:55:55,480
+complex version of associativity so you
+
+886
+00:55:52,660 --> 00:55:58,599
+see the community VT and associativity
+
+887
+00:55:55,480 --> 00:56:01,560
+they are they are kind of just the
+
+888
+00:55:58,599 --> 00:56:04,000
+result they are just a natural situation
+
+889
+00:56:01,560 --> 00:56:07,240
+when you have a function and you know
+
+890
+00:56:04,000 --> 00:56:11,770
+how you apply and how you nest them
+
+891
+00:56:07,240 --> 00:56:15,730
+I mean not how but you know whether one
+
+892
+00:56:11,770 --> 00:56:17,770
+version of nesting is equivalent to the
+
+893
+00:56:15,730 --> 00:56:25,510
+other net version of nesting
+
+894
+00:56:17,770 --> 00:56:27,960
+that's what associativity is about okay
+
+895
+00:56:25,510 --> 00:56:31,980
+so the and then there is also
+
+896
+00:56:27,960 --> 00:56:35,920
+distributive law now distributive law is
+
+897
+00:56:31,980 --> 00:56:38,349
+when you have you know B when we talk
+
+898
+00:56:35,920 --> 00:56:41,440
+about this group like things we are
+
+899
+00:56:38,349 --> 00:56:44,200
+talking about one single function binary
+
+900
+00:56:41,440 --> 00:56:47,589
+operation but when we talk about other
+
+901
+00:56:44,200 --> 00:56:54,780
+structures like ring rings and fields in
+
+902
+00:56:47,589 --> 00:56:57,490
+math you have two functions so there the
+
+903
+00:56:54,780 --> 00:57:00,460
+the interplay between these two
+
+904
+00:56:57,490 --> 00:57:08,170
+functions is what distributive law is
+
+905
+00:57:00,460 --> 00:57:12,520
+about you know so so yeah so this is
+
+906
+00:57:08,170 --> 00:57:14,170
+what I'm I want to talk about so so we
+
+907
+00:57:12,520 --> 00:57:15,849
+we are trying to do you know as a
+
+908
+00:57:14,170 --> 00:57:18,880
+program this is something we are
+
+909
+00:57:15,849 --> 00:57:22,359
+interested we want to simply by brute
+
+910
+00:57:18,880 --> 00:57:30,220
+force you know he numerator all possible
+
+911
+00:57:22,359 --> 00:57:32,200
+combinations and see what happens okay
+
+912
+00:57:30,220 --> 00:57:34,390
+yeah that's all that's that's it for
+
+913
+00:57:32,200 --> 00:57:41,140
+today that's that's kind of what I'm
+
+914
+00:57:34,390 --> 00:57:42,970
+trying to say so what what's up with you
+
+915
+00:57:41,140 --> 00:57:46,450
+guys see it
+
+916
+00:57:42,970 --> 00:57:48,900
+I remember you before but I don't
+
+917
+00:57:46,450 --> 00:57:51,900
+remember exactly it so wait were you
+
+918
+00:57:48,900 --> 00:57:51,900
+from
+
+919
+00:57:53,970 --> 00:57:59,460
+so yeah and it's I mean drink
+
+920
+00:58:09,539 --> 00:58:21,029
+Oh Mexico Wow Mexico it's fantastic okay
+
+921
+00:58:18,479 --> 00:58:24,929
+what what's up anything else anything
+
+922
+00:58:21,029 --> 00:58:27,569
+have you studied math before like like
+
+923
+00:58:24,929 --> 00:58:31,759
+are you you know have you been studying
+
+924
+00:58:27,569 --> 00:58:31,759
+group Theory haja brah
+
+925
+00:58:48,740 --> 00:58:57,440
+okay so that's it for today I guess hey
+
+926
+00:58:52,670 --> 00:59:03,940
+Daniel Anglo is you are late you are so
+
+927
+00:58:57,440 --> 00:59:03,940
+late we are like done here so what's up
+
+928
+00:59:08,410 --> 00:59:13,670
+you know okay let's chat randomly for a
+
+929
+00:59:12,859 --> 00:59:17,660
+while
+
+930
+00:59:13,670 --> 00:59:18,440
+oh you studied math so did you get a
+
+931
+00:59:17,660 --> 00:59:23,390
+degree
+
+932
+00:59:18,440 --> 00:59:27,290
+oh also master oh so so can you
+
+933
+00:59:23,390 --> 00:59:31,160
+explain so can you explain what's going
+
+934
+00:59:27,290 --> 00:59:33,349
+on I mean because I remember I asked
+
+935
+00:59:31,160 --> 00:59:37,210
+this you know what I want to do you know
+
+936
+00:59:33,349 --> 00:59:45,290
+what I want is a you know like a convent
+
+937
+00:59:37,210 --> 00:59:48,530
+combinatorial is exploration because you
+
+938
+00:59:45,290 --> 00:59:52,369
+know because I have never seen I have
+
+939
+00:59:48,530 --> 00:59:55,310
+never seen associative 'ti explained in
+
+940
+00:59:52,369 --> 00:59:57,470
+this manner you know big you know I was
+
+941
+00:59:55,310 --> 01:00:00,500
+you know I was wondering what what is
+
+942
+00:59:57,470 --> 01:00:02,599
+this associativity property about you
+
+943
+01:00:00,500 --> 01:00:06,410
+know what you know it because it doesn't
+
+944
+01:00:02,599 --> 01:00:08,750
+appear natural you know come you come
+
+945
+01:00:06,410 --> 01:00:11,720
+you tative nice I understand you know
+
+946
+01:00:08,750 --> 01:00:15,320
+because it's a simply swap about us but
+
+947
+01:00:11,720 --> 01:00:18,170
+associativity is like you know you don't
+
+948
+01:00:15,320 --> 01:00:22,849
+quite get it then I I started to think
+
+949
+01:00:18,170 --> 01:00:24,980
+about it then I came up you know they I
+
+950
+01:00:22,849 --> 01:00:27,109
+realized it's just something happens
+
+951
+01:00:24,980 --> 01:00:29,150
+when you have a binary operation and you
+
+952
+01:00:27,109 --> 01:00:33,920
+applied it more and more than one time
+
+953
+01:00:29,150 --> 01:00:36,680
+all three elements so but I have not
+
+954
+01:00:33,920 --> 01:00:43,369
+seen this explained also where you know
+
+955
+01:00:36,680 --> 01:00:48,369
+I know I haven't and then so I'm
+
+956
+01:00:43,369 --> 01:00:53,599
+wondering you know all there you know
+
+957
+01:00:48,369 --> 01:00:55,930
+math expose exposition so you know perp
+
+958
+01:00:53,599 --> 01:00:59,559
+you know papers that
+
+959
+01:00:55,930 --> 01:01:03,480
+explore this kind of approach
+
+960
+01:00:59,559 --> 01:01:06,640
+you know just list all possible
+
+961
+01:01:03,480 --> 01:01:09,250
+you know binary common you know all
+
+962
+01:01:06,640 --> 01:01:16,119
+possible functions you know um and
+
+963
+01:01:09,250 --> 01:01:18,849
+nesting on a set and and this way you
+
+964
+01:01:16,119 --> 01:01:20,950
+know you will realize you know something
+
+965
+01:01:18,849 --> 01:01:23,740
+you know you realize something happens
+
+966
+01:01:20,950 --> 01:01:28,180
+and that is why we have certain you know
+
+967
+01:01:23,740 --> 01:01:32,470
+things like associativity and stuff and
+
+968
+01:01:28,180 --> 01:01:34,990
+distribute distributive law so I
+
+969
+01:01:32,470 --> 01:01:39,099
+remember asking you know I asked John
+
+970
+01:01:34,990 --> 01:01:43,210
+based mathematician he said he haven't
+
+971
+01:01:39,099 --> 01:01:46,720
+seen this before but he's you know but
+
+972
+01:01:43,210 --> 01:01:49,930
+I'm you know I'm thinking this must have
+
+973
+01:01:46,720 --> 01:01:56,109
+been studied before you know I'm I'm
+
+974
+01:01:49,930 --> 01:01:58,240
+pretty sure because but anyway that's
+
+975
+01:01:56,109 --> 01:02:02,020
+interesting you know that's interesting
+
+976
+01:01:58,240 --> 01:02:06,130
+thing that's interesting you know but so
+
+977
+01:02:02,020 --> 01:02:10,049
+I like to know if anyone know where you
+
+978
+01:02:06,130 --> 01:02:12,849
+know if anyone has has seen this kind of
+
+979
+01:02:10,049 --> 01:02:16,420
+approach of explanation you know show
+
+980
+01:02:12,849 --> 01:02:18,069
+show me you know if you're not here
+
+981
+01:02:16,420 --> 01:02:18,700
+right now you know type in YouTube
+
+982
+01:02:18,069 --> 01:02:23,470
+comments
+
+983
+01:02:18,700 --> 01:02:28,299
+let me know and by the way so far we
+
+984
+01:02:23,470 --> 01:02:30,549
+only talked about the definition kind of
+
+985
+01:02:28,299 --> 01:02:34,270
+thing we have you know mathematicians
+
+986
+01:02:30,549 --> 01:02:37,900
+they actually study the consequence you
+
+987
+01:02:34,270 --> 01:02:41,460
+know of the structure for example when
+
+988
+01:02:37,900 --> 01:02:44,140
+you have a group you have many different
+
+989
+01:02:41,460 --> 01:02:49,210
+groups you know symmetry group dihedral
+
+990
+01:02:44,140 --> 01:02:51,940
+group you know cyclic group and you that
+
+991
+01:02:49,210 --> 01:02:55,930
+we have not explored you know so far we
+
+992
+01:02:51,940 --> 01:02:57,880
+are only exploring kind of the most
+
+993
+01:02:55,930 --> 01:03:01,800
+fundamental you know what what makes
+
+994
+01:02:57,880 --> 01:03:09,300
+them together anyway
+
+995
+01:03:01,800 --> 01:03:11,870
+so so Daniel says being road tripping up
+
+996
+01:03:09,300 --> 01:03:15,270
+to San Francisco and back to Los Angeles
+
+997
+01:03:11,870 --> 01:03:18,030
+ you should have you haven't contact
+
+998
+01:03:15,270 --> 01:03:22,800
+me we should have you know meter being a
+
+999
+01:03:18,030 --> 01:03:25,080
+coffee shop seat says I have now seen
+
+1000
+01:03:22,800 --> 01:03:29,090
+such approach usually binary operator
+
+1001
+01:03:25,080 --> 01:03:36,030
+operations are studied or explored via
+
+1002
+01:03:29,090 --> 01:03:38,910
+listing of table operations yeah Daniel
+
+1003
+01:03:36,030 --> 01:03:42,030
+says the associative law does not work
+
+1004
+01:03:38,910 --> 01:03:49,700
+for subtraction or diversion and that is
+
+1005
+01:03:42,030 --> 01:03:49,700
+just a commutative law well
+
+1006
+01:03:52,579 --> 01:04:00,599
+well subtraction and diversion I mean
+
+1007
+01:03:56,670 --> 01:04:03,000
+they are usually you know classically
+
+1008
+01:04:00,599 --> 01:04:07,049
+they are not treated as such
+
+1009
+01:04:03,000 --> 01:04:09,950
+I mean subtraction is is basically you
+
+1010
+01:04:07,049 --> 01:04:12,480
+know you don't you don't have a process
+
+1011
+01:04:09,950 --> 01:04:16,980
+whole function called a subtraction
+
+1012
+01:04:12,480 --> 01:04:20,160
+rather you have a you know a process of
+
+1013
+01:04:16,980 --> 01:04:23,609
+a function called addition and
+
+1014
+01:04:20,160 --> 01:04:28,049
+subtraction is defined you know addition
+
+1015
+01:04:23,609 --> 01:04:29,880
+with the inverse of some element and
+
+1016
+01:04:28,049 --> 01:04:35,549
+similarly for the version you know
+
+1017
+01:04:29,880 --> 01:04:38,900
+typically that's how you know cut in in
+
+1018
+01:04:35,549 --> 01:04:42,690
+a classic way that's how they define
+
+1019
+01:04:38,900 --> 01:04:50,910
+addition and subtraction and then end
+
+1020
+01:04:42,690 --> 01:04:53,460
+diversion so sometimes the properties of
+
+1021
+01:04:50,910 --> 01:04:55,759
+seed says sometimes the properties can
+
+1022
+01:04:53,460 --> 01:04:58,710
+be seen from the table for instance
+
+1023
+01:04:55,759 --> 01:05:01,799
+commutator commutativity means table is
+
+1024
+01:04:58,710 --> 01:05:04,460
+symmetric along the diagonal axis yes
+
+1025
+01:05:01,799 --> 01:05:07,230
+but I have not seen such extensive
+
+1026
+01:05:04,460 --> 01:05:10,470
+combinatorial study yes yeah so that's
+
+1027
+01:05:07,230 --> 01:05:13,319
+you know that's what I find interesting
+
+1028
+01:05:10,470 --> 01:05:15,259
+you know this one thing I have always
+
+1029
+01:05:13,319 --> 01:05:19,579
+wanted to know you know I wanted to know
+
+1030
+01:05:15,259 --> 01:05:22,099
+what you know the associative property
+
+1031
+01:05:19,579 --> 01:05:26,700
+if you look at the you know
+
+1032
+01:05:22,099 --> 01:05:30,359
+multiplication table will we be able to
+
+1033
+01:05:26,700 --> 01:05:33,539
+see visually when something is
+
+1034
+01:05:30,359 --> 01:05:36,660
+associative with that you know I've been
+
+1035
+01:05:33,539 --> 01:05:39,180
+wondering about that you know these this
+
+1036
+01:05:36,660 --> 01:05:41,880
+actually we can do you know we can you
+
+1037
+01:05:39,180 --> 01:05:45,289
+know as programmers we can start to
+
+1038
+01:05:41,880 --> 01:05:49,109
+write a program and just color each cell
+
+1039
+01:05:45,289 --> 01:05:52,109
+and we will see what happens visually
+
+1040
+01:05:49,109 --> 01:05:56,240
+with the associative property you know
+
+1041
+01:05:52,109 --> 01:05:58,549
+maybe maybe you will become visually
+
+1042
+01:05:56,240 --> 01:06:01,589
+distinctive like when we see a
+
+1043
+01:05:58,549 --> 01:06:03,550
+multiplication table we can eat we can
+
+1044
+01:06:01,589 --> 01:06:05,980
+tell right away or did this
+
+1045
+01:06:03,550 --> 01:06:08,910
+has associated property or it doesn't
+
+1046
+01:06:05,980 --> 01:06:11,560
+you know but I wonder how it looks like
+
+1047
+01:06:08,910 --> 01:06:15,340
+yes then you know that has been a
+
+1048
+01:06:11,560 --> 01:06:18,010
+question on my mind okay so I think
+
+1049
+01:06:15,340 --> 01:06:22,390
+that's it for today and it's getting
+
+1050
+01:06:18,010 --> 01:06:23,460
+late here so thank you guys for coming
+
+1051
+01:06:22,390 --> 01:06:32,220
+thank you
+
+1052
+01:06:23,460 --> 01:06:32,220
+Sid and Danielle bye
+

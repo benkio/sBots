@@ -1,0 +1,6464 @@
+1
+00:00:02,879 --> 00:00:09,440
+Good evening. Good evening everyone.
+
+2
+00:00:05,359 --> 00:00:13,120
+Welcome to another episode of talk show.
+
+3
+00:00:09,440 --> 00:00:16,000
+We are going to code F
+
+4
+00:00:13,120 --> 00:00:19,880
+exploration write a find and replace
+
+5
+00:00:16,000 --> 00:00:19,880
+script part two.
+
+6
+00:00:21,920 --> 00:00:28,960
+Two days ago we did part one. So two
+
+7
+00:00:25,519 --> 00:00:33,280
+days ago, episode 735,
+
+8
+00:00:28,960 --> 00:00:37,840
+we explored F. We learned F by asking
+
+9
+00:00:33,280 --> 00:00:41,760
+guac AI. It was smooth and fantastic. So
+
+10
+00:00:37,840 --> 00:00:45,920
+we learned about how to read file into a
+
+11
+00:00:41,760 --> 00:00:50,480
+string, how to write string to a file,
+
+12
+00:00:45,920 --> 00:00:54,239
+how to print, how to replace string, how
+
+13
+00:00:50,480 --> 00:00:57,600
+to list directory content or walk a
+
+14
+00:00:54,239 --> 00:01:00,719
+directory and uh we learned how to list
+
+15
+00:00:57,600 --> 00:01:04,640
+all sub subdirectories and uh so we
+
+16
+00:01:00,719 --> 00:01:07,119
+learned that from asking guac very
+
+17
+00:01:04,640 --> 00:01:10,960
+helpful and we're going to do that again
+
+18
+00:01:07,119 --> 00:01:13,920
+today but today we are going to actually
+
+19
+00:01:10,960 --> 00:01:16,720
+create a script of F
+
+20
+00:01:13,920 --> 00:01:21,439
+uh doing find replace. So as I talked
+
+21
+00:01:16,720 --> 00:01:23,759
+about the other day I have find replace
+
+22
+00:01:21,439 --> 00:01:25,360
+scripts in several programming
+
+23
+00:01:23,759 --> 00:01:28,400
+languages.
+
+24
+00:01:25,360 --> 00:01:32,000
+You can find them in Golan in Python in
+
+25
+00:01:28,400 --> 00:01:36,560
+Pearl my earliest one in year 2000 in
+
+26
+00:01:32,000 --> 00:01:40,920
+Emacs Lisp uh and in Wuam language. So,
+
+27
+00:01:36,560 --> 00:01:40,920
+we're going to write one for F.
+
+28
+00:01:41,040 --> 00:01:48,960
+Okay. Watch this video at 1.5 speed or
+
+29
+00:01:46,000 --> 00:01:51,040
+two times as fast. If you are here, say
+
+30
+00:01:48,960 --> 00:01:54,079
+hi. Okay. Love to see your comments.
+
+31
+00:01:51,040 --> 00:01:56,799
+Keep the comments coming. Okay. Nobody
+
+32
+00:01:54,079 --> 00:01:59,759
+is here. So, I'm just going to uh going
+
+33
+00:01:56,799 --> 00:02:02,880
+to work on my stuff.
+
+34
+00:01:59,759 --> 00:02:05,280
+Okay. F. So, are you ready? Yes. So,
+
+35
+00:02:02,880 --> 00:02:08,160
+first of all, we need a directory. Uh
+
+36
+00:02:05,280 --> 00:02:12,000
+let's go to we need a directory of files
+
+37
+00:02:08,160 --> 00:02:15,040
+that to do uh find replace. So typically
+
+38
+00:02:12,000 --> 00:02:17,920
+I go to Emacs manual. Emac list manual.
+
+39
+00:02:15,040 --> 00:02:20,800
+So open that show in browser. You can
+
+40
+00:02:17,920 --> 00:02:23,200
+see this is emac list manual. You can
+
+41
+00:02:20,800 --> 00:02:28,200
+download on web. Search for it. You'll
+
+42
+00:02:23,200 --> 00:02:28,200
+find it. Let's see. Go to go up.
+
+43
+00:02:32,400 --> 00:02:38,160
+Go up table of contents. Emac this
+
+44
+00:02:35,040 --> 00:02:41,040
+manual from GNU Emacs you can find it.
+
+45
+00:02:38,160 --> 00:02:44,239
+So this is useful. I usually use this
+
+46
+00:02:41,040 --> 00:02:47,760
+because they are there are over a
+
+47
+00:02:44,239 --> 00:02:49,760
+thousand files. So it's very uh similar
+
+48
+00:02:47,760 --> 00:02:52,400
+to what I have to do for my website
+
+49
+00:02:49,760 --> 00:02:55,440
+because my website has about 12,000
+
+50
+00:02:52,400 --> 00:02:59,840
+files. So anyway, there's 1,000 files.
+
+51
+00:02:55,440 --> 00:03:02,480
+So go up uh make a backup copy. Okay. So
+
+52
+00:02:59,840 --> 00:03:06,480
+copy the file name. Make a backup emac
+
+53
+00:03:02,480 --> 00:03:09,680
+this. Let's say back up.
+
+54
+00:03:06,480 --> 00:03:12,080
+Okay. Recursively copy. Yes. So, we are
+
+55
+00:03:09,680 --> 00:03:14,480
+using Emacs, the most powerful text
+
+56
+00:03:12,080 --> 00:03:18,800
+editor. So, you see there's a space.
+
+57
+00:03:14,480 --> 00:03:22,000
+Now, press press. Now, we rename the
+
+58
+00:03:18,800 --> 00:03:23,840
+space with a lowline character. So, open
+
+59
+00:03:22,000 --> 00:03:26,480
+the directory. So, we made a copy of the
+
+60
+00:03:23,840 --> 00:03:28,400
+directory. I'm using Emacs. And on the
+
+61
+00:03:26,480 --> 00:03:34,080
+ping window, you can see all my command
+
+62
+00:03:28,400 --> 00:03:34,080
+calls and keystrokes on the left.
+
+63
+00:03:34,842 --> 00:03:38,640
+>> [clears throat]
+
+64
+00:03:36,080 --> 00:03:41,280
+>> as I type. So for example, move cursor
+
+65
+00:03:38,640 --> 00:03:44,159
+forward, forward, backward, backward. So
+
+66
+00:03:41,280 --> 00:03:47,200
+you can see the command names there.
+
+67
+00:03:44,159 --> 00:03:49,280
+Okay. And I'm using So let let's so hold
+
+68
+00:03:47,200 --> 00:03:51,920
+on a second. Let me copy the file path.
+
+69
+00:03:49,280 --> 00:03:54,159
+So you can see the command course there.
+
+70
+00:03:51,920 --> 00:03:59,280
+Emacs, the most powerful text editor.
+
+71
+00:03:54,159 --> 00:04:02,000
+Now close close. Uh close close.
+
+72
+00:03:59,280 --> 00:04:05,840
+Showing browser. Emacs block. Close,
+
+73
+00:04:02,000 --> 00:04:07,920
+close, close. Switch back. Close back.
+
+74
+00:04:05,840 --> 00:04:11,120
+Showing browser. Today's talk show. Back
+
+75
+00:04:07,920 --> 00:04:12,799
+to Emacs. And uh so I have just
+
+76
+00:04:11,120 --> 00:04:15,519
+demonstrated
+
+77
+00:04:12,799 --> 00:04:18,639
+my efficiency setup. You know, one
+
+78
+00:04:15,519 --> 00:04:21,919
+single key press. I haven't introduced
+
+79
+00:04:18,639 --> 00:04:24,880
+my keyboard yet. So anyway, so here is
+
+80
+00:04:21,919 --> 00:04:28,880
+the file path we will need to use. So
+
+81
+00:04:24,880 --> 00:04:30,400
+hold on a second. Copy and create a new
+
+82
+00:04:28,880 --> 00:04:34,800
+F
+
+83
+00:04:30,400 --> 00:04:38,320
+uh text block preop
+
+84
+00:04:34,800 --> 00:04:43,120
+it up. So this is going to be uh X path.
+
+85
+00:04:38,320 --> 00:04:45,759
+Let's say X input path that will be F.
+
+86
+00:04:43,120 --> 00:04:49,880
+So that will be let variable. Okay. So
+
+87
+00:04:45,759 --> 00:04:49,880
+in F you need.
+
+88
+00:04:50,479 --> 00:04:55,199
+So that is actually the program and you
+
+89
+00:04:52,720 --> 00:04:58,800
+can print. We learned yesterday how to
+
+90
+00:04:55,199 --> 00:05:01,759
+print. So run it.
+
+91
+00:04:58,800 --> 00:05:05,120
+F print the file path. Fantastic. And
+
+92
+00:05:01,759 --> 00:05:08,160
+this is FSX. That's the file name
+
+93
+00:05:05,120 --> 00:05:10,400
+extension for F#. Now put it back.
+
+94
+00:05:08,160 --> 00:05:14,080
+Syntax color the whole page showing
+
+95
+00:05:10,400 --> 00:05:17,440
+browser. So we already began. Okay. So
+
+96
+00:05:14,080 --> 00:05:19,360
+I'm using Sunfly keys in Emacs. That's
+
+97
+00:05:17,440 --> 00:05:21,600
+this one. Search for it. You will find
+
+98
+00:05:19,360 --> 00:05:23,680
+it on.info
+
+99
+00:05:21,600 --> 00:05:27,120
+my website.
+
+100
+00:05:23,680 --> 00:05:32,000
+Okay, kxali.info http nos. Okay, let me
+
+101
+00:05:27,120 --> 00:05:35,840
+show you. x ah lee.info.
+
+102
+00:05:32,000 --> 00:05:38,479
+If your browser says security error, the
+
+103
+00:05:35,840 --> 00:05:42,080
+website certificate does not have one.
+
+104
+00:05:38,479 --> 00:05:44,720
+Uh you are risking danger middleain
+
+105
+00:05:42,080 --> 00:05:46,720
+attack. You know that's My
+
+106
+00:05:44,720 --> 00:05:50,639
+website does not ask you for credit
+
+107
+00:05:46,720 --> 00:05:54,080
+card. Therefore, it does not need
+
+108
+00:05:50,639 --> 00:05:55,840
+you know the HTTPS because HTTPS is like
+
+109
+00:05:54,080 --> 00:05:59,199
+actually you have to it became
+
+110
+00:05:55,840 --> 00:06:01,919
+centralized control. Okay. So anyway my
+
+111
+00:05:59,199 --> 00:06:05,120
+website kasadi code so you can find my
+
+112
+00:06:01,919 --> 00:06:08,800
+blogs several of them kasan talk show
+
+113
+00:06:05,120 --> 00:06:12,000
+today's talk show and uh you know
+
+114
+00:06:08,800 --> 00:06:18,479
+there are 700 uh videos uh keyboard blog
+
+115
+00:06:12,000 --> 00:06:22,960
+emac blog so on okay so code and search
+
+116
+00:06:18,479 --> 00:06:24,880
+bind replace you will find 32 articles
+
+117
+00:06:22,960 --> 00:06:27,600
+this implemented in different
+
+118
+00:06:24,880 --> 00:06:31,440
+programming languages and several So
+
+119
+00:06:27,600 --> 00:06:33,280
+algorithm issues on this uh find replace
+
+120
+00:06:31,440 --> 00:06:36,560
+because when you find replace multiple
+
+121
+00:06:33,280 --> 00:06:39,440
+pairs you run into a feedback problem.
+
+122
+00:06:36,560 --> 00:06:44,000
+Okay. So there's some articles uh about
+
+123
+00:06:39,440 --> 00:06:46,960
+them replace. Okay. So that's how that's
+
+124
+00:06:44,000 --> 00:06:50,880
+uh introduction to my website and go
+
+125
+00:06:46,960 --> 00:06:53,199
+back here. Go page down and let's uh
+
+126
+00:06:50,880 --> 00:06:57,600
+paste the link here.
+
+127
+00:06:53,199 --> 00:06:59,840
+Find replace. Okay. So actually uh okay.
+
+128
+00:06:57,600 --> 00:07:02,319
+So and I have not introduced my
+
+129
+00:06:59,840 --> 00:07:06,639
+keyboard. The keyboard I'm using is
+
+130
+00:07:02,319 --> 00:07:12,960
+ultimate hacking keyboard UHK80.
+
+131
+00:07:06,639 --> 00:07:15,360
+Go to my keyboard blog blog blog blog.
+
+132
+00:07:12,960 --> 00:07:19,360
+Okay, that is ultimate hacking keyboard.
+
+133
+00:07:15,360 --> 00:07:21,919
+I have a video unboxing and uh review.
+
+134
+00:07:19,360 --> 00:07:24,800
+Each one is 1 hour. Fantastic. I
+
+135
+00:07:21,919 --> 00:07:26,880
+recommend it. Okay. And I also have
+
+136
+00:07:24,800 --> 00:07:29,680
+Smartboard. I haven't been using it, but
+
+137
+00:07:26,880 --> 00:07:33,680
+I I I will be. Okay. It's been delayed
+
+138
+00:07:29,680 --> 00:07:37,199
+for over a year thanks to the uh cross
+
+139
+00:07:33,680 --> 00:07:40,800
+and um what's the guy's name? Anyway,
+
+140
+00:07:37,199 --> 00:07:43,280
+smartboard. Fantastic. Okay. And uh then
+
+141
+00:07:40,800 --> 00:07:46,400
+re uh then in the past several years,
+
+142
+00:07:43,280 --> 00:07:49,360
+I've been using glove glove 80 also the
+
+143
+00:07:46,400 --> 00:07:51,520
+best keyboard. Okay. So, that's the
+
+144
+00:07:49,360 --> 00:07:54,560
+introduction of my my keyboard. And you
+
+145
+00:07:51,520 --> 00:07:58,000
+if you are wondering about my mouse. Oh,
+
+146
+00:07:54,560 --> 00:08:00,720
+you cannot see it there. Let's see.
+
+147
+00:07:58,000 --> 00:08:02,319
+There it is. Newly on track ball.
+
+148
+00:08:00,720 --> 00:08:05,759
+Fantastic.
+
+149
+00:08:02,319 --> 00:08:08,560
+Uh 512 I think. So you go down track
+
+150
+00:08:05,759 --> 00:08:12,080
+ball. You can see the all the best track
+
+151
+00:08:08,560 --> 00:08:14,319
+balls. Okay. So the one I have is this
+
+152
+00:08:12,080 --> 00:08:16,560
+one. Nuria
+
+153
+00:08:14,319 --> 00:08:20,319
+M505.
+
+154
+00:08:16,560 --> 00:08:23,039
+It's one of the China cheapo wonder
+
+155
+00:08:20,319 --> 00:08:26,000
+because they are cheap. They are they
+
+156
+00:08:23,039 --> 00:08:28,160
+are like half the price from the you
+
+157
+00:08:26,000 --> 00:08:31,440
+know western brand names like Logitech
+
+158
+00:08:28,160 --> 00:08:33,599
+or whatever or the Kensington you know
+
+159
+00:08:31,440 --> 00:08:37,360
+half the price but they they are good
+
+160
+00:08:33,599 --> 00:08:40,640
+quality excellent. So I love this track.
+
+161
+00:08:37,360 --> 00:08:45,971
+Okay. Oh yeah I forgot to go back to uh
+
+162
+00:08:40,640 --> 00:08:46,560
+and this one is of course Logitech 502.
+
+163
+00:08:45,971 --> 00:08:48,640
+>> [clears throat]
+
+164
+00:08:46,560 --> 00:08:52,000
+>> So that's an intro in introduction to my
+
+165
+00:08:48,640 --> 00:08:55,680
+keyboards. So uh here is the all the
+
+166
+00:08:52,000 --> 00:08:57,440
+track ball reviews. Okay. So go back. So
+
+167
+00:08:55,680 --> 00:08:59,920
+so that's about my keyboard and
+
+168
+00:08:57,440 --> 00:09:02,399
+trackable. So let's uh shall we begin to
+
+169
+00:08:59,920 --> 00:09:05,839
+code? Copy that.
+
+170
+00:09:02,399 --> 00:09:08,720
+Close. Close. Close and paste that link.
+
+171
+00:09:05,839 --> 00:09:12,160
+Show in browser. Fantastic. So let's
+
+172
+00:09:08,720 --> 00:09:18,880
+begin to write this. Okay. So F. So
+
+173
+00:09:12,160 --> 00:09:22,399
+let's Yeah. So search tree uh so we uh
+
+174
+00:09:18,880 --> 00:09:27,440
+back up. Okay, let's start to write it.
+
+175
+00:09:22,399 --> 00:09:32,240
+Uh find and replace of
+
+176
+00:09:27,440 --> 00:09:34,800
+of all files in uh the
+
+177
+00:09:32,240 --> 00:09:37,040
+okay and also we need to make a backup
+
+178
+00:09:34,800 --> 00:09:39,600
+of each file we change. Okay, but let's
+
+179
+00:09:37,040 --> 00:09:41,440
+worry about that later. So the first
+
+180
+00:09:39,600 --> 00:09:44,080
+thing you need to do is you need to get
+
+181
+00:09:41,440 --> 00:09:48,000
+the list of directories. So we learned
+
+182
+00:09:44,080 --> 00:09:50,320
+that two days ago. Uh let's go to F
+
+183
+00:09:48,000 --> 00:09:53,600
+learning notes because I put them here.
+
+184
+00:09:50,320 --> 00:09:59,399
+So read file, write file, uh replace
+
+185
+00:09:53,600 --> 00:09:59,399
+string, list the content. So this is um
+
+186
+00:09:59,440 --> 00:10:05,279
+so you need to uh list the content and
+
+187
+00:10:02,959 --> 00:10:07,440
+all subdirectories. So that's what I
+
+188
+00:10:05,279 --> 00:10:10,480
+want. Okay, let's try that. Let's just
+
+189
+00:10:07,440 --> 00:10:13,600
+try that and wait.
+
+190
+00:10:10,480 --> 00:10:15,920
+copy is this key I programmed to this
+
+191
+00:10:13,600 --> 00:10:19,279
+little module
+
+192
+00:10:15,920 --> 00:10:22,399
+thumb key cluster module this one. Okay.
+
+193
+00:10:19,279 --> 00:10:26,800
+So go back you can see. Yeah. So
+
+194
+00:10:22,399 --> 00:10:29,200
+comments. Okay. Comments. Okay. So open
+
+195
+00:10:26,800 --> 00:10:33,120
+system typically you put the library at
+
+196
+00:10:29,200 --> 00:10:37,360
+the top and uh then file path. So this
+
+197
+00:10:33,120 --> 00:10:41,200
+is the file path. So change that to x
+
+198
+00:10:37,360 --> 00:10:44,480
+input file path. Change. Okay. So remove
+
+199
+00:10:41,200 --> 00:10:47,680
+that. So we got that file path open. Uh
+
+200
+00:10:44,480 --> 00:10:50,000
+that file path open it. Fantastic. Okay.
+
+201
+00:10:47,680 --> 00:10:54,560
+File path and print. We don't care.
+
+202
+00:10:50,000 --> 00:10:56,720
+Remove. So this is recursively. So let's
+
+203
+00:10:54,560 --> 00:11:00,079
+see. Um
+
+204
+00:10:56,720 --> 00:11:05,000
+so uh input file path we need a file
+
+205
+00:11:00,079 --> 00:11:05,000
+name extension. So let's add that
+
+206
+00:11:05,839 --> 00:11:12,079
+file name
+
+207
+00:11:08,000 --> 00:11:14,880
+extension. Now what what is the uh F
+
+208
+00:11:12,079 --> 00:11:19,120
+naming convention? Can you is it like
+
+209
+00:11:14,880 --> 00:11:24,640
+underscore snake case or camel case?
+
+210
+00:11:19,120 --> 00:11:31,120
+So let's ask guac guac what is the
+
+211
+00:11:24,640 --> 00:11:34,399
+variable naming convention in F? Okay,
+
+212
+00:11:31,120 --> 00:11:38,320
+answer me please.
+
+213
+00:11:34,399 --> 00:11:43,040
+Now let's magnify because
+
+214
+00:11:38,320 --> 00:11:46,560
+uh so control plus
+
+215
+00:11:43,040 --> 00:11:48,320
+control plus control + control plus
+
+216
+00:11:46,560 --> 00:11:50,880
+glorious
+
+217
+00:11:48,320 --> 00:11:52,480
+text.
+
+218
+00:11:50,880 --> 00:11:55,760
+Okay. What is the variable naming
+
+219
+00:11:52,480 --> 00:11:58,320
+convention in F? F variable naming
+
+220
+00:11:55,760 --> 00:11:59,920
+convention differ from those in many
+
+221
+00:11:58,320 --> 00:12:03,120
+imperative.net
+
+222
+00:11:59,920 --> 00:12:05,120
+Net languages like C reflecting the
+
+223
+00:12:03,120 --> 00:12:10,200
+languages functional programming roots
+
+224
+00:12:05,120 --> 00:12:10,200
+while aligning with net interpility.
+
+225
+00:12:10,480 --> 00:12:18,240
+Okay. Local variables and parameters
+
+226
+00:12:14,000 --> 00:12:21,360
+camel case. Okay. Camel case. Okay. No
+
+227
+00:12:18,240 --> 00:12:24,480
+problemmo. Fantastic.
+
+228
+00:12:21,360 --> 00:12:29,920
+So this will be file name extension. Um,
+
+229
+00:12:24,480 --> 00:12:33,279
+so that will be HTML because I only want
+
+230
+00:12:29,920 --> 00:12:36,399
+HTML files. So because typically that's
+
+231
+00:12:33,279 --> 00:12:39,519
+what I work with sometimes JavaScript.js
+
+232
+00:12:36,399 --> 00:12:41,040
+or TypeScript. So let's create a new
+
+233
+00:12:39,519 --> 00:12:43,440
+file
+
+234
+00:12:41,040 --> 00:12:48,160
+and let's name this. So what is this
+
+235
+00:12:43,440 --> 00:12:53,200
+file? Okay, so let's rename it uh
+
+236
+00:12:48,160 --> 00:12:55,519
+txt. Save. So we can see if that file is
+
+237
+00:12:53,200 --> 00:12:59,279
+changed. It should not because you know
+
+238
+00:12:55,519 --> 00:13:01,600
+but let's create one. So we'll um let's
+
+239
+00:12:59,279 --> 00:13:04,079
+rename. Okay. Hold on a second. Let's
+
+240
+00:13:01,600 --> 00:13:08,880
+just xx
+
+241
+00:13:04,079 --> 00:13:12,360
+random char and uh oh okay and uh and
+
+242
+00:13:08,880 --> 00:13:12,360
+make it underscope.
+
+243
+00:13:13,040 --> 00:13:19,600
+Anyway, so there. Okay. So now let's
+
+244
+00:13:17,360 --> 00:13:22,959
+see. I want it low. I want at the
+
+245
+00:13:19,600 --> 00:13:26,639
+bottom. Okay. So there.
+
+246
+00:13:22,959 --> 00:13:31,760
+So input path check file name extension
+
+247
+00:13:26,639 --> 00:13:35,120
+check. And here uh here you just say
+
+248
+00:13:31,760 --> 00:13:37,600
+file name extension and uh uh you should
+
+249
+00:13:35,120 --> 00:13:41,200
+say glob
+
+250
+00:13:37,600 --> 00:13:44,959
+because that is a pattern and this kind
+
+251
+00:13:41,200 --> 00:13:49,040
+of style of pattern is known as glob
+
+252
+00:13:44,959 --> 00:13:53,519
+from Unix. Okay. So file name extension
+
+253
+00:13:49,040 --> 00:13:56,160
+glob fantastic. This by the way these
+
+254
+00:13:53,519 --> 00:13:58,240
+variables are supposed to be your input.
+
+255
+00:13:56,160 --> 00:14:03,120
+So what when you eventually if you want
+
+256
+00:13:58,240 --> 00:14:05,199
+to write this in shell
+
+257
+00:14:03,120 --> 00:14:07,199
+you know powershell or bash or you know
+
+258
+00:14:05,199 --> 00:14:10,320
+in terminal you call the program. So you
+
+259
+00:14:07,199 --> 00:14:12,880
+give uh you know you give options so
+
+260
+00:14:10,320 --> 00:14:15,199
+called a parameter that says you know
+
+261
+00:14:12,880 --> 00:14:18,959
+what is the input directory what is the
+
+262
+00:14:15,199 --> 00:14:20,480
+extension filter blah so you can you
+
+263
+00:14:18,959 --> 00:14:26,560
+know you can change them you know so
+
+264
+00:14:20,480 --> 00:14:28,639
+that these are input okay
+
+265
+00:14:26,560 --> 00:14:31,279
+close that powershell fantastic so
+
+266
+00:14:28,639 --> 00:14:35,440
+what's next so file name extension glob
+
+267
+00:14:31,279 --> 00:14:38,480
+so this directory enumerate files input
+
+268
+00:14:35,440 --> 00:14:41,120
+path file name extension glob and the
+
+269
+00:14:38,480 --> 00:14:45,279
+separation uh and search option all
+
+270
+00:14:41,120 --> 00:14:48,480
+directories and type operator send it to
+
+271
+00:14:45,279 --> 00:14:50,959
+sequence name space eater
+
+272
+00:14:48,480 --> 00:14:52,639
+method something like that so let's run
+
+273
+00:14:50,959 --> 00:14:56,959
+it
+
+274
+00:14:52,639 --> 00:14:59,600
+so okay so let's yeah so can we run it
+
+275
+00:14:56,959 --> 00:15:03,440
+yes
+
+276
+00:14:59,600 --> 00:15:06,480
+fantastic it output all these
+
+277
+00:15:03,440 --> 00:15:09,680
+file path now notice some Some of them
+
+278
+00:15:06,480 --> 00:15:12,480
+are slash, some of them are backslash.
+
+279
+00:15:09,680 --> 00:15:15,279
+Backslash is the traditional Windows
+
+280
+00:15:12,480 --> 00:15:18,320
+convention. Slash is the Unix
+
+281
+00:15:15,279 --> 00:15:20,720
+convention. But starting about 10 years
+
+282
+00:15:18,320 --> 00:15:24,560
+ago, power p PowerShell they accept
+
+283
+00:15:20,720 --> 00:15:28,160
+Windows accept both. So it would be best
+
+284
+00:15:24,560 --> 00:15:30,320
+best to stick with just slash is better
+
+285
+00:15:28,160 --> 00:15:32,639
+because the backslash is very annoying
+
+286
+00:15:30,320 --> 00:15:35,120
+because in many programming languages
+
+287
+00:15:32,639 --> 00:15:39,120
+they are used for in in let's say in
+
+288
+00:15:35,120 --> 00:15:41,120
+Unix oriented programming languages or
+
+289
+00:15:39,120 --> 00:15:47,120
+in open source programming languages
+
+290
+00:15:41,120 --> 00:15:51,199
+such as ash, c, c++, python and t you
+
+291
+00:15:47,120 --> 00:15:54,480
+know the zshell uh t kong shell you know
+
+292
+00:15:51,199 --> 00:15:57,519
+bunch of shells and They use backslash
+
+293
+00:15:54,480 --> 00:16:01,120
+using the Unix convention but and
+
+294
+00:15:57,519 --> 00:16:04,880
+meanwhile the so slash is the Unix
+
+295
+00:16:01,120 --> 00:16:07,920
+convention for file name separators but
+
+296
+00:16:04,880 --> 00:16:10,560
+the backslash is used for escape
+
+297
+00:16:07,920 --> 00:16:15,120
+sequence okay in a string. So that's a
+
+298
+00:16:10,560 --> 00:16:18,399
+Unix convention. But in Windows world,
+
+299
+00:16:15,120 --> 00:16:20,880
+the backslash is the separator for file
+
+300
+00:16:18,399 --> 00:16:24,320
+names.
+
+301
+00:16:20,880 --> 00:16:27,519
+And while their escape character is this
+
+302
+00:16:24,320 --> 00:16:30,480
+back tick, okay, typically this this
+
+303
+00:16:27,519 --> 00:16:33,360
+back tick character this is called
+
+304
+00:16:30,480 --> 00:16:35,920
+technically in Unicode this is called
+
+305
+00:16:33,360 --> 00:16:37,680
+grave accent. That's a proper name. But
+
+306
+00:16:35,920 --> 00:16:40,800
+usually you know programmer just call
+
+307
+00:16:37,680 --> 00:16:43,680
+this character tick they close that
+
+308
+00:16:40,800 --> 00:16:46,240
+close that grave accent. So anyway so
+
+309
+00:16:43,680 --> 00:16:49,199
+this you know this this very annoying
+
+310
+00:16:46,240 --> 00:16:52,639
+but um let's ignore it for now but you
+
+311
+00:16:49,199 --> 00:16:55,759
+know let's just use um the slash okay
+
+312
+00:16:52,639 --> 00:16:58,880
+slash is better because because
+
+313
+00:16:55,759 --> 00:17:02,079
+of the HTML and all the all the other
+
+314
+00:16:58,880 --> 00:17:06,160
+conventions they they follow the Unix
+
+315
+00:17:02,079 --> 00:17:10,079
+way. So, so you know, so you you using
+
+316
+00:17:06,160 --> 00:17:12,480
+slash is more universal.
+
+317
+00:17:10,079 --> 00:17:16,160
+Okay, that's a lot digression. So you
+
+318
+00:17:12,480 --> 00:17:19,360
+got so you got a file list of files. Now
+
+319
+00:17:16,160 --> 00:17:23,760
+you want to open each file. Okay, so how
+
+320
+00:17:19,360 --> 00:17:26,880
+do you open uh ses me open? How to show
+
+321
+00:17:23,760 --> 00:17:29,760
+me uh read file?
+
+322
+00:17:26,880 --> 00:17:32,640
+Okay, here is how you read a file. Now
+
+323
+00:17:29,760 --> 00:17:34,799
+what is this part? Uh let's see.
+
+324
+00:17:32,640 --> 00:17:37,120
+This is get directory info. We don't
+
+325
+00:17:34,799 --> 00:17:40,320
+need. Okay. So I don't think we need
+
+326
+00:17:37,120 --> 00:17:43,919
+that's you know that's the like file
+
+327
+00:17:40,320 --> 00:17:47,200
+name access date file name modification
+
+328
+00:17:43,919 --> 00:17:50,160
+date. Uh you know they get those fi file
+
+329
+00:17:47,200 --> 00:17:53,120
+name permission system file name owner.
+
+330
+00:17:50,160 --> 00:17:59,600
+I don't think we need it. Okay. Not not
+
+331
+00:17:53,120 --> 00:18:02,559
+now. Okay. So now you want to um read a
+
+332
+00:17:59,600 --> 00:18:06,160
+file. So
+
+333
+00:18:02,559 --> 00:18:08,960
+okay so you so you know so this is this
+
+334
+00:18:06,160 --> 00:18:12,240
+is a file path and here is how you get
+
+335
+00:18:08,960 --> 00:18:14,720
+the content. Okay. But now the question
+
+336
+00:18:12,240 --> 00:18:18,160
+is how do you so you need some kind of
+
+337
+00:18:14,720 --> 00:18:21,160
+loop. You need to write a function
+
+338
+00:18:18,160 --> 00:18:21,160
+that
+
+339
+00:18:22,000 --> 00:18:26,559
+go through this iterator you know go
+
+340
+00:18:24,320 --> 00:18:30,480
+through this list. I suppose that's a
+
+341
+00:18:26,559 --> 00:18:33,840
+list data data type. So you want a
+
+342
+00:18:30,480 --> 00:18:37,520
+function. You want to map a function to
+
+343
+00:18:33,840 --> 00:18:42,760
+a list that's returned by this. Okay.
+
+344
+00:18:37,520 --> 00:18:42,760
+And then you want to um
+
+345
+00:18:43,039 --> 00:18:48,799
+so this is a list actually. Interesting.
+
+346
+00:18:45,520 --> 00:18:51,760
+Okay. Something like that. Okay.
+
+347
+00:18:48,799 --> 00:18:56,559
+Uh so you want a function you want to
+
+348
+00:18:51,760 --> 00:19:00,160
+map this function to a list of this
+
+349
+00:18:56,559 --> 00:19:03,520
+file path. For each one the function
+
+350
+00:19:00,160 --> 00:19:06,240
+will need to open it. Okay. So how do
+
+351
+00:19:03,520 --> 00:19:09,120
+you write a function? Oh I forgot. I
+
+352
+00:19:06,240 --> 00:19:10,720
+don't know. So how so let's ask guac
+
+353
+00:19:09,120 --> 00:19:14,240
+okay
+
+354
+00:19:10,720 --> 00:19:17,600
+camel case fantastic new question guac
+
+355
+00:19:14,240 --> 00:19:20,720
+please new question
+
+356
+00:19:17,600 --> 00:19:26,400
+uh the question is
+
+357
+00:19:20,720 --> 00:19:30,080
+let's let's type in emac um in f
+
+358
+00:19:26,400 --> 00:19:35,679
+how to write a function
+
+359
+00:19:30,080 --> 00:19:41,919
+that goes through a list
+
+360
+00:19:35,679 --> 00:19:45,600
+of file path and print the path. Okay,
+
+361
+00:19:41,919 --> 00:19:50,120
+let's try uh some brainless question.
+
+362
+00:19:45,600 --> 00:19:50,120
+Why not? Because it's free.
+
+363
+00:19:50,160 --> 00:19:54,320
+If you are watching, say hi. Okay, so in
+
+364
+00:19:52,400 --> 00:19:56,160
+F there's a simple way to write a
+
+365
+00:19:54,320 --> 00:19:59,360
+function that takes a list of files. So
+
+366
+00:19:56,160 --> 00:20:04,240
+I'm starting to learn um F. That's
+
+367
+00:19:59,360 --> 00:20:07,440
+fantastic. You want to copy? Copy it.
+
+368
+00:20:04,240 --> 00:20:07,440
+Okay, let's see.
+
+369
+00:20:07,600 --> 00:20:15,200
+So you start to um
+
+370
+00:20:11,840 --> 00:20:17,520
+so okay so before we do anything okay so
+
+371
+00:20:15,200 --> 00:20:19,840
+hold on a second
+
+372
+00:20:17,520 --> 00:20:21,919
+before any we do anything let's make
+
+373
+00:20:19,840 --> 00:20:24,960
+sure we got this correct now right now
+
+374
+00:20:21,919 --> 00:20:28,559
+that prints a bunch of file path okay
+
+375
+00:20:24,960 --> 00:20:30,240
+now but can we um
+
+376
+00:20:28,559 --> 00:20:33,679
+so
+
+377
+00:20:30,240 --> 00:20:37,280
+file list can you say file list
+
+378
+00:20:33,679 --> 00:20:43,679
+something like that Okay, let
+
+379
+00:20:37,280 --> 00:20:48,080
+file list equals to that and then
+
+380
+00:20:43,679 --> 00:20:51,600
+then you do something like that. Is that
+
+381
+00:20:48,080 --> 00:20:53,919
+valid? Is that legal or is it illegal?
+
+382
+00:20:51,600 --> 00:20:57,120
+Let's do it.
+
+383
+00:20:53,919 --> 00:20:59,440
+Fantastic. Same thing. Okay, I'm
+
+384
+00:20:57,120 --> 00:21:03,440
+familiar with functional programming.
+
+385
+00:20:59,440 --> 00:21:05,919
+Okay, file list. So let's name it uh X
+
+386
+00:21:03,440 --> 00:21:08,799
+file list because I like my variable
+
+387
+00:21:05,919 --> 00:21:12,880
+name convention to start with X. So I I
+
+388
+00:21:08,799 --> 00:21:15,760
+know at a glance they are variables.
+
+389
+00:21:12,880 --> 00:21:19,600
+Uh but except well
+
+390
+00:21:15,760 --> 00:21:23,120
+except here. Okay. Let's add X.
+
+391
+00:21:19,600 --> 00:21:26,400
+Uh well it's not necessary but let's
+
+392
+00:21:23,120 --> 00:21:28,799
+just do it. Okay. Right. Right.
+
+393
+00:21:26,400 --> 00:21:33,919
+Fantastic. Right. Right. Yeah. Good.
+
+394
+00:21:28,799 --> 00:21:37,039
+Okay. So that so file list is a
+
+395
+00:21:33,919 --> 00:21:38,720
+constant. You see this functional
+
+396
+00:21:37,039 --> 00:21:42,159
+programming
+
+397
+00:21:38,720 --> 00:21:45,600
+languages their data structure are
+
+398
+00:21:42,159 --> 00:21:47,360
+immutable. Okay. So I always wondered
+
+399
+00:21:45,600 --> 00:21:50,559
+you know what if you want to change an
+
+400
+00:21:47,360 --> 00:21:53,039
+element to another value that's like one
+
+401
+00:21:50,559 --> 00:21:55,360
+of the things I want to learn about F or
+
+402
+00:21:53,039 --> 00:21:56,960
+Haskell
+
+403
+00:21:55,360 --> 00:21:59,919
+because
+
+404
+00:21:56,960 --> 00:22:03,120
+changing elements is you know of a list
+
+405
+00:21:59,919 --> 00:22:06,559
+is you is often done you need to do that
+
+406
+00:22:03,120 --> 00:22:10,480
+often so but if you cannot do that how
+
+407
+00:22:06,559 --> 00:22:13,120
+is it how do you um write a program so I
+
+408
+00:22:10,480 --> 00:22:16,080
+don't know but anyway right now but for
+
+409
+00:22:13,120 --> 00:22:20,080
+for our job we don't need to modify this
+
+410
+00:22:16,080 --> 00:22:23,120
+ele element we we will learn it later
+
+411
+00:22:20,080 --> 00:22:26,320
+okay so we got to fire fire list then uh
+
+412
+00:22:23,120 --> 00:22:30,559
+fire list right yeah
+
+413
+00:22:26,320 --> 00:22:34,559
+okay let's just be uh more conventional
+
+414
+00:22:30,559 --> 00:22:40,080
+let's okay capital camel case okay list
+
+415
+00:22:34,559 --> 00:22:43,600
+then what what then what okay so then uh
+
+416
+00:22:40,080 --> 00:22:46,000
+now let's so then this is a function
+
+417
+00:22:43,600 --> 00:22:48,960
+Print file path.
+
+418
+00:22:46,000 --> 00:22:51,679
+Let's name it process file. Okay. Wait.
+
+419
+00:22:48,960 --> 00:22:54,880
+Uh what?
+
+420
+00:22:51,679 --> 00:23:01,400
+Uh okay. We jumped.
+
+421
+00:22:54,880 --> 00:23:01,400
+Okay. Let's name it F process file.
+
+422
+00:23:02,080 --> 00:23:08,600
+Okay. That's a function process file
+
+423
+00:23:05,600 --> 00:23:08,600
+path.
+
+424
+00:23:09,200 --> 00:23:12,200
+Oh.
+
+425
+00:23:13,520 --> 00:23:18,799
+Oh. Okay. So,
+
+426
+00:23:16,000 --> 00:23:22,400
+this take a list. That's not what we
+
+427
+00:23:18,799 --> 00:23:24,480
+want. Um,
+
+428
+00:23:22,400 --> 00:23:28,000
+wait.
+
+429
+00:23:24,480 --> 00:23:30,000
+Okay. So, this take a list. We want it
+
+430
+00:23:28,000 --> 00:23:32,400
+to
+
+431
+00:23:30,000 --> 00:23:37,440
+What?
+
+432
+00:23:32,400 --> 00:23:40,000
+for path in path do. Okay, that's that
+
+433
+00:23:37,440 --> 00:23:43,120
+seems simple. That's like a map. Can you
+
+434
+00:23:40,000 --> 00:23:47,200
+use map? Do you have a function map?
+
+435
+00:23:43,120 --> 00:23:50,760
+Because map is more common in functional
+
+436
+00:23:47,200 --> 00:23:50,760
+programming paradigm.
+
+437
+00:23:50,799 --> 00:23:56,960
+Alternative version list. Eater more
+
+438
+00:23:53,760 --> 00:24:00,320
+idiomatic. Yes.
+
+439
+00:23:56,960 --> 00:24:01,919
+For side effects like printing. Okay.
+
+440
+00:24:00,320 --> 00:24:04,559
+Uh
+
+441
+00:24:01,919 --> 00:24:07,559
+okay we are getting into the details of
+
+442
+00:24:04,559 --> 00:24:07,559
+F
+
+443
+00:24:09,600 --> 00:24:15,360
+so
+
+444
+00:24:11,360 --> 00:24:20,159
+so wait so this function takes a list
+
+445
+00:24:15,360 --> 00:24:23,440
+then it does an iteration of
+
+446
+00:24:20,159 --> 00:24:26,000
+then here fun path that's a lambda
+
+447
+00:24:23,440 --> 00:24:29,360
+that's a
+
+448
+00:24:26,000 --> 00:24:31,760
+pure function also known as lambda also
+
+449
+00:24:29,360 --> 00:24:33,679
+known was anonymous function. So firm
+
+450
+00:24:31,760 --> 00:24:37,840
+path
+
+451
+00:24:33,679 --> 00:24:39,919
+goes to that means the body. Okay, it's
+
+452
+00:24:37,840 --> 00:24:45,120
+getting complicated.
+
+453
+00:24:39,919 --> 00:24:48,320
+So we are learning several things. Um
+
+454
+00:24:45,120 --> 00:24:52,120
+file path operator list eater print.
+
+455
+00:24:48,320 --> 00:24:52,120
+Okay, even shorter.
+
+456
+00:24:52,880 --> 00:25:00,240
+Okay, so what is it we need to do? So we
+
+457
+00:24:55,919 --> 00:25:03,840
+got a list of files and uh sequence
+
+458
+00:25:00,240 --> 00:25:08,120
+eater or you can do list ether. What's
+
+459
+00:25:03,840 --> 00:25:08,120
+the difference? I do not know.
+
+460
+00:25:09,600 --> 00:25:17,919
+So basically you got a list of files.
+
+461
+00:25:12,480 --> 00:25:22,919
+Now you need to apply a function
+
+462
+00:25:17,919 --> 00:25:22,919
+to this list of files.
+
+463
+00:25:24,559 --> 00:25:32,080
+So does it like does does F has a um map
+
+464
+00:25:30,080 --> 00:25:35,760
+that because that's what I'm familiar
+
+465
+00:25:32,080 --> 00:25:37,279
+with. You map a function to a list of
+
+466
+00:25:35,760 --> 00:25:39,919
+items
+
+467
+00:25:37,279 --> 00:25:44,679
+or the side effect.
+
+468
+00:25:39,919 --> 00:25:44,679
+Okay. So I don't know. So
+
+469
+00:25:44,720 --> 00:25:51,279
+so let's copy that first, you know.
+
+470
+00:25:47,200 --> 00:25:54,279
+Let's let's let's let's
+
+471
+00:25:51,279 --> 00:25:54,279
+um
+
+472
+00:25:56,480 --> 00:26:04,480
+okay let's get the guac answer here so
+
+473
+00:26:00,159 --> 00:26:06,720
+we can we saved it for later
+
+474
+00:26:04,480 --> 00:26:11,279
+reading pleasure.
+
+475
+00:26:06,720 --> 00:26:13,279
+Okay. But here not we need to think so
+
+476
+00:26:11,279 --> 00:26:16,000
+all [sighs]
+
+477
+00:26:13,279 --> 00:26:19,000
+all files recursively,
+
+478
+00:26:16,000 --> 00:26:19,000
+right?
+
+479
+00:26:19,600 --> 00:26:27,200
+So uh so yeah so you don't you don't
+
+480
+00:26:22,640 --> 00:26:32,360
+need this part, right?
+
+481
+00:26:27,200 --> 00:26:32,360
+And uh then you do that then.
+
+482
+00:26:36,480 --> 00:26:44,480
+Okay, we got a typo.
+
+483
+00:26:38,960 --> 00:26:47,520
+Print. Okay, delete that.
+
+484
+00:26:44,480 --> 00:26:54,000
+So we got a list of files
+
+485
+00:26:47,520 --> 00:26:59,159
+and uh you don't need that
+
+486
+00:26:54,000 --> 00:26:59,159
+delete. Okay, we got a list of files.
+
+487
+00:26:59,919 --> 00:27:03,480
+Then we
+
+488
+00:27:03,600 --> 00:27:10,919
+you can do that and over here you simply
+
+489
+00:27:11,760 --> 00:27:20,840
+call a function on it. Wait, no. But um
+
+490
+00:27:17,840 --> 00:27:20,840
+well
+
+491
+00:27:23,440 --> 00:27:29,799
+looks like you know here you can just
+
+492
+00:27:26,000 --> 00:27:29,799
+put a function name
+
+493
+00:27:29,919 --> 00:27:33,960
+and um
+
+494
+00:27:34,720 --> 00:27:41,120
+so the function this function is
+
+495
+00:27:37,279 --> 00:27:44,400
+actually taking a list of files and this
+
+496
+00:27:41,120 --> 00:27:46,880
+EDM is for iteration.
+
+497
+00:27:44,400 --> 00:27:50,799
+So there are many ways but this is not
+
+498
+00:27:46,880 --> 00:27:56,360
+functional way so we don't want that. Um
+
+499
+00:27:50,799 --> 00:27:56,360
+and here is read the file. Okay. So
+
+500
+00:27:58,159 --> 00:28:01,640
+delete that
+
+501
+00:28:02,640 --> 00:28:06,039
+delete that.
+
+502
+00:28:11,120 --> 00:28:18,919
+So process file let's modify it. Let's
+
+503
+00:28:14,080 --> 00:28:18,919
+just say path a string. Okay.
+
+504
+00:28:20,640 --> 00:28:24,760
+Path is a string type.
+
+505
+00:28:24,880 --> 00:28:31,919
+Hello. Why there is no one? Hello from
+
+506
+00:28:28,240 --> 00:28:34,720
+Arabia something.
+
+507
+00:28:31,919 --> 00:28:37,440
+Uh so process file
+
+508
+00:28:34,720 --> 00:28:41,840
+file path variable is a string type.
+
+509
+00:28:37,440 --> 00:28:47,120
+Then what do you want to do with it?
+
+510
+00:28:41,840 --> 00:28:49,360
+Well, well, so this annoying uh
+
+511
+00:28:47,120 --> 00:28:52,880
+indentation
+
+512
+00:28:49,360 --> 00:28:56,360
+very bad syntax borrowed from Python.
+
+513
+00:28:52,880 --> 00:28:56,360
+Anyway, so
+
+514
+00:29:04,000 --> 00:29:11,120
+okay, let's ask. Okay. So something
+
+515
+00:29:06,799 --> 00:29:13,200
+about how to
+
+516
+00:29:11,120 --> 00:29:18,960
+in f
+
+517
+00:29:13,200 --> 00:29:20,720
+how to write a function that
+
+518
+00:29:18,960 --> 00:29:23,600
+takes
+
+519
+00:29:20,720 --> 00:29:26,480
+a file path
+
+520
+00:29:23,600 --> 00:29:31,159
+and
+
+521
+00:29:26,480 --> 00:29:31,159
+and what you want to do with it.
+
+522
+00:29:35,200 --> 00:29:41,960
+Okay. So,
+
+523
+00:29:37,600 --> 00:29:41,960
+let's comment that out.
+
+524
+00:29:42,000 --> 00:29:46,600
+It's so simple. Okay.
+
+525
+00:29:46,720 --> 00:29:52,080
+Process file
+
+526
+00:29:49,679 --> 00:29:56,159
+path string. You can like you can just
+
+527
+00:29:52,080 --> 00:30:01,440
+print it then over here. So, let's run
+
+528
+00:29:56,159 --> 00:30:05,120
+this. Let's see what happens. Run it.
+
+529
+00:30:01,440 --> 00:30:08,120
+Process finished. Okay. Now let's uh
+
+530
+00:30:05,120 --> 00:30:08,120
+print
+
+531
+00:30:08,720 --> 00:30:15,279
+that.
+
+532
+00:30:11,039 --> 00:30:19,840
+Okay. Now this just signify tells us
+
+533
+00:30:15,279 --> 00:30:22,640
+that the script ran successfully. Okay.
+
+534
+00:30:19,840 --> 00:30:27,520
+When it reaches this part
+
+535
+00:30:22,640 --> 00:30:31,120
+now so now we want to
+
+536
+00:30:27,520 --> 00:30:35,279
+so this all valid so far. So what if we
+
+537
+00:30:31,120 --> 00:30:38,279
+just uh change that instead of print you
+
+538
+00:30:35,279 --> 00:30:38,279
+say
+
+539
+00:30:41,279 --> 00:30:47,279
+process file. Can can you do that? Can
+
+540
+00:30:43,679 --> 00:30:52,360
+you actually do that then you should
+
+541
+00:30:47,279 --> 00:30:52,360
+train the old file path should does it
+
+542
+00:30:52,720 --> 00:31:00,960
+my guess is correct.
+
+543
+00:30:56,640 --> 00:31:03,440
+Fantastic. So you can do that
+
+544
+00:31:00,960 --> 00:31:07,520
+you simply you know sequence iteration
+
+545
+00:31:03,440 --> 00:31:09,679
+and process file. So let's ask a
+
+546
+00:31:07,520 --> 00:31:14,279
+question quickly.
+
+547
+00:31:09,679 --> 00:31:14,279
+Um so new gu
+
+548
+00:31:14,480 --> 00:31:22,320
+so hold on a sec. So yeah god. So new
+
+549
+00:31:17,919 --> 00:31:27,679
+new new okay notifications
+
+550
+00:31:22,320 --> 00:31:31,720
+uh new G in F
+
+551
+00:31:27,679 --> 00:31:31,720
+what's the div
+
+552
+00:31:35,200 --> 00:31:43,559
+sequent eater
+
+553
+00:31:38,480 --> 00:31:43,559
+versus list eater
+
+554
+00:31:44,720 --> 00:31:49,519
+beginner's Question
+
+555
+00:31:47,360 --> 00:31:53,399
+help me
+
+556
+00:31:49,519 --> 00:31:53,399
+applies a given function
+
+557
+00:31:53,840 --> 00:32:01,039
+to each element of a collection. Oh, so
+
+558
+00:31:57,279 --> 00:32:04,320
+actually the sequence eater or lister
+
+559
+00:32:01,039 --> 00:32:07,440
+they function as a map
+
+560
+00:32:04,320 --> 00:32:11,440
+like map in typical other program
+
+561
+00:32:07,440 --> 00:32:14,000
+functional programming languages. Okay.
+
+562
+00:32:11,440 --> 00:32:17,360
+uh like printing or mutating state
+
+563
+00:32:14,000 --> 00:32:21,360
+typically typically for side effect that
+
+564
+00:32:17,360 --> 00:32:24,559
+is why okay so maps is got map but these
+
+565
+00:32:21,360 --> 00:32:28,000
+are not equivalent to map they are
+
+566
+00:32:24,559 --> 00:32:30,880
+usually for side effect only okay yeah
+
+567
+00:32:28,000 --> 00:32:34,159
+it returns a unit
+
+568
+00:32:30,880 --> 00:32:37,760
+so key difference so let's see uh so
+
+569
+00:32:34,159 --> 00:32:40,480
+where sequence uh so this is their
+
+570
+00:32:37,760 --> 00:32:47,080
+signature so let's study this
+
+571
+00:32:40,480 --> 00:32:47,080
+List eater sequence eater. List is um
+
+572
+00:32:49,360 --> 00:32:56,120
+type [snorts] uh uh list eater takes a
+
+573
+00:32:53,120 --> 00:32:56,120
+function
+
+574
+00:32:57,200 --> 00:33:04,640
+and returns a unit. Unit means nothing
+
+575
+00:33:00,399 --> 00:33:06,480
+like unit. Unit means like neo or no
+
+576
+00:33:04,640 --> 00:33:09,960
+something.
+
+577
+00:33:06,480 --> 00:33:09,960
+And so
+
+578
+00:33:11,360 --> 00:33:20,000
+okay so you see they they you know it's
+
+579
+00:33:15,919 --> 00:33:23,840
+this is uh currying
+
+580
+00:33:20,000 --> 00:33:25,600
+of basically function of two arguments
+
+581
+00:33:23,840 --> 00:33:29,200
+but
+
+582
+00:33:25,600 --> 00:33:32,799
+expressed as
+
+583
+00:33:29,200 --> 00:33:36,000
+sequence of two functions applied one
+
+584
+00:33:32,799 --> 00:33:39,200
+after another something like that. Okay.
+
+585
+00:33:36,000 --> 00:33:41,360
+So, don't fully understand it yet, but
+
+586
+00:33:39,200 --> 00:33:43,360
+it's
+
+587
+00:33:41,360 --> 00:33:44,880
+expressing
+
+588
+00:33:43,360 --> 00:33:46,640
+the
+
+589
+00:33:44,880 --> 00:33:49,919
+input
+
+590
+00:33:46,640 --> 00:33:52,320
+type to the list. Eater and the output
+
+591
+00:33:49,919 --> 00:33:54,399
+type
+
+592
+00:33:52,320 --> 00:33:58,080
+like that. Okay. And so what's the
+
+593
+00:33:54,399 --> 00:34:01,120
+difference? List works specifically on F
+
+594
+00:33:58,080 --> 00:34:05,440
+lists. Okay. Type list which are
+
+595
+00:34:01,120 --> 00:34:10,159
+immutable. immutable sing see singly the
+
+596
+00:34:05,440 --> 00:34:12,720
+linked list okay eagerly evaluated all
+
+597
+00:34:10,159 --> 00:34:15,760
+elements stored in memory up front
+
+598
+00:34:12,720 --> 00:34:18,320
+that's what I like now sequence eater
+
+599
+00:34:15,760 --> 00:34:20,079
+works on sequences so what is f
+
+600
+00:34:18,320 --> 00:34:24,240
+sequences what does it mean which is
+
+601
+00:34:20,079 --> 00:34:28,480
+which are lazy oh
+
+602
+00:34:24,240 --> 00:34:31,520
+so sequence is a lazy evaluation okay I
+
+603
+00:34:28,480 --> 00:34:33,040
+don't like that
+
+604
+00:34:31,520 --> 00:34:36,960
+uh
+
+605
+00:34:33,040 --> 00:34:39,440
+You can use sequence on list okay but
+
+606
+00:34:36,960 --> 00:34:42,560
+not vice versa okay performance list is
+
+607
+00:34:39,440 --> 00:34:45,760
+generally faster yes of course I don't
+
+608
+00:34:42,560 --> 00:34:48,720
+like the lazy eval okay and when you
+
+609
+00:34:45,760 --> 00:34:52,240
+have lazy eval you have this complicated
+
+610
+00:34:48,720 --> 00:34:56,520
+ like move next current you know
+
+611
+00:34:52,240 --> 00:34:56,520
+iterator and stuff
+
+612
+00:34:57,040 --> 00:35:02,160
+okay
+
+613
+00:34:58,880 --> 00:35:06,320
+so the difference is one is lazy. Okay,
+
+614
+00:35:02,160 --> 00:35:08,160
+I got it. Now that one question solved.
+
+615
+00:35:06,320 --> 00:35:12,000
+Now next
+
+616
+00:35:08,160 --> 00:35:15,599
+uh so but is this what does the enumer
+
+617
+00:35:12,000 --> 00:35:18,160
+enumerate file return?
+
+618
+00:35:15,599 --> 00:35:22,480
+It seems like it returns a sequence.
+
+619
+00:35:18,160 --> 00:35:25,520
+Okay, so you cannot use list eater.
+
+620
+00:35:22,480 --> 00:35:29,119
+Now back to our question. So so right
+
+621
+00:35:25,520 --> 00:35:34,160
+now our code runs. Okay, it prints you
+
+622
+00:35:29,119 --> 00:35:37,200
+know at least the file path. Uh but
+
+623
+00:35:34,160 --> 00:35:40,079
+but now you need to read it.
+
+624
+00:35:37,200 --> 00:35:43,359
+Okay, so let's
+
+625
+00:35:40,079 --> 00:35:46,880
+so this this is the code where you read
+
+626
+00:35:43,359 --> 00:35:51,920
+the file. Okay, so let's say X content
+
+627
+00:35:46,880 --> 00:35:55,599
+string file read all uh
+
+628
+00:35:51,920 --> 00:35:57,760
+okay cut it. Let's put it there. Let's
+
+629
+00:35:55,599 --> 00:36:00,000
+see what it does. Can you have two lines
+
+630
+00:35:57,760 --> 00:36:03,920
+like that?
+
+631
+00:36:00,000 --> 00:36:06,240
+Uh, so let's
+
+632
+00:36:03,920 --> 00:36:08,240
+now we need to make sure the name are
+
+633
+00:36:06,240 --> 00:36:10,640
+correct. Okay.
+
+634
+00:36:08,240 --> 00:36:12,960
+So you got a function like that. Does
+
+635
+00:36:10,640 --> 00:36:14,560
+that work? You know this I don't know
+
+636
+00:36:12,960 --> 00:36:17,440
+how to write a function. Does it work
+
+637
+00:36:14,560 --> 00:36:19,280
+please? Oh yes.
+
+638
+00:36:17,440 --> 00:36:22,640
+Okay.
+
+639
+00:36:19,280 --> 00:36:25,920
+So now each time you got a path you are
+
+640
+00:36:22,640 --> 00:36:28,800
+open it and read the file path.
+
+641
+00:36:25,920 --> 00:36:30,720
+Fantastic. Can you also print it? Yes,
+
+642
+00:36:28,800 --> 00:36:33,040
+of course.
+
+643
+00:36:30,720 --> 00:36:35,040
+I'm going to read the comment in a bit.
+
+644
+00:36:33,040 --> 00:36:36,960
+Okay. So,
+
+645
+00:36:35,040 --> 00:36:40,400
+uh,
+
+646
+00:36:36,960 --> 00:36:45,560
+so you can write file and you can print
+
+647
+00:36:40,400 --> 00:36:45,560
+it, of course. Copy. So,
+
+648
+00:36:48,000 --> 00:36:54,640
+so, so this is going to print a whole
+
+649
+00:36:51,040 --> 00:36:58,320
+lot of things. Okay. So you see this is
+
+650
+00:36:54,640 --> 00:37:01,839
+the previous output which is 1,00 file
+
+651
+00:36:58,320 --> 00:37:05,040
+path. Okay. Close it. Now we are
+
+652
+00:37:01,839 --> 00:37:07,920
+printing the actual content.
+
+653
+00:37:05,040 --> 00:37:11,119
+Run it.
+
+654
+00:37:07,920 --> 00:37:13,760
+Fantastic. Is it working? Yes. So go
+
+655
+00:37:11,119 --> 00:37:18,359
+here. Expand the window. It's busy
+
+656
+00:37:13,760 --> 00:37:18,359
+printing. Busy beaver algorithm.
+
+657
+00:37:19,839 --> 00:37:25,720
+some red wine and apple juice.
+
+658
+00:37:28,079 --> 00:37:34,400
+It's very busy. It's gonna be uh what 50
+
+659
+00:37:32,320 --> 00:37:39,200
+megabytes or something. Keep printing
+
+660
+00:37:34,400 --> 00:37:43,920
+the buffer. Emacs lisp buffer
+
+661
+00:37:39,200 --> 00:37:46,560
+buffer and scratch and meta and binding.
+
+662
+00:37:43,920 --> 00:37:48,560
+Okay, done. Fantastic and beautiful.
+
+663
+00:37:46,560 --> 00:37:52,880
+Done. So you can see those are file
+
+664
+00:37:48,560 --> 00:37:56,800
+contents. So we made progress
+
+665
+00:37:52,880 --> 00:38:00,240
+into the realm of F functional
+
+666
+00:37:56,800 --> 00:38:03,440
+programming fantastic
+
+667
+00:38:00,240 --> 00:38:05,040
+science and art fantastic mathematics
+
+668
+00:38:03,440 --> 00:38:08,720
+lambda.
+
+669
+00:38:05,040 --> 00:38:11,280
+So you know the the code to the F coder
+
+670
+00:38:08,720 --> 00:38:13,599
+is probably very lousy but we are
+
+671
+00:38:11,280 --> 00:38:15,920
+learning. Okay. [snorts]
+
+672
+00:38:13,599 --> 00:38:17,680
+So so far so good. So let's see the
+
+673
+00:38:15,920 --> 00:38:19,839
+comments.
+
+674
+00:38:17,680 --> 00:38:25,599
+Nice to meet you, brother. Are you from
+
+675
+00:38:19,839 --> 00:38:30,800
+Arabia? Your your Arabic uh name?
+
+676
+00:38:25,599 --> 00:38:33,200
+Uh my name is Mah Mak. Yes, Arabic.
+
+677
+00:38:30,800 --> 00:38:36,640
+Uh which continent like which country
+
+678
+00:38:33,200 --> 00:38:40,480
+can you say? So let's see. Okay, let let
+
+679
+00:38:36,640 --> 00:38:40,480
+me magnify this.
+
+680
+00:38:49,680 --> 00:38:53,359
+We must start together. He's not here.
+
+681
+00:38:51,760 --> 00:38:56,359
+Hi
+
+682
+00:38:53,359 --> 00:38:56,359
+Mark.
+
+683
+00:38:56,640 --> 00:39:02,480
+F in ML style. Well, I don't know ML.
+
+684
+00:39:00,320 --> 00:39:07,520
+Well, okay. So, you are saying F can be
+
+685
+00:39:02,480 --> 00:39:10,079
+written in ML style? Yes, I'm aware.
+
+686
+00:39:07,520 --> 00:39:13,200
+So I I would like to write that. I mean
+
+687
+00:39:10,079 --> 00:39:16,960
+I you know I think in the future I I I
+
+688
+00:39:13,200 --> 00:39:21,040
+my my F code is going to be MI style ML
+
+689
+00:39:16,960 --> 00:39:24,640
+style not the Python indentation
+
+690
+00:39:21,040 --> 00:39:27,839
+because what I like to do often is to
+
+691
+00:39:24,640 --> 00:39:31,680
+like compress all my code into one
+
+692
+00:39:27,839 --> 00:39:35,119
+single line. So that can only be done if
+
+693
+00:39:31,680 --> 00:39:37,280
+you don't have this hardcoded physical
+
+694
+00:39:35,119 --> 00:39:39,760
+indentation
+
+695
+00:39:37,280 --> 00:39:41,839
+you know because when I code wufam
+
+696
+00:39:39,760 --> 00:39:44,480
+language Mathematica I've been coding it
+
+697
+00:39:41,839 --> 00:39:46,800
+for 30 years I always do this so any
+
+698
+00:39:44,480 --> 00:39:49,119
+function you can immediately
+
+699
+00:39:46,800 --> 00:39:50,720
+compact it you know into one line so you
+
+700
+00:39:49,119 --> 00:39:53,680
+can
+
+701
+00:39:50,720 --> 00:39:57,680
+so it's it's like those outline uh
+
+702
+00:39:53,680 --> 00:40:02,880
+outline editor so it's like very good
+
+703
+00:39:57,680 --> 00:40:06,800
+it's uh bulletproof to any hardcoded end
+
+704
+00:40:02,880 --> 00:40:06,800
+of line you know that kind of crap
+
+705
+00:40:07,359 --> 00:40:13,119
+But not when you have indentation. When
+
+706
+00:40:09,599 --> 00:40:16,400
+you have the Python idiot
+
+707
+00:40:13,119 --> 00:40:18,640
+did this damage. So, so then you got to,
+
+708
+00:40:16,400 --> 00:40:20,560
+you know, each line is like indent. How
+
+709
+00:40:18,640 --> 00:40:24,880
+many indent? Oh, that you know the
+
+710
+00:40:20,560 --> 00:40:26,560
+indent versus tab that
+
+711
+00:40:24,880 --> 00:40:30,440
+Anyway, that that's digression. Okay,
+
+712
+00:40:26,560 --> 00:40:30,440
+let's go back. Uh,
+
+713
+00:40:31,359 --> 00:40:38,599
+said is also Arabic. Oh, hello Arabic
+
+714
+00:40:35,599 --> 00:40:38,599
+friends.
+
+715
+00:40:51,680 --> 00:41:02,079
+Oh, Syria. Really? That's interesting.
+
+716
+00:40:56,880 --> 00:41:06,720
+Uh, Morocco originally. Oh, interesting.
+
+717
+00:41:02,079 --> 00:41:09,599
+Why do I get upset about lazy? Well,
+
+718
+00:41:06,720 --> 00:41:13,040
+I just have I don't know it too well, so
+
+719
+00:41:09,599 --> 00:41:16,319
+I can't say for sure, but I just felt
+
+720
+00:41:13,040 --> 00:41:21,880
+that it is not a good feature. Okay,
+
+721
+00:41:16,319 --> 00:41:21,880
+that's so don't take me too seriously.
+
+722
+00:41:22,000 --> 00:41:30,359
+Uh optimization. Uh well, I'm not sure
+
+723
+00:41:26,560 --> 00:41:30,359
+about that, but anyway.
+
+724
+00:41:32,000 --> 00:41:36,480
+Han here. I don't know what he's doing.
+
+725
+00:41:34,160 --> 00:41:39,040
+Okay. He does wuam language. Yes,
+
+726
+00:41:36,480 --> 00:41:42,240
+correct. He's a great patience. Okay. Uh
+
+727
+00:41:39,040 --> 00:41:44,640
+throwing back some beers to cheers. I
+
+728
+00:41:42,240 --> 00:41:47,839
+love watching Kasa. He's sharp and deep
+
+729
+00:41:44,640 --> 00:41:50,640
+guy. Yes. Thank you guys. Thank you. So,
+
+730
+00:41:47,839 --> 00:41:55,720
+do you guys know F#? Okay. You you know.
+
+731
+00:41:50,640 --> 00:41:55,720
+So uh said tag
+
+732
+00:41:56,000 --> 00:42:03,040
+said said tagi
+
+733
+00:41:58,560 --> 00:42:05,359
+you know said so you know F so you can
+
+734
+00:42:03,040 --> 00:42:08,720
+help me.
+
+735
+00:42:05,359 --> 00:42:11,920
+So anyway uh how long have we been 40 40
+
+736
+00:42:08,720 --> 00:42:14,960
+minutes I you know so anyway so we we we
+
+737
+00:42:11,920 --> 00:42:17,040
+got the file content and next let's do
+
+738
+00:42:14,960 --> 00:42:19,359
+find replace. Okay let's get to the
+
+739
+00:42:17,040 --> 00:42:22,079
+heart of our problem. Let's start it to
+
+740
+00:42:19,359 --> 00:42:26,400
+do find replace. Okay, that's what I
+
+741
+00:42:22,079 --> 00:42:28,319
+want to do. Write a find replace script.
+
+742
+00:42:26,400 --> 00:42:32,560
+Let's see, you know, let's just struggle
+
+743
+00:42:28,319 --> 00:42:36,960
+and see if that uh
+
+744
+00:42:32,560 --> 00:42:39,440
+f mode. Okay, so well, let's just copy
+
+745
+00:42:36,960 --> 00:42:43,200
+the whole thing and uh start to do find
+
+746
+00:42:39,440 --> 00:42:46,640
+replace here. Okay,
+
+747
+00:42:43,200 --> 00:42:51,079
+so paste the code here. Okay, it's going
+
+748
+00:42:46,640 --> 00:42:51,079
+to get confusing. Okay,
+
+749
+00:42:51,200 --> 00:42:59,200
+so now we need to say
+
+750
+00:42:54,720 --> 00:43:00,720
+you need to say find string. Okay,
+
+751
+00:42:59,200 --> 00:43:02,240
+uh
+
+752
+00:43:00,720 --> 00:43:04,560
+find
+
+753
+00:43:02,240 --> 00:43:08,640
+string. So this is something user
+
+754
+00:43:04,560 --> 00:43:11,920
+modify. So okay, so let's say
+
+755
+00:43:08,640 --> 00:43:16,800
+okay, find string. Then you need another
+
+756
+00:43:11,920 --> 00:43:16,800
+variable that's replace string.
+
+757
+00:43:16,880 --> 00:43:25,680
+Let's say x glue. Okay. Then uh so let's
+
+758
+00:43:22,400 --> 00:43:28,720
+add x per our convention. Okay. Find
+
+759
+00:43:25,680 --> 00:43:32,720
+string replace string. Okay. Then what
+
+760
+00:43:28,720 --> 00:43:37,599
+is uh then this is how you do find.
+
+761
+00:43:32,720 --> 00:43:40,640
+Okay. So okay very easy. Okay. So let's
+
+762
+00:43:37,599 --> 00:43:44,160
+delete that. So we don't need delete
+
+763
+00:43:40,640 --> 00:43:47,160
+that. Okay. So just this line. So let's
+
+764
+00:43:44,160 --> 00:43:47,160
+see
+
+765
+00:43:51,280 --> 00:43:56,319
+new content
+
+766
+00:43:53,280 --> 00:44:00,319
+equals to
+
+767
+00:43:56,319 --> 00:44:08,359
+x content dotreplace
+
+768
+00:44:00,319 --> 00:44:08,359
+and uh then here is the x find string.
+
+769
+00:44:08,720 --> 00:44:14,880
+Yes. And this is x replace string.
+
+770
+00:44:12,000 --> 00:44:14,880
+Fantastic.
+
+771
+00:44:16,800 --> 00:44:22,960
+Okay. And we just now print
+
+772
+00:44:20,319 --> 00:44:26,319
+content. Can we can we do that? Like can
+
+773
+00:44:22,960 --> 00:44:28,640
+can go this
+
+774
+00:44:26,319 --> 00:44:31,839
+can this work?
+
+775
+00:44:28,640 --> 00:44:37,119
+Let's try it. Okay. Let's run it and run
+
+776
+00:44:31,839 --> 00:44:40,160
+it and let's search for X glue. Run it.
+
+777
+00:44:37,119 --> 00:44:42,800
+Fantastic. Okay. So, go to the top.
+
+778
+00:44:40,160 --> 00:44:45,920
+Search for X and U.
+
+779
+00:44:42,800 --> 00:44:51,920
+Uh, no. It seems like you didn't find
+
+780
+00:44:45,920 --> 00:44:57,200
+it. Search for X and uh XG and U. Hey,
+
+781
+00:44:51,920 --> 00:45:03,280
+search for XG and U. No.
+
+782
+00:44:57,200 --> 00:45:05,839
+Uh, well, search for XG and U. Okay.
+
+783
+00:45:03,280 --> 00:45:08,800
+Close that.
+
+784
+00:45:05,839 --> 00:45:11,920
+So, there are too many files. So, now
+
+785
+00:45:08,800 --> 00:45:14,640
+let's change the pattern. So only for
+
+786
+00:45:11,920 --> 00:45:16,720
+files starting with A. Okay. So let's
+
+787
+00:45:14,640 --> 00:45:18,880
+change the pattern
+
+788
+00:45:16,720 --> 00:45:21,359
+A.
+
+789
+00:45:18,880 --> 00:45:23,839
+So now
+
+790
+00:45:21,359 --> 00:45:28,480
+search it.
+
+791
+00:45:23,839 --> 00:45:35,480
+So lots and files done. Now list
+
+792
+00:45:28,480 --> 00:45:35,480
+XG and U. None. That means we failed.
+
+793
+00:45:37,359 --> 00:45:43,520
+Why does we found X new? Oh, we need to
+
+794
+00:45:40,480 --> 00:45:46,960
+print X new content. X new content.
+
+795
+00:45:43,520 --> 00:45:50,240
+That's right. Run it.
+
+796
+00:45:46,960 --> 00:45:52,560
+BZ Beaver. Go here. Go to the top.
+
+797
+00:45:50,240 --> 00:45:55,280
+Search XGNU.
+
+798
+00:45:52,560 --> 00:45:58,400
+Fantastic. And beautiful. There they
+
+799
+00:45:55,280 --> 00:46:00,560
+are. Now,
+
+800
+00:45:58,400 --> 00:46:04,720
+next step.
+
+801
+00:46:00,560 --> 00:46:06,960
+Easy. Save the file.
+
+802
+00:46:04,720 --> 00:46:10,000
+So, how do you save the file? There it
+
+803
+00:46:06,960 --> 00:46:14,880
+is. Write file. So copy it. We learned
+
+804
+00:46:10,000 --> 00:46:18,240
+it from AI. AI told me
+
+805
+00:46:14,880 --> 00:46:22,480
+yesterday. Okay. So delete, delete,
+
+806
+00:46:18,240 --> 00:46:26,079
+delete, delete, delete. And uh delete
+
+807
+00:46:22,480 --> 00:46:28,720
+that. And we just write file here. So
+
+808
+00:46:26,079 --> 00:46:30,560
+what you want to write? You want to
+
+809
+00:46:28,720 --> 00:46:33,520
+write
+
+810
+00:46:30,560 --> 00:46:37,200
+this is the file path.
+
+811
+00:46:33,520 --> 00:46:40,640
+So X file path.
+
+812
+00:46:37,200 --> 00:46:43,839
+That's right. And the content is X new
+
+813
+00:46:40,640 --> 00:46:46,800
+content. Will that work?
+
+814
+00:46:43,839 --> 00:46:52,440
+And now you don't need to print content.
+
+815
+00:46:46,800 --> 00:46:52,440
+You just print uh a file path.
+
+816
+00:46:54,400 --> 00:46:58,280
+Then on file path
+
+817
+00:47:00,480 --> 00:47:11,560
+uh let's see let's say finish.
+
+818
+00:47:05,040 --> 00:47:11,560
+Okay. Now run it. Error.
+
+819
+00:47:12,240 --> 00:47:18,839
+Debugger list error. Void variable.
+
+820
+00:47:15,839 --> 00:47:18,839
+What?
+
+821
+00:47:19,839 --> 00:47:27,760
+Oh, you need you need indent. Is that
+
+822
+00:47:22,800 --> 00:47:30,720
+right? stupid. Um,
+
+823
+00:47:27,760 --> 00:47:32,880
+print length neo. So, you need indent, I
+
+824
+00:47:30,720 --> 00:47:36,680
+think.
+
+825
+00:47:32,880 --> 00:47:36,680
+Okay. So let
+
+826
+00:47:39,599 --> 00:47:49,640
+X content and new content
+
+827
+00:47:43,839 --> 00:47:49,640
+X content highlighted new content. Okay.
+
+828
+00:47:57,920 --> 00:48:04,240
+Am I doing good?
+
+829
+00:48:00,720 --> 00:48:04,240
+Am I doing good?
+
+830
+00:48:04,640 --> 00:48:08,680
+So what is my problem?
+
+831
+00:48:08,880 --> 00:48:16,400
+File dot write all text
+
+832
+00:48:13,760 --> 00:48:19,280
+X file path.
+
+833
+00:48:16,400 --> 00:48:21,280
+That's right. X new content. That should
+
+834
+00:48:19,280 --> 00:48:24,480
+work. I just I think I just missing
+
+835
+00:48:21,280 --> 00:48:28,359
+indent. So
+
+836
+00:48:24,480 --> 00:48:28,359
+now let's try again.
+
+837
+00:48:29,599 --> 00:48:32,760
+Do it.
+
+838
+00:48:33,760 --> 00:48:37,920
+Okay.
+
+839
+00:48:35,920 --> 00:48:41,680
+Unexpected
+
+840
+00:48:37,920 --> 00:48:45,599
+identifier in binding.
+
+841
+00:48:41,680 --> 00:48:49,920
+What? Wait.
+
+842
+00:48:45,599 --> 00:48:53,599
+Okay. So, let's go back to the code.
+
+843
+00:48:49,920 --> 00:48:56,319
+Uh, go to char. So, can we go to it?
+
+844
+00:48:53,599 --> 00:49:01,280
+Yes, we can. Uh you well you but you
+
+845
+00:48:56,319 --> 00:49:04,280
+want the ah where's the uh error back
+
+846
+00:49:01,280 --> 00:49:04,280
+trace
+
+847
+00:49:04,640 --> 00:49:13,119
+uh not [clears throat] there so
+
+848
+00:49:07,920 --> 00:49:15,040
+not there so you actually uh messages
+
+849
+00:49:13,119 --> 00:49:20,240
+uh no
+
+850
+00:49:15,040 --> 00:49:27,040
+uh run output there okay
+
+851
+00:49:20,240 --> 00:49:30,400
+line 20 that's this line error FS 0010
+
+852
+00:49:27,040 --> 00:49:34,160
+unexpected identifier.
+
+853
+00:49:30,400 --> 00:49:36,640
+Oh, so you need I think you need another
+
+854
+00:49:34,160 --> 00:49:38,720
+indent.
+
+855
+00:49:36,640 --> 00:49:41,359
+Yeah.
+
+856
+00:49:38,720 --> 00:49:44,160
+Oh, stupid.
+
+857
+00:49:41,359 --> 00:49:46,960
+I really don't like the indent. Okay,
+
+858
+00:49:44,160 --> 00:49:50,960
+but for now I have no choice because I
+
+859
+00:49:46,960 --> 00:49:54,160
+don't because I'm not familiar with the
+
+860
+00:49:50,960 --> 00:49:58,880
+other syntax.
+
+861
+00:49:54,160 --> 00:50:05,880
+Okay. So, close that now. Run it. Now,
+
+862
+00:49:58,880 --> 00:50:05,880
+do do you need um actually this need um
+
+863
+00:50:06,960 --> 00:50:12,160
+like
+
+864
+00:50:08,640 --> 00:50:14,079
+god how does this indent work? And
+
+865
+00:50:12,160 --> 00:50:18,680
+by the way, I haven't implemented
+
+866
+00:50:14,079 --> 00:50:18,680
+indentation because I'm using
+
+867
+00:50:19,119 --> 00:50:28,160
+describe function saw F mode. I'm using
+
+868
+00:50:23,200 --> 00:50:31,280
+my own F mode. If you are using a
+
+869
+00:50:28,160 --> 00:50:34,000
+complete F mode, then in EMAC, you
+
+870
+00:50:31,280 --> 00:50:36,559
+probably just press tab. It'll indent,
+
+871
+00:50:34,000 --> 00:50:39,920
+you know, just like Python. But I
+
+872
+00:50:36,559 --> 00:50:43,599
+haven't. But I'm writing my own. So, but
+
+873
+00:50:39,920 --> 00:50:48,160
+anyway, this should work.
+
+874
+00:50:43,599 --> 00:50:53,520
+Okay, so run it.
+
+875
+00:50:48,160 --> 00:50:57,079
+Unexpected keyword let or use in binding
+
+876
+00:50:53,520 --> 00:50:57,079
+line 19.
+
+877
+00:50:59,599 --> 00:51:03,240
+Okay, no comments.
+
+878
+00:51:04,000 --> 00:51:08,119
+So, what is my problem?
+
+879
+00:51:08,240 --> 00:51:13,599
+Uh let's see. Uh do I have notes about
+
+880
+00:51:11,599 --> 00:51:16,480
+this
+
+881
+00:51:13,599 --> 00:51:19,480
+indentation? I read about it but I
+
+882
+00:51:16,480 --> 00:51:19,480
+forgot.
+
+883
+00:51:19,760 --> 00:51:28,640
+Ringo Tingo. What a great name.
+
+884
+00:51:24,559 --> 00:51:30,880
+Thank you. Juicy Dollars. Now I get
+
+885
+00:51:28,640 --> 00:51:33,520
+$9.99.
+
+886
+00:51:30,880 --> 00:51:37,839
+That's a big hamburger. Thank you very
+
+887
+00:51:33,520 --> 00:51:42,400
+much. Can I have fries with it? Yes. In
+
+888
+00:51:37,839 --> 00:51:44,800
+and out burger with rice. Fantastic.
+
+889
+00:51:42,400 --> 00:51:47,440
+Do you have a question?
+
+890
+00:51:44,800 --> 00:51:51,280
+Uh, ring ring tingo. Okay. So, anyway,
+
+891
+00:51:47,440 --> 00:51:53,200
+we we got into a syntax issue here. It's
+
+892
+00:51:51,280 --> 00:51:57,200
+all clear. We are all done. But there
+
+893
+00:51:53,200 --> 00:51:59,680
+there is seems to be syntax issue. So,
+
+894
+00:51:57,200 --> 00:52:05,680
+let's ask GU
+
+895
+00:51:59,680 --> 00:52:09,599
+now. Let's test the capabilities of AI.
+
+896
+00:52:05,680 --> 00:52:12,079
+Okay, go go go here. New notification
+
+897
+00:52:09,599 --> 00:52:12,880
+gu
+
+898
+00:52:12,079 --> 00:52:15,040
+fix [snorts]
+
+899
+00:52:12,880 --> 00:52:16,960
+this code.
+
+900
+00:52:15,040 --> 00:52:20,800
+Okay, I'm not going to worry about
+
+901
+00:52:16,960 --> 00:52:23,839
+format. I'm just paste this. Let's see.
+
+902
+00:52:20,800 --> 00:52:25,920
+Usually we it will fix it because the AI
+
+903
+00:52:23,839 --> 00:52:28,400
+is so smart,
+
+904
+00:52:25,920 --> 00:52:30,319
+you know. I don't even put it in a new
+
+905
+00:52:28,400 --> 00:52:33,440
+line.
+
+906
+00:52:30,319 --> 00:52:37,119
+So here is a fixed and improved version
+
+907
+00:52:33,440 --> 00:52:39,280
+of your F code. The main issues were a
+
+908
+00:52:37,119 --> 00:52:42,800
+typo in the variable name X replace
+
+909
+00:52:39,280 --> 00:52:47,200
+string should be
+
+910
+00:52:42,800 --> 00:52:52,400
+what? X replace string. Did I have a
+
+911
+00:52:47,200 --> 00:52:55,760
+spelling error? X replace Oh, I did.
+
+912
+00:52:52,400 --> 00:53:00,640
+What the cow? I got it wrong in
+
+913
+00:52:55,760 --> 00:53:07,599
+both places. So let's fix that.
+
+914
+00:53:00,640 --> 00:53:10,800
+XV pl A C E string. Okay. Okay. That
+
+915
+00:53:07,599 --> 00:53:14,280
+shouldn't matter, but that that's fixed.
+
+916
+00:53:10,800 --> 00:53:14,280
+Okay, then.
+
+917
+00:53:15,200 --> 00:53:23,559
+Okay. Then undefined variable X find
+
+918
+00:53:18,319 --> 00:53:23,559
+string and X replace string. Okay.
+
+919
+00:53:24,160 --> 00:53:30,880
+Missing open directive for system.io.
+
+920
+00:53:28,319 --> 00:53:34,079
+Okay. Well, because it didn't see my
+
+921
+00:53:30,880 --> 00:53:37,359
+other parts of code, so I have it there.
+
+922
+00:53:34,079 --> 00:53:39,760
+Then the function didn't take the search
+
+923
+00:53:37,359 --> 00:53:43,880
+replace string as parameters, making it
+
+924
+00:53:39,760 --> 00:53:43,880
+less usable. Okay.
+
+925
+00:53:44,160 --> 00:53:50,640
+Oh, okay. But but okay, let's put the
+
+926
+00:53:47,760 --> 00:53:54,920
+whole code. Okay. Because the it's not
+
+927
+00:53:50,640 --> 00:53:54,920
+seeing my code. So
+
+928
+00:53:55,119 --> 00:54:01,520
+copy the whole code and
+
+929
+00:53:58,960 --> 00:54:04,640
+modify this,
+
+930
+00:54:01,520 --> 00:54:10,319
+select all
+
+931
+00:54:04,640 --> 00:54:13,800
+fix this code. Shift enter and paste it
+
+932
+00:54:10,319 --> 00:54:13,800
+and send.
+
+933
+00:54:18,400 --> 00:54:23,000
+executing code one result.
+
+934
+00:54:24,000 --> 00:54:29,680
+Ringo Tingo appreciate you saw always.
+
+935
+00:54:26,880 --> 00:54:31,520
+Thank you very much.
+
+936
+00:54:29,680 --> 00:54:36,000
+So now
+
+937
+00:54:31,520 --> 00:54:38,319
+Guac tells me you your provided F code
+
+938
+00:54:36,000 --> 00:54:40,480
+has a few issues that prevent it from
+
+939
+00:54:38,319 --> 00:54:43,599
+compiling and running correctly.
+
+940
+00:54:40,480 --> 00:54:46,800
+Indentation is inconsistent. That's
+
+941
+00:54:43,599 --> 00:54:50,800
+right. And incorrect.
+
+942
+00:54:46,800 --> 00:54:53,680
+Okay. So uh usually with four spaces the
+
+943
+00:54:50,800 --> 00:54:57,640
+fp process file function has misaligned
+
+944
+00:54:53,680 --> 00:54:57,640
+lines. That's right.
+
+945
+00:54:57,920 --> 00:55:05,520
+Okay. The replace call uses the instance
+
+946
+00:55:02,000 --> 00:55:07,520
+method string.replace but f is more
+
+947
+00:55:05,520 --> 00:55:10,160
+idiomatic
+
+948
+00:55:07,520 --> 00:55:12,559
+and type consistent here to use the
+
+949
+00:55:10,160 --> 00:55:14,079
+static
+
+950
+00:55:12,559 --> 00:55:20,839
+system.string.replace
+
+951
+00:55:14,079 --> 00:55:20,839
+replace or X content replace. Oh. Oh.
+
+952
+00:55:21,040 --> 00:55:25,400
+Uh what
+
+953
+00:55:36,559 --> 00:55:41,520
+type consistent here to use the statics
+
+954
+00:55:39,520 --> 00:55:44,720
+system.replace
+
+955
+00:55:41,520 --> 00:55:48,480
+or Xcontent.replace. Repairs with proper
+
+956
+00:55:44,720 --> 00:55:51,920
+spacing. Miner added some spacing for
+
+957
+00:55:48,480 --> 00:55:57,520
+readability and ensured the print have
+
+958
+00:55:51,920 --> 00:55:59,520
+done is outside of the loop. It is
+
+959
+00:55:57,520 --> 00:56:02,640
+okay. So you need some you know so
+
+960
+00:55:59,520 --> 00:56:08,200
+there's a indentation issue.
+
+961
+00:56:02,640 --> 00:56:08,200
+Oh okay. So see the way they do it.
+
+962
+00:56:09,680 --> 00:56:13,799
+Okay, let's see.
+
+963
+00:56:21,200 --> 00:56:25,640
+Good. Okay.
+
+964
+00:56:28,400 --> 00:56:33,440
+God, I need to do the indentation. So,
+
+965
+00:56:30,559 --> 00:56:36,240
+let's just try see if it works.
+
+966
+00:56:33,440 --> 00:56:39,280
+Oh, god. [laughter]
+
+967
+00:56:36,240 --> 00:56:43,119
+Fantastic. Finish. Let's open the file.
+
+968
+00:56:39,280 --> 00:56:46,559
+Let's see. Search for XGNU. Fantastic.
+
+969
+00:56:43,119 --> 00:56:49,680
+Find and replace. Can you see that?
+
+970
+00:56:46,559 --> 00:56:51,599
+So, this is a file. Let's expand the
+
+971
+00:56:49,680 --> 00:56:56,880
+window so you can see the whole. So,
+
+972
+00:56:51,599 --> 00:56:59,920
+this is a file. Open it. It did the find
+
+973
+00:56:56,880 --> 00:57:04,240
+replace. We requested
+
+974
+00:56:59,920 --> 00:57:07,040
+and uh showing HTML doesn't matter. So,
+
+975
+00:57:04,240 --> 00:57:09,520
+you know, so it did did it. So now let's
+
+976
+00:57:07,040 --> 00:57:14,400
+find something else to change. Let's say
+
+977
+00:57:09,520 --> 00:57:17,040
+description. Okay, let's close close.
+
+978
+00:57:14,400 --> 00:57:19,760
+And now we want to find all the word
+
+979
+00:57:17,040 --> 00:57:24,680
+description by
+
+980
+00:57:19,760 --> 00:57:24,680
+X description. Run it.
+
+981
+00:57:25,440 --> 00:57:30,960
+Fantastic and beautiful. Finished. Open
+
+982
+00:57:27,599 --> 00:57:35,760
+that. Open uh Okay. Okay. Open a random
+
+983
+00:57:30,960 --> 00:57:38,240
+one. Sesame open. Search for X dis.
+
+984
+00:57:35,760 --> 00:57:40,240
+Wait, not here. Search for X
+
+985
+00:57:38,240 --> 00:57:42,240
+description. Okay, it's not in this
+
+986
+00:57:40,240 --> 00:57:44,799
+file.
+
+987
+00:57:42,240 --> 00:57:49,839
+Search for X description, not in this
+
+988
+00:57:44,799 --> 00:57:53,680
+file. So, let's um open it and use my
+
+989
+00:57:49,839 --> 00:57:57,440
+own package to search for X description
+
+990
+00:57:53,680 --> 00:58:00,440
+in all files in this directory. It's my
+
+991
+00:57:57,440 --> 00:58:00,440
+code.
+
+992
+00:58:01,280 --> 00:58:08,480
+Oh. Um, what not found? Wait, is it
+
+993
+00:58:05,920 --> 00:58:12,799
+because case sensitivity?
+
+994
+00:58:08,480 --> 00:58:17,720
+Wait, search for description.
+
+995
+00:58:12,799 --> 00:58:17,720
+Uh, search for again. Uh,
+
+996
+00:58:18,960 --> 00:58:27,079
+wait, why is it not found? Let's see.
+
+997
+00:58:24,079 --> 00:58:27,079
+Yes.
+
+998
+00:58:28,319 --> 00:58:34,119
+What are we changing? Close. Close.
+
+999
+00:58:31,119 --> 00:58:34,119
+Close.
+
+1000
+00:58:36,240 --> 00:58:40,720
+So why is it not found? So open it
+
+1001
+00:58:38,880 --> 00:58:45,920
+again.
+
+1002
+00:58:40,720 --> 00:58:49,960
+Now open that. Now do find find that
+
+1003
+00:58:45,920 --> 00:58:49,960
+find that find that
+
+1004
+00:58:51,520 --> 00:58:58,799
+it does not in you know it nowhere to be
+
+1005
+00:58:54,640 --> 00:59:01,680
+found. So why is that? Is it because
+
+1006
+00:58:58,799 --> 00:59:03,200
+there's no occurrence of that word?
+
+1007
+00:59:01,680 --> 00:59:06,640
+Copy.
+
+1008
+00:59:03,200 --> 00:59:09,040
+Uh, let's see. Open that.
+
+1009
+00:59:06,640 --> 00:59:11,119
+Open that. Search all in all these
+
+1010
+00:59:09,040 --> 00:59:16,839
+directories. Search for description.
+
+1011
+00:59:11,119 --> 00:59:16,839
+Search. Oh, there's no search word.
+
+1012
+00:59:18,079 --> 00:59:24,799
+Why is it? We We did find a word, right?
+
+1013
+00:59:20,799 --> 00:59:28,720
+Now, let's try a different uh word.
+
+1014
+00:59:24,799 --> 00:59:31,119
+Let's see. Uh let's see this file. So
+
+1015
+00:59:28,720 --> 00:59:33,920
+saving saving is a word right there.
+
+1016
+00:59:31,119 --> 00:59:35,686
+Okay. So this is a file a brief files.
+
+1017
+00:59:33,920 --> 00:59:36,720
+Okay. Remember that. Now let's
+
+1018
+00:59:35,686 --> 00:59:39,040
+[clears throat]
+
+1019
+00:59:36,720 --> 00:59:44,480
+try
+
+1020
+00:59:39,040 --> 00:59:46,480
+savings. Okay. X savings. Run it.
+
+1021
+00:59:44,480 --> 00:59:51,200
+Okay. So
+
+1022
+00:59:46,480 --> 00:59:54,319
+um expand. Let's open one of them. Open.
+
+1023
+00:59:51,200 --> 00:59:55,599
+Search for saving. Not there. Close.
+
+1024
+00:59:54,319 --> 01:00:00,319
+Close.
+
+1025
+00:59:55,599 --> 01:00:05,599
+Copy that. Open this file. Open that.
+
+1026
+01:00:00,319 --> 01:00:10,280
+And there it is. Now, let's find all
+
+1027
+01:00:05,599 --> 01:00:10,280
+words x savings.
+
+1028
+01:00:10,559 --> 01:00:17,680
+Oh, I know why. Because my command, the
+
+1029
+01:00:15,280 --> 01:00:21,760
+command I'm calling, which is uh this
+
+1030
+01:00:17,680 --> 01:00:26,680
+one. Let me show you. Okay. Um press
+
+1031
+01:00:21,760 --> 01:00:26,680
+press. So I was calling
+
+1032
+01:00:26,880 --> 01:00:33,880
+safy text to go through this directory
+
+1033
+01:00:30,640 --> 01:00:33,880
+but however
+
+1034
+01:00:34,880 --> 01:00:42,720
+there is ignore directory directives. So
+
+1035
+01:00:38,319 --> 01:00:46,240
+you can open that. So you see it will
+
+1036
+01:00:42,720 --> 01:00:49,280
+ignore files in this directories. So
+
+1037
+01:00:46,240 --> 01:00:53,680
+that is why when why search for x
+
+1038
+01:00:49,280 --> 01:00:56,960
+describe or or x save it's not found
+
+1039
+01:00:53,680 --> 01:01:00,480
+because those files are in this
+
+1040
+01:00:56,960 --> 01:01:05,640
+directory. So it skipped it. Okay. So
+
+1041
+01:01:00,480 --> 01:01:05,640
+let's fix it. So
+
+1042
+01:01:05,760 --> 01:01:13,520
+okay. So let's go back. Let's go. Us
+
+1043
+01:01:10,160 --> 01:01:18,160
+nets next
+
+1044
+01:01:13,520 --> 01:01:22,400
+do do okay go to talk show uh go to talk
+
+1045
+01:01:18,160 --> 01:01:24,079
+show that's today's talk show now go to
+
+1046
+01:01:22,400 --> 01:01:28,799
+directory
+
+1047
+01:01:24,079 --> 01:01:34,400
+now move this entire directory to the
+
+1048
+01:01:28,799 --> 01:01:37,440
+talk show okay so now refresh refresh
+
+1049
+01:01:34,400 --> 01:01:42,559
+there it is it's in talk show directory
+
+1050
+01:01:37,440 --> 01:01:45,280
+so Now copy the file path. Close it.
+
+1051
+01:01:42,559 --> 01:01:48,400
+And uh go back to our code. Close it.
+
+1052
+01:01:45,280 --> 01:01:50,319
+Close it. Close it. Go back to our code.
+
+1053
+01:01:48,400 --> 01:01:52,640
+Close it.
+
+1054
+01:01:50,319 --> 01:01:56,160
+Where's our Where's our code? There.
+
+1055
+01:01:52,640 --> 01:02:01,240
+Okay. Now,
+
+1056
+01:01:56,160 --> 01:02:01,240
+paste. Copy. Paste.
+
+1057
+01:02:01,440 --> 01:02:09,200
+Copy. Select or paste. You see
+
+1058
+01:02:05,839 --> 01:02:12,799
+this is old. This is new. Now remove the
+
+1059
+01:02:09,200 --> 01:02:14,720
+old. Now we run it. Actually we don't
+
+1060
+01:02:12,799 --> 01:02:17,680
+have to run it. Now we just open this
+
+1061
+01:02:14,720 --> 01:02:22,319
+file. Open the directory you see in talk
+
+1062
+01:02:17,680 --> 01:02:24,640
+show. Open any of the file. Then call
+
+1063
+01:02:22,319 --> 01:02:30,359
+find. Okay.
+
+1064
+01:02:24,640 --> 01:02:30,359
+Find x saving search. search.
+
+1065
+01:02:35,760 --> 01:02:38,760
+Cheers.
+
+1066
+01:02:40,400 --> 01:02:45,040
+Mhm.
+
+1067
+01:02:41,920 --> 01:02:47,359
+Mhm. So, you can see all occurrences.
+
+1068
+01:02:45,040 --> 01:02:50,480
+Fantastic.
+
+1069
+01:02:47,359 --> 01:02:52,960
+Now, let's try again.
+
+1070
+01:02:50,480 --> 01:02:57,040
+Repeat last command. Now this time
+
+1071
+01:02:52,960 --> 01:02:59,200
+instead of savings let's search for um
+
+1072
+01:02:57,040 --> 01:03:04,079
+xdec.
+
+1073
+01:02:59,200 --> 01:03:07,520
+Okay you see that do it. You see now you
+
+1074
+01:03:04,079 --> 01:03:09,760
+found them. So successful successful and
+
+1075
+01:03:07,520 --> 01:03:13,200
+beautiful. Fantastic. And the close
+
+1076
+01:03:09,760 --> 01:03:16,720
+cross close we like we we are done. We
+
+1077
+01:03:13,200 --> 01:03:19,200
+are done. Fantastic. Let's just um we
+
+1078
+01:03:16,720 --> 01:03:21,280
+don't need this anymore. Let's make some
+
+1079
+01:03:19,200 --> 01:03:25,000
+comment
+
+1080
+01:03:21,280 --> 01:03:25,000
+process each
+
+1081
+01:03:25,280 --> 01:03:37,280
+each file and here is this here is kind
+
+1082
+01:03:31,680 --> 01:03:39,920
+of walk the list. Okay,
+
+1083
+01:03:37,280 --> 01:03:42,720
+simple, fantastic, beautiful. Find
+
+1084
+01:03:39,920 --> 01:03:46,960
+replace files of all files in a
+
+1085
+01:03:42,720 --> 01:03:51,920
+directory and recursively
+
+1086
+01:03:46,960 --> 01:03:55,119
+and new feature to add you know uh x to
+
+1087
+01:03:51,920 --> 01:03:57,760
+do wait
+
+1088
+01:03:55,119 --> 01:04:02,039
+to do
+
+1089
+01:03:57,760 --> 01:04:02,039
+features to add
+
+1090
+01:04:03,039 --> 01:04:09,440
+option to back up file. Okay, typically
+
+1091
+01:04:07,520 --> 01:04:12,720
+that's what I do. For example, you can
+
+1092
+01:04:09,440 --> 01:04:15,839
+go to my Goland script.
+
+1093
+01:04:12,720 --> 01:04:20,079
+This is my Goland script. I use it every
+
+1094
+01:04:15,839 --> 01:04:22,960
+day. Um, find replace. You see, I do
+
+1095
+01:04:20,079 --> 01:04:26,240
+find replace all the time working on my
+
+1096
+01:04:22,960 --> 01:04:30,640
+website, which is static website of
+
+1097
+01:04:26,240 --> 01:04:34,480
+about 12,000 HTML files written in the
+
+1098
+01:04:30,640 --> 01:04:36,960
+past 30 years. Static. So I do find
+
+1099
+01:04:34,480 --> 01:04:38,559
+replace all the time and you can find
+
+1100
+01:04:36,960 --> 01:04:41,920
+this
+
+1101
+01:04:38,559 --> 01:04:44,640
+homepage for this script golan and then
+
+1102
+01:04:41,920 --> 01:04:48,640
+you got python you got pearl you got
+
+1103
+01:04:44,640 --> 01:04:52,319
+emac this. So, by the way, the Kasa find
+
+1104
+01:04:48,640 --> 01:04:55,680
+command I was using is this emac this
+
+1105
+01:04:52,319 --> 01:04:59,520
+package. You have to pay to get get it.
+
+1106
+01:04:55,680 --> 01:05:04,000
+Okay? Cuz it was free for like 10 five
+
+1107
+01:04:59,520 --> 01:05:08,640
+years. Nobody give a Um so anyway,
+
+1108
+01:05:04,000 --> 01:05:11,119
+so we are successful. So we need to you
+
+1109
+01:05:08,640 --> 01:05:12,640
+know add some new features. backup is
+
+1110
+01:05:11,119 --> 01:05:17,200
+necessary
+
+1111
+01:05:12,640 --> 01:05:19,760
+than uh whether to do backup and also
+
+1112
+01:05:17,200 --> 01:05:23,359
+uh quite a few you know because I use
+
+1113
+01:05:19,760 --> 01:05:26,559
+this every day. So, so now instead of
+
+1114
+01:05:23,359 --> 01:05:28,640
+going to Goland find replace or for
+
+1115
+01:05:26,559 --> 01:05:31,920
+example you can you can see here is my
+
+1116
+01:05:28,640 --> 01:05:34,480
+Goland here's the Python version I use
+
+1117
+01:05:31,920 --> 01:05:37,920
+it for a few years
+
+1118
+01:05:34,480 --> 01:05:42,920
+then then then there's a pearl version
+
+1119
+01:05:37,920 --> 01:05:42,920
+this is from year 2000
+
+1120
+01:05:43,680 --> 01:05:51,119
+you know so then and now there is
+
+1121
+01:05:48,319 --> 01:05:56,160
+uh F version oh Actually, I tried to
+
+1122
+01:05:51,119 --> 01:06:00,000
+write it before. You see, April 2025.
+
+1123
+01:05:56,160 --> 01:06:03,599
+I forgot. Is it working? I don't know. I
+
+1124
+01:06:00,000 --> 01:06:06,960
+not sure it is working, but I forgot.
+
+1125
+01:06:03,599 --> 01:06:10,319
+So, I did try to write it before. So,
+
+1126
+01:06:06,960 --> 01:06:12,640
+anyway, so now I'm just This is a new uh
+
+1127
+01:06:10,319 --> 01:06:16,799
+this is new king in town. So, delete
+
+1128
+01:06:12,640 --> 01:06:19,359
+that. Put it back. Syntax color the
+
+1129
+01:06:16,799 --> 01:06:22,640
+whole page show in browser. So this is
+
+1130
+01:06:19,359 --> 01:06:27,000
+today's fruit and that's the end of it.
+
+1131
+01:06:22,640 --> 01:06:27,000
+Thank you guys very much.
+
+1132
+01:06:30,079 --> 01:06:35,119
+Now
+
+1133
+01:06:32,160 --> 01:06:38,640
+EU says, "Is there a reason you prefix
+
+1134
+01:06:35,119 --> 01:06:42,480
+variables with X?" Yes,
+
+1135
+01:06:38,640 --> 01:06:46,720
+because I don't want variables to have
+
+1136
+01:06:42,480 --> 01:06:48,720
+to collide with common English words.
+
+1137
+01:06:46,720 --> 01:06:52,079
+for example
+
+1138
+01:06:48,720 --> 01:06:55,680
+uh so make a backup pop it out again so
+
+1139
+01:06:52,079 --> 01:07:00,319
+let's say input path so if I just name
+
+1140
+01:06:55,680 --> 01:07:03,039
+it uh path
+
+1141
+01:07:00,319 --> 01:07:05,920
+you know I can just name it path
+
+1142
+01:07:03,039 --> 01:07:08,160
+but what happens is that you know so you
+
+1143
+01:07:05,920 --> 01:07:10,319
+have documentation you know you have lot
+
+1144
+01:07:08,160 --> 01:07:14,400
+this is
+
+1145
+01:07:10,319 --> 01:07:17,839
+uh the full path for something right
+
+1146
+01:07:14,400 --> 01:07:21,200
+when you want to uh find place like
+
+1147
+01:07:17,839 --> 01:07:24,079
+systematically refactor your source
+
+1148
+01:07:21,200 --> 01:07:28,319
+code. So you change
+
+1149
+01:07:24,079 --> 01:07:31,039
+uh so let's say uh you change path let's
+
+1150
+01:07:28,319 --> 01:07:35,200
+say you want it to become
+
+1151
+01:07:31,039 --> 01:07:37,839
+full path okay so you do that okay then
+
+1152
+01:07:35,200 --> 01:07:41,520
+you do that do that then then this part
+
+1153
+01:07:37,839 --> 01:07:46,720
+got so this is not full full path
+
+1154
+01:07:41,520 --> 01:07:50,640
+okay so undo undo okay but now if you
+
+1155
+01:07:46,720 --> 01:07:53,920
+have undo undo undo undo undo undo undo
+
+1156
+01:07:50,640 --> 01:07:57,359
+undo undo uh and do and do undo and do
+
+1157
+01:07:53,920 --> 01:08:00,400
+back my way. Okay. Yeah. Okay. So, but
+
+1158
+01:07:57,359 --> 01:08:02,880
+if you have unique
+
+1159
+01:08:00,400 --> 01:08:06,799
+variable names that's not likely to
+
+1160
+01:08:02,880 --> 01:08:09,359
+happen in common English literature or
+
+1161
+01:08:06,799 --> 01:08:12,960
+elsewhere then this collision won't
+
+1162
+01:08:09,359 --> 01:08:15,920
+happen. Okay. Now the best of all if you
+
+1163
+01:08:12,960 --> 01:08:18,719
+actually for each and every variable
+
+1164
+01:08:15,920 --> 01:08:23,839
+name you
+
+1165
+01:08:18,719 --> 01:08:26,400
+make it uh uh random string.
+
+1166
+01:08:23,839 --> 01:08:29,040
+So when each and every your function
+
+1167
+01:08:26,400 --> 01:08:32,880
+names or variable names or identifiers
+
+1168
+01:08:29,040 --> 01:08:35,359
+is a random string then that's the best
+
+1169
+01:08:32,880 --> 01:08:37,600
+and this is essential. This is actually
+
+1170
+01:08:35,359 --> 01:08:40,000
+not just a
+
+1171
+01:08:37,600 --> 01:08:42,719
+uh
+
+1172
+01:08:40,000 --> 01:08:44,560
+why not just use RSP for refacting
+
+1173
+01:08:42,719 --> 01:08:47,440
+that's a different story okay but let me
+
+1174
+01:08:44,560 --> 01:08:49,759
+tell you about this you want your
+
+1175
+01:08:47,440 --> 01:08:54,239
+function names or variable names to be
+
+1176
+01:08:49,759 --> 01:08:57,040
+unique that is the best property
+
+1177
+01:08:54,239 --> 01:08:59,440
+but usually it's not done why because
+
+1178
+01:08:57,040 --> 01:09:01,279
+then then your name becomes too long and
+
+1179
+01:08:59,440 --> 01:09:04,159
+random random string you know people
+
+1180
+01:09:01,279 --> 01:09:06,319
+don't usually don't like that but but
+
+1181
+01:09:04,159 --> 01:09:10,080
+However, it is the best thing and you
+
+1182
+01:09:06,319 --> 01:09:11,759
+can see it is needed often because I can
+
+1183
+01:09:10,080 --> 01:09:14,000
+you know you can see it everywhere
+
+1184
+01:09:11,759 --> 01:09:19,199
+because for example in Windows you got
+
+1185
+01:09:14,000 --> 01:09:21,279
+this end user that and you got this
+
+1186
+01:09:19,199 --> 01:09:25,920
+random string there that is the
+
+1187
+01:09:21,279 --> 01:09:28,319
+universal ID so-called okay
+
+1188
+01:09:25,920 --> 01:09:31,279
+so you know so for file name function
+
+1189
+01:09:28,319 --> 01:09:34,319
+name you usually you wanted an ID to
+
+1190
+01:09:31,279 --> 01:09:36,400
+make it unique so when you have
+
+1191
+01:09:34,319 --> 01:09:38,799
+variables or any identifier they when
+
+1192
+01:09:36,400 --> 01:09:43,839
+they are unique that allows that gives
+
+1193
+01:09:38,799 --> 01:09:46,319
+you tremendous flexibility. Okay.
+
+1194
+01:09:43,839 --> 01:09:48,400
+Now let me talk about that for few
+
+1195
+01:09:46,319 --> 01:09:50,640
+minutes. Okay. Because this is uh
+
+1196
+01:09:48,400 --> 01:09:52,799
+actually very interesting.
+
+1197
+01:09:50,640 --> 01:09:56,960
+I have an article that in fact I have
+
+1198
+01:09:52,799 --> 01:10:01,360
+like five articles on that
+
+1199
+01:09:56,960 --> 01:10:03,600
+variable naming. Okay. Uh okay. So I
+
+1200
+01:10:01,360 --> 01:10:06,159
+have several articles. You have to like
+
+1201
+01:10:03,600 --> 01:10:09,520
+bear with me. So, Emac search variable
+
+1202
+01:10:06,159 --> 01:10:12,400
+by name. No. So, the so you got
+
+1203
+01:10:09,520 --> 01:10:15,440
+parameter names start with fee. Greek
+
+1204
+01:10:12,400 --> 01:10:20,159
+fee. Variable name start with
+
+1205
+01:10:15,440 --> 01:10:23,120
+she Greek she. Okay. Then dollar sign as
+
+1206
+01:10:20,159 --> 01:10:28,719
+a variable name and add sign in variable
+
+1207
+01:10:23,120 --> 01:10:34,080
+name. That's called sigil used in Ruby,
+
+1208
+01:10:28,719 --> 01:10:36,320
+Pearl, PHP at least. Okay. Why do they
+
+1209
+01:10:34,080 --> 01:10:38,080
+have to do that? You know, I'll explain
+
+1210
+01:10:36,320 --> 01:10:40,719
+because they they they actually so it's
+
+1211
+01:10:38,080 --> 01:10:45,360
+not just a naming issue. It's also
+
+1212
+01:10:40,719 --> 01:10:47,679
+related to um kind of a syntactical type
+
+1213
+01:10:45,360 --> 01:10:50,719
+system. Okay. And there's more. Okay.
+
+1214
+01:10:47,679 --> 01:10:55,679
+There's a lot more. Okay. Uh but let me
+
+1215
+01:10:50,719 --> 01:11:01,120
+tell you about it. So uh what uh sour
+
+1216
+01:10:55,679 --> 01:11:06,320
+war so search for um now select all
+
+1217
+01:11:01,120 --> 01:11:09,040
+sidual war okay sual war the syntactical
+
+1218
+01:11:06,320 --> 01:11:11,440
+indicator for types of function and
+
+1219
+01:11:09,040 --> 01:11:15,120
+variable okay
+
+1220
+01:11:11,440 --> 01:11:17,440
+and let's open another article for
+
+1221
+01:11:15,120 --> 01:11:20,719
+English
+
+1222
+01:11:17,440 --> 01:11:22,719
+variable naming English words considered
+
+1223
+01:11:20,719 --> 01:11:25,520
+harmful
+
+1224
+01:11:22,719 --> 01:11:28,000
+open it. Okay, that's that is most close
+
+1225
+01:11:25,520 --> 01:11:32,239
+to the question you ask. Okay, why do I
+
+1226
+01:11:28,000 --> 01:11:34,560
+do that? So, let's go through them. Uh,
+
+1227
+01:11:32,239 --> 01:11:36,960
+so paraphernal name parameter name start
+
+1228
+01:11:34,560 --> 01:11:40,640
+with a fee and variable name start with
+
+1229
+01:11:36,960 --> 01:11:43,120
+she. That was my convention for like
+
+1230
+01:11:40,640 --> 01:11:45,199
+five or so years. I experiment all the
+
+1231
+01:11:43,120 --> 01:11:47,360
+time. Okay. Why do you want to do this?
+
+1232
+01:11:45,199 --> 01:11:50,480
+because
+
+1233
+01:11:47,360 --> 01:11:52,400
+uh because English words considered uh
+
+1234
+01:11:50,480 --> 01:11:55,679
+harmful because I want unique names.
+
+1235
+01:11:52,400 --> 01:12:00,000
+Okay. Then there's also dollar sign and
+
+1236
+01:11:55,679 --> 01:12:03,440
+uh add sign common in PHP in PHP in
+
+1237
+01:12:00,000 --> 01:12:06,159
+Pearl in Ruby. Okay. They adopted that
+
+1238
+01:12:03,440 --> 01:12:07,840
+convention which is a great advantage
+
+1239
+01:12:06,159 --> 01:12:12,880
+because
+
+1240
+01:12:07,840 --> 01:12:15,440
+they it so it serves as a type system
+
+1241
+01:12:12,880 --> 01:12:18,000
+by syntax. Okay. You don't even need to
+
+1242
+01:12:15,440 --> 01:12:21,600
+run compiler. It's a type system by
+
+1243
+01:12:18,000 --> 01:12:24,640
+syntax. So the idea is that eventually
+
+1244
+01:12:21,600 --> 01:12:26,400
+you got syntax algebra.
+
+1245
+01:12:24,640 --> 01:12:28,719
+So your your code you don't have to run
+
+1246
+01:12:26,400 --> 01:12:30,960
+it. It's became it became mathematics.
+
+1247
+01:12:28,719 --> 01:12:34,159
+Okay.
+
+1248
+01:12:30,960 --> 01:12:36,239
+Uh then the sidual war this is more
+
+1249
+01:12:34,159 --> 01:12:38,400
+detailed but let let me just get to the
+
+1250
+01:12:36,239 --> 01:12:43,120
+point. Okay. English word considered
+
+1251
+01:12:38,400 --> 01:12:45,679
+harmful. Why? For example, why
+
+1252
+01:12:43,120 --> 01:12:48,400
+why do you uh what is the advantage of
+
+1253
+01:12:45,679 --> 01:12:52,000
+unique names? Because
+
+1254
+01:12:48,400 --> 01:12:55,440
+you have several uh you have several
+
+1255
+01:12:52,000 --> 01:12:57,120
+issues referential transparency
+
+1256
+01:12:55,440 --> 01:12:58,800
+combinatoric
+
+1257
+01:12:57,120 --> 01:13:01,280
+logic
+
+1258
+01:12:58,800 --> 01:13:04,960
+that's basically want to remove
+
+1259
+01:13:01,280 --> 01:13:07,199
+variables from lambda. Okay. uh point
+
+1260
+01:13:04,960 --> 01:13:11,280
+free programming is also removing
+
+1261
+01:13:07,199 --> 01:13:16,239
+variables from function. Okay. Hygienic
+
+1262
+01:13:11,280 --> 01:13:18,800
+macro is scheme lists method to fix the
+
+1263
+01:13:16,239 --> 01:13:20,960
+variable name collision problem in
+
+1264
+01:13:18,800 --> 01:13:23,440
+common list.
+
+1265
+01:13:20,960 --> 01:13:27,760
+So all these issues you know referential
+
+1266
+01:13:23,440 --> 01:13:29,600
+transparency combinatory logic point
+
+1267
+01:13:27,760 --> 01:13:33,679
+free programming
+
+1268
+01:13:29,600 --> 01:13:36,880
+hygienic macro and windows
+
+1269
+01:13:33,679 --> 01:13:40,800
+um this uyu ID universal ID you know
+
+1270
+01:13:36,880 --> 01:13:43,600
+this this uh this string
+
+1271
+01:13:40,800 --> 01:13:47,440
+if every of your variable names or
+
+1272
+01:13:43,600 --> 01:13:49,520
+function names are unique then you don't
+
+1273
+01:13:47,440 --> 01:13:52,159
+need any any of these because all of
+
+1274
+01:13:49,520 --> 01:13:55,280
+them all all of these issues. They at
+
+1275
+01:13:52,159 --> 01:13:58,560
+heart they they want basically what they
+
+1276
+01:13:55,280 --> 01:14:01,280
+are trying to do is to uh avoid variable
+
+1277
+01:13:58,560 --> 01:14:04,640
+collision.
+
+1278
+01:14:01,280 --> 01:14:07,679
+Okay. So that is kind of
+
+1279
+01:14:04,640 --> 01:14:10,159
+tied to this issue. And also let's talk
+
+1280
+01:14:07,679 --> 01:14:12,719
+about another issue of variable naming.
+
+1281
+01:14:10,159 --> 01:14:16,080
+For example in mathematics you know you
+
+1282
+01:14:12,719 --> 01:14:20,800
+you open uh any mathematical paper.
+
+1283
+01:14:16,080 --> 01:14:25,600
+Okay, let's say the par
+
+1284
+01:14:20,800 --> 01:14:29,280
+and uh pi. Okay, journal. Okay, so let's
+
+1285
+01:14:25,600 --> 01:14:31,840
+some random name uh
+
+1286
+01:14:29,280 --> 01:14:34,719
+international journal of topology open
+
+1287
+01:14:31,840 --> 01:14:38,286
+access. Okay, whatever journal of
+
+1288
+01:14:34,719 --> 01:14:38,320
+topology can can we just like open
+
+1289
+01:14:38,286 --> 01:14:40,880
+>> [groaning]
+
+1290
+01:14:38,320 --> 01:14:44,480
+>> uh I shouldn't I should open one
+
+1291
+01:14:40,880 --> 01:14:47,199
+specific article because
+
+1292
+01:14:44,480 --> 01:14:49,760
+revisiting probabilistic metric space.
+
+1293
+01:14:47,199 --> 01:14:53,199
+Okay, let's see if we can open this
+
+1294
+01:14:49,760 --> 01:14:55,840
+download version notes. Okay, so um well
+
+1295
+01:14:53,199 --> 01:14:59,760
+there you go. So you can see you can
+
+1296
+01:14:55,840 --> 01:15:02,719
+start to see this math papers formulas.
+
+1297
+01:14:59,760 --> 01:15:06,239
+You see, you see their function names is
+
+1298
+01:15:02,719 --> 01:15:07,920
+never English words. It's popular in
+
+1299
+01:15:06,239 --> 01:15:10,560
+programming. But when when you do
+
+1300
+01:15:07,920 --> 01:15:13,040
+mathematics, their function name is G,
+
+1301
+01:15:10,560 --> 01:15:17,120
+alpha, gamma, beta, you know, whatever.
+
+1302
+01:15:13,040 --> 01:15:19,679
+Okay. So why in programming do we have
+
+1303
+01:15:17,120 --> 01:15:22,080
+to name functions names like that? You
+
+1304
+01:15:19,679 --> 01:15:25,040
+know, like full name like do this uh
+
+1305
+01:15:22,080 --> 01:15:27,040
+process a file, find, replace string,
+
+1306
+01:15:25,040 --> 01:15:29,199
+replace string, you know, why do we why
+
+1307
+01:15:27,040 --> 01:15:31,840
+can't we just do it like mathematics?
+
+1308
+01:15:29,199 --> 01:15:33,760
+Especially in functional programming,
+
+1309
+01:15:31,840 --> 01:15:35,840
+right? We we love functional programming
+
+1310
+01:15:33,760 --> 01:15:39,040
+lambda and all that based on lambda
+
+1311
+01:15:35,840 --> 01:15:41,760
+calculus which is pure mathematics. So
+
+1312
+01:15:39,040 --> 01:15:45,520
+why can't we name our function just like
+
+1313
+01:15:41,760 --> 01:15:50,640
+mathematics? I tried actually
+
+1314
+01:15:45,520 --> 01:15:52,880
+and you can see my report of the result.
+
+1315
+01:15:50,640 --> 01:15:55,679
+Uh so the article is kind of long so
+
+1316
+01:15:52,880 --> 01:15:59,840
+there's a lot issues. So basically when
+
+1317
+01:15:55,679 --> 01:16:02,000
+you um name so I have an article on that
+
+1318
+01:15:59,840 --> 01:16:03,920
+what is the result what happened there
+
+1319
+01:16:02,000 --> 01:16:07,120
+what happens when you name your function
+
+1320
+01:16:03,920 --> 01:16:10,719
+variables as math symbols you start to
+
+1321
+01:16:07,120 --> 01:16:13,280
+realize right away it doesn't work
+
+1322
+01:16:10,719 --> 01:16:16,159
+because it became your code became
+
+1323
+01:16:13,280 --> 01:16:20,000
+unreadable you know imagine all these
+
+1324
+01:16:16,159 --> 01:16:24,960
+variables like a b cde e fg and this
+
+1325
+01:16:20,000 --> 01:16:28,719
+find file you know is just file r file
+
+1326
+01:16:24,960 --> 01:16:30,800
+S you know like basically became
+
+1327
+01:16:28,719 --> 01:16:33,120
+incomprehensible
+
+1328
+01:16:30,800 --> 01:16:36,239
+and
+
+1329
+01:16:33,120 --> 01:16:38,960
+so then you realized
+
+1330
+01:16:36,239 --> 01:16:41,199
+the reason you know you realized this
+
+1331
+01:16:38,960 --> 01:16:44,320
+these file names and variable names they
+
+1332
+01:16:41,199 --> 01:16:47,120
+serve a very critical function that we
+
+1333
+01:16:44,320 --> 01:16:48,960
+don't usually realize they these file
+
+1334
+01:16:47,120 --> 01:16:51,520
+names and variable name they actually
+
+1335
+01:16:48,960 --> 01:16:54,320
+serve as a documentation okay because
+
+1336
+01:16:51,520 --> 01:16:56,400
+you can start to rename random you
+
+1337
+01:16:54,320 --> 01:16:59,440
+every function name or variable name by
+
+1338
+01:16:56,400 --> 01:17:01,520
+a random string then you then you
+
+1339
+01:16:59,440 --> 01:17:03,920
+realize you can't read the code like
+
+1340
+01:17:01,520 --> 01:17:06,080
+impossible h for human but the machine
+
+1341
+01:17:03,920 --> 01:17:08,239
+still understand it perfectly but not
+
+1342
+01:17:06,080 --> 01:17:10,800
+for human so this function name and
+
+1343
+01:17:08,239 --> 01:17:14,159
+variable name they serve as a critical
+
+1344
+01:17:10,800 --> 01:17:17,600
+part of documentation okay not just
+
+1345
+01:17:14,159 --> 01:17:19,920
+random so
+
+1346
+01:17:17,600 --> 01:17:21,920
+so anyway back to your question so I you
+
+1347
+01:17:19,920 --> 01:17:23,679
+know it's just something so I named I
+
+1348
+01:17:21,920 --> 01:17:26,800
+start with
+
+1349
+01:17:23,679 --> 01:17:30,000
+which helps
+
+1350
+01:17:26,800 --> 01:17:33,040
+them from being a common English word or
+
+1351
+01:17:30,000 --> 01:17:36,000
+help them from so so another advantage
+
+1352
+01:17:33,040 --> 01:17:41,520
+is that every time I see X for example
+
+1353
+01:17:36,000 --> 01:17:44,480
+in my in my F mode uh typically
+
+1354
+01:17:41,520 --> 01:17:46,320
+every sequence of letters if it start
+
+1355
+01:17:44,480 --> 01:17:48,800
+with X it will highlight in a different
+
+1356
+01:17:46,320 --> 01:17:51,760
+color so I know right away those are
+
+1357
+01:17:48,800 --> 01:17:53,920
+variables and you know things like that
+
+1358
+01:17:51,760 --> 01:17:58,239
+especially when I did you know fun you
+
+1359
+01:17:53,920 --> 01:18:00,480
+know I start with my function name by
+
+1360
+01:17:58,239 --> 01:18:03,679
+you know parameter names by the seals
+
+1361
+01:18:00,480 --> 01:18:07,360
+you know fe and she so they highlight in
+
+1362
+01:18:03,679 --> 01:18:09,920
+a different color that that is my reason
+
+1363
+01:18:07,360 --> 01:18:12,159
+okay that is my experimentation and
+
+1364
+01:18:09,920 --> 01:18:16,880
+reason
+
+1365
+01:18:12,159 --> 01:18:20,960
+um as far as you know for me it can work
+
+1366
+01:18:16,880 --> 01:18:24,640
+but it is not a universal solution
+
+1367
+01:18:20,960 --> 01:18:27,920
+because you And it's hard to push this
+
+1368
+01:18:24,640 --> 01:18:29,760
+to the masses, the public programmers,
+
+1369
+01:18:27,920 --> 01:18:31,920
+because
+
+1370
+01:18:29,760 --> 01:18:34,480
+well, you kind of can't. The the best
+
+1371
+01:18:31,920 --> 01:18:36,719
+way is you have to in enforce it in a
+
+1372
+01:18:34,480 --> 01:18:38,800
+programming language.
+
+1373
+01:18:36,719 --> 01:18:41,280
+For example, uh let me show you some
+
+1374
+01:18:38,800 --> 01:18:43,840
+silos because this is very interesting.
+
+1375
+01:18:41,280 --> 01:18:49,040
+I haven't talked for a while because for
+
+1376
+01:18:43,840 --> 01:18:52,960
+example um Pearl, Ruby,
+
+1377
+01:18:49,040 --> 01:18:58,640
+PHP they all use it as a syntactical uh
+
+1378
+01:18:52,960 --> 01:19:02,640
+form of type. Okay. And also in Ruby
+
+1379
+01:18:58,640 --> 01:19:05,199
+also in Ruby. So let's open another uh
+
+1380
+01:19:02,640 --> 01:19:07,280
+predicate. Okay. So predicate in
+
+1381
+01:19:05,199 --> 01:19:10,719
+programming languages in Ruby they have
+
+1382
+01:19:07,280 --> 01:19:14,640
+a convention also in scheme disp
+
+1383
+01:19:10,719 --> 01:19:18,320
+any function. So here is Ruby any
+
+1384
+01:19:14,640 --> 01:19:20,159
+function if it ends with a question mark
+
+1385
+01:19:18,320 --> 01:19:24,480
+that means the function always return
+
+1386
+01:19:20,159 --> 01:19:28,960
+either true or false. Okay. Similarly
+
+1387
+01:19:24,480 --> 01:19:32,719
+for closure and if a function
+
+1388
+01:19:28,960 --> 01:19:35,040
+ends up and the function name ends by a
+
+1389
+01:19:32,719 --> 01:19:36,880
+ban exclamation
+
+1390
+01:19:35,040 --> 01:19:39,760
+that means the function will always
+
+1391
+01:19:36,880 --> 01:19:42,960
+mutate the variable.
+
+1392
+01:19:39,760 --> 01:19:46,800
+Okay. So this this function name part of
+
+1393
+01:19:42,960 --> 01:19:51,199
+the function name they are kind of type
+
+1394
+01:19:46,800 --> 01:19:52,719
+indicators and they um and it's
+
+1395
+01:19:51,199 --> 01:19:56,320
+systematic.
+
+1396
+01:19:52,719 --> 01:19:59,360
+So you don't have to like it's not you
+
+1397
+01:19:56,320 --> 01:20:01,600
+know uh depending on the which case so
+
+1398
+01:19:59,360 --> 01:20:04,239
+any function if it ends in a question
+
+1399
+01:20:01,600 --> 01:20:07,040
+mark then it absolutely must return true
+
+1400
+01:20:04,239 --> 01:20:08,800
+or false that is enforced by the
+
+1401
+01:20:07,040 --> 01:20:10,400
+compiler
+
+1402
+01:20:08,800 --> 01:20:12,880
+by the way I I'm not sure that's the
+
+1403
+01:20:10,400 --> 01:20:18,320
+case for Ruby but you can do that okay
+
+1404
+01:20:12,880 --> 01:20:21,760
+so this is kind of like a a form of uh
+
+1405
+01:20:18,320 --> 01:20:24,800
+type via syntax
+
+1406
+01:20:21,760 --> 01:20:27,120
+and in uh so in wuam language they end
+
+1407
+01:20:24,800 --> 01:20:29,440
+with a Q. So if a function ends with a
+
+1408
+01:20:27,120 --> 01:20:31,840
+capital Q that always return true or
+
+1409
+01:20:29,440 --> 01:20:34,159
+false. Okay.
+
+1410
+01:20:31,840 --> 01:20:37,440
+So that's these are called predicates.
+
+1411
+01:20:34,159 --> 01:20:39,920
+Okay. Uh they came from uh they came
+
+1412
+01:20:37,440 --> 01:20:41,440
+from logic. Okay. Predicate linguistics
+
+1413
+01:20:39,920 --> 01:20:43,520
+logic.
+
+1414
+01:20:41,440 --> 01:20:47,199
+So you got you so so all these are
+
+1415
+01:20:43,520 --> 01:20:50,000
+related to function naming. Okay. Then
+
+1416
+01:20:47,199 --> 01:20:52,320
+then in this it ends in P but it's not
+
+1417
+01:20:50,000 --> 01:20:55,040
+enforced and it's like arbitrary.
+
+1418
+01:20:52,320 --> 01:20:57,520
+Sometimes a function name ends in P but
+
+1419
+01:20:55,040 --> 01:21:00,560
+it's not really a predicate. So you got
+
+1420
+01:20:57,520 --> 01:21:04,239
+this like problem that this is no good.
+
+1421
+01:21:00,560 --> 01:21:06,239
+So in EMAC this it's no good.
+
+1422
+01:21:04,239 --> 01:21:10,159
+Okay. So you got these issues then then
+
+1423
+01:21:06,239 --> 01:21:11,840
+you got um uh so let me see if I want to
+
+1424
+01:21:10,159 --> 01:21:15,280
+um
+
+1425
+01:21:11,840 --> 01:21:17,520
+uh so PowerShell by the way also use it.
+
+1426
+01:21:15,280 --> 01:21:20,239
+If if a if a variable name begin with a
+
+1427
+01:21:17,520 --> 01:21:21,840
+dollar sign they are called automatic
+
+1428
+01:21:20,239 --> 01:21:24,640
+variables. In other words, building
+
+1429
+01:21:21,840 --> 01:21:26,400
+variables global. Okay, so global
+
+1430
+01:21:24,640 --> 01:21:30,080
+variables all start with a dollar sign
+
+1431
+01:21:26,400 --> 01:21:33,199
+and Ruby too. So Ruby has a, you know,
+
+1432
+01:21:30,080 --> 01:21:37,280
+systematic convention. Question mark
+
+1433
+01:21:33,199 --> 01:21:39,760
+exclamation at the end or dollar sign or
+
+1434
+01:21:37,280 --> 01:21:43,040
+s sign or double s sign. Double s sign
+
+1435
+01:21:39,760 --> 01:21:47,280
+that's class variable. Okay. Then you
+
+1436
+01:21:43,040 --> 01:21:50,480
+got uh so you got pearl of course the
+
+1437
+01:21:47,280 --> 01:21:52,880
+kind of the language that began at all
+
+1438
+01:21:50,480 --> 01:21:57,360
+and they also got percentage sign that
+
+1439
+01:21:52,880 --> 01:21:59,440
+means hash table. Okay then you got
+
+1440
+01:21:57,360 --> 01:22:01,920
+syntactic meaning a variable. So let's
+
+1441
+01:21:59,440 --> 01:22:04,400
+see what is that one.
+
+1442
+01:22:01,920 --> 01:22:08,800
+Okay that's a that's a that's kind of
+
+1443
+01:22:04,400 --> 01:22:11,280
+different issue. Okay so let's see um
+
+1444
+01:22:08,800 --> 01:22:15,040
+so anyway that is my answer to the
+
+1445
+01:22:11,280 --> 01:22:18,400
+question. And I hope that's I hope you
+
+1446
+01:22:15,040 --> 01:22:20,480
+see what I mean.
+
+1447
+01:22:18,400 --> 01:22:23,199
+Okay. So I agree with So I think that's
+
+1448
+01:22:20,480 --> 01:22:25,040
+it for today. I've been talking for like
+
+1449
+01:22:23,199 --> 01:22:29,199
+90 minutes. Okay. So that's it for
+
+1450
+01:22:25,040 --> 01:22:32,159
+today. Thank you. Ringo tingo.
+
+1451
+01:22:29,199 --> 01:22:34,960
+Why not just use LSP? So LSP that's the
+
+1452
+01:22:32,159 --> 01:22:37,040
+you know that's the I have article on
+
+1453
+01:22:34,960 --> 01:22:39,760
+that. [laughter]
+
+1454
+01:22:37,040 --> 01:22:42,719
+So by the way I also oh I also want to
+
+1455
+01:22:39,760 --> 01:22:45,520
+mention closure because closure is a
+
+1456
+01:22:42,719 --> 01:22:50,320
+very uh functional programming language.
+
+1457
+01:22:45,520 --> 01:22:52,880
+So closure is full of sigils filled with
+
+1458
+01:22:50,320 --> 01:22:54,400
+you know any variable name start with a
+
+1459
+01:22:52,880 --> 01:22:56,320
+star
+
+1460
+01:22:54,400 --> 01:22:58,639
+or multiplication sign it means
+
+1461
+01:22:56,320 --> 01:23:02,320
+something okay ends with a question mark
+
+1462
+01:22:58,639 --> 01:23:04,960
+same as ruby okay it means it's a uh
+
+1463
+01:23:02,320 --> 01:23:07,360
+ends with a question mark it's return
+
+1464
+01:23:04,960 --> 01:23:11,120
+true or false just like ruby and skim
+
+1465
+01:23:07,360 --> 01:23:14,800
+this end with a ban it means it modifies
+
+1466
+01:23:11,120 --> 01:23:17,840
+the variable okay if it ends with the
+
+1467
+01:23:14,800 --> 01:23:21,600
+hyphen And it means uh it creates a
+
+1468
+01:23:17,840 --> 01:23:24,480
+private function. Okay. So closure is is
+
+1469
+01:23:21,600 --> 01:23:28,400
+lots of these lots of and you know
+
+1470
+01:23:24,480 --> 01:23:30,719
+starting with double colon that's um
+
+1471
+01:23:28,400 --> 01:23:32,719
+closure data type closure l keyword.
+
+1472
+01:23:30,719 --> 01:23:36,960
+Okay that's a okay that's language
+
+1473
+01:23:32,719 --> 01:23:40,480
+keyword symbol similar in emacisp. If a
+
+1474
+01:23:36,960 --> 01:23:43,440
+symbol began with a colon it means it's
+
+1475
+01:23:40,480 --> 01:23:45,840
+a keyword symbol which means the symbol
+
+1476
+01:23:43,440 --> 01:23:48,800
+cannot have a value. It's just a symbol.
+
+1477
+01:23:45,840 --> 01:23:52,000
+Okay. Then if it enclosure if it start
+
+1478
+01:23:48,800 --> 01:23:54,239
+with double colon then it means um
+
+1479
+01:23:52,000 --> 01:23:57,280
+keyword data type but with the name x
+
+1480
+01:23:54,239 --> 01:24:00,960
+expanded to include name space. Okay.
+
+1481
+01:23:57,280 --> 01:24:03,360
+Okay. So also can start with backslash
+
+1482
+01:24:00,960 --> 01:24:04,960
+or you know so you know there's lots of
+
+1483
+01:24:03,360 --> 01:24:07,120
+it.
+
+1484
+01:24:04,960 --> 01:24:09,199
+Okay. Lots of it. Closure. So then you
+
+1485
+01:24:07,120 --> 01:24:12,639
+also got these funky function names.
+
+1486
+01:24:09,199 --> 01:24:14,239
+They also uh
+
+1487
+01:24:12,639 --> 01:24:16,800
+have special meaning. Okay. like
+
+1488
+01:24:14,239 --> 01:24:19,440
+function name starting with a dot that's
+
+1489
+01:24:16,800 --> 01:24:22,960
+for calling u that's for calling Java
+
+1490
+01:24:19,440 --> 01:24:25,440
+Java methods okay so anyway and and then
+
+1491
+01:24:22,960 --> 01:24:28,800
+you got more complicated like starting
+
+1492
+01:24:25,440 --> 01:24:32,239
+with the correct that means uh that's a
+
+1493
+01:24:28,800 --> 01:24:35,040
+shortcut for this with meta okay meta
+
+1494
+01:24:32,239 --> 01:24:38,239
+data and so on and also you got uh add
+
+1495
+01:24:35,040 --> 01:24:41,199
+sign you got pound sign it means mar
+
+1496
+01:24:38,239 --> 01:24:43,840
+dispatch also that happens in lisp
+
+1497
+01:24:41,199 --> 01:24:46,639
+common lisp and eac lisp
+
+1498
+01:24:43,840 --> 01:24:49,280
+So al so so all these
+
+1499
+01:24:46,639 --> 01:24:52,560
+again I want to emphasize they are
+
+1500
+01:24:49,280 --> 01:24:56,880
+related to naming naming of functions or
+
+1501
+01:24:52,560 --> 01:24:58,800
+variables. So they are not just like a
+
+1502
+01:24:56,880 --> 01:25:00,800
+user convention. You can just name
+
+1503
+01:24:58,800 --> 01:25:03,120
+whatever but we prefer this way. They
+
+1504
+01:25:00,800 --> 01:25:06,239
+are not like that. They has a they have
+
+1505
+01:25:03,120 --> 01:25:09,360
+a a computational function
+
+1506
+01:25:06,239 --> 01:25:12,239
+either indicating type or uh something.
+
+1507
+01:25:09,360 --> 01:25:15,840
+Okay. So that is why I started to name
+
+1508
+01:25:12,239 --> 01:25:17,920
+my variable start with X. It's not, you
+
+1509
+01:25:15,840 --> 01:25:20,639
+know, I used to name I used to use
+
+1510
+01:25:17,920 --> 01:25:23,120
+dollar sign because in eagles you can
+
+1511
+01:25:20,639 --> 01:25:25,840
+use dollar sign that because that's
+
+1512
+01:25:23,120 --> 01:25:28,159
+allowed character and then I find that
+
+1513
+01:25:25,840 --> 01:25:30,000
+eventually I
+
+1514
+01:25:28,159 --> 01:25:32,320
+I stopped doing that. I replace the
+
+1515
+01:25:30,000 --> 01:25:34,880
+dollar sign with the X because it's
+
+1516
+01:25:32,320 --> 01:25:37,040
+easier to type. So anyway, you got this
+
+1517
+01:25:34,880 --> 01:25:40,040
+kind of reasons. That's why I'm doing
+
+1518
+01:25:37,040 --> 01:25:40,040
+it.
+
+1519
+01:25:40,080 --> 01:25:47,199
+Uh yeah, so no name space for Emac this.
+
+1520
+01:25:44,000 --> 01:25:49,600
+That's another issue. Yeah.
+
+1521
+01:25:47,199 --> 01:25:52,480
+Uh what's my opinion on Hyper 7
+
+1522
+01:25:49,600 --> 01:25:55,120
+keyboard? My opinion on that keyboard is
+
+1523
+01:25:52,480 --> 01:25:58,880
+it's [laughter]
+
+1524
+01:25:55,120 --> 01:26:02,159
+Okay. Contra contrary to what most
+
+1525
+01:25:58,880 --> 01:26:04,320
+people would say. So let's just talk
+
+1526
+01:26:02,159 --> 01:26:08,320
+about that for a minute. Now let's put
+
+1527
+01:26:04,320 --> 01:26:11,920
+this back. Can this run second? Okay, it
+
+1528
+01:26:08,320 --> 01:26:15,040
+runs. Put it back. Okay. Syntax showing
+
+1529
+01:26:11,920 --> 01:26:19,120
+browser. So that's today's talk show and
+
+1530
+01:26:15,040 --> 01:26:23,520
+let's go to keyboard blog and search for
+
+1531
+01:26:19,120 --> 01:26:28,239
+hyper7. So hyper 7 is this kind of
+
+1532
+01:26:23,520 --> 01:26:30,480
+remake or emulation of a well not
+
+1533
+01:26:28,239 --> 01:26:32,239
+emulation they they are like they are
+
+1534
+01:26:30,480 --> 01:26:36,560
+trying to
+
+1535
+01:26:32,239 --> 01:26:39,360
+make a copy of this classic space cadet
+
+1536
+01:26:36,560 --> 01:26:45,120
+keyboard. very interesting fancy
+
+1537
+01:26:39,360 --> 01:26:47,840
+keyboard from 19 um 80 okay 1978
+
+1538
+01:26:45,120 --> 01:26:50,239
+space cadet keyboard
+
+1539
+01:26:47,840 --> 01:26:52,159
+it's very dramatic you know a lot of
+
+1540
+01:26:50,239 --> 01:26:54,400
+people especially today they you know
+
+1541
+01:26:52,159 --> 01:26:56,560
+they site this oh look at all this weird
+
+1542
+01:26:54,400 --> 01:26:59,199
+symbol what a weird keyboard and
+
+1543
+01:26:56,560 --> 01:27:03,280
+including the thumb up and thumb down
+
+1544
+01:26:59,199 --> 01:27:05,440
+you know so that's the
+
+1545
+01:27:03,280 --> 01:27:07,600
+and here's another version this photo is
+
+1546
+01:27:05,440 --> 01:27:10,320
+more popular space cadet keyboard board.
+
+1547
+01:27:07,600 --> 01:27:13,480
+Okay.
+
+1548
+01:27:10,320 --> 01:27:13,480
+So then
+
+1549
+01:27:14,000 --> 01:27:21,920
+then people started to they created this
+
+1550
+01:27:16,880 --> 01:27:24,639
+um hyper 7. Okay. Open.
+
+1551
+01:27:21,920 --> 01:27:26,320
+But if you ask my my opinion is that
+
+1552
+01:27:24,639 --> 01:27:29,760
+it's no good. Okay. Because these are
+
+1553
+01:27:26,320 --> 01:27:31,760
+not ergonomic. this this space cadet
+
+1554
+01:27:29,760 --> 01:27:35,040
+it's the worst keyboard I would say
+
+1555
+01:27:31,760 --> 01:27:37,520
+because everything is like all together
+
+1556
+01:27:35,040 --> 01:27:39,520
+you know there's no thumb keys and what
+
+1557
+01:27:37,520 --> 01:27:43,360
+what what what do you have to do with
+
+1558
+01:27:39,520 --> 01:27:45,920
+this huge humongous space bar you don't
+
+1559
+01:27:43,360 --> 01:27:47,600
+need it you got two thumbs like look at
+
+1560
+01:27:45,920 --> 01:27:49,920
+my keyboard you know you just need two
+
+1561
+01:27:47,600 --> 01:27:52,639
+little space you you want them separate
+
+1562
+01:27:49,920 --> 01:27:54,960
+so you can do meta you know or control
+
+1563
+01:27:52,639 --> 01:27:57,679
+on the other hand and and you got also
+
+1564
+01:27:54,960 --> 01:28:00,480
+other thumb keys right But on this
+
+1565
+01:27:57,679 --> 01:28:03,440
+keyboard, space cadet, you move all the
+
+1566
+01:28:00,480 --> 01:28:07,040
+way to the left to like go there, press
+
+1567
+01:28:03,440 --> 01:28:10,480
+meta super hyper, you know,
+
+1568
+01:28:07,040 --> 01:28:12,639
+that's no good. Why you why you do that?
+
+1569
+01:28:10,480 --> 01:28:14,719
+And also the function keys on top, they
+
+1570
+01:28:12,639 --> 01:28:17,600
+are all in a row. So you cannot touch
+
+1571
+01:28:14,719 --> 01:28:19,440
+type. You cannot feel it. On normal
+
+1572
+01:28:17,600 --> 01:28:21,280
+keyboard that's group of four. So you
+
+1573
+01:28:19,440 --> 01:28:25,760
+can you don't have to look. You can just
+
+1574
+01:28:21,280 --> 01:28:28,800
+feel where F7 are, you know, like F1 2 3
+
+1575
+01:28:25,760 --> 01:28:30,880
+4. Five, six, seven, eight. So eight,
+
+1576
+01:28:28,800 --> 01:28:34,239
+you know, they are on the corner and and
+
+1577
+01:28:30,880 --> 01:28:37,760
+9, 10, 11, 12. So you can feel it, press
+
+1578
+01:28:34,239 --> 01:28:40,639
+it, but not with this one single row
+
+1579
+01:28:37,760 --> 01:28:43,600
+without gaps, these kind of function
+
+1580
+01:28:40,639 --> 01:28:45,120
+keys. So that's no good. But people
+
+1581
+01:28:43,600 --> 01:28:48,480
+don't realize, you know, people don't
+
+1582
+01:28:45,120 --> 01:28:50,480
+know this uh late Malay genian zoomers,
+
+1583
+01:28:48,480 --> 01:28:53,920
+they think it's cool, so they're going
+
+1584
+01:28:50,480 --> 01:28:56,080
+to try to reproduce it. And they think
+
+1585
+01:28:53,920 --> 01:28:58,560
+better, more keys are better. Then they
+
+1586
+01:28:56,080 --> 01:29:02,480
+created this [laughter]
+
+1587
+01:28:58,560 --> 01:29:05,120
+Hyper 7. Okay. So I I don't think it's
+
+1588
+01:29:02,480 --> 01:29:06,960
+good. Well, it's it's you know it's good
+
+1589
+01:29:05,120 --> 01:29:10,199
+effort. It's novelty but I don't think
+
+1590
+01:29:06,960 --> 01:29:10,199
+it's good.
+
+1591
+01:29:12,480 --> 01:29:18,080
+Okay. Bye guys. Bye for real. Shut down.
+
+1592
+01:29:15,199 --> 01:29:20,800
+Bye.
+
+1593
+01:29:18,080 --> 01:29:24,159
+Let me just copy. So we shut down in in
+
+1594
+01:29:20,800 --> 01:29:27,360
+30 seconds. Let me just copy the links
+
+1595
+01:29:24,159 --> 01:29:29,199
+we of things we talked about uh here.
+
+1596
+01:29:27,360 --> 01:29:32,199
+Okay.
+
+1597
+01:29:29,199 --> 01:29:32,199
+Uh
+
+1598
+01:29:34,560 --> 01:29:38,920
+uh uh what?
+
+1599
+01:29:40,480 --> 01:29:47,120
+So a bunch of links. Hyper 7 keyboard.
+
+1600
+01:29:43,679 --> 01:29:49,840
+Uh close that. Hyper 7 keyboard and
+
+1601
+01:29:47,120 --> 01:29:54,159
+space cadet keyboard.
+
+1602
+01:29:49,840 --> 01:29:56,560
+the most dramatic keyboard. Okay. And uh
+
+1603
+01:29:54,159 --> 01:29:59,199
+go back and
+
+1604
+01:29:56,560 --> 01:30:02,560
+base that keyboard hyper7 keyboard. Go
+
+1605
+01:29:59,199 --> 01:30:05,679
+back keyboard search. Close it. And uh
+
+1606
+01:30:02,560 --> 01:30:09,040
+reopen. Did I close something wrong? No.
+
+1607
+01:30:05,679 --> 01:30:11,440
+And there here is a mathematical article
+
+1608
+01:30:09,040 --> 01:30:13,440
+about something
+
+1609
+01:30:11,440 --> 01:30:16,080
+um
+
+1610
+01:30:13,440 --> 01:30:18,239
+topology something. Okay. Uh do we want
+
+1611
+01:30:16,080 --> 01:30:22,239
+it? No.
+
+1612
+01:30:18,239 --> 01:30:27,280
+Okay. So then then bye guys. Bye. So
+
+1613
+01:30:22,239 --> 01:30:30,000
+this we want to copy variable naming uh
+
+1614
+01:30:27,280 --> 01:30:32,480
+variable naming English words considered
+
+1615
+01:30:30,000 --> 01:30:36,800
+harmful
+
+1616
+01:30:32,480 --> 01:30:36,800
+powershell automatic variables. Okay.
+

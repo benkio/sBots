@@ -1,0 +1,8184 @@
+1
+00:00:03,120 --> 00:00:06,799
+good morning everyone
+
+2
+00:00:04,240 --> 00:00:09,040
+welcome to another episode of sun talk
+
+3
+00:00:06,799 --> 00:00:13,679
+show
+
+4
+00:00:09,040 --> 00:00:13,679
+today is 2020 august 12th
+
+5
+00:00:13,759 --> 00:00:17,600
+12th 2 o'clock in the afternoon san
+
+6
+00:00:15,679 --> 00:00:19,279
+francisco time
+
+7
+00:00:17,600 --> 00:00:22,080
+and today we are going to talk about
+
+8
+00:00:19,279 --> 00:00:26,160
+emacs we are going to talk about
+
+9
+00:00:22,080 --> 00:00:28,400
+the just released emacs 27
+
+10
+00:00:26,160 --> 00:00:29,359
+uh there's a lot of things going on this
+
+11
+00:00:28,400 --> 00:00:32,880
+is fantastic
+
+12
+00:00:29,359 --> 00:00:36,160
+just released uh yesterday also emacs
+
+13
+00:00:32,880 --> 00:00:37,680
+version 27 grew emacs and first of all
+
+14
+00:00:36,160 --> 00:00:38,160
+let me tell you about the background
+
+15
+00:00:37,680 --> 00:00:41,280
+image
+
+16
+00:00:38,160 --> 00:00:42,079
+so this is a pumpkin uh carved in emacs
+
+17
+00:00:41,280 --> 00:00:46,559
+logo
+
+18
+00:00:42,079 --> 00:00:49,120
+this is back in um 2013
+
+19
+00:00:46,559 --> 00:00:50,079
+so seven years ago ever since i haven't
+
+20
+00:00:49,120 --> 00:00:53,199
+seen a good
+
+21
+00:00:50,079 --> 00:00:54,320
+you know uh pumpkin logo of emacs or
+
+22
+00:00:53,199 --> 00:00:56,559
+lisp
+
+23
+00:00:54,320 --> 00:00:58,160
+uh you know someone should do at least
+
+24
+00:00:56,559 --> 00:01:00,719
+one lisp logo like
+
+25
+00:00:58,160 --> 00:01:01,680
+like you know do a pumpkin this year
+
+26
+00:01:00,719 --> 00:01:05,199
+okay
+
+27
+00:01:01,680 --> 00:01:07,200
+uh in october someone should do that
+
+28
+00:01:05,199 --> 00:01:09,680
+okay so that's a pumpkin and let's talk
+
+29
+00:01:07,200 --> 00:01:12,720
+about emacs okay uh
+
+30
+00:01:09,680 --> 00:01:13,439
+okay so here is game of thrones game of
+
+31
+00:01:12,720 --> 00:01:17,920
+thrones is
+
+32
+00:01:13,439 --> 00:01:20,080
+epic fantastic okay uh go watch it
+
+33
+00:01:17,920 --> 00:01:21,360
+let's move it somewhere so we don't
+
+34
+00:01:20,080 --> 00:01:24,840
+always see that
+
+35
+00:01:21,360 --> 00:01:27,840
+usb speakers okay so let's talk about
+
+36
+00:01:24,840 --> 00:01:27,840
+emacs
+
+37
+00:01:27,920 --> 00:01:33,920
+good morning cortes so let me check
+
+38
+00:01:31,119 --> 00:01:37,040
+if i'm alive and everything is good we
+
+39
+00:01:33,920 --> 00:01:40,720
+don't have many people here today
+
+40
+00:01:37,040 --> 00:01:43,360
+uh okay voice check check
+
+41
+00:01:40,720 --> 00:01:46,320
+okay so let's talk about emacs so i mean
+
+42
+00:01:43,360 --> 00:01:47,439
+the new version of emacs so emacs 27 has
+
+43
+00:01:46,320 --> 00:01:49,280
+just been released
+
+44
+00:01:47,439 --> 00:01:51,040
+i'm going to go over i'm going to
+
+45
+00:01:49,280 --> 00:01:53,840
+download it install it
+
+46
+00:01:51,040 --> 00:01:55,600
+run it and tell you go over through some
+
+47
+00:01:53,840 --> 00:01:57,920
+of the features
+
+48
+00:01:55,600 --> 00:01:59,600
+my impressions and you know in real time
+
+49
+00:01:57,920 --> 00:02:03,280
+so first of all let's go to
+
+50
+00:01:59,600 --> 00:02:03,280
+i go to my emacs blog
+
+51
+00:02:03,360 --> 00:02:10,160
+i go to my emacs blog let's go to um
+
+52
+00:02:07,680 --> 00:02:11,120
+yeah emacs tutorial this is how i
+
+53
+00:02:10,160 --> 00:02:14,560
+download
+
+54
+00:02:11,120 --> 00:02:15,280
+it myself so emacs tutorial the first
+
+55
+00:02:14,560 --> 00:02:18,720
+item
+
+56
+00:02:15,280 --> 00:02:22,560
+where to download emacs for windows
+
+57
+00:02:18,720 --> 00:02:25,840
+for mac and for linux typically on linux
+
+58
+00:02:22,560 --> 00:02:28,000
+you just compile compile it yourself
+
+59
+00:02:25,840 --> 00:02:29,520
+yourself you know i have instructions on
+
+60
+00:02:28,000 --> 00:02:32,640
+how to compile
+
+61
+00:02:29,520 --> 00:02:36,080
+uh emacs on linux pretty easy
+
+62
+00:02:32,640 --> 00:02:38,319
+uh in five minutes you'll be done
+
+63
+00:02:36,080 --> 00:02:39,840
+but for macs and windows typically they
+
+64
+00:02:38,319 --> 00:02:42,800
+are pre-compiled version
+
+65
+00:02:39,840 --> 00:02:44,319
+it's more problematic to compile them so
+
+66
+00:02:42,800 --> 00:02:48,000
+you click on that
+
+67
+00:02:44,319 --> 00:02:53,519
+and download e-max version 27.1
+
+68
+00:02:48,000 --> 00:02:53,519
+fantastic okay yes say okay
+
+69
+00:02:54,480 --> 00:03:05,840
+and now we go to go to
+
+70
+00:02:57,599 --> 00:03:05,840
+okay it's downloading
+
+71
+00:03:06,080 --> 00:03:09,200
+sally fan club
+
+72
+00:03:11,120 --> 00:03:22,239
+wait let's wait for it to download
+
+73
+00:03:18,640 --> 00:03:23,120
+opening emacs 27.1 universal okay drag
+
+74
+00:03:22,239 --> 00:03:25,840
+to install
+
+75
+00:03:23,120 --> 00:03:27,040
+so let's drag it so on mac the
+
+76
+00:03:25,840 --> 00:03:29,360
+installation is
+
+77
+00:03:27,040 --> 00:03:30,239
+all very easy instead on windows you
+
+78
+00:03:29,360 --> 00:03:32,640
+have like
+
+79
+00:03:30,239 --> 00:03:35,920
+the installer you know then you run the
+
+80
+00:03:32,640 --> 00:03:38,000
+installer on the mac you just drag it
+
+81
+00:03:35,920 --> 00:03:39,360
+so it's copying to my applications
+
+82
+00:03:38,000 --> 00:03:42,080
+folder you don't have to
+
+83
+00:03:39,360 --> 00:03:42,080
+if you don't want to
+
+84
+00:03:43,519 --> 00:03:48,560
+so i'm actually excited about this emacs
+
+85
+00:03:46,640 --> 00:03:50,640
+27 release
+
+86
+00:03:48,560 --> 00:03:52,000
+every time there's a emacs release i'm
+
+87
+00:03:50,640 --> 00:03:53,920
+excited of course
+
+88
+00:03:52,000 --> 00:03:55,200
+they release about every two or three
+
+89
+00:03:53,920 --> 00:03:59,120
+years
+
+90
+00:03:55,200 --> 00:04:01,840
+but 27 i've seen several features
+
+91
+00:03:59,120 --> 00:04:01,840
+those are fantastic
+
+92
+00:04:02,400 --> 00:04:07,439
+so i'm going to tell you how do i
+
+93
+00:04:05,439 --> 00:04:08,879
+you know you know you can watch me how i
+
+94
+00:04:07,439 --> 00:04:12,400
+learn about
+
+95
+00:04:08,879 --> 00:04:15,840
+new features in emacs
+
+96
+00:04:12,400 --> 00:04:18,000
+like typically in unlike
+
+97
+00:04:15,840 --> 00:04:19,840
+other software the emacs you know they
+
+98
+00:04:18,000 --> 00:04:21,600
+they've been around for 30 years they
+
+99
+00:04:19,840 --> 00:04:24,479
+have a tradition of their own
+
+100
+00:04:21,600 --> 00:04:25,440
+how they release and their release notes
+
+101
+00:04:24,479 --> 00:04:27,360
+you know typically
+
+102
+00:04:25,440 --> 00:04:28,960
+today's software you have released new
+
+103
+00:04:27,360 --> 00:04:32,240
+notes you know what's new
+
+104
+00:04:28,960 --> 00:04:35,360
+but in emacs you don't have that
+
+105
+00:04:32,240 --> 00:04:36,560
+instead they say they have news you know
+
+106
+00:04:35,360 --> 00:04:38,720
+news
+
+107
+00:04:36,560 --> 00:04:40,720
+there's a news file which is basically
+
+108
+00:04:38,720 --> 00:04:43,680
+uh new features you know what's
+
+109
+00:04:40,720 --> 00:04:44,960
+being updated and that news file every
+
+110
+00:04:43,680 --> 00:04:48,080
+time there's a major
+
+111
+00:04:44,960 --> 00:04:51,120
+you know major version 27 26 25
+
+112
+00:04:48,080 --> 00:04:55,360
+release of emacs that news file is huge
+
+113
+00:04:51,120 --> 00:04:57,440
+like 50 pages and it's very esoteric
+
+114
+00:04:55,360 --> 00:05:00,479
+technical very technical they describe
+
+115
+00:04:57,440 --> 00:05:03,759
+features in terms of
+
+116
+00:05:00,479 --> 00:05:06,880
+it's it's basically incomprehensible
+
+117
+00:05:03,759 --> 00:05:07,120
+unless you have uh you know many years
+
+118
+00:05:06,880 --> 00:05:11,440
+of
+
+119
+00:05:07,120 --> 00:05:14,479
+experience of with emacs or emac beast
+
+120
+00:05:11,440 --> 00:05:15,039
+i mean even me reading that half of it
+
+121
+00:05:14,479 --> 00:05:18,560
+is like
+
+122
+00:05:15,039 --> 00:05:21,120
+incomprehensible you have to like dig
+
+123
+00:05:18,560 --> 00:05:22,880
+okay so it's copying to applications
+
+124
+00:05:21,120 --> 00:05:25,120
+okay it's done
+
+125
+00:05:22,880 --> 00:05:26,479
+now so here is the application i'm going
+
+126
+00:05:25,120 --> 00:05:31,600
+to rename it okay
+
+127
+00:05:26,479 --> 00:05:31,600
+hold on a second let me magnify uh
+
+128
+00:05:31,759 --> 00:05:38,320
+so you see my previous version is 26.3
+
+129
+00:05:35,520 --> 00:05:39,919
+so the 20 so this this is the latest
+
+130
+00:05:38,320 --> 00:05:44,560
+version i'm going to
+
+131
+00:05:39,919 --> 00:05:47,919
+rename it 27 27.1
+
+132
+00:05:44,560 --> 00:05:51,039
+okay there it is
+
+133
+00:05:47,919 --> 00:05:53,520
+okay now i'm going to start it now
+
+134
+00:05:51,039 --> 00:05:55,759
+now look at my emacs okay this is my od
+
+135
+00:05:53,520 --> 00:06:00,400
+max let me start a new
+
+136
+00:05:55,759 --> 00:06:04,000
+um so i go to terminal
+
+137
+00:06:00,400 --> 00:06:06,479
+i press up arrow so this is my previous
+
+138
+00:06:04,000 --> 00:06:09,120
+it will run my previous version of emacs
+
+139
+00:06:06,479 --> 00:06:13,759
+but let's change that
+
+140
+00:06:09,120 --> 00:06:13,759
+okay 27.1 launch it
+
+141
+00:06:16,560 --> 00:06:22,880
+okay now it's verifying emacs 27.1
+
+142
+00:06:20,639 --> 00:06:24,800
+app you know this this is the latest
+
+143
+00:06:22,880 --> 00:06:27,039
+version of mac os
+
+144
+00:06:24,800 --> 00:06:28,720
+and they started to have this annoying
+
+145
+00:06:27,039 --> 00:06:29,759
+thing like every time you use a
+
+146
+00:06:28,720 --> 00:06:33,120
+application
+
+147
+00:06:29,759 --> 00:06:34,000
+that's not sanctioned by apple you know
+
+148
+00:06:33,120 --> 00:06:36,960
+they have to
+
+149
+00:06:34,000 --> 00:06:38,319
+put a stamp of approval you have to i
+
+150
+00:06:36,960 --> 00:06:39,919
+i'm not sure you have to pay but
+
+151
+00:06:38,319 --> 00:06:43,199
+basically you have to be your apple
+
+152
+00:06:39,919 --> 00:06:46,160
+developer and so on and you know
+
+153
+00:06:43,199 --> 00:06:48,319
+but if you download some app on the from
+
+154
+00:06:46,160 --> 00:06:50,800
+the internet and you run it
+
+155
+00:06:48,319 --> 00:06:51,919
+the mac os will start to do some kind of
+
+156
+00:06:50,800 --> 00:06:56,000
+checking
+
+157
+00:06:51,919 --> 00:06:59,039
+so for example it says emacs 27.1
+
+158
+00:06:56,000 --> 00:06:59,680
+app can be open because app cannot check
+
+159
+00:06:59,039 --> 00:07:02,479
+it for
+
+160
+00:06:59,680 --> 00:07:03,440
+malicious software you know apple you
+
+161
+00:07:02,479 --> 00:07:06,400
+know
+
+162
+00:07:03,440 --> 00:07:10,080
+they started to have this tight control
+
+163
+00:07:06,400 --> 00:07:10,080
+of what can run on your machine
+
+164
+00:07:11,280 --> 00:07:17,440
+what the hell can be open because apple
+
+165
+00:07:14,720 --> 00:07:20,080
+cannot check it for malicious software
+
+166
+00:07:17,440 --> 00:07:22,800
+the software needs to be updated contact
+
+167
+00:07:20,080 --> 00:07:22,800
+the developer
+
+168
+00:07:25,680 --> 00:07:35,360
+okay now this is a problem
+
+169
+00:07:30,880 --> 00:07:36,080
+what okay i'm actually running into an
+
+170
+00:07:35,360 --> 00:07:39,120
+issue
+
+171
+00:07:36,080 --> 00:07:45,840
+uh mac os one let me open this
+
+172
+00:07:39,120 --> 00:07:45,840
+application [ __ ] let me try it again
+
+173
+00:07:47,919 --> 00:07:51,280
+god this is a problem
+
+174
+00:07:55,919 --> 00:08:00,160
+okay i don't know how to solve this
+
+175
+00:07:57,680 --> 00:08:00,160
+usually
+
+176
+00:08:02,639 --> 00:08:13,199
+usually there is a preference setting
+
+177
+00:08:05,120 --> 00:08:17,360
+let's go to preference okay
+
+178
+00:08:13,199 --> 00:08:17,360
+security and privacy i guess
+
+179
+00:08:23,520 --> 00:08:28,800
+good morning jack davidson hey what are
+
+180
+00:08:26,319 --> 00:08:31,039
+your opinion on veeam
+
+181
+00:08:28,800 --> 00:08:33,599
+hello not sure about microwave software
+
+182
+00:08:31,039 --> 00:08:36,000
+but for ios development you have to pay
+
+183
+00:08:33,599 --> 00:08:38,800
+99 every year for your app to stay in
+
+184
+00:08:36,000 --> 00:08:38,800
+the store yeah
+
+185
+00:08:39,680 --> 00:08:44,800
+yeah the apple you know they have wood
+
+186
+00:08:42,000 --> 00:08:48,959
+garden and they are apple has become
+
+187
+00:08:44,800 --> 00:08:48,959
+very evil you know they make your
+
+188
+00:08:49,760 --> 00:08:53,200
+they make your iphone slower whenever
+
+189
+00:08:52,800 --> 00:08:56,800
+there
+
+190
+00:08:53,200 --> 00:08:58,880
+is a new iphone coming out you know they
+
+191
+00:08:56,800 --> 00:09:00,560
+they use software to make your iphone
+
+192
+00:08:58,880 --> 00:09:03,600
+intentionally slower
+
+193
+00:09:00,560 --> 00:09:06,080
+and the apple has been sued for that
+
+194
+00:09:03,600 --> 00:09:07,680
+so let's go to security and privacy i
+
+195
+00:09:06,080 --> 00:09:12,000
+think there's a check box
+
+196
+00:09:07,680 --> 00:09:12,000
+somewhere there let's try it again
+
+197
+00:09:12,560 --> 00:09:16,240
+this is a problem my friend this is a
+
+198
+00:09:14,720 --> 00:09:20,000
+problem
+
+199
+00:09:16,240 --> 00:09:20,000
+i just want to run emacs
+
+200
+00:09:20,839 --> 00:09:23,839
+uh
+
+201
+00:09:27,040 --> 00:09:33,279
+uh maybe we have to search the internet
+
+202
+00:09:30,399 --> 00:09:33,279
+general okay
+
+203
+00:09:33,680 --> 00:09:39,200
+a login password has been set for this
+
+204
+00:09:36,959 --> 00:09:42,720
+computer
+
+205
+00:09:39,200 --> 00:09:45,120
+okay yeah here emacs 27 app was blocked
+
+206
+00:09:42,720 --> 00:09:46,720
+from use because it's not from an
+
+207
+00:09:45,120 --> 00:09:50,240
+identified developer
+
+208
+00:09:46,720 --> 00:09:53,120
+that means you didn't pay [ __ ] apple
+
+209
+00:09:50,240 --> 00:09:53,120
+open anyway
+
+210
+00:10:03,279 --> 00:10:09,920
+okay now we finally passed that
+
+211
+00:10:07,440 --> 00:10:11,760
+so it tells me there's already a process
+
+212
+00:10:09,920 --> 00:10:13,600
+id running because i already have a
+
+213
+00:10:11,760 --> 00:10:18,079
+emacs running do i want to
+
+214
+00:10:13,600 --> 00:10:18,640
+use that desktop file appear to be used
+
+215
+00:10:18,079 --> 00:10:22,000
+by that
+
+216
+00:10:18,640 --> 00:10:22,000
+uh use it anyway yeah
+
+217
+00:10:23,600 --> 00:10:29,839
+okay so this is my um
+
+218
+00:10:26,720 --> 00:10:33,279
+let's see wait which version is what
+
+219
+00:10:29,839 --> 00:10:38,320
+so this is actually new version
+
+220
+00:10:33,279 --> 00:10:41,040
+and let's close the close this window
+
+221
+00:10:38,320 --> 00:10:42,399
+let's quit let's create my old version
+
+222
+00:10:41,040 --> 00:10:44,399
+of emacs okay
+
+223
+00:10:42,399 --> 00:10:47,839
+actually let's start again let's make
+
+224
+00:10:44,399 --> 00:10:47,839
+everything don't save
+
+225
+00:10:48,160 --> 00:10:54,800
+close that close that
+
+226
+00:10:51,360 --> 00:11:01,839
+okay close that back to terminal
+
+227
+00:10:54,800 --> 00:11:01,839
+start emax 27.1
+
+228
+00:11:04,959 --> 00:11:16,480
+fantastic now it's running
+
+229
+00:11:14,240 --> 00:11:17,440
+first of all let's do a version okay
+
+230
+00:11:16,480 --> 00:11:21,360
+meta x
+
+231
+00:11:17,440 --> 00:11:23,839
+version you see it says emacs 27
+
+232
+00:11:21,360 --> 00:11:25,200
+now it's too small for you to see this
+
+233
+00:11:23,839 --> 00:11:27,760
+magnify okay
+
+234
+00:11:25,200 --> 00:11:28,399
+so you switch to messages buffer so you
+
+235
+00:11:27,760 --> 00:11:32,720
+can see
+
+236
+00:11:28,399 --> 00:11:34,880
+in this line emacs 27
+
+237
+00:11:32,720 --> 00:11:36,959
+now when when you download when you uh
+
+238
+00:11:34,880 --> 00:11:39,120
+how do you so that's how you check uh
+
+239
+00:11:36,959 --> 00:11:40,880
+version number okay meta x version let's
+
+240
+00:11:39,120 --> 00:11:43,519
+go to my talk show page
+
+241
+00:11:40,880 --> 00:11:45,040
+show in browser let's go here go to
+
+242
+00:11:43,519 --> 00:11:49,120
+browser close it
+
+243
+00:11:45,040 --> 00:11:54,240
+close that go back to go back to browser
+
+244
+00:11:49,120 --> 00:11:54,240
+copy the url back to my talk show page
+
+245
+00:11:54,959 --> 00:12:01,440
+paste it here linkify show in browser
+
+246
+00:11:58,399 --> 00:12:04,480
+so we have download emacs for windows
+
+247
+00:12:01,440 --> 00:12:06,800
+and mac that's the location to download
+
+248
+00:12:04,480 --> 00:12:07,959
+then we are going to okay let me tell
+
+249
+00:12:06,800 --> 00:12:12,160
+you so meta x
+
+250
+00:12:07,959 --> 00:12:15,680
+mx m let me magnify okay
+
+251
+00:12:12,160 --> 00:12:17,040
+and let me start my key command log okay
+
+252
+00:12:15,680 --> 00:12:21,040
+so you can see
+
+253
+00:12:17,040 --> 00:12:24,480
+all my command i code so
+
+254
+00:12:21,040 --> 00:12:26,959
+so let's call command xr start command
+
+255
+00:12:24,480 --> 00:12:29,040
+log mod
+
+256
+00:12:26,959 --> 00:12:32,079
+okay so now you can see all my
+
+257
+00:12:29,040 --> 00:12:35,920
+keystrokes on the pink window
+
+258
+00:12:32,079 --> 00:12:39,839
+okay and now mxh
+
+259
+00:12:35,920 --> 00:12:39,839
+meta x version
+
+260
+00:12:42,240 --> 00:12:46,480
+to see the version number
+
+261
+00:12:47,519 --> 00:12:51,600
+showing browser there it is so that's uh
+
+262
+00:12:50,560 --> 00:12:55,200
+that's how you look at
+
+263
+00:12:51,600 --> 00:12:57,680
+emacs version now so when you want to
+
+264
+00:12:55,200 --> 00:12:58,880
+see so that's how you see the version
+
+265
+00:12:57,680 --> 00:13:01,120
+number now
+
+266
+00:12:58,880 --> 00:13:02,720
+but if you want to see what's new what's
+
+267
+00:13:01,120 --> 00:13:06,560
+the new feature in the current version
+
+268
+00:13:02,720 --> 00:13:10,399
+what you do is you call this command
+
+269
+00:13:06,560 --> 00:13:12,720
+uh news okay meta x
+
+270
+00:13:10,399 --> 00:13:12,720
+news
+
+271
+00:13:15,519 --> 00:13:18,639
+uh i i forgot what's the command name
+
+272
+00:13:17,760 --> 00:13:21,920
+but let's
+
+273
+00:13:18,639 --> 00:13:22,320
+you what you can do is uh ctrl h okay
+
+274
+00:13:21,920 --> 00:13:25,040
+press
+
+275
+00:13:22,320 --> 00:13:25,040
+ctrl h
+
+276
+00:13:25,760 --> 00:13:29,760
+then question mark okay then it'll tell
+
+277
+00:13:29,200 --> 00:13:32,399
+you
+
+278
+00:13:29,760 --> 00:13:35,200
+which one to see the news and i believe
+
+279
+00:13:32,399 --> 00:13:38,399
+it's n
+
+280
+00:13:35,200 --> 00:13:41,120
+yeah so n there it is
+
+281
+00:13:38,399 --> 00:13:41,839
+so what you do is you let's try it again
+
+282
+00:13:41,120 --> 00:13:47,120
+okay
+
+283
+00:13:41,839 --> 00:13:49,360
+control h n that's how you see it
+
+284
+00:13:47,120 --> 00:13:50,880
+so here is actually the command view
+
+285
+00:13:49,360 --> 00:13:54,079
+emacs news
+
+286
+00:13:50,880 --> 00:13:56,480
+so now it will open a file that's
+
+287
+00:13:54,079 --> 00:13:57,839
+gnu emacs news you can see on the top
+
+288
+00:13:56,480 --> 00:14:00,240
+let me magnify
+
+289
+00:13:57,839 --> 00:14:02,000
+okay so this is the new emacs news it's
+
+290
+00:14:00,240 --> 00:14:04,560
+actually just a file so you can go to
+
+291
+00:14:02,000 --> 00:14:05,199
+a directory you go to the directory you
+
+292
+00:14:04,560 --> 00:14:08,240
+can see
+
+293
+00:14:05,199 --> 00:14:10,399
+this is a file these these new
+
+294
+00:14:08,240 --> 00:14:11,760
+files are basically new features of
+
+295
+00:14:10,399 --> 00:14:16,079
+emacs they
+
+296
+00:14:11,760 --> 00:14:19,199
+you know um
+
+297
+00:14:16,079 --> 00:14:21,440
+news update i mean the the features
+
+298
+00:14:19,199 --> 00:14:22,959
+change log basically essentially like a
+
+299
+00:14:21,440 --> 00:14:26,399
+change log
+
+300
+00:14:22,959 --> 00:14:29,760
+change log okay so
+
+301
+00:14:26,399 --> 00:14:31,440
+so close that so we
+
+302
+00:14:29,760 --> 00:14:32,959
+are going to let me tell you some of the
+
+303
+00:14:31,440 --> 00:14:35,760
+features okay so so
+
+304
+00:14:32,959 --> 00:14:36,720
+this news file usually they open in a
+
+305
+00:14:35,760 --> 00:14:40,639
+outline mod
+
+306
+00:14:36,720 --> 00:14:44,000
+okay uh let's open a new window okay so
+
+307
+00:14:40,639 --> 00:14:47,600
+we okay let's go back to my talk
+
+308
+00:14:44,000 --> 00:14:51,040
+show talk show um
+
+309
+00:14:47,600 --> 00:14:53,680
+what what do i want to do let me just
+
+310
+00:14:51,040 --> 00:14:55,600
+explain instead of writing it so this
+
+311
+00:14:53,680 --> 00:14:59,199
+news file when you open it
+
+312
+00:14:55,600 --> 00:15:02,639
+ctrl will open this news file
+
+313
+00:14:59,199 --> 00:15:05,760
+and this will open in a mod called
+
+314
+00:15:02,639 --> 00:15:07,680
+outline mod you can see
+
+315
+00:15:05,760 --> 00:15:10,000
+in the mod line it says online that you
+
+316
+00:15:07,680 --> 00:15:13,120
+know you can invoke that that command
+
+317
+00:15:10,000 --> 00:15:15,040
+and let's try let's write it down online
+
+318
+00:15:13,120 --> 00:15:20,079
+mod okay
+
+319
+00:15:15,040 --> 00:15:20,079
+mh meta x online mod
+
+320
+00:15:24,639 --> 00:15:32,079
+and the outline mod you know online mod
+
+321
+00:15:28,560 --> 00:15:34,000
+is is is like org now if you are
+
+322
+00:15:32,079 --> 00:15:35,360
+if you use oak you are familiar you see
+
+323
+00:15:34,000 --> 00:15:38,320
+these outlines
+
+324
+00:15:35,360 --> 00:15:40,880
+online mod is the daddy of oak mod you
+
+325
+00:15:38,320 --> 00:15:44,160
+know oak mod is created by this uh
+
+326
+00:15:40,880 --> 00:15:45,040
+finnish guy uh northern european uh the
+
+327
+00:15:44,160 --> 00:15:48,160
+professor
+
+328
+00:15:45,040 --> 00:15:50,399
+he was a student of astronomy and
+
+329
+00:15:48,160 --> 00:15:51,759
+about 20 years ago he's taking notes
+
+330
+00:15:50,399 --> 00:15:54,079
+with outline mod
+
+331
+00:15:51,759 --> 00:15:55,040
+and he found that the outline mod the
+
+332
+00:15:54,079 --> 00:15:58,079
+keys
+
+333
+00:15:55,040 --> 00:16:00,959
+are cumbersome so he started to
+
+334
+00:15:58,079 --> 00:16:01,600
+improve it eventually that became oak
+
+335
+00:16:00,959 --> 00:16:04,399
+mod
+
+336
+00:16:01,600 --> 00:16:05,920
+so oakmod outline mod is the granddaddy
+
+337
+00:16:04,399 --> 00:16:09,120
+of oakmod
+
+338
+00:16:05,920 --> 00:16:11,680
+mod is basically a derivative
+
+339
+00:16:09,120 --> 00:16:14,160
+i mean with much much more features
+
+340
+00:16:11,680 --> 00:16:16,639
+after 20 years
+
+341
+00:16:14,160 --> 00:16:18,880
+so online mod you can let me try yeah
+
+342
+00:16:16,639 --> 00:16:19,600
+the so the outline mod the keys for
+
+343
+00:16:18,880 --> 00:16:21,839
+online mod
+
+344
+00:16:19,600 --> 00:16:22,800
+and oak mod are rather completely
+
+345
+00:16:21,839 --> 00:16:25,519
+different
+
+346
+00:16:22,800 --> 00:16:27,040
+you know online mod keys is very so it's
+
+347
+00:16:25,519 --> 00:16:29,199
+cumbersome control c
+
+348
+00:16:27,040 --> 00:16:31,600
+control something something that's why
+
+349
+00:16:29,199 --> 00:16:34,000
+oak mod you know he created oak mod
+
+350
+00:16:31,600 --> 00:16:36,000
+now when you are in a new mod you can
+
+351
+00:16:34,000 --> 00:16:37,839
+see the documentation of the mod what
+
+352
+00:16:36,000 --> 00:16:40,880
+you do is you call describe
+
+353
+00:16:37,839 --> 00:16:44,240
+mod okay let me try it
+
+354
+00:16:40,880 --> 00:16:47,600
+oh the shortcut is ctrl h
+
+355
+00:16:44,240 --> 00:16:50,560
+m okay control h m
+
+356
+00:16:47,600 --> 00:16:51,759
+you see it pops up a window this this
+
+357
+00:16:50,560 --> 00:16:54,560
+command is called
+
+358
+00:16:51,759 --> 00:16:56,399
+uh describe mod you can see here
+
+359
+00:16:54,560 --> 00:16:59,360
+describe mod
+
+360
+00:16:56,399 --> 00:17:01,680
+so uh so there you have the
+
+361
+00:16:59,360 --> 00:17:02,560
+documentation for the online mod you can
+
+362
+00:17:01,680 --> 00:17:06,160
+see
+
+363
+00:17:02,560 --> 00:17:06,880
+you can see these uh shortcuts you know
+
+364
+00:17:06,160 --> 00:17:10,000
+control c
+
+365
+00:17:06,880 --> 00:17:12,240
+control a outline show all you know for
+
+366
+00:17:10,000 --> 00:17:15,679
+headings and stuff so anyway
+
+367
+00:17:12,240 --> 00:17:18,160
+close that uh let me go
+
+368
+00:17:15,679 --> 00:17:20,720
+uh let me let me tell you uh describe
+
+369
+00:17:18,160 --> 00:17:20,720
+mod okay
+
+370
+00:17:22,079 --> 00:17:26,559
+i mean i'm i'm i'm also giving you some
+
+371
+00:17:24,720 --> 00:17:33,120
+of the emacs list
+
+372
+00:17:26,559 --> 00:17:35,200
+tutorials um okay show in browser you
+
+373
+00:17:33,120 --> 00:17:35,679
+can you can you can use describe mod
+
+374
+00:17:35,200 --> 00:17:39,280
+it's
+
+375
+00:17:35,679 --> 00:17:39,280
+very useful uh
+
+376
+00:17:40,720 --> 00:17:46,720
+so let's go back to the news file
+
+377
+00:17:44,160 --> 00:17:48,080
+so once you you are in news file just
+
+378
+00:17:46,720 --> 00:17:51,120
+change it to
+
+379
+00:17:48,080 --> 00:17:53,200
+uh you can just change it to uh org mod
+
+380
+00:17:51,120 --> 00:17:54,400
+because org mod is much more powerful
+
+381
+00:17:53,200 --> 00:17:56,559
+and it's
+
+382
+00:17:54,400 --> 00:17:58,720
+basically compatible with outline mods
+
+383
+00:17:56,559 --> 00:18:02,320
+so let's go to old mod
+
+384
+00:17:58,720 --> 00:18:05,919
+co oak mod okay
+
+385
+00:18:02,320 --> 00:18:07,200
+now we are in oak mod magnify now in oak
+
+386
+00:18:05,919 --> 00:18:11,440
+mod you can press
+
+387
+00:18:07,200 --> 00:18:14,559
+tab key to to collapse the outline
+
+388
+00:18:11,440 --> 00:18:17,840
+so uh what's the let's see
+
+389
+00:18:14,559 --> 00:18:20,640
+shift tab there it is you see you press
+
+390
+00:18:17,840 --> 00:18:23,840
+shift tab you you see the entire outline
+
+391
+00:18:20,640 --> 00:18:23,840
+let's let's try it again
+
+392
+00:18:24,480 --> 00:18:31,520
+shift tab shift tab okay shift tab
+
+393
+00:18:28,320 --> 00:18:35,280
+shift tab they cycle between collapsing
+
+394
+00:18:31,520 --> 00:18:37,760
+and stuff so anyways
+
+395
+00:18:35,280 --> 00:18:39,200
+so here is the list of features of emacs
+
+396
+00:18:37,760 --> 00:18:41,760
+27 lots of them
+
+397
+00:18:39,200 --> 00:18:43,200
+so if you let's try shift tab again
+
+398
+00:18:41,760 --> 00:18:45,919
+shift tab
+
+399
+00:18:43,200 --> 00:18:46,960
+lots of things you know it takes days to
+
+400
+00:18:45,919 --> 00:18:50,000
+go through them
+
+401
+00:18:46,960 --> 00:18:52,000
+and it's usually esoteric for example
+
+402
+00:18:50,000 --> 00:18:54,559
+uh if i'm going to start to read it for
+
+403
+00:18:52,000 --> 00:18:57,600
+example installation changes
+
+404
+00:18:54,559 --> 00:18:59,840
+emacs now uses gmp the gnu multiple
+
+405
+00:18:57,600 --> 00:19:02,640
+precision library okay that's
+
+406
+00:18:59,840 --> 00:19:04,799
+that's esoteric unless you code c you
+
+407
+00:19:02,640 --> 00:19:08,320
+wouldn't know what that is
+
+408
+00:19:04,799 --> 00:19:11,280
+then emacs can now use half bus
+
+409
+00:19:08,320 --> 00:19:11,760
+as its shaping engine i have no idea
+
+410
+00:19:11,280 --> 00:19:15,679
+what that
+
+411
+00:19:11,760 --> 00:19:16,640
+is uh then the new configuration option
+
+412
+00:19:15,679 --> 00:19:19,039
+with json
+
+413
+00:19:16,640 --> 00:19:20,320
+adds native support for json okay that's
+
+414
+00:19:19,039 --> 00:19:22,720
+fantastic
+
+415
+00:19:20,320 --> 00:19:24,080
+then it says the configuration option
+
+416
+00:19:22,720 --> 00:19:27,200
+with carrio
+
+417
+00:19:24,080 --> 00:19:30,080
+is no longer experimental okay
+
+418
+00:19:27,200 --> 00:19:30,880
+so there's a lot of to go through now as
+
+419
+00:19:30,080 --> 00:19:32,799
+a user
+
+420
+00:19:30,880 --> 00:19:34,720
+you know if you are just a normal emacs
+
+421
+00:19:32,799 --> 00:19:38,640
+user usually you go through these
+
+422
+00:19:34,720 --> 00:19:41,520
+it's not helpful i mean the ratio of
+
+423
+00:19:38,640 --> 00:19:42,320
+information you get and the time spent
+
+424
+00:19:41,520 --> 00:19:45,280
+to read it
+
+425
+00:19:42,320 --> 00:19:46,160
+is not usually not worthy because
+
+426
+00:19:45,280 --> 00:19:49,120
+there's tons of
+
+427
+00:19:46,160 --> 00:19:49,600
+stuff because you you don't you are not
+
+428
+00:19:49,120 --> 00:19:52,960
+you know
+
+429
+00:19:49,600 --> 00:19:55,200
+developing emacs for example this
+
+430
+00:19:52,960 --> 00:19:57,440
+so let's shift tab again let's see the
+
+431
+00:19:55,200 --> 00:20:00,320
+outline
+
+432
+00:19:57,440 --> 00:20:02,720
+so editing so for example editing
+
+433
+00:20:00,320 --> 00:20:05,280
+changes in imax27 that would be
+
+434
+00:20:02,720 --> 00:20:07,760
+interesting so let's expand that
+
+435
+00:20:05,280 --> 00:20:08,640
+so this is typically the part you want
+
+436
+00:20:07,760 --> 00:20:11,280
+to read
+
+437
+00:20:08,640 --> 00:20:11,760
+because that's relates to editing but
+
+438
+00:20:11,280 --> 00:20:14,799
+again
+
+439
+00:20:11,760 --> 00:20:17,840
+usually they are esoteric
+
+440
+00:20:14,799 --> 00:20:19,120
+like is of no concern to you most of
+
+441
+00:20:17,840 --> 00:20:22,480
+them
+
+442
+00:20:19,120 --> 00:20:26,159
+but anyway let's so but someone this
+
+443
+00:20:22,480 --> 00:20:28,000
+uh super thank you super in discord if
+
+444
+00:20:26,159 --> 00:20:29,679
+you haven't already joined our discord
+
+445
+00:20:28,000 --> 00:20:34,159
+okay
+
+446
+00:20:29,679 --> 00:20:36,000
+so so you are watching sally kung
+
+447
+00:20:34,159 --> 00:20:38,640
+you know i announced that i'm going to
+
+448
+00:20:36,000 --> 00:20:41,440
+do a live stream and cortez
+
+449
+00:20:38,640 --> 00:20:41,440
+posted that
+
+450
+00:20:41,679 --> 00:20:48,240
+so anyway so so thanks to super he
+
+451
+00:20:44,960 --> 00:20:52,960
+he he give us some of the uh
+
+452
+00:20:48,240 --> 00:20:52,960
+very fantastic features of emacs 27
+
+453
+00:20:53,200 --> 00:20:58,480
+so let's let me go through them okay
+
+454
+00:20:56,400 --> 00:20:59,679
+common and questions posted okay let me
+
+455
+00:20:58,480 --> 00:21:02,400
+read the comments
+
+456
+00:20:59,679 --> 00:21:03,840
+and then i'm going to go through i'm
+
+457
+00:21:02,400 --> 00:21:06,240
+going to give you my
+
+458
+00:21:03,840 --> 00:21:07,360
+i'm going to read the fantastic new
+
+459
+00:21:06,240 --> 00:21:08,799
+features i'm
+
+460
+00:21:07,360 --> 00:21:10,480
+going to tell you what i think about
+
+461
+00:21:08,799 --> 00:21:12,720
+them i'm going to try them
+
+462
+00:21:10,480 --> 00:21:14,720
+um and i'm going to uh valid you know
+
+463
+00:21:12,720 --> 00:21:17,360
+try them and validate verify it
+
+464
+00:21:14,720 --> 00:21:19,280
+and i'm going to give you my impressions
+
+465
+00:21:17,360 --> 00:21:21,039
+in real time
+
+466
+00:21:19,280 --> 00:21:22,880
+so let's see what you guys are saying
+
+467
+00:21:21,039 --> 00:21:24,640
+how long have i been talking i've been
+
+468
+00:21:22,880 --> 00:21:28,880
+talking for
+
+469
+00:21:24,640 --> 00:21:28,880
+22 minutes so time goes fast so
+
+470
+00:21:29,440 --> 00:21:33,840
+okay so they make you go to another menu
+
+471
+00:21:31,840 --> 00:21:36,480
+where you can just run it okay it fakes
+
+472
+00:21:33,840 --> 00:21:37,520
+security okay windows uac is the same
+
+473
+00:21:36,480 --> 00:21:42,240
+exactly yeah
+
+474
+00:21:37,520 --> 00:21:45,760
+hello mac os still allow um
+
+475
+00:21:42,240 --> 00:21:48,559
+hey scott good morning scott uh
+
+476
+00:21:45,760 --> 00:21:49,919
+good evening good evening scott has been
+
+477
+00:21:48,559 --> 00:21:55,200
+um
+
+478
+00:21:49,919 --> 00:21:58,730
+uh scott has been using emacs since 1990
+
+479
+00:21:55,200 --> 00:22:01,600
+right yeah 10 years earlier than me
+
+480
+00:21:58,730 --> 00:22:04,640
+[Laughter]
+
+481
+00:22:01,600 --> 00:22:07,520
+good evening uh uh
+
+482
+00:22:04,640 --> 00:22:09,840
+what uh so good idea can you can you
+
+483
+00:22:07,520 --> 00:22:10,720
+compare oakmod to html to be more
+
+484
+00:22:09,840 --> 00:22:14,159
+readable
+
+485
+00:22:10,720 --> 00:22:17,520
+can you good idea and you can compile
+
+486
+00:22:14,159 --> 00:22:20,320
+oakmod to html
+
+487
+00:22:17,520 --> 00:22:22,880
+right i mean you you can export ht okama
+
+488
+00:22:20,320 --> 00:22:26,240
+to html yeah let's try that okay
+
+489
+00:22:22,880 --> 00:22:29,280
+so ctrl h m
+
+490
+00:22:26,240 --> 00:22:32,799
+uh wait uh control h n
+
+491
+00:22:29,280 --> 00:22:35,679
+shows the news file and now
+
+492
+00:22:32,799 --> 00:22:36,960
+let's copy the whole thing close it
+
+493
+00:22:35,679 --> 00:22:40,000
+create a new buffer
+
+494
+00:22:36,960 --> 00:22:43,440
+paste it here actually let's close it go
+
+495
+00:22:40,000 --> 00:22:45,440
+to my emacs uh blog showing browser
+
+496
+00:22:43,440 --> 00:22:46,960
+then i'm going to create a new file here
+
+497
+00:22:45,440 --> 00:22:50,240
+so open a new buffer
+
+498
+00:22:46,960 --> 00:22:51,679
+paste the entire news file here you can
+
+499
+00:22:50,240 --> 00:22:54,320
+see the scroll bar that's
+
+500
+00:22:51,679 --> 00:22:57,039
+uh that's like you can you can see the
+
+501
+00:22:54,320 --> 00:22:59,280
+scoreboard that's like
+
+502
+00:22:57,039 --> 00:23:02,080
+three thousand two hundred lines three
+
+503
+00:22:59,280 --> 00:23:06,880
+thousand two hundred lines now save it
+
+504
+00:23:02,080 --> 00:23:10,720
+uh save it as um i want to save it in
+
+505
+00:23:06,880 --> 00:23:15,600
+miscellaneous emacs news
+
+506
+00:23:10,720 --> 00:23:15,600
+emacs 27 27 okay
+
+507
+00:23:15,919 --> 00:23:20,320
+dot h dot org
+
+508
+00:23:20,840 --> 00:23:26,000
+okay does not
+
+509
+00:23:22,480 --> 00:23:29,360
+exist uh wait uh [ __ ]
+
+510
+00:23:26,000 --> 00:23:36,640
+i want to save it in
+
+511
+00:23:29,360 --> 00:23:39,600
+wait uh i want to save it in
+
+512
+00:23:36,640 --> 00:23:41,120
+miscellaneous okay save in that
+
+513
+00:23:39,600 --> 00:23:44,400
+directory
+
+514
+00:23:41,120 --> 00:23:46,559
+okay now go to the go to my go to the
+
+515
+00:23:44,400 --> 00:23:49,520
+directory you can see i have a space
+
+516
+00:23:46,559 --> 00:23:50,880
+i have a space in that file name i want
+
+517
+00:23:49,520 --> 00:23:54,480
+to change that so
+
+518
+00:23:50,880 --> 00:23:57,760
+so go to top dial toggle read only
+
+519
+00:23:54,480 --> 00:24:00,799
+and just change the name ctrl c ctrl c
+
+520
+00:23:57,760 --> 00:24:03,039
+to finalize it so i change the name with
+
+521
+00:24:00,799 --> 00:24:06,720
+a underscore instead of space
+
+522
+00:24:03,039 --> 00:24:11,840
+open it copy the file path close it
+
+523
+00:24:06,720 --> 00:24:11,840
+close it back to my that's in my emacs
+
+524
+00:24:13,200 --> 00:24:19,679
+that's my emacs blog open a new
+
+525
+00:24:16,559 --> 00:24:23,360
+section paste the link linkify
+
+526
+00:24:19,679 --> 00:24:26,400
+make a paragraph show in browser
+
+527
+00:24:23,360 --> 00:24:31,279
+so here is the emax27 oak file
+
+528
+00:24:26,400 --> 00:24:36,159
+now let's export it so open it
+
+529
+00:24:31,279 --> 00:24:36,159
+uh meta x org export
+
+530
+00:24:36,480 --> 00:24:40,880
+yeah okay oh i don't use org mod much so
+
+531
+00:24:39,520 --> 00:24:44,720
+i don't remember the keys
+
+532
+00:24:40,880 --> 00:24:44,720
+so let's just try oak export
+
+533
+00:24:44,799 --> 00:24:50,240
+what's the keys again for export org
+
+534
+00:24:47,360 --> 00:24:54,080
+export dispatch okay yeah so that
+
+535
+00:24:50,240 --> 00:25:00,320
+then then h html file
+
+536
+00:24:54,080 --> 00:25:03,440
+there it is uh wait
+
+537
+00:25:00,320 --> 00:25:15,440
+yeah [ __ ]
+
+538
+00:25:03,440 --> 00:25:18,720
+the og mod where are we
+
+539
+00:25:15,440 --> 00:25:23,039
+i i hate you know ogmod has their
+
+540
+00:25:18,720 --> 00:25:26,640
+own uh esoteric files i mean not files
+
+541
+00:25:23,039 --> 00:25:29,200
+so let's do control hm describe
+
+542
+00:25:26,640 --> 00:25:30,159
+mod okay so that will tell me what the
+
+543
+00:25:29,200 --> 00:25:33,360
+keys
+
+544
+00:25:30,159 --> 00:25:36,720
+so ctrl h m
+
+545
+00:25:33,360 --> 00:25:40,000
+magnify search for
+
+546
+00:25:36,720 --> 00:25:41,600
+um wait this is our line wait
+
+547
+00:25:40,000 --> 00:25:43,600
+i need to switch oh yeah i need to
+
+548
+00:25:41,600 --> 00:25:46,400
+switch to oakmod so
+
+549
+00:25:43,600 --> 00:25:46,400
+um open
+
+550
+00:25:46,799 --> 00:25:54,559
+okay this is uh oh yeah so
+
+551
+00:25:51,279 --> 00:25:57,279
+close it reopen it
+
+552
+00:25:54,559 --> 00:25:57,840
+it's in online mod why is it yeah it's
+
+553
+00:25:57,279 --> 00:26:01,679
+stupid
+
+554
+00:25:57,840 --> 00:26:04,320
+[ __ ] okay so you see i i created this
+
+555
+00:26:01,679 --> 00:26:07,919
+file and this file is named oak
+
+556
+00:26:04,320 --> 00:26:08,720
+you know emacs27.org so if a file name
+
+557
+00:26:07,919 --> 00:26:11,039
+ends in org
+
+558
+00:26:08,720 --> 00:26:13,120
+it should open in oak mod but it's not
+
+559
+00:26:11,039 --> 00:26:13,919
+you can see the mod line says online why
+
+560
+00:26:13,120 --> 00:26:16,480
+is that
+
+561
+00:26:13,919 --> 00:26:17,840
+because you see at the end of the file
+
+562
+00:26:16,480 --> 00:26:19,919
+they have local variables
+
+563
+00:26:17,840 --> 00:26:20,960
+it says smart outline you don't want
+
+564
+00:26:19,919 --> 00:26:24,400
+that it's stupid
+
+565
+00:26:20,960 --> 00:26:28,080
+so delete that line save it
+
+566
+00:26:24,400 --> 00:26:28,640
+close it reopen it magnify it now you
+
+567
+00:26:28,080 --> 00:26:31,840
+can see
+
+568
+00:26:28,640 --> 00:26:34,400
+in the mod line it says oak mod right
+
+569
+00:26:31,840 --> 00:26:35,360
+now now we are good to go now let's do
+
+570
+00:26:34,400 --> 00:26:38,640
+uh
+
+571
+00:26:35,360 --> 00:26:43,039
+describe mod ctrl h
+
+572
+00:26:38,640 --> 00:26:47,760
+m okay now we see the ogma documentation
+
+573
+00:26:43,039 --> 00:26:47,760
+magnify now let's search for export
+
+574
+00:26:48,320 --> 00:26:52,000
+there it is so here is the here's the
+
+575
+00:26:50,960 --> 00:26:56,000
+key stroke you want to
+
+576
+00:26:52,000 --> 00:26:59,760
+call ctrl c ctrl e okay close it
+
+577
+00:26:56,000 --> 00:27:06,320
+ctrl c ctrl e
+
+578
+00:26:59,760 --> 00:27:08,880
+then h
+
+579
+00:27:06,320 --> 00:27:08,880
+then edge
+
+580
+00:27:10,000 --> 00:27:14,799
+edge okay you have to type h twice
+
+581
+00:27:16,240 --> 00:27:23,440
+yeah that's done so now go back to diet
+
+582
+00:27:19,760 --> 00:27:27,520
+you can see it created a new file update
+
+583
+00:27:23,440 --> 00:27:30,799
+you can see it created new file open it
+
+584
+00:27:27,520 --> 00:27:34,399
+okay so this is the html exported
+
+585
+00:27:30,799 --> 00:27:37,440
+showing browser
+
+586
+00:27:34,399 --> 00:27:40,559
+so there it is the oak mod
+
+587
+00:27:37,440 --> 00:27:43,760
+you know the news for the
+
+588
+00:27:40,559 --> 00:27:46,880
+emacs 27 huge you can see the scroll bar
+
+589
+00:27:43,760 --> 00:27:50,880
+it's a huge document
+
+590
+00:27:46,880 --> 00:27:51,440
+in this okay but okay so let's forget
+
+591
+00:27:50,880 --> 00:27:54,640
+that
+
+592
+00:27:51,440 --> 00:27:58,720
+open it copy the file path close close
+
+593
+00:27:54,640 --> 00:27:58,720
+close uh let's put it here
+
+594
+00:27:59,520 --> 00:28:06,640
+uh wait what's going on
+
+595
+00:28:03,039 --> 00:28:09,360
+yeah the stupid title wait
+
+596
+00:28:06,640 --> 00:28:10,240
+i'm i'm just going to do some thing
+
+597
+00:28:09,360 --> 00:28:13,840
+quickly so
+
+598
+00:28:10,240 --> 00:28:17,279
+the title is incorrect well rather my
+
+599
+00:28:13,840 --> 00:28:19,200
+my my
+
+600
+00:28:17,279 --> 00:28:20,480
+yeah the title is incorrect you see the
+
+601
+00:28:19,200 --> 00:28:22,720
+title it becomes
+
+602
+00:28:20,480 --> 00:28:22,720
+uh
+
+603
+00:28:24,080 --> 00:28:27,200
+the title becomes
+
+604
+00:28:27,760 --> 00:28:34,000
+i'm not sure what character that is
+
+605
+00:28:31,120 --> 00:28:34,799
+uh anyway the that's uh that's because
+
+606
+00:28:34,000 --> 00:28:38,480
+of the org
+
+607
+00:28:34,799 --> 00:28:40,480
+export the title is incorrect
+
+608
+00:28:38,480 --> 00:28:45,840
+so anyway let's go through let's go
+
+609
+00:28:40,480 --> 00:28:45,840
+through the interesting things okay
+
+610
+00:28:46,960 --> 00:28:52,159
+uh let's go to the interesting things
+
+611
+00:28:48,960 --> 00:28:54,000
+let's close close okay so emacs 27
+
+612
+00:28:52,159 --> 00:28:55,679
+let's see what's the interesting things
+
+613
+00:28:54,000 --> 00:28:58,399
+uh go back to my
+
+614
+00:28:55,679 --> 00:29:00,159
+talk page so building support for
+
+615
+00:28:58,399 --> 00:29:03,840
+arbitrary size integers
+
+616
+00:29:00,159 --> 00:29:06,880
+that's fantastic um you know why uh
+
+617
+00:29:03,840 --> 00:29:06,880
+you know why because
+
+618
+00:29:07,360 --> 00:29:14,240
+emacs in emacs buffer you have
+
+619
+00:29:10,640 --> 00:29:16,559
+uh whenever your cursor
+
+620
+00:29:14,240 --> 00:29:17,840
+cursor has a cruiser position in in the
+
+621
+00:29:16,559 --> 00:29:20,399
+beginning of a buffer
+
+622
+00:29:17,840 --> 00:29:22,559
+the position is one always so you can
+
+623
+00:29:20,399 --> 00:29:24,960
+see the cruiser position by calling this
+
+624
+00:29:22,559 --> 00:29:28,320
+command
+
+625
+00:29:24,960 --> 00:29:30,640
+uh the command is called describe
+
+626
+00:29:28,320 --> 00:29:30,640
+wait
+
+627
+00:29:39,120 --> 00:29:46,080
+uh describe char okay so the
+
+628
+00:29:42,159 --> 00:29:48,799
+command name is called describe char so
+
+629
+00:29:46,080 --> 00:29:50,799
+so you call describe char i have a
+
+630
+00:29:48,799 --> 00:29:53,200
+keyboard shortcut in soft like keys
+
+631
+00:29:50,799 --> 00:29:57,360
+which is
+
+632
+00:29:53,200 --> 00:30:00,159
+uh space hc okay so you can see
+
+633
+00:29:57,360 --> 00:30:00,559
+i'm my my cruiser my cruiser is right
+
+634
+00:30:00,159 --> 00:30:02,960
+here
+
+635
+00:30:00,559 --> 00:30:05,760
+and it says and if you go to the pop-up
+
+636
+00:30:02,960 --> 00:30:09,600
+window it says
+
+637
+00:30:05,760 --> 00:30:14,000
+uh you see the first line position 168.
+
+638
+00:30:09,600 --> 00:30:16,640
+so so cruz you know kusa has a position
+
+639
+00:30:14,000 --> 00:30:19,120
+and at the end of the cruiser position
+
+640
+00:30:16,640 --> 00:30:22,320
+you have
+
+641
+00:30:19,120 --> 00:30:26,520
+um you know
+
+642
+00:30:22,320 --> 00:30:28,159
+at the end right now i'm at position
+
+643
+00:30:26,520 --> 00:30:30,880
+2591
+
+644
+00:30:28,159 --> 00:30:31,600
+now there's a problem so so if you have
+
+645
+00:30:30,880 --> 00:30:34,640
+a huge
+
+646
+00:30:31,600 --> 00:30:36,799
+file let's say two gigabyte file so
+
+647
+00:30:34,640 --> 00:30:37,919
+the cruiser position will be a huge
+
+648
+00:30:36,799 --> 00:30:40,559
+number
+
+649
+00:30:37,919 --> 00:30:41,679
+in the previous e-max version that
+
+650
+00:30:40,559 --> 00:30:45,760
+number will be
+
+651
+00:30:41,679 --> 00:30:48,559
+beyond the maximal integer
+
+652
+00:30:45,760 --> 00:30:49,760
+that e-max have you know beyond the
+
+653
+00:30:48,559 --> 00:30:53,039
+maximum integer
+
+654
+00:30:49,760 --> 00:30:56,000
+so so that effectively
+
+655
+00:30:53,039 --> 00:30:56,640
+creates a limit of how large a file you
+
+656
+00:30:56,000 --> 00:31:00,320
+can open
+
+657
+00:30:56,640 --> 00:31:01,120
+in emacs so that has been a problem for
+
+658
+00:31:00,320 --> 00:31:04,960
+you know
+
+659
+00:31:01,120 --> 00:31:06,559
+for for 10 years because file gets
+
+660
+00:31:04,960 --> 00:31:09,200
+larger and larger so now
+
+661
+00:31:06,559 --> 00:31:11,279
+finally they have a built-in support for
+
+662
+00:31:09,200 --> 00:31:14,799
+arbitrary size integers
+
+663
+00:31:11,279 --> 00:31:18,720
+so that is that is actually one of the
+
+664
+00:31:14,799 --> 00:31:21,200
+item we see
+
+665
+00:31:18,720 --> 00:31:21,760
+uh am i going too slow like i think i'm
+
+666
+00:31:21,200 --> 00:31:25,279
+going to
+
+667
+00:31:21,760 --> 00:31:28,320
+too finely detailed uh let's go to
+
+668
+00:31:25,279 --> 00:31:31,200
+okay control h n
+
+669
+00:31:28,320 --> 00:31:32,640
+let's go back to the news file so
+
+670
+00:31:31,200 --> 00:31:35,840
+magnify
+
+671
+00:31:32,640 --> 00:31:38,720
+so you see this this section emacs now
+
+672
+00:31:35,840 --> 00:31:39,600
+uses gmp the glue multiple precision
+
+673
+00:31:38,720 --> 00:31:42,080
+library
+
+674
+00:31:39,600 --> 00:31:42,960
+so basically that you know from what i
+
+675
+00:31:42,080 --> 00:31:46,080
+understand that
+
+676
+00:31:42,960 --> 00:31:48,399
+that multiple precision
+
+677
+00:31:46,080 --> 00:31:49,279
+you know is it essentially gives you
+
+678
+00:31:48,399 --> 00:31:52,880
+infinite
+
+679
+00:31:49,279 --> 00:31:55,679
+uh infinite uh integer size
+
+680
+00:31:52,880 --> 00:31:55,679
+something like that
+
+681
+00:31:58,080 --> 00:32:01,760
+okay so so so now you can open large
+
+682
+00:32:00,559 --> 00:32:05,039
+files i suppose
+
+683
+00:32:01,760 --> 00:32:07,039
+so that's a great thing uh text
+
+684
+00:32:05,039 --> 00:32:08,559
+shaping with heartburst i don't know
+
+685
+00:32:07,039 --> 00:32:11,440
+what they what is that
+
+686
+00:32:08,559 --> 00:32:15,840
+uh let me let me go to the discord and
+
+687
+00:32:11,440 --> 00:32:15,840
+go to here and copy the text
+
+688
+00:32:20,880 --> 00:32:28,320
+so uh super gave us
+
+689
+00:32:24,240 --> 00:32:32,159
+these news so let's copy that
+
+690
+00:32:28,320 --> 00:32:34,720
+copy go back to talk show and let's
+
+691
+00:32:32,159 --> 00:32:34,720
+paste it
+
+692
+00:32:37,840 --> 00:32:47,279
+make a list make a list and uh
+
+693
+00:32:43,039 --> 00:32:48,799
+showing browser so now it's easier to
+
+694
+00:32:47,279 --> 00:32:51,919
+see
+
+695
+00:32:48,799 --> 00:32:54,240
+native support for json parsing i i want
+
+696
+00:32:51,919 --> 00:32:56,320
+to um
+
+697
+00:32:54,240 --> 00:32:59,679
+okay portable done being used instead of
+
+698
+00:32:56,320 --> 00:33:03,200
+on hex okay i can tell you what that is
+
+699
+00:32:59,679 --> 00:33:04,080
+uh support for xdg conventions for init
+
+700
+00:33:03,200 --> 00:33:06,960
+file yeah
+
+701
+00:33:04,080 --> 00:33:10,159
+um additional early you need early
+
+702
+00:33:06,960 --> 00:33:12,559
+innate initialization file
+
+703
+00:33:10,159 --> 00:33:14,480
+lexical binding is used by default
+
+704
+00:33:12,559 --> 00:33:17,200
+that's fantastic
+
+705
+00:33:14,480 --> 00:33:17,600
+building support for tab bar and top tab
+
+706
+00:33:17,200 --> 00:33:20,000
+line
+
+707
+00:33:17,600 --> 00:33:22,000
+now that that is the most useful this is
+
+708
+00:33:20,000 --> 00:33:24,799
+the this one is the most easy to
+
+709
+00:33:22,000 --> 00:33:26,720
+understand and useful let's see if i can
+
+710
+00:33:24,799 --> 00:33:27,919
+try it you know many of these other
+
+711
+00:33:26,720 --> 00:33:29,919
+items it takes
+
+712
+00:33:27,919 --> 00:33:31,679
+a lot of time to explain you know take
+
+713
+00:33:29,919 --> 00:33:33,519
+five or a minute five minutes you know
+
+714
+00:33:31,679 --> 00:33:35,279
+several minutes to explain each one of
+
+715
+00:33:33,519 --> 00:33:38,159
+them
+
+716
+00:33:35,279 --> 00:33:39,840
+uh but let's try the tab bar support i
+
+717
+00:33:38,159 --> 00:33:41,279
+always i want i've been wanting to see
+
+718
+00:33:39,840 --> 00:33:45,840
+that for a long time
+
+719
+00:33:41,279 --> 00:33:48,880
+so ctrl h n go to the news file
+
+720
+00:33:45,840 --> 00:33:48,880
+search for tab
+
+721
+00:33:50,080 --> 00:33:55,919
+tab bar okay so
+
+722
+00:33:53,760 --> 00:33:57,519
+let's see if i can try the tab bar
+
+723
+00:33:55,919 --> 00:34:00,559
+what's uh you know i want to know the
+
+724
+00:33:57,519 --> 00:34:03,840
+command name okay so here it is
+
+725
+00:34:00,559 --> 00:34:06,399
+type bar mod so the new command tab
+
+726
+00:34:03,840 --> 00:34:07,760
+bar mod enables the tab by the top of
+
+727
+00:34:06,399 --> 00:34:10,079
+each frame
+
+728
+00:34:07,760 --> 00:34:11,839
+including text terminal frames wow
+
+729
+00:34:10,079 --> 00:34:12,639
+that's amazing amazing we're gonna try
+
+730
+00:34:11,839 --> 00:34:14,960
+that
+
+731
+00:34:12,639 --> 00:34:15,839
+where you can use tabs to switch between
+
+732
+00:34:14,960 --> 00:34:18,000
+name
+
+733
+00:34:15,839 --> 00:34:20,000
+named persistent window configurations
+
+734
+00:34:18,000 --> 00:34:22,159
+you know the [ __ ] emacs
+
+735
+00:34:20,000 --> 00:34:24,000
+the new you know people they use these
+
+736
+00:34:22,159 --> 00:34:25,760
+jargons nobody
+
+737
+00:34:24,000 --> 00:34:27,520
+nobody can understand what the [ __ ] they
+
+738
+00:34:25,760 --> 00:34:29,760
+are talking about
+
+739
+00:34:27,520 --> 00:34:32,159
+so they so this so there's a new type of
+
+740
+00:34:29,760 --> 00:34:34,159
+mod okay enables the tab by the top of
+
+741
+00:34:32,159 --> 00:34:36,079
+each frame
+
+742
+00:34:34,159 --> 00:34:37,440
+e-max frame just means window okay
+
+743
+00:34:36,079 --> 00:34:39,919
+stupid emacs people
+
+744
+00:34:37,440 --> 00:34:40,480
+it just means a window okay like window
+
+745
+00:34:39,919 --> 00:34:44,159
+window
+
+746
+00:34:40,480 --> 00:34:46,960
+window but but emacs call those frames
+
+747
+00:34:44,159 --> 00:34:47,520
+then it says including tty frames go
+
+748
+00:34:46,960 --> 00:34:50,240
+[ __ ]
+
+749
+00:34:47,520 --> 00:34:50,720
+[ __ ] yourself the [ __ ] nuts e-max
+
+750
+00:34:50,240 --> 00:34:53,919
+green
+
+751
+00:34:50,720 --> 00:34:56,320
+green max idiots that is why e-max never
+
+752
+00:34:53,919 --> 00:34:58,320
+becomes popular okay that's that is why
+
+753
+00:34:56,320 --> 00:35:00,640
+so many other reasons but that this is
+
+754
+00:34:58,320 --> 00:35:02,400
+why and these nerds refuse they don't
+
+755
+00:35:00,640 --> 00:35:02,880
+understand they refuse to change they
+
+756
+00:35:02,400 --> 00:35:05,440
+think oh
+
+757
+00:35:02,880 --> 00:35:07,280
+this is technically correct you know so
+
+758
+00:35:05,440 --> 00:35:07,839
+tty frame what does that mean it just
+
+759
+00:35:07,280 --> 00:35:10,320
+means
+
+760
+00:35:07,839 --> 00:35:11,760
+it runs in text terminal when you start
+
+761
+00:35:10,320 --> 00:35:13,760
+emacs in terminal
+
+762
+00:35:11,760 --> 00:35:16,320
+this feature will also work in terminal
+
+763
+00:35:13,760 --> 00:35:18,320
+that's what it means
+
+764
+00:35:16,320 --> 00:35:20,560
+so then it says where you can use tabs
+
+765
+00:35:18,320 --> 00:35:22,079
+to switch between named persistent
+
+766
+00:35:20,560 --> 00:35:24,720
+window configurations
+
+767
+00:35:22,079 --> 00:35:25,839
+[ __ ] this you know they are saying you
+
+768
+00:35:24,720 --> 00:35:28,079
+can use your tabs
+
+769
+00:35:25,839 --> 00:35:30,240
+so what does that mean it just means
+
+770
+00:35:28,079 --> 00:35:32,000
+tabs just like a browser okay you have
+
+771
+00:35:30,240 --> 00:35:33,520
+tabs just like a browser you can switch
+
+772
+00:35:32,000 --> 00:35:36,240
+tabs between
+
+773
+00:35:33,520 --> 00:35:36,560
+windows but these nodes don't understand
+
+774
+00:35:36,240 --> 00:35:39,839
+for
+
+775
+00:35:36,560 --> 00:35:42,400
+you know they are like that
+
+776
+00:35:39,839 --> 00:35:45,839
+so type mod we're gonna try okay so
+
+777
+00:35:42,400 --> 00:35:45,839
+let's see what else um
+
+778
+00:35:45,920 --> 00:35:53,920
+let's just try it so meta x
+
+779
+00:35:49,599 --> 00:35:56,880
+tab bar mod let's see what we got
+
+780
+00:35:53,920 --> 00:35:58,880
+what the [ __ ] it says tab bar mod
+
+781
+00:35:56,880 --> 00:36:03,520
+enabled but i don't see
+
+782
+00:35:58,880 --> 00:36:06,480
+it okay oh god
+
+783
+00:36:03,520 --> 00:36:08,640
+they should say you know they this emacs
+
+784
+00:36:06,480 --> 00:36:11,599
+people they are just incomprehensible
+
+785
+00:36:08,640 --> 00:36:12,000
+facts you know that's that is why every
+
+786
+00:36:11,599 --> 00:36:14,560
+time
+
+787
+00:36:12,000 --> 00:36:15,520
+with when whenever there's a new emacs
+
+788
+00:36:14,560 --> 00:36:17,680
+release
+
+789
+00:36:15,520 --> 00:36:19,839
+then you have a you know a couple of
+
+790
+00:36:17,680 --> 00:36:22,880
+bloggers including myself
+
+791
+00:36:19,839 --> 00:36:25,119
+we write your blog tells
+
+792
+00:36:22,880 --> 00:36:26,320
+tells you you know the emacs new
+
+793
+00:36:25,119 --> 00:36:29,119
+features
+
+794
+00:36:26,320 --> 00:36:30,400
+which you can actually understand okay
+
+795
+00:36:29,119 --> 00:36:34,480
+which command to call
+
+796
+00:36:30,400 --> 00:36:36,640
+and how do you configure it you know
+
+797
+00:36:34,480 --> 00:36:38,000
+but the gnu emacs people they can do
+
+798
+00:36:36,640 --> 00:36:39,920
+that you know
+
+799
+00:36:38,000 --> 00:36:41,040
+they'll say oh no resources no that's
+
+800
+00:36:39,920 --> 00:36:43,680
+not true because they
+
+801
+00:36:41,040 --> 00:36:44,160
+they they really wanted to stick to this
+
+802
+00:36:43,680 --> 00:36:47,520
+nerd
+
+803
+00:36:44,160 --> 00:36:50,079
+talk and they part of the reason
+
+804
+00:36:47,520 --> 00:36:51,760
+is that they are actually incapable just
+
+805
+00:36:50,079 --> 00:36:55,359
+like the linux people they are
+
+806
+00:36:51,760 --> 00:36:55,839
+incapable of of of writing technical
+
+807
+00:36:55,359 --> 00:36:58,560
+writing
+
+808
+00:36:55,839 --> 00:37:00,320
+and in a way that other people can
+
+809
+00:36:58,560 --> 00:37:03,200
+understand
+
+810
+00:37:00,320 --> 00:37:05,359
+and also partly because they refuse why
+
+811
+00:37:03,200 --> 00:37:07,200
+they refuse they because they
+
+812
+00:37:05,359 --> 00:37:09,599
+you know in the programming community
+
+813
+00:37:07,200 --> 00:37:12,079
+they have the this mentality real
+
+814
+00:37:09,599 --> 00:37:12,640
+men you know real men's editor emacs
+
+815
+00:37:12,079 --> 00:37:14,960
+real
+
+816
+00:37:12,640 --> 00:37:16,960
+men men's programming language c you
+
+817
+00:37:14,960 --> 00:37:20,000
+know they want things to be as
+
+818
+00:37:16,960 --> 00:37:20,560
+difficult as possible because they it
+
+819
+00:37:20,000 --> 00:37:24,720
+functions
+
+820
+00:37:20,560 --> 00:37:26,880
+as a filter filter out those
+
+821
+00:37:24,720 --> 00:37:27,760
+uh stupid people or newbies they you
+
+822
+00:37:26,880 --> 00:37:30,720
+know they
+
+823
+00:37:27,760 --> 00:37:32,480
+they kind they have some kind of elite
+
+824
+00:37:30,720 --> 00:37:35,280
+mentality that's what these
+
+825
+00:37:32,480 --> 00:37:36,240
+nerd tech gigging [ __ ] are you know
+
+826
+00:37:35,280 --> 00:37:39,280
+including the
+
+827
+00:37:36,240 --> 00:37:42,480
+unix people linux people 3bs people
+
+828
+00:37:39,280 --> 00:37:46,240
+it's you know in a lot of people in in
+
+829
+00:37:42,480 --> 00:37:48,800
+it's it's part of their mindset
+
+830
+00:37:46,240 --> 00:37:51,680
+you know so so some partly because they
+
+831
+00:37:48,800 --> 00:37:55,599
+are incapable of technical writing
+
+832
+00:37:51,680 --> 00:37:56,800
+great great lucid technical writing they
+
+833
+00:37:55,599 --> 00:37:59,359
+are incapable of
+
+834
+00:37:56,800 --> 00:38:00,640
+they they tend to write dribbles or dry
+
+835
+00:37:59,359 --> 00:38:03,200
+stuff you know
+
+836
+00:38:00,640 --> 00:38:04,720
+then they then partly because they don't
+
+837
+00:38:03,200 --> 00:38:07,200
+want to because they have a
+
+838
+00:38:04,720 --> 00:38:07,920
+elite mentality they they want things to
+
+839
+00:38:07,200 --> 00:38:11,119
+be like
+
+840
+00:38:07,920 --> 00:38:11,440
+esoteric so that for example if you are
+
+841
+00:38:11,119 --> 00:38:13,920
+you
+
+842
+00:38:11,440 --> 00:38:14,880
+uh emax phonetics i know many of you are
+
+843
+00:38:13,920 --> 00:38:17,359
+you know and
+
+844
+00:38:14,880 --> 00:38:18,960
+and vim people when when you read it you
+
+845
+00:38:17,359 --> 00:38:21,599
+you get excited oh my god
+
+846
+00:38:18,960 --> 00:38:23,440
+oh my god taps you know these esoteric
+
+847
+00:38:21,599 --> 00:38:26,720
+terminologies
+
+848
+00:38:23,440 --> 00:38:29,839
+is [ __ ] stupid people
+
+849
+00:38:26,720 --> 00:38:32,560
+uh then then then okay so so i just
+
+850
+00:38:29,839 --> 00:38:35,200
+tried tap mod and it's not working
+
+851
+00:38:32,560 --> 00:38:36,560
+so what's what's going on i i i can you
+
+852
+00:38:35,200 --> 00:38:39,440
+know i have some guesses
+
+853
+00:38:36,560 --> 00:38:40,240
+because possibly because i turned off
+
+854
+00:38:39,440 --> 00:38:43,920
+the
+
+855
+00:38:40,240 --> 00:38:48,000
+um you know the gui so let's go to my
+
+856
+00:38:43,920 --> 00:38:52,320
+emacs gui okay emacs go to my
+
+857
+00:38:48,000 --> 00:38:55,200
+bookmark style open fast um
+
+858
+00:38:52,320 --> 00:38:55,520
+start open file fast open a bookmark of
+
+859
+00:38:55,200 --> 00:38:58,400
+my
+
+860
+00:38:55,520 --> 00:38:59,200
+a brief file then go to the directory so
+
+861
+00:38:58,400 --> 00:39:02,079
+here is my
+
+862
+00:38:59,200 --> 00:39:02,960
+all my emacs in it then go to the file
+
+863
+00:39:02,079 --> 00:39:06,400
+settings
+
+864
+00:39:02,960 --> 00:39:06,800
+search for settings okay so this is all
+
+865
+00:39:06,400 --> 00:39:09,520
+my
+
+866
+00:39:06,800 --> 00:39:10,400
+uh the settings file is all the basic
+
+867
+00:39:09,520 --> 00:39:13,200
+the most
+
+868
+00:39:10,400 --> 00:39:14,400
+fundamental emacs in it without
+
+869
+00:39:13,200 --> 00:39:18,480
+requiring
+
+870
+00:39:14,400 --> 00:39:19,520
+any uh modules or packages you download
+
+871
+00:39:18,480 --> 00:39:22,960
+so this is the most
+
+872
+00:39:19,520 --> 00:39:26,160
+fundamental so i have here
+
+873
+00:39:22,960 --> 00:39:26,640
+somewhere that prevents uh the two bar
+
+874
+00:39:26,160 --> 00:39:28,880
+lines
+
+875
+00:39:26,640 --> 00:39:30,720
+maybe that's that's the one that's the
+
+876
+00:39:28,880 --> 00:39:32,960
+bar that says copy paste
+
+877
+00:39:30,720 --> 00:39:34,960
+open file things like that so let's
+
+878
+00:39:32,960 --> 00:39:38,480
+remove that line
+
+879
+00:39:34,960 --> 00:39:42,880
+okay so remove that line save it
+
+880
+00:39:38,480 --> 00:39:45,680
+quit emacs let's restart emax
+
+881
+00:39:42,880 --> 00:39:47,839
+emacs 27 okay let's restart i want i
+
+882
+00:39:45,680 --> 00:39:50,480
+just want to try the tab bar mod
+
+883
+00:39:47,839 --> 00:39:50,480
+tap boss
+
+884
+00:39:52,240 --> 00:39:57,520
+okay warning warning okay this is a new
+
+885
+00:39:54,960 --> 00:39:58,640
+feature warning a necessary call to
+
+886
+00:39:57,520 --> 00:40:01,440
+package in use
+
+887
+00:39:58,640 --> 00:40:03,599
+initialize in init file okay that that
+
+888
+00:40:01,440 --> 00:40:06,640
+must be another new change now it's not
+
+889
+00:40:03,599 --> 00:40:09,119
+necessary to call package initialize
+
+890
+00:40:06,640 --> 00:40:10,720
+probably because it's already built in
+
+891
+00:40:09,119 --> 00:40:13,440
+it's already you know
+
+892
+00:40:10,720 --> 00:40:13,839
+okay let's ignore that for now wait
+
+893
+00:40:13,440 --> 00:40:17,359
+let's
+
+894
+00:40:13,839 --> 00:40:18,079
+verify okay control h n go to the news
+
+895
+00:40:17,359 --> 00:40:22,839
+file
+
+896
+00:40:18,079 --> 00:40:24,400
+and search for package initialize search
+
+897
+00:40:22,839 --> 00:40:27,760
+for
+
+898
+00:40:24,400 --> 00:40:31,119
+okay there it is magnify uh
+
+899
+00:40:27,760 --> 00:40:34,079
+magnify magnify so it says
+
+900
+00:40:31,119 --> 00:40:35,599
+installed packages are now activated
+
+901
+00:40:34,079 --> 00:40:39,040
+before
+
+902
+00:40:35,599 --> 00:40:42,640
+loading the init file okay
+
+903
+00:40:39,040 --> 00:40:46,720
+installed packages are now activated
+
+904
+00:40:42,640 --> 00:40:52,160
+before loading the init file
+
+905
+00:40:46,720 --> 00:40:54,800
+oh that's interesting huh
+
+906
+00:40:52,160 --> 00:40:56,160
+before loading the init file okay so it
+
+907
+00:40:54,800 --> 00:40:59,119
+actually
+
+908
+00:40:56,160 --> 00:41:00,079
+essentially it so it when emacs starts
+
+909
+00:40:59,119 --> 00:41:02,160
+it will load
+
+910
+00:41:00,079 --> 00:41:05,040
+your lpar directory you know you have
+
+911
+00:41:02,160 --> 00:41:08,240
+the lp directory that's the
+
+912
+00:41:05,040 --> 00:41:12,240
+let me show you okay emacs init
+
+913
+00:41:08,240 --> 00:41:15,520
+let's go to um so you go to your emacs
+
+914
+00:41:12,240 --> 00:41:18,720
+dot d directory lp directory
+
+915
+00:41:15,520 --> 00:41:21,920
+go to the directory so here is
+
+916
+00:41:18,720 --> 00:41:25,119
+where your packages are installed when
+
+917
+00:41:21,920 --> 00:41:29,760
+if you are installing them from melpa or
+
+918
+00:41:25,119 --> 00:41:33,359
+elpa so so so apparently now emacs will
+
+919
+00:41:29,760 --> 00:41:38,480
+load this these packages
+
+920
+00:41:33,359 --> 00:41:38,480
+before reading your init file
+
+921
+00:41:39,040 --> 00:41:43,040
+so okay that's a nice feature so that
+
+922
+00:41:41,359 --> 00:41:46,480
+means i have to go to my
+
+923
+00:41:43,040 --> 00:41:49,680
+emacs init i have to close that
+
+924
+00:41:46,480 --> 00:41:53,040
+go to my emacs init file and
+
+925
+00:41:49,680 --> 00:41:56,960
+remove the line here you see
+
+926
+00:41:53,040 --> 00:41:59,760
+i probably have to remove this line
+
+927
+00:41:56,960 --> 00:42:01,280
+and maybe remove that line as well you
+
+928
+00:41:59,760 --> 00:42:05,200
+have to try you have to
+
+929
+00:42:01,280 --> 00:42:08,319
+do trial and error and restart and see
+
+930
+00:42:05,200 --> 00:42:10,640
+or you have to read this you know this
+
+931
+00:42:08,319 --> 00:42:13,119
+news file carefully
+
+932
+00:42:10,640 --> 00:42:14,000
+yeah they actually give you a code
+
+933
+00:42:13,119 --> 00:42:17,440
+example this
+
+934
+00:42:14,000 --> 00:42:20,400
+this is good now this is a good you know
+
+935
+00:42:17,440 --> 00:42:22,400
+this code example is good so anyway
+
+936
+00:42:20,400 --> 00:42:26,079
+let's start the tab bar mod
+
+937
+00:42:22,400 --> 00:42:28,240
+okay meta x wait let's start
+
+938
+00:42:26,079 --> 00:42:29,359
+my command first uh exhaust start
+
+939
+00:42:28,240 --> 00:42:32,720
+command log
+
+940
+00:42:29,359 --> 00:42:36,880
+okay so now you can see my command again
+
+941
+00:42:32,720 --> 00:42:41,200
+on the pink window now let's uh meta x
+
+942
+00:42:36,880 --> 00:42:41,200
+tab bar mod please
+
+943
+00:42:42,000 --> 00:42:45,599
+wait wait wait hold on a second uh i'm
+
+944
+00:42:45,119 --> 00:42:48,960
+still
+
+945
+00:42:45,599 --> 00:42:49,440
+not seeing the bar wait new oh they okay
+
+946
+00:42:48,960 --> 00:42:52,319
+so
+
+947
+00:42:49,440 --> 00:42:55,040
+okay you know what's going on now we
+
+948
+00:42:52,319 --> 00:42:55,040
+have a bar
+
+949
+00:42:55,520 --> 00:42:59,599
+but why is my other windows doesn't have
+
+950
+00:42:57,599 --> 00:43:01,920
+the bar because
+
+951
+00:42:59,599 --> 00:43:03,040
+every time you quit emacs will remember
+
+952
+00:43:01,920 --> 00:43:05,440
+your windows
+
+953
+00:43:03,040 --> 00:43:07,440
+configuration so that's why so let's
+
+954
+00:43:05,440 --> 00:43:10,240
+close this window
+
+955
+00:43:07,440 --> 00:43:11,040
+close this window open a new window so
+
+956
+00:43:10,240 --> 00:43:14,319
+you can see
+
+957
+00:43:11,040 --> 00:43:15,520
+those things now let's try tap our mod
+
+958
+00:43:14,319 --> 00:43:19,040
+again
+
+959
+00:43:15,520 --> 00:43:22,000
+type bar mod i don't see tabs
+
+960
+00:43:19,040 --> 00:43:22,560
+what the [ __ ] okay that means i need to
+
+961
+00:43:22,000 --> 00:43:26,400
+read
+
+962
+00:43:22,560 --> 00:43:30,079
+the news file so control h n
+
+963
+00:43:26,400 --> 00:43:32,400
+search for tab
+
+964
+00:43:30,079 --> 00:43:32,400
+bar
+
+965
+00:43:34,880 --> 00:43:38,839
+okay so let's see what what do we have
+
+966
+00:43:37,440 --> 00:43:41,839
+to do
+
+967
+00:43:38,839 --> 00:43:41,839
+here
+
+968
+00:43:43,680 --> 00:43:52,720
+so go to the top search for tab bar
+
+969
+00:43:48,240 --> 00:43:52,720
+go to the top search for tab
+
+970
+00:43:52,839 --> 00:43:55,839
+bar
+
+971
+00:44:00,000 --> 00:44:03,359
+so let's see what it says the new uh
+
+972
+00:44:02,800 --> 00:44:05,680
+wait
+
+973
+00:44:03,359 --> 00:44:05,680
+um
+
+974
+00:44:07,040 --> 00:44:14,560
+so new the new command tab tab enables
+
+975
+00:44:10,319 --> 00:44:14,560
+the tab bar at top of each frame
+
+976
+00:44:15,040 --> 00:44:22,000
+uh control xt
+
+977
+00:44:18,800 --> 00:44:25,920
+sequence is the new prefix key for tab
+
+978
+00:44:22,000 --> 00:44:28,400
+related commands okay control x t2
+
+979
+00:44:25,920 --> 00:44:31,280
+creates a new tab
+
+980
+00:44:28,400 --> 00:44:32,640
+okay blah blah blah tab related commands
+
+981
+00:44:31,280 --> 00:44:37,839
+are availa available
+
+982
+00:44:32,640 --> 00:44:37,839
+even when tab bar mod is disabled okay
+
+983
+00:44:38,240 --> 00:44:42,800
+the x resource tab bar class tab bar
+
+984
+00:44:41,599 --> 00:44:45,200
+enables the tab
+
+985
+00:44:42,800 --> 00:44:47,680
+bar blah blah blah the user option tab
+
+986
+00:44:45,200 --> 00:44:51,839
+bar position specifies where to show the
+
+987
+00:44:47,680 --> 00:44:51,839
+tab bar
+
+988
+00:44:52,880 --> 00:45:04,960
+wait what what emacs version am i using
+
+989
+00:44:56,480 --> 00:45:08,400
+version 27 yeah so where's my tab bar
+
+990
+00:45:04,960 --> 00:45:12,560
+okay so it says read the new
+
+991
+00:45:08,400 --> 00:45:14,880
+info not emacs top tab box to
+
+992
+00:45:12,560 --> 00:45:17,280
+for full description of all related
+
+993
+00:45:14,880 --> 00:45:17,280
+feature
+
+994
+00:45:17,680 --> 00:45:22,640
+what what the [ __ ] why you would
+
+995
+00:45:20,800 --> 00:45:25,200
+you know i've been using emacs for 20
+
+996
+00:45:22,640 --> 00:45:27,680
+years i cannot you know i have no i
+
+997
+00:45:25,200 --> 00:45:29,280
+i spent 10 minutes i cannot get the tap
+
+998
+00:45:27,680 --> 00:45:31,200
+bar to show
+
+999
+00:45:29,280 --> 00:45:32,920
+what does that mean for other emacs
+
+1000
+00:45:31,200 --> 00:45:35,920
+users this is so
+
+1001
+00:45:32,920 --> 00:45:35,920
+[ __ ]
+
+1002
+00:45:41,040 --> 00:45:47,839
+okay so uh so do you guys know
+
+1003
+00:45:48,880 --> 00:45:53,119
+just tried it in in linux and it works
+
+1004
+00:45:51,440 --> 00:45:57,440
+both in x windows mod
+
+1005
+00:45:53,119 --> 00:45:57,440
+and within a terminal okay so
+
+1006
+00:45:58,880 --> 00:46:02,960
+so okay so apparently it worked for
+
+1007
+00:46:02,160 --> 00:46:06,160
+scott
+
+1008
+00:46:02,960 --> 00:46:09,920
+okay try making a new tab bar okay ctrl
+
+1009
+00:46:06,160 --> 00:46:14,480
+x wait ctrl
+
+1010
+00:46:09,920 --> 00:46:17,920
+x t 2.
+
+1011
+00:46:14,480 --> 00:46:17,920
+i'm not seeing any tabs
+
+1012
+00:46:20,319 --> 00:46:24,640
+okay now let's try one more one more
+
+1013
+00:46:22,640 --> 00:46:27,920
+time one last time quit emacs
+
+1014
+00:46:24,640 --> 00:46:29,839
+quit the [ __ ] now let's start emacs
+
+1015
+00:46:27,920 --> 00:46:33,040
+again this time
+
+1016
+00:46:29,839 --> 00:46:37,119
+this time with a option uh
+
+1017
+00:46:33,040 --> 00:46:39,760
+dash queue dash q means download your
+
+1018
+00:46:37,119 --> 00:46:42,880
+unique files so we are running a plane
+
+1019
+00:46:39,760 --> 00:46:46,079
+gnu emacs 27 27.1
+
+1020
+00:46:42,880 --> 00:46:48,560
+okay so now i ha now
+
+1021
+00:46:46,079 --> 00:46:50,160
+you know this is playing gnu e max 27 i
+
+1022
+00:46:48,560 --> 00:46:52,640
+don't have my keys
+
+1023
+00:46:50,160 --> 00:46:53,520
+so i have to use the default emacs keys
+
+1024
+00:46:52,640 --> 00:46:57,200
+i don't remember
+
+1025
+00:46:53,520 --> 00:47:00,400
+all the keys so now meta x
+
+1026
+00:46:57,200 --> 00:47:03,520
+meta x wait
+
+1027
+00:47:00,400 --> 00:47:06,720
+uh meta is this key meta x
+
+1028
+00:47:03,520 --> 00:47:10,160
+tab bar
+
+1029
+00:47:06,720 --> 00:47:13,280
+mod no no no
+
+1030
+00:47:10,160 --> 00:47:15,680
+no no [ __ ] tabs
+
+1031
+00:47:13,280 --> 00:47:15,680
+[ __ ]
+
+1032
+00:47:17,839 --> 00:47:22,240
+okay it says maybe hello says maybe it's
+
+1033
+00:47:20,319 --> 00:47:26,079
+not ported to mac os yet
+
+1034
+00:47:22,240 --> 00:47:29,920
+okay screws you know the the glue emacs
+
+1035
+00:47:26,079 --> 00:47:32,240
+people they intentionally by purpose
+
+1036
+00:47:29,920 --> 00:47:33,599
+intentionally by richard stowman they
+
+1037
+00:47:32,240 --> 00:47:36,000
+want to prevent
+
+1038
+00:47:33,599 --> 00:47:36,640
+any feature in mac or windows that's
+
+1039
+00:47:36,000 --> 00:47:39,040
+that
+
+1040
+00:47:36,640 --> 00:47:40,720
+that might be better than linux so
+
+1041
+00:47:39,040 --> 00:47:44,319
+whenever something works on mac
+
+1042
+00:47:40,720 --> 00:47:44,800
+they i mean this is intentional explicit
+
+1043
+00:47:44,319 --> 00:47:47,280
+you know
+
+1044
+00:47:44,800 --> 00:47:49,760
+you can go to this happened many times
+
+1045
+00:47:47,280 --> 00:47:52,720
+controversy giant controversy
+
+1046
+00:47:49,760 --> 00:47:55,200
+they in richard stoneman himself not
+
+1047
+00:47:52,720 --> 00:47:57,359
+others usually not others not the
+
+1048
+00:47:55,200 --> 00:47:58,319
+not the current maintainer richard
+
+1049
+00:47:57,359 --> 00:48:00,319
+stoneman
+
+1050
+00:47:58,319 --> 00:48:02,480
+even though he's not technically the
+
+1051
+00:48:00,319 --> 00:48:02,800
+maintainer the leader of the emacs you
+
+1052
+00:48:02,480 --> 00:48:05,920
+know
+
+1053
+00:48:02,800 --> 00:48:08,319
+he but however he sit he sit in the
+
+1054
+00:48:05,920 --> 00:48:10,319
+emacs grenoble imax dev mailing this
+
+1055
+00:48:08,319 --> 00:48:11,839
+background and he just wrote his
+
+1056
+00:48:10,319 --> 00:48:13,920
+opinions these [ __ ]
+
+1057
+00:48:11,839 --> 00:48:15,520
+richard stowman he said oh we should
+
+1058
+00:48:13,920 --> 00:48:17,280
+remove that you know
+
+1059
+00:48:15,520 --> 00:48:19,280
+even though technically he's not the
+
+1060
+00:48:17,280 --> 00:48:22,160
+leader he's he's supposed to
+
+1061
+00:48:19,280 --> 00:48:23,040
+support you know by by their explicit
+
+1062
+00:48:22,160 --> 00:48:26,240
+statement
+
+1063
+00:48:23,040 --> 00:48:28,720
+he has no right to to give the direction
+
+1064
+00:48:26,240 --> 00:48:32,000
+of emacs in any technical sense
+
+1065
+00:48:28,720 --> 00:48:34,880
+except when it comes to political issues
+
+1066
+00:48:32,000 --> 00:48:37,280
+such as licensing such as any packages
+
+1067
+00:48:34,880 --> 00:48:39,680
+that relates to
+
+1068
+00:48:37,280 --> 00:48:41,359
+politics then he can say you know what
+
+1069
+00:48:39,680 --> 00:48:44,000
+we should do
+
+1070
+00:48:41,359 --> 00:48:46,400
+but however in the past 10 years he has
+
+1071
+00:48:44,000 --> 00:48:48,960
+voiced opinions that
+
+1072
+00:48:46,400 --> 00:48:49,520
+that that are purely technical opinions
+
+1073
+00:48:48,960 --> 00:48:54,079
+and
+
+1074
+00:48:49,520 --> 00:48:58,000
+and uh you know tell others what to do
+
+1075
+00:48:54,079 --> 00:49:00,319
+this this richard stowman scum bag
+
+1076
+00:48:58,000 --> 00:49:01,280
+so let's try one more time to get the
+
+1077
+00:49:00,319 --> 00:49:05,040
+tapas
+
+1078
+00:49:01,280 --> 00:49:09,520
+mod run okay so now no init file
+
+1079
+00:49:05,040 --> 00:49:11,119
+and dash nw nw means no windows system
+
+1080
+00:49:09,520 --> 00:49:13,760
+so we are going to run emacs
+
+1081
+00:49:11,119 --> 00:49:15,119
+in pure terminal let's see maybe if that
+
+1082
+00:49:13,760 --> 00:49:18,240
+feature is in terminal
+
+1083
+00:49:15,119 --> 00:49:18,880
+okay run it okay so we are in terminal
+
+1084
+00:49:18,240 --> 00:49:21,599
+so let's
+
+1085
+00:49:18,880 --> 00:49:21,599
+meter x
+
+1086
+00:49:22,640 --> 00:49:31,040
+tap bar mod
+
+1087
+00:49:27,440 --> 00:49:34,480
+oh there it is there it is tab bar mod
+
+1088
+00:49:31,040 --> 00:49:38,319
+so you can see a tab there now
+
+1089
+00:49:34,480 --> 00:49:42,839
+control x control x
+
+1090
+00:49:38,319 --> 00:49:45,599
+control f that's for opening a new file
+
+1091
+00:49:42,839 --> 00:49:48,720
+uh wait cancel ctrl
+
+1092
+00:49:45,599 --> 00:49:50,160
+g let's open a new buffer so i want to
+
+1093
+00:49:48,720 --> 00:49:53,440
+see more tabs okay
+
+1094
+00:49:50,160 --> 00:49:56,559
+so control control
+
+1095
+00:49:53,440 --> 00:50:00,000
+x control b
+
+1096
+00:49:56,559 --> 00:50:02,400
+okay that's list buffers control x b
+
+1097
+00:50:00,000 --> 00:50:03,440
+okay switch to a new buffer now type a
+
+1098
+00:50:02,400 --> 00:50:06,800
+random name
+
+1099
+00:50:03,440 --> 00:50:09,119
+that's how you open a new buffer
+
+1100
+00:50:06,800 --> 00:50:11,280
+okay now we have a new buffer now i want
+
+1101
+00:50:09,119 --> 00:50:16,319
+to unsplit ctrl x
+
+1102
+00:50:11,280 --> 00:50:20,880
+1 i have a new buffer but i don't see
+
+1103
+00:50:16,319 --> 00:50:24,960
+the tabs so can let's try again ctrl
+
+1104
+00:50:20,880 --> 00:50:24,960
+x t 2.
+
+1105
+00:50:25,520 --> 00:50:30,960
+oh so new tab so so you know
+
+1106
+00:50:28,960 --> 00:50:32,559
+at this point i have to play around
+
+1107
+00:50:30,960 --> 00:50:36,720
+exactly to see what the
+
+1108
+00:50:32,559 --> 00:50:39,040
+what what they mean by tab
+
+1109
+00:50:36,720 --> 00:50:40,480
+so so far it does not looks like
+
+1110
+00:50:39,040 --> 00:50:43,119
+browsers tab
+
+1111
+00:50:40,480 --> 00:50:44,160
+or maybe i don't know for sure you see
+
+1112
+00:50:43,119 --> 00:50:47,520
+because right now
+
+1113
+00:50:44,160 --> 00:50:51,119
+the buffer honute is
+
+1114
+00:50:47,520 --> 00:50:51,520
+having two tabs now let's switch buffer
+
+1115
+00:50:51,119 --> 00:50:56,160
+okay
+
+1116
+00:50:51,520 --> 00:50:59,280
+ctrl ctrl x control
+
+1117
+00:50:56,160 --> 00:51:02,160
+wait uh ctrl x b
+
+1118
+00:50:59,280 --> 00:51:03,839
+let's go to scratch okay now you see the
+
+1119
+00:51:02,160 --> 00:51:07,280
+tab it says
+
+1120
+00:51:03,839 --> 00:51:07,280
+honute and scratch
+
+1121
+00:51:07,440 --> 00:51:11,440
+and of course you can click on that no
+
+1122
+00:51:09,520 --> 00:51:14,160
+you cannot click on that
+
+1123
+00:51:11,440 --> 00:51:16,000
+anyway so that's that's a tab bar so i
+
+1124
+00:51:14,160 --> 00:51:19,760
+have to look into
+
+1125
+00:51:16,000 --> 00:51:22,319
+but you know i need to run emacs in gui
+
+1126
+00:51:19,760 --> 00:51:24,160
+because in g so what's the difference
+
+1127
+00:51:22,319 --> 00:51:26,640
+which one is better
+
+1128
+00:51:24,160 --> 00:51:29,040
+running e-max in group in terminal text
+
+1129
+00:51:26,640 --> 00:51:31,280
+terminal or gui gui is better okay
+
+1130
+00:51:29,040 --> 00:51:35,359
+because in gui
+
+1131
+00:51:31,280 --> 00:51:38,400
+e-max will be able to detect much more
+
+1132
+00:51:35,359 --> 00:51:40,160
+keys key you know key binding why
+
+1133
+00:51:38,400 --> 00:51:43,520
+because for example
+
+1134
+00:51:40,160 --> 00:51:46,720
+in terminal it is impossible
+
+1135
+00:51:43,520 --> 00:51:46,720
+to distinguish
+
+1136
+00:51:48,839 --> 00:51:54,319
+control
+
+1137
+00:51:51,599 --> 00:51:56,000
+it's for example it's impossible to
+
+1138
+00:51:54,319 --> 00:51:59,280
+distinguish
+
+1139
+00:51:56,000 --> 00:52:02,400
+the enter key versus control
+
+1140
+00:51:59,280 --> 00:52:03,440
+m okay for example for example like i
+
+1141
+00:52:02,400 --> 00:52:07,599
+can press ctrl
+
+1142
+00:52:03,440 --> 00:52:10,880
+m right now control m is the same as uh
+
+1143
+00:52:07,599 --> 00:52:10,880
+let me let me type it okay
+
+1144
+00:52:11,119 --> 00:52:18,319
+control plus m
+
+1145
+00:52:14,319 --> 00:52:21,520
+is the same as the enter key and
+
+1146
+00:52:18,319 --> 00:52:26,400
+in terminal there is
+
+1147
+00:52:21,520 --> 00:52:29,040
+no way to distinguish
+
+1148
+00:52:26,400 --> 00:52:31,280
+them that's because the technology of
+
+1149
+00:52:29,040 --> 00:52:33,760
+terminal you send in key sequences
+
+1150
+00:52:31,280 --> 00:52:35,040
+there's no way to distinguish them but
+
+1151
+00:52:33,760 --> 00:52:38,800
+on the other hand on the
+
+1152
+00:52:35,040 --> 00:52:41,520
+on the gui terminal on a gui e-max
+
+1153
+00:52:38,800 --> 00:52:42,800
+you can distribute distinguish that and
+
+1154
+00:52:41,520 --> 00:52:45,280
+also there's another
+
+1155
+00:52:42,800 --> 00:52:45,839
+more important difference for example in
+
+1156
+00:52:45,280 --> 00:52:49,440
+terminal
+
+1157
+00:52:45,839 --> 00:52:51,440
+it's impossible to distinguish control
+
+1158
+00:52:49,440 --> 00:52:53,599
+capital letter versus control lower
+
+1159
+00:52:51,440 --> 00:52:56,720
+later they will be the same
+
+1160
+00:52:53,599 --> 00:52:57,440
+so it so in terminal it reduces lots of
+
+1161
+00:52:56,720 --> 00:53:01,040
+your
+
+1162
+00:52:57,440 --> 00:53:04,720
+key binding possibilities
+
+1163
+00:53:01,040 --> 00:53:07,760
+and again i have a um
+
+1164
+00:53:04,720 --> 00:53:10,160
+you know i have a tutorial you know the
+
+1165
+00:53:07,760 --> 00:53:12,720
+i tell you everything about emacs keys
+
+1166
+00:53:10,160 --> 00:53:16,000
+you just go to my emacs website
+
+1167
+00:53:12,720 --> 00:53:17,280
+uh emacs keys overview emacs key
+
+1168
+00:53:16,000 --> 00:53:20,800
+overview
+
+1169
+00:53:17,280 --> 00:53:21,280
+now go to how to define keys so i have
+
+1170
+00:53:20,800 --> 00:53:23,760
+all this
+
+1171
+00:53:21,280 --> 00:53:24,960
+information detailed there you know
+
+1172
+00:53:23,760 --> 00:53:26,800
+which key to use
+
+1173
+00:53:24,960 --> 00:53:29,680
+if you want the new keybinding which to
+
+1174
+00:53:26,800 --> 00:53:32,480
+use how do you choose them
+
+1175
+00:53:29,680 --> 00:53:34,559
+which key to avoid why you should avoid
+
+1176
+00:53:32,480 --> 00:53:37,599
+them things like that
+
+1177
+00:53:34,559 --> 00:53:41,119
+so if you know just by just buy my emacs
+
+1178
+00:53:37,599 --> 00:53:43,839
+tutorial okay if you like it
+
+1179
+00:53:41,119 --> 00:53:43,839
+buy it
+
+1180
+00:53:44,319 --> 00:53:48,079
+okay so how long have i been talking i
+
+1181
+00:53:46,319 --> 00:53:50,319
+think i'm gonna gonna read
+
+1182
+00:53:48,079 --> 00:53:52,880
+the uh comments and that'll be it for
+
+1183
+00:53:50,319 --> 00:53:55,920
+today i've been talking for long
+
+1184
+00:53:52,880 --> 00:53:57,599
+so emacs 27 is out is fantastic i've
+
+1185
+00:53:55,920 --> 00:53:59,680
+been talking for 54 minutes it's
+
+1186
+00:53:57,599 --> 00:54:02,079
+fantastic
+
+1187
+00:53:59,680 --> 00:54:04,960
+um i so i was thinking of going through
+
+1188
+00:54:02,079 --> 00:54:04,960
+the features
+
+1189
+00:54:05,440 --> 00:54:12,800
+but each one of them will actually take
+
+1190
+00:54:08,960 --> 00:54:15,359
+five or ten minutes to explain uh
+
+1191
+00:54:12,800 --> 00:54:16,000
+but all these are great features you
+
+1192
+00:54:15,359 --> 00:54:18,960
+know the
+
+1193
+00:54:16,000 --> 00:54:19,839
+the the one feature that's really useful
+
+1194
+00:54:18,960 --> 00:54:23,040
+to the user
+
+1195
+00:54:19,839 --> 00:54:25,119
+is the tab bar mod why because
+
+1196
+00:54:23,040 --> 00:54:26,160
+you know a lot of emacs nerds like you
+
+1197
+00:54:25,119 --> 00:54:28,240
+people
+
+1198
+00:54:26,160 --> 00:54:29,200
+you don't want it because a lot of emacs
+
+1199
+00:54:28,240 --> 00:54:30,800
+people they
+
+1200
+00:54:29,200 --> 00:54:33,520
+they don't want to use the mouse they
+
+1201
+00:54:30,800 --> 00:54:36,160
+don't want anything gui
+
+1202
+00:54:33,520 --> 00:54:37,599
+they are extremely [ __ ] idiots okay
+
+1203
+00:54:36,160 --> 00:54:40,559
+let me tell you why
+
+1204
+00:54:37,599 --> 00:54:42,079
+this e-max nuts people on one hand let
+
+1205
+00:54:40,559 --> 00:54:45,280
+me explain okay let's quit
+
+1206
+00:54:42,079 --> 00:54:48,720
+let me explain this thing ctrl
+
+1207
+00:54:45,280 --> 00:54:50,880
+x c okay exit emacs and go back to my
+
+1208
+00:54:48,720 --> 00:54:53,520
+gui version
+
+1209
+00:54:50,880 --> 00:54:54,559
+let me explain the e-max nerds these
+
+1210
+00:54:53,520 --> 00:54:57,920
+idiots these
+
+1211
+00:54:54,559 --> 00:55:00,720
+idiots you know on one hand
+
+1212
+00:54:57,920 --> 00:55:02,640
+you know they don't like this uh gui you
+
+1213
+00:55:00,720 --> 00:55:07,280
+see this uh
+
+1214
+00:55:02,640 --> 00:55:11,440
+the thing and also you see my scoreboard
+
+1215
+00:55:07,280 --> 00:55:13,040
+you see my scroll bar you know uh here
+
+1216
+00:55:11,440 --> 00:55:14,559
+you see on one hand they don't like that
+
+1217
+00:55:13,040 --> 00:55:17,760
+because they they think it's
+
+1218
+00:55:14,559 --> 00:55:18,480
+necessary they they prefer efficiency
+
+1219
+00:55:17,760 --> 00:55:20,640
+okay they
+
+1220
+00:55:18,480 --> 00:55:22,079
+e-max people you you hear them talk all
+
+1221
+00:55:20,640 --> 00:55:24,960
+the time they prefer
+
+1222
+00:55:22,079 --> 00:55:26,240
+uh atmos most efficiency they want they
+
+1223
+00:55:24,960 --> 00:55:27,839
+don't like they don't want to use the
+
+1224
+00:55:26,240 --> 00:55:30,240
+mouse at all
+
+1225
+00:55:27,839 --> 00:55:31,680
+but they are [ __ ] idiots they are the
+
+1226
+00:55:30,240 --> 00:55:33,200
+mo they are in many ways they are
+
+1227
+00:55:31,680 --> 00:55:35,599
+inefficient for example
+
+1228
+00:55:33,200 --> 00:55:36,720
+the emax key binding system that's the
+
+1229
+00:55:35,599 --> 00:55:39,359
+most [ __ ]
+
+1230
+00:55:36,720 --> 00:55:40,640
+inefficient system on earth the most
+
+1231
+00:55:39,359 --> 00:55:43,680
+inefficient you can
+
+1232
+00:55:40,640 --> 00:55:45,599
+you can count by create you know install
+
+1233
+00:55:43,680 --> 00:55:46,880
+a key lock you know i talked about this
+
+1234
+00:55:45,599 --> 00:55:49,119
+many kinds sometimes
+
+1235
+00:55:46,880 --> 00:55:51,680
+there's a package key frequency you can
+
+1236
+00:55:49,119 --> 00:55:54,160
+compute you can count your keystrokes
+
+1237
+00:55:51,680 --> 00:55:54,799
+using the default emax keybinding system
+
+1238
+00:55:54,160 --> 00:55:57,440
+is the
+
+1239
+00:55:54,799 --> 00:55:58,400
+the utmost [ __ ] inefficient [ __ ] in
+
+1240
+00:55:57,440 --> 00:56:00,559
+the universe
+
+1241
+00:55:58,400 --> 00:56:02,000
+but this imax knows people you know on
+
+1242
+00:56:00,559 --> 00:56:04,640
+one hand they say oh you must
+
+1243
+00:56:02,000 --> 00:56:06,319
+use the glue default emacs keybinding
+
+1244
+00:56:04,640 --> 00:56:07,040
+system because it's efficient it's well
+
+1245
+00:56:06,319 --> 00:56:08,720
+designed
+
+1246
+00:56:07,040 --> 00:56:10,240
+you can see it's well designed they're a
+
+1247
+00:56:08,720 --> 00:56:13,200
+[ __ ] ass
+
+1248
+00:56:10,240 --> 00:56:13,839
+meanwhile meanwhile they want to you
+
+1249
+00:56:13,200 --> 00:56:16,480
+know they
+
+1250
+00:56:13,839 --> 00:56:18,640
+you know if you read a lot reddit or
+
+1251
+00:56:16,480 --> 00:56:21,280
+emacs bloggers they tell you about
+
+1252
+00:56:18,640 --> 00:56:22,079
+remove the you know the remove the
+
+1253
+00:56:21,280 --> 00:56:23,680
+scroll bar
+
+1254
+00:56:22,079 --> 00:56:25,119
+you know for example i can remove it
+
+1255
+00:56:23,680 --> 00:56:30,240
+right now so
+
+1256
+00:56:25,119 --> 00:56:33,040
+hold on a second wait where's my keys
+
+1257
+00:56:30,240 --> 00:56:33,920
+uh do you want to enable dictation what
+
+1258
+00:56:33,040 --> 00:56:37,359
+the [ __ ]
+
+1259
+00:56:33,920 --> 00:56:39,760
+no i don't know
+
+1260
+00:56:37,359 --> 00:56:41,599
+did i change my key or something no okay
+
+1261
+00:56:39,760 --> 00:56:45,839
+so
+
+1262
+00:56:41,599 --> 00:56:45,839
+wait my key is not working
+
+1263
+00:56:46,079 --> 00:56:52,319
+okay somehow i got caps lock on
+
+1264
+00:56:49,599 --> 00:56:52,319
+what the [ __ ]
+
+1265
+00:56:54,960 --> 00:56:59,839
+uh what
+
+1266
+00:57:01,040 --> 00:57:04,240
+okay i got the
+
+1267
+00:57:08,559 --> 00:57:13,839
+yeah what the [ __ ]
+
+1268
+00:57:17,280 --> 00:57:21,200
+what the [ __ ] okay now i'm back to
+
+1269
+00:57:19,119 --> 00:57:24,480
+normal okay
+
+1270
+00:57:21,200 --> 00:57:26,160
+so uh so let me tell you let me explain
+
+1271
+00:57:24,480 --> 00:57:28,160
+okay you see the scroll bar you know
+
+1272
+00:57:26,160 --> 00:57:31,520
+usually they don't want it so
+
+1273
+00:57:28,160 --> 00:57:33,920
+you know i can show you you know i
+
+1274
+00:57:31,520 --> 00:57:34,640
+so first of all there's a toolbar on top
+
+1275
+00:57:33,920 --> 00:57:36,880
+now that
+
+1276
+00:57:34,640 --> 00:57:39,040
+is not useful because i can tell you
+
+1277
+00:57:36,880 --> 00:57:41,520
+that it's not useful so i removed it
+
+1278
+00:57:39,040 --> 00:57:42,400
+in my in my default so let's go back to
+
+1279
+00:57:41,520 --> 00:57:46,400
+my uh
+
+1280
+00:57:42,400 --> 00:57:48,319
+settings so go to settings you see this
+
+1281
+00:57:46,400 --> 00:57:50,799
+line
+
+1282
+00:57:48,319 --> 00:57:51,680
+you know toolbar i removed it because
+
+1283
+00:57:50,799 --> 00:57:54,400
+it's it's
+
+1284
+00:57:51,680 --> 00:57:56,000
+not useful technically but sometimes
+
+1285
+00:57:54,400 --> 00:57:58,640
+they remove the scoreboard
+
+1286
+00:57:56,000 --> 00:58:01,599
+you know you can technomancy for example
+
+1287
+00:57:58,640 --> 00:58:05,119
+technomancy is a guy who created the
+
+1288
+00:58:01,599 --> 00:58:06,960
+um you know these nuts okay i can i
+
+1289
+00:58:05,119 --> 00:58:09,680
+cannot stand them this unix
+
+1290
+00:58:06,960 --> 00:58:10,720
+philosophy [ __ ] you know let me
+
+1291
+00:58:09,680 --> 00:58:12,799
+show you this
+
+1292
+00:58:10,720 --> 00:58:14,880
+this guy okay i mean he's a great guy
+
+1293
+00:58:12,799 --> 00:58:17,200
+okay and he's a
+
+1294
+00:58:14,880 --> 00:58:19,599
+very intelligent guy he created this
+
+1295
+00:58:17,200 --> 00:58:22,319
+keyboard okay
+
+1296
+00:58:19,599 --> 00:58:22,720
+he created this keyboard atrius okay a
+
+1297
+00:58:22,319 --> 00:58:25,359
+lot
+
+1298
+00:58:22,720 --> 00:58:26,240
+you know again atreus is a one of the
+
+1299
+00:58:25,359 --> 00:58:29,040
+thing that these
+
+1300
+00:58:26,240 --> 00:58:31,040
+nerds love uh you know he created these
+
+1301
+00:58:29,040 --> 00:58:32,000
+atrias not just that he is also a
+
+1302
+00:58:31,040 --> 00:58:36,079
+closure
+
+1303
+00:58:32,000 --> 00:58:40,319
+master he he created the closure many
+
+1304
+00:58:36,079 --> 00:58:42,319
+fundamental uh the closure the the the
+
+1305
+00:58:40,319 --> 00:58:45,440
+i have articles on that okay you just go
+
+1306
+00:58:42,319 --> 00:58:45,440
+to closure um
+
+1307
+00:58:46,079 --> 00:58:50,079
+okay let me show you okay so let me take
+
+1308
+00:58:48,240 --> 00:58:53,200
+some few minutes to show you
+
+1309
+00:58:50,079 --> 00:58:55,839
+i'm talking about this guy okay so uh
+
+1310
+00:58:53,200 --> 00:58:56,559
+you go to my tutorial you go to closure
+
+1311
+00:58:55,839 --> 00:59:00,880
+not
+
+1312
+00:58:56,559 --> 00:59:00,880
+not chinese chess you go to um
+
+1313
+00:59:01,680 --> 00:59:06,400
+programming language tutorial you go to
+
+1314
+00:59:03,680 --> 00:59:09,200
+crochet i started i have a
+
+1315
+00:59:06,400 --> 00:59:10,240
+kind of a tutorial on closure begin
+
+1316
+00:59:09,200 --> 00:59:12,880
+beginners
+
+1317
+00:59:10,240 --> 00:59:13,520
+so then then you have on enclosure
+
+1318
+00:59:12,880 --> 00:59:17,119
+because it's
+
+1319
+00:59:13,520 --> 00:59:17,119
+java you have these
+
+1320
+00:59:17,359 --> 00:59:23,119
+you have this this oh yeah here so so
+
+1321
+00:59:20,400 --> 00:59:24,400
+right uh so you have this um leonard
+
+1322
+00:59:23,119 --> 00:59:26,960
+leonard gun [ __ ]
+
+1323
+00:59:24,400 --> 00:59:27,839
+which is a command line utility very
+
+1324
+00:59:26,960 --> 00:59:30,720
+complex
+
+1325
+00:59:27,839 --> 00:59:33,200
+it's just like the javascript npm you
+
+1326
+00:59:30,720 --> 00:59:36,960
+know npm you run this command too
+
+1327
+00:59:33,200 --> 00:59:37,839
+very complex but anyway it's very useful
+
+1328
+00:59:36,960 --> 00:59:41,280
+it's very
+
+1329
+00:59:37,839 --> 00:59:44,079
+actually extremely important uh tool
+
+1330
+00:59:41,280 --> 00:59:45,599
+you it's almost necessary if you are a
+
+1331
+00:59:44,079 --> 00:59:48,079
+closure developer
+
+1332
+00:59:45,599 --> 00:59:50,240
+and it's not easy to write of course and
+
+1333
+00:59:48,079 --> 00:59:53,359
+this lender gun is written by
+
+1334
+00:59:50,240 --> 00:59:53,920
+this guy technomancy this guy this guy
+
+1335
+00:59:53,359 --> 00:59:56,720
+is
+
+1336
+00:59:53,920 --> 00:59:58,160
+you know very smart he's a far better
+
+1337
+00:59:56,720 --> 01:00:02,079
+programmer than me
+
+1338
+00:59:58,160 --> 01:00:05,200
+i can say that for sure and he's also
+
+1339
+01:00:02,079 --> 01:00:07,200
+uh you know but you know but these
+
+1340
+01:00:05,200 --> 01:00:09,920
+people these idiots these people
+
+1341
+01:00:07,200 --> 01:00:11,760
+he's one of them okay they're not very
+
+1342
+01:00:09,920 --> 01:00:14,880
+very extreme hacker types this
+
+1343
+01:00:11,760 --> 01:00:16,720
+he's one of them he i remember
+
+1344
+01:00:14,880 --> 01:00:18,799
+reading you know his blog or somewhere
+
+1345
+01:00:16,720 --> 01:00:21,839
+you know he's one of those guy
+
+1346
+01:00:18,799 --> 01:00:23,599
+who tells you to remove this
+
+1347
+01:00:21,839 --> 01:00:25,119
+scroll bar you know the visual scroll
+
+1348
+01:00:23,599 --> 01:00:26,799
+bar the idiots why
+
+1349
+01:00:25,119 --> 01:00:28,160
+because they think you know you see at
+
+1350
+01:00:26,799 --> 01:00:30,960
+the bottom
+
+1351
+01:00:28,160 --> 01:00:32,799
+you see that 58 percent you know it
+
+1352
+01:00:30,960 --> 01:00:33,839
+might be too small but in the mod line
+
+1353
+01:00:32,799 --> 01:00:37,280
+is you can see
+
+1354
+01:00:33,839 --> 01:00:40,400
+there's a 15 you know 71 that thing
+
+1355
+01:00:37,280 --> 01:00:41,440
+that since things tells you where your
+
+1356
+01:00:40,400 --> 01:00:43,359
+cursor is
+
+1357
+01:00:41,440 --> 01:00:46,000
+related to the buffer it's function you
+
+1358
+01:00:43,359 --> 01:00:48,960
+know is same serves the same purpose of
+
+1359
+01:00:46,000 --> 01:00:50,559
+as the visual scroll bar so according to
+
+1360
+01:00:48,960 --> 01:00:52,400
+these people meanwhile they want
+
+1361
+01:00:50,559 --> 01:00:54,000
+efficiency you know they they tell you
+
+1362
+01:00:52,400 --> 01:00:56,079
+to remove they don't like the mouse
+
+1363
+01:00:54,000 --> 01:00:58,240
+they don't like the gui they tell you to
+
+1364
+01:00:56,079 --> 01:00:59,520
+use the glue default keybinding which is
+
+1365
+01:00:58,240 --> 01:01:02,480
+the most inefficient
+
+1366
+01:00:59,520 --> 01:01:04,000
+[ __ ] you know they're loved by these
+
+1367
+01:01:02,480 --> 01:01:06,160
+people
+
+1368
+01:01:04,000 --> 01:01:07,040
+but they also tell you to remove the
+
+1369
+01:01:06,160 --> 01:01:09,440
+scroll bar but
+
+1370
+01:01:07,040 --> 01:01:10,480
+the scroll bar is actually the most
+
+1371
+01:01:09,440 --> 01:01:12,960
+efficient way
+
+1372
+01:01:10,480 --> 01:01:13,680
+to tell where your cursor is related to
+
+1373
+01:01:12,960 --> 01:01:15,599
+the buffer
+
+1374
+01:01:13,680 --> 01:01:17,200
+because right now i can you know even
+
+1375
+01:01:15,599 --> 01:01:20,079
+i'm not looking at my screen
+
+1376
+01:01:17,200 --> 01:01:20,880
+directly i can by my peripheral region
+
+1377
+01:01:20,079 --> 01:01:22,799
+vision
+
+1378
+01:01:20,880 --> 01:01:24,880
+the scroll by speak i can tell right
+
+1379
+01:01:22,799 --> 01:01:25,680
+away where relatively where my
+
+1380
+01:01:24,880 --> 01:01:28,319
+scoreboard
+
+1381
+01:01:25,680 --> 01:01:29,920
+where my cruiser is relative to the
+
+1382
+01:01:28,319 --> 01:01:32,480
+buffer
+
+1383
+01:01:29,920 --> 01:01:34,079
+but with these hacker nuts they tell you
+
+1384
+01:01:32,480 --> 01:01:36,160
+they want to remove the scroll bar
+
+1385
+01:01:34,079 --> 01:01:38,079
+they tell you to use they tell you to
+
+1386
+01:01:36,160 --> 01:01:41,920
+look at that you know 60
+
+1387
+01:01:38,079 --> 01:01:45,200
+uh you know that percentage uh
+
+1388
+01:01:41,920 --> 01:01:45,839
+you know the the text on the my life
+
+1389
+01:01:45,200 --> 01:01:48,240
+what the
+
+1390
+01:01:45,839 --> 01:01:49,520
+what the [ __ ] are these people thinking
+
+1391
+01:01:48,240 --> 01:01:51,680
+do they have a brain
+
+1392
+01:01:49,520 --> 01:01:53,680
+you know you know again i can tell you
+
+1393
+01:01:51,680 --> 01:01:55,839
+why they think that way because
+
+1394
+01:01:53,680 --> 01:01:57,839
+that thing you know 60 percent that's
+
+1395
+01:01:55,839 --> 01:01:58,960
+esoteric okay nobody understand what
+
+1396
+01:01:57,839 --> 01:02:01,520
+that is
+
+1397
+01:01:58,960 --> 01:02:02,319
+you need it's a require you you need to
+
+1398
+01:02:01,520 --> 01:02:04,640
+learn it
+
+1399
+01:02:02,319 --> 01:02:06,160
+this it makes things difficult that's
+
+1400
+01:02:04,640 --> 01:02:07,520
+why these people love it so
+
+1401
+01:02:06,160 --> 01:02:09,280
+it makes it difficult they have a
+
+1402
+01:02:07,520 --> 01:02:12,400
+mentality of being a
+
+1403
+01:02:09,280 --> 01:02:14,079
+real man you know but but these days the
+
+1404
+01:02:12,400 --> 01:02:15,839
+social justice scan
+
+1405
+01:02:14,079 --> 01:02:17,359
+prevents that you know you cannot say
+
+1406
+01:02:15,839 --> 01:02:20,079
+real name anymore but they
+
+1407
+01:02:17,359 --> 01:02:21,119
+it's like that so they are kind of elite
+
+1408
+01:02:20,079 --> 01:02:24,640
+you know they like
+
+1409
+01:02:21,119 --> 01:02:27,839
+they are you know let me put this way
+
+1410
+01:02:24,640 --> 01:02:30,400
+if you are concerned about efficiency
+
+1411
+01:02:27,839 --> 01:02:32,160
+and now we have the question whether the
+
+1412
+01:02:30,400 --> 01:02:34,319
+scoreboard the visual scroll bar is
+
+1413
+01:02:32,160 --> 01:02:37,359
+efficient more efficient for e
+
+1414
+01:02:34,319 --> 01:02:39,520
+for which way is faster to tell
+
+1415
+01:02:37,359 --> 01:02:40,880
+where is your cruiser position relative
+
+1416
+01:02:39,520 --> 01:02:43,920
+to the whole buffer
+
+1417
+01:02:40,880 --> 01:02:47,200
+the scroll bar or that or that
+
+1418
+01:02:43,920 --> 01:02:49,520
+you know percentage uh notification you
+
+1419
+01:02:47,200 --> 01:02:51,839
+know
+
+1420
+01:02:49,520 --> 01:02:53,599
+and if you if you are a scientist or
+
+1421
+01:02:51,839 --> 01:02:55,520
+anything you know you you know for sure
+
+1422
+01:02:53,599 --> 01:02:58,480
+the scoreboard is more efficient
+
+1423
+01:02:55,520 --> 01:02:59,520
+but this these notes you know this e-max
+
+1424
+01:02:58,480 --> 01:03:02,720
+phonetics
+
+1425
+01:02:59,520 --> 01:03:03,359
+they won't have it lots of other
+
+1426
+01:03:02,720 --> 01:03:05,200
+examples
+
+1427
+01:03:03,359 --> 01:03:06,559
+lots of other examples let me let me
+
+1428
+01:03:05,200 --> 01:03:09,200
+tell you scroll bar
+
+1429
+01:03:06,559 --> 01:03:10,400
+the tab bar we are just trying to show
+
+1430
+01:03:09,200 --> 01:03:13,520
+that is one
+
+1431
+01:03:10,400 --> 01:03:16,160
+giant example too because you know
+
+1432
+01:03:13,520 --> 01:03:17,760
+the tab bar mod okay i have articles on
+
+1433
+01:03:16,160 --> 01:03:20,319
+that okay uh let me let me
+
+1434
+01:03:17,760 --> 01:03:21,200
+let me show you so this is becoming a
+
+1435
+01:03:20,319 --> 01:03:24,799
+giant rant
+
+1436
+01:03:21,200 --> 01:03:27,359
+again it's these emacs notes
+
+1437
+01:03:24,799 --> 01:03:28,400
+so you search for exactly type bar okay
+
+1438
+01:03:27,359 --> 01:03:30,880
+actually
+
+1439
+01:03:28,400 --> 01:03:31,920
+yeah let's search for let's search the
+
+1440
+01:03:30,880 --> 01:03:33,760
+web
+
+1441
+01:03:31,920 --> 01:03:35,839
+i know where the article is but let's
+
+1442
+01:03:33,760 --> 01:03:39,119
+search the web so you can
+
+1443
+01:03:35,839 --> 01:03:43,520
+uh um
+
+1444
+01:03:39,119 --> 01:03:46,640
+emacs top bar okay let's search the web
+
+1445
+01:03:43,520 --> 01:03:51,359
+you you'll find my articles
+
+1446
+01:03:46,640 --> 01:03:51,359
+uh where is it no here
+
+1447
+01:03:55,760 --> 01:03:59,280
+so anyway what i'm saying is that that
+
+1448
+01:03:58,640 --> 01:04:02,960
+there is
+
+1449
+01:03:59,280 --> 01:04:06,400
+a uh there is a
+
+1450
+01:04:02,960 --> 01:04:07,200
+package that does the tap bar like 10
+
+1451
+01:04:06,400 --> 01:04:10,559
+years ago
+
+1452
+01:04:07,200 --> 01:04:13,839
+10 [ __ ] years ago
+
+1453
+01:04:10,559 --> 01:04:16,160
+it exists uh you have to install it
+
+1454
+01:04:13,839 --> 01:04:17,200
+you know it's a third-party package
+
+1455
+01:04:16,160 --> 01:04:22,160
+where is it i
+
+1456
+01:04:17,200 --> 01:04:25,599
+uh i have article on that i i i tell you
+
+1457
+01:04:22,160 --> 01:04:27,680
+uh 10 years ago where is it
+
+1458
+01:04:25,599 --> 01:04:30,400
+let's go to okay so this this is my
+
+1459
+01:04:27,680 --> 01:04:33,839
+website let's go to emacs init
+
+1460
+01:04:30,400 --> 01:04:36,559
+uh let's search for tab
+
+1461
+01:04:33,839 --> 01:04:37,039
+okay it's not here you know anyway so
+
+1462
+01:04:36,559 --> 01:04:40,240
+this
+
+1463
+01:04:37,039 --> 01:04:42,160
+you know i wrote about it 10 years ago
+
+1464
+01:04:40,240 --> 01:04:44,880
+it's part of ergo emacs it's from you
+
+1465
+01:04:42,160 --> 01:04:47,280
+know it shows tabs just like a browser
+
+1466
+01:04:44,880 --> 01:04:48,319
+so why tabs because tabs provide a
+
+1467
+01:04:47,280 --> 01:04:51,440
+visual clue
+
+1468
+01:04:48,319 --> 01:04:52,720
+of what what files buffers you have you
+
+1469
+01:04:51,440 --> 01:04:55,200
+know
+
+1470
+01:04:52,720 --> 01:04:56,319
+it's not necessary but it's it's often
+
+1471
+01:04:55,200 --> 01:04:58,880
+useful because
+
+1472
+01:04:56,319 --> 01:05:00,000
+especially for beginners you know emacs
+
+1473
+01:04:58,880 --> 01:05:02,480
+people complain
+
+1474
+01:05:00,000 --> 01:05:03,520
+there are not many emacs people anymore
+
+1475
+01:05:02,480 --> 01:05:05,920
+it's reducing
+
+1476
+01:05:03,520 --> 01:05:07,359
+less and less people using emacs why
+
+1477
+01:05:05,920 --> 01:05:09,520
+because it's difficult
+
+1478
+01:05:07,359 --> 01:05:10,480
+in every way it's unnecessarily
+
+1479
+01:05:09,520 --> 01:05:12,319
+difficult
+
+1480
+01:05:10,480 --> 01:05:14,640
+i'm not talking you know i don't want to
+
+1481
+01:05:12,319 --> 01:05:16,480
+remove any efficiency part of emacs i
+
+1482
+01:05:14,640 --> 01:05:20,559
+love emacs i love you know i love
+
+1483
+01:05:16,480 --> 01:05:21,680
+living it but we but meanwhile if you
+
+1484
+01:05:20,559 --> 01:05:24,640
+can do something
+
+1485
+01:05:21,680 --> 01:05:26,000
+that has no that doesn't take away
+
+1486
+01:05:24,640 --> 01:05:28,319
+anything of emacs but
+
+1487
+01:05:26,000 --> 01:05:29,599
+also make it more friendly to beginners
+
+1488
+01:05:28,319 --> 01:05:31,599
+why not
+
+1489
+01:05:29,599 --> 01:05:33,520
+tap out is one of the thing so it
+
+1490
+01:05:31,599 --> 01:05:34,720
+existed 10 years ago but it's not good
+
+1491
+01:05:33,520 --> 01:05:36,960
+because
+
+1492
+01:05:34,720 --> 01:05:38,960
+it makes emacs very slow why because
+
+1493
+01:05:36,960 --> 01:05:41,039
+it's an external package
+
+1494
+01:05:38,960 --> 01:05:42,640
+it's it's hard to implement that feature
+
+1495
+01:05:41,039 --> 01:05:45,599
+because the emacs
+
+1496
+01:05:42,640 --> 01:05:46,319
+this infrastructure doesn't have that
+
+1497
+01:05:45,599 --> 01:05:49,599
+you know
+
+1498
+01:05:46,319 --> 01:05:50,720
+the emac list infrastructure the emacs
+
+1499
+01:05:49,599 --> 01:05:54,319
+you know
+
+1500
+01:05:50,720 --> 01:05:58,240
+um infrastructure is doesn't have a
+
+1501
+01:05:54,319 --> 01:06:01,359
+uh modern gui uh framework
+
+1502
+01:05:58,240 --> 01:06:04,400
+put it that way yeah so it's
+
+1503
+01:06:01,359 --> 01:06:06,480
+it's kind of difficult to for
+
+1504
+01:06:04,400 --> 01:06:07,599
+for external packages emac these
+
+1505
+01:06:06,480 --> 01:06:11,039
+packages to
+
+1506
+01:06:07,599 --> 01:06:14,000
+add features such as um
+
+1507
+01:06:11,039 --> 01:06:14,799
+such as you know the tap bar it it went
+
+1508
+01:06:14,000 --> 01:06:17,760
+through
+
+1509
+01:06:14,799 --> 01:06:19,920
+extreme hacks to create that so but the
+
+1510
+01:06:17,760 --> 01:06:22,799
+result is not so good
+
+1511
+01:06:19,920 --> 01:06:24,160
+uh because it makes emacs very slow
+
+1512
+01:06:22,799 --> 01:06:27,280
+actually i do have a
+
+1513
+01:06:24,160 --> 01:06:30,240
+i do have a picture i can
+
+1514
+01:06:27,280 --> 01:06:30,880
+i can find it okay i can find it let me
+
+1515
+01:06:30,240 --> 01:06:33,839
+just
+
+1516
+01:06:30,880 --> 01:06:33,839
+try to find it
+
+1517
+01:06:34,720 --> 01:06:39,520
+okay search for tab bar
+
+1518
+01:06:42,880 --> 01:06:50,010
+okay this this is becoming a giant
+
+1519
+01:06:46,000 --> 01:06:52,640
+rant and are you guys still here
+
+1520
+01:06:50,010 --> 01:06:56,079
+[Laughter]
+
+1521
+01:06:52,640 --> 01:07:00,720
+what is your opinion about emacs native
+
+1522
+01:06:56,079 --> 01:07:04,000
+uh comp branch for emacs 28
+
+1523
+01:07:00,720 --> 01:07:04,000
+what is that i don't know
+
+1524
+01:07:04,799 --> 01:07:15,839
+okay let's search for god so this
+
+1525
+01:07:08,160 --> 01:07:15,839
+is um
+
+1526
+01:07:17,119 --> 01:07:25,280
+so let's look at my emacs blog archive
+
+1527
+01:07:21,200 --> 01:07:25,280
+2000 year 2010
+
+1528
+01:07:25,359 --> 01:07:33,200
+so you see year 2010 december
+
+1529
+01:07:28,799 --> 01:07:35,760
+2nd ergo emacs package version 1.91
+
+1530
+01:07:33,200 --> 01:07:36,799
+is released this is essentially just
+
+1531
+01:07:35,760 --> 01:07:40,480
+1.91
+
+1532
+01:07:36,799 --> 01:07:42,400
+fixed fixed a zip package packaging
+
+1533
+01:07:40,480 --> 01:07:45,760
+problem and loading problem
+
+1534
+01:07:42,400 --> 01:07:49,520
+of tab bar mod and tweet
+
+1535
+01:07:45,760 --> 01:07:51,599
+mod okay so you know google code google
+
+1536
+01:07:49,520 --> 01:07:53,920
+code is closed we are seeing history
+
+1537
+01:07:51,599 --> 01:07:53,920
+here
+
+1538
+01:07:54,079 --> 01:07:59,440
+but i i have a picture okay what i want
+
+1539
+01:07:57,599 --> 01:08:02,160
+to show you is the picture so
+
+1540
+01:07:59,440 --> 01:08:03,200
+let's magnify let's go to so let's go to
+
+1541
+01:08:02,160 --> 01:08:06,640
+e-shell
+
+1542
+01:08:03,200 --> 01:08:07,599
+and find dash now let's run unix
+
+1543
+01:08:06,640 --> 01:08:11,200
+commands
+
+1544
+01:08:07,599 --> 01:08:15,280
+the things that tickles these notes uh
+
+1545
+01:08:11,200 --> 01:08:16,319
+find name tab okay let's uh tab bar mod
+
+1546
+01:08:15,280 --> 01:08:19,440
+okay let's
+
+1547
+01:08:16,319 --> 01:08:19,440
+let's search for bar
+
+1548
+01:08:20,239 --> 01:08:28,960
+okay oh wait not html png
+
+1549
+01:08:24,719 --> 01:08:28,960
+there it is tab bar so
+
+1550
+01:08:29,279 --> 01:08:34,960
+okay not that there it is okay
+
+1551
+01:08:33,359 --> 01:08:38,239
+okay that's one of the picture let's
+
+1552
+01:08:34,960 --> 01:08:42,239
+show in the preview
+
+1553
+01:08:38,239 --> 01:08:45,359
+so you see this is the um
+
+1554
+01:08:42,239 --> 01:08:46,480
+magnum file okay so this is this is the
+
+1555
+01:08:45,359 --> 01:08:50,239
+emacs tab
+
+1556
+01:08:46,480 --> 01:08:51,600
+the package it's not so good because it
+
+1557
+01:08:50,239 --> 01:08:55,440
+slows down your
+
+1558
+01:08:51,600 --> 01:08:58,560
+emacs but anyway what i want to say
+
+1559
+01:08:55,440 --> 01:09:00,000
+actually there's more than that emacs
+
+1560
+01:08:58,560 --> 01:09:03,440
+tab bar problem wait
+
+1561
+01:09:00,000 --> 01:09:04,480
+um another screenshot okay here's
+
+1562
+01:09:03,440 --> 01:09:08,159
+another
+
+1563
+01:09:04,480 --> 01:09:12,080
+another screenshot okay so actually
+
+1564
+01:09:08,159 --> 01:09:12,080
+you can okay anyway anyway so
+
+1565
+01:09:14,719 --> 01:09:18,880
+so here is tab bar okay this is 10 years
+
+1566
+01:09:17,279 --> 01:09:22,080
+ago
+
+1567
+01:09:18,880 --> 01:09:23,920
+so but when this happens you know the
+
+1568
+01:09:22,080 --> 01:09:24,960
+gnu people they don't want that you know
+
+1569
+01:09:23,920 --> 01:09:27,199
+if you ask you know
+
+1570
+01:09:24,960 --> 01:09:28,640
+if you read the emacs new menus they
+
+1571
+01:09:27,199 --> 01:09:30,719
+they are like oh we don't want to talk
+
+1572
+01:09:28,640 --> 01:09:33,120
+about that that's not us you know
+
+1573
+01:09:30,719 --> 01:09:34,480
+emacs people has been that like that for
+
+1574
+01:09:33,120 --> 01:09:36,880
+30 years
+
+1575
+01:09:34,480 --> 01:09:39,359
+basically every new feature useful
+
+1576
+01:09:36,880 --> 01:09:41,359
+feature such as syntax highlighting okay
+
+1577
+01:09:39,359 --> 01:09:43,920
+syntax coloring you know coloring
+
+1578
+01:09:41,359 --> 01:09:46,480
+keywords
+
+1579
+01:09:43,920 --> 01:09:49,839
+and any feature like that it exists in
+
+1580
+01:09:46,480 --> 01:09:52,880
+the industry you know in in the industry
+
+1581
+01:09:49,839 --> 01:09:56,640
+emacs people will refuse to do it
+
+1582
+01:09:52,880 --> 01:09:59,840
+until like five or ten years later
+
+1583
+01:09:56,640 --> 01:10:00,560
+tab bar mod is one of the example tabs
+
+1584
+01:09:59,840 --> 01:10:02,880
+has
+
+1585
+01:10:00,560 --> 01:10:04,080
+been existing in browsers since like 20
+
+1586
+01:10:02,880 --> 01:10:06,640
+years now
+
+1587
+01:10:04,080 --> 01:10:07,520
+now the [ __ ] emacs [ __ ] these
+
+1588
+01:10:06,640 --> 01:10:10,320
+nerds
+
+1589
+01:10:07,520 --> 01:10:11,360
+they are thinking oh we oh no it's time
+
+1590
+01:10:10,320 --> 01:10:14,840
+we you know we should
+
+1591
+01:10:11,360 --> 01:10:17,840
+we oh fantastic we are going to have a
+
+1592
+01:10:14,840 --> 01:10:17,840
+table
+
+1593
+01:10:17,920 --> 01:10:21,840
+where are they what are they thinking 20
+
+1594
+01:10:19,920 --> 01:10:24,640
+years ago why don't they do that
+
+1595
+01:10:21,840 --> 01:10:25,920
+if they do that 20 years ago emacs today
+
+1596
+01:10:24,640 --> 01:10:30,000
+might be just like
+
+1597
+01:10:25,920 --> 01:10:31,920
+just like a browser use it by everyone
+
+1598
+01:10:30,000 --> 01:10:33,440
+but these people refuse you know they
+
+1599
+01:10:31,920 --> 01:10:34,640
+don't understand just like the linux
+
+1600
+01:10:33,440 --> 01:10:37,840
+people they don't they don't
+
+1601
+01:10:34,640 --> 01:10:38,960
+understand how things work how society
+
+1602
+01:10:37,840 --> 01:10:40,800
+how
+
+1603
+01:10:38,960 --> 01:10:42,400
+how you know the average people and
+
+1604
+01:10:40,800 --> 01:10:45,440
+meanwhile they are not they
+
+1605
+01:10:42,400 --> 01:10:48,480
+they are nurse they want to create a
+
+1606
+01:10:45,440 --> 01:10:51,440
+certain elite community that's what they
+
+1607
+01:10:48,480 --> 01:10:51,440
+are that's what they do
+
+1608
+01:10:51,920 --> 01:10:56,800
+what so what is my perspective you know
+
+1609
+01:10:54,320 --> 01:10:57,520
+i'm a efficiency i'm a nerd too i'm a
+
+1610
+01:10:56,800 --> 01:11:00,560
+nerd too
+
+1611
+01:10:57,520 --> 01:11:01,040
+and i'm a efficiency extreme efficiency
+
+1612
+01:11:00,560 --> 01:11:03,120
+nerd
+
+1613
+01:11:01,040 --> 01:11:04,080
+i don't [ __ ] care about user
+
+1614
+01:11:03,120 --> 01:11:06,880
+interface
+
+1615
+01:11:04,080 --> 01:11:08,719
+you look at my emacs i don't use themes
+
+1616
+01:11:06,880 --> 01:11:09,840
+thing my ass okay i don't i don't want
+
+1617
+01:11:08,719 --> 01:11:12,960
+any coloring
+
+1618
+01:11:09,840 --> 01:11:13,600
+[ __ ] but i do want syntax coloring
+
+1619
+01:11:12,960 --> 01:11:16,159
+because that
+
+1620
+01:11:13,600 --> 01:11:19,360
+actually is efficient that actually
+
+1621
+01:11:16,159 --> 01:11:22,640
+visually it's the most efficient way to
+
+1622
+01:11:19,360 --> 01:11:25,760
+to find the code okay so i'm a i'm a
+
+1623
+01:11:22,640 --> 01:11:26,960
+i'm a nerd i'm a of and i'm also a
+
+1624
+01:11:25,760 --> 01:11:30,080
+efficiency nerd
+
+1625
+01:11:26,960 --> 01:11:32,640
+i i care about functionality
+
+1626
+01:11:30,080 --> 01:11:34,800
+hundred percent functionality the most
+
+1627
+01:11:32,640 --> 01:11:36,080
+ugly the user interface the best it is
+
+1628
+01:11:34,800 --> 01:11:39,280
+okay
+
+1629
+01:11:36,080 --> 01:11:40,719
+somewhat okay but but i want the scroll
+
+1630
+01:11:39,280 --> 01:11:41,679
+bar because scroll by is the most
+
+1631
+01:11:40,719 --> 01:11:44,800
+efficient
+
+1632
+01:11:41,679 --> 01:11:48,239
+okay and i want i want the tab bar
+
+1633
+01:11:44,800 --> 01:11:49,679
+because it it actually helps and i also
+
+1634
+01:11:48,239 --> 01:11:52,480
+want the menu for example
+
+1635
+01:11:49,679 --> 01:11:54,719
+many emacs people for example you see
+
+1636
+01:11:52,480 --> 01:11:58,400
+the menu here
+
+1637
+01:11:54,719 --> 01:12:01,199
+uh wait show menu
+
+1638
+01:11:58,400 --> 01:12:02,960
+okay you see the menu many emacs notes
+
+1639
+01:12:01,199 --> 01:12:05,920
+they remove the menu
+
+1640
+01:12:02,960 --> 01:12:08,159
+the [ __ ] idiots i want the menu why
+
+1641
+01:12:05,920 --> 01:12:08,560
+because if you only are only concerned
+
+1642
+01:12:08,159 --> 01:12:11,360
+about
+
+1643
+01:12:08,560 --> 01:12:11,760
+efficiency extreme functionality nothing
+
+1644
+01:12:11,360 --> 01:12:14,400
+else
+
+1645
+01:12:11,760 --> 01:12:16,719
+you want the menu why because menu in
+
+1646
+01:12:14,400 --> 01:12:18,880
+many cases when for example when you are
+
+1647
+01:12:16,719 --> 01:12:20,080
+trying a new mod menu is the most
+
+1648
+01:12:18,880 --> 01:12:22,640
+efficient way
+
+1649
+01:12:20,080 --> 01:12:23,440
+to tell you what are the important
+
+1650
+01:12:22,640 --> 01:12:25,440
+commands
+
+1651
+01:12:23,440 --> 01:12:27,679
+better than describe mod okay better
+
+1652
+01:12:25,440 --> 01:12:28,000
+than for example i'm doing describe mod
+
+1653
+01:12:27,679 --> 01:12:31,120
+this
+
+1654
+01:12:28,000 --> 01:12:34,480
+this bunch of text you know for example
+
+1655
+01:12:31,120 --> 01:12:36,480
+if you are in oak mod you have
+
+1656
+01:12:34,480 --> 01:12:38,320
+let's close that okay close that close
+
+1657
+01:12:36,480 --> 01:12:41,679
+that let's go to org
+
+1658
+01:12:38,320 --> 01:12:45,280
+uh for example let's go to uh emacs blog
+
+1659
+01:12:41,679 --> 01:12:48,320
+let's go to the oak oakmod file
+
+1660
+01:12:45,280 --> 01:12:50,560
+and let's go to describe mod
+
+1661
+01:12:48,320 --> 01:12:52,320
+you see this is another way to see what
+
+1662
+01:12:50,560 --> 01:12:52,880
+commands are there you know you see you
+
+1663
+01:12:52,320 --> 01:12:55,120
+got
+
+1664
+01:12:52,880 --> 01:12:56,480
+you got you know hundreds of them and
+
+1665
+01:12:55,120 --> 01:13:00,400
+it's incomprehensible
+
+1666
+01:12:56,480 --> 01:13:01,120
+because every esoteric less used command
+
+1667
+01:13:00,400 --> 01:13:03,040
+is also
+
+1668
+01:13:01,120 --> 01:13:04,640
+all shows are there you know you don't
+
+1669
+01:13:03,040 --> 01:13:07,199
+know which one to use
+
+1670
+01:13:04,640 --> 01:13:08,800
+use but on the other hand if you go to
+
+1671
+01:13:07,199 --> 01:13:11,920
+the
+
+1672
+01:13:08,800 --> 01:13:13,760
+menu now there's something screwed up in
+
+1673
+01:13:11,920 --> 01:13:14,320
+my menu because some menus are not
+
+1674
+01:13:13,760 --> 01:13:17,920
+showing
+
+1675
+01:13:14,320 --> 01:13:18,640
+um you know usually there's a oak mod
+
+1676
+01:13:17,920 --> 01:13:20,320
+when you
+
+1677
+01:13:18,640 --> 01:13:22,719
+when you turn on augma there's the oak
+
+1678
+01:13:20,320 --> 01:13:26,080
+mod menu
+
+1679
+01:13:22,719 --> 01:13:27,760
+mod specific menu that menu will show
+
+1680
+01:13:26,080 --> 01:13:31,040
+you tell you which command is the most
+
+1681
+01:13:27,760 --> 01:13:34,000
+useful but you know you can look it
+
+1682
+01:13:31,040 --> 01:13:35,040
+so that so so i'm an efficiency nerd i'm
+
+1683
+01:13:34,000 --> 01:13:37,760
+a nerd and i'm
+
+1684
+01:13:35,040 --> 01:13:41,199
+also i'm also i'm interested in
+
+1685
+01:13:37,760 --> 01:13:41,199
+functionality hundred percent
+
+1686
+01:13:41,280 --> 01:13:46,000
+but so but meanwhile looking at these
+
+1687
+01:13:43,760 --> 01:13:48,080
+other nodes you know these emacs people
+
+1688
+01:13:46,000 --> 01:13:49,440
+you know you know this unix philosophy
+
+1689
+01:13:48,080 --> 01:13:52,000
+or these typical
+
+1690
+01:13:49,440 --> 01:13:53,600
+programming language notes they they are
+
+1691
+01:13:52,000 --> 01:13:56,239
+thinking is actually
+
+1692
+01:13:53,600 --> 01:13:57,280
+oftentimes they insist on something
+
+1693
+01:13:56,239 --> 01:13:59,679
+that's just bad
+
+1694
+01:13:57,280 --> 01:14:00,800
+okay that's just inefficient such as
+
+1695
+01:13:59,679 --> 01:14:03,520
+removing the
+
+1696
+01:14:00,800 --> 01:14:04,159
+the scroll bar or removing the menu
+
+1697
+01:14:03,520 --> 01:14:06,480
+that's just
+
+1698
+01:14:04,159 --> 01:14:07,360
+idiot okay that's just idiot and also
+
+1699
+01:14:06,480 --> 01:14:10,000
+the default
+
+1700
+01:14:07,360 --> 01:14:10,880
+the default guru emax key binding what
+
+1701
+01:14:10,000 --> 01:14:13,440
+is that
+
+1702
+01:14:10,880 --> 01:14:14,239
+that's not efficiency that's idiot to
+
+1703
+01:14:13,440 --> 01:14:17,120
+the extreme
+
+1704
+01:14:14,239 --> 01:14:17,679
+and these people they like to insist on
+
+1705
+01:14:17,120 --> 01:14:19,920
+that
+
+1706
+01:14:17,679 --> 01:14:22,400
+i you know that's why sometimes i don't
+
+1707
+01:14:19,920 --> 01:14:23,440
+get i cannot you know for 20 years they
+
+1708
+01:14:22,400 --> 01:14:24,800
+call me a troll
+
+1709
+01:14:23,440 --> 01:14:26,640
+i don't get what the [ __ ] they are
+
+1710
+01:14:24,800 --> 01:14:29,440
+thinking and the way they write
+
+1711
+01:14:26,640 --> 01:14:31,679
+this documentation this incomprehensible
+
+1712
+01:14:29,440 --> 01:14:31,679
+[ __ ]
+
+1713
+01:14:32,400 --> 01:14:39,520
+okay that's that's the um that's today's
+
+1714
+01:14:35,520 --> 01:14:43,360
+uh rant okay i hope
+
+1715
+01:14:39,520 --> 01:14:46,719
+msu on okay
+
+1716
+01:14:43,360 --> 01:14:49,920
+uh one hour and 15 minutes okay we
+
+1717
+01:14:46,719 --> 01:14:52,960
+i'm going to shut down and i'm going to
+
+1718
+01:14:49,920 --> 01:14:56,000
+okay now i have 14 14 viewers
+
+1719
+01:14:52,960 --> 01:14:59,679
+the more random the more viewers people
+
+1720
+01:14:56,000 --> 01:15:02,480
+want to see drama i'm going to sip
+
+1721
+01:14:59,679 --> 01:15:03,440
+my energy drink then i'm going to sip
+
+1722
+01:15:02,480 --> 01:15:06,400
+tea
+
+1723
+01:15:03,440 --> 01:15:06,880
+then we shut down in maybe three or five
+
+1724
+01:15:06,400 --> 01:15:09,120
+minutes
+
+1725
+01:15:06,880 --> 01:15:10,480
+okay then i'm going to read the comments
+
+1726
+01:15:09,120 --> 01:15:25,040
+so comments right now
+
+1727
+01:15:10,480 --> 01:15:39,840
+i'll answer questions
+
+1728
+01:15:25,040 --> 01:15:39,840
+and now this is tea
+
+1729
+01:15:41,920 --> 01:15:46,400
+okay i'm going to read comments and that
+
+1730
+01:15:44,560 --> 01:15:48,560
+that'll be it for today which we should
+
+1731
+01:15:46,400 --> 01:15:51,600
+now in three minutes um
+
+1732
+01:15:48,560 --> 01:15:54,000
+hello says i once emailed
+
+1733
+01:15:51,600 --> 01:15:54,880
+richard storman he said he couldn't see
+
+1734
+01:15:54,000 --> 01:15:57,040
+the website
+
+1735
+01:15:54,880 --> 01:16:00,080
+fine yeah he see the article he he
+
+1736
+01:15:57,040 --> 01:16:03,040
+requested i described the picture
+
+1737
+01:16:00,080 --> 01:16:03,360
+yes exactly that's him i i wrote to him
+
+1738
+01:16:03,040 --> 01:16:06,800
+too
+
+1739
+01:16:03,360 --> 01:16:09,679
+like in 2008
+
+1740
+01:16:06,800 --> 01:16:11,840
+you know in 2008 i proposed to him
+
+1741
+01:16:09,679 --> 01:16:12,640
+because the emacs manual the emacs
+
+1742
+01:16:11,840 --> 01:16:15,679
+manual
+
+1743
+01:16:12,640 --> 01:16:17,840
+is [ __ ] idiotic okay
+
+1744
+01:16:15,679 --> 01:16:19,840
+so i i was trying to you know i talked
+
+1745
+01:16:17,840 --> 01:16:21,360
+to the emacs dev you know they know me
+
+1746
+01:16:19,840 --> 01:16:21,760
+right yeah you know they know me i know
+
+1747
+01:16:21,360 --> 01:16:25,360
+them
+
+1748
+01:16:21,760 --> 01:16:25,600
+most of them uh they i want to you know
+
+1749
+01:16:25,360 --> 01:16:29,120
+i
+
+1750
+01:16:25,600 --> 01:16:30,719
+i'm thinking we should rewrite the emacs
+
+1751
+01:16:29,120 --> 01:16:32,880
+manual
+
+1752
+01:16:30,719 --> 01:16:35,120
+you know in emacs manual you have 900
+
+1753
+01:16:32,880 --> 01:16:37,520
+pages
+
+1754
+01:16:35,120 --> 01:16:39,120
+and the the it's it's it's
+
+1755
+01:16:37,520 --> 01:16:42,239
+incomprehensible and also
+
+1756
+01:16:39,120 --> 01:16:44,480
+idiotic you know it spends one chapter
+
+1757
+01:16:42,239 --> 01:16:46,960
+to tell you to tell you what is the
+
+1758
+01:16:44,480 --> 01:16:49,199
+cruiser you know
+
+1759
+01:16:46,960 --> 01:16:51,120
+or or what is the copy paste you know
+
+1760
+01:16:49,199 --> 01:16:54,320
+they they spend several
+
+1761
+01:16:51,120 --> 01:16:54,719
+uh pages to tell you what what is a copy
+
+1762
+01:16:54,320 --> 01:16:58,960
+paste
+
+1763
+01:16:54,719 --> 01:17:00,960
+the [ __ ] idiots you know in 1980s
+
+1764
+01:16:58,960 --> 01:17:03,679
+yeah you tell people what is copy paste
+
+1765
+01:17:00,960 --> 01:17:06,320
+not today you know you don't waste time
+
+1766
+01:17:03,679 --> 01:17:08,640
+to read a manual of an editor that
+
+1767
+01:17:06,320 --> 01:17:10,400
+spends two pages three pages telling you
+
+1768
+01:17:08,640 --> 01:17:12,719
+what is the copy and paste
+
+1769
+01:17:10,400 --> 01:17:13,679
+you know this you might say just one
+
+1770
+01:17:12,719 --> 01:17:15,920
+sentence
+
+1771
+01:17:13,679 --> 01:17:18,000
+you know but the emacs menu is like that
+
+1772
+01:17:15,920 --> 01:17:21,199
+i can show you right now
+
+1773
+01:17:18,000 --> 01:17:24,880
+the the [ __ ] emacs menu control h i
+
+1774
+01:17:21,199 --> 01:17:28,000
+okay control h i gets you to this page
+
+1775
+01:17:24,880 --> 01:17:31,679
+then you go to um the the here
+
+1776
+01:17:28,000 --> 01:17:34,880
+okay the emacs menu okay let's go there
+
+1777
+01:17:31,679 --> 01:17:38,000
+then you have like now this is this is
+
+1778
+01:17:34,880 --> 01:17:40,800
+literally 900 pages okay
+
+1779
+01:17:38,000 --> 01:17:41,760
+now you can uh for example copy and
+
+1780
+01:17:40,800 --> 01:17:43,840
+paste and
+
+1781
+01:17:41,760 --> 01:17:46,239
+emacs refuse to use that term they have
+
+1782
+01:17:43,840 --> 01:17:50,159
+their own term for example they call it
+
+1783
+01:17:46,239 --> 01:17:50,640
+yank and uh let me show you okay kill
+
+1784
+01:17:50,159 --> 01:17:54,800
+yeah
+
+1785
+01:17:50,640 --> 01:17:54,800
+you know mark okay mark
+
+1786
+01:17:55,360 --> 01:17:59,520
+let's open that so the mark and the
+
+1787
+01:17:58,320 --> 01:18:02,080
+region that's
+
+1788
+01:17:59,520 --> 01:18:04,239
+what is that that's text selection okay
+
+1789
+01:18:02,080 --> 01:18:07,199
+that's guys let's just text selection
+
+1790
+01:18:04,239 --> 01:18:08,239
+well the only special thing emacs is is
+
+1791
+01:18:07,199 --> 01:18:11,040
+you have a mark
+
+1792
+01:18:08,239 --> 01:18:12,880
+that means use the start the command to
+
+1793
+01:18:11,040 --> 01:18:14,640
+start the text selection without using
+
+1794
+01:18:12,880 --> 01:18:18,239
+the mouse which is great which
+
+1795
+01:18:14,640 --> 01:18:21,199
+which is actually very efficient uh
+
+1796
+01:18:18,239 --> 01:18:23,760
+so anyway so so mark in the region the
+
+1797
+01:18:21,199 --> 01:18:25,920
+[ __ ] emacs [ __ ]
+
+1798
+01:18:23,760 --> 01:18:28,080
+you know they tell you about marx and
+
+1799
+01:18:25,920 --> 01:18:30,480
+region then you you know
+
+1800
+01:18:28,080 --> 01:18:31,360
+then you read it then then there's face
+
+1801
+01:18:30,480 --> 01:18:34,080
+custom
+
+1802
+01:18:31,360 --> 01:18:35,840
+customization what the [ __ ] is a face
+
+1803
+01:18:34,080 --> 01:18:38,840
+that just means font okay
+
+1804
+01:18:35,840 --> 01:18:40,080
+font but they they have to say face
+
+1805
+01:18:38,840 --> 01:18:42,320
+customization
+
+1806
+01:18:40,080 --> 01:18:44,320
+so let's go back the marketing region
+
+1807
+01:18:42,320 --> 01:18:46,320
+then you then you spend
+
+1808
+01:18:44,320 --> 01:18:48,080
+you know they so so you have you know
+
+1809
+01:18:46,320 --> 01:18:50,960
+then then setting the mark
+
+1810
+01:18:48,080 --> 01:18:52,239
+setting the mark you know and and then
+
+1811
+01:18:50,960 --> 01:18:55,600
+this command
+
+1812
+01:18:52,239 --> 01:18:58,880
+that you know that's why nobody nobody
+
+1813
+01:18:55,600 --> 01:19:02,080
+actually [ __ ] reads the emacs manual
+
+1814
+01:18:58,880 --> 01:19:06,159
+these [ __ ] and the marking object
+
+1815
+01:19:02,080 --> 01:19:08,239
+using region markering okay
+
+1816
+01:19:06,159 --> 01:19:10,000
+many of these are great emacs features
+
+1817
+01:19:08,239 --> 01:19:12,719
+for example global marketing
+
+1818
+01:19:10,000 --> 01:19:14,159
+local marketing you know i if you read
+
+1819
+01:19:12,719 --> 01:19:16,719
+my tutorials over there
+
+1820
+01:19:14,159 --> 01:19:17,280
+i give you the most easy to understand
+
+1821
+01:19:16,719 --> 01:19:20,480
+you know
+
+1822
+01:19:17,280 --> 01:19:21,280
+you spend five you know you you spend to
+
+1823
+01:19:20,480 --> 01:19:24,239
+read this
+
+1824
+01:19:21,280 --> 01:19:24,719
+we will take you an hour or two about
+
+1825
+01:19:24,239 --> 01:19:28,239
+the
+
+1826
+01:19:24,719 --> 01:19:30,880
+about the mark uh about this you know
+
+1827
+01:19:28,239 --> 01:19:32,880
+market region on the other hand on my
+
+1828
+01:19:30,880 --> 01:19:35,120
+tutorial you can see on my tutorial i
+
+1829
+01:19:32,880 --> 01:19:37,199
+have like three pages about that
+
+1830
+01:19:35,120 --> 01:19:40,239
+you spend 10 minutes 10 minutes you can
+
+1831
+01:19:37,199 --> 01:19:40,239
+understand the whole thing
+
+1832
+01:19:41,920 --> 01:19:46,159
+but so in 2008 i wrote to richard
+
+1833
+01:19:44,320 --> 01:19:48,159
+stoneman i talked to the emacs dev they
+
+1834
+01:19:46,159 --> 01:19:48,840
+don't listen of course they they they
+
+1835
+01:19:48,159 --> 01:19:51,520
+are
+
+1836
+01:19:48,840 --> 01:19:52,159
+incorrigible impossible to communicate
+
+1837
+01:19:51,520 --> 01:19:54,719
+with them
+
+1838
+01:19:52,159 --> 01:19:55,520
+and pretty soon it's going to become a
+
+1839
+01:19:54,719 --> 01:19:57,920
+flame war
+
+1840
+01:19:55,520 --> 01:19:58,800
+or someone will start to say why don't
+
+1841
+01:19:57,920 --> 01:20:01,120
+you use
+
+1842
+01:19:58,800 --> 01:20:02,960
+why don't you use a microsoft notepad
+
+1843
+01:20:01,120 --> 01:20:04,640
+the [ __ ] the [ __ ] them
+
+1844
+01:20:02,960 --> 01:20:06,239
+you know anything anything different
+
+1845
+01:20:04,640 --> 01:20:09,199
+from emacs they will just say
+
+1846
+01:20:06,239 --> 01:20:11,040
+why don't you use uh microsoft notepad
+
+1847
+01:20:09,199 --> 01:20:11,520
+we are not microsoft notepad why don't
+
+1848
+01:20:11,040 --> 01:20:15,199
+you go
+
+1849
+01:20:11,520 --> 01:20:15,199
+use windows so [ __ ] them
+
+1850
+01:20:15,920 --> 01:20:19,199
+or sometimes they will become oh vi
+
+1851
+01:20:18,080 --> 01:20:21,360
+versus vim
+
+1852
+01:20:19,199 --> 01:20:22,560
+every time you talk about emacs you know
+
+1853
+01:20:21,360 --> 01:20:24,880
+this is
+
+1854
+01:20:22,560 --> 01:20:26,400
+intimidating you'll become oh vi let's
+
+1855
+01:20:24,880 --> 01:20:30,800
+talk about vi versus vim
+
+1856
+01:20:26,400 --> 01:20:32,800
+the the idiots so i so in 2008 i wrote
+
+1857
+01:20:30,800 --> 01:20:33,360
+two you just stole my i say okay i can
+
+1858
+01:20:32,800 --> 01:20:35,679
+improve
+
+1859
+01:20:33,360 --> 01:20:37,760
+you know all polite you know i don't do
+
+1860
+01:20:35,679 --> 01:20:40,159
+i don't do rant when i talk to
+
+1861
+01:20:37,760 --> 01:20:40,880
+when i mean emacs dev or talk to other
+
+1862
+01:20:40,159 --> 01:20:43,040
+people
+
+1863
+01:20:40,880 --> 01:20:44,080
+or polite and i'm suggesting you know i
+
+1864
+01:20:43,040 --> 01:20:45,360
+can i could
+
+1865
+01:20:44,080 --> 01:20:47,760
+because i've been writing i've been
+
+1866
+01:20:45,360 --> 01:20:51,360
+reading and writing uh manuals for
+
+1867
+01:20:47,760 --> 01:20:52,239
+for all my life 30 years so i suggested
+
+1868
+01:20:51,360 --> 01:20:54,880
+you know i can
+
+1869
+01:20:52,239 --> 01:20:56,400
+rewrite the emacs manual i tell you i
+
+1870
+01:20:54,880 --> 01:20:58,000
+tell him what's you know what the
+
+1871
+01:20:56,400 --> 01:20:59,520
+problems i see
+
+1872
+01:20:58,000 --> 01:21:01,440
+you know what's his response very
+
+1873
+01:20:59,520 --> 01:21:05,199
+typical just like uh hello
+
+1874
+01:21:01,440 --> 01:21:07,760
+you know he he says oh why don't you
+
+1875
+01:21:05,199 --> 01:21:09,679
+um you know why don't you work on that
+
+1876
+01:21:07,760 --> 01:21:13,120
+and send me the result
+
+1877
+01:21:09,679 --> 01:21:15,760
+uh and i'll look it you know so
+
+1878
+01:21:13,120 --> 01:21:16,880
+so what he's saying you know in practice
+
+1879
+01:21:15,760 --> 01:21:19,840
+what that means
+
+1880
+01:21:16,880 --> 01:21:21,520
+i spent three months to re to try to
+
+1881
+01:21:19,840 --> 01:21:24,080
+rewrite it the emacs manual
+
+1882
+01:21:21,520 --> 01:21:26,639
+send it back to him having me review and
+
+1883
+01:21:24,080 --> 01:21:30,800
+say whether it's a goal or not
+
+1884
+01:21:26,639 --> 01:21:31,199
+and and and and that's what he suggests
+
+1885
+01:21:30,800 --> 01:21:33,600
+you know
+
+1886
+01:21:31,199 --> 01:21:34,719
+that it's like the great spirit of the
+
+1887
+01:21:33,600 --> 01:21:37,840
+free software
+
+1888
+01:21:34,719 --> 01:21:42,000
+communism you know we help each other
+
+1889
+01:21:37,840 --> 01:21:44,560
+oh yeah you know [ __ ] him
+
+1890
+01:21:42,000 --> 01:21:46,320
+and i know what the result will be if i
+
+1891
+01:21:44,560 --> 01:21:48,159
+spend three months to rewrite the
+
+1892
+01:21:46,320 --> 01:21:48,880
+entirety of the emacs manual or send it
+
+1893
+01:21:48,159 --> 01:21:52,080
+to him
+
+1894
+01:21:48,880 --> 01:21:55,120
+basically back and forth and the
+
+1895
+01:21:52,080 --> 01:21:56,239
+you know three-month dedicated you know
+
+1896
+01:21:55,120 --> 01:21:59,120
+full-time work
+
+1897
+01:21:56,239 --> 01:21:59,679
+how how much that how much you get paid
+
+1898
+01:21:59,120 --> 01:22:01,760
+at google
+
+1899
+01:21:59,679 --> 01:22:03,760
+if it's facebook or microsoft or any
+
+1900
+01:22:01,760 --> 01:22:05,920
+tech company
+
+1901
+01:22:03,760 --> 01:22:06,880
+meanwhile i if i do that i contribute i
+
+1902
+01:22:05,920 --> 01:22:09,600
+get nothing
+
+1903
+01:22:06,880 --> 01:22:10,800
+and even barely barely almost no mention
+
+1904
+01:22:09,600 --> 01:22:13,920
+in the emacs
+
+1905
+01:22:10,800 --> 01:22:17,520
+um acknowledgement you know
+
+1906
+01:22:13,920 --> 01:22:19,840
+when people you know let me ask you guys
+
+1907
+01:22:17,520 --> 01:22:21,600
+who country who who made all this work
+
+1908
+01:22:19,840 --> 01:22:24,719
+in past 10 years in emacs
+
+1909
+01:22:21,600 --> 01:22:26,639
+oh most of you i mean
+
+1910
+01:22:24,719 --> 01:22:28,400
+great most people will say oh richard
+
+1911
+01:22:26,639 --> 01:22:31,679
+stowman nobody else
+
+1912
+01:22:28,400 --> 01:22:33,920
+the [ __ ] [ __ ] richard stolman
+
+1913
+01:22:31,679 --> 01:22:35,679
+he takes all the credit he becomes and
+
+1914
+01:22:33,920 --> 01:22:39,679
+in the past years he
+
+1915
+01:22:35,679 --> 01:22:43,120
+you know in 1980s and 1990s he's a
+
+1916
+01:22:39,679 --> 01:22:46,719
+and even in in early 2000s he's a great
+
+1917
+01:22:43,120 --> 01:22:47,760
+guy with a vision you know free software
+
+1918
+01:22:46,719 --> 01:22:51,360
+you know the and
+
+1919
+01:22:47,760 --> 01:22:53,600
+open source they they are valid opinions
+
+1920
+01:22:51,360 --> 01:22:54,560
+you know as far as licensing goes you
+
+1921
+01:22:53,600 --> 01:22:57,920
+know it's a
+
+1922
+01:22:54,560 --> 01:23:00,960
+valid alternative to the commercial uh
+
+1923
+01:22:57,920 --> 01:23:04,560
+system but in the past 10 years
+
+1924
+01:23:00,960 --> 01:23:08,719
+he has become no good
+
+1925
+01:23:04,560 --> 01:23:12,159
+and also the open source has become
+
+1926
+01:23:08,719 --> 01:23:15,120
+an ideology that created the monster
+
+1927
+01:23:12,159 --> 01:23:16,000
+facebook google controls everything
+
+1928
+01:23:15,120 --> 01:23:18,000
+every aspect
+
+1929
+01:23:16,000 --> 01:23:20,480
+and if you are a programmer you have no
+
+1930
+01:23:18,000 --> 01:23:20,719
+power at all you have nothing no power
+
+1931
+01:23:20,480 --> 01:23:23,199
+at
+
+1932
+01:23:20,719 --> 01:23:23,840
+all the open source roughed all your
+
+1933
+01:23:23,199 --> 01:23:25,679
+power
+
+1934
+01:23:23,840 --> 01:23:27,120
+the only thing you can do is go work for
+
+1935
+01:23:25,679 --> 01:23:29,280
+google and they can fire you
+
+1936
+01:23:27,120 --> 01:23:30,960
+fire you anytime you want anytime you
+
+1937
+01:23:29,280 --> 01:23:33,679
+say same something they don't like
+
+1938
+01:23:30,960 --> 01:23:34,000
+such as men are different from women
+
+1939
+01:23:33,679 --> 01:23:37,360
+they
+
+1940
+01:23:34,000 --> 01:23:38,880
+they fire you at at will that's what the
+
+1941
+01:23:37,360 --> 01:23:40,960
+open source done to us
+
+1942
+01:23:38,880 --> 01:23:42,000
+and many of you people many my you know
+
+1943
+01:23:40,960 --> 01:23:44,400
+my followers
+
+1944
+01:23:42,000 --> 01:23:45,679
+even my followers they they they still
+
+1945
+01:23:44,400 --> 01:23:47,199
+open source phonetics
+
+1946
+01:23:45,679 --> 01:23:48,960
+like every time you use something
+
+1947
+01:23:47,199 --> 01:23:50,159
+they'll tell you oh you need to open
+
+1948
+01:23:48,960 --> 01:23:53,360
+those use this
+
+1949
+01:23:50,159 --> 01:23:56,400
+[ __ ] head anyway so
+
+1950
+01:23:53,360 --> 01:23:58,880
+so hello says back to hello's comments
+
+1951
+01:23:56,400 --> 01:24:01,600
+yeah so richard snowman requested you
+
+1952
+01:23:58,880 --> 01:24:03,840
+know you describe the picture to him
+
+1953
+01:24:01,600 --> 01:24:06,480
+instead of sending the screenshot
+
+1954
+01:24:03,840 --> 01:24:08,239
+reading how he used the internet on his
+
+1955
+01:24:06,480 --> 01:24:12,320
+website made me
+
+1956
+01:24:08,239 --> 01:24:12,320
+yeah facepalm yeah richard snowman
+
+1957
+01:24:14,840 --> 01:24:17,840
+um
+
+1958
+01:24:18,719 --> 01:24:21,760
+goes from zero to one hundred and two
+
+1959
+01:24:20,560 --> 01:24:24,320
+seconds when you attack
+
+1960
+01:24:21,760 --> 01:24:26,000
+geekers okay hello uh long time without
+
+1961
+01:24:24,320 --> 01:24:29,679
+come to this channel
+
+1962
+01:24:26,000 --> 01:24:33,360
+attached hey um you know you guys
+
+1963
+01:24:29,679 --> 01:24:34,239
+you know i'd like to uh know you guys or
+
+1964
+01:24:33,360 --> 01:24:37,440
+meet you guys
+
+1965
+01:24:34,239 --> 01:24:39,280
+uh but after a while i forgot you know i
+
+1966
+01:24:37,440 --> 01:24:41,199
+cannot keep up so
+
+1967
+01:24:39,280 --> 01:24:42,719
+so if you join the discord you know i
+
+1968
+01:24:41,199 --> 01:24:46,880
+have a discord you know
+
+1969
+01:24:42,719 --> 01:24:49,199
+you you chat there every day then we can
+
+1970
+01:24:46,880 --> 01:24:50,800
+this is better way to know each other
+
+1971
+01:24:49,199 --> 01:24:54,560
+because you are there you post
+
+1972
+01:24:50,800 --> 01:24:58,480
+opinions on different things so uh
+
+1973
+01:24:54,560 --> 01:25:00,400
+you know i have a hard time remembering
+
+1974
+01:24:58,480 --> 01:25:02,400
+where you guys are i used to ask you
+
+1975
+01:25:00,400 --> 01:25:04,480
+where you guys are and you know showing
+
+1976
+01:25:02,400 --> 01:25:06,800
+that but
+
+1977
+01:25:04,480 --> 01:25:06,800
+um
+
+1978
+01:25:10,800 --> 01:25:14,239
+okay that's it it's that's a long talk i
+
+1979
+01:25:13,280 --> 01:25:27,199
+think that's a
+
+1980
+01:25:14,239 --> 01:25:29,600
+big long talk let me finish
+
+1981
+01:25:27,199 --> 01:25:30,560
+okay so earlier you had the path to your
+
+1982
+01:25:29,600 --> 01:25:33,440
+oak file
+
+1983
+01:25:30,560 --> 01:25:34,719
+inside your html right yeah so that's my
+
+1984
+01:25:33,440 --> 01:25:38,840
+emacs blog
+
+1985
+01:25:34,719 --> 01:25:42,320
+so let's um go to my emacs blog
+
+1986
+01:25:38,840 --> 01:25:44,639
+magnify so here's the oak file
+
+1987
+01:25:42,320 --> 01:25:46,560
+and you open the file just like that oh
+
+1988
+01:25:44,639 --> 01:25:48,400
+i can you know so there's a command
+
+1989
+01:25:46,560 --> 01:25:50,639
+let me show you okay so you look at the
+
+1990
+01:25:48,400 --> 01:25:54,560
+pink window oh the pink window is good
+
+1991
+01:25:50,639 --> 01:25:57,040
+so let's start command log mod okay
+
+1992
+01:25:54,560 --> 01:25:59,120
+so here's the pink window you can see
+
+1993
+01:25:57,040 --> 01:26:03,280
+all my commands
+
+1994
+01:25:59,120 --> 01:26:07,120
+uh wait so let me move around so you see
+
+1995
+01:26:03,280 --> 01:26:07,120
+my commands there let me shrink it
+
+1996
+01:26:07,679 --> 01:26:12,159
+okay so if i want to open this file i
+
+1997
+01:26:10,719 --> 01:26:16,320
+just put a cursor here
+
+1998
+01:26:12,159 --> 01:26:18,560
+then ctrl c i mean space cu
+
+1999
+01:26:16,320 --> 01:26:19,520
+space cu you open the file so the
+
+2000
+01:26:18,560 --> 01:26:23,840
+command is
+
+2001
+01:26:19,520 --> 01:26:25,440
+open file at kuza and you can look it up
+
+2002
+01:26:23,840 --> 01:26:26,719
+that's on my website you can see the
+
+2003
+01:26:25,440 --> 01:26:29,920
+source code
+
+2004
+01:26:26,719 --> 01:26:30,800
+and that's that is basically a improved
+
+2005
+01:26:29,920 --> 01:26:34,400
+version
+
+2006
+01:26:30,800 --> 01:26:35,040
+of the find file at point that's a bod
+
+2007
+01:26:34,400 --> 01:26:37,840
+command
+
+2008
+01:26:35,040 --> 01:26:39,679
+find file at point it's an improved
+
+2009
+01:26:37,840 --> 01:26:40,960
+version because when you call find file
+
+2010
+01:26:39,679 --> 01:26:44,000
+a point it will
+
+2011
+01:26:40,960 --> 01:26:47,040
+it will prompt asking you to confirm
+
+2012
+01:26:44,000 --> 01:26:48,719
+very annoying so with the open file
+
+2013
+01:26:47,040 --> 01:26:50,400
+acoustic you don't have to confirm you
+
+2014
+01:26:48,719 --> 01:26:52,400
+don't have to are you really sure
+
+2015
+01:26:50,400 --> 01:26:53,760
+are you sure you want to open this is
+
+2016
+01:26:52,400 --> 01:26:56,880
+the file you want to open this
+
+2017
+01:26:53,760 --> 01:27:01,199
+idiotic so you you know you
+
+2018
+01:26:56,880 --> 01:27:01,199
+you know so so that's uh so that's that
+
+2019
+01:27:02,840 --> 01:27:05,920
+command
+
+2020
+01:27:04,080 --> 01:27:07,520
+uh looking into something like his hello
+
+2021
+01:27:05,920 --> 01:27:08,560
+the most efficient keybinding on the
+
+2022
+01:27:07,520 --> 01:27:10,719
+planet i don't think
+
+2023
+01:27:08,560 --> 01:27:11,600
+it's a soft light key so it's another
+
+2024
+01:27:10,719 --> 01:27:14,480
+function
+
+2025
+01:27:11,600 --> 01:27:15,920
+okay he didn't even even have the file
+
+2026
+01:27:14,480 --> 01:27:19,199
+selected i thought it was
+
+2027
+01:27:15,920 --> 01:27:20,480
+cool okay paul it was in the in the
+
+2028
+01:27:19,199 --> 01:27:22,000
+previous video
+
+2029
+01:27:20,480 --> 01:27:23,679
+shows his knowledge and shows the
+
+2030
+01:27:22,000 --> 01:27:26,000
+function going between the web page and
+
+2031
+01:27:23,679 --> 01:27:26,000
+source
+
+2032
+01:27:26,560 --> 01:27:31,440
+thank you guys thank you bye my
+
+2033
+01:27:29,360 --> 01:27:34,400
+tutorials okay you you can
+
+2034
+01:27:31,440 --> 01:27:34,880
+if you like my stuff if you like my buy
+
+2035
+01:27:34,400 --> 01:27:37,520
+my
+
+2036
+01:27:34,880 --> 01:27:38,239
+uh donate paypal and stuff you know
+
+2037
+01:27:37,520 --> 01:27:41,760
+where to go
+
+2038
+01:27:38,239 --> 01:27:42,320
+buy my emacs tutorial emac list tutorial
+
+2039
+01:27:41,760 --> 01:27:46,480
+and
+
+2040
+01:27:42,320 --> 01:27:48,719
+also javascript in depth thank you guys
+
+2041
+01:27:46,480 --> 01:27:48,719
+bye
+
+2042
+01:27:53,120 --> 01:27:57,840
+okay so thank you guys bye
+
+2043
+01:27:58,840 --> 01:28:01,840
+bye
+
+2044
+01:28:06,719 --> 01:28:10,800
+super from discord so hello you are
+
+2045
+01:28:12,840 --> 01:28:15,840
+super
+
+2046
+01:28:19,840 --> 01:28:21,920
+you
+

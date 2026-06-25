@@ -1,0 +1,7371 @@
+1
+00:00:03,919 --> 00:00:07,520
+hello guys
+
+2
+00:00:04,960 --> 00:00:08,480
+welcome to another episode of star talk
+
+3
+00:00:07,520 --> 00:00:12,400
+show
+
+4
+00:00:08,480 --> 00:00:15,759
+so today i'm going to create a emaclis
+
+5
+00:00:12,400 --> 00:00:19,279
+xr emacs distro that is
+
+6
+00:00:15,759 --> 00:00:22,640
+you just download the xiao e-max distro
+
+7
+00:00:19,279 --> 00:00:26,480
+then you go going to have a great e-max
+
+8
+00:00:22,640 --> 00:00:30,160
+setup so it's kind of a competitor
+
+9
+00:00:26,480 --> 00:00:34,640
+to doom e-max and
+
+10
+00:00:30,160 --> 00:00:37,760
+space max today is 2021
+
+11
+00:00:34,640 --> 00:00:42,000
+uh july 17th
+
+12
+00:00:37,760 --> 00:00:45,120
+okay so today is going to be just
+
+13
+00:00:42,000 --> 00:00:46,320
+just emac this coding okay i hope to do
+
+14
+00:00:45,120 --> 00:00:49,920
+this quickly
+
+15
+00:00:46,320 --> 00:00:50,559
+and i hope that by the end of the video
+
+16
+00:00:49,920 --> 00:00:53,920
+it will
+
+17
+00:00:50,559 --> 00:00:55,039
+probably more than one hour uh and no
+
+18
+00:00:53,920 --> 00:00:57,680
+more than two hours
+
+19
+00:00:55,039 --> 00:01:00,640
+by the end of the video you should you
+
+20
+00:00:57,680 --> 00:01:03,680
+shall have a
+
+21
+00:01:00,640 --> 00:01:04,479
+uh github okay saudi github you should
+
+22
+00:01:03,680 --> 00:01:07,119
+see xr
+
+23
+00:01:04,479 --> 00:01:08,240
+emacs on github and you should be able
+
+24
+00:01:07,119 --> 00:01:12,880
+to download it
+
+25
+00:01:08,240 --> 00:01:16,000
+and have a working emacs let's see
+
+26
+00:01:12,880 --> 00:01:19,439
+github working emacs saw emacs distro
+
+27
+00:01:16,000 --> 00:01:22,479
+okay uh at least the draft version
+
+28
+00:01:19,439 --> 00:01:23,600
+okay now where is my distro i i forgot
+
+29
+00:01:22,479 --> 00:01:26,960
+to log into
+
+30
+00:01:23,600 --> 00:01:30,400
+uh github yeah
+
+31
+00:01:26,960 --> 00:01:32,720
+okay i need to sign in um
+
+32
+00:01:30,400 --> 00:01:33,759
+okay i need to sign in and i need to
+
+33
+00:01:32,720 --> 00:01:37,680
+hide my
+
+34
+00:01:33,759 --> 00:01:41,040
+uh my screen so
+
+35
+00:01:37,680 --> 00:01:45,759
+okay so give me a minute to sign in and
+
+36
+00:01:41,040 --> 00:01:48,640
+hide my screen okay let's see
+
+37
+00:01:45,759 --> 00:01:51,280
+uh video audio video let's see where is
+
+38
+00:01:48,640 --> 00:01:56,240
+it video capture
+
+39
+00:01:51,280 --> 00:01:59,759
+uh where do i video capture
+
+40
+00:01:56,240 --> 00:02:02,079
+okay so you can still hear my voice okay
+
+41
+00:01:59,759 --> 00:02:02,640
+screen capture display capture there it
+
+42
+00:02:02,079 --> 00:02:05,840
+is
+
+43
+00:02:02,640 --> 00:02:09,039
+so you can still hear me and let's see
+
+44
+00:02:05,840 --> 00:02:11,280
+let me login
+
+45
+00:02:09,039 --> 00:02:11,280
+uh
+
+46
+00:02:14,959 --> 00:02:22,319
+okay i need to verify the
+
+47
+00:02:18,400 --> 00:02:25,280
+phone number i mean the sixth digit
+
+48
+00:02:22,319 --> 00:02:25,280
+secret code
+
+49
+00:02:34,640 --> 00:02:38,000
+okay i'm logged in so now let me turn
+
+50
+00:02:37,120 --> 00:02:42,480
+back the
+
+51
+00:02:38,000 --> 00:02:45,519
+video the my screen
+
+52
+00:02:42,480 --> 00:02:48,319
+there you have it okay so
+
+53
+00:02:45,519 --> 00:02:50,640
+mark the time and let's start to work
+
+54
+00:02:48,319 --> 00:02:51,519
+okay now if you have any comments feel
+
+55
+00:02:50,640 --> 00:02:54,560
+free to comment
+
+56
+00:02:51,519 --> 00:02:54,560
+thank you cortes
+
+57
+00:02:56,239 --> 00:02:59,440
+thank you cortes
+
+58
+00:03:00,000 --> 00:03:07,360
+uh very good ronnie rays okay
+
+59
+00:03:03,120 --> 00:03:07,360
+justin car hi guys so
+
+60
+00:03:07,760 --> 00:03:10,800
+if you have a comment feel free to post
+
+61
+00:03:09,760 --> 00:03:13,360
+it i may
+
+62
+00:03:10,800 --> 00:03:14,159
+answer it but i do hope to focus to be
+
+63
+00:03:13,360 --> 00:03:16,239
+focused on
+
+64
+00:03:14,159 --> 00:03:17,360
+you know working on these emacs distro
+
+65
+00:03:16,239 --> 00:03:21,120
+so
+
+66
+00:03:17,360 --> 00:03:22,560
+uh so so so so so so let me let me get
+
+67
+00:03:21,120 --> 00:03:26,560
+to work okay
+
+68
+00:03:22,560 --> 00:03:30,159
+let me set this up here so i can see the
+
+69
+00:03:26,560 --> 00:03:34,400
+new comments coming and then okay
+
+70
+00:03:30,159 --> 00:03:36,400
+so uh go to so talk show this is my talk
+
+71
+00:03:34,400 --> 00:03:38,720
+show directory you can see
+
+72
+00:03:36,400 --> 00:03:39,920
+then uh today we are not going to use
+
+73
+00:03:38,720 --> 00:03:43,920
+the browser much
+
+74
+00:03:39,920 --> 00:03:46,080
+okay i forgot to turn on the javascript
+
+75
+00:03:43,920 --> 00:03:46,959
+refresh okay that's today's talk show we
+
+76
+00:03:46,080 --> 00:03:49,840
+are not going to
+
+77
+00:03:46,959 --> 00:03:53,360
+uh use the browser much so uh home
+
+78
+00:03:49,840 --> 00:03:53,360
+directory let's go to
+
+79
+00:03:53,760 --> 00:03:57,760
+my home directory okay now my home
+
+80
+00:03:56,720 --> 00:04:01,439
+directory so
+
+81
+00:03:57,760 --> 00:04:04,480
+this emacsd this is my current init file
+
+82
+00:04:01,439 --> 00:04:06,319
+and so you see we are going to do let
+
+83
+00:04:04,480 --> 00:04:09,519
+why don't we write it down so perhaps
+
+84
+00:04:06,319 --> 00:04:12,799
+it's better that way so
+
+85
+00:04:09,519 --> 00:04:16,160
+yeah because uh so we have kind of a uh
+
+86
+00:04:12,799 --> 00:04:19,919
+you know a goal uh
+
+87
+00:04:16,160 --> 00:04:24,080
+spec specification okay today
+
+88
+00:04:19,919 --> 00:04:27,120
+create a xsa emacs distro
+
+89
+00:04:24,080 --> 00:04:30,000
+and put it on github
+
+90
+00:04:27,120 --> 00:04:30,880
+okay so what it's so what is emacs
+
+91
+00:04:30,000 --> 00:04:34,000
+distro
+
+92
+00:04:30,880 --> 00:04:38,000
+that's going uh that's going to be
+
+93
+00:04:34,000 --> 00:04:42,560
+emax distro is mostly just
+
+94
+00:04:38,000 --> 00:04:46,240
+fly keys plus about
+
+95
+00:04:42,560 --> 00:04:49,919
+10 of my xa
+
+96
+00:04:46,240 --> 00:04:50,240
+packages okay and i believe that gives
+
+97
+00:04:49,919 --> 00:04:53,440
+you
+
+98
+00:04:50,240 --> 00:04:55,040
+a plus some emacs settings i believe
+
+99
+00:04:53,440 --> 00:04:57,120
+that will give you
+
+100
+00:04:55,040 --> 00:04:59,280
+a minimum kind of min you know as
+
+101
+00:04:57,120 --> 00:05:02,160
+hackers say minimalist
+
+102
+00:04:59,280 --> 00:05:02,720
+philosophy but i don't really like that
+
+103
+00:05:02,160 --> 00:05:05,759
+word
+
+104
+00:05:02,720 --> 00:05:07,120
+it's kind of it will give you a basic uh
+
+105
+00:05:05,759 --> 00:05:10,240
+very efficient
+
+106
+00:05:07,120 --> 00:05:12,479
+lean emax setup
+
+107
+00:05:10,240 --> 00:05:14,240
+okay and why do i want to create this
+
+108
+00:05:12,479 --> 00:05:18,000
+because you know i've been using it
+
+109
+00:05:14,240 --> 00:05:20,720
+you know i want to create it so that
+
+110
+00:05:18,000 --> 00:05:21,840
+so that i can actually have a casa
+
+111
+00:05:20,720 --> 00:05:24,479
+system
+
+112
+00:05:21,840 --> 00:05:26,320
+you know you know like one thing leads
+
+113
+00:05:24,479 --> 00:05:28,080
+to another you know once i have this
+
+114
+00:05:26,320 --> 00:05:31,440
+whole thing set up
+
+115
+00:05:28,080 --> 00:05:32,720
+i can start to add keys and started to
+
+116
+00:05:31,440 --> 00:05:36,080
+deviate from the
+
+117
+00:05:32,720 --> 00:05:39,360
+emacs the glue emax convention the
+
+118
+00:05:36,080 --> 00:05:41,919
+tradition you know i mean
+
+119
+00:05:39,360 --> 00:05:43,759
+space max and do max they both deviate
+
+120
+00:05:41,919 --> 00:05:46,560
+from gnu emacs you know
+
+121
+00:05:43,759 --> 00:05:47,120
+uh i worked on ergo emacs for like 10
+
+122
+00:05:46,560 --> 00:05:50,080
+years
+
+123
+00:05:47,120 --> 00:05:52,800
+uh about five you know 10 years ago so
+
+124
+00:05:50,080 --> 00:05:54,960
+anyway so now i'm starting over
+
+125
+00:05:52,800 --> 00:05:56,960
+why do i want to make it because once i
+
+126
+00:05:54,960 --> 00:06:00,880
+have this package
+
+127
+00:05:56,960 --> 00:06:04,240
+and and i can start it to have a
+
+128
+00:06:00,880 --> 00:06:06,400
+kind of like system like all my ideas
+
+129
+00:06:04,240 --> 00:06:07,680
+so stuff like keys will be compatible
+
+130
+00:06:06,400 --> 00:06:09,919
+with all the other
+
+131
+00:06:07,680 --> 00:06:11,520
+kind of all the other packages i can
+
+132
+00:06:09,919 --> 00:06:14,880
+start it to add
+
+133
+00:06:11,520 --> 00:06:18,240
+you know a system uh and
+
+134
+00:06:14,880 --> 00:06:18,720
+you know it will be kind of a competitor
+
+135
+00:06:18,240 --> 00:06:21,440
+to
+
+136
+00:06:18,720 --> 00:06:22,000
+space max and doing emacs although it
+
+137
+00:06:21,440 --> 00:06:26,160
+will be
+
+138
+00:06:22,000 --> 00:06:28,800
+a bit different in philosophy of course
+
+139
+00:06:26,160 --> 00:06:29,199
+and it will be pretty much plain emacs
+
+140
+00:06:28,800 --> 00:06:32,319
+so
+
+141
+00:06:29,199 --> 00:06:35,440
+unlike space max for example it
+
+142
+00:06:32,319 --> 00:06:38,240
+space max has its own kind of
+
+143
+00:06:35,440 --> 00:06:39,440
+system it you know spacemax developed a
+
+144
+00:06:38,240 --> 00:06:41,520
+layer kind of a
+
+145
+00:06:39,440 --> 00:06:43,280
+kind of their own system directory
+
+146
+00:06:41,520 --> 00:06:46,080
+structure and for
+
+147
+00:06:43,280 --> 00:06:47,039
+for configuration for extension just
+
+148
+00:06:46,080 --> 00:06:50,479
+specific to
+
+149
+00:06:47,039 --> 00:06:53,120
+space max now doom e max
+
+150
+00:06:50,479 --> 00:06:54,400
+is not like that but it has its own
+
+151
+00:06:53,120 --> 00:06:58,160
+philosophy and
+
+152
+00:06:54,400 --> 00:07:02,240
+it creates like 400 packages it installs
+
+153
+00:06:58,160 --> 00:07:05,759
+400 packages and also both of them
+
+154
+00:07:02,240 --> 00:07:08,880
+are based on centered around the
+
+155
+00:07:05,759 --> 00:07:11,280
+veeam key binding which is
+
+156
+00:07:08,880 --> 00:07:13,360
+a good thing you know there are good
+
+157
+00:07:11,280 --> 00:07:14,960
+reasons there are advantages and there
+
+158
+00:07:13,360 --> 00:07:17,840
+are disadvantages
+
+159
+00:07:14,960 --> 00:07:19,840
+the advantage is that you can use emacs
+
+160
+00:07:17,840 --> 00:07:20,639
+once you get used to it you can use both
+
+161
+00:07:19,840 --> 00:07:23,919
+emacs
+
+162
+00:07:20,639 --> 00:07:26,720
+and you can use vim uh you can you know
+
+163
+00:07:23,919 --> 00:07:27,199
+flexible and they are fairly they have a
+
+164
+00:07:26,720 --> 00:07:29,440
+lot
+
+165
+00:07:27,199 --> 00:07:30,479
+users because of them veeam you know
+
+166
+00:07:29,440 --> 00:07:33,520
+veeam is
+
+167
+00:07:30,479 --> 00:07:36,000
+built-in editor in unix
+
+168
+00:07:33,520 --> 00:07:36,639
+kind of the standard the mainstream
+
+169
+00:07:36,000 --> 00:07:39,840
+editor
+
+170
+00:07:36,639 --> 00:07:41,199
+in unix systems or linux you know it's
+
+171
+00:07:39,840 --> 00:07:42,960
+you don't have to install it
+
+172
+00:07:41,199 --> 00:07:45,280
+on the other hand emacs you have to
+
+173
+00:07:42,960 --> 00:07:48,560
+install it even in linux
+
+174
+00:07:45,280 --> 00:07:50,080
+so vim has become very popular you know
+
+175
+00:07:48,560 --> 00:07:52,240
+even though it's kind of hard
+
+176
+00:07:50,080 --> 00:07:53,680
+difficult to use but it has kind of it's
+
+177
+00:07:52,240 --> 00:07:56,800
+a standard and
+
+178
+00:07:53,680 --> 00:07:59,840
+sort of just like microsoft windows the
+
+179
+00:07:56,800 --> 00:08:00,639
+visual studio code editor is kind of the
+
+180
+00:07:59,840 --> 00:08:04,400
+standard
+
+181
+00:08:00,639 --> 00:08:06,960
+and on the mac the standard is the
+
+182
+00:08:04,400 --> 00:08:08,080
+you know the mag i forgot the name now
+
+183
+00:08:06,960 --> 00:08:11,680
+that you know the
+
+184
+00:08:08,080 --> 00:08:12,000
+the mac os what's the code uh you know
+
+185
+00:08:11,680 --> 00:08:15,520
+we
+
+186
+00:08:12,000 --> 00:08:19,039
+go to discord then we can see
+
+187
+00:08:15,520 --> 00:08:21,759
+uh someone sietse
+
+188
+00:08:19,039 --> 00:08:22,800
+how do you pronounce your name csa he uh
+
+189
+00:08:21,759 --> 00:08:26,319
+he mentioned that
+
+190
+00:08:22,800 --> 00:08:28,960
+you know anyway the is staying at africa
+
+191
+00:08:26,319 --> 00:08:30,160
+let's get on so i want to work on stuff
+
+192
+00:08:28,960 --> 00:08:33,120
+like uh
+
+193
+00:08:30,160 --> 00:08:34,399
+so emax distro it will be centered
+
+194
+00:08:33,120 --> 00:08:37,360
+around stuff like keys
+
+195
+00:08:34,399 --> 00:08:38,839
+then i will you know plus some tens of
+
+196
+00:08:37,360 --> 00:08:43,519
+my packages
+
+197
+00:08:38,839 --> 00:08:45,680
+and i wasn't doing this before you know
+
+198
+00:08:43,519 --> 00:08:47,200
+anyway so that's enough about the
+
+199
+00:08:45,680 --> 00:08:50,399
+reasons let's do it
+
+200
+00:08:47,200 --> 00:08:53,440
+thank you george from australia
+
+201
+00:08:50,399 --> 00:08:55,839
+from cortes from america and george from
+
+202
+00:08:53,440 --> 00:08:55,839
+australia
+
+203
+00:08:56,160 --> 00:08:58,580
+am i right is that the georgia i know i
+
+204
+00:08:58,160 --> 00:09:02,560
+think so
+
+205
+00:08:58,580 --> 00:09:05,800
+[Laughter]
+
+206
+00:09:02,560 --> 00:09:08,959
+great uh
+
+207
+00:09:05,800 --> 00:09:13,600
+guillermo good morning from
+
+208
+00:09:08,959 --> 00:09:16,880
+is that italy palazzi franco plazi
+
+209
+00:09:13,600 --> 00:09:17,360
+okay so stuff like so imax distro so oh
+
+210
+00:09:16,880 --> 00:09:20,160
+my god
+
+211
+00:09:17,360 --> 00:09:20,640
+it's a big task how am i gonna finish i
+
+212
+00:09:20,160 --> 00:09:24,480
+already
+
+213
+00:09:20,640 --> 00:09:28,320
+wasted 10 minutes okay so
+
+214
+00:09:24,480 --> 00:09:30,240
+okay so let's begin so first of all okay
+
+215
+00:09:28,320 --> 00:09:32,800
+i already created a git
+
+216
+00:09:30,240 --> 00:09:33,600
+you can see here eight people watching
+
+217
+00:09:32,800 --> 00:09:36,959
+fantastic
+
+218
+00:09:33,600 --> 00:09:39,839
+oh yeah so let's find repositories
+
+219
+00:09:36,959 --> 00:09:41,440
+let's find my code you know the hacker
+
+220
+00:09:39,839 --> 00:09:44,560
+says where's your code
+
+221
+00:09:41,440 --> 00:09:44,560
+where's your contribution
+
+222
+00:09:44,959 --> 00:09:54,000
+okay i do have some i have some
+
+223
+00:09:49,200 --> 00:09:56,959
+okay emacs okay here it's empty
+
+224
+00:09:54,000 --> 00:09:58,480
+and uh it says emacs site it needs to
+
+225
+00:09:56,959 --> 00:10:01,440
+change okay so
+
+226
+00:09:58,480 --> 00:10:03,200
+uh i already also already set up a
+
+227
+00:10:01,440 --> 00:10:04,240
+bookmark so you can see this is the
+
+228
+00:10:03,200 --> 00:10:07,120
+directory
+
+229
+00:10:04,240 --> 00:10:07,600
+so corresponding to that git and this
+
+230
+00:10:07,120 --> 00:10:09,680
+needs
+
+231
+00:10:07,600 --> 00:10:11,200
+to change because emacs distro let's
+
+232
+00:10:09,680 --> 00:10:14,160
+dive into ishow
+
+233
+00:10:11,200 --> 00:10:15,680
+and let's git commit let's get let's say
+
+234
+00:10:14,160 --> 00:10:19,440
+git status okay
+
+235
+00:10:15,680 --> 00:10:23,839
+good status something something okay
+
+236
+00:10:19,440 --> 00:10:27,200
+get fire modified okay git add
+
+237
+00:10:23,839 --> 00:10:29,120
+something something get committed ado
+
+238
+00:10:27,200 --> 00:10:30,800
+that's right this is lots of a dude
+
+239
+00:10:29,120 --> 00:10:34,959
+that's committed okay
+
+240
+00:10:30,800 --> 00:10:34,959
+now get push
+
+241
+00:10:35,680 --> 00:10:40,000
+okay this is the standard operation the
+
+242
+00:10:38,640 --> 00:10:43,120
+unix
+
+243
+00:10:40,000 --> 00:10:44,959
+way okay refresh casa emacs distro
+
+244
+00:10:43,120 --> 00:10:47,839
+that's right that's uh
+
+245
+00:10:44,959 --> 00:10:47,839
+good
+
+246
+00:10:50,800 --> 00:10:57,600
+close that then first of all so
+
+247
+00:10:54,320 --> 00:11:01,120
+okay so let's let's begin okay so
+
+248
+00:10:57,600 --> 00:11:03,440
+so okay let's move this here
+
+249
+00:11:01,120 --> 00:11:04,480
+a little bit let's move that here
+
+250
+00:11:03,440 --> 00:11:07,760
+adjustment
+
+251
+00:11:04,480 --> 00:11:11,360
+okay let's go to settings okay
+
+252
+00:11:07,760 --> 00:11:14,720
+so you are looking at the directory uh
+
+253
+00:11:11,360 --> 00:11:17,839
+of all my emacs settings okay
+
+254
+00:11:14,720 --> 00:11:20,079
+so i know a few things i want let me let
+
+255
+00:11:17,839 --> 00:11:22,079
+me explain how these settings work okay
+
+256
+00:11:20,079 --> 00:11:23,600
+so first of all you have a need file
+
+257
+00:11:22,079 --> 00:11:27,120
+search for init
+
+258
+00:11:23,600 --> 00:11:30,079
+so there it is the init file you open it
+
+259
+00:11:27,120 --> 00:11:30,800
+and this is basically the main init file
+
+260
+00:11:30,079 --> 00:11:33,680
+it
+
+261
+00:11:30,800 --> 00:11:34,640
+this file tells emacs to load other
+
+262
+00:11:33,680 --> 00:11:37,279
+files in
+
+263
+00:11:34,640 --> 00:11:38,079
+and packages so first of all the most
+
+264
+00:11:37,279 --> 00:11:43,040
+important
+
+265
+00:11:38,079 --> 00:11:45,279
+uh thing is a few packages we need okay
+
+266
+00:11:43,040 --> 00:11:47,680
+so it you know it's going to be stuff
+
+267
+00:11:45,279 --> 00:11:50,320
+like keys and
+
+268
+00:11:47,680 --> 00:11:51,680
+ev smart because uh insert random id
+
+269
+00:11:50,320 --> 00:11:55,680
+card css smart
+
+270
+00:11:51,680 --> 00:11:58,959
+inside html and so on okay i need to uh
+
+271
+00:11:55,680 --> 00:12:01,519
+comments questions okay hello hello okay
+
+272
+00:11:58,959 --> 00:12:02,800
+i need to do this so first of all i need
+
+273
+00:12:01,519 --> 00:12:06,560
+a directory structure
+
+274
+00:12:02,800 --> 00:12:09,120
+um so this is this is the
+
+275
+00:12:06,560 --> 00:12:10,079
+emacs directory they gonna get they're
+
+276
+00:12:09,120 --> 00:12:13,279
+gonna get poor
+
+277
+00:12:10,079 --> 00:12:17,279
+get chronic and uh in this uh
+
+278
+00:12:13,279 --> 00:12:19,440
+it is five files okay so
+
+279
+00:12:17,279 --> 00:12:22,000
+so actually sometimes we can look at how
+
+280
+00:12:19,440 --> 00:12:25,600
+space max or doing emacs do it
+
+281
+00:12:22,000 --> 00:12:29,360
+you know even i i've i have created
+
+282
+00:12:25,600 --> 00:12:29,360
+ergo emacs before but
+
+283
+00:12:29,440 --> 00:12:33,600
+sometimes i don't remember okay this is
+
+284
+00:12:32,079 --> 00:12:35,680
+a doom
+
+285
+00:12:33,600 --> 00:12:37,440
+you know i did the video trying to
+
+286
+00:12:35,680 --> 00:12:39,440
+install doom before
+
+287
+00:12:37,440 --> 00:12:40,720
+and that video is one hour and it's
+
+288
+00:12:39,440 --> 00:12:43,519
+pretty lousy
+
+289
+00:12:40,720 --> 00:12:45,760
+because i forgot that i need to know
+
+290
+00:12:43,519 --> 00:12:48,240
+veeam keystrokes in order to actually do
+
+291
+00:12:45,760 --> 00:12:51,680
+something with 2max
+
+292
+00:12:48,240 --> 00:12:54,240
+but okay so they have a directory called
+
+293
+00:12:51,680 --> 00:12:55,600
+modules that's the way they do it and in
+
+294
+00:12:54,240 --> 00:12:56,720
+the modules they have several
+
+295
+00:12:55,600 --> 00:13:01,760
+directories
+
+296
+00:12:56,720 --> 00:13:01,760
+of different kind of different uh
+
+297
+00:13:03,200 --> 00:13:06,399
+tasks the map the module is supposed to
+
+298
+00:13:06,000 --> 00:13:10,240
+do
+
+299
+00:13:06,399 --> 00:13:12,560
+okay so uh folks for example emacs is
+
+300
+00:13:10,240 --> 00:13:14,720
+not going to be that complex so doom
+
+301
+00:13:12,560 --> 00:13:18,240
+also has a server directory or
+
+302
+00:13:14,720 --> 00:13:21,839
+it's empty then the test directory okay
+
+303
+00:13:18,240 --> 00:13:25,120
+and each other okay so that's doom emacs
+
+304
+00:13:21,839 --> 00:13:28,240
+so we are going to okay think
+
+305
+00:13:25,120 --> 00:13:30,079
+stop talking i need to actually think
+
+306
+00:13:28,240 --> 00:13:32,880
+so i need to create a directory the
+
+307
+00:13:30,079 --> 00:13:35,839
+directory so first of all
+
+308
+00:13:32,880 --> 00:13:36,720
+so you know about three months ago i
+
+309
+00:13:35,839 --> 00:13:40,160
+switched to
+
+310
+00:13:36,720 --> 00:13:43,839
+i started to install emacs on my other
+
+311
+00:13:40,160 --> 00:13:47,920
+other uh the laptop the surface pro
+
+312
+00:13:43,839 --> 00:13:48,399
+and there i have to you know install my
+
+313
+00:13:47,920 --> 00:13:53,040
+mic
+
+314
+00:13:48,399 --> 00:13:55,440
+saw config from scratch uh basically
+
+315
+00:13:53,040 --> 00:13:56,959
+oh okay i i talk too much okay let's
+
+316
+00:13:55,440 --> 00:14:00,560
+let's let's
+
+317
+00:13:56,959 --> 00:14:02,959
+let's um so first of all i need
+
+318
+00:14:00,560 --> 00:14:03,839
+sapphire keys okay so actually write it
+
+319
+00:14:02,959 --> 00:14:07,760
+down
+
+320
+00:14:03,839 --> 00:14:11,279
+knees need soft like keys
+
+321
+00:14:07,760 --> 00:14:13,680
+needs lots of casa packages okay
+
+322
+00:14:11,279 --> 00:14:13,680
+then
+
+323
+00:14:14,959 --> 00:14:18,720
+okay let's go let's start to do it go to
+
+324
+00:14:17,040 --> 00:14:23,440
+the my git directory
+
+325
+00:14:18,720 --> 00:14:23,440
+let's search for uh emax
+
+326
+00:14:23,600 --> 00:14:32,079
+okay so i need to supply keys okay
+
+327
+00:14:27,199 --> 00:14:32,079
+how the how is this going to be
+
+328
+00:14:32,160 --> 00:14:34,399
+uh
+
+329
+00:14:39,360 --> 00:14:45,839
+packages okay let's just create a
+
+330
+00:14:42,839 --> 00:14:45,839
+directory
+
+331
+00:14:51,120 --> 00:14:58,240
+okay open it and the sunflower keys copy
+
+332
+00:14:56,839 --> 00:15:01,600
+it
+
+333
+00:14:58,240 --> 00:15:04,079
+copy it over and let's go up
+
+334
+00:15:01,600 --> 00:15:04,079
+let's see
+
+335
+00:15:05,519 --> 00:15:09,519
+okay xr css mod
+
+336
+00:15:09,920 --> 00:15:13,600
+so what what the distribution will
+
+337
+00:15:12,160 --> 00:15:16,480
+include besides clock
+
+338
+00:15:13,600 --> 00:15:16,480
+supply keys
+
+339
+00:15:17,040 --> 00:15:20,480
+finish your story about the other
+
+340
+00:15:19,040 --> 00:15:22,959
+computer please okay
+
+341
+00:15:20,480 --> 00:15:24,880
+so it's going to be supply keys and
+
+342
+00:15:22,959 --> 00:15:28,720
+basically several other
+
+343
+00:15:24,880 --> 00:15:29,759
+uh my packages for css for html for
+
+344
+00:15:28,720 --> 00:15:32,079
+javascript
+
+345
+00:15:29,759 --> 00:15:33,519
+these are the main ones and for emac
+
+346
+00:15:32,079 --> 00:15:37,040
+bisp
+
+347
+00:15:33,519 --> 00:15:40,720
+and some of some kind of other utilities
+
+348
+00:15:37,040 --> 00:15:43,839
+such as insert random id and
+
+349
+00:15:40,720 --> 00:15:47,759
+smacks smacks is not my package but
+
+350
+00:15:43,839 --> 00:15:50,720
+it will be included in some e-max distro
+
+351
+00:15:47,759 --> 00:15:51,839
+uh so here's side streaming such as
+
+352
+00:15:50,720 --> 00:15:55,040
+because i find
+
+353
+00:15:51,839 --> 00:15:56,160
+diet okay because i find is another big
+
+354
+00:15:55,040 --> 00:16:00,000
+package
+
+355
+00:15:56,160 --> 00:16:01,040
+uh feature in inside emacs and casa diet
+
+356
+00:16:00,000 --> 00:16:04,720
+is another big
+
+357
+00:16:01,040 --> 00:16:06,000
+kind of big feature uh then some crucial
+
+358
+00:16:04,720 --> 00:16:10,959
+mod not so much because
+
+359
+00:16:06,000 --> 00:16:14,560
+php not so much uh these i can skip
+
+360
+00:16:10,959 --> 00:16:16,959
+uh cause i look up is uh very useful
+
+361
+00:16:14,560 --> 00:16:17,600
+that's gonna be another kind of feature
+
+362
+00:16:16,959 --> 00:16:21,680
+of
+
+363
+00:16:17,600 --> 00:16:22,639
+emacs then some math input will also be
+
+364
+00:16:21,680 --> 00:16:25,680
+there
+
+365
+00:16:22,639 --> 00:16:29,440
+basically my main packages okay uh
+
+366
+00:16:25,680 --> 00:16:32,880
+and and and it will also include
+
+367
+00:16:29,440 --> 00:16:36,639
+a few like like three or four other
+
+368
+00:16:32,880 --> 00:16:39,440
+people's packages that i find useful
+
+369
+00:16:36,639 --> 00:16:40,079
+okay my story about other computer okay
+
+370
+00:16:39,440 --> 00:16:42,240
+that
+
+371
+00:16:40,079 --> 00:16:44,000
+there's not much okay i was installing
+
+372
+00:16:42,240 --> 00:16:47,120
+you know i was using this uh
+
+373
+00:16:44,000 --> 00:16:48,880
+i have a surface book and a few months
+
+374
+00:16:47,120 --> 00:16:51,360
+ago half a year ago i
+
+375
+00:16:48,880 --> 00:16:52,160
+tried to run emacs on it so i have to
+
+376
+00:16:51,360 --> 00:16:55,759
+install
+
+377
+00:16:52,160 --> 00:16:58,880
+uh from scratch basically suppose i
+
+378
+00:16:55,759 --> 00:17:00,720
+go to your home
+
+379
+00:16:58,880 --> 00:17:02,720
+you know if you invite me to your home
+
+380
+00:17:00,720 --> 00:17:05,199
+if i have to say you know if you gotta
+
+381
+00:17:02,720 --> 00:17:08,720
+if you got a new job i have to set up
+
+382
+00:17:05,199 --> 00:17:10,480
+my emacs so and that's easy yeah
+
+383
+00:17:08,720 --> 00:17:13,760
+basically you finish that in
+
+384
+00:17:10,480 --> 00:17:16,000
+in 30 minutes you know
+
+385
+00:17:13,760 --> 00:17:18,160
+oh basically all i have to do so if
+
+386
+00:17:16,000 --> 00:17:19,039
+right now i'm on a new machine all i
+
+387
+00:17:18,160 --> 00:17:21,839
+have to do
+
+388
+00:17:19,039 --> 00:17:24,079
+is go to get you know this this whole
+
+389
+00:17:21,839 --> 00:17:27,120
+directory is on git
+
+390
+00:17:24,079 --> 00:17:30,640
+uh emacs init you know then download
+
+391
+00:17:27,120 --> 00:17:33,840
+everything then then basically download
+
+392
+00:17:30,640 --> 00:17:36,480
+all the packages i
+
+393
+00:17:33,840 --> 00:17:36,880
+requested require in the init file about
+
+394
+00:17:36,480 --> 00:17:39,919
+10
+
+395
+00:17:36,880 --> 00:17:43,039
+about 10 or also most of them my
+
+396
+00:17:39,919 --> 00:17:45,760
+own packages and and then
+
+397
+00:17:43,039 --> 00:17:47,120
+include the rest of the my settings in
+
+398
+00:17:45,760 --> 00:17:50,960
+info and that's about
+
+399
+00:17:47,120 --> 00:17:53,360
+it okay so in order to create the xr
+
+400
+00:17:50,960 --> 00:17:55,440
+emacs configuration it's actually gonna
+
+401
+00:17:53,360 --> 00:17:58,320
+be pretty much the same steps
+
+402
+00:17:55,440 --> 00:18:00,080
+except that now i have to worry about
+
+403
+00:17:58,320 --> 00:18:01,200
+directory structure because this is
+
+404
+00:18:00,080 --> 00:18:03,200
+going to be
+
+405
+00:18:01,200 --> 00:18:04,799
+used by everyone you know everyone just
+
+406
+00:18:03,200 --> 00:18:07,360
+download these emacs
+
+407
+00:18:04,799 --> 00:18:09,360
+so it's i have to think about what's the
+
+408
+00:18:07,360 --> 00:18:12,880
+directory name
+
+409
+00:18:09,360 --> 00:18:16,799
+uh you know properly as opposed to
+
+410
+00:18:12,880 --> 00:18:19,679
+whatever directory my init file is at
+
+411
+00:18:16,799 --> 00:18:21,280
+you know for example for example if you
+
+412
+00:18:19,679 --> 00:18:23,440
+go to my init file
+
+413
+00:18:21,280 --> 00:18:25,440
+so this init file is the main thing it
+
+414
+00:18:23,440 --> 00:18:28,559
+loads every other thing
+
+415
+00:18:25,440 --> 00:18:31,600
+so if you open it if you go to flight
+
+416
+00:18:28,559 --> 00:18:32,400
+supply keys you can see here is my
+
+417
+00:18:31,600 --> 00:18:35,280
+config for
+
+418
+00:18:32,400 --> 00:18:36,559
+soft light keys and as you can see it
+
+419
+00:18:35,280 --> 00:18:40,000
+loads the package
+
+420
+00:18:36,559 --> 00:18:40,000
+at my git repo
+
+421
+00:18:40,320 --> 00:18:45,600
+you know for me that works fine but if
+
+422
+00:18:43,280 --> 00:18:48,640
+you're gonna create a distribution
+
+423
+00:18:45,600 --> 00:18:52,000
+you don't want xsa
+
+424
+00:18:48,640 --> 00:18:57,039
+emacs you know part of emacs stuff
+
+425
+00:18:52,000 --> 00:18:59,679
+in some kind of outside directory
+
+426
+00:18:57,039 --> 00:19:01,039
+so okay let's let let's let's let's get
+
+427
+00:18:59,679 --> 00:19:03,520
+let's get this done
+
+428
+00:19:01,039 --> 00:19:06,000
+okay so so so cause i get things okay
+
+429
+00:19:03,520 --> 00:19:09,120
+this i need okay
+
+430
+00:19:06,000 --> 00:19:12,320
+so let's go over here and let's
+
+431
+00:19:09,120 --> 00:19:15,440
+switch to the init file okay let's go to
+
+432
+00:19:12,320 --> 00:19:19,200
+uh from the top then
+
+433
+00:19:15,440 --> 00:19:23,360
+actually okay go up actually copy the
+
+434
+00:19:19,200 --> 00:19:27,919
+entire init file wait copy the entire
+
+435
+00:19:23,360 --> 00:19:31,520
+init file over here uh
+
+436
+00:19:27,919 --> 00:19:34,960
+and rename it emacs init
+
+437
+00:19:31,520 --> 00:19:38,000
+okay then we open the init
+
+438
+00:19:34,960 --> 00:19:38,400
+then we do them one by one okay let's
+
+439
+00:19:38,000 --> 00:19:42,240
+see
+
+440
+00:19:38,400 --> 00:19:43,120
+required i do yes loading custom command
+
+441
+00:19:42,240 --> 00:19:48,720
+in functions
+
+442
+00:19:43,120 --> 00:19:48,720
+yes okay okay so let's
+
+443
+00:19:49,120 --> 00:19:52,480
+let's magnify okay so actually let's
+
+444
+00:19:51,919 --> 00:19:55,679
+drink
+
+445
+00:19:52,480 --> 00:19:58,880
+okay so we need that
+
+446
+00:19:55,679 --> 00:19:59,840
+so load start emac settings so that's
+
+447
+00:19:58,880 --> 00:20:06,240
+the first thing
+
+448
+00:19:59,840 --> 00:20:11,039
+let's go to emacs settings uh
+
+449
+00:20:06,240 --> 00:20:15,840
+okay copy the file and back to here
+
+450
+00:20:11,039 --> 00:20:19,039
+create a new buffer paste it then
+
+451
+00:20:15,840 --> 00:20:23,039
+save it and save xr
+
+452
+00:20:19,039 --> 00:20:24,080
+emacs settings dot el okay and change
+
+453
+00:20:23,039 --> 00:20:28,480
+the name here
+
+454
+00:20:24,080 --> 00:20:28,480
+to without the underscore
+
+455
+00:20:31,840 --> 00:20:35,919
+okay now we can open the settings file
+
+456
+00:20:34,240 --> 00:20:38,000
+open it
+
+457
+00:20:35,919 --> 00:20:40,480
+so here's the settings let's look over
+
+458
+00:20:38,000 --> 00:20:43,360
+the settings so this settings file
+
+459
+00:20:40,480 --> 00:20:44,159
+is the most fundamental basic setup for
+
+460
+00:20:43,360 --> 00:20:46,640
+emacs
+
+461
+00:20:44,159 --> 00:20:48,640
+because it does not require any package
+
+462
+00:20:46,640 --> 00:20:51,760
+it's the most basics
+
+463
+00:20:48,640 --> 00:20:54,559
+basic gnu emac setup
+
+464
+00:20:51,760 --> 00:20:56,240
+so you by the way you can find all these
+
+465
+00:20:54,559 --> 00:20:58,000
+on my github
+
+466
+00:20:56,240 --> 00:21:00,000
+but it's going to change once i create
+
+467
+00:20:58,000 --> 00:21:03,120
+the emax package
+
+468
+00:21:00,000 --> 00:21:04,960
+i'm going to load this is
+
+469
+00:21:03,120 --> 00:21:06,159
+you know as my i'm going to use it
+
+470
+00:21:04,960 --> 00:21:11,120
+myself like
+
+471
+00:21:06,159 --> 00:21:14,640
+eating your own dog food food then
+
+472
+00:21:11,120 --> 00:21:15,440
+then i'm going to load my own init files
+
+473
+00:21:14,640 --> 00:21:19,280
+which will
+
+474
+00:21:15,440 --> 00:21:21,520
+change anyway so settings okay
+
+475
+00:21:19,280 --> 00:21:22,640
+settings let's not worry about settings
+
+476
+00:21:21,520 --> 00:21:25,120
+because they are
+
+477
+00:21:22,640 --> 00:21:27,280
+uh they are the same for you know they
+
+478
+00:21:25,120 --> 00:21:30,480
+don't require any extra package
+
+479
+00:21:27,280 --> 00:21:34,080
+they just rely on the basic gnu emacs
+
+480
+00:21:30,480 --> 00:21:36,720
+okay so the settings you know electric
+
+481
+00:21:34,080 --> 00:21:38,240
+indent set default tab always intend and
+
+482
+00:21:36,720 --> 00:21:41,280
+so on
+
+483
+00:21:38,240 --> 00:21:44,480
+and some of the the others
+
+484
+00:21:41,280 --> 00:21:45,200
+we can worry about later okay now emacs
+
+485
+00:21:44,480 --> 00:21:49,039
+abbrev
+
+486
+00:21:45,200 --> 00:21:49,039
+okay so emacs a brief
+
+487
+00:21:49,360 --> 00:21:53,200
+uh a brief higher okay so let's go to uh
+
+488
+00:21:52,240 --> 00:21:56,000
+my agree
+
+489
+00:21:53,200 --> 00:21:57,440
+okay at this rate we are not going to go
+
+490
+00:21:56,000 --> 00:22:00,400
+anywhere
+
+491
+00:21:57,440 --> 00:22:01,520
+after two hours so i need to really
+
+492
+00:22:00,400 --> 00:22:06,320
+start to just
+
+493
+00:22:01,520 --> 00:22:09,280
+start to code instead of talking
+
+494
+00:22:06,320 --> 00:22:13,840
+uh emacs brief okay copy okay so let's
+
+495
+00:22:09,280 --> 00:22:13,840
+do it
+
+496
+00:22:15,600 --> 00:22:19,840
+so i'm going to create the emacs a brief
+
+497
+00:22:18,159 --> 00:22:23,520
+file
+
+498
+00:22:19,840 --> 00:22:26,640
+here rename dot el okay
+
+499
+00:22:23,520 --> 00:22:31,200
+uh wait okay
+
+500
+00:22:26,640 --> 00:22:35,120
+so okay so that part is done
+
+501
+00:22:31,200 --> 00:22:38,000
+now uh load path
+
+502
+00:22:35,120 --> 00:22:38,960
+okay load path uh load the current
+
+503
+00:22:38,000 --> 00:22:42,480
+directory load
+
+504
+00:22:38,960 --> 00:22:44,880
+file okay so now
+
+505
+00:22:42,480 --> 00:22:47,840
+i need this package start get thing or
+
+506
+00:22:44,880 --> 00:22:47,840
+selection okay
+
+507
+00:22:49,360 --> 00:22:56,559
+so back to the init file uh
+
+508
+00:22:53,440 --> 00:22:56,559
+close the settings
+
+509
+00:22:59,840 --> 00:23:09,840
+okay i need to open this file
+
+510
+00:23:02,960 --> 00:23:09,840
+so here is a package copy it
+
+511
+00:23:10,640 --> 00:23:14,320
+copy it go to the directory go to the
+
+512
+00:23:13,039 --> 00:23:18,960
+packages
+
+513
+00:23:14,320 --> 00:23:22,240
+new file paste it and
+
+514
+00:23:18,960 --> 00:23:26,240
+save it okay
+
+515
+00:23:22,240 --> 00:23:30,000
+so you can see there it is
+
+516
+00:23:26,240 --> 00:23:34,240
+now close that close that okay so that's
+
+517
+00:23:30,000 --> 00:23:37,600
+one thing cause i get setting good thing
+
+518
+00:23:34,240 --> 00:23:40,960
+or selection
+
+519
+00:23:37,600 --> 00:23:44,400
+okay actually at this rate
+
+520
+00:23:40,960 --> 00:23:45,600
+we are not going to get anywhere so i
+
+521
+00:23:44,400 --> 00:23:49,039
+need to actually
+
+522
+00:23:45,600 --> 00:23:52,400
+hurry up something uh the
+
+523
+00:23:49,039 --> 00:24:04,400
+load path will be
+
+524
+00:23:52,400 --> 00:24:08,240
+the load path the load path will be
+
+525
+00:24:04,400 --> 00:24:12,000
+okay i hope that i hope that does
+
+526
+00:24:08,240 --> 00:24:12,000
+because this is going to be
+
+527
+00:24:21,279 --> 00:24:25,520
+okay that's that's um
+
+528
+00:24:29,120 --> 00:24:32,480
+okay so far let's comment out the rest
+
+529
+00:24:32,240 --> 00:24:36,799
+of
+
+530
+00:24:32,480 --> 00:24:36,799
+it so you can see
+
+531
+00:24:38,320 --> 00:24:41,919
+so we just have right now we just we
+
+532
+00:24:41,360 --> 00:24:45,440
+loaded
+
+533
+00:24:41,919 --> 00:24:48,559
+two configuration files
+
+534
+00:24:45,440 --> 00:24:52,880
+and in one package
+
+535
+00:24:48,559 --> 00:24:55,120
+casa gets thing okay
+
+536
+00:24:52,880 --> 00:24:55,120
+then
+
+537
+00:24:56,400 --> 00:25:02,960
+god there are a lot to do actually
+
+538
+00:25:00,480 --> 00:25:02,960
+you know if
+
+539
+00:25:03,919 --> 00:25:09,520
+every time i start to do this
+
+540
+00:25:07,039 --> 00:25:10,880
+you know i think it's trivial well it's
+
+541
+00:25:09,520 --> 00:25:14,799
+trivial for me
+
+542
+00:25:10,880 --> 00:25:18,240
+after two hours but if i do this live
+
+543
+00:25:14,799 --> 00:25:22,240
+i have to explain a lot things because
+
+544
+00:25:18,240 --> 00:25:22,240
+otherwise you don't know what i'm doing
+
+545
+00:25:26,840 --> 00:25:31,760
+uh
+
+546
+00:25:29,600 --> 00:25:33,279
+yeah because actually i did one hour
+
+547
+00:25:31,760 --> 00:25:36,240
+video on this
+
+548
+00:25:33,279 --> 00:25:37,200
+about a month ago and that didn't go
+
+549
+00:25:36,240 --> 00:25:39,440
+anywhere
+
+550
+00:25:37,200 --> 00:25:41,120
+at the end of one hour so today i'm
+
+551
+00:25:39,440 --> 00:25:45,760
+actually starting over
+
+552
+00:25:41,120 --> 00:25:45,760
+but now there's actually a lot to do
+
+553
+00:25:47,200 --> 00:25:53,200
+so right now emacs
+
+554
+00:25:50,320 --> 00:25:55,120
+consists of these three settings files
+
+555
+00:25:53,200 --> 00:25:55,760
+one unit file and two other settings
+
+556
+00:25:55,120 --> 00:26:00,000
+file
+
+557
+00:25:55,760 --> 00:26:04,480
+and also two packages okay
+
+558
+00:26:00,000 --> 00:26:05,200
+uh okay now let's try to get these two
+
+559
+00:26:04,480 --> 00:26:08,240
+packages
+
+560
+00:26:05,200 --> 00:26:11,840
+to work so that we can actually start
+
+561
+00:26:08,240 --> 00:26:15,440
+emacs okay that's not too hard
+
+562
+00:26:11,840 --> 00:26:16,159
+so so let's copy the soft flag keys
+
+563
+00:26:15,440 --> 00:26:19,600
+config
+
+564
+00:26:16,159 --> 00:26:22,159
+let's go back to the init file
+
+565
+00:26:19,600 --> 00:26:22,159
+open it
+
+566
+00:26:22,640 --> 00:26:28,400
+with the sci-fi keys yeah
+
+567
+00:26:26,080 --> 00:26:28,400
+god
+
+568
+00:26:29,679 --> 00:26:34,640
+okay so so actually let's
+
+569
+00:26:35,200 --> 00:26:39,840
+load path now can add to this take a
+
+570
+00:26:38,400 --> 00:26:43,360
+relative path
+
+571
+00:26:39,840 --> 00:26:48,000
+i don't know describe function
+
+572
+00:26:43,360 --> 00:26:51,039
+uh list var element optional append
+
+573
+00:26:48,000 --> 00:26:56,000
+node path add to list node path
+
+574
+00:26:51,039 --> 00:26:56,000
+okay now can load path take a
+
+575
+00:26:57,279 --> 00:27:03,760
+relative path i don't think so so let's
+
+576
+00:27:00,480 --> 00:27:06,960
+see describe variable load path okay
+
+577
+00:27:03,760 --> 00:27:08,400
+so here is a bunch of all my load paths
+
+578
+00:27:06,960 --> 00:27:11,520
+let's copy that
+
+579
+00:27:08,400 --> 00:27:14,799
+new buffer and let's make it
+
+580
+00:27:11,520 --> 00:27:19,679
+uh space to new line
+
+581
+00:27:14,799 --> 00:27:23,200
+let's make it this way so it's legible
+
+582
+00:27:19,679 --> 00:27:25,600
+so you can see every path in
+
+583
+00:27:23,200 --> 00:27:28,080
+my load path is actually a full path
+
+584
+00:27:25,600 --> 00:27:28,080
+it's not
+
+585
+00:27:28,240 --> 00:27:32,640
+relative path so that means the value
+
+586
+00:27:31,600 --> 00:27:35,679
+for load path
+
+587
+00:27:32,640 --> 00:27:37,679
+probably needs to be full path therefore
+
+588
+00:27:35,679 --> 00:27:42,480
+this line of code is
+
+589
+00:27:37,679 --> 00:27:44,480
+wrong so we need to modify it we need to
+
+590
+00:27:42,480 --> 00:27:46,000
+change this to full path how do we do
+
+591
+00:27:44,480 --> 00:27:49,919
+that
+
+592
+00:27:46,000 --> 00:27:54,240
+well the magic of emac bisp
+
+593
+00:27:49,919 --> 00:27:58,799
+expand file path expand file name
+
+594
+00:27:54,240 --> 00:27:58,799
+there it is that's a command okay
+
+595
+00:28:00,840 --> 00:28:06,799
+so
+
+596
+00:28:03,039 --> 00:28:10,480
+so let's try it okay so let's see
+
+597
+00:28:06,799 --> 00:28:13,600
+expand file name this path
+
+598
+00:28:10,480 --> 00:28:16,159
+then optional let's forget about option
+
+599
+00:28:13,600 --> 00:28:17,120
+then let's evaluate this expression and
+
+600
+00:28:16,159 --> 00:28:20,480
+see what we get
+
+601
+00:28:17,120 --> 00:28:22,080
+okay let's evaluate it now you can see
+
+602
+00:28:20,480 --> 00:28:24,159
+in the mini buffer
+
+603
+00:28:22,080 --> 00:28:26,799
+the full path shows in the mini buffer
+
+604
+00:28:24,159 --> 00:28:29,840
+which is correct
+
+605
+00:28:26,799 --> 00:28:31,200
+you can see here so this is the correct
+
+606
+00:28:29,840 --> 00:28:33,840
+code
+
+607
+00:28:31,200 --> 00:28:33,840
+deleted
+
+608
+00:28:34,559 --> 00:28:38,240
+okay we need to put it here then remove
+
+609
+00:28:37,279 --> 00:28:40,960
+that you see
+
+610
+00:28:38,240 --> 00:28:42,799
+this line becomes this line okay so
+
+611
+00:28:40,960 --> 00:28:45,840
+that's how you do it
+
+612
+00:28:42,799 --> 00:28:46,399
+that's right okay now everything you
+
+613
+00:28:45,840 --> 00:28:49,760
+need a
+
+614
+00:28:46,399 --> 00:28:53,200
+expand expand file name so let's do
+
+615
+00:28:49,760 --> 00:28:55,440
+why don't we just add okay
+
+616
+00:28:53,200 --> 00:28:55,440
+so
+
+617
+00:28:56,640 --> 00:29:04,399
+add that okay so load path
+
+618
+00:29:00,720 --> 00:29:08,640
+actually so we're gonna replace
+
+619
+00:29:04,399 --> 00:29:08,640
+all these load paths something
+
+620
+00:29:09,039 --> 00:29:17,919
+query replace to load path
+
+621
+00:29:13,679 --> 00:29:27,840
+that okay i hope you can see it
+
+622
+00:29:17,919 --> 00:29:27,840
+yeah okay so that
+
+623
+00:29:34,240 --> 00:29:45,039
+okay so xxx
+
+624
+00:29:41,520 --> 00:29:48,159
+okay do it do it
+
+625
+00:29:45,039 --> 00:29:49,600
+kind of do it do it do it do it do it do
+
+626
+00:29:48,159 --> 00:29:53,200
+it do it do it do it
+
+627
+00:29:49,600 --> 00:29:57,440
+do it do it with the god this
+
+628
+00:29:53,200 --> 00:30:00,880
+how many 19
+
+629
+00:29:57,440 --> 00:30:02,080
+that means i have two you know move 19
+
+630
+00:30:00,880 --> 00:30:05,520
+packages
+
+631
+00:30:02,080 --> 00:30:06,799
+here okay so anyway let's fix them one
+
+632
+00:30:05,520 --> 00:30:09,520
+by one so get thing
+
+633
+00:30:06,799 --> 00:30:11,600
+get is like thing at point if you are a
+
+634
+00:30:09,520 --> 00:30:13,440
+lisp coder then you know what that is am
+
+635
+00:30:11,600 --> 00:30:16,799
+i still talking
+
+636
+00:30:13,440 --> 00:30:19,039
+check good
+
+637
+00:30:16,799 --> 00:30:20,559
+if you know if you called emac this
+
+638
+00:30:19,039 --> 00:30:23,120
+there's a thing at point
+
+639
+00:30:20,559 --> 00:30:24,559
+now socket thing is a enhancement of
+
+640
+00:30:23,120 --> 00:30:26,720
+that
+
+641
+00:30:24,559 --> 00:30:28,399
+and it is used by some of my other
+
+642
+00:30:26,720 --> 00:30:32,960
+packages okay
+
+643
+00:30:28,399 --> 00:30:32,960
+so now get replace pairs
+
+644
+00:30:34,320 --> 00:30:38,399
+okay so uh expand file and load path
+
+645
+00:30:37,520 --> 00:30:41,120
+okay
+
+646
+00:30:38,399 --> 00:30:43,520
+okay i discovered another thing load
+
+647
+00:30:41,120 --> 00:30:43,520
+path
+
+648
+00:30:43,679 --> 00:30:51,840
+we don't need a load path
+
+649
+00:30:47,039 --> 00:30:51,840
+should end in what
+
+650
+00:30:52,399 --> 00:30:58,880
+load path is a directory right yeah so
+
+651
+00:30:56,000 --> 00:31:01,519
+load path is a directory
+
+652
+00:30:58,880 --> 00:31:02,240
+that's right load path is a directory so
+
+653
+00:31:01,519 --> 00:31:05,279
+we don't need
+
+654
+00:31:02,240 --> 00:31:09,600
+this part okay so and
+
+655
+00:31:05,279 --> 00:31:12,159
+and yeah so evaluate the buffer
+
+656
+00:31:09,600 --> 00:31:13,279
+let me evaluate the expression evaluate
+
+657
+00:31:12,159 --> 00:31:16,840
+last expression
+
+658
+00:31:13,279 --> 00:31:20,640
+and we see we see
+
+659
+00:31:16,840 --> 00:31:21,039
+the uh path correct okay so that's one
+
+660
+00:31:20,640 --> 00:31:24,240
+time
+
+661
+00:31:21,039 --> 00:31:24,640
+thing we don't need actually do to do
+
+662
+00:31:24,240 --> 00:31:27,600
+that
+
+663
+00:31:24,640 --> 00:31:27,600
+so delete that
+
+664
+00:31:28,960 --> 00:31:36,559
+so replace pairs now it makes everything
+
+665
+00:31:32,080 --> 00:31:39,919
+simpler okay now cloud replace pairs is
+
+666
+00:31:36,559 --> 00:31:43,600
+a emaclis utility that
+
+667
+00:31:39,919 --> 00:31:45,919
+provides a simple syntax to replace
+
+668
+00:31:43,600 --> 00:31:46,640
+multiple pairs of strings find and
+
+669
+00:31:45,919 --> 00:31:50,399
+replace
+
+670
+00:31:46,640 --> 00:31:52,880
+pairs of strings in one shot
+
+671
+00:31:50,399 --> 00:31:53,679
+so you don't have to do a while while
+
+672
+00:31:52,880 --> 00:31:57,200
+loop
+
+673
+00:31:53,679 --> 00:32:01,039
+in emac bisp okay so
+
+674
+00:31:57,200 --> 00:32:02,480
+so what is this uh emac this utility
+
+675
+00:32:01,039 --> 00:32:06,080
+okay we need that
+
+676
+00:32:02,480 --> 00:32:10,320
+and what is this this is saffly keys
+
+677
+00:32:06,080 --> 00:32:10,320
+so load path we don't need anymore
+
+678
+00:32:11,120 --> 00:32:15,440
+i mean add to this load path we don't
+
+679
+00:32:13,679 --> 00:32:19,679
+need that's right
+
+680
+00:32:15,440 --> 00:32:23,200
+so okay so now we have three package
+
+681
+00:32:19,679 --> 00:32:24,559
+here three packages here let's add it to
+
+682
+00:32:23,200 --> 00:32:29,360
+the packages
+
+683
+00:32:24,559 --> 00:32:32,960
+okay now go back to my personal
+
+684
+00:32:29,360 --> 00:32:35,919
+uh you need file let's see where are the
+
+685
+00:32:32,960 --> 00:32:38,320
+uh okay you need file where are the so
+
+686
+00:32:35,919 --> 00:32:42,159
+what's the next thing we need to
+
+687
+00:32:38,320 --> 00:32:44,799
+add find replace
+
+688
+00:32:42,159 --> 00:32:46,559
+pairs that's the one okay so it's in
+
+689
+00:32:44,799 --> 00:32:49,760
+this directory
+
+690
+00:32:46,559 --> 00:32:53,039
+so copy it
+
+691
+00:32:49,760 --> 00:32:56,559
+over here over here new buffer
+
+692
+00:32:53,039 --> 00:32:59,679
+paste it back here go to the diet
+
+693
+00:32:56,559 --> 00:33:02,159
+copy the file name back to
+
+694
+00:32:59,679 --> 00:33:03,679
+this window save it as something
+
+695
+00:33:02,159 --> 00:33:07,200
+something dot yeah
+
+696
+00:33:03,679 --> 00:33:10,399
+done go to the diet you can see here
+
+697
+00:33:07,200 --> 00:33:13,840
+okay fantastic close uh
+
+698
+00:33:10,399 --> 00:33:17,440
+and close close okay now next
+
+699
+00:33:13,840 --> 00:33:21,279
+sar emac list utility
+
+700
+00:33:17,440 --> 00:33:24,880
+open the directory open the file copy
+
+701
+00:33:21,279 --> 00:33:28,000
+back here new buffer paste
+
+702
+00:33:24,880 --> 00:33:28,000
+save save as
+
+703
+00:33:28,240 --> 00:33:35,440
+copy the file name save as
+
+704
+00:33:32,159 --> 00:33:39,039
+xsa emac utility dot el
+
+705
+00:33:35,440 --> 00:33:42,559
+fantastic close it refresh you can see
+
+706
+00:33:39,039 --> 00:33:46,000
+it's here now close close
+
+707
+00:33:42,559 --> 00:33:49,279
+next soft light keys the big item okay
+
+708
+00:33:46,000 --> 00:33:52,960
+open the directory open the file
+
+709
+00:33:49,279 --> 00:33:55,200
+copy the file back here new buffer
+
+710
+00:33:52,960 --> 00:33:56,799
+paste you know actually we can use the
+
+711
+00:33:55,200 --> 00:34:00,000
+marker for this
+
+712
+00:33:56,799 --> 00:34:03,360
+uh but uh okay so now save the file
+
+713
+00:34:00,000 --> 00:34:07,279
+sapphire keys dot el close it
+
+714
+00:34:03,360 --> 00:34:11,280
+refresh you can see is here okay
+
+715
+00:34:07,279 --> 00:34:14,480
+close close okay now soft like keys
+
+716
+00:34:11,280 --> 00:34:17,599
+is there okay now
+
+717
+00:34:14,480 --> 00:34:21,200
+we can you know we can reach we
+
+718
+00:34:17,599 --> 00:34:26,159
+reached a break break point
+
+719
+00:34:21,200 --> 00:34:26,159
+so so far the so far so good
+
+720
+00:34:27,760 --> 00:34:31,760
+schneiderman van says hi girl gonna be
+
+721
+00:34:30,720 --> 00:34:34,879
+uh
+
+722
+00:34:31,760 --> 00:34:37,919
+okay okay buffalo meat oh
+
+723
+00:34:34,879 --> 00:34:40,960
+buffalo meat okay
+
+724
+00:34:37,919 --> 00:34:44,560
+so cassava okay so so far
+
+725
+00:34:40,960 --> 00:34:47,679
+emacs package has this config files okay
+
+726
+00:34:44,560 --> 00:34:50,639
+now let me recap the
+
+727
+00:34:47,679 --> 00:34:51,919
+emax init is what we have been working
+
+728
+00:34:50,639 --> 00:34:55,119
+on so far just
+
+729
+00:34:51,919 --> 00:34:58,800
+30 lines 70 80 lines okay
+
+730
+00:34:55,119 --> 00:35:02,960
+so emacs in it and this init files loads
+
+731
+00:34:58,800 --> 00:35:06,160
+all these other init files wait um
+
+732
+00:35:02,960 --> 00:35:08,240
+and also loads these packages okay
+
+733
+00:35:06,160 --> 00:35:09,200
+now these stuff like keys should
+
+734
+00:35:08,240 --> 00:35:12,720
+shouldn't be here
+
+735
+00:35:09,200 --> 00:35:15,040
+delete now this is you util
+
+736
+00:35:12,720 --> 00:35:17,119
+should be over there so there that's
+
+737
+00:35:15,040 --> 00:35:18,000
+right so right now it loads four
+
+738
+00:35:17,119 --> 00:35:22,640
+packages
+
+739
+00:35:18,000 --> 00:35:22,640
+and uh and this init file okay
+
+740
+00:35:23,440 --> 00:35:27,280
+we can call it a day and try it okay so
+
+741
+00:35:26,400 --> 00:35:29,680
+now this is
+
+742
+00:35:27,280 --> 00:35:32,880
+let's okay let's let's you know let's
+
+743
+00:35:29,680 --> 00:35:32,880
+show you the overall
+
+744
+00:35:33,040 --> 00:35:40,160
+the overall structure okay so now
+
+745
+00:35:36,880 --> 00:35:43,520
+git status what's our status git says
+
+746
+00:35:40,160 --> 00:35:46,640
+oh you got a new directory and so on git
+
+747
+00:35:43,520 --> 00:35:50,000
+add okay add them all
+
+748
+00:35:46,640 --> 00:35:53,040
+now git commit ado
+
+749
+00:35:50,000 --> 00:35:57,040
+commit and commitment okay
+
+750
+00:35:53,040 --> 00:36:00,320
+now let's go to github
+
+751
+00:35:57,040 --> 00:36:03,359
+thank you microsoft for github
+
+752
+00:36:00,320 --> 00:36:06,079
+oh we forgot to get push get
+
+753
+00:36:03,359 --> 00:36:06,079
+push
+
+754
+00:36:07,839 --> 00:36:13,760
+okay to https github okay
+
+755
+00:36:11,040 --> 00:36:15,920
+now github refresh in the browser
+
+756
+00:36:13,760 --> 00:36:17,680
+fantastic
+
+757
+00:36:15,920 --> 00:36:20,320
+now you can actually go there and
+
+758
+00:36:17,680 --> 00:36:22,480
+download git clone xy max
+
+759
+00:36:20,320 --> 00:36:23,920
+and we don't know if it works we don't
+
+760
+00:36:22,480 --> 00:36:28,480
+know
+
+761
+00:36:23,920 --> 00:36:32,520
+so the next step is to test it
+
+762
+00:36:28,480 --> 00:36:34,720
+once if that the test passed unit test
+
+763
+00:36:32,520 --> 00:36:37,359
+[Laughter]
+
+764
+00:36:34,720 --> 00:36:38,160
+once that passed then we we actually
+
+765
+00:36:37,359 --> 00:36:41,359
+have the
+
+766
+00:36:38,160 --> 00:36:42,000
+emax package we can just gradually add
+
+767
+00:36:41,359 --> 00:36:45,200
+more
+
+768
+00:36:42,000 --> 00:36:47,760
+configurations and more packages okay
+
+769
+00:36:45,200 --> 00:36:48,480
+now how do you test well in order to
+
+770
+00:36:47,760 --> 00:36:50,960
+test
+
+771
+00:36:48,480 --> 00:36:52,240
+you have to get rid of your emacs
+
+772
+00:36:50,960 --> 00:36:55,520
+directory
+
+773
+00:36:52,240 --> 00:36:58,000
+wait let's see you know
+
+774
+00:36:55,520 --> 00:37:00,000
+then we start to have to we we have to
+
+775
+00:36:58,000 --> 00:37:01,040
+now we are in a position to write
+
+776
+00:37:00,000 --> 00:37:03,920
+documentation
+
+777
+00:37:01,040 --> 00:37:05,359
+like you know people go here then they
+
+778
+00:37:03,920 --> 00:37:09,280
+how do you install it
+
+779
+00:37:05,359 --> 00:37:12,320
+what command what you know we have to
+
+780
+00:37:09,280 --> 00:37:13,119
+okay so what's the next thing uh so once
+
+781
+00:37:12,320 --> 00:37:16,320
+people
+
+782
+00:37:13,119 --> 00:37:20,240
+clone these all you have to do
+
+783
+00:37:16,320 --> 00:37:22,960
+in your emaxd is that
+
+784
+00:37:20,240 --> 00:37:24,000
+for example let's look at my emacs init
+
+785
+00:37:22,960 --> 00:37:27,119
+okay
+
+786
+00:37:24,000 --> 00:37:28,079
+you see so if i open it let's show the
+
+787
+00:37:27,119 --> 00:37:30,880
+pink window
+
+788
+00:37:28,079 --> 00:37:31,599
+so if i open the emacs init you see
+
+789
+00:37:30,880 --> 00:37:34,720
+there
+
+790
+00:37:31,599 --> 00:37:36,320
+there are not many things let me read up
+
+791
+00:37:34,720 --> 00:37:41,040
+the uh
+
+792
+00:37:36,320 --> 00:37:42,000
+comments i don't need these comments
+
+793
+00:37:41,040 --> 00:37:46,000
+okay
+
+794
+00:37:42,000 --> 00:37:49,200
+so actually what is this yeah
+
+795
+00:37:46,000 --> 00:37:50,480
+powershell gomas mix okay we don't we
+
+796
+00:37:49,200 --> 00:37:53,440
+don't need it
+
+797
+00:37:50,480 --> 00:37:55,440
+okay so the whole init file is this
+
+798
+00:37:53,440 --> 00:37:58,880
+single line
+
+799
+00:37:55,440 --> 00:38:01,359
+you know it tells in tells emacs to load
+
+800
+00:37:58,880 --> 00:38:02,800
+another file as your actual unit file
+
+801
+00:38:01,359 --> 00:38:06,480
+this is good
+
+802
+00:38:02,800 --> 00:38:09,599
+so let's undo this now let's
+
+803
+00:38:06,480 --> 00:38:12,800
+make a backup go to the directory
+
+804
+00:38:09,599 --> 00:38:15,359
+you can see the backup here okay
+
+805
+00:38:12,800 --> 00:38:16,720
+then open the init file we don't need it
+
+806
+00:38:15,359 --> 00:38:20,480
+anymore so
+
+807
+00:38:16,720 --> 00:38:24,079
+delete this part and tell it to load
+
+808
+00:38:20,480 --> 00:38:25,680
+the exact emax in it so this is what you
+
+809
+00:38:24,079 --> 00:38:28,400
+tell people to do
+
+810
+00:38:25,680 --> 00:38:30,960
+so where is xymax in it it's in this
+
+811
+00:38:28,400 --> 00:38:35,280
+directory copy the file path
+
+812
+00:38:30,960 --> 00:38:35,280
+let me show you okay so you can see
+
+813
+00:38:36,720 --> 00:38:41,680
+so basically comment that out so you
+
+814
+00:38:39,920 --> 00:38:44,760
+tell people to
+
+815
+00:38:41,680 --> 00:38:47,200
+in your emacs.emax.d
+
+816
+00:38:44,760 --> 00:38:48,000
+init.ell you tell people to add this
+
+817
+00:38:47,200 --> 00:38:51,040
+slide
+
+818
+00:38:48,000 --> 00:38:51,680
+and the file path will be pointing to
+
+819
+00:38:51,040 --> 00:38:53,920
+your
+
+820
+00:38:51,680 --> 00:38:54,880
+emacs directory wherever you installed
+
+821
+00:38:53,920 --> 00:38:58,320
+it okay
+
+822
+00:38:54,880 --> 00:38:59,280
+that's instruction we need to write that
+
+823
+00:38:58,320 --> 00:39:03,040
+okay
+
+824
+00:38:59,280 --> 00:39:06,400
+so open the soft like emacs
+
+825
+00:39:03,040 --> 00:39:09,599
+directory open a new buffer and
+
+826
+00:39:06,400 --> 00:39:11,440
+uh installation instruction okay save
+
+827
+00:39:09,599 --> 00:39:15,440
+the file as
+
+828
+00:39:11,440 --> 00:39:19,040
+install me something like that for now
+
+829
+00:39:15,440 --> 00:39:19,040
+okay dot txt
+
+830
+00:39:23,599 --> 00:39:28,000
+okay we it will be very simple okay let
+
+831
+00:39:26,560 --> 00:39:30,160
+me let me say you know
+
+832
+00:39:28,000 --> 00:39:30,160
+uh
+
+833
+00:39:31,280 --> 00:39:36,880
+create a file name
+
+834
+00:39:34,480 --> 00:39:36,880
+add
+
+835
+00:39:39,839 --> 00:39:44,880
+in that file put this line
+
+836
+00:39:48,320 --> 00:39:50,640
+okay
+
+837
+00:39:52,240 --> 00:39:57,839
+where okay wait
+
+838
+00:40:01,280 --> 00:40:10,720
+full path to emax
+
+839
+00:40:05,920 --> 00:40:13,839
+okay so this is the instruction
+
+840
+00:40:10,720 --> 00:40:13,839
+for installation
+
+841
+00:40:22,839 --> 00:40:25,839
+okay
+
+842
+00:40:37,760 --> 00:40:46,319
+directory path should end in a
+
+843
+00:40:40,960 --> 00:40:49,760
+slash okay that's the instruction
+
+844
+00:40:46,319 --> 00:40:53,520
+save it go to diet you can see
+
+845
+00:40:49,760 --> 00:40:56,640
+we refresh we created a install readme
+
+846
+00:40:53,520 --> 00:41:00,640
+okay now
+
+847
+00:40:56,640 --> 00:41:03,359
+now we are going back to our init file
+
+848
+00:41:00,640 --> 00:41:07,200
+you see the emacs init file and this is
+
+849
+00:41:03,359 --> 00:41:10,480
+all there it is okay let's
+
+850
+00:41:07,200 --> 00:41:15,520
+try it okay
+
+851
+00:41:10,480 --> 00:41:15,520
+let's go to e shell clear
+
+852
+00:41:16,400 --> 00:41:20,800
+okay let's magnify the e shell i mean
+
+853
+00:41:18,960 --> 00:41:24,160
+not each other powershell
+
+854
+00:41:20,800 --> 00:41:24,800
+microsoft powershell now do we have the
+
+855
+00:41:24,160 --> 00:41:28,240
+emax
+
+856
+00:41:24,800 --> 00:41:31,040
+path no we don't so
+
+857
+00:41:28,240 --> 00:41:32,640
+okay so we have to now i have to start
+
+858
+00:41:31,040 --> 00:41:35,680
+emacs from the shell
+
+859
+00:41:32,640 --> 00:41:38,319
+okay so let's go to uh
+
+860
+00:41:35,680 --> 00:41:38,319
+download
+
+861
+00:41:39,040 --> 00:41:43,119
+download emacs bing
+
+862
+00:41:44,000 --> 00:41:53,119
+okay run emacs uh
+
+863
+00:41:47,359 --> 00:41:53,119
+what why is it not completing
+
+864
+00:41:56,640 --> 00:42:00,720
+what e max d that's wrong
+
+865
+00:42:01,680 --> 00:42:03,839
+what
+
+866
+00:42:05,599 --> 00:42:10,560
+cd to the e-max being what's going on
+
+867
+00:42:14,839 --> 00:42:17,839
+
+868
+00:42:19,119 --> 00:42:22,880
+glad it's not open uh
+
+869
+00:42:24,480 --> 00:42:31,760
+okay so here is the
+
+870
+00:42:27,839 --> 00:42:35,520
+the location of my emacs installation
+
+871
+00:42:31,760 --> 00:42:38,480
+so there's a emac c
+
+872
+00:42:35,520 --> 00:42:39,040
+there by mistakes i created by mistake
+
+873
+00:42:38,480 --> 00:42:40,800
+so you
+
+874
+00:42:39,040 --> 00:42:43,200
+actually want when you want to start
+
+875
+00:42:40,800 --> 00:42:46,319
+emacs you want to run the command
+
+876
+00:42:43,200 --> 00:42:49,440
+run emacs okay
+
+877
+00:42:46,319 --> 00:42:52,079
+the font is too small
+
+878
+00:42:49,440 --> 00:42:54,480
+and i'm not sure how i don't think it's
+
+879
+00:42:52,079 --> 00:42:59,839
+possible to increase the font size
+
+880
+00:42:54,480 --> 00:42:59,839
+on the windows the idiotic windows
+
+881
+00:43:01,920 --> 00:43:13,839
+there it is there it is run emacs okay
+
+882
+00:43:06,240 --> 00:43:13,839
+okay so back to powershell why the
+
+883
+00:43:15,839 --> 00:43:22,319
+okay yeah
+
+884
+00:43:19,119 --> 00:43:23,200
+yeah it's idiotic let's go back to emacs
+
+885
+00:43:22,319 --> 00:43:26,880
+okay
+
+886
+00:43:23,200 --> 00:43:29,440
+download emacs bing
+
+887
+00:43:26,880 --> 00:43:29,920
+search for run there it is copy the file
+
+888
+00:43:29,440 --> 00:43:32,240
+path
+
+889
+00:43:29,920 --> 00:43:34,400
+new buffer paste it that's much more
+
+890
+00:43:32,240 --> 00:43:37,680
+faster than doing it in emac
+
+891
+00:43:34,400 --> 00:43:40,319
+in in powershell okay so copy that
+
+892
+00:43:37,680 --> 00:43:41,920
+so clear you don't need to clear
+
+893
+00:43:40,319 --> 00:43:44,560
+actually just paste it
+
+894
+00:43:41,920 --> 00:43:46,319
+so this is how you run emacs in windows
+
+895
+00:43:44,560 --> 00:43:49,359
+on the command line
+
+896
+00:43:46,319 --> 00:43:51,680
+okay now once we run it we all know
+
+897
+00:43:49,359 --> 00:43:54,960
+you know once we run it let me repeat
+
+898
+00:43:51,680 --> 00:43:57,119
+okay if we are load
+
+899
+00:43:54,960 --> 00:44:00,079
+close that close that close that close
+
+900
+00:43:57,119 --> 00:44:02,880
+that it will load this
+
+901
+00:44:00,079 --> 00:44:03,760
+you know dot emacs d in my home
+
+902
+00:44:02,880 --> 00:44:06,800
+directory
+
+903
+00:44:03,760 --> 00:44:08,319
+it will load this init file init.ell and
+
+904
+00:44:06,800 --> 00:44:12,880
+in this file you just
+
+905
+00:44:08,319 --> 00:44:16,240
+tell emacs to load the emax okay
+
+906
+00:44:12,880 --> 00:44:19,119
+test do it
+
+907
+00:44:16,240 --> 00:44:20,480
+warning initialization an error occurred
+
+908
+00:44:19,119 --> 00:44:25,040
+while loading
+
+909
+00:44:20,480 --> 00:44:27,040
+c users.emacs.d init.el file is missing
+
+910
+00:44:25,040 --> 00:44:28,000
+cannot open load file no search firewall
+
+911
+00:44:27,040 --> 00:44:37,040
+directory
+
+912
+00:44:28,000 --> 00:44:39,760
+users are git xymax not
+
+913
+00:44:37,040 --> 00:44:41,680
+what do you mean no no search directory
+
+914
+00:44:39,760 --> 00:44:44,960
+let's try to open it
+
+915
+00:44:41,680 --> 00:44:47,200
+it opened what the
+
+916
+00:44:44,960 --> 00:44:47,200
+what
+
+917
+00:44:48,720 --> 00:44:55,680
+load file users get
+
+918
+00:44:52,000 --> 00:44:55,680
+split buffer open it
+
+919
+00:45:00,319 --> 00:45:05,119
+what do you mean what do you mean what
+
+920
+00:45:02,160 --> 00:45:08,960
+do you mean cannot open load file
+
+921
+00:45:05,119 --> 00:45:13,839
+no search file directory c user's site
+
+922
+00:45:08,960 --> 00:45:13,839
+slash git slash emacs
+
+923
+00:45:14,160 --> 00:45:19,920
+okay see users get slash
+
+924
+00:45:18,319 --> 00:45:22,480
+there is a directory what do you mean
+
+925
+00:45:19,920 --> 00:45:22,480
+you cannot
+
+926
+00:45:23,280 --> 00:45:30,160
+no search file directory
+
+927
+00:45:26,880 --> 00:45:30,839
+i don't know why so let's evaluate this
+
+928
+00:45:30,160 --> 00:45:33,920
+list
+
+929
+00:45:30,839 --> 00:45:37,119
+code and see what happens okay
+
+930
+00:45:33,920 --> 00:45:39,760
+so if our last expression
+
+931
+00:45:37,119 --> 00:45:41,760
+there is the error file missing cannot
+
+932
+00:45:39,760 --> 00:45:43,280
+open load file no search file or blah
+
+933
+00:45:41,760 --> 00:45:47,839
+blah blah
+
+934
+00:45:43,280 --> 00:45:47,839
+no such file your ass
+
+935
+00:45:50,560 --> 00:45:57,760
+now is that because of the c the drive
+
+936
+00:45:53,839 --> 00:46:00,960
+prefix on windows you know emacs don't
+
+937
+00:45:57,760 --> 00:46:03,200
+support windows well yes
+
+938
+00:46:00,960 --> 00:46:04,480
+cannot load file what do you mean cannot
+
+939
+00:46:03,200 --> 00:46:06,400
+load file the
+
+940
+00:46:04,480 --> 00:46:08,640
+file does not exist the file is right
+
+941
+00:46:06,400 --> 00:46:08,640
+there
+
+942
+00:46:11,680 --> 00:46:14,720
+oh oh oh
+
+943
+00:46:18,480 --> 00:46:26,240
+i know why okay now let's
+
+944
+00:46:22,000 --> 00:46:29,040
+get rid of the okay why
+
+945
+00:46:26,240 --> 00:46:29,680
+why this doesn't work because i
+
+946
+00:46:29,040 --> 00:46:33,839
+it up
+
+947
+00:46:29,680 --> 00:46:33,839
+this should be a file not directory
+
+948
+00:46:41,440 --> 00:46:45,040
+yeah okay so this should be your file
+
+949
+00:46:43,920 --> 00:46:47,760
+i'm giving it
+
+950
+00:46:45,040 --> 00:46:50,160
+it a directory that's incorrect this
+
+951
+00:46:47,760 --> 00:46:51,680
+should be a file okay so the file is
+
+952
+00:46:50,160 --> 00:46:55,200
+this file name okay
+
+953
+00:46:51,680 --> 00:46:56,880
+copy the file path close it select or
+
+954
+00:46:55,200 --> 00:47:00,640
+paste it fantastic
+
+955
+00:46:56,880 --> 00:47:04,240
+okay okay
+
+956
+00:47:00,640 --> 00:47:04,640
+file and let's let's also go back to the
+
+957
+00:47:04,240 --> 00:47:07,920
+let's
+
+958
+00:47:04,640 --> 00:47:12,000
+we need to change the instruction so go
+
+959
+00:47:07,920 --> 00:47:15,599
+back to kasa emax instruction file
+
+960
+00:47:12,000 --> 00:47:17,839
+install read me full path
+
+961
+00:47:15,599 --> 00:47:17,839
+to
+
+962
+00:47:19,680 --> 00:47:25,839
+and yeah so actually
+
+963
+00:47:26,880 --> 00:47:32,240
+okay that's that's right save it
+
+964
+00:47:30,160 --> 00:47:33,440
+okay then remove this line we don't need
+
+965
+00:47:32,240 --> 00:47:38,319
+okay
+
+966
+00:47:33,440 --> 00:47:42,800
+that's it that's that now try again
+
+967
+00:47:38,319 --> 00:47:47,359
+now close that back to powershell
+
+968
+00:47:42,800 --> 00:47:50,960
+do it okay
+
+969
+00:47:47,359 --> 00:47:53,440
+now a new error an error occurred while
+
+970
+00:47:50,960 --> 00:47:57,040
+loading something something
+
+971
+00:47:53,440 --> 00:47:59,119
+dot emacs dot d init.er file is missing
+
+972
+00:47:57,040 --> 00:48:00,960
+cannot open load file no search file
+
+973
+00:47:59,119 --> 00:48:04,559
+directory because i get thing
+
+974
+00:48:00,960 --> 00:48:08,960
+okay uh use it anyway yeah but it's
+
+975
+00:48:04,559 --> 00:48:08,960
+you see uh it worked
+
+976
+00:48:10,079 --> 00:48:20,000
+okay so yeah it kind of worked but we
+
+977
+00:48:12,319 --> 00:48:22,160
+got error okay so let's quit
+
+978
+00:48:20,000 --> 00:48:24,720
+what's going on my talk show let's see
+
+979
+00:48:22,160 --> 00:48:27,040
+my talk show don't up with my talk
+
+980
+00:48:24,720 --> 00:48:27,040
+show
+
+981
+00:48:27,520 --> 00:48:35,760
+okay so we got some path error
+
+982
+00:48:32,160 --> 00:48:40,720
+so no problem let's open the
+
+983
+00:48:35,760 --> 00:48:44,240
+wait what oh let's let's open the yeah
+
+984
+00:48:40,720 --> 00:48:48,720
+the xr emacs in it some path is
+
+985
+00:48:44,240 --> 00:48:50,960
+incorrect here we can fix that
+
+986
+00:48:48,720 --> 00:48:54,160
+now what what is the error i forgot
+
+987
+00:48:50,960 --> 00:48:54,160
+what's his error so
+
+988
+00:48:55,359 --> 00:49:05,760
+so load path um
+
+989
+00:49:02,720 --> 00:49:08,400
+so load path should be correct so
+
+990
+00:49:05,760 --> 00:49:08,400
+getting
+
+991
+00:49:08,800 --> 00:49:11,599
+packages
+
+992
+00:49:14,000 --> 00:49:20,000
+exactly thing is there
+
+993
+00:49:17,040 --> 00:49:21,520
+now why is sage thing is not what what
+
+994
+00:49:20,000 --> 00:49:30,000
+what
+
+995
+00:49:21,520 --> 00:49:33,119
+do it again let's see what's the error
+
+996
+00:49:30,000 --> 00:49:34,720
+file is missing cannot open file no
+
+997
+00:49:33,119 --> 00:49:37,839
+search file or directory
+
+998
+00:49:34,720 --> 00:49:41,200
+so get thing so
+
+999
+00:49:37,839 --> 00:49:41,200
+this part okay
+
+1000
+00:49:42,000 --> 00:49:47,920
+why is it not why cannot you load it
+
+1001
+00:49:45,040 --> 00:49:47,920
+you idiot
+
+1002
+00:49:51,520 --> 00:49:57,119
+search did we have a spelling error no
+
+1003
+00:49:57,280 --> 00:50:04,559
+uh so require socket thing
+
+1004
+00:50:00,640 --> 00:50:08,640
+okay uh yeah but the socket thing is
+
+1005
+00:50:04,559 --> 00:50:08,640
+right here why can't you just find it
+
+1006
+00:50:08,800 --> 00:50:13,040
+well that's probably because your load
+
+1007
+00:50:11,680 --> 00:50:15,680
+path is incur
+
+1008
+00:50:13,040 --> 00:50:15,680
+incorrect
+
+1009
+00:50:16,240 --> 00:50:20,559
+let's see packages did we spell it
+
+1010
+00:50:18,880 --> 00:50:24,079
+incorrectly
+
+1011
+00:50:20,559 --> 00:50:27,280
+search for packages no that's correct
+
+1012
+00:50:24,079 --> 00:50:27,839
+okay so at this point what you have to
+
+1013
+00:50:27,280 --> 00:50:31,359
+do
+
+1014
+00:50:27,839 --> 00:50:31,359
+is you have to say
+
+1015
+00:50:33,440 --> 00:50:36,960
+let's debug time
+
+1016
+00:50:38,480 --> 00:50:41,839
+okay so we
+
+1017
+00:50:46,079 --> 00:50:49,760
+okay actually if i just think it should
+
+1018
+00:50:48,559 --> 00:50:52,000
+work
+
+1019
+00:50:49,760 --> 00:50:55,040
+you know that's a thing so you guys have
+
+1020
+00:50:52,000 --> 00:50:59,040
+just watched me
+
+1021
+00:50:55,040 --> 00:50:59,040
+uh so what uh
+
+1022
+00:50:59,520 --> 00:51:04,400
+file missing so it's you see it says
+
+1023
+00:51:02,400 --> 00:51:07,280
+here it cannot
+
+1024
+00:51:04,400 --> 00:51:08,720
+load the excel file thing i mean the
+
+1025
+00:51:07,280 --> 00:51:13,839
+socket thing
+
+1026
+00:51:08,720 --> 00:51:17,280
+thing why probably because the load path
+
+1027
+00:51:13,839 --> 00:51:21,680
+the packages path
+
+1028
+00:51:17,280 --> 00:51:24,720
+is not it's not getting it
+
+1029
+00:51:21,680 --> 00:51:27,520
+okay so why
+
+1030
+00:51:24,720 --> 00:51:29,520
+so you know what we can do is say
+
+1031
+00:51:27,520 --> 00:51:33,760
+messages
+
+1032
+00:51:29,520 --> 00:51:33,760
+okay messages load path
+
+1033
+00:51:34,880 --> 00:51:40,000
+you know we can do that then it will
+
+1034
+00:51:37,599 --> 00:51:40,000
+print
+
+1035
+00:51:41,200 --> 00:51:47,359
+yo what timing i just switched to work i
+
+1036
+00:51:44,640 --> 00:51:50,480
+expect your distro will be well worth it
+
+1037
+00:51:47,359 --> 00:51:53,599
+will be one well worth it
+
+1038
+00:51:50,480 --> 00:51:57,359
+thank you that's what i hope for so
+
+1039
+00:51:53,599 --> 00:52:00,559
+okay so debug debug time so let's print
+
+1040
+00:51:57,359 --> 00:52:04,000
+the load path shall we actually i
+
+1041
+00:52:00,559 --> 00:52:06,079
+you know i don't need to do
+
+1042
+00:52:04,000 --> 00:52:07,680
+this because if i just think i should
+
+1043
+00:52:06,079 --> 00:52:10,880
+know what's going on
+
+1044
+00:52:07,680 --> 00:52:13,839
+so why is the so okay let's
+
+1045
+00:52:10,880 --> 00:52:13,839
+let me think okay
+
+1046
+00:52:15,200 --> 00:52:22,400
+user get xa emacs packages
+
+1047
+00:52:18,960 --> 00:52:25,440
+so that's a directory so load path
+
+1048
+00:52:22,400 --> 00:52:26,800
+so you add to list to you know add to
+
+1049
+00:52:25,440 --> 00:52:30,000
+the load path
+
+1050
+00:52:26,800 --> 00:52:33,520
+the value of load path is a list
+
+1051
+00:52:30,000 --> 00:52:34,319
+of paths you know a bunch of folder
+
+1052
+00:52:33,520 --> 00:52:37,839
+names
+
+1053
+00:52:34,319 --> 00:52:40,480
+and uh it should be a full path
+
+1054
+00:52:37,839 --> 00:52:43,280
+so we just added you know we use the add
+
+1055
+00:52:40,480 --> 00:52:46,319
+to this function to add this
+
+1056
+00:52:43,280 --> 00:52:47,520
+this relate you know this this is a
+
+1057
+00:52:46,319 --> 00:52:49,920
+related path but
+
+1058
+00:52:47,520 --> 00:52:51,440
+we use the expand file name to get the
+
+1059
+00:52:49,920 --> 00:52:55,119
+full path
+
+1060
+00:52:51,440 --> 00:52:58,839
+so okay so i think
+
+1061
+00:52:55,119 --> 00:53:01,839
+what's going on is that the expand file
+
+1062
+00:52:58,839 --> 00:53:01,839
+name
+
+1063
+00:53:02,960 --> 00:53:08,000
+stupid these i know what's going on okay
+
+1064
+00:53:05,520 --> 00:53:09,680
+so expand file name
+
+1065
+00:53:08,000 --> 00:53:11,920
+you know we are trying to use this
+
+1066
+00:53:09,680 --> 00:53:15,040
+function expand file name to convert
+
+1067
+00:53:11,920 --> 00:53:16,880
+a relative path to a full path now
+
+1068
+00:53:15,040 --> 00:53:18,079
+in order to do that one of the
+
+1069
+00:53:16,880 --> 00:53:22,000
+ingredients you need
+
+1070
+00:53:18,079 --> 00:53:24,240
+is you need the reference path
+
+1071
+00:53:22,000 --> 00:53:27,040
+so normally you know you think of
+
+1072
+00:53:24,240 --> 00:53:29,599
+relative path is related to the current
+
+1073
+00:53:27,040 --> 00:53:30,880
+path so the current path of course is
+
+1074
+00:53:29,599 --> 00:53:36,720
+this file
+
+1075
+00:53:30,880 --> 00:53:36,720
+so you know this file is the emacs init
+
+1076
+00:53:37,119 --> 00:53:41,440
+you know this file is in imax in it and
+
+1077
+00:53:39,440 --> 00:53:43,680
+the packages directory is a
+
+1078
+00:53:41,440 --> 00:53:44,480
+is in the same directory so it should
+
+1079
+00:53:43,680 --> 00:53:48,319
+load it
+
+1080
+00:53:44,480 --> 00:53:48,319
+but however in emac this
+
+1081
+00:53:48,880 --> 00:53:52,880
+when you use expand file name the the
+
+1082
+00:53:51,839 --> 00:53:55,760
+current directory
+
+1083
+00:53:52,880 --> 00:53:57,440
+is not actually this file it's not
+
+1084
+00:53:55,760 --> 00:53:59,680
+actually the file it's actually running
+
+1085
+00:53:57,440 --> 00:54:03,520
+that's a problem of the emac this
+
+1086
+00:53:59,680 --> 00:54:04,000
+idiotic okay the current directory is
+
+1087
+00:54:03,520 --> 00:54:05,920
+actually
+
+1088
+00:54:04,000 --> 00:54:07,599
+wherever you run it it's the current
+
+1089
+00:54:05,920 --> 00:54:10,079
+directory is probably
+
+1090
+00:54:07,599 --> 00:54:11,599
+you know the my emacs you know being
+
+1091
+00:54:10,079 --> 00:54:12,640
+something run emacs you know that
+
+1092
+00:54:11,599 --> 00:54:15,119
+directory
+
+1093
+00:54:12,640 --> 00:54:17,040
+so when you expand file name with
+
+1094
+00:54:15,119 --> 00:54:19,839
+respect to that directory
+
+1095
+00:54:17,040 --> 00:54:21,680
+of course there's no subdirectory named
+
+1096
+00:54:19,839 --> 00:54:24,319
+packages under it
+
+1097
+00:54:21,680 --> 00:54:24,720
+that's what i think okay i'm pretty sure
+
+1098
+00:54:24,319 --> 00:54:26,880
+and
+
+1099
+00:54:24,720 --> 00:54:28,480
+for this reason that's why this long
+
+1100
+00:54:26,880 --> 00:54:32,480
+function i mean this function
+
+1101
+00:54:28,480 --> 00:54:34,559
+exists you know get full path okay so
+
+1102
+00:54:32,480 --> 00:54:36,240
+okay yeah so i need to use this function
+
+1103
+00:54:34,559 --> 00:54:39,200
+stupid emax
+
+1104
+00:54:36,240 --> 00:54:39,920
+so instead of using expand file name let
+
+1105
+00:54:39,200 --> 00:54:42,799
+me show you
+
+1106
+00:54:39,920 --> 00:54:43,760
+the changes we need okay so let's work
+
+1107
+00:54:42,799 --> 00:54:47,119
+on this
+
+1108
+00:54:43,760 --> 00:54:49,440
+copy it so let's
+
+1109
+00:54:47,119 --> 00:54:52,160
+there so this is uh this is how you do
+
+1110
+00:54:49,440 --> 00:54:54,559
+it start get full path then packages
+
+1111
+00:54:52,160 --> 00:54:58,880
+okay let's try it
+
+1112
+00:54:54,559 --> 00:55:02,079
+yeah okay so didn't you so comment that
+
+1113
+00:54:58,880 --> 00:55:04,880
+out clean delete that
+
+1114
+00:55:02,079 --> 00:55:07,440
+good back to powershell let's start
+
+1115
+00:55:04,880 --> 00:55:11,760
+again now let's close this
+
+1116
+00:55:07,440 --> 00:55:11,760
+emacs do we have another emacs instance
+
+1117
+00:55:16,160 --> 00:55:23,359
+right okay so close that
+
+1118
+00:55:20,559 --> 00:55:25,680
+now let's make it different so right now
+
+1119
+00:55:23,359 --> 00:55:28,240
+my emac setting you see the background
+
+1120
+00:55:25,680 --> 00:55:30,240
+is this you know kind of this is called
+
+1121
+00:55:28,240 --> 00:55:32,880
+honeydew
+
+1122
+00:55:30,240 --> 00:55:34,559
+color so that's you know in it let's
+
+1123
+00:55:32,880 --> 00:55:37,599
+make it
+
+1124
+00:55:34,559 --> 00:55:39,920
+set background color okay
+
+1125
+00:55:37,599 --> 00:55:39,920
+what
+
+1126
+00:55:44,079 --> 00:55:49,839
+why is it no completion set background
+
+1127
+00:55:46,400 --> 00:55:52,000
+color okay oh
+
+1128
+00:55:49,839 --> 00:55:53,440
+yeah i i forgot what's the syntax for
+
+1129
+00:55:52,000 --> 00:55:56,960
+background color so let's
+
+1130
+00:55:53,440 --> 00:55:56,960
+let's just search it okay so
+
+1131
+00:55:57,440 --> 00:56:00,640
+settings uh
+
+1132
+00:56:00,799 --> 00:56:05,680
+okay so that's how you do it honeydew
+
+1133
+00:56:03,119 --> 00:56:09,440
+okay so it's a string
+
+1134
+00:56:05,680 --> 00:56:10,160
+so okay set background color let's use a
+
+1135
+00:56:09,440 --> 00:56:12,720
+color
+
+1136
+00:56:10,160 --> 00:56:14,480
+let's this color display okay i forgot
+
+1137
+00:56:12,720 --> 00:56:18,079
+what's the name i want
+
+1138
+00:56:14,480 --> 00:56:20,480
+okay so cone silk okay i remember corn
+
+1139
+00:56:18,079 --> 00:56:24,240
+silk is a good one okay
+
+1140
+00:56:20,480 --> 00:56:27,040
+so in some packages the concealer
+
+1141
+00:56:24,240 --> 00:56:29,200
+is gonna be the background now so now go
+
+1142
+00:56:27,040 --> 00:56:34,400
+switch to powershell
+
+1143
+00:56:29,200 --> 00:56:34,400
+run it do it fantastic
+
+1144
+00:56:35,150 --> 00:56:42,720
+[Laughter]
+
+1145
+00:56:39,359 --> 00:56:46,720
+kaza emax is complete
+
+1146
+00:56:42,720 --> 00:56:50,240
+can you see that yes
+
+1147
+00:56:46,720 --> 00:56:52,880
+hey yes okay yeah yes yeah
+
+1148
+00:56:50,240 --> 00:56:53,440
+basically it's kind of like complete it
+
+1149
+00:56:52,880 --> 00:56:57,119
+it
+
+1150
+00:56:53,440 --> 00:57:01,359
+even loaded my closet yeah
+
+1151
+00:56:57,119 --> 00:57:03,599
+so does do that do i have supply keys
+
+1152
+00:57:01,359 --> 00:57:05,040
+yes i'm even using stuff like he's
+
+1153
+00:57:03,599 --> 00:57:08,400
+fantastic
+
+1154
+00:57:05,040 --> 00:57:09,040
+so final so today i would consider this
+
+1155
+00:57:08,400 --> 00:57:13,200
+youtube
+
+1156
+00:57:09,040 --> 00:57:16,480
+this today's live stream is successful
+
+1157
+00:57:13,200 --> 00:57:16,880
+okay it's you know good enough you know
+
+1158
+00:57:16,480 --> 00:57:18,880
+right
+
+1159
+00:57:16,880 --> 00:57:20,799
+like okay let's give commit let's let's
+
+1160
+00:57:18,880 --> 00:57:24,160
+give commit okay so let's
+
+1161
+00:57:20,799 --> 00:57:27,280
+so summarize let me summarize again so
+
+1162
+00:57:24,160 --> 00:57:28,960
+stuff like xiaomi max is a package you
+
+1163
+00:57:27,280 --> 00:57:30,960
+can download right now okay
+
+1164
+00:57:28,960 --> 00:57:32,240
+let's commit first okay let's go to
+
+1165
+00:57:30,960 --> 00:57:35,760
+e-show
+
+1166
+00:57:32,240 --> 00:57:38,799
+git status please get at all
+
+1167
+00:57:35,760 --> 00:57:42,400
+please get commit
+
+1168
+00:57:38,799 --> 00:57:46,160
+please ado get
+
+1169
+00:57:42,400 --> 00:57:46,160
+push please
+
+1170
+00:57:47,520 --> 00:57:51,520
+okay so it's not on github that means
+
+1171
+00:57:50,400 --> 00:57:55,200
+you can go to
+
+1172
+00:57:51,520 --> 00:57:58,640
+github go to github wait what the
+
+1173
+00:57:55,200 --> 00:58:00,880
+why why do i have that on multiple
+
+1174
+00:57:58,640 --> 00:58:00,880
+what
+
+1175
+00:58:02,000 --> 00:58:06,640
+what's this black one oh that's a
+
+1176
+00:58:04,240 --> 00:58:09,680
+comment common in a separate window so
+
+1177
+00:58:06,640 --> 00:58:12,640
+you can go to github refresh
+
+1178
+00:58:09,680 --> 00:58:13,359
+you know go to github now cuz github
+
+1179
+00:58:12,640 --> 00:58:16,880
+then you have
+
+1180
+00:58:13,359 --> 00:58:19,040
+sa emacs and uh
+
+1181
+00:58:16,880 --> 00:58:21,040
+it's basically that's it that's that's
+
+1182
+00:58:19,040 --> 00:58:23,280
+uh so
+
+1183
+00:58:21,040 --> 00:58:24,960
+and you download it you read the
+
+1184
+00:58:23,280 --> 00:58:28,000
+instruction let's read the instruction
+
+1185
+00:58:24,960 --> 00:58:28,000
+install readme
+
+1186
+00:58:28,799 --> 00:58:32,880
+follow the instruction and you will have
+
+1187
+00:58:31,040 --> 00:58:36,079
+casa emax package
+
+1188
+00:58:32,880 --> 00:58:39,359
+so what is what is left to do
+
+1189
+00:58:36,079 --> 00:58:40,960
+close that so back to my emacs so what
+
+1190
+00:58:39,359 --> 00:58:42,720
+is left to do let's see
+
+1191
+00:58:40,960 --> 00:58:44,319
+where is it so you are looking at wait
+
+1192
+00:58:42,720 --> 00:58:46,160
+wait oh the c
+
+1193
+00:58:44,319 --> 00:58:47,680
+shell got you know the cone shell color
+
+1194
+00:58:46,160 --> 00:58:51,839
+got over written
+
+1195
+00:58:47,680 --> 00:58:55,040
+by by my init here so
+
+1196
+00:58:51,839 --> 00:58:58,240
+okay so settings uh so let's let's let's
+
+1197
+00:58:55,040 --> 00:59:00,480
+change it to uh okay yeah so let's do
+
+1198
+00:58:58,240 --> 00:59:00,480
+that
+
+1199
+00:59:03,440 --> 00:59:07,440
+conceal okay that's the background color
+
+1200
+00:59:06,000 --> 00:59:10,640
+conceal
+
+1201
+00:59:07,440 --> 00:59:12,559
+conceal so remove that okay actually
+
+1202
+00:59:10,640 --> 00:59:14,480
+let's start
+
+1203
+00:59:12,559 --> 00:59:16,240
+okay so let's not to have too many
+
+1204
+00:59:14,480 --> 00:59:19,359
+windows close the new one
+
+1205
+00:59:16,240 --> 00:59:21,200
+okay now let's not have too many windows
+
+1206
+00:59:19,359 --> 00:59:24,720
+let's
+
+1207
+00:59:21,200 --> 00:59:24,720
+close this window okay so
+
+1208
+00:59:25,920 --> 00:59:35,599
+okay so now go to powershell start it
+
+1209
+00:59:33,839 --> 00:59:37,680
+well that's what you're taking too long
+
+1210
+00:59:35,599 --> 00:59:40,640
+but anyway so that's
+
+1211
+00:59:37,680 --> 00:59:41,760
+that there you have it that's the e-max
+
+1212
+00:59:40,640 --> 00:59:43,920
+so what's
+
+1213
+00:59:41,760 --> 00:59:45,440
+you know what else we have to do we have
+
+1214
+00:59:43,920 --> 00:59:48,960
+to basically add
+
+1215
+00:59:45,440 --> 00:59:51,200
+10 more packages or 15
+
+1216
+00:59:48,960 --> 00:59:52,640
+but it's becoming you know at this point
+
+1217
+00:59:51,200 --> 00:59:55,440
+is basically the
+
+1218
+00:59:52,640 --> 00:59:56,400
+structure is basically done okay
+
+1219
+00:59:55,440 --> 00:59:59,680
+actually i
+
+1220
+00:59:56,400 --> 01:00:02,079
+you know when you do you know actually i
+
+1221
+00:59:59,680 --> 01:00:03,040
+i might have to rename a thing here or
+
+1222
+01:00:02,079 --> 01:00:06,240
+there
+
+1223
+01:00:03,040 --> 01:00:08,640
+um you know things like that
+
+1224
+01:00:06,240 --> 01:00:09,520
+uh but basically the structure is done
+
+1225
+01:00:08,640 --> 01:00:11,280
+so you see
+
+1226
+01:00:09,520 --> 01:00:14,480
+it's not difficult at all it's kind of
+
+1227
+01:00:11,280 --> 01:00:18,000
+trivial so we talked for one hour
+
+1228
+01:00:14,480 --> 01:00:19,359
+precisely one hour now and we can call
+
+1229
+01:00:18,000 --> 01:00:23,920
+it a day so what comments
+
+1230
+01:00:19,359 --> 01:00:23,920
+so any comments you have post it now
+
+1231
+01:00:25,760 --> 01:00:29,119
+well can you make these streams as part
+
+1232
+01:00:28,079 --> 01:00:31,839
+one two
+
+1233
+01:00:29,119 --> 01:00:33,359
+three like creating emacs part one and
+
+1234
+01:00:31,839 --> 01:00:37,520
+so on would love to follow
+
+1235
+01:00:33,359 --> 01:00:40,720
+okay uh yes i can do that you know
+
+1236
+01:00:37,520 --> 01:00:44,160
+but basically we are done here uh
+
+1237
+01:00:40,720 --> 01:00:45,200
+for xa emacs because you know yeah i
+
+1238
+01:00:44,160 --> 01:00:48,240
+showed
+
+1239
+01:00:45,200 --> 01:00:48,559
+you know you see it's nothing fancy you
+
+1240
+01:00:48,240 --> 01:00:51,040
+know
+
+1241
+01:00:48,559 --> 01:00:53,040
+space max and do max is much more
+
+1242
+01:00:51,040 --> 01:00:55,760
+fancier they require
+
+1243
+01:00:53,040 --> 01:00:56,720
+lots of structure lots of you know in
+
+1244
+01:00:55,760 --> 01:01:00,240
+space max
+
+1245
+01:00:56,720 --> 01:01:04,240
+yeah they you know lots of things but
+
+1246
+01:01:00,240 --> 01:01:04,240
+for for my stuff
+
+1247
+01:01:04,720 --> 01:01:08,319
+one of the reason you know my emac setup
+
+1248
+01:01:07,520 --> 01:01:11,359
+is
+
+1249
+01:01:08,319 --> 01:01:12,400
+very lean you know only required 20
+
+1250
+01:01:11,359 --> 01:01:14,880
+packages
+
+1251
+01:01:12,400 --> 01:01:16,559
+is because i like it that way i like i
+
+1252
+01:01:14,880 --> 01:01:18,319
+want glue emacs
+
+1253
+01:01:16,559 --> 01:01:19,599
+and also because i've been using emacs
+
+1254
+01:01:18,319 --> 01:01:21,440
+for 20 years so i'm
+
+1255
+01:01:19,599 --> 01:01:23,520
+either imagining this coder so i don't
+
+1256
+01:01:21,440 --> 01:01:25,440
+use other people's packages
+
+1257
+01:01:23,520 --> 01:01:26,640
+almost none of it you know except you
+
+1258
+01:01:25,440 --> 01:01:29,839
+know a few
+
+1259
+01:01:26,640 --> 01:01:32,000
+um anything i want i read my own so
+
+1260
+01:01:29,839 --> 01:01:33,280
+and i also make sure that all my
+
+1261
+01:01:32,000 --> 01:01:36,240
+packages are
+
+1262
+01:01:33,280 --> 01:01:36,480
+the extreme efficient possible in terms
+
+1263
+01:01:36,240 --> 01:01:39,359
+of
+
+1264
+01:01:36,480 --> 01:01:40,400
+speed also in terms of key strokes so
+
+1265
+01:01:39,359 --> 01:01:43,599
+for the users
+
+1266
+01:01:40,400 --> 01:01:45,040
+it's the most efficient and also the
+
+1267
+01:01:43,599 --> 01:01:48,480
+fastest
+
+1268
+01:01:45,040 --> 01:01:50,559
+uh these you know many other emacs
+
+1269
+01:01:48,480 --> 01:01:51,200
+developers and features packages you
+
+1270
+01:01:50,559 --> 01:01:53,920
+know
+
+1271
+01:01:51,200 --> 01:01:55,119
+doing emacs space max they include lots
+
+1272
+01:01:53,920 --> 01:01:58,400
+of packages
+
+1273
+01:01:55,119 --> 01:02:00,480
+and they have their advantages such as
+
+1274
+01:01:58,400 --> 01:02:01,520
+they provide lots of user interface
+
+1275
+01:02:00,480 --> 01:02:05,280
+coloring
+
+1276
+01:02:01,520 --> 01:02:07,359
+you know the and but you know that's
+
+1277
+01:02:05,280 --> 01:02:10,480
+uh we have different philosophy so you
+
+1278
+01:02:07,359 --> 01:02:14,000
+know yeah you can try different ones
+
+1279
+01:02:10,480 --> 01:02:14,480
+so my you know the one saw emacs is very
+
+1280
+01:02:14,000 --> 01:02:17,359
+lean
+
+1281
+01:02:14,480 --> 01:02:19,520
+uh and uh very fast everything you need
+
+1282
+01:02:17,359 --> 01:02:23,680
+to do it mostly rely on the
+
+1283
+01:02:19,520 --> 01:02:25,200
+glue emax power the internal power you
+
+1284
+01:02:23,680 --> 01:02:29,119
+don't need you know
+
+1285
+01:02:25,200 --> 01:02:29,119
+you don't need like i talked about the
+
+1286
+01:02:29,760 --> 01:02:35,839
+um things
+
+1287
+01:02:37,280 --> 01:02:40,960
+you know for example a lot of people
+
+1288
+01:02:38,799 --> 01:02:40,960
+like
+
+1289
+01:02:41,039 --> 01:02:44,799
+uh hedra you know there's a hedra key
+
+1290
+01:02:43,920 --> 01:02:48,079
+binding
+
+1291
+01:02:44,799 --> 01:02:51,839
+there's a god mod key binding there is
+
+1292
+01:02:48,079 --> 01:02:55,119
+a you know there is a
+
+1293
+01:02:51,839 --> 01:02:56,000
+helm you know there's icicles which is
+
+1294
+01:02:55,119 --> 01:02:57,599
+the old one
+
+1295
+01:02:56,000 --> 01:03:00,000
+there's you know there are quite a lot
+
+1296
+01:02:57,599 --> 01:03:02,480
+of these very popular you know
+
+1297
+01:03:00,000 --> 01:03:04,640
+uh and they are good you know and they
+
+1298
+01:03:02,480 --> 01:03:08,000
+in them some people are like
+
+1299
+01:03:04,640 --> 01:03:10,720
+projectile and some people like
+
+1300
+01:03:08,000 --> 01:03:11,119
+in there and you know there are tens of
+
+1301
+01:03:10,720 --> 01:03:13,920
+theme
+
+1302
+01:03:11,119 --> 01:03:14,480
+add-ons you know make every package
+
+1303
+01:03:13,920 --> 01:03:18,400
+veeam
+
+1304
+01:03:14,480 --> 01:03:19,920
+compatible evil mod compatible and so on
+
+1305
+01:03:18,400 --> 01:03:22,079
+so they are good they are different
+
+1306
+01:03:19,920 --> 01:03:25,520
+feature set okay but
+
+1307
+01:03:22,079 --> 01:03:28,160
+um you know you know many of them
+
+1308
+01:03:25,520 --> 01:03:29,039
+with lots of prettiness usually means
+
+1309
+01:03:28,160 --> 01:03:34,799
+it's slower
+
+1310
+01:03:29,039 --> 01:03:34,799
+unavoidably okay that i think that's it
+
+1311
+01:03:36,960 --> 01:03:45,839
+uh okay let me drink and that's it for
+
+1312
+01:03:39,680 --> 01:03:45,839
+today i think
+
+1313
+01:03:48,559 --> 01:03:52,480
+let's let's add one more okay so let's
+
+1314
+01:03:50,960 --> 01:03:56,400
+add one more thing
+
+1315
+01:03:52,480 --> 01:03:58,799
+to emax in it so first of all close this
+
+1316
+01:03:56,400 --> 01:04:00,240
+so i i'm glad this is actually done
+
+1317
+01:03:58,799 --> 01:04:03,520
+actually so i can use
+
+1318
+01:04:00,240 --> 01:04:04,160
+soft light keys to quit emacs so on
+
+1319
+01:04:03,520 --> 01:04:07,599
+vorack
+
+1320
+01:04:04,160 --> 01:04:11,119
+it's it's space
+
+1321
+01:04:07,599 --> 01:04:14,640
+w q so watch my type space w
+
+1322
+01:04:11,119 --> 01:04:18,240
+q fantastic
+
+1323
+01:04:14,640 --> 01:04:21,680
+okay so you see now i'm back on my
+
+1324
+01:04:18,240 --> 01:04:24,960
+my my emacs so let's add one more thing
+
+1325
+01:04:21,680 --> 01:04:27,200
+maybe okay so let's see
+
+1326
+01:04:24,960 --> 01:04:28,720
+so now we have three package we have
+
+1327
+01:04:27,200 --> 01:04:32,079
+actually four packages
+
+1328
+01:04:28,720 --> 01:04:33,440
+you know uh exactly think some replace
+
+1329
+01:04:32,079 --> 01:04:37,119
+pair xre this
+
+1330
+01:04:33,440 --> 01:04:39,039
+utility and supply keys and also
+
+1331
+01:04:37,119 --> 01:04:42,000
+since i'm doing this package for other
+
+1332
+01:04:39,039 --> 01:04:44,160
+people i need to remove that
+
+1333
+01:04:42,000 --> 01:04:45,280
+you know vorack because other people are
+
+1334
+01:04:44,160 --> 01:04:48,720
+probably not borax
+
+1335
+01:04:45,280 --> 01:04:51,920
+okay remove that then
+
+1336
+01:04:48,720 --> 01:04:55,680
+then um then smix
+
+1337
+01:04:51,920 --> 01:04:58,880
+okay smix i need okay
+
+1338
+01:04:55,680 --> 01:05:02,880
+oh okay so that let's let's install that
+
+1339
+01:04:58,880 --> 01:05:07,359
+smex smix mix is a great one i like smix
+
+1340
+01:05:02,880 --> 01:05:10,400
+smacks is a meta x replacement
+
+1341
+01:05:07,359 --> 01:05:13,200
+the full name is
+
+1342
+01:05:10,400 --> 01:05:14,640
+the emacs command full name is execute
+
+1343
+01:05:13,200 --> 01:05:16,400
+extended
+
+1344
+01:05:14,640 --> 01:05:18,960
+command you know that's that's the
+
+1345
+01:05:16,400 --> 01:05:21,200
+command name for when you press meta x
+
+1346
+01:05:18,960 --> 01:05:24,160
+and smax is a replacement it's a
+
+1347
+01:05:21,200 --> 01:05:26,960
+fantastic replacement
+
+1348
+01:05:24,160 --> 01:05:30,000
+and let's okay let's let's go to let's
+
+1349
+01:05:26,960 --> 01:05:30,000
+go to smacks
+
+1350
+01:05:30,319 --> 01:05:34,240
+uh directory okay so let's go to let's
+
+1351
+01:05:32,799 --> 01:05:38,720
+see where is it so that
+
+1352
+01:05:34,240 --> 01:05:38,720
+i need to go to my settings uh
+
+1353
+01:05:39,520 --> 01:05:46,960
+okay search for smacks there it is
+
+1354
+01:05:42,799 --> 01:05:50,799
+okay open the file copy it
+
+1355
+01:05:46,960 --> 01:05:53,839
+go back to the excel emacs packages
+
+1356
+01:05:50,799 --> 01:05:53,839
+open new buffer
+
+1357
+01:05:54,079 --> 01:06:01,280
+save it as smx dot e
+
+1358
+01:05:57,200 --> 01:06:04,319
+l okay now go to diet you can see
+
+1359
+01:06:01,280 --> 01:06:08,000
+there it is new okay refresh
+
+1360
+01:06:04,319 --> 01:06:12,000
+yeah there it is okay then
+
+1361
+01:06:08,000 --> 01:06:15,200
+then then we can start
+
+1362
+01:06:12,000 --> 01:06:15,200
+start emax again
+
+1363
+01:06:16,319 --> 01:06:23,920
+it's too slow okay but anyway
+
+1364
+01:06:19,599 --> 01:06:27,200
+it it there it is okay and course makes
+
+1365
+01:06:23,920 --> 01:06:33,839
+wrong arguments command p
+
+1366
+01:06:27,200 --> 01:06:33,839
+smacks what
+
+1367
+01:06:38,720 --> 01:06:47,839
+uh smacks is here so why is it not
+
+1368
+01:06:52,319 --> 01:06:56,640
+in packages right smex that's right
+
+1369
+01:06:55,599 --> 01:07:00,000
+let's open it
+
+1370
+01:06:56,640 --> 01:07:03,440
+smex spelled correctly close
+
+1371
+01:07:00,000 --> 01:07:07,200
+that let's go back to init file
+
+1372
+01:07:03,440 --> 01:07:10,079
+open it secure
+
+1373
+01:07:07,200 --> 01:07:10,799
+uh oh yeah because you haven't loaded of
+
+1374
+01:07:10,079 --> 01:07:14,799
+course
+
+1375
+01:07:10,799 --> 01:07:17,599
+what an idiocy you know you configured
+
+1376
+01:07:14,799 --> 01:07:19,440
+you configured it for safely keys but
+
+1377
+01:07:17,599 --> 01:07:22,480
+you haven't actually load
+
+1378
+01:07:19,440 --> 01:07:25,200
+smacks okay okay
+
+1379
+01:07:22,480 --> 01:07:26,359
+where's max where did that loads max
+
+1380
+01:07:25,200 --> 01:07:30,480
+let's search
+
+1381
+01:07:26,359 --> 01:07:34,079
+smex okay kind of late here
+
+1382
+01:07:30,480 --> 01:07:37,760
+uncomment uncomment it
+
+1383
+01:07:34,079 --> 01:07:40,480
+and uh just say load okay
+
+1384
+01:07:37,760 --> 01:07:41,039
+delete that let's load here okay let's
+
+1385
+01:07:40,480 --> 01:07:44,400
+load
+
+1386
+01:07:41,039 --> 01:07:47,359
+it here in
+
+1387
+01:07:44,400 --> 01:07:49,680
+instead of load let's require smacks
+
+1388
+01:07:47,359 --> 01:07:49,680
+okay
+
+1389
+01:07:49,839 --> 01:07:53,440
+fantastic now
+
+1390
+01:07:53,599 --> 01:07:57,839
+close that try again
+
+1391
+01:07:59,280 --> 01:08:05,440
+emacs good
+
+1392
+01:08:02,720 --> 01:08:05,920
+press a for smacks you know press a
+
+1393
+01:08:05,440 --> 01:08:09,280
+because
+
+1394
+01:08:05,920 --> 01:08:12,559
+i mean stuff like keys so i press a
+
+1395
+01:08:09,280 --> 01:08:15,119
+fantastic can you see
+
+1396
+01:08:12,559 --> 01:08:16,400
+let me let me cancel okay ctrl g let me
+
+1397
+01:08:15,119 --> 01:08:19,440
+try again
+
+1398
+01:08:16,400 --> 01:08:21,520
+now this is qwerty okay control g is
+
+1399
+01:08:19,440 --> 01:08:25,040
+here
+
+1400
+01:08:21,520 --> 01:08:27,920
+get that back my god i'm on
+
+1401
+01:08:25,040 --> 01:08:29,120
+soft light i'm i'm a quality physical
+
+1402
+01:08:27,920 --> 01:08:31,759
+keyboard
+
+1403
+01:08:29,120 --> 01:08:32,799
+but the soft light keys on emac is set
+
+1404
+01:08:31,759 --> 01:08:35,040
+up to use
+
+1405
+01:08:32,799 --> 01:08:36,159
+i mean i'm i'm on a roll rack physical
+
+1406
+01:08:35,040 --> 01:08:39,199
+keyboard
+
+1407
+01:08:36,159 --> 01:08:42,239
+but the stuff like keys on on emacs is
+
+1408
+01:08:39,199 --> 01:08:42,239
+using quality
+
+1409
+01:08:42,480 --> 01:08:49,759
+so in qwerty to
+
+1410
+01:08:45,759 --> 01:08:53,120
+cancel should be ctrl g
+
+1411
+01:08:49,759 --> 01:08:53,839
+so i need to type control g in rorack
+
+1412
+01:08:53,120 --> 01:08:57,040
+okay so
+
+1413
+01:08:53,839 --> 01:09:00,319
+ctrl g there it is
+
+1414
+01:08:57,040 --> 01:09:03,600
+okay so now press a
+
+1415
+01:09:00,319 --> 01:09:07,839
+press a to call smax do it
+
+1416
+01:09:03,600 --> 01:09:11,600
+fantastic you can see magnify you see
+
+1417
+01:09:07,839 --> 01:09:12,400
+so that's smix okay cancel okay ctrl g
+
+1418
+01:09:11,600 --> 01:09:15,520
+cancel yeah
+
+1419
+01:09:12,400 --> 01:09:17,359
+wait cancel yeah so this is side e max
+
+1420
+01:09:15,520 --> 01:09:19,679
+okay
+
+1421
+01:09:17,359 --> 01:09:20,880
+now let's i think that's it for today
+
+1422
+01:09:19,679 --> 01:09:25,920
+okay so let's
+
+1423
+01:09:20,880 --> 01:09:31,040
+go to e shell again git status
+
+1424
+01:09:25,920 --> 01:09:34,640
+git add git commit
+
+1425
+01:09:31,040 --> 01:09:38,159
+get push
+
+1426
+01:09:34,640 --> 01:09:40,719
+now back to google chrome
+
+1427
+01:09:38,159 --> 01:09:40,719
+github
+
+1428
+01:09:41,759 --> 01:09:48,560
+go to emacs magnify
+
+1429
+01:09:45,520 --> 01:09:49,759
+okay so you click on packages you can
+
+1430
+01:09:48,560 --> 01:09:52,960
+see
+
+1431
+01:09:49,759 --> 01:09:53,679
+smex is there a lot of ado okay that's
+
+1432
+01:09:52,960 --> 01:09:56,800
+it thank you
+
+1433
+01:09:53,679 --> 01:10:00,159
+guys for watching fantastic
+
+1434
+01:09:56,800 --> 01:10:02,239
+what do i think about auto completion
+
+1435
+01:10:00,159 --> 01:10:04,560
+yeah that's okay that that's a good
+
+1436
+01:10:02,239 --> 01:10:06,560
+question auto completion is a very
+
+1437
+01:10:04,560 --> 01:10:08,400
+useful package
+
+1438
+01:10:06,560 --> 01:10:11,280
+uh you know there are several of them
+
+1439
+01:10:08,400 --> 01:10:13,199
+you know one is named autocomplete
+
+1440
+01:10:11,280 --> 01:10:15,120
+the other one is called company what an
+
+1441
+01:10:13,199 --> 01:10:18,480
+idiotic name company
+
+1442
+01:10:15,120 --> 01:10:20,880
+it actually stands for
+
+1443
+01:10:18,480 --> 01:10:21,920
+complete you know something like
+
+1444
+01:10:20,880 --> 01:10:24,640
+complete or something
+
+1445
+01:10:21,920 --> 01:10:25,560
+c-o-m you know actually if i write it
+
+1446
+01:10:24,640 --> 01:10:27,760
+down
+
+1447
+01:10:25,560 --> 01:10:29,600
+c-o-m-p-a-n-y you know there's a company
+
+1448
+01:10:27,760 --> 01:10:33,520
+mod which is a
+
+1449
+01:10:29,600 --> 01:10:35,840
+complete any okay so company mod
+
+1450
+01:10:33,520 --> 01:10:37,760
+it actually stands for complete any
+
+1451
+01:10:35,840 --> 01:10:38,239
+which is supposed to be a improved
+
+1452
+01:10:37,760 --> 01:10:41,920
+version
+
+1453
+01:10:38,239 --> 01:10:45,199
+improved version of the autocomplete
+
+1454
+01:10:41,920 --> 01:10:45,840
+package okay those are external packages
+
+1455
+01:10:45,199 --> 01:10:47,840
+you know that
+
+1456
+01:10:45,840 --> 01:10:49,520
+you know this is one of the problems of
+
+1457
+01:10:47,840 --> 01:10:50,400
+the new emacs and free software
+
+1458
+01:10:49,520 --> 01:10:52,800
+foundation
+
+1459
+01:10:50,400 --> 01:10:53,760
+they should have built it in emacs but
+
+1460
+01:10:52,800 --> 01:10:56,800
+all you know
+
+1461
+01:10:53,760 --> 01:10:59,360
+the emacs also have completion but that
+
+1462
+01:10:56,800 --> 01:11:02,239
+is pretty old you know old technology
+
+1463
+01:10:59,360 --> 01:11:03,440
+you know you don't have a pop-up you
+
+1464
+01:11:02,239 --> 01:11:05,679
+know thing
+
+1465
+01:11:03,440 --> 01:11:06,560
+widget you know at at the point you want
+
+1466
+01:11:05,679 --> 01:11:10,239
+to complete
+
+1467
+01:11:06,560 --> 01:11:13,280
+but however however auto complete
+
+1468
+01:11:10,239 --> 01:11:16,880
+and that company mod they are hacks okay
+
+1469
+01:11:13,280 --> 01:11:19,520
+they are extreme hacks because emacs
+
+1470
+01:11:16,880 --> 01:11:20,800
+emac these do not actually have a
+
+1471
+01:11:19,520 --> 01:11:23,840
+infrastructure
+
+1472
+01:11:20,800 --> 01:11:26,159
+to let you have pop-ups okay so this so
+
+1473
+01:11:23,840 --> 01:11:28,640
+i'm gonna start to talk random now
+
+1474
+01:11:26,159 --> 01:11:31,120
+i'm done with today's main thing let me
+
+1475
+01:11:28,640 --> 01:11:34,080
+talk random
+
+1476
+01:11:31,120 --> 01:11:35,280
+okay let's look at javascript javascript
+
+1477
+01:11:34,080 --> 01:11:38,480
+let's look at dom
+
+1478
+01:11:35,280 --> 01:11:40,480
+okay now you scroll down and
+
+1479
+01:11:38,480 --> 01:11:42,080
+turn on javascript yeah turn on
+
+1480
+01:11:40,480 --> 01:11:45,120
+javascript you go to
+
+1481
+01:11:42,080 --> 01:11:48,880
+um popup okay two tips in
+
+1482
+01:11:45,120 --> 01:11:48,880
+mac it's called balloon help
+
+1483
+01:11:49,280 --> 01:11:52,400
+okay not pop-up window wait wait hold on
+
+1484
+01:11:51,280 --> 01:11:55,360
+a second okay
+
+1485
+01:11:52,400 --> 01:11:57,040
+uh image rollover stopwatch uh how to
+
+1486
+01:11:55,360 --> 01:12:00,560
+create a tooltip okay
+
+1487
+01:11:57,040 --> 01:12:03,600
+so you see i hoover over here you have
+
+1488
+01:12:00,560 --> 01:12:04,880
+this pop-up okay on windows this is
+
+1489
+01:12:03,600 --> 01:12:09,040
+called tool tip
+
+1490
+01:12:04,880 --> 01:12:11,360
+you know you it will you see uh
+
+1491
+01:12:09,040 --> 01:12:12,640
+you see when you move kuza to a certain
+
+1492
+01:12:11,360 --> 01:12:15,040
+widget you'll say
+
+1493
+01:12:12,640 --> 01:12:16,000
+what it'll give you a short explanation
+
+1494
+01:12:15,040 --> 01:12:19,520
+what that
+
+1495
+01:12:16,000 --> 01:12:22,400
+widget or button do so
+
+1496
+01:12:19,520 --> 01:12:22,960
+in html with javascript technology and
+
+1497
+01:12:22,400 --> 01:12:26,080
+dom
+
+1498
+01:12:22,960 --> 01:12:27,120
+in css you can also implement that and i
+
+1499
+01:12:26,080 --> 01:12:30,239
+show you how to do it
+
+1500
+01:12:27,120 --> 01:12:32,000
+okay that's this that's this you know
+
+1501
+01:12:30,239 --> 01:12:34,880
+search for javascript how to create
+
+1502
+01:12:32,000 --> 01:12:38,400
+tooltip with my name
+
+1503
+01:12:34,880 --> 01:12:41,440
+add my name to it you'll find my page
+
+1504
+01:12:38,400 --> 01:12:46,800
+that's how you do in javascript in e-max
+
+1505
+01:12:41,440 --> 01:12:46,800
+you can also have that
+
+1506
+01:12:48,880 --> 01:12:52,719
+there are several techniques but anyway
+
+1507
+01:12:51,760 --> 01:12:55,840
+anyway the way
+
+1508
+01:12:52,719 --> 01:12:59,679
+auto complete and uh you know the way
+
+1509
+01:12:55,840 --> 01:13:01,679
+their interface is not is is a hack okay
+
+1510
+01:12:59,679 --> 01:13:03,679
+basically you cannot you
+
+1511
+01:13:01,679 --> 01:13:05,840
+you know you you kind of can you can you
+
+1512
+01:13:03,679 --> 01:13:09,600
+know you can achieve this effect
+
+1513
+01:13:05,840 --> 01:13:12,239
+in imac in imax by a hack
+
+1514
+01:13:09,600 --> 01:13:13,600
+so the code is very complex so i don't
+
+1515
+01:13:12,239 --> 01:13:17,280
+like those
+
+1516
+01:13:13,600 --> 01:13:20,719
+so but completion is a
+
+1517
+01:13:17,280 --> 01:13:21,600
+greatly useful feature what do i do what
+
+1518
+01:13:20,719 --> 01:13:25,440
+what do i do
+
+1519
+01:13:21,600 --> 01:13:28,719
+if i don't use autocomplete or um
+
+1520
+01:13:25,440 --> 01:13:30,840
+or company mod okay here what i do
+
+1521
+01:13:28,719 --> 01:13:32,000
+for example let's open let me show you
+
+1522
+01:13:30,840 --> 01:13:36,000
+okay
+
+1523
+01:13:32,000 --> 01:13:39,760
+switch to emacs so i want the fun okay
+
+1524
+01:13:36,000 --> 01:13:42,560
+so uh different so let's see
+
+1525
+01:13:39,760 --> 01:13:43,679
+let's let's switch to emacly smart okay
+
+1526
+01:13:42,560 --> 01:13:47,360
+so
+
+1527
+01:13:43,679 --> 01:13:50,320
+uh core emacs lisp
+
+1528
+01:13:47,360 --> 01:13:51,440
+mod this is the default emacly smart
+
+1529
+01:13:50,320 --> 01:13:54,640
+from gnu
+
+1530
+01:13:51,440 --> 01:13:56,080
+okay so let's magnify let's say i want
+
+1531
+01:13:54,640 --> 01:13:59,520
+to type
+
+1532
+01:13:56,080 --> 01:14:02,000
+defend press tab
+
+1533
+01:13:59,520 --> 01:14:02,560
+it doesn't work a pack i just want
+
+1534
+01:14:02,000 --> 01:14:05,520
+defund
+
+1535
+01:14:02,560 --> 01:14:06,080
+press tab and it gives you that
+
+1536
+01:14:05,520 --> 01:14:08,960
+different
+
+1537
+01:14:06,080 --> 01:14:09,760
+declare declaration 80s different prompt
+
+1538
+01:14:08,960 --> 01:14:12,159
+rejects
+
+1539
+01:14:09,760 --> 01:14:13,679
+i don't want that i just want the
+
+1540
+01:14:12,159 --> 01:14:15,520
+different
+
+1541
+01:14:13,679 --> 01:14:17,040
+function to define a function any
+
+1542
+01:14:15,520 --> 01:14:20,239
+magnets you don't you know
+
+1543
+01:14:17,040 --> 01:14:23,600
+so instead i have to type
+
+1544
+01:14:20,239 --> 01:14:26,800
+let's try control alt tab okay
+
+1545
+01:14:23,600 --> 01:14:29,120
+oh oh oh
+
+1546
+01:14:26,800 --> 01:14:31,679
+yeah that's another thing because you
+
+1547
+01:14:29,120 --> 01:14:33,199
+know emacs default keys conflict with
+
+1548
+01:14:31,679 --> 01:14:36,480
+windows and mac
+
+1549
+01:14:33,199 --> 01:14:38,719
+so now i have to stop you know either
+
+1550
+01:14:36,480 --> 01:14:39,360
+change emacs keys for conversion or i
+
+1551
+01:14:38,719 --> 01:14:42,640
+have to
+
+1552
+01:14:39,360 --> 01:14:46,000
+change windows key from stealing
+
+1553
+01:14:42,640 --> 01:14:47,600
+you know e-max keys
+
+1554
+01:14:46,000 --> 01:14:49,679
+that's an e-max problem you know they
+
+1555
+01:14:47,600 --> 01:14:50,719
+need to fix this but the e-max people
+
+1556
+01:14:49,679 --> 01:14:52,640
+they are elite
+
+1557
+01:14:50,719 --> 01:14:54,480
+we are here first you know you should
+
+1558
+01:14:52,640 --> 01:14:57,520
+change your windows keys to
+
+1559
+01:14:54,480 --> 01:14:59,440
+to e-max keys emacs
+
+1560
+01:14:57,520 --> 01:15:01,440
+ them that's they that's why the
+
+1561
+01:14:59,440 --> 01:15:03,199
+emacs users there's no users
+
+1562
+01:15:01,440 --> 01:15:04,719
+shrink and shrink and shrink but they
+
+1563
+01:15:03,199 --> 01:15:05,920
+don't know they think there's a lot of
+
+1564
+01:15:04,719 --> 01:15:08,159
+emacs users
+
+1565
+01:15:05,920 --> 01:15:09,520
+look look there's a uh on youtube
+
+1566
+01:15:08,159 --> 01:15:13,520
+there's so many emacs
+
+1567
+01:15:09,520 --> 01:15:16,239
+you know hackers that's such a sadie
+
+1568
+01:15:13,520 --> 01:15:18,640
+they are all glorifying emacs eventually
+
+1569
+01:15:16,239 --> 01:15:20,560
+the
+
+1570
+01:15:18,640 --> 01:15:21,920
+so anyway so completion you know
+
+1571
+01:15:20,560 --> 01:15:24,239
+different
+
+1572
+01:15:21,920 --> 01:15:26,239
+so what you have to do you have to
+
+1573
+01:15:24,239 --> 01:15:26,719
+actually add the parentheses first okay
+
+1574
+01:15:26,239 --> 01:15:30,320
+you so
+
+1575
+01:15:26,719 --> 01:15:34,000
+you type parenthesis then
+
+1576
+01:15:30,320 --> 01:15:36,080
+then ddf okay then you press tab then
+
+1577
+01:15:34,000 --> 01:15:38,000
+then you got the completion okay let's
+
+1578
+01:15:36,080 --> 01:15:41,199
+see the d d-d-f-u-n
+
+1579
+01:15:38,000 --> 01:15:44,000
+okay let's tap again
+
+1580
+01:15:41,199 --> 01:15:45,199
+okay so possible completion are that and
+
+1581
+01:15:44,000 --> 01:15:47,920
+that okay enter
+
+1582
+01:15:45,199 --> 01:15:47,920
+yeah
+
+1583
+01:15:50,840 --> 01:15:54,480
+complete
+
+1584
+01:15:52,640 --> 01:15:56,560
+possible completions are different yeah
+
+1585
+01:15:54,480 --> 01:16:02,400
+i just want different how do i
+
+1586
+01:15:56,560 --> 01:16:02,400
+i forgot what the tab doesn't work
+
+1587
+01:16:02,480 --> 01:16:09,199
+space okay so that
+
+1588
+01:16:05,679 --> 01:16:12,719
+did i um anyway so that's the
+
+1589
+01:16:09,199 --> 01:16:15,360
+e-max way okay so that's this for most
+
+1590
+01:16:12,719 --> 01:16:18,480
+people this is when you want to install
+
+1591
+01:16:15,360 --> 01:16:19,520
+company mod or autocomplete you know
+
+1592
+01:16:18,480 --> 01:16:22,640
+actually i can show you
+
+1593
+01:16:19,520 --> 01:16:23,920
+once how beautiful that is okay so these
+
+1594
+01:16:22,640 --> 01:16:25,840
+packages okay let's
+
+1595
+01:16:23,920 --> 01:16:27,840
+let's ramble okay let's ramble about
+
+1596
+01:16:25,840 --> 01:16:30,640
+emacs
+
+1597
+01:16:27,840 --> 01:16:31,679
+so let's install uh let's install what
+
+1598
+01:16:30,640 --> 01:16:35,840
+the
+
+1599
+01:16:31,679 --> 01:16:35,840
+uh let's install let's call
+
+1600
+01:16:36,080 --> 01:16:43,679
+this packages let's install company mod
+
+1601
+01:16:39,360 --> 01:16:47,920
+okay search for company
+
+1602
+01:16:43,679 --> 01:16:48,960
+okay this you know they have a lot of uh
+
+1603
+01:16:47,920 --> 01:16:51,679
+compatible comp
+
+1604
+01:16:48,960 --> 01:16:51,679
+you know let's see
+
+1605
+01:16:52,000 --> 01:16:55,920
+you know so now they have 160 matches
+
+1606
+01:16:54,880 --> 01:16:58,560
+for company mod
+
+1607
+01:16:55,920 --> 01:17:00,239
+because you know so you have this
+
+1608
+01:16:58,560 --> 01:17:02,960
+company mod which is
+
+1609
+01:17:00,239 --> 01:17:04,000
+for completion but then you have like a
+
+1610
+01:17:02,960 --> 01:17:07,440
+bunch of others
+
+1611
+01:17:04,000 --> 01:17:09,520
+that adds uh compatibility for other
+
+1612
+01:17:07,440 --> 01:17:10,560
+mods you know that the company erlang
+
+1613
+01:17:09,520 --> 01:17:14,640
+company flow
+
+1614
+01:17:10,560 --> 01:17:16,239
+company flicks company 1 000 packages
+
+1615
+01:17:14,640 --> 01:17:18,320
+you have to install yeah and you
+
+1616
+01:17:16,239 --> 01:17:20,880
+and as an e-max user you have to figure
+
+1617
+01:17:18,320 --> 01:17:23,600
+all this out yourself
+
+1618
+01:17:20,880 --> 01:17:24,560
+that is why space max and do max they
+
+1619
+01:17:23,600 --> 01:17:28,000
+become popular
+
+1620
+01:17:24,560 --> 01:17:29,760
+nobody is using glue emacs
+
+1621
+01:17:28,000 --> 01:17:32,640
+that's the e-max problem that's the
+
+1622
+01:17:29,760 --> 01:17:34,719
+mothership the problem of the mothership
+
+1623
+01:17:32,640 --> 01:17:37,679
+ richard stowman he should be
+
+1624
+01:17:34,719 --> 01:17:37,679
+responsible for it
+
+1625
+01:17:38,000 --> 01:17:42,480
+because he's not you know he did anyway
+
+1626
+01:17:40,400 --> 01:17:44,719
+so company mod okay so i'm just going to
+
+1627
+01:17:42,480 --> 01:17:47,760
+go into company mod here
+
+1628
+01:17:44,719 --> 01:17:53,040
+and i'm going to install it okay open it
+
+1629
+01:17:47,760 --> 01:17:53,040
+okay install yes yes yes yes
+
+1630
+01:17:53,520 --> 01:17:57,679
+okay i have company mod let's close it
+
+1631
+01:17:56,000 --> 01:18:00,800
+close it okay
+
+1632
+01:17:57,679 --> 01:18:03,679
+back to my uh single window
+
+1633
+01:18:00,800 --> 01:18:05,440
+single window close it close it okay now
+
+1634
+01:18:03,679 --> 01:18:12,239
+let's try the different let's turn on
+
+1635
+01:18:05,440 --> 01:18:14,239
+company mod first
+
+1636
+01:18:12,239 --> 01:18:16,800
+company mod enabled in current buffer
+
+1637
+01:18:14,239 --> 01:18:19,040
+okay now press tab
+
+1638
+01:18:16,800 --> 01:18:21,120
+wait no let i don't even have to press
+
+1639
+01:18:19,040 --> 01:18:25,840
+tab let's just type different okay
+
+1640
+01:18:21,120 --> 01:18:30,800
+let's try again d e f
+
+1641
+01:18:25,840 --> 01:18:32,960
+there it is d f u n
+
+1642
+01:18:30,800 --> 01:18:34,400
+no no why why why doesn't it have just
+
+1643
+01:18:32,960 --> 01:18:41,120
+different
+
+1644
+01:18:34,400 --> 01:18:42,960
+mark ah the problem
+
+1645
+01:18:41,120 --> 01:18:46,320
+i don't know what is going on but
+
+1646
+01:18:42,960 --> 01:18:46,320
+usually you just uh
+
+1647
+01:18:47,040 --> 01:18:50,480
+you know i why why is it not giving me
+
+1648
+01:18:49,199 --> 01:18:53,280
+oh okay
+
+1649
+01:18:50,480 --> 01:18:54,320
+okay it also needs a parenthesis first
+
+1650
+01:18:53,280 --> 01:18:58,000
+okay
+
+1651
+01:18:54,320 --> 01:18:58,000
+a pain in the ass there it is
+
+1652
+01:18:58,800 --> 01:19:05,360
+oh wait why doesn't is there a way to
+
+1653
+01:19:03,360 --> 01:19:06,719
+they knew anyway there it is company mod
+
+1654
+01:19:05,360 --> 01:19:09,679
+okay then you need white
+
+1655
+01:19:06,719 --> 01:19:11,600
+snippet why a snippet which stands for
+
+1656
+01:19:09,679 --> 01:19:14,800
+yet another you know submit
+
+1657
+01:19:11,600 --> 01:19:16,719
+which is 10 years history i know it
+
+1658
+01:19:14,800 --> 01:19:18,960
+personally because
+
+1659
+01:19:16,719 --> 01:19:19,760
+10 years ago i was thrilled about it i
+
+1660
+01:19:18,960 --> 01:19:22,000
+wrote lots
+
+1661
+01:19:19,760 --> 01:19:23,360
+several tutorials and so on i don't use
+
+1662
+01:19:22,000 --> 01:19:25,679
+it them these days
+
+1663
+01:19:23,360 --> 01:19:27,920
+so anyway there is your company mod then
+
+1664
+01:19:25,679 --> 01:19:31,120
+if you want the template for the default
+
+1665
+01:19:27,920 --> 01:19:34,000
+you need wire snippet which i
+
+1666
+01:19:31,120 --> 01:19:35,040
+actually contributed the these templates
+
+1667
+01:19:34,000 --> 01:19:37,040
+okay
+
+1668
+01:19:35,040 --> 01:19:38,480
+but i don't use this in these days okay
+
+1669
+01:19:37,040 --> 01:19:42,880
+so what i do i use
+
+1670
+01:19:38,480 --> 01:19:45,679
+so let me show you switch took soft like
+
+1671
+01:19:42,880 --> 01:19:46,960
+star emacs this smart okay now i mean so
+
+1672
+01:19:45,679 --> 01:19:49,600
+emacs it is smart
+
+1673
+01:19:46,960 --> 01:19:50,400
+magnify okay now i just you want
+
+1674
+01:19:49,600 --> 01:19:54,400
+different
+
+1675
+01:19:50,400 --> 01:19:55,679
+okay there it is okay let's try again
+
+1676
+01:19:54,400 --> 01:19:59,280
+actually i just type d
+
+1677
+01:19:55,679 --> 01:20:00,159
+okay enter you got different enter again
+
+1678
+01:19:59,280 --> 01:20:03,760
+you got the whole
+
+1679
+01:20:00,159 --> 01:20:07,199
+template parenthesis and you can also
+
+1680
+01:20:03,760 --> 01:20:09,280
+you know you you have all 1000 emac
+
+1681
+01:20:07,199 --> 01:20:12,320
+these functions templates okay
+
+1682
+01:20:09,280 --> 01:20:16,080
+uh the most frequently used
+
+1683
+01:20:12,320 --> 01:20:16,639
+ones you know the top 150 the top 50
+
+1684
+01:20:16,080 --> 01:20:19,280
+ones
+
+1685
+01:20:16,639 --> 01:20:22,080
+you have a one letter or two letter
+
+1686
+01:20:19,280 --> 01:20:25,679
+abbreviation okay so
+
+1687
+01:20:22,080 --> 01:20:27,679
+um you know i you know i have a website
+
+1688
+01:20:25,679 --> 01:20:29,440
+just search for xa emac this smart you
+
+1689
+01:20:27,679 --> 01:20:32,560
+can see my explanation why
+
+1690
+01:20:29,440 --> 01:20:35,120
+you know features so this is
+
+1691
+01:20:32,560 --> 01:20:36,080
+how i do completion but what if you are
+
+1692
+01:20:35,120 --> 01:20:38,400
+in javascript
+
+1693
+01:20:36,080 --> 01:20:40,560
+what if you are in golan what if you are
+
+1694
+01:20:38,400 --> 01:20:43,360
+coding php
+
+1695
+01:20:40,560 --> 01:20:45,280
+where is your completion then do you
+
+1696
+01:20:43,360 --> 01:20:48,239
+actually have to write a mod
+
+1697
+01:20:45,280 --> 01:20:49,040
+for every language that's what i happen
+
+1698
+01:20:48,239 --> 01:20:52,239
+to do
+
+1699
+01:20:49,040 --> 01:20:55,280
+i happen to write a mod
+
+1700
+01:20:52,239 --> 01:20:59,360
+for the completion the way i like
+
+1701
+01:20:55,280 --> 01:21:03,040
+for the languages i use which includes
+
+1702
+01:20:59,360 --> 01:21:03,040
+e-magly's javascript
+
+1703
+01:21:05,440 --> 01:21:08,560
+mostly just these two okay emac is
+
+1704
+01:21:07,760 --> 01:21:11,600
+javascript
+
+1705
+01:21:08,560 --> 01:21:14,320
+html css
+
+1706
+01:21:11,600 --> 01:21:16,320
+and what else and i also have a package
+
+1707
+01:21:14,320 --> 01:21:18,239
+for closure but it's not you know it
+
+1708
+01:21:16,320 --> 01:21:20,639
+hasn't been maintained for several years
+
+1709
+01:21:18,239 --> 01:21:20,639
+anyway
+
+1710
+01:21:22,159 --> 01:21:29,440
+so so what is the solution
+
+1711
+01:21:25,520 --> 01:21:32,719
+for completion inside emacs distro
+
+1712
+01:21:29,440 --> 01:21:37,280
+because i don't think i can you know
+
+1713
+01:21:32,719 --> 01:21:40,239
+write a mod for every major languages
+
+1714
+01:21:37,280 --> 01:21:42,239
+there are too many it doesn't take much
+
+1715
+01:21:40,239 --> 01:21:44,960
+time though by the way but
+
+1716
+01:21:42,239 --> 01:21:47,760
+i'm not going to do it so i will
+
+1717
+01:21:44,960 --> 01:21:47,760
+probably
+
+1718
+01:21:47,840 --> 01:21:57,840
+bundle autocomplete possibly okay i
+
+1719
+01:21:51,120 --> 01:21:57,840
+don't know i don't know for sure
+
+1720
+01:21:59,280 --> 01:22:03,760
+okay that's it for today thank you guys
+
+1721
+01:22:01,199 --> 01:22:03,760
+for watching
+
+1722
+01:22:09,040 --> 01:22:12,800
+most videos on youtube are about 100
+
+1723
+01:22:11,679 --> 01:22:15,040
+years old
+
+1724
+01:22:12,800 --> 01:22:15,040
+huh
+
+1725
+01:22:15,840 --> 01:22:20,560
+i can't even means i cannot convince
+
+1726
+01:22:18,000 --> 01:22:22,159
+myself to switch from vim to emacs i'm
+
+1727
+01:22:20,560 --> 01:22:25,199
+very accustomed
+
+1728
+01:22:22,159 --> 01:22:26,000
+to my vim key bindings well there's evil
+
+1729
+01:22:25,199 --> 01:22:29,040
+mod which is
+
+1730
+01:22:26,000 --> 01:22:29,040
+veeam in emacs
+
+1731
+01:22:31,840 --> 01:22:35,040
+okay that's it thank you guys and thank
+
+1732
+01:22:33,920 --> 01:22:39,040
+you cortes
+
+1733
+01:22:35,040 --> 01:22:42,480
+thank you george
+
+1734
+01:22:39,040 --> 01:22:45,360
+for the pizza and uh bye guys
+
+1735
+01:22:42,480 --> 01:22:47,199
+bye my tutorial okay by my tutorial by
+
+1736
+01:22:45,360 --> 01:22:52,960
+my javascript tutorial
+
+1737
+01:22:47,199 --> 01:22:56,480
+it's a best javascript tutorial in depth
+
+1738
+01:22:52,960 --> 01:22:59,600
+top three okay top three javascript
+
+1739
+01:22:56,480 --> 01:23:02,080
+tutorial in depth
+
+1740
+01:22:59,600 --> 01:23:04,400
+and in breath cover the entire language
+
+1741
+01:23:02,080 --> 01:23:07,280
+in the english speaking universe
+
+1742
+01:23:04,400 --> 01:23:08,960
+okay i would consider my javascript
+
+1743
+01:23:07,280 --> 01:23:11,920
+would be the top three
+
+1744
+01:23:08,960 --> 01:23:12,239
+including whoever wrote them you know in
+
+1745
+01:23:11,920 --> 01:23:15,679
+the
+
+1746
+01:23:12,239 --> 01:23:17,600
+history wherever you can find online
+
+1747
+01:23:15,679 --> 01:23:19,199
+or printed books you know there are
+
+1748
+01:23:17,600 --> 01:23:22,239
+quite a few you know also
+
+1749
+01:23:19,199 --> 01:23:24,560
+by the uh
+
+1750
+01:23:22,239 --> 01:23:26,719
+you know i can name you know by by by
+
+1751
+01:23:24,560 --> 01:23:28,639
+the yahoo guy
+
+1752
+01:23:26,719 --> 01:23:30,320
+by the guy who created jason what's
+
+1753
+01:23:28,639 --> 01:23:33,280
+what's his name you know by
+
+1754
+01:23:30,320 --> 01:23:35,199
+whoever javascript you know literature
+
+1755
+01:23:33,280 --> 01:23:37,920
+out there
+
+1756
+01:23:35,199 --> 01:23:39,360
+that teaches javascript in depth or even
+
+1757
+01:23:37,920 --> 01:23:41,760
+as a beginner okay
+
+1758
+01:23:39,360 --> 01:23:42,800
+even as a javascript basic for beginners
+
+1759
+01:23:41,760 --> 01:23:47,040
+or in depth
+
+1760
+01:23:42,800 --> 01:23:50,639
+okay all that exists out there
+
+1761
+01:23:47,040 --> 01:23:54,159
+print it all online i would consider
+
+1762
+01:23:50,639 --> 01:23:56,800
+javascript in depth is the best one okay
+
+1763
+01:23:54,159 --> 01:23:59,120
+or to be not so arrogant i would
+
+1764
+01:23:56,800 --> 01:24:01,679
+consider my javascript in depth
+
+1765
+01:23:59,120 --> 01:24:02,800
+to be top three top three you know one
+
+1766
+01:24:01,679 --> 01:24:05,920
+of the best
+
+1767
+01:24:02,800 --> 01:24:09,120
+so it depends on your preference for
+
+1768
+01:24:05,920 --> 01:24:11,679
+writing style for organization for
+
+1769
+01:24:09,120 --> 01:24:12,320
+explanation style okay so you guys buy
+
+1770
+01:24:11,679 --> 01:24:17,520
+it
+
+1771
+01:24:12,320 --> 01:24:19,520
+and buy my emacs tutorial
+
+1772
+01:24:17,520 --> 01:24:22,080
+okay that's 90 minutes today thank you
+
+1773
+01:24:19,520 --> 01:24:22,080
+guys bye
+
+1774
+01:24:25,360 --> 01:24:30,560
+so i'm gonna finish uh the exam since
+
+1775
+01:24:28,719 --> 01:24:31,840
+we have a structure now i'm going to
+
+1776
+01:24:30,560 --> 01:24:35,679
+finish the
+
+1777
+01:24:31,840 --> 01:24:36,480
+uh you know emax distro so i just need
+
+1778
+01:24:35,679 --> 01:24:39,199
+to
+
+1779
+01:24:36,480 --> 01:24:41,440
+go through all these files you know my
+
+1780
+01:24:39,199 --> 01:24:44,480
+own init file and to
+
+1781
+01:24:41,440 --> 01:24:44,880
+put them into cymax that's it okay so
+
+1782
+01:24:44,480 --> 01:24:47,920
+but
+
+1783
+01:24:44,880 --> 01:24:48,800
+before we go i want i'm gonna talk
+
+1784
+01:24:47,920 --> 01:24:50,719
+non-stop
+
+1785
+01:24:48,800 --> 01:24:51,840
+i wanna let me show you my javascript
+
+1786
+01:24:50,719 --> 01:24:55,440
+completion okay
+
+1787
+01:24:51,840 --> 01:24:58,560
+well actually yeah i i um yeah so
+
+1788
+01:24:55,440 --> 01:25:01,280
+let's see okay okay so switch to
+
+1789
+01:24:58,560 --> 01:25:04,560
+javascript mod so you can see
+
+1790
+01:25:01,280 --> 01:25:05,280
+javascript right here so i want error
+
+1791
+01:25:04,560 --> 01:25:08,080
+function so
+
+1792
+01:25:05,280 --> 01:25:08,400
+af for error function there you have it
+
+1793
+01:25:08,080 --> 01:25:12,080
+so
+
+1794
+01:25:08,400 --> 01:25:15,199
+if i want to write a function
+
+1795
+01:25:12,080 --> 01:25:16,560
+that add adds one to whatever number i
+
+1796
+01:25:15,199 --> 01:25:19,679
+can just write it like that
+
+1797
+01:25:16,560 --> 01:25:20,800
+for example let's see uh constant arrow
+
+1798
+01:25:19,679 --> 01:25:24,080
+function should just
+
+1799
+01:25:20,800 --> 01:25:26,480
+just three keys just three letters okay
+
+1800
+01:25:24,080 --> 01:25:28,400
+press enter there you have it okay so
+
+1801
+01:25:26,480 --> 01:25:31,600
+add one for example
+
+1802
+01:25:28,400 --> 01:25:35,920
+so here x plus one okay
+
+1803
+01:25:31,600 --> 01:25:40,560
+so we can test it so console.log cl
+
+1804
+01:25:35,920 --> 01:25:43,199
+space console.log okay so add one
+
+1805
+01:25:40,560 --> 01:25:43,840
+three okay now run it now this is
+
+1806
+01:25:43,199 --> 01:25:46,239
+another
+
+1807
+01:25:43,840 --> 01:25:47,280
+command in software key so i can run
+
+1808
+01:25:46,239 --> 01:25:49,280
+this file
+
+1809
+01:25:47,280 --> 01:25:52,880
+but first of all i need to save it it's
+
+1810
+01:25:49,280 --> 01:25:54,560
+untitled so if i don't do anything
+
+1811
+01:25:52,880 --> 01:25:56,080
+so let me show you okay so let's show
+
+1812
+01:25:54,560 --> 01:25:58,560
+the pink window so you can see the
+
+1813
+01:25:56,080 --> 01:26:01,520
+command icon so i've i run the file
+
+1814
+01:25:58,560 --> 01:26:02,239
+he asked me to save the file first so xx
+
+1815
+01:26:01,520 --> 01:26:05,840
+dot
+
+1816
+01:26:02,239 --> 01:26:08,400
+js okay for temporary save it
+
+1817
+01:26:05,840 --> 01:26:09,600
+okay so you can see the answer in the in
+
+1818
+01:26:08,400 --> 01:26:12,239
+the buffer here it's
+
+1819
+01:26:09,600 --> 01:26:12,960
+four you know because i'm learning deno
+
+1820
+01:26:12,239 --> 01:26:15,920
+deno is
+
+1821
+01:26:12,960 --> 01:26:16,480
+you know using this funky output color
+
+1822
+01:26:15,920 --> 01:26:21,600
+uh
+
+1823
+01:26:16,480 --> 01:26:25,679
+you know i don't like it but uh anyway
+
+1824
+01:26:21,600 --> 01:26:25,679
+so that's how i do completion javascript
+
+1825
+01:26:27,360 --> 01:26:32,800
+yeah but uh okay so but by the way you
+
+1826
+01:26:30,960 --> 01:26:34,960
+do you don't have to just type
+
+1827
+01:26:32,800 --> 01:26:36,320
+so you know i demonstrated the
+
+1828
+01:26:34,960 --> 01:26:38,719
+abbreviation
+
+1829
+01:26:36,320 --> 01:26:40,880
+but if you don't know the abbreviation
+
+1830
+01:26:38,719 --> 01:26:44,560
+you can type the console
+
+1831
+01:26:40,880 --> 01:26:46,400
+for example con and press tab
+
+1832
+01:26:44,560 --> 01:26:47,600
+and you're just you know in a
+
+1833
+01:26:46,400 --> 01:26:50,639
+traditional emacs
+
+1834
+01:26:47,600 --> 01:26:54,239
+interface it will show you the
+
+1835
+01:26:50,639 --> 01:26:57,199
+possible completions you you could have
+
+1836
+01:26:54,239 --> 01:26:57,840
+with starting with col so let's say
+
+1837
+01:26:57,199 --> 01:27:01,360
+console
+
+1838
+01:26:57,840 --> 01:27:04,719
+co and s
+
+1839
+01:27:01,360 --> 01:27:07,360
+o l okay so console.log
+
+1840
+01:27:04,719 --> 01:27:10,560
+do it there you have it okay but this
+
+1841
+01:27:07,360 --> 01:27:10,560
+way it's not so good anyway
+
+1842
+01:27:16,840 --> 01:27:19,840
+bye
+
+1843
+01:27:24,880 --> 01:27:26,960
+you
+

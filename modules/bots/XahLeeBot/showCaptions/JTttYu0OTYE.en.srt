@@ -1,0 +1,4412 @@
+1
+00:00:08,000 --> 00:00:12,320
+good morning everyone
+
+2
+00:00:09,200 --> 00:00:13,280
+welcome to another episode of star talk
+
+3
+00:00:12,320 --> 00:00:16,160
+show
+
+4
+00:00:13,280 --> 00:00:19,039
+video check audio check i'm good to go
+
+5
+00:00:16,160 --> 00:00:23,279
+today is 2021
+
+6
+00:00:19,039 --> 00:00:25,840
+july 21st today we are going to do
+
+7
+00:00:23,279 --> 00:00:27,119
+emacs lisp coding for the first 20
+
+8
+00:00:25,840 --> 00:00:30,560
+minutes or so
+
+9
+00:00:27,119 --> 00:00:35,360
+then probably wufam language coding
+
+10
+00:00:30,560 --> 00:00:37,440
+just like yesterday so um
+
+11
+00:00:35,360 --> 00:00:39,760
+yup so if you have comments questions
+
+12
+00:00:37,440 --> 00:00:42,480
+post it okay
+
+13
+00:00:39,760 --> 00:00:44,559
+so let's let's start coding emac beast
+
+14
+00:00:42,480 --> 00:00:48,480
+okay so let's see
+
+15
+00:00:44,559 --> 00:00:52,640
+what are the things i want to do so
+
+16
+00:00:48,480 --> 00:00:56,800
+so here is a write a command to combine
+
+17
+00:00:52,640 --> 00:00:57,360
+html skip tag backward and html skip tag
+
+18
+00:00:56,800 --> 00:01:00,399
+forward
+
+19
+00:00:57,360 --> 00:01:04,640
+okay so hey emily good
+
+20
+00:01:00,399 --> 00:01:06,880
+good evening uh so emac is coding so we
+
+21
+00:01:04,640 --> 00:01:10,080
+are going to code html
+
+22
+00:01:06,880 --> 00:01:13,200
+so here is what we need to do today
+
+23
+00:01:10,080 --> 00:01:16,960
+show in browser so yeah that's the one
+
+24
+00:01:13,200 --> 00:01:21,040
+so let me explain what is it that we
+
+25
+00:01:16,960 --> 00:01:23,520
+going to do so okay so
+
+26
+00:01:21,040 --> 00:01:25,280
+tag forward okay so you see let's
+
+27
+00:01:23,520 --> 00:01:28,799
+magnify this so you see
+
+28
+00:01:25,280 --> 00:01:31,200
+there is a uh end tag
+
+29
+00:01:28,799 --> 00:01:32,880
+now i want to jump to the beginning tag
+
+30
+00:01:31,200 --> 00:01:35,200
+i want to move cursor to the beginning
+
+31
+00:01:32,880 --> 00:01:37,360
+text so what i do there is a command
+
+32
+00:01:35,200 --> 00:01:38,400
+now if you look at the pink window you
+
+33
+00:01:37,360 --> 00:01:42,000
+will see
+
+34
+00:01:38,400 --> 00:01:42,799
+so i call this command i press two keys
+
+35
+00:01:42,000 --> 00:01:45,119
+you see
+
+36
+00:01:42,799 --> 00:01:46,320
+my cursor is here so that command is
+
+37
+00:01:45,119 --> 00:01:50,960
+called
+
+38
+00:01:46,320 --> 00:01:53,439
+uh skip tag backward now if i'm on this
+
+39
+00:01:50,960 --> 00:01:54,000
+tag my cursor is here i want to jump to
+
+40
+00:01:53,439 --> 00:01:57,759
+the ending
+
+41
+00:01:54,000 --> 00:02:00,640
+tag i press a key then i'm at the end
+
+42
+00:01:57,759 --> 00:02:02,320
+now however the problem is that you see
+
+43
+00:02:00,640 --> 00:02:05,040
+you have two commands
+
+44
+00:02:02,320 --> 00:02:06,000
+now when you jump to the beginning tag
+
+45
+00:02:05,040 --> 00:02:07,840
+or the end tag
+
+46
+00:02:06,000 --> 00:02:09,840
+basically you don't need two command you
+
+47
+00:02:07,840 --> 00:02:10,959
+just need one command the command can
+
+48
+00:02:09,840 --> 00:02:12,640
+figure out
+
+49
+00:02:10,959 --> 00:02:14,080
+whether the current tag is the beginning
+
+50
+00:02:12,640 --> 00:02:16,080
+tag if so
+
+51
+00:02:14,080 --> 00:02:18,000
+it will jump to the end tag if it's the
+
+52
+00:02:16,080 --> 00:02:23,200
+end tag it it'll jump to the
+
+53
+00:02:18,000 --> 00:02:24,879
+beginning tag you see so that is the
+
+54
+00:02:23,200 --> 00:02:26,480
+so you don't need two commands because
+
+55
+00:02:24,879 --> 00:02:27,120
+when you have two commands you have to
+
+56
+00:02:26,480 --> 00:02:30,239
+think
+
+57
+00:02:27,120 --> 00:02:33,200
+oh i'm at beginning tag i need to call
+
+58
+00:02:30,239 --> 00:02:33,519
+uh go to the end tag then you do it you
+
+59
+00:02:33,200 --> 00:02:36,560
+know
+
+60
+00:02:33,519 --> 00:02:37,280
+so one command you just go back and
+
+61
+00:02:36,560 --> 00:02:40,879
+forth
+
+62
+00:02:37,280 --> 00:02:43,200
+which is similar in e-magle's side
+
+63
+00:02:40,879 --> 00:02:44,319
+emac be smart for for example let me
+
+64
+00:02:43,200 --> 00:02:48,160
+show you
+
+65
+00:02:44,319 --> 00:02:51,760
+uh okay so e-max is smart
+
+66
+00:02:48,160 --> 00:02:53,519
+defend okay so if i'm kuza is here
+
+67
+00:02:51,760 --> 00:02:55,519
+i can press one single key look at the
+
+68
+00:02:53,519 --> 00:02:58,720
+pink window okay one single key
+
+69
+00:02:55,519 --> 00:03:01,120
+to go back and forth of any uh
+
+70
+00:02:58,720 --> 00:03:02,800
+parenthesis you see you don't need to
+
+71
+00:03:01,120 --> 00:03:04,959
+think about whether you are on a
+
+72
+00:03:02,800 --> 00:03:07,920
+beginning tag or in text so
+
+73
+00:03:04,959 --> 00:03:09,040
+let's code that this should be uh pretty
+
+74
+00:03:07,920 --> 00:03:12,319
+easy okay
+
+75
+00:03:09,040 --> 00:03:15,920
+so emac list
+
+76
+00:03:12,319 --> 00:03:16,400
+start a empty uh bracket i mean the
+
+77
+00:03:15,920 --> 00:03:20,319
+empty
+
+78
+00:03:16,400 --> 00:03:24,480
+buffer then defend
+
+79
+00:03:20,319 --> 00:03:25,240
+okay then html
+
+80
+00:03:24,480 --> 00:03:28,509
+jump
+
+81
+00:03:25,240 --> 00:03:28,509
+[Music]
+
+82
+00:03:30,879 --> 00:03:38,480
+jump to uh what's the name
+
+83
+00:03:35,040 --> 00:03:41,680
+begin and tag
+
+84
+00:03:38,480 --> 00:03:46,000
+okay so the naming
+
+85
+00:03:41,680 --> 00:03:50,560
+is unsure because
+
+86
+00:03:46,000 --> 00:03:52,640
+uh because this is too long because html
+
+87
+00:03:50,560 --> 00:03:54,720
+jump to begin or end
+
+88
+00:03:52,640 --> 00:03:55,760
+tag this is you know the proper name
+
+89
+00:03:54,720 --> 00:03:58,239
+would be that but
+
+90
+00:03:55,760 --> 00:04:00,799
+it's kind of too long so what what is a
+
+91
+00:03:58,239 --> 00:04:04,159
+better name
+
+92
+00:04:00,799 --> 00:04:05,200
+hello not not jake uh i'm not sure what
+
+93
+00:04:04,159 --> 00:04:08,560
+is a better name
+
+94
+00:04:05,200 --> 00:04:10,480
+so jump to begin or end let's go with
+
+95
+00:04:08,560 --> 00:04:14,959
+that okay if you have suggestions
+
+96
+00:04:10,480 --> 00:04:15,680
+posted okay version can you use that to
+
+97
+00:04:14,959 --> 00:04:18,160
+select
+
+98
+00:04:15,680 --> 00:04:19,120
+everything between the two tags when you
+
+99
+00:04:18,160 --> 00:04:22,240
+also hold
+
+100
+00:04:19,120 --> 00:04:22,800
+shift uh yes you can write a command to
+
+101
+00:04:22,240 --> 00:04:25,680
+do that
+
+102
+00:04:22,800 --> 00:04:27,040
+but however i do not recommend any
+
+103
+00:04:25,680 --> 00:04:30,960
+command with a
+
+104
+00:04:27,040 --> 00:04:34,320
+i do not recommend the key
+
+105
+00:04:30,960 --> 00:04:36,560
+uh code key you know typically in
+
+106
+00:04:34,320 --> 00:04:37,759
+in in programming languages you have
+
+107
+00:04:36,560 --> 00:04:40,320
+shift select
+
+108
+00:04:37,759 --> 00:04:42,000
+that is you hold the shift key then you
+
+109
+00:04:40,320 --> 00:04:44,960
+can press arrow down and
+
+110
+00:04:42,000 --> 00:04:46,560
+you're selected i turned it off in emacs
+
+111
+00:04:44,960 --> 00:04:48,880
+uh
+
+112
+00:04:46,560 --> 00:04:51,280
+so let's save it okay let's save this
+
+113
+00:04:48,880 --> 00:04:54,000
+and the vs code let's open in vs code
+
+114
+00:04:51,280 --> 00:04:56,880
+let's show that in vs code so you see
+
+115
+00:04:54,000 --> 00:04:58,560
+uh can we magnify the cursor yes we can
+
+116
+00:04:56,880 --> 00:05:02,160
+magnify the window
+
+117
+00:04:58,560 --> 00:05:04,160
+so i hold down the shift key then i can
+
+118
+00:05:02,160 --> 00:05:09,199
+press the arrow key that's no good
+
+119
+00:05:04,160 --> 00:05:12,240
+okay this is a this is a inefficient
+
+120
+00:05:09,199 --> 00:05:15,280
+way to select text
+
+121
+00:05:12,240 --> 00:05:18,479
+so close uh close the visual
+
+122
+00:05:15,280 --> 00:05:19,039
+uh studio vs code do you want to save
+
+123
+00:05:18,479 --> 00:05:22,840
+changes
+
+124
+00:05:19,039 --> 00:05:26,479
+don't save okay close the visual studio
+
+125
+00:05:22,840 --> 00:05:27,199
+so yeah so i recommend do not use shift
+
+126
+00:05:26,479 --> 00:05:30,800
+select
+
+127
+00:05:27,199 --> 00:05:33,360
+and uh you know for any command so
+
+128
+00:05:30,800 --> 00:05:35,759
+rather so the more efficient way is
+
+129
+00:05:33,360 --> 00:05:37,680
+actually to have a keystroke to begin
+
+130
+00:05:35,759 --> 00:05:39,280
+actually the most efficient way is you
+
+131
+00:05:37,680 --> 00:05:41,039
+just have a single key
+
+132
+00:05:39,280 --> 00:05:42,560
+for a command to select what you want
+
+133
+00:05:41,039 --> 00:05:44,960
+for example i can select
+
+134
+00:05:42,560 --> 00:05:45,919
+the current word or i can select the
+
+135
+00:05:44,960 --> 00:05:48,240
+current line
+
+136
+00:05:45,919 --> 00:05:49,919
+or i can select the current paragraph
+
+137
+00:05:48,240 --> 00:05:53,520
+the text block
+
+138
+00:05:49,919 --> 00:05:55,120
+uh you know uh you know
+
+139
+00:05:53,520 --> 00:05:58,400
+let me show you the pink window so you
+
+140
+00:05:55,120 --> 00:06:02,720
+can see okay select current line
+
+141
+00:05:58,400 --> 00:06:06,160
+or select the current block
+
+142
+00:06:02,720 --> 00:06:06,639
+or i can you know i can keep pressing
+
+143
+00:06:06,160 --> 00:06:09,280
+the key
+
+144
+00:06:06,639 --> 00:06:11,280
+or keep selecting the block or if i'm
+
+145
+00:06:09,280 --> 00:06:13,199
+selecting a line select the line
+
+146
+00:06:11,280 --> 00:06:15,440
+i want to select the next line too i can
+
+147
+00:06:13,199 --> 00:06:17,840
+keep pressing the key
+
+148
+00:06:15,440 --> 00:06:20,720
+or if you want generic selection you
+
+149
+00:06:17,840 --> 00:06:23,039
+know for example from this to here
+
+150
+00:06:20,720 --> 00:06:23,759
+then you what you the efficient way is
+
+151
+00:06:23,039 --> 00:06:25,759
+to have a
+
+152
+00:06:23,759 --> 00:06:27,680
+command that start the beginning of
+
+153
+00:06:25,759 --> 00:06:29,440
+selection then you
+
+154
+00:06:27,680 --> 00:06:31,680
+then you move your cursor to wherever
+
+155
+00:06:29,440 --> 00:06:34,960
+you want okay so don't use
+
+156
+00:06:31,680 --> 00:06:37,360
+shift select that's a inefficient way
+
+157
+00:06:34,960 --> 00:06:38,319
+okay so let's go back to the code okay
+
+158
+00:06:37,360 --> 00:06:42,240
+so let's
+
+159
+00:06:38,319 --> 00:06:45,199
+uh so begin to jump to um
+
+160
+00:06:42,240 --> 00:06:45,759
+yeah we want to write the tag okay so
+
+161
+00:06:45,199 --> 00:06:48,960
+this
+
+162
+00:06:45,759 --> 00:06:50,880
+the name is this descriptive enough
+
+163
+00:06:48,960 --> 00:06:52,720
+now let me find out what's the command i
+
+164
+00:06:50,880 --> 00:06:57,199
+need to call okay let
+
+165
+00:06:52,720 --> 00:06:57,199
+we are starting to write this um
+
+166
+00:06:57,520 --> 00:07:04,960
+oh actually the command call is here
+
+167
+00:07:01,440 --> 00:07:04,960
+already so
+
+168
+00:07:06,160 --> 00:07:13,759
+let's put them here okay so here we have
+
+169
+00:07:10,080 --> 00:07:14,840
+basically we're gonna we are going to
+
+170
+00:07:13,759 --> 00:07:18,720
+first of all
+
+171
+00:07:14,840 --> 00:07:20,800
+determine whether the cursor is on a
+
+172
+00:07:18,720 --> 00:07:24,160
+beginning tag or end tag
+
+173
+00:07:20,800 --> 00:07:26,080
+then call one of this command okay so
+
+174
+00:07:24,160 --> 00:07:28,319
+that is easy because i already have a
+
+175
+00:07:26,080 --> 00:07:32,560
+code to do it so let's open a new
+
+176
+00:07:28,319 --> 00:07:33,120
+window let's look at some html mod okay
+
+177
+00:07:32,560 --> 00:07:35,280
+so this
+
+178
+00:07:33,120 --> 00:07:35,280
+is
+
+179
+00:07:36,720 --> 00:07:39,759
+so go to
+
+180
+00:07:41,199 --> 00:07:45,599
+space space space edge that is the
+
+181
+00:07:43,919 --> 00:07:48,800
+keystroke to turn on
+
+182
+00:07:45,599 --> 00:07:49,920
+html mod then you go to the source code
+
+183
+00:07:48,800 --> 00:07:52,980
+then you
+
+184
+00:07:49,920 --> 00:07:52,980
+[Music]
+
+185
+00:07:53,440 --> 00:07:56,560
+these matching lines all lines about
+
+186
+00:07:55,759 --> 00:07:58,560
+different
+
+187
+00:07:56,560 --> 00:07:59,599
+one there is a command that tells you
+
+188
+00:07:58,560 --> 00:08:03,199
+whether you are
+
+189
+00:07:59,599 --> 00:08:06,400
+opening tag or in text so there it is
+
+190
+00:08:03,199 --> 00:08:09,599
+site html is opening tag p
+
+191
+00:08:06,400 --> 00:08:13,120
+now p stands for predicate in e-max
+
+192
+00:08:09,599 --> 00:08:14,319
+in lisp in general the there is a naming
+
+193
+00:08:13,120 --> 00:08:17,440
+convention
+
+194
+00:08:14,319 --> 00:08:19,039
+when a function ends in p that means
+
+195
+00:08:17,440 --> 00:08:21,039
+that function is a predicate
+
+196
+00:08:19,039 --> 00:08:22,800
+which means basically that function
+
+197
+00:08:21,039 --> 00:08:25,840
+returns true or false
+
+198
+00:08:22,800 --> 00:08:28,560
+now this is so in commonly speaking emac
+
+199
+00:08:25,840 --> 00:08:29,039
+but in scheme disk they use a question
+
+200
+00:08:28,560 --> 00:08:30,960
+mark
+
+201
+00:08:29,039 --> 00:08:32,399
+at the end instead which is a better
+
+202
+00:08:30,960 --> 00:08:35,120
+convention
+
+203
+00:08:32,399 --> 00:08:36,080
+because you know petacut is from logic
+
+204
+00:08:35,120 --> 00:08:38,399
+predicate
+
+205
+00:08:36,080 --> 00:08:40,000
+but the programming language predicate
+
+206
+00:08:38,399 --> 00:08:43,200
+the meaning of credit card is actually
+
+207
+00:08:40,000 --> 00:08:45,600
+different from the logic's predicate
+
+208
+00:08:43,200 --> 00:08:47,279
+kind of similar but but actually very
+
+209
+00:08:45,600 --> 00:08:49,600
+different
+
+210
+00:08:47,279 --> 00:08:51,040
+because in logic a predicate is actually
+
+211
+00:08:49,600 --> 00:08:53,839
+a statement
+
+212
+00:08:51,040 --> 00:08:55,120
+that says it's true of you know it when
+
+213
+00:08:53,839 --> 00:08:57,600
+you have a credit card
+
+214
+00:08:55,120 --> 00:08:59,920
+is make a statement in a programming
+
+215
+00:08:57,600 --> 00:09:02,080
+language when you have a predator
+
+216
+00:08:59,920 --> 00:09:03,680
+it just returns either true or false
+
+217
+00:09:02,080 --> 00:09:07,200
+okay so in logic
+
+218
+00:09:03,680 --> 00:09:09,040
+you see this is a pen that's a predicate
+
+219
+00:09:07,200 --> 00:09:10,399
+you know it's not a question in
+
+220
+00:09:09,040 --> 00:09:13,440
+programming languages
+
+221
+00:09:10,399 --> 00:09:16,240
+you know is this a pen dash p in
+
+222
+00:09:13,440 --> 00:09:18,080
+in lisp that's a question it returns
+
+223
+00:09:16,240 --> 00:09:20,080
+either true or false so that's a
+
+224
+00:09:18,080 --> 00:09:22,399
+major difference but anyway that's a
+
+225
+00:09:20,080 --> 00:09:24,399
+convention you uh predicate okay
+
+226
+00:09:22,399 --> 00:09:26,640
+and by the way in mathematica in wolfram
+
+227
+00:09:24,399 --> 00:09:28,560
+language the convention is using q okay
+
+228
+00:09:26,640 --> 00:09:31,760
+i'm starting to digress
+
+229
+00:09:28,560 --> 00:09:33,680
+but you know but why not we i have
+
+230
+00:09:31,760 --> 00:09:36,959
+article on that
+
+231
+00:09:33,680 --> 00:09:40,160
+so you go to xr home page
+
+232
+00:09:36,959 --> 00:09:41,760
+then then you go to uh
+
+233
+00:09:40,160 --> 00:09:43,440
+yeah this is interesting you know
+
+234
+00:09:41,760 --> 00:09:46,320
+because i've been doing
+
+235
+00:09:43,440 --> 00:09:48,480
+this coding live for so many videos
+
+236
+00:09:46,320 --> 00:09:52,399
+let's uh digress a little bit
+
+237
+00:09:48,480 --> 00:09:54,800
+so you go to um syntax soup
+
+238
+00:09:52,399 --> 00:09:56,800
+semantic noodle let's try semantic
+
+239
+00:09:54,800 --> 00:09:59,519
+noodle and search for
+
+240
+00:09:56,800 --> 00:09:59,920
+preda cut okay it's not here then you go
+
+241
+00:09:59,519 --> 00:10:03,440
+to
+
+242
+00:09:59,920 --> 00:10:05,200
+comp land perving all these videos are
+
+243
+00:10:03,440 --> 00:10:06,640
+great you should go watch it okay
+
+244
+00:10:05,200 --> 00:10:10,160
+complain perving
+
+245
+00:10:06,640 --> 00:10:13,519
+then search for predicate
+
+246
+00:10:10,160 --> 00:10:15,680
+and where is it syntax soup
+
+247
+00:10:13,519 --> 00:10:16,880
+uh let's go to syntax search for
+
+248
+00:10:15,680 --> 00:10:19,839
+predicate there it is
+
+249
+00:10:16,880 --> 00:10:22,000
+computer language predator function
+
+250
+00:10:19,839 --> 00:10:23,040
+terminology and naming convention let's
+
+251
+00:10:22,000 --> 00:10:26,480
+open that
+
+252
+00:10:23,040 --> 00:10:30,160
+magnify so here in this article i
+
+253
+00:10:26,480 --> 00:10:31,519
+explore the the meaning of first first
+
+254
+00:10:30,160 --> 00:10:32,000
+of all i explain the meaning of
+
+255
+00:10:31,519 --> 00:10:34,079
+predicate
+
+256
+00:10:32,000 --> 00:10:36,160
+in logic and in programming language
+
+257
+00:10:34,079 --> 00:10:37,440
+okay meaning of predicating logic and
+
+258
+00:10:36,160 --> 00:10:40,160
+computer science
+
+259
+00:10:37,440 --> 00:10:42,560
+then actually it should be computer
+
+260
+00:10:40,160 --> 00:10:45,839
+primary languages
+
+261
+00:10:42,560 --> 00:10:47,920
+okay then i explain the various
+
+262
+00:10:45,839 --> 00:10:50,560
+conventions in programming languages
+
+263
+00:10:47,920 --> 00:10:52,240
+on how they name the you know how they
+
+264
+00:10:50,560 --> 00:10:52,959
+name their functions predicates so in
+
+265
+00:10:52,240 --> 00:10:55,120
+emaclis
+
+266
+00:10:52,959 --> 00:10:56,079
+you have all these examples of
+
+267
+00:10:55,120 --> 00:11:00,000
+predicates
+
+268
+00:10:56,079 --> 00:11:04,079
+integer p function p file readable p
+
+269
+00:11:00,000 --> 00:11:06,480
+file exists p string p symbol p
+
+270
+00:11:04,079 --> 00:11:07,519
+but actually it's not very consistent in
+
+271
+00:11:06,480 --> 00:11:10,560
+this
+
+272
+00:11:07,519 --> 00:11:13,760
+because you see
+
+273
+00:11:10,560 --> 00:11:16,880
+so ideally any function if it
+
+274
+00:11:13,760 --> 00:11:17,839
+ends in a dash p then that returns true
+
+275
+00:11:16,880 --> 00:11:20,480
+or false
+
+276
+00:11:17,839 --> 00:11:21,279
+but that's not the case in emac these at
+
+277
+00:11:20,480 --> 00:11:23,440
+least
+
+278
+00:11:21,279 --> 00:11:24,880
+and i don't think that's the case in
+
+279
+00:11:23,440 --> 00:11:27,320
+commonly needed
+
+280
+00:11:24,880 --> 00:11:28,959
+because first of all you have
+
+281
+00:11:27,320 --> 00:11:31,600
+inconsistency of synth
+
+282
+00:11:28,959 --> 00:11:33,040
+of the syntax of the naming okay so some
+
+283
+00:11:31,600 --> 00:11:35,360
+ends in dash p
+
+284
+00:11:33,040 --> 00:11:36,480
+sum does not end in dash p okay that's
+
+285
+00:11:35,360 --> 00:11:38,959
+first problem
+
+286
+00:11:36,480 --> 00:11:39,600
+it's a problem okay language design
+
+287
+00:11:38,959 --> 00:11:43,200
+problem
+
+288
+00:11:39,600 --> 00:11:46,880
+of the lisp of the
+
+289
+00:11:43,200 --> 00:11:50,399
+of the lisp faction now this
+
+290
+00:11:46,880 --> 00:11:53,600
+also this besides that
+
+291
+00:11:50,399 --> 00:11:54,160
+also it's not true that any function
+
+292
+00:11:53,600 --> 00:11:57,440
+named
+
+293
+00:11:54,160 --> 00:11:59,760
+ends in p means it's a predicate so
+
+294
+00:11:57,440 --> 00:12:00,639
+do we have an example did i show example
+
+295
+00:11:59,760 --> 00:12:04,399
+here yeah
+
+296
+00:12:00,639 --> 00:12:07,680
+for example here you see pop
+
+297
+00:12:04,399 --> 00:12:10,160
+define group make sparse key map
+
+298
+00:12:07,680 --> 00:12:11,040
+forward sex you know those functions
+
+299
+00:12:10,160 --> 00:12:13,360
+ends in p
+
+300
+00:12:11,040 --> 00:12:14,240
+but that's not a those are not predicate
+
+301
+00:12:13,360 --> 00:12:17,519
+they don't return
+
+302
+00:12:14,240 --> 00:12:20,240
+true or false so lisp this is a
+
+303
+00:12:17,519 --> 00:12:20,959
+flaw in this programming language design
+
+304
+00:12:20,240 --> 00:12:23,839
+okay
+
+305
+00:12:20,959 --> 00:12:24,399
+now we look at scheme lisp and closure
+
+306
+00:12:23,839 --> 00:12:26,560
+list
+
+307
+00:12:24,399 --> 00:12:27,600
+they are they did better they did
+
+308
+00:12:26,560 --> 00:12:30,160
+excellent
+
+309
+00:12:27,600 --> 00:12:32,079
+any predator if a function ends you know
+
+310
+00:12:30,160 --> 00:12:32,399
+their name ends in a question mark that
+
+311
+00:12:32,079 --> 00:12:34,639
+means
+
+312
+00:12:32,399 --> 00:12:35,440
+it returns true or false that's it
+
+313
+00:12:34,639 --> 00:12:38,320
+period
+
+314
+00:12:35,440 --> 00:12:39,200
+simple logical and uh systematic
+
+315
+00:12:38,320 --> 00:12:42,399
+consistent
+
+316
+00:12:39,200 --> 00:12:45,360
+no exceptions okay great language
+
+317
+00:12:42,399 --> 00:12:47,279
+design of the syntactic this is you know
+
+318
+00:12:45,360 --> 00:12:48,399
+naming of things belong actually belongs
+
+319
+00:12:47,279 --> 00:12:51,680
+to the syntax
+
+320
+00:12:48,399 --> 00:12:54,720
+syntactic issue of the language okay
+
+321
+00:12:51,680 --> 00:12:56,880
+so scheming closure this great design
+
+322
+00:12:54,720 --> 00:12:59,839
+now wufang language you know wufang
+
+323
+00:12:56,880 --> 00:13:01,760
+language went one step further okay
+
+324
+00:12:59,839 --> 00:13:04,079
+that's why i love wufang language the
+
+325
+00:13:01,760 --> 00:13:05,360
+design of language in wolfram language a
+
+326
+00:13:04,079 --> 00:13:08,399
+predicate always
+
+327
+00:13:05,360 --> 00:13:09,200
+name ends in a queue capital q for
+
+328
+00:13:08,399 --> 00:13:12,720
+question
+
+329
+00:13:09,200 --> 00:13:14,480
+okay why because you know
+
+330
+00:13:12,720 --> 00:13:16,160
+when you design a language you actually
+
+331
+00:13:14,480 --> 00:13:19,120
+think about things you know
+
+332
+00:13:16,160 --> 00:13:20,079
+so why do they list for example this
+
+333
+00:13:19,120 --> 00:13:22,639
+will scheme this
+
+334
+00:13:20,079 --> 00:13:24,560
+closure this they end in p well that's a
+
+335
+00:13:22,639 --> 00:13:26,880
+tradition that's a
+
+336
+00:13:24,560 --> 00:13:28,720
+you know computer science tradition p is
+
+337
+00:13:26,880 --> 00:13:32,000
+predicate okay predicate
+
+338
+00:13:28,720 --> 00:13:33,440
+but who understand what is what the
+
+339
+00:13:32,000 --> 00:13:36,560
+is the predicate you know
+
+340
+00:13:33,440 --> 00:13:38,560
+so in wufang language you know stefan
+
+341
+00:13:36,560 --> 00:13:42,240
+wufam he has you know he has
+
+342
+00:13:38,560 --> 00:13:43,199
+his way of thinking which oftentimes i
+
+343
+00:13:42,240 --> 00:13:45,600
+agree with
+
+344
+00:13:43,199 --> 00:13:46,560
+so he just named it q q stands for
+
+345
+00:13:45,600 --> 00:13:49,519
+question okay
+
+346
+00:13:46,560 --> 00:13:52,639
+if a function ends in q capital q it's
+
+347
+00:13:49,519 --> 00:13:55,040
+it returns either true or false
+
+348
+00:13:52,639 --> 00:13:58,079
+uh but why not question mark well
+
+349
+00:13:55,040 --> 00:14:01,920
+question mark is actually a better
+
+350
+00:13:58,079 --> 00:14:02,720
+a better system well wufam language
+
+351
+00:14:01,920 --> 00:14:05,360
+cannot use
+
+352
+00:14:02,720 --> 00:14:05,839
+a question mark because question mark is
+
+353
+00:14:05,360 --> 00:14:10,560
+used
+
+354
+00:14:05,839 --> 00:14:10,560
+um it's used on
+
+355
+00:14:15,120 --> 00:14:21,040
+uh why can they not what did i explain
+
+356
+00:14:18,160 --> 00:14:23,040
+uh well basically they have a convention
+
+357
+00:14:21,040 --> 00:14:23,680
+okay in wufang language there's a naming
+
+358
+00:14:23,040 --> 00:14:27,360
+convention
+
+359
+00:14:23,680 --> 00:14:30,399
+every blm function is a camel case
+
+360
+00:14:27,360 --> 00:14:34,079
+starting with the capital letter and no
+
+361
+00:14:30,399 --> 00:14:37,360
+punctuation symbols whatsoever so
+
+362
+00:14:34,079 --> 00:14:40,399
+every function is just a
+
+363
+00:14:37,360 --> 00:14:43,360
+alphanumeric um
+
+364
+00:14:40,399 --> 00:14:45,440
+sequence of camel case no punctuations
+
+365
+00:14:43,360 --> 00:14:48,720
+that's why they cannot use
+
+366
+00:14:45,440 --> 00:14:49,600
+a question mark so you can see there are
+
+367
+00:14:48,720 --> 00:14:52,800
+several design
+
+368
+00:14:49,600 --> 00:14:55,279
+issues and constraints once they decided
+
+369
+00:14:52,800 --> 00:14:56,560
+this is the naming convention for all
+
+370
+00:14:55,279 --> 00:14:59,600
+functions
+
+371
+00:14:56,560 --> 00:15:02,480
+then of course then you have the
+
+372
+00:14:59,600 --> 00:15:04,880
+disadvantage where you cannot use you
+
+373
+00:15:02,480 --> 00:15:07,680
+have not you cannot have a question mark
+
+374
+00:15:04,880 --> 00:15:09,360
+in your language but however you see
+
+375
+00:15:07,680 --> 00:15:12,720
+there is also a flaw with
+
+376
+00:15:09,360 --> 00:15:13,680
+question mark you see yeah it's great if
+
+377
+00:15:12,720 --> 00:15:16,000
+you have a
+
+378
+00:15:13,680 --> 00:15:16,959
+system where any function ends in
+
+379
+00:15:16,000 --> 00:15:19,440
+question mark
+
+380
+00:15:16,959 --> 00:15:22,720
+means it's a predicate return true or
+
+381
+00:15:19,440 --> 00:15:24,560
+false but however you got a problem now
+
+382
+00:15:22,720 --> 00:15:26,160
+now if you allow question mark in
+
+383
+00:15:24,560 --> 00:15:28,720
+function names then
+
+384
+00:15:26,160 --> 00:15:30,480
+what's you know there's no prevention of
+
+385
+00:15:28,720 --> 00:15:33,839
+any of people naming
+
+386
+00:15:30,480 --> 00:15:36,240
+something question mark that okay
+
+387
+00:15:33,839 --> 00:15:37,680
+so people can use that as a function
+
+388
+00:15:36,240 --> 00:15:39,920
+name
+
+389
+00:15:37,680 --> 00:15:41,519
+you know so what does that mean you know
+
+390
+00:15:39,920 --> 00:15:44,800
+it's so you got
+
+391
+00:15:41,519 --> 00:15:46,880
+other disadvantages okay but anyway
+
+392
+00:15:44,800 --> 00:15:48,320
+wufang language they choose the
+
+393
+00:15:46,880 --> 00:15:51,360
+convention of ending
+
+394
+00:15:48,320 --> 00:15:54,880
+queue as a pelican okay and here are all
+
+395
+00:15:51,360 --> 00:15:57,040
+basic yeah i think that's not
+
+396
+00:15:54,880 --> 00:15:58,800
+uh these are not all of them they are
+
+397
+00:15:57,040 --> 00:16:01,120
+more
+
+398
+00:15:58,800 --> 00:16:03,040
+and ruby okay ruby is also a great
+
+399
+00:16:01,120 --> 00:16:05,519
+design they follow the scheme this
+
+400
+00:16:03,040 --> 00:16:06,399
+tradition ending in queue so that's
+
+401
+00:16:05,519 --> 00:16:09,440
+great so okay
+
+402
+00:16:06,399 --> 00:16:12,160
+that's a digression of a digression of
+
+403
+00:16:09,440 --> 00:16:13,519
+about the naming of predicate in
+
+404
+00:16:12,160 --> 00:16:16,160
+programming languages
+
+405
+00:16:13,519 --> 00:16:18,240
+and what does it mean in logic okay so
+
+406
+00:16:16,160 --> 00:16:19,920
+let's go back to talk show and comment
+
+407
+00:16:18,240 --> 00:16:22,959
+okay
+
+408
+00:16:19,920 --> 00:16:25,600
+uh back to talk show and let's
+
+409
+00:16:22,959 --> 00:16:26,880
+post these we talked about okay now
+
+410
+00:16:25,600 --> 00:16:29,519
+let's go back to code
+
+411
+00:16:26,880 --> 00:16:29,519
+emaclis
+
+412
+00:16:30,480 --> 00:16:37,440
+uh where is it so wufam language
+
+413
+00:16:34,480 --> 00:16:39,040
+okay so uh close that close that let's
+
+414
+00:16:37,440 --> 00:16:45,120
+raise up this code here
+
+415
+00:16:39,040 --> 00:16:45,120
+okay so so yeah we're gonna call this
+
+416
+00:16:48,839 --> 00:16:51,839
+function
+
+417
+00:16:52,800 --> 00:16:55,920
+good morning pablo
+
+418
+00:17:01,680 --> 00:17:05,760
+so actually writing this function should
+
+419
+00:17:03,920 --> 00:17:09,120
+be easy okay
+
+420
+00:17:05,760 --> 00:17:12,240
+uh open is open tag okay
+
+421
+00:17:09,120 --> 00:17:15,360
+let's let's create a variable set
+
+422
+00:17:12,240 --> 00:17:18,400
+that variable and uh that is
+
+423
+00:17:15,360 --> 00:17:21,120
+our variable so then
+
+424
+00:17:18,400 --> 00:17:22,880
+if actually we don't even need the
+
+425
+00:17:21,120 --> 00:17:25,679
+variable so let's uh
+
+426
+00:17:22,880 --> 00:17:26,799
+well let's let's keep going let's not
+
+427
+00:17:25,679 --> 00:17:30,080
+first about
+
+428
+00:17:26,799 --> 00:17:31,360
+you know the formatting or style style
+
+429
+00:17:30,080 --> 00:17:34,720
+of coding stuff
+
+430
+00:17:31,360 --> 00:17:37,600
+so if it's open hack then skip tag
+
+431
+00:17:34,720 --> 00:17:37,600
+forward okay
+
+432
+00:17:37,840 --> 00:17:45,120
+then otherwise skip tag backward okay
+
+433
+00:17:41,600 --> 00:17:46,400
+pretty find the code that's it evaluate
+
+434
+00:17:45,120 --> 00:17:49,520
+the code
+
+435
+00:17:46,400 --> 00:17:53,840
+then copy that let's go to html
+
+436
+00:17:49,520 --> 00:17:56,080
+uh let's go to html so uh
+
+437
+00:17:53,840 --> 00:17:57,679
+what is this page programming block okay
+
+438
+00:17:56,080 --> 00:18:03,120
+close close close
+
+439
+00:17:57,679 --> 00:18:06,640
+go to talk show go to let's test it okay
+
+440
+00:18:03,120 --> 00:18:10,480
+so let's put the cruiser here okay
+
+441
+00:18:06,640 --> 00:18:10,480
+then call metax
+
+442
+00:18:10,880 --> 00:18:14,400
+exact html jump to begin or end tech do
+
+443
+00:18:14,080 --> 00:18:18,240
+it
+
+444
+00:18:14,400 --> 00:18:21,440
+fantastic now move the cursor here
+
+445
+00:18:18,240 --> 00:18:22,000
+call it fantastic now what if the cursor
+
+446
+00:18:21,440 --> 00:18:24,960
+is here
+
+447
+00:18:22,000 --> 00:18:25,840
+will it consider this or will it
+
+448
+00:18:24,960 --> 00:18:31,280
+consider
+
+449
+00:18:25,840 --> 00:18:31,280
+that so let's i don't know let's try it
+
+450
+00:18:31,440 --> 00:18:35,440
+okay it actually consider this tag when
+
+451
+00:18:33,760 --> 00:18:38,480
+your cursor is here
+
+452
+00:18:35,440 --> 00:18:38,880
+um you know anyway that's those those
+
+453
+00:18:38,480 --> 00:18:42,240
+are
+
+454
+00:18:38,880 --> 00:18:44,720
+edge cases you have to so
+
+455
+00:18:42,240 --> 00:18:47,280
+basically we are done with this function
+
+456
+00:18:44,720 --> 00:18:50,400
+but however we need to refine it
+
+457
+00:18:47,280 --> 00:18:54,400
+you know we have to consider about edge
+
+458
+00:18:50,400 --> 00:18:56,160
+cases for example if my cursor is here
+
+459
+00:18:54,400 --> 00:18:58,080
+you know between this end tag and
+
+460
+00:18:56,160 --> 00:19:00,080
+between that open tag
+
+461
+00:18:58,080 --> 00:19:01,760
+where does it jump to does it jump to
+
+462
+00:19:00,080 --> 00:19:04,960
+here or does it jump to
+
+463
+00:19:01,760 --> 00:19:06,960
+you know there so you know
+
+464
+00:19:04,960 --> 00:19:08,799
+we i don't know i don't know let's try
+
+465
+00:19:06,960 --> 00:19:11,760
+it
+
+466
+00:19:08,799 --> 00:19:12,080
+okay it jumps to the top in this case
+
+467
+00:19:11,760 --> 00:19:15,840
+what
+
+468
+00:19:12,080 --> 00:19:19,679
+what what if my cruiser is here let's uh
+
+469
+00:19:15,840 --> 00:19:22,400
+let's try it okay still jump to the top
+
+470
+00:19:19,679 --> 00:19:23,520
+top but if the cursor is here it jumps
+
+471
+00:19:22,400 --> 00:19:26,240
+to there
+
+472
+00:19:23,520 --> 00:19:27,120
+if the cursor is here okay i'm not sure
+
+473
+00:19:26,240 --> 00:19:29,520
+exactly
+
+474
+00:19:27,120 --> 00:19:33,440
+exactly what is the behavior so anyway
+
+475
+00:19:29,520 --> 00:19:33,440
+that we have to refine that
+
+476
+00:19:35,120 --> 00:19:40,240
+and in order to do that we have to find
+
+477
+00:19:37,679 --> 00:19:40,240
+out what
+
+478
+00:19:41,679 --> 00:19:45,840
+yeah what what what this function do
+
+479
+00:19:44,559 --> 00:19:48,960
+exactly when
+
+480
+00:19:45,840 --> 00:19:52,480
+uh when it is um between open
+
+481
+00:19:48,960 --> 00:19:55,840
+and closed tags uh yeah
+
+482
+00:19:52,480 --> 00:19:55,840
+but first of all we can
+
+483
+00:19:56,240 --> 00:19:59,679
+okay i think i should i should move on
+
+484
+00:19:58,240 --> 00:20:03,360
+to wufam language
+
+485
+00:19:59,679 --> 00:20:06,559
+shall we so we talked about 30 minutes
+
+486
+00:20:03,360 --> 00:20:10,080
+great yeah
+
+487
+00:20:06,559 --> 00:20:13,600
+so delete that paste it here
+
+488
+00:20:10,080 --> 00:20:16,240
+prefi showing browser fantastic that's
+
+489
+00:20:13,600 --> 00:20:19,360
+our code
+
+490
+00:20:16,240 --> 00:20:22,080
+uh let's move on to firm language
+
+491
+00:20:19,360 --> 00:20:23,200
+shall we yeah because i've been doing so
+
+492
+00:20:22,080 --> 00:20:28,159
+much emac this
+
+493
+00:20:23,200 --> 00:20:28,159
+in the past few months i want to do some
+
+494
+00:20:28,480 --> 00:20:34,640
+okay we don't need that
+
+495
+00:20:31,520 --> 00:20:36,960
+in window anymore
+
+496
+00:20:34,640 --> 00:20:39,840
+unless you guys have some questions you
+
+497
+00:20:36,960 --> 00:20:42,960
+want to bug me
+
+498
+00:20:39,840 --> 00:20:43,760
+um then we're gonna otherwise i'm going
+
+499
+00:20:42,960 --> 00:20:47,039
+to go
+
+500
+00:20:43,760 --> 00:20:51,760
+into a wu fam language coding bulk
+
+501
+00:20:47,039 --> 00:20:51,760
+cube bulk cube is fantastic
+
+502
+00:20:56,400 --> 00:21:02,159
+oh it's actually this is this this is
+
+503
+00:20:59,600 --> 00:21:04,640
+not bulk cube this is just me testing
+
+504
+00:21:02,159 --> 00:21:04,640
+something
+
+505
+00:21:06,159 --> 00:21:14,080
+uh what is this this is not bulk
+
+506
+00:21:10,159 --> 00:21:17,360
+cube this is testing
+
+507
+00:21:14,080 --> 00:21:20,159
+internet okay this one i believe it's
+
+508
+00:21:17,360 --> 00:21:23,600
+testing its plotting
+
+509
+00:21:20,159 --> 00:21:26,880
+internet speed growth
+
+510
+00:21:23,600 --> 00:21:30,400
+over the over the decades you know
+
+511
+00:21:26,880 --> 00:21:32,559
+basically you want to know how fast
+
+512
+00:21:30,400 --> 00:21:35,520
+does internet speed grow you know we
+
+513
+00:21:32,559 --> 00:21:38,480
+know that the cpu speed grows about
+
+514
+00:21:35,520 --> 00:21:40,159
+1.5 times a year something like that you
+
+515
+00:21:38,480 --> 00:21:42,480
+know they say double every
+
+516
+00:21:40,159 --> 00:21:44,240
+every one and a half year or something
+
+517
+00:21:42,480 --> 00:21:47,600
+or two years uh
+
+518
+00:21:44,240 --> 00:21:50,240
+the hard disk also grows
+
+519
+00:21:47,600 --> 00:21:51,520
+similarly so but how about the internet
+
+520
+00:21:50,240 --> 00:21:54,320
+speed
+
+521
+00:21:51,520 --> 00:21:56,159
+okay so that's what this is about i have
+
+522
+00:21:54,320 --> 00:21:59,520
+an article on that
+
+523
+00:21:56,159 --> 00:22:02,880
+let's let's let's go show it okay so
+
+524
+00:21:59,520 --> 00:22:08,720
+go to software page go to there
+
+525
+00:22:02,880 --> 00:22:13,039
+and go to technology pass in the future
+
+526
+00:22:08,720 --> 00:22:15,840
+then you go to do we have a chart here
+
+527
+00:22:13,039 --> 00:22:15,840
+internet speed
+
+528
+00:22:18,480 --> 00:22:23,280
+basically it grows like also similar to
+
+529
+00:22:21,600 --> 00:22:26,720
+1.5
+
+530
+00:22:23,280 --> 00:22:30,559
+times a year yeah
+
+531
+00:22:26,720 --> 00:22:33,280
+here so internet speed growth rate
+
+532
+00:22:30,559 --> 00:22:34,880
+so yeah so i you know this is a plot
+
+533
+00:22:33,280 --> 00:22:37,520
+from that notebook
+
+534
+00:22:34,880 --> 00:22:41,200
+and uh you know it's i need to do this
+
+535
+00:22:37,520 --> 00:22:44,559
+in javascript
+
+536
+00:22:41,200 --> 00:22:48,000
+yeah so basically equals 1.5 times
+
+537
+00:22:44,559 --> 00:22:52,080
+the factor of 1.5 a year and
+
+538
+00:22:48,000 --> 00:22:52,080
+right now i have 160
+
+539
+00:22:52,400 --> 00:22:57,600
+let's see how let's see how much is my
+
+540
+00:22:54,880 --> 00:22:57,600
+speed can we
+
+541
+00:23:01,679 --> 00:23:09,840
+my internet speed google google does it
+
+542
+00:23:04,960 --> 00:23:09,840
+let's run it
+
+543
+00:23:10,320 --> 00:23:15,120
+sucks it sucks it should be like
+
+544
+00:23:15,360 --> 00:23:26,320
+it should be like 100 at night i think
+
+545
+00:23:23,600 --> 00:23:27,200
+you know usa internet speed is pretty
+
+546
+00:23:26,320 --> 00:23:30,960
+low
+
+547
+00:23:27,200 --> 00:23:34,799
+in comparison to uh many other countries
+
+548
+00:23:30,960 --> 00:23:38,559
+70 megabytes 70 megabits
+
+549
+00:23:34,799 --> 00:23:40,400
+per second upload so that's slower
+
+550
+00:23:38,559 --> 00:23:41,919
+also because right now i'm doing live
+
+551
+00:23:40,400 --> 00:23:47,039
+stream
+
+552
+00:23:41,919 --> 00:23:47,039
+uh okay so that's uh that's that
+
+553
+00:23:47,279 --> 00:23:53,840
+so this is wufam language
+
+554
+00:23:50,960 --> 00:23:55,919
+uh you know i want to tell you okay
+
+555
+00:23:53,840 --> 00:23:57,919
+anyway this is not too interesting okay
+
+556
+00:23:55,919 --> 00:24:01,840
+this is just a
+
+557
+00:23:57,919 --> 00:24:05,840
+bar chart uh i want to do
+
+558
+00:24:01,840 --> 00:24:05,840
+actually i don't know what
+
+559
+00:24:06,480 --> 00:24:09,520
+i want to do okay this is a notebook i
+
+560
+00:24:08,640 --> 00:24:15,120
+did like
+
+561
+00:24:09,520 --> 00:24:18,880
+um 20 20 23 years ago
+
+562
+00:24:15,120 --> 00:24:22,640
+uh and today
+
+563
+00:24:18,880 --> 00:24:26,320
+today there is a lot you know today
+
+564
+00:24:22,640 --> 00:24:29,440
+there is a built-in graphics primitive
+
+565
+00:24:26,320 --> 00:24:31,360
+for drawing tubes you see what i want to
+
+566
+00:24:29,440 --> 00:24:34,159
+draw here is three
+
+567
+00:24:31,360 --> 00:24:35,279
+tubes you know headaches helical tubes
+
+568
+00:24:34,159 --> 00:24:39,200
+you know this is done
+
+569
+00:24:35,279 --> 00:24:41,760
+in do i have a year 1997 or so something
+
+570
+00:24:39,200 --> 00:24:45,279
+like 1997.
+
+571
+00:24:41,760 --> 00:24:46,080
+okay and uh but today so so the way i
+
+572
+00:24:45,279 --> 00:24:49,440
+did it
+
+573
+00:24:46,080 --> 00:24:51,840
+is that you you
+
+574
+00:24:49,440 --> 00:24:52,640
+you know you build you you build each
+
+575
+00:24:51,840 --> 00:24:55,520
+and every
+
+576
+00:24:52,640 --> 00:24:55,919
+of these um can we still evaluate it
+
+577
+00:24:55,520 --> 00:24:58,720
+let's
+
+578
+00:24:55,919 --> 00:25:00,159
+let's try okay continue with updated
+
+579
+00:24:58,720 --> 00:25:03,279
+starting okay
+
+580
+00:25:00,159 --> 00:25:05,840
+do it okay uh clear
+
+581
+00:25:03,279 --> 00:25:08,480
+do i need uh oh yeah i need geometry
+
+582
+00:25:05,840 --> 00:25:11,919
+rotations that's obsolete
+
+583
+00:25:08,480 --> 00:25:12,840
+uh so i cannot if i run a code it will
+
+584
+00:25:11,919 --> 00:25:16,400
+not
+
+585
+00:25:12,840 --> 00:25:21,760
+work because this package
+
+586
+00:25:16,400 --> 00:25:25,200
+is obsolete about 2006 i think
+
+587
+00:25:21,760 --> 00:25:28,720
+because in 2006 mathematic mathematical
+
+588
+00:25:25,200 --> 00:25:30,720
+version 6 they have all these functions
+
+589
+00:25:28,720 --> 00:25:32,400
+filled in so instead instead of using
+
+590
+00:25:30,720 --> 00:25:36,880
+the function in a package
+
+591
+00:25:32,400 --> 00:25:36,880
+all those functions are building so
+
+592
+00:25:39,840 --> 00:25:43,360
+anyway uh so the way i did it you know
+
+593
+00:25:42,559 --> 00:25:46,480
+you start with
+
+594
+00:25:43,360 --> 00:25:47,760
+three circles then you extrude you know
+
+595
+00:25:46,480 --> 00:25:51,120
+extrude is a
+
+596
+00:25:47,760 --> 00:25:53,679
+operation in 3d geometry you basically
+
+597
+00:25:51,120 --> 00:25:55,600
+like you like you grow buildings okay
+
+598
+00:25:53,679 --> 00:25:58,480
+but every time you go at you
+
+599
+00:25:55,600 --> 00:25:59,200
+you move it a little bit so that's how i
+
+600
+00:25:58,480 --> 00:26:02,480
+build these
+
+601
+00:25:59,200 --> 00:26:05,840
+uh graphics then you then you
+
+602
+00:26:02,480 --> 00:26:08,840
+build the polygons the triangles between
+
+603
+00:26:05,840 --> 00:26:10,000
+between the two circles so it's quite
+
+604
+00:26:08,840 --> 00:26:13,120
+tedious
+
+605
+00:26:10,000 --> 00:26:15,760
+but today you can draw this
+
+606
+00:26:13,120 --> 00:26:16,159
+to you know since 2006 or or something
+
+607
+00:26:15,760 --> 00:26:18,720
+you know
+
+608
+00:26:16,159 --> 00:26:20,480
+it's been 20 something years there's a
+
+609
+00:26:18,720 --> 00:26:25,039
+building primitive let's try to do it
+
+610
+00:26:20,480 --> 00:26:27,360
+shall we
+
+611
+00:26:25,039 --> 00:26:29,679
+uh you know if i do this it's not going
+
+612
+00:26:27,360 --> 00:26:31,919
+to be useful to myself
+
+613
+00:26:29,679 --> 00:26:32,880
+because actually i wanted to do
+
+614
+00:26:31,919 --> 00:26:36,159
+something uh
+
+615
+00:26:32,880 --> 00:26:39,840
+more relevant aloha aloha braveheart
+
+616
+00:26:36,159 --> 00:26:39,840
+are you in hawaii
+
+617
+00:26:40,480 --> 00:26:44,000
+so let's get in touch with you guys what
+
+618
+00:26:43,360 --> 00:26:47,440
+are you guys
+
+619
+00:26:44,000 --> 00:26:50,480
+doing so uh should i
+
+620
+00:26:47,440 --> 00:26:53,840
+should i try to generate this using
+
+621
+00:26:50,480 --> 00:26:55,679
+you know ufam language or should i do
+
+622
+00:26:53,840 --> 00:26:58,720
+something else
+
+623
+00:26:55,679 --> 00:27:01,200
+because i was thinking of doing working
+
+624
+00:26:58,720 --> 00:27:01,200
+on my
+
+625
+00:27:02,720 --> 00:27:06,000
+my tithings package which we talked
+
+626
+00:27:05,039 --> 00:27:09,200
+about yesterday
+
+627
+00:27:06,000 --> 00:27:09,200
+plain tidings okay
+
+628
+00:27:09,760 --> 00:27:21,840
+you know all these packages i need to
+
+629
+00:27:11,600 --> 00:27:21,840
+work on
+
+630
+00:27:23,600 --> 00:27:26,320
+any comments
+
+631
+00:27:29,120 --> 00:27:33,200
+transform 2d plot okay
+
+632
+00:27:33,440 --> 00:27:39,760
+uh which we talked about dubai
+
+633
+00:27:36,720 --> 00:27:43,600
+oh in dubai amazing wow
+
+634
+00:27:39,760 --> 00:27:47,279
+so do you speak do you speak arabic
+
+635
+00:27:43,600 --> 00:27:50,159
+are you are you are you uh
+
+636
+00:27:47,279 --> 00:27:51,520
+are you uh you know you you are born in
+
+637
+00:27:50,159 --> 00:27:54,399
+mid-east
+
+638
+00:27:51,520 --> 00:27:56,080
+arabian are you like how do you describe
+
+639
+00:27:54,399 --> 00:27:59,279
+the race uh
+
+640
+00:27:56,080 --> 00:27:59,279
+of people there
+
+641
+00:28:00,799 --> 00:28:03,840
+so uh
+
+642
+00:28:05,120 --> 00:28:08,640
+let's try it let's try the tube okay
+
+643
+00:28:07,039 --> 00:28:13,840
+since we've been talking about that
+
+644
+00:28:08,640 --> 00:28:13,840
+so actually so um
+
+645
+00:28:15,360 --> 00:28:21,440
+oh so you do so you are so amazing
+
+646
+00:28:19,200 --> 00:28:21,440
+uh
+
+647
+00:28:22,960 --> 00:28:28,399
+okay so what i want to do so i want to
+
+648
+00:28:29,679 --> 00:28:34,240
+helix cubes untitled uh
+
+649
+00:28:34,880 --> 00:28:40,480
+let's graphics 3d
+
+650
+00:28:38,159 --> 00:28:40,480
+okay
+
+651
+00:28:41,200 --> 00:28:45,840
+let's turn on help
+
+652
+00:28:47,600 --> 00:28:53,919
+magnify graphics
+
+653
+00:28:50,799 --> 00:28:53,919
+3d so
+
+654
+00:28:56,320 --> 00:29:03,279
+i want to um find the tube
+
+655
+00:28:59,760 --> 00:29:04,000
+primitive okay so the structure of
+
+656
+00:29:03,279 --> 00:29:09,039
+graphics
+
+657
+00:29:04,000 --> 00:29:09,039
+interactive graphics uh polygons
+
+658
+00:29:10,840 --> 00:29:13,840
+polyhedra
+
+659
+00:29:20,960 --> 00:29:24,799
+the structure of graphics okay
+
+660
+00:29:25,440 --> 00:29:30,320
+now that's too that's that's kind of too
+
+661
+00:29:28,399 --> 00:29:34,399
+much i need to find
+
+662
+00:29:30,320 --> 00:29:41,840
+the primitives building symbols
+
+663
+00:29:34,399 --> 00:29:41,840
+let's go to um
+
+664
+00:29:53,679 --> 00:29:56,960
+solid geometry
+
+665
+00:30:04,960 --> 00:30:09,840
+actually we can just search for
+
+666
+00:30:13,840 --> 00:30:23,200
+so there is the building primitive
+
+667
+00:30:17,360 --> 00:30:28,559
+tube okay
+
+668
+00:30:23,200 --> 00:30:28,559
+okay that's getting complex graphics 3d
+
+669
+00:30:34,840 --> 00:30:37,840
+cube
+
+670
+00:30:38,640 --> 00:30:42,240
+so tube takes
+
+671
+00:30:42,399 --> 00:30:47,200
+two arguments the first argument is the
+
+672
+00:30:44,880 --> 00:30:50,080
+beginning and end position
+
+673
+00:30:47,200 --> 00:30:51,679
+you know a coordinate two coordinates
+
+674
+00:30:50,080 --> 00:30:55,200
+the second argument is
+
+675
+00:30:51,679 --> 00:30:59,200
+thickness okay uh
+
+676
+00:30:55,200 --> 00:30:59,200
+but i want it to be a curve
+
+677
+00:31:00,080 --> 00:31:06,240
+so point two point two okay so actually
+
+678
+00:31:03,760 --> 00:31:09,360
+we can do this easily
+
+679
+00:31:06,240 --> 00:31:10,000
+yeah so first of all let's draw a single
+
+680
+00:31:09,360 --> 00:31:12,320
+helix
+
+681
+00:31:10,000 --> 00:31:13,360
+okay single headaches first of all you
+
+682
+00:31:12,320 --> 00:31:16,159
+need to
+
+683
+00:31:13,360 --> 00:31:17,679
+know the parametric equation for the
+
+684
+00:31:16,159 --> 00:31:20,880
+headaches
+
+685
+00:31:17,679 --> 00:31:20,880
+which is um
+
+686
+00:31:24,240 --> 00:31:32,000
+parametric equation for helix
+
+687
+00:31:27,519 --> 00:31:36,480
+okay that's a space curve uh
+
+688
+00:31:32,000 --> 00:31:36,480
+that's a space curve do we have um
+
+689
+00:31:36,720 --> 00:31:40,399
+do i have the formula for parametric
+
+690
+00:31:39,600 --> 00:31:45,039
+equation of
+
+691
+00:31:40,399 --> 00:31:45,039
+uh no i don't think so but
+
+692
+00:31:45,200 --> 00:31:48,399
+act actually we can write it you know we
+
+693
+00:31:47,039 --> 00:31:51,440
+don't need
+
+694
+00:31:48,399 --> 00:31:55,200
+we can you know we can write it
+
+695
+00:31:51,440 --> 00:32:01,200
+so you know because it's simple okay
+
+696
+00:31:55,200 --> 00:32:04,960
+so let's see
+
+697
+00:32:01,200 --> 00:32:04,960
+emirati what does that mean
+
+698
+00:32:12,840 --> 00:32:15,840
+oh
+
+699
+00:32:16,159 --> 00:32:20,240
+emiratis are the native population and
+
+700
+00:32:18,720 --> 00:32:23,679
+citizens of the un
+
+701
+00:32:20,240 --> 00:32:27,440
+united united
+
+702
+00:32:23,679 --> 00:32:27,440
+arab emirates
+
+703
+00:32:27,519 --> 00:32:31,600
+uh their largest concentration is in the
+
+704
+00:32:30,200 --> 00:32:35,600
+uae
+
+705
+00:32:31,600 --> 00:32:35,600
+where they are about one million okay
+
+706
+00:32:36,240 --> 00:32:39,200
+oh okay so
+
+707
+00:32:39,360 --> 00:32:45,120
+interesting okay so
+
+708
+00:32:42,559 --> 00:32:46,960
+so let's let's write the function let's
+
+709
+00:32:45,120 --> 00:32:47,760
+write the let's find the parametric
+
+710
+00:32:46,960 --> 00:32:51,120
+equation
+
+711
+00:32:47,760 --> 00:32:54,840
+for let's write it okay
+
+712
+00:32:51,120 --> 00:32:58,080
+let's derive the parametric equation
+
+713
+00:32:54,840 --> 00:33:00,559
+formula for helix
+
+714
+00:32:58,080 --> 00:33:01,519
+okay if you search wikipedia it'll tell
+
+715
+00:33:00,559 --> 00:33:04,720
+you right away
+
+716
+00:33:01,519 --> 00:33:08,399
+but basically you have x
+
+717
+00:33:04,720 --> 00:33:11,440
+y and z okay
+
+718
+00:33:08,399 --> 00:33:16,480
+so basically the formula is x equals to
+
+719
+00:33:11,440 --> 00:33:16,480
+you know a circle is cosine
+
+720
+00:33:16,960 --> 00:33:23,519
+t sine t
+
+721
+00:33:20,240 --> 00:33:26,240
+okay that's a circle now so
+
+722
+00:33:23,519 --> 00:33:28,159
+essentially yeah so this uh yeah so
+
+723
+00:33:26,240 --> 00:33:32,640
+basically
+
+724
+00:33:28,159 --> 00:33:35,760
+so this is what you want
+
+725
+00:33:32,640 --> 00:33:39,039
+cosine t sine t and t will just
+
+726
+00:33:35,760 --> 00:33:41,519
+uh be linear okay t will be
+
+727
+00:33:39,039 --> 00:33:42,399
+z will just be t okay so that is the
+
+728
+00:33:41,519 --> 00:33:45,120
+formula
+
+729
+00:33:42,399 --> 00:33:46,480
+now we need this formula to be in kind
+
+730
+00:33:45,120 --> 00:33:50,320
+of uh math
+
+731
+00:33:46,480 --> 00:33:53,840
+wolfram language notation okay so
+
+732
+00:33:50,320 --> 00:33:53,840
+so this is how you do
+
+733
+00:33:55,039 --> 00:33:58,480
+so you represent the parametric formula
+
+734
+00:33:57,440 --> 00:34:07,360
+by that
+
+735
+00:33:58,480 --> 00:34:11,119
+so you can now we can plot it
+
+736
+00:34:07,360 --> 00:34:21,359
+parametric plot 3d
+
+737
+00:34:11,119 --> 00:34:23,839
+okay now what is the um
+
+738
+00:34:21,359 --> 00:34:23,839
+hey bot
+
+739
+00:34:28,879 --> 00:34:35,839
+okay okay so parametric plot
+
+740
+00:34:36,399 --> 00:34:39,760
+let's paste our
+
+741
+00:34:42,000 --> 00:34:49,440
+then t from 0
+
+742
+00:34:45,200 --> 00:34:53,599
+to 10 okay let's say nine let's see
+
+743
+00:34:49,440 --> 00:34:56,399
+oh there there we have it fantastic
+
+744
+00:34:53,599 --> 00:34:56,399
+now let's say
+
+745
+00:34:57,200 --> 00:35:00,400
+okay yeah that actually that's uh that's
+
+746
+00:34:59,680 --> 00:35:03,520
+perfect
+
+747
+00:35:00,400 --> 00:35:07,760
+for our example so now we got a bunch of
+
+748
+00:35:03,520 --> 00:35:10,720
+so we so let's go back to the tube
+
+749
+00:35:07,760 --> 00:35:11,200
+so tube takes a bunch of points exactly
+
+750
+00:35:10,720 --> 00:35:16,320
+so
+
+751
+00:35:11,200 --> 00:35:20,320
+now we have what we want so we can um
+
+752
+00:35:16,320 --> 00:35:20,320
+what we can do is that
+
+753
+00:35:23,359 --> 00:35:31,839
+okay so this is our points we want uh
+
+754
+00:35:32,079 --> 00:35:35,280
+we want to generate at least the points
+
+755
+00:35:34,240 --> 00:35:38,000
+okay so the
+
+756
+00:35:35,280 --> 00:35:39,280
+easiest way is just to use table but i
+
+757
+00:35:38,000 --> 00:35:45,839
+don't like to use table
+
+758
+00:35:39,280 --> 00:35:45,839
+so i want to use
+
+759
+00:35:49,040 --> 00:35:52,400
+so let me yeah so let me show you some
+
+760
+00:35:51,599 --> 00:35:55,359
+something
+
+761
+00:35:52,400 --> 00:35:56,079
+fancy okay so i'm going to create a
+
+762
+00:35:55,359 --> 00:35:58,880
+lambda
+
+763
+00:35:56,079 --> 00:36:00,000
+which is a pure function so in wolfram
+
+764
+00:35:58,880 --> 00:36:03,359
+language
+
+765
+00:36:00,000 --> 00:36:04,480
+this is a pure function okay which can
+
+766
+00:36:03,359 --> 00:36:06,800
+also be written
+
+767
+00:36:04,480 --> 00:36:06,800
+as
+
+768
+00:36:09,359 --> 00:36:16,560
+it which can also be written as
+
+769
+00:36:12,800 --> 00:36:16,560
+like that like that
+
+770
+00:36:19,599 --> 00:36:25,040
+okay so then we want to map this
+
+771
+00:36:23,599 --> 00:36:26,960
+function okay let me just
+
+772
+00:36:25,040 --> 00:36:28,400
+let me just code it instead of talking
+
+773
+00:36:26,960 --> 00:36:31,920
+okay let's
+
+774
+00:36:28,400 --> 00:36:35,680
+then we want to map this function to
+
+775
+00:36:31,920 --> 00:36:38,480
+to a list of values
+
+776
+00:36:35,680 --> 00:36:38,880
+so range is just like python's range
+
+777
+00:36:38,480 --> 00:36:42,240
+from
+
+778
+00:36:38,880 --> 00:36:45,599
+0 to uh
+
+779
+00:36:42,240 --> 00:36:48,800
+nine okay in in steps of
+
+780
+00:36:45,599 --> 00:36:48,800
+0.5 okay
+
+781
+00:36:49,599 --> 00:36:56,400
+okay so well so so
+
+782
+00:36:52,960 --> 00:36:58,320
+so that is harder to read this one
+
+783
+00:36:56,400 --> 00:37:00,480
+so let's write it this way so it's more
+
+784
+00:36:58,320 --> 00:37:02,720
+intuitive okay
+
+785
+00:37:00,480 --> 00:37:04,320
+so evaluate so you got the you know
+
+786
+00:37:02,720 --> 00:37:06,480
+bunch of 3d points
+
+787
+00:37:04,320 --> 00:37:09,040
+so you want to point you want to put
+
+788
+00:37:06,480 --> 00:37:11,520
+this inside the tube
+
+789
+00:37:09,040 --> 00:37:14,000
+inside the tube argument okay so let's
+
+790
+00:37:11,520 --> 00:37:14,000
+do that
+
+791
+00:37:17,359 --> 00:37:24,720
+ddos we don't need so so basically
+
+792
+00:37:21,680 --> 00:37:24,720
+that copy
+
+793
+00:37:28,000 --> 00:37:36,010
+put it here then the tube thickness
+
+794
+00:37:31,440 --> 00:37:37,839
+will be 0.2 let's try it oh
+
+795
+00:37:36,010 --> 00:37:40,920
+[Laughter]
+
+796
+00:37:37,839 --> 00:37:44,079
+fantastic my friends
+
+797
+00:37:40,920 --> 00:37:47,119
+fantastic after 20 years
+
+798
+00:37:44,079 --> 00:37:51,119
+from this lousy image
+
+799
+00:37:47,119 --> 00:37:56,160
+and much ado coding it now we have
+
+800
+00:37:51,119 --> 00:37:56,160
+just this single line of code
+
+801
+00:37:56,640 --> 00:37:59,920
+and and the and the rendered you know
+
+802
+00:37:59,280 --> 00:38:02,400
+rendered
+
+803
+00:37:59,920 --> 00:38:02,960
+you know this got thousands 10 000 you
+
+804
+00:38:02,400 --> 00:38:05,599
+know
+
+805
+00:38:02,960 --> 00:38:06,960
+polygons now this is you know this you
+
+806
+00:38:05,599 --> 00:38:09,680
+can rotate
+
+807
+00:38:06,960 --> 00:38:10,240
+you can you know this you know it's
+
+808
+00:38:09,680 --> 00:38:14,160
+using
+
+809
+00:38:10,240 --> 00:38:18,000
+your uh graphics card to do it as well
+
+810
+00:38:14,160 --> 00:38:19,680
+when you um
+
+811
+00:38:18,000 --> 00:38:21,440
+you know i wish i can regenerate this
+
+812
+00:38:19,680 --> 00:38:24,000
+one but but
+
+813
+00:38:21,440 --> 00:38:25,599
+but it will take me some you know 20
+
+814
+00:38:24,000 --> 00:38:28,560
+minutes to actually
+
+815
+00:38:25,599 --> 00:38:30,000
+recode these so we can compare two
+
+816
+00:38:28,560 --> 00:38:32,160
+different versions
+
+817
+00:38:30,000 --> 00:38:33,200
+so anyway we once we have one of them we
+
+818
+00:38:32,160 --> 00:38:36,160
+can create
+
+819
+00:38:33,200 --> 00:38:36,480
+uh more of them so you know just like
+
+820
+00:38:36,160 --> 00:38:39,839
+the
+
+821
+00:38:36,480 --> 00:38:43,760
+the one on the right side so let's do it
+
+822
+00:38:39,839 --> 00:38:43,760
+okay so table so tube
+
+823
+00:38:44,240 --> 00:38:48,960
+so tube this is one of them okay copy
+
+824
+00:38:50,800 --> 00:38:57,440
+copy uh actually you know i i
+
+825
+00:38:54,079 --> 00:39:00,640
+i type fast much better in in
+
+826
+00:38:57,440 --> 00:39:03,920
+um in uh
+
+827
+00:39:00,640 --> 00:39:08,800
+in the emacs okay so basically we
+
+828
+00:39:03,920 --> 00:39:08,800
+we want we want uh
+
+829
+00:39:09,359 --> 00:39:12,960
+let me show you okay so so so this is
+
+830
+00:39:12,000 --> 00:39:16,560
+what we got
+
+831
+00:39:12,960 --> 00:39:20,320
+this one we want to turn that into
+
+832
+00:39:16,560 --> 00:39:23,440
+uh actually let's let's let's
+
+833
+00:39:20,320 --> 00:39:27,040
+stop this idiocy let's use the
+
+834
+00:39:23,440 --> 00:39:27,040
+you know the advanced way
+
+835
+00:39:27,119 --> 00:39:30,880
+i'm just going to show you the power you
+
+836
+00:39:29,839 --> 00:39:34,400
+know the advanced
+
+837
+00:39:30,880 --> 00:39:37,359
+fan language syntax instead of the
+
+838
+00:39:34,400 --> 00:39:39,040
+easier to understand but more cumbersome
+
+839
+00:39:37,359 --> 00:39:42,079
+notation of the function
+
+840
+00:39:39,040 --> 00:39:44,400
+so this this is the lambda
+
+841
+00:39:42,079 --> 00:39:45,599
+where the pound sign the the number sign
+
+842
+00:39:44,400 --> 00:39:50,000
+stands for arguments
+
+843
+00:39:45,599 --> 00:39:52,560
+so pound sign means the first argument
+
+844
+00:39:50,000 --> 00:39:54,240
+equivalent to pound sign one so if you
+
+845
+00:39:52,560 --> 00:39:55,839
+have pound sign two that's the second
+
+846
+00:39:54,240 --> 00:39:56,640
+argument that represents the second
+
+847
+00:39:55,839 --> 00:39:59,920
+argument
+
+848
+00:39:56,640 --> 00:40:03,520
+then then this uh ampersand
+
+849
+00:39:59,920 --> 00:40:06,160
+symbol is a syntax shortcut
+
+850
+00:40:03,520 --> 00:40:08,400
+to represent the function so you know i
+
+851
+00:40:06,160 --> 00:40:10,720
+explained this many times okay so
+
+852
+00:40:08,400 --> 00:40:12,400
+actually let me let me do it again let
+
+853
+00:40:10,720 --> 00:40:15,760
+me explain
+
+854
+00:40:12,400 --> 00:40:18,400
+one more time okay so this i'll show you
+
+855
+00:40:15,760 --> 00:40:22,480
+several equivalent syntax for these
+
+856
+00:40:18,400 --> 00:40:23,280
+these okay so that's also equivalent to
+
+857
+00:40:22,480 --> 00:40:27,040
+that
+
+858
+00:40:23,280 --> 00:40:29,599
+and that is also equip equivalent to
+
+859
+00:40:27,040 --> 00:40:30,560
+that okay so all these three are
+
+860
+00:40:29,599 --> 00:40:34,000
+equivalent
+
+861
+00:40:30,560 --> 00:40:39,839
+okay and then this is also equiv
+
+862
+00:40:34,000 --> 00:40:39,839
+equivalent to um
+
+863
+00:40:40,560 --> 00:40:47,160
+that okay so you see
+
+864
+00:40:43,920 --> 00:40:50,480
+all these four are equivalent e
+
+865
+00:40:47,160 --> 00:40:52,319
+syntactically equivalent i did a video
+
+866
+00:40:50,480 --> 00:40:53,520
+about three or four months ago just
+
+867
+00:40:52,319 --> 00:40:56,560
+search on youtube
+
+868
+00:40:53,520 --> 00:40:59,839
+that i explained this uh
+
+869
+00:40:56,560 --> 00:41:00,960
+you know meta syntax in detail so now
+
+870
+00:40:59,839 --> 00:41:04,640
+anyway so so
+
+871
+00:41:00,960 --> 00:41:08,640
+so so now anyway so so we have this one
+
+872
+00:41:04,640 --> 00:41:11,280
+so let's go back to here so
+
+873
+00:41:08,640 --> 00:41:12,720
+you know so that works you can see it
+
+874
+00:41:11,280 --> 00:41:16,240
+does work
+
+875
+00:41:12,720 --> 00:41:16,240
+but we need three of them
+
+876
+00:41:17,839 --> 00:41:24,880
+each one will be rotated a little bit so
+
+877
+00:41:20,960 --> 00:41:28,079
+so so let's see the beginning point uh
+
+878
+00:41:24,880 --> 00:41:30,240
+x y okay so basically you just want to
+
+879
+00:41:28,079 --> 00:41:33,280
+add
+
+880
+00:41:30,240 --> 00:41:36,480
+cosine sine okay so it's
+
+881
+00:41:33,280 --> 00:41:36,480
+cosine sine
+
+882
+00:41:37,599 --> 00:41:42,000
+you want to start at a different point
+
+883
+00:41:39,839 --> 00:41:42,960
+you know we we want to rotate the helix
+
+884
+00:41:42,000 --> 00:41:46,079
+basically
+
+885
+00:41:42,960 --> 00:41:49,200
+so cosine sine you want to
+
+886
+00:41:46,079 --> 00:41:53,440
+uh plus t okay plus
+
+887
+00:41:49,200 --> 00:41:56,880
+plus uh how much how many degrees
+
+888
+00:41:53,440 --> 00:42:00,640
+120 degrees so so
+
+889
+00:41:56,880 --> 00:42:04,160
+a full circle is pi is two pi
+
+890
+00:42:00,640 --> 00:42:07,920
+okay so a full circle is two pi
+
+891
+00:42:04,160 --> 00:42:10,160
+radian then one third of it is two pi
+
+892
+00:42:07,920 --> 00:42:12,400
+over three okay so you basically want
+
+893
+00:42:10,160 --> 00:42:12,400
+that
+
+894
+00:42:12,720 --> 00:42:19,359
+okay plus that okay so you can see
+
+895
+00:42:16,160 --> 00:42:22,800
+so that okay so for example we can
+
+896
+00:42:19,359 --> 00:42:24,560
+plot our tube yeah okay you can you if i
+
+897
+00:42:22,800 --> 00:42:27,119
+rotate it you cannot see it but anyway
+
+898
+00:42:24,560 --> 00:42:31,839
+so let's um
+
+899
+00:42:27,119 --> 00:42:31,839
+okay let's do this okay
+
+900
+00:42:33,680 --> 00:42:37,359
+then where's the tube function
+
+901
+00:42:38,640 --> 00:42:41,119
+copy
+
+902
+00:42:42,079 --> 00:42:47,520
+copy back to emacs
+
+903
+00:42:45,280 --> 00:42:47,520
+so
+
+904
+00:42:51,040 --> 00:42:53,680
+uh wait
+
+905
+00:42:54,319 --> 00:42:58,079
+yeah so this is what we want okay let's
+
+906
+00:42:57,680 --> 00:43:00,880
+try
+
+907
+00:42:58,079 --> 00:43:02,640
+i'm pretty sure it'll work do it
+
+908
+00:43:00,880 --> 00:43:06,960
+fantastic now we just
+
+909
+00:43:02,640 --> 00:43:06,960
+need one more what more
+
+910
+00:43:07,760 --> 00:43:14,720
+fantastic man okay copy that let's just
+
+911
+00:43:11,920 --> 00:43:14,720
+uh one more
+
+912
+00:43:16,400 --> 00:43:19,440
+all right uh
+
+913
+00:43:20,720 --> 00:43:26,720
+yeah i need i i i need to write a
+
+914
+00:43:23,680 --> 00:43:29,839
+wolfram language mod in emac this
+
+915
+00:43:26,720 --> 00:43:34,720
+so that i can you know type in e max
+
+916
+00:43:29,839 --> 00:43:34,720
+so uh divided by three
+
+917
+00:43:35,599 --> 00:43:41,839
+so one over three two over three times
+
+918
+00:43:38,400 --> 00:43:41,839
+two over three
+
+919
+00:43:43,520 --> 00:43:48,800
+times uh where is my key
+
+920
+00:43:51,040 --> 00:43:56,560
+okay this is kind of stupid but this is
+
+921
+00:43:54,079 --> 00:43:57,680
+actually the intuitive intuitive way to
+
+922
+00:43:56,560 --> 00:44:00,079
+write this
+
+923
+00:43:57,680 --> 00:44:00,960
+so this okay so anyway let's not talk
+
+924
+00:44:00,079 --> 00:44:08,480
+too much let's
+
+925
+00:44:00,960 --> 00:44:13,040
+just do that copy it
+
+926
+00:44:08,480 --> 00:44:13,040
+do it fantastic okay
+
+927
+00:44:13,440 --> 00:44:16,000
+yeah so
+
+928
+00:44:16,560 --> 00:44:26,160
+that's what we uh want a twisty pipe
+
+929
+00:44:22,160 --> 00:44:27,920
+okay i think uh maybe that's it for
+
+930
+00:44:26,160 --> 00:44:29,920
+today
+
+931
+00:44:27,920 --> 00:44:31,520
+i got lots of things to do you know i
+
+932
+00:44:29,920 --> 00:44:34,319
+got
+
+933
+00:44:31,520 --> 00:44:36,560
+i got you know i need to i need to
+
+934
+00:44:34,319 --> 00:44:40,000
+update all these
+
+935
+00:44:36,560 --> 00:44:44,160
+uh transform 2d plot plane titling
+
+936
+00:44:40,000 --> 00:44:44,160
+and we i really need to work on this
+
+937
+00:44:44,400 --> 00:44:55,040
+you know it's been delayed for
+
+938
+00:44:51,040 --> 00:44:58,720
+plane timing we talked about yesterday
+
+939
+00:44:55,040 --> 00:45:01,200
+you know i need to update this package
+
+940
+00:44:58,720 --> 00:45:01,839
+but but it's been an hour so i talked
+
+941
+00:45:01,200 --> 00:45:05,760
+you know
+
+942
+00:45:01,839 --> 00:45:09,359
+i gonna work on them offline i guess
+
+943
+00:45:05,760 --> 00:45:09,359
+that's it thank you guys for watching
+
+944
+00:45:09,440 --> 00:45:13,359
+uh if you like my stuff buy it okay
+
+945
+00:45:11,920 --> 00:45:16,319
+donate patreon me
+
+946
+00:45:13,359 --> 00:45:19,839
+paypal you can see all the you know
+
+947
+00:45:16,319 --> 00:45:19,839
+links on my website
+
+948
+00:45:20,079 --> 00:45:28,640
+or you can buy my emacs tutorial or
+
+949
+00:45:24,640 --> 00:45:28,640
+javascript in-depth tutorial
+
+950
+00:45:28,800 --> 00:45:32,240
+and one more thing i want to say so if
+
+951
+00:45:31,040 --> 00:45:36,000
+you are interested
+
+952
+00:45:32,240 --> 00:45:41,520
+in wolfram language it's free you can
+
+953
+00:45:36,000 --> 00:45:41,520
+um you know you can download it
+
+954
+00:45:42,400 --> 00:45:45,520
+you know you go to my website just
+
+955
+00:45:44,000 --> 00:45:48,240
+search for sally
+
+956
+00:45:45,520 --> 00:45:48,960
+ufam language free then you see this
+
+957
+00:45:48,240 --> 00:45:51,200
+page
+
+958
+00:45:48,960 --> 00:45:52,400
+you'll get it free if you buy a
+
+959
+00:45:51,200 --> 00:45:55,200
+raspberry pi
+
+960
+00:45:52,400 --> 00:45:56,240
+if you are into kind of you know do it
+
+961
+00:45:55,200 --> 00:45:59,839
+yourself
+
+962
+00:45:56,240 --> 00:46:00,640
+stuff or you can download woofam engine
+
+963
+00:45:59,839 --> 00:46:03,119
+it's free
+
+964
+00:46:00,640 --> 00:46:04,319
+or download wufram script if you are
+
+965
+00:46:03,119 --> 00:46:05,839
+kind of the unix
+
+966
+00:46:04,319 --> 00:46:08,480
+you know you are into bash your
+
+967
+00:46:05,839 --> 00:46:12,000
+powershell kind of you know you need to
+
+968
+00:46:08,480 --> 00:46:14,240
+if you want a the most efficient
+
+969
+00:46:12,000 --> 00:46:15,440
+you know using woofam if you want to use
+
+970
+00:46:14,240 --> 00:46:18,640
+wufang language
+
+971
+00:46:15,440 --> 00:46:20,400
+to do sys admin okay if you want a
+
+972
+00:46:18,640 --> 00:46:24,800
+replacement for bash
+
+973
+00:46:20,400 --> 00:46:27,839
+for z shell for tc shell for powershell
+
+974
+00:46:24,800 --> 00:46:30,720
+you know a magnitude more powerful
+
+975
+00:46:27,839 --> 00:46:31,760
+no more expressive language for doing
+
+976
+00:46:30,720 --> 00:46:35,040
+those things
+
+977
+00:46:31,760 --> 00:46:37,839
+you know you download woofam's script
+
+978
+00:46:35,040 --> 00:46:40,400
+it's which is free okay so it allows you
+
+979
+00:46:37,839 --> 00:46:42,400
+to use the wufang language just like
+
+980
+00:46:40,400 --> 00:46:44,720
+you know what you've seen you know the
+
+981
+00:46:42,400 --> 00:46:47,920
+same syntax everything
+
+982
+00:46:44,720 --> 00:46:51,359
+to to write a bash script
+
+983
+00:46:47,920 --> 00:46:54,720
+so that's a wolfram script okay
+
+984
+00:46:51,359 --> 00:46:55,280
+uh but then if you want graphics you can
+
+985
+00:46:54,720 --> 00:46:57,359
+download
+
+986
+00:46:55,280 --> 00:46:59,280
+you know woofam engine but act you know
+
+987
+00:46:57,359 --> 00:47:01,599
+actually if you don't you know it's free
+
+988
+00:46:59,280 --> 00:47:03,839
+but you don't get graphics if you want
+
+989
+00:47:01,599 --> 00:47:07,359
+graphics you you need to go to
+
+990
+00:47:03,839 --> 00:47:09,200
+you know the the python jupiter project
+
+991
+00:47:07,359 --> 00:47:10,960
+which they have a package that
+
+992
+00:47:09,200 --> 00:47:14,560
+integrates with them
+
+993
+00:47:10,960 --> 00:47:17,440
+uh engine then you know so you have to
+
+994
+00:47:14,560 --> 00:47:20,640
+download woofam engine and also the
+
+995
+00:47:17,440 --> 00:47:22,079
+uh the the jupiter you know just search
+
+996
+00:47:20,640 --> 00:47:25,280
+for jupiter python
+
+997
+00:47:22,079 --> 00:47:26,079
+woofam engine then you'll you'll be able
+
+998
+00:47:25,280 --> 00:47:28,800
+to do
+
+999
+00:47:26,079 --> 00:47:30,640
+basically what i do today or just buy it
+
+1000
+00:47:28,800 --> 00:47:39,680
+i would recommend it
+
+1001
+00:47:30,640 --> 00:47:43,599
+bye guys
+
+1002
+00:47:39,680 --> 00:47:46,720
+go here and go
+
+1003
+00:47:43,599 --> 00:47:49,119
+go to where is my google go
+
+1004
+00:47:46,720 --> 00:47:49,119
+here
+
+1005
+00:47:49,760 --> 00:47:56,559
+yes uh wolfham script
+
+1006
+00:47:53,040 --> 00:48:00,720
+well wolfham wolfham engine works with
+
+1007
+00:47:56,559 --> 00:48:01,680
+uh jupiter you know wolfham engine and
+
+1008
+00:48:00,720 --> 00:48:03,280
+wufang script
+
+1009
+00:48:01,680 --> 00:48:05,040
+they are essentially the same thing they
+
+1010
+00:48:03,280 --> 00:48:08,000
+are just the wolfram language
+
+1011
+00:48:05,040 --> 00:48:10,079
+but however woofam script is is designed
+
+1012
+00:48:08,000 --> 00:48:13,359
+for you just run shot scripts you know
+
+1013
+00:48:10,079 --> 00:48:17,440
+no no graphics no sound no you know
+
+1014
+00:48:13,359 --> 00:48:17,440
+it's just a script so
+
+1015
+00:48:18,319 --> 00:48:23,440
+so so so if you are using jupiter which
+
+1016
+00:48:22,319 --> 00:48:25,599
+is the primary
+
+1017
+00:48:23,440 --> 00:48:26,480
+you know purpose of jupiter is for you
+
+1018
+00:48:25,599 --> 00:48:29,520
+to have a
+
+1019
+00:48:26,480 --> 00:48:32,640
+graphical notebook
+
+1020
+00:48:29,520 --> 00:48:33,119
+therefore it doesn't make sense to use
+
+1021
+00:48:32,640 --> 00:48:36,319
+it with
+
+1022
+00:48:33,119 --> 00:48:36,800
+wolfram script i i think i think it does
+
+1023
+00:48:36,319 --> 00:48:38,640
+i
+
+1024
+00:48:36,800 --> 00:48:40,240
+i think you can i'm not exactly sure
+
+1025
+00:48:38,640 --> 00:48:42,240
+because i haven't
+
+1026
+00:48:40,240 --> 00:48:45,119
+uh installed them you know i'm using you
+
+1027
+00:48:42,240 --> 00:48:48,319
+know they the wolfram
+
+1028
+00:48:45,119 --> 00:48:51,040
+ink they gave me uh you know the
+
+1029
+00:48:48,319 --> 00:48:53,760
+mathematica i'm using
+
+1030
+00:48:51,040 --> 00:48:53,760
+okay bye
+
+1031
+00:48:55,280 --> 00:48:59,760
+okay actually i need to you know have
+
+1032
+00:48:58,319 --> 00:49:02,800
+this
+
+1033
+00:48:59,760 --> 00:49:06,800
+on my screen for a while so that
+
+1034
+00:49:02,800 --> 00:49:10,960
+google youtube will take this as the
+
+1035
+00:49:06,800 --> 00:49:10,960
+main screenshot for my youtube
+
+1036
+00:49:11,359 --> 00:49:14,880
+you know there actually there's more
+
+1037
+00:49:13,680 --> 00:49:18,480
+improvement you see these
+
+1038
+00:49:14,880 --> 00:49:21,359
+kinks you see this kink kink kink
+
+1039
+00:49:18,480 --> 00:49:22,559
+i can remove you know why don't we try
+
+1040
+00:49:21,359 --> 00:49:25,920
+it you know i don't want these
+
+1041
+00:49:22,559 --> 00:49:28,079
+kinks i want it to be smooth so
+
+1042
+00:49:25,920 --> 00:49:29,440
+how do you remove the kinks well you
+
+1043
+00:49:28,079 --> 00:49:32,960
+look at the
+
+1044
+00:49:29,440 --> 00:49:36,720
+documentation for tube
+
+1045
+00:49:32,960 --> 00:49:39,760
+okay so so you know there
+
+1046
+00:49:36,720 --> 00:49:42,480
+there is an option i believe
+
+1047
+00:49:39,760 --> 00:49:43,680
+the radius of the tube can be specified
+
+1048
+00:49:42,480 --> 00:49:46,880
+if no express
+
+1049
+00:49:43,680 --> 00:49:51,200
+explicitly uh okay
+
+1050
+00:49:46,880 --> 00:49:54,880
+okay so you can use also base your curve
+
+1051
+00:49:51,200 --> 00:49:59,760
+oh okay so that's you know
+
+1052
+00:49:54,880 --> 00:50:02,079
+that's probably what i should use
+
+1053
+00:49:59,760 --> 00:50:04,559
+yeah but base your curve you know right
+
+1054
+00:50:02,079 --> 00:50:05,520
+now i'm using line segments to generate
+
+1055
+00:50:04,559 --> 00:50:08,720
+the cube
+
+1056
+00:50:05,520 --> 00:50:11,200
+but if i use space your curve
+
+1057
+00:50:08,720 --> 00:50:12,240
+it's gonna it's more complex you see
+
+1058
+00:50:11,200 --> 00:50:14,880
+this your curve
+
+1059
+00:50:12,240 --> 00:50:14,880
+is um
+
+1060
+00:50:15,760 --> 00:50:19,680
+control points p1
+
+1061
+00:50:20,720 --> 00:50:24,160
+i'm not sure that will work but let's
+
+1062
+00:50:23,119 --> 00:50:27,839
+try okay let's
+
+1063
+00:50:24,160 --> 00:50:27,839
+actually just try it because
+
+1064
+00:50:32,480 --> 00:50:36,720
+you know this is uh this is the
+
+1065
+00:50:34,160 --> 00:50:39,440
+interesting part okay so actually
+
+1066
+00:50:36,720 --> 00:50:41,440
+let's copy that you know let me show you
+
+1067
+00:50:39,440 --> 00:50:45,280
+the you know the power of
+
+1068
+00:50:41,440 --> 00:50:45,280
+language so actually
+
+1069
+00:50:45,680 --> 00:50:49,200
+so you know i i really need a wolfram
+
+1070
+00:50:48,319 --> 00:50:52,240
+language mod
+
+1071
+00:50:49,200 --> 00:50:55,680
+so i can predefine the code in emacs
+
+1072
+00:50:52,240 --> 00:50:59,920
+so instead of tube
+
+1073
+00:50:55,680 --> 00:51:03,200
+yeah so instead of that so i i say here
+
+1074
+00:50:59,920 --> 00:51:06,000
+b e z i e r curve okay
+
+1075
+00:51:03,200 --> 00:51:06,480
+now i hope you don't need extra control
+
+1076
+00:51:06,000 --> 00:51:10,960
+point
+
+1077
+00:51:06,480 --> 00:51:14,319
+okay so base your curve
+
+1078
+00:51:10,960 --> 00:51:17,440
+that's right okay actually just
+
+1079
+00:51:14,319 --> 00:51:17,440
+let's just try that
+
+1080
+00:51:19,040 --> 00:51:26,079
+so okay so let's let's get this
+
+1081
+00:51:23,680 --> 00:51:26,079
+clean
+
+1082
+00:51:26,800 --> 00:51:37,839
+okay so you can see what is going on
+
+1083
+00:51:49,200 --> 00:51:52,400
+no i don't think it works because you
+
+1084
+00:51:52,000 --> 00:51:55,760
+know
+
+1085
+00:51:52,400 --> 00:51:58,800
+actually we need bezier curve 3d
+
+1086
+00:51:55,760 --> 00:52:02,880
+now do they make it uh
+
+1087
+00:51:58,800 --> 00:52:02,880
+it also works in 3d
+
+1088
+00:52:03,359 --> 00:52:08,720
+okay but it might be you know because
+
+1089
+00:52:06,640 --> 00:52:12,160
+when you have a base your curve
+
+1090
+00:52:08,720 --> 00:52:14,160
+you have control points but i'm i'm not
+
+1091
+00:52:12,160 --> 00:52:15,920
+used i don't have any control points so
+
+1092
+00:52:14,160 --> 00:52:17,440
+i don't think you'll work let's just try
+
+1093
+00:52:15,920 --> 00:52:19,520
+it
+
+1094
+00:52:17,440 --> 00:52:21,200
+yeah it's missing you see it's missing
+
+1095
+00:52:19,520 --> 00:52:26,559
+the one we changed
+
+1096
+00:52:21,200 --> 00:52:26,559
+uh but can we fix it quickly
+
+1097
+00:52:26,640 --> 00:52:33,839
+so let me try to do it okay
+
+1098
+00:52:35,359 --> 00:52:41,440
+base your curve so base your curve takes
+
+1099
+00:52:38,319 --> 00:52:41,440
+a bunch of points
+
+1100
+00:52:45,680 --> 00:52:51,359
+okay so actually i think maybe this
+
+1101
+00:52:49,040 --> 00:52:51,359
+okay
+
+1102
+00:52:56,880 --> 00:53:01,839
+do it now
+
+1103
+00:53:02,559 --> 00:53:15,839
+okay anyway that's it
+

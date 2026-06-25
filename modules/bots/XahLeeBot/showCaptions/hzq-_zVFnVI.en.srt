@@ -1,0 +1,3892 @@
+1
+00:00:04,440 --> 00:00:11,000
+hello welcome to another episode of sop
+
+2
+00:00:08,040 --> 00:00:15,799
+show today we are going to code emac
+
+3
+00:00:11,000 --> 00:00:18,560
+disp just coding emac disp okay uh so
+
+4
+00:00:15,799 --> 00:00:19,920
+let's begin this today is just coding
+
+5
+00:00:18,560 --> 00:00:23,320
+emac
+
+6
+00:00:19,920 --> 00:00:25,279
+disp okay here is today's talk show and
+
+7
+00:00:23,320 --> 00:00:30,080
+what we are going to do is we are going
+
+8
+00:00:25,279 --> 00:00:31,680
+to modify this command Exar HTML lines
+
+9
+00:00:30,080 --> 00:00:35,200
+to
+
+10
+00:00:31,680 --> 00:00:37,120
+list okay let's let's start to do that
+
+11
+00:00:35,200 --> 00:00:41,960
+so let me show you what does what does
+
+12
+00:00:37,120 --> 00:00:44,520
+it do so you have uh this is s HTML mod
+
+13
+00:00:41,960 --> 00:00:47,879
+so you have something you know like you
+
+14
+00:00:44,520 --> 00:00:51,879
+have uh several lines of text and uh you
+
+15
+00:00:47,879 --> 00:00:55,600
+press a key they become lines so you can
+
+16
+00:00:51,879 --> 00:00:59,120
+see the command is called ctml lines to
+
+17
+00:00:55,600 --> 00:01:01,680
+text uh lines to list and the keystroke
+
+18
+00:00:59,120 --> 00:01:05,320
+I use is a left side I'm using a v
+
+19
+00:01:01,680 --> 00:01:07,960
+keyboard and the sfly keys the most
+
+20
+00:01:05,320 --> 00:01:10,960
+efficient emac key
+
+21
+00:01:07,960 --> 00:01:14,040
+binding uh more efficient than Vim Neo
+
+22
+00:01:10,960 --> 00:01:18,159
+Vim showing browser so you can see it
+
+23
+00:01:14,040 --> 00:01:21,960
+makes a several lines to a
+
+24
+00:01:18,159 --> 00:01:28,680
+list uh but what what
+
+25
+00:01:21,960 --> 00:01:31,680
+if each line is long uh short par graph
+
+26
+00:01:28,680 --> 00:01:31,680
+okay
+
+27
+00:01:32,240 --> 00:01:36,920
+and
+
+28
+00:01:33,399 --> 00:01:41,079
+something else so you want to make them
+
+29
+00:01:36,920 --> 00:01:44,040
+into a list but not just by line but
+
+30
+00:01:41,079 --> 00:01:46,880
+rather by paragraph by the text block
+
+31
+00:01:44,040 --> 00:01:48,759
+each text block should be a line so in
+
+32
+00:01:46,880 --> 00:01:51,040
+that case you make a selection you call
+
+33
+00:01:48,759 --> 00:01:55,039
+the same command just like
+
+34
+00:01:51,040 --> 00:01:58,479
+before uh tab C so there it
+
+35
+00:01:55,039 --> 00:02:03,439
+is showing browser refresh so you can
+
+36
+00:01:58,479 --> 00:02:05,119
+see each of the block of text becomes a
+
+37
+00:02:03,439 --> 00:02:09,840
+list
+
+38
+00:02:05,119 --> 00:02:14,599
+item okay so the difference is that one
+
+39
+00:02:09,840 --> 00:02:18,200
+of them a b c let's say one of them is
+
+40
+00:02:14,599 --> 00:02:22,640
+um when you don't have a selection lines
+
+41
+00:02:18,200 --> 00:02:25,879
+becomes a list item but if you do have a
+
+42
+00:02:22,640 --> 00:02:29,400
+selection uh let's let's do it let's do
+
+43
+00:02:25,879 --> 00:02:32,879
+it here if you do have a selection then
+
+44
+00:02:29,400 --> 00:02:36,400
+you do the command then each text block
+
+45
+00:02:32,879 --> 00:02:39,560
+becomes a list item okay so this is
+
+46
+00:02:36,400 --> 00:02:42,080
+superb so but what do I need to do what
+
+47
+00:02:39,560 --> 00:02:44,400
+I want to do is that you see there's
+
+48
+00:02:42,080 --> 00:02:47,280
+something about the user
+
+49
+00:02:44,400 --> 00:02:50,720
+interface uh I want to redesign it so
+
+50
+00:02:47,280 --> 00:02:54,080
+this is about user interface design
+
+51
+00:02:50,720 --> 00:02:56,280
+currently they make a dis distinction
+
+52
+00:02:54,080 --> 00:03:00,080
+whether to use each line or use each
+
+53
+00:02:56,280 --> 00:03:02,640
+text block as a list item depends on on
+
+54
+00:03:00,080 --> 00:03:02,640
+whether you have
+
+55
+00:03:02,680 --> 00:03:09,120
+selection but I want to change that so
+
+56
+00:03:06,239 --> 00:03:12,319
+so the difference is more explicit I
+
+57
+00:03:09,120 --> 00:03:16,200
+want to change it so that the command
+
+58
+00:03:12,319 --> 00:03:18,239
+will always just make lines to list
+
+59
+00:03:16,200 --> 00:03:21,120
+however if you want to make text
+
+60
+00:03:18,239 --> 00:03:22,799
+paragraph to these to these items you
+
+61
+00:03:21,120 --> 00:03:25,760
+have to
+
+62
+00:03:22,799 --> 00:03:28,319
+call the universal command which is the
+
+63
+00:03:25,760 --> 00:03:31,239
+standard way for emx
+
+64
+00:03:28,319 --> 00:03:35,239
+to to to to have a command to have
+
+65
+00:03:31,239 --> 00:03:39,159
+different Behavior okay so uh let me
+
+66
+00:03:35,239 --> 00:03:39,159
+write it out so it's more clear
+
+67
+00:03:39,840 --> 00:03:45,519
+so for those uh who came here late okay
+
+68
+00:03:43,239 --> 00:03:49,840
+if you are here say hi if you are not
+
+69
+00:03:45,519 --> 00:03:52,280
+here skip around play at speed 1.5 or
+
+70
+00:03:49,840 --> 00:03:55,879
+something uh and don't forget to donate
+
+71
+00:03:52,280 --> 00:03:59,159
+me okay hello I don't know are figure
+
+72
+00:03:55,879 --> 00:04:01,599
+and figure caption standard HTML tags or
+
+73
+00:03:59,159 --> 00:04:06,360
+are they system stuff they are standard
+
+74
+00:04:01,599 --> 00:04:10,360
+okay they are standard since the HTML 5
+
+75
+00:04:06,360 --> 00:04:14,239
+around 2008 by the what the [ __ ] group
+
+76
+00:04:10,360 --> 00:04:16,959
+created by Google Opera because they are
+
+77
+00:04:14,239 --> 00:04:20,079
+they want to promote they want to create
+
+78
+00:04:16,959 --> 00:04:23,560
+you know especially Google Opera kind of
+
+79
+00:04:20,079 --> 00:04:26,320
+died you know Opera was was 20 years ago
+
+80
+00:04:23,560 --> 00:04:27,639
+was one of the greatest standard
+
+81
+00:04:26,320 --> 00:04:30,320
+conforming
+
+82
+00:04:27,639 --> 00:04:34,199
+browser what's what standard
+
+83
+00:04:30,320 --> 00:04:37,600
+w3c standard that's a standard for web
+
+84
+00:04:34,199 --> 00:04:40,720
+technology HTML CSS
+
+85
+00:04:37,600 --> 00:04:43,639
+Stone okay so
+
+86
+00:04:40,720 --> 00:04:48,120
+but but around
+
+87
+00:04:43,639 --> 00:04:51,120
+2008 Google started by Opera you know
+
+88
+00:04:48,120 --> 00:04:54,840
+Opera is led by this uh northern
+
+89
+00:04:51,120 --> 00:04:58,000
+European guy who is a Microsoft hater
+
+90
+00:04:54,840 --> 00:05:01,120
+he's a scun okay his name is what
+
+91
+00:04:58,000 --> 00:05:05,080
+whatever Swiss name but anyway remember
+
+92
+00:05:01,120 --> 00:05:08,160
+the the Opera founder okay he started
+
+93
+00:05:05,080 --> 00:05:10,320
+then pretty soon joined by Google and
+
+94
+00:05:08,160 --> 00:05:13,680
+apple why do they want to do that why
+
+95
+00:05:10,320 --> 00:05:15,440
+why is Google Apple want to create a new
+
+96
+00:05:13,680 --> 00:05:17,919
+HTML
+
+97
+00:05:15,440 --> 00:05:19,880
+because well the fundamental the gist of
+
+98
+00:05:17,919 --> 00:05:21,600
+the reason is that they they are
+
+99
+00:05:19,880 --> 00:05:24,240
+commercial corporations they want to
+
+100
+00:05:21,600 --> 00:05:26,039
+control the HTML especially Google so
+
+101
+00:05:24,240 --> 00:05:28,919
+that they can have you know for example
+
+102
+00:05:26,039 --> 00:05:31,080
+Apple they want canvas you know the
+
+103
+00:05:28,919 --> 00:05:34,600
+canvas
+
+104
+00:05:31,080 --> 00:05:37,479
+tag okay so let me show you you know
+
+105
+00:05:34,600 --> 00:05:40,360
+canvas tag for for like replacement of
+
+106
+00:05:37,479 --> 00:05:43,840
+flash why do why does Apple want canvas
+
+107
+00:05:40,360 --> 00:05:46,680
+tag because they sell iPhone they don't
+
+108
+00:05:43,840 --> 00:05:49,319
+want flash but Javas script is not good
+
+109
+00:05:46,680 --> 00:05:51,800
+enough so they want they created the
+
+110
+00:05:49,319 --> 00:05:54,560
+their own canvas which is painting you
+
+111
+00:05:51,800 --> 00:05:57,520
+know and SVG they don't want to use SVG
+
+112
+00:05:54,560 --> 00:06:00,080
+because SVG is for vector graphics line
+
+113
+00:05:57,520 --> 00:06:02,639
+drawings they want bit map so so you can
+
+114
+00:06:00,080 --> 00:06:05,520
+create games you know big money Apple
+
+115
+00:06:02,639 --> 00:06:08,560
+want canvas which is lousy
+
+116
+00:06:05,520 --> 00:06:12,240
+technology so Apple want Camas on their
+
+117
+00:06:08,560 --> 00:06:14,400
+phone to make money and Google Google is
+
+118
+00:06:12,240 --> 00:06:16,360
+like everything for you know they want
+
+119
+00:06:14,400 --> 00:06:20,360
+to control the web you know they you
+
+120
+00:06:16,360 --> 00:06:24,759
+know so Google Apple join Opera to
+
+121
+00:06:20,360 --> 00:06:28,080
+create this what the [ __ ] group HTML 5
+
+122
+00:06:24,759 --> 00:06:30,759
+so what is the what [ __ ] group that is a
+
+123
+00:06:28,080 --> 00:06:34,160
+separate organization like a rebel okay
+
+124
+00:06:30,759 --> 00:06:36,919
+they say you know w3c group you should
+
+125
+00:06:34,160 --> 00:06:40,199
+die you know we we are take over
+
+126
+00:06:36,919 --> 00:06:43,960
+basically so that's a long history about
+
+127
+00:06:40,199 --> 00:06:45,080
+web history so you can go to let me show
+
+128
+00:06:43,960 --> 00:06:48,240
+you my
+
+129
+00:06:45,080 --> 00:06:51,000
+pages uh so showing browser let me show
+
+130
+00:06:48,240 --> 00:06:55,120
+you okay so remove the camera so you go
+
+131
+00:06:51,000 --> 00:06:58,720
+toar talk show you go to. info then just
+
+132
+00:06:55,120 --> 00:07:00,240
+search you can search or uh or just go
+
+133
+00:06:58,720 --> 00:07:02,800
+to web
+
+134
+00:07:00,240 --> 00:07:05,800
+history okay that's a giant that's a
+
+135
+00:07:02,800 --> 00:07:07,479
+huge chapter of web history of course
+
+136
+00:07:05,800 --> 00:07:11,520
+eventually the
+
+137
+00:07:07,479 --> 00:07:14,720
+w3c standard organization lost so you
+
+138
+00:07:11,520 --> 00:07:19,360
+know the W um the what the [ __ ] group
+
+139
+00:07:14,720 --> 00:07:22,039
+took over so uh web history so let's say
+
+140
+00:07:19,360 --> 00:07:26,240
+search for history there it is history
+
+141
+00:07:22,039 --> 00:07:28,919
+of web Tech so during for about five
+
+142
+00:07:26,240 --> 00:07:32,319
+years you actually have two web
+
+143
+00:07:28,919 --> 00:07:34,720
+standards one is from the uh what the
+
+144
+00:07:32,319 --> 00:07:38,720
+[ __ ] group what's the proper name W you
+
+145
+00:07:34,720 --> 00:07:42,120
+know so one of them is w3c okay
+
+146
+00:07:38,720 --> 00:07:44,840
+w3c they are you can recognize them by
+
+147
+00:07:42,120 --> 00:07:49,479
+this badge this badge was
+
+148
+00:07:44,840 --> 00:07:51,800
+popular in in 1990s and 2000s you know
+
+149
+00:07:49,479 --> 00:07:54,599
+it says you know your web page is valid
+
+150
+00:07:51,800 --> 00:07:58,039
+and every programmer especially the Unix
+
+151
+00:07:54,599 --> 00:08:00,400
+Elite idiots they love this they they
+
+152
+00:07:58,039 --> 00:08:02,599
+they they Champion it you know they say
+
+153
+00:08:00,400 --> 00:08:05,000
+you must you know your tag is inal you
+
+154
+00:08:02,599 --> 00:08:07,639
+know anyway and that became history and
+
+155
+00:08:05,000 --> 00:08:09,680
+today the Zoomers don't know because
+
+156
+00:08:07,639 --> 00:08:13,520
+well anyway that's another long story
+
+157
+00:08:09,680 --> 00:08:19,680
+but let me just talk about the uh HTML
+
+158
+00:08:13,520 --> 00:08:24,919
+standard and uh this okay w h a t
+
+159
+00:08:19,680 --> 00:08:27,360
+WG which stand for uh web uh something
+
+160
+00:08:24,919 --> 00:08:30,280
+working group okay what you know I just
+
+161
+00:08:27,360 --> 00:08:35,560
+call it what the [ __ ] group versus is
+
+162
+00:08:30,280 --> 00:08:39,200
+w3c w3c is a HTML standard started in
+
+163
+00:08:35,560 --> 00:08:42,000
+around 1990 okay
+
+164
+00:08:39,200 --> 00:08:45,000
+so
+
+165
+00:08:42,000 --> 00:08:49,040
+so uh you know the what working group
+
+166
+00:08:45,000 --> 00:08:52,839
+versus w3c split so for about five years
+
+167
+00:08:49,040 --> 00:08:54,480
+you have two version of HTML standard
+
+168
+00:08:52,839 --> 00:08:57,920
+the
+
+169
+00:08:54,480 --> 00:08:59,720
+w3c organization which is also corrupt
+
+170
+00:08:57,920 --> 00:09:01,600
+they became you know all the these
+
+171
+00:08:59,720 --> 00:09:04,200
+standard
+
+172
+00:09:01,600 --> 00:09:07,040
+organizations after 10 years they become
+
+173
+00:09:04,200 --> 00:09:10,279
+corrupt same thing happen to unic code
+
+174
+00:09:07,040 --> 00:09:14,560
+Unicode Consortium okay that's why you
+
+175
+00:09:10,279 --> 00:09:16,959
+have pregnant man emoji you know a
+
+176
+00:09:14,560 --> 00:09:18,240
+literal Emoji one single character of
+
+177
+00:09:16,959 --> 00:09:23,079
+pregnant
+
+178
+00:09:18,240 --> 00:09:26,320
+men corrupt organizations so anyway w3c
+
+179
+00:09:23,079 --> 00:09:30,160
+is a standard HTML uh standard you know
+
+180
+00:09:26,320 --> 00:09:33,920
+n XML and uh web and Dome for JavaScript
+
+181
+00:09:30,160 --> 00:09:37,480
+scripting and SVG for for graph you know
+
+182
+00:09:33,920 --> 00:09:40,040
+line graphics on web anyway and versus
+
+183
+00:09:37,480 --> 00:09:41,720
+that so for about five years or so they
+
+184
+00:09:40,040 --> 00:09:45,000
+you have two different standard you know
+
+185
+00:09:41,720 --> 00:09:48,320
+w3c claims their standard is the
+
+186
+00:09:45,000 --> 00:09:51,279
+standard while the Apple and
+
+187
+00:09:48,320 --> 00:09:53,920
+Google group what the [ __ ] group they
+
+188
+00:09:51,279 --> 00:09:58,920
+they you know they say we are the
+
+189
+00:09:53,920 --> 00:10:01,120
+standard eventually w3c lost okay so you
+
+190
+00:09:58,920 --> 00:10:04,279
+know so what's the difference well you
+
+191
+00:10:01,120 --> 00:10:06,360
+know you can read there's a difference
+
+192
+00:10:04,279 --> 00:10:08,120
+because I dive into this you know
+
+193
+00:10:06,360 --> 00:10:10,880
+technical
+
+194
+00:10:08,120 --> 00:10:12,880
+standards uh so what is the example of a
+
+195
+00:10:10,880 --> 00:10:16,000
+difference did do I have it somewhere
+
+196
+00:10:12,880 --> 00:10:19,640
+here somewhere okay I have like article
+
+197
+00:10:16,000 --> 00:10:24,000
+somewhere but anyway here is their from
+
+198
+00:10:19,640 --> 00:10:27,839
+their website how they claim you know
+
+199
+00:10:24,000 --> 00:10:30,079
+w3c defense how they are the standard
+
+200
+00:10:27,839 --> 00:10:33,880
+while the W you know you know the what
+
+201
+00:10:30,079 --> 00:10:36,560
+working group says that they are the
+
+202
+00:10:33,880 --> 00:10:39,760
+standard you know for example you can
+
+203
+00:10:36,560 --> 00:10:42,959
+see the what the [ __ ] group
+
+204
+00:10:39,760 --> 00:10:46,880
+FAQ what are the various versions of the
+
+205
+00:10:42,959 --> 00:10:50,959
+HTML spec you know so you
+
+206
+00:10:46,880 --> 00:10:55,440
+know so um so for example this section
+
+207
+00:10:50,959 --> 00:10:58,720
+what the f group and the w3c HTML WG are
+
+208
+00:10:55,440 --> 00:10:59,920
+there plans to merge the groups no blah
+
+209
+00:10:58,720 --> 00:11:02,480
+blah blah
+
+210
+00:10:59,920 --> 00:11:05,880
+and then which group has Authority in
+
+211
+00:11:02,480 --> 00:11:10,240
+the event of a dispute then you know the
+
+212
+00:11:05,880 --> 00:11:12,959
+FAQ says the group from the you know the
+
+213
+00:11:10,240 --> 00:11:15,079
+what working group they say the two
+
+214
+00:11:12,959 --> 00:11:18,079
+groups have different specs so each has
+
+215
+00:11:15,079 --> 00:11:20,519
+authority over its spec the specs can
+
+216
+00:11:18,079 --> 00:11:22,920
+and have diverged on some topics
+
+217
+00:11:20,519 --> 00:11:25,240
+unfortunately these differences are not
+
+218
+00:11:22,920 --> 00:11:28,160
+documented
+
+219
+00:11:25,240 --> 00:11:31,120
+anywhere except I have some document
+
+220
+00:11:28,160 --> 00:11:34,680
+some part of it okay their difference uh
+
+221
+00:11:31,120 --> 00:11:38,160
+one one of the difference is the tag uh
+
+222
+00:11:34,680 --> 00:11:40,760
+some tags related to HTML table table
+
+223
+00:11:38,160 --> 00:11:42,920
+group or something I forgot I probably
+
+224
+00:11:40,760 --> 00:11:46,320
+have it in another
+
+225
+00:11:42,920 --> 00:11:50,399
+blog and here is uh the
+
+226
+00:11:46,320 --> 00:11:53,839
+w3c groups what they say about the issue
+
+227
+00:11:50,399 --> 00:11:57,760
+Force dich dichotomy you know they so
+
+228
+00:11:53,839 --> 00:12:01,320
+each one claim their HTML is the
+
+229
+00:11:57,760 --> 00:12:04,959
+standard but eventually they merged okay
+
+230
+00:12:01,320 --> 00:12:08,480
+So eventually around what year so do I
+
+231
+00:12:04,959 --> 00:12:10,839
+have it there I also have it documented
+
+232
+00:12:08,480 --> 00:12:13,720
+so this is a documentation of History
+
+233
+00:12:10,839 --> 00:12:16,680
+okay not as kissing
+
+234
+00:12:13,720 --> 00:12:19,639
+anybody many of the white people's
+
+235
+00:12:16,680 --> 00:12:23,120
+documentate documentation of history is
+
+236
+00:12:19,639 --> 00:12:25,680
+like partially fake news for example
+
+237
+00:12:23,120 --> 00:12:28,560
+especially around open group I mean the
+
+238
+00:12:25,680 --> 00:12:29,800
+open source history you know like moo
+
+239
+00:12:28,560 --> 00:12:32,839
+reads that
+
+240
+00:12:29,800 --> 00:12:35,240
+MO is like oh this is this is the god
+
+241
+00:12:32,839 --> 00:12:36,959
+book this is the real
+
+242
+00:12:35,240 --> 00:12:39,800
+history
+
+243
+00:12:36,959 --> 00:12:42,079
+uh and okay so anyway I'm digressing a
+
+244
+00:12:39,800 --> 00:12:45,279
+lot So eventually they merge so your
+
+245
+00:12:42,079 --> 00:12:49,720
+question about figure tag so let's go to
+
+246
+00:12:45,279 --> 00:12:52,680
+HTML index okay figure tag and figure
+
+247
+00:12:49,720 --> 00:12:55,320
+caption tag they are standards by now
+
+248
+00:12:52,680 --> 00:12:58,079
+for 15 years now so it's supported by
+
+249
+00:12:55,320 --> 00:13:00,720
+all browsers so you can just search for
+
+250
+00:12:58,079 --> 00:13:03,959
+figure there it is
+
+251
+00:13:00,720 --> 00:13:07,800
+okay so they started you know 2008 or so
+
+252
+00:13:03,959 --> 00:13:11,480
+but they became usable in many browsers
+
+253
+00:13:07,800 --> 00:13:13,480
+around 2011 figure and figure tag okay
+
+254
+00:13:11,480 --> 00:13:15,680
+so that's what I use so that answers
+
+255
+00:13:13,480 --> 00:13:15,680
+that
+
+256
+00:13:19,959 --> 00:13:27,199
+question today's drink is apple juice
+
+257
+00:13:22,680 --> 00:13:27,199
+okay let's go back to uh HTML
+
+258
+00:13:30,880 --> 00:13:37,839
+uh go back to code so uh so I need to do
+
+259
+00:13:34,519 --> 00:13:41,519
+this put this here go back here go back
+
+260
+00:13:37,839 --> 00:13:41,519
+here so
+
+261
+00:13:41,760 --> 00:13:48,639
+this web history okay big giant chapter
+
+262
+00:13:46,040 --> 00:13:52,120
+in you know history of web
+
+263
+00:13:48,639 --> 00:13:56,240
+Tech um okay so we are doing this so we
+
+264
+00:13:52,120 --> 00:13:56,240
+want to write out the difference okay
+
+265
+00:13:56,920 --> 00:14:01,040
+so so this is what we are
+
+266
+00:14:01,320 --> 00:14:06,519
+doing this
+
+267
+00:14:03,639 --> 00:14:14,639
+command if no
+
+268
+00:14:06,519 --> 00:14:14,639
+selection it turns each line into a list
+
+269
+00:14:15,839 --> 00:14:23,320
+item if there is a selection it turns
+
+270
+00:14:20,680 --> 00:14:27,759
+each
+
+271
+00:14:23,320 --> 00:14:30,160
+paragraph into a list item okay that's
+
+272
+00:14:27,759 --> 00:14:31,480
+the difference showing bow
+
+273
+00:14:30,160 --> 00:14:35,839
+there it
+
+274
+00:14:31,480 --> 00:14:35,839
+is now let's colorify
+
+275
+00:14:36,079 --> 00:14:45,440
+this now it's colored
+
+276
+00:14:39,040 --> 00:14:48,440
+okay we want to modify it so
+
+277
+00:14:45,440 --> 00:14:52,440
+that to
+
+278
+00:14:48,440 --> 00:14:56,199
+turn each paragraph
+
+279
+00:14:52,440 --> 00:15:00,759
+into list you
+
+280
+00:14:56,199 --> 00:15:06,240
+call Universal argument first
+
+281
+00:15:00,759 --> 00:15:06,240
+okay this is more emac
+
+282
+00:15:13,000 --> 00:15:17,040
+convention there it is so this is what
+
+283
+00:15:15,720 --> 00:15:21,600
+we want to
+
+284
+00:15:17,040 --> 00:15:23,360
+do uh okay so let's begin okay so so
+
+285
+00:15:21,600 --> 00:15:27,639
+let's jump to my source
+
+286
+00:15:23,360 --> 00:15:31,720
+code describe key press the key and here
+
+287
+00:15:27,639 --> 00:15:34,680
+it is HTML allines to list tab to go to
+
+288
+00:15:31,720 --> 00:15:38,759
+the source code here's a command copy it
+
+289
+00:15:34,680 --> 00:15:41,639
+new buffer paste it and uh save it as a
+
+290
+00:15:38,759 --> 00:15:45,440
+new file so a temp file so we're going
+
+291
+00:15:41,639 --> 00:15:47,680
+to work on this temp file so this is uh
+
+292
+00:15:45,440 --> 00:15:49,680
+36 lines of
+
+293
+00:15:47,680 --> 00:15:54,279
+code
+
+294
+00:15:49,680 --> 00:15:54,279
+okay not very big
+
+295
+00:16:00,399 --> 00:16:04,199
+um I don't know say it's very
+
+296
+00:16:01,759 --> 00:16:06,040
+interesting I never knew about this you
+
+297
+00:16:04,199 --> 00:16:08,720
+should have a talk show about it
+
+298
+00:16:06,040 --> 00:16:11,759
+actually I do I did I did talk about
+
+299
+00:16:08,720 --> 00:16:15,319
+history but you know but I've done like
+
+300
+00:16:11,759 --> 00:16:19,040
+you know today's episode episode is 500
+
+301
+00:16:15,319 --> 00:16:22,360
+79 so I already have 600
+
+302
+00:16:19,040 --> 00:16:25,160
+um live stream videos all almost all of
+
+303
+00:16:22,360 --> 00:16:27,399
+them are live stream so the issue with
+
+304
+00:16:25,160 --> 00:16:29,920
+my you know because I like to do live
+
+305
+00:16:27,399 --> 00:16:33,680
+stream I like to do lives so it's real
+
+306
+00:16:29,920 --> 00:16:36,519
+genuine not prepared you know and edit
+
+307
+00:16:33,680 --> 00:16:39,959
+modifi edit so you just you just see the
+
+308
+00:16:36,519 --> 00:16:41,959
+beautiful Parts like five minutes and a
+
+309
+00:16:39,959 --> 00:16:44,639
+lot money you know so you get a lot more
+
+310
+00:16:41,959 --> 00:16:47,440
+views because Google YouTube they don't
+
+311
+00:16:44,639 --> 00:16:51,839
+promote live stream like live stream
+
+312
+00:16:47,440 --> 00:16:54,319
+after three days is dead also because my
+
+313
+00:16:51,839 --> 00:16:57,240
+my style when I do live stream I talk
+
+314
+00:16:54,319 --> 00:16:59,759
+over things so today iMac this then web
+
+315
+00:16:57,240 --> 00:17:03,160
+history you know I talk over so there's
+
+316
+00:16:59,759 --> 00:17:05,799
+no like like there's no kind of
+
+317
+00:17:03,160 --> 00:17:08,199
+searchable you know of all the topics
+
+318
+00:17:05,799 --> 00:17:10,520
+I've talked about so I I so i' I've
+
+319
+00:17:08,199 --> 00:17:13,160
+talked about like whole hour about web
+
+320
+00:17:10,520 --> 00:17:14,559
+history about the what the [ __ ] group
+
+321
+00:17:13,160 --> 00:17:18,799
+versus
+
+322
+00:17:14,559 --> 00:17:19,760
+w3c more than more than one time okay so
+
+323
+00:17:18,799 --> 00:17:23,559
+but let
+
+324
+00:17:19,760 --> 00:17:27,280
+me talk about all uh so let me show you
+
+325
+00:17:23,559 --> 00:17:29,720
+guys I promote you know I have a you if
+
+326
+00:17:27,280 --> 00:17:34,840
+you go to S Talk Show index page there's
+
+327
+00:17:29,720 --> 00:17:37,640
+a talk show Clip Clips index so I try to
+
+328
+00:17:34,840 --> 00:17:41,080
+gather the best of my videos and the
+
+329
+00:17:37,640 --> 00:17:43,559
+subtopics here so if you want to see the
+
+330
+00:17:41,080 --> 00:17:45,360
+best keyboard videos you go to S Talk
+
+331
+00:17:43,559 --> 00:17:48,200
+Show keyboards you know this is a
+
+332
+00:17:45,360 --> 00:17:52,000
+collection of the kind of kind of my
+
+333
+00:17:48,200 --> 00:17:54,720
+best more focused uh talk shows video on
+
+334
+00:17:52,000 --> 00:17:57,200
+keyboards okay and or if you are into
+
+335
+00:17:54,720 --> 00:17:59,919
+emac or emac this here here is a
+
+336
+00:17:57,200 --> 00:18:02,320
+collection on emac or efficiency
+
+337
+00:17:59,919 --> 00:18:05,280
+workflow or this one for example this
+
+338
+00:18:02,320 --> 00:18:08,559
+one is very popular very good one hour
+
+339
+00:18:05,280 --> 00:18:11,559
+talking about work Emax workflow and
+
+340
+00:18:08,559 --> 00:18:13,799
+efficiency and then emac this from the
+
+341
+00:18:11,559 --> 00:18:16,200
+ground up you know a tutorial and
+
+342
+00:18:13,799 --> 00:18:18,799
+writing a major mod from the ground up
+
+343
+00:18:16,200 --> 00:18:22,240
+so the best collections of my
+
+344
+00:18:18,799 --> 00:18:24,520
+emac uh and emac list videos then you
+
+345
+00:18:22,240 --> 00:18:26,240
+have several random kind of things you
+
+346
+00:18:24,520 --> 00:18:28,400
+know how to change your behavior you
+
+347
+00:18:26,240 --> 00:18:31,280
+know I talked about what is a schizoid
+
+348
+00:18:28,400 --> 00:18:34,760
+you know it's these are more
+
+349
+00:18:31,280 --> 00:18:37,000
+like uh popular topics because when you
+
+350
+00:18:34,760 --> 00:18:40,640
+talk about technology
+
+351
+00:18:37,000 --> 00:18:42,720
+programming you have 1,000 times less
+
+352
+00:18:40,640 --> 00:18:46,039
+people you know but if you talk about
+
+353
+00:18:42,720 --> 00:18:48,480
+General Life issues like diet which diet
+
+354
+00:18:46,039 --> 00:18:51,000
+what what what diet and you know the
+
+355
+00:18:48,480 --> 00:18:52,520
+meat diet or no meat diet or you must be
+
+356
+00:18:51,000 --> 00:18:56,280
+a
+
+357
+00:18:52,520 --> 00:19:01,080
+vegan or is red meat good or you want to
+
+358
+00:18:56,280 --> 00:19:04,240
+go with the dinosaur diet that Americans
+
+359
+00:19:01,080 --> 00:19:08,440
+Obsession apple juice juice is good okay
+
+360
+00:19:04,240 --> 00:19:11,159
+just don't you know don't eat any
+
+361
+00:19:08,440 --> 00:19:15,320
+man-made sugar you know that white sugar
+
+362
+00:19:11,159 --> 00:19:18,440
+or or brown even Brown okay but 100%
+
+363
+00:19:15,320 --> 00:19:21,520
+juice if if the box says 100% juice it's
+
+364
+00:19:18,440 --> 00:19:24,200
+good although you can go deeper then
+
+365
+00:19:21,520 --> 00:19:26,559
+then then you'll see lots of tons of
+
+366
+00:19:24,200 --> 00:19:28,440
+YouTube videos saying oh juice is
+
+367
+00:19:26,559 --> 00:19:30,200
+actually just sugar it's bad for you
+
+368
+00:19:28,440 --> 00:19:32,159
+because this or that or because
+
+369
+00:19:30,200 --> 00:19:37,320
+chemistry but they don't know actually
+
+370
+00:19:32,159 --> 00:19:40,039
+nothing about actual biological cell
+
+371
+00:19:37,320 --> 00:19:43,440
+uh mitochondria you know what you know
+
+372
+00:19:40,039 --> 00:19:45,080
+biology they cellular biology okay you
+
+373
+00:19:43,440 --> 00:19:47,760
+if you want to talk about you know those
+
+374
+00:19:45,080 --> 00:19:50,840
+things you got to go study cellular
+
+375
+00:19:47,760 --> 00:19:52,919
+biology because I'm a hardcore guy I
+
+376
+00:19:50,840 --> 00:19:54,520
+don't talk about the fluff you know you
+
+377
+00:19:52,919 --> 00:19:57,200
+don't know things but you talk about
+
+378
+00:19:54,520 --> 00:19:59,520
+that you know so anyway so this
+
+379
+00:19:57,200 --> 00:20:01,559
+collection of you know what is schizoid
+
+380
+00:19:59,520 --> 00:20:04,919
+that's you know very popular among the
+
+381
+00:20:01,559 --> 00:20:08,520
+forchan types they want to know uh El
+
+382
+00:20:04,919 --> 00:20:10,559
+musk um how to judge a person and the
+
+383
+00:20:08,520 --> 00:20:13,640
+parents ask for girlfriend what can you
+
+384
+00:20:10,559 --> 00:20:15,320
+do and parents parents ask you do you
+
+385
+00:20:13,640 --> 00:20:18,280
+have a girlfriend yet do you have a
+
+386
+00:20:15,320 --> 00:20:20,600
+girlfriend yet they they want they want
+
+387
+00:20:18,280 --> 00:20:23,640
+Grand
+
+388
+00:20:20,600 --> 00:20:26,720
+grandchildren uh so anyway and then lots
+
+389
+00:20:23,640 --> 00:20:29,799
+of my rants on the Unix hackers you know
+
+390
+00:20:26,720 --> 00:20:33,200
+so then then about programming and
+
+391
+00:20:29,799 --> 00:20:37,080
+programming language related issues okay
+
+392
+00:20:33,200 --> 00:20:40,960
+uh then uh wolam so wolam is my one of
+
+393
+00:20:37,080 --> 00:20:44,440
+my main topics so there's a lot
+
+394
+00:20:40,960 --> 00:20:46,799
+um okay actually wolam you you you just
+
+395
+00:20:44,440 --> 00:20:49,600
+go to Sali wolam language there's a
+
+396
+00:20:46,799 --> 00:20:53,480
+dedicated page of collections of my
+
+397
+00:20:49,600 --> 00:20:56,679
+wolam uh video tutorials and there's
+
+398
+00:20:53,480 --> 00:21:00,320
+math and geometry okay and some you know
+
+399
+00:20:56,679 --> 00:21:02,280
+so anyway that that that is c talk show
+
+400
+00:21:00,320 --> 00:21:04,799
+clipse index you know just search it
+
+401
+00:21:02,280 --> 00:21:04,799
+you'll find
+
+402
+00:21:05,039 --> 00:21:08,039
+it
+
+403
+00:21:17,679 --> 00:21:24,840
+uh CU our hot dog Saucy s okay so you
+
+404
+00:21:21,880 --> 00:21:28,159
+know gu you know we talking about you
+
+405
+00:21:24,840 --> 00:21:31,159
+are talking about the hot girl you know
+
+406
+00:21:28,159 --> 00:21:34,320
+Chinese goinging girl because you know
+
+407
+00:21:31,159 --> 00:21:38,559
+when you put a girl on your YouTube
+
+408
+00:21:34,320 --> 00:21:41,559
+thumbnail your view viewership increases
+
+409
+00:21:38,559 --> 00:21:44,279
+10 times something like that but not
+
+410
+00:21:41,559 --> 00:21:46,760
+like not so much live stream because
+
+411
+00:21:44,279 --> 00:21:49,720
+Google doesn't promote live stream for
+
+412
+00:21:46,760 --> 00:21:54,120
+example I I I know it because if I you
+
+413
+00:21:49,720 --> 00:21:57,679
+know after live stream if I if I you
+
+414
+00:21:54,120 --> 00:22:01,679
+know re reshare it I mean to the on on
+
+415
+00:21:57,679 --> 00:22:04,799
+YouTube I I we shared as a just a video
+
+416
+00:22:01,679 --> 00:22:07,679
+exactly the same content then that video
+
+417
+00:22:04,799 --> 00:22:09,919
+gets a lot more view so that's the
+
+418
+00:22:07,679 --> 00:22:12,840
+situation Google doesn't like you know
+
+419
+00:22:09,919 --> 00:22:15,120
+Google doesn't Google is nasty you know
+
+420
+00:22:12,840 --> 00:22:18,240
+there's lots of nasty things Google try
+
+421
+00:22:15,120 --> 00:22:20,720
+tries to do so back to the code problem
+
+422
+00:22:18,240 --> 00:22:24,039
+okay let's let's quickly uh we already
+
+423
+00:22:20,720 --> 00:22:28,679
+talked for 24 minutes let's finish this
+
+424
+00:22:24,039 --> 00:22:32,000
+one uh so we got a code so here's a code
+
+425
+00:22:28,679 --> 00:22:34,320
+okay 36 lines of code let Let's uh shall
+
+426
+00:22:32,000 --> 00:22:36,240
+we go over it let's see how we want to
+
+427
+00:22:34,320 --> 00:22:39,520
+do
+
+428
+00:22:36,240 --> 00:22:42,600
+this uh let me just quickly modify to to
+
+429
+00:22:39,520 --> 00:22:46,159
+what I want to want it to do okay first
+
+430
+00:22:42,600 --> 00:22:48,880
+of all version number change okay so uh
+
+431
+00:22:46,159 --> 00:22:53,720
+make each line into HTML list item of
+
+432
+00:22:48,880 --> 00:22:57,799
+current uh selction uh of uh okay so
+
+433
+00:22:53,720 --> 00:23:01,520
+okay just say that then if the region uh
+
+434
+00:22:57,799 --> 00:23:04,559
+so let's modify the documentation so to
+
+435
+00:23:01,520 --> 00:23:04,559
+what we want it to
+
+436
+00:23:07,760 --> 00:23:15,200
+be okay remove that okay wait so if
+
+437
+00:23:12,919 --> 00:23:19,000
+Universal command is
+
+438
+00:23:15,200 --> 00:23:22,080
+called oh God okay so we are already
+
+439
+00:23:19,000 --> 00:23:24,960
+using Universal argument for something
+
+440
+00:23:22,080 --> 00:23:29,960
+Jesus because when you have that then it
+
+441
+00:23:24,960 --> 00:23:33,520
+creates all the list of lines now
+
+442
+00:23:29,960 --> 00:23:35,799
+so it's now this is a
+
+443
+00:23:33,520 --> 00:23:37,919
+problem yeah I haven't you know I
+
+444
+00:23:35,799 --> 00:23:41,120
+haven't thought about this we are
+
+445
+00:23:37,919 --> 00:23:44,039
+already using the universal
+
+446
+00:23:41,120 --> 00:23:48,520
+argument if you call that then it makes
+
+447
+00:23:44,039 --> 00:23:51,559
+makes a older list of lines so
+
+448
+00:23:48,520 --> 00:23:54,000
+H now that's a that's a issue I'm not
+
+449
+00:23:51,559 --> 00:23:54,000
+sure
+
+450
+00:23:54,480 --> 00:24:00,760
+what's yeah given the situation I'm not
+
+451
+00:23:57,200 --> 00:24:00,760
+sure what you want to do do
+
+452
+00:24:06,559 --> 00:24:12,120
+now so I have to think Focus okay so
+
+453
+00:24:11,000 --> 00:24:15,320
+make a
+
+454
+00:24:12,120 --> 00:24:17,159
+lines make lines into a list but
+
+455
+00:24:15,320 --> 00:24:19,600
+sometimes you don't want each line to be
+
+456
+00:24:17,159 --> 00:24:22,480
+a list item you want each paragraph to
+
+457
+00:24:19,600 --> 00:24:25,200
+be a Leist item is that needed yeah
+
+458
+00:24:22,480 --> 00:24:29,399
+sometimes it does this happens when your
+
+459
+00:24:25,200 --> 00:24:32,720
+each your your line is multiple line
+
+460
+00:24:29,399 --> 00:24:34,679
+but you still need to make a list uh
+
+461
+00:24:32,720 --> 00:24:37,840
+that happens
+
+462
+00:24:34,679 --> 00:24:40,919
+in that isn't not a common style the
+
+463
+00:24:37,840 --> 00:24:43,159
+common style for HTML is that usually
+
+464
+00:24:40,919 --> 00:24:46,600
+each line is just a short you know no no
+
+465
+00:24:43,159 --> 00:24:48,279
+more than let's say 100 characters then
+
+466
+00:24:46,600 --> 00:24:51,880
+you use a
+
+467
+00:24:48,279 --> 00:24:53,960
+list but but for my
+
+468
+00:24:51,880 --> 00:24:56,760
+style
+
+469
+00:24:53,960 --> 00:24:58,799
+sometimes when I describe certain
+
+470
+00:24:56,760 --> 00:25:01,120
+properties about a keyboard you know
+
+471
+00:24:58,799 --> 00:25:04,279
+keyboard review for example this support
+
+472
+00:25:01,120 --> 00:25:07,720
+Bluetooth this can also be used uh
+
+473
+00:25:04,279 --> 00:25:10,399
+Wireless as a with USB dongle it also
+
+474
+00:25:07,720 --> 00:25:13,080
+can be used USB the how long does the
+
+475
+00:25:10,399 --> 00:25:16,279
+battery last and how does the key feel
+
+476
+00:25:13,080 --> 00:25:20,200
+you know like a bunch of uh features of
+
+477
+00:25:16,279 --> 00:25:23,120
+a keyboard I group them into a list okay
+
+478
+00:25:20,200 --> 00:25:25,960
+so typically each item is short but
+
+479
+00:25:23,120 --> 00:25:29,440
+sometimes it's a bit longer um more than
+
+480
+00:25:25,960 --> 00:25:34,840
+one line so that's why some sometimes I
+
+481
+00:25:29,440 --> 00:25:34,840
+want each list item to be a
+
+482
+00:25:34,960 --> 00:25:44,279
+paragraph okay that's just something I
+
+483
+00:25:38,159 --> 00:25:46,640
+do uh less common out there but do I
+
+484
+00:25:44,279 --> 00:25:50,039
+should I continue that practice yes I
+
+485
+00:25:46,640 --> 00:25:53,200
+think so because there actually often uh
+
+486
+00:25:50,039 --> 00:25:55,720
+let's let's show some examples okay so
+
+487
+00:25:53,200 --> 00:25:59,039
+go to keyboard block lots of
+
+488
+00:25:55,720 --> 00:26:04,320
+update so search for
+
+489
+00:25:59,039 --> 00:26:08,159
+uh let's let's say search for Ur okay uh
+
+490
+00:26:04,320 --> 00:26:12,760
+it's going to turn up 1,000
+
+491
+00:26:08,159 --> 00:26:14,880
+Pages let's say Okay so let's say search
+
+492
+00:26:12,760 --> 00:26:18,320
+for
+
+493
+00:26:14,880 --> 00:26:22,880
+Uli I want to find a example to show you
+
+494
+00:26:18,320 --> 00:26:26,559
+guys where each list item is long
+
+495
+00:26:22,880 --> 00:26:28,840
+okay uh so let's
+
+496
+00:26:26,559 --> 00:26:33,679
+see okay not
+
+497
+00:26:28,840 --> 00:26:33,679
+not here let's search again but this
+
+498
+00:26:38,880 --> 00:26:48,840
+time uh so they are like few
+
+499
+00:26:44,399 --> 00:26:51,360
+thousand results like okay this is not
+
+500
+00:26:48,840 --> 00:26:56,399
+good yeah because it's searching the
+
+501
+00:26:51,360 --> 00:26:58,360
+text the navigation box like that so
+
+502
+00:26:56,399 --> 00:27:01,520
+there's like
+
+503
+00:26:58,360 --> 00:27:04,880
+few thousand results it's not not we
+
+504
+00:27:01,520 --> 00:27:08,840
+it's not what we want
+
+505
+00:27:04,880 --> 00:27:12,039
+it's let's try this
+
+506
+00:27:08,840 --> 00:27:17,520
+again anyway we are are we wasting time
+
+507
+00:27:12,039 --> 00:27:17,520
+so I do want that so what you can
+
+508
+00:27:20,880 --> 00:27:23,880
+do
+
+509
+00:27:24,720 --> 00:27:30,159
+uh so let's focus this emac this
+
+510
+00:27:39,120 --> 00:27:41,520
+oh
+
+511
+00:27:42,799 --> 00:27:49,080
+God yeah the first issue is how you want
+
+512
+00:27:46,039 --> 00:27:52,080
+the how do you want the program to
+
+513
+00:27:49,080 --> 00:27:52,080
+behave
+
+514
+00:27:52,880 --> 00:28:01,440
+okay so right now it behaves like that
+
+515
+00:27:57,360 --> 00:28:04,840
+okay how but
+
+516
+00:28:01,440 --> 00:28:09,120
+um so if you call Universal argument
+
+517
+00:28:04,840 --> 00:28:11,880
+first then you could have like ask user
+
+518
+00:28:09,120 --> 00:28:15,200
+to have you know whether you want list
+
+519
+00:28:11,880 --> 00:28:18,200
+or ordered list on ordered or
+
+520
+00:28:15,200 --> 00:28:21,360
+unordered and then whether you
+
+521
+00:28:18,200 --> 00:28:25,799
+want you know each line as a Leist item
+
+522
+00:28:21,360 --> 00:28:25,799
+or each paragraph
+
+523
+00:28:28,519 --> 00:28:34,240
+yeah but I don't want to do that because
+
+524
+00:28:32,039 --> 00:28:37,000
+then every time you call this
+
+525
+00:28:34,240 --> 00:28:39,760
+command with a universal argument it's
+
+526
+00:28:37,000 --> 00:28:41,320
+going to ask you you know a few things
+
+527
+00:28:39,760 --> 00:28:45,399
+then you have to
+
+528
+00:28:41,320 --> 00:28:45,399
+answer um so I'm
+
+529
+00:28:47,200 --> 00:28:54,480
+thinking yeah I'm thinking currently
+
+530
+00:28:49,880 --> 00:29:00,039
+let's not do this okay save it go back
+
+531
+00:28:54,480 --> 00:29:00,039
+I'm thinking let's just not do this
+
+532
+00:29:02,519 --> 00:29:07,919
+let's go back here okay let's skip that
+
+533
+00:29:08,559 --> 00:29:15,960
+okay okay let's skip that now um okay
+
+534
+00:29:13,840 --> 00:29:18,880
+let me show you guys if you want that
+
+535
+00:29:15,960 --> 00:29:22,080
+command let's see if it's available yes
+
+536
+00:29:18,880 --> 00:29:24,279
+okay so you go here here's a URL for
+
+537
+00:29:22,080 --> 00:29:25,120
+that command you can grab it and you can
+
+538
+00:29:24,279 --> 00:29:31,200
+use
+
+539
+00:29:25,120 --> 00:29:38,120
+it okay HTML Lin to list it's part ofar
+
+540
+00:29:31,200 --> 00:29:42,799
+HTML mod and uh and then you can
+
+541
+00:29:38,120 --> 00:29:45,360
+um you can you know uh you can also buy
+
+542
+00:29:42,799 --> 00:29:48,720
+you know just buy my tutorial okay so
+
+543
+00:29:45,360 --> 00:29:52,320
+here's a link list let's put it here
+
+544
+00:29:48,720 --> 00:29:56,279
+let's merge this two uh first of all
+
+545
+00:29:52,320 --> 00:29:58,880
+yeah put okay put uh put there showing
+
+546
+00:29:56,279 --> 00:30:01,840
+browser figure tag
+
+547
+00:29:58,880 --> 00:30:07,000
+what the [ __ ] group versus
+
+548
+00:30:01,840 --> 00:30:12,080
+w3c lines to list okay and that's a code
+
+549
+00:30:07,000 --> 00:30:15,000
+you can use and uh this we skipped now
+
+550
+00:30:12,080 --> 00:30:17,000
+let's do the next one okay so modify s
+
+551
+00:30:15,000 --> 00:30:20,600
+HTML convert to
+
+552
+00:30:17,000 --> 00:30:23,760
+jpeg okay let me show you what this do
+
+553
+00:30:20,600 --> 00:30:26,120
+uh for example you have a PNG image for
+
+554
+00:30:23,760 --> 00:30:29,960
+example this one beautiful China girl
+
+555
+00:30:26,120 --> 00:30:32,279
+okay now usually you want to sometimes
+
+556
+00:30:29,960 --> 00:30:36,039
+you want to convert to PNG because I
+
+557
+00:30:32,279 --> 00:30:39,799
+mean to jpeg because jpeg is smaller in
+
+558
+00:30:36,039 --> 00:30:42,440
+file size so let's see if I can yeah
+
+559
+00:30:39,799 --> 00:30:46,159
+it's annoying so you can see this file
+
+560
+00:30:42,440 --> 00:30:50,000
+is right now PNG and it's
+
+561
+00:30:46,159 --> 00:30:51,679
+286 kilobytes so I have a
+
+562
+00:30:50,000 --> 00:30:55,440
+command I
+
+563
+00:30:51,679 --> 00:30:59,880
+can uh actually let's make a copy okay
+
+564
+00:30:55,440 --> 00:31:04,559
+make a copy rename XX let's just rename
+
+565
+00:30:59,880 --> 00:31:06,399
+this uh to a simple name there okay test
+
+566
+00:31:04,559 --> 00:31:09,320
+you know we going to test on this image
+
+567
+00:31:06,399 --> 00:31:13,559
+xx. PNG
+
+568
+00:31:09,320 --> 00:31:17,120
+so copy the file path close close close
+
+569
+00:31:13,559 --> 00:31:18,639
+okay let's go back here let's go to um
+
+570
+00:31:17,120 --> 00:31:23,000
+let's go to the
+
+571
+00:31:18,639 --> 00:31:28,399
+bottom uh and add a that okay there it
+
+572
+00:31:23,000 --> 00:31:31,320
+is the file path make a image
+
+573
+00:31:28,399 --> 00:31:34,120
+uh figure and go to the bottom so you
+
+574
+00:31:31,320 --> 00:31:37,840
+can see this is our test file now this
+
+575
+00:31:34,120 --> 00:31:41,240
+is a PNG I want to make it jpeg so I can
+
+576
+00:31:37,840 --> 00:31:45,080
+just boom boom boom press three keys No
+
+577
+00:31:41,240 --> 00:31:48,360
+Control no meta so you can see it cause
+
+578
+00:31:45,080 --> 00:31:51,720
+image magic to convert it to
+
+579
+00:31:48,360 --> 00:31:54,760
+jpeg okay now you open the file and you
+
+580
+00:31:51,720 --> 00:31:58,799
+go to the directory di jump you can see
+
+581
+00:31:54,760 --> 00:32:01,880
+now it's half the size okay so this
+
+582
+00:31:58,799 --> 00:32:05,880
+command convert to jpeg it will only do
+
+583
+00:32:01,880 --> 00:32:08,519
+that when the when the new JPEG file is
+
+584
+00:32:05,880 --> 00:32:12,960
+smaller than original
+
+585
+00:32:08,519 --> 00:32:15,840
+PNG okay now so why don't you always
+
+586
+00:32:12,960 --> 00:32:19,320
+convert to jpeg that's not good because
+
+587
+00:32:15,840 --> 00:32:22,919
+jpeg is lossy that means each time you
+
+588
+00:32:19,320 --> 00:32:26,480
+save a JPEG file the
+
+589
+00:32:22,919 --> 00:32:29,320
+quality uh you lose some quality a
+
+590
+00:32:26,480 --> 00:32:31,559
+little bit usually
+
+591
+00:32:29,320 --> 00:32:34,039
+imperceivable but however you save that
+
+592
+00:32:31,559 --> 00:32:37,279
+file again you also then you lose
+
+593
+00:32:34,039 --> 00:32:39,480
+another tiny bit of quality so that's
+
+594
+00:32:37,279 --> 00:32:42,960
+why on the web you see lots of these
+
+595
+00:32:39,480 --> 00:32:45,360
+memes or you know these meme pictures
+
+596
+00:32:42,960 --> 00:32:47,600
+they are very bad quality because
+
+597
+00:32:45,360 --> 00:32:49,559
+they've been copied and saved and copied
+
+598
+00:32:47,600 --> 00:32:52,159
+and saved and you know for example
+
+599
+00:32:49,559 --> 00:32:54,519
+someone saw this picture they like it
+
+600
+00:32:52,159 --> 00:32:57,000
+but they don't they just want the face
+
+601
+00:32:54,519 --> 00:32:58,360
+you know so they you know they they
+
+602
+00:32:57,000 --> 00:33:02,360
+screenshot
+
+603
+00:32:58,360 --> 00:33:05,480
+or in Photoshop they save it you know qu
+
+604
+00:33:02,360 --> 00:33:08,679
+every time you do that and save to jpeg
+
+605
+00:33:05,480 --> 00:33:10,320
+it loses a bit quality then another guy
+
+606
+00:33:08,679 --> 00:33:12,639
+they just want another part you know
+
+607
+00:33:10,320 --> 00:33:18,480
+they so that's why all the images are
+
+608
+00:33:12,639 --> 00:33:21,320
+lousy but if it's a PNG PNG is not ly
+
+609
+00:33:18,480 --> 00:33:24,240
+format so you always have doesn't matter
+
+610
+00:33:21,320 --> 00:33:28,320
+you quop or whatever how many times
+
+611
+00:33:24,240 --> 00:33:30,880
+always uh the original image quality
+
+612
+00:33:28,320 --> 00:33:34,120
+okay that's the difference between JPEG
+
+613
+00:33:30,880 --> 00:33:36,360
+and PNG so that creates a problem
+
+614
+00:33:34,120 --> 00:33:39,639
+because sometimes you want PNG sometimes
+
+615
+00:33:36,360 --> 00:33:42,320
+want you want jpeg because jpeg actually
+
+616
+00:33:39,639 --> 00:33:45,360
+saves significantly file size for
+
+617
+00:33:42,320 --> 00:33:48,880
+example half half right
+
+618
+00:33:45,360 --> 00:33:53,720
+now so what I want to do is that you
+
+619
+00:33:48,880 --> 00:33:55,760
+know this command um you know uh HTML
+
+620
+00:33:53,720 --> 00:33:58,240
+convert to jpeg let's see if it's on the
+
+621
+00:33:55,760 --> 00:34:01,279
+web I don't think so so
+
+622
+00:33:58,240 --> 00:34:03,760
+press the key for example go there uh
+
+623
+00:34:01,279 --> 00:34:06,440
+yeah so here is a command but it's not
+
+624
+00:34:03,760 --> 00:34:09,760
+on my website you have to pay you know
+
+625
+00:34:06,440 --> 00:34:13,960
+buy my HTML
+
+626
+00:34:09,760 --> 00:34:17,159
+mod uh you'll have it
+
+627
+00:34:13,960 --> 00:34:20,520
+so yeah so this command will convert
+
+628
+00:34:17,159 --> 00:34:23,760
+only I mean only if the new JPEG file is
+
+629
+00:34:20,520 --> 00:34:28,599
+smaller but what I want to
+
+630
+00:34:23,760 --> 00:34:34,639
+do okay so I want to modify it so it
+
+631
+00:34:28,599 --> 00:34:34,639
+will keep the new jpeg only if it's
+
+632
+00:34:34,879 --> 00:34:42,079
+20% smaller okay yeah because it's
+
+633
+00:34:39,200 --> 00:34:44,879
+almost the same just you know few bites
+
+634
+00:34:42,079 --> 00:34:47,040
+smaller sometimes that happens I don't
+
+635
+00:34:44,879 --> 00:34:51,879
+want to convert to jpeg because it's
+
+636
+00:34:47,040 --> 00:34:53,200
+very lossy so it's only only if it's 20%
+
+637
+00:34:51,879 --> 00:34:57,160
+okay let's do
+
+638
+00:34:53,200 --> 00:34:59,800
+that so go to the source code so here's
+
+639
+00:34:57,160 --> 00:35:04,560
+a source code new buffer save it go to
+
+640
+00:34:59,800 --> 00:35:08,359
+the Top Copy the name save it as XX date
+
+641
+00:35:04,560 --> 00:35:11,599
+the command name. eel okay so we're
+
+642
+00:35:08,359 --> 00:35:13,960
+going to modify this um command Okay so
+
+643
+00:35:11,599 --> 00:35:13,960
+new
+
+644
+00:35:15,440 --> 00:35:24,240
+date if the new image is bigger nothing
+
+645
+00:35:19,240 --> 00:35:28,040
+stand uh else replace okay let's modify
+
+646
+00:35:24,240 --> 00:35:31,640
+uh let's the new Behavior should be
+
+647
+00:35:28,040 --> 00:35:34,640
+if the new image
+
+648
+00:35:31,640 --> 00:35:34,640
+is
+
+649
+00:35:37,079 --> 00:35:41,839
+20% smaller in file
+
+650
+00:35:43,280 --> 00:35:47,760
+size okay is
+
+651
+00:35:51,400 --> 00:36:00,760
+um if the new image saves less than 20%
+
+652
+00:35:58,359 --> 00:36:04,839
+file
+
+653
+00:36:00,760 --> 00:36:04,839
+size then do
+
+654
+00:36:05,160 --> 00:36:09,800
+nothing there nothing in done okay this
+
+655
+00:36:08,400 --> 00:36:14,040
+should be the new
+
+656
+00:36:09,800 --> 00:36:19,040
+Behavior okay this is the old
+
+657
+00:36:14,040 --> 00:36:19,040
+Behavior Uh you know old Behavior
+
+658
+00:36:28,200 --> 00:36:32,480
+new Behavior
+
+659
+00:36:34,000 --> 00:36:40,720
+okay old Behavior so something like that
+
+660
+00:36:42,280 --> 00:36:48,680
+so okay so we need to do this let's push
+
+661
+00:36:45,720 --> 00:36:51,760
+in um to do this
+
+662
+00:36:48,680 --> 00:36:54,760
+okay so what does this command have to
+
+663
+00:36:51,760 --> 00:36:58,200
+do basically it first of all it needs to
+
+664
+00:36:54,760 --> 00:37:03,359
+find the url so let's make let me show
+
+665
+00:36:58,200 --> 00:37:07,000
+you um go to HTML so when the it needs
+
+666
+00:37:03,359 --> 00:37:11,440
+to find the file path around your
+
+667
+00:37:07,000 --> 00:37:15,079
+cursor uh and uh that
+
+668
+00:37:11,440 --> 00:37:15,079
+is uh that
+
+669
+00:37:16,480 --> 00:37:24,520
+is search backward for image tag then
+
+670
+00:37:20,839 --> 00:37:28,240
+get you know grab the points okay
+
+671
+00:37:24,520 --> 00:37:31,599
+so yeah so then you get the X path is
+
+672
+00:37:28,240 --> 00:37:33,200
+the image file path then you create a
+
+673
+00:37:31,599 --> 00:37:37,000
+new
+
+674
+00:37:33,200 --> 00:37:40,359
+name uh so if the new name exist report
+
+675
+00:37:37,000 --> 00:37:43,000
+Arrow file already exist okay then you
+
+676
+00:37:40,359 --> 00:37:46,079
+call image magic to convert
+
+677
+00:37:43,000 --> 00:37:49,359
+it uh then
+
+678
+00:37:46,079 --> 00:37:52,319
+you uh you how do you call image magic
+
+679
+00:37:49,359 --> 00:37:56,079
+you just call a shell command shell Dash
+
+680
+00:37:52,319 --> 00:37:59,480
+command then you check the file size so
+
+681
+00:37:56,079 --> 00:38:02,119
+yeah so let's see so the original file
+
+682
+00:37:59,480 --> 00:38:05,800
+size is
+
+683
+00:38:02,119 --> 00:38:08,440
+um yeah so this is how you get file size
+
+684
+00:38:05,800 --> 00:38:10,599
+uh by file attributes
+
+685
+00:38:08,440 --> 00:38:15,760
+okay uh
+
+686
+00:38:10,599 --> 00:38:18,640
+then the new file size okay then you
+
+687
+00:38:15,760 --> 00:38:21,520
+compare okay so actually all we have to
+
+688
+00:38:18,640 --> 00:38:25,240
+modify is this part okay so compare size
+
+689
+00:38:21,520 --> 00:38:30,119
+if the original is greater than
+
+690
+00:38:25,240 --> 00:38:32,360
+new then you you do the change basically
+
+691
+00:38:30,119 --> 00:38:34,839
+you rename you rename
+
+692
+00:38:32,360 --> 00:38:37,599
+[Music]
+
+693
+00:38:34,839 --> 00:38:40,599
+the you rename the
+
+694
+00:38:37,599 --> 00:38:40,599
+file
+
+695
+00:38:47,720 --> 00:38:54,880
+um yeah the X path is original file path
+
+696
+00:38:52,359 --> 00:38:58,000
+so you rename it into a
+
+697
+00:38:54,880 --> 00:38:59,400
+backup and then you modify the current
+
+698
+00:38:58,000 --> 00:39:02,599
+buffer so
+
+699
+00:38:59,400 --> 00:39:04,760
+that so that we it will change this part
+
+700
+00:39:02,599 --> 00:39:07,400
+to the new file
+
+701
+00:39:04,760 --> 00:39:09,400
+name right so first of all you generate
+
+702
+00:39:07,400 --> 00:39:11,520
+the file you compare the size if you
+
+703
+00:39:09,400 --> 00:39:14,079
+want to make a change you change the
+
+704
+00:39:11,520 --> 00:39:18,520
+file name on on the
+
+705
+00:39:14,079 --> 00:39:20,880
+disk of the original file to a backup so
+
+706
+00:39:18,520 --> 00:39:23,720
+it's possible for you to revert you know
+
+707
+00:39:20,880 --> 00:39:25,800
+if you for some reason you don't like it
+
+708
+00:39:23,720 --> 00:39:28,079
+then you also modify the current the
+
+709
+00:39:25,800 --> 00:39:32,400
+curser position to point into the new
+
+710
+00:39:28,079 --> 00:39:36,720
+file okay so that is uh what's this
+
+711
+00:39:32,400 --> 00:39:39,400
+doing here if the file size is greater
+
+712
+00:39:36,720 --> 00:39:43,280
+otherwise otherwise just delete delete
+
+713
+00:39:39,400 --> 00:39:46,040
+the new generated file okay then tell
+
+714
+00:39:43,280 --> 00:39:49,000
+the user about it so all we have to do
+
+715
+00:39:46,040 --> 00:39:50,359
+is modify this part okay so let's try
+
+716
+00:39:49,000 --> 00:39:54,640
+let's
+
+717
+00:39:50,359 --> 00:39:57,839
+see so if the original image image size
+
+718
+00:39:54,640 --> 00:40:00,680
+we want to like be 20% or so thing if
+
+719
+00:39:57,839 --> 00:40:00,680
+the orinal
+
+720
+00:40:04,160 --> 00:40:08,599
+size times okay
+
+721
+00:40:09,880 --> 00:40:18,280
+so times
+
+722
+00:40:13,560 --> 00:40:22,359
+08 let's say 0.7 so shrink the original
+
+723
+00:40:18,280 --> 00:40:27,359
+size let's see what this how this work
+
+724
+00:40:22,359 --> 00:40:27,359
+so if the original size
+
+725
+00:40:31,680 --> 00:40:36,119
+I think that's
+
+726
+00:40:33,000 --> 00:40:40,280
+it times
+
+727
+00:40:36,119 --> 00:40:40,280
+0.7 is greater than
+
+728
+00:40:42,920 --> 00:40:49,480
+new that means the original
+
+729
+00:40:46,319 --> 00:40:52,800
+size is
+
+730
+00:40:49,480 --> 00:40:57,520
+is um you know this logic let's let's
+
+731
+00:40:52,800 --> 00:41:01,839
+try to create a new logic so
+
+732
+00:40:57,520 --> 00:41:01,839
+this is like about buing
+
+733
+00:41:01,880 --> 00:41:08,240
+logic so if the original size is greater
+
+734
+00:41:05,440 --> 00:41:10,319
+than the new size times
+
+735
+00:41:08,240 --> 00:41:15,680
+1.2 or
+
+736
+00:41:10,319 --> 00:41:15,680
+1.3 orinal is greater than the new
+
+737
+00:41:22,480 --> 00:41:29,599
+size uh well another way maybe you know
+
+738
+00:41:26,359 --> 00:41:33,440
+kind of confusing let's do this this way
+
+739
+00:41:29,599 --> 00:41:39,160
+okay so if the new size divided by the
+
+740
+00:41:33,440 --> 00:41:39,160
+original size so divide so let's
+
+741
+00:41:39,680 --> 00:41:48,480
+say if the new size divided by the
+
+742
+00:41:43,280 --> 00:41:53,319
+original size is is is less than okay
+
+743
+00:41:48,480 --> 00:41:53,319
+not greater than so less than
+
+744
+00:41:54,240 --> 00:42:00,690
+okay if the new size
+
+745
+00:41:57,560 --> 00:42:02,480
+divided by the original size is less
+
+746
+00:42:00,690 --> 00:42:05,480
+[Music]
+
+747
+00:42:02,480 --> 00:42:05,480
+than
+
+748
+00:42:06,079 --> 00:42:12,880
+um
+
+749
+00:42:08,200 --> 00:42:16,760
+0.8 okay this is more intuitive then we
+
+750
+00:42:12,880 --> 00:42:18,559
+do the change otherwise don't okay so
+
+751
+00:42:16,760 --> 00:42:22,480
+let's try
+
+752
+00:42:18,559 --> 00:42:26,280
+that so remove that remove that okay so
+
+753
+00:42:22,480 --> 00:42:29,119
+let's see new size divided by original
+
+754
+00:42:26,280 --> 00:42:29,119
+size
+
+755
+00:42:30,040 --> 00:42:34,079
+is less than 1 Point uh
+
+756
+00:42:35,079 --> 00:42:41,880
+0.8 okay yeah let's do this so actually
+
+757
+00:42:39,160 --> 00:42:46,000
+it's should be pretty simple we don't
+
+758
+00:42:41,880 --> 00:42:48,680
+even there there okay now evaluate the
+
+759
+00:42:46,000 --> 00:42:52,960
+perer let's try
+
+760
+00:42:48,680 --> 00:42:52,960
+it okay so actually
+
+761
+00:42:55,720 --> 00:43:01,680
+now uh
+
+762
+00:42:58,160 --> 00:43:01,680
+actually let's change it
+
+763
+00:43:05,599 --> 00:43:12,400
+to 0 five you know that means the new
+
+764
+00:43:09,880 --> 00:43:12,400
+size
+
+765
+00:43:12,440 --> 00:43:18,559
+is let's let's make it severe so we can
+
+766
+00:43:15,800 --> 00:43:23,119
+actually test it so if the new size is
+
+767
+00:43:18,559 --> 00:43:26,040
+actually just less than 1/3 of the
+
+768
+00:43:23,119 --> 00:43:29,240
+original that's what this means evaluate
+
+769
+00:43:26,040 --> 00:43:33,960
+it so we can can actually test it so go
+
+770
+00:43:29,240 --> 00:43:37,640
+here go to diet rename this so we have
+
+771
+00:43:33,960 --> 00:43:41,720
+this back okay then delete the PNG open
+
+772
+00:43:37,640 --> 00:43:43,720
+it delete it and make a few backup of
+
+773
+00:43:41,720 --> 00:43:46,640
+the PNG so we
+
+774
+00:43:43,720 --> 00:43:51,920
+can back up back
+
+775
+00:43:46,640 --> 00:43:58,240
+up okay so this PNG is
+
+776
+00:43:51,920 --> 00:44:04,000
+286 okay the new jpeg is 100
+
+777
+00:43:58,240 --> 00:44:08,359
+uh 17 so it's not 1/3 so when we do this
+
+778
+00:44:04,000 --> 00:44:12,160
+let's say JP uh PNG okay let's cut let's
+
+779
+00:44:08,359 --> 00:44:13,520
+do it again new delete that so open it
+
+780
+00:44:12,160 --> 00:44:16,880
+so this
+
+781
+00:44:13,520 --> 00:44:16,880
+PNG is
+
+782
+00:44:17,960 --> 00:44:26,200
+280k the jpeg would be 117 it is not 1/3
+
+783
+00:44:22,880 --> 00:44:30,000
+of the original okay not enough so when
+
+784
+00:44:26,200 --> 00:44:37,119
+we call the command now it will not
+
+785
+00:44:30,000 --> 00:44:37,119
+replace the PNG let's try it do it oh it
+
+786
+00:44:38,160 --> 00:44:43,440
+did
+
+787
+00:44:40,440 --> 00:44:48,400
+uh
+
+788
+00:44:43,440 --> 00:44:48,400
+well yeah it did so
+
+789
+00:44:49,319 --> 00:44:59,040
+one3 okay let's let's do it let's delete
+
+790
+00:44:54,559 --> 00:44:59,040
+let's do it again
+
+791
+00:45:00,599 --> 00:45:07,119
+okay okay let's now go back to our
+
+792
+00:45:04,119 --> 00:45:12,119
+Command so what
+
+793
+00:45:07,119 --> 00:45:16,280
+uh what do this new size divided
+
+794
+00:45:12,119 --> 00:45:20,240
+by now now do we have to be concerned
+
+795
+00:45:16,280 --> 00:45:22,839
+about int and Float stuff let's say two
+
+796
+00:45:20,240 --> 00:45:24,880
+three
+
+797
+00:45:22,839 --> 00:45:28,000
+Eva the
+
+798
+00:45:24,880 --> 00:45:29,880
+[ __ ] you need to convert to float that's
+
+799
+00:45:28,000 --> 00:45:33,760
+why this is annoying
+
+800
+00:45:29,880 --> 00:45:38,839
+part because two divided by three gets
+
+801
+00:45:33,760 --> 00:45:38,839
+you zero okay let's look at the
+
+802
+00:45:39,040 --> 00:45:42,040
+documentation
+
+803
+00:45:49,839 --> 00:45:58,400
+uh okay I don't so well I mean so you
+
+804
+00:45:54,240 --> 00:45:59,880
+have to into float okay in to float can
+
+805
+00:45:58,400 --> 00:46:03,000
+you do
+
+806
+00:45:59,880 --> 00:46:06,839
+that something float
+
+807
+00:46:03,000 --> 00:46:09,440
+okay is there some I forgot what's going
+
+808
+00:46:06,839 --> 00:46:14,119
+on with emag Lis
+
+809
+00:46:09,440 --> 00:46:21,200
+about uh so let's go to emag L
+
+810
+00:46:14,119 --> 00:46:21,200
+tutorial lisp Basics number okay
+
+811
+00:46:22,680 --> 00:46:32,440
+so binary hexadecimal octo input uh by
+
+812
+00:46:28,280 --> 00:46:33,480
+by arbitrary number base input okay so
+
+813
+00:46:32,440 --> 00:46:36,839
+let's see
+
+814
+00:46:33,480 --> 00:46:39,720
+arithmetics oh we have convert number
+
+815
+00:46:36,839 --> 00:46:42,559
+string okay so you got to convert to
+
+816
+00:46:39,720 --> 00:46:45,440
+float yeah you have to this is one of
+
+817
+00:46:42,559 --> 00:46:45,440
+the Annoying
+
+818
+00:46:46,240 --> 00:46:53,119
+Thing okay so
+
+819
+00:46:49,119 --> 00:46:53,119
+actually float
+
+820
+00:46:59,119 --> 00:47:07,160
+now that's correct answer you can see
+
+821
+00:47:03,559 --> 00:47:11,160
+0.666 okay so we just need to put the
+
+822
+00:47:07,160 --> 00:47:11,160
+float there so let's do
+
+823
+00:47:16,280 --> 00:47:25,480
+it there okay now let's grab that and go
+
+824
+00:47:21,000 --> 00:47:29,800
+to S Talk Show and uh paste it so
+
+825
+00:47:25,480 --> 00:47:29,800
+because it's a interest same point
+
+826
+00:47:32,040 --> 00:47:39,480
+point there and uh copy the file path
+
+827
+00:47:36,800 --> 00:47:44,359
+put it here okay that's an interesting
+
+828
+00:47:39,480 --> 00:47:47,480
+point now let's let's do this again back
+
+829
+00:47:44,359 --> 00:47:50,680
+to the code close that back to the code
+
+830
+00:47:47,480 --> 00:47:53,480
+evaluate the buffer go back here now if
+
+831
+00:47:50,680 --> 00:47:57,839
+we do it again it will not
+
+832
+00:47:53,480 --> 00:48:01,079
+convert do it there it is
+
+833
+00:47:57,839 --> 00:48:03,800
+is now the message is the wording of the
+
+834
+00:48:01,079 --> 00:48:06,920
+message is bit wrong because you know
+
+835
+00:48:03,800 --> 00:48:10,960
+it's not larger but it's um so let's fix
+
+836
+00:48:06,920 --> 00:48:13,119
+the wording okay new image size
+
+837
+00:48:10,960 --> 00:48:19,839
+is
+
+838
+00:48:13,119 --> 00:48:22,839
+is is let's see uh 0.3 let's say
+
+839
+00:48:19,839 --> 00:48:22,839
+0
+
+840
+00:48:24,200 --> 00:48:36,440
+six so you new image size is not
+
+841
+00:48:32,280 --> 00:48:38,640
+0.6 of original size nothing inst done
+
+842
+00:48:36,440 --> 00:48:41,559
+so that makes more
+
+843
+00:48:38,640 --> 00:48:43,240
+sense uh we might have to trick this
+
+844
+00:48:41,559 --> 00:48:45,920
+number
+
+845
+00:48:43,240 --> 00:48:49,040
+because yeah
+
+846
+00:48:45,920 --> 00:48:53,280
+anyway uh let's say seven it's not to be
+
+847
+00:48:49,040 --> 00:48:57,079
+too yeah seven okay so now this is this
+
+848
+00:48:53,280 --> 00:48:59,920
+code is done and it's valid so let's
+
+849
+00:48:57,079 --> 00:49:03,880
+copy that to the talk
+
+850
+00:48:59,920 --> 00:49:07,640
+show uh or behavior let's let's just say
+
+851
+00:49:03,880 --> 00:49:09,839
+that new Behavior okay then
+
+852
+00:49:07,640 --> 00:49:12,480
+we cut that
+
+853
+00:49:09,839 --> 00:49:14,839
+code back to
+
+854
+00:49:12,480 --> 00:49:19,240
+HTML
+
+855
+00:49:14,839 --> 00:49:23,760
+HTML paste the new code now the old code
+
+856
+00:49:19,240 --> 00:49:28,720
+cut it and put it to this temp file okay
+
+857
+00:49:23,760 --> 00:49:28,720
+save it close showing browser
+
+858
+00:49:28,839 --> 00:49:36,359
+uh let's go toite CH so this one we
+
+859
+00:49:32,000 --> 00:49:39,119
+ignore close close
+
+860
+00:49:36,359 --> 00:49:42,720
+close eval the
+
+861
+00:49:39,119 --> 00:49:48,000
+buffer HTML mod now let's see the
+
+862
+00:49:42,720 --> 00:49:52,760
+difference okay this command VC Das
+
+863
+00:49:48,000 --> 00:49:59,480
+diff What no change oh not not here so
+
+864
+00:49:52,760 --> 00:50:03,160
+close that uh h HTML commands Evol
+
+865
+00:49:59,480 --> 00:50:05,880
+of VC diff there it is that's a
+
+866
+00:50:03,160 --> 00:50:09,440
+difference we changed
+
+867
+00:50:05,880 --> 00:50:14,200
+today basic basically just over here
+
+868
+00:50:09,440 --> 00:50:17,680
+fantastic okay so fantastic HTML
+
+869
+00:50:14,200 --> 00:50:20,720
+commands so now close that showing
+
+870
+00:50:17,680 --> 00:50:22,880
+browser we are done basically so
+
+871
+00:50:20,720 --> 00:50:26,160
+let's
+
+872
+00:50:22,880 --> 00:50:31,040
+um let's see should I put the code so
+
+873
+00:50:26,160 --> 00:50:31,040
+you guys can use it answer
+
+874
+00:50:33,200 --> 00:50:40,400
+answer uh let's go let's
+
+875
+00:50:37,319 --> 00:50:43,960
+see now if the command uses some other
+
+876
+00:50:40,400 --> 00:50:47,040
+command then yeah it does it you know
+
+877
+00:50:43,960 --> 00:50:51,640
+this get thing at Point that's
+
+878
+00:50:47,040 --> 00:50:52,799
+free uh but then you have Co image magic
+
+879
+00:50:51,640 --> 00:50:55,240
+yeah
+
+880
+00:50:52,799 --> 00:50:57,920
+so yeah I'm not going
+
+881
+00:50:55,240 --> 00:51:00,440
+to I'm not not going to publish this
+
+882
+00:50:57,920 --> 00:51:03,000
+code because then you need you know you
+
+883
+00:51:00,440 --> 00:51:06,359
+need to also image magic which you can
+
+884
+00:51:03,000 --> 00:51:07,520
+do by the way you can easily do by Cod
+
+885
+00:51:06,359 --> 00:51:09,880
+or shell
+
+886
+00:51:07,520 --> 00:51:12,400
+command yeah but I suppose for most
+
+887
+00:51:09,880 --> 00:51:16,000
+people it you know it takes some
+
+888
+00:51:12,400 --> 00:51:18,520
+experience to code anyway I think that's
+
+889
+00:51:16,000 --> 00:51:20,599
+it for today close that close that
+
+890
+00:51:18,520 --> 00:51:22,640
+showing browser I think that's it any
+
+891
+00:51:20,599 --> 00:51:28,559
+anything else so let me read the
+
+892
+00:51:22,640 --> 00:51:28,559
+comments and uh that's it for today
+
+893
+00:51:40,400 --> 00:51:47,240
+uh what do you think of do s
+
+894
+00:51:43,799 --> 00:51:50,200
+HTM ml server side include I never used
+
+895
+00:51:47,240 --> 00:51:56,359
+it and and that was
+
+896
+00:51:50,200 --> 00:52:00,359
+technology of late ' 90s to early 2000s
+
+897
+00:51:56,359 --> 00:52:04,200
+okay nobody uses that anymore server s
+
+898
+00:52:00,359 --> 00:52:09,880
+include I forgot even exactly I
+
+899
+00:52:04,200 --> 00:52:12,720
+mean um shtml nobody use that today
+
+900
+00:52:09,880 --> 00:52:15,359
+okay but you are probably interested
+
+901
+00:52:12,720 --> 00:52:19,160
+because you are you are like not trying
+
+902
+00:52:15,359 --> 00:52:22,240
+to like you know trying to go you know
+
+903
+00:52:19,160 --> 00:52:22,240
+use the Asian
+
+904
+00:52:22,480 --> 00:52:30,200
+technology
+
+905
+00:52:25,000 --> 00:52:33,200
+uh computer good hope that's all pit
+
+906
+00:52:30,200 --> 00:52:36,480
+site I suppose F you know all these are
+
+907
+00:52:33,200 --> 00:52:41,119
+scums these are you know all
+
+908
+00:52:36,480 --> 00:52:44,760
+these well except Apache You Know M MCA
+
+909
+00:52:41,119 --> 00:52:46,960
+the scum deep State controlled virus
+
+910
+00:52:44,760 --> 00:52:50,839
+program antivirus
+
+911
+00:52:46,960 --> 00:52:53,880
+program you know this file.org that's by
+
+912
+00:52:50,839 --> 00:52:55,720
+some scammers you know Tech geekers you
+
+913
+00:52:53,880 --> 00:53:00,040
+know they they trying to make money so
+
+914
+00:52:55,720 --> 00:53:02,200
+they try to or file name extensions like
+
+915
+00:53:00,040 --> 00:53:04,839
+things like that you know then copycat
+
+916
+00:53:02,200 --> 00:53:09,160
+so you have lots of them file format you
+
+917
+00:53:04,839 --> 00:53:13,960
+know uh then another one file
+
+918
+00:53:09,160 --> 00:53:17,160
+info uh you know I just want Wikipedia
+
+919
+00:53:13,960 --> 00:53:19,160
+okay Wikipedia of course is also very
+
+920
+00:53:17,160 --> 00:53:22,440
+corrupt
+
+921
+00:53:19,160 --> 00:53:25,480
+now because it's corrupted by Deep state
+
+922
+00:53:22,440 --> 00:53:27,760
+so on Wikipedia let me say this again if
+
+923
+00:53:25,480 --> 00:53:30,640
+you search anything technical
+
+924
+00:53:27,760 --> 00:53:32,839
+information math physics chemistry
+
+925
+00:53:30,640 --> 00:53:35,960
+programming no
+
+926
+00:53:32,839 --> 00:53:39,799
+problem if you search for esoteric
+
+927
+00:53:35,960 --> 00:53:43,720
+history like China history 1,000 years
+
+928
+00:53:39,799 --> 00:53:47,319
+ago uh America history 1,000 years ago
+
+929
+00:53:43,720 --> 00:53:50,160
+Europe history 1,000 years ago no
+
+930
+00:53:47,319 --> 00:53:53,079
+problem but if you search anything on
+
+931
+00:53:50,160 --> 00:53:55,640
+the news let's say whatever War
+
+932
+00:53:53,079 --> 00:53:58,640
+currently going on or Middle East or
+
+933
+00:53:55,640 --> 00:54:02,440
+Ukraine or whatever China something
+
+934
+00:53:58,640 --> 00:54:05,680
+about China and Taiwan or about
+
+935
+00:54:02,440 --> 00:54:08,640
+American uh
+
+936
+00:54:05,680 --> 00:54:09,839
+election everything you read is complete
+
+937
+00:54:08,640 --> 00:54:14,040
+fake
+
+938
+00:54:09,839 --> 00:54:16,720
+news okay that's how you judge you know
+
+939
+00:54:14,040 --> 00:54:20,559
+Wikipedia uh by the way I have a one
+
+940
+00:54:16,720 --> 00:54:23,480
+hour live stream on how to judge
+
+941
+00:54:20,559 --> 00:54:26,599
+Wikipedia information
+
+942
+00:54:23,480 --> 00:54:28,160
+correctness uh trustworthiness
+
+943
+00:54:26,599 --> 00:54:30,640
+sometimes ago half a year ago or
+
+944
+00:54:28,160 --> 00:54:34,040
+something in fact I more than one live
+
+945
+00:54:30,640 --> 00:54:36,440
+stream about that so anyway server side
+
+946
+00:54:34,040 --> 00:54:38,839
+includes is a simple in inter
+
+947
+00:54:36,440 --> 00:54:40,960
+interpreted interpreted serers side
+
+948
+00:54:38,839 --> 00:54:43,799
+scripting language used almost
+
+949
+00:54:40,960 --> 00:54:46,160
+exclusively for the world web it is most
+
+950
+00:54:43,799 --> 00:54:48,880
+useful for including the content one or
+
+951
+00:54:46,160 --> 00:54:52,520
+more files into web page that's [ __ ]
+
+952
+00:54:48,880 --> 00:54:57,079
+okay that's just like include from the
+
+953
+00:54:52,520 --> 00:54:59,480
+C idiots the SE scums first created is
+
+954
+00:54:57,079 --> 00:55:02,280
+like you know you just include the whole
+
+955
+00:54:59,480 --> 00:55:04,760
+file you know no Library no module no
+
+956
+00:55:02,280 --> 00:55:07,839
+name space you know you just say include
+
+957
+00:55:04,760 --> 00:55:11,200
+this file and every it it it behaves as
+
+958
+00:55:07,839 --> 00:55:13,920
+if the whole file is in this file that's
+
+959
+00:55:11,200 --> 00:55:17,280
+basically [ __ ]
+
+960
+00:55:13,920 --> 00:55:17,280
+anyway bye
+
+961
+00:55:22,559 --> 00:55:28,000
+guys anything else bye guys
+
+962
+00:55:28,559 --> 00:55:31,480
+1 hour
+
+963
+00:55:36,680 --> 00:55:43,599
+exactly stop I don't know stop talking
+
+964
+00:55:39,880 --> 00:55:46,520
+about that thing okay stop you know if
+
+965
+00:55:43,599 --> 00:55:50,880
+we uh yeah don't you know
+
+966
+00:55:46,520 --> 00:55:50,880
+don't mention it for no
+
+967
+00:55:51,359 --> 00:55:57,960
+reason I mean that um you know that's a
+
+968
+00:55:55,280 --> 00:56:01,400
+deep State thing
+
+969
+00:55:57,960 --> 00:56:04,280
+but um but some
+
+970
+00:56:01,400 --> 00:56:06,720
+people there are some people good people
+
+971
+00:56:04,280 --> 00:56:09,680
+okay so you know don't just randomly
+
+972
+00:56:06,720 --> 00:56:09,680
+throw that word
+
+973
+00:56:13,280 --> 00:56:17,000
+out okay bye guys
+

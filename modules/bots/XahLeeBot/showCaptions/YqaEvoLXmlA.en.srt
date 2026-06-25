@@ -1,0 +1,4384 @@
+1
+00:00:07,620 --> 00:00:13,799
+hello welcome to another episode of Star
+
+2
+00:00:11,160 --> 00:00:15,780
+Talk Show today we are going to code
+
+3
+00:00:13,799 --> 00:00:18,600
+emac lisp
+
+4
+00:00:15,780 --> 00:00:20,400
+I'm going to there are several things to
+
+5
+00:00:18,600 --> 00:00:24,119
+do
+
+6
+00:00:20,400 --> 00:00:25,859
+so coding emac this okay so uh I'm
+
+7
+00:00:24,119 --> 00:00:29,760
+wondering you know there are several
+
+8
+00:00:25,859 --> 00:00:34,559
+projects that we may do so let me show
+
+9
+00:00:29,760 --> 00:00:36,960
+you uh what they are okay so go to emacs
+
+10
+00:00:34,559 --> 00:00:40,260
+actually go to sound talk show topic
+
+11
+00:00:36,960 --> 00:00:44,399
+notes so one of the problem I want to do
+
+12
+00:00:40,260 --> 00:00:47,300
+is write a Emax lisp command you know
+
+13
+00:00:44,399 --> 00:00:52,140
+write the emacs command in emac bisp
+
+14
+00:00:47,300 --> 00:00:54,899
+that does common and uncommon code for
+
+15
+00:00:52,140 --> 00:00:59,699
+example I mean html I can press the key
+
+16
+00:00:54,899 --> 00:01:02,340
+then we have comment in HTML you know it
+
+17
+00:00:59,699 --> 00:01:05,519
+may be in Python in JavaScript in
+
+18
+00:01:02,340 --> 00:01:08,640
+whatever language so um so one of the
+
+19
+00:01:05,519 --> 00:01:10,140
+things to do is to write this from
+
+20
+00:01:08,640 --> 00:01:13,200
+scratch
+
+21
+00:01:10,140 --> 00:01:16,200
+now let me mention if you go to Sardi
+
+22
+00:01:13,200 --> 00:01:19,020
+emac this tutorial you know just search
+
+23
+00:01:16,200 --> 00:01:21,360
+for it practical emac this you'll find
+
+24
+00:01:19,020 --> 00:01:24,540
+my website so we did
+
+25
+00:01:21,360 --> 00:01:29,340
+um practical emac this then you click on
+
+26
+00:01:24,540 --> 00:01:31,920
+write a major mod so we did three videos
+
+27
+00:01:29,340 --> 00:01:35,780
+four videos actually on writing a major
+
+28
+00:01:31,920 --> 00:01:35,780
+mod each one is independent
+
+29
+00:01:36,119 --> 00:01:42,540
+so and we did two or three of them three
+
+30
+00:01:39,119 --> 00:01:43,799
+of them this year recently last month so
+
+31
+00:01:42,540 --> 00:01:47,460
+check it out
+
+32
+00:01:43,799 --> 00:01:49,560
+and when you want to write a command to
+
+33
+00:01:47,460 --> 00:01:53,700
+comment you know
+
+34
+00:01:49,560 --> 00:01:55,740
+um you can use the built-in Library so
+
+35
+00:01:53,700 --> 00:01:59,460
+there's a building Library you click on
+
+36
+00:01:55,740 --> 00:02:00,299
+write a major mod then you click on
+
+37
+00:01:59,460 --> 00:02:03,240
+um
+
+38
+00:02:00,299 --> 00:02:05,759
+common uh Standalone comment command
+
+39
+00:02:03,240 --> 00:02:07,619
+Okay so there are two ways to do it one
+
+40
+00:02:05,759 --> 00:02:11,420
+is the common command
+
+41
+00:02:07,619 --> 00:02:15,300
+which relies on the build in library
+
+42
+00:02:11,420 --> 00:02:18,540
+newcomer.el that's in every emacs
+
+43
+00:02:15,300 --> 00:02:21,360
+okay so you can so if you use the
+
+44
+00:02:18,540 --> 00:02:23,520
+building Library all you have to do is
+
+45
+00:02:21,360 --> 00:02:25,560
+just add two lines you know the your
+
+46
+00:02:23,520 --> 00:02:28,440
+comment your programming language is
+
+47
+00:02:25,560 --> 00:02:29,819
+common start characters and common n
+
+48
+00:02:28,440 --> 00:02:31,860
+characters
+
+49
+00:02:29,819 --> 00:02:34,200
+that's so simple all you have to do is
+
+50
+00:02:31,860 --> 00:02:35,280
+just add two lines and of course load
+
+51
+00:02:34,200 --> 00:02:37,800
+the library
+
+52
+00:02:35,280 --> 00:02:40,739
+but
+
+53
+00:02:37,800 --> 00:02:42,780
+I'm thinking you know but in some cases
+
+54
+00:02:40,739 --> 00:02:45,480
+you want to write your own common
+
+55
+00:02:42,780 --> 00:02:47,400
+command for example in the wolfam
+
+56
+00:02:45,480 --> 00:02:52,800
+language Let Me Show You woofer
+
+57
+00:02:47,400 --> 00:02:55,280
+Mathematica uh so UFM so for example let
+
+58
+00:02:52,800 --> 00:02:55,280
+me start
+
+59
+00:02:55,560 --> 00:03:01,260
+uh wolf and mod okay so right now I mean
+
+60
+00:02:58,860 --> 00:03:04,040
+wolframard if I want to comment that's a
+
+61
+00:03:01,260 --> 00:03:07,379
+comment you can see let's magnify so
+
+62
+00:03:04,040 --> 00:03:10,560
+this is a comment in Wolfram language
+
+63
+00:03:07,379 --> 00:03:12,599
+you know uh I believe this is also used
+
+64
+00:03:10,560 --> 00:03:15,239
+in Pascal
+
+65
+00:03:12,599 --> 00:03:17,459
+and apple script I forgot
+
+66
+00:03:15,239 --> 00:03:19,560
+but anyway there's uh I have a lot of
+
+67
+00:03:17,459 --> 00:03:23,040
+you know it's used in a few other
+
+68
+00:03:19,560 --> 00:03:24,659
+languages also use this maybe old camo I
+
+69
+00:03:23,040 --> 00:03:28,319
+forgot
+
+70
+00:03:24,659 --> 00:03:31,800
+so this is wolfen language common so if
+
+71
+00:03:28,319 --> 00:03:33,480
+so when you come and seeing tags of your
+
+72
+00:03:31,800 --> 00:03:35,300
+programming language
+
+73
+00:03:33,480 --> 00:03:39,000
+is
+
+74
+00:03:35,300 --> 00:03:42,900
+unusual or not the typical C or C plus
+
+75
+00:03:39,000 --> 00:03:45,120
+plus you know slash slash or slash
+
+76
+00:03:42,900 --> 00:03:47,640
+asterisk
+
+77
+00:03:45,120 --> 00:03:50,340
+you know that's C and C plus first in
+
+78
+00:03:47,640 --> 00:03:53,459
+Java or for example in Python that's a
+
+79
+00:03:50,340 --> 00:03:55,560
+pound sign python bash Powershell that's
+
+80
+00:03:53,459 --> 00:03:58,019
+the most simple you know if your comment
+
+81
+00:03:55,560 --> 00:04:00,379
+is a bit more complex than the typical
+
+82
+00:03:58,019 --> 00:04:03,959
+ones then
+
+83
+00:04:00,379 --> 00:04:07,580
+you might have a problem using the
+
+84
+00:04:03,959 --> 00:04:09,180
+building Library the
+
+85
+00:04:07,580 --> 00:04:11,340
+newcomen.el
+
+86
+00:04:09,180 --> 00:04:13,920
+but actually I haven't looked into I
+
+87
+00:04:11,340 --> 00:04:16,620
+should look into so
+
+88
+00:04:13,920 --> 00:04:18,900
+so that's one of the things we should do
+
+89
+00:04:16,620 --> 00:04:23,400
+so do we have people watching now three
+
+90
+00:04:18,900 --> 00:04:24,900
+people fantastic a grand total of three
+
+91
+00:04:23,400 --> 00:04:26,940
+so
+
+92
+00:04:24,900 --> 00:04:29,220
+since we've been talking about this
+
+93
+00:04:26,940 --> 00:04:31,380
+already for five minutes let's just do
+
+94
+00:04:29,220 --> 00:04:34,440
+this okay this other project but let's
+
+95
+00:04:31,380 --> 00:04:37,139
+just focus on doing this today so we are
+
+96
+00:04:34,440 --> 00:04:39,600
+going to write a comment and uncommon
+
+97
+00:04:37,139 --> 00:04:42,720
+command in
+
+98
+00:04:39,600 --> 00:04:46,620
+in emac this for the Wolfram language so
+
+99
+00:04:42,720 --> 00:04:49,199
+let me go let me detail what does it
+
+100
+00:04:46,620 --> 00:04:53,100
+involve what does your code needs to do
+
+101
+00:04:49,199 --> 00:04:54,960
+okay for example comment uncommon okay
+
+102
+00:04:53,100 --> 00:04:58,080
+you can also select
+
+103
+00:04:54,960 --> 00:05:00,380
+you know part of the text and do call
+
+104
+00:04:58,080 --> 00:05:04,259
+comment you just comment that part out
+
+105
+00:05:00,380 --> 00:05:06,419
+fantastic right now it's using the
+
+106
+00:05:04,259 --> 00:05:09,000
+building right now you see it works but
+
+107
+00:05:06,419 --> 00:05:13,080
+you know I'm using subwoofer mod and
+
+108
+00:05:09,000 --> 00:05:15,860
+it's right now I'm implementing it using
+
+109
+00:05:13,080 --> 00:05:18,479
+the building library
+
+110
+00:05:15,860 --> 00:05:20,400
+newcommon.el but it's got some problems
+
+111
+00:05:18,479 --> 00:05:22,820
+let me show you what is a problem okay
+
+112
+00:05:20,400 --> 00:05:26,580
+so for example I comment out the whole
+
+113
+00:05:22,820 --> 00:05:30,780
+uh whole line let's say
+
+114
+00:05:26,580 --> 00:05:33,360
+some more lines here okay
+
+115
+00:05:30,780 --> 00:05:35,880
+comment
+
+116
+00:05:33,360 --> 00:05:38,820
+comment okay wait
+
+117
+00:05:35,880 --> 00:05:40,979
+cut it so I want to make it you know
+
+118
+00:05:38,820 --> 00:05:44,580
+ufam language common is multi-line
+
+119
+00:05:40,979 --> 00:05:49,020
+comments so you can comment that way but
+
+120
+00:05:44,580 --> 00:05:52,860
+then suppose some other thing here so
+
+121
+00:05:49,020 --> 00:05:55,699
+you know I wrote more code I want to uh
+
+122
+00:05:52,860 --> 00:05:55,699
+and
+
+123
+00:05:55,759 --> 00:06:04,139
+turns out I don't
+
+124
+00:06:00,300 --> 00:06:06,840
+needed okay so I select them I want to
+
+125
+00:06:04,139 --> 00:06:09,900
+comment again now in Wu fan language
+
+126
+00:06:06,840 --> 00:06:13,919
+common syntax you can Nest it then you
+
+127
+00:06:09,900 --> 00:06:16,620
+can Nest them so unlike C or C plus plus
+
+128
+00:06:13,919 --> 00:06:18,539
+you know for example the
+
+129
+00:06:16,620 --> 00:06:21,860
+Java
+
+130
+00:06:18,539 --> 00:06:26,600
+okay where is my uh
+
+131
+00:06:21,860 --> 00:06:26,600
+who is my asterisk
+
+132
+00:06:26,960 --> 00:06:33,419
+you know I'm using a glove 80 keyboard
+
+133
+00:06:30,120 --> 00:06:35,759
+if you don't know already last week I
+
+134
+00:06:33,419 --> 00:06:40,759
+did a video review I'm gonna show you in
+
+135
+00:06:35,759 --> 00:06:43,319
+a bit okay so for example here is a
+
+136
+00:06:40,759 --> 00:06:45,060
+Java comment
+
+137
+00:06:43,319 --> 00:06:48,539
+uh
+
+138
+00:06:45,060 --> 00:06:52,319
+yeah you see Java and C comma they
+
+139
+00:06:48,539 --> 00:06:55,319
+cannot be nested okay that is uh that is
+
+140
+00:06:52,319 --> 00:06:58,800
+you know that that is not not good
+
+141
+00:06:55,319 --> 00:07:01,620
+that's a c style that's why I despise CC
+
+142
+00:06:58,800 --> 00:07:04,740
+plus plus Java those kind of languages
+
+143
+00:07:01,620 --> 00:07:08,160
+and Unix they are like brainless okay
+
+144
+00:07:04,740 --> 00:07:09,479
+they are geared they are designed C C
+
+145
+00:07:08,160 --> 00:07:13,380
+plus plus
+
+146
+00:07:09,479 --> 00:07:16,380
+uh you know those languages in Java you
+
+147
+00:07:13,380 --> 00:07:20,280
+know C is a virus then it begets C plus
+
+148
+00:07:16,380 --> 00:07:22,319
+plus Java JavaScript C sharp you know
+
+149
+00:07:20,280 --> 00:07:24,840
+all those are
+
+150
+00:07:22,319 --> 00:07:27,419
+but over the past 20 or 30 years they
+
+151
+00:07:24,840 --> 00:07:29,520
+improved you know for example Java
+
+152
+00:07:27,419 --> 00:07:32,220
+about 10 years ago they started to have
+
+153
+00:07:29,520 --> 00:07:35,460
+Lambda you know but anyway so but you
+
+154
+00:07:32,220 --> 00:07:38,460
+know the damage is already huge C okay
+
+155
+00:07:35,460 --> 00:07:41,160
+so anyway you know see okay so
+
+156
+00:07:38,460 --> 00:07:43,500
+for example you have this comment this
+
+157
+00:07:41,160 --> 00:07:47,900
+comment I believe it was reading from C
+
+158
+00:07:43,500 --> 00:07:51,599
+or C plus plus I forgot hello
+
+159
+00:07:47,900 --> 00:07:54,780
+uh what would you do if money grows you
+
+160
+00:07:51,599 --> 00:07:56,759
+know it depends so
+
+161
+00:07:54,780 --> 00:07:58,800
+so uh
+
+162
+00:07:56,759 --> 00:08:01,680
+um you know one one of the common is
+
+163
+00:07:58,800 --> 00:08:02,699
+that and the other one is slash slash
+
+164
+00:08:01,680 --> 00:08:05,699
+okay
+
+165
+00:08:02,699 --> 00:08:07,680
+uh actually why don't we you know since
+
+166
+00:08:05,699 --> 00:08:10,740
+we are talking about it let's just go
+
+167
+00:08:07,680 --> 00:08:14,539
+elaborate let's go um let's look up
+
+168
+00:08:10,740 --> 00:08:14,539
+Wikipedia because they have a
+
+169
+00:08:15,960 --> 00:08:21,960
+uh actually it's not go to Wikipedia why
+
+170
+00:08:19,440 --> 00:08:24,360
+don't we just go to XA
+
+171
+00:08:21,960 --> 00:08:28,139
+the dot info because I have all these
+
+172
+00:08:24,360 --> 00:08:31,319
+languages okay uh so Java this is my
+
+173
+00:08:28,139 --> 00:08:34,760
+Java tutorial this is my Java logo I
+
+174
+00:08:31,319 --> 00:08:38,399
+designed it to reflect the the
+
+175
+00:08:34,760 --> 00:08:40,520
+complexity of the Java language I wrote
+
+176
+00:08:38,399 --> 00:08:45,839
+I did this you know
+
+177
+00:08:40,520 --> 00:08:48,779
+2008 so the Java comment okay and my
+
+178
+00:08:45,839 --> 00:08:51,600
+tutorial is pretty old my Java Java
+
+179
+00:08:48,779 --> 00:08:53,640
+Language tutorial so you can see there
+
+180
+00:08:51,600 --> 00:08:57,300
+is a common syntax actually I should
+
+181
+00:08:53,640 --> 00:08:59,760
+make a new page that just describe how
+
+182
+00:08:57,300 --> 00:09:03,720
+do you do comment in comment in Java so
+
+183
+00:08:59,760 --> 00:09:06,959
+anyway so here is the Java common syntax
+
+184
+00:09:03,720 --> 00:09:09,720
+so you have line syntax starting slash
+
+185
+00:09:06,959 --> 00:09:12,360
+slash or you have the
+
+186
+00:09:09,720 --> 00:09:15,540
+you know slash asterisk
+
+187
+00:09:12,360 --> 00:09:18,480
+now one of them is originally from C the
+
+188
+00:09:15,540 --> 00:09:20,459
+other one is added by C plus plus now I
+
+189
+00:09:18,480 --> 00:09:22,140
+forgot which one is which let's let you
+
+190
+00:09:20,459 --> 00:09:24,000
+know just for the sake let's find out
+
+191
+00:09:22,140 --> 00:09:26,640
+okay
+
+192
+00:09:24,000 --> 00:09:29,820
+so uh
+
+193
+00:09:26,640 --> 00:09:32,399
+programming languages Wiki you know
+
+194
+00:09:29,820 --> 00:09:34,700
+Wikipedia is a whole list of it here and
+
+195
+00:09:32,399 --> 00:09:39,360
+so comparison programming language
+
+196
+00:09:34,700 --> 00:09:39,360
+syntax okay uh
+
+197
+00:09:44,700 --> 00:09:47,700
+uh
+
+198
+00:09:48,779 --> 00:09:51,500
+that
+
+199
+00:09:55,380 --> 00:10:02,720
+the reader Wiki these are programming
+
+200
+00:09:58,380 --> 00:10:02,720
+languages okay there is a page
+
+201
+00:10:05,760 --> 00:10:11,100
+that needs them okay okay let's take
+
+202
+00:10:08,700 --> 00:10:15,000
+some time let's just come there it is
+
+203
+00:10:11,100 --> 00:10:16,560
+common computer programming okay so this
+
+204
+00:10:15,000 --> 00:10:21,800
+page
+
+205
+00:10:16,560 --> 00:10:21,800
+uh wait where is my key to magnify
+
+206
+00:10:23,820 --> 00:10:28,500
+yeah
+
+207
+00:10:25,320 --> 00:10:32,600
+anyway so
+
+208
+00:10:28,500 --> 00:10:32,600
+so common computer languages
+
+209
+00:10:33,000 --> 00:10:41,459
+okay so you can see let's see
+
+210
+00:10:36,720 --> 00:10:44,820
+[Music]
+
+211
+00:10:41,459 --> 00:10:47,779
+okay I'm starting to get boring here I
+
+212
+00:10:44,820 --> 00:10:50,820
+need to move on
+
+213
+00:10:47,779 --> 00:10:53,360
+syntaxi stage in extension directive
+
+214
+00:10:50,820 --> 00:10:56,399
+uses uh
+
+215
+00:10:53,360 --> 00:10:58,980
+normative views needs for common level
+
+216
+00:10:56,399 --> 00:11:01,800
+of detail block comment okay this is a
+
+217
+00:10:58,980 --> 00:11:05,160
+common body variation one and this is
+
+218
+00:11:01,800 --> 00:11:09,000
+the most idiotic ASCII art style comment
+
+219
+00:11:05,160 --> 00:11:10,399
+that is you use your text to create you
+
+220
+00:11:09,000 --> 00:11:14,220
+know
+
+221
+00:11:10,399 --> 00:11:17,399
+to to draw this is okay yeah so this is
+
+222
+00:11:14,220 --> 00:11:20,519
+from c yeah so the slash asterisk is
+
+223
+00:11:17,399 --> 00:11:23,220
+from the C programming language and it
+
+224
+00:11:20,519 --> 00:11:27,600
+cannot be nested okay
+
+225
+00:11:23,220 --> 00:11:28,620
+so anyway back to back to Common so
+
+226
+00:11:27,600 --> 00:11:31,200
+it's
+
+227
+00:11:28,620 --> 00:11:33,720
+but in Wolfram language it can be nested
+
+228
+00:11:31,200 --> 00:11:37,560
+okay now there is a problem now remember
+
+229
+00:11:33,720 --> 00:11:40,380
+I'm using the default uh using the emacs
+
+230
+00:11:37,560 --> 00:11:43,260
+newcomer.el library to implement this
+
+231
+00:11:40,380 --> 00:11:45,600
+there's a problem so so if I select them
+
+232
+00:11:43,260 --> 00:11:48,420
+and I want to comment out again the
+
+233
+00:11:45,600 --> 00:11:50,480
+whole if I do it
+
+234
+00:11:48,420 --> 00:11:54,000
+okay
+
+235
+00:11:50,480 --> 00:11:56,100
+it's you know it kind of did it
+
+236
+00:11:54,000 --> 00:11:59,459
+kind of not there's there are several
+
+237
+00:11:56,100 --> 00:12:03,060
+issues one is that it does the comment
+
+238
+00:11:59,459 --> 00:12:06,300
+for each line you see you know instead
+
+239
+00:12:03,060 --> 00:12:09,300
+of just adding the bracket to the whole
+
+240
+00:12:06,300 --> 00:12:12,240
+it did it to each line that's not so
+
+241
+00:12:09,300 --> 00:12:15,000
+good okay the other problem is that you
+
+242
+00:12:12,240 --> 00:12:18,060
+see it added a backslash here
+
+243
+00:12:15,000 --> 00:12:20,760
+so that is a problem that is wrong I
+
+244
+00:12:18,060 --> 00:12:23,399
+mean yeah that is wrong incorrect
+
+245
+00:12:20,760 --> 00:12:26,820
+because once if you
+
+246
+00:12:23,399 --> 00:12:29,940
+you know you added backslash that screws
+
+247
+00:12:26,820 --> 00:12:33,300
+up the nested comment inside so now when
+
+248
+00:12:29,940 --> 00:12:34,440
+you uncomment uh oh actually it does
+
+249
+00:12:33,300 --> 00:12:36,959
+work
+
+250
+00:12:34,440 --> 00:12:39,000
+wait
+
+251
+00:12:36,959 --> 00:12:42,079
+and
+
+252
+00:12:39,000 --> 00:12:42,079
+how does it
+
+253
+00:12:44,399 --> 00:12:47,540
+and let's see
+
+254
+00:12:48,360 --> 00:12:53,880
+yeah interesting but this shouldn't
+
+255
+00:12:51,779 --> 00:12:57,720
+happen you know this you know you
+
+256
+00:12:53,880 --> 00:13:00,480
+shouldn't have a backslash there
+
+257
+00:12:57,720 --> 00:13:03,540
+okay but it's it's uh it's not a major
+
+258
+00:13:00,480 --> 00:13:05,519
+issue I I suppose we I can live with it
+
+259
+00:13:03,540 --> 00:13:09,180
+you know
+
+260
+00:13:05,519 --> 00:13:12,720
+yeah now if I live with it then we don't
+
+261
+00:13:09,180 --> 00:13:17,480
+need to write our own comment anymore
+
+262
+00:13:12,720 --> 00:13:17,480
+uh stand alone comment from scratch
+
+263
+00:13:18,120 --> 00:13:24,600
+yeah so they are so there are two ways
+
+264
+00:13:21,360 --> 00:13:27,839
+to go now now if we
+
+265
+00:13:24,600 --> 00:13:29,880
+still want to if we want to fix this you
+
+266
+00:13:27,839 --> 00:13:33,060
+know and do and do you see it added an
+
+267
+00:13:29,880 --> 00:13:36,240
+extra backslash there if we if we want
+
+268
+00:13:33,060 --> 00:13:39,860
+to fix that there are two ways to go one
+
+269
+00:13:36,240 --> 00:13:42,180
+is to dive deeper into the new common.el
+
+270
+00:13:39,860 --> 00:13:43,920
+to see if there's some kind of
+
+271
+00:13:42,180 --> 00:13:47,459
+configuration
+
+272
+00:13:43,920 --> 00:13:50,279
+so that it doesn't add these extraneous
+
+273
+00:13:47,459 --> 00:13:53,760
+backslash that's one way to go the other
+
+274
+00:13:50,279 --> 00:13:56,820
+way is just write our own you know radar
+
+275
+00:13:53,760 --> 00:14:00,420
+on is kind of in some sense much simpler
+
+276
+00:13:56,820 --> 00:14:02,700
+because your code all you have to do is
+
+277
+00:14:00,420 --> 00:14:04,860
+just write a function basically you
+
+278
+00:14:02,700 --> 00:14:08,639
+write a function and what the function
+
+279
+00:14:04,860 --> 00:14:11,940
+will do is just it will check if your
+
+280
+00:14:08,639 --> 00:14:14,820
+cursor is currently in some kind of
+
+281
+00:14:11,940 --> 00:14:18,180
+comment so how do you check that all you
+
+282
+00:14:14,820 --> 00:14:19,440
+have to do is search backward for the
+
+283
+00:14:18,180 --> 00:14:21,779
+common beginning
+
+284
+00:14:19,440 --> 00:14:23,940
+such you know and search forward to make
+
+285
+00:14:21,779 --> 00:14:27,480
+sure there's no it's not bracketed by
+
+286
+00:14:23,940 --> 00:14:30,120
+Common this sounds easier than it sounds
+
+287
+00:14:27,480 --> 00:14:32,040
+actually it's a bit more complex when
+
+288
+00:14:30,120 --> 00:14:34,079
+you code it so first of all determine
+
+289
+00:14:32,040 --> 00:14:36,540
+your Cruiser is inside the comment if
+
+290
+00:14:34,079 --> 00:14:39,420
+it's not all you have to do is just add
+
+291
+00:14:36,540 --> 00:14:42,060
+the Beginning characters and end the
+
+292
+00:14:39,420 --> 00:14:44,519
+characters either through the region you
+
+293
+00:14:42,060 --> 00:14:47,399
+know a block of text or to a line okay
+
+294
+00:14:44,519 --> 00:14:49,380
+that's too common and if your Cruiser is
+
+295
+00:14:47,399 --> 00:14:52,560
+already inside a comment then you just
+
+296
+00:14:49,380 --> 00:14:55,079
+find the beginning and end comment marks
+
+297
+00:14:52,560 --> 00:14:59,040
+and remove them okay
+
+298
+00:14:55,079 --> 00:15:01,980
+so that is about writing your own common
+
+299
+00:14:59,040 --> 00:15:04,139
+command from scratch now this is
+
+300
+00:15:01,980 --> 00:15:07,279
+actually a very good uh emac this
+
+301
+00:15:04,139 --> 00:15:11,820
+exercise you know I enjoyed writing it
+
+302
+00:15:07,279 --> 00:15:14,040
+14 years ago because it's it's purely
+
+303
+00:15:11,820 --> 00:15:16,500
+text processing
+
+304
+00:15:14,040 --> 00:15:18,839
+okay and you can you can learn a lot
+
+305
+00:15:16,500 --> 00:15:21,120
+emac this using emac this text
+
+306
+00:15:18,839 --> 00:15:24,720
+processing powers and functions to write
+
+307
+00:15:21,120 --> 00:15:28,440
+them okay and I have a tutorial there
+
+308
+00:15:24,720 --> 00:15:32,959
+so write your own is one solution the
+
+309
+00:15:28,440 --> 00:15:36,120
+other solution is to look at the
+
+310
+00:15:32,959 --> 00:15:39,180
+newcomen.el okay
+
+311
+00:15:36,120 --> 00:15:42,060
+so the new common.el we have to do is
+
+312
+00:15:39,180 --> 00:15:45,600
+describe key press the key for the
+
+313
+00:15:42,060 --> 00:15:47,220
+comment and hold on a second let me show
+
+314
+00:15:45,600 --> 00:15:50,699
+the uh
+
+315
+00:15:47,220 --> 00:15:52,199
+now here is my back tick character yeah
+
+316
+00:15:50,699 --> 00:15:56,339
+okay there
+
+317
+00:15:52,199 --> 00:15:59,100
+okay so you jump to the
+
+318
+00:15:56,339 --> 00:16:02,220
+my personal comment command wait where
+
+319
+00:15:59,100 --> 00:16:03,500
+is this emac this okay not this one
+
+320
+00:16:02,220 --> 00:16:08,640
+actually
+
+321
+00:16:03,500 --> 00:16:11,399
+so actually you look for newcomer.el
+
+322
+00:16:08,640 --> 00:16:15,720
+[Music]
+
+323
+00:16:11,399 --> 00:16:19,260
+and okay let me let me do that okay so
+
+324
+00:16:15,720 --> 00:16:22,560
+jump took some like keys now I actually
+
+325
+00:16:19,260 --> 00:16:26,459
+have a wrapper that calls the command
+
+326
+00:16:22,560 --> 00:16:30,000
+from that package so common dream is the
+
+327
+00:16:26,459 --> 00:16:33,540
+command from the package newcomen.el
+
+328
+00:16:30,000 --> 00:16:36,779
+okay common Dash dwim
+
+329
+00:16:33,540 --> 00:16:39,660
+meaning do what I mean you know that's a
+
+330
+00:16:36,779 --> 00:16:41,639
+CD hacker type of naming so common dream
+
+331
+00:16:39,660 --> 00:16:45,300
+is the buildings
+
+332
+00:16:41,639 --> 00:16:48,839
+command in emacs that does common in
+
+333
+00:16:45,300 --> 00:16:50,820
+uncommon in my case I wrote a wrapper so
+
+334
+00:16:48,839 --> 00:16:53,459
+that I can just toggle because the
+
+335
+00:16:50,820 --> 00:16:56,820
+common dream default beat Behavior it
+
+336
+00:16:53,459 --> 00:16:59,940
+doesn't toggle it you know it requires
+
+337
+00:16:56,820 --> 00:17:03,180
+more keystrokes okay so anyway so common
+
+338
+00:16:59,940 --> 00:17:06,120
+dream you so now you describe function
+
+339
+00:17:03,180 --> 00:17:09,059
+common dream to look up its
+
+340
+00:17:06,120 --> 00:17:12,179
+documentation and then you just tap
+
+341
+00:17:09,059 --> 00:17:13,799
+enter to jump to the source code okay so
+
+342
+00:17:12,179 --> 00:17:15,959
+we can see here's the documentation
+
+343
+00:17:13,799 --> 00:17:19,380
+common dream
+
+344
+00:17:15,959 --> 00:17:22,260
+so what now we're doing now is to you
+
+345
+00:17:19,380 --> 00:17:23,699
+know look at this package
+
+346
+00:17:22,260 --> 00:17:26,160
+yeah okay
+
+347
+00:17:23,699 --> 00:17:28,620
+let's just look at this package let's
+
+348
+00:17:26,160 --> 00:17:30,840
+see is there anything interesting is
+
+349
+00:17:28,620 --> 00:17:35,059
+there something configuration we can do
+
+350
+00:17:30,840 --> 00:17:35,059
+oh look there's a fix me
+
+351
+00:17:37,500 --> 00:17:42,299
+okay so yeah
+
+352
+00:17:40,919 --> 00:17:43,919
+okay let's
+
+353
+00:17:42,299 --> 00:17:46,679
+let's do
+
+354
+00:17:43,919 --> 00:17:50,100
+that then so today I was planning to
+
+355
+00:17:46,679 --> 00:17:51,480
+code emac beasts but I think we're gonna
+
+356
+00:17:50,100 --> 00:17:54,360
+end up just
+
+357
+00:17:51,480 --> 00:17:57,539
+talking about it looking you know
+
+358
+00:17:54,360 --> 00:17:59,700
+talking about it okay so any comments
+
+359
+00:17:57,539 --> 00:18:03,360
+and questions posted okay for people
+
+360
+00:17:59,700 --> 00:18:05,220
+watching now the keyboard I'm using okay
+
+361
+00:18:03,360 --> 00:18:08,039
+so let me show you the keyboard I'm
+
+362
+00:18:05,220 --> 00:18:09,960
+using I want to promote it because I
+
+363
+00:18:08,039 --> 00:18:11,700
+think it's a great keyboard and they
+
+364
+00:18:09,960 --> 00:18:14,160
+give it to me
+
+365
+00:18:11,700 --> 00:18:18,360
+so I did a video review
+
+366
+00:18:14,160 --> 00:18:22,320
+last week so this keyboard this keyboard
+
+367
+00:18:18,360 --> 00:18:25,440
+I'm using is called glove 80. so you can
+
+368
+00:18:22,320 --> 00:18:29,820
+go to my website and read all the
+
+369
+00:18:25,440 --> 00:18:32,520
+reviews okay and there is a video I did
+
+370
+00:18:29,820 --> 00:18:34,820
+last week so you can watch it full
+
+371
+00:18:32,520 --> 00:18:38,039
+that's one hour review
+
+372
+00:18:34,820 --> 00:18:41,400
+you know it's pretty long and in-depth
+
+373
+00:18:38,039 --> 00:18:44,400
+one I'll review okay check it out
+
+374
+00:18:41,400 --> 00:18:48,059
+uh glove 80 keyboard okay so we open
+
+375
+00:18:44,400 --> 00:18:51,660
+last closed copy the URL back to emacs
+
+376
+00:18:48,059 --> 00:18:55,260
+close this page now go to guitar talk
+
+377
+00:18:51,660 --> 00:18:58,320
+show today's talk show here there is
+
+378
+00:18:55,260 --> 00:19:03,020
+already a link here okay so now show
+
+379
+00:18:58,320 --> 00:19:03,020
+this in browser so what to do next
+
+380
+00:19:03,299 --> 00:19:09,200
+okay we were planning to write a command
+
+381
+00:19:06,480 --> 00:19:11,600
+comment on common command but
+
+382
+00:19:09,200 --> 00:19:13,740
+turns out
+
+383
+00:19:11,600 --> 00:19:17,280
+uh turns out
+
+384
+00:19:13,740 --> 00:19:19,580
+the way it is is kind of okay
+
+385
+00:19:17,280 --> 00:19:23,760
+so
+
+386
+00:19:19,580 --> 00:19:25,520
+emacs blog close it switch to it switch
+
+387
+00:19:23,760 --> 00:19:30,080
+to yeah
+
+388
+00:19:25,520 --> 00:19:30,080
+minor problem but it's okay
+
+389
+00:19:30,780 --> 00:19:35,880
+so let's see the comment let's just look
+
+390
+00:19:33,840 --> 00:19:38,580
+at the source code then any quick
+
+391
+00:19:35,880 --> 00:19:41,419
+questions in common ask me okay
+
+392
+00:19:38,580 --> 00:19:41,419
+so
+
+393
+00:19:42,840 --> 00:19:50,280
+so the whole thing is 1500 lines who
+
+394
+00:19:47,640 --> 00:19:53,700
+wrote it Stephen Marnier
+
+395
+00:19:50,280 --> 00:19:57,960
+uh emac lisp master
+
+396
+00:19:53,700 --> 00:20:00,320
+I respect Heidi you know he is also a
+
+397
+00:19:57,960 --> 00:20:03,840
+professor of functional programming
+
+398
+00:20:00,320 --> 00:20:05,640
+research in Canada I believe Montreal
+
+399
+00:20:03,840 --> 00:20:09,000
+University
+
+400
+00:20:05,640 --> 00:20:11,880
+and he has been the leader you know the
+
+401
+00:20:09,000 --> 00:20:15,200
+main leader of canoe emacs development
+
+402
+00:20:11,880 --> 00:20:18,240
+for about seven years
+
+403
+00:20:15,200 --> 00:20:19,440
+2008 to 2000
+
+404
+00:20:18,240 --> 00:20:23,000
+[Music]
+
+405
+00:20:19,440 --> 00:20:26,400
+2016 something like that okay Stefan
+
+406
+00:20:23,000 --> 00:20:27,720
+Mania okay so he wrote this actually
+
+407
+00:20:26,400 --> 00:20:32,520
+when
+
+408
+00:20:27,720 --> 00:20:33,960
+wow 1999 wait no he's uh okay he's a
+
+409
+00:20:32,520 --> 00:20:36,179
+maintainer
+
+410
+00:20:33,960 --> 00:20:38,780
+okay
+
+411
+00:20:36,179 --> 00:20:38,780
+uh
+
+412
+00:20:42,299 --> 00:20:48,480
+so let's see so there's a question you
+
+413
+00:20:46,020 --> 00:20:51,360
+know usually I look at lisp code
+
+414
+00:20:48,480 --> 00:20:55,160
+so right now my issue is
+
+415
+00:20:51,360 --> 00:20:55,160
+do I want to fix this
+
+416
+00:20:55,740 --> 00:21:01,500
+you know maybe not
+
+417
+00:20:58,740 --> 00:21:04,380
+you know you should you know of course
+
+418
+00:21:01,500 --> 00:21:06,419
+but you know you got a lot things to do
+
+419
+00:21:04,380 --> 00:21:08,280
+you know I got a lot of things to do I
+
+420
+00:21:06,419 --> 00:21:10,980
+got uh
+
+421
+00:21:08,280 --> 00:21:13,320
+wufam language a lot of coding and let
+
+422
+00:21:10,980 --> 00:21:14,940
+me talk random a bit then
+
+423
+00:21:13,320 --> 00:21:16,940
+okay
+
+424
+00:21:14,940 --> 00:21:20,419
+for example let me tell you about
+
+425
+00:21:16,940 --> 00:21:24,539
+fantastic uh Wolfram language I did okay
+
+426
+00:21:20,419 --> 00:21:28,460
+so and uh math okay
+
+427
+00:21:24,539 --> 00:21:28,460
+so for example example
+
+428
+00:21:29,820 --> 00:21:35,220
+yesterday you know today if you the you
+
+429
+00:21:32,760 --> 00:21:39,120
+know in the past few days we did this
+
+430
+00:21:35,220 --> 00:21:41,760
+fantastic Wolfram language Graphics this
+
+431
+00:21:39,120 --> 00:21:44,039
+is geometric inversion okay
+
+432
+00:21:41,760 --> 00:21:46,260
+you know you talk to the CC plus people
+
+433
+00:21:44,039 --> 00:21:48,840
+Unix people they don't understand they
+
+434
+00:21:46,260 --> 00:21:51,780
+have an idea they wouldn't appreciate it
+
+435
+00:21:48,840 --> 00:21:54,539
+but this you know we did this and it's
+
+436
+00:21:51,780 --> 00:21:57,179
+just five lines of code basically you
+
+437
+00:21:54,539 --> 00:21:59,820
+can actually two line two three you know
+
+438
+00:21:57,179 --> 00:22:01,740
+I mean you can make it one line so you
+
+439
+00:21:59,820 --> 00:22:04,260
+can generate you know is extremely
+
+440
+00:22:01,740 --> 00:22:07,679
+beautiful that's geometric inversion
+
+441
+00:22:04,260 --> 00:22:10,679
+okay so we did several videos of it you
+
+442
+00:22:07,679 --> 00:22:12,059
+know this one is from last year Wolfram
+
+443
+00:22:10,679 --> 00:22:15,240
+language
+
+444
+00:22:12,059 --> 00:22:17,700
+and then we did a you know we did this
+
+445
+00:22:15,240 --> 00:22:20,460
+one about a few days ago
+
+446
+00:22:17,700 --> 00:22:22,679
+you know beautiful you know it's this
+
+447
+00:22:20,460 --> 00:22:24,720
+this you know actually I would say
+
+448
+00:22:22,679 --> 00:22:27,960
+geometric inversion the function is
+
+449
+00:22:24,720 --> 00:22:31,440
+actually if I have to say one pick one
+
+450
+00:22:27,960 --> 00:22:36,179
+that's my favorite mathematical function
+
+451
+00:22:31,440 --> 00:22:38,820
+yeah of all math functions of my 20 30
+
+452
+00:22:36,179 --> 00:22:41,179
+years of studying math I would say
+
+453
+00:22:38,820 --> 00:22:43,260
+geometric immersion is my favorite
+
+454
+00:22:41,179 --> 00:22:45,780
+mathematical function
+
+455
+00:22:43,260 --> 00:22:49,380
+the idea the concept is just beautiful
+
+456
+00:22:45,780 --> 00:22:52,020
+and creates beautiful things okay so so
+
+457
+00:22:49,380 --> 00:22:55,440
+I did this video you know you you guys
+
+458
+00:22:52,020 --> 00:22:58,320
+go check it out ufam language is a term
+
+459
+00:22:55,440 --> 00:23:02,520
+rewriting system so it's nothing like
+
+460
+00:22:58,320 --> 00:23:04,440
+you never experienced before okay and 10
+
+461
+00:23:02,520 --> 00:23:06,780
+times
+
+462
+00:23:04,440 --> 00:23:10,260
+100 times more
+
+463
+00:23:06,780 --> 00:23:14,220
+more high level than Pascal lisp
+
+464
+00:23:10,260 --> 00:23:17,100
+commonly skinless whatever okay 100
+
+465
+00:23:14,220 --> 00:23:19,559
+times no kidding depends you know not
+
+466
+00:23:17,100 --> 00:23:22,200
+even counting the ability to solve
+
+467
+00:23:19,559 --> 00:23:24,720
+differential equations so linear algebra
+
+468
+00:23:22,200 --> 00:23:28,260
+or Matrix equations you know those are
+
+469
+00:23:24,720 --> 00:23:30,059
+mathematical functions one line you can
+
+470
+00:23:28,260 --> 00:23:32,280
+you know if you are gonna Implement
+
+471
+00:23:30,059 --> 00:23:34,200
+those you know doing derivatives
+
+472
+00:23:32,280 --> 00:23:36,960
+integrals or solve differential
+
+473
+00:23:34,200 --> 00:23:39,600
+equations that's literally ten thousand
+
+474
+00:23:36,960 --> 00:23:41,940
+one hundred thousand lines for each one
+
+475
+00:23:39,600 --> 00:23:44,820
+of those functions okay and by default
+
+476
+00:23:41,940 --> 00:23:46,380
+uframe language has 7 000 functions
+
+477
+00:23:44,820 --> 00:23:48,720
+building
+
+478
+00:23:46,380 --> 00:23:52,320
+okay so those are mathematical functions
+
+479
+00:23:48,720 --> 00:23:55,280
+each one is like you know 100
+
+480
+00:23:52,320 --> 00:23:55,280
+000 lines of
+
+481
+00:23:58,640 --> 00:24:05,280
+let's say each one of them but let's not
+
+482
+00:24:03,120 --> 00:24:07,980
+count those you know let's not count
+
+483
+00:24:05,280 --> 00:24:10,500
+those that do mathematical functions you
+
+484
+00:24:07,980 --> 00:24:13,620
+know let's just count the for example
+
+485
+00:24:10,500 --> 00:24:17,400
+the functions that manipulate the least
+
+486
+00:24:13,620 --> 00:24:20,280
+you know delete best you know take a
+
+487
+00:24:17,400 --> 00:24:22,620
+slice of these things like that
+
+488
+00:24:20,280 --> 00:24:25,020
+in that case we'll find language each
+
+489
+00:24:22,620 --> 00:24:28,380
+each one line of a wolf and language is
+
+490
+00:24:25,020 --> 00:24:32,580
+equivalent to let's say 10 lines or 100
+
+491
+00:24:28,380 --> 00:24:34,980
+lines of python okay it is incredible
+
+492
+00:24:32,580 --> 00:24:36,539
+so that's why I'm saying so anyway so I
+
+493
+00:24:34,980 --> 00:24:39,659
+was saying you know
+
+494
+00:24:36,539 --> 00:24:43,860
+uh you can check them out and yesterday
+
+495
+00:24:39,659 --> 00:24:46,440
+I was you know in Wolfram the guy which
+
+496
+00:24:43,860 --> 00:24:49,020
+is one of the guy one of the guy you
+
+497
+00:24:46,440 --> 00:24:51,620
+know one one of those you know five or
+
+498
+00:24:49,020 --> 00:24:54,840
+ten top five
+
+499
+00:24:51,620 --> 00:24:57,960
+scientists I truly I have the most
+
+500
+00:24:54,840 --> 00:25:00,360
+respect and whose point of view of the
+
+501
+00:24:57,960 --> 00:25:03,840
+world on Artificial Intelligence on the
+
+502
+00:25:00,360 --> 00:25:07,440
+Universe on how physics how mathematics
+
+503
+00:25:03,840 --> 00:25:10,740
+is I mostly agree on I share a lot of
+
+504
+00:25:07,440 --> 00:25:13,500
+the way he look at things you know I
+
+505
+00:25:10,740 --> 00:25:15,840
+truly do and his style you know his
+
+506
+00:25:13,500 --> 00:25:18,240
+design of wolfam language the naming of
+
+507
+00:25:15,840 --> 00:25:20,400
+functions you know each you know each
+
+508
+00:25:18,240 --> 00:25:23,640
+programming language may it be Larry was
+
+509
+00:25:20,400 --> 00:25:28,080
+Pearl you know guide over just some
+
+510
+00:25:23,640 --> 00:25:30,900
+idiots his python you know the Java Java
+
+511
+00:25:28,080 --> 00:25:34,860
+is very formal I mean yeah Java you know
+
+512
+00:25:30,900 --> 00:25:37,260
+the naming the the the the kind of style
+
+513
+00:25:34,860 --> 00:25:40,559
+how you name your functions
+
+514
+00:25:37,260 --> 00:25:42,900
+in a programming language reflect kind
+
+515
+00:25:40,559 --> 00:25:45,059
+of the author you know the creator of
+
+516
+00:25:42,900 --> 00:25:48,240
+the language their view of how you know
+
+517
+00:25:45,059 --> 00:25:51,120
+things okay so Wolfram language you know
+
+518
+00:25:48,240 --> 00:25:54,120
+if you like look at wufan languages
+
+519
+00:25:51,120 --> 00:25:56,279
+um this this is fantastic okay let me
+
+520
+00:25:54,120 --> 00:25:58,799
+let me show you
+
+521
+00:25:56,279 --> 00:26:00,600
+if you look at wolfam language
+
+522
+00:25:58,799 --> 00:26:03,059
+um
+
+523
+00:26:00,600 --> 00:26:06,120
+uh you have
+
+524
+00:26:03,059 --> 00:26:09,480
+you know the the naming of the functions
+
+525
+00:26:06,120 --> 00:26:11,820
+the style how they name things I very
+
+526
+00:26:09,480 --> 00:26:14,460
+like it I like it very much that's
+
+527
+00:26:11,820 --> 00:26:16,380
+the way I look at things Okay naming of
+
+528
+00:26:14,460 --> 00:26:18,740
+things you know I can give you some
+
+529
+00:26:16,380 --> 00:26:22,559
+examples that but that would be another
+
+530
+00:26:18,740 --> 00:26:23,720
+topic okay and you know and this relates
+
+531
+00:26:22,559 --> 00:26:26,580
+to
+
+532
+00:26:23,720 --> 00:26:28,140
+jargons the use of jargons in
+
+533
+00:26:26,580 --> 00:26:30,419
+programming
+
+534
+00:26:28,140 --> 00:26:33,120
+community and in programming languages
+
+535
+00:26:30,419 --> 00:26:35,039
+and in the programming field in general
+
+536
+00:26:33,120 --> 00:26:37,200
+there's a lot to talk about it
+
+537
+00:26:35,039 --> 00:26:39,620
+scientific jargons you know the other
+
+538
+00:26:37,200 --> 00:26:43,140
+day I was debating with
+
+539
+00:26:39,620 --> 00:26:46,679
+with you know with a bunch of my you
+
+540
+00:26:43,140 --> 00:26:49,440
+know people on Discord you know many of
+
+541
+00:26:46,679 --> 00:26:52,919
+my friends people on Discord
+
+542
+00:26:49,440 --> 00:26:56,340
+um debating arguing about the mega by
+
+543
+00:26:52,919 --> 00:27:00,799
+its gigabyte meat versus maybe bite You
+
+544
+00:26:56,340 --> 00:27:03,419
+Know Me Maybe by kiwi bites
+
+545
+00:27:00,799 --> 00:27:07,140
+very interesting you know that so that's
+
+546
+00:27:03,419 --> 00:27:09,779
+related scientific jargon you know it's
+
+547
+00:27:07,140 --> 00:27:11,820
+it there's a lot to talk about that you
+
+548
+00:27:09,779 --> 00:27:14,340
+know how you name things how you you
+
+549
+00:27:11,820 --> 00:27:17,159
+know when should the jargon be
+
+550
+00:27:14,340 --> 00:27:19,020
+um named and how should it be named you
+
+551
+00:27:17,159 --> 00:27:22,260
+know things like that
+
+552
+00:27:19,020 --> 00:27:24,059
+so anyway we will we are going over oh
+
+553
+00:27:22,260 --> 00:27:26,120
+God so today's
+
+554
+00:27:24,059 --> 00:27:26,120
+um
+
+555
+00:27:26,340 --> 00:27:32,940
+so let's go back to this a little bit I
+
+556
+00:27:30,059 --> 00:27:36,299
+guess oh well okay yeah so what I want
+
+557
+00:27:32,940 --> 00:27:40,700
+to say is that there is wufan
+
+558
+00:27:36,299 --> 00:27:44,279
+Stefan Wolfram wrote these three parts
+
+559
+00:27:40,700 --> 00:27:45,720
+fantastic you know uh
+
+560
+00:27:44,279 --> 00:27:48,539
+blog
+
+561
+00:27:45,720 --> 00:27:52,440
+you know each one of his blog is like
+
+562
+00:27:48,539 --> 00:27:54,659
+100 pages so for me to typically to read
+
+563
+00:27:52,440 --> 00:27:57,600
+one of his blog it will take several
+
+564
+00:27:54,659 --> 00:28:01,320
+hours and that just first
+
+565
+00:27:57,600 --> 00:28:04,559
+scam scan scheming you know several
+
+566
+00:28:01,320 --> 00:28:07,020
+hours so this one
+
+567
+00:28:04,559 --> 00:28:09,539
+covers you know the title is how did we
+
+568
+00:28:07,020 --> 00:28:10,880
+get here the Tangled history of the
+
+569
+00:28:09,539 --> 00:28:13,679
+second law of
+
+570
+00:28:10,880 --> 00:28:16,080
+Thermodynamics okay I don't know physics
+
+571
+00:28:13,679 --> 00:28:21,779
+I don't know physics my you know I don't
+
+572
+00:28:16,080 --> 00:28:23,580
+know physics too much at all so but you
+
+573
+00:28:21,779 --> 00:28:25,620
+know but I have read you know he I have
+
+574
+00:28:23,580 --> 00:28:27,720
+read lots of whether he's on math on
+
+575
+00:28:25,620 --> 00:28:30,360
+Logic on artificial intelligence those
+
+576
+00:28:27,720 --> 00:28:33,440
+things I know a lot more okay but anyway
+
+577
+00:28:30,360 --> 00:28:37,679
+physics you know so I'm you know
+
+578
+00:28:33,440 --> 00:28:41,159
+typically I'm very it's just amazed by
+
+579
+00:28:37,679 --> 00:28:42,720
+the quantity I mean the the style and
+
+580
+00:28:41,159 --> 00:28:43,740
+the depth
+
+581
+00:28:42,720 --> 00:28:45,480
+um
+
+582
+00:28:43,740 --> 00:28:50,520
+of his
+
+583
+00:28:45,480 --> 00:28:53,580
+scholarship okay and also his style you
+
+584
+00:28:50,520 --> 00:28:56,940
+know his style is somewhat like you know
+
+585
+00:28:53,580 --> 00:29:00,900
+he is someone like my my the oh the way
+
+586
+00:28:56,940 --> 00:29:03,659
+I prefer where you address to the people
+
+587
+00:29:00,900 --> 00:29:06,059
+directly and communicate in the most
+
+588
+00:29:03,659 --> 00:29:07,799
+simple words possible what you are
+
+589
+00:29:06,059 --> 00:29:11,400
+trying to say not the typical
+
+590
+00:29:07,799 --> 00:29:14,059
+traditional scientific jargons which you
+
+591
+00:29:11,400 --> 00:29:17,460
+usually stick with a traditional style
+
+592
+00:29:14,059 --> 00:29:20,580
+otherwise your thesis won't pass you
+
+593
+00:29:17,460 --> 00:29:24,140
+know won't get out then it's it's
+
+594
+00:29:20,580 --> 00:29:27,360
+bottled up or okay so anyway
+
+595
+00:29:24,140 --> 00:29:31,500
+anyway I digress so
+
+596
+00:29:27,360 --> 00:29:34,799
+so I recommend this article okay so this
+
+597
+00:29:31,500 --> 00:29:37,500
+so for example in this article
+
+598
+00:29:34,799 --> 00:29:39,779
+there are three parts and it turns out a
+
+599
+00:29:37,500 --> 00:29:42,659
+few hundred Pages all together like one
+
+600
+00:29:39,779 --> 00:29:46,860
+thousand one thousand Pages or something
+
+601
+00:29:42,659 --> 00:29:49,340
+uh and this deep deep scholarship you
+
+602
+00:29:46,860 --> 00:29:52,740
+know for example all these signatures
+
+603
+00:29:49,340 --> 00:29:55,320
+these are by the people the scientists
+
+604
+00:29:52,740 --> 00:29:59,760
+who are you know known you know who are
+
+605
+00:29:55,320 --> 00:30:03,419
+in the study of heat thermodynamics okay
+
+606
+00:29:59,760 --> 00:30:05,580
+so that's the signature you know you
+
+607
+00:30:03,419 --> 00:30:08,460
+have to get you know this is this this
+
+608
+00:30:05,580 --> 00:30:11,340
+is just just on this page just on this
+
+609
+00:30:08,460 --> 00:30:14,399
+page alone it's not trivial things to do
+
+610
+00:30:11,340 --> 00:30:18,240
+okay you gotta get those people are dead
+
+611
+00:30:14,399 --> 00:30:21,000
+you know those are 1800s 1900s
+
+612
+00:30:18,240 --> 00:30:26,880
+scientists you know these people
+
+613
+00:30:21,000 --> 00:30:29,460
+uh s cannot William this this is Kevin I
+
+614
+00:30:26,880 --> 00:30:32,279
+think you know the Kevin known for the
+
+615
+00:30:29,460 --> 00:30:34,980
+cabin temperature you know these these
+
+616
+00:30:32,279 --> 00:30:36,899
+people you know and Max Maxwell
+
+617
+00:30:34,980 --> 00:30:39,120
+these people are well known scientists
+
+618
+00:30:36,899 --> 00:30:43,260
+you have to get the their signature and
+
+619
+00:30:39,120 --> 00:30:46,260
+a lot historical documents you know
+
+620
+00:30:43,260 --> 00:30:48,740
+so in this page in this part of the
+
+621
+00:30:46,260 --> 00:30:52,399
+article he's trying to tell you
+
+622
+00:30:48,740 --> 00:30:56,340
+essentially he's giving you an overview
+
+623
+00:30:52,399 --> 00:30:59,279
+of the history of the second law of
+
+624
+00:30:56,340 --> 00:31:02,460
+Thermodynamics okay so I don't know
+
+625
+00:30:59,279 --> 00:31:07,039
+physics myself but from reading this
+
+626
+00:31:02,460 --> 00:31:07,039
+I learned that you know Heat
+
+627
+00:31:07,159 --> 00:31:13,200
+thermodynamics is basically the study of
+
+628
+00:31:09,840 --> 00:31:15,659
+heat okay so what is heat what is heat
+
+629
+00:31:13,200 --> 00:31:18,919
+it turns out it's very quite interesting
+
+630
+00:31:15,659 --> 00:31:22,440
+it's it's and there's a lot still
+
+631
+00:31:18,919 --> 00:31:25,140
+unsolved questions okay so anyway he's
+
+632
+00:31:22,440 --> 00:31:29,220
+giving you a history kind of how how did
+
+633
+00:31:25,140 --> 00:31:32,580
+the uh you know uh second law of
+
+634
+00:31:29,220 --> 00:31:35,460
+Thermodynamics aren't were developed and
+
+635
+00:31:32,580 --> 00:31:37,020
+all the historical documents ratings
+
+636
+00:31:35,460 --> 00:31:39,899
+it's very interesting because you can
+
+637
+00:31:37,020 --> 00:31:42,360
+read them you can see some of them are
+
+638
+00:31:39,899 --> 00:31:45,840
+in English Okay so for example this one
+
+639
+00:31:42,360 --> 00:31:47,760
+this one is in Latin I guess
+
+640
+00:31:45,840 --> 00:31:50,700
+you know but some of them are in English
+
+641
+00:31:47,760 --> 00:31:51,720
+so you can see how people write back
+
+642
+00:31:50,700 --> 00:31:55,200
+then
+
+643
+00:31:51,720 --> 00:32:00,179
+of course if you know you you if you are
+
+644
+00:31:55,200 --> 00:32:02,399
+a mathematician if you are a PhD
+
+645
+00:32:00,179 --> 00:32:03,960
+um if you study a lot a lot math you
+
+646
+00:32:02,399 --> 00:32:06,840
+should have done this I mean you should
+
+647
+00:32:03,960 --> 00:32:10,500
+have seen this uh
+
+648
+00:32:06,840 --> 00:32:13,279
+yourself I mean uh anyway so anyway so
+
+649
+00:32:10,500 --> 00:32:17,039
+these are you know many of the relevant
+
+650
+00:32:13,279 --> 00:32:20,700
+Snippets you know here
+
+651
+00:32:17,039 --> 00:32:25,580
+so yeah I just so I want to say you know
+
+652
+00:32:20,700 --> 00:32:25,580
+I'm I always enjoyed reading his stuff
+
+653
+00:32:30,539 --> 00:32:36,360
+okay so and you know I know him so well
+
+654
+00:32:33,779 --> 00:32:38,039
+you know because I read Stefan Wolfram
+
+655
+00:32:36,360 --> 00:32:41,399
+you know I met him
+
+656
+00:32:38,039 --> 00:32:42,539
+in 1995 because I went to work for wufam
+
+657
+00:32:41,399 --> 00:32:46,919
+research
+
+658
+00:32:42,539 --> 00:32:48,899
+I was I was in intern supposed to stay
+
+659
+00:32:46,919 --> 00:32:52,380
+there for two months but I end up
+
+660
+00:32:48,899 --> 00:32:55,620
+staying for half a year and uh
+
+661
+00:32:52,380 --> 00:32:57,539
+was going to stay but you know yeah and
+
+662
+00:32:55,620 --> 00:33:00,120
+then
+
+663
+00:32:57,539 --> 00:33:02,820
+you know a long story but then I I I I
+
+664
+00:33:00,120 --> 00:33:05,279
+left because I was planning I was
+
+665
+00:33:02,820 --> 00:33:09,000
+supposed to I was supposed to go to UC
+
+666
+00:33:05,279 --> 00:33:13,019
+Berkeley but I didn't go anywhere that's
+
+667
+00:33:09,000 --> 00:33:15,120
+my life wondering always wondering about
+
+668
+00:33:13,019 --> 00:33:18,059
+so anyway so I
+
+669
+00:33:15,120 --> 00:33:20,480
+you know and I have been reading Stefan
+
+670
+00:33:18,059 --> 00:33:23,700
+Wolfe since about
+
+671
+00:33:20,480 --> 00:33:26,460
+1992. all the article I can find you
+
+672
+00:33:23,700 --> 00:33:29,279
+know so I'm that type of person Stephen
+
+673
+00:33:26,460 --> 00:33:32,700
+Wolfram and another guy I've read I have
+
+674
+00:33:29,279 --> 00:33:35,340
+read tremendously is Steve Jobs for
+
+675
+00:33:32,700 --> 00:33:37,620
+example all the articles I can find you
+
+676
+00:33:35,340 --> 00:33:41,399
+know Steve Jobs I highly admire Steve
+
+677
+00:33:37,620 --> 00:33:45,120
+Jobs and another guy is Richard slowman
+
+678
+00:33:41,399 --> 00:33:46,320
+I have read entirety basically of his
+
+679
+00:33:45,120 --> 00:33:49,620
+writings
+
+680
+00:33:46,320 --> 00:33:54,120
+of those you can find
+
+681
+00:33:49,620 --> 00:33:56,640
+mostly online around the year 2000 you
+
+682
+00:33:54,120 --> 00:33:59,640
+know the that which means the entire
+
+683
+00:33:56,640 --> 00:34:00,720
+canoe website free software Foundation
+
+684
+00:33:59,640 --> 00:34:03,240
+you know
+
+685
+00:34:00,720 --> 00:34:05,460
+yeah but Richardson you know today is
+
+686
+00:34:03,240 --> 00:34:06,600
+not too good a person I don't admire you
+
+687
+00:34:05,460 --> 00:34:10,560
+know I don't
+
+688
+00:34:06,600 --> 00:34:13,679
+I admire Stefan wolfheim very much still
+
+689
+00:34:10,560 --> 00:34:16,800
+and Steve Jobs I also admire and I think
+
+690
+00:34:13,679 --> 00:34:19,440
+both of them are great person but not
+
+691
+00:34:16,800 --> 00:34:20,159
+Richard Stoneman yeah richest woman I
+
+692
+00:34:19,440 --> 00:34:22,619
+was
+
+693
+00:34:20,159 --> 00:34:26,040
+I don't I don't admire him
+
+694
+00:34:22,619 --> 00:34:29,159
+I don't think he's good he I don't think
+
+695
+00:34:26,040 --> 00:34:32,099
+he's doing good things to humanity now
+
+696
+00:34:29,159 --> 00:34:34,679
+so anyway back to um
+
+697
+00:34:32,099 --> 00:34:37,619
+so I was saying so I read a lot of
+
+698
+00:34:34,679 --> 00:34:39,919
+writings of Stefan woofer so I kind of
+
+699
+00:34:37,619 --> 00:34:39,919
+know
+
+700
+00:34:40,139 --> 00:34:46,639
+a lot about him you know as far as the
+
+701
+00:34:43,800 --> 00:34:50,879
+scientific his scientific work you know
+
+702
+00:34:46,639 --> 00:34:53,940
+yeah not not personally not not not his
+
+703
+00:34:50,879 --> 00:34:56,960
+family or whatever but as far as he he's
+
+704
+00:34:53,940 --> 00:35:00,060
+public you know right inside no a lot
+
+705
+00:34:56,960 --> 00:35:03,300
+his style he's thinking his view about
+
+706
+00:35:00,060 --> 00:35:04,400
+you know lots of things
+
+707
+00:35:03,300 --> 00:35:08,220
+um
+
+708
+00:35:04,400 --> 00:35:11,700
+so what was I going to say so
+
+709
+00:35:08,220 --> 00:35:14,400
+so yeah so he wrote These you know three
+
+710
+00:35:11,700 --> 00:35:19,160
+a Trilogy you might you might call a
+
+711
+00:35:14,400 --> 00:35:21,720
+Trilogy or Trilogy of the second law of
+
+712
+00:35:19,160 --> 00:35:23,579
+Thermodynamics okay I'm still reading it
+
+713
+00:35:21,720 --> 00:35:25,260
+I haven't finished I spent several hours
+
+714
+00:35:23,579 --> 00:35:27,780
+I'm still reading it
+
+715
+00:35:25,260 --> 00:35:29,520
+but okay so you see right now we are
+
+716
+00:35:27,780 --> 00:35:31,980
+only have you know we are not even
+
+717
+00:35:29,520 --> 00:35:35,960
+halfway through this article
+
+718
+00:35:31,980 --> 00:35:35,960
+so lots of things okay
+
+719
+00:35:39,119 --> 00:35:44,099
+people
+
+720
+00:35:40,200 --> 00:35:48,900
+and here look at this one the logic of
+
+721
+00:35:44,099 --> 00:35:49,800
+chance an essay by who is this Zhang
+
+722
+00:35:48,900 --> 00:35:52,200
+then
+
+723
+00:35:49,800 --> 00:35:54,380
+is that a guy famous for the Venn
+
+724
+00:35:52,200 --> 00:35:54,380
+diagram
+
+725
+00:35:55,260 --> 00:36:02,099
+Randomness and its scientific
+
+726
+00:35:58,680 --> 00:36:05,460
+treatment okay Randomness is a such a
+
+727
+00:36:02,099 --> 00:36:09,480
+fascinating topic okay logic of chance
+
+728
+00:36:05,460 --> 00:36:12,619
+an essay on the foundation and province
+
+729
+00:36:09,480 --> 00:36:15,660
+of the theory of probability
+
+730
+00:36:12,619 --> 00:36:18,839
+with a special
+
+731
+00:36:15,660 --> 00:36:23,280
+reference to its logical
+
+732
+00:36:18,839 --> 00:36:27,420
+bearings and its application to moral
+
+733
+00:36:23,280 --> 00:36:29,040
+and social science into statistics you
+
+734
+00:36:27,420 --> 00:36:33,599
+know you can read
+
+735
+00:36:29,040 --> 00:36:37,200
+this so this is from 1888 1888 so this
+
+736
+00:36:33,599 --> 00:36:40,079
+is about 100 years ago the the way
+
+737
+00:36:37,200 --> 00:36:42,180
+you know they you know the different era
+
+738
+00:36:40,079 --> 00:36:44,520
+they have a different view of you know
+
+739
+00:36:42,180 --> 00:36:47,040
+the world so
+
+740
+00:36:44,520 --> 00:36:50,400
+the logic of a chance
+
+741
+00:36:47,040 --> 00:36:53,280
+and and here then you have this um you
+
+742
+00:36:50,400 --> 00:36:57,060
+know this I suppose that's a random walk
+
+743
+00:36:53,280 --> 00:37:01,800
+you know a very interesting diagram
+
+744
+00:36:57,060 --> 00:37:05,099
+so what is he saying James crook Maxwell
+
+745
+00:37:01,800 --> 00:37:08,900
+Zhang van you know yeah so John Wayne is
+
+746
+00:37:05,099 --> 00:37:08,900
+the Venn diagram yeah I'm pretty sure
+
+747
+00:37:10,520 --> 00:37:16,020
+English mathematician and logician best
+
+748
+00:37:13,320 --> 00:37:18,960
+known for the Venn diagrams okay which
+
+749
+00:37:16,020 --> 00:37:20,960
+can be used to visualize one or not okay
+
+750
+00:37:18,960 --> 00:37:26,540
+so let's go back
+
+751
+00:37:20,960 --> 00:37:26,540
+interesting so it uh it's so there is a
+
+752
+00:37:27,060 --> 00:37:33,540
+yeah so about John Vin a random walk
+
+753
+00:37:30,599 --> 00:37:37,020
+very interesting Okay so
+
+754
+00:37:33,540 --> 00:37:41,060
+so I recommend okay for those of you out
+
+755
+00:37:37,020 --> 00:37:41,060
+there young people you know or
+
+756
+00:37:41,520 --> 00:37:50,400
+fantastic spectacular you know uh
+
+757
+00:37:45,300 --> 00:37:55,040
+scholarship digging out the history of
+
+758
+00:37:50,400 --> 00:37:55,040
+the second law of Thermodynamics okay
+
+759
+00:37:55,920 --> 00:38:01,320
+now okay so this article is long we are
+
+760
+00:37:58,859 --> 00:38:03,960
+you know we are just halfway in it so
+
+761
+00:38:01,320 --> 00:38:07,740
+let's go to the top so let's go to the
+
+762
+00:38:03,960 --> 00:38:10,560
+top let me tell you some of his other so
+
+763
+00:38:07,740 --> 00:38:14,640
+this is part three then you go to part
+
+764
+00:38:10,560 --> 00:38:15,420
+one part one is the part he is the most
+
+765
+00:38:14,640 --> 00:38:18,960
+um
+
+766
+00:38:15,420 --> 00:38:21,599
+excited about in fact you know because I
+
+767
+00:38:18,960 --> 00:38:24,359
+know his style so well I kind of know
+
+768
+00:38:21,599 --> 00:38:27,780
+the way he how he thinks you know part
+
+769
+00:38:24,359 --> 00:38:30,660
+one so three parts okay part three and
+
+770
+00:38:27,780 --> 00:38:33,420
+part three are actually previewed to
+
+771
+00:38:30,660 --> 00:38:36,119
+part one part one
+
+772
+00:38:33,420 --> 00:38:38,640
+the title is computational foundations
+
+773
+00:38:36,119 --> 00:38:41,339
+for the second law of Thermodynamics
+
+774
+00:38:38,640 --> 00:38:44,540
+that's actually that's the real thing he
+
+775
+00:38:41,339 --> 00:38:48,660
+wanted to say so basically you know
+
+776
+00:38:44,540 --> 00:38:51,119
+again this is like 50 pages you know 50
+
+777
+00:38:48,660 --> 00:38:54,960
+you know look at look at this diagram
+
+778
+00:38:51,119 --> 00:39:00,359
+he's um this is done by wufam language
+
+779
+00:38:54,960 --> 00:39:02,339
+of course a fantastic facilities for uh
+
+780
+00:39:00,359 --> 00:39:05,220
+graphical programming you know
+
+781
+00:39:02,339 --> 00:39:07,560
+visualization
+
+782
+00:39:05,220 --> 00:39:10,440
+so anyway this is the main thing he
+
+783
+00:39:07,560 --> 00:39:12,660
+wanted to say he want to you know he's
+
+784
+00:39:10,440 --> 00:39:16,320
+you know in the past you know
+
+785
+00:39:12,660 --> 00:39:20,280
+his life his Stefan wolfham's life's
+
+786
+00:39:16,320 --> 00:39:23,700
+obsession is About Cellular automata and
+
+787
+00:39:20,280 --> 00:39:27,900
+uh basically in his view you can use
+
+788
+00:39:23,700 --> 00:39:31,500
+cellular automata to model the universe
+
+789
+00:39:27,900 --> 00:39:34,140
+and not just model in fact he believes
+
+790
+00:39:31,500 --> 00:39:36,420
+that the universe or the fundamental
+
+791
+00:39:34,140 --> 00:39:40,020
+Theory of physics is actually the
+
+792
+00:39:36,420 --> 00:39:42,240
+universe is just a computation so
+
+793
+00:39:40,020 --> 00:39:45,380
+so starting with you know his public
+
+794
+00:39:42,240 --> 00:39:45,380
+location the new
+
+795
+00:39:45,839 --> 00:39:50,339
+the new um
+
+796
+00:39:47,880 --> 00:39:52,500
+the new kind of science which I have
+
+797
+00:39:50,339 --> 00:39:54,839
+read several times
+
+798
+00:39:52,500 --> 00:39:57,440
+hello guys what are some good ways to
+
+799
+00:39:54,839 --> 00:39:57,440
+grow money
+
+800
+00:39:58,859 --> 00:40:02,700
+low carb
+
+801
+00:40:01,380 --> 00:40:04,079
+okay
+
+802
+00:40:02,700 --> 00:40:06,540
+so
+
+803
+00:40:04,079 --> 00:40:09,540
+I've been rambling all over
+
+804
+00:40:06,540 --> 00:40:12,780
+and uh I think we shut down in five or
+
+805
+00:40:09,540 --> 00:40:16,140
+five or ten minutes okay
+
+806
+00:40:12,780 --> 00:40:20,040
+yeah okay so
+
+807
+00:40:16,140 --> 00:40:22,040
+yeah we we begin to write emac this but
+
+808
+00:40:20,040 --> 00:40:22,040
+um
+
+809
+00:40:23,099 --> 00:40:29,160
+oh yeah so I want to show you a new kind
+
+810
+00:40:25,619 --> 00:40:32,220
+of science so just go to saudi.info you
+
+811
+00:40:29,160 --> 00:40:33,900
+can search it there yeah okay let's just
+
+812
+00:40:32,220 --> 00:40:39,200
+search it here
+
+813
+00:40:33,900 --> 00:40:39,200
+new science so you can see
+
+814
+00:40:40,260 --> 00:40:46,500
+notes on the new kind of science so this
+
+815
+00:40:43,079 --> 00:40:48,599
+is this book is I think it's a thousand
+
+816
+00:40:46,500 --> 00:40:51,900
+or two thousand Pages you know this
+
+817
+00:40:48,599 --> 00:40:54,420
+thick I forgot heavy I I have it
+
+818
+00:40:51,900 --> 00:40:56,460
+somewhere you know put away I read it
+
+819
+00:40:54,420 --> 00:41:00,300
+more than once you know two or three
+
+820
+00:40:56,460 --> 00:41:02,339
+times cover to cover okay so I have you
+
+821
+00:41:00,300 --> 00:41:05,400
+know so beginning with this work so
+
+822
+00:41:02,339 --> 00:41:07,760
+Stephen Wolfram is obsessed with
+
+823
+00:41:05,400 --> 00:41:10,500
+cellular automata
+
+824
+00:41:07,760 --> 00:41:13,940
+and you know not just cellular automata
+
+825
+00:41:10,500 --> 00:41:16,500
+but he is interested in computation
+
+826
+00:41:13,940 --> 00:41:18,500
+computation the
+
+827
+00:41:16,500 --> 00:41:21,180
+well basically
+
+828
+00:41:18,500 --> 00:41:24,000
+automata okay basically simple
+
+829
+00:41:21,180 --> 00:41:27,420
+computation that you know you just
+
+830
+00:41:24,000 --> 00:41:28,980
+compute and cellular automata is a
+
+831
+00:41:27,420 --> 00:41:32,099
+specific
+
+832
+00:41:28,980 --> 00:41:35,400
+kind of it where you you know you kind
+
+833
+00:41:32,099 --> 00:41:37,740
+of draw things on a cell and
+
+834
+00:41:35,400 --> 00:41:40,260
+you know and they evolve you can see
+
+835
+00:41:37,740 --> 00:41:43,140
+them evolve according to very simple
+
+836
+00:41:40,260 --> 00:41:44,460
+rules the rules are just like a program
+
+837
+00:41:43,140 --> 00:41:47,940
+you know
+
+838
+00:41:44,460 --> 00:41:50,640
+so he's into you know computation and
+
+839
+00:41:47,940 --> 00:41:54,500
+his view is that you know beginning with
+
+840
+00:41:50,640 --> 00:41:59,280
+this you know this was published in 2002
+
+841
+00:41:54,500 --> 00:42:01,500
+around there but in the previous 10
+
+842
+00:41:59,280 --> 00:42:04,859
+also years he been
+
+843
+00:42:01,500 --> 00:42:07,020
+studying this a lot you know with he
+
+844
+00:42:04,859 --> 00:42:10,460
+also created you know he created the
+
+845
+00:42:07,020 --> 00:42:13,859
+entire field of
+
+846
+00:42:10,460 --> 00:42:17,040
+complexity Theory okay he has he created
+
+847
+00:42:13,859 --> 00:42:20,040
+a journal of it and so on
+
+848
+00:42:17,040 --> 00:42:23,220
+then with then this book came out then
+
+849
+00:42:20,040 --> 00:42:25,380
+he still studied this you know and then
+
+850
+00:42:23,220 --> 00:42:29,400
+in the past few years he started to
+
+851
+00:42:25,380 --> 00:42:33,780
+create a physics project that
+
+852
+00:42:29,400 --> 00:42:36,540
+basically tries to find to basically try
+
+853
+00:42:33,780 --> 00:42:38,720
+to model the universe
+
+854
+00:42:36,540 --> 00:42:41,760
+you know
+
+855
+00:42:38,720 --> 00:42:45,000
+asking answering all the questions in
+
+856
+00:42:41,760 --> 00:42:48,780
+traditional physics
+
+857
+00:42:45,000 --> 00:42:51,960
+by basing it on
+
+858
+00:42:48,780 --> 00:42:54,900
+simple programs okay that's essentially
+
+859
+00:42:51,960 --> 00:42:57,000
+what he's saying he's doing you know and
+
+860
+00:42:54,900 --> 00:42:59,940
+that research you know starting like
+
+861
+00:42:57,000 --> 00:43:03,900
+four years five years ago that turns out
+
+862
+00:42:59,940 --> 00:43:07,020
+to then then it turns out then then it
+
+863
+00:43:03,900 --> 00:43:10,160
+turns out he also started to have a you
+
+864
+00:43:07,020 --> 00:43:14,040
+know it branched out into a
+
+865
+00:43:10,160 --> 00:43:16,560
+structure of meta mathematics that is a
+
+866
+00:43:14,040 --> 00:43:19,140
+foundation for mathematics for example
+
+867
+00:43:16,560 --> 00:43:21,300
+you know we have proof Theory we have
+
+868
+00:43:19,140 --> 00:43:24,780
+proof systems we have you know model
+
+869
+00:43:21,300 --> 00:43:27,720
+Theory proof Theory we have you know all
+
+870
+00:43:24,780 --> 00:43:30,619
+category Theory or you know sequence
+
+871
+00:43:27,720 --> 00:43:32,520
+calculus in logic and and
+
+872
+00:43:30,619 --> 00:43:34,760
+homotopy type
+
+873
+00:43:32,520 --> 00:43:34,760
+foreign
+
+874
+00:43:35,839 --> 00:43:41,160
+type Theory you know all these are kind
+
+875
+00:43:38,819 --> 00:43:43,260
+of proof system proof theories but you
+
+876
+00:43:41,160 --> 00:43:45,960
+know it's like they all have some
+
+877
+00:43:43,260 --> 00:43:49,680
+problems which each one is not perfect
+
+878
+00:43:45,960 --> 00:43:51,300
+if you add this then it's more powerful
+
+879
+00:43:49,680 --> 00:43:54,119
+then something is missing things like
+
+880
+00:43:51,300 --> 00:43:56,760
+that so he also created
+
+881
+00:43:54,119 --> 00:44:00,200
+a kind of meta
+
+882
+00:43:56,760 --> 00:44:00,200
+framework that
+
+883
+00:44:01,740 --> 00:44:08,460
+gives you a insight about why why you
+
+884
+00:44:06,480 --> 00:44:10,319
+have all these different proof systems
+
+885
+00:44:08,460 --> 00:44:13,740
+you know
+
+886
+00:44:10,319 --> 00:44:14,400
+so it's kind of meta so it's it's you
+
+887
+00:44:13,740 --> 00:44:18,180
+know
+
+888
+00:44:14,400 --> 00:44:21,859
+and so so that's one branch of it meta
+
+889
+00:44:18,180 --> 00:44:25,520
+mathematics and what he would call
+
+890
+00:44:21,859 --> 00:44:29,339
+rudiology okay I'm not gonna explain
+
+891
+00:44:25,520 --> 00:44:32,040
+then the other another Branch branched
+
+892
+00:44:29,339 --> 00:44:34,760
+out is the you know he wanted to find
+
+893
+00:44:32,040 --> 00:44:38,760
+the fundamental uh
+
+894
+00:44:34,760 --> 00:44:41,460
+Theory Theory you know the grand
+
+895
+00:44:38,760 --> 00:44:44,160
+Theory of Everything You know basically
+
+896
+00:44:41,460 --> 00:44:46,020
+that's that's dramatic um that's a
+
+897
+00:44:44,160 --> 00:44:48,660
+dramatic question
+
+898
+00:44:46,020 --> 00:44:52,200
+but basically he wanted to
+
+899
+00:44:48,660 --> 00:44:55,260
+create physics entirely
+
+900
+00:44:52,200 --> 00:44:58,200
+with the by the foundation using the
+
+901
+00:44:55,260 --> 00:45:01,440
+foundation of
+
+902
+00:44:58,200 --> 00:45:06,140
+of simple programs uh the way the the
+
+903
+00:45:01,440 --> 00:45:09,020
+the particular one he want to base on is
+
+904
+00:45:06,140 --> 00:45:12,480
+multi-graph okay it's called
+
+905
+00:45:09,020 --> 00:45:15,480
+hypergraph okay hypergraph you know it's
+
+906
+00:45:12,480 --> 00:45:18,540
+just a it's like a graph okay so anyway
+
+907
+00:45:15,480 --> 00:45:21,960
+I'm rambling a lot uh I don't think I'm
+
+908
+00:45:18,540 --> 00:45:23,220
+going what so I lost
+
+909
+00:45:21,960 --> 00:45:27,200
+um
+
+910
+00:45:23,220 --> 00:45:27,200
+how many people are watching for
+
+911
+00:45:27,480 --> 00:45:33,359
+okay I think I'm just gonna shut down
+
+912
+00:45:29,640 --> 00:45:36,560
+what else you guys have to say any
+
+913
+00:45:33,359 --> 00:45:36,560
+questions comments
+
+914
+00:45:39,000 --> 00:45:46,980
+so yeah so I was going to say
+
+915
+00:45:42,839 --> 00:45:49,920
+that he wrote this article
+
+916
+00:45:46,980 --> 00:45:54,540
+you know um
+
+917
+00:45:49,920 --> 00:45:57,180
+on the second law of Thermodynamics but
+
+918
+00:45:54,540 --> 00:45:58,500
+you know but if you just look at the
+
+919
+00:45:57,180 --> 00:46:01,020
+graphics
+
+920
+00:45:58,500 --> 00:46:03,240
+you know just you suppose you ignore
+
+921
+00:46:01,020 --> 00:46:07,140
+everything else he says because he's
+
+922
+00:46:03,240 --> 00:46:10,020
+creating a grand Theory kind of and uh
+
+923
+00:46:07,140 --> 00:46:13,200
+to some traditional physicists
+
+924
+00:46:10,020 --> 00:46:16,880
+they've they you know they may think
+
+925
+00:46:13,200 --> 00:46:16,880
+this is uh
+
+926
+00:46:17,099 --> 00:46:21,960
+this is not so valid you know they may
+
+927
+00:46:19,440 --> 00:46:24,420
+think that this is not too useful to the
+
+928
+00:46:21,960 --> 00:46:26,400
+traditional physicists
+
+929
+00:46:24,420 --> 00:46:31,079
+or mathematicians
+
+930
+00:46:26,400 --> 00:46:33,300
+so if you but if if you just so even if
+
+931
+00:46:31,079 --> 00:46:36,240
+you ignore whatever he's trying to say
+
+932
+00:46:33,300 --> 00:46:39,500
+simply look at the graphics now this
+
+933
+00:46:36,240 --> 00:46:43,680
+Graphics this is the the the the most
+
+934
+00:46:39,500 --> 00:46:45,480
+pestant visualization ever okay look at
+
+935
+00:46:43,680 --> 00:46:49,440
+those Graphics okay
+
+936
+00:46:45,480 --> 00:46:50,640
+not not easy and also if you ignore all
+
+937
+00:46:49,440 --> 00:46:53,460
+the
+
+938
+00:46:50,640 --> 00:46:55,980
+physics things or thermodynamics things
+
+939
+00:46:53,460 --> 00:46:57,960
+he's saying you just look at this
+
+940
+00:46:55,980 --> 00:47:01,680
+whatever he's saying
+
+941
+00:46:57,960 --> 00:47:04,680
+purely with respect to Cellular automata
+
+942
+00:47:01,680 --> 00:47:06,780
+or simple computation so it's very
+
+943
+00:47:04,680 --> 00:47:08,700
+interesting you know how would things
+
+944
+00:47:06,780 --> 00:47:11,339
+you know you begin with this pattern
+
+945
+00:47:08,700 --> 00:47:14,700
+given with these rules for example
+
+946
+00:47:11,339 --> 00:47:16,020
+here's a visual clue of how they evolve
+
+947
+00:47:14,700 --> 00:47:18,359
+so
+
+948
+00:47:16,020 --> 00:47:21,119
+you start with a pattern then you have
+
+949
+00:47:18,359 --> 00:47:23,700
+these rules how would it become what
+
+950
+00:47:21,119 --> 00:47:26,579
+would it become so you have so that's
+
+951
+00:47:23,700 --> 00:47:29,760
+how you have all these Graphics okay
+
+952
+00:47:26,579 --> 00:47:32,280
+and so if you look at his article purely
+
+953
+00:47:29,760 --> 00:47:35,040
+from this point of view computations
+
+954
+00:47:32,280 --> 00:47:37,680
+simple computation cellular automatic
+
+955
+00:47:35,040 --> 00:47:40,800
+automata okay it's just amazing okay
+
+956
+00:47:37,680 --> 00:47:42,660
+it's non-trivial work non-trivial work
+
+957
+00:47:40,800 --> 00:47:45,619
+you know if you are a scientist you can
+
+958
+00:47:42,660 --> 00:47:47,180
+just publish publish this by itself
+
+959
+00:47:45,619 --> 00:47:50,220
+without
+
+960
+00:47:47,180 --> 00:47:52,500
+dragging into thermal you know without
+
+961
+00:47:50,220 --> 00:47:55,859
+trying to say you are actually modeling
+
+962
+00:47:52,500 --> 00:48:01,020
+thermodynamics so physics okay
+
+963
+00:47:55,859 --> 00:48:03,359
+so it's I think it's so that's um
+
+964
+00:48:01,020 --> 00:48:07,260
+so I think it's very
+
+965
+00:48:03,359 --> 00:48:10,260
+um interesting and uh fruitful and
+
+966
+00:48:07,260 --> 00:48:12,839
+research now I don't know you know I
+
+967
+00:48:10,260 --> 00:48:15,660
+don't know whether he's
+
+968
+00:48:12,839 --> 00:48:18,599
+you know he's you know the universe you
+
+969
+00:48:15,660 --> 00:48:21,000
+know he this you know he's his theory is
+
+970
+00:48:18,599 --> 00:48:23,660
+going to be the actually
+
+971
+00:48:21,000 --> 00:48:23,660
+critical
+
+972
+00:48:23,700 --> 00:48:30,480
+for the future you know he's saying that
+
+973
+00:48:27,720 --> 00:48:33,359
+we have a multi-computational paradigm
+
+974
+00:48:30,480 --> 00:48:37,460
+now and today he says that we are
+
+975
+00:48:33,359 --> 00:48:41,460
+entering into an era of
+
+976
+00:48:37,460 --> 00:48:41,460
+Multicultural multi-computational
+
+977
+00:48:42,180 --> 00:48:49,560
+Paradigm okay and he is saying that
+
+978
+00:48:46,140 --> 00:48:51,720
+you know his theory his you know he's I
+
+979
+00:48:49,560 --> 00:48:54,060
+don't know how how big this
+
+980
+00:48:51,720 --> 00:48:56,940
+is you know his
+
+981
+00:48:54,060 --> 00:49:00,359
+his his physics project
+
+982
+00:48:56,940 --> 00:49:03,300
+but I you know so I don't know about
+
+983
+00:49:00,359 --> 00:49:06,540
+that but I know
+
+984
+00:49:03,300 --> 00:49:08,700
+for certainty this is a this is a
+
+985
+00:49:06,540 --> 00:49:10,700
+non-trivial uh you know this is a
+
+986
+00:49:08,700 --> 00:49:14,640
+non-trivial research just just just
+
+987
+00:49:10,700 --> 00:49:16,500
+purely from the cellular automata and
+
+988
+00:49:14,640 --> 00:49:19,440
+computer graphics and programming
+
+989
+00:49:16,500 --> 00:49:23,060
+language point of view okay you know you
+
+990
+00:49:19,440 --> 00:49:25,819
+look at those python you know JavaScript
+
+991
+00:49:23,060 --> 00:49:28,380
+you know D
+
+992
+00:49:25,819 --> 00:49:30,900
+d3js you know all those fancy things
+
+993
+00:49:28,380 --> 00:49:33,660
+this is 10 times better
+
+994
+00:49:30,900 --> 00:49:35,099
+uh you know
+
+995
+00:49:33,660 --> 00:49:37,800
+so
+
+996
+00:49:35,099 --> 00:49:39,960
+yeah so very interesting and here he's
+
+997
+00:49:37,800 --> 00:49:42,800
+you know I read a part of this article
+
+998
+00:49:39,960 --> 00:49:45,020
+here he's talking about
+
+999
+00:49:42,800 --> 00:49:47,339
+reversibility you know
+
+1000
+00:49:45,020 --> 00:49:50,220
+equilibrium and you know very
+
+1001
+00:49:47,339 --> 00:49:54,060
+interesting about how
+
+1002
+00:49:50,220 --> 00:49:56,819
+how you can you know you cannot create a
+
+1003
+00:49:54,060 --> 00:49:58,440
+rule that reverses you know things like
+
+1004
+00:49:56,819 --> 00:50:00,240
+that okay
+
+1005
+00:49:58,440 --> 00:50:04,319
+um
+
+1006
+00:50:00,240 --> 00:50:07,560
+yeah so you know so this is a huge huge
+
+1007
+00:50:04,319 --> 00:50:08,579
+article okay it takes many many days to
+
+1008
+00:50:07,560 --> 00:50:11,400
+read them
+
+1009
+00:50:08,579 --> 00:50:14,599
+I only you know and look look at look at
+
+1010
+00:50:11,400 --> 00:50:18,000
+these Graphics okay this is
+
+1011
+00:50:14,599 --> 00:50:20,280
+how long does it take to to do this okay
+
+1012
+00:50:18,000 --> 00:50:22,200
+if you don't have Mathematica if you
+
+1013
+00:50:20,280 --> 00:50:26,099
+don't have Wolfram language this take
+
+1014
+00:50:22,200 --> 00:50:29,040
+you a days to to design redesign retro
+
+1015
+00:50:26,099 --> 00:50:31,500
+this this kind of thing but with wufan
+
+1016
+00:50:29,040 --> 00:50:34,400
+language it's much easier but still I
+
+1017
+00:50:31,500 --> 00:50:34,400
+mean even still
+
+1018
+00:50:35,700 --> 00:50:43,680
+it's not that trivial okay
+
+1019
+00:50:39,300 --> 00:50:47,599
+yeah so amazing amazing uh I I find it
+
+1020
+00:50:43,680 --> 00:50:47,599
+just amazing okay uh
+
+1021
+00:50:47,880 --> 00:50:51,440
+yeah so you know
+
+1022
+00:50:54,000 --> 00:50:58,140
+oh and here is a compression okay for
+
+1023
+00:50:57,300 --> 00:51:01,260
+example
+
+1024
+00:50:58,140 --> 00:51:04,440
+he you know he started with a simple
+
+1025
+00:51:01,260 --> 00:51:07,079
+compression scheme where he explained
+
+1026
+00:51:04,440 --> 00:51:10,559
+here okay something then he tries to
+
+1027
+00:51:07,079 --> 00:51:12,720
+compress the image on the left
+
+1028
+00:51:10,559 --> 00:51:16,440
+compress each line
+
+1029
+00:51:12,720 --> 00:51:18,180
+and on the right is the result okay so
+
+1030
+00:51:16,440 --> 00:51:21,000
+you can see
+
+1031
+00:51:18,180 --> 00:51:22,980
+when there's more pattern on the top you
+
+1032
+00:51:21,000 --> 00:51:24,599
+know the compression result is very
+
+1033
+00:51:22,980 --> 00:51:27,119
+small you know you've got a great
+
+1034
+00:51:24,599 --> 00:51:29,339
+compression but when the pattern becomes
+
+1035
+00:51:27,119 --> 00:51:31,200
+kind of randomish
+
+1036
+00:51:29,339 --> 00:51:33,240
+then you don't you don't have much
+
+1037
+00:51:31,200 --> 00:51:35,400
+compression especially you know when
+
+1038
+00:51:33,240 --> 00:51:38,339
+it's totally random
+
+1039
+00:51:35,400 --> 00:51:42,660
+you know so very interesting uh things
+
+1040
+00:51:38,339 --> 00:51:45,119
+even if you are not a physicist okay I I
+
+1041
+00:51:42,660 --> 00:51:47,400
+think that's very interesting
+
+1042
+00:51:45,119 --> 00:51:49,740
+so I'm just
+
+1043
+00:51:47,400 --> 00:51:52,740
+yeah okay so I'm just saying you know my
+
+1044
+00:51:49,740 --> 00:51:54,920
+random comments on his Stefan wolfram's
+
+1045
+00:51:52,740 --> 00:51:54,920
+walk
+
+1046
+00:51:55,920 --> 00:51:58,099
+foreign
+
+1047
+00:51:59,839 --> 00:52:06,119
+with a new keyboard yeah well look at
+
+1048
+00:52:03,599 --> 00:52:10,559
+you know look at my
+
+1049
+00:52:06,119 --> 00:52:13,319
+my reviews of it last week okay
+
+1050
+00:52:10,559 --> 00:52:15,720
+okay so today I think that's it for
+
+1051
+00:52:13,319 --> 00:52:18,059
+today thank you guys for watching you
+
+1052
+00:52:15,720 --> 00:52:21,480
+know I started to
+
+1053
+00:52:18,059 --> 00:52:22,920
+do emac this and turns out we don't need
+
+1054
+00:52:21,480 --> 00:52:24,920
+to do it
+
+1055
+00:52:22,920 --> 00:52:24,920
+um
+
+1056
+00:52:27,059 --> 00:52:32,000
+okay so that's it for today yeah
+
+1057
+00:52:32,940 --> 00:52:39,660
+okay so this common.el newcomer.el is
+
+1058
+00:52:37,020 --> 00:52:40,760
+written by Stephen Marnier which is
+
+1059
+00:52:39,660 --> 00:52:44,220
+great
+
+1060
+00:52:40,760 --> 00:52:47,160
+uh so actually
+
+1061
+00:52:44,220 --> 00:52:48,180
+yeah I will have to spend time to
+
+1062
+00:52:47,160 --> 00:52:53,220
+actually
+
+1063
+00:52:48,180 --> 00:52:55,520
+look over it I never did so
+
+1064
+00:52:53,220 --> 00:52:59,599
+to see
+
+1065
+00:52:55,520 --> 00:52:59,599
+if to see that
+
+1066
+00:53:00,240 --> 00:53:04,640
+to see that if we're gonna write a
+
+1067
+00:53:08,520 --> 00:53:12,260
+you know to see that if we're gonna
+
+1068
+00:53:13,319 --> 00:53:18,359
+to see that if I should use it or not oh
+
+1069
+00:53:15,839 --> 00:53:22,640
+look at here is Pascal for example in
+
+1070
+00:53:18,359 --> 00:53:22,640
+his Pascal this this are possible
+
+1071
+00:53:28,020 --> 00:53:35,160
+okay so here is bugs Sparks comments in
+
+1072
+00:53:32,400 --> 00:53:38,880
+Pearl are not properly uncommented
+
+1073
+00:53:35,160 --> 00:53:43,260
+because they are uncommented one line at
+
+1074
+00:53:38,880 --> 00:53:46,819
+a time honestly commenting sgml mod are
+
+1075
+00:53:43,260 --> 00:53:50,960
+not properly quoted okay problems
+
+1076
+00:53:46,819 --> 00:53:53,880
+uh uncommon region okay common symptoms
+
+1077
+00:53:50,960 --> 00:53:56,420
+common coldness they will not encode
+
+1078
+00:53:53,880 --> 00:53:56,420
+properly
+
+1079
+00:54:04,559 --> 00:54:07,040
+okay
+
+1080
+00:54:07,079 --> 00:54:09,800
+bye guys
+
+1081
+00:54:18,240 --> 00:54:23,660
+yeah closing shutting down in two
+
+1082
+00:54:20,819 --> 00:54:23,660
+minutes or so
+
+1083
+00:54:28,339 --> 00:54:35,819
+okay so close that close that
+
+1084
+00:54:32,460 --> 00:54:37,680
+so some common dream close that okay
+
+1085
+00:54:35,819 --> 00:54:41,520
+here's sample
+
+1086
+00:54:37,680 --> 00:54:45,000
+sample comment in Wolfram language
+
+1087
+00:54:41,520 --> 00:54:49,640
+and cut it close it
+
+1088
+00:54:45,000 --> 00:54:53,119
+okay now let's go to talk show
+
+1089
+00:54:49,640 --> 00:54:56,099
+and open this
+
+1090
+00:54:53,119 --> 00:54:59,400
+and then it's just
+
+1091
+00:54:56,099 --> 00:55:00,599
+put a wolf and language code paste it
+
+1092
+00:54:59,400 --> 00:55:02,400
+there
+
+1093
+00:55:00,599 --> 00:55:05,540
+cut it
+
+1094
+00:55:02,400 --> 00:55:05,540
+showing browser
+
+1095
+00:55:06,720 --> 00:55:09,380
+okay
+
+1096
+00:55:11,400 --> 00:55:15,420
+thanks bye bye
+

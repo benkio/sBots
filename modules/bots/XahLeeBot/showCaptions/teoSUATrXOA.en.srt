@@ -1,0 +1,7862 @@
+1
+00:00:08,920 --> 00:00:15,160
+hello welcome to another episode of
+
+2
+00:00:11,639 --> 00:00:19,680
+sound talk show today we going going to
+
+3
+00:00:15,160 --> 00:00:22,519
+code advant of code in wfam language
+
+4
+00:00:19,680 --> 00:00:25,599
+okay we're going to finish it as fast as
+
+5
+00:00:22,519 --> 00:00:29,199
+possible maybe 40 minutes to an hour
+
+6
+00:00:25,599 --> 00:00:31,599
+this is my keyboard Kinesis 360 ultimate
+
+7
+00:00:29,199 --> 00:00:35,040
+hacking keyboard
+
+8
+00:00:31,599 --> 00:00:38,239
+glove 0 keyboard fantastic these are the
+
+9
+00:00:35,040 --> 00:00:42,079
+keyboard I recommend okay so let's let's
+
+10
+00:00:38,239 --> 00:00:42,920
+begin so uh Advent of code let's show
+
+11
+00:00:42,079 --> 00:00:46,840
+the
+
+12
+00:00:42,920 --> 00:00:50,600
+screen problem number seven so we did
+
+13
+00:00:46,840 --> 00:00:53,160
+number one two six and not not the part
+
+14
+00:00:50,600 --> 00:00:55,000
+two some of them uh we haven't done the
+
+15
+00:00:53,160 --> 00:00:57,320
+part two yet but I'm thinking I'm just
+
+16
+00:00:55,000 --> 00:01:00,879
+going to do all the Advent of code the
+
+17
+00:00:57,320 --> 00:01:04,119
+first part first then uh then let's do
+
+18
+00:01:00,879 --> 00:01:06,200
+the part two because part one the
+
+19
+00:01:04,119 --> 00:01:08,799
+problems are open to everyone you can
+
+20
+00:01:06,200 --> 00:01:13,600
+see the problem at the end of a code
+
+21
+00:01:08,799 --> 00:01:15,960
+2023 okay and uh okay so let's begin if
+
+22
+00:01:13,600 --> 00:01:17,600
+you are here say hi okay if you like my
+
+23
+00:01:15,960 --> 00:01:20,119
+stuff
+
+24
+00:01:17,600 --> 00:01:23,840
+donate okay so Advent of code let's
+
+25
+00:01:20,119 --> 00:01:23,840
+start wam language
+
+26
+00:01:28,840 --> 00:01:31,840
+begin
+
+27
+00:01:32,680 --> 00:01:41,880
+okay new panel 1 + one please show me
+
+28
+00:01:37,720 --> 00:01:45,399
+one + 1 equals to two
+
+29
+00:01:41,880 --> 00:01:48,159
+Okay and uh we need to magnify okay so
+
+30
+00:01:45,399 --> 00:01:52,640
+that's good let's
+
+31
+00:01:48,159 --> 00:01:54,360
+uh magnify the window okay so WF
+
+32
+00:01:52,640 --> 00:02:01,360
+language Advent of
+
+33
+00:01:54,360 --> 00:02:03,039
+code 2023 number seven day seven
+
+34
+00:02:01,360 --> 00:02:06,360
+can you share the link to your Discord
+
+35
+00:02:03,039 --> 00:02:10,000
+server I couldn't find ons.info okay go
+
+36
+00:02:06,360 --> 00:02:12,480
+to kali. info it's obvious or just
+
+37
+00:02:10,000 --> 00:02:14,239
+search for you can probably find it K
+
+38
+00:02:12,480 --> 00:02:17,879
+Google Kali
+
+39
+00:02:14,239 --> 00:02:22,319
+Google uh Kali Discord
+
+40
+00:02:17,879 --> 00:02:25,640
+okay uh yeah okay so well let me let me
+
+41
+00:02:22,319 --> 00:02:29,879
+just paste the link okay you seea
+
+42
+00:02:25,640 --> 00:02:37,440
+code uh and uhar blogs so many blogs on
+
+43
+00:02:29,879 --> 00:02:37,440
+Twitter on El musk X and uh there it is
+
+44
+00:02:39,599 --> 00:02:45,959
+Discord number six hello okay what
+
+45
+00:02:43,080 --> 00:02:48,760
+random code number day seven okay let's
+
+46
+00:02:45,959 --> 00:02:51,159
+begin now answer the question okay I'm
+
+47
+00:02:48,760 --> 00:02:54,879
+wondering you know I'm going to do there
+
+48
+00:02:51,159 --> 00:02:56,840
+are like V of code up to up to 17 or
+
+49
+00:02:54,879 --> 00:02:59,440
+something so I'm going to finish them
+
+50
+00:02:56,840 --> 00:03:02,599
+all okay but I'm going to do them like
+
+51
+00:02:59,440 --> 00:03:06,200
+one per week so I don't want to like
+
+52
+00:03:02,599 --> 00:03:08,799
+congest them all in one month you know
+
+53
+00:03:06,200 --> 00:03:12,360
+one per week so that we continuously
+
+54
+00:03:08,799 --> 00:03:16,720
+have some code exercise to do for the S
+
+55
+00:03:12,360 --> 00:03:20,879
+HW show so you know I'm wondering so one
+
+56
+00:03:16,720 --> 00:03:23,400
+one of the day I want to do a um you
+
+57
+00:03:20,879 --> 00:03:26,680
+know that that the mangen Zuma thing
+
+58
+00:03:23,400 --> 00:03:29,439
+like quiet you know like there's a word
+
+59
+00:03:26,680 --> 00:03:31,799
+like tickle your senses you just quietly
+
+60
+00:03:29,439 --> 00:03:34,480
+talk talking and make some
+
+61
+00:03:31,799 --> 00:03:36,360
+noises so do you like do you guys like
+
+62
+00:03:34,480 --> 00:03:39,599
+to see that not not today today I'm
+
+63
+00:03:36,360 --> 00:03:41,959
+going to talk uh and explain things but
+
+64
+00:03:39,599 --> 00:03:44,120
+you know I I'm guessing down the road
+
+65
+00:03:41,959 --> 00:03:47,560
+we're going to do one like that no
+
+66
+00:03:44,120 --> 00:03:50,840
+talking just like uh code okay Advent of
+
+67
+00:03:47,560 --> 00:03:52,640
+code day seven your all expenses paid
+
+68
+00:03:50,840 --> 00:03:55,720
+trip turns out to be one way five
+
+69
+00:03:52,640 --> 00:03:56,599
+minutes right in in an Airship can you
+
+70
+00:03:55,720 --> 00:04:00,760
+see
+
+71
+00:03:56,599 --> 00:04:03,799
+it uh let's see oh okay okay so you this
+
+72
+00:04:00,760 --> 00:04:03,799
+window needs to
+
+73
+00:04:04,959 --> 00:04:11,480
+be uh there
+
+74
+00:04:08,640 --> 00:04:13,200
+okay so your all expensive pay trip
+
+75
+00:04:11,480 --> 00:04:16,759
+turned out to be one way five minutes
+
+76
+00:04:13,200 --> 00:04:20,160
+riding an Airship at this is cool
+
+77
+00:04:16,759 --> 00:04:23,400
+Airship it drops you off at the edge of
+
+78
+00:04:20,160 --> 00:04:27,000
+vast desert and uh descends back to
+
+79
+00:04:23,400 --> 00:04:29,639
+island island did you bring the parts
+
+80
+00:04:27,000 --> 00:04:31,840
+you turn around to see an elf completely
+
+81
+00:04:29,639 --> 00:04:35,199
+covered in the white clothing wearing
+
+82
+00:04:31,840 --> 00:04:38,479
+goggles and riding a large camel did you
+
+83
+00:04:35,199 --> 00:04:40,919
+bring the pots she asked again louder
+
+84
+00:04:38,479 --> 00:04:43,440
+this time you aren't sure what parts
+
+85
+00:04:40,919 --> 00:04:45,400
+she's looking for you are here to figure
+
+86
+00:04:43,440 --> 00:04:50,840
+out why the sand
+
+87
+00:04:45,400 --> 00:04:53,960
+stopped the parts for the sand yes come
+
+88
+00:04:50,840 --> 00:04:55,320
+with me I'll show you she beckons you
+
+89
+00:04:53,960 --> 00:04:57,720
+onto the
+
+90
+00:04:55,320 --> 00:05:00,560
+camel after riding a bit across the
+
+91
+00:04:57,720 --> 00:05:02,800
+Sands of desert island you can see what
+
+92
+00:05:00,560 --> 00:05:04,000
+looks like very large rocks covering
+
+93
+00:05:02,800 --> 00:05:06,880
+half of the
+
+94
+00:05:04,000 --> 00:05:09,120
+Horizon the elf explains that the rocks
+
+95
+00:05:06,880 --> 00:05:12,000
+are all along the part of the desert
+
+96
+00:05:09,120 --> 00:05:15,280
+island that is directly above island
+
+97
+00:05:12,000 --> 00:05:18,600
+island making it hard to even get there
+
+98
+00:05:15,280 --> 00:05:21,919
+normally they use big machines to move
+
+99
+00:05:18,600 --> 00:05:24,199
+the rocks and filter the sand but the
+
+100
+00:05:21,919 --> 00:05:26,440
+machines have broken down because desert
+
+101
+00:05:24,199 --> 00:05:28,479
+island recently stopped receiving the
+
+102
+00:05:26,440 --> 00:05:30,240
+parts they need to fix the
+
+103
+00:05:28,479 --> 00:05:32,960
+machines
+
+104
+00:05:30,240 --> 00:05:35,199
+you have already assumed it'll be your
+
+105
+00:05:32,960 --> 00:05:40,199
+job to figure out why the part stopped
+
+106
+00:05:35,199 --> 00:05:42,400
+when she asked if you can help you agree
+
+107
+00:05:40,199 --> 00:05:45,319
+automatically because the journey will
+
+108
+00:05:42,400 --> 00:05:47,720
+take a few days she offers to teach you
+
+109
+00:05:45,319 --> 00:05:51,520
+the game of Camo
+
+110
+00:05:47,720 --> 00:05:54,759
+cards here here comes the payload Camo
+
+111
+00:05:51,520 --> 00:05:57,280
+cards is sort of similar to poer except
+
+112
+00:05:54,759 --> 00:05:58,479
+it's designed to be easier to play while
+
+113
+00:05:57,280 --> 00:06:02,400
+riding a
+
+114
+00:05:58,479 --> 00:06:06,080
+camo in cam cards you you get a list of
+
+115
+00:06:02,400 --> 00:06:09,000
+hands a list of hands and your goal is
+
+116
+00:06:06,080 --> 00:06:11,039
+to order them based on the strength of
+
+117
+00:06:09,000 --> 00:06:16,120
+each hand
+
+118
+00:06:11,039 --> 00:06:18,000
+okay a hand consists of five cards labed
+
+119
+00:06:16,120 --> 00:06:22,440
+one of AK
+
+120
+00:06:18,000 --> 00:06:22,440
+qjt 9876
+
+121
+00:06:23,479 --> 00:06:31,800
+54302 okay someone is knocking the door
+
+122
+00:06:26,080 --> 00:06:31,800
+hold on a second I got a um I got a be
+
+123
+00:06:34,080 --> 00:06:38,680
+back okay got some errand to
+
+124
+00:06:39,039 --> 00:06:43,560
+do so I'm back
+
+125
+00:06:43,880 --> 00:06:49,960
+uh so let's
+
+126
+00:06:46,759 --> 00:06:52,160
+see where was I so Advent of code so
+
+127
+00:06:49,960 --> 00:06:56,720
+camo so Camo
+
+128
+00:06:52,160 --> 00:06:57,840
+cards uh game of Camo cards so you got a
+
+129
+00:06:56,720 --> 00:07:00,960
+list of
+
+130
+00:06:57,840 --> 00:07:04,479
+hands your goal is to order them based
+
+131
+00:07:00,960 --> 00:07:07,520
+on the strength of the hands a hand
+
+132
+00:07:04,479 --> 00:07:11,120
+consists of five cards five cards each
+
+133
+00:07:07,520 --> 00:07:15,479
+one labeled one of them one of these uh
+
+134
+00:07:11,120 --> 00:07:15,479
+letters Also let's write it
+
+135
+00:07:22,960 --> 00:07:27,639
+down can you see yes
+
+136
+00:07:28,319 --> 00:07:31,319
+okay
+
+137
+00:07:33,000 --> 00:07:38,520
+okay something like that problem
+
+138
+00:07:35,160 --> 00:07:41,520
+description uh list of
+
+139
+00:07:38,520 --> 00:07:41,520
+hand
+
+140
+00:07:41,800 --> 00:07:47,520
+so so these are the
+
+141
+00:07:44,720 --> 00:07:49,759
+alphabets the relative strength of each
+
+142
+00:07:47,520 --> 00:07:53,680
+card follows this
+
+143
+00:07:49,759 --> 00:08:02,960
+order okay so a is better than k k is
+
+144
+00:07:53,680 --> 00:08:05,039
+better than Q okay a k q j okay a s s uh
+
+145
+00:08:02,960 --> 00:08:09,360
+king queen
+
+146
+00:08:05,039 --> 00:08:13,360
+Jack uh and T okay they got a t where a
+
+147
+00:08:09,360 --> 00:08:16,800
+is the highest of the two okay so yeah
+
+148
+00:08:13,360 --> 00:08:20,759
+so back to the problem so every hand is
+
+149
+00:08:16,800 --> 00:08:20,759
+is exactly one
+
+150
+00:08:21,120 --> 00:08:27,520
+type okay so there's no suits of clubs
+
+151
+00:08:25,440 --> 00:08:30,919
+and hearts and
+
+152
+00:08:27,520 --> 00:08:34,479
+stuff so let's copy let's copy the
+
+153
+00:08:30,919 --> 00:08:34,479
+problem Des uh
+
+154
+00:08:37,440 --> 00:08:43,839
+description so show in browser so every
+
+155
+00:08:41,159 --> 00:08:45,959
+hand is exactly one type from strongest
+
+156
+00:08:43,839 --> 00:08:51,200
+to weakest to
+
+157
+00:08:45,959 --> 00:08:54,440
+weakest weakest they are five of a kind
+
+158
+00:08:51,200 --> 00:08:57,680
+Jesus five of a kind okay so there's
+
+159
+00:08:54,440 --> 00:09:00,480
+more than one kind five of a
+
+160
+00:08:57,680 --> 00:09:04,720
+kind where all all five cards have the
+
+161
+00:09:00,480 --> 00:09:07,640
+same label okay four of a kind where all
+
+162
+00:09:04,720 --> 00:09:11,360
+four cards have the same label and one
+
+163
+00:09:07,640 --> 00:09:14,279
+card has a different label okay full
+
+164
+00:09:11,360 --> 00:09:18,079
+House where three cards have the same
+
+165
+00:09:14,279 --> 00:09:20,120
+label and the remaining two cards share
+
+166
+00:09:18,079 --> 00:09:24,079
+different
+
+167
+00:09:20,120 --> 00:09:26,440
+label share a different label okay three
+
+168
+00:09:24,079 --> 00:09:28,760
+of a kind where three cards have the
+
+169
+00:09:26,440 --> 00:09:32,240
+same label and the remaining two cards
+
+170
+00:09:28,760 --> 00:09:36,320
+are each different from any other cards
+
+171
+00:09:32,240 --> 00:09:39,680
+in the hand okay TT t98 three of a kind
+
+172
+00:09:36,320 --> 00:09:41,160
+Full House okay Full House three of a
+
+173
+00:09:39,680 --> 00:09:45,279
+kind two
+
+174
+00:09:41,160 --> 00:09:47,839
+pair where two cards share one label two
+
+175
+00:09:45,279 --> 00:09:51,120
+other cards share a second
+
+176
+00:09:47,839 --> 00:09:55,120
+label and the remaining cards has has a
+
+177
+00:09:51,120 --> 00:09:58,720
+third label okay two pair okay and one
+
+178
+00:09:55,120 --> 00:10:01,399
+pair where two cards share one label and
+
+179
+00:09:58,720 --> 00:10:05,079
+the other three cards have a different
+
+180
+00:10:01,399 --> 00:10:08,040
+label okay that's one single pair then a
+
+181
+00:10:05,079 --> 00:10:12,480
+high card where all cards labels are
+
+182
+00:10:08,040 --> 00:10:15,839
+distinct okay so every hand is exactly
+
+183
+00:10:12,480 --> 00:10:20,760
+one type from strongest to weakest they
+
+184
+00:10:15,839 --> 00:10:23,959
+are so every hand is exactly one of
+
+185
+00:10:20,760 --> 00:10:28,240
+these okay so one of each one of this is
+
+186
+00:10:23,959 --> 00:10:31,040
+called a type ordered from strongest to
+
+187
+00:10:28,240 --> 00:10:31,040
+weakest okay
+
+188
+00:10:31,160 --> 00:10:38,399
+okay okay
+
+189
+00:10:34,279 --> 00:10:40,880
+so so this is kind of odd because it
+
+190
+00:10:38,399 --> 00:10:42,990
+appears it doesn't covers all
+
+191
+00:10:40,880 --> 00:10:44,600
+possibilities for example what
+
+192
+00:10:42,990 --> 00:10:48,279
+[Music]
+
+193
+00:10:44,600 --> 00:10:52,480
+about what about flush right like 1 2 3
+
+194
+00:10:48,279 --> 00:10:58,040
+4 five they don't have that but anyway
+
+195
+00:10:52,480 --> 00:11:00,800
+so five of a kind four of a kind Full
+
+196
+00:10:58,040 --> 00:11:05,560
+House three of a
+
+197
+00:11:00,800 --> 00:11:09,200
+kind two pairs one pair and uh and
+
+198
+00:11:05,560 --> 00:11:10,760
+nothing okay hands are primarily ordered
+
+199
+00:11:09,200 --> 00:11:13,800
+based on
+
+200
+00:11:10,760 --> 00:11:18,240
+type for example every Full House is
+
+201
+00:11:13,800 --> 00:11:22,519
+stronger than three of a kind yes of
+
+202
+00:11:18,240 --> 00:11:26,760
+course if two hands have the same type a
+
+203
+00:11:22,519 --> 00:11:30,959
+second ordering rule takes effect start
+
+204
+00:11:26,760 --> 00:11:30,959
+by comparing the first card in each
+
+205
+00:11:31,360 --> 00:11:36,760
+hand start by comparing the first card
+
+206
+00:11:34,519 --> 00:11:39,480
+in each hand if these cards are
+
+207
+00:11:36,760 --> 00:11:43,120
+different the hands with a stronger
+
+208
+00:11:39,480 --> 00:11:43,120
+first card is considered
+
+209
+00:11:46,720 --> 00:11:52,000
+stronger okay so a second order okay
+
+210
+00:11:49,959 --> 00:11:54,680
+start by comparing first card is
+
+211
+00:11:52,000 --> 00:11:54,680
+something on my
+
+212
+00:11:55,279 --> 00:12:03,079
+mind okay so if these cards are so start
+
+213
+00:12:00,240 --> 00:12:06,360
+by comparing the first card in each hand
+
+214
+00:12:03,079 --> 00:12:09,200
+that's odd if these cards are
+
+215
+00:12:06,360 --> 00:12:11,760
+different the hand with a stronger first
+
+216
+00:12:09,200 --> 00:12:15,399
+card is considered
+
+217
+00:12:11,760 --> 00:12:18,800
+stronger okay if the first card in each
+
+218
+00:12:15,399 --> 00:12:21,839
+hand have the same label however they
+
+219
+00:12:18,800 --> 00:12:24,440
+move on to considering the second card
+
+220
+00:12:21,839 --> 00:12:26,480
+in each hand if they differ the hand
+
+221
+00:12:24,440 --> 00:12:29,000
+with the higher second card wins
+
+222
+00:12:26,480 --> 00:12:32,120
+otherwise continue with the third card
+
+223
+00:12:29,000 --> 00:12:35,360
+in each hand then the fourth okay that's
+
+224
+00:12:32,120 --> 00:12:38,839
+kind of odd I mean that's not
+
+225
+00:12:35,360 --> 00:12:41,639
+conventional uh ranking because they
+
+226
+00:12:38,839 --> 00:12:45,440
+simply compare the first card as opposed
+
+227
+00:12:41,639 --> 00:12:48,399
+to the rank of the you know four of a
+
+228
+00:12:45,440 --> 00:12:53,880
+kind four of a kind you might have
+
+229
+00:12:48,399 --> 00:12:56,880
+a s as as you know as the for of a kind
+
+230
+00:12:53,880 --> 00:12:59,720
+or you might have a king So in that case
+
+231
+00:12:56,880 --> 00:13:03,560
+the king should be
+
+232
+00:12:59,720 --> 00:13:07,480
+um High higher ranked but that's not the
+
+233
+00:13:03,560 --> 00:13:10,120
+case here they simply order by the card
+
+234
+00:13:07,480 --> 00:13:13,279
+number I mean by the first card and
+
+235
+00:13:10,120 --> 00:13:16,000
+second card and so on which makes the
+
+236
+00:13:13,279 --> 00:13:19,600
+problem kind of easier I
+
+237
+00:13:16,000 --> 00:13:23,320
+suppose because you just order them by
+
+238
+00:13:19,600 --> 00:13:27,360
+um by kind of alphabetical is that
+
+239
+00:13:23,320 --> 00:13:31,320
+right T okay T stand for 10 actually 10
+
+240
+00:13:27,360 --> 00:13:33,560
+9 876 5 4 32
+
+241
+00:13:31,320 --> 00:13:37,560
+okay
+
+242
+00:13:33,560 --> 00:13:38,880
+so so you so you got a least of oh God I
+
+243
+00:13:37,560 --> 00:13:42,480
+touched
+
+244
+00:13:38,880 --> 00:13:45,839
+my you got a list of
+
+245
+00:13:42,480 --> 00:13:51,720
+um hands your problem your job is just
+
+246
+00:13:45,839 --> 00:13:57,000
+order them okay so 3332 and 2 a a AA are
+
+247
+00:13:51,720 --> 00:13:59,199
+both for the kind but 3332 is stronger
+
+248
+00:13:57,000 --> 00:14:02,800
+because it's the first card because the
+
+249
+00:13:59,199 --> 00:14:04,519
+first card is stronger okay idiotic
+
+250
+00:14:02,800 --> 00:14:06,360
+similarly
+
+251
+00:14:04,519 --> 00:14:12,720
+77888 and
+
+252
+00:14:06,360 --> 00:14:15,720
+777 88 are both full house but
+
+253
+00:14:12,720 --> 00:14:18,920
+77888 is stronger right because the
+
+254
+00:14:15,720 --> 00:14:22,480
+third number eight is greater than seven
+
+255
+00:14:18,920 --> 00:14:26,000
+okay that's so far so
+
+256
+00:14:22,480 --> 00:14:29,560
+good to play cam cards you are given a
+
+257
+00:14:26,000 --> 00:14:33,560
+list of hands and they corresponding bit
+
+258
+00:14:29,560 --> 00:14:35,720
+oh God it's more complex so to play cam
+
+259
+00:14:33,560 --> 00:14:39,759
+cards you are given a list of hands okay
+
+260
+00:14:35,720 --> 00:14:42,360
+list of hands and they corresponding bid
+
+261
+00:14:39,759 --> 00:14:46,800
+so that's some kind of payload your
+
+262
+00:14:42,360 --> 00:14:50,920
+puzzle input okay let's copy the P
+
+263
+00:14:46,800 --> 00:14:53,680
+input so far so good am I doing
+
+264
+00:14:50,920 --> 00:14:57,680
+good
+
+265
+00:14:53,680 --> 00:14:59,320
+okay so this is the
+
+266
+00:14:57,680 --> 00:15:03,040
+input
+
+267
+00:14:59,320 --> 00:15:05,759
+and you have a weight attached to it for
+
+268
+00:15:03,040 --> 00:15:10,720
+each hand
+
+269
+00:15:05,759 --> 00:15:13,519
+okay so Co the corresponding bid okay
+
+270
+00:15:10,720 --> 00:15:15,800
+this example shows five hands each hand
+
+271
+00:15:13,519 --> 00:15:19,360
+is followed by its bit
+
+272
+00:15:15,800 --> 00:15:23,079
+amount each hand wins an amount equal to
+
+273
+00:15:19,360 --> 00:15:26,839
+its bit multiplied by its rank oh
+
+274
+00:15:23,079 --> 00:15:29,279
+multiplied by its rank where the weakest
+
+275
+00:15:26,839 --> 00:15:32,480
+hand gets rank one and the second
+
+276
+00:15:29,279 --> 00:15:36,480
+weakest hand gets rank
+
+277
+00:15:32,480 --> 00:15:41,519
+two okay so you order them so in this
+
+278
+00:15:36,480 --> 00:15:41,519
+case you got 1 two three four five five
+
+279
+00:15:41,759 --> 00:15:50,440
+hands so you order them by Rank and
+
+280
+00:15:46,120 --> 00:15:55,519
+uh multiply by the rank so basically the
+
+281
+00:15:50,440 --> 00:16:00,399
+multiplier is just ordinals like 1 2 3 4
+
+282
+00:15:55,519 --> 00:16:04,519
+five okay and so on okay so multiply by
+
+283
+00:16:00,399 --> 00:16:06,600
+the bit amount okay and so on up to the
+
+284
+00:16:04,519 --> 00:16:09,040
+strongest hand because there are five
+
+285
+00:16:06,600 --> 00:16:11,959
+hands in this example the strong
+
+286
+00:16:09,040 --> 00:16:15,199
+strongest hand will have rank five and
+
+287
+00:16:11,959 --> 00:16:17,560
+its bit will be multiplied by five okay
+
+288
+00:16:15,199 --> 00:16:21,079
+so the first step is to put the hands in
+
+289
+00:16:17,560 --> 00:16:23,639
+order so that's the first job rank them
+
+290
+00:16:21,079 --> 00:16:25,959
+by order of the
+
+291
+00:16:23,639 --> 00:16:30,519
+hands okay
+
+292
+00:16:25,959 --> 00:16:30,519
+so let's see
+
+293
+00:16:41,199 --> 00:16:48,120
+so some kind of explanation to confirm
+
+294
+00:16:45,360 --> 00:16:54,000
+that we understand the problem
+
+295
+00:16:48,120 --> 00:16:55,759
+correctly so KK 677 and KT jjt are both
+
+296
+00:16:54,000 --> 00:16:58,680
+two
+
+297
+00:16:55,759 --> 00:17:02,199
+pair okay their first card both have the
+
+298
+00:16:58,680 --> 00:17:06,120
+same label but the second card of this
+
+299
+00:17:02,199 --> 00:17:07,880
+is stronger K versus T
+
+300
+00:17:06,120 --> 00:17:11,240
+yeah
+
+301
+00:17:07,880 --> 00:17:14,679
+so so the first one is stronger so wait
+
+302
+00:17:11,240 --> 00:17:19,160
+they are two of a kind okay I mean both
+
+303
+00:17:14,679 --> 00:17:25,000
+two pair okay so KT
+
+304
+00:17:19,160 --> 00:17:27,919
+jjt gets rank two and K k6 77 gets rank
+
+305
+00:17:25,000 --> 00:17:31,120
+three okay the higher the rank means
+
+306
+00:17:27,919 --> 00:17:34,799
+they are more
+
+307
+00:17:31,120 --> 00:17:38,480
+Superior right okay so yeah so if you
+
+308
+00:17:34,799 --> 00:17:40,960
+want to maximize it you the bigger the
+
+309
+00:17:38,480 --> 00:17:45,240
+bit hopefully you have the better hand
+
+310
+00:17:40,960 --> 00:17:47,200
+for the bigger bit bits okay so now you
+
+311
+00:17:45,240 --> 00:17:50,160
+can determine the total winning of this
+
+312
+00:17:47,200 --> 00:17:53,440
+set of hands by adding up the result of
+
+313
+00:17:50,160 --> 00:17:56,400
+multiplying each hands bit with its rank
+
+314
+00:17:53,440 --> 00:18:00,400
+Okay blah blah blah so the total winning
+
+315
+00:17:56,400 --> 00:18:00,400
+in this example are that
+
+316
+00:18:00,679 --> 00:18:07,280
+okay so
+
+317
+00:18:02,280 --> 00:18:11,080
+now so here is the puzzle solution
+
+318
+00:18:07,280 --> 00:18:11,080
+um I mean the
+
+319
+00:18:13,039 --> 00:18:20,919
+the so 664 64 I mean
+
+320
+00:18:18,039 --> 00:18:23,280
+6440 is a solution to
+
+321
+00:18:20,919 --> 00:18:27,080
+this example
+
+322
+00:18:23,280 --> 00:18:29,840
+input okay you rank them then you m
+
+323
+00:18:27,080 --> 00:18:32,919
+multiply by the rank okay multiply the
+
+324
+00:18:29,840 --> 00:18:36,200
+bit by the rank and then you sum them up
+
+325
+00:18:32,919 --> 00:18:39,480
+okay so find the rank of every hand in
+
+326
+00:18:36,200 --> 00:18:41,880
+your set what are the total winnings
+
+327
+00:18:39,480 --> 00:18:45,559
+okay let's start to code this problem
+
+328
+00:18:41,880 --> 00:18:50,039
+it's already 24 minutes
+
+329
+00:18:45,559 --> 00:18:52,919
+ okay say hi okay say hi so okay
+
+330
+00:18:50,039 --> 00:18:55,720
+let's see uh well I'm not going to check
+
+331
+00:18:52,919 --> 00:18:59,679
+so let's see the problem
+
+332
+00:18:55,720 --> 00:19:02,840
+so you get a Tex so let's start coding
+
+333
+00:18:59,679 --> 00:19:05,120
+wam language so you got
+
+334
+00:19:02,840 --> 00:19:09,799
+input
+
+335
+00:19:05,120 --> 00:19:12,640
+um okay so the input
+
+336
+00:19:09,799 --> 00:19:15,640
+is something like that
+
+337
+00:19:12,640 --> 00:19:15,640
+okay
+
+338
+00:19:16,159 --> 00:19:22,000
+um okay
+
+339
+00:19:19,360 --> 00:19:26,880
+so
+
+340
+00:19:22,000 --> 00:19:30,080
+so uh you first want to order
+
+341
+00:19:26,880 --> 00:19:33,400
+them okay you you first of all you split
+
+342
+00:19:30,080 --> 00:19:33,400
+the input by
+
+343
+00:19:40,840 --> 00:19:45,440
+um split by a new line
+
+344
+00:19:51,440 --> 00:20:00,240
+so well let's not let's let's do this
+
+345
+00:19:55,799 --> 00:20:00,240
+okay list of hands
+
+346
+00:20:01,120 --> 00:20:09,159
+equals to that okay so let's run it in
+
+347
+00:20:06,640 --> 00:20:09,159
+wam
+
+348
+00:20:12,400 --> 00:20:21,960
+language that's right so they are
+
+349
+00:20:15,520 --> 00:20:24,880
+strings so far and uh okay now the bit
+
+350
+00:20:21,960 --> 00:20:28,280
+the bits you need to turn them to number
+
+351
+00:20:24,880 --> 00:20:30,840
+eventually so okay so the first job is
+
+352
+00:20:28,280 --> 00:20:30,840
+to rank
+
+353
+00:20:31,120 --> 00:20:39,480
+them so how do you rank them
+
+354
+00:20:35,360 --> 00:20:43,280
+uh okay so you rank them basically you
+
+355
+00:20:39,480 --> 00:20:45,400
+want to sort it you want to sort it so
+
+356
+00:20:43,280 --> 00:20:47,720
+for example let me show you okay so for
+
+357
+00:20:45,400 --> 00:20:47,720
+each
+
+358
+00:20:48,000 --> 00:20:55,960
+line you know let's not do this so for
+
+359
+00:20:52,159 --> 00:20:58,960
+each of the input do we have uh
+
+360
+00:20:55,960 --> 00:21:01,679
+refresh yeah so we have the input here
+
+361
+00:20:58,960 --> 00:21:06,880
+so basically you're just going to order
+
+362
+00:21:01,679 --> 00:21:10,360
+this list okay trivial so the key of the
+
+363
+00:21:06,880 --> 00:21:11,720
+problem is finding the order ordering
+
+364
+00:21:10,360 --> 00:21:14,120
+function
+
+365
+00:21:11,720 --> 00:21:15,240
+okay uh and how do you going to order
+
+366
+00:21:14,120 --> 00:21:20,360
+them let's
+
+367
+00:21:15,240 --> 00:21:24,440
+see you want to so okay funy
+
+368
+00:21:20,360 --> 00:21:24,440
+so five of a
+
+369
+00:21:25,960 --> 00:21:31,960
+kind so this is basically Bally this is
+
+370
+00:21:28,760 --> 00:21:35,880
+the English description of the ordering
+
+371
+00:21:31,960 --> 00:21:35,880
+function five of a
+
+372
+00:21:35,919 --> 00:21:41,679
+kind five of a kind okay that's you know
+
+373
+00:21:39,840 --> 00:21:44,559
+that's a bit odd because there's more
+
+374
+00:21:41,679 --> 00:21:47,720
+than four kinds typically you a normal
+
+375
+00:21:44,559 --> 00:21:53,200
+card cards you only have four kinds so
+
+376
+00:21:47,720 --> 00:21:53,200
+you got five of a kind four of a
+
+377
+00:21:54,120 --> 00:21:59,559
+kind then you got full house which is
+
+378
+00:21:57,240 --> 00:22:01,799
+better than three of a Kind okay so
+
+379
+00:21:59,559 --> 00:22:04,480
+basically F three of a kind four of a
+
+380
+00:22:01,799 --> 00:22:06,480
+kind five of a kind kind and you got a
+
+381
+00:22:04,480 --> 00:22:10,919
+full house in
+
+382
+00:22:06,480 --> 00:22:14,240
+between then you got pair okay so the
+
+383
+00:22:10,919 --> 00:22:18,440
+first job we can organize the Sorting
+
+384
+00:22:14,240 --> 00:22:18,440
+problem determine which one is it is
+
+385
+00:22:19,480 --> 00:22:22,480
+by
+
+386
+00:22:25,080 --> 00:22:32,559
+sort so we can write a sorting function
+
+387
+00:22:28,640 --> 00:22:35,799
+okay so this is this
+
+388
+00:22:32,559 --> 00:22:37,480
+is not a trivial problem trivial in the
+
+389
+00:22:35,799 --> 00:22:40,120
+sense that you can code it right away
+
+390
+00:22:37,480 --> 00:22:40,120
+you have to think
+
+391
+00:22:40,799 --> 00:22:48,919
+about so as a
+
+392
+00:22:44,000 --> 00:22:52,240
+card a hand is a sequence of five
+
+393
+00:22:48,919 --> 00:22:53,120
+characters okay five characters you want
+
+394
+00:22:52,240 --> 00:22:56,360
+to
+
+395
+00:22:53,120 --> 00:22:59,960
+determine if they repeat you know like
+
+396
+00:22:56,360 --> 00:22:59,960
+five of a kind okay
+
+397
+00:23:00,279 --> 00:23:07,279
+so let's think about how do you approach
+
+398
+00:23:02,840 --> 00:23:07,279
+I mean I mean there are so many ways
+
+399
+00:23:08,120 --> 00:23:15,640
+so five of a
+
+400
+00:23:10,679 --> 00:23:20,200
+kind four of a kind three of a
+
+401
+00:23:15,640 --> 00:23:23,120
+kind okay so full house is also three of
+
+402
+00:23:20,200 --> 00:23:27,200
+a kind except that the other one the
+
+403
+00:23:23,120 --> 00:23:28,520
+other two numbers is a pair is the same
+
+404
+00:23:27,200 --> 00:23:32,520
+okay
+
+405
+00:23:28,520 --> 00:23:35,360
+so so so one of the key is you determine
+
+406
+00:23:32,520 --> 00:23:38,400
+how many if this sequence of five
+
+407
+00:23:35,360 --> 00:23:38,400
+characters they have
+
+408
+00:23:43,960 --> 00:23:51,120
+repetition okay
+
+409
+00:23:47,200 --> 00:23:56,080
+so then you have two pair which is like
+
+410
+00:23:51,120 --> 00:23:56,080
+two of a kind then one pair
+
+411
+00:23:56,480 --> 00:24:00,799
+is one of of a
+
+412
+00:23:59,279 --> 00:24:04,919
+Kind
+
+413
+00:24:00,799 --> 00:24:08,039
+yeah wait wait two pair is Two of a Kind
+
+414
+00:24:04,919 --> 00:24:10,640
+one pair is also two of a kind they
+
+415
+00:24:08,039 --> 00:24:12,600
+differ is that you have one of them is
+
+416
+00:24:10,640 --> 00:24:14,320
+two of two of
+
+417
+00:24:12,600 --> 00:24:17,360
+Kinds
+
+418
+00:24:14,320 --> 00:24:19,720
+okay and the the last one is all
+
+419
+00:24:17,360 --> 00:24:22,480
+distinct
+
+420
+00:24:19,720 --> 00:24:26,799
+okay
+
+421
+00:24:22,480 --> 00:24:29,799
+God so you want to yeah so you want to
+
+422
+00:24:26,799 --> 00:24:29,799
+sort them
+
+423
+00:24:31,760 --> 00:24:39,240
+uh you want to sort
+
+424
+00:24:34,679 --> 00:24:39,240
+them oh God this is not so
+
+425
+00:24:47,440 --> 00:24:52,640
+easy okay uh hold on a second I'll be
+
+426
+00:24:50,399 --> 00:24:52,640
+right
+
+427
+00:24:56,760 --> 00:24:59,760
+back
+
+428
+00:25:48,360 --> 00:25:50,919
+okay I'm
+
+429
+00:25:53,240 --> 00:26:01,240
+back so now we are into this salort
+
+430
+00:25:57,279 --> 00:26:04,840
+problem we need to sort this
+
+431
+00:26:01,240 --> 00:26:04,840
+thing not so
+
+432
+00:26:14,559 --> 00:26:24,320
+easy sort okay see yeah so you can sort
+
+433
+00:26:19,080 --> 00:26:26,600
+them you need a sorting function sorting
+
+434
+00:26:24,320 --> 00:26:29,600
+function is
+
+435
+00:26:26,600 --> 00:26:29,600
+that
+
+436
+00:26:30,960 --> 00:26:35,200
+so you
+
+437
+00:26:33,200 --> 00:26:40,679
+classify a
+
+438
+00:26:35,200 --> 00:26:43,840
+hand by this one two 3 four five six
+
+439
+00:26:40,679 --> 00:26:43,840
+seven seven
+
+440
+00:26:44,840 --> 00:26:51,559
+categories so you
+
+441
+00:26:47,559 --> 00:26:56,120
+classify this sequence of
+
+442
+00:26:51,559 --> 00:26:59,559
+five characters into one of these seven
+
+443
+00:26:56,120 --> 00:27:01,440
+categories one two 2 three four five six
+
+444
+00:26:59,559 --> 00:27:04,240
+seven okay seven
+
+445
+00:27:01,440 --> 00:27:06,399
+categories and how do these seven
+
+446
+00:27:04,240 --> 00:27:10,159
+categories
+
+447
+00:27:06,399 --> 00:27:15,360
+differ they differ
+
+448
+00:27:10,159 --> 00:27:18,320
+by so the repetition of a card okay all
+
+449
+00:27:15,360 --> 00:27:22,720
+of them the same then the second is four
+
+450
+00:27:18,320 --> 00:27:24,399
+of them the same these two are clear
+
+451
+00:27:22,720 --> 00:27:26,520
+examples no
+
+452
+00:27:24,399 --> 00:27:30,399
+ambiguity then you
+
+453
+00:27:26,520 --> 00:27:32,840
+have repetition of three characters in
+
+454
+00:27:30,399 --> 00:27:36,440
+that case it's either Full House or
+
+455
+00:27:32,840 --> 00:27:37,960
+three of a kind okay repetition of three
+
+456
+00:27:36,440 --> 00:27:42,159
+characters
+
+457
+00:27:37,960 --> 00:27:42,159
+okay let's let's write it
+
+458
+00:27:45,159 --> 00:27:51,679
+out given a hand a
+
+459
+00:27:49,480 --> 00:27:54,679
+sequence of
+
+460
+00:27:51,679 --> 00:27:54,679
+five
+
+461
+00:27:56,519 --> 00:28:03,399
+chars
+
+462
+00:27:58,519 --> 00:28:09,600
+they are one of the seven
+
+463
+00:28:03,399 --> 00:28:12,080
+types okay so one of the type is all
+
+464
+00:28:09,600 --> 00:28:12,080
+same
+
+465
+00:28:12,840 --> 00:28:18,840
+CHS that's called uh that's called five
+
+466
+00:28:16,440 --> 00:28:18,840
+of a
+
+467
+00:28:20,480 --> 00:28:23,480
+kind
+
+468
+00:28:26,440 --> 00:28:32,760
+okay five same characters four same
+
+469
+00:28:30,480 --> 00:28:34,440
+characters okay that's called four a
+
+470
+00:28:32,760 --> 00:28:38,279
+kind
+
+471
+00:28:34,440 --> 00:28:40,360
+then three same characters okay so in
+
+472
+00:28:38,279 --> 00:28:41,600
+the case of three same characters there
+
+473
+00:28:40,360 --> 00:28:45,039
+are two
+
+474
+00:28:41,600 --> 00:28:51,720
+cases one
+
+475
+00:28:45,039 --> 00:28:54,519
+is and a pair okay this is called Full
+
+476
+00:28:51,720 --> 00:29:00,720
+House right is that how they call it in
+
+477
+00:28:54,519 --> 00:29:04,120
+in card games full house okay okay
+
+478
+00:29:00,720 --> 00:29:05,760
+then no
+
+479
+00:29:04,120 --> 00:29:10,200
+pair
+
+480
+00:29:05,760 --> 00:29:10,200
+so this is called three of a
+
+481
+00:29:16,159 --> 00:29:22,919
+kind okay
+
+482
+00:29:19,799 --> 00:29:26,320
+then then you have the case
+
+483
+00:29:22,919 --> 00:29:29,320
+of two same
+
+484
+00:29:26,320 --> 00:29:29,320
+characters
+
+485
+00:29:32,080 --> 00:29:36,799
+okay and this is called two
+
+486
+00:29:40,960 --> 00:29:46,120
+pair then you have the case of two sem
+
+487
+00:29:43,960 --> 00:29:50,360
+characters
+
+488
+00:29:46,120 --> 00:29:50,360
+but one pair
+
+489
+00:29:55,880 --> 00:30:01,960
+okay okay so you can classify of them
+
+490
+00:30:02,679 --> 00:30:11,399
+into okay then the last one
+
+491
+00:30:06,320 --> 00:30:11,399
+is no CH are the
+
+492
+00:30:14,000 --> 00:30:22,080
+same it's called high
+
+493
+00:30:17,360 --> 00:30:25,799
+card okay so you have these cases and in
+
+494
+00:30:22,080 --> 00:30:25,799
+this particular ordering
+
+495
+00:30:26,240 --> 00:30:29,760
+so
+
+496
+00:30:28,039 --> 00:30:33,080
+so you
+
+497
+00:30:29,760 --> 00:30:35,399
+determine so there are seven types of
+
+498
+00:30:33,080 --> 00:30:35,399
+them
+
+499
+00:30:37,000 --> 00:30:43,200
+seven seven okay there are seven types
+
+500
+00:30:40,120 --> 00:30:46,159
+so each sequence of five characters
+
+501
+00:30:43,200 --> 00:30:48,720
+belongs to one of these
+
+502
+00:30:46,159 --> 00:30:52,080
+right and uh
+
+503
+00:30:48,720 --> 00:30:55,440
+then so you know basically what you want
+
+504
+00:30:52,080 --> 00:30:58,960
+to do is
+
+505
+00:30:55,440 --> 00:31:01,919
+sort sort by
+
+506
+00:30:58,960 --> 00:31:06,159
+okay so sort by is a wam language
+
+507
+00:31:01,919 --> 00:31:10,000
+function that that allows you to
+
+508
+00:31:06,159 --> 00:31:14,200
+sort uh by a particular function
+
+509
+00:31:10,000 --> 00:31:18,880
+okay like that okay so you want to sort
+
+510
+00:31:14,200 --> 00:31:21,480
+by list of hands and the second argument
+
+511
+00:31:18,880 --> 00:31:21,480
+is a
+
+512
+00:31:22,080 --> 00:31:27,480
+function okay something like like that
+
+513
+00:31:24,960 --> 00:31:30,919
+okay so this is basically what you want
+
+514
+00:31:27,480 --> 00:31:31,880
+to do and uh the key problem is to write
+
+515
+00:31:30,919 --> 00:31:36,279
+this
+
+516
+00:31:31,880 --> 00:31:40,000
+function so this function how we going
+
+517
+00:31:36,279 --> 00:31:40,000
+to write this function
+
+518
+00:31:41,200 --> 00:31:46,320
+um right you you saw this list of
+
+519
+00:31:56,159 --> 00:32:03,240
+hands right so you you saw this so you
+
+520
+00:31:59,480 --> 00:32:05,919
+got a list of ordered hands right so but
+
+521
+00:32:03,240 --> 00:32:11,120
+the key is writing this
+
+522
+00:32:05,919 --> 00:32:13,880
+function so this function we take x x is
+
+523
+00:32:11,120 --> 00:32:13,880
+one of this
+
+524
+00:32:14,279 --> 00:32:19,760
+string okay so but so first of all we
+
+525
+00:32:17,480 --> 00:32:19,760
+can
+
+526
+00:32:19,919 --> 00:32:26,080
+say we can say for example split string
+
+527
+00:32:24,240 --> 00:32:29,080
+by
+
+528
+00:32:26,080 --> 00:32:29,080
+space
+
+529
+00:32:29,320 --> 00:32:32,559
+okay then
+
+530
+00:32:33,360 --> 00:32:39,120
+something you you wait you split
+
+531
+00:32:41,559 --> 00:32:49,440
+it okay then you take the first
+
+532
+00:32:45,279 --> 00:32:53,559
+part okay so that gets
+
+533
+00:32:49,440 --> 00:32:59,039
+you that gets you just the sequence of
+
+534
+00:32:53,559 --> 00:32:59,039
+characters the hand okay then
+
+535
+00:33:07,320 --> 00:33:12,240
+then what you're going to do with that
+
+536
+00:33:09,039 --> 00:33:17,159
+so you know in fact we can just run this
+
+537
+00:33:12,240 --> 00:33:21,200
+so I can show you as we go so we run
+
+538
+00:33:17,159 --> 00:33:24,880
+this okay select all paste run it so you
+
+539
+00:33:21,200 --> 00:33:24,880
+can see if we do it this
+
+540
+00:33:25,960 --> 00:33:30,960
+way
+
+541
+00:33:28,679 --> 00:33:35,279
+so we got this
+
+542
+00:33:30,960 --> 00:33:38,559
+order this is simply alha alha numerical
+
+543
+00:33:35,279 --> 00:33:40,320
+order you see based on the first
+
+544
+00:33:38,559 --> 00:33:44,880
+character then the second character so
+
+545
+00:33:40,320 --> 00:33:48,519
+three comes first K comes second Q comes
+
+546
+00:33:44,880 --> 00:33:52,200
+fourth then T
+
+547
+00:33:48,519 --> 00:33:54,880
+right right so we have to fix this
+
+548
+00:33:52,200 --> 00:33:58,240
+ordering function
+
+549
+00:33:54,880 --> 00:34:01,880
+so so we get you so first of all we get
+
+550
+00:33:58,240 --> 00:34:01,880
+the first part the card
+
+551
+00:34:11,599 --> 00:34:16,119
+then so let's do this
+
+552
+00:34:16,399 --> 00:34:20,639
+okay the module
+
+553
+00:34:22,200 --> 00:34:28,639
+okay
+
+554
+00:34:24,839 --> 00:34:30,760
+hand hand string equals to that okay
+
+555
+00:34:28,639 --> 00:34:36,760
+then the expression so what you going to
+
+556
+00:34:30,760 --> 00:34:36,760
+do with that so the hand so okay so
+
+557
+00:34:40,040 --> 00:34:46,520
+then you know
+
+558
+00:34:43,200 --> 00:34:50,440
+so so what you're going to do with it so
+
+559
+00:34:46,520 --> 00:34:51,860
+you got a sequence of five characters so
+
+560
+00:34:50,440 --> 00:34:54,280
+you want to
+
+561
+00:34:51,860 --> 00:34:58,160
+[Music]
+
+562
+00:34:54,280 --> 00:35:00,599
+determine if it repeats and how how many
+
+563
+00:34:58,160 --> 00:35:03,760
+times first of
+
+564
+00:35:00,599 --> 00:35:05,680
+all uh let's see let's see the sord by
+
+565
+00:35:03,760 --> 00:35:07,400
+function so the sord by function
+
+566
+00:35:05,680 --> 00:35:08,520
+actually can take a sequence of
+
+567
+00:35:07,400 --> 00:35:11,359
+functions
+
+568
+00:35:08,520 --> 00:35:14,160
+fantastic this is ex this is the power
+
+569
+00:35:11,359 --> 00:35:17,119
+of wam language extremely useful so the
+
+570
+00:35:14,160 --> 00:35:19,839
+F first function we are simply
+
+571
+00:35:17,119 --> 00:35:22,839
+compare how
+
+572
+00:35:19,839 --> 00:35:22,839
+many
+
+573
+00:35:25,800 --> 00:35:30,320
+repetitions yeah let's do it the easy
+
+574
+00:35:28,200 --> 00:35:34,400
+way let's forget about efficiency let's
+
+575
+00:35:30,320 --> 00:35:37,359
+do it the most simplest way this is the
+
+576
+00:35:34,400 --> 00:35:41,200
+the highlight of wfam language because
+
+577
+00:35:37,359 --> 00:35:43,839
+it allows you to prototype and solve get
+
+578
+00:35:41,200 --> 00:35:46,599
+the answer as fast as
+
+579
+00:35:43,839 --> 00:35:48,640
+possible then you can worry about uh
+
+580
+00:35:46,599 --> 00:35:51,920
+efficiency and you know what data
+
+581
+00:35:48,640 --> 00:35:56,119
+structure to use and so on so so first
+
+582
+00:35:51,920 --> 00:35:58,400
+of all you need to know so you see sold
+
+583
+00:35:56,119 --> 00:36:00,560
+by you can have a bunch of function so
+
+584
+00:35:58,400 --> 00:36:03,880
+the first let's start to write some
+
+585
+00:36:00,560 --> 00:36:06,880
+function so one of the function is to
+
+586
+00:36:03,880 --> 00:36:06,880
+determine if
+
+587
+00:36:08,160 --> 00:36:14,440
+it's five same cards or not okay so
+
+588
+00:36:11,920 --> 00:36:14,440
+given a
+
+589
+00:36:18,920 --> 00:36:26,400
+string how
+
+590
+00:36:21,880 --> 00:36:29,160
+many repetition of a Char that's so you
+
+591
+00:36:26,400 --> 00:36:32,680
+want to write that function okay
+
+592
+00:36:29,160 --> 00:36:35,319
+so this is a string you want to
+
+593
+00:36:32,680 --> 00:36:39,760
+determine how many repetition in a in
+
+594
+00:36:35,319 --> 00:36:43,160
+the in the card I mean in the in the
+
+595
+00:36:39,760 --> 00:36:48,560
+sequence so once you know the
+
+596
+00:36:43,160 --> 00:36:53,359
+repetition basically you almost soled
+
+597
+00:36:48,560 --> 00:36:53,359
+it so here is zero same
+
+598
+00:36:54,319 --> 00:37:00,240
+chart okay so once you know the number
+
+599
+00:36:57,359 --> 00:37:01,560
+of repetition you almost started it then
+
+600
+00:37:00,240 --> 00:37:05,800
+you need
+
+601
+00:37:01,560 --> 00:37:09,319
+to yeah that's
+
+602
+00:37:05,800 --> 00:37:12,160
+right so the first job is to find the
+
+603
+00:37:09,319 --> 00:37:15,040
+function that Returns the repetition of
+
+604
+00:37:12,160 --> 00:37:19,160
+a string okay so let's
+
+605
+00:37:15,040 --> 00:37:23,400
+easy let's query
+
+606
+00:37:19,160 --> 00:37:28,599
+for any string
+
+607
+00:37:23,400 --> 00:37:28,599
+function and uh repeat okay
+
+608
+00:37:31,400 --> 00:37:35,040
+repeated string let's see what that is
+
+609
+00:37:33,839 --> 00:37:37,960
+repeated
+
+610
+00:37:35,040 --> 00:37:40,280
+string repeated string is an internal
+
+611
+00:37:37,960 --> 00:37:41,800
+symbol used for formatting okay that's
+
+612
+00:37:40,280 --> 00:37:45,800
+not what we
+
+613
+00:37:41,800 --> 00:37:49,280
+want so we have to think about it so
+
+614
+00:37:45,800 --> 00:37:52,319
+given a string we want to
+
+615
+00:37:49,280 --> 00:37:57,160
+find what is a
+
+616
+00:37:52,319 --> 00:37:59,839
+maximal repetition okay now we
+
+617
+00:37:57,160 --> 00:38:03,079
+you know in WF language the best way to
+
+618
+00:37:59,839 --> 00:38:03,079
+find the function is
+
+619
+00:38:03,240 --> 00:38:09,640
+to ask the most logical question you
+
+620
+00:38:07,000 --> 00:38:12,920
+want to find a way to ask the most
+
+621
+00:38:09,640 --> 00:38:15,280
+logical question once you got that then
+
+622
+00:38:12,920 --> 00:38:18,040
+then the function name is almost exactly
+
+623
+00:38:15,280 --> 00:38:22,280
+that so what we want to know is that
+
+624
+00:38:18,040 --> 00:38:22,280
+given a string we want to find the
+
+625
+00:38:25,520 --> 00:38:31,359
+maximon
+
+626
+00:38:27,200 --> 00:38:32,400
+character repetition okay so the words
+
+627
+00:38:31,359 --> 00:38:34,599
+are
+
+628
+00:38:32,400 --> 00:38:37,480
+occur
+
+629
+00:38:34,599 --> 00:38:42,920
+repeat something like that okay let's
+
+630
+00:38:37,480 --> 00:38:42,920
+see string take string string split
+
+631
+00:38:45,119 --> 00:38:51,079
+string Place string part string
+
+632
+00:38:52,160 --> 00:38:59,640
+match string
+
+633
+00:38:54,800 --> 00:38:59,640
+extract string con 10 string
+
+634
+00:39:00,920 --> 00:39:04,960
+cases search query
+
+635
+00:39:05,640 --> 00:39:11,319
+string okay so how so how do you find
+
+636
+00:39:08,920 --> 00:39:11,319
+the
+
+637
+00:39:15,359 --> 00:39:21,720
+the now in most other languages the
+
+638
+00:39:18,800 --> 00:39:25,119
+Primitive way to do this is that you can
+
+639
+00:39:21,720 --> 00:39:28,319
+use a hash table so you go through the
+
+640
+00:39:25,119 --> 00:39:30,880
+string C by character for each character
+
+641
+00:39:28,319 --> 00:39:32,520
+you push it into a hash table with that
+
+642
+00:39:30,880 --> 00:39:35,160
+character as a
+
+643
+00:39:32,520 --> 00:39:37,280
+key then you go on to the next character
+
+644
+00:39:35,160 --> 00:39:40,319
+if that character is already in in the
+
+645
+00:39:37,280 --> 00:39:44,400
+hash table in a dictionary you just add
+
+646
+00:39:40,319 --> 00:39:47,240
+one to the value if not then you create
+
+647
+00:39:44,400 --> 00:39:50,520
+a new key right once you
+
+648
+00:39:47,240 --> 00:39:52,119
+done you have a
+
+649
+00:39:50,520 --> 00:39:57,880
+dictionary
+
+650
+00:39:52,119 --> 00:39:59,760
+of keys and values the keys are the
+
+651
+00:39:57,880 --> 00:40:02,480
+other character in the string the value
+
+652
+00:39:59,760 --> 00:40:05,680
+is how many times they
+
+653
+00:40:02,480 --> 00:40:08,400
+occur okay so if you build this
+
+654
+00:40:05,680 --> 00:40:11,800
+dictionary if you can build this
+
+655
+00:40:08,400 --> 00:40:14,400
+dictionary then oh yeah that that's
+
+656
+00:40:11,800 --> 00:40:17,960
+obvious way to do it in most languages
+
+657
+00:40:14,400 --> 00:40:20,680
+once you build this dictionary then the
+
+658
+00:40:17,960 --> 00:40:23,079
+ranking becomes it's all softed the
+
+659
+00:40:20,680 --> 00:40:26,839
+ranking is simply the
+
+660
+00:40:23,079 --> 00:40:28,599
+maximum number the the maximum value in
+
+661
+00:40:26,839 --> 00:40:32,359
+this in this
+
+662
+00:40:28,599 --> 00:40:35,200
+dictionary okay if that's a tie for
+
+663
+00:40:32,359 --> 00:40:37,720
+example four house and three of a kind
+
+664
+00:40:35,200 --> 00:40:39,480
+then you find the second maximal value
+
+665
+00:40:37,720 --> 00:40:42,920
+in this in this
+
+666
+00:40:39,480 --> 00:40:45,079
+dictionary so in the case of Full House
+
+667
+00:40:42,920 --> 00:40:48,960
+the second highest value would be
+
+668
+00:40:45,079 --> 00:40:53,480
+two so and uh in a three of a kind the
+
+669
+00:40:48,960 --> 00:40:54,800
+second highest value is one so Full
+
+670
+00:40:53,480 --> 00:40:58,240
+House
+
+671
+00:40:54,800 --> 00:41:00,440
+wins right so once you build this this
+
+672
+00:40:58,240 --> 00:41:04,000
+dictionary the problem is solved the
+
+673
+00:41:00,440 --> 00:41:08,400
+ranking problem is solved oh okay
+
+674
+00:41:04,000 --> 00:41:11,480
+so so that tells us all we want is like
+
+675
+00:41:08,400 --> 00:41:13,560
+um in the WAN language you just need a
+
+676
+00:41:11,480 --> 00:41:18,040
+function that returns frequency
+
+677
+00:41:13,560 --> 00:41:21,280
+frequency is the word let's see f r e q
+
+678
+00:41:18,040 --> 00:41:25,240
+u okay
+
+679
+00:41:21,280 --> 00:41:28,240
+um you know there there is a
+
+680
+00:41:25,240 --> 00:41:28,240
+um
+
+681
+00:41:30,160 --> 00:41:35,839
+allow frequency range word frequency
+
+682
+00:41:33,599 --> 00:41:39,160
+character frequency let's see word
+
+683
+00:41:35,839 --> 00:41:41,839
+frequency give the frequency of word in
+
+684
+00:41:39,160 --> 00:41:44,400
+text okay so there is something like a
+
+685
+00:41:41,839 --> 00:41:44,400
+character
+
+686
+00:41:47,680 --> 00:41:51,359
+frequency okay so
+
+687
+00:41:53,160 --> 00:41:58,240
+we let's see
+
+688
+00:41:55,240 --> 00:41:58,240
+occur
+
+689
+00:41:59,880 --> 00:42:04,319
+let's see if there's any
+
+690
+00:42:04,800 --> 00:42:07,800
+uh
+
+691
+00:42:08,119 --> 00:42:13,400
+what
+
+692
+00:42:09,720 --> 00:42:21,720
+OC U okay there's
+
+693
+00:42:13,400 --> 00:42:21,720
+no occur in wam language so there is
+
+694
+00:42:21,920 --> 00:42:27,839
+Char okay so these are a bunch of
+
+695
+00:42:25,640 --> 00:42:30,319
+function names containing the word
+
+696
+00:42:27,839 --> 00:42:32,920
+character okay so we want the character
+
+697
+00:42:30,319 --> 00:42:36,720
+counts that's what we
+
+698
+00:42:32,920 --> 00:42:39,559
+want that's right okay fantastic this
+
+699
+00:42:36,720 --> 00:42:41,440
+gives us exactly what we want it returns
+
+700
+00:42:39,559 --> 00:42:44,440
+a
+
+701
+00:42:41,440 --> 00:42:44,440
+dictionary
+
+702
+00:42:46,559 --> 00:42:52,800
+okay character counts let's say let's
+
+703
+00:42:49,880 --> 00:42:58,160
+let's say uh let's say a given example
+
+704
+00:42:52,800 --> 00:42:58,160
+okay character count that
+
+705
+00:42:59,240 --> 00:43:04,119
+fantastic
+
+706
+00:43:01,160 --> 00:43:07,400
+exactly exactly so that's what that's
+
+707
+00:43:04,119 --> 00:43:13,319
+the function we want so the character
+
+708
+00:43:07,400 --> 00:43:13,319
+counts yeah so we
+
+709
+00:43:17,640 --> 00:43:24,880
+want so once we have this dictionary we
+
+710
+00:43:21,160 --> 00:43:28,800
+want to you you want to get a list of
+
+711
+00:43:24,880 --> 00:43:28,800
+the okay let's try
+
+712
+00:43:29,119 --> 00:43:38,520
+it let's say equals to that okay so x x
+
+713
+00:43:35,240 --> 00:43:42,000
+is a dictionary and let's see what
+
+714
+00:43:38,520 --> 00:43:42,000
+happens if you just sort
+
+715
+00:43:42,200 --> 00:43:48,720
+it okay if you just sort it it returns
+
+716
+00:43:45,520 --> 00:43:48,720
+it sorts by the
+
+717
+00:43:49,440 --> 00:43:56,920
+value right
+
+718
+00:43:52,240 --> 00:43:59,200
+so if you simply sort it it sorts by the
+
+719
+00:43:56,920 --> 00:44:04,520
+value of the
+
+720
+00:43:59,200 --> 00:44:10,680
+dictionary from minimal to maximum okay
+
+721
+00:44:04,520 --> 00:44:10,680
+so for example let's do this
+
+722
+00:44:11,480 --> 00:44:17,920
+uh so for example let's do sort
+
+723
+00:44:16,240 --> 00:44:23,440
+at
+
+724
+00:44:17,920 --> 00:44:23,440
+that okay but now let's say
+
+725
+00:44:23,800 --> 00:44:30,559
+5555 right
+
+726
+00:44:27,160 --> 00:44:30,559
+so then you just do
+
+727
+00:44:33,760 --> 00:44:40,680
+Max let's see what is Max Max versus max
+
+728
+00:44:37,839 --> 00:44:43,520
+value what's the difference max value
+
+729
+00:44:40,680 --> 00:44:47,319
+gives the maximum value of f with
+
+730
+00:44:43,520 --> 00:44:47,319
+respect to s
+
+731
+00:44:47,839 --> 00:44:54,960
+x okay maximum value applies a function
+
+732
+00:44:51,400 --> 00:44:57,599
+so that's not what we want you just want
+
+733
+00:44:54,960 --> 00:44:59,319
+Max
+
+734
+00:44:57,599 --> 00:45:02,160
+Max Returns the
+
+735
+00:44:59,319 --> 00:45:06,000
+maximum yeah of a
+
+736
+00:45:02,160 --> 00:45:06,000
+least okay so you can
+
+737
+00:45:16,440 --> 00:45:24,880
+see that's
+
+738
+00:45:18,400 --> 00:45:28,440
+it okay so we have a function so so now
+
+739
+00:45:24,880 --> 00:45:32,000
+we yeah character counts returns a
+
+740
+00:45:28,440 --> 00:45:35,319
+dictionary then you just return Max okay
+
+741
+00:45:32,000 --> 00:45:35,319
+wait character count then
+
+742
+00:45:40,040 --> 00:45:44,440
+sort okay that's basically that's almost
+
+743
+00:45:43,480 --> 00:45:48,720
+that's
+
+744
+00:45:44,440 --> 00:45:52,319
+it let's just try what happens here
+
+745
+00:45:48,720 --> 00:45:52,319
+okay so
+
+746
+00:45:52,440 --> 00:45:56,800
+now table
+
+747
+00:45:54,880 --> 00:45:58,640
+form
+
+748
+00:45:56,800 --> 00:46:04,160
+okay
+
+749
+00:45:58,640 --> 00:46:05,720
+so there it is you see the last one is
+
+750
+00:46:04,160 --> 00:46:08,240
+the highest
+
+751
+00:46:05,720 --> 00:46:12,559
+ranked exactly that's what how we want
+
+752
+00:46:08,240 --> 00:46:15,520
+it because the last one if we count by
+
+753
+00:46:12,559 --> 00:46:18,200
+the by the index of the least the last
+
+754
+00:46:15,520 --> 00:46:23,520
+one would be five the multiplier for
+
+755
+00:46:18,200 --> 00:46:27,240
+this one is five so you just 5 * 6 8
+
+756
+00:46:23,520 --> 00:46:31,559
+4 so here we have three of a kind and
+
+757
+00:46:27,240 --> 00:46:35,480
+here is also three of a kind now they oh
+
+758
+00:46:31,559 --> 00:46:38,000
+there's a trick so they they are equal I
+
+759
+00:46:35,480 --> 00:46:40,800
+mean they are both three of a kind and
+
+760
+00:46:38,000 --> 00:46:43,880
+now to determine their ranking you sld
+
+761
+00:46:40,800 --> 00:46:45,160
+by the first character right like the
+
+762
+00:46:43,880 --> 00:46:47,960
+the problem
+
+763
+00:46:45,160 --> 00:46:53,040
+description
+
+764
+00:46:47,960 --> 00:46:56,359
+so Q comes before T I mean q is Queen T
+
+765
+00:46:53,040 --> 00:46:59,400
+is 10 so Q should be
+
+766
+00:46:56,359 --> 00:47:02,079
+right Q should be at the bottom but
+
+767
+00:46:59,400 --> 00:47:04,359
+anyway so here's three of a kind three
+
+768
+00:47:02,079 --> 00:47:06,800
+of a kind then here's Two of a Kind this
+
+769
+00:47:04,359 --> 00:47:06,800
+is two
+
+770
+00:47:08,280 --> 00:47:12,280
+pairs okay so let's
+
+771
+00:47:24,720 --> 00:47:27,720
+see
+
+772
+00:47:29,240 --> 00:47:37,119
+okay so let's see let's try this okay so
+
+773
+00:47:32,960 --> 00:47:39,960
+let's try if we can do this
+
+774
+00:47:37,119 --> 00:47:44,160
+sort sort a
+
+775
+00:47:39,960 --> 00:47:44,160
+list 3 4
+
+776
+00:47:49,680 --> 00:47:52,680
+five
+
+777
+00:47:53,559 --> 00:47:59,880
+three now sort by default is uh is
+
+778
+00:48:05,480 --> 00:48:13,800
+what ascending or descending uh sort
+
+779
+00:48:09,040 --> 00:48:13,800
+code with three arguments okay so you
+
+780
+00:48:17,119 --> 00:48:23,800
+need okay so increase it SS from small
+
+781
+00:48:21,200 --> 00:48:27,119
+to large okay
+
+782
+00:48:23,800 --> 00:48:29,359
+so now
+
+783
+00:48:27,119 --> 00:48:34,800
+3
+
+784
+00:48:29,359 --> 00:48:34,800
+three Now by default it should
+
+785
+00:48:38,400 --> 00:48:45,760
+um okay so for example this
+
+786
+00:48:42,880 --> 00:48:50,200
+one 325 that's
+
+787
+00:48:45,760 --> 00:48:52,520
+correct it by default the sword will use
+
+788
+00:48:50,200 --> 00:48:55,119
+the first element in the list if that's
+
+789
+00:48:52,520 --> 00:48:56,160
+equal it will use the second element
+
+790
+00:48:55,119 --> 00:49:01,640
+automatic
+
+791
+00:48:56,160 --> 00:49:05,880
+ially so back to our problem we
+
+792
+00:49:01,640 --> 00:49:11,160
+can that's right we can that's right so
+
+793
+00:49:05,880 --> 00:49:11,160
+we can just yeah so this actually
+
+794
+00:49:16,640 --> 00:49:23,119
+works so we don't want to we don't want
+
+795
+00:49:19,720 --> 00:49:23,119
+Max we want to
+
+796
+00:49:24,520 --> 00:49:27,520
+sort
+
+797
+00:49:27,799 --> 00:49:31,359
+that's right so what if
+
+798
+00:49:31,839 --> 00:49:38,359
+we now let's try to sort again but this
+
+799
+00:49:44,720 --> 00:49:49,319
+time have bunch of
+
+800
+00:49:50,000 --> 00:49:58,640
+um so we don't care what the key is okay
+
+801
+00:49:55,559 --> 00:50:04,280
+so we don't care what the key is let's
+
+802
+00:49:58,640 --> 00:50:07,280
+just say k okay we only care about the
+
+803
+00:50:04,280 --> 00:50:07,280
+number
+
+804
+00:50:11,119 --> 00:50:21,280
+so uh okay almost done so
+
+805
+00:50:16,480 --> 00:50:21,280
+Sal increase okay so they
+
+806
+00:50:24,440 --> 00:50:27,440
+increase
+
+807
+00:50:27,760 --> 00:50:32,160
+okay can you reverse it you
+
+808
+00:50:42,359 --> 00:50:50,160
+can right you can just reverse
+
+809
+00:50:45,559 --> 00:50:52,520
+it so you want to do that okay so you
+
+810
+00:50:50,160 --> 00:50:56,720
+want
+
+811
+00:50:52,520 --> 00:50:59,400
+to okay how how you guys doing simple
+
+812
+00:50:56,720 --> 00:51:04,839
+first is a good
+
+813
+00:50:59,400 --> 00:51:08,119
+mentality hello Aris Aristocrat
+
+814
+00:51:04,839 --> 00:51:12,640
+coffee okay uh very
+
+815
+00:51:08,119 --> 00:51:15,640
+good very smooth so far so
+
+816
+00:51:12,640 --> 00:51:15,640
+now
+
+817
+00:51:17,599 --> 00:51:25,880
+you character counts G gives you a
+
+818
+00:51:21,520 --> 00:51:28,280
+dictionary then you you sort it
+
+819
+00:51:25,880 --> 00:51:30,520
+but you want to reverse okay so you
+
+820
+00:51:28,280 --> 00:51:30,520
+don't
+
+821
+00:51:31,400 --> 00:51:35,440
+want let's look up the
+
+822
+00:51:53,440 --> 00:51:57,480
+documentation there is a op option to
+
+823
+00:51:56,240 --> 00:52:01,760
+reverse
+
+824
+00:51:57,480 --> 00:52:06,119
+them instead of calling reverse yourself
+
+825
+00:52:01,760 --> 00:52:06,119
+because then it's less optimal I
+
+826
+00:52:16,040 --> 00:52:20,200
+suppose okay but where's the
+
+827
+00:52:24,280 --> 00:52:27,280
+option
+
+828
+00:52:32,280 --> 00:52:39,559
+oh there is no option for sort how funny
+
+829
+00:52:36,760 --> 00:52:39,559
+what am I
+
+830
+00:52:40,960 --> 00:52:49,559
+correct wow there's no option for sort
+
+831
+00:52:44,760 --> 00:52:49,559
+so the proper ways you simply revert
+
+832
+00:52:54,240 --> 00:52:57,240
+it
+
+833
+00:53:01,200 --> 00:53:05,880
+uh what about this order gives okay so
+
+834
+00:53:04,200 --> 00:53:11,400
+that gives
+
+835
+00:53:05,880 --> 00:53:11,400
+order uh what about sort
+
+836
+00:53:11,720 --> 00:53:18,880
+by oh wait there's Reverse sord
+
+837
+00:53:15,760 --> 00:53:24,160
+by interesting so there's also Reverse
+
+838
+00:53:18,880 --> 00:53:27,160
+sord by so we are using sord
+
+839
+00:53:24,160 --> 00:53:27,160
+by
+
+840
+00:53:45,280 --> 00:53:49,760
+Aries I'm surprised there is no sword
+
+841
+00:53:48,319 --> 00:53:53,000
+what do you mean there's no salort there
+
+842
+00:53:49,760 --> 00:53:57,119
+is salort there is
+
+843
+00:53:53,000 --> 00:53:59,599
+salort uh
+
+844
+00:53:57,119 --> 00:54:03,480
+okay we almost done just some of the
+
+845
+00:53:59,599 --> 00:54:07,000
+details so let me just concentrate
+
+846
+00:54:03,480 --> 00:54:10,799
+okay so we got we
+
+847
+00:54:07,000 --> 00:54:14,839
+got character counts which is a
+
+848
+00:54:10,799 --> 00:54:20,359
+dictionary okay character counts is a
+
+849
+00:54:14,839 --> 00:54:25,119
+dictionary okay then you sort it now you
+
+850
+00:54:20,359 --> 00:54:28,799
+don't want to you don't want to in Inc
+
+851
+00:54:25,119 --> 00:54:33,880
+incre order you want to you want them to
+
+852
+00:54:28,799 --> 00:54:37,839
+be in decrease order okay so instead of
+
+853
+00:54:33,880 --> 00:54:37,839
+sort you use reverse
+
+854
+00:54:38,119 --> 00:54:43,920
+sort it's interesting it doesn't have an
+
+855
+00:54:40,960 --> 00:54:46,839
+option for sort but rather it just have
+
+856
+00:54:43,920 --> 00:54:50,640
+a different function reverse
+
+857
+00:54:46,839 --> 00:54:53,200
+sort okay so instead of a sort you say
+
+858
+00:54:50,640 --> 00:54:53,200
+reverse
+
+859
+00:54:54,079 --> 00:54:57,079
+sort
+
+860
+00:55:01,640 --> 00:55:09,799
+okay so you use reverse sort so when you
+
+861
+00:55:06,079 --> 00:55:13,720
+sort them a dictionary the it basically
+
+862
+00:55:09,799 --> 00:55:18,559
+just sort by the value okay
+
+863
+00:55:13,720 --> 00:55:18,559
+so so we can try
+
+864
+00:55:22,960 --> 00:55:28,359
+uh okay so we
+
+865
+00:55:25,520 --> 00:55:33,440
+can try
+
+866
+00:55:28,359 --> 00:55:33,440
+this um okay so we need to
+
+867
+00:55:35,720 --> 00:55:39,319
+some what is
+
+868
+00:55:42,200 --> 00:55:48,400
+this so let's see let's say
+
+869
+00:55:46,240 --> 00:55:54,000
+four
+
+870
+00:55:48,400 --> 00:55:56,160
+three two okay so what happens if
+
+871
+00:55:54,000 --> 00:56:03,400
+you so
+
+872
+00:55:56,160 --> 00:56:07,920
+three let's say five okay then let's say
+
+873
+00:56:03,400 --> 00:56:12,440
+four and the second value so this and
+
+874
+00:56:07,920 --> 00:56:12,440
+this are the same now the second
+
+875
+00:56:14,280 --> 00:56:18,960
+value so this one let's say
+
+876
+00:56:20,440 --> 00:56:30,240
+four so this will come F this will come
+
+877
+00:56:24,240 --> 00:56:30,240
+first then this then this okay let's try
+
+878
+00:56:31,559 --> 00:56:35,880
+it oh we got a new
+
+879
+00:56:36,680 --> 00:56:43,319
+here uh
+
+880
+00:56:38,640 --> 00:56:43,319
+what oh we need to wait
+
+881
+00:56:44,680 --> 00:56:48,440
+what reverse
+
+882
+00:56:51,280 --> 00:56:56,880
+sort uh reverse
+
+883
+00:56:53,880 --> 00:56:56,880
+sord
+
+884
+00:56:58,960 --> 00:57:05,039
+reverse sort input is the least right so
+
+885
+00:57:02,200 --> 00:57:05,039
+input is the
+
+886
+00:57:05,760 --> 00:57:12,520
+least and uh
+
+887
+00:57:08,920 --> 00:57:12,520
+so why is
+
+888
+00:57:14,079 --> 00:57:20,039
+it oh because we are using key the same
+
+889
+00:57:17,680 --> 00:57:22,960
+key it combines them so we don't want
+
+890
+00:57:20,039 --> 00:57:22,960
+that
+
+891
+00:57:23,799 --> 00:57:32,160
+yeah and let's say a b c okay and
+
+892
+00:57:32,720 --> 00:57:38,880
+actually a
+
+893
+00:57:35,880 --> 00:57:38,880
+a
+
+894
+00:57:41,079 --> 00:57:44,079
+b
+
+895
+00:57:44,359 --> 00:57:47,359
+c
+
+896
+00:57:53,799 --> 00:57:56,799
+okay
+
+897
+00:58:01,200 --> 00:58:07,440
+so five comes first that's
+
+898
+00:58:05,119 --> 00:58:11,200
+right that's the
+
+899
+00:58:07,440 --> 00:58:14,520
+highest you know five in a kind then
+
+900
+00:58:11,200 --> 00:58:16,760
+when there's a tie four comes before
+
+901
+00:58:14,520 --> 00:58:18,920
+three that's what we want that's right
+
+902
+00:58:16,760 --> 00:58:21,160
+so this
+
+903
+00:58:18,920 --> 00:58:26,720
+works okay
+
+904
+00:58:21,160 --> 00:58:26,720
+so so back to here so we
+
+905
+00:58:28,480 --> 00:58:31,319
+so we get the
+
+906
+00:58:31,760 --> 00:58:39,920
+dictionary then we reverse
+
+907
+00:58:35,680 --> 00:58:39,920
+sord and we don't need to
+
+908
+00:58:41,079 --> 00:58:46,440
+Max that's right that's it okay I think
+
+909
+00:58:44,799 --> 00:58:48,680
+that's
+
+910
+00:58:46,440 --> 00:58:51,680
+it try
+
+911
+00:58:48,680 --> 00:58:51,680
+it
+
+912
+00:58:53,720 --> 00:58:59,760
+yeah let's see this should be correct oh
+
+913
+00:59:10,160 --> 00:59:17,680
+wait wait this is not
+
+914
+00:59:13,440 --> 00:59:17,680
+correct now this is actually
+
+915
+00:59:18,319 --> 00:59:26,039
+wrong so wait so you get a hand then you
+
+916
+00:59:24,000 --> 00:59:31,039
+get a DI
+
+917
+00:59:26,039 --> 00:59:31,039
+dictionary then you reverse s the
+
+918
+00:59:32,240 --> 00:59:36,400
+dictionary sold by this
+
+919
+00:59:40,599 --> 00:59:44,440
+function sort
+
+920
+00:59:45,160 --> 00:59:51,640
+by sort by reverse sort then you
+
+921
+00:59:53,640 --> 00:59:56,640
+want
+
+922
+00:59:56,960 --> 01:00:03,520
+okay now you want to turn a dictionary
+
+923
+00:59:59,720 --> 01:00:05,720
+to a list of its values
+
+924
+01:00:03,520 --> 01:00:09,400
+okay
+
+925
+01:00:05,720 --> 01:00:14,440
+so you want to turn a dictionary like
+
+926
+01:00:09,400 --> 01:00:14,440
+that to just values I believe that's
+
+927
+01:00:18,240 --> 01:00:26,559
+normalized okay so I believe
+
+928
+01:00:22,079 --> 01:00:26,559
+that's it
+
+929
+01:00:26,720 --> 01:00:32,520
+no that's
+
+930
+01:00:28,680 --> 01:00:35,720
+not normalize give the normalized vector
+
+931
+01:00:32,520 --> 01:00:38,319
+okay that's not
+
+932
+01:00:35,720 --> 01:00:40,839
+uh
+
+933
+01:00:38,319 --> 01:00:45,680
+standardize
+
+934
+01:00:40,839 --> 01:00:49,280
+no there is okay so let's go to my wol f
+
+935
+01:00:45,680 --> 01:00:53,200
+Language tutorial you can download for
+
+936
+01:00:49,280 --> 01:00:56,200
+free just search foram Language tutorial
+
+937
+01:00:53,200 --> 01:00:58,280
+you can go there download for free but
+
+938
+01:00:56,200 --> 01:01:01,440
+right now we are looking
+
+939
+01:00:58,280 --> 01:01:04,559
+for uh we are looking for how do you get
+
+940
+01:01:01,440 --> 01:01:08,640
+the values of a dictionary so dictionary
+
+941
+01:01:04,559 --> 01:01:10,920
+in wam language is called Association
+
+942
+01:01:08,640 --> 01:01:17,039
+okay Association
+
+943
+01:01:10,920 --> 01:01:21,839
+list uh and uh and then Association list
+
+944
+01:01:17,039 --> 01:01:21,839
+Association normal okay not normalize
+
+945
+01:01:23,440 --> 01:01:29,640
+normal
+
+946
+01:01:25,000 --> 01:01:33,280
+that's right so you want to apply this
+
+947
+01:01:29,640 --> 01:01:33,280
+normal to
+
+948
+01:01:36,000 --> 01:01:39,480
+here uh
+
+949
+01:01:43,799 --> 01:01:53,279
+okay so you
+
+950
+01:01:48,079 --> 01:01:56,440
+get q q q no that's still wrong yeah you
+
+951
+01:01:53,279 --> 01:01:56,440
+got a worse
+
+952
+01:01:59,160 --> 01:02:04,039
+so if you say Max actually that works
+
+953
+01:02:04,960 --> 01:02:08,920
+out yeah so
+
+954
+01:02:23,359 --> 01:02:26,359
+wait
+
+955
+01:02:41,319 --> 01:02:48,000
+okay very close you know we so here is a
+
+956
+01:02:44,480 --> 01:02:52,240
+solution basically just this function
+
+957
+01:02:48,000 --> 01:02:52,240
+but we need to trick this a
+
+958
+01:02:53,359 --> 01:02:56,359
+bit
+
+959
+01:03:00,720 --> 01:03:08,640
+so you can so this problem is
+
+960
+01:03:04,799 --> 01:03:11,599
+mostly solved by the sord by now the
+
+961
+01:03:08,640 --> 01:03:13,720
+sord by you can have one single function
+
+962
+01:03:11,599 --> 01:03:16,359
+that determines which you know element
+
+963
+01:03:13,720 --> 01:03:18,520
+is greater than the other or you can
+
+964
+01:03:16,359 --> 01:03:21,400
+have a sequence of
+
+965
+01:03:18,520 --> 01:03:26,279
+functions which are used in
+
+966
+01:03:21,400 --> 01:03:26,279
+turn if there's a tie
+
+967
+01:03:26,319 --> 01:03:33,760
+so for us now the problem is that we can
+
+968
+01:03:30,920 --> 01:03:36,880
+right now we have this one single
+
+969
+01:03:33,760 --> 01:03:41,160
+function that determines which come
+
+970
+01:03:36,880 --> 01:03:45,720
+first but our function currently doesn't
+
+971
+01:03:41,160 --> 01:03:47,880
+doesn't work for tie so we we so we need
+
+972
+01:03:45,720 --> 01:03:52,119
+to resolve the
+
+973
+01:03:47,880 --> 01:03:54,279
+tie so we can either continue to modify
+
+974
+01:03:52,119 --> 01:03:57,000
+this single function or we can create
+
+975
+01:03:54,279 --> 01:04:00,520
+create a separate
+
+976
+01:03:57,000 --> 01:04:02,640
+function uh but I think a single
+
+977
+01:04:00,520 --> 01:04:07,039
+function will
+
+978
+01:04:02,640 --> 01:04:08,920
+work however we failed uh because that's
+
+979
+01:04:07,039 --> 01:04:12,640
+why I'm doing all
+
+980
+01:04:08,920 --> 01:04:15,760
+this you know that's why I'm testing out
+
+981
+01:04:12,640 --> 01:04:19,200
+this this reverse sword and stuff I
+
+982
+01:04:15,760 --> 01:04:19,200
+think single function will
+
+983
+01:04:23,200 --> 01:04:26,920
+work
+
+984
+01:04:24,880 --> 01:04:32,599
+so we have to think about this okay
+
+985
+01:04:26,920 --> 01:04:32,599
+think is the best way so reverse
+
+986
+01:04:45,359 --> 01:04:51,880
+sorts wait why do you even need reverse
+
+987
+01:04:48,960 --> 01:04:55,799
+sword you don't even need reverse
+
+988
+01:04:51,880 --> 01:04:58,079
+sword you see
+
+989
+01:04:55,799 --> 01:05:00,720
+yeah you don't even need reverse
+
+990
+01:04:58,079 --> 01:05:02,359
+sort this Max will
+
+991
+01:05:00,720 --> 01:05:06,839
+do
+
+992
+01:05:02,359 --> 01:05:09,680
+but but then there's a tie okay so that
+
+993
+01:05:06,839 --> 01:05:13,880
+is why you need reverse
+
+994
+01:05:09,680 --> 01:05:16,640
+sort so let's see we got so many
+
+995
+01:05:13,880 --> 01:05:16,640
+confusing
+
+996
+01:05:18,720 --> 01:05:26,079
+now yeah so reverse sword gives you
+
+997
+01:05:23,079 --> 01:05:26,079
+these
+
+998
+01:05:30,680 --> 01:05:33,240
+then
+
+999
+01:05:34,160 --> 01:05:43,279
+you reverse sword in
+
+1000
+01:05:37,760 --> 01:05:43,279
+normal so I don't understand why is
+
+1001
+01:05:53,079 --> 01:05:56,079
+this
+
+1002
+01:05:59,480 --> 01:06:02,720
+why is this not
+
+1003
+01:06:10,520 --> 01:06:17,359
+working this I was thinking this should
+
+1004
+01:06:14,359 --> 01:06:20,359
+be one shot solution this should do it
+
+1005
+01:06:17,359 --> 01:06:20,359
+but
+
+1006
+01:06:23,000 --> 01:06:26,000
+no
+
+1007
+01:06:29,760 --> 01:06:35,760
+okay so let's think about sort
+
+1008
+01:06:53,000 --> 01:06:56,000
+by
+
+1009
+01:06:59,640 --> 01:07:06,680
+you see we can do this and
+
+1010
+01:07:03,000 --> 01:07:09,680
+uh so we'll map this
+
+1011
+01:07:06,680 --> 01:07:09,680
+function
+
+1012
+01:07:22,920 --> 01:07:25,920
+to
+
+1013
+01:07:26,319 --> 01:07:28,720
+okay
+
+1014
+01:07:49,720 --> 01:07:56,559
+so wait why is it
+
+1015
+01:07:52,760 --> 01:07:56,559
+still they shouldn't
+
+1016
+01:08:05,720 --> 01:08:11,520
+be okay let's let's try more testing
+
+1017
+01:08:09,880 --> 01:08:14,960
+here
+
+1018
+01:08:11,520 --> 01:08:14,960
+so a
+
+1019
+01:08:22,839 --> 01:08:27,679
+hand
+
+1020
+01:08:24,799 --> 01:08:27,679
+oh this is
+
+1021
+01:08:31,120 --> 01:08:39,480
+wrong why the normal we our normal is
+
+1022
+01:08:35,560 --> 01:08:39,480
+wrong why is it not
+
+1023
+01:08:41,040 --> 01:08:47,440
+work wait normal
+
+1024
+01:08:44,319 --> 01:08:50,480
+works oh you don't want you don't want
+
+1025
+01:08:47,440 --> 01:08:54,359
+the key you got to remove the key that's
+
+1026
+01:08:50,480 --> 01:08:55,600
+why so we want we need to REM remove the
+
+1027
+01:08:54,359 --> 01:08:59,640
+key
+
+1028
+01:08:55,600 --> 01:09:06,080
+okay so let's go back to Association
+
+1029
+01:08:59,640 --> 01:09:06,080
+list of uh get all keys there it is
+
+1030
+01:09:06,440 --> 01:09:12,000
+Keys okay
+
+1031
+01:09:08,560 --> 01:09:18,040
+so let's back to the one shot
+
+1032
+01:09:12,000 --> 01:09:18,040
+solution reverse sorts then just
+
+1033
+01:09:19,960 --> 01:09:25,719
+Keys
+
+1034
+01:09:22,719 --> 01:09:25,719
+okay
+
+1035
+01:09:27,480 --> 01:09:34,960
+uh no we don't want Keys we want values
+
+1036
+01:09:30,600 --> 01:09:34,960
+okay values
+
+1037
+01:09:37,880 --> 01:09:44,960
+so that's right say so let's look at
+
+1038
+01:09:41,960 --> 01:09:44,960
+this
+
+1039
+01:09:45,359 --> 01:09:52,719
+311 that's right that's what we want
+
+1040
+01:09:49,080 --> 01:09:55,719
+values at reversal that's it okay so
+
+1041
+01:09:52,719 --> 01:09:55,719
+here's our uh
+
+1042
+01:10:01,600 --> 01:10:05,159
+uh here's our
+
+1043
+01:10:07,760 --> 01:10:10,760
+solution
+
+1044
+01:10:15,679 --> 01:10:19,840
+okay no it's not
+
+1045
+01:10:21,080 --> 01:10:25,640
+right oh God what
+
+1046
+01:10:33,679 --> 01:10:36,760
+something is wrong
+
+1047
+01:10:46,719 --> 01:10:51,199
+here let's
+
+1048
+01:10:49,480 --> 01:10:55,640
+try
+
+1049
+01:10:51,199 --> 01:10:55,640
+this that's what we want
+
+1050
+01:11:01,080 --> 01:11:05,149
+okay
+
+1051
+01:11:01,820 --> 01:11:05,149
+[Music]
+
+1052
+01:11:05,320 --> 01:11:12,120
+so that's what we want oh then there's a
+
+1053
+01:11:08,760 --> 01:11:16,960
+length issue okay you see so you got
+
+1054
+01:11:12,120 --> 01:11:16,960
+this versus this there's a length
+
+1055
+01:11:20,159 --> 01:11:25,560
+issue then you just pad it okay
+
+1056
+01:11:32,960 --> 01:11:38,880
+you just pad the
+
+1057
+01:11:35,320 --> 01:11:38,880
+Leist yeah
+
+1058
+01:11:40,080 --> 01:11:43,440
+okay for
+
+1059
+01:11:45,800 --> 01:11:54,320
+example pad list n and X
+
+1060
+01:11:51,199 --> 01:11:57,400
+okay P list by Z
+
+1061
+01:11:54,320 --> 01:12:01,280
+zero uh
+
+1062
+01:11:57,400 --> 01:12:05,040
+by five 1 2 3 4 five five
+
+1063
+01:12:01,280 --> 01:12:08,480
+cards pad by zero that's what we want
+
+1064
+01:12:05,040 --> 01:12:10,639
+pad right okay so this is the function
+
+1065
+01:12:08,480 --> 01:12:10,639
+we
+
+1066
+01:12:12,159 --> 01:12:16,199
+want so you just
+
+1067
+01:12:22,480 --> 01:12:25,480
+add
+
+1068
+01:12:28,199 --> 01:12:35,159
+pad
+
+1069
+01:12:30,000 --> 01:12:36,480
+right that by zero okay so this is one
+
+1070
+01:12:35,159 --> 01:12:39,480
+shot
+
+1071
+01:12:36,480 --> 01:12:39,480
+solution
+
+1072
+01:12:43,960 --> 01:12:51,800
+yeah no it's still wrong
+
+1073
+01:12:48,239 --> 01:12:55,440
+God oh you forgot wait n yeah you forgot
+
+1074
+01:12:51,800 --> 01:12:55,440
+to add
+
+1075
+01:12:57,719 --> 01:13:00,120
+that's
+
+1076
+01:13:10,000 --> 01:13:17,560
+right no it's still
+
+1077
+01:13:13,520 --> 01:13:17,560
+wrong God what is
+
+1078
+01:13:22,360 --> 01:13:25,360
+wrong
+
+1079
+01:13:53,199 --> 01:14:00,800
+okay oh right you need to pad it before
+
+1080
+01:13:56,120 --> 01:14:04,880
+you sort that's right so that's right so
+
+1081
+01:14:00,800 --> 01:14:04,880
+you need to pad it
+
+1082
+01:14:05,080 --> 01:14:11,310
+first okay so you need
+
+1083
+01:14:08,100 --> 01:14:11,310
+[Music]
+
+1084
+01:14:12,080 --> 01:14:17,180
+to you need
+
+1085
+01:14:14,000 --> 01:14:17,180
+[Music]
+
+1086
+01:14:18,800 --> 01:14:27,400
+to get the values first then you pad it
+
+1087
+01:14:24,000 --> 01:14:31,120
+then you applies the reverse sword okay
+
+1088
+01:14:27,400 --> 01:14:31,120
+essentially it's one more
+
+1089
+01:14:38,040 --> 01:14:42,159
+time no
+
+1090
+01:14:47,440 --> 01:14:50,440
+
+1091
+01:14:52,280 --> 01:14:55,280
+God
+
+1092
+01:14:56,920 --> 01:15:00,880
+okay so what is going
+
+1093
+01:15:04,239 --> 01:15:11,920
+on oh wait you cannot no uh the order is
+
+1094
+01:15:08,960 --> 01:15:11,920
+wrong okay
+
+1095
+01:15:12,840 --> 01:15:22,199
+so so you get a dictionary first then
+
+1096
+01:15:19,199 --> 01:15:25,000
+you then you need to reverse
+
+1097
+01:15:22,199 --> 01:15:27,400
+sord
+
+1098
+01:15:25,000 --> 01:15:32,880
+then you get uh
+
+1099
+01:15:27,400 --> 01:15:38,000
+wait you get a dictionary like that then
+
+1100
+01:15:32,880 --> 01:15:41,120
+you reverse sort so the so the biggest
+
+1101
+01:15:38,000 --> 01:15:41,120
+value comes to the
+
+1102
+01:15:42,800 --> 01:15:47,400
+front uh or you can apply the value get
+
+1103
+01:15:46,199 --> 01:15:51,239
+just the
+
+1104
+01:15:47,400 --> 01:15:54,960
+values right you just get the values
+
+1105
+01:15:51,239 --> 01:15:58,159
+then you reverse sort them
+
+1106
+01:15:54,960 --> 01:15:58,159
+wait you just you get the
+
+1107
+01:15:58,920 --> 01:16:05,800
+values then then you pad
+
+1108
+01:16:02,520 --> 01:16:08,080
+them then you reverse sort why can't
+
+1109
+01:16:05,800 --> 01:16:08,080
+this
+
+1110
+01:16:14,639 --> 01:16:19,880
+work that seems right
+
+1111
+01:16:22,120 --> 01:16:29,239
+so see
+
+1112
+01:16:25,600 --> 01:16:32,360
+so this is essentially the criteria for
+
+1113
+01:16:29,239 --> 01:16:34,560
+the hand you have three of a kind then
+
+1114
+01:16:32,360 --> 01:16:34,560
+you
+
+1115
+01:16:36,880 --> 01:16:42,199
+have two of a
+
+1116
+01:16:39,840 --> 01:16:48,760
+kind
+
+1117
+01:16:42,199 --> 01:16:48,760
+yeah okay so then you just sort
+
+1118
+01:16:51,760 --> 01:16:57,760
+by then you you just sld by this order
+
+1119
+01:17:04,800 --> 01:17:09,040
+so oh God why is
+
+1120
+01:17:10,920 --> 01:17:15,560
+it let's test this
+
+1121
+01:17:19,000 --> 01:17:25,000
+okay okay let's let's trite it out
+
+1122
+01:17:31,360 --> 01:17:34,040
+so
+
+1123
+01:17:46,960 --> 01:17:55,000
+by let's see how it
+
+1124
+01:17:50,400 --> 01:17:55,000
+does sold by that
+
+1125
+01:18:15,960 --> 01:18:24,320
+did it sort it correctly yes 421 is the
+
+1126
+01:18:20,520 --> 01:18:27,719
+best four of a kind then two of a kind
+
+1127
+01:18:24,320 --> 01:18:33,159
+then 3 three then
+
+1128
+01:18:27,719 --> 01:18:33,159
+32 that's right so this is the correct
+
+1129
+01:18:33,360 --> 01:18:38,280
+sorting this is the correct sorting so
+
+1130
+01:18:36,520 --> 01:18:41,760
+why is our
+
+1131
+01:18:38,280 --> 01:18:41,760
+code doesn't
+
+1132
+01:18:50,400 --> 01:18:54,920
+work reverse sord
+
+1133
+01:19:01,000 --> 01:19:06,199
+get the
+
+1134
+01:19:03,239 --> 01:19:08,760
+dictionary then reverse sort the values
+
+1135
+01:19:06,199 --> 01:19:08,760
+of the
+
+1136
+01:19:11,280 --> 01:19:20,000
+dictionary then get the
+
+1137
+01:19:14,880 --> 01:19:20,000
+values then you pad okay
+
+1138
+01:19:20,040 --> 01:19:24,840
+so
+
+1139
+01:19:21,840 --> 01:19:24,840
+so
+
+1140
+01:19:35,080 --> 01:19:40,800
+okay so you want
+
+1141
+01:19:37,199 --> 01:19:40,800
+to that
+
+1142
+01:19:51,840 --> 01:19:58,320
+okay this should be the answer but why
+
+1143
+01:19:55,520 --> 01:19:58,320
+is it not
+
+1144
+01:20:08,280 --> 01:20:15,440
+correct oh it is correct 555
+
+1145
+01:20:13,400 --> 01:20:21,280
+wait
+
+1146
+01:20:15,440 --> 01:20:24,760
+555 3 of a Kind QQQ is three of a
+
+1147
+01:20:21,280 --> 01:20:24,760
+kind then
+
+1148
+01:20:24,960 --> 01:20:33,280
+then JJ TT is two pairs then KK is one
+
+1149
+01:20:29,880 --> 01:20:34,719
+pair this is correct but there's still
+
+1150
+01:20:33,280 --> 01:20:38,280
+missing
+
+1151
+01:20:34,719 --> 01:20:42,239
+something okay once we do that what if
+
+1152
+01:20:38,280 --> 01:20:46,760
+they what if we have two full house okay
+
+1153
+01:20:42,239 --> 01:20:51,679
+it's fantastic now now we just use
+
+1154
+01:20:46,760 --> 01:20:55,560
+utilize the sord by second function so
+
+1155
+01:20:51,679 --> 01:20:59,400
+so for example here is one
+
+1156
+01:20:55,560 --> 01:21:01,560
+function you see now we just need the
+
+1157
+01:20:59,400 --> 01:21:05,480
+list of functions so this is the first
+
+1158
+01:21:01,560 --> 01:21:11,719
+function the second function is simply
+
+1159
+01:21:05,480 --> 01:21:11,719
+to is simply to uh so them
+
+1160
+01:21:14,800 --> 01:21:21,639
+by by alha you know by alha numerical
+
+1161
+01:21:19,159 --> 01:21:24,239
+order of the string
+
+1162
+01:21:21,639 --> 01:21:28,600
+so
+
+1163
+01:21:24,239 --> 01:21:28,600
+yeah so the second function is just
+
+1164
+01:21:37,719 --> 01:21:41,000
+um let's
+
+1165
+01:21:45,679 --> 01:21:49,560
+see alphabetic
+
+1166
+01:21:51,639 --> 01:21:54,639
+order
+
+1167
+01:22:00,520 --> 01:22:04,829
+okay
+
+1168
+01:22:01,220 --> 01:22:04,829
+[Music]
+
+1169
+01:22:06,400 --> 01:22:12,760
+so so we want the function now that
+
+1170
+01:22:10,199 --> 01:22:12,760
+given a
+
+1171
+01:22:12,960 --> 01:22:18,040
+string well given two strings it
+
+1172
+01:22:21,560 --> 01:22:24,560
+uh
+
+1173
+01:22:33,480 --> 01:22:40,000
+alphabetic order okay that's what we
+
+1174
+01:22:36,360 --> 01:22:40,000
+want but
+
+1175
+01:22:46,560 --> 01:22:53,239
+uh alphabetic sort that's the function
+
+1176
+01:22:49,920 --> 01:22:57,159
+we want so the elements of list
+
+1177
+01:22:53,239 --> 01:22:57,159
+into alphabetical
+
+1178
+01:23:07,040 --> 01:23:10,040
+order
+
+1179
+01:23:12,600 --> 01:23:20,400
+okay alphabetic sord then you have lexo
+
+1180
+01:23:17,280 --> 01:23:24,480
+lexical graphic sort what about
+
+1181
+01:23:20,400 --> 01:23:24,480
+alphabetic order
+
+1182
+01:23:33,520 --> 01:23:37,880
+close you know we already solved the
+
+1183
+01:23:36,239 --> 01:23:40,679
+ranking
+
+1184
+01:23:37,880 --> 01:23:44,120
+problem right now
+
+1185
+01:23:40,679 --> 01:23:47,760
+we we have
+
+1186
+01:23:44,120 --> 01:23:49,199
+solved the ranking problem of the seven
+
+1187
+01:23:47,760 --> 01:23:52,760
+types of
+
+1188
+01:23:49,199 --> 01:23:56,600
+hand right now the problem is that if
+
+1189
+01:23:52,760 --> 01:23:58,679
+two hands have the same type you know
+
+1190
+01:23:56,600 --> 01:24:02,320
+for for example both of them are four of
+
+1191
+01:23:58,679 --> 01:24:04,840
+a kind how do you resolve that now
+
+1192
+01:24:02,320 --> 01:24:08,719
+according to this problem Advent of code
+
+1193
+01:24:04,840 --> 01:24:10,560
+you just you just SOL them by you rank
+
+1194
+01:24:08,719 --> 01:24:13,880
+them by the first character then the
+
+1195
+01:24:10,560 --> 01:24:16,639
+second character okay
+
+1196
+01:24:13,880 --> 01:24:18,880
+so which is easy to do you know we
+
+1197
+01:24:16,639 --> 01:24:23,159
+already have this you know several
+
+1198
+01:24:18,880 --> 01:24:25,679
+functions alphabetic sort but the
+
+1199
+01:24:23,159 --> 01:24:29,639
+but given our framework the way we
+
+1200
+01:24:25,679 --> 01:24:33,920
+solved it we need to put that
+
+1201
+01:24:29,639 --> 01:24:35,480
+into as a second function okay yeah the
+
+1202
+01:24:33,920 --> 01:24:38,239
+second
+
+1203
+01:24:35,480 --> 01:24:42,159
+function okay let's just let's just do
+
+1204
+01:24:38,239 --> 01:24:44,080
+this okay so the second function is just
+
+1205
+01:24:42,159 --> 01:24:48,239
+uh that's
+
+1206
+01:24:44,080 --> 01:24:48,239
+right first chart
+
+1207
+01:24:51,360 --> 01:24:54,360
+okay
+
+1208
+01:24:58,000 --> 01:25:01,639
+let's see let's see if that
+
+1209
+01:25:01,679 --> 01:25:05,159
+works I think
+
+1210
+01:25:21,280 --> 01:25:27,840
+that's oh okay so you need uh this needs
+
+1211
+01:25:25,239 --> 01:25:27,840
+to be a
+
+1212
+01:25:40,480 --> 01:25:44,920
+function okay so
+
+1213
+01:25:47,040 --> 01:25:58,679
+555 and QQQ which one is better
+
+1214
+01:25:54,239 --> 01:25:58,679
+Q should be better than t Okay
+
+1215
+01:26:03,639 --> 01:26:10,520
+so H yeah because our function here is
+
+1216
+01:26:07,920 --> 01:26:10,520
+so you
+
+1217
+01:26:11,679 --> 01:26:17,520
+get glad to see it working might help to
+
+1218
+01:26:14,880 --> 01:26:19,480
+do some tdsd bugging is there a way to
+
+1219
+01:26:17,520 --> 01:26:21,199
+step through the
+
+1220
+01:26:19,480 --> 01:26:24,119
+execution
+
+1221
+01:26:21,199 --> 01:26:26,040
+um
+
+1222
+01:26:24,119 --> 01:26:32,560
+usually you don't do that in wolam
+
+1223
+01:26:26,040 --> 01:26:35,159
+language okay um yeah but you can uh hea
+
+1224
+01:26:32,560 --> 01:26:38,960
+juper says I have a question why is
+
+1225
+01:26:35,159 --> 01:26:41,520
+pixel based scroll in emac so laggy on
+
+1226
+01:26:38,960 --> 01:26:43,840
+Windows I don't know don't use that you
+
+1227
+01:26:41,520 --> 01:26:46,360
+know some you know you know there's
+
+1228
+01:26:43,840 --> 01:26:49,560
+people saying they want pixel based
+
+1229
+01:26:46,360 --> 01:26:52,280
+score I never get exactly what's that
+
+1230
+01:26:49,560 --> 01:26:54,639
+for why do you need that you know you
+
+1231
+01:26:52,280 --> 01:26:57,199
+know you score by Char character that's
+
+1232
+01:26:54,639 --> 01:26:59,320
+fine why do you need the pixel base you
+
+1233
+01:26:57,199 --> 01:27:01,719
+know like there several packages over
+
+1234
+01:26:59,320 --> 01:27:05,679
+the years trying to fix that I don't I
+
+1235
+01:27:01,719 --> 01:27:07,960
+never get why you need that I don't
+
+1236
+01:27:05,679 --> 01:27:11,199
+recommend it because it makes emac much
+
+1237
+01:27:07,960 --> 01:27:14,040
+more complex to to kind of do that kind
+
+1238
+01:27:11,199 --> 01:27:17,320
+of thing you know go with Native you
+
+1239
+01:27:14,040 --> 01:27:20,400
+know whatever the native system
+
+1240
+01:27:17,320 --> 01:27:23,000
+framework is the
+
+1241
+01:27:20,400 --> 01:27:25,600
+best so emac
+
+1242
+01:27:23,000 --> 01:27:27,760
+just by the way it is over the over the
+
+1243
+01:27:25,600 --> 01:27:30,960
+over the past 30 40
+
+1244
+01:27:27,760 --> 01:27:33,600
+years they don't natively support pixel
+
+1245
+01:27:30,960 --> 01:27:36,560
+pixel scrore so don't do it you don't
+
+1246
+01:27:33,600 --> 01:27:39,560
+need it when you know I don't get it
+
+1247
+01:27:36,560 --> 01:27:42,280
+when do you why do you need the pixel
+
+1248
+01:27:39,560 --> 01:27:45,760
+score like why why do you need the pixel
+
+1249
+01:27:42,280 --> 01:27:49,400
+score by pixels I don't I don't
+
+1250
+01:27:45,760 --> 01:27:49,400
+totally don't see the
+
+1251
+01:27:49,480 --> 01:27:53,320
+need okay so yeah I don't know about
+
+1252
+01:27:51,920 --> 01:27:55,760
+that
+
+1253
+01:27:53,320 --> 01:27:57,960
+answer to that so anyway we are almost
+
+1254
+01:27:55,760 --> 01:28:00,119
+solved the problem but we seems to be
+
+1255
+01:27:57,960 --> 01:28:02,840
+stuck now it's 90
+
+1256
+01:28:00,119 --> 01:28:05,560
+minutes uh we almost solved the problem
+
+1257
+01:28:02,840 --> 01:28:07,760
+but now we so
+
+1258
+01:28:05,560 --> 01:28:09,880
+actually the best way to solve the
+
+1259
+01:28:07,760 --> 01:28:12,920
+problem is actually just think instead
+
+1260
+01:28:09,880 --> 01:28:15,840
+of just like talking and trying and
+
+1261
+01:28:12,920 --> 01:28:19,280
+stuff you just I just need to really
+
+1262
+01:28:15,840 --> 01:28:23,080
+just think about this so so we are using
+
+1263
+01:28:19,280 --> 01:28:26,800
+sort by now in W from language sort by
+
+1264
+01:28:23,080 --> 01:28:29,000
+allows you to have a list of functions
+
+1265
+01:28:26,800 --> 01:28:31,400
+if the first function comes out a number
+
+1266
+01:28:29,000 --> 01:28:34,800
+that's a tie then you use a second
+
+1267
+01:28:31,400 --> 01:28:39,040
+function right
+
+1268
+01:28:34,800 --> 01:28:41,960
+so so right now we are using the second
+
+1269
+01:28:39,040 --> 01:28:45,560
+function the first function simply gives
+
+1270
+01:28:41,960 --> 01:28:48,280
+us the type of hand you know maybe Full
+
+1271
+01:28:45,560 --> 01:28:50,920
+House or four a kind five a kind you
+
+1272
+01:28:48,280 --> 01:28:53,800
+know that solves the problem but in case
+
+1273
+01:28:50,920 --> 01:28:56,199
+there's a tie you know let's say both of
+
+1274
+01:28:53,800 --> 01:28:59,400
+them are four of a kind what you going
+
+1275
+01:28:56,199 --> 01:29:03,239
+to do I mean let's say both of them are
+
+1276
+01:28:59,400 --> 01:29:06,040
+you know Full House what you going to do
+
+1277
+01:29:03,239 --> 01:29:09,679
+I mean all you know three of a kind so
+
+1278
+01:29:06,040 --> 01:29:12,960
+so that so then we use a second
+
+1279
+01:29:09,679 --> 01:29:15,480
+function now according to Advent of a
+
+1280
+01:29:12,960 --> 01:29:18,719
+code when there's a tie you should
+
+1281
+01:29:15,480 --> 01:29:21,080
+simply go by the alphabetical you know
+
+1282
+01:29:18,719 --> 01:29:22,480
+the lexical graphic order you compare
+
+1283
+01:29:21,080 --> 01:29:25,440
+the first character
+
+1284
+01:29:22,480 --> 01:29:29,119
+then the second character okay
+
+1285
+01:29:25,440 --> 01:29:31,400
+so okay so we can do that you know we
+
+1286
+01:29:29,119 --> 01:29:34,719
+use the list of functions and our second
+
+1287
+01:29:31,400 --> 01:29:37,000
+function is simply return the the
+
+1288
+01:29:34,719 --> 01:29:40,880
+sequence of characters
+
+1289
+01:29:37,000 --> 01:29:42,960
+right but however here is a trick so you
+
+1290
+01:29:40,880 --> 01:29:47,080
+you want
+
+1291
+01:29:42,960 --> 01:29:47,080
+this this needs to be a
+
+1292
+01:29:48,040 --> 01:29:54,210
+function but you need you need the sense
+
+1293
+01:29:51,520 --> 01:29:57,460
+reverse first here because
+
+1294
+01:29:54,210 --> 01:29:57,460
+[Music]
+
+1295
+01:30:00,280 --> 01:30:05,679
+normally or let's not use reverse sord
+
+1296
+01:30:03,440 --> 01:30:11,280
+here let's not use reverse
+
+1297
+01:30:05,679 --> 01:30:11,280
+sord then we we have the same
+
+1298
+01:30:12,920 --> 01:30:16,560
+order uh
+
+1299
+01:30:20,600 --> 01:30:25,480
+wait so if you don't use reverse
+
+1300
+01:30:26,320 --> 01:30:33,119
+sword then you got it wrong again what
+
+1301
+01:30:30,760 --> 01:30:37,679
+555
+
+1302
+01:30:33,119 --> 01:30:40,679
+QQQ now then you got a wrong why
+
+1303
+01:30:37,679 --> 01:30:40,679
+set
+
+1304
+01:30:50,840 --> 01:30:53,840
+um
+
+1305
+01:31:07,239 --> 01:31:11,560
+where's the pad the pad is
+
+1306
+01:31:20,760 --> 01:31:23,760
+here
+
+1307
+01:31:44,080 --> 01:31:48,639
+yeah I'm getting tired the
+
+1308
+01:31:50,760 --> 01:31:53,760
+
+1309
+01:31:57,639 --> 01:32:05,280
+it's three of a kind three of a
+
+1310
+01:32:00,639 --> 01:32:05,280
+kind this is totally wrong
+
+1311
+01:32:07,719 --> 01:32:12,960
+again oh you do need reverse sord here
+
+1312
+01:32:12,000 --> 01:32:16,960
+let
+
+1313
+01:32:12,960 --> 01:32:19,800
+see because that's about the yeah you do
+
+1314
+01:32:16,960 --> 01:32:19,800
+need reverse
+
+1315
+01:32:20,679 --> 01:32:24,960
+sord
+
+1316
+01:32:22,880 --> 01:32:26,880
+oh yeah so
+
+1317
+01:32:24,960 --> 01:32:31,800
+then
+
+1318
+01:32:26,880 --> 01:32:31,800
+right then you just okay got
+
+1319
+01:32:35,040 --> 01:32:41,760
+it yeah so so that's right so do we have
+
+1320
+01:32:38,920 --> 01:32:41,760
+Reverse sord
+
+1321
+01:32:44,560 --> 01:32:49,880
+by yeah we do Reverse sld by how
+
+1322
+01:32:50,639 --> 01:32:57,719
+fantastic
+
+1323
+01:32:53,400 --> 01:33:01,760
+so so actually a so we so it's not
+
+1324
+01:32:57,719 --> 01:33:04,760
+totally lexical graphic sort because you
+
+1325
+01:33:01,760 --> 01:33:08,679
+have the situation
+
+1326
+01:33:04,760 --> 01:33:14,400
+where a is greater than k k is greater
+
+1327
+01:33:08,679 --> 01:33:14,400
+than Q so they are not alphabetical at
+
+1328
+01:33:15,639 --> 01:33:24,080
+all so right so alphabetically a would
+
+1329
+01:33:20,560 --> 01:33:24,080
+be you know
+
+1330
+01:33:27,520 --> 01:33:33,679
+first
+
+1331
+01:33:29,080 --> 01:33:37,679
+then Q would come after J but it's not
+
+1332
+01:33:33,679 --> 01:33:42,840
+the case here Q comes before J
+
+1333
+01:33:37,679 --> 01:33:42,840
+so oh yeah so you the order is
+
+1334
+01:33:46,880 --> 01:33:52,159
+um so you have so you need to write the
+
+1335
+01:33:49,920 --> 01:33:54,960
+function now the problem okay okay we we
+
+1336
+01:33:52,159 --> 01:33:57,960
+know what's a problem it's not
+
+1337
+01:33:54,960 --> 01:34:01,960
+alphabetical at all we need to write a
+
+1338
+01:33:57,960 --> 01:34:03,719
+function some kind of ordering
+
+1339
+01:34:01,960 --> 01:34:07,960
+representation
+
+1340
+01:34:03,719 --> 01:34:11,639
+that that represents this specific order
+
+1341
+01:34:07,960 --> 01:34:16,080
+a comes before k k comes before q q
+
+1342
+01:34:11,639 --> 01:34:18,119
+comes before J J comes before T okay and
+
+1343
+01:34:16,080 --> 01:34:20,760
+first of all based on first character if
+
+1344
+01:34:18,119 --> 01:34:22,119
+there's a tie then second character Okay
+
+1345
+01:34:20,760 --> 01:34:25,480
+so
+
+1346
+01:34:22,119 --> 01:34:27,000
+we need a function to represent this
+
+1347
+01:34:25,480 --> 01:34:30,600
+order
+
+1348
+01:34:27,000 --> 01:34:32,560
+so so okay yeah got another
+
+1349
+01:34:30,600 --> 01:34:36,119
+problem
+
+1350
+01:34:32,560 --> 01:34:38,719
+yeah yeah so our function works so far
+
+1351
+01:34:36,119 --> 01:34:41,840
+the problem is this part we need to fix
+
+1352
+01:34:38,719 --> 01:34:44,400
+this part okay for example we let's
+
+1353
+01:34:41,840 --> 01:34:44,400
+delete
+
+1354
+01:34:45,880 --> 01:34:53,480
+that okay if we don't do that
+
+1355
+01:34:49,320 --> 01:34:53,480
+then and then we got this
+
+1356
+01:34:54,119 --> 01:34:59,840
+you know so far it's pretty good three
+
+1357
+01:34:57,199 --> 01:35:02,400
+of a kind three of a
+
+1358
+01:34:59,840 --> 01:35:07,360
+kind three of a
+
+1359
+01:35:02,400 --> 01:35:10,280
+kind two pairs one pair and and random
+
+1360
+01:35:07,360 --> 01:35:13,440
+right we got a solution but the problem
+
+1361
+01:35:10,280 --> 01:35:17,840
+is now there's a tie you see this 555
+
+1362
+01:35:13,440 --> 01:35:24,040
+three a kind and QQQ three kind
+
+1363
+01:35:17,840 --> 01:35:26,400
+so in this case Q comes before
+
+1364
+01:35:24,040 --> 01:35:29,400
+T that's
+
+1365
+01:35:26,400 --> 01:35:29,400
+correct
+
+1366
+01:35:29,800 --> 01:35:36,040
+okay but what what if uh what if we you
+
+1367
+01:35:33,639 --> 01:35:39,440
+know what if our
+
+1368
+01:35:36,040 --> 01:35:44,119
+problem has another pair such
+
+1369
+01:35:39,440 --> 01:35:49,440
+that such that for example let's
+
+1370
+01:35:44,119 --> 01:35:49,440
+add uh for example let's add another
+
+1371
+01:35:49,679 --> 01:36:03,840
+pair so Q q q let's say kk let's say uh
+
+1372
+01:35:58,159 --> 01:36:06,639
+KKK okay then let's say another pair IJ
+
+1373
+01:36:03,840 --> 01:36:11,040
+a AA okay a
+
+1374
+01:36:06,639 --> 01:36:17,239
+AA on j4 okay
+
+1375
+01:36:11,040 --> 01:36:17,239
+so let's add this thing you
+
+1376
+01:36:17,400 --> 01:36:23,320
+know so for example if we have a this
+
+1377
+01:36:20,960 --> 01:36:23,320
+input
+
+1378
+01:36:24,199 --> 01:36:33,960
+this input then then uh
+
+1379
+01:36:29,679 --> 01:36:36,159
+we list of hands then we apply our list
+
+1380
+01:36:33,960 --> 01:36:38,840
+of
+
+1381
+01:36:36,159 --> 01:36:42,600
+hands okay so we can
+
+1382
+01:36:38,840 --> 01:36:47,960
+see this is three of a
+
+1383
+01:36:42,600 --> 01:36:49,440
+kind a AA three of a kind KK K three of
+
+1384
+01:36:47,960 --> 01:36:52,320
+a kind
+
+1385
+01:36:49,440 --> 01:36:55,440
+QQQ but according to the problem which
+
+1386
+01:36:52,320 --> 01:36:59,239
+one comes first a comes
+
+1387
+01:36:55,440 --> 01:37:02,560
+first then K and then Q okay that works
+
+1388
+01:36:59,239 --> 01:37:03,520
+out okay so let's just change the input
+
+1389
+01:37:02,560 --> 01:37:08,719
+a
+
+1390
+01:37:03,520 --> 01:37:11,719
+bit so let's put Q here okay so
+
+1391
+01:37:08,719 --> 01:37:11,719
+now
+
+1392
+01:37:13,679 --> 01:37:17,920
+copy you
+
+1393
+01:37:15,400 --> 01:37:19,880
+see now this is our
+
+1394
+01:37:17,920 --> 01:37:23,880
+sorted
+
+1395
+01:37:19,880 --> 01:37:27,520
+solution but you see the order is not
+
+1396
+01:37:23,880 --> 01:37:32,400
+correct when there's a tie so a should
+
+1397
+01:37:27,520 --> 01:37:34,560
+be first then K then Q okay so right now
+
+1398
+01:37:32,400 --> 01:37:38,040
+our problem is just create a second
+
+1399
+01:37:34,560 --> 01:37:40,560
+sorting function now and and the problem
+
+1400
+01:37:38,040 --> 01:37:44,119
+is to
+
+1401
+01:37:40,560 --> 01:37:48,719
+represent a function that represent the
+
+1402
+01:37:44,119 --> 01:37:50,040
+ranking of a sequence of five characters
+
+1403
+01:37:48,719 --> 01:37:53,520
+such
+
+1404
+01:37:50,040 --> 01:37:57,199
+that the the first character is by this
+
+1405
+01:37:53,520 --> 01:38:00,199
+order so how do you represent
+
+1406
+01:37:57,199 --> 01:38:00,199
+that
+
+1407
+01:38:00,480 --> 01:38:06,320
+so so let's say A Single Character you
+
+1408
+01:38:04,599 --> 01:38:10,000
+know forget about the sequence of
+
+1409
+01:38:06,320 --> 01:38:12,920
+characters let just say a representation
+
+1410
+01:38:10,000 --> 01:38:16,520
+of order of one single
+
+1411
+01:38:12,920 --> 01:38:20,400
+character and uh you want to you want
+
+1412
+01:38:16,520 --> 01:38:23,159
+them to be ranked like that so if it's a
+
+1413
+01:38:20,400 --> 01:38:24,880
+digit then it's very easy okay the
+
+1414
+01:38:23,159 --> 01:38:28,000
+larger
+
+1415
+01:38:24,880 --> 01:38:30,280
+digit uh
+
+1416
+01:38:28,000 --> 01:38:35,040
+wins okay
+
+1417
+01:38:30,280 --> 01:38:35,040
+so but if it's not a digit
+
+1418
+01:38:38,880 --> 01:38:46,400
+then so a single so so we can you know
+
+1419
+01:38:43,119 --> 01:38:48,960
+we can hard code it but let's think
+
+1420
+01:38:46,400 --> 01:38:52,040
+about the interesting problem how do you
+
+1421
+01:38:48,960 --> 01:38:54,679
+represent an order
+
+1422
+01:38:52,040 --> 01:38:56,880
+by this particular thing I need to go to
+
+1423
+01:38:54,679 --> 01:38:56,880
+the
+
+1424
+01:38:58,760 --> 01:39:05,199
+bathroom H we are almost done but you
+
+1425
+01:39:01,599 --> 01:39:08,280
+know of cold always always gets more
+
+1426
+01:39:05,199 --> 01:39:10,960
+complex almost two hours now and I need
+
+1427
+01:39:08,280 --> 01:39:10,960
+to go to the
+
+1428
+01:39:13,440 --> 01:39:19,560
+bathroom how many people watching
+
+1429
+01:39:17,800 --> 01:39:24,800
+five
+
+1430
+01:39:19,560 --> 01:39:24,800
+eight so far am I doing good do I make
+
+1431
+01:39:26,199 --> 01:39:34,920
+sense so you need
+
+1432
+01:39:29,400 --> 01:39:38,440
+um find a function let's say a single
+
+1433
+01:39:34,920 --> 01:39:41,840
+character that represents
+
+1434
+01:39:38,440 --> 01:39:47,280
+um I don't want to continue I I I I need
+
+1435
+01:39:41,840 --> 01:39:49,000
+to uh go to the bathroom and and uh walk
+
+1436
+01:39:47,280 --> 01:39:50,040
+let let me take a break then let me just
+
+1437
+01:39:49,000 --> 01:39:53,040
+go to the
+
+1438
+01:39:50,040 --> 01:39:53,040
+bathroom
+
+1439
+01:50:19,040 --> 01:50:22,040
+e
+
+1440
+01:51:56,360 --> 01:52:02,329
+I'm back now I forgot my
+
+1441
+01:51:59,220 --> 01:52:02,329
+[Music]
+
+1442
+01:52:18,880 --> 01:52:21,880
+glasses
+
+1443
+01:52:31,520 --> 01:52:36,520
+okay okay
+
+1444
+01:52:33,800 --> 01:52:38,960
+so it's back to the problem so the
+
+1445
+01:52:36,520 --> 01:52:41,040
+problem right now is this okay let me
+
+1446
+01:52:38,960 --> 01:52:44,480
+let's write it out because when you
+
+1447
+01:52:41,040 --> 01:52:48,560
+write things out you give
+
+1448
+01:52:44,480 --> 01:52:48,560
+you better thoughts
+
+1449
+01:52:48,840 --> 01:52:51,840
+okay
+
+1450
+01:52:56,079 --> 01:53:00,239
+a function the problem is to have a
+
+1451
+01:52:58,040 --> 01:53:03,599
+function that
+
+1452
+01:53:00,239 --> 01:53:03,599
+represents an
+
+1453
+01:53:04,159 --> 01:53:09,760
+ordering okay ordering of this nature
+
+1454
+01:53:07,560 --> 01:53:09,760
+okay
+
+1455
+01:53:15,440 --> 01:53:23,320
+so given two
+
+1456
+01:53:18,760 --> 01:53:26,560
+CHS the by the above okay so that that
+
+1457
+01:53:23,320 --> 01:53:28,719
+is the that is a problem we write we
+
+1458
+01:53:26,560 --> 01:53:30,679
+need to have a function that kind of do
+
+1459
+01:53:28,719 --> 01:53:35,280
+this
+
+1460
+01:53:30,679 --> 01:53:36,960
+so so so the function uh might
+
+1461
+01:53:35,280 --> 01:53:38,800
+be
+
+1462
+01:53:36,960 --> 01:53:44,800
+F you
+
+1463
+01:53:38,800 --> 01:53:48,760
+know f um Char one Char
+
+1464
+01:53:44,800 --> 01:53:51,599
+2 okay so the problem is to have a
+
+1465
+01:53:48,760 --> 01:53:53,000
+function F chart one chart two that
+
+1466
+01:53:51,599 --> 01:53:56,320
+represent an
+
+1467
+01:53:53,000 --> 01:53:56,320
+ordering like
+
+1468
+01:53:57,159 --> 01:54:01,320
+this so for
+
+1469
+01:54:03,280 --> 01:54:12,480
+example if the function is
+
+1470
+01:54:07,960 --> 01:54:12,480
+given uh a and
+
+1471
+01:54:14,119 --> 01:54:20,520
+uh let's say let's try something
+
+1472
+01:54:17,079 --> 01:54:22,840
+interesting uh JQ okay
+
+1473
+01:54:20,520 --> 01:54:27,320
+J
+
+1474
+01:54:22,840 --> 01:54:28,800
+Q it should return in this order okay so
+
+1475
+01:54:27,320 --> 01:54:32,920
+how do you want to
+
+1476
+01:54:28,800 --> 01:54:32,920
+represent I mean if J
+
+1477
+01:54:33,119 --> 01:54:38,840
+is it should uh so JQ it should
+
+1478
+01:54:42,360 --> 01:54:49,280
+return
+
+1479
+01:54:44,719 --> 01:54:53,000
+less something like that so because J is
+
+1480
+01:54:49,280 --> 01:54:55,679
+less than Q now how do you want to it's
+
+1481
+01:54:53,000 --> 01:54:59,119
+a bit confusing
+
+1482
+01:54:55,679 --> 01:55:04,679
+because greater or less so let's see if
+
+1483
+01:54:59,119 --> 01:55:04,679
+this order Q is greater than J okay
+
+1484
+01:55:05,440 --> 01:55:11,280
+so so let's rename the
+
+1485
+01:55:08,679 --> 01:55:15,000
+function greater
+
+1486
+01:55:11,280 --> 01:55:18,480
+okay so
+
+1487
+01:55:15,000 --> 01:55:20,320
+if okay so we re we name our function
+
+1488
+01:55:18,480 --> 01:55:24,800
+greater so greater
+
+1489
+01:55:20,320 --> 01:55:24,800
+JQ returns
+
+1490
+01:55:26,320 --> 01:55:29,920
+force greater
+
+1491
+01:55:33,000 --> 01:55:39,159
+QJ return
+
+1492
+01:55:35,079 --> 01:55:41,840
+true okay we want a function like that
+
+1493
+01:55:39,159 --> 01:55:46,119
+uh okay and how do you do
+
+1494
+01:55:41,840 --> 01:55:48,599
+that so this function takes uh two
+
+1495
+01:55:46,119 --> 01:55:51,599
+arguments each one is a single
+
+1496
+01:55:48,599 --> 01:55:51,599
+character
+
+1497
+01:55:55,840 --> 01:56:01,280
+uh okay so let's see four
+
+1498
+01:56:01,320 --> 01:56:09,480
+people uh so how do you
+
+1499
+01:56:06,000 --> 01:56:11,199
+represent order okay so we have sort
+
+1500
+01:56:09,480 --> 01:56:15,599
+function we have
+
+1501
+01:56:11,199 --> 01:56:18,520
+sort sort by reverse sord and Reverse
+
+1502
+01:56:15,599 --> 01:56:21,520
+sord by let's look at sord
+
+1503
+01:56:18,520 --> 01:56:21,520
+okay
+
+1504
+01:56:22,320 --> 01:56:27,560
+so takes ordering function P okay
+
+1505
+01:56:30,639 --> 01:56:35,189
+so
+
+1506
+01:56:32,060 --> 01:56:35,189
+[Music]
+
+1507
+01:56:42,199 --> 01:56:51,679
+so takes an ordering function P okay
+
+1508
+01:56:47,520 --> 01:56:55,599
+so so we want so this is our
+
+1509
+01:56:51,679 --> 01:56:57,599
+problem but however to use this function
+
+1510
+01:56:55,599 --> 01:57:00,800
+in in our s by
+
+1511
+01:56:57,599 --> 01:57:01,880
+algorithm in the way we work work on
+
+1512
+01:57:00,800 --> 01:57:05,560
+this
+
+1513
+01:57:01,880 --> 01:57:09,520
+problem is that we
+
+1514
+01:57:05,560 --> 01:57:09,520
+need the function
+
+1515
+01:57:18,400 --> 01:57:22,360
+to
+
+1516
+01:57:20,360 --> 01:57:26,079
+okay so
+
+1517
+01:57:22,360 --> 01:57:30,400
+actually we can we can have a hash
+
+1518
+01:57:26,079 --> 01:57:30,400
+table okay so here is what we
+
+1519
+01:57:39,280 --> 01:57:47,840
+do we simply have a hash table that
+
+1520
+01:57:44,840 --> 01:57:47,840
+returns
+
+1521
+01:57:48,400 --> 01:57:51,400
+uh
+
+1522
+01:57:52,040 --> 01:57:56,079
+a is let's
+
+1523
+01:58:01,760 --> 01:58:12,520
+say something like that okay so
+
+1524
+01:58:06,760 --> 01:58:17,920
+9 and 10 J becomes 11 that's right oh
+
+1525
+01:58:12,520 --> 01:58:22,520
+God this is so simple now 12 13 a is
+
+1526
+01:58:17,920 --> 01:58:22,520
+just 14 fantastic so we want
+
+1527
+01:58:23,199 --> 01:58:28,199
+that okay so we want a function we want
+
+1528
+01:58:27,079 --> 01:58:31,119
+a
+
+1529
+01:58:28,199 --> 01:58:37,760
+function that turns a
+
+1530
+01:58:31,119 --> 01:58:41,920
+CH into a number okay so something like
+
+1531
+01:58:37,760 --> 01:58:45,639
+that and uh the 987 they return
+
+1532
+01:58:41,920 --> 01:58:49,840
+themselves okay
+
+1533
+01:58:45,639 --> 01:58:53,560
+so so yeah we want a function that
+
+1534
+01:58:49,840 --> 01:58:56,119
+Returns the character so so first of all
+
+1535
+01:58:53,560 --> 01:58:56,119
+given a
+
+1536
+01:58:57,440 --> 01:59:02,560
+string uh let me just type it out so
+
+1537
+01:59:00,639 --> 01:59:06,520
+because when I type it out I
+
+1538
+01:59:02,560 --> 01:59:09,760
+know we get clarity of thinking so we
+
+1539
+01:59:06,520 --> 01:59:13,440
+got a sequence of characters we want to
+
+1540
+01:59:09,760 --> 01:59:17,599
+turn it into a sequence of numbers by
+
+1541
+01:59:13,440 --> 01:59:22,199
+this hash algorithm okay so let's encode
+
+1542
+01:59:17,599 --> 01:59:22,199
+this hash algorithm
+
+1543
+01:59:24,360 --> 01:59:31,760
+okay now emx power Marco keyboard
+
+1544
+01:59:28,480 --> 01:59:36,639
+Marco record Mar
+
+1545
+01:59:31,760 --> 01:59:41,639
+delete that that that that
+
+1546
+01:59:36,639 --> 01:59:44,520
+okay and uh done okay then we
+
+1547
+01:59:41,639 --> 01:59:47,679
+do that uh
+
+1548
+01:59:44,520 --> 01:59:49,840
+okay there it
+
+1549
+01:59:47,679 --> 01:59:54,679
+is okay
+
+1550
+01:59:49,840 --> 01:59:54,679
+so this is what we want
+
+1551
+01:59:59,679 --> 02:00:05,360
+okay we we we want this okay so this is
+
+1552
+02:00:03,840 --> 02:00:09,760
+going to be a
+
+1553
+02:00:05,360 --> 02:00:12,840
+hashtable a dictionary okay so and uh
+
+1554
+02:00:09,760 --> 02:00:12,840
+the these are
+
+1555
+02:00:15,760 --> 02:00:19,960
+the uh
+
+1556
+02:00:18,159 --> 02:00:22,280
+wait
+
+1557
+02:00:19,960 --> 02:00:24,760
+okay let me do
+
+1558
+02:00:22,280 --> 02:00:28,599
+this
+
+1559
+02:00:24,760 --> 02:00:31,239
+wait okay so record hash record the key
+
+1560
+02:00:28,599 --> 02:00:31,239
+Mar
+
+1561
+02:00:33,000 --> 02:00:36,000
+again
+
+1562
+02:00:36,320 --> 02:00:41,159
+now
+
+1563
+02:00:38,159 --> 02:00:42,239
+fantastic okay we turn those characters
+
+1564
+02:00:41,159 --> 02:00:44,800
+into a
+
+1565
+02:00:42,239 --> 02:00:47,480
+number this is our hash
+
+1566
+02:00:44,800 --> 02:00:53,920
+table uh
+
+1567
+02:00:47,480 --> 02:00:57,599
+sort table okay s table equals
+
+1568
+02:00:53,920 --> 02:01:00,560
+to now this is Association so the way
+
+1569
+02:00:57,599 --> 02:01:02,920
+you do Association a hash table in wam
+
+1570
+02:01:00,560 --> 02:01:05,920
+language
+
+1571
+02:01:02,920 --> 02:01:05,920
+is
+
+1572
+02:01:07,360 --> 02:01:13,320
+right what did we
+
+1573
+02:01:10,079 --> 02:01:16,320
+do okay so
+
+1574
+02:01:13,320 --> 02:01:16,320
+table
+
+1575
+02:01:18,040 --> 02:01:21,040
+Association
+
+1576
+02:01:21,400 --> 02:01:28,159
+okay so this is how you do
+
+1577
+02:01:24,480 --> 02:01:34,599
+Association in wam language okay so
+
+1578
+02:01:28,159 --> 02:01:34,599
+let's go back to here so table this is
+
+1579
+02:01:35,960 --> 02:01:41,960
+a Association yeah okay so some of this
+
+1580
+02:01:39,679 --> 02:01:41,960
+is
+
+1581
+02:01:43,159 --> 02:01:49,960
+wrong because you got the the arrow
+
+1582
+02:01:46,639 --> 02:01:55,599
+incorrect wam doesn't like the
+
+1583
+02:01:49,960 --> 02:01:58,719
+that so you need to have that
+
+1584
+02:01:55,599 --> 02:02:01,719
+yeah so this is our
+
+1585
+02:01:58,719 --> 02:02:03,840
+association and uh let's see what what
+
+1586
+02:02:01,719 --> 02:02:07,400
+happens if you s
+
+1587
+02:02:03,840 --> 02:02:10,079
+them yeah you so them by number by the
+
+1588
+02:02:07,400 --> 02:02:12,920
+value correct I mean the syntax is
+
+1589
+02:02:10,079 --> 02:02:15,119
+correct okay so now this is our
+
+1590
+02:02:12,920 --> 02:02:19,679
+association table
+
+1591
+02:02:15,119 --> 02:02:24,679
+okay um okay let's remove that let
+
+1592
+02:02:19,679 --> 02:02:29,639
+Association table let's move it here
+
+1593
+02:02:24,679 --> 02:02:33,320
+somewhere this is uh test stuff okay so
+
+1594
+02:02:29,639 --> 02:02:33,320
+and now we don't need
+
+1595
+02:02:45,159 --> 02:02:52,599
+this okay so let me just quickly code
+
+1596
+02:02:48,520 --> 02:02:52,599
+this so so you can understand what I'm
+
+1597
+02:02:53,760 --> 02:03:00,800
+doing so this
+
+1598
+02:02:56,320 --> 02:03:03,520
+function does this okay so now
+
+1599
+02:03:00,800 --> 02:03:06,719
+we so we have a
+
+1600
+02:03:03,520 --> 02:03:09,599
+function so we need this function to be
+
+1601
+02:03:06,719 --> 02:03:11,400
+part of the sort by now the sort by is
+
+1602
+02:03:09,599 --> 02:03:15,920
+the second argument is the list of
+
+1603
+02:03:11,400 --> 02:03:15,920
+functions if the first function is a
+
+1604
+02:03:16,040 --> 02:03:22,239
+tie you know then you use the second
+
+1605
+02:03:19,239 --> 02:03:26,000
+function so the second function will be
+
+1606
+02:03:22,239 --> 02:03:31,159
+the second function will be you get the
+
+1607
+02:03:26,000 --> 02:03:31,159
+hand so this is a hand
+
+1608
+02:03:32,079 --> 02:03:39,639
+then then it's it's it's a um it's a
+
+1609
+02:03:37,199 --> 02:03:45,159
+sequence of five characters it's a
+
+1610
+02:03:39,639 --> 02:03:47,880
+string then you say string to list okay
+
+1611
+02:03:45,159 --> 02:03:50,880
+um split
+
+1612
+02:03:47,880 --> 02:03:50,880
+string
+
+1613
+02:03:53,760 --> 02:03:56,320
+okay let's
+
+1614
+02:04:02,079 --> 02:04:08,559
+say okay you want to turn a string into
+
+1615
+02:04:05,440 --> 02:04:10,760
+a a characters
+
+1616
+02:04:08,559 --> 02:04:14,520
+so what is that
+
+1617
+02:04:10,760 --> 02:04:14,520
+function let's see
+
+1618
+02:04:15,639 --> 02:04:21,400
+characters gives a list of characters in
+
+1619
+02:04:18,239 --> 02:04:26,159
+string so that's what you want so not
+
+1620
+02:04:21,400 --> 02:04:26,159
+not split string okay so
+
+1621
+02:04:26,199 --> 02:04:33,880
+you want that for example that turn a
+
+1622
+02:04:30,719 --> 02:04:35,840
+list of charact a string to a list of
+
+1623
+02:04:33,880 --> 02:04:37,719
+characters each one is a string of
+
+1624
+02:04:35,840 --> 02:04:39,250
+Single Character okay so that's a
+
+1625
+02:04:37,719 --> 02:04:42,390
+function so
+
+1626
+02:04:39,250 --> 02:04:42,390
+[Music]
+
+1627
+02:04:42,960 --> 02:04:49,400
+you so that's right so you basically
+
+1628
+02:04:46,760 --> 02:04:52,960
+just do it here okay
+
+1629
+02:04:49,400 --> 02:04:56,599
+okay once you got that list of single
+
+1630
+02:04:52,960 --> 02:05:01,599
+characters then you remap them into by
+
+1631
+02:04:56,599 --> 02:05:05,440
+this dictionary okay by this table so
+
+1632
+02:05:01,599 --> 02:05:05,440
+you so for each
+
+1633
+02:05:06,040 --> 02:05:13,639
+character how do you do it uh okay so I
+
+1634
+02:05:09,040 --> 02:05:15,960
+don't know so let's look up the my wfam
+
+1635
+02:05:13,639 --> 02:05:19,760
+language
+
+1636
+02:05:15,960 --> 02:05:22,679
+Association you have Association
+
+1637
+02:05:19,760 --> 02:05:27,040
+you have a character you want to return
+
+1638
+02:05:22,679 --> 02:05:32,119
+the key so so let's see what you do so
+
+1639
+02:05:27,040 --> 02:05:32,119
+let's see sort table and
+
+1640
+02:05:32,880 --> 02:05:41,480
+uh a let's see
+
+1641
+02:05:36,119 --> 02:05:45,480
+what does that work Works
+
+1642
+02:05:41,480 --> 02:05:49,520
+fantastic okay let's say you have J
+
+1643
+02:05:45,480 --> 02:05:52,400
+works now what if you have lowercase j
+
+1644
+02:05:49,520 --> 02:05:56,040
+it doesn't work okay so you make sure
+
+1645
+02:05:52,400 --> 02:05:58,639
+you have got a case match okay so this
+
+1646
+02:05:56,040 --> 02:06:04,079
+is how you get
+
+1647
+02:05:58,639 --> 02:06:07,440
+um get a single character to their
+
+1648
+02:06:04,079 --> 02:06:09,719
+ordering value okay so this is how you
+
+1649
+02:06:07,440 --> 02:06:13,960
+get a single character to the ordering
+
+1650
+02:06:09,719 --> 02:06:16,840
+value now we need to turn this I mean
+
+1651
+02:06:13,960 --> 02:06:20,960
+this is a hardcoded case so we need to
+
+1652
+02:06:16,840 --> 02:06:24,000
+turn this into applying this to the hand
+
+1653
+02:06:20,960 --> 02:06:24,640
+of sequence of characters so what you do
+
+1654
+02:06:24,000 --> 02:06:27,159
+is
+
+1655
+02:06:24,640 --> 02:06:29,800
+[Music]
+
+1656
+02:06:27,159 --> 02:06:32,760
+you okay so you need to write a function
+
+1657
+02:06:29,800 --> 02:06:35,040
+so let me show you so this this this
+
+1658
+02:06:32,760 --> 02:06:35,040
+would
+
+1659
+02:06:36,400 --> 02:06:41,840
+be function let's
+
+1660
+02:06:38,840 --> 02:06:41,840
+say
+
+1661
+02:06:43,760 --> 02:06:51,000
+ch ch okay so that gives you a number
+
+1662
+02:06:48,800 --> 02:06:54,760
+that represent this characters ordering
+
+1663
+02:06:51,000 --> 02:06:59,040
+function okay so so you have this
+
+1664
+02:06:54,760 --> 02:07:03,360
+function now you want to apply it
+
+1665
+02:06:59,040 --> 02:07:07,920
+to to a list of characters okay this
+
+1666
+02:07:03,360 --> 02:07:11,320
+function you want to map it to a list of
+
+1667
+02:07:07,920 --> 02:07:11,320
+characters which is
+
+1668
+02:07:14,639 --> 02:07:22,000
+this okay this let me show you okay so
+
+1669
+02:07:19,679 --> 02:07:27,639
+for example let's
+
+1670
+02:07:22,000 --> 02:07:27,639
+try so this part is just uh
+
+1671
+02:07:28,320 --> 02:07:31,599
+hand for
+
+1672
+02:07:32,119 --> 02:07:37,400
+example
+
+1673
+02:07:34,079 --> 02:07:40,239
+QQQ 33
+
+1674
+02:07:37,400 --> 02:07:43,239
+Okay uh did it work
+
+1675
+02:07:40,239 --> 02:07:43,239
+no
+
+1676
+02:07:47,520 --> 02:07:50,520
+uh
+
+1677
+02:08:01,760 --> 02:08:07,520
+what oh fun uh wait function this is
+
+1678
+02:08:05,079 --> 02:08:11,400
+repeated
+
+1679
+02:08:07,520 --> 02:08:11,400
+wait yeah so
+
+1680
+02:08:17,440 --> 02:08:20,440
+C
+
+1681
+02:08:26,159 --> 02:08:29,760
+oh okay so wait
+
+1682
+02:08:47,400 --> 02:08:50,400
+so
+
+1683
+02:08:50,760 --> 02:08:55,480
+let's say QQ
+
+1684
+02:08:52,480 --> 02:08:55,480
+q33
+
+1685
+02:08:55,559 --> 02:09:01,040
+okay that's
+
+1686
+02:08:57,599 --> 02:09:01,040
+right that's
+
+1687
+02:09:01,239 --> 02:09:08,199
+right that's
+
+1688
+02:09:03,599 --> 02:09:11,239
+right so so this is a function
+
+1689
+02:09:08,199 --> 02:09:14,760
+so okay so we got that function we just
+
+1690
+02:09:11,239 --> 02:09:17,040
+need to put it here okay the second
+
+1691
+02:09:14,760 --> 02:09:19,320
+function is going to
+
+1692
+02:09:17,040 --> 02:09:22,800
+be this
+
+1693
+02:09:19,320 --> 02:09:22,800
+okay copy
+
+1694
+02:09:23,159 --> 02:09:30,760
+that and that's it that's our code let's
+
+1695
+02:09:27,559 --> 02:09:33,520
+let's evaluate the whole thing that's
+
+1696
+02:09:30,760 --> 02:09:37,239
+our solution to this problem I
+
+1697
+02:09:33,520 --> 02:09:41,079
+think please part expression X cannot be
+
+1698
+02:09:37,239 --> 02:09:43,760
+used as part specification we got uh we
+
+1699
+02:09:41,079 --> 02:09:47,239
+got a
+
+1700
+02:09:43,760 --> 02:09:51,520
+um oh yeah so we got a yeah so you need
+
+1701
+02:09:47,239 --> 02:09:53,639
+a function here so um yes that's right
+
+1702
+02:09:51,520 --> 02:09:56,639
+so use
+
+1703
+02:09:53,639 --> 02:09:56,639
+something
+
+1704
+02:09:58,119 --> 02:10:02,599
+uh that's right so we need
+
+1705
+02:10:17,239 --> 02:10:20,239
+this
+
+1706
+02:10:30,159 --> 02:10:37,800
+yeah and let's it's getting very complex
+
+1707
+02:10:33,760 --> 02:10:40,679
+here but I'm not sure you know what I'm
+
+1708
+02:10:37,800 --> 02:10:44,679
+doing but I know what I'm
+
+1709
+02:10:40,679 --> 02:10:47,239
+doing okay so
+
+1710
+02:10:44,679 --> 02:10:48,800
+anyway that should be the
+
+1711
+02:10:47,239 --> 02:10:52,239
+solution
+
+1712
+02:10:48,800 --> 02:10:55,159
+fantastic it is correct you see a AA
+
+1713
+02:10:52,239 --> 02:10:58,000
+three of a kind then KKK three of a kind
+
+1714
+02:10:55,159 --> 02:11:00,480
+QQQ three of a kind but they got ordered
+
+1715
+02:10:58,000 --> 02:11:05,920
+correctly a comes last because it's
+
+1716
+02:11:00,480 --> 02:11:10,159
+heaviest then AK king queen then 555
+
+1717
+02:11:05,920 --> 02:11:13,320
+then KK 77 two pairs then
+
+1718
+02:11:10,159 --> 02:11:18,719
+JJ and
+
+1719
+02:11:13,320 --> 02:11:22,800
+TT uh JJ and TT two pairs KK and 77 two
+
+1720
+02:11:18,719 --> 02:11:28,000
+pairs but which one is ordered first I
+
+1721
+02:11:22,800 --> 02:11:29,800
+mean i j k k is greater than 10 so K
+
+1722
+02:11:28,000 --> 02:11:33,119
+comes first
+
+1723
+02:11:29,800 --> 02:11:36,599
+correct and the last one is nothing
+
+1724
+02:11:33,119 --> 02:11:40,040
+random you know no no pirs and nothing
+
+1725
+02:11:36,599 --> 02:11:44,800
+so but here we have to double check the
+
+1726
+02:11:40,040 --> 02:11:49,520
+KK versus KT what is the original KK
+
+1727
+02:11:44,800 --> 02:11:52,360
+versus versus the ktk
+
+1728
+02:11:49,520 --> 02:11:55,119
+so KK versus
+
+1729
+02:11:52,360 --> 02:11:58,119
+KT which one comes
+
+1730
+02:11:55,119 --> 02:11:58,119
+first
+
+1731
+02:11:59,440 --> 02:12:08,880
+well so KK versus KT KK comes KK is
+
+1732
+02:12:06,000 --> 02:12:12,400
+heavier which is
+
+1733
+02:12:08,880 --> 02:12:16,679
+correct yeah so we actually we reorder
+
+1734
+02:12:12,400 --> 02:12:16,679
+this two you see 28
+
+1735
+02:12:16,840 --> 02:12:24,360
+220 it becomes 220 and 28 that's correct
+
+1736
+02:12:21,639 --> 02:12:27,679
+so this is this is correct what we have
+
+1737
+02:12:24,360 --> 02:12:27,679
+to do now is
+
+1738
+02:12:27,840 --> 02:12:35,320
+we we just uh multiply
+
+1739
+02:12:32,239 --> 02:12:37,719
+them uh all we have to do is like this
+
+1740
+02:12:35,320 --> 02:12:41,079
+okay let's
+
+1741
+02:12:37,719 --> 02:12:41,079
+see um
+
+1742
+02:12:47,040 --> 02:12:54,920
+what yeah we we don't want okay so let's
+
+1743
+02:12:50,800 --> 02:12:57,920
+remove the table form okay so we want
+
+1744
+02:12:54,920 --> 02:12:57,920
+that
+
+1745
+02:13:02,040 --> 02:13:06,199
+uh map index
+
+1746
+02:13:12,679 --> 02:13:18,960
+it okay we map a function to the list of
+
+1747
+02:13:16,599 --> 02:13:21,400
+ordered hand
+
+1748
+02:13:18,960 --> 02:13:25,960
+and uh what function we want want map it
+
+1749
+02:13:21,400 --> 02:13:25,960
+to we okay so
+
+1750
+02:13:26,760 --> 02:13:35,679
+we map function yeah so we map index
+
+1751
+02:13:32,159 --> 02:13:40,520
+so okay very easy okay so let's do it
+
+1752
+02:13:35,679 --> 02:13:44,199
+here because I have competions map index
+
+1753
+02:13:40,520 --> 02:13:46,960
+I mean because emac is more efficient to
+
+1754
+02:13:44,199 --> 02:13:49,960
+manipulate and stuff
+
+1755
+02:13:46,960 --> 02:13:49,960
+so
+
+1756
+02:13:51,840 --> 02:13:58,400
+okay so we want to map a function to
+
+1757
+02:13:54,679 --> 02:14:01,679
+that and the function is going to be two
+
+1758
+02:13:58,400 --> 02:14:03,960
+arguments uh and the second argument is
+
+1759
+02:14:01,679 --> 02:14:03,960
+the
+
+1760
+02:14:16,880 --> 02:14:19,880
+index
+
+1761
+02:14:37,840 --> 02:14:43,920
+right okay so the second argument is the
+
+1762
+02:14:42,199 --> 02:14:48,119
+index
+
+1763
+02:14:43,920 --> 02:14:54,360
+so and what does it do exactly you you
+
+1764
+02:14:48,119 --> 02:14:54,360
+want to multiply the index by
+
+1765
+02:14:55,040 --> 02:15:01,920
+the by the bit number okay by the bit
+
+1766
+02:14:58,760 --> 02:15:06,800
+the second part okay
+
+1767
+02:15:01,920 --> 02:15:06,800
+so so why is the index
+
+1768
+02:15:07,760 --> 02:15:12,520
+okay so what you do is
+
+1769
+02:15:16,800 --> 02:15:19,800
+you
+
+1770
+02:15:20,079 --> 02:15:25,119
+index
+
+1771
+02:15:22,119 --> 02:15:25,119
+times
+
+1772
+02:15:26,320 --> 02:15:32,840
+um index the first part of it remove the
+
+1773
+02:15:29,920 --> 02:15:33,599
+Leist okay so you get the index which is
+
+1774
+02:15:32,840 --> 02:15:39,000
+the
+
+1775
+02:15:33,599 --> 02:15:41,880
+rank times the bit so the bid is is you
+
+1776
+02:15:39,000 --> 02:15:44,639
+need to split
+
+1777
+02:15:41,880 --> 02:15:46,520
+string and get the second and turn
+
+1778
+02:15:44,639 --> 02:15:49,800
+number to string okay
+
+1779
+02:15:46,520 --> 02:15:49,800
+so so
+
+1780
+02:15:53,520 --> 02:15:58,280
+so string
+
+1781
+02:15:56,280 --> 02:16:03,280
+split
+
+1782
+02:15:58,280 --> 02:16:09,000
+X by default is split by yspace okay
+
+1783
+02:16:03,280 --> 02:16:11,599
+then okay so you can just say that at X
+
+1784
+02:16:09,000 --> 02:16:15,159
+then then you want to take the second
+
+1785
+02:16:11,599 --> 02:16:18,520
+part okay let's do it this way okay then
+
+1786
+02:16:15,159 --> 02:16:22,000
+take the second part
+
+1787
+02:16:18,520 --> 02:16:25,079
+then that second part is the
+
+1788
+02:16:22,000 --> 02:16:26,559
+bit number then you want to turn that to
+
+1789
+02:16:25,079 --> 02:16:29,559
+expression
+
+1790
+02:16:26,559 --> 02:16:29,559
+okay
+
+1791
+02:16:32,880 --> 02:16:40,160
+so okay that turns a string to a
+
+1792
+02:16:36,240 --> 02:16:42,800
+number and uh and that's it I think and
+
+1793
+02:16:40,160 --> 02:16:46,519
+you just sum okay then you just sum okay
+
+1794
+02:16:42,800 --> 02:16:50,359
+so let's try it that's
+
+1795
+02:16:46,519 --> 02:16:53,679
+it then then you just sum it now this
+
+1796
+02:16:50,359 --> 02:16:57,160
+sum is too high okay
+
+1797
+02:16:53,679 --> 02:17:01,120
+total okay now this is too high because
+
+1798
+02:16:57,160 --> 02:17:05,040
+we actually changed our input so now
+
+1799
+02:17:01,120 --> 02:17:08,080
+let's let's revert the input to whatever
+
+1800
+02:17:05,040 --> 02:17:08,080
+is original
+
+1801
+02:17:08,240 --> 02:17:16,160
+problem Oh God QQ qja a so QQ QJ a so
+
+1802
+02:17:13,319 --> 02:17:19,719
+you don't have this a
+
+1803
+02:17:16,160 --> 02:17:24,479
+AA so that's right so this is the input
+
+1804
+02:17:19,719 --> 02:17:30,439
+now okay do that do that do that and do
+
+1805
+02:17:24,479 --> 02:17:35,639
+that okay let's try it again again
+
+1806
+02:17:30,439 --> 02:17:35,639
+fresh uh and what we got map
+
+1807
+02:17:37,240 --> 02:17:44,519
+indexed table
+
+1808
+02:17:40,559 --> 02:17:44,519
+form uh
+
+1809
+02:17:46,599 --> 02:17:49,599
+what
+
+1810
+02:17:55,559 --> 02:17:58,080
+almost
+
+1811
+02:17:59,920 --> 02:18:05,319
+done wa this is this is
+
+1812
+02:18:03,160 --> 02:18:08,960
+incorrect
+
+1813
+02:18:05,319 --> 02:18:11,960
+so list of ordered
+
+1814
+02:18:08,960 --> 02:18:13,120
+hands okay so use string
+
+1815
+02:18:11,960 --> 02:18:15,200
+split
+
+1816
+02:18:13,120 --> 02:18:18,679
+[Music]
+
+1817
+02:18:15,200 --> 02:18:19,920
+then then you take the the second part
+
+1818
+02:18:18,679 --> 02:18:25,359
+should be
+
+1819
+02:18:19,920 --> 02:18:25,359
+that and uh and two
+
+1820
+02:18:26,559 --> 02:18:30,679
+expression let's just try
+
+1821
+02:18:36,599 --> 02:18:40,080
+this for
+
+1822
+02:18:41,559 --> 02:18:49,519
+example this should return 28 okay
+
+1823
+02:18:45,880 --> 02:18:49,519
+that's correct now
+
+1824
+02:18:49,760 --> 02:18:57,479
+now it returned the 28 then you take the
+
+1825
+02:18:54,399 --> 02:19:00,240
+index one multiply
+
+1826
+02:18:57,479 --> 02:19:04,719
+them nothing wrong with that that should
+
+1827
+02:19:00,240 --> 02:19:04,719
+be so why does it return
+
+1828
+02:19:05,439 --> 02:19:10,559
+that oh because you don't want the table
+
+1829
+02:19:08,399 --> 02:19:12,679
+form yeah
+
+1830
+02:19:10,559 --> 02:19:16,040
+stupid yeah you don't want the table
+
+1831
+02:19:12,679 --> 02:19:22,639
+form let's re evaluate that's
+
+1832
+02:19:16,040 --> 02:19:27,639
+it so you got this numbers 1 2 3 4
+
+1833
+02:19:22,639 --> 02:19:27,639
+five now what you do you add them
+
+1834
+02:19:34,280 --> 02:19:37,280
+together
+
+1835
+02:19:38,240 --> 02:19:44,800
+oh correct we got the
+
+1836
+02:19:41,880 --> 02:19:48,479
+solution
+
+1837
+02:19:44,800 --> 02:19:52,200
+6440 okay we got the solution
+
+1838
+02:19:48,479 --> 02:19:55,800
+so now let's clean up the code okay so
+
+1839
+02:19:52,200 --> 02:20:00,080
+let's just clean up the code so here
+
+1840
+02:19:55,800 --> 02:20:04,280
+this is the code okay so we uh let's
+
+1841
+02:20:00,080 --> 02:20:08,880
+remove the remove all the
+
+1842
+02:20:04,280 --> 02:20:11,600
+ uh okay so and uh and just say
+
+1843
+02:20:08,880 --> 02:20:11,600
+total
+
+1844
+02:20:13,280 --> 02:20:19,359
+okay okay this is our solution let's try
+
+1845
+02:20:16,640 --> 02:20:19,359
+one more time
+
+1846
+02:20:24,680 --> 02:20:34,120
+and fact you don't want table form
+
+1847
+02:20:29,520 --> 02:20:34,120
+here okay let's try one more
+
+1848
+02:20:37,920 --> 02:20:44,240
+time perfect
+
+1849
+02:20:40,800 --> 02:20:46,319
+now what you know now let's get our own
+
+1850
+02:20:44,240 --> 02:20:48,040
+solution I mean
+
+1851
+02:20:46,319 --> 02:20:51,680
+the
+
+1852
+02:20:48,040 --> 02:20:56,280
+uh to play please identify yourself I
+
+1853
+02:20:51,680 --> 02:20:56,280
+want to ah God I forgot to log in to
+
+1854
+02:21:00,319 --> 02:21:11,359
+GitHub do I am I still logged into
+
+1855
+02:21:04,000 --> 02:21:11,359
+GitHub sign to GitHub okay so I need to
+
+1856
+02:21:12,520 --> 02:21:18,680
+stop I forgot to log into GitHub
+
+1857
+02:21:15,880 --> 02:21:21,399
+how many people are watching four I need
+
+1858
+02:21:18,680 --> 02:21:25,280
+to complete this shall we yeah let's
+
+1859
+02:21:21,399 --> 02:21:26,040
+complete it okay so let me let me log in
+
+1860
+02:21:25,280 --> 02:21:28,960
+to
+
+1861
+02:21:26,040 --> 02:21:31,560
+GitHub this is tricky because I need to
+
+1862
+02:21:28,960 --> 02:21:31,560
+stop
+
+1863
+02:21:32,920 --> 02:21:39,399
+the stream okay hold on a second and I
+
+1864
+02:21:36,800 --> 02:21:39,399
+need my
+
+1865
+02:21:40,280 --> 02:21:46,040
+phone I hope the I can I'll be back
+
+1866
+02:21:46,240 --> 02:21:52,560
+okay
+
+1867
+02:21:47,800 --> 02:21:56,319
+okay I think I'm back am I back let's
+
+1868
+02:21:52,560 --> 02:21:59,319
+check is my
+
+1869
+02:21:56,319 --> 02:21:59,319
+streaming
+
+1870
+02:22:00,439 --> 02:22:07,960
+back if you are here concurrent views
+
+1871
+02:22:03,359 --> 02:22:07,960
+now two people can you see
+
+1872
+02:22:10,800 --> 02:22:18,240
+me yeah I think I'm back okay now we
+
+1873
+02:22:15,120 --> 02:22:22,120
+logged in to GitHub now let's get our
+
+1874
+02:22:18,240 --> 02:22:28,840
+personal input okay
+
+1875
+02:22:22,120 --> 02:22:28,840
+huge okay so let's let's see okay let's
+
+1876
+02:22:33,120 --> 02:22:42,600
+open okay let's save this input let's
+
+1877
+02:22:38,520 --> 02:22:44,200
+just say that okay so this is our
+
+1878
+02:22:42,600 --> 02:22:49,439
+personal
+
+1879
+02:22:44,200 --> 02:22:50,439
+input a file 1,000 lines okay so now we
+
+1880
+02:22:49,439 --> 02:22:52,560
+just
+
+1881
+02:22:50,439 --> 02:22:54,319
+say
+
+1882
+02:22:52,560 --> 02:22:57,640
+um
+
+1883
+02:22:54,319 --> 02:23:01,160
+read read string I
+
+1884
+02:22:57,640 --> 02:23:01,160
+believe yeah read
+
+1885
+02:23:02,359 --> 02:23:12,520
+string input equals to that okay this is
+
+1886
+02:23:07,760 --> 02:23:19,080
+our input and read string let's see the
+
+1887
+02:23:12,520 --> 02:23:19,080
+documentation uh what okay not
+
+1888
+02:23:19,319 --> 02:23:26,960
+you need to put the cluer here let's see
+
+1889
+02:23:21,960 --> 02:23:26,960
+read string file okay so that's it
+
+1890
+02:23:28,160 --> 02:23:34,399
+so that's it that's a solution let's see
+
+1891
+02:23:31,960 --> 02:23:37,399
+if that
+
+1892
+02:23:34,399 --> 02:23:39,600
+works this this is a solution we can
+
+1893
+02:23:37,399 --> 02:23:40,920
+make it much shorter one single line
+
+1894
+02:23:39,600 --> 02:23:44,399
+okay but let's
+
+1895
+02:23:40,920 --> 02:23:44,399
+WR H
+
+1896
+02:23:44,439 --> 02:23:52,760
+okay H we don't want uh okay scroll
+
+1897
+02:23:48,479 --> 02:23:55,840
+back SC scroll down this is our number
+
+1898
+02:23:52,760 --> 02:24:00,760
+five 250
+
+1899
+02:23:55,840 --> 02:24:02,560
+957 639 that'sand of a
+
+1900
+02:24:00,760 --> 02:24:05,600
+code
+
+1901
+02:24:02,560 --> 02:24:10,000
+submit that's the right answer of
+
+1902
+02:24:05,600 --> 02:24:12,760
+course okay so now let's summarize since
+
+1903
+02:24:10,000 --> 02:24:16,000
+we did all this trouble to get this
+
+1904
+02:24:12,760 --> 02:24:19,000
+let's just summarize
+
+1905
+02:24:16,000 --> 02:24:19,000
+okay
+
+1906
+02:24:19,960 --> 02:24:26,760
+summarize and clean the code okay
+
+1907
+02:24:23,399 --> 02:24:26,760
+so so
+
+1908
+02:24:28,000 --> 02:24:33,760
+we so okay
+
+1909
+02:24:30,359 --> 02:24:38,359
+so don't we don't need this big chunk of
+
+1910
+02:24:33,760 --> 02:24:38,359
+output okay so that's our
+
+1911
+02:24:43,279 --> 02:24:47,600
+solution yeah this this is
+
+1912
+02:24:45,960 --> 02:24:49,520
+already
+
+1913
+02:24:47,600 --> 02:24:53,760
+what two
+
+1914
+02:24:49,520 --> 02:24:56,880
+hours 2 hours and 30 minutes but here's
+
+1915
+02:24:53,760 --> 02:24:59,520
+a solution so can you do it in one line
+
+1916
+02:24:56,880 --> 02:25:02,000
+yeah sure but okay let me do it in one
+
+1917
+02:24:59,520 --> 02:25:02,000
+line
+
+1918
+02:25:07,680 --> 02:25:15,880
+okay okay so let's let's do it in one
+
+1919
+02:25:10,960 --> 02:25:18,880
+line let's clean up so um map indexed um
+
+1920
+02:25:15,880 --> 02:25:18,880
+so
+
+1921
+02:25:32,680 --> 02:25:36,120
+hold on a second hold on a
+
+1922
+02:25:45,880 --> 02:25:48,880
+second
+
+1923
+02:27:44,720 --> 02:27:50,399
+you know I'm just very sloy
+
+1924
+02:27:47,279 --> 02:27:52,080
+trying to get this done but I'm not
+
+1925
+02:27:50,399 --> 02:27:55,319
+doing a good
+
+1926
+02:27:52,080 --> 02:27:58,359
+job uh but okay but here is a single
+
+1927
+02:27:55,319 --> 02:27:58,359
+line solution
+
+1928
+02:27:59,880 --> 02:28:04,520
+okay here is the single line
+
+1929
+02:28:03,000 --> 02:28:07,520
+solution
+
+1930
+02:28:04,520 --> 02:28:07,520
+okay
+
+1931
+02:28:07,920 --> 02:28:18,399
+yeah it can be shorter much better but
+
+1932
+02:28:11,880 --> 02:28:21,840
+anyway so so where is it starting here
+
+1933
+02:28:18,399 --> 02:28:21,840
+okay there it
+
+1934
+02:28:28,240 --> 02:28:35,040
+is and uh all these can be
+
+1935
+02:28:32,760 --> 02:28:39,920
+shortened uh let's
+
+1936
+02:28:35,040 --> 02:28:43,479
+see so many ways to shorten it yeah but
+
+1937
+02:28:39,920 --> 02:28:45,760
+um let's not worry about it but anyway
+
+1938
+02:28:43,479 --> 02:28:50,200
+okay here's the final solution and we
+
+1939
+02:28:45,760 --> 02:28:53,000
+got it solved okay that's Advent of code
+
+1940
+02:28:50,200 --> 02:28:54,960
+that's that's okay so anyway so this
+
+1941
+02:28:53,000 --> 02:28:58,800
+this is advent of code day
+
+1942
+02:28:54,960 --> 02:29:00,800
+seven uh part one we solve the problem
+
+1943
+02:28:58,800 --> 02:29:04,880
+and that's it for today thank you guys
+
+1944
+02:29:00,800 --> 02:29:08,600
+for watching here is uh one single line
+
+1945
+02:29:04,880 --> 02:29:12,240
+solution and uh of course this part can
+
+1946
+02:29:08,600 --> 02:29:14,319
+be uh this part can be moved somewhere
+
+1947
+02:29:12,240 --> 02:29:15,520
+here so it you actually get one single
+
+1948
+02:29:14,319 --> 02:29:17,359
+line here
+
+1949
+02:29:15,520 --> 02:29:18,840
+input
+
+1950
+02:29:17,359 --> 02:29:23,560
+uh so let's
+
+1951
+02:29:18,840 --> 02:29:25,479
+see yeah so just move this input to here
+
+1952
+02:29:23,560 --> 02:29:29,600
+okay one single line solution Advent of
+
+1953
+02:29:25,479 --> 02:29:32,000
+code day 7 2023 that's it for today uh
+
+1954
+02:29:29,600 --> 02:29:35,560
+kind of long but it's I mean it's
+
+1955
+02:29:32,000 --> 02:29:37,600
+interesting problem uh and okay so if
+
+1956
+02:29:35,560 --> 02:29:40,920
+you like my
+
+1957
+02:29:37,600 --> 02:29:44,640
+stuff buy my stuff okay pay me you know
+
+1958
+02:29:40,920 --> 02:29:47,800
+go to sad. info code
+
+1959
+02:29:44,640 --> 02:29:51,000
+kinfo and uh go to to the bottom you can
+
+1960
+02:29:47,800 --> 02:29:54,279
+patreon me you can Amazon gift card me
+
+1961
+02:29:51,000 --> 02:29:59,720
+you can PayPal me you can buy my emac
+
+1962
+02:29:54,279 --> 02:30:03,880
+tutorial you can buy my um emac and emac
+
+1963
+02:29:59,720 --> 02:30:08,160
+this tutorial and JavaScript in depth um
+
+1964
+02:30:03,880 --> 02:30:11,880
+okay and so uh that's it for today thank
+
+1965
+02:30:08,160 --> 02:30:11,880
+you guys for watching
+
+1966
+02:30:15,439 --> 02:30:18,439
+bye
+

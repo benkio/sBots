@@ -1,0 +1,7992 @@
+1
+00:00:06,120 --> 00:00:11,520
+Hello guys. Welcome everyone. Welcome to
+
+2
+00:00:08,920 --> 00:00:16,320
+another episode of Talk Show.
+
+3
+00:00:11,520 --> 00:00:18,920
+Today is 2022 March 3rd and today the
+
+4
+00:00:16,320 --> 00:00:21,000
+first 30 minutes we are going to code
+
+5
+00:00:18,920 --> 00:00:23,800
+Emac Lisp, okay?
+
+6
+00:00:21,000 --> 00:00:26,200
+Video check, audio check, I'm alive.
+
+7
+00:00:23,800 --> 00:00:28,040
+Emac Lisp coding for the first 30
+
+8
+00:00:26,200 --> 00:00:29,520
+minutes. Then I'm going to talk
+
+9
+00:00:28,040 --> 00:00:31,280
+randomish.
+
+10
+00:00:29,520 --> 00:00:33,040
+Randomish.
+
+11
+00:00:31,280 --> 00:00:35,960
+Uh so if you have a questions for me,
+
+12
+00:00:33,040 --> 00:00:37,800
+ask it, okay? So
+
+13
+00:00:35,960 --> 00:00:39,800
+let's begin.
+
+14
+00:00:37,800 --> 00:00:42,760
+Uh so let's begin. So you are looking at
+
+15
+00:00:39,800 --> 00:00:46,040
+my keyboard. This is Kinesis Advantage 2
+
+16
+00:00:42,760 --> 00:00:48,600
+and this is ultimate hacking fantastic
+
+17
+00:00:46,040 --> 00:00:51,920
+visual dictionary of special plane
+
+18
+00:00:48,600 --> 00:00:54,080
+curves and visual CSS, okay?
+
+19
+00:00:51,920 --> 00:00:56,080
+Let's begin, okay? So let's begin
+
+20
+00:00:54,080 --> 00:00:57,680
+today's talk show. So so let's go to
+
+21
+00:00:56,080 --> 00:01:00,000
+talk show. So
+
+22
+00:00:57,680 --> 00:01:01,360
+I want to code
+
+23
+00:01:00,000 --> 00:01:03,800
+um
+
+24
+00:01:01,360 --> 00:01:06,080
+swap.
+
+25
+00:01:03,800 --> 00:01:07,360
+Okay, so this is what I'm going to code.
+
+26
+00:01:06,080 --> 00:01:09,480
+Begin
+
+27
+00:01:07,360 --> 00:01:11,320
+uh yeah, Emac Lisp. Yeah, so this one,
+
+28
+00:01:09,480 --> 00:01:14,000
+okay? So
+
+29
+00:01:11,320 --> 00:01:15,560
+copy it. So it you know, we are I'm
+
+30
+00:01:14,000 --> 00:01:17,840
+going to do uh
+
+31
+00:01:15,560 --> 00:01:20,240
+Lisp coding Emac Lisp coding right now
+
+32
+00:01:17,840 --> 00:01:23,000
+and you are also looking at my
+
+33
+00:01:20,240 --> 00:01:26,720
+Emacs workflow. So this is a great real
+
+34
+00:01:23,000 --> 00:01:28,240
+life practical real world workflow. So
+
+35
+00:01:26,720 --> 00:01:30,480
+in a pink window you can see all my
+
+36
+00:01:28,240 --> 00:01:34,200
+Emacs command calls like every key I
+
+37
+00:01:30,480 --> 00:01:36,200
+press, you will see the uh command names
+
+38
+00:01:34,200 --> 00:01:39,520
+in the pink window and you will also see
+
+39
+00:01:36,200 --> 00:01:41,360
+the keystrokes I use. So I'm using Xah
+
+40
+00:01:39,520 --> 00:01:43,200
+Fly Keys.
+
+41
+00:01:41,360 --> 00:01:46,240
+So that means
+
+42
+00:01:43,200 --> 00:01:49,760
+uh Xah Fly Keys.
+
+43
+00:01:46,240 --> 00:01:53,600
+So that is a Emacs key binding system.
+
+44
+00:01:49,760 --> 00:01:56,080
+It's a model system just like Vim but
+
+45
+00:01:53,600 --> 00:01:57,680
+with much more efficient
+
+46
+00:01:56,080 --> 00:02:01,480
+uh
+
+47
+00:01:57,680 --> 00:02:04,760
+command and key bindings. So that's what
+
+48
+00:02:01,480 --> 00:02:08,080
+I'm using Xah Fly Keys. It's free on
+
+49
+00:02:04,760 --> 00:02:09,720
+GitHub and uh it's it's and and then
+
+50
+00:02:08,080 --> 00:02:12,200
+it's um
+
+51
+00:02:09,720 --> 00:02:14,920
+Xah Fly Keys. Yeah, and I'm I'm using a
+
+52
+00:02:12,200 --> 00:02:16,920
+Dvorak keyboard. So let's see. So
+
+53
+00:02:14,920 --> 00:02:19,320
+So let me show you Dvorak keyboard. Uh
+
+54
+00:02:16,920 --> 00:02:21,320
+this is common topic of my talk show. So
+
+55
+00:02:19,320 --> 00:02:24,200
+this is you are looking at QWERTY
+
+56
+00:02:21,320 --> 00:02:26,640
+keyboard layout and you this is Dvorak
+
+57
+00:02:24,200 --> 00:02:29,080
+keyboard layout. So you see all the
+
+58
+00:02:26,640 --> 00:02:32,520
+keystrokes showing up there. All those
+
+59
+00:02:29,080 --> 00:02:33,680
+are uh Dvorak. Okay? And you will not
+
+60
+00:02:32,520 --> 00:02:36,600
+see
+
+61
+00:02:33,680 --> 00:02:37,640
+control much. You will not see meta, you
+
+62
+00:02:36,600 --> 00:02:41,040
+know?
+
+63
+00:02:37,640 --> 00:02:44,800
+So Kinesis Advantage uh so let me show
+
+64
+00:02:41,040 --> 00:02:44,800
+it again, okay? So keyboard.
+
+65
+00:02:45,560 --> 00:02:49,480
+Uh yeah, okay. So wait.
+
+66
+00:02:48,080 --> 00:02:52,080
+Bookmark.
+
+67
+00:02:49,480 --> 00:02:54,360
+Open bookmarks keyboard blog. So this is
+
+68
+00:02:52,080 --> 00:02:56,960
+you can search it, you can find it. Ergo
+
+69
+00:02:54,360 --> 00:02:59,960
+Emacs keyboard I mean ergonomics
+
+70
+00:02:56,960 --> 00:03:03,400
+keyboard review. Kinesis Advantage,
+
+71
+00:02:59,960 --> 00:03:06,800
+okay? And uh Ultimate Hacking keyboard.
+
+72
+00:03:03,400 --> 00:03:09,880
+I'm using it it. I'm using it as a key
+
+73
+00:03:06,800 --> 00:03:10,840
+marker system. Fantastic. You go buy it,
+
+74
+00:03:09,880 --> 00:03:12,840
+okay?
+
+75
+00:03:10,840 --> 00:03:14,600
+And there's going to be more keyboard
+
+76
+00:03:12,840 --> 00:03:17,080
+review coming up coming up new
+
+77
+00:03:14,600 --> 00:03:20,760
+keyboards, okay?
+
+78
+00:03:17,080 --> 00:03:22,800
+Uh So those of you making keyboards, if
+
+79
+00:03:20,760 --> 00:03:25,160
+you send me one, I'll do a review for
+
+80
+00:03:22,800 --> 00:03:26,320
+you. Independent, you know? Doesn't
+
+81
+00:03:25,160 --> 00:03:28,200
+matter
+
+82
+00:03:26,320 --> 00:03:29,920
+you know,
+
+83
+00:03:28,200 --> 00:03:32,520
+you give it to me or not. I'm going to
+
+84
+00:03:29,920 --> 00:03:36,120
+do independent keyboard review
+
+85
+00:03:32,520 --> 00:03:37,880
+according to my judgement.
+
+86
+00:03:36,120 --> 00:03:40,440
+That is what review should be. That's
+
+87
+00:03:37,880 --> 00:03:42,000
+what's review is all about, okay? So
+
+88
+00:03:40,440 --> 00:03:45,520
+anyway, so
+
+89
+00:03:42,000 --> 00:03:48,480
+regardless of you know, sponsorship.
+
+90
+00:03:45,520 --> 00:03:49,520
+So I'm going to I was going to show you
+
+91
+00:03:48,480 --> 00:03:52,040
+the
+
+92
+00:03:49,520 --> 00:03:54,200
+you know, anyway I talked about this
+
+93
+00:03:52,040 --> 00:03:56,160
+keyboard often not today, okay? So yeah,
+
+94
+00:03:54,200 --> 00:03:58,120
+I was going to show you this picture. So
+
+95
+00:03:56,160 --> 00:03:59,640
+this is my uh
+
+96
+00:03:58,120 --> 00:04:01,160
+you uh
+
+97
+00:03:59,640 --> 00:04:03,760
+This is my
+
+98
+00:04:01,160 --> 00:04:06,280
+key binding shortcut layout. You know,
+
+99
+00:04:03,760 --> 00:04:08,920
+you know, the shortcut system using the
+
+100
+00:04:06,280 --> 00:04:11,320
+this this and this you know, these two
+
+101
+00:04:08,920 --> 00:04:14,360
+together. The Ultimate Hacking keyboard.
+
+102
+00:04:11,320 --> 00:04:17,920
+So let me show you key keypad for
+
+103
+00:04:14,360 --> 00:04:22,600
+Windows. You see? So this is select all,
+
+104
+00:04:17,920 --> 00:04:25,000
+copy, paste, new tab, new new window,
+
+105
+00:04:22,600 --> 00:04:28,960
+new document, new tab,
+
+106
+00:04:25,000 --> 00:04:32,560
+open last closed, close, reload.
+
+107
+00:04:28,960 --> 00:04:34,480
+Uh this is close you know, and so on.
+
+108
+00:04:32,560 --> 00:04:38,440
+So close that, you see one key press
+
+109
+00:04:34,480 --> 00:04:40,640
+that's Alt F4. But one single key press,
+
+110
+00:04:38,440 --> 00:04:43,680
+you know, no extra.
+
+111
+00:04:40,640 --> 00:04:45,400
+Any extra causes pain right now I have
+
+112
+00:04:43,680 --> 00:04:50,000
+here like I talked about many times
+
+113
+00:04:45,400 --> 00:04:50,000
+right now. Repetitive strain injury.
+
+114
+00:04:50,160 --> 00:04:55,400
+So okay, let's focus on keyboard
+
+115
+00:04:52,640 --> 00:04:57,120
+on Emac Lisp coding. So right away we
+
+116
+00:04:55,400 --> 00:04:59,320
+are going to start Emac Lisp coding,
+
+117
+00:04:57,120 --> 00:05:01,320
+okay? So right away. So like right now,
+
+118
+00:04:59,320 --> 00:05:03,880
+okay? So close close
+
+119
+00:05:01,320 --> 00:05:08,680
+Xah Fly Keys, okay? Close that. What is
+
+120
+00:05:03,880 --> 00:05:12,040
+this? Yeah, so So this is um
+
+121
+00:05:08,680 --> 00:05:13,800
+So I'm using Xah HTML mod. Yeah, let me
+
+122
+00:05:12,040 --> 00:05:16,240
+mention a few things, you know, since
+
+123
+00:05:13,800 --> 00:05:19,240
+I'm doing Xah Talk Show not someone
+
+124
+00:05:16,240 --> 00:05:21,840
+else's talk show. Xah Talk Show, so you
+
+125
+00:05:19,240 --> 00:05:24,160
+buy my stuff, okay? You pay me. So for
+
+126
+00:05:21,840 --> 00:05:26,640
+example, uh
+
+127
+00:05:24,160 --> 00:05:30,800
+Okay, let me show you this.
+
+128
+00:05:26,640 --> 00:05:32,800
+Xah packages, okay? This is my Emac Lisp
+
+129
+00:05:30,800 --> 00:05:35,920
+you know, pack Emacs packages. You can
+
+130
+00:05:32,800 --> 00:05:39,200
+download. They have been for free for
+
+131
+00:05:35,920 --> 00:05:41,760
+like 15 years but I don't get paid. I
+
+132
+00:05:39,200 --> 00:05:45,400
+get I get like
+
+133
+00:05:41,760 --> 00:05:47,640
+$50 a month. So I'm you know, pretty
+
+134
+00:05:45,400 --> 00:05:49,320
+bad. So anyway, Xah Fly Keys free. The
+
+135
+00:05:47,640 --> 00:05:52,120
+other ones you have to pay me, okay? And
+
+136
+00:05:49,320 --> 00:05:54,720
+right now I'm using Xah HTML mod, you
+
+137
+00:05:52,120 --> 00:05:56,320
+know, I did a video there
+
+138
+00:05:54,720 --> 00:05:59,360
+talk show. So
+
+139
+00:05:56,320 --> 00:06:02,000
+Xah HTML mod. So I'm working directly in
+
+140
+00:05:59,360 --> 00:06:05,800
+HTML. Oh, there is a question on Discord
+
+141
+00:06:02,000 --> 00:06:07,680
+on Xah D Discord about how
+
+142
+00:06:05,800 --> 00:06:10,600
+uh let me mention it, okay? Actually we
+
+143
+00:06:07,680 --> 00:06:13,280
+need to get get into uh coding E this
+
+144
+00:06:10,600 --> 00:06:15,880
+now. Say you know, say say hi guys,
+
+145
+00:06:13,280 --> 00:06:16,800
+okay? Central Intelligence Agency. Hello
+
+146
+00:06:15,880 --> 00:06:19,480
+there.
+
+147
+00:06:16,800 --> 00:06:21,400
+So Emac Lisp coding. So but let me
+
+148
+00:06:19,480 --> 00:06:23,480
+quickly mention about this package,
+
+149
+00:06:21,400 --> 00:06:26,080
+okay? Yeah, this one. So
+
+150
+00:06:23,480 --> 00:06:28,520
+[ __ ] said is a great guy. [ __ ] said
+
+151
+00:06:26,080 --> 00:06:32,600
+posted this thing. [ __ ] said is a
+
+152
+00:06:28,520 --> 00:06:35,440
+He wrote a package for the Zettelkasten
+
+153
+00:06:32,600 --> 00:06:37,360
+something note taking system.
+
+154
+00:06:35,440 --> 00:06:39,040
+Okay, he's author of that. He's a big
+
+155
+00:06:37,360 --> 00:06:42,280
+Emacs
+
+156
+00:06:39,040 --> 00:06:45,440
+Lisp coder, too. And so anyway, so
+
+157
+00:06:42,280 --> 00:06:48,560
+So there's this package, you know,
+
+158
+00:06:45,440 --> 00:06:50,480
+modern org style. You know, I despise
+
+159
+00:06:48,560 --> 00:06:52,800
+any package that says modern. What the
+
+160
+00:06:50,480 --> 00:06:55,080
+[ __ ] modern modern.
+
+161
+00:06:52,800 --> 00:06:58,120
+Uh modern org style. So basically they
+
+162
+00:06:55,080 --> 00:07:00,960
+replace org mod, you know, the syntax uh
+
+163
+00:06:58,120 --> 00:07:03,200
+yeah, okay. Let's open it.
+
+164
+00:07:00,960 --> 00:07:05,200
+Yeah, so you can see big. Can you Can
+
+165
+00:07:03,200 --> 00:07:08,160
+you magnify? Yeah, you can.
+
+166
+00:07:05,200 --> 00:07:09,560
+So basically they they change the org
+
+167
+00:07:08,160 --> 00:07:12,640
+mod
+
+168
+00:07:09,560 --> 00:07:15,640
+rendering so display. So instead of
+
+169
+00:07:12,640 --> 00:07:18,040
+using pure ASCII, they introduce Unicode
+
+170
+00:07:15,640 --> 00:07:21,000
+and you know, basically prettify it. You
+
+171
+00:07:18,040 --> 00:07:23,800
+see? They draw this line.
+
+172
+00:07:21,000 --> 00:07:25,120
+You know, this is after. This is before,
+
+173
+00:07:23,800 --> 00:07:27,760
+you know, before the when you have a
+
+174
+00:07:25,120 --> 00:07:30,040
+code block, it looks like that. Before,
+
+175
+00:07:27,760 --> 00:07:32,240
+you know, begin source. Then after it's
+
+176
+00:07:30,040 --> 00:07:34,280
+you know, all pretty. And look at the
+
+177
+00:07:32,240 --> 00:07:36,120
+headings using Unicode. Look at the
+
+178
+00:07:34,280 --> 00:07:38,320
+headings. You see? Before it's like
+
+179
+00:07:36,120 --> 00:07:40,480
+that. Headings 1 2 3 4. Now it's they
+
+180
+00:07:38,320 --> 00:07:42,360
+are using Unicode. So
+
+181
+00:07:40,480 --> 00:07:44,160
+they are trying to prettify it.
+
+182
+00:07:42,360 --> 00:07:48,920
+Rendering is is so it's kind of a
+
+183
+00:07:44,160 --> 00:07:51,480
+rendering system. But that this thing
+
+184
+00:07:48,920 --> 00:07:53,360
+it's good, okay? I mean I'm not I mean I
+
+185
+00:07:51,480 --> 00:07:55,720
+mean I have my opinions on on
+
+186
+00:07:53,360 --> 00:07:57,160
+everything, okay? But almost everything
+
+187
+00:07:55,720 --> 00:07:59,240
+mostly.
+
+188
+00:07:57,160 --> 00:08:01,600
+Not actually everything. I do have a lot
+
+189
+00:07:59,240 --> 00:08:03,480
+of opinions but technically speaking not
+
+190
+00:08:01,600 --> 00:08:05,280
+on everything. Yeah, mostly programming
+
+191
+00:08:03,480 --> 00:08:07,160
+related and the stuff.
+
+192
+00:08:05,280 --> 00:08:09,120
+But anyway, so this
+
+193
+00:08:07,160 --> 00:08:12,240
+I don't think this is good, okay? This
+
+194
+00:08:09,120 --> 00:08:16,640
+this this is contrary to the spirit of
+
+195
+00:08:12,240 --> 00:08:20,320
+org mod, okay? Org mod begin about 15
+
+196
+00:08:16,640 --> 00:08:24,040
+years ago, 2008, okay? Org mod begin
+
+197
+00:08:20,320 --> 00:08:27,480
+2008 written by this astronomy student
+
+198
+00:08:24,040 --> 00:08:29,440
+astronomy, you know, in PhD student
+
+199
+00:08:27,480 --> 00:08:31,200
+something taking notes, you know.
+
+200
+00:08:29,440 --> 00:08:33,280
+He was using
+
+201
+00:08:31,200 --> 00:08:36,000
+Okay, I'm starting to digress into the
+
+202
+00:08:33,280 --> 00:08:38,080
+history of org mod.
+
+203
+00:08:36,000 --> 00:08:41,360
+You know, Emacs there's a outline mod,
+
+204
+00:08:38,080 --> 00:08:43,440
+you know, I can show you outline mod.
+
+205
+00:08:41,360 --> 00:08:46,320
+Yeah, you know, I actually I need to
+
+206
+00:08:43,440 --> 00:08:47,240
+code. Let's let's focus on coding. You
+
+207
+00:08:46,320 --> 00:08:49,400
+know, I
+
+208
+00:08:47,240 --> 00:08:52,240
+I want to code Emac Lisp instead of the
+
+209
+00:08:49,400 --> 00:08:54,480
+random instead of talking random.
+
+210
+00:08:52,240 --> 00:08:57,040
+So anyway, so so
+
+211
+00:08:54,480 --> 00:09:00,880
+the spirit of org mod, you know, it
+
+212
+00:08:57,040 --> 00:09:03,840
+begin 15 years ago. Was that it's pure
+
+213
+00:09:00,880 --> 00:09:05,800
+ASCII, okay? Pure ASCII. Everything you
+
+214
+00:09:03,840 --> 00:09:06,960
+type you you know what they are, you
+
+215
+00:09:05,800 --> 00:09:09,320
+know,
+
+216
+00:09:06,960 --> 00:09:13,080
+unlike for example, HTML. You have all
+
+217
+00:09:09,320 --> 00:09:15,960
+these tag complexities, you know?
+
+218
+00:09:13,080 --> 00:09:18,520
+You know, the render you know, so so so
+
+219
+00:09:15,960 --> 00:09:21,360
+the spirit of org mod
+
+220
+00:09:18,520 --> 00:09:23,640
+one of the fundamental pillar that made
+
+221
+00:09:21,360 --> 00:09:25,720
+org mod popular, you know, spread all
+
+222
+00:09:23,640 --> 00:09:29,000
+among the hacker types, programmers,
+
+223
+00:09:25,720 --> 00:09:30,760
+coders is that it's pure ASCII, okay?
+
+224
+00:09:29,000 --> 00:09:32,520
+Because the Unix type of people, you
+
+225
+00:09:30,760 --> 00:09:35,120
+know, the Unix philosophy, you know, the
+
+226
+00:09:32,520 --> 00:09:38,880
+Linux type of people, they love just
+
+227
+00:09:35,120 --> 00:09:41,560
+pure ASCII. None of this Unicode pretty
+
+228
+00:09:38,880 --> 00:09:42,720
+[ __ ] okay? That's what they love.
+
+229
+00:09:41,560 --> 00:09:44,880
+So
+
+230
+00:09:42,720 --> 00:09:46,440
+So org mod, you know, just just pure
+
+231
+00:09:44,880 --> 00:09:48,000
+ASCII and you can read it, you know,
+
+232
+00:09:46,440 --> 00:09:50,160
+human readable, you know, ASCII. So
+
+233
+00:09:48,000 --> 00:09:53,160
+that's That is one of the fundamental
+
+234
+00:09:50,160 --> 00:09:56,320
+reason the the gist
+
+235
+00:09:53,160 --> 00:09:58,880
+that made org mod popular.
+
+236
+00:09:56,320 --> 00:10:01,840
+If you have the if if org Mod start with
+
+237
+00:09:58,880 --> 00:10:03,280
+this, nobody's going to use it, okay? Uh
+
+238
+00:10:01,840 --> 00:10:04,920
+so,
+
+239
+00:10:03,280 --> 00:10:08,440
+but but this is
+
+240
+00:10:04,920 --> 00:10:10,360
+but this but now after 15 years, the
+
+241
+00:10:08,440 --> 00:10:13,040
+generation changed, you know, the hacker
+
+242
+00:10:10,360 --> 00:10:15,120
+generation died out. Now this millennial
+
+243
+00:10:13,040 --> 00:10:17,000
+gen and zoomers,
+
+244
+00:10:15,120 --> 00:10:19,160
+they don't you know, they have different
+
+245
+00:10:17,000 --> 00:10:21,480
+ideas because you know, because they
+
+246
+00:10:19,160 --> 00:10:23,800
+they were just born. So they they start
+
+247
+00:10:21,480 --> 00:10:25,760
+to use Oak Oak Mod, you know, they don't
+
+248
+00:10:23,800 --> 00:10:27,880
+know history of Oak Mod. So they just
+
+249
+00:10:25,760 --> 00:10:29,440
+use it. It's fantastic, you know, tree
+
+250
+00:10:27,880 --> 00:10:32,240
+you know. Then they thought, "Hey, why
+
+251
+00:10:29,440 --> 00:10:34,280
+not? Why why don't we just make it
+
+252
+00:10:32,240 --> 00:10:36,640
+prettier, you know? Why don't we you
+
+253
+00:10:34,280 --> 00:10:38,840
+know, instead of this ugly headline, you
+
+254
+00:10:36,640 --> 00:10:42,600
+know, ugly asterisk, now we have
+
+255
+00:10:38,840 --> 00:10:45,760
+Unicode. Let's let's make it pretty."
+
+256
+00:10:42,600 --> 00:10:47,520
+There's millennial gen, the zoomers.
+
+257
+00:10:45,760 --> 00:10:49,680
+So that's the that's the that's the
+
+258
+00:10:47,520 --> 00:10:52,920
+situation. That's the evolution of the
+
+259
+00:10:49,680 --> 00:10:55,760
+culture, okay? So that is uh
+
+260
+00:10:52,920 --> 00:10:57,400
+audio check. Did I check audio? Yes. So
+
+261
+00:10:55,760 --> 00:10:59,920
+that is the evolution kind of the
+
+262
+00:10:57,400 --> 00:11:02,320
+culture of the Oak Mod users, you know,
+
+263
+00:10:59,920 --> 00:11:04,640
+the zoomers. So they introduce this
+
+264
+00:11:02,320 --> 00:11:07,240
+pretty pretty.
+
+265
+00:11:04,640 --> 00:11:07,240
+But
+
+266
+00:11:08,560 --> 00:11:14,440
+so that is why I say this is the this is
+
+267
+00:11:11,640 --> 00:11:17,200
+kind of the contrary spirit to the you
+
+268
+00:11:14,440 --> 00:11:19,920
+know, to the contrary to the spirit of
+
+269
+00:11:17,200 --> 00:11:19,920
+Oak Mod.
+
+270
+00:11:20,920 --> 00:11:27,720
+Uh but overall, so let's step back.
+
+271
+00:11:25,000 --> 00:11:30,160
+Overall, is it good? I mean, why not? I
+
+272
+00:11:27,720 --> 00:11:32,280
+mean, let's disregard
+
+273
+00:11:30,160 --> 00:11:34,240
+the hacker culture, the previous
+
+274
+00:11:32,280 --> 00:11:36,160
+generation or the current generation.
+
+275
+00:11:34,240 --> 00:11:38,839
+Let's disregard that. Is this a good
+
+276
+00:11:36,160 --> 00:11:41,720
+thing technically? You know,
+
+277
+00:11:38,839 --> 00:11:41,720
+is it a good thing?
+
+278
+00:11:42,080 --> 00:11:45,640
+To me,
+
+279
+00:11:44,000 --> 00:11:47,120
+not so much.
+
+280
+00:11:45,640 --> 00:11:49,440
+I I I wouldn't say it's a good thing,
+
+281
+00:11:47,120 --> 00:11:51,600
+okay? So first of all, I give you the
+
+282
+00:11:49,440 --> 00:11:53,800
+history of Oak Mod a little bit. And I
+
+283
+00:11:51,600 --> 00:11:56,600
+think this you know, I think this is a
+
+284
+00:11:53,800 --> 00:11:58,640
+contrary to the spirit of Oak Mod, you
+
+285
+00:11:56,600 --> 00:12:02,680
+know, using
+
+286
+00:11:58,640 --> 00:12:04,760
+Basically, then my opinion of it
+
+287
+00:12:02,680 --> 00:12:07,640
+disregard history, you know, my opinion
+
+288
+00:12:04,760 --> 00:12:11,839
+of this is not too good because
+
+289
+00:12:07,640 --> 00:12:14,080
+it introduces a lot of complexity.
+
+290
+00:12:11,839 --> 00:12:17,240
+So what does that mean? So you see, it
+
+291
+00:12:14,080 --> 00:12:21,200
+introduces a rendering
+
+292
+00:12:17,240 --> 00:12:24,000
+kind of rendering process. So because
+
+293
+00:12:21,200 --> 00:12:25,040
+you have to render, you know.
+
+294
+00:12:24,000 --> 00:12:27,640
+And
+
+295
+00:12:25,040 --> 00:12:29,960
+and then it also introduces Unicode, you
+
+296
+00:12:27,640 --> 00:12:31,640
+know, Unicode.
+
+297
+00:12:29,960 --> 00:12:33,360
+In order to you know, in order to
+
+298
+00:12:31,640 --> 00:12:35,120
+display them like that, sometimes it
+
+299
+00:12:33,360 --> 00:12:37,240
+won't work because when you actually use
+
+300
+00:12:35,120 --> 00:12:40,880
+it in different computer, you just you
+
+301
+00:12:37,240 --> 00:12:43,800
+know, on your mom's computer or on a
+
+302
+00:12:40,880 --> 00:12:45,200
+computer at work, you just got hired,
+
+303
+00:12:43,800 --> 00:12:47,800
+you know,
+
+304
+00:12:45,200 --> 00:12:50,200
+it doesn't work because it's using
+
+305
+00:12:47,800 --> 00:12:53,839
+Unicode because then you are missing
+
+306
+00:12:50,200 --> 00:12:55,440
+font, you know, you try to use this
+
+307
+00:12:53,839 --> 00:12:57,040
+you know, then sometime then then
+
+308
+00:12:55,440 --> 00:13:00,280
+something doesn't work. It doesn't show
+
+309
+00:12:57,040 --> 00:13:02,960
+as as as it's supposed to be. Then you
+
+310
+00:13:00,280 --> 00:13:05,240
+started to look at the config.
+
+311
+00:13:02,960 --> 00:13:06,920
+Why doesn't it work? Unicode. You know,
+
+312
+00:13:05,240 --> 00:13:08,440
+you know, let's let's
+
+313
+00:13:06,920 --> 00:13:12,800
+Okay,
+
+314
+00:13:08,440 --> 00:13:12,800
+I started to ramble a lot. So
+
+315
+00:13:18,280 --> 00:13:22,400
+okay, Cody Cody's got an opinion, but I
+
+316
+00:13:20,920 --> 00:13:25,200
+I have opinion on that. That's a
+
+317
+00:13:22,400 --> 00:13:28,000
+different thing. So um
+
+318
+00:13:25,200 --> 00:13:29,880
+so Unicode, right? So Unicode Yeah, so
+
+319
+00:13:28,000 --> 00:13:33,080
+you you start to have a font issues
+
+320
+00:13:29,880 --> 00:13:36,400
+because there's a lot issues. I mean,
+
+321
+00:13:33,080 --> 00:13:38,440
+it's really Unicode is pretty good now,
+
+322
+00:13:36,400 --> 00:13:40,440
+but it's nowhere near at the
+
+323
+00:13:38,440 --> 00:13:43,000
+universalness
+
+324
+00:13:40,440 --> 00:13:44,400
+of ASCII, okay? So because you you are
+
+325
+00:13:43,000 --> 00:13:45,839
+going to have missing fonts. For
+
+326
+00:13:44,400 --> 00:13:50,080
+example, let me show you some missing
+
+327
+00:13:45,839 --> 00:13:52,360
+fonts, okay? So let's see hands.
+
+328
+00:13:50,080 --> 00:13:54,080
+Okay, it's a bit weird. You you can see
+
+329
+00:13:52,360 --> 00:13:56,280
+there's a you know, I talked about
+
+330
+00:13:54,080 --> 00:13:58,560
+Unicode in my past videos. I'm not not
+
+331
+00:13:56,280 --> 00:14:00,000
+going to do it now, but let me just show
+
+332
+00:13:58,560 --> 00:14:02,680
+you some
+
+333
+00:14:00,000 --> 00:14:04,520
+tofu characters, okay?
+
+334
+00:14:02,680 --> 00:14:05,640
+Office.
+
+335
+00:14:04,520 --> 00:14:07,920
+Okay,
+
+336
+00:14:05,640 --> 00:14:10,120
+okay, Microsoft is actually pretty good.
+
+337
+00:14:07,920 --> 00:14:13,240
+If you are doing this on a Mac, try it
+
+338
+00:14:10,120 --> 00:14:14,959
+now. You Mac phonetics, try it now. Many
+
+339
+00:14:13,240 --> 00:14:18,920
+of these going to going to become tofu
+
+340
+00:14:14,959 --> 00:14:18,920
+like blank squares.
+
+341
+00:14:19,760 --> 00:14:23,680
+You know, it's another history. Apple
+
+342
+00:14:21,640 --> 00:14:25,640
+used to be the best supporter of
+
+343
+00:14:23,680 --> 00:14:27,120
+Unicode, but not today
+
+344
+00:14:25,640 --> 00:14:29,200
+because Apple
+
+345
+00:14:27,120 --> 00:14:30,440
+decided they they are the king, you
+
+346
+00:14:29,200 --> 00:14:32,480
+know, they they
+
+347
+00:14:30,440 --> 00:14:35,200
+they disregard the Unicode standard.
+
+348
+00:14:32,480 --> 00:14:37,320
+They they created they decided which
+
+349
+00:14:35,200 --> 00:14:39,760
+character should be
+
+350
+00:14:37,320 --> 00:14:41,480
+available, which one should you know,
+
+351
+00:14:39,760 --> 00:14:44,040
+not be available.
+
+352
+00:14:41,480 --> 00:14:45,839
+Apple is making that decision. So
+
+353
+00:14:44,040 --> 00:14:48,079
+Apple lots of this you'll see square.
+
+354
+00:14:45,839 --> 00:14:50,200
+Okay, so here's a example of a square
+
+355
+00:14:48,079 --> 00:14:53,920
+rifle, okay?
+
+356
+00:14:50,200 --> 00:14:56,240
+Rifle. Now it comes Now now this becomes
+
+357
+00:14:53,920 --> 00:14:58,560
+a political situation
+
+358
+00:14:56,240 --> 00:15:01,480
+because the rifle, you know, nobody you
+
+359
+00:14:58,560 --> 00:15:04,920
+know, the part of the society in USA,
+
+360
+00:15:01,480 --> 00:15:06,920
+they say, "Oh, you cannot show a rifle."
+
+361
+00:15:04,920 --> 00:15:08,880
+It become political. When you come
+
+362
+00:15:06,920 --> 00:15:10,280
+become political, everything going to be
+
+363
+00:15:08,880 --> 00:15:14,240
+[ __ ]
+
+364
+00:15:10,280 --> 00:15:14,240
+So Unicode has these problems, okay?
+
+365
+00:15:15,000 --> 00:15:22,120
+So that is why I say this mod Okay,
+
+366
+00:15:18,160 --> 00:15:24,760
+let's go back to the yeah, Oak Moden.
+
+367
+00:15:22,120 --> 00:15:27,520
+Hey guys, this is modern guys, modern.
+
+368
+00:15:24,760 --> 00:15:28,959
+Modern Oak style.
+
+369
+00:15:27,520 --> 00:15:31,000
+No, I don't like it.
+
+370
+00:15:28,959 --> 00:15:33,120
+And I don't use Oak Mod myself. You
+
+371
+00:15:31,000 --> 00:15:35,720
+know, this is one of the frequently
+
+372
+00:15:33,120 --> 00:15:37,480
+asked question because I just asked
+
+373
+00:15:35,720 --> 00:15:39,560
+again. Kasa,
+
+374
+00:15:37,480 --> 00:15:43,360
+do you use Oak Mod? Why not? How come
+
+375
+00:15:39,560 --> 00:15:43,360
+you don't use Oak Mod? Oak Mod is
+
+376
+00:15:43,400 --> 00:15:47,320
+Well, I use HTML.
+
+377
+00:15:45,640 --> 00:15:48,160
+Let me give you the reason quickly,
+
+378
+00:15:47,320 --> 00:15:51,520
+okay?
+
+379
+00:15:48,160 --> 00:15:54,520
+I code HTML directly, raw, manually
+
+380
+00:15:51,520 --> 00:15:55,920
+since 1996.
+
+381
+00:15:54,520 --> 00:15:59,720
+Essentially,
+
+382
+00:15:55,920 --> 00:16:02,640
+I watched HTML birth of HTML. I watched
+
+383
+00:15:59,720 --> 00:16:04,480
+it, you know, it boom.
+
+384
+00:16:02,640 --> 00:16:06,000
+And
+
+385
+00:16:04,480 --> 00:16:09,560
+I've been working on it, you know,
+
+386
+00:16:06,000 --> 00:16:11,839
+beginning by typing every
+
+387
+00:16:09,560 --> 00:16:14,800
+tag
+
+388
+00:16:11,839 --> 00:16:17,120
+magnify, okay? Typing every character,
+
+389
+00:16:14,800 --> 00:16:18,640
+every tag
+
+390
+00:16:17,120 --> 00:16:20,120
+every tag name manually, you know,
+
+391
+00:16:18,640 --> 00:16:24,320
+character by character beginning with
+
+392
+00:16:20,120 --> 00:16:26,560
+that and using Microsoft Word 1997,
+
+393
+00:16:24,320 --> 00:16:28,720
+okay? 1996.
+
+394
+00:16:26,560 --> 00:16:32,160
+So I begin working with HTML. So now
+
+395
+00:16:28,720 --> 00:16:35,800
+I've been coding HTML for 25 years.
+
+396
+00:16:32,160 --> 00:16:39,600
+Jesus, I'm almost dead. 25 years, you
+
+397
+00:16:35,800 --> 00:16:39,600
+know, so HTML is
+
+398
+00:16:41,320 --> 00:16:49,120
+So let's let's go to Kasa HTML tutorial.
+
+399
+00:16:46,920 --> 00:16:51,880
+Check it out, okay? You watch my video,
+
+400
+00:16:49,120 --> 00:16:53,320
+check it out and pay me, okay? Donate,
+
+401
+00:16:51,880 --> 00:16:56,079
+Patreon,
+
+402
+00:16:53,320 --> 00:16:57,120
+PayPal, okay? That's what I'm here for.
+
+403
+00:16:56,079 --> 00:16:59,920
+So
+
+404
+00:16:57,120 --> 00:17:02,240
+I have HTML tutorial and recently you
+
+405
+00:16:59,920 --> 00:17:06,120
+know, and there's also CSS tutorial.
+
+406
+00:17:02,240 --> 00:17:08,839
+Recently I've been working on it to
+
+407
+00:17:06,120 --> 00:17:10,880
+Let's let's start the
+
+408
+00:17:08,839 --> 00:17:12,120
+Recently I've been working on it to make
+
+409
+00:17:10,880 --> 00:17:14,920
+it
+
+410
+00:17:12,120 --> 00:17:17,120
+to optimize it on the phone, you know,
+
+411
+00:17:14,920 --> 00:17:20,679
+so you are looking at the iPhone, you
+
+412
+00:17:17,120 --> 00:17:23,640
+know, emulation kind of. So I have CSS
+
+413
+00:17:20,679 --> 00:17:26,720
+tutorial, I have HTML tutorial, I have
+
+414
+00:17:23,640 --> 00:17:29,880
+JavaScript tutorial. Yeah, this phone
+
+415
+00:17:26,720 --> 00:17:29,880
+phone screen sucks.
+
+416
+00:17:30,760 --> 00:17:35,880
+So JavaScript in depth, you know, so all
+
+417
+00:17:33,400 --> 00:17:38,679
+together this are you know, 500 pages
+
+418
+00:17:35,880 --> 00:17:41,600
+JavaScript reference and DOM reference
+
+419
+00:17:38,679 --> 00:17:41,600
+and how do you
+
+420
+00:17:42,360 --> 00:17:47,840
+color picker and today much of this is
+
+421
+00:17:45,360 --> 00:17:50,400
+building actually. So you can see color
+
+422
+00:17:47,840 --> 00:17:50,400
+picker.
+
+423
+00:17:51,400 --> 00:17:57,000
+Tutorials, okay? All these are about DOM
+
+424
+00:17:53,880 --> 00:17:57,000
+checkbox and
+
+425
+00:17:58,360 --> 00:18:03,679
+web cookies, digital clock, okay?
+
+426
+00:18:00,760 --> 00:18:07,120
+Digital clock is boring.
+
+427
+00:18:03,679 --> 00:18:09,240
+Then there's analog clock, stopwatch, so
+
+428
+00:18:07,120 --> 00:18:13,480
+you can have a stopwatch. How do you do
+
+429
+00:18:09,240 --> 00:18:18,200
+How do you write that in JavaScript? And
+
+430
+00:18:13,480 --> 00:18:22,080
+fade elements. Let's see, fade
+
+431
+00:18:18,200 --> 00:18:22,080
+and fade, fade.
+
+432
+00:18:26,240 --> 00:18:29,159
+Okay, so
+
+433
+00:18:30,720 --> 00:18:37,159
+so tutorials, you know, and SVG. So
+
+434
+00:18:34,640 --> 00:18:42,280
+JavaScript. So I've been working with
+
+435
+00:18:37,159 --> 00:18:45,679
+them since HTML since 1997, CSS since
+
+436
+00:18:42,280 --> 00:18:49,800
+2002. I was late comer to CSS because
+
+437
+00:18:45,679 --> 00:18:51,120
+when when CSS was born around 1999,
+
+438
+00:18:49,800 --> 00:18:52,720
+you know, most people are like, "What
+
+439
+00:18:51,120 --> 00:18:55,560
+the [ __ ] is that? You know, we are not
+
+440
+00:18:52,720 --> 00:18:57,800
+going to use it." But new technology
+
+441
+00:18:55,560 --> 00:19:00,440
+usually is like that like that. New
+
+442
+00:18:57,800 --> 00:19:02,440
+languages, you know. Most people a lot
+
+443
+00:19:00,440 --> 00:19:03,679
+of people like,
+
+444
+00:19:02,440 --> 00:19:05,800
+you know, you are not sure it's going to
+
+445
+00:19:03,679 --> 00:19:08,200
+be
+
+446
+00:19:05,800 --> 00:19:09,760
+around.
+
+447
+00:19:08,200 --> 00:19:12,960
+You are not sure it's going to die
+
+448
+00:19:09,760 --> 00:19:15,640
+anytime soon because it's just a fad. So
+
+449
+00:19:12,960 --> 00:19:20,640
+of course a lot of new technology died
+
+450
+00:19:15,640 --> 00:19:20,640
+and you never heard of such as VRML.
+
+451
+00:19:21,600 --> 00:19:26,000
+You know, but back then around year
+
+452
+00:19:23,280 --> 00:19:28,960
+2000, this is this is the biggest thing.
+
+453
+00:19:26,000 --> 00:19:31,080
+My god, VRML. Everyone knows about.
+
+454
+00:19:28,960 --> 00:19:34,240
+Everyone is pushing for it. This is like
+
+455
+00:19:31,080 --> 00:19:36,919
+today's This is the technology
+
+456
+00:19:34,240 --> 00:19:39,120
+that is for that is supposed to be
+
+457
+00:19:36,919 --> 00:19:41,440
+today's metaverse, you know, the
+
+458
+00:19:39,120 --> 00:19:43,560
+Facebook meta, you know, Facebook is
+
+459
+00:19:41,440 --> 00:19:45,640
+like they are pushing metaverse. This
+
+460
+00:19:43,560 --> 00:19:48,800
+was supposed to be the thing, the
+
+461
+00:19:45,640 --> 00:19:51,400
+metaverse that will replace HTML. That
+
+462
+00:19:48,800 --> 00:19:55,440
+will be like every page you go to is
+
+463
+00:19:51,400 --> 00:19:58,600
+going be 3D and that's VRML. It's all
+
+464
+00:19:55,440 --> 00:20:01,120
+over the place in year 2000 in around
+
+465
+00:19:58,600 --> 00:20:04,800
+year 2000 for several years, for 5 years
+
+466
+00:20:01,120 --> 00:20:07,280
+or so. Eventually it died. It become So
+
+467
+00:20:04,800 --> 00:20:09,920
+no nobody use it. So I started to use
+
+468
+00:20:07,280 --> 00:20:14,440
+CSS.
+
+469
+00:20:09,920 --> 00:20:19,240
+Um I started to code, you know, as
+
+470
+00:20:14,440 --> 00:20:21,360
+uh you know, study and code CSS 2003,
+
+471
+00:20:19,240 --> 00:20:25,000
+something like Yeah, I would say
+
+472
+00:20:21,360 --> 00:20:28,000
+I'm pretty late. So 2005 maybe.
+
+473
+00:20:25,000 --> 00:20:29,200
+And then JavaScript Java I I'm even late
+
+474
+00:20:28,000 --> 00:20:30,920
+later
+
+475
+00:20:29,200 --> 00:20:33,600
+more late in JavaScript. I begin
+
+476
+00:20:30,920 --> 00:20:36,600
+JavaScript, you know, I begin a little
+
+477
+00:20:33,600 --> 00:20:38,160
+in 2005 coding JavaScript, but that's
+
+478
+00:20:36,600 --> 00:20:40,320
+like I don't know what I'm doing. I'm
+
+479
+00:20:38,160 --> 00:20:42,080
+just like
+
+480
+00:20:40,320 --> 00:20:43,960
+you know, to to me back then I already
+
+481
+00:20:42,080 --> 00:20:45,680
+know lots of several languages, you
+
+482
+00:20:43,960 --> 00:20:48,560
+know, JavaScript is
+
+483
+00:20:45,680 --> 00:20:52,280
+JavaScript in a year
+
+484
+00:20:48,560 --> 00:20:57,160
+19 JavaScript begin in 1995.
+
+485
+00:20:52,280 --> 00:21:00,840
+So from 1995 to year 2010 for 15 years
+
+486
+00:20:57,160 --> 00:21:02,880
+about 15 years JavaScript is considered
+
+487
+00:21:00,840 --> 00:21:05,720
+by all programmers to be the all
+
+488
+00:21:02,880 --> 00:21:07,680
+professional programmers to be a
+
+489
+00:21:05,720 --> 00:21:10,280
+crap, you know, it's a language it's
+
+490
+00:21:07,680 --> 00:21:11,040
+like Visual Basic, you know, basic, you
+
+491
+00:21:10,280 --> 00:21:13,840
+know,
+
+492
+00:21:11,040 --> 00:21:16,440
+everyone spits on it spit on it. You
+
+493
+00:21:13,840 --> 00:21:18,840
+probably have seen many mean memes about
+
+494
+00:21:16,440 --> 00:21:21,360
+JavaScript, you know, like this is it's
+
+495
+00:21:18,840 --> 00:21:22,920
+for kids for designers who don't know
+
+496
+00:21:21,360 --> 00:21:24,160
+who don't know what is a variable what
+
+497
+00:21:22,920 --> 00:21:26,120
+does a variable mean what does a
+
+498
+00:21:24,160 --> 00:21:29,520
+function that you know, that's the
+
+499
+00:21:26,120 --> 00:21:31,440
+attitude among programmers
+
+500
+00:21:29,520 --> 00:21:35,280
+about JavaScript.
+
+501
+00:21:31,440 --> 00:21:36,440
+The same attitude towards PHP back then,
+
+502
+00:21:35,280 --> 00:21:38,920
+you know,
+
+503
+00:21:36,440 --> 00:21:41,400
+and it's actually it's true because
+
+504
+00:21:38,920 --> 00:21:42,760
+JavaScript turns out to be the one of
+
+505
+00:21:41,400 --> 00:21:44,760
+the worst
+
+506
+00:21:42,760 --> 00:21:48,680
+language because it's created and
+
+507
+00:21:44,760 --> 00:21:50,600
+designed and implemented in 10 days.
+
+508
+00:21:48,680 --> 00:21:52,520
+Literally 10 days.
+
+509
+00:21:50,600 --> 00:21:55,920
+Uh so JavaScript is a very lousy
+
+510
+00:21:52,520 --> 00:21:59,360
+language, but I begin to
+
+511
+00:21:55,920 --> 00:22:00,800
+kind of learn a little bit in 2005.
+
+512
+00:21:59,360 --> 00:22:03,120
+Then
+
+513
+00:22:00,800 --> 00:22:04,920
+around
+
+514
+00:22:03,120 --> 00:22:05,600
+around
+
+515
+00:22:04,920 --> 00:22:09,800
+um
+
+516
+00:22:05,600 --> 00:22:12,800
+around 2009 I started I started a deep
+
+517
+00:22:09,800 --> 00:22:15,440
+dive into JavaScript. So that's why So I
+
+518
+00:22:12,800 --> 00:22:18,080
+create I wrote this tutorial. I wrote it
+
+519
+00:22:15,440 --> 00:22:21,480
+full-time for like three three years,
+
+520
+00:22:18,080 --> 00:22:24,440
+okay? JavaScript in depth.
+
+521
+00:22:21,480 --> 00:22:27,000
+Why Why Why in depth? Because JavaScript
+
+522
+00:22:24,440 --> 00:22:29,040
+is a very complex language, you know,
+
+523
+00:22:27,000 --> 00:22:31,640
+programming languages every programming
+
+524
+00:22:29,040 --> 00:22:33,760
+language each one of them has a kind of
+
+525
+00:22:31,640 --> 00:22:35,560
+a computing model. Usually you don't
+
+526
+00:22:33,760 --> 00:22:38,840
+hear about it and usually it's not
+
+527
+00:22:35,560 --> 00:22:40,679
+formalized. Basically, you know,
+
+528
+00:22:38,840 --> 00:22:41,600
+okay, I digress so much, you know, I
+
+529
+00:22:40,679 --> 00:22:42,920
+should
+
+530
+00:22:41,600 --> 00:22:46,320
+um
+
+531
+00:22:42,920 --> 00:22:48,920
+Any Any Okay, let's call Emac
+
+532
+00:22:46,320 --> 00:22:49,960
+Let Let my thought flow go, okay?
+
+533
+00:22:48,920 --> 00:22:53,160
+So
+
+534
+00:22:49,960 --> 00:22:57,600
+So every programming language has a
+
+535
+00:22:53,160 --> 00:23:00,880
+computational model it's built upon.
+
+536
+00:22:57,600 --> 00:23:03,160
+For example, Java Java is OOP. You know,
+
+537
+00:23:00,880 --> 00:23:05,240
+I'll get into it, okay? So
+
+538
+00:23:03,160 --> 00:23:07,480
+Java, Python
+
+539
+00:23:05,240 --> 00:23:09,679
+Ruby they are kind of based on OOP.
+
+540
+00:23:07,480 --> 00:23:11,920
+Anyway, so programming languages they
+
+541
+00:23:09,679 --> 00:23:13,480
+all compile to
+
+542
+00:23:11,920 --> 00:23:15,320
+to machine code
+
+543
+00:23:13,480 --> 00:23:18,240
+eventually, you know, because you need
+
+544
+00:23:15,320 --> 00:23:19,960
+to work on hardware CPU memory
+
+545
+00:23:18,240 --> 00:23:22,480
+registers, you know.
+
+546
+00:23:19,960 --> 00:23:24,560
+So
+
+547
+00:23:22,480 --> 00:23:26,920
+that's machine code, okay?
+
+548
+00:23:24,560 --> 00:23:29,560
+So every language eventually compiles to
+
+549
+00:23:26,920 --> 00:23:33,560
+machine code to assembly first then
+
+550
+00:23:29,560 --> 00:23:33,560
+machine code. Then then
+
+551
+00:23:33,720 --> 00:23:39,880
+So you might say, you know, the model of
+
+552
+00:23:36,640 --> 00:23:43,720
+every language is actually the CPU the
+
+553
+00:23:39,880 --> 00:23:43,720
+the the instruction set
+
+554
+00:23:43,880 --> 00:23:47,840
+architecture, you know, that's what
+
+555
+00:23:45,520 --> 00:23:50,920
+called, you know, CPU
+
+556
+00:23:47,840 --> 00:23:54,600
+every CPU is different, right? You have
+
+557
+00:23:50,920 --> 00:23:59,640
+the Intel CPU Intel 486
+
+558
+00:23:54,600 --> 00:24:01,160
+286 386 then x86, you know,
+
+559
+00:23:59,640 --> 00:24:03,120
+architecture.
+
+560
+00:24:01,160 --> 00:24:06,360
+Then you have the, you know, today you
+
+561
+00:24:03,120 --> 00:24:09,200
+have the Mac M1 chip, you know, Mac with
+
+562
+00:24:06,360 --> 00:24:09,200
+based on the
+
+563
+00:24:09,280 --> 00:24:14,679
+You know, every CPU is different, but
+
+564
+00:24:11,720 --> 00:24:17,240
+however each CPU you can
+
+565
+00:24:14,679 --> 00:24:21,160
+there's a specification abstracted as
+
+566
+00:24:17,240 --> 00:24:25,360
+the instruction in
+
+567
+00:24:21,160 --> 00:24:28,120
+instruction set architecture, okay?
+
+568
+00:24:25,360 --> 00:24:30,640
+Uh I'm going over over the place. So
+
+569
+00:24:28,120 --> 00:24:32,960
+let's um
+
+570
+00:24:30,640 --> 00:24:34,760
+So um
+
+571
+00:24:32,960 --> 00:24:37,600
+So I want to show you this article,
+
+572
+00:24:34,760 --> 00:24:38,760
+okay? So semantic noodle so semantic
+
+573
+00:24:37,600 --> 00:24:40,240
+noodle
+
+574
+00:24:38,760 --> 00:24:42,320
+Let's go there
+
+575
+00:24:40,240 --> 00:24:44,560
+and uh
+
+576
+00:24:42,320 --> 00:24:48,600
+a bunch of essays about programming
+
+577
+00:24:44,560 --> 00:24:50,120
+language design and uh
+
+578
+00:24:48,600 --> 00:24:52,720
+you know, about programming language
+
+579
+00:24:50,120 --> 00:24:56,280
+design. So let me find the article
+
+580
+00:24:52,720 --> 00:24:56,280
+what I want to talk about.
+
+581
+00:24:57,040 --> 00:25:01,800
+Yeah, so this section programming
+
+582
+00:24:59,280 --> 00:25:03,640
+languages and their machine, okay? So
+
+583
+00:25:01,800 --> 00:25:05,760
+this is a critical section programming
+
+584
+00:25:03,640 --> 00:25:08,679
+languages and their machine. So let's go
+
+585
+00:25:05,760 --> 00:25:10,440
+to So why is array access constant time
+
+586
+00:25:08,679 --> 00:25:11,920
+programming language and its machine,
+
+587
+00:25:10,440 --> 00:25:13,600
+okay?
+
+588
+00:25:11,920 --> 00:25:15,800
+And programming languages and their
+
+589
+00:25:13,600 --> 00:25:17,880
+computational models, okay? That's what
+
+590
+00:25:15,800 --> 00:25:19,840
+I'm talking about. Programming languages
+
+591
+00:25:17,880 --> 00:25:22,080
+and their computational models. You go
+
+592
+00:25:19,840 --> 00:25:25,880
+read that article, okay? So you can base
+
+593
+00:25:22,080 --> 00:25:27,880
+you know, so So So you have the concept
+
+594
+00:25:25,880 --> 00:25:28,960
+of you know
+
+595
+00:25:27,880 --> 00:25:30,520
+for
+
+596
+00:25:28,960 --> 00:25:32,840
+uh personal computers, you know,
+
+597
+00:25:30,520 --> 00:25:37,679
+eventually they all um
+
+598
+00:25:32,840 --> 00:25:37,679
+work on CPU. So let me talk let me um
+
+599
+00:25:38,880 --> 00:25:42,480
+So programming languages and its
+
+600
+00:25:40,640 --> 00:25:45,480
+machine, okay? So check out this
+
+601
+00:25:42,480 --> 00:25:47,280
+article. C is not a low-level language.
+
+602
+00:25:45,480 --> 00:25:50,080
+That's a great article, okay? By this
+
+603
+00:25:47,280 --> 00:25:51,280
+guy. C is not a low-level language. C is
+
+604
+00:25:50,080 --> 00:25:54,480
+a scum.
+
+605
+00:25:51,280 --> 00:25:57,040
+C C C C is the worst. The C is a
+
+606
+00:25:54,480 --> 00:25:58,720
+language that caused the most damage to
+
+607
+00:25:57,040 --> 00:26:01,280
+programming languages
+
+608
+00:25:58,720 --> 00:26:03,120
+in the past 30 years.
+
+609
+00:26:01,280 --> 00:26:04,240
+Uh if you disagree, you don't know,
+
+610
+00:26:03,120 --> 00:26:06,200
+okay? You don't know what the [ __ ]
+
+611
+00:26:04,240 --> 00:26:07,840
+you're talking about.
+
+612
+00:26:06,200 --> 00:26:10,360
+Programming languages and its machine.
+
+613
+00:26:07,840 --> 00:26:12,880
+So here it is instruction set
+
+614
+00:26:10,360 --> 00:26:16,240
+instruction set architecture. You can go
+
+615
+00:26:12,880 --> 00:26:19,400
+read about it on Wikipedia. So
+
+616
+00:26:16,240 --> 00:26:22,600
+So all the CPUS CPUs are different, but
+
+617
+00:26:19,400 --> 00:26:26,040
+they can be specified captured in an
+
+618
+00:26:22,600 --> 00:26:27,720
+abstract way by the by this instruction
+
+619
+00:26:26,040 --> 00:26:30,360
+set architecture.
+
+620
+00:26:27,720 --> 00:26:34,120
+Basically just um specification of the
+
+621
+00:26:30,360 --> 00:26:36,760
+CPU essentially. So
+
+622
+00:26:34,120 --> 00:26:38,720
+Oh god, I'm going anyway I'm going all
+
+623
+00:26:36,760 --> 00:26:41,640
+over the place. Um
+
+624
+00:26:38,720 --> 00:26:44,480
+So what I'm saying is that different CPU
+
+625
+00:26:41,640 --> 00:26:49,120
+can be represented as instruction is
+
+626
+00:26:44,480 --> 00:26:50,320
+instruction set architecture, okay? Then
+
+627
+00:26:49,120 --> 00:26:52,240
+then
+
+628
+00:26:50,320 --> 00:26:55,600
+um
+
+629
+00:26:52,240 --> 00:26:57,880
+then programming languages um
+
+630
+00:26:55,600 --> 00:27:01,000
+compiles into that, okay? Programming
+
+631
+00:26:57,880 --> 00:27:04,000
+languages compile it into the assembly
+
+632
+00:27:01,000 --> 00:27:06,760
+language for the for that particular
+
+633
+00:27:04,000 --> 00:27:09,920
+CPU's instruction set instruction set
+
+634
+00:27:06,760 --> 00:27:11,200
+architecture. Okay? So
+
+635
+00:27:09,920 --> 00:27:13,840
+you have many different programming
+
+636
+00:27:11,200 --> 00:27:15,280
+languages. They all compile to assembly
+
+637
+00:27:13,840 --> 00:27:16,800
+code.
+
+638
+00:27:15,280 --> 00:27:18,480
+But there are so many assembly
+
+639
+00:27:16,800 --> 00:27:20,600
+languages, you know,
+
+640
+00:27:18,480 --> 00:27:23,800
+assembly languages. You know, you
+
+641
+00:27:20,600 --> 00:27:26,480
+compile to assembly
+
+642
+00:27:23,800 --> 00:27:29,240
+uh code of a particular assembly
+
+643
+00:27:26,480 --> 00:27:32,040
+language. Each assembly language is
+
+644
+00:27:29,240 --> 00:27:34,760
+designed to work with a particular
+
+645
+00:27:32,040 --> 00:27:37,600
+instruction set architecture which
+
+646
+00:27:34,760 --> 00:27:39,520
+represent that particular CPU chip,
+
+647
+00:27:37,600 --> 00:27:41,800
+okay?
+
+648
+00:27:39,520 --> 00:27:44,760
+So different languages they compile
+
+649
+00:27:41,800 --> 00:27:46,960
+compile to assembly languages, you know,
+
+650
+00:27:44,760 --> 00:27:49,160
+which depends on the instruction set
+
+651
+00:27:46,960 --> 00:27:52,000
+architecture, okay?
+
+652
+00:27:49,160 --> 00:27:54,200
+So you might say Oh, all the language
+
+653
+00:27:52,000 --> 00:27:56,280
+are the same because they all compile to
+
+654
+00:27:54,200 --> 00:27:58,160
+the
+
+655
+00:27:56,280 --> 00:28:01,240
+to a particular instruction set
+
+656
+00:27:58,160 --> 00:28:04,280
+architecture. So you might say, okay, so
+
+657
+00:28:01,240 --> 00:28:06,440
+languages might be different depending
+
+658
+00:28:04,280 --> 00:28:08,480
+on which instruction set architecture
+
+659
+00:28:06,440 --> 00:28:09,600
+they compile to. Actually that's not
+
+660
+00:28:08,480 --> 00:28:11,800
+really
+
+661
+00:28:09,600 --> 00:28:13,800
+the case. So what I'm trying to say is
+
+662
+00:28:11,800 --> 00:28:16,000
+that different language programming
+
+663
+00:28:13,800 --> 00:28:18,840
+languages have a different programming
+
+664
+00:28:16,000 --> 00:28:20,360
+model, okay? That's not that's higher
+
+665
+00:28:18,840 --> 00:28:22,760
+level that's much higher level than
+
+666
+00:28:20,360 --> 00:28:24,600
+instruction set architecture, okay? So
+
+667
+00:28:22,760 --> 00:28:26,760
+you have a programming model for this
+
+668
+00:28:24,600 --> 00:28:28,400
+particular language.
+
+669
+00:28:26,760 --> 00:28:30,640
+And uh
+
+670
+00:28:28,400 --> 00:28:32,960
+then
+
+671
+00:28:30,640 --> 00:28:34,880
+So Java has a programming model. Lisp
+
+672
+00:28:32,960 --> 00:28:37,600
+has a programming model.
+
+673
+00:28:34,880 --> 00:28:40,120
+Python has a programming model. And this
+
+674
+00:28:37,600 --> 00:28:41,600
+this programming language model they are
+
+675
+00:28:40,120 --> 00:28:43,600
+like they don't even have a name like
+
+676
+00:28:41,600 --> 00:28:45,200
+usually it's not talked about. But when
+
+677
+00:28:43,600 --> 00:28:47,520
+you learn a language you kind of get a
+
+678
+00:28:45,200 --> 00:28:50,120
+sense of it. That's what that's what it
+
+679
+00:28:47,520 --> 00:28:53,400
+is, okay? This is a thing that no
+
+680
+00:28:50,120 --> 00:28:55,840
+textbook almost like no none no Okay,
+
+681
+00:28:53,400 --> 00:28:58,600
+I'm making a big claim here. Drama here
+
+682
+00:28:55,840 --> 00:29:00,679
+comes the drama.
+
+683
+00:28:58,600 --> 00:29:02,960
+Different programming languages
+
+684
+00:29:00,679 --> 00:29:05,400
+are based on they have a programming
+
+685
+00:29:02,960 --> 00:29:06,919
+model they are based on, okay? And this
+
+686
+00:29:05,400 --> 00:29:09,720
+programming model of a programming
+
+687
+00:29:06,919 --> 00:29:12,120
+language is almost never talked about.
+
+688
+00:29:09,720 --> 00:29:14,960
+You read all Python books Python
+
+689
+00:29:12,120 --> 00:29:17,080
+tutorials. You read all these tutorials.
+
+690
+00:29:14,960 --> 00:29:19,760
+This you know, Haskell tutorials or
+
+691
+00:29:17,080 --> 00:29:22,000
+Haskell books. You'll not find it.
+
+692
+00:29:19,760 --> 00:29:27,520
+You'll not see it. They will not They
+
+693
+00:29:22,000 --> 00:29:29,960
+They They They almost never will mention
+
+694
+00:29:27,520 --> 00:29:32,600
+like how Haskell has this model. What is
+
+695
+00:29:29,960 --> 00:29:34,080
+this model exactly what it is. They will
+
+696
+00:29:32,600 --> 00:29:36,120
+not mention it.
+
+697
+00:29:34,080 --> 00:29:38,679
+But But you kind of just get the sense.
+
+698
+00:29:36,120 --> 00:29:40,679
+For example, Python.
+
+699
+00:29:38,679 --> 00:29:42,320
+Uh let me give you
+
+700
+00:29:40,679 --> 00:29:44,679
+Should I give you some concrete
+
+701
+00:29:42,320 --> 00:29:46,280
+examples, okay? Concrete examples of
+
+702
+00:29:44,679 --> 00:29:48,440
+what I'm I'm about about these
+
+703
+00:29:46,280 --> 00:29:51,720
+programming language models. Uh for
+
+704
+00:29:48,440 --> 00:29:53,560
+example, object, okay? So, what does a
+
+705
+00:29:51,720 --> 00:29:55,400
+object mean? They mean different things
+
+706
+00:29:53,560 --> 00:29:57,040
+according to different uh programming
+
+707
+00:29:55,400 --> 00:30:00,000
+languages.
+
+708
+00:29:57,040 --> 00:30:02,200
+And that is a good example to illustrate
+
+709
+00:30:00,000 --> 00:30:05,440
+how programming languages actually have
+
+710
+00:30:02,200 --> 00:30:07,200
+a different model for each one of them.
+
+711
+00:30:05,440 --> 00:30:10,960
+So, um
+
+712
+00:30:07,200 --> 00:30:13,200
+So, let's find my uh article.
+
+713
+00:30:10,960 --> 00:30:14,800
+Okay. So, for example, you go check out
+
+714
+00:30:13,200 --> 00:30:15,840
+this article.
+
+715
+00:30:14,800 --> 00:30:18,280
+Um
+
+716
+00:30:15,840 --> 00:30:21,160
+the meaning of object in computer
+
+717
+00:30:18,280 --> 00:30:23,440
+languages, okay? So, Java, if you read
+
+718
+00:30:21,160 --> 00:30:24,560
+Java documentation or the Java language
+
+719
+00:30:23,440 --> 00:30:26,400
+spec,
+
+720
+00:30:24,560 --> 00:30:27,240
+they all they all have the word, you
+
+721
+00:30:26,400 --> 00:30:30,640
+know,
+
+722
+00:30:27,240 --> 00:30:33,320
+class and object. Okay? So,
+
+723
+00:30:30,640 --> 00:30:36,280
+that has a specific very specific
+
+724
+00:30:33,320 --> 00:30:39,440
+technical meaning in Java, okay? Class
+
+725
+00:30:36,280 --> 00:30:41,720
+and object. In fact,
+
+726
+00:30:39,440 --> 00:30:43,880
+class is the programming language's
+
+727
+00:30:41,720 --> 00:30:45,920
+keyword. So, there's a keyword in the
+
+728
+00:30:43,880 --> 00:30:48,720
+programming language source code. You
+
+729
+00:30:45,920 --> 00:30:49,840
+can type class to to do something, okay?
+
+730
+00:30:48,720 --> 00:30:52,320
+That's
+
+731
+00:30:49,840 --> 00:30:54,400
+But the object is not, okay?
+
+732
+00:30:52,320 --> 00:30:56,200
+So, there's a complexities, okay? So,
+
+733
+00:30:54,400 --> 00:30:59,360
+anyway, I'm what I'm trying to say is
+
+734
+00:30:56,200 --> 00:31:02,040
+that different languages
+
+735
+00:30:59,360 --> 00:31:04,320
+have different computational models they
+
+736
+00:31:02,040 --> 00:31:06,680
+are based upon. And this compu-
+
+737
+00:31:04,320 --> 00:31:09,600
+computational model of a language is
+
+738
+00:31:06,680 --> 00:31:11,600
+almost never mentioned. However, you can
+
+739
+00:31:09,600 --> 00:31:13,800
+kind of see it
+
+740
+00:31:11,600 --> 00:31:14,880
+from their documentation or the language
+
+741
+00:31:13,800 --> 00:31:16,880
+spec.
+
+742
+00:31:14,880 --> 00:31:18,720
+And one of the example to illustrate
+
+743
+00:31:16,880 --> 00:31:21,240
+that is
+
+744
+00:31:18,720 --> 00:31:23,960
+is by looking at the meaning of the word
+
+745
+00:31:21,240 --> 00:31:26,480
+object in different languages. So, in
+
+746
+00:31:23,960 --> 00:31:28,280
+Java, if you code Java, you know, okay?
+
+747
+00:31:26,480 --> 00:31:30,080
+If you code Java, you then you know what
+
+748
+00:31:28,280 --> 00:31:34,200
+I'm talking about. Java has class and
+
+749
+00:31:30,080 --> 00:31:37,000
+object. Class has a specific specific
+
+750
+00:31:34,200 --> 00:31:39,640
+Both of them have a very specific
+
+751
+00:31:37,000 --> 00:31:42,000
+technical meaning in the language.
+
+752
+00:31:39,640 --> 00:31:44,440
+Now, Python also have a concept of class
+
+753
+00:31:42,000 --> 00:31:46,760
+and object, but it's very different from
+
+754
+00:31:44,440 --> 00:31:49,800
+Java. Although, to most programmers, you
+
+755
+00:31:46,760 --> 00:31:52,080
+know, so to the everyday practical
+
+756
+00:31:49,800 --> 00:31:54,520
+programming, they're kind of the same,
+
+757
+00:31:52,080 --> 00:31:56,320
+you know, they are just class and object
+
+758
+00:31:54,520 --> 00:31:58,280
+of OOP
+
+759
+00:31:56,320 --> 00:31:59,840
+object-oriented programming, you know,
+
+760
+00:31:58,280 --> 00:32:02,480
+you create a class,
+
+761
+00:31:59,840 --> 00:32:03,960
+then you can create a object from that
+
+762
+00:32:02,480 --> 00:32:05,760
+class, you know.
+
+763
+00:32:03,960 --> 00:32:07,800
+So, on the surface, they are the same,
+
+764
+00:32:05,760 --> 00:32:10,640
+but they're very different, okay? Java
+
+765
+00:32:07,800 --> 00:32:13,880
+and JavaScript. Java and
+
+766
+00:32:10,640 --> 00:32:16,320
+Okay, wait, hold. Java and Python,
+
+767
+00:32:13,880 --> 00:32:18,200
+they are both object-oriented
+
+768
+00:32:16,320 --> 00:32:21,960
+programming languages,
+
+769
+00:32:18,200 --> 00:32:23,679
+okay? And Java is a pure object-oriented
+
+770
+00:32:21,960 --> 00:32:26,400
+programming languages,
+
+771
+00:32:23,679 --> 00:32:28,840
+but Python is not that pure, okay? But
+
+772
+00:32:26,400 --> 00:32:31,880
+anyway, they both you can you can do
+
+773
+00:32:28,840 --> 00:32:33,800
+object-oriented programming in both.
+
+774
+00:32:31,880 --> 00:32:35,400
+But however, here's the, you know, what
+
+775
+00:32:33,800 --> 00:32:36,440
+I'm talking about the about the model.
+
+776
+00:32:35,400 --> 00:32:39,320
+So,
+
+777
+00:32:36,440 --> 00:32:40,960
+Java object and, you know, so what does
+
+778
+00:32:39,320 --> 00:32:43,480
+the what what it
+
+779
+00:32:40,960 --> 00:32:46,800
+Does the word class or object has a
+
+780
+00:32:43,480 --> 00:32:48,960
+technical meaning in the language? Yes.
+
+781
+00:32:46,800 --> 00:32:52,200
+In Java,
+
+782
+00:32:48,960 --> 00:32:54,679
+very precise, very technical, okay? In
+
+783
+00:32:52,200 --> 00:32:57,040
+Python, um
+
+784
+00:32:54,679 --> 00:33:00,679
+in Python, not
+
+785
+00:32:57,040 --> 00:33:02,320
+not much, less, okay? But they But they
+
+786
+00:33:00,679 --> 00:33:03,800
+are very different, okay? These two, you
+
+787
+00:33:02,320 --> 00:33:07,280
+know, very very different. For example,
+
+788
+00:33:03,800 --> 00:33:10,200
+in in Java in Java, okay?
+
+789
+00:33:07,280 --> 00:33:12,200
+An object is a reference type data type,
+
+790
+00:33:10,200 --> 00:33:13,560
+okay?
+
+791
+00:33:12,200 --> 00:33:15,240
+Uh
+
+792
+00:33:13,560 --> 00:33:17,440
+I haven't coded Java for a long time,
+
+793
+00:33:15,240 --> 00:33:19,440
+but anyway, don't take my word for it.
+
+794
+00:33:17,440 --> 00:33:22,360
+Okay, so anyway anyway, so then then
+
+795
+00:33:19,440 --> 00:33:24,120
+comes to Lisp. Lisp also have the word
+
+796
+00:33:22,360 --> 00:33:26,720
+object, you know?
+
+797
+00:33:24,120 --> 00:33:28,880
+And the meaning is entirely completely
+
+798
+00:33:26,720 --> 00:33:32,600
+different from Java and Python, okay?
+
+799
+00:33:28,880 --> 00:33:34,800
+Lisp object is just a blob, okay? Lisp
+
+800
+00:33:32,600 --> 00:33:38,160
+the the meaning of object in Lisp is
+
+801
+00:33:34,800 --> 00:33:41,679
+just a compiled blob, okay? Like if you
+
+802
+00:33:38,160 --> 00:33:43,160
+have if you have a Lisp function,
+
+803
+00:33:41,679 --> 00:33:46,160
+you know, so
+
+804
+00:33:43,160 --> 00:33:49,480
+So, for example, let let's see so
+
+805
+00:33:46,160 --> 00:33:52,360
+for So, for example, let's go to So, for
+
+806
+00:33:49,480 --> 00:33:54,440
+example, this this code,
+
+807
+00:33:52,360 --> 00:33:56,840
+copy rectangle to kill ring, okay?
+
+808
+00:33:54,440 --> 00:34:00,280
+That's um you know, anyway, this is a
+
+809
+00:33:56,840 --> 00:34:02,400
+function, okay? In Emacs Lisp.
+
+810
+00:34:00,280 --> 00:34:05,240
+Uh when you run the when when you run
+
+811
+00:34:02,400 --> 00:34:07,720
+the Emacs Lisp, it will compile to a
+
+812
+00:34:05,240 --> 00:34:10,040
+thing, and that thing is called object,
+
+813
+00:34:07,720 --> 00:34:12,159
+okay? That's what the object in Lisp
+
+814
+00:34:10,040 --> 00:34:15,080
+means.
+
+815
+00:34:12,159 --> 00:34:16,679
+And JavaScript object JavaScript And
+
+816
+00:34:15,080 --> 00:34:18,879
+then comes to JavaScript. Java-
+
+817
+00:34:16,679 --> 00:34:21,480
+JavaScript object.
+
+818
+00:34:18,879 --> 00:34:24,280
+JavaScript The the word object in
+
+819
+00:34:21,480 --> 00:34:27,080
+JavaScript also have a very specific
+
+820
+00:34:24,280 --> 00:34:29,640
+meaning in JavaScript, okay? And it
+
+821
+00:34:27,080 --> 00:34:33,440
+means it means a
+
+822
+00:34:29,640 --> 00:34:35,359
+it means a particular data structure,
+
+823
+00:34:33,440 --> 00:34:37,440
+but basically like a hash table. Hash
+
+824
+00:34:35,359 --> 00:34:39,800
+table or dictionary, you know, Python
+
+825
+00:34:37,440 --> 00:34:42,520
+calls it dictionary, Ruby calls it hash
+
+826
+00:34:39,800 --> 00:34:43,879
+table, Perl calls it hash table, Java
+
+827
+00:34:42,520 --> 00:34:47,280
+calls it
+
+828
+00:34:43,879 --> 00:34:50,800
+Java calls it map map object, okay?
+
+829
+00:34:47,280 --> 00:34:53,840
+Basically, key-value pairs.
+
+830
+00:34:50,800 --> 00:34:56,640
+That is that is the meaning of the the
+
+831
+00:34:53,840 --> 00:34:58,840
+word object in JavaScript, okay? Very
+
+832
+00:34:56,640 --> 00:35:01,000
+very entirely different again an
+
+833
+00:34:58,840 --> 00:35:03,840
+entirely different from Java and and
+
+834
+00:35:01,000 --> 00:35:03,840
+Python, okay?
+
+835
+00:35:05,240 --> 00:35:11,840
+And and and and Node.js, okay?
+
+836
+00:35:08,840 --> 00:35:14,240
+It This is funny, okay? So, Node.js is
+
+837
+00:35:11,840 --> 00:35:16,880
+basically just JavaScript, but however,
+
+838
+00:35:14,240 --> 00:35:18,800
+then then then in Node.js Node.js
+
+839
+00:35:16,880 --> 00:35:21,560
+Node.js,
+
+840
+00:35:18,800 --> 00:35:22,920
+the word object is not
+
+841
+00:35:21,560 --> 00:35:25,800
+does not mean the same thing as
+
+842
+00:35:22,920 --> 00:35:28,560
+JavaScript object. In Node.js,
+
+843
+00:35:25,800 --> 00:35:30,720
+the word object basically just means a
+
+844
+00:35:28,560 --> 00:35:33,600
+namespace, okay?
+
+845
+00:35:30,720 --> 00:35:35,920
+Namespace.
+
+846
+00:35:33,600 --> 00:35:39,240
+[ __ ] idiocy.
+
+847
+00:35:35,920 --> 00:35:41,520
+And C language also have a has a concept
+
+848
+00:35:39,240 --> 00:35:44,640
+of object, okay? I don't know C well, so
+
+849
+00:35:41,520 --> 00:35:48,359
+someone else might This is a great
+
+850
+00:35:44,640 --> 00:35:50,840
+guy, Nick O'Clock. He's a Emacs user for
+
+851
+00:35:48,359 --> 00:35:53,480
+30 years, you know, he's he started to
+
+852
+00:35:50,840 --> 00:35:57,160
+use Emacs in 1980s or something, much
+
+853
+00:35:53,480 --> 00:36:00,200
+earlier than me. So, he Nick O'Clock,
+
+854
+00:35:57,160 --> 00:36:01,880
+and he's a he's been coding C for like
+
+855
+00:36:00,200 --> 00:36:05,600
+30 years.
+
+856
+00:36:01,880 --> 00:36:08,840
+So, he tells me what object in C means,
+
+857
+00:36:05,600 --> 00:36:08,840
+okay? So,
+
+858
+00:36:09,080 --> 00:36:13,480
+So, my point here in in this article,
+
+859
+00:36:11,720 --> 00:36:15,760
+the meaning of object in computer
+
+860
+00:36:13,480 --> 00:36:18,120
+languages, so you you have seen
+
+861
+00:36:15,760 --> 00:36:20,560
+different languages have very different
+
+862
+00:36:18,120 --> 00:36:21,960
+meaning of the word object. Some Some of
+
+863
+00:36:20,560 --> 00:36:24,800
+the languages,
+
+864
+00:36:21,960 --> 00:36:27,400
+the word class or object has a very
+
+865
+00:36:24,800 --> 00:36:29,200
+specific meaning, while some other
+
+866
+00:36:27,400 --> 00:36:31,359
+languages,
+
+867
+00:36:29,200 --> 00:36:33,800
+the meaning is not important. For
+
+868
+00:36:31,359 --> 00:36:35,880
+example, in Lisp,
+
+869
+00:36:33,800 --> 00:36:38,480
+the word object is not important. I
+
+870
+00:36:35,880 --> 00:36:40,840
+mean, you can you can remove every word
+
+871
+00:36:38,480 --> 00:36:43,200
+of the word object in Emacs Lisp
+
+872
+00:36:40,840 --> 00:36:45,640
+documentation and it doesn't matter,
+
+873
+00:36:43,200 --> 00:36:48,000
+because the word object in Lisp is just
+
+874
+00:36:45,640 --> 00:36:50,920
+compiled thing, you know, again, it
+
+875
+00:36:48,000 --> 00:36:52,960
+doesn't it doesn't matter, okay? So,
+
+876
+00:36:50,920 --> 00:36:54,480
+So, you can see different languages have
+
+877
+00:36:52,960 --> 00:36:56,480
+different sense of, you know, word
+
+878
+00:36:54,480 --> 00:36:58,840
+object. And what does that mean? So,
+
+879
+00:36:56,480 --> 00:37:02,000
+that
+
+880
+00:36:58,840 --> 00:37:03,760
+So, so So, that just means you could
+
+881
+00:37:02,000 --> 00:37:05,680
+say, "Oh, yeah, that just Yeah, of
+
+882
+00:37:03,760 --> 00:37:07,280
+course, they are different languages."
+
+883
+00:37:05,680 --> 00:37:10,560
+But that's shallow. That's a shallow
+
+884
+00:37:07,280 --> 00:37:13,200
+view. The real The example that What I'm
+
+885
+00:37:10,560 --> 00:37:15,080
+trying to say in this example is that
+
+886
+00:37:13,200 --> 00:37:17,080
+they illustrate
+
+887
+00:37:15,080 --> 00:37:19,040
+that
+
+888
+00:37:17,080 --> 00:37:21,760
+different languages,
+
+889
+00:37:19,040 --> 00:37:25,359
+each one of them, have a computational
+
+890
+00:37:21,760 --> 00:37:28,120
+model, okay? Computational model. So, in
+
+891
+00:37:25,359 --> 00:37:28,120
+Java,
+
+892
+00:37:28,200 --> 00:37:32,920
+the computa- computational model is
+
+893
+00:37:30,480 --> 00:37:34,600
+basically um
+
+894
+00:37:32,920 --> 00:37:38,040
+So, let me describe it. So, the
+
+895
+00:37:34,600 --> 00:37:40,520
+computational model of Java is basically
+
+896
+00:37:38,040 --> 00:37:40,520
+um
+
+897
+00:37:41,200 --> 00:37:47,080
+procedural, you know?
+
+898
+00:37:44,200 --> 00:37:49,920
+Yeah. Methods, um
+
+899
+00:37:47,080 --> 00:37:52,880
+you call a methods You you Okay,
+
+900
+00:37:49,920 --> 00:37:55,080
+it's basically object-oriented, so So,
+
+901
+00:37:52,880 --> 00:37:58,480
+let me let me let me capture it in one
+
+902
+00:37:55,080 --> 00:38:01,840
+nice sentence. So, it's So, the model of
+
+903
+00:37:58,480 --> 00:38:04,600
+Java is a the computational model of the
+
+904
+00:38:01,840 --> 00:38:08,680
+Java language is
+
+905
+00:38:04,600 --> 00:38:10,720
+is that you create objects,
+
+906
+00:38:08,680 --> 00:38:13,359
+and object
+
+907
+00:38:10,720 --> 00:38:15,960
+here means it contains data and it
+
+908
+00:38:13,359 --> 00:38:19,640
+contains functions, methods, okay? Then
+
+909
+00:38:15,960 --> 00:38:23,280
+you call the methods to modify the data
+
+910
+00:38:19,640 --> 00:38:26,760
+via the object class system. That is the
+
+911
+00:38:23,280 --> 00:38:29,960
+computational model of Java, okay? A
+
+912
+00:38:26,760 --> 00:38:32,960
+pure OOP language.
+
+913
+00:38:29,960 --> 00:38:35,760
+Okay? Now, Python
+
+914
+00:38:32,960 --> 00:38:38,240
+is also OOP.
+
+915
+00:38:35,760 --> 00:38:41,080
+The computational model is a bit loose,
+
+916
+00:38:38,240 --> 00:38:43,520
+so it's kind it's kind of like Java, but
+
+917
+00:38:41,080 --> 00:38:45,960
+not exactly.
+
+918
+00:38:43,520 --> 00:38:47,280
+It's a much looser.
+
+919
+00:38:45,960 --> 00:38:49,359
+Um
+
+920
+00:38:47,280 --> 00:38:52,040
+So, you you do that, and then but you
+
+921
+00:38:49,359 --> 00:38:53,960
+also do um
+
+922
+00:38:52,040 --> 00:38:56,160
+uh imperative
+
+923
+00:38:53,960 --> 00:38:58,040
+programming or procedural, yeah.
+
+924
+00:38:56,160 --> 00:39:00,400
+Procedural, you know, well, both of them
+
+925
+00:38:58,040 --> 00:39:03,400
+are procedural. So, anyway, we get into
+
+926
+00:39:00,400 --> 00:39:06,240
+lots of complexities and categorization
+
+927
+00:39:03,400 --> 00:39:09,200
+of programming languages. So,
+
+928
+00:39:06,240 --> 00:39:12,200
+Python's programming model is also
+
+929
+00:39:09,200 --> 00:39:14,120
+kind of OOP, but anyway,
+
+930
+00:39:12,200 --> 00:39:16,400
+as I like like I said before, when you
+
+931
+00:39:14,120 --> 00:39:19,280
+read the documentation or language spec,
+
+932
+00:39:16,400 --> 00:39:22,000
+you will not see a clear,
+
+933
+00:39:19,280 --> 00:39:24,560
+you know, definition of computational
+
+934
+00:39:22,000 --> 00:39:27,840
+model, but rather, for example, for
+
+935
+00:39:24,560 --> 00:39:27,840
+Python, you can see
+
+936
+00:39:28,920 --> 00:39:32,520
+you can see one of the documentation
+
+937
+00:39:30,680 --> 00:39:35,680
+start to talk about that, but not
+
+938
+00:39:32,520 --> 00:39:37,640
+exactly, okay? So, let me show you.
+
+939
+00:39:35,680 --> 00:39:40,400
+So, let's turn on JavaScript. So, Google
+
+940
+00:39:37,640 --> 00:39:42,560
+knows what I'm doing, what I'm reading.
+
+941
+00:39:40,400 --> 00:39:45,000
+Uh then you go to community
+
+942
+00:39:42,560 --> 00:39:48,520
+documentation. Okay, Java uh Python
+
+943
+00:39:45,000 --> 00:39:51,520
+website has a new design.
+
+944
+00:39:48,520 --> 00:39:54,400
+Uh, what the [ __ ] Go to doc. God,
+
+945
+00:39:51,520 --> 00:39:54,400
+Jesus.
+
+946
+00:39:56,080 --> 00:40:01,360
+What?
+
+947
+00:39:58,200 --> 00:40:03,960
+So, we got JavaScript on.
+
+948
+00:40:01,360 --> 00:40:06,680
+Reload the page.
+
+949
+00:40:03,960 --> 00:40:10,000
+Click on doc. God,
+
+950
+00:40:06,680 --> 00:40:12,360
+idiotic JavaScript.
+
+951
+00:40:10,000 --> 00:40:15,080
+Uh, Python uh
+
+952
+00:40:12,360 --> 00:40:19,080
+website. [ __ ] Python website has
+
+953
+00:40:15,080 --> 00:40:19,080
+always been the most idiotic.
+
+954
+00:40:20,240 --> 00:40:24,440
+Click.
+
+955
+00:40:22,000 --> 00:40:27,600
+Why Why Why is clicking doesn't work?
+
+956
+00:40:24,440 --> 00:40:30,280
+Shh. Jesus.
+
+957
+00:40:27,600 --> 00:40:32,600
+Incredible [ __ ] The Python Python is
+
+958
+00:40:30,280 --> 00:40:35,720
+the worst
+
+959
+00:40:32,600 --> 00:40:35,720
+[ __ ] possible.
+
+960
+00:40:36,320 --> 00:40:42,840
+Okay, let's open a new browser. Let's
+
+961
+00:40:38,920 --> 00:40:46,320
+paste it here. Python doc.
+
+962
+00:40:42,840 --> 00:40:46,320
+Oh, we are already Wait.
+
+963
+00:40:47,840 --> 00:40:53,120
+Yeah, so we are already on the Python
+
+964
+00:40:49,640 --> 00:40:56,240
+doc page. They redesigned their website.
+
+965
+00:40:53,120 --> 00:40:58,360
+This This is pretty recent recent.
+
+966
+00:40:56,240 --> 00:41:00,920
+Must be within
+
+967
+00:40:58,360 --> 00:41:02,000
+uh this year, last few months I I would
+
+968
+00:41:00,920 --> 00:41:04,440
+say.
+
+969
+00:41:02,000 --> 00:41:06,800
+So, Python documentation. So, okay. So,
+
+970
+00:41:04,440 --> 00:41:08,960
+now you have to click on that. Okay, now
+
+971
+00:41:06,800 --> 00:41:10,400
+now I'm familiar with this
+
+972
+00:41:08,960 --> 00:41:12,800
+page.
+
+973
+00:41:10,400 --> 00:41:16,520
+The most annoying You see, the Python
+
+974
+00:41:12,800 --> 00:41:18,120
+idiocy the Guido van Rossum van Rossum
+
+975
+00:41:16,520 --> 00:41:20,760
+Guido van Rossum
+
+976
+00:41:18,120 --> 00:41:24,360
+idiocy. You see? Look for the word
+
+977
+00:41:20,760 --> 00:41:24,360
+pillow. There it is.
+
+978
+00:41:24,880 --> 00:41:31,480
+Keep this under your pillow. Library
+
+979
+00:41:27,880 --> 00:41:33,400
+reference. [ __ ] the Python.
+
+980
+00:41:31,480 --> 00:41:35,840
+Uh, this is not nice style, okay? When I
+
+981
+00:41:33,400 --> 00:41:37,880
+see that, what [ __ ] is this? Keep this
+
+982
+00:41:35,840 --> 00:41:40,200
+under your pillow.
+
+983
+00:41:37,880 --> 00:41:42,480
+Irre- irrelevancy.
+
+984
+00:41:40,200 --> 00:41:44,760
+Ju- juvenile drivel. That's what it is.
+
+985
+00:41:42,480 --> 00:41:46,880
+Ju- juvenile drivel.
+
+986
+00:41:44,760 --> 00:41:47,520
+You know, they think you know, they
+
+987
+00:41:46,880 --> 00:41:50,040
+you know.
+
+988
+00:41:47,520 --> 00:41:52,320
+So, what does it mean? This it means you
+
+989
+00:41:50,040 --> 00:41:55,240
+know, the meaning of that is that this
+
+990
+00:41:52,320 --> 00:41:56,920
+section is kind of important, you know?
+
+991
+00:41:55,240 --> 00:41:59,640
+So, you you
+
+992
+00:41:56,920 --> 00:42:02,920
+keep this under your pillow. [ __ ] [ __ ]
+
+993
+00:41:59,640 --> 00:42:02,920
+the Python idiots.
+
+994
+00:42:05,960 --> 00:42:09,520
+You know, speak speaking of that, let me
+
+995
+00:42:08,080 --> 00:42:11,080
+show you.
+
+996
+00:42:09,520 --> 00:42:12,440
+Speaking of that, let me show you
+
+997
+00:42:11,080 --> 00:42:16,000
+Xahlee, okay?
+
+998
+00:42:12,440 --> 00:42:16,000
+Just go to xahlee.info.
+
+999
+00:42:16,240 --> 00:42:21,200
+Uh, okay, let's turn on JavaScript.
+
+1000
+00:42:19,360 --> 00:42:24,360
+Okay, so today I've been rambling all
+
+1001
+00:42:21,200 --> 00:42:27,520
+over. So, let's let's forget about doing
+
+1002
+00:42:24,360 --> 00:42:32,080
+Emacs Lisp, okay? JavaScript So, you go
+
+1003
+00:42:27,520 --> 00:42:32,080
+to my website, then you go to
+
+1004
+00:42:32,160 --> 00:42:35,280
+then you go to
+
+1005
+00:42:35,720 --> 00:42:38,720
+documentation.
+
+1006
+00:42:40,720 --> 00:42:47,240
+Doc by dummies, okay? Doc by dummies.
+
+1007
+00:42:45,160 --> 00:42:50,280
+This is all the documentation the Unix
+
+1008
+00:42:47,240 --> 00:42:53,000
+man page, Python and Perl, you know,
+
+1009
+00:42:50,280 --> 00:42:55,280
+lots of them. In detail, okay? Some some
+
+1010
+00:42:53,000 --> 00:42:57,080
+of them are in very technical detail.
+
+1011
+00:42:55,280 --> 00:42:59,360
+Some of these articles are about the
+
+1012
+00:42:57,080 --> 00:43:01,360
+programming language programmer's
+
+1013
+00:42:59,360 --> 00:43:03,240
+culture, the hackers, you know, what the
+
+1014
+00:43:01,360 --> 00:43:05,240
+idiocy they
+
+1015
+00:43:03,240 --> 00:43:07,360
+And some of them are very technical
+
+1016
+00:43:05,240 --> 00:43:10,000
+detail about programming language
+
+1017
+00:43:07,360 --> 00:43:12,160
+documentation problems, okay?
+
+1018
+00:43:10,000 --> 00:43:14,080
+There's a lot issues, technical writing,
+
+1019
+00:43:12,160 --> 00:43:15,840
+organization, and so on.
+
+1020
+00:43:14,080 --> 00:43:18,680
+Uh, and formatting, you know, how do you
+
+1021
+00:43:15,840 --> 00:43:20,240
+format a function arguments, you know,
+
+1022
+00:43:18,680 --> 00:43:21,840
+optional arguments, how do you write
+
+1023
+00:43:20,240 --> 00:43:24,000
+that? How do you indicate something is
+
+1024
+00:43:21,840 --> 00:43:26,400
+optional? You know, there are many ways.
+
+1025
+00:43:24,000 --> 00:43:27,440
+Which one is the best and so on. So, all
+
+1026
+00:43:26,400 --> 00:43:28,600
+these
+
+1027
+00:43:27,440 --> 00:43:30,760
+all these
+
+1028
+00:43:28,600 --> 00:43:33,280
+all these
+
+1029
+00:43:30,760 --> 00:43:36,520
+this chapter is about all that. But
+
+1030
+00:43:33,280 --> 00:43:40,720
+then, let's go to a one of a sub
+
+1031
+00:43:36,520 --> 00:43:44,320
+chapter. Python Why Python doc sucks.
+
+1032
+00:43:40,720 --> 00:43:45,640
+Keep this under your pillow.
+
+1033
+00:43:44,320 --> 00:43:47,520
+That's
+
+1034
+00:43:45,640 --> 00:43:48,440
+That's from these Python documentation,
+
+1035
+00:43:47,520 --> 00:43:52,200
+okay?
+
+1036
+00:43:48,440 --> 00:43:55,080
+Let's We digress. Let's go back to the
+
+1037
+00:43:52,200 --> 00:43:56,760
+language reference, okay? Wait. Library
+
+1038
+00:43:55,080 --> 00:43:58,760
+reference.
+
+1039
+00:43:56,760 --> 00:44:02,560
+Uh
+
+1040
+00:43:58,760 --> 00:44:02,560
+No, not library reference. Wait.
+
+1041
+00:44:03,520 --> 00:44:08,680
+God, this You know, Python documentation
+
+1042
+00:44:06,280 --> 00:44:11,800
+is a one of the worst. You know, they
+
+1043
+00:44:08,680 --> 00:44:14,359
+have the Guido van Rossum has a style.
+
+1044
+00:44:11,800 --> 00:44:17,800
+He He's personality, you know, he's he's
+
+1045
+00:44:14,359 --> 00:44:19,600
+got a style of pseudo formality.
+
+1046
+00:44:17,800 --> 00:44:21,640
+You know, he like formal. You know, he
+
+1047
+00:44:19,600 --> 00:44:23,600
+like things formal. You can see it from
+
+1048
+00:44:21,640 --> 00:44:26,040
+his writing style. You know, he like
+
+1049
+00:44:23,600 --> 00:44:28,480
+things formal like PEP, you know, Python
+
+1050
+00:44:26,040 --> 00:44:31,520
+Foundation, Python you know
+
+1051
+00:44:28,480 --> 00:44:34,400
+you know, whatever. The like process,
+
+1052
+00:44:31,520 --> 00:44:38,960
+you know, meetings and whatever. Then
+
+1053
+00:44:34,400 --> 00:44:40,720
+then then the his writings exhibit a
+
+1054
+00:44:38,960 --> 00:44:43,560
+kind of formality,
+
+1055
+00:44:40,720 --> 00:44:47,000
+but it's a pseudo formality. Like he
+
+1056
+00:44:43,560 --> 00:44:49,440
+would use words like
+
+1057
+00:44:47,000 --> 00:44:51,680
+You know, he he is almost artificial,
+
+1058
+00:44:49,440 --> 00:44:54,600
+you know, it doesn't It's not formal in
+
+1059
+00:44:51,680 --> 00:44:57,359
+a real sense of formality of useful
+
+1060
+00:44:54,600 --> 00:44:59,280
+formality. For example, mathematics,
+
+1061
+00:44:57,359 --> 00:45:01,640
+mathematical logic, you know, you go
+
+1062
+00:44:59,280 --> 00:45:04,080
+read a textbook or treatise or
+
+1063
+00:45:01,640 --> 00:45:05,960
+exposition of math or mathematical
+
+1064
+00:45:04,080 --> 00:45:08,600
+logic. It's very formal, you know,
+
+1065
+00:45:05,960 --> 00:45:12,480
+definition. You know, the dry very dry
+
+1066
+00:45:08,600 --> 00:45:15,720
+extremely dry formal and and that style
+
+1067
+00:45:12,480 --> 00:45:17,359
+has a particular practicality usefulness
+
+1068
+00:45:15,720 --> 00:45:20,720
+because
+
+1069
+00:45:17,359 --> 00:45:22,840
+formals no no drivel no no
+
+1070
+00:45:20,720 --> 00:45:25,040
+anything there's nothing irrelevant.
+
+1071
+00:45:22,840 --> 00:45:28,280
+Every word every character is relevant,
+
+1072
+00:45:25,040 --> 00:45:30,240
+okay? It has a significant meaning in
+
+1073
+00:45:28,280 --> 00:45:33,480
+formal kind of style,
+
+1074
+00:45:30,240 --> 00:45:35,920
+especially in mathematics, okay?
+
+1075
+00:45:33,480 --> 00:45:38,040
+But Python, they try to be formal
+
+1076
+00:45:35,920 --> 00:45:39,960
+because the way they write, you know.
+
+1077
+00:45:38,040 --> 00:45:42,960
+For example, let me let let's read the
+
+1078
+00:45:39,960 --> 00:45:46,040
+let me let me show Okay. So,
+
+1079
+00:45:42,960 --> 00:45:47,600
+while the Python, you know, the Python
+
+1080
+00:45:46,040 --> 00:45:49,680
+standard library, okay? Let's read this
+
+1081
+00:45:47,600 --> 00:45:51,720
+section, you know, let's let me do the
+
+1082
+00:45:49,680 --> 00:45:54,440
+exposition of this.
+
+1083
+00:45:51,720 --> 00:45:56,920
+The The Python standard library.
+
+1084
+00:45:54,440 --> 00:46:00,240
+While the Python language reference
+
+1085
+00:45:56,920 --> 00:46:03,520
+describes the exact syntax and semantics
+
+1086
+00:46:00,240 --> 00:46:06,120
+of the Python language, this library
+
+1087
+00:46:03,520 --> 00:46:10,120
+reference manual describes the standard
+
+1088
+00:46:06,120 --> 00:46:12,920
+library that is distributed with Python.
+
+1089
+00:46:10,120 --> 00:46:15,760
+It also describes some of the optional
+
+1090
+00:46:12,920 --> 00:46:19,240
+components that are commonly included in
+
+1091
+00:46:15,760 --> 00:46:20,440
+Python distributions, okay? Let me let
+
+1092
+00:46:19,240 --> 00:46:23,200
+me
+
+1093
+00:46:20,440 --> 00:46:27,359
+deconstruct this paragraph. The
+
+1094
+00:46:23,200 --> 00:46:29,720
+introduction, the most important uh
+
+1095
+00:46:27,359 --> 00:46:31,920
+a paragraph in any documentation, the
+
+1096
+00:46:29,720 --> 00:46:33,680
+first paragraph, okay?
+
+1097
+00:46:31,920 --> 00:46:36,520
+So, this section is about Python
+
+1098
+00:46:33,680 --> 00:46:39,320
+standard library, right? The Python uh
+
+1099
+00:46:36,520 --> 00:46:41,160
+wait. Yeah, the Python standard library,
+
+1100
+00:46:39,320 --> 00:46:42,520
+okay? It says keep this under your
+
+1101
+00:46:41,160 --> 00:46:44,440
+pillow, okay?
+
+1102
+00:46:42,520 --> 00:46:45,680
+Okay, the first paragraph.
+
+1103
+00:46:44,440 --> 00:46:47,960
+So,
+
+1104
+00:46:45,680 --> 00:46:50,040
+normally, just about every other
+
+1105
+00:46:47,960 --> 00:46:52,680
+language, you know, they will just say,
+
+1106
+00:46:50,040 --> 00:46:54,920
+"Okay, this section is about
+
+1107
+00:46:52,680 --> 00:46:57,520
+Python standard libraries, okay? The
+
+1108
+00:46:54,920 --> 00:47:00,200
+documentation for Python for for for
+
+1109
+00:46:57,520 --> 00:47:03,080
+modules or components included with
+
+1110
+00:47:00,200 --> 00:47:05,760
+Python." Okay? Almost every programming
+
+1111
+00:47:03,080 --> 00:47:08,400
+language will just say that. But wait
+
+1112
+00:47:05,760 --> 00:47:11,400
+but but Guido van Rossum the
+
+1113
+00:47:08,400 --> 00:47:12,720
+the the pseudo formality, he's going to
+
+1114
+00:47:11,400 --> 00:47:15,240
+say
+
+1115
+00:47:12,720 --> 00:47:18,600
+What you know, he's going to introduce a
+
+1116
+00:47:15,240 --> 00:47:21,520
+irrelevant uh introduction first, okay?
+
+1117
+00:47:18,600 --> 00:47:23,560
+While while the Python language
+
+1118
+00:47:21,520 --> 00:47:25,240
+reference section, you know, he's going
+
+1119
+00:47:23,560 --> 00:47:27,720
+to talk about tell you about some other
+
+1120
+00:47:25,240 --> 00:47:30,720
+section. While that section is about
+
+1121
+00:47:27,720 --> 00:47:33,440
+syntax and semantics, okay? But this
+
+1122
+00:47:30,720 --> 00:47:36,359
+section is about libraries.
+
+1123
+00:47:33,440 --> 00:47:37,480
+He He has to mention that that that the
+
+1124
+00:47:36,359 --> 00:47:40,200
+other thing.
+
+1125
+00:47:37,480 --> 00:47:42,200
+That that is uh Guido van Rossum style.
+
+1126
+00:47:40,200 --> 00:47:45,480
+He all over the place like you
+
+1127
+00:47:42,200 --> 00:47:45,480
+irrelevant [ __ ]
+
+1128
+00:47:45,600 --> 00:47:50,120
+The Guido van van Rossum idiot, you
+
+1129
+00:47:48,120 --> 00:47:51,760
+know, he's not too
+
+1130
+00:47:50,120 --> 00:47:54,320
+uh he's not too bright, okay? I would
+
+1131
+00:47:51,760 --> 00:47:54,320
+say. Not
+
+1132
+00:47:59,920 --> 00:48:04,400
+Okay.
+
+1133
+00:48:01,240 --> 00:48:07,800
+I began to talk random and it's almost I
+
+1134
+00:48:04,400 --> 00:48:09,800
+talked for 50 minutes. So, I guess I
+
+1135
+00:48:07,800 --> 00:48:12,320
+guess we are not going to do
+
+1136
+00:48:09,800 --> 00:48:13,960
+we are not going to code right uh any
+
+1137
+00:48:12,320 --> 00:48:16,400
+Emacs Lisp
+
+1138
+00:48:13,960 --> 00:48:16,400
+today.
+
+1139
+00:48:18,359 --> 00:48:23,040
+So, I just saw a comment comment from
+
+1140
+00:48:20,720 --> 00:48:26,040
+Gavin Freeborn.
+
+1141
+00:48:23,040 --> 00:48:29,400
+Racket doc are unmatched. That is
+
+1142
+00:48:26,040 --> 00:48:30,880
+correct. Racket, you know, the Racket
+
+1143
+00:48:29,400 --> 00:48:32,800
+programming language.
+
+1144
+00:48:30,880 --> 00:48:35,760
+The full name the proper name for that
+
+1145
+00:48:32,800 --> 00:48:39,400
+language is Scheme.
+
+1146
+00:48:35,760 --> 00:48:39,400
+Racket Scheme Lisp.
+
+1147
+00:48:39,640 --> 00:48:42,120
+Okay.
+
+1148
+00:48:42,400 --> 00:48:48,440
+The proper name of that language,
+
+1149
+00:48:45,000 --> 00:48:50,600
+Racket, should be Racket Scheme Lisp
+
+1150
+00:48:48,440 --> 00:48:52,359
+because you should remember your roots,
+
+1151
+00:48:50,600 --> 00:48:55,000
+okay?
+
+1152
+00:48:52,359 --> 00:48:56,960
+Because Racket is a branch of Scheme
+
+1153
+00:48:55,000 --> 00:48:59,920
+language and Scheme language is branch
+
+1154
+00:48:56,960 --> 00:49:02,000
+of Lisp, okay? Racket Scheme Lisp. They
+
+1155
+00:48:59,920 --> 00:49:03,840
+change They changed their name to Racket
+
+1156
+00:49:02,000 --> 00:49:07,320
+about 10 years ago.
+
+1157
+00:49:03,840 --> 00:49:09,600
+I did I did a few video on, you know, on
+
+1158
+00:49:07,320 --> 00:49:11,880
+Racket and uh
+
+1159
+00:49:09,600 --> 00:49:14,320
+So, anyway, back to Python, okay? So,
+
+1160
+00:49:11,880 --> 00:49:17,320
+Python library reference, you know, in
+
+1161
+00:49:14,320 --> 00:49:20,480
+end documentation, in end.
+
+1162
+00:49:17,320 --> 00:49:22,480
+Uh, and I talk I criticize lots of them,
+
+1163
+00:49:20,480 --> 00:49:25,800
+the Python documentation problems, you
+
+1164
+00:49:22,480 --> 00:49:27,840
+know, like pseudo pseudo formality. What
+
+1165
+00:49:25,800 --> 00:49:30,040
+the [ __ ] is this?
+
+1166
+00:49:27,840 --> 00:49:32,320
+You know, they they they want to pretend
+
+1167
+00:49:30,040 --> 00:49:35,240
+like they they are they are the top they
+
+1168
+00:49:32,320 --> 00:49:37,760
+they are the computer science, you know?
+
+1169
+00:49:35,240 --> 00:49:40,400
+While the Python language reference
+
+1170
+00:49:37,760 --> 00:49:43,080
+describes the syntax and semantics, but
+
+1171
+00:49:40,400 --> 00:49:46,800
+this section this
+
+1172
+00:49:43,080 --> 00:49:49,320
+[ __ ] idiot. Python documentation is
+
+1173
+00:49:46,800 --> 00:49:52,000
+very very bad, okay? What is one of the
+
+1174
+00:49:49,320 --> 00:49:55,040
+worst among programming languages.
+
+1175
+00:49:52,000 --> 00:49:58,600
+Okay, let's go back. So what So I was
+
+1176
+00:49:55,040 --> 00:50:00,680
+going to tell you about
+
+1177
+00:49:58,600 --> 00:50:03,640
+about the object. Remember we were
+
+1178
+00:50:00,680 --> 00:50:06,920
+talking about the you know programming
+
+1179
+00:50:03,640 --> 00:50:08,800
+language computational model. So I was
+
+1180
+00:50:06,920 --> 00:50:10,360
+trying to tell you
+
+1181
+00:50:08,800 --> 00:50:13,360
+example
+
+1182
+00:50:10,360 --> 00:50:15,440
+in Python documentation where they talk
+
+1183
+00:50:13,360 --> 00:50:18,000
+about they kind of
+
+1184
+00:50:15,440 --> 00:50:19,360
+hinted or implied the computational
+
+1185
+00:50:18,000 --> 00:50:21,400
+model.
+
+1186
+00:50:19,360 --> 00:50:24,000
+Okay, so so
+
+1187
+00:50:21,400 --> 00:50:24,000
+uh
+
+1188
+00:50:32,040 --> 00:50:38,240
+God, this you see you see this pseudo
+
+1189
+00:50:34,920 --> 00:50:39,840
+formality is here again, you see.
+
+1190
+00:50:38,240 --> 00:50:41,800
+So let me tell you about the Python
+
+1191
+00:50:39,840 --> 00:50:43,880
+documentation, okay? So that's that will
+
+1192
+00:50:41,800 --> 00:50:45,680
+be today's topic, okay? So you see
+
+1193
+00:50:43,880 --> 00:50:49,040
+Python documentation. So they are they
+
+1194
+00:50:45,680 --> 00:50:51,800
+are this three, okay? If you don't know
+
+1195
+00:50:49,040 --> 00:50:51,800
+Python
+
+1196
+00:50:52,000 --> 00:50:55,760
+then we you if you learn Python. By the
+
+1197
+00:50:53,920 --> 00:50:57,880
+way, I have a Python tutorial, okay?
+
+1198
+00:50:55,760 --> 00:51:00,320
+Just read read mine, okay? Mine is the
+
+1199
+00:50:57,880 --> 00:51:02,520
+best.
+
+1200
+00:51:00,320 --> 00:51:04,680
+In my opinion, but you know I I would
+
+1201
+00:51:02,520 --> 00:51:06,640
+you know so so
+
+1202
+00:51:04,680 --> 00:51:08,360
+So you just go to my website, yeah.
+
+1203
+00:51:06,640 --> 00:51:12,120
+There it is already. So you go to my
+
+1204
+00:51:08,360 --> 00:51:14,360
+website uh xali.info
+
+1205
+00:51:12,120 --> 00:51:15,960
+uh watch this video. This is about
+
+1206
+00:51:14,360 --> 00:51:17,760
+programming languages, you know, I
+
+1207
+00:51:15,960 --> 00:51:19,520
+characterized the
+
+1208
+00:51:17,760 --> 00:51:21,560
+different programming languages and this
+
+1209
+00:51:19,520 --> 00:51:25,640
+is also great on Wolfram language
+
+1210
+00:51:21,560 --> 00:51:28,080
+graphics uh tutorial. No no nonsense. So
+
+1211
+00:51:25,640 --> 00:51:30,000
+you go to my website xali.info, then you
+
+1212
+00:51:28,080 --> 00:51:32,480
+go to Python
+
+1213
+00:51:30,000 --> 00:51:36,280
+there. So I have a Python tutorial. I've
+
+1214
+00:51:32,480 --> 00:51:39,280
+been coding Python since 2005.
+
+1215
+00:51:36,280 --> 00:51:39,280
+Uh so
+
+1216
+00:51:40,280 --> 00:51:45,000
+So this Yeah, so let me go back to the
+
+1217
+00:51:42,840 --> 00:51:46,800
+I'm talking about Python documentation,
+
+1218
+00:51:45,000 --> 00:51:49,400
+okay? So Python documentation, if you
+
+1219
+00:51:46,800 --> 00:51:51,920
+are new to Python the the three most
+
+1220
+00:51:49,400 --> 00:51:54,720
+important section are the these three,
+
+1221
+00:51:51,920 --> 00:51:56,600
+okay? Tutorial library reference and
+
+1222
+00:51:54,720 --> 00:51:58,600
+language you know, actually language
+
+1223
+00:51:56,600 --> 00:52:00,640
+reference nobody reads. You don't need
+
+1224
+00:51:58,600 --> 00:52:03,280
+to read this section at all. So the two
+
+1225
+00:52:00,640 --> 00:52:05,760
+most important is just these two. The
+
+1226
+00:52:03,280 --> 00:52:08,600
+others almost nobody nobody reads. You
+
+1227
+00:52:05,760 --> 00:52:11,160
+know, what one one in one in a one in
+
+1228
+00:52:08,600 --> 00:52:13,640
+10,000, okay? You don't need to read any
+
+1229
+00:52:11,160 --> 00:52:15,960
+of those. Just these two. Tutorial and
+
+1230
+00:52:13,640 --> 00:52:18,200
+library reference, okay? Now Python
+
+1231
+00:52:15,960 --> 00:52:19,640
+tutorial is not good, okay? It's not
+
+1232
+00:52:18,200 --> 00:52:22,480
+very good.
+
+1233
+00:52:19,640 --> 00:52:23,960
+You know, I read it like 15 years ago.
+
+1234
+00:52:22,480 --> 00:52:25,720
+It's not very good. It's the same. It's
+
+1235
+00:52:23,960 --> 00:52:28,360
+pretty much the same
+
+1236
+00:52:25,720 --> 00:52:31,120
+since 15 years ago, yeah.
+
+1237
+00:52:28,360 --> 00:52:33,360
+Uh so
+
+1238
+00:52:31,120 --> 00:52:37,040
+if you like my style, if you like what I
+
+1239
+00:52:33,360 --> 00:52:39,760
+do, check out xali Python by example,
+
+1240
+00:52:37,040 --> 00:52:43,720
+okay? So this Python 3 basics, you know,
+
+1241
+00:52:39,760 --> 00:52:46,080
+I give you the most concrete most
+
+1242
+00:52:43,720 --> 00:52:48,560
+dense introduction to Python. You can
+
+1243
+00:52:46,080 --> 00:52:51,600
+learn it in an hour, okay?
+
+1244
+00:52:48,560 --> 00:52:54,360
+And they are example based. So I don't I
+
+1245
+00:52:51,600 --> 00:52:57,200
+don't talk about philosophy, coding
+
+1246
+00:52:54,360 --> 00:52:59,960
+style, idioms like
+
+1247
+00:52:57,200 --> 00:53:02,560
+like computer science, you know.
+
+1248
+00:52:59,960 --> 00:53:05,000
+You just get a code, you know, this is
+
+1249
+00:53:02,560 --> 00:53:08,480
+your what you type. This is what you
+
+1250
+00:53:05,000 --> 00:53:10,920
+type and what it does exactly, you know.
+
+1251
+00:53:08,480 --> 00:53:12,040
+Uh programming tutorial by example
+
+1252
+00:53:10,920 --> 00:53:14,440
+style.
+
+1253
+00:53:12,040 --> 00:53:17,080
+So that's my example. Uh that's that's
+
+1254
+00:53:14,440 --> 00:53:19,560
+my Python tutorial. So anyway, back to
+
+1255
+00:53:17,080 --> 00:53:21,520
+Python documentation, okay? So Python
+
+1256
+00:53:19,560 --> 00:53:23,600
+documentation, so these two are most
+
+1257
+00:53:21,520 --> 00:53:27,240
+important. Tutorial then a library
+
+1258
+00:53:23,600 --> 00:53:29,240
+reference. Okay, now let now let's
+
+1259
+00:53:27,240 --> 00:53:32,000
+let me let me um
+
+1260
+00:53:29,240 --> 00:53:34,400
+let me talk about the in inanity of this
+
+1261
+00:53:32,000 --> 00:53:37,240
+section, the Python standard library.
+
+1262
+00:53:34,400 --> 00:53:39,640
+Let me let me show you why it is pseudo
+
+1263
+00:53:37,240 --> 00:53:41,960
+formality. Very annoying. This very
+
+1264
+00:53:39,640 --> 00:53:44,120
+annoying like I I've been reading Python
+
+1265
+00:53:41,960 --> 00:53:46,280
+documentation now and then
+
+1266
+00:53:44,120 --> 00:53:48,600
+for 15 years now. Very annoying.
+
+1267
+00:53:46,280 --> 00:53:51,680
+Everywhere you go there's this this
+
+1268
+00:53:48,600 --> 00:53:53,920
+pretentious, you know, pretentious. It's
+
+1269
+00:53:51,680 --> 00:53:55,240
+It tries to tell you things you don't
+
+1270
+00:53:53,920 --> 00:53:57,440
+need to know.
+
+1271
+00:53:55,240 --> 00:53:59,560
+While the things you want wanted to know
+
+1272
+00:53:57,440 --> 00:54:01,880
+it's buried somewhere. It's a [ __ ]
+
+1273
+00:53:59,560 --> 00:54:03,000
+[ __ ] Python tutorial. For example, this
+
+1274
+00:54:01,880 --> 00:54:05,120
+one.
+
+1275
+00:54:03,000 --> 00:54:06,280
+Python standard library, okay? Let me
+
+1276
+00:54:05,120 --> 00:54:09,920
+read it.
+
+1277
+00:54:06,280 --> 00:54:12,280
+The Python standard library.
+
+1278
+00:54:09,920 --> 00:54:14,480
+Oh wait, we did already did this. Uh
+
+1279
+00:54:12,280 --> 00:54:17,160
+let's try the sec this section, the
+
+1280
+00:54:14,480 --> 00:54:19,640
+Python language reference, okay? So this
+
+1281
+00:54:17,160 --> 00:54:22,760
+section is basically basically it's a
+
+1282
+00:54:19,640 --> 00:54:24,720
+specification of the Python language. So
+
+1283
+00:54:22,760 --> 00:54:27,320
+this this part
+
+1284
+00:54:24,720 --> 00:54:29,000
+nobody reads, okay? This this section is
+
+1285
+00:54:27,320 --> 00:54:31,960
+more about
+
+1286
+00:54:29,000 --> 00:54:34,000
+for compiler writers, okay? For for for
+
+1287
+00:54:31,960 --> 00:54:36,880
+someone if you are going to implement
+
+1288
+00:54:34,000 --> 00:54:40,040
+your own Python language.
+
+1289
+00:54:36,880 --> 00:54:41,320
+Am I still still alive? Say say hi. Say
+
+1290
+00:54:40,040 --> 00:54:43,680
+hi, guys.
+
+1291
+00:54:41,320 --> 00:54:44,720
+12 people watching.
+
+1292
+00:54:43,680 --> 00:54:49,280
+Uh
+
+1293
+00:54:44,720 --> 00:54:49,280
+check video check audio check. Good.
+
+1294
+00:54:50,160 --> 00:54:53,760
+So I'm going to read the comments and
+
+1295
+00:54:51,760 --> 00:54:56,960
+that's it for today. So
+
+1296
+00:54:53,760 --> 00:54:59,760
+the Python language reference, so this
+
+1297
+00:54:56,960 --> 00:55:03,240
+reference manual describes the syntax
+
+1298
+00:54:59,760 --> 00:55:05,800
+and core semantics of the language.
+
+1299
+00:55:03,240 --> 00:55:09,760
+You know, notice you know the Let's take
+
+1300
+00:55:05,800 --> 00:55:14,160
+some time to notice this first sentence.
+
+1301
+00:55:09,760 --> 00:55:17,040
+Pseudo formality, pretentious [ __ ]
+
+1302
+00:55:14,160 --> 00:55:19,920
+You know let me let me say say it again.
+
+1303
+00:55:17,040 --> 00:55:22,240
+This reference manual describes the
+
+1304
+00:55:19,920 --> 00:55:25,200
+syntax and quote and quote core
+
+1305
+00:55:22,240 --> 00:55:28,080
+semantics of the language.
+
+1306
+00:55:25,200 --> 00:55:29,720
+What? Why do they need to quote it? You
+
+1307
+00:55:28,080 --> 00:55:32,200
+know, there's a question.
+
+1308
+00:55:29,720 --> 00:55:35,120
+You know, the the the the quote doesn't
+
+1309
+00:55:32,200 --> 00:55:36,840
+just does not magically appears. Like if
+
+1310
+00:55:35,120 --> 00:55:38,680
+you are writer, if you
+
+1311
+00:55:36,840 --> 00:55:40,720
+you know, write documentation, you know
+
+1312
+00:55:38,680 --> 00:55:42,800
+they like every character you have to
+
+1313
+00:55:40,720 --> 00:55:45,720
+put there. You have to make a decision.
+
+1314
+00:55:42,800 --> 00:55:47,440
+So why did they put the quote? You know
+
+1315
+00:55:45,720 --> 00:55:50,680
+this reference manual describes the
+
+1316
+00:55:47,440 --> 00:55:53,160
+syntax and quote core semantics unquote
+
+1317
+00:55:50,680 --> 00:55:54,920
+of the of the language. So what does it
+
+1318
+00:55:53,160 --> 00:55:57,040
+mean? Why do they quote that? Let me
+
+1319
+00:55:54,920 --> 00:56:00,120
+tell you. So they they are trying to
+
+1320
+00:55:57,040 --> 00:56:02,520
+give you they they they want to say what
+
+1321
+00:56:00,120 --> 00:56:06,480
+they are trying to say is that this
+
+1322
+00:56:02,520 --> 00:56:09,600
+documentation is not 100% complete
+
+1323
+00:56:06,480 --> 00:56:12,120
+specification, okay? We are just giving
+
+1324
+00:56:09,600 --> 00:56:15,120
+you a you know, we are just describing
+
+1325
+00:56:12,120 --> 00:56:18,960
+the syntax and core semantics like like
+
+1326
+00:56:15,120 --> 00:56:21,840
+quote and quote core core semantics. So
+
+1327
+00:56:18,960 --> 00:56:24,160
+it's trying to impart the idea that this
+
+1328
+00:56:21,840 --> 00:56:26,640
+is not
+
+1329
+00:56:24,160 --> 00:56:29,120
+complete or that the the the core
+
+1330
+00:56:26,640 --> 00:56:30,880
+semantics is not well defined. So they
+
+1331
+00:56:29,120 --> 00:56:33,320
+they because they are formal, you know,
+
+1332
+00:56:30,880 --> 00:56:35,720
+they are very precise. They are 100%
+
+1333
+00:56:33,320 --> 00:56:37,720
+correct. So if you don't quote the core
+
+1334
+00:56:35,720 --> 00:56:40,320
+semantics, that would be incorrect
+
+1335
+00:56:37,720 --> 00:56:42,560
+because this actually the the the
+
+1336
+00:56:40,320 --> 00:56:44,880
+meaning of core semantics is actually
+
+1337
+00:56:42,560 --> 00:56:46,640
+not well defined. So they have to quote
+
+1338
+00:56:44,880 --> 00:56:47,920
+core semantics.
+
+1339
+00:56:46,640 --> 00:56:50,040
+That's why.
+
+1340
+00:56:47,920 --> 00:56:52,440
+That's That's That's why That's That's
+
+1341
+00:56:50,040 --> 00:56:55,240
+why I say it's a pseudo formality.
+
+1342
+00:56:52,440 --> 00:56:59,160
+Useless, you know, useless.
+
+1343
+00:56:55,240 --> 00:57:02,840
+Then it says it is terse but attempts to
+
+1344
+00:56:59,160 --> 00:57:03,720
+be exact and complete. [ __ ] [ __ ] You
+
+1345
+00:57:02,840 --> 00:57:04,640
+know
+
+1346
+00:57:03,720 --> 00:57:06,960
+he
+
+1347
+00:57:04,640 --> 00:57:09,160
+You know, almost just just about every
+
+1348
+00:57:06,960 --> 00:57:11,880
+other language you know, when you want
+
+1349
+00:57:09,160 --> 00:57:14,400
+to describe aspect of the language, you
+
+1350
+00:57:11,880 --> 00:57:17,000
+just you just begin write it, you know?
+
+1351
+00:57:14,400 --> 00:57:19,760
+This section introduces introduce
+
+1352
+00:57:17,000 --> 00:57:22,000
+this section is a you know, a
+
+1353
+00:57:19,760 --> 00:57:24,880
+a documentation of the
+
+1354
+00:57:22,000 --> 00:57:28,480
+Python language.
+
+1355
+00:57:24,880 --> 00:57:30,840
+Uh I mean I mean specification, okay?
+
+1356
+00:57:28,480 --> 00:57:33,120
+For those interested in
+
+1357
+00:57:30,840 --> 00:57:35,280
+implementing Python.
+
+1358
+00:57:33,120 --> 00:57:38,280
+That's that's to the point. That's what
+
+1359
+00:57:35,280 --> 00:57:40,520
+this this section this chapter is about.
+
+1360
+00:57:38,280 --> 00:57:42,520
+Or just about every language, Go, Lang,
+
+1361
+00:57:40,520 --> 00:57:43,520
+Java, you know, they they just write
+
+1362
+00:57:42,520 --> 00:57:45,120
+that.
+
+1363
+00:57:43,520 --> 00:57:46,680
+But when it comes to Python, you know,
+
+1364
+00:57:45,120 --> 00:57:48,640
+first of all, the reference manual
+
+1365
+00:57:46,680 --> 00:57:51,720
+describe the syntax and core semantics
+
+1366
+00:57:48,640 --> 00:57:53,880
+of the language, then then he has to say
+
+1367
+00:57:51,720 --> 00:57:56,280
+it has to tell you it is terse. By the
+
+1368
+00:57:53,880 --> 00:57:58,760
+way, oh by the way, this section is very
+
+1369
+00:57:56,280 --> 00:58:00,520
+terse, okay? So be careful. If you don't
+
+1370
+00:57:58,760 --> 00:58:02,760
+know, you know
+
+1371
+00:58:00,520 --> 00:58:04,400
+If you don't know computer science too
+
+1372
+00:58:02,760 --> 00:58:06,560
+much, maybe
+
+1373
+00:58:04,400 --> 00:58:10,000
+you know, so we are giving you a warning
+
+1374
+00:58:06,560 --> 00:58:12,800
+first. You know, it is terse but attempt
+
+1375
+00:58:10,000 --> 00:58:15,640
+to be exact and complete, okay? But
+
+1376
+00:58:12,800 --> 00:58:17,600
+however, we are not exactly complete and
+
+1377
+00:58:15,640 --> 00:58:20,520
+we are not exactly exact, but we
+
+1378
+00:58:17,600 --> 00:58:22,800
+attempted, okay? So don't blame us when
+
+1379
+00:58:20,520 --> 00:58:24,359
+something goes wrong because we are just
+
+1380
+00:58:22,800 --> 00:58:26,359
+we are just being very formal and
+
+1381
+00:58:24,359 --> 00:58:29,120
+precise. We tell you exactly what's
+
+1382
+00:58:26,359 --> 00:58:31,600
+going on on this page. [ __ ] Python
+
+1383
+00:58:29,120 --> 00:58:34,320
+idiots. The guy Guido van Rossum, that's
+
+1384
+00:58:31,600 --> 00:58:35,920
+his style. That's
+
+1385
+00:58:34,320 --> 00:58:38,160
+that's his character. That's his
+
+1386
+00:58:35,920 --> 00:58:40,960
+personality, you know, he's like that.
+
+1387
+00:58:38,160 --> 00:58:43,080
+Useless useless, you know, they just it
+
+1388
+00:58:40,960 --> 00:58:44,840
+just wasted two sentence kind of waste
+
+1389
+00:58:43,080 --> 00:58:48,080
+this sentence this sentence is
+
+1390
+00:58:44,840 --> 00:58:48,080
+completely useless.
+
+1391
+00:58:48,960 --> 00:58:53,240
+Then it says then it says it and so on
+
+1392
+00:58:51,440 --> 00:58:54,880
+and on, okay? Okay, this pseudo
+
+1393
+00:58:53,240 --> 00:58:56,600
+formality very
+
+1394
+00:58:54,880 --> 00:58:58,560
+annoying, okay? Then it says the
+
+1395
+00:58:56,600 --> 00:59:01,480
+semantics of the
+
+1396
+00:58:58,560 --> 00:59:04,359
+the semantics of non-essential building
+
+1397
+00:59:01,480 --> 00:59:07,640
+object types and of the building
+
+1398
+00:59:04,359 --> 00:59:10,040
+functions and modules are described in
+
+1399
+00:59:07,640 --> 00:59:12,800
+the Python standard library.
+
+1400
+00:59:10,040 --> 00:59:13,760
+Uh God, complete
+
+1401
+00:59:12,800 --> 00:59:15,600
+You know,
+
+1402
+00:59:13,760 --> 00:59:18,080
+so what what's going on here? This is
+
+1403
+00:59:15,600 --> 00:59:20,720
+this is
+
+1404
+00:59:18,080 --> 00:59:23,800
+confusion and you know, pretentious
+
+1405
+00:59:20,720 --> 00:59:25,920
+confusion like going nowhere.
+
+1406
+00:59:23,800 --> 00:59:27,600
+You know, so suppose I I I want to
+
+1407
+00:59:25,920 --> 00:59:29,400
+implement Python programming language,
+
+1408
+00:59:27,600 --> 00:59:31,440
+okay? I'm interested in reading this
+
+1409
+00:59:29,400 --> 00:59:34,720
+section. So it then it says
+
+1410
+00:59:31,440 --> 00:59:37,520
+"The semantics of non-essential building
+
+1411
+00:59:34,720 --> 00:59:41,160
+object types and of the building
+
+1412
+00:59:37,520 --> 00:59:44,200
+functions and modules are described in
+
+1413
+00:59:41,160 --> 00:59:46,760
+this other documentation."
+
+1414
+00:59:44,200 --> 00:59:50,200
+So, what the [ __ ] what So, what the [ __ ]
+
+1415
+00:59:46,760 --> 00:59:51,800
+is non-essential building object types?
+
+1416
+00:59:50,200 --> 00:59:53,960
+I came here
+
+1417
+00:59:51,800 --> 00:59:55,240
+to read about that because, you know,
+
+1418
+00:59:53,960 --> 00:59:57,920
+I'm trying to understand the Python
+
+1419
+00:59:55,240 --> 00:59:59,240
+language specification. So, you you can
+
+1420
+00:59:57,920 --> 01:00:01,080
+see
+
+1421
+00:59:59,240 --> 01:00:03,240
+object will be defined here. Yeah, this
+
+1422
+01:00:01,080 --> 01:00:05,800
+is what I was looking for, this section.
+
+1423
+01:00:03,240 --> 01:00:08,240
+You see, object values types where they
+
+1424
+01:00:05,800 --> 01:00:10,400
+describe what those kind of things are.
+
+1425
+01:00:08,240 --> 01:00:12,240
+So, this is the This is trying to
+
+1426
+01:00:10,400 --> 01:00:14,400
+describe the model, the computational
+
+1427
+01:00:12,240 --> 01:00:16,240
+model of the Python language, okay?
+
+1428
+01:00:14,400 --> 01:00:18,120
+Which which is what I am talk I was
+
+1429
+01:00:16,240 --> 01:00:20,720
+talking about.
+
+1430
+01:00:18,120 --> 01:00:24,040
+So, this this chapter is about you know,
+
+1431
+01:00:20,720 --> 01:00:26,080
+this this this book is uh
+
+1432
+01:00:24,040 --> 01:00:28,440
+Python language spec.
+
+1433
+01:00:26,080 --> 01:00:30,000
+Okay, even allows you one, but that's
+
+1434
+01:00:28,440 --> 01:00:31,880
+what it is, okay?
+
+1435
+01:00:30,000 --> 01:00:34,520
+But then, in the introduction, they tell
+
+1436
+01:00:31,880 --> 01:00:36,840
+you, you know, they has to mention, "Oh,
+
+1437
+01:00:34,520 --> 01:00:39,840
+by the way, the semantics of the
+
+1438
+01:00:36,840 --> 01:00:42,240
+non-essential building object types and
+
+1439
+01:00:39,840 --> 01:00:43,440
+of the building functions and modules
+
+1440
+01:00:42,240 --> 01:00:46,360
+are described in the other
+
+1441
+01:00:43,440 --> 01:00:46,360
+documentation."
+
+1442
+01:00:47,760 --> 01:00:53,520
+Okay, what but what but what is what is
+
+1443
+01:00:50,360 --> 01:00:55,320
+non-essential building object types?
+
+1444
+01:00:53,520 --> 01:00:57,200
+You don't know. You don't know. You
+
+1445
+01:00:55,320 --> 01:00:58,800
+don't know. You have to read, you know,
+
+1446
+01:00:57,200 --> 01:01:00,800
+you don't know what the introduction is
+
+1447
+01:00:58,800 --> 01:01:03,000
+saying. So, so so
+
+1448
+01:01:00,800 --> 01:01:04,520
+So, for for example, me
+
+1449
+01:01:03,000 --> 01:01:07,400
+suppose I'm reading this for the first
+
+1450
+01:01:04,520 --> 01:01:11,240
+time. So, should I start to read it
+
+1451
+01:01:07,400 --> 01:01:14,040
+this section first? I mean, the the the
+
+1452
+01:01:11,240 --> 01:01:17,080
+Oh god, the standard library. [ __ ]
+
+1453
+01:01:14,040 --> 01:01:18,840
+idiot. [ __ ] extreme idiocy the
+
+1454
+01:01:17,080 --> 01:01:20,600
+Python. Then it says, "For the For an
+
+1455
+01:01:18,840 --> 01:01:24,040
+informal introduction to the language,
+
+1456
+01:01:20,600 --> 01:01:26,000
+see Python tutorial." God. You see, in
+
+1457
+01:01:24,040 --> 01:01:27,560
+this intersection
+
+1458
+01:01:26,000 --> 01:01:29,400
+they have to
+
+1459
+01:01:27,560 --> 01:01:31,320
+they have to sell themselves. They have
+
+1460
+01:01:29,400 --> 01:01:33,040
+to do Oh, by the way, we have a tutorial
+
+1461
+01:01:31,320 --> 01:01:36,440
+over here. By the way, we have the
+
+1462
+01:01:33,040 --> 01:01:39,640
+library section over the here there.
+
+1463
+01:01:36,440 --> 01:01:39,640
+[ __ ] idiocy.
+
+1464
+01:01:39,680 --> 01:01:43,680
+So, in this section, basically, they are
+
+1465
+01:01:41,400 --> 01:01:46,480
+give you kind of giving you a
+
+1466
+01:01:43,680 --> 01:01:49,440
+introduction to the Python documentation
+
+1467
+01:01:46,480 --> 01:01:49,440
+almost.
+
+1468
+01:01:49,680 --> 01:01:54,280
+Okay, so anyway, that's it for today.
+
+1469
+01:01:51,640 --> 01:01:56,320
+So, I'm going to read the comments and
+
+1470
+01:01:54,280 --> 01:01:56,320
+uh
+
+1471
+01:02:02,920 --> 01:02:06,640
+Okay, you're looking at Haskell. I I
+
+1472
+01:02:04,640 --> 01:02:10,280
+haven't coded Haskell, so I don't really
+
+1473
+01:02:06,640 --> 01:02:12,440
+know, okay? So, yeah, so
+
+1474
+01:02:10,280 --> 01:02:12,440
+uh
+
+1475
+01:02:12,680 --> 01:02:16,760
+Haskell for university course on
+
+1476
+01:02:14,640 --> 01:02:19,560
+functional programming, that's good.
+
+1477
+01:02:16,760 --> 01:02:19,560
+That's good for you.
+
+1478
+01:02:24,880 --> 01:02:33,640
+Okay, uh I like SCSS, okay? I don't I
+
+1479
+01:02:29,720 --> 01:02:35,800
+like SCSS. I don't like any of those
+
+1480
+01:02:33,640 --> 01:02:37,160
+layers, you know, they create a layer.
+
+1481
+01:02:35,800 --> 01:02:40,840
+Those are
+
+1482
+01:02:37,160 --> 01:02:44,720
+those are malingering things.
+
+1483
+01:02:40,840 --> 01:02:44,720
+Okay, so you can see
+
+1484
+01:02:48,840 --> 01:02:55,800
+my articles about them. Let me show you.
+
+1485
+01:02:53,000 --> 01:02:58,520
+So, you have Markdown, very
+
+1486
+01:02:55,800 --> 01:03:00,880
+controversial. You have YAML, you have
+
+1487
+01:02:58,520 --> 01:03:05,520
+Haml, you have Sass,
+
+1488
+01:03:00,880 --> 01:03:10,520
+you know? So, SCSS, that's Sass.
+
+1489
+01:03:05,520 --> 01:03:12,960
+Because Sass split, you know, Sass begin
+
+1490
+01:03:10,520 --> 01:03:14,240
+in 2006, okay?
+
+1491
+01:03:12,960 --> 01:03:16,200
+Um
+
+1492
+01:03:14,240 --> 01:03:18,600
+then
+
+1493
+01:03:16,200 --> 01:03:21,520
+then it split, you know, Sass has
+
+1494
+01:03:18,600 --> 01:03:25,200
+original syntax, then it
+
+1495
+01:03:21,520 --> 01:03:27,640
+then CSS become more popular and you
+
+1496
+01:03:25,200 --> 01:03:30,360
+know, basically become because HTML5
+
+1497
+01:03:27,640 --> 01:03:32,680
+come along. So, they decided oh, Sass
+
+1498
+01:03:30,360 --> 01:03:36,120
+is, you know, not suitable anymore. So,
+
+1499
+01:03:32,680 --> 01:03:38,560
+they split, they created a new syntax,
+
+1500
+01:03:36,120 --> 01:03:41,480
+SCSS.
+
+1501
+01:03:38,560 --> 01:03:45,440
+So, for example, this is Sass.
+
+1502
+01:03:41,480 --> 01:03:47,680
+This is SCSS. Basically, SCSS is using
+
+1503
+01:03:45,440 --> 01:03:51,720
+the CSS syntax.
+
+1504
+01:03:47,680 --> 01:03:56,120
+While Sass is using the Python syntax.
+
+1505
+01:03:51,720 --> 01:03:58,560
+And then, here's a regular CSS.
+
+1506
+01:03:56,120 --> 01:03:58,560
+Wait.
+
+1507
+01:04:00,080 --> 01:04:03,880
+Oh, yeah, yeah, this is regular CSS. You
+
+1508
+01:04:02,680 --> 01:04:06,200
+know,
+
+1509
+01:04:03,880 --> 01:04:09,560
+you don't need SCSS. You don't need the
+
+1510
+01:04:06,200 --> 01:04:11,240
+Sass or SCSS anymore because CSS now has
+
+1511
+01:04:09,560 --> 01:04:14,000
+variables.
+
+1512
+01:04:11,240 --> 01:04:17,080
+I So, I wouldn't, you know, I do not
+
+1513
+01:04:14,000 --> 01:04:18,560
+recommend any of these Sass
+
+1514
+01:04:17,080 --> 01:04:22,280
+or Haml
+
+1515
+01:04:18,560 --> 01:04:24,359
+crap or YAML. YAML, Haml, there's a lot
+
+1516
+01:04:22,280 --> 01:04:25,400
+of them. There's Mustache, there's tons
+
+1517
+01:04:24,359 --> 01:04:28,120
+of them.
+
+1518
+01:04:25,400 --> 01:04:30,880
+Like they they function as a layer on
+
+1519
+01:04:28,120 --> 01:04:33,480
+top of HTML.
+
+1520
+01:04:30,880 --> 01:04:36,200
+Uh which includes Oak mod. You know, you
+
+1521
+01:04:33,480 --> 01:04:39,440
+can consider Oak mod as a kind of
+
+1522
+01:04:36,200 --> 01:04:41,800
+simplified layer on top of HTML.
+
+1523
+01:04:39,440 --> 01:04:43,359
+Uh so, I don't use them. I use And
+
+1524
+01:04:41,800 --> 01:04:45,080
+there's Slim,
+
+1525
+01:04:43,359 --> 01:04:47,680
+you know, then there's Slim markup, you
+
+1526
+01:04:45,080 --> 01:04:50,440
+see, using the Python
+
+1527
+01:04:47,680 --> 01:04:53,600
+uh syntax.
+
+1528
+01:04:50,440 --> 01:04:57,800
+Uh so, I don't use them. So, I like
+
+1529
+01:04:53,600 --> 01:04:57,800
+I work directly in HTML.
+
+1530
+01:05:00,080 --> 01:05:05,200
+In Python, it's a synonym for cryptic
+
+1531
+01:05:02,160 --> 01:05:07,520
+syntax with lots of underscores.
+
+1532
+01:05:05,200 --> 01:05:11,200
+In Common Lisp, it has some meaning
+
+1533
+01:05:07,520 --> 01:05:12,520
+though, given it's related to COS. I
+
+1534
+01:05:11,200 --> 01:05:15,120
+don't know what is
+
+1535
+01:05:12,520 --> 01:05:17,080
+Common Lisp object system. That's right.
+
+1536
+01:05:15,120 --> 01:05:19,400
+That's right, okay. I was going to, you
+
+1537
+01:05:17,080 --> 01:05:21,960
+know, that's a bit esoteric, so I didn't
+
+1538
+01:05:19,400 --> 01:05:24,040
+mention it. So, Common Lisp
+
+1539
+01:05:21,960 --> 01:05:27,120
+So, we are talking about objects,
+
+1540
+01:05:24,040 --> 01:05:29,560
+meaning of object in computer languages.
+
+1541
+01:05:27,120 --> 01:05:33,960
+And this object, you know, object is
+
+1542
+01:05:29,560 --> 01:05:36,440
+just a compiled blob, okay? But however,
+
+1543
+01:05:33,960 --> 01:05:38,560
+there's a package called Common Lisp
+
+1544
+01:05:36,440 --> 01:05:40,359
+object system.
+
+1545
+01:05:38,560 --> 01:05:42,600
+So, if you use that package, then
+
+1546
+01:05:40,359 --> 01:05:44,560
+obviously, object means something else,
+
+1547
+01:05:42,600 --> 01:05:46,760
+you know? That is like
+
+1548
+01:05:44,560 --> 01:05:50,640
+that That reminds me I'm going to do
+
+1549
+01:05:46,760 --> 01:05:50,640
+another rant on the
+
+1550
+01:05:52,440 --> 01:05:57,480
+Uh should I Yeah, Common Lisp. I'm going
+
+1551
+01:05:54,720 --> 01:05:59,720
+to flame Common Lisp.
+
+1552
+01:05:57,480 --> 01:06:03,200
+Don't use that, okay? My recommendation
+
+1553
+01:05:59,720 --> 01:06:08,160
+is never. If you code Lisp, never ever
+
+1554
+01:06:03,200 --> 01:06:10,359
+use that Common Lisp object system crap.
+
+1555
+01:06:08,160 --> 01:06:12,960
+That's destroying the language. That's
+
+1556
+01:06:10,359 --> 01:06:15,040
+just like just just like the just like
+
+1557
+01:06:12,960 --> 01:06:19,120
+the Oak mod, you know? That's
+
+1558
+01:06:15,040 --> 01:06:21,480
+Common Lisp object system is destroying
+
+1559
+01:06:19,120 --> 01:06:24,800
+the spirit of Lisp.
+
+1560
+01:06:21,480 --> 01:06:28,080
+Common Lisp object system
+
+1561
+01:06:24,800 --> 01:06:29,400
+is the antithesis of the Lisp functional
+
+1562
+01:06:28,080 --> 01:06:31,800
+programming
+
+1563
+01:06:29,400 --> 01:06:34,920
+way. Okay, so
+
+1564
+01:06:31,800 --> 01:06:38,320
+it's a bastard, you know, in in essence.
+
+1565
+01:06:34,920 --> 01:06:40,520
+Don't use that. I don't recommend it.
+
+1566
+01:06:38,320 --> 01:06:43,240
+You know, they they in in that Common
+
+1567
+01:06:40,520 --> 01:06:47,359
+Lisp object system, you will often hear
+
+1568
+01:06:43,240 --> 01:06:47,359
+dispatch, right? Dispatch.
+
+1569
+01:06:47,680 --> 01:06:53,160
+Okay, I can I, you know, let me let's
+
+1570
+01:06:50,160 --> 01:06:53,160
+just search, okay?
+
+1571
+01:06:57,760 --> 01:07:01,000
+Dispatch
+
+1572
+01:06:59,520 --> 01:07:05,280
+color
+
+1573
+01:07:01,000 --> 01:07:10,240
+water, okay? Let's let's search it.
+
+1574
+01:07:05,280 --> 01:07:10,240
+Set color There it is, polymorphism.
+
+1575
+01:07:10,359 --> 01:07:15,560
+Polymorphism, dispatch, and the tail of
+
+1576
+01:07:13,760 --> 01:07:18,240
+poly-tinting.
+
+1577
+01:07:15,560 --> 01:07:20,840
+Okay, this is my
+
+1578
+01:07:18,240 --> 01:07:23,359
+caricature. This is my
+
+1579
+01:07:20,840 --> 01:07:27,160
+lampoon of the
+
+1580
+01:07:23,359 --> 01:07:30,720
+of the of the Common Lisp object system
+
+1581
+01:07:27,160 --> 01:07:33,920
+and associated things like polymorphism
+
+1582
+01:07:30,720 --> 01:07:36,560
+and dispatch my ass. They are idiocy,
+
+1583
+01:07:33,920 --> 01:07:38,120
+okay? Now, if you Now, the Haskell
+
+1584
+01:07:36,560 --> 01:07:39,200
+coder, if you are Haskell if you are
+
+1585
+01:07:38,120 --> 01:07:41,800
+functional
+
+1586
+01:07:39,200 --> 01:07:46,440
+programming, then you know what I mean.
+
+1587
+01:07:41,800 --> 01:07:46,440
+This polymorphism and dis- idiocy.
+
+1588
+01:07:49,320 --> 01:07:51,840
+Coy.
+
+1589
+01:07:52,960 --> 01:07:59,080
+Uh okay, that's it for today. Thank you
+
+1590
+01:07:55,440 --> 01:08:01,520
+guys for watching. Bye, guys.
+
+1591
+01:07:59,080 --> 01:08:04,920
+Pay me, okay? Donate. If you like my
+
+1592
+01:08:01,520 --> 01:08:04,920
+stuff, buy me a drink.
+
+1593
+01:08:07,359 --> 01:08:12,120
+Okay, please do more shows with
+
+1594
+01:08:09,240 --> 01:08:14,240
+commentary on documentation. Yeah, we
+
+1595
+01:08:12,120 --> 01:08:18,600
+you know, usually I talk it's going to
+
+1596
+01:08:14,240 --> 01:08:22,560
+be non-stop because I didn't intend
+
+1597
+01:08:18,600 --> 01:08:24,319
+to talk about documentation, okay? But
+
+1598
+01:08:22,560 --> 01:08:25,759
+but
+
+1599
+01:08:24,319 --> 01:08:29,319
+but, you know, when it comes to
+
+1600
+01:08:25,759 --> 01:08:32,240
+documentation, I'm going to talk for
+
+1601
+01:08:29,319 --> 01:08:34,040
+several hours non-stop because we didn't
+
+1602
+01:08:32,240 --> 01:08:38,560
+even begin
+
+1603
+01:08:34,040 --> 01:08:38,560
+talking about it. For example, let's um
+
+1604
+01:08:38,719 --> 01:08:42,839
+uh
+
+1605
+01:08:40,799 --> 01:08:45,120
+Yeah, doc by dummies. You know, so for
+
+1606
+01:08:42,839 --> 01:08:46,400
+example, there's Unix,
+
+1607
+01:08:45,120 --> 01:08:48,799
+there's
+
+1608
+01:08:46,400 --> 01:08:52,280
+uh there's lots of issues, organization,
+
+1609
+01:08:48,799 --> 01:08:53,839
+syntax, format. Uh
+
+1610
+01:08:52,280 --> 01:08:55,480
+you know, for example, and there's
+
+1611
+01:08:53,839 --> 01:08:58,480
+something other funny things. For
+
+1612
+01:08:55,480 --> 01:09:01,240
+example, the the typos in programming
+
+1613
+01:08:58,480 --> 01:09:04,000
+doc. I, you know, like I I mentioned
+
+1614
+01:09:01,240 --> 01:09:05,480
+before, I'm a I'm obsessive in reading
+
+1615
+01:09:04,000 --> 01:09:07,799
+program
+
+1616
+01:09:05,480 --> 01:09:09,520
+in reading documentations and manuals of
+
+1617
+01:09:07,799 --> 01:09:11,759
+of whatever thing.
+
+1618
+01:09:09,520 --> 01:09:14,920
+You know, TV, you know, back then, TV or
+
+1619
+01:09:11,759 --> 01:09:16,680
+whatever, watch. I read them cover from
+
+1620
+01:09:14,920 --> 01:09:19,600
+cover, you know, Casio watch, you know,
+
+1621
+01:09:16,680 --> 01:09:21,359
+I used to have Casio watch 20 years ago.
+
+1622
+01:09:19,600 --> 01:09:24,719
+There's a little manual. I read every
+
+1623
+01:09:21,359 --> 01:09:26,759
+page, every word, you know?
+
+1624
+01:09:24,719 --> 01:09:28,880
+And of course, for programming language
+
+1625
+01:09:26,759 --> 01:09:30,600
+documentation, I read every word
+
+1626
+01:09:28,880 --> 01:09:32,240
+multiple times, you know.
+
+1627
+01:09:30,600 --> 01:09:34,200
+The Wolfram language manual, I have an
+
+1628
+01:09:32,240 --> 01:09:36,680
+article on that somewhere, okay? You
+
+1629
+01:09:34,200 --> 01:09:38,319
+know, you can see the history
+
+1630
+01:09:36,680 --> 01:09:41,040
+of my
+
+1631
+01:09:38,319 --> 01:09:43,200
+documentation or manual reading habit
+
+1632
+01:09:41,040 --> 01:09:45,400
+and how I go about, you know, I read,
+
+1633
+01:09:43,200 --> 01:09:47,640
+you know, that's one of my obsession,
+
+1634
+01:09:45,400 --> 01:09:49,600
+reading documentation. So, on this page,
+
+1635
+01:09:47,640 --> 01:09:52,520
+for example,
+
+1636
+01:09:49,600 --> 01:09:55,440
+I found the the typos in programming
+
+1637
+01:09:52,520 --> 01:09:58,200
+doc, you know? So, Python doc,
+
+1638
+01:09:55,440 --> 01:10:02,160
+Python 3.3, you know, you have these
+
+1639
+01:09:58,200 --> 01:10:04,480
+constant used to represent the the limit
+
+1640
+01:10:02,160 --> 01:10:05,840
+for an unlimited resource, you know? So,
+
+1641
+01:10:04,480 --> 01:10:07,320
+there's a
+
+1642
+01:10:05,840 --> 01:10:09,480
+repeated
+
+1643
+01:10:07,320 --> 01:10:13,360
+the typo, you know, repeat, you know?
+
+1644
+01:10:09,480 --> 01:10:15,080
+So, I document them.
+
+1645
+01:10:13,360 --> 01:10:16,840
+Yeah, so documentation, so there's a lot
+
+1646
+01:10:15,080 --> 01:10:18,040
+to talk about. So,
+
+1647
+01:10:16,840 --> 01:10:20,200
+um
+
+1648
+01:10:18,040 --> 01:10:20,200
+uh the
+
+1649
+01:10:21,440 --> 01:10:26,520
+I don't recommend Python, okay? That's a
+
+1650
+01:10:23,760 --> 01:10:29,120
+frequently asked question, Dave. Talking
+
+1651
+01:10:26,520 --> 01:10:30,560
+about that so many times, so I'm not,
+
+1652
+01:10:29,120 --> 01:10:34,720
+you know, one of the problem of doing
+
+1653
+01:10:30,560 --> 01:10:36,440
+you doing YouTube is that you have to
+
+1654
+01:10:34,720 --> 01:10:38,520
+repeat lots of things like people going
+
+1655
+01:10:36,440 --> 01:10:40,520
+to ask you again and again.
+
+1656
+01:10:38,520 --> 01:10:43,120
+Like I I'm going to answer, suppose I
+
+1657
+01:10:40,520 --> 01:10:44,720
+spend 20 minutes answering that, what
+
+1658
+01:10:43,120 --> 01:10:46,840
+what language do I recommend? Then
+
+1659
+01:10:44,720 --> 01:10:49,600
+tomorrow, by next week, someone going to
+
+1660
+01:10:46,840 --> 01:10:53,160
+ask again. So, I have a video, I already
+
+1661
+01:10:49,600 --> 01:10:53,160
+talked about that. That's the
+
+1662
+01:10:54,440 --> 01:10:58,520
+That's over here, okay? That I mean,
+
+1663
+01:10:56,400 --> 01:11:02,280
+just
+
+1664
+01:10:58,520 --> 01:11:06,280
+it's in in a prominent place, okay?
+
+1665
+01:11:02,280 --> 01:11:06,280
+Uh let's see, because I need info.
+
+1666
+01:11:06,400 --> 01:11:10,080
+On my homepage, okay? Here.
+
+1667
+01:11:11,760 --> 01:11:17,760
+Okay? Read this watch this one, okay?
+
+1668
+01:11:14,560 --> 01:11:19,760
+This this video
+
+1669
+01:11:17,760 --> 01:11:20,960
+about what programming language I
+
+1670
+01:11:19,760 --> 01:11:23,040
+recommend
+
+1671
+01:11:20,960 --> 01:11:23,920
+and why.
+
+1672
+01:11:23,040 --> 01:11:26,040
+Uh
+
+1673
+01:11:23,920 --> 01:11:30,280
+do I like YouTubers?
+
+1674
+01:11:26,040 --> 01:11:30,280
+Uh that depends on who is the YouTuber.
+
+1675
+01:11:42,000 --> 01:11:46,640
+BLZ,
+
+1676
+01:11:44,680 --> 01:11:48,880
+you are stuck in traffic. Where you
+
+1677
+01:11:46,640 --> 01:11:51,560
+from? I again, I forgot.
+
+1678
+01:11:48,880 --> 01:11:53,240
+I remember you are on Discord, right?
+
+1679
+01:11:51,560 --> 01:11:57,160
+But I forgot. Okay, that's it. Bye,
+
+1680
+01:11:53,240 --> 01:11:57,160
+guys. Pay me, okay? Bye.
+
+1681
+01:11:58,080 --> 01:12:04,200
+Shutting down in 1 minute.
+
+1682
+01:12:01,240 --> 01:12:06,440
+2 minutes, okay? So, close that.
+
+1683
+01:12:04,200 --> 01:12:07,920
+So, I'm just going to So, what is this?
+
+1684
+01:12:06,440 --> 01:12:09,480
+I'm going to
+
+1685
+01:12:07,920 --> 01:12:11,560
+log
+
+1686
+01:12:09,480 --> 01:12:14,480
+the things we talked about into my
+
+1687
+01:12:11,560 --> 01:12:15,360
+website, okay?
+
+1688
+01:12:14,480 --> 01:12:19,200
+Uh
+
+1689
+01:12:15,360 --> 01:12:21,920
+it's too big, so let's go to talk show.
+
+1690
+01:12:19,200 --> 01:12:23,440
+Today's talk show, there it is, okay?
+
+1691
+01:12:21,920 --> 01:12:25,720
+So, I'm going to
+
+1692
+01:12:23,440 --> 01:12:27,160
+So, you are looking at my workflow, so
+
+1693
+01:12:25,720 --> 01:12:30,000
+you can see
+
+1694
+01:12:27,160 --> 01:12:31,400
+HTML tutorial is there, so close that,
+
+1695
+01:12:30,000 --> 01:12:33,280
+close that.
+
+1696
+01:12:31,400 --> 01:12:36,360
+That's my homepage.
+
+1697
+01:12:33,280 --> 01:12:40,840
+Close that. Polymorphism, okay? That's
+
+1698
+01:12:36,360 --> 01:12:43,000
+that's about the class thing.
+
+1699
+01:12:40,840 --> 01:12:44,360
+So, you can see it's there, so it's one
+
+1700
+01:12:43,000 --> 01:12:46,960
+button press, everything, you know,
+
+1701
+01:12:44,360 --> 01:12:50,520
+that's how I operate. So, you are
+
+1702
+01:12:46,960 --> 01:12:53,360
+watching my Emacs workflow of the those
+
+1703
+01:12:50,520 --> 01:12:55,680
+of you Linux tiling window manager
+
+1704
+01:12:53,360 --> 01:12:57,320
+fanatics.
+
+1705
+01:12:55,680 --> 01:13:00,600
+This is for you.
+
+1706
+01:12:57,320 --> 01:13:04,720
+So, you see, mouse, no click, you know?
+
+1707
+01:13:00,600 --> 01:13:08,400
+No click, okay? No mouse click and no no
+
+1708
+01:13:04,720 --> 01:13:10,640
+alt tab crap, okay?
+
+1709
+01:13:08,400 --> 01:13:13,480
+Workflow, okay?
+
+1710
+01:13:10,640 --> 01:13:15,120
+Got that. The the typo, okay? Copy that.
+
+1711
+01:13:13,480 --> 01:13:17,800
+I'm going to here, then show the pink
+
+1712
+01:13:15,120 --> 01:13:21,040
+window, paste that, linkify.
+
+1713
+01:13:17,800 --> 01:13:26,120
+Okay? Go here, close that. Why Python
+
+1714
+01:13:21,040 --> 01:13:26,120
+doc sucks. Yeah, why Python doc sucks.
+
+1715
+01:13:28,400 --> 01:13:33,720
+Uh wait, something wrong with my
+
+1716
+01:13:34,360 --> 01:13:37,440
+Why is it not
+
+1717
+01:13:39,720 --> 01:13:45,080
+Oh, [ __ ]
+
+1718
+01:13:42,080 --> 01:13:47,560
+You know, I don't like the www.
+
+1719
+01:13:45,080 --> 01:13:50,840
+Why did it introduce the W? Okay, let me
+
+1720
+01:13:47,560 --> 01:13:52,840
+fix it. Let me show you guys, okay?
+
+1721
+01:13:50,840 --> 01:13:56,200
+So, copy the all.
+
+1722
+01:13:52,840 --> 01:13:58,360
+So, we got a block of code here. I'm
+
+1723
+01:13:56,200 --> 01:14:01,240
+going to I want to extract all the
+
+1724
+01:13:58,360 --> 01:14:04,120
+links, okay? So, move the cursor here,
+
+1725
+01:14:01,240 --> 01:14:06,760
+press two key, you can see Xah HTML
+
+1726
+01:14:04,120 --> 01:14:09,080
+extract URL in the pink window,
+
+1727
+01:14:06,760 --> 01:14:12,800
+then move the cursor here,
+
+1728
+01:14:09,080 --> 01:14:17,200
+paste. You see? Now I got the
+
+1729
+01:14:12,800 --> 01:14:19,640
+I extract extracted the link from those
+
+1730
+01:14:17,200 --> 01:14:22,000
+that block of text. Now I want to delete
+
+1731
+01:14:19,640 --> 01:14:24,240
+this block, so there's one way to select
+
+1732
+01:14:22,000 --> 01:14:27,240
+all.
+
+1733
+01:14:24,240 --> 01:14:30,520
+Uh yeah, okay. So, now I want to remove
+
+1734
+01:14:27,240 --> 01:14:32,400
+the www, okay? So, now linkify. Now,
+
+1735
+01:14:30,520 --> 01:14:36,120
+that's good. You see, I want relative
+
+1736
+01:14:32,400 --> 01:14:37,640
+URL. Okay, do you see what I'm doing?
+
+1737
+01:14:36,120 --> 01:14:40,400
+You see what's going on? Let me do it
+
+1738
+01:14:37,640 --> 01:14:40,400
+again, okay?
+
+1739
+01:14:41,240 --> 01:14:46,880
+Okay, let's do it again, okay?
+
+1740
+01:14:44,680 --> 01:14:48,200
+Let's just focus on one of them, okay?
+
+1741
+01:14:46,880 --> 01:14:51,000
+So, this one,
+
+1742
+01:14:48,200 --> 01:14:53,400
+Python doc, okay? This is about This is
+
+1743
+01:14:51,000 --> 01:14:56,800
+about open it, you know, this is about
+
+1744
+01:14:53,400 --> 01:14:58,880
+why Python doc sucks, okay? So,
+
+1745
+01:14:56,800 --> 01:15:02,280
+let's make two of them, one with with
+
+1746
+01:14:58,880 --> 01:15:04,560
+www and one without, okay?
+
+1747
+01:15:02,280 --> 01:15:05,800
+Now I'm going to link this one,
+
+1748
+01:15:04,560 --> 01:15:08,320
+link.
+
+1749
+01:15:05,800 --> 01:15:10,480
+So, you see that becomes a full URL, so
+
+1750
+01:15:08,320 --> 01:15:12,560
+you see. And I'm going to link this one
+
+1751
+01:15:10,480 --> 01:15:14,680
+without www.
+
+1752
+01:15:12,560 --> 01:15:17,240
+You see? So, here you see a relative
+
+1753
+01:15:14,680 --> 01:15:20,720
+link, then you see the title of that
+
+1754
+01:15:17,240 --> 01:15:24,400
+page. But if you have the www, you got
+
+1755
+01:15:20,720 --> 01:15:24,400
+the full URL, which is wrong.
+
+1756
+01:15:25,800 --> 01:15:29,920
+Uh
+
+1757
+01:15:27,600 --> 01:15:32,520
+Yeah, that makes sense, anyway. So, I'm
+
+1758
+01:15:29,920 --> 01:15:34,960
+using Xah HTML mode, okay? If you like
+
+1759
+01:15:32,520 --> 01:15:38,640
+it, you have to pay, okay? Search for
+
+1760
+01:15:34,960 --> 01:15:40,280
+Xah HTML mode, you'll find it.
+
+1761
+01:15:38,640 --> 01:15:42,920
+So, anyway, so
+
+1762
+01:15:40,280 --> 01:15:45,160
+So, yeah, I want to So, show in browser,
+
+1763
+01:15:42,920 --> 01:15:47,800
+so we got the links, why Python doc
+
+1764
+01:15:45,160 --> 01:15:49,240
+sucks, repeated, okay? Do it again,
+
+1765
+01:15:47,800 --> 01:15:50,400
+there it is.
+
+1766
+01:15:49,240 --> 01:15:53,120
+Close that.
+
+1767
+01:15:50,400 --> 01:15:55,960
+What is this? String markup, okay?
+
+1768
+01:15:53,120 --> 01:15:58,560
+We talked about string markup
+
+1769
+01:15:55,960 --> 01:16:00,880
+We talked about kind of SAS, okay? Copy
+
+1770
+01:15:58,560 --> 01:16:02,760
+that.
+
+1771
+01:16:00,880 --> 01:16:04,640
+Paste it.
+
+1772
+01:16:02,760 --> 01:16:07,080
+You know, I don't want the
+
+1773
+01:16:04,640 --> 01:16:11,360
+www, okay? Close that. Python
+
+1774
+01:16:07,080 --> 01:16:11,360
+documentation problems, copy that.
+
+1775
+01:16:12,200 --> 01:16:17,320
+Uh I think that's already here.
+
+1776
+01:16:15,280 --> 01:16:18,320
+Oh, no.
+
+1777
+01:16:17,320 --> 01:16:22,000
+Wait,
+
+1778
+01:16:18,320 --> 01:16:22,000
+www again.
+
+1779
+01:16:23,120 --> 01:16:26,600
+Uh I don't want to sub.
+
+1780
+01:16:29,400 --> 01:16:34,080
+Okay.
+
+1781
+01:16:31,280 --> 01:16:36,600
+Why Python sucks.
+
+1782
+01:16:34,080 --> 01:16:39,600
+Python documentation problems. Oh, yeah,
+
+1783
+01:16:36,600 --> 01:16:41,880
+so why Python sucks is the index page,
+
+1784
+01:16:39,600 --> 01:16:44,440
+table of contents, then you have why
+
+1785
+01:16:41,880 --> 01:16:47,080
+documentation why Python documentation
+
+1786
+01:16:44,440 --> 01:16:47,080
+sucks.
+
+1787
+01:16:47,880 --> 01:16:51,680
+Oh, Brazil, yes.
+
+1788
+01:16:51,760 --> 01:16:55,440
+Yes, but you are using a different
+
+1789
+01:16:53,280 --> 01:16:58,080
+nickname, right? Yeah, that's That's why
+
+1790
+01:16:55,440 --> 01:17:00,480
+I don't like nicknames, you know, these
+
+1791
+01:16:58,080 --> 01:17:02,080
+Malenchenko Zumas, you know? On
+
+1792
+01:17:00,480 --> 01:17:04,440
+different places, you have a different I
+
+1793
+01:17:02,080 --> 01:17:07,960
+can't remember. And also, you know, the
+
+1794
+01:17:04,440 --> 01:17:11,880
+bad name, princess, you know, the
+
+1795
+01:17:07,960 --> 01:17:11,880
+cookie, what whatever names.
+
+1796
+01:17:12,560 --> 01:17:16,920
+I can't remember No, no. Nobody can
+
+1797
+01:17:14,360 --> 01:17:19,280
+remember who you are.
+
+1798
+01:17:16,920 --> 01:17:20,880
+Python documentation problems, okay?
+
+1799
+01:17:19,280 --> 01:17:21,840
+Close that.
+
+1800
+01:17:20,880 --> 01:17:24,320
+Yeah,
+
+1801
+01:17:21,840 --> 01:17:26,640
+language idiocy, got it. Python
+
+1802
+01:17:24,320 --> 01:17:28,160
+documentation idiocy.
+
+1803
+01:17:26,640 --> 01:17:31,120
+Pretentious,
+
+1804
+01:17:28,160 --> 01:17:34,960
+pretentious and artificial formality,
+
+1805
+01:17:31,120 --> 01:17:38,800
+HTML, VRML, meaning of object in
+
+1806
+01:17:34,960 --> 01:17:38,800
+programming languages, okay?
+
+1807
+01:17:39,040 --> 01:17:44,680
+Uh Java define a function. Yeah, Java
+
+1808
+01:17:42,040 --> 01:17:47,000
+Java script JavaScript, okay? So, that's
+
+1809
+01:17:44,680 --> 01:17:49,800
+JavaScript JavaScript in depth, let's
+
+1810
+01:17:47,000 --> 01:17:49,800
+copy that.
+
+1811
+01:17:50,880 --> 01:17:55,360
+Unicode search, yeah, we were talking
+
+1812
+01:17:52,920 --> 01:17:57,800
+about tofu characters.
+
+1813
+01:17:55,360 --> 01:18:01,480
+So,
+
+1814
+01:17:57,800 --> 01:18:02,880
+Yeah, copy that, okay?
+
+1815
+01:18:01,480 --> 01:18:04,840
+Close that.
+
+1816
+01:18:02,880 --> 01:18:06,800
+Back to Emacs, show the pink window,
+
+1817
+01:18:04,840 --> 01:18:08,200
+back to browser.
+
+1818
+01:18:06,800 --> 01:18:09,920
+Close that.
+
+1819
+01:18:08,200 --> 01:18:12,520
+Wait, what is this character not
+
+1820
+01:18:09,920 --> 01:18:16,719
+showing? Rifle, yeah. Political
+
+1821
+01:18:12,520 --> 01:18:16,719
+situation, you know, they want
+
+1822
+01:18:16,840 --> 01:18:24,080
+certain class of people
+
+1823
+01:18:19,800 --> 01:18:24,080
+begin beginning around year 2010.
+
+1824
+01:18:24,840 --> 01:18:31,160
+The name of that class is kind of
+
+1825
+01:18:27,280 --> 01:18:33,880
+social justice warrior, okay?
+
+1826
+01:18:31,160 --> 01:18:36,920
+So, they they think that the idea they
+
+1827
+01:18:33,880 --> 01:18:40,080
+are you know, their idea is that
+
+1828
+01:18:36,920 --> 01:18:43,320
+if you have a emoji that shows a gun,
+
+1829
+01:18:40,080 --> 01:18:46,120
+that's that's going to um that's going
+
+1830
+01:18:43,320 --> 01:18:50,560
+going to be bad for society. That is
+
+1831
+01:18:46,120 --> 01:18:54,120
+going to encourage or increase violence
+
+1832
+01:18:50,560 --> 01:18:56,280
+and murder, you know? For example,
+
+1833
+01:18:54,120 --> 01:18:57,760
+you also have this Unicode character,
+
+1834
+01:18:56,280 --> 01:18:59,160
+it's a pistol,
+
+1835
+01:18:57,760 --> 01:19:02,760
+but actually
+
+1836
+01:18:59,160 --> 01:19:05,040
+it is shown as a water pistol toy,
+
+1837
+01:19:02,760 --> 01:19:07,200
+you know? So, that's a that's a
+
+1838
+01:19:05,040 --> 01:19:09,480
+that's the issue, okay? Then the rifle
+
+1839
+01:19:07,200 --> 01:19:10,960
+is not even showing these days. It was
+
+1840
+01:19:09,480 --> 01:19:13,560
+showing before, you know, a few years
+
+1841
+01:19:10,960 --> 01:19:15,760
+ago, but they decided, I guess,
+
+1842
+01:19:13,560 --> 01:19:18,560
+Microsoft and Apple Apple
+
+1843
+01:19:15,760 --> 01:19:20,960
+Apple begin it, basically.
+
+1844
+01:19:18,560 --> 01:19:22,720
+So, these people think that
+
+1845
+01:19:20,960 --> 01:19:25,200
+if you have a gun,
+
+1846
+01:19:22,720 --> 01:19:26,840
+you know, in a emoji,
+
+1847
+01:19:25,200 --> 01:19:28,640
+that's not good. That's going to
+
+1848
+01:19:26,840 --> 01:19:31,760
+encourage violence. That's going to
+
+1849
+01:19:28,640 --> 01:19:33,080
+create, you know, encourage murder and
+
+1850
+01:19:31,760 --> 01:19:35,680
+you know,
+
+1851
+01:19:33,080 --> 01:19:39,360
+that's what they think.
+
+1852
+01:19:35,680 --> 01:19:39,360
+So, these people, they um
+
+1853
+01:19:39,920 --> 01:19:45,400
+Is it true? That's not true. That's not
+
+1854
+01:19:42,120 --> 01:19:47,520
+true at all. You know, so in other
+
+1855
+01:19:45,400 --> 01:19:49,960
+words, what they are trying to do that
+
+1856
+01:19:47,520 --> 01:19:51,440
+what they are doing is some form of
+
+1857
+01:19:49,960 --> 01:19:53,080
+censorship.
+
+1858
+01:19:51,440 --> 01:19:55,560
+You know, people will say America is a
+
+1859
+01:19:53,080 --> 01:19:57,240
+free, you know, the free free free
+
+1860
+01:19:55,560 --> 01:19:59,120
+speech country. It's the most free, you
+
+1861
+01:19:57,240 --> 01:20:01,880
+know, for example,
+
+1862
+01:19:59,120 --> 01:20:03,680
+a lot pro-America I'm American, okay.
+
+1863
+01:20:01,880 --> 01:20:06,120
+A lot
+
+1864
+01:20:03,680 --> 01:20:06,120
+um
+
+1865
+01:20:06,520 --> 01:20:10,320
+the
+
+1866
+01:20:07,560 --> 01:20:12,400
+establishment, let's say, the American
+
+1867
+01:20:10,320 --> 01:20:14,400
+establishment, they they say, you know,
+
+1868
+01:20:12,400 --> 01:20:17,200
+they they think America is the best
+
+1869
+01:20:14,400 --> 01:20:19,160
+country, you know, the we, you know, you
+
+1870
+01:20:17,200 --> 01:20:20,720
+don't get censored or and you don't get
+
+1871
+01:20:19,160 --> 01:20:22,680
+sent to
+
+1872
+01:20:20,720 --> 01:20:24,960
+If you say something wrong, you know,
+
+1873
+01:20:22,680 --> 01:20:27,680
+you don't disappear.
+
+1874
+01:20:24,960 --> 01:20:30,360
+Okay, we are getting further away. So,
+
+1875
+01:20:27,680 --> 01:20:30,360
+anyway, so
+
+1876
+01:20:30,440 --> 01:20:33,720
+So, this is a form of censorship, okay?
+
+1877
+01:20:33,160 --> 01:20:35,320
+Uh
+
+1878
+01:20:33,720 --> 01:20:37,080
+I don't think it's good. First First of
+
+1879
+01:20:35,320 --> 01:20:40,320
+all, it's not true. It's blatant It's
+
+1880
+01:20:37,080 --> 01:20:42,000
+not true that when you have like for
+
+1881
+01:20:40,320 --> 01:20:45,360
+example,
+
+1882
+01:20:42,000 --> 01:20:48,280
+in English language,
+
+1883
+01:20:45,360 --> 01:20:49,960
+you have we have the word gun, okay? We
+
+1884
+01:20:48,280 --> 01:20:50,920
+have the word
+
+1885
+01:20:49,960 --> 01:20:53,160
+gun.
+
+1886
+01:20:50,920 --> 01:20:55,760
+We have the word pistol. We have the
+
+1887
+01:20:53,160 --> 01:20:58,720
+word machine gun. We have the word
+
+1888
+01:20:55,760 --> 01:21:00,920
+automatic rifles. We have the word
+
+1889
+01:20:58,720 --> 01:21:02,880
+assault rifles. Now Now Google is going
+
+1890
+01:21:00,920 --> 01:21:06,520
+to ban me.
+
+1891
+01:21:02,880 --> 01:21:08,200
+Censorship. Oh God. That's uh you know,
+
+1892
+01:21:06,520 --> 01:21:11,160
+that's
+
+1893
+01:21:08,200 --> 01:21:12,400
+I think this is the collapse of USA, my
+
+1894
+01:21:11,160 --> 01:21:14,720
+friends.
+
+1895
+01:21:12,400 --> 01:21:16,640
+All of you Americans out there, you
+
+1896
+01:21:14,720 --> 01:21:18,800
+know, watching my show.
+
+1897
+01:21:16,640 --> 01:21:20,880
+This is the this this this is not good,
+
+1898
+01:21:18,800 --> 01:21:22,320
+you know, this is
+
+1899
+01:21:20,880 --> 01:21:25,120
+You are not doing anything good. You are
+
+1900
+01:21:22,320 --> 01:21:26,280
+actually doing making it things a lot
+
+1901
+01:21:25,120 --> 01:21:28,240
+worse.
+
+1902
+01:21:26,280 --> 01:21:29,920
+So, anyway, so you know, in English
+
+1903
+01:21:28,240 --> 01:21:31,640
+words, we have all these words. We have
+
+1904
+01:21:29,920 --> 01:21:34,560
+the violence, you have we have the word
+
+1905
+01:21:31,640 --> 01:21:37,880
+violence, we have the word punch,
+
+1906
+01:21:34,560 --> 01:21:40,400
+beat, kick, rape, you know, that's
+
+1907
+01:21:37,880 --> 01:21:42,840
+that's one of the most dramatic word
+
+1908
+01:21:40,400 --> 01:21:45,320
+among these type of people.
+
+1909
+01:21:42,840 --> 01:21:48,000
+So, are you going to ban this word the
+
+1910
+01:21:45,320 --> 01:21:50,520
+word words, you know? Are you going to
+
+1911
+01:21:48,000 --> 01:21:52,840
+ban these words in English? Why don't we
+
+1912
+01:21:50,520 --> 01:21:54,880
+ban it, you know?
+
+1913
+01:21:52,840 --> 01:21:59,240
+For example, let's type it out, okay?
+
+1914
+01:21:54,880 --> 01:21:59,240
+So, let's let's see the full glory.
+
+1915
+01:21:59,560 --> 01:22:02,400
+Uh
+
+1916
+01:22:00,200 --> 01:22:03,280
+pretty sad situation, okay?
+
+1917
+01:22:02,400 --> 01:22:05,320
+rape
+
+1918
+01:22:03,280 --> 01:22:08,000
+gun
+
+1919
+01:22:05,320 --> 01:22:08,000
+machine gun
+
+1920
+01:22:08,320 --> 01:22:10,760
+Okay?
+
+1921
+01:22:15,680 --> 01:22:18,880
+That's English words.
+
+1922
+01:22:19,800 --> 01:22:25,240
+Humanity, that's part of humanity.
+
+1923
+01:22:23,040 --> 01:22:26,560
+Are you going to ban those words?
+
+1924
+01:22:25,240 --> 01:22:30,080
+You know, you're going to ban emoji
+
+1925
+01:22:26,560 --> 01:22:30,080
+because you don't code.
+
+1926
+01:22:30,200 --> 01:22:35,880
+Oh, I get it. I get it. Now I get it.
+
+1927
+01:22:32,640 --> 01:22:37,200
+Oh, you the emoji should be banned
+
+1928
+01:22:35,880 --> 01:22:38,200
+because
+
+1929
+01:22:37,200 --> 01:22:39,840
+you know,
+
+1930
+01:22:38,200 --> 01:22:41,480
+you know, they probably think, you know,
+
+1931
+01:22:39,840 --> 01:22:42,920
+but the words
+
+1932
+01:22:41,480 --> 01:22:45,600
+should not be banned because they are
+
+1933
+01:22:42,920 --> 01:22:48,000
+already there. But emoji is for fun, you
+
+1934
+01:22:45,600 --> 01:22:50,960
+know, it's for happy happy meals, happy
+
+1935
+01:22:48,000 --> 01:22:53,760
+color, you know, happy cheerful family,
+
+1936
+01:22:50,960 --> 01:22:55,960
+you know, you know, so
+
+1937
+01:22:53,760 --> 01:22:58,000
+So, for emoji,
+
+1938
+01:22:55,960 --> 01:23:01,480
+you know, we should not introduce, you
+
+1939
+01:22:58,000 --> 01:23:02,760
+know, these violent things. And and bomb
+
+1940
+01:23:01,480 --> 01:23:04,320
+it.
+
+1941
+01:23:02,760 --> 01:23:06,400
+firecracker
+
+1942
+01:23:04,320 --> 01:23:08,120
+For emoji, we should ban them. But for
+
+1943
+01:23:06,400 --> 01:23:09,680
+the for the for the words, the English
+
+1944
+01:23:08,120 --> 01:23:12,120
+word, that's okay. That's what they
+
+1945
+01:23:09,680 --> 01:23:12,120
+think.
+
+1946
+01:23:13,400 --> 01:23:18,640
+Uh yeah, I don't think it's good. I
+
+1947
+01:23:15,000 --> 01:23:20,040
+don't think it's good. It's pretty sad.
+
+1948
+01:23:18,640 --> 01:23:22,400
+Um
+
+1949
+01:23:20,040 --> 01:23:24,520
+You know, so you ban them. Of course,
+
+1950
+01:23:22,400 --> 01:23:27,320
+you guys know, you know, this becomes a
+
+1951
+01:23:24,520 --> 01:23:30,240
+big issue. It you know, America becomes
+
+1952
+01:23:27,320 --> 01:23:32,040
+split. Is Trump on one side, you know,
+
+1953
+01:23:30,240 --> 01:23:33,640
+the Trump
+
+1954
+01:23:32,040 --> 01:23:36,720
+Everyone still needs to talk about
+
+1955
+01:23:33,640 --> 01:23:39,320
+Trump, you know, like or or or right
+
+1956
+01:23:36,720 --> 01:23:41,520
+wing right wing versus the left wing,
+
+1957
+01:23:39,320 --> 01:23:44,600
+okay?
+
+1958
+01:23:41,520 --> 01:23:47,240
+It's pretty bad because on on TV, the
+
+1959
+01:23:44,600 --> 01:23:48,440
+Firefox, CNN,
+
+1960
+01:23:47,240 --> 01:23:51,000
+they are running a show, you know,
+
+1961
+01:23:48,440 --> 01:23:52,720
+fighting each other every day every day.
+
+1962
+01:23:51,000 --> 01:23:55,200
+You know, the politicians left the
+
+1963
+01:23:52,720 --> 01:23:58,080
+conservatives versus the Democratic
+
+1964
+01:23:55,200 --> 01:24:00,080
+Party, you know, on TV every day.
+
+1965
+01:23:58,080 --> 01:24:02,560
+Oh, you are a [ __ ] No, you are the
+
+1966
+01:24:00,080 --> 01:24:04,160
+[ __ ] You are you are unpatriotic,
+
+1967
+01:24:02,560 --> 01:24:06,680
+you know, they are they are doing that
+
+1968
+01:24:04,160 --> 01:24:06,680
+every day.
+
+1969
+01:24:06,920 --> 01:24:12,800
+Uh and uh this is happening here in
+
+1970
+01:24:09,280 --> 01:24:15,200
+America. That's I don't think it's good.
+
+1971
+01:24:12,800 --> 01:24:18,080
+S- and um
+
+1972
+01:24:15,200 --> 01:24:19,720
+You know, so so so when you ban this,
+
+1973
+01:24:18,080 --> 01:24:22,240
+yeah, but the right wingers, they are
+
+1974
+01:24:19,720 --> 01:24:23,680
+not happy. So, you going to create more
+
+1975
+01:24:22,240 --> 01:24:26,040
+problems.
+
+1976
+01:24:23,680 --> 01:24:29,680
+You know, that
+
+1977
+01:24:26,040 --> 01:24:31,160
+You going to create more problems.
+
+1978
+01:24:29,680 --> 01:24:33,760
+That's what's going That's what
+
+1979
+01:24:31,160 --> 01:24:33,760
+happening.
+
+1980
+01:24:39,720 --> 01:24:43,400
+What am I doing? Okay.
+
+1981
+01:24:48,080 --> 01:24:54,400
+So, I'm trying to clean the page, clean
+
+1982
+01:24:51,280 --> 01:24:57,040
+the page, conjoin the list, make them
+
+1983
+01:24:54,400 --> 01:24:59,480
+pretty. So, now we have a good list.
+
+1984
+01:24:57,040 --> 01:25:02,480
+Yes.
+
+1985
+01:24:59,480 --> 01:25:04,920
+Okay, close that. Close that.
+
+1986
+01:25:02,480 --> 01:25:06,960
+Sorry, max packages. We need to mention
+
+1987
+01:25:04,920 --> 01:25:11,800
+it, of course.
+
+1988
+01:25:06,960 --> 01:25:11,800
+It's my bread and butter. You pay me.
+
+1989
+01:25:12,240 --> 01:25:18,480
+And yeah, this package, okay.
+
+1990
+01:25:15,400 --> 01:25:18,480
+This org mode.
+
+1991
+01:25:18,520 --> 01:25:22,400
+Copy that. Back here.
+
+1992
+01:25:20,760 --> 01:25:26,080
+org mode
+
+1993
+01:25:22,400 --> 01:25:28,960
+Okay, close that. xhtml mode
+
+1994
+01:25:26,080 --> 01:25:34,400
+important
+
+1995
+01:25:28,960 --> 01:25:34,400
+Close that. To do, close that. xfy keys
+
+1996
+01:25:35,440 --> 01:25:40,720
+Close that. Yeah, this ultimate hacking
+
+1997
+01:25:37,880 --> 01:25:40,720
+keyboard.
+
+1998
+01:25:47,640 --> 01:25:49,960
+Bye.
+

@@ -1,0 +1,9116 @@
+1
+00:00:08,639 --> 00:00:14,080
+good morning everyone welcome to another
+
+2
+00:00:11,519 --> 00:00:17,719
+episode of star talk show
+
+3
+00:00:14,080 --> 00:00:17,719
+today is 2021
+
+4
+00:00:18,320 --> 00:00:21,680
+uh december
+
+5
+00:00:20,640 --> 00:00:24,080
+9th
+
+6
+00:00:21,680 --> 00:00:26,880
+and we are going to talk about so here's
+
+7
+00:00:24,080 --> 00:00:27,760
+today's topic we are going to talk about
+
+8
+00:00:26,880 --> 00:00:30,800
+the
+
+9
+00:00:27,760 --> 00:00:34,399
+new line convention and complexities and
+
+10
+00:00:30,800 --> 00:00:36,800
+tedium of the new line convention
+
+11
+00:00:34,399 --> 00:00:39,200
+so yesterday i actually you know i was
+
+12
+00:00:36,800 --> 00:00:42,239
+writing a powershell script to generate
+
+13
+00:00:39,200 --> 00:00:44,480
+my emacs tutorial so you are looking at
+
+14
+00:00:42,239 --> 00:00:47,039
+my powershell script that generates a
+
+15
+00:00:44,480 --> 00:00:49,520
+emacs tutorial so you know one of the
+
+16
+00:00:47,039 --> 00:00:52,000
+things i want to do is that i want to
+
+17
+00:00:49,520 --> 00:00:55,360
+replace these multiple lines you know
+
+18
+00:00:52,000 --> 00:00:58,160
+here is a here doc here string syntax so
+
+19
+00:00:55,360 --> 00:01:00,559
+anyway i want to replace a string of
+
+20
+00:00:58,160 --> 00:01:05,439
+multiplied multiple lines
+
+21
+00:01:00,559 --> 00:01:07,600
+uh of all files in a directory and
+
+22
+00:01:05,439 --> 00:01:10,479
+it you know it didn't work it you know
+
+23
+00:01:07,600 --> 00:01:12,560
+so there's this complexity i was puzzled
+
+24
+00:01:10,479 --> 00:01:13,760
+you know why does it not work and i
+
+25
+00:01:12,560 --> 00:01:15,759
+spent
+
+26
+00:01:13,760 --> 00:01:17,600
+then i spent two hours you know reading
+
+27
+00:01:15,759 --> 00:01:19,759
+about it
+
+28
+00:01:17,600 --> 00:01:21,600
+eventually i find of course i find out
+
+29
+00:01:19,759 --> 00:01:24,400
+why it didn't work because of the
+
+30
+00:01:21,600 --> 00:01:25,600
+complexities of the new line convention
+
+31
+00:01:24,400 --> 00:01:28,080
+in the coding
+
+32
+00:01:25,600 --> 00:01:30,240
+industry you know lots of the
+
+33
+00:01:28,080 --> 00:01:32,720
+complexities so
+
+34
+00:01:30,240 --> 00:01:35,360
+i'm gonna tell you what all about it
+
+35
+00:01:32,720 --> 00:01:37,840
+today and there are many interesting uh
+
+36
+00:01:35,360 --> 00:01:39,920
+issues about this issue
+
+37
+00:01:37,840 --> 00:01:42,640
+okay so if you have a common questions
+
+38
+00:01:39,920 --> 00:01:44,320
+post the answer here okay
+
+39
+00:01:42,640 --> 00:01:45,119
+hello mo
+
+40
+00:01:44,320 --> 00:01:47,439
+so
+
+41
+00:01:45,119 --> 00:01:49,840
+yeah so let me let's begin okay so let's
+
+42
+00:01:47,439 --> 00:01:52,640
+go to talk show today's talk show notes
+
+43
+00:01:49,840 --> 00:01:55,520
+and open and close that open today's
+
+44
+00:01:52,640 --> 00:01:58,719
+talk show notes so let me tell you what
+
+45
+00:01:55,520 --> 00:02:00,240
+what is the problem okay the
+
+46
+00:01:58,719 --> 00:02:02,719
+okay first of all the new line
+
+47
+00:02:00,240 --> 00:02:05,520
+convention now you guys may not know now
+
+48
+00:02:02,719 --> 00:02:08,399
+the new line convention is that let's
+
+49
+00:02:05,520 --> 00:02:10,000
+let's go here so you can see so i
+
+50
+00:02:08,399 --> 00:02:13,680
+already have an article this is written
+
+51
+00:02:10,000 --> 00:02:16,239
+in 2010 about the new line convention so
+
+52
+00:02:13,680 --> 00:02:19,440
+in windows for example
+
+53
+00:02:16,239 --> 00:02:21,280
+on linux for example linux unix linux
+
+54
+00:02:19,440 --> 00:02:22,480
+mac os 10
+
+55
+00:02:21,280 --> 00:02:24,480
+you
+
+56
+00:02:22,480 --> 00:02:25,680
+you represent the new line
+
+57
+00:02:24,480 --> 00:02:27,280
+by
+
+58
+00:02:25,680 --> 00:02:28,800
+for example let me show you okay so
+
+59
+00:02:27,280 --> 00:02:31,760
+magnify
+
+60
+00:02:28,800 --> 00:02:34,239
+and turn on white space you see so those
+
+61
+00:02:31,760 --> 00:02:36,720
+are new lines so hold on a second let me
+
+62
+00:02:34,239 --> 00:02:39,680
+turn global highlight mod
+
+63
+00:02:36,720 --> 00:02:41,280
+so you see those uh paragraph symbol
+
+64
+00:02:39,680 --> 00:02:43,120
+represent there's a new line that's a
+
+65
+00:02:41,280 --> 00:02:45,840
+character you know that's just a
+
+66
+00:02:43,120 --> 00:02:46,879
+character it indicates a new line and in
+
+67
+00:02:45,840 --> 00:02:50,400
+unix
+
+68
+00:02:46,879 --> 00:02:53,599
+unix linux micro x 10 convention that
+
+69
+00:02:50,400 --> 00:02:56,160
+character is called line feed okay line
+
+70
+00:02:53,599 --> 00:02:58,480
+feed so in e-max so i'm gonna
+
+71
+00:02:56,160 --> 00:03:00,400
+so in my talk show i'm gonna
+
+72
+00:02:58,480 --> 00:03:03,040
+talk about several things you know the
+
+73
+00:03:00,400 --> 00:03:06,560
+technical computational issue
+
+74
+00:03:03,040 --> 00:03:09,120
+the conventions tips about using emacs
+
+75
+00:03:06,560 --> 00:03:11,360
+uh about programming language design so
+
+76
+00:03:09,120 --> 00:03:15,599
+today we will talk about emac beast
+
+77
+00:03:11,360 --> 00:03:18,000
+powershell bash pearl php
+
+78
+00:03:15,599 --> 00:03:20,480
+you know so usually i talk about several
+
+79
+00:03:18,000 --> 00:03:22,400
+things related so it's like
+
+80
+00:03:20,480 --> 00:03:24,640
+you know multi-discipline you know
+
+81
+00:03:22,400 --> 00:03:25,840
+what's what's called multi-discipline
+
+82
+00:03:24,640 --> 00:03:28,480
+which
+
+83
+00:03:25,840 --> 00:03:30,560
+which is what how things should be you
+
+84
+00:03:28,480 --> 00:03:32,799
+know you don't just focus on you know
+
+85
+00:03:30,560 --> 00:03:34,480
+computer science or whatever
+
+86
+00:03:32,799 --> 00:03:36,799
+multi-discipline so
+
+87
+00:03:34,480 --> 00:03:39,040
+so in in running into this issue there
+
+88
+00:03:36,799 --> 00:03:41,440
+are several very interesting things i
+
+89
+00:03:39,040 --> 00:03:43,040
+discovered so anyway so you see this new
+
+90
+00:03:41,440 --> 00:03:46,000
+line character that's a character okay
+
+91
+00:03:43,040 --> 00:03:48,720
+so in unix linux mac os 10 the
+
+92
+00:03:46,000 --> 00:03:50,799
+convention is used is to use the line
+
+93
+00:03:48,720 --> 00:03:51,920
+feed character what's called line feed
+
+94
+00:03:50,799 --> 00:03:53,280
+okay
+
+95
+00:03:51,920 --> 00:03:55,120
+so that's a
+
+96
+00:03:53,280 --> 00:03:58,080
+unicode code point
+
+97
+00:03:55,120 --> 00:04:00,720
+10 in decimal okay so oh ascii code
+
+98
+00:03:58,080 --> 00:04:02,720
+point 10 by the way ascii
+
+99
+00:04:00,720 --> 00:04:04,959
+and unicode
+
+100
+00:04:02,720 --> 00:04:06,720
+they have the same code point for ascii
+
+101
+00:04:04,959 --> 00:04:09,439
+characters so
+
+102
+00:04:06,720 --> 00:04:10,959
+it's equivalent to say unicode code
+
+103
+00:04:09,439 --> 00:04:13,200
+point 10
+
+104
+00:04:10,959 --> 00:04:14,560
+it's the same thing as ascii code point
+
+105
+00:04:13,200 --> 00:04:17,759
+10.
+
+106
+00:04:14,560 --> 00:04:19,519
+so anyway so in unix you know the new
+
+107
+00:04:17,759 --> 00:04:22,400
+line is represented by this character
+
+108
+00:04:19,519 --> 00:04:23,520
+one single character line feed however
+
+109
+00:04:22,400 --> 00:04:26,080
+on the
+
+110
+00:04:23,520 --> 00:04:28,720
+on windows you you use two characters
+
+111
+00:04:26,080 --> 00:04:31,040
+one of them is the carriage return
+
+112
+00:04:28,720 --> 00:04:32,240
+which is ascii 13
+
+113
+00:04:31,040 --> 00:04:33,360
+um
+
+114
+00:04:32,240 --> 00:04:35,600
+then
+
+115
+00:04:33,360 --> 00:04:37,919
+followed by line feed so you have to
+
+116
+00:04:35,600 --> 00:04:40,400
+have you have to use two characters two
+
+117
+00:04:37,919 --> 00:04:43,040
+characters to represent a new line
+
+118
+00:04:40,400 --> 00:04:45,520
+so these characters are so if you don't
+
+119
+00:04:43,040 --> 00:04:47,759
+know what they are so this is uh this is
+
+120
+00:04:45,520 --> 00:04:49,919
+before unicode so you have this ascii
+
+121
+00:04:47,759 --> 00:04:52,560
+table
+
+122
+00:04:49,919 --> 00:04:55,280
+common in questions okay now ascii table
+
+123
+00:04:52,560 --> 00:04:57,919
+so ascii table so you know when you have
+
+124
+00:04:55,280 --> 00:05:00,400
+a character this is a fundamentals of
+
+125
+00:04:57,919 --> 00:05:02,560
+computing so if you are new uh if you
+
+126
+00:05:00,400 --> 00:05:05,199
+are a student you need to know this
+
+127
+00:05:02,560 --> 00:05:06,400
+program if you are new
+
+128
+00:05:05,199 --> 00:05:07,199
+i mean
+
+129
+00:05:06,400 --> 00:05:09,520
+so
+
+130
+00:05:07,199 --> 00:05:11,759
+so you have so any character is
+
+131
+00:05:09,520 --> 00:05:14,320
+represented you know come on computers
+
+132
+00:05:11,759 --> 00:05:16,960
+you have to represent them eventually as
+
+133
+00:05:14,320 --> 00:05:18,880
+a sequence of ones and zeros you know
+
+134
+00:05:16,960 --> 00:05:19,919
+bits
+
+135
+00:05:18,880 --> 00:05:22,400
+so
+
+136
+00:05:19,919 --> 00:05:24,639
+so you need a convention to convert each
+
+137
+00:05:22,400 --> 00:05:28,479
+character to to say which character is
+
+138
+00:05:24,639 --> 00:05:31,120
+represented by what number so
+
+139
+00:05:28,479 --> 00:05:32,240
+ascii table is one of the earliest
+
+140
+00:05:31,120 --> 00:05:32,960
+convention
+
+141
+00:05:32,240 --> 00:05:34,400
+so
+
+142
+00:05:32,960 --> 00:05:36,160
+for example the
+
+143
+00:05:34,400 --> 00:05:39,680
+the character a
+
+144
+00:05:36,160 --> 00:05:42,639
+is decimal 65 so let me show you okay so
+
+145
+00:05:39,680 --> 00:05:46,160
+for example let's let's open a new uh
+
+146
+00:05:42,639 --> 00:05:49,440
+document okay so let's let's show you a
+
+147
+00:05:46,160 --> 00:05:52,880
+so i type a so you move there and in
+
+148
+00:05:49,440 --> 00:05:55,120
+emacs you call describe character
+
+149
+00:05:52,880 --> 00:05:57,520
+you know so you can see
+
+150
+00:05:55,120 --> 00:05:59,280
+you can see the command i called uh
+
+151
+00:05:57,520 --> 00:06:01,680
+describe char okay
+
+152
+00:05:59,280 --> 00:06:03,840
+so you call describe character and it
+
+153
+00:06:01,680 --> 00:06:06,240
+will show you information about the
+
+154
+00:06:03,840 --> 00:06:08,720
+character under the cursor so in this
+
+155
+00:06:06,240 --> 00:06:11,120
+case you see that's capital a latin
+
+156
+00:06:08,720 --> 00:06:14,240
+character capital a you can see the code
+
+157
+00:06:11,120 --> 00:06:15,680
+point is 65 in decimal
+
+158
+00:06:14,240 --> 00:06:19,280
+and then you have
+
+159
+00:06:15,680 --> 00:06:20,639
+octo notation and hexadecimal so you see
+
+160
+00:06:19,280 --> 00:06:24,080
+65
+
+161
+00:06:20,639 --> 00:06:26,960
+the character capital a is 65 in ascii
+
+162
+00:06:24,080 --> 00:06:29,360
+as well as in unicode okay
+
+163
+00:06:26,960 --> 00:06:30,720
+so that's so you need this you know uh
+
+164
+00:06:29,360 --> 00:06:32,400
+this this
+
+165
+00:06:30,720 --> 00:06:34,880
+uh encoding
+
+166
+00:06:32,400 --> 00:06:38,720
+system you need a standardized way so
+
+167
+00:06:34,880 --> 00:06:38,720
+that computers don't get confused
+
+168
+00:06:39,360 --> 00:06:44,560
+so that's a representation of the ac
+
+169
+00:06:41,440 --> 00:06:46,960
+character a and abcd and all the letters
+
+170
+00:06:44,560 --> 00:06:49,039
+and punctuations but you also have
+
+171
+00:06:46,960 --> 00:06:51,199
+what's called control characters for
+
+172
+00:06:49,039 --> 00:06:54,319
+example what's you know for example uh
+
+173
+00:06:51,199 --> 00:06:57,280
+let's show some for example tab okay so
+
+174
+00:06:54,319 --> 00:06:59,440
+i enter a tab something you know so you
+
+175
+00:06:57,280 --> 00:07:02,000
+can see that's a tab
+
+176
+00:06:59,440 --> 00:07:04,639
+now let's turn on the show white space
+
+177
+00:07:02,000 --> 00:07:08,080
+you can see that a triangle and now if i
+
+178
+00:07:04,639 --> 00:07:10,800
+if i call describe char you can see
+
+179
+00:07:08,080 --> 00:07:12,479
+it says tab and then
+
+180
+00:07:10,800 --> 00:07:14,560
+you have the character name character
+
+181
+00:07:12,479 --> 00:07:17,440
+tabulation that's the old name the new
+
+182
+00:07:14,560 --> 00:07:19,120
+name is just uh
+
+183
+00:07:17,440 --> 00:07:21,520
+anyway that's the digression okay so
+
+184
+00:07:19,120 --> 00:07:23,199
+anyway so this type character
+
+185
+00:07:21,520 --> 00:07:24,160
+that's one of the
+
+186
+00:07:23,199 --> 00:07:26,720
+um
+
+187
+00:07:24,160 --> 00:07:28,720
+so-called um printable characters so you
+
+188
+00:07:26,720 --> 00:07:31,520
+also have these characters for example
+
+189
+00:07:28,720 --> 00:07:33,280
+new line you also need to represent it
+
+190
+00:07:31,520 --> 00:07:35,120
+in some way so that's a print
+
+191
+00:07:33,280 --> 00:07:37,520
+unprintable character normally you don't
+
+192
+00:07:35,120 --> 00:07:40,080
+see it you see
+
+193
+00:07:37,520 --> 00:07:43,199
+so you have new line and you also have a
+
+194
+00:07:40,080 --> 00:07:45,280
+horizontal top tab new line and for
+
+195
+00:07:43,199 --> 00:07:46,400
+example space
+
+196
+00:07:45,280 --> 00:07:50,000
+some
+
+197
+00:07:46,400 --> 00:07:53,240
+thing here so you have a space space now
+
+198
+00:07:50,000 --> 00:07:54,800
+called describe char you can see it's
+
+199
+00:07:53,240 --> 00:07:57,440
+codepoint32
+
+200
+00:07:54,800 --> 00:08:00,000
+and the name character name is space so
+
+201
+00:07:57,440 --> 00:08:01,840
+so you need a this is called encoding
+
+202
+00:08:00,000 --> 00:08:04,479
+okay you need a standard
+
+203
+00:08:01,840 --> 00:08:07,759
+standardized way to
+
+204
+00:08:04,479 --> 00:08:10,400
+represent each character and also
+
+205
+00:08:07,759 --> 00:08:12,960
+invisible characters such as space
+
+206
+00:08:10,400 --> 00:08:15,280
+represent them by a number
+
+207
+00:08:12,960 --> 00:08:17,440
+so that's what basically what encoding
+
+208
+00:08:15,280 --> 00:08:20,319
+is about and one of the earliest
+
+209
+00:08:17,440 --> 00:08:23,440
+standards is called ascii from american
+
+210
+00:08:20,319 --> 00:08:25,680
+uh association of
+
+211
+00:08:23,440 --> 00:08:29,360
+american computing association something
+
+212
+00:08:25,680 --> 00:08:32,640
+like that from 1960s so ascii okay
+
+213
+00:08:29,360 --> 00:08:35,360
+and today of course you have unicode
+
+214
+00:08:32,640 --> 00:08:37,200
+now hello alan
+
+215
+00:08:35,360 --> 00:08:38,719
+so
+
+216
+00:08:37,200 --> 00:08:40,959
+encoding
+
+217
+00:08:38,719 --> 00:08:43,360
+you know you have the encoding standard
+
+218
+00:08:40,959 --> 00:08:45,440
+standardized encoding to represent um
+
+219
+00:08:43,360 --> 00:08:49,279
+[Music]
+
+220
+00:08:45,440 --> 00:08:49,530
+characters okay so let's let's post here
+
+221
+00:08:49,279 --> 00:08:52,590
+uh
+
+222
+00:08:49,530 --> 00:08:52,590
+[Music]
+
+223
+00:08:53,519 --> 00:08:57,680
+okay so we have uh we have a record of
+
+224
+00:08:55,680 --> 00:09:00,640
+what we talked about so we we just
+
+225
+00:08:57,680 --> 00:09:03,120
+talked about encoding okay
+
+226
+00:09:00,640 --> 00:09:04,880
+uh ascii table so
+
+227
+00:09:03,120 --> 00:09:06,800
+so back to the
+
+228
+00:09:04,880 --> 00:09:08,480
+new line so it turns out you know
+
+229
+00:09:06,800 --> 00:09:09,600
+because historical
+
+230
+00:09:08,480 --> 00:09:12,399
+um
+
+231
+00:09:09,600 --> 00:09:14,080
+complexities you know the development of
+
+232
+00:09:12,399 --> 00:09:16,640
+computers from
+
+233
+00:09:14,080 --> 00:09:19,120
+taylor type so you have you know you
+
+234
+00:09:16,640 --> 00:09:21,920
+know you have lots of complexities but
+
+235
+00:09:19,120 --> 00:09:26,080
+anyway so in unix you represent the new
+
+236
+00:09:21,920 --> 00:09:27,040
+line by this line feed character and in
+
+237
+00:09:26,080 --> 00:09:29,519
+in
+
+238
+00:09:27,040 --> 00:09:31,680
+on windows you represent the new line by
+
+239
+00:09:29,519 --> 00:09:33,680
+a carriage return character then
+
+240
+00:09:31,680 --> 00:09:36,399
+followed by a
+
+241
+00:09:33,680 --> 00:09:38,800
+line feed character okay so it's
+
+242
+00:09:36,399 --> 00:09:40,959
+you know it's shown here so let's look
+
+243
+00:09:38,800 --> 00:09:42,880
+at so let's look at the control
+
+244
+00:09:40,959 --> 00:09:46,720
+characters so
+
+245
+00:09:42,880 --> 00:09:48,839
+you can see line feed is here okay so
+
+246
+00:09:46,720 --> 00:09:52,000
+ascii number
+
+247
+00:09:48,839 --> 00:09:54,399
+ten um you know line feed
+
+248
+00:09:52,000 --> 00:09:56,560
+then so that's line feed
+
+249
+00:09:54,399 --> 00:09:59,680
+so that's a tab you know the tab you
+
+250
+00:09:56,560 --> 00:10:01,839
+know uh there's also vertical tab then
+
+251
+00:09:59,680 --> 00:10:03,760
+there's a foam feed foam feed by the way
+
+252
+00:10:01,839 --> 00:10:06,240
+it's interesting because in emacs you
+
+253
+00:10:03,760 --> 00:10:06,240
+have um
+
+254
+00:10:08,959 --> 00:10:11,600
+okay
+
+255
+00:10:10,079 --> 00:10:13,440
+so you can see
+
+256
+00:10:11,600 --> 00:10:15,760
+that is using emacs but anyway that's
+
+257
+00:10:13,440 --> 00:10:16,880
+digression so you also have carriage
+
+258
+00:10:15,760 --> 00:10:19,680
+return
+
+259
+00:10:16,880 --> 00:10:21,440
+cr usually uh you know represented by
+
+260
+00:10:19,680 --> 00:10:23,839
+the word cr
+
+261
+00:10:21,440 --> 00:10:25,839
+character number 13 then you also have
+
+262
+00:10:23,839 --> 00:10:26,959
+you know you also have characters for
+
+263
+00:10:25,839 --> 00:10:30,480
+delete
+
+264
+00:10:26,959 --> 00:10:30,480
+for example 127
+
+265
+00:10:30,800 --> 00:10:34,240
+that's a character for delete
+
+266
+00:10:32,399 --> 00:10:37,760
+essentially when you press the dd key
+
+267
+00:10:34,240 --> 00:10:41,120
+the backspace key uh your text editor so
+
+268
+00:10:37,760 --> 00:10:41,120
+terminal usually sends that
+
+269
+00:10:41,600 --> 00:10:46,320
+and you also have escape characters so
+
+270
+00:10:44,000 --> 00:10:48,800
+you have you know so you have one you
+
+271
+00:10:46,320 --> 00:10:50,240
+know this is uh history so you have kind
+
+272
+00:10:48,800 --> 00:10:51,040
+of lots of this
+
+273
+00:10:50,240 --> 00:10:52,959
+uh
+
+274
+00:10:51,040 --> 00:10:56,000
+to today is kind of confusing so you
+
+275
+00:10:52,959 --> 00:10:58,480
+have line feed you have foam feed then
+
+276
+00:10:56,000 --> 00:11:00,959
+you have carriage return
+
+277
+00:10:58,480 --> 00:11:03,920
+uh so anyway
+
+278
+00:11:00,959 --> 00:11:05,920
+the bottom line is that on on linux unix
+
+279
+00:11:03,920 --> 00:11:08,720
+today you use line feed to represent new
+
+280
+00:11:05,920 --> 00:11:11,040
+line at new line and on windows you use
+
+281
+00:11:08,720 --> 00:11:13,519
+carriage return plus line feed two
+
+282
+00:11:11,040 --> 00:11:16,880
+characters to represent new line and on
+
+283
+00:11:13,519 --> 00:11:19,200
+the mac the the mac os classic that is
+
+284
+00:11:16,880 --> 00:11:20,240
+before year 2002
+
+285
+00:11:19,200 --> 00:11:22,480
+you use
+
+286
+00:11:20,240 --> 00:11:24,800
+just carriage return
+
+287
+00:11:22,480 --> 00:11:27,120
+you know so one of the interesting thing
+
+288
+00:11:24,800 --> 00:11:30,320
+i learned yesterday during three hours
+
+289
+00:11:27,120 --> 00:11:34,240
+you know looking into this issue is that
+
+290
+00:11:30,320 --> 00:11:36,560
+uh in the unix was it uh plan nine
+
+291
+00:11:34,240 --> 00:11:40,079
+or was it infernal you know the the
+
+292
+00:11:36,560 --> 00:11:42,560
+operating system created by uh rob pike
+
+293
+00:11:40,079 --> 00:11:45,360
+and and and other people you know rob
+
+294
+00:11:42,560 --> 00:11:48,000
+pack is one of the traditional unix
+
+295
+00:11:45,360 --> 00:11:51,120
+people unix philosophy and he created
+
+296
+00:11:48,000 --> 00:11:52,959
+gold land golan i truly love the design
+
+297
+00:11:51,120 --> 00:11:56,000
+of golem
+
+298
+00:11:52,959 --> 00:11:59,760
+and rob pike is also known as a inventor
+
+299
+00:11:56,000 --> 00:12:01,600
+of the utf-8 encoding system which is
+
+300
+00:11:59,760 --> 00:12:04,240
+compatible with ascii
+
+301
+00:12:01,600 --> 00:12:06,560
+so anyway so so in the operating system
+
+302
+00:12:04,240 --> 00:12:08,639
+i learned yesterday was it inferno or
+
+303
+00:12:06,560 --> 00:12:10,639
+was it plant nine they also used
+
+304
+00:12:08,639 --> 00:12:12,959
+carriage return
+
+305
+00:12:10,639 --> 00:12:14,320
+to represent the new line
+
+306
+00:12:12,959 --> 00:12:16,639
+so
+
+307
+00:12:14,320 --> 00:12:18,720
+so here is several interesting issues so
+
+308
+00:12:16,639 --> 00:12:20,880
+from a programming design point of view
+
+309
+00:12:18,720 --> 00:12:22,480
+or protocol design point of view or if
+
+310
+00:12:20,880 --> 00:12:25,279
+you are creating your own operating
+
+311
+00:12:22,480 --> 00:12:27,040
+system which which one is the best you
+
+312
+00:12:25,279 --> 00:12:29,440
+know so you have the question so that's
+
+313
+00:12:27,040 --> 00:12:32,639
+an interesting question for those of you
+
+314
+00:12:29,440 --> 00:12:34,160
+interested in design
+
+315
+00:12:32,639 --> 00:12:36,160
+and uh
+
+316
+00:12:34,160 --> 00:12:38,240
+you know in in programming language
+
+317
+00:12:36,160 --> 00:12:39,760
+design or protocol design you know so
+
+318
+00:12:38,240 --> 00:12:41,760
+which one of these conventions is the
+
+319
+00:12:39,760 --> 00:12:43,839
+best now apparently the windows
+
+320
+00:12:41,760 --> 00:12:46,880
+convention using two characters is kind
+
+321
+00:12:43,839 --> 00:12:48,880
+of a lame because it's inefficient why
+
+322
+00:12:46,880 --> 00:12:50,160
+you why do you need use two characters
+
+323
+00:12:48,880 --> 00:12:51,839
+but there's a
+
+324
+00:12:50,160 --> 00:12:54,639
+there is actually so there's a
+
+325
+00:12:51,839 --> 00:12:57,279
+historical reason which i also learned
+
+326
+00:12:54,639 --> 00:12:58,639
+about uh yesterday actually
+
+327
+00:12:57,279 --> 00:13:00,639
+so history
+
+328
+00:12:58,639 --> 00:13:02,639
+historically
+
+329
+00:13:00,639 --> 00:13:05,279
+this you know you know before you have
+
+330
+00:13:02,639 --> 00:13:07,200
+computers you have teletype you have the
+
+331
+00:13:05,279 --> 00:13:08,880
+most code you know
+
+332
+00:13:07,200 --> 00:13:11,200
+so anyway so
+
+333
+00:13:08,880 --> 00:13:14,320
+the carriage return followed by line
+
+334
+00:13:11,200 --> 00:13:15,120
+feed that is that that is the convention
+
+335
+00:13:14,320 --> 00:13:17,680
+so
+
+336
+00:13:15,120 --> 00:13:20,800
+back then that is the standard
+
+337
+00:13:17,680 --> 00:13:23,760
+convention not until the
+
+338
+00:13:20,800 --> 00:13:26,000
+the operating system called motex
+
+339
+00:13:23,760 --> 00:13:28,800
+they screwed up with this convention
+
+340
+00:13:26,000 --> 00:13:30,399
+they just they they they're gonna say oh
+
+341
+00:13:28,800 --> 00:13:32,880
+we're gonna start new you know we're
+
+342
+00:13:30,399 --> 00:13:35,680
+gonna screw history
+
+343
+00:13:32,880 --> 00:13:38,480
+and so they created this line feed
+
+344
+00:13:35,680 --> 00:13:40,720
+convention for new line then
+
+345
+00:13:38,480 --> 00:13:43,199
+so that's motix the operating system
+
+346
+00:13:40,720 --> 00:13:44,320
+mortix okay
+
+347
+00:13:43,199 --> 00:13:45,760
+uh you
+
+348
+00:13:44,320 --> 00:13:48,639
+you know actually i learned this
+
+349
+00:13:45,760 --> 00:13:51,440
+yesterday so you know motex is uh
+
+350
+00:13:48,639 --> 00:13:54,240
+heavily involved with uh emacs emacs
+
+351
+00:13:51,440 --> 00:13:57,120
+development you know in fact i i
+
+352
+00:13:54,240 --> 00:13:59,600
+about 10 years ago i um
+
+353
+00:13:57,120 --> 00:14:02,000
+i uh exchanged email with one of this
+
+354
+00:13:59,600 --> 00:14:02,959
+guy who is on maltex you know who
+
+355
+00:14:02,000 --> 00:14:06,160
+created
+
+356
+00:14:02,959 --> 00:14:08,240
+a version of emacs or something
+
+357
+00:14:06,160 --> 00:14:10,880
+yeah i don't yeah one of the least
+
+358
+00:14:08,240 --> 00:14:13,760
+machine people but anyway mo you you
+
+359
+00:14:10,880 --> 00:14:14,880
+have more text operating system then
+
+360
+00:14:13,760 --> 00:14:17,199
+unix
+
+361
+00:14:14,880 --> 00:14:20,959
+you know it's a pun of motives unix is
+
+362
+00:14:17,199 --> 00:14:22,880
+created after motifs so mortix uses the
+
+363
+00:14:20,959 --> 00:14:24,399
+the convention of
+
+364
+00:14:22,880 --> 00:14:26,480
+lf you know
+
+365
+00:14:24,399 --> 00:14:28,880
+you know schooling history
+
+366
+00:14:26,480 --> 00:14:31,199
+then eunuchs followed you know
+
+367
+00:14:28,880 --> 00:14:33,600
+so that is the history so i mean too
+
+368
+00:14:31,199 --> 00:14:36,639
+many of the open source and phonetics
+
+369
+00:14:33,600 --> 00:14:37,680
+linux phonetics idiots you know they to
+
+370
+00:14:36,639 --> 00:14:39,760
+them
+
+371
+00:14:37,680 --> 00:14:41,519
+most of you they you will think oh
+
+372
+00:14:39,760 --> 00:14:42,399
+microsoft's up
+
+373
+00:14:41,519 --> 00:14:45,519
+you know
+
+374
+00:14:42,399 --> 00:14:49,279
+not that's not true okay if you want to
+
+375
+00:14:45,519 --> 00:14:52,800
+say who is a that created a
+
+376
+00:14:49,279 --> 00:14:56,480
+incompatibility incompatibility that's
+
+377
+00:14:52,800 --> 00:14:59,600
+motix and unix okay and which linux
+
+378
+00:14:56,480 --> 00:15:03,279
+followed you know then mac os x followed
+
+379
+00:14:59,600 --> 00:15:07,279
+because mac os x is uh you know based on
+
+380
+00:15:03,279 --> 00:15:09,519
+bsd kernel okay it's not exactly a linux
+
+381
+00:15:07,279 --> 00:15:11,680
+it's not exactly a unix
+
+382
+00:15:09,519 --> 00:15:14,160
+you know again the issue of what which
+
+383
+00:15:11,680 --> 00:15:15,680
+operating system is unix that's a very
+
+384
+00:15:14,160 --> 00:15:17,440
+uh
+
+385
+00:15:15,680 --> 00:15:19,600
+complex question
+
+386
+00:15:17,440 --> 00:15:23,040
+so anyway so you have these conventions
+
+387
+00:15:19,600 --> 00:15:26,079
+then but mac os classic you know the
+
+388
+00:15:23,040 --> 00:15:28,880
+operating system which is overseen by
+
+389
+00:15:26,079 --> 00:15:31,680
+steve jobs the great guy for design
+
+390
+00:15:28,880 --> 00:15:33,759
+he's got the eye for design he
+
+391
+00:15:31,680 --> 00:15:35,440
+you know he saw you know he saw the unix
+
+392
+00:15:33,759 --> 00:15:37,759
+convention he saw the microsoft
+
+393
+00:15:35,440 --> 00:15:39,199
+convention and he
+
+394
+00:15:37,759 --> 00:15:41,360
+decided
+
+395
+00:15:39,199 --> 00:15:43,199
+that's bad we got we're just gonna use
+
+396
+00:15:41,360 --> 00:15:47,759
+carriage return
+
+397
+00:15:43,199 --> 00:15:49,600
+this is actually the most logical
+
+398
+00:15:47,759 --> 00:15:52,000
+from a design point of view so if you're
+
+399
+00:15:49,600 --> 00:15:54,959
+gonna design a operating system from
+
+400
+00:15:52,000 --> 00:15:57,279
+scratch and if you don't care about
+
+401
+00:15:54,959 --> 00:15:59,120
+compatibility with convention or
+
+402
+00:15:57,279 --> 00:16:01,759
+tradition you're gonna start fresh you
+
+403
+00:15:59,120 --> 00:16:02,720
+want the best design carriage return is
+
+404
+00:16:01,759 --> 00:16:06,320
+the best
+
+405
+00:16:02,720 --> 00:16:09,199
+character to use okay so that's smack os
+
+406
+00:16:06,320 --> 00:16:12,800
+uh classic pretty much you know that
+
+407
+00:16:09,199 --> 00:16:14,800
+means before year 2002.
+
+408
+00:16:12,800 --> 00:16:17,199
+so you have these conventions you know
+
+409
+00:16:14,800 --> 00:16:20,000
+for carriage for new life and and that
+
+410
+00:16:17,199 --> 00:16:21,920
+creates end endless problems because
+
+411
+00:16:20,000 --> 00:16:23,759
+you're often uh
+
+412
+00:16:21,920 --> 00:16:26,160
+endless problems when you send the file
+
+413
+00:16:23,759 --> 00:16:27,519
+to someone else and if he's using a
+
+414
+00:16:26,160 --> 00:16:29,360
+different operating system you got
+
+415
+00:16:27,519 --> 00:16:32,560
+problems uh
+
+416
+00:16:29,360 --> 00:16:34,720
+like sometimes lines will show you know
+
+417
+00:16:32,560 --> 00:16:37,279
+you you'll show things like that
+
+418
+00:16:34,720 --> 00:16:40,399
+let me show you okay so
+
+419
+00:16:37,279 --> 00:16:41,680
+you'll see things like okay so let's
+
+420
+00:16:40,399 --> 00:16:45,199
+open a new
+
+421
+00:16:41,680 --> 00:16:47,279
+buffer you'll see for some thing for
+
+422
+00:16:45,199 --> 00:16:49,040
+example i have something
+
+423
+00:16:47,279 --> 00:16:51,360
+you send this file to your to your
+
+424
+00:16:49,040 --> 00:16:54,240
+friend or something then but they will
+
+425
+00:16:51,360 --> 00:16:56,720
+see it if they when they open
+
+426
+00:16:54,240 --> 00:16:58,720
+let me let me show you
+
+427
+00:16:56,720 --> 00:17:01,040
+uh
+
+428
+00:16:58,720 --> 00:17:03,279
+when they open their edit editor they
+
+429
+00:17:01,040 --> 00:17:06,079
+will see something like that or
+
+430
+00:17:03,279 --> 00:17:07,360
+sometimes like that okay so creates lots
+
+431
+00:17:06,079 --> 00:17:10,799
+of headache
+
+432
+00:17:07,360 --> 00:17:13,760
+and many tools for example if ftp and
+
+433
+00:17:10,799 --> 00:17:15,360
+many unix tools you know sometimes they
+
+434
+00:17:13,760 --> 00:17:19,360
+provide
+
+435
+00:17:15,360 --> 00:17:20,640
+or get even get let me show you git okay
+
+436
+00:17:19,360 --> 00:17:22,319
+uh
+
+437
+00:17:20,640 --> 00:17:24,559
+git
+
+438
+00:17:22,319 --> 00:17:26,240
+they create lots of problems so let's
+
+439
+00:17:24,559 --> 00:17:28,720
+see i have a i
+
+440
+00:17:26,240 --> 00:17:32,720
+recently this year i wrote a article
+
+441
+00:17:28,720 --> 00:17:35,760
+about the issue of line ending in git so
+
+442
+00:17:32,720 --> 00:17:38,320
+git also provide a way to
+
+443
+00:17:35,760 --> 00:17:41,120
+kind of automatically solve the problem
+
+444
+00:17:38,320 --> 00:17:44,080
+like some kind of automatic
+
+445
+00:17:41,120 --> 00:17:47,840
+automatic convention okay so
+
+446
+00:17:44,080 --> 00:17:47,840
+where is my article
+
+447
+00:17:50,000 --> 00:17:54,160
+yeah so
+
+448
+00:17:51,200 --> 00:17:56,240
+over here so get new line config for
+
+449
+00:17:54,160 --> 00:17:58,880
+microsoft windows so if you are on
+
+450
+00:17:56,240 --> 00:18:01,600
+windows if you are if you all you do is
+
+451
+00:17:58,880 --> 00:18:03,120
+on linux you know arc linux or gen2 or
+
+452
+00:18:01,600 --> 00:18:05,120
+whatever
+
+453
+00:18:03,120 --> 00:18:08,000
+or tiling window managers if you all you
+
+454
+00:18:05,120 --> 00:18:11,679
+do is on linux happy go linux you are
+
+455
+00:18:08,000 --> 00:18:13,120
+fine because you are confined in a hole
+
+456
+00:18:11,679 --> 00:18:14,960
+but if you
+
+457
+00:18:13,120 --> 00:18:17,679
+talk among different people then you
+
+458
+00:18:14,960 --> 00:18:19,919
+have you know you have this issue so
+
+459
+00:18:17,679 --> 00:18:22,000
+forget you know
+
+460
+00:18:19,919 --> 00:18:24,480
+which is by the way github owned by
+
+461
+00:18:22,000 --> 00:18:26,640
+microsoft you know so you you need to
+
+462
+00:18:24,480 --> 00:18:29,520
+convert the new line issue
+
+463
+00:18:26,640 --> 00:18:32,240
+for example your your team is using you
+
+464
+00:18:29,520 --> 00:18:34,640
+some of them is using uh unix
+
+465
+00:18:32,240 --> 00:18:37,840
+some of them is using windows and some
+
+466
+00:18:34,640 --> 00:18:40,240
+of them is using uh let's say plan nine
+
+467
+00:18:37,840 --> 00:18:43,760
+which uses the cr the carriage return
+
+468
+00:18:40,240 --> 00:18:47,120
+convention so you need to so this is how
+
+469
+00:18:43,760 --> 00:18:49,760
+you can set up git to uh convert things
+
+470
+00:18:47,120 --> 00:18:51,200
+automatically
+
+471
+00:18:49,760 --> 00:18:54,320
+uh
+
+472
+00:18:51,200 --> 00:18:56,559
+so that's so i'm so i'm talking about so
+
+473
+00:18:54,320 --> 00:18:58,480
+several of these things let's go to talk
+
+474
+00:18:56,559 --> 00:19:02,480
+show and write it down so what we talked
+
+475
+00:18:58,480 --> 00:19:05,679
+about so today so we have that that show
+
+476
+00:19:02,480 --> 00:19:08,640
+in browser turn off the line uh you know
+
+477
+00:19:05,679 --> 00:19:12,480
+it's confusing turn off the white space
+
+478
+00:19:08,640 --> 00:19:14,880
+show browser at the bottom so we added a
+
+479
+00:19:12,480 --> 00:19:18,320
+uh outside of it so
+
+480
+00:19:14,880 --> 00:19:20,799
+it needs to be inside the main
+
+481
+00:19:18,320 --> 00:19:24,720
+so we just talked about git on this
+
+482
+00:19:20,799 --> 00:19:28,400
+issue so this is you know this is a very
+
+483
+00:19:24,720 --> 00:19:31,520
+widespread issue and on linux on unix by
+
+484
+00:19:28,400 --> 00:19:31,520
+the way you have the tool
+
+485
+00:19:31,679 --> 00:19:37,200
+unix to dos okay
+
+486
+00:19:34,000 --> 00:19:39,039
+does to unix okay if you search it i
+
+487
+00:19:37,200 --> 00:19:41,200
+don't have an article on that
+
+488
+00:19:39,039 --> 00:19:43,679
+so if you search it
+
+489
+00:19:41,200 --> 00:19:47,600
+on linux you have this tool to convert
+
+490
+00:19:43,679 --> 00:19:49,840
+these file line ending conventions
+
+491
+00:19:47,600 --> 00:19:51,919
+okay so
+
+492
+00:19:49,840 --> 00:19:56,240
+now i'm not on linux so i don't have
+
+493
+00:19:51,919 --> 00:19:56,240
+those tools so let's see maybe
+
+494
+00:19:56,720 --> 00:20:00,640
+let's try that
+
+495
+00:19:58,240 --> 00:20:02,240
+get comment on
+
+496
+00:20:00,640 --> 00:20:04,080
+help
+
+497
+00:20:02,240 --> 00:20:05,600
+help
+
+498
+00:20:04,080 --> 00:20:08,640
+help
+
+499
+00:20:05,600 --> 00:20:10,640
+help gcm get command
+
+500
+00:20:08,640 --> 00:20:14,480
+so get command is
+
+501
+00:20:10,640 --> 00:20:16,480
+is analogous to the unix which command
+
+502
+00:20:14,480 --> 00:20:20,640
+so it will show you if you have the
+
+503
+00:20:16,480 --> 00:20:24,799
+command or not so gcm unix 2.0 i don't
+
+504
+00:20:20,640 --> 00:20:26,480
+have it gcm does to unix
+
+505
+00:20:24,799 --> 00:20:29,280
+so
+
+506
+00:20:26,480 --> 00:20:32,320
+so that's the tool on unix that allows
+
+507
+00:20:29,280 --> 00:20:34,640
+you to change the file encoding
+
+508
+00:20:32,320 --> 00:20:37,039
+and of course i you can you can do that
+
+509
+00:20:34,640 --> 00:20:38,960
+in emacs too so i have a full article on
+
+510
+00:20:37,039 --> 00:20:40,159
+that
+
+511
+00:20:38,960 --> 00:20:43,679
+uh
+
+512
+00:20:40,159 --> 00:20:44,960
+so anyway so so so so far i have
+
+513
+00:20:43,679 --> 00:20:46,240
+explained
+
+514
+00:20:44,960 --> 00:20:47,200
+about
+
+515
+00:20:46,240 --> 00:20:49,360
+the
+
+516
+00:20:47,200 --> 00:20:52,400
+ascii
+
+517
+00:20:49,360 --> 00:20:55,919
+so we have explained the ascii encoding
+
+518
+00:20:52,400 --> 00:21:00,200
+and unicode utf-8 encoding and what is
+
+519
+00:20:55,919 --> 00:21:00,200
+uh so we have explained
+
+520
+00:21:10,000 --> 00:21:14,559
+ut
+
+521
+00:21:12,080 --> 00:21:17,039
+unicode encoding
+
+522
+00:21:14,559 --> 00:21:19,039
+and control
+
+523
+00:21:17,039 --> 00:21:22,000
+characters okay
+
+524
+00:21:19,039 --> 00:21:25,440
+so we have explained these things so far
+
+525
+00:21:22,000 --> 00:21:25,440
+and we have explained
+
+526
+00:21:28,480 --> 00:21:33,200
+lining conventions okay
+
+527
+00:21:31,280 --> 00:21:35,919
+um
+
+528
+00:21:33,200 --> 00:21:38,320
+and so so this is quite complex issue
+
+529
+00:21:35,919 --> 00:21:38,320
+because
+
+530
+00:21:38,960 --> 00:21:44,679
+because another issue about new line is
+
+531
+00:21:41,679 --> 00:21:44,679
+that
+
+532
+00:21:44,799 --> 00:21:50,480
+typically a file you know you have the
+
+533
+00:21:47,919 --> 00:21:52,559
+question whether the end of a file so
+
+534
+00:21:50,480 --> 00:21:55,039
+you know end of a file should it
+
+535
+00:21:52,559 --> 00:21:56,960
+followed by a new line or not
+
+536
+00:21:55,039 --> 00:21:58,720
+you know
+
+537
+00:21:56,960 --> 00:21:59,600
+uh if you
+
+538
+00:21:58,720 --> 00:22:02,559
+view
+
+539
+00:21:59,600 --> 00:22:05,120
+the new line as a separator between
+
+540
+00:22:02,559 --> 00:22:07,840
+lines then you don't need a new line at
+
+541
+00:22:05,120 --> 00:22:10,320
+the end of file but if you regard new
+
+542
+00:22:07,840 --> 00:22:12,880
+line as a kind of
+
+543
+00:22:10,320 --> 00:22:15,840
+line termination
+
+544
+00:22:12,880 --> 00:22:20,080
+symbol then you need a new line
+
+545
+00:22:15,840 --> 00:22:22,240
+at at the end of each file and in unix
+
+546
+00:22:20,080 --> 00:22:25,360
+you do re you know it's usually it's
+
+547
+00:22:22,240 --> 00:22:28,480
+required so this introduces another
+
+548
+00:22:25,360 --> 00:22:31,520
+complexity because for example if i have
+
+549
+00:22:28,480 --> 00:22:34,799
+emacs so i i saw some of the you know
+
+550
+00:22:31,520 --> 00:22:36,559
+line line ending i can just replace them
+
+551
+00:22:34,799 --> 00:22:39,200
+but when you save the file it
+
+552
+00:22:36,559 --> 00:22:41,039
+automatically adds a new line of
+
+553
+00:22:39,200 --> 00:22:43,360
+particular convention to your file so
+
+554
+00:22:41,039 --> 00:22:46,400
+that creates lots of problem because you
+
+555
+00:22:43,360 --> 00:22:47,679
+thought you you just removed all uh you
+
+556
+00:22:46,400 --> 00:22:50,240
+know or
+
+557
+00:22:47,679 --> 00:22:52,880
+some some new line but when you save it
+
+558
+00:22:50,240 --> 00:22:55,280
+just silently added to the end of the
+
+559
+00:22:52,880 --> 00:22:56,960
+file so you have to pay attention to
+
+560
+00:22:55,280 --> 00:22:59,679
+that
+
+561
+00:22:56,960 --> 00:23:02,240
+so that's about that so and in this
+
+562
+00:22:59,679 --> 00:23:04,159
+article i tell you how to you how to
+
+563
+00:23:02,240 --> 00:23:06,240
+convert okay between the line ending
+
+564
+00:23:04,159 --> 00:23:08,960
+conventions in emacs
+
+565
+00:23:06,240 --> 00:23:11,600
+uh then i also show you a
+
+566
+00:23:08,960 --> 00:23:15,280
+e-max list script
+
+567
+00:23:11,600 --> 00:23:18,159
+that allows you to convert
+
+568
+00:23:15,280 --> 00:23:20,799
+all files in your directory from one one
+
+569
+00:23:18,159 --> 00:23:22,799
+style to another the line-in convention
+
+570
+00:23:20,799 --> 00:23:25,600
+so let me show you how to do that okay
+
+571
+00:23:22,799 --> 00:23:29,039
+so we got the new uh so we got a new
+
+572
+00:23:25,600 --> 00:23:31,679
+file for example let's say okay so let's
+
+573
+00:23:29,039 --> 00:23:34,080
+remove that
+
+574
+00:23:31,679 --> 00:23:36,799
+let's just say something so you wanna
+
+575
+00:23:34,080 --> 00:23:39,120
+know
+
+576
+00:23:36,799 --> 00:23:41,679
+so first of all let me tell you in emacs
+
+577
+00:23:39,120 --> 00:23:44,480
+when you see something in a buffer the
+
+578
+00:23:41,679 --> 00:23:46,720
+line ending is always
+
+579
+00:23:44,480 --> 00:23:48,480
+line feed okay
+
+580
+00:23:46,720 --> 00:23:52,880
+doesn't matter whether you are on
+
+581
+00:23:48,480 --> 00:23:55,840
+windows on linux or mac on any anywhere
+
+582
+00:23:52,880 --> 00:23:57,520
+in a buffer the line ending is always
+
+583
+00:23:55,840 --> 00:24:00,159
+line feed
+
+584
+00:23:57,520 --> 00:24:03,360
+but when you save the file emacs will
+
+585
+00:24:00,159 --> 00:24:05,919
+automatically automatically convert or
+
+586
+00:24:03,360 --> 00:24:08,159
+transform whatever and save it to a file
+
+587
+00:24:05,919 --> 00:24:10,400
+or a sequence of bytes okay that's what
+
+588
+00:24:08,159 --> 00:24:12,480
+emax does but in the in the buffer you
+
+589
+00:24:10,400 --> 00:24:14,240
+will always just see
+
+590
+00:24:12,480 --> 00:24:16,720
+i mean that so in the buffer that
+
+591
+00:24:14,240 --> 00:24:18,559
+character is always just a
+
+592
+00:24:16,720 --> 00:24:20,240
+line feed
+
+593
+00:24:18,559 --> 00:24:23,279
+and uh
+
+594
+00:24:20,240 --> 00:24:25,200
+okay so the way emacs works is that so
+
+595
+00:24:23,279 --> 00:24:27,919
+you can see what is the current buffer
+
+596
+00:24:25,200 --> 00:24:30,080
+encoding so let's let's show okay so
+
+597
+00:24:27,919 --> 00:24:31,679
+um so you do
+
+598
+00:24:30,080 --> 00:24:34,080
+so here's what you do
+
+599
+00:24:31,679 --> 00:24:35,840
+you can see here you see
+
+600
+00:24:34,080 --> 00:24:37,440
+near the mode line
+
+601
+00:24:35,840 --> 00:24:40,400
+it says unix
+
+602
+00:24:37,440 --> 00:24:42,480
+you know so that means this buffer is
+
+603
+00:24:40,400 --> 00:24:44,320
+currently using the unique slide ending
+
+604
+00:24:42,480 --> 00:24:48,240
+convention when
+
+605
+00:24:44,320 --> 00:24:49,919
+when emacs save this to a file okay
+
+606
+00:24:48,240 --> 00:24:53,200
+that's important because
+
+607
+00:24:49,919 --> 00:24:54,960
+otherwise emacs always use elf i mean
+
+608
+00:24:53,200 --> 00:24:57,200
+that
+
+609
+00:24:54,960 --> 00:25:00,480
+you know this configuration only matters
+
+610
+00:24:57,200 --> 00:25:02,799
+when you save to the file okay so right
+
+611
+00:25:00,480 --> 00:25:05,760
+now so so how do you control so this
+
+612
+00:25:02,799 --> 00:25:07,760
+indicates it shows here so how do you
+
+613
+00:25:05,760 --> 00:25:09,760
+know which
+
+614
+00:25:07,760 --> 00:25:12,400
+convention is using by this variable
+
+615
+00:25:09,760 --> 00:25:13,279
+buffer file encoding system okay
+
+616
+00:25:12,400 --> 00:25:15,840
+so
+
+617
+00:25:13,279 --> 00:25:17,600
+so we can now we can do describe
+
+618
+00:25:15,840 --> 00:25:18,960
+variable
+
+619
+00:25:17,600 --> 00:25:20,240
+then type
+
+620
+00:25:18,960 --> 00:25:22,159
+buffer
+
+621
+00:25:20,240 --> 00:25:25,120
+file
+
+622
+00:25:22,159 --> 00:25:29,840
+coding system okay enter
+
+623
+00:25:25,120 --> 00:25:32,960
+so it says it tells you that its value
+
+624
+00:25:29,840 --> 00:25:36,159
+for this buffer is utf-8 unix that means
+
+625
+00:25:32,960 --> 00:25:39,039
+encoded using utf-8 and use the unix
+
+626
+00:25:36,159 --> 00:25:41,840
+line in convention okay
+
+627
+00:25:39,039 --> 00:25:44,080
+so this variable buffer file encoding
+
+628
+00:25:41,840 --> 00:25:47,039
+system
+
+629
+00:25:44,080 --> 00:25:49,520
+is the variable that controls
+
+630
+00:25:47,039 --> 00:25:51,760
+that tells emacs when you save the file
+
+631
+00:25:49,520 --> 00:25:54,400
+which lining convention it should use
+
+632
+00:25:51,760 --> 00:25:57,760
+okay so if you want to convert this
+
+633
+00:25:54,400 --> 00:25:59,760
+landing um to let's say windows so right
+
+634
+00:25:57,760 --> 00:26:03,120
+now it's unix you can see in the mode
+
+635
+00:25:59,760 --> 00:26:05,440
+line so if i want to convert it you
+
+636
+00:26:03,120 --> 00:26:05,440
+call
+
+637
+00:26:06,240 --> 00:26:11,039
+you call this command
+
+638
+00:26:08,159 --> 00:26:14,000
+set buffer file coding system so let's
+
+639
+00:26:11,039 --> 00:26:17,360
+do it so after we do it you'll see this
+
+640
+00:26:14,000 --> 00:26:20,480
+unix disappear okay so
+
+641
+00:26:17,360 --> 00:26:23,600
+set buffer file coding system enter
+
+642
+00:26:20,480 --> 00:26:25,840
+so i can type you know if you type tab
+
+643
+00:26:23,600 --> 00:26:28,480
+then you have all these you know
+
+644
+00:26:25,840 --> 00:26:30,840
+tens of encoding systems typically you
+
+645
+00:26:28,480 --> 00:26:32,480
+want to you you want to say
+
+646
+00:26:30,840 --> 00:26:33,520
+utf-8
+
+647
+00:26:32,480 --> 00:26:36,720
+tab
+
+648
+00:26:33,520 --> 00:26:38,480
+then utf-8 let's say
+
+649
+00:26:36,720 --> 00:26:40,240
+dos okay
+
+650
+00:26:38,480 --> 00:26:42,240
+dos is the
+
+651
+00:26:40,240 --> 00:26:45,440
+old name for windows
+
+652
+00:26:42,240 --> 00:26:48,559
+so if i say enter
+
+653
+00:26:45,440 --> 00:26:52,799
+okay now i need to say save okay uh
+
+654
+00:26:48,559 --> 00:26:55,600
+actually yeah save the file xx
+
+655
+00:26:52,799 --> 00:26:55,600
+dos okay
+
+656
+00:26:57,520 --> 00:27:01,640
+let's let's do it again
+
+657
+00:27:12,000 --> 00:27:18,880
+and it's not okay anyway i saved it i
+
+658
+00:27:15,919 --> 00:27:24,720
+saved it but this part is not updated
+
+659
+00:27:18,880 --> 00:27:24,720
+okay so let's close this file reopen it
+
+660
+00:27:25,200 --> 00:27:27,679
+and
+
+661
+00:27:28,399 --> 00:27:33,200
+set buffer coding system
+
+662
+00:27:31,640 --> 00:27:34,480
+utf-8
+
+663
+00:27:33,200 --> 00:27:36,000
+dos
+
+664
+00:27:34,480 --> 00:27:37,200
+okay
+
+665
+00:27:36,000 --> 00:27:39,760
+okay
+
+666
+00:27:37,200 --> 00:27:41,760
+uh i think this is a
+
+667
+00:27:39,760 --> 00:27:44,000
+e-max bug i'm not sure why you have to
+
+668
+00:27:41,760 --> 00:27:47,120
+do it twice but you can see now that
+
+669
+00:27:44,000 --> 00:27:49,039
+unix is good so save it again
+
+670
+00:27:47,120 --> 00:27:51,360
+you see
+
+671
+00:27:49,039 --> 00:27:54,640
+so that you know i don't think this is
+
+672
+00:27:51,360 --> 00:27:57,919
+this is a great design but because emacs
+
+673
+00:27:54,640 --> 00:28:00,000
+when your current encoding system is the
+
+674
+00:27:57,919 --> 00:28:02,240
+same as your operating systems
+
+675
+00:28:00,000 --> 00:28:05,840
+convention then it doesn't display
+
+676
+00:28:02,240 --> 00:28:08,480
+anything you can see there
+
+677
+00:28:05,840 --> 00:28:11,200
+so anyway that's how you change file
+
+678
+00:28:08,480 --> 00:28:12,880
+encoding in emacs change new line
+
+679
+00:28:11,200 --> 00:28:14,559
+conventions okay
+
+680
+00:28:12,880 --> 00:28:15,600
+and uh
+
+681
+00:28:14,559 --> 00:28:18,880
+okay i'm
+
+682
+00:28:15,600 --> 00:28:18,880
+so what uh
+
+683
+00:28:20,080 --> 00:28:23,960
+questions any questions hello jordan
+
+684
+00:28:23,200 --> 00:28:26,399
+jonathan
+
+685
+00:28:23,960 --> 00:28:29,600
+[Music]
+
+686
+00:28:26,399 --> 00:28:32,000
+hello ryan are those
+
+687
+00:28:29,600 --> 00:28:33,440
+are here no that's not working
+
+688
+00:28:32,000 --> 00:28:35,600
+screen that's a
+
+689
+00:28:33,440 --> 00:28:38,080
+cherry mx red this keyboard you are
+
+690
+00:28:35,600 --> 00:28:38,080
+looking at
+
+691
+00:28:39,840 --> 00:28:44,480
+uh
+
+692
+00:28:40,720 --> 00:28:47,120
+i'm not so mor says much more interest
+
+693
+00:28:44,480 --> 00:28:50,159
+interested in how people encode big data
+
+694
+00:28:47,120 --> 00:28:50,159
+what do you mean by that
+
+695
+00:28:50,240 --> 00:28:54,880
+there's no there's nothing
+
+696
+00:28:52,640 --> 00:28:59,840
+really there's nothing special about big
+
+697
+00:28:54,880 --> 00:29:02,720
+data any data you have any data
+
+698
+00:28:59,840 --> 00:29:04,960
+is saved as binary okay it's it's it's
+
+699
+00:29:02,720 --> 00:29:08,000
+when you save to file it doesn't matter
+
+700
+00:29:04,960 --> 00:29:10,320
+what kind of storage system it's saved
+
+701
+00:29:08,000 --> 00:29:12,960
+you know essentially as a bunch of
+
+702
+00:29:10,320 --> 00:29:14,720
+numbers binary digits okay
+
+703
+00:29:12,960 --> 00:29:16,640
+now um
+
+704
+00:29:14,720 --> 00:29:19,440
+yeah doesn't matter it's big data or
+
+705
+00:29:16,640 --> 00:29:21,120
+image file or text file whatever when
+
+706
+00:29:19,440 --> 00:29:24,080
+you store something on computer it's a
+
+707
+00:29:21,120 --> 00:29:24,080
+sequence of bytes
+
+708
+00:29:25,440 --> 00:29:29,600
+gonna compile my text files for every
+
+709
+00:29:27,760 --> 00:29:31,919
+operating system what i don't see what
+
+710
+00:29:29,600 --> 00:29:31,919
+you mean
+
+711
+00:29:33,039 --> 00:29:37,679
+so anyway so that's uh emax issue so
+
+712
+00:29:39,200 --> 00:29:42,640
+okay so let's see
+
+713
+00:29:44,480 --> 00:29:51,720
+what are we going to talk about next so
+
+714
+00:29:46,720 --> 00:29:51,720
+i'm talking so let's go to um
+
+715
+00:29:55,919 --> 00:30:01,360
+so i want to explain i explained we
+
+716
+00:29:58,000 --> 00:30:02,880
+explained what it is uh we expand ascii
+
+717
+00:30:01,360 --> 00:30:04,240
+control characters
+
+718
+00:30:02,880 --> 00:30:07,200
+we explain
+
+719
+00:30:04,240 --> 00:30:09,279
+sure how to insert line feed and control
+
+720
+00:30:07,200 --> 00:30:11,520
+characters in emacs okay the way you do
+
+721
+00:30:09,279 --> 00:30:13,840
+that is
+
+722
+00:30:11,520 --> 00:30:14,799
+so if you want to insert the line feed
+
+723
+00:30:13,840 --> 00:30:15,679
+okay
+
+724
+00:30:14,799 --> 00:30:17,200
+so
+
+725
+00:30:15,679 --> 00:30:19,840
+if you want to insert the carriage
+
+726
+00:30:17,200 --> 00:30:22,880
+return you press ctrl q
+
+727
+00:30:19,840 --> 00:30:23,919
+then ctrl m okay that's the carriage
+
+728
+00:30:22,880 --> 00:30:26,640
+return
+
+729
+00:30:23,919 --> 00:30:27,919
+now if you want to insert the line feed
+
+730
+00:30:26,640 --> 00:30:29,440
+ctrl q
+
+731
+00:30:27,919 --> 00:30:30,640
+ctrl j
+
+732
+00:30:29,440 --> 00:30:32,960
+okay
+
+733
+00:30:30,640 --> 00:30:36,720
+now because like i said before because
+
+734
+00:30:32,960 --> 00:30:38,960
+ctrl j the line feed is what emacs use
+
+735
+00:30:36,720 --> 00:30:41,120
+for to represent the new line so you
+
+736
+00:30:38,960 --> 00:30:43,200
+don't even see it so it's actually same
+
+737
+00:30:41,120 --> 00:30:45,120
+as when you press return so let's do it
+
+738
+00:30:43,200 --> 00:30:47,760
+again so let's see
+
+739
+00:30:45,120 --> 00:30:49,760
+so for example something so i want to
+
+740
+00:30:47,760 --> 00:30:52,000
+insert a
+
+741
+00:30:49,760 --> 00:30:53,360
+line feed in between okay
+
+742
+00:30:52,000 --> 00:30:54,399
+so ctrl
+
+743
+00:30:53,360 --> 00:30:57,760
+q
+
+744
+00:30:54,399 --> 00:31:00,880
+ctrl j you see it's simply just
+
+745
+00:30:57,760 --> 00:31:00,880
+it's like you don't see it
+
+746
+00:31:01,519 --> 00:31:05,519
+so if you want to so that's how you
+
+747
+00:31:04,080 --> 00:31:08,159
+insert
+
+748
+00:31:05,519 --> 00:31:10,559
+control characters in emacs
+
+749
+00:31:08,159 --> 00:31:12,159
+so let me show you uh let me show you
+
+750
+00:31:10,559 --> 00:31:14,320
+what it means
+
+751
+00:31:12,159 --> 00:31:17,279
+so
+
+752
+00:31:14,320 --> 00:31:19,679
+so if we look at ascii table again
+
+753
+00:31:17,279 --> 00:31:23,600
+so let's say how do you insert the bell
+
+754
+00:31:19,679 --> 00:31:23,600
+so there is a bell character
+
+755
+00:31:25,519 --> 00:31:30,080
+so you can see there's a bell character
+
+756
+00:31:28,000 --> 00:31:32,240
+so how do you insert that in e-max you
+
+757
+00:31:30,080 --> 00:31:34,080
+can do the same way so the barrel
+
+758
+00:31:32,240 --> 00:31:36,799
+character is represent the correct
+
+759
+00:31:34,080 --> 00:31:38,960
+notation is g so each of these control
+
+760
+00:31:36,799 --> 00:31:40,640
+characters they have several uh
+
+761
+00:31:38,960 --> 00:31:42,559
+notations
+
+762
+00:31:40,640 --> 00:31:45,039
+so you have decimal
+
+763
+00:31:42,559 --> 00:31:46,559
+uh code point in decimal point in
+
+764
+00:31:45,039 --> 00:31:49,760
+hexadecimal
+
+765
+00:31:46,559 --> 00:31:49,760
+and you have
+
+766
+00:31:50,320 --> 00:31:54,399
+then you have abbreviation for example
+
+767
+00:31:52,720 --> 00:31:56,799
+the
+
+768
+00:31:54,399 --> 00:31:58,880
+abbreviation nu for you know the code
+
+769
+00:31:56,799 --> 00:32:00,480
+point zero then you have the correct
+
+770
+00:31:58,880 --> 00:32:02,559
+notation okay so
+
+771
+00:32:00,480 --> 00:32:04,640
+here's the correct notation for these
+
+772
+00:32:02,559 --> 00:32:08,480
+control characters then you have the
+
+773
+00:32:04,640 --> 00:32:11,760
+unix c convention of escape mechanism
+
+774
+00:32:08,480 --> 00:32:13,840
+okay this is actually the
+
+775
+00:32:11,760 --> 00:32:16,799
+not and you know i don't think it's a
+
+776
+00:32:13,840 --> 00:32:18,720
+good design so but this is uh what we
+
+777
+00:32:16,799 --> 00:32:20,080
+are used to you know everyone knows
+
+778
+00:32:18,720 --> 00:32:21,360
+about
+
+779
+00:32:20,080 --> 00:32:24,399
+slash n
+
+780
+00:32:21,360 --> 00:32:26,399
+and slash r and slash t that's the most
+
+781
+00:32:24,399 --> 00:32:28,399
+common
+
+782
+00:32:26,399 --> 00:32:32,559
+so you have different notations for
+
+783
+00:32:28,399 --> 00:32:32,559
+these characters and and one of the
+
+784
+00:32:32,880 --> 00:32:37,600
+you know and unicode also came up with a
+
+785
+00:32:35,679 --> 00:32:39,919
+character to represent these control
+
+786
+00:32:37,600 --> 00:32:41,440
+characters you see those are unicodes so
+
+787
+00:32:39,919 --> 00:32:44,799
+for example
+
+788
+00:32:41,440 --> 00:32:45,840
+we can actually copy that let's see so
+
+789
+00:32:44,799 --> 00:32:48,559
+you see
+
+790
+00:32:45,840 --> 00:32:50,720
+copy this and
+
+791
+00:32:48,559 --> 00:32:52,480
+paste it here
+
+792
+00:32:50,720 --> 00:32:53,840
+let's magnify
+
+793
+00:32:52,480 --> 00:32:57,600
+magnify
+
+794
+00:32:53,840 --> 00:33:00,640
+okay so you can see each one of these is
+
+795
+00:32:57,600 --> 00:33:04,480
+a actually a unix character so if i put
+
+796
+00:33:00,640 --> 00:33:07,440
+a cursor here i call describe character
+
+797
+00:33:04,480 --> 00:33:08,840
+you can see emacs tell me it's this
+
+798
+00:33:07,440 --> 00:33:10,720
+character
+
+799
+00:33:08,840 --> 00:33:12,240
+point
+
+800
+00:33:10,720 --> 00:33:15,120
+9216
+
+801
+00:33:12,240 --> 00:33:18,640
+because this is a unicode character
+
+802
+00:33:15,120 --> 00:33:20,159
+that represents that's a representation
+
+803
+00:33:18,640 --> 00:33:22,720
+for
+
+804
+00:33:20,159 --> 00:33:23,760
+for this new character control character
+
+805
+00:33:22,720 --> 00:33:26,159
+nu
+
+806
+00:33:23,760 --> 00:33:29,159
+but this unicode character itself is
+
+807
+00:33:26,159 --> 00:33:29,159
+2.9216
+
+808
+00:33:29,279 --> 00:33:33,440
+and you can see the name of this
+
+809
+00:33:31,440 --> 00:33:34,720
+character is symbol for nu
+
+810
+00:33:33,440 --> 00:33:38,640
+so
+
+811
+00:33:34,720 --> 00:33:41,519
+so that's pretty new that's a unicode uh
+
+812
+00:33:38,640 --> 00:33:44,320
+created a notation a character to
+
+813
+00:33:41,519 --> 00:33:47,039
+represent these control characters
+
+814
+00:33:44,320 --> 00:33:48,799
+and the correct notation uh let's see so
+
+815
+00:33:47,039 --> 00:33:49,919
+the correct notation is one of the
+
+816
+00:33:48,799 --> 00:33:53,039
+oldest
+
+817
+00:33:49,919 --> 00:33:55,360
+so the correct notation is
+
+818
+00:33:53,039 --> 00:33:56,240
+it is simply alphabetical for example
+
+819
+00:33:55,360 --> 00:33:59,120
+the
+
+820
+00:33:56,240 --> 00:34:00,640
+you know it's just abc
+
+821
+00:33:59,120 --> 00:34:05,120
+abcde
+
+822
+00:34:00,640 --> 00:34:06,640
+so that is why the line feed is j
+
+823
+00:34:05,120 --> 00:34:08,960
+you know you might be wondering why is
+
+824
+00:34:06,640 --> 00:34:11,839
+line feed j because you know it's just
+
+825
+00:34:08,960 --> 00:34:13,839
+alphabetical and the carriage return
+
+826
+00:34:11,839 --> 00:34:15,679
+happened to be m
+
+827
+00:34:13,839 --> 00:34:19,040
+and the tab the
+
+828
+00:34:15,679 --> 00:34:22,079
+vertical tab happen to be i so that's i
+
+829
+00:34:19,040 --> 00:34:25,280
+so i can insert a tab let's let me show
+
+830
+00:34:22,079 --> 00:34:26,960
+you i can insert the tab by pressing
+
+831
+00:34:25,280 --> 00:34:28,399
+ctrl
+
+832
+00:34:26,960 --> 00:34:31,359
+q
+
+833
+00:34:28,399 --> 00:34:36,079
+okay i'm using a very keyboard then ctrl
+
+834
+00:34:31,359 --> 00:34:40,639
+i is key okay so you see that's a tab
+
+835
+00:34:36,079 --> 00:34:40,639
+now show space you see that's a tab
+
+836
+00:34:41,760 --> 00:34:46,320
+so that is why that's the explanation of
+
+837
+00:34:45,359 --> 00:34:48,399
+this
+
+838
+00:34:46,320 --> 00:34:49,280
+correct notation
+
+839
+00:34:48,399 --> 00:34:51,040
+okay
+
+840
+00:34:49,280 --> 00:34:53,520
+that's the explanation of the different
+
+841
+00:34:51,040 --> 00:34:56,320
+notations for these control characters
+
+842
+00:34:53,520 --> 00:34:58,400
+and we also have the escape
+
+843
+00:34:56,320 --> 00:35:00,560
+syntax that's from c
+
+844
+00:34:58,400 --> 00:35:02,640
+you know when you inside the string you
+
+845
+00:35:00,560 --> 00:35:04,960
+represent these characters by this
+
+846
+00:35:02,640 --> 00:35:07,200
+escape mechanism
+
+847
+00:35:04,960 --> 00:35:09,040
+okay the string syntax is another
+
+848
+00:35:07,200 --> 00:35:11,440
+interesting question but let's skip it
+
+849
+00:35:09,040 --> 00:35:11,440
+today
+
+850
+00:35:14,640 --> 00:35:19,760
+okay so this is a question so vice q
+
+851
+00:35:17,040 --> 00:35:22,320
+says why do you say it's better to use
+
+852
+00:35:19,760 --> 00:35:23,200
+just carriage return rather than line
+
+853
+00:35:22,320 --> 00:35:24,079
+feed
+
+854
+00:35:23,200 --> 00:35:26,160
+well
+
+855
+00:35:24,079 --> 00:35:29,119
+you see carriage return
+
+856
+00:35:26,160 --> 00:35:31,119
+it makes the most logical sense
+
+857
+00:35:29,119 --> 00:35:32,880
+you know what do you like for example
+
+858
+00:35:31,119 --> 00:35:33,839
+what do you think if you ask a common
+
+859
+00:35:32,880 --> 00:35:36,320
+question
+
+860
+00:35:33,839 --> 00:35:38,400
+if you ask average people
+
+861
+00:35:36,320 --> 00:35:42,240
+carriage return
+
+862
+00:35:38,400 --> 00:35:44,079
+like uh carriage return versus form feed
+
+863
+00:35:42,240 --> 00:35:46,480
+you know carriage return is more
+
+864
+00:35:44,079 --> 00:35:49,040
+intuitive because that's the came from
+
+865
+00:35:46,480 --> 00:35:51,280
+the typewriter you return you just you
+
+866
+00:35:49,040 --> 00:35:55,280
+press the return key you see i mean even
+
+867
+00:35:51,280 --> 00:35:57,680
+correspond to the keyboard return key
+
+868
+00:35:55,280 --> 00:35:59,359
+uh return you know you move the cursor
+
+869
+00:35:57,680 --> 00:36:01,599
+from the right return to the original
+
+870
+00:35:59,359 --> 00:36:06,000
+position on the left you know that's a
+
+871
+00:36:01,599 --> 00:36:06,000
+kind of history mechanical typewriters
+
+872
+00:36:07,040 --> 00:36:11,440
+so you can see history of mechanical
+
+873
+00:36:09,440 --> 00:36:14,720
+typewriters uh
+
+874
+00:36:11,440 --> 00:36:14,720
+here so let's see
+
+875
+00:36:16,240 --> 00:36:21,200
+okay so you know you have here several
+
+876
+00:36:19,119 --> 00:36:23,680
+of the ancient
+
+877
+00:36:21,200 --> 00:36:24,640
+mechanical typewriters
+
+878
+00:36:23,680 --> 00:36:27,200
+and
+
+879
+00:36:24,640 --> 00:36:29,119
+you know back then even the return key
+
+880
+00:36:27,200 --> 00:36:31,040
+is not standardized
+
+881
+00:36:29,119 --> 00:36:34,320
+so on this one
+
+882
+00:36:31,040 --> 00:36:34,320
+where is the return key
+
+883
+00:36:36,079 --> 00:36:41,839
+uh this is what this is french or what
+
+884
+00:36:38,960 --> 00:36:44,160
+they have a mr but i don't see a return
+
+885
+00:36:41,839 --> 00:36:47,520
+but anyway pretty soon
+
+886
+00:36:44,160 --> 00:36:49,839
+i think very early on it's it became
+
+887
+00:36:47,520 --> 00:36:54,000
+standard you know look at this one the
+
+888
+00:36:49,839 --> 00:36:56,640
+numbers on are on the side you see in
+
+889
+00:36:54,000 --> 00:36:57,680
+the you know they have two space bars
+
+890
+00:36:56,640 --> 00:37:00,079
+you know
+
+891
+00:36:57,680 --> 00:37:02,160
+and this and and well another
+
+892
+00:37:00,079 --> 00:37:03,119
+interesting thing about this one is that
+
+893
+00:37:02,160 --> 00:37:05,280
+it's
+
+894
+00:37:03,119 --> 00:37:06,720
+orthogonal
+
+895
+00:37:05,280 --> 00:37:09,920
+you know you keep both mechanical
+
+896
+00:37:06,720 --> 00:37:11,760
+keyboard nuts this is not not staggered
+
+897
+00:37:09,920 --> 00:37:14,160
+you know typically you have this weird
+
+898
+00:37:11,760 --> 00:37:17,200
+staggering this is orthogonal okay so
+
+899
+00:37:14,160 --> 00:37:19,839
+this one is smith premier typewriter
+
+900
+00:37:17,200 --> 00:37:21,760
+from what year
+
+901
+00:37:19,839 --> 00:37:23,920
+1896
+
+902
+00:37:21,760 --> 00:37:26,480
+so anyway let's get back to focus on the
+
+903
+00:37:23,920 --> 00:37:28,640
+return key so i want to show you and by
+
+904
+00:37:26,480 --> 00:37:31,920
+the way on this typewriter this is a
+
+905
+00:37:28,640 --> 00:37:34,720
+spacebar okay the the the two things on
+
+906
+00:37:31,920 --> 00:37:35,760
+the side that's the space spa
+
+907
+00:37:34,720 --> 00:37:38,720
+okay
+
+908
+00:37:35,760 --> 00:37:40,320
+oh yeah carriage return you know why why
+
+909
+00:37:38,720 --> 00:37:42,240
+why you don't see your carriage return
+
+910
+00:37:40,320 --> 00:37:45,760
+key because back then
+
+911
+00:37:42,240 --> 00:37:46,960
+you have this um this thing you like the
+
+912
+00:37:45,760 --> 00:37:48,720
+thing
+
+913
+00:37:46,960 --> 00:37:51,280
+the mechanical bar
+
+914
+00:37:48,720 --> 00:37:52,480
+you hold it and you push it to the left
+
+915
+00:37:51,280 --> 00:37:55,520
+to move the
+
+916
+00:37:52,480 --> 00:37:57,839
+to move the head you know the whole
+
+917
+00:37:55,520 --> 00:37:59,680
+that's why you know the the mechanism to
+
+918
+00:37:57,839 --> 00:38:01,599
+the left okay that's why you don't see a
+
+919
+00:37:59,680 --> 00:38:05,119
+return key
+
+920
+00:38:01,599 --> 00:38:07,599
+uh so you see a picture where i show
+
+921
+00:38:05,119 --> 00:38:10,160
+yeah here i i guess well the picture is
+
+922
+00:38:07,599 --> 00:38:12,560
+not too big
+
+923
+00:38:10,160 --> 00:38:15,599
+you see that bar okay so but but i can
+
+924
+00:38:12,560 --> 00:38:17,040
+show you wait i can show you one of the
+
+925
+00:38:15,599 --> 00:38:18,560
+um
+
+926
+00:38:17,040 --> 00:38:21,599
+you'll see
+
+927
+00:38:18,560 --> 00:38:26,000
+the carriage return bar
+
+928
+00:38:21,599 --> 00:38:28,240
+is emulated in this retro keyboard okay
+
+929
+00:38:26,000 --> 00:38:28,240
+so
+
+930
+00:38:28,880 --> 00:38:30,800
+here
+
+931
+00:38:29,760 --> 00:38:32,640
+okay
+
+932
+00:38:30,800 --> 00:38:34,960
+you see that bar
+
+933
+00:38:32,640 --> 00:38:37,359
+you see that but it does nothing on this
+
+934
+00:38:34,960 --> 00:38:40,480
+keyboard you know this is a emulation of
+
+935
+00:38:37,359 --> 00:38:43,280
+the retro style but it's just uh it's
+
+936
+00:38:40,480 --> 00:38:44,640
+just a modern keyboard but that bar so
+
+937
+00:38:43,280 --> 00:38:47,359
+why do they have that but that's a
+
+938
+00:38:44,640 --> 00:38:50,480
+carriage return you know you you push
+
+939
+00:38:47,359 --> 00:38:51,440
+that to the other way to the left
+
+940
+00:38:50,480 --> 00:38:53,920
+so
+
+941
+00:38:51,440 --> 00:38:56,000
+you know so that's the spot okay so why
+
+942
+00:38:53,920 --> 00:38:57,599
+is it return well you return the whole
+
+943
+00:38:56,000 --> 00:39:00,240
+thing the carriage that's the thing you
+
+944
+00:38:57,599 --> 00:39:02,640
+know the carriage return then it becomes
+
+945
+00:39:00,240 --> 00:39:05,520
+you know it became computers character
+
+946
+00:39:02,640 --> 00:39:07,440
+carriage return then it becomes a key
+
+947
+00:39:05,520 --> 00:39:10,240
+return key you know return to the
+
+948
+00:39:07,440 --> 00:39:11,760
+original position and and also another
+
+949
+00:39:10,240 --> 00:39:13,680
+you know let me show you another you
+
+950
+00:39:11,760 --> 00:39:15,760
+know so this is all
+
+951
+00:39:13,680 --> 00:39:18,480
+intertwined together that's history
+
+952
+00:39:15,760 --> 00:39:19,680
+that's how we got what we have you know
+
+953
+00:39:18,480 --> 00:39:21,119
+that's why
+
+954
+00:39:19,680 --> 00:39:23,119
+you know many things maybe it doesn't
+
+955
+00:39:21,119 --> 00:39:26,079
+make sense but there's a
+
+956
+00:39:23,119 --> 00:39:28,240
+there's a reason for that for that
+
+957
+00:39:26,079 --> 00:39:29,920
+you know so why is it for example why is
+
+958
+00:39:28,240 --> 00:39:32,000
+it called carriage return why don't you
+
+959
+00:39:29,920 --> 00:39:33,359
+just call it return why don't you just
+
+960
+00:39:32,000 --> 00:39:36,400
+call it enter
+
+961
+00:39:33,359 --> 00:39:38,400
+and form feed of course line feed you
+
+962
+00:39:36,400 --> 00:39:42,079
+know you have line feed and foam feed
+
+963
+00:39:38,400 --> 00:39:43,280
+they also have their own history
+
+964
+00:39:42,079 --> 00:39:45,680
+so
+
+965
+00:39:43,280 --> 00:39:46,560
+but if you are asking me which one is
+
+966
+00:39:45,680 --> 00:39:49,920
+more
+
+967
+00:39:46,560 --> 00:39:53,119
+logical i would say today you know given
+
+968
+00:39:49,920 --> 00:39:54,480
+if if we have to use one of these uh sim
+
+969
+00:39:53,119 --> 00:39:56,320
+you know this
+
+970
+00:39:54,480 --> 00:39:59,599
+you know ascii table which we are stuck
+
+971
+00:39:56,320 --> 00:40:02,000
+with because you if you invent view new
+
+972
+00:39:59,599 --> 00:40:05,119
+then your system is gonna
+
+973
+00:40:02,000 --> 00:40:07,839
+be not compatible with anything else
+
+974
+00:40:05,119 --> 00:40:09,680
+you know you can't use anything
+
+975
+00:40:07,839 --> 00:40:12,319
+so if we
+
+976
+00:40:09,680 --> 00:40:15,359
+given the you know given these control
+
+977
+00:40:12,319 --> 00:40:17,440
+characters we have to choose one for for
+
+978
+00:40:15,359 --> 00:40:19,200
+to represent the new line i would say
+
+979
+00:40:17,440 --> 00:40:23,200
+today you know this character is the
+
+980
+00:40:19,200 --> 00:40:25,760
+more the most intuitive carriage return
+
+981
+00:40:23,200 --> 00:40:27,359
+okay and and why is it called you know
+
+982
+00:40:25,760 --> 00:40:29,359
+so carriage you know why is it called
+
+983
+00:40:27,359 --> 00:40:31,119
+carriage well because you know that that
+
+984
+00:40:29,359 --> 00:40:34,079
+that mechanical thing is called carriage
+
+985
+00:40:31,119 --> 00:40:36,319
+and also let me show you a return symbol
+
+986
+00:40:34,079 --> 00:40:36,319
+okay
+
+987
+00:40:36,480 --> 00:40:40,400
+keyboard for example keyboard
+
+988
+00:40:39,440 --> 00:40:43,760
+keys
+
+989
+00:40:40,400 --> 00:40:46,400
+so here we look at keyboard keys and we
+
+990
+00:40:43,760 --> 00:40:48,800
+have the enter key many different
+
+991
+00:40:46,400 --> 00:40:51,680
+designs for the enter key many different
+
+992
+00:40:48,800 --> 00:40:54,160
+shapes and we have the
+
+993
+00:40:51,680 --> 00:40:56,720
+symbolic representation you know which
+
+994
+00:40:54,160 --> 00:40:59,040
+symbol to represent the
+
+995
+00:40:56,720 --> 00:41:00,800
+uh the return character the new line
+
+996
+00:40:59,040 --> 00:41:03,119
+character for example that's another
+
+997
+00:41:00,800 --> 00:41:05,200
+interesting question for example as we
+
+998
+00:41:03,119 --> 00:41:07,040
+have seen
+
+999
+00:41:05,200 --> 00:41:09,280
+uh
+
+1000
+00:41:07,040 --> 00:41:09,280
+what
+
+1001
+00:41:10,160 --> 00:41:16,079
+okay for example when in emacs i turn on
+
+1002
+00:41:13,760 --> 00:41:18,960
+i turn on
+
+1003
+00:41:16,079 --> 00:41:21,040
+white space mod to show the white space
+
+1004
+00:41:18,960 --> 00:41:22,960
+you can see
+
+1005
+00:41:21,040 --> 00:41:25,200
+i'm using personally i'm using a
+
+1006
+00:41:22,960 --> 00:41:26,079
+paragraph sign
+
+1007
+00:41:25,200 --> 00:41:31,359
+so
+
+1008
+00:41:26,079 --> 00:41:31,359
+but if i want to i can also use um
+
+1009
+00:41:32,960 --> 00:41:36,400
+okay let me show you okay so
+
+1010
+00:41:37,839 --> 00:41:42,720
+okay that's a paragraph sign okay
+
+1011
+00:41:40,960 --> 00:41:44,960
+that's a unicode
+
+1012
+00:41:42,720 --> 00:41:45,839
+code point 182
+
+1013
+00:41:44,960 --> 00:41:47,599
+uh
+
+1014
+00:41:45,839 --> 00:41:52,880
+the name of that character is called p
+
+1015
+00:41:47,599 --> 00:41:55,280
+cosine okay that but i can use also
+
+1016
+00:41:52,880 --> 00:41:58,800
+okay i can also use this symbol to
+
+1017
+00:41:55,280 --> 00:42:01,200
+represent the new line okay
+
+1018
+00:41:58,800 --> 00:42:03,359
+so that this character is unicode
+
+1019
+00:42:01,200 --> 00:42:04,880
+codepoint9166
+
+1020
+00:42:03,359 --> 00:42:06,880
+and the name is
+
+1021
+00:42:04,880 --> 00:42:10,240
+return symbol okay
+
+1022
+00:42:06,880 --> 00:42:10,240
+but i can also use
+
+1023
+00:42:10,880 --> 00:42:15,359
+enter okay this is another interesting
+
+1024
+00:42:12,720 --> 00:42:17,760
+character now this unicode character the
+
+1025
+00:42:15,359 --> 00:42:20,079
+name is called
+
+1026
+00:42:17,760 --> 00:42:22,079
+enter key okay
+
+1027
+00:42:20,079 --> 00:42:24,400
+the old name now they have a new name
+
+1028
+00:42:22,079 --> 00:42:27,359
+the new name is up arrowhead between two
+
+1029
+00:42:24,400 --> 00:42:28,160
+horizontal bars but it was called enter
+
+1030
+00:42:27,359 --> 00:42:30,720
+key
+
+1031
+00:42:28,160 --> 00:42:32,720
+so what is this key about so it's you
+
+1032
+00:42:30,720 --> 00:42:36,160
+know so that's history so you have the
+
+1033
+00:42:32,720 --> 00:42:39,599
+return key but on the numerical keypad
+
+1034
+00:42:36,160 --> 00:42:42,880
+you have also a key called enter so
+
+1035
+00:42:39,599 --> 00:42:44,560
+usually this represents that key
+
+1036
+00:42:42,880 --> 00:42:46,240
+but again
+
+1037
+00:42:44,560 --> 00:42:48,319
+you know if you look at
+
+1038
+00:42:46,240 --> 00:42:50,240
+you know mac keyboard you know some some
+
+1039
+00:42:48,319 --> 00:42:52,240
+of them call this key enter some of them
+
+1040
+00:42:50,240 --> 00:42:55,040
+call it return so you know so you have
+
+1041
+00:42:52,240 --> 00:42:56,960
+lots of these interesting things
+
+1042
+00:42:55,040 --> 00:42:58,880
+and another thing i want to
+
+1043
+00:42:56,960 --> 00:43:01,839
+say is that you can also use this
+
+1044
+00:42:58,880 --> 00:43:03,839
+character for example all these
+
+1045
+00:43:01,839 --> 00:43:04,800
+all these characters
+
+1046
+00:43:03,839 --> 00:43:08,400
+uh
+
+1047
+00:43:04,800 --> 00:43:09,839
+wrappers can can be used to represent
+
+1048
+00:43:08,400 --> 00:43:12,640
+uh
+
+1049
+00:43:09,839 --> 00:43:15,760
+you know the enter key for example on
+
+1050
+00:43:12,640 --> 00:43:17,920
+the mac on the mac if you look at uh max
+
+1051
+00:43:15,760 --> 00:43:19,040
+documentation apple's documentation they
+
+1052
+00:43:17,920 --> 00:43:22,560
+use this
+
+1053
+00:43:19,040 --> 00:43:25,599
+hooked arrow okay so the character
+
+1054
+00:43:22,560 --> 00:43:28,160
+of this character is called
+
+1055
+00:43:25,599 --> 00:43:30,240
+leftwards arrow with hook
+
+1056
+00:43:28,160 --> 00:43:32,720
+so
+
+1057
+00:43:30,240 --> 00:43:35,280
+you see here's a
+
+1058
+00:43:32,720 --> 00:43:37,599
+apple's documentation and you can see
+
+1059
+00:43:35,280 --> 00:43:38,960
+the character there and they they use
+
+1060
+00:43:37,599 --> 00:43:42,240
+this enter
+
+1061
+00:43:38,960 --> 00:43:44,960
+symbol to represent the enter key on the
+
+1062
+00:43:42,240 --> 00:43:46,800
+number pad okay so that's all the
+
+1063
+00:43:44,960 --> 00:43:48,000
+interesting um
+
+1064
+00:43:46,800 --> 00:43:48,880
+things
+
+1065
+00:43:48,000 --> 00:43:51,280
+so
+
+1066
+00:43:48,880 --> 00:43:52,960
+right now we are talking about how does
+
+1067
+00:43:51,280 --> 00:43:55,280
+this relate to the control character
+
+1068
+00:43:52,960 --> 00:43:58,319
+this is a
+
+1069
+00:43:55,280 --> 00:44:00,480
+graphical representation of the concept
+
+1070
+00:43:58,319 --> 00:44:03,280
+of new line so it's kind of confusing so
+
+1071
+00:44:00,480 --> 00:44:06,319
+let me show you okay so
+
+1072
+00:44:03,280 --> 00:44:07,599
+it's really interesting
+
+1073
+00:44:06,319 --> 00:44:09,599
+so you see
+
+1074
+00:44:07,599 --> 00:44:11,040
+let me let me explain so you see this
+
+1075
+00:44:09,599 --> 00:44:15,520
+paragraph sign
+
+1076
+00:44:11,040 --> 00:44:18,000
+so why should you use a paragraph sign
+
+1077
+00:44:15,520 --> 00:44:18,800
+instead of the you know instead of you
+
+1078
+00:44:18,000 --> 00:44:20,800
+know
+
+1079
+00:44:18,800 --> 00:44:22,400
+you know which one is the best so if you
+
+1080
+00:44:20,800 --> 00:44:24,400
+are design for example if you are
+
+1081
+00:44:22,400 --> 00:44:26,960
+designing an editor
+
+1082
+00:44:24,400 --> 00:44:29,599
+and you want to show white space or in a
+
+1083
+00:44:26,960 --> 00:44:31,760
+word processing word processor so you
+
+1084
+00:44:29,599 --> 00:44:34,319
+have the question you know which which
+
+1085
+00:44:31,760 --> 00:44:36,800
+one of these should you use to represent
+
+1086
+00:44:34,319 --> 00:44:39,440
+a new line
+
+1087
+00:44:36,800 --> 00:44:42,560
+for me i actually customized my emacs
+
+1088
+00:44:39,440 --> 00:44:44,319
+you know to show uh to use a pure cosine
+
+1089
+00:44:42,560 --> 00:44:48,000
+but
+
+1090
+00:44:44,319 --> 00:44:50,480
+but but this this
+
+1091
+00:44:48,000 --> 00:44:52,160
+these two will also make sense but this
+
+1092
+00:44:50,480 --> 00:44:53,280
+not so much because it's kind of
+
+1093
+00:44:52,160 --> 00:44:55,680
+outlined
+
+1094
+00:44:53,280 --> 00:44:58,240
+and also it will it also depends on what
+
+1095
+00:44:55,680 --> 00:45:01,280
+which font you use and this one wouldn't
+
+1096
+00:44:58,240 --> 00:45:04,280
+be appropriate because that represents a
+
+1097
+00:45:01,280 --> 00:45:04,280
+enter
+
+1098
+00:45:04,640 --> 00:45:09,680
+so you can see even it's almost exactly
+
+1099
+00:45:08,000 --> 00:45:12,240
+the same thing but there's so many
+
+1100
+00:45:09,680 --> 00:45:14,240
+different aspects you know
+
+1101
+00:45:12,240 --> 00:45:16,960
+so let me let me write it down so let me
+
+1102
+00:45:14,240 --> 00:45:18,560
+explain so what what's the issue here
+
+1103
+00:45:16,960 --> 00:45:21,359
+so let's
+
+1104
+00:45:18,560 --> 00:45:23,599
+shrink to the original font size what is
+
+1105
+00:45:21,359 --> 00:45:26,880
+this keyboard block close
+
+1106
+00:45:23,599 --> 00:45:28,319
+let's um shrink to original font size
+
+1107
+00:45:26,880 --> 00:45:30,960
+showing browser
+
+1108
+00:45:28,319 --> 00:45:32,960
+so we talked about that
+
+1109
+00:45:30,960 --> 00:45:36,880
+we uh
+
+1110
+00:45:32,960 --> 00:45:36,880
+yeah this is a talk show today
+
+1111
+00:45:36,960 --> 00:45:41,200
+delete that
+
+1112
+00:45:39,040 --> 00:45:43,599
+delete that
+
+1113
+00:45:41,200 --> 00:45:48,640
+so we we are talking about so what are
+
+1114
+00:45:43,599 --> 00:45:48,640
+we talking about um let me show you okay
+
+1115
+00:45:48,960 --> 00:45:54,319
+different
+
+1116
+00:45:51,359 --> 00:45:55,680
+aspects of
+
+1117
+00:45:54,319 --> 00:45:57,920
+the
+
+1118
+00:45:55,680 --> 00:46:00,920
+unprintable
+
+1119
+00:45:57,920 --> 00:46:00,920
+characters
+
+1120
+00:46:09,760 --> 00:46:15,839
+the unprint the unprintable characters
+
+1121
+00:46:12,880 --> 00:46:15,839
+themselves
+
+1122
+00:46:17,280 --> 00:46:23,839
+encoding of it okay encoding so you have
+
+1123
+00:46:20,960 --> 00:46:26,720
+ascii you have unicode but you have also
+
+1124
+00:46:23,839 --> 00:46:29,040
+uh eptic you know all these issues if
+
+1125
+00:46:26,720 --> 00:46:31,200
+you just look up wikipedia you also find
+
+1126
+00:46:29,040 --> 00:46:31,200
+it
+
+1127
+00:46:31,520 --> 00:46:36,240
+encoding of it um
+
+1128
+00:46:34,000 --> 00:46:36,240
+then
+
+1129
+00:46:36,319 --> 00:46:40,880
+notation for them
+
+1130
+00:46:38,720 --> 00:46:43,839
+okay so you have different notations for
+
+1131
+00:46:40,880 --> 00:46:43,839
+them
+
+1132
+00:46:44,480 --> 00:46:48,079
+as you can see
+
+1133
+00:46:46,079 --> 00:46:51,839
+the you need the different notations for
+
+1134
+00:46:48,079 --> 00:46:51,839
+them then you also have
+
+1135
+00:46:55,520 --> 00:47:00,960
+repetit representation for their
+
+1136
+00:46:58,640 --> 00:47:03,760
+concepts
+
+1137
+00:47:00,960 --> 00:47:04,640
+such as you know this paragraph sign
+
+1138
+00:47:03,760 --> 00:47:09,400
+this
+
+1139
+00:47:04,640 --> 00:47:09,400
+you know return key symbols or
+
+1140
+00:47:11,119 --> 00:47:16,400
+you know
+
+1141
+00:47:13,040 --> 00:47:16,400
+used on keyboard
+
+1142
+00:47:16,560 --> 00:47:24,000
+or used in a text editor
+
+1143
+00:47:21,760 --> 00:47:27,440
+so you have these different aspects of
+
+1144
+00:47:24,000 --> 00:47:27,440
+them so show in browser
+
+1145
+00:47:30,079 --> 00:47:33,359
+so that's what we talked about
+
+1146
+00:47:34,960 --> 00:47:38,960
+okay what else
+
+1147
+00:47:36,400 --> 00:47:42,319
+you know so this
+
+1148
+00:47:38,960 --> 00:47:44,160
+so actually so let's go back let's see
+
+1149
+00:47:42,319 --> 00:47:47,680
+how long i've been talking
+
+1150
+00:47:44,160 --> 00:47:51,480
+we already talked for one hour wait
+
+1151
+00:47:47,680 --> 00:47:51,480
+okay 50 minutes
+
+1152
+00:47:52,160 --> 00:47:57,680
+and we also talked about let's let's uh
+
+1153
+00:47:55,520 --> 00:47:59,680
+for example let's copy that paste it
+
+1154
+00:47:57,680 --> 00:48:01,839
+here
+
+1155
+00:47:59,680 --> 00:48:03,200
+this is a reference representation of
+
+1156
+00:48:01,839 --> 00:48:06,880
+the keys
+
+1157
+00:48:03,200 --> 00:48:09,760
+and we also by the way you know we have
+
+1158
+00:48:06,880 --> 00:48:12,160
+representation
+
+1159
+00:48:09,760 --> 00:48:14,880
+a symbol to represent a key on the
+
+1160
+00:48:12,160 --> 00:48:20,599
+keyboard that's what these are okay
+
+1161
+00:48:14,880 --> 00:48:20,599
+now this is about a symbol to represent
+
+1162
+00:48:20,720 --> 00:48:26,319
+a key label okay key label
+
+1163
+00:48:23,920 --> 00:48:29,760
+uh which is actually pretty similar to
+
+1164
+00:48:26,319 --> 00:48:31,920
+this okay key label issues
+
+1165
+00:48:29,760 --> 00:48:35,280
+so by the way you you can see your helm
+
+1166
+00:48:31,920 --> 00:48:38,079
+there that's actually an iso standard
+
+1167
+00:48:35,280 --> 00:48:39,440
+symbol to represent the control key
+
+1168
+00:48:38,079 --> 00:48:42,319
+that's a
+
+1169
+00:48:39,440 --> 00:48:44,240
+that's actually a iso standard symbol to
+
+1170
+00:48:42,319 --> 00:48:46,720
+represent the control key so you have
+
+1171
+00:48:44,240 --> 00:48:48,960
+many uh different variations
+
+1172
+00:48:46,720 --> 00:48:51,040
+um
+
+1173
+00:48:48,960 --> 00:48:53,040
+then we have let's see what we talked
+
+1174
+00:48:51,040 --> 00:48:56,079
+about then we have the shape of a
+
+1175
+00:48:53,040 --> 00:48:58,559
+different control key okay that's a bit
+
+1176
+00:48:56,079 --> 00:49:00,880
+unrelated uh it's just about different
+
+1177
+00:48:58,559 --> 00:49:03,920
+shapes of the control key this one is
+
+1178
+00:49:00,880 --> 00:49:07,119
+called fat ass enter
+
+1179
+00:49:03,920 --> 00:49:09,520
+europeans usually the europeans like it
+
+1180
+00:49:07,119 --> 00:49:12,720
+likes it
+
+1181
+00:49:09,520 --> 00:49:15,040
+big ass enter key you know so the then
+
+1182
+00:49:12,720 --> 00:49:17,760
+the japanese i think the japanese has
+
+1183
+00:49:15,040 --> 00:49:18,880
+this one the japanese their convention
+
+1184
+00:49:17,760 --> 00:49:21,680
+is like that
+
+1185
+00:49:18,880 --> 00:49:25,119
+now this is the you know the horizontal
+
+1186
+00:49:21,680 --> 00:49:25,119
+shape is american convention
+
+1187
+00:49:26,640 --> 00:49:32,400
+okay so then we talked about uh let's
+
+1188
+00:49:29,280 --> 00:49:34,720
+see what what else um there's actually
+
+1189
+00:49:32,400 --> 00:49:37,119
+quite a few things i want to
+
+1190
+00:49:34,720 --> 00:49:40,559
+say about this oh yeah this keyboard why
+
+1191
+00:49:37,119 --> 00:49:43,280
+is it called carriage return
+
+1192
+00:49:40,559 --> 00:49:46,720
+why is why is there a word carriage
+
+1193
+00:49:43,280 --> 00:49:48,559
+okay then we showed several of the uh
+
+1194
+00:49:46,720 --> 00:49:50,160
+typewriters okay
+
+1195
+00:49:48,559 --> 00:49:52,720
+paste it here
+
+1196
+00:49:50,160 --> 00:49:53,839
+paste it here
+
+1197
+00:49:52,720 --> 00:49:56,960
+okay
+
+1198
+00:49:53,839 --> 00:50:00,160
+con join the
+
+1199
+00:49:56,960 --> 00:50:04,440
+and make them older properly in the
+
+1200
+00:50:00,160 --> 00:50:04,440
+order we talked about them
+
+1201
+00:50:12,160 --> 00:50:18,079
+showing browser
+
+1202
+00:50:14,800 --> 00:50:20,400
+okay we talked about all that
+
+1203
+00:50:18,079 --> 00:50:23,839
+multimotics
+
+1204
+00:50:20,400 --> 00:50:26,480
+motex is the one who began using line
+
+1205
+00:50:23,839 --> 00:50:27,520
+feed as the new line
+
+1206
+00:50:26,480 --> 00:50:28,559
+character
+
+1207
+00:50:27,520 --> 00:50:32,640
+that's
+
+1208
+00:50:28,559 --> 00:50:32,640
+then unix inherited from it
+
+1209
+00:50:32,800 --> 00:50:37,359
+uh then we talked about ascii table okay
+
+1210
+00:50:35,200 --> 00:50:39,680
+so actually so today
+
+1211
+00:50:37,359 --> 00:50:42,000
+i think that's it actually we
+
+1212
+00:50:39,680 --> 00:50:44,480
+there's some
+
+1213
+00:50:42,000 --> 00:50:47,359
+we haven't started to talk about here
+
+1214
+00:50:44,480 --> 00:50:49,599
+doc so which is the actual complexity
+
+1215
+00:50:47,359 --> 00:50:51,440
+when writing writing a
+
+1216
+00:50:49,599 --> 00:50:53,119
+shelf script
+
+1217
+00:50:51,440 --> 00:50:55,520
+so the problem you know in the beginning
+
+1218
+00:50:53,119 --> 00:50:57,359
+of the video we talked about i'm i'm
+
+1219
+00:50:55,520 --> 00:51:00,400
+writing a powershell script you are
+
+1220
+00:50:57,359 --> 00:51:02,880
+looking at and i want to replace a
+
+1221
+00:51:00,400 --> 00:51:04,480
+string a multi-line string
+
+1222
+00:51:02,880 --> 00:51:06,720
+in a bunch of files
+
+1223
+00:51:04,480 --> 00:51:08,960
+and it turns out didn't work you know
+
+1224
+00:51:06,720 --> 00:51:11,200
+for some it worked you know it's like a
+
+1225
+00:51:08,960 --> 00:51:13,760
+puzzle mystery
+
+1226
+00:51:11,200 --> 00:51:17,359
+but if i change it you know after so
+
+1227
+00:51:13,760 --> 00:51:19,280
+many so much testing i realized if i you
+
+1228
+00:51:17,359 --> 00:51:21,200
+know debugging like i can't figure out
+
+1229
+00:51:19,280 --> 00:51:22,800
+what's going on it should work
+
+1230
+00:51:21,200 --> 00:51:24,640
+everything is you know it should work
+
+1231
+00:51:22,800 --> 00:51:25,520
+but eventually i tried to delete you
+
+1232
+00:51:24,640 --> 00:51:28,480
+know
+
+1233
+00:51:25,520 --> 00:51:31,119
+trial and error i realized if i replace
+
+1234
+00:51:28,480 --> 00:51:33,920
+the multi-line string by just a single
+
+1235
+00:51:31,119 --> 00:51:34,800
+line then it worked
+
+1236
+00:51:33,920 --> 00:51:37,200
+then
+
+1237
+00:51:34,800 --> 00:51:39,760
+then i realized the problem is the
+
+1238
+00:51:37,200 --> 00:51:41,760
+problem is with the new line convention
+
+1239
+00:51:39,760 --> 00:51:44,480
+so what's the problem so if you are
+
+1240
+00:51:41,760 --> 00:51:47,839
+writing powers powershell so let me talk
+
+1241
+00:51:44,480 --> 00:51:50,960
+let me tell you about the here doc
+
+1242
+00:51:47,839 --> 00:51:53,359
+the here doc syntax okay
+
+1243
+00:51:50,960 --> 00:51:55,520
+so what is a here doc so
+
+1244
+00:51:53,359 --> 00:51:58,079
+so in a primary language usually you
+
+1245
+00:51:55,520 --> 00:52:00,480
+want to you know you have a bunch of you
+
+1246
+00:51:58,079 --> 00:52:02,240
+know you have a whole bunch of text
+
+1247
+00:52:00,480 --> 00:52:03,760
+you know you want to represent them as a
+
+1248
+00:52:02,240 --> 00:52:06,400
+string
+
+1249
+00:52:03,760 --> 00:52:08,720
+and the text may contain you know double
+
+1250
+00:52:06,400 --> 00:52:10,880
+quotes you know it may contain a double
+
+1251
+00:52:08,720 --> 00:52:14,160
+quote character or a single chord
+
+1252
+00:52:10,880 --> 00:52:16,720
+character so you can you can you cannot
+
+1253
+00:52:14,160 --> 00:52:18,800
+just like quote them
+
+1254
+00:52:16,720 --> 00:52:21,200
+because then you need to unquote eat
+
+1255
+00:52:18,800 --> 00:52:23,520
+your currencies so that's a pen that's
+
+1256
+00:52:21,200 --> 00:52:27,280
+painful so therefore
+
+1257
+00:52:23,520 --> 00:52:28,480
+they you know there's this syntax called
+
+1258
+00:52:27,280 --> 00:52:30,839
+here doc
+
+1259
+00:52:28,480 --> 00:52:33,760
+it looks like this in php
+
+1260
+00:52:30,839 --> 00:52:37,440
+okay so in powershell this this is a
+
+1261
+00:52:33,760 --> 00:52:38,960
+here doc okay so i want to assign
+
+1262
+00:52:37,440 --> 00:52:41,599
+this stream
+
+1263
+00:52:38,960 --> 00:52:42,960
+to a variable you know this string is
+
+1264
+00:52:41,599 --> 00:52:44,559
+like google
+
+1265
+00:52:42,960 --> 00:52:46,400
+google
+
+1266
+00:52:44,559 --> 00:52:49,200
+analytics you know
+
+1267
+00:52:46,400 --> 00:52:51,359
+you're finding every website
+
+1268
+00:52:49,200 --> 00:52:53,839
+so i want to find it you know basically
+
+1269
+00:52:51,359 --> 00:52:55,599
+i want to remove this you know in my in
+
+1270
+00:52:53,839 --> 00:52:58,559
+my in my files
+
+1271
+00:52:55,599 --> 00:52:59,680
+so it's multiple lines and i so i can
+
+1272
+00:52:58,559 --> 00:53:01,760
+just say
+
+1273
+00:52:59,680 --> 00:53:03,839
+this variable equals to
+
+1274
+00:53:01,760 --> 00:53:07,280
+then using this syntax that's the
+
+1275
+00:53:03,839 --> 00:53:09,599
+powershell's syntax for here doc you
+
+1276
+00:53:07,280 --> 00:53:10,960
+know this kind of syntax is called here
+
+1277
+00:53:09,599 --> 00:53:12,880
+string
+
+1278
+00:53:10,960 --> 00:53:15,520
+meaning it's it's very interesting
+
+1279
+00:53:12,880 --> 00:53:18,240
+jargon okay it means like here it is you
+
+1280
+00:53:15,520 --> 00:53:20,559
+know just a big uh chunk of string
+
+1281
+00:53:18,240 --> 00:53:22,720
+so this way you don't have to put escape
+
+1282
+00:53:20,559 --> 00:53:25,680
+like you don't have to put like
+
+1283
+00:53:22,720 --> 00:53:27,119
+backslash quote like in e-max or in
+
+1284
+00:53:25,680 --> 00:53:28,720
+powershell the
+
+1285
+00:53:27,119 --> 00:53:31,200
+escape is
+
+1286
+00:53:28,720 --> 00:53:32,000
+the tick okay so you don't have to use
+
+1287
+00:53:31,200 --> 00:53:34,559
+this
+
+1288
+00:53:32,000 --> 00:53:35,839
+you can just paste it in
+
+1289
+00:53:34,559 --> 00:53:37,760
+then you can just
+
+1290
+00:53:35,839 --> 00:53:40,079
+find replace you know for you can see
+
+1291
+00:53:37,760 --> 00:53:43,839
+the replace line here
+
+1292
+00:53:40,079 --> 00:53:45,680
+okay but it failed so so why why does it
+
+1293
+00:53:43,839 --> 00:53:48,160
+fail so eventually i realized that's
+
+1294
+00:53:45,680 --> 00:53:48,160
+because so
+
+1295
+00:53:49,040 --> 00:53:54,319
+so it's it's fairly complex okay it if
+
+1296
+00:53:51,920 --> 00:53:57,359
+your current file you know it depends on
+
+1297
+00:53:54,319 --> 00:54:00,160
+what's your current file it's encoding
+
+1298
+00:53:57,359 --> 00:54:01,280
+so if your current files newline
+
+1299
+00:54:00,160 --> 00:54:03,280
+you know this
+
+1300
+00:54:01,280 --> 00:54:06,800
+if this file
+
+1301
+00:54:03,280 --> 00:54:07,599
+is using the unix line convention
+
+1302
+00:54:06,800 --> 00:54:10,319
+and
+
+1303
+00:54:07,599 --> 00:54:11,680
+the file you want to replace also unix
+
+1304
+00:54:10,319 --> 00:54:14,720
+line convention
+
+1305
+00:54:11,680 --> 00:54:15,920
+then it works okay
+
+1306
+00:54:14,720 --> 00:54:19,119
+however
+
+1307
+00:54:15,920 --> 00:54:22,400
+if this file the powershell file is in
+
+1308
+00:54:19,119 --> 00:54:24,400
+let's say windows convention
+
+1309
+00:54:22,400 --> 00:54:27,359
+then but the files you are trying to
+
+1310
+00:54:24,400 --> 00:54:29,359
+find replace are unix convention
+
+1311
+00:54:27,359 --> 00:54:34,160
+then it doesn't work it doesn't work
+
+1312
+00:54:29,359 --> 00:54:34,160
+when you have a hear dark string
+
+1313
+00:54:34,400 --> 00:54:36,240
+that's
+
+1314
+00:54:35,280 --> 00:54:38,559
+you know
+
+1315
+00:54:36,240 --> 00:54:41,119
+why because you know because the current
+
+1316
+00:54:38,559 --> 00:54:43,839
+file the powershell script file
+
+1317
+00:54:41,119 --> 00:54:45,599
+is using using the you know there's a
+
+1318
+00:54:43,839 --> 00:54:47,760
+new line
+
+1319
+00:54:45,599 --> 00:54:48,799
+character at the end so depending on
+
+1320
+00:54:47,760 --> 00:54:50,799
+what
+
+1321
+00:54:48,799 --> 00:54:53,680
+how the current file is saved you know
+
+1322
+00:54:50,799 --> 00:54:56,400
+what line convention is using
+
+1323
+00:54:53,680 --> 00:54:58,319
+you may have problem you know
+
+1324
+00:54:56,400 --> 00:55:00,720
+finding that string
+
+1325
+00:54:58,319 --> 00:55:04,119
+so that so eventually if that's that's
+
+1326
+00:55:00,720 --> 00:55:04,119
+that's the reason
+
+1327
+00:55:06,079 --> 00:55:10,400
+so that's an interesting question then i
+
+1328
+00:55:08,079 --> 00:55:12,480
+started to read a bunch of powershell
+
+1329
+00:55:10,400 --> 00:55:15,440
+you know and so there's a tool like i
+
+1330
+00:55:12,480 --> 00:55:18,240
+said before there's a tool in unix in
+
+1331
+00:55:15,440 --> 00:55:20,640
+in um in unix you know it's this is a
+
+1332
+00:55:18,240 --> 00:55:22,960
+very old problem 30 years problem
+
+1333
+00:55:20,640 --> 00:55:26,000
+there's a lot of tools to do that so in
+
+1334
+00:55:22,960 --> 00:55:26,000
+unix you have
+
+1335
+00:55:28,799 --> 00:55:34,240
+like we talked about in unix you have
+
+1336
+00:55:30,720 --> 00:55:37,040
+this unix 2.3 unix shell you know tools
+
+1337
+00:55:34,240 --> 00:55:40,319
+you can just run it on a whole bunch of
+
+1338
+00:55:37,040 --> 00:55:43,599
+files but i was trying to find a proper
+
+1339
+00:55:40,319 --> 00:55:45,040
+solution on windows you know now windows
+
+1340
+00:55:43,599 --> 00:55:47,359
+powershell is
+
+1341
+00:55:45,040 --> 00:55:50,960
+supreme so there must be a solution
+
+1342
+00:55:47,359 --> 00:55:51,920
+there is indeed but it turns out
+
+1343
+00:55:50,960 --> 00:55:55,440
+this
+
+1344
+00:55:51,920 --> 00:55:57,200
+very simple issue or seeming seemingly
+
+1345
+00:55:55,440 --> 00:56:00,160
+very simple it's actually it's not that
+
+1346
+00:55:57,200 --> 00:56:03,599
+simple because if because as we explain
+
+1347
+00:56:00,160 --> 00:56:06,640
+even emacs there's a lot of complexities
+
+1348
+00:56:03,599 --> 00:56:08,480
+this seemingly simple issue
+
+1349
+00:56:06,640 --> 00:56:09,760
+you know if you look at powershell let's
+
+1350
+00:56:08,480 --> 00:56:12,400
+let's look at
+
+1351
+00:56:09,760 --> 00:56:12,400
+powershell
+
+1352
+00:56:15,680 --> 00:56:20,400
+so there's a lot of articles about it uh
+
+1353
+00:56:19,200 --> 00:56:23,280
+on the web
+
+1354
+00:56:20,400 --> 00:56:26,720
+uh tracing back to you know it's
+
+1355
+00:56:23,280 --> 00:56:30,160
+changing back to 15 15 years ago you
+
+1356
+00:56:26,720 --> 00:56:32,880
+know powershell began around 2003.
+
+1357
+00:56:30,160 --> 00:56:34,079
+so there's a lot articles talking about
+
+1358
+00:56:32,880 --> 00:56:37,040
+that okay
+
+1359
+00:56:34,079 --> 00:56:38,559
+like tons of them and each each person
+
+1360
+00:56:37,040 --> 00:56:41,680
+or each blog
+
+1361
+00:56:38,559 --> 00:56:45,280
+they try to tell you how to do it okay
+
+1362
+00:56:41,680 --> 00:56:46,960
+but it turns out you know because it's
+
+1363
+00:56:45,280 --> 00:56:49,040
+when you actually look deep into the
+
+1364
+00:56:46,960 --> 00:56:51,200
+problem it's not so simple because
+
+1365
+00:56:49,040 --> 00:56:54,079
+there's a lot um
+
+1366
+00:56:51,200 --> 00:56:57,119
+kind of issues you know we talked about
+
+1367
+00:56:54,079 --> 00:56:59,359
+how editors or tools they automatically
+
+1368
+00:56:57,119 --> 00:57:00,480
+add a line at the end of your file when
+
+1369
+00:56:59,359 --> 00:57:01,280
+you save it
+
+1370
+00:57:00,480 --> 00:57:03,280
+so
+
+1371
+00:57:01,280 --> 00:57:06,240
+so that happened that happened in
+
+1372
+00:57:03,280 --> 00:57:09,839
+powershell until a few years later they
+
+1373
+00:57:06,240 --> 00:57:11,119
+added a new option to to prevent that
+
+1374
+00:57:09,839 --> 00:57:13,920
+you know so
+
+1375
+00:57:11,119 --> 00:57:16,000
+you look at all these uh things you know
+
+1376
+00:57:13,920 --> 00:57:17,599
+also you need to pay your attention what
+
+1377
+00:57:16,000 --> 00:57:20,160
+year they are written
+
+1378
+00:57:17,599 --> 00:57:21,440
+because you can see this there's a lot
+
+1379
+00:57:20,160 --> 00:57:24,240
+issues
+
+1380
+00:57:21,440 --> 00:57:26,480
+um so there's a stack overflow
+
+1381
+00:57:24,240 --> 00:57:29,200
+um but there is one
+
+1382
+00:57:26,480 --> 00:57:32,000
+particular article i i want to try to
+
+1383
+00:57:29,200 --> 00:57:34,720
+tell you this one okay so this one
+
+1384
+00:57:32,000 --> 00:57:34,720
+this answer
+
+1385
+00:57:34,799 --> 00:57:41,040
+is written by a powershell developer
+
+1386
+00:57:37,520 --> 00:57:41,920
+this guy okay mk lemon okay
+
+1387
+00:57:41,040 --> 00:57:44,880
+this
+
+1388
+00:57:41,920 --> 00:57:46,000
+this is this article this answer is a
+
+1389
+00:57:44,880 --> 00:57:48,319
+summary
+
+1390
+00:57:46,000 --> 00:57:50,559
+of all previous answers on stack
+
+1391
+00:57:48,319 --> 00:57:52,319
+overflow about
+
+1392
+00:57:50,559 --> 00:57:54,319
+how to replace line endings in
+
+1393
+00:57:52,319 --> 00:57:56,880
+powershell what are the issues involved
+
+1394
+00:57:54,319 --> 00:57:59,680
+so he he tried he you know he looked at
+
+1395
+00:57:56,880 --> 00:58:01,839
+all the solutions and he write a
+
+1396
+00:57:59,680 --> 00:58:05,040
+unified you know state of the union
+
+1397
+00:58:01,839 --> 00:58:09,040
+answer you know to this question
+
+1398
+00:58:05,040 --> 00:58:12,640
+and indeed and in it he mentioned that
+
+1399
+00:58:09,040 --> 00:58:15,599
+you know so this is written in year 2018
+
+1400
+00:58:12,640 --> 00:58:18,720
+okay three years ago he mentioned that
+
+1401
+00:58:15,599 --> 00:58:20,799
+on github on powershell microsoft github
+
+1402
+00:58:18,720 --> 00:58:23,839
+you know they actually tried to have a
+
+1403
+00:58:20,799 --> 00:58:25,920
+tool you know building powershell
+
+1404
+00:58:23,839 --> 00:58:27,200
+script so that you don't worry about
+
+1405
+00:58:25,920 --> 00:58:28,960
+this anymore
+
+1406
+00:58:27,200 --> 00:58:30,319
+so
+
+1407
+00:58:28,960 --> 00:58:31,280
+so imagine
+
+1408
+00:58:30,319 --> 00:58:33,520
+this
+
+1409
+00:58:31,280 --> 00:58:35,599
+issue has been around for 30 years
+
+1410
+00:58:33,520 --> 00:58:38,640
+there's lots of tools that try to
+
+1411
+00:58:35,599 --> 00:58:42,000
+convert it seemingly simple
+
+1412
+00:58:38,640 --> 00:58:44,799
+and but for 15 years powershell still
+
+1413
+00:58:42,000 --> 00:58:46,559
+don't have the solution okay
+
+1414
+00:58:44,799 --> 00:58:48,319
+you know you can you can you can do it
+
+1415
+00:58:46,559 --> 00:58:50,400
+but you know there's so many answers
+
+1416
+00:58:48,319 --> 00:58:52,880
+different each one uses different
+
+1417
+00:58:50,400 --> 00:58:54,880
+different command
+
+1418
+00:58:52,880 --> 00:58:56,160
+you know i haven't got into that yet i'm
+
+1419
+00:58:54,880 --> 00:58:58,319
+i
+
+1420
+00:58:56,160 --> 00:59:00,480
+today is probably too long but i can
+
+1421
+00:58:58,319 --> 00:59:02,960
+explain the different solutions in
+
+1422
+00:59:00,480 --> 00:59:05,760
+powershell for example the best the best
+
+1423
+00:59:02,960 --> 00:59:09,599
+the best explanation is this guy okay
+
+1424
+00:59:05,760 --> 00:59:11,440
+this guy is a classic old hacker
+
+1425
+00:59:09,599 --> 00:59:14,640
+you know you look at you know his
+
+1426
+00:59:11,440 --> 00:59:16,880
+website is called ss64
+
+1427
+00:59:14,640 --> 00:59:16,880
+uh
+
+1428
+00:59:17,520 --> 00:59:23,119
+the writing style and web formatting is
+
+1429
+00:59:20,480 --> 00:59:26,880
+not so great but however he has got the
+
+1430
+00:59:23,119 --> 00:59:29,680
+best technical content so in this page
+
+1431
+00:59:26,880 --> 00:59:30,559
+he provides let's turn on javascript
+
+1432
+00:59:29,680 --> 00:59:33,040
+maybe
+
+1433
+00:59:30,559 --> 00:59:34,720
+make it look better and it doesn't
+
+1434
+00:59:33,040 --> 00:59:37,200
+so in this
+
+1435
+00:59:34,720 --> 00:59:40,720
+in his website he explains the technical
+
+1436
+00:59:37,200 --> 00:59:44,160
+detail the best solution
+
+1437
+00:59:40,720 --> 00:59:47,200
+of using powershell to do this new line
+
+1438
+00:59:44,160 --> 00:59:48,160
+convention so this is the best technical
+
+1439
+00:59:47,200 --> 00:59:50,640
+content
+
+1440
+00:59:48,160 --> 00:59:53,359
+with respect to powershell okay this guy
+
+1441
+00:59:50,640 --> 00:59:56,240
+so he also for example he explained
+
+1442
+00:59:53,359 --> 00:59:58,240
+the different ways of using powershell
+
+1443
+00:59:56,240 --> 01:00:00,640
+to read the file or write to file to
+
+1444
+00:59:58,240 --> 01:00:02,559
+write to a file for example you can see
+
+1445
+01:00:00,640 --> 01:00:04,480
+this line
+
+1446
+01:00:02,559 --> 01:00:07,760
+these two lines
+
+1447
+01:00:04,480 --> 01:00:10,400
+is this is powershell but however he's
+
+1448
+01:00:07,760 --> 01:00:12,000
+using he's calling the dotnet
+
+1449
+01:00:10,400 --> 01:00:14,720
+function to do it
+
+1450
+01:00:12,000 --> 01:00:18,240
+meanwhile he also explains
+
+1451
+01:00:14,720 --> 01:00:21,440
+uh somewhere here you know here
+
+1452
+01:00:18,240 --> 01:00:23,440
+of using the powershell command to do it
+
+1453
+01:00:21,440 --> 01:00:26,400
+so they are both powershell but they are
+
+1454
+01:00:23,440 --> 01:00:28,640
+using different methods so he expand a
+
+1455
+01:00:26,400 --> 01:00:31,920
+little bit not fully about the
+
+1456
+01:00:28,640 --> 01:00:35,119
+differences the pitfalls okay so it's a
+
+1457
+01:00:31,920 --> 01:00:36,160
+very you know fairly complex issue
+
+1458
+01:00:35,119 --> 01:00:37,359
+then
+
+1459
+01:00:36,160 --> 01:00:39,359
+you know there are so many different
+
+1460
+01:00:37,359 --> 01:00:42,640
+people you know trying to say what they
+
+1461
+01:00:39,359 --> 01:00:44,400
+think is right then we run into this uh
+
+1462
+01:00:42,640 --> 01:00:46,319
+powershell developer
+
+1463
+01:00:44,400 --> 01:00:50,160
+so they are talking about so this is
+
+1464
+01:00:46,319 --> 01:00:52,640
+2008 they are 2018
+
+1465
+01:00:50,160 --> 01:00:55,200
+three years ago they are trying to come
+
+1466
+01:00:52,640 --> 01:00:58,079
+up with a solution like one solution for
+
+1467
+01:00:55,200 --> 01:01:00,640
+all in powershell but it seems you know
+
+1468
+01:00:58,079 --> 01:01:02,880
+i haven't completely finished you know i
+
+1469
+01:01:00,640 --> 01:01:03,680
+finished reading the whole thread
+
+1470
+01:01:02,880 --> 01:01:04,960
+but
+
+1471
+01:01:03,680 --> 01:01:08,000
+apparently
+
+1472
+01:01:04,960 --> 01:01:10,720
+to this day there's no
+
+1473
+01:01:08,000 --> 01:01:13,920
+built-in solution it's uh doesn't seems
+
+1474
+01:01:10,720 --> 01:01:17,200
+to me so far i haven't seen it
+
+1475
+01:01:13,920 --> 01:01:19,520
+you know so this 30 years old problem
+
+1476
+01:01:17,200 --> 01:01:21,680
+that seems simple but today you still
+
+1477
+01:01:19,520 --> 01:01:24,640
+don't have a solution in powershell for
+
+1478
+01:01:21,680 --> 01:01:27,200
+after 15 years
+
+1479
+01:01:24,640 --> 01:01:29,599
+okay and and when reading this thread
+
+1480
+01:01:27,200 --> 01:01:32,559
+okay that's that's one topic but now the
+
+1481
+01:01:29,599 --> 01:01:34,559
+next topic when reading this thread
+
+1482
+01:01:32,559 --> 01:01:36,720
+yesterday i spent several hours in
+
+1483
+01:01:34,559 --> 01:01:40,079
+detail i just i actually learned a few
+
+1484
+01:01:36,720 --> 01:01:42,319
+things okay what i learned
+
+1485
+01:01:40,079 --> 01:01:43,760
+that in this operating system this plan
+
+1486
+01:01:42,319 --> 01:01:46,640
+nine or something
+
+1487
+01:01:43,760 --> 01:01:50,400
+they are actually using the um
+
+1488
+01:01:46,640 --> 01:01:53,200
+let's say let's search for plan
+
+1489
+01:01:50,400 --> 01:01:55,920
+okay panda is not here let's search for
+
+1490
+01:01:53,200 --> 01:01:55,920
+inferno
+
+1491
+01:01:57,200 --> 01:02:02,720
+uh not here uh what's it here i'm pretty
+
+1492
+01:02:00,400 --> 01:02:05,440
+sure it's here
+
+1493
+01:02:02,720 --> 01:02:07,039
+but anyway in this thread i learned that
+
+1494
+01:02:05,440 --> 01:02:09,680
+this operating uh
+
+1495
+01:02:07,039 --> 01:02:12,400
+uh way where is it somewhere
+
+1496
+01:02:09,680 --> 01:02:16,480
+was it plan 9 or inferno or what one of
+
+1497
+01:02:12,400 --> 01:02:16,480
+the one of the new operating system
+
+1498
+01:02:17,920 --> 01:02:21,839
+that use carriage return
+
+1499
+01:02:20,559 --> 01:02:25,039
+you know the
+
+1500
+01:02:21,839 --> 01:02:28,799
+same as the classic mac os
+
+1501
+01:02:25,039 --> 01:02:30,880
+9 in 1990s okay
+
+1502
+01:02:28,799 --> 01:02:32,839
+so i that's one thing i learned another
+
+1503
+01:02:30,880 --> 01:02:36,720
+thing i learned is that
+
+1504
+01:02:32,839 --> 01:02:39,359
+um oh the the other critical thing i
+
+1505
+01:02:36,720 --> 01:02:42,000
+learned that solved a problem a question
+
+1506
+01:02:39,359 --> 01:02:45,280
+i had for emacs for years
+
+1507
+01:02:42,000 --> 01:02:48,160
+is that when when emacs for example said
+
+1508
+01:02:45,280 --> 01:02:52,880
+buffer file coding system okay so you
+
+1509
+01:02:48,160 --> 01:02:52,880
+can see here okay so let me show you
+
+1510
+01:02:52,960 --> 01:03:01,359
+so you have all these encoding systems
+
+1511
+01:02:55,359 --> 01:03:01,359
+in emacs now notice okay let's see utf
+
+1512
+01:03:01,440 --> 01:03:05,039
+okay now note it not now look at this
+
+1513
+01:03:03,839 --> 01:03:07,760
+okay
+
+1514
+01:03:05,039 --> 01:03:10,400
+now notice that they combine
+
+1515
+01:03:07,760 --> 01:03:12,640
+the encoding with the new line
+
+1516
+01:03:10,400 --> 01:03:15,640
+convention for example if we look at
+
+1517
+01:03:12,640 --> 01:03:15,640
+utf-8
+
+1518
+01:03:16,160 --> 01:03:21,520
+so you have utf-8 dos that's
+
+1519
+01:03:19,599 --> 01:03:23,359
+a windows line in convention you have
+
+1520
+01:03:21,520 --> 01:03:25,839
+utf-8 unix
+
+1521
+01:03:23,359 --> 01:03:28,960
+that's a unix or linux creation then you
+
+1522
+01:03:25,839 --> 01:03:32,079
+have utf mac so they map convention
+
+1523
+01:03:28,960 --> 01:03:34,240
+using carriage return so they combined
+
+1524
+01:03:32,079 --> 01:03:36,079
+the concept of carriage reta you know
+
+1525
+01:03:34,240 --> 01:03:37,440
+the line ending convention with the
+
+1526
+01:03:36,079 --> 01:03:38,799
+encoding
+
+1527
+01:03:37,440 --> 01:03:40,960
+concept
+
+1528
+01:03:38,799 --> 01:03:42,559
+you know so i for
+
+1529
+01:03:40,960 --> 01:03:44,720
+for 10 years i have the question you
+
+1530
+01:03:42,559 --> 01:03:47,280
+know why do they combine it i think it
+
+1531
+01:03:44,720 --> 01:03:49,760
+should be separate you know encoding
+
+1532
+01:03:47,280 --> 01:03:52,319
+file encoding is one thing okay line
+
+1533
+01:03:49,760 --> 01:03:54,240
+convention is another thing but it turns
+
+1534
+01:03:52,319 --> 01:03:56,319
+out i learned yesterday from reading
+
+1535
+01:03:54,240 --> 01:03:59,359
+this they are connected
+
+1536
+01:03:56,319 --> 01:04:03,280
+you cannot simply have a line convention
+
+1537
+01:03:59,359 --> 01:04:03,280
+without knowing what encoding it is
+
+1538
+01:04:03,760 --> 01:04:08,640
+uh so so so so i read you know from
+
+1539
+01:04:06,880 --> 01:04:11,440
+these you know their design you know
+
+1540
+01:04:08,640 --> 01:04:13,920
+they are powershell
+
+1541
+01:04:11,440 --> 01:04:16,480
+then i realized oh that's why that's why
+
+1542
+01:04:13,920 --> 01:04:18,079
+emacs also combine them okay so because
+
+1543
+01:04:16,480 --> 01:04:20,319
+they
+
+1544
+01:04:18,079 --> 01:04:21,440
+it kind of one one has to do with the
+
+1545
+01:04:20,319 --> 01:04:24,640
+other
+
+1546
+01:04:21,440 --> 01:04:26,640
+so that's what i learned okay so
+
+1547
+01:04:24,640 --> 01:04:29,760
+so i learned from this thread the
+
+1548
+01:04:26,640 --> 01:04:31,599
+powershell team that one one of the unix
+
+1549
+01:04:29,760 --> 01:04:34,400
+platini or something operating system
+
+1550
+01:04:31,599 --> 01:04:36,400
+you is using the cr line commission you
+
+1551
+01:04:34,400 --> 01:04:39,400
+can find that on wikipedia okay by the
+
+1552
+01:04:36,400 --> 01:04:39,400
+way
+
+1553
+01:04:42,400 --> 01:04:48,559
+so wikipedia so you can see wikipedia
+
+1554
+01:04:45,599 --> 01:04:51,359
+has lots of details on that and then you
+
+1555
+01:04:48,559 --> 01:04:53,359
+can look at the operating systems okay
+
+1556
+01:04:51,359 --> 01:04:55,119
+and by the way unicode came up with a
+
+1557
+01:04:53,359 --> 01:04:57,039
+bunch of new
+
+1558
+01:04:55,119 --> 01:04:58,319
+like new line
+
+1559
+01:04:57,039 --> 01:05:00,559
+character
+
+1560
+01:04:58,319 --> 01:05:03,280
+code points that's another topic we
+
+1561
+01:05:00,559 --> 01:05:03,280
+haven't covered
+
+1562
+01:05:03,520 --> 01:05:07,119
+so
+
+1563
+01:05:04,720 --> 01:05:09,440
+so now we are looking at the you know
+
+1564
+01:05:07,119 --> 01:05:10,799
+the conventions of the operating systems
+
+1565
+01:05:09,440 --> 01:05:13,440
+they have at least
+
+1566
+01:05:10,799 --> 01:05:13,440
+somewhere
+
+1567
+01:05:13,920 --> 01:05:17,599
+you know so yes all these are related
+
+1568
+01:05:16,079 --> 01:05:21,359
+kind of issues
+
+1569
+01:05:17,599 --> 01:05:24,559
+so a seemingly simple issue you have all
+
+1570
+01:05:21,359 --> 01:05:27,200
+these complexities that's how up
+
+1571
+01:05:24,559 --> 01:05:29,280
+our codings in you know our programming
+
+1572
+01:05:27,200 --> 01:05:32,079
+industry is
+
+1573
+01:05:29,280 --> 01:05:32,079
+but um
+
+1574
+01:05:32,240 --> 01:05:38,480
+but right now i'm trying to find
+
+1575
+01:05:35,440 --> 01:05:40,400
+the how different operating systems what
+
+1576
+01:05:38,480 --> 01:05:43,680
+they use okay so
+
+1577
+01:05:40,400 --> 01:05:45,680
+uh here's a bunch of encoding systems
+
+1578
+01:05:43,680 --> 01:05:46,960
+here is operating system there it is
+
+1579
+01:05:45,680 --> 01:05:50,720
+okay mo
+
+1580
+01:05:46,960 --> 01:05:53,119
+so you see unix linux motex
+
+1581
+01:05:50,720 --> 01:05:56,079
+amiga bos
+
+1582
+01:05:53,119 --> 01:05:57,119
+b os they all use line feed
+
+1583
+01:05:56,079 --> 01:05:58,880
+now
+
+1584
+01:05:57,119 --> 01:06:01,039
+windows does
+
+1585
+01:05:58,880 --> 01:06:03,440
+and many of the old
+
+1586
+01:06:01,039 --> 01:06:04,880
+operating systems atari
+
+1587
+01:06:03,440 --> 01:06:09,440
+deck
+
+1588
+01:06:04,880 --> 01:06:12,960
+rt cpm you know some of them i don't uh
+
+1589
+01:06:09,440 --> 01:06:15,280
+cp slash m that's very old palm os they
+
+1590
+01:06:12,960 --> 01:06:16,480
+all use the you know what we call we
+
+1591
+01:06:15,280 --> 01:06:19,200
+would call
+
+1592
+01:06:16,480 --> 01:06:20,480
+windows convention carriage return on
+
+1593
+01:06:19,200 --> 01:06:22,559
+feed
+
+1594
+01:06:20,480 --> 01:06:25,680
+oh then here yeah so
+
+1595
+01:06:22,559 --> 01:06:29,039
+classic mac os mago s9
+
+1596
+01:06:25,680 --> 01:06:30,640
+mit list machine there it is mit list
+
+1597
+01:06:29,039 --> 01:06:34,240
+machine
+
+1598
+01:06:30,640 --> 01:06:36,400
+they all use the just carriage return
+
+1599
+01:06:34,240 --> 01:06:38,559
+you know so that's why i think this this
+
+1600
+01:06:36,400 --> 01:06:42,240
+is actually i would say this is the most
+
+1601
+01:06:38,559 --> 01:06:44,079
+logical since 1990 okay
+
+1602
+01:06:42,240 --> 01:06:46,400
+you know from modern point of view if
+
+1603
+01:06:44,079 --> 01:06:48,480
+you want to disregard
+
+1604
+01:06:46,400 --> 01:06:50,799
+you know the legacy
+
+1605
+01:06:48,480 --> 01:06:54,160
+carriage return because that's what
+
+1606
+01:06:50,799 --> 01:06:57,359
+supposed to be carriage return
+
+1607
+01:06:54,160 --> 01:07:00,359
+so tsr-80 so these systems use carriage
+
+1608
+01:06:57,359 --> 01:07:00,359
+return
+
+1609
+01:07:00,640 --> 01:07:06,000
+some other weird ones they use actually
+
+1610
+01:07:03,039 --> 01:07:09,359
+others q and x
+
+1611
+01:07:06,000 --> 01:07:11,440
+use rs now what is is
+
+1612
+01:07:09,359 --> 01:07:14,960
+rs
+
+1613
+01:07:11,440 --> 01:07:17,839
+c0 and control codes okay i'm not sure
+
+1614
+01:07:14,960 --> 01:07:17,839
+what is ix
+
+1615
+01:07:26,720 --> 01:07:31,440
+which
+
+1616
+01:07:27,599 --> 01:07:31,440
+po call point is ix
+
+1617
+01:07:31,920 --> 01:07:37,039
+what
+
+1618
+01:07:34,160 --> 01:07:41,240
+bs we need to look at the shortcut
+
+1619
+01:07:37,039 --> 01:07:41,240
+notations let's see
+
+1620
+01:07:42,160 --> 01:07:45,680
+oh record separator
+
+1621
+01:07:46,000 --> 01:07:52,000
+they use the record separator for for
+
+1622
+01:07:48,720 --> 01:07:56,400
+new line oh that's interesting
+
+1623
+01:07:52,000 --> 01:07:58,000
+so yeah so a lot history is here
+
+1624
+01:07:56,400 --> 01:08:01,760
+and what is this
+
+1625
+01:07:58,000 --> 01:08:03,839
+use okay this operating system zx80 they
+
+1626
+01:08:01,760 --> 01:08:06,880
+use you know this is sinclair you know
+
+1627
+01:08:03,839 --> 01:08:10,319
+this is very popular computer uh in
+
+1628
+01:08:06,880 --> 01:08:12,000
+united kingdom you know i learned about
+
+1629
+01:08:10,319 --> 01:08:13,920
+this system
+
+1630
+01:08:12,000 --> 01:08:17,040
+uses a
+
+1631
+01:08:13,920 --> 01:08:20,640
+non-ascii character set to represent new
+
+1632
+01:08:17,040 --> 01:08:20,640
+line wow that's interesting
+
+1633
+01:08:22,799 --> 01:08:29,359
+what
+
+1634
+01:08:23,679 --> 01:08:29,359
+what is this decimal value one one eight
+
+1635
+01:08:31,440 --> 01:08:36,239
+wow they use an ascii character set to
+
+1636
+01:08:34,000 --> 01:08:38,400
+represent new lines so that's that's
+
+1637
+01:08:36,239 --> 01:08:41,679
+another thing i learned so
+
+1638
+01:08:38,400 --> 01:08:43,839
+yeah very interesting so that's
+
+1639
+01:08:41,679 --> 01:08:45,199
+so different operating systems uses
+
+1640
+01:08:43,839 --> 01:08:49,679
+different um
+
+1641
+01:08:45,199 --> 01:08:49,679
+you know many interesting things
+
+1642
+01:08:49,839 --> 01:08:55,520
+oh this is one of my questions back in
+
+1643
+01:08:52,159 --> 01:08:59,120
+2009 you know yeah so
+
+1644
+01:08:55,520 --> 01:09:01,679
+in 2009 i i tried to learn powershell
+
+1645
+01:08:59,120 --> 01:09:04,319
+okay i tried to learn powershell and one
+
+1646
+01:09:01,679 --> 01:09:07,679
+of the problem is that i want to convert
+
+1647
+01:09:04,319 --> 01:09:09,120
+all my bash scripts to powershell okay
+
+1648
+01:09:07,679 --> 01:09:12,239
+you know like
+
+1649
+01:09:09,120 --> 01:09:14,400
+i that didn't you know i didn't my my
+
+1650
+01:09:12,239 --> 01:09:18,080
+real two power shell didn't win far so i
+
+1651
+01:09:14,400 --> 01:09:21,520
+kind of abandoned until until this year
+
+1652
+01:09:18,080 --> 01:09:23,920
+i learned so much powershell so
+
+1653
+01:09:21,520 --> 01:09:26,640
+if you guys are here uh check out my
+
+1654
+01:09:23,920 --> 01:09:28,640
+powershell tutorials the most succinct
+
+1655
+01:09:26,640 --> 01:09:31,120
+succinct the best tutorial for
+
+1656
+01:09:28,640 --> 01:09:33,600
+powershell okay and uh you know you can
+
+1657
+01:09:31,120 --> 01:09:36,000
+learn the the easiest the
+
+1658
+01:09:33,600 --> 01:09:37,359
+and actual correct
+
+1659
+01:09:36,000 --> 01:09:40,719
+way
+
+1660
+01:09:37,359 --> 01:09:43,600
+the most efficient tutorial
+
+1661
+01:09:40,719 --> 01:09:45,279
+so but back in you know so back in 2009
+
+1662
+01:09:43,600 --> 01:09:47,520
+i tried to learn powershell and one of
+
+1663
+01:09:45,279 --> 01:09:50,480
+the first tasks is to convert all my
+
+1664
+01:09:47,520 --> 01:09:52,719
+bash scripts to powershell and one of
+
+1665
+01:09:50,480 --> 01:09:54,960
+the problem i encountered is the new
+
+1666
+01:09:52,719 --> 01:09:58,000
+line problem because in bash when you
+
+1667
+01:09:54,960 --> 01:09:59,199
+generate when you grab some file
+
+1668
+01:09:58,000 --> 01:10:02,560
+you know it
+
+1669
+01:09:59,199 --> 01:10:05,120
+the return the return text is you know
+
+1670
+01:10:02,560 --> 01:10:07,760
+with the new unix line convention
+
+1671
+01:10:05,120 --> 01:10:09,760
+but not so on windows
+
+1672
+01:10:07,760 --> 01:10:12,400
+but i need the unix you know convention
+
+1673
+01:10:09,760 --> 01:10:14,719
+so how do i you know so that turns out
+
+1674
+01:10:12,400 --> 01:10:17,679
+so then then
+
+1675
+01:10:14,719 --> 01:10:20,239
+then actually one of the unix i mean the
+
+1676
+01:10:17,679 --> 01:10:22,880
+powershell inventor okay who is the guy
+
+1677
+01:10:20,239 --> 01:10:25,199
+so let me show you the powershell
+
+1678
+01:10:22,880 --> 01:10:28,480
+the powershell creator actually
+
+1679
+01:10:25,199 --> 01:10:31,840
+commented on my blog okay so let me show
+
+1680
+01:10:28,480 --> 01:10:31,840
+you where is that
+
+1681
+01:10:35,360 --> 01:10:39,920
+okay so i have this old article
+
+1682
+01:10:37,040 --> 01:10:43,199
+powershell for unix for unix people so
+
+1683
+01:10:39,920 --> 01:10:44,640
+powershell versus smash so on in every
+
+1684
+01:10:43,199 --> 01:10:47,440
+line i have a
+
+1685
+01:10:44,640 --> 01:10:49,120
+bash version to do something and i show
+
+1686
+01:10:47,440 --> 01:10:50,960
+you a powershell to do
+
+1687
+01:10:49,120 --> 01:10:52,960
+a powershell version to do the same
+
+1688
+01:10:50,960 --> 01:10:54,480
+thing okay
+
+1689
+01:10:52,960 --> 01:10:58,560
+so
+
+1690
+01:10:54,480 --> 01:11:00,880
+i had this block in 2009 on on blogger
+
+1691
+01:10:58,560 --> 01:11:03,920
+okay on you know the googles
+
+1692
+01:11:00,880 --> 01:11:06,560
+uh which is not good
+
+1693
+01:11:03,920 --> 01:11:08,480
+so i have this article and the guy
+
+1694
+01:11:06,560 --> 01:11:11,280
+jeffrey snover
+
+1695
+01:11:08,480 --> 01:11:13,679
+who created he you know i he actually
+
+1696
+01:11:11,280 --> 01:11:15,440
+he's a creator of powershell he
+
+1697
+01:11:13,679 --> 01:11:17,760
+he answered like
+
+1698
+01:11:15,440 --> 01:11:19,360
+half you know five or seven of my
+
+1699
+01:11:17,760 --> 01:11:21,600
+questions
+
+1700
+01:11:19,360 --> 01:11:23,760
+but however one of the questions is how
+
+1701
+01:11:21,600 --> 01:11:26,640
+do you get you know the powershell to
+
+1702
+01:11:23,760 --> 01:11:29,199
+behave just like the unix tools to have
+
+1703
+01:11:26,640 --> 01:11:32,320
+the unix line ending
+
+1704
+01:11:29,199 --> 01:11:35,199
+that was not that that question is not
+
+1705
+01:11:32,320 --> 01:11:37,360
+solved okay he didn't answer because it
+
+1706
+01:11:35,199 --> 01:11:38,800
+turns out you know as we can see as i
+
+1707
+01:11:37,360 --> 01:11:41,440
+learned now
+
+1708
+01:11:38,800 --> 01:11:44,719
+that question to this day
+
+1709
+01:11:41,440 --> 01:11:48,640
+is not satisfactory solved in powershell
+
+1710
+01:11:44,719 --> 01:11:50,640
+this you know it's just complexities
+
+1711
+01:11:48,640 --> 01:11:52,640
+okay i think that's it for today and i'm
+
+1712
+01:11:50,640 --> 01:11:54,560
+gonna read the comments and we close in
+
+1713
+01:11:52,640 --> 01:11:56,239
+five minutes i think uh probably
+
+1714
+01:11:54,560 --> 01:11:57,840
+nobody's watching
+
+1715
+01:11:56,239 --> 01:11:59,920
+uh
+
+1716
+01:11:57,840 --> 01:12:02,239
+my show wow night people
+
+1717
+01:11:59,920 --> 01:12:04,480
+and we haven't you know there's more
+
+1718
+01:12:02,239 --> 01:12:06,640
+issues i want to talk about i haven't we
+
+1719
+01:12:04,480 --> 01:12:10,239
+have we haven't got into
+
+1720
+01:12:06,640 --> 01:12:11,360
+the issue of the here dark design the
+
+1721
+01:12:10,239 --> 01:12:15,679
+design
+
+1722
+01:12:11,360 --> 01:12:17,520
+the design of the here dark syntax and
+
+1723
+01:12:15,679 --> 01:12:21,120
+the art of naming
+
+1724
+01:12:17,520 --> 01:12:23,920
+whether should it be called here dark or
+
+1725
+01:12:21,120 --> 01:12:25,840
+not talk or hear string you know i
+
+1726
+01:12:23,920 --> 01:12:29,120
+haven't talked about that yet okay let
+
+1727
+01:12:25,840 --> 01:12:30,960
+me show you what about what that is
+
+1728
+01:12:29,120 --> 01:12:32,320
+okay close that wait
+
+1729
+01:12:30,960 --> 01:12:35,440
+reopen it
+
+1730
+01:12:32,320 --> 01:12:38,320
+copy it close it or actually
+
+1731
+01:12:35,440 --> 01:12:40,719
+copy this back to emacs close it
+
+1732
+01:12:38,320 --> 01:12:43,199
+um go down here
+
+1733
+01:12:40,719 --> 01:12:46,239
+paste it we need to have a record of
+
+1734
+01:12:43,199 --> 01:12:49,280
+what we talked about so many things okay
+
+1735
+01:12:46,239 --> 01:12:50,400
+powershell versus smash yes uh yeah
+
+1736
+01:12:49,280 --> 01:12:51,440
+close that
+
+1737
+01:12:50,400 --> 01:12:53,880
+then
+
+1738
+01:12:51,440 --> 01:12:56,719
+okay so
+
+1739
+01:12:53,880 --> 01:12:57,760
+zx880 okay so then different operating
+
+1740
+01:12:56,719 --> 01:13:00,159
+systems
+
+1741
+01:12:57,760 --> 01:13:02,840
+so one of the new one using
+
+1742
+01:13:00,159 --> 01:13:04,719
+carriage return
+
+1743
+01:13:02,840 --> 01:13:07,440
+is
+
+1744
+01:13:04,719 --> 01:13:11,440
+mit this machine
+
+1745
+01:13:07,440 --> 01:13:11,440
+okay yeah so copy that
+
+1746
+01:13:12,800 --> 01:13:16,400
+so these operating systems
+
+1747
+01:13:16,800 --> 01:13:22,960
+os that uses cr
+
+1748
+01:13:20,239 --> 01:13:25,520
+like mac os
+
+1749
+01:13:22,960 --> 01:13:25,520
+classic
+
+1750
+01:13:26,159 --> 01:13:28,960
+you know
+
+1751
+01:13:27,040 --> 01:13:30,400
+i was thinking you know so anyway so
+
+1752
+01:13:28,960 --> 01:13:34,400
+that's a good to know that's great to
+
+1753
+01:13:30,400 --> 01:13:36,400
+know that so you can see you can observe
+
+1754
+01:13:34,400 --> 01:13:38,960
+different operating systems and their
+
+1755
+01:13:36,400 --> 01:13:40,960
+choice you know this is for those of you
+
+1756
+01:13:38,960 --> 01:13:43,280
+who are interested in programming
+
+1757
+01:13:40,960 --> 01:13:45,600
+language design or protocol design or
+
+1758
+01:13:43,280 --> 01:13:48,000
+youtube user interface design you know
+
+1759
+01:13:45,600 --> 01:13:49,600
+i'm very much into design aspect of
+
+1760
+01:13:48,000 --> 01:13:52,320
+things so
+
+1761
+01:13:49,600 --> 01:13:54,640
+therefore a lot of my followers you guys
+
+1762
+01:13:52,320 --> 01:13:57,199
+so from this you can see kind of the
+
+1763
+01:13:54,640 --> 01:14:00,159
+design issue you know although it's kind
+
+1764
+01:13:57,199 --> 01:14:02,000
+of a trivial issue you know uh
+
+1765
+01:14:00,159 --> 01:14:04,560
+like it doesn't matter you know you just
+
+1766
+01:14:02,000 --> 01:14:07,760
+use whatever the you you know if you are
+
+1767
+01:14:04,560 --> 01:14:10,719
+a practical person just use whichever
+
+1768
+01:14:07,760 --> 01:14:12,159
+that is the what most widely used you
+
+1769
+01:14:10,719 --> 01:14:15,600
+know go with the
+
+1770
+01:14:12,159 --> 01:14:18,080
+crf or go with linux you know unix well
+
+1771
+01:14:15,600 --> 01:14:21,600
+windows is actually far more wide widely
+
+1772
+01:14:18,080 --> 01:14:22,480
+used so go go with the crf
+
+1773
+01:14:21,600 --> 01:14:25,199
+which
+
+1774
+01:14:22,480 --> 01:14:28,719
+historically is came from the teletype
+
+1775
+01:14:25,199 --> 01:14:32,080
+machine so that is actually the most
+
+1776
+01:14:28,719 --> 01:14:34,640
+widely compatible historical one the
+
+1777
+01:14:32,080 --> 01:14:38,400
+choice is character return line feed
+
+1778
+01:14:34,640 --> 01:14:41,199
+okay if you are a practical person but
+
+1779
+01:14:38,400 --> 01:14:44,239
+but if everybody
+
+1780
+01:14:41,199 --> 01:14:45,920
+is a practical person like who should
+
+1781
+01:14:44,239 --> 01:14:48,000
+work you know don't worry about
+
+1782
+01:14:45,920 --> 01:14:51,920
+useless things you know get on with your
+
+1783
+01:14:48,000 --> 01:14:53,840
+life you know follow the you know
+
+1784
+01:14:51,920 --> 01:14:54,719
+get in line follow with the tradition
+
+1785
+01:14:53,840 --> 01:14:58,480
+then
+
+1786
+01:14:54,719 --> 01:15:02,000
+apple will never be invented okay apple
+
+1787
+01:14:58,480 --> 01:15:04,000
+apple computer steve jobs he's got
+
+1788
+01:15:02,000 --> 01:15:06,640
+an eye for design
+
+1789
+01:15:04,000 --> 01:15:10,080
+without apple you will not have cd
+
+1790
+01:15:06,640 --> 01:15:12,239
+player you will not have dvd player you
+
+1791
+01:15:10,080 --> 01:15:14,239
+will not have usb
+
+1792
+01:15:12,239 --> 01:15:15,600
+you will not have
+
+1793
+01:15:14,239 --> 01:15:17,840
+gui
+
+1794
+01:15:15,600 --> 01:15:20,239
+okay graphical user interface where you
+
+1795
+01:15:17,840 --> 01:15:24,080
+can click and select and you will not
+
+1796
+01:15:20,239 --> 01:15:26,000
+have mouse you will not have um
+
+1797
+01:15:24,080 --> 01:15:28,800
+graphical user
+
+1798
+01:15:26,000 --> 01:15:30,239
+interface okay now some of you might say
+
+1799
+01:15:28,800 --> 01:15:32,239
+oh well but
+
+1800
+01:15:30,239 --> 01:15:33,360
+you are wrong but the mouse is invented
+
+1801
+01:15:32,239 --> 01:15:35,040
+by the
+
+1802
+01:15:33,360 --> 01:15:36,640
+you know the mother of all inventions
+
+1803
+01:15:35,040 --> 01:15:40,320
+you know empire am i
+
+1804
+01:15:36,640 --> 01:15:41,120
+by like xerox and so on well that's true
+
+1805
+01:15:40,320 --> 01:15:45,199
+but
+
+1806
+01:15:41,120 --> 01:15:47,360
+the mat the vast majority of inventions
+
+1807
+01:15:45,199 --> 01:15:48,880
+that we use today
+
+1808
+01:15:47,360 --> 01:15:52,560
+that you come to know keyboard or
+
+1809
+01:15:48,880 --> 01:15:56,480
+whatever is not because of the inventor
+
+1810
+01:15:52,560 --> 01:15:58,960
+rather it's because of a entrepreneur
+
+1811
+01:15:56,480 --> 01:16:01,040
+so steve jobs he
+
+1812
+01:15:58,960 --> 01:16:03,120
+actually didn't invent
+
+1813
+01:16:01,040 --> 01:16:07,120
+graphical user interface he didn't
+
+1814
+01:16:03,120 --> 01:16:10,800
+invent the mouse he didn't invent
+
+1815
+01:16:07,120 --> 01:16:12,960
+the usb he didn't invent cd on a
+
+1816
+01:16:10,800 --> 01:16:15,840
+computer he didn't invent dvd on
+
+1817
+01:16:12,960 --> 01:16:18,800
+computer he didn't invent the concept of
+
+1818
+01:16:15,840 --> 01:16:21,840
+online music streaming but he's an
+
+1819
+01:16:18,800 --> 01:16:25,360
+entrepreneur and he didn't he didn't
+
+1820
+01:16:21,840 --> 01:16:28,320
+invent phone cell phone okay but he is
+
+1821
+01:16:25,360 --> 01:16:30,560
+responsible for the fact that we are
+
+1822
+01:16:28,320 --> 01:16:31,520
+using it today so who do you think too
+
+1823
+01:16:30,560 --> 01:16:33,520
+well
+
+1824
+01:16:31,520 --> 01:16:36,159
+the original inventor the engineers
+
+1825
+01:16:33,520 --> 01:16:38,480
+usually are important but
+
+1826
+01:16:36,159 --> 01:16:40,640
+it is the entrepreneur
+
+1827
+01:16:38,480 --> 01:16:43,360
+that made things happen so
+
+1828
+01:16:40,640 --> 01:16:45,600
+of you people you know you know it's you
+
+1829
+01:16:43,360 --> 01:16:47,520
+that's a important thing you need to
+
+1830
+01:16:45,600 --> 01:16:50,480
+realize
+
+1831
+01:16:47,520 --> 01:16:53,440
+okay so don't do oh steve jobs he's just
+
+1832
+01:16:50,480 --> 01:16:55,679
+uh nothing because he didn't invent mars
+
+1833
+01:16:53,440 --> 01:16:57,120
+not he didn't even anything no no you
+
+1834
+01:16:55,679 --> 01:17:00,080
+are idiot
+
+1835
+01:16:57,120 --> 01:17:00,080
+if you think that way
+
+1836
+01:17:00,159 --> 01:17:04,080
+okay i think that's it for today bye
+
+1837
+01:17:02,320 --> 01:17:06,640
+guys yeah
+
+1838
+01:17:04,080 --> 01:17:08,800
+yeah we haven't get into the design of
+
+1839
+01:17:06,640 --> 01:17:11,040
+the here doc
+
+1840
+01:17:08,800 --> 01:17:13,679
+the design the design of the heel dog
+
+1841
+01:17:11,040 --> 01:17:16,640
+let me quickly show you so i'm done okay
+
+1842
+01:17:13,679 --> 01:17:17,920
+i'm done today this is getting too long
+
+1843
+01:17:16,640 --> 01:17:20,400
+this is getting
+
+1844
+01:17:17,920 --> 01:17:20,400
+it's like
+
+1845
+01:17:23,030 --> 01:17:26,200
+[Music]
+
+1846
+01:17:26,480 --> 01:17:31,840
+12 30
+
+1847
+01:17:28,880 --> 01:17:34,159
+it's coding getting 90 90 minutes
+
+1848
+01:17:31,840 --> 01:17:36,800
+the design of here doc okay very
+
+1849
+01:17:34,159 --> 01:17:38,159
+interesting so you have the php has a
+
+1850
+01:17:36,800 --> 01:17:41,199
+syntax
+
+1851
+01:17:38,159 --> 01:17:42,000
+like that then perl has a syntax
+
+1852
+01:17:41,199 --> 01:17:45,040
+so
+
+1853
+01:17:42,000 --> 01:17:47,440
+i got my perl tutorial which i
+
+1854
+01:17:45,040 --> 01:17:50,239
+did not include the here doc
+
+1855
+01:17:47,440 --> 01:17:53,360
+syntax in here
+
+1856
+01:17:50,239 --> 01:17:56,239
+uh bash bash also have here docs
+
+1857
+01:17:53,360 --> 01:17:58,800
+uh and powershell also have here docs so
+
+1858
+01:17:56,239 --> 01:18:02,320
+powershell here docs i can show you
+
+1859
+01:17:58,800 --> 01:18:05,600
+uh in my tutorial you can see it here
+
+1860
+01:18:02,320 --> 01:18:08,080
+the powershell here docs so you go here
+
+1861
+01:18:05,600 --> 01:18:08,080
+string
+
+1862
+01:18:08,880 --> 01:18:13,280
+so this is a powershell here docs
+
+1863
+01:18:11,280 --> 01:18:14,880
+convention
+
+1864
+01:18:13,280 --> 01:18:17,440
+okay so um
+
+1865
+01:18:14,880 --> 01:18:19,760
+that's it for today okay uh bye guys so
+
+1866
+01:18:17,440 --> 01:18:23,040
+let me read the comments answer
+
+1867
+01:18:19,760 --> 01:18:23,040
+some questions quickly
+
+1868
+01:18:23,440 --> 01:18:27,520
+so this keyboard if you are wondering
+
+1869
+01:18:25,199 --> 01:18:29,760
+this is called kinesis advantage too
+
+1870
+01:18:27,520 --> 01:18:29,760
+okay
+
+1871
+01:18:32,239 --> 01:18:35,360
+uh
+
+1872
+01:18:33,199 --> 01:18:38,400
+why bash on windows when you can because
+
+1873
+01:18:35,360 --> 01:18:39,360
+bash is no good on windows
+
+1874
+01:18:38,400 --> 01:18:41,600
+well
+
+1875
+01:18:39,360 --> 01:18:44,719
+bash versus powershell okay let me tell
+
+1876
+01:18:41,600 --> 01:18:46,560
+you guys so powershell from pure
+
+1877
+01:18:44,719 --> 01:18:50,080
+technical point of view you know the
+
+1878
+01:18:46,560 --> 01:18:51,440
+language design the syntax the power the
+
+1879
+01:18:50,080 --> 01:18:53,760
+semantics
+
+1880
+01:18:51,440 --> 01:18:56,560
+from a pure language design
+
+1881
+01:18:53,760 --> 01:18:58,080
+point of view powershell is a magnitude
+
+1882
+01:18:56,560 --> 01:19:00,880
+better than bash
+
+1883
+01:18:58,080 --> 01:19:02,880
+okay in in in terms of the syntax the
+
+1884
+01:19:00,880 --> 01:19:05,360
+readability the speed the command the
+
+1885
+01:19:02,880 --> 01:19:06,960
+ease the ease of use you know powershell
+
+1886
+01:19:05,360 --> 01:19:08,800
+is like
+
+1887
+01:19:06,960 --> 01:19:11,040
+much better than bash
+
+1888
+01:19:08,800 --> 01:19:13,120
+bash and and there's a good reason for
+
+1889
+01:19:11,040 --> 01:19:16,000
+that powershell is you know
+
+1890
+01:19:13,120 --> 01:19:18,880
+bash is designed 30 years ago powershell
+
+1891
+01:19:16,000 --> 01:19:21,040
+was designed 15 years ago
+
+1892
+01:19:18,880 --> 01:19:24,159
+the difference in years make a huge
+
+1893
+01:19:21,040 --> 01:19:25,520
+difference you know in general
+
+1894
+01:19:24,159 --> 01:19:27,920
+the
+
+1895
+01:19:25,520 --> 01:19:29,679
+the later languages you know
+
+1896
+01:19:27,920 --> 01:19:32,159
+are better than older languages in
+
+1897
+01:19:29,679 --> 01:19:34,400
+general generally speaking
+
+1898
+01:19:32,159 --> 01:19:37,280
+if everything else considered equal
+
+1899
+01:19:34,400 --> 01:19:39,600
+because you know you know you if they
+
+1900
+01:19:37,280 --> 01:19:41,840
+differ by you know a year or five it
+
+1901
+01:19:39,600 --> 01:19:43,920
+doesn't matter but if uh two different
+
+1902
+01:19:41,840 --> 01:19:46,640
+languages their birth
+
+1903
+01:19:43,920 --> 01:19:48,000
+their design year differ by more than
+
+1904
+01:19:46,640 --> 01:19:51,040
+ten years
+
+1905
+01:19:48,000 --> 01:19:52,880
+that has some significance okay so
+
+1906
+01:19:51,040 --> 01:19:54,560
+first of all i want to make a point
+
+1907
+01:19:52,880 --> 01:19:56,400
+technically speaking from a pure
+
+1908
+01:19:54,560 --> 01:19:58,640
+technical point of view powershell is
+
+1909
+01:19:56,400 --> 01:19:59,920
+much better than bash
+
+1910
+01:19:58,640 --> 01:20:02,159
+okay this is
+
+1911
+01:19:59,920 --> 01:20:03,679
+purely technical point of view
+
+1912
+01:20:02,159 --> 01:20:04,640
+disregarding
+
+1913
+01:20:03,679 --> 01:20:07,679
+other
+
+1914
+01:20:04,640 --> 01:20:09,280
+factors such as open source or not or
+
+1915
+01:20:07,679 --> 01:20:12,560
+what company or
+
+1916
+01:20:09,280 --> 01:20:15,840
+uh or compatibility or which one is more
+
+1917
+01:20:12,560 --> 01:20:17,520
+widely used and so on okay
+
+1918
+01:20:15,840 --> 01:20:19,440
+now that's all so
+
+1919
+01:20:17,520 --> 01:20:21,040
+so the second thing i want to mention is
+
+1920
+01:20:19,440 --> 01:20:22,880
+that um we
+
+1921
+01:20:21,040 --> 01:20:25,840
+on you know
+
+1922
+01:20:22,880 --> 01:20:29,760
+you you want to use a xiao language that
+
+1923
+01:20:25,840 --> 01:20:31,199
+is native for your operating system so
+
+1924
+01:20:29,760 --> 01:20:32,960
+the best show
+
+1925
+01:20:31,199 --> 01:20:37,280
+if you are linked on linux the best
+
+1926
+01:20:32,960 --> 01:20:40,560
+child is bash okay bash or z z x
+
+1927
+01:20:37,280 --> 01:20:41,920
+something similar bash c z sharp among
+
+1928
+01:20:40,560 --> 01:20:43,440
+them
+
+1929
+01:20:41,920 --> 01:20:47,520
+we can compare but that's a different
+
+1930
+01:20:43,440 --> 01:20:50,159
+issue but my point here is that
+
+1931
+01:20:47,520 --> 01:20:51,679
+when it comes to languages or shell
+
+1932
+01:20:50,159 --> 01:20:53,600
+basically
+
+1933
+01:20:51,679 --> 01:20:56,159
+you want to use the one that's native to
+
+1934
+01:20:53,600 --> 01:20:57,040
+the operating system so on linux it's
+
+1935
+01:20:56,159 --> 01:20:59,600
+bash
+
+1936
+01:20:57,040 --> 01:21:00,719
+okay bash z shell and whatever on
+
+1937
+01:20:59,600 --> 01:21:03,199
+windows
+
+1938
+01:21:00,719 --> 01:21:05,120
+you want to stick with powershell okay
+
+1939
+01:21:03,199 --> 01:21:07,600
+because therefore for many reasons
+
+1940
+01:21:05,120 --> 01:21:10,000
+because one first of all it comes with
+
+1941
+01:21:07,600 --> 01:21:12,239
+os every window is bundled with a
+
+1942
+01:21:10,000 --> 01:21:14,320
+powershell for bash you have to install
+
+1943
+01:21:12,239 --> 01:21:15,360
+it then you have to you know different
+
+1944
+01:21:14,320 --> 01:21:17,360
+uh
+
+1945
+01:21:15,360 --> 01:21:20,000
+versions of different from different
+
+1946
+01:21:17,360 --> 01:21:22,239
+people you know
+
+1947
+01:21:20,000 --> 01:21:23,920
+so anyway my point is that you want to
+
+1948
+01:21:22,239 --> 01:21:26,159
+stick with the native
+
+1949
+01:21:23,920 --> 01:21:28,880
+shell if you can that's the best
+
+1950
+01:21:26,159 --> 01:21:29,679
+native to your operating system okay
+
+1951
+01:21:28,880 --> 01:21:31,600
+now
+
+1952
+01:21:29,679 --> 01:21:34,000
+the third thing i want to say is that
+
+1953
+01:21:31,600 --> 01:21:36,880
+powershell is open source today the
+
+1954
+01:21:34,000 --> 01:21:39,040
+entire.net is
+
+1955
+01:21:36,880 --> 01:21:41,520
+open source okay that's what microsoft
+
+1956
+01:21:39,040 --> 01:21:43,440
+is doing you know they bought you know
+
+1957
+01:21:41,520 --> 01:21:46,080
+they bought github they you know the
+
+1958
+01:21:43,440 --> 01:21:48,320
+entire powershell is open source
+
+1959
+01:21:46,080 --> 01:21:50,480
+um but
+
+1960
+01:21:48,320 --> 01:21:53,840
+so i think powershell is much better and
+
+1961
+01:21:50,480 --> 01:21:55,600
+also it's open source and also it's um
+
+1962
+01:21:53,840 --> 01:21:57,600
+so it's available you know powershell
+
+1963
+01:21:55,600 --> 01:22:00,320
+you can you can install you can run it
+
+1964
+01:21:57,600 --> 01:22:03,440
+on mac or linux in fact i have a
+
+1965
+01:22:00,320 --> 01:22:05,760
+screenshot you can you see this is
+
+1966
+01:22:03,440 --> 01:22:07,920
+this is powershell on mac
+
+1967
+01:22:05,760 --> 01:22:11,840
+and here's the powershell on linux okay
+
+1968
+01:22:07,920 --> 01:22:11,840
+you can just download and install
+
+1969
+01:22:12,080 --> 01:22:14,320
+um
+
+1970
+01:22:14,480 --> 01:22:17,199
+but
+
+1971
+01:22:15,360 --> 01:22:20,080
+you know because of history you know on
+
+1972
+01:22:17,199 --> 01:22:22,719
+linux you have you know a lot of
+
+1973
+01:22:20,080 --> 01:22:25,040
+resistance to powershell
+
+1974
+01:22:22,719 --> 01:22:27,040
+very strong resistance i mean
+
+1975
+01:22:25,040 --> 01:22:29,040
+and probably most of you when you're
+
+1976
+01:22:27,040 --> 01:22:31,280
+laughing powershell
+
+1977
+01:22:29,040 --> 01:22:34,480
+even you you don't know like you know
+
+1978
+01:22:31,280 --> 01:22:34,480
+you don't know nothing about it
+
+1979
+01:22:35,360 --> 01:22:40,239
+like in general you know if you are the
+
+1980
+01:22:37,840 --> 01:22:43,120
+4chan type of people in general when you
+
+1981
+01:22:40,239 --> 01:22:46,159
+have opinion you know you know after if
+
+1982
+01:22:43,120 --> 01:22:47,840
+if you after you studied powershell for
+
+1983
+01:22:46,159 --> 01:22:49,520
+half a year
+
+1984
+01:22:47,840 --> 01:22:51,920
+then you tell me oh i don't think
+
+1985
+01:22:49,520 --> 01:22:54,480
+powershell is better than bash i think
+
+1986
+01:22:51,920 --> 01:22:57,199
+bash is better then i respect your
+
+1987
+01:22:54,480 --> 01:22:59,440
+opinion okay but but
+
+1988
+01:22:57,199 --> 01:23:00,400
+but the opinions i hear you know all the
+
+1989
+01:22:59,440 --> 01:23:01,840
+people
+
+1990
+01:23:00,400 --> 01:23:03,760
+their opinion is like they don't know
+
+1991
+01:23:01,840 --> 01:23:06,880
+nothing they never coded one line of
+
+1992
+01:23:03,760 --> 01:23:08,400
+powershell but they're gonna tell you
+
+1993
+01:23:06,880 --> 01:23:10,560
+look at that idiot
+
+1994
+01:23:08,400 --> 01:23:14,080
+he's doing hard you know that's you you
+
+1995
+01:23:10,560 --> 01:23:16,400
+are you are your idiot
+
+1996
+01:23:14,080 --> 01:23:17,600
+so anyway i think powershell is better
+
+1997
+01:23:16,400 --> 01:23:18,639
+and i think
+
+1998
+01:23:17,600 --> 01:23:20,960
+um
+
+1999
+01:23:18,639 --> 01:23:21,679
+it's also open source but the question
+
+2000
+01:23:20,960 --> 01:23:23,360
+of
+
+2001
+01:23:21,679 --> 01:23:25,760
+you know on linux there's a strong
+
+2002
+01:23:23,360 --> 01:23:27,360
+resistance resistance and i don't see
+
+2003
+01:23:25,760 --> 01:23:30,159
+the day
+
+2004
+01:23:27,360 --> 01:23:31,600
+i don't see the day that
+
+2005
+01:23:30,159 --> 01:23:33,600
+you know it
+
+2006
+01:23:31,600 --> 01:23:35,360
+you'll be a long time if powershell is
+
+2007
+01:23:33,600 --> 01:23:38,000
+ever gonna replace
+
+2008
+01:23:35,360 --> 01:23:41,120
+bash on linux because the linux people
+
+2009
+01:23:38,000 --> 01:23:43,679
+you know they they are not going to um
+
+2010
+01:23:41,120 --> 01:23:46,080
+so anyway but but for personal use i
+
+2011
+01:23:43,679 --> 01:23:48,400
+would recommend powershell
+
+2012
+01:23:46,080 --> 01:23:50,719
+if i'm on linux you know i don't like
+
+2013
+01:23:48,400 --> 01:23:52,159
+windows because you know it's possible
+
+2014
+01:23:50,719 --> 01:23:53,440
+i'll
+
+2015
+01:23:52,159 --> 01:23:55,679
+you know there's there's lots of
+
+2016
+01:23:53,440 --> 01:23:57,840
+problems you know it's possible
+
+2017
+01:23:55,679 --> 01:24:00,480
+by next year
+
+2018
+01:23:57,840 --> 01:24:03,040
+you know i i'm not going to probably be
+
+2019
+01:24:00,480 --> 01:24:04,880
+not going to you know switch to windows
+
+2020
+01:24:03,040 --> 01:24:06,880
+11 so
+
+2021
+01:24:04,880 --> 01:24:09,600
+sometimes in the future i'm
+
+2022
+01:24:06,880 --> 01:24:11,760
+you know uh i'll be back on the mac or
+
+2023
+01:24:09,600 --> 01:24:14,159
+possibly linux
+
+2024
+01:24:11,760 --> 01:24:16,800
+so if i'm on the on mac
+
+2025
+01:24:14,159 --> 01:24:19,920
+if i'm on the mac
+
+2026
+01:24:16,800 --> 01:24:22,239
+i'm probably gonna
+
+2027
+01:24:19,920 --> 01:24:25,520
+stick with either powershell or z shell
+
+2028
+01:24:22,239 --> 01:24:27,920
+because z xiao is the max default now
+
+2029
+01:24:25,520 --> 01:24:29,760
+why because the gnu the free software
+
+2030
+01:24:27,920 --> 01:24:33,040
+richard storman you know they
+
+2031
+01:24:29,760 --> 01:24:35,600
+want to push for gpr3 that's why
+
+2032
+01:24:33,040 --> 01:24:38,560
+on the mac you know they switched away
+
+2033
+01:24:35,600 --> 01:24:42,719
+about three years ago the mac apple the
+
+2034
+01:24:38,560 --> 01:24:44,400
+default xiao is no longer bash it's z
+
+2035
+01:24:42,719 --> 01:24:48,480
+why because
+
+2036
+01:24:44,400 --> 01:24:51,360
+the gpa are three the richard storman
+
+2037
+01:24:48,480 --> 01:24:53,440
+idiot okay
+
+2038
+01:24:51,360 --> 01:24:54,800
+that's why so you know free software
+
+2039
+01:24:53,440 --> 01:24:57,440
+foundation they are dying you know
+
+2040
+01:24:54,800 --> 01:25:01,040
+nobody knows about it anymore so
+
+2041
+01:24:57,440 --> 01:25:03,520
+but if i'm on linux maybe bash anyway
+
+2042
+01:25:01,040 --> 01:25:05,679
+uh so that's it for the any anything
+
+2043
+01:25:03,520 --> 01:25:08,080
+else let's see okay
+
+2044
+01:25:05,679 --> 01:25:11,800
+so i'm just read the comments and that's
+
+2045
+01:25:08,080 --> 01:25:11,800
+it for today okay
+
+2046
+01:25:12,080 --> 01:25:17,840
+uh if you have a question for me i'd put
+
+2047
+01:25:14,480 --> 01:25:17,840
+my name to it okay so
+
+2048
+01:25:20,080 --> 01:25:25,760
+i got a haircut so you won't be seeing
+
+2049
+01:25:23,360 --> 01:25:30,480
+me the tech and
+
+2050
+01:25:25,760 --> 01:25:30,480
+i'm no longer the taken about boss guy
+
+2051
+01:25:32,400 --> 01:25:37,840
+okay bye guys thank you and donate don't
+
+2052
+01:25:35,040 --> 01:25:39,679
+forget the most important part of the
+
+2053
+01:25:37,840 --> 01:25:41,440
+youtube
+
+2054
+01:25:39,679 --> 01:25:44,159
+is that
+
+2055
+01:25:41,440 --> 01:25:45,440
+you pay for the service okay so you
+
+2056
+01:25:44,159 --> 01:25:48,480
+think i
+
+2057
+01:25:45,440 --> 01:25:50,639
+you know you enjoyed the show either you
+
+2058
+01:25:48,480 --> 01:25:54,239
+learned something technical or you
+
+2059
+01:25:50,639 --> 01:25:56,000
+enjoyed us comedy entertainment
+
+2060
+01:25:54,239 --> 01:25:59,520
+buy me a drink
+
+2061
+01:25:56,000 --> 01:26:03,440
+whatever drink cost in your country okay
+
+2062
+01:25:59,520 --> 01:26:06,920
+so you can see my paypal my amazon my
+
+2063
+01:26:03,440 --> 01:26:06,920
+stuff okay
+
+2064
+01:26:10,719 --> 01:26:16,159
+window sliding windows
+
+2065
+01:26:12,480 --> 01:26:16,159
+usually we know diamond windows
+
+2066
+01:26:16,610 --> 01:26:21,679
+[Music]
+
+2067
+01:26:18,880 --> 01:26:24,400
+i use fish on linux okay that's good for
+
+2068
+01:26:21,679 --> 01:26:25,840
+you that's a kind of a gui show oh and
+
+2069
+01:26:24,400 --> 01:26:28,080
+that stream is full of dining window
+
+2070
+01:26:25,840 --> 01:26:31,920
+manager users
+
+2071
+01:26:28,080 --> 01:26:34,000
+you can try sway the exact same config
+
+2072
+01:26:31,920 --> 01:26:37,280
+unless you are stuck with
+
+2073
+01:26:34,000 --> 01:26:38,480
+nvidia so what are we talking sway okay
+
+2074
+01:26:37,280 --> 01:26:40,480
+i don't know
+
+2075
+01:26:38,480 --> 01:26:43,360
+i heard there's a new tech sway i don't
+
+2076
+01:26:40,480 --> 01:26:48,440
+know what that is about
+
+2077
+01:26:43,360 --> 01:26:48,440
+uh sway what so what the is sway
+
+2078
+01:26:50,239 --> 01:26:54,400
+so
+
+2079
+01:26:51,120 --> 01:26:57,840
+suede gpu nvidia on sway tutorial so
+
+2080
+01:26:54,400 --> 01:26:57,840
+what the is sway
+
+2081
+01:26:58,400 --> 01:27:02,800
+minecraft
+
+2082
+01:26:59,760 --> 01:27:02,800
+microsoft wait
+
+2083
+01:27:03,199 --> 01:27:05,840
+what
+
+2084
+01:27:06,400 --> 01:27:12,960
+so anyway i don't know what what is wait
+
+2085
+01:27:08,639 --> 01:27:12,960
+so a media on sway tutorial and
+
+2086
+01:27:15,679 --> 01:27:19,320
+yeah let's see
+
+2087
+01:27:21,360 --> 01:27:25,520
+okay so microsoft sway is a
+
+2088
+01:27:27,760 --> 01:27:33,400
+a presentation program and it's part of
+
+2089
+01:27:29,760 --> 01:27:33,400
+microsoft office
+
+2090
+01:27:34,880 --> 01:27:40,960
+no i don't think that's what you're
+
+2091
+01:27:36,480 --> 01:27:40,960
+talking about right or what what is sway
+
+2092
+01:27:43,840 --> 01:27:50,080
+microsoft sway is a presentation program
+
+2093
+01:27:48,000 --> 01:27:54,840
+and is part of microsoft phone value
+
+2094
+01:27:50,080 --> 01:27:54,840
+okay i don't think that's the one that's
+
+2095
+01:28:05,199 --> 01:28:09,440
+do you prefer tags or workspaces for
+
+2096
+01:28:07,760 --> 01:28:12,840
+your
+
+2097
+01:28:09,440 --> 01:28:14,400
+desktop i don't use text and i don't use
+
+2098
+01:28:12,840 --> 01:28:17,120
+workspaces
+
+2099
+01:28:14,400 --> 01:28:19,760
+like i you know you might have seen my
+
+2100
+01:28:17,120 --> 01:28:22,239
+article i use only one
+
+2101
+01:28:19,760 --> 01:28:22,239
+single
+
+2102
+01:28:24,080 --> 01:28:26,800
+uh one single
+
+2103
+01:28:25,679 --> 01:28:29,040
+desktop
+
+2104
+01:28:26,800 --> 01:28:31,199
+no no others okay
+
+2105
+01:28:29,040 --> 01:28:35,280
+remove them
+
+2106
+01:28:31,199 --> 01:28:35,280
+you know i stick with one single
+
+2107
+01:28:35,920 --> 01:28:41,800
+uh
+
+2108
+01:28:37,040 --> 01:28:41,800
+virtual screen or whatever you call it
+
+2109
+01:28:45,120 --> 01:28:47,679
+bye guys
+
+2110
+01:28:48,000 --> 01:28:53,199
+oh sway the way land windows manager
+
+2111
+01:28:50,560 --> 01:28:54,560
+okay that's that's got a long way to go
+
+2112
+01:28:53,199 --> 01:28:57,440
+because i
+
+2113
+01:28:54,560 --> 01:29:01,120
+i just learned that e-max
+
+2114
+01:28:57,440 --> 01:29:04,080
+is not compatible with wayland yet
+
+2115
+01:29:01,120 --> 01:29:06,159
+the wayland's got ways to go
+
+2116
+01:29:04,080 --> 01:29:08,320
+okay this way is a tidying window oh my
+
+2117
+01:29:06,159 --> 01:29:12,800
+god another tiny windows manager and
+
+2118
+01:29:08,320 --> 01:29:14,800
+wayland compositor composite my ass
+
+2119
+01:29:12,800 --> 01:29:17,199
+you know about 10 years ago when i was
+
+2120
+01:29:14,800 --> 01:29:20,320
+on linux you know i heard oh there's a
+
+2121
+01:29:17,199 --> 01:29:23,120
+fire compositor you know but then then
+
+2122
+01:29:20,320 --> 01:29:26,000
+when you actually use it and dig deep
+
+2123
+01:29:23,120 --> 01:29:29,440
+into it it's the lord just crap the
+
+2124
+01:29:26,000 --> 01:29:31,440
+worst technology possible but but
+
+2125
+01:29:29,440 --> 01:29:33,120
+every day you just hear the linux viewer
+
+2126
+01:29:31,440 --> 01:29:36,080
+wow wow
+
+2127
+01:29:33,120 --> 01:29:37,360
+well you know rotating cubes like like
+
+2128
+01:29:36,080 --> 01:29:39,040
+like you can
+
+2129
+01:29:37,360 --> 01:29:41,440
+switch your uh
+
+2130
+01:29:39,040 --> 01:29:43,760
+you know virtual desktop with a rotating
+
+2131
+01:29:41,440 --> 01:29:44,719
+cube that was fashionable like 15 years
+
+2132
+01:29:43,760 --> 01:29:47,600
+ago
+
+2133
+01:29:44,719 --> 01:29:49,280
+but you don't see it today
+
+2134
+01:29:47,600 --> 01:29:51,280
+when you actually use linux you know
+
+2135
+01:29:49,280 --> 01:29:54,480
+like daily you know then you dig
+
+2136
+01:29:51,280 --> 01:29:56,960
+then i think you know i dig deep into
+
+2137
+01:29:54,480 --> 01:29:59,360
+the technology it's crap what's crap
+
+2138
+01:29:56,960 --> 01:30:01,600
+possible then you got on linux telling
+
+2139
+01:29:59,360 --> 01:30:04,960
+window manager let me tell you guys okay
+
+2140
+01:30:01,600 --> 01:30:06,800
+titling window managers on linux
+
+2141
+01:30:04,960 --> 01:30:10,239
+you have the
+
+2142
+01:30:06,800 --> 01:30:12,480
+how do you call the the windows um
+
+2143
+01:30:10,239 --> 01:30:15,040
+the
+
+2144
+01:30:12,480 --> 01:30:16,719
+you know they they are not they they you
+
+2145
+01:30:15,040 --> 01:30:18,400
+know i have article site so many
+
+2146
+01:30:16,719 --> 01:30:21,360
+articles i forgot where i have to search
+
+2147
+01:30:18,400 --> 01:30:23,600
+for it the the windows uh how they call
+
+2148
+01:30:21,360 --> 01:30:26,080
+tear okay when you drag a window you
+
+2149
+01:30:23,600 --> 01:30:29,280
+have tear on your screen that's linux
+
+2150
+01:30:26,080 --> 01:30:32,320
+that's the average normal typical linux
+
+2151
+01:30:29,280 --> 01:30:34,400
+you have tears on your screen
+
+2152
+01:30:32,320 --> 01:30:38,080
+in in one of these titling window what
+
+2153
+01:30:34,400 --> 01:30:40,880
+manages that poison for example you know
+
+2154
+01:30:38,080 --> 01:30:43,920
+you know let me show you okay
+
+2155
+01:30:40,880 --> 01:30:46,960
+uh let's go to linux okay so the entire
+
+2156
+01:30:43,920 --> 01:30:49,679
+linux tutorial then you go down those
+
+2157
+01:30:46,960 --> 01:30:52,960
+are all about commands useful gui app
+
+2158
+01:30:49,679 --> 01:30:56,080
+names okay not that uh then you go you
+
+2159
+01:30:52,960 --> 01:30:56,080
+want to go to the
+
+2160
+01:30:56,239 --> 01:31:00,320
+uh
+
+2161
+01:30:57,040 --> 01:31:04,000
+x you know this so this is this is what
+
+2162
+01:31:00,320 --> 01:31:06,159
+my screen looks like in 2012 that's the
+
+2163
+01:31:04,000 --> 01:31:09,360
+year i was going to die
+
+2164
+01:31:06,159 --> 01:31:11,520
+2012 on a puny you know
+
+2165
+01:31:09,360 --> 01:31:15,760
+trash walmart
+
+2166
+01:31:11,520 --> 01:31:16,400
+pc okay so i was on linux so you know so
+
+2167
+01:31:15,760 --> 01:31:17,840
+i
+
+2168
+01:31:16,400 --> 01:31:20,320
+i
+
+2169
+01:31:17,840 --> 01:31:21,679
+dived deep into all these you know
+
+2170
+01:31:20,320 --> 01:31:23,600
+technologies
+
+2171
+01:31:21,679 --> 01:31:25,199
+xfc ev
+
+2172
+01:31:23,600 --> 01:31:26,719
+you know these two are actually the best
+
+2173
+01:31:25,199 --> 01:31:27,639
+okay lxd
+
+2174
+01:31:26,719 --> 01:31:31,120
+and
+
+2175
+01:31:27,639 --> 01:31:33,120
+sxfc these two are the best because
+
+2176
+01:31:31,120 --> 01:31:36,000
+i have a puny machine no memory and so
+
+2177
+01:31:33,120 --> 01:31:38,880
+on and these are the most lean okay and
+
+2178
+01:31:36,000 --> 01:31:38,880
+and they you know
+
+2179
+01:31:39,679 --> 01:31:44,320
+they they are not what's what's what's
+
+2180
+01:31:41,760 --> 01:31:46,400
+the code the technology the buffer okay
+
+2181
+01:31:44,320 --> 01:31:48,400
+they don't use the buffer in your in in
+
+2182
+01:31:46,400 --> 01:31:49,600
+the screen and they what's up you know i
+
+2183
+01:31:48,400 --> 01:31:51,040
+thought
+
+2184
+01:31:49,600 --> 01:31:52,560
+you know then you have to get into the
+
+2185
+01:31:51,040 --> 01:31:53,760
+details of the
+
+2186
+01:31:52,560 --> 01:31:55,760
+uh
+
+2187
+01:31:53,760 --> 01:31:57,840
+of the of the thing what they call but
+
+2188
+01:31:55,760 --> 01:32:00,880
+anyway the screen buffer okay they are
+
+2189
+01:31:57,840 --> 01:32:03,520
+the windowing system they don't use the
+
+2190
+01:32:00,880 --> 01:32:05,920
+screen so anyway the point the the
+
+2191
+01:32:03,520 --> 01:32:08,960
+bottom line is that
+
+2192
+01:32:05,920 --> 01:32:11,199
+often you'll see it every week okay you
+
+2193
+01:32:08,960 --> 01:32:12,719
+have you you'll have tear screen tail
+
+2194
+01:32:11,199 --> 01:32:14,480
+like
+
+2195
+01:32:12,719 --> 01:32:15,440
+oh oh
+
+2196
+01:32:14,480 --> 01:32:18,000
+um
+
+2197
+01:32:15,440 --> 01:32:20,480
+like part of your window that already is
+
+2198
+01:32:18,000 --> 01:32:23,199
+already deleted but you'll see it still
+
+2199
+01:32:20,480 --> 01:32:25,920
+there that that's linux okay the telling
+
+2200
+01:32:23,199 --> 01:32:28,239
+windows and that happens and then
+
+2201
+01:32:25,920 --> 01:32:30,639
+then you might think oh all these linux
+
+2202
+01:32:28,239 --> 01:32:33,120
+cool kids they are talking about rad
+
+2203
+01:32:30,639 --> 01:32:35,120
+poison or i3
+
+2204
+01:32:33,120 --> 01:32:37,120
+and so you you know so i thought okay
+
+2205
+01:32:35,120 --> 01:32:40,080
+i'm going to install you try them they
+
+2206
+01:32:37,120 --> 01:32:41,360
+are all the same problems
+
+2207
+01:32:40,080 --> 01:32:43,280
+the
+
+2208
+01:32:41,360 --> 01:32:45,199
+linux people are dribbling they don't
+
+2209
+01:32:43,280 --> 01:32:46,400
+know nothing what the what you guys are
+
+2210
+01:32:45,199 --> 01:32:49,120
+thinking
+
+2211
+01:32:46,400 --> 01:32:50,320
+they all have the same problem
+
+2212
+01:32:49,120 --> 01:32:51,360
+screen
+
+2213
+01:32:50,320 --> 01:32:53,760
+tear
+
+2214
+01:32:51,360 --> 01:32:56,560
+okay i'm an average person you know i'm
+
+2215
+01:32:53,760 --> 01:32:58,719
+not doing trying to do things fancy when
+
+2216
+01:32:56,560 --> 01:33:00,960
+i did either when i deleted the window
+
+2217
+01:32:58,719 --> 01:33:02,800
+it left a you know
+
+2218
+01:33:00,960 --> 01:33:07,239
+shadow there the
+
+2219
+01:33:02,800 --> 01:33:07,239
+ is that that's linux
+
+2220
+01:33:10,080 --> 01:33:15,760
+calm peace yeah confess is one of the
+
+2221
+01:33:12,000 --> 01:33:15,760
+earliest yeah bye guys
+
+2222
+01:33:18,159 --> 01:33:23,840
+you know screen time happens often you
+
+2223
+01:33:19,920 --> 01:33:23,840
+know not you know when you um
+
+2224
+01:33:24,639 --> 01:33:27,520
+when you um you know for example you
+
+2225
+01:33:26,560 --> 01:33:29,120
+know
+
+2226
+01:33:27,520 --> 01:33:30,400
+you know when you actually work with
+
+2227
+01:33:29,120 --> 01:33:32,320
+linux you know
+
+2228
+01:33:30,400 --> 01:33:34,320
+such as you know
+
+2229
+01:33:32,320 --> 01:33:36,480
+you know when you actually do
+
+2230
+01:33:34,320 --> 01:33:37,280
+lots of things you have problems you
+
+2231
+01:33:36,480 --> 01:33:39,280
+then
+
+2232
+01:33:37,280 --> 01:33:40,480
+of course it maybe it doesn't happen to
+
+2233
+01:33:39,280 --> 01:33:42,320
+you
+
+2234
+01:33:40,480 --> 01:33:44,159
+because you have you know what you know
+
+2235
+01:33:42,320 --> 01:33:46,560
+you have a system
+
+2236
+01:33:44,159 --> 01:33:48,840
+lots of memory or something each person
+
+2237
+01:33:46,560 --> 01:33:50,800
+is different but the point the point is
+
+2238
+01:33:48,840 --> 01:33:53,679
+that
+
+2239
+01:33:50,800 --> 01:33:56,239
+you know i'm not trying to do anything
+
+2240
+01:33:53,679 --> 01:33:59,199
+special esoteric and it just happened it
+
+2241
+01:33:56,239 --> 01:34:02,000
+does happen for every day average user
+
+2242
+01:33:59,199 --> 01:34:04,880
+you know sometimes your um
+
+2243
+01:34:02,000 --> 01:34:08,159
+yours um so for example i can actually
+
+2244
+01:34:04,880 --> 01:34:10,000
+tell you uh example when it happens okay
+
+2245
+01:34:08,159 --> 01:34:11,920
+but but it's been a while i have to
+
+2246
+01:34:10,000 --> 01:34:14,239
+think about
+
+2247
+01:34:11,920 --> 01:34:16,800
+you know if i look at my articles
+
+2248
+01:34:14,239 --> 01:34:19,040
+i will know okay so if i look at my
+
+2249
+01:34:16,800 --> 01:34:20,960
+articles let's go to linux
+
+2250
+01:34:19,040 --> 01:34:24,400
+okay so
+
+2251
+01:34:20,960 --> 01:34:26,159
+look at this some of these articles okay
+
+2252
+01:34:24,400 --> 01:34:28,639
+um
+
+2253
+01:34:26,159 --> 01:34:32,560
+so this is about finding the command
+
+2254
+01:34:28,639 --> 01:34:34,800
+name for graphical user app app you know
+
+2255
+01:34:32,560 --> 01:34:36,159
+you need to do that you know if you are
+
+2256
+01:34:34,800 --> 01:34:38,960
+um
+
+2257
+01:34:36,159 --> 01:34:41,920
+very technical like me okay so let me
+
+2258
+01:34:38,960 --> 01:34:44,239
+show so when does it happen
+
+2259
+01:34:41,920 --> 01:34:47,040
+so these are the different image viewers
+
+2260
+01:34:44,239 --> 01:34:49,199
+uh on linux then
+
+2261
+01:34:47,040 --> 01:34:51,760
+you know i tried them or i tried them
+
+2262
+01:34:49,199 --> 01:34:54,080
+all the different image viewers to
+
+2263
+01:34:51,760 --> 01:34:56,080
+assess to judge which one is the best
+
+2264
+01:34:54,080 --> 01:34:57,119
+design many of them are just totally
+
+2265
+01:34:56,080 --> 01:34:58,880
+crap
+
+2266
+01:34:57,119 --> 01:35:00,880
+totally crap
+
+2267
+01:34:58,880 --> 01:35:04,000
+linux
+
+2268
+01:35:00,880 --> 01:35:07,280
+you know the linux idiot they are they
+
+2269
+01:35:04,000 --> 01:35:09,760
+are crap not you know in in in in every
+
+2270
+01:35:07,280 --> 01:35:12,080
+way in every way
+
+2271
+01:35:09,760 --> 01:35:14,080
+worse than windows many of them
+
+2272
+01:35:12,080 --> 01:35:16,480
+in every way the linux
+
+2273
+01:35:14,080 --> 01:35:16,480
+people
+
+2274
+01:35:18,080 --> 01:35:20,320
+um
+
+2275
+01:35:22,159 --> 01:35:27,280
+okay so i have anyway that's it that i'm
+
+2276
+01:35:24,960 --> 01:35:29,360
+not going to um you know that's it i
+
+2277
+01:35:27,280 --> 01:35:33,280
+made my point uh
+
+2278
+01:35:29,360 --> 01:35:33,280
+you can decide whether it's true or not
+
+2279
+01:35:33,920 --> 01:35:37,159
+bye guys
+

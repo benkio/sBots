@@ -1,0 +1,4624 @@
+1
+00:00:01,600 --> 00:00:08,000
+Good morning guys. Welcome to another
+
+2
+00:00:04,720 --> 00:00:10,719
+episode of Kar Talk Show. We are going
+
+3
+00:00:08,000 --> 00:00:12,639
+to code JavaScript. Today JavaScript
+
+4
+00:00:10,719 --> 00:00:14,400
+advanced JavaScript functional
+
+5
+00:00:12,639 --> 00:00:16,640
+programming.
+
+6
+00:00:14,400 --> 00:00:20,240
+Okay. My keyboard. This is ultimate
+
+7
+00:00:16,640 --> 00:00:24,720
+hacking keyboard 80 UHK.
+
+8
+00:00:20,240 --> 00:00:27,119
+This is Nia trackable. This is um this
+
+9
+00:00:24,720 --> 00:00:30,960
+is you know my pen device. But let me
+
+10
+00:00:27,119 --> 00:00:33,440
+show you my screen so you can see them.
+
+11
+00:00:30,960 --> 00:00:37,440
+Go to screen. Okay, you can see my
+
+12
+00:00:33,440 --> 00:00:39,280
+screen. Stop that. So, Sun talk show
+
+13
+00:00:37,440 --> 00:00:43,120
+2026
+
+14
+00:00:39,280 --> 00:00:46,239
+January 26th
+
+15
+00:00:43,120 --> 00:00:49,280
+and episode 750 JavaScript functional
+
+16
+00:00:46,239 --> 00:00:52,480
+programming style. That's we're going to
+
+17
+00:00:49,280 --> 00:00:54,480
+explore casually.
+
+18
+00:00:52,480 --> 00:00:58,079
+Okay, if you are here say hi. If you are
+
+19
+00:00:54,480 --> 00:01:00,719
+watching this offline, play at 1.5 speed
+
+20
+00:00:58,079 --> 00:01:04,320
+minimum. Okay. So, you can see my
+
+21
+00:01:00,719 --> 00:01:07,600
+keyboard ultimate hacking keyboard 80.
+
+22
+00:01:04,320 --> 00:01:10,640
+You'll find it on my website kasali.info
+
+23
+00:01:07,600 --> 00:01:13,600
+http nos.
+
+24
+00:01:10,640 --> 00:01:17,439
+So, I have video reviews of them. One
+
+25
+00:01:13,600 --> 00:01:21,520
+hour each. Lots of video reviews of all
+
+26
+00:01:17,439 --> 00:01:26,320
+sort of ergonomic keyboards. Glove 80,
+
+27
+00:01:21,520 --> 00:01:28,960
+Kinesis 360, Kinesis Advantage 2,
+
+28
+00:01:26,320 --> 00:01:30,960
+Moltron. I don't have a review for Mron.
+
+29
+00:01:28,960 --> 00:01:34,079
+I don't have that. But I do have Glove
+
+30
+00:01:30,960 --> 00:01:37,600
+80, which is fantastic. I've been using
+
+31
+00:01:34,079 --> 00:01:41,280
+for three years on my live stream every
+
+32
+00:01:37,600 --> 00:01:44,159
+day. Uh and uh you know, so anyway, so I
+
+33
+00:01:41,280 --> 00:01:46,960
+got reviews, so you can see all of them.
+
+34
+00:01:44,159 --> 00:01:49,680
+Uh lots of reviews. Okay, that's my
+
+35
+00:01:46,960 --> 00:01:52,479
+that's my keyboard. Let's go back. So,
+
+36
+00:01:49,680 --> 00:01:55,040
+and the L Nia track ball. That's the
+
+37
+00:01:52,479 --> 00:01:58,159
+track ball there. You can see you can't
+
+38
+00:01:55,040 --> 00:02:01,320
+see it, but okay. Nia track ball. This
+
+39
+00:01:58,159 --> 00:02:01,320
+is Nia505M50
+
+40
+00:02:02,560 --> 00:02:12,599
+and Huang uh tablet drawing pad. That's
+
+41
+00:02:07,439 --> 00:02:12,599
+what I'm using right now. Huang H640P.
+
+42
+00:02:13,280 --> 00:02:19,360
+Okay, let's let's uh start to code
+
+43
+00:02:15,760 --> 00:02:21,680
+JavaScript. Okay. So, JavaScript uh so I
+
+44
+00:02:19,360 --> 00:02:25,200
+have a page if you search for JavaScript
+
+45
+00:02:21,680 --> 00:02:29,360
+style guide for functional programmers
+
+46
+00:02:25,200 --> 00:02:32,800
+up here. New uh tab search for it in
+
+47
+00:02:29,360 --> 00:02:36,560
+browser you'll find it. Let's see. Let's
+
+48
+00:02:32,800 --> 00:02:38,800
+see if it shows my website. It indeed
+
+49
+00:02:36,560 --> 00:02:43,920
+savas script style guide for functional
+
+50
+00:02:38,800 --> 00:02:47,200
+programmers. So, you can see Oh [ __ ]
+
+51
+00:02:43,920 --> 00:02:51,000
+Okay. So it um
+
+52
+00:02:47,200 --> 00:02:51,000
+you see it showed
+
+53
+00:02:51,920 --> 00:02:58,720
+it funny you see if you do brave search
+
+54
+00:02:56,239 --> 00:03:02,400
+on JavaScript style for functional
+
+55
+00:02:58,720 --> 00:03:05,440
+programmers it gives a summary of my
+
+56
+00:03:02,400 --> 00:03:09,920
+page. Okay. So, there's a link. So,
+
+57
+00:03:05,440 --> 00:03:12,879
+let's see. Um, yeah. So, it does show a
+
+58
+00:03:09,920 --> 00:03:16,239
+link. That's my website.
+
+59
+00:03:12,879 --> 00:03:19,280
+But then the result is some other page.
+
+60
+00:03:16,239 --> 00:03:20,959
+The W3 school is the worst [ __ ] on
+
+61
+00:03:19,280 --> 00:03:23,280
+earth.
+
+62
+00:03:20,959 --> 00:03:26,159
+They they are very old. They became
+
+63
+00:03:23,280 --> 00:03:29,599
+hugely popular. They are uh since like
+
+64
+00:03:26,159 --> 00:03:32,959
+around year 2000 or 2003 something very
+
+65
+00:03:29,599 --> 00:03:36,560
+early. They are they are like for the
+
+66
+00:03:32,959 --> 00:03:40,640
+most very beginners like programming for
+
+67
+00:03:36,560 --> 00:03:43,519
+dummies and uh lots of errors. But
+
+68
+00:03:40,640 --> 00:03:46,799
+however they succeed they became very
+
+69
+00:03:43,519 --> 00:03:49,440
+popular because vast majority of
+
+70
+00:03:46,799 --> 00:03:53,040
+programming tutorials are written by
+
+71
+00:03:49,440 --> 00:03:55,040
+these elite programmer [ __ ]
+
+72
+00:03:53,040 --> 00:03:58,239
+They don't write for beginner. They
+
+73
+00:03:55,040 --> 00:04:01,599
+write for to show other coders how
+
+74
+00:03:58,239 --> 00:04:03,840
+elite, how hacker they are. So the
+
+75
+00:04:01,599 --> 00:04:06,879
+typical programming language tutorials
+
+76
+00:04:03,840 --> 00:04:09,040
+are or blogs are full of like either
+
+77
+00:04:06,879 --> 00:04:11,519
+jarens or in you know like
+
+78
+00:04:09,040 --> 00:04:15,519
+incomprehensible
+
+79
+00:04:11,519 --> 00:04:19,919
+you know things. So so you want to write
+
+80
+00:04:15,519 --> 00:04:23,520
+a tutorial that is uh very friendly for
+
+81
+00:04:19,919 --> 00:04:25,280
+beginner. You don't want to pretend they
+
+82
+00:04:23,520 --> 00:04:27,680
+are dummies,
+
+83
+00:04:25,280 --> 00:04:29,360
+okay? But you, you know, but you do want
+
+84
+00:04:27,680 --> 00:04:33,199
+to write them, you know, you don't you
+
+85
+00:04:29,360 --> 00:04:35,680
+don't want to be pretentious like lots
+
+86
+00:04:33,199 --> 00:04:38,320
+of these programming language tutorials
+
+87
+00:04:35,680 --> 00:04:41,040
+are, especially in the past, not not so
+
+88
+00:04:38,320 --> 00:04:46,240
+much today. Because today, since about
+
+89
+00:04:41,040 --> 00:04:50,080
+10 years ago, this vast mega uh movement
+
+90
+00:04:46,240 --> 00:04:53,040
+of corporate sponsored tutorial website
+
+91
+00:04:50,080 --> 00:04:55,759
+usually created in India, you know, they
+
+92
+00:04:53,040 --> 00:05:00,320
+trying to make money, cheap way to make
+
+93
+00:04:55,759 --> 00:05:04,320
+money. Anyway, so so in the 1990s and
+
+94
+00:05:00,320 --> 00:05:06,720
+and up to even 2010, vast majority of
+
+95
+00:05:04,320 --> 00:05:11,680
+programmer programming tutorials are
+
+96
+00:05:06,720 --> 00:05:13,680
+very bad, lousy, pretentious um because
+
+97
+00:05:11,680 --> 00:05:17,600
+they are all written by elite, you know,
+
+98
+00:05:13,680 --> 00:05:19,840
+they are they are written, you know,
+
+99
+00:05:17,600 --> 00:05:23,199
+and and a lot of them don't know how to
+
+100
+00:05:19,840 --> 00:05:25,199
+write such as the Unix and C programmer
+
+101
+00:05:23,199 --> 00:05:28,160
+class of people. They don't even know
+
+102
+00:05:25,199 --> 00:05:30,560
+how to write properly.
+
+103
+00:05:28,160 --> 00:05:32,800
+And and some of them, you know, harbor
+
+104
+00:05:30,560 --> 00:05:35,360
+the thought that, you know, I'm a I'm a
+
+105
+00:05:32,800 --> 00:05:37,919
+hacker. I'm a great programmer. Writing
+
+106
+00:05:35,360 --> 00:05:41,120
+documentation is beneath me. These
+
+107
+00:05:37,919 --> 00:05:43,919
+[ __ ] Very common among the Unix
+
+108
+00:05:41,120 --> 00:05:45,840
+and C people. Okay.
+
+109
+00:05:43,919 --> 00:05:48,160
+Do I have an audience? If you are here,
+
+110
+00:05:45,840 --> 00:05:49,840
+say hi. Okay. Seven concurrent viewers.
+
+111
+00:05:48,160 --> 00:05:53,199
+Okay. If you are watching this offline,
+
+112
+00:05:49,840 --> 00:05:56,720
+play at 1.5 speed. Okay. So anyway we we
+
+113
+00:05:53,199 --> 00:06:00,400
+I started to digress on how programming
+
+114
+00:05:56,720 --> 00:06:03,280
+tutorial scene were were like in the
+
+115
+00:06:00,400 --> 00:06:05,759
+past 30 years. So in the 1990s and the
+
+116
+00:06:03,280 --> 00:06:08,000
+year 2000 you know there are not many
+
+117
+00:06:05,759 --> 00:06:10,160
+programming language tutorials and even
+
+118
+00:06:08,000 --> 00:06:12,160
+if you ask the question you don't get
+
+119
+00:06:10,160 --> 00:06:14,479
+the right answer because everyone is
+
+120
+00:06:12,160 --> 00:06:16,319
+going to tell you why why are you doing
+
+121
+00:06:14,479 --> 00:06:18,560
+that you should do it this way you know
+
+122
+00:06:16,319 --> 00:06:21,759
+did you try Monad you know these
+
+123
+00:06:18,560 --> 00:06:23,919
+[ __ ] like the Hascar people will
+
+124
+00:06:21,759 --> 00:06:25,919
+tell you that monad did you try monad
+
+125
+00:06:23,919 --> 00:06:27,759
+you shouldn't do it that way you know
+
+126
+00:06:25,919 --> 00:06:29,600
+all you want to do you know how do I
+
+127
+00:06:27,759 --> 00:06:32,720
+sort this thing you know then they're
+
+128
+00:06:29,600 --> 00:06:35,919
+going to try to tell you you their fancy
+
+129
+00:06:32,720 --> 00:06:37,360
+ideals like the Monat from Cascal the
+
+130
+00:06:35,919 --> 00:06:39,360
+Lispers they're going to tell you
+
+131
+00:06:37,360 --> 00:06:42,639
+something about something something you
+
+132
+00:06:39,360 --> 00:06:46,720
+know the the Python [ __ ] typically
+
+133
+00:06:42,639 --> 00:06:49,680
+okay so these people but the the most
+
+134
+00:06:46,720 --> 00:06:52,479
+uh lousy language like JavaScript back
+
+135
+00:06:49,680 --> 00:06:54,720
+then JavaScript and PHP they don't have
+
+136
+00:06:52,479 --> 00:06:57,199
+this situation so when you ask the
+
+137
+00:06:54,720 --> 00:07:00,720
+question people actually try to give you
+
+138
+00:06:57,199 --> 00:07:03,280
+answer so that's why part of the reason
+
+139
+00:07:00,720 --> 00:07:05,440
+PHP and JavaScript became the most
+
+140
+00:07:03,280 --> 00:07:10,319
+popular programming language on earth.
+
+141
+00:07:05,440 --> 00:07:12,960
+Okay. Anyway, so so and also because of
+
+142
+00:07:10,319 --> 00:07:15,199
+lots of you know the lack of good
+
+143
+00:07:12,960 --> 00:07:17,599
+tutorials for programming languages or
+
+144
+00:07:15,199 --> 00:07:20,880
+even documentation back then it's very
+
+145
+00:07:17,599 --> 00:07:23,440
+common in the 1990s very common for
+
+146
+00:07:20,880 --> 00:07:26,160
+software or API that do not have any
+
+147
+00:07:23,440 --> 00:07:29,440
+documentation at all
+
+148
+00:07:26,160 --> 00:07:32,240
+very common back then much less today
+
+149
+00:07:29,440 --> 00:07:35,440
+you know almost like it doesn't exist
+
+150
+00:07:32,240 --> 00:07:37,440
+you know this the situation where you
+
+151
+00:07:35,440 --> 00:07:40,319
+have the software or API that does not
+
+152
+00:07:37,440 --> 00:07:43,199
+have any documentation at all is almost
+
+153
+00:07:40,319 --> 00:07:45,599
+non-existent today.
+
+154
+00:07:43,199 --> 00:07:48,000
+Uh you know so this is like a progress
+
+155
+00:07:45,599 --> 00:07:51,039
+of the programming community evolution.
+
+156
+00:07:48,000 --> 00:07:53,440
+Okay. So anyway so so also this reason
+
+157
+00:07:51,039 --> 00:07:57,360
+lack of good tutorials is part of the
+
+158
+00:07:53,440 --> 00:07:58,960
+reason how Stack Overflow became very
+
+159
+00:07:57,360 --> 00:08:02,319
+popular.
+
+160
+00:07:58,960 --> 00:08:05,360
+You see stack overflow they have rules
+
+161
+00:08:02,319 --> 00:08:07,680
+that if people ask a question you must
+
+162
+00:08:05,360 --> 00:08:10,080
+answer that question you are not
+
+163
+00:08:07,680 --> 00:08:12,400
+supposed to going to tell you your story
+
+164
+00:08:10,080 --> 00:08:14,160
+oh but I think that language is better
+
+165
+00:08:12,400 --> 00:08:16,479
+why are you doing this way you shouldn't
+
+166
+00:08:14,160 --> 00:08:19,280
+you know this way whether or that [ __ ]
+
+167
+00:08:16,479 --> 00:08:22,080
+this programming [ __ ] programmers
+
+168
+00:08:19,280 --> 00:08:23,680
+okay so stack overflow saw the problem
+
+169
+00:08:22,080 --> 00:08:25,199
+you know people want to you know when
+
+170
+00:08:23,680 --> 00:08:27,599
+you program you have a lot of questions
+
+171
+00:08:25,199 --> 00:08:29,599
+but when you ask you know you don't get
+
+172
+00:08:27,599 --> 00:08:32,159
+the answer because each person going to
+
+173
+00:08:29,599 --> 00:08:35,039
+tell you something else. So, stock
+
+174
+00:08:32,159 --> 00:08:37,680
+overflow they created a rule that you
+
+175
+00:08:35,039 --> 00:08:41,279
+must answer the question. So, they
+
+176
+00:08:37,680 --> 00:08:43,839
+became hugely successful. Okay. But of
+
+177
+00:08:41,279 --> 00:08:47,680
+course, they died since like three years
+
+178
+00:08:43,839 --> 00:08:50,560
+ago due to AI. So, AI is another chapter
+
+179
+00:08:47,680 --> 00:08:52,800
+in the progress of programming language
+
+180
+00:08:50,560 --> 00:08:55,760
+documentation.
+
+181
+00:08:52,800 --> 00:08:59,279
+Okay. Am I like losing uh viewers, you
+
+182
+00:08:55,760 --> 00:09:01,200
+know? So anyway um so programmy language
+
+183
+00:08:59,279 --> 00:09:05,120
+documentation okay so when you search
+
+184
+00:09:01,200 --> 00:09:08,000
+brave any they showed my they basically
+
+185
+00:09:05,120 --> 00:09:12,440
+they give a summary of my page this is
+
+186
+00:09:08,000 --> 00:09:12,440
+my page let's see if I can
+
+187
+00:09:12,800 --> 00:09:19,360
+uh where is my page yeah okay so they
+
+188
+00:09:16,640 --> 00:09:23,600
+they showed my page a summary of my page
+
+189
+00:09:19,360 --> 00:09:27,040
+but then you got this um okay W3 schools
+
+190
+00:09:23,600 --> 00:09:29,120
+which pretty bad JavaScript style guide.
+
+191
+00:09:27,040 --> 00:09:30,720
+Okay, Google's got JavaScript style
+
+192
+00:09:29,120 --> 00:09:33,600
+guide.
+
+193
+00:09:30,720 --> 00:09:36,959
+Then JavaScript.info. This is another
+
+194
+00:09:33,600 --> 00:09:39,839
+like this this is one of the this is a
+
+195
+00:09:36,959 --> 00:09:41,680
+good example of a none who are trying to
+
+196
+00:09:39,839 --> 00:09:46,080
+squeeze money. You know, you got
+
+197
+00:09:41,680 --> 00:09:49,040
+JavaScript info dedicated domain and you
+
+198
+00:09:46,080 --> 00:09:51,360
+don't know who they are. Okay, but I I I
+
+199
+00:09:49,040 --> 00:09:55,279
+presume most most of the time these are
+
+200
+00:09:51,360 --> 00:09:58,959
+just random Indian.
+
+201
+00:09:55,279 --> 00:10:00,880
+Okay, let's see if I can open that. Uh,
+
+202
+00:09:58,959 --> 00:10:05,360
+open that.
+
+203
+00:10:00,880 --> 00:10:08,160
+I made some change to my keys. Um, so do
+
+204
+00:10:05,360 --> 00:10:11,680
+I still have a Yeah.
+
+205
+00:10:08,160 --> 00:10:14,160
+So that button is middle click. Okay. So
+
+206
+00:10:11,680 --> 00:10:17,760
+let's look at this JavaScript.info.
+
+207
+00:10:14,160 --> 00:10:21,680
+Like who the [ __ ] are they? Okay. So Oh.
+
+208
+00:10:17,760 --> 00:10:24,640
+Oh, you got this diagram. Let's see.
+
+209
+00:10:21,680 --> 00:10:27,040
+syntax. Here is a cheat sheet with some
+
+210
+00:10:24,640 --> 00:10:30,160
+suggested rules. See below for more
+
+211
+00:10:27,040 --> 00:10:32,240
+details. Space between parameters.
+
+212
+00:10:30,160 --> 00:10:36,067
+Okay. So, okay. Also, coding style
+
+213
+00:10:32,240 --> 00:10:36,067
+guide. Okay. So, [laughter]
+
+214
+00:10:37,200 --> 00:10:42,920
+Okay. So, this is coding style guide for
+
+215
+00:10:39,920 --> 00:10:42,920
+dummies.
+
+216
+00:10:43,279 --> 00:10:47,760
+There are no humorous rules. Curly
+
+217
+00:10:45,440 --> 00:10:51,120
+braces. Okay. Let's let's have a look.
+
+218
+00:10:47,760 --> 00:10:53,120
+Let's see like who they who are they.
+
+219
+00:10:51,120 --> 00:10:56,320
+Okay.
+
+220
+00:10:53,120 --> 00:10:58,560
+So, indentation, nest level, and who who
+
+221
+00:10:56,320 --> 00:11:00,640
+you know who they borrow the style from.
+
+222
+00:10:58,560 --> 00:11:03,040
+Okay. Style guides. Google JavaScript
+
+223
+00:11:00,640 --> 00:11:05,839
+style guide. A or B and B's JavaScript
+
+224
+00:11:03,040 --> 00:11:07,680
+style guide. Idiomatic.js.
+
+225
+00:11:05,839 --> 00:11:10,800
+Okay. Another
+
+226
+00:11:07,680 --> 00:11:14,959
+Okay. Then standardJS. That's a scum.
+
+227
+00:11:10,800 --> 00:11:17,519
+Standard JS is from a Malay scum. Okay.
+
+228
+00:11:14,959 --> 00:11:20,959
+This scumbag
+
+229
+00:11:17,519 --> 00:11:25,519
+standard JS one you know from the Malay
+
+230
+00:11:20,959 --> 00:11:27,680
+gen MPM scum idiot. Okay.
+
+231
+00:11:25,519 --> 00:11:30,160
+Uh very popular you know the million
+
+232
+00:11:27,680 --> 00:11:33,200
+millions of download MPM something
+
+233
+00:11:30,160 --> 00:11:36,600
+something million 100 million something.
+
+234
+00:11:33,200 --> 00:11:36,600
+[ __ ] them.
+
+235
+00:11:36,720 --> 00:11:42,399
+You see they you see why they exist.
+
+236
+00:11:39,200 --> 00:11:44,640
+They exist. You know it's not you know
+
+237
+00:11:42,399 --> 00:11:48,160
+it's it's it's not that they are
+
+238
+00:11:44,640 --> 00:11:51,519
+necessarily bad. They exist for the
+
+239
+00:11:48,160 --> 00:11:54,480
+simple reason to
+
+240
+00:11:51,519 --> 00:11:58,880
+to either monetize to you know make
+
+241
+00:11:54,480 --> 00:12:01,600
+themsel rich or to become famous which
+
+242
+00:11:58,880 --> 00:12:04,399
+is in turn make themsel rich. You know
+
+243
+00:12:01,600 --> 00:12:07,120
+if you ever thought about
+
+244
+00:12:04,399 --> 00:12:09,440
+you know rich and famous these are two
+
+245
+00:12:07,120 --> 00:12:12,160
+terms often related. Why are they
+
+246
+00:12:09,440 --> 00:12:15,920
+related? Because one is like helping the
+
+247
+00:12:12,160 --> 00:12:18,560
+other. They are uh very much affiliated
+
+248
+00:12:15,920 --> 00:12:20,800
+rich and famous. Because if you are f if
+
+249
+00:12:18,560 --> 00:12:25,120
+you are famous,
+
+250
+00:12:20,800 --> 00:12:26,800
+it significantly make you rich, you
+
+251
+00:12:25,120 --> 00:12:29,760
+know, doesn't matter who you are. If you
+
+252
+00:12:26,800 --> 00:12:32,000
+are like if all of a sudden a million or
+
+253
+00:12:29,760 --> 00:12:33,440
+a billion people knows about you,
+
+254
+00:12:32,000 --> 00:12:35,120
+they're going to give you money. They,
+
+255
+00:12:33,440 --> 00:12:37,760
+you know, you're going to benefit
+
+256
+00:12:35,120 --> 00:12:40,480
+tremendously.
+
+257
+00:12:37,760 --> 00:12:42,720
+So with this open source they cannot
+
+258
+00:12:40,480 --> 00:12:44,800
+make money directly but they can like
+
+259
+00:12:42,720 --> 00:12:47,519
+have a corporation like MPM you know
+
+260
+00:12:44,800 --> 00:12:49,440
+they they they make money indirectly by
+
+261
+00:12:47,519 --> 00:12:51,040
+you know ads and all or all different
+
+262
+00:12:49,440 --> 00:12:54,800
+ways.
+
+263
+00:12:51,040 --> 00:12:57,360
+So this standard JS is like offensive to
+
+264
+00:12:54,800 --> 00:12:59,920
+my eyes you know look at look at them
+
+265
+00:12:57,360 --> 00:13:03,120
+sponsored by socket what does it mean
+
+266
+00:12:59,920 --> 00:13:07,920
+that means money sponsored you know like
+
+267
+00:13:03,120 --> 00:13:10,000
+this these people are giving them money
+
+268
+00:13:07,920 --> 00:13:11,760
+either you know you you might think oh
+
+269
+00:13:10,000 --> 00:13:13,920
+that's because donation because the
+
+270
+00:13:11,760 --> 00:13:16,800
+JavaScript standard style guy is doing
+
+271
+00:13:13,920 --> 00:13:18,959
+so great to the community so these good
+
+272
+00:13:16,800 --> 00:13:21,440
+people you know this also other
+
+273
+00:13:18,959 --> 00:13:23,600
+corporations they donate you
+
+274
+00:13:21,440 --> 00:13:25,680
+But actually
+
+275
+00:13:23,600 --> 00:13:28,480
+not necessarily. It's more like
+
+276
+00:13:25,680 --> 00:13:31,040
+advertisement. Okay. You want
+
+277
+00:13:28,480 --> 00:13:33,839
+advertisement, you want to advertise
+
+278
+00:13:31,040 --> 00:13:36,720
+here, you know, so contact them, you
+
+279
+00:13:33,839 --> 00:13:40,639
+know. So you got, you know, your name
+
+280
+00:13:36,720 --> 00:13:43,360
+there. Of course, you have to pay.
+
+281
+00:13:40,639 --> 00:13:45,360
+So I don't know if that's true, but
+
+282
+00:13:43,360 --> 00:13:47,040
+that's, you know, but you can never
+
+283
+00:13:45,360 --> 00:13:49,920
+tell, you know. That's the kind of the
+
+284
+00:13:47,040 --> 00:13:53,360
+situation in the past 10 or 15 years.
+
+285
+00:13:49,920 --> 00:13:56,240
+You know the standard Java standard JS
+
+286
+00:13:53,360 --> 00:13:58,720
+[ __ ] scum. What gives them the right to
+
+287
+00:13:56,240 --> 00:14:00,399
+call it standard? Look at the authors.
+
+288
+00:13:58,720 --> 00:14:03,279
+Okay. It's a good thing they have
+
+289
+00:14:00,399 --> 00:14:06,320
+authors. Okay. I think this I think this
+
+290
+00:14:03,279 --> 00:14:08,959
+is a guy who started Feros. Okay. The
+
+291
+00:14:06,320 --> 00:14:11,040
+[ __ ] skun.
+
+292
+00:14:08,959 --> 00:14:14,959
+By the way, this is all my opinion. This
+
+293
+00:14:11,040 --> 00:14:18,240
+is opinion only. Okay. Nothing. Uh this
+
+294
+00:14:14,959 --> 00:14:22,079
+is just opinion. Okay. But Russ uh I
+
+295
+00:14:18,240 --> 00:14:27,399
+think that's the guy who began it
+
+296
+00:14:22,079 --> 00:14:27,399
+standard JS bucking offensive.
+
+297
+00:14:28,079 --> 00:14:32,480
+And who are these people? You know these
+
+298
+00:14:30,320 --> 00:14:34,720
+people are like um you know a lot of
+
+299
+00:14:32,480 --> 00:14:37,920
+Chinese there. You can see a lot quite a
+
+300
+00:14:34,720 --> 00:14:39,760
+few these people are like they they are
+
+301
+00:14:37,920 --> 00:14:41,440
+like young people. They are zoomers.
+
+302
+00:14:39,760 --> 00:14:44,079
+They don't know anything. you know they
+
+303
+00:14:41,440 --> 00:14:46,720
+grew up in this uh late you know Malay
+
+304
+00:14:44,079 --> 00:14:50,320
+genian situation so they grew up with
+
+305
+00:14:46,720 --> 00:14:54,880
+the idea or idea you know of open source
+
+306
+00:14:50,320 --> 00:14:58,959
+of uh pull request uh you know so they
+
+307
+00:14:54,880 --> 00:15:02,320
+so so they in turn they want to be part
+
+308
+00:14:58,959 --> 00:15:04,480
+of you know like part of the game like
+
+309
+00:15:02,320 --> 00:15:06,959
+so you know they can say oh look I
+
+310
+00:15:04,480 --> 00:15:10,000
+contributed to this very popular
+
+311
+00:15:06,959 --> 00:15:12,639
+open-source project standardjs because
+
+312
+00:15:10,000 --> 00:15:15,519
+you and see my PO pull request that's
+
+313
+00:15:12,639 --> 00:15:18,240
+what they are doing most most of them
+
+314
+00:15:15,519 --> 00:15:21,279
+you know so that's why you know like
+
+315
+00:15:18,240 --> 00:15:24,160
+like so and also to benefit them benefit
+
+316
+00:15:21,279 --> 00:15:26,560
+this this guy whoever created this to
+
+317
+00:15:24,160 --> 00:15:28,399
+list all these names because when you
+
+318
+00:15:26,560 --> 00:15:30,320
+see your name there are you happy oh
+
+319
+00:15:28,399 --> 00:15:32,800
+look you know my name is mentioned
+
+320
+00:15:30,320 --> 00:15:34,639
+especially when you are younger vast
+
+321
+00:15:32,800 --> 00:15:38,079
+majority of these people are young you
+
+322
+00:15:34,639 --> 00:15:41,560
+know teenagers that's what you know that
+
+323
+00:15:38,079 --> 00:15:41,560
+is my Yes.
+
+324
+00:15:41,600 --> 00:15:47,440
+So what is exactly is wrong with them?
+
+325
+00:15:44,320 --> 00:15:50,079
+You know the So it's not a crime. Okay.
+
+326
+00:15:47,440 --> 00:15:53,519
+Standard JS for example.
+
+327
+00:15:50,079 --> 00:15:56,639
+Why do I hate them?
+
+328
+00:15:53,519 --> 00:16:00,320
+Is it a crime? No, not really. Is it So
+
+329
+00:15:56,639 --> 00:16:01,839
+is it is it like unethical or
+
+330
+00:16:00,320 --> 00:16:06,000
+misleading?
+
+331
+00:16:01,839 --> 00:16:10,720
+Not really. But it's um it's what how do
+
+332
+00:16:06,000 --> 00:16:14,000
+you you know it's it's a it's a a social
+
+333
+00:16:10,720 --> 00:16:16,800
+phenomenon that's not doing good. Okay.
+
+334
+00:16:14,000 --> 00:16:18,720
+That's like um
+
+335
+00:16:16,800 --> 00:16:21,759
+kind of you know you can you you might
+
+336
+00:16:18,720 --> 00:16:26,639
+think of it as like some bad movement in
+
+337
+00:16:21,759 --> 00:16:29,519
+society or some bad habit or some for
+
+338
+00:16:26,639 --> 00:16:31,199
+example let's let's say graffiti
+
+339
+00:16:29,519 --> 00:16:33,519
+you know there there are c certain
+
+340
+00:16:31,199 --> 00:16:35,920
+subgroups they love graffiti you know
+
+341
+00:16:33,519 --> 00:16:38,000
+like graffiti you just like damage
+
+342
+00:16:35,920 --> 00:16:40,720
+buildings you know you paint whatever
+
+343
+00:16:38,000 --> 00:16:43,120
+and they and some of them they think
+
+344
+00:16:40,720 --> 00:16:46,720
+it's doing good because it's uh
+
+345
+00:16:43,120 --> 00:16:49,199
+providing you know peaceful protest
+
+346
+00:16:46,720 --> 00:16:51,519
+complaint to the corporate corporation
+
+347
+00:16:49,199 --> 00:16:53,759
+you know some of them say that but
+
+348
+00:16:51,519 --> 00:16:56,720
+actually actually you are just doing
+
+349
+00:16:53,759 --> 00:16:58,720
+[ __ ] to society okay you pretend it's a
+
+350
+00:16:56,720 --> 00:17:02,000
+good thing you know that's some of these
+
+351
+00:16:58,720 --> 00:17:03,759
+graffiti artists they are
+
+352
+00:17:02,000 --> 00:17:05,120
+they pretend they are doing good things
+
+353
+00:17:03,759 --> 00:17:06,720
+but they are actually just for
+
+354
+00:17:05,120 --> 00:17:09,760
+themselves
+
+355
+00:17:06,720 --> 00:17:12,559
+so so some so in society you have these
+
+356
+00:17:09,760 --> 00:17:16,640
+some kind of bad notions of movements
+
+357
+00:17:12,559 --> 00:17:20,000
+Okay. And that's what I think that's why
+
+358
+00:17:16,640 --> 00:17:22,799
+my despise of this standard JS is like.
+
+359
+00:17:20,000 --> 00:17:24,959
+Okay. And also also also look at you
+
+360
+00:17:22,799 --> 00:17:28,480
+know what exactly they recommend
+
+361
+00:17:24,959 --> 00:17:30,720
+standard JS. I don't recommend it. Okay.
+
+362
+00:17:28,480 --> 00:17:32,640
+For example, you can look into details.
+
+363
+00:17:30,720 --> 00:17:34,559
+I you know I've seen this like 10 years
+
+364
+00:17:32,640 --> 00:17:36,880
+ago.
+
+365
+00:17:34,559 --> 00:17:38,799
+Uh, you know what? What do you uh what
+
+366
+00:17:36,880 --> 00:17:40,720
+do you what do you might do if you are
+
+367
+00:17:38,799 --> 00:17:44,080
+clever?
+
+368
+00:17:40,720 --> 00:17:46,080
+[ __ ] some what a [ __ ] idea. What
+
+369
+00:17:44,080 --> 00:17:48,720
+what the [ __ ] are you trying to say? You
+
+370
+00:17:46,080 --> 00:17:50,320
+know the way they they they they
+
+371
+00:17:48,720 --> 00:17:52,720
+um
+
+372
+00:17:50,320 --> 00:17:55,760
+you know like when you read something it
+
+373
+00:17:52,720 --> 00:17:57,600
+washes your brain. It colors your brain.
+
+374
+00:17:55,760 --> 00:18:01,600
+Okay. So that you you know you can look
+
+375
+00:17:57,600 --> 00:18:04,720
+at the the when you look at this Zuma or
+
+376
+00:18:01,600 --> 00:18:07,760
+Malay Malayian things you kind of get
+
+377
+00:18:04,720 --> 00:18:10,080
+into their mind mindset how they think
+
+378
+00:18:07,760 --> 00:18:13,080
+about things
+
+379
+00:18:10,080 --> 00:18:13,080
+anyway.
+
+380
+00:18:13,919 --> 00:18:18,440
+So anyway so um
+
+381
+00:18:18,880 --> 00:18:24,960
+what you might do if you are clever what
+
+382
+00:18:21,679 --> 00:18:27,120
+the what the [ __ ] are you trying to say?
+
+383
+00:18:24,960 --> 00:18:29,679
+Okay, let's let's see usage after you've
+
+384
+00:18:27,120 --> 00:18:32,559
+installed standard
+
+385
+00:18:29,679 --> 00:18:36,320
+offensive insulting [ __ ] Who gives you
+
+386
+00:18:32,559 --> 00:18:38,799
+a right to call yourself a standard? Or
+
+387
+00:18:36,320 --> 00:18:41,679
+is this like a Zuma jargon like a
+
+388
+00:18:38,799 --> 00:18:44,559
+marketing play? You are proud of this
+
+389
+00:18:41,679 --> 00:18:47,039
+fact that you abuse the word standard.
+
+390
+00:18:44,559 --> 00:18:50,000
+It's like why not? Because there's lots
+
+391
+00:18:47,039 --> 00:18:51,840
+of memes today. You know, we love memes.
+
+392
+00:18:50,000 --> 00:18:54,240
+So we you know I just use the word
+
+393
+00:18:51,840 --> 00:18:57,440
+standard you know standard JS like why
+
+394
+00:18:54,240 --> 00:19:01,360
+not is that
+
+395
+00:18:57,440 --> 00:19:04,640
+what is the guy is thinking you know so
+
+396
+00:19:01,360 --> 00:19:09,039
+JavaScript style guide llinter another
+
+397
+00:19:04,640 --> 00:19:11,919
+very offensive jargon from C idiots okay
+
+398
+00:19:09,039 --> 00:19:14,240
+and formatter okay
+
+399
+00:19:11,919 --> 00:19:17,039
+table of contents install usage what you
+
+400
+00:19:14,240 --> 00:19:19,919
+might do if you are clever what the [ __ ]
+
+401
+00:19:17,039 --> 00:19:22,400
+FAQ what why should I use JavaScript
+
+402
+00:19:19,919 --> 00:19:24,960
+standard style. Standard style. Who the
+
+403
+00:19:22,400 --> 00:19:27,679
+[ __ ] are you? Who use JavaScript
+
+404
+00:19:24,960 --> 00:19:30,320
+standard style? You know this question
+
+405
+00:19:27,679 --> 00:19:32,799
+you can you'll know right away. It's
+
+406
+00:19:30,320 --> 00:19:34,960
+lots of sponsor corporations. Facebook.
+
+407
+00:19:32,799 --> 00:19:38,960
+Oh, Facebook, Microsoft, you know, lots
+
+408
+00:19:34,960 --> 00:19:41,440
+of them. Abn you know.
+
+409
+00:19:38,960 --> 00:19:43,840
+Are there text editor plugins? Is there
+
+410
+00:19:41,440 --> 00:19:46,480
+a read me badge?
+
+411
+00:19:43,840 --> 00:19:49,919
+I disagree with rule X. Can you change
+
+412
+00:19:46,480 --> 00:19:52,960
+it? But this isn't a real web standard.
+
+413
+00:19:49,919 --> 00:19:57,039
+Okay, let's let's let's see. Um,
+
+414
+00:19:52,960 --> 00:19:59,200
+okay, we are I'm supposed to um show you
+
+415
+00:19:57,039 --> 00:20:02,799
+some JavaScript functional programming
+
+416
+00:19:59,200 --> 00:20:04,799
+code, but I we digressed into this. Um,
+
+417
+00:20:02,799 --> 00:20:08,320
+let's continue with this documentation
+
+418
+00:20:04,799 --> 00:20:10,480
+thing. Okay, so install. So, by the way,
+
+419
+00:20:08,320 --> 00:20:14,960
+so this is just not a style guide, but
+
+420
+00:20:10,480 --> 00:20:17,360
+it's actually it's a tool that make your
+
+421
+00:20:14,960 --> 00:20:20,160
+reformat your JavaScript. Okay, that's
+
+422
+00:20:17,360 --> 00:20:23,200
+reformatter and they also call lint
+
+423
+00:20:20,160 --> 00:20:26,720
+which is a very stupid term from C
+
+424
+00:20:23,200 --> 00:20:29,440
+community. So let's see uh let's see. So
+
+425
+00:20:26,720 --> 00:20:31,280
+install usage after you install standard
+
+426
+00:20:29,440 --> 00:20:34,159
+you should be able to use the standard
+
+427
+00:20:31,280 --> 00:20:36,480
+program. The simplest use case would be
+
+428
+00:20:34,159 --> 00:20:38,320
+checking the style of all JavaScript
+
+429
+00:20:36,480 --> 00:20:41,760
+files in the current working directory.
+
+430
+00:20:38,320 --> 00:20:44,320
+Okay. So you just type uh standard error
+
+431
+00:20:41,760 --> 00:20:47,120
+use JavaScript standard styles except
+
+432
+00:20:44,320 --> 00:20:49,919
+except expect expect that and that you
+
+433
+00:20:47,120 --> 00:20:55,039
+install standard locally run MPX
+
+434
+00:20:49,919 --> 00:20:57,200
+instead. Okay. So MPX okay so D by
+
+435
+00:20:55,039 --> 00:21:02,320
+default standard will look for all files
+
+436
+00:20:57,200 --> 00:21:04,400
+matching the patterns JS okay and JSX
+
+437
+00:21:02,320 --> 00:21:08,080
+what you might do if you are clever add
+
+438
+00:21:04,400 --> 00:21:10,480
+it to package.json JSON okay style is
+
+439
+00:21:08,080 --> 00:21:14,960
+checked automatically when you run npm
+
+440
+00:21:10,480 --> 00:21:17,360
+test okay okay so why should I use
+
+441
+00:21:14,960 --> 00:21:19,280
+JavaScript standard style the beauty of
+
+442
+00:21:17,360 --> 00:21:21,600
+JavaScript standard style is that it's
+
+443
+00:21:19,280 --> 00:21:24,080
+simple no one wants to maintain multiple
+
+444
+00:21:21,600 --> 00:21:27,760
+100 line style configuration files for
+
+445
+00:21:24,080 --> 00:21:32,840
+every module blah blah blah uh no config
+
+446
+00:21:27,760 --> 00:21:32,840
+automatically format code Okay.
+
+447
+00:21:36,000 --> 00:21:42,159
+Okay. Digression. I don't recommend the
+
+448
+00:21:39,200 --> 00:21:45,360
+standard JS. Okay. I don't recommend it.
+
+449
+00:21:42,159 --> 00:21:50,240
+I think it's [ __ ] Okay.
+
+450
+00:21:45,360 --> 00:21:54,320
+I re Now what I recommend is Deno. Okay.
+
+451
+00:21:50,240 --> 00:21:56,880
+What I can recommend is uh Deno. You I
+
+452
+00:21:54,320 --> 00:22:00,000
+have a I have
+
+453
+00:21:56,880 --> 00:22:04,000
+D N O. Okay. I don't have I don't have a
+
+454
+00:22:00,000 --> 00:22:06,960
+great uh Deno tutorial, but but anyway,
+
+455
+00:22:04,000 --> 00:22:09,919
+this is Deno. Okay, by the way, by the
+
+456
+00:22:06,960 --> 00:22:14,320
+way, uh interesting digression. Deno
+
+457
+00:22:09,919 --> 00:22:16,480
+changed their logo two years ago. So, in
+
+458
+00:22:14,320 --> 00:22:19,440
+the beginning, you know, uh before they
+
+459
+00:22:16,480 --> 00:22:23,919
+change, Deno has had this logo. It's
+
+460
+00:22:19,440 --> 00:22:25,919
+cute, a cute dinosaur. Okay, but now it
+
+461
+00:22:23,919 --> 00:22:28,640
+looks like that. Okay, it looks like a
+
+462
+00:22:25,919 --> 00:22:30,640
+penis basically.
+
+463
+00:22:28,640 --> 00:22:34,240
+So when did this change happen? This
+
+464
+00:22:30,640 --> 00:22:37,280
+change happened in this new logo came
+
+465
+00:22:34,240 --> 00:22:40,080
+about in 2024
+
+466
+00:22:37,280 --> 00:22:42,559
+October. So two years ago. Okay. In the
+
+467
+00:22:40,080 --> 00:22:44,880
+release of Deno2
+
+468
+00:22:42,559 --> 00:22:47,840
+and so I looked into so why do they
+
+469
+00:22:44,880 --> 00:22:50,159
+change what they say? Basically
+
+470
+00:22:47,840 --> 00:22:54,000
+they have a
+
+471
+00:22:50,159 --> 00:22:56,000
+blog that is corporate speak. They don't
+
+472
+00:22:54,000 --> 00:22:59,039
+actually say anything. They don't
+
+473
+00:22:56,000 --> 00:23:02,320
+actually say why they really change it
+
+474
+00:22:59,039 --> 00:23:04,640
+because someone wanted to or why is the
+
+475
+00:23:02,320 --> 00:23:06,000
+old one not good? Why you do you need
+
+476
+00:23:04,640 --> 00:23:07,760
+you know they didn't really say
+
+477
+00:23:06,000 --> 00:23:11,600
+anything. It's a corporate you know
+
+478
+00:23:07,760 --> 00:23:13,760
+corporate speak. So you don't really
+
+479
+00:23:11,600 --> 00:23:15,120
+know why they changed. Well because they
+
+480
+00:23:13,760 --> 00:23:17,760
+you know they got a new version.
+
+481
+00:23:15,120 --> 00:23:19,919
+Therefore they need a new logo something
+
+482
+00:23:17,760 --> 00:23:23,679
+like that. But this new logo looks like
+
+483
+00:23:19,919 --> 00:23:26,559
+a penis. Does it? Does it?
+
+484
+00:23:23,679 --> 00:23:30,400
+And uh interesting I I looked you know
+
+485
+00:23:26,559 --> 00:23:32,960
+on Twitter and elsewhere I think nobody
+
+486
+00:23:30,400 --> 00:23:35,679
+these days nobody comment much on the
+
+487
+00:23:32,960 --> 00:23:39,919
+logo change nobody like made some
+
+488
+00:23:35,679 --> 00:23:42,480
+comment and like used to be like 10 uh
+
+489
+00:23:39,919 --> 00:23:44,559
+20 years ago when you have a software
+
+490
+00:23:42,480 --> 00:23:46,720
+popular software logo change a lot of
+
+491
+00:23:44,559 --> 00:23:49,120
+people will talk about it they will give
+
+492
+00:23:46,720 --> 00:23:52,159
+you opinion you know I like it better or
+
+493
+00:23:49,120 --> 00:23:55,840
+not sometimes arguments
+
+494
+00:23:52,159 --> 00:23:59,120
+but I don't you know, but I think time
+
+495
+00:23:55,840 --> 00:24:02,720
+has changed. So, you don't see much
+
+496
+00:23:59,120 --> 00:24:05,679
+comment on this new logo at all.
+
+497
+00:24:02,720 --> 00:24:08,080
+But, however, I did see a a few like two
+
+498
+00:24:05,679 --> 00:24:12,559
+or three. They say they don't like the
+
+499
+00:24:08,080 --> 00:24:15,600
+new logo. It's like, what the [ __ ]
+
+500
+00:24:12,559 --> 00:24:17,440
+It's like a penis. Okay, let's just, you
+
+501
+00:24:15,600 --> 00:24:21,919
+know, just let's just say it's like
+
+502
+00:24:17,440 --> 00:24:24,640
+looks like a penis. like particularly as
+
+503
+00:24:21,919 --> 00:24:26,400
+if like it's like specifically designed
+
+504
+00:24:24,640 --> 00:24:29,400
+to be
+
+505
+00:24:26,400 --> 00:24:29,400
+um
+
+506
+00:24:31,679 --> 00:24:37,679
+you know kind of ah kind of uh you know
+
+507
+00:24:34,080 --> 00:24:40,720
+so there there is a there's a story so
+
+508
+00:24:37,679 --> 00:24:43,600
+anyway Deno I think it's a great great
+
+509
+00:24:40,720 --> 00:24:46,720
+software I think it's great so you can
+
+510
+00:24:43,600 --> 00:24:49,520
+use um I don't have much demo tutorial
+
+511
+00:24:46,720 --> 00:24:51,520
+but you can use Deno to format Java
+
+512
+00:24:49,520 --> 00:24:55,520
+script code which is what I use. I
+
+513
+00:24:51,520 --> 00:25:00,559
+recommend demo. Okay. Not NodeJS, no
+
+514
+00:24:55,520 --> 00:25:03,120
+mpm, no NodeJS and no the standard JS.
+
+515
+00:25:00,559 --> 00:25:07,320
+[ __ ]
+
+516
+00:25:03,120 --> 00:25:07,320
+[ __ ] the standard JS.
+
+517
+00:25:10,480 --> 00:25:18,320
+Okay, that's a lot digression.
+
+518
+00:25:14,559 --> 00:25:20,559
+Ideado says new new deno logo and fun
+
+519
+00:25:18,320 --> 00:25:23,120
+looks a little bit more professional.
+
+520
+00:25:20,559 --> 00:25:24,799
+Wow.
+
+521
+00:25:23,120 --> 00:25:27,799
+That's what you think. More
+
+522
+00:25:24,799 --> 00:25:27,799
+professional.
+
+523
+00:25:29,279 --> 00:25:32,279
+Um
+
+524
+00:25:39,039 --> 00:25:44,600
+where is it? Um general logo there.
+
+525
+00:25:46,400 --> 00:25:50,919
+I don't think it's more professional.
+
+526
+00:25:51,520 --> 00:25:58,320
+Okay. So, I think we I rambled all over.
+
+527
+00:25:54,880 --> 00:26:01,840
+And now, let's go back to some uh to do
+
+528
+00:25:58,320 --> 00:26:04,240
+some JavaScript I was going to do. So,
+
+529
+00:26:01,840 --> 00:26:07,039
+as you know or if you don't know, I've
+
+530
+00:26:04,240 --> 00:26:10,159
+done huge amount of JavaScript work in
+
+531
+00:26:07,039 --> 00:26:12,640
+the past month. Like huge. So just
+
+532
+00:26:10,159 --> 00:26:15,919
+search for
+
+533
+00:26:12,640 --> 00:26:18,240
+just for uh just search for JavaScript
+
+534
+00:26:15,919 --> 00:26:23,159
+in depth. Okay, search for it. You'll
+
+535
+00:26:18,240 --> 00:26:23,159
+find it. You'll find my website.
+
+536
+00:26:24,159 --> 00:26:28,640
+JavaScript in-depth refers to a
+
+537
+00:26:26,480 --> 00:26:31,200
+comprehensive understanding of the
+
+538
+00:26:28,640 --> 00:26:36,559
+language internals beyond syntax and
+
+539
+00:26:31,200 --> 00:26:39,360
+usage. Okay. No, that's not
+
+540
+00:26:36,559 --> 00:26:43,200
+okay. So no, they no longer shows my
+
+541
+00:26:39,360 --> 00:26:48,840
+website looks like. Okay, my website now
+
+542
+00:26:43,200 --> 00:26:48,840
+is on the third JavaScript in depth.
+
+543
+00:26:48,960 --> 00:26:55,520
+Now it's after this egg egghehead.io
+
+544
+00:26:52,559 --> 00:26:59,279
+in-depth JavaScript tutorial for 2025
+
+545
+00:26:55,520 --> 00:27:03,440
+and after this um the modern JavaScript
+
+546
+00:26:59,279 --> 00:27:05,520
+tutorial. Another [ __ ] JavaScript.info.
+
+547
+00:27:03,440 --> 00:27:07,360
+Now who who runs the JavaScript.info?
+
+548
+00:27:05,520 --> 00:27:10,640
+info
+
+549
+00:27:07,360 --> 00:27:13,360
+buy. Oh, okay. So, they are like buy so
+
+550
+00:27:10,640 --> 00:27:15,840
+you can make money. GitHub one two
+
+551
+00:27:13,360 --> 00:27:18,799
+25,000.
+
+552
+00:27:15,840 --> 00:27:21,360
+How is it done now? From the basics to
+
+553
+00:27:18,799 --> 00:27:26,480
+advanced topic with simple but detailed
+
+554
+00:27:21,360 --> 00:27:28,880
+explanations. Okay. Okay. So, by PDF so
+
+555
+00:27:26,480 --> 00:27:32,720
+you can buy it.
+
+556
+00:27:28,880 --> 00:27:38,320
+Okay. So, Okay. So, this is by someone.
+
+557
+00:27:32,720 --> 00:27:43,640
+So this is not a random Joe. This is by
+
+558
+00:27:38,320 --> 00:27:43,640
+because you can see Elia I think
+
+559
+00:27:44,159 --> 00:27:48,000
+let's see part one the JavaScript
+
+560
+00:27:45,840 --> 00:27:50,080
+language part two browser document
+
+561
+00:27:48,000 --> 00:27:53,840
+events interface part three various
+
+562
+00:27:50,080 --> 00:27:58,559
+topics networks regular expressions part
+
+563
+00:27:53,840 --> 00:28:03,360
+one and two together okay 1,00 pages
+
+564
+00:27:58,559 --> 00:28:07,480
+okay full tutorial all three parts
+
+565
+00:28:03,360 --> 00:28:07,480
+1300 pages is
+
+566
+00:28:08,799 --> 00:28:15,440
+okay. Specify your email. So, who are
+
+567
+00:28:11,840 --> 00:28:17,440
+you about the project? Let's see.
+
+568
+00:28:15,440 --> 00:28:19,919
+The modern JavaScript tutorial was
+
+569
+00:28:17,440 --> 00:28:23,120
+created in 2007
+
+570
+00:28:19,919 --> 00:28:24,640
+by Ela Caner.
+
+571
+00:28:23,120 --> 00:28:26,799
+Okay.
+
+572
+00:28:24,640 --> 00:28:30,559
+Okay. It's not
+
+573
+00:28:26,799 --> 00:28:32,960
+some random joke. Okay. Uh and regularly
+
+574
+00:28:30,559 --> 00:28:36,559
+updated since then. New chapters were
+
+575
+00:28:32,960 --> 00:28:40,000
+added out outdated ones removed to stay
+
+576
+00:28:36,559 --> 00:28:42,640
+fresh. The PDF version is about 1,300
+
+577
+00:28:40,000 --> 00:28:45,279
+pages starting from the beginning and
+
+578
+00:28:42,640 --> 00:28:47,840
+then to advanced topics. It's a book not
+
+579
+00:28:45,279 --> 00:28:50,559
+a video as for many people reading is
+
+580
+00:28:47,840 --> 00:28:53,440
+faster. Also, books are easier to
+
+581
+00:28:50,559 --> 00:28:55,760
+update. Keep modern.
+
+582
+00:28:53,440 --> 00:28:58,000
+The content of this tutorial is open
+
+583
+00:28:55,760 --> 00:29:00,399
+source and everyone is welcome to
+
+584
+00:28:58,000 --> 00:29:02,720
+contribute. Okay, it's open source.
+
+585
+00:29:00,399 --> 00:29:07,720
+Let's look at
+
+586
+00:29:02,720 --> 00:29:07,720
+uh the open source. Okay.
+
+587
+00:29:07,840 --> 00:29:13,159
+Okay. 25,000
+
+588
+00:29:10,159 --> 00:29:13,159
+stars.
+
+589
+00:29:18,640 --> 00:29:23,640
+Translations. Okay. Uh
+
+590
+00:29:33,760 --> 00:29:39,159
+Okay, not bad. I think this is not bad.
+
+591
+00:29:48,799 --> 00:29:55,120
+Okay. So, this is Ela Caner.
+
+592
+00:29:52,320 --> 00:29:57,279
+Okay. They are from
+
+593
+00:29:55,120 --> 00:30:00,159
+I believe they are from like Eastern
+
+594
+00:29:57,279 --> 00:30:02,399
+Europe, right? I mean they did they
+
+595
+00:30:00,159 --> 00:30:05,399
+mention the country
+
+596
+00:30:02,399 --> 00:30:05,399
+uh
+
+597
+00:30:10,000 --> 00:30:16,039
+okay not bad about the project
+
+598
+00:30:16,320 --> 00:30:22,000
+Armenia. Okay they are from Armenia.
+
+599
+00:30:20,240 --> 00:30:25,000
+Okay.
+
+600
+00:30:22,000 --> 00:30:25,000
+H.
+
+601
+00:30:27,679 --> 00:30:34,480
+Okay, not bad. So, JavaScript.info. I
+
+602
+00:30:30,480 --> 00:30:37,600
+think it's pretty good. But wait, but we
+
+603
+00:30:34,480 --> 00:30:40,720
+haven't actually read anything by them.
+
+604
+00:30:37,600 --> 00:30:43,919
+So, let's see. Hello world. Okay, that's
+
+605
+00:30:40,720 --> 00:30:46,880
+bad. Uh,
+
+606
+00:30:43,919 --> 00:30:49,200
+modern the modern mode use strict
+
+607
+00:30:46,880 --> 00:30:52,880
+fundamentals data types. Okay, let's
+
+608
+00:30:49,200 --> 00:30:54,640
+look at data types. So I'm doing a insta
+
+609
+00:30:52,880 --> 00:31:00,159
+review
+
+610
+00:30:54,640 --> 00:31:02,000
+example of this JavaScript.info book.
+
+611
+00:31:00,159 --> 00:31:04,000
+Okay, let's see. JavaScript fundamental
+
+612
+00:31:02,000 --> 00:31:06,000
+data types. A value in JavaScript is
+
+613
+00:31:04,000 --> 00:31:07,520
+always of a certain type. For example, a
+
+614
+00:31:06,000 --> 00:31:10,000
+string or a number. There are eight
+
+615
+00:31:07,520 --> 00:31:11,679
+basic types in JavaScript. Here we'll
+
+616
+00:31:10,000 --> 00:31:13,840
+cover them in general and in the next
+
+617
+00:31:11,679 --> 00:31:17,919
+chapters we'll talk about each of them
+
+618
+00:31:13,840 --> 00:31:20,480
+in detail. Okay, fairly verbose. So you
+
+619
+00:31:17,919 --> 00:31:23,039
+got number, you got the infinity and
+
+620
+00:31:20,480 --> 00:31:28,080
+none all part of number. And what are
+
+621
+00:31:23,039 --> 00:31:31,559
+these um gray boxes? Let's see.
+
+622
+00:31:28,080 --> 00:31:31,559
+Turn on JavaScript.
+
+623
+00:31:32,720 --> 00:31:40,231
+Oh. Oh, you can what? Play and edit.
+
+624
+00:31:36,080 --> 00:31:40,231
+Okay. So you got [laughter]
+
+625
+00:31:40,640 --> 00:31:45,279
+Oh god.
+
+626
+00:31:42,720 --> 00:31:48,080
+So you So they have like a buin
+
+627
+00:31:45,279 --> 00:31:51,120
+JavaScript. um
+
+628
+00:31:48,080 --> 00:31:53,039
+clunker. Okay, they they allow you to
+
+629
+00:31:51,120 --> 00:31:55,760
+evaluate.
+
+630
+00:31:53,039 --> 00:31:58,720
+Okay, stop. You know, just use browser
+
+631
+00:31:55,760 --> 00:32:01,519
+uh console. Okay, if you are a real
+
+632
+00:31:58,720 --> 00:32:04,799
+JavaScript coder, you need to learn
+
+633
+00:32:01,519 --> 00:32:09,039
+about browser console, not rely on
+
+634
+00:32:04,799 --> 00:32:10,799
+websites JavaScript, you know, editor
+
+635
+00:32:09,039 --> 00:32:13,440
+engine, you know, use the browser
+
+636
+00:32:10,799 --> 00:32:15,840
+console. Okay, like you can you can you
+
+637
+00:32:13,440 --> 00:32:21,519
+can type whatever
+
+638
+00:32:15,840 --> 00:32:24,320
+You know let's say con okay here here
+
+639
+00:32:21,519 --> 00:32:29,679
+console
+
+640
+00:32:24,320 --> 00:32:33,600
+log three okay there it is
+
+641
+00:32:29,679 --> 00:32:36,399
+okay so this is um
+
+642
+00:32:33,600 --> 00:32:38,799
+data types number
+
+643
+00:32:36,399 --> 00:32:41,600
+big int. Okay. So, it's great they
+
+644
+00:32:38,799 --> 00:32:44,720
+included a big int. This is essential.
+
+645
+00:32:41,600 --> 00:32:47,519
+This is a new feature from just a few
+
+646
+00:32:44,720 --> 00:32:50,480
+years ago. Uh I believe it's just few
+
+647
+00:32:47,519 --> 00:32:54,039
+years ago. Big big int. That's a very
+
+648
+00:32:50,480 --> 00:32:54,039
+huge feature.
+
+649
+00:32:54,399 --> 00:32:59,679
+Oh, but we don't cover them here. You
+
+650
+00:32:56,640 --> 00:33:03,039
+see this here is a part. You see this
+
+651
+00:32:59,679 --> 00:33:06,080
+big int is a very complicated
+
+652
+00:33:03,039 --> 00:33:09,039
+and very interesting feature new in
+
+653
+00:33:06,080 --> 00:33:12,159
+JavaScript. just like for for just a few
+
+654
+00:33:09,039 --> 00:33:15,279
+years I I think I forgot. Um so if you
+
+655
+00:33:12,159 --> 00:33:18,799
+search my uh JavaScript tutorial big int
+
+656
+00:33:15,279 --> 00:33:22,240
+okay okay big int um so let's see big
+
+657
+00:33:18,799 --> 00:33:24,720
+int uh created in 2020 five years ago
+
+658
+00:33:22,240 --> 00:33:29,200
+okay so it's very complex so I don't
+
+659
+00:33:24,720 --> 00:33:33,440
+have the details yet you know but nor do
+
+660
+00:33:29,200 --> 00:33:35,440
+they you know but devoted them uh a
+
+661
+00:33:33,440 --> 00:33:38,000
+separate chapter beginning read it when
+
+662
+00:33:35,440 --> 00:33:42,320
+you need such big number oh they do have
+
+663
+00:33:38,000 --> 00:33:45,760
+it covered [ __ ] a recent edition. Okay.
+
+664
+00:33:42,320 --> 00:33:48,880
+So, they do have a chapter covering it,
+
+665
+00:33:45,760 --> 00:33:52,640
+but how complete is it?
+
+666
+00:33:48,880 --> 00:33:55,360
+Uh does not seems too much. Not much.
+
+667
+00:33:52,640 --> 00:33:59,200
+Okay.
+
+668
+00:33:55,360 --> 00:34:01,600
+So, anyway, so big int and string. Okay.
+
+669
+00:33:59,200 --> 00:34:05,360
+Now, very interesting about string. Now
+
+670
+00:34:01,600 --> 00:34:08,720
+string in JavaScript is very [ __ ] up
+
+671
+00:34:05,360 --> 00:34:11,679
+because string is the index of a string
+
+672
+00:34:08,720 --> 00:34:17,040
+is made of of
+
+673
+00:34:11,679 --> 00:34:19,919
+uh so-called code unit.
+
+674
+00:34:17,040 --> 00:34:22,639
+Okay, which is very [ __ ] up if you
+
+675
+00:34:19,919 --> 00:34:24,560
+have emojis. Okay, let's see. Do they
+
+676
+00:34:22,639 --> 00:34:26,240
+talk about that
+
+677
+00:34:24,560 --> 00:34:28,399
+string is in JavaScript must be
+
+678
+00:34:26,240 --> 00:34:31,839
+surrounded by quotes? Yeah, uh of
+
+679
+00:34:28,399 --> 00:34:34,839
+course. Uh let's see. Do you ever talk
+
+680
+00:34:31,839 --> 00:34:34,839
+about
+
+681
+00:34:35,119 --> 00:34:40,000
+uh
+
+682
+00:34:37,679 --> 00:34:42,320
+code unit?
+
+683
+00:34:40,000 --> 00:34:44,399
+We'll cover things more thoroughly in a
+
+684
+00:34:42,320 --> 00:34:46,800
+chapter. Strings. Okay, let's go to
+
+685
+00:34:44,399 --> 00:34:50,720
+chapter strings.
+
+686
+00:34:46,800 --> 00:34:53,440
+Strings quotes. Okay, let's see. Special
+
+687
+00:34:50,720 --> 00:34:57,040
+characters. Okay, that's escape
+
+688
+00:34:53,440 --> 00:34:59,839
+sequence. Okay, uh you got this. That's
+
+689
+00:34:57,040 --> 00:35:02,000
+incomplete escape sequence. And you
+
+690
+00:34:59,839 --> 00:35:07,520
+didn't cover what is whites space
+
+691
+00:35:02,000 --> 00:35:09,599
+exactly I think. And the next alert. Why
+
+692
+00:35:07,520 --> 00:35:13,200
+are you using alert? You should be using
+
+693
+00:35:09,599 --> 00:35:16,560
+console log my friend. You know alert is
+
+694
+00:35:13,200 --> 00:35:19,359
+like nobody should ever use alert. Alert
+
+695
+00:35:16,560 --> 00:35:22,240
+is from 1990s.
+
+696
+00:35:19,359 --> 00:35:26,000
+Uh you you you're talking about modern
+
+697
+00:35:22,240 --> 00:35:28,640
+JavaScript and you showing alert.
+
+698
+00:35:26,000 --> 00:35:30,960
+Okay. Then string length. Okay. Here is
+
+699
+00:35:28,640 --> 00:35:34,800
+tricky. You see length when if you have
+
+700
+00:35:30,960 --> 00:35:38,640
+a emoji of a single emoji length will
+
+701
+00:35:34,800 --> 00:35:42,960
+return two because in JavaScript strings
+
+702
+00:35:38,640 --> 00:35:47,760
+are made of not characters but so-called
+
+703
+00:35:42,960 --> 00:35:50,720
+code units which is how a character is
+
+704
+00:35:47,760 --> 00:35:54,720
+encoded in UTF-16. So in other words,
+
+705
+00:35:50,720 --> 00:35:58,160
+the string in JavaScript is a byproduct
+
+706
+00:35:54,720 --> 00:36:01,119
+of technology. Okay, it's a byproduct of
+
+707
+00:35:58,160 --> 00:36:03,359
+engineering. So a character is not a
+
+708
+00:36:01,119 --> 00:36:05,440
+character but it's like half a character
+
+709
+00:36:03,359 --> 00:36:08,079
+sometimes.
+
+710
+00:36:05,440 --> 00:36:11,599
+So then it says okay let's see if you
+
+711
+00:36:08,079 --> 00:36:13,839
+talk about that you see note that
+
+712
+00:36:11,599 --> 00:36:17,359
+backslash n is a single special
+
+713
+00:36:13,839 --> 00:36:19,839
+character. Yeah that's called um that's
+
+714
+00:36:17,359 --> 00:36:22,480
+called uh that's a new line character
+
+715
+00:36:19,839 --> 00:36:26,240
+that's a you know
+
+716
+00:36:22,480 --> 00:36:28,400
+form feed. So length is a property
+
+717
+00:36:26,240 --> 00:36:30,800
+people with a background in some other
+
+718
+00:36:28,400 --> 00:36:33,760
+languages sometimes mistype by calling
+
+719
+00:36:30,800 --> 00:36:36,480
+length parenthesis. Okay. Yeah. Yeah.
+
+720
+00:36:33,760 --> 00:36:38,320
+Accessing characters. Okay. They didn't
+
+721
+00:36:36,480 --> 00:36:41,599
+mention
+
+722
+00:36:38,320 --> 00:36:44,000
+string are immutable. Okay. Now changing
+
+723
+00:36:41,599 --> 00:36:46,560
+in case. Okay. Uppercase lower case
+
+724
+00:36:44,000 --> 00:36:49,119
+searching for substring. Now the
+
+725
+00:36:46,560 --> 00:36:54,400
+question is did they did you ever talk
+
+726
+00:36:49,119 --> 00:36:58,560
+about this code unit and how did you how
+
+727
+00:36:54,400 --> 00:37:01,359
+do you talk about it that is the key if
+
+728
+00:36:58,560 --> 00:37:03,680
+you are anything about JavaScript in
+
+729
+00:37:01,359 --> 00:37:07,359
+depth
+
+730
+00:37:03,680 --> 00:37:10,800
+getting a substring okay so uh getting a
+
+731
+00:37:07,359 --> 00:37:12,880
+substring and uh which one to choose
+
+732
+00:37:10,800 --> 00:37:17,119
+comparing strings okay let's just search
+
+733
+00:37:12,880 --> 00:37:17,119
+for unit
+
+734
+00:37:18,720 --> 00:37:27,920
+Did I did I found any phrase not found?
+
+735
+00:37:22,880 --> 00:37:29,920
+So um search for code unic code value
+
+736
+00:37:27,920 --> 00:37:32,720
+beside these special characters there is
+
+737
+00:37:29,920 --> 00:37:35,760
+also a special notation for uni code sl
+
+738
+00:37:32,720 --> 00:37:38,000
+back back slashu. Okay it's rarely used
+
+739
+00:37:35,760 --> 00:37:41,680
+and is covered in the optional chapter
+
+740
+00:37:38,000 --> 00:37:44,560
+about unic code. Okay rarely used
+
+741
+00:37:41,680 --> 00:37:46,880
+advanced knowledge. Okay. So they
+
+742
+00:37:44,560 --> 00:37:50,240
+mentioned the escape sequence for unic
+
+743
+00:37:46,880 --> 00:37:53,531
+code but did they talk about okay ser
+
+744
+00:37:50,240 --> 00:37:55,359
+they did okay here server got pairs okay
+
+745
+00:37:53,531 --> 00:37:59,920
+[laughter]
+
+746
+00:37:55,359 --> 00:38:02,320
+but um unicore string internals okay so
+
+747
+00:37:59,920 --> 00:38:04,400
+that so they they they phrase it as
+
+748
+00:38:02,320 --> 00:38:07,119
+string internals
+
+749
+00:38:04,400 --> 00:38:08,720
+advanced knowledge
+
+750
+00:38:07,119 --> 00:38:11,920
+um
+
+751
+00:38:08,720 --> 00:38:15,920
+based on uni code okay a bite sequence
+
+752
+00:38:11,920 --> 00:38:19,119
+one to four bytes Okay. Uh, JavaScript
+
+753
+00:38:15,920 --> 00:38:23,839
+allows us to have unic code in that and
+
+754
+00:38:19,119 --> 00:38:27,720
+that and that. So, good pays. Okay. Uh,
+
+755
+00:38:23,839 --> 00:38:27,720
+that that that that that.
+
+756
+00:38:40,079 --> 00:38:46,400
+So the method string from code point and
+
+757
+00:38:43,040 --> 00:38:50,560
+string code point at we will add it in
+
+758
+00:38:46,400 --> 00:38:53,200
+JavaScript to deal with surrogate pairs.
+
+759
+00:38:50,560 --> 00:38:55,920
+That's correct. Okay. So anyway take
+
+760
+00:38:53,200 --> 00:38:58,400
+away splitting string at an arbitrary
+
+761
+00:38:55,920 --> 00:39:01,280
+point arbitrary point is dangerous.
+
+762
+00:38:58,400 --> 00:39:05,920
+Okay. So basically
+
+763
+00:39:01,280 --> 00:39:09,280
+they are aware of this situation code
+
+764
+00:39:05,920 --> 00:39:12,160
+unit. Okay. But did did did they ever
+
+765
+00:39:09,280 --> 00:39:14,320
+mention code unit? Because that's the
+
+766
+00:39:12,160 --> 00:39:18,240
+technical word. That's the definition of
+
+767
+00:39:14,320 --> 00:39:20,720
+string index. Code unit. Okay. They
+
+768
+00:39:18,240 --> 00:39:22,880
+didn't mention it. No, no, no, not found
+
+769
+00:39:20,720 --> 00:39:25,839
+when you search it. Phrase not found.
+
+770
+00:39:22,880 --> 00:39:29,920
+Okay. But however, they know about the
+
+771
+00:39:25,839 --> 00:39:31,520
+issue and they mention it in a kind of a
+
+772
+00:39:29,920 --> 00:39:34,480
+miscellaneous,
+
+773
+00:39:31,520 --> 00:39:37,480
+you know, add-on chapter. Unicode string
+
+774
+00:39:34,480 --> 00:39:37,480
+internals.
+
+775
+00:39:37,920 --> 00:39:42,480
+which
+
+776
+00:39:39,680 --> 00:39:46,320
+it's not internals because when you do a
+
+777
+00:39:42,480 --> 00:39:49,359
+length string length of a string that
+
+778
+00:39:46,320 --> 00:39:52,480
+contains a unic code such as emoji a
+
+779
+00:39:49,359 --> 00:39:54,880
+smiley you know you get length two and
+
+780
+00:39:52,480 --> 00:39:57,839
+basically every function every method
+
+781
+00:39:54,880 --> 00:40:00,880
+that works on string if there's a unic
+
+782
+00:39:57,839 --> 00:40:03,359
+code in it it's [ __ ] okay now I talked
+
+783
+00:40:00,880 --> 00:40:06,960
+about this many times so let me just
+
+784
+00:40:03,359 --> 00:40:09,280
+quick quickly do a demo one more app
+
+785
+00:40:06,960 --> 00:40:13,280
+uh where are we? Let's just add it here.
+
+786
+00:40:09,280 --> 00:40:17,280
+Okay, so JavaScript. Okay, now console
+
+787
+00:40:13,280 --> 00:40:20,160
+log and uh uh string and let's say
+
+788
+00:40:17,280 --> 00:40:23,599
+butterfly. So we have a butterfly and
+
+789
+00:40:20,160 --> 00:40:27,040
+length. Okay, now run it.
+
+790
+00:40:23,599 --> 00:40:30,720
+You can see the result is true.
+
+791
+00:40:27,040 --> 00:40:33,200
+Now let's say you we want to uh purify
+
+792
+00:40:30,720 --> 00:40:37,200
+the code. Let's say we want to take a
+
+793
+00:40:33,200 --> 00:40:40,000
+slice slice uh or substring. Okay,
+
+794
+00:40:37,200 --> 00:40:45,359
+substring. Okay, so we want to take a
+
+795
+00:40:40,000 --> 00:40:48,720
+substring of this uh a butterfly
+
+796
+00:40:45,359 --> 00:40:52,480
+a butterfly b. Okay, so we want to start
+
+797
+00:40:48,720 --> 00:40:54,800
+from position zero to um let's say we
+
+798
+00:40:52,480 --> 00:40:59,200
+want to take the butterfly from position
+
+799
+00:40:54,800 --> 00:41:01,280
+one to uh two. Okay.
+
+800
+00:40:59,200 --> 00:41:03,119
+Now
+
+801
+00:41:01,280 --> 00:41:05,680
+run it.
+
+802
+00:41:03,119 --> 00:41:08,800
+So you got that. Okay. Run it. And you
+
+803
+00:41:05,680 --> 00:41:13,839
+see that's incorrect
+
+804
+00:41:08,800 --> 00:41:16,400
+because that FF can you see it? Uh
+
+805
+00:41:13,839 --> 00:41:18,960
+you see this FFD
+
+806
+00:41:16,400 --> 00:41:21,599
+that is half a character of the
+
+807
+00:41:18,960 --> 00:41:24,560
+butterfly. Okay.
+
+808
+00:41:21,599 --> 00:41:26,880
+In other words, that thing that this
+
+809
+00:41:24,560 --> 00:41:28,720
+thing is invalid. Okay. It's not a
+
+810
+00:41:26,880 --> 00:41:33,760
+character. It's like have it's like a
+
+811
+00:41:28,720 --> 00:41:38,720
+it's a code unit of the UTF16
+
+812
+00:41:33,760 --> 00:41:40,800
+encoding for this butterfly emoji. Okay.
+
+813
+00:41:38,720 --> 00:41:43,440
+So this is invalid. So when you take a
+
+814
+00:41:40,800 --> 00:41:45,760
+substring you you thought you're going
+
+815
+00:41:43,440 --> 00:41:48,079
+to take the butterfly but no you you
+
+816
+00:41:45,760 --> 00:41:52,160
+actually so if you actually want to take
+
+817
+00:41:48,079 --> 00:41:56,720
+the butterfly you have to say three.
+
+818
+00:41:52,160 --> 00:42:00,079
+Okay, you see and this length is two.
+
+819
+00:41:56,720 --> 00:42:02,640
+You see it's a [ __ ] up. Okay, this is a
+
+820
+00:42:00,079 --> 00:42:04,400
+the the the fundamental JavaScript [ __ ]
+
+821
+00:42:02,640 --> 00:42:08,000
+up
+
+822
+00:42:04,400 --> 00:42:11,359
+to this day. Every string you method
+
+823
+00:42:08,000 --> 00:42:15,359
+will [ __ ] up. We'll trip. will get
+
+824
+00:42:11,359 --> 00:42:17,119
+tripped if you if your string contains a
+
+825
+00:42:15,359 --> 00:42:19,760
+emoji.
+
+826
+00:42:17,119 --> 00:42:22,800
+Or more technically, if your string
+
+827
+00:42:19,760 --> 00:42:26,560
+contains any character that's not in the
+
+828
+00:42:22,800 --> 00:42:29,040
+so-called basic multilingual plane or
+
+829
+00:42:26,560 --> 00:42:32,319
+another way to say it is that if your
+
+830
+00:42:29,040 --> 00:42:35,599
+string contains any unic code character
+
+831
+00:42:32,319 --> 00:42:39,599
+whose code point is greater than 16
+
+832
+00:42:35,599 --> 00:42:41,040
+bits, greater than uh 2 raised to 16
+
+833
+00:42:39,599 --> 00:42:45,359
+power. Okay. So you can see the
+
+834
+00:42:41,040 --> 00:42:49,040
+butterfly code point is 129 419. In
+
+835
+00:42:45,359 --> 00:42:50,960
+other words, if the the code point code
+
+836
+00:42:49,040 --> 00:42:53,040
+point just means the ID for the
+
+837
+00:42:50,960 --> 00:42:54,720
+character. If the ID for the character
+
+838
+00:42:53,040 --> 00:42:57,599
+is
+
+839
+00:42:54,720 --> 00:43:00,319
+in in hexadimal is more than four
+
+840
+00:42:57,599 --> 00:43:02,720
+characters. Okay, that means that
+
+841
+00:43:00,319 --> 00:43:05,359
+character is outside of the basic
+
+842
+00:43:02,720 --> 00:43:08,800
+multilingual plane. It cannot the the
+
+843
+00:43:05,359 --> 00:43:11,680
+the the the character's id cannot be
+
+844
+00:43:08,800 --> 00:43:16,079
+expressed in four hexa decimals. Okay,
+
+845
+00:43:11,680 --> 00:43:19,280
+it's more than 16 bits and whenever you
+
+846
+00:43:16,079 --> 00:43:23,280
+have such a character in a string any
+
+847
+00:43:19,280 --> 00:43:26,640
+string method will get tripped will get
+
+848
+00:43:23,280 --> 00:43:30,319
+[ __ ] Okay. So this is how fundamental
+
+849
+00:43:26,640 --> 00:43:33,359
+it is. It is not it is not for example
+
+850
+00:43:30,319 --> 00:43:36,160
+the way you know this JavaScript
+
+851
+00:43:33,359 --> 00:43:39,520
+info would say it's like string
+
+852
+00:43:36,160 --> 00:43:43,839
+internals it's not it's not internals it
+
+853
+00:43:39,520 --> 00:43:46,319
+affect how if affect it affect your code
+
+854
+00:43:43,839 --> 00:43:48,240
+okay you're doing code you don't need to
+
+855
+00:43:46,319 --> 00:43:50,079
+understand internals but your code [ __ ]
+
+856
+00:43:48,240 --> 00:43:52,640
+get [ __ ]
+
+857
+00:43:50,079 --> 00:43:56,160
+so it's not like
+
+858
+00:43:52,640 --> 00:43:57,599
+you know this uh uh oh unic code string
+
+859
+00:43:56,160 --> 00:44:01,680
+internals
+
+860
+00:43:57,599 --> 00:44:04,160
+according to javascript.info. Okay.
+
+861
+00:44:01,680 --> 00:44:07,280
+So anyway, but they do they they did
+
+862
+00:44:04,160 --> 00:44:11,599
+address that and they put it this in you
+
+863
+00:44:07,280 --> 00:44:14,079
+know like additional chapter um like
+
+864
+00:44:11,599 --> 00:44:17,359
+advanced additional chapter. You don't
+
+865
+00:44:14,079 --> 00:44:20,319
+have to know like it's rarely used. Is
+
+866
+00:44:17,359 --> 00:44:23,040
+emoji rarely used? No. Emoji is like
+
+867
+00:44:20,319 --> 00:44:25,280
+everywhere
+
+868
+00:44:23,040 --> 00:44:27,200
+you know. Look at the way besides these
+
+869
+00:44:25,280 --> 00:44:29,440
+special characters there's also a
+
+870
+00:44:27,200 --> 00:44:32,480
+special notation for unic code back
+
+871
+00:44:29,440 --> 00:44:35,119
+slashu is rarely used and is covered in
+
+872
+00:44:32,480 --> 00:44:38,640
+the optional chapter optional chapter
+
+873
+00:44:35,119 --> 00:44:41,359
+about unic code. Okay. Then over there
+
+874
+00:44:38,640 --> 00:44:44,480
+then you started to you don't even see
+
+875
+00:44:41,359 --> 00:44:47,280
+code unit. You started they talk about
+
+876
+00:44:44,480 --> 00:44:49,200
+like ser pairs you know they they talk
+
+877
+00:44:47,280 --> 00:44:52,000
+about this issue but they there's no
+
+878
+00:44:49,200 --> 00:44:55,280
+they don't even mention the technical
+
+879
+00:44:52,000 --> 00:44:58,800
+word the the technically correct word
+
+880
+00:44:55,280 --> 00:45:02,400
+for string index that's called unit.
+
+881
+00:44:58,800 --> 00:45:05,440
+They didn't mention it. So this is my
+
+882
+00:45:02,400 --> 00:45:08,440
+review, spontaneous review of this
+
+883
+00:45:05,440 --> 00:45:08,440
+JavaScript.info
+
+884
+00:45:08,800 --> 00:45:14,319
+uh you know like the modern JavaScript
+
+885
+00:45:12,240 --> 00:45:18,000
+that's very insulting you know modern
+
+886
+00:45:14,319 --> 00:45:22,319
+JavaScript tutorial. [laughter]
+
+887
+00:45:18,000 --> 00:45:24,560
+Okay. So, so, so I would conclude of my
+
+888
+00:45:22,319 --> 00:45:27,839
+10 minutes, was it 10 minutes review or
+
+889
+00:45:24,560 --> 00:45:31,440
+20 minutes review? This not bad. Okay.
+
+890
+00:45:27,839 --> 00:45:35,119
+Not bad. But,
+
+891
+00:45:31,440 --> 00:45:39,680
+but I would have to say my tutorial is
+
+892
+00:45:35,119 --> 00:45:42,240
+better. Okay. So, you go to my tutorial.
+
+893
+00:45:39,680 --> 00:45:45,599
+Well, actually, you know, I do miss some
+
+894
+00:45:42,240 --> 00:45:49,760
+things they do cover. Okay. Better. So I
+
+895
+00:45:45,599 --> 00:45:51,680
+mentioned you know I miss proxy
+
+896
+00:45:49,760 --> 00:45:56,400
+promise
+
+897
+00:45:51,680 --> 00:45:58,960
+big int. Okay. But on the other hand,
+
+898
+00:45:56,400 --> 00:46:02,640
+let me tell you about my JavaScript
+
+899
+00:45:58,960 --> 00:46:05,599
+tutorial about strings for example.
+
+900
+00:46:02,640 --> 00:46:08,000
+All right. Uh let's see value strings
+
+901
+00:46:05,599 --> 00:46:10,720
+string overview. So you can go there
+
+902
+00:46:08,000 --> 00:46:12,800
+quote string uh quoting strings. So
+
+903
+00:46:10,720 --> 00:46:15,119
+several different ways you you have
+
+904
+00:46:12,800 --> 00:46:16,880
+template string with grave accent
+
+905
+00:46:15,119 --> 00:46:19,920
+apostrophe
+
+906
+00:46:16,880 --> 00:46:22,880
+uh string or quotation mark. Okay. Then
+
+907
+00:46:19,920 --> 00:46:25,280
+you can uh string operation string type.
+
+908
+00:46:22,880 --> 00:46:28,000
+String is one of the JavaScript value
+
+909
+00:46:25,280 --> 00:46:31,119
+type and it's a primitive value. String
+
+910
+00:46:28,000 --> 00:46:35,040
+is immutable. Okay. And string is 16
+
+911
+00:46:31,119 --> 00:46:39,720
+bits unit sequence. Okay. That is the
+
+912
+00:46:35,040 --> 00:46:39,720
+meaning of string index. Okay.
+
+913
+00:46:39,760 --> 00:46:46,480
+Okay. So here is the you know about the
+
+914
+00:46:43,680 --> 00:46:49,680
+the emoji issue the when when when your
+
+915
+00:46:46,480 --> 00:46:52,240
+string contains unic code emoji or any
+
+916
+00:46:49,680 --> 00:46:55,119
+other rarely used unic code characters
+
+917
+00:46:52,240 --> 00:46:57,680
+or Chinese characters some some rare
+
+918
+00:46:55,119 --> 00:47:00,880
+Chinese characters okay so that that's
+
+919
+00:46:57,680 --> 00:47:04,079
+the um so this is in full detail about
+
+920
+00:47:00,880 --> 00:47:08,319
+what what this code unit mean that's the
+
+921
+00:47:04,079 --> 00:47:12,640
+the word code unit is standard jargon a
+
+922
+00:47:08,319 --> 00:47:15,680
+standard terminology in uni code UTF-16
+
+923
+00:47:12,640 --> 00:47:18,240
+and also in JavaScript specification.
+
+924
+00:47:15,680 --> 00:47:21,440
+Okay, this thing is called code called
+
+925
+00:47:18,240 --> 00:47:26,400
+code code unit and and basically it's
+
+926
+00:47:21,440 --> 00:47:28,800
+just two bytes of the UTF16 encoding.
+
+927
+00:47:26,400 --> 00:47:30,960
+Okay, that's a value and that's the
+
+928
+00:47:28,800 --> 00:47:34,880
+meaning of the index of a string. Okay.
+
+929
+00:47:30,960 --> 00:47:37,119
+So I uh
+
+930
+00:47:34,880 --> 00:47:40,960
+so I'm you know I'm presenting my
+
+931
+00:47:37,119 --> 00:47:42,960
+tutorial covered that part. Okay. I
+
+932
+00:47:40,960 --> 00:47:45,359
+think that's it. But let's go back to
+
+933
+00:47:42,960 --> 00:47:48,560
+the you know I'm curious about this
+
+934
+00:47:45,359 --> 00:47:51,920
+JavaScript.info how good they are. Okay.
+
+935
+00:47:48,560 --> 00:47:54,640
+So we looked at strings. Not not too bad
+
+936
+00:47:51,920 --> 00:47:56,880
+because well because it really is
+
+937
+00:47:54,640 --> 00:48:00,240
+esoteric. You know most JavaScript
+
+938
+00:47:56,880 --> 00:48:02,800
+programmers they don't understand. Uh
+
+939
+00:48:00,240 --> 00:48:05,359
+but how do they explain another big
+
+940
+00:48:02,800 --> 00:48:08,880
+issue in JavaScript is array. Okay, so
+
+941
+00:48:05,359 --> 00:48:11,920
+you got array like thing. You got this
+
+942
+00:48:08,880 --> 00:48:14,880
+array like magic thing. Then you got
+
+943
+00:48:11,920 --> 00:48:19,760
+this sparse array magic thing. Okay,
+
+944
+00:48:14,880 --> 00:48:22,720
+those are like crippled things from due
+
+945
+00:48:19,760 --> 00:48:27,119
+to JavaScript design. Those are the
+
+946
+00:48:22,720 --> 00:48:30,160
+watts the cancer of JavaScript. Okay,
+
+947
+00:48:27,119 --> 00:48:33,440
+array like object and the sparse array.
+
+948
+00:48:30,160 --> 00:48:36,960
+It's a pure headache. Okay, and let's
+
+949
+00:48:33,440 --> 00:48:40,000
+see how they um covered let's see how
+
+950
+00:48:36,960 --> 00:48:41,599
+they did they how they did they how they
+
+951
+00:48:40,000 --> 00:48:45,119
+how did they talk about it. Okay,
+
+952
+00:48:41,599 --> 00:48:49,040
+JavaScript fundamentals data type number
+
+953
+00:48:45,119 --> 00:48:52,880
+uh big int. Okay, string. Okay, boolean.
+
+954
+00:48:49,040 --> 00:48:54,960
+Okay, logical type. Okay, uh new value.
+
+955
+00:48:52,880 --> 00:48:57,280
+Okay, so let's see how you address new
+
+956
+00:48:54,960 --> 00:48:59,680
+value. The special new value does not
+
+957
+00:48:57,280 --> 00:49:01,440
+belong to any of the types described
+
+958
+00:48:59,680 --> 00:49:03,920
+above.
+
+959
+00:49:01,440 --> 00:49:06,240
+It forms a separate type of its own
+
+960
+00:49:03,920 --> 00:49:09,200
+which contains only the new value. Okay,
+
+961
+00:49:06,240 --> 00:49:11,760
+this is incorrect.
+
+962
+00:49:09,200 --> 00:49:15,599
+This is partially correct because when
+
+963
+00:49:11,760 --> 00:49:17,599
+you say type of new, it returns object.
+
+964
+00:49:15,599 --> 00:49:23,040
+Okay.
+
+965
+00:49:17,599 --> 00:49:26,800
+So you see uh so can we do this? Uh okay
+
+966
+00:49:23,040 --> 00:49:29,359
+also log means print type of
+
+967
+00:49:26,800 --> 00:49:32,000
+new what does it return? It return
+
+968
+00:49:29,359 --> 00:49:36,880
+object. Can you see that?
+
+969
+00:49:32,000 --> 00:49:40,079
+So but but you say new is a special
+
+970
+00:49:36,880 --> 00:49:43,680
+type. No it's not. Okay. So what what
+
+971
+00:49:40,079 --> 00:49:47,040
+actually happens is that
+
+972
+00:49:43,680 --> 00:49:51,280
+by the intention of the designer
+
+973
+00:49:47,040 --> 00:49:54,559
+new is a special type of itself. Okay,
+
+974
+00:49:51,280 --> 00:49:58,240
+it's just new. There's only one value in
+
+975
+00:49:54,559 --> 00:50:00,400
+this type the literal value new. It just
+
+976
+00:49:58,240 --> 00:50:03,680
+means like nothing. Okay, just that's
+
+977
+00:50:00,400 --> 00:50:07,359
+the the intention of the
+
+978
+00:50:03,680 --> 00:50:09,920
+of the JavaScript creator Brenda Ike.
+
+979
+00:50:07,359 --> 00:50:11,440
+However, that's not what actually
+
+980
+00:50:09,920 --> 00:50:14,480
+happened
+
+981
+00:50:11,440 --> 00:50:16,960
+because back then 30 years ago in 1995
+
+982
+00:50:14,480 --> 00:50:19,760
+when he wrote the compiler, he made a
+
+983
+00:50:16,960 --> 00:50:23,760
+mistake. So when you say type of new it
+
+984
+00:50:19,760 --> 00:50:26,160
+becomes object. Okay. So type the new
+
+985
+00:50:23,760 --> 00:50:30,400
+type in JavaScript is actually an
+
+986
+00:50:26,160 --> 00:50:33,040
+object. it you know technically so it
+
+987
+00:50:30,400 --> 00:50:34,960
+depends on your mindset like depends on
+
+988
+00:50:33,040 --> 00:50:38,800
+you know whether according to the
+
+989
+00:50:34,960 --> 00:50:42,160
+intention of the creator or according to
+
+990
+00:50:38,800 --> 00:50:43,680
+actual practice because in actual
+
+991
+00:50:42,160 --> 00:50:47,599
+programming the JavaScript programming
+
+992
+00:50:43,680 --> 00:50:49,920
+language type of new is object okay it's
+
+993
+00:50:47,599 --> 00:50:52,079
+not like oh
+
+994
+00:50:49,920 --> 00:50:54,960
+type by itself so this is you know so
+
+995
+00:50:52,079 --> 00:50:57,280
+this so I'm looking at you know how they
+
+996
+00:50:54,960 --> 00:51:00,079
+cover the new issue
+
+997
+00:50:57,280 --> 00:51:03,839
+Okay. So, let me
+
+998
+00:51:00,079 --> 00:51:07,839
+show you my uh JavaScript uh on that
+
+999
+00:51:03,839 --> 00:51:12,240
+topic. Okay. So, uh string overview. So,
+
+1000
+00:51:07,839 --> 00:51:14,240
+let's open a new new uh tab and you can
+
+1001
+00:51:12,240 --> 00:51:19,040
+find you can find it either by the
+
+1002
+00:51:14,240 --> 00:51:21,920
+search or you can just go to um new I
+
+1003
+00:51:19,040 --> 00:51:23,680
+know where it is. No new. Okay. So
+
+1004
+00:51:21,920 --> 00:51:27,280
+actually
+
+1005
+00:51:23,680 --> 00:51:29,440
+so new is actually um
+
+1006
+00:51:27,280 --> 00:51:31,680
+so okay let me show you where to find it
+
+1007
+00:51:29,440 --> 00:51:34,880
+like in a natural way. So JavaScript
+
+1008
+00:51:31,680 --> 00:51:37,760
+in-depth intro. So you go to So first of
+
+1009
+00:51:34,880 --> 00:51:40,880
+all you got types. Okay. So that's a
+
+1010
+00:51:37,760 --> 00:51:43,200
+basics print quote string number math
+
+1011
+00:51:40,880 --> 00:51:46,240
+operations common print assign
+
+1012
+00:51:43,200 --> 00:51:49,680
+assignment number comparison operators
+
+1013
+00:51:46,240 --> 00:51:53,599
+boolean. Those are the basics test
+
+1014
+00:51:49,680 --> 00:51:55,920
+equality. Okay. Then value types. Okay.
+
+1015
+00:51:53,599 --> 00:51:58,480
+This is the beginning to cover the
+
+1016
+00:51:55,920 --> 00:52:00,640
+technical details of JavaScript. Okay.
+
+1017
+00:51:58,480 --> 00:52:05,000
+So you got types. value types. Let's
+
+1018
+00:52:00,640 --> 00:52:05,000
+click on that. You got undefined.
+
+1019
+00:52:05,200 --> 00:52:10,991
+No new. Okay. Actually, he's right. No
+
+1020
+00:52:07,280 --> 00:52:10,991
+is the only type. [laughter]
+
+1021
+00:52:12,079 --> 00:52:18,880
+Uh yeah. So, no is the type by itself,
+
+1022
+00:52:15,119 --> 00:52:22,079
+but it also type of return object that
+
+1023
+00:52:18,880 --> 00:52:26,160
+is because of the bug. Okay. And that
+
+1024
+00:52:22,079 --> 00:52:31,359
+bug is described in in depth by this guy
+
+1025
+00:52:26,160 --> 00:52:33,359
+Axel Ramos. Okay. very um in-depth guy
+
+1026
+00:52:31,359 --> 00:52:36,800
+and you can also find the source code.
+
+1027
+00:52:33,359 --> 00:52:39,440
+So that's a error. Okay. So the new
+
+1028
+00:52:36,800 --> 00:52:42,319
+Yeah. So that's about the new type.
+
+1029
+00:52:39,440 --> 00:52:47,400
+Okay. So that was like
+
+1030
+00:52:42,319 --> 00:52:47,400
+uh JavaScript style. Wait. Um
+
+1031
+00:52:47,839 --> 00:52:52,200
+uh so let's see
+
+1032
+00:52:52,640 --> 00:52:57,520
+data type. Yeah. Okay. So I wanted to
+
+1033
+00:52:54,800 --> 00:52:59,920
+talk I wanted to see how I deal with a
+
+1034
+00:52:57,520 --> 00:53:04,559
+array. Okay.
+
+1035
+00:52:59,920 --> 00:53:07,599
+So, review extle got to go. Okay. So,
+
+1036
+00:53:04,559 --> 00:53:10,599
+let's see. Uh, do they talk about array?
+
+1037
+00:53:07,599 --> 00:53:10,599
+So,
+
+1038
+00:53:12,800 --> 00:53:17,440
+summary. Okay. So, they didn't talk
+
+1039
+00:53:14,800 --> 00:53:21,839
+about
+
+1040
+00:53:17,440 --> 00:53:26,720
+array. So, you got Okay. So, and one
+
+1041
+00:53:21,839 --> 00:53:29,359
+primitive type objects. Okay. So the
+
+1042
+00:53:26,720 --> 00:53:33,599
+type of operator object and symbols.
+
+1043
+00:53:29,359 --> 00:53:38,319
+Okay. So okay then you have to go to the
+
+1044
+00:53:33,599 --> 00:53:43,280
+chapter object. Okay. So go to object.
+
+1045
+00:53:38,319 --> 00:53:46,480
+Uh so okay illustration with that
+
+1046
+00:53:43,280 --> 00:53:50,079
+literal and properties. Okay. The okay
+
+1047
+00:53:46,480 --> 00:53:53,079
+when are they going to mention array?
+
+1048
+00:53:50,079 --> 00:53:53,079
+Uh
+
+1049
+00:53:53,520 --> 00:54:02,319
+okay. Anyway, so my Okay, so let me give
+
+1050
+00:53:56,960 --> 00:54:04,720
+a summary of my extle review of this um
+
+1051
+00:54:02,319 --> 00:54:08,000
+of this JavaScript.info. I think it's
+
+1052
+00:54:04,720 --> 00:54:11,680
+pretty good. Okay, so I think it's
+
+1053
+00:54:08,000 --> 00:54:15,200
+pretty good. Um
+
+1054
+00:54:11,680 --> 00:54:17,920
+pretty good JavaScript uh
+
+1055
+00:54:15,200 --> 00:54:20,960
+inepth kind of tutorial. Okay. Of
+
+1056
+00:54:17,920 --> 00:54:23,359
+course, I would also [snorts]
+
+1057
+00:54:20,960 --> 00:54:26,240
+uh recommend if you check out my
+
+1058
+00:54:23,359 --> 00:54:28,880
+JavaScript in depth. Okay. So, let's
+
+1059
+00:54:26,240 --> 00:54:32,240
+see. Let's see some of the uh other
+
+1060
+00:54:28,880 --> 00:54:34,160
+chapters. Code quality. Okay. JavaScript
+
+1061
+00:54:32,240 --> 00:54:38,400
+fundamentals
+
+1062
+00:54:34,160 --> 00:54:40,240
+then uh code quality debugging in a
+
+1063
+00:54:38,400 --> 00:54:42,640
+browser
+
+1064
+00:54:40,240 --> 00:54:46,319
+comments.
+
+1065
+00:54:42,640 --> 00:54:48,880
+Why why is this why is there a chapter
+
+1066
+00:54:46,319 --> 00:54:52,440
+called code called code code quality
+
+1067
+00:54:48,880 --> 00:54:52,440
+like uh
+
+1068
+00:54:52,640 --> 00:54:57,440
+this chapter explains coding practices
+
+1069
+00:54:55,359 --> 00:55:01,240
+that we'll use further in the
+
+1070
+00:54:57,440 --> 00:55:01,240
+development okay
+
+1071
+00:55:02,400 --> 00:55:09,440
+ninja this like bunch of meen idiots
+
+1072
+00:55:05,920 --> 00:55:13,760
+jargon started to show ninja mocha
+
+1073
+00:55:09,440 --> 00:55:18,400
+polyfield transpilers this nonsensical
+
+1074
+00:55:13,760 --> 00:55:23,200
+[ __ ] This late Malay gen and Zuma idiot
+
+1075
+00:55:18,400 --> 00:55:25,599
+things like ninja code. Mocha
+
+1076
+00:55:23,200 --> 00:55:30,599
+automated testing with Mocha. Does Mocha
+
+1077
+00:55:25,599 --> 00:55:30,599
+is like does Mocha still exist?
+
+1078
+00:55:37,200 --> 00:55:43,520
+Behavdriven development. What a [ __ ]
+
+1079
+00:55:40,240 --> 00:55:45,680
+dil behavd driven development. [ __ ]
+
+1080
+00:55:43,520 --> 00:55:48,559
+them.
+
+1081
+00:55:45,680 --> 00:55:51,680
+Oh god. It's it's it's disappointing to
+
+1082
+00:55:48,559 --> 00:55:54,400
+see this page started to talk about
+
+1083
+00:55:51,680 --> 00:55:57,359
+these things. Okay.
+
+1084
+00:55:54,400 --> 00:55:59,599
+Mocha. Okay. So this mocha chai sen.
+
+1085
+00:55:57,359 --> 00:56:02,079
+Okay. The mocha the core framework. It
+
+1086
+00:55:59,599 --> 00:56:05,040
+provides a common testing function. What
+
+1087
+00:56:02,079 --> 00:56:08,079
+the [ __ ] The mocha.
+
+1088
+00:56:05,040 --> 00:56:10,480
+Is it is it still alive? Like okay. So
+
+1089
+00:56:08,079 --> 00:56:12,960
+the the new documentation site, hello,
+
+1090
+00:56:10,480 --> 00:56:15,960
+welcome to the newly revamped mocha
+
+1091
+00:56:12,960 --> 00:56:15,960
+js.org.
+
+1092
+00:56:16,319 --> 00:56:23,319
+I don't think I heard them like for like
+
+1093
+00:56:18,720 --> 00:56:23,319
+10 or 15 years, right?
+
+1094
+00:56:24,640 --> 00:56:30,480
+Monkai is a featurerich JavaScript test
+
+1095
+00:56:27,520 --> 00:56:33,480
+framework running on NJS and in browser.
+
+1096
+00:56:30,480 --> 00:56:33,480
+Okay.
+
+1097
+00:56:48,000 --> 00:56:55,559
+Okay, I think I talked for too long and
+
+1098
+00:56:51,040 --> 00:56:55,559
+that's it for today. Bye guys.
+
+1099
+00:56:55,839 --> 00:57:00,799
+So my summary
+
+1100
+00:56:58,160 --> 00:57:03,839
+I need to give a summary poly feel.
+
+1101
+00:57:00,799 --> 00:57:06,319
+Okay, I need to give a summary of this
+
+1102
+00:57:03,839 --> 00:57:09,839
+site. I think I think it's not bad. I
+
+1103
+00:57:06,319 --> 00:57:12,559
+think it's not bad. Object basics.
+
+1104
+00:57:09,839 --> 00:57:15,599
+Constructors operator new. Okay, that's
+
+1105
+00:57:12,559 --> 00:57:18,599
+very complex there.
+
+1106
+00:57:15,599 --> 00:57:18,599
+Uh
+
+1107
+00:57:22,240 --> 00:57:26,720
+getters and setters. That's also very
+
+1108
+00:57:24,799 --> 00:57:30,640
+complex. You know, it'll be interesting
+
+1109
+00:57:26,720 --> 00:57:34,160
+to see how they go about it. uh and
+
+1110
+00:57:30,640 --> 00:57:37,119
+whether they cover the full complexity,
+
+1111
+00:57:34,160 --> 00:57:40,400
+the technical details,
+
+1112
+00:57:37,119 --> 00:57:45,119
+getters and setters. Okay.
+
+1113
+00:57:40,400 --> 00:57:50,079
+And uh Okay. Anyway, so yeah. So anyway,
+
+1114
+00:57:45,119 --> 00:57:55,079
+this a lot a lot, but my impression is
+
+1115
+00:57:50,079 --> 00:57:55,079
+my impression is just it's pretty good.
+
+1116
+00:57:55,200 --> 00:58:03,160
+Uh okay, bye guys. I think that's it. So
+
+1117
+00:58:00,160 --> 00:58:03,160
+today,
+
+1118
+00:58:04,720 --> 00:58:12,880
+so today we kind of we just randed over
+
+1119
+00:58:09,440 --> 00:58:16,400
+um JavaScript community
+
+1120
+00:58:12,880 --> 00:58:19,359
+uh basically about JavaScript
+
+1121
+00:58:16,400 --> 00:58:23,520
+community of the JavaScript tutorials.
+
+1122
+00:58:19,359 --> 00:58:27,280
+We talked about um the JavaScript
+
+1123
+00:58:23,520 --> 00:58:29,200
+standardJS. We flamed it very badly, you
+
+1124
+00:58:27,280 --> 00:58:32,640
+know, standardJS
+
+1125
+00:58:29,200 --> 00:58:34,240
+and we then we went into talking about
+
+1126
+00:58:32,640 --> 00:58:38,720
+the
+
+1127
+00:58:34,240 --> 00:58:41,680
+um this javascript.info info website
+
+1128
+00:58:38,720 --> 00:58:45,680
+which turns out is a JavaScript book and
+
+1129
+00:58:41,680 --> 00:58:49,200
+turns out it's written by this um this
+
+1130
+00:58:45,680 --> 00:58:52,319
+uh ar people in Armenia
+
+1131
+00:58:49,200 --> 00:58:57,440
+and uh so we I we started I started to
+
+1132
+00:58:52,319 --> 00:59:02,400
+look into like do a a review of it and
+
+1133
+00:58:57,440 --> 00:59:04,400
+uh so it's a full book 1300 pages but so
+
+1134
+00:59:02,400 --> 00:59:06,880
+far I think it's pretty good you know I
+
+1135
+00:59:04,400 --> 00:59:10,240
+only look at you know I looked at it for
+
+1136
+00:59:06,880 --> 00:59:14,160
+20 minutes. I think it's not too bad.
+
+1137
+00:59:10,240 --> 00:59:16,880
+Okay, so bye guys.
+
+1138
+00:59:14,160 --> 00:59:19,440
+Uh if you like my stuff, okay, you can,
+
+1139
+00:59:16,880 --> 00:59:22,240
+you know, just go to my website uh pay
+
+1140
+00:59:19,440 --> 00:59:27,680
+me. Okay, so
+
+1141
+00:59:22,240 --> 00:59:31,359
+so go to Casan JavaScript in depth and
+
+1142
+00:59:27,680 --> 00:59:34,319
+uh check out my book. If you like it,
+
+1143
+00:59:31,359 --> 00:59:36,559
+you can get the entire thing in a zip
+
+1144
+00:59:34,319 --> 00:59:40,000
+file
+
+1145
+00:59:36,559 --> 00:59:42,079
+by pay PayPal me 35 bucks. Okay, you can
+
+1146
+00:59:40,000 --> 00:59:44,000
+get the whole thing or Amazon gift card
+
+1147
+00:59:42,079 --> 00:59:48,079
+me. Okay, so you can get the whole
+
+1148
+00:59:44,000 --> 00:59:51,359
+thing, pay me because you are beautiful.
+
+1149
+00:59:48,079 --> 00:59:53,440
+Uh and you know just donate to me or you
+
+1150
+00:59:51,359 --> 00:59:58,559
+know then you go up through my website
+
+1151
+00:59:53,440 --> 01:00:02,640
+go up you can uh my tutorials and my
+
+1152
+00:59:58,559 --> 01:00:05,280
+si.info info my website homepage. Okay,
+
+1153
+01:00:02,640 --> 01:00:09,520
+so you go all the way down then you can
+
+1154
+01:00:05,280 --> 01:00:14,599
+donate to me fully PayPal, Patreon, gift
+
+1155
+01:00:09,520 --> 01:00:14,599
+card me. Okay, bye guys.
+
+1156
+01:00:22,240 --> 01:00:25,240
+test.
+

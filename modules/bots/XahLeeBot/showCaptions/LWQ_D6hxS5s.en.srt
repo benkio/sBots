@@ -1,0 +1,5348 @@
+1
+00:00:01,460 --> 00:00:09,389
+good morning my friends welcome to
+
+2
+00:00:04,740 --> 00:00:12,540
+another episode of Santos show and we
+
+3
+00:00:09,389 --> 00:00:15,690
+are going to show you today one of the
+
+4
+00:00:12,540 --> 00:00:22,560
+most idiotic thing in programming
+
+5
+00:00:15,690 --> 00:00:24,560
+industry program industry standards so
+
+6
+00:00:22,560 --> 00:00:29,490
+I'm going to wait a little bit for
+
+7
+00:00:24,560 --> 00:00:34,550
+people to come on so meanwhile I'm going
+
+8
+00:00:29,490 --> 00:00:37,969
+to I'm going to do a little screen shot
+
+9
+00:00:34,550 --> 00:00:45,059
+so what I'm going to show you is this
+
+10
+00:00:37,969 --> 00:00:48,559
+SVG path elliptical path and let's see
+
+11
+00:00:45,059 --> 00:00:50,160
+let's try let's do a screen shot okay
+
+12
+00:00:48,559 --> 00:00:53,010
+one second
+
+13
+00:00:50,160 --> 00:00:55,860
+now I'm gonna I'm going to show you why
+
+14
+00:00:53,010 --> 00:00:58,739
+this is the most idiotic thing you know
+
+15
+00:00:55,860 --> 00:01:01,230
+in the programming industry I'm going to
+
+16
+00:00:58,739 --> 00:01:03,239
+talk about why you know in programming
+
+17
+00:01:01,230 --> 00:01:05,700
+industry if you are a programmer and if
+
+18
+00:01:03,239 --> 00:01:10,260
+you have let's say ten years experience
+
+19
+00:01:05,700 --> 00:01:13,939
+you know you've been there well I guess
+
+20
+00:01:10,260 --> 00:01:16,290
+most of you are not there because
+
+21
+00:01:13,939 --> 00:01:18,600
+experienced programmers usually they
+
+22
+00:01:16,290 --> 00:01:22,290
+don't go you know online and watch stuff
+
+23
+00:01:18,600 --> 00:01:24,270
+anyway so the if you are a programmer
+
+24
+00:01:22,290 --> 00:01:27,659
+you know you've been in the industry for
+
+25
+00:01:24,270 --> 00:01:29,520
+a while you know that every day you have
+
+26
+00:01:27,659 --> 00:01:33,479
+programming languages protocols
+
+27
+00:01:29,520 --> 00:01:36,180
+standards they are often the most
+
+28
+00:01:33,479 --> 00:01:41,150
+idiotic you know a lot lots of problems
+
+29
+00:01:36,180 --> 00:01:44,189
+and issues and the reason you know I
+
+30
+00:01:41,150 --> 00:01:47,070
+I've been programming for over twenty
+
+31
+00:01:44,189 --> 00:01:49,920
+years and the reason so I realized in
+
+32
+00:01:47,070 --> 00:01:55,979
+recent years the reason is that it's
+
+33
+00:01:49,920 --> 00:02:01,890
+just because corporations and I realized
+
+34
+00:01:55,979 --> 00:02:04,790
+that it it's likely that programming
+
+35
+00:02:01,890 --> 00:02:08,750
+languages or protocols they will never
+
+36
+00:02:04,790 --> 00:02:08,750
+be clean
+
+37
+00:02:10,060 --> 00:02:15,890
+usually okay this is not all because for
+
+38
+00:02:13,430 --> 00:02:19,340
+example go line is pretty good you know
+
+39
+00:02:15,890 --> 00:02:25,750
+JavaScript is extremely bad the web
+
+40
+00:02:19,340 --> 00:02:28,600
+technologies are extremely bad HTML CSS
+
+41
+00:02:25,750 --> 00:02:35,330
+fairly lousy extremely bad especially
+
+42
+00:02:28,600 --> 00:02:38,900
+html5 you know and also if you program
+
+43
+00:02:35,330 --> 00:02:41,750
+in c unix linux they are extremely bad
+
+44
+00:02:38,900 --> 00:02:43,460
+you know like so like you see
+
+45
+00:02:41,750 --> 00:02:45,470
+programmers complaining all the time and
+
+46
+00:02:43,460 --> 00:02:48,680
+you see you know like you go to stack
+
+47
+00:02:45,470 --> 00:02:51,800
+overflow and you have millions of
+
+48
+00:02:48,680 --> 00:02:57,740
+questions or these weird problems that
+
+49
+00:02:51,800 --> 00:03:00,110
+people can now solve so you know we have
+
+50
+00:02:57,740 --> 00:03:04,640
+that experience and i'm going to show
+
+51
+00:03:00,110 --> 00:03:11,900
+you today one example of white one
+
+52
+00:03:04,640 --> 00:03:14,150
+example of that okay but but first of
+
+53
+00:03:11,900 --> 00:03:18,680
+all let me get the screenshot okay and
+
+54
+00:03:14,150 --> 00:03:23,540
+it's c welcome so let's do a screenshot
+
+55
+00:03:18,680 --> 00:03:29,470
+and screenshot javascript mod okay close
+
+56
+00:03:23,540 --> 00:03:29,470
+that i'm going to do a screenshot here
+
+57
+00:03:33,970 --> 00:03:45,680
+let's see if that's it yeah so I'm gonna
+
+58
+00:03:40,160 --> 00:03:47,900
+try that and go here yeah forget about
+
+59
+00:03:45,680 --> 00:03:51,380
+the screenshot I'm just going to show
+
+60
+00:03:47,900 --> 00:03:56,120
+you okay a DVD screenshot I'm just going
+
+61
+00:03:51,380 --> 00:03:58,850
+to show you about the Elise okay so what
+
+62
+00:03:56,120 --> 00:04:03,470
+what is the issues let me show you a let
+
+63
+00:03:58,850 --> 00:04:06,170
+me let me drag it here so what is the
+
+64
+00:04:03,470 --> 00:04:11,269
+problem the problem is in SVG you know
+
+65
+00:04:06,170 --> 00:04:13,610
+SVG allows you to draw graphics in HTML
+
+66
+00:04:11,269 --> 00:04:16,160
+basically you use JavaScript to draw
+
+67
+00:04:13,610 --> 00:04:18,880
+graphics for example let's let me show
+
+68
+00:04:16,160 --> 00:04:18,880
+you here
+
+69
+00:04:21,370 --> 00:04:28,130
+you see you have this clock and that is
+
+70
+00:04:24,920 --> 00:04:28,670
+turning JavaScript and the code is right
+
+71
+00:04:28,130 --> 00:04:32,210
+here
+
+72
+00:04:28,670 --> 00:04:33,310
+it's about hundred lines so it's not too
+
+73
+00:04:32,210 --> 00:04:36,230
+bad you know
+
+74
+00:04:33,310 --> 00:04:39,620
+but suppose so you have a circle here
+
+75
+00:04:36,230 --> 00:04:43,400
+you can you can draw a circle easy but
+
+76
+00:04:39,620 --> 00:04:47,390
+suppose I want to draw a pie pie chart
+
+77
+00:04:43,400 --> 00:04:49,760
+you know an arc of a circle now that
+
+78
+00:04:47,390 --> 00:04:54,710
+turns out to be extremely difficult to
+
+79
+00:04:49,760 --> 00:04:58,100
+do what you have to do is you know there
+
+80
+00:04:54,710 --> 00:05:01,880
+is no let me show you some of the basic
+
+81
+00:04:58,100 --> 00:05:04,840
+SVG okay let me it's for the screen here
+
+82
+00:05:01,880 --> 00:05:04,840
+so you can see
+
+83
+00:05:10,980 --> 00:05:19,590
+SVG basic examples okay so I need to
+
+84
+00:05:14,490 --> 00:05:23,670
+drag it over here more okay so here are
+
+85
+00:05:19,590 --> 00:05:25,290
+some examples of how you do SVG SVG is
+
+86
+00:05:23,670 --> 00:05:30,120
+just HTML
+
+87
+00:05:25,290 --> 00:05:34,280
+I mean XML syntax file so you put this
+
+88
+00:05:30,120 --> 00:05:39,360
+you create a HTML page then you put this
+
+89
+00:05:34,280 --> 00:05:43,320
+this there and you'll see a line so
+
+90
+00:05:39,360 --> 00:05:46,620
+basically you have the SVG tag you know
+
+91
+00:05:43,320 --> 00:05:50,000
+saying you know create the SVG tag then
+
+92
+00:05:46,620 --> 00:05:52,950
+you put this you create this line tag
+
+93
+00:05:50,000 --> 00:05:56,070
+that says you know starting point and
+
+94
+00:05:52,950 --> 00:05:59,940
+end point and you have a line so this is
+
+95
+00:05:56,070 --> 00:06:00,720
+the basics of SVG you can learn in five
+
+96
+00:05:59,940 --> 00:06:05,990
+minutes
+
+97
+00:06:00,720 --> 00:06:08,430
+so you have this line tag then you have
+
+98
+00:06:05,990 --> 00:06:10,770
+rectangle attack you know to create the
+
+99
+00:06:08,430 --> 00:06:15,000
+rectangle you have then you have a
+
+100
+00:06:10,770 --> 00:06:20,250
+circle tag you specify for example you
+
+101
+00:06:15,000 --> 00:06:26,400
+specify the center X&Y then you specify
+
+102
+00:06:20,250 --> 00:06:30,840
+the radius okay and in the same way you
+
+103
+00:06:26,400 --> 00:06:37,050
+can specify Lisp just by adding you know
+
+104
+00:06:30,840 --> 00:06:40,460
+with the radius attribute and in the
+
+105
+00:06:37,050 --> 00:06:44,460
+same way you can create a polygon text
+
+106
+00:06:40,460 --> 00:06:47,520
+and path and so on so that that is the
+
+107
+00:06:44,460 --> 00:06:50,760
+basics of SVG you know you just it's
+
+108
+00:06:47,520 --> 00:06:53,280
+just the XML you know it's just static
+
+109
+00:06:50,760 --> 00:06:56,730
+XML like like this you know you just
+
+110
+00:06:53,280 --> 00:07:00,420
+copy and paste this into a file and show
+
+111
+00:06:56,730 --> 00:07:04,800
+in browser and you'll create a image
+
+112
+00:07:00,420 --> 00:07:07,080
+graphics now however you see so these
+
+113
+00:07:04,800 --> 00:07:09,540
+are the primitives you know what what
+
+114
+00:07:07,080 --> 00:07:15,770
+you might call graphics primitives you
+
+115
+00:07:09,540 --> 00:07:19,530
+have rectangle lie circle a lisp polygon
+
+116
+00:07:15,770 --> 00:07:24,870
+text and path that that's basically it
+
+117
+00:07:19,530 --> 00:07:27,930
+okay and but however what if you want
+
+118
+00:07:24,870 --> 00:07:32,040
+to draw an arc of a circle you know like
+
+119
+00:07:27,930 --> 00:07:34,140
+a pie chart you know like an arc you
+
+120
+00:07:32,040 --> 00:07:38,280
+know a quarter of a circle or half of a
+
+121
+00:07:34,140 --> 00:07:42,300
+circle and what you have to do for that
+
+122
+00:07:38,280 --> 00:07:45,390
+is you have to use this path primitive
+
+123
+00:07:42,300 --> 00:07:51,390
+the path element path
+
+124
+00:07:45,390 --> 00:07:55,380
+tag so this path tag this path tag is
+
+125
+00:07:51,390 --> 00:08:01,110
+very powerful in general and it's fairly
+
+126
+00:07:55,380 --> 00:08:03,270
+complicated to understand so and easy so
+
+127
+00:08:01,110 --> 00:08:04,880
+I would say it's actually not good not
+
+128
+00:08:03,270 --> 00:08:07,740
+well-designed
+
+129
+00:08:04,880 --> 00:08:09,990
+you know because it's rather extremely
+
+130
+00:08:07,740 --> 00:08:15,330
+complex so what you do is you specify
+
+131
+00:08:09,990 --> 00:08:18,420
+this path and give a attribute D now D
+
+132
+00:08:15,330 --> 00:08:26,610
+means Steve essentially is a list of
+
+133
+00:08:18,420 --> 00:08:29,280
+points okay D mean means data yeah so so
+
+134
+00:08:26,610 --> 00:08:33,410
+you can see this you know to create this
+
+135
+00:08:29,280 --> 00:08:37,830
+zigzag the syntax for the path is that
+
+136
+00:08:33,410 --> 00:08:41,910
+okay it means starting at zero zero then
+
+137
+00:08:37,830 --> 00:08:44,490
+draw a line 250 0 which is the
+
+138
+00:08:41,910 --> 00:08:48,720
+coordinate you know then draw a line to
+
+139
+00:08:44,490 --> 00:08:52,470
+0 50 which is here then draw a line to
+
+140
+00:08:48,720 --> 00:08:59,330
+1990 which is here so we have a zag
+
+141
+00:08:52,470 --> 00:09:02,280
+zigzag then in path the stroke style and
+
+142
+00:08:59,330 --> 00:09:06,360
+there you know so there are some
+
+143
+00:09:02,280 --> 00:09:08,850
+variations such as how do you not draw
+
+144
+00:09:06,360 --> 00:09:11,880
+from some point to some point you know
+
+145
+00:09:08,850 --> 00:09:14,580
+creating a gap or how do you close the
+
+146
+00:09:11,880 --> 00:09:17,900
+gap from the last point to the first
+
+147
+00:09:14,580 --> 00:09:21,060
+point you know things like that but also
+
+148
+00:09:17,900 --> 00:09:26,370
+path is also powerful in that it can
+
+149
+00:09:21,060 --> 00:09:30,180
+draw curves like that so so one one of
+
+150
+00:09:26,370 --> 00:09:35,040
+the use of path is to draw elliptical
+
+151
+00:09:30,180 --> 00:09:39,399
+arc like this you know showing this page
+
+152
+00:09:35,040 --> 00:09:43,240
+and and the way you do that is you use
+
+153
+00:09:39,399 --> 00:09:47,100
+the a syntax you know when you have a
+
+154
+00:09:43,240 --> 00:09:50,920
+capital A that means you know that
+
+155
+00:09:47,100 --> 00:09:55,420
+section of the parameters for a data
+
+156
+00:09:50,920 --> 00:10:00,569
+attribute are parameters for drawing a
+
+157
+00:09:55,420 --> 00:10:05,500
+lisp but this is extremely complicated
+
+158
+00:10:00,569 --> 00:10:08,050
+so you can read you know the parameter
+
+159
+00:10:05,500 --> 00:10:10,050
+the meaning of the parameters here they
+
+160
+00:10:08,050 --> 00:10:13,750
+are very complicated
+
+161
+00:10:10,050 --> 00:10:16,000
+I'm not to go over them but what I'm
+
+162
+00:10:13,750 --> 00:10:21,430
+saying is that the morning George
+
+163
+00:10:16,000 --> 00:10:27,850
+good morning from to Australia what I'm
+
+164
+00:10:21,430 --> 00:10:32,230
+saying is that so to create a part of a
+
+165
+00:10:27,850 --> 00:10:36,519
+circle an arc of a circle there is no
+
+166
+00:10:32,230 --> 00:10:41,709
+option except to use this path element
+
+167
+00:10:36,519 --> 00:10:43,870
+and the path elements parameters are
+
+168
+00:10:41,709 --> 00:10:46,930
+defined in such a way
+
+169
+00:10:43,870 --> 00:10:52,689
+it's totally incomprehensible
+
+170
+00:10:46,930 --> 00:10:55,569
+it's like incredibly bizarre so it was
+
+171
+00:10:52,689 --> 00:11:00,069
+so so let me actually explain what what
+
+172
+00:10:55,569 --> 00:11:03,880
+this path means okay yeah okay so so
+
+173
+00:11:00,069 --> 00:11:07,120
+this parameter so you start with an A
+
+174
+00:11:03,880 --> 00:11:10,509
+Ami's you know the the rest one two
+
+175
+00:11:07,120 --> 00:11:14,139
+three four five six the rest you know
+
+176
+00:11:10,509 --> 00:11:18,550
+six numbers following a are the
+
+177
+00:11:14,139 --> 00:11:23,439
+parameters for the Elise and the first
+
+178
+00:11:18,550 --> 00:11:27,220
+two is x RX r RX r y the first two
+
+179
+00:11:23,439 --> 00:11:32,290
+numbers means the major radius in minor
+
+180
+00:11:27,220 --> 00:11:34,509
+radius of an ellipse so first of all so
+
+181
+00:11:32,290 --> 00:11:37,899
+what does I mean well to understand that
+
+182
+00:11:34,509 --> 00:11:41,980
+you have to understand about it Lisp a
+
+183
+00:11:37,899 --> 00:11:46,750
+little bit so you know here we have so
+
+184
+00:11:41,980 --> 00:11:48,150
+here is an example of a lisp so from
+
+185
+00:11:46,750 --> 00:11:50,160
+here to here
+
+186
+00:11:48,150 --> 00:11:53,730
+you know from here to here this length
+
+187
+00:11:50,160 --> 00:11:57,930
+is a major axis and the shorter axis is
+
+188
+00:11:53,730 --> 00:12:01,800
+the minor axis so basically to specify
+
+189
+00:11:57,930 --> 00:12:05,339
+an Elise you have two parameters one is
+
+190
+00:12:01,800 --> 00:12:08,040
+the length of the major axis or semi
+
+191
+00:12:05,339 --> 00:12:12,870
+major axis and the one the other one is
+
+192
+00:12:08,040 --> 00:12:16,050
+the shorter semi minor axis that's what
+
+193
+00:12:12,870 --> 00:12:17,550
+it's called so basically you have two
+
+194
+00:12:16,050 --> 00:12:22,770
+radiuses good morning
+
+195
+00:12:17,550 --> 00:12:27,470
+Isaac yeah early today so I'm going to
+
+196
+00:12:22,770 --> 00:12:34,020
+talk about this extremely convoluted
+
+197
+00:12:27,470 --> 00:12:39,540
+bizarre thing about how to draw a arc a
+
+198
+00:12:34,020 --> 00:12:41,460
+circular circular arc in SVG and as we
+
+199
+00:12:39,540 --> 00:12:44,310
+the reason I'm talking about that is
+
+200
+00:12:41,460 --> 00:12:48,779
+because this is an example of the
+
+201
+00:12:44,310 --> 00:12:52,830
+extreme idiotic I mean there's no excuse
+
+202
+00:12:48,779 --> 00:12:56,459
+it for it this is an example of the
+
+203
+00:12:52,830 --> 00:12:58,680
+extreme idiocy in in tech standards in
+
+204
+00:12:56,459 --> 00:13:02,459
+you know in software standards protocol
+
+205
+00:12:58,680 --> 00:13:05,400
+standards that we have for some reason
+
+206
+00:13:02,459 --> 00:13:10,279
+you know you know so this is an example
+
+207
+00:13:05,400 --> 00:13:14,160
+let me finish explaining that so so so
+
+208
+00:13:10,279 --> 00:13:16,589
+to specify a elyse mathematically
+
+209
+00:13:14,160 --> 00:13:19,589
+basically you just have like two
+
+210
+00:13:16,589 --> 00:13:21,839
+radiuses you specify the center you know
+
+211
+00:13:19,589 --> 00:13:25,890
+the location of the center and two
+
+212
+00:13:21,839 --> 00:13:29,640
+radius for the Lisp major axis in minor
+
+213
+00:13:25,890 --> 00:13:32,940
+axis okay that's one way that's one of
+
+214
+00:13:29,640 --> 00:13:35,520
+the simple way to specify an Elise you
+
+215
+00:13:32,940 --> 00:13:38,790
+know that's a intuitive in a simple way
+
+216
+00:13:35,520 --> 00:13:44,550
+there are many other ways to specify an
+
+217
+00:13:38,790 --> 00:13:51,690
+Lisp you know but we are now going to
+
+218
+00:13:44,550 --> 00:13:55,110
+that going to go into that so back to
+
+219
+00:13:51,690 --> 00:13:59,339
+the SVG so the way you specify the way
+
+220
+00:13:55,110 --> 00:14:02,010
+the SVG specify any list is by using the
+
+221
+00:13:59,339 --> 00:14:06,270
+path element and the way that works
+
+222
+00:14:02,010 --> 00:14:11,000
+that you you you write capital a with us
+
+223
+00:14:06,270 --> 00:14:14,250
+one two three four one with seven
+
+224
+00:14:11,000 --> 00:14:17,700
+numbers following that one two three
+
+225
+00:14:14,250 --> 00:14:19,860
+four five six seven yeah seven numbers
+
+226
+00:14:17,700 --> 00:14:22,560
+following that so the first two numbers
+
+227
+00:14:19,860 --> 00:14:26,010
+are the major and minor axis you know
+
+228
+00:14:22,560 --> 00:14:29,700
+the radius the distance okay the third
+
+229
+00:14:26,010 --> 00:14:31,500
+element is rotate it's a degree you know
+
+230
+00:14:29,700 --> 00:14:35,700
+how much you want to eby's that the
+
+231
+00:14:31,500 --> 00:14:41,010
+whole thing to be rotated okay then you
+
+232
+00:14:35,700 --> 00:14:45,720
+have two flags you know kind of code
+
+233
+00:14:41,010 --> 00:14:49,820
+flags they are large OCH flag and sweep
+
+234
+00:14:45,720 --> 00:14:54,180
+hog flags we are sweep flag they are
+
+235
+00:14:49,820 --> 00:14:55,800
+extremely complicated to understand they
+
+236
+00:14:54,180 --> 00:14:59,310
+are not by the way they are not used
+
+237
+00:14:55,800 --> 00:15:02,880
+anywhere in math okay there they are
+
+238
+00:14:59,310 --> 00:15:05,820
+just created by this program
+
+239
+00:15:02,880 --> 00:15:08,880
+programmers okay so what what are they
+
+240
+00:15:05,820 --> 00:15:14,310
+what what are these large arc flag and
+
+241
+00:15:08,880 --> 00:15:17,190
+sweep flag both of them should be values
+
+242
+00:15:14,310 --> 00:15:20,220
+of 1 or 0 okay so they just end up
+
+243
+00:15:17,190 --> 00:15:24,000
+indicate kind of like you know two
+
+244
+00:15:20,220 --> 00:15:28,430
+options 1 or 0 and what they are is
+
+245
+00:15:24,000 --> 00:15:28,430
+actually let me show you it's like this
+
+246
+00:15:30,410 --> 00:15:40,200
+you see they specified for of the
+
+247
+00:15:36,930 --> 00:15:43,110
+possibilities of which part of the Elise
+
+248
+00:15:40,200 --> 00:15:46,830
+to draw from a starting point to the end
+
+249
+00:15:43,110 --> 00:15:48,750
+point ok now but how exactly what does
+
+250
+00:15:46,830 --> 00:15:51,570
+what does it mean exactly it's very
+
+251
+00:15:48,750 --> 00:15:52,730
+complicated ok but I'm going to explain
+
+252
+00:15:51,570 --> 00:15:58,080
+let me go back here
+
+253
+00:15:52,730 --> 00:16:01,950
+so SVG so you have these parameters okay
+
+254
+00:15:58,080 --> 00:16:05,340
+Flags two flags then you have XY the
+
+255
+00:16:01,950 --> 00:16:08,040
+last two numbers means the point you
+
+256
+00:16:05,340 --> 00:16:12,180
+want the end point you want to finish
+
+257
+00:16:08,040 --> 00:16:16,310
+the drawing - okay so let me repeat so
+
+258
+00:16:12,180 --> 00:16:20,600
+Elise you have like seven
+
+259
+00:16:16,310 --> 00:16:25,220
+to service as parameters the first to
+
+260
+00:16:20,600 --> 00:16:27,890
+number is the major in minor axis then
+
+261
+00:16:25,220 --> 00:16:29,750
+you have a rotation which is a you know
+
+262
+00:16:27,890 --> 00:16:32,450
+how much you want to rotate then you
+
+263
+00:16:29,750 --> 00:16:35,510
+have two numbers for flag you know then
+
+264
+00:16:32,450 --> 00:16:40,940
+you have two numbers for the last point
+
+265
+00:16:35,510 --> 00:16:44,529
+to draw now what about the starting
+
+266
+00:16:40,940 --> 00:16:47,630
+point the starting point is basically
+
+267
+00:16:44,529 --> 00:16:49,790
+where the current point is you know it's
+
+268
+00:16:47,630 --> 00:16:54,290
+when you have a path you know for
+
+269
+00:16:49,790 --> 00:16:58,310
+example in this path we began at at this
+
+270
+00:16:54,290 --> 00:17:02,930
+point zero 50 so Oh
+
+271
+00:16:58,310 --> 00:17:07,220
+at this point 10 50 so 10.10 50 is this
+
+272
+00:17:02,930 --> 00:17:10,480
+point right here so that's not the
+
+273
+00:17:07,220 --> 00:17:14,990
+starting point is not part of the Lisp
+
+274
+00:17:10,480 --> 00:17:17,059
+parameter so anyway you you start at the
+
+275
+00:17:14,990 --> 00:17:20,030
+current point whatever that is you know
+
+276
+00:17:17,059 --> 00:17:21,980
+before the release parameter then you
+
+277
+00:17:20,030 --> 00:17:26,839
+have these seven seven numbers to
+
+278
+00:17:21,980 --> 00:17:29,120
+specify the release the Lisp now the you
+
+279
+00:17:26,839 --> 00:17:31,429
+see so here is an example and here is
+
+280
+00:17:29,120 --> 00:17:35,780
+the other examples this these are
+
+281
+00:17:31,429 --> 00:17:39,140
+examples showing rotation and more
+
+282
+00:17:35,780 --> 00:17:41,990
+variations but now the problem is if you
+
+283
+00:17:39,140 --> 00:17:45,470
+want to draw let's say a quarter of a
+
+284
+00:17:41,990 --> 00:17:48,970
+circle you know like like this clock
+
+285
+00:17:45,470 --> 00:17:53,179
+from twelve o'clock to 3 o'clock a
+
+286
+00:17:48,970 --> 00:17:56,660
+quarter of a circle okay how do you do
+
+287
+00:17:53,179 --> 00:17:59,740
+that basically is you cannot do that
+
+288
+00:17:56,660 --> 00:18:03,890
+because first of all there is no
+
+289
+00:17:59,740 --> 00:18:08,990
+primitive that just specify a circle a
+
+290
+00:18:03,890 --> 00:18:13,510
+part of a circle there is a primitive to
+
+291
+00:18:08,990 --> 00:18:17,150
+specify a circle for example like that
+
+292
+00:18:13,510 --> 00:18:22,400
+you know you you say circle then you say
+
+293
+00:18:17,150 --> 00:18:24,980
+the center CX and CY and you say radius
+
+294
+00:18:22,400 --> 00:18:27,919
+but however there is no attribute for
+
+295
+00:18:24,980 --> 00:18:29,420
+you know how much how much you want to
+
+296
+00:18:27,919 --> 00:18:34,610
+draw you can just own
+
+297
+00:18:29,420 --> 00:18:37,130
+draw the whole circle so and so but you
+
+298
+00:18:34,610 --> 00:18:39,170
+want to draw a part of a circle like you
+
+299
+00:18:37,130 --> 00:18:42,320
+know a quarter of a circle so how do you
+
+300
+00:18:39,170 --> 00:18:49,490
+do that the only way to do that is to
+
+301
+00:18:42,320 --> 00:18:51,680
+use usually elite elliptical arc so
+
+302
+00:18:49,490 --> 00:18:56,090
+suppose you want to draw a circle from
+
+303
+00:18:51,680 --> 00:18:58,280
+12 o'clock to 3 o'clock okay and the
+
+304
+00:18:56,090 --> 00:19:01,700
+only way to do that is you to use the
+
+305
+00:18:58,280 --> 00:19:06,740
+pass with the elite elliptical arc
+
+306
+00:19:01,700 --> 00:19:09,830
+parameters okay but how do you specify
+
+307
+00:19:06,740 --> 00:19:11,540
+the parameters like what what numbers do
+
+308
+00:19:09,830 --> 00:19:13,550
+you put them you know that is the
+
+309
+00:19:11,540 --> 00:19:16,580
+problem that is the question you know
+
+310
+00:19:13,550 --> 00:19:19,160
+drawing part of the circle is extremely
+
+311
+00:19:16,580 --> 00:19:22,520
+common for example young up you know pie
+
+312
+00:19:19,160 --> 00:19:26,690
+chart you know what one of the most
+
+313
+00:19:22,520 --> 00:19:29,180
+useful thing in graphics is pie chart
+
+314
+00:19:26,690 --> 00:19:31,550
+you know one of the most common but
+
+315
+00:19:29,180 --> 00:19:34,460
+however so you want to draw that but how
+
+316
+00:19:31,550 --> 00:19:36,560
+do you do that you know that is the
+
+317
+00:19:34,460 --> 00:19:38,840
+question and the the solution is
+
+318
+00:19:36,560 --> 00:19:41,990
+basically it's impossible to figure out
+
+319
+00:19:38,840 --> 00:19:46,670
+I mean it's you have to almost be you're
+
+320
+00:19:41,990 --> 00:19:48,830
+a mathematician you know so that is a
+
+321
+00:19:46,670 --> 00:19:51,800
+problem okay that that is a father I'm
+
+322
+00:19:48,830 --> 00:19:54,590
+talking about you know you might try try
+
+323
+00:19:51,800 --> 00:19:56,960
+it you know you have to do like like I
+
+324
+00:19:54,590 --> 00:20:00,620
+showed before you have to do is you copy
+
+325
+00:19:56,960 --> 00:20:03,920
+you know you copy this into copy paste
+
+326
+00:20:00,620 --> 00:20:09,020
+into a file and showing browser then you
+
+327
+00:20:03,920 --> 00:20:12,200
+try to put the path element you know try
+
+328
+00:20:09,020 --> 00:20:14,420
+to experiment you know I guarantee you
+
+329
+00:20:12,200 --> 00:20:20,530
+that you are going to spend several
+
+330
+00:20:14,420 --> 00:20:23,120
+hours to to draw a arc of a circle and
+
+331
+00:20:20,530 --> 00:20:25,790
+that's the problem and yeah and you know
+
+332
+00:20:23,120 --> 00:20:28,040
+unless you go to stack overflow in fact
+
+333
+00:20:25,790 --> 00:20:31,520
+you cannot you know spend an hour just
+
+334
+00:20:28,040 --> 00:20:34,220
+to read stack overflow of solutions so
+
+335
+00:20:31,520 --> 00:20:37,130
+that is a problem so the situation is
+
+336
+00:20:34,220 --> 00:20:39,380
+that we have a common needed thing you
+
+337
+00:20:37,130 --> 00:20:42,980
+know drawing part of the circle but
+
+338
+00:20:39,380 --> 00:20:46,610
+however in this technology
+
+339
+00:20:42,980 --> 00:20:52,130
+you know SVG technology it is almost
+
+340
+00:20:46,610 --> 00:20:56,780
+like impossible you know it is almost
+
+341
+00:20:52,130 --> 00:20:59,290
+impossible so so do you guys get what
+
+342
+00:20:56,780 --> 00:20:59,290
+I'm saying
+
+343
+00:21:02,980 --> 00:21:10,309
+so this situation is someone is almost
+
+344
+00:21:06,230 --> 00:21:13,250
+impossible now I'm going to show you
+
+345
+00:21:10,309 --> 00:21:18,490
+almost impossible okay so this is this
+
+346
+00:21:13,250 --> 00:21:21,350
+is a extreme idiocy you know like and
+
+347
+00:21:18,490 --> 00:21:25,490
+this is one example this is one concrete
+
+348
+00:21:21,350 --> 00:21:29,990
+example so I'm going to show you next
+
+349
+00:21:25,490 --> 00:21:32,919
+how the specification how they talked
+
+350
+00:21:29,990 --> 00:21:32,919
+about this issue
+
+351
+00:21:44,760 --> 00:21:56,700
+so here is the speck on a second I mean
+
+352
+00:21:49,950 --> 00:21:59,150
+turn on let's go to their website SVG
+
+353
+00:21:56,700 --> 00:21:59,150
+spec
+
+354
+00:22:08,970 --> 00:22:19,280
+so we're going to go to SVG spec and
+
+355
+00:22:15,110 --> 00:22:21,780
+basic types and interface you know these
+
+356
+00:22:19,280 --> 00:22:25,350
+specifications are extremely convoluted
+
+357
+00:22:21,780 --> 00:22:29,190
+the way the style they write it it's
+
+358
+00:22:25,350 --> 00:22:32,250
+impossible to read and it is not because
+
+359
+00:22:29,190 --> 00:22:36,650
+it is actually difficult no is it
+
+360
+00:22:32,250 --> 00:22:40,740
+because it's written for in fluent
+
+361
+00:22:36,650 --> 00:22:42,840
+implementers you know those browsers you
+
+362
+00:22:40,740 --> 00:22:45,990
+know who needs to implement this it's
+
+363
+00:22:42,840 --> 00:22:47,490
+not because of that it's really big just
+
+364
+00:22:45,990 --> 00:22:53,070
+because they are is they're extremely
+
+365
+00:22:47,490 --> 00:22:55,560
+convoluted because because corporations
+
+366
+00:22:53,070 --> 00:22:58,790
+in the standard body made it that way
+
+367
+00:22:55,560 --> 00:23:01,260
+almost like intentionally they this
+
+368
+00:22:58,790 --> 00:23:04,620
+extremely impossible to read you know
+
+369
+00:23:01,260 --> 00:23:08,370
+try to read it you know you try it for
+
+370
+00:23:04,620 --> 00:23:12,180
+example you try you know you can try to
+
+371
+00:23:08,370 --> 00:23:14,100
+read my SVG tutorial you know you spend
+
+372
+00:23:12,180 --> 00:23:17,430
+on our and you can pretty much
+
+373
+00:23:14,100 --> 00:23:21,240
+understand what it you know how to work
+
+374
+00:23:17,430 --> 00:23:24,870
+with this then you try to read the SVG
+
+375
+00:23:21,240 --> 00:23:28,650
+spec you know it's going to take you a
+
+376
+00:23:24,870 --> 00:23:30,720
+month you know even a month yeah it's
+
+377
+00:23:28,650 --> 00:23:33,390
+going to take you full time a month and
+
+378
+00:23:30,720 --> 00:23:36,630
+you cannot understand it that's the way
+
+379
+00:23:33,390 --> 00:23:42,930
+they are and what I'm saying about this
+
+380
+00:23:36,630 --> 00:23:45,450
+is that it's not necesarily it's it's
+
+381
+00:23:42,930 --> 00:23:49,950
+not that way because it's necessary it's
+
+382
+00:23:45,450 --> 00:23:53,120
+that way because because social many of
+
+383
+00:23:49,950 --> 00:23:56,580
+the social reasons there are
+
+384
+00:23:53,120 --> 00:23:59,100
+corporations and standard bodies
+
+385
+00:23:56,580 --> 00:24:01,140
+standard body they are there because of
+
+386
+00:23:59,100 --> 00:24:04,580
+money you know for no reason other than
+
+387
+00:24:01,140 --> 00:24:08,460
+then money they are usually a nonprofit
+
+388
+00:24:04,580 --> 00:24:13,260
+organization but it's not why it seems
+
+389
+00:24:08,460 --> 00:24:16,130
+so anyway so the other so the point I'm
+
+390
+00:24:13,260 --> 00:24:18,980
+trying to make here is about all these
+
+391
+00:24:16,130 --> 00:24:21,840
+documentation from you know the
+
+392
+00:24:18,980 --> 00:24:22,559
+specifications from the standard body
+
+393
+00:24:21,840 --> 00:24:27,419
+the
+
+394
+00:24:22,559 --> 00:24:29,519
+extremely bad battered Wheaton so that's
+
+395
+00:24:27,419 --> 00:24:32,940
+a digression into another point but
+
+396
+00:24:29,519 --> 00:24:36,299
+let's get back to the Elise to draw an
+
+397
+00:24:32,940 --> 00:24:42,470
+arc so let me show you the document
+
+398
+00:24:36,299 --> 00:24:42,470
+structure dome interface styling
+
+399
+00:24:53,460 --> 00:25:00,090
+SVG Tom over views as Dom interface
+
+400
+00:24:57,540 --> 00:25:05,360
+okay Dom interface based basic data
+
+401
+00:25:00,090 --> 00:25:05,360
+types rendering model
+
+402
+00:25:11,370 --> 00:25:15,060
+document structure
+
+403
+00:25:17,880 --> 00:25:25,780
+geometric properties coordinate systems
+
+404
+00:25:21,370 --> 00:25:30,400
+my god where is it okay finally okay so
+
+405
+00:25:25,780 --> 00:25:34,180
+finally they are here so here are the
+
+406
+00:25:30,400 --> 00:25:37,720
+basic shapes and here is the path
+
+407
+00:25:34,180 --> 00:25:42,010
+element ok path element is what we want
+
+408
+00:25:37,720 --> 00:25:47,350
+and here we have elliptical arc curve
+
+409
+00:25:42,010 --> 00:25:50,230
+commands ok so here is the respect for
+
+410
+00:25:47,350 --> 00:25:52,380
+the Lisp parameters we were talking
+
+411
+00:25:50,230 --> 00:25:52,380
+about
+
+412
+00:25:58,120 --> 00:26:08,260
+you see you see this SVG too you know so
+
+413
+00:26:03,390 --> 00:26:13,450
+you know SVG 2 came out about last year
+
+414
+00:26:08,260 --> 00:26:15,669
+last year two years ago the SVG one or
+
+415
+00:26:13,450 --> 00:26:18,970
+one point one came out about twenty
+
+416
+00:26:15,669 --> 00:26:21,640
+years ago it didn't catch on because the
+
+417
+00:26:18,970 --> 00:26:26,159
+flash you know you know the marker media
+
+418
+00:26:21,640 --> 00:26:30,539
+Adobe Flash they took over the industry
+
+419
+00:26:26,159 --> 00:26:30,539
+you know the those are commercial
+
+420
+00:26:30,929 --> 00:26:39,669
+technology but the flash got killed by
+
+421
+00:26:35,740 --> 00:26:42,899
+Apple beginning around 2006 also because
+
+422
+00:26:39,669 --> 00:26:44,710
+of the iPhone you know Steve Jobs
+
+423
+00:26:42,899 --> 00:26:50,230
+basically banned it
+
+424
+00:26:44,710 --> 00:26:54,370
+all right iPhone so that that subsequent
+
+425
+00:26:50,230 --> 00:26:56,350
+we killed it so fresh you know the flash
+
+426
+00:26:54,370 --> 00:26:59,159
+technology is gonna fetch
+
+427
+00:26:56,350 --> 00:27:04,090
+technology is basically 2d drawings
+
+428
+00:26:59,159 --> 00:27:10,380
+pretty much like like SVG so since flash
+
+429
+00:27:04,090 --> 00:27:15,429
+was killed beginning around 2008 so SVG
+
+430
+00:27:10,380 --> 00:27:20,340
+revived so today you know we use SVG so
+
+431
+00:27:15,429 --> 00:27:26,080
+SVG version 2 came out about lasya
+
+432
+00:27:20,340 --> 00:27:29,289
+finalized and we are looking at SVG two
+
+433
+00:27:26,080 --> 00:27:31,960
+right now and you can see they have a
+
+434
+00:27:29,289 --> 00:27:35,409
+comment here annotation SVG 2
+
+435
+00:27:31,960 --> 00:27:41,140
+requirement make it simpler to draw arcs
+
+436
+00:27:35,409 --> 00:27:44,529
+in SVG path syntax so you see they
+
+437
+00:27:41,140 --> 00:27:47,380
+actually realized this is a problem but
+
+438
+00:27:44,529 --> 00:27:50,799
+however they did not they did not
+
+439
+00:27:47,380 --> 00:27:53,799
+provide a solution you know I didn't
+
+440
+00:27:50,799 --> 00:27:57,070
+read this page through early yet but
+
+441
+00:27:53,799 --> 00:27:59,049
+anyway I you know the way you know they
+
+442
+00:27:57,070 --> 00:28:01,600
+don't have a solution so far it's
+
+443
+00:27:59,049 --> 00:28:08,039
+actually only you're just a note no
+
+444
+00:28:01,600 --> 00:28:08,039
+draft ok draft November 2011
+
+445
+00:28:10,830 --> 00:28:19,179
+and this this page is basically chat
+
+446
+00:28:14,740 --> 00:28:22,330
+among the SVG standard writers you know
+
+447
+00:28:19,179 --> 00:28:25,029
+they just chat about it so they have a
+
+448
+00:28:22,330 --> 00:28:29,080
+notice about make it simpler to draw an
+
+449
+00:28:25,029 --> 00:28:32,470
+arc in SVG path syntax but it's not done
+
+450
+00:28:29,080 --> 00:28:37,809
+you know we don't have that yet but
+
+451
+00:28:32,470 --> 00:28:39,429
+anyway let's go back to the you know the
+
+452
+00:28:37,809 --> 00:28:43,980
+the thing I want to show you on this
+
+453
+00:28:39,429 --> 00:28:43,980
+page is that they actually have a
+
+454
+00:28:44,940 --> 00:28:52,450
+section that talks about how to how do
+
+455
+00:28:48,399 --> 00:28:54,899
+you convert parameters let me show you
+
+456
+00:28:52,450 --> 00:28:54,899
+where
+
+457
+00:29:02,720 --> 00:29:11,410
+you know these extremely idiotic
+
+458
+00:29:05,510 --> 00:29:11,410
+writings implementation notes
+
+459
+00:29:19,110 --> 00:29:23,400
+okay sit somewhere here
+
+460
+00:29:48,970 --> 00:29:57,940
+so I'm going to show you where is it so
+
+461
+00:29:52,120 --> 00:30:03,190
+view example okay so I'm going to show
+
+462
+00:29:57,940 --> 00:30:06,690
+you a section in this SPECT where they
+
+463
+00:30:03,190 --> 00:30:11,620
+talked about how do you convert an
+
+464
+00:30:06,690 --> 00:30:16,780
+ellipse from the parameters of a center
+
+465
+00:30:11,620 --> 00:30:20,910
+and major minor axis to the parameters
+
+466
+00:30:16,780 --> 00:30:20,910
+used by the path syntax
+
+467
+00:30:30,810 --> 00:30:38,310
+okay here you see there's this note here
+
+468
+00:30:34,770 --> 00:30:40,980
+the implementation notes appendix has
+
+469
+00:30:38,310 --> 00:30:45,030
+relevant formulae for software that
+
+470
+00:30:40,980 --> 00:30:47,820
+needs to convert SVG arc notation to a
+
+471
+00:30:45,030 --> 00:30:51,960
+format that uses center points and arc
+
+472
+00:30:47,820 --> 00:30:57,560
+sweeps extreme idiocy so so here it is
+
+473
+00:30:51,960 --> 00:30:57,560
+it's an append appendix p2
+
+474
+00:31:03,650 --> 00:31:07,539
+so what's going on here
+
+475
+00:31:12,620 --> 00:31:21,950
+okay so here it is so on this page so so
+
+476
+00:31:19,100 --> 00:31:26,270
+here they show you they talk about the
+
+477
+00:31:21,950 --> 00:31:28,850
+mathematical formula where where for
+
+478
+00:31:26,270 --> 00:31:31,400
+example normally when we you know in
+
+479
+00:31:28,850 --> 00:31:35,750
+math you know in anywhere when we talk
+
+480
+00:31:31,400 --> 00:31:40,659
+about a lisp we specify it by the center
+
+481
+00:31:35,750 --> 00:31:45,200
+and the major and minor axis you know
+
+482
+00:31:40,659 --> 00:31:51,380
+then then possibly a rotation you know
+
+483
+00:31:45,200 --> 00:31:54,320
+you rotate the holy Lisp and also the
+
+484
+00:31:51,380 --> 00:31:57,590
+parameters to specify the starting point
+
+485
+00:31:54,320 --> 00:32:01,370
+and end point like how much of a sweep
+
+486
+00:31:57,590 --> 00:32:05,440
+you want oh it can be specified in as a
+
+487
+00:32:01,370 --> 00:32:08,299
+degree you know that's that's how people
+
+488
+00:32:05,440 --> 00:32:15,529
+you know think of it Lisp that's how you
+
+489
+00:32:08,299 --> 00:32:19,820
+specify it but however the SVG the SVG
+
+490
+00:32:15,529 --> 00:32:25,909
+way of specifying a lisp is you have
+
+491
+00:32:19,820 --> 00:32:30,649
+this you know sweep large arc flag sweep
+
+492
+00:32:25,909 --> 00:32:33,500
+flag and XY is the end point so you
+
+493
+00:32:30,649 --> 00:32:37,850
+basically you specify it by a starting
+
+494
+00:32:33,500 --> 00:32:41,899
+point and end point and with this you
+
+495
+00:32:37,850 --> 00:32:54,440
+know two boolean values for which part
+
+496
+00:32:41,899 --> 00:32:57,740
+it is so high Andrew so anyway so so so
+
+497
+00:32:54,440 --> 00:33:00,289
+on this specification page they are
+
+498
+00:32:57,740 --> 00:33:04,840
+trying to explain how do you convert
+
+499
+00:33:00,289 --> 00:33:04,840
+from one set of parameters to the other
+
+500
+00:33:06,100 --> 00:33:14,059
+okay so if you are a programmer if you
+
+501
+00:33:11,450 --> 00:33:15,980
+are going to draw a pie chart you know
+
+502
+00:33:14,059 --> 00:33:19,880
+if you are going to create SVG graphics
+
+503
+00:33:15,980 --> 00:33:22,460
+you need arc of a circle then you need
+
+504
+00:33:19,880 --> 00:33:24,169
+to do you need to know this formula you
+
+505
+00:33:22,460 --> 00:33:26,210
+know what you do is you look at this
+
+506
+00:33:24,169 --> 00:33:30,070
+formula and you
+
+507
+00:33:26,210 --> 00:33:33,320
+the function that tries to convert it
+
+508
+00:33:30,070 --> 00:33:38,030
+there's not no way around it because it
+
+509
+00:33:33,320 --> 00:33:40,640
+is impossible to you know like it's
+
+510
+00:33:38,030 --> 00:33:45,980
+impossible to understand to directly
+
+511
+00:33:40,640 --> 00:33:51,230
+specify an arc you know by these path
+
+512
+00:33:45,980 --> 00:33:53,540
+parameters so anyway that that is a
+
+513
+00:33:51,230 --> 00:33:56,330
+situation and and let me show you
+
+514
+00:33:53,540 --> 00:34:00,380
+something else the point I'm showing you
+
+515
+00:33:56,330 --> 00:34:02,570
+so anyway in this appendix P they talk
+
+516
+00:34:00,380 --> 00:34:06,590
+about how to how to convert one to the
+
+517
+00:34:02,570 --> 00:34:09,260
+other but what is the point I mean I
+
+518
+00:34:06,590 --> 00:34:12,980
+mean you see this is such a common need
+
+519
+00:34:09,260 --> 00:34:16,190
+when you design the SVG you do not
+
+520
+00:34:12,980 --> 00:34:18,890
+design you know you it's like nobody
+
+521
+00:34:16,190 --> 00:34:24,080
+ever you know no mathematicians you know
+
+522
+00:34:18,890 --> 00:34:27,050
+this the way this days define a list by
+
+523
+00:34:24,080 --> 00:34:30,550
+this parameter of using the starting
+
+524
+00:34:27,050 --> 00:34:35,270
+starting point and end point and these
+
+525
+00:34:30,550 --> 00:34:37,640
+flags that does not happen in anywhere
+
+526
+00:34:35,270 --> 00:34:40,310
+you know I don't think it happens in
+
+527
+00:34:37,640 --> 00:34:41,600
+history I mean if you like if you take a
+
+528
+00:34:40,310 --> 00:34:44,770
+survey okay
+
+529
+00:34:41,600 --> 00:34:48,980
+suppose if you are God and you look at
+
+530
+00:34:44,770 --> 00:34:52,310
+all exists you know literature's text
+
+531
+00:34:48,980 --> 00:34:56,630
+books on Elysee you know all the math
+
+532
+00:34:52,310 --> 00:34:59,000
+books you will not find one is I don't
+
+533
+00:34:56,630 --> 00:35:02,420
+think you will find one instance where
+
+534
+00:34:59,000 --> 00:35:05,240
+they specify a lisp by this way by this
+
+535
+00:35:02,420 --> 00:35:07,610
+SVG way you know we you have a starting
+
+536
+00:35:05,240 --> 00:35:10,250
+point you have end point and you have
+
+537
+00:35:07,610 --> 00:35:12,500
+these two pooling flags
+
+538
+00:35:10,250 --> 00:35:16,540
+then you have this then you have a
+
+539
+00:35:12,500 --> 00:35:20,420
+rotation you know you will not find it
+
+540
+00:35:16,540 --> 00:35:23,210
+so this so this is a extreme idiocy and
+
+541
+00:35:20,420 --> 00:35:25,190
+you know I'd like like I work in forum
+
+542
+00:35:23,210 --> 00:35:27,770
+industry I have looked at a lot of
+
+543
+00:35:25,190 --> 00:35:33,560
+technologies you know lots of protocols
+
+544
+00:35:27,770 --> 00:35:37,340
+computer languages and it's very ease is
+
+545
+00:35:33,560 --> 00:35:40,070
+fairly common to find this kind of very
+
+546
+00:35:37,340 --> 00:35:44,730
+strange impossible things you know
+
+547
+00:35:40,070 --> 00:35:47,250
+you know simply idiotic things and I
+
+548
+00:35:44,730 --> 00:35:49,740
+began to understand the way they are
+
+549
+00:35:47,250 --> 00:35:52,650
+that way is just because corporations
+
+550
+00:35:49,740 --> 00:35:55,730
+you know they they are not they are not
+
+551
+00:35:52,650 --> 00:35:59,040
+based on design I mean it's not like
+
+552
+00:35:55,730 --> 00:36:01,320
+someone you know some programmers sit
+
+553
+00:35:59,040 --> 00:36:03,180
+there and they think about design and
+
+554
+00:36:01,320 --> 00:36:06,570
+they can't come up with this way or
+
+555
+00:36:03,180 --> 00:36:09,150
+maybe they come up with a way that's bad
+
+556
+00:36:06,570 --> 00:36:09,600
+you know by mistake no it's not like
+
+557
+00:36:09,150 --> 00:36:12,630
+that
+
+558
+00:36:09,600 --> 00:36:15,840
+that's what we normally think how these
+
+559
+00:36:12,630 --> 00:36:20,100
+these standards or specification came
+
+560
+00:36:15,840 --> 00:36:23,190
+about but I realize in in the past few
+
+561
+00:36:20,100 --> 00:36:27,180
+years that's not a case the way standard
+
+562
+00:36:23,190 --> 00:36:32,340
+date you know this standard standardized
+
+563
+00:36:27,180 --> 00:36:34,230
+spec came up out is mostly due to social
+
+564
+00:36:32,340 --> 00:36:39,440
+reasons like cooperate cooperate
+
+565
+00:36:34,230 --> 00:36:42,720
+struggles and incompetence and and
+
+566
+00:36:39,440 --> 00:36:47,400
+basically irrelevance and you know of
+
+567
+00:36:42,720 --> 00:36:50,610
+these designers so hi Andrew Georgie and
+
+568
+00:36:47,400 --> 00:36:53,970
+Isaac so yeah so hi guys so if you want
+
+569
+00:36:50,610 --> 00:36:55,830
+me to you know just post your comments
+
+570
+00:36:53,970 --> 00:36:58,770
+if you want me to talk about anything
+
+571
+00:36:55,830 --> 00:37:01,200
+you know just say it you know any
+
+572
+00:36:58,770 --> 00:37:03,480
+opinions or questions or anything I'm
+
+573
+00:37:01,200 --> 00:37:07,790
+talking about or anything else you know
+
+574
+00:37:03,480 --> 00:37:12,960
+about keyboards or anything so anyway
+
+575
+00:37:07,790 --> 00:37:14,970
+back to e list so so you know I'm
+
+576
+00:37:12,960 --> 00:37:17,580
+showing you an example and look at this
+
+577
+00:37:14,970 --> 00:37:19,890
+the paragraph they try to explain you
+
+578
+00:37:17,580 --> 00:37:24,080
+know they say look at the way they the
+
+579
+00:37:19,890 --> 00:37:29,180
+reason the pretext the excuse they give
+
+580
+00:37:24,080 --> 00:37:32,400
+they they say here about why they design
+
+581
+00:37:29,180 --> 00:37:36,770
+they design the release the way they are
+
+582
+00:37:32,400 --> 00:37:39,660
+okay let's see what they say so they say
+
+583
+00:37:36,770 --> 00:37:43,500
+to be consistent with other path
+
+584
+00:37:39,660 --> 00:37:46,650
+segments notation arcs in SVG paths are
+
+585
+00:37:43,500 --> 00:37:50,700
+defined in terms of start and end points
+
+586
+00:37:46,650 --> 00:37:53,490
+on the curve okay this parameterization
+
+587
+00:37:50,700 --> 00:37:56,570
+of elliptical arcs we
+
+588
+00:37:53,490 --> 00:37:59,910
+be referred to as endpoint
+
+589
+00:37:56,570 --> 00:38:02,850
+parameterization one of the advantage of
+
+590
+00:37:59,910 --> 00:38:06,030
+endpoint parameterization is that it
+
+591
+00:38:02,850 --> 00:38:10,619
+permits a consistent path syntax in
+
+592
+00:38:06,030 --> 00:38:13,550
+which all path commands ends and in the
+
+593
+00:38:10,619 --> 00:38:16,500
+coordinates of the new current point
+
+594
+00:38:13,550 --> 00:38:19,560
+however this is not the only way of
+
+595
+00:38:16,500 --> 00:38:23,970
+describing arc geometry used in software
+
+596
+00:38:19,560 --> 00:38:26,970
+or mathematics this section describes
+
+597
+00:38:23,970 --> 00:38:30,840
+the alternative Center parameterization
+
+598
+00:38:26,970 --> 00:38:34,200
+and how to convert it from and to SVG
+
+599
+00:38:30,840 --> 00:38:37,110
+endpoint parameterization so what they
+
+600
+00:38:34,200 --> 00:38:39,720
+are saying is that what they are saying
+
+601
+00:38:37,110 --> 00:38:42,720
+is that the way the reason they are they
+
+602
+00:38:39,720 --> 00:38:45,690
+that you know the SVG Lisp is defined
+
+603
+00:38:42,720 --> 00:38:48,720
+that way is because it's because it's
+
+604
+00:38:45,690 --> 00:38:52,530
+more consistent with me path you know
+
+605
+00:38:48,720 --> 00:38:56,090
+the path parameters the way they you
+
+606
+00:38:52,530 --> 00:38:58,920
+know the path element is defined that's
+
+607
+00:38:56,090 --> 00:39:00,119
+that's I think I think that's not true I
+
+608
+00:38:58,920 --> 00:39:03,660
+think that's a lie
+
+609
+00:39:00,119 --> 00:39:07,050
+you know I think this paragraph is not
+
+610
+00:39:03,660 --> 00:39:09,480
+the true history is you know I I don't
+
+611
+00:39:07,050 --> 00:39:13,020
+know for sure because I have not dig
+
+612
+00:39:09,480 --> 00:39:15,150
+into the history of you know who like
+
+613
+00:39:13,020 --> 00:39:18,359
+which or engineer you know
+
+614
+00:39:15,150 --> 00:39:21,180
+exactly what is a history how how did
+
+615
+00:39:18,359 --> 00:39:24,030
+the SVG path element came about you know
+
+616
+00:39:21,180 --> 00:39:27,660
+who is the first person who created this
+
+617
+00:39:24,030 --> 00:39:30,810
+I have not looked into that you know and
+
+618
+00:39:27,660 --> 00:39:33,270
+also in my past experience it's almost
+
+619
+00:39:30,810 --> 00:39:37,710
+impossible it's extremely difficult to
+
+620
+00:39:33,270 --> 00:39:40,619
+find how things are in the beginning you
+
+621
+00:39:37,710 --> 00:39:42,510
+know it's it's like a research task for
+
+622
+00:39:40,619 --> 00:39:46,170
+a month something like that for a week
+
+623
+00:39:42,510 --> 00:39:48,840
+week or weeks so I don't know what's a
+
+624
+00:39:46,170 --> 00:39:52,770
+true history but I do have a sense of
+
+625
+00:39:48,840 --> 00:39:55,340
+why you know because of my experiences
+
+626
+00:39:52,770 --> 00:39:58,830
+in researching this kind of thing and
+
+627
+00:39:55,340 --> 00:40:02,460
+for my experience I think this paragraph
+
+628
+00:39:58,830 --> 00:40:03,960
+is just lie it's not true it's just you
+
+629
+00:40:02,460 --> 00:40:06,060
+know someone you know working on the
+
+630
+00:40:03,960 --> 00:40:07,320
+standard they just write you know they
+
+631
+00:40:06,060 --> 00:40:10,580
+just think
+
+632
+00:40:07,320 --> 00:40:14,220
+no they just came up with a you know
+
+633
+00:40:10,580 --> 00:40:17,130
+excuse you know that seems logically
+
+634
+00:40:14,220 --> 00:40:21,030
+reasonable but I don't think that is
+
+635
+00:40:17,130 --> 00:40:23,790
+true so that's one thing and also they
+
+636
+00:40:21,030 --> 00:40:26,760
+say that you know look at the way they
+
+637
+00:40:23,790 --> 00:40:30,330
+say it you know however this is not the
+
+638
+00:40:26,760 --> 00:40:32,490
+only way of describing arc geometry used
+
+639
+00:40:30,330 --> 00:40:35,370
+in software your mathematics that's
+
+640
+00:40:32,490 --> 00:40:37,950
+completely idiotic that's completely
+
+641
+00:40:35,370 --> 00:40:40,910
+that that indicates you know the above
+
+642
+00:40:37,950 --> 00:40:45,120
+paragraph is just a lie lie you know
+
+643
+00:40:40,910 --> 00:40:48,000
+because you know they say however this
+
+644
+00:40:45,120 --> 00:40:51,030
+is not the only way of describing arc
+
+645
+00:40:48,000 --> 00:40:52,380
+arc geometry using software or math what
+
+646
+00:40:51,030 --> 00:40:55,170
+what the does that mean
+
+647
+00:40:52,380 --> 00:40:58,950
+because in math I can tell you of you
+
+648
+00:40:55,170 --> 00:41:00,120
+know directly the way you you describe
+
+649
+00:40:58,950 --> 00:41:02,910
+Italy aliefs
+
+650
+00:41:00,120 --> 00:41:07,430
+you know at least by starting point in
+
+651
+00:41:02,910 --> 00:41:10,500
+point and arc that does not exist okay
+
+652
+00:41:07,430 --> 00:41:12,570
+now you know basically if you look at
+
+653
+00:41:10,500 --> 00:41:14,910
+you know like eyes you know you look at
+
+654
+00:41:12,570 --> 00:41:19,050
+all the math textbooks that almost
+
+655
+00:41:14,910 --> 00:41:22,020
+doesn't exist I mean you may as possible
+
+656
+00:41:19,050 --> 00:41:24,480
+to find you know one such instance like
+
+657
+00:41:22,020 --> 00:41:28,290
+one one one in ten thousand textbooks
+
+658
+00:41:24,480 --> 00:41:31,340
+you might find it but it's practically
+
+659
+00:41:28,290 --> 00:41:37,950
+never exist no mathematician describes
+
+660
+00:41:31,340 --> 00:41:40,440
+Elise ellipse in that way but but
+
+661
+00:41:37,950 --> 00:41:43,590
+however look at the way they say it you
+
+662
+00:41:40,440 --> 00:41:46,200
+know however this is not the only way of
+
+663
+00:41:43,590 --> 00:41:49,890
+something something it seems to imply
+
+664
+00:41:46,200 --> 00:41:51,630
+that you know both way are common you
+
+665
+00:41:49,890 --> 00:41:53,430
+know they are they are saying this is
+
+666
+00:41:51,630 --> 00:41:59,820
+not the only way they are the other way
+
+667
+00:41:53,430 --> 00:42:02,220
+it's a you know it's false it's
+
+668
+00:41:59,820 --> 00:42:04,500
+not that's not the only way it's you
+
+669
+00:42:02,220 --> 00:42:06,750
+know the way you are doing it it's like
+
+670
+00:42:04,500 --> 00:42:10,920
+Impa it's doesn't exist
+
+671
+00:42:06,750 --> 00:42:15,650
+you yourself the SVG spec cooked it up
+
+672
+00:42:10,920 --> 00:42:15,650
+nobody ever did it you know does it
+
+673
+00:42:15,890 --> 00:42:21,960
+so anyway that that is about this
+
+674
+00:42:18,900 --> 00:42:26,339
+Elise thing I hope you know I hope I
+
+675
+00:42:21,960 --> 00:42:26,910
+conveyed my you know my opinion about
+
+676
+00:42:26,339 --> 00:42:31,790
+this
+
+677
+00:42:26,910 --> 00:42:31,790
+so in summary let me just summarize it
+
+678
+00:42:32,900 --> 00:42:38,780
+let me just summarize is this what I'm
+
+679
+00:42:36,089 --> 00:42:44,160
+talking about today so why is that I
+
+680
+00:42:38,780 --> 00:42:48,150
+showed you how to create a circular arc
+
+681
+00:42:44,160 --> 00:42:51,000
+or elliptical arc in SVG okay I also I
+
+682
+00:42:48,150 --> 00:42:54,560
+talked about you know I give you a basic
+
+683
+00:42:51,000 --> 00:43:00,500
+introduction to SVG so that's one thing
+
+684
+00:42:54,560 --> 00:43:05,069
+the other thing is how convoluted is the
+
+685
+00:43:00,500 --> 00:43:10,740
+way to draw an electrical arc in SVG
+
+686
+00:43:05,069 --> 00:43:19,849
+okay the third thing is that this SVG
+
+687
+00:43:10,740 --> 00:43:25,470
+spec is in fact extremely idiotic and it
+
+688
+00:43:19,849 --> 00:43:28,230
+reflects it is actually a common
+
+689
+00:43:25,470 --> 00:43:33,000
+industrial phenomenon in programming
+
+690
+00:43:28,230 --> 00:43:36,900
+where the standard SPECT or protocols
+
+691
+00:43:33,000 --> 00:43:40,410
+they are they are out of touch with
+
+692
+00:43:36,900 --> 00:43:42,960
+reality they have nothing to do with you
+
+693
+00:43:40,410 --> 00:43:45,960
+know they are not actually like designed
+
+694
+00:43:42,960 --> 00:43:50,010
+by a programmer they they are a result
+
+695
+00:43:45,960 --> 00:43:55,859
+of some kind of cooperate struggle and
+
+696
+00:43:50,010 --> 00:44:00,270
+evolution you know that's why we have
+
+697
+00:43:55,859 --> 00:44:03,770
+this bunch of garbage okay yeah that's
+
+698
+00:44:00,270 --> 00:44:07,349
+what I'm saying about that topic today
+
+699
+00:44:03,770 --> 00:44:10,890
+so and Rudy says in university right now
+
+700
+00:44:07,349 --> 00:44:13,079
+how do I get the most out of it to be a
+
+701
+00:44:10,890 --> 00:44:20,960
+good programmer instead of just another
+
+702
+00:44:13,079 --> 00:44:25,560
+code monkey that's very broad question
+
+703
+00:44:20,960 --> 00:44:28,650
+like you know it's very broad question
+
+704
+00:44:25,560 --> 00:44:32,230
+like depending
+
+705
+00:44:28,650 --> 00:44:35,260
+who you are like what where are you in
+
+706
+00:44:32,230 --> 00:44:42,310
+University in USA oh you know elsewhere
+
+707
+00:44:35,260 --> 00:44:44,880
+and so I suppose you are majoring in
+
+708
+00:44:42,310 --> 00:44:52,630
+programming like computer science and
+
+709
+00:44:44,880 --> 00:44:56,080
+also what year what you are you in
+
+710
+00:44:52,630 --> 00:45:00,310
+university like a freshman first year
+
+711
+00:44:56,080 --> 00:45:02,860
+second year third year fourth year so
+
+712
+00:45:00,310 --> 00:45:05,620
+okay so let me just make a general
+
+713
+00:45:02,860 --> 00:45:08,730
+comment okay Oh computer science in
+
+714
+00:45:05,620 --> 00:45:11,980
+Australia okay
+
+715
+00:45:08,730 --> 00:45:15,400
+here's I what I recommend okay it
+
+716
+00:45:11,980 --> 00:45:20,110
+actually depends on people on you you
+
+717
+00:45:15,400 --> 00:45:23,560
+know on people because you know it I
+
+718
+00:45:20,110 --> 00:45:27,100
+can't you know it's it's hard to give a
+
+719
+00:45:23,560 --> 00:45:30,010
+generic recommendation or guide to
+
+720
+00:45:27,100 --> 00:45:33,400
+people when you don't know the people
+
+721
+00:45:30,010 --> 00:45:35,440
+because people differ a lot I mean like
+
+722
+00:45:33,400 --> 00:45:37,300
+I have no idea what you look like you
+
+723
+00:45:35,440 --> 00:45:39,580
+know what's your background you know
+
+724
+00:45:37,300 --> 00:45:41,650
+your family your age even you know
+
+725
+00:45:39,580 --> 00:45:44,860
+because it's different for for example
+
+726
+00:45:41,650 --> 00:45:46,990
+if you are 30 years old and you are in
+
+727
+00:45:44,860 --> 00:45:49,570
+college to maybe pick up computer
+
+728
+00:45:46,990 --> 00:45:51,510
+science pick up a degree and it's also
+
+729
+00:45:49,570 --> 00:45:55,240
+you know different from if you are say
+
+730
+00:45:51,510 --> 00:45:57,670
+18 or 20 you know in university and also
+
+731
+00:45:55,240 --> 00:46:01,090
+depends on your background so it is hard
+
+732
+00:45:57,670 --> 00:46:07,690
+to make a generalized recommendation but
+
+733
+00:46:01,090 --> 00:46:10,030
+here's what I generally okay I think if
+
+734
+00:46:07,690 --> 00:46:12,490
+you want to be a programmer you know if
+
+735
+00:46:10,030 --> 00:46:14,970
+being a professional programmer you know
+
+736
+00:46:12,490 --> 00:46:17,970
+make money by programming is your goal
+
+737
+00:46:14,970 --> 00:46:20,980
+you know if that's what you want to be
+
+738
+00:46:17,970 --> 00:46:23,620
+which is a very good goal I recommend
+
+739
+00:46:20,980 --> 00:46:27,850
+that you know go to be a programmer you
+
+740
+00:46:23,620 --> 00:46:30,010
+know job and that gives you that earn
+
+741
+00:46:27,850 --> 00:46:34,060
+see you money you know a programmer is a
+
+742
+00:46:30,010 --> 00:46:36,340
+good job you know it's also has a future
+
+743
+00:46:34,060 --> 00:46:40,930
+you know in in the next 10 years or 20
+
+744
+00:46:36,340 --> 00:46:44,180
+years it's a good a very good job okay
+
+745
+00:46:40,930 --> 00:46:50,000
+so that's a good thing to do you know to
+
+746
+00:46:44,180 --> 00:46:53,930
+be a programmer and so first of all you
+
+747
+00:46:50,000 --> 00:46:56,569
+know you might do that so but but then
+
+748
+00:46:53,930 --> 00:47:01,849
+that I do I actually do not recommend
+
+749
+00:46:56,569 --> 00:47:04,849
+going into a university to do that I you
+
+750
+00:47:01,849 --> 00:47:09,049
+know it depends on people of course but
+
+751
+00:47:04,849 --> 00:47:10,849
+if you have any increment you know if
+
+752
+00:47:09,049 --> 00:47:13,849
+you have what it takes I mean if you are
+
+753
+00:47:10,849 --> 00:47:16,039
+the type who can study on your own for
+
+754
+00:47:13,849 --> 00:47:18,380
+example because you are very interested
+
+755
+00:47:16,039 --> 00:47:21,319
+in programming in computers or maybe
+
+756
+00:47:18,380 --> 00:47:23,510
+video games you know you you stick on
+
+757
+00:47:21,319 --> 00:47:26,170
+with computers all day you know if you
+
+758
+00:47:23,510 --> 00:47:28,369
+are that type and you have no problem
+
+759
+00:47:26,170 --> 00:47:32,630
+learning about the new programming
+
+760
+00:47:28,369 --> 00:47:35,480
+language then if you are that type then
+
+761
+00:47:32,630 --> 00:47:36,559
+I do not recommend you go to university
+
+762
+00:47:35,480 --> 00:47:39,619
+at all
+
+763
+00:47:36,559 --> 00:47:42,829
+don't go there instead you know try to
+
+764
+00:47:39,619 --> 00:47:45,319
+maybe possibly find an internship at
+
+765
+00:47:42,829 --> 00:47:48,140
+some company you know or something you
+
+766
+00:47:45,319 --> 00:47:49,730
+know get some little even a small pay
+
+767
+00:47:48,140 --> 00:47:53,329
+for for half a year
+
+768
+00:47:49,730 --> 00:47:56,839
+okay then just switch jobs and you know
+
+769
+00:47:53,329 --> 00:47:59,119
+talk you know negotiate you negotiate
+
+770
+00:47:56,839 --> 00:48:01,400
+you Sookie you know talk and switch shop
+
+771
+00:47:59,119 --> 00:48:05,180
+and get a lot more money like twice you
+
+772
+00:48:01,400 --> 00:48:07,369
+know like you know after year you you
+
+773
+00:48:05,180 --> 00:48:09,589
+you know Google Google will hire hire
+
+774
+00:48:07,369 --> 00:48:11,809
+you if you are really interested in
+
+775
+00:48:09,589 --> 00:48:15,789
+programming you can do it you know just
+
+776
+00:48:11,809 --> 00:48:18,710
+learning it by yourself after year -
+
+777
+00:48:15,789 --> 00:48:20,630
+Google will hire you even as an intern
+
+778
+00:48:18,710 --> 00:48:23,119
+you know even as an intern you earn a
+
+779
+00:48:20,630 --> 00:48:25,510
+lot money at Google for example I mean
+
+780
+00:48:23,119 --> 00:48:28,400
+not just Google but Facebook Microsoft
+
+781
+00:48:25,510 --> 00:48:29,140
+they are endless you know jobs you know
+
+782
+00:48:28,400 --> 00:48:34,599
+for you
+
+783
+00:48:29,140 --> 00:48:37,490
+the key point is is is about new
+
+784
+00:48:34,599 --> 00:48:39,380
+negotiating your salary and you know be
+
+785
+00:48:37,490 --> 00:48:41,539
+competent I mean I mean I'm talking
+
+786
+00:48:39,380 --> 00:48:45,170
+about it depends on you of course I mean
+
+787
+00:48:41,539 --> 00:48:49,730
+depending on a person for example I'm a
+
+788
+00:48:45,170 --> 00:48:52,640
+nerd and most nerd people are not so
+
+789
+00:48:49,730 --> 00:48:54,380
+good at when you know doing interviews
+
+790
+00:48:52,640 --> 00:48:56,510
+you talk you
+
+791
+00:48:54,380 --> 00:48:59,720
+you know you are not confident and maybe
+
+792
+00:48:56,510 --> 00:49:02,540
+you think you are not great so you don't
+
+793
+00:48:59,720 --> 00:49:05,480
+ask for much money so that's a issue but
+
+794
+00:49:02,540 --> 00:49:07,700
+you can you can walk on that so but
+
+795
+00:49:05,480 --> 00:49:09,770
+basically don't be afraid you know it's
+
+796
+00:49:07,700 --> 00:49:14,120
+just for yourself that's really a good
+
+797
+00:49:09,770 --> 00:49:15,620
+you know and ask big money for it you
+
+798
+00:49:14,120 --> 00:49:16,610
+know I'll ask more than what you would
+
+799
+00:49:15,620 --> 00:49:19,130
+expect
+
+800
+00:49:16,610 --> 00:49:21,050
+that's and and stick with it you know
+
+801
+00:49:19,130 --> 00:49:24,200
+it's not like oh maybe I'm not good you
+
+802
+00:49:21,050 --> 00:49:27,650
+know really for my experience you know
+
+803
+00:49:24,200 --> 00:49:30,470
+you just you know you know like pretend
+
+804
+00:49:27,650 --> 00:49:32,060
+pretend for you for a moment when you
+
+805
+00:49:30,470 --> 00:49:34,640
+are doing interviews pretend for a
+
+806
+00:49:32,060 --> 00:49:37,190
+moment that you are salesmen you know
+
+807
+00:49:34,640 --> 00:49:39,770
+thank you are these smooth-talking sales
+
+808
+00:49:37,190 --> 00:49:41,780
+salesmen forget about everything else
+
+809
+00:49:39,770 --> 00:49:43,820
+you know just you just talk them talk
+
+810
+00:49:41,780 --> 00:49:46,760
+fancy talks but meanwhile I'll be
+
+811
+00:49:43,820 --> 00:49:49,400
+yourself that's an important key be
+
+812
+00:49:46,760 --> 00:49:52,430
+yourself meaning you know you stick with
+
+813
+00:49:49,400 --> 00:49:54,290
+you know you know you just go there hi
+
+814
+00:49:52,430 --> 00:49:56,240
+I'm a nerd you know if you feel like
+
+815
+00:49:54,290 --> 00:49:58,610
+that I just say that you know I'm a nerd
+
+816
+00:49:56,240 --> 00:50:03,230
+I know these things but no I think I
+
+817
+00:49:58,610 --> 00:50:09,350
+should have you know $10,000 $20,000
+
+818
+00:50:03,230 --> 00:50:12,350
+something you know just you know yeah
+
+819
+00:50:09,350 --> 00:50:15,860
+yeah be competent be competent you know
+
+820
+00:50:12,350 --> 00:50:18,830
+that's that's what you have to do of
+
+821
+00:50:15,860 --> 00:50:20,690
+course the exactly what to say and how
+
+822
+00:50:18,830 --> 00:50:23,420
+it applies what do you mean by competent
+
+823
+00:50:20,690 --> 00:50:27,590
+that's up to each person so I know I
+
+824
+00:50:23,420 --> 00:50:30,070
+don't know what you are like so you know
+
+825
+00:50:27,590 --> 00:50:32,540
+I don't know if that applies but anyway
+
+826
+00:50:30,070 --> 00:50:35,810
+so I recommend you know to be a
+
+827
+00:50:32,540 --> 00:50:39,110
+programmer as a profession I do
+
+828
+00:50:35,810 --> 00:50:42,020
+recommend that you know and also
+
+829
+00:50:39,110 --> 00:50:44,150
+eventually you know after 10 years you
+
+830
+00:50:42,020 --> 00:50:46,300
+know you might open your own company you
+
+831
+00:50:44,150 --> 00:50:50,060
+know you're you happen if you you know
+
+832
+00:50:46,300 --> 00:50:52,750
+so a programmer I recommend you know
+
+833
+00:50:50,060 --> 00:50:57,260
+doing that a professional programmer and
+
+834
+00:50:52,750 --> 00:50:59,450
+and I do not actually recommend going to
+
+835
+00:50:57,260 --> 00:51:01,490
+college for it you know for a programmer
+
+836
+00:50:59,450 --> 00:51:06,840
+you can you can do it and you can do it
+
+837
+00:51:01,490 --> 00:51:11,440
+more efficiently than going to a college
+
+838
+00:51:06,840 --> 00:51:13,720
+if you are the type that you know you
+
+839
+00:51:11,440 --> 00:51:16,869
+are interested in programming you are
+
+840
+00:51:13,720 --> 00:51:19,180
+interested in computers and you don't
+
+841
+00:51:16,869 --> 00:51:23,980
+really have a problem learning stuff on
+
+842
+00:51:19,180 --> 00:51:27,730
+your own you know but if you are the
+
+843
+00:51:23,980 --> 00:51:31,480
+type who you know like most people who
+
+844
+00:51:27,730 --> 00:51:33,700
+prefer to have social interaction you
+
+845
+00:51:31,480 --> 00:51:36,520
+know with other people other students or
+
+846
+00:51:33,700 --> 00:51:39,820
+go to a class where you learn things
+
+847
+00:51:36,520 --> 00:51:43,450
+together you know then maybe you go to
+
+848
+00:51:39,820 --> 00:51:49,750
+university you know that's no problem
+
+849
+00:51:43,450 --> 00:51:52,330
+with that yeah the other thing is that
+
+850
+00:51:49,750 --> 00:51:56,290
+actually if you go to university I
+
+851
+00:51:52,330 --> 00:51:59,380
+actually I recommend that you study math
+
+852
+00:51:56,290 --> 00:52:03,310
+instead instead instead of computer
+
+853
+00:51:59,380 --> 00:52:09,180
+programming because math is the thing
+
+854
+00:52:03,310 --> 00:52:13,320
+that gets you seriously into many
+
+855
+00:52:09,180 --> 00:52:16,359
+important thoughts you know that's
+
+856
+00:52:13,320 --> 00:52:19,530
+permanent you know you know math don't
+
+857
+00:52:16,359 --> 00:52:22,810
+go away and everything you learn in math
+
+858
+00:52:19,530 --> 00:52:25,390
+stays they don't go away because math
+
+859
+00:52:22,810 --> 00:52:28,030
+theories are theories they don't change
+
+860
+00:52:25,390 --> 00:52:30,220
+a supposed to computer science stuff
+
+861
+00:52:28,030 --> 00:52:34,480
+like when you go to a college university
+
+862
+00:52:30,220 --> 00:52:37,600
+to study computer science most of the
+
+863
+00:52:34,480 --> 00:52:40,530
+time or more than half of the courses
+
+864
+00:52:37,600 --> 00:52:43,210
+you are taking they are not actually
+
+865
+00:52:40,530 --> 00:52:45,240
+computer science proper they are not
+
+866
+00:52:43,210 --> 00:52:47,859
+pure computer science they are not
+
+867
+00:52:45,240 --> 00:52:50,830
+theoretical computer science as far as I
+
+868
+00:52:47,859 --> 00:52:53,619
+know actually actually tell me what you
+
+869
+00:52:50,830 --> 00:52:55,780
+are learning you know yeah type it out
+
+870
+00:52:53,619 --> 00:52:58,270
+show me what what are the classes they
+
+871
+00:52:55,780 --> 00:53:00,220
+are teaching at University but as far as
+
+872
+00:52:58,270 --> 00:53:04,420
+I know what they are teaching is like
+
+873
+00:53:00,220 --> 00:53:08,500
+half of the courses you are learning are
+
+874
+00:53:04,420 --> 00:53:10,900
+actually just ephemeral like current
+
+875
+00:53:08,500 --> 00:53:12,820
+technologies you know they change they
+
+876
+00:53:10,900 --> 00:53:15,730
+come and go you know this year is good
+
+877
+00:53:12,820 --> 00:53:16,780
+after five years it's it's useless it's
+
+878
+00:53:15,730 --> 00:53:19,050
+kind of outdated
+
+879
+00:53:16,780 --> 00:53:23,840
+you know
+
+880
+00:53:19,050 --> 00:53:23,840
+so that's a that's my opinion about that
+
+881
+00:53:34,270 --> 00:53:44,829
+so are you guys still here George George
+
+882
+00:53:39,890 --> 00:53:49,790
+and Isaac and Andrew so what's up George
+
+883
+00:53:44,829 --> 00:53:54,049
+so I guys give me some feedback George
+
+884
+00:53:49,790 --> 00:53:56,839
+so what do you up to like and how old
+
+885
+00:53:54,049 --> 00:54:05,540
+are you like in like in general like in
+
+886
+00:53:56,839 --> 00:54:10,359
+your 20s 30 so like do you guys like my
+
+887
+00:54:05,540 --> 00:54:15,290
+talk show do you do you want it to be
+
+888
+00:54:10,359 --> 00:54:26,119
+more programming stuff or non technical
+
+889
+00:54:15,290 --> 00:54:30,500
+stuff or non technical stuff so I'm
+
+890
+00:54:26,119 --> 00:54:36,910
+drinking my energy drink this is like
+
+891
+00:54:30,500 --> 00:54:41,859
+red red paw but some nameless brand and
+
+892
+00:54:36,910 --> 00:54:41,859
+here is grape juice
+
+893
+00:54:48,890 --> 00:54:53,049
+Andrew are you still there
+
+894
+00:55:05,020 --> 00:55:17,390
+so anyway okay yeah so so what do you
+
+895
+00:55:15,050 --> 00:55:19,040
+think what I just said about the going
+
+896
+00:55:17,390 --> 00:55:22,940
+going to university does that make sense
+
+897
+00:55:19,040 --> 00:55:28,250
+to you or does that strange oh I mean
+
+898
+00:55:22,940 --> 00:55:31,640
+like you know yeah there is a delay
+
+899
+00:55:28,250 --> 00:55:35,750
+that's yeah this I think five seconds to
+
+900
+00:55:31,640 --> 00:55:37,850
+sent ten seconds it's I don't know yeah
+
+901
+00:55:35,750 --> 00:55:41,720
+so I mean tell me about the university
+
+902
+00:55:37,850 --> 00:55:45,670
+like that's why I say apply to you or
+
+903
+00:55:41,720 --> 00:55:49,700
+does it you know I give me some comments
+
+904
+00:55:45,670 --> 00:55:52,730
+because I have no idea because because
+
+905
+00:55:49,700 --> 00:55:56,840
+you know is this this this is a problem
+
+906
+00:55:52,730 --> 00:55:59,530
+that happens often because when you are
+
+907
+00:55:56,840 --> 00:56:02,150
+watching me or when you read my website
+
+908
+00:55:59,530 --> 00:56:03,710
+everything is clear to you because you
+
+909
+00:56:02,150 --> 00:56:06,620
+know especially if you are watching me
+
+910
+00:56:03,710 --> 00:56:08,870
+you know you see me you know that
+
+911
+00:56:06,620 --> 00:56:12,650
+conveys lots of things my clothing my
+
+912
+00:56:08,870 --> 00:56:14,630
+face you know Mike it conveys my age the
+
+913
+00:56:12,650 --> 00:56:18,020
+way I talk it tells you a lot of things
+
+914
+00:56:14,630 --> 00:56:20,750
+and you can you know so you a lot you
+
+915
+00:56:18,020 --> 00:56:23,390
+you you know you guys know me but like
+
+916
+00:56:20,750 --> 00:56:27,380
+but I have no idea like what you are
+
+917
+00:56:23,390 --> 00:56:30,410
+like you know like like imagine imagine
+
+918
+00:56:27,380 --> 00:56:33,500
+you know Andrew George and Isaac you
+
+919
+00:56:30,410 --> 00:56:35,870
+know imagine each one of you imagine
+
+920
+00:56:33,500 --> 00:56:39,650
+what's the other people like like it's a
+
+921
+00:56:35,870 --> 00:56:41,750
+plank I can you don't know and I have
+
+922
+00:56:39,650 --> 00:56:43,910
+people you know who are you know reading
+
+923
+00:56:41,750 --> 00:56:47,450
+my stuff some some some of them are
+
+924
+00:56:43,910 --> 00:56:51,260
+teenagers and some of them are like 50
+
+925
+00:56:47,450 --> 00:56:53,000
+or 60 years old you know who's been
+
+926
+00:56:51,260 --> 00:56:55,460
+programming in the industry and you know
+
+927
+00:56:53,000 --> 00:56:56,450
+different different people that is like
+
+928
+00:56:55,460 --> 00:57:01,720
+all walks of life
+
+929
+00:56:56,450 --> 00:57:05,090
+we're very interesting and strange
+
+930
+00:57:01,720 --> 00:57:07,340
+so Andrew say says I think I will fare
+
+931
+00:57:05,090 --> 00:57:10,730
+better in university because I walk
+
+932
+00:57:07,340 --> 00:57:14,030
+better among others okay and many faces
+
+933
+00:57:10,730 --> 00:57:16,810
+in Australia won't accept best in a high
+
+934
+00:57:14,030 --> 00:57:20,720
+degree oh I see
+
+935
+00:57:16,810 --> 00:57:24,740
+yeah that's yeah yeah I suppose so I
+
+936
+00:57:20,720 --> 00:57:27,560
+guess that's in Australia that's it's
+
+937
+00:57:24,740 --> 00:57:31,490
+interesting I have like people following
+
+938
+00:57:27,560 --> 00:57:34,880
+me in Australia like George you are also
+
+939
+00:57:31,490 --> 00:57:37,010
+in Australia right but by the way George
+
+940
+00:57:34,880 --> 00:57:42,109
+and Andrew you guys know each other
+
+941
+00:57:37,010 --> 00:57:43,700
+he's like did did you guys tell each
+
+942
+00:57:42,109 --> 00:57:47,690
+other to follow me or just by
+
+943
+00:57:43,700 --> 00:57:50,440
+happenstance so I think George is also
+
+944
+00:57:47,690 --> 00:57:54,920
+in Australia what city are you in
+
+945
+00:57:50,440 --> 00:57:58,250
+George is in Perth let's go look at
+
+946
+00:57:54,920 --> 00:58:07,339
+Australian because I always love to
+
+947
+00:57:58,250 --> 00:58:14,510
+Google G are you in Perth there's a
+
+948
+00:58:07,339 --> 00:58:16,790
+country named Perth Google Maps wait I
+
+949
+00:58:14,510 --> 00:58:25,040
+don't want Google Maps Australia
+
+950
+00:58:16,790 --> 00:58:30,079
+oh okay so Perth Perth seems like a big
+
+951
+00:58:25,040 --> 00:58:33,200
+city because I know actually all the
+
+952
+00:58:30,079 --> 00:58:37,339
+people I know you Australia from Perth I
+
+953
+00:58:33,200 --> 00:58:46,220
+think I knew a girl from Perth she is
+
+954
+00:58:37,339 --> 00:58:50,290
+amazing let's see Perth oh yeah so the
+
+955
+00:58:46,220 --> 00:58:54,250
+other big city is Brisbane I guess
+
+956
+00:58:50,290 --> 00:58:54,250
+Brisbane in Sydney
+
+957
+00:58:57,959 --> 00:59:05,389
+yeah so let's see Google Maps yeah
+
+958
+00:59:00,569 --> 00:59:05,389
+Google map is always just fascinating
+
+959
+00:59:05,509 --> 00:59:14,909
+okay so yeah I think George George is
+
+960
+00:59:08,789 --> 00:59:19,909
+also in Perth anyway let's see hold on
+
+961
+00:59:14,909 --> 00:59:19,909
+second so
+
+962
+00:59:31,990 --> 00:59:37,540
+you know in over here in San Francisco
+
+963
+00:59:35,140 --> 00:59:39,880
+Bay Area in a Silicon Valley where
+
+964
+00:59:37,540 --> 00:59:44,109
+Google Facebook you know the big
+
+965
+00:59:39,880 --> 00:59:46,900
+companies basically in USA degree has
+
+966
+00:59:44,109 --> 00:59:49,770
+not big for programming okay for the
+
+967
+00:59:46,900 --> 00:59:52,980
+programming field degree has not become
+
+968
+00:59:49,770 --> 00:59:57,910
+important it has become not important
+
+969
+00:59:52,980 --> 01:00:00,339
+over here so you don't need a degree you
+
+970
+00:59:57,910 --> 01:00:04,540
+know just study computer science and
+
+971
+01:00:00,339 --> 01:00:07,480
+come to California actually a good one
+
+972
+01:00:04,540 --> 01:00:10,570
+is Scott so actually these days you know
+
+973
+01:00:07,480 --> 01:00:14,130
+program means a lot of it are done
+
+974
+01:00:10,570 --> 01:00:18,490
+remotely so you don't even need to be
+
+975
+01:00:14,130 --> 01:00:23,859
+you know you don't you know you can you
+
+976
+01:00:18,490 --> 01:00:27,510
+can stay in Perth and work for Google
+
+977
+01:00:23,859 --> 01:00:30,160
+well I actually I don't know if Google
+
+978
+01:00:27,510 --> 01:00:33,160
+anyway a lot of companies do that you
+
+979
+01:00:30,160 --> 01:00:35,980
+know remote working remotely and
+
+980
+01:00:33,160 --> 01:00:39,010
+actually I knows I know companies I
+
+981
+01:00:35,980 --> 01:00:41,920
+think quite a lot of them all their
+
+982
+01:00:39,010 --> 01:00:44,230
+employees are remote like they don't
+
+983
+01:00:41,920 --> 01:00:47,760
+have a office you know they just
+
+984
+01:00:44,230 --> 01:00:47,760
+good morning Scott
+
+985
+01:00:59,519 --> 01:01:06,819
+yeah so Scott gave a good recommendation
+
+986
+01:01:03,839 --> 01:01:09,789
+Scott says I would say for every
+
+987
+01:01:06,819 --> 01:01:12,400
+programming language construct made to
+
+988
+01:01:09,789 --> 01:01:13,480
+improve abstraction learn how it is
+
+989
+01:01:12,400 --> 01:01:18,329
+implemented
+
+990
+01:01:13,480 --> 01:01:23,799
+underneath Scott Scott is a low-level
+
+991
+01:01:18,329 --> 01:01:27,900
+system program programming in Z who has
+
+992
+01:01:23,799 --> 01:01:29,849
+to make everything as fast as possible
+
+993
+01:01:27,900 --> 01:01:32,499
+[Laughter]
+
+994
+01:01:29,849 --> 01:01:35,819
+Scott says otherwise some programmers
+
+995
+01:01:32,499 --> 01:01:40,720
+choose poorly when coding up an approach
+
+996
+01:01:35,819 --> 01:01:43,359
+then be sure you know how to profile for
+
+997
+01:01:40,720 --> 01:01:49,499
+memory and speed some knowledge is
+
+998
+01:01:43,359 --> 01:01:52,420
+assembly I think is the must god Scott
+
+999
+01:01:49,499 --> 01:01:55,509
+front-end programming which is the most
+
+1000
+01:01:52,420 --> 01:01:58,269
+popular feel today they don't know they
+
+1001
+01:01:55,509 --> 01:02:01,989
+don't require to know Co assembly or
+
+1002
+01:01:58,269 --> 01:02:04,779
+anything remotely like that you know fun
+
+1003
+01:02:01,989 --> 01:02:08,230
+in programming like they don't have to
+
+1004
+01:02:04,779 --> 01:02:10,539
+know you know in fact to know how things
+
+1005
+01:02:08,230 --> 01:02:14,019
+are implemented is a waste of time like
+
+1006
+01:02:10,539 --> 01:02:16,269
+they they don't they do not have to know
+
+1007
+01:02:14,019 --> 01:02:18,970
+that but however they need to spend
+
+1008
+01:02:16,269 --> 01:02:21,789
+their time knowing all the frameworks
+
+1009
+01:02:18,970 --> 01:02:29,589
+and libraries and stuff you know NPM and
+
+1010
+01:02:21,789 --> 01:02:32,230
+stuff but you know assembly I think if
+
+1011
+01:02:29,589 --> 01:02:35,789
+you study actually you you want a broad
+
+1012
+01:02:32,230 --> 01:02:38,170
+understanding of programming and
+
+1013
+01:02:35,789 --> 01:02:41,739
+practical computer science I think
+
+1014
+01:02:38,170 --> 01:02:45,309
+assembly is essential like for myself
+
+1015
+01:02:41,739 --> 01:02:47,799
+you know I know little about you know
+
+1016
+01:02:45,309 --> 01:02:50,680
+yeah you know for myself I know very
+
+1017
+01:02:47,799 --> 01:02:54,489
+detail about assembly or CPU or you know
+
+1018
+01:02:50,680 --> 01:02:56,289
+the C programming language and I learned
+
+1019
+01:02:54,489 --> 01:02:59,309
+a little bit you know in the past few
+
+1020
+01:02:56,289 --> 01:03:02,789
+years and I really appreciated it
+
+1021
+01:02:59,309 --> 01:03:06,009
+because I learned you know the CPU the
+
+1022
+01:03:02,789 --> 01:03:09,519
+design of the CPU itself you know the
+
+1023
+01:03:06,009 --> 01:03:12,610
+the instruction architecture said that's
+
+1024
+01:03:09,519 --> 01:03:16,360
+what they call it is extremely complex
+
+1025
+01:03:12,610 --> 01:03:18,640
+and it is in fact it's a science by
+
+1026
+01:03:16,360 --> 01:03:22,450
+itself it's a it's a science and
+
+1027
+01:03:18,640 --> 01:03:27,250
+mathematics and art by itself it's the
+
+1028
+01:03:22,450 --> 01:03:30,460
+design of the CPU so you know I so I
+
+1029
+01:03:27,250 --> 01:03:33,670
+don't know much about that in fact Scott
+
+1030
+01:03:30,460 --> 01:03:36,850
+in fact I would actually I do have a lot
+
+1031
+01:03:33,670 --> 01:03:39,540
+questions in that I you know you could
+
+1032
+01:03:36,850 --> 01:03:45,280
+tell me you could you know answer my
+
+1033
+01:03:39,540 --> 01:03:48,280
+questions yeah so the other thing I
+
+1034
+01:03:45,280 --> 01:03:51,700
+think is important if you are study
+
+1035
+01:03:48,280 --> 01:03:54,100
+programming is to me to me is just like
+
+1036
+01:03:51,700 --> 01:03:57,580
+just do a lot programming try to write
+
+1037
+01:03:54,100 --> 01:04:01,660
+you know try to create projects instead
+
+1038
+01:03:57,580 --> 01:04:04,030
+of reading stuff like me you know I tend
+
+1039
+01:04:01,660 --> 01:04:06,190
+to just read stuff you know I think you
+
+1040
+01:04:04,030 --> 01:04:14,980
+just create projects create a lot
+
+1041
+01:04:06,190 --> 01:04:20,080
+projects hello Otto so Scott says you
+
+1042
+01:04:14,980 --> 01:04:26,020
+are writing for funny and you I yeah
+
+1043
+01:04:20,080 --> 01:04:28,690
+oh so you did a lot and CPU design okay
+
+1044
+01:04:26,020 --> 01:04:31,630
+well let me ask you daily star just to
+
+1045
+01:04:28,690 --> 01:04:34,450
+ask you question then since it's since I
+
+1046
+01:04:31,630 --> 01:04:38,350
+don't have you know any subject right
+
+1047
+01:04:34,450 --> 01:04:45,940
+now so CPU so so in the past few years
+
+1048
+01:04:38,350 --> 01:04:48,250
+you know we started to have GPU so you
+
+1049
+01:04:45,940 --> 01:04:52,210
+know a lot you know people programs
+
+1050
+01:04:48,250 --> 01:04:54,520
+these days they try to use GPU but
+
+1051
+01:04:52,210 --> 01:04:57,810
+basically my question is you know let me
+
+1052
+01:04:54,520 --> 01:05:02,920
+just say directly do my question is why
+
+1053
+01:04:57,810 --> 01:05:07,080
+why isn't CPU designed like GPU in the
+
+1054
+01:05:02,920 --> 01:05:08,770
+first phase is it because mostly because
+
+1055
+01:05:07,080 --> 01:05:13,000
+historical reasons
+
+1056
+01:05:08,770 --> 01:05:15,490
+I mean CPU you know the central
+
+1057
+01:05:13,000 --> 01:05:20,350
+processing unit why can't they just be
+
+1058
+01:05:15,490 --> 01:05:23,460
+designed like GPU you know in the first
+
+1059
+01:05:20,350 --> 01:05:25,960
+phase is it because historical reasons
+
+1060
+01:05:23,460 --> 01:05:30,730
+because so far you know as
+
+1061
+01:05:25,960 --> 01:05:32,650
+I know the GPU design is mostly parallel
+
+1062
+01:05:30,730 --> 01:05:40,800
+you know the architecture is like
+
+1063
+01:05:32,650 --> 01:05:45,970
+parallel computing so GPUs are force
+
+1064
+01:05:40,800 --> 01:05:51,750
+GPUs are focused on SIMD and data number
+
+1065
+01:05:45,970 --> 01:05:51,750
+crunching s I'm SIMD stand for what
+
+1066
+01:05:55,680 --> 01:06:02,230
+okay Skaar says but CPUs are optimized
+
+1067
+01:05:59,680 --> 01:06:03,400
+for the random stuff that programmers
+
+1068
+01:06:02,230 --> 01:06:09,569
+throw at it
+
+1069
+01:06:03,400 --> 01:06:09,569
+oh I see
+
+1070
+01:06:12,089 --> 01:06:22,619
+okay I think okay III think that gives
+
+1071
+01:06:19,799 --> 01:06:29,579
+me some crew but of course you know I do
+
+1072
+01:06:22,619 --> 01:06:33,569
+not fully understand let me go to a page
+
+1073
+01:06:29,579 --> 01:06:36,719
+where I have some questions about that
+
+1074
+01:06:33,569 --> 01:06:39,809
+oh okay yeah
+
+1075
+01:06:36,719 --> 01:06:43,170
+si MD stand for a single instruction
+
+1076
+01:06:39,809 --> 01:06:51,930
+multiple data single instruction
+
+1077
+01:06:43,170 --> 01:06:55,829
+multiple data okay and GPUs are focused
+
+1078
+01:06:51,930 --> 01:07:06,380
+on as I am the single instruction
+
+1079
+01:06:55,829 --> 01:07:09,089
+multiple data number crunching okay okay
+
+1080
+01:07:06,380 --> 01:07:11,099
+Scott actually I have a lot of more
+
+1081
+01:07:09,089 --> 01:07:21,089
+questions to ask you it would be very
+
+1082
+01:07:11,099 --> 01:07:23,939
+helpful to me actually so I have I have
+
+1083
+01:07:21,089 --> 01:07:31,049
+some notes I wrote out when I try to
+
+1084
+01:07:23,939 --> 01:07:32,599
+study CPU stuff and let me try to find
+
+1085
+01:07:31,049 --> 01:07:36,359
+where are they
+
+1086
+01:07:32,599 --> 01:07:38,279
+so how are you doing is Scott you are
+
+1087
+01:07:36,359 --> 01:07:46,369
+backing right you are in the East Coast
+
+1088
+01:07:38,279 --> 01:07:46,369
+right and it's almost 12 o'clock for you
+
+1089
+01:07:48,170 --> 01:07:51,170
+syntax
+
+1090
+01:08:09,250 --> 01:08:19,900
+so scott says imagine 512 threads of
+
+1091
+01:08:14,710 --> 01:08:24,069
+execution or operating in parallel but
+
+1092
+01:08:19,900 --> 01:08:26,920
+in lockstep right that's the GPU right
+
+1093
+01:08:24,069 --> 01:08:30,069
+so another question I are just throw a
+
+1094
+01:08:26,920 --> 01:08:35,259
+random question so why is that you know
+
+1095
+01:08:30,069 --> 01:08:39,029
+today I think that many you know we I
+
+1096
+01:08:35,259 --> 01:08:43,359
+think there is a push for parallel
+
+1097
+01:08:39,029 --> 01:08:48,279
+actually architecture in CPUs for
+
+1098
+01:08:43,359 --> 01:08:52,930
+example as far as I know the Intel X Co
+
+1099
+01:08:48,279 --> 01:08:56,560
+n is designed for that I mean you know
+
+1100
+01:08:52,930 --> 01:09:01,650
+they start to design it for parallel
+
+1101
+01:08:56,560 --> 01:09:01,650
+computing but it didn't really catch up
+
+1102
+01:09:01,890 --> 01:09:09,210
+so do you have any comments on that
+
+1103
+01:09:05,430 --> 01:09:14,799
+because the way we are doing it today
+
+1104
+01:09:09,210 --> 01:09:17,560
+the compilers is trying to you know the
+
+1105
+01:09:14,799 --> 01:09:23,319
+compilers is actually trying to parallel
+
+1106
+01:09:17,560 --> 01:09:26,650
+code and it's doing it very efficiently
+
+1107
+01:09:23,319 --> 01:09:28,870
+because you know compilers are trying to
+
+1108
+01:09:26,650 --> 01:09:35,650
+parallel sequential code you know from
+
+1109
+01:09:28,870 --> 01:09:39,190
+like the C language so that's why we
+
+1110
+01:09:35,650 --> 01:09:42,000
+have you know the the heart bug or
+
+1111
+01:09:39,190 --> 01:09:46,950
+whatever I mean fine let me find the
+
+1112
+01:09:42,000 --> 01:09:46,950
+article because then I can refer to it
+
+1113
+01:09:52,620 --> 01:09:55,620
+here
+
+1114
+01:09:56,370 --> 01:09:59,880
+not this one
+
+1115
+01:10:01,880 --> 01:10:04,880
+here
+
+1116
+01:10:08,729 --> 01:10:16,739
+Oh only limited problems like matrices
+
+1117
+01:10:12,510 --> 01:10:26,159
+graphics are good fits for SIMD type
+
+1118
+01:10:16,739 --> 01:10:36,539
+execution Oh one would never design word
+
+1119
+01:10:26,159 --> 01:10:46,619
+processor to run on a GPU Oh what what
+
+1120
+01:10:36,539 --> 01:10:50,969
+about something like mm what about
+
+1121
+01:10:46,619 --> 01:10:54,840
+something like wait yeah but there is
+
+1122
+01:10:50,969 --> 01:10:57,150
+this you know the you know I don't know
+
+1123
+01:10:54,840 --> 01:10:59,039
+about these things so if I have a
+
+1124
+01:10:57,150 --> 01:11:01,739
+student my question is stupid you know
+
+1125
+01:10:59,039 --> 01:11:06,209
+just say so okay so so what about this
+
+1126
+01:11:01,739 --> 01:11:10,769
+RISC architecture and this interaction
+
+1127
+01:11:06,209 --> 01:11:12,530
+and you know the say Microsoft spark and
+
+1128
+01:11:10,769 --> 01:11:17,909
+M IPS
+
+1129
+01:11:12,530 --> 01:11:19,889
+those are like those are CPUs their
+
+1130
+01:11:17,909 --> 01:11:24,019
+instruction set is designed to be
+
+1131
+01:11:19,889 --> 01:11:33,119
+parallel right as opposed to the Intel
+
+1132
+01:11:24,019 --> 01:11:37,800
+x86 you know it's because you know the
+
+1133
+01:11:33,119 --> 01:11:39,690
+we have we you know Intel x86 is mostly
+
+1134
+01:11:37,800 --> 01:11:42,510
+we have that because of historical
+
+1135
+01:11:39,690 --> 01:11:46,820
+reasons you know you know because we
+
+1136
+01:11:42,510 --> 01:11:50,249
+need compatibility as far as I know
+
+1137
+01:11:46,820 --> 01:11:53,360
+therefore we today we have a situation
+
+1138
+01:11:50,249 --> 01:11:56,969
+that the compilers is trying to convert
+
+1139
+01:11:53,360 --> 01:12:00,360
+sequential code like C source code into
+
+1140
+01:11:56,969 --> 01:12:04,769
+some kind they they try to turn it into
+
+1141
+01:12:00,360 --> 01:12:10,469
+parallel program at the CPU level you
+
+1142
+01:12:04,769 --> 01:12:13,320
+know doing things like speculative you
+
+1143
+01:12:10,469 --> 01:12:14,249
+know speculative execution you know
+
+1144
+01:12:13,320 --> 01:12:17,610
+doing things like that
+
+1145
+01:12:14,249 --> 01:12:20,969
+and in turn it creates lots of
+
+1146
+01:12:17,610 --> 01:12:22,689
+complexity and problems one example is
+
+1147
+01:12:20,969 --> 01:12:26,569
+the
+
+1148
+01:12:22,689 --> 01:12:31,030
+bleeding hearts that you know that CPU
+
+1149
+01:12:26,569 --> 01:12:34,059
+bug so you know what I'm saying is that
+
+1150
+01:12:31,030 --> 01:12:38,869
+as far as I know you know because of the
+
+1151
+01:12:34,059 --> 01:12:43,879
+sequential you know because the sorry me
+
+1152
+01:12:38,869 --> 01:12:46,489
+read Wisconsin's okay risk is easier to
+
+1153
+01:12:43,879 --> 01:12:51,519
+implement and make it fast higher clock
+
+1154
+01:12:46,489 --> 01:12:51,519
+rates and when you want to break down
+
+1155
+01:12:51,999 --> 01:12:59,649
+risk and pipeline it then risk is easier
+
+1156
+01:13:02,409 --> 01:13:10,030
+but when your instructions are complex
+
+1157
+01:13:05,689 --> 01:13:10,030
+it can be more difficult to pipeline
+
+1158
+01:13:11,829 --> 01:13:16,399
+okay I don't really quite get it by the
+
+1159
+01:13:15,229 --> 01:13:20,119
+way Scott do you have any
+
+1160
+01:13:16,399 --> 01:13:24,439
+recommendations for like books or some
+
+1161
+01:13:20,119 --> 01:13:30,010
+websites for people who do not know CPU
+
+1162
+01:13:24,439 --> 01:13:33,889
+or any of these GPUs stuff at all I
+
+1163
+01:13:30,010 --> 01:13:39,709
+don't know I I do not quite understand
+
+1164
+01:13:33,889 --> 01:13:42,019
+what pipelining means it's you know I
+
+1165
+01:13:39,709 --> 01:13:45,769
+think it's breaking up instructions so
+
+1166
+01:13:42,019 --> 01:13:47,289
+that so that the CPU can execute
+
+1167
+01:13:45,769 --> 01:13:50,449
+something like that
+
+1168
+01:13:47,289 --> 01:13:53,809
+break breaking you know computer
+
+1169
+01:13:50,449 --> 01:13:58,209
+programming instructions into units that
+
+1170
+01:13:53,809 --> 01:13:58,209
+that are the CPU units
+
+1171
+01:14:07,679 --> 01:14:12,600
+okay think of car assembly line
+
+1172
+01:14:22,160 --> 01:14:33,250
+so here is a book scott recommends hansi
+
+1173
+01:14:29,120 --> 01:14:33,250
+Hennessey and Patterson Oh
+
+1174
+01:14:33,800 --> 01:14:44,830
+computer architecture this book it looks
+
+1175
+01:14:40,400 --> 01:14:44,830
+like they wrote more than one book
+
+1176
+01:14:46,420 --> 01:14:54,670
+computer organization and design
+
+1177
+01:14:50,770 --> 01:14:54,670
+computer architecture
+
+1178
+01:15:05,199 --> 01:15:13,660
+I see pipeline so pipeline means why a
+
+1179
+01:15:10,900 --> 01:15:16,060
+one-stage is doing one operation
+
+1180
+01:15:13,660 --> 01:15:19,090
+the next is doing the next operation but
+
+1181
+01:15:16,060 --> 01:15:27,850
+multiple cars are in the pipeline
+
+1182
+01:15:19,090 --> 01:15:35,020
+like in a car assembly going okay right
+
+1183
+01:15:27,850 --> 01:15:37,120
+yeah so anyway Scott let me ask you a
+
+1184
+01:15:35,020 --> 01:15:40,179
+more general question that's what I
+
+1185
+01:15:37,120 --> 01:15:43,390
+intended to ask I mean what I'm thinking
+
+1186
+01:15:40,179 --> 01:15:48,460
+the the impression I get is that today's
+
+1187
+01:15:43,390 --> 01:15:52,560
+CPU design or GPU or you know today's
+
+1188
+01:15:48,460 --> 01:15:56,949
+situation of the hardware or CPU or GPU
+
+1189
+01:15:52,560 --> 01:16:00,850
+what I think is that they are not they
+
+1190
+01:15:56,949 --> 01:16:03,540
+are not optimal design I mean in the
+
+1191
+01:16:00,850 --> 01:16:07,540
+sense that if we can start from scratch
+
+1192
+01:16:03,540 --> 01:16:10,239
+it wouldn't be anything like what we
+
+1193
+01:16:07,540 --> 01:16:13,989
+have today the way the way we have it
+
+1194
+01:16:10,239 --> 01:16:17,230
+today is mostly due to historical you
+
+1195
+01:16:13,989 --> 01:16:20,770
+know reasons like compatibility mostly
+
+1196
+01:16:17,230 --> 01:16:23,770
+is that does that is is a statement
+
+1197
+01:16:20,770 --> 01:16:27,040
+somewhat I mean can we say that's
+
+1198
+01:16:23,770 --> 01:16:37,150
+correct or more or less or something
+
+1199
+01:16:27,040 --> 01:16:41,010
+like that or totally wrong so x86 is
+
+1200
+01:16:37,150 --> 01:16:41,010
+messy to be sure okay
+
+1201
+01:16:42,670 --> 01:16:47,730
+MIP s arms SPARC are pretty clean
+
+1202
+01:16:56,640 --> 01:17:03,100
+start what what about the newest book do
+
+1203
+01:17:00,550 --> 01:17:07,290
+you recommend that the art of computer
+
+1204
+01:17:03,100 --> 01:17:11,680
+programming because I think that book
+
+1205
+01:17:07,290 --> 01:17:14,620
+teaches people about the CPU
+
+1206
+01:17:11,680 --> 01:17:17,170
+architecture and assembly I mean it
+
+1207
+01:17:14,620 --> 01:17:21,520
+teaches people about algorithms but in
+
+1208
+01:17:17,170 --> 01:17:27,940
+terms of implementing them in you know
+
+1209
+01:17:21,520 --> 01:17:32,739
+you know machines structure so do you
+
+1210
+01:17:27,940 --> 01:17:42,010
+recommend the newest order for our other
+
+1211
+01:17:32,739 --> 01:17:47,980
+programming book Oh for computer science
+
+1212
+01:17:42,010 --> 01:17:51,870
+people they are good okay so but it's
+
+1213
+01:17:47,980 --> 01:17:56,130
+not like it's less practical than the
+
+1214
+01:17:51,870 --> 01:17:56,130
+Hennessy and parison I think
+
+1215
+01:18:15,840 --> 01:18:22,890
+by the way Scott do you read any online
+
+1216
+01:18:19,070 --> 01:18:25,250
+news websites hacker news or anything
+
+1217
+01:18:22,890 --> 01:18:25,250
+like that
+
+1218
+01:18:41,969 --> 01:18:50,370
+so for those of you don't know Scott
+
+1219
+01:18:45,480 --> 01:18:54,420
+works for Scott is a experienced
+
+1220
+01:18:50,370 --> 01:18:58,199
+programmer you know with 30 years or 40
+
+1221
+01:18:54,420 --> 01:19:01,380
+years the experience and yeah tell us
+
+1222
+01:18:58,199 --> 01:19:01,680
+Scott you had you know what do you work
+
+1223
+01:19:01,380 --> 01:19:05,930
+for
+
+1224
+01:19:01,680 --> 01:19:05,930
+what do you work on stuff
+
+1225
+01:19:32,029 --> 01:19:40,249
+I'm a GPU designer for Qualcomm
+
+1226
+01:19:35,949 --> 01:19:43,029
+Snapdragon chips that go in most mobile
+
+1227
+01:19:40,249 --> 01:19:43,029
+mobile phones
+
+1228
+01:19:55,499 --> 01:20:03,659
+okay and anything else I think maybe we
+
+1229
+01:20:00,809 --> 01:20:13,440
+are done here because we've been talking
+
+1230
+01:20:03,659 --> 01:20:16,729
+for 70 80 minutes oh I used to follow
+
+1231
+01:20:13,440 --> 01:20:16,729
+hand canoes okay
+
+1232
+01:20:27,729 --> 01:20:33,409
+anything else
+
+1233
+01:20:29,209 --> 01:20:36,649
+Scott anything you want to say or you
+
+1234
+01:20:33,409 --> 01:20:43,639
+want to tell us so does anyone has any
+
+1235
+01:20:36,649 --> 01:20:47,379
+other questions if not we're gonna close
+
+1236
+01:20:43,639 --> 01:20:50,209
+down I'm gonna shut down
+
+1237
+01:20:47,379 --> 01:20:53,089
+okay Scott says I'll treat you later
+
+1238
+01:20:50,209 --> 01:20:56,329
+later the video where a hardware blew
+
+1239
+01:20:53,089 --> 01:20:58,219
+away auger with algorithmic algorithm
+
+1240
+01:20:56,329 --> 01:21:03,469
+assumptions okay that would be great
+
+1241
+01:20:58,219 --> 01:21:07,849
+thanks ago ago King says hexa shall I
+
+1242
+01:21:03,469 --> 01:21:13,099
+get my uhk not so much for typing but
+
+1243
+01:21:07,849 --> 01:21:16,369
+I'm not so yeah uhk the ultimate hacking
+
+1244
+01:21:13,099 --> 01:21:19,819
+keyboard that's a great keyboard but
+
+1245
+01:21:16,369 --> 01:21:23,839
+whether you should get it you know and
+
+1246
+01:21:19,819 --> 01:21:26,719
+not for typing what do you mean I mean
+
+1247
+01:21:23,839 --> 01:21:28,959
+it's one of the great I would say top
+
+1248
+01:21:26,719 --> 01:21:32,839
+three okay something like top three
+
+1249
+01:21:28,959 --> 01:21:38,539
+great keyboard in my opinion great
+
+1250
+01:21:32,839 --> 01:21:40,699
+ergonomic keyboard so you know whether
+
+1251
+01:21:38,539 --> 01:21:43,189
+you should get it you know whether
+
+1252
+01:21:40,699 --> 01:21:46,879
+that's the right choice for you
+
+1253
+01:21:43,189 --> 01:21:51,349
+that depends you know but it's I do
+
+1254
+01:21:46,879 --> 01:21:53,179
+recommend that yes it's supposed support
+
+1255
+01:21:51,349 --> 01:21:56,719
+marker so it's great yeah
+
+1256
+01:21:53,179 --> 01:21:57,530
+oh it's ultimate hacking keyboard yes I
+
+1257
+01:21:56,719 --> 01:22:04,269
+recommend it
+
+1258
+01:21:57,530 --> 01:22:09,050
+Oh for making music okay in that case
+
+1259
+01:22:04,269 --> 01:22:12,739
+now you might need another you know
+
+1260
+01:22:09,050 --> 01:22:16,069
+extra programmable keyboard because the
+
+1261
+01:22:12,739 --> 01:22:18,829
+ultimate hacking keyboard they do not
+
+1262
+01:22:16,069 --> 01:22:23,239
+have many keys you know that's one of
+
+1263
+01:22:18,829 --> 01:22:26,269
+the issue so yeah let me let me talk
+
+1264
+01:22:23,239 --> 01:22:28,999
+about this keyboard for maybe five
+
+1265
+01:22:26,269 --> 01:22:32,059
+minutes and I'll be it for today so if
+
+1266
+01:22:28,999 --> 01:22:34,939
+we go to you know the automatic hacking
+
+1267
+01:22:32,059 --> 01:22:37,659
+kibo it's fantastic I have a video
+
+1268
+01:22:34,939 --> 01:22:39,890
+review you know you can watch it here
+
+1269
+01:22:37,659 --> 01:22:43,160
+but however
+
+1270
+01:22:39,890 --> 01:22:47,170
+it does not have full set of keys for
+
+1271
+01:22:43,160 --> 01:22:50,360
+example it does not have function keys
+
+1272
+01:22:47,170 --> 01:22:53,080
+you know there's no function keys if you
+
+1273
+01:22:50,360 --> 01:22:56,360
+want to press function keys such as f2
+
+1274
+01:22:53,080 --> 01:22:59,240
+you have to hold down one of the
+
+1275
+01:22:56,360 --> 01:23:02,870
+modifier you know the FN you know but
+
+1276
+01:22:59,240 --> 01:23:07,100
+it's Heidi program program programmable
+
+1277
+01:23:02,870 --> 01:23:11,350
+so anyway one issue is that it does not
+
+1278
+01:23:07,100 --> 01:23:16,550
+have many function keys so if you need
+
+1279
+01:23:11,350 --> 01:23:20,960
+to do a lot keyboard macros for making
+
+1280
+01:23:16,550 --> 01:23:23,540
+music you know you can you can program
+
+1281
+01:23:20,960 --> 01:23:25,850
+lots of markers but for each mark well
+
+1282
+01:23:23,540 --> 01:23:28,970
+you will need to have key combinations
+
+1283
+01:23:25,850 --> 01:23:30,950
+and I don't like that I don't think
+
+1284
+01:23:28,970 --> 01:23:38,000
+that's a good thing especially if you
+
+1285
+01:23:30,950 --> 01:23:39,740
+need to do that often so so but but the
+
+1286
+01:23:38,000 --> 01:23:42,650
+ultimate hacking key bow is still a
+
+1287
+01:23:39,740 --> 01:23:47,590
+great keyboard to get what do you want
+
+1288
+01:23:42,650 --> 01:23:52,940
+to do is you want to buy separately a
+
+1289
+01:23:47,590 --> 01:23:55,940
+program programmable keypad such as such
+
+1290
+01:23:52,940 --> 01:23:59,540
+as this one you know or this one
+
+1291
+01:23:55,940 --> 01:24:01,340
+Oh or even or this one you know you you
+
+1292
+01:23:59,540 --> 01:24:04,160
+want to buy or separate you know all
+
+1293
+01:24:01,340 --> 01:24:07,250
+these are good you want to buy a
+
+1294
+01:24:04,160 --> 01:24:09,470
+separate programmable keypad so that
+
+1295
+01:24:07,250 --> 01:24:15,440
+gives you you know a whole bunch of
+
+1296
+01:24:09,470 --> 01:24:21,400
+function keys okay Scott showed us the
+
+1297
+01:24:15,440 --> 01:24:24,700
+video that talks about let's go to it
+
+1298
+01:24:21,400 --> 01:24:24,700
+oops oops
+
+1299
+01:24:27,280 --> 01:24:30,280
+yeah
+
+1300
+01:24:36,079 --> 01:24:45,190
+so Scott showed us a video that
+
+1301
+01:25:04,610 --> 01:25:07,300
+check
+
+1302
+01:25:08,020 --> 01:25:18,700
+mio fly no okay I'm still alive okay
+
+1303
+01:25:12,420 --> 01:25:26,460
+it's stupid Google one second let me get
+
+1304
+01:25:18,700 --> 01:25:26,460
+that I have to wait for this
+
+1305
+01:26:52,320 --> 01:26:57,110
+so this video is si
+
+1306
+01:27:28,840 --> 01:27:39,460
+great I'll check this out I think that's
+
+1307
+01:27:31,840 --> 01:27:41,860
+it for today so Sean says Sean says I've
+
+1308
+01:27:39,460 --> 01:27:44,050
+got I got the yoga dogs and it's like
+
+1309
+01:27:41,860 --> 01:27:46,630
+learning to ride a bike again
+
+1310
+01:27:44,050 --> 01:27:53,050
+yeah those key words takes a while to
+
+1311
+01:27:46,630 --> 01:27:56,500
+learn so Scott says I think this is the
+
+1312
+01:27:53,050 --> 01:28:00,280
+video that shows how caches have made
+
+1313
+01:27:56,500 --> 01:28:02,650
+arrays vectors often to be higher
+
+1314
+01:28:00,280 --> 01:28:06,340
+performing then link twist
+
+1315
+01:28:02,650 --> 01:28:09,670
+o in these conditions where you would
+
+1316
+01:28:06,340 --> 01:28:14,770
+think this would be better that's
+
+1317
+01:28:09,670 --> 01:28:19,390
+amazing that's that's a great you know
+
+1318
+01:28:14,770 --> 01:28:23,710
+yeah that that is a great topic for me
+
+1319
+01:28:19,390 --> 01:28:26,350
+because I always had this issue with
+
+1320
+01:28:23,710 --> 01:28:29,230
+array you know with this especially
+
+1321
+01:28:26,350 --> 01:28:31,270
+among these programmers they you know
+
+1322
+01:28:29,230 --> 01:28:36,520
+they like least you know leagues least
+
+1323
+01:28:31,270 --> 01:28:40,600
+as a as in linked lists but to me lists
+
+1324
+01:28:36,520 --> 01:28:43,150
+linked list is just stupid okay
+
+1325
+01:28:40,600 --> 01:28:45,700
+the cons especially the list cons
+
+1326
+01:28:43,150 --> 01:28:48,490
+business you know the the cons car
+
+1327
+01:28:45,700 --> 01:28:52,030
+cutter I think those those design in the
+
+1328
+01:28:48,490 --> 01:28:55,390
+language are idiotic to the extreme so I
+
+1329
+01:28:52,030 --> 01:28:59,770
+have this issue about Arava surfaces
+
+1330
+01:28:55,390 --> 01:29:02,860
+you know linked lists its I'm glad to
+
+1331
+01:28:59,770 --> 01:29:08,640
+see you know these tricky issues coming
+
+1332
+01:29:02,860 --> 01:29:08,640
+up you know about that
+
+1333
+01:29:10,740 --> 01:29:19,060
+kula Tron yeah so anyway that's it for
+
+1334
+01:29:14,350 --> 01:29:24,640
+today you know I talked about for 19
+
+1335
+01:29:19,060 --> 01:29:32,910
+minutes so thank you guys for coming so
+
+1336
+01:29:24,640 --> 01:29:32,910
+I'm gonna shut down in 10 seconds yep
+
+1337
+01:29:51,320 --> 01:29:55,840
+hi Scott bye guys
+

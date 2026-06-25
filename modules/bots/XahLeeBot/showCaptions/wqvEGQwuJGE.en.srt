@@ -1,0 +1,5476 @@
+1
+00:00:02,800 --> 00:00:06,399
+good morning everyone
+
+2
+00:00:04,880 --> 00:00:09,519
+good morning
+
+3
+00:00:06,399 --> 00:00:12,559
+good morning everyone welcome to another
+
+4
+00:00:09,519 --> 00:00:15,120
+episode of star talk show
+
+5
+00:00:12,559 --> 00:00:17,520
+video check audio check and today we are
+
+6
+00:00:15,120 --> 00:00:21,920
+going to do powershell
+
+7
+00:00:17,520 --> 00:00:23,199
+the microsoft monad the microsoft
+
+8
+00:00:21,920 --> 00:00:25,119
+open source
+
+9
+00:00:23,199 --> 00:00:26,640
+scripting language
+
+10
+00:00:25,119 --> 00:00:29,359
+powershot
+
+11
+00:00:26,640 --> 00:00:32,960
+why i love powershell powershell is a
+
+12
+00:00:29,359 --> 00:00:35,120
+magnitude better than bash hello cpa
+
+13
+00:00:32,960 --> 00:00:38,000
+um and so today
+
+14
+00:00:35,120 --> 00:00:40,079
+i'm going to code i'm going to demo a
+
+15
+00:00:38,000 --> 00:00:41,040
+powershell script maybe explain
+
+16
+00:00:40,079 --> 00:00:42,719
+something
+
+17
+00:00:41,040 --> 00:00:45,440
+um
+
+18
+00:00:42,719 --> 00:00:46,399
+about it okay so this script
+
+19
+00:00:45,440 --> 00:00:47,520
+will
+
+20
+00:00:46,399 --> 00:00:49,840
+change
+
+21
+00:00:47,520 --> 00:00:52,000
+let me show you okay so let's see let's
+
+22
+00:00:49,840 --> 00:00:54,000
+go to keyboard
+
+23
+00:00:52,000 --> 00:00:56,879
+uh
+
+24
+00:00:54,000 --> 00:00:58,800
+let's go to my keyboard blog so you can
+
+25
+00:00:56,879 --> 00:01:02,320
+see all the keyboard i'm using kinesis
+
+26
+00:00:58,800 --> 00:01:04,720
+advantage 2 right here this one
+
+27
+00:01:02,320 --> 00:01:07,040
+that's that one and ultimate hacking
+
+28
+00:01:04,720 --> 00:01:10,960
+keyboard that's this one you go buy it
+
+29
+00:01:07,040 --> 00:01:14,320
+okay just go to xlii keyboard
+
+30
+00:01:10,960 --> 00:01:16,320
+guide you'll find my blog okay so let's
+
+31
+00:01:14,320 --> 00:01:20,400
+go let me show you okay so let's go to
+
+32
+00:01:16,320 --> 00:01:22,400
+keyboard let's go to one of the um
+
+33
+00:01:20,400 --> 00:01:24,640
+images so let me show you what i'm gonna
+
+34
+00:01:22,400 --> 00:01:26,720
+do with powershell so you see all these
+
+35
+00:01:24,640 --> 00:01:30,000
+files lots of files
+
+36
+00:01:26,720 --> 00:01:32,400
+there are 600 files over here so open
+
+37
+00:01:30,000 --> 00:01:34,400
+them in
+
+38
+00:01:32,400 --> 00:01:37,119
+uh in microsoft
+
+39
+00:01:34,400 --> 00:01:38,799
+explorer folder viewer
+
+40
+00:01:37,119 --> 00:01:40,799
+so on the ping window you can see all
+
+41
+00:01:38,799 --> 00:01:42,960
+the commands of course i make for
+
+42
+00:01:40,799 --> 00:01:46,399
+example i just called start show in
+
+43
+00:01:42,960 --> 00:01:48,399
+desktop that's how this you know in
+
+44
+00:01:46,399 --> 00:01:49,680
+emacs direct
+
+45
+00:01:48,399 --> 00:01:52,079
+press key
+
+46
+00:01:49,680 --> 00:01:55,840
+and it goes to desktop so this here you
+
+47
+00:01:52,079 --> 00:01:59,119
+are seeing all the image files
+
+48
+00:01:55,840 --> 00:02:00,240
+okay so tons of image files let's open
+
+49
+00:01:59,119 --> 00:02:03,200
+it you know
+
+50
+00:02:00,240 --> 00:02:04,640
+fantastic keyboards apple keyboards
+
+51
+00:02:03,200 --> 00:02:07,200
+classic
+
+52
+00:02:04,640 --> 00:02:10,959
+uh ancient you know this is one thousand
+
+53
+00:02:07,200 --> 00:02:15,680
+keys stock trader broker keyboard
+
+54
+00:02:10,959 --> 00:02:15,680
+uh this is you know th this is the um
+
+55
+00:02:18,720 --> 00:02:21,599
+you know this is the keyboard maker
+
+56
+00:02:20,239 --> 00:02:23,680
+what's your name
+
+57
+00:02:21,599 --> 00:02:27,360
+das keyboard yeah that's they are trying
+
+58
+00:02:23,680 --> 00:02:30,080
+to get into gamers pens
+
+59
+00:02:27,360 --> 00:02:32,640
+uh this is in taiwan the key keyboard so
+
+60
+00:02:30,080 --> 00:02:34,239
+you know basically lots of images so
+
+61
+00:02:32,640 --> 00:02:36,560
+happy hacking so let's
+
+62
+00:02:34,239 --> 00:02:38,080
+so what i want to do so when over the
+
+63
+00:02:36,560 --> 00:02:40,640
+you know 30 years
+
+64
+00:02:38,080 --> 00:02:42,319
+when you have downloaded tons of phone
+
+65
+00:02:40,640 --> 00:02:45,680
+images you know
+
+66
+00:02:42,319 --> 00:02:47,599
+10 000 1 million of pawn image files
+
+67
+00:02:45,680 --> 00:02:51,120
+there are many duplicates
+
+68
+00:02:47,599 --> 00:02:52,720
+okay so you want to remove the duplicate
+
+69
+00:02:51,120 --> 00:02:54,800
+hello
+
+70
+00:02:52,720 --> 00:02:58,319
+cortes powershell number one
+
+71
+00:02:54,800 --> 00:03:00,080
+so you know you have 10 000 million
+
+72
+00:02:58,319 --> 00:03:02,080
+images
+
+73
+00:03:00,080 --> 00:03:04,239
+now they are duplicate for example these
+
+74
+00:03:02,080 --> 00:03:07,280
+two for example let me show you okay so
+
+75
+00:03:04,239 --> 00:03:08,640
+this is a smaller size uh
+
+76
+00:03:07,280 --> 00:03:10,239
+yeah they
+
+77
+00:03:08,640 --> 00:03:12,319
+they are not arranged by date or
+
+78
+00:03:10,239 --> 00:03:14,640
+something but anyway so you can see many
+
+79
+00:03:12,319 --> 00:03:17,040
+duplicate in this case they are smaller
+
+80
+00:03:14,640 --> 00:03:18,720
+size but sometimes they are exact
+
+81
+00:03:17,040 --> 00:03:21,360
+same image
+
+82
+00:03:18,720 --> 00:03:25,200
+so you have a million image files you
+
+83
+00:03:21,360 --> 00:03:28,400
+want to remove the duplicate image files
+
+84
+00:03:25,200 --> 00:03:30,400
+that's when this powershell script
+
+85
+00:03:28,400 --> 00:03:32,879
+comes alive
+
+86
+00:03:30,400 --> 00:03:34,799
+powershell script so the idea is that
+
+87
+00:03:32,879 --> 00:03:38,080
+this script will
+
+88
+00:03:34,799 --> 00:03:40,319
+change the file name to a hash
+
+89
+00:03:38,080 --> 00:03:42,400
+to a hash basically a number okay to a
+
+90
+00:03:40,319 --> 00:03:45,200
+hash so if they
+
+91
+00:03:42,400 --> 00:03:47,360
+if two files are identical they will
+
+92
+00:03:45,200 --> 00:03:50,319
+have the same hash key
+
+93
+00:03:47,360 --> 00:03:52,720
+so that can indicate they are duplicate
+
+94
+00:03:50,319 --> 00:03:54,560
+you know exact same file so
+
+95
+00:03:52,720 --> 00:03:56,480
+when that happens you can delete it so
+
+96
+00:03:54,560 --> 00:03:58,239
+you can remove duplicate
+
+97
+00:03:56,480 --> 00:04:00,400
+okay so
+
+98
+00:03:58,239 --> 00:04:02,560
+i didn't prepare for this talk show but
+
+99
+00:04:00,400 --> 00:04:04,959
+in you know like
+
+100
+00:04:02,560 --> 00:04:07,280
+20 years ago i wrote a perl script that
+
+101
+00:04:04,959 --> 00:04:10,959
+does that exactly so let me show you
+
+102
+00:04:07,280 --> 00:04:10,959
+guys can i show you um
+
+103
+00:04:11,360 --> 00:04:17,280
+i need to go to my uh get sweep repo
+
+104
+00:04:16,160 --> 00:04:21,280
+let's see
+
+105
+00:04:17,280 --> 00:04:21,280
+script okay so let's see
+
+106
+00:04:22,479 --> 00:04:26,400
+uh
+
+107
+00:04:23,759 --> 00:04:28,320
+perl you know some some of these
+
+108
+00:04:26,400 --> 00:04:30,960
+files you are looking at they are 30
+
+109
+00:04:28,320 --> 00:04:34,400
+years old you know like okay
+
+110
+00:04:30,960 --> 00:04:35,680
+occasionally i run into my unix learning
+
+111
+00:04:34,400 --> 00:04:38,320
+notes
+
+112
+00:04:35,680 --> 00:04:43,800
+taken around 1998
+
+113
+00:04:38,320 --> 00:04:43,800
+so anyway where am i okay so duplicate
+
+114
+00:04:45,919 --> 00:04:50,400
+there it is delete duplicate files okay
+
+115
+00:04:48,880 --> 00:04:52,639
+so
+
+116
+00:04:50,400 --> 00:04:54,720
+so there it is you see the file per
+
+117
+00:04:52,639 --> 00:04:57,199
+duplicate file so
+
+118
+00:04:54,720 --> 00:04:59,600
+this code still runs we can try it okay
+
+119
+00:04:57,199 --> 00:05:01,039
+so this is a perl code
+
+120
+00:04:59,600 --> 00:05:04,400
+written in
+
+121
+00:05:01,039 --> 00:05:06,080
+2005 written in 2003
+
+122
+00:05:04,400 --> 00:05:08,720
+and what this
+
+123
+00:05:06,080 --> 00:05:12,320
+script does so there are
+
+124
+00:05:08,720 --> 00:05:14,880
+200 lines 200 lines plus you know i
+
+125
+00:05:12,320 --> 00:05:18,639
+separated into libraries back then i was
+
+126
+00:05:14,880 --> 00:05:23,720
+a pearl expert so plus 200 lines there
+
+127
+00:05:18,639 --> 00:05:23,720
+and plus 100 lines so
+
+128
+00:05:24,400 --> 00:05:29,919
+400 lines okay 500 lines per code this
+
+129
+00:05:28,000 --> 00:05:31,759
+code will find
+
+130
+00:05:29,919 --> 00:05:33,280
+you know given a medium files you will
+
+131
+00:05:31,759 --> 00:05:35,280
+find duplicate
+
+132
+00:05:33,280 --> 00:05:38,800
+and and
+
+133
+00:05:35,280 --> 00:05:40,320
+and uh you can give it a parameter and
+
+134
+00:05:38,800 --> 00:05:42,400
+it will remove them it will show you
+
+135
+00:05:40,320 --> 00:05:44,320
+which one are duplicate then you can
+
+136
+00:05:42,400 --> 00:05:47,039
+give a parameter to remove them we
+
+137
+00:05:44,320 --> 00:05:49,600
+should demonstrate this okay
+
+138
+00:05:47,039 --> 00:05:52,240
+and then the powershell is alternative
+
+139
+00:05:49,600 --> 00:05:53,680
+solution you know so how do you how how
+
+140
+00:05:52,240 --> 00:05:56,240
+do you do this you know what's the
+
+141
+00:05:53,680 --> 00:05:58,560
+algorithm what you do is that you for
+
+142
+00:05:56,240 --> 00:06:02,000
+each file first of all you get their
+
+143
+00:05:58,560 --> 00:06:04,479
+their file size okay file size
+
+144
+00:06:02,000 --> 00:06:07,440
+then you order them so you have one
+
+145
+00:06:04,479 --> 00:06:09,440
+million let's say just 1000 1000 files
+
+146
+00:06:07,440 --> 00:06:11,360
+ordered by file size
+
+147
+00:06:09,440 --> 00:06:13,759
+now if the file size are different
+
+148
+00:06:11,360 --> 00:06:16,800
+obviously the files are different
+
+149
+00:06:13,759 --> 00:06:18,880
+but when the file size are the same
+
+150
+00:06:16,800 --> 00:06:20,800
+then you have to compare whether the two
+
+151
+00:06:18,880 --> 00:06:22,960
+files are the same sometimes two files
+
+152
+00:06:20,800 --> 00:06:26,319
+there are different image files but they
+
+153
+00:06:22,960 --> 00:06:28,720
+have the exact same number of bytes file
+
+154
+00:06:26,319 --> 00:06:31,360
+size so when you have two files let's
+
+155
+00:06:28,720 --> 00:06:33,600
+have the same size then you
+
+156
+00:06:31,360 --> 00:06:36,160
+you want to check if they the two files
+
+157
+00:06:33,600 --> 00:06:38,720
+are exactly the same how do you do that
+
+158
+00:06:36,160 --> 00:06:41,680
+well in unix
+
+159
+00:06:38,720 --> 00:06:44,319
+uh you know the classic unix or linux
+
+160
+00:06:41,680 --> 00:06:46,240
+you know you linux youngsters so you
+
+161
+00:06:44,319 --> 00:06:49,520
+have the compare
+
+162
+00:06:46,240 --> 00:06:51,280
+command okay i'm on windows so i don't
+
+163
+00:06:49,520 --> 00:06:54,479
+have that command i don't think so so
+
+164
+00:06:51,280 --> 00:06:56,560
+let's go to powershell let's see
+
+165
+00:06:54,479 --> 00:06:59,440
+um
+
+166
+00:06:56,560 --> 00:07:02,560
+let's let's let's make this so this is
+
+167
+00:06:59,440 --> 00:07:05,360
+you see my way of work so that i just
+
+168
+00:07:02,560 --> 00:07:07,280
+move my mouse to the top and
+
+169
+00:07:05,360 --> 00:07:08,880
+i'll get to my powershell
+
+170
+00:07:07,280 --> 00:07:10,720
+terminal
+
+171
+00:07:08,880 --> 00:07:11,840
+bottom is
+
+172
+00:07:10,720 --> 00:07:14,840
+emax
+
+173
+00:07:11,840 --> 00:07:18,240
+on the right side is
+
+174
+00:07:14,840 --> 00:07:20,000
+firefox and here on the top right corner
+
+175
+00:07:18,240 --> 00:07:23,440
+is discord
+
+176
+00:07:20,000 --> 00:07:24,960
+and on the left you know so you operate
+
+177
+00:07:23,440 --> 00:07:26,720
+you don't i don't have to click i don't
+
+178
+00:07:24,960 --> 00:07:31,520
+have to do old
+
+179
+00:07:26,720 --> 00:07:31,520
+old tab you know the idiotic old type
+
+180
+00:07:32,560 --> 00:07:34,720
+uh
+
+181
+00:07:33,520 --> 00:07:36,319
+so again
+
+182
+00:07:34,720 --> 00:07:39,360
+turn off that
+
+183
+00:07:36,319 --> 00:07:41,120
+citrix celtic orthodox hello benjamin
+
+184
+00:07:39,360 --> 00:07:43,360
+hello
+
+185
+00:07:41,120 --> 00:07:46,080
+so powershell okay so powershell and
+
+186
+00:07:43,360 --> 00:07:49,599
+delete duplicate image files of one
+
+187
+00:07:46,080 --> 00:07:52,319
+million images so on unix linux you can
+
+188
+00:07:49,599 --> 00:07:54,080
+use the classic command cmp so i don't
+
+189
+00:07:52,319 --> 00:07:57,599
+think i have cmp
+
+190
+00:07:54,080 --> 00:07:59,840
+uh cmp yeah it's not only oh
+
+191
+00:07:57,599 --> 00:07:59,840
+what
+
+192
+00:08:00,319 --> 00:08:05,440
+where is that from
+
+193
+00:08:03,039 --> 00:08:08,240
+cmp you know i
+
+194
+00:08:05,440 --> 00:08:10,319
+let me just talk random okay hello alan
+
+195
+00:08:08,240 --> 00:08:12,960
+long time no see
+
+196
+00:08:10,319 --> 00:08:14,960
+so cnp so where is that from uh
+
+197
+00:08:12,960 --> 00:08:17,440
+i don't know so let's go to powershell
+
+198
+00:08:14,960 --> 00:08:20,639
+so let's focus on powershell today
+
+199
+00:08:17,440 --> 00:08:22,319
+i'm going over okay so i'm um
+
+200
+00:08:20,639 --> 00:08:23,680
+so powershell
+
+201
+00:08:22,319 --> 00:08:27,759
+right now
+
+202
+00:08:23,680 --> 00:08:28,960
+gcm let me tell you what gcm is gcm is
+
+203
+00:08:27,759 --> 00:08:31,759
+get command
+
+204
+00:08:28,960 --> 00:08:34,479
+so you can see here's a command name
+
+205
+00:08:31,759 --> 00:08:36,800
+full name get command gcm
+
+206
+00:08:34,479 --> 00:08:37,919
+is a alias of get command for example
+
+207
+00:08:36,800 --> 00:08:39,360
+you can see
+
+208
+00:08:37,919 --> 00:08:40,959
+alias
+
+209
+00:08:39,360 --> 00:08:44,320
+gcm
+
+210
+00:08:40,959 --> 00:08:46,720
+okay so you know and g so what's what's
+
+211
+00:08:44,320 --> 00:08:51,600
+this so get command is
+
+212
+00:08:46,720 --> 00:08:53,600
+analogous to the unix linux which
+
+213
+00:08:51,600 --> 00:08:55,680
+which command you know it tells you
+
+214
+00:08:53,600 --> 00:08:57,519
+where the file is located where the
+
+215
+00:08:55,680 --> 00:08:58,720
+command is uh
+
+216
+00:08:57,519 --> 00:09:00,560
+the
+
+217
+00:08:58,720 --> 00:09:03,040
+full path of the command
+
+218
+00:09:00,560 --> 00:09:04,000
+so you can type gcm
+
+219
+00:09:03,040 --> 00:09:05,200
+and
+
+220
+00:09:04,000 --> 00:09:07,360
+cmp
+
+221
+00:09:05,200 --> 00:09:08,800
+to see where is whether you have the
+
+222
+00:09:07,360 --> 00:09:11,839
+command cmp
+
+223
+00:09:08,800 --> 00:09:14,240
+cmp is compare you know in unix linux it
+
+224
+00:09:11,839 --> 00:09:16,880
+returns it doesn't return any output
+
+225
+00:09:14,240 --> 00:09:19,760
+when the two files are exactly the same
+
+226
+00:09:16,880 --> 00:09:22,560
+now another way is stiff okay uh hello
+
+227
+00:09:19,760 --> 00:09:25,040
+hello ellen korean number one thank you
+
+228
+00:09:22,560 --> 00:09:27,839
+so another command in unix stiff linux
+
+229
+00:09:25,040 --> 00:09:31,120
+is stiff okay that can also
+
+230
+00:09:27,839 --> 00:09:33,519
+uh tell you if two files are exactly the
+
+231
+00:09:31,120 --> 00:09:34,880
+same but diff is usually used for text
+
+232
+00:09:33,519 --> 00:09:37,519
+files
+
+233
+00:09:34,880 --> 00:09:39,440
+so let's see gcm i don't think i have
+
+234
+00:09:37,519 --> 00:09:41,040
+div compare uh
+
+235
+00:09:39,440 --> 00:09:43,440
+yeah i don't have diff
+
+236
+00:09:41,040 --> 00:09:46,399
+i don't have unix stiff installed the
+
+237
+00:09:43,440 --> 00:09:49,920
+diff you see is the edius to compare
+
+238
+00:09:46,399 --> 00:09:51,600
+object which is a power shell comlet you
+
+239
+00:09:49,920 --> 00:09:54,240
+know a powershell command but
+
+240
+00:09:51,600 --> 00:09:58,800
+technically it's called comlet so you
+
+241
+00:09:54,240 --> 00:09:58,800
+have uh you see what is the comlet
+
+242
+00:09:59,040 --> 00:10:02,800
+you know so i have this powershell
+
+243
+00:10:00,800 --> 00:10:04,720
+tutorial you go read it and learn it
+
+244
+00:10:02,800 --> 00:10:05,920
+okay powershell is a magnitude better
+
+245
+00:10:04,720 --> 00:10:08,720
+than bash
+
+246
+00:10:05,920 --> 00:10:10,240
+pau xiao is a wiping out of
+
+247
+00:10:08,720 --> 00:10:11,279
+30 years of
+
+248
+00:10:10,240 --> 00:10:14,880
+unix
+
+249
+00:10:11,279 --> 00:10:18,399
+shell baggage that's bash and z shell
+
+250
+00:10:14,880 --> 00:10:20,320
+and tc shell and and so on oh sure okay
+
+251
+00:10:18,399 --> 00:10:21,279
+and you want to know why i think that
+
+252
+00:10:20,320 --> 00:10:24,079
+way
+
+253
+00:10:21,279 --> 00:10:26,000
+go to this page why i love powershell i
+
+254
+00:10:24,079 --> 00:10:28,640
+give you detail i can i can talk about
+
+255
+00:10:26,000 --> 00:10:29,839
+it if you guys want you know if we have
+
+256
+00:10:28,640 --> 00:10:33,360
+people
+
+257
+00:10:29,839 --> 00:10:35,360
+with technical interests
+
+258
+00:10:33,360 --> 00:10:36,800
+i can explain why powershell is the
+
+259
+00:10:35,360 --> 00:10:38,959
+magnitude
+
+260
+00:10:36,800 --> 00:10:40,959
+not just a little better but it's it's
+
+261
+00:10:38,959 --> 00:10:44,399
+better in every way powershell better
+
+262
+00:10:40,959 --> 00:10:46,560
+than bash the bash unix crap unix is the
+
+263
+00:10:44,399 --> 00:10:48,720
+worst possible on earth you know
+
+264
+00:10:46,560 --> 00:10:51,279
+one of the worst technology you know let
+
+265
+00:10:48,720 --> 00:10:54,079
+me give you just one one example coming
+
+266
+00:10:51,279 --> 00:10:55,920
+off top of my head okay
+
+267
+00:10:54,079 --> 00:10:57,760
+unix
+
+268
+00:10:55,920 --> 00:10:59,760
+you know when you have a file name you
+
+269
+00:10:57,760 --> 00:11:02,560
+know i'm rambling over but when you have
+
+270
+00:10:59,760 --> 00:11:05,440
+a file name let's go to it and show you
+
+271
+00:11:02,560 --> 00:11:07,360
+okay so you see so i got three files
+
+272
+00:11:05,440 --> 00:11:11,279
+here when you have a file name
+
+273
+00:11:07,360 --> 00:11:15,839
+on windows you can go to properties
+
+274
+00:11:11,279 --> 00:11:17,680
+and you have the file creation date you
+
+275
+00:11:15,839 --> 00:11:20,399
+see unix
+
+276
+00:11:17,680 --> 00:11:23,040
+windows sucks in many ways you see the
+
+277
+00:11:20,399 --> 00:11:26,240
+tiny font it's impossible to enlarge
+
+278
+00:11:23,040 --> 00:11:27,120
+this window it's called model when
+
+279
+00:11:26,240 --> 00:11:29,760
+anyway
+
+280
+00:11:27,120 --> 00:11:30,640
+um it's impossible to enlarge the font
+
+281
+00:11:29,760 --> 00:11:32,560
+you know
+
+282
+00:11:30,640 --> 00:11:34,800
+so when you are getting old you cannot
+
+283
+00:11:32,560 --> 00:11:36,160
+see it doesn't matter if you magnify the
+
+284
+00:11:34,800 --> 00:11:38,800
+font size
+
+285
+00:11:36,160 --> 00:11:42,000
+it won't magnify here so anyway so
+
+286
+00:11:38,800 --> 00:11:45,680
+on windows when you have a file you have
+
+287
+00:11:42,000 --> 00:11:48,640
+the create date recorded okay part of
+
+288
+00:11:45,680 --> 00:11:51,360
+the file so you can always know
+
+289
+00:11:48,640 --> 00:11:53,279
+when is the file created you know let's
+
+290
+00:11:51,360 --> 00:11:55,120
+say you wrote a note you know 10 years
+
+291
+00:11:53,279 --> 00:11:56,800
+ago you forgot what date when did i
+
+292
+00:11:55,120 --> 00:11:59,839
+write that oh
+
+293
+00:11:56,800 --> 00:12:01,200
+create date file creation date okay
+
+294
+00:11:59,839 --> 00:12:03,839
+windows
+
+295
+00:12:01,200 --> 00:12:06,000
+on the mac same thing mac is superior
+
+296
+00:12:03,839 --> 00:12:08,240
+design when it comes to user interface
+
+297
+00:12:06,000 --> 00:12:12,880
+when it comes comes to
+
+298
+00:12:08,240 --> 00:12:15,519
+usability mac is supre superior supreme
+
+299
+00:12:12,880 --> 00:12:18,399
+for the past 30 years basically this the
+
+300
+00:12:15,519 --> 00:12:21,040
+scene haven't changed between the these
+
+301
+00:12:18,399 --> 00:12:23,360
+operating systems so mac
+
+302
+00:12:21,040 --> 00:12:24,399
+as far as operating system user
+
+303
+00:12:23,360 --> 00:12:25,839
+interface
+
+304
+00:12:24,399 --> 00:12:28,720
+goes
+
+305
+00:12:25,839 --> 00:12:30,240
+macintosh apple is supreme to this day
+
+306
+00:12:28,720 --> 00:12:32,720
+okay
+
+307
+00:12:30,240 --> 00:12:35,440
+so anyway file creation date on the mac
+
+308
+00:12:32,720 --> 00:12:37,839
+you also have file creation date but on
+
+309
+00:12:35,440 --> 00:12:41,680
+unix and on linux you don't have that
+
+310
+00:12:37,839 --> 00:12:44,560
+you unix unix
+
+311
+00:12:41,680 --> 00:12:46,399
+unix idiot and linux
+
+312
+00:12:44,560 --> 00:12:47,920
+they don't know you know you you you
+
+313
+00:12:46,399 --> 00:12:49,920
+talk to the unix
+
+314
+00:12:47,920 --> 00:12:52,639
+min you know they've been assisted me
+
+315
+00:12:49,920 --> 00:12:52,639
+for 10 years
+
+316
+00:12:52,720 --> 00:12:57,680
+they heard they hear what you say oh you
+
+317
+00:12:54,880 --> 00:12:59,920
+are wrong c time c time d you know
+
+318
+00:12:57,680 --> 00:13:02,160
+whatever crap dribble
+
+319
+00:12:59,920 --> 00:13:03,920
+unix let me tell you one more time okay
+
+320
+00:13:02,160 --> 00:13:08,079
+let's
+
+321
+00:13:03,920 --> 00:13:10,399
+uh you know set this into your brain
+
+322
+00:13:08,079 --> 00:13:15,440
+on unix and linux
+
+323
+00:13:10,399 --> 00:13:18,240
+and bsd2 bsd freebsd netbsd you know
+
+324
+00:13:15,440 --> 00:13:19,360
+cqr you know open bsd whatever dragon
+
+325
+00:13:18,240 --> 00:13:22,160
+bsd
+
+326
+00:13:19,360 --> 00:13:24,160
+on all these unix systems
+
+327
+00:13:22,160 --> 00:13:28,160
+the file creation
+
+328
+00:13:24,160 --> 00:13:29,760
+date is not recorded okay get that
+
+329
+00:13:28,160 --> 00:13:31,680
+remember that
+
+330
+00:13:29,760 --> 00:13:34,639
+you know remove that you can you can
+
+331
+00:13:31,680 --> 00:13:35,600
+talk to you can talk to your eunuchs uh
+
+332
+00:13:34,639 --> 00:13:36,639
+you know
+
+333
+00:13:35,600 --> 00:13:38,800
+gurus
+
+334
+00:13:36,639 --> 00:13:40,800
+right now or linux gurus they don't know
+
+335
+00:13:38,800 --> 00:13:42,639
+they have no idea they they insist they
+
+336
+00:13:40,800 --> 00:13:44,240
+will insist
+
+337
+00:13:42,639 --> 00:13:46,399
+how do i know because i've been fighting
+
+338
+00:13:44,240 --> 00:13:47,199
+with them for 20 years
+
+339
+00:13:46,399 --> 00:13:51,279
+yeah
+
+340
+00:13:47,199 --> 00:13:52,880
+uh starting around 1998 okay they insist
+
+341
+00:13:51,279 --> 00:13:54,959
+it creates it
+
+342
+00:13:52,880 --> 00:13:58,240
+you know you can find the
+
+343
+00:13:54,959 --> 00:13:59,519
+file creation date it doesn't okay go
+
+344
+00:13:58,240 --> 00:14:02,000
+look around you'll find the answer
+
+345
+00:13:59,519 --> 00:14:04,320
+you'll find the true answer you know in
+
+346
+00:14:02,000 --> 00:14:07,040
+our at first you will be you will be
+
+347
+00:14:04,320 --> 00:14:09,519
+fooled by these dribbles by the unix
+
+348
+00:14:07,040 --> 00:14:11,120
+ and linux phonetics
+
+349
+00:14:09,519 --> 00:14:13,360
+they don't they don't know they they
+
+350
+00:14:11,120 --> 00:14:15,120
+just think oh eunuchs is the god that
+
+351
+00:14:13,360 --> 00:14:17,920
+the idiots
+
+352
+00:14:15,120 --> 00:14:20,240
+okay so let me get back to my point
+
+353
+00:14:17,920 --> 00:14:22,720
+on unix linux systems
+
+354
+00:14:20,240 --> 00:14:25,040
+file you don't have file creation date
+
+355
+00:14:22,720 --> 00:14:27,839
+you you will not know when is the file
+
+356
+00:14:25,040 --> 00:14:30,399
+created because it's not there because
+
+357
+00:14:27,839 --> 00:14:32,800
+the unix idiots and they see
+
+358
+00:14:30,399 --> 00:14:35,040
+they never you know when it comes to
+
+359
+00:14:32,800 --> 00:14:36,160
+design they never thought of they never
+
+360
+00:14:35,040 --> 00:14:37,920
+thought of
+
+361
+00:14:36,160 --> 00:14:39,760
+they they don't they don't know what
+
+362
+00:14:37,920 --> 00:14:42,000
+design means
+
+363
+00:14:39,760 --> 00:14:43,519
+you know what they know is hack
+
+364
+00:14:42,000 --> 00:14:46,480
+that's what they know that's what they
+
+365
+00:14:43,519 --> 00:14:49,760
+love get it to work hack fast we are
+
+366
+00:14:46,480 --> 00:14:52,480
+fast we are c fast
+
+367
+00:14:49,760 --> 00:14:54,720
+it's a unit unix
+
+368
+00:14:52,480 --> 00:14:57,519
+okay so creation file creation date you
+
+369
+00:14:54,720 --> 00:14:59,680
+know this is the main um issue on my
+
+370
+00:14:57,519 --> 00:15:01,519
+mind you know for 20 years because i
+
+371
+00:14:59,680 --> 00:15:03,279
+always i've been fighting with the unix
+
+372
+00:15:01,519 --> 00:15:05,040
+ and they always you know
+
+373
+00:15:03,279 --> 00:15:07,680
+they're just wrong
+
+374
+00:15:05,040 --> 00:15:09,600
+so they so
+
+375
+00:15:07,680 --> 00:15:11,920
+let me say this again
+
+376
+00:15:09,600 --> 00:15:13,760
+file creation date which is a very
+
+377
+00:15:11,920 --> 00:15:16,399
+useful information you need to know when
+
+378
+00:15:13,760 --> 00:15:19,199
+is the file created on unix it's not
+
+379
+00:15:16,399 --> 00:15:21,440
+it's not there it's never recorded okay
+
+380
+00:15:19,199 --> 00:15:21,440
+so
+
+381
+00:15:22,320 --> 00:15:28,959
+so okay i'm starting to rent i got you
+
+382
+00:15:25,760 --> 00:15:32,639
+know starting to get angry so anyway so
+
+383
+00:15:28,959 --> 00:15:35,680
+back to what i was saying so um
+
+384
+00:15:32,639 --> 00:15:38,240
+so come so diff so on unix you have diff
+
+385
+00:15:35,680 --> 00:15:41,040
+you have compare okay that compares
+
+386
+00:15:38,240 --> 00:15:42,880
+whether um two files are the same
+
+387
+00:15:41,040 --> 00:15:45,040
+and uh what
+
+388
+00:15:42,880 --> 00:15:47,199
+okay so let me let me get back to what
+
+389
+00:15:45,040 --> 00:15:50,320
+am i talking about so
+
+390
+00:15:47,199 --> 00:15:52,639
+ah god i'm getting over
+
+391
+00:15:50,320 --> 00:15:52,639
+uh
+
+392
+00:15:53,279 --> 00:15:57,920
+so let's let's just let's get back to
+
+393
+00:15:55,199 --> 00:16:00,079
+demo demo of this powershell script okay
+
+394
+00:15:57,920 --> 00:16:00,079
+so
+
+395
+00:16:00,480 --> 00:16:04,240
+uh remi
+
+396
+00:16:01,839 --> 00:16:06,240
+rename file by hash okay so how do you
+
+397
+00:16:04,240 --> 00:16:09,279
+compare two files are the same so one
+
+398
+00:16:06,240 --> 00:16:10,959
+way is to use stiff or use the
+
+399
+00:16:09,279 --> 00:16:14,000
+cmp command
+
+400
+00:16:10,959 --> 00:16:16,079
+or another way is to you know once you
+
+401
+00:16:14,000 --> 00:16:19,199
+know once you find two files have the
+
+402
+00:16:16,079 --> 00:16:22,000
+same size file size is the first easiest
+
+403
+00:16:19,199 --> 00:16:23,920
+way easiest filter so once you got two
+
+404
+00:16:22,000 --> 00:16:26,639
+files that's the same size so you can
+
+405
+00:16:23,920 --> 00:16:30,240
+use compare or you can use stiff to see
+
+406
+00:16:26,639 --> 00:16:32,880
+to check if they are identical
+
+407
+00:16:30,240 --> 00:16:35,360
+and by the way let me not get into um
+
+408
+00:16:32,880 --> 00:16:37,040
+hard link
+
+409
+00:16:35,360 --> 00:16:40,560
+that's another
+
+410
+00:16:37,040 --> 00:16:43,199
+unix idiocy you know unix file systems
+
+411
+00:16:40,560 --> 00:16:45,360
+has the hard link concept that's another
+
+412
+00:16:43,199 --> 00:16:47,440
+extreme idiocy
+
+413
+00:16:45,360 --> 00:16:49,279
+so anyway
+
+414
+00:16:47,440 --> 00:16:50,880
+so why why am i mentioning it because
+
+415
+00:16:49,279 --> 00:16:52,639
+when you have a hard link that's that's
+
+416
+00:16:50,880 --> 00:16:54,800
+actually identical file you know it's
+
+417
+00:16:52,639 --> 00:16:57,120
+the same file but use but have a
+
+418
+00:16:54,800 --> 00:17:00,639
+different presentation on you know any
+
+419
+00:16:57,120 --> 00:17:02,000
+anyway so comparative okay another way
+
+420
+00:17:00,639 --> 00:17:03,440
+to compare
+
+421
+00:17:02,000 --> 00:17:06,720
+to check
+
+422
+00:17:03,440 --> 00:17:09,839
+if two files are identical is to
+
+423
+00:17:06,720 --> 00:17:14,160
+uh compute a hash key so let me explain
+
+424
+00:17:09,839 --> 00:17:14,160
+what is a hash key okay hash key
+
+425
+00:17:15,199 --> 00:17:20,400
+basic is you know from a practical point
+
+426
+00:17:17,760 --> 00:17:22,240
+of view is that when you have a file or
+
+427
+00:17:20,400 --> 00:17:24,640
+a bunch of binary digits you know
+
+428
+00:17:22,240 --> 00:17:26,319
+basically your number or
+
+429
+00:17:24,640 --> 00:17:28,160
+you know when you have a file
+
+430
+00:17:26,319 --> 00:17:31,360
+you can
+
+431
+00:17:28,160 --> 00:17:34,320
+hash key is a function hash function it
+
+432
+00:17:31,360 --> 00:17:37,200
+can take the file as an input and output
+
+433
+00:17:34,320 --> 00:17:38,000
+a string basically a sequence sequence
+
+434
+00:17:37,200 --> 00:17:39,360
+of
+
+435
+00:17:38,000 --> 00:17:41,679
+uh
+
+436
+00:17:39,360 --> 00:17:44,559
+of alphabets okay
+
+437
+00:17:41,679 --> 00:17:47,840
+and this sequence alphabet will be
+
+438
+00:17:44,559 --> 00:17:50,880
+unique to that file so
+
+439
+00:17:47,840 --> 00:17:53,600
+so in theory
+
+440
+00:17:50,880 --> 00:17:55,520
+if two files have the same hash key
+
+441
+00:17:53,600 --> 00:17:57,840
+then that means the two files are
+
+442
+00:17:55,520 --> 00:17:59,600
+identical okay so that's
+
+443
+00:17:57,840 --> 00:18:01,360
+that's what this powershell script is
+
+444
+00:17:59,600 --> 00:18:03,120
+doing so let me show you some powershell
+
+445
+00:18:01,360 --> 00:18:06,559
+okay so
+
+446
+00:18:03,120 --> 00:18:10,240
+i'm go going all over the place okay
+
+447
+00:18:06,559 --> 00:18:13,039
+so let's see let's so so let's um
+
+448
+00:18:10,240 --> 00:18:16,880
+so okay so here is the powershell script
+
+449
+00:18:13,039 --> 00:18:19,679
+and i'm using xa powershell mod you see
+
+450
+00:18:16,880 --> 00:18:22,080
+so this is powershell in emacs you know
+
+451
+00:18:19,679 --> 00:18:23,200
+uh powershot subpowershot mod you can
+
+452
+00:18:22,080 --> 00:18:28,360
+find
+
+453
+00:18:23,200 --> 00:18:28,360
+on my website and pay me to get it
+
+454
+00:18:31,520 --> 00:18:36,640
+okay you search for some powershell mod
+
+455
+00:18:34,160 --> 00:18:39,120
+there it is
+
+456
+00:18:36,640 --> 00:18:42,080
+okay that's uh you know for emacs so you
+
+457
+00:18:39,120 --> 00:18:43,440
+can you can efficiently code powershell
+
+458
+00:18:42,080 --> 00:18:44,559
+in emacs
+
+459
+00:18:43,440 --> 00:18:47,760
+um
+
+460
+00:18:44,559 --> 00:18:51,200
+so for example let me show you the
+
+461
+00:18:47,760 --> 00:18:53,840
+okay duh become get children because the
+
+462
+00:18:51,200 --> 00:18:55,600
+is a alias to get children for example
+
+463
+00:18:53,840 --> 00:18:57,440
+you know all these ideas well for
+
+464
+00:18:55,600 --> 00:18:59,679
+example
+
+465
+00:18:57,440 --> 00:19:02,240
+cmp
+
+466
+00:18:59,679 --> 00:19:05,039
+gcm we talked about
+
+467
+00:19:02,240 --> 00:19:06,559
+get command it becomes gate command
+
+468
+00:19:05,039 --> 00:19:09,280
+okay so you know you have this
+
+469
+00:19:06,559 --> 00:19:12,080
+completion so you can type get
+
+470
+00:19:09,280 --> 00:19:12,960
+tab and you can get you know then you
+
+471
+00:19:12,080 --> 00:19:14,960
+can
+
+472
+00:19:12,960 --> 00:19:16,960
+have all the
+
+473
+00:19:14,960 --> 00:19:18,400
+powershell commands that start with the
+
+474
+00:19:16,960 --> 00:19:20,240
+word get
+
+475
+00:19:18,400 --> 00:19:22,640
+you know one of the advantage of
+
+476
+00:19:20,240 --> 00:19:25,120
+powershell
+
+477
+00:19:22,640 --> 00:19:27,520
+with respect to naming his naming okay
+
+478
+00:19:25,120 --> 00:19:30,880
+naming of things so in powershell they
+
+479
+00:19:27,520 --> 00:19:32,080
+follow a system systematic naming so
+
+480
+00:19:30,880 --> 00:19:34,080
+everything
+
+481
+00:19:32,080 --> 00:19:37,440
+when it's an action something you have a
+
+482
+00:19:34,080 --> 00:19:41,039
+get something so you have get command
+
+483
+00:19:37,440 --> 00:19:43,679
+get history get culture culture culture
+
+484
+00:19:41,039 --> 00:19:45,760
+get culture is like the date format the
+
+485
+00:19:43,679 --> 00:19:48,160
+time format you know
+
+486
+00:19:45,760 --> 00:19:49,039
+different culture have different um
+
+487
+00:19:48,160 --> 00:19:52,000
+you know
+
+488
+00:19:49,039 --> 00:19:55,039
+formats then you have get ps drive you
+
+489
+00:19:52,000 --> 00:19:56,799
+know which is a system uh interface to
+
+490
+00:19:55,039 --> 00:19:59,280
+different things so you know then you
+
+491
+00:19:56,799 --> 00:20:00,960
+have get content which is like
+
+492
+00:19:59,280 --> 00:20:06,360
+unix cat
+
+493
+00:20:00,960 --> 00:20:06,360
+you know unix unix names you know cat
+
+494
+00:20:15,200 --> 00:20:20,400
+you know idiot
+
+495
+00:20:18,720 --> 00:20:21,520
+you know speaking of
+
+496
+00:20:20,400 --> 00:20:23,440
+anyway so
+
+497
+00:20:21,520 --> 00:20:27,200
+get content is
+
+498
+00:20:23,440 --> 00:20:29,600
+like unix unix cat which stands for
+
+499
+00:20:27,200 --> 00:20:32,640
+concatenate
+
+500
+00:20:29,600 --> 00:20:36,000
+uh and you know get process is like unix
+
+501
+00:20:32,640 --> 00:20:37,760
+ps okay guest servers is get servers get
+
+502
+00:20:36,000 --> 00:20:39,520
+counter is get counter i don't know what
+
+503
+00:20:37,760 --> 00:20:41,840
+that you know so
+
+504
+00:20:39,520 --> 00:20:44,000
+so anyway so that's that's uh
+
+505
+00:20:41,840 --> 00:20:46,799
+powershell mod so if you like my stuff
+
+506
+00:20:44,000 --> 00:20:46,799
+go buy it okay
+
+507
+00:20:46,960 --> 00:20:51,520
+thank you cortes thank you alan and uh
+
+508
+00:20:49,120 --> 00:20:53,600
+what else
+
+509
+00:20:51,520 --> 00:20:54,559
+so how long so today is rambling day
+
+510
+00:20:53,600 --> 00:20:56,159
+okay
+
+511
+00:20:54,559 --> 00:20:57,760
+talk show rambling day i haven't done
+
+512
+00:20:56,159 --> 00:20:59,679
+this for a long time
+
+513
+00:20:57,760 --> 00:21:02,320
+so let me let's get back to powershell
+
+514
+00:20:59,679 --> 00:21:03,520
+okay so let's remove that so this is a
+
+515
+00:21:02,320 --> 00:21:06,080
+script
+
+516
+00:21:03,520 --> 00:21:09,440
+um so what i'm going to do i'm going to
+
+517
+00:21:06,080 --> 00:21:12,480
+do some demo i guess um
+
+518
+00:21:09,440 --> 00:21:15,440
+yeah let's let's write down okay so when
+
+519
+00:21:12,480 --> 00:21:17,360
+you are confused write things down so
+
+520
+00:21:15,440 --> 00:21:20,559
+you don't get con so you know what to do
+
+521
+00:21:17,360 --> 00:21:21,840
+exactly so let's write things down right
+
+522
+00:21:20,559 --> 00:21:24,799
+now okay
+
+523
+00:21:21,840 --> 00:21:27,039
+so here is today's talk show and i'm
+
+524
+00:21:24,799 --> 00:21:28,000
+gonna write down what i'm gonna uh do
+
+525
+00:21:27,039 --> 00:21:31,000
+okay
+
+526
+00:21:28,000 --> 00:21:31,000
+demo
+
+527
+00:21:31,280 --> 00:21:36,240
+uh
+
+528
+00:21:32,720 --> 00:21:38,080
+demo get file hash okay
+
+529
+00:21:36,240 --> 00:21:39,679
+so that's a powershell command we're
+
+530
+00:21:38,080 --> 00:21:41,520
+gonna demo that
+
+531
+00:21:39,679 --> 00:21:45,480
+and uh
+
+532
+00:21:41,520 --> 00:21:45,480
+um what else
+
+533
+00:21:46,320 --> 00:21:50,320
+and and in the demo
+
+534
+00:21:53,919 --> 00:21:58,600
+demo the
+
+535
+00:21:55,600 --> 00:21:58,600
+the
+
+536
+00:22:00,559 --> 00:22:05,039
+delete duplicate perl script
+
+537
+00:22:05,440 --> 00:22:09,919
+okay so that's another thing
+
+538
+00:22:08,000 --> 00:22:13,360
+and demo
+
+539
+00:22:09,919 --> 00:22:16,559
+the power shell
+
+540
+00:22:13,360 --> 00:22:17,440
+rename file
+
+541
+00:22:16,559 --> 00:22:19,200
+to
+
+542
+00:22:17,440 --> 00:22:21,039
+hash
+
+543
+00:22:19,200 --> 00:22:22,640
+okay let's just start with that three
+
+544
+00:22:21,039 --> 00:22:24,400
+okay let's get not
+
+545
+00:22:22,640 --> 00:22:26,720
+distracted okay so
+
+546
+00:22:24,400 --> 00:22:28,640
+demo get file hash okay so let's try
+
+547
+00:22:26,720 --> 00:22:30,720
+that let's um
+
+548
+00:22:28,640 --> 00:22:31,919
+so i'm gonna do that okay
+
+549
+00:22:30,720 --> 00:22:35,039
+so let's
+
+550
+00:22:31,919 --> 00:22:35,039
+pop this back
+
+551
+00:22:38,720 --> 00:22:43,679
+okay so now let's open so here is
+
+552
+00:22:41,919 --> 00:22:45,679
+today's talk show
+
+553
+00:22:43,679 --> 00:22:48,640
+let's demo file hash which is a
+
+554
+00:22:45,679 --> 00:22:48,640
+powershell okay
+
+555
+00:22:50,000 --> 00:22:53,679
+okay let's start
+
+556
+00:22:51,919 --> 00:22:55,840
+let me show you the pink window the pink
+
+557
+00:22:53,679 --> 00:22:58,720
+window shows all my command cores in
+
+558
+00:22:55,840 --> 00:23:03,600
+emacs and their keystroke here here you
+
+559
+00:22:58,720 --> 00:23:04,799
+can see okay so let's start a powershell
+
+560
+00:23:03,600 --> 00:23:06,720
+template
+
+561
+00:23:04,799 --> 00:23:07,679
+and pop it out
+
+562
+00:23:06,720 --> 00:23:08,559
+then
+
+563
+00:23:07,679 --> 00:23:10,480
+get
+
+564
+00:23:08,559 --> 00:23:12,720
+file
+
+565
+00:23:10,480 --> 00:23:13,919
+hash there it is
+
+566
+00:23:12,720 --> 00:23:16,559
+so
+
+567
+00:23:13,919 --> 00:23:18,880
+get help you know you just press a key
+
+568
+00:23:16,559 --> 00:23:20,400
+and it will open the help page you know
+
+569
+00:23:18,880 --> 00:23:22,960
+actually
+
+570
+00:23:20,400 --> 00:23:25,679
+you know so this is xr powershell mod if
+
+571
+00:23:22,960 --> 00:23:28,159
+you like it buy it okay so here so you
+
+572
+00:23:25,679 --> 00:23:30,159
+have the get file hash you know this is
+
+573
+00:23:28,159 --> 00:23:33,840
+not
+
+574
+00:23:30,159 --> 00:23:36,799
+so there it is the powershell
+
+575
+00:23:33,840 --> 00:23:39,760
+documentation on get file hash
+
+576
+00:23:36,799 --> 00:23:42,000
+and you can turn on javascript
+
+577
+00:23:39,760 --> 00:23:44,240
+javascript so it shows
+
+578
+00:23:42,000 --> 00:23:47,039
+you know the panels and all
+
+579
+00:23:44,240 --> 00:23:48,799
+uh so get file hash so description blah
+
+580
+00:23:47,039 --> 00:23:52,080
+blah blah so
+
+581
+00:23:48,799 --> 00:23:53,120
+so let's copy their example so
+
+582
+00:23:52,080 --> 00:23:54,640
+you see
+
+583
+00:23:53,120 --> 00:23:56,960
+so
+
+584
+00:23:54,640 --> 00:24:00,720
+so what's some example so okay so let's
+
+585
+00:23:56,960 --> 00:24:00,720
+open let's open my
+
+586
+00:24:02,840 --> 00:24:07,919
+images close that go to keyboard
+
+587
+00:24:08,480 --> 00:24:13,919
+uh okay delete duplicate copy hold on a
+
+588
+00:24:10,799 --> 00:24:17,120
+second let me do some
+
+589
+00:24:13,919 --> 00:24:20,000
+management okay open the talk show
+
+590
+00:24:17,120 --> 00:24:22,559
+paste the perl script here make a link
+
+591
+00:24:20,000 --> 00:24:24,880
+show in browser so you can see we have
+
+592
+00:24:22,559 --> 00:24:28,400
+the perl script here
+
+593
+00:24:24,880 --> 00:24:30,640
+here so that's my perl script to delete
+
+594
+00:24:28,400 --> 00:24:34,480
+one million
+
+595
+00:24:30,640 --> 00:24:39,919
+image files that may be duplicate
+
+596
+00:24:34,480 --> 00:24:39,919
+okay so right now let's go to keyboard
+
+597
+00:24:42,080 --> 00:24:46,880
+image file so let's
+
+598
+00:24:44,000 --> 00:24:48,720
+copy that go back to talk show
+
+599
+00:24:46,880 --> 00:24:50,480
+open that
+
+600
+00:24:48,720 --> 00:24:52,799
+paste the
+
+601
+00:24:50,480 --> 00:24:55,279
+image
+
+602
+00:24:52,799 --> 00:24:57,919
+showing browser
+
+603
+00:24:55,279 --> 00:25:00,640
+okay so we have an image so this image
+
+604
+00:24:57,919 --> 00:25:03,360
+let me easily go to the image directory
+
+605
+00:25:00,640 --> 00:25:06,000
+so i'm looking at the image in emacs
+
+606
+00:25:03,360 --> 00:25:09,440
+press the key diet jump
+
+607
+00:25:06,000 --> 00:25:14,640
+to go to this image directory okay so
+
+608
+00:25:09,440 --> 00:25:18,799
+there are 600 files and press a key open
+
+609
+00:25:14,640 --> 00:25:21,120
+it in explorer okay so again and
+
+610
+00:25:18,799 --> 00:25:23,600
+what i'm doing this um
+
+611
+00:25:21,120 --> 00:25:25,039
+social desktop that's part of supply
+
+612
+00:25:23,600 --> 00:25:28,039
+keys okay
+
+613
+00:25:25,039 --> 00:25:28,039
+so
+
+614
+00:25:28,640 --> 00:25:32,640
+so get hat file hash okay so let me
+
+615
+00:25:30,720 --> 00:25:33,840
+demonstrate okay so
+
+616
+00:25:32,640 --> 00:25:35,200
+close that
+
+617
+00:25:33,840 --> 00:25:39,679
+copy the
+
+618
+00:25:35,200 --> 00:25:42,720
+path of this image go back here
+
+619
+00:25:39,679 --> 00:25:46,080
+and paste the file path here okay kind
+
+620
+00:25:42,720 --> 00:25:47,760
+of long but it's okay so
+
+621
+00:25:46,080 --> 00:25:50,960
+do that okay
+
+622
+00:25:47,760 --> 00:25:54,320
+so get file hash okay so we can actually
+
+623
+00:25:50,960 --> 00:25:55,360
+actually execute the command here
+
+624
+00:25:54,320 --> 00:25:58,559
+do it
+
+625
+00:25:55,360 --> 00:25:59,919
+there it is there it is it's a hash it's
+
+626
+00:25:58,559 --> 00:26:02,400
+a you see
+
+627
+00:25:59,919 --> 00:26:05,440
+so it takes a file path and returns a
+
+628
+00:26:02,400 --> 00:26:07,039
+hashtag a hash key basically a sequence
+
+629
+00:26:05,440 --> 00:26:10,400
+of numbers
+
+630
+00:26:07,039 --> 00:26:14,559
+uh not numbers a sequence of uh you know
+
+631
+00:26:10,400 --> 00:26:15,600
+as a string a sequence of letters
+
+632
+00:26:14,559 --> 00:26:18,799
+so
+
+633
+00:26:15,600 --> 00:26:20,720
+so we demonstrated a
+
+634
+00:26:18,799 --> 00:26:23,360
+git file hash
+
+635
+00:26:20,720 --> 00:26:24,640
+and i need to demonstrate perl delete
+
+636
+00:26:23,360 --> 00:26:26,799
+duplicate
+
+637
+00:26:24,640 --> 00:26:28,720
+uh and demo powershell rename file to
+
+638
+00:26:26,799 --> 00:26:31,520
+hash okay let's let's demo the
+
+639
+00:26:28,720 --> 00:26:34,720
+powershell rename to file hash okay
+
+640
+00:26:31,520 --> 00:26:36,559
+so let's go back to this image directory
+
+641
+00:26:34,720 --> 00:26:39,919
+so you can see
+
+642
+00:26:36,559 --> 00:26:40,799
+thousands of images
+
+643
+00:26:39,919 --> 00:26:44,720
+this
+
+644
+00:26:40,799 --> 00:26:47,360
+cute girl lovely some someone else's
+
+645
+00:26:44,720 --> 00:26:52,360
+photo i don't know who she is
+
+646
+00:26:47,360 --> 00:26:52,360
+so you have all these images fantastic
+
+647
+00:26:52,559 --> 00:26:59,440
+okay let's copy the image
+
+648
+00:26:54,799 --> 00:27:01,039
+let's copy the image directory so um
+
+649
+00:26:59,440 --> 00:27:03,440
+so let's see
+
+650
+00:27:01,039 --> 00:27:06,960
+so let's go to here
+
+651
+00:27:03,440 --> 00:27:09,279
+keyboard let's go to talk show talk show
+
+652
+00:27:06,960 --> 00:27:10,480
+go to the talk show directory
+
+653
+00:27:09,279 --> 00:27:14,240
+and
+
+654
+00:27:10,480 --> 00:27:17,919
+create a new directory let's say
+
+655
+00:27:14,240 --> 00:27:20,480
+x x t t
+
+656
+00:27:17,919 --> 00:27:24,640
+okay we just created a new directory
+
+657
+00:27:20,480 --> 00:27:28,000
+open it and go to this image directory
+
+658
+00:27:24,640 --> 00:27:29,520
+and copy it over
+
+659
+00:27:28,000 --> 00:27:32,480
+yes
+
+660
+00:27:29,520 --> 00:27:35,600
+do you want to copy recursively yes
+
+661
+00:27:32,480 --> 00:27:37,440
+recursively that's a unix jargon
+
+662
+00:27:35,600 --> 00:27:39,919
+shouldn't be named that but anyway so we
+
+663
+00:27:37,440 --> 00:27:43,600
+copied the whole image directory here so
+
+664
+00:27:39,919 --> 00:27:46,559
+we can work on it we can you know
+
+665
+00:27:43,600 --> 00:27:50,960
+delete or whatever so i don't screw up
+
+666
+00:27:46,559 --> 00:27:54,559
+my keyboard you know image directory so
+
+667
+00:27:50,960 --> 00:27:57,039
+so here is the other images let's see
+
+668
+00:27:54,559 --> 00:27:58,640
+so you can open images in emacs so you
+
+669
+00:27:57,039 --> 00:28:00,159
+can see
+
+670
+00:27:58,640 --> 00:28:00,960
+lots of images
+
+671
+00:28:00,159 --> 00:28:02,720
+that
+
+672
+00:28:00,960 --> 00:28:07,600
+that that
+
+673
+00:28:02,720 --> 00:28:07,600
+you know some of them are icons icons so
+
+674
+00:28:10,240 --> 00:28:13,279
+okay so images
+
+675
+00:28:13,919 --> 00:28:19,279
+okay let's do let's uh let's uh let's
+
+676
+00:28:16,880 --> 00:28:22,159
+wait how do you do this in uh let's see
+
+677
+00:28:19,279 --> 00:28:24,559
+let me show you okay so copy so we don't
+
+678
+00:28:22,159 --> 00:28:26,799
+have to re we we don't have to do this
+
+679
+00:28:24,559 --> 00:28:26,799
+uh
+
+680
+00:28:27,360 --> 00:28:30,799
+let me let me tell you what i'm doing
+
+681
+00:28:28,799 --> 00:28:32,799
+okay so copy
+
+682
+00:28:30,799 --> 00:28:35,039
+uh
+
+683
+00:28:32,799 --> 00:28:39,039
+basically we want to copy your directory
+
+684
+00:28:35,039 --> 00:28:43,520
+over so this is how you do it okay
+
+685
+00:28:39,039 --> 00:28:44,720
+yeah with powershell okay so close that
+
+686
+00:28:43,520 --> 00:28:47,840
+go to
+
+687
+00:28:44,720 --> 00:28:50,559
+talk show today open the image go to the
+
+688
+00:28:47,840 --> 00:28:51,520
+directory copy the file path switch
+
+689
+00:28:50,559 --> 00:28:54,080
+window
+
+690
+00:28:51,520 --> 00:28:57,520
+and paste it here so we have two
+
+691
+00:28:54,080 --> 00:28:58,720
+paths here so this one
+
+692
+00:28:57,520 --> 00:29:01,279
+uh
+
+693
+00:28:58,720 --> 00:29:02,720
+so this one is a directory
+
+694
+00:29:01,279 --> 00:29:05,360
+let's say let's
+
+695
+00:29:02,720 --> 00:29:07,919
+say the uh so that one is a directory
+
+696
+00:29:05,360 --> 00:29:09,760
+okay so
+
+697
+00:29:07,919 --> 00:29:13,799
+and
+
+698
+00:29:09,760 --> 00:29:13,799
+this is a second directory
+
+699
+00:29:15,279 --> 00:29:21,360
+okay in fact this we want to copy this
+
+700
+00:29:18,320 --> 00:29:22,399
+directory to that directory okay in fact
+
+701
+00:29:21,360 --> 00:29:25,440
+let's
+
+702
+00:29:22,399 --> 00:29:27,679
+um yeah okay so
+
+703
+00:29:25,440 --> 00:29:30,159
+let's do that
+
+704
+00:29:27,679 --> 00:29:32,960
+okay so this is a command we can
+
+705
+00:29:30,159 --> 00:29:35,279
+copy the directory over anyway but for
+
+706
+00:29:32,960 --> 00:29:35,279
+now
+
+707
+00:29:35,520 --> 00:29:42,720
+for now let's do the powershell um
+
+708
+00:29:40,000 --> 00:29:43,840
+let me demo demonstrate this powershell
+
+709
+00:29:42,720 --> 00:29:45,840
+um
+
+710
+00:29:43,840 --> 00:29:48,799
+rename file okay
+
+711
+00:29:45,840 --> 00:29:48,799
+so copy that
+
+712
+00:29:50,880 --> 00:29:54,880
+comment that out comment that out paste
+
+713
+00:29:53,360 --> 00:29:56,320
+the code here
+
+714
+00:29:54,880 --> 00:29:58,159
+magnify
+
+715
+00:29:56,320 --> 00:29:59,039
+so
+
+716
+00:29:58,159 --> 00:30:02,399
+we
+
+717
+00:29:59,039 --> 00:30:04,880
+are working in this directory okay so
+
+718
+00:30:02,399 --> 00:30:09,760
+open that copy the file path
+
+719
+00:30:04,880 --> 00:30:12,159
+so my directory will equals to that
+
+720
+00:30:09,760 --> 00:30:14,080
+okay let's rename it extra
+
+721
+00:30:12,159 --> 00:30:16,720
+and let's just leave it
+
+722
+00:30:14,080 --> 00:30:18,960
+miter okay
+
+723
+00:30:16,720 --> 00:30:21,440
+so this is the directory
+
+724
+00:30:18,960 --> 00:30:24,080
+and we don't need the file name just
+
+725
+00:30:21,440 --> 00:30:25,520
+just a directory so here is a directory
+
+726
+00:30:24,080 --> 00:30:28,720
+and for
+
+727
+00:30:25,520 --> 00:30:31,039
+so we are using listing directory
+
+728
+00:30:28,720 --> 00:30:35,200
+and file names only
+
+729
+00:30:31,039 --> 00:30:38,559
+and pipe it to each part each object for
+
+730
+00:30:35,200 --> 00:30:41,440
+each object that means for each file
+
+731
+00:30:38,559 --> 00:30:44,000
+get the file name extension
+
+732
+00:30:41,440 --> 00:30:45,840
+you do that by split path
+
+733
+00:30:44,000 --> 00:30:47,120
+dash extension okay
+
+734
+00:30:45,840 --> 00:30:49,679
+then you
+
+735
+00:30:47,120 --> 00:30:50,960
+create a new name so the new name is
+
+736
+00:30:49,679 --> 00:30:52,720
+going to be
+
+737
+00:30:50,960 --> 00:30:54,880
+git file hash
+
+738
+00:30:52,720 --> 00:30:57,279
+it returns a object
+
+739
+00:30:54,880 --> 00:30:59,279
+base basically github file hash returns
+
+740
+00:30:57,279 --> 00:31:00,320
+the hash
+
+741
+00:30:59,279 --> 00:31:02,880
+stream
+
+742
+00:31:00,320 --> 00:31:04,480
+but however in micro in powershell
+
+743
+00:31:02,880 --> 00:31:06,720
+everything is object
+
+744
+00:31:04,480 --> 00:31:10,240
+so you have to so instead it actually
+
+745
+00:31:06,720 --> 00:31:13,360
+returns a object and this object has it
+
+746
+00:31:10,240 --> 00:31:16,159
+has a property named hash
+
+747
+00:31:13,360 --> 00:31:19,279
+and the value of that property is a hash
+
+748
+00:31:16,159 --> 00:31:21,519
+string you know this is a bit complexity
+
+749
+00:31:19,279 --> 00:31:23,919
+i didn't really like this but this is i
+
+750
+00:31:21,519 --> 00:31:26,559
+suppose more powerful so
+
+751
+00:31:23,919 --> 00:31:28,320
+when you call get file hash
+
+752
+00:31:26,559 --> 00:31:30,320
+it doesn't it doesn't just return a
+
+753
+00:31:28,320 --> 00:31:31,919
+string it returns the object if you
+
+754
+00:31:30,320 --> 00:31:32,720
+really actually want the hash you have
+
+755
+00:31:31,919 --> 00:31:35,840
+to
+
+756
+00:31:32,720 --> 00:31:38,320
+call the property hash to get the
+
+757
+00:31:35,840 --> 00:31:39,840
+hash stream then plus file name
+
+758
+00:31:38,320 --> 00:31:42,399
+extension so
+
+759
+00:31:39,840 --> 00:31:47,039
+what you get is a you know
+
+760
+00:31:42,399 --> 00:31:49,760
+a hash key with a jpeg or png then you
+
+761
+00:31:47,039 --> 00:31:53,200
+call rename item to rename it okay
+
+762
+00:31:49,760 --> 00:31:56,240
+that's how you do it so if we run this
+
+763
+00:31:53,200 --> 00:31:58,480
+now if we run this now
+
+764
+00:31:56,240 --> 00:32:01,679
+you see all this
+
+765
+00:31:58,480 --> 00:32:04,000
+you see all these images
+
+766
+00:32:01,679 --> 00:32:05,840
+you see all these images
+
+767
+00:32:04,000 --> 00:32:07,760
+let's magnify okay
+
+768
+00:32:05,840 --> 00:32:09,440
+you see all these images they're gonna
+
+769
+00:32:07,760 --> 00:32:12,000
+you see there look at their name they're
+
+770
+00:32:09,440 --> 00:32:14,559
+gonna be all renamed into a hash okay
+
+771
+00:32:12,000 --> 00:32:16,720
+let's do it
+
+772
+00:32:14,559 --> 00:32:19,039
+okay close close let you know there are
+
+773
+00:32:16,720 --> 00:32:20,720
+many ways to run it i can run this in
+
+774
+00:32:19,039 --> 00:32:22,720
+emacs
+
+775
+00:32:20,720 --> 00:32:25,440
+or i can run this in powershell let's
+
+776
+00:32:22,720 --> 00:32:27,360
+run it in powershell okay so let's just
+
+777
+00:32:25,440 --> 00:32:28,559
+copy that
+
+778
+00:32:27,360 --> 00:32:32,559
+paste it
+
+779
+00:32:28,559 --> 00:32:32,559
+paste anyway yes paste it
+
+780
+00:32:32,799 --> 00:32:35,120
+what
+
+781
+00:32:38,799 --> 00:32:43,720
+and what did i paste oh god
+
+782
+00:32:45,200 --> 00:32:48,000
+what did it do
+
+783
+00:32:51,840 --> 00:32:57,840
+oh okay so you see
+
+784
+00:32:54,720 --> 00:33:00,640
+i pasted the so this is
+
+785
+00:32:57,840 --> 00:33:02,880
+you know i paste it
+
+786
+00:33:00,640 --> 00:33:05,360
+you know basically you you can these two
+
+787
+00:33:02,880 --> 00:33:07,039
+lines needs to be one single line
+
+788
+00:33:05,360 --> 00:33:09,360
+otherwise it
+
+789
+00:33:07,039 --> 00:33:11,760
+consider the first one just as a command
+
+790
+00:33:09,360 --> 00:33:15,840
+that's why it's actually listing the
+
+791
+00:33:11,760 --> 00:33:19,519
+directory so you see the mida dash file
+
+792
+00:33:15,840 --> 00:33:19,519
+that's actually listing the directory
+
+793
+00:33:20,080 --> 00:33:25,840
+okay so
+
+794
+00:33:21,519 --> 00:33:25,840
+so cancel that okay cancel
+
+795
+00:33:26,640 --> 00:33:31,200
+okay cancel so these two needs to be one
+
+796
+00:33:29,840 --> 00:33:35,200
+line okay
+
+797
+00:33:31,200 --> 00:33:38,799
+okay now let's do it again copy it
+
+798
+00:33:35,200 --> 00:33:41,279
+back to powershell cls for clear screen
+
+799
+00:33:38,799 --> 00:33:42,640
+so we start fresh
+
+800
+00:33:41,279 --> 00:33:44,320
+paste it
+
+801
+00:33:42,640 --> 00:33:46,080
+paste anyway
+
+802
+00:33:44,320 --> 00:33:48,720
+okay
+
+803
+00:33:46,080 --> 00:33:50,840
+enter executed
+
+804
+00:33:48,720 --> 00:33:53,679
+execute
+
+805
+00:33:50,840 --> 00:33:54,480
+done now go back to our directory you
+
+806
+00:33:53,679 --> 00:33:56,240
+see
+
+807
+00:33:54,480 --> 00:33:59,360
+the file names
+
+808
+00:33:56,240 --> 00:34:02,880
+now they all become hash
+
+809
+00:33:59,360 --> 00:34:05,279
+unique to every file
+
+810
+00:34:02,880 --> 00:34:08,079
+so let me open this picture because this
+
+811
+00:34:05,279 --> 00:34:11,280
+girl is beautiful
+
+812
+00:34:08,079 --> 00:34:15,599
+okay so anyway so
+
+813
+00:34:11,280 --> 00:34:15,599
+let's look at some of the files okay so
+
+814
+00:34:16,639 --> 00:34:21,800
+okay so anyway so you can see what
+
+815
+00:34:24,560 --> 00:34:29,200
+anyway so
+
+816
+00:34:25,839 --> 00:34:30,560
+success okay so let's let's change this
+
+817
+00:34:29,200 --> 00:34:34,040
+to
+
+818
+00:34:30,560 --> 00:34:34,040
+file path
+
+819
+00:34:34,240 --> 00:34:40,079
+so you can see um what
+
+820
+00:34:37,440 --> 00:34:42,159
+anyway so that's it that's a demo of
+
+821
+00:34:40,079 --> 00:34:44,879
+this
+
+822
+00:34:42,159 --> 00:34:47,200
+uh powershell script turn every file
+
+823
+00:34:44,879 --> 00:34:49,280
+into their hash okay
+
+824
+00:34:47,200 --> 00:34:52,240
+am i
+
+825
+00:34:49,280 --> 00:34:54,879
+doing good is it interesting
+
+826
+00:34:52,240 --> 00:34:59,159
+uh is it that's it for today or
+
+827
+00:34:54,879 --> 00:34:59,159
+something else let's see
+
+828
+00:35:07,040 --> 00:35:11,920
+so
+
+829
+00:35:08,560 --> 00:35:11,920
+any questions
+
+830
+00:35:12,079 --> 00:35:13,920
+okay
+
+831
+00:35:12,960 --> 00:35:15,040
+you know
+
+832
+00:35:13,920 --> 00:35:17,359
+so
+
+833
+00:35:15,040 --> 00:35:19,839
+if you have a question for me
+
+834
+00:35:17,359 --> 00:35:22,240
+you know tag me okay
+
+835
+00:35:19,839 --> 00:35:23,280
+so we demonstrated this powershell
+
+836
+00:35:22,240 --> 00:35:25,520
+script
+
+837
+00:35:23,280 --> 00:35:27,359
+uh let's see what else what else are we
+
+838
+00:35:25,520 --> 00:35:29,359
+supposed to do
+
+839
+00:35:27,359 --> 00:35:32,160
+close that
+
+840
+00:35:29,359 --> 00:35:34,079
+okay we go back here
+
+841
+00:35:32,160 --> 00:35:36,560
+today's talk show
+
+842
+00:35:34,079 --> 00:35:38,240
+demo powershell get file hash we did
+
+843
+00:35:36,560 --> 00:35:40,800
+that
+
+844
+00:35:38,240 --> 00:35:43,359
+demo delete duplicate we're going to do
+
+845
+00:35:40,800 --> 00:35:46,000
+that demo the powershell rename file to
+
+846
+00:35:43,359 --> 00:35:47,040
+hash we did that and we explained how it
+
+847
+00:35:46,000 --> 00:35:49,839
+works
+
+848
+00:35:47,040 --> 00:35:53,440
+now let's demo the delete duplicate perl
+
+849
+00:35:49,839 --> 00:35:56,400
+script this is gonna be fantastic okay
+
+850
+00:35:53,440 --> 00:35:58,720
+because it actually um
+
+851
+00:35:56,400 --> 00:36:01,119
+hold on a second let me show show in
+
+852
+00:35:58,720 --> 00:36:03,839
+browser so you can see we have today's
+
+853
+00:36:01,119 --> 00:36:03,839
+code here
+
+854
+00:36:03,920 --> 00:36:09,280
+okay now let's demo the perl script okay
+
+855
+00:36:07,280 --> 00:36:11,280
+the this power script is going to be
+
+856
+00:36:09,280 --> 00:36:14,560
+fantastic my friends
+
+857
+00:36:11,280 --> 00:36:16,480
+fantastic okay close that go here curse
+
+858
+00:36:14,560 --> 00:36:19,200
+that
+
+859
+00:36:16,480 --> 00:36:21,599
+okay so we need the file path hold on a
+
+860
+00:36:19,200 --> 00:36:21,599
+second
+
+861
+00:36:23,760 --> 00:36:26,359
+now remove
+
+862
+00:36:25,200 --> 00:36:30,400
+remove the
+
+863
+00:36:26,359 --> 00:36:31,839
+html so it's legible but wait
+
+864
+00:36:30,400 --> 00:36:35,200
+uh
+
+865
+00:36:31,839 --> 00:36:37,599
+there so now the script is legible so
+
+866
+00:36:35,200 --> 00:36:41,280
+this the
+
+867
+00:36:37,599 --> 00:36:46,000
+so copy that copy copy copy
+
+868
+00:36:41,280 --> 00:36:46,000
+okay so let's create a new powershell
+
+869
+00:36:48,960 --> 00:36:51,599
+template
+
+870
+00:36:52,880 --> 00:36:56,480
+create another one
+
+871
+00:36:55,359 --> 00:36:57,440
+paste
+
+872
+00:36:56,480 --> 00:37:00,000
+now
+
+873
+00:36:57,440 --> 00:37:02,480
+syntax color them all
+
+874
+00:37:00,000 --> 00:37:06,160
+show in browser
+
+875
+00:37:02,480 --> 00:37:07,200
+there it is now it's good now actually
+
+876
+00:37:06,160 --> 00:37:10,079
+uh
+
+877
+00:37:07,200 --> 00:37:12,480
+we need to remove the comment okay so
+
+878
+00:37:10,079 --> 00:37:14,079
+remove the comment here and remove the
+
+879
+00:37:12,480 --> 00:37:15,680
+comment here
+
+880
+00:37:14,079 --> 00:37:18,560
+and uh
+
+881
+00:37:15,680 --> 00:37:18,560
+delete this
+
+882
+00:37:20,640 --> 00:37:27,200
+oh actually you need that let's use some
+
+883
+00:37:22,960 --> 00:37:27,200
+shorter names so yeah that one
+
+884
+00:37:34,640 --> 00:37:37,839
+okay
+
+885
+00:37:35,520 --> 00:37:37,839
+now
+
+886
+00:37:38,240 --> 00:37:41,440
+syntax color them
+
+887
+00:37:39,920 --> 00:37:42,640
+back to browser
+
+888
+00:37:41,440 --> 00:37:45,599
+refresh
+
+889
+00:37:42,640 --> 00:37:45,599
+fantastic
+
+890
+00:37:46,640 --> 00:37:50,480
+so
+
+891
+00:37:48,160 --> 00:37:54,079
+now we are going to
+
+892
+00:37:50,480 --> 00:37:56,320
+demo the pearl dd duplicate script okay
+
+893
+00:37:54,079 --> 00:37:58,000
+written 20 years ago
+
+894
+00:37:56,320 --> 00:38:00,160
+17.
+
+895
+00:37:58,000 --> 00:38:01,440
+uh
+
+896
+00:38:00,160 --> 00:38:03,760
+so
+
+897
+00:38:01,440 --> 00:38:06,240
+yeah so first of all we need to what we
+
+898
+00:38:03,760 --> 00:38:08,079
+need to do so we yeah let's let's go
+
+899
+00:38:06,240 --> 00:38:09,520
+there okay so let's go to our temp
+
+900
+00:38:08,079 --> 00:38:11,520
+directory
+
+901
+00:38:09,520 --> 00:38:15,040
+go to the temp directory
+
+902
+00:38:11,520 --> 00:38:18,040
+you see image files now they are all
+
+903
+00:38:15,040 --> 00:38:18,040
+uh
+
+904
+00:38:18,160 --> 00:38:23,040
+they are all uh hash names
+
+905
+00:38:20,880 --> 00:38:23,040
+so
+
+906
+00:38:23,680 --> 00:38:28,480
+go up a directory
+
+907
+00:38:26,880 --> 00:38:31,280
+magnify
+
+908
+00:38:28,480 --> 00:38:34,880
+delete the whole thing
+
+909
+00:38:31,280 --> 00:38:36,880
+yes do you eat them all yes
+
+910
+00:38:34,880 --> 00:38:40,640
+kill diode buffer
+
+911
+00:38:36,880 --> 00:38:42,240
+yes okay i just we just deleted the hole
+
+912
+00:38:40,640 --> 00:38:44,880
+now
+
+913
+00:38:42,240 --> 00:38:44,880
+powershell
+
+914
+00:38:45,280 --> 00:38:48,960
+uh now we need to
+
+915
+00:38:47,839 --> 00:38:50,880
+copy
+
+916
+00:38:48,960 --> 00:38:54,000
+copy them over remember that's why we
+
+917
+00:38:50,880 --> 00:38:58,400
+did this before we just run this we can
+
+918
+00:38:54,000 --> 00:38:58,400
+we can run this we can run this in
+
+919
+00:38:59,040 --> 00:39:03,119
+in in powershell terminal or we can run
+
+920
+00:39:01,440 --> 00:39:06,800
+it in emacs let me show you another
+
+921
+00:39:03,119 --> 00:39:09,359
+command okay i press to key
+
+922
+00:39:06,800 --> 00:39:12,480
+i press two key then it pops up this
+
+923
+00:39:09,359 --> 00:39:15,680
+powershot window you see so that is part
+
+924
+00:39:12,480 --> 00:39:18,880
+of the emac my emacs command open in
+
+925
+00:39:15,680 --> 00:39:21,920
+terminal it works on windows it works on
+
+926
+00:39:18,880 --> 00:39:23,040
+linux and it works on mac
+
+927
+00:39:21,920 --> 00:39:26,240
+okay so
+
+928
+00:39:23,040 --> 00:39:28,079
+on any you know you
+
+929
+00:39:26,240 --> 00:39:30,560
+open in terminal that is part of
+
+930
+00:39:28,079 --> 00:39:32,560
+sapphire keys so you just press two keys
+
+931
+00:39:30,560 --> 00:39:36,000
+it will open the current buffer
+
+932
+00:39:32,560 --> 00:39:37,839
+directory in terminal okay so exit so
+
+933
+00:39:36,000 --> 00:39:39,839
+since i'm on windows so it opens
+
+934
+00:39:37,839 --> 00:39:42,400
+powershell
+
+935
+00:39:39,839 --> 00:39:46,400
+so we open so yeah so we can run this in
+
+936
+00:39:42,400 --> 00:39:49,760
+so many ways so for example um
+
+937
+00:39:46,400 --> 00:39:52,160
+dot x two zero
+
+938
+00:39:49,760 --> 00:39:52,880
+uh which one this one
+
+939
+00:39:52,160 --> 00:39:55,119
+so
+
+940
+00:39:52,880 --> 00:39:57,520
+if i run that it will copy but you know
+
+941
+00:39:55,119 --> 00:39:58,400
+someone different ways but let me show
+
+942
+00:39:57,520 --> 00:40:00,800
+you
+
+943
+00:39:58,400 --> 00:40:03,200
+i'm going to run this in emacs in
+
+944
+00:40:00,800 --> 00:40:05,680
+powershell mod so
+
+945
+00:40:03,200 --> 00:40:05,680
+run it
+
+946
+00:40:07,040 --> 00:40:10,560
+finished
+
+947
+00:40:08,240 --> 00:40:13,760
+okay you need in a mini buffer you can
+
+948
+00:40:10,560 --> 00:40:16,720
+see finished now we go here
+
+949
+00:40:13,760 --> 00:40:19,920
+press the key to open the directory
+
+950
+00:40:16,720 --> 00:40:22,560
+enter to open fantastic you see
+
+951
+00:40:19,920 --> 00:40:25,359
+we just deleted this now we copied over
+
+952
+00:40:22,560 --> 00:40:27,760
+again so now
+
+953
+00:40:25,359 --> 00:40:30,560
+so now let's make some duplicate okay so
+
+954
+00:40:27,760 --> 00:40:30,560
+let's um
+
+955
+00:40:30,880 --> 00:40:35,760
+again okay let me show you okay so
+
+956
+00:40:34,160 --> 00:40:38,160
+press the key
+
+957
+00:40:35,760 --> 00:40:40,800
+it makes a backup you see of this file
+
+958
+00:40:38,160 --> 00:40:43,920
+so whatever so let's say
+
+959
+00:40:40,800 --> 00:40:47,920
+that file let's mark okay that file that
+
+960
+00:40:43,920 --> 00:40:49,839
+file that file okay i marked four files
+
+961
+00:40:47,920 --> 00:40:51,200
+now i
+
+962
+00:40:49,839 --> 00:40:54,079
+press a key
+
+963
+00:40:51,200 --> 00:40:55,760
+each one of them will have a backup copy
+
+964
+00:40:54,079 --> 00:40:57,599
+so you see
+
+965
+00:40:55,760 --> 00:40:58,640
+you see
+
+966
+00:40:57,599 --> 00:41:01,760
+you see
+
+967
+00:40:58,640 --> 00:41:04,839
+so the that command is xiaomi backup and
+
+968
+00:41:01,760 --> 00:41:06,720
+save that's also part of soft flag keys
+
+969
+00:41:04,839 --> 00:41:09,200
+okay
+
+970
+00:41:06,720 --> 00:41:11,680
+so now we have all this duplicate
+
+971
+00:41:09,200 --> 00:41:13,839
+duplicate what am i gonna do well i'm
+
+972
+00:41:11,680 --> 00:41:15,440
+gonna rename them okay so
+
+973
+00:41:13,839 --> 00:41:18,079
+rename
+
+974
+00:41:15,440 --> 00:41:21,680
+uh we we should have written a script to
+
+975
+00:41:18,079 --> 00:41:25,040
+rename this okay
+
+976
+00:41:21,680 --> 00:41:28,800
+so we can rename files directly here so
+
+977
+00:41:25,040 --> 00:41:31,599
+we add uh we we just add
+
+978
+00:41:28,800 --> 00:41:32,839
+let's magnify okay
+
+979
+00:41:31,599 --> 00:41:36,400
+so we
+
+980
+00:41:32,839 --> 00:41:39,599
+have renamed
+
+981
+00:41:36,400 --> 00:41:39,599
+all these files
+
+982
+00:41:43,520 --> 00:41:47,680
+uh what
+
+983
+00:41:45,200 --> 00:41:49,839
+okay so
+
+984
+00:41:47,680 --> 00:41:52,240
+add a t here
+
+985
+00:41:49,839 --> 00:41:53,839
+d that okay
+
+986
+00:41:52,240 --> 00:41:56,640
+so
+
+987
+00:41:53,839 --> 00:42:00,319
+done okay now actually
+
+988
+00:41:56,640 --> 00:42:02,960
+tx let's rename a name again okay so
+
+989
+00:42:00,319 --> 00:42:05,359
+press the key to start to rename and
+
+990
+00:42:02,960 --> 00:42:06,960
+let's do query replace
+
+991
+00:42:05,359 --> 00:42:08,480
+dash t
+
+992
+00:42:06,960 --> 00:42:09,920
+dot jpeg
+
+993
+00:42:08,480 --> 00:42:11,280
+replace by
+
+994
+00:42:09,920 --> 00:42:12,240
+t
+
+995
+00:42:11,280 --> 00:42:14,720
+x
+
+996
+00:42:12,240 --> 00:42:18,880
+x dot jpeg okay
+
+997
+00:42:14,720 --> 00:42:20,000
+yes yes yes yes yes okay five files done
+
+998
+00:42:18,880 --> 00:42:21,920
+okay
+
+999
+00:42:20,000 --> 00:42:24,720
+so why am i doing that so we can
+
+1000
+00:42:21,920 --> 00:42:26,880
+highlight it by a pattern easily
+
+1001
+00:42:24,720 --> 00:42:31,280
+so uh what
+
+1002
+00:42:26,880 --> 00:42:36,240
+so for example i'm going to mark by
+
+1003
+00:42:31,280 --> 00:42:38,640
+regular expression and i type txx.jpg
+
+1004
+00:42:36,240 --> 00:42:38,640
+enter
+
+1005
+00:42:38,800 --> 00:42:43,520
+you see it says five files
+
+1006
+00:42:41,440 --> 00:42:46,960
+five files
+
+1007
+00:42:43,520 --> 00:42:49,760
+marked you see so so what we did is just
+
+1008
+00:42:46,960 --> 00:42:51,760
+we made a copy of some of the files
+
+1009
+00:42:49,760 --> 00:42:52,480
+because why are we doing that because we
+
+1010
+00:42:51,760 --> 00:42:53,839
+are
+
+1011
+00:42:52,480 --> 00:42:55,680
+going to
+
+1012
+00:42:53,839 --> 00:42:58,800
+demo the perl
+
+1013
+00:42:55,680 --> 00:42:59,680
+script to delete duplicate okay
+
+1014
+00:42:58,800 --> 00:43:02,480
+so
+
+1015
+00:42:59,680 --> 00:43:04,800
+copy the file path let's now go to the
+
+1016
+00:43:02,480 --> 00:43:06,720
+perl directory
+
+1017
+00:43:04,800 --> 00:43:08,560
+close that
+
+1018
+00:43:06,720 --> 00:43:10,079
+okay so
+
+1019
+00:43:08,560 --> 00:43:11,040
+get back
+
+1020
+00:43:10,079 --> 00:43:15,119
+okay
+
+1021
+00:43:11,040 --> 00:43:17,599
+so sure in browser so here is our code
+
+1022
+00:43:15,119 --> 00:43:20,240
+now let's open the perl
+
+1023
+00:43:17,599 --> 00:43:20,240
+directory
+
+1024
+00:43:21,680 --> 00:43:26,480
+okay so here is a perl directory and how
+
+1025
+00:43:24,560 --> 00:43:29,040
+do you
+
+1026
+00:43:26,480 --> 00:43:31,760
+call it let me show you okay so open the
+
+1027
+00:43:29,040 --> 00:43:31,760
+powershell
+
+1028
+00:43:34,960 --> 00:43:38,720
+so i can call it by
+
+1029
+00:43:37,599 --> 00:43:41,200
+pearl
+
+1030
+00:43:38,720 --> 00:43:42,720
+let's see where is pearl get command
+
+1031
+00:43:41,200 --> 00:43:45,760
+pearl
+
+1032
+00:43:42,720 --> 00:43:46,800
+okay pearl is installed strawberry pearl
+
+1033
+00:43:45,760 --> 00:43:49,599
+that's the
+
+1034
+00:43:46,800 --> 00:43:50,480
+pearl you use on windows okay so pearls
+
+1035
+00:43:49,599 --> 00:43:54,920
+there
+
+1036
+00:43:50,480 --> 00:43:54,920
+and i can just say pearl
+
+1037
+00:43:55,839 --> 00:43:59,359
+okay run the code
+
+1038
+00:43:59,520 --> 00:44:04,079
+so it's gonna
+
+1039
+00:44:00,960 --> 00:44:06,560
+tell you it oh god can locate something
+
+1040
+00:44:04,079 --> 00:44:08,800
+something
+
+1041
+00:44:06,560 --> 00:44:10,560
+missing the module why because well the
+
+1042
+00:44:08,800 --> 00:44:13,359
+module is right here
+
+1043
+00:44:10,560 --> 00:44:13,359
+but it's not
+
+1044
+00:44:13,520 --> 00:44:15,760
+yeah
+
+1045
+00:44:17,599 --> 00:44:24,880
+so i haven't run this code for like
+
+1046
+00:44:20,480 --> 00:44:24,880
+10 20 years for 10 years um
+
+1047
+00:44:25,760 --> 00:44:32,560
+so why is a module not part of the
+
+1048
+00:44:28,880 --> 00:44:34,839
+current directory i mean why is
+
+1049
+00:44:32,560 --> 00:44:38,560
+why it does not use the current
+
+1050
+00:44:34,839 --> 00:44:39,839
+directory as a search location to locate
+
+1051
+00:44:38,560 --> 00:44:42,240
+modules
+
+1052
+00:44:39,839 --> 00:44:44,560
+now i haven't been coding perl for 15
+
+1053
+00:44:42,240 --> 00:44:47,440
+years
+
+1054
+00:44:44,560 --> 00:44:49,359
+so basically the error is that can
+
+1055
+00:44:47,440 --> 00:44:50,880
+locate module
+
+1056
+00:44:49,359 --> 00:44:54,079
+in ink
+
+1057
+00:44:50,880 --> 00:44:58,480
+okay ink you know ink is the
+
+1058
+00:44:54,079 --> 00:45:00,640
+search path you may need okay so
+
+1059
+00:44:58,480 --> 00:45:03,119
+you know what i'm going to
+
+1060
+00:45:00,640 --> 00:45:06,880
+i'm just going to
+
+1061
+00:45:03,119 --> 00:45:06,880
+copy this whole code
+
+1062
+00:45:07,520 --> 00:45:12,560
+into the file so we don't have the
+
+1063
+00:45:09,839 --> 00:45:15,119
+module crap
+
+1064
+00:45:12,560 --> 00:45:17,520
+the code is only 10 lines it's just one
+
+1065
+00:45:15,119 --> 00:45:17,520
+function
+
+1066
+00:45:17,760 --> 00:45:24,000
+you know because back then
+
+1067
+00:45:20,560 --> 00:45:27,119
+what is this sub reduce oh god i have a
+
+1068
+00:45:24,000 --> 00:45:27,119
+full documentation
+
+1069
+00:45:27,760 --> 00:45:33,839
+okay so i got more than one function
+
+1070
+00:45:30,160 --> 00:45:33,839
+reduce and merge
+
+1071
+00:45:35,839 --> 00:45:40,400
+ah this is pearl code okay
+
+1072
+00:45:42,079 --> 00:45:47,599
+okay so first of all make a backup of
+
+1073
+00:45:45,040 --> 00:45:50,240
+this file
+
+1074
+00:45:47,599 --> 00:45:50,240
+and now
+
+1075
+00:45:50,960 --> 00:45:54,560
+now let's go here
+
+1076
+00:45:53,359 --> 00:46:00,119
+and
+
+1077
+00:45:54,560 --> 00:46:00,119
+let's modify this backup okay
+
+1078
+00:46:03,359 --> 00:46:07,680
+okay and same thing with this package
+
+1079
+00:46:12,319 --> 00:46:18,160
+okay so this mod we're gonna um
+
+1080
+00:46:16,000 --> 00:46:21,040
+we don't need the package name we don't
+
+1081
+00:46:18,160 --> 00:46:23,280
+need that i need that
+
+1082
+00:46:21,040 --> 00:46:27,319
+export isa
+
+1083
+00:46:23,280 --> 00:46:27,319
+exported um
+
+1084
+00:46:30,720 --> 00:46:36,240
+god i don't know i don't
+
+1085
+00:46:33,200 --> 00:46:39,280
+know pearl for a long time so let's just
+
+1086
+00:46:36,240 --> 00:46:39,280
+delete all these
+
+1087
+00:46:40,240 --> 00:46:46,480
+comments and stuff this is inline
+
+1088
+00:46:42,720 --> 00:46:46,480
+documentation of pearl
+
+1089
+00:46:46,720 --> 00:46:54,319
+okay so removed all that
+
+1090
+00:46:50,480 --> 00:46:54,319
+he removed all that
+
+1091
+00:46:55,119 --> 00:47:00,880
+okay so that should be it 70 lines of
+
+1092
+00:46:58,560 --> 00:47:04,319
+code
+
+1093
+00:47:00,880 --> 00:47:07,119
+and this code we're just gonna copy
+
+1094
+00:47:04,319 --> 00:47:09,280
+close it save it and put it into the
+
+1095
+00:47:07,119 --> 00:47:12,480
+main program here
+
+1096
+00:47:09,280 --> 00:47:16,240
+so we don't have to deal with the
+
+1097
+00:47:12,480 --> 00:47:16,240
+let's just paste it here okay
+
+1098
+00:47:21,839 --> 00:47:28,400
+okay and same thing so let's remove you
+
+1099
+00:47:25,440 --> 00:47:30,079
+see here is where you call the module
+
+1100
+00:47:28,400 --> 00:47:31,440
+use combo
+
+1101
+00:47:30,079 --> 00:47:34,960
+command out
+
+1102
+00:47:31,440 --> 00:47:36,960
+and use gen pairs comment out okay and
+
+1103
+00:47:34,960 --> 00:47:39,599
+go to the directory
+
+1104
+00:47:36,960 --> 00:47:42,079
+gen pairs okay we need to include the
+
+1105
+00:47:39,599 --> 00:47:44,720
+code of this thing
+
+1106
+00:47:42,079 --> 00:47:49,200
+so remove that
+
+1107
+00:47:44,720 --> 00:47:50,480
+remove remove remove copyright remove
+
+1108
+00:47:49,200 --> 00:47:53,680
+so
+
+1109
+00:47:50,480 --> 00:47:54,880
+here's a documentation delete
+
+1110
+00:47:53,680 --> 00:47:56,000
+delete
+
+1111
+00:47:54,880 --> 00:47:59,599
+okay
+
+1112
+00:47:56,000 --> 00:48:01,280
+here's another documentation delete
+
+1113
+00:47:59,599 --> 00:48:02,240
+delete
+
+1114
+00:48:01,280 --> 00:48:05,599
+okay
+
+1115
+00:48:02,240 --> 00:48:08,319
+copy the whole thing close it save
+
+1116
+00:48:05,599 --> 00:48:09,440
+back to delete dupes the main program
+
+1117
+00:48:08,319 --> 00:48:14,319
+open it
+
+1118
+00:48:09,440 --> 00:48:15,839
+and paste our thing here paste our thing
+
+1119
+00:48:14,319 --> 00:48:16,800
+here
+
+1120
+00:48:15,839 --> 00:48:19,280
+okay
+
+1121
+00:48:16,800 --> 00:48:19,280
+and now
+
+1122
+00:48:19,599 --> 00:48:25,520
+add a bunch of comments to separate okay
+
+1123
+00:48:22,319 --> 00:48:29,599
+so now we have the program
+
+1124
+00:48:25,520 --> 00:48:31,359
+no dependencies on modules okay save it
+
+1125
+00:48:29,599 --> 00:48:34,359
+now back to
+
+1126
+00:48:31,359 --> 00:48:34,359
+powershell
+
+1127
+00:48:34,640 --> 00:48:38,160
+okay run the last code
+
+1128
+00:48:37,040 --> 00:48:40,960
+do it
+
+1129
+00:48:38,160 --> 00:48:40,960
+fantastic
+
+1130
+00:48:41,359 --> 00:48:44,559
+uh wait what
+
+1131
+00:48:45,440 --> 00:48:50,160
+yeah it runs
+
+1132
+00:48:46,839 --> 00:48:52,720
+successfully wait what
+
+1133
+00:48:50,160 --> 00:48:54,400
+yes it runs successfully let's clear the
+
+1134
+00:48:52,720 --> 00:48:57,119
+screen so it's
+
+1135
+00:48:54,400 --> 00:48:58,720
+so it's easier to see okay so do it
+
+1136
+00:48:57,119 --> 00:49:01,520
+again so you see
+
+1137
+00:48:58,720 --> 00:49:03,520
+so it says no argument received that's
+
+1138
+00:49:01,520 --> 00:49:05,839
+the proper behavior
+
+1139
+00:49:03,520 --> 00:49:07,839
+so it tells you the usage you know if
+
+1140
+00:49:05,839 --> 00:49:11,040
+you doesn't you know give a directory
+
+1141
+00:49:07,839 --> 00:49:12,400
+you tell your usage so the way you call
+
+1142
+00:49:11,040 --> 00:49:14,720
+a command is
+
+1143
+00:49:12,400 --> 00:49:17,839
+you need to give it a path okay let's
+
+1144
+00:49:14,720 --> 00:49:17,839
+give it a path
+
+1145
+00:49:17,920 --> 00:49:22,160
+uh that's
+
+1146
+00:49:19,040 --> 00:49:24,880
+uh that's the place you want it to tell
+
+1147
+00:49:22,160 --> 00:49:27,119
+you to work on i mean the directory you
+
+1148
+00:49:24,880 --> 00:49:31,640
+want to remove the duplicate
+
+1149
+00:49:27,119 --> 00:49:31,640
+so the path is
+
+1150
+00:49:33,839 --> 00:49:39,680
+where is our uh
+
+1151
+00:49:36,319 --> 00:49:40,960
+path okay let's it's here here is a path
+
+1152
+00:49:39,680 --> 00:49:42,559
+okay
+
+1153
+00:49:40,960 --> 00:49:45,920
+so
+
+1154
+00:49:42,559 --> 00:49:47,599
+do it again let's clear screen
+
+1155
+00:49:45,920 --> 00:49:52,319
+call the command
+
+1156
+00:49:47,599 --> 00:49:52,319
+and paste the file path okay there
+
+1157
+00:49:52,640 --> 00:49:55,880
+do it
+
+1158
+00:49:58,319 --> 00:50:03,599
+there are a total of zero files examined
+
+1159
+00:50:04,240 --> 00:50:07,839
+okay i think um
+
+1160
+00:50:08,960 --> 00:50:13,839
+yeah it's not finding let's try it again
+
+1161
+00:50:14,079 --> 00:50:19,119
+okay i think you cannot use the
+
+1162
+00:50:16,480 --> 00:50:21,760
+abbreviation because
+
+1163
+00:50:19,119 --> 00:50:22,880
+in perl yeah okay so let's
+
+1164
+00:50:21,760 --> 00:50:26,520
+um
+
+1165
+00:50:22,880 --> 00:50:26,520
+let's fix that
+
+1166
+00:50:29,280 --> 00:50:35,359
+okay let's call it again let's
+
+1167
+00:50:32,400 --> 00:50:40,760
+clear screen let's call this again and
+
+1168
+00:50:35,359 --> 00:50:40,760
+this time let's give it a full path
+
+1169
+00:50:45,680 --> 00:50:49,200
+do it
+
+1170
+00:50:47,079 --> 00:50:53,359
+fantastic you see
+
+1171
+00:50:49,200 --> 00:50:56,319
+so now it says there are 630 unique file
+
+1172
+00:50:53,359 --> 00:50:57,599
+size the following files are identical
+
+1173
+00:50:56,319 --> 00:50:58,800
+you can see
+
+1174
+00:50:57,599 --> 00:51:00,559
+there
+
+1175
+00:50:58,800 --> 00:51:01,760
+there
+
+1176
+00:51:00,559 --> 00:51:04,240
+there
+
+1177
+00:51:01,760 --> 00:51:06,720
+you know if this each two files are
+
+1178
+00:51:04,240 --> 00:51:09,680
+identical sometimes you have five or ten
+
+1179
+00:51:06,720 --> 00:51:11,359
+files that's identical it will just all
+
+1180
+00:51:09,680 --> 00:51:14,000
+list them
+
+1181
+00:51:11,359 --> 00:51:14,880
+so now if you want to delete you can so
+
+1182
+00:51:14,000 --> 00:51:17,280
+you know
+
+1183
+00:51:14,880 --> 00:51:19,599
+and it tells you if you delete these
+
+1184
+00:51:17,280 --> 00:51:20,480
+duplicate files you'll save this many
+
+1185
+00:51:19,599 --> 00:51:22,720
+bytes
+
+1186
+00:51:20,480 --> 00:51:26,000
+so if you want to delete you can just
+
+1187
+00:51:22,720 --> 00:51:29,760
+say dash d okay so
+
+1188
+00:51:26,000 --> 00:51:29,760
+so let's give it an option uh
+
+1189
+00:51:31,359 --> 00:51:37,839
+i believe it's dash d okay let's double
+
+1190
+00:51:34,480 --> 00:51:37,839
+check let's go to the pearl
+
+1191
+00:51:41,040 --> 00:51:45,040
+let's open it let's see
+
+1192
+00:51:49,040 --> 00:51:52,240
+yeah dash d okay
+
+1193
+00:51:51,200 --> 00:51:53,920
+so
+
+1194
+00:51:52,240 --> 00:51:55,520
+do it
+
+1195
+00:51:53,920 --> 00:51:58,400
+do it
+
+1196
+00:51:55,520 --> 00:51:58,400
+fantastic
+
+1197
+00:52:03,359 --> 00:52:10,559
+okay so now let's go to
+
+1198
+00:52:06,160 --> 00:52:10,559
+let's go to our image directory
+
+1199
+00:52:13,520 --> 00:52:19,040
+open it
+
+1200
+00:52:15,040 --> 00:52:20,240
+open it open it
+
+1201
+00:52:19,040 --> 00:52:23,359
+you see
+
+1202
+00:52:20,240 --> 00:52:26,480
+the files are good you see this file the
+
+1203
+00:52:23,359 --> 00:52:28,880
+original is good also this file
+
+1204
+00:52:26,480 --> 00:52:32,240
+you see because there's no more uh file
+
+1205
+00:52:28,880 --> 00:52:34,800
+of the same name before you see
+
+1206
+00:52:32,240 --> 00:52:34,800
+exa
+
+1207
+00:52:39,760 --> 00:52:44,880
+okay and here's another one you see
+
+1208
+00:52:43,520 --> 00:52:46,720
+success
+
+1209
+00:52:44,880 --> 00:52:49,680
+okay that's it that's it i think that's
+
+1210
+00:52:46,720 --> 00:52:53,920
+it so that's the
+
+1211
+00:52:49,680 --> 00:52:56,720
+so that is the pearl dd duplicate
+
+1212
+00:52:53,920 --> 00:52:58,319
+uh code i wrote
+
+1213
+00:52:56,720 --> 00:52:59,440
+17 years ago
+
+1214
+00:52:58,319 --> 00:53:03,200
+okay
+
+1215
+00:52:59,440 --> 00:53:05,359
+that these duplicate files of you know a
+
+1216
+00:53:03,200 --> 00:53:06,720
+million potentially a million files in
+
+1217
+00:53:05,359 --> 00:53:10,240
+your directory
+
+1218
+00:53:06,720 --> 00:53:12,240
+and it works in the most efficient way
+
+1219
+00:53:10,240 --> 00:53:15,839
+because that's how i code okay the most
+
+1220
+00:53:12,240 --> 00:53:19,119
+efficient way it's not you know
+
+1221
+00:53:15,839 --> 00:53:21,520
+uh and uh you know now but
+
+1222
+00:53:19,119 --> 00:53:23,760
+so back then so how do you compare if
+
+1223
+00:53:21,520 --> 00:53:26,319
+two files are different you know you can
+
+1224
+00:53:23,760 --> 00:53:29,119
+first of all you you know first of all
+
+1225
+00:53:26,319 --> 00:53:31,200
+if two files have the same file size how
+
+1226
+00:53:29,119 --> 00:53:33,280
+do you make how do you um check if they
+
+1227
+00:53:31,200 --> 00:53:35,839
+are different you can call the compare
+
+1228
+00:53:33,280 --> 00:53:37,920
+command or you can
+
+1229
+00:53:35,839 --> 00:53:40,240
+use the hash table
+
+1230
+00:53:37,920 --> 00:53:42,400
+now there's a question i don't know you
+
+1231
+00:53:40,240 --> 00:53:46,000
+know i have to think about
+
+1232
+00:53:42,400 --> 00:53:46,000
+so which way is more efficient
+
+1233
+00:53:46,160 --> 00:53:51,920
+is it more efficient to call the unix
+
+1234
+00:53:48,720 --> 00:53:54,960
+cmp command to compare
+
+1235
+00:53:51,920 --> 00:53:56,400
+if two files are identical or is it a
+
+1236
+00:53:54,960 --> 00:53:58,559
+fish more efficient
+
+1237
+00:53:56,400 --> 00:53:59,359
+if you simply generate
+
+1238
+00:53:58,559 --> 00:54:01,920
+the
+
+1239
+00:53:59,359 --> 00:54:02,720
+hash key for each file
+
+1240
+00:54:01,920 --> 00:54:05,359
+then
+
+1241
+00:54:02,720 --> 00:54:07,359
+compare string of the two hash key
+
+1242
+00:54:05,359 --> 00:54:10,319
+i don't know you know i i don't know
+
+1243
+00:54:07,359 --> 00:54:12,160
+which one is more efficient
+
+1244
+00:54:10,319 --> 00:54:15,920
+so that's an interesting question to
+
+1245
+00:54:12,160 --> 00:54:18,720
+look into uh fantastic thank you celtic
+
+1246
+00:54:15,920 --> 00:54:23,960
+uh yeah i think that's it i rambled for
+
+1247
+00:54:18,720 --> 00:54:23,960
+an hour just an hour perfect
+
+1248
+00:54:26,640 --> 00:54:33,119
+okay bye guys yeah i'm shutting down so
+
+1249
+00:54:29,520 --> 00:54:34,400
+we did a lot demo we did a demo of emacs
+
+1250
+00:54:33,119 --> 00:54:36,880
+workflow
+
+1251
+00:54:34,400 --> 00:54:39,920
+lots of emacs commands
+
+1252
+00:54:36,880 --> 00:54:40,799
+soft light keys commands software keys
+
+1253
+00:54:39,920 --> 00:54:42,640
+and
+
+1254
+00:54:40,799 --> 00:54:43,680
+powershell mod
+
+1255
+00:54:42,640 --> 00:54:45,760
+um
+
+1256
+00:54:43,680 --> 00:54:48,160
+and
+
+1257
+00:54:45,760 --> 00:54:48,880
+and clean up and i'm shutting down okay
+
+1258
+00:54:48,160 --> 00:54:51,599
+so
+
+1259
+00:54:48,880 --> 00:54:53,599
+if you like to try this script you can
+
+1260
+00:54:51,599 --> 00:54:55,920
+find it on my website
+
+1261
+00:54:53,599 --> 00:54:59,359
+somehow shall rename file to hash just
+
+1262
+00:54:55,920 --> 00:55:01,760
+search for xr powershell tutorial
+
+1263
+00:54:59,359 --> 00:55:04,400
+okay so that's that close
+
+1264
+00:55:01,760 --> 00:55:07,359
+so that's my delete duplicate perl
+
+1265
+00:55:04,400 --> 00:55:11,040
+script now i'm going to put this onto my
+
+1266
+00:55:07,359 --> 00:55:14,640
+website okay so you can also have this
+
+1267
+00:55:11,040 --> 00:55:18,599
+uh script available you know
+
+1268
+00:55:14,640 --> 00:55:18,599
+let me show you okay so
+
+1269
+00:55:22,480 --> 00:55:26,240
+you know
+
+1270
+00:55:24,000 --> 00:55:28,640
+for about 10 years
+
+1271
+00:55:26,240 --> 00:55:31,040
+the script is of it so this is a web
+
+1272
+00:55:28,640 --> 00:55:33,520
+page for that perl script
+
+1273
+00:55:31,040 --> 00:55:37,040
+you know starting in 2005 for about 10
+
+1274
+00:55:33,520 --> 00:55:40,480
+years it's available free on web
+
+1275
+00:55:37,040 --> 00:55:42,559
+you know so here's a example output
+
+1276
+00:55:40,480 --> 00:55:44,880
+it has many features for example if you
+
+1277
+00:55:42,559 --> 00:55:46,400
+have multiple directories
+
+1278
+00:55:44,880 --> 00:55:48,400
+not nested you know you have one
+
+1279
+00:55:46,400 --> 00:55:50,079
+directory in one drive another directory
+
+1280
+00:55:48,400 --> 00:55:51,760
+in a different drive
+
+1281
+00:55:50,079 --> 00:55:54,480
+but you want to compare you don't want
+
+1282
+00:55:51,760 --> 00:55:55,680
+to merge them you you want to compare of
+
+1283
+00:55:54,480 --> 00:55:57,520
+all you know all files in these
+
+1284
+00:55:55,680 --> 00:55:59,839
+directories if they are duplicate you
+
+1285
+00:55:57,520 --> 00:56:01,280
+can do that with this script you know
+
+1286
+00:55:59,839 --> 00:56:04,079
+you don't have to first you don't have
+
+1287
+00:56:01,280 --> 00:56:05,359
+to first move one directory into inside
+
+1288
+00:56:04,079 --> 00:56:07,520
+the other
+
+1289
+00:56:05,359 --> 00:56:09,359
+folder
+
+1290
+00:56:07,520 --> 00:56:11,760
+and you can specify
+
+1291
+00:56:09,359 --> 00:56:14,880
+according to the directory order you can
+
+1292
+00:56:11,760 --> 00:56:17,599
+specify which duplicate should be
+
+1293
+00:56:14,880 --> 00:56:20,079
+deleted first you know so you have like
+
+1294
+00:56:17,599 --> 00:56:22,319
+for example a master folder
+
+1295
+00:56:20,079 --> 00:56:24,079
+where
+
+1296
+00:56:22,319 --> 00:56:25,839
+where this is your you know master
+
+1297
+00:56:24,079 --> 00:56:28,160
+folder then you have other folders if
+
+1298
+00:56:25,839 --> 00:56:30,799
+they are duplicate you should delete the
+
+1299
+00:56:28,160 --> 00:56:32,720
+duplicate in the other folders first so
+
+1300
+00:56:30,799 --> 00:56:33,760
+that's you know that that's part of the
+
+1301
+00:56:32,720 --> 00:56:35,839
+feature
+
+1302
+00:56:33,760 --> 00:56:38,000
+of this script
+
+1303
+00:56:35,839 --> 00:56:40,559
+but then you know
+
+1304
+00:56:38,000 --> 00:56:43,599
+around 2010 i was you know
+
+1305
+00:56:40,559 --> 00:56:44,720
+becoming very poor so i started to
+
+1306
+00:56:43,599 --> 00:56:48,319
+you know
+
+1307
+00:56:44,720 --> 00:56:50,400
+pay you have to pay to get it
+
+1308
+00:56:48,319 --> 00:56:53,839
+but today actually there are a lot you
+
+1309
+00:56:50,400 --> 00:56:56,880
+know i there are a lot um
+
+1310
+00:56:53,839 --> 00:57:01,359
+programs that do similar things okay dd
+
+1311
+00:56:56,880 --> 00:57:01,359
+duplicate but i'm not you know but
+
+1312
+00:57:02,160 --> 00:57:06,480
+you can be sure that mine is quality one
+
+1313
+00:57:04,799 --> 00:57:11,799
+okay i'm not sure what's the quality of
+
+1314
+00:57:06,480 --> 00:57:11,799
+the others or if they are efficient but
+
+1315
+00:57:14,559 --> 00:57:20,480
+so if you like my stuff buy my stuff
+
+1316
+00:57:16,799 --> 00:57:23,599
+okay pay me paypal patreon
+
+1317
+00:57:20,480 --> 00:57:27,240
+uh let me show you okay so i need to
+
+1318
+00:57:23,599 --> 00:57:27,240
+surrender info
+
+1319
+00:57:32,799 --> 00:57:35,040
+so
+
+1320
+00:57:35,119 --> 00:57:38,960
+where is my paypal patreon okay they
+
+1321
+00:57:37,200 --> 00:57:44,319
+moved to the bottom
+
+1322
+00:57:38,960 --> 00:57:44,319
+patreon me amazon gift card me paypal me
+
+1323
+00:57:44,960 --> 00:57:50,880
+or you can buy my tutorials
+
+1324
+00:57:48,000 --> 00:57:52,799
+emac this tutorial fantastic i've been
+
+1325
+00:57:50,880 --> 00:57:56,319
+working on emacs
+
+1326
+00:57:52,799 --> 00:57:58,960
+lisp tutorial a lot a lot update in the
+
+1327
+00:57:56,319 --> 00:58:01,920
+past month you know you see for example
+
+1328
+00:57:58,960 --> 00:58:04,160
+yesterday i updated one to you know 10
+
+1329
+00:58:01,920 --> 00:58:06,559
+10 also files and the day before you
+
+1330
+00:58:04,160 --> 00:58:08,240
+know so many updates
+
+1331
+00:58:06,559 --> 00:58:09,920
+so i've been working on that a lot you
+
+1332
+00:58:08,240 --> 00:58:13,040
+can buy it
+
+1333
+00:58:09,920 --> 00:58:15,440
+it's on emacs tutorial
+
+1334
+00:58:13,040 --> 00:58:17,839
+or you can buy
+
+1335
+00:58:15,440 --> 00:58:19,839
+wufang language is free and i wrote you
+
+1336
+00:58:17,839 --> 00:58:22,799
+know this is one of the main thing i'm
+
+1337
+00:58:19,839 --> 00:58:24,799
+working on these days wufang language
+
+1338
+00:58:22,799 --> 00:58:26,640
+tremendous powerful programming language
+
+1339
+00:58:24,799 --> 00:58:28,160
+okay you should
+
+1340
+00:58:26,640 --> 00:58:30,480
+get it for free
+
+1341
+00:58:28,160 --> 00:58:34,400
+and learn it okay
+
+1342
+00:58:30,480 --> 00:58:34,400
+benefit you for life
+
+1343
+00:58:35,119 --> 00:58:41,280
+which is uh i talked about often in fact
+
+1344
+00:58:37,680 --> 00:58:42,720
+i think next video i'm gonna do wufang
+
+1345
+00:58:41,280 --> 00:58:45,440
+language again
+
+1346
+00:58:42,720 --> 00:58:48,480
+okay and my javascript tutorial is the
+
+1347
+00:58:45,440 --> 00:58:51,200
+most in-depth javascript tutorial out
+
+1348
+00:58:48,480 --> 00:58:54,960
+there i would say one of the best one of
+
+1349
+00:58:51,200 --> 00:58:57,440
+the top three best in english language
+
+1350
+00:58:54,960 --> 00:58:59,599
+if you ask me i would say it's the best
+
+1351
+00:58:57,440 --> 00:59:02,319
+in the english language
+
+1352
+00:58:59,599 --> 00:59:04,400
+of javascript in depth okay it doesn't
+
+1353
+00:59:02,319 --> 00:59:07,920
+matter it's printed doesn't matter it's
+
+1354
+00:59:04,400 --> 00:59:11,119
+online resource such as mozilla you know
+
+1355
+00:59:07,920 --> 00:59:11,920
+you know the firefox thing reference
+
+1356
+00:59:11,119 --> 00:59:16,720
+my
+
+1357
+00:59:11,920 --> 00:59:16,720
+javascript in-depth tutorial is superior
+
+1358
+00:59:16,799 --> 00:59:22,000
+uh in clarity
+
+1359
+00:59:18,559 --> 00:59:24,559
+in organization in the way it gets you
+
+1360
+00:59:22,000 --> 00:59:26,400
+to understand how it works
+
+1361
+00:59:24,559 --> 00:59:29,359
+okay that you know so if you like my
+
+1362
+00:59:26,400 --> 00:59:29,359
+stuff buy it
+
+1363
+00:59:29,520 --> 00:59:34,160
+uh and
+
+1364
+00:59:30,839 --> 00:59:37,040
+uh yeah so but all these you know all
+
+1365
+00:59:34,160 --> 00:59:38,720
+these are free online too you know you
+
+1366
+00:59:37,040 --> 00:59:42,359
+can read them
+
+1367
+00:59:38,720 --> 00:59:42,359
+okay bye guys
+
+1368
+00:59:52,559 --> 00:59:55,559
+um
+
+1369
+01:00:04,799 --> 01:00:06,880
+you
+

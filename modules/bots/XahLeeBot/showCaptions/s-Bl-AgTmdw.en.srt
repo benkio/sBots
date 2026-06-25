@@ -1,0 +1,4248 @@
+1
+00:00:01,520 --> 00:00:07,440
+Hello guys, good morning. Welcome to
+
+2
+00:00:04,560 --> 00:00:10,080
+another episode of talk show. We are
+
+3
+00:00:07,440 --> 00:00:13,360
+going to code wam language. Let's start
+
+4
+00:00:10,080 --> 00:00:14,519
+wine language. We are going to draw
+
+5
+00:00:13,360 --> 00:00:18,240
+pattern
+
+6
+00:00:14,519 --> 00:00:20,560
+matching. Pattern matching like I mean
+
+7
+00:00:18,240 --> 00:00:24,160
+not pattern matching the titings and
+
+8
+00:00:20,560 --> 00:00:24,160
+patterns. Okay.
+
+9
+00:00:24,519 --> 00:00:30,800
+So we are going to create a drawing like
+
+10
+00:00:27,359 --> 00:00:33,840
+that in wuam language and uh if you
+
+11
+00:00:30,800 --> 00:00:36,079
+don't know introduction I did like over
+
+12
+00:00:33,840 --> 00:00:37,320
+100 videos on wam language just search
+
+13
+00:00:36,079 --> 00:00:40,399
+for it
+
+14
+00:00:37,320 --> 00:00:44,480
+kasari.info wuam language tutorial and
+
+15
+00:00:40,399 --> 00:00:48,399
+you can learn in depth about anything in
+
+16
+00:00:44,480 --> 00:00:50,320
+wuam language from the ground up if you
+
+17
+00:00:48,399 --> 00:00:53,760
+already know a programming language.
+
+18
+00:00:50,320 --> 00:00:56,199
+Okay. So, and you can download it free.
+
+19
+00:00:53,760 --> 00:00:58,879
+It's free about 3 years
+
+20
+00:00:56,199 --> 00:01:02,239
+ago. If you are watching offline, play
+
+21
+00:00:58,879 --> 00:01:04,879
+at 1.5 speed because I ramble. If you
+
+22
+00:01:02,239 --> 00:01:07,680
+are watching live, say hi here. Okay.
+
+23
+00:01:04,879 --> 00:01:11,200
+So, Wuham language uh I've got video
+
+24
+00:01:07,680 --> 00:01:14,799
+tutorials, best videos collected here.
+
+25
+00:01:11,200 --> 00:01:17,920
+uh and uh about graphics about you know
+
+26
+00:01:14,799 --> 00:01:20,799
+like how do you do graphics from as a
+
+27
+00:01:17,920 --> 00:01:25,119
+beginner there is a tutorial a video
+
+28
+00:01:20,799 --> 00:01:28,880
+tutorial also a text tutorial uh there
+
+29
+00:01:25,119 --> 00:01:32,000
+okay wam language in depth okay so let's
+
+30
+00:01:28,880 --> 00:01:35,680
+do today's uh thing we're going to draw
+
+31
+00:01:32,000 --> 00:01:37,680
+this so that is from a package I wrote
+
+32
+00:01:35,680 --> 00:01:39,320
+uh wam language search for it you'll
+
+33
+00:01:37,680 --> 00:01:42,479
+find it on
+
+34
+00:01:39,320 --> 00:01:46,159
+kadiinfo plane tiling package. Okay. So
+
+35
+00:01:42,479 --> 00:01:50,240
+this package allows you to generate any
+
+36
+00:01:46,159 --> 00:01:52,640
+tilings in the plane in an easy way. Uh
+
+37
+00:01:50,240 --> 00:01:56,000
+you know so for example you can draw
+
+38
+00:01:52,640 --> 00:01:58,600
+these Islamic patterns. Beautiful. Uh
+
+39
+00:01:56,000 --> 00:02:02,079
+and so I wrote this in
+
+40
+00:01:58,600 --> 00:02:05,200
+1997 and this guy
+
+41
+00:02:02,079 --> 00:02:10,879
+uh this guy uh okay so let's let's go to
+
+42
+00:02:05,200 --> 00:02:12,440
+the um uh download folder. Okay. So,
+
+43
+00:02:10,879 --> 00:02:15,599
+this guy
+
+44
+00:02:12,440 --> 00:02:19,560
+who contacted me like 20 years ago and
+
+45
+00:02:15,599 --> 00:02:22,800
+he actually uh he actually drew this
+
+46
+00:02:19,560 --> 00:02:26,080
+one. So, the package allows you to as
+
+47
+00:02:22,800 --> 00:02:29,520
+long as you have a motif like motif is
+
+48
+00:02:26,080 --> 00:02:32,239
+like that like part of the tile. So once
+
+49
+00:02:29,520 --> 00:02:35,280
+you have that part you can just repeat
+
+50
+00:02:32,239 --> 00:02:37,360
+it by mirror reflection by translation
+
+51
+00:02:35,280 --> 00:02:41,599
+then you generate you can generate for
+
+52
+00:02:37,360 --> 00:02:43,800
+example this this little part in fact
+
+53
+00:02:41,599 --> 00:02:46,640
+half of that is called fundamental
+
+54
+00:02:43,800 --> 00:02:49,200
+region. So fundamental region is a
+
+55
+00:02:46,640 --> 00:02:52,160
+minimal region that once you have that
+
+56
+00:02:49,200 --> 00:02:57,599
+you can just repeat by symmetry and have
+
+57
+00:02:52,160 --> 00:03:01,599
+the full uh full pattern tiding or knots
+
+58
+00:02:57,599 --> 00:03:03,920
+or whatever to feel the plane. So, so
+
+59
+00:03:01,599 --> 00:03:06,000
+but the most important thing is I mean
+
+60
+00:03:03,920 --> 00:03:08,720
+there are many ways to create this okay
+
+61
+00:03:06,000 --> 00:03:11,040
+there are many many there are several
+
+62
+00:03:08,720 --> 00:03:13,680
+multiple techniques to create this
+
+63
+00:03:11,040 --> 00:03:17,200
+geometric pattern but one of the way is
+
+64
+00:03:13,680 --> 00:03:19,760
+just create the minimal um fundamental
+
+65
+00:03:17,200 --> 00:03:21,760
+region then you just then you can just
+
+66
+00:03:19,760 --> 00:03:25,599
+call a command it'll just feel the plane
+
+67
+00:03:21,760 --> 00:03:29,519
+for you but the symmetry okay so that is
+
+68
+00:03:25,599 --> 00:03:33,599
+this package so like 30 years ago this
+
+69
+00:03:29,519 --> 00:03:37,400
+guy uh sent me uh he used my package to
+
+70
+00:03:33,599 --> 00:03:41,440
+to generate this beautiful uh
+
+71
+00:03:37,400 --> 00:03:45,440
+pattern. Okay. So, and then he sent me
+
+72
+00:03:41,440 --> 00:03:48,080
+about two months ago more. Okay. So,
+
+73
+00:03:45,440 --> 00:03:51,599
+like he he he he emailed me, hey, I'm
+
+74
+00:03:48,080 --> 00:03:54,159
+still using your package. Fantastic. So,
+
+75
+00:03:51,599 --> 00:03:56,159
+so the package he you know the pattern
+
+76
+00:03:54,159 --> 00:04:00,159
+he sent, let me show you. So, this is
+
+77
+00:03:56,159 --> 00:04:03,879
+one of the the source code. Uh so this
+
+78
+00:04:00,159 --> 00:04:06,879
+one is about you know this is like the
+
+79
+00:04:03,879 --> 00:04:08,760
+worksheet. The final
+
+80
+00:04:06,879 --> 00:04:12,400
+uh picture
+
+81
+00:04:08,760 --> 00:04:15,439
+is go down go down go down. This is the
+
+82
+00:04:12,400 --> 00:04:16,519
+final picture. Beautiful intricate you
+
+83
+00:04:15,439 --> 00:04:19,600
+see they
+
+84
+00:04:16,519 --> 00:04:23,759
+become linkages you know like one go
+
+85
+00:04:19,600 --> 00:04:25,720
+over the top of the other but so this is
+
+86
+00:04:23,759 --> 00:04:28,000
+kind of the fundamental
+
+87
+00:04:25,720 --> 00:04:30,400
+region. Yeah. So this is the final
+
+88
+00:04:28,000 --> 00:04:34,160
+pattern. So I'm going just to run the
+
+89
+00:04:30,400 --> 00:04:36,639
+code today uh to see I can duplicate it.
+
+90
+00:04:34,160 --> 00:04:39,680
+Of course I can should you know I should
+
+91
+00:04:36,639 --> 00:04:42,240
+be able to otherwise something is wrong.
+
+92
+00:04:39,680 --> 00:04:45,440
+Yeah. Hope hopefully it's fun. And the
+
+93
+00:04:42,240 --> 00:04:50,120
+he also sent another pattern. Another
+
+94
+00:04:45,440 --> 00:04:54,880
+one he sent is this one. This is like
+
+95
+00:04:50,120 --> 00:05:00,759
+um related to Celtic Celtic knots. the
+
+96
+00:04:54,880 --> 00:05:04,720
+decoration in used in uh Scandinavia
+
+97
+00:05:00,759 --> 00:05:09,600
+culture. So these are drafts and the
+
+98
+00:05:04,720 --> 00:05:09,600
+final image is this one.
+
+99
+00:05:15,240 --> 00:05:20,240
+Beautiful. Okay. So let me show you
+
+100
+00:05:18,080 --> 00:05:22,960
+where to get so you can get the package
+
+101
+00:05:20,240 --> 00:05:25,120
+package here. It's on GitHub.
+
+102
+00:05:22,960 --> 00:05:28,479
+Uh let's see what else I want to show.
+
+103
+00:05:25,120 --> 00:05:31,360
+So you got my tutorial and I'm coding
+
+104
+00:05:28,479 --> 00:05:34,639
+Wuam language in Emacs. You can get the
+
+105
+00:05:31,360 --> 00:05:37,160
+package. If you know what is Emacs then
+
+106
+00:05:34,639 --> 00:05:40,800
+the titing. Okay. So let's start to do
+
+107
+00:05:37,160 --> 00:05:43,280
+it. Let's do it slowly and easily. Okay.
+
+108
+00:05:40,800 --> 00:05:46,880
+If you have questions, ask me. Okay. So
+
+109
+00:05:43,280 --> 00:05:49,360
+remove that. Remove that. So we want to
+
+110
+00:05:46,880 --> 00:05:52,639
+Yeah. So let's go to uh where is my
+
+111
+00:05:49,360 --> 00:05:55,440
+package? Let's see if it's loaded. So I
+
+112
+00:05:52,639 --> 00:05:58,240
+mean just like Emacs, if you want to
+
+113
+00:05:55,440 --> 00:06:00,880
+load a package, you need to place it in
+
+114
+00:05:58,240 --> 00:06:02,960
+a special directory. So shift enter.
+
+115
+00:06:00,880 --> 00:06:08,400
+Let's see if it's loaded. It's loaded
+
+116
+00:06:02,960 --> 00:06:08,400
+there. Fantastic. So let's run. So this
+
+117
+00:06:08,680 --> 00:06:16,720
+one. So this one is is saying um wait I
+
+118
+00:06:14,639 --> 00:06:19,919
+don't know what is cap from where that
+
+119
+00:06:16,720 --> 00:06:23,120
+came from. So let's just run it.
+
+120
+00:06:19,919 --> 00:06:25,960
+Fantastic. Okay, then let's run this
+
+121
+00:06:23,120 --> 00:06:29,199
+one. So, he's going to
+
+122
+00:06:25,960 --> 00:06:32,440
+generate a bunch of lines. You see, in
+
+123
+00:06:29,199 --> 00:06:35,120
+order to create this beautiful uh
+
+124
+00:06:32,440 --> 00:06:38,600
+tiling, one of the things you you have
+
+125
+00:06:35,120 --> 00:06:42,319
+to know is the important
+
+126
+00:06:38,600 --> 00:06:44,440
+coordinates. You see, for this like
+
+127
+00:06:42,319 --> 00:06:47,120
+fundamental region, you need to find the
+
+128
+00:06:44,440 --> 00:06:50,479
+coordinate. Of course, for the star like
+
+129
+00:06:47,120 --> 00:06:54,080
+this one is a hexog.
+
+130
+00:06:50,479 --> 00:06:59,599
+uh it's called star of David David or
+
+131
+00:06:54,080 --> 00:07:02,479
+it's also called hex hexog I think
+
+132
+00:06:59,599 --> 00:07:07,039
+um you know hex hexog is more of the
+
+133
+00:07:02,479 --> 00:07:09,520
+mathematical name so so the to find the
+
+134
+00:07:07,039 --> 00:07:11,680
+point of that coordinate of that star is
+
+135
+00:07:09,520 --> 00:07:13,960
+easy but then you have to find the other
+
+136
+00:07:11,680 --> 00:07:19,599
+parts so that is
+
+137
+00:07:13,960 --> 00:07:21,840
+not it's not difficult but it's tedious
+
+138
+00:07:19,599 --> 00:07:23,919
+So that's why you see these radicals you
+
+139
+00:07:21,840 --> 00:07:27,759
+know these are all coordinates. Okay
+
+140
+00:07:23,919 --> 00:07:31,840
+let's go to the top. So he begin by you
+
+141
+00:07:27,759 --> 00:07:34,560
+know we begin by generating this. So you
+
+142
+00:07:31,840 --> 00:07:37,919
+know so you have to design what height
+
+143
+00:07:34,560 --> 00:07:42,720
+to put those then okay then let's try
+
+144
+00:07:37,919 --> 00:07:45,840
+this one. Run it. So this wallpaper plot
+
+145
+00:07:42,720 --> 00:07:49,599
+is for my package. Then the first
+
+146
+00:07:45,840 --> 00:07:52,639
+argument is a uh let's magnify. Okay. So
+
+147
+00:07:49,599 --> 00:07:54,840
+one so the wallpaper plot is for my
+
+148
+00:07:52,639 --> 00:07:58,319
+package. The first argument is a
+
+149
+00:07:54,840 --> 00:07:59,879
+symmetry that specifies how you the
+
+150
+00:07:58,319 --> 00:08:03,520
+symmetry of
+
+151
+00:07:59,879 --> 00:08:06,000
+the of the wallpaper. Okay. So what does
+
+152
+00:08:03,520 --> 00:08:08,440
+that mean? Well that means okay so you
+
+153
+00:08:06,000 --> 00:08:12,160
+can go to let me show you
+
+154
+00:08:08,440 --> 00:08:16,360
+quickly. If you go to s math blog on
+
+155
+00:08:12,160 --> 00:08:20,319
+sardi.info info. Then there is
+
+156
+00:08:16,360 --> 00:08:24,800
+um there's a section uh that teach you
+
+157
+00:08:20,319 --> 00:08:27,599
+about symmetry wallpaper groups. So you
+
+158
+00:08:24,800 --> 00:08:29,560
+know so it's kind of technical but high
+
+159
+00:08:27,599 --> 00:08:32,479
+school level. So if you are into
+
+160
+00:08:29,560 --> 00:08:35,120
+mathematics you might read this. So
+
+161
+00:08:32,479 --> 00:08:36,719
+you'll learn some group theory and
+
+162
+00:08:35,120 --> 00:08:41,039
+tiding
+
+163
+00:08:36,719 --> 00:08:44,800
+um kind of symmetry theory. Okay. So,
+
+164
+00:08:41,039 --> 00:08:48,080
+so, so the um so the interesting part is
+
+165
+00:08:44,800 --> 00:08:51,399
+the appendix. So, there you see the
+
+166
+00:08:48,080 --> 00:08:55,240
+different kind of uh let's
+
+167
+00:08:51,399 --> 00:08:59,720
+see you see the you can kind you you can
+
+168
+00:08:55,240 --> 00:09:02,640
+see the 17 possible symmetries of a
+
+169
+00:08:59,720 --> 00:09:04,959
+wallpaper. So you can see this one is
+
+170
+00:09:02,640 --> 00:09:07,760
+just simply translation you know just
+
+171
+00:09:04,959 --> 00:09:09,600
+move it copy move it copy and this one
+
+172
+00:09:07,760 --> 00:09:12,640
+is translation but you also have
+
+173
+00:09:09,600 --> 00:09:16,279
+rotation you see there and uh the image
+
+174
+00:09:12,640 --> 00:09:20,240
+on the right shows their symmetry and
+
+175
+00:09:16,279 --> 00:09:23,839
+generator so you can in a glance know
+
+176
+00:09:20,240 --> 00:09:26,080
+what type of symmetry this wallpaper is.
+
+177
+00:09:23,839 --> 00:09:28,800
+So what they show the symmetry and
+
+178
+00:09:26,080 --> 00:09:31,519
+generators. Okay. So this this image
+
+179
+00:09:28,800 --> 00:09:34,720
+shows the symmetry and this image shows
+
+180
+00:09:31,519 --> 00:09:38,560
+the generator. Generator is a concept in
+
+181
+00:09:34,720 --> 00:09:42,480
+group theory. Okay. So generator means
+
+182
+00:09:38,560 --> 00:09:44,360
+this this symmetry is generated by you
+
+183
+00:09:42,480 --> 00:09:46,959
+see one black line there. That's a
+
+184
+00:09:44,360 --> 00:09:50,240
+translation. That means you just copy
+
+185
+00:09:46,959 --> 00:09:52,959
+paste and move it there. Copy and move
+
+186
+00:09:50,240 --> 00:09:56,000
+it there. Copy. Okay. So you got another
+
+187
+00:09:52,959 --> 00:09:58,080
+black line that that's again
+
+188
+00:09:56,000 --> 00:10:00,800
+translation. So you got two translation
+
+189
+00:09:58,080 --> 00:10:04,640
+and you got a diamond in the middle that
+
+190
+00:10:00,800 --> 00:10:08,160
+means twofold rotation meaning rotating
+
+191
+00:10:04,640 --> 00:10:11,600
+180 degrees. So that is like for example
+
+192
+00:10:08,160 --> 00:10:15,600
+this point. So let's can we okay anyway
+
+193
+00:10:11,600 --> 00:10:18,279
+so this this this diagram shows the
+
+194
+00:10:15,600 --> 00:10:20,120
+generator. Okay, generator means the
+
+195
+00:10:18,279 --> 00:10:23,360
+fundamentals
+
+196
+00:10:20,120 --> 00:10:26,480
+um symmetry elements that generates the
+
+197
+00:10:23,360 --> 00:10:28,560
+entire symmetry of this. Then this one
+
+198
+00:10:26,480 --> 00:10:32,000
+is a bit different. You got translation
+
+199
+00:10:28,560 --> 00:10:36,240
+but you got also a mirror reflection.
+
+200
+00:10:32,000 --> 00:10:37,560
+Okay. So um can you see it? Is it
+
+201
+00:10:36,240 --> 00:10:41,640
+interesting? Hello
+
+202
+00:10:37,560 --> 00:10:45,839
+Hank. Can you make a nonperiodic
+
+203
+00:10:41,640 --> 00:10:49,279
+tiding? Yes, I can. But that is uh that
+
+204
+00:10:45,839 --> 00:10:52,399
+is not so easy. That is my package. You
+
+205
+00:10:49,279 --> 00:10:54,360
+know my package only do periodic ones.
+
+206
+00:10:52,399 --> 00:10:56,680
+So if you want to do
+
+207
+00:10:54,360 --> 00:10:59,440
+nonperiotic tiding
+
+208
+00:10:56,680 --> 00:11:02,000
+that's incredibly beautiful and
+
+209
+00:10:59,440 --> 00:11:04,480
+fantastic but it's more complicated.
+
+210
+00:11:02,000 --> 00:11:06,880
+Well it's well not tech you know it's
+
+211
+00:11:04,480 --> 00:11:08,560
+comp it's you know you have to do it in
+
+212
+00:11:06,880 --> 00:11:11,920
+a different way. You have to do it
+
+213
+00:11:08,560 --> 00:11:13,600
+either via fractals or many other
+
+214
+00:11:11,920 --> 00:11:17,800
+special methods.
+
+215
+00:11:13,600 --> 00:11:20,000
+But my package only does only do the um
+
+216
+00:11:17,800 --> 00:11:22,920
+symmetric. Actually, I do have some
+
+217
+00:11:20,000 --> 00:11:26,000
+examples of of of
+
+218
+00:11:22,920 --> 00:11:29,360
+um No, no, actually I don't. So anyway,
+
+219
+00:11:26,000 --> 00:11:31,279
+let me let me talk about that. Um non
+
+220
+00:11:29,360 --> 00:11:34,399
+periodic tiding. Okay, that's very
+
+221
+00:11:31,279 --> 00:11:37,160
+interesting. So let me show some Yeah,
+
+222
+00:11:34,399 --> 00:11:40,680
+let me Okay, so let me talk about that.
+
+223
+00:11:37,160 --> 00:11:43,839
+Uh so let's go to
+
+224
+00:11:40,680 --> 00:11:47,360
+um yeah so let me show you let me let me
+
+225
+00:11:43,839 --> 00:11:49,800
+talk about that. So let's go to the math
+
+226
+00:11:47,360 --> 00:11:52,440
+blog. So,
+
+227
+00:11:49,800 --> 00:11:56,320
+info go to math
+
+228
+00:11:52,440 --> 00:12:00,880
+blog increase the size then go to the
+
+229
+00:11:56,320 --> 00:12:03,440
+whole math section then so we want to
+
+230
+00:12:00,880 --> 00:12:05,079
+show about wallpaper groups we already
+
+231
+00:12:03,440 --> 00:12:08,200
+did we
+
+232
+00:12:05,079 --> 00:12:11,839
+were talking about this in the
+
+233
+00:12:08,200 --> 00:12:14,720
+middle okay and uh I want to talk I want
+
+234
+00:12:11,839 --> 00:12:18,920
+to finish this okay so there's more to
+
+235
+00:12:14,720 --> 00:12:22,760
+uh say so but let me
+
+236
+00:12:18,920 --> 00:12:26,320
+um document it here so we know
+
+237
+00:12:22,760 --> 00:12:29,279
+what we are talking about. So there is
+
+238
+00:12:26,320 --> 00:12:31,440
+that I want to talk about. So this is a
+
+239
+00:12:29,279 --> 00:12:34,079
+continuous groups of rotation and
+
+240
+00:12:31,440 --> 00:12:38,240
+translation in a plane. So that is a
+
+241
+00:12:34,079 --> 00:12:41,920
+math technical math oriented uh paper.
+
+242
+00:12:38,240 --> 00:12:45,760
+Okay. Then I want to talk about um
+
+243
+00:12:41,920 --> 00:12:48,480
+wallpaper gallery. So this this give you
+
+244
+00:12:45,760 --> 00:12:52,000
+a uh bird's eye view of kind of
+
+245
+00:12:48,480 --> 00:12:55,040
+beautiful tidings using the varieties of
+
+246
+00:12:52,000 --> 00:12:58,079
+symmetry. Okay. So that's one uh for
+
+247
+00:12:55,040 --> 00:13:01,600
+example go to next and see can you use
+
+248
+00:12:58,079 --> 00:13:03,920
+arrow? No. So you see so the diagram
+
+249
+00:13:01,600 --> 00:13:06,240
+shows their symmetry. You can see the
+
+250
+00:13:03,920 --> 00:13:09,440
+red double line that means there's a
+
+251
+00:13:06,240 --> 00:13:12,720
+mirror reflection. Okay. And the star is
+
+252
+00:13:09,440 --> 00:13:14,959
+the actual wallpaper. Okay. So that one
+
+253
+00:13:12,720 --> 00:13:17,079
+and that one. This one is interesting
+
+254
+00:13:14,959 --> 00:13:20,560
+because there is a
+
+255
+00:13:17,079 --> 00:13:23,120
+uh called uh flip mirror. What's the
+
+256
+00:13:20,560 --> 00:13:25,519
+technical name? I forgot. So you mirror
+
+257
+00:13:23,120 --> 00:13:27,839
+and but you have to uh you know you
+
+258
+00:13:25,519 --> 00:13:29,959
+mirror and you have to move a bit. So
+
+259
+00:13:27,839 --> 00:13:33,839
+look like footprints.
+
+260
+00:13:29,959 --> 00:13:36,800
+Okay. So let's go to next one. Then you
+
+261
+00:13:33,839 --> 00:13:39,680
+got you know this kind of more symmetry.
+
+262
+00:13:36,800 --> 00:13:44,120
+Okay. So you next let's just go through
+
+263
+00:13:39,680 --> 00:13:47,920
+them. Okay. Next, next.
+
+264
+00:13:44,120 --> 00:13:49,560
+Next, next. So, you can see this one is
+
+265
+00:13:47,920 --> 00:13:53,040
+kind of like
+
+266
+00:13:49,560 --> 00:13:56,000
+swastika symmetry. Okay. So, you you
+
+267
+00:13:53,040 --> 00:13:59,519
+know at some point you have a four-fold
+
+268
+00:13:56,000 --> 00:14:02,320
+rotation. That means rotate 90 degrees,
+
+269
+00:13:59,519 --> 00:14:06,240
+you know, like at each one of these
+
+270
+00:14:02,320 --> 00:14:07,399
+point somewhere here. Uh uh let's see
+
+271
+00:14:06,240 --> 00:14:09,320
+where
+
+272
+00:14:07,399 --> 00:14:13,040
+um
+
+273
+00:14:09,320 --> 00:14:15,680
+like like like here. Okay. Like right
+
+274
+00:14:13,040 --> 00:14:18,880
+here you rotate 90 degrees the whole
+
+275
+00:14:15,680 --> 00:14:20,639
+thing becomes itself. Then you rotate 90
+
+276
+00:14:18,880 --> 00:14:24,160
+degrees the whole thing become itself
+
+277
+00:14:20,639 --> 00:14:26,760
+again. So you got kind of the four-fold
+
+278
+00:14:24,160 --> 00:14:29,600
+symmetry, a four-fold rotational
+
+279
+00:14:26,760 --> 00:14:32,959
+symmetry or you can just say swast
+
+280
+00:14:29,600 --> 00:14:36,320
+swastika symmetry then but at other
+
+281
+00:14:32,959 --> 00:14:39,079
+points you have a two-fold rotational
+
+282
+00:14:36,320 --> 00:14:41,920
+symmetry that means you rotate 180
+
+283
+00:14:39,079 --> 00:14:44,000
+degrees. So where would that be? You
+
+284
+00:14:41,920 --> 00:14:47,120
+know it's kind of hard to see from this
+
+285
+00:14:44,000 --> 00:14:49,279
+like star but anyway so that's another
+
+286
+00:14:47,120 --> 00:14:52,240
+symmetry.
+
+287
+00:14:49,279 --> 00:14:57,760
+So another one all together there are
+
+288
+00:14:52,240 --> 00:15:00,480
+like um 17 of them total. Okay. So so so
+
+289
+00:14:57,760 --> 00:15:02,839
+far all the ones we showed before they
+
+290
+00:15:00,480 --> 00:15:06,000
+are all based on
+
+291
+00:15:02,839 --> 00:15:09,440
+uh rectangular grid. Okay. But you'll
+
+292
+00:15:06,000 --> 00:15:10,199
+see triangular grid. So let's see next.
+
+293
+00:15:09,440 --> 00:15:13,279
+Next
+
+294
+00:15:10,199 --> 00:15:15,839
+next. So we started to see triangular
+
+295
+00:15:13,279 --> 00:15:18,920
+grid here. You see triangular grid is
+
+296
+00:15:15,839 --> 00:15:21,920
+more beautiful. So
+
+297
+00:15:18,920 --> 00:15:21,920
+next
+
+298
+00:15:24,680 --> 00:15:29,920
+next this one is beautiful. This this
+
+299
+00:15:27,440 --> 00:15:34,079
+one got the most symmetry. Okay. And
+
+300
+00:15:29,920 --> 00:15:36,959
+that's it. So all together you have like
+
+301
+00:15:34,079 --> 00:15:41,680
+uh total of 17 of them. Okay. So that
+
+302
+00:15:36,959 --> 00:15:43,920
+shows the symmetry. Um and then let me
+
+303
+00:15:41,680 --> 00:15:46,720
+let me talk about Okay. So we talked
+
+304
+00:15:43,920 --> 00:15:48,519
+about that. We talked about that. Then
+
+305
+00:15:46,720 --> 00:15:52,720
+uh let's
+
+306
+00:15:48,519 --> 00:15:52,720
+see. Yeah.
+
+307
+00:15:53,880 --> 00:15:59,360
+Uh let me copy that. So back
+
+308
+00:16:01,480 --> 00:16:05,079
+here
+
+309
+00:16:03,000 --> 00:16:08,639
+copy showing
+
+310
+00:16:05,079 --> 00:16:13,519
+browser. So that's the things we talked
+
+311
+00:16:08,639 --> 00:16:15,920
+about. Okay. So we then we going to talk
+
+312
+00:16:13,519 --> 00:16:19,320
+uh about what about tiding. So let let
+
+313
+00:16:15,920 --> 00:16:24,160
+me so let's go to tidings. Okay. Uh
+
+314
+00:16:19,320 --> 00:16:24,160
+math. So go back to math.
+
+315
+00:16:24,199 --> 00:16:31,160
+So
+
+316
+00:16:27,000 --> 00:16:35,120
+kasi.info math blog. Go to the math
+
+317
+00:16:31,160 --> 00:16:38,279
+section. So we want to uh show some
+
+318
+00:16:35,120 --> 00:16:42,199
+titins and uh
+
+319
+00:16:38,279 --> 00:16:45,279
+um non periodic ones. Very
+
+320
+00:16:42,199 --> 00:16:48,600
+interesting. Okay. So, so some more
+
+321
+00:16:45,279 --> 00:16:53,639
+tiding beautiful thing.
+
+322
+00:16:48,600 --> 00:16:58,480
+Um, we want to go to Yeah. And Asia very
+
+323
+00:16:53,639 --> 00:16:58,480
+beautiful tiding gallery.
+
+324
+00:17:02,360 --> 00:17:09,919
+Um, okay. Let's just uh let's just
+
+325
+00:17:05,600 --> 00:17:12,959
+explain what is the nonperiodic.
+
+326
+00:17:09,919 --> 00:17:16,160
+So for periodic ones, so these are more
+
+327
+00:17:12,959 --> 00:17:19,199
+examples of periodic titings. All these
+
+328
+00:17:16,160 --> 00:17:20,360
+are generated by my package like 30
+
+329
+00:17:19,199 --> 00:17:23,280
+years ago
+
+330
+00:17:20,360 --> 00:17:29,559
+1997. Okay. So you can see you can click
+
+331
+00:17:23,280 --> 00:17:34,160
+of them and say random random random
+
+332
+00:17:29,559 --> 00:17:37,840
+random and the last one. So anyway, so
+
+333
+00:17:34,160 --> 00:17:40,240
+you see that that that these are p or
+
+334
+00:17:37,840 --> 00:17:43,120
+periodic. Periodic means you can just
+
+335
+00:17:40,240 --> 00:17:45,480
+repeat or reflect or rotate you know
+
+336
+00:17:43,120 --> 00:17:50,840
+they they have
+
+337
+00:17:45,480 --> 00:17:54,120
+symmetry. So that that so these are like
+
+338
+00:17:50,840 --> 00:17:57,320
+kaleidoscope. Uh so you got that that
+
+339
+00:17:54,120 --> 00:17:59,880
+that and this one is
+
+340
+00:17:57,320 --> 00:18:01,799
+common like
+
+341
+00:17:59,880 --> 00:18:03,320
+uh
+
+342
+00:18:01,799 --> 00:18:05,840
+um
+
+343
+00:18:03,320 --> 00:18:08,799
+pedestrian path
+
+344
+00:18:05,840 --> 00:18:11,520
+uh tiles used to be common. I don't I
+
+345
+00:18:08,799 --> 00:18:14,240
+don't I don't think I see this anymore
+
+346
+00:18:11,520 --> 00:18:17,039
+like I I remember you know I think this
+
+347
+00:18:14,240 --> 00:18:20,280
+pattern used to be common like like 30
+
+348
+00:18:17,039 --> 00:18:23,919
+years ago. So anyway that so this this
+
+349
+00:18:20,280 --> 00:18:27,520
+one is more like fractal tiding. It's
+
+350
+00:18:23,919 --> 00:18:30,799
+also periodic but fractal. Okay. And you
+
+351
+00:18:27,520 --> 00:18:36,440
+got the linkage um and like you got
+
+352
+00:18:30,799 --> 00:18:39,679
+linkage linkage linkage linkage.
+
+353
+00:18:36,440 --> 00:18:43,679
+Um so anyway that's some examples. Okay.
+
+354
+00:18:39,679 --> 00:18:45,720
+Tidings and patterns. Okay. So I wanted
+
+355
+00:18:43,679 --> 00:18:48,919
+to show
+
+356
+00:18:45,720 --> 00:18:52,400
+um Yeah. So this one is
+
+357
+00:18:48,919 --> 00:18:56,160
+beautiful then. Okay. So that then let's
+
+358
+00:18:52,400 --> 00:18:58,020
+go to the um Okay. Yeah. So let me
+
+359
+00:18:56,160 --> 00:19:01,099
+recommend a book.
+
+360
+00:18:58,020 --> 00:19:01,099
+[Music]
+
+361
+00:19:02,440 --> 00:19:08,320
+Um yeah. Okay. Let's talk about some of
+
+362
+00:19:05,200 --> 00:19:11,760
+these things. So reading notes. So there
+
+363
+00:19:08,320 --> 00:19:14,880
+is this is the best book most authority
+
+364
+00:19:11,760 --> 00:19:18,720
+book on tidings and patterns. This is
+
+365
+00:19:14,880 --> 00:19:21,600
+mathematics pure math. So if you really
+
+366
+00:19:18,720 --> 00:19:24,320
+want to get into math this is a must-h
+
+367
+00:19:21,600 --> 00:19:27,600
+have reference like almost the the
+
+368
+00:19:24,320 --> 00:19:31,039
+reference. Okay. The this book is out of
+
+369
+00:19:27,600 --> 00:19:34,559
+print but there's a new edition uh I
+
+370
+00:19:31,039 --> 00:19:37,520
+mean new reprint by do uh they made the
+
+371
+00:19:34,559 --> 00:19:41,120
+cover very ugly like they become this
+
+372
+00:19:37,520 --> 00:19:43,520
+ugly cover but anyway so you can buy the
+
+373
+00:19:41,120 --> 00:19:46,720
+book okay this is the reference for
+
+374
+00:19:43,520 --> 00:19:50,080
+titans and patterns okay uh it's a math
+
+375
+00:19:46,720 --> 00:19:52,480
+book okay it's not just like I mean if
+
+376
+00:19:50,080 --> 00:19:56,080
+you are artist you you know you can get
+
+377
+00:19:52,480 --> 00:19:58,160
+inspiration from it from it But it's
+
+378
+00:19:56,080 --> 00:20:00,000
+actually talking about mathematics the
+
+379
+00:19:58,160 --> 00:20:03,360
+theories what you know what kind of
+
+380
+00:20:00,000 --> 00:20:06,720
+tiles are possible things like that uh
+
+381
+00:20:03,360 --> 00:20:09,600
+and I wrote to this guy they he passed
+
+382
+00:20:06,720 --> 00:20:12,960
+away okay he passed away about uh seven
+
+383
+00:20:09,600 --> 00:20:15,440
+years ago uh but I wrote to him like in
+
+384
+00:20:12,960 --> 00:20:18,720
+the 1990s and he sent me his
+
+385
+00:20:15,440 --> 00:20:20,720
+publications like a stack of them so I
+
+386
+00:20:18,720 --> 00:20:22,559
+really appreciate like when so when you
+
+387
+00:20:20,720 --> 00:20:26,559
+when when so you guys when you are
+
+388
+00:20:22,559 --> 00:20:28,960
+younger you can you um you know write to
+
+389
+00:20:26,559 --> 00:20:31,919
+mathematicians and usually they will be
+
+390
+00:20:28,960 --> 00:20:31,919
+happy to help
+
+391
+00:20:38,039 --> 00:20:43,280
+you. Okay, comments. Okay, if you guys
+
+392
+00:20:40,880 --> 00:20:45,720
+comment. So, so that's a great book you
+
+393
+00:20:43,280 --> 00:20:49,760
+should um get.
+
+394
+00:20:45,720 --> 00:20:52,600
+Uh, okay. So, and it's actually this
+
+395
+00:20:49,760 --> 00:20:56,840
+would be one of my like let's say top
+
+396
+00:20:52,600 --> 00:21:00,000
+three favorite math book. This one.
+
+397
+00:20:56,840 --> 00:21:02,480
+Okay. I still have it somewhere. Do I
+
+398
+00:21:00,000 --> 00:21:05,799
+where where is it? I put away somewhere.
+
+399
+00:21:02,480 --> 00:21:09,039
+Wait. Where is it? Must be
+
+400
+00:21:05,799 --> 00:21:14,480
+somewhere. Uh, okay. So, that book.
+
+401
+00:21:09,039 --> 00:21:17,760
+Okay. So, let's see. Let's stop this.
+
+402
+00:21:14,480 --> 00:21:21,440
+Then I started to write some notes here.
+
+403
+00:21:17,760 --> 00:21:24,000
+Uh and but also today there's tremendous
+
+404
+00:21:21,440 --> 00:21:27,559
+amount of information on Wikipedia. So
+
+405
+00:21:24,000 --> 00:21:31,600
+if you just want to see
+
+406
+00:21:27,559 --> 00:21:31,600
+um tremendous okay
+
+407
+00:21:31,799 --> 00:21:38,799
+titings but tessellation okay so you
+
+408
+00:21:36,000 --> 00:21:43,400
+know so you can see tessillations
+
+409
+00:21:38,799 --> 00:21:48,200
+uh lots of theories and pretty pictures.
+
+410
+00:21:43,400 --> 00:21:52,159
+Um and uh you know math theories about
+
+411
+00:21:48,200 --> 00:21:56,360
+tidings. Uh and this is nonperiodic.
+
+412
+00:21:52,159 --> 00:22:00,400
+Okay. So Penrose tiding the most famous
+
+413
+00:21:56,360 --> 00:22:03,600
+nonperiodic tiding. Okay. Uh this one
+
+414
+00:22:00,400 --> 00:22:07,480
+they it's not beautiful. Okay. And this
+
+415
+00:22:03,600 --> 00:22:10,799
+is Penrose Roger Penrose uh British
+
+416
+00:22:07,480 --> 00:22:14,640
+mathematician who kind of created the
+
+417
+00:22:10,799 --> 00:22:17,120
+Penrose titing and uh this is the
+
+418
+00:22:14,640 --> 00:22:20,240
+precursor of Penrose titing. So they
+
+419
+00:22:17,120 --> 00:22:25,960
+they are actually very deep. Okay, they
+
+420
+00:22:20,240 --> 00:22:30,200
+relates to logic and proof theory.
+
+421
+00:22:25,960 --> 00:22:33,360
+Uh you know they are fairly very
+
+422
+00:22:30,200 --> 00:22:36,400
+deep. Okay. So uh for example in this
+
+423
+00:22:33,360 --> 00:22:38,919
+book in this book we were talking about
+
+424
+00:22:36,400 --> 00:22:42,320
+uh where did that book in this
+
+425
+00:22:38,919 --> 00:22:45,520
+book at the end there are like one or
+
+426
+00:22:42,320 --> 00:22:49,520
+two chapters about the periodic tidings.
+
+427
+00:22:45,520 --> 00:22:53,360
+Okay so here is the uh table of contents
+
+428
+00:22:49,520 --> 00:22:56,720
+one tiles that's before Penro's tiding.
+
+429
+00:22:53,360 --> 00:22:58,679
+So a peri a periodic tiding. Okay. So
+
+430
+00:22:56,720 --> 00:23:01,039
+that that
+
+431
+00:22:58,679 --> 00:23:04,520
+chapter actually I I haven't read
+
+432
+00:23:01,039 --> 00:23:09,280
+chapter chap chapter 10 and
+
+433
+00:23:04,520 --> 00:23:11,080
+11 I and maybe 12 I haven't read I read
+
+434
+00:23:09,280 --> 00:23:13,880
+the uh rest of the
+
+435
+00:23:11,080 --> 00:23:17,280
+book. Okay.
+
+436
+00:23:13,880 --> 00:23:20,760
+So so the one tiles it you know they
+
+437
+00:23:17,280 --> 00:23:24,440
+relates through logic like very uh
+
+438
+00:23:20,760 --> 00:23:26,280
+deep. Okay. So where are we? So let's
+
+439
+00:23:24,440 --> 00:23:29,159
+see.
+
+440
+00:23:26,280 --> 00:23:32,720
+Um
+
+441
+00:23:29,159 --> 00:23:35,640
+yeah. Yeah. Okay. So then where's the
+
+442
+00:23:32,720 --> 00:23:39,280
+Wikipedia? Okay. So
+
+443
+00:23:35,640 --> 00:23:42,760
+Wikipedia. Yeah. So you know this uh one
+
+444
+00:23:39,280 --> 00:23:46,000
+tiles that's where is
+
+445
+00:23:42,760 --> 00:23:48,960
+it? Um any but anyway so I'm saying that
+
+446
+00:23:46,000 --> 00:23:51,919
+Wikipedia is very rich information. you
+
+447
+00:23:48,960 --> 00:23:54,640
+can read for like a year just about this
+
+448
+00:23:51,919 --> 00:23:57,039
+topic. So before I was talking about
+
+449
+00:23:54,640 --> 00:23:59,919
+wallpaper groups. So now you can see
+
+450
+00:23:57,039 --> 00:24:02,840
+Wikipedia they have like a full article
+
+451
+00:23:59,919 --> 00:24:07,120
+like 20 20 years ago when Wikipedia
+
+452
+00:24:02,840 --> 00:24:09,520
+began they just copied my website you
+
+453
+00:24:07,120 --> 00:24:13,400
+know and at at the at the end there's a
+
+454
+00:24:09,520 --> 00:24:17,360
+reference to my website. I think it's
+
+455
+00:24:13,400 --> 00:24:21,200
+gun. Uh let's see. Search such folks uh
+
+456
+00:24:17,360 --> 00:24:22,799
+yeah they removed it but 15 years ago
+
+457
+00:24:21,200 --> 00:24:23,919
+it's it was there you know in the
+
+458
+00:24:22,799 --> 00:24:26,919
+beginning they don't have much
+
+459
+00:24:23,919 --> 00:24:30,400
+information. So but
+
+460
+00:24:26,919 --> 00:24:32,320
+anyway so the so so Wikipedia okay if
+
+461
+00:24:30,400 --> 00:24:33,559
+you want to learn these things you can
+
+462
+00:24:32,320 --> 00:24:37,520
+also use
+
+463
+00:24:33,559 --> 00:24:39,960
+Wikipedia okay tessellations and uh so
+
+464
+00:24:37,520 --> 00:24:43,720
+periodic tilings
+
+465
+00:24:39,960 --> 00:24:45,840
+uh yeah and you you can also go to
+
+466
+00:24:43,720 --> 00:24:49,039
+three-dimensional or in different
+
+467
+00:24:45,840 --> 00:24:53,919
+geometry like nonukidian geometry that's
+
+468
+00:24:49,039 --> 00:24:56,559
+what this one is about um let's shrink
+
+469
+00:24:53,919 --> 00:24:57,960
+you know This is non non uklidian uh
+
+470
+00:24:56,559 --> 00:24:59,030
+geometry
+
+471
+00:24:57,960 --> 00:25:00,360
+tiling.
+
+472
+00:24:59,030 --> 00:25:03,919
+[Music]
+
+473
+00:25:00,360 --> 00:25:07,760
+Uh then uh hyperbolic plane. Okay,
+
+474
+00:25:03,919 --> 00:25:12,159
+that's in hyperbolic plane. Then some
+
+475
+00:25:07,760 --> 00:25:14,000
+other things I want to uh talk about.
+
+476
+00:25:12,159 --> 00:25:16,080
+Yeah, I want I want to go back to work
+
+477
+00:25:14,000 --> 00:25:19,120
+on the code. Okay, so we're going to
+
+478
+00:25:16,080 --> 00:25:22,720
+write this code, but just a few more
+
+479
+00:25:19,120 --> 00:25:24,880
+things. So, so here is one in JavaScript
+
+480
+00:25:22,720 --> 00:25:28,480
+that generates this random kind of
+
+481
+00:25:24,880 --> 00:25:32,799
+thing. So you can click on that, click
+
+482
+00:25:28,480 --> 00:25:36,240
+on that 20 tiles, 10 tiles, random,
+
+483
+00:25:32,799 --> 00:25:40,080
+random, random. It's beautiful. Okay. So
+
+484
+00:25:36,240 --> 00:25:42,960
+this this tile is called trotchet tile.
+
+485
+00:25:40,080 --> 00:25:42,960
+Okay, let's add
+
+486
+00:25:43,320 --> 00:25:48,320
+that. Okay,
+
+487
+00:25:45,159 --> 00:25:52,400
+then. Okay. So this is my package that
+
+488
+00:25:48,320 --> 00:25:54,400
+does the tiding and then so and so there
+
+489
+00:25:52,400 --> 00:25:57,919
+are many different ways to generate
+
+490
+00:25:54,400 --> 00:26:00,760
+them. One way is by repeating the
+
+491
+00:25:57,919 --> 00:26:04,440
+fundamental region like that.
+
+492
+00:26:00,760 --> 00:26:08,480
+Okay. The other way is you
+
+493
+00:26:04,440 --> 00:26:13,600
+simply you simply draw a motif like
+
+494
+00:26:08,480 --> 00:26:16,640
+that. Then you just map that to all the
+
+495
+00:26:13,600 --> 00:26:19,360
+grid points. So this is another way to
+
+496
+00:26:16,640 --> 00:26:21,760
+generate the tidying. So by that
+
+497
+00:26:19,360 --> 00:26:23,840
+technique you can generate this one for
+
+498
+00:26:21,760 --> 00:26:26,799
+example this one is like Islamic
+
+499
+00:26:23,840 --> 00:26:29,600
+pattern. Okay. So in fact this way is
+
+500
+00:26:26,799 --> 00:26:33,520
+much easier because you don't have to
+
+501
+00:26:29,600 --> 00:26:36,159
+like you don't have to compute the exact
+
+502
+00:26:33,520 --> 00:26:38,480
+coordinate you know like like we like
+
+503
+00:26:36,159 --> 00:26:40,960
+like given like given a ting like that
+
+504
+00:26:38,480 --> 00:26:43,200
+you have to find out which which is like
+
+505
+00:26:40,960 --> 00:26:48,240
+the minimal part then you have to find
+
+506
+00:26:43,200 --> 00:26:52,080
+the coordinate it's not so easy but but
+
+507
+00:26:48,240 --> 00:26:54,799
+with this you know mapping a motif to
+
+508
+00:26:52,080 --> 00:26:57,760
+all the uh grid points
+
+509
+00:26:54,799 --> 00:27:00,520
+or lattice points. It's very easy. So
+
+510
+00:26:57,760 --> 00:27:04,159
+you can generate this one beautiful
+
+511
+00:27:00,520 --> 00:27:06,720
+one and the y square there is a
+
+512
+00:27:04,159 --> 00:27:09,159
+fundamental region. Okay. So anyway, so
+
+513
+00:27:06,720 --> 00:27:12,480
+then you can generate that uh
+
+514
+00:27:09,159 --> 00:27:15,520
+that that that okay then you can
+
+515
+00:27:12,480 --> 00:27:19,440
+generate like illustrations for the
+
+516
+00:27:15,520 --> 00:27:22,000
+symmetry of a tile. Okay. So then you
+
+517
+00:27:19,440 --> 00:27:23,480
+can like cut it. Then you get this kind
+
+518
+00:27:22,000 --> 00:27:28,000
+of
+
+519
+00:27:23,480 --> 00:27:31,240
+uh um you get this kind of church uh
+
+520
+00:27:28,000 --> 00:27:35,200
+tinted glass
+
+521
+00:27:31,240 --> 00:27:39,400
+decoration. Okay. So and then this one
+
+522
+00:27:35,200 --> 00:27:42,960
+is a example of fractal typing. So
+
+523
+00:27:39,400 --> 00:27:47,880
+this to generate this one is uh another
+
+524
+00:27:42,960 --> 00:27:52,200
+technique. What you do is you do line
+
+525
+00:27:47,880 --> 00:27:56,159
+transformation. So you see typically a
+
+526
+00:27:52,200 --> 00:27:58,600
+tiling is made of you know tiles. So you
+
+527
+00:27:56,159 --> 00:28:03,559
+have edges right you know those
+
+528
+00:27:58,600 --> 00:28:06,240
+edges but in this one in this uh
+
+529
+00:28:03,559 --> 00:28:09,840
+transformation line line transformation
+
+530
+00:28:06,240 --> 00:28:13,120
+basically you just for every edge of a
+
+531
+00:28:09,840 --> 00:28:15,360
+tile you you begin with a s simple tile
+
+532
+00:28:13,120 --> 00:28:18,159
+then you just apply transformation to
+
+533
+00:28:15,360 --> 00:28:20,960
+the line so each line becomes some other
+
+534
+00:28:18,159 --> 00:28:23,120
+shape so you get that then you can
+
+535
+00:28:20,960 --> 00:28:26,320
+repeat then you got this you know you
+
+536
+00:28:23,120 --> 00:28:26,320
+got this fractal titing
+
+537
+00:28:27,159 --> 00:28:33,440
+Beautiful. Then you can cut off the
+
+538
+00:28:29,840 --> 00:28:33,440
+fringes. Then you you get
+
+539
+00:28:37,000 --> 00:28:44,640
+that. Now this one is interesting too.
+
+540
+00:28:42,320 --> 00:28:47,039
+This one is also done by line
+
+541
+00:28:44,640 --> 00:28:49,679
+transformation. Okay. So anyway, so
+
+542
+00:28:47,039 --> 00:28:52,000
+that's a introduction to my uh wam
+
+543
+00:28:49,679 --> 00:28:54,640
+language plain tiling package. So you
+
+544
+00:28:52,000 --> 00:28:57,200
+can get it on GitHub you know download
+
+545
+00:28:54,640 --> 00:28:59,600
+Wam language and get it. So one more
+
+546
+00:28:57,200 --> 00:29:02,080
+thing let's cover uh one more thing
+
+547
+00:28:59,600 --> 00:29:05,399
+about uh yeah so algorithmic
+
+548
+00:29:02,080 --> 00:29:09,600
+mathematical art.
+
+549
+00:29:05,399 --> 00:29:13,279
+Um so let's this this is uh this is
+
+550
+00:29:09,600 --> 00:29:15,480
+written about 20 years ago and it's one
+
+551
+00:29:13,279 --> 00:29:21,000
+of my I would
+
+552
+00:29:15,480 --> 00:29:23,919
+say one of the essay I'm most proud of
+
+553
+00:29:21,000 --> 00:29:25,159
+algorithmic algorithmic mathematical art
+
+554
+00:29:23,919 --> 00:29:29,520
+so
+
+555
+00:29:25,159 --> 00:29:32,559
+I it's a exposition I explain what are
+
+556
+00:29:29,520 --> 00:29:35,120
+the techniques to generate all sort of
+
+557
+00:29:32,559 --> 00:29:38,399
+mathematical art and I also give a
+
+558
+00:29:35,120 --> 00:29:41,360
+definition of exactly how what is a
+
+559
+00:29:38,399 --> 00:29:43,000
+mathematical art. I mean different
+
+560
+00:29:41,360 --> 00:29:45,840
+person can have different
+
+561
+00:29:43,000 --> 00:29:48,399
+interpretations but I give a definition
+
+562
+00:29:45,840 --> 00:29:50,039
+for that and I also give a definition
+
+563
+00:29:48,399 --> 00:29:54,159
+for what is
+
+564
+00:29:50,039 --> 00:29:56,080
+algorithmic art. So together in order
+
+565
+00:29:54,159 --> 00:29:59,360
+you know together all these are
+
+566
+00:29:56,080 --> 00:30:01,919
+algorithmic and mathematical but that
+
+567
+00:29:59,360 --> 00:30:05,200
+does not mean anything computerenerated.
+
+568
+00:30:01,919 --> 00:30:08,240
+Okay. So this this one is algorithmic
+
+569
+00:30:05,200 --> 00:30:11,200
+mathematical art because it's defined by
+
+570
+00:30:08,240 --> 00:30:14,640
+a equation. This one is also because
+
+571
+00:30:11,200 --> 00:30:17,159
+it's defined by a equation. This is a
+
+572
+00:30:14,640 --> 00:30:20,799
+called Raymond surface. Okay, it should
+
+573
+00:30:17,159 --> 00:30:25,360
+extend extend to infinity. It only shows
+
+574
+00:30:20,799 --> 00:30:28,399
+part of it. Uh and I I always dreamed to
+
+575
+00:30:25,360 --> 00:30:32,559
+be able to have something like this in a
+
+576
+00:30:28,399 --> 00:30:35,279
+3D game. So, so for those of of you uh
+
+577
+00:30:32,559 --> 00:30:38,480
+writing 3D games or know how to use 3D
+
+578
+00:30:35,279 --> 00:30:41,919
+game engine engines, try to create this.
+
+579
+00:30:38,480 --> 00:30:45,279
+Okay. So, try to recreate this Raymond
+
+580
+00:30:41,919 --> 00:30:47,279
+surface in a 3D game. So that it doesn't
+
+581
+00:30:45,279 --> 00:30:50,240
+just show part of it. Like right now,
+
+582
+00:30:47,279 --> 00:30:51,640
+this picture only show part of it, but
+
+583
+00:30:50,240 --> 00:30:54,559
+it should be
+
+584
+00:30:51,640 --> 00:30:56,960
+like, you know, all the edges extend to
+
+585
+00:30:54,559 --> 00:30:59,679
+infinity. Okay. So, so when you have
+
+586
+00:30:56,960 --> 00:31:02,880
+this in a 3D game and imagine if you are
+
+587
+00:30:59,679 --> 00:31:06,000
+a person walking on a surface or ant or
+
+588
+00:31:02,880 --> 00:31:09,600
+a fly, you can kind of go through these
+
+589
+00:31:06,000 --> 00:31:13,360
+tunnels into a different level. So, you
+
+590
+00:31:09,600 --> 00:31:16,159
+go up this hole, you reach a different
+
+591
+00:31:13,360 --> 00:31:18,039
+level, then you go to the other side and
+
+592
+00:31:16,159 --> 00:31:23,200
+then you can go up.
+
+593
+00:31:18,039 --> 00:31:25,679
+So if anyone of you have seen anyone has
+
+594
+00:31:23,200 --> 00:31:28,080
+ever done this in a 3D game engine,
+
+595
+00:31:25,679 --> 00:31:30,240
+okay, I'm not talking about like you
+
+596
+00:31:28,080 --> 00:31:34,080
+know like you can go to this website.
+
+597
+00:31:30,240 --> 00:31:38,320
+This this is a professor Richard Palace
+
+598
+00:31:34,080 --> 00:31:42,399
+and Kasher who helped me a lot. Richard
+
+599
+00:31:38,320 --> 00:31:43,399
+Pal and Kasha okay they they they were
+
+600
+00:31:42,399 --> 00:31:47,200
+my
+
+601
+00:31:43,399 --> 00:31:49,519
+mentors. Okay. So and I helped uh like I
+
+602
+00:31:47,200 --> 00:31:52,000
+helped build I helped them build this
+
+603
+00:31:49,519 --> 00:31:54,480
+website. So you can you know see many of
+
+604
+00:31:52,000 --> 00:31:57,960
+these minimal surfaces
+
+605
+00:31:54,480 --> 00:32:03,159
+uh and for uh so this one Raymond
+
+606
+00:31:57,960 --> 00:32:06,480
+surface. So this one okay let's turn on
+
+607
+00:32:03,159 --> 00:32:10,559
+JavaScript. Um then you can see they
+
+608
+00:32:06,480 --> 00:32:13,840
+deform you see. So it's it's a family of
+
+609
+00:32:10,559 --> 00:32:17,200
+surfaces. Okay. So, but my question is
+
+610
+00:32:13,840 --> 00:32:20,159
+for you guys if you guys have ever seen
+
+611
+00:32:17,200 --> 00:32:23,200
+something like this rendered in a 3D
+
+612
+00:32:20,159 --> 00:32:25,519
+game engine. Let me know because I've
+
+613
+00:32:23,200 --> 00:32:27,919
+been wanting to do that like since 20
+
+614
+00:32:25,519 --> 00:32:30,799
+years ago, but I don't think I'm going
+
+615
+00:32:27,919 --> 00:32:34,080
+to do it. I'm too old for it. I mean,
+
+616
+00:32:30,799 --> 00:32:36,880
+yeah, I got other things, you know, is,
+
+617
+00:32:34,080 --> 00:32:39,039
+you know, so happens. So, but if you
+
+618
+00:32:36,880 --> 00:32:43,120
+guys have ever seen, you know, things
+
+619
+00:32:39,039 --> 00:32:43,120
+like that, let me know. Okay.
+
+620
+00:32:43,279 --> 00:32:51,360
+So fantastic. Okay. So this website uh
+
+621
+00:32:46,480 --> 00:32:55,360
+check it out. Okay. 3D Expo Math 3DXM
+
+622
+00:32:51,360 --> 00:32:56,360
+virtual math museum. Okay. Let's post
+
+623
+00:32:55,360 --> 00:32:59,720
+that
+
+624
+00:32:56,360 --> 00:33:02,320
+there. Okay. Then I wanted to Yeah.
+
+625
+00:32:59,720 --> 00:33:04,720
+Algorithmic. Yeah. Agorithmic
+
+626
+00:33:02,320 --> 00:33:07,200
+mathematical arts. Okay. Let's continue.
+
+627
+00:33:04,720 --> 00:33:10,960
+This is algorithmic mathematical art
+
+628
+00:33:07,200 --> 00:33:13,279
+because it is defined by an algorithm.
+
+629
+00:33:10,960 --> 00:33:16,399
+Okay. And all these two, but this is
+
+630
+00:33:13,279 --> 00:33:19,200
+real life. And these two because it's
+
+631
+00:33:16,399 --> 00:33:22,559
+defined by a mathematical equation.
+
+632
+00:33:19,200 --> 00:33:27,039
+These two and these two because it's
+
+633
+00:33:22,559 --> 00:33:29,440
+defined by a uh algorithm, you know, a
+
+634
+00:33:27,039 --> 00:33:32,760
+mathematical definition. This is called
+
+635
+00:33:29,440 --> 00:33:35,919
+um inversion of circles.
+
+636
+00:33:32,760 --> 00:33:38,399
+Okay. Uh and that one too and this one
+
+637
+00:33:35,919 --> 00:33:41,679
+too. Inversion of circles. And this one
+
+638
+00:33:38,399 --> 00:33:43,760
+too. Uh some of these by are by other
+
+639
+00:33:41,679 --> 00:33:45,080
+people, you know. So this one is from a
+
+640
+00:33:43,760 --> 00:33:48,960
+math
+
+641
+00:33:45,080 --> 00:33:51,360
+software like 30 years ago. It's gone.
+
+642
+00:33:48,960 --> 00:33:53,440
+It's gone now because you know like 30
+
+643
+00:33:51,360 --> 00:33:56,559
+years ago imagine you lived your life
+
+644
+00:33:53,440 --> 00:33:59,200
+and after 30 years some websites are
+
+645
+00:33:56,559 --> 00:34:03,039
+good things like that.
+
+646
+00:33:59,200 --> 00:34:06,799
+Then so then you this is a algorithmic
+
+647
+00:34:03,039 --> 00:34:10,280
+mathematical art because it's done via
+
+648
+00:34:06,799 --> 00:34:12,879
+algorithm and uh you know geometry
+
+649
+00:34:10,280 --> 00:34:14,919
+transformation. So typically this one is
+
+650
+00:34:12,879 --> 00:34:18,560
+called fish
+
+651
+00:34:14,919 --> 00:34:20,960
+lens and this one we've seen before but
+
+652
+00:34:18,560 --> 00:34:23,919
+now it becomes like one single line. So
+
+653
+00:34:20,960 --> 00:34:27,599
+this image is created by one single line
+
+654
+00:34:23,919 --> 00:34:34,760
+moving about. So very fascinating uh you
+
+655
+00:34:27,599 --> 00:34:34,760
+know uh it's based on uh it's based on
+
+656
+00:34:37,079 --> 00:34:45,200
+uh what was it based on I
+
+657
+00:34:41,560 --> 00:34:49,440
+forgot but it's done by line replacement
+
+658
+00:34:45,200 --> 00:34:49,440
+you know transformation of the line line
+
+659
+00:34:52,359 --> 00:34:58,320
+segment. So anyway, there's so many so
+
+660
+00:34:55,679 --> 00:35:00,320
+this this topic there's big topic. So
+
+661
+00:34:58,320 --> 00:35:03,119
+there's a building this one is called
+
+662
+00:35:00,320 --> 00:35:05,240
+pink wheel ting beautiful and this is
+
+663
+00:35:03,119 --> 00:35:10,880
+this is a building in
+
+664
+00:35:05,240 --> 00:35:13,560
+Australia in Australia. Uh then you got
+
+665
+00:35:10,880 --> 00:35:18,560
+you know so this is also mathematical
+
+666
+00:35:13,560 --> 00:35:22,560
+art. This one is a plot of a um complex
+
+667
+00:35:18,560 --> 00:35:25,599
+function. Okay. Uh something like that.
+
+668
+00:35:22,560 --> 00:35:30,079
+the real part of a discriminant as a
+
+669
+00:35:25,599 --> 00:35:33,359
+function of the of the norm Q on the
+
+670
+00:35:30,079 --> 00:35:36,240
+unit disk. Okay. I don't understand. So
+
+671
+00:35:33,359 --> 00:35:39,280
+let's see if the website is still alive.
+
+672
+00:35:36,240 --> 00:35:41,560
+Yeah, it's still alive. This this is old
+
+673
+00:35:39,280 --> 00:35:46,000
+pretty old like
+
+674
+00:35:41,560 --> 00:35:48,640
+2005. So anyway, so so then there's
+
+675
+00:35:46,000 --> 00:35:51,119
+tailings and patterns. So this is Celtic
+
+676
+00:35:48,640 --> 00:35:55,160
+decoration. It is mathematical art
+
+677
+00:35:51,119 --> 00:35:58,480
+because involves a lot algorithms.
+
+678
+00:35:55,160 --> 00:36:01,280
+Okay. And similar similar. Okay. So
+
+679
+00:35:58,480 --> 00:36:04,800
+anyway I want to get to so then we
+
+680
+00:36:01,280 --> 00:36:08,240
+started to have this this beautiful
+
+681
+00:36:04,800 --> 00:36:11,200
+thing is a nonperiodic tiding. Okay.
+
+682
+00:36:08,240 --> 00:36:15,400
+It's nonper nonperiodic
+
+683
+00:36:11,200 --> 00:36:19,359
+uh and it is algorithmic. So this is a
+
+684
+00:36:15,400 --> 00:36:21,760
+algorithmic mathematical art.
+
+685
+00:36:19,359 --> 00:36:24,240
+Okay. So there's too many to go through.
+
+686
+00:36:21,760 --> 00:36:27,040
+Okay. So and this one spectacular. Okay.
+
+687
+00:36:24,240 --> 00:36:30,480
+So um then there's fractalss because
+
+688
+00:36:27,040 --> 00:36:37,040
+they are a plot of a mathematical
+
+689
+00:36:30,480 --> 00:36:37,040
+uh recursive function. Um you know
+
+690
+00:36:37,079 --> 00:36:42,599
+fractalss and there's uh 3D geometry
+
+691
+00:36:40,400 --> 00:36:45,440
+case. Uh so
+
+692
+00:36:42,599 --> 00:36:48,760
+anyway so what what I want to say so
+
+693
+00:36:45,440 --> 00:36:53,200
+then there's you know uh one of the most
+
+694
+00:36:48,760 --> 00:36:56,079
+famous artist known for his mathematical
+
+695
+00:36:53,200 --> 00:36:56,079
+art
+
+696
+00:36:56,599 --> 00:37:04,839
+so transformation titings and
+
+697
+00:37:01,160 --> 00:37:08,480
+another's artwork
+
+698
+00:37:04,839 --> 00:37:11,040
+um okay but but something are not
+
+699
+00:37:08,480 --> 00:37:13,920
+mathematical art okay and I really hate
+
+700
+00:37:11,040 --> 00:37:17,400
+them. So that would be examples of
+
+701
+00:37:13,920 --> 00:37:21,680
+today's what's called generative art.
+
+702
+00:37:17,400 --> 00:37:24,240
+Okay, that's the worst possible.
+
+703
+00:37:21,680 --> 00:37:26,240
+Generative art. You look at them, they
+
+704
+00:37:24,240 --> 00:37:28,960
+are just like random, you know, random
+
+705
+00:37:26,240 --> 00:37:32,240
+doodling using computer programs.
+
+706
+00:37:28,960 --> 00:37:35,000
+There's no order. There's no structure.
+
+707
+00:37:32,240 --> 00:37:36,839
+It's just like random doodle. The random
+
+708
+00:37:35,000 --> 00:37:40,640
+doodling
+
+709
+00:37:36,839 --> 00:37:44,320
+ popularized by the Zuma generation.
+
+710
+00:37:40,640 --> 00:37:46,400
+Okay. No order, no structure. You just
+
+711
+00:37:44,320 --> 00:37:48,480
+use computer to like do random, you
+
+712
+00:37:46,400 --> 00:37:52,200
+know, drawing that it's called
+
+713
+00:37:48,480 --> 00:37:55,160
+generative art. It's the worst
+
+714
+00:37:52,200 --> 00:37:59,720
+ Okay. No, there's, you
+
+715
+00:37:55,160 --> 00:38:02,480
+know, like it's worst possible.
+
+716
+00:37:59,720 --> 00:38:04,800
+Okay. And it's easy because there's no
+
+717
+00:38:02,480 --> 00:38:06,640
+rules. You just use the computer just to
+
+718
+00:38:04,800 --> 00:38:09,119
+do do random and you come up, you know,
+
+719
+00:38:06,640 --> 00:38:11,359
+you have like a picture like that. Okay?
+
+720
+00:38:09,119 --> 00:38:14,079
+You know, some of them require some
+
+721
+00:38:11,359 --> 00:38:16,280
+creativity like this one. You know, you
+
+722
+00:38:14,079 --> 00:38:19,280
+got to have some some
+
+723
+00:38:16,280 --> 00:38:22,880
+creativity. Uh but but basically,
+
+724
+00:38:19,280 --> 00:38:25,720
+there's no rules, you know. On the
+
+725
+00:38:22,880 --> 00:38:28,480
+contrary, in
+
+726
+00:38:25,720 --> 00:38:32,079
+contrast, all these all these tidings,
+
+727
+00:38:28,480 --> 00:38:35,280
+okay, or or or this one or or this one
+
+728
+00:38:32,079 --> 00:38:37,520
+or uh let's go to the my article. Okay,
+
+729
+00:38:35,280 --> 00:38:41,359
+so
+
+730
+00:38:37,520 --> 00:38:41,359
+uh where is it? Okay, so
+
+731
+00:38:42,680 --> 00:38:49,880
+uh so all these you know all these
+
+732
+00:38:46,920 --> 00:38:52,800
+surfaces, they are not just like random
+
+733
+00:38:49,880 --> 00:38:54,440
+doodings. they have very precise
+
+734
+00:38:52,800 --> 00:38:57,680
+properties and
+
+735
+00:38:54,440 --> 00:38:58,760
+coordinates. So in order to do this you
+
+736
+00:38:57,680 --> 00:39:01,920
+need
+
+737
+00:38:58,760 --> 00:39:05,200
+to like it's not easy. Okay. Some of
+
+738
+00:39:01,920 --> 00:39:07,680
+these involves integrals that you have
+
+739
+00:39:05,200 --> 00:39:11,680
+to compute for long hours. Okay. And
+
+740
+00:39:07,680 --> 00:39:15,520
+they have very significant significant
+
+741
+00:39:11,680 --> 00:39:18,280
+properties such as this solon. Okay.
+
+742
+00:39:15,520 --> 00:39:20,640
+this solaton breath of solaton they
+
+743
+00:39:18,280 --> 00:39:24,119
+involved actually I don't understand the
+
+744
+00:39:20,640 --> 00:39:29,359
+mathematics but they they are about
+
+745
+00:39:24,119 --> 00:39:31,680
+solaton like like in physics okay in you
+
+746
+00:39:29,359 --> 00:39:34,000
+know in physics advanced physics you
+
+747
+00:39:31,680 --> 00:39:38,480
+have this kind of thing I don't really
+
+748
+00:39:34,000 --> 00:39:41,480
+understand it okay but it's about wave
+
+749
+00:39:38,480 --> 00:39:44,560
+about how you can have a wave and uh
+
+750
+00:39:41,480 --> 00:39:48,720
+anyway look up Wikipedia okay look look
+
+751
+00:39:44,560 --> 00:39:48,720
+up Wikipedia Pedia for
+
+752
+00:39:48,839 --> 00:39:54,800
+solit. So you have these four
+
+753
+00:39:51,960 --> 00:39:58,359
+solit they may not be pretty but they
+
+754
+00:39:54,800 --> 00:40:00,720
+have like very significant mathematical
+
+755
+00:39:58,359 --> 00:40:04,400
+properties you know the type of property
+
+756
+00:40:00,720 --> 00:40:07,240
+that get gives you like uh you know
+
+757
+00:40:04,400 --> 00:40:11,720
+solutions I mean solves critical
+
+758
+00:40:07,240 --> 00:40:14,720
+problems so you can um
+
+759
+00:40:11,720 --> 00:40:17,119
+have nuclear bomb something like that.
+
+760
+00:40:14,720 --> 00:40:19,480
+Okay. Not not exactly but something I
+
+761
+00:40:17,119 --> 00:40:21,760
+mean something of that
+
+762
+00:40:19,480 --> 00:40:24,480
+magnitude. Okay. So I but I don't
+
+763
+00:40:21,760 --> 00:40:26,480
+understand this. Okay. So but anyway
+
+764
+00:40:24,480 --> 00:40:30,040
+other things are easy to understand. For
+
+765
+00:40:26,480 --> 00:40:32,960
+example ellipsoid is the most easy to
+
+766
+00:40:30,040 --> 00:40:36,200
+understand. Uh and it has lots of
+
+767
+00:40:32,960 --> 00:40:40,640
+properties because earth is an
+
+768
+00:40:36,200 --> 00:40:44,800
+ellipoid. Okay. So so anyway back to my
+
+769
+00:40:40,640 --> 00:40:47,440
+point. any one of these picture and uh
+
+770
+00:40:44,800 --> 00:40:49,440
+let's go let's go to the minimal surface
+
+771
+00:40:47,440 --> 00:40:53,119
+because that's more beautiful. Any one
+
+772
+00:40:49,440 --> 00:40:55,920
+of these picture is very precise
+
+773
+00:40:53,119 --> 00:41:00,480
+uh defined by a mathematical equation
+
+774
+00:40:55,920 --> 00:41:03,599
+and so it is not easy to do and but they
+
+775
+00:41:00,480 --> 00:41:06,040
+are also beautiful. Okay, for example
+
+776
+00:41:03,599 --> 00:41:08,640
+this uh boy
+
+777
+00:41:06,040 --> 00:41:10,640
+surface. Okay, this what you know this
+
+778
+00:41:08,640 --> 00:41:13,920
+this one looks like a propeller
+
+779
+00:41:10,640 --> 00:41:16,160
+propeller. Okay, and also actually the
+
+780
+00:41:13,920 --> 00:41:18,839
+surface is not just a propeller. It
+
+781
+00:41:16,160 --> 00:41:22,880
+extends to all directions. Okay, so it's
+
+782
+00:41:18,839 --> 00:41:26,000
+not it's not exactly a propeller because
+
+783
+00:41:22,880 --> 00:41:30,000
+it extend to all directions. Okay, like
+
+784
+00:41:26,000 --> 00:41:32,800
+imagine you know it it intersect itself.
+
+785
+00:41:30,000 --> 00:41:36,000
+So what I want to see again is I want to
+
+786
+00:41:32,800 --> 00:41:39,000
+see someone I think it will happen down
+
+787
+00:41:36,000 --> 00:41:42,960
+in in the road in the new gener the new
+
+788
+00:41:39,000 --> 00:41:45,440
+generation somebody will have this in 3D
+
+789
+00:41:42,960 --> 00:41:49,440
+3D game you know create this in 3D game
+
+790
+00:41:45,440 --> 00:41:50,920
+engine actually 20 years ago I was in a
+
+791
+00:41:49,440 --> 00:41:53,359
+conference in
+
+792
+00:41:50,920 --> 00:41:55,760
+Tokyo I've seen people do that
+
+793
+00:41:53,359 --> 00:41:59,680
+mathematicians they demo you know this
+
+794
+00:41:55,760 --> 00:42:01,880
+in a 3D game engine but but what I want
+
+795
+00:41:59,680 --> 00:42:05,119
+to see is you know popular like I can
+
+796
+00:42:01,880 --> 00:42:08,400
+just go to a stream website and download
+
+797
+00:42:05,119 --> 00:42:10,800
+a game like that have these surfaces in
+
+798
+00:42:08,400 --> 00:42:12,960
+a game that would be fantastic. So if
+
+799
+00:42:10,800 --> 00:42:15,839
+you seen that let me know if you have
+
+800
+00:42:12,960 --> 00:42:18,800
+not you know think about it maybe do it
+
+801
+00:42:15,839 --> 00:42:21,280
+tell other people to do it. So these are
+
+802
+00:42:18,800 --> 00:42:21,280
+minimal
+
+803
+00:42:25,720 --> 00:42:32,240
+surfaces. So all these okay all these um
+
+804
+00:42:29,520 --> 00:42:35,839
+let's go back. So all these are
+
+805
+00:42:32,240 --> 00:42:39,440
+mathematical very very definite.
+
+806
+00:42:35,839 --> 00:42:42,680
+So in sharp contrast to this doodling
+
+807
+00:42:39,440 --> 00:42:45,160
+so-called generative
+
+808
+00:42:42,680 --> 00:42:48,079
+art you
+
+809
+00:42:45,160 --> 00:42:52,200
+know then okay so one more thing I want
+
+810
+00:42:48,079 --> 00:42:54,599
+to say about what is not mathematical
+
+811
+00:42:52,200 --> 00:42:58,960
+art
+
+812
+00:42:54,599 --> 00:43:02,079
+is let's go back okay so so another
+
+813
+00:42:58,960 --> 00:43:03,400
+example that is not algorithmic
+
+814
+00:43:02,079 --> 00:43:06,880
+mathematical
+
+815
+00:43:03,400 --> 00:43:06,880
+art that would
+
+816
+00:43:08,520 --> 00:43:15,079
+Uh that okay this is the worst
+
+817
+00:43:12,480 --> 00:43:18,359
+possible loved by the bit
+
+818
+00:43:15,079 --> 00:43:21,440
+diddlers you know the ray
+
+819
+00:43:18,359 --> 00:43:24,160
+tracing. So ray tracing they are you
+
+820
+00:43:21,440 --> 00:43:27,280
+know great computer techniques for
+
+821
+00:43:24,160 --> 00:43:31,000
+computer graphics they simulate real
+
+822
+00:43:27,280 --> 00:43:32,960
+world imagery right and it is
+
+823
+00:43:31,000 --> 00:43:35,119
+algorithmic you know but you know
+
+824
+00:43:32,960 --> 00:43:39,560
+because it's done you know it's created
+
+825
+00:43:35,119 --> 00:43:39,560
+by a computer including
+
+826
+00:43:40,839 --> 00:43:46,839
+um hold on a second so let me show you
+
+827
+00:43:44,240 --> 00:43:49,599
+so we have seen generative
+
+828
+00:43:46,839 --> 00:43:52,680
+odd are they algorithmic
+
+829
+00:43:49,599 --> 00:43:56,560
+Yes, because it's created by a computer
+
+830
+00:43:52,680 --> 00:43:59,359
+algorithm, but they fail to be
+
+831
+00:43:56,560 --> 00:44:03,880
+algorithmic, algorithmic mathematical
+
+832
+00:43:59,359 --> 00:44:06,400
+art because they don't have a definite
+
+833
+00:44:03,880 --> 00:44:10,720
+structure. They don't have, you know,
+
+834
+00:44:06,400 --> 00:44:13,680
+definite like symmetry or structure even
+
+835
+00:44:10,720 --> 00:44:16,040
+though it's algorithmic. Similarly for
+
+836
+00:44:13,680 --> 00:44:20,240
+this ray traced
+
+837
+00:44:16,040 --> 00:44:24,520
+image is it algorithmic? Yes, because
+
+838
+00:44:20,240 --> 00:44:27,119
+it's created by a computer. But is it
+
+839
+00:44:24,520 --> 00:44:29,839
+mathematical? Well, not really because
+
+840
+00:44:27,119 --> 00:44:32,440
+there's no structure to it. Okay, so
+
+841
+00:44:29,839 --> 00:44:35,319
+that is the
+
+842
+00:44:32,440 --> 00:44:39,280
+distinction
+
+843
+00:44:35,319 --> 00:44:42,960
+of you know that's that is my thesis.
+
+844
+00:44:39,280 --> 00:44:45,520
+Okay, in this article
+
+845
+00:44:42,960 --> 00:44:48,119
+uh in this article where is it here?
+
+846
+00:44:45,520 --> 00:44:50,880
+Okay, you want
+
+847
+00:44:48,119 --> 00:44:54,880
+mathematical algorithmic mathematical
+
+848
+00:44:50,880 --> 00:44:58,160
+artwork. All these aream the examples of
+
+849
+00:44:54,880 --> 00:45:00,960
+except this one except this uh this
+
+850
+00:44:58,160 --> 00:45:02,280
+cellular automter that's not well that's
+
+851
+00:45:00,960 --> 00:45:06,319
+ma that's
+
+852
+00:45:02,280 --> 00:45:09,800
+algorithmic but it is not mathematical.
+
+853
+00:45:06,319 --> 00:45:13,040
+It lacks mathematical
+
+854
+00:45:09,800 --> 00:45:16,079
+beauty just like just like this
+
+855
+00:45:13,040 --> 00:45:19,960
+generative art. It lacks mathematical
+
+856
+00:45:16,079 --> 00:45:22,960
+beauty. Okay, it lacks mathematical
+
+857
+00:45:19,960 --> 00:45:26,480
+beauty. And this one ray tracing
+
+858
+00:45:22,960 --> 00:45:28,720
+pictures lacks mathematical beauty. You
+
+859
+00:45:26,480 --> 00:45:31,599
+know for humans you might you might
+
+860
+00:45:28,720 --> 00:45:33,839
+think oh well this is pretty picture. Uh
+
+861
+00:45:31,599 --> 00:45:37,319
+oh yeah this is pretty picture is kind
+
+862
+00:45:33,839 --> 00:45:41,359
+of relaxing or whatever but it is
+
+863
+00:45:37,319 --> 00:45:45,319
+not algorithmic mathematical art okay
+
+864
+00:45:41,359 --> 00:45:48,680
+that that is um kind of the
+
+865
+00:45:45,319 --> 00:45:52,760
+point I'm making in this
+
+866
+00:45:48,680 --> 00:45:57,280
+article in in this article okay where is
+
+867
+00:45:52,760 --> 00:45:59,839
+it here okay so this this one cellular
+
+868
+00:45:57,280 --> 00:46:03,680
+automata that's also not mathematical
+
+869
+00:45:59,839 --> 00:46:06,440
+artwork but The rest the rest of the
+
+870
+00:46:03,680 --> 00:46:10,160
+images illustrations
+
+871
+00:46:06,440 --> 00:46:12,319
+are okay. I talked too for too long and
+
+872
+00:46:10,160 --> 00:46:14,640
+uh are we going to so it's already one
+
+873
+00:46:12,319 --> 00:46:16,599
+hour. Can we finish this? Let's quickly
+
+874
+00:46:14,640 --> 00:46:21,200
+finish this. Okay, I want to finish
+
+875
+00:46:16,599 --> 00:46:24,960
+this. So, so this is actual coding. Um
+
+876
+00:46:21,200 --> 00:46:27,599
+so this one, okay, we already run it.
+
+877
+00:46:24,960 --> 00:46:28,960
+And what about this one? So what is this
+
+878
+00:46:27,599 --> 00:46:33,319
+one?
+
+879
+00:46:28,960 --> 00:46:38,000
+So this one shift enter. Okay. Evaluate
+
+880
+00:46:33,319 --> 00:46:41,599
+it. And this one shift enter. Okay. Now
+
+881
+00:46:38,000 --> 00:46:44,200
+you started to add the outline. Okay. So
+
+882
+00:46:41,599 --> 00:46:48,079
+we can you know you starting to
+
+883
+00:46:44,200 --> 00:46:51,280
+see they begin with that and you want to
+
+884
+00:46:48,079 --> 00:46:54,319
+add the outline. So you you begin with
+
+885
+00:46:51,280 --> 00:46:58,400
+this motif. Then you show what it looks
+
+886
+00:46:54,319 --> 00:47:01,640
+like. Then you started to refine it by
+
+887
+00:46:58,400 --> 00:47:06,079
+adding outline. So let's see how how did
+
+888
+00:47:01,640 --> 00:47:10,160
+he add the outline. Okay. So fundamental
+
+889
+00:47:06,079 --> 00:47:15,119
+domain plate uh thing fundamental plate
+
+890
+00:47:10,160 --> 00:47:17,240
+cap form round join form line. So he
+
+891
+00:47:15,119 --> 00:47:20,960
+maps a line to this
+
+892
+00:47:17,240 --> 00:47:23,440
+point. Okay. So anyway that's how he
+
+893
+00:47:20,960 --> 00:47:27,880
+adds the outline. You see the black
+
+894
+00:47:23,440 --> 00:47:32,720
+lines. Okay. So blue thin
+
+895
+00:47:27,880 --> 00:47:33,880
+line. Okay. Anyway, then it shows how it
+
+896
+00:47:32,720 --> 00:47:37,760
+looks
+
+897
+00:47:33,880 --> 00:47:41,119
+like. Okay. It looks like that. Then he
+
+898
+00:47:37,760 --> 00:47:45,640
+tries to remove, you see, he tries to
+
+899
+00:47:41,119 --> 00:47:48,920
+remove the middle lines to make them a
+
+900
+00:47:45,640 --> 00:47:52,240
+path. Now, how does he do that?
+
+901
+00:47:48,920 --> 00:47:54,400
+Actually, I'm not it's not clear to me
+
+902
+00:47:52,240 --> 00:47:57,440
+how he did that. I have to look at the
+
+903
+00:47:54,400 --> 00:48:01,000
+code in detail. You know the code is
+
+904
+00:47:57,440 --> 00:48:03,520
+just just just here. I have to
+
+905
+00:48:01,000 --> 00:48:07,119
+like you know I have to pay attention
+
+906
+00:48:03,520 --> 00:48:07,119
+what exactly is going
+
+907
+00:48:08,040 --> 00:48:14,560
+on. Uh let's see can we quickly find
+
+908
+00:48:11,280 --> 00:48:17,599
+out. So here is a bunch of coordinates,
+
+909
+00:48:14,560 --> 00:48:19,640
+two-dimensional coordinates and he just
+
+910
+00:48:17,599 --> 00:48:25,319
+add line
+
+911
+00:48:19,640 --> 00:48:25,319
+to to each of them. But
+
+912
+00:48:25,920 --> 00:48:29,359
+uh but how do you
+
+913
+00:48:30,040 --> 00:48:38,119
+add? But but how did you add the
+
+914
+00:48:34,680 --> 00:48:42,160
+uh the
+
+915
+00:48:38,119 --> 00:48:42,160
+path blue thin
+
+916
+00:48:43,400 --> 00:48:49,599
+line Sean? Hey Sean, hope you are having
+
+917
+00:48:47,040 --> 00:48:51,920
+good day. Hello dosey. You should still
+
+918
+00:48:49,599 --> 00:48:54,839
+try. I don't think I have seen that in
+
+919
+00:48:51,920 --> 00:48:57,760
+many engines. Those tiding patterns are
+
+920
+00:48:54,839 --> 00:48:59,839
+awesome. Yeah, regarding you know
+
+921
+00:48:57,760 --> 00:49:02,839
+creating these surfaces in a game
+
+922
+00:48:59,839 --> 00:49:02,839
+engine.
+
+923
+00:49:04,359 --> 00:49:11,280
+Uh I never had experience in game engine
+
+924
+00:49:08,160 --> 00:49:15,280
+so I don't really know but I'm thinking
+
+925
+00:49:11,280 --> 00:49:17,680
+some of them the game engine will not be
+
+926
+00:49:15,280 --> 00:49:23,119
+able to do because the game engine is
+
+927
+00:49:17,680 --> 00:49:27,040
+not designed to do infinite uh surfaces
+
+928
+00:49:23,119 --> 00:49:29,119
+like surfaces that extends to infinity.
+
+929
+00:49:27,040 --> 00:49:34,640
+So let me just show you some you know
+
+930
+00:49:29,119 --> 00:49:39,280
+here's another beautiful uh 3D one. So
+
+931
+00:49:34,640 --> 00:49:39,280
+can you do this in a game engine for
+
+932
+00:49:40,520 --> 00:49:45,920
+example? You'll be you know I I have no
+
+933
+00:49:43,359 --> 00:49:48,240
+idea because I never I try to study game
+
+934
+00:49:45,920 --> 00:49:51,839
+engine but it's like very low level like
+
+935
+00:49:48,240 --> 00:49:54,480
+open openg and like you have like 100
+
+936
+00:49:51,839 --> 00:49:58,000
+1,000 lines if you just want a cube
+
+937
+00:49:54,480 --> 00:50:01,119
+rotating. Okay. 1,000 lines in Wuan
+
+938
+00:49:58,000 --> 00:50:04,400
+language is one single line. I've showed
+
+939
+00:50:01,119 --> 00:50:07,760
+this many times. Okay. So for example
+
+940
+00:50:04,400 --> 00:50:10,079
+uh you know cube one single line. So
+
+941
+00:50:07,760 --> 00:50:15,079
+let's say you want cube you know let's
+
+942
+00:50:10,079 --> 00:50:17,800
+say at 0000. Okay. Then you just
+
+943
+00:50:15,079 --> 00:50:21,920
+say graphics
+
+944
+00:50:17,800 --> 00:50:23,920
+3D at and that's it. Okay. Then you know
+
+945
+00:50:21,920 --> 00:50:27,040
+one single line you have a cube. Then
+
+946
+00:50:23,920 --> 00:50:31,040
+you can like tube whatever you know one
+
+947
+00:50:27,040 --> 00:50:33,480
+single line to do this in OpenGL is like
+
+948
+00:50:31,040 --> 00:50:36,559
+200 lines you know
+
+949
+00:50:33,480 --> 00:50:39,599
+then you know environment settings or
+
+950
+00:50:36,559 --> 00:50:43,760
+pipe you know whatever so I don't
+
+951
+00:50:39,599 --> 00:50:46,400
+know so but in gaming so so but you see
+
+952
+00:50:43,760 --> 00:50:50,440
+this extend to infinity you know this is
+
+953
+00:50:46,400 --> 00:50:54,280
+a this is like a special um
+
+954
+00:50:50,440 --> 00:50:57,040
+uh uniform uklidian and
+
+955
+00:50:54,280 --> 00:51:00,680
+honeycom. Okay. So that it you know this
+
+956
+00:50:57,040 --> 00:51:04,119
+is not too difficult but but some of
+
+957
+00:51:00,680 --> 00:51:06,599
+them for example let's see
+
+958
+00:51:04,119 --> 00:51:10,000
+where okay
+
+959
+00:51:06,599 --> 00:51:14,240
+so so some of these you know they extend
+
+960
+00:51:10,000 --> 00:51:16,800
+to infinity so I don't know how you know
+
+961
+00:51:14,240 --> 00:51:20,599
+3D games are usually not designed to to
+
+962
+00:51:16,800 --> 00:51:20,599
+to do that.
+
+963
+00:51:23,079 --> 00:51:28,720
+Um, so this one for example, yeah, this
+
+964
+00:51:26,720 --> 00:51:32,880
+this is not so good. So you see they
+
+965
+00:51:28,720 --> 00:51:34,040
+they cross each other. So you know, um,
+
+966
+00:51:32,880 --> 00:51:37,440
+anyway,
+
+967
+00:51:34,040 --> 00:51:39,680
+so anyway, so I think that's So let's
+
+968
+00:51:37,440 --> 00:51:43,599
+finish coding this. Okay, so where's the
+
+969
+00:51:39,680 --> 00:51:43,599
+code? Yeah. So let's
+
+970
+00:51:44,359 --> 00:51:50,040
+see, you know, I uh, so let's see. So
+
+971
+00:51:47,920 --> 00:51:52,440
+let's evaluate this
+
+972
+00:51:50,040 --> 00:51:56,480
+part.
+
+973
+00:51:52,440 --> 00:51:57,400
+So did we evaluate that? Yes. Okay. Now
+
+974
+00:51:56,480 --> 00:52:00,440
+this
+
+975
+00:51:57,400 --> 00:52:04,000
+one works.
+
+976
+00:52:00,440 --> 00:52:07,280
+Fantastic. Now this one. Okay. That's a
+
+977
+00:52:04,000 --> 00:52:07,280
+comment. Now this
+
+978
+00:52:07,319 --> 00:52:15,280
+one. Evaluate it. Okay. Now this one.
+
+979
+00:52:12,000 --> 00:52:19,480
+Okay. Now let's delete the graphics and
+
+980
+00:52:15,280 --> 00:52:22,599
+uh evaluate it ourself. Now there you
+
+981
+00:52:19,480 --> 00:52:24,680
+go. So let's see now this
+
+982
+00:52:22,599 --> 00:52:26,920
+one
+
+983
+00:52:24,680 --> 00:52:29,920
+evaluated.
+
+984
+00:52:26,920 --> 00:52:33,400
+Fantastic. Okay, we we kind of done. So
+
+985
+00:52:29,920 --> 00:52:35,480
+what what are these variations? I guess
+
+986
+00:52:33,400 --> 00:52:42,319
+evaluated. Evaluate
+
+987
+00:52:35,480 --> 00:52:45,119
+it. Okay, delete that. Evaluate it.
+
+988
+00:52:42,319 --> 00:52:49,160
+Okay. So we didn't get into
+
+989
+00:52:45,119 --> 00:52:53,119
+understanding exactly how he
+
+990
+00:52:49,160 --> 00:52:54,280
+um like for example now Yeah. So you see
+
+991
+00:52:53,119 --> 00:52:58,880
+first of
+
+992
+00:52:54,280 --> 00:53:02,559
+all you start with with simple line then
+
+993
+00:52:58,880 --> 00:53:05,839
+you make them into a strip then you
+
+994
+00:53:02,559 --> 00:53:07,800
+remove the line in the middle. You see?
+
+995
+00:53:05,839 --> 00:53:10,319
+Then you need to make the strip
+
+996
+00:53:07,800 --> 00:53:14,160
+crisscross, you know, overlap like one
+
+997
+00:53:10,319 --> 00:53:18,920
+on top of each other. So let's see. So
+
+998
+00:53:14,160 --> 00:53:22,319
+you see, so the trick is actually to
+
+999
+00:53:18,920 --> 00:53:25,760
+understand how did he do it because I
+
+1000
+00:53:22,319 --> 00:53:28,960
+mean you I mean it's it's easy to do but
+
+1001
+00:53:25,760 --> 00:53:32,160
+it's just tedious because you know it's
+
+1002
+00:53:28,960 --> 00:53:36,640
+just tedious like so I want to find out
+
+1003
+00:53:32,160 --> 00:53:36,640
+did he you know is there some simple
+
+1004
+00:53:38,520 --> 00:53:44,079
+way so he's using the cap form wait is
+
+1005
+00:53:42,319 --> 00:53:46,280
+that the new function I I haven't seen
+
+1006
+00:53:44,079 --> 00:53:50,480
+that
+
+1007
+00:53:46,280 --> 00:53:53,520
+function joining form is a graphics
+
+1008
+00:53:50,480 --> 00:53:55,920
+directive that specifies what type of
+
+1009
+00:53:53,520 --> 00:54:00,319
+join should be used to connect segment
+
+1010
+00:53:55,920 --> 00:54:00,319
+of lines. Okay.
+
+1011
+00:54:03,880 --> 00:54:09,760
+Yeah. Yeah.
+
+1012
+00:54:06,040 --> 00:54:11,480
+Okay. So what about capform? Cap form
+
+1013
+00:54:09,760 --> 00:54:15,000
+just means the end
+
+1014
+00:54:11,480 --> 00:54:18,559
+point. Yeah. those that
+
+1015
+00:54:15,000 --> 00:54:18,559
+shouldn't do it
+
+1016
+00:54:19,960 --> 00:54:27,599
+but okay I think he manually he did it
+
+1017
+00:54:23,440 --> 00:54:29,720
+manually so it's very tedious yeah I
+
+1018
+00:54:27,599 --> 00:54:32,599
+think that's what he did manually let's
+
+1019
+00:54:29,720 --> 00:54:36,480
+see why is
+
+1020
+00:54:32,599 --> 00:54:39,599
+he you see he just did it manually like
+
+1021
+00:54:36,480 --> 00:54:41,640
+manually created this formula each you
+
+1022
+00:54:39,599 --> 00:54:46,079
+know each one of these is coordinate
+
+1023
+00:54:41,640 --> 00:54:48,640
+point. Yeah, I think so. So, it turns
+
+1024
+00:54:46,079 --> 00:54:50,559
+out, you know, you just do this
+
+1025
+00:54:48,640 --> 00:54:52,960
+manually, you know, find out each
+
+1026
+00:54:50,559 --> 00:54:56,640
+coordinate point, then draw a line, you
+
+1027
+00:54:52,960 --> 00:54:58,880
+know. Okay, but still very interesting.
+
+1028
+00:54:56,640 --> 00:55:01,440
+So, I think that's it for today. Thank
+
+1029
+00:54:58,880 --> 00:55:01,440
+you guys for
+
+1030
+00:55:07,079 --> 00:55:12,960
+watching.
+
+1031
+00:55:09,160 --> 00:55:16,160
+Fantastic. Bye guys. Support my work,
+
+1032
+00:55:12,960 --> 00:55:17,640
+okay? If you love my stuff,
+
+1033
+00:55:16,160 --> 00:55:20,760
+uh go to
+
+1034
+00:55:17,640 --> 00:55:23,440
+kasadi.info, kasadi.info,
+
+1035
+00:55:20,760 --> 00:55:26,960
+kasmath, and go to all the way to the
+
+1036
+00:55:23,440 --> 00:55:30,640
+bottom. You can pay me, Patreon me,
+
+1037
+00:55:26,960 --> 00:55:34,240
+Amazon gift card me, PayPal me, PayPal
+
+1038
+00:55:30,640 --> 00:55:39,880
+me, or gift card me $100. That would be
+
+1039
+00:55:34,240 --> 00:55:39,880
+good. Do it one shot. Okay, bye guys.
+
+1040
+00:55:44,720 --> 00:55:50,599
+very off topic. Have you tried Vime
+
+1041
+00:55:48,760 --> 00:55:54,799
+VVM
+
+1042
+00:55:50,599 --> 00:55:57,520
+Vime C extension for your browser? No.
+
+1043
+00:55:54,799 --> 00:56:00,079
+And I would not be interested. I know
+
+1044
+00:55:57,520 --> 00:56:02,480
+you don't use Vim, but you get Vim key
+
+1045
+00:56:00,079 --> 00:56:05,920
+bindings for your browser, so you won't
+
+1046
+00:56:02,480 --> 00:56:10,160
+need to use your mouse. No. Uh, well,
+
+1047
+00:56:05,920 --> 00:56:12,280
+that's a old topic. I like flam I I
+
+1048
+00:56:10,160 --> 00:56:15,280
+flamed
+
+1049
+00:56:12,280 --> 00:56:17,920
+it. I flamed it so bad you wouldn't
+
+1050
+00:56:15,280 --> 00:56:19,160
+know. But even that that's 10 years ago.
+
+1051
+00:56:17,920 --> 00:56:23,359
+I would
+
+1052
+00:56:19,160 --> 00:56:25,280
+never use like a vim binding like a
+
+1053
+00:56:23,359 --> 00:56:28,000
+bunch you know you press a key then
+
+1054
+00:56:25,280 --> 00:56:31,599
+bunch of key like ABC D you know press B
+
+1055
+00:56:28,000 --> 00:56:34,000
+to jump to here then you know press C to
+
+1056
+00:56:31,599 --> 00:56:35,640
+go to this link press D to open that
+
+1057
+00:56:34,000 --> 00:56:39,599
+link. That's
+
+1058
+00:56:35,640 --> 00:56:42,640
+crap. That's that's not
+
+1059
+00:56:39,599 --> 00:56:45,359
+um that's not very efficient. Okay. It's
+
+1060
+00:56:42,640 --> 00:56:48,240
+mouse is better. But anyway, I don't
+
+1061
+00:56:45,359 --> 00:56:51,240
+want to flame, you know. That's okay.
+
+1062
+00:56:48,240 --> 00:56:51,240
+Bye.
+

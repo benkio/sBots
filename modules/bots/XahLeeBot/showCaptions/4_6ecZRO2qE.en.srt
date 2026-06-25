@@ -1,0 +1,10062 @@
+1
+00:00:05,100 --> 00:00:09,179
+hello welcome to another episode of
+
+2
+00:00:07,799 --> 00:00:12,420
+guitar talk show
+
+3
+00:00:09,179 --> 00:00:16,379
+so today we are going to explore
+
+4
+00:00:12,420 --> 00:00:18,359
+uh the data structure of stacks
+
+5
+00:00:16,379 --> 00:00:21,180
+versus list
+
+6
+00:00:18,359 --> 00:00:23,820
+so basically in Python in Ruby in
+
+7
+00:00:21,180 --> 00:00:27,720
+JavaScript you all have a list or array
+
+8
+00:00:23,820 --> 00:00:30,060
+data structure okay and there is also
+
+9
+00:00:27,720 --> 00:00:34,079
+data structure called stack
+
+10
+00:00:30,060 --> 00:00:37,260
+uh so we are going to we are going to
+
+11
+00:00:34,079 --> 00:00:39,239
+try to implement a efficient stack we're
+
+12
+00:00:37,260 --> 00:00:41,879
+going to do that in Python in JavaScript
+
+13
+00:00:39,239 --> 00:00:44,219
+in Wolfram language and we are going to
+
+14
+00:00:41,879 --> 00:00:47,340
+time it to compare with millions of
+
+15
+00:00:44,219 --> 00:00:51,180
+items and push and pop and let's see
+
+16
+00:00:47,340 --> 00:00:53,120
+whether our customized efficient stack
+
+17
+00:00:51,180 --> 00:00:55,800
+data structure is going to be more
+
+18
+00:00:53,120 --> 00:00:58,920
+efficient or faster than the building
+
+19
+00:00:55,800 --> 00:01:01,820
+using the building smart array or smart
+
+20
+00:00:58,920 --> 00:01:04,080
+list so python JavaScript
+
+21
+00:01:01,820 --> 00:01:06,600
+Wolfram language we're gonna explore
+
+22
+00:01:04,080 --> 00:01:09,119
+okay so if you are if you don't know if
+
+23
+00:01:06,600 --> 00:01:11,460
+you are new to programming I'm going to
+
+24
+00:01:09,119 --> 00:01:14,880
+explain everything okay and we are I'm
+
+25
+00:01:11,460 --> 00:01:17,700
+also going to demonstrate the lists list
+
+26
+00:01:14,880 --> 00:01:19,619
+programming languages list which is
+
+27
+00:01:17,700 --> 00:01:22,560
+basically made of cons sales we'll get
+
+28
+00:01:19,619 --> 00:01:24,119
+to that okay so basically essentially we
+
+29
+00:01:22,560 --> 00:01:27,299
+are going to implement
+
+30
+00:01:24,119 --> 00:01:31,140
+lists con sales impact on JavaScript
+
+31
+00:01:27,299 --> 00:01:33,960
+movement and time it okay
+
+32
+00:01:31,140 --> 00:01:38,700
+so why do you need to do that so let's
+
+33
+00:01:33,960 --> 00:01:40,860
+speaking okay uh if you uh you know
+
+34
+00:01:38,700 --> 00:01:42,840
+comments post comments and questions I'd
+
+35
+00:01:40,860 --> 00:01:45,960
+love to see it okay
+
+36
+00:01:42,840 --> 00:01:48,659
+okay so Wolfram language uh yeah I mean
+
+37
+00:01:45,960 --> 00:01:51,479
+python JavaScript and uh the keyboard
+
+38
+00:01:48,659 --> 00:01:54,119
+I'm using this is exposed I talked about
+
+39
+00:01:51,479 --> 00:01:57,240
+many times uh in lots of my videos you
+
+40
+00:01:54,119 --> 00:02:00,360
+can see reviews here so the Expos is one
+
+41
+00:01:57,240 --> 00:02:03,780
+I recommend I also recommend kinesis
+
+42
+00:02:00,360 --> 00:02:06,899
+Kinesis 360 is also good glove safety is
+
+43
+00:02:03,780 --> 00:02:10,020
+also good but it's not out yet
+
+44
+00:02:06,899 --> 00:02:12,840
+srail new 76 is also good but too
+
+45
+00:02:10,020 --> 00:02:15,660
+expensive 500 somethings same with the
+
+46
+00:02:12,840 --> 00:02:17,940
+Kinesis 360. Apple maker I just
+
+47
+00:02:15,660 --> 00:02:20,400
+discovered is pretty good or you can buy
+
+48
+00:02:17,940 --> 00:02:23,099
+any of the others okay
+
+49
+00:02:20,400 --> 00:02:26,040
+so anyway so exposed is what I'm using
+
+50
+00:02:23,099 --> 00:02:28,319
+and over there is uh over on top and on
+
+51
+00:02:26,040 --> 00:02:30,080
+the side you cannot see but over there
+
+52
+00:02:28,319 --> 00:02:33,720
+it's uh
+
+53
+00:02:30,080 --> 00:02:35,700
+it's a ultimate hacking keyboard I have
+
+54
+00:02:33,720 --> 00:02:38,280
+reviews on my website okay
+
+55
+00:02:35,700 --> 00:02:41,459
+okay it's hot and even think of
+
+56
+00:02:38,280 --> 00:02:44,599
+so yes Stacks we're gonna Implement
+
+57
+00:02:41,459 --> 00:02:44,599
+start stacks
+
+58
+00:02:54,720 --> 00:02:58,260
+okay let's begin then
+
+59
+00:02:57,300 --> 00:03:01,440
+um
+
+60
+00:02:58,260 --> 00:03:04,560
+Samsung show today's talk show uh so why
+
+61
+00:03:01,440 --> 00:03:09,379
+do we need to do that okay first of all
+
+62
+00:03:04,560 --> 00:03:09,379
+let me show you uh Wikipedia articles
+
+63
+00:03:12,659 --> 00:03:19,140
+so you can read it later okay so there
+
+64
+00:03:15,239 --> 00:03:21,720
+is a stack data structure not that uh
+
+65
+00:03:19,140 --> 00:03:24,900
+not simple Wikipedia
+
+66
+00:03:21,720 --> 00:03:27,300
+uh okay I don't want the simple English
+
+67
+00:03:24,900 --> 00:03:28,379
+by the way simple English is a good
+
+68
+00:03:27,300 --> 00:03:29,819
+thing
+
+69
+00:03:28,379 --> 00:03:30,959
+but
+
+70
+00:03:29,819 --> 00:03:34,560
+um
+
+71
+00:03:30,959 --> 00:03:37,440
+53 languages yeah
+
+72
+00:03:34,560 --> 00:03:41,780
+stack okay uh
+
+73
+00:03:37,440 --> 00:03:41,780
+data abstract data type okay
+
+74
+00:03:45,420 --> 00:03:53,280
+there it is so a stack is a data type
+
+75
+00:03:49,560 --> 00:03:56,159
+you can think of it as a as a pile of
+
+76
+00:03:53,280 --> 00:03:59,280
+plates so when you put some data such
+
+77
+00:03:56,159 --> 00:04:02,280
+such as numbers or string you you push
+
+78
+00:03:59,280 --> 00:04:05,099
+it to the you put so it's like plates or
+
+79
+00:04:02,280 --> 00:04:07,560
+stack of books you put it and you put
+
+80
+00:04:05,099 --> 00:04:09,540
+another one on top put another one you
+
+81
+00:04:07,560 --> 00:04:13,019
+can pile them up so it's like a list
+
+82
+00:04:09,540 --> 00:04:16,019
+okay so uh it's like a list of things or
+
+83
+00:04:13,019 --> 00:04:19,260
+sequence of things okay a pile of stacks
+
+84
+00:04:16,019 --> 00:04:21,900
+stack of plates or books then if you
+
+85
+00:04:19,260 --> 00:04:24,780
+want to get the there are two operations
+
+86
+00:04:21,900 --> 00:04:27,180
+are allowed for a stack that is get the
+
+87
+00:04:24,780 --> 00:04:30,060
+first item so you can take out the first
+
+88
+00:04:27,180 --> 00:04:32,400
+item remove it and and get that value
+
+89
+00:04:30,060 --> 00:04:35,759
+okay so you can like just like you
+
+90
+00:04:32,400 --> 00:04:38,100
+removing books of a stack of books and
+
+91
+00:04:35,759 --> 00:04:41,340
+you so you there are two operations push
+
+92
+00:04:38,100 --> 00:04:44,639
+add another thing to the stack or
+
+93
+00:04:41,340 --> 00:04:47,759
+pop which is take out a thing from the
+
+94
+00:04:44,639 --> 00:04:50,340
+stack okay two operations so it's a list
+
+95
+00:04:47,759 --> 00:04:52,620
+but only two operations uh you can add
+
+96
+00:04:50,340 --> 00:04:54,479
+to the front or take from the front
+
+97
+00:04:52,620 --> 00:04:57,240
+that's what stack is
+
+98
+00:04:54,479 --> 00:05:00,320
+now let me explain so some let me
+
+99
+00:04:57,240 --> 00:05:05,220
+explain so that's a data that's a stack
+
+100
+00:05:00,320 --> 00:05:08,220
+abstract data type okay so there are
+
+101
+00:05:05,220 --> 00:05:10,620
+no there are two
+
+102
+00:05:08,220 --> 00:05:15,000
+now there is another the most
+
+103
+00:05:10,620 --> 00:05:17,280
+fundamental data structure in every
+
+104
+00:05:15,000 --> 00:05:20,220
+programming language okay
+
+105
+00:05:17,280 --> 00:05:24,840
+that's called array okay now
+
+106
+00:05:20,220 --> 00:05:26,280
+the the jargons array least stack
+
+107
+00:05:24,840 --> 00:05:28,199
+uh
+
+108
+00:05:26,280 --> 00:05:30,840
+they mean different things in different
+
+109
+00:05:28,199 --> 00:05:32,400
+languages so depending on language for
+
+110
+00:05:30,840 --> 00:05:36,020
+example
+
+111
+00:05:32,400 --> 00:05:40,680
+so let me say again array vector
+
+112
+00:05:36,020 --> 00:05:41,940
+array Vector list uh
+
+113
+00:05:40,680 --> 00:05:43,800
+purple
+
+114
+00:05:41,940 --> 00:05:45,840
+these four things
+
+115
+00:05:43,800 --> 00:05:48,300
+depending on the language they may mean
+
+116
+00:05:45,840 --> 00:05:50,759
+different things but they are there are
+
+117
+00:05:48,300 --> 00:05:53,400
+two standard jargon let me let me show
+
+118
+00:05:50,759 --> 00:05:55,320
+you okay so in Python
+
+119
+00:05:53,400 --> 00:05:56,940
+so first of all let's think of a list
+
+120
+00:05:55,320 --> 00:05:59,759
+you know it doesn't matter it's a stack
+
+121
+00:05:56,940 --> 00:06:02,400
+or what let's not care about specific
+
+122
+00:05:59,759 --> 00:06:04,620
+properties let's say we just want a
+
+123
+00:06:02,400 --> 00:06:06,539
+ordered sequence of things
+
+124
+00:06:04,620 --> 00:06:10,020
+what is it called in different languages
+
+125
+00:06:06,539 --> 00:06:12,720
+so in Python it's called
+
+126
+00:06:10,020 --> 00:06:14,880
+um I believe they call it list okay so
+
+127
+00:06:12,720 --> 00:06:18,300
+in Python it's called the list you just
+
+128
+00:06:14,880 --> 00:06:21,180
+do it like that okay let's put it let's
+
+129
+00:06:18,300 --> 00:06:24,060
+put the link into my website
+
+130
+00:06:21,180 --> 00:06:27,840
+so in Python it's called a list now
+
+131
+00:06:24,060 --> 00:06:30,000
+let's go to uh let's let's go to in
+
+132
+00:06:27,840 --> 00:06:31,740
+wufam language it's also called list
+
+133
+00:06:30,000 --> 00:06:34,620
+okay
+
+134
+00:06:31,740 --> 00:06:36,840
+okay so wufang language and you write it
+
+135
+00:06:34,620 --> 00:06:37,800
+like that or like that two different
+
+136
+00:06:36,840 --> 00:06:39,720
+ways
+
+137
+00:06:37,800 --> 00:06:41,639
+okay
+
+138
+00:06:39,720 --> 00:06:44,400
+so
+
+139
+00:06:41,639 --> 00:06:46,500
+let me explain what are we doing list
+
+140
+00:06:44,400 --> 00:06:51,539
+vector
+
+141
+00:06:46,500 --> 00:06:54,479
+uh array let's say array
+
+142
+00:06:51,539 --> 00:06:56,479
+let's hold them this way array Vector
+
+143
+00:06:54,479 --> 00:06:59,160
+purple
+
+144
+00:06:56,479 --> 00:07:02,340
+list actually let's put this here
+
+145
+00:06:59,160 --> 00:07:04,259
+because it's most common jargon
+
+146
+00:07:02,340 --> 00:07:06,800
+so all these
+
+147
+00:07:04,259 --> 00:07:11,960
+all these jargons
+
+148
+00:07:06,800 --> 00:07:17,520
+essentially means almost the same thing
+
+149
+00:07:11,960 --> 00:07:20,039
+exactly what they mean depends on the
+
+150
+00:07:17,520 --> 00:07:22,500
+language okay
+
+151
+00:07:20,039 --> 00:07:24,780
+so don't don't get confused sometimes
+
+152
+00:07:22,500 --> 00:07:27,780
+you know if you are programming or in
+
+153
+00:07:24,780 --> 00:07:29,940
+python versus you talking to people
+
+154
+00:07:27,780 --> 00:07:32,280
+programming in Wolfram language or
+
+155
+00:07:29,940 --> 00:07:34,319
+Haskell or JavaScript when you say at
+
+156
+00:07:32,280 --> 00:07:36,840
+least they might think of at least
+
+157
+00:07:34,319 --> 00:07:39,300
+something else different from you so
+
+158
+00:07:36,840 --> 00:07:41,479
+first of all remember that different
+
+159
+00:07:39,300 --> 00:07:45,560
+this these jargons have different
+
+160
+00:07:41,479 --> 00:07:47,099
+meanings in different languages okay
+
+161
+00:07:45,560 --> 00:07:50,160
+so
+
+162
+00:07:47,099 --> 00:07:52,500
+so we look at python week so wolf and
+
+163
+00:07:50,160 --> 00:07:55,400
+python so first of all if you want a
+
+164
+00:07:52,500 --> 00:07:55,400
+older sequence
+
+165
+00:07:56,460 --> 00:08:01,160
+all the sequence of things
+
+166
+00:08:01,440 --> 00:08:08,099
+typically
+
+167
+00:08:03,419 --> 00:08:12,000
+they all mean just order the sequence of
+
+168
+00:08:08,099 --> 00:08:15,860
+values okay uh
+
+169
+00:08:12,000 --> 00:08:15,860
+but they differ
+
+170
+00:08:17,160 --> 00:08:22,199
+in some
+
+171
+00:08:19,680 --> 00:08:26,180
+so what's the difference uh they differ
+
+172
+00:08:22,199 --> 00:08:26,180
+in some algorithmic properties
+
+173
+00:08:29,099 --> 00:08:36,839
+for example
+
+174
+00:08:31,440 --> 00:08:40,560
+okay for example can you uh
+
+175
+00:08:36,839 --> 00:08:40,560
+how how fast
+
+176
+00:08:40,800 --> 00:08:48,420
+is it to access any random item let's
+
+177
+00:08:46,140 --> 00:08:49,860
+say nth item
+
+178
+00:08:48,420 --> 00:08:51,540
+okay
+
+179
+00:08:49,860 --> 00:08:54,000
+that's the question
+
+180
+00:08:51,540 --> 00:08:56,760
+so if you have at least let's say 10
+
+181
+00:08:54,000 --> 00:09:00,300
+things let's say a million things now if
+
+182
+00:08:56,760 --> 00:09:03,899
+you want get the one ten thousands item
+
+183
+00:09:00,300 --> 00:09:05,459
+is it is it instantaneous I mean does it
+
+184
+00:09:03,899 --> 00:09:08,399
+make difference does it make a
+
+185
+00:09:05,459 --> 00:09:11,100
+difference if you get the first item or
+
+186
+00:09:08,399 --> 00:09:14,220
+some millionth item
+
+187
+00:09:11,100 --> 00:09:16,380
+you know so that is the question you see
+
+188
+00:09:14,220 --> 00:09:18,660
+all these things are just lists all the
+
+189
+00:09:16,380 --> 00:09:21,480
+sequence of things so why is it
+
+190
+00:09:18,660 --> 00:09:23,399
+different well because depending on you
+
+191
+00:09:21,480 --> 00:09:27,000
+know computer how it's implemented the
+
+192
+00:09:23,399 --> 00:09:28,860
+exact machine may it be Abacus or a
+
+193
+00:09:27,000 --> 00:09:32,220
+turing machine or physical turing
+
+194
+00:09:28,860 --> 00:09:34,200
+machine or whatever or CPU today is
+
+195
+00:09:32,220 --> 00:09:37,200
+modern you know electronic computer or
+
+196
+00:09:34,200 --> 00:09:40,440
+is it DNA computer or quantum computer
+
+197
+00:09:37,200 --> 00:09:43,580
+you know so but a sequence of other
+
+198
+00:09:40,440 --> 00:09:46,440
+things is a fundamental natural
+
+199
+00:09:43,580 --> 00:09:50,279
+mathematical concept you cannot Escape
+
+200
+00:09:46,440 --> 00:09:54,180
+it so there is a concept of ordered
+
+201
+00:09:50,279 --> 00:09:57,300
+sequence of things okay in English we
+
+202
+00:09:54,180 --> 00:09:59,820
+just call a list okay all the sequence
+
+203
+00:09:57,300 --> 00:10:02,519
+of things but when you actually want to
+
+204
+00:09:59,820 --> 00:10:04,920
+program it you know requires a machine
+
+205
+00:10:02,519 --> 00:10:08,459
+hardware and uh
+
+206
+00:10:04,920 --> 00:10:10,279
+and algorithm and you have to write down
+
+207
+00:10:08,459 --> 00:10:12,899
+the algorithm in a programming language
+
+208
+00:10:10,279 --> 00:10:14,279
+that specify the instruction what to do
+
+209
+00:10:12,899 --> 00:10:17,339
+with the machine
+
+210
+00:10:14,279 --> 00:10:19,920
+when you actually do that then
+
+211
+00:10:17,339 --> 00:10:22,019
+two you know to to create something like
+
+212
+00:10:19,920 --> 00:10:24,720
+an older sequence of things then you
+
+213
+00:10:22,019 --> 00:10:26,940
+have questions like how fast is it to
+
+214
+00:10:24,720 --> 00:10:30,180
+access a nth item
+
+215
+00:10:26,940 --> 00:10:33,839
+there are different ways to do it so so
+
+216
+00:10:30,180 --> 00:10:37,320
+you have that question and uh
+
+217
+00:10:33,839 --> 00:10:41,160
+um and you also have a question of can
+
+218
+00:10:37,320 --> 00:10:42,600
+you add items to the list
+
+219
+00:10:41,160 --> 00:10:47,640
+okay
+
+220
+00:10:42,600 --> 00:10:48,839
+can you add items uh or and is it slow
+
+221
+00:10:47,640 --> 00:10:51,480
+or fast
+
+222
+00:10:48,839 --> 00:10:55,140
+okay so you have that question
+
+223
+00:10:51,480 --> 00:10:58,459
+you know so one thing I want to tell you
+
+224
+00:10:55,140 --> 00:11:02,160
+remember that these are not
+
+225
+00:10:58,459 --> 00:11:04,260
+fundamental concepts in mathematics so
+
+226
+00:11:02,160 --> 00:11:06,060
+this just depends on what machine you're
+
+227
+00:11:04,260 --> 00:11:08,700
+working on what length programming
+
+228
+00:11:06,060 --> 00:11:11,399
+language you're working on it depends on
+
+229
+00:11:08,700 --> 00:11:13,740
+the machine the CPU the instruction set
+
+230
+00:11:11,399 --> 00:11:16,560
+the programming language okay so that's
+
+231
+00:11:13,740 --> 00:11:19,079
+why you have these questions how fast is
+
+232
+00:11:16,560 --> 00:11:22,100
+it to access nth item and can you add
+
+233
+00:11:19,079 --> 00:11:22,100
+items to the list
+
+234
+00:11:24,360 --> 00:11:31,339
+or can you delete items in the list
+
+235
+00:11:28,800 --> 00:11:31,339
+okay
+
+236
+00:11:31,440 --> 00:11:37,320
+so these two are the the most
+
+237
+00:11:34,260 --> 00:11:39,540
+fundamental question to to these bunch
+
+238
+00:11:37,320 --> 00:11:41,519
+of jargons very confusing because if you
+
+239
+00:11:39,540 --> 00:11:43,320
+are pro if you are a beginner you may
+
+240
+00:11:41,519 --> 00:11:45,720
+not know
+
+241
+00:11:43,320 --> 00:11:48,300
+so it all depends on the machine on the
+
+242
+00:11:45,720 --> 00:11:50,519
+implementation and on the programming
+
+243
+00:11:48,300 --> 00:11:54,120
+language and each programming language
+
+244
+00:11:50,519 --> 00:11:57,420
+they may use different jargons but in in
+
+245
+00:11:54,120 --> 00:12:00,839
+essence typically you just have a
+
+246
+00:11:57,420 --> 00:12:03,720
+ordered sequence of things and you have
+
+247
+00:12:00,839 --> 00:12:06,899
+these properties about them how fast is
+
+248
+00:12:03,720 --> 00:12:09,660
+it to access nth item and can you add
+
+249
+00:12:06,899 --> 00:12:12,060
+items to the list is it slow
+
+250
+00:12:09,660 --> 00:12:14,339
+oh and or can you delete item to the
+
+251
+00:12:12,060 --> 00:12:17,700
+list okay that's a fundamental
+
+252
+00:12:14,339 --> 00:12:18,600
+properties algorithmic properties these
+
+253
+00:12:17,700 --> 00:12:21,240
+properties
+
+254
+00:12:18,600 --> 00:12:24,120
+came from the Implement implementation
+
+255
+00:12:21,240 --> 00:12:26,339
+and the programming language and also
+
+256
+00:12:24,120 --> 00:12:30,660
+the machine okay
+
+257
+00:12:26,339 --> 00:12:33,540
+now that's a situation okay so uh let me
+
+258
+00:12:30,660 --> 00:12:37,200
+let me write it down so uh people can
+
+259
+00:12:33,540 --> 00:12:37,200
+easily understand uh
+
+260
+00:12:38,959 --> 00:12:46,440
+for all the sequence of things okay
+
+261
+00:12:42,839 --> 00:12:49,920
+that's one thing now
+
+262
+00:12:46,440 --> 00:12:51,959
+this is very confusing topic okay very
+
+263
+00:12:49,920 --> 00:12:54,300
+confusing topic that's why we need to be
+
+264
+00:12:51,959 --> 00:12:56,700
+very careful we want to
+
+265
+00:12:54,300 --> 00:12:59,579
+now you want to memorize exactly what's
+
+266
+00:12:56,700 --> 00:13:02,100
+going on here okay so first of all
+
+267
+00:12:59,579 --> 00:13:04,860
+so you have different jargons for all
+
+268
+00:13:02,100 --> 00:13:06,899
+the sequence of things okay
+
+269
+00:13:04,860 --> 00:13:10,220
+then you have
+
+270
+00:13:06,899 --> 00:13:10,220
+um what do they mean okay
+
+271
+00:13:13,800 --> 00:13:19,279
+okay so let's put that
+
+272
+00:13:16,500 --> 00:13:19,279
+uh
+
+273
+00:13:24,540 --> 00:13:30,200
+different jargons for order they've seen
+
+274
+00:13:26,760 --> 00:13:30,200
+ordered things
+
+275
+00:13:33,300 --> 00:13:39,180
+all the sequence of things is a natural
+
+276
+00:13:37,800 --> 00:13:40,560
+math
+
+277
+00:13:39,180 --> 00:13:44,540
+concept
+
+278
+00:13:40,560 --> 00:13:44,540
+you cannot Escape
+
+279
+00:13:45,540 --> 00:13:49,800
+okay that's the important Point all that
+
+280
+00:13:47,940 --> 00:13:52,279
+sequence of things that's a universal
+
+281
+00:13:49,800 --> 00:13:52,279
+concept
+
+282
+00:13:52,680 --> 00:13:56,180
+okay
+
+283
+00:13:54,660 --> 00:14:00,139
+now
+
+284
+00:13:56,180 --> 00:14:00,139
+implementation detail okay
+
+285
+00:14:07,760 --> 00:14:11,760
+implementation detail
+
+286
+00:14:13,019 --> 00:14:17,760
+okay and algorithmic
+
+287
+00:14:19,620 --> 00:14:25,880
+I'll go with
+
+288
+00:14:21,540 --> 00:14:25,880
+make okay I don't have a shortcut
+
+289
+00:14:30,360 --> 00:14:36,120
+properties okay
+
+290
+00:14:33,440 --> 00:14:38,660
+implementation detail and algorithmic
+
+291
+00:14:36,120 --> 00:14:38,660
+properties
+
+292
+00:14:39,899 --> 00:14:43,620
+okay
+
+293
+00:14:41,399 --> 00:14:45,600
+so they differ in some algorithm with
+
+294
+00:14:43,620 --> 00:14:48,680
+proc properties
+
+295
+00:14:45,600 --> 00:14:48,680
+and uh
+
+296
+00:14:49,440 --> 00:14:56,420
+the most fundamental
+
+297
+00:14:53,699 --> 00:14:56,420
+huh
+
+298
+00:15:01,980 --> 00:15:08,279
+the most fundamental are how fast it is
+
+299
+00:15:04,680 --> 00:15:11,399
+it to access any nth item
+
+300
+00:15:08,279 --> 00:15:16,279
+or in other words
+
+301
+00:15:11,399 --> 00:15:16,279
+does it take longer time
+
+302
+00:15:17,880 --> 00:15:24,600
+to access
+
+303
+00:15:20,300 --> 00:15:28,440
+items far from
+
+304
+00:15:24,600 --> 00:15:32,820
+the first okay that's a question
+
+305
+00:15:28,440 --> 00:15:35,880
+okay so how fast is it to access any any
+
+306
+00:15:32,820 --> 00:15:38,579
+nth item and these other questions can
+
+307
+00:15:35,880 --> 00:15:41,279
+you add items to the list and is it slow
+
+308
+00:15:38,579 --> 00:15:43,800
+or fast that's a two most
+
+309
+00:15:41,279 --> 00:15:45,600
+fundamental differences
+
+310
+00:15:43,800 --> 00:15:49,639
+okay
+
+311
+00:15:45,600 --> 00:15:49,639
+and let's add another topic
+
+312
+00:15:49,740 --> 00:15:52,399
+why
+
+313
+00:15:52,560 --> 00:15:56,399
+does these
+
+314
+00:15:56,839 --> 00:16:01,279
+differences exist okay
+
+315
+00:16:02,760 --> 00:16:09,320
+because it depends
+
+316
+00:16:05,579 --> 00:16:09,320
+on the machine
+
+317
+00:16:10,380 --> 00:16:13,579
+AKA computer
+
+318
+00:16:14,399 --> 00:16:21,240
+and depend the design of the machine
+
+319
+00:16:17,000 --> 00:16:25,560
+depends on the design
+
+320
+00:16:21,240 --> 00:16:28,639
+of the machine and Depends
+
+321
+00:16:25,560 --> 00:16:28,639
+on the
+
+322
+00:16:30,300 --> 00:16:33,300
+implementation
+
+323
+00:16:34,680 --> 00:16:42,180
+of the algorithm or
+
+324
+00:16:39,899 --> 00:16:44,899
+the programming
+
+325
+00:16:42,180 --> 00:16:44,899
+language
+
+326
+00:16:45,740 --> 00:16:54,480
+implementation of its list Vector array
+
+327
+00:16:51,959 --> 00:16:57,800
+data
+
+328
+00:16:54,480 --> 00:16:57,800
+data structure
+
+329
+00:16:58,019 --> 00:17:00,680
+foreign
+
+330
+00:17:05,579 --> 00:17:08,880
+okay
+
+331
+00:17:06,780 --> 00:17:11,360
+that's so far that's what we have
+
+332
+00:17:08,880 --> 00:17:11,360
+covered
+
+333
+00:17:11,640 --> 00:17:16,819
+okay now let's uh put this here
+
+334
+00:17:20,160 --> 00:17:27,780
+that's so far what we have covered and
+
+335
+00:17:23,400 --> 00:17:31,380
+let's move let's remove this okay
+
+336
+00:17:27,780 --> 00:17:33,720
+now I'm explaining the preliminaries why
+
+337
+00:17:31,380 --> 00:17:35,220
+why do we need to do this why can't we
+
+338
+00:17:33,720 --> 00:17:40,380
+you know we are explaining the
+
+339
+00:17:35,220 --> 00:17:42,360
+preliminaries uh so now next we want to
+
+340
+00:17:40,380 --> 00:17:44,340
+so now
+
+341
+00:17:42,360 --> 00:17:47,940
+so this is why
+
+342
+00:17:44,340 --> 00:17:50,720
+we need to try to implement a efficient
+
+343
+00:17:47,940 --> 00:17:50,720
+stack okay
+
+344
+00:17:51,179 --> 00:17:56,299
+so and let's add what is a stack
+
+345
+00:17:59,100 --> 00:18:02,360
+what's a stack
+
+346
+00:18:03,720 --> 00:18:06,380
+okay
+
+347
+00:18:06,419 --> 00:18:11,160
+is
+
+348
+00:18:07,919 --> 00:18:12,720
+like a stack of books
+
+349
+00:18:11,160 --> 00:18:15,480
+you
+
+350
+00:18:12,720 --> 00:18:18,240
+have two operations
+
+351
+00:18:15,480 --> 00:18:20,640
+push and pop
+
+352
+00:18:18,240 --> 00:18:25,039
+push is at
+
+353
+00:18:20,640 --> 00:18:25,039
+an item to the top
+
+354
+00:18:27,000 --> 00:18:35,240
+pop is remove an item
+
+355
+00:18:31,559 --> 00:18:35,240
+on the top okay
+
+356
+00:18:36,419 --> 00:18:41,580
+that's a stacked data structure so a
+
+357
+00:18:39,360 --> 00:18:43,919
+stack is just like again it's like an
+
+358
+00:18:41,580 --> 00:18:46,679
+ordered sequence of things but in this
+
+359
+00:18:43,919 --> 00:18:49,320
+case you cannot you know get the nth
+
+360
+00:18:46,679 --> 00:18:52,280
+item you only allowed two operations
+
+361
+00:18:49,320 --> 00:18:57,419
+take item from the beginning and drop it
+
+362
+00:18:52,280 --> 00:19:01,320
+or add an item in the beginning okay
+
+363
+00:18:57,419 --> 00:19:03,960
+now let me explain now so we talked
+
+364
+00:19:01,320 --> 00:19:05,960
+about how the
+
+365
+00:19:03,960 --> 00:19:08,640
+um you know so
+
+366
+00:19:05,960 --> 00:19:10,620
+exactly the algorithmic properties
+
+367
+00:19:08,640 --> 00:19:13,140
+depends on the machine and depends on
+
+368
+00:19:10,620 --> 00:19:15,179
+the programming depends on the
+
+369
+00:19:13,140 --> 00:19:16,320
+programming language how it implements
+
+370
+00:19:15,179 --> 00:19:20,400
+it
+
+371
+00:19:16,320 --> 00:19:24,500
+okay for example in list I mean in lisp
+
+372
+00:19:20,400 --> 00:19:24,500
+for example emac bisp
+
+373
+00:19:26,340 --> 00:19:32,220
+for example I'm showing you some some
+
+374
+00:19:29,220 --> 00:19:34,760
+emac this code for example in list
+
+375
+00:19:32,220 --> 00:19:37,919
+languages including common lisp imagine
+
+376
+00:19:34,760 --> 00:19:40,260
+scheme list racket lisp
+
+377
+00:19:37,919 --> 00:19:43,080
+they are fundamental data structure is
+
+378
+00:19:40,260 --> 00:19:47,460
+called a list and the way this list
+
+379
+00:19:43,080 --> 00:19:49,500
+sequence of things other things the way
+
+380
+00:19:47,460 --> 00:19:52,919
+this list in lisp
+
+381
+00:19:49,500 --> 00:19:58,140
+is implemented
+
+382
+00:19:52,919 --> 00:20:01,320
+is is by a method called linked list
+
+383
+00:19:58,140 --> 00:20:04,380
+okay and
+
+384
+00:20:01,320 --> 00:20:07,620
+with that implementation
+
+385
+00:20:04,380 --> 00:20:11,100
+how fast how fast is it to access in
+
+386
+00:20:07,620 --> 00:20:14,580
+item very slow okay the further away
+
+387
+00:20:11,100 --> 00:20:18,480
+from one the slower it gets okay that's
+
+388
+00:20:14,580 --> 00:20:21,360
+that's that's lisps list
+
+389
+00:20:18,480 --> 00:20:23,580
+uh and can you add items to the list yes
+
+390
+00:20:21,360 --> 00:20:26,640
+but only at the beginning
+
+391
+00:20:23,580 --> 00:20:28,200
+okay it's very fast constant time you
+
+392
+00:20:26,640 --> 00:20:30,120
+know you can add item to the beginning
+
+393
+00:20:28,200 --> 00:20:32,940
+or you can delete the item from the
+
+394
+00:20:30,120 --> 00:20:34,799
+beginning however if you want add an
+
+395
+00:20:32,940 --> 00:20:37,140
+item somewhere in somewhere in the
+
+396
+00:20:34,799 --> 00:20:40,260
+middle it takes a lot of time you you
+
+397
+00:20:37,140 --> 00:20:42,360
+essentially have to do a it takes
+
+398
+00:20:40,260 --> 00:20:45,000
+yeah it takes more time you know it's
+
+399
+00:20:42,360 --> 00:20:47,760
+not constant the further away from
+
+400
+00:20:45,000 --> 00:20:48,900
+you know from the beginning the longer
+
+401
+00:20:47,760 --> 00:20:51,360
+it takes
+
+402
+00:20:48,900 --> 00:20:52,080
+so that's the algorithmic property of
+
+403
+00:20:51,360 --> 00:20:56,160
+the
+
+404
+00:20:52,080 --> 00:20:59,480
+lisp Lisk list okay so let me show uh
+
+405
+00:20:56,160 --> 00:20:59,480
+let me let's write it down
+
+406
+00:21:02,820 --> 00:21:09,620
+property of least
+
+407
+00:21:07,260 --> 00:21:13,020
+least okay
+
+408
+00:21:09,620 --> 00:21:14,580
+including common lists
+
+409
+00:21:13,020 --> 00:21:16,559
+this
+
+410
+00:21:14,580 --> 00:21:19,700
+emac list
+
+411
+00:21:16,559 --> 00:21:19,700
+scheme lisp
+
+412
+00:21:20,220 --> 00:21:25,080
+a racket list
+
+413
+00:21:23,039 --> 00:21:28,220
+but not closure
+
+414
+00:21:25,080 --> 00:21:28,220
+please okay
+
+415
+00:21:36,179 --> 00:21:40,340
+it is constant
+
+416
+00:21:40,380 --> 00:21:48,559
+time and fast to wait it is
+
+417
+00:21:45,960 --> 00:21:50,580
+slow to access
+
+418
+00:21:48,559 --> 00:21:52,500
+nth item
+
+419
+00:21:50,580 --> 00:21:55,320
+the
+
+420
+00:21:52,500 --> 00:21:57,659
+further
+
+421
+00:21:55,320 --> 00:22:01,039
+and
+
+422
+00:21:57,659 --> 00:22:01,039
+his form one
+
+423
+00:22:01,500 --> 00:22:08,580
+the longer time it takes
+
+424
+00:22:06,539 --> 00:22:10,200
+okay
+
+425
+00:22:08,580 --> 00:22:16,080
+uh
+
+426
+00:22:10,200 --> 00:22:21,480
+but it is constant time and fast to add
+
+427
+00:22:16,080 --> 00:22:26,220
+an item to the beginning of the list
+
+428
+00:22:21,480 --> 00:22:28,380
+or delete that item okay very fast so
+
+429
+00:22:26,220 --> 00:22:31,820
+you can always add or delete items in
+
+430
+00:22:28,380 --> 00:22:31,820
+the front very fast
+
+431
+00:22:32,640 --> 00:22:38,520
+but
+
+432
+00:22:33,840 --> 00:22:40,500
+if you want to delete or add nth
+
+433
+00:22:38,520 --> 00:22:46,080
+at add
+
+434
+00:22:40,500 --> 00:22:50,360
+the nth item it's proportionally
+
+435
+00:22:46,080 --> 00:22:54,360
+slower okay so that's the
+
+436
+00:22:50,360 --> 00:22:59,820
+algorithmic properties of lisp's list
+
+437
+00:22:54,360 --> 00:23:04,080
+Okay so the lisp list
+
+438
+00:22:59,820 --> 00:23:08,960
+now let's uh let me show another point
+
+439
+00:23:04,080 --> 00:23:08,960
+this this is traditionally
+
+440
+00:23:09,000 --> 00:23:15,240
+is called linked list in
+
+441
+00:23:17,280 --> 00:23:20,000
+computer
+
+442
+00:23:33,360 --> 00:23:40,679
+so so far that's the things we covered
+
+443
+00:23:36,539 --> 00:23:42,600
+so lisp's list is called linked list in
+
+444
+00:23:40,679 --> 00:23:45,200
+computer science you know so kind of
+
+445
+00:23:42,600 --> 00:23:45,200
+confusing
+
+446
+00:23:46,080 --> 00:23:52,080
+hello guys so okay so let's start to
+
+447
+00:23:49,620 --> 00:23:55,140
+implement I already uh so it I already
+
+448
+00:23:52,080 --> 00:23:59,940
+took 30 minutes oh so just to
+
+449
+00:23:55,140 --> 00:24:02,940
+explain this Prelude took 30 minutes so
+
+450
+00:23:59,940 --> 00:24:05,340
+now let's begin to code you know so you
+
+451
+00:24:02,940 --> 00:24:09,120
+have some general idea why you know
+
+452
+00:24:05,340 --> 00:24:11,640
+what's what's a arraylist Vector turbo I
+
+453
+00:24:09,120 --> 00:24:13,919
+mean they are all just sequence ordered
+
+454
+00:24:11,640 --> 00:24:16,020
+sequence of things why is it why your
+
+455
+00:24:13,919 --> 00:24:20,460
+programming language has all these okay
+
+456
+00:24:16,020 --> 00:24:23,059
+you now you know and so mathematically
+
+457
+00:24:20,460 --> 00:24:26,100
+they are just ordered sequence of things
+
+458
+00:24:23,059 --> 00:24:28,620
+so basically the whole thing we are
+
+459
+00:24:26,100 --> 00:24:32,340
+doing today is not a mathematical
+
+460
+00:24:28,620 --> 00:24:34,980
+concept you know this topic took me 20
+
+461
+00:24:32,340 --> 00:24:37,440
+years to understand so you know I begin
+
+462
+00:24:34,980 --> 00:24:40,440
+programming in 1993.
+
+463
+00:24:37,440 --> 00:24:43,980
+you know wolfam language Pearl python
+
+464
+00:24:40,440 --> 00:24:48,179
+then PHP then JavaScript and also
+
+465
+00:24:43,980 --> 00:24:51,179
+closure so I did you know a lot it took
+
+466
+00:24:48,179 --> 00:24:53,640
+me and at least I did some scheme lists
+
+467
+00:24:51,179 --> 00:24:57,299
+too and emac lips of course I've been
+
+468
+00:24:53,640 --> 00:25:00,120
+coding images for 15 years so but this
+
+469
+00:24:57,299 --> 00:25:01,500
+concept of you know what why why are
+
+470
+00:25:00,120 --> 00:25:03,240
+there these things why are they
+
+471
+00:25:01,500 --> 00:25:05,640
+different why can't they just all be
+
+472
+00:25:03,240 --> 00:25:08,159
+fast why can't you just you know create
+
+473
+00:25:05,640 --> 00:25:10,740
+a array that's you know you can go you
+
+474
+00:25:08,159 --> 00:25:13,860
+can delete elements at anywhere you can
+
+475
+00:25:10,740 --> 00:25:16,559
+add element anywhere and why can't it be
+
+476
+00:25:13,860 --> 00:25:19,440
+fast why not you know so all these
+
+477
+00:25:16,559 --> 00:25:21,600
+took me 20 years to actually finally
+
+478
+00:25:19,440 --> 00:25:25,919
+understand and and
+
+479
+00:25:21,600 --> 00:25:27,419
+I would say even the C C plus plus these
+
+480
+00:25:25,919 --> 00:25:29,580
+hardcore programmers they don't want
+
+481
+00:25:27,419 --> 00:25:30,960
+they don't know they don't know they
+
+482
+00:25:29,580 --> 00:25:34,200
+don't know why
+
+483
+00:25:30,960 --> 00:25:36,179
+array is fast I mean why array is
+
+484
+00:25:34,200 --> 00:25:38,400
+constant access time okay let me explain
+
+485
+00:25:36,179 --> 00:25:40,320
+a few more things
+
+486
+00:25:38,400 --> 00:25:42,299
+so this is the topic we are going to do
+
+487
+00:25:40,320 --> 00:25:46,200
+we are going to about to begin coding
+
+488
+00:25:42,299 --> 00:25:49,740
+but let me explain few more things okay
+
+489
+00:25:46,200 --> 00:25:53,100
+so we explain linked list okay links
+
+490
+00:25:49,740 --> 00:25:56,480
+list is very important critical concept
+
+491
+00:25:53,100 --> 00:25:56,480
+okay let's write it down
+
+492
+00:26:09,960 --> 00:26:14,299
+okay critical concept linked list
+
+493
+00:26:14,520 --> 00:26:19,559
+uh
+
+494
+00:26:16,200 --> 00:26:22,440
+okay so first of all okay hold on a
+
+495
+00:26:19,559 --> 00:26:25,140
+second actually you know before we can
+
+496
+00:26:22,440 --> 00:26:28,159
+actually fully explain
+
+497
+00:26:25,140 --> 00:26:31,380
+what is linked list we need to explain
+
+498
+00:26:28,159 --> 00:26:34,700
+what is the array first okay so let's
+
+499
+00:26:31,380 --> 00:26:34,700
+explain what is array
+
+500
+00:26:36,840 --> 00:26:41,400
+critical concept array
+
+501
+00:26:42,559 --> 00:26:45,919
+sees array
+
+502
+00:26:46,679 --> 00:26:52,620
+C or Java array
+
+503
+00:26:49,620 --> 00:26:52,620
+and
+
+504
+00:26:53,279 --> 00:26:57,720
+so that's a critical concept okay let me
+
+505
+00:26:55,559 --> 00:27:03,600
+explain that uh
+
+506
+00:26:57,720 --> 00:27:06,200
+critical concept C or Java's array and
+
+507
+00:27:03,600 --> 00:27:06,200
+okay
+
+508
+00:27:09,480 --> 00:27:15,179
+Okay so
+
+509
+00:27:11,460 --> 00:27:17,820
+so this in the beginning there is this
+
+510
+00:27:15,179 --> 00:27:20,039
+thing called array now let me explain
+
+511
+00:27:17,820 --> 00:27:23,520
+exactly what it is
+
+512
+00:27:20,039 --> 00:27:26,720
+again it's just a sequence ordered
+
+513
+00:27:23,520 --> 00:27:26,720
+sequence of things
+
+514
+00:27:28,279 --> 00:27:34,500
+mathematically it's an ordered sequence
+
+515
+00:27:32,159 --> 00:27:35,760
+of things
+
+516
+00:27:34,500 --> 00:27:38,400
+but
+
+517
+00:27:35,760 --> 00:27:41,240
+this jargon
+
+518
+00:27:38,400 --> 00:27:41,240
+array
+
+519
+00:27:43,320 --> 00:27:46,520
+by convention
+
+520
+00:27:49,380 --> 00:27:53,340
+has a specific
+
+521
+00:27:51,600 --> 00:27:56,179
+algorithmic
+
+522
+00:27:53,340 --> 00:27:56,179
+property
+
+523
+00:27:56,520 --> 00:27:59,539
+it is
+
+524
+00:28:01,559 --> 00:28:05,240
+okay so what is the probability of array
+
+525
+00:28:04,080 --> 00:28:09,240
+the
+
+526
+00:28:05,240 --> 00:28:09,240
+implementation so
+
+527
+00:28:11,340 --> 00:28:15,240
+fast constant
+
+528
+00:28:16,200 --> 00:28:21,140
+access time to any item
+
+529
+00:28:22,440 --> 00:28:26,340
+but
+
+530
+00:28:24,779 --> 00:28:28,320
+the
+
+531
+00:28:26,340 --> 00:28:31,760
+array
+
+532
+00:28:28,320 --> 00:28:31,760
+cannot grow or Shrink
+
+533
+00:28:36,419 --> 00:28:47,039
+that is cannot add or delete elements
+
+534
+00:28:41,820 --> 00:28:51,380
+if you do you basically have two
+
+535
+00:28:47,039 --> 00:28:51,380
+create a new array okay
+
+536
+00:28:52,919 --> 00:28:59,580
+so first of all critical concept and
+
+537
+00:28:55,980 --> 00:29:02,400
+this is the most the most of them all
+
+538
+00:28:59,580 --> 00:29:05,400
+the most important data structure in all
+
+539
+00:29:02,400 --> 00:29:09,200
+languages you have this array
+
+540
+00:29:05,400 --> 00:29:09,200
+oh yeah I wanted to say
+
+541
+00:29:09,779 --> 00:29:13,580
+fixed length array
+
+542
+00:29:14,820 --> 00:29:19,919
+okay
+
+543
+00:29:16,679 --> 00:29:22,200
+so it's so it has these properties very
+
+544
+00:29:19,919 --> 00:29:24,000
+fast constant if if you want the
+
+545
+00:29:22,200 --> 00:29:27,000
+millionth item
+
+546
+00:29:24,000 --> 00:29:29,399
+you'll get that value just as fast if
+
+547
+00:29:27,000 --> 00:29:32,340
+you want to get the first value okay
+
+548
+00:29:29,399 --> 00:29:35,580
+constant time magical it's almost like
+
+549
+00:29:32,340 --> 00:29:38,640
+magic you know it's it's it's it's so
+
+550
+00:29:35,580 --> 00:29:40,919
+almost like Quantum Computing parallel
+
+551
+00:29:38,640 --> 00:29:43,559
+you know that this is a very weird
+
+552
+00:29:40,919 --> 00:29:46,580
+concept you know this is very weird took
+
+553
+00:29:43,559 --> 00:29:50,760
+me uh you know 15-20 years to understand
+
+554
+00:29:46,580 --> 00:29:55,140
+why is it access you know the median
+
+555
+00:29:50,760 --> 00:29:56,220
+items is as fast as as assessing the
+
+556
+00:29:55,140 --> 00:29:59,179
+first item
+
+557
+00:29:56,220 --> 00:30:02,100
+why is that because imagine a hardware
+
+558
+00:29:59,179 --> 00:30:04,260
+Abacus you know if you are using app
+
+559
+00:30:02,100 --> 00:30:06,840
+because you have to move your hand
+
+560
+00:30:04,260 --> 00:30:09,179
+you know to the median item
+
+561
+00:30:06,840 --> 00:30:11,039
+you know it all depends on where where
+
+562
+00:30:09,179 --> 00:30:13,020
+your hand is you know so you have to
+
+563
+00:30:11,039 --> 00:30:16,679
+move the further away from your current
+
+564
+00:30:13,020 --> 00:30:19,080
+hand position is takes longer but that's
+
+565
+00:30:16,679 --> 00:30:21,059
+not the case well imagine a tuning
+
+566
+00:30:19,080 --> 00:30:23,460
+machine you know a tuning machine is a
+
+567
+00:30:21,059 --> 00:30:26,159
+kind of a abstract machine you have a
+
+568
+00:30:23,460 --> 00:30:29,220
+tape you need to move the tape if you
+
+569
+00:30:26,159 --> 00:30:31,679
+implement array on a tuning machine
+
+570
+00:30:29,220 --> 00:30:34,620
+how is it possible you have this
+
+571
+00:30:31,679 --> 00:30:37,559
+constant time access okay this puzzle
+
+572
+00:30:34,620 --> 00:30:38,820
+took me like 20 or 30 years to
+
+573
+00:30:37,559 --> 00:30:41,820
+understand
+
+574
+00:30:38,820 --> 00:30:47,159
+and eventually I did about about seven
+
+575
+00:30:41,820 --> 00:30:50,700
+years ago about 10 years ago and that is
+
+576
+00:30:47,159 --> 00:30:52,380
+let me explain okay so and I
+
+577
+00:30:50,700 --> 00:30:54,440
+and that is
+
+578
+00:30:52,380 --> 00:30:54,440
+um
+
+579
+00:30:56,520 --> 00:31:01,320
+hello George so we are going to
+
+580
+00:30:58,860 --> 00:31:04,080
+implement stack but not yet we are I'm
+
+581
+00:31:01,320 --> 00:31:06,140
+just explaining the background
+
+582
+00:31:04,080 --> 00:31:06,140
+um
+
+583
+00:31:07,919 --> 00:31:10,919
+uh
+
+584
+00:31:12,000 --> 00:31:19,399
+knock Saudi org okay
+
+585
+00:31:15,960 --> 00:31:19,399
+so you just go to
+
+586
+00:31:19,520 --> 00:31:26,520
+study.info there's an article I want to
+
+587
+00:31:22,260 --> 00:31:29,100
+show you so let's say constant okay Y is
+
+588
+00:31:26,520 --> 00:31:31,559
+array access constant time
+
+589
+00:31:29,100 --> 00:31:34,980
+now the reason that this data structure
+
+590
+00:31:31,559 --> 00:31:36,659
+array sees array or Java survey again
+
+591
+00:31:34,980 --> 00:31:39,740
+depending on the language each language
+
+592
+00:31:36,659 --> 00:31:43,500
+use different terms but in C and Java
+
+593
+00:31:39,740 --> 00:31:46,500
+the meaning of array is more Universal
+
+594
+00:31:43,500 --> 00:31:49,919
+okay so when people say array typically
+
+595
+00:31:46,500 --> 00:31:52,799
+it means like C programming language is
+
+596
+00:31:49,919 --> 00:31:55,559
+array or Java programming language sorry
+
+597
+00:31:52,799 --> 00:31:58,140
+okay so when you have an array in
+
+598
+00:31:55,559 --> 00:32:01,500
+implementation of the ordered sequence
+
+599
+00:31:58,140 --> 00:32:03,480
+of things then you have this property
+
+600
+00:32:01,500 --> 00:32:06,140
+constant access time doesn't matter
+
+601
+00:32:03,480 --> 00:32:09,720
+median item or first item is the same
+
+602
+00:32:06,140 --> 00:32:12,539
+same speed to get it and very fast so
+
+603
+00:32:09,720 --> 00:32:14,760
+it's magical why does it happen even you
+
+604
+00:32:12,539 --> 00:32:18,299
+know so if you you can look at Wikipedia
+
+605
+00:32:14,760 --> 00:32:22,620
+you know it has 10 pages you know 10
+
+606
+00:32:18,299 --> 00:32:25,500
+000 words but no explanation why except
+
+607
+00:32:22,620 --> 00:32:29,039
+this one single line okay one single
+
+608
+00:32:25,500 --> 00:32:32,820
+line brush it away hand waving okay they
+
+609
+00:32:29,039 --> 00:32:34,440
+effectively exploit the addressing logic
+
+610
+00:32:32,820 --> 00:32:36,480
+of computers
+
+611
+00:32:34,440 --> 00:32:38,640
+what does that mean what do you mean
+
+612
+00:32:36,480 --> 00:32:41,100
+effectively exploit that addressing
+
+613
+00:32:38,640 --> 00:32:43,500
+logic of computers
+
+614
+00:32:41,100 --> 00:32:45,419
+so
+
+615
+00:32:43,500 --> 00:32:47,460
+people do not you know you ask
+
+616
+00:32:45,419 --> 00:32:50,220
+programmers even or basically
+
+617
+00:32:47,460 --> 00:32:52,679
+essentially all textbooks are you know
+
+618
+00:32:50,220 --> 00:32:56,580
+you go to Amazon you buy the classic
+
+619
+00:32:52,679 --> 00:32:59,159
+textbooks on algorithms none of them
+
+620
+00:32:56,580 --> 00:33:00,059
+as far as I know none of them explains
+
+621
+00:32:59,159 --> 00:33:03,779
+it
+
+622
+00:33:00,059 --> 00:33:05,700
+why is array access constant time they
+
+623
+00:33:03,779 --> 00:33:08,279
+don't explain it they just say it's
+
+624
+00:33:05,700 --> 00:33:10,799
+constant okay then you they tell you how
+
+625
+00:33:08,279 --> 00:33:12,779
+to implement linked lists and and others
+
+626
+00:33:10,799 --> 00:33:15,419
+but they just assume they will just
+
+627
+00:33:12,779 --> 00:33:17,700
+begin with a real array the data
+
+628
+00:33:15,419 --> 00:33:20,279
+structure it's just constant time no
+
+629
+00:33:17,700 --> 00:33:22,740
+explanation and in fact for my
+
+630
+00:33:20,279 --> 00:33:24,840
+experience talking to you know the low
+
+631
+00:33:22,740 --> 00:33:27,120
+level programmers I'm not a low-level
+
+632
+00:33:24,840 --> 00:33:29,820
+programmers but I talked to C C plus
+
+633
+00:33:27,120 --> 00:33:31,500
+plus Java they don't know neither they
+
+634
+00:33:29,820 --> 00:33:33,840
+cannot explain
+
+635
+00:33:31,500 --> 00:33:35,880
+they they'll just say array of access is
+
+636
+00:33:33,840 --> 00:33:37,320
+constant okay if you don't know you are
+
+637
+00:33:35,880 --> 00:33:39,960
+an idiot that's that they don't know
+
+638
+00:33:37,320 --> 00:33:43,080
+they don't know themselves neither
+
+639
+00:33:39,960 --> 00:33:44,760
+but somebody knows of course there's
+
+640
+00:33:43,080 --> 00:33:47,419
+always some someone knows the answer
+
+641
+00:33:44,760 --> 00:33:50,220
+those are the people who actually
+
+642
+00:33:47,419 --> 00:33:53,519
+designed and implemented
+
+643
+00:33:50,220 --> 00:33:55,740
+the memory chips or CPU chips they
+
+644
+00:33:53,519 --> 00:33:59,279
+desired they design the electronics how
+
+645
+00:33:55,740 --> 00:34:01,679
+it works those people do know okay
+
+646
+00:33:59,279 --> 00:34:05,220
+those people actually understand because
+
+647
+00:34:01,679 --> 00:34:07,860
+even if you are a c programmer
+
+648
+00:34:05,220 --> 00:34:10,080
+you wouldn't know even if your assembly
+
+649
+00:34:07,860 --> 00:34:13,200
+programmer you wouldn't know why because
+
+650
+00:34:10,080 --> 00:34:16,919
+the answer has to do the with the design
+
+651
+00:34:13,200 --> 00:34:19,139
+of the memory chips how it's accessed
+
+652
+00:34:16,919 --> 00:34:20,040
+okay essentially it's just parallel in
+
+653
+00:34:19,139 --> 00:34:23,040
+nature
+
+654
+00:34:20,040 --> 00:34:26,339
+so this is uh
+
+655
+00:34:23,040 --> 00:34:28,800
+very important thing uh answer okay
+
+656
+00:34:26,339 --> 00:34:31,800
+and I learned that from this guy a
+
+657
+00:34:28,800 --> 00:34:34,379
+famous Chinese blogger a programmer and
+
+658
+00:34:31,800 --> 00:34:37,679
+computer scientist Ying Wang
+
+659
+00:34:34,379 --> 00:34:40,080
+so you know why is array indexing faster
+
+660
+00:34:37,679 --> 00:34:43,139
+than binary search that's the way he put
+
+661
+00:34:40,080 --> 00:34:46,260
+it but basically you're already indexing
+
+662
+00:34:43,139 --> 00:34:49,679
+is constant time and fast doesn't matter
+
+663
+00:34:46,260 --> 00:34:52,139
+which element you millionth or the first
+
+664
+00:34:49,679 --> 00:34:56,639
+element your access because
+
+665
+00:34:52,139 --> 00:34:58,680
+how the electronics and memory chips are
+
+666
+00:34:56,639 --> 00:35:01,619
+designed it's basically essentially the
+
+667
+00:34:58,680 --> 00:35:05,400
+answer is just parallel okay that's why
+
+668
+00:35:01,619 --> 00:35:08,119
+nothing now this has nothing to do with
+
+669
+00:35:05,400 --> 00:35:10,440
+mathematics okay this is not a natural
+
+670
+00:35:08,119 --> 00:35:13,260
+mathematical phenomenon
+
+671
+00:35:10,440 --> 00:35:15,000
+you know it's not a math Theory nothing
+
+672
+00:35:13,260 --> 00:35:17,760
+like that it just happened you know the
+
+673
+00:35:15,000 --> 00:35:20,400
+it's engineering it's history okay it's
+
+674
+00:35:17,760 --> 00:35:23,400
+the reason
+
+675
+00:35:20,400 --> 00:35:25,680
+array access is constant time because we
+
+676
+00:35:23,400 --> 00:35:27,660
+are using this particular design of
+
+677
+00:35:25,680 --> 00:35:29,700
+memory chips and you know the
+
+678
+00:35:27,660 --> 00:35:32,880
+electronics electricity running around
+
+679
+00:35:29,700 --> 00:35:34,760
+and transistors and they are lined in a
+
+680
+00:35:32,880 --> 00:35:38,579
+parallel way that's why
+
+681
+00:35:34,760 --> 00:35:40,800
+array access is constant time okay that
+
+682
+00:35:38,579 --> 00:35:43,980
+is why
+
+683
+00:35:40,800 --> 00:35:47,099
+so because so this is very fundamental
+
+684
+00:35:43,980 --> 00:35:49,320
+this is the most fundamental thing okay
+
+685
+00:35:47,099 --> 00:35:51,480
+this is the most critical and
+
+686
+00:35:49,320 --> 00:35:55,440
+fundamental property
+
+687
+00:35:51,480 --> 00:35:58,740
+because of these then
+
+688
+00:35:55,440 --> 00:36:00,780
+then we begin to talk why the
+
+689
+00:35:58,740 --> 00:36:02,579
+implementation details algorithmic
+
+690
+00:36:00,780 --> 00:36:05,220
+properties you have you know array
+
+691
+00:36:02,579 --> 00:36:09,119
+Vector turbo stack
+
+692
+00:36:05,220 --> 00:36:11,520
+all those depends on this all right
+
+693
+00:36:09,119 --> 00:36:15,839
+access is constant time
+
+694
+00:36:11,520 --> 00:36:19,079
+okay they all begin with this then from
+
+695
+00:36:15,839 --> 00:36:22,020
+this array data structure then you
+
+696
+00:36:19,079 --> 00:36:25,099
+create other things such as linked list
+
+697
+00:36:22,020 --> 00:36:28,079
+stack circular list
+
+698
+00:36:25,099 --> 00:36:30,359
+or even hash table it all depends on
+
+699
+00:36:28,079 --> 00:36:32,820
+this property array access is constant
+
+700
+00:36:30,359 --> 00:36:36,599
+time okay so this is very fundamental
+
+701
+00:36:32,820 --> 00:36:39,720
+and it has been a big puzzle for me and
+
+702
+00:36:36,599 --> 00:36:43,500
+none of the programmers I
+
+703
+00:36:39,720 --> 00:36:44,880
+I've seen able to explain to me until 10
+
+704
+00:36:43,500 --> 00:36:47,880
+years ago I
+
+705
+00:36:44,880 --> 00:36:50,839
+found this guy's article
+
+706
+00:36:47,880 --> 00:36:53,640
+not in textbooks not in Wikipedia
+
+707
+00:36:50,839 --> 00:36:56,400
+basically not anywhere you know I wonder
+
+708
+00:36:53,640 --> 00:36:59,339
+if gnuth
+
+709
+00:36:56,400 --> 00:37:01,980
+I wonder if gunus in his other
+
+710
+00:36:59,339 --> 00:37:04,079
+programming if he actually uh discussed
+
+711
+00:37:01,980 --> 00:37:06,780
+that so if you read good news you know
+
+712
+00:37:04,079 --> 00:37:10,560
+other programming if you know uh tell us
+
+713
+00:37:06,780 --> 00:37:12,540
+okay maybe maybe Groove expanded
+
+714
+00:37:10,560 --> 00:37:15,560
+I want I really want to see I really
+
+715
+00:37:12,540 --> 00:37:15,560
+want like to see
+
+716
+00:37:20,760 --> 00:37:24,660
+Okay so
+
+717
+00:37:22,800 --> 00:37:25,800
+so we have this
+
+718
+00:37:24,660 --> 00:37:28,380
+um
+
+719
+00:37:25,800 --> 00:37:30,359
+we touched on you know why array access
+
+720
+00:37:28,380 --> 00:37:32,400
+is constant time
+
+721
+00:37:30,359 --> 00:37:34,859
+so now
+
+722
+00:37:32,400 --> 00:37:37,500
+so this is critical concept array okay
+
+723
+00:37:34,859 --> 00:37:41,160
+so in Java in C you have the array
+
+724
+00:37:37,500 --> 00:37:43,020
+concept fast constant access however you
+
+725
+00:37:41,160 --> 00:37:45,420
+cannot grow or Shrink you know that's
+
+726
+00:37:43,020 --> 00:37:48,300
+another person in question
+
+727
+00:37:45,420 --> 00:37:52,140
+so because mathematically if you are the
+
+728
+00:37:48,300 --> 00:37:54,480
+genius from Mars or from outer space you
+
+729
+00:37:52,140 --> 00:37:56,760
+are the greatest mathematician you know
+
+730
+00:37:54,480 --> 00:37:59,280
+your math abilities is beyond all
+
+731
+00:37:56,760 --> 00:38:02,040
+Humanity
+
+732
+00:37:59,280 --> 00:38:03,060
+so you want an ordered sequence of
+
+733
+00:38:02,040 --> 00:38:05,579
+things
+
+734
+00:38:03,060 --> 00:38:08,220
+but why is it you cannot grow or Shrink
+
+735
+00:38:05,579 --> 00:38:10,920
+wait what what's going on how is it
+
+736
+00:38:08,220 --> 00:38:13,020
+possible you cannot add to an older
+
+737
+00:38:10,920 --> 00:38:15,240
+sequence of things
+
+738
+00:38:13,020 --> 00:38:17,339
+well because well we're talking about
+
+739
+00:38:15,240 --> 00:38:20,880
+computers you have a specific machine
+
+740
+00:38:17,339 --> 00:38:22,560
+you have a specific implementation and
+
+741
+00:38:20,880 --> 00:38:25,619
+it
+
+742
+00:38:22,560 --> 00:38:28,140
+so happens again because of the
+
+743
+00:38:25,619 --> 00:38:32,040
+electronics not necessarily other
+
+744
+00:38:28,140 --> 00:38:35,820
+machines like Quantum Computing or based
+
+745
+00:38:32,040 --> 00:38:37,980
+on other you know DNA Computing or based
+
+746
+00:38:35,820 --> 00:38:39,300
+on Abacus not necessarily but
+
+747
+00:38:37,980 --> 00:38:41,760
+specifically
+
+748
+00:38:39,300 --> 00:38:45,240
+the modern times our electronic computer
+
+749
+00:38:41,760 --> 00:38:47,040
+specifically because of these
+
+750
+00:38:45,240 --> 00:38:48,540
+you cannot
+
+751
+00:38:47,040 --> 00:38:51,240
+add
+
+752
+00:38:48,540 --> 00:38:54,119
+elements to array
+
+753
+00:38:51,240 --> 00:38:55,619
+okay you can but basically basically you
+
+754
+00:38:54,119 --> 00:38:58,619
+have to do just delete the whole thing
+
+755
+00:38:55,619 --> 00:39:02,280
+make a copy and and you know create a
+
+756
+00:38:58,619 --> 00:39:04,740
+new array with the new element in front
+
+757
+00:39:02,280 --> 00:39:06,420
+or what wherever you know that's
+
+758
+00:39:04,740 --> 00:39:09,720
+so that is why
+
+759
+00:39:06,420 --> 00:39:13,560
+again because of the hardware electronic
+
+760
+00:39:09,720 --> 00:39:15,300
+design of the memory and CPU okay
+
+761
+00:39:13,560 --> 00:39:19,099
+so
+
+762
+00:39:15,300 --> 00:39:19,099
+so okay that is why
+
+763
+00:39:19,680 --> 00:39:27,060
+uh let's see let's write it down okay so
+
+764
+00:39:23,820 --> 00:39:29,579
+we want to write down this copy across
+
+765
+00:39:27,060 --> 00:39:31,579
+back to emacs
+
+766
+00:39:29,579 --> 00:39:31,579
+um
+
+767
+00:39:37,560 --> 00:39:41,940
+why is the right access constant time
+
+768
+00:39:39,740 --> 00:39:43,920
+and why
+
+769
+00:39:41,940 --> 00:39:48,180
+cannot we add
+
+770
+00:39:43,920 --> 00:39:48,960
+or delete elements in it in constant
+
+771
+00:39:48,180 --> 00:39:50,460
+time
+
+772
+00:39:48,960 --> 00:39:54,180
+okay
+
+773
+00:39:50,460 --> 00:39:56,640
+in other words why can't we do it fast
+
+774
+00:39:54,180 --> 00:39:59,280
+you cannot
+
+775
+00:39:56,640 --> 00:40:00,960
+critical concept array okay and why it's
+
+776
+00:39:59,280 --> 00:40:03,359
+already access constant time and why
+
+777
+00:40:00,960 --> 00:40:05,460
+cannot we add our daily element in it in
+
+778
+00:40:03,359 --> 00:40:07,980
+constant time because
+
+779
+00:40:05,460 --> 00:40:10,859
+the CPU okay I mean because the memory
+
+780
+00:40:07,980 --> 00:40:13,560
+chip the way memory chips is designed in
+
+781
+00:40:10,859 --> 00:40:16,920
+electronics okay electronic computers of
+
+782
+00:40:13,560 --> 00:40:18,119
+today of today maybe not tomorrow maybe
+
+783
+00:40:16,920 --> 00:40:21,480
+you know
+
+784
+00:40:18,119 --> 00:40:23,760
+current technology okay so one thing I
+
+785
+00:40:21,480 --> 00:40:26,160
+want to emphasize again all this is just
+
+786
+00:40:23,760 --> 00:40:29,640
+happenstance it's not mathematical
+
+787
+00:40:26,160 --> 00:40:31,740
+property this you know constant time and
+
+788
+00:40:29,640 --> 00:40:34,859
+these are not part of theoretical
+
+789
+00:40:31,740 --> 00:40:37,020
+computer science okay many of the C
+
+790
+00:40:34,859 --> 00:40:39,560
+programmers see first they don't know
+
+791
+00:40:37,020 --> 00:40:42,300
+okay these programmers they don't know
+
+792
+00:40:39,560 --> 00:40:45,480
+these all these the things we are doing
+
+793
+00:40:42,300 --> 00:40:48,180
+today is not part of theoretical
+
+794
+00:40:45,480 --> 00:40:48,900
+computer science okay they are just part
+
+795
+00:40:48,180 --> 00:40:52,440
+of
+
+796
+00:40:48,900 --> 00:40:55,380
+Computer Engineering okay all these you
+
+797
+00:40:52,440 --> 00:40:58,079
+know complexities is not
+
+798
+00:40:55,380 --> 00:41:00,839
+natural okay it doesn't come from nature
+
+799
+00:40:58,079 --> 00:41:05,599
+it just came from the way we happen to
+
+800
+00:41:00,839 --> 00:41:05,599
+design uh electronic computers
+
+801
+00:41:05,940 --> 00:41:09,660
+okay
+
+802
+00:41:07,260 --> 00:41:11,520
+okay now so
+
+803
+00:41:09,660 --> 00:41:15,300
+so now we start to
+
+804
+00:41:11,520 --> 00:41:18,000
+um so so we have the array of c and Java
+
+805
+00:41:15,300 --> 00:41:21,480
+okay which is fixed length you cannot
+
+806
+00:41:18,000 --> 00:41:24,540
+add to it but access is fast doesn't
+
+807
+00:41:21,480 --> 00:41:27,119
+matter which item okay from there then
+
+808
+00:41:24,540 --> 00:41:30,180
+we developed other data structure with
+
+809
+00:41:27,119 --> 00:41:32,839
+different properties for a sequence of
+
+810
+00:41:30,180 --> 00:41:36,180
+older things and one of the most
+
+811
+00:41:32,839 --> 00:41:38,760
+prominent is called linked list okay
+
+812
+00:41:36,180 --> 00:41:40,440
+sometimes just called list
+
+813
+00:41:38,760 --> 00:41:42,900
+but again different languages use
+
+814
+00:41:40,440 --> 00:41:45,119
+different terms so
+
+815
+00:41:42,900 --> 00:41:47,040
+how do you do a linked list so first of
+
+816
+00:41:45,119 --> 00:41:50,040
+all what what is the property of linked
+
+817
+00:41:47,040 --> 00:41:52,560
+list linked list is such that you can
+
+818
+00:41:50,040 --> 00:41:56,520
+you can add or delete items in the front
+
+819
+00:41:52,560 --> 00:41:59,940
+very fast constant time but you cannot
+
+820
+00:41:56,520 --> 00:42:01,859
+access arbitrary items fast okay and the
+
+821
+00:41:59,940 --> 00:42:05,460
+way it's done is by
+
+822
+00:42:01,859 --> 00:42:07,980
+okay we already took 15 50 minutes
+
+823
+00:42:05,460 --> 00:42:10,820
+we we are now going to code
+
+824
+00:42:07,980 --> 00:42:10,820
+Okay so
+
+825
+00:42:12,300 --> 00:42:17,640
+but this is important so let me just
+
+826
+00:42:14,520 --> 00:42:20,339
+show you a list code okay so list okay
+
+827
+00:42:17,640 --> 00:42:24,359
+let's start to show code
+
+828
+00:42:20,339 --> 00:42:26,720
+let's start to code okay so start emac
+
+829
+00:42:24,359 --> 00:42:26,720
+lisp
+
+830
+00:42:26,820 --> 00:42:31,320
+uh
+
+831
+00:42:28,280 --> 00:42:33,839
+okay let's let's code so I'm going to
+
+832
+00:42:31,320 --> 00:42:35,400
+code a list I'm going going to show you
+
+833
+00:42:33,839 --> 00:42:39,380
+how
+
+834
+00:42:35,400 --> 00:42:39,380
+linked list is designed
+
+835
+00:42:39,599 --> 00:42:46,140
+okay but let's write down the properties
+
+836
+00:42:42,599 --> 00:42:49,760
+first I mean so what is uh linked is
+
+837
+00:42:46,140 --> 00:42:56,900
+what is the linked lists list okay
+
+838
+00:42:49,760 --> 00:42:59,579
+linked list or in short list is a
+
+839
+00:42:56,900 --> 00:43:01,319
+connected connect
+
+840
+00:42:59,579 --> 00:43:04,160
+is a
+
+841
+00:43:01,319 --> 00:43:07,020
+nested
+
+842
+00:43:04,160 --> 00:43:10,619
+tail nested
+
+843
+00:43:07,020 --> 00:43:13,200
+sequence of two items
+
+844
+00:43:10,619 --> 00:43:14,960
+okay that's
+
+845
+00:43:13,200 --> 00:43:19,940
+what it is okay
+
+846
+00:43:14,960 --> 00:43:19,940
+and for example
+
+847
+00:43:20,339 --> 00:43:24,859
+let me write an example a
+
+848
+00:43:26,700 --> 00:43:31,020
+suppose
+
+849
+00:43:28,680 --> 00:43:34,400
+we want a list
+
+850
+00:43:31,020 --> 00:43:34,400
+of items
+
+851
+00:43:34,500 --> 00:43:38,599
+a b c d okay
+
+852
+00:43:39,359 --> 00:43:42,560
+in linked
+
+853
+00:43:41,400 --> 00:43:46,380
+list
+
+854
+00:43:42,560 --> 00:43:47,640
+it looks like this
+
+855
+00:43:46,380 --> 00:43:50,119
+okay
+
+856
+00:43:47,640 --> 00:43:50,119
+so
+
+857
+00:43:51,839 --> 00:43:55,700
+a
+
+858
+00:43:53,520 --> 00:43:55,700
+B
+
+859
+00:43:57,060 --> 00:44:02,119
+C
+
+860
+00:43:59,460 --> 00:44:02,119
+t
+
+861
+00:44:10,020 --> 00:44:14,579
+okay
+
+862
+00:44:11,400 --> 00:44:18,660
+so you can see it's just you have a pair
+
+863
+00:44:14,579 --> 00:44:21,119
+of things then you just Nest it so if
+
+864
+00:44:18,660 --> 00:44:25,020
+you want the list of ABCD or older
+
+865
+00:44:21,119 --> 00:44:28,859
+sequence of things the way you implement
+
+866
+00:44:25,020 --> 00:44:31,740
+if you want to implement it as a linked
+
+867
+00:44:28,859 --> 00:44:34,740
+list then what you do is you start with
+
+868
+00:44:31,740 --> 00:44:37,980
+the pair and
+
+869
+00:44:34,740 --> 00:44:41,460
+so the first item of the pair represents
+
+870
+00:44:37,980 --> 00:44:45,900
+the item in your list and then the
+
+871
+00:44:41,460 --> 00:44:48,480
+second part of the pair is again a pair
+
+872
+00:44:45,900 --> 00:44:52,040
+and the first part of that is the item
+
+873
+00:44:48,480 --> 00:44:55,920
+of the list and the second part is again
+
+874
+00:44:52,040 --> 00:44:58,500
+a pair so all the way until you reach
+
+875
+00:44:55,920 --> 00:45:02,819
+the last item d
+
+876
+00:44:58,500 --> 00:45:05,700
+a b c d d then the second part is just
+
+877
+00:45:02,819 --> 00:45:07,800
+new or some other thing like zero or
+
+878
+00:45:05,700 --> 00:45:11,400
+special you know special item indicate
+
+879
+00:45:07,800 --> 00:45:12,619
+that's it okay so you have this nested
+
+880
+00:45:11,400 --> 00:45:15,720
+structure
+
+881
+00:45:12,619 --> 00:45:18,660
+to represent at least
+
+882
+00:45:15,720 --> 00:45:20,099
+and this is how lisp programming
+
+883
+00:45:18,660 --> 00:45:23,880
+language
+
+884
+00:45:20,099 --> 00:45:26,819
+Implement their list okay so let's show
+
+885
+00:45:23,880 --> 00:45:30,839
+some emac example emac this then let's
+
+886
+00:45:26,819 --> 00:45:32,880
+then let's start to um
+
+887
+00:45:30,839 --> 00:45:35,579
+so for example
+
+888
+00:45:32,880 --> 00:45:39,240
+uh let's say
+
+889
+00:45:35,579 --> 00:45:39,240
+list okay
+
+890
+00:45:42,800 --> 00:45:48,140
+how we want to to do that a b c d
+
+891
+00:45:50,280 --> 00:45:56,400
+and I hope this is I hope I can do this
+
+892
+00:45:54,300 --> 00:46:02,280
+correctly
+
+893
+00:45:56,400 --> 00:46:05,880
+so that's the least it is equivalent to
+
+894
+00:46:02,280 --> 00:46:08,520
+now in in this this pair you are seeing
+
+895
+00:46:05,880 --> 00:46:11,060
+it's called conspire and it's written
+
+896
+00:46:08,520 --> 00:46:11,060
+like that
+
+897
+00:46:11,220 --> 00:46:16,859
+uh wait
+
+898
+00:46:13,859 --> 00:46:20,220
+let's not use ABCD let's use one two
+
+899
+00:46:16,859 --> 00:46:22,140
+three four because we avoid the symbol
+
+900
+00:46:20,220 --> 00:46:25,619
+problem
+
+901
+00:46:22,140 --> 00:46:28,400
+one two three four Okay so
+
+902
+00:46:25,619 --> 00:46:28,400
+let's
+
+903
+00:46:34,319 --> 00:46:37,940
+one two three four
+
+904
+00:46:39,960 --> 00:46:44,040
+okay so
+
+905
+00:46:42,119 --> 00:46:48,480
+now let's go back so we have a list
+
+906
+00:46:44,040 --> 00:46:51,240
+there and uh this list is actually
+
+907
+00:46:48,480 --> 00:46:54,060
+so in lisp remember other sequence of
+
+908
+00:46:51,240 --> 00:46:57,859
+things this call at least
+
+909
+00:46:54,060 --> 00:47:01,500
+and it is actually
+
+910
+00:46:57,859 --> 00:47:03,300
+implemented as a linked list and it
+
+911
+00:47:01,500 --> 00:47:05,839
+looks like this okay let me show you
+
+912
+00:47:03,300 --> 00:47:05,839
+cons
+
+913
+00:47:06,359 --> 00:47:09,359
+to
+
+914
+00:47:10,140 --> 00:47:15,980
+cons uh
+
+915
+00:47:12,960 --> 00:47:15,980
+cons three
+
+916
+00:47:16,920 --> 00:47:23,040
+cons
+
+917
+00:47:18,780 --> 00:47:26,099
+four and Neo okay that's a linked list
+
+918
+00:47:23,040 --> 00:47:29,520
+okay how do you know how well we can
+
+919
+00:47:26,099 --> 00:47:32,579
+show they are equivalent so let's try
+
+920
+00:47:29,520 --> 00:47:35,220
+I I'm not sure this will work but I
+
+921
+00:47:32,579 --> 00:47:38,480
+think so so we're gonna evaluate this
+
+922
+00:47:35,220 --> 00:47:42,420
+you know testy quality
+
+923
+00:47:38,480 --> 00:47:45,020
+evaluate it Neo Okay so
+
+924
+00:47:42,420 --> 00:47:45,020
+wait
+
+925
+00:47:48,720 --> 00:47:51,680
+you see true
+
+926
+00:47:52,200 --> 00:47:57,200
+you see the output is true let's start
+
+927
+00:47:54,960 --> 00:47:57,200
+again
+
+928
+00:47:57,960 --> 00:48:01,460
+you see true
+
+929
+00:48:03,359 --> 00:48:10,040
+this shows how list
+
+930
+00:48:06,960 --> 00:48:10,040
+this list
+
+931
+00:48:10,560 --> 00:48:17,480
+is implemented as nested pairs okay
+
+932
+00:48:20,940 --> 00:48:27,119
+okay so there it is linked list this is
+
+933
+00:48:24,540 --> 00:48:30,660
+called linked list in computer science
+
+934
+00:48:27,119 --> 00:48:33,800
+okay so let's uh go to Wikipedia so you
+
+935
+00:48:30,660 --> 00:48:36,720
+can see you can read about it later okay
+
+936
+00:48:33,800 --> 00:48:39,359
+linked list you can see that
+
+937
+00:48:36,720 --> 00:48:42,180
+you know that pay us you know you just
+
+938
+00:48:39,359 --> 00:48:45,000
+nesting pay us okay
+
+939
+00:48:42,180 --> 00:48:47,940
+now this linked list again the property
+
+940
+00:48:45,000 --> 00:48:50,160
+of this this way of doing a older
+
+941
+00:48:47,940 --> 00:48:53,280
+sequence of things is that it's very
+
+942
+00:48:50,160 --> 00:48:56,099
+fast to remove the front item so add
+
+943
+00:48:53,280 --> 00:49:00,180
+items to the front however it's very
+
+944
+00:48:56,099 --> 00:49:02,400
+slow if you want to get the 10 000 item
+
+945
+00:49:00,180 --> 00:49:04,980
+you know the the further away the slower
+
+946
+00:49:02,400 --> 00:49:05,720
+it is because it has to go through all
+
+947
+00:49:04,980 --> 00:49:10,140
+the
+
+948
+00:49:05,720 --> 00:49:13,579
+uh you know kind of nesting links
+
+949
+00:49:10,140 --> 00:49:13,579
+okay that's the property
+
+950
+00:49:16,740 --> 00:49:21,540
+okay and let's let's write down the
+
+951
+00:49:19,800 --> 00:49:23,220
+property
+
+952
+00:49:21,540 --> 00:49:26,220
+uh
+
+953
+00:49:23,220 --> 00:49:26,220
+algorithmic
+
+954
+00:49:26,460 --> 00:49:31,339
+property of linked list
+
+955
+00:49:33,900 --> 00:49:38,000
+did we already write it down somewhere
+
+956
+00:49:38,760 --> 00:49:43,980
+there it is we already did algorithmic
+
+957
+00:49:41,579 --> 00:49:48,200
+property of uh
+
+958
+00:49:43,980 --> 00:49:48,200
+these predicts list okay
+
+959
+00:49:48,420 --> 00:49:57,900
+okay so and it and this linked list is
+
+960
+00:49:54,119 --> 00:50:00,780
+exactly also the most efficient data
+
+961
+00:49:57,900 --> 00:50:03,180
+structure for a stack because remember a
+
+962
+00:50:00,780 --> 00:50:06,240
+stack is there's an older sequence such
+
+963
+00:50:03,180 --> 00:50:07,619
+that you can always add or remove items
+
+964
+00:50:06,240 --> 00:50:10,200
+in the front
+
+965
+00:50:07,619 --> 00:50:13,140
+just just these two operations push and
+
+966
+00:50:10,200 --> 00:50:17,359
+pop add or remove items in front so it's
+
+967
+00:50:13,140 --> 00:50:17,359
+it's very fast forwarding to this okay
+
+968
+00:50:19,079 --> 00:50:24,800
+let's add a
+
+969
+00:50:22,140 --> 00:50:24,800
+header
+
+970
+00:50:33,599 --> 00:50:39,240
+okay
+
+971
+00:50:34,800 --> 00:50:41,460
+and that is exactly what we are going to
+
+972
+00:50:39,240 --> 00:50:44,180
+do what we are about to do we are going
+
+973
+00:50:41,460 --> 00:50:44,180
+to implement
+
+974
+00:50:44,520 --> 00:50:50,400
+a linked list in Python in JavaScript
+
+975
+00:50:47,400 --> 00:50:52,559
+and in Wolfram language okay and we want
+
+976
+00:50:50,400 --> 00:50:55,920
+to compare the speed hold on a second
+
+977
+00:50:52,559 --> 00:50:58,680
+there's one more thing one more thing
+
+978
+00:50:55,920 --> 00:51:02,280
+one more thing I want to explain
+
+979
+00:50:58,680 --> 00:51:06,380
+why we need to do that I mean so let's
+
+980
+00:51:02,280 --> 00:51:06,380
+explain Python's list okay
+
+981
+00:51:08,220 --> 00:51:13,160
+Python and Ruby and JavaScript
+
+982
+00:51:15,839 --> 00:51:20,960
+python Ruby JavaScript
+
+983
+00:51:17,940 --> 00:51:20,960
+their list
+
+984
+00:51:22,020 --> 00:51:28,800
+all chord array
+
+985
+00:51:24,780 --> 00:51:31,700
+is a smart array for like a bit for lack
+
+986
+00:51:28,800 --> 00:51:31,700
+of standard term
+
+987
+00:51:34,680 --> 00:51:39,000
+okay
+
+988
+00:51:35,880 --> 00:51:41,700
+so in python or if you program in Ruby
+
+989
+00:51:39,000 --> 00:51:43,740
+or you know actually I don't you are
+
+990
+00:51:41,700 --> 00:51:45,540
+yeah it's an impact in Ruby and
+
+991
+00:51:43,740 --> 00:51:47,700
+JavaScript you know if you are familiar
+
+992
+00:51:45,540 --> 00:51:50,099
+with them they have a data structure
+
+993
+00:51:47,700 --> 00:51:54,720
+called um
+
+994
+00:51:50,099 --> 00:51:57,240
+list well in Python it's called list
+
+995
+00:51:54,720 --> 00:51:59,940
+and in Ruby
+
+996
+00:51:57,240 --> 00:52:03,000
+uh George what is Ruby's list or array
+
+997
+00:51:59,940 --> 00:52:06,619
+data structure church is an expert of
+
+998
+00:52:03,000 --> 00:52:11,240
+Ruby and JavaScript a professional
+
+999
+00:52:06,619 --> 00:52:11,240
+programmer so in Ruby
+
+1000
+00:52:11,960 --> 00:52:17,220
+I don't know really well but I only I
+
+1001
+00:52:15,000 --> 00:52:20,940
+just learned it um
+
+1002
+00:52:17,220 --> 00:52:23,579
+do they call uh Ruby I mean what's what
+
+1003
+00:52:20,940 --> 00:52:27,440
+is the official jargon for Ruby's at
+
+1004
+00:52:23,579 --> 00:52:27,440
+least do they call it array or list
+
+1005
+00:52:29,819 --> 00:52:34,700
+you can find that by searching it quick
+
+1006
+00:52:32,160 --> 00:52:34,700
+quickly
+
+1007
+00:52:36,119 --> 00:52:41,700
+okay so Ruby in Ruby it's called array I
+
+1008
+00:52:39,839 --> 00:52:44,839
+guess
+
+1009
+00:52:41,700 --> 00:52:44,839
+yeah Ruby
+
+1010
+00:52:51,119 --> 00:52:54,859
+so Ruby calls it array
+
+1011
+00:52:56,640 --> 00:53:01,940
+in JavaScript it's called also called
+
+1012
+00:52:58,980 --> 00:53:01,940
+array okay
+
+1013
+00:53:04,319 --> 00:53:08,040
+so you have this so let me explain this
+
+1014
+00:53:07,020 --> 00:53:10,619
+one
+
+1015
+00:53:08,040 --> 00:53:14,700
+so mathematically
+
+1016
+00:53:10,619 --> 00:53:16,260
+you have the concept of ordered sequence
+
+1017
+00:53:14,700 --> 00:53:17,760
+of things
+
+1018
+00:53:16,260 --> 00:53:19,800
+but however
+
+1019
+00:53:17,760 --> 00:53:22,619
+when you have a machine a physical
+
+1020
+00:53:19,800 --> 00:53:25,079
+machine and a programming language which
+
+1021
+00:53:22,619 --> 00:53:26,700
+is a written instruction on how to
+
+1022
+00:53:25,079 --> 00:53:28,920
+manipulate machine
+
+1023
+00:53:26,700 --> 00:53:30,839
+so when you work on an actual machine
+
+1024
+00:53:28,920 --> 00:53:33,900
+you need to you know you need a
+
+1025
+00:53:30,839 --> 00:53:36,540
+programming language to you need a
+
+1026
+00:53:33,900 --> 00:53:37,440
+actual instructions how you manipul a
+
+1027
+00:53:36,540 --> 00:53:39,960
+machine
+
+1028
+00:53:37,440 --> 00:53:42,780
+that you need to design the you you need
+
+1029
+00:53:39,960 --> 00:53:46,020
+to implement the data structure you need
+
+1030
+00:53:42,780 --> 00:53:49,500
+to make this abstract concept of order
+
+1031
+00:53:46,020 --> 00:53:50,700
+the sequence of things into some actual
+
+1032
+00:53:49,500 --> 00:53:54,059
+instructions
+
+1033
+00:53:50,700 --> 00:53:56,880
+so when you do that you have issues you
+
+1034
+00:53:54,059 --> 00:53:59,099
+have issues of implementation detail in
+
+1035
+00:53:56,880 --> 00:54:01,859
+algorithmic properties
+
+1036
+00:53:59,099 --> 00:54:05,579
+what are the issues that is the issues
+
+1037
+00:54:01,859 --> 00:54:09,180
+is it fast to access any random element
+
+1038
+00:54:05,579 --> 00:54:11,700
+or can you add or delete items in the
+
+1039
+00:54:09,180 --> 00:54:15,680
+element is it gonna be slow so you have
+
+1040
+00:54:11,700 --> 00:54:15,680
+these questions com comes up okay
+
+1041
+00:54:18,480 --> 00:54:23,819
+uh you know why the why the why are
+
+1042
+00:54:21,960 --> 00:54:25,380
+there these issues because you are
+
+1043
+00:54:23,819 --> 00:54:27,480
+actually working with the machine you
+
+1044
+00:54:25,380 --> 00:54:30,900
+know machine programming language turns
+
+1045
+00:54:27,480 --> 00:54:32,579
+your code into actual instructions you
+
+1046
+00:54:30,900 --> 00:54:35,940
+know do this move this here you know
+
+1047
+00:54:32,579 --> 00:54:39,119
+that's why you have these things and
+
+1048
+00:54:35,940 --> 00:54:41,880
+these things came from again all based
+
+1049
+00:54:39,119 --> 00:54:45,839
+on array array is um
+
+1050
+00:54:41,880 --> 00:54:49,680
+uh because it so happens uh
+
+1051
+00:54:45,839 --> 00:54:52,140
+of the digital electronics so array you
+
+1052
+00:54:49,680 --> 00:54:56,220
+have the array
+
+1053
+00:54:52,140 --> 00:55:01,980
+uh implementation which is fixed length
+
+1054
+00:54:56,220 --> 00:55:05,099
+but fast random access time okay array
+
+1055
+00:55:01,980 --> 00:55:07,740
+so from array then we started to do we
+
+1056
+00:55:05,099 --> 00:55:09,780
+can have linked list now so the question
+
+1057
+00:55:07,740 --> 00:55:12,780
+now is what what about python Ruby
+
+1058
+00:55:09,780 --> 00:55:16,079
+JavaScript what do they do okay now we
+
+1059
+00:55:12,780 --> 00:55:19,520
+know in lisp they there this is linked
+
+1060
+00:55:16,079 --> 00:55:19,520
+list okay in this
+
+1061
+00:55:19,559 --> 00:55:24,240
+uh but what about
+
+1062
+00:55:21,920 --> 00:55:26,460
+python Ruby
+
+1063
+00:55:24,240 --> 00:55:29,099
+you know this it's interesting because
+
+1064
+00:55:26,460 --> 00:55:31,520
+you know you have this annoying issues
+
+1065
+00:55:29,099 --> 00:55:36,180
+you know one is that you can access any
+
+1066
+00:55:31,520 --> 00:55:38,640
+item fast but you cannot add items you
+
+1067
+00:55:36,180 --> 00:55:42,359
+know what what the pain in the ass or
+
+1068
+00:55:38,640 --> 00:55:44,940
+you can add items to the front very fast
+
+1069
+00:55:42,359 --> 00:55:47,579
+but then access any random element is
+
+1070
+00:55:44,940 --> 00:55:50,640
+very slow so it's like like a dilemma
+
+1071
+00:55:47,579 --> 00:55:53,280
+so what does python Ruby JavaScript do
+
+1072
+00:55:50,640 --> 00:55:55,680
+well what they do is what they call they
+
+1073
+00:55:53,280 --> 00:55:58,920
+they create something called like a
+
+1074
+00:55:55,680 --> 00:56:03,200
+smart array so basically what they do is
+
+1075
+00:55:58,920 --> 00:56:03,200
+they they just have a fixed array
+
+1076
+00:56:03,660 --> 00:56:10,260
+a fixed length array
+
+1077
+00:56:07,200 --> 00:56:11,880
+so that means you cannot add or remove
+
+1078
+00:56:10,260 --> 00:56:14,220
+element
+
+1079
+00:56:11,880 --> 00:56:16,319
+however when you want to add elements
+
+1080
+00:56:14,220 --> 00:56:18,839
+the programming language is actually
+
+1081
+00:56:16,319 --> 00:56:21,300
+smart they so when you want to add
+
+1082
+00:56:18,839 --> 00:56:24,359
+element it just
+
+1083
+00:56:21,300 --> 00:56:27,359
+it creates a new array but with lots of
+
+1084
+00:56:24,359 --> 00:56:29,040
+empty spots so later on when you add
+
+1085
+00:56:27,359 --> 00:56:32,460
+elements
+
+1086
+00:56:29,040 --> 00:56:35,760
+it doesn't have to recreate the whole
+
+1087
+00:56:32,460 --> 00:56:38,940
+so that's why it's called I call them
+
+1088
+00:56:35,760 --> 00:56:41,579
+smarter array because there's no no
+
+1089
+00:56:38,940 --> 00:56:43,200
+standard term smart array basically it's
+
+1090
+00:56:41,579 --> 00:56:45,599
+a
+
+1091
+00:56:43,200 --> 00:56:47,640
+you know it's a array but it
+
+1092
+00:56:45,599 --> 00:56:50,579
+automatically
+
+1093
+00:56:47,640 --> 00:56:53,280
+expand you know create a new array with
+
+1094
+00:56:50,579 --> 00:56:55,559
+lots of empty spots so you don't have to
+
+1095
+00:56:53,280 --> 00:56:57,359
+constantly recreate the array every time
+
+1096
+00:56:55,559 --> 00:57:00,420
+you want to add an item
+
+1097
+00:56:57,359 --> 00:57:01,920
+so usually it doubles like if your array
+
+1098
+00:57:00,420 --> 00:57:06,599
+length is
+
+1099
+00:57:01,920 --> 00:57:10,680
+10 then you add one more item then it
+
+1100
+00:57:06,599 --> 00:57:15,180
+internally creates an array of 20 spots
+
+1101
+00:57:10,680 --> 00:57:18,119
+so and it it keeps the index you know it
+
+1102
+00:57:15,180 --> 00:57:20,040
+adds your item but after that it's all
+
+1103
+00:57:18,119 --> 00:57:22,319
+zero empty
+
+1104
+00:57:20,040 --> 00:57:24,540
+but it's hidden from you from your point
+
+1105
+00:57:22,319 --> 00:57:28,140
+of view you are just seeing an array of
+
+1106
+00:57:24,540 --> 00:57:33,059
+11 items but beneath it it manages this
+
+1107
+00:57:28,140 --> 00:57:35,339
+empty spots so that's a smart array that
+
+1108
+00:57:33,059 --> 00:57:38,040
+is done in Python
+
+1109
+00:57:35,339 --> 00:57:40,640
+in Ruby in JavaScript
+
+1110
+00:57:38,040 --> 00:57:40,640
+okay
+
+1111
+00:57:40,680 --> 00:57:47,339
+okay so that
+
+1112
+00:57:43,020 --> 00:57:49,440
+so that is the explanation so far why
+
+1113
+00:57:47,339 --> 00:57:51,599
+are we going to
+
+1114
+00:57:49,440 --> 00:57:53,520
+what are we going to do why are we doing
+
+1115
+00:57:51,599 --> 00:57:57,599
+what we are doing today we are going to
+
+1116
+00:57:53,520 --> 00:58:01,020
+try to implement a stack or a linked
+
+1117
+00:57:57,599 --> 00:58:03,480
+list in Python and we are just going to
+
+1118
+00:58:01,020 --> 00:58:07,200
+keep adding item push items to the front
+
+1119
+00:58:03,480 --> 00:58:10,140
+to see which is faster is the default
+
+1120
+00:58:07,200 --> 00:58:14,280
+implementation you know python is is it
+
+1121
+00:58:10,140 --> 00:58:17,579
+is it fast or our own implementation
+
+1122
+00:58:14,280 --> 00:58:19,980
+linked list okay let's see
+
+1123
+00:58:17,579 --> 00:58:22,319
+so that is why we are coding today okay
+
+1124
+00:58:19,980 --> 00:58:24,180
+so far uh previously it's just the
+
+1125
+00:58:22,319 --> 00:58:26,720
+explanation okay let's start to code
+
+1126
+00:58:24,180 --> 00:58:26,720
+python
+
+1127
+00:58:28,200 --> 00:58:32,180
+but let's write it down first
+
+1128
+00:58:38,099 --> 00:58:43,280
+it's such that
+
+1129
+00:58:40,559 --> 00:58:43,280
+they
+
+1130
+00:58:43,460 --> 00:58:52,859
+entirely internally create a new array
+
+1131
+00:58:48,079 --> 00:58:59,540
+with double the length when you want to
+
+1132
+00:58:52,859 --> 00:58:59,540
+add a item to the array and
+
+1133
+00:59:01,140 --> 00:59:04,640
+hide that from you
+
+1134
+00:59:07,020 --> 00:59:10,640
+okay something like that okay
+
+1135
+00:59:10,980 --> 00:59:16,819
+okay now let's Implement Stacks in
+
+1136
+00:59:14,040 --> 00:59:16,819
+Python okay
+
+1137
+00:59:39,599 --> 00:59:47,280
+okay so we are in Python
+
+1138
+00:59:42,000 --> 00:59:51,059
+okay let's start to code python Okay so
+
+1139
+00:59:47,280 --> 00:59:54,000
+we are going to use a turbo so uh
+
+1140
+00:59:51,059 --> 00:59:56,000
+so what we're gonna we are going to
+
+1141
+00:59:54,000 --> 00:59:56,000
+um
+
+1142
+01:00:03,720 --> 01:00:06,440
+so
+
+1143
+01:00:14,819 --> 01:00:21,319
+an ordered sequence of things
+
+1144
+01:00:17,760 --> 01:00:21,319
+with two operations
+
+1145
+01:00:22,859 --> 01:00:25,579
+push
+
+1146
+01:00:28,079 --> 01:00:34,400
+push is at an item in front
+
+1147
+01:00:35,640 --> 01:00:42,200
+pop is delete an item in front Okay
+
+1148
+01:00:38,640 --> 01:00:42,200
+that's what we're gonna do so
+
+1149
+01:00:46,680 --> 01:00:51,660
+so you have first of all you need to
+
+1150
+01:00:48,780 --> 01:00:54,200
+create uh create uh so you need to write
+
+1151
+01:00:51,660 --> 01:00:54,200
+a function
+
+1152
+01:01:20,460 --> 01:01:25,440
+and that's that's I don't know how I
+
+1153
+01:01:23,220 --> 01:01:27,920
+don't know if I can do it but let's try
+
+1154
+01:01:25,440 --> 01:01:27,920
+it okay
+
+1155
+01:01:39,119 --> 01:01:47,099
+can you have trouble of empty Element no
+
+1156
+01:01:42,540 --> 01:01:49,680
+uh well yeah but can you have Tuple of
+
+1157
+01:01:47,099 --> 01:01:53,280
+two elements okay
+
+1158
+01:01:49,680 --> 01:01:55,619
+you have uh empty list
+
+1159
+01:01:53,280 --> 01:01:59,780
+okay you can't even actually have an
+
+1160
+01:01:55,619 --> 01:01:59,780
+empty list okay God
+
+1161
+01:02:03,780 --> 01:02:07,129
+foreign
+
+1162
+01:02:04,030 --> 01:02:07,129
+[Music]
+
+1163
+01:02:21,720 --> 01:02:27,059
+so
+
+1164
+01:02:23,160 --> 01:02:33,000
+so to create a linked list we need a
+
+1165
+01:02:27,059 --> 01:02:38,579
+pair a data structure of pair so and in
+
+1166
+01:02:33,000 --> 01:02:42,299
+Python the pair is done by Turbo Okay so
+
+1167
+01:02:38,579 --> 01:02:45,559
+so what so we so we want to create
+
+1168
+01:02:42,299 --> 01:02:45,559
+um let's see create
+
+1169
+01:02:48,599 --> 01:02:58,020
+okay creating this okay and uh
+
+1170
+01:02:52,920 --> 01:03:02,160
+and here x list okay
+
+1171
+01:02:58,020 --> 01:03:03,240
+X this is whatever pythons list okay and
+
+1172
+01:03:02,160 --> 01:03:05,579
+then
+
+1173
+01:03:03,240 --> 01:03:08,040
+we want to say
+
+1174
+01:03:05,579 --> 01:03:11,339
+we want to Loop through it
+
+1175
+01:03:08,040 --> 01:03:15,240
+look through it okay so let's do a loop
+
+1176
+01:03:11,339 --> 01:03:15,240
+loop through Beast
+
+1177
+01:03:15,540 --> 01:03:21,900
+dictionary Loops through dictionary
+
+1178
+01:03:18,140 --> 01:03:24,500
+iteration iterator to list in memory
+
+1179
+01:03:21,900 --> 01:03:24,500
+list okay
+
+1180
+01:03:31,440 --> 01:03:35,359
+yeah so we can do that
+
+1181
+01:03:36,660 --> 01:03:41,760
+for item
+
+1182
+01:03:39,059 --> 01:03:46,140
+for XX in
+
+1183
+01:03:41,760 --> 01:03:49,160
+exist and what we want to do is first of
+
+1184
+01:03:46,140 --> 01:03:49,160
+all create a variable
+
+1185
+01:03:58,980 --> 01:04:01,160
+foreign
+
+1186
+01:04:03,780 --> 01:04:08,000
+can we do that actually I don't know
+
+1187
+01:04:33,059 --> 01:04:38,220
+okay something like that so you need the
+
+1188
+01:04:36,599 --> 01:04:41,480
+turbo here
+
+1189
+01:04:38,220 --> 01:04:41,480
+something like that
+
+1190
+01:04:47,460 --> 01:04:51,299
+okay
+
+1191
+01:04:48,540 --> 01:04:53,819
+can we run it let's run it let's see
+
+1192
+01:04:51,299 --> 01:04:57,859
+there's a syntax error
+
+1193
+01:04:53,819 --> 01:04:57,859
+finish okay let's call it
+
+1194
+01:05:00,660 --> 01:05:06,180
+one two
+
+1195
+01:05:02,160 --> 01:05:08,400
+okay run it Chase okay type Arrow
+
+1196
+01:05:06,180 --> 01:05:11,220
+creating this takes one position or
+
+1197
+01:05:08,400 --> 01:05:14,579
+argument but two are given okay
+
+1198
+01:05:11,220 --> 01:05:18,079
+yeah okay yeah so you need at least
+
+1199
+01:05:14,579 --> 01:05:18,079
+okay done it
+
+1200
+01:05:18,599 --> 01:05:23,599
+okay it runs so now let's print it
+
+1201
+01:05:29,280 --> 01:05:31,940
+run it
+
+1202
+01:05:32,240 --> 01:05:36,240
+fantastic fantastic
+
+1203
+01:05:38,099 --> 01:05:44,400
+so we we have implemented a linked list
+
+1204
+01:05:41,280 --> 01:05:46,859
+or stack at least you know the how to
+
+1205
+01:05:44,400 --> 01:05:50,220
+create it we need to implement push and
+
+1206
+01:05:46,859 --> 01:05:54,240
+pop okay but but now
+
+1207
+01:05:50,220 --> 01:05:56,960
+um but now let's see type
+
+1208
+01:05:54,240 --> 01:05:56,960
+okay
+
+1209
+01:05:57,420 --> 01:06:06,420
+now you you want to see the type of can
+
+1210
+01:06:02,040 --> 01:06:11,220
+you run that no invalid syntax okay now
+
+1211
+01:06:06,420 --> 01:06:15,559
+type class turbo exactly okay
+
+1212
+01:06:11,220 --> 01:06:15,559
+now let's Implement pop
+
+1213
+01:06:16,500 --> 01:06:21,720
+it's in this uh
+
+1214
+01:06:18,960 --> 01:06:25,460
+the name is too long okay
+
+1215
+01:06:21,720 --> 01:06:25,460
+let's just say link to list
+
+1216
+01:06:29,760 --> 01:06:37,559
+okay so now we want to
+
+1217
+01:06:33,740 --> 01:06:40,940
+Let's remove that okay we want to Define
+
+1218
+01:06:37,559 --> 01:06:40,940
+push and pop okay
+
+1219
+01:06:44,160 --> 01:06:49,400
+push okay
+
+1220
+01:06:46,079 --> 01:06:49,400
+now uh
+
+1221
+01:06:58,740 --> 01:07:05,780
+Okay add an item to
+
+1222
+01:07:02,579 --> 01:07:05,780
+the front
+
+1223
+01:07:06,119 --> 01:07:12,440
+of linked list area okay
+
+1224
+01:07:09,720 --> 01:07:12,440
+so
+
+1225
+01:07:13,319 --> 01:07:18,180
+so add an item so
+
+1226
+01:07:16,160 --> 01:07:20,780
+item okay
+
+1227
+01:07:18,180 --> 01:07:20,780
+X
+
+1228
+01:07:22,079 --> 01:07:26,400
+Okay add X Okay so
+
+1229
+01:07:29,520 --> 01:07:32,299
+that's it
+
+1230
+01:07:35,339 --> 01:07:37,700
+okay
+
+1231
+01:07:39,180 --> 01:07:43,039
+Let's test test it
+
+1232
+01:07:46,500 --> 01:07:50,099
+X
+
+1233
+01:07:48,720 --> 01:07:53,539
+to
+
+1234
+01:07:50,099 --> 01:07:53,539
+and say X1
+
+1235
+01:07:57,359 --> 01:08:01,099
+run it fantastic
+
+1236
+01:08:04,200 --> 01:08:10,380
+run it fantastic now add
+
+1237
+01:08:08,780 --> 01:08:14,880
+X2
+
+1238
+01:08:10,380 --> 01:08:16,920
+add a push LL okay
+
+1239
+01:08:14,880 --> 01:08:21,480
+push LL
+
+1240
+01:08:16,920 --> 01:08:23,520
+U wants X1 and push an item let's say
+
+1241
+01:08:21,480 --> 01:08:27,299
+three
+
+1242
+01:08:23,520 --> 01:08:31,679
+okay we got we should have three one two
+
+1243
+01:08:27,299 --> 01:08:35,940
+okay now print X2
+
+1244
+01:08:31,679 --> 01:08:40,520
+Arrow LL is not defined oh yeah this is
+
+1245
+01:08:35,940 --> 01:08:40,520
+the this is should be X planet
+
+1246
+01:08:41,000 --> 01:08:48,980
+fantastic we have a linked list in
+
+1247
+01:08:45,660 --> 01:08:48,980
+Python a stack
+
+1248
+01:08:49,140 --> 01:08:54,719
+so anyone else anyone is watching four
+
+1249
+01:08:51,839 --> 01:08:57,179
+people say hi guys say hi something give
+
+1250
+01:08:54,719 --> 01:09:00,060
+me some you know encouragement give me
+
+1251
+01:08:57,179 --> 01:09:01,259
+some feedback so we
+
+1252
+01:09:00,060 --> 01:09:06,140
+we did
+
+1253
+01:09:01,259 --> 01:09:06,140
+linked list in Python fantastic now
+
+1254
+01:09:07,400 --> 01:09:12,299
+let's
+
+1255
+01:09:08,940 --> 01:09:14,960
+um now what we we need to implement pop
+
+1256
+01:09:12,299 --> 01:09:14,960
+okay
+
+1257
+01:09:19,500 --> 01:09:22,219
+hey
+
+1258
+01:09:31,739 --> 01:09:34,739
+pop
+
+1259
+01:09:35,520 --> 01:09:42,600
+delete the first item of linked list XLR
+
+1260
+01:09:39,120 --> 01:09:44,640
+okay so pop doesn't pop this just take
+
+1261
+01:09:42,600 --> 01:09:46,500
+one element so
+
+1262
+01:09:44,640 --> 01:09:48,239
+so um
+
+1263
+01:09:46,500 --> 01:09:52,759
+so
+
+1264
+01:09:48,239 --> 01:09:55,860
+so xxll you want to take the
+
+1265
+01:09:52,759 --> 01:09:58,080
+second item Cooks a nice keyboard thank
+
+1266
+01:09:55,860 --> 01:10:02,400
+you fantastic thank you
+
+1267
+01:09:58,080 --> 01:10:06,000
+so pop link list so how do you get the
+
+1268
+01:10:02,400 --> 01:10:07,620
+second element of a tuple in Python so
+
+1269
+01:10:06,000 --> 01:10:11,340
+let's see
+
+1270
+01:10:07,620 --> 01:10:13,920
+a dictionary Tuple so how do you get the
+
+1271
+01:10:11,340 --> 01:10:16,980
+second element type of iterable I
+
+1272
+01:10:13,920 --> 01:10:18,980
+believe it's the same as the
+
+1273
+01:10:16,980 --> 01:10:18,980
+um
+
+1274
+01:10:20,940 --> 01:10:25,340
+same as least okay yeah
+
+1275
+01:10:24,120 --> 01:10:28,739
+yep
+
+1276
+01:10:25,340 --> 01:10:31,620
+so return that
+
+1277
+01:10:28,739 --> 01:10:34,320
+second element Python's python is
+
+1278
+01:10:31,620 --> 01:10:39,120
+indexed by zero so the second element is
+
+1279
+01:10:34,320 --> 01:10:41,520
+one okay so run it so far so good then
+
+1280
+01:10:39,120 --> 01:10:45,360
+let's say X3
+
+1281
+01:10:41,520 --> 01:10:49,260
+equals to Let's copy that
+
+1282
+01:10:45,360 --> 01:10:51,060
+let's say X3 equals true path
+
+1283
+01:10:49,260 --> 01:10:54,780
+pop X
+
+1284
+01:10:51,060 --> 01:10:58,159
+2 x 3 equals 2 Pub X2
+
+1285
+01:10:54,780 --> 01:11:00,060
+now print X3 unit
+
+1286
+01:10:58,159 --> 01:11:01,980
+fantastic
+
+1287
+01:11:00,060 --> 01:11:03,900
+fantastic
+
+1288
+01:11:01,980 --> 01:11:06,560
+so
+
+1289
+01:11:03,900 --> 01:11:06,560
+that's
+
+1290
+01:11:06,960 --> 01:11:12,659
+we have
+
+1291
+01:11:08,600 --> 01:11:15,239
+implemented linked list in Python
+
+1292
+01:11:12,659 --> 01:11:20,159
+and so you do that's all you need this
+
+1293
+01:11:15,239 --> 01:11:21,480
+push and pop is similar to the lisps
+
+1294
+01:11:20,159 --> 01:11:24,179
+car
+
+1295
+01:11:21,480 --> 01:11:27,239
+in the cutter okay
+
+1296
+01:11:24,179 --> 01:11:29,280
+push in this is called car
+
+1297
+01:11:27,239 --> 01:11:32,940
+you know with your name historical but
+
+1298
+01:11:29,280 --> 01:11:36,659
+if you call this you know and the Qatar
+
+1299
+01:11:32,940 --> 01:11:39,600
+in this is Pop basically
+
+1300
+01:11:36,659 --> 01:11:41,600
+okay so we got so now we got a stack we
+
+1301
+01:11:39,600 --> 01:11:44,820
+got a linked list which is
+
+1302
+01:11:41,600 --> 01:11:47,820
+the standard implementation for stack
+
+1303
+01:11:44,820 --> 01:11:51,600
+push and pop so so now we want to test
+
+1304
+01:11:47,820 --> 01:11:55,199
+how fast how fast is this compared to
+
+1305
+01:11:51,600 --> 01:11:57,420
+normal you know just no use Python's
+
+1306
+01:11:55,199 --> 01:12:00,000
+normal list and delete the first element
+
+1307
+01:11:57,420 --> 01:12:03,120
+you know how fast is it
+
+1308
+01:12:00,000 --> 01:12:06,060
+so let's uh so so
+
+1309
+01:12:03,120 --> 01:12:07,739
+um so let's
+
+1310
+01:12:06,060 --> 01:12:11,880
+let's implement
+
+1311
+01:12:07,739 --> 01:12:14,340
+then let's try to implement
+
+1312
+01:12:11,880 --> 01:12:15,840
+using the normal okay
+
+1313
+01:12:14,340 --> 01:12:19,140
+you don't you don't need to create
+
+1314
+01:12:15,840 --> 01:12:20,880
+because you can create uh
+
+1315
+01:12:19,140 --> 01:12:23,640
+you know you can just create a listing
+
+1316
+01:12:20,880 --> 01:12:25,320
+python it's building so but what if you
+
+1317
+01:12:23,640 --> 01:12:29,159
+want to push
+
+1318
+01:12:25,320 --> 01:12:33,199
+and let's say list okay python list and
+
+1319
+01:12:29,159 --> 01:12:33,199
+the pop is also this okay
+
+1320
+01:12:33,480 --> 01:12:39,780
+push python list you know we we want to
+
+1321
+01:12:36,719 --> 01:12:42,000
+use a function here because otherwise
+
+1322
+01:12:39,780 --> 01:12:44,760
+we have the cost of function call
+
+1323
+01:12:42,000 --> 01:12:48,179
+because we are going to call push and
+
+1324
+01:12:44,760 --> 01:12:51,600
+pop for 1 million items something like
+
+1325
+01:12:48,179 --> 01:12:54,239
+that so and we want to compare the speed
+
+1326
+01:12:51,600 --> 01:12:56,699
+of our implementation using of the stack
+
+1327
+01:12:54,239 --> 01:13:00,239
+versus pythons you know
+
+1328
+01:12:56,699 --> 01:13:02,400
+so that's why we want to
+
+1329
+01:13:00,239 --> 01:13:05,960
+do a function wrapper otherwise it's
+
+1330
+01:13:02,400 --> 01:13:05,960
+unfair comparison so
+
+1331
+01:13:06,860 --> 01:13:13,980
+foreign
+
+1332
+01:13:08,820 --> 01:13:16,140
+x to the front of python least XL Okay
+
+1333
+01:13:13,980 --> 01:13:20,219
+so
+
+1334
+01:13:16,140 --> 01:13:24,000
+so how do you add an item to uh
+
+1335
+01:13:20,219 --> 01:13:26,640
+two pythons list let's see
+
+1336
+01:13:24,000 --> 01:13:31,020
+python list count item check existence
+
+1337
+01:13:26,640 --> 01:13:33,659
+go to item uh change item delete item
+
+1338
+01:13:31,020 --> 01:13:36,920
+get sub list delete sub list
+
+1339
+01:13:33,659 --> 01:13:39,600
+replace at least you know I think our
+
+1340
+01:13:36,920 --> 01:13:43,020
+stack is going to be way faster than
+
+1341
+01:13:39,600 --> 01:13:45,600
+python now that we are doing it
+
+1342
+01:13:43,020 --> 01:13:49,380
+uh during this okay you can join this
+
+1343
+01:13:45,600 --> 01:13:52,500
+you can do but uh do they have let's see
+
+1344
+01:13:49,380 --> 01:13:54,920
+these methods you know python is oop so
+
+1345
+01:13:52,500 --> 01:13:54,920
+you have
+
+1346
+01:13:55,199 --> 01:14:00,239
+okay in Python you know they don't have
+
+1347
+01:13:58,080 --> 01:14:02,100
+a pre-paint
+
+1348
+01:14:00,239 --> 01:14:05,880
+they have a paint
+
+1349
+01:14:02,100 --> 01:14:08,100
+or extend so the the way a python this
+
+1350
+01:14:05,880 --> 01:14:10,620
+implementation is that it's very
+
+1351
+01:14:08,100 --> 01:14:12,000
+efficient to add to the to the end but
+
+1352
+01:14:10,620 --> 01:14:13,620
+not to the front
+
+1353
+01:14:12,000 --> 01:14:15,840
+you know it just depends on your
+
+1354
+01:14:13,620 --> 01:14:19,620
+implementation you can reverse it either
+
+1355
+01:14:15,840 --> 01:14:22,040
+way so in Python they do a pen so
+
+1356
+01:14:19,620 --> 01:14:25,679
+so let's use a pen because it's faster
+
+1357
+01:14:22,040 --> 01:14:28,380
+you know we just have to remember the
+
+1358
+01:14:25,679 --> 01:14:30,960
+you know the order are different
+
+1359
+01:14:28,380 --> 01:14:33,780
+because we want to be fair to to
+
+1360
+01:14:30,960 --> 01:14:37,320
+Python's list
+
+1361
+01:14:33,780 --> 01:14:41,480
+so let's so return so what did we return
+
+1362
+01:14:37,320 --> 01:14:41,480
+this append okay copy that
+
+1363
+01:14:42,000 --> 01:14:48,840
+so here is uh let's see X list okay so X
+
+1364
+01:14:47,520 --> 01:14:52,640
+list
+
+1365
+01:14:48,840 --> 01:14:52,640
+then a pin X okay
+
+1366
+01:14:52,820 --> 01:14:58,820
+that's okay
+
+1367
+01:14:56,100 --> 01:14:58,820
+push
+
+1368
+01:14:59,520 --> 01:15:05,640
+push python on this okay so that's that
+
+1369
+01:15:02,280 --> 01:15:07,320
+should be it add x to the front to 2D to
+
+1370
+01:15:05,640 --> 01:15:08,820
+the end
+
+1371
+01:15:07,320 --> 01:15:12,420
+okay
+
+1372
+01:15:08,820 --> 01:15:14,219
+the then pop is the delete first item so
+
+1373
+01:15:12,420 --> 01:15:17,780
+how do you
+
+1374
+01:15:14,219 --> 01:15:17,780
+do that in Python
+
+1375
+01:15:18,300 --> 01:15:22,320
+oh there is pop
+
+1376
+01:15:20,820 --> 01:15:24,900
+wait
+
+1377
+01:15:22,320 --> 01:15:27,380
+if this pop there must be a push too
+
+1378
+01:15:24,900 --> 01:15:27,380
+what
+
+1379
+01:15:30,360 --> 01:15:35,880
+let's try you see a push I think it
+
+1380
+01:15:33,780 --> 01:15:40,760
+might be a pain left
+
+1381
+01:15:35,880 --> 01:15:40,760
+where a pen in Python will act as push
+
+1382
+01:15:44,300 --> 01:15:51,080
+okay are you sure
+
+1383
+01:15:46,560 --> 01:15:51,080
+but let's try if there is a
+
+1384
+01:15:52,260 --> 01:15:57,500
+push okay
+
+1385
+01:15:55,080 --> 01:15:57,500
+instrument
+
+1386
+01:15:57,960 --> 01:16:06,140
+right this object has not attribute push
+
+1387
+01:16:01,440 --> 01:16:06,140
+okay but what about top
+
+1388
+01:16:07,620 --> 01:16:14,340
+okay so python has pop but no push
+
+1389
+01:16:10,940 --> 01:16:18,719
+ idiotic python
+
+1390
+01:16:14,340 --> 01:16:21,360
+yes Bob but no push
+
+1391
+01:16:18,719 --> 01:16:22,920
+python is the worst language okay I
+
+1392
+01:16:21,360 --> 01:16:25,500
+really
+
+1393
+01:16:22,920 --> 01:16:27,360
+hate it you know I talked about this in
+
+1394
+01:16:25,500 --> 01:16:30,179
+lots of my videos search for it you'll
+
+1395
+01:16:27,360 --> 01:16:32,159
+find it so python doesn't have
+
+1396
+01:16:30,179 --> 01:16:36,000
+pop it has
+
+1397
+01:16:32,159 --> 01:16:38,219
+it has pop building but not push okay so
+
+1398
+01:16:36,000 --> 01:16:42,659
+we want to imply and push this just say
+
+1399
+01:16:38,219 --> 01:16:47,120
+append is there some shift or I believe
+
+1400
+01:16:42,659 --> 01:16:47,120
+I have them all listed here yeah
+
+1401
+01:16:48,659 --> 01:16:55,980
+remove first occurrence okay that's not
+
+1402
+01:16:53,100 --> 01:16:59,460
+Okay so
+
+1403
+01:16:55,980 --> 01:17:01,800
+so first of all let's focus push how do
+
+1404
+01:16:59,460 --> 01:17:03,480
+you implement push okay append
+
+1405
+01:17:01,800 --> 01:17:05,820
+uh
+
+1406
+01:17:03,480 --> 01:17:08,640
+okay maybe there's a pin left but it's
+
+1407
+01:17:05,820 --> 01:17:12,120
+slower because I believe we one day we
+
+1408
+01:17:08,640 --> 01:17:16,980
+tested with George you know George there
+
+1409
+01:17:12,120 --> 01:17:19,620
+uh we we test on Discord and uh
+
+1410
+01:17:16,980 --> 01:17:24,060
+which end matters so
+
+1411
+01:17:19,620 --> 01:17:28,620
+so push is append okay and the pop what
+
+1412
+01:17:24,060 --> 01:17:31,400
+about pop X list okay so let's do pop
+
+1413
+01:17:28,620 --> 01:17:31,400
+uh
+
+1414
+01:17:32,520 --> 01:17:38,280
+pop DD the last item
+
+1415
+01:17:35,159 --> 01:17:40,560
+to do the last item of
+
+1416
+01:17:38,280 --> 01:17:44,640
+of python Beast
+
+1417
+01:17:40,560 --> 01:17:47,060
+exist okay so DD the last item in return
+
+1418
+01:17:44,640 --> 01:17:47,060
+it
+
+1419
+01:17:49,920 --> 01:17:54,320
+okay so you just do pop okay
+
+1420
+01:17:59,580 --> 01:18:05,179
+let's try Okay so let's now try it
+
+1421
+01:18:12,179 --> 01:18:15,679
+let's try our code
+
+1422
+01:18:17,719 --> 01:18:21,140
+uh so
+
+1423
+01:18:24,239 --> 01:18:26,780
+okay
+
+1424
+01:18:27,060 --> 01:18:32,120
+okay then let's say why
+
+1425
+01:18:36,540 --> 01:18:42,360
+okay
+
+1426
+01:18:37,679 --> 01:18:45,980
+so print it print the type and now
+
+1427
+01:18:42,360 --> 01:18:45,980
+push python list okay
+
+1428
+01:18:49,739 --> 01:18:58,320
+push y1 give it three then print it
+
+1429
+01:18:54,300 --> 01:19:02,520
+should be one two three then pop
+
+1430
+01:18:58,320 --> 01:19:04,140
+of Y2 print Y3 it should be one two
+
+1431
+01:19:02,520 --> 01:19:06,659
+again okay
+
+1432
+01:19:04,140 --> 01:19:08,940
+run it okay Arrow
+
+1433
+01:19:06,659 --> 01:19:12,300
+so
+
+1434
+01:19:08,940 --> 01:19:15,080
+pop LL okay we got the variable naming
+
+1435
+01:19:12,300 --> 01:19:15,080
+incorrect
+
+1436
+01:19:18,840 --> 01:19:22,580
+pop python list okay
+
+1437
+01:19:22,800 --> 01:19:27,800
+hmm
+
+1438
+01:19:24,360 --> 01:19:27,800
+okay open it
+
+1439
+01:19:27,960 --> 01:19:32,120
+exist pop what
+
+1440
+01:19:33,179 --> 01:19:38,400
+none type object has no attribute pop so
+
+1441
+01:19:37,260 --> 01:19:42,140
+here
+
+1442
+01:19:38,400 --> 01:19:42,140
+so X list
+
+1443
+01:19:49,560 --> 01:19:52,560
+what
+
+1444
+01:20:10,380 --> 01:20:13,820
+so there is pop
+
+1445
+01:20:12,659 --> 01:20:14,100
+but
+
+1446
+01:20:13,820 --> 01:20:15,719
+[Music]
+
+1447
+01:20:14,100 --> 01:20:18,560
+um
+
+1448
+01:20:15,719 --> 01:20:18,560
+but
+
+1449
+01:20:20,340 --> 01:20:25,219
+why is it not working
+
+1450
+01:20:30,480 --> 01:20:38,480
+stack uh Line 39 Line 39 there
+
+1451
+01:20:39,540 --> 01:20:43,100
+X list pop
+
+1452
+01:20:44,159 --> 01:20:54,960
+so X list so this is Pop python list
+
+1453
+01:20:48,960 --> 01:20:58,400
+so Y2 is a list and you want to pop it
+
+1454
+01:20:54,960 --> 01:20:58,400
+why can't you pop it
+
+1455
+01:21:02,480 --> 01:21:12,440
+return xlist dot pop attribute error
+
+1456
+01:21:06,620 --> 01:21:12,440
+none type object has no attribute pop
+
+1457
+01:21:13,980 --> 01:21:17,480
+what are they talking about
+
+1458
+01:21:17,940 --> 01:21:21,080
+anyone knows
+
+1459
+01:21:38,460 --> 01:21:41,540
+it doesn't return
+
+1460
+01:21:43,080 --> 01:21:48,300
+oh what
+
+1461
+01:21:45,540 --> 01:21:50,280
+we move the last item and return that
+
+1462
+01:21:48,300 --> 01:21:54,140
+item
+
+1463
+01:21:50,280 --> 01:21:54,140
+it doesn't return right
+
+1464
+01:22:06,179 --> 01:22:12,800
+where's the
+
+1465
+01:22:08,940 --> 01:22:12,800
+you know that's the error message
+
+1466
+01:22:17,179 --> 01:22:20,840
+read 10.
+
+1467
+01:22:24,540 --> 01:22:35,040
+Y2 is none oh right thank you
+
+1468
+01:22:30,120 --> 01:22:37,800
+so let's see why two oh yeah right Y2 is
+
+1469
+01:22:35,040 --> 01:22:42,500
+none so should we return or not
+
+1470
+01:22:37,800 --> 01:22:42,500
+let's check so in our function
+
+1471
+01:22:42,900 --> 01:22:47,880
+we do return it so when you push
+
+1472
+01:22:45,659 --> 01:22:50,239
+normally when you push you want to
+
+1473
+01:22:47,880 --> 01:22:50,239
+return
+
+1474
+01:22:50,520 --> 01:22:56,219
+yeah normally yeah that's the case in
+
+1475
+01:22:53,460 --> 01:23:00,780
+lisp in linked list so when you push you
+
+1476
+01:22:56,219 --> 01:23:06,620
+want to return the new list okay so so
+
+1477
+01:23:00,780 --> 01:23:06,620
+therefore we need to have it return so
+
+1478
+01:23:07,739 --> 01:23:11,280
+so append
+
+1479
+01:23:09,840 --> 01:23:16,080
+then
+
+1480
+01:23:11,280 --> 01:23:20,000
+then return this okay thank you
+
+1481
+01:23:16,080 --> 01:23:20,000
+secondary account thank you
+
+1482
+01:23:21,120 --> 01:23:27,780
+okay fantastic now let's try it also to
+
+1483
+01:23:25,199 --> 01:23:30,659
+print uh
+
+1484
+01:23:27,780 --> 01:23:32,940
+Y2
+
+1485
+01:23:30,659 --> 01:23:35,520
+now let's double check one last time
+
+1486
+01:23:32,940 --> 01:23:38,219
+because next step we are going to time
+
+1487
+01:23:35,520 --> 01:23:41,040
+it we are going to push a median item
+
+1488
+01:23:38,219 --> 01:23:44,699
+something like that so double check the
+
+1489
+01:23:41,040 --> 01:23:47,880
+they are actually doing the same thing
+
+1490
+01:23:44,699 --> 01:23:53,100
+so we have
+
+1491
+01:23:47,880 --> 01:23:56,420
+linked list linked Turbo so yeah we add
+
+1492
+01:23:53,100 --> 01:23:59,340
+one two three we add an item
+
+1493
+01:23:56,420 --> 01:24:02,580
+then we drop an item
+
+1494
+01:23:59,340 --> 01:24:04,860
+okay now in the python list you have at
+
+1495
+01:24:02,580 --> 01:24:06,780
+least one two order is the other way
+
+1496
+01:24:04,860 --> 01:24:09,600
+then one two three
+
+1497
+01:24:06,780 --> 01:24:11,580
+then you okay so we need to actually
+
+1498
+01:24:09,600 --> 01:24:14,219
+return the item here
+
+1499
+01:24:11,580 --> 01:24:15,120
+not just return the new
+
+1500
+01:24:14,219 --> 01:24:16,440
+um
+
+1501
+01:24:15,120 --> 01:24:19,260
+thing
+
+1502
+01:24:16,440 --> 01:24:23,000
+so we need to modify here
+
+1503
+01:24:19,260 --> 01:24:23,000
+X2 here push
+
+1504
+01:24:25,380 --> 01:24:31,280
+just return the list
+
+1505
+01:24:28,140 --> 01:24:31,280
+and pop
+
+1506
+01:24:33,900 --> 01:24:39,840
+pop
+
+1507
+01:24:36,239 --> 01:24:42,600
+leads to the return that item but it
+
+1508
+01:24:39,840 --> 01:24:45,140
+also needs to
+
+1509
+01:24:42,600 --> 01:24:45,140
+God
+
+1510
+01:24:45,780 --> 01:24:52,199
+pop needs to return that item
+
+1511
+01:24:49,140 --> 01:24:54,800
+also modify the variable
+
+1512
+01:24:52,199 --> 01:24:54,800
+so
+
+1513
+01:24:56,460 --> 01:24:59,460
+so
+
+1514
+01:25:02,340 --> 01:25:09,500
+okay so this is what we need to do
+
+1515
+01:25:05,699 --> 01:25:09,500
+so XLR
+
+1516
+01:25:12,560 --> 01:25:19,380
+equals to
+
+1517
+01:25:14,400 --> 01:25:22,159
+excess LL equals to the second part but
+
+1518
+01:25:19,380 --> 01:25:22,159
+you first
+
+1519
+01:25:24,960 --> 01:25:27,960
+something like that so you get the first
+
+1520
+01:25:26,880 --> 01:25:30,659
+item
+
+1521
+01:25:27,960 --> 01:25:31,620
+of this nested Tuple you get the first
+
+1522
+01:25:30,659 --> 01:25:34,560
+item
+
+1523
+01:25:31,620 --> 01:25:38,520
+then you
+
+1524
+01:25:34,560 --> 01:25:41,460
+set that excess cell to the rest item
+
+1525
+01:25:38,520 --> 01:25:43,980
+then you return first okay
+
+1526
+01:25:41,460 --> 01:25:45,900
+yeah that's that's when we that's what
+
+1527
+01:25:43,980 --> 01:25:48,300
+we want let's do it again let's run it
+
+1528
+01:25:45,900 --> 01:25:51,420
+double check one more time
+
+1529
+01:25:48,300 --> 01:25:53,699
+all right let's run it double check
+
+1530
+01:25:51,420 --> 01:25:56,060
+okay check
+
+1531
+01:25:53,699 --> 01:25:56,060
+check
+
+1532
+01:25:58,500 --> 01:26:04,020
+uh what are we doing
+
+1533
+01:26:00,840 --> 01:26:07,580
+create push in pop okay
+
+1534
+01:26:04,020 --> 01:26:07,580
+create push three
+
+1535
+01:26:07,800 --> 01:26:11,840
+okay then pop
+
+1536
+01:26:11,940 --> 01:26:17,940
+then pop okay
+
+1537
+01:26:15,480 --> 01:26:20,540
+in pop Okay so
+
+1538
+01:26:17,940 --> 01:26:20,540
+pop
+
+1539
+01:26:20,860 --> 01:26:27,320
+[Music]
+
+1540
+01:26:23,880 --> 01:26:27,320
+then when we pop
+
+1541
+01:26:28,920 --> 01:26:35,100
+oh yeah this should be zero okay zero do
+
+1542
+01:26:32,940 --> 01:26:39,420
+it again
+
+1543
+01:26:35,100 --> 01:26:41,900
+create push pop
+
+1544
+01:26:39,420 --> 01:26:41,900
+okay
+
+1545
+01:26:42,300 --> 01:26:49,199
+then then we need to print
+
+1546
+01:26:46,219 --> 01:26:53,540
+X2 okay
+
+1547
+01:26:49,199 --> 01:26:53,540
+create push pop
+
+1548
+01:26:54,000 --> 01:27:02,540
+between X2 so X2 is not
+
+1549
+01:26:58,400 --> 01:27:02,540
+it didn't change
+
+1550
+01:27:02,760 --> 01:27:06,380
+when we pop X2
+
+1551
+01:27:09,960 --> 01:27:12,440
+wait
+
+1552
+01:27:13,739 --> 01:27:17,960
+uh maybe it's better if we
+
+1553
+01:27:21,440 --> 01:27:25,280
+create then
+
+1554
+01:27:26,820 --> 01:27:30,080
+push X1
+
+1555
+01:27:30,840 --> 01:27:33,840
+uh
+
+1556
+01:27:35,580 --> 01:27:39,139
+push when you push
+
+1557
+01:27:39,540 --> 01:27:44,600
+push X
+
+1558
+01:27:41,460 --> 01:27:44,600
+two okay
+
+1559
+01:27:44,639 --> 01:27:54,980
+green X1 X2
+
+1560
+01:27:47,900 --> 01:27:54,980
+so X1 and X2 should be the same
+
+1561
+01:28:00,120 --> 01:28:06,540
+okay let's forget about pop and let's
+
+1562
+01:28:03,300 --> 01:28:09,000
+forget about the others so just to
+
+1563
+01:28:06,540 --> 01:28:12,060
+verify
+
+1564
+01:28:09,000 --> 01:28:12,780
+so they are not the same but
+
+1565
+01:28:12,060 --> 01:28:16,580
+um
+
+1566
+01:28:12,780 --> 01:28:16,580
+false okay hold on a second
+
+1567
+01:28:18,060 --> 01:28:21,260
+okay your name again
+
+1568
+01:28:21,739 --> 01:28:28,760
+create
+
+1569
+01:28:23,300 --> 01:28:28,760
+comments comments okay comments push
+
+1570
+01:28:29,699 --> 01:28:36,300
+print X1 yeah we need to
+
+1571
+01:28:33,300 --> 01:28:39,060
+X1 is yeah
+
+1572
+01:28:36,300 --> 01:28:42,199
+pain yes
+
+1573
+01:28:39,060 --> 01:28:42,199
+two is
+
+1574
+01:28:54,360 --> 01:29:02,159
+okay x one is that X2 is that
+
+1575
+01:28:58,980 --> 01:29:05,159
+they are not the same what
+
+1576
+01:29:02,159 --> 01:29:05,159
+X2
+
+1577
+01:29:09,900 --> 01:29:16,040
+oh yeah obviously they are not the same
+
+1578
+01:29:12,000 --> 01:29:16,040
+but I made a mistake
+
+1579
+01:29:17,100 --> 01:29:22,460
+no okay so obviously they are not the
+
+1580
+01:29:20,340 --> 01:29:22,460
+same
+
+1581
+01:29:28,620 --> 01:29:33,380
+so we don't need a type and draining
+
+1582
+01:29:31,199 --> 01:29:33,380
+again
+
+1583
+01:29:34,739 --> 01:29:42,260
+X Y is next to X
+
+1584
+01:29:37,880 --> 01:29:45,179
+x 2 is that
+
+1585
+01:29:42,260 --> 01:29:47,159
+obviously they are not the same then
+
+1586
+01:29:45,179 --> 01:29:50,420
+when you
+
+1587
+01:29:47,159 --> 01:29:50,420
+pop X2
+
+1588
+01:29:55,440 --> 01:30:02,420
+when you pop X2
+
+1589
+01:29:58,560 --> 01:30:02,420
+so X2 changed
+
+1590
+01:30:12,420 --> 01:30:15,500
+hold on a second
+
+1591
+01:30:16,139 --> 01:30:21,560
+and let's say
+
+1592
+01:30:18,659 --> 01:30:21,560
+pop one
+
+1593
+01:30:41,540 --> 01:30:45,800
+there's no X3 so
+
+1594
+01:30:52,739 --> 01:31:00,000
+so you pop you print the pop value then
+
+1595
+01:30:57,000 --> 01:31:02,659
+you print X1 and X2 okay
+
+1596
+01:31:00,000 --> 01:31:02,659
+do it
+
+1597
+01:31:04,980 --> 01:31:09,139
+so when you pop X2
+
+1598
+01:31:12,179 --> 01:31:16,159
+the pop value is three
+
+1599
+01:31:16,199 --> 01:31:24,920
+so it didn't set X2 is
+
+1600
+01:31:20,480 --> 01:31:24,920
+X2 Remains the Same
+
+1601
+01:31:25,139 --> 01:31:32,159
+you see x 2 should be
+
+1602
+01:31:28,560 --> 01:31:35,840
+one value removed but it Remains the
+
+1603
+01:31:32,159 --> 01:31:35,840
+Same so the pop
+
+1604
+01:31:43,760 --> 01:31:50,060
+okay yeah so you know I know what's the
+
+1605
+01:31:47,400 --> 01:31:50,060
+problem because
+
+1606
+01:31:51,420 --> 01:31:58,280
+because you see this xll is local
+
+1607
+01:31:58,560 --> 01:32:03,800
+it does not ah this is more
+
+1608
+01:32:01,620 --> 01:32:09,000
+difficult than
+
+1609
+01:32:03,800 --> 01:32:10,380
+imagined this excess xll is local to the
+
+1610
+01:32:09,000 --> 01:32:13,219
+function
+
+1611
+01:32:10,380 --> 01:32:13,219
+so
+
+1612
+01:32:13,739 --> 01:32:19,080
+so you need to kind of
+
+1613
+01:32:16,620 --> 01:32:22,739
+how do you
+
+1614
+01:32:19,080 --> 01:32:24,179
+wait python is passed by reference right
+
+1615
+01:32:22,739 --> 01:32:27,179
+so
+
+1616
+01:32:24,179 --> 01:32:27,179
+exhale
+
+1617
+01:32:31,320 --> 01:32:35,000
+so if you just
+
+1618
+01:32:40,020 --> 01:32:46,920
+pumped value is correct okay
+
+1619
+01:32:43,920 --> 01:32:46,920
+uh
+
+1620
+01:32:48,960 --> 01:32:52,040
+but however
+
+1621
+01:32:55,260 --> 01:32:58,040
+however
+
+1622
+01:33:04,440 --> 01:33:08,540
+it doesn't
+
+1623
+01:33:06,480 --> 01:33:08,540
+um
+
+1624
+01:33:10,020 --> 01:33:14,580
+it doesn't change
+
+1625
+01:33:12,659 --> 01:33:17,639
+these
+
+1626
+01:33:14,580 --> 01:33:19,739
+it doesn't actually delete
+
+1627
+01:33:17,639 --> 01:33:22,520
+the elements
+
+1628
+01:33:19,739 --> 01:33:22,520
+so
+
+1629
+01:33:23,159 --> 01:33:28,880
+so we have to think about so
+
+1630
+01:33:26,580 --> 01:33:33,420
+X2
+
+1631
+01:33:28,880 --> 01:33:36,780
+X2 is a turbo nested Turbo
+
+1632
+01:33:33,420 --> 01:33:41,880
+okay so when you call Pop LL
+
+1633
+01:33:36,780 --> 01:33:45,000
+U it's defined it takes a tuple
+
+1634
+01:33:41,880 --> 01:33:46,980
+uh and does does anyone know how to
+
+1635
+01:33:45,000 --> 01:33:50,840
+solve this
+
+1636
+01:33:46,980 --> 01:33:50,840
+it takes a turbo
+
+1637
+01:33:54,600 --> 01:34:00,120
+oh yeah so here you are creating this is
+
+1638
+01:33:57,780 --> 01:34:03,780
+uh yeah this is a complex issue of
+
+1639
+01:34:00,120 --> 01:34:06,980
+python so here you are creating can you
+
+1640
+01:34:03,780 --> 01:34:06,980
+actually use pop
+
+1641
+01:34:08,780 --> 01:34:15,000
+I believe you can
+
+1642
+01:34:11,520 --> 01:34:17,360
+so these methods so can you actually use
+
+1643
+01:34:15,000 --> 01:34:17,360
+pop
+
+1644
+01:34:18,960 --> 01:34:26,639
+okay let's do a alternative
+
+1645
+01:34:21,900 --> 01:34:29,520
+implementation so pop it's a turbo so
+
+1646
+01:34:26,639 --> 01:34:34,739
+you just pop the Tuple
+
+1647
+01:34:29,520 --> 01:34:37,199
+that's right so you pop the total XXL
+
+1648
+01:34:34,739 --> 01:34:38,699
+Pop That
+
+1649
+01:34:37,199 --> 01:34:41,900
+okay
+
+1650
+01:34:38,699 --> 01:34:41,900
+now let's see
+
+1651
+01:34:43,020 --> 01:34:50,480
+purple object has no attribute part
+
+1652
+01:34:47,280 --> 01:34:50,480
+ python
+
+1653
+01:34:56,159 --> 01:35:02,420
+when you have a turbo
+
+1654
+01:34:58,440 --> 01:35:02,420
+you want the same Tuple
+
+1655
+01:35:05,040 --> 01:35:11,340
+you want the because you know it has to
+
+1656
+01:35:08,580 --> 01:35:13,580
+do with the references
+
+1657
+01:35:11,340 --> 01:35:13,580
+foreign
+
+1658
+01:35:14,340 --> 01:35:17,340
+methods
+
+1659
+01:35:23,699 --> 01:35:28,260
+does anyone do we have a python coders
+
+1660
+01:35:26,940 --> 01:35:31,580
+here
+
+1661
+01:35:28,260 --> 01:35:31,580
+Luther Turbo
+
+1662
+01:35:34,380 --> 01:35:39,300
+convert each other to triple triple gain
+
+1663
+01:35:37,080 --> 01:35:42,239
+or change
+
+1664
+01:35:39,300 --> 01:35:44,280
+oh yeah that's why turbo cannot change
+
+1665
+01:35:42,239 --> 01:35:46,860
+but
+
+1666
+01:35:44,280 --> 01:35:49,560
+yeah but how do you how do you implement
+
+1667
+01:35:46,860 --> 01:35:52,520
+it I mean how do you implement linked
+
+1668
+01:35:49,560 --> 01:35:52,520
+list with turbo
+
+1669
+01:35:54,360 --> 01:35:58,320
+maybe we shouldn't use turbo then let's
+
+1670
+01:35:56,760 --> 01:36:01,199
+use
+
+1671
+01:35:58,320 --> 01:36:03,739
+let's use Python's smarter way to
+
+1672
+01:36:01,199 --> 01:36:03,739
+implement
+
+1673
+01:36:04,380 --> 01:36:06,500
+um
+
+1674
+01:36:09,600 --> 01:36:16,080
+yeah let's let's do that so what we're
+
+1675
+01:36:12,719 --> 01:36:18,179
+gonna do is we pop this out so here's so
+
+1676
+01:36:16,080 --> 01:36:21,120
+here's today's talk show
+
+1677
+01:36:18,179 --> 01:36:24,300
+so here's our python code we're just
+
+1678
+01:36:21,120 --> 01:36:28,920
+gonna make a copy of it and do a second
+
+1679
+01:36:24,300 --> 01:36:32,340
+implementation so syntax correct
+
+1680
+01:36:28,920 --> 01:36:36,840
+and let's do a second implementation
+
+1681
+01:36:32,340 --> 01:36:42,980
+this time we use Python's list
+
+1682
+01:36:36,840 --> 01:36:42,980
+to implement the pairs okay so not Turbo
+
+1683
+01:37:03,900 --> 01:37:11,300
+okay so I think that's that
+
+1684
+01:37:07,320 --> 01:37:11,300
+then push is
+
+1685
+01:37:12,719 --> 01:37:19,260
+now since we are using Python's list
+
+1686
+01:37:15,840 --> 01:37:22,820
+yeah we still push to the front okay
+
+1687
+01:37:19,260 --> 01:37:22,820
+so uh
+
+1688
+01:37:23,100 --> 01:37:26,659
+so yeah so
+
+1689
+01:37:28,920 --> 01:37:34,100
+so if you do
+
+1690
+01:37:31,260 --> 01:37:34,100
+let me show you
+
+1691
+01:37:35,159 --> 01:37:42,179
+so if you do this that's not good
+
+1692
+01:37:37,800 --> 01:37:44,100
+because this creates a new
+
+1693
+01:37:42,179 --> 01:37:46,620
+least
+
+1694
+01:37:44,100 --> 01:37:49,020
+you see it's a tricky problem because
+
+1695
+01:37:46,620 --> 01:37:54,020
+you want to modify that you don't want
+
+1696
+01:37:49,020 --> 01:37:54,020
+to create new so here you have
+
+1697
+01:37:55,739 --> 01:38:00,440
+oh I think secondary got a solution
+
+1698
+01:38:07,139 --> 01:38:11,120
+uh
+
+1699
+01:38:08,580 --> 01:38:11,120
+no
+
+1700
+01:38:17,340 --> 01:38:23,219
+let's keep going to going here so
+
+1701
+01:38:20,760 --> 01:38:25,739
+if you push
+
+1702
+01:38:23,219 --> 01:38:29,400
+you don't want to create you don't want
+
+1703
+01:38:25,739 --> 01:38:32,719
+to return a new entity you want to just
+
+1704
+01:38:29,400 --> 01:38:32,719
+modify that entity
+
+1705
+01:38:36,780 --> 01:38:44,120
+oh my God this is problematic because
+
+1706
+01:38:39,840 --> 01:38:44,120
+then you're gonna have recursive lists
+
+1707
+01:38:56,420 --> 01:39:01,860
+and God this is
+
+1708
+01:38:59,460 --> 01:39:03,239
+close to two hours now
+
+1709
+01:39:01,860 --> 01:39:03,900
+so
+
+1710
+01:39:03,239 --> 01:39:07,739
+um
+
+1711
+01:39:03,900 --> 01:39:10,260
+so the problem right now is to implement
+
+1712
+01:39:07,739 --> 01:39:13,860
+push and pop
+
+1713
+01:39:10,260 --> 01:39:15,120
+the problem now is that when you give a
+
+1714
+01:39:13,860 --> 01:39:16,380
+you know
+
+1715
+01:39:15,120 --> 01:39:19,080
+list
+
+1716
+01:39:16,380 --> 01:39:21,480
+you want to return the same list you
+
+1717
+01:39:19,080 --> 01:39:24,060
+don't want to change it because that's
+
+1718
+01:39:21,480 --> 01:39:25,260
+what push and pop do it modifies the
+
+1719
+01:39:24,060 --> 01:39:27,600
+least
+
+1720
+01:39:25,260 --> 01:39:30,780
+but if you say
+
+1721
+01:39:27,600 --> 01:39:33,300
+you know if you do return this that you
+
+1722
+01:39:30,780 --> 01:39:35,820
+know that actually return a new
+
+1723
+01:39:33,300 --> 01:39:37,620
+different list
+
+1724
+01:39:35,820 --> 01:39:42,000
+so
+
+1725
+01:39:37,620 --> 01:39:44,460
+so therefore to fix this one for example
+
+1726
+01:39:42,000 --> 01:39:46,520
+you want to
+
+1727
+01:39:44,460 --> 01:39:46,520
+um
+
+1728
+01:39:47,639 --> 01:39:51,360
+you want to let's go back to list this
+
+1729
+01:39:50,520 --> 01:39:55,739
+myth
+
+1730
+01:39:51,360 --> 01:39:59,719
+generate at least this comprehension
+
+1731
+01:39:55,739 --> 01:39:59,719
+uh these methods
+
+1732
+01:40:01,560 --> 01:40:04,580
+oh God
+
+1733
+01:40:06,719 --> 01:40:14,460
+so okay so let's use append then if you
+
+1734
+01:40:10,980 --> 01:40:16,620
+use a pen that means you also add to the
+
+1735
+01:40:14,460 --> 01:40:17,940
+to the
+
+1736
+01:40:16,620 --> 01:40:20,940
+right
+
+1737
+01:40:17,940 --> 01:40:25,020
+okay let's let's use a pen because that
+
+1738
+01:40:20,940 --> 01:40:26,219
+way you don't return a new list
+
+1739
+01:40:25,020 --> 01:40:32,179
+okay
+
+1740
+01:40:26,219 --> 01:40:32,179
+a lot of complexities in frustration so
+
+1741
+01:40:35,100 --> 01:40:37,580
+okay
+
+1742
+01:40:39,840 --> 01:40:45,480
+wait that wait that's not uh wait you
+
+1743
+01:40:43,560 --> 01:40:47,940
+can't you can't do that
+
+1744
+01:40:45,480 --> 01:40:50,900
+because the point is you have you you
+
+1745
+01:40:47,940 --> 01:40:50,900
+need to Nest them
+
+1746
+01:40:59,580 --> 01:41:06,300
+the point is that you need to Nest them
+
+1747
+01:41:03,300 --> 01:41:06,300
+so
+
+1748
+01:41:06,659 --> 01:41:11,760
+oh God so there's a lot of operations
+
+1749
+01:41:09,179 --> 01:41:14,639
+you have to do so given at least
+
+1750
+01:41:11,760 --> 01:41:17,420
+you need to
+
+1751
+01:41:14,639 --> 01:41:17,420
+remove
+
+1752
+01:41:24,860 --> 01:41:33,420
+so the argument the argument here is a
+
+1753
+01:41:29,699 --> 01:41:36,300
+nested list python list each each
+
+1754
+01:41:33,420 --> 01:41:39,679
+element has has just two items
+
+1755
+01:41:36,300 --> 01:41:39,679
+so when you push
+
+1756
+01:41:43,980 --> 01:41:48,060
+yeah this is hard to do you because you
+
+1757
+01:41:47,159 --> 01:41:50,400
+need to
+
+1758
+01:41:48,060 --> 01:41:52,760
+you can just create a new one you need
+
+1759
+01:41:50,400 --> 01:41:52,760
+to
+
+1760
+01:41:53,760 --> 01:41:58,100
+when you push you need to
+
+1761
+01:42:01,619 --> 01:42:04,520
+you need to
+
+1762
+01:42:05,280 --> 01:42:08,600
+put the first item
+
+1763
+01:42:09,239 --> 01:42:15,840
+to the second item
+
+1764
+01:42:11,699 --> 01:42:18,179
+in the new first item is the argument
+
+1765
+01:42:15,840 --> 01:42:19,800
+yeah something like that okay so let's
+
+1766
+01:42:18,179 --> 01:42:22,500
+try to do that
+
+1767
+01:42:19,800 --> 01:42:25,760
+so when you push you want to something
+
+1768
+01:42:22,500 --> 01:42:25,760
+like this okay
+
+1769
+01:42:34,920 --> 01:42:38,179
+something like this
+
+1770
+01:42:42,179 --> 01:42:51,800
+so you this is new item
+
+1771
+01:42:45,600 --> 01:42:51,800
+let's say x new okay so this is new item
+
+1772
+01:42:52,920 --> 01:42:57,900
+and and you and you can you can just
+
+1773
+01:42:55,679 --> 01:42:58,800
+return that because that just create a
+
+1774
+01:42:57,900 --> 01:43:03,020
+new thing
+
+1775
+01:42:58,800 --> 01:43:03,020
+so you actually so you need to
+
+1776
+01:43:04,020 --> 01:43:06,860
+so actually
+
+1777
+01:43:07,980 --> 01:43:12,920
+yeah so this is
+
+1778
+01:43:09,659 --> 01:43:12,920
+the this is
+
+1779
+01:43:17,159 --> 01:43:22,880
+something like this okay so you have the
+
+1780
+01:43:20,100 --> 01:43:22,880
+first and rest
+
+1781
+01:43:25,860 --> 01:43:30,199
+and then you want to say
+
+1782
+01:43:35,760 --> 01:43:47,719
+you want that to be the X
+
+1783
+01:43:41,159 --> 01:43:47,719
+new okay and you want the rest to be
+
+1784
+01:43:51,659 --> 01:43:54,980
+to be
+
+1785
+01:43:59,460 --> 01:44:02,460
+foreign
+
+1786
+01:44:11,100 --> 01:44:19,679
+so this way you just modify the turbo
+
+1787
+01:44:16,860 --> 01:44:23,520
+you don't actually
+
+1788
+01:44:19,679 --> 01:44:27,920
+replace create a new entity so yeah so
+
+1789
+01:44:23,520 --> 01:44:27,920
+this way you modify the top only C
+
+1790
+01:44:28,260 --> 01:44:31,580
+maybe they'll walk
+
+1791
+01:44:35,940 --> 01:44:42,600
+but you do this there's a cost of the
+
+1792
+01:44:39,179 --> 01:44:45,020
+assignment that should be fast because
+
+1793
+01:44:42,600 --> 01:44:50,820
+it's just references
+
+1794
+01:44:45,020 --> 01:44:53,040
+uh yeah so okay can we does this work
+
+1795
+01:44:50,820 --> 01:44:55,639
+push LL
+
+1796
+01:44:53,040 --> 01:44:55,639
+okay
+
+1797
+01:44:57,900 --> 01:45:03,679
+turbo object does not support item
+
+1798
+01:45:00,540 --> 01:45:03,679
+assignment yeah
+
+1799
+01:45:10,260 --> 01:45:14,840
+turbo okay
+
+1800
+01:45:12,119 --> 01:45:14,840
+what
+
+1801
+01:45:16,560 --> 01:45:20,659
+okay so it's not a turbo then
+
+1802
+01:45:22,320 --> 01:45:27,560
+so this should be that
+
+1803
+01:45:25,020 --> 01:45:27,560
+okay
+
+1804
+01:45:33,600 --> 01:45:42,500
+okay we are getting close
+
+1805
+01:45:37,699 --> 01:45:42,500
+uh create one two
+
+1806
+01:45:46,139 --> 01:45:52,260
+let's say create one two three
+
+1807
+01:45:49,500 --> 01:45:55,520
+okay X1
+
+1808
+01:45:52,260 --> 01:45:55,520
+then push
+
+1809
+01:46:00,420 --> 01:46:03,380
+it doesn't work
+
+1810
+01:46:09,119 --> 01:46:12,800
+okay yeah it's a mistake
+
+1811
+01:46:13,380 --> 01:46:20,420
+next one is four yeah so we
+
+1812
+01:46:16,980 --> 01:46:20,420
+there's some error
+
+1813
+01:46:53,580 --> 01:47:02,179
+thanks area is a list of two items okay
+
+1814
+01:46:58,500 --> 01:47:02,179
+okay so first
+
+1815
+01:47:05,100 --> 01:47:12,020
+rest okay
+
+1816
+01:47:07,320 --> 01:47:12,020
+and let's turn it in what yeah
+
+1817
+01:47:13,199 --> 01:47:15,800
+yeah so
+
+1818
+01:47:16,739 --> 01:47:20,060
+thanks you know
+
+1819
+01:47:25,320 --> 01:47:29,000
+new is um
+
+1820
+01:47:41,940 --> 01:47:48,440
+oh yeah so this should be
+
+1821
+01:47:45,540 --> 01:47:48,440
+so yeah
+
+1822
+01:47:50,340 --> 01:47:55,400
+oh wait and then you get recursive thing
+
+1823
+01:47:57,659 --> 01:48:04,679
+yeah you get recursive thing yeah God
+
+1824
+01:48:01,139 --> 01:48:07,760
+this is how to implement we got a
+
+1825
+01:48:04,679 --> 01:48:07,760
+recursive list
+
+1826
+01:48:09,719 --> 01:48:14,540
+
+1827
+01:48:10,800 --> 01:48:14,540
+I'm not sure we can I can do it
+
+1828
+01:48:15,600 --> 01:48:20,159
+um
+
+1829
+01:48:17,699 --> 01:48:22,860
+you know so the problem is pretty simple
+
+1830
+01:48:20,159 --> 01:48:25,440
+implement
+
+1831
+01:48:22,860 --> 01:48:26,880
+you know at least you know linked lists
+
+1832
+01:48:25,440 --> 01:48:31,880
+in Python
+
+1833
+01:48:26,880 --> 01:48:31,880
+and right now it just failed at push
+
+1834
+01:48:35,520 --> 01:48:42,960
+so okay well but the solution is to look
+
+1835
+01:48:40,679 --> 01:48:45,719
+at python
+
+1836
+01:48:42,960 --> 01:48:47,580
+where how you can
+
+1837
+01:48:45,719 --> 01:48:50,580
+maintain
+
+1838
+01:48:47,580 --> 01:48:53,540
+the reference yeah but the thing is if
+
+1839
+01:48:50,580 --> 01:48:53,540
+you do that then
+
+1840
+01:48:54,540 --> 01:49:00,179
+you know even you know you you know
+
+1841
+01:48:57,780 --> 01:49:04,100
+essentially you are going to recreate at
+
+1842
+01:49:00,179 --> 01:49:09,060
+least that defeats the whole purpose
+
+1843
+01:49:04,100 --> 01:49:11,400
+of linked list you know you cannot every
+
+1844
+01:49:09,060 --> 01:49:15,420
+time you create a new item add push your
+
+1845
+01:49:11,400 --> 01:49:18,960
+item you you you do not want to recreate
+
+1846
+01:49:15,420 --> 01:49:22,260
+the whole list so
+
+1847
+01:49:18,960 --> 01:49:26,659
+and yet the problem is yet you want to
+
+1848
+01:49:22,260 --> 01:49:26,659
+maintain the reference you know that
+
+1849
+01:49:27,060 --> 01:49:32,119
+that argument
+
+1850
+01:49:29,219 --> 01:49:32,119
+must not
+
+1851
+01:49:32,460 --> 01:49:36,260
+have a new reference you know
+
+1852
+01:49:40,219 --> 01:49:43,760
+first rest
+
+1853
+01:49:45,900 --> 01:49:50,119
+so we don't actually need the rest
+
+1854
+01:49:55,560 --> 01:49:59,780
+the second element is
+
+1855
+01:49:59,940 --> 01:50:06,360
+yeah so that's a problem so here what
+
+1856
+01:50:03,300 --> 01:50:08,340
+you can do is like copy
+
+1857
+01:50:06,360 --> 01:50:12,119
+something like that
+
+1858
+01:50:08,340 --> 01:50:15,239
+do we have an example here
+
+1859
+01:50:12,119 --> 01:50:19,280
+but you cannot use copy because you do
+
+1860
+01:50:15,239 --> 01:50:19,280
+then that's just creating a whole
+
+1861
+01:50:19,800 --> 01:50:26,360
+Beast which is super inefficient
+
+1862
+01:50:24,300 --> 01:50:26,360
+um
+
+1863
+01:50:28,560 --> 01:50:36,560
+so do we have any python experts
+
+1864
+01:50:32,460 --> 01:50:40,400
+dictionary Topo said sequence types
+
+1865
+01:50:36,560 --> 01:50:40,400
+sequence types
+
+1866
+01:50:43,400 --> 01:50:49,040
+sequence times dictionary methods
+
+1867
+01:50:55,860 --> 01:50:58,760
+so
+
+1868
+01:51:00,960 --> 01:51:08,400
+so
+
+1869
+01:51:02,480 --> 01:51:11,400
+copy nested list so we I do have a
+
+1870
+01:51:08,400 --> 01:51:12,480
+yeah so this is how you actually make a
+
+1871
+01:51:11,400 --> 01:51:15,719
+copy
+
+1872
+01:51:12,480 --> 01:51:18,300
+so what you do here is
+
+1873
+01:51:15,719 --> 01:51:19,619
+and just say list
+
+1874
+01:51:18,300 --> 01:51:21,840
+that
+
+1875
+01:51:19,619 --> 01:51:24,780
+but that defeats the purpose although
+
+1876
+01:51:21,840 --> 01:51:29,159
+the re you know that
+
+1877
+01:51:24,780 --> 01:51:33,080
+because this is making a copy of list oh
+
+1878
+01:51:29,159 --> 01:51:33,080
+wait this is the shadow copy
+
+1879
+01:51:33,360 --> 01:51:37,560
+I'm gonna Shadow copy is not good
+
+1880
+01:51:35,219 --> 01:51:40,920
+because it's using references you got
+
+1881
+01:51:37,560 --> 01:51:45,440
+then you get recursive you know like we
+
+1882
+01:51:40,920 --> 01:51:45,440
+did we got a recursive list
+
+1883
+01:51:46,500 --> 01:51:54,060
+basically infinite so this part is
+
+1884
+01:51:49,980 --> 01:51:56,960
+referring to three to one
+
+1885
+01:51:54,060 --> 01:51:56,960
+and
+
+1886
+01:51:57,780 --> 01:52:03,920
+something like that you know
+
+1887
+01:52:00,840 --> 01:52:03,920
+juicy boy
+
+1888
+01:52:06,960 --> 01:52:12,000
+so juicy boy do you see what I'm doing
+
+1889
+01:52:09,659 --> 01:52:15,860
+do you understand
+
+1890
+01:52:12,000 --> 01:52:19,260
+do you do you have a solution
+
+1891
+01:52:15,860 --> 01:52:24,239
+so so actually we got stuck
+
+1892
+01:52:19,260 --> 01:52:25,380
+we got stuck in implementing a linked
+
+1893
+01:52:24,239 --> 01:52:28,460
+list
+
+1894
+01:52:25,380 --> 01:52:28,460
+in Python
+
+1895
+01:52:28,560 --> 01:52:33,960
+you know while trying to maintain the
+
+1896
+01:52:31,020 --> 01:52:37,320
+properties of linked list efficiency
+
+1897
+01:52:33,960 --> 01:52:40,739
+and not just LinkedIn this we need to
+
+1898
+01:52:37,320 --> 01:52:44,520
+create push and pop which means it needs
+
+1899
+01:52:40,739 --> 01:52:47,900
+to you know give an argument it needs to
+
+1900
+01:52:44,520 --> 01:52:47,900
+modify the argument
+
+1901
+01:52:48,119 --> 01:52:55,560
+and meanwhile not recreate you know the
+
+1902
+01:52:51,719 --> 01:52:58,920
+copy of your list it just it should nest
+
+1903
+01:52:55,560 --> 01:53:03,239
+so we are stuck here
+
+1904
+01:52:58,920 --> 01:53:05,880
+and as far as I know at this moment I'm
+
+1905
+01:53:03,239 --> 01:53:07,679
+not even sure it can be done
+
+1906
+01:53:05,880 --> 01:53:11,040
+okay
+
+1907
+01:53:07,679 --> 01:53:15,000
+I'm not sure it even can be done
+
+1908
+01:53:11,040 --> 01:53:20,480
+so we essentially failed
+
+1909
+01:53:15,000 --> 01:53:20,480
+in python so far I would conclude
+
+1910
+01:53:21,540 --> 01:53:25,800
+um 80 confident
+
+1911
+01:53:23,699 --> 01:53:27,239
+it cannot be done eighty percent
+
+1912
+01:53:25,800 --> 01:53:29,940
+confident
+
+1913
+01:53:27,239 --> 01:53:31,980
+you cannot create a efficient stack
+
+1914
+01:53:29,940 --> 01:53:35,159
+structure
+
+1915
+01:53:31,980 --> 01:53:38,760
+in in Python
+
+1916
+01:53:35,159 --> 01:53:41,040
+without getting into C so I mean you can
+
+1917
+01:53:38,760 --> 01:53:43,560
+write a library using C
+
+1918
+01:53:41,040 --> 01:53:46,080
+for example let's look maybe there
+
+1919
+01:53:43,560 --> 01:53:48,600
+probably already is you know you have to
+
+1920
+01:53:46,080 --> 01:53:54,980
+code C module I mean create a python
+
+1921
+01:53:48,600 --> 01:53:54,980
+module in C something so python
+
+1922
+01:53:55,739 --> 01:53:58,280
+attack
+
+1923
+01:53:58,980 --> 01:54:04,199
+there it is there it is okay there's a
+
+1924
+01:54:02,100 --> 01:54:07,380
+stack Overflow question how to implement
+
+1925
+01:54:04,199 --> 01:54:09,480
+a python stack you see people actually
+
+1926
+01:54:07,380 --> 01:54:13,260
+ask those questions
+
+1927
+01:54:09,480 --> 01:54:17,040
+uh okay let's check you know many of
+
+1928
+01:54:13,260 --> 01:54:19,199
+these are low quality blocks
+
+1929
+01:54:17,040 --> 01:54:22,400
+they write that because they want money
+
+1930
+01:54:19,199 --> 01:54:22,400
+you know ads
+
+1931
+01:54:22,980 --> 01:54:27,780
+so let's look at some of them
+
+1932
+01:54:25,500 --> 01:54:30,560
+okay stack Overflow usually is
+
+1933
+01:54:27,780 --> 01:54:30,560
+trustworthy
+
+1934
+01:54:30,719 --> 01:54:34,619
+no push pop okay first implementation
+
+1935
+01:54:33,000 --> 01:54:37,560
+the following stack implementation
+
+1936
+01:54:34,619 --> 01:54:41,780
+assumes at the end of list will hold the
+
+1937
+01:54:37,560 --> 01:54:41,780
+top elements of the stack okay
+
+1938
+01:54:44,360 --> 01:54:50,639
+idiotic you know it's it's not a stack I
+
+1939
+01:54:47,820 --> 01:54:52,679
+mean it's just it's just push and pop
+
+1940
+01:54:50,639 --> 01:54:55,800
+using the default
+
+1941
+01:54:52,679 --> 01:54:58,739
+python list
+
+1942
+01:54:55,800 --> 01:55:01,500
+so let's see you know it's just
+
+1943
+01:54:58,739 --> 01:55:03,780
+it's just a rapper you know
+
+1944
+01:55:01,500 --> 01:55:06,900
+you just reverse order that's all so we
+
+1945
+01:55:03,780 --> 01:55:10,699
+push it just called append so there's no
+
+1946
+01:55:06,900 --> 01:55:10,699
+change no actual change
+
+1947
+01:55:11,040 --> 01:55:16,139
+you know it's just python Beast it's not
+
+1948
+01:55:14,100 --> 01:55:18,119
+really your stack
+
+1949
+01:55:16,139 --> 01:55:19,800
+second implementation the second
+
+1950
+01:55:18,119 --> 01:55:22,040
+implementation as soon as at the
+
+1951
+01:55:19,800 --> 01:55:26,280
+beginning of the list holds the top okay
+
+1952
+01:55:22,040 --> 01:55:30,480
+yeah it's just a wrapper so it's no good
+
+1953
+01:55:26,280 --> 01:55:32,880
+you see so he says these are optimized
+
+1954
+01:55:30,480 --> 01:55:35,040
+for a painting and piping from the end
+
+1955
+01:55:32,880 --> 01:55:36,960
+inserting or removing item from
+
+1956
+01:55:35,040 --> 01:55:40,739
+beginning of this is much more expensive
+
+1957
+01:55:36,960 --> 01:55:44,040
+because uh python does does have a data
+
+1958
+01:55:40,739 --> 01:55:47,219
+structure collections the key
+
+1959
+01:55:44,040 --> 01:55:49,920
+okay that's not
+
+1960
+01:55:47,219 --> 01:55:53,040
+okay that's not what we you know they
+
+1961
+01:55:49,920 --> 01:55:55,320
+are just talking about which side is
+
+1962
+01:55:53,040 --> 01:55:58,619
+more efficient to add it doesn't
+
+1963
+01:55:55,320 --> 01:56:00,719
+actually touch on the nursing data
+
+1964
+01:55:58,619 --> 01:56:03,179
+structure
+
+1965
+01:56:00,719 --> 01:56:05,880
+so I doubt you will find the answer
+
+1966
+01:56:03,179 --> 01:56:08,400
+online so what's time you know this
+
+1967
+01:56:05,880 --> 01:56:09,300
+these are the most idiotic usually with
+
+1968
+01:56:08,400 --> 01:56:12,300
+the
+
+1969
+01:56:09,300 --> 01:56:15,420
+you know pretty picture
+
+1970
+01:56:12,300 --> 01:56:18,980
+this uh scam website
+
+1971
+01:56:15,420 --> 01:56:18,980
+what's a stack okay
+
+1972
+01:56:19,100 --> 01:56:26,340
+implementing a python stock stack so you
+
+1973
+01:56:22,560 --> 01:56:30,239
+just use the key in a list of key
+
+1974
+01:56:26,340 --> 01:56:32,400
+now I wonder so the library the key or
+
+1975
+01:56:30,239 --> 01:56:36,060
+key are they using
+
+1976
+01:56:32,400 --> 01:56:39,199
+wait key is not a stack actually so Keys
+
+1977
+01:56:36,060 --> 01:56:39,199
+No no good
+
+1978
+01:56:39,420 --> 01:56:43,260
+you know they are just using these they
+
+1979
+01:56:41,880 --> 01:56:46,500
+are not
+
+1980
+01:56:43,260 --> 01:56:48,719
+uh yeah you see a pen pop
+
+1981
+01:56:46,500 --> 01:56:51,179
+whatever
+
+1982
+01:56:48,719 --> 01:56:54,900
+using this to create the python stack
+
+1983
+01:56:51,179 --> 01:56:57,719
+okay using collections.dkey to create a
+
+1984
+01:56:54,900 --> 01:57:00,480
+python stock Okay so
+
+1985
+01:56:57,719 --> 01:57:02,940
+the corrections module contains the key
+
+1986
+01:57:00,480 --> 01:57:06,600
+which is useful for creating python
+
+1987
+01:57:02,940 --> 01:57:10,080
+stocks the key is pronounced deck okay
+
+1988
+01:57:06,600 --> 01:57:12,960
+deck and standard for double ended key
+
+1989
+01:57:10,080 --> 01:57:17,820
+oh it's idiotic
+
+1990
+01:57:12,960 --> 01:57:22,199
+so stack okay again
+
+1991
+01:57:17,820 --> 01:57:25,920
+so the real answer is lies in the D key
+
+1992
+01:57:22,199 --> 01:57:29,520
+how do they implement this
+
+1993
+01:57:25,920 --> 01:57:33,560
+is it just a wrapper or is it actual
+
+1994
+01:57:29,520 --> 01:57:33,560
+C code where is it
+
+1995
+01:57:35,760 --> 01:57:43,199
+returns a new D key object initialize
+
+1996
+01:57:39,480 --> 01:57:46,340
+the key are generalist generalization of
+
+1997
+01:57:43,199 --> 01:57:49,440
+stacks and keys okay
+
+1998
+01:57:46,340 --> 01:57:53,000
+suppose let's say safe memory efficient
+
+1999
+01:57:49,440 --> 01:57:56,219
+opinion part there it is okay
+
+2000
+01:57:53,000 --> 01:57:58,860
+this is what we want this is what we are
+
+2001
+01:57:56,219 --> 01:58:01,020
+trying to do
+
+2002
+01:57:58,860 --> 01:58:05,040
+so right now
+
+2003
+01:58:01,020 --> 01:58:08,400
+what we have to do is to look at the
+
+2004
+01:58:05,040 --> 01:58:11,639
+source code of D key
+
+2005
+01:58:08,400 --> 01:58:14,360
+okay to see whether it's actually a
+
+2006
+01:58:11,639 --> 01:58:14,360
+python code
+
+2007
+01:58:14,580 --> 01:58:21,360
+I doubt I think it's C code
+
+2008
+01:58:18,239 --> 01:58:23,820
+okay because so far from Alex you know
+
+2009
+01:58:21,360 --> 01:58:26,960
+from my experience I don't think
+
+2010
+01:58:23,820 --> 01:58:26,960
+it can be done
+
+2011
+01:58:30,780 --> 01:58:33,679
+so
+
+2012
+01:58:33,840 --> 01:58:39,119
+so yeah so we have to look at the
+
+2013
+01:58:36,540 --> 01:58:42,060
+collections the key source code okay
+
+2014
+01:58:39,119 --> 01:58:44,940
+let's let's search for that
+
+2015
+01:58:42,060 --> 01:58:49,280
+so Library locations
+
+2016
+01:58:44,940 --> 01:58:49,280
+um source code okay where's my
+
+2017
+01:58:50,099 --> 01:58:54,980
+okay let's let's put some comment here
+
+2018
+01:59:15,119 --> 01:59:20,960
+there is
+
+2019
+01:59:18,239 --> 01:59:20,960
+okay
+
+2020
+01:59:21,239 --> 01:59:26,840
+let's see if this collection is the key
+
+2021
+01:59:24,179 --> 01:59:32,219
+let's see if it's
+
+2022
+01:59:26,840 --> 01:59:35,060
+source code is in python or C okay
+
+2023
+01:59:32,219 --> 01:59:35,060
+search for that
+
+2024
+01:59:36,659 --> 01:59:41,460
+uh we need python okay there are python
+
+2025
+01:59:39,659 --> 01:59:45,500
+documentation now
+
+2026
+01:59:41,460 --> 01:59:45,500
+we need the python source code
+
+2027
+01:59:53,580 --> 01:59:57,719
+can we actually so where's python
+
+2028
+01:59:56,040 --> 01:59:59,699
+Library
+
+2029
+01:59:57,719 --> 02:00:01,619
+and let's just go look at the live
+
+2030
+01:59:59,699 --> 02:00:04,520
+python Library
+
+2031
+02:00:01,619 --> 02:00:09,900
+so
+
+2032
+02:00:04,520 --> 02:00:13,340
+python you need to print uh
+
+2033
+02:00:09,900 --> 02:00:13,340
+you need to print version
+
+2034
+02:00:16,920 --> 02:00:20,699
+prints
+
+2035
+02:00:18,420 --> 02:00:23,940
+module
+
+2036
+02:00:20,699 --> 02:00:26,540
+you need to print Python's Library
+
+2037
+02:00:23,940 --> 02:00:26,540
+location
+
+2038
+02:00:26,880 --> 02:00:29,360
+okay
+
+2039
+02:00:31,679 --> 02:00:36,800
+oh yeah so I think okay let's go look
+
+2040
+02:00:47,099 --> 02:00:50,599
+okay python
+
+2041
+02:00:56,239 --> 02:00:59,719
+what's the difference
+
+2042
+02:01:01,440 --> 02:01:05,659
+okay those are binaries
+
+2043
+02:01:05,880 --> 02:01:11,900
+there it is collections
+
+2044
+02:01:09,119 --> 02:01:11,900
+okay
+
+2045
+02:01:12,239 --> 02:01:20,239
+yeah so you see
+
+2046
+02:01:15,179 --> 02:01:20,239
+it's a c code what is this ABC
+
+2047
+02:01:20,580 --> 02:01:26,820
+collection AB ABC in Portal
+
+2048
+02:01:24,360 --> 02:01:29,219
+wait is that
+
+2049
+02:01:26,820 --> 02:01:31,860
+there it is the key
+
+2050
+02:01:29,219 --> 02:01:33,599
+this module implements specialized
+
+2051
+02:01:31,860 --> 02:01:35,880
+container data types providing
+
+2052
+02:01:33,599 --> 02:01:38,760
+alternatives to Python's general purpose
+
+2053
+02:01:35,880 --> 02:01:40,440
+building containers dictionary this set
+
+2054
+02:01:38,760 --> 02:01:43,260
+table exactly
+
+2055
+02:01:40,440 --> 02:01:46,219
+so D key so there it is
+
+2056
+02:01:43,260 --> 02:01:46,219
+so and
+
+2057
+02:01:48,360 --> 02:01:53,000
+so in needs so this I need
+
+2058
+02:01:53,099 --> 02:02:00,119
+let's see
+
+2059
+02:01:56,159 --> 02:02:01,679
+search for that copy list all lines
+
+2060
+02:02:00,119 --> 02:02:05,040
+containing it
+
+2061
+02:02:01,679 --> 02:02:08,420
+from collections import okay
+
+2062
+02:02:05,040 --> 02:02:08,420
+let's go to it
+
+2063
+02:02:08,460 --> 02:02:13,260
+go to it
+
+2064
+02:02:10,920 --> 02:02:16,639
+go to it
+
+2065
+02:02:13,260 --> 02:02:16,639
+Okay so
+
+2066
+02:02:17,639 --> 02:02:24,260
+you don't get the source code because
+
+2067
+02:02:20,099 --> 02:02:24,260
+the source code is in C
+
+2068
+02:02:39,540 --> 02:02:43,880
+this matching lines DF
+
+2069
+02:02:46,199 --> 02:02:54,679
+pop item named top of most common okay
+
+2070
+02:02:51,000 --> 02:02:54,679
+one key copy
+
+2071
+02:02:55,440 --> 02:02:58,159
+okay
+
+2072
+02:03:01,260 --> 02:03:04,760
+so there's cash
+
+2073
+02:03:05,820 --> 02:03:12,420
+so why is it named abc dot p y does
+
+2074
+02:03:10,320 --> 02:03:18,320
+anyone know
+
+2075
+02:03:12,420 --> 02:03:18,320
+why is his abc dot p y there it is the
+
+2076
+02:03:19,320 --> 02:03:26,360
+that's a that's a cash
+
+2077
+02:03:23,580 --> 02:03:26,360
+but
+
+2078
+02:03:30,480 --> 02:03:38,900
+can can anyone confirm this is
+
+2079
+02:03:34,619 --> 02:03:38,900
+this is C code or not
+
+2080
+02:03:51,780 --> 02:03:55,020
+so
+
+2081
+02:03:53,460 --> 02:03:59,400
+right now
+
+2082
+02:03:55,020 --> 02:03:59,400
+we want to determine
+
+2083
+02:04:01,080 --> 02:04:04,940
+the source code of
+
+2084
+02:04:08,219 --> 02:04:14,040
+python collection start D key whether
+
+2085
+02:04:11,699 --> 02:04:17,960
+that's C or not
+
+2086
+02:04:14,040 --> 02:04:17,960
+there it is source code
+
+2087
+02:04:19,619 --> 02:04:23,300
+wait
+
+2088
+02:04:21,320 --> 02:04:26,580
+no this
+
+2089
+02:04:23,300 --> 02:04:30,080
+solutions problems of hacker rank of
+
+2090
+02:04:26,580 --> 02:04:30,080
+python module but
+
+2091
+02:04:30,239 --> 02:04:32,900
+foreign
+
+2092
+02:04:46,320 --> 02:04:49,099
+no
+
+2093
+02:05:00,840 --> 02:05:08,780
+so let's go to python source code
+
+2094
+02:05:05,300 --> 02:05:08,780
+python GitHub
+
+2095
+02:05:11,580 --> 02:05:15,800
+C python I suppose
+
+2096
+02:05:16,400 --> 02:05:20,239
+modules deep
+
+2097
+02:05:33,119 --> 02:05:39,320
+collections
+
+2098
+02:05:35,820 --> 02:05:39,320
+turn on JavaScript
+
+2099
+02:05:43,780 --> 02:05:46,850
+[Music]
+
+2100
+02:05:50,239 --> 02:05:59,940
+callable generic areas collections ABC
+
+2101
+02:05:55,020 --> 02:06:01,320
+in Portal in apy this is what we have
+
+2102
+02:05:59,940 --> 02:06:04,460
+seen
+
+2103
+02:06:01,320 --> 02:06:04,460
+but where is the
+
+2104
+02:06:08,880 --> 02:06:14,540
+does anyone know python code us out
+
+2105
+02:06:11,880 --> 02:06:14,540
+there nobody
+
+2106
+02:06:19,940 --> 02:06:24,560
+okay so nobody I guess
+
+2107
+02:07:27,080 --> 02:07:35,060
+wait where's the how is I paid us
+
+2108
+02:07:31,260 --> 02:07:35,060
+and I'm very organized
+
+2109
+02:07:36,780 --> 02:07:40,820
+I mean how is it uh
+
+2110
+02:07:42,000 --> 02:07:50,000
+and see it's go up
+
+2111
+02:07:45,420 --> 02:07:50,000
+here is what is this
+
+2112
+02:08:24,960 --> 02:08:31,520
+okay this I don't know what are those
+
+2113
+02:08:28,860 --> 02:08:31,520
+files
+
+2114
+02:08:32,400 --> 02:08:35,400
+DLS
+
+2115
+02:08:36,659 --> 02:08:39,920
+there it is
+
+2116
+02:08:46,260 --> 02:08:50,000
+so there is a key
+
+2117
+02:08:58,560 --> 02:09:05,659
+yeah so I don't know how pythons
+
+2118
+02:09:02,119 --> 02:09:07,440
+source code is
+
+2119
+02:09:05,659 --> 02:09:09,440
+arranged
+
+2120
+02:09:07,440 --> 02:09:09,440
+um
+
+2121
+02:09:18,540 --> 02:09:22,400
+connection not there
+
+2122
+02:09:28,860 --> 02:09:32,659
+so we need to know
+
+2123
+02:09:51,239 --> 02:09:58,440
+okay so in this case
+
+2124
+02:09:55,560 --> 02:10:02,400
+you need to read up
+
+2125
+02:09:58,440 --> 02:10:06,659
+the python implementation detail
+
+2126
+02:10:02,400 --> 02:10:09,960
+which I've never read before so
+
+2127
+02:10:06,659 --> 02:10:12,960
+standing and embedding
+
+2128
+02:10:09,960 --> 02:10:15,119
+something like that something there
+
+2129
+02:10:12,960 --> 02:10:18,800
+so
+
+2130
+02:10:15,119 --> 02:10:18,800
+Library reference
+
+2131
+02:10:19,739 --> 02:10:22,739
+magnify
+
+2132
+02:10:29,460 --> 02:10:32,960
+collection packages
+
+2133
+02:10:34,460 --> 02:10:40,800
+container data type abstract base
+
+2134
+02:10:37,320 --> 02:10:44,000
+classes for containers oh that's what
+
+2135
+02:10:40,800 --> 02:10:44,000
+ABC stands for
+
+2136
+02:10:44,360 --> 02:10:52,139
+abstract Base Class okay so key the key
+
+2137
+02:10:49,199 --> 02:10:56,940
+is implemented as
+
+2138
+02:10:52,139 --> 02:10:59,420
+of as the abstract data class
+
+2139
+02:10:56,940 --> 02:10:59,420
+okay
+
+2140
+02:10:59,940 --> 02:11:06,440
+so what I want to know if D key is
+
+2141
+02:11:03,420 --> 02:11:09,380
+written in C
+
+2142
+02:11:06,440 --> 02:11:12,840
+and
+
+2143
+02:11:09,380 --> 02:11:14,400
+99 sure
+
+2144
+02:11:12,840 --> 02:11:18,659
+but
+
+2145
+02:11:14,400 --> 02:11:19,739
+I want to be 100 sure
+
+2146
+02:11:18,659 --> 02:11:23,280
+okay
+
+2147
+02:11:19,739 --> 02:11:24,300
+so so that's why that's what we are
+
+2148
+02:11:23,280 --> 02:11:26,179
+doing
+
+2149
+02:11:24,300 --> 02:11:29,219
+so
+
+2150
+02:11:26,179 --> 02:11:32,219
+collections okay container data types
+
+2151
+02:11:29,219 --> 02:11:33,480
+okay abstract Base Class container data
+
+2152
+02:11:32,219 --> 02:11:36,420
+types
+
+2153
+02:11:33,480 --> 02:11:38,940
+okay so you have the key
+
+2154
+02:11:36,420 --> 02:11:42,239
+this module implements specialized
+
+2155
+02:11:38,940 --> 02:11:44,460
+container data types okay alternatives
+
+2156
+02:11:42,239 --> 02:11:48,860
+to pylon's general purpose building
+
+2157
+02:11:44,460 --> 02:11:53,580
+containers okay it's not in CD key
+
+2158
+02:11:48,860 --> 02:11:55,739
+this is a class so it's an object
+
+2159
+02:11:53,580 --> 02:11:58,139
+so the key is supposed to be a
+
+2160
+02:11:55,739 --> 02:12:00,840
+generalized stack
+
+2161
+02:11:58,139 --> 02:12:02,340
+meaning that it can be a key or it can
+
+2162
+02:12:00,840 --> 02:12:04,880
+be a stack
+
+2163
+02:12:02,340 --> 02:12:07,460
+uh
+
+2164
+02:12:04,880 --> 02:12:11,400
+Keys is is
+
+2165
+02:12:07,460 --> 02:12:14,280
+uh first in less up something like that
+
+2166
+02:12:11,400 --> 02:12:18,179
+it's you know
+
+2167
+02:12:14,280 --> 02:12:21,480
+you know it's like a line waiting a lie
+
+2168
+02:12:18,179 --> 02:12:24,360
+so the key
+
+2169
+02:12:21,480 --> 02:12:28,280
+so you have the key but does it mention
+
+2170
+02:12:24,360 --> 02:12:28,280
+how is it implemented
+
+2171
+02:12:28,440 --> 02:12:37,860
+changing version 3.5 new methods okay
+
+2172
+02:12:33,199 --> 02:12:41,000
+software that's updated uh
+
+2173
+02:12:37,860 --> 02:12:41,000
+so okay
+
+2174
+02:12:41,760 --> 02:12:51,079
+so this is alternative data structure
+
+2175
+02:12:46,980 --> 02:12:51,079
+okay and but
+
+2176
+02:12:52,020 --> 02:12:58,099
+where is the C code that's what I want
+
+2177
+02:12:54,599 --> 02:12:58,099
+to know is it written in C
+
+2178
+02:13:01,619 --> 02:13:06,139
+source code oh here source code
+
+2179
+02:13:09,119 --> 02:13:18,199
+wait is it it easy written in Python
+
+2180
+02:13:13,920 --> 02:13:18,199
+so source code is just init
+
+2181
+02:13:19,079 --> 02:13:25,320
+dot py okay
+
+2182
+02:13:21,719 --> 02:13:30,199
+source code is just init.py okay
+
+2183
+02:13:25,320 --> 02:13:30,199
+connections this is a source code
+
+2184
+02:13:44,099 --> 02:13:51,260
+and okay so you can use self
+
+2185
+02:13:48,239 --> 02:13:51,260
+that's right
+
+2186
+02:13:53,639 --> 02:14:01,040
+but if you do that only if it's um
+
+2187
+02:13:58,500 --> 02:14:01,040
+
+2188
+02:14:02,520 --> 02:14:05,659
+Okay so
+
+2189
+02:14:11,639 --> 02:14:18,000
+okay now it's getting closer so it's not
+
+2190
+02:14:15,119 --> 02:14:20,760
+written in C
+
+2191
+02:14:18,000 --> 02:14:22,980
+it's not written in C so
+
+2192
+02:14:20,760 --> 02:14:26,900
+let's go back
+
+2193
+02:14:22,980 --> 02:14:26,900
+to the documentation
+
+2194
+02:14:27,000 --> 02:14:33,739
+and let's read about this class
+
+2195
+02:14:30,780 --> 02:14:33,739
+Corrections
+
+2196
+02:14:35,699 --> 02:14:43,560
+this like container with fast pens or
+
+2197
+02:14:38,760 --> 02:14:45,800
+pops on either end okay so let's look at
+
+2198
+02:14:43,560 --> 02:14:45,800
+that
+
+2199
+02:14:45,900 --> 02:14:49,340
+key object okay
+
+2200
+02:14:49,980 --> 02:14:54,239
+whole one performance in either
+
+2201
+02:14:52,020 --> 02:14:56,639
+direction okay
+
+2202
+02:14:54,239 --> 02:14:58,980
+the release objects supports similar
+
+2203
+02:14:56,639 --> 02:15:03,540
+operations they are optimized for Fast
+
+2204
+02:14:58,980 --> 02:15:07,860
+Fixed length operations and incur om
+
+2205
+02:15:03,540 --> 02:15:12,020
+memory movement costs to pop
+
+2206
+02:15:07,860 --> 02:15:12,020
+and insert exactly
+
+2207
+02:15:12,420 --> 02:15:17,940
+operations which change both size and
+
+2208
+02:15:15,840 --> 02:15:20,340
+position of the underlying underlying
+
+2209
+02:15:17,940 --> 02:15:22,679
+data structure okay that is
+
+2210
+02:15:20,340 --> 02:15:25,739
+what we've been talking about
+
+2211
+02:15:22,679 --> 02:15:28,800
+okay so if max length
+
+2212
+02:15:25,739 --> 02:15:31,860
+is not given it's not specified under
+
+2213
+02:15:28,800 --> 02:15:34,980
+and Key May grow to an arbitrary length
+
+2214
+02:15:31,860 --> 02:15:37,380
+otherwise key is bounded so
+
+2215
+02:15:34,980 --> 02:15:40,739
+this key
+
+2216
+02:15:37,380 --> 02:15:43,860
+it's like stack but open in both ends
+
+2217
+02:15:40,739 --> 02:15:47,540
+so how do they Implement that I suppose
+
+2218
+02:15:43,860 --> 02:15:47,540
+it's doubly linked list
+
+2219
+02:15:49,260 --> 02:15:54,420
+okay so but we are getting closer we are
+
+2220
+02:15:51,780 --> 02:15:56,219
+getting closer to look at how they
+
+2221
+02:15:54,420 --> 02:15:59,060
+Implement that
+
+2222
+02:15:56,219 --> 02:15:59,060
+so
+
+2223
+02:16:01,020 --> 02:16:08,880
+so here is an example of how to use it
+
+2224
+02:16:05,340 --> 02:16:12,440
+so you import it
+
+2225
+02:16:08,880 --> 02:16:12,440
+then you just say key
+
+2226
+02:16:14,699 --> 02:16:18,380
+right a key is a string
+
+2227
+02:16:21,300 --> 02:16:26,159
+tray over the keys elements GHI
+
+2228
+02:16:27,780 --> 02:16:30,440
+what
+
+2229
+02:16:30,599 --> 02:16:33,739
+the key
+
+2230
+02:16:33,840 --> 02:16:38,179
+deck that's a string
+
+2231
+02:16:46,620 --> 02:16:51,420
+so you have pop
+
+2232
+02:16:48,719 --> 02:16:53,700
+return is removed right Mouse item then
+
+2233
+02:16:51,420 --> 02:16:56,780
+you have pop left
+
+2234
+02:16:53,700 --> 02:16:56,780
+then you have
+
+2235
+02:16:57,240 --> 02:17:04,519
+these con this this bothers me so the
+
+2236
+02:17:00,960 --> 02:17:04,519
+input is a stream
+
+2237
+02:17:07,380 --> 02:17:10,040
+what
+
+2238
+02:17:45,179 --> 02:17:49,399
+okay let's search for pop
+
+2239
+02:18:31,200 --> 02:18:33,380
+foreign
+
+2240
+02:18:59,340 --> 02:19:06,260
+what about the abstract data class
+
+2241
+02:19:02,840 --> 02:19:09,920
+abstract basic class
+
+2242
+02:19:06,260 --> 02:19:09,920
+doesn't say much
+
+2243
+02:19:10,800 --> 02:19:18,540
+so this file is 1500 lines
+
+2244
+02:19:16,099 --> 02:19:24,719
+1500 lines
+
+2245
+02:19:18,540 --> 02:19:26,820
+and I suppose we can be we can read you
+
+2246
+02:19:24,719 --> 02:19:28,740
+know if we have time we can read the
+
+2247
+02:19:26,820 --> 02:19:32,280
+entire thing
+
+2248
+02:19:28,740 --> 02:19:35,580
+1500 lines which is not too big
+
+2249
+02:19:32,280 --> 02:19:42,200
+so the key
+
+2250
+02:19:35,580 --> 02:19:42,200
+try import the key import error so
+
+2251
+02:19:45,019 --> 02:19:50,899
+try from underscore connections
+
+2252
+02:19:51,180 --> 02:19:58,800
+okay
+
+2253
+02:19:53,399 --> 02:19:58,800
+so try from underscore collections
+
+2254
+02:20:00,600 --> 02:20:06,359
+yeah it's in C I'm pretty sure
+
+2255
+02:20:04,500 --> 02:20:08,580
+so what the is underscore
+
+2256
+02:20:06,359 --> 02:20:10,620
+collections
+
+2257
+02:20:08,580 --> 02:20:15,020
+you see
+
+2258
+02:20:10,620 --> 02:20:15,020
+so underscore collections there
+
+2259
+02:20:16,020 --> 02:20:22,680
+what is this
+
+2260
+02:20:18,899 --> 02:20:24,020
+oh what the so how many values is
+
+2261
+02:20:22,680 --> 02:20:27,240
+this
+
+2262
+02:20:24,020 --> 02:20:29,899
+1000 lines not too much and it's search
+
+2263
+02:20:27,240 --> 02:20:29,899
+for key
+
+2264
+02:20:30,300 --> 02:20:34,640
+search for D key okay
+
+2265
+02:20:35,520 --> 02:20:41,780
+underscore collection subscribe based
+
+2266
+02:20:38,280 --> 02:20:45,899
+classes for collections according to pep
+
+2267
+02:20:41,780 --> 02:20:47,600
+3119 the python pep
+
+2268
+02:20:45,899 --> 02:20:50,819
+foreign
+
+2269
+02:20:47,600 --> 02:20:53,300
+introduction introducing abstract-based
+
+2270
+02:20:50,819 --> 02:20:53,300
+classes
+
+2271
+02:20:54,979 --> 02:21:03,180
+2007 kidovan Rosen idiot
+
+2272
+02:21:00,260 --> 02:21:06,180
+rationale acknowledgment rational
+
+2273
+02:21:03,180 --> 02:21:06,180
+specification
+
+2274
+02:21:10,380 --> 02:21:15,359
+anyone here python experts we need
+
+2275
+02:21:13,200 --> 02:21:18,359
+python experts
+
+2276
+02:21:15,359 --> 02:21:21,240
+okay if you are say it
+
+2277
+02:21:18,359 --> 02:21:24,899
+so and right now we are trying to find
+
+2278
+02:21:21,240 --> 02:21:27,540
+out this the key
+
+2279
+02:21:24,899 --> 02:21:31,700
+Library this the key module is it
+
+2280
+02:21:27,540 --> 02:21:31,700
+written in python or in C
+
+2281
+02:21:32,040 --> 02:21:39,840
+let's search dqe okay and uh
+
+2282
+02:21:37,319 --> 02:21:43,140
+I try to implement it today in the past
+
+2283
+02:21:39,840 --> 02:21:44,819
+hour and failed because of the reference
+
+2284
+02:21:43,140 --> 02:21:49,040
+issue
+
+2285
+02:21:44,819 --> 02:21:52,500
+I cannot do it without screwing up the
+
+2286
+02:21:49,040 --> 02:21:54,859
+properties of a proper key data
+
+2287
+02:21:52,500 --> 02:21:54,859
+structure
+
+2288
+02:21:57,300 --> 02:22:03,120
+and so
+
+2289
+02:22:00,600 --> 02:22:05,100
+yeah so actually that's very interesting
+
+2290
+02:22:03,120 --> 02:22:06,540
+in fact because I thought it's just
+
+2291
+02:22:05,100 --> 02:22:10,080
+possible
+
+2292
+02:22:06,540 --> 02:22:12,420
+it may not actually be possible I mean
+
+2293
+02:22:10,080 --> 02:22:14,399
+from a functionalist point of view from
+
+2294
+02:22:12,420 --> 02:22:15,479
+a functional point of view I mean what
+
+2295
+02:22:14,399 --> 02:22:17,640
+it do
+
+2296
+02:22:15,479 --> 02:22:19,800
+yeah of course you can just create a
+
+2297
+02:22:17,640 --> 02:22:22,520
+nested
+
+2298
+02:22:19,800 --> 02:22:22,520
+Tuple
+
+2299
+02:22:23,420 --> 02:22:28,260
+but but then you don't have the
+
+2300
+02:22:26,040 --> 02:22:31,280
+efficiency property
+
+2301
+02:22:28,260 --> 02:22:31,280
+that's a problem
+
+2302
+02:22:33,000 --> 02:22:39,420
+especially because of the operations
+
+2303
+02:22:36,359 --> 02:22:41,720
+push and pop they need to modify the
+
+2304
+02:22:39,420 --> 02:22:41,720
+variable
+
+2305
+02:22:42,479 --> 02:22:47,220
+you know the variable whose value is a
+
+2306
+02:22:44,880 --> 02:22:50,040
+list ordered sequence
+
+2307
+02:22:47,220 --> 02:22:52,640
+you cannot return a new one
+
+2308
+02:22:50,040 --> 02:22:52,640
+so
+
+2309
+02:22:54,660 --> 02:23:00,899
+so but in order to do that you need the
+
+2310
+02:22:58,560 --> 02:23:02,880
+language needs to be able to use
+
+2311
+02:23:00,899 --> 02:23:05,399
+references
+
+2312
+02:23:02,880 --> 02:23:08,220
+you know reference to that
+
+2313
+02:23:05,399 --> 02:23:10,319
+object
+
+2314
+02:23:08,220 --> 02:23:12,840
+uh
+
+2315
+02:23:10,319 --> 02:23:16,080
+uh no is you still need to you need to
+
+2316
+02:23:12,840 --> 02:23:19,280
+modify the object so you need to somehow
+
+2317
+02:23:16,080 --> 02:23:19,280
+working a lower level
+
+2318
+02:23:19,399 --> 02:23:24,660
+so right now I don't think it's possible
+
+2319
+02:23:22,620 --> 02:23:28,979
+to implement
+
+2320
+02:23:24,660 --> 02:23:32,460
+an efficient stack in Python
+
+2321
+02:23:28,979 --> 02:23:35,359
+with Python language unless you go into
+
+2322
+02:23:32,460 --> 02:23:35,359
+C code
+
+2323
+02:23:35,700 --> 02:23:40,500
+and that's what we are trying to
+
+2324
+02:23:37,800 --> 02:23:45,359
+determine now so
+
+2325
+02:23:40,500 --> 02:23:49,580
+search the key the key is not found here
+
+2326
+02:23:45,359 --> 02:23:49,580
+so what is the underscore thing
+
+2327
+02:23:52,080 --> 02:23:59,520
+so let's see abstract Base Class
+
+2328
+02:23:54,979 --> 02:24:02,040
+collections according to pep okay you
+
+2329
+02:23:59,520 --> 02:24:04,200
+need testing okay you need tests are in
+
+2330
+02:24:02,040 --> 02:24:07,140
+test collections okay
+
+2331
+02:24:04,200 --> 02:24:10,080
+abstract reason Okay so
+
+2332
+02:24:07,140 --> 02:24:12,780
+so here
+
+2333
+02:24:10,080 --> 02:24:17,040
+you see right now what is the difference
+
+2334
+02:24:12,780 --> 02:24:20,040
+between Collections and underscore
+
+2335
+02:24:17,040 --> 02:24:20,040
+collections
+
+2336
+02:24:23,520 --> 02:24:30,140
+you see so there is that
+
+2337
+02:24:26,880 --> 02:24:30,140
+there is that
+
+2338
+02:24:32,040 --> 02:24:40,380
+so it's trying to try from underscore
+
+2339
+02:24:37,020 --> 02:24:43,340
+collections input D key
+
+2340
+02:24:40,380 --> 02:24:43,340
+then
+
+2341
+02:24:44,960 --> 02:24:51,800
+multi-sequence register degree multiple
+
+2342
+02:24:48,080 --> 02:24:51,800
+mutable sequence
+
+2343
+02:24:51,840 --> 02:24:57,479
+so if that fails yes
+
+2344
+02:24:54,840 --> 02:25:02,960
+underscore collection start metaphor
+
+2345
+02:24:57,479 --> 02:25:07,580
+sequence okay so the key is in this
+
+2346
+02:25:02,960 --> 02:25:07,580
+low-lying collections ABC
+
+2347
+02:25:08,700 --> 02:25:13,560
+but here
+
+2348
+02:25:10,319 --> 02:25:18,120
+that's one thousand lines
+
+2349
+02:25:13,560 --> 02:25:20,100
+but I'm not seeing any D key here
+
+2350
+02:25:18,120 --> 02:25:23,760
+okay
+
+2351
+02:25:20,100 --> 02:25:26,479
+the key all so this is all exported
+
+2352
+02:25:23,760 --> 02:25:26,479
+symbols
+
+2353
+02:25:27,000 --> 02:25:33,359
+multiple set muted
+
+2354
+02:25:29,939 --> 02:25:37,140
+ball set okay that is
+
+2355
+02:25:33,359 --> 02:25:40,020
+that is that okay mutable sequence okay
+
+2356
+02:25:37,140 --> 02:25:43,740
+now let's go back
+
+2357
+02:25:40,020 --> 02:25:43,740
+leave collections
+
+2358
+02:25:45,240 --> 02:25:52,680
+abc dot p y abstract basic class
+
+2359
+02:25:49,939 --> 02:25:55,859
+basically import all
+
+2360
+02:25:52,680 --> 02:25:59,100
+okay and this form
+
+2361
+02:25:55,859 --> 02:26:02,819
+okay again it's import from underscore
+
+2362
+02:25:59,100 --> 02:26:08,359
+collections underscore ABC
+
+2363
+02:26:02,819 --> 02:26:08,359
+and uh this init shows that
+
+2364
+02:26:08,960 --> 02:26:15,120
+shows that
+
+2365
+02:26:10,920 --> 02:26:18,180
+all the symbols it exports so search for
+
+2366
+02:26:15,120 --> 02:26:20,399
+the key yeah there
+
+2367
+02:26:18,180 --> 02:26:23,180
+but then you can see it's
+
+2368
+02:26:20,399 --> 02:26:26,939
+try to import from
+
+2369
+02:26:23,180 --> 02:26:30,200
+underscore collections
+
+2370
+02:26:26,939 --> 02:26:30,200
+so that's the
+
+2371
+02:26:31,200 --> 02:26:36,240
+these matching lines that's all the
+
+2372
+02:26:33,540 --> 02:26:38,880
+currents there is so okay so the main
+
+2373
+02:26:36,240 --> 02:26:41,580
+one is just this one must be
+
+2374
+02:26:38,880 --> 02:26:44,460
+underscore collections abc dot mutable
+
+2375
+02:26:41,580 --> 02:26:46,080
+sequence dot register D key
+
+2376
+02:26:44,460 --> 02:26:48,840
+okay
+
+2377
+02:26:46,080 --> 02:26:50,899
+underscore collections
+
+2378
+02:26:48,840 --> 02:26:53,160
+underscore ABC
+
+2379
+02:26:50,899 --> 02:26:55,979
+multiple sequence
+
+2380
+02:26:53,160 --> 02:26:58,140
+dot register
+
+2381
+02:26:55,979 --> 02:27:01,140
+uh
+
+2382
+02:26:58,140 --> 02:27:04,680
+uh so multiple sequence not register
+
+2383
+02:27:01,140 --> 02:27:08,840
+okay now let's go to the underscore
+
+2384
+02:27:04,680 --> 02:27:08,840
+so there is multiple sequence
+
+2385
+02:27:09,960 --> 02:27:13,580
+okay so there
+
+2386
+02:27:14,939 --> 02:27:21,540
+so you are importing this yeah so you
+
+2387
+02:27:17,819 --> 02:27:25,080
+are immutable sequence wait
+
+2388
+02:27:21,540 --> 02:27:25,080
+beautiful sequence.register
+
+2389
+02:27:29,220 --> 02:27:33,200
+so there it is there is pop
+
+2390
+02:27:34,200 --> 02:27:37,200
+uh
+
+2391
+02:27:47,819 --> 02:27:52,640
+there is beautiful adult sequence that
+
+2392
+02:27:50,160 --> 02:27:52,640
+register
+
+2393
+02:27:56,399 --> 02:28:01,680
+okay I failed to determine whether it's
+
+2394
+02:27:59,040 --> 02:28:02,819
+in C code or not it will be another day
+
+2395
+02:28:01,680 --> 02:28:05,640
+so
+
+2396
+02:28:02,819 --> 02:28:07,700
+now it's two hours in 30 minutes thank
+
+2397
+02:28:05,640 --> 02:28:12,780
+you guys for watching
+
+2398
+02:28:07,700 --> 02:28:16,200
+zero people watching now so three
+
+2399
+02:28:12,780 --> 02:28:17,580
+so we so today we the first hour we
+
+2400
+02:28:16,200 --> 02:28:21,180
+expand
+
+2401
+02:28:17,580 --> 02:28:24,060
+you know where it is summarized in three
+
+2402
+02:28:21,180 --> 02:28:27,600
+minutes we shut down okay
+
+2403
+02:28:24,060 --> 02:28:31,020
+so first hour we summarized
+
+2404
+02:28:27,600 --> 02:28:34,460
+the problem we are trying to do which is
+
+2405
+02:28:31,020 --> 02:28:34,460
+uh where is it
+
+2406
+02:28:34,979 --> 02:28:41,880
+okay you know the the jargons
+
+2407
+02:28:38,939 --> 02:28:45,740
+you know the concept ordered sequence of
+
+2408
+02:28:41,880 --> 02:28:48,960
+things and what's the difference between
+
+2409
+02:28:45,740 --> 02:28:52,979
+array list Vector turbo
+
+2410
+02:28:48,960 --> 02:28:55,859
+why are there these things uh the reason
+
+2411
+02:28:52,979 --> 02:28:58,500
+they are there and the meaning of them
+
+2412
+02:28:55,859 --> 02:29:01,620
+the algorithmic properties
+
+2413
+02:28:58,500 --> 02:29:03,600
+and why do you have those differences so
+
+2414
+02:29:01,620 --> 02:29:05,880
+why do you have you know this array key
+
+2415
+02:29:03,600 --> 02:29:08,100
+why are they different why is that
+
+2416
+02:29:05,880 --> 02:29:10,439
+sometimes you know
+
+2417
+02:29:08,100 --> 02:29:13,140
+the algorithmic properties are different
+
+2418
+02:29:10,439 --> 02:29:15,720
+the reason what's the cause then we
+
+2419
+02:29:13,140 --> 02:29:18,720
+explain what's a stack then we expand
+
+2420
+02:29:15,720 --> 02:29:21,240
+the lists list how it's implemented
+
+2421
+02:29:18,720 --> 02:29:24,000
+which is a linked list you know the
+
+2422
+02:29:21,240 --> 02:29:27,060
+jargon then the critical concept of
+
+2423
+02:29:24,000 --> 02:29:30,899
+array the most common Concept in C which
+
+2424
+02:29:27,060 --> 02:29:33,359
+is a fixed length but a random access
+
+2425
+02:29:30,899 --> 02:29:37,319
+constant Random Access time for any
+
+2426
+02:29:33,359 --> 02:29:39,899
+element element and from that and then
+
+2427
+02:29:37,319 --> 02:29:43,020
+we explain why is it constant access
+
+2428
+02:29:39,899 --> 02:29:46,020
+time this is the most important why is
+
+2429
+02:29:43,020 --> 02:29:49,260
+the C array or Java what the concept fix
+
+2430
+02:29:46,020 --> 02:29:52,800
+you know array why is it constant
+
+2431
+02:29:49,260 --> 02:29:54,359
+access time and because for that that's
+
+2432
+02:29:52,800 --> 02:29:56,520
+a well that's because the machine
+
+2433
+02:29:54,359 --> 02:29:58,040
+implementation the electronic the
+
+2434
+02:29:56,520 --> 02:30:01,020
+physical machine
+
+2435
+02:29:58,040 --> 02:30:03,000
+uh because the parallel circuit
+
+2436
+02:30:01,020 --> 02:30:05,939
+basically that's the nature of the
+
+2437
+02:30:03,000 --> 02:30:08,819
+parallel circuit in memory
+
+2438
+02:30:05,939 --> 02:30:11,939
+in memory chips so
+
+2439
+02:30:08,819 --> 02:30:13,620
+so that's why array access is constant
+
+2440
+02:30:11,939 --> 02:30:15,899
+time
+
+2441
+02:30:13,620 --> 02:30:19,620
+then uh
+
+2442
+02:30:15,899 --> 02:30:21,780
+then so from that it's basically all
+
+2443
+02:30:19,620 --> 02:30:24,180
+programming language is based on so you
+
+2444
+02:30:21,780 --> 02:30:28,439
+have constant time array access then you
+
+2445
+02:30:24,180 --> 02:30:31,020
+have linked list then you have Smart
+
+2446
+02:30:28,439 --> 02:30:33,020
+array which is done in Python Ruby
+
+2447
+02:30:31,020 --> 02:30:35,819
+JavaScript
+
+2448
+02:30:33,020 --> 02:30:37,620
+uh then
+
+2449
+02:30:35,819 --> 02:30:40,380
+then okay
+
+2450
+02:30:37,620 --> 02:30:43,140
+so then we are trying to implement
+
+2451
+02:30:40,380 --> 02:30:45,960
+linked this in Python
+
+2452
+02:30:43,140 --> 02:30:48,540
+in particular we are trying to use it as
+
+2453
+02:30:45,960 --> 02:30:51,960
+a stack so we are trying to create a
+
+2454
+02:30:48,540 --> 02:30:55,319
+data structure in Python with push and
+
+2455
+02:30:51,960 --> 02:30:57,479
+pop operation such that
+
+2456
+02:30:55,319 --> 02:31:00,000
+they are efficient they are very
+
+2457
+02:30:57,479 --> 02:31:02,880
+efficient using linked list
+
+2458
+02:31:00,000 --> 02:31:05,760
+but so that's the second hour the second
+
+2459
+02:31:02,880 --> 02:31:09,540
+hour in the third hour we were trying to
+
+2460
+02:31:05,760 --> 02:31:11,100
+do that and we failed we failed because
+
+2461
+02:31:09,540 --> 02:31:14,540
+we
+
+2462
+02:31:11,100 --> 02:31:14,540
+we can't make it
+
+2463
+02:31:14,640 --> 02:31:21,479
+actually do what they do
+
+2464
+02:31:16,979 --> 02:31:23,460
+so then I try to search the third hour I
+
+2465
+02:31:21,479 --> 02:31:25,920
+try to search
+
+2466
+02:31:23,460 --> 02:31:28,080
+whether you know the apparently there is
+
+2467
+02:31:25,920 --> 02:31:28,979
+a library called
+
+2468
+02:31:28,080 --> 02:31:32,580
+um
+
+2469
+02:31:28,979 --> 02:31:35,760
+call these collections that implements
+
+2470
+02:31:32,580 --> 02:31:39,300
+what we wanted they call it deck or D
+
+2471
+02:31:35,760 --> 02:31:42,060
+key deck I suppose let's let's see we
+
+2472
+02:31:39,300 --> 02:31:44,060
+keep hedia is that
+
+2473
+02:31:42,060 --> 02:31:44,060
+um
+
+2474
+02:31:47,340 --> 02:31:54,899
+oh yeah so okay there it is double ended
+
+2475
+02:31:50,280 --> 02:31:57,479
+key okay so a key is like
+
+2476
+02:31:54,899 --> 02:32:01,080
+um a key is just like a line you know
+
+2477
+02:31:57,479 --> 02:32:04,140
+you waiting a line so the first person
+
+2478
+02:32:01,080 --> 02:32:07,020
+come in the line the first person to go
+
+2479
+02:32:04,140 --> 02:32:07,740
+and double any ended key just means you
+
+2480
+02:32:07,020 --> 02:32:10,979
+can
+
+2481
+02:32:07,740 --> 02:32:15,240
+you can move in both ways
+
+2482
+02:32:10,979 --> 02:32:17,939
+uh so once you have that then you it's
+
+2483
+02:32:15,240 --> 02:32:21,840
+kind of generalized stack okay so anyway
+
+2484
+02:32:17,939 --> 02:32:23,640
+so so python has this Library
+
+2485
+02:32:21,840 --> 02:32:27,000
+but
+
+2486
+02:32:23,640 --> 02:32:29,819
+I failed to determine whether that
+
+2487
+02:32:27,000 --> 02:32:32,520
+library is written in C or not
+
+2488
+02:32:29,819 --> 02:32:34,979
+because if it's written in C then it
+
+2489
+02:32:32,520 --> 02:32:36,720
+showed that
+
+2490
+02:32:34,979 --> 02:32:39,240
+you know it's true that we cannot
+
+2491
+02:32:36,720 --> 02:32:41,399
+implement it in Python code we have to
+
+2492
+02:32:39,240 --> 02:32:43,819
+dive into C because the Python language
+
+2493
+02:32:41,399 --> 02:32:45,420
+does not expose
+
+2494
+02:32:43,819 --> 02:32:47,479
+sufficient
+
+2495
+02:32:45,420 --> 02:32:47,479
+um
+
+2496
+02:32:47,819 --> 02:32:54,620
+thing okay so I'm not able to determine
+
+2497
+02:32:50,640 --> 02:32:54,620
+whether that's written in C or not
+
+2498
+02:32:59,220 --> 02:33:04,020
+but meanwhile it does appear it's not
+
+2499
+02:33:02,040 --> 02:33:07,140
+written in C
+
+2500
+02:33:04,020 --> 02:33:10,020
+so if it's not written in C
+
+2501
+02:33:07,140 --> 02:33:11,160
+so that means it's possible to implement
+
+2502
+02:33:10,020 --> 02:33:14,340
+this
+
+2503
+02:33:11,160 --> 02:33:17,100
+this efficient stack or deck
+
+2504
+02:33:14,340 --> 02:33:20,760
+in Python code
+
+2505
+02:33:17,100 --> 02:33:22,939
+so then so the question is how to do
+
+2506
+02:33:20,760 --> 02:33:22,939
+that
+
+2507
+02:33:24,720 --> 02:33:29,939
+so we spend one hour trying to implement
+
+2508
+02:33:27,120 --> 02:33:30,780
+that and the difficulty is that you need
+
+2509
+02:33:29,939 --> 02:33:34,380
+to
+
+2510
+02:33:30,780 --> 02:33:39,359
+somehow manipulate the reference
+
+2511
+02:33:34,380 --> 02:33:42,479
+uh and I I wasn't able to do so
+
+2512
+02:33:39,359 --> 02:33:44,160
+so I don't know maybe I'll you know so
+
+2513
+02:33:42,479 --> 02:33:47,040
+that's it for today
+
+2514
+02:33:44,160 --> 02:33:51,660
+bye guys I'll ask some python Expo
+
+2515
+02:33:47,040 --> 02:33:54,500
+expert Dion is a python expert
+
+2516
+02:33:51,660 --> 02:33:54,500
+bye guys
+

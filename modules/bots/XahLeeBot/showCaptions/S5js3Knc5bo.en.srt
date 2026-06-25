@@ -1,0 +1,3404 @@
+1
+00:00:01,100 --> 00:00:10,019
+good morning everyone welcome to another
+
+2
+00:00:04,259 --> 00:00:15,509
+top show today is June 25 25th and we're
+
+3
+00:00:10,019 --> 00:00:20,880
+gonna code we're gonna do a live coding
+
+4
+00:00:15,509 --> 00:00:24,330
+of creating a interactive CSS Radio
+
+5
+00:00:20,880 --> 00:00:28,920
+gradient generator so let me show you
+
+6
+00:00:24,330 --> 00:00:34,230
+what it is let's begin let's see that's
+
+7
+00:00:28,920 --> 00:00:37,469
+so I'm live that's good let me move the
+
+8
+00:00:34,230 --> 00:00:46,829
+browser to the position so you can see
+
+9
+00:00:37,469 --> 00:00:51,030
+and let's start saw log command log so
+
+10
+00:00:46,829 --> 00:00:56,100
+you can see all my Emacs command on the
+
+11
+00:00:51,030 --> 00:00:59,190
+Left panel okay right there if you are a
+
+12
+00:00:56,100 --> 00:01:01,829
+max user and I'm using some ficus and
+
+13
+00:00:59,190 --> 00:01:04,909
+I'm using black keyboard layout so the
+
+14
+00:01:01,829 --> 00:01:13,369
+keys on the left are actually black keys
+
+15
+00:01:04,909 --> 00:01:15,840
+so we are going to do a live live coding
+
+16
+00:01:13,369 --> 00:01:23,310
+so let me show you what we're gonna do
+
+17
+00:01:15,840 --> 00:01:29,280
+so let's go to our CSS okay cascading
+
+18
+00:01:23,310 --> 00:01:33,509
+style sheet so visual CSS this is my CSS
+
+19
+00:01:29,280 --> 00:01:38,490
+tutorial and it's you know it's like a
+
+20
+00:01:33,509 --> 00:01:42,479
+visual dictionary and you can see we
+
+21
+00:01:38,490 --> 00:01:45,360
+have linear gradient now CSS provides
+
+22
+00:01:42,479 --> 00:01:48,329
+you with these fancy features you can
+
+23
+00:01:45,360 --> 00:01:55,170
+create all sort of you know gradient
+
+24
+00:01:48,329 --> 00:01:58,020
+color gradient and we're gonna so let me
+
+25
+00:01:55,170 --> 00:02:02,030
+gonna show you what it is so you can you
+
+26
+00:01:58,020 --> 00:02:06,030
+see I I wrote a inter interactive
+
+27
+00:02:02,030 --> 00:02:09,810
+silkier bambo random color random color
+
+28
+00:02:06,030 --> 00:02:12,620
+and you can see random direction you can
+
+29
+00:02:09,810 --> 00:02:15,610
+adjust the direction
+
+30
+00:02:12,620 --> 00:02:20,420
+so what it does is that it generates
+
+31
+00:02:15,610 --> 00:02:24,319
+these you know random color gradient for
+
+32
+00:02:20,420 --> 00:02:27,140
+you and the random color and then the
+
+33
+00:02:24,319 --> 00:02:32,450
+code is showing up here and you can copy
+
+34
+00:02:27,140 --> 00:02:39,950
+it let's see let's see a copy yet so
+
+35
+00:02:32,450 --> 00:02:45,579
+copy it and create a new file let's save
+
+36
+00:02:39,950 --> 00:02:51,200
+it as s let's save render name HTML and
+
+37
+00:02:45,579 --> 00:02:55,390
+let's say create a HTML file and let's
+
+38
+00:02:51,200 --> 00:02:57,730
+say let's put a dive tag and let's say
+
+39
+00:02:55,390 --> 00:03:07,010
+something okay
+
+40
+00:02:57,730 --> 00:03:12,940
+actually let's say dive with a okay then
+
+41
+00:03:07,010 --> 00:03:20,380
+we put a style here CSS style and style
+
+42
+00:03:12,940 --> 00:03:22,850
+dive dot X loops dive dot what dive oh
+
+43
+00:03:20,380 --> 00:03:27,200
+yes
+
+44
+00:03:22,850 --> 00:03:33,230
+and this dive oh sorry
+
+45
+00:03:27,200 --> 00:03:37,569
+dive dot X and the style will be what we
+
+46
+00:03:33,230 --> 00:03:42,079
+just copied so for the style here and
+
+47
+00:03:37,569 --> 00:03:46,750
+show in browser oh it should be
+
+48
+00:03:42,079 --> 00:03:46,750
+background so background linear gradient
+
+49
+00:03:50,810 --> 00:04:01,490
+sar CSS mod so background-color : linear
+
+50
+00:03:57,870 --> 00:04:01,490
+gradient that's right
+
+51
+00:04:03,080 --> 00:04:23,150
+there's the okay and show in browser not
+
+52
+00:04:12,390 --> 00:04:27,650
+working because okay dive dot X wait
+
+53
+00:04:23,150 --> 00:04:31,580
+background color linear gradient class X
+
+54
+00:04:27,650 --> 00:04:37,950
+dive classics why is it not working
+
+55
+00:04:31,580 --> 00:04:41,820
+let's try to add a border for the solid
+
+56
+00:04:37,950 --> 00:04:52,230
+thing gray and show again okay we got a
+
+57
+00:04:41,820 --> 00:04:56,190
+boulder and let's say font size okay - I
+
+58
+00:04:52,230 --> 00:05:00,330
+am big that's good
+
+59
+00:04:56,190 --> 00:05:06,750
+that's walking and but why is the
+
+60
+00:05:00,330 --> 00:05:09,180
+background color not walking how is it
+
+61
+00:05:06,750 --> 00:05:12,030
+done so let's go back to look at the
+
+62
+00:05:09,180 --> 00:05:14,880
+linear gradient the example died have
+
+63
+00:05:12,030 --> 00:05:18,660
+background oh not background color but
+
+64
+00:05:14,880 --> 00:05:24,230
+just background okay go to browser show
+
+65
+00:05:18,660 --> 00:05:27,240
+there it is so this is why this linear
+
+66
+00:05:24,230 --> 00:05:27,870
+this generator gradient generator is
+
+67
+00:05:27,240 --> 00:05:30,360
+useful
+
+68
+00:05:27,870 --> 00:05:38,640
+let's see random okay let's let's try
+
+69
+00:05:30,360 --> 00:05:40,910
+this one copy it go here paste it remove
+
+70
+00:05:38,640 --> 00:05:40,910
+that
+
+71
+00:05:43,130 --> 00:05:51,420
+showing Bowser you see okay so that's
+
+72
+00:05:47,070 --> 00:05:59,280
+linear gradient now let's go to back to
+
+73
+00:05:51,420 --> 00:06:03,290
+CSS and we also have radial gradient so
+
+74
+00:05:59,280 --> 00:06:07,410
+is so CSS allows you to have gradient
+
+75
+00:06:03,290 --> 00:06:13,350
+radio Radio means you know they it's
+
+76
+00:06:07,410 --> 00:06:15,780
+like a circle the ripple out and what we
+
+77
+00:06:13,350 --> 00:06:18,810
+are going to do is we are going to
+
+78
+00:06:15,780 --> 00:06:20,910
+create a interactive application for
+
+79
+00:06:18,810 --> 00:06:25,820
+this radial gradient just like the
+
+80
+00:06:20,910 --> 00:06:31,140
+linear gradient so good morning everyone
+
+81
+00:06:25,820 --> 00:06:34,470
+say hi here and post your questions
+
+82
+00:06:31,140 --> 00:06:38,790
+opinions anything okay so let's let's
+
+83
+00:06:34,470 --> 00:06:41,990
+start to do the radial gradient now okay
+
+84
+00:06:38,790 --> 00:06:47,760
+now this temp file we don't need anymore
+
+85
+00:06:41,990 --> 00:06:53,490
+delete it now let's go to let's go to my
+
+86
+00:06:47,760 --> 00:06:58,140
+CSS web dev blog let's open the radial
+
+87
+00:06:53,490 --> 00:07:03,710
+gradient file so this is the file let's
+
+88
+00:06:58,140 --> 00:07:07,560
+copy the path and show in Google Chrome
+
+89
+00:07:03,710 --> 00:07:12,510
+okay now that's what we're gonna work on
+
+90
+00:07:07,560 --> 00:07:14,130
+update the date you see the date 2018
+
+91
+00:07:12,510 --> 00:07:20,640
+April 4th
+
+92
+00:07:14,130 --> 00:07:25,220
+now it's 2019 June 25th and we're gonna
+
+93
+00:07:20,640 --> 00:07:27,600
+start by first of all whenever you do a
+
+94
+00:07:25,220 --> 00:07:29,460
+interactive application what do you need
+
+95
+00:07:27,600 --> 00:07:31,560
+to know well you know okay so what we
+
+96
+00:07:29,460 --> 00:07:33,930
+need to know is what are the parameters
+
+97
+00:07:31,560 --> 00:07:37,380
+we need to change basically we are going
+
+98
+00:07:33,930 --> 00:07:41,550
+to generate this code code like this
+
+99
+00:07:37,380 --> 00:07:43,620
+radial gradient you know so what so
+
+100
+00:07:41,550 --> 00:07:46,920
+first thing to find out is what are the
+
+101
+00:07:43,620 --> 00:07:49,350
+parameters we need to create user input
+
+102
+00:07:46,920 --> 00:07:52,860
+that generates these parameters so what
+
+103
+00:07:49,350 --> 00:07:56,010
+are the parameters so we have Center you
+
+104
+00:07:52,860 --> 00:07:56,550
+know where the where is the location the
+
+105
+00:07:56,010 --> 00:07:59,970
+ready
+
+106
+00:07:56,550 --> 00:08:02,100
+gradients start so yes yep Center we
+
+107
+00:07:59,970 --> 00:08:05,820
+have at the corner left corner left top
+
+108
+00:08:02,100 --> 00:08:08,520
+corner okay that's a position then
+
+109
+00:08:05,820 --> 00:08:14,370
+obviously we have the color color colors
+
+110
+00:08:08,520 --> 00:08:18,420
+are parameters so color position of the
+
+111
+00:08:14,370 --> 00:08:21,270
+center then we have elliptical radio so
+
+112
+00:08:18,420 --> 00:08:28,080
+we have elliptical radio versus circular
+
+113
+00:08:21,270 --> 00:08:31,470
+radio and then there is also the color
+
+114
+00:08:28,080 --> 00:08:35,010
+stops meaning that how much of a color
+
+115
+00:08:31,470 --> 00:08:41,330
+you want the gradient to occupy for each
+
+116
+00:08:35,010 --> 00:08:44,310
+color so these are the parameters the
+
+117
+00:08:41,330 --> 00:08:46,560
+the length of the color the color stops
+
+118
+00:08:44,310 --> 00:08:50,550
+is actually a bit more complicated to
+
+119
+00:08:46,560 --> 00:08:53,970
+code so I think we're gonna skip that so
+
+120
+00:08:50,550 --> 00:08:57,660
+we just gonna code a basic one so I
+
+121
+00:08:53,970 --> 00:09:00,270
+think this will take 20 to 30 minutes
+
+122
+00:08:57,660 --> 00:09:04,650
+I hope let's can we can finish it in 30
+
+123
+00:09:00,270 --> 00:09:08,430
+minutes okay so first of all so we know
+
+124
+00:09:04,650 --> 00:09:10,620
+the parameters we want so first of all
+
+125
+00:09:08,430 --> 00:09:14,040
+create a JavaScript file okay
+
+126
+00:09:10,620 --> 00:09:17,610
+so I copy the file path change it to
+
+127
+00:09:14,040 --> 00:09:20,940
+JavaScript now should I should we do
+
+128
+00:09:17,610 --> 00:09:23,970
+JavaScript or typescript if you use
+
+129
+00:09:20,940 --> 00:09:28,200
+typescript then you can learn something
+
+130
+00:09:23,970 --> 00:09:30,870
+about typescript but there's a slightly
+
+131
+00:09:28,200 --> 00:09:34,320
+more code because you have to add types
+
+132
+00:09:30,870 --> 00:09:36,990
+so if you like to see typescript let me
+
+133
+00:09:34,320 --> 00:09:39,750
+know okay post in comment otherwise
+
+134
+00:09:36,990 --> 00:09:42,390
+let's just start with JavaScript so we
+
+135
+00:09:39,750 --> 00:09:46,470
+have created the path for JavaScript
+
+136
+00:09:42,390 --> 00:09:48,840
+file then we make it into a link you can
+
+137
+00:09:46,470 --> 00:09:51,030
+see my if you are Emacs user you can see
+
+138
+00:09:48,840 --> 00:09:52,710
+my command C max commands on the Left
+
+139
+00:09:51,030 --> 00:09:55,710
+you can find those commands on my
+
+140
+00:09:52,710 --> 00:09:59,310
+website so we have a JavaScript file and
+
+141
+00:09:55,710 --> 00:10:02,010
+open it it's empty create new yes okay
+
+142
+00:09:59,310 --> 00:10:07,050
+it's an empty file so we create a
+
+143
+00:10:02,010 --> 00:10:09,160
+JavaScript file and now okay so in a
+
+144
+00:10:07,050 --> 00:10:13,750
+JavaScript file let's open it
+
+145
+00:10:09,160 --> 00:10:21,670
+and let's put a date and let's say the
+
+146
+00:10:13,750 --> 00:10:29,530
+parameters let's write things out bunch
+
+147
+00:10:21,670 --> 00:10:34,740
+of colors then we have position produced
+
+148
+00:10:29,530 --> 00:10:43,720
+position of center which is Center top
+
+149
+00:10:34,740 --> 00:10:48,120
+center and and four corners so we have
+
+150
+00:10:43,720 --> 00:10:48,120
+color we have the center and we have
+
+151
+00:10:48,240 --> 00:10:58,350
+let's create shape of shape circle or
+
+152
+00:10:55,900 --> 00:10:58,350
+ellipse
+
+153
+00:11:00,900 --> 00:11:09,370
+okay so parameters are colors bunch of
+
+154
+00:11:06,040 --> 00:11:13,270
+colors then position of center Center
+
+155
+00:11:09,370 --> 00:11:18,460
+all four corners and the shape is circle
+
+156
+00:11:13,270 --> 00:11:26,790
+Elise so we know now the next thing the
+
+157
+00:11:18,460 --> 00:11:26,790
+first thing is determine the parameters
+
+158
+00:11:30,690 --> 00:11:44,730
+second thing step to create user
+
+159
+00:11:38,710 --> 00:11:48,670
+interface to enter the parameters okay
+
+160
+00:11:44,730 --> 00:11:50,350
+so create user interface so we need
+
+161
+00:11:48,670 --> 00:11:54,900
+let's see
+
+162
+00:11:50,350 --> 00:11:58,660
+lets you know it's useful to look at the
+
+163
+00:11:54,900 --> 00:12:04,480
+radial gradient script so let's go back
+
+164
+00:11:58,660 --> 00:12:08,230
+to CSS linear gradient yeah let's look
+
+165
+00:12:04,480 --> 00:12:11,110
+at so so the color you know each one of
+
+166
+00:12:08,230 --> 00:12:14,950
+the color is the color wheel you know
+
+167
+00:12:11,110 --> 00:12:18,820
+it's it it lets you pick a different
+
+168
+00:12:14,950 --> 00:12:21,820
+color you see color you see color then
+
+169
+00:12:18,820 --> 00:12:22,510
+you let's say this one you want to be
+
+170
+00:12:21,820 --> 00:12:28,660
+green
+
+171
+00:12:22,510 --> 00:12:30,940
+you see then let's say this one you know
+
+172
+00:12:28,660 --> 00:12:37,149
+that that lets you pick a color that's
+
+173
+00:12:30,940 --> 00:12:39,279
+color wheel okay and let's stop that so
+
+174
+00:12:37,149 --> 00:12:42,579
+we want to create a bunch of color
+
+175
+00:12:39,279 --> 00:12:47,740
+wheels then yeah I think we're gonna
+
+176
+00:12:42,579 --> 00:12:50,589
+pretty much follow this you know father
+
+177
+00:12:47,740 --> 00:12:52,769
+follow this user interface and number of
+
+178
+00:12:50,589 --> 00:12:56,529
+colors you can you see you can specify
+
+179
+00:12:52,769 --> 00:12:59,320
+number of colors to then it only uses
+
+180
+00:12:56,529 --> 00:13:05,760
+the first two numbers so if you can you
+
+181
+00:12:59,320 --> 00:13:08,560
+can increase that to three four five six
+
+182
+00:13:05,760 --> 00:13:12,180
+seven you know you can increase up to
+
+183
+00:13:08,560 --> 00:13:15,339
+seven seven so that's a good choice and
+
+184
+00:13:12,180 --> 00:13:17,620
+then then for the linear gradient we
+
+185
+00:13:15,339 --> 00:13:19,329
+have the direction but however for
+
+186
+00:13:17,620 --> 00:13:22,420
+radial gradient you don't have that
+
+187
+00:13:19,329 --> 00:13:26,949
+instead of you have the you know center
+
+188
+00:13:22,420 --> 00:13:29,620
+of the weight radio so you have the four
+
+189
+00:13:26,949 --> 00:13:34,569
+corners or the center of the box five
+
+190
+00:13:29,620 --> 00:13:37,180
+choices so now we want to create a user
+
+191
+00:13:34,569 --> 00:13:44,860
+interface we need to decide what to do
+
+192
+00:13:37,180 --> 00:13:50,649
+so first of all input for color color
+
+193
+00:13:44,860 --> 00:13:58,839
+picker okay let's start with two color
+
+194
+00:13:50,649 --> 00:14:01,920
+Pickers then we need random bimbo yeah
+
+195
+00:13:58,839 --> 00:14:01,920
+that's also a good choice
+
+196
+00:14:04,490 --> 00:14:18,650
+a random button then a rainbow color
+
+197
+00:14:09,890 --> 00:14:26,390
+button okay then we need the number of
+
+198
+00:14:18,650 --> 00:14:29,120
+colors yes we do need that radio boxes
+
+199
+00:14:26,390 --> 00:14:31,790
+those are called radio boxes you know
+
+200
+00:14:29,120 --> 00:14:34,310
+why they are called radio boxes radio
+
+201
+00:14:31,790 --> 00:14:37,280
+boxes are like in the old-fashioned
+
+202
+00:14:34,310 --> 00:14:41,570
+radio in cars you know you have a row of
+
+203
+00:14:37,280 --> 00:14:44,090
+buttons when you press one B others pops
+
+204
+00:14:41,570 --> 00:14:48,350
+up so at any time you can only have one
+
+205
+00:14:44,090 --> 00:14:50,390
+choice so this is why this is how radio
+
+206
+00:14:48,350 --> 00:14:52,930
+button functions and that is why they
+
+207
+00:14:50,390 --> 00:14:55,610
+are called radio buttons
+
+208
+00:14:52,930 --> 00:14:57,920
+meaning that you can only pick one out
+
+209
+00:14:55,610 --> 00:15:01,790
+of the many choices so we need a radio
+
+210
+00:14:57,920 --> 00:15:13,030
+boxes for the number of colors then we
+
+211
+00:15:01,790 --> 00:15:16,490
+need a choice for five choices of center
+
+212
+00:15:13,030 --> 00:15:19,880
+radio boxes okay so these are the
+
+213
+00:15:16,490 --> 00:15:23,570
+interface we need to create let's start
+
+214
+00:15:19,880 --> 00:15:28,340
+to do that okay so first of all color
+
+215
+00:15:23,570 --> 00:15:30,830
+Pickers now we go to we want to create
+
+216
+00:15:28,340 --> 00:15:38,650
+color Pickers so how do you do that that
+
+217
+00:15:30,830 --> 00:15:43,430
+is the linear gradient so let's open up
+
+218
+00:15:38,650 --> 00:15:46,130
+dahm dahm scripting tutorial so over
+
+219
+00:15:43,430 --> 00:15:48,830
+here you can see all the input boxes we
+
+220
+00:15:46,130 --> 00:15:52,970
+need so the first one we need color
+
+221
+00:15:48,830 --> 00:15:58,370
+Pickers here so that's how you you know
+
+222
+00:15:52,970 --> 00:16:01,070
+create a color picker and let's copy
+
+223
+00:15:58,370 --> 00:16:09,440
+this nice just copy the code copy and
+
+224
+00:16:01,070 --> 00:16:14,080
+paste is the mastery of coding okay okay
+
+225
+00:16:09,440 --> 00:16:14,080
+so let's do its do the color Pickers so
+
+226
+00:16:15,670 --> 00:16:28,130
+let's need that needs to go up here he's
+
+227
+00:16:19,370 --> 00:16:31,150
+a JavaScript part needs go here and so
+
+228
+00:16:28,130 --> 00:16:31,150
+the color picker
+
+229
+00:16:38,090 --> 00:16:49,290
+color picker one type color value so the
+
+230
+00:16:44,220 --> 00:16:57,120
+first value is red green blue okay so so
+
+231
+00:16:49,290 --> 00:17:11,070
+you got a color picker and this display
+
+232
+00:16:57,120 --> 00:17:14,270
+we don't need okay and now we need to so
+
+233
+00:17:11,070 --> 00:17:18,390
+color picker one this we don't need so
+
+234
+00:17:14,270 --> 00:17:22,140
+we have a color picker so let's do that
+
+235
+00:17:18,390 --> 00:17:32,400
+yeah color picker select select this
+
+236
+00:17:22,140 --> 00:17:36,120
+item so let me show you in browser you
+
+237
+00:17:32,400 --> 00:17:44,190
+see we got a color picker there and we
+
+238
+00:17:36,120 --> 00:17:49,160
+need a space so color picker this allows
+
+239
+00:17:44,190 --> 00:17:52,470
+us to pick a color that's working and
+
+240
+00:17:49,160 --> 00:17:56,460
+now we need to create a Java Script to
+
+241
+00:17:52,470 --> 00:17:58,740
+get the value of the color so first of
+
+242
+00:17:56,460 --> 00:18:04,860
+all you need to grab the element of the
+
+243
+00:17:58,740 --> 00:18:07,680
+HTML element then the value will just be
+
+244
+00:18:04,860 --> 00:18:16,820
+this is very simples this is actually
+
+245
+00:18:07,680 --> 00:18:16,820
+just value so update color picker value
+
+246
+00:18:20,500 --> 00:18:25,970
+actually we don't need that well update
+
+247
+00:18:23,510 --> 00:18:29,480
+is a function we all need to work on
+
+248
+00:18:25,970 --> 00:18:33,530
+later so we don't need that so we don't
+
+249
+00:18:29,480 --> 00:18:37,040
+need that but anyway we got a color
+
+250
+00:18:33,530 --> 00:18:46,130
+picker we need we need a second ones so
+
+251
+00:18:37,040 --> 00:18:49,880
+color picker we don't need the label
+
+252
+00:18:46,130 --> 00:18:57,980
+actually so color picker one and color
+
+253
+00:18:49,880 --> 00:19:01,160
+picker to red green let's see green so
+
+254
+00:18:57,980 --> 00:19:06,290
+this should be green and color picker
+
+255
+00:19:01,160 --> 00:19:10,429
+too so we got two colors to choose from
+
+256
+00:19:06,290 --> 00:19:16,850
+that's good and now in JavaScript we
+
+257
+00:19:10,429 --> 00:19:19,490
+need to grab them that's good now we got
+
+258
+00:19:16,850 --> 00:19:23,690
+a color picker what else we need a
+
+259
+00:19:19,490 --> 00:19:26,390
+random color button okay we'll do that
+
+260
+00:19:23,690 --> 00:19:31,100
+later in rainbow button we'll do that
+
+261
+00:19:26,390 --> 00:19:34,280
+later because you know because I'm many
+
+262
+00:19:31,100 --> 00:19:38,660
+I think we kind of slow we want let's
+
+263
+00:19:34,280 --> 00:19:40,669
+try to speed it up so we're just going
+
+264
+00:19:38,660 --> 00:19:44,000
+to create the application first the
+
+265
+00:19:40,669 --> 00:19:47,900
+simple the simplest one then we add more
+
+266
+00:19:44,000 --> 00:19:50,660
+features so number of colors radio boxes
+
+267
+00:19:47,900 --> 00:19:53,360
+let's not worry about that now five
+
+268
+00:19:50,660 --> 00:19:55,910
+choices of center radio let's not worry
+
+269
+00:19:53,360 --> 00:19:59,150
+about that now let's just get one simple
+
+270
+00:19:55,910 --> 00:20:03,860
+app finished so let's just have two
+
+271
+00:19:59,150 --> 00:20:06,740
+colors so radio box we have two colors
+
+272
+00:20:03,860 --> 00:20:11,809
+now let's just make that work generate a
+
+273
+00:20:06,740 --> 00:20:15,260
+CSS code for the two colors so the next
+
+274
+00:20:11,809 --> 00:20:18,230
+step is our program logic JavaScript so
+
+275
+00:20:15,260 --> 00:20:20,960
+how are we gonna do the goal is once you
+
+276
+00:20:18,230 --> 00:20:25,190
+have two colors you need to generate a
+
+277
+00:20:20,960 --> 00:20:28,070
+stream of particular you know string
+
+278
+00:20:25,190 --> 00:20:30,350
+syntax that contains these two colors so
+
+279
+00:20:28,070 --> 00:20:32,390
+that the string we want is basically
+
+280
+00:20:30,350 --> 00:20:36,650
+these
+
+281
+00:20:32,390 --> 00:20:46,490
+copy that so that's the string this or
+
+282
+00:20:36,650 --> 00:21:04,960
+the step two so step three javascript
+
+283
+00:20:46,490 --> 00:21:17,210
+code get user input values then generate
+
+284
+00:21:04,960 --> 00:21:21,490
+the CSS gradient stream code stream show
+
+285
+00:21:17,210 --> 00:21:27,620
+in browser okay that's what we need so
+
+286
+00:21:21,490 --> 00:21:30,770
+now we got okay so we need to generate
+
+287
+00:21:27,620 --> 00:21:37,400
+the stream so the stream is going to
+
+288
+00:21:30,770 --> 00:21:39,320
+look like something like that but we we
+
+289
+00:21:37,400 --> 00:21:43,669
+you know we need more than just
+
+290
+00:21:39,320 --> 00:21:46,910
+generating a string because because you
+
+291
+00:21:43,669 --> 00:21:49,490
+can see you know the linear gradient you
+
+292
+00:21:46,910 --> 00:21:53,270
+can see it actually shows an example of
+
+293
+00:21:49,490 --> 00:21:57,799
+you know of your choices so you also
+
+294
+00:21:53,270 --> 00:22:01,940
+need to show the code example so let's
+
+295
+00:21:57,799 --> 00:22:07,750
+go back to the HTML file we need a place
+
+296
+00:22:01,940 --> 00:22:07,750
+that shows the results so that's let's
+
+297
+00:22:07,780 --> 00:22:18,860
+let's give a dive box let's say display
+
+298
+00:22:12,640 --> 00:22:26,150
+okay this is a display region and we
+
+299
+00:22:18,860 --> 00:22:30,260
+need to also pick that up this is the
+
+300
+00:22:26,150 --> 00:22:34,040
+this display element okay where we want
+
+301
+00:22:30,260 --> 00:22:39,100
+to display the result okay
+
+302
+00:22:34,040 --> 00:22:42,970
+then in this toy box and and let's see
+
+303
+00:22:39,100 --> 00:22:42,970
+okay then display
+
+304
+00:22:43,880 --> 00:22:55,550
+what else so display we so we need to
+
+305
+00:22:49,490 --> 00:23:01,430
+generate a CSS code stream that's right
+
+306
+00:22:55,550 --> 00:23:06,470
+so let's do that so let's go back to our
+
+307
+00:23:01,430 --> 00:23:11,630
+page let's show it okay that looks like
+
+308
+00:23:06,470 --> 00:23:13,610
+that then we need to write now we need
+
+309
+00:23:11,630 --> 00:23:18,100
+to generate the stream so let's just
+
+310
+00:23:13,610 --> 00:23:18,100
+write a code to generate the stream so
+
+311
+00:23:21,880 --> 00:23:35,330
+result stream equals to now in
+
+312
+00:23:32,270 --> 00:23:38,450
+JavaScript 2015 you have this template
+
+313
+00:23:35,330 --> 00:23:40,550
+stream which is very useful when you
+
+314
+00:23:38,450 --> 00:23:45,370
+want the string with embedded values
+
+315
+00:23:40,550 --> 00:23:49,790
+variable values so here you will need
+
+316
+00:23:45,370 --> 00:23:56,810
+your B color to okay for example here
+
+317
+00:23:49,790 --> 00:23:58,940
+will be color one and okay that that is
+
+318
+00:23:56,810 --> 00:24:00,950
+the result string so let's console.log
+
+319
+00:23:58,940 --> 00:24:05,950
+let's just print it and see what happens
+
+320
+00:24:00,950 --> 00:24:09,980
+okay so go back to the browser
+
+321
+00:24:05,950 --> 00:24:13,520
+start up the JavaScript console very
+
+322
+00:24:09,980 --> 00:24:17,810
+useful when you are coding JavaScript so
+
+323
+00:24:13,520 --> 00:24:20,240
+refresh the page no okay
+
+324
+00:24:17,810 --> 00:24:23,630
+arrow color one is not defined you know
+
+325
+00:24:20,240 --> 00:24:26,450
+the arrows above those are from you know
+
+326
+00:24:23,630 --> 00:24:29,540
+Google trackers and others you know when
+
+327
+00:24:26,450 --> 00:24:32,870
+you are loading a local file for example
+
+328
+00:24:29,540 --> 00:24:35,300
+I'm loading a local file those Google
+
+329
+00:24:32,870 --> 00:24:37,310
+trackers are ignored that's why you are
+
+330
+00:24:35,300 --> 00:24:40,360
+getting those arrows so we don't have to
+
+331
+00:24:37,310 --> 00:24:45,080
+worry about that you know because on my
+
+332
+00:24:40,360 --> 00:24:47,270
+HTML page I have you know if you go to
+
+333
+00:24:45,080 --> 00:24:52,100
+the top you can see you know the bunch
+
+334
+00:24:47,270 --> 00:24:54,290
+of Google ads and Google trackers you
+
+335
+00:24:52,100 --> 00:24:58,880
+know those are ignored
+
+336
+00:24:54,290 --> 00:25:01,070
+so go back to the code so let's so right
+
+337
+00:24:58,880 --> 00:25:06,710
+now we have arrow color one is not
+
+338
+00:25:01,070 --> 00:25:09,050
+defined we need to define okay actually
+
+339
+00:25:06,710 --> 00:25:13,550
+we don't need to let's not say color one
+
+340
+00:25:09,050 --> 00:25:16,790
+let's just say color picker okay let's
+
+341
+00:25:13,550 --> 00:25:22,310
+say color 1 ok color picker 1 value ok
+
+342
+00:25:16,790 --> 00:25:23,090
+constant color 1 equals 2 color picker 1
+
+343
+00:25:22,310 --> 00:25:27,820
+value
+
+344
+00:25:23,090 --> 00:25:27,820
+and same thing for color picker too
+
+345
+00:25:29,420 --> 00:25:38,290
+okay and so right
+
+346
+00:25:33,710 --> 00:25:41,390
+so that should walk refresh the browser
+
+347
+00:25:38,290 --> 00:25:43,220
+good it's working it's printed out so
+
+348
+00:25:41,390 --> 00:25:47,030
+you see a princely stream this is a
+
+349
+00:25:43,220 --> 00:25:49,490
+stream we want now the next step is that
+
+350
+00:25:47,030 --> 00:25:55,810
+we need to show it you know displayed
+
+351
+00:25:49,490 --> 00:25:59,210
+the the radio CSS we just generate it so
+
+352
+00:25:55,810 --> 00:26:04,010
+what you need need to do is this display
+
+353
+00:25:59,210 --> 00:26:07,850
+box let's show the let's show the code
+
+354
+00:26:04,010 --> 00:26:10,460
+here so you see this displays box class
+
+355
+00:26:07,850 --> 00:26:14,890
+we don't need ok so let's read of the
+
+356
+00:26:10,460 --> 00:26:27,710
+class so this display box we need to add
+
+357
+00:26:14,890 --> 00:26:36,110
+style CSS style so we're gonna do style
+
+358
+00:26:27,710 --> 00:26:40,690
+dot background equals to V so stream
+
+359
+00:26:36,110 --> 00:26:47,180
+okay that should do it
+
+360
+00:26:40,690 --> 00:26:49,900
+let's refresh the browser no and no
+
+361
+00:26:47,180 --> 00:26:55,940
+arrow okay
+
+362
+00:26:49,900 --> 00:27:00,250
+why is that oh yeah because wait style
+
+363
+00:26:55,940 --> 00:27:00,250
+background V so stream that should work
+
+364
+00:27:00,790 --> 00:27:07,510
+Radio gradient yeah color one color -
+
+365
+00:27:05,090 --> 00:27:07,510
+yeah
+
+366
+00:27:07,810 --> 00:27:18,700
+wait we don't we we need to print it so
+
+367
+00:27:17,390 --> 00:27:25,160
+if you have any comments questions
+
+368
+00:27:18,700 --> 00:27:27,710
+posted okay let me know so we are so
+
+369
+00:27:25,160 --> 00:27:30,650
+what what's going on now so let's go
+
+370
+00:27:27,710 --> 00:27:34,880
+look at the browser so we got the string
+
+371
+00:27:30,650 --> 00:27:38,560
+correct but it is not showing the dive
+
+372
+00:27:34,880 --> 00:27:45,220
+box it's not showing the tie box
+
+373
+00:27:38,560 --> 00:27:48,980
+I've box here let's refresh
+
+374
+00:27:45,220 --> 00:27:54,650
+okay the dye box is certainly there but
+
+375
+00:27:48,980 --> 00:28:01,000
+it is not getting the style CSS style
+
+376
+00:27:54,650 --> 00:28:07,100
+why is that good element by ID display
+
+377
+00:28:01,000 --> 00:28:09,610
+box I don't know why is that but let's
+
+378
+00:28:07,100 --> 00:28:16,820
+do something simple let's say color
+
+379
+00:28:09,610 --> 00:28:22,010
+equals to read and receive exactly okay
+
+380
+00:28:16,820 --> 00:28:26,680
+so obviously we got the dybbuks but for
+
+381
+00:28:22,010 --> 00:28:26,680
+some reason the resource string is not
+
+382
+00:28:30,560 --> 00:28:39,730
+so what's the the syntax seems correct
+
+383
+00:28:34,940 --> 00:28:39,730
+so why is it not working let's try this
+
+384
+00:28:40,270 --> 00:28:56,840
+let's try this so instead of using
+
+385
+00:28:47,200 --> 00:29:02,120
+generated code let's use let's just use
+
+386
+00:28:56,840 --> 00:29:04,180
+the normal stream you know let's see
+
+387
+00:29:02,120 --> 00:29:10,460
+that should work
+
+388
+00:29:04,180 --> 00:29:13,670
+refresh that's working now that is
+
+389
+00:29:10,460 --> 00:29:17,500
+working so something is wrong with our
+
+390
+00:29:13,670 --> 00:29:21,010
+generated code but that couldn't be
+
+391
+00:29:17,500 --> 00:29:21,010
+let's try it again
+
+392
+00:29:26,520 --> 00:29:33,210
+gradient oh they need to be straying I
+
+393
+00:29:29,290 --> 00:29:33,210
+guess what
+
+394
+00:29:40,730 --> 00:29:45,200
+so I don't have a example using the RGB
+
+395
+00:29:44,300 --> 00:29:52,040
+hex
+
+396
+00:29:45,200 --> 00:30:00,110
+so I'm guessing what needs to be done is
+
+397
+00:29:52,040 --> 00:30:00,620
+that hmm I don't think so let's try it
+
+398
+00:30:00,110 --> 00:30:04,670
+again
+
+399
+00:30:00,620 --> 00:30:09,320
+refresh okay it's not working it's not
+
+400
+00:30:04,670 --> 00:30:15,320
+working because radio gradient so you
+
+401
+00:30:09,320 --> 00:30:18,530
+should walk though but let's remove
+
+402
+00:30:15,320 --> 00:30:21,200
+those string quotes so let's look at the
+
+403
+00:30:18,530 --> 00:30:29,120
+linear gradient so why is the okay so
+
+404
+00:30:21,200 --> 00:30:32,870
+you don't need you don't need oh yeah
+
+405
+00:30:29,120 --> 00:30:46,990
+you need you need a pawn sign but we do
+
+406
+00:30:32,870 --> 00:30:46,990
+have the pound sign here let's look at
+
+407
+00:30:49,130 --> 00:30:55,929
+Radio gradian let's look at this CSS
+
+408
+00:30:53,029 --> 00:30:55,929
+code here
+
+409
+00:31:10,889 --> 00:31:21,340
+something is wrong and we don't know I
+
+410
+00:31:16,269 --> 00:31:28,120
+don't know why let's see tests ok I'm
+
+411
+00:31:21,340 --> 00:31:36,070
+still going so what why what's going on
+
+412
+00:31:28,120 --> 00:31:42,700
+anyone know say something guys so we
+
+413
+00:31:36,070 --> 00:31:48,070
+have so the problem so this is a result
+
+414
+00:31:42,700 --> 00:31:54,159
+stream the result string we are printing
+
+415
+00:31:48,070 --> 00:31:57,039
+it out here and in the browser we can
+
+416
+00:31:54,159 --> 00:32:04,809
+see the result stream so the results
+
+417
+00:31:57,039 --> 00:32:11,220
+train says radio gradient you know
+
+418
+00:32:04,809 --> 00:32:16,600
+yeah it's correct ff0000 six digits of
+
+419
+00:32:11,220 --> 00:32:19,870
+hexadecimal that is correct so so
+
+420
+00:32:16,600 --> 00:32:28,750
+apparently the results stream seems
+
+421
+00:32:19,870 --> 00:32:39,120
+correct but the the result string is
+
+422
+00:32:28,750 --> 00:32:44,799
+correct here but when you add it to
+
+423
+00:32:39,120 --> 00:32:49,899
+style background it does not have any
+
+424
+00:32:44,799 --> 00:32:54,100
+effect you see because if we refresh it
+
+425
+00:32:49,899 --> 00:33:02,860
+it does not have any effect now if we
+
+426
+00:32:54,100 --> 00:33:06,899
+copy that and if we manually added to
+
+427
+00:33:02,860 --> 00:33:06,899
+heal what would happen
+
+428
+00:33:16,690 --> 00:33:25,080
+that works so if you add it manually it
+
+429
+00:33:20,979 --> 00:33:25,080
+works but
+
+430
+00:33:31,740 --> 00:33:36,840
+but why is it not working in browser
+
+431
+00:33:33,720 --> 00:33:42,860
+then well I mean why is it not working
+
+432
+00:33:36,840 --> 00:33:46,910
+when we use JavaScript to generate the
+
+433
+00:33:42,860 --> 00:33:46,910
+background value
+
+434
+00:33:52,299 --> 00:33:56,519
+okay don't know
+
+435
+00:34:19,020 --> 00:34:22,429
+now this is tea
+
+436
+00:34:39,889 --> 00:34:48,740
+why is it not working yes so that's it's
+
+437
+00:34:49,700 --> 00:35:02,450
+common that out and let's also remove
+
+438
+00:34:55,169 --> 00:35:02,450
+that so we go back to these oh wait what
+
+439
+00:35:02,630 --> 00:35:10,070
+it works now but let's seem possible
+
+440
+00:35:13,420 --> 00:35:25,539
+my said it works so what is oh I see why
+
+441
+00:35:19,420 --> 00:35:30,250
+because I added a semicolon there that
+
+442
+00:35:25,539 --> 00:35:35,859
+should still work though that's it's
+
+443
+00:35:30,250 --> 00:35:45,220
+very strange man that's a bug my friends
+
+444
+00:35:35,859 --> 00:35:49,809
+that's okay I see so yeah so you see the
+
+445
+00:35:45,220 --> 00:35:58,359
+semicolon is used in CSS to separate
+
+446
+00:35:49,809 --> 00:36:01,390
+different properties but however we
+
+447
+00:35:58,359 --> 00:36:04,619
+cannot add a semicolon here we cannot
+
+448
+00:36:01,390 --> 00:36:07,930
+add a semicolon here at the end because
+
+449
+00:36:04,619 --> 00:36:10,539
+because we are specifying a single
+
+450
+00:36:07,930 --> 00:36:13,510
+property background you know it's a
+
+451
+00:36:10,539 --> 00:36:15,819
+single property it's not a bunch of
+
+452
+00:36:13,510 --> 00:36:19,720
+properties so when you have a single
+
+453
+00:36:15,819 --> 00:36:23,769
+property and you add a semicolon that
+
+454
+00:36:19,720 --> 00:36:27,819
+would that you know would be wrong so
+
+455
+00:36:23,769 --> 00:36:31,420
+let's let's refresh what's going on okay
+
+456
+00:36:27,819 --> 00:36:35,019
+we understand what's going on we clean
+
+457
+00:36:31,420 --> 00:36:39,039
+up refactor clean up the code then we
+
+458
+00:36:35,019 --> 00:36:42,430
+refresh here it's correct now you see
+
+459
+00:36:39,039 --> 00:36:48,180
+this is too narrow we want to make it
+
+460
+00:36:42,430 --> 00:36:53,289
+you know nice box so to do that we add a
+
+461
+00:36:48,180 --> 00:36:55,539
+style at the top of this page so we go
+
+462
+00:36:53,289 --> 00:37:00,940
+to the top here there is already some
+
+463
+00:36:55,539 --> 00:37:03,309
+styles you can see those styles are used
+
+464
+00:37:00,940 --> 00:37:08,349
+for you know the other parts of the page
+
+465
+00:37:03,309 --> 00:37:14,940
+but we need a new one which we will add
+
+466
+00:37:08,349 --> 00:37:14,940
+here so this will be dive hoops dive
+
+467
+00:37:18,340 --> 00:37:29,510
+this way this way we want to create a
+
+468
+00:37:22,040 --> 00:37:37,850
+hate so hate will be let's say we then
+
+469
+00:37:29,510 --> 00:37:44,060
+hate okay so so okay let's do that let's
+
+470
+00:37:37,850 --> 00:37:51,260
+make it two lines within hate 400 okay
+
+471
+00:37:44,060 --> 00:38:00,190
+let's just say 400 no it's incorrect
+
+472
+00:37:51,260 --> 00:38:02,960
+because now it's an ID it's not class
+
+473
+00:38:00,190 --> 00:38:05,660
+that's that's good that's what we want
+
+474
+00:38:02,960 --> 00:38:14,570
+now let's try if this works let's change
+
+475
+00:38:05,660 --> 00:38:17,320
+color let's change to blue it's not
+
+476
+00:38:14,570 --> 00:38:21,260
+changed why because we don't have events
+
+477
+00:38:17,320 --> 00:38:26,000
+obviously so let's go back to the
+
+478
+00:38:21,260 --> 00:38:29,870
+JavaScript code open it we need to add
+
+479
+00:38:26,000 --> 00:38:32,750
+event listeners so that anyway the input
+
+480
+00:38:29,870 --> 00:38:39,620
+changes you know the thing up dates
+
+481
+00:38:32,750 --> 00:38:43,180
+event listeners so remove that so we add
+
+482
+00:38:39,620 --> 00:38:46,810
+event business to the color picker
+
+483
+00:38:43,180 --> 00:38:54,200
+elements that's right
+
+484
+00:38:46,810 --> 00:38:58,910
+color picker elements dot add event
+
+485
+00:38:54,200 --> 00:39:02,390
+listeners that's right so any input any
+
+486
+00:38:58,910 --> 00:39:06,320
+input input event we want to call a
+
+487
+00:39:02,390 --> 00:39:10,760
+function and this function let's call it
+
+488
+00:39:06,320 --> 00:39:15,470
+function update okay now we need to
+
+489
+00:39:10,760 --> 00:39:19,250
+write the function update so the goal of
+
+490
+00:39:15,470 --> 00:39:26,720
+the function update is to feel this type
+
+491
+00:39:19,250 --> 00:39:30,490
+box with the proper CSS change which is
+
+492
+00:39:26,720 --> 00:39:36,380
+the string we used here so
+
+493
+00:39:30,490 --> 00:39:42,910
+so we don't need this anymore yeah so
+
+494
+00:39:36,380 --> 00:39:47,450
+okay so let's write a function so it's
+
+495
+00:39:42,910 --> 00:39:50,420
+constant arrow function okay and we have
+
+496
+00:39:47,450 --> 00:39:54,590
+a function this is a function body and
+
+497
+00:39:50,420 --> 00:39:57,620
+the function name will be f update okay
+
+498
+00:39:54,590 --> 00:40:00,230
+F stand for function and the function
+
+499
+00:39:57,620 --> 00:40:03,200
+takes one argument actually we don't
+
+500
+00:40:00,230 --> 00:40:05,390
+need any argument the argument when you
+
+501
+00:40:03,200 --> 00:40:09,550
+have a eventhandler the argument is
+
+502
+00:40:05,390 --> 00:40:13,010
+supposed to be a event but we are not
+
+503
+00:40:09,550 --> 00:40:16,610
+going to need that because we work
+
+504
+00:40:13,010 --> 00:40:21,890
+directly with these elements we already
+
+505
+00:40:16,610 --> 00:40:24,620
+have picked up by element by ID so this
+
+506
+00:40:21,890 --> 00:40:27,290
+function update will generate the string
+
+507
+00:40:24,620 --> 00:40:33,440
+CSS string and attached it to the dive
+
+508
+00:40:27,290 --> 00:40:36,470
+box okay and the string is this you
+
+509
+00:40:33,440 --> 00:40:39,530
+already generated and we attach it to
+
+510
+00:40:36,470 --> 00:40:46,790
+the die box that so that's it so let's
+
+511
+00:40:39,530 --> 00:40:48,800
+it let's that's it let's refresh okay
+
+512
+00:40:46,790 --> 00:40:52,940
+something seems wrong here
+
+513
+00:40:48,800 --> 00:40:55,760
+oh yeah it's blank because you need to
+
+514
+00:40:52,940 --> 00:40:59,620
+call the update when you run the
+
+515
+00:40:55,760 --> 00:41:02,570
+JavaScript so that it actually feels
+
+516
+00:40:59,620 --> 00:41:06,820
+feels that you know the colors already
+
+517
+00:41:02,570 --> 00:41:10,370
+there so refresh that's good excellent
+
+518
+00:41:06,820 --> 00:41:11,930
+now the second color by default is
+
+519
+00:41:10,370 --> 00:41:14,840
+screen I don't like green
+
+520
+00:41:11,930 --> 00:41:18,920
+okay so let's change it close the
+
+521
+00:41:14,840 --> 00:41:21,140
+javascript file go back here let's make
+
+522
+00:41:18,920 --> 00:41:29,710
+it white okay
+
+523
+00:41:21,140 --> 00:41:36,059
+back to this oh yeah white is FF 6 FS
+
+524
+00:41:29,710 --> 00:41:42,009
+okay yeah let's try that
+
+525
+00:41:36,059 --> 00:41:44,559
+so so we got the colors why don't we add
+
+526
+00:41:42,009 --> 00:41:49,329
+another color okay let's let's add
+
+527
+00:41:44,559 --> 00:41:56,619
+another color color picker color picker
+
+528
+00:41:49,329 --> 00:42:00,160
+three and now let's do green okay okay
+
+529
+00:41:56,619 --> 00:42:09,430
+now let's open the javascript file we
+
+530
+00:42:00,160 --> 00:42:13,089
+got a new color picker three okay and oh
+
+531
+00:42:09,430 --> 00:42:27,569
+this should be moved into here so color
+
+532
+00:42:13,089 --> 00:42:32,680
+picker three okay and okay
+
+533
+00:42:27,569 --> 00:42:35,769
+refresh excellent excellent
+
+534
+00:42:32,680 --> 00:42:48,069
+so let's try to change let's change this
+
+535
+00:42:35,769 --> 00:42:52,660
+to talk blue okay and wait close it's
+
+536
+00:42:48,069 --> 00:42:55,990
+not updated why oh you forgot to add an
+
+537
+00:42:52,660 --> 00:42:58,630
+event you need to you see we haven't
+
+538
+00:42:55,990 --> 00:43:02,619
+finished updating the event so we need
+
+539
+00:42:58,630 --> 00:43:08,380
+to add event for all the color pickers
+
+540
+00:43:02,619 --> 00:43:10,539
+so two three okay run now let's try to
+
+541
+00:43:08,380 --> 00:43:18,930
+change it blue
+
+542
+00:43:10,539 --> 00:43:18,930
+yay red green yellow excellent
+
+543
+00:43:19,500 --> 00:43:26,910
+close it
+
+544
+00:43:22,650 --> 00:43:29,849
+okay so what that is essentially we have
+
+545
+00:43:26,910 --> 00:43:35,700
+done our job essentially we have now we
+
+546
+00:43:29,849 --> 00:43:38,670
+have a interactive application of CSS
+
+547
+00:43:35,700 --> 00:43:40,769
+radio gradient generator oh yeah we
+
+548
+00:43:38,670 --> 00:43:42,930
+forgot to show the code so what is the
+
+549
+00:43:40,769 --> 00:43:46,049
+code for these you know user you know
+
+550
+00:43:42,930 --> 00:43:48,509
+people who come to this page they need
+
+551
+00:43:46,049 --> 00:43:51,029
+to they need the code you know after
+
+552
+00:43:48,509 --> 00:43:54,539
+they play with it so we need to generate
+
+553
+00:43:51,029 --> 00:44:01,680
+a code that generate the code is easy so
+
+554
+00:43:54,539 --> 00:44:04,319
+first of all we can just print it so you
+
+555
+00:44:01,680 --> 00:44:08,880
+can see the code in the console logs so
+
+556
+00:44:04,319 --> 00:44:13,559
+this is the code but actually it would
+
+557
+00:44:08,880 --> 00:44:16,049
+be better if we put string in in in to
+
+558
+00:44:13,559 --> 00:44:20,670
+you know in a browser not in a console
+
+559
+00:44:16,049 --> 00:44:27,349
+log so let's do that that's easy so we
+
+560
+00:44:20,670 --> 00:44:33,989
+have to do is to the display type box
+
+561
+00:44:27,349 --> 00:44:45,119
+text content text content property will
+
+562
+00:44:33,989 --> 00:44:47,700
+be that okay refresh that is correct
+
+563
+00:44:45,119 --> 00:44:53,880
+you see you got a code here that is
+
+564
+00:44:47,700 --> 00:44:57,029
+excellent let's make it larger okay and
+
+565
+00:44:53,880 --> 00:45:01,440
+we we need to make it larger so go to
+
+566
+00:44:57,029 --> 00:45:06,319
+the HTML page go to the top let's add
+
+567
+00:45:01,440 --> 00:45:14,130
+some more properties switch to CSS mod
+
+568
+00:45:06,319 --> 00:45:21,029
+then let's add font size font size to
+
+569
+00:45:14,130 --> 00:45:23,489
+REM refresh excellent now there is a
+
+570
+00:45:21,029 --> 00:45:25,619
+problem let me show you what is problem
+
+571
+00:45:23,489 --> 00:45:28,849
+it's suppose I change this color to
+
+572
+00:45:25,619 --> 00:45:28,849
+something doc
+
+573
+00:45:29,830 --> 00:45:33,730
+oh this is beautiful this one's
+
+574
+00:45:33,190 --> 00:45:36,820
+beautiful
+
+575
+00:45:33,730 --> 00:45:39,840
+okay now there's a problem you see if
+
+576
+00:45:36,820 --> 00:45:43,710
+you pick a color that's very dark then
+
+577
+00:45:39,840 --> 00:45:47,080
+your your text becomes invisible you see
+
+578
+00:45:43,710 --> 00:45:54,010
+so how do you solve that problem we can
+
+579
+00:45:47,080 --> 00:45:59,920
+solve that problem by by adding a text
+
+580
+00:45:54,010 --> 00:46:05,350
+shadow so let's go back to CSS let's
+
+581
+00:45:59,920 --> 00:46:07,210
+open a new window let's go to text
+
+582
+00:46:05,350 --> 00:46:13,900
+shadow this is how you solve the problem
+
+583
+00:46:07,210 --> 00:46:19,990
+you add a shadow so so one use of this
+
+584
+00:46:13,900 --> 00:46:23,290
+text shadow is that is that copy it is
+
+585
+00:46:19,990 --> 00:46:26,340
+that if the text can be shown in any
+
+586
+00:46:23,290 --> 00:46:31,060
+background color and it will still be
+
+587
+00:46:26,340 --> 00:46:33,640
+legible visible so do we do it do I have
+
+588
+00:46:31,060 --> 00:46:37,180
+people watching now three people say
+
+589
+00:46:33,640 --> 00:46:43,870
+something guys say something so we're
+
+590
+00:46:37,180 --> 00:46:47,640
+adding a text shadow yeah so X offset
+
+591
+00:46:43,870 --> 00:46:52,740
+let's say let's say three okay three
+
+592
+00:46:47,640 --> 00:46:56,980
+pixel okay y offset three pixel blur
+
+593
+00:46:52,740 --> 00:47:00,550
+let's say blood five pixels and color
+
+594
+00:46:56,980 --> 00:47:08,800
+let's say white okay now let's see if we
+
+595
+00:47:00,550 --> 00:47:17,220
+solved the problem refresh now let's
+
+596
+00:47:08,800 --> 00:47:18,370
+pick black and let's pick this black
+
+597
+00:47:17,220 --> 00:47:20,560
+excellent
+
+598
+00:47:18,370 --> 00:47:23,440
+now you can't now we have solved the
+
+599
+00:47:20,560 --> 00:47:28,090
+problem now the blur is a bit too big so
+
+600
+00:47:23,440 --> 00:47:31,350
+let's reduce the blur so it doesn't you
+
+601
+00:47:28,090 --> 00:47:31,350
+know it becomes small
+
+602
+00:47:38,150 --> 00:47:45,140
+yeah that's that's good that's what we
+
+603
+00:47:41,690 --> 00:47:49,910
+want so we actually we are done we can
+
+604
+00:47:45,140 --> 00:47:53,059
+consider it this is done today but this
+
+605
+00:47:49,910 --> 00:47:55,730
+more you know this is right now so we
+
+606
+00:47:53,059 --> 00:47:58,670
+have like prototype up there's more
+
+607
+00:47:55,730 --> 00:48:03,499
+details remember now the center of the
+
+608
+00:47:58,670 --> 00:48:06,829
+radius can be at the corner so we need
+
+609
+00:48:03,499 --> 00:48:08,900
+to create a user interface you know that
+
+610
+00:48:06,829 --> 00:48:11,119
+user change that so let's do that that's
+
+611
+00:48:08,900 --> 00:48:13,910
+that's very easy so how long I been
+
+612
+00:48:11,119 --> 00:48:16,130
+talking 48 minutes
+
+613
+00:48:13,910 --> 00:48:20,059
+great we are on time so let's do maybe
+
+614
+00:48:16,130 --> 00:48:25,279
+10 more minutes to make this to make
+
+615
+00:48:20,059 --> 00:48:28,609
+this complete so linear gradient radio
+
+616
+00:48:25,279 --> 00:48:31,549
+grade Radio gradient yeah let's add so
+
+617
+00:48:28,609 --> 00:48:34,009
+for possible corners but first of all we
+
+618
+00:48:31,549 --> 00:48:40,130
+need to find out what's the syntax so
+
+619
+00:48:34,009 --> 00:48:44,900
+the syntax is you just add the okay
+
+620
+00:48:40,130 --> 00:48:46,940
+circle a left top okay if you want it to
+
+621
+00:48:44,900 --> 00:48:49,160
+be centered then you don't have to add
+
+622
+00:48:46,940 --> 00:48:55,539
+anything but if you want to be the
+
+623
+00:48:49,160 --> 00:49:01,789
+corner you have to say circle a lisp at
+
+624
+00:48:55,539 --> 00:49:04,640
+you know left top or right bottom okay
+
+625
+00:49:01,789 --> 00:49:07,099
+let's do that let's complete this so
+
+626
+00:49:04,640 --> 00:49:17,089
+first of all we need to add a user
+
+627
+00:49:07,099 --> 00:49:20,269
+interface widget so Center so we need
+
+628
+00:49:17,089 --> 00:49:24,980
+what we need is radio boxes we need to
+
+629
+00:49:20,269 --> 00:49:31,960
+pick one thing at a time radio boxes so
+
+630
+00:49:24,980 --> 00:49:37,630
+let's see color picker radio button
+
+631
+00:49:31,960 --> 00:49:37,630
+that's what we want let's copy the code
+
+632
+00:49:38,980 --> 00:49:50,670
+so you say here you say
+
+633
+00:49:43,570 --> 00:50:00,250
+Center center you have several choices
+
+634
+00:49:50,670 --> 00:50:09,030
+Center let's remove that okay so you
+
+635
+00:50:00,250 --> 00:50:15,010
+have type Center no way type radio' name
+
+636
+00:50:09,030 --> 00:50:17,230
+Center value you don't care okay so
+
+637
+00:50:15,010 --> 00:50:22,440
+Center so you have several choices
+
+638
+00:50:17,230 --> 00:50:25,680
+Center top left top right bottom left
+
+639
+00:50:22,440 --> 00:50:25,680
+bottom right
+
+640
+00:50:38,400 --> 00:50:50,499
+okay the value we don't care so actually
+
+641
+00:50:44,229 --> 00:50:52,979
+the value is let's just type it out then
+
+642
+00:50:50,499 --> 00:50:52,979
+okay so
+
+643
+00:51:24,400 --> 00:51:31,750
+Center position
+
+644
+00:51:26,060 --> 00:51:36,640
+okay go back to browser and refresh
+
+645
+00:51:31,750 --> 00:51:40,700
+refresh excellent we have these choices
+
+646
+00:51:36,640 --> 00:51:46,510
+top left top right bottom left bottom
+
+647
+00:51:40,700 --> 00:51:47,900
+right fight five choices now let's add a
+
+648
+00:51:46,510 --> 00:51:57,740
+break
+
+649
+00:51:47,900 --> 00:52:07,760
+so okay we need to add more element
+
+650
+00:51:57,740 --> 00:52:15,740
+shape so shape you have choices of
+
+651
+00:52:07,760 --> 00:52:30,880
+circle okay then you have a choice of a
+
+652
+00:52:15,740 --> 00:52:30,880
+lisp okay so in browser you need a break
+
+653
+00:52:32,710 --> 00:52:39,650
+so yeah so the shape circle or Lisp
+
+654
+00:52:36,310 --> 00:52:44,030
+that's the user interface excellent now
+
+655
+00:52:39,650 --> 00:52:46,990
+let's let's call the JavaScript open the
+
+656
+00:52:44,030 --> 00:52:53,180
+JavaScript file at the top first of all
+
+657
+00:52:46,990 --> 00:52:56,150
+select the element you want actually in
+
+658
+00:52:53,180 --> 00:52:57,770
+this case in a case of radio box the way
+
+659
+00:52:56,150 --> 00:53:01,790
+you select them is a little bit
+
+660
+00:52:57,770 --> 00:53:03,730
+different because the radio box boxes
+
+661
+00:53:01,790 --> 00:53:06,650
+you want to select
+
+662
+00:53:03,730 --> 00:53:10,580
+you know the chosen one not you know
+
+663
+00:53:06,650 --> 00:53:13,760
+so the checked let's see how long you
+
+664
+00:53:10,580 --> 00:53:16,100
+don't that the property checked means
+
+665
+00:53:13,760 --> 00:53:18,800
+you know the current selected items so
+
+666
+00:53:16,100 --> 00:53:22,040
+by default you want the center to be
+
+667
+00:53:18,800 --> 00:53:25,130
+checked you should only have one of them
+
+668
+00:53:22,040 --> 00:53:31,220
+checked same thing with the circle it is
+
+669
+00:53:25,130 --> 00:53:32,830
+okay actually there's two close together
+
+670
+00:53:31,220 --> 00:53:35,940
+so we need
+
+671
+00:53:32,830 --> 00:53:35,940
+[Music]
+
+672
+00:53:44,590 --> 00:53:50,590
+okay that's better
+
+673
+00:53:47,560 --> 00:53:58,530
+and what's the result the result delete
+
+674
+00:53:50,590 --> 00:53:58,530
+that results we don't need that
+
+675
+00:54:03,890 --> 00:54:12,710
+yeah so so we got that and now we need
+
+676
+00:54:09,589 --> 00:54:18,920
+to get the values so how do you get the
+
+677
+00:54:12,710 --> 00:54:21,849
+values of a radio box we can tell by
+
+678
+00:54:18,920 --> 00:54:26,589
+looking the code here
+
+679
+00:54:21,849 --> 00:54:29,720
+radio boxes so you see we have the code
+
+680
+00:54:26,589 --> 00:54:35,509
+already there for you copy the pay and
+
+681
+00:54:29,720 --> 00:54:37,730
+paste the mastery of coding so let's see
+
+682
+00:54:35,509 --> 00:54:41,509
+let's put the code here and let's see
+
+683
+00:54:37,730 --> 00:54:49,849
+let's look up so shad show box ok so
+
+684
+00:54:41,509 --> 00:54:57,109
+show box we don't need let's go back to
+
+685
+00:54:49,849 --> 00:54:59,569
+HTML so the so the radio box radio box
+
+686
+00:54:57,109 --> 00:55:04,039
+you need to get the value of the radio
+
+687
+00:54:59,569 --> 00:55:10,849
+box so the way you do that is this is
+
+688
+00:55:04,039 --> 00:55:13,220
+how you do it these these two lines so
+
+689
+00:55:10,849 --> 00:55:17,710
+the way you do that is selected value
+
+690
+00:55:13,220 --> 00:55:21,670
+equals to document query selector that
+
+691
+00:55:17,710 --> 00:55:27,769
+allows you to you to pick an element of
+
+692
+00:55:21,670 --> 00:55:32,150
+particular pattern so so the pattern
+
+693
+00:55:27,769 --> 00:55:35,299
+will be input tag check so thats radio
+
+694
+00:55:32,150 --> 00:55:38,569
+box is an info tag then you need the
+
+695
+00:55:35,299 --> 00:55:42,079
+name equals through pets the name should
+
+696
+00:55:38,569 --> 00:55:46,039
+be equals to a center position so that
+
+697
+00:55:42,079 --> 00:55:49,430
+so far we selected every radio box of
+
+698
+00:55:46,039 --> 00:55:53,150
+the center position name then you say
+
+699
+00:55:49,430 --> 00:55:55,700
+checked then that is the item that's
+
+700
+00:55:53,150 --> 00:55:58,970
+being selected so that's what we want so
+
+701
+00:55:55,700 --> 00:56:02,269
+then you just say that value that gives
+
+702
+00:55:58,970 --> 00:56:08,839
+gives gives you the value so this will
+
+703
+00:56:02,269 --> 00:56:11,329
+be center position let's do this
+
+704
+00:56:08,839 --> 00:56:14,410
+actually let's do this here okay let's
+
+705
+00:56:11,329 --> 00:56:14,410
+do this like this
+
+706
+00:56:17,600 --> 00:56:27,620
+so center position is a list of items
+
+707
+00:56:23,480 --> 00:56:27,620
+why is just
+
+708
+00:56:33,790 --> 00:56:42,200
+it doesn't make sense to put it here
+
+709
+00:56:36,500 --> 00:56:45,170
+because because in order to get the
+
+710
+00:56:42,200 --> 00:56:47,180
+selected item this code needs to be
+
+711
+00:56:45,170 --> 00:56:50,410
+dynamic
+
+712
+00:56:47,180 --> 00:56:54,470
+you know because every time you know
+
+713
+00:56:50,410 --> 00:56:59,150
+people selected so this code needs to be
+
+714
+00:56:54,470 --> 00:57:04,520
+part of the update function you know
+
+715
+00:56:59,150 --> 00:57:07,069
+update function here therefore it cannot
+
+716
+00:57:04,520 --> 00:57:12,640
+be on top like that they are so let's
+
+717
+00:57:07,069 --> 00:57:20,859
+let's put it back so anyway that's it's
+
+718
+00:57:12,640 --> 00:57:20,859
+so update paste the code here then
+
+719
+00:57:20,980 --> 00:57:34,180
+position value center position value is
+
+720
+00:57:25,690 --> 00:57:45,700
+equals to that center position value and
+
+721
+00:57:34,180 --> 00:57:45,700
+once you have the value then you need to
+
+722
+00:57:50,920 --> 00:57:56,660
+ignore that part for now okay I'm gonna
+
+723
+00:57:53,960 --> 00:57:59,869
+show you what that code is later but
+
+724
+00:57:56,660 --> 00:58:03,530
+first of all we need to get a value once
+
+725
+00:57:59,869 --> 00:58:07,670
+we got the value we need to put into the
+
+726
+00:58:03,530 --> 00:58:14,200
+gradient box code here so he over here
+
+727
+00:58:07,670 --> 00:58:18,280
+we there's a coma then we here center
+
+728
+00:58:14,200 --> 00:58:20,930
+position value that's what we want okay
+
+729
+00:58:18,280 --> 00:58:27,260
+now this is not going to work because
+
+730
+00:58:20,930 --> 00:58:30,829
+the value needs to be one of you know it
+
+731
+00:58:27,260 --> 00:58:36,260
+needs to be circle at left top okay so
+
+732
+00:58:30,829 --> 00:58:36,829
+the the value needs to be we can do this
+
+733
+00:58:36,260 --> 00:58:41,030
+like this
+
+734
+00:58:36,829 --> 00:58:43,760
+okay so let's comment out the shape well
+
+735
+00:58:41,030 --> 00:58:46,819
+actually I'm trying to do this one item
+
+736
+00:58:43,760 --> 00:58:48,739
+at a time but in this case we
+
+737
+00:58:46,819 --> 00:58:51,410
+we need to do both of them at the same
+
+738
+00:58:48,739 --> 00:58:55,729
+time I cannot just finish this because
+
+739
+00:58:51,410 --> 00:58:59,239
+in order to have center at the corner
+
+740
+00:58:55,729 --> 00:59:04,160
+you need also to specify the circle or
+
+741
+00:58:59,239 --> 00:59:06,799
+release parameter I think so let me just
+
+742
+00:59:04,160 --> 00:59:11,479
+let's just let me just quickly finish
+
+743
+00:59:06,799 --> 00:59:23,289
+this up if I can circle ad ad right
+
+744
+00:59:11,479 --> 00:59:23,289
+bottom had circle and Center I think so
+
+745
+00:59:35,710 --> 00:59:44,680
+this is getting tedious this is getting
+
+746
+00:59:39,740 --> 00:59:44,680
+tedious so so call center position value
+
+747
+00:59:47,230 --> 01:00:01,369
+let's just say 1 2 3 4 ok 0 1 2 3 4 ok
+
+748
+00:59:56,950 --> 01:00:03,910
+let's go back to JavaScript so center
+
+749
+01:00:01,369 --> 01:00:03,910
+position
+
+750
+01:00:05,980 --> 01:00:08,980
+if
+
+751
+01:00:29,559 --> 01:00:35,200
+and let's just Cody's of quickly like
+
+752
+01:00:33,170 --> 01:00:35,200
+that
+
+753
+01:00:41,220 --> 01:00:48,800
+oh wait
+
+754
+01:01:04,990 --> 01:01:17,570
+okay bottom left bottom right okay so we
+
+755
+01:01:12,320 --> 01:01:20,660
+got a position then we got position this
+
+756
+01:01:17,570 --> 01:01:33,460
+is going to try refresh the browser it's
+
+757
+01:01:20,660 --> 01:01:33,460
+going to be an error because let
+
+758
+01:02:03,240 --> 01:02:12,390
+so Center position value get a value
+
+759
+01:02:06,839 --> 01:02:15,089
+then that position be zero one two three
+
+760
+01:02:12,390 --> 01:02:19,950
+four top left top right bottom left
+
+761
+01:02:15,089 --> 01:02:23,760
+bottom right so then we say Circle add
+
+762
+01:02:19,950 --> 01:02:27,680
+position so what is wrong with that I
+
+763
+01:02:23,760 --> 01:02:32,010
+don't see what's wrong with that
+
+764
+01:02:27,680 --> 01:02:35,220
+so radio circle at undefined that is the
+
+765
+01:02:32,010 --> 01:02:38,820
+problem undefined so it's not getting a
+
+766
+01:02:35,220 --> 01:02:42,080
+value so the center position value that
+
+767
+01:02:38,820 --> 01:02:42,080
+is not getting it
+
+768
+01:02:51,450 --> 01:02:57,359
+zero one two three oh that's those are
+
+769
+01:02:54,819 --> 01:03:00,819
+streams wait
+
+770
+01:02:57,359 --> 01:03:04,990
+stupid JavaScript these are strings not
+
+771
+01:03:00,819 --> 01:03:09,099
+numbers and I'm using the triple equal
+
+772
+01:03:04,990 --> 01:03:13,589
+which does not convert type it does not
+
+773
+01:03:09,099 --> 01:03:18,279
+do auto casting that is why yeah yay
+
+774
+01:03:13,589 --> 01:03:20,799
+okay so we got top left okay now we
+
+775
+01:03:18,279 --> 01:03:23,980
+click top bottom you know we click one
+
+776
+01:03:20,799 --> 01:03:26,890
+of these it's not changing because we we
+
+777
+01:03:23,980 --> 01:03:30,279
+don't have event for those radio boxes
+
+778
+01:03:26,890 --> 01:03:35,140
+now let's add radio boxes event which is
+
+779
+01:03:30,279 --> 01:03:40,749
+this code so a rave foam so we have
+
+780
+01:03:35,140 --> 01:03:42,279
+document query select or input input
+
+781
+01:03:40,749 --> 01:03:45,849
+center position
+
+782
+01:03:42,279 --> 01:03:49,059
+center position okay so we select all
+
+783
+01:03:45,849 --> 01:03:53,019
+the radio boxes for center position then
+
+784
+01:03:49,059 --> 01:04:00,789
+we the result is in collect HTML
+
+785
+01:03:53,019 --> 01:04:04,499
+collection or not not least you know
+
+786
+01:04:00,789 --> 01:04:08,200
+that's technicalities of Dom by anyway
+
+787
+01:04:04,499 --> 01:04:11,440
+so usually they are not arrayed type so
+
+788
+01:04:08,200 --> 01:04:14,980
+you don't have array methods but we can
+
+789
+01:04:11,440 --> 01:04:17,799
+convert to array by using a wave form so
+
+790
+01:04:14,980 --> 01:04:24,519
+now we got an array then for each
+
+791
+01:04:17,799 --> 01:04:26,619
+element for each element we we we apply
+
+792
+01:04:24,519 --> 01:04:30,489
+this function which which is add an
+
+793
+01:04:26,619 --> 01:04:35,289
+event listener X dot add event listener
+
+794
+01:04:30,489 --> 01:04:37,390
+input so yeah so we add event to call
+
+795
+01:04:35,289 --> 01:04:44,789
+the function update now it should walk
+
+796
+01:04:37,390 --> 01:04:44,789
+refresh yay now it works okay
+
+797
+01:04:45,539 --> 01:04:51,069
+now the circle and atleast that's simple
+
+798
+01:04:49,089 --> 01:04:54,220
+it should be done in one minute okay so
+
+799
+01:04:51,069 --> 01:04:58,869
+let's go back to the HTML code shape
+
+800
+01:04:54,220 --> 01:05:03,849
+circle or release okay shape shape
+
+801
+01:04:58,869 --> 01:05:04,839
+circle it is that's right so we go back
+
+802
+01:05:03,849 --> 01:05:07,299
+to
+
+803
+01:05:04,839 --> 01:05:13,239
+open the file and open the javascript
+
+804
+01:05:07,299 --> 01:05:21,999
+file and now we need to so in the update
+
+805
+01:05:13,239 --> 01:05:32,079
+function we add Center okay we add a
+
+806
+01:05:21,999 --> 01:05:37,150
+center code not center shape shape code
+
+807
+01:05:32,079 --> 01:05:41,979
+so shape we are equals to select let's
+
+808
+01:05:37,150 --> 01:05:45,069
+show the HTML file shape so named shapes
+
+809
+01:05:41,979 --> 01:05:48,999
+select all the radio boxes with the name
+
+810
+01:05:45,069 --> 01:05:59,410
+shape and select the one that's checked
+
+811
+01:05:48,999 --> 01:06:03,789
+okay and let's see the syntax you circle
+
+812
+01:05:59,410 --> 01:06:08,019
+add it is head okay so we select we
+
+813
+01:06:03,789 --> 01:06:12,390
+select the shape and then we get value
+
+814
+01:06:08,019 --> 01:06:21,640
+okay so shape value okay
+
+815
+01:06:12,390 --> 01:06:29,979
+and now now we add this shape value into
+
+816
+01:06:21,640 --> 01:06:35,079
+here evaluate it dynamically so we got a
+
+817
+01:06:29,979 --> 01:06:36,369
+shape value either circle it is so that
+
+818
+01:06:35,079 --> 01:06:45,430
+should be it
+
+819
+01:06:36,369 --> 01:06:54,249
+refresh change way tops right circle it
+
+820
+01:06:45,430 --> 01:06:56,999
+is okay Elise is not working because it
+
+821
+01:06:54,249 --> 01:06:56,999
+is ad
+
+822
+01:07:00,619 --> 01:07:14,960
+what is the value Radio gradient e al
+
+823
+01:07:05,089 --> 01:07:21,019
+IPS e and e I up IPS Yi that spelled
+
+824
+01:07:14,960 --> 01:07:23,210
+correctly a lisp ad oh the reason it's
+
+825
+01:07:21,019 --> 01:07:26,210
+not showing it is because we have a
+
+826
+01:07:23,210 --> 01:07:30,229
+square box that is why I think that is
+
+827
+01:07:26,210 --> 01:07:38,539
+why so let's if we modify the hate to be
+
+828
+01:07:30,229 --> 01:07:43,519
+let's say 200 then pick a list we need
+
+829
+01:07:38,539 --> 01:07:56,660
+add event for the release so let's add
+
+830
+01:07:43,519 --> 01:08:00,579
+an event for the release ok refresh in
+
+831
+01:07:56,660 --> 01:08:00,579
+this it works
+
+832
+01:08:01,329 --> 01:08:07,339
+so okay that that should be it today for
+
+833
+01:08:06,019 --> 01:08:10,640
+people watching ok thank you for
+
+834
+01:08:07,339 --> 01:08:13,869
+watching that we we want to write this
+
+835
+01:08:10,640 --> 01:08:17,750
+application and it's working correctly
+
+836
+01:08:13,869 --> 01:08:22,759
+that we achieved our goal let's let's
+
+837
+01:08:17,750 --> 01:08:26,920
+let's try some some fun colors let's see
+
+838
+01:08:22,759 --> 01:08:30,980
+if we can get something sharp
+
+839
+01:08:26,920 --> 01:08:33,529
+interesting oh ok the so next thing we
+
+840
+01:08:30,980 --> 01:08:36,739
+need to do we need a we need to add more
+
+841
+01:08:33,529 --> 01:08:42,170
+colors and we need to add a random color
+
+842
+01:08:36,739 --> 01:08:44,569
+option you know a random option so
+
+843
+01:08:42,170 --> 01:08:48,290
+should we do that so if you guys like me
+
+844
+01:08:44,569 --> 01:08:51,440
+to see me to continue coding this to you
+
+845
+01:08:48,290 --> 01:08:56,060
+know add a random color option and also
+
+846
+01:08:51,440 --> 01:09:01,429
+a number of colors let me know you know
+
+847
+01:08:56,060 --> 01:09:03,830
+type in the in a box but otherwise we
+
+848
+01:09:01,429 --> 01:09:08,589
+are done you know today we we got this
+
+849
+01:09:03,830 --> 01:09:08,589
+is what we want which is good
+
+850
+01:09:09,280 --> 01:09:15,580
+okay thank you for watching have a good
+
+851
+01:09:13,130 --> 01:09:15,580
+day I
+

@@ -1,0 +1,3452 @@
+1
+00:00:13,780 --> 00:00:18,610
+hello guys everyone good morning oh good
+
+2
+00:00:17,800 --> 00:00:22,900
+afternoon
+
+3
+00:00:18,610 --> 00:00:26,619
+oh good night oh good evening so today
+
+4
+00:00:22,900 --> 00:00:28,720
+I'm going to talk about Emacs the main
+
+5
+00:00:26,619 --> 00:00:33,250
+topic is going to be I'm going to
+
+6
+00:00:28,720 --> 00:00:38,110
+demonstrate a HTML mod and I'm going to
+
+7
+00:00:33,250 --> 00:00:40,120
+talk about writing HTML raw raw meaning
+
+8
+00:00:38,110 --> 00:00:44,620
+you you you type
+
+9
+00:00:40,120 --> 00:00:47,079
+you almost type every tag manually with
+
+10
+00:00:44,620 --> 00:00:50,860
+the help of Emacs commands so you
+
+11
+00:00:47,079 --> 00:00:55,000
+actually don't type any tags and I'm
+
+12
+00:00:50,860 --> 00:00:57,579
+going to talk about using XHTML mod
+
+13
+00:00:55,000 --> 00:01:03,250
+versus using oak mod or any other
+
+14
+00:00:57,579 --> 00:01:05,289
+content management system so hi guys so
+
+15
+00:01:03,250 --> 00:01:07,810
+if you have any questions you know so
+
+16
+00:01:05,289 --> 00:01:11,649
+today's topic is going to be focused on
+
+17
+00:01:07,810 --> 00:01:15,160
+Emacs so please to keep the comment
+
+18
+00:01:11,649 --> 00:01:17,320
+coming you know type any anything you
+
+19
+00:01:15,160 --> 00:01:20,740
+rate it to Emacs you can just type it
+
+20
+00:01:17,320 --> 00:01:28,119
+type in the chat box here okay let me
+
+21
+00:01:20,740 --> 00:01:30,580
+let me say it so type your comments ask
+
+22
+00:01:28,119 --> 00:01:33,790
+any questions anything related to Emacs
+
+23
+00:01:30,580 --> 00:01:35,259
+any questions you have or when I said if
+
+24
+00:01:33,790 --> 00:01:36,400
+I said something you have a question
+
+25
+00:01:35,259 --> 00:01:40,360
+just ask for it
+
+26
+00:01:36,400 --> 00:01:46,720
+I'll check the comment every few minutes
+
+27
+00:01:40,360 --> 00:01:48,670
+and so so let's stop let's begin so we
+
+28
+00:01:46,720 --> 00:01:50,950
+have one person watching her good
+
+29
+00:01:48,670 --> 00:01:54,700
+morning and but first of all let me
+
+30
+00:01:50,950 --> 00:01:56,820
+start to show the command log mod so you
+
+31
+00:01:54,700 --> 00:01:59,860
+can see every command I call you max
+
+32
+00:01:56,820 --> 00:02:02,619
+I've done this a few times but I'm gonna
+
+33
+00:01:59,860 --> 00:02:04,470
+show you something okay hold on a second
+
+34
+00:02:02,619 --> 00:02:08,259
+I mean let me tell you what I'm gonna do
+
+35
+00:02:04,470 --> 00:02:10,840
+so this is my email okay so let me show
+
+36
+00:02:08,259 --> 00:02:13,329
+you what what it is
+
+37
+00:02:10,840 --> 00:02:15,880
+come on rock mod so go to my app at the
+
+38
+00:02:13,329 --> 00:02:19,900
+rectory local directory and go to
+
+39
+00:02:15,880 --> 00:02:27,370
+command knock mod so now let's go to
+
+40
+00:02:19,900 --> 00:02:31,900
+okay go to top eval eval eval so
+
+41
+00:02:27,370 --> 00:02:34,690
+here every every commands I call you max
+
+42
+00:02:31,900 --> 00:02:37,629
+your show on the left window
+
+43
+00:02:34,690 --> 00:02:40,510
+on this window so but there are a few
+
+44
+00:02:37,629 --> 00:02:43,930
+things I want to do first now you can
+
+45
+00:02:40,510 --> 00:02:46,450
+see this package I downloaded from my
+
+46
+00:02:43,930 --> 00:02:50,379
+Appa you can tell because it's in the
+
+47
+00:02:46,450 --> 00:02:53,680
+Alpha directory but since I started to
+
+48
+00:02:50,379 --> 00:02:58,000
+do video I use that I use this package
+
+49
+00:02:53,680 --> 00:03:02,230
+so often so I'm going to move it to my
+
+50
+00:02:58,000 --> 00:03:04,750
+local local file system you know not not
+
+51
+00:03:02,230 --> 00:03:06,879
+using my Appa you know well they are
+
+52
+00:03:04,750 --> 00:03:08,920
+already in my local file system but I
+
+53
+00:03:06,879 --> 00:03:12,810
+mean just I'm going to move it out of
+
+54
+00:03:08,920 --> 00:03:16,450
+the Alpha directory so let's do that
+
+55
+00:03:12,810 --> 00:03:21,420
+let's do settings so this is my Emacs
+
+56
+00:03:16,450 --> 00:03:25,569
+directory gets a Emacs in it it sunk it
+
+57
+00:03:21,420 --> 00:03:35,919
+so I'm going to okay split the pen
+
+58
+00:03:25,569 --> 00:03:39,329
+switch to command lock my wait okay okay
+
+59
+00:03:35,919 --> 00:03:43,269
+switch the pen switch to command log mod
+
+60
+00:03:39,329 --> 00:03:47,250
+file go to the directory diet jump and
+
+61
+00:03:43,269 --> 00:03:53,129
+I'm going to copy this file copy it over
+
+62
+00:03:47,250 --> 00:03:57,609
+so you see this is here now I'm going to
+
+63
+00:03:53,129 --> 00:04:01,989
+copy the copy the file path and go to my
+
+64
+00:03:57,609 --> 00:04:05,799
+Emacs in it this is the my starting file
+
+65
+00:04:01,989 --> 00:04:09,760
+for my Emacs in it so I'm going to put
+
+66
+00:04:05,799 --> 00:04:15,340
+that file somewhere here so let's see so
+
+67
+00:04:09,760 --> 00:04:18,209
+let's expand window let's see what do I
+
+68
+00:04:15,340 --> 00:04:18,209
+want to put it
+
+69
+00:04:23,930 --> 00:04:32,570
+okay let's put it here so copy that
+
+70
+00:04:27,949 --> 00:04:40,820
+paste it and here is a path and let's
+
+71
+00:04:32,570 --> 00:04:43,250
+see wait delete delete again keep the
+
+72
+00:04:40,820 --> 00:04:46,180
+comment going so I'll check check it and
+
+73
+00:04:43,250 --> 00:04:49,100
+you know if you have a questions ask it
+
+74
+00:04:46,180 --> 00:04:50,539
+and also let me know you know if I'm
+
+75
+00:04:49,100 --> 00:04:56,560
+going too fast or too slow
+
+76
+00:04:50,539 --> 00:04:56,560
+um so let's go okay so I want to find
+
+77
+00:04:57,430 --> 00:05:14,180
+okay okay here is what I want so copy
+
+78
+00:05:04,970 --> 00:05:19,310
+that paste delete that and require okay
+
+79
+00:05:14,180 --> 00:05:23,509
+so let's see so here is a provide
+
+80
+00:05:19,310 --> 00:05:29,120
+command log mod so I want that copy it
+
+81
+00:05:23,509 --> 00:05:33,050
+close and so I just say require command
+
+82
+00:05:29,120 --> 00:05:40,880
+lock mod and I don't need the other
+
+83
+00:05:33,050 --> 00:05:45,440
+things that's right because you see this
+
+84
+00:05:40,880 --> 00:05:47,800
+file command lock Mario is now in my in
+
+85
+00:05:45,440 --> 00:05:50,750
+this directory and this directory
+
+86
+00:05:47,800 --> 00:05:53,449
+directory is already in the load already
+
+87
+00:05:50,750 --> 00:05:59,449
+in the load path so that should be it
+
+88
+00:05:53,449 --> 00:06:02,360
+now meanwhile I go back to the airport
+
+89
+00:05:59,449 --> 00:06:04,909
+directory and actually I'm just going to
+
+90
+00:06:02,360 --> 00:06:07,580
+delete the whole thing to read the whole
+
+91
+00:06:04,909 --> 00:06:10,520
+directory you can do that by the way you
+
+92
+00:06:07,580 --> 00:06:15,229
+know if you you can do that but instead
+
+93
+00:06:10,520 --> 00:06:22,090
+of just deleted let's just rename it so
+
+94
+00:06:15,229 --> 00:06:24,849
+let's just rename it oops
+
+95
+00:06:22,090 --> 00:06:28,070
+let's give it today's date
+
+96
+00:06:24,849 --> 00:06:30,500
+you know it's a backup well actually
+
+97
+00:06:28,070 --> 00:06:32,990
+let's move it out of the directory so
+
+98
+00:06:30,500 --> 00:06:37,550
+move it out so go to the parent
+
+99
+00:06:32,990 --> 00:06:41,539
+directory and mark mark
+
+100
+00:06:37,550 --> 00:06:47,569
+move so they are moved to the parent
+
+101
+00:06:41,539 --> 00:06:51,319
+directory which is not in local file
+
+102
+00:06:47,569 --> 00:06:56,380
+path load path anyway it's moved there
+
+103
+00:06:51,319 --> 00:07:01,280
+so let's just close it close it close it
+
+104
+00:06:56,380 --> 00:07:03,789
+close it and quit Emacs let's restart
+
+105
+00:07:01,280 --> 00:07:03,789
+Emacs
+
+106
+00:07:10,050 --> 00:07:17,910
+so if you have a question keep it type
+
+107
+00:07:13,210 --> 00:07:21,900
+it just type it so I'll see it
+
+108
+00:07:17,910 --> 00:07:32,170
+so now I just restarted we started Emacs
+
+109
+00:07:21,900 --> 00:07:34,840
+now let's go to settings my local Emacs
+
+110
+00:07:32,170 --> 00:07:43,510
+settings directory jump to the directory
+
+111
+00:07:34,840 --> 00:07:48,360
+and oops command log mod open it go to
+
+112
+00:07:43,510 --> 00:07:52,990
+the top then let's see if it works
+
+113
+00:07:48,360 --> 00:07:58,060
+execute execute execute okay there it is
+
+114
+00:07:52,990 --> 00:08:03,130
+it's working and now because I use this
+
+115
+00:07:58,060 --> 00:08:06,040
+this this smart so often I want to write
+
+116
+00:08:03,130 --> 00:08:09,390
+command I want to write a Emacs command
+
+117
+00:08:06,040 --> 00:08:14,250
+so that I just go it without having to
+
+118
+00:08:09,390 --> 00:08:18,580
+you know open the file and each time and
+
+119
+00:08:14,250 --> 00:08:22,570
+run the list code so you know without
+
+120
+00:08:18,580 --> 00:08:27,610
+doing that so let's go back to go to the
+
+121
+00:08:22,570 --> 00:08:29,890
+directory log open the file so basically
+
+122
+00:08:27,610 --> 00:08:33,760
+I want to write a comment that learn
+
+123
+00:08:29,890 --> 00:08:36,490
+these three lines command log mod global
+
+124
+00:08:33,760 --> 00:08:40,599
+command log mod then CRM open command
+
+125
+00:08:36,490 --> 00:08:45,370
+log buffer so let's let's do it so I'm
+
+126
+00:08:40,599 --> 00:08:47,760
+going to go with I'm gonna go over here
+
+127
+00:08:45,370 --> 00:08:52,089
+it's open
+
+128
+00:08:47,760 --> 00:08:54,670
+sorry max miss so this this is a
+
+129
+00:08:52,089 --> 00:08:57,370
+miscellaneous Emacs Lisp code so let's
+
+130
+00:08:54,670 --> 00:09:02,740
+just go to the bottom make a backup copy
+
+131
+00:08:57,370 --> 00:09:03,640
+and let's start code defend or not
+
+132
+00:09:02,740 --> 00:09:09,040
+delete file
+
+133
+00:09:03,640 --> 00:09:18,130
+Tiffin okay the the name of the command
+
+134
+00:09:09,040 --> 00:09:24,100
+will be a start command log okay
+
+135
+00:09:18,130 --> 00:09:33,029
+that should be fine and star the CIM
+
+136
+00:09:24,100 --> 00:09:37,480
+analog mod okay and put that there so
+
+137
+00:09:33,029 --> 00:09:42,550
+that so that when you do describe
+
+138
+00:09:37,480 --> 00:09:46,389
+function this name will be linked so
+
+139
+00:09:42,550 --> 00:09:55,569
+user can click it so start the command
+
+140
+00:09:46,389 --> 00:10:02,529
+log mod globally g GL obal y version
+
+141
+00:09:55,569 --> 00:10:04,990
+today's date okay and oh it's going to
+
+142
+00:10:02,529 --> 00:10:11,100
+do is just call these three commands so
+
+143
+00:10:04,990 --> 00:10:11,100
+copy it switch it back put it here
+
+144
+00:10:12,750 --> 00:10:20,250
+remove remove the comment remove the
+
+145
+00:10:16,269 --> 00:10:24,610
+comment remove the comment okay intended
+
+146
+00:10:20,250 --> 00:10:28,449
+intended well actually we don't need the
+
+147
+00:10:24,610 --> 00:10:31,959
+lead so actually so let's do let's clean
+
+148
+00:10:28,449 --> 00:10:33,399
+it up we don't need the left indent so
+
+149
+00:10:31,959 --> 00:10:38,680
+that's good
+
+150
+00:10:33,399 --> 00:10:44,920
+so evaluated that looks good let's
+
+151
+00:10:38,680 --> 00:10:51,459
+restart Emacs quit oh he asked me do I
+
+152
+00:10:44,920 --> 00:10:58,829
+want to save no I don't want to save so
+
+153
+00:10:51,459 --> 00:10:58,829
+quit Emacs we start in UX go
+
+154
+00:11:00,170 --> 00:11:13,790
+so I'm doing okay am i doing okay
+
+155
+00:11:03,140 --> 00:11:19,280
+oh so back to you max it's put the
+
+156
+00:11:13,790 --> 00:11:23,480
+window in the right place okay so you
+
+157
+00:11:19,280 --> 00:11:25,790
+see now I'm ready to call my new command
+
+158
+00:11:23,480 --> 00:11:33,410
+i just wrote cuz i'll start command log
+
+159
+00:11:25,790 --> 00:11:37,820
+mod so I'm gonna MX hold on justice so
+
+160
+00:11:33,410 --> 00:11:41,810
+okay copy MX paste cuz I'll start
+
+161
+00:11:37,820 --> 00:11:47,030
+command log mod actually I want to start
+
+162
+00:11:41,810 --> 00:11:51,860
+it on from this window so MX start
+
+163
+00:11:47,030 --> 00:11:58,580
+command log mod yay it works it worked
+
+164
+00:11:51,860 --> 00:12:00,140
+so you see that's very convenient okay
+
+165
+00:11:58,580 --> 00:12:07,850
+close that window we don't need it
+
+166
+00:12:00,140 --> 00:12:10,970
+anymore hey green deck I want to use
+
+167
+00:12:07,850 --> 00:12:16,070
+Emacs for note-taking like Todd okay so
+
+168
+00:12:10,970 --> 00:12:19,130
+I so there's a question I want to use
+
+169
+00:12:16,070 --> 00:12:21,950
+Emacs for note-taking like top like
+
+170
+00:12:19,130 --> 00:12:24,950
+taking notes when reading books or
+
+171
+00:12:21,950 --> 00:12:27,920
+something not for programming right now
+
+172
+00:12:24,950 --> 00:12:32,330
+it seems like oak mod is best for me but
+
+173
+00:12:27,920 --> 00:12:35,420
+do you have any advice for me oak mark I
+
+174
+00:12:32,330 --> 00:12:38,420
+would suggest yeah just use oak mod you
+
+175
+00:12:35,420 --> 00:12:42,140
+know that that's that's very suitable
+
+176
+00:12:38,420 --> 00:12:44,420
+suitable for that purpose but however
+
+177
+00:12:42,140 --> 00:12:48,290
+what I'm going to talk about is I'm
+
+178
+00:12:44,420 --> 00:12:52,930
+going to use HTML mod because I have
+
+179
+00:12:48,290 --> 00:12:57,590
+been writing HTML by hand since 1995
+
+180
+00:12:52,930 --> 00:13:01,160
+almost basically when HTML because I was
+
+181
+00:12:57,590 --> 00:13:04,160
+there you know so I'm used to doing that
+
+182
+00:13:01,160 --> 00:13:07,520
+and today for example this is my blog I
+
+183
+00:13:04,160 --> 00:13:10,620
+mean if every notes even for example
+
+184
+00:13:07,520 --> 00:13:15,700
+this is a new buffer hold on a second
+
+185
+00:13:10,620 --> 00:13:17,649
+so okay so new buffer now you remember
+
+186
+00:13:15,700 --> 00:13:20,139
+every command ICO is gonna show up on
+
+187
+00:13:17,649 --> 00:13:22,240
+the left so if you wonder what key I
+
+188
+00:13:20,139 --> 00:13:23,950
+just pressed you can just look up on the
+
+189
+00:13:22,240 --> 00:13:28,449
+left and the command name
+
+190
+00:13:23,950 --> 00:13:34,079
+so anyway new buffer switch to HTML mod
+
+191
+00:13:28,449 --> 00:13:39,610
+and HTML edge and I got a template and
+
+192
+00:13:34,079 --> 00:13:45,639
+something okay I just discovered this
+
+193
+00:13:39,610 --> 00:13:48,070
+book math is great okay for example you
+
+194
+00:13:45,639 --> 00:13:52,660
+know put a paragraph and remove the
+
+195
+00:13:48,070 --> 00:13:58,630
+something new book let's say 'wait a new
+
+196
+00:13:52,660 --> 00:14:01,410
+book too and I also want to set the
+
+197
+00:13:58,630 --> 00:14:05,110
+title okay let's do that
+
+198
+00:14:01,410 --> 00:14:09,010
+say the title new book ok view in
+
+199
+00:14:05,110 --> 00:14:14,949
+browser Oh save it I need to save it was
+
+200
+00:14:09,010 --> 00:14:18,730
+so xxx dot HTML xxx is kind kind of my
+
+201
+00:14:14,949 --> 00:14:25,300
+temp name wrong type of argument why is
+
+202
+00:14:18,730 --> 00:14:28,930
+that anyway
+
+203
+00:14:25,300 --> 00:14:34,079
+view in browser so there it is you know
+
+204
+00:14:28,930 --> 00:14:38,199
+so you know this is like taking notes so
+
+205
+00:14:34,079 --> 00:14:41,110
+if you look at the keystrokes I mean you
+
+206
+00:14:38,199 --> 00:14:44,470
+can you can write this whole thing in
+
+207
+00:14:41,110 --> 00:14:53,970
+oak mod for example let's try it new
+
+208
+00:14:44,470 --> 00:14:58,350
+buffer MX oak mod okay hinto okay and
+
+209
+00:14:53,970 --> 00:15:02,640
+let's save it actually X X X dot hog
+
+210
+00:14:58,350 --> 00:15:07,980
+temp file name okay and I can say I
+
+211
+00:15:02,640 --> 00:15:07,980
+forgot what's the oak title something
+
+212
+00:15:10,260 --> 00:15:19,200
+title new book
+
+213
+00:15:13,220 --> 00:15:25,050
+okay then new book then you just type
+
+214
+00:15:19,200 --> 00:15:31,529
+these okay type that so there it is I
+
+215
+00:15:25,050 --> 00:15:35,220
+think this is the same thing but okay so
+
+216
+00:15:31,529 --> 00:15:40,079
+because I'm so used to HTML so I'm just
+
+217
+00:15:35,220 --> 00:15:44,370
+you know I don't find this way okay this
+
+218
+00:15:40,079 --> 00:15:49,380
+is of mud let me magnify so I don't find
+
+219
+00:15:44,370 --> 00:15:53,190
+using oak mud this way saves me time no
+
+220
+00:15:49,380 --> 00:15:57,390
+does it saves me keystrokes you know I
+
+221
+00:15:53,190 --> 00:16:01,010
+I'm I'm I'm as fast as writing the HTML
+
+222
+00:15:57,390 --> 00:16:06,360
+mod by itself I mean just creating HTML
+
+223
+00:16:01,010 --> 00:16:07,980
+tags well because I mean the reason is
+
+224
+00:16:06,360 --> 00:16:10,769
+because I'm used to it because I've been
+
+225
+00:16:07,980 --> 00:16:18,300
+coding HTML for you know you know since
+
+226
+00:16:10,769 --> 00:16:21,870
+1995 so what I'm saying is that for you
+
+227
+00:16:18,300 --> 00:16:25,350
+if you are not a programmer and if you
+
+228
+00:16:21,870 --> 00:16:28,320
+just want to take notes go with oak mod
+
+229
+00:16:25,350 --> 00:16:31,800
+oak mod is you know it's designed for
+
+230
+00:16:28,320 --> 00:16:34,910
+that it's got lots of features you can
+
+231
+00:16:31,800 --> 00:16:38,180
+export to HTML for example let's try it
+
+232
+00:16:34,910 --> 00:16:42,540
+okay I don't remember what's the key for
+
+233
+00:16:38,180 --> 00:16:47,010
+export and see so whenever you don't
+
+234
+00:16:42,540 --> 00:16:49,199
+know any command in a new major mod like
+
+235
+00:16:47,010 --> 00:16:53,870
+right now I want to find out what is the
+
+236
+00:16:49,199 --> 00:16:57,209
+command okie to Co to export the oak mod
+
+237
+00:16:53,870 --> 00:17:01,199
+so whenever you have that problem in any
+
+238
+00:16:57,209 --> 00:17:08,669
+mod you can just go describe mod okay so
+
+239
+00:17:01,199 --> 00:17:13,709
+let's try Amex describe mod okay then
+
+240
+00:17:08,669 --> 00:17:18,720
+Emacs will pop up this window let's
+
+241
+00:17:13,709 --> 00:17:21,059
+expand it the first section we it will
+
+242
+00:17:18,720 --> 00:17:23,610
+tell you what minor mod are turned on
+
+243
+00:17:21,059 --> 00:17:25,250
+usually just ignore it like you know
+
+244
+00:17:23,610 --> 00:17:28,730
+usually you know
+
+245
+00:17:25,250 --> 00:17:31,970
+so so then from here on it's about oak
+
+246
+00:17:28,730 --> 00:17:34,970
+mud because right now I'm in augment so
+
+247
+00:17:31,970 --> 00:17:37,970
+it tells you you know all the keystrokes
+
+248
+00:17:34,970 --> 00:17:41,380
+and other commands this particular major
+
+249
+00:17:37,970 --> 00:17:45,730
+mode provides so I'm looking for the
+
+250
+00:17:41,380 --> 00:17:52,670
+HTML export command so I just search for
+
+251
+00:17:45,730 --> 00:17:57,160
+HTML oh wait it's not there so search
+
+252
+00:17:52,670 --> 00:18:01,850
+for export instead such oh there it is
+
+253
+00:17:57,160 --> 00:18:10,160
+see see see II so that means ctrl c ctrl
+
+254
+00:18:01,850 --> 00:18:13,280
+e close it so let's try ctrl c ctrl e ok
+
+255
+00:18:10,160 --> 00:18:16,340
+it asked me what kind of file do I want
+
+256
+00:18:13,280 --> 00:18:25,430
+to export I want to export to HTML I
+
+257
+00:18:16,340 --> 00:18:29,030
+type H and type H again because I want
+
+258
+00:18:25,430 --> 00:18:33,290
+to export it to a file so type H so it's
+
+259
+00:18:29,030 --> 00:18:37,130
+done now go to the directory tired jump
+
+260
+00:18:33,290 --> 00:18:41,990
+you can see here is our HTML file it is
+
+261
+00:18:37,130 --> 00:18:44,060
+just generated so open that we read from
+
+262
+00:18:41,990 --> 00:18:47,030
+disk Lea ok apparently it's already
+
+263
+00:18:44,060 --> 00:18:50,110
+opened so you can see here is a
+
+264
+00:18:47,030 --> 00:18:54,620
+generated file it's pretty agree
+
+265
+00:18:50,110 --> 00:19:02,720
+you know whenever you've got a generated
+
+266
+00:18:54,620 --> 00:19:06,620
+HTML it's usually ugly so anyway so you
+
+267
+00:19:02,720 --> 00:19:07,820
+know so if you are writing ok so if you
+
+268
+00:19:06,620 --> 00:19:11,420
+just want to take notes
+
+269
+00:19:07,820 --> 00:19:15,200
+you know oak mark oak mod is perfect
+
+270
+00:19:11,420 --> 00:19:18,140
+however if you are a programmer you know
+
+271
+00:19:15,200 --> 00:19:20,240
+you've been programming for 10 years I
+
+272
+00:19:18,140 --> 00:19:22,580
+mean eventually you will be programming
+
+273
+00:19:20,240 --> 00:19:24,590
+for 10 years so you you know you are a
+
+274
+00:19:22,580 --> 00:19:34,330
+programmer you have some experience at
+
+275
+00:19:24,590 --> 00:19:37,900
+least programming and then I would
+
+276
+00:19:34,330 --> 00:19:39,480
+recommend possibly that you want to
+
+277
+00:19:37,900 --> 00:19:45,450
+write H
+
+278
+00:19:39,480 --> 00:19:49,049
+raw instead instead because when you
+
+279
+00:19:45,450 --> 00:19:58,350
+write HTML raw you have several
+
+280
+00:19:49,049 --> 00:20:01,110
+advantages well let's get to that for
+
+281
+00:19:58,350 --> 00:20:02,909
+example well one example is that you
+
+282
+00:20:01,110 --> 00:20:04,470
+know look at look at this output
+
+283
+00:20:02,909 --> 00:20:08,789
+generated by old Mart
+
+284
+00:20:04,470 --> 00:20:12,000
+huge amount of like garbage I mean they
+
+285
+00:20:08,789 --> 00:20:17,130
+they are you know look I mean I got this
+
+286
+00:20:12,000 --> 00:20:21,929
+title and you know paragraph I don't
+
+287
+00:20:17,130 --> 00:20:24,360
+need this you know whole bunch of CA CSS
+
+288
+00:20:21,929 --> 00:20:26,250
+you know because it's you know template
+
+289
+00:20:24,360 --> 00:20:30,630
+template based for example let's just
+
+290
+00:20:26,250 --> 00:20:33,240
+delete the whole thing did a whole style
+
+291
+00:20:30,630 --> 00:20:38,220
+you don't need it you know it looks
+
+292
+00:20:33,240 --> 00:20:40,320
+exactly the same you know so so yeah so
+
+293
+00:20:38,220 --> 00:20:46,340
+limit okay so I don't need this anymore
+
+294
+00:20:40,320 --> 00:20:52,669
+let's delete it it's close this buffer
+
+295
+00:20:46,340 --> 00:21:01,460
+let's leave that on let's go back to
+
+296
+00:20:52,669 --> 00:21:06,779
+where is my file okay so did I delete oh
+
+297
+00:21:01,460 --> 00:21:10,110
+I what happened is that when we both the
+
+298
+00:21:06,779 --> 00:21:14,010
+oak mod name is X X X and my previous
+
+299
+00:21:10,110 --> 00:21:17,100
+temp file name is also X X X so that the
+
+300
+00:21:14,010 --> 00:21:28,200
+generated oak mod HTML just over
+
+301
+00:21:17,100 --> 00:21:31,860
+overrode my HTM I created before so high
+
+302
+00:21:28,200 --> 00:21:34,110
+lira so again if you have questions any
+
+303
+00:21:31,860 --> 00:21:37,230
+questions about Emacs just ask you know
+
+304
+00:21:34,110 --> 00:21:38,820
+just feel free to interrupt me or you
+
+305
+00:21:37,230 --> 00:21:43,919
+know feel free to ask a different
+
+306
+00:21:38,820 --> 00:21:47,010
+question anything related to Emacs so
+
+307
+00:21:43,919 --> 00:21:55,220
+I'm going to talk about so what I'm
+
+308
+00:21:47,010 --> 00:21:58,169
+gonna yeah so I'm gonna talk about HTM
+
+309
+00:21:55,220 --> 00:22:00,570
+so what I'm saying is that is if you are
+
+310
+00:21:58,169 --> 00:22:04,649
+a programmer and you don't mind spending
+
+311
+00:22:00,570 --> 00:22:06,269
+time to learn HTML or CSS actually you
+
+312
+00:22:04,649 --> 00:22:08,850
+should because if you have a programmer
+
+313
+00:22:06,269 --> 00:22:11,960
+and you if you are working with HTML you
+
+314
+00:22:08,850 --> 00:22:15,929
+should actually take some time to learn
+
+315
+00:22:11,960 --> 00:22:18,629
+HTML course and CSS because that's
+
+316
+00:22:15,929 --> 00:22:22,230
+fundamental I mean most people today you
+
+317
+00:22:18,629 --> 00:22:24,509
+know you don't actually learn HTML or
+
+318
+00:22:22,230 --> 00:22:26,879
+CSS because there are lots of templates
+
+319
+00:22:24,509 --> 00:22:29,700
+you know there's you know you just use
+
+320
+00:22:26,879 --> 00:22:32,489
+templates but it's actually a very good
+
+321
+00:22:29,700 --> 00:22:35,609
+thing to learn HTML you know at least
+
+322
+00:22:32,489 --> 00:22:39,210
+you know spend a few days to learn them
+
+323
+00:22:35,609 --> 00:22:42,210
+because it's because that's because HTML
+
+324
+00:22:39,210 --> 00:22:43,970
+and CSS that's what you work with you
+
+325
+00:22:42,210 --> 00:22:47,669
+know especially if you are a web
+
+326
+00:22:43,970 --> 00:22:50,690
+programmer or if you work on iPhone or
+
+327
+00:22:47,669 --> 00:22:54,509
+you know Android phone program you know
+
+328
+00:22:50,690 --> 00:22:57,269
+so those are fond of HTML and CSS are
+
+329
+00:22:54,509 --> 00:23:00,169
+fundamental technologies you want to you
+
+330
+00:22:57,269 --> 00:23:04,279
+know be familiar with them by the way I
+
+331
+00:23:00,169 --> 00:23:09,919
+have a tutorial you can just search for
+
+332
+00:23:04,279 --> 00:23:09,919
+sorry HTML tutorial
+
+333
+00:23:13,630 --> 00:23:19,660
+so there it is my tutorial and there's
+
+334
+00:23:16,630 --> 00:23:21,940
+also a CSS tutorial
+
+335
+00:23:19,660 --> 00:23:23,559
+you know just spend a few hours you know
+
+336
+00:23:21,940 --> 00:23:26,260
+learn about them so what I'm saying is
+
+337
+00:23:23,559 --> 00:23:28,590
+that it's good for you if you are a
+
+338
+00:23:26,260 --> 00:23:34,049
+programmer it's good for you to to know
+
+339
+00:23:28,590 --> 00:23:39,400
+to be familiar with HTML and CSS now
+
+340
+00:23:34,049 --> 00:23:41,940
+once you know HTML and CSS and if you
+
+341
+00:23:39,400 --> 00:23:45,010
+are Emacs user of course you are you
+
+342
+00:23:41,940 --> 00:23:49,030
+know and you are interested in you know
+
+343
+00:23:45,010 --> 00:23:51,909
+Emacs stuff so you might want to learn a
+
+344
+00:23:49,030 --> 00:23:54,220
+little bit emily's eventually you will
+
+345
+00:23:51,909 --> 00:23:57,760
+problem you know this high pass high
+
+346
+00:23:54,220 --> 00:24:00,250
+probability if you keep using Emacs you
+
+347
+00:23:57,760 --> 00:24:04,179
+know you are probably a fan of Emacs so
+
+348
+00:24:00,250 --> 00:24:06,340
+learning a little bit eMac this goes a
+
+349
+00:24:04,179 --> 00:24:09,880
+long way I mean even if you don't Kody
+
+350
+00:24:06,340 --> 00:24:12,159
+Maggie's so what I'm saying is that if
+
+351
+00:24:09,880 --> 00:24:15,880
+you are programmer you know you're gonna
+
+352
+00:24:12,159 --> 00:24:19,539
+learn some HTML and CSS and you cannot
+
+353
+00:24:15,880 --> 00:24:21,960
+learn some Emacs Emacs Lisp then when
+
+354
+00:24:19,539 --> 00:24:25,960
+you are when you are in this situation
+
+355
+00:24:21,960 --> 00:24:32,679
+then it's absolutely absolutely better
+
+356
+00:24:25,960 --> 00:24:36,120
+to to take your notes or yeah write your
+
+357
+00:24:32,679 --> 00:24:39,820
+notes or create your blog in raw HTML
+
+358
+00:24:36,120 --> 00:24:42,340
+like instead of using Oakmont that's my
+
+359
+00:24:39,820 --> 00:24:46,390
+opinion okay that you know that's not
+
+360
+00:24:42,340 --> 00:24:48,880
+like that's simply just just a opinion
+
+361
+00:24:46,390 --> 00:24:53,590
+they are a lot MX experts you know
+
+362
+00:24:48,880 --> 00:24:55,809
+Americus experts who are a fan of oak
+
+363
+00:24:53,590 --> 00:24:59,020
+mod you know even though they know a lot
+
+364
+00:24:55,809 --> 00:25:01,200
+about HTML CSS but they still use oak
+
+365
+00:24:59,020 --> 00:25:07,210
+mod you know there are quite a few
+
+366
+00:25:01,200 --> 00:25:11,220
+people who does that so so my opinion
+
+367
+00:25:07,210 --> 00:25:16,570
+about you know coding HTML row is just
+
+368
+00:25:11,220 --> 00:25:18,429
+opinion which you know I I do I use you
+
+369
+00:25:16,570 --> 00:25:23,500
+know I think it's a good alternative
+
+370
+00:25:18,429 --> 00:25:27,280
+because so what is the advantage of of
+
+371
+00:25:23,500 --> 00:25:31,450
+you know writing something raw HTML
+
+372
+00:25:27,280 --> 00:25:34,630
+with with the Emax help versus as
+
+373
+00:25:31,450 --> 00:25:38,440
+opposed to oak mud or any other content
+
+374
+00:25:34,630 --> 00:25:45,040
+management system so if you compare them
+
+375
+00:25:38,440 --> 00:25:48,640
+first of all if you know HTML and CSS
+
+376
+00:25:45,040 --> 00:25:51,010
+and Emacs Lisp then I mean just look at
+
+377
+00:25:48,640 --> 00:25:53,920
+first of all the keystrokes is no more
+
+378
+00:25:51,010 --> 00:25:57,280
+than oak mud or any other mark any other
+
+379
+00:25:53,920 --> 00:25:59,440
+such as markdown okay you might think oh
+
+380
+00:25:57,280 --> 00:26:05,410
+ok ah will save will save you a lot
+
+381
+00:25:59,440 --> 00:26:09,370
+keystroke not really for example okay
+
+382
+00:26:05,410 --> 00:26:12,160
+you know for example I typed that and
+
+383
+00:26:09,370 --> 00:26:17,080
+there is my paragraph if I want the list
+
+384
+00:26:12,160 --> 00:26:20,200
+this item one to you know I just press
+
+385
+00:26:17,080 --> 00:26:23,110
+two keys you see look at the left that's
+
+386
+00:26:20,200 --> 00:26:25,420
+only two keys now I'm using a special
+
+387
+00:26:23,110 --> 00:26:30,190
+keyboard so the delete key is actually
+
+388
+00:26:25,420 --> 00:26:34,170
+my how my thump-thump key so you see if
+
+389
+00:26:30,190 --> 00:26:38,740
+I could want to create a new blog entry
+
+390
+00:26:34,170 --> 00:26:41,320
+that's just three keys new entry you
+
+391
+00:26:38,740 --> 00:26:45,160
+know and make it make it into a
+
+392
+00:26:41,320 --> 00:26:49,930
+paragraph two keys now I want to view
+
+393
+00:26:45,160 --> 00:26:52,150
+this in browser one key you see so
+
+394
+00:26:49,930 --> 00:26:55,180
+here's a new entry and here's a list
+
+395
+00:26:52,150 --> 00:27:02,110
+which created so once you are familiar
+
+396
+00:26:55,180 --> 00:27:05,980
+with this you know coding HTML in Emacs
+
+397
+00:27:02,110 --> 00:27:08,440
+row you will create you will eventually
+
+398
+00:27:05,980 --> 00:27:11,170
+create your own system kind of like
+
+399
+00:27:08,440 --> 00:27:16,500
+customized just for you whenever you
+
+400
+00:27:11,170 --> 00:27:20,500
+need something you can just create it so
+
+401
+00:27:16,500 --> 00:27:25,870
+so compare to augment you know first of
+
+402
+00:27:20,500 --> 00:27:29,680
+all you you don't type more keystrokes
+
+403
+00:27:25,870 --> 00:27:35,380
+and possibly less keystrokes that's for
+
+404
+00:27:29,680 --> 00:27:38,080
+one thing the other thing is that okay
+
+405
+00:27:35,380 --> 00:27:40,490
+the other advantage of oak mod is that
+
+406
+00:27:38,080 --> 00:27:44,210
+for example oak mud
+
+407
+00:27:40,490 --> 00:27:48,230
+let's go back to Oakmont you know people
+
+408
+00:27:44,210 --> 00:27:51,290
+say look at oak mud it's easy to read
+
+409
+00:27:48,230 --> 00:27:53,660
+you know you don't have to your eyes
+
+410
+00:27:51,290 --> 00:27:56,200
+your eyes don't have to go through all
+
+411
+00:27:53,660 --> 00:28:00,950
+these tags you know that that's like
+
+412
+00:27:56,200 --> 00:28:03,800
+confusing or distracting that's true but
+
+413
+00:28:00,950 --> 00:28:07,040
+first of all once you get used to it it
+
+414
+00:28:03,800 --> 00:28:14,170
+doesn't it doesn't matter it's like you
+
+415
+00:28:07,040 --> 00:28:14,170
+know let's see it's like for example
+
+416
+00:28:14,290 --> 00:28:22,250
+Emacs Lisp code for example all these
+
+417
+00:28:18,410 --> 00:28:24,920
+nested parentheses it doesn't bother it
+
+418
+00:28:22,250 --> 00:28:27,530
+doesn't bother Emacs these programmers
+
+419
+00:28:24,920 --> 00:28:30,350
+because you get used to so in the same
+
+420
+00:28:27,530 --> 00:28:34,550
+way these tags doesn't bother me you
+
+421
+00:28:30,350 --> 00:28:38,300
+know I I read them you know well but
+
+422
+00:28:34,550 --> 00:28:41,630
+however do the other significance is
+
+423
+00:28:38,300 --> 00:28:44,120
+that when you are in oak mod when you
+
+424
+00:28:41,630 --> 00:28:47,000
+have lots of things actually you know
+
+425
+00:28:44,120 --> 00:28:52,760
+sometimes you can have tech like you
+
+426
+00:28:47,000 --> 00:28:53,600
+know math Tech or lab tech and that's
+
+427
+00:28:52,760 --> 00:28:56,809
+unreadable
+
+428
+00:28:53,600 --> 00:28:59,300
+you know that's unreadable to when you
+
+429
+00:28:56,809 --> 00:29:01,370
+have complicated tech expressions so you
+
+430
+00:28:59,300 --> 00:29:04,820
+actually when you actually want to read
+
+431
+00:29:01,370 --> 00:29:07,130
+oh oh if you have images you know you
+
+432
+00:29:04,820 --> 00:29:10,520
+are not going to read you know the pen
+
+433
+00:29:07,130 --> 00:29:15,020
+up my text anyway you're gonna need to
+
+434
+00:29:10,520 --> 00:29:17,059
+export it you know to HTML or PDF so the
+
+435
+00:29:15,020 --> 00:29:22,790
+end result is that you cannot read it in
+
+436
+00:29:17,059 --> 00:29:26,330
+a browser so but if you work with HTML
+
+437
+00:29:22,790 --> 00:29:28,309
+directly you know I can view my things
+
+438
+00:29:26,330 --> 00:29:32,870
+in browser like right here you see
+
+439
+00:29:28,309 --> 00:29:35,960
+everything is clear you see because
+
+440
+00:29:32,870 --> 00:29:39,260
+there's nothing compared to the
+
+441
+00:29:35,960 --> 00:29:43,040
+readability of a browser you know I can
+
+442
+00:29:39,260 --> 00:29:46,280
+have images let's see Emacs fun you know
+
+443
+00:29:43,040 --> 00:29:48,080
+all these render this this will beat you
+
+444
+00:29:46,280 --> 00:29:53,500
+know oak Mart you know if you have
+
+445
+00:29:48,080 --> 00:29:56,320
+images you know like okay HTML is
+
+446
+00:29:53,500 --> 00:30:00,130
+ten times more flexible in akhmad and
+
+447
+00:29:56,320 --> 00:30:03,070
+ten times more feature-rich plus you can
+
+448
+00:30:00,130 --> 00:30:06,220
+use JavaScript to a script HTML
+
+449
+00:30:03,070 --> 00:30:08,950
+especially especially if you are a
+
+450
+00:30:06,220 --> 00:30:11,430
+front-end web developer you know you are
+
+451
+00:30:08,950 --> 00:30:16,690
+familiar with JavaScript so you can just
+
+452
+00:30:11,430 --> 00:30:20,200
+sew this this far more potential if your
+
+453
+00:30:16,690 --> 00:30:22,360
+file source code is HTML then some kind
+
+454
+00:30:20,200 --> 00:30:30,100
+of template system you know like some
+
+455
+00:30:22,360 --> 00:30:31,960
+kind of markdown system but okay so so
+
+456
+00:30:30,100 --> 00:30:35,520
+there are some advantage that we talked
+
+457
+00:30:31,960 --> 00:30:39,430
+we talked about the number of keystrokes
+
+458
+00:30:35,520 --> 00:30:42,730
+Oakmont versus writing HTML raw so they
+
+459
+00:30:39,430 --> 00:30:46,720
+are I would say about the same we we
+
+460
+00:30:42,730 --> 00:30:50,680
+talked about readability okay and Mike
+
+461
+00:30:46,720 --> 00:30:53,260
+on my my tip is that you you just read
+
+462
+00:30:50,680 --> 00:31:00,700
+it in browser so it's no worse you know
+
+463
+00:30:53,260 --> 00:31:06,790
+and so it's it's comparable to Oakmont
+
+464
+00:31:00,700 --> 00:31:08,500
+then we talked about extensibility or or
+
+465
+00:31:06,790 --> 00:31:11,320
+number of users
+
+466
+00:31:08,500 --> 00:31:14,920
+now obviously the number of users of
+
+467
+00:31:11,320 --> 00:31:18,640
+HTML is some 1,000 times more than oak
+
+468
+00:31:14,920 --> 00:31:21,790
+mod so there you have lots of utilities
+
+469
+00:31:18,640 --> 00:31:23,950
+for formatting HTML for you know you
+
+470
+00:31:21,790 --> 00:31:28,140
+have like thousand one thousand times
+
+471
+00:31:23,950 --> 00:31:32,140
+more libraries or utilities helping you
+
+472
+00:31:28,140 --> 00:31:35,920
+do HTML and or tutorials like you have
+
+473
+00:31:32,140 --> 00:31:42,360
+ten thousand tutorials about HTML then
+
+474
+00:31:35,920 --> 00:31:44,980
+Oakmont okay then what else to compare
+
+475
+00:31:42,360 --> 00:31:48,220
+okay there are a few things and there
+
+476
+00:31:44,980 --> 00:31:53,860
+are many advantage advantages of Oakmont
+
+477
+00:31:48,220 --> 00:31:57,400
+- you know oak mod has it has very huge
+
+478
+00:31:53,860 --> 00:32:01,060
+number of users although not as much not
+
+479
+00:31:57,400 --> 00:32:04,120
+as many as HTML users but you know you
+
+480
+00:32:01,060 --> 00:32:08,100
+have let's say 10,000 you know that's
+
+481
+00:32:04,120 --> 00:32:12,250
+enough and oak mod you can
+
+482
+00:32:08,100 --> 00:32:14,140
+you can embed you can embed programming
+
+483
+00:32:12,250 --> 00:32:21,720
+languages let's let's let's show you
+
+484
+00:32:14,140 --> 00:32:27,490
+some practical Emacs so this is my image
+
+485
+00:32:21,720 --> 00:32:31,350
+Emacs tutorial and if you go down Oak
+
+486
+00:32:27,490 --> 00:32:36,940
+mod so this section is all about Oak mod
+
+487
+00:32:31,350 --> 00:32:38,950
+and you have source code markup so what
+
+488
+00:32:36,940 --> 00:32:40,990
+this means is that you can actually
+
+489
+00:32:38,950 --> 00:32:45,970
+embed programming language source code
+
+490
+00:32:40,990 --> 00:32:51,340
+in Oakmont and you can actually evaluate
+
+491
+00:32:45,970 --> 00:32:53,980
+you know those source code and these are
+
+492
+00:32:51,340 --> 00:32:57,370
+lists of supported languages you know
+
+493
+00:32:53,980 --> 00:33:03,760
+supports like 30 languages many
+
+494
+00:32:57,370 --> 00:33:07,180
+languages but ok I'm gonna but but this
+
+495
+00:33:03,760 --> 00:33:10,450
+can be done in HTML as well so anyway
+
+496
+00:33:07,180 --> 00:33:13,780
+that's about that that's you know so so
+
+497
+00:33:10,450 --> 00:33:16,390
+that that kind of I I finished my
+
+498
+00:33:13,780 --> 00:33:24,270
+discussion about oak mod versus writing
+
+499
+00:33:16,390 --> 00:33:24,270
+HTML raw you know it's so let's go back
+
+500
+00:33:27,320 --> 00:33:33,880
+so any questions type it keep keep the
+
+501
+00:33:32,120 --> 00:33:37,570
+comments
+
+502
+00:33:33,880 --> 00:33:37,570
+oops I made a mistake
+
+503
+00:33:37,900 --> 00:33:40,900
+damn
+
+504
+00:33:48,610 --> 00:33:57,460
+okay okay so so that's about writing raw
+
+505
+00:33:54,370 --> 00:34:02,169
+HTML versus Oakmont now I'm going to
+
+506
+00:33:57,460 --> 00:34:17,500
+show you such tml mod so that is this
+
+507
+00:34:02,169 --> 00:34:19,980
+one okay so actually wait so let's go to
+
+508
+00:34:17,500 --> 00:34:19,980
+the browser
+
+509
+00:34:23,169 --> 00:34:31,839
+so there are a lot HTML mods in Emacs
+
+510
+00:34:27,250 --> 00:34:35,200
+and I'm using my own though this one I
+
+511
+00:34:31,839 --> 00:34:39,339
+created myself it's let's see
+
+512
+00:34:35,200 --> 00:34:42,639
+so because since I started to do Emacs
+
+513
+00:34:39,339 --> 00:34:45,940
+video there are more people beginning to
+
+514
+00:34:42,639 --> 00:34:48,730
+use it I've been using this mod for a
+
+515
+00:34:45,940 --> 00:34:51,099
+long time for like 10 years maybe so
+
+516
+00:34:48,730 --> 00:34:56,349
+let's let's go through let's go to it
+
+517
+00:34:51,099 --> 00:35:01,839
+let's have a look describe key f10 space
+
+518
+00:34:56,349 --> 00:35:04,809
+edge so here is HTML mod you see these
+
+519
+00:35:01,839 --> 00:35:07,150
+all these are commands in their keys so
+
+520
+00:35:04,809 --> 00:35:12,819
+let's let's go through the source code
+
+521
+00:35:07,150 --> 00:35:16,150
+so here's the source code for 4,000
+
+522
+00:35:12,819 --> 00:35:20,619
+lines of emag disp let's go to the top
+
+523
+00:35:16,150 --> 00:35:27,190
+so I started this Emacs around 19 around
+
+524
+00:35:20,619 --> 00:35:33,970
+2012 so I've been using it for like 6
+
+525
+00:35:27,190 --> 00:35:36,579
+years and mostly I'm the only one use it
+
+526
+00:35:33,970 --> 00:35:40,809
+but now it seems there are more people
+
+527
+00:35:36,579 --> 00:35:45,930
+are starting to use it so I think I'm
+
+528
+00:35:40,809 --> 00:35:50,549
+going to do a demo of this a little demo
+
+529
+00:35:45,930 --> 00:35:50,549
+of HTML mod
+
+530
+00:35:53,900 --> 00:36:04,190
+so is that good am i doing good
+
+531
+00:35:57,760 --> 00:36:07,340
+did I get the green deck did I did I
+
+532
+00:36:04,190 --> 00:36:09,880
+answer the question do you Diana sell
+
+533
+00:36:07,340 --> 00:36:09,880
+you a question
+
+534
+00:36:16,170 --> 00:36:23,370
+so anyway I've been using XHTML Mart for
+
+535
+00:36:19,740 --> 00:36:26,520
+you know many years so you know all the
+
+536
+00:36:23,370 --> 00:36:30,680
+HTML on my website I have like five
+
+537
+00:36:26,520 --> 00:36:34,620
+thousand six thousand HTML files written
+
+538
+00:36:30,680 --> 00:36:42,960
+raw and they are all created in Emacs
+
+539
+00:36:34,620 --> 00:36:46,800
+using using size tml mod so so I'm I'm
+
+540
+00:36:42,960 --> 00:36:50,960
+going to do a demo then okay how am I
+
+541
+00:36:46,800 --> 00:36:50,960
+going to do a demo am I going to do it
+
+542
+00:36:56,510 --> 00:37:03,600
+okay cool I mean if I didn't explain
+
+543
+00:37:00,390 --> 00:37:07,020
+something where I'll just keep keep
+
+544
+00:37:03,600 --> 00:37:10,110
+asking you know just you know just talk
+
+545
+00:37:07,020 --> 00:37:13,830
+just keep the comments going so I so you
+
+546
+00:37:10,110 --> 00:37:17,010
+know give me some direction so I'm going
+
+547
+00:37:13,830 --> 00:37:19,050
+to show search team Ahmad it's on alpha
+
+548
+00:37:17,010 --> 00:37:30,360
+I think it's a male power let's try
+
+549
+00:37:19,050 --> 00:37:35,220
+let's let's see these packages okay
+
+550
+00:37:30,360 --> 00:37:41,330
+I noticed male parts of to wait for a
+
+551
+00:37:35,220 --> 00:37:48,170
+while for the for them to show up oh
+
+552
+00:37:41,330 --> 00:37:48,170
+it's not a oppa wait let's see
+
+553
+00:37:49,660 --> 00:37:59,440
+no it's not a mail path so you have to
+
+554
+00:37:52,539 --> 00:38:08,200
+go to github so here's a URL you can
+
+555
+00:37:59,440 --> 00:38:12,190
+just download it yeah it's so I'm think
+
+556
+00:38:08,200 --> 00:38:19,329
+I'm thinking I'm gonna do a demo of
+
+557
+00:38:12,190 --> 00:38:21,700
+excit ml mod but you can create the
+
+558
+00:38:19,329 --> 00:38:24,130
+example page with many different HTML
+
+559
+00:38:21,700 --> 00:38:26,920
+tags image okay yeah let's do that
+
+560
+00:38:24,130 --> 00:38:30,549
+that's excellent thank you great
+
+561
+00:38:26,920 --> 00:38:32,829
+suggestion so I'm going to do an example
+
+562
+00:38:30,549 --> 00:38:35,619
+with HTML yeah okay let's do that I'm
+
+563
+00:38:32,829 --> 00:38:38,589
+going to create a new HTML page with all
+
+564
+00:38:35,619 --> 00:38:41,950
+the simple tags and examples you know
+
+565
+00:38:38,589 --> 00:38:45,039
+example a sample HTM page so a new
+
+566
+00:38:41,950 --> 00:38:46,960
+buffer again look at the left window
+
+567
+00:38:45,039 --> 00:38:49,720
+okay so every command I go it's gonna
+
+568
+00:38:46,960 --> 00:38:51,789
+show up there so you can you can learn
+
+569
+00:38:49,720 --> 00:38:54,490
+from it you know you know and most of
+
+570
+00:38:51,789 --> 00:38:56,799
+these command almost all of them is on
+
+571
+00:38:54,490 --> 00:38:59,890
+my website so if you see a command you
+
+572
+00:38:56,799 --> 00:39:02,349
+think it might be useful to you you can
+
+573
+00:38:59,890 --> 00:39:04,359
+just search for you know for example
+
+574
+00:39:02,349 --> 00:39:09,309
+sign you empty buffer you can just
+
+575
+00:39:04,359 --> 00:39:11,980
+search for it you'll find my page with
+
+576
+00:39:09,309 --> 00:39:14,410
+the source code then you can just put it
+
+577
+00:39:11,980 --> 00:39:19,569
+in your new max in it okay so let's
+
+578
+00:39:14,410 --> 00:39:25,509
+start to write a new HTML file so let's
+
+579
+00:39:19,569 --> 00:39:28,500
+save this file is X X dot HTML so I'm
+
+580
+00:39:25,509 --> 00:39:36,190
+gonna type each team okay first of all
+
+581
+00:39:28,500 --> 00:39:41,259
+enlarge the font HTML H so that gave me
+
+582
+00:39:36,190 --> 00:39:45,640
+your template now HTML H is a HTML H is
+
+583
+00:39:41,259 --> 00:39:52,230
+abbreviation and the last H is just it's
+
+584
+00:39:45,640 --> 00:39:57,549
+simply there's so so that if I type oops
+
+585
+00:39:52,230 --> 00:40:01,839
+if I have HTML it won't accept it won't
+
+586
+00:39:57,549 --> 00:40:03,520
+expand because sometimes you want to for
+
+587
+00:40:01,839 --> 00:40:08,140
+example I want to say
+
+588
+00:40:03,520 --> 00:40:12,870
+writing HTML okay I don't want that HTML
+
+589
+00:40:08,140 --> 00:40:17,740
+expense so therefore I created on a
+
+590
+00:40:12,870 --> 00:40:21,700
+brief that ends with edge basically any
+
+591
+00:40:17,740 --> 00:40:25,390
+HTML template or HTML tags I ended with
+
+592
+00:40:21,700 --> 00:40:26,560
+edge so that way when I want the
+
+593
+00:40:25,390 --> 00:40:28,930
+template at a page
+
+594
+00:40:26,560 --> 00:40:33,400
+I got a template when I don't want it
+
+595
+00:40:28,930 --> 00:40:36,880
+you know it's it's fine so it's showing
+
+596
+00:40:33,400 --> 00:40:45,790
+browser so there it is it's magnify
+
+597
+00:40:36,880 --> 00:40:51,430
+okay so title sample okay for title you
+
+598
+00:40:45,790 --> 00:40:54,610
+can you can call this command such fight
+
+599
+00:40:51,430 --> 00:40:56,620
+figure what Oh actually you have to have
+
+600
+00:40:54,610 --> 00:41:01,540
+something okay that's a bug
+
+601
+00:40:56,620 --> 00:41:08,140
+so anyway well let's for now let's just
+
+602
+00:41:01,540 --> 00:41:12,310
+type the title manually HTML page sample
+
+603
+00:41:08,140 --> 00:41:15,310
+copy that and now I want the h1 header
+
+604
+00:41:12,310 --> 00:41:21,340
+so I press the by default the keys tab
+
+605
+00:41:15,310 --> 00:41:28,000
+key tab key will will prompt and you can
+
+606
+00:41:21,340 --> 00:41:32,170
+type attack name for example h1 so how
+
+607
+00:41:28,000 --> 00:41:35,410
+do you know when you know what tag name
+
+608
+00:41:32,170 --> 00:41:38,800
+it is so this this is the part where you
+
+609
+00:41:35,410 --> 00:41:41,590
+need to know HTML because you know for
+
+610
+00:41:38,800 --> 00:41:43,630
+example if you are using oak mod you
+
+611
+00:41:41,590 --> 00:41:46,150
+don't need to know because you know mod
+
+612
+00:41:43,630 --> 00:41:49,450
+you just you know it's very simple you
+
+613
+00:41:46,150 --> 00:41:54,450
+use the historic risk you know title and
+
+614
+00:41:49,450 --> 00:41:57,010
+you know two asterisks a force
+
+615
+00:41:54,450 --> 00:42:00,760
+subsection you know you don't need to
+
+616
+00:41:57,010 --> 00:42:03,040
+learn the tax but however if you want to
+
+617
+00:42:00,760 --> 00:42:05,040
+write HTML then you kind of happen to
+
+618
+00:42:03,040 --> 00:42:10,210
+know what tag you want
+
+619
+00:42:05,040 --> 00:42:12,870
+so press tab key h1 enter then there's a
+
+620
+00:42:10,210 --> 00:42:12,870
+tab name
+
+621
+00:42:12,940 --> 00:42:20,290
+it's let me just do this fast you can
+
+622
+00:42:15,100 --> 00:42:24,070
+you know so okay let's add an image so
+
+623
+00:42:20,290 --> 00:42:30,310
+go to tire jumped tire jump to go to the
+
+624
+00:42:24,070 --> 00:42:33,820
+directory hold on cuz split tire jump go
+
+625
+00:42:30,310 --> 00:42:36,580
+to the directory okay
+
+626
+00:42:33,820 --> 00:42:41,260
+hi is the directory now look at the
+
+627
+00:42:36,580 --> 00:42:45,850
+directory in in desktop so let's say I
+
+628
+00:42:41,260 --> 00:42:52,090
+want this this image do GE so search for
+
+629
+00:42:45,850 --> 00:42:55,470
+do G there it is copy the file path wait
+
+630
+00:42:52,090 --> 00:42:59,640
+this one this one copy the file path
+
+631
+00:42:55,470 --> 00:43:04,830
+paste it here make it into an image
+
+632
+00:42:59,640 --> 00:43:08,140
+expand the window showing browser okay
+
+633
+00:43:04,830 --> 00:43:12,400
+this is a fun fun screenshot it's from
+
+634
+00:43:08,140 --> 00:43:17,350
+someone made a splash logo for the space
+
+635
+00:43:12,400 --> 00:43:19,480
+max so that's an image what else so I
+
+636
+00:43:17,350 --> 00:43:26,860
+have a custom command that insert
+
+637
+00:43:19,480 --> 00:43:31,690
+section that so a new section I have a
+
+638
+00:43:26,860 --> 00:43:36,750
+command what okay what else image both
+
+639
+00:43:31,690 --> 00:43:39,790
+okay so something this is important you
+
+640
+00:43:36,750 --> 00:43:44,920
+know I want an important to be both so I
+
+641
+00:43:39,790 --> 00:43:49,060
+just move it I just press tab B enter
+
+642
+00:43:44,920 --> 00:43:55,570
+okay now I want a paragraph I can press
+
+643
+00:43:49,060 --> 00:44:00,370
+tab P enter okay oh well there's another
+
+644
+00:43:55,570 --> 00:44:05,970
+command I can okay do another command is
+
+645
+00:44:00,370 --> 00:44:11,910
+called this search team I'll wrap P tag
+
+646
+00:44:05,970 --> 00:44:18,400
+the difference is that if I have many
+
+647
+00:44:11,910 --> 00:44:20,500
+paragraphs like this and that okay if I
+
+648
+00:44:18,400 --> 00:44:24,450
+have many of them I can just press a key
+
+649
+00:44:20,500 --> 00:44:30,070
+and view in browser so
+
+650
+00:44:24,450 --> 00:44:34,710
+so there there is okay links
+
+651
+00:44:30,070 --> 00:44:34,710
+what about links so let's do a link
+
+652
+00:44:43,180 --> 00:44:46,260
+[Music]
+
+653
+00:44:47,440 --> 00:44:57,819
+but by Jack so so let's do a link so I
+
+654
+00:44:53,440 --> 00:45:02,020
+want the link let's see I want to link
+
+655
+00:44:57,819 --> 00:45:09,210
+to this this page so copy the link back
+
+656
+00:45:02,020 --> 00:45:14,430
+to Emacs add new line
+
+657
+00:45:09,210 --> 00:45:19,230
+paste the link press the key it's linked
+
+658
+00:45:14,430 --> 00:45:23,020
+now make it a paragraph view in browser
+
+659
+00:45:19,230 --> 00:45:27,280
+let's go down see there it is a link
+
+660
+00:45:23,020 --> 00:45:29,619
+visual CSS now let's say I want to add
+
+661
+00:45:27,280 --> 00:45:31,539
+some styles let's let's go to the
+
+662
+00:45:29,619 --> 00:45:37,480
+default side let's say I want to change
+
+663
+00:45:31,539 --> 00:45:43,510
+the font size so go to top here at lines
+
+664
+00:45:37,480 --> 00:45:48,880
+and press cat key style so that gave me
+
+665
+00:45:43,510 --> 00:45:58,289
+CSS styles so I won't say it body okay
+
+666
+00:45:48,880 --> 00:46:01,539
+and switch to CSS mod now font size okay
+
+667
+00:45:58,289 --> 00:46:05,319
+- am - I am okay good
+
+668
+00:46:01,539 --> 00:46:10,890
+switch back to an HTML one showing
+
+669
+00:46:05,319 --> 00:46:14,140
+browser everything is - am twice as much
+
+670
+00:46:10,890 --> 00:46:17,170
+no I want let's say I want to color them
+
+671
+00:46:14,140 --> 00:46:21,400
+let's just type color red
+
+672
+00:46:17,170 --> 00:46:21,819
+okay showing browser it's all red so so
+
+673
+00:46:21,400 --> 00:46:24,730
+what
+
+674
+00:46:21,819 --> 00:46:27,789
+so you see you do have to know some CSS
+
+675
+00:46:24,730 --> 00:46:31,059
+and HTML you have to spend some time to
+
+676
+00:46:27,789 --> 00:46:33,940
+learn it because otherwise you know so
+
+677
+00:46:31,059 --> 00:46:37,359
+that that is the advantage of oak mod or
+
+678
+00:46:33,940 --> 00:46:41,619
+the template system you don't have to
+
+679
+00:46:37,359 --> 00:46:45,190
+know CSS or HTML but if you plan to
+
+680
+00:46:41,619 --> 00:46:47,470
+write HTML raw but manually you do have
+
+681
+00:46:45,190 --> 00:46:51,660
+to know these kind of things
+
+682
+00:46:47,470 --> 00:46:51,660
+so what else dink
+
+683
+00:46:53,920 --> 00:47:04,490
+red okay I think that's that's it
+
+684
+00:47:01,340 --> 00:47:08,840
+because you know it's so I we've been
+
+685
+00:47:04,490 --> 00:47:13,330
+talking for 46 minutes that's you know
+
+686
+00:47:08,840 --> 00:47:16,760
+this is just a short introduction to
+
+687
+00:47:13,330 --> 00:47:19,880
+HTML mod which is my own mod for writing
+
+688
+00:47:16,760 --> 00:47:21,980
+HTML now there are several other HTML
+
+689
+00:47:19,880 --> 00:47:24,850
+mods let me give you some introduction
+
+690
+00:47:21,980 --> 00:47:27,310
+let me intro
+
+691
+00:47:24,850 --> 00:47:34,820
+so actually let's just remove that
+
+692
+00:47:27,310 --> 00:47:40,490
+remove all these let me just type this
+
+693
+00:47:34,820 --> 00:47:47,860
+out some intro to HTML mods in Emacs
+
+694
+00:47:40,490 --> 00:47:54,290
+okay so they are our HTML mod this is
+
+695
+00:47:47,860 --> 00:48:03,610
+wait this is the default you know Emacs
+
+696
+00:47:54,290 --> 00:48:12,050
+okay okay and copy that then there is
+
+697
+00:48:03,610 --> 00:48:20,210
+HTML mhtml mod this is new King kuno
+
+698
+00:48:12,050 --> 00:48:25,280
+Emacs version 26 okay show in browser
+
+699
+00:48:20,210 --> 00:48:31,910
+now in Emacs 26 there is a new HTML mod
+
+700
+00:48:25,280 --> 00:48:35,890
+it's called M HTML mod so the HTML mod
+
+701
+00:48:31,910 --> 00:48:38,770
+this one is ancient this is written in
+
+702
+00:48:35,890 --> 00:48:46,370
+1999 or something like that
+
+703
+00:48:38,770 --> 00:48:50,240
+the mhtml mod is new it's just like two
+
+704
+00:48:46,370 --> 00:48:53,840
+years old something like that now you
+
+705
+00:48:50,240 --> 00:48:57,800
+make in Emacs 26 you can download right
+
+706
+00:48:53,840 --> 00:49:00,920
+now it's it simply pre-release beta but
+
+707
+00:48:57,800 --> 00:49:04,430
+it's pretty good like I'm using for
+
+708
+00:49:00,920 --> 00:49:05,180
+example I am using Emacs 26 point one
+
+709
+00:49:04,430 --> 00:49:10,130
+point
+
+710
+00:49:05,180 --> 00:49:13,119
+- so yeah so what what is the difference
+
+711
+00:49:10,130 --> 00:49:21,079
+the major the major difference is that
+
+712
+00:49:13,119 --> 00:49:24,020
+mhtml mod that M stand for is stand for
+
+713
+00:49:21,079 --> 00:49:26,029
+something like Multi multi mod so
+
+714
+00:49:24,020 --> 00:49:28,760
+basically what it does is that when you
+
+715
+00:49:26,029 --> 00:49:32,750
+have JavaScript code when you have CSS
+
+716
+00:49:28,760 --> 00:49:36,680
+code and when you have HTML code all in
+
+717
+00:49:32,750 --> 00:49:40,430
+one file it will reasonably color syntax
+
+718
+00:49:36,680 --> 00:49:47,470
+them or correctly so for example let's
+
+719
+00:49:40,430 --> 00:49:53,809
+let's try it let's switch to HTML mod MX
+
+720
+00:49:47,470 --> 00:49:58,910
+HTML part okay so this is HTML mod this
+
+721
+00:49:53,809 --> 00:50:07,059
+is the you know Emacs 25 now let's
+
+722
+00:49:58,910 --> 00:50:11,420
+switch to M X HTML mod MX m HT m ma
+
+723
+00:50:07,059 --> 00:50:14,809
+enter you see you see how this part gets
+
+724
+00:50:11,420 --> 00:50:17,079
+colored let's enlarge you see this this
+
+725
+00:50:14,809 --> 00:50:17,079
+part
+
+726
+00:50:17,109 --> 00:50:24,380
+okay so there's M HTML mod I recommended
+
+727
+00:50:21,890 --> 00:50:30,529
+you'd having its new it's its new and
+
+728
+00:50:24,380 --> 00:50:35,690
+new usually new is better and okay then
+
+729
+00:50:30,529 --> 00:50:45,230
+there is such TM l mod now size chairman
+
+730
+00:50:35,690 --> 00:50:51,319
+mod this is mine so excit mama is just
+
+731
+00:50:45,230 --> 00:50:55,190
+the one I use I have added a huge amount
+
+732
+00:50:51,319 --> 00:51:01,539
+of my own commands I mean commenced is
+
+733
+00:50:55,190 --> 00:51:05,000
+you know fairly fairly many new commands
+
+734
+00:51:01,539 --> 00:51:08,869
+compared to HTML mod I haven't I haven't
+
+735
+00:51:05,000 --> 00:51:11,480
+used mhtml mod much much but anyway
+
+736
+00:51:08,869 --> 00:51:14,390
+inside came about you have I have you
+
+737
+00:51:11,480 --> 00:51:17,420
+know a huge amount of commands by the
+
+738
+00:51:14,390 --> 00:51:19,590
+way when you when you use em HTML mod
+
+739
+00:51:17,420 --> 00:51:25,130
+the mod
+
+740
+00:51:19,590 --> 00:51:25,130
+look at over here it will say HTML plus
+
+741
+00:51:25,400 --> 00:51:33,930
+okay so so anyway so there's exciting
+
+742
+00:51:31,170 --> 00:51:37,290
+amar there's another one which is very
+
+743
+00:51:33,930 --> 00:51:45,810
+popular it's code let's see what it's
+
+744
+00:51:37,290 --> 00:51:51,050
+called so let's call these packages it's
+
+745
+00:51:45,810 --> 00:51:51,050
+search for HTML HTML
+
+746
+00:51:55,520 --> 00:52:02,780
+okay so let's list matching lines HTML
+
+747
+00:52:25,140 --> 00:52:38,720
+I don't see it here let's try again this
+
+748
+00:52:32,220 --> 00:52:38,720
+match means least match Reno is HTML
+
+749
+00:52:48,830 --> 00:53:03,110
+okay I don't see it here but let's go
+
+750
+00:52:55,970 --> 00:53:11,270
+back to my Emacs tutorial and practical
+
+751
+00:53:03,110 --> 00:53:17,950
+Emacs and scroll down scroll down scroll
+
+752
+00:53:11,270 --> 00:53:17,950
+down HTML topic so Emacs HTML tips
+
+753
+00:53:26,390 --> 00:53:32,690
+so actually this page you know tells you
+
+754
+00:53:29,360 --> 00:53:36,230
+what HTML mods are there you can you can
+
+755
+00:53:32,690 --> 00:53:39,950
+read it wave mod that's it okay the name
+
+756
+00:53:36,230 --> 00:53:42,200
+there so there's another HTML modest
+
+757
+00:53:39,950 --> 00:53:50,330
+which is fairly popular that's called
+
+758
+00:53:42,200 --> 00:53:55,610
+web mod you can try that okay so I think
+
+759
+00:53:50,330 --> 00:53:56,180
+that's it for today so any any more
+
+760
+00:53:55,610 --> 00:54:00,910
+questions
+
+761
+00:53:56,180 --> 00:54:04,420
+not much I don't get much comments today
+
+762
+00:54:00,910 --> 00:54:04,420
+any questions
+
+763
+00:54:18,310 --> 00:54:31,410
+so what else I want to show it's it's
+
+764
+00:54:23,680 --> 00:54:31,410
+not dude right I'm going to 9.2
+
+765
+00:54:44,670 --> 00:54:53,579
+Oh detailed tutorial about oak mud oak
+
+766
+00:54:51,480 --> 00:54:54,569
+mud there are so many tutorials about
+
+767
+00:54:53,579 --> 00:54:56,910
+Oakmont
+
+768
+00:54:54,569 --> 00:55:01,049
+you know out there you know on YouTube
+
+769
+00:54:56,910 --> 00:55:03,599
+and elsewhere
+
+770
+00:55:01,049 --> 00:55:07,079
+you know I the thing is I don't really
+
+771
+00:55:03,599 --> 00:55:13,829
+use Oakmont that much by the way hi hi
+
+772
+00:55:07,079 --> 00:55:16,880
+hi Diane hey see you Greg Greene thanks
+
+773
+00:55:13,829 --> 00:55:16,880
+for coming by
+
+774
+00:55:18,440 --> 00:55:25,200
+tutorial I have well no I have a
+
+775
+00:55:21,420 --> 00:55:25,650
+tutorial about Oakmont you know let's
+
+776
+00:55:25,200 --> 00:55:30,269
+see
+
+777
+00:55:25,650 --> 00:55:38,279
+Emacs blog you see if you if you just go
+
+778
+00:55:30,269 --> 00:55:42,390
+to practical Emacs then scroll down then
+
+779
+00:55:38,279 --> 00:55:48,779
+this oak mock topic so yeah actually
+
+780
+00:55:42,390 --> 00:55:51,210
+they are you know fairly basic but but
+
+781
+00:55:48,779 --> 00:55:53,730
+the thing is about Oak modest I mean if
+
+782
+00:55:51,210 --> 00:55:56,549
+you have not read this you know you can
+
+783
+00:55:53,730 --> 00:55:59,730
+you know read them they are very basic
+
+784
+00:55:56,549 --> 00:56:03,450
+and paper but they they cover the
+
+785
+00:55:59,730 --> 00:56:05,700
+fundamentals the most you know the
+
+786
+00:56:03,450 --> 00:56:08,970
+concept the most basic you know you can
+
+787
+00:56:05,700 --> 00:56:12,859
+just start to use oak mark by reading by
+
+788
+00:56:08,970 --> 00:56:17,190
+spinning you know say 20 minutes about
+
+789
+00:56:12,859 --> 00:56:19,950
+you know reading these pages and when
+
+790
+00:56:17,190 --> 00:56:23,519
+you want to learn more you have no
+
+791
+00:56:19,950 --> 00:56:27,599
+choice but dig into the oak Mart manual
+
+792
+00:56:23,519 --> 00:56:34,470
+I mean I can recommend that so you do
+
+793
+00:56:27,599 --> 00:56:38,990
+you do that by ctrl H I then you get the
+
+794
+00:56:34,470 --> 00:56:43,079
+Emacs info page index so search for org
+
+795
+00:56:38,990 --> 00:56:49,680
+you see there it is right there and now
+
+796
+00:56:43,079 --> 00:56:52,109
+you just see tab and just open it so
+
+797
+00:56:49,680 --> 00:56:57,980
+here's the Oakmont tutorial and also you
+
+798
+00:56:52,109 --> 00:56:57,980
+can you can just search for Oakmont
+
+799
+00:56:59,680 --> 00:57:09,830
+and go to the oak mod homepage Oak MoDOT
+
+800
+00:57:04,730 --> 00:57:14,050
+hog and they have a lot documentation so
+
+801
+00:57:09,830 --> 00:57:23,390
+let me show you which one is good
+
+802
+00:57:14,050 --> 00:57:29,180
+so manuals and tutorials go there and so
+
+803
+00:57:23,390 --> 00:57:31,760
+there is the manual you know browser
+
+804
+00:57:29,180 --> 00:57:35,690
+menu you can read the menu but however
+
+805
+00:57:31,760 --> 00:57:37,790
+the official menu is like it's huge
+
+806
+00:57:35,690 --> 00:57:43,540
+I mean it's hundreds of pages so it's
+
+807
+00:57:37,790 --> 00:57:47,210
+kind of it can be too much especially
+
+808
+00:57:43,540 --> 00:57:49,610
+for beginner so I don't you know but you
+
+809
+00:57:47,210 --> 00:57:51,920
+can but you can also read this one
+
+810
+00:57:49,610 --> 00:57:56,420
+there's another one beat the compact
+
+811
+00:57:51,920 --> 00:58:00,380
+guide so this one it's much shorter it's
+
+812
+00:57:56,420 --> 00:58:05,780
+somewhat yes it's still a lot a lot it's
+
+813
+00:58:00,380 --> 00:58:07,730
+shorter so I don't know so I mean so if
+
+814
+00:58:05,780 --> 00:58:11,600
+you want to read you know you can just
+
+815
+00:58:07,730 --> 00:58:15,080
+start with my tutorial you know and then
+
+816
+00:58:11,600 --> 00:58:18,010
+you can read the menus or the guide on a
+
+817
+00:58:15,080 --> 00:58:21,310
+future website but if you want youtube
+
+818
+00:58:18,010 --> 00:58:24,490
+tutorials they are quite a lot of people
+
+819
+00:58:21,310 --> 00:58:30,650
+who have created you know very good
+
+820
+00:58:24,490 --> 00:58:34,760
+Emacs video tutorials maybe I can tell
+
+821
+00:58:30,650 --> 00:58:43,330
+you which one for example there is a guy
+
+822
+00:58:34,760 --> 00:58:43,330
+called Howard oak mod let's say oak mud
+
+823
+00:58:45,200 --> 00:58:51,900
+getting started with Oakmont Harry
+
+824
+00:58:48,540 --> 00:58:56,970
+Schwartz oh I think I've met Harry
+
+825
+00:58:51,900 --> 00:59:02,069
+shruts in emacs meetup in near San
+
+826
+00:58:56,970 --> 00:59:03,960
+Francisco I think I'm not sure so you
+
+827
+00:59:02,069 --> 00:59:12,150
+know he's got the getting started with
+
+828
+00:59:03,960 --> 00:59:14,430
+Oakmont yeah I think you know anyway so
+
+829
+00:59:12,150 --> 00:59:16,530
+yeah I you know so they are quite a few
+
+830
+00:59:14,430 --> 00:59:19,910
+tutorials I think they are good you know
+
+831
+00:59:16,530 --> 00:59:19,910
+you can just read them
+
+832
+00:59:27,099 --> 00:59:32,940
+yeah controller is useful now control I
+
+833
+00:59:33,809 --> 00:59:41,829
+control it right let me try it again
+
+834
+00:59:35,799 --> 00:59:47,049
+control H I it can it it gives you the
+
+835
+00:59:41,829 --> 00:59:50,380
+index page of all the manuals that are
+
+836
+00:59:47,049 --> 00:59:55,089
+bundled with Emacs so all these links
+
+837
+00:59:50,380 --> 01:00:01,569
+are local and they contain for example
+
+838
+00:59:55,089 --> 01:00:03,670
+magic magic tutorial basically
+
+839
+01:00:01,569 --> 01:00:06,969
+everything about Emacs but also
+
+840
+01:00:03,670 --> 01:00:10,449
+something else like Adam Adam and okay
+
+841
+01:00:06,969 --> 01:00:13,449
+Adam Adam mod is part of Emacs you know
+
+842
+01:00:10,449 --> 01:00:16,989
+it's for the other language CC mod for
+
+843
+01:00:13,449 --> 01:00:20,619
+is for C language octave mod is for well
+
+844
+01:00:16,989 --> 01:00:23,019
+octave language well basically so it's a
+
+845
+01:00:20,619 --> 01:00:26,680
+full documentation you can so there's
+
+846
+01:00:23,019 --> 01:00:29,559
+like thousands of thousands of pages you
+
+847
+01:00:26,680 --> 01:00:32,549
+can read them but usually usually they
+
+848
+01:00:29,559 --> 01:00:35,709
+are not easy to read and they are very
+
+849
+01:00:32,549 --> 01:00:39,789
+extremely verbose like you have to spend
+
+850
+01:00:35,709 --> 01:00:43,660
+many hours reading them of course so
+
+851
+01:00:39,789 --> 01:00:46,329
+that gets you to mastery but so I just
+
+852
+01:00:43,660 --> 01:00:48,219
+I'll just say that you can always just
+
+853
+01:00:46,329 --> 01:00:53,650
+you know start with my tutorial you know
+
+854
+01:00:48,219 --> 01:00:57,789
+this because I try to give you the most
+
+855
+01:00:53,650 --> 01:01:00,670
+basic I try to write it in such a way
+
+856
+01:00:57,789 --> 01:01:03,339
+that you know it's the most efficient
+
+857
+01:01:00,670 --> 01:01:05,410
+tutorial I mean in in terms of how much
+
+858
+01:01:03,339 --> 01:01:08,949
+hour you spend and how much you learn
+
+859
+01:01:05,410 --> 01:01:12,309
+and once you read me you know you reread
+
+860
+01:01:08,949 --> 01:01:15,519
+my tutorial you know where you want to
+
+861
+01:01:12,309 --> 01:01:22,420
+go you know you can start to read the
+
+862
+01:01:15,519 --> 01:01:29,489
+official menu okay so thank you guys for
+
+863
+01:01:22,420 --> 01:01:29,489
+coming that's it for today thanks bye
+

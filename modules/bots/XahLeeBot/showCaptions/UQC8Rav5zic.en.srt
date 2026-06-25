@@ -1,0 +1,3536 @@
+1
+00:00:02,240 --> 00:00:08,160
+Good morning everyone. Welcome to
+
+2
+00:00:04,880 --> 00:00:11,440
+another episode of Son talk show. We are
+
+3
+00:00:08,160 --> 00:00:15,360
+going code going to code Emac LISP
+
+4
+00:00:11,440 --> 00:00:18,400
+today. So this is for you people who use
+
+5
+00:00:15,360 --> 00:00:20,160
+Emacs and who like to learn about Emac
+
+6
+00:00:18,400 --> 00:00:22,400
+Lisp.
+
+7
+00:00:20,160 --> 00:00:25,920
+So let's begin. If you are watching this
+
+8
+00:00:22,400 --> 00:00:29,359
+offline, play at 1.5 speed. If you are
+
+9
+00:00:25,920 --> 00:00:33,200
+watching this live, say hi. Okay, we're
+
+10
+00:00:29,359 --> 00:00:35,120
+going to code one command called lookup
+
+11
+00:00:33,200 --> 00:00:37,840
+goipedia.
+
+12
+00:00:35,120 --> 00:00:40,879
+That's one thing to do. The other thing
+
+13
+00:00:37,840 --> 00:00:44,719
+I'm going to demonstrate is go to char
+
+14
+00:00:40,879 --> 00:00:46,480
+and go to line. That will go to a
+
+15
+00:00:44,719 --> 00:00:48,239
+character
+
+16
+00:00:46,480 --> 00:00:50,399
+um
+
+17
+00:00:48,239 --> 00:00:53,840
+in in your next pen. Okay. So for
+
+18
+00:00:50,399 --> 00:00:57,760
+example, go to a character the line
+
+19
+00:00:53,840 --> 00:00:59,520
+number or the position under the cursor
+
+20
+00:00:57,760 --> 00:01:02,559
+in the other pen. For example, if you
+
+21
+00:00:59,520 --> 00:01:10,320
+are coding something and you got error.
+
+22
+00:01:02,559 --> 00:01:12,799
+So error at line number let's say 29
+
+23
+00:01:10,320 --> 00:01:14,640
+39. Okay. So if you are coding here
+
+24
+00:01:12,799 --> 00:01:16,960
+something something and you compile or
+
+25
+00:01:14,640 --> 00:01:20,000
+run it and you got the error then you
+
+26
+00:01:16,960 --> 00:01:23,000
+want to jump to line number 39. So, you
+
+27
+00:01:20,000 --> 00:01:23,000
+press
+
+28
+00:01:23,840 --> 00:01:30,799
+I believe it's this key. This There it
+
+29
+00:01:27,119 --> 00:01:32,560
+is. Wait. Uh, okay. Wait, that's not the
+
+30
+00:01:30,799 --> 00:01:35,680
+one. Uh,
+
+31
+00:01:32,560 --> 00:01:38,560
+what's the key? Press uh describe P.
+
+32
+00:01:35,680 --> 00:01:41,920
+Press press.
+
+33
+00:01:38,560 --> 00:01:43,680
+That is go to line. Okay. So, go to line
+
+34
+00:01:41,920 --> 00:01:46,640
+39.
+
+35
+00:01:43,680 --> 00:01:49,840
+Oh, there's something I need to fix. But
+
+36
+00:01:46,640 --> 00:01:54,320
+anyway, it's supposed to jump to uh line
+
+37
+00:01:49,840 --> 00:01:58,399
+39 in the next pen. So, so somewhere
+
+38
+00:01:54,320 --> 00:02:01,680
+here. Okay. Yeah. So, anyway, so go to
+
+39
+00:01:58,399 --> 00:02:04,320
+line number go to line number go to line
+
+40
+00:02:01,680 --> 00:02:07,600
+or go to char. So, that's a two command
+
+41
+00:02:04,320 --> 00:02:10,080
+I'm going to show you and fix it. So,
+
+42
+00:02:07,600 --> 00:02:13,760
+first of all, we're going to write
+
+43
+00:02:10,080 --> 00:02:16,560
+uh guipedia. Hello NASA.
+
+44
+00:02:13,760 --> 00:02:18,879
+So Gipedia, if you don't know, it's like
+
+45
+00:02:16,560 --> 00:02:21,920
+Wikipedia.
+
+46
+00:02:18,879 --> 00:02:26,640
+It's created by Elamusk.
+
+47
+00:02:21,920 --> 00:02:29,360
+It began about a week ago. So there is a
+
+48
+00:02:26,640 --> 00:02:31,520
+guipedia right now. So let me show you.
+
+49
+00:02:29,360 --> 00:02:36,239
+So actually we we just going to start to
+
+50
+00:02:31,520 --> 00:02:40,640
+write the command. Okay. So emacis
+
+51
+00:02:36,239 --> 00:02:42,560
+uh eac list define define function and
+
+52
+00:02:40,640 --> 00:02:44,640
+show the pink window. The pink window
+
+53
+00:02:42,560 --> 00:02:47,519
+shows all my command calls and the
+
+54
+00:02:44,640 --> 00:02:51,680
+keystroke on the left. I'm using a VA
+
+55
+00:02:47,519 --> 00:02:54,400
+keyboard and and I'm using Safly Keys.
+
+56
+00:02:51,680 --> 00:02:56,560
+Let me de demonstrate again Safely Keys.
+
+57
+00:02:54,400 --> 00:02:59,840
+Let me show you uh if you haven't seen
+
+58
+00:02:56,560 --> 00:03:02,319
+it already. So Keys is the most
+
+59
+00:02:59,840 --> 00:03:05,680
+efficient
+
+60
+00:03:02,319 --> 00:03:08,800
+editing system in the universe. More
+
+61
+00:03:05,680 --> 00:03:11,599
+efficient than Vim or Neo Vim, but it's
+
+62
+00:03:08,800 --> 00:03:15,599
+for Emacs. Okay, it's like model just
+
+63
+00:03:11,599 --> 00:03:19,040
+like Vim but it's more efficient design
+
+64
+00:03:15,599 --> 00:03:21,760
+based on frequency of the command name
+
+65
+00:03:19,040 --> 00:03:25,360
+course and the ease of the finger. So
+
+66
+00:03:21,760 --> 00:03:28,800
+you can see this is a homepage of Softly
+
+67
+00:03:25,360 --> 00:03:31,599
+Keys and there's a video introduction.
+
+68
+00:03:28,800 --> 00:03:35,360
+There's lot like tens of videos in past
+
+69
+00:03:31,599 --> 00:03:40,400
+five years and you can look at it. Here
+
+70
+00:03:35,360 --> 00:03:43,519
+is the the actual uh cheat sheet diagram
+
+71
+00:03:40,400 --> 00:03:45,440
+for the keys. So you don't have to press
+
+72
+00:03:43,519 --> 00:03:47,760
+control
+
+73
+00:03:45,440 --> 00:03:50,640
+uh like you almost never have to press
+
+74
+00:03:47,760 --> 00:03:52,720
+control or the meta key or the old key.
+
+75
+00:03:50,640 --> 00:03:55,440
+So it's just like Vim but it's more
+
+76
+00:03:52,720 --> 00:03:57,920
+efficient. Okay. You can measure that
+
+77
+00:03:55,440 --> 00:04:00,480
+scientifically by counting your
+
+78
+00:03:57,920 --> 00:04:02,400
+keystrokes. For example, if you go to
+
+79
+00:04:00,480 --> 00:04:05,200
+the Vim Golf, you know, there's a
+
+80
+00:04:02,400 --> 00:04:07,519
+website kind of like who can who can
+
+81
+00:04:05,200 --> 00:04:10,640
+type the shortest number of key strokes
+
+82
+00:04:07,519 --> 00:04:13,360
+to do something you know for this is for
+
+83
+00:04:10,640 --> 00:04:15,760
+uh mostly for coders programmers. Okay.
+
+84
+00:04:13,360 --> 00:04:18,000
+So Safa Keys if you have not tried it
+
+85
+00:04:15,760 --> 00:04:20,479
+already try it. That's one of my best
+
+86
+00:04:18,000 --> 00:04:23,120
+work in my life.
+
+87
+00:04:20,479 --> 00:04:28,000
+Okay, it's on GitHub for Emacs users.
+
+88
+00:04:23,120 --> 00:04:31,199
+Okay, so that's Safly Keys. Copy uh copy
+
+89
+00:04:28,000 --> 00:04:34,639
+the file path. Close and uh put this
+
+90
+00:04:31,199 --> 00:04:36,639
+back. And let's just link Safarly Keys.
+
+91
+00:04:34,639 --> 00:04:40,720
+Now go back to the code. We're going to
+
+92
+00:04:36,639 --> 00:04:43,600
+write a command uh called Kasar.
+
+93
+00:04:40,720 --> 00:04:46,880
+Uh what is the command name? Guipedia.
+
+94
+00:04:43,600 --> 00:04:54,240
+Okay. Look up Guipedia. Copy. Go back
+
+95
+00:04:46,880 --> 00:04:56,080
+here. Paste it. Okay. Uh, look up
+
+96
+00:04:54,240 --> 00:04:58,160
+Wikipedia
+
+97
+00:04:56,080 --> 00:05:01,280
+of
+
+98
+00:04:58,160 --> 00:05:03,680
+current word the word under kuza. Okay,
+
+99
+00:05:01,280 --> 00:05:06,240
+created today's date version number
+
+100
+00:05:03,680 --> 00:05:08,320
+today's date and uh we can start to
+
+101
+00:05:06,240 --> 00:05:10,560
+write it. The first job is grab the
+
+102
+00:05:08,320 --> 00:05:13,759
+current word. So let me tell you guys
+
+103
+00:05:10,560 --> 00:05:17,759
+what is guipedia the nature. Okay. So,
+
+104
+00:05:13,759 --> 00:05:21,840
+Ela Musk, the the world's richest guy
+
+105
+00:05:17,759 --> 00:05:25,199
+who created Guipedia and it uh the beta
+
+106
+00:05:21,840 --> 00:05:28,080
+version came out last week.
+
+107
+00:05:25,199 --> 00:05:31,280
+Uh in fact, we can just go to it. So,
+
+108
+00:05:28,080 --> 00:05:34,000
+for example, let's select uh let's
+
+109
+00:05:31,280 --> 00:05:38,560
+select just that what and look up the
+
+110
+00:05:34,000 --> 00:05:41,199
+web. Wait, press press lookup web.
+
+111
+00:05:38,560 --> 00:05:44,160
+That's one of of my packages. So, let me
+
+112
+00:05:41,199 --> 00:05:48,479
+show you that. Okay. So wait, put it
+
+113
+00:05:44,160 --> 00:05:50,400
+back. Wait, put it back. Now describe
+
+114
+00:05:48,479 --> 00:05:54,000
+key. Look at the pink window. You'll see
+
+115
+00:05:50,400 --> 00:05:57,840
+my command core names. And uh describe
+
+116
+00:05:54,000 --> 00:06:00,000
+key. Press, press, press, press. So you
+
+117
+00:05:57,840 --> 00:06:03,280
+can see if I press those keys, it's
+
+118
+00:06:00,000 --> 00:06:06,240
+going to call lookup web. Okay. Now jump
+
+119
+00:06:03,280 --> 00:06:09,440
+to the source code. There is a source
+
+120
+00:06:06,240 --> 00:06:11,600
+code for lookup web. It's very short, 10
+
+121
+00:06:09,440 --> 00:06:14,720
+lines of code or or just five lines of
+
+122
+00:06:11,600 --> 00:06:17,440
+code. So and we can we're going to write
+
+123
+00:06:14,720 --> 00:06:21,120
+that for Wikipedia. So if you look at
+
+124
+00:06:17,440 --> 00:06:24,800
+this package, this is my package. Uh you
+
+125
+00:06:21,120 --> 00:06:26,639
+can go to the uh homepage that URI I'll
+
+126
+00:06:24,800 --> 00:06:30,080
+open it
+
+127
+00:06:26,639 --> 00:06:32,800
+lookup web. Okay. So you can look up
+
+128
+00:06:30,080 --> 00:06:35,759
+Google specific search engine Google
+
+129
+00:06:32,800 --> 00:06:38,880
+Yandex by that's for Chinese when you
+
+130
+00:06:35,759 --> 00:06:41,840
+want to look up some Chinese characters
+
+131
+00:06:38,880 --> 00:06:44,000
+in China. So there's look up Twitter
+
+132
+00:06:41,840 --> 00:06:47,680
+when you want to search the vast amount
+
+133
+00:06:44,000 --> 00:06:50,319
+of information on Twitter. Twitter is uh
+
+134
+00:06:47,680 --> 00:06:52,800
+very rich with information you know of
+
+135
+00:06:50,319 --> 00:06:56,080
+of some special kind you know different
+
+136
+00:06:52,800 --> 00:07:01,840
+type. So that's my Twitter. Follow me
+
+137
+00:06:56,080 --> 00:07:04,160
+Kasa Lee. Okay. So today's talk show uh
+
+138
+00:07:01,840 --> 00:07:07,360
+you know so I announced on Twitter. So
+
+139
+00:07:04,160 --> 00:07:10,560
+why do white men use their hands to eat
+
+140
+00:07:07,360 --> 00:07:13,199
+food? It's so unhygien
+
+141
+00:07:10,560 --> 00:07:16,479
+hygienic. [laughter]
+
+142
+00:07:13,199 --> 00:07:19,599
+You know in in in the past few months
+
+143
+00:07:16,479 --> 00:07:22,479
+people are trying to the white people
+
+144
+00:07:19,599 --> 00:07:24,319
+are making fun of Indians. all sorts of
+
+145
+00:07:22,479 --> 00:07:28,400
+Indians you know they they kind of poor
+
+146
+00:07:24,319 --> 00:07:33,039
+also but this is very fun video you know
+
+147
+00:07:28,400 --> 00:07:35,840
+she is not poor you can see their attire
+
+148
+00:07:33,039 --> 00:07:38,479
+you know they are like elite class or
+
+149
+00:07:35,840 --> 00:07:41,680
+something so but they but it's cultural
+
+150
+00:07:38,479 --> 00:07:45,840
+tradition kind of habit where Indians
+
+151
+00:07:41,680 --> 00:07:49,280
+use their food to eat you know in in seo
+
+152
+00:07:45,840 --> 00:07:52,479
+anyway that's digression okay it's just
+
+153
+00:07:49,280 --> 00:07:54,879
+something fun So my Twitter. Okay. So
+
+154
+00:07:52,479 --> 00:07:58,000
+you can look up Twitter, you can look up
+
+155
+00:07:54,879 --> 00:08:01,520
+Google, look up Yandex, that's when you
+
+156
+00:07:58,000 --> 00:08:04,960
+want something of Russian interest
+
+157
+00:08:01,520 --> 00:08:08,240
+because different search engines, then
+
+158
+00:08:04,960 --> 00:08:10,560
+they censor different things. Now Google
+
+159
+00:08:08,240 --> 00:08:13,440
+in America, you know what kind of things
+
+160
+00:08:10,560 --> 00:08:16,400
+it censor. Now, if you want to search
+
+161
+00:08:13,440 --> 00:08:18,560
+for certain things, especially if you um
+
+162
+00:08:16,400 --> 00:08:21,599
+like Russian related information, then
+
+163
+00:08:18,560 --> 00:08:24,000
+you want you might want to use Yandex,
+
+164
+00:08:21,599 --> 00:08:26,800
+especially if you search for girls, you
+
+165
+00:08:24,000 --> 00:08:30,080
+know, Yandex will return uncensored
+
+166
+00:08:26,800 --> 00:08:32,320
+information like pictures. But Google,
+
+167
+00:08:30,080 --> 00:08:34,399
+that's a different story. Okay? So you
+
+168
+00:08:32,320 --> 00:08:37,120
+can search BU, you can search Twitter,
+
+169
+00:08:34,399 --> 00:08:40,080
+you can search Google Street Map, you
+
+170
+00:08:37,120 --> 00:08:42,880
+can search images via Google or you can
+
+171
+00:08:40,080 --> 00:08:45,279
+set up a different URL to search images.
+
+172
+00:08:42,880 --> 00:08:47,519
+You can you can look up YouTube, you
+
+173
+00:08:45,279 --> 00:08:51,440
+know, just search for example, let's
+
+174
+00:08:47,519 --> 00:08:53,680
+search for Kali. Okay, so for example,
+
+175
+00:08:51,440 --> 00:08:56,880
+wait, copy that. Look up. That's that
+
+176
+00:08:53,680 --> 00:08:59,360
+page. Uh, and paste on today's talk
+
+177
+00:08:56,880 --> 00:09:03,600
+show. Let's just paste the link so you
+
+178
+00:08:59,360 --> 00:09:06,000
+could look up. So let's search for
+
+179
+00:09:03,600 --> 00:09:09,360
+okay now I don't remember what is the
+
+180
+00:09:06,000 --> 00:09:12,399
+key so let's just call the command
+
+181
+00:09:09,360 --> 00:09:18,560
+lookup YouTube
+
+182
+00:09:12,399 --> 00:09:21,600
+space hu okay cancel space hu there it
+
+183
+00:09:18,560 --> 00:09:24,080
+is actually I you know lee it just
+
+184
+00:09:21,600 --> 00:09:26,080
+search for lee so actually if you put
+
+185
+00:09:24,080 --> 00:09:30,480
+the cursor at the beginning of the line
+
+186
+00:09:26,080 --> 00:09:33,519
+it will search the entire line so space
+
+187
+00:09:30,480 --> 00:09:37,519
+space hu
+
+188
+00:09:33,519 --> 00:09:40,080
+there it is Google YouTube results
+
+189
+00:09:37,519 --> 00:09:43,600
+you can see my videos today and
+
+190
+00:09:40,080 --> 00:09:46,880
+yesterday this one yeah yesterday and uh
+
+191
+00:09:43,600 --> 00:09:49,120
+you know I by now I have like 400 videos
+
+192
+00:09:46,880 --> 00:09:53,519
+so 300
+
+193
+00:09:49,120 --> 00:09:56,480
+oh keyboard beautiful hour fantastic and
+
+194
+00:09:53,519 --> 00:10:00,000
+I'm not dead yet
+
+195
+00:09:56,480 --> 00:10:01,680
+uh that's a bad situation anyway Anyway,
+
+196
+00:10:00,000 --> 00:10:04,080
+so
+
+197
+00:10:01,680 --> 00:10:07,120
+that's demonstration of that command.
+
+198
+00:10:04,080 --> 00:10:10,480
+Look up YouTube and look up Wikipedia.
+
+199
+00:10:07,120 --> 00:10:13,440
+Look up internet archive or look up what
+
+200
+00:10:10,480 --> 00:10:17,760
+definition or look up synonyms or look
+
+201
+00:10:13,440 --> 00:10:20,640
+up dictionary or a specific dictionary
+
+202
+00:10:17,760 --> 00:10:25,200
+uh or you can look up wictionary
+
+203
+00:10:20,640 --> 00:10:28,640
+wikary or ethmology or Chinese character
+
+204
+00:10:25,200 --> 00:10:30,480
+Chinese character definition. So all
+
+205
+00:10:28,640 --> 00:10:36,399
+this you just press a key. For example,
+
+206
+00:10:30,480 --> 00:10:39,920
+let me show you uh press press and uh
+
+207
+00:10:36,399 --> 00:10:42,560
+press that key and you can see all the
+
+208
+00:10:39,920 --> 00:10:45,519
+commands in their keystrokes.
+
+209
+00:10:42,560 --> 00:10:50,560
+The backspace key you see there is right
+
+210
+00:10:45,519 --> 00:10:53,279
+under my hand under my left thumb. Okay.
+
+211
+00:10:50,560 --> 00:10:56,000
+So you can press space or or start with
+
+212
+00:10:53,279 --> 00:10:58,959
+backspace. Same thing. That's my custom
+
+213
+00:10:56,000 --> 00:11:00,959
+se setup. Okay. So this package provide
+
+214
+00:10:58,959 --> 00:11:02,800
+all that. So you don't have to uh go to
+
+215
+00:11:00,959 --> 00:11:07,120
+a spec, you know, you can just press a
+
+216
+00:11:02,800 --> 00:11:09,760
+few keys and find what you want. Today
+
+217
+00:11:07,120 --> 00:11:12,959
+we're going to write
+
+218
+00:11:09,760 --> 00:11:15,440
+look up guipedia. So what is Gipedia?
+
+219
+00:11:12,959 --> 00:11:18,240
+What is the nature of Gipedia? So you
+
+220
+00:11:15,440 --> 00:11:21,040
+got all these website Wikipedia.
+
+221
+00:11:18,240 --> 00:11:24,399
+But Wikipedia became corrupted in the
+
+222
+00:11:21,040 --> 00:11:27,600
+past 10 years. When you look up any
+
+223
+00:11:24,399 --> 00:11:30,079
+information that is
+
+224
+00:11:27,600 --> 00:11:33,200
+power sensitive,
+
+225
+00:11:30,079 --> 00:11:36,000
+also known as politically sensitive
+
+226
+00:11:33,200 --> 00:11:40,560
+involving power. For example, if you
+
+227
+00:11:36,000 --> 00:11:44,399
+look up on election, on Trump, on social
+
+228
+00:11:40,560 --> 00:11:47,440
+justice warriors, on trans issue, on you
+
+229
+00:11:44,399 --> 00:11:53,303
+know men in women's bathroom,
+
+230
+00:11:47,440 --> 00:11:54,480
+if you look up on gun, on gay, on um
+
+231
+00:11:53,303 --> 00:11:56,800
+[laughter]
+
+232
+00:11:54,480 --> 00:11:59,519
+you know that's American thing. You look
+
+233
+00:11:56,800 --> 00:12:02,640
+up those things, they will have fake
+
+234
+00:11:59,519 --> 00:12:05,760
+news. Okay? And also when you look up on
+
+235
+00:12:02,640 --> 00:12:07,920
+China and today Venezuela,
+
+236
+00:12:05,760 --> 00:12:11,279
+you know, a country who's got the
+
+237
+00:12:07,920 --> 00:12:14,399
+biggest oil in the world on earth more
+
+238
+00:12:11,279 --> 00:12:17,920
+than Saudi Arabia, Venezuela and Trump
+
+239
+00:12:14,399 --> 00:12:20,160
+is like doing things to them. So you
+
+240
+00:12:17,920 --> 00:12:22,880
+look up all these issues, current event
+
+241
+00:12:20,160 --> 00:12:26,000
+or all the other wars going on or or the
+
+242
+00:12:22,880 --> 00:12:28,240
+people you know uh different people in
+
+243
+00:12:26,000 --> 00:12:31,040
+different countries as long as they are
+
+244
+00:12:28,240 --> 00:12:35,040
+in the current news what you get on
+
+245
+00:12:31,040 --> 00:12:38,480
+Wikipedia is fake news. Okay. Especially
+
+246
+00:12:35,040 --> 00:12:41,360
+also if you look up on Ela Musk, if you
+
+247
+00:12:38,480 --> 00:12:44,639
+look up on you know besides Trump bidden
+
+248
+00:12:41,360 --> 00:12:49,360
+or any of the political figures,
+
+249
+00:12:44,639 --> 00:12:52,639
+uh if you look up on any like
+
+250
+00:12:49,360 --> 00:12:54,959
+popular political commentators
+
+251
+00:12:52,639 --> 00:12:58,160
+or activists,
+
+252
+00:12:54,959 --> 00:13:03,200
+what you get is fake news. beginning
+
+253
+00:12:58,160 --> 00:13:05,279
+about about 15 years ago, let's say
+
+254
+00:13:03,200 --> 00:13:08,000
+2012,
+
+255
+00:13:05,279 --> 00:13:12,240
+something like that. Okay. In some
+
+256
+00:13:08,000 --> 00:13:15,600
+cases, extreme fake news.
+
+257
+00:13:12,240 --> 00:13:17,760
+Uh and also on China, of course, because
+
+258
+00:13:15,600 --> 00:13:21,040
+China, China, you know, Trump been
+
+259
+00:13:17,760 --> 00:13:24,560
+saying China since 2016.
+
+260
+00:13:21,040 --> 00:13:27,360
+Why? Because China has become powerful.
+
+261
+00:13:24,560 --> 00:13:30,880
+That is why. So when you look up China,
+
+262
+00:13:27,360 --> 00:13:33,279
+you'll get lots of fake news or World
+
+263
+00:13:30,880 --> 00:13:35,600
+War II or certain country in World War
+
+264
+00:13:33,279 --> 00:13:37,920
+II, it's all fake news. Okay, that well
+
+265
+00:13:35,600 --> 00:13:40,240
+actually to some degree. Okay, the
+
+266
+00:13:37,920 --> 00:13:43,760
+important thing is to some degree. Of
+
+267
+00:13:40,240 --> 00:13:46,160
+course, when you when they uh when it
+
+268
+00:13:43,760 --> 00:13:49,279
+comes to propaganda,
+
+269
+00:13:46,160 --> 00:13:51,760
+you know, it does not imply 100% fake
+
+270
+00:13:49,279 --> 00:13:53,519
+news. propaganda, you know, the best
+
+271
+00:13:51,760 --> 00:13:56,399
+propaganda is actually, you know, they
+
+272
+00:13:53,519 --> 00:14:00,000
+report it with a trrist with a certain
+
+273
+00:13:56,399 --> 00:14:02,959
+perspective. That's how effective
+
+274
+00:14:00,000 --> 00:14:05,839
+propaganda works. Or they just show you
+
+275
+00:14:02,959 --> 00:14:07,839
+certain, you know, they they so-called
+
+276
+00:14:05,839 --> 00:14:10,320
+according to white men that they say
+
+277
+00:14:07,839 --> 00:14:12,560
+cherry pick. You know, every day on
+
+278
+00:14:10,320 --> 00:14:14,959
+Twitter, the algorithm show you certain
+
+279
+00:14:12,560 --> 00:14:18,320
+things, but other things they never show
+
+280
+00:14:14,959 --> 00:14:21,440
+you. Okay? So all those are considered
+
+281
+00:14:18,320 --> 00:14:23,920
+propaganda. In other words, propaganda,
+
+282
+00:14:21,440 --> 00:14:27,760
+you know, propaganda is like academic
+
+283
+00:14:23,920 --> 00:14:31,519
+mumbo jumbo jargon. In other words, they
+
+284
+00:14:27,760 --> 00:14:35,760
+just influence your thought. Okay. So,
+
+285
+00:14:31,519 --> 00:14:39,839
+Wikipedia became fake news since past 10
+
+286
+00:14:35,760 --> 00:14:42,959
+years or so. So, Ella Musk, you know,
+
+287
+00:14:39,839 --> 00:14:44,880
+the richest guy, he has a thought. So
+
+288
+00:14:42,959 --> 00:14:47,360
+you know we're going to write Wikipedia
+
+289
+00:14:44,880 --> 00:14:50,959
+the entire Wikipedia they call it
+
+290
+00:14:47,360 --> 00:14:54,079
+Guipedia based on AI you know because
+
+291
+00:14:50,959 --> 00:14:56,560
+today AI is becoming amazing so they
+
+292
+00:14:54,079 --> 00:14:59,600
+just going to generate an entire
+
+293
+00:14:56,560 --> 00:15:02,560
+encyclopedia in one day that's what they
+
+294
+00:14:59,600 --> 00:15:06,800
+did okay so now it's available online in
+
+295
+00:15:02,560 --> 00:15:10,160
+fact let's look up um let's look up some
+
+296
+00:15:06,800 --> 00:15:12,639
+let's say um
+
+297
+00:15:10,160 --> 00:15:15,519
+controversial topic you know There's gun
+
+298
+00:15:12,639 --> 00:15:17,839
+control, there's abortion, there is
+
+299
+00:15:15,519 --> 00:15:21,279
+different abortion organizations,
+
+300
+00:15:17,839 --> 00:15:24,000
+there's lots of political money
+
+301
+00:15:21,279 --> 00:15:26,480
+organizations. What what should we look
+
+302
+00:15:24,000 --> 00:15:31,240
+up? You know, we we need some example
+
+303
+00:15:26,480 --> 00:15:31,240
+that's simple and everyone understand.
+
+304
+00:15:31,279 --> 00:15:38,079
+Uh well, let's look up, you know. So,
+
+305
+00:15:34,639 --> 00:15:40,720
+what what's some examples? Uh
+
+306
+00:15:38,079 --> 00:15:43,959
+and you can look up censorship, you
+
+307
+00:15:40,720 --> 00:15:43,959
+know. So
+
+308
+00:15:44,560 --> 00:15:49,440
+uh or you could you can look up gamer
+
+309
+00:15:47,120 --> 00:15:52,240
+gate. Okay, that gamer gate is one of
+
+310
+00:15:49,440 --> 00:15:56,320
+the
+
+311
+00:15:52,240 --> 00:15:58,079
+you know one one of the big um
+
+312
+00:15:56,320 --> 00:16:03,040
+event
+
+313
+00:15:58,079 --> 00:16:06,480
+that influenced USA culture and politics
+
+314
+00:16:03,040 --> 00:16:08,880
+in past 15 years.
+
+315
+00:16:06,480 --> 00:16:14,160
+Okay. So game is one of the sensitive
+
+316
+00:16:08,880 --> 00:16:15,759
+topic. So you can look up
+
+317
+00:16:14,160 --> 00:16:20,399
+Wikipedia
+
+318
+00:16:15,759 --> 00:16:25,440
+uh Wiki Wikipedia. Okay, let's do that.
+
+319
+00:16:20,399 --> 00:16:29,279
+So there. So you got one version of
+
+320
+00:16:25,440 --> 00:16:34,639
+information. It says it begins Gamergate
+
+321
+00:16:29,279 --> 00:16:36,240
+or GG was a loosely organized
+
+322
+00:16:34,639 --> 00:16:39,440
+misogynistic
+
+323
+00:16:36,240 --> 00:16:42,880
+online harassment campaign.
+
+324
+00:16:39,440 --> 00:16:46,560
+motivated by a right-wing backslash
+
+325
+00:16:42,880 --> 00:16:48,240
+against feminism, diversity, and
+
+326
+00:16:46,560 --> 00:16:51,279
+progressiveness
+
+327
+00:16:48,240 --> 00:16:54,880
+in video game culture. Okay, that's a
+
+328
+00:16:51,279 --> 00:16:58,079
+introduction introductory sentence. So,
+
+329
+00:16:54,880 --> 00:17:00,720
+it's about lose the organized
+
+330
+00:16:58,079 --> 00:17:03,279
+misogynistic
+
+331
+00:17:00,720 --> 00:17:08,400
+something something. Okay, so that's
+
+332
+00:17:03,279 --> 00:17:10,559
+Wikipedia say now Guipedia. Okay. So I
+
+333
+00:17:08,400 --> 00:17:12,640
+don't have Guipedia. This command is not
+
+334
+00:17:10,559 --> 00:17:17,039
+written yet. So we have to go to
+
+335
+00:17:12,640 --> 00:17:22,559
+Guipedia first. So
+
+336
+00:17:17,039 --> 00:17:28,360
+go to Guipedia. Go to it.
+
+337
+00:17:22,559 --> 00:17:28,360
+Press that key to go to it. Okay.
+
+338
+00:17:30,880 --> 00:17:38,240
+Okay. Then type gameate. Okay. You need
+
+339
+00:17:34,640 --> 00:17:38,240
+to turn on JavaScript.
+
+340
+00:17:39,440 --> 00:17:44,760
+Uh, dark mode. dark mode.
+
+341
+00:17:44,799 --> 00:17:51,200
+Okay, now gamer gate.
+
+342
+00:17:48,559 --> 00:17:56,400
+Let's go to it. So, there's many
+
+343
+00:17:51,200 --> 00:17:58,960
+articles. Skimagate Gameagate Ant Gigi
+
+344
+00:17:56,400 --> 00:18:03,382
+Zo Queen
+
+345
+00:17:58,960 --> 00:18:04,559
+Anita Skax Sakisian
+
+346
+00:18:03,382 --> 00:18:10,160
+[laughter]
+
+347
+00:18:04,559 --> 00:18:12,720
+Briana Woo or Brian something okay this
+
+348
+00:18:10,160 --> 00:18:14,640
+you know those are the main uh
+
+349
+00:18:12,720 --> 00:18:16,480
+characters okay so let's click on
+
+350
+00:18:14,640 --> 00:18:20,559
+gameate
+
+351
+00:18:16,480 --> 00:18:24,559
+so game says gameate was a grassroots
+
+352
+00:18:20,559 --> 00:18:26,400
+online movement that emerged in August
+
+353
+00:18:24,559 --> 00:18:30,559
+2014
+
+354
+00:18:26,400 --> 00:18:34,400
+primarily focused on exposing conflicts
+
+355
+00:18:30,559 --> 00:18:37,600
+of interest and lack of transparency in
+
+356
+00:18:34,400 --> 00:18:41,360
+video game journalism.
+
+357
+00:18:37,600 --> 00:18:44,559
+initiated by a blog post detailing the
+
+358
+00:18:41,360 --> 00:18:48,880
+romantic involvement of indie developer
+
+359
+00:18:44,559 --> 00:18:52,320
+Zo Queen with journalists who covered
+
+360
+00:18:48,880 --> 00:18:57,840
+her work without disclosure.
+
+361
+00:18:52,320 --> 00:19:00,240
+So you see so Joe Zo Queen slept with
+
+362
+00:18:57,840 --> 00:19:02,559
+some writer
+
+363
+00:19:00,240 --> 00:19:05,360
+who published talk about games. So they
+
+364
+00:19:02,559 --> 00:19:09,039
+slept together then other people exposed
+
+365
+00:19:05,360 --> 00:19:13,280
+it. So game was a grassroots online
+
+366
+00:19:09,039 --> 00:19:16,640
+movement that emerged this way. Okay.
+
+367
+00:19:13,280 --> 00:19:20,240
+Exposing the conflict of interest.
+
+368
+00:19:16,640 --> 00:19:23,919
+That's what Wikipedia says. Compare
+
+369
+00:19:20,240 --> 00:19:29,360
+Wikipedia. Game was a loosely organized
+
+370
+00:19:23,919 --> 00:19:32,720
+misogynistic online harassment campaign
+
+371
+00:19:29,360 --> 00:19:36,240
+motivated by a rightwing backslash
+
+372
+00:19:32,720 --> 00:19:39,840
+against feminism diversity.
+
+373
+00:19:36,240 --> 00:19:42,400
+Okay. So you see their take is sharply
+
+374
+00:19:39,840 --> 00:19:46,080
+in contrast.
+
+375
+00:19:42,400 --> 00:19:49,200
+So that is that is why I like to have
+
+376
+00:19:46,080 --> 00:19:51,600
+look up Wikipedia.
+
+377
+00:19:49,200 --> 00:19:55,520
+Okay. So that's on political sensitive
+
+378
+00:19:51,600 --> 00:19:58,640
+topics. Guipedia is very different from
+
+379
+00:19:55,520 --> 00:20:02,080
+Wikipedia and that is the reason
+
+380
+00:19:58,640 --> 00:20:06,320
+Wikipedia exist. Okay. That is a stated
+
+381
+00:20:02,080 --> 00:20:10,400
+goal to according to elements provide
+
+382
+00:20:06,320 --> 00:20:13,840
+the truth. Okay. Now, however,
+
+383
+00:20:10,400 --> 00:20:16,640
+Wikipedia cover lots of things including
+
+384
+00:20:13,840 --> 00:20:19,280
+nonpolitical sensitive topics such as
+
+385
+00:20:16,640 --> 00:20:23,520
+programming, mathematics, chemistry,
+
+386
+00:20:19,280 --> 00:20:25,840
+physics, engineering like tons tons. So
+
+387
+00:20:23,520 --> 00:20:28,480
+on those topics, I have I' I've done
+
+388
+00:20:25,840 --> 00:20:31,919
+review. If you follow my Twitter, you
+
+389
+00:20:28,480 --> 00:20:35,520
+might know. So let's go to my Twitter.
+
+390
+00:20:31,919 --> 00:20:37,760
+Let's search Kasari.
+
+391
+00:20:35,520 --> 00:20:40,320
+Uh
+
+392
+00:20:37,760 --> 00:20:42,559
+so let's search for
+
+393
+00:20:40,320 --> 00:20:46,559
+search Kasari. Oh yeah, you need to
+
+394
+00:20:42,559 --> 00:20:50,919
+click on here then search.
+
+395
+00:20:46,559 --> 00:20:50,919
+What do you want to search? Oh,
+
+396
+00:20:51,360 --> 00:20:58,799
+so I did a review uh beginning beginning
+
+397
+00:20:54,559 --> 00:21:02,240
+review on
+
+398
+00:20:58,799 --> 00:21:04,720
+on technical topics Guipedia
+
+399
+00:21:02,240 --> 00:21:06,720
+uh on physics on mathematics, you know,
+
+400
+00:21:04,720 --> 00:21:10,559
+computer science.
+
+401
+00:21:06,720 --> 00:21:15,039
+So it turns out Wikipedia on these
+
+402
+00:21:10,559 --> 00:21:19,280
+topics is basically a copy of Wikipedia
+
+403
+00:21:15,039 --> 00:21:22,159
+but without any illustration without
+
+404
+00:21:19,280 --> 00:21:24,320
+interconnection interlinks
+
+405
+00:21:22,159 --> 00:21:27,919
+basically just a plain text version of
+
+406
+00:21:24,320 --> 00:21:30,159
+Wikipedia word for word when you look up
+
+407
+00:21:27,919 --> 00:21:33,280
+anything on physics math topics or
+
+408
+00:21:30,159 --> 00:21:36,320
+programming languages. Okay. So in that
+
+409
+00:21:33,280 --> 00:21:39,280
+regard, Wikipedia is not good because
+
+410
+00:21:36,320 --> 00:21:42,000
+especially when you study math, you need
+
+411
+00:21:39,280 --> 00:21:44,880
+illustrations, you need the interlinks
+
+412
+00:21:42,000 --> 00:21:47,840
+because so many jarens you forgot. Okay.
+
+413
+00:21:44,880 --> 00:21:49,760
+So Wikipedia is not good for now.
+
+414
+00:21:47,840 --> 00:21:53,840
+Basically not good. It's the same thing
+
+415
+00:21:49,760 --> 00:21:58,320
+as Wikipedia. But even without pictures,
+
+416
+00:21:53,840 --> 00:22:00,960
+but for political topics, Wikipedia is
+
+417
+00:21:58,320 --> 00:22:04,559
+better. Okay.
+
+418
+00:22:00,960 --> 00:22:07,440
+So that is an introduction to Guipedia
+
+419
+00:22:04,559 --> 00:22:10,720
+and why it's there. Okay. But and now
+
+420
+00:22:07,440 --> 00:22:13,280
+let's just write up a lookup Wikipedia.
+
+421
+00:22:10,720 --> 00:22:16,480
+So So first of all, what we need to do
+
+422
+00:22:13,280 --> 00:22:19,600
+is grab the current word.
+
+423
+00:22:16,480 --> 00:22:22,799
+So uh let's see comments. Don't forget
+
+424
+00:22:19,600 --> 00:22:25,520
+code war the fakest.
+
+425
+00:22:22,799 --> 00:22:28,559
+Uh that's questionable take. Okay. I
+
+426
+00:22:25,520 --> 00:22:31,520
+don't know about that. Well, I mean
+
+427
+00:22:28,559 --> 00:22:33,919
+yeah. Okay. Let's not digress into that.
+
+428
+00:22:31,520 --> 00:22:38,080
+So,
+
+429
+00:22:33,919 --> 00:22:41,520
+okay. So, wait. So, okay. So, let's see.
+
+430
+00:22:38,080 --> 00:22:44,480
+Uh, Alexa, hi.
+
+431
+00:22:41,520 --> 00:22:49,440
+Are you not using a multi keyboard setup
+
+432
+00:22:44,480 --> 00:22:51,760
+anymore? Is the new keyboard that good?
+
+433
+00:22:49,440 --> 00:22:54,159
+Okay, so this is about the ultimate
+
+434
+00:22:51,760 --> 00:22:58,159
+hacking keyboard 80, which is which is
+
+435
+00:22:54,159 --> 00:23:02,080
+what I'm using. So a week ago I did a 1h
+
+436
+00:22:58,159 --> 00:23:05,039
+hour in-depth review of ultimate hacking
+
+437
+00:23:02,080 --> 00:23:07,600
+keyboard 80 on YouTube. So you just go
+
+438
+00:23:05,039 --> 00:23:10,880
+back one week you'll find it. So why am
+
+439
+00:23:07,600 --> 00:23:13,280
+I not using multiple? Because
+
+440
+00:23:10,880 --> 00:23:16,960
+because uh for one reason you don't need
+
+441
+00:23:13,280 --> 00:23:19,600
+it because this one is got 80 keys then
+
+442
+00:23:16,960 --> 00:23:22,240
+press the key cluster then I got several
+
+443
+00:23:19,600 --> 00:23:25,760
+mouse and track balls. Can you guys see
+
+444
+00:23:22,240 --> 00:23:28,720
+it? Uh let's show. Okay. Ultimate
+
+445
+00:23:25,760 --> 00:23:30,880
+hacking keyboard 80.
+
+446
+00:23:28,720 --> 00:23:35,919
+Watch my check my review. Okay. Last
+
+447
+00:23:30,880 --> 00:23:39,280
+week in depth and cheers. This is red
+
+448
+00:23:35,919 --> 00:23:42,840
+wine and pom pom pom grenade
+
+449
+00:23:39,280 --> 00:23:42,840
+juice mix.
+
+450
+00:23:47,120 --> 00:23:52,559
+The other reason I'm just using one is
+
+451
+00:23:49,520 --> 00:23:55,280
+because it turns out if you have two
+
+452
+00:23:52,559 --> 00:24:00,400
+ultimate hacking keyboard
+
+453
+00:23:55,280 --> 00:24:04,400
+and if you want to use the um the UHK
+
+454
+00:24:00,400 --> 00:24:08,080
+agent which is the greatest software
+
+455
+00:24:04,400 --> 00:24:10,640
+for keyboard for customizing keyboard
+
+456
+00:24:08,080 --> 00:24:13,840
+they only allow one. So if you want to
+
+457
+00:24:10,640 --> 00:24:15,679
+run you you you can have multiple
+
+458
+00:24:13,840 --> 00:24:17,919
+ultimate hacking keyboard at the same
+
+459
+00:24:15,679 --> 00:24:20,880
+time, you know, plugging or this one
+
+460
+00:24:17,919 --> 00:24:24,240
+wireless, you know. However, if you if
+
+461
+00:24:20,880 --> 00:24:27,200
+you want to run the software to change
+
+462
+00:24:24,240 --> 00:24:30,559
+some keys, they say, you know, you have
+
+463
+00:24:27,200 --> 00:24:33,600
+multiple UHK plug in, you know, it only
+
+464
+00:24:30,559 --> 00:24:36,320
+allow one at a time.
+
+465
+00:24:33,600 --> 00:24:38,799
+So when you have multiple UHK keyboard
+
+466
+00:24:36,320 --> 00:24:41,120
+plug in it's, you know, this won't
+
+467
+00:24:38,799 --> 00:24:42,799
+start. So it's kind of annoying. So I
+
+468
+00:24:41,120 --> 00:24:44,559
+just remove it and I don't need it
+
+469
+00:24:42,799 --> 00:24:48,080
+because the ultimate hacking keyboard
+
+470
+00:24:44,559 --> 00:24:50,159
+is, you know, watch my review cuz it got
+
+471
+00:24:48,080 --> 00:24:52,880
+so many modifiers and you know, I don't
+
+472
+00:24:50,159 --> 00:24:54,559
+need it. So anyway, back to the code. So
+
+473
+00:24:52,880 --> 00:24:58,080
+first first thing you want to do, so
+
+474
+00:24:54,559 --> 00:25:00,880
+let's get back to u
+
+475
+00:24:58,080 --> 00:25:02,880
+uh let's get back to the uh code. Emac
+
+476
+00:25:00,880 --> 00:25:04,799
+bisp. Okay.
+
+477
+00:25:02,880 --> 00:25:09,919
+So, we want to grab the current word.
+
+478
+00:25:04,799 --> 00:25:14,240
+Okay, let's just say let's just
+
+479
+00:25:09,919 --> 00:25:17,679
+get this to work quickly. Okay,
+
+480
+00:25:14,240 --> 00:25:21,679
+so so current word. Okay, so
+
+481
+00:25:17,679 --> 00:25:24,880
+word. Okay, so
+
+482
+00:25:21,679 --> 00:25:27,360
+this is a local variable x word and this
+
+483
+00:25:24,880 --> 00:25:29,360
+command current word will grab the word
+
+484
+00:25:27,360 --> 00:25:32,400
+under cruiser. Okay, then you just look
+
+485
+00:25:29,360 --> 00:25:36,640
+up. Okay. So, uh then you just look up
+
+486
+00:25:32,400 --> 00:25:40,159
+the URL. Um so, Guikipedia, you need to
+
+487
+00:25:36,640 --> 00:25:43,120
+find what is the URL. So,
+
+488
+00:25:40,159 --> 00:25:47,679
+okay. Uh this is Wikipedia. Let's go
+
+489
+00:25:43,120 --> 00:25:50,880
+Wikipedia. So, go back. So, copy the
+
+490
+00:25:47,679 --> 00:25:55,159
+URL. Paste. So, this is the format of
+
+491
+00:25:50,880 --> 00:25:55,159
+the URL. Okay. So,
+
+492
+00:25:55,520 --> 00:26:04,240
+Okay. So you got the current word x URL
+
+493
+00:25:59,279 --> 00:26:06,480
+and uh set x url
+
+494
+00:26:04,240 --> 00:26:10,799
+equals to
+
+495
+00:26:06,480 --> 00:26:13,360
+that basically that string and uh that
+
+496
+00:26:10,799 --> 00:26:19,840
+concat x
+
+497
+00:26:13,360 --> 00:26:24,159
+x word okay so you need concat
+
+498
+00:26:19,840 --> 00:26:25,919
+that into one string okay and cut it and
+
+499
+00:26:24,159 --> 00:26:28,960
+that's the URL
+
+500
+00:26:25,919 --> 00:26:30,960
+predify the code.
+
+501
+00:26:28,960 --> 00:26:34,880
+Okay, so you got the URI, you got the
+
+502
+00:26:30,960 --> 00:26:37,880
+word, then you just browse uh browse
+
+503
+00:26:34,880 --> 00:26:37,880
+URL.
+
+504
+00:26:38,000 --> 00:26:43,360
+That's a command that lets you browse
+
+505
+00:26:40,159 --> 00:26:45,919
+the URL and you just type the URL here.
+
+506
+00:26:43,360 --> 00:26:48,400
+Okay, predefine the code. That's it. I
+
+507
+00:26:45,919 --> 00:26:50,799
+think that's it the command. So let's
+
+508
+00:26:48,400 --> 00:26:55,200
+evaluate the buffer so Emacs know the
+
+509
+00:26:50,799 --> 00:26:58,480
+command. You can see. So now just put it
+
+510
+00:26:55,200 --> 00:27:01,600
+back. Syntax color show in browser.
+
+511
+00:26:58,480 --> 00:27:06,080
+Fantastic. We got we got our code. Now
+
+512
+00:27:01,600 --> 00:27:08,320
+let's look up gamma gate.
+
+513
+00:27:06,080 --> 00:27:11,640
+Okay.
+
+514
+00:27:08,320 --> 00:27:11,640
+Look update.
+
+515
+00:27:12,640 --> 00:27:19,039
+There it is. Beautiful. Now let's look
+
+516
+00:27:15,279 --> 00:27:22,039
+up another words. Okay. Uh, let's say
+
+517
+00:27:19,039 --> 00:27:22,039
+China.
+
+518
+00:27:22,720 --> 00:27:27,343
+Do it.
+
+519
+00:27:24,960 --> 00:27:29,363
+China.
+
+520
+00:27:27,343 --> 00:27:29,363
+[laughter]
+
+521
+00:27:34,559 --> 00:27:41,360
+Okay. So now there's a issue. Okay. So
+
+522
+00:27:37,840 --> 00:27:45,600
+when you do it this way,
+
+523
+00:27:41,360 --> 00:27:49,279
+it returns a list of, you know, items.
+
+524
+00:27:45,600 --> 00:27:50,799
+Can we like try to just go to article
+
+525
+00:27:49,279 --> 00:27:53,760
+directly?
+
+526
+00:27:50,799 --> 00:27:56,960
+So what if you have
+
+527
+00:27:53,760 --> 00:27:59,120
+what if you have some page that's not
+
+528
+00:27:56,960 --> 00:28:03,760
+available? Okay, so for example that's
+
+529
+00:27:59,120 --> 00:28:08,080
+valid. What what if you have some
+
+530
+00:28:03,760 --> 00:28:12,159
+X YZ? Okay, what happens there? So look
+
+531
+00:28:08,080 --> 00:28:15,760
+up go to the URL. So it just says
+
+532
+00:28:12,159 --> 00:28:18,760
+uh doesn't exist.
+
+533
+00:28:15,760 --> 00:28:18,760
+Okay.
+
+534
+00:28:18,880 --> 00:28:26,000
+So the question is should you use which
+
+535
+00:28:22,799 --> 00:28:29,600
+one is more convenient?
+
+536
+00:28:26,000 --> 00:28:32,559
+If you do the search like you know if
+
+537
+00:28:29,600 --> 00:28:36,880
+you do the search way like search
+
+538
+00:28:32,559 --> 00:28:40,640
+question mark Q equals true then you
+
+539
+00:28:36,880 --> 00:28:44,559
+arrive at a page that's list of key you
+
+540
+00:28:40,640 --> 00:28:47,279
+know list of entries but if you go to a
+
+541
+00:28:44,559 --> 00:28:52,000
+page directly
+
+542
+00:28:47,279 --> 00:28:56,399
+then um well now let's just use the
+
+543
+00:28:52,000 --> 00:28:58,640
+search like what we have Okay,
+
+544
+00:28:56,399 --> 00:29:00,880
+just what we have. Okay, that's one
+
+545
+00:28:58,640 --> 00:29:06,200
+command done.
+
+546
+00:29:00,880 --> 00:29:06,200
+Anything else? Is it interesting?
+
+547
+00:29:07,600 --> 00:29:12,399
+How did you transform the string current
+
+548
+00:29:10,240 --> 00:29:16,320
+word in
+
+549
+00:29:12,399 --> 00:29:18,720
+to its function form with arguments?
+
+550
+00:29:16,320 --> 00:29:22,399
+It it doesn't it it'll just grab the
+
+551
+00:29:18,720 --> 00:29:25,600
+word. Okay, so this is a function. For
+
+552
+00:29:22,399 --> 00:29:29,360
+example, we can call it here. Let's say
+
+553
+00:29:25,600 --> 00:29:32,080
+something. Okay. Now, metax
+
+554
+00:29:29,360 --> 00:29:35,679
+current word. Now, that's not a
+
+555
+00:29:32,080 --> 00:29:37,600
+function. Okay. So, you cannot call it.
+
+556
+00:29:35,679 --> 00:29:40,880
+You cannot call this function
+
+557
+00:29:37,600 --> 00:29:45,200
+interactively. Current word because it's
+
+558
+00:29:40,880 --> 00:29:47,919
+not a command. It's just a function. So
+
+559
+00:29:45,200 --> 00:29:52,240
+it takes two optional arguments strict
+
+560
+00:29:47,919 --> 00:29:56,799
+and really word which basically is about
+
+561
+00:29:52,240 --> 00:29:59,360
+whether hyphen or underscore is
+
+562
+00:29:56,799 --> 00:30:01,120
+considered part of the word something
+
+563
+00:29:59,360 --> 00:30:03,919
+related to that. Okay. So you don't
+
+564
+00:30:01,120 --> 00:30:06,960
+really care for for us we don't care. So
+
+565
+00:30:03,919 --> 00:30:11,200
+basically consider it as a function with
+
+566
+00:30:06,960 --> 00:30:14,320
+without any argument. Okay. So what it
+
+567
+00:30:11,200 --> 00:30:17,120
+return is whatever just the word under
+
+568
+00:30:14,320 --> 00:30:19,840
+the cruer like if the cruer is here you
+
+569
+00:30:17,120 --> 00:30:22,640
+just return the word return like that.
+
+570
+00:30:19,840 --> 00:30:25,279
+Okay. How do we know? Can we can we try
+
+571
+00:30:22,640 --> 00:30:28,960
+it? Yes. Let me show you. Okay. So for
+
+572
+00:30:25,279 --> 00:30:31,440
+example copy this line then put the
+
+573
+00:30:28,960 --> 00:30:35,679
+cursor let's say
+
+574
+00:30:31,440 --> 00:30:39,440
+here. Okay. Now let's call
+
+575
+00:30:35,679 --> 00:30:43,760
+eva expression. Okay. that allows you to
+
+576
+00:30:39,440 --> 00:30:47,679
+evaluate a edisp expression. Okay,
+
+577
+00:30:43,760 --> 00:30:51,440
+do it. And now type your expression.
+
+578
+00:30:47,679 --> 00:30:55,039
+Let's say okay. So just current word.
+
+579
+00:30:51,440 --> 00:30:58,159
+Okay, do it. You see you see at the
+
+580
+00:30:55,039 --> 00:31:01,120
+bottom it says otherwise
+
+581
+00:30:58,159 --> 00:31:03,120
+a string. So it b it basically just
+
+582
+00:31:01,120 --> 00:31:05,360
+return that string. Okay, let's do it
+
+583
+00:31:03,120 --> 00:31:09,919
+again. Let's put this under here
+
+584
+00:31:05,360 --> 00:31:12,720
+anywhere. Call it eval expression
+
+585
+00:31:09,919 --> 00:31:15,679
+and the last expression current word. Do
+
+586
+00:31:12,720 --> 00:31:20,320
+it. It return anywhere.
+
+587
+00:31:15,679 --> 00:31:24,559
+Go to the messages buffer. Can you see?
+
+588
+00:31:20,320 --> 00:31:26,399
+Can you see? Okay. So, that's that's the
+
+589
+00:31:24,559 --> 00:31:30,159
+function current word. It just return
+
+590
+00:31:26,399 --> 00:31:33,120
+the current word. Close it. Okay. So,
+
+591
+00:31:30,159 --> 00:31:35,919
+and that's it uh for our command. Now I
+
+592
+00:31:33,120 --> 00:31:38,799
+just going to So for you guys watching
+
+593
+00:31:35,919 --> 00:31:42,320
+this, you can just copy it, put in your
+
+594
+00:31:38,799 --> 00:31:46,080
+Emacs in it. You'll have it. Okay.
+
+595
+00:31:42,320 --> 00:31:49,679
+But for me, uh I'm going to copy it and
+
+596
+00:31:46,080 --> 00:31:52,799
+put into my Excel lookup,
+
+597
+00:31:49,679 --> 00:31:54,320
+you know, uh packages and then give it a
+
+598
+00:31:52,799 --> 00:31:59,960
+key.
+
+599
+00:31:54,320 --> 00:31:59,960
+Uh okay. So that's that's it for that.
+
+600
+00:32:00,000 --> 00:32:04,399
+Now
+
+601
+00:32:02,000 --> 00:32:06,960
+what's the yellow command? So go to
+
+602
+00:32:04,399 --> 00:32:11,799
+child go to line. Let me fix that. Okay.
+
+603
+00:32:06,960 --> 00:32:11,799
+So describe key.
+
+604
+00:32:15,840 --> 00:32:21,360
+So go to char
+
+605
+00:32:18,799 --> 00:32:27,440
+describe key
+
+606
+00:32:21,360 --> 00:32:30,799
+space tg on vorac layout. Okay. So go to
+
+607
+00:32:27,440 --> 00:32:35,279
+line. Go to the source code. There it
+
+608
+00:32:30,799 --> 00:32:39,600
+is. Cuz I go to line. There is one error
+
+609
+00:32:35,279 --> 00:32:42,080
+I need to fix. Okay. Here. So instead of
+
+610
+00:32:39,600 --> 00:32:44,320
+go to char, it should be go to line.
+
+611
+00:32:42,080 --> 00:32:49,279
+That's it. Okay.
+
+612
+00:32:44,320 --> 00:32:54,000
+Uh now evaluate the code. Okay. Now
+
+613
+00:32:49,279 --> 00:32:59,519
+split the window. Now new buffer. Now
+
+614
+00:32:54,000 --> 00:33:04,159
+let's say line 200. Okay,
+
+615
+00:32:59,519 --> 00:33:08,559
+200. Okay, now call the command. It will
+
+616
+00:33:04,159 --> 00:33:11,279
+go to you know let's let's say uh error
+
+617
+00:33:08,559 --> 00:33:14,480
+let's say
+
+618
+00:33:11,279 --> 00:33:19,519
+compile error.
+
+619
+00:33:14,480 --> 00:33:21,039
+You have something bad at line
+
+620
+00:33:19,519 --> 00:33:23,519
+200.
+
+621
+00:33:21,039 --> 00:33:27,679
+You know when you do something it says
+
+622
+00:33:23,519 --> 00:33:29,679
+that. So move the cursor to the 200 and
+
+623
+00:33:27,679 --> 00:33:34,640
+then call
+
+624
+00:33:29,679 --> 00:33:39,120
+s go to line. Do it. There it is. You
+
+625
+00:33:34,640 --> 00:33:42,480
+see it moves right to the line 200.
+
+626
+00:33:39,120 --> 00:33:45,919
+Okay. So that's why this command is
+
+627
+00:33:42,480 --> 00:33:48,799
+useful. You don't have to type 200.
+
+628
+00:33:45,919 --> 00:33:51,760
+Okay. But if you want to go to you know
+
+629
+00:33:48,799 --> 00:33:56,240
+let's say you want to go to line 500 you
+
+630
+00:33:51,760 --> 00:34:00,320
+can do so by
+
+631
+00:33:56,240 --> 00:34:03,519
+caller command go to line it says no
+
+632
+00:34:00,320 --> 00:34:09,119
+number under cursor go to position so
+
+633
+00:34:03,519 --> 00:34:13,040
+you type 500 enter there you are okay so
+
+634
+00:34:09,119 --> 00:34:16,800
+this is a generalized command it
+
+635
+00:34:13,040 --> 00:34:19,599
+generalized the build go to fine and the
+
+636
+00:34:16,800 --> 00:34:22,079
+other one is go to chart so sim they you
+
+637
+00:34:19,599 --> 00:34:24,960
+know you can so it's
+
+638
+00:34:22,079 --> 00:34:27,760
+uh generalized fantastic and and it's
+
+639
+00:34:24,960 --> 00:34:32,000
+part of the
+
+640
+00:34:27,760 --> 00:34:34,000
+it's part of the safely keys okay I I
+
+641
+00:34:32,000 --> 00:34:35,919
+showed you before so you can download it
+
+642
+00:34:34,000 --> 00:34:41,119
+it's the most efficient key binding
+
+643
+00:34:35,919 --> 00:34:44,960
+system by now it's 4,000 lines of code
+
+644
+00:34:41,119 --> 00:34:48,240
+okay get that use that tell your
+
+645
+00:34:44,960 --> 00:34:51,839
+friends. Okay. Like my like my YouTube
+
+646
+00:34:48,240 --> 00:34:54,079
+like my post. Okay. Stuff.
+
+647
+00:34:51,839 --> 00:34:58,000
+Okay. Showing browser. So we
+
+648
+00:34:54,079 --> 00:35:02,240
+demonstrated. Go to char. Go to line.
+
+649
+00:34:58,000 --> 00:35:05,440
+New ink safely keys. Fantastic.
+
+650
+00:35:02,240 --> 00:35:08,440
+And I think that's it for today. Any
+
+651
+00:35:05,440 --> 00:35:08,440
+questions?
+
+652
+00:35:08,480 --> 00:35:16,079
+Did I answer the questions? ACP Junior.
+
+653
+00:35:13,760 --> 00:35:19,040
+So, no more questions.
+
+654
+00:35:16,079 --> 00:35:21,440
+You use Brave Search in a Firefox
+
+655
+00:35:19,040 --> 00:35:24,480
+browser. I don't know why, but it's kind
+
+656
+00:35:21,440 --> 00:35:27,040
+of strange. Okay. Well, that's the
+
+657
+00:35:24,480 --> 00:35:31,960
+reason for that is because I use
+
+658
+00:35:27,040 --> 00:35:31,960
+multiple browsers. So, you can see
+
+659
+00:35:32,160 --> 00:35:39,040
+I'm using Google Chrome here for
+
+660
+00:35:35,920 --> 00:35:42,160
+everything that has to do with Google,
+
+661
+00:35:39,040 --> 00:35:44,320
+such as YouTube, where where you need to
+
+662
+00:35:42,160 --> 00:35:47,359
+log in. you need to have a Google
+
+663
+00:35:44,320 --> 00:35:50,400
+account. So only for Google related
+
+664
+00:35:47,359 --> 00:35:53,359
+websites I use Google Chrome nothing
+
+665
+00:35:50,400 --> 00:35:57,359
+else because Google has been very
+
+666
+00:35:53,359 --> 00:36:01,680
+corrupted. Okay, Google Chrome
+
+667
+00:35:57,359 --> 00:36:06,640
+uh Brave is I use it basically just for
+
+668
+00:36:01,680 --> 00:36:08,880
+Twitter. Okay, Brave has automatic uh ad
+
+669
+00:36:06,640 --> 00:36:12,560
+blocker
+
+670
+00:36:08,880 --> 00:36:16,720
+among other things. Okay, brave. Now,
+
+671
+00:36:12,560 --> 00:36:18,960
+Firefox I use mostly for my dev. For
+
+672
+00:36:16,720 --> 00:36:22,400
+example, you you go around, you know,
+
+673
+00:36:18,960 --> 00:36:26,079
+right now there are about like 2,000
+
+674
+00:36:22,400 --> 00:36:29,520
+tabs open. They are all sadi websites,
+
+675
+00:36:26,079 --> 00:36:31,839
+okay? Like 2,000 tabs. So, how can you
+
+676
+00:36:29,520 --> 00:36:34,640
+tell how many tabs you have? Well, you
+
+677
+00:36:31,839 --> 00:36:38,480
+have to do
+
+678
+00:36:34,640 --> 00:36:40,960
+uh but anyway, so you can see,
+
+679
+00:36:38,480 --> 00:36:45,359
+you know, I can show you. So it's all my
+
+680
+00:36:40,960 --> 00:36:49,359
+websites. I have a total of like 10,000
+
+681
+00:36:45,359 --> 00:36:52,800
+articles written in the past 25 years.
+
+682
+00:36:49,359 --> 00:36:55,920
+So when I work on emacs on emac this on
+
+683
+00:36:52,800 --> 00:36:59,920
+buffam language on whatever you know
+
+684
+00:36:55,920 --> 00:37:04,079
+auto hardkey saw talk show universal
+
+685
+00:36:59,920 --> 00:37:06,640
+argument in emac this and uh you know so
+
+686
+00:37:04,079 --> 00:37:09,359
+lots of things including my political
+
+687
+00:37:06,640 --> 00:37:12,079
+comment commentaries
+
+688
+00:37:09,359 --> 00:37:15,359
+death of a troll you know a famous
+
+689
+00:37:12,079 --> 00:37:19,680
+online guy Python doc problems you know
+
+690
+00:37:15,359 --> 00:37:22,960
+so they you know there are 1000 um tabs,
+
+691
+00:37:19,680 --> 00:37:26,880
+but there's no easy way to show how many
+
+692
+00:37:22,960 --> 00:37:31,280
+tabs there are. You have to
+
+693
+00:37:26,880 --> 00:37:33,599
+uh you have to select all then then try
+
+694
+00:37:31,280 --> 00:37:38,000
+to close then you'll say how many tabs
+
+695
+00:37:33,599 --> 00:37:41,440
+you know like very inconvenient. I I
+
+696
+00:37:38,000 --> 00:37:45,119
+learned it from asking AI. You know, you
+
+697
+00:37:41,440 --> 00:37:48,320
+just ask AI, how do you know how many
+
+698
+00:37:45,119 --> 00:37:51,200
+tabs you have open in Firefox? AI will
+
+699
+00:37:48,320 --> 00:37:54,640
+tell you, but there's no easy way. Okay.
+
+700
+00:37:51,200 --> 00:37:59,520
+So, anyway, so Firefox I use it mostly
+
+701
+00:37:54,640 --> 00:38:01,680
+to do dev on my websites. Okay. So, and
+
+702
+00:37:59,520 --> 00:38:04,160
+uh the question why do I use multiple
+
+703
+00:38:01,680 --> 00:38:07,280
+browsers? I answered many times like
+
+704
+00:38:04,160 --> 00:38:10,560
+since 20 years ago for lots of reasons.
+
+705
+00:38:07,280 --> 00:38:16,040
+I always use multiple browsers since
+
+706
+00:38:10,560 --> 00:38:16,040
+since like 199 uh 1997.
+
+707
+00:38:20,640 --> 00:38:27,760
+So almost always three browsers minimum.
+
+708
+00:38:25,040 --> 00:38:30,400
+at some period period of years there's
+
+709
+00:38:27,760 --> 00:38:32,160
+four or five because back then you got
+
+710
+00:38:30,400 --> 00:38:35,839
+you know there's lots of they come and
+
+711
+00:38:32,160 --> 00:38:39,040
+go there's also opera there's also uh
+
+712
+00:38:35,839 --> 00:38:43,599
+you know today Microsoft edge browser
+
+713
+00:38:39,040 --> 00:38:45,680
+and many many var variety and many
+
+714
+00:38:43,599 --> 00:38:50,000
+okay so there actually there's a video
+
+715
+00:38:45,680 --> 00:38:53,040
+talk show where I explicitly explain why
+
+716
+00:38:50,000 --> 00:38:56,880
+do I use multiple browsers like
+
+717
+00:38:53,040 --> 00:39:00,160
+maybe five month ago go uh YouTube.
+
+718
+00:38:56,880 --> 00:39:03,920
+Okay, just just search for YD
+
+719
+00:39:00,160 --> 00:39:07,040
+multiple browsers. The the Brave search
+
+720
+00:39:03,920 --> 00:39:10,160
+will probably tell you, the AI will tell
+
+721
+00:39:07,040 --> 00:39:13,200
+you and give you the article. Okay, so I
+
+722
+00:39:10,160 --> 00:39:15,280
+think that's it for today.
+
+723
+00:39:13,200 --> 00:39:18,480
+Sorry, I was not clear. I meant that you
+
+724
+00:39:15,280 --> 00:39:22,000
+typed current word then transformed it
+
+725
+00:39:18,480 --> 00:39:25,520
+to current word TT somehow. Oh, that's
+
+726
+00:39:22,000 --> 00:39:31,200
+part of the Emac list mode.
+
+727
+00:39:25,520 --> 00:39:34,320
+Okay, so um let's see EMAC list. Okay,
+
+728
+00:39:31,200 --> 00:39:37,760
+copy it out. So you can see Emacs mode.
+
+729
+00:39:34,320 --> 00:39:42,079
+Okay, or put it back. Delete that new
+
+730
+00:39:37,760 --> 00:39:45,119
+buffer. Now, right now it's HTML mode.
+
+731
+00:39:42,079 --> 00:39:47,040
+So how do you how do you know? Describe
+
+732
+00:39:45,119 --> 00:39:51,200
+variable. Wait, let's show the pink
+
+733
+00:39:47,040 --> 00:39:55,400
+window. Okay. Now call describe variable
+
+734
+00:39:51,200 --> 00:39:55,400
+and say major
+
+735
+00:39:55,440 --> 00:40:02,320
+mode. That is a variable whose value is
+
+736
+00:39:58,560 --> 00:40:04,880
+the current major mode. Okay. Do it.
+
+737
+00:40:02,320 --> 00:40:07,680
+Then you say it says major mode is a
+
+738
+00:40:04,880 --> 00:40:12,880
+variable defined in C source code. Its
+
+739
+00:40:07,680 --> 00:40:15,280
+value is kasa html mode. Okay. So close
+
+740
+00:40:12,880 --> 00:40:18,800
+that. So that tells you right now in
+
+741
+00:40:15,280 --> 00:40:22,960
+this buffer is kasa html. So now now
+
+742
+00:40:18,800 --> 00:40:28,000
+let's switch it to kasa el this mode.
+
+743
+00:40:22,960 --> 00:40:30,640
+Okay, do it. Now I press d
+
+744
+00:40:28,000 --> 00:40:33,200
+space it became different space it
+
+745
+00:40:30,640 --> 00:40:36,000
+became the full template.
+
+746
+00:40:33,200 --> 00:40:40,160
+What about current word? So current word
+
+747
+00:40:36,000 --> 00:40:42,480
+do I have a abbreviation? No. Oh I do
+
+748
+00:40:40,160 --> 00:40:46,320
+actually. So press enter. It became
+
+749
+00:40:42,480 --> 00:40:50,000
+current word. Press enter again. Wait.
+
+750
+00:40:46,320 --> 00:40:51,839
+So, uh, press return. Then it became the
+
+751
+00:40:50,000 --> 00:40:55,520
+full template.
+
+752
+00:40:51,839 --> 00:40:58,240
+So, I think that answers your question.
+
+753
+00:40:55,520 --> 00:41:01,839
+So, if you want that, you can pay me and
+
+754
+00:40:58,240 --> 00:41:06,000
+get ed. Okay.
+
+755
+00:41:01,839 --> 00:41:09,440
+Describe uh function. Describe function
+
+756
+00:41:06,000 --> 00:41:14,160
+ed mode. There it is.
+
+757
+00:41:09,440 --> 00:41:16,720
+uh open uh you know make it full window
+
+758
+00:41:14,160 --> 00:41:20,000
+jump to the source code expand the
+
+759
+00:41:16,720 --> 00:41:23,280
+window go to the bottom 2,000 lines of
+
+760
+00:41:20,000 --> 00:41:26,880
+code go to the top and go to the
+
+761
+00:41:23,280 --> 00:41:30,720
+homepage URI open it showing browser
+
+762
+00:41:26,880 --> 00:41:34,240
+emac this mode and if you click go to
+
+763
+00:41:30,720 --> 00:41:38,000
+back to kasar emacs packages so you can
+
+764
+00:41:34,240 --> 00:41:42,240
+see all my packages or over here source
+
+765
+00:41:38,000 --> 00:41:45,920
+code jump to the directory. So, and hide
+
+766
+00:41:42,240 --> 00:41:49,119
+the permission and all that and delete
+
+767
+00:41:45,920 --> 00:41:52,160
+the backup.
+
+768
+00:41:49,119 --> 00:41:55,200
+Delete them. Yes. Okay. So, you can see
+
+769
+00:41:52,160 --> 00:41:57,200
+all my packages I wrote in the past 20
+
+770
+00:41:55,200 --> 00:42:00,640
+years.
+
+771
+00:41:57,200 --> 00:42:02,800
+Uh, it used to be free for like 10
+
+772
+00:42:00,640 --> 00:42:05,599
+years, but then people don't give a
+
+773
+00:42:02,800 --> 00:42:07,920
+ This opensource opensource
+
+774
+00:42:05,599 --> 00:42:10,400
+fanatical you know, they
+
+775
+00:42:07,920 --> 00:42:15,200
+don't give a And then I was dying
+
+776
+00:42:10,400 --> 00:42:18,720
+of hunger around 2012.
+
+777
+00:42:15,200 --> 00:42:22,640
+So today they are not free. You click
+
+778
+00:42:18,720 --> 00:42:26,000
+it, get it by donation. Go to PayPal,
+
+779
+00:42:22,640 --> 00:42:31,119
+pay me 32 bucks. I send it to you. I
+
+780
+00:42:26,000 --> 00:42:32,880
+email it to you and it's open source,
+
+781
+00:42:31,119 --> 00:42:35,440
+you know. I don't make I don't make
+
+782
+00:42:32,880 --> 00:42:37,440
+money out of this. So, but it's just a
+
+783
+00:42:35,440 --> 00:42:39,680
+gesture, okay? If you like it, send me
+
+784
+00:42:37,440 --> 00:42:42,000
+some money, I send it to you because
+
+785
+00:42:39,680 --> 00:42:43,920
+when it's open source, anyone can
+
+786
+00:42:42,000 --> 00:42:47,040
+republish it. You know, they you can,
+
+787
+00:42:43,920 --> 00:42:50,240
+you know, you pay $32, you get it, then
+
+788
+00:42:47,040 --> 00:42:52,400
+you put on GitHub. Open source, that's,
+
+789
+00:42:50,240 --> 00:42:55,680
+you know, legally allowed, you know,
+
+790
+00:42:52,400 --> 00:43:00,000
+then you make some tricks, you know.
+
+791
+00:42:55,680 --> 00:43:02,880
+then then you put put it on on on mail
+
+792
+00:43:00,000 --> 00:43:05,599
+power whatever then basically you took
+
+793
+00:43:02,880 --> 00:43:07,839
+over okay that's the nature of open
+
+794
+00:43:05,599 --> 00:43:10,000
+source
+
+795
+00:43:07,839 --> 00:43:13,440
+uh very harmful actually it turns out
+
+796
+00:43:10,000 --> 00:43:16,000
+you know so 30 years ago I was a fanatic
+
+797
+00:43:13,440 --> 00:43:20,240
+of Richard Stman's free resoftware
+
+798
+00:43:16,000 --> 00:43:23,760
+foundation but it's very bad it's
+
+799
+00:43:20,240 --> 00:43:26,079
+I don't support it since like since like
+
+800
+00:43:23,760 --> 00:43:29,079
+15 years ago Well, it's in fact very
+
+801
+00:43:26,079 --> 00:43:29,079
+harmful.
+
+802
+00:43:29,520 --> 00:43:38,240
+So why do I why are they my code still
+
+803
+00:43:34,079 --> 00:43:41,920
+open source? Well,
+
+804
+00:43:38,240 --> 00:43:44,319
+partly because I mean Emacs environment,
+
+805
+00:43:41,920 --> 00:43:46,640
+you know, Emacs itself is the Richard
+
+806
+00:43:44,319 --> 00:43:49,839
+Stoman's baby, you know, and the whole
+
+807
+00:43:46,640 --> 00:43:51,599
+Emacs is uh open source. I mean it's
+
+808
+00:43:49,839 --> 00:43:54,160
+actually not open source. It's free
+
+809
+00:43:51,599 --> 00:43:56,960
+software so-called according to Richard
+
+810
+00:43:54,160 --> 00:43:59,920
+Stman because he and open source there's
+
+811
+00:43:56,960 --> 00:44:02,079
+a big war. If you say Richard Stman
+
+812
+00:43:59,920 --> 00:44:04,640
+thank you for open source he gets very
+
+813
+00:44:02,079 --> 00:44:07,359
+angry. It's on video you know he gets he
+
+814
+00:44:04,640 --> 00:44:09,280
+he say go yourself. You know
+
+815
+00:44:07,359 --> 00:44:11,200
+there's two fighting kinds. But today's
+
+816
+00:44:09,280 --> 00:44:14,160
+zoomers you know today's people they
+
+817
+00:44:11,200 --> 00:44:16,079
+don't know a thing it's all being bought
+
+818
+00:44:14,160 --> 00:44:17,839
+out and forgotten. You know the zoomer's
+
+819
+00:44:16,079 --> 00:44:21,440
+brain got washed. They don't know a
+
+820
+00:44:17,839 --> 00:44:23,280
+thing. So rich. So so basically Emacs
+
+821
+00:44:21,440 --> 00:44:26,800
+environment is all open source. So
+
+822
+00:44:23,280 --> 00:44:30,000
+that's kind of why it it doesn't make
+
+823
+00:44:26,800 --> 00:44:32,560
+you know it's not it doesn't feel right
+
+824
+00:44:30,000 --> 00:44:36,160
+you know if I you know the whole thing
+
+825
+00:44:32,560 --> 00:44:38,319
+in EMAC this I say it's not open source.
+
+826
+00:44:36,160 --> 00:44:41,040
+And also
+
+827
+00:44:38,319 --> 00:44:45,280
+there's no way I mean I mean there's no
+
+828
+00:44:41,040 --> 00:44:48,000
+way to sell it you know like if I if you
+
+829
+00:44:45,280 --> 00:44:49,680
+if I make it close source and you bought
+
+830
+00:44:48,000 --> 00:44:53,359
+it
+
+831
+00:44:49,680 --> 00:44:56,640
+in what form do I give you the file you
+
+832
+00:44:53,359 --> 00:44:59,200
+know it's just the source code or I can
+
+833
+00:44:56,640 --> 00:45:01,680
+bite compile it but by compile it
+
+834
+00:44:59,200 --> 00:45:03,680
+doesn't do much you know like press B to
+
+835
+00:45:01,680 --> 00:45:07,040
+bite compile
+
+836
+00:45:03,680 --> 00:45:12,480
+you know you and decompile it. Right?
+
+837
+00:45:07,040 --> 00:45:15,680
+So, um but but I do have the legal claim
+
+838
+00:45:12,480 --> 00:45:18,079
+that it is not open source or free
+
+839
+00:45:15,680 --> 00:45:22,560
+software. So, if you actually publish
+
+840
+00:45:18,079 --> 00:45:25,680
+it, then you are committing a crime.
+
+841
+00:45:22,560 --> 00:45:27,760
+But in practice, nobody give a you
+
+842
+00:45:25,680 --> 00:45:30,720
+know, like [laughter]
+
+843
+00:45:27,760 --> 00:45:32,720
+you know, the value is not that great.
+
+844
+00:45:30,720 --> 00:45:34,560
+So anyway, unless you are Google, then
+
+845
+00:45:32,720 --> 00:45:36,640
+you can do something like Google,
+
+846
+00:45:34,560 --> 00:45:40,480
+Facebook, they are all doing that, you
+
+847
+00:45:36,640 --> 00:45:42,240
+know, the idiotic open-source and free
+
+848
+00:45:40,480 --> 00:45:45,040
+software idiots. They've been
+
+849
+00:45:42,240 --> 00:45:47,280
+brainwashed to a degree they don't know.
+
+850
+00:45:45,040 --> 00:45:51,760
+So that's the situation today. Okay,
+
+851
+00:45:47,280 --> 00:45:54,760
+that's it. That's it for today, I think.
+
+852
+00:45:51,760 --> 00:45:54,760
+um
+
+853
+00:45:57,119 --> 00:46:03,520
+because at F mod uh you know I'm
+
+854
+00:46:00,800 --> 00:46:07,119
+learning F so I just started the mode
+
+855
+00:46:03,520 --> 00:46:10,480
+but it's not good so but on the other
+
+856
+00:46:07,119 --> 00:46:13,440
+hand my EMAC this mode and my HTML and
+
+857
+00:46:10,480 --> 00:46:15,680
+many others had they been I've been
+
+858
+00:46:13,440 --> 00:46:18,800
+coding them for over 10 years so it's
+
+859
+00:46:15,680 --> 00:46:21,520
+very good better than GNU better than
+
+860
+00:46:18,800 --> 00:46:24,720
+whatever you have in default Emacs. In
+
+861
+00:46:21,520 --> 00:46:27,359
+fact, better than any Malpa, you know,
+
+862
+00:46:24,720 --> 00:46:30,720
+the very popular. Oh, million downloads,
+
+863
+00:46:27,359 --> 00:46:33,760
+HTML mode or whatever the eagle
+
+864
+00:46:30,720 --> 00:46:37,119
+enhancement or whatever company mod, you
+
+865
+00:46:33,760 --> 00:46:40,160
+know, million, two billion, trillion
+
+866
+00:46:37,119 --> 00:46:43,599
+downloads. Mine is better than them.
+
+867
+00:46:40,160 --> 00:46:49,839
+technically superior in speed, in
+
+868
+00:46:43,599 --> 00:46:52,079
+functionality, in correctness and in um
+
+869
+00:46:49,839 --> 00:46:56,880
+speed, functionality, correctness in
+
+870
+00:46:52,079 --> 00:46:59,280
+feature reach, you know. Uh so anyway,
+
+871
+00:46:56,880 --> 00:47:03,119
+so you have to pay me to get it.
+
+872
+00:46:59,280 --> 00:47:05,440
+Meanwhile, just use go use Safly Keys,
+
+873
+00:47:03,119 --> 00:47:09,599
+okay? Because that's a mother ship and
+
+874
+00:47:05,440 --> 00:47:11,520
+it's free. You can you can use it.
+
+875
+00:47:09,599 --> 00:47:13,680
+Okay, that's it for today. So, if you
+
+876
+00:47:11,520 --> 00:47:18,079
+like my stuff, you know you know where
+
+877
+00:47:13,680 --> 00:47:23,599
+to pay me. Go to kasali.info
+
+878
+00:47:18,079 --> 00:47:25,760
+homepage without s in http no s. Then go
+
+879
+00:47:23,599 --> 00:47:28,319
+to the bottom
+
+880
+00:47:25,760 --> 00:47:31,920
+then pay me, Patreon me, Amazon gift
+
+881
+00:47:28,319 --> 00:47:34,319
+card, PayPal me. Okay.
+
+882
+00:47:31,920 --> 00:47:37,680
+Okay, that's it. So, what is this page?
+
+883
+00:47:34,319 --> 00:47:41,800
+Close show in browser. That's it for
+
+884
+00:47:37,680 --> 00:47:41,800
+today. Bye, guys.
+

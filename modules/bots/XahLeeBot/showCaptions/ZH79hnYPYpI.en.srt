@@ -1,0 +1,4044 @@
+1
+00:00:09,440 --> 00:00:16,289
+good morning everyone welcome to another
+
+2
+00:00:12,780 --> 00:00:23,100
+episode of Santa's Show today is July
+
+3
+00:00:16,289 --> 00:00:25,820
+8th 2019 9 o clock a.m. in California
+
+4
+00:00:23,100 --> 00:00:32,579
+and today we are going to do a
+
+5
+00:00:25,820 --> 00:00:36,239
+JavaScript live coding session Tran Chet
+
+6
+00:00:32,579 --> 00:00:42,480
+tires let me show you what that is so
+
+7
+00:00:36,239 --> 00:00:45,800
+let's go to my Emacs of my math blog so
+
+8
+00:00:42,480 --> 00:00:49,460
+let me put this here so you can see and
+
+9
+00:00:45,800 --> 00:00:49,460
+let's move here
+
+10
+00:00:50,000 --> 00:00:58,879
+Tran cheat tiles so good let's go
+
+11
+00:00:54,000 --> 00:01:02,190
+through here and that's just such for
+
+12
+00:00:58,879 --> 00:01:06,750
+you know I've been wanting to do this a
+
+13
+00:01:02,190 --> 00:01:08,909
+few months since few months ago so this
+
+14
+00:01:06,750 --> 00:01:12,030
+so let me show you what is the transit
+
+15
+00:01:08,909 --> 00:01:14,400
+time transit how is this basically it's
+
+16
+00:01:12,030 --> 00:01:18,930
+a decorative pattern it's actually a
+
+17
+00:01:14,400 --> 00:01:23,159
+technique to create a decorative pattern
+
+18
+00:01:18,930 --> 00:01:26,479
+it's called Tran trijet tortured tiles
+
+19
+00:01:23,159 --> 00:01:28,530
+you can see you can find it on Wikipedia
+
+20
+00:01:26,479 --> 00:01:31,650
+so it's a technique to generate
+
+21
+00:01:28,530 --> 00:01:34,290
+interesting patterns what you do is you
+
+22
+00:01:31,650 --> 00:01:37,290
+create a square and you mark
+
+23
+00:01:34,290 --> 00:01:40,409
+you know the edges of the square you
+
+24
+00:01:37,290 --> 00:01:43,500
+connect them by circles or you know arc
+
+25
+00:01:40,409 --> 00:01:45,600
+of a circle or other patterns then you
+
+26
+00:01:43,500 --> 00:01:48,750
+have a bunch of these squares in
+
+27
+00:01:45,600 --> 00:01:50,990
+different orientation then you have you
+
+28
+00:01:48,750 --> 00:01:57,119
+know the final result is this
+
+29
+00:01:50,990 --> 00:01:59,729
+interesting pattern so transit has so
+
+30
+00:01:57,119 --> 00:02:03,149
+what we are going to do is we are this
+
+31
+00:01:59,729 --> 00:02:06,180
+is a gif animation from somewhere online
+
+32
+00:02:03,149 --> 00:02:09,270
+and what we are going to do is to use
+
+33
+00:02:06,180 --> 00:02:12,690
+JavaScript to create this today so
+
+34
+00:02:09,270 --> 00:02:13,660
+you're gonna you know hopefully you
+
+35
+00:02:12,690 --> 00:02:17,220
+gonna learn some
+
+36
+00:02:13,660 --> 00:02:24,580
+script coding in JavaScript
+
+37
+00:02:17,220 --> 00:02:26,170
+now let's pop this out this will take
+
+38
+00:02:24,580 --> 00:02:29,200
+like 30 minutes
+
+39
+00:02:26,170 --> 00:02:32,380
+you know I hopefully we can do it in 30
+
+40
+00:02:29,200 --> 00:02:33,730
+minutes but probably 40 minutes or more
+
+41
+00:02:32,380 --> 00:02:38,800
+I hope not
+
+42
+00:02:33,730 --> 00:02:47,560
+so 28 hours so let's let's begin shall
+
+43
+00:02:38,800 --> 00:02:57,130
+we let's let's see how we wanted to how
+
+44
+00:02:47,560 --> 00:03:04,420
+we want to do this 28 tiles so so let's
+
+45
+00:02:57,130 --> 00:03:07,120
+go to math block okay so we gonna so
+
+46
+00:03:04,420 --> 00:03:11,200
+this is my math block and I'm just
+
+47
+00:03:07,120 --> 00:03:12,220
+creating a new file here let's say
+
+48
+00:03:11,200 --> 00:03:17,290
+transit tiles
+
+49
+00:03:12,220 --> 00:03:20,860
+okay and and I'm using Emacs and music
+
+50
+00:03:17,290 --> 00:03:25,810
+supply keys so start start command log
+
+51
+00:03:20,860 --> 00:03:29,290
+mod so I'm going to turn on command log
+
+52
+00:03:25,810 --> 00:03:34,180
+mod so you can see all my Emacs commands
+
+53
+00:03:29,290 --> 00:03:38,920
+I call I'm using sapphire keys so
+
+54
+00:03:34,180 --> 00:03:42,750
+Trenchard house that's its to a new page
+
+55
+00:03:38,920 --> 00:03:47,320
+okay that basically just generates a
+
+56
+00:03:42,750 --> 00:03:52,930
+link and it creates a new page so we can
+
+57
+00:03:47,320 --> 00:03:54,160
+see here the source code okay transient
+
+58
+00:03:52,930 --> 00:04:00,450
+house now
+
+59
+00:03:54,160 --> 00:04:04,420
+let's when people watching good morning
+
+60
+00:04:00,450 --> 00:04:08,340
+say hi here trendy house so we're gonna
+
+61
+00:04:04,420 --> 00:04:15,459
+start to write a Java Script ranchitos
+
+62
+00:04:08,340 --> 00:04:19,209
+okay so first of all create a create a
+
+63
+00:04:15,459 --> 00:04:20,080
+new file link link it link if I open it
+
+64
+00:04:19,209 --> 00:04:23,289
+it's empty
+
+65
+00:04:20,080 --> 00:04:27,240
+okay and this is the empty violets for
+
+66
+00:04:23,289 --> 00:04:31,210
+the date then we start to code
+
+67
+00:04:27,240 --> 00:04:35,080
+so view these in browser actually let's
+
+68
+00:04:31,210 --> 00:04:41,259
+view this in Chrome because in Chrome I
+
+69
+00:04:35,080 --> 00:04:43,180
+have JavaScript on we cannot do this so
+
+70
+00:04:41,259 --> 00:04:46,300
+we're gonna code let me put some
+
+71
+00:04:43,180 --> 00:04:50,970
+comments here live coding Java sweet
+
+72
+00:04:46,300 --> 00:04:54,250
+chunky tiles and Trenchard tiles is this
+
+73
+00:04:50,970 --> 00:04:56,110
+okay so let's start coding so what what
+
+74
+00:04:54,250 --> 00:05:03,610
+we want to do first of all we need to
+
+75
+00:04:56,110 --> 00:05:05,919
+have a display area that is this is the
+
+76
+00:05:03,610 --> 00:05:09,729
+area where the JavaScript is going to
+
+77
+00:05:05,919 --> 00:05:15,970
+insert the graphics so ID okay so we
+
+78
+00:05:09,729 --> 00:05:17,889
+have a ID and show in browser and this
+
+79
+00:05:15,970 --> 00:05:20,770
+right now it's empty you can see that's
+
+80
+00:05:17,889 --> 00:05:26,199
+put there you see T it's empty
+
+81
+00:05:20,770 --> 00:05:32,259
+and we go to the top we add a style we
+
+82
+00:05:26,199 --> 00:05:36,960
+add a style so we say this ID style will
+
+83
+00:05:32,259 --> 00:05:43,599
+be lets say border border solid thing
+
+84
+00:05:36,960 --> 00:05:48,310
+red okay show in browser we got a you
+
+85
+00:05:43,599 --> 00:05:53,469
+know that thing okay so this is the file
+
+86
+00:05:48,310 --> 00:05:57,370
+and now we're gonna gonna do you know
+
+87
+00:05:53,469 --> 00:05:59,680
+let's let's remove this redundant thing
+
+88
+00:05:57,370 --> 00:06:04,569
+here this these are Google ads and
+
+89
+00:05:59,680 --> 00:06:12,120
+Google Ads stuff so that the whole file
+
+90
+00:06:04,569 --> 00:06:15,400
+will be Creole simpler so ads ad autumn
+
+91
+00:06:12,120 --> 00:06:19,180
+and we move that we move that we move
+
+92
+00:06:15,400 --> 00:06:24,490
+that remove that showing browser yeah so
+
+93
+00:06:19,180 --> 00:06:28,440
+it's now it's cream we want to yeah so
+
+94
+00:06:24,490 --> 00:06:28,440
+let's start to ko JavaScript
+
+95
+00:06:29,460 --> 00:06:39,420
+and hey good morning rose Koda you are
+
+96
+00:06:34,740 --> 00:06:43,550
+you are Jack are you the jack the
+
+97
+00:06:39,420 --> 00:06:51,560
+Haskell code or the node with which Jack
+
+98
+00:06:43,550 --> 00:06:56,610
+the Jack in China so so anyway so that's
+
+99
+00:06:51,560 --> 00:06:58,920
+it's not to code the trench a tile so
+
+100
+00:06:56,610 --> 00:07:02,190
+what so how do you do this we we are
+
+101
+00:06:58,920 --> 00:07:06,530
+going to use the SVG technology now if
+
+102
+00:07:02,190 --> 00:07:09,150
+you don't know SVG let's go to SVG
+
+103
+00:07:06,530 --> 00:07:12,270
+tutorial now if you go to my website you
+
+104
+00:07:09,150 --> 00:07:16,380
+know that I still search my name sorry
+
+105
+00:07:12,270 --> 00:07:20,120
+SVG then you'll find my SVG tutorial now
+
+106
+00:07:16,380 --> 00:07:23,130
+SVG is a scalable vector graphics
+
+107
+00:07:20,120 --> 00:07:26,070
+meaning it's that you know it's a it's
+
+108
+00:07:23,130 --> 00:07:31,290
+not bitmap its lines and figures you
+
+109
+00:07:26,070 --> 00:07:34,500
+know it's suitable for what we need to
+
+110
+00:07:31,290 --> 00:07:38,880
+do today you know you see like start you
+
+111
+00:07:34,500 --> 00:07:41,100
+know charts pie charts bar charts stock
+
+112
+00:07:38,880 --> 00:07:43,290
+charts you know all those are done in
+
+113
+00:07:41,100 --> 00:07:43,680
+SVG you can see them every everywhere
+
+114
+00:07:43,290 --> 00:07:46,770
+today
+
+115
+00:07:43,680 --> 00:07:51,150
+like on github you know statistics
+
+116
+00:07:46,770 --> 00:07:53,630
+charts and you know so on SVG is very
+
+117
+00:07:51,150 --> 00:07:53,630
+good for that
+
+118
+00:07:54,050 --> 00:08:03,690
+so SVG so so yeah so SVG so SVG is based
+
+119
+00:08:00,720 --> 00:08:09,240
+on XML technology basically it's just
+
+120
+00:08:03,690 --> 00:08:11,010
+like a HTML so now let me show you then
+
+121
+00:08:09,240 --> 00:08:12,840
+all you have to do is you know for
+
+122
+00:08:11,010 --> 00:08:15,800
+example let me let me show you a quick
+
+123
+00:08:12,840 --> 00:08:19,700
+little example so I create a new file I
+
+124
+00:08:15,800 --> 00:08:23,730
+create a new file paste this content in
+
+125
+00:08:19,700 --> 00:08:26,910
+save it let's say X X dot HTML just a
+
+126
+00:08:23,730 --> 00:08:32,430
+random name okay now so you can see this
+
+127
+00:08:26,910 --> 00:08:35,940
+is the file or HTML file oh I have you
+
+128
+00:08:32,430 --> 00:08:41,100
+know I have is this SVG tag SVG tag with
+
+129
+00:08:35,940 --> 00:08:42,840
+this this line tag you know a line says
+
+130
+00:08:41,100 --> 00:08:45,360
+x1 equals to you know
+
+131
+00:08:42,840 --> 00:08:48,060
+and should we show in this browser you
+
+132
+00:08:45,360 --> 00:08:52,800
+can see there's a line so that is what
+
+133
+00:08:48,060 --> 00:08:55,440
+SVG is is it's very it's pretty simple
+
+134
+00:08:52,800 --> 00:08:58,140
+it's just like HTML it's really simple
+
+135
+00:08:55,440 --> 00:09:00,450
+so you just add this thing and it
+
+136
+00:08:58,140 --> 00:09:03,390
+creates a line and if you want a
+
+137
+00:09:00,450 --> 00:09:09,710
+rectangle for example let's say I copy
+
+138
+00:09:03,390 --> 00:09:13,110
+that let's put the rectangle here and
+
+139
+00:09:09,710 --> 00:09:16,110
+copy that put inside the SVG tag and
+
+140
+00:09:13,110 --> 00:09:19,500
+show in browser you see we got a
+
+141
+00:09:16,110 --> 00:09:21,450
+rectangle in the line so that that is
+
+142
+00:09:19,500 --> 00:09:25,050
+what we are going to do we are going to
+
+143
+00:09:21,450 --> 00:09:29,190
+use JavaScript to create to generate
+
+144
+00:09:25,050 --> 00:09:32,279
+this SVG string tag
+
+145
+00:09:29,190 --> 00:09:40,140
+you know the basically strings then
+
+146
+00:09:32,279 --> 00:09:43,529
+insert it into HTML page so so that
+
+147
+00:09:40,140 --> 00:09:50,089
+eventually we gonna get this tranche
+
+148
+00:09:43,529 --> 00:09:54,750
+entire source code it's me Jack who is
+
+149
+00:09:50,089 --> 00:09:56,550
+100 yeah hi good morning jack I don't
+
+150
+00:09:54,750 --> 00:10:00,030
+have a phone yet you know I was thinking
+
+151
+00:09:56,550 --> 00:10:02,490
+you know I was thinking you you create
+
+152
+00:10:00,030 --> 00:10:06,270
+the you know we you know I wanted to
+
+153
+00:10:02,490 --> 00:10:10,500
+create a YouTube not you a video account
+
+154
+00:10:06,270 --> 00:10:14,820
+on the China's video platform peedee
+
+155
+00:10:10,500 --> 00:10:16,890
+peedee which is extremely popular so you
+
+156
+00:10:14,820 --> 00:10:21,089
+know it's it's in China because China
+
+157
+00:10:16,890 --> 00:10:24,150
+cannot watch YouTube unless they have to
+
+158
+00:10:21,089 --> 00:10:26,550
+do some you know as you know SVN you
+
+159
+00:10:24,150 --> 00:10:28,709
+know basically so I want to create a
+
+160
+00:10:26,550 --> 00:10:31,380
+video account you know talk show in
+
+161
+00:10:28,709 --> 00:10:35,100
+China in Chinese you know for Chinese
+
+162
+00:10:31,380 --> 00:10:36,810
+audience but I don't have a phone like
+
+163
+00:10:35,100 --> 00:10:38,459
+usually you know I don't have a cell
+
+164
+00:10:36,810 --> 00:10:42,209
+phone or any phone usually these
+
+165
+00:10:38,459 --> 00:10:45,000
+services now they require you to have a
+
+166
+00:10:42,209 --> 00:10:48,150
+phone in order to ever come so I'm
+
+167
+00:10:45,000 --> 00:10:55,430
+thinking Jack need me me niebaum work I
+
+168
+00:10:48,150 --> 00:10:58,730
+got what you need watch in Judea the
+
+169
+00:10:55,430 --> 00:11:00,650
+yes you see my way but my worries so I
+
+170
+00:10:58,730 --> 00:11:03,050
+you know jack is helping me you know
+
+171
+00:11:00,650 --> 00:11:09,260
+create account for BD BD in China so but
+
+172
+00:11:03,050 --> 00:11:11,210
+I'm my way why is that in China you know
+
+173
+00:11:09,260 --> 00:11:13,690
+you know if if my video becomes
+
+174
+00:11:11,210 --> 00:11:18,140
+extremely popular later I can make money
+
+175
+00:11:13,690 --> 00:11:20,630
+so if if Jack you know you it's if it's
+
+176
+00:11:18,140 --> 00:11:22,820
+your account then it can be some you
+
+177
+00:11:20,630 --> 00:11:24,740
+know it have a problem I have to trust
+
+178
+00:11:22,820 --> 00:11:30,260
+you but I trust you
+
+179
+00:11:24,740 --> 00:11:32,570
+so Jack what's up need were shunned upon
+
+180
+00:11:30,260 --> 00:11:37,820
+knowing that our young leaders only from
+
+181
+00:11:32,570 --> 00:11:40,040
+being about what your young need now in
+
+182
+00:11:37,820 --> 00:11:42,020
+a wash on what can I eat - Lou its Lou
+
+183
+00:11:40,040 --> 00:11:46,820
+in in ele onions onion though it's Lou
+
+184
+00:11:42,020 --> 00:11:50,480
+so he host of Denis me much dad your
+
+185
+00:11:46,820 --> 00:11:53,510
+second and from being what is for the
+
+186
+00:11:50,480 --> 00:11:58,250
+zoo zoo zoo cuckoo Lubow known as
+
+187
+00:11:53,510 --> 00:12:00,830
+Antartica Kate san-chan Doha segi above
+
+188
+00:11:58,250 --> 00:12:03,260
+ambient so it doesn't was something in
+
+189
+00:12:00,830 --> 00:12:06,050
+Washington is a uniquely super me from
+
+190
+00:12:03,260 --> 00:12:08,510
+being on knowing that someone else is
+
+191
+00:12:06,050 --> 00:12:11,630
+young this is what day watch I'm just
+
+192
+00:12:08,510 --> 00:12:16,060
+sayin I'm just Jim is the chansonia
+
+193
+00:12:11,630 --> 00:12:18,710
+check hotel humble también you any
+
+194
+00:12:16,060 --> 00:12:21,050
+youtube need Twitter's song Idol fan
+
+195
+00:12:18,710 --> 00:12:23,720
+John from beer so it Nagar Skype sound
+
+196
+00:12:21,050 --> 00:12:26,840
+under maybe down it's a question woman
+
+197
+00:12:23,720 --> 00:12:31,130
+Josie young she know you know you know
+
+198
+00:12:26,840 --> 00:12:34,010
+what you handle so change inputs order
+
+199
+00:12:31,130 --> 00:12:36,800
+it's a toy stop if another harder the
+
+200
+00:12:34,010 --> 00:12:39,350
+MENA hi mayor Hayes Mayo has young oh
+
+201
+00:12:36,800 --> 00:12:42,320
+it's a channel that's male CEO John just
+
+202
+00:12:39,350 --> 00:12:46,430
+as you'd say yeah zucchini yeah come on
+
+203
+00:12:42,320 --> 00:12:48,710
+hot idea so let's talk offline something
+
+204
+00:12:46,430 --> 00:12:51,470
+yeah we should yeah let's talk about it
+
+205
+00:12:48,710 --> 00:12:54,610
+you know we find a time when you have
+
+206
+00:12:51,470 --> 00:12:59,030
+time let's talk on skype or something
+
+207
+00:12:54,610 --> 00:13:01,850
+so anyway that's about my ambition you
+
+208
+00:12:59,030 --> 00:13:04,670
+know so you know I I was trying to do a
+
+209
+00:13:01,850 --> 00:13:07,360
+YouTube for Chinese audience because in
+
+210
+00:13:04,670 --> 00:13:09,290
+China you know they have like 1 billion
+
+211
+00:13:07,360 --> 00:13:11,589
+two billion you know
+
+212
+00:13:09,290 --> 00:13:14,449
+people you know this is it's a huge
+
+213
+00:13:11,589 --> 00:13:16,970
+market well you know I'm not here to
+
+214
+00:13:14,449 --> 00:13:19,399
+make money so it's not a market for me
+
+215
+00:13:16,970 --> 00:13:24,430
+but but you know you do have a lot
+
+216
+00:13:19,399 --> 00:13:24,430
+Chinese people they want to learn Emacs
+
+217
+00:13:24,790 --> 00:13:33,220
+yeah you know they they like they can
+
+218
+00:13:28,100 --> 00:13:33,220
+learn Emacs from you know my Emacs
+
+219
+00:13:33,490 --> 00:13:40,750
+expertise so anyway let's go back to
+
+220
+00:13:36,740 --> 00:13:45,680
+let's stop go back to the coding of the
+
+221
+00:13:40,750 --> 00:13:51,620
+the SVG okay so let's we don't need this
+
+222
+00:13:45,680 --> 00:13:54,139
+file anymore so we are coding this yeah
+
+223
+00:13:51,620 --> 00:13:57,350
+great so we are coding this tranche
+
+224
+00:13:54,139 --> 00:14:00,949
+eight tiles in JavaScript so as we
+
+225
+00:13:57,350 --> 00:14:07,069
+mentioned before we our JavaScript needs
+
+226
+00:14:00,949 --> 00:14:09,829
+to create this this sgml these tags so
+
+227
+00:14:07,069 --> 00:14:11,509
+yeah okay let's begin you know I was
+
+228
+00:14:09,829 --> 00:14:15,500
+afraid this is gonna take a long time
+
+229
+00:14:11,509 --> 00:14:17,899
+it's already 14 minutes so you know I I
+
+230
+00:14:15,500 --> 00:14:21,279
+hope I can we can finish in 30 minutes
+
+231
+00:14:17,899 --> 00:14:27,889
+so okay so what do you need to do first
+
+232
+00:14:21,279 --> 00:14:30,230
+so we need to create this so first of
+
+233
+00:14:27,889 --> 00:14:34,040
+all we need to create one square one
+
+234
+00:14:30,230 --> 00:14:42,829
+single square with a arc pattern on the
+
+235
+00:14:34,040 --> 00:14:46,250
+side so you know let's just walk it out
+
+236
+00:14:42,829 --> 00:14:49,940
+you know workflow is part of the fun
+
+237
+00:14:46,250 --> 00:14:54,380
+yeah like you know you see me you know I
+
+238
+00:14:49,940 --> 00:14:56,630
+haven't done this before so but we can
+
+239
+00:14:54,380 --> 00:14:57,019
+do this in like 40 minutes I'm pretty
+
+240
+00:14:56,630 --> 00:15:02,420
+sure
+
+241
+00:14:57,019 --> 00:15:08,800
+so okay let me get I need to get focus
+
+242
+00:15:02,420 --> 00:15:12,560
+on this so yeah so we're gonna create
+
+243
+00:15:08,800 --> 00:15:16,819
+trencher tiles so what what is a fan so
+
+244
+00:15:12,560 --> 00:15:20,689
+we need to create one square SVG so
+
+245
+00:15:16,819 --> 00:15:23,649
+we're gonna create one SVG square so
+
+246
+00:15:20,689 --> 00:15:23,649
+let's write it down
+
+247
+00:15:24,660 --> 00:15:43,570
+but great one is VG's square okay then
+
+248
+00:15:34,930 --> 00:15:49,180
+we need to create a OCH patterns on the
+
+249
+00:15:43,570 --> 00:15:56,920
+square okay create rock pattern create
+
+250
+00:15:49,180 --> 00:16:03,760
+two SVG ox on the square then okay
+
+251
+00:15:56,920 --> 00:16:11,580
+here's a plan so then we generate array
+
+252
+00:16:03,760 --> 00:16:19,170
+of such squares okay then
+
+253
+00:16:11,580 --> 00:16:19,170
+each with random orientation okay
+
+254
+00:16:20,370 --> 00:16:27,100
+okay goodnight jack
+
+255
+00:16:22,830 --> 00:16:28,959
+yes good night so yeah so generate array
+
+256
+00:16:27,100 --> 00:16:32,459
+of such squares and each with random
+
+257
+00:16:28,959 --> 00:16:36,310
+orientation that is the plan
+
+258
+00:16:32,459 --> 00:16:40,890
+so let's create one SVG square so let's
+
+259
+00:16:36,310 --> 00:16:45,420
+yeah so let's create one SVG square so
+
+260
+00:16:40,890 --> 00:16:51,430
+so what is the syntax for SVG squares so
+
+261
+00:16:45,420 --> 00:16:53,980
+SVG square is like that there is no
+
+262
+00:16:51,430 --> 00:16:58,540
+primitives for rec for square but you
+
+263
+00:16:53,980 --> 00:17:01,180
+have rectangle so so basically we need
+
+264
+00:16:58,540 --> 00:17:08,970
+to generate something something like
+
+265
+00:17:01,180 --> 00:17:08,970
+this okay Rex something is something X Y
+
+266
+00:17:09,449 --> 00:17:17,170
+width and hate which will be 100 ok hate
+
+267
+00:17:15,760 --> 00:17:25,839
+it 100
+
+268
+00:17:17,170 --> 00:17:32,560
+okay let's say 10 so start at now the x
+
+269
+00:17:25,839 --> 00:17:35,570
+and y are what is the x and y XY are the
+
+270
+00:17:32,560 --> 00:17:40,580
+upper left corner of the
+
+271
+00:17:35,570 --> 00:17:43,730
+tango so we want it to be zero zero so
+
+272
+00:17:40,580 --> 00:17:45,769
+we're gonna generate this stream so
+
+273
+00:17:43,730 --> 00:17:52,820
+let's create a function constant error
+
+274
+00:17:45,769 --> 00:18:03,980
+function gen square okay
+
+275
+00:17:52,820 --> 00:18:11,450
+f change square okay so so this is the
+
+276
+00:18:03,980 --> 00:18:18,230
+string we want and let's just say return
+
+277
+00:18:11,450 --> 00:18:23,389
+that okay and actually we need x and y
+
+278
+00:18:18,230 --> 00:18:26,809
+coordinate so Y so it will generate an x
+
+279
+00:18:23,389 --> 00:18:31,460
+and y position okay so that is a
+
+280
+00:18:26,809 --> 00:18:34,820
+function to generate a SVG square okay
+
+281
+00:18:31,460 --> 00:18:37,159
+we generate SVG square which is this
+
+282
+00:18:34,820 --> 00:18:40,940
+line but we also need to generate this
+
+283
+00:18:37,159 --> 00:18:44,750
+SVG tag so how do you generate a SVG tag
+
+284
+00:18:40,940 --> 00:18:48,740
+you know the way you do it is by so you
+
+285
+00:18:44,750 --> 00:18:53,029
+go to my SVG tutorial at the bottom your
+
+286
+00:18:48,740 --> 00:19:00,019
+C scripting SVG okay and here is the
+
+287
+00:18:53,029 --> 00:19:01,759
+code to generate a SVG tag yeah so
+
+288
+00:19:00,019 --> 00:19:03,350
+everything is like you know just copy
+
+289
+00:19:01,759 --> 00:19:11,679
+and paste this is the code to generate
+
+290
+00:19:03,350 --> 00:19:11,679
+an SVG tag then let's go back here
+
+291
+00:19:12,129 --> 00:19:17,259
+anchor so let's say this is anchor
+
+292
+00:19:19,510 --> 00:19:32,230
+and okay so so anka is a position we
+
+293
+00:19:27,370 --> 00:19:40,980
+want to insert the SVG into so so first
+
+294
+00:19:32,230 --> 00:19:45,040
+of all get get element by ID okay
+
+295
+00:19:40,980 --> 00:19:50,530
+document.getelementbyid d okay then we
+
+296
+00:19:45,040 --> 00:19:57,930
+want to do that so we won't say constant
+
+297
+00:19:50,530 --> 00:20:04,300
+that that okay so this this gets us this
+
+298
+00:19:57,930 --> 00:20:06,970
+this gets us that dive tag which is a
+
+299
+00:20:04,300 --> 00:20:12,870
+position we want to insert the SVG okay
+
+300
+00:20:06,970 --> 00:20:16,360
+then we create a SVG element oops
+
+301
+00:20:12,870 --> 00:20:18,300
+yeah we create a SVG element then we
+
+302
+00:20:16,360 --> 00:20:24,310
+have a function to generate a square
+
+303
+00:20:18,300 --> 00:20:29,920
+then we want to append the SVG element
+
+304
+00:20:24,310 --> 00:20:33,300
+into the into the dive tag right so how
+
+305
+00:20:29,920 --> 00:20:42,130
+do you do that so we have we can do is
+
+306
+00:20:33,300 --> 00:20:48,120
+that that dot append child okay a pinch
+
+307
+00:20:42,130 --> 00:20:52,090
+out then SVG one okay that should be it
+
+308
+00:20:48,120 --> 00:20:58,270
+so now we go back to the file and we
+
+309
+00:20:52,090 --> 00:21:00,990
+refresh looks like it's a success we
+
+310
+00:20:58,270 --> 00:21:00,990
+inspect
+
+311
+00:21:03,050 --> 00:21:11,520
+success we got an SVG tag here you see
+
+312
+00:21:07,520 --> 00:21:19,950
+in the file so now let's try to add a
+
+313
+00:21:11,520 --> 00:21:23,480
+square so SVG square so let's say F
+
+314
+00:21:19,950 --> 00:21:23,480
+change square okay
+
+315
+00:21:23,810 --> 00:21:33,140
+generate square and let's say at zero
+
+316
+00:21:27,570 --> 00:21:38,130
+zero okay my square okay
+
+317
+00:21:33,140 --> 00:21:42,750
+let's say constant my square equals
+
+318
+00:21:38,130 --> 00:21:53,610
+through that okay then we again append
+
+319
+00:21:42,750 --> 00:21:56,040
+the child to SVG okay so you see we
+
+320
+00:21:53,610 --> 00:21:59,520
+generate a square and we attach the
+
+321
+00:21:56,040 --> 00:22:01,860
+square to the SVG tag so let's see what
+
+322
+00:21:59,520 --> 00:22:06,770
+happens in browser see if we got a
+
+323
+00:22:01,860 --> 00:22:17,100
+square no let's see what is the problem
+
+324
+00:22:06,770 --> 00:22:20,430
+let's expand that okay so it's okay
+
+325
+00:22:17,100 --> 00:22:25,050
+uncut type error fail to execute a paint
+
+326
+00:22:20,430 --> 00:22:27,300
+child Arnaud parameter one is not of
+
+327
+00:22:25,050 --> 00:22:30,660
+type not oh that's that's right because
+
+328
+00:22:27,300 --> 00:22:33,900
+you see when we have a string rectangle
+
+329
+00:22:30,660 --> 00:22:37,310
+that's a string that that is not element
+
+330
+00:22:33,900 --> 00:22:41,610
+so you cannot append a string to a child
+
+331
+00:22:37,310 --> 00:22:48,480
+so what we can do is actually we say SVG
+
+332
+00:22:41,610 --> 00:22:52,350
+one inner HTML equals to my square so
+
+333
+00:22:48,480 --> 00:22:55,920
+this will actually work its trial in
+
+334
+00:22:52,350 --> 00:23:00,660
+browser you see it works we got a little
+
+335
+00:22:55,920 --> 00:23:05,400
+square but black square okay so we are
+
+336
+00:23:00,660 --> 00:23:08,790
+using in image HTML but using in HTML is
+
+337
+00:23:05,400 --> 00:23:13,710
+not a proper solution rather you should
+
+338
+00:23:08,790 --> 00:23:18,470
+generate a element that is the better
+
+339
+00:23:13,710 --> 00:23:18,470
+solution so let's modify this
+
+340
+00:23:18,770 --> 00:23:25,940
+this function if let's rename it f sv g
+
+341
+00:23:24,690 --> 00:23:30,830
+square
+
+342
+00:23:25,940 --> 00:23:36,930
+okay let's a that's a function and
+
+343
+00:23:30,830 --> 00:23:47,550
+then it should the function will
+
+344
+00:23:36,930 --> 00:23:51,390
+generate a square by calling these so
+
+345
+00:23:47,550 --> 00:23:53,520
+this line generates a element of the rec
+
+346
+00:23:51,390 --> 00:23:59,090
+element generate basically generate this
+
+347
+00:23:53,520 --> 00:24:03,780
+element then as commander nod then
+
+348
+00:23:59,090 --> 00:24:09,870
+square set attribute okay then set
+
+349
+00:24:03,780 --> 00:24:22,080
+attribute x equals to x y equals through
+
+350
+00:24:09,870 --> 00:24:28,140
+y and with and hate okay so so with
+
+351
+00:24:22,080 --> 00:24:37,130
+equals to 10 let's put width and head
+
+352
+00:24:28,140 --> 00:24:45,560
+here so okay and this function generate
+
+353
+00:24:37,130 --> 00:24:55,230
+we turn a SVG element SVG rect element
+
+354
+00:24:45,560 --> 00:24:59,850
+top corner at XY with head of wh okay
+
+355
+00:24:55,230 --> 00:25:05,570
+that's what this function does so with
+
+356
+00:24:59,850 --> 00:25:14,420
+and hate we need to hate here okay and
+
+357
+00:25:05,570 --> 00:25:14,420
+okay then we return okay
+
+358
+00:25:24,190 --> 00:25:34,160
+so this function generates a SVG square
+
+359
+00:25:28,540 --> 00:25:38,120
+element and return the element that is
+
+360
+00:25:34,160 --> 00:25:44,180
+right so so now we have the function we
+
+361
+00:25:38,120 --> 00:25:47,150
+call it here width and hate 10 then we
+
+362
+00:25:44,180 --> 00:25:50,560
+append a child to the SVG element okay
+
+363
+00:25:47,150 --> 00:25:51,800
+that seems to be it let's refresh
+
+364
+00:25:50,560 --> 00:25:54,820
+excellent
+
+365
+00:25:51,800 --> 00:26:00,970
+you see we got a rectangle element here
+
+366
+00:25:54,820 --> 00:26:00,970
+0 0 10 10 that's success
+
+367
+00:26:01,660 --> 00:26:08,470
+okay next so of you guys are watching
+
+368
+00:26:05,510 --> 00:26:11,150
+post your opinions questions anything ok
+
+369
+00:26:08,470 --> 00:26:14,780
+you know let me know how am i doing
+
+370
+00:26:11,150 --> 00:26:22,190
+I love to see your comments so okay so
+
+371
+00:26:14,780 --> 00:26:25,400
+far we got a we got a we got the element
+
+372
+00:26:22,190 --> 00:26:28,340
+we got D we got a square going on now
+
+373
+00:26:25,400 --> 00:26:29,780
+you see the square is black that's you
+
+374
+00:26:28,340 --> 00:26:32,870
+know that's not good
+
+375
+00:26:29,780 --> 00:26:35,720
+and it's first first of all it's too
+
+376
+00:26:32,870 --> 00:26:39,380
+small let's change it to hundred within
+
+377
+00:26:35,720 --> 00:26:42,920
+hate let's say so there are two things
+
+378
+00:26:39,380 --> 00:26:45,020
+we need to fix one is that it's black we
+
+379
+00:26:42,920 --> 00:26:48,860
+don't want it filled we want just a
+
+380
+00:26:45,020 --> 00:26:51,610
+border so what we have to do so let's go
+
+381
+00:26:48,860 --> 00:26:58,070
+back to the history G let's fix that
+
+382
+00:26:51,610 --> 00:27:01,660
+let's look at the SVG tutorial SVG
+
+383
+00:26:58,070 --> 00:27:05,270
+tutorial you you need to control the
+
+384
+00:27:01,660 --> 00:27:08,420
+weather it's filled or not that is so
+
+385
+00:27:05,270 --> 00:27:13,630
+you are controlling a style so you want
+
+386
+00:27:08,420 --> 00:27:13,630
+to say stroke
+
+387
+00:27:15,540 --> 00:27:24,510
+stroke stroke with and feel so feel
+
+388
+00:27:21,900 --> 00:27:31,770
+should be none okay so what we need to
+
+389
+00:27:24,510 --> 00:27:37,830
+do is we need to say create another
+
+390
+00:27:31,770 --> 00:27:44,760
+attribute style and feel none okay then
+
+391
+00:27:37,830 --> 00:27:46,950
+stroke stroke read okay let's see what
+
+392
+00:27:44,760 --> 00:27:51,470
+is a stroke stroke is a color right
+
+393
+00:27:46,950 --> 00:27:56,480
+let's say stroke read and stroke width
+
+394
+00:27:51,470 --> 00:27:56,480
+so let's add another one stroke with
+
+395
+00:27:57,650 --> 00:28:08,720
+stroke width let's say two pixels okay
+
+396
+00:28:05,180 --> 00:28:11,910
+now let's try it again
+
+397
+00:28:08,720 --> 00:28:13,340
+excellent we got you know this we are
+
+398
+00:28:11,910 --> 00:28:17,460
+making progress
+
+399
+00:28:13,340 --> 00:28:22,080
+okay so we got a style and there's
+
+400
+00:28:17,460 --> 00:28:25,410
+another problem because you see so so
+
+401
+00:28:22,080 --> 00:28:28,260
+what is the entire SVG's with and hate
+
+402
+00:28:25,410 --> 00:28:35,430
+we need to put a little control on that
+
+403
+00:28:28,260 --> 00:28:38,190
+so we can so the so basically you see
+
+404
+00:28:35,430 --> 00:28:45,510
+when you create a SVG let's go back to
+
+405
+00:28:38,190 --> 00:28:50,730
+SVG tutorial so SVG basics when you
+
+406
+00:28:45,510 --> 00:28:53,400
+create an SVG you see you have a width
+
+407
+00:28:50,730 --> 00:28:56,270
+and hate you can specify if you do not
+
+408
+00:28:53,400 --> 00:29:00,180
+specify the browser is just gonna
+
+409
+00:28:56,270 --> 00:29:02,430
+automatically usually 100% that you know
+
+410
+00:29:00,180 --> 00:29:05,490
+fear what it whatever it's available and
+
+411
+00:29:02,430 --> 00:29:07,950
+generate some automatic hate that's not
+
+412
+00:29:05,490 --> 00:29:13,380
+we want we want a square we want a nice
+
+413
+00:29:07,950 --> 00:29:18,080
+big square canvas so let's add a width
+
+414
+00:29:13,380 --> 00:29:24,840
+and hate element so so basically here
+
+415
+00:29:18,080 --> 00:29:25,500
+set attribute okay with let's say 500
+
+416
+00:29:24,840 --> 00:29:28,820
+okay
+
+417
+00:29:25,500 --> 00:29:31,600
+then hate 500
+
+418
+00:29:28,820 --> 00:29:38,059
+Vanja okay go back to the browser
+
+419
+00:29:31,600 --> 00:29:41,000
+refresh excellent that's what we want so
+
+420
+00:29:38,059 --> 00:29:43,519
+so the square is hundred with hate so
+
+421
+00:29:41,000 --> 00:29:45,679
+you know it looks like right right five
+
+422
+00:29:43,519 --> 00:29:51,350
+of them feels it that's right so right
+
+423
+00:29:45,679 --> 00:29:54,529
+now we are going to have 5x5 array so
+
+424
+00:29:51,350 --> 00:29:59,389
+now next next we want to do we want to
+
+425
+00:29:54,529 --> 00:30:01,730
+put an arc into the square remember we
+
+426
+00:29:59,389 --> 00:30:04,120
+are doing you know this trench church
+
+427
+00:30:01,730 --> 00:30:11,210
+Church eight tiles so you need these
+
+428
+00:30:04,120 --> 00:30:14,059
+little quarter arcs in yet you know so
+
+429
+00:30:11,210 --> 00:30:15,950
+to get these beautiful images so how do
+
+430
+00:30:14,059 --> 00:30:20,870
+you how do you do that how do you create
+
+431
+00:30:15,950 --> 00:30:24,110
+an arc now to create an arc in SVG is
+
+432
+00:30:20,870 --> 00:30:28,970
+not easy it's actually turns out it's
+
+433
+00:30:24,110 --> 00:30:32,240
+actually difficult but we have a
+
+434
+00:30:28,970 --> 00:30:37,549
+solution here so let me show this in
+
+435
+00:30:32,240 --> 00:30:40,970
+chrome so you can see let's go to SVG
+
+436
+00:30:37,549 --> 00:30:44,840
+and you can see there's a section a
+
+437
+00:30:40,970 --> 00:30:48,429
+chapter on circle arc so I created this
+
+438
+00:30:44,840 --> 00:30:52,220
+interactive application that lets you
+
+439
+00:30:48,429 --> 00:30:55,220
+interactively change you know create the
+
+440
+00:30:52,220 --> 00:30:59,539
+circle arc with a code over here you can
+
+441
+00:30:55,220 --> 00:31:06,320
+see you know you can you can create or
+
+442
+00:30:59,539 --> 00:31:10,879
+sort of arcs you know I mean your
+
+443
+00:31:06,320 --> 00:31:15,470
+different shapes of Lisp so if you wanna
+
+444
+00:31:10,879 --> 00:31:21,850
+arc just put minor axis in major axis to
+
+445
+00:31:15,470 --> 00:31:21,850
+be equal so for example let's say 100
+
+446
+00:31:25,230 --> 00:31:31,150
+you know 100 so we kind of get a
+
+447
+00:31:28,480 --> 00:31:37,540
+circular arc you know so that's how we
+
+448
+00:31:31,150 --> 00:31:40,810
+create a rock okay so yeah we want a arc
+
+449
+00:31:37,540 --> 00:31:46,150
+but we also we only want a quarter of it
+
+450
+00:31:40,810 --> 00:31:55,500
+so you can do it by and see a quarter of
+
+451
+00:31:46,150 --> 00:31:55,500
+an arc to 95 and rotation
+
+452
+00:32:00,670 --> 00:32:08,750
+okay so what we gonna do is that we we
+
+453
+00:32:06,260 --> 00:32:15,470
+are going to put a little arc over here
+
+454
+00:32:08,750 --> 00:32:21,370
+like like right here let's see so the
+
+455
+00:32:15,470 --> 00:32:24,650
+radius of the arc will be let's say 45
+
+456
+00:32:21,370 --> 00:32:28,340
+you know the the width of the square is
+
+457
+00:32:24,650 --> 00:32:39,470
+hundred so the arc will be let's say 45
+
+458
+00:32:28,340 --> 00:32:43,000
+radius of the arc is 45 so so let's see
+
+459
+00:32:39,470 --> 00:32:43,000
+41 44
+
+460
+00:32:50,190 --> 00:32:57,100
+something like that that's what we want
+
+461
+00:32:52,450 --> 00:32:59,800
+so the code is these the code to
+
+462
+00:32:57,100 --> 00:33:02,530
+generate these are cases but actually I
+
+463
+00:32:59,800 --> 00:33:04,930
+have a function this is written in
+
+464
+00:33:02,530 --> 00:33:09,430
+JavaScript so let's just use that copy
+
+465
+00:33:04,930 --> 00:33:11,710
+it this function this F SVG list Park
+
+466
+00:33:09,430 --> 00:33:15,420
+will create an arc for you an arc
+
+467
+00:33:11,710 --> 00:33:19,090
+element basically this element this path
+
+468
+00:33:15,420 --> 00:33:22,300
+something-something so we copy the code
+
+469
+00:33:19,090 --> 00:33:25,600
+let's put the code here now this is
+
+470
+00:33:22,300 --> 00:33:30,400
+starting to get calm complex let's put
+
+471
+00:33:25,600 --> 00:33:34,330
+the code here paste so so now we're
+
+472
+00:33:30,400 --> 00:33:36,610
+starting to get become complex so this
+
+473
+00:33:34,330 --> 00:33:41,860
+is the function this function returns a
+
+474
+00:33:36,610 --> 00:33:44,320
+SVG element of an arc so so let's call
+
+475
+00:33:41,860 --> 00:33:50,860
+this function so we're gonna call this
+
+476
+00:33:44,320 --> 00:34:01,150
+function over here let's see how we do
+
+477
+00:33:50,860 --> 00:34:05,340
+not do it let me show you so we call the
+
+478
+00:34:01,150 --> 00:34:09,370
+function the first argument will be XY
+
+479
+00:34:05,340 --> 00:34:15,179
+that's the center center of the arc so
+
+480
+00:34:09,370 --> 00:34:25,240
+the center will be at 0 0 over over here
+
+481
+00:34:15,179 --> 00:34:28,780
+so Center is 0 0 and the x and y RX and
+
+482
+00:34:25,240 --> 00:34:35,200
+ry are the radius of the release so we
+
+483
+00:34:28,780 --> 00:34:40,149
+want it to be 45 okay then the next
+
+484
+00:34:35,200 --> 00:34:43,899
+parameter is T 1 and Delta so what is T
+
+485
+00:34:40,149 --> 00:34:48,370
+1 and Delta T 1 is a start angle in
+
+486
+00:34:43,899 --> 00:34:54,100
+Radian so like where does the arcs start
+
+487
+00:34:48,370 --> 00:34:56,910
+to sweep we wanted to be 0 that's right
+
+488
+00:34:54,100 --> 00:35:03,280
+so let's go back here
+
+489
+00:34:56,910 --> 00:35:05,190
+start start sweep at 0 and n sweep at 95
+
+490
+00:35:03,280 --> 00:35:08,259
+degrees
+
+491
+00:35:05,190 --> 00:35:12,160
+well except we need radians not degrees
+
+492
+00:35:08,259 --> 00:35:19,829
+so to convert with the degree to radians
+
+493
+00:35:12,160 --> 00:35:25,329
+we divided by 180 and multiplied by PI
+
+494
+00:35:19,829 --> 00:35:32,200
+okay so we can use the symbol pi because
+
+495
+00:35:25,329 --> 00:35:35,470
+we defined PI over here you can see so
+
+496
+00:35:32,200 --> 00:35:37,660
+okay so start sweep and end sweep and
+
+497
+00:35:35,470 --> 00:35:42,940
+what is the last parameter the last
+
+498
+00:35:37,660 --> 00:35:45,160
+parameter is rotation of the hole okay
+
+499
+00:35:42,940 --> 00:35:51,279
+so we don't need any rotation so it will
+
+500
+00:35:45,160 --> 00:35:56,079
+be zero so this creates an arc for us
+
+501
+00:35:51,279 --> 00:35:59,170
+let's say arc one okay so that creates
+
+502
+00:35:56,079 --> 00:36:06,369
+an arc for us then we need to append the
+
+503
+00:35:59,170 --> 00:36:10,509
+arc to the square okay so right now fan
+
+504
+00:36:06,369 --> 00:36:15,660
+child up in the up to the to the wait
+
+505
+00:36:10,509 --> 00:36:15,660
+not not to the square but to the SVG
+
+506
+00:36:17,609 --> 00:36:25,509
+that's right so let's try in browser
+
+507
+00:36:20,950 --> 00:36:27,670
+refresh excellent it's incorrect but at
+
+508
+00:36:25,509 --> 00:36:30,069
+least we got something now why is it
+
+509
+00:36:27,670 --> 00:36:34,900
+incorrect because it's it's it's trying
+
+510
+00:36:30,069 --> 00:36:37,779
+to feel it tries to feel the style you
+
+511
+00:36:34,900 --> 00:36:43,299
+know feel the inside we don't want it to
+
+512
+00:36:37,779 --> 00:36:47,589
+feel so we go back to the SVG style
+
+513
+00:36:43,299 --> 00:36:52,380
+shape style and say feel equals to none
+
+514
+00:36:47,589 --> 00:36:56,069
+so actually we have code already here
+
+515
+00:36:52,380 --> 00:36:56,069
+here so we
+
+516
+00:36:58,610 --> 00:37:11,030
+so we say Ocwen dot set attribute okay
+
+517
+00:37:03,170 --> 00:37:13,700
+set attribute style equals to feel okay
+
+518
+00:37:11,030 --> 00:37:18,380
+so here is a style you can actually just
+
+519
+00:37:13,700 --> 00:37:23,120
+copy it so we so we said Ocwen say the
+
+520
+00:37:18,380 --> 00:37:24,530
+style attribute and feel none stroke
+
+521
+00:37:23,120 --> 00:37:27,860
+read okay
+
+522
+00:37:24,530 --> 00:37:30,020
+stroke with to okay let's see how it
+
+523
+00:37:27,860 --> 00:37:33,680
+looks
+
+524
+00:37:30,020 --> 00:37:38,800
+refresh excellent
+
+525
+00:37:33,680 --> 00:37:42,640
+we are making progress so so far so good
+
+526
+00:37:38,800 --> 00:37:46,190
+okay one people still watching okay so
+
+527
+00:37:42,640 --> 00:37:50,090
+we got the feel we got arc one feel
+
+528
+00:37:46,190 --> 00:38:00,770
+that's correct now we need to put
+
+529
+00:37:50,090 --> 00:38:03,980
+another arc so let's say arc to how to
+
+530
+00:38:00,770 --> 00:38:06,490
+will be how to we'll be starting from
+
+531
+00:38:03,980 --> 00:38:11,830
+here kind of like that
+
+532
+00:38:06,490 --> 00:38:15,950
+so is it begins so the center will be
+
+533
+00:38:11,830 --> 00:38:21,110
+one hundred hundred so the center will
+
+534
+00:38:15,950 --> 00:38:25,370
+be one hundred one hundred the the art
+
+535
+00:38:21,110 --> 00:38:31,240
+radius will be 45 45 the same the sweep
+
+536
+00:38:25,370 --> 00:38:42,950
+will begin at 180 degrees which is PI
+
+537
+00:38:31,240 --> 00:38:47,290
+okay then the endpoint will be two pi
+
+538
+00:38:42,950 --> 00:38:47,290
+divided by three
+
+539
+00:38:48,400 --> 00:38:55,769
+- 2 pi divided by 2 pi times 3 over 4
+
+540
+00:38:56,099 --> 00:39:03,519
+so basically basically we have a we have
+
+541
+00:38:59,499 --> 00:39:05,319
+a circle we want to start you know we
+
+542
+00:39:03,519 --> 00:39:07,690
+have a giant circle and here's the
+
+543
+00:39:05,319 --> 00:39:10,660
+center we want to start from here to
+
+544
+00:39:07,690 --> 00:39:14,230
+here so it's it's like from naio clock
+
+545
+00:39:10,660 --> 00:39:18,460
+to 12 o clock so now your crowd will be
+
+546
+00:39:14,230 --> 00:39:24,309
+PI degree Radian in radians so 12
+
+547
+00:39:18,460 --> 00:39:27,640
+o'clock will be wait where does the
+
+548
+00:39:24,309 --> 00:39:31,450
+degree begin in SVG I forgot let's just
+
+549
+00:39:27,640 --> 00:39:37,180
+see let's see how it looks now we need
+
+550
+00:39:31,450 --> 00:39:43,210
+to append arc to okay switch back to the
+
+551
+00:39:37,180 --> 00:39:46,450
+browser refresh okay that's something so
+
+552
+00:39:43,210 --> 00:39:50,319
+yeah so that's incorrect so we the sweep
+
+553
+00:39:46,450 --> 00:39:54,119
+angle is incorrect so we start here we
+
+554
+00:39:50,319 --> 00:39:54,119
+want to end ad
+
+555
+00:40:02,160 --> 00:40:09,980
+so where is zero okay so we actually
+
+556
+00:40:06,750 --> 00:40:16,700
+don't know let's let's try where is zero
+
+557
+00:40:09,980 --> 00:40:16,700
+let's say start at zero okay refresh I
+
+558
+00:40:18,950 --> 00:40:24,380
+don't know
+
+559
+00:40:20,220 --> 00:40:33,089
+so let's say 1 ok
+
+560
+00:40:24,380 --> 00:40:36,869
+refresh ok so let's say to refresh ok so
+
+561
+00:40:33,089 --> 00:40:41,759
+0 is like at 3 o clock 0 degrees for
+
+562
+00:40:36,869 --> 00:40:48,839
+yoga and it goes clockwise because in
+
+563
+00:40:41,759 --> 00:40:52,410
+SVG things go clockwise so 0 is that so
+
+564
+00:40:48,839 --> 00:41:07,609
+we want to start ad over here so we want
+
+565
+00:40:52,410 --> 00:41:11,119
+to start at 2 pi times 3 over 4 okay
+
+566
+00:41:07,609 --> 00:41:11,119
+that's incorrect
+
+567
+00:41:12,299 --> 00:41:18,869
+we want to start at pi that's right so
+
+568
+00:41:14,849 --> 00:41:28,170
+actually hi that's correct
+
+569
+00:41:18,869 --> 00:41:38,779
+now we want it to end at right so we
+
+570
+00:41:28,170 --> 00:41:38,779
+want to end at 2 pi times 3 over 4
+
+571
+00:41:39,880 --> 00:41:51,490
+yes still wrong so to five times three
+
+572
+00:41:46,810 --> 00:41:57,670
+over four what is wrong with that does
+
+573
+00:41:51,490 --> 00:42:06,990
+anyone know okay one people watching
+
+574
+00:41:57,670 --> 00:42:06,990
+this is discouraging okay so we can we
+
+575
+00:42:08,760 --> 00:42:23,230
+so let's see let's let's make it let's
+
+576
+00:42:15,570 --> 00:42:25,630
+change the style so Oh sweep oh that's
+
+577
+00:42:23,230 --> 00:42:30,310
+right it's how much you want to sweep
+
+578
+00:42:25,630 --> 00:42:35,970
+not the end position so oh we want to
+
+579
+00:42:30,310 --> 00:42:35,970
+sweep sweep is half a pie that is all
+
+580
+00:42:36,810 --> 00:42:43,330
+that is right
+
+581
+00:42:39,660 --> 00:42:48,760
+excellent excellent we got it working my
+
+582
+00:42:43,330 --> 00:42:53,890
+friends so that's what we want now the
+
+583
+00:42:48,760 --> 00:42:56,140
+next thing we want is we want to let's
+
+584
+00:42:53,890 --> 00:42:58,030
+just continue you know actually we have
+
+585
+00:42:56,140 --> 00:42:59,890
+a lot of things to fix right now because
+
+586
+00:42:58,030 --> 00:43:05,710
+we also need to control the orientation
+
+587
+00:42:59,890 --> 00:43:09,430
+of the whole square you know we we could
+
+588
+00:43:05,710 --> 00:43:12,550
+it would be useful if we abstract the
+
+589
+00:43:09,430 --> 00:43:14,890
+whole thing so we create a function we
+
+590
+00:43:12,550 --> 00:43:18,040
+create one single function that that
+
+591
+00:43:14,890 --> 00:43:21,990
+give us this whole square with arcs and
+
+592
+00:43:18,040 --> 00:43:23,950
+we can say orientation you know
+
+593
+00:43:21,990 --> 00:43:26,860
+orientation one or zero
+
+594
+00:43:23,950 --> 00:43:29,290
+you know one is like that zero will be
+
+595
+00:43:26,860 --> 00:43:32,680
+like you know this rotated you know
+
+596
+00:43:29,290 --> 00:43:34,900
+where the Ox goes from here and here so
+
+597
+00:43:32,680 --> 00:43:37,990
+you know basically two orientations so
+
+598
+00:43:34,900 --> 00:43:39,760
+we we would like to have a one function
+
+599
+00:43:37,990 --> 00:43:43,750
+one single function that creates this
+
+600
+00:43:39,760 --> 00:43:47,710
+whole group of things instead of you
+
+601
+00:43:43,750 --> 00:43:50,530
+know little functions right you know but
+
+602
+00:43:47,710 --> 00:43:53,680
+let's that let's do that later on later
+
+603
+00:43:50,530 --> 00:43:56,559
+because let's press on let's continue
+
+604
+00:43:53,680 --> 00:44:02,339
+- you know now let's just try to feel
+
+605
+00:43:56,559 --> 00:44:06,339
+fear the whole canvas with these squares
+
+606
+00:44:02,339 --> 00:44:11,589
+so okay so we got once we got one square
+
+607
+00:44:06,339 --> 00:44:18,369
+we got one arc arc 1 we got our two now
+
+608
+00:44:11,589 --> 00:44:25,109
+we want to feel the whole thing with
+
+609
+00:44:18,369 --> 00:44:25,109
+these squares actually how do we do that
+
+610
+00:44:29,940 --> 00:44:40,140
+okay so we we need to feel the whole
+
+611
+00:44:33,490 --> 00:44:40,140
+thing with the squares with this pattern
+
+612
+00:44:42,000 --> 00:44:45,000
+so
+
+613
+00:44:49,920 --> 00:45:00,330
+so we need to fear the whole thing with
+
+614
+00:44:56,940 --> 00:45:02,970
+a pattern so we need to actually it
+
+615
+00:45:00,330 --> 00:45:09,090
+would be simpler if we right now create
+
+616
+00:45:02,970 --> 00:45:10,590
+one function yes it would be nice it's a
+
+617
+00:45:09,090 --> 00:45:12,600
+good time that we create one single
+
+618
+00:45:10,590 --> 00:45:15,360
+function that create that generates the
+
+619
+00:45:12,600 --> 00:45:16,580
+whole thing let's let's do that then
+
+620
+00:45:15,360 --> 00:45:23,630
+yeah let's do that
+
+621
+00:45:16,580 --> 00:45:26,940
+so create a new function error function
+
+622
+00:45:23,630 --> 00:45:31,400
+let's say name let's name it pattern one
+
+623
+00:45:26,940 --> 00:45:35,790
+okay and the function will take
+
+624
+00:45:31,400 --> 00:45:43,290
+arguments X and Y which is the position
+
+625
+00:45:35,790 --> 00:45:48,720
+of the the upper left corner of the
+
+626
+00:45:43,290 --> 00:45:51,210
+square here and you will just generate a
+
+627
+00:45:48,720 --> 00:45:54,930
+whole SVG element so let's let me let me
+
+628
+00:45:51,210 --> 00:45:57,330
+just do it quickly because you know we
+
+629
+00:45:54,930 --> 00:45:59,610
+are taking a lot of time right now I've
+
+630
+00:45:57,330 --> 00:46:05,690
+been talking for 45 minutes so it's it
+
+631
+00:45:59,610 --> 00:46:12,300
+let me just code it quickly so okay so
+
+632
+00:46:05,690 --> 00:46:17,910
+first of all we gonna create in SVG
+
+633
+00:46:12,300 --> 00:46:21,180
+there's an element called G this this
+
+634
+00:46:17,910 --> 00:46:24,540
+element is a grouping element you know
+
+635
+00:46:21,180 --> 00:46:28,800
+it just it just like a empty container
+
+636
+00:46:24,540 --> 00:46:35,070
+you know it's like a dive element so we
+
+637
+00:46:28,800 --> 00:46:38,490
+have this grouping element then we then
+
+638
+00:46:35,070 --> 00:46:42,330
+we generate a square let's copy the code
+
+639
+00:46:38,490 --> 00:46:46,940
+here so we copy here and put in this
+
+640
+00:46:42,330 --> 00:46:46,940
+inner element so we create a square
+
+641
+00:46:52,130 --> 00:47:02,910
+XY with hate with hate
+
+642
+00:46:58,710 --> 00:47:24,570
+okay we create a square with width and
+
+643
+00:47:02,910 --> 00:47:30,170
+hate then we create a hog hog hog radius
+
+644
+00:47:24,570 --> 00:47:40,920
+equals to equals to width divided by
+
+645
+00:47:30,170 --> 00:47:51,390
+width divided by 2 times 0.9 okay so hog
+
+646
+00:47:40,920 --> 00:47:54,800
+radius that's what we want okay and here
+
+647
+00:47:51,390 --> 00:47:54,800
+will be X&Y
+
+648
+00:47:56,960 --> 00:48:14,180
+the sweep is like that that's fine so
+
+649
+00:48:01,710 --> 00:48:14,180
+awk 102 will be similar
+
+650
+00:48:16,390 --> 00:48:27,310
+okay except the center wheel will be ad
+
+651
+00:48:28,960 --> 00:48:34,310
+you see the the second arc Center for
+
+652
+00:48:32,540 --> 00:48:37,670
+the second hole should be at the lower
+
+653
+00:48:34,310 --> 00:48:45,490
+right corner of the square so here it
+
+654
+00:48:37,670 --> 00:48:45,490
+will be X plus W and y plus hate okay
+
+655
+00:48:45,620 --> 00:48:52,790
+so hold on a second let me in let me in
+
+656
+00:48:48,380 --> 00:48:58,310
+tenth the whole code so that so it looks
+
+657
+00:48:52,790 --> 00:49:01,670
+pretty okay there it is
+
+658
+00:48:58,310 --> 00:49:06,860
+so there is a function so we create a
+
+659
+00:49:01,670 --> 00:49:12,290
+wrapper we declare our radius we create
+
+660
+00:49:06,860 --> 00:49:18,700
+a square we don't want that we create a
+
+661
+00:49:12,290 --> 00:49:24,580
+square we create a lisp and we want to
+
+662
+00:49:18,700 --> 00:49:30,230
+append child so Gigi dot append child
+
+663
+00:49:24,580 --> 00:49:36,290
+append child square and append child hot
+
+664
+00:49:30,230 --> 00:49:45,830
+one and a pinch out of two and also for
+
+665
+00:49:36,290 --> 00:49:48,260
+arc one also we gg the whole thing we
+
+666
+00:49:45,830 --> 00:49:53,210
+say the attribute style for the whole
+
+667
+00:49:48,260 --> 00:49:54,760
+group GG okay so let's let's make it
+
+668
+00:49:53,210 --> 00:49:58,420
+pretty
+
+669
+00:49:54,760 --> 00:50:06,760
+so there we have it so this function
+
+670
+00:49:58,420 --> 00:50:14,360
+this function we create a square pattern
+
+671
+00:50:06,760 --> 00:50:16,780
+with ox inside okay and so that is the
+
+672
+00:50:14,360 --> 00:50:16,780
+function
+
+673
+00:50:18,500 --> 00:50:30,060
+so this function will basically give us
+
+674
+00:50:21,720 --> 00:50:34,040
+this whole thing and we need let's let's
+
+675
+00:50:30,060 --> 00:50:37,290
+use another parameter well it's not
+
+676
+00:50:34,040 --> 00:50:40,560
+let's just see if this works so create a
+
+677
+00:50:37,290 --> 00:50:48,030
+square pattern with arcs inside then it
+
+678
+00:50:40,560 --> 00:51:00,000
+needs to return return return the thing
+
+679
+00:50:48,030 --> 00:51:04,770
+return the thing so so now we write so
+
+680
+00:51:00,000 --> 00:51:11,730
+you save it so let's let's move it here
+
+681
+00:51:04,770 --> 00:51:13,650
+so so we create a square here and then
+
+682
+00:51:11,730 --> 00:51:14,460
+we append it we don't need that those
+
+683
+00:51:13,650 --> 00:51:20,790
+anymore
+
+684
+00:51:14,460 --> 00:51:25,349
+because we can let's call pattern okay
+
+685
+00:51:20,790 --> 00:51:29,790
+let's we call pattern let's say at zero
+
+686
+00:51:25,349 --> 00:51:35,359
+zero then the the width will be 100
+
+687
+00:51:29,790 --> 00:51:38,450
+hundred okay that creates the SVG SVG
+
+688
+00:51:35,359 --> 00:51:45,500
+element for the whole square pattern
+
+689
+00:51:38,450 --> 00:51:45,500
+then we then we
+
+690
+00:51:49,800 --> 00:51:53,860
+here's what will you do so we let me
+
+691
+00:51:53,260 --> 00:51:56,080
+show you
+
+692
+00:51:53,860 --> 00:51:57,160
+so we comment all these out we don't
+
+693
+00:51:56,080 --> 00:52:01,810
+need it anymore
+
+694
+00:51:57,160 --> 00:52:06,190
+so all this code is now replaced by this
+
+695
+00:52:01,810 --> 00:52:07,330
+single code we create a pattern let's
+
+696
+00:52:06,190 --> 00:52:11,440
+see if that works
+
+697
+00:52:07,330 --> 00:52:15,930
+okay refresh excellent
+
+698
+00:52:11,440 --> 00:52:19,570
+this is the excitement of coding success
+
+699
+00:52:15,930 --> 00:52:22,060
+so we actually so you know you see it
+
+700
+00:52:19,570 --> 00:52:25,200
+works so now we can easily create
+
+701
+00:52:22,060 --> 00:52:29,500
+another one let's say another one at 100
+
+702
+00:52:25,200 --> 00:52:32,710
+100 okay
+
+703
+00:52:29,500 --> 00:52:34,080
+refresh excellent oh we missing the
+
+704
+00:52:32,710 --> 00:52:40,540
+square huh
+
+705
+00:52:34,080 --> 00:52:47,680
+okay so simple a bug did we why are we
+
+706
+00:52:40,540 --> 00:52:52,060
+missing the square so we don't need
+
+707
+00:52:47,680 --> 00:52:59,650
+those anymore but why are we missing the
+
+708
+00:52:52,060 --> 00:53:03,850
+square so if we remove that it's me
+
+709
+00:52:59,650 --> 00:53:06,750
+fresh okay it's trying the square
+
+710
+00:53:03,850 --> 00:53:09,610
+position is wrong oh we yeah obviously
+
+711
+00:53:06,750 --> 00:53:15,940
+we must have missed something here
+
+712
+00:53:09,610 --> 00:53:22,150
+Square yeah so this should be x + y X Y
+
+713
+00:53:15,940 --> 00:53:25,720
+excellent excellent you see we are
+
+714
+00:53:22,150 --> 00:53:30,040
+making progress so now the next one will
+
+715
+00:53:25,720 --> 00:53:33,250
+be for you let's just try that okay you
+
+716
+00:53:30,040 --> 00:53:36,700
+see excellent we got a you know we got
+
+717
+00:53:33,250 --> 00:53:39,820
+almost a prototype now the next thing to
+
+718
+00:53:36,700 --> 00:53:43,060
+do is that for the pattern function we
+
+719
+00:53:39,820 --> 00:53:46,360
+want to be able to say orientation you
+
+720
+00:53:43,060 --> 00:53:50,710
+know like either like that or rotated 90
+
+721
+00:53:46,360 --> 00:53:57,780
+degrees so let's create a parameter for
+
+722
+00:53:50,710 --> 00:53:57,780
+orientation now the orientation will be
+
+723
+00:53:59,820 --> 00:54:07,740
+you will be like either true or false so
+
+724
+00:54:11,160 --> 00:54:24,940
+so let's do this
+
+725
+00:54:15,130 --> 00:54:29,070
+okay so let's so orientation if okay
+
+726
+00:54:24,940 --> 00:54:33,660
+orientation if orientation is true then
+
+727
+00:54:29,070 --> 00:54:45,810
+let's say that okay
+
+728
+00:54:33,660 --> 00:54:45,810
+else else similar okay so let me
+
+729
+00:54:49,410 --> 00:55:03,369
+okay so else the orientation will be
+
+730
+00:54:53,140 --> 00:55:05,710
+wrong different so else we so else let's
+
+731
+00:55:03,369 --> 00:55:10,210
+see we want to draw a circle from here
+
+732
+00:55:05,710 --> 00:55:14,530
+to here so that's a quarter yeah so a
+
+733
+00:55:10,210 --> 00:55:22,150
+quarter start form so it will be start
+
+734
+00:55:14,530 --> 00:55:24,609
+from PI over two okay then the next
+
+735
+00:55:22,150 --> 00:55:33,609
+circle we want to draw is from here to
+
+736
+00:55:24,609 --> 00:55:38,310
+here so it will be starting from 3/4 of
+
+737
+00:55:33,609 --> 00:55:38,310
+a circle
+
+738
+00:55:40,480 --> 00:55:46,620
+two pi times 3 over 4
+
+739
+00:55:47,850 --> 00:55:50,910
+okay so
+
+740
+00:56:04,579 --> 00:56:15,259
+oops what's going on okay English okay
+
+741
+00:56:12,140 --> 00:56:21,439
+so here is I believe that's correct
+
+742
+00:56:15,259 --> 00:56:22,099
+okay error pattern one hawk one is not
+
+743
+00:56:21,439 --> 00:56:24,400
+defined
+
+744
+00:56:22,099 --> 00:56:24,400
+okay so
+
+745
+00:56:32,680 --> 00:56:42,299
+och one is not defined if orientation
+
+746
+00:56:42,510 --> 00:56:50,910
+what why is aqua not defined and caught
+
+747
+00:56:46,829 --> 00:57:02,400
+reference arrow hawk one is not defined
+
+748
+00:56:50,910 --> 00:57:02,400
+at 975 975 Hawk one is not defined
+
+749
+00:57:14,530 --> 00:57:19,810
+let's make sure our parameters are
+
+750
+00:57:17,510 --> 00:57:23,110
+correct
+
+751
+00:57:19,810 --> 00:57:23,110
+[Music]
+
+752
+00:57:33,770 --> 00:57:39,070
+okay and I don't know what's going on
+
+753
+00:57:35,810 --> 00:57:41,030
+but I I think there's an easier way so
+
+754
+00:57:39,070 --> 00:57:45,230
+let's copy that
+
+755
+00:57:41,030 --> 00:57:57,940
+so let's just do that there is a easier
+
+756
+00:57:45,230 --> 00:58:07,820
+way if expression if expression okay if
+
+757
+00:57:57,940 --> 00:58:14,090
+orientation then 0z then 90 degrees PI
+
+758
+00:58:07,820 --> 00:58:16,420
+over 2 else 0 okay so let's put that
+
+759
+00:58:14,090 --> 00:58:16,420
+there
+
+760
+00:58:17,050 --> 00:58:25,390
+okay that's I think that's what a what
+
+761
+00:58:23,060 --> 00:58:25,390
+work
+
+762
+00:58:29,090 --> 00:58:34,520
+oh yeah it's not defined because we
+
+763
+00:58:31,730 --> 00:58:40,600
+forgot to give parameters here so stupid
+
+764
+00:58:34,520 --> 00:58:52,430
+so we need parameter here so let's say
+
+765
+00:58:40,600 --> 00:58:58,340
+true true false true okay let's just try
+
+766
+00:58:52,430 --> 00:59:04,510
+that okay we are getting somewhere
+
+767
+00:58:58,340 --> 00:59:04,510
+okay the arcs the arcs are still wrong
+
+768
+00:59:04,750 --> 00:59:13,490
+okay yeah the rotation is wrong that's
+
+769
+00:59:07,520 --> 00:59:21,800
+right so so the arcs are wrong it's made
+
+770
+00:59:13,490 --> 00:59:24,290
+me so that people can see hey oh so we
+
+771
+00:59:21,800 --> 00:59:27,740
+got new people here so great thank you
+
+772
+00:59:24,290 --> 00:59:30,740
+guys for coming you need to set constant
+
+773
+00:59:27,740 --> 00:59:35,870
+Ocwen outside the if statement then
+
+774
+00:59:30,740 --> 00:59:38,240
+define yeah yeah well it turns out is
+
+775
+00:59:35,870 --> 00:59:43,730
+that that's a common error but that's
+
+776
+00:59:38,240 --> 00:59:48,710
+not in this case no so yeah so decree
+
+777
+00:59:43,730 --> 00:59:54,110
+Ocwen yeah to try catch block by
+
+778
+00:59:48,710 --> 00:59:57,290
+capturing air oh yeah try catch is nice
+
+779
+00:59:54,110 --> 01:00:00,620
+to do but we can like skip it right now
+
+780
+00:59:57,290 --> 01:00:05,330
+so I mean looks looks like our code is
+
+781
+01:00:00,620 --> 01:00:09,260
+actually working so this code is working
+
+782
+01:00:05,330 --> 01:00:11,860
+except yeah this code should walk let's
+
+783
+01:00:09,260 --> 01:00:17,220
+let's try it again
+
+784
+01:00:11,860 --> 01:00:20,670
+ha ha Kuan is not defined
+
+785
+01:00:17,220 --> 01:00:25,109
+he should walk right I mean there's no
+
+786
+01:00:20,670 --> 01:00:27,690
+reason you need to there's no reason to
+
+787
+01:00:25,109 --> 01:00:30,210
+move the arc variable outside but anyway
+
+788
+01:00:27,690 --> 01:00:33,030
+let's let's try just get this you know
+
+789
+01:00:30,210 --> 01:00:35,640
+let's try to finish this because this is
+
+790
+01:00:33,030 --> 01:00:41,069
+already taking a long time so let's just
+
+791
+01:00:35,640 --> 01:00:45,170
+fix whatever let me let me let me do it
+
+792
+01:00:41,069 --> 01:00:45,170
+this way so it's easier to see so
+
+793
+01:00:47,510 --> 01:00:58,050
+orientation so let's change the
+
+794
+01:00:50,069 --> 01:01:00,030
+orientation to rotate you know so it
+
+795
+01:00:58,050 --> 01:01:06,900
+means just rotated or not
+
+796
+01:01:00,030 --> 01:01:10,920
+so if rotate is true then then we rotate
+
+797
+01:01:06,900 --> 01:01:17,180
+because because this function SVG Elyse
+
+798
+01:01:10,920 --> 01:01:21,589
+arc has a parameter at the end this fee
+
+799
+01:01:17,180 --> 01:01:26,190
+this fee says rotation of the whole oh
+
+800
+01:01:21,589 --> 01:01:29,069
+as I see that's incorrect because well
+
+801
+01:01:26,190 --> 01:01:39,589
+it's incorrect because we cannot use
+
+802
+01:01:29,069 --> 01:01:39,589
+that because you know because no because
+
+803
+01:01:40,579 --> 01:01:47,670
+because it's trying to rotate with
+
+804
+01:01:45,240 --> 01:01:51,660
+respect to center not with respect to
+
+805
+01:01:47,670 --> 01:01:58,619
+the corner of a square which is our case
+
+806
+01:01:51,660 --> 01:02:02,000
+so we can use that but anyway what what
+
+807
+01:01:58,619 --> 01:02:02,000
+is wrong here
+
+808
+01:02:02,819 --> 01:02:13,449
+let's refresh so reference arrow Hawk
+
+809
+01:02:07,869 --> 01:02:14,410
+one is not defined line 80 Hawk one is
+
+810
+01:02:13,449 --> 01:02:21,969
+not defined
+
+811
+01:02:14,410 --> 01:02:24,130
+it's defined here in okay let's
+
+812
+01:02:21,969 --> 01:02:25,349
+try to move it out let's say variable
+
+813
+01:02:24,130 --> 01:02:32,440
+okay
+
+814
+01:02:25,349 --> 01:02:39,989
+let Hawk one hop to okay this maybe
+
+815
+01:02:32,440 --> 01:02:39,989
+maybe maybe that is the problem okay
+
+816
+01:02:41,430 --> 01:02:45,910
+refresh
+
+817
+01:02:42,999 --> 01:02:48,390
+oh that is a problem why is that
+
+818
+01:02:45,910 --> 01:02:48,390
+happening
+
+819
+01:02:49,529 --> 01:03:00,130
+because the scope of or maybe if you
+
+820
+01:02:56,859 --> 01:03:01,869
+have constant the scope is inside F I
+
+821
+01:03:00,130 --> 01:03:07,869
+don't think that's okay so anyway let's
+
+822
+01:03:01,869 --> 01:03:09,880
+forget that that's so now it looks it
+
+823
+01:03:07,869 --> 01:03:12,579
+doesn't look good this is incorrect
+
+824
+01:03:09,880 --> 01:03:18,430
+something is wrong here something is
+
+825
+01:03:12,579 --> 01:03:22,809
+wrong with our yeah the angle the angle
+
+826
+01:03:18,430 --> 01:03:25,630
+of the rotation so let's let us let's
+
+827
+01:03:22,809 --> 01:03:30,779
+just do the true case let's see what
+
+828
+01:03:25,630 --> 01:03:36,430
+happens if they okay so the problem lies
+
+829
+01:03:30,779 --> 01:03:37,690
+in this part when it's false so when
+
+830
+01:03:36,430 --> 01:03:45,549
+it's false
+
+831
+01:03:37,690 --> 01:03:48,900
+what we want is let's see true force
+
+832
+01:03:45,549 --> 01:03:57,130
+let's see what happens when it is false
+
+833
+01:03:48,900 --> 01:03:59,969
+okay so yeah it's it's trying to what
+
+834
+01:03:57,130 --> 01:03:59,969
+the heck
+
+835
+01:04:02,760 --> 01:04:12,700
+it's just draw 100k so here we see the
+
+836
+01:04:06,700 --> 01:04:16,180
+problem okay so when so first of all
+
+837
+01:04:12,700 --> 01:04:19,210
+this will be the center oh yeah the
+
+838
+01:04:16,180 --> 01:04:22,510
+center of the circle is wrong you see we
+
+839
+01:04:19,210 --> 01:04:25,180
+are still drawing at this upper left and
+
+840
+01:04:22,510 --> 01:04:29,530
+the lower right corner it should be
+
+841
+01:04:25,180 --> 01:04:34,240
+upper right and lower left so the center
+
+842
+01:04:29,530 --> 01:04:38,110
+will be first of all over here so
+
+843
+01:04:34,240 --> 01:04:46,710
+Express with okay so Center will be
+
+844
+01:04:38,110 --> 01:04:57,300
+expressed with Y okay then the next one
+
+845
+01:04:46,710 --> 01:05:02,680
+will be express hate and y plus hate I
+
+846
+01:04:57,300 --> 01:05:07,690
+think let's hope that is the case let's
+
+847
+01:05:02,680 --> 01:05:12,070
+run it okay now the the next one okay so
+
+848
+01:05:07,690 --> 01:05:18,220
+the second one is wrong great fantastic
+
+849
+01:05:12,070 --> 01:05:26,760
+now let's let's let's let's do some of
+
+850
+01:05:18,220 --> 01:05:30,190
+these correct it's to that excellent now
+
+851
+01:05:26,760 --> 01:05:33,790
+we have like one final step we just feel
+
+852
+01:05:30,190 --> 01:05:37,150
+the whole thing with these patterns with
+
+853
+01:05:33,790 --> 01:05:41,230
+the random true or false at the bar at
+
+854
+01:05:37,150 --> 01:05:43,890
+the end so we're gonna create a so how
+
+855
+01:05:41,230 --> 01:05:43,890
+do we do that
+
+856
+01:05:45,120 --> 01:05:49,630
+yeah the declaration inside if should be
+
+857
+01:05:48,190 --> 01:05:52,780
+fine but for some reason it's not
+
+858
+01:05:49,630 --> 01:05:56,800
+working but it's yeah I'm let's skip
+
+859
+01:05:52,780 --> 01:05:58,930
+over that because it's gonna take more
+
+860
+01:05:56,800 --> 01:06:02,680
+time to figure out then you know let's
+
+861
+01:05:58,930 --> 01:06:06,270
+just try to get this finished so now we
+
+862
+01:06:02,680 --> 01:06:11,200
+need to map all these you know to
+
+863
+01:06:06,270 --> 01:06:12,490
+different positions you see the only
+
+864
+01:06:11,200 --> 01:06:16,900
+thing that changes
+
+865
+01:06:12,490 --> 01:06:20,860
+is the the center you see you can see
+
+866
+01:06:16,900 --> 01:06:23,380
+here you see everything parameter is the
+
+867
+01:06:20,860 --> 01:06:26,260
+same almost almost the same except the
+
+868
+01:06:23,380 --> 01:06:31,680
+center and you know whether the
+
+869
+01:06:26,260 --> 01:06:31,680
+orientation changed to force so we need
+
+870
+01:06:32,940 --> 01:06:40,050
+you know the easiest way to do is to do
+
+871
+01:06:36,100 --> 01:06:40,050
+a nested for loop
+
+872
+01:06:40,320 --> 01:06:46,660
+yeah let's then we can either easiest
+
+873
+01:06:43,300 --> 01:06:48,820
+ways to do a nested for loop you know we
+
+874
+01:06:46,660 --> 01:06:51,610
+can you again you know a more advanced
+
+875
+01:06:48,820 --> 01:06:54,600
+is to generate the nested array like a
+
+876
+01:06:51,610 --> 01:06:57,100
+matrix then map to the whole matrix
+
+877
+01:06:54,600 --> 01:07:01,270
+actually that's the right thing to do
+
+878
+01:06:57,100 --> 01:07:04,200
+but let's just let's just use nested for
+
+879
+01:07:01,270 --> 01:07:12,400
+loop okay you know let's get this
+
+880
+01:07:04,200 --> 01:07:22,570
+finished so for I equals to 0 to I equal
+
+881
+01:07:12,400 --> 01:07:31,900
+to I less than 500 each time we want to
+
+882
+01:07:22,570 --> 01:07:40,650
+increment I by I equals through I plus
+
+883
+01:07:31,900 --> 01:07:40,650
+100 okay we increment by 100 so
+
+884
+01:07:44,980 --> 01:08:01,420
+so we have that I hi yeah that looks
+
+885
+01:07:53,930 --> 01:08:01,420
+like that's okay let's try it
+
+886
+01:08:01,600 --> 01:08:07,180
+refresh
+
+887
+01:08:03,070 --> 01:08:10,310
+okay yeah that's correct that's correct
+
+888
+01:08:07,180 --> 01:08:18,380
+then we need another for loop inside
+
+889
+01:08:10,310 --> 01:08:22,040
+okay so let's do that inside here you
+
+890
+01:08:18,380 --> 01:08:31,299
+know for loop inside so this this will
+
+891
+01:08:22,040 --> 01:08:40,960
+be J J again J goes to 1 to 500
+
+892
+01:08:31,299 --> 01:08:40,960
+increment of 100 so so
+
+893
+01:08:44,089 --> 01:08:57,040
+so what should be inside the P IJ o is
+
+894
+01:08:53,060 --> 01:08:57,040
+it JJ wait wait
+
+895
+01:09:02,009 --> 01:09:10,650
+so I think the decoration okay so so
+
+896
+01:09:09,509 --> 01:09:18,890
+anyway let's see
+
+897
+01:09:10,650 --> 01:09:23,359
+I say okay let's see Oh fantastic
+
+898
+01:09:18,890 --> 01:09:27,060
+okay fine look this is trial and error
+
+899
+01:09:23,359 --> 01:09:29,870
+the success the power of trial and error
+
+900
+01:09:27,060 --> 01:09:32,549
+like I didn't you know we haven't
+
+901
+01:09:29,870 --> 01:09:35,190
+logically thought what it should be but
+
+902
+01:09:32,549 --> 01:09:39,810
+you know it's just run it and it worked
+
+903
+01:09:35,190 --> 01:09:43,049
+so now now all we have to do is to
+
+904
+01:09:39,810 --> 01:09:47,370
+generate a random true or false that's
+
+905
+01:09:43,049 --> 01:09:50,310
+it that is very easy so we can do if
+
+906
+01:09:47,370 --> 01:09:54,500
+expression if expression okay
+
+907
+01:09:50,310 --> 01:09:58,530
+then we want a random number math.random
+
+908
+01:09:54,500 --> 01:10:01,260
+now in Java in JavaScript I believe the
+
+909
+01:09:58,530 --> 01:10:05,580
+math and when we returns from zero to
+
+910
+01:10:01,260 --> 01:10:13,790
+one I think we can you know I have a
+
+911
+01:10:05,580 --> 01:10:13,790
+tutorial let's look up my tutorial math
+
+912
+01:10:15,050 --> 01:10:28,470
+math.random where is it method sealing
+
+913
+01:10:20,610 --> 01:10:35,220
+power makes financial trick okay random
+
+914
+01:10:28,470 --> 01:10:37,770
+there so value properties methods random
+
+915
+01:10:35,220 --> 01:10:40,050
+so return a real number from zero to one
+
+916
+01:10:37,770 --> 01:10:43,620
+that's right so random
+
+917
+01:10:40,050 --> 01:10:48,420
+returns from zero to one so if this is
+
+918
+01:10:43,620 --> 01:10:51,390
+greater than 0.5 then we return true
+
+919
+01:10:48,420 --> 01:10:57,030
+otherwise return false so actually this
+
+920
+01:10:51,390 --> 01:11:01,520
+is all we need okay so that I think
+
+921
+01:10:57,030 --> 01:11:04,739
+that's it let's let's try it
+
+922
+01:11:01,520 --> 01:11:07,680
+excellent wait something is wrong the
+
+923
+01:11:04,739 --> 01:11:10,340
+you see those those curves are not
+
+924
+01:11:07,680 --> 01:11:10,340
+connected
+
+925
+01:11:11,900 --> 01:11:18,980
+why he said yeah okay so yeah so that's
+
+926
+01:11:15,489 --> 01:11:23,020
+that's right so they the radius of the
+
+927
+01:11:18,980 --> 01:11:29,090
+circle should be 15 not 45 so let's just
+
+928
+01:11:23,020 --> 01:11:35,960
+change 45 to 50 right the radius of the
+
+929
+01:11:29,090 --> 01:11:38,840
+circle should be radius okay so the
+
+930
+01:11:35,960 --> 01:11:45,680
+radius should be half of the square
+
+931
+01:11:38,840 --> 01:11:47,810
+length okay excellent so so I think
+
+932
+01:11:45,680 --> 01:11:50,739
+that's it for I mean that's that's
+
+933
+01:11:47,810 --> 01:11:53,870
+that's it for today basically yeah so
+
+934
+01:11:50,739 --> 01:11:56,900
+you know let's try again like each time
+
+935
+01:11:53,870 --> 01:12:00,350
+we refresh we get a different pattern
+
+936
+01:11:56,900 --> 01:12:04,300
+this is fantastic so we we did it you
+
+937
+01:12:00,350 --> 01:12:09,410
+know in oh it's over an hour so okay so
+
+938
+01:12:04,300 --> 01:12:11,720
+now the next thing we can do or you know
+
+939
+01:12:09,410 --> 01:12:14,960
+is to clean up our code you know they
+
+940
+01:12:11,720 --> 01:12:18,560
+are you know usually after you have a
+
+941
+01:12:14,960 --> 01:12:20,300
+prototype you can you know because we
+
+942
+01:12:18,560 --> 01:12:23,510
+did this quickly you know track just
+
+943
+01:12:20,300 --> 01:12:26,720
+just to you know do a prototype then we
+
+944
+01:12:23,510 --> 01:12:28,700
+can bring up the code for example
+
+945
+01:12:26,720 --> 01:12:32,180
+comment you know we don't need those
+
+946
+01:12:28,700 --> 01:12:35,900
+anymore and this double for loop we can
+
+947
+01:12:32,180 --> 01:12:38,030
+change it to you know like array map
+
+948
+01:12:35,900 --> 01:12:42,050
+into array maybe that's more cream
+
+949
+01:12:38,030 --> 01:12:45,470
+things like that you know but but
+
+950
+01:12:42,050 --> 01:12:48,410
+basically on a whole we you know this is
+
+951
+01:12:45,470 --> 01:12:50,810
+what we want but there are more features
+
+952
+01:12:48,410 --> 01:12:53,660
+to add for example you you look at this
+
+953
+01:12:50,810 --> 01:12:56,450
+one you know they have this automatic
+
+954
+01:12:53,660 --> 01:12:58,910
+you know random random noise Asia you
+
+955
+01:12:56,450 --> 01:13:02,510
+know it's it's nice to see you know so
+
+956
+01:12:58,910 --> 01:13:05,710
+we could add a feature where when when
+
+957
+01:13:02,510 --> 01:13:08,060
+user clicks on this thing it rotates it
+
+958
+01:13:05,710 --> 01:13:14,540
+so you know that would be a nice thing
+
+959
+01:13:08,060 --> 01:13:20,710
+to add so we will have to add an event
+
+960
+01:13:14,540 --> 01:13:23,870
+handler yeah so when unclick then we
+
+961
+01:13:20,710 --> 01:13:26,660
+basically delete that element and we
+
+962
+01:13:23,870 --> 01:13:29,989
+generate a new SVG element the whole you
+
+963
+01:13:26,660 --> 01:13:35,420
+know pattern with with it rotate it so
+
+964
+01:13:29,989 --> 01:13:37,969
+yeah that's that's a feature to add then
+
+965
+01:13:35,420 --> 01:13:41,540
+there's also little things we can remove
+
+966
+01:13:37,969 --> 01:13:44,480
+the you know if you remove the square
+
+967
+01:13:41,540 --> 01:13:46,730
+grid the pattern will look different
+
+968
+01:13:44,480 --> 01:13:50,480
+let's try that you know you know let's
+
+969
+01:13:46,730 --> 01:13:54,230
+try some of the fun things so for the
+
+970
+01:13:50,480 --> 01:13:58,880
+square let's see where is the function
+
+971
+01:13:54,230 --> 01:14:05,560
+okay here here is a function and let's
+
+972
+01:13:58,880 --> 01:14:05,560
+remove the square SVG square actually
+
+973
+01:14:10,600 --> 01:14:18,380
+yeah let's so here basically we remove
+
+974
+01:14:14,480 --> 01:14:24,310
+this element this thing refresh you see
+
+975
+01:14:18,380 --> 01:14:28,600
+that's great and also let's decrease the
+
+976
+01:14:24,310 --> 01:14:32,780
+width of the square so we got lots of it
+
+977
+01:14:28,600 --> 01:14:35,300
+so let's do that degree T let's decrease
+
+978
+01:14:32,780 --> 01:14:41,050
+the width width of the square so okay so
+
+979
+01:14:35,300 --> 01:14:45,380
+the square which will be 10 10 okay and
+
+980
+01:14:41,050 --> 01:14:47,230
+this will be increment of 10 let's hope
+
+981
+01:14:45,380 --> 01:14:50,000
+that works
+
+982
+01:14:47,230 --> 01:14:53,630
+oops something wrong oh hey it works
+
+983
+01:14:50,000 --> 01:15:00,100
+fantastic okay that's too small let's
+
+984
+01:14:53,630 --> 01:15:00,100
+say 20 okay
+
+985
+01:15:03,970 --> 01:15:13,160
+excellent somehow it's slow you see this
+
+986
+01:15:08,750 --> 01:15:16,850
+is this is not proper it's it's slower
+
+987
+01:15:13,160 --> 01:15:20,950
+than I expected no it's not so we need
+
+988
+01:15:16,850 --> 01:15:25,430
+to figure out which part is actually
+
+989
+01:15:20,950 --> 01:15:28,630
+slow I shouldn't do that so anyway we
+
+990
+01:15:25,430 --> 01:15:30,730
+got what we want so so that's it that
+
+991
+01:15:28,630 --> 01:15:38,420
+good morning
+
+992
+01:15:30,730 --> 01:15:42,920
+messy butchered butchered toe is that's
+
+993
+01:15:38,420 --> 01:15:45,830
+a Polish name so so actually we are done
+
+994
+01:15:42,920 --> 01:15:48,710
+so you guys have any questions any
+
+995
+01:15:45,830 --> 01:15:54,560
+comments questions opinions just posted
+
+996
+01:15:48,710 --> 01:15:58,910
+okay and and we are done for today we
+
+997
+01:15:54,560 --> 01:16:01,460
+did this and you know so that is great
+
+998
+01:15:58,910 --> 01:16:05,590
+that's a demonstration of Java
+
+999
+01:16:01,460 --> 01:16:09,050
+JavaScript coding and JavaScript in SVG
+
+1000
+01:16:05,590 --> 01:16:13,090
+now let me put a plug so if you like my
+
+1001
+01:16:09,050 --> 01:16:16,610
+things go to such sorry JavaScript
+
+1002
+01:16:13,090 --> 01:16:24,470
+tutorial just such sorry JavaScript okay
+
+1003
+01:16:16,610 --> 01:16:26,630
+then you can find bike sorry JavaScript
+
+1004
+01:16:24,470 --> 01:16:28,820
+tutorial you can buy it okay if you like
+
+1005
+01:16:26,630 --> 01:16:31,940
+my stuff you know you can buy it here
+
+1006
+01:16:28,820 --> 01:16:35,510
+but basically here is my try it's all
+
+1007
+01:16:31,940 --> 01:16:43,280
+you need you know concise you know and
+
+1008
+01:16:35,510 --> 01:16:45,530
+accurate example based tutorials so that
+
+1009
+01:16:43,280 --> 01:16:49,070
+that's it for today so thank thank you
+
+1010
+01:16:45,530 --> 01:16:53,260
+guys for watching hope to see you next
+
+1011
+01:16:49,070 --> 01:16:53,260
+time bye
+
